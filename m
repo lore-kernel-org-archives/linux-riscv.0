@@ -4,60 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AC5DC19F32
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 16:40:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 054D0C19F32
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 17:58:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Y3T3vE1hKgwRc+r9aBQVFThTXEmPXF2RQQ+y6zsNxe8=; b=oEvz7cfdqUUTZF
-	qXRRzaV0mHKH1MO/7gxX6H07eGRxMhShewpZAtblv4j1MW7XCvDOpebstAwM0WV4lmqAnKWwX8Ogg
-	R1XvyooonhQ80BrxRBxP4KnIKJi3zWv9AGXeowRKtSBzw3KDsqwu1XgjRXMin+MlY49j0bwxrXWTA
-	yTH3yVFv5Z+ZnZj27NtGEfk+twbCEqrBowNaATzx8gkobmLXmkGUd0TmMLCSNqnxfGFKMmRXW9rza
-	mvVC+U2YTt9WX5lIAL6VWdstu5F+ed7+AWalLwt6Xy5gSNgof7EKmzsZd2odSEiihyWGB80BWAmsY
-	53gQQYH8hKgkjcPN5XsA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=S5eTGnsaKfwlCoQq6K8tVAZzkDIYSpiF9CzWB7aw7aA=; b=sMT+4XnPtgg222
+	aDxvjHsBFq6GsPE/UlcUZatWFtijZ80EW6I7/2j6wUMuE3AdnKm4mdfNQU57+5oiqC1PPdacHXtD6
+	pIVPKeHH7wS6dfIQOHC9KubdKSObcy382i/YLIvlC5CG0PUAIAsqNLgnP6rbxGaLT4prK7F9vielQ
+	mHB4FJ434+rHOVhL5p3ZReXVa+Pit6H21rIEon3C2mtn12XUWBsbwUQ0N3HEiIrxFqLAzTX76cSR7
+	x7EJUktHp04oAT99Qapn23pRew7u+ph1CwQwzPzlrllG/DG5NlIyr0QPceGyrublkRgORICsT2Jbb
+	81M3jY/rnSJgT8QcXZyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprnE-00000008hTy-21Tg;
-	Wed, 05 Mar 2025 16:40:24 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1tpt0T-00000008rB0-2Od6;
+	Wed, 05 Mar 2025 17:58:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprnA-00000008hRW-36hs
-	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 16:40:22 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1741192812;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=jdlcaeLgpRGJb4WYxQLcnWtC/c9dZ1uqwhfx8n90Igk=;
-	b=veW3wVRx/5NFTXbzOGBD5dHeuKAc9xZrmmidqKHhtwZ8eqxAQZizfNIZflx2AxELm4Sy55
-	tPvi19YwvxMctpqHZUZ+vbo95LC1Owaj0S/nyM0bY5QNucCJAL+V1KgUjssvd0UejzXTrA
-	gCvbJEf+CtzD/4lxRc5Kw6PPtYO4m0itXLcmCVMs1zKY61hKQJwScPCtBdgdK+CnD3DPLm
-	8GKFQ7v+V9/E8UNMT4wXtZKbnIjpai0+b5MQJdW2SJwqyqKTUjRYP4Rb+KRTphNMQYh7lT
-	Ko/AK9ZQXPe3ugMsSRT5sKB2/EwnPeoz7vbPh3Z1HAInmM2osu2rAOl+lkSm/A==
-From: Ignacio Encinas <ignacio@iencinas.com>
-Date: Wed, 05 Mar 2025 17:39:28 +0100
-Subject: [PATCH] selftests: riscv: fix v_exec_initval_nolibc.c
+	id 1tpsxG-00000008qoE-3luE;
+	Wed, 05 Mar 2025 17:54:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6F9DD5C6BAE;
+	Wed,  5 Mar 2025 17:52:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63ED8C4CEEA;
+	Wed,  5 Mar 2025 17:54:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741197288;
+	bh=CZvT8ToSGo3UU6++Tcrfw84ErbpHK8lmJvvMCeXw168=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Fg4oGaG0y42LSBGs7V0znH7544RvMBBRiZyIo96lRJSdMqdL2sU6ArZCWg1EcNuMS
+	 1VLMz/T/LjIOfn5drQ1RHoxFkDO9c9S0MP8mD+l+8O/B6bsGboGkviFsXSaJ5Ss88T
+	 PjCAOf/rGVMsRU+Tzevtw2UctKvhE51b6/6e5cvgbuiqQu5Sem3c94gJkz1XPOUyBd
+	 fvt7koOLHNXKj5A060sLoiSGOqtN8YdhPjsP9E9CYDcfxtcNHQDEVzlIiCjsPQxx+A
+	 6+hxkxL88Kr4jriNF6uilCguTVn6v6CU+NVhsPZD1tOBM9vzUX93s9UYjX3oc59nTs
+	 rwkXoB+DCGU8A==
+Date: Wed, 5 Mar 2025 14:54:46 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v4 02/11] perf dso: kernel-doc for enum dso_binary_type
+Message-ID: <Z8iP5r3nVyCG8Iai@x1>
+References: <20250304050305.901167-1-irogers@google.com>
+ <20250304050305.901167-3-irogers@google.com>
 MIME-Version: 1.0
-Message-Id: <20250305-fix-v_exec_initval_nolibc-v1-1-b87b60e43002@iencinas.com>
-X-B4-Tracking: v=1; b=H4sIAD9+yGcC/x2MWwqAIBAArxL7nWDa+yoRYrrVQlhoSBDePelzY
- GZeCOgJA4zFCx4jBTpdhqoswOzabcjIZgbBRcMlr9hKD4sKHzSKHN1RH8qdBy2G1UNvh641shM
- Wcn95zPL/nuaUPqBdQ0lrAAAA
-X-Change-ID: 20250301-fix-v_exec_initval_nolibc-498d976c372d
-To: linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ignacio Encinas <ignacio@iencinas.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <20250304050305.901167-3-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_084021_218753_BF470E28 
-X-CRM114-Status: GOOD (  11.25  )
+X-CRM114-CacheID: sfid-20250305_095451_025863_34E73DFD 
+X-CRM114-Status: GOOD (  19.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,59 +94,109 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Vector registers are zero initialized by the kernel. Stop accepting
-"all ones" as a clean value.
+On Mon, Mar 03, 2025 at 09:02:56PM -0800, Ian Rogers wrote:
+> There are many and non-obvious meanings to the dso_binary_type enum
+> values. Add kernel-doc to speed interpretting their meanings.
 
-Note that this was not working as expected given that
-	value == 0xff
-can be assumed to be always false by the compiler as value's range is
-[-128, 127]. Both GCC (-Wtype-limits) and clang
-(-Wtautological-constant-out-of-range-compare) warn about this.
 
-Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
----
-I tried looking why "all ones" was previously deemed a "clean" value but
-couldn't find any information. It looks like the kernel always 
-zero-initializes the vector registers.
-
-If "all ones" is still acceptable for any reason, my intention is to 
-spin a v2 changing the types of `value` and `prev_value` to unsigned 
-char.
----
- tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-index 35c0812e32de0c82a54f84bd52c4272507121e35..b712c4d258a6cb045aa96de4a75299714866f5e6 100644
---- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-@@ -6,7 +6,7 @@
-  * the values. To further ensure consistency, this file is compiled without
-  * libc and without auto-vectorization.
-  *
-- * To be "clean" all values must be either all ones or all zeroes.
-+ * To be "clean" all values must be all zeroes.
-  */
+Acked-by: Arnaldo Carvalho de Melo <acme@redhat.com>
  
- #define __stringify_1(x...)	#x
-@@ -46,7 +46,7 @@ int main(int argc, char **argv)
- 			: "=r" (value));					\
- 		if (first) {							\
- 			first = 0;						\
--		} else if (value != prev_value || !(value == 0x00 || value == 0xff)) { \
-+		} else if (value != prev_value || value != 0x00) {              \
- 			printf("Register " __stringify(register)		\
- 				" values not clean! value: %u\n", value);	\
- 			exit(-1);						\
-
----
-base-commit: 03d38806a902b36bf364cae8de6f1183c0a35a67
-change-id: 20250301-fix-v_exec_initval_nolibc-498d976c372d
-
-Best regards,
--- 
-Ignacio Encinas <ignacio@iencinas.com>
-
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/util/dso.h | 53 +++++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 53 insertions(+)
+> 
+> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+> index dfd763a0bd9d..f3ca2a5e7670 100644
+> --- a/tools/perf/util/dso.h
+> +++ b/tools/perf/util/dso.h
+> @@ -20,30 +20,83 @@ struct perf_env;
+>  #define DSO__NAME_KALLSYMS	"[kernel.kallsyms]"
+>  #define DSO__NAME_KCORE		"[kernel.kcore]"
+>  
+> +/**
+> + * enum dso_binary_type - The kind of DSO generally associated with a memory
+> + *                        region (struct map).
+> + */
+>  enum dso_binary_type {
+> +	/** @DSO_BINARY_TYPE__KALLSYMS: Symbols from /proc/kallsyms file. */
+>  	DSO_BINARY_TYPE__KALLSYMS = 0,
+> +	/** @DSO_BINARY_TYPE__GUEST_KALLSYMS: Guest /proc/kallsyms file. */
+>  	DSO_BINARY_TYPE__GUEST_KALLSYMS,
+> +	/** @DSO_BINARY_TYPE__VMLINUX: Path to guest kernel /boot/vmlinux file. */
+>  	DSO_BINARY_TYPE__VMLINUX,
+> +	/** @DSO_BINARY_TYPE__GUEST_VMLINUX: Path to kernel /boot/vmlinux file. */
+>  	DSO_BINARY_TYPE__GUEST_VMLINUX,
+> +	/** @DSO_BINARY_TYPE__JAVA_JIT: Symbols from /tmp/perf.map file. */
+>  	DSO_BINARY_TYPE__JAVA_JIT,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__DEBUGLINK: Debug file readable from the file path
+> +	 * in the .gnu_debuglink ELF section of the dso.
+> +	 */
+>  	DSO_BINARY_TYPE__DEBUGLINK,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE: File named after buildid located in
+> +	 * the buildid cache with an elf filename.
+> +	 */
+>  	DSO_BINARY_TYPE__BUILD_ID_CACHE,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO: File named after buildid
+> +	 * located in the buildid cache with a debug filename.
+> +	 */
+>  	DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__FEDORA_DEBUGINFO: Debug file in /usr/lib/debug
+> +	 * with .debug suffix.
+> +	 */
+>  	DSO_BINARY_TYPE__FEDORA_DEBUGINFO,
+> +	/** @DSO_BINARY_TYPE__UBUNTU_DEBUGINFO: Debug file in /usr/lib/debug. */
+>  	DSO_BINARY_TYPE__UBUNTU_DEBUGINFO,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO: dso__long_name debuginfo
+> +	 * file in /usr/lib/debug/lib rather than the expected
+> +	 * /usr/lib/debug/usr/lib.
+> +	 */
+>  	DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__BUILDID_DEBUGINFO: File named after buildid located
+> +	 * in /usr/lib/debug/.build-id/.
+> +	 */
+>  	DSO_BINARY_TYPE__BUILDID_DEBUGINFO,
+> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_DSO: A regular executable/shared-object file. */
+>  	DSO_BINARY_TYPE__SYSTEM_PATH_DSO,
+> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE: Guest kernel module .ko file. */
+>  	DSO_BINARY_TYPE__GUEST_KMODULE,
+> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE_COMP: Guest kernel module .ko.gz file. */
+>  	DSO_BINARY_TYPE__GUEST_KMODULE_COMP,
+> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE: Kernel module .ko file. */
+>  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE,
+> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP: Kernel module .ko.gz file. */
+>  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP,
+> +	/** @DSO_BINARY_TYPE__KCORE: /proc/kcore file. */
+>  	DSO_BINARY_TYPE__KCORE,
+> +	/** @DSO_BINARY_TYPE__GUEST_KCORE: Guest /proc/kcore file. */
+>  	DSO_BINARY_TYPE__GUEST_KCORE,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO: Openembedded/Yocto -dbg
+> +	 * package debug info.
+> +	 */
+>  	DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO,
+> +	/** @DSO_BINARY_TYPE__BPF_PROG_INFO: jitted BPF code. */
+>  	DSO_BINARY_TYPE__BPF_PROG_INFO,
+> +	/** @DSO_BINARY_TYPE__BPF_IMAGE: jitted BPF trampoline or dispatcher code. */
+>  	DSO_BINARY_TYPE__BPF_IMAGE,
+> +	/**
+> +	 * @DSO_BINARY_TYPE__OOL: out of line code such as kprobe-replaced
+> +	 * instructions or optimized kprobes or ftrace trampolines.
+> +	 */
+>  	DSO_BINARY_TYPE__OOL,
+> +	/** @DSO_BINARY_TYPE__NOT_FOUND: Unknown DSO kind. */
+>  	DSO_BINARY_TYPE__NOT_FOUND,
+>  };
+>  
+> -- 
+> 2.48.1.711.g2feabab25a-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
