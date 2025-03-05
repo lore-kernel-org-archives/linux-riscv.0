@@ -4,109 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BF3AC19F32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99001C282D9
 	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 05:13:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hFLsotok40CmOpOfRudgpDFvqYeey4MRN8EP6IZk+kU=; b=pVjnnlsJANT+KP
-	AGK9KEuAUSOcYUtjSq7e4ydgIWT3TUCSirlwNTCfK0jzI2tznQid3sOwiLMT0P32j5fqwt0fOeKsQ
-	i7MbL5SMvMoAIfFu8X0FGkdzoqW2blrG7MriMXEwJXMx8aFceOAsZ6jX+m/sj4l68whs1q5wJsroS
-	PCiCbGSB3B44hu8sXgahyoVJEIlbzM31fxx7pGT9M1LdlsEz3+AKpja++qC0LUxccIwlBtizuzUBy
-	HK/DGXmL5J1THMw2QyAwBI117ktrMIRDxT92sbcEZTQ7vRq+dPjJLcvbnlnq/tgTCLJKQCCVGd0Fo
-	Cj1imaTf08Hn9GzNlt0g==;
+	List-Owner; bh=b8RWT57zSRHdoTqGr2LE1Etp2//ZlvmpDv9y5m90Uh8=; b=D6UmHZ/uZ1NhBB
+	Yz8ga5TLZh09XwGUSxMwkcVXDb7EhM+dezsgcBOSW7oxbBsGm8yxN4XdauaQVFsSXfwKmgj8N4ElO
+	NojLv/wn2DGM1pUenVHHvMGw7wJT1J2ApbGI9EmHwksHcjQdTbP84QNQGR/GwTV8JCnZH14dm3z0w
+	9saz7ZM9EBm2VhQwMEy7I6DiKjfOvEs9qaPeia9sfEU9Bpp1L4TcLQC2gNCjIAZWkwTDweyVC5seB
+	YlPU4nt9gvdoXuE1JX/eHfV37iJ69Z0/kzPafGFTpo8t37RwyT7JXYHWnrHrb6cvAh5xYb47ls/tB
+	2LOYwIfXxjlm98veE5uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph4a-000000070aj-48CJ;
+	id 1tph4a-000000070aZ-1eQM;
 	Wed, 05 Mar 2025 05:13:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph4M-000000070Xa-1v9I;
-	Wed, 05 Mar 2025 05:13:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Mime-Version:References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=; b=UJbDYM1hSHz83eFcMu8WI8fAce
-	Ot0I4OQdEeS2Qec0JThYQAbXpIUFCx6yN8q6ysevINO52JYDP5x1rtk2bjHl01t7hSMZcj/PRSdbX
-	YzBUQ/vG1SmAptAzlSPHoBFKc8qXmgROl84U8CFHI87rbRoIRbYAnDhgQ2RF2+kfait7HN1Mlf/zD
-	cE8NErwyUnB2pPc9Uc7be4AYpt85hEuhdG35p0XIvV90z/ZiGAnqpPAj+LAML8SGoaIbXV2bS57aR
-	Uh+XysEhxgMdSBEXnIZgUGMlOJtThXjuf5UBbKvcLFo+Gw43SgujfihKJCWstyq5aIu82vNNk1Qfv
-	Bp0ii8MQ==;
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph4J-00000004lPh-1Akp;
-	Wed, 05 Mar 2025 05:13:21 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2feb91a25bdso8569364a91.1;
-        Tue, 04 Mar 2025 21:13:17 -0800 (PST)
+	id 1tph1V-000000070Fy-3Y5x
+	for linux-riscv@lists.infradead.org;
+	Wed, 05 Mar 2025 05:10:27 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-46c8474d8daso56698501cf.3
+        for <linux-riscv@lists.infradead.org>; Tue, 04 Mar 2025 21:10:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741151595; x=1741756395; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=;
-        b=AS9J/3wpj/s8aAx7rSI/kVXeLRrwVOgKY3AX4JvEwlb1hEf72xf4IXLFh1uqXX/gIA
-         0IVzeQtCTD/vEunpyuLRioISWscL4KBV9rjj4Wv3DgytJhcQAwVDTjoV4rRMNBmn9BJL
-         chmBZph6QgKjJha8S1Y2hWkW5vsnEIMQNQ4+BKNEEx3ZKL65OuWgqq4fyG/A+XhnwZ90
-         iWKmvZF3h22XD3CcD+MBQQZTLk1sAx98v+wW0Go9QPa93DlYz8OwiU9EAPP4US1NCdsW
-         NfzPESLuXKLi8Sk1b1VtYZUsk+Bj8/YnKqbzqLScB0zZR+JlOFz8Nit1tmwy6MS37lds
-         B+0g==
+        d=gmail.com; s=20230601; t=1741151425; x=1741756225; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4aXc+eFaQqactfAjsWukq5bexYGgg4h92obG4bg34aA=;
+        b=FKgtXc4+IunVVk5iUG0kELnwzJ+P9MT56hKfYUAOz4FcUw/Wyrt9LiQbBO1NrJ1rGY
+         /XdGn5PeA5dGu/J3dy6h6rQoGEJ/y+aseRhktEfmEYZvE0cagT0oz5GwKzzAn7VJk5NL
+         vCXjNlSb3XO6bWB418KvoqBES48H2kNPcabyTu6E1JVaUMMu/6CDRwqwH919QG/r35Yz
+         yPXEFR+BS60S7ZvgiRdy/hhrF6W2UjraZYeO3r7wWwXQoq9xWLJ4pcaxTJH0CMseWdzN
+         zdgruRLFsJT2PD+iZWZa6+5Lt2elNX7zKYCLc8s7CwfaEd7nYcbilQRTt+EXxzzFyDSw
+         uFvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741151595; x=1741756395;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=;
-        b=hV9VHc/3vrdutCPig6eYRJYfS2tnAc8oAboupV/vf/zSw3vHGGC2gy0XcNTRX+wkrE
-         M0TAn5OXHur/lklipL2VCgwia5VkTccESNtNOSBd7uqUtB34HM56rQq009DgxG1+Mzo8
-         FGTxCLVVk3zuBkvl5x3tQrcK0TTja7ASDNaHYqRZCEGeN/L3EBf1lmr23vkNivmiefzG
-         5LFxfKE0z1KdQYPDPy4adwb56FhTh64lKVqdCNoyELfJZCOasPqDir39hhm1sshFxH0b
-         DxxlIRde4zRuIEcJYQHb6qu96zhhh+ouwHNpzR6ngZKV4LQYUMvpKk7h8EzXxP0eqQgH
-         pHyg==
-X-Forwarded-Encrypted: i=1; AJvYcCVxEJ83s+xqk1wg4KkTMOwF/jLHrZPOxxTVddZaErYaQ3whFVmX0K1RTMcao+HbDMw0ulxoJbGL0Y79SR6YTXct@lists.infradead.org, AJvYcCWrLC9a3rAsrT53u4Xi0PAAhxwFJp2k9EH0j6V6oz4mWYbOXMfO6t0UT2m4Nj9vZO1tcdBqXU0pbcxAk5k=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3Wa/5Ka/O5mwPmTDyBescw3AA6AOQG+92AcVJBg/tuGmsXAHy
-	yd/921dLqQeLa3qsqPwaH2kDv4+OHpr5nAPvNQg47fai0gNSG6o/
-X-Gm-Gg: ASbGnctvRiLhB+JKQZDvYf4q6KunKEDJga/mIv8COqHTwi8Ee+gyuU0a621UI7pFnmN
-	YmJ3gt0Oa3NdZuxffzOsRz8U+izVe5Zohm51vCwccFgi7l3iHfopC1x1p/EXe6ZU0Zakynt2LSl
-	IbRdmDKvGoUvXKJ82zW8WvjURPvM/S8peZWfkUEFYrbfojom//zftu/duHIPU/AddLR4kvR1BHL
-	K7BlODb78om9bI66RbBnkZ0tLPtHwiA7cB+FNBaLGqb6AP2I2obZGJgZy8dH5rpMRY5w5wiUw33
-	aWQA1VxJKaASLhPv/NMcsUoRbS+J9zmweQSIs9YP05IsFle/KiyKC9DHWW7lIul42/bjvqm9Ade
-	xleXOEcqhTljs1a4F/grEzt/Haic=
-X-Google-Smtp-Source: AGHT+IFMSQhAQ13isO5dfJNAPGUjk16diS7qR+TcB+buuYoTv6JifWXgE+o5nAJ3u7mlLeqgq39i1g==
-X-Received: by 2002:a17:90b:5688:b0:2ee:bc7b:9237 with SMTP id 98e67ed59e1d1-2ff4979cee1mr3291553a91.27.1741151594826;
-        Tue, 04 Mar 2025 21:13:14 -0800 (PST)
-Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff4e78a991sm380662a91.24.2025.03.04.21.13.08
+        d=1e100.net; s=20230601; t=1741151425; x=1741756225;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4aXc+eFaQqactfAjsWukq5bexYGgg4h92obG4bg34aA=;
+        b=uKSjc7P4aTFlhdbUvhTjfjL9rfuSBEZvAliJLesQMmKglrLq7LoBrx5nCMK6SuWEVz
+         6z0kodpOnaNje6a4F23TnOYLlmMzWAcfv8NMJ4urbMV96++XJyFVXXWoPgXt9UpJmfOO
+         WJzjfL9vxk9yAmhQLOgnuaT7FgJx2VwYNxOyUFY5EHoCvb2VlE65plGZTQSBIop85qT5
+         eeIMmyWNJ7fLFkkAsqSPzKBxITvLpFF0JvNBOwlF58upXEEzMfCoyv7dwf7Agr/vSkqR
+         DLMsBDwDLxdIbIaI35zl4cUvso3fpEdFZKCwBgT3U7+qrBEWx0kp1o54grPxHS9K2THF
+         xh1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWUwjw9MQhJiAUq/mgZfA9nYsgbkqDVJA2GWHP2jdnEObX9yo4WToDxFyj7uuRGAROI8IF/T9nyJO81Mw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxJN6gc2u8x3aJVM65SoKqbua/3FwjivA2Akq7ksHuP8J0GizI
+	HsvGzRNIOCfXlOVQUPenFL0jYJi6GHZYI0b4Ahm/hxoYH4ovxlCU
+X-Gm-Gg: ASbGncvU5B7VXpd2aD4leoTU7DzPXzQO20UNFxWoPR0wz92pjqSlOprJrOUkee/pJST
+	v6iSMsheKaZxe89xSB/5oafNAS0uRZfVgEkcUHq7B7PrFEDAoH4+4LACr7rQ26nVW20Gv+Kj34S
+	UMBpkObeSU/BFdLZ11TbO4m/sec1mUG4kZNbt18o8PL/qKbbKcoc713USQcyTA2oHfING116nki
+	2sOT+YlDIe1pAsWVNJCjBz9Nx+WpLdEXsM6gnTQJQT+RJCYv/UstQDvwqwcl+rVtNxI1PRvZVpF
+	z7+8TciVyNQdxLuOXnyi
+X-Google-Smtp-Source: AGHT+IHU4vogNMuRCH0tVBz2RJOUF3BRl3lUNyiWVLGC65w1tNpBCw5qZt0mtmykFYE9WEb3N6Pl9g==
+X-Received: by 2002:ac8:584d:0:b0:472:447:ad7d with SMTP id d75a77b69052e-4750b4c3f0amr21880881cf.32.1741151423766;
+        Tue, 04 Mar 2025 21:10:23 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47508cfc40fsm9857171cf.34.2025.03.04.21.10.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 21:13:14 -0800 (PST)
-Date: Wed, 05 Mar 2025 14:13:07 +0900 (JST)
-Message-Id: <20250305.141307.586794213367343251.fujita.tomonori@gmail.com>
-To: aliceryhl@google.com
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
- hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- tmgross@umich.edu
-Subject: Re: [PATCH v3 5/5] rust: Add warn_on and warn_on_once
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <CAH5fLgjX9hh+QRrKggOKr+6p+UwqHSavzu4UXy9iGNL2wSJXtg@mail.gmail.com>
-References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
-	<20250213135759.190006-6-fujita.tomonori@gmail.com>
-	<CAH5fLgjX9hh+QRrKggOKr+6p+UwqHSavzu4UXy9iGNL2wSJXtg@mail.gmail.com>
-Mime-Version: 1.0
+        Tue, 04 Mar 2025 21:10:22 -0800 (PST)
+Date: Wed, 5 Mar 2025 13:09:55 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Bjorn Helgaas <helgaas@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Johan Hovold <johan+linaro@kernel.org>, Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>, 
+	Niklas Cassel <cassel@kernel.org>, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+Message-ID: <bxwsvluj6amgoelk7r55gqhmhjwpewnfyhvvw6zpxen7kqzvwc@fxcebjzo5axk>
+References: <20250304071239.352486-3-inochiama@gmail.com>
+ <20250304173632.GA243820@bhelgaas>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250304173632.GA243820@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_051319_332337_96AA9341 
-X-CRM114-Status: GOOD (  13.23  )
+X-CRM114-CacheID: sfid-20250304_211025_892608_4EF98D73 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,64 +107,34 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 3 Mar 2025 14:33:39 +0100
-Alice Ryhl <aliceryhl@google.com> wrote:
-
->> +#[macro_export]
->> +#[doc(hidden)]
->> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
->> +macro_rules! warn_flags {
->> +    ($flags:expr) => {
->> +        const FLAGS: u32 = $crate::bindings::BUGFLAG_WARNING | $flags;
->> +        // SAFETY: Just an FFI call.
->> +        #[cfg(CONFIG_DEBUG_BUGVERBOSE)]
->> +        unsafe {
->> +            $crate::asm!(concat!(
->> +                "/* {size} */",
->> +                ".pushsection .rodata.str1.1, \"aMS\",@progbits, 1\n",
->> +                "111:\t .string ", "\"", file!(), "\"\n",
->> +                ".popsection\n",
+On Tue, Mar 04, 2025 at 11:36:32AM -0600, Bjorn Helgaas wrote:
+> On Tue, Mar 04, 2025 at 03:12:38PM +0800, Inochi Amaoto wrote:
+> > Add support for DesignWare-based PCIe controller in SG2044 SoC.
 > 
-> It looks like you're doing this so that you can reference the filename
-> with "111b", but could you do this instead:
+> > +static void sophgo_intx_irq_eoi(struct irq_data *d)
+> > +{
+> > +}
 > 
-> const _FILE: &[u8] = file!().as_bytes();
-> // Plus one for nul-terminator.
-> static FILE: [u8; 1 + _FILE.len()] = {
->     let mut bytes = [0; 1 + _FILE.len()];
->     let mut i = 0;
->     while i < _FILE.len() {
->         bytes[i] = _FILE[i];
->         i += 1;
->     }
->     bytes
-> };
-
-Neat! I will use this in the next version.
-
-> and then use
+> The empty .irq_eoi() is unusual.  Why do you need it?
 > 
-> asm!(
->     concat!(
->         "/* {size} */",
->         include!(concat!(env!("OBJTREE"),
-> "/rust/kernel/generated_arch_warn_asm.rs")),
->         include!(concat!(env!("OBJTREE"),
-> "/rust/kernel/generated_arch_reachable_asm.rs")));
->     file = sym FILE,
->     line = const line!(),
->     ...
-> );
+> I see that the existence of chip->irq_eoi() makes a difference in
+> chained_irq_enter() and chained_irq_exit(), but I'm surprised that
+> this is the only driver in drivers/pci/controller/ that implements an
+> empty .irq_eoi().
 > 
-> with
-> ::kernel::concat_literals!(ARCH_WARN_ASM("{file}", "{line}",
-> "{flags}", "{size}")),
+> A comment here about what is special would be helpful.
 > 
-> That would be a lot simpler to understand than what you are doing.
 
-Indeed.
+It is more like a mistake that from the vendor code
+that I refer to it. This should be a level irq, and
+I haven't tested it as I does not have a device use 
+INTx. I try to get a test device will replace this 
+empty eoi with handle_level_irq if I can confirm it.
 
-Thanks a lot!
+Thanks for pointing to this.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
