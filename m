@@ -4,59 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA630C282D3
-	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 03:06:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E05C282D3
+	for <linux-riscv@archiver.kernel.org>; Wed,  5 Mar 2025 03:06:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A/ziXNc8u0iuUmQZsGWE/FADUrpGLmBGBS01Pt7gOzo=; b=01nhiXCteNZxqU
-	kSG3CmGYSqIz5fEYZ1A9CRbNXyhJLaetVFJYy4q9TMBzw2H49psnrdEAfsIa3rkkMI9U0+SZzgbd+
-	t94SMCySPZWm0w4CLmpcQ/k3Ql7Sz2BM417rbI1QQpIK7QycnFEVlJ12jUf8N90JTqr7zsREhsIyw
-	SCdDV2MqRFht/qhZ6uyWvKloWy/v/HlJhZ1fRVMEv/1OXeZ7XzBEj5LFT+6VrczS6iQ6vkGT/JBTx
-	j9S5ti4Jn5YL4TyMJ37n6PaoyEM6/KKJG0s9PTMXVXidBvOc7O/qLZjKW4P3/e6d215YWMLAOZOg8
-	3+GWfco1qCnW4OGR4QGQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SLILhunEjmjZtudGVwU0PXXFgDV5fuGJzEBfBh25If0=; b=QxEZmUWJziN/kk
+	Ir1ycTs5yfDZN4VVAJ24WYI/8l4gStkZUj0+yb7BcQ31HIkZfZq/hnTaL8VhNKiMdVyCDDFzXB1Ie
+	uzP8u7XCJKxjuhedc7WWZsEkwRzn0ARuQQaehCvgxN//bdQhmlzX3JuedCFZ9w3r9LUDq4lV3B/m0
+	d/7kCwfCxcfmicONfxTtj3HPCnkl88imC60lTcbdHsixxv0rDMWPdE+BMFql0jRb1sSQDMy4Q/y9k
+	vNrBj/TICUAOZYmaSXE6rdUMvRBdZQ0LMsk1VMzP6Zq25yLliPP2rAhLaVCGB7lRTjPK5beARqkDQ
+	MtgVpOA4YSImIL6KB9Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpf52-00000006rH7-1QJv;
-	Wed, 05 Mar 2025 03:05:56 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1tpf54-00000006rHV-0QcU;
+	Wed, 05 Mar 2025 03:05:58 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpf4z-00000006rG6-29IT
+	id 1tpf50-00000006rE5-1Tbk
 	for linux-riscv@lists.infradead.org;
-	Wed, 05 Mar 2025 03:05:54 +0000
-Received: from localhost (unknown [116.232.55.252])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id B94D7342FDB;
-	Wed, 05 Mar 2025 03:05:50 +0000 (UTC)
-Date: Wed, 5 Mar 2025 03:05:40 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Troy Mitchell <troymitchell988@gmail.com>,
-	Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, linux-riscv@lists.infradead.org,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH RESEND v5 1/2] dt-bindings: i2c: spacemit: add support
- for K1 SoC
-Message-ID: <20250305030540-GYA62563@gentoo>
-References: <20250303-k1-i2c-master-v5-0-21dfc7adfe37@gmail.com>
- <20250303-k1-i2c-master-v5-1-21dfc7adfe37@gmail.com>
- <20250303093506-GYA58937@gentoo>
- <ab10e069-d9e1-4df7-9454-8b0fc910443d@sifive.com>
+	Wed, 05 Mar 2025 03:05:56 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 52535S3d021717
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 5 Mar 2025 11:05:28 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Wed, 5 Mar 2025
+ 11:05:28 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, Ben Zong-You Xie <ben717@andestech.com>
+Subject: [PATCH] riscv: add Andes SoC family Kconfig support
+Date: Wed, 5 Mar 2025 11:05:26 +0800
+Message-ID: <20250305030526.1986062-1-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ab10e069-d9e1-4df7-9454-8b0fc910443d@sifive.com>
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 52535S3d021717
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_190553_577964_11D48DE1 
-X-CRM114-Status: GOOD (  21.98  )
+X-CRM114-CacheID: sfid-20250304_190554_702799_37F76508 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,132 +68,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Samuel Holland:
+The first SoC in the Andes series is QiLai. It includes a high-performance
+quad-core RISC-V AX45MP cluster and one NX27V vector processor.
 
-On 20:11 Tue 04 Mar     , Samuel Holland wrote:
-> Hi Troy,
-> 
-> On 2025-03-03 3:35 AM, Yixun Lan wrote:
-> > On 13:30 Mon 03 Mar     , Troy Mitchell wrote:
-> >> The I2C of K1 supports fast-speed-mode and high-speed-mode,
-> >> and supports FIFO transmission.
-> >>
-> >> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> >> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
-> >> ---
-> >>  .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   | 59 ++++++++++++++++++++++
-> >>  1 file changed, 59 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> >> new file mode 100644
-> >> index 0000000000000000000000000000000000000000..db49f1f473e6f166f534b276c86b3951d86341c3
-> >> --- /dev/null
-> >> +++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-> >> @@ -0,0 +1,59 @@
-> >> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> >> +%YAML 1.2
-> >> +---
-> >> +$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
-> >> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >> +
-> >> +title: I2C controller embedded in SpacemiT's K1 SoC
-> >> +
-> >> +maintainers:
-> >> +  - Troy Mitchell <troymitchell988@gmail.com>
-> >> +
-> >> +properties:
-> >> +  compatible:
-> >> +    const: spacemit,k1-i2c
-> >> +
-> >> +  reg:
-> >> +    maxItems: 1
-> >> +
-> >> +  interrupts:
-> >> +    maxItems: 1
-> >> +
-> > ..
-> >> +  clocks:
-> >> +    minItems: 2
-> >> +    maxItems: 2
-> >> +
-> >> +  clock-names:
-> >> +    minItems: 2
-> >> +    maxItems: 2
-> > I'd suggest to give a brief description and explicit clock name here,
-> > you can consult marvell,mv64xxx-i2c.yaml for example
-> > 
-> >> +
-> >> +  clock-frequency:
-> >> +    description: |
-> >> +      K1 support three different modes which running different frequencies
-> >> +      standard speed mode: up to 100000 (100Hz)
-> >> +      fast speed mode    : up to 400000 (400Hz)
-> >> +      high speed mode    : up to 3300000 (3.3Mhz)
-> >> +    default: 400000
-> >> +    maximum: 3300000
-> >> +
-> >> +required:
-> >> +  - compatible
-> >> +  - reg
-> >> +  - interrupts
-> >> +  - clocks
-> >> +
-> >> +unevaluatedProperties: false
-> >> +
-> >> +examples:
-> >> +  - |
-> >> +    i2c@d4010800 {
-> >> +        compatible = "spacemit,k1-i2c";
-> >> +        reg = <0xd4010800 0x38>;
-> >> +        interrupt-parent = <&plic>;
-> >> +        interrupts = <36>;
-> >> +        clocks = <&ccu 176>, <&ccu 90>;
-> >> +        clock-names = "apb", "twsi";
-> > 9.1.4.61 TWSI0 CLOCK RESET CONTROL REGISTER(APBC_TWSI0_CLK_RST)
-> > https://developer.spacemit.com/documentation?token=LCrKwWDasiJuROkVNusc2pWTnEb#part594
-> > from above docs, there are two clocks 
-> > bit[1] - FNCLK, TWSI0 Functional Clock Enable/Disable
-> > bit[0] - APBCLK, TWSI0 APB Bus Clock Enable/Disable
-> > 
-> > I'd suggest to name it according to the functionality, thus 'func', 'bus'
-> > clock, not its source.. which would make it more system wide consistent
-> 
-> Also in that same register is:
-> 
-> 2	RST	RW	0x1	TWSI0 Reset Generation
-> This field resets both the APB and functional domain.
-> - 0: No Reset
-> - 1: Reset
-> 
-> Which means you need a 'resets' property in the binding as well.
-> 
-right, there is reset needed
+For further information, refer to [1].
 
-I'd suggest to add it as an incremental patch later, when we
-implement real reset driver, and also complete the calling reset
-consumer API in i2c driver
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
 
-but, let me know if this is not the right way to go
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ arch/riscv/Kconfig.errata | 2 +-
+ arch/riscv/Kconfig.socs   | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-> Regards,
-> Samuel
-> 
-> >> +        clock-frequency = <100000>;
-> >> +    };
-> >> +
-> >> +...
-> >>
-> >> -- 
-> >> 2.34.1
-> >>
-> > 
-> 
-> 
-
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e318119d570d..be76883704a6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
+ 
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && ARCH_R9A07G043
++	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1916cf7ba450..b89b6e0d1bc9 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,14 @@
+ menu "SoC selection"
+ 
++config ARCH_ANDES
++	bool "Andes SoCs"
++	depends on MMU && !XIP_KERNEL
++	select ERRATA_ANDES
++	select ERRATA_ANDES_CMO
++	select AX45MP_L2_CACHE
++	help
++	  This enables support for Andes SoC platform hardware.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
 -- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
