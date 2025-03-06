@@ -4,58 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B21D7C282D1
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 17:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E076DC282D1
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 18:00:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sOODspAymZZy38QBr058l7sWeUsyxRs7LYKgQrTXmjI=; b=iOPwIoA2+lSLwu5xrfOTPPIH51
-	3akvTriOn8BsHHF/bb5Rl0him9ID/rT6ypc2Dd6HHFlEpmLmMX2JZXOoTnzkIgKKlG86ydbiJzsAQ
-	+GuIlo6h87yfaRRsba5ZPUrifWr/gfYopf3QVsLpng/KL09FrPV9ihZcRYo79WMXNClkOArcRrWLA
-	qKVYdnBsR+55Grg4ftYR7MWT/BgifN5BRbOznvJb6uqMxUqeo/CD65veiG+gY7aGP/g0vWOmR0Aox
-	SFe35C6DlYlnwXQpTaj0BkPbvtYP+ay3lDIGkbdhtjAdVRyGGTTgntGeIlwcI8GN9qXr54H9oSxBR
-	6FxK+K6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ejW+VlZ/Z9n4oGFbpTsgS7DfZ8BJvN8Of6DXNoNbjh4=; b=MWGXAqpeJ14R86
+	ilfOj/TEVWdlWRwUfmxhyfmfTX/H3GL2Iev616j3Spf43y1RtXZhafqYSWrE1biI9mWwrgiQdsmXN
+	ecBnOrl8WNEdF5VfITtnQC/YgEKh3tGpxbTKv5FpXtmiKbmmiewLHYNlPkHWDE2dJ2jg6mJ35/oup
+	OzMawoA1miDx1vx4cTNQnoLDo4z7hQs3ichdK7/ecaq+BjJxUTOAOyda+wRsqwraI78ABvH9emUZx
+	RhDURcPQ+CgINp9fHFMG0+YNJBhOnjyV8c8k3pyKyc8nHKU/dXmQimxMPWXhB6A4J6PhChmF+Zswt
+	YzB3HCjL2SbpqoGP/UjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFLB-0000000BjWb-3v9m;
-	Thu, 06 Mar 2025 17:49:01 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tqFVj-0000000BliA-1qDZ;
+	Thu, 06 Mar 2025 17:59:55 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEHG-0000000BXlt-1rzF
+	id 1tqFVg-0000000Blfg-2kdd
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Mar 2025 16:40:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B78025C56FC;
-	Thu,  6 Mar 2025 16:38:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4DC1C4CEE0;
-	Thu,  6 Mar 2025 16:40:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741279253;
-	bh=qmew9N890LQz41I96G6gTo7b5NoYq+LHIcuWvtAjqhE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=pk3KX6zpLRYFtaeOOU7LCDCvqGq34e3+EOgp7JiSmyNicg7sVkdl4uRjjnxHdk7jZ
-	 X6kETBuFILbvSBkAwbeMGKSbNMMVkVCEO9cudPYoXGug0BdVtTYyesIXUxQTbsdrSm
-	 YYdM1wRn8/6/rQY2OgD1aPznovKMSOY9rQxnS8C4ccmkDK2h8nnDPpB3+xZ7hWDccI
-	 AOQ+lVSodp29JFSCCox/Le1hxESOTUEH4B6RT7gPERd6JM+JiWqvt99ctAL66Bo9ou
-	 6Wy5hjWdgF+QQjiGeNiapOaNdXE5zWmEWBdMB9j/DzDzO+rxWZT/OYziBwB3+uHfTE
-	 sMEomaEAHqJmw==
-Date: Thu, 6 Mar 2025 16:40:49 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Ben Zong-You Xie <ben717@andestech.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Subject: Re: [PATCH] riscv: add Andes SoC family Kconfig support
-Message-ID: <20250306-finale-chatroom-c620ff284d8c@spud>
-References: <20250305030526.1986062-1-ben717@andestech.com>
+	Thu, 06 Mar 2025 17:59:54 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 759D0EC59F8;
+	Thu, 06 Mar 2025 09:59:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1741283989; bh=Yw1n6v5hNvDiqN1eYZkeAUubqnzwc9HWGRsVQHuzjNw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=YBH99TsV/YpwgAqDPHCN4SeETkt7w5iU0BzPNLS+3sP8bQQmoamfRl7jFpXV6gkO5
+	 L2SEsX+R3WBcyZdTUl6xPb9hfOd0LzK1zRg4EjNUbBrYnnCEWlT/bCDK+5ZRdp0SS8
+	 Z00OzYQPC7vZ2nkK8L9ZjixNSQDKTtvqD2wknzmisgomtQrwSKylLF2c6aJQU31eDf
+	 vvsRHKkEQAUgQ9IjhyRqKlrKoPqJm+FrfPOAq29zMWR/pp1XMQ3mneaNd8zs5XpBzj
+	 SYqsSXaPh6qqNL9OB3WWT3z8mj/o+JjN+g6PGfHF6pdW0dwR5zdd8EHMGlDvX1vXak
+	 6X3WL7Nrh21lQ==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
+ header.d=4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id eabRI32M_UJV; Thu,  6 Mar 2025 09:59:47 -0800 (PST)
+Received: from localhost.localdomain (unknown [183.217.80.218])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id E9A03EC59F2;
+	Thu, 06 Mar 2025 09:59:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1741283987; bh=Yw1n6v5hNvDiqN1eYZkeAUubqnzwc9HWGRsVQHuzjNw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=QvFlMvlPZ+Tcl72h1v31ByLCyEIpX9QnzhbdJm/2wnPrG1SF9BxPRDsoznyJbSFR/
+	 YtlftR4FxF/oxT52tImQPoxpoNFLboXqja6m0E9NyPalj9QLIUBkAxIt1R/wLSN8uX
+	 3zEolKr2ppHkToVmF7uA15rMl17BP3JtzsgAWpONtz3n1q7BL7QUge2AuZtc9pAztR
+	 auyVblLj7f+XNHu2zyWkcKtzUayG2+2TfZU0H5VN1sW5WwK2oLCMQYj7PR8omWt877
+	 F2RtsjNRLDTmLZerdWZoQMVdmbiZVJLNqYCwmNUVrOJBS3qMdvLwraH+fX/sgfnCJq
+	 uUYHDoDjxL3+g==
+From: Haylen Chu <heylenay@4d2.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>,
+	Yixun Lan <dlan@gentoo.org>
+Cc: linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+	Haylen Chu <heylenay@4d2.org>
+Subject: [PATCH v5 0/5] Add clock controller support for SpacemiT K1
+Date: Thu,  6 Mar 2025 17:57:46 +0000
+Message-ID: <20250306175750.22480-2-heylenay@4d2.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-In-Reply-To: <20250305030526.1986062-1-ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_084054_597110_A0AE1DD4 
-X-CRM114-Status: GOOD (  20.13  )
+X-CRM114-CacheID: sfid-20250306_095952_994464_EF7EC222 
+X-CRM114-Status: GOOD (  17.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,111 +98,169 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2985363486262222644=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The clock tree of SpacemiT K1 is managed by several independent
+multifunction devices, some of them are
 
---===============2985363486262222644==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="vQim4Phh7trms/cN"
-Content-Disposition: inline
+- Application Power Manage Unit, APMU
+- Main Power Manage Unit, MPMU
+- APB Bus Clock Unit, APBC
+- APB Spare, APBS
 
+These four devices provide hardware bits for three purposes: power
+management, reset signals and clocks. Not every device is capable of all
+the three functionalities,
 
---vQim4Phh7trms/cN
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+- APMU, MPMU: power, reset, clock
+- APBC: clock, reset
+- APBS: clock (PLL clocks)
 
-On Wed, Mar 05, 2025 at 11:05:26AM +0800, Ben Zong-You Xie wrote:
-> The first SoC in the Andes series is QiLai. It includes a high-performance
-> quad-core RISC-V AX45MP cluster and one NX27V vector processor.
+This series adds support for clock hardwares in these four regions,
+which covers most peripherals except DDR and the realtime processor.
 
-I'd expect a config option like this to come with the user, which in
-this case is the dts etc for a board using the QiLai SoC or drivers for
-the SoC. Without dts or drivers, there's no reason to ever enable this,
-so where are those patches?
+Tested on BananaPi-F3 board. With some out-of-tree drivers, I've
+successfully brought up I2C, RTC, MMC and ethernet controllers. A clock
+tree dump could be obtained here[1].
 
-Cheers,
-Conor.
+[1]: https://gist.github.com/heylenayy/4c88630454d5ad26c9336592673eb187
 
->=20
-> For further information, refer to [1].
->=20
-> [1] https://www.andestech.com/en/products-solutions/andeshape-platforms/q=
-ilai-chip/
->=20
-> Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
-> ---
->  arch/riscv/Kconfig.errata | 2 +-
->  arch/riscv/Kconfig.socs   | 9 +++++++++
->  2 files changed, 10 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> index e318119d570d..be76883704a6 100644
-> --- a/arch/riscv/Kconfig.errata
-> +++ b/arch/riscv/Kconfig.errata
-> @@ -12,7 +12,7 @@ config ERRATA_ANDES
-> =20
->  config ERRATA_ANDES_CMO
->  	bool "Apply Andes cache management errata"
-> -	depends on ERRATA_ANDES && ARCH_R9A07G043
-> +	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
->  	select RISCV_DMA_NONCOHERENT
->  	default y
->  	help
-> diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> index 1916cf7ba450..b89b6e0d1bc9 100644
-> --- a/arch/riscv/Kconfig.socs
-> +++ b/arch/riscv/Kconfig.socs
-> @@ -1,5 +1,14 @@
->  menu "SoC selection"
-> =20
-> +config ARCH_ANDES
-> +	bool "Andes SoCs"
-> +	depends on MMU && !XIP_KERNEL
-> +	select ERRATA_ANDES
-> +	select ERRATA_ANDES_CMO
-> +	select AX45MP_L2_CACHE
-> +	help
-> +	  This enables support for Andes SoC platform hardware.
-> +
->  config ARCH_MICROCHIP_POLARFIRE
->  	def_bool ARCH_MICROCHIP
-> =20
-> --=20
-> 2.34.1
->=20
->=20
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Changed from v4
+- bindings:
+  - Drop CLK_*_NUM macros from binding headers
+  - Rename spacemit,k1-ccu.yaml to spacemit,k1-pll.yaml, change to
+    describe only the PLL in APBS region
+  - k1-syscon.yaml
+    - drop spacemit,k1-syscon-apbs, it should be the PLL device
+    - drop child nodes
+    - describe the syscons as clock, reset and power-domain controllers
+    - drop "syscon" from the compatible list, as these syscons aren't
+      compatible with the generic one
+- driver:
+  - misc style fixes and naming improvements
+  - drop unused fields from data structures
+  - drop unused clock types: CCU_DDN_GATE
+  - ddn type:
+    - improve the comments
+    - dynamically calculate appropriate rates
+    - hardcode the x2 factor
+  - mix type
+    - drop val_{disable,enable} for gate subtype
+    - drop unncessary polling when enabling a gate
+    - encode subtypes directly in struct ccu_mix
+    - generate clock names from identifiers of the data structure
+    - rename CCU_DIV2_FC_MUX_GATE_DEFINE to CCU_DIV_SPLIT_FC_MUX_GATE
+  - pll type:
+    - correctly claim the parent clock
+    - make rate tables const
+    - drop SWCR2-related fields
+    - combine fields of registers as a whole instead of working with
+      each field
+  - clock tree for k1:
+    - removed duplicated offsets
+    - drop the placeholder 1:1 factor, pll1_d7_351p8
+    - workaround the quirk of TWSI8 clocks
+    - fix the definition of ripc_clk, wdt_bus_clk, dpu_bit_clk and
+      timers_*_clk
+    - drop structure spacemit_ccu_priv and spacemit_ccu_data
+    - rework clock registration
+    - split the PCIe clocks correctly (there're three distinct clocks
+      for each PCIe port)
+- devicetree:
+  - adapt the new binding
+- Link to v4: https://lore.kernel.org/all/20250103215636.19967-2-heylenay@4d2.org/
 
---vQim4Phh7trms/cN
-Content-Type: application/pgp-signature; name="signature.asc"
+Changed from v3
+- spacemit,k1-ccu binding
+  - allow spacemit,mpmu property only for controllers requiring it
+    (spacemit,k1-ccu-apbs)
+- spacemit,k1-syscon binding
+  - drop unnecessary *-cells properties
+  - drop unrelated nodes in the example
+- driver
+  - remove unnecessary divisions during rate calucalation in ccu_ddn.c
+  - use independent clk_ops for different ddn/mix variants, drop
+    reg_type field in struct ccu_common
+  - make the register containing frequency change bit a sperate field in
+    ccu_common
+  - unify DIV_MFC_MUX_GATE and DIV_FC_MUX_GATE
+  - implement a correct determine_rate() for mix type
+  - avoid reparenting in set_rate() for mix type
+  - fix build failure when SPACEMIT_CCU and SPACEMIT_CCU_K1 are
+    configured differently
+- use "osc" instead of "osc_32k" in clock input names
+- misc style fixes
+- Link to v3: https://lore.kernel.org/all/20241126143125.9980-2-heylenay@4d2.org/
 
------BEGIN PGP SIGNATURE-----
+Changed from v2
+- dt-binding fixes
+  - drop clocks marked as deprecated by the vendor (CLK_JPF_4KAFBC and
+    CLK_JPF_2KAFBC)
+  - add binding of missing bus clocks
+  - change input clocks to use frequency-aware and more precise names
+  - mark input clocks and their names as required
+  - move the example to the (parent) syscon node and complete it
+  - misc style fixes
+- misc improvements in code
+- drop unnecessary spinlock in the driver
+- implement missing bus clocks
+- Link to v2: https://lore.kernel.org/all/SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8nQEQAKCRB4tDGHoIJi
-0jT2AQCKZVdssBZSIJkKffobBzbN32p6AzBmy+PGIjHiz6mE4AEAzKZDacmHtjVO
-6HyA1zLnh9IEm1KF3Oy+O/ZEhBNJ0ww=
-=14cR
------END PGP SIGNATURE-----
+Changed from v1
+- add SoC prefix (k1)
+- relicense dt-binding header
+- misc fixes and style improvements for dt-binding
+- document spacemit,k1-syscon
+- implement all APBS, MPMU, APBC and APMU clocks
+- code cleanup
+- Link to v1: https://lore.kernel.org/all/SEYPR01MB4221B3178F5233EAB5149E41D7902@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
 
---vQim4Phh7trms/cN--
+Haylen Chu (5):
+  dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+  dt-bindings: clock: spacemit: Add spacemit,k1-pll
+  clk: spacemit: Add clock support for Spacemit K1 SoC
+  clk: spacemit: k1: Add TWSI8 bus and function clocks
+  riscv: dts: spacemit: Add clock tree for Spacemit K1
 
+ .../bindings/clock/spacemit,k1-pll.yaml       |   50 +
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |   80 +
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |   79 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/spacemit/Kconfig                  |   20 +
+ drivers/clk/spacemit/Makefile                 |    5 +
+ drivers/clk/spacemit/ccu-k1.c                 | 1720 +++++++++++++++++
+ drivers/clk/spacemit/ccu_common.h             |   47 +
+ drivers/clk/spacemit/ccu_ddn.c                |   80 +
+ drivers/clk/spacemit/ccu_ddn.h                |   48 +
+ drivers/clk/spacemit/ccu_mix.c                |  284 +++
+ drivers/clk/spacemit/ccu_mix.h                |  246 +++
+ drivers/clk/spacemit/ccu_pll.c                |  146 ++
+ drivers/clk/spacemit/ccu_pll.h                |   76 +
+ include/dt-bindings/clock/spacemit,k1-ccu.h   |  247 +++
+ 16 files changed, 3130 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+ create mode 100644 drivers/clk/spacemit/Kconfig
+ create mode 100644 drivers/clk/spacemit/Makefile
+ create mode 100644 drivers/clk/spacemit/ccu-k1.c
+ create mode 100644 drivers/clk/spacemit/ccu_common.h
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+ create mode 100644 drivers/clk/spacemit/ccu_mix.c
+ create mode 100644 drivers/clk/spacemit/ccu_mix.h
+ create mode 100644 drivers/clk/spacemit/ccu_pll.c
+ create mode 100644 drivers/clk/spacemit/ccu_pll.h
+ create mode 100644 include/dt-bindings/clock/spacemit,k1-ccu.h
 
---===============2985363486262222644==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2985363486262222644==--
-
