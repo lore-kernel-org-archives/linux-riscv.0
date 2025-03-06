@@ -4,61 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E046C282D1
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 19:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2B0EC28B27
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 20:04:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=3kpcVsHJevLJbTMPvhThstEw/VYSG6VZtnF/5lI8IXQ=; b=G68QTF+wdPRE8t
-	S5Pk6NVVs/5/+QD3GhazP7ABgrz1E6JAwyKqsLERXDU6DQRZJMmQpXLPaf7EJPqE/O33JXFjBXe4H
-	+Pnxd/kjUTwVHtW1azi2rDaNl8foYwIyISkUMBLEk+RRR6xVGmkdTcvvCQowkQ6fZ3DqF76s3y7a8
-	e7VkbPS22GaNf8Z1+pfiryLYnh0v1NW8RURB577hriK7j+pmKy/dJyHFqmgFBjdqWFP97GiaoPjv4
-	bWcS+FcOjvdnZoTqG0OeCLes3iyxTcQAoj8PYmI2rqxsqIX6fUj+KVplAaoEdiU/Kx0s5/bxpmEjP
-	ZDLA5dO7EMoE8s0oqAMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mKNLnjHGfxr6V2MH2F3md2YhWshi/DnrlzIqqjHL6fc=; b=Q+sW30qKKXVKos
+	AE5O8KZhtgg2dmQa8gR6vrAd/YGQTvnRLrNO+WR0jwsSDJsZILbQFZbJDGfg2lJoonzXOiF6KSUKt
+	YL75+P23TbZ/B+EnOACvpfCFD3QJwQUDGwVKdZhFZR16r9VTZ/bKl11EchhTSwA28cNP5L1jq+KmF
+	fFwCUClF5Bbkh1wlXl8afU8p7Cg+80Be+Xk4629zKMcD3n0XsRtvqsZyCg1ig3lmh35D2bK1/s5PG
+	Bz4gJKiVgOLoLYkGCqC9AQRIVUGjLX04ujh8TLzfgN4g6knnffvOai+9iCef2nGc7qyz10s0sFKzR
+	tIzLiO0rgSX4dvqiNAQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHE4-0000000C3Kp-407e;
-	Thu, 06 Mar 2025 19:49:48 +0000
-Received: from out-171.mta0.migadu.com ([91.218.175.171])
+	id 1tqHRr-0000000C53G-3HZL;
+	Thu, 06 Mar 2025 20:04:03 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHE2-0000000C3KK-04kn
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Mar 2025 19:49:47 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1741290581;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1pLENHPcmZUPIKEuLyD6Q5KL/3y3ps8NKG8+iORBPzI=;
-	b=Woqq7KcaOuw73MND/CJ+dS09hGfOAOtzBgcT+dtblRLADUAHmiaT1Q0L4JXXvkCGBjvoeR
-	z7d0fU0PyBnqDdsD8ZhIlk1gtGs6QEcWfg+XYtMSj5tLjWyKjqruCC2J8Sod6yp2aPyka1
-	hKQcUH+4oo7XThVmvI0AyRJ1z5JbO6Q1SnKVJJnRHsBivZcFn1G5wbW/CjFeOjETE3vaph
-	9k9tGJvGYMG6aYdYg621dQnntElEgRy6l3VMQyvFeQPESZHTlWKr7d7Hu8VkexFqIswLti
-	wZu8tAr56eMwCruUdBCcSBA3qRRyEC0ysv6RcicjIoFxpiuDaH2CaSGLAFkTTQ==
-From: Ignacio Encinas <ignacio@iencinas.com>
-Date: Thu, 06 Mar 2025 20:49:27 +0100
-Subject: [PATCH v2] selftests: riscv: fix v_exec_initval_nolibc.c
+	id 1tqGLO-0000000BvVZ-1K3L;
+	Thu, 06 Mar 2025 18:53:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D0F5CA44F0F;
+	Thu,  6 Mar 2025 18:47:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8163DC4CEE8;
+	Thu,  6 Mar 2025 18:53:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741287197;
+	bh=BkE0IFJXSKU77+xC0N2TBlUULdAjqoteouUfp8/gZ9o=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=H78DLSl+IjdnXrOdxgT+/xt6JTBU4euW24C/yDa5I+IadYyC+HEIKf8v9/STSql0w
+	 8Ci9p73t1w+Xz+YHbbWW0NqRvPAsTTGgkup9RJxFt3IWYCiwU8KzktKs78WPfgstEp
+	 r3TBxtlGs5W73C+QSyCEERn1fqDTHnrNMca8jScShJM1AOJsNrVThziirlU9DWuCQI
+	 NxI/6QapAZIvA0iPZvBo0oljP9L1r5qcoH4ZPCXNbth214GQA4i6M5RW8Tday7NHzb
+	 PgoPccIN87hXyD3eA9w781HCQ9lk9kdOFTozIS7Gy/SywY4wv8FVfsBzQ613ahQ7F+
+	 9OZnlgrDMKwRQ==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH 07/13] s390: make setup_zero_pages() use memblock
+Date: Thu,  6 Mar 2025 20:51:17 +0200
+Message-ID: <20250306185124.3147510-8-rppt@kernel.org>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250306185124.3147510-1-rppt@kernel.org>
+References: <20250306185124.3147510-1-rppt@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20250306-fix-v_exec_initval_nolibc-v2-1-97f9dc8a7faf@iencinas.com>
-X-B4-Tracking: v=1; b=H4sIAEb8yWcC/32NywrCMBREf6XctZE8+nTlf0gpSXq1F2oiSQmV0
- n83Fty6PMPMmQ0iBsIIl2KDgIkieZdBngqwk3YPZDRmBsllxRUX7E4rSwOuaAdytCQ9D87PZCw
- ru3bsmtqqRo6Q96+AuXy4b33mieLiw/u4SuKb/qzVH2sSTDDTNqbmWCrO5ZXQWXI6nq1/Qr/v+
- wdmehr5xQAAAA==
-X-Change-ID: 20250301-fix-v_exec_initval_nolibc-498d976c372d
-To: linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Charlie Jenkins <charlie@rivosinc.com>
-Cc: linux-kselftest@vger.kernel.org, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ignacio Encinas <ignacio@iencinas.com>
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_114946_405258_8F5B9E76 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250306_105318_475221_9CE70132 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +125,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Vector registers are zero initialized by the kernel. Stop accepting
-"all ones" as a clean value.
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Note that this was not working as expected given that
-	value == 0xff
-can be assumed to be always false by the compiler as value's range is
-[-128, 127]. Both GCC (-Wtype-limits) and clang
-(-Wtautological-constant-out-of-range-compare) warn about this.
+Allocating the zero pages from memblock is simpler because the memory is
+already reserved.
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
-Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+This will also help with pulling out memblock_free_all() to the generic
+code and reducing code duplication in arch::mem_init().
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
-Changes in v2:
+ arch/s390/mm/init.c | 14 +++-----------
+ 1 file changed, 3 insertions(+), 11 deletions(-)
 
-Remove code that becomes useless now that the only "clean" value for
-vector registers is 0.
-
-- Link to v1: https://lore.kernel.org/r/20250305-fix-v_exec_initval_nolibc-v1-1-b87b60e43002@iencinas.com
----
- tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c | 10 +++-------
- 1 file changed, 3 insertions(+), 7 deletions(-)
-
-diff --git a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-index 35c0812e32de0c82a54f84bd52c4272507121e35..4dde05e45a04122b566cedc36d20b072413b00e2 100644
---- a/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-+++ b/tools/testing/selftests/riscv/vector/v_exec_initval_nolibc.c
-@@ -6,7 +6,7 @@
-  * the values. To further ensure consistency, this file is compiled without
-  * libc and without auto-vectorization.
-  *
-- * To be "clean" all values must be either all ones or all zeroes.
-+ * To be "clean" all values must be all zeroes.
-  */
- 
- #define __stringify_1(x...)	#x
-@@ -14,9 +14,8 @@
- 
- int main(int argc, char **argv)
+diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+index f2298f7a3f21..020aa2f78d01 100644
+--- a/arch/s390/mm/init.c
++++ b/arch/s390/mm/init.c
+@@ -73,8 +73,6 @@ static void __init setup_zero_pages(void)
  {
--	char prev_value = 0, value;
-+	char value = 0;
- 	unsigned long vl;
--	int first = 1;
+ 	unsigned long total_pages = memblock_estimated_nr_free_pages();
+ 	unsigned int order;
+-	struct page *page;
+-	int i;
  
- 	if (argc > 2 && strcmp(argv[2], "x"))
- 		asm volatile (
-@@ -44,14 +43,11 @@ int main(int argc, char **argv)
- 			"vsrl.vi " __stringify(register) ", " __stringify(register) ", 8\n\t" \
- 			".option pop\n\t"					\
- 			: "=r" (value));					\
--		if (first) {							\
--			first = 0;						\
--		} else if (value != prev_value || !(value == 0x00 || value == 0xff)) { \
-+		if (value != 0x00) {						\
- 			printf("Register " __stringify(register)		\
- 				" values not clean! value: %u\n", value);	\
- 			exit(-1);						\
- 		}								\
--		prev_value = value;						\
- 	}									\
- })
+ 	/* Latest machines require a mapping granularity of 512KB */
+ 	order = 7;
+@@ -83,17 +81,10 @@ static void __init setup_zero_pages(void)
+ 	while (order > 2 && (total_pages >> 10) < (1UL << order))
+ 		order--;
  
-
----
-base-commit: 03d38806a902b36bf364cae8de6f1183c0a35a67
-change-id: 20250301-fix-v_exec_initval_nolibc-498d976c372d
-
-Best regards,
+-	empty_zero_page = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
++	empty_zero_page = (unsigned long)memblock_alloc(PAGE_SIZE << order, order);
+ 	if (!empty_zero_page)
+ 		panic("Out of memory in setup_zero_pages");
+ 
+-	page = virt_to_page((void *) empty_zero_page);
+-	split_page(page, order);
+-	for (i = 1 << order; i > 0; i--) {
+-		mark_page_reserved(page);
+-		page++;
+-	}
+-
+ 	zero_page_mask = ((PAGE_SIZE << order) - 1) & PAGE_MASK;
+ }
+ 
+@@ -176,9 +167,10 @@ void __init mem_init(void)
+ 	pv_init();
+ 	kfence_split_mapping();
+ 
++	setup_zero_pages();	/* Setup zeroed pages. */
++
+ 	/* this will put all low memory onto the freelists */
+ 	memblock_free_all();
+-	setup_zero_pages();	/* Setup zeroed pages. */
+ }
+ 
+ unsigned long memory_block_size_bytes(void)
 -- 
-Ignacio Encinas <ignacio@iencinas.com>
+2.47.2
 
 
 _______________________________________________
