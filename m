@@ -4,98 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19A6EC282D1
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 18:02:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2BBC282D1
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 18:51:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=MI5/bdp9liS4KAZalRyS4a1SwQ+DQeXUNcOa3p1ea0U=; b=wwfedqxujNruzXSil7qRsoaddD
-	YvJ9A4KVDSoOfuP5c+nh/OPis02fp3k+TqdSRj9GGqP9mkgvYawzQyVUSzvqMggFhfhCy1lgiwE9v
-	4O3UKVNhxGDqo21bnC99CTPUEoaJhG2FUpu2VGM+95A/pg+9DB9QmozXU6DCAs2QiIuHEes2P5le0
-	YhUr9umDWNZ6wy9+4UbcsuLARRFPZ/THWG+nBc7aV7ubQ9AwSiXScOdzl8qaWnEjglT4D8j/hl4vx
-	cr+PaeHsZ59Gv11Tnb4XjycL8NMUXp6MNBKnicAU2Vrc/pIbtfy89etz3PEz2AuqTVR2AICYzLdnS
-	EfIeBxzg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WaaEEWK7o32ZFj2ujQVvXEBNWPRXati5x5ekVTslT+M=; b=rfX3tKrhLqeem9
+	jaPuJ2Vrojjt3HN8j6solNF/THS2fGnU3nJ84+dp9PEC/CJoKE/OSC0HDbKXOJCzr/sa69rDYW1Dk
+	fHDLl7MmH8aap/IZJCp5j4JgSIrP4gPzT9XJd0aibJBzhUeRj9X6q7n9RjroniLEMkGSOhp8096bq
+	UK4881Nm3QNNl1RzLtEeXK7j6nubcPJ/h8Kjd0hdtCsljDxfihRC9FscFc5YfAUua5foDNHiwGhoo
+	sTtDz+CVoD52/bj1gjiknny64cNlS0NBWLCVqxtCpgx/JJwz4gou9bAzeZQwy3YZfEh+Fu5iXAhtO
+	6VR8tI+9GhUEQrO7AIow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFYV-0000000BmkP-2F8D;
-	Thu, 06 Mar 2025 18:02:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tqGJy-0000000BuTz-2Vxs;
+	Thu, 06 Mar 2025 18:51:50 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFXK-0000000BmVj-0Cwo
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 06 Mar 2025 18:01:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Mime-Version:Message-ID:To:From:CC:In-Reply-To:Subject:Date:Sender:Reply-To:
-	Content-ID:Content-Description:References;
-	bh=PZqJTh0YCvVr8icSs09kza3W0ABw7bZnL85iQtnzYZ4=; b=Gs4sZecd5xkerXEHvHxv+Uz1Gl
-	G3J2xbr8n9XMI4cfJWl5V8nv96jGmi7wCNJrcoLG5GBfxRlYNiKIvZ2XXA84bxyb4xZL8lEvwBB1d
-	gynVImKHHP0r1sILLrh2MZx0pzfPx8Sxqz9078nk2uKvJaUTZeAojYW5SdSWfbSucqignnTUjtA1r
-	CjWBu3+aBGOJZred4AIfGhLrC8mMGEhXo+0Fi3cI1uYcYK+ryf3KULn7uQONwqq/F1RAeQXnFVc0k
-	eKPi1DukH1LXeDzKMX7grI4D1AAoEjNtL5HTKRJN5rVXUySzN4U6UfPPJoPZfGx9ewg2g0QQ6fz63
-	i01TxfkA==;
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFXG-00000001Bq2-49rg
-	for linux-riscv@lists.infradead.org;
-	Thu, 06 Mar 2025 18:01:32 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-2feb9076cdcso2197149a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 06 Mar 2025 10:01:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1741284088; x=1741888888; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PZqJTh0YCvVr8icSs09kza3W0ABw7bZnL85iQtnzYZ4=;
-        b=NjUTiVNhDWBiNEflJSVk5mwZbjtHqGorV3W23ImxoXkHwNgR7MZd9ZDnKBJZN0MZiT
-         cXaD1pmDU7K8CgF186vD8RIj+gEqJRPcGwHjrp9t6iToQCcCjnl7Mx1mqTfetQRAaYHq
-         99Rtior2+SIf+LLA3UXZCP+3qU5lmJX8Fma6a3zy4SQQY8TSK3F+rh+EoFGl0gNOHsYv
-         y8ayOGlAybUKOhdLroUpWLQvAuFmAZeO+GrFnoCENOuDcK6dinCbo++lOFMQYQRni0kI
-         cVqxk3IIUoAKfEIWDU8Uwy2ZoAAIif0G8KTAbpkaS6Z6y7unBLPW4NhU4ZeuLnN3D9dy
-         DG2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741284088; x=1741888888;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PZqJTh0YCvVr8icSs09kza3W0ABw7bZnL85iQtnzYZ4=;
-        b=fBCIvDWV8RudoJckvMP3+0q7WHD8WzTMlUXxLqXX7gnzC3ZxtLzLod7311hcJ8ZrfF
-         hGZL7VqU+K0OJthB8HWEUNYsLmBeuoNLserT0BAHl2Qin33b+L/ZtOgPrbSkrdATZZLD
-         pf+mf7OLBIMoXM2nLF4X/FssiHezmNUV/+y0oHg9mZH3H1OLrwCn7NRjIO9ceRywAOAY
-         l72Fu0mXNxrXMJr64UyKX777aPvNsMy+4RnT2EoIFSsCU95ApRf0Gy38bRI1wKMgH9sa
-         RJV1HcXqtZZDqvTMRu6H++7X6K5Qqn6EA6t9VKL0/+YPdRY2Pk7u409xMJYLkiyaN8la
-         NG2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUX/FgrZ3KX7KFJQy7s7KbO2mbT7KnR3QBS9QQQhwxCxrpXCvHgSA56Td+sH0Axb3AcL40aLaNMJry3Uw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0H6PLuWVQqxQotd3VE5/oZ0tgbTDjPgI1I10Y1WzikR+hvw+9
-	BxIytX7QuOBgLcR3kH2oroK17iM0uirliEWU6Io1EICmc60TkFlXv2P+F9hp1Ms=
-X-Gm-Gg: ASbGncvDayjh6Vp/dbyp+EnH6avZt6IZ0+QLa9LqaXdtZjTrvAcMfNLhZRpw7FdVyfU
-	4sSzAVCKZYqXHP5KXmBBbSkiOIVI6vVh+ScJqr8fg73uF3DfQyg+9iTCAChR6mOWZvxyfR9L8BS
-	tPT5T/A4HMOdcIo4NmOO5PWlK+T/t8mkyvSaFYbC/pq7KycZYFfKCl7ceWCbIHuZG8RS/g0afjy
-	18c2fqJuZvgVMRinvTFDK5NICv65I7+NQuSWp1LoTbX1+c3Yp52Yy20AIU+bupfdCLu/QecXs5O
-	xiMf7dylT3btHCojoNuNrteOn0hrPNYQBLese7mEBA==
-X-Google-Smtp-Source: AGHT+IHbtFJc0sZMysZ3vYXJuVTW6NBS2O3AVJRjOnc6c6T0oJ1FFGCKVknIrhqtI5fTinhi9uFXQQ==
-X-Received: by 2002:a17:90b:164f:b0:2fe:8fc4:6f4b with SMTP id 98e67ed59e1d1-2ff7ce904f9mr294169a91.8.1741284087517;
-        Thu, 06 Mar 2025 10:01:27 -0800 (PST)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-224109e8345sm15463375ad.57.2025.03.06.10.01.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 10:01:26 -0800 (PST)
-Date: Thu, 06 Mar 2025 10:01:26 -0800 (PST)
-X-Google-Original-Date: Thu, 06 Mar 2025 10:01:19 PST (-0800)
-Subject: Re: [resend PATCH] riscv: fix memory leakage in process_accumulated_relocations
-In-Reply-To: <a9058ac757636e4f5160a0bd11abeb3c111fc9a5.camel@iscas.ac.cn>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: zhangkai@iscas.ac.cn
-Message-ID: <mhng-a1315877-d100-437d-923e-ebbae4745074@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+	id 1tqGJv-0000000BuSc-0SCT;
+	Thu, 06 Mar 2025 18:51:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D37E4A45015;
+	Thu,  6 Mar 2025 18:46:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73E1BC4CEE0;
+	Thu,  6 Mar 2025 18:51:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741287105;
+	bh=/wpX+rodiPgNkc2E/+2EOJ8vtAUtpxXz9ICTWI7pMKs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=P80r7Rsa2pkCu11363Fa/SyYTsTL5K11aoIfGVkUhXZXMZF9ghtejyVAEAn/9gYin
+	 1wjIQSDGLefP2aOn0lF4nfOFQWYeL481ld2xteJKdOm4N0DyD3FCaFsp8v0/3LF+Zj
+	 A1q//tTu1zIkAikd8Mvn+6NSXoOT1YkxG40QhglljaBoNvOzWHiF8i1U7IHFop/QuY
+	 5qG0votPJ3w9ptEMTqOjG9ejudqVaGGqjAr6pLD9gnSTU97J4z2wTm+bpnENlPeeCa
+	 JlGFrkz4pFB5qBl+yf6kzfEB+qI0NhdVqEy7aOxbZiiRw30qg1qYZpVJ1ch4THxRCE
+	 TD35zfcbQZ4wA==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH 00/13] arch, mm: reduce code duplication in mem_init()
+Date: Thu,  6 Mar 2025 20:51:10 +0200
+Message-ID: <20250306185124.3147510-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.47.2
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_180131_202012_FD4E996D 
-X-CRM114-Status: GOOD (  17.12  )
+X-CRM114-CacheID: sfid-20250306_105147_284630_AACCF030 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,47 +118,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCAxNiBOb3YgMjAyNCAwNDowNzoxOCBQU1QgKC0wODAwKSwgemhhbmdrYWlAaXNjYXMu
-YWMuY24gd3JvdGU6Cj4gU29ycnkgZm9yIGxhc3Qgd2VpcmQgZW1haWwuCj4gLS0tCj4KPiBXaGVu
-IG1vZHVsZSByZWxvY2F0aW9uIGlzIGRvbmUsIHByb2Nlc3NfYWNjdW11bGF0ZWRfcmVsb2NhdGlv
-bnMoKQo+IGZyZWVzIGFsbCBkeW5hbWljIGFsbG9jYXRlZCBtZW1vcnkuIHJlbF9oZWFkX2l0ZXIt
-PnJlbF9lbnRyeSBpcwo+IG1pc3NlZCB0byBmcmVlIHRoYXQga21lbWxlYWsgbWlnaHQgcmVwb3J0
-Ogo+Cj4gdW5yZWZlcmVuY2VkIG9iamVjdCAweGZmZmZmZmQ4ODBjNWZjNDAgKHNpemUgMTYpOgo+
-IMKgIGNvbW0gImluc21vZCIsIHBpZCAxMTAxLCBqaWZmaWVzIDQyOTUwNDUxMzgKPiDCoCBoZXgg
-ZHVtcCAoZmlyc3QgMTYgYnl0ZXMpOgo+IMKgwqDCoCBlMCBjMCBmNSA4NyBkOCBmZiBmZiBmZiA2
-MCBjNSBmNSA4NyBkOCBmZiBmZiBmZsKgIC4uLi4uLi4uYC4uLi4uLi4KPiDCoCBiYWNrdHJhY2Ug
-KGNyYyBkMmVjYjIwYyk6Cj4gwqDCoMKgIFs8MDAwMDAwMDBiMDE2NTVmNj5dIGttYWxsb2NfdHJh
-Y2Vfbm9wcm9mKzB4MjY4LzB4MmY2Cj4gwqDCoMKgIFs8MDAwMDAwMDA2ZGMwMDY3YT5dCj4gYWRk
-X3JlbG9jYXRpb25fdG9fYWNjdW11bGF0ZS5jb25zdHByb3AuMCsweGYyLzB4MWFhCj4gwqDCoMKg
-IFs8MDAwMDAwMDBlMWIyOWEzNj5dIGFwcGx5X3JlbG9jYXRlX2FkZCsweDEzYy8weDM2ZQo+IMKg
-wqDCoCBbPDAwMDAwMDAwNzU0M2YxZmI+XSBsb2FkX21vZHVsZSsweDVjNi8weDgzZQo+IMKgwqDC
-oCBbPDAwMDAwMDAwYWJjZTEyZTg+XSBpbml0X21vZHVsZV9mcm9tX2ZpbGUrMHg3NC8weGFhCj4g
-wqDCoMKgIFs8MDAwMDAwMDA0OTQxM2UzZD5dIGlkZW1wb3RlbnRfaW5pdF9tb2R1bGUrMHgxMTYv
-MHgyMmUKPiDCoMKgwqAgWzwwMDAwMDAwMGY5Yjk4Yjg1Pl0gX19yaXNjdl9zeXNfZmluaXRfbW9k
-dWxlKzB4NjIvMHhhZQo+Cj4gU2lnbmVkLW9mZi1ieTogS2FpIFpoYW5nIDx6aGFuZ2thaUBpc2Nh
-cy5hYy5jbj4KPiAtLS0KPiDCoGFyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jIHwgMSArCj4gwqAx
-IGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2
-L2tlcm5lbC9tb2R1bGUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCj4gaW5kZXggMWNk
-NDYxZjNkODcuLmY4YzNjNGI0N2RjIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL21v
-ZHVsZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMKPiBAQCAtNjQzLDYgKzY0
-Myw3IEBAIHByb2Nlc3NfYWNjdW11bGF0ZWRfcmVsb2NhdGlvbnMoc3RydWN0IG1vZHVsZSAqbWUs
-Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB9Cj4gwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCByZWxvY19oYW5kbGVy
-c1tjdXJyX3R5cGVdLmFjY3VtdWxhdGVfaGFuZGxlcigKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtZSwgbG9jYXRpb24sIGJ1
-ZmZlcik7Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGtm
-cmVlKHJlbF9oZWFkX2l0ZXItPnJlbF9lbnRyeSk7Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBrZnJlZShyZWxfaGVhZF9pdGVyKTsKPiDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgfQo+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBr
-ZnJlZShidWNrZXRfaXRlcik7CgpJIGp1c3QgZm91bmQgdGhpcyBvbmUuICBUaGUgcGF0Y2ggaXMg
-YWxzbyBhIGJpdCBtYW5nbGVkLCBzbyBpdCBkb2Vzbid0IAphcHBseSAoYW5kIHByb2JhYmx5IGdv
-dCBtaXNzZWQgYnkgc29tZSB0b29scykuCgpJIGhhZCB0aGlzIGJ1ZmZlciB1cCB0byBzYXkgc29t
-ZXRoaW5nIGVsc2UsIGJ1dCBJIGRvbid0IHJlbWVtYmVyIHdoYXQgaXQgCndhcy4KCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+
+Hi,
+
+Every architecture has implementation of mem_init() function and some
+even more than one. All these release free memory to the buddy
+allocator, most of them set high_memory to the end of directly
+addressable memory and many of them set max_mapnr for FLATMEM case.
+
+These patches pull the commonalities into the generic code and refactor
+some of the mem_init() implementations so that many of them can be just
+dropped.
+
+Mike Rapoport (Microsoft) (13):
+  arm: mem_init: use memblock_phys_free() to free DMA memory on SA1111
+  csky: move setup_initrd() to setup.c
+  hexagon: move initialization of init_mm.context init to paging_init()
+  MIPS: consolidate mem_init() for NUMA machines
+  MIPS: make setup_zero_pages() use memblock
+  nios2: move pr_debug() about memory start and end to setup_arch()
+  s390: make setup_zero_pages() use memblock
+  xtensa: split out printing of virtual memory layout to a function
+  arch, mm: set max_mapnr when allocating memory map for FLATMEM
+  arch, mm: set high_memory in free_area_init()
+  arch, mm: streamline HIGHMEM freeing
+  arch, mm: introduce arch_mm_preinit
+  arch, mm: make releasing of memory to page allocator more explicit
+
+ arch/alpha/mm/init.c               |  8 ----
+ arch/arc/mm/init.c                 | 25 +----------
+ arch/arm/mm/init.c                 | 43 +------------------
+ arch/arm/mm/mmu.c                  |  2 -
+ arch/arm/mm/nommu.c                |  1 -
+ arch/arm64/mm/init.c               | 12 +-----
+ arch/csky/kernel/setup.c           | 43 +++++++++++++++++++
+ arch/csky/mm/init.c                | 67 ------------------------------
+ arch/hexagon/mm/init.c             | 32 ++------------
+ arch/loongarch/kernel/numa.c       |  6 ---
+ arch/loongarch/mm/init.c           |  8 ----
+ arch/m68k/mm/init.c                |  4 --
+ arch/m68k/mm/mcfmmu.c              |  1 -
+ arch/m68k/mm/motorola.c            |  2 -
+ arch/m68k/sun3/config.c            |  1 -
+ arch/microblaze/mm/init.c          | 25 -----------
+ arch/mips/include/asm/mmzone.h     |  2 -
+ arch/mips/loongson64/numa.c        |  7 ----
+ arch/mips/mm/init.c                | 49 ++++------------------
+ arch/mips/sgi-ip27/ip27-memory.c   |  9 ----
+ arch/nios2/kernel/setup.c          |  3 +-
+ arch/nios2/mm/init.c               | 16 +------
+ arch/openrisc/mm/init.c            |  6 ---
+ arch/parisc/mm/init.c              |  4 --
+ arch/powerpc/kernel/setup-common.c |  3 --
+ arch/powerpc/mm/mem.c              | 18 +-------
+ arch/riscv/mm/init.c               |  5 +--
+ arch/s390/mm/init.c                | 18 +-------
+ arch/sh/mm/init.c                  | 10 -----
+ arch/sparc/mm/init_32.c            | 31 +-------------
+ arch/sparc/mm/init_64.c            |  4 --
+ arch/um/include/shared/mem_user.h  |  1 -
+ arch/um/kernel/mem.c               |  9 ++--
+ arch/um/kernel/physmem.c           | 12 ------
+ arch/um/kernel/um_arch.c           |  2 -
+ arch/x86/include/asm/highmem.h     |  3 --
+ arch/x86/include/asm/numa.h        |  4 --
+ arch/x86/include/asm/numa_32.h     | 13 ------
+ arch/x86/kernel/setup.c            |  2 -
+ arch/x86/mm/Makefile               |  2 -
+ arch/x86/mm/highmem_32.c           | 34 ---------------
+ arch/x86/mm/init_32.c              | 41 ++----------------
+ arch/x86/mm/init_64.c              |  7 ++--
+ arch/x86/mm/numa_32.c              |  3 --
+ arch/xtensa/mm/init.c              | 66 +++++++----------------------
+ include/asm-generic/memory_model.h |  5 ++-
+ include/linux/memblock.h           |  1 -
+ include/linux/mm.h                 | 13 +-----
+ mm/internal.h                      |  3 +-
+ mm/memblock.c                      |  3 +-
+ mm/memory.c                        | 16 -------
+ mm/mm_init.c                       | 58 ++++++++++++++++++++++----
+ mm/nommu.c                         |  6 ---
+ 53 files changed, 151 insertions(+), 618 deletions(-)
+ delete mode 100644 arch/x86/include/asm/numa_32.h
+ delete mode 100644 arch/x86/mm/highmem_32.c
+
+
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+-- 
+2.47.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
