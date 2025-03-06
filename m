@@ -4,74 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 504E1C19F32
-	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 00:44:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA396C28B25
+	for <linux-riscv@archiver.kernel.org>; Thu,  6 Mar 2025 00:44:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KajZ0uKaAIPMuWa7eY4fkPNYihYxBhFJpUkxQYy95a8=; b=ZZvpFImEpIkJub
-	fRcm+psdD3kPmyhZoJJ/N0Qjv8cVXr/a2zQiRN8LrRHKV6UH2XNo8ax+lHNOqghWWIrUZ8yfnikEo
-	GrOfvphSWfa6O1W++jekYSz7wzUqH3dAQGZS0AaFRj8IyDd5nkdoYxE6B7qBjRfXgOmy4Msr4uxH3
-	oQZT0fxYTHYctX7RF+GusUrBm5wUwir9Fb5etrpKrKW+1ziVMQN5YrC9r2u73xxt8U8NSVGcaUkcD
-	eqSlfD2WpjKOdhiUUcB48XnvPZLLwTKT+DoEQlaJZtk/bpKFyuEIrCLQT9mzMIpEA49WTH1+6RtoV
-	c/2xB/G7t+1HKiJFOtBg==;
+	List-Owner; bh=krkUCHe7704INogIR8lX67ywhTCuyxYoBPIkDzaVNvo=; b=R2I6Gn3t/Qf20e
+	rmosFrGp/3pW8/DpGcSnWoDlR2nHQtap9UfbFbrfFKyLhJJQSBcliLDMMnxVv0w//WgW6PfTitZwr
+	ObKEjJcTyzfyRcNWmdQxe/t8G1gn81qSp40OT/u9+hpn02/PQhbV7kMZqa16K7PqT+F9btgwHbFLE
+	NT+E6IAM8s4f3ockeRS2PXtg0ErtdwQVq59+UrKDopowOU3LCAR+lqAZhIsUERig61Mpd+pIGVXM9
+	jPeVx43ZaZ+qVPQ8+P+6htUEqRgXpH6cxGsYdBdpAVc/ueiVPWV+Quvznl42PxZFHvloiCR1ChOYB
+	SzP/Lebk+cClqJBbhe7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzLP-00000009ihQ-10Tr;
+	id 1tpzLP-00000009iiK-3msD;
 	Thu, 06 Mar 2025 00:44:11 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzLM-00000009ifN-0Ec6
+	id 1tpzLN-00000009ig5-3TXk
 	for linux-riscv@lists.infradead.org;
-	Thu, 06 Mar 2025 00:44:09 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-223959039f4so847195ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 05 Mar 2025 16:44:07 -0800 (PST)
+	Thu, 06 Mar 2025 00:44:10 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-2235189adaeso2147565ad.0
+        for <linux-riscv@lists.infradead.org>; Wed, 05 Mar 2025 16:44:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741221847; x=1741826647; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741221849; x=1741826649; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=R3jS1rl0NyPiPtBrV6gbvaKvWtHD4LTe2LvNMOIdkhU=;
-        b=jx5PjJMw4wALg5rwoBKg5rVkmiZqiBT6SCbM8LGwYdrZT7PRffWXcoPqWPIqYESyzb
-         twQYoOeYR7WGgntN/fpz/BadKFdr8oNR3EOCvepnQeTDqEvTfa5nDHRGDw9lNIzBGYih
-         oVAbD6JyKwf6limkcD+09apgt0xq5fyCJN52KnU/8D4kTu7BDv5tGQ++6xWTBEIuIN+t
-         svtIX8pcu2Xs3pC1Z0Ppcy6OD2OZ1hSC58Vr3JB9cDW67pqo/xxTw7PkJc4GOxypH3nQ
-         vjdIkPpRkPb1Gt3MMKaGDi8ShKMFhAnMyk71UWB1oM8o+bP0SAk/l+CxSQUMiONXkCK+
-         t1uA==
+        bh=ehMUm3J1yyvZGiQlan49h9651rjeLktXjDjteQa4YzI=;
+        b=wYbvNfHRZzgw03xql47A7jZLGwbz6xcYRPqGfXbbbl6TNy2N5F/WjTHFxl46jUZSkO
+         qKHwIj3utJPorx7mjtYCu/8ndTRNqqwblDqHD/pSY9PzIJDl2W1IS+jF2Z0c3rerTyA4
+         Wff4eyFenBkRdd00OHbCFBcVpx3N20r5q87gxAYK05HmMnUmbasla+0NPCiwN7seu/09
+         oImIUAYe8Sk6nJRdORGQ43RA99xoHywhC5w18hxoMYHxR1+He+SpoxVtXEA/D0IY1SL3
+         ZV0ENIAA2awen6JxQinYQ2GytUgzkOEW0YgCV/3sf7YH7RgflXkGdTuU+E4McUTdfkdn
+         rbRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741221847; x=1741826647;
+        d=1e100.net; s=20230601; t=1741221849; x=1741826649;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=R3jS1rl0NyPiPtBrV6gbvaKvWtHD4LTe2LvNMOIdkhU=;
-        b=DWUxqu68q3beOo1TjIzlto5KynzAt8/+Uu4JxLCiH6dus4RLHvLvbBRa2qaSk/aVdl
-         TFiBWUyDEp9Ec9RFmgmTb6+tKG4mNbwu3wKOhsL19tuaR9l3+lix42BFDfLNZtmrf3oS
-         EcibEDiM1SCZZDVhkyQr8Ga/FAo9DTgOZtjzBnjJ/PqVkiHV9Dwo93LA0xIeHIkmpg7e
-         GwyUL+rsq31zlF2mLlhxBDIs2oAPwAYfAhyQI11k76Rihme0d8kmiqy45cVrTsNy30Ur
-         CTSnRuyfXvrTmWQjYI5UzXR1wyGrCY9nn1264aoJIiGVwGIYsaHsmPoDqYcwJuzBcKGF
-         RHaw==
-X-Gm-Message-State: AOJu0YyNCX0I5Lb653U1kKrfen+XxRBPzT8+qKPd9j/ihUqqV7pG6kTX
-	vUDqCqSsM2awaRhMj9sy/xP+Yt9SjvTWg0wK6zSv8xPoJ5h6UY2qBBCCuHPIX8c=
-X-Gm-Gg: ASbGncuIEgmhF9NBelNKf87wqqDCZC70H1It/Ci/hDCuxgqwyMxH0ajncAb7z8FZevt
-	w/37PguawvJ+nR+zQtKqT8S9VQYhjpjDbOqZ+1g0bvhjuU1NPtx54m5pDN/6SPDZRgXyE98Q2W4
-	AGQDYW1XJQftkpZJUJbAJr6sVvsQchsS87p29W4oQHAlIA3clTzrTX1n/Ko3l5xx1FC9zwfc/yi
-	lpRiiWjxQttaroFfkQnCdRI4LzomAWf641Pa9p+NjPbzeOApiLpmQDLMJf0Nqy8ISqSWxmhO1fN
-	4+fMG1e+qpCyQ1/XTJ/jlgAaCIXUSIsPNhKwrCsCzSonDuVjpFroE5RjbMn9
-X-Google-Smtp-Source: AGHT+IF34qhqv3xIO9NNzcZh5fK7vqon1KbTtupxHGRr8Axwn6/+XVCjLb/ogfXTpG9fz+kT+EQwYg==
-X-Received: by 2002:a17:902:f606:b0:223:f9a4:3f99 with SMTP id d9443c01a7336-223f9a457a2mr63068485ad.29.1741221847212;
-        Wed, 05 Mar 2025 16:44:07 -0800 (PST)
+        bh=ehMUm3J1yyvZGiQlan49h9651rjeLktXjDjteQa4YzI=;
+        b=qxJyL/iT1xrFEdQBhHvS70JQi0kh9jVKiD6tf9f7nVH23SGSxnge1zT+wx6h7/CbG+
+         51eSy274aQa/k4HEVPBhEbEcybQKRrKKPqCg16lCTyqhMMKzXfgpdX8BnNYhVEYEzsqj
+         zofmO1Xu0K9ri3TPgfWg1G9qkLelzxC7aLEqM3cB8/amrESPzDKKl3NWxoJOmBX0YxTu
+         L+eutPqm+ZF8Juu9l6jYj0TE7BQvNnYhFKhdKHfsVQXIrAr2A2+z10G/MfJKIdpnOqnc
+         qhdl6RYVMXPbKdoGpFjJNtYVchGI6xPuI2rLFdB0mY9aHksPzHbE8KY8Z1WIw/946GIK
+         0vGA==
+X-Gm-Message-State: AOJu0YzmIE2Ue8ekTlL36hoa/GQXDnj9Oe9aMBgMZj6sEKhbOukVkbTF
+	rtiXkanBbFSPShI4xgNzWrJOX09en7m5kNKEUUbuA2Avz5x9ZLetl/6d4kOGAHU=
+X-Gm-Gg: ASbGncsnwtDD8hKXy57XKPKRyIopw336nyBfGpjwPiC7TDmmo4TW9ThvCsT1G/yLuqI
+	8ebISw5IDIlwm+GOJ5n9L3xTjLzhA1sTOZyfxFhVV18LZvWOzRtkGx/iBYzZixY5msskIk0YrO/
+	KsjR38+iTVnKmlmDHlbkErIq8WYInOz3zLRJR6WjSc0RbkLPcWnIEyPpZiQaQkZx1j0RufYGB1O
+	zemnxc6Asx8T5rTr/nTIqU7dKhP44nvNe1H59Rk7Q2vYr7kPuX4kx8lQHUGoVZiLhqxMVeMSlMC
+	Rs00Q/j+Dr8Qw4bSqKi1p1ENTGkT9N8/di6lt7oH1K3iqeOcWASas2ih/SK/
+X-Google-Smtp-Source: AGHT+IHUzwBDw/uha6a2fjM59Txc8WQN/Vrb5TcHaRq3eYqWZnWT8m/ex64QjFGpr4eyefI929SBSw==
+X-Received: by 2002:a17:902:c943:b0:220:e91f:4408 with SMTP id d9443c01a7336-2240948d12fmr21414815ad.22.1741221848994;
+        Wed, 05 Mar 2025 16:44:08 -0800 (PST)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22410a7f7efsm347085ad.132.2025.03.05.16.44.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22410a7f7efsm347085ad.132.2025.03.05.16.44.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 16:44:06 -0800 (PST)
+        Wed, 05 Mar 2025 16:44:08 -0800 (PST)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 05 Mar 2025 16:43:44 -0800
-Subject: [PATCH v5 1/4] riscv: entry: Convert ret_from_fork() to C
+Date: Wed, 05 Mar 2025 16:43:45 -0800
+Subject: [PATCH v5 2/4] riscv: entry: Split ret_from_fork() into user and
+ kernel
 MIME-Version: 1.0
-Message-Id: <20250305-riscv_optimize_entry-v5-1-6507b5dff3ce@rivosinc.com>
+Message-Id: <20250305-riscv_optimize_entry-v5-2-6507b5dff3ce@rivosinc.com>
 References: <20250305-riscv_optimize_entry-v5-0-6507b5dff3ce@rivosinc.com>
 In-Reply-To: <20250305-riscv_optimize_entry-v5-0-6507b5dff3ce@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -82,17 +83,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  loongarch@lists.linux.dev, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3515; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=gaq/v9YuAdYAHAPq6G2li6XLwEhlQb1rcc0R86FQKSc=;
- b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/qJ95cmmFbUVL2sO39dKoPRMmj9pzsX2Qs+M8168p73+
- VOJGWfbO0pZGMS4GGTFFFl4rjUwt97RLzsqWjYBZg4rE8gQBi5OAZhI7VFGhsfPeK/yBc58PmH/
- xAU9hi8Wqni+fhxzylBn0evACz3GjdwMv9mKOK8wLMzQEsx4Ob15ef/Hi1oMOlvuvJux01vD0Td
- nMhcA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4464; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=LoTSopBOka5A9kpDiPFFurbF+1mjOb81UBycxnBlNbA=;
+ b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/qJ95dzi+tVwqu5bU9Lb1zHVqURfOznouv2s2e7/J+z/
+ ItZ042DHaUsDGJcDLJiiiw81xqYW+/olx0VLZsAM4eVCWQIAxenAEwk7wIjw6S+bwF+haUsh6ez
+ hRkGTla4Vckfo5V87KSvdlx+58+kXYwM3Z1PzoZozOg7tNdk7WpRtQWuZe9XxbPb9S5Xu/P274Z
+ 8TgA=
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_164408_100106_3E63E7E5 
-X-CRM114-Status: GOOD (  11.74  )
+X-CRM114-CacheID: sfid-20250305_164409_871567_28A5C5C3 
+X-CRM114-Status: GOOD (  12.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,101 +110,117 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the main section of ret_from_fork() to C to allow inlining of
-syscall_exit_to_user_mode().
+This function was unified into a single function in commit ab9164dae273
+("riscv: entry: Consolidate ret_from_kernel_thread into ret_from_fork").
+However that imposed a performance degradation. Partially reverting this
+commit to have ret_from_fork() split again results in a 1% increase on
+the number of times fork is able to be called per second.
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/asm-prototypes.h |  1 +
- arch/riscv/kernel/entry.S               | 15 ++++++---------
- arch/riscv/kernel/process.c             | 14 ++++++++++++--
- 3 files changed, 19 insertions(+), 11 deletions(-)
+ arch/riscv/include/asm/asm-prototypes.h |  3 ++-
+ arch/riscv/kernel/entry.S               | 13 ++++++++++---
+ arch/riscv/kernel/process.c             | 17 +++++++++++------
+ 3 files changed, 23 insertions(+), 10 deletions(-)
 
 diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index cd627ec289f163a630b73dd03dd52a6b28692997..733ff609778797001006c33bba9e3cc5b1f15387 100644
+index 733ff609778797001006c33bba9e3cc5b1f15387..bfc8ea5f9319b19449ec59493b45b926df888832 100644
 --- a/arch/riscv/include/asm/asm-prototypes.h
 +++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -52,6 +52,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
+@@ -52,7 +52,8 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
  DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
  DECLARE_DO_ERROR_INFO(do_trap_break);
  
-+asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
+-asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
++asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
++asmlinkage void ret_from_fork_user(struct pt_regs *regs);
  asmlinkage void handle_bad_stack(struct pt_regs *regs);
  asmlinkage void do_page_fault(struct pt_regs *regs);
  asmlinkage void do_irq(struct pt_regs *regs);
 diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 33a5a9f2a0d4e1eeccfb3621b9e518b88e1b0704..b2dc5e7c7b3a843fa4aa02eba2a911eb3ce31d1f 100644
+index b2dc5e7c7b3a843fa4aa02eba2a911eb3ce31d1f..0fb338000c6dc0358742cd03497fa54b9e9d1aec 100644
 --- a/arch/riscv/kernel/entry.S
 +++ b/arch/riscv/kernel/entry.S
-@@ -319,17 +319,14 @@ SYM_CODE_END(handle_kernel_stack_overflow)
+@@ -319,14 +319,21 @@ SYM_CODE_END(handle_kernel_stack_overflow)
  ASM_NOKPROBE(handle_kernel_stack_overflow)
  #endif
  
--SYM_CODE_START(ret_from_fork)
-+SYM_CODE_START(ret_from_fork_asm)
+-SYM_CODE_START(ret_from_fork_asm)
++SYM_CODE_START(ret_from_fork_kernel_asm)
  	call schedule_tail
--	beqz s0, 1f	/* not from kernel thread */
--	/* Call fn(arg) */
--	move a0, s1
--	jalr s0
--1:
--	move a0, sp /* pt_regs */
--	call syscall_exit_to_user_mode
-+	move a0, s1 /* fn_arg */
-+	move a1, s0 /* fn */
-+	move a2, sp /* pt_regs */
-+	call ret_from_fork
+ 	move a0, s1 /* fn_arg */
+ 	move a1, s0 /* fn */
+ 	move a2, sp /* pt_regs */
+-	call ret_from_fork
++	call ret_from_fork_kernel
  	j ret_from_exception
--SYM_CODE_END(ret_from_fork)
-+SYM_CODE_END(ret_from_fork_asm)
+-SYM_CODE_END(ret_from_fork_asm)
++SYM_CODE_END(ret_from_fork_kernel_asm)
++
++SYM_CODE_START(ret_from_fork_user_asm)
++	call schedule_tail
++	move a0, sp /* pt_regs */
++	call ret_from_fork_user
++	j ret_from_exception
++SYM_CODE_END(ret_from_fork_user_asm)
  
  #ifdef CONFIG_IRQ_STACKS
  /*
 diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 7c244de7718008947075357ea4502d56419d507c..7b0a0bfe29aec896c2bdd8976d855dd390de88d7 100644
+index 7b0a0bfe29aec896c2bdd8976d855dd390de88d7..485ec7a80a56097e8905cd6395af29633846b5c8 100644
 --- a/arch/riscv/kernel/process.c
 +++ b/arch/riscv/kernel/process.c
-@@ -17,7 +17,9 @@
- #include <linux/ptrace.h>
- #include <linux/uaccess.h>
- #include <linux/personality.h>
-+#include <linux/entry-common.h>
- 
-+#include <asm/asm-prototypes.h>
- #include <asm/unistd.h>
- #include <asm/processor.h>
- #include <asm/csr.h>
-@@ -36,7 +38,7 @@ unsigned long __stack_chk_guard __read_mostly;
+@@ -38,7 +38,8 @@ unsigned long __stack_chk_guard __read_mostly;
  EXPORT_SYMBOL(__stack_chk_guard);
  #endif
  
--extern asmlinkage void ret_from_fork(void);
-+extern asmlinkage void ret_from_fork_asm(void);
+-extern asmlinkage void ret_from_fork_asm(void);
++extern asmlinkage void ret_from_fork_kernel_asm(void);
++extern asmlinkage void ret_from_fork_user_asm(void);
  
  void noinstr arch_cpu_idle(void)
  {
-@@ -206,6 +208,14 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
+@@ -208,14 +209,18 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
  	return 0;
  }
  
-+asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
+-asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
++asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
+ {
+-	if (unlikely(fn))
+-		fn(fn_arg);
++	fn(fn_arg);
+ 
+ 	syscall_exit_to_user_mode(regs);
+ }
+ 
++asmlinkage void ret_from_fork_user(struct pt_regs *regs)
 +{
-+	if (unlikely(fn))
-+		fn(fn_arg);
-+
 +	syscall_exit_to_user_mode(regs);
 +}
 +
  int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
  {
  	unsigned long clone_flags = args->flags;
-@@ -242,7 +252,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+@@ -238,6 +243,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 
+ 		p->thread.s[0] = (unsigned long)args->fn;
+ 		p->thread.s[1] = (unsigned long)args->fn_arg;
++		p->thread.ra = (unsigned long)ret_from_fork_kernel_asm;
+ 	} else {
+ 		*childregs = *(current_pt_regs());
+ 		/* Turn off status.VS */
+@@ -247,12 +253,11 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
+ 		if (clone_flags & CLONE_SETTLS)
+ 			childregs->tp = tls;
+ 		childregs->a0 = 0; /* Return value of fork() */
+-		p->thread.s[0] = 0;
++		p->thread.ra = (unsigned long)ret_from_fork_user_asm;
+ 	}
  	p->thread.riscv_v_flags = 0;
  	if (has_vector() || has_xtheadvector())
  		riscv_v_thread_alloc(p);
--	p->thread.ra = (unsigned long)ret_from_fork;
-+	p->thread.ra = (unsigned long)ret_from_fork_asm;
+-	p->thread.ra = (unsigned long)ret_from_fork_asm;
  	p->thread.sp = (unsigned long)childregs; /* kernel sp */
  	return 0;
  }
