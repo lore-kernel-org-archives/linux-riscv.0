@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30923C282DE
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 15:09:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA732C19F32
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 15:13:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z19Y2xmyy8Bln6EfSqYzVWwGxlBUIDCwnGStatVu35w=; b=B3BZ38ky+dvrs7
-	V3AZpTE2DZGut3+WFKwqv/eyEzjdl84iyw0pHeadRIeaa6QRTn7W12FzVYiIaoe2J73PRMeXSpxEP
-	97NUqWOrw0DsAOfjLYy9PLawArgOqN1DBt4GvDBukqp/PIjOcAk894Jnu8hMOussjAzMk7yHy3KFa
-	rhY3xblKS9C4qYUYzoMyrDcPdvGXtYViDyDYmSo6NG1zPCfRey0MnbWjKzfLrwTnQFe4l8EAqQiS+
-	fYpYQLsmCzBg/DWu1/1bS/8eazHpOKkn1yCY842+63+Soa6ytDd5ozGlb7g9WRwNUboZ/qOk1YIfz
-	vA1pWHYqPkd2QMa3uG9w==;
+	List-Owner; bh=ijI+ECec577oFPmRzFkH4xamN1knBtjCwyQjLTWjy48=; b=OKC6fo59BZUzCc
+	DsZpqkTDdLqX06MEkvExyk6A3ANm+eX/MRRRuoTLjHqymw8JXZWf5PtL1VZxpt/orvVRPINvZO8cX
+	jB67RVmKe1Aepb4myLUauVjBdr2eMBy8zsamxZaBWfSYxcgwofVTraiPWz5L3lU/wCBzFL8jQJU+f
+	715fKHRcukNfQCklutTh/EGRvYqA/IPVBTVWb8CHl/hS6W6D4j7Akh/9ASzTVAYpkWh+L2Csp/2P3
+	nAHtyBfP+st0DzZr6NTFqhLf1o7ohs/gZ9f1OqEaU/Kdq5WbcNzrM6thIvqbL/XLgG57NKf6iq5ZZ
+	+PLxtntenvtdnAEP+KDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZKg-0000000EYgz-2uHw;
-	Fri, 07 Mar 2025 15:09:50 +0000
+	id 1tqZOA-0000000EauT-3IZA;
+	Fri, 07 Mar 2025 15:13:27 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZIH-0000000EY66-1Za7;
-	Fri, 07 Mar 2025 15:07:23 +0000
+	id 1tqZKR-0000000EYe5-48mu;
+	Fri, 07 Mar 2025 15:09:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=+YoQ2bMScfM3XAjlW+ut1pe8WVSp2EYOFx87rsgzN5k=; b=yW0AcufOGRYzmpgjGUgGNmg/0F
-	56qmo0oQ6Pdz6e0J5QHj/u774MNjQpmgTkNm+4Z8BViLIV96x9aPBHpaG529Rn9Y9cYfKboGR2qfX
-	1wNc3hnNoSARSM4ggrltwjCJJfa61gsC3vk5Nb2/f7d1VqjEMsOr2WEEa6T4QXBsqulZlf/fIfABR
-	r390rRxnArS/qTzhbLk5afn2oiPQRawCCjC9QIBgjvYNE/j/QUzUzUnx86lj365Vo0vpxJzlanMxA
-	w+GBPP64swpFjcRItYcpFUsgWldeODSnI6aEXLNBJuhpPKTMAb47O43gsDJkOTqmGIGNlD2AP20O3
-	mMjClxuQ==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34076)
+	bh=Yn7ux/Q934nEj2IODedpVWaIfwaseRhFKbJdfXrSFaU=; b=FufODiUIOanVNCqafgKRVNBKkG
+	8AFE2vweHwr4mNEfbiMvMMdN7jF/kImN8ZlqRrTUbRisHgc5htYoyOY1/xRchDl02gbJ8+RwdETlV
+	yf5NIag9+CvqVY2Wwx3oybGq9F139EJMS+IkYezmQi9eJKY4DySpoGEYcy2GofTvkUzJ5VunETMsS
+	JIZ1vMf83Mr0dsC/5pWj4VSOvQstBc1YVUnTfr2EevR9EUUmV+VwAAE+irAyyL+d1isTulIRJt/tY
+	i77W0yrs4wEz5G1p3zcY1TnyC3eBfcQilAmmiP1EoZzQALEMGukyy1C65IizFle84dHfS6xV5EQIa
+	5Onhu+hQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:36654)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1tqZHh-0007ZK-2W;
-	Fri, 07 Mar 2025 15:06:45 +0000
+	id 1tqZK7-0007aN-1l;
+	Fri, 07 Mar 2025 15:09:15 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1tqZHX-0007uI-2E;
-	Fri, 07 Mar 2025 15:06:35 +0000
-Date: Fri, 7 Mar 2025 15:06:35 +0000
+	id 1tqZK2-0007ua-2m;
+	Fri, 07 Mar 2025 15:09:10 +0000
+Date: Fri, 7 Mar 2025 15:09:10 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -83,18 +83,18 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v7 4/4] net: stmmac: Add glue layer for Sophgo
- SG2044 SoC
-Message-ID: <Z8sLeyixPzH60mJ_@shell.armlinux.org.uk>
+	Longbin Li <looong.bin@gmail.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net-next v7 3/4] net: stmmac: platform: Add
+ snps,dwmac-5.30a IP compatible string
+Message-ID: <Z8sMFh7yAUTZ9GRN@shell.armlinux.org.uk>
 References: <20250307011623.440792-1-inochiama@gmail.com>
- <20250307011623.440792-5-inochiama@gmail.com>
+ <20250307011623.440792-4-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250307011623.440792-5-inochiama@gmail.com>
+In-Reply-To: <20250307011623.440792-4-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_070721_689743_6F5E0B46 
-X-CRM114-Status: UNSURE (   6.04  )
+X-CRM114-CacheID: sfid-20250307_070936_024674_CE2F4DE4 
+X-CRM114-Status: UNSURE (   7.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -112,15 +112,17 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 09:16:17AM +0800, Inochi Amaoto wrote:
-> Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
+On Fri, Mar 07, 2025 at 09:16:16AM +0800, Inochi Amaoto wrote:
+> Add "snps,dwmac-5.30a" compatible string for 5.30a version that can avoid
+> to define some platform data in the glue layer.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
 Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
 Thanks!
-
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
 FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
