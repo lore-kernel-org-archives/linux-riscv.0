@@ -4,94 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3772AC19F32
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 13:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7520C282DE
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 14:54:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aFOAbawXGyGsGlKZSzyBSY9Xpzsp3e4gYOOah6x8lH4=; b=hzA+BtrTALJ6Nx
-	T5d1txGiuLK5+SX0HI9kN2eXHe13tZAv0Wy5YlgbLquuchaYuxha3HRithndSKPAi9IMf+9pDQsad
-	YX9C9sAVyNSs7z1LCIPM1v8zFTcJ3ihkabOEmQ2ZQIxyVLSsjF0h/4n+7sWHS9Ze+708ylcF44gKb
-	6r/Lc7pv/dC4drCloCbYxjGU37TjvB5Vt9DRUWcEHB/UkujcPDTXm8QDM/4hdYVNTXRqHykYWzOjx
-	pplVzTVCoqI8a1z4s9nCq4niRTwIhW00ttmoSB0U+3eNaYr0PHIKjsHldwpVV4JMTJ6jHkSAjP6IV
-	466s+OWn9CusIrt6yYwQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=qVIZHi7v4v2eVpA3C/zNqkRLyYZ5UEi5j4T6+eEZTAA=; b=DJ+VEeykHxy1YQ
+	1/L5uEnFUQIldunpf5OY/enKwQ6lQK/WjZfoIr+TS+qhPJOrbm/BD9nyNXrqkS7cjkDRcDeS7yxjz
+	sIm7yuwqXpWqLP+CEm4/Tcn8h3Sbj9MApFOFYrPexVBippii1g6dTp+6N+VX7UsOUJZ2+lZLPAtbG
+	TzreeUfEec9kwO2B3FESH5215zpE78U9KGHR4Vvwr+lGSy0AMLMtUF+Q5tG37/nVaHJalWNX9602N
+	0xmYHtcv4Qgp1jQnTd+rzcSAXnfl/asDVCQh32NWi2LCS6YbBEWHVJ5nY2pzyzrlfcK5vn9rr0tWU
+	/nwuAH6O1R8B8Rn7QMFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXZL-0000000EIWH-2bVk;
-	Fri, 07 Mar 2025 13:16:51 +0000
-Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
+	id 1tqZ64-0000000EVve-0Mxl;
+	Fri, 07 Mar 2025 14:54:44 +0000
+Received: from mail-vi1eur03on20602.outbound.protection.outlook.com ([2a01:111:f403:260c::602] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXZI-0000000EIVD-3ha0
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Mar 2025 13:16:50 +0000
-Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-2feb96064e4so3815632a91.1
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Mar 2025 05:16:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741353408; x=1741958208; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xzja5MTwmKusdpgio0+yGK24Gu9ZSgnAl6PDC2ElthI=;
-        b=cY0WZEVXNmufPWmxoAHCm2OG1anyHUxgVYFfpcztPR31QCD/gLUG+AgGizGqbx0Sgz
-         Izx7hdsmDyFKw1m5Nv8Xjm4s1Pfo0SpEyQ5v4uM4NqpAuRHHVhgkZBLtR9v6FjMm+oVP
-         YLHXKz2cY6EAqqTt4PSRj9DtYdJ4fjx5acPHsBzrslMC1CvEJaFLL+kPDXre6KZV5PTl
-         a8yMMuSFA2T1G05OFOMDciitT4cP3TMWUzjtCIPHcSooKvsGtlCXp0T0q1ZKRM1uVG/J
-         Nos+Y4DqEgFLPKkKs92QDde5JRzrRdKe5d31A48EZDzXztGEXa4p7p7p11oWywqhI/HJ
-         9BpA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741353408; x=1741958208;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xzja5MTwmKusdpgio0+yGK24Gu9ZSgnAl6PDC2ElthI=;
-        b=YQ8uahmvj5/ozki5T+/lR7TJj+OGP1zn0dl/XBFsfjL2kL0jzYUVMGU3SFPVo/InNv
-         5al3+MyHvYgA9eEaKYdolwIjHKtjQvEcdZrMKEZyxxgnWlVFs4t49NyhBpbvy4Xd0vDE
-         EM0uKmCnq1M9cXj8vscPo+IauFlpiIubSVIp8ArCx7rnQDmfZtv3FayIzBE653EektxC
-         r/Yszp0WC0XoiVrNx0Vo/iMvdsZsFjmZvkUNwu2YUdRDXv1983EfBtPHtYCTMqD+pQLS
-         vZ1TqqJdXRVJfcz9bGAhrKq8u0YdNdX8++8/1dd876MpmKjZcITriSKacITejusXEpUQ
-         2BPg==
-X-Gm-Message-State: AOJu0YxwTTy0wlBwlyqnt/vdyymKJAYtdxom6gishFZLgBOz9285P1DS
-	9VMTq4XwwHfe0OxPDpsDvgdhC/LQl+dj801UNf2d/c+HewAkmM/CL2R5gZrYXuMwo0Qq
-X-Gm-Gg: ASbGnctLYe5XzLAQipxtqLA8gTERpE5Qf/5drXBBMwbX/HlEQ26yP8ajhKmc5G7BVkq
-	Fj3TvkkGh+PwzEULKZ/2Lk92bMJ49oyP3G3lJ7k7UKDGnJPSV4jjpHNbrGz4k6JW9abMcv7Pm6a
-	q2ufCJ4L0pUb3fVkZQ0ysWVLOzT/y0jr6ZqGSw0wi7gpKeeES6es7Q0aODqDSgldswzGnlrpvlg
-	Y9YoFgJVo3bey8SvwxZ7Vo7QXeU7OhpabtB/lqzN4hkBCTwv1FZScYiPfd4pmAFl3ijoS+LnT+g
-	dFsbG60WNRQjJsZJD9SuWBByei3s
-X-Google-Smtp-Source: AGHT+IE+QPBrIGp/dtmnVoBNMSEI48iDBTNS8PjVZotmvs3U67peoFEl0Z12pFBy40vFPdbrReU57Q==
-X-Received: by 2002:a17:90b:1d0a:b0:2ea:83a0:47a5 with SMTP id 98e67ed59e1d1-2ff7ce457acmr5221230a91.4.1741353408158;
-        Fri, 07 Mar 2025 05:16:48 -0800 (PST)
-Received: from [127.0.1.1] ([2602:f919:106::1b8])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff693f7cebsm2984589a91.45.2025.03.07.05.16.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 05:16:47 -0800 (PST)
-From: Troy Mitchell <troymitchell988@gmail.com>
-Date: Fri, 07 Mar 2025 21:13:47 +0800
-Subject: [PATCH v6 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+	id 1tqZ62-0000000EVvE-06UT;
+	Fri, 07 Mar 2025 14:54:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OmFzTFmca7Oq6avp1bKg/o48Zh0ebL/S0thCGly7PpunSU9lPW2GiMosj4pcY0TnUajfyqbX7EG1TFJ3bzwwFSJed0IfriMB7JhGoYXMAki5ne+iEZG2nqnFTHWmW5aIOm/R43KLdZV+gj+Sz8fjKVrE9ZtuOIjSyx1DNg1vAejAUPFj5rq4yBUOJQFrHAJPdQ9uoWiPBaSmiFjO/9s2KH9suxNnAluYammHJtSDjSvpbcb1gjhKIzjjT26D11QR+HH8zY7985/Zq08HF9NurQ71Sc66h78Qqe4rVCvlVqKXdnPkPbdxxjghizVnOjqMKuFyYr/ml/iHgLoNOUwWOQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=OOZT9ACCIXTZeWBzoFzxF/jWtPg0jUQ2U1wCLx+nOUA=;
+ b=guRe+IXVVpSpQNilwCOb4VN/xPmyeQg47JC0g043jXybeU+SEhWC6uSxEktn4ky0b3FjQDkLnGm5gXgpAHIzJ9V3J/MNwerFS/+YiuiXi14umInutcbsYSBLiLU/d/5xPis0MNj7I+JcwnGjrYqdYFXeesL2ejuiaEDeTAn04BPq14VD5QjsI7qEpOjW5FU7PPbITo7Z9CkFxEy1tVE0y45LV5sEvKbf54Ku4b70W6OJMr+hd1wkMw0f5UWMznI+w3NNZtuRLscVDwqaIaTdLLPDzgQYhTq5FaJypZiGdimPwtdfNBS74lgyXOEMUqkjT5vAgJX7xROgC3iVT9teyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=OOZT9ACCIXTZeWBzoFzxF/jWtPg0jUQ2U1wCLx+nOUA=;
+ b=YhzaBEt3d6RkCJcTtXV/yQgTGjcVfG6AxpYwEB0+DvLfzdU/uzTrwmuEUVTDE7e5Hyhkf+sFuk2HYMZ9GgeHX51oGPJViNTGQfntamf6wkqM/cYG919DSlSFwEU/aGuCCe1M/iDl/+5NEd0yqAKdUaS7KKwJ1cR8hqUE2VIXFqbtYaz4L2FWBpnA0NAgI4P9pMC0rqfpIRbSyBpuR8rXcoAHrEeptTDh5tp9zpW3Zsl/kABkizTOeISYGWJh5BMQm+YlcumjN88sY9uzVrDaKfL4ff6BmlLGmUep+q0106cw/pQM0MrkE3/L2oGxg/ixlDxjnTHRGme0XjrSckKwpA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by VI1PR04MB9908.eurprd04.prod.outlook.com (2603:10a6:800:1d0::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
+ 2025 14:54:36 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
+ 14:54:36 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	lpieralisi@kernel.org,
+	sudeep.holla@arm.com,
+	ulf.hansson@linaro.org,
+	james.morse@arm.com,
+	d-gole@ti.com,
+	anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	imx@lists.linux.dev,
+	khilman@baylibre.com,
+	quic_tingweiz@quicinc.com,
+	quic_yuanjiey@quicinc.com
+Subject: [PATCH v5] cpuidle: Init cpuidle only for present CPUs
+Date: Fri,  7 Mar 2025 22:55:47 +0800
+Message-Id: <20250307145547.2784821-1-ping.bai@nxp.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: SI1PR02CA0038.apcprd02.prod.outlook.com
+ (2603:1096:4:1f6::15) To AS8PR04MB8642.eurprd04.prod.outlook.com
+ (2603:10a6:20b:429::24)
 MIME-Version: 1.0
-Message-Id: <20250307-k1-i2c-master-v6-2-34f17d2dae1c@gmail.com>
-References: <20250307-k1-i2c-master-v6-0-34f17d2dae1c@gmail.com>
-In-Reply-To: <20250307-k1-i2c-master-v6-0-34f17d2dae1c@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Troy Mitchell <troymitchell988@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- spacemit@lists.linux.dev
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741353244; l=20443;
- i=troymitchell988@gmail.com; h=from:subject:message-id;
- bh=sgsadTwwgq/XWsfw4TFlRKeDYQbR51Wv9V3/aiDoG2A=;
- b=SOEaH2avZ+orX3dh2vwml042emN63e+p/iuaRakR19JpfDJ3jE8qGzOfiHR59Lz2CC8Tj7gk6
- 6mjIF39ypHeAjUOA8C1T7UnSy4hYI9j1aoX5MTmj4n7EgfkpJnZAsO6
-X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
- pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|VI1PR04MB9908:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8a27993e-4d49-4ebd-6d01-08dd5d87faa7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nbcMkQmfqr8YHFkuR0VWcCKaAiKEXlbHeuiQODt4T+/skYx68AlLsZnwfCdf?=
+ =?us-ascii?Q?+f1eb6FYcMykFbpIOX73fXiObBvRNMnUAVH6jfSGlq2hzE1agyyUe8dPlrmH?=
+ =?us-ascii?Q?6lBDgusZto4UEiFzjUR2UdaCT/LnKoDwqkg/DOmsLg47X6uWDIXGGg/GQhqS?=
+ =?us-ascii?Q?LaFTo8tDsy0vOmrQ5ZIdhuqSaOylFd+X5R9utKJx7UG0Kh6m45GLwX356Qxd?=
+ =?us-ascii?Q?DomjkEHezTya9xiC9EeDJimNdRK9pFOKz2gvGrZcat2hFTqheob69ieWK+HN?=
+ =?us-ascii?Q?7uAqMYT6ssTeOj5QSajN05bidF/pf095tuhkHvAiP1hOaSjAhJjZTTTBIg6G?=
+ =?us-ascii?Q?lglQacTHUf1z9FC8ZuTA5uxrvT7gXapmT6uUYw18NmXcndQAVbAEXxRPMYfN?=
+ =?us-ascii?Q?8VxMA3es03gkCbWRDmCAD7F8QrZ1DpKuplYr7gnq8yyvoAt4JbSQ/wtnBujT?=
+ =?us-ascii?Q?A0nDBvSAS+fMLdFe4KywjrmXjVkfs5rn9fSbQTBeMc+3DNpq2PwO5BhirAuT?=
+ =?us-ascii?Q?C7E23JWBoTU4fZbcyPpm63j7UnrQPOjwNSiSfwUThrU913EwhV8OHGdttgSN?=
+ =?us-ascii?Q?BzdyzQ24hMedgTaNtEqDgM/f5gjcTc+/RnVydM/wa6Z7Dh+XzcXtx+kiEp+o?=
+ =?us-ascii?Q?9p/Psmvb/bs1iM+ozIBAXsf+3Ged0Bt3j+vRmiOoWWOYSWz2qZUU0sGBjdSc?=
+ =?us-ascii?Q?g7PLUEcSmJ4pilvkYeymC33VqtxTRjz1hmORNvitc+IDd6soSuecg0qKszLY?=
+ =?us-ascii?Q?2R9oNWfQ7BtgPjXWP0jrtvN8MUaOV40Rs5p/2r7oT724NmQ4ISXmseaWAJhT?=
+ =?us-ascii?Q?d3pUUeIpsEKOKZzioVboQU58nlVkF8MpAWCAL3IcnRFLRHf+aBJx5PvHCQiT?=
+ =?us-ascii?Q?5Z1uF6urLiZ46tjrF09m23NBsP3WnyVHHXEQv7XMcs6bI/UhW9AwWPdoTwQk?=
+ =?us-ascii?Q?iLN447SpOFSA0Yh299rNfrq0WaC+1vnbJR2+aBTCdDYPnk8IpToZjwX8EYAe?=
+ =?us-ascii?Q?jbBWQEk/0R2tfMAY9fHOeM7lklVGdk5IX1Lt/obpTBfz87Oq+/7RZFEuoFX3?=
+ =?us-ascii?Q?8qUzk6U0vF3Gky1r/Q07FC3X+/cWtvqwIJcKDHwCxkW6509eviaAN1COYpTC?=
+ =?us-ascii?Q?H2Dg5dxL9QG4HvbapCAqwLGfQd5qFIZpdgbsZPNJvhmdWX0I3twpLhQuDcQw?=
+ =?us-ascii?Q?Ke1OHO+1VnUBRlBadYFUB1taHBIzdDt6Enc9yUvzTf8ej/A0yN8Wb9NrFw9v?=
+ =?us-ascii?Q?mPmVYj6157xQTq/MWs3Qf7IRPvNFFC6fkqLrQDX3alPnXRvxyX+dqwd2MmFn?=
+ =?us-ascii?Q?e4jNaBA8AxJI82bFv/u5zTkWN/2LJd/8MRSWnNViGCgPNl5BPu+sA0Ik31gt?=
+ =?us-ascii?Q?PJBg5j9vx4zgV+P2rxwlZd7DaPuOQXkmKvx/AD0Yb77sxyqgQDoQyJfgC4MU?=
+ =?us-ascii?Q?FZxxcqnkD0sxfK1f9eNCy8b6wnQNDB1OJPz8rKP2DJHcDbbuZ/IZ1w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GV8Zk4a9FPMYfKwvbdXfGFzqWHMSQhnjuzpSayC9AEpv3AA7zIebxSJbkKIn?=
+ =?us-ascii?Q?o43ZH2MHfORw3jEmI5aJQBgh4qFkbT016Kmd6apdqdLXmpdYWYerFaVhoVoD?=
+ =?us-ascii?Q?/9uVqV+5NPRYrsCBpoEpk4cq8Zg8bbKMVqOrVW5ACfbPoz/ccedwybT6HetG?=
+ =?us-ascii?Q?JZBimWyw1x3OITe04mQjOEYxh5214wV1Xx1xjexGZwztEG34DhDPoGLBdOBO?=
+ =?us-ascii?Q?GDKtvh5CHnVXdraDLVCAwkeU0hHpN0E+j3jGy/jJnAUZzC8J1I+S1Blt5c+P?=
+ =?us-ascii?Q?0RsN2VcNOndnUPR40VHdU4O0cqMs3K/UdFmeHEtOtt8J3PYGnysxdCYDVxCp?=
+ =?us-ascii?Q?4NEBsT4USzcKeub1QrhVVQcRA5TvjAeBDLLkjFwlU42kEs4F2wibe9jh81lU?=
+ =?us-ascii?Q?J+jcAtpsosQFFnvVyYljGQoXhJploGgv26j294pV0swC1jZIb9uqpHKcx816?=
+ =?us-ascii?Q?JrOYY0kEC+5a8Ej8hZCAwQdflzRRoh+1ACJCkSZvIFiY1d3FbHj8HY4CwrOR?=
+ =?us-ascii?Q?wY28CqKXRjwoFfeXX5jBR9srU7lgIqHP4j9oxFqM7sJWG5RgHdBJdWUoUFw1?=
+ =?us-ascii?Q?94NDLJDZFkdiU73fy+Hd1x+6tDFnyHKbNWSd7sxE3uDYhwHwNuuxGpij3h11?=
+ =?us-ascii?Q?ZWYHhmCu368p1wbBd2K8fwscQ5eKDdB1U5/6Syy6ta7EBFYdeGlIrHEgzFiw?=
+ =?us-ascii?Q?F4jMq5euVWJBXaPfjSfm0wxx/6Ukar+kbM/bOZUibBNxAMFsAd0h8CQgWn6T?=
+ =?us-ascii?Q?8lbL5OhpzfCXBaBv7BR2khDteLL/CFyYVjJzULmFSymsV5PAWkFeJ51GHDjQ?=
+ =?us-ascii?Q?mhl7gOPF8GOzFVSZWVvyxWem6VaypzuGqYf+mGjdyPl8AKpV0JYEdPsMsm2z?=
+ =?us-ascii?Q?PlmoeY+qpq57WmPDhqFI4dtaQ3UQncW/xqeSNsvnAZi3stXvzT0LNRVF6e7W?=
+ =?us-ascii?Q?Og2cHBOmShswk8fdHNGdmQ3Kk6/ME6NaRt1gc5wUXnov7pnIU4ewgl08n2lj?=
+ =?us-ascii?Q?ADSHUbUhNSa3hegVwbKj5QYMCDD6Ljlp2ndj7sB+VxwvOaZLdKH6Gu5OA/mf?=
+ =?us-ascii?Q?aKuDa8dJivTC+GBfyNZbNSYWL3cI4fWkCaUmdjOcCpwQm3fLaqmvJSGjBsv/?=
+ =?us-ascii?Q?7T0aiF3gFQDRoibIFqKMEQrfAIW9CXg7ya37/8rybbn/XQYOlr9BM2hqVXM0?=
+ =?us-ascii?Q?+Bx9kxjjBxSEmEmHfcWxVOfrOzVKx32Ef5lAGy36th1PS/GEIyXm0CpeV9oB?=
+ =?us-ascii?Q?J1bsmeLV7bVV3gDuFjEBgQmY0sSOdWG6QIw2tbw2hc5sWIR0gDBWDDUV6hMo?=
+ =?us-ascii?Q?6qQfkqG/LG9pdertMWXm6TtghdQlYEBjYGIGgyXIwrfgoPAr9GS8kIoGvNBz?=
+ =?us-ascii?Q?CvMDpSQyFgZ8IRjSUF/BWQhzFGiu73+ztQOaD6Frmtg3hZZSXWgaoGuhnEFQ?=
+ =?us-ascii?Q?nE+n/Woj2nbONqa7VuAPiWAnEUII2+OTiHbZKzrXwEzIWpXOOT2RAmZmuL9O?=
+ =?us-ascii?Q?NctYb7WZRJOjuOr26/CEE9qTCGSiy/06xFQDg8YGcW6Pr3hwqtnr0QzzFndR?=
+ =?us-ascii?Q?oKNuO4h/1Y8txWakMPJ8jw9HRBbRFHLcFhd+rDZC?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8a27993e-4d49-4ebd-6d01-08dd5d87faa7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 14:54:36.7693
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gsPu1cpxXoHLbsd1ImHLVxGJsEmWfBBW36dmUVTMl438yIiyze3Hai+v/CWuJGMhcKrffOtA/C2O+iPwVXRZfQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9908
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_051648_953470_53EE03C7 
-X-CRM114-Status: GOOD (  24.59  )
+X-CRM114-CacheID: sfid-20250307_065442_091186_C0A057E6 
+X-CRM114-Status: GOOD (  18.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,667 +169,141 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch introduces basic I2C support for the SpacemiT K1 SoC,
-utilizing interrupts for transfers.
+for_each_possible_cpu() is currently used to initialize cpuidle
+in below cpuidle drivers:
+  drivers/cpuidle/cpuidle-arm.c
+  drivers/cpuidle/cpuidle-big_little.c
+  drivers/cpuidle/cpuidle-psci.c
+  drivers/cpuidle/cpuidle-qcom-spm.c
+  drivers/cpuidle/cpuidle-riscv-sbi.c
 
-The driver has been tested using i2c-tools on a Bananapi-F3 board,
-and basic I2C read/write operations have been confirmed to work.
+However, in cpu_dev_register_generic(), for_each_present_cpu()
+is used to register CPU devices which means the CPU devices are
+only registered for present CPUs and not all possible CPUs.
 
-Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+With nosmp or maxcpus=0, only the boot CPU is present, lead
+to the failure:
+
+  |  Failed to register cpuidle device for cpu1
+
+Then rollback to cancel all CPUs' cpuidle registration.
+
+Change for_each_possible_cpu() to for_each_present_cpu() in the
+above cpuidle drivers to ensure it only registers cpuidle devices
+for CPUs that are actually present.
+
+Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 ---
- drivers/i2c/busses/Kconfig  |  17 ++
- drivers/i2c/busses/Makefile |   1 +
- drivers/i2c/busses/i2c-k1.c | 601 ++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 619 insertions(+)
+ - v5 changes:
+   - add changes for cpuidle-qcom-spm
 
-diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-index fc438f4457713d5559d163840a7b11e8cdbb8f58..12d0e99566d8625aa374279956b71a4034ded4ac 100644
---- a/drivers/i2c/busses/Kconfig
-+++ b/drivers/i2c/busses/Kconfig
-@@ -783,6 +783,23 @@ config I2C_JZ4780
- 
- 	 If you don't know what to do here, say N.
- 
-+config I2C_K1
-+	tristate "Spacemit K1 I2C adapter"
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	depends on OF
-+	help
-+	  This option enables support for the I2C interface on the Spacemit K1
-+	  platform.
-+
-+	  If you enable this configuration, the kernel will include support for
-+	  the I2C adapter specific to the Spacemit K1 platform. This driver can
-+	  be used to manage I2C bus transactions, which are necessary for
-+	  interfacing with I2C peripherals such as sensors, EEPROMs, and other
-+	  devices.
-+
-+	  This driver can also be built as a module.  If so, the
-+	  module will be called `i2c-k1`.
-+
- config I2C_KEBA
- 	tristate "KEBA I2C controller support"
- 	depends on HAS_IOMEM
-diff --git a/drivers/i2c/busses/Makefile b/drivers/i2c/busses/Makefile
-index 1c2a4510abe44a689dfe67d2d64cf0cf3434f510..c1252e2b779e2e47492d66179b442f2202ec0416 100644
---- a/drivers/i2c/busses/Makefile
-+++ b/drivers/i2c/busses/Makefile
-@@ -74,6 +74,7 @@ obj-$(CONFIG_I2C_IMX)		+= i2c-imx.o
- obj-$(CONFIG_I2C_IMX_LPI2C)	+= i2c-imx-lpi2c.o
- obj-$(CONFIG_I2C_IOP3XX)	+= i2c-iop3xx.o
- obj-$(CONFIG_I2C_JZ4780)	+= i2c-jz4780.o
-+obj-$(CONFIG_I2C_K1)		+= i2c-k1.o
- obj-$(CONFIG_I2C_KEBA)		+= i2c-keba.o
- obj-$(CONFIG_I2C_KEMPLD)	+= i2c-kempld.o
- obj-$(CONFIG_I2C_LPC2K)		+= i2c-lpc2k.o
-diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..1ef98a303fb14ce10d283225ce0617a0b9f405f7
---- /dev/null
-+++ b/drivers/i2c/busses/i2c-k1.c
-@@ -0,0 +1,601 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2024 Troy Mitchell <troymitchell988@gmail.com>
-+ */
-+
-+ #include <linux/clk.h>
-+ #include <linux/i2c.h>
-+ #include <linux/iopoll.h>
-+ #include <linux/module.h>
-+ #include <linux/of_address.h>
-+ #include <linux/platform_device.h>
-+
-+/* spacemit i2c registers */
-+#define SPACEMIT_ICR		 0x0		/* Control Register */
-+#define SPACEMIT_ISR		 0x4		/* Status Register */
-+#define SPACEMIT_IDBR		 0xc		/* Data Buffer Register */
-+#define SPACEMIT_IBMR		 0x1c		/* Bus monitor register */
-+
-+/* SPACEMIT_ICR register fields */
-+#define SPACEMIT_CR_START        BIT(0)		/* start bit */
-+#define SPACEMIT_CR_STOP         BIT(1)		/* stop bit */
-+#define SPACEMIT_CR_ACKNAK       BIT(2)		/* send ACK(0) or NAK(1) */
-+#define SPACEMIT_CR_TB           BIT(3)		/* transfer byte bit */
-+/* Bits 4-7 are reserved */
-+#define SPACEMIT_CR_MODE_FAST    BIT(8)		/* bus mode (master operation) */
-+/* Bit 9 is reserved */
-+#define SPACEMIT_CR_UR           BIT(10)	/* unit reset */
-+/* Bits 11-12 are reserved */
-+#define SPACEMIT_CR_SCLE         BIT(13)	/* master clock enable */
-+#define SPACEMIT_CR_IUE          BIT(14)	/* unit enable */
-+/* Bits 15-17 are reserved */
-+#define SPACEMIT_CR_ALDIE        BIT(18)	/* enable arbitration interrupt */
-+#define SPACEMIT_CR_DTEIE        BIT(19)	/* enable tx interrupts */
-+#define SPACEMIT_CR_DRFIE        BIT(20)	/* enable rx interrupts */
-+#define SPACEMIT_CR_GCD          BIT(21)	/* general call disable */
-+#define SPACEMIT_CR_BEIE         BIT(22)	/* enable bus error ints */
-+/* Bits 23-24 are reserved */
-+#define SPACEMIT_CR_MSDIE        BIT(25)	/* master STOP detected int enable */
-+#define SPACEMIT_CR_MSDE         BIT(26)	/* master STOP detected enable */
-+#define SPACEMIT_CR_TXDONEIE     BIT(27)	/* transaction done int enable */
-+#define SPACEMIT_CR_TXEIE        BIT(28)	/* transmit FIFO empty int enable */
-+#define SPACEMIT_CR_RXHFIE       BIT(29)	/* receive FIFO half-full int enable */
-+#define SPACEMIT_CR_RXFIE        BIT(30)	/* receive FIFO full int enable */
-+#define SPACEMIT_CR_RXOVIE       BIT(31)	/* receive FIFO overrun int enable */
-+
-+#define SPACEMIT_I2C_INT_CTRL_MASK	(SPACEMIT_CR_ALDIE | SPACEMIT_CR_DTEIE | \
-+					 SPACEMIT_CR_DRFIE | SPACEMIT_CR_BEIE | \
-+					 SPACEMIT_CR_TXDONEIE | SPACEMIT_CR_TXEIE | \
-+					 SPACEMIT_CR_RXHFIE | SPACEMIT_CR_RXFIE | \
-+					 SPACEMIT_CR_RXOVIE | SPACEMIT_CR_MSDIE)
-+
-+/* SPACEMIT_ISR register fields */
-+/* Bits 0-13 are reserved */
-+#define SPACEMIT_SR_ACKNAK       BIT(14)	/* ACK/NACK status */
-+#define SPACEMIT_SR_UB           BIT(15)	/* unit busy */
-+#define SPACEMIT_SR_IBB          BIT(16)	/* i2c bus busy */
-+#define SPACEMIT_SR_EBB          BIT(17)	/* early bus busy */
-+#define SPACEMIT_SR_ALD          BIT(18)	/* arbitration loss detected */
-+#define SPACEMIT_SR_ITE          BIT(19)	/* tx buffer empty */
-+#define SPACEMIT_SR_IRF          BIT(20)	/* rx buffer full */
-+#define SPACEMIT_SR_GCAD         BIT(21)	/* general call address detected */
-+#define SPACEMIT_SR_BED          BIT(22)	/* bus error no ACK/NAK */
-+#define SPACEMIT_SR_SAD          BIT(23)	/* slave address detected */
-+#define SPACEMIT_SR_SSD          BIT(24)	/* slave stop detected */
-+/* Bit 25 is reserved */
-+#define SPACEMIT_SR_MSD          BIT(26)	/* master stop detected */
-+#define SPACEMIT_SR_TXDONE       BIT(27)	/* transaction done */
-+#define SPACEMIT_SR_TXE          BIT(28)	/* tx FIFO empty */
-+#define SPACEMIT_SR_RXHF         BIT(29)	/* rx FIFO half-full */
-+#define SPACEMIT_SR_RXF          BIT(30)	/* rx FIFO full */
-+#define SPACEMIT_SR_RXOV         BIT(31)	/* RX FIFO overrun */
-+
-+#define SPACEMIT_I2C_INT_STATUS_MASK	(SPACEMIT_SR_RXOV | SPACEMIT_SR_RXF | SPACEMIT_SR_RXHF | \
-+					SPACEMIT_SR_TXE | SPACEMIT_SR_TXDONE | SPACEMIT_SR_MSD | \
-+					SPACEMIT_SR_SSD | SPACEMIT_SR_SAD | SPACEMIT_SR_BED | \
-+					SPACEMIT_SR_GCAD | SPACEMIT_SR_IRF | SPACEMIT_SR_ITE | \
-+					SPACEMIT_SR_ALD)
-+
-+/* SPACEMIT_IBMR register fields */
-+#define SPACEMIT_BMR_SDA         BIT(0)		/* SDA line level */
-+#define SPACEMIT_BMR_SCL         BIT(1)		/* SCL line level */
-+
-+/* i2c bus recover timeout: us */
-+#define SPACEMIT_I2C_BUS_BUSY_TIMEOUT	100000
-+
-+#define SPACEMIT_SR_ERR	(SPACEMIT_SR_BED | SPACEMIT_SR_RXOV | SPACEMIT_SR_ALD)
-+
-+#define SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ	100000
-+#define SPACEMIT_I2C_MAX_FAST_MODE_FREQ		400000
-+
-+enum spacemit_i2c_state {
-+	STATE_IDLE,
-+	STATE_START,
-+	STATE_READ,
-+	STATE_WRITE,
-+};
-+
-+/* i2c-spacemit driver's main struct */
-+struct spacemit_i2c_dev {
-+	struct device *dev;
-+	struct i2c_adapter adapt;
-+
-+	/* hardware resources */
-+	void __iomem *base;
-+	int irq;
-+	u32 clock_freq;
-+
-+	struct i2c_msg *msgs;
-+	int msg_num;
-+
-+	/* index of the current message being processed */
-+	int msg_idx;
-+	u8 *msg_buf;
-+	/* the number of unprocessed bytes remaining in each message  */
-+	size_t unprocessed;
-+
-+	enum spacemit_i2c_state state;
-+	bool read;
-+	struct completion complete;
-+	u32 status;
-+};
-+
-+static void spacemit_i2c_enable(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 val;
-+
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val |= SPACEMIT_CR_IUE;
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static void spacemit_i2c_disable(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 val;
-+
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val &= ~SPACEMIT_CR_IUE;
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static void spacemit_i2c_reset(struct spacemit_i2c_dev *i2c)
-+{
-+	writel(SPACEMIT_CR_UR, i2c->base + SPACEMIT_ICR);
-+	udelay(5);
-+	writel(0, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static int spacemit_i2c_handle_err(struct spacemit_i2c_dev *i2c)
-+{
-+	dev_dbg(i2c->dev, "i2c error status: 0x%08x\n", i2c->status);
-+
-+	if (i2c->status & (SPACEMIT_SR_BED | SPACEMIT_SR_ALD)) {
-+		spacemit_i2c_reset(i2c);
-+		return -EAGAIN;
-+	}
-+
-+	return i2c->status & SPACEMIT_SR_ACKNAK ? -ENXIO : -EIO;
-+}
-+
-+static void spacemit_i2c_conditionally_reset_bus(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 status;
-+
-+	/* if bus is locked, reset unit. 0: locked */
-+	status = readl(i2c->base + SPACEMIT_IBMR);
-+	if ((status & SPACEMIT_BMR_SDA) && (status & SPACEMIT_BMR_SCL))
-+		return;
-+
-+	spacemit_i2c_reset(i2c);
-+	usleep_range(10, 20);
-+
-+	/* check scl status again */
-+	status = readl(i2c->base + SPACEMIT_IBMR);
-+	if (!(status & SPACEMIT_BMR_SCL))
-+		dev_warn_ratelimited(i2c->dev, "unit reset failed\n");
-+}
-+
-+static int spacemit_i2c_wait_bus_busy(struct spacemit_i2c_dev *i2c)
-+{
-+	int ret;
-+	u32 val;
-+
-+	val = readl(i2c->base + SPACEMIT_ISR);
-+	if (!(val & (SPACEMIT_SR_UB | SPACEMIT_SR_IBB)))
-+		return 0;
-+
-+	ret = readl_poll_timeout(i2c->base + SPACEMIT_ISR,
-+				 val, !(val & (SPACEMIT_SR_UB | SPACEMIT_SR_IBB)),
-+				 1500, SPACEMIT_I2C_BUS_BUSY_TIMEOUT);
-+	if (ret)
-+		spacemit_i2c_reset(i2c);
-+
-+	return ret;
-+}
-+
-+static void spacemit_i2c_check_bus_release(struct spacemit_i2c_dev *i2c)
-+{
-+	/* in case bus is not released after transfer completes */
-+	if (readl(i2c->base + SPACEMIT_ISR) & SPACEMIT_SR_EBB) {
-+		spacemit_i2c_conditionally_reset_bus(i2c);
-+		usleep_range(90, 150);
-+	}
-+}
-+
-+static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 val;
-+
-+	/*
-+	 * Unmask interrupt bits for all xfer mode:
-+	 * bus error, arbitration loss detected.
-+	 * For transaction complete signal, we use master stop
-+	 * interrupt, so we don't need to unmask SPACEMIT_CR_TXDONEIE.
-+	 */
-+	val = SPACEMIT_CR_BEIE | SPACEMIT_CR_ALDIE;
-+
-+	/*
-+	 * Unmask interrupt bits for interrupt xfer mode:
-+	 * DBR rx full.
-+	 * For tx empty interrupt SPACEMIT_CR_DTEIE, we only
-+	 * need to enable when trigger byte transfer to start
-+	 * data sending.
-+	 */
-+	val |= SPACEMIT_CR_DRFIE;
-+
-+	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
-+		val |= SPACEMIT_CR_MODE_FAST;
-+
-+	/* disable response to general call */
-+	val |= SPACEMIT_CR_GCD;
-+
-+	/* enable SCL clock output */
-+	val |= SPACEMIT_CR_SCLE;
-+
-+	/* enable master stop detected */
-+	val |= SPACEMIT_CR_MSDE | SPACEMIT_CR_MSDIE;
-+
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static inline void
-+spacemit_i2c_clear_int_status(struct spacemit_i2c_dev *i2c, u32 mask)
-+{
-+	writel(mask & SPACEMIT_I2C_INT_STATUS_MASK, i2c->base + SPACEMIT_ISR);
-+}
-+
-+static void spacemit_i2c_start(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 slave_addr_rw, val;
-+	struct i2c_msg *cur_msg = i2c->msgs + i2c->msg_idx;
-+
-+	i2c->read = !!(cur_msg->flags & I2C_M_RD);
-+
-+	i2c->state = STATE_START;
-+
-+	slave_addr_rw = (cur_msg->addr & 0x7f) << 1;
-+	if (cur_msg->flags & I2C_M_RD)
-+		slave_addr_rw |= 1;
-+
-+	writel(slave_addr_rw, i2c->base + SPACEMIT_IDBR);
-+
-+	/* send start pulse */
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val &= ~SPACEMIT_CR_STOP;
-+	val |= SPACEMIT_CR_START | SPACEMIT_CR_TB | SPACEMIT_CR_DTEIE;
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static void spacemit_i2c_stop(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 val;
-+
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val |= SPACEMIT_CR_STOP | SPACEMIT_CR_ALDIE | SPACEMIT_CR_TB;
-+
-+	if (i2c->read)
-+		val |= SPACEMIT_CR_ACKNAK;
-+
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+}
-+
-+static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
-+{
-+	unsigned long time_left;
-+
-+	for (i2c->msg_idx = 0; i2c->msg_idx < i2c->msg_num; i2c->msg_idx++) {
-+		i2c->msg_buf = (i2c->msgs + i2c->msg_idx)->buf;
-+		i2c->status = 0;
-+		i2c->unprocessed = (i2c->msgs + i2c->msg_idx)->len;
-+
-+		reinit_completion(&i2c->complete);
-+
-+		spacemit_i2c_start(i2c);
-+
-+		time_left = wait_for_completion_timeout(&i2c->complete,
-+							i2c->adapt.timeout);
-+		if (time_left == 0) {
-+			dev_err(i2c->dev, "msg completion timeout\n");
-+			spacemit_i2c_conditionally_reset_bus(i2c);
-+			spacemit_i2c_reset(i2c);
-+			return -ETIMEDOUT;
-+		}
-+
-+		if (i2c->status & SPACEMIT_SR_ERR)
-+			return spacemit_i2c_handle_err(i2c);
-+	}
-+
-+	return 0;
-+}
-+
-+static bool spacemit_i2c_is_last_msg(struct spacemit_i2c_dev *i2c)
-+{
-+	if (i2c->msg_idx != i2c->msg_num - 1)
-+		return false;
-+
-+	if (i2c->read)
-+		return i2c->unprocessed == 1;
-+
-+	return !i2c->unprocessed;
-+}
-+
-+static void spacemit_i2c_handle_write(struct spacemit_i2c_dev *i2c)
-+{
-+	/* if transfer completes, SPACEMIT_ISR will handle it */
-+	if (i2c->status & SPACEMIT_SR_MSD)
-+		return;
-+
-+	if (i2c->unprocessed) {
-+		writel(*i2c->msg_buf++, i2c->base + SPACEMIT_IDBR);
-+		i2c->unprocessed--;
-+		return;
-+	}
-+
-+	/* STATE_IDLE avoids trigger next byte */
-+	i2c->state = STATE_IDLE;
-+	complete(&i2c->complete);
-+}
-+
-+static void spacemit_i2c_handle_read(struct spacemit_i2c_dev *i2c)
-+{
-+	if (i2c->unprocessed) {
-+		*i2c->msg_buf++ = readl(i2c->base + SPACEMIT_IDBR);
-+		i2c->unprocessed--;
-+	}
-+
-+	/* if transfer completes, SPACEMIT_ISR will handle it */
-+	if (i2c->status & (SPACEMIT_SR_MSD | SPACEMIT_SR_ACKNAK))
-+		return;
-+
-+	/* it has to append stop bit in icr that read last byte */
-+	if (i2c->unprocessed)
-+		return;
-+
-+	/* STATE_IDLE avoids trigger next byte */
-+	i2c->state = STATE_IDLE;
-+	complete(&i2c->complete);
-+}
-+
-+static void spacemit_i2c_handle_start(struct spacemit_i2c_dev *i2c)
-+{
-+	i2c->state = i2c->read ? STATE_READ : STATE_WRITE;
-+	if (i2c->state == STATE_WRITE)
-+		spacemit_i2c_handle_write(i2c);
-+}
-+
-+static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c)
-+{
-+	u32 val;
-+
-+	/*
-+	 * send transaction complete signal:
-+	 * error happens, detect master stop
-+	 */
-+	if (!(i2c->status & (SPACEMIT_SR_ERR | SPACEMIT_SR_MSD)))
-+		return;
-+
-+	/*
-+	 * Here the transaction is already done, we don't need any
-+	 * other interrupt signals from now, in case any interrupt
-+	 * happens before spacemit_i2c_xfer to disable irq and i2c unit,
-+	 * we mask all the interrupt signals and clear the interrupt
-+	 * status.
-+	 */
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val &= ~SPACEMIT_I2C_INT_CTRL_MASK;
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+
-+	spacemit_i2c_clear_int_status(i2c, SPACEMIT_I2C_INT_STATUS_MASK);
-+
-+	i2c->state = STATE_IDLE;
-+	complete(&i2c->complete);
-+}
-+
-+static irqreturn_t spacemit_i2c_irq_handler(int irq, void *devid)
-+{
-+	struct spacemit_i2c_dev *i2c = devid;
-+	u32 status, val;
-+
-+	status = readl(i2c->base + SPACEMIT_ISR);
-+	if (!status)
-+		return IRQ_HANDLED;
-+
-+	i2c->status = status;
-+
-+	spacemit_i2c_clear_int_status(i2c, status);
-+
-+	if (i2c->status & SPACEMIT_SR_ERR)
-+		goto err_out;
-+
-+	val = readl(i2c->base + SPACEMIT_ICR);
-+	val &= ~(SPACEMIT_CR_TB | SPACEMIT_CR_ACKNAK | SPACEMIT_CR_STOP | SPACEMIT_CR_START);
-+	writel(val, i2c->base + SPACEMIT_ICR);
-+
-+	switch (i2c->state) {
-+	case STATE_START:
-+		spacemit_i2c_handle_start(i2c);
-+		break;
-+	case STATE_READ:
-+		spacemit_i2c_handle_read(i2c);
-+		break;
-+	case STATE_WRITE:
-+		spacemit_i2c_handle_write(i2c);
-+		break;
-+	default:
-+		break;
-+	}
-+
-+	if (i2c->state != STATE_IDLE) {
-+		if (spacemit_i2c_is_last_msg(i2c)) {
-+			/* trigger next byte with stop */
-+			spacemit_i2c_stop(i2c);
-+		} else {
-+			/* trigger next byte */
-+			val |= SPACEMIT_CR_ALDIE | SPACEMIT_CR_TB;
-+			writel(val, i2c->base + SPACEMIT_ICR);
-+		}
-+	}
-+
-+err_out:
-+	spacemit_i2c_err_check(i2c);
-+	return IRQ_HANDLED;
-+}
-+
-+static void spacemit_i2c_calc_timeout(struct spacemit_i2c_dev *i2c)
-+{
-+	unsigned long timeout;
-+	int idx = 0, cnt = 0;
-+
-+	while (idx < i2c->msg_num) {
-+		cnt += (i2c->msgs + idx)->len + 1;
-+		idx++;
-+	}
-+
-+	/*
-+	 * multiply by 9 because each byte in I2C transmission requires
-+	 * 9 clock cycles: 8 bits of data plus 1 ACK/NACK bit.
-+	 */
-+	timeout = cnt * 9 * USEC_PER_SEC / i2c->clock_freq;
-+
-+	i2c->adapt.timeout = usecs_to_jiffies(timeout + USEC_PER_SEC / 2) / i2c->msg_num;
-+}
-+
-+static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
-+{
-+	struct spacemit_i2c_dev *i2c = i2c_get_adapdata(adapt);
-+	int ret;
-+
-+	i2c->msgs = msgs;
-+	i2c->msg_num = num;
-+
-+	spacemit_i2c_calc_timeout(i2c);
-+
-+	spacemit_i2c_init(i2c);
-+
-+	spacemit_i2c_enable(i2c);
-+
-+	ret = spacemit_i2c_wait_bus_busy(i2c);
-+	if (!ret)
-+		spacemit_i2c_xfer_msg(i2c);
-+
-+	if (ret < 0)
-+		dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
-+	else if (ret)
-+		spacemit_i2c_check_bus_release(i2c);
-+
-+	spacemit_i2c_disable(i2c);
-+
-+	if (ret == -ETIMEDOUT || ret == -EAGAIN)
-+		dev_alert(i2c->dev, "i2c transfer failed, ret %d err 0x%lx\n",
-+			  ret, i2c->status & SPACEMIT_SR_ERR);
-+
-+	return ret < 0 ? ret : num;
-+}
-+
-+static u32 spacemit_i2c_func(struct i2c_adapter *adap)
-+{
-+	return I2C_FUNC_I2C | (I2C_FUNC_SMBUS_EMUL & ~I2C_FUNC_SMBUS_QUICK);
-+}
-+
-+static const struct i2c_algorithm spacemit_i2c_algo = {
-+	.xfer = spacemit_i2c_xfer,
-+	.functionality = spacemit_i2c_func,
-+};
-+
-+static int spacemit_i2c_probe(struct platform_device *pdev)
-+{
-+	struct clk *clk;
-+	struct device *dev = &pdev->dev;
-+	struct device_node *of_node = pdev->dev.of_node;
-+	struct spacemit_i2c_dev *i2c;
-+	int ret;
-+
-+	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
-+	if (!i2c)
-+		return -ENOMEM;
-+
-+	ret = of_property_read_u32(of_node, "clock-frequency", &i2c->clock_freq);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to read clock-frequency property");
-+
-+	/* For now, this driver doesn't support high-speed. */
-+	if (i2c->clock_freq < 1 || i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
-+		dev_warn(dev, "unsupport clock frequency: %d, default: %d",
-+			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
-+		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
-+	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
-+		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
-+	}
-+
-+	i2c->dev = &pdev->dev;
-+
-+	i2c->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(i2c->base))
-+		return dev_err_probe(dev, PTR_ERR(i2c->base), "failed to do ioremap");
-+
-+	i2c->irq = platform_get_irq(pdev, 0);
-+	if (i2c->irq < 0)
-+		return dev_err_probe(dev, i2c->irq, "failed to get irq resource");
-+
-+	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
-+			       IRQF_NO_SUSPEND | IRQF_ONESHOT, dev_name(i2c->dev), i2c);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "failed to request irq");
-+
-+	clk = devm_clk_get_enabled(dev, "func");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
-+
-+	clk = devm_clk_get_enabled(dev, "bus");
-+	if (IS_ERR(clk))
-+		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
-+
-+	spacemit_i2c_reset(i2c);
-+
-+	i2c_set_adapdata(&i2c->adapt, i2c);
-+	i2c->adapt.owner = THIS_MODULE;
-+	i2c->adapt.algo = &spacemit_i2c_algo;
-+	i2c->adapt.dev.parent = i2c->dev;
-+	i2c->adapt.nr = pdev->id;
-+
-+	i2c->adapt.dev.of_node = of_node;
-+	i2c->adapt.algo_data = i2c;
-+
-+	strscpy(i2c->adapt.name, "spacemit-i2c-adapter", sizeof(i2c->adapt.name));
-+
-+	init_completion(&i2c->complete);
-+
-+	platform_set_drvdata(pdev, i2c);
-+
-+	ret = i2c_add_numbered_adapter(&i2c->adapt);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret, "failed to add i2c adapter");
-+
-+	return 0;
-+}
-+
-+static void spacemit_i2c_remove(struct platform_device *pdev)
-+{
-+	struct spacemit_i2c_dev *i2c = platform_get_drvdata(pdev);
-+
-+	i2c_del_adapter(&i2c->adapt);
-+}
-+
-+static const struct of_device_id spacemit_i2c_of_match[] = {
-+	{ .compatible = "spacemit,k1-i2c", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, spacemit_i2c_of_match);
-+
-+static struct platform_driver spacemit_i2c_driver = {
-+	.probe = spacemit_i2c_probe,
-+	.remove = spacemit_i2c_remove,
-+	.driver = {
-+		.name = "i2c-k1",
-+		.of_match_table = spacemit_i2c_of_match,
-+	},
-+};
-+module_platform_driver(spacemit_i2c_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("I2C bus driver for SpacemiT K1 SoC");
+ - v4 changes:
+  - add changes for other cpuidle driver that has the similar issue
+    as cpuidle-pcsi driver.
 
+ - v3 changes:
+  - improve the changelog as suggested by Sudeep
+---
+ drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
+ drivers/cpuidle/cpuidle-big_little.c | 2 +-
+ drivers/cpuidle/cpuidle-psci.c       | 4 ++--
+ drivers/cpuidle/cpuidle-qcom-spm.c   | 2 +-
+ drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
+ 5 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/cpuidle/cpuidle-arm.c b/drivers/cpuidle/cpuidle-arm.c
+index caba6f4bb1b7..e044fefdb816 100644
+--- a/drivers/cpuidle/cpuidle-arm.c
++++ b/drivers/cpuidle/cpuidle-arm.c
+@@ -137,9 +137,9 @@ static int __init arm_idle_init_cpu(int cpu)
+ /*
+  * arm_idle_init - Initializes arm cpuidle driver
+  *
+- * Initializes arm cpuidle driver for all CPUs, if any CPU fails
+- * to register cpuidle driver then rollback to cancel all CPUs
+- * registration.
++ * Initializes arm cpuidle driver for all present CPUs, if any
++ * CPU fails to register cpuidle driver then rollback to cancel
++ * all CPUs registration.
+  */
+ static int __init arm_idle_init(void)
+ {
+@@ -147,7 +147,7 @@ static int __init arm_idle_init(void)
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+ 
+-	for_each_possible_cpu(cpu) {
++	for_each_present_cpu(cpu) {
+ 		ret = arm_idle_init_cpu(cpu);
+ 		if (ret)
+ 			goto out_fail;
+diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
+index 74972deda0ea..4abba42fcc31 100644
+--- a/drivers/cpuidle/cpuidle-big_little.c
++++ b/drivers/cpuidle/cpuidle-big_little.c
+@@ -148,7 +148,7 @@ static int __init bl_idle_driver_init(struct cpuidle_driver *drv, int part_id)
+ 	if (!cpumask)
+ 		return -ENOMEM;
+ 
+-	for_each_possible_cpu(cpu)
++	for_each_present_cpu(cpu)
+ 		if (smp_cpuid_part(cpu) == part_id)
+ 			cpumask_set_cpu(cpu, cpumask);
+ 
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index dd8d776d6e39..b46a83f5ffe4 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -403,7 +403,7 @@ static int psci_idle_init_cpu(struct device *dev, int cpu)
+ /*
+  * psci_idle_probe - Initializes PSCI cpuidle driver
+  *
+- * Initializes PSCI cpuidle driver for all CPUs, if any CPU fails
++ * Initializes PSCI cpuidle driver for all present CPUs, if any CPU fails
+  * to register cpuidle driver then rollback to cancel all CPUs
+  * registration.
+  */
+@@ -413,7 +413,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+ 
+-	for_each_possible_cpu(cpu) {
++	for_each_present_cpu(cpu) {
+ 		ret = psci_idle_init_cpu(&pdev->dev, cpu);
+ 		if (ret)
+ 			goto out_fail;
+diff --git a/drivers/cpuidle/cpuidle-qcom-spm.c b/drivers/cpuidle/cpuidle-qcom-spm.c
+index 3ab240e0e122..5f386761b156 100644
+--- a/drivers/cpuidle/cpuidle-qcom-spm.c
++++ b/drivers/cpuidle/cpuidle-qcom-spm.c
+@@ -135,7 +135,7 @@ static int spm_cpuidle_drv_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "set warm boot addr failed");
+ 
+-	for_each_possible_cpu(cpu) {
++	for_each_present_cpu(cpu) {
+ 		ret = spm_cpuidle_register(&pdev->dev, cpu);
+ 		if (ret && ret != -ENODEV) {
+ 			dev_err(&pdev->dev,
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 0c92a628bbd4..0fe1ece9fbdc 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -529,8 +529,8 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
+-	/* Initialize CPU idle driver for each CPU */
+-	for_each_possible_cpu(cpu) {
++	/* Initialize CPU idle driver for each present CPU */
++	for_each_present_cpu(cpu) {
+ 		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
+ 		if (ret) {
+ 			pr_debug("HART%ld: idle driver init failed\n",
 -- 
 2.34.1
 
