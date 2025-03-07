@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F0C9C19F32
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 10:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92E37C19F32
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 13:16:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GAfPwwJkS4a+V7VoNesydorJgSGtXHI9sYV64RZG6OM=; b=zNnqV8vJdM5R8O
-	tW8Uv8jxe21qS33BVb65hweRFQjQfvIgS3wcbIHBw+Rp95pKO0toJ/V9UVcnrxJt54XMZ+qIKCDs3
-	YuJ5qhLL+yfHwDCxo3jvRlT6uXlffiFkA13lJJGpIaqgCGv4Z5fwKLngVryorwWrgKqOpGK0ZGBbz
-	bYCiUKaD4LkqPmPJsH3Pg3UM5ayzz8VGzdjCcOnz7Yz1VxmH4eTxzHzgXv3JAR2Vlb7s9M+TSedKS
-	j+c/R5u7RKrI8zR89cZoKReaQzcovgTWR/anmt7EiG4Iif5vmry2WeUZAjVxkZalDu4+YknXnk+tj
-	aQ8S43cG8dk7dLIyms7g==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2UZ414Wl+iWzRWLB80mbT4H9bP1G70OM8rZck+5caO4=; b=uvCtAJ+Nr43TCl
+	JXDDQDbJ2I0dqaG0AYwAW8w3PI7CXmw92EenOVsZBc0ayp/O9C8kTB7ZtwRvZLN5zE4HqUWBrTl7c
+	/tDfHZBaLoYSlzjnKCyDcTGXFK7IT7p96cCC9PoTLTSKkON9U9CDOsOy/9ShF+RYrYqyrEXDBnzMo
+	VwsFVfaQKgG2VVjGFArclUKW0Jzv8xM2SsGgpoK4LnSuX9nliwiNLDqH6/FX4PTl1IRDhI8qNyaLV
+	lXsvkdOwyncTGjm5EiWe+3vecD3aswO4IwMk33ya+hyRa4PgqFS2p5qEdRFtIn/hWFMoRFeNgFcze
+	Y0hjVCsA7egWDQ1mvLig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVLE-0000000DwYb-0Uz4;
-	Fri, 07 Mar 2025 10:54:08 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1tqXZB-0000000EITl-1zZj;
+	Fri, 07 Mar 2025 13:16:41 +0000
+Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV4d-0000000DtzU-3jQ2
+	id 1tqXZ9-0000000EITR-1aJr
 	for linux-riscv@lists.infradead.org;
-	Fri, 07 Mar 2025 10:37:01 +0000
-Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
-	by Atcsqr.andestech.com with ESMTPS id 527AaPBY052202
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK);
-	Fri, 7 Mar 2025 18:36:25 +0800 (+08)
-	(envelope-from ben717@andestech.com)
-Received: from atctrx.andestech.com (10.0.15.11) by ATCPCS34.andestech.com
- (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 7 Mar
- 2025 18:36:25 +0800
-Date: Fri, 7 Mar 2025 18:36:25 +0800
-From: Ben Zong-You Xie <ben717@andestech.com>
-To: Conor Dooley <conor@kernel.org>
-CC: <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <paul.walmsley@sifive.com>, <palmer@dabbelt.com>,
-        <aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <tim609@andestech.com>
-Subject: Re: [PATCH] riscv: add Andes SoC family Kconfig support
-Message-ID: <Z8rMKZoDYmpNosSj@atctrx.andestech.com>
-References: <20250305030526.1986062-1-ben717@andestech.com>
- <20250306-finale-chatroom-c620ff284d8c@spud>
+	Fri, 07 Mar 2025 13:16:40 +0000
+Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-22349bb8605so34322985ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 07 Mar 2025 05:16:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741353398; x=1741958198; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gMvbXHKHSCisZxL639THXPR5iE2SKt/8fGdQQfWVyFU=;
+        b=KXnI+H7jSJQryrfRA3UMM4VV+j/z7Nb7hubu8wQ+qjw6n5fDWc5naTB3ZoNMQP96sP
+         vHw719EnK+nWIRSXKMfdfv+2N17cx4kEXYc6uN+3pIiMEuM2XxBoF2CP9kNLfOJSw3iM
+         /DaKwK3w0uJ82CvY2f8wGJxXK+QGb/WC1hsWWUJkfsPEqaWx+JLx6uJGnOj54Us7e8C1
+         rqJHRsDlwvk2PP3KVdRgNssSw3bzvJbyi0XnVeIzjNl9xKi5C/UD1dbK6oUj3HraD9G8
+         ux212g9E6PXwT91QcJ+vCbxvJzPqZ/+yOihY+SukZh6USdbb9uBWw6RH04PfUU/DoW4k
+         F6Mw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741353398; x=1741958198;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gMvbXHKHSCisZxL639THXPR5iE2SKt/8fGdQQfWVyFU=;
+        b=ePqIyBHiAhx54rXCtePZhhMnCwm9q/aP9L2hsS6uv8eY3CURRYcX/x46qUBcJLKDL+
+         dF8XqElG+5TKkegv/lj+1uJZaiaR/gTesDrfSIBDA/EcBGWX+WwVjmO3Kt8AnPHY8p7C
+         KWiBDG0HPefPUsTciEwCbE10VF2Bsairzl5/Cv+EDcIsNLvFV5EgMwn1fSmAKUTCeqwF
+         i+DMSmx47xcnpk+BR3BJHqnVeyoMdM5tPQnbY8nAl5utkzH2+W6knqy2c8gdizk4/YBz
+         i4Raihvjc1xLZRfJZ7MfsEpm5K1ijBHKG+dlpnjagHq/Z5MbMXTDodSOo50hvCY+kXIa
+         Z5tA==
+X-Gm-Message-State: AOJu0Yxt41HzOXmmJZWW0JXuW2upFXp4efffEzLmnP34dWBeX2Qw0vSr
+	fmLOUZXpY4Azt0weEoSQqISyeQusYL+ZwHP4RWC5eXaVp7OccrhC
+X-Gm-Gg: ASbGncsTWlozr8H1R7rmEURRl3xzh4hChPzvS7jG86a9EZnF5zjLliFuFurpE/eSJ1q
+	T76RKedbkosjQzJg+GJ9HqshHF5vslJsbHhLBqsonEZchJ8kNZ1J6Jdr52Dmxye6F03tDzXGg8R
+	2YCo6M1p0cMBeI8w2zE/Ed/aLuxLj9vrtSPVQCQ1uWRgnXmp1GzR1zwsd3RVIpZiRn0WmQdfubO
+	M66YRVTK7vC4ho7kkPXxn0GylnSo2ZKlZUrqLJzIsaVTpbXIeTZux0Tc61029WhMzsUWbwp7AP8
+	o7hR9zkeH9ipTdjZ2fobiIwke3f3
+X-Google-Smtp-Source: AGHT+IGuZdlA+BS6H0fs1GCOn7IAPiD3AnSb1clZZH8wjlj+5zl7SMB+jNl9tmfBcw4YKqPpDlpEWA==
+X-Received: by 2002:a17:90b:4c44:b0:2ee:f80c:6889 with SMTP id 98e67ed59e1d1-2ff7cf22f41mr6030863a91.33.1741353398529;
+        Fri, 07 Mar 2025 05:16:38 -0800 (PST)
+Received: from [127.0.1.1] ([2602:f919:106::1b8])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff693f7cebsm2984589a91.45.2025.03.07.05.16.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Mar 2025 05:16:38 -0800 (PST)
+From: Troy Mitchell <troymitchell988@gmail.com>
+Subject: [PATCH v6 0/2] riscv: spacemit: add i2c support to K1 SoC
+Date: Fri, 07 Mar 2025 21:13:45 +0800
+Message-Id: <20250307-k1-i2c-master-v6-0-34f17d2dae1c@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250306-finale-chatroom-c620ff284d8c@spud>
-User-Agent: Mutt/2.1.4 (2021-12-11)
-X-Originating-IP: [10.0.15.11]
-X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
- ATCPCS34.andestech.com (10.0.1.134)
-X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 527AaPBY052202
+X-B4-Tracking: v=1; b=H4sIAArxymcC/5WQwU6EMBCGX4VwtpvpTFsKJ1/AmzfjoZRBGpdFC
+ xI3m313C2qWcDEe/0y+L//8l3zkGHjMq+ySR57DGIZTCuYuy33nTi8sQpNyjoBKAknxKkVAL3o
+ 3ThxFy0Vb1NB4LilPzFvkNnyuvqfnlNs49GLqIruNBS1oQoQDKYOWhBSPcTg/hMl3fDyW1t6/9
+ C4cD37of5yR3z9StelbfGtWZYsRDJqlF0hRuzF40UxCOkeSmWvfYDXrxZNuLJKzD1OVWS6x9LV
+ WhlmhL52RDarWsQEDmksmWSJplS9fdGGchnheR5rVWmH9RKLe7TErAQJaarS1hsjUm1cW00wbW
+ uKepkRrAF0XaVIEu6fxRv9rxRWWG1hqKLQkdZBKlUrbv2n9S2sgoH1xnYqjbFpfuKZlKrb09Xr
+ 9AnrL1lVnAgAA
+X-Change-ID: 20241031-k1-i2c-master-fe7f7b0dce93
+To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Troy Mitchell <troymitchell988@gmail.com>
+Cc: linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741353244; l=5452;
+ i=troymitchell988@gmail.com; h=from:subject:message-id;
+ bh=wUTCKQdFRduQqpYphO7bDmBlHds/Fl4g1FtGtN00RRM=;
+ b=JTxhTRL0Z2JT2mTJnFDUsLORpQFRZ623+XTqU/OxWEMqkF9l/h17XSR0kmCtSf+4Efb33GUZX
+ bfzatGA3bDjAFacQVFyBPOpdODYLRkGGrmV3ZV35qZyhrHnaYL8PjrY
+X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
+ pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_023700_248881_DEA8E627 
-X-CRM114-Status: GOOD (  24.74  )
+X-CRM114-CacheID: sfid-20250307_051639_422431_E4BD1DD2 
+X-CRM114-Status: GOOD (  18.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +113,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 04:40:49PM +0000, Conor Dooley wrote:
-> [EXTERNAL MAIL]
+Hi all,
 
-> Date: Thu, 6 Mar 2025 16:40:49 +0000
-> From: Conor Dooley <conor@kernel.org>
-> To: Ben Zong-You Xie <ben717@andestech.com>
-> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
->  paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
->  alex@ghiti.fr
-> Subject: Re: [PATCH] riscv: add Andes SoC family Kconfig support
-> 
-> On Wed, Mar 05, 2025 at 11:05:26AM +0800, Ben Zong-You Xie wrote:
-> > The first SoC in the Andes series is QiLai. It includes a high-performance
-> > quad-core RISC-V AX45MP cluster and one NX27V vector processor.
-> 
-> I'd expect a config option like this to come with the user, which in
-> this case is the dts etc for a board using the QiLai SoC or drivers for
-> the SoC. Without dts or drivers, there's no reason to ever enable this,
-> so where are those patches?
-> 
-> Cheers,
-> Conor.
-> 
+This patch implements I2C driver for the SpacemiT K1 SoC,
+providing basic support for I2C read/write communication which
+compatible with standard I2C bus specifications.
 
-Hi Conor,
+In this version, the driver defaults to use fast-speed-mode and
+interrupts for transmission, and does not support DMA, high-speed mode, or FIFO.
 
-We are still preparing those patches for upstream, and we will add them
-in the next patch series.
+The docs of I2C can be found here, in chapter 16.1 I2C [1]
 
-Thanks,
-Ben
+Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#part5 [1]
+---
+Change in v6:
+- Patch #1:
+        - Give a brief clock description and a clear clock name
+        - Changed the clock numbers in the example to match those
+          in the mainline clock driver
+- Patch #2:
+        - Fix incorrect comments in macro definitions
+        - Fix code style
+        - Merge `spacemit_i2c_xfer_core` into `spacemit_i2c_xfer`
+        - Remove `reset` and `enable_irq` before each transfer
+          and place `reset` in the probe function.
+        - SPACEMIT_I2C_GET_ERR -> SPACEMIT_I2C_SR_ERR
+        - spacemit_i2c_recover_bus_busy -> spacemit_i2c_wait_bus_busy
+        - Support standard mode
+Link to v5:
+https://lore.kernel.org/all/20250303-k1-i2c-master-v5-0-21dfc7adfe37@gmail.com/
 
-> > 
-> > For further information, refer to [1].
-> > 
-> > [1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
-> > 
-> > Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
-> > ---
-> >  arch/riscv/Kconfig.errata | 2 +-
-> >  arch/riscv/Kconfig.socs   | 9 +++++++++
-> >  2 files changed, 10 insertions(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
-> > index e318119d570d..be76883704a6 100644
-> > --- a/arch/riscv/Kconfig.errata
-> > +++ b/arch/riscv/Kconfig.errata
-> > @@ -12,7 +12,7 @@ config ERRATA_ANDES
-> >  
-> >  config ERRATA_ANDES_CMO
-> >  	bool "Apply Andes cache management errata"
-> > -	depends on ERRATA_ANDES && ARCH_R9A07G043
-> > +	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
-> >  	select RISCV_DMA_NONCOHERENT
-> >  	default y
-> >  	help
-> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-> > index 1916cf7ba450..b89b6e0d1bc9 100644
-> > --- a/arch/riscv/Kconfig.socs
-> > +++ b/arch/riscv/Kconfig.socs
-> > @@ -1,5 +1,14 @@
-> >  menu "SoC selection"
-> >  
-> > +config ARCH_ANDES
-> > +	bool "Andes SoCs"
-> > +	depends on MMU && !XIP_KERNEL
-> > +	select ERRATA_ANDES
-> > +	select ERRATA_ANDES_CMO
-> > +	select AX45MP_L2_CACHE
-> > +	help
-> > +	  This enables support for Andes SoC platform hardware.
-> > +
-> >  config ARCH_MICROCHIP_POLARFIRE
-> >  	def_bool ARCH_MICROCHIP
-> >  
-> > -- 
-> > 2.34.1
-> > 
-> > 
-> > _______________________________________________
-> > linux-riscv mailing list
-> > linux-riscv@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+Change in v5:
+- Patch #1:
+        - Add `clock-names` property
+        - Modify the clock property into two
+- Patch #2:
+        - Enable the APB clock
+        - Fix comment and code styles
+        - Fix typo and drop unnecessary description in Kconfig
+        - Prefix all macro definitions with SPACEMIT_
+        - Rename `spacemit_i2c_bus_reset` to `spacemit_i2c_conditionally_reset_bus`
+        - Remove all `unlikely` and `likely`
+        - Remove unused register and bit macros
+        - Remove the "err" field, as it only contains a subset of the status field
+        - Retrieve `clock-frequency` from the device tree instead of using a macro
+        - Use a local variable to track the current message
+        - Use `i2c->read` to represent read and write statuses instead of `i2c->dir`
+Link to v4:
+https://lore.kernel.org/all/20241125-k1-i2c-master-v4-0-0f3d5886336b@gmail.com/
 
+Change in v4:
+- Patch #1:
+	- Change the default value of clock-frequency from 100000 to
+	  400000. This is to correspond to the driver's default value.
+	- Drop the minimum of clock-frequency
+	- Modify the description of clock-frequency
+- Patch #2:
+	- Drop the `inline` qualifier from the `spacemit_i2c_xfer_core` function
+	- Drop the initialization of `ret` to 0 in `spacemit_i2c_xfer_core` function
+	- Drop useless wrap
+Link to v3:
+https://lore.kernel.org/all/20241112-k1-i2c-master-v3-0-5005b70dc208@gmail.com/
 
+Change in v3:
+- Patch #1:
+	- Change the maxItems of reg from 2 to 1 in properties
+	- Modify reg in dts example
+	- Changed the enum selection for clock-frequency to a range,
+	  setting a minimum value of 1 and a maximum value of 3,300,000.
+- Patch #2:
+	- Drop unused judgement in `spacemit_i2c_xfer_msg`
+	- Fix the dangling else warning in `spacemit_i2c_is_last_msg`
+	- Fix the error check for `i2c->base`
+	- Modify Kconfig dependencies
+Link to v2:
+https://lore.kernel.org/all/20241028053220.346283-1-TroyMitchell988@gmail.com/
+
+Change in v2:
+- Patch #1:
+	- Change the maxItems of reg from 1 to 2 in properties
+	- Change 'i2c' to 'I2C' in the commit message.
+	- Drop fifo-disable property
+	- Drop alias in dts example
+	- Move `unevaluatedProperties` after `required:` block
+- Patch #2:
+	- Alphabetize Makefile and Kconfig
+	- Change `.remove_new` to `.remove` in `struct platform_driver`
+	- Change `dev_alert` to `dev_warn_ratelimited` in `spacemit_i2c_bus_reset`
+	- Change `spacemit_i2c_read/write_reg` to `read/writel`
+	- Change `spacemit_i2c_dt_match` to `spacemit_i2c_of_match`
+	- Clean up code flow
+	- Fix unnecessary line wraps
+	- Move `spacemit_i2c_handle_err` to a suitable location
+	- Modify Kconfig dependencies
+	- Use `PTR_ERR(i2c->base)` directly as the `dev_err_probe` parameter instead of
+	  the intermediate variable
+Link to v1:
+https://lore.kernel.org/all/20241015075134.1449458-1-TroyMitchell988@gmail.com/
+
+---
+Troy Mitchell (2):
+      dt-bindings: i2c: spacemit: add support for K1 SoC
+      i2c: spacemit: add support for SpacemiT K1 SoC
+
+ .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   |  61 +++
+ drivers/i2c/busses/Kconfig                         |  17 +
+ drivers/i2c/busses/Makefile                        |   1 +
+ drivers/i2c/busses/i2c-k1.c                        | 601 +++++++++++++++++++++
+ 4 files changed, 680 insertions(+)
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241031-k1-i2c-master-fe7f7b0dce93
+prerequisite-change-id: 20240626-k1-01-basic-dt-1aa31eeebcd2:v5
+prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
+
+Best regards,
+-- 
+Troy Mitchell <troymitchell988@gmail.com>
 
 
 _______________________________________________
