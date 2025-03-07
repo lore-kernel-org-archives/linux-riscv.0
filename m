@@ -4,81 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EF4FC282D1
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 01:50:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BE2C282EC
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 01:53:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WAsFcehvTWN+mrI84PhyM59zVDYW899PVDw2X1oRq3U=; b=xxPCW1IPaU0hXY
-	aMVxVES0aynxPuFh5cSViYqER0gYBOZKTYq4MrEAqeOfLBWbvBqzvG8v9tGt79U3m/aDbHiWkJ56b
-	uDNwKyqgILE+WYog4OiDI+SPacjyT8NFHOPuzQTlKSDBb6ogSr3PjTbG1bqp92ksHlvwGycaWZG20
-	R/ROC2hRMtSTMZEpJMYLweQE8fpOCPQngJ95MrI/iaUQlHEDXLT0CYSZzs7nPKUIfiXLuoSwEwo4c
-	acMCE+GBz/nc4fDXliSZCiS/mZbMzAi19pBtdwgYXUqcYH+OFkE310LiMHWFvKan7B0iYVcSKRVmS
-	3tLu4S4GVrJ+6bmgByEA==;
+	List-Owner; bh=lCIgZCm5D3WkuPNw4uV+cvT5SRlzW+U8AogyNLJzqAg=; b=k8n1CL6J2F8wEC
+	5tSbXAd0QYKroKbci1PKmIe10v19zzEnha1LecfQIbeFbmE/l6BrFe/9Q5f995pcDFU00sEtnOSuP
+	zBPST8OM4kODnrh1avvKO3F3yjHsmc2bpGWBpE04GtxYTOfrDy2Nq10Ka5ZW/Hne4jVZgx9WJJFNI
+	zUKQQf+UwXgwfECsJFjX5EeWR6ZI7TKlI7NEu9FOr1iob41u0o7i9I6F8GooyH4rI/crQ6MOO2W1C
+	7eXpyoQi4P74Ky24N/XnAuff1FnfjnS0bbfjAHloIArDbhD+fKEGpNjwyg30KO0uyFt34989NXZeu
+	B36x6sphgGlA7LiY26Kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMr7-0000000Cqcc-2i06;
-	Fri, 07 Mar 2025 01:50:29 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqMuJ-0000000Cr39-2I2m;
+	Fri, 07 Mar 2025 01:53:47 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMPw-0000000CmwM-1zgt;
-	Fri, 07 Mar 2025 01:22:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9D8B85C5AEE;
-	Fri,  7 Mar 2025 01:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD6CC4CEE0;
-	Fri,  7 Mar 2025 01:22:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741310543;
-	bh=qoWrscZOahCo4c1kw/Xs9+mG1u4iBzWCpyeXDPmje18=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ixMTgMBN5bEz5ywSEjw16lOymw3RAJaEk2QN1yCrCQ0/VC/jp02rZwjim3bweOKU1
-	 inl9oBWKtjr0LIOvJJ6bs6vrkJexp+13IoBrLc+gxuGzZXYLMjpSjHO0WKu0udD6gi
-	 YOPtf2AUGSLOC2QVKO/Gx59xuWDmBDnu5kq8yeGzjOH790tpdJE7RNCk/maGNdbumO
-	 uOhSjdhOaiJipTJjCHQVW5CxwryBHVpxn6hXQOLyRtM72BW6Yin+U2n2XYDey1hGok
-	 GTVwxD73YcSoxwO7jfitu7qi7esTTxO+LgD8RsUgFAt3X6RldmxuxrnNqPB23LwmKf
-	 fgi8nNNzcIFRw==
-Date: Thu, 6 Mar 2025 17:22:20 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 06/11] perf dso: Add support for reading the e_machine
- type for a dso
-Message-ID: <Z8pKTE7tOqdqNUdA@google.com>
-References: <20250304050305.901167-1-irogers@google.com>
- <20250304050305.901167-7-irogers@google.com>
+	id 1tqMVt-0000000CnfB-0RLA
+	for linux-riscv@lists.infradead.org;
+	Fri, 07 Mar 2025 01:28:34 +0000
+Received: from localhost (unknown [116.232.18.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id D181D342FAD;
+	Fri, 07 Mar 2025 01:28:31 +0000 (UTC)
+Date: Fri, 7 Mar 2025 01:28:27 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH RFC 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
+Message-ID: <20250307012827-GYA66425@gentoo>
+References: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
+ <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
+ <4643012e-b7c9-444d-b4f3-d743ae7d2943@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250304050305.901167-7-irogers@google.com>
+In-Reply-To: <4643012e-b7c9-444d-b4f3-d743ae7d2943@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_172224_598795_32FA4E17 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20250306_172833_180861_8CC911B9 
+X-CRM114-Status: GOOD (  36.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,114 +69,419 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:03:00PM -0800, Ian Rogers wrote:
-> For ELF file dsos read the e_machine from the ELF header. For kernel
-> types assume the e_machine matches the perf tool. In other cases
-> return EM_NONE.
+Hi Adrian:
+
+On 22:04 Wed 05 Mar     , Adrian Hunter wrote:
+> On 13/02/25 12:58, Yixun Lan wrote:
+> > The SDHCI controller found in SpacemiT K1 SoC features SD,
+> > SDIO, eMMC support, such as:
+> > 
+> > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
+> > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
+> > - Compatible for 8bit eMMC5.1, up to HS400
+> > 
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > ---
+> >  drivers/mmc/host/Kconfig       |  14 ++
+> >  drivers/mmc/host/Makefile      |   1 +
+> >  drivers/mmc/host/sdhci-of-k1.c | 320 +++++++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 335 insertions(+)
+> > 
+> > diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+> > index 6824131b69b188cae58c8f48076715ca647ca28c..0ce78f22c33cfff916a2d4d680c79e9d19637e0e 100644
+> > --- a/drivers/mmc/host/Kconfig
+> > +++ b/drivers/mmc/host/Kconfig
+> > @@ -250,6 +250,20 @@ config MMC_SDHCI_OF_DWCMSHC
+> >  	  If you have a controller with this interface, say Y or M here.
+> >  	  If unsure, say N.
+> >  
+> > +config MMC_SDHCI_OF_K1
+> > +	tristate "SDHCI OF support for the SpacemiT K1 SoC"
+> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > +	depends on MMC_SDHCI_PLTFM
+> > +	depends on OF
+> > +	depends on COMMON_CLK
+> > +	help
+> > +	  This selects the Secure Digital Host Controller Interface (SDHCI)
+> > +	  found in the SpacemiT K1 SoC.
+> > +
+> > +	  If you have a controller with this interface, say Y or M here.
+> > +
+> > +	  If unsure, say N.
+> > +
+> >  config MMC_SDHCI_OF_SPARX5
+> >  	tristate "SDHCI OF support for the MCHP Sparx5 SoC"
+> >  	depends on MMC_SDHCI_PLTFM
+> > diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
+> > index 5147467ec825ffaef3a7bd812fad80545e52b180..75bafc7b162b9e1d4c6c050f5d28b9d7cb582447 100644
+> > --- a/drivers/mmc/host/Makefile
+> > +++ b/drivers/mmc/host/Makefile
+> > @@ -88,6 +88,7 @@ obj-$(CONFIG_MMC_SDHCI_OF_AT91)		+= sdhci-of-at91.o
+> >  obj-$(CONFIG_MMC_SDHCI_OF_ESDHC)	+= sdhci-of-esdhc.o
+> >  obj-$(CONFIG_MMC_SDHCI_OF_HLWD)		+= sdhci-of-hlwd.o
+> >  obj-$(CONFIG_MMC_SDHCI_OF_DWCMSHC)	+= sdhci-of-dwcmshc.o
+> > +obj-$(CONFIG_MMC_SDHCI_OF_K1)		+= sdhci-of-k1.o
+> >  obj-$(CONFIG_MMC_SDHCI_OF_SPARX5)	+= sdhci-of-sparx5.o
+> >  obj-$(CONFIG_MMC_SDHCI_OF_MA35D1)	+= sdhci-of-ma35d1.o
+> >  obj-$(CONFIG_MMC_SDHCI_BCM_KONA)	+= sdhci-bcm-kona.o
+> > diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..8202a893a46ef9f10675b031b31b72e81eaacd14
+> > --- /dev/null
+> > +++ b/drivers/mmc/host/sdhci-of-k1.c
+> > @@ -0,0 +1,320 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +/*
+> > + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
+> > + * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
+> > + */
+> > +
+> > +#include <linux/clk.h>
+> > +#include <linux/delay.h>
+> > +#include <linux/iopoll.h>
+> > +#include <linux/init.h>
+> > +#include <linux/mmc/card.h>
+> > +#include <linux/mmc/host.h>
+> > +#include <linux/mmc/mmc.h>
+> > +#include <linux/module.h>
+> > +#include <linux/of.h>
+> > +#include <linux/of_device.h>
+> > +#include <linux/platform_device.h>
+> > +
+> > +#include "sdhci.h"
+> > +#include "sdhci-pltfm.h"
+> > +
+> > +#define SDHC_MMC_CTRL_REG		0x114
+> > +#define  MISC_INT_EN			BIT(1)
+> > +#define  MISC_INT			BIT(2)
+> > +#define  ENHANCE_STROBE_EN		BIT(8)
+> > +#define  MMC_HS400			BIT(9)
+> > +#define  MMC_HS200			BIT(10)
+> > +#define  MMC_CARD_MODE			BIT(12)
+> > +
+> > +#define SDHC_TX_CFG_REG			0x11C
+> > +#define  TX_INT_CLK_SEL			BIT(30)
+> > +#define  TX_MUX_SEL			BIT(31)
+> > +
+> > +#define SDHC_PHY_CTRL_REG		0x160
+> > +#define  PHY_FUNC_EN			BIT(0)
+> > +#define  PHY_PLL_LOCK			BIT(1)
+> > +#define  HOST_LEGACY_MODE		BIT(31)
+> > +
+> > +#define SDHC_PHY_FUNC_REG		0x164
+> > +#define  PHY_TEST_EN			BIT(7)
+> > +#define  HS200_USE_RFIFO		BIT(15)
+> > +
+> > +#define SDHC_PHY_DLLCFG			0x168
+> > +#define  DLL_PREDLY_NUM			0x04
+> > +#define  DLL_FULLDLY_RANGE		0x10
+> > +#define  DLL_VREG_CTRL			0x40
+> > +#define  DLL_ENABLE			0x80000000
 > 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/dso.c | 54 +++++++++++++++++++++++++++++++++++++++++++
->  tools/perf/util/dso.h |  1 +
->  2 files changed, 55 insertions(+)
+> The 4 above look like they could be BIT()s
 > 
-> diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-> index 5c6e85fdae0d..7f2f1af4f73b 100644
-> --- a/tools/perf/util/dso.c
-> +++ b/tools/perf/util/dso.c
-> @@ -1170,6 +1170,60 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
->  	return data_read_write_offset(dso, machine, offset, data, size, true);
->  }
->  
-> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
-> +{
-> +	uint16_t e_machine = EM_NONE;
-> +	int fd;
-> +
-> +	switch (dso__binary_type(dso)) {
-> +	case DSO_BINARY_TYPE__KALLSYMS:
-> +	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
-> +	case DSO_BINARY_TYPE__VMLINUX:
-> +	case DSO_BINARY_TYPE__GUEST_VMLINUX:
-> +	case DSO_BINARY_TYPE__GUEST_KMODULE:
-> +	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
-> +	case DSO_BINARY_TYPE__KCORE:
-> +	case DSO_BINARY_TYPE__GUEST_KCORE:
-> +	case DSO_BINARY_TYPE__BPF_PROG_INFO:
-> +	case DSO_BINARY_TYPE__BPF_IMAGE:
-> +	case DSO_BINARY_TYPE__OOL:
-> +	case DSO_BINARY_TYPE__JAVA_JIT:
-
-I think some of them can be possible in recorded data.  But let's go
-simple with EM_HOST as we haven't supported cross-arch trace.
-
-
-> +		return EM_HOST;
-> +	case DSO_BINARY_TYPE__DEBUGLINK:
-> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
-> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
-> +	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
-> +		break;
-> +	case DSO_BINARY_TYPE__NOT_FOUND:
-> +	default:
-> +		return EM_NONE;
-> +	}
-> +
-> +	pthread_mutex_lock(&dso__data_open_lock);
-
-Hmm.. I'm afraid it'd slow down perf trace a bit more.  It sees
-occasional LOST events.  But it may be ok as it's cached in thread later.
-
-
-> +
-> +	/*
-> +	 * dso__data(dso)->fd might be closed if other thread opened another
-> +	 * file (dso) due to open file limit (RLIMIT_NOFILE).
-> +	 */
-> +	try_to_open_dso(dso, machine);
-> +	fd = dso__data(dso)->fd;
-> +	if (fd >= 0) {
-> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
-> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
-> +		if (pread(fd, &e_machine, sizeof(e_machine), 18) != sizeof(e_machine))
-
-I think it needs to check the endianess and swap the data.
-
-Thanks,
-Namhyung
-
-
-> +			e_machine = EM_NONE;
-> +	}
-> +	pthread_mutex_unlock(&dso__data_open_lock);
-> +	return e_machine;
-> +}
-> +
->  /**
->   * dso__data_read_addr - Read data from dso address
->   * @dso: dso object
-> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-> index f3ca2a5e7670..ba9b83db061a 100644
-> --- a/tools/perf/util/dso.h
-> +++ b/tools/perf/util/dso.h
-> @@ -818,6 +818,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
->  off_t dso__data_size(struct dso *dso, struct machine *machine);
->  ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
->  			      u64 offset, u8 *data, ssize_t size);
-> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
->  ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
->  			    struct machine *machine, u64 addr,
->  			    u8 *data, ssize_t size);
-> -- 
-> 2.48.1.711.g2feabab25a-goog
+ok
+> > +#define  DLL_REFRESH_SWEN_SHIFT		0x1C
+> > +#define  DLL_REFRESH_SW_SHIFT		0x1D
 > 
+> All *_SHIFT defines seem a little odd because they are not
+> used and we generally try to use GENMASK and FIELD_GET and
+> FIELD_PREP anyway.
+> 
+right
+
+this due to I did a massive refactor of this driver, and
+currently only part of functionality(emmc) has been implemented.
+
+I will drop those unused defintions for now, and re-add later
+when we come at it
+
+> > +
+> > +#define SDHC_PHY_DLLCFG1		0x16C
+> > +#define  DLL_REG2_CTRL			0x0C
+> > +#define  DLL_REG3_CTRL_MASK		0xFF
+> > +#define  DLL_REG3_CTRL_SHIFT		0x10
+> > +#define  DLL_REG2_CTRL_MASK		0xFF
+> > +#define  DLL_REG2_CTRL_SHIFT		0x08
+> > +#define  DLL_REG1_CTRL			0x92
+> > +#define  DLL_REG1_CTRL_MASK		0xFF
+> > +#define  DLL_REG1_CTRL_SHIFT		0x00
+> > +
+> > +#define SDHC_PHY_DLLSTS			0x170
+> > +#define  DLL_LOCK_STATE			0x01
+> > +
+> > +#define SDHC_PHY_DLLSTS1		0x174
+> > +#define  DLL_MASTER_DELAY_MASK		0xFF
+> > +#define  DLL_MASTER_DELAY_SHIFT		0x10
+> > +
+> > +#define SDHC_PHY_PADCFG_REG		0x178
+> > +#define  RX_BIAS_CTRL			BIT(5)
+> > +#define  PHY_DRIVE_SEL_MASK		0x7
+> > +#define  PHY_DRIVE_SEL_DEFAULT		0x4
+> > +
+> > +struct spacemit_sdhci_host {
+> > +	struct clk *clk_core;
+> > +	struct clk *clk_io;
+> > +};
+> > +
+> > +static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
+> > +{
+> > +	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
+> > +}
+> > +
+> > +static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
+> > +{
+> > +	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
+> > +}
+> > +
+> > +static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
+> > +{
+> > +	u32 val = sdhci_readl(host, reg);
+> > +
+> > +	val = (val & ~clr) | set;
+> > +	sdhci_writel(host, val, reg);
+> > +}
+> > +
+> > +static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
+> > +{
+> > +	struct platform_device *pdev;
+> > +
+> > +	pdev = to_platform_device(mmc_dev(host->mmc));
+> > +	sdhci_reset(host, mask);
+> > +
+> > +	if (mask != SDHCI_RESET_ALL)
+> > +		return;
+> > +
+> > +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
+> > +
+> > +	spacemit_sdhci_clrsetbits(host, PHY_DRIVE_SEL_MASK,
+> > +				  RX_BIAS_CTRL | PHY_DRIVE_SEL_DEFAULT,
+> > +				  SDHC_PHY_PADCFG_REG);
+> > +
+> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
+> > +		spacemit_sdhci_setbits(host, MMC_CARD_MODE, SDHC_MMC_CTRL_REG);
+> > +}
+> > +
+> > +static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
+> > +{
+> > +	if (timing == MMC_TIMING_MMC_HS200)
+> > +		spacemit_sdhci_setbits(host, MMC_HS200, SDHC_MMC_CTRL_REG);
+> > +
+> > +	if (timing == MMC_TIMING_MMC_HS400)
+> > +		spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
+> > +
+> > +	sdhci_set_uhs_signaling(host, timing);
+> > +
+> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_SDIO))
+> > +		spacemit_sdhci_setbits(host, SDHCI_CTRL_VDD_180, SDHCI_HOST_CONTROL2);
+> > +}
+> > +
+> > +static void spacemit_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
+> > +{
+> > +	struct mmc_host *mmc = host->mmc;
+> > +
+> > +	if (mmc->ios.timing <= MMC_TIMING_UHS_SDR50)
+> > +		spacemit_sdhci_setbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
+> > +	else
+> > +		spacemit_sdhci_clrbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
+> > +
+> > +	sdhci_set_clock(host, clock);
+> > +};
+> > +
+> > +static void spacemit_sdhci_phy_dll_init(struct sdhci_host *host)
+> > +{
+> > +	u32 state;
+> > +	int ret;
+> > +
+> > +	spacemit_sdhci_setbits(host, DLL_PREDLY_NUM | DLL_FULLDLY_RANGE | DLL_VREG_CTRL,
+> > +			       SDHC_PHY_DLLCFG);
+> > +	spacemit_sdhci_clrsetbits(host, DLL_REG1_CTRL_MASK, DLL_REG1_CTRL,
+> > +				  SDHC_PHY_DLLCFG1);
+> > +	spacemit_sdhci_setbits(host, DLL_ENABLE, SDHC_PHY_DLLCFG);
+> > +
+> > +	ret = readl_poll_timeout(host->ioaddr + SDHC_PHY_DLLSTS, state,
+> > +				 state & DLL_LOCK_STATE, 2, 100);
+> > +	if (ret == -ETIMEDOUT)
+> > +		dev_warn(mmc_dev(host->mmc), "fail to lock phy dll in 100us!\n");
+> > +}
+> > +
+> > +static void spacemit_sdhci_hs400_enhanced_strobe(struct mmc_host *mmc, struct mmc_ios *ios)
+> > +{
+> > +	struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +	if (!ios->enhanced_strobe) {
+> > +		spacemit_sdhci_clrbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
+> > +		return;
+> > +	}
+> > +
+> > +	spacemit_sdhci_setbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
+> > +	spacemit_sdhci_phy_dll_init(host);
+> > +}
+> > +
+> > +static unsigned int spacemit_sdhci_clk_get_max_clock(struct sdhci_host *host)
+> > +{
+> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> > +
+> > +	return clk_get_rate(pltfm_host->clk);
+> > +}
+> > +
+> > +static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
+> > +{
+> > +	struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +	spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
+> > +	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
+> > +{
+> > +	struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +	spacemit_sdhci_phy_dll_init(host);
+> > +	host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
+> > +}
+> > +
+> > +static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+> > +{
+> > +	struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +	spacemit_sdhci_clrbits(host, PHY_FUNC_EN | PHY_PLL_LOCK,
+> > +			       SDHC_PHY_CTRL_REG);
+> > +	spacemit_sdhci_clrbits(host, MMC_HS400 | MMC_HS200 | ENHANCE_STROBE_EN,
+> > +			       SDHC_MMC_CTRL_REG);
+> > +	spacemit_sdhci_clrbits(host, HS200_USE_RFIFO, SDHC_PHY_FUNC_REG);
+> > +
+> > +	udelay(5);
+> > +
+> > +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
+> > +}
+> > +
+> > +static inline int spacemit_sdhci_get_clocks(struct device *dev,
+> > +					    struct sdhci_pltfm_host *pltfm_host)
+> > +{
+> > +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
+> > +
+> > +	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
+> > +	if (IS_ERR(sdhst->clk_core))
+> > +		return -EINVAL;
+> > +
+> > +	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
+> > +	if (IS_ERR(sdhst->clk_io))
+> > +		return -EINVAL;
+> > +
+> > +	pltfm_host->clk = sdhst->clk_io;
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static const struct sdhci_ops spacemit_sdhci_ops = {
+> > +	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
+> > +	.reset			= spacemit_sdhci_reset,
+> > +	.set_bus_width		= sdhci_set_bus_width,
+> > +	.set_clock		= spacemit_sdhci_set_clock,
+> > +	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
+> > +};
+> > +
+> > +static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
+> > +	.ops = &spacemit_sdhci_ops,
+> > +	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
+> > +		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
+> > +		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
+> > +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> > +		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
+> > +		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
+> > +	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
+> > +		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
+> > +};
+> > +
+> > +static const struct of_device_id spacemit_sdhci_of_match[] = {
+> > +	{ .compatible = "spacemit,k1-sdhci" },
+> > +	{ /* sentinel */ }
+> > +};
+> > +MODULE_DEVICE_TABLE(of, spacemit_sdhci_of_match);
+> > +
+> > +static int spacemit_sdhci_probe(struct platform_device *pdev)
+> > +{
+> > +	struct device *dev = &pdev->dev;
+> > +	struct spacemit_sdhci_host *sdhst;
+> > +	struct sdhci_pltfm_host *pltfm_host;
+> > +	struct sdhci_host *host;
+> > +	struct mmc_host_ops *mops;
+> > +	int ret;
+> > +
+> > +	host = sdhci_pltfm_init(pdev, &spacemit_sdhci_k1_pdata, sizeof(*sdhst));
+> > +	if (IS_ERR(host))
+> > +		return PTR_ERR(host);
+> > +
+> > +	pltfm_host = sdhci_priv(host);
+> > +
+> > +	ret = mmc_of_parse(host->mmc);
+> > +	if (ret)
+> > +		goto err_pltfm;
+> > +
+> > +	sdhci_get_of_property(pdev);
+> > +
+> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC)) {
+> > +		mops = &host->mmc_host_ops;
+> > +		mops->hs400_prepare_ddr	= spacemit_sdhci_pre_select_hs400;
+> > +		mops->hs400_complete	= spacemit_sdhci_post_select_hs400;
+> > +		mops->hs400_downgrade	= spacemit_sdhci_pre_hs400_to_hs200;
+> > +		mops->hs400_enhanced_strobe = spacemit_sdhci_hs400_enhanced_strobe;
+> > +	}
+> > +
+> > +	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
+> > +
+> > +	if (spacemit_sdhci_get_clocks(dev, pltfm_host))
+> > +		goto err_pltfm;
+> > +
+> > +	ret = sdhci_add_host(host);
+> > +	if (ret)
+> > +		goto err_pltfm;
+> > +
+> > +	return 0;
+> > +
+> > +err_pltfm:
+> > +	sdhci_pltfm_free(pdev);
+> > +	return ret;
+> > +}
+> > +
+> > +static void spacemit_sdhci_remove(struct platform_device *pdev)
+> > +{
+> > +	struct sdhci_host *host = platform_get_drvdata(pdev);
+> > +
+> > +	sdhci_remove_host(host, 1);
+> > +	sdhci_pltfm_free(pdev);
+> > +}
+> > +
+> > +static struct platform_driver spacemit_sdhci_driver = {
+> > +	.driver		= {
+> > +		.name	= "sdhci-spacemit",
+> > +		.of_match_table = of_match_ptr(spacemit_sdhci_of_match),
+> 
+> No .pm?
+I'd reluctant to push features that I can't test, so let's postpone it
+> 
+> > +	},
+> > +	.probe		= spacemit_sdhci_probe,
+> > +	.remove		= spacemit_sdhci_remove,
+> 
+> Could just use sdhci_pltfm_remove()
+> 
+sure, thanks
+> > +};
+> > +module_platform_driver(spacemit_sdhci_driver);
+> > +
+> > +MODULE_DESCRIPTION("SpacemiT SDHCI platform driver");
+> > +MODULE_LICENSE("GPL");
+> > 
+> 
+
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
