@@ -4,87 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C953C19F32
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 06:42:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74949C19F32
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 08:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=npTt6KmFJjgEllInlBAm+ly/rISFcFUi2PaSHBpLI+8=; b=Bvk7GhTzDadt5K
-	2pPaLOx0h/v+Hdul658jC6FTfDDaMzR5JsaZnO7O+UayG71ayJiUjOkZNJoHVXTFJ9/mROAKrgCFM
-	a48JGjKHyhUcGqfnpcqsYHoO3kBDR/WEicG4x0tuv9lq5jj6tNs4dejVH0WT4oIROPdp9CHMFPkvi
-	eooRNyLfrU9GxMsGkeDVB3+xmndXhzlHsjWcj0eNUAv9eUeMXQLAcg2raQuClb+KfDA+yk85dbFiA
-	TGMfJRwpp8flxjhcFKrD/1rvvzq+4D8FZM/ovzIpTEikqNMtJpBZZ7OcVZs7PK0higsjFicF/3FqV
-	fdekBKyr74dDATH+5MSA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=/5/r8hMMtqRsxxybvhxwMFZiEZahP73tRLhlzGAJRGg=; b=rweJmUYy//hV7N
+	2rWV3fRMLdARAWOniRw6fxr7gsqkL2Mg1pM1YIlgnsFTfx7z4+r0axPALjmK+JHX3TquptqN0zAcp
+	coldAEwG1CnWjCD7mOuvSC6myZNjM9xsQu0/K8YYCzwqindBZpfNYrill/dc4nTL9BCyGhX94OIoW
+	hb/kYs8MhyjMVZyPVG/2hJlj0Iu4m7qympT/4k6CyRBOI+ZyHNo2XweDqbmKhF9P+/f1B9nq2rjTp
+	R95Miqe+vJjPSkjspYni4mZGK4dcXCf1xjYByW1FtWN3y6dGPyxOrdIxlZ/7IafD68v7ycIz2sAjS
+	SyIy760+wMolOQTG7TSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqRPz-0000000DLX5-2vY1;
-	Fri, 07 Mar 2025 06:42:47 +0000
-Received: from bayard.4d2.org ([155.254.16.17])
+	id 1tqSg1-0000000DUoe-1K4N;
+	Fri, 07 Mar 2025 08:03:25 +0000
+Received: from mail-am0eur02on2060d.outbound.protection.outlook.com ([2a01:111:f403:2606::60d] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqRPW-0000000DLTD-0Xkg
-	for linux-riscv@lists.infradead.org;
-	Fri, 07 Mar 2025 06:42:19 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 36B94EC59F8;
-	Thu, 06 Mar 2025 22:42:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1741329737; bh=nbKRa8rE0oqcLHSVyysr2VLKNWVvbQMS6EMeJYsmQrk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=j9ZRzaOMCEbuc8R6ZwloksUuFydWNEtGh15LwVoTqKx5tVnAODqyTmLZvdCvrOtgn
-	 PxHqMFMdv5beyGG/60UuYTcwI6gQvsWMqgiOq9uOY8GiXOuQ2TMQcFosDtJjzucORy
-	 kqWutUOyhmDVwNfq+yT+p+TfKnQnOo/OjdfOwh4Kxel3lnuJeNXuUVNGOUk6BvIjlP
-	 X0ej5DPgAl0hb7RdH4jrSKA0/Fnk/zXR2tqoam8f1FXIIJMe3pGcaxlWErZaFNsO8+
-	 fnJGP8iCVRbzpboiI7Yb5Qj4SGRZzZguYwUwqS0Jzz8H9WOh9lFdpcDZBGG+tuW5nK
-	 qqH0jvuT0NaLA==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id 0vtihhhkC7FQ; Thu,  6 Mar 2025 22:42:15 -0800 (PST)
-Received: from ketchup (unknown [183.217.80.218])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 9340EEC59F2;
-	Thu, 06 Mar 2025 22:42:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1741329735; bh=nbKRa8rE0oqcLHSVyysr2VLKNWVvbQMS6EMeJYsmQrk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OjqWsuB/gYig3SZZwnOSvRfEAlxrE6c+5OAeVJrL5TzYn0O8i0v+cZBfGjV8/eRTr
-	 ycReyAiGZyy42W8ajkOUMyRr2fSvFT0E5VlIufVI2iozFMPnRmEWvofyFaa1Bj786P
-	 pwOHWQ/2t5WqP7hB0DPIaTusuHravbH4d8+e1IRQnlJdWX8tzH5oM24AlJyfaXqTtv
-	 UQD2SwiievEOW556J+xCsRSGXKzFj3sqxHWYoeFHMU8q8HLJBKsEb9N1IlZ/Vy2llk
-	 2QYWu2Fr/yU7bCPYMBuS6x0TeSlR6pT1M0dLgQaBgRfxUzQB3L/fQ/9MOyTeq7Acyl
-	 suu6g6yGqL+Jg==
-Date: Fri, 7 Mar 2025 06:42:02 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>, linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
-	Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-Subject: Re: [PATCH v5 3/5] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <Z8qVOssDHaVDQmLY@ketchup>
-References: <20250306175750.22480-2-heylenay@4d2.org>
- <20250306175750.22480-5-heylenay@4d2.org>
- <20250307005149-GYA66361@gentoo>
+	id 1tqSeq-0000000DUcs-1cg9;
+	Fri, 07 Mar 2025 08:02:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Sbsci04fY76JhJwTmX0vFy1FhKeRRpOg0YyjCHwqfTFt//hst0Bfu6FGK0LU5IU+suRzD3XXgJ31hayzBFsNQ8MYFOYBWnrSzvPlFutcKOSn+xpCiuOER/Tg4IMVjsblpB3wQKqSj3BqPq8dTy+N3DJJR59vcQPO6JDCvv6EwWXgdxtMEWiz47LWq+yEWBe1SJ++p3Tjuyrjqopk2oo9e1HS9DV+qTVuYVUktw9Bsi5aHZoVdCoS4i2TIWeZN9w8pwctbeUIDqKdPPVOYm+6gtCw/+sTmMv7TD7KH3wtcopbFgdF318z+ZP53L3fbKLw5NUr3qa8otaUmeUtsLVYAg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=B3ey7F8EiGCoepLHHpxOERrf1kCtSlujFO9JhRDC8hs=;
+ b=V1Wt6vdfgWmKzsVJE8Mka8YG9303GGKB4LUwx6VZu3FPxXK9Q54pug172cVLkixIAcfz7iUQNxq4w/zRTwiByZKxVT72pTjwDwX2MGYqopyOF/cJ/Z2pGy3Xrp4b/XvPvW+iZvr9GeDFD6L9VaYys2oEFkrjWdil4iaDcTlOb2QhSB8qN+0F3jILuEwNnesYD0e57NJI5HtsjXtGV0eKsGGwbkmbvmgITOcswoWdh1b0Q6sA8TnfO2VD/KhcKpzNK1ijNB1KIMd+uvQcAjy2qVLqbTLNKMoltYuI+GCUJDMkm/8JWhNwHG8qbOMr/KYvbKIcbSSoZFyZcuzvJaHMaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=B3ey7F8EiGCoepLHHpxOERrf1kCtSlujFO9JhRDC8hs=;
+ b=M/I8XfRzLBK0ZcAO8we36SsPTRm71GGtmi7niguThRF4wWX1OlDbe4yJbN2fZDSA+pOW6EjSZDlogqTu3hg2Dg4qzjyPJ2Hz4/8TKPOIGU7woQgd1am1rxcN0r9qCd2ONP6CIz5NLNXraKqBPdztGB0Om6JV+C5NsSKXgy3nswntE/kp80wQIPX7i9uApbaPJGONEUxuiNwD6LMpCvVI0Ld+GptfmVQiQeGl+aaqlnZFAE84AzuBwJbTLbIZCAXFLj972pWrYuYThcG2BqEf4fanSNfg9bOpq69nhf3ZigQkILPacd84+nGjUPO8M7EGrTcFa3DSnApFCC3Oh4RWTw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by PAXPR04MB8335.eurprd04.prod.outlook.com (2603:10a6:102:1c2::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
+ 2025 08:02:07 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
+ 08:02:07 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: rafael@kernel.org,
+	daniel.lezcano@linaro.org,
+	lpieralisi@kernel.org,
+	sudeep.holla@arm.com,
+	ulf.hansson@linaro.org,
+	james.morse@arm.com,
+	d-gole@ti.com,
+	anup@brainfault.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	imx@lists.linux.dev,
+	khilman@baylibre.com,
+	quic_tingweiz@quicinc.com,
+	quic_yuanjiey@quicinc.com
+Subject: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
+Date: Fri,  7 Mar 2025 16:03:03 +0800
+Message-Id: <20250307080303.2660506-1-ping.bai@nxp.com>
+X-Mailer: git-send-email 2.34.1
+X-ClientProxiedBy: SG2PR06CA0236.apcprd06.prod.outlook.com
+ (2603:1096:4:ac::20) To AS8PR04MB8642.eurprd04.prod.outlook.com
+ (2603:10a6:20b:429::24)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250307005149-GYA66361@gentoo>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|PAXPR04MB8335:EE_
+X-MS-Office365-Filtering-Correlation-Id: b08323f0-c541-45b5-6fc3-08dd5d4e5aef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p9ZNQ5RZ3CdLh7xFtl0cPUmS6eiuIlJqW/zlQgnVagwVmuIJF+Sts8o0w7pH?=
+ =?us-ascii?Q?Yi+fZS7zAesV+xKEggRkJX+Yw4WiAf+vOkYK/6IeBfSLlSnUdb/kxw3FadnQ?=
+ =?us-ascii?Q?iUkwGHt3FeEq/ZSg/RoOkxVrTAiSJAlLUTjj6nR9LwaaayV9GVmJMteGJZPE?=
+ =?us-ascii?Q?wfGNnSKmYjLeZkx9G/lPlyQasysnwiFRIgXuZS7KTCs09wy2WMDQn5pUhO48?=
+ =?us-ascii?Q?Ni6oyLrhzXcQoCaaJlFASXKPf1tNx5WMjRRKTWmGxYE+SqtyH4RtJjxUCVmU?=
+ =?us-ascii?Q?DLsFxchU3xuGaCQjN9ThNQyHFGjP7I65vHx+YUihGpxurrJGds1Z0HnuyXVX?=
+ =?us-ascii?Q?ploXpeHvS83yDuq4XTmqL/s8pJvqeWyFFTVl2ZZLS/49v1hznRbG7QfFG7/E?=
+ =?us-ascii?Q?oLWPuD7tyP0h9TO8j4G9uWasf0VpD8qrrL342noz8IW3Gy9mu25Pi1vndTAo?=
+ =?us-ascii?Q?7brbfBd7FVnFrsFx+wMtuCRJCX3eZMgtB8ShLNRyTsN0ESd8/krC1rnhb20b?=
+ =?us-ascii?Q?b6N4H408gD889/b07WDl1yNGNHxFlWGK611J8w9KLYynsE4dfLeFqC6EaDr6?=
+ =?us-ascii?Q?bsLmiIW99DQPsyXhFSvu9xDEjvoC4+DfY1M06D00xu8u1lQKepJiGX9pL29W?=
+ =?us-ascii?Q?xkzqKllepvO0NwikpIA5H1JXzLGU2Bf2g4hdHVTWDvUkfPfiaHONQTDHWPJA?=
+ =?us-ascii?Q?czlDPc7iye3IsAc/Qu+LSNVeQeOv37TXby4Va1UKinK75+4JjVpiz96W3YRw?=
+ =?us-ascii?Q?AzTCHQfutSGdxW1EGxn5zfzjuh/XXRZ6CJQnVSFprHp1BYLc+JYrBOOZqZO0?=
+ =?us-ascii?Q?Etr5DXnyS406Xv/OCJDX8vrmOYLEd3C9iWBeGLnwRvR/rzm5THrzvqJTgGzP?=
+ =?us-ascii?Q?VrDencjU1H59M+LcI4QvOp6W7oY5bcJlWCD/ApL3A/4kXO96dFN6ZcIxRVil?=
+ =?us-ascii?Q?bm+uUe8yip65GLGJXB+RS3El3wBczZ3fLoBUa41yRbnMUg3b3wHCygC0r4l8?=
+ =?us-ascii?Q?LetENixbsP0DMnWb1+ckW7RSSAWckMcxBOCkVL8xNq32vNjk03RX1NR7S3yo?=
+ =?us-ascii?Q?JSKlBkLl/MlseOuDUpuFNoO/NIh3C85N9WkVG44th3x0z3jeprntrWmYEgPX?=
+ =?us-ascii?Q?o1F6rwhVZye3ZbF+Nb6ybAMtinlXKRJqUeVvyzxtU4goInQzBvkeJmTK5brd?=
+ =?us-ascii?Q?SKZ1dxrPUdJXB8CIJ/wDEO8nYcP79+pJuv45rKCnku4nj+JNgoJ42ozysYPX?=
+ =?us-ascii?Q?E7vzgE/6xnoyJjOzt+X5L2iUboi04x81iQi4ivnhzF41slCFcdLZVt4wMGc7?=
+ =?us-ascii?Q?GZ+7i445cMYS0RNhGML6Xe3XPdmuSeFPiAr279zHZsbsJzujs52hHLi29BBY?=
+ =?us-ascii?Q?IMLKf96YgdbEDWwMRlDfgpRmzV293MKuJu36gSBYJpn+ctvoBvC6QuuyhxMA?=
+ =?us-ascii?Q?eCsptvU0WCRNRqjpwxqEaK2N5vB8BIYCnD/7AynEUXKQUoXeaP2TpQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QkZ3lHu/z5JkVUGJ7GLW6CINi/aQitgSV62Dv3A+VW9xmoR5uRikiKkVXMQh?=
+ =?us-ascii?Q?L4JTVhB4izirOq/p0u/PQHWjEDN8toNfurwmslEdjY7vMcnPnEZ4rbtFdiFM?=
+ =?us-ascii?Q?PKXI13dukP1tXoYKP7PYpl1oZP4SDE0mSfq4n5NLEWriCsRoM8rxvrq1EAvS?=
+ =?us-ascii?Q?Qk3zdj+oI0zt6/Fh3lSf6mFsUfA7+DuN0lQFYQW2N2E68VbpN6XQVpILnQd5?=
+ =?us-ascii?Q?l9l+RXCBB9baIJkooIPlqq1EA+stqjj0sEtiz+YTDS0hYxnPvVcbERxesnEx?=
+ =?us-ascii?Q?aiN01amvjjVNHJUOl0GTma5Vmn3hljGASJP3QBXg7P75Z49wY9Tplcx/8BkB?=
+ =?us-ascii?Q?JuZqpCozV20wvFETG7SL2qfM9aUDdmog10paKI2e0Q1r1ujmsMaDUPkIT9fr?=
+ =?us-ascii?Q?vhEUaIbfz2s9jfou0Ngxaf3C/IK/W3ljnF8eOmKBWB4d9Q9VHOJm4rhh+gwm?=
+ =?us-ascii?Q?hkTQ1ezFD0Xzb8p6WJYNf5wBtcs3p39bOdV8eTXdjk2fsLSuBNxPkTLX5zsB?=
+ =?us-ascii?Q?s1nM2NZZKkAcQkNF3ZQqP/hr+uJCCxP54INnGS3TXUYn9K9Ugn3bbzKGTiN6?=
+ =?us-ascii?Q?XyMYHFd9sQHq6Lg7Tlwp1+VcmSEuBwaoh/uHsuMq0W3Tt414iC2SCh7vm+5g?=
+ =?us-ascii?Q?RnyOerA21W1AtCXU1s0eK9SPxtoynrb5KG5lTZprqKTH26zP+H4IDvGQ0LKc?=
+ =?us-ascii?Q?MzT/uTQB7rPIh4DYZ3f+WgTYZ4wl/tBehaxNT+PTCuizAWYDiEkZq/Aa0A7a?=
+ =?us-ascii?Q?POow/OiuO3xfsQTtdm2R3/Aqxuxp6EKpzAe5mcqowYGpuz8XJYQwWgwOOK/M?=
+ =?us-ascii?Q?BaPhniklzVfbqPRSpxPv0JSso8GQjShMtRxa6oi5frQW+TvkQbgFQLZ4wxuo?=
+ =?us-ascii?Q?fzm2djGUHOeQGbzIJ7993wJD9viWUCxNpHokRdvmzF56yX4UoTf2xbG6SmKo?=
+ =?us-ascii?Q?snnA17B5Kg/iF6msqHLH39oYeFHgFCGEl2YwpnACaNKS7BkzeoW5gs+Tct7z?=
+ =?us-ascii?Q?XBTBAoeT8nM54pK4FHQ8jXGRqm1MRXi/LjZCCeR4ur7zhWWyujTwI8s/OcSd?=
+ =?us-ascii?Q?xw7Bho7TH0CXzhoQP/nO2vlrxwWegpIVKs2TjUwYyKk4Dz5BznbULNcqJv6o?=
+ =?us-ascii?Q?FmzQ34Nf2rV9aNH7/q0ASKvjaw0M5oeeqKTAGZ8AD2XSioYqQwyYgKgDhyvH?=
+ =?us-ascii?Q?5jBg9ww9uHRvkctuWIPGCTFB3HhkpgrDLT5B5Y4EkpycaEdWOpVqO9ZDd43h?=
+ =?us-ascii?Q?tcdue0n/lqgJ8W471LSRuRdGYy5T5Ji0OX+GmLsvqWy3RH43K9uP63HCdNX6?=
+ =?us-ascii?Q?jpeHIcBDIwD3AimbElCU7njgmVQrOvTaxuMGcNmUSC58DFaldrO9Ahveggj6?=
+ =?us-ascii?Q?lRRe5Vog+VRBqKq++65qqW/nisw56fSKQOBcFxEosoS8UPvcx+o18vCNmiUH?=
+ =?us-ascii?Q?SuCx7QxkXXIe+GUHG8TVCGDSBCPIUc/uBR5FLnaE4O6gLiJwcEJ7RbUR6fxt?=
+ =?us-ascii?Q?gGqiv9H0PGJ8ExzeXx+J4UaDHcqmkg/QWEo0qc3Pb58ocYImMscHuoxHVDp5?=
+ =?us-ascii?Q?mQnJ636DMRCgppkyQXaWhuNDVClPCMwH0vzryzpm?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b08323f0-c541-45b5-6fc3-08dd5d4e5aef
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 08:02:07.2798
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: O4QXU/e/3Mu7PeLZb/+07Rk6k9ROJSXt4mu598GqdQ/8lqRCSz/ADNO5TQqXId9dCT2Ack9t+GpMzvnB0BiTtw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8335
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_224218_199113_2E9FF02E 
-X-CRM114-Status: GOOD (  24.08  )
+X-CRM114-CacheID: sfid-20250307_000212_453564_1E9D4AEC 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,133 +169,126 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 12:51:49AM +0000, Yixun Lan wrote:
-> On 17:57 Thu 06 Mar     , Haylen Chu wrote:
-> > The clock tree of K1 SoC contains three main types of clock hardware
-> > (PLL/DDN/MIX) and has control registers split into several multifunction
-> > devices: APBS (PLLs), MPMU, APBC and APMU.
-> > 
-> > All register operations are done through regmap to ensure atomiciy
-> > between concurrent operations of clock driver and reset,
-> > power-domain driver that will be introduced in the future.
-> > 
-> > Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> > ---
-> >  drivers/clk/Kconfig               |    1 +
-> >  drivers/clk/Makefile              |    1 +
-> >  drivers/clk/spacemit/Kconfig      |   20 +
-> >  drivers/clk/spacemit/Makefile     |    5 +
-> >  drivers/clk/spacemit/ccu-k1.c     | 1714 +++++++++++++++++++++++++++++
-> >  drivers/clk/spacemit/ccu_common.h |   47 +
-> >  drivers/clk/spacemit/ccu_ddn.c    |   80 ++
-> >  drivers/clk/spacemit/ccu_ddn.h    |   48 +
-> >  drivers/clk/spacemit/ccu_mix.c    |  284 +++++
-> >  drivers/clk/spacemit/ccu_mix.h    |  246 +++++
-> >  drivers/clk/spacemit/ccu_pll.c    |  146 +++
-> >  drivers/clk/spacemit/ccu_pll.h    |   76 ++
-> >  12 files changed, 2668 insertions(+)
-> >  create mode 100644 drivers/clk/spacemit/Kconfig
-> >  create mode 100644 drivers/clk/spacemit/Makefile
-> >  create mode 100644 drivers/clk/spacemit/ccu-k1.c
-> >  create mode 100644 drivers/clk/spacemit/ccu_common.h
-> >  create mode 100644 drivers/clk/spacemit/ccu_ddn.c
-> >  create mode 100644 drivers/clk/spacemit/ccu_ddn.h
-> >  create mode 100644 drivers/clk/spacemit/ccu_mix.c
-> >  create mode 100644 drivers/clk/spacemit/ccu_mix.h
-> >  create mode 100644 drivers/clk/spacemit/ccu_pll.c
-> >  create mode 100644 drivers/clk/spacemit/ccu_pll.h
-> > 
-> ..
-> > +static int k1_ccu_probe(struct platform_device *pdev)
-> > +{
-> > +	struct regmap *base_regmap, *lock_regmap = NULL;
-> > +	struct device *dev = &pdev->dev;
-> > +	int ret;
-> > +
-> > +	base_regmap = device_node_to_regmap(dev->of_node);
-> > +	if (IS_ERR(base_regmap))
-> > +		return dev_err_probe(dev, PTR_ERR(base_regmap),
-> > +				     "failed to get regmap\n");
-> > +
-> > +	if (of_device_is_compatible(dev->of_node, "spacemit,k1-pll")) {
-> ..
-> > +		struct device_node *mpmu = of_parse_phandle(dev->of_node,
-> > +							    "spacemit,mpmu", 0);
-> > +		if (!mpmu)
-> > +			return dev_err_probe(dev, -ENODEV,
-> > +					     "Cannot parse MPMU region\n");
-> > +
-> > +		lock_regmap = device_node_to_regmap(mpmu);
-> > +		of_node_put(mpmu);
-> > +
-> you can simplify above with syscon_regmap_lookup_by_phandle(), which
-> would save a few lines
-> 
-> or further, just call syscon_regmap_lookup_by_compatible()? then
-> won't be necessary to introduce the "spacemit,mpmu" property..
-> 
+for_each_possible_cpu() is currently used to initialize cpuidle
+in below cpuidle drivers:
+  drivers/cpuidle/cpuidle-arm.c
+  drivers/cpuidle/cpuidle-big_little.c
+  drivers/cpuidle/cpuidle-psci.c
+  drivers/cpuidle/cpuidle-riscv-sbi.c
 
-These syscon_* functions differ a little from device_node_to_regmap():
-they get and enable the first item in "clocks" property when
-instantiating a regmap, which isn't desired for a clock controller.
+However, in cpu_dev_register_generic(), for_each_present_cpu()
+is used to register CPU devices which means the CPU devices are
+only registered for present CPUs and not all possible CPUs.
 
-> > +		if (IS_ERR(lock_regmap))
-> > +			return dev_err_probe(dev, PTR_ERR(lock_regmap),
-> > +					     "failed to get lock regmap\n");
-> > +	}
-> > +
-> > +	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap,
-> > +				    of_device_get_match_data(dev));
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to register clocks\n");
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct of_device_id of_k1_ccu_match[] = {
-> > +	{
-> > +		.compatible	= "spacemit,k1-pll",
-> > +		.data		= k1_ccu_apbs_clks,
-> > +	},
-> > +	{
-> > +		.compatible	= "spacemit,k1-syscon-mpmu",
-> > +		.data		= k1_ccu_mpmu_clks,
-> > +	},
-> > +	{
-> > +		.compatible	= "spacemit,k1-syscon-apbc",
-> > +		.data		= k1_ccu_apbc_clks,
-> > +	},
-> > +	{
-> > +		.compatible	= "spacemit,k1-syscon-apmu",
-> > +		.data		= k1_ccu_apmu_clks,
-> > +	},
-> > +	{ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, of_k1_ccu_match);
-> > +
-> > +static struct platform_driver k1_ccu_driver = {
-> > +	.driver = {
-> > +		.name		= "spacemit,k1-ccu",
-> > +		.of_match_table = of_k1_ccu_match,
-> > +	},
-> > +	.probe	= k1_ccu_probe,
-> > +};
-> > +module_platform_driver(k1_ccu_driver);
-> > +
-> > +MODULE_DESCRIPTION("Spacemit K1 CCU driver");
-> > +MODULE_AUTHOR("Haylen Chu <heylenay@4d2.org>");
-> > +MODULE_LICENSE("GPL");
-> 
+With nosmp or maxcpus=0, only the boot CPU is present, lead
+to the failure:
 
-...
+  |  Failed to register cpuidle device for cpu1
 
-> -- 
-> Yixun Lan (dlan)
-> Gentoo Linux Developer
-> GPG Key ID AABEFD55
+Then rollback to cancel all CPUs' cpuidle registration.
 
-Best regards,
-Haylen Chu
+Change for_each_possible_cpu() to for_each_present_cpu() in the
+above cpuidle drivers to ensure it only registers cpuidle devices
+for CPUs that are actually present.
+
+Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
+Reviewed-by: Dhruva Gole <d-gole@ti.com>
+Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+---
+ - v4 changes:
+  - add changes for other cpuidle driver that has the similar issue
+    as cpuidle-pcsi driver.
+
+ - v3 changes:
+  - improve the changelog as suggested by Sudeep
+---
+ drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
+ drivers/cpuidle/cpuidle-big_little.c | 2 +-
+ drivers/cpuidle/cpuidle-psci.c       | 4 ++--
+ drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
+ 4 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/drivers/cpuidle/cpuidle-arm.c b/drivers/cpuidle/cpuidle-arm.c
+index caba6f4bb1b7..e044fefdb816 100644
+--- a/drivers/cpuidle/cpuidle-arm.c
++++ b/drivers/cpuidle/cpuidle-arm.c
+@@ -137,9 +137,9 @@ static int __init arm_idle_init_cpu(int cpu)
+ /*
+  * arm_idle_init - Initializes arm cpuidle driver
+  *
+- * Initializes arm cpuidle driver for all CPUs, if any CPU fails
+- * to register cpuidle driver then rollback to cancel all CPUs
+- * registration.
++ * Initializes arm cpuidle driver for all present CPUs, if any
++ * CPU fails to register cpuidle driver then rollback to cancel
++ * all CPUs registration.
+  */
+ static int __init arm_idle_init(void)
+ {
+@@ -147,7 +147,7 @@ static int __init arm_idle_init(void)
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+ 
+-	for_each_possible_cpu(cpu) {
++	for_each_present_cpu(cpu) {
+ 		ret = arm_idle_init_cpu(cpu);
+ 		if (ret)
+ 			goto out_fail;
+diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
+index 74972deda0ea..4abba42fcc31 100644
+--- a/drivers/cpuidle/cpuidle-big_little.c
++++ b/drivers/cpuidle/cpuidle-big_little.c
+@@ -148,7 +148,7 @@ static int __init bl_idle_driver_init(struct cpuidle_driver *drv, int part_id)
+ 	if (!cpumask)
+ 		return -ENOMEM;
+ 
+-	for_each_possible_cpu(cpu)
++	for_each_present_cpu(cpu)
+ 		if (smp_cpuid_part(cpu) == part_id)
+ 			cpumask_set_cpu(cpu, cpumask);
+ 
+diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+index dd8d776d6e39..b46a83f5ffe4 100644
+--- a/drivers/cpuidle/cpuidle-psci.c
++++ b/drivers/cpuidle/cpuidle-psci.c
+@@ -403,7 +403,7 @@ static int psci_idle_init_cpu(struct device *dev, int cpu)
+ /*
+  * psci_idle_probe - Initializes PSCI cpuidle driver
+  *
+- * Initializes PSCI cpuidle driver for all CPUs, if any CPU fails
++ * Initializes PSCI cpuidle driver for all present CPUs, if any CPU fails
+  * to register cpuidle driver then rollback to cancel all CPUs
+  * registration.
+  */
+@@ -413,7 +413,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
+ 	struct cpuidle_driver *drv;
+ 	struct cpuidle_device *dev;
+ 
+-	for_each_possible_cpu(cpu) {
++	for_each_present_cpu(cpu) {
+ 		ret = psci_idle_init_cpu(&pdev->dev, cpu);
+ 		if (ret)
+ 			goto out_fail;
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 0c92a628bbd4..0fe1ece9fbdc 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -529,8 +529,8 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+ 			return ret;
+ 	}
+ 
+-	/* Initialize CPU idle driver for each CPU */
+-	for_each_possible_cpu(cpu) {
++	/* Initialize CPU idle driver for each present CPU */
++	for_each_present_cpu(cpu) {
+ 		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
+ 		if (ret) {
+ 			pr_debug("HART%ld: idle driver init failed\n",
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
