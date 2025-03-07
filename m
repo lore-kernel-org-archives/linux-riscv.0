@@ -4,80 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A84C282D1
-	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 01:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D35C282D1
+	for <linux-riscv@archiver.kernel.org>; Fri,  7 Mar 2025 01:40:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Uos/oYN+yvZj7UCDYoCKz7BSVE/N525Ep1+1RGeZPA0=; b=MLPVhI8d/qjVhU
-	YyKX9ETs/ORwFIk5gVFLIh/TK/Q6jwTJVjQwRRd05oN9uz9I9RcsSUCHC5vjCIsDNjs0cohXtlZtK
-	7Ti1wj+nl9kNl7jXWjJ9oqaiG6SNUEIaX2Yw3kn+nbuaz1fytRECG0Bkb7iG1QSvhhkRdCvlw+pgh
-	f4SVi7l6lsoRvZIe5g9lN4woUbUaouVHqfketoC35hUgI+7DIrF7Ghhh6YsuwyM1nqJI7//wkX7Wm
-	4suuaaqAUBOlTGFbwsGA5Z9MeS4zQ9o5pjswwMOaeCdbxMxkQx42D43cjt5cv6rH8WShHvoOSJxzv
-	NOPE7oGDcJ9XOIH+yIJA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YKen+TukVLPsrhga3F2hMbAuIymBtWYphHryZ/fPxVk=; b=f7M8QFXKLXGsLW
+	nZNN6ATOyPR7ZaoIGM9gZXMMrJ8fbkYp2Oq1dQmkti4/I0EuBqxnYpYv0A3WlM4ojGg1Qczt7jPfA
+	5LLu0BArRMUXdYg1+jfGq0p2nrmFJNpfFCEpcSJcQCqylEDh5mU7nb5CdmwtmWfd7J8w0KOq1ltC5
+	uL+hBZ8xLlM8ELOZ6aLr8ZVWJZfx2BaAVvzLdqoT10ZEI5ImuURl0ZZCgnVXkHo2tjkgDPDPhfDHy
+	sf2GWSU+2qttiBlAWaIhdtDqhUgp00kguqIrGVk3r8LXGUJ5JpUgMjZ4BEHJAgdZdd6+X5pVs+IKJ
+	nu9sddKZFJRqrsPIqDHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMeO-0000000CofG-1zSw;
-	Fri, 07 Mar 2025 01:37:20 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tqMhZ-0000000CpEr-3aWm;
+	Fri, 07 Mar 2025 01:40:37 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMIe-0000000ClvB-2lTD;
-	Fri, 07 Mar 2025 01:14:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00365A45055;
-	Fri,  7 Mar 2025 01:09:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338C5C4CEE0;
-	Fri,  7 Mar 2025 01:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741310091;
-	bh=nPxi1R9wqYshB4RGiTst8wDkKwvkQuArDF4nSaRBlDs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CUBIFdar1gT515+tHm6gO96vw+nqaC6RkPVMIA+BsRvDwqu5CnK0oZfhGQRFen92F
-	 eOUoDGJuYo7CZ34AatHnJR4uEy10PfyOOWiRpX5sCYKkn5/cRvc4moHASFKZ2fATsN
-	 2HZpL+c3/5mxhuZZXftf0ksK7gsx+Z2Ewxw6jMvkjHW4ObqSsJ9BQKwLnAxvKO8EZN
-	 KP32Jt7QF5g5aAC7NKb1O+xDPKVWw/l5WDEUGni+nrjYnDzH+4Vwkpkr2RpC9B/KXC
-	 9n+jKqEg0wE5KAV2a8f4MPIMn2zxI6s02aMYTVGe7EckwbbLXXm/3ahE3RXMlDL1dt
-	 SE60x/Ygw1kIw==
-Date: Thu, 6 Mar 2025 17:14:48 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
+	id 1tqMKe-0000000CmIK-30gL;
+	Fri, 07 Mar 2025 01:16:58 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6e8fd49b85eso10893116d6.0;
+        Thu, 06 Mar 2025 17:16:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741310215; x=1741915015; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gdvNoZdxI+TWENbSWz9hBd4EuJ//tH9knwU3HWPo67o=;
+        b=eJNRD21OFOyoR5FhMNJF83DymvAMQLHM1q2MT13bIIQf8bjEkEVD7ZO2CC5ZTN7E+W
+         DZQF9CRILqsFJ01gA+3CO5jWFT1hiJRk+/AkegxIDWx+5s9FpgUd6GIjq/HNSaUJpLlc
+         HEkvogUKLAPKhmIlq4WzMhVKuQE3MxWo/llHW4z70aVESl6ACjvAhKfT86NdkanpPTDu
+         mfzVNL70p/8AOW2wc5cA6bzn/rNGUmS/jqYiG9//bxhcB7mQLNGrmqvCKaqNg+0liLXx
+         WKTA8NfAUEj5vBAgyW9hAFWbsJRFGSAa4ITrgLMG/yXHKbBZMTkbJVDe7a+HXCwJeOCr
+         PjeQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741310215; x=1741915015;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gdvNoZdxI+TWENbSWz9hBd4EuJ//tH9knwU3HWPo67o=;
+        b=Dx6eh4E8LlzXvF2iOYw8ZuJfaCd6ssdnY/nYQV7G91w5vdl1OX2DA45o5pq3jqrXJt
+         p9/BDH/5NujzZj4g2oe6QmtWbYxo2NxH9qBIzsjOTztiqjW0qsYCieVEZOlwW6K0qdX3
+         gbKQvvWEOtIRwosIhMuZJTfOXoycWR/64tnRzRkMrkeCSN++Rwqa491ZYFTsP1m8e7Fd
+         jmEkjQNI1MBEAN6/Ta2m2b5ImURNe9k7UQP9UbXYxbWw6Bii6hIDLH/xiNBhew4lTFhL
+         Y3vpOpclws3wX1J9vjnC4O8mhs8QY3zaukZ8H/GSUEZYUfoRrDtt4p+U9VUtX+UaBXnu
+         tb8A==
+X-Forwarded-Encrypted: i=1; AJvYcCWdp6LgU2kq1KxthkUaLIITlNk+VQgKBKyCChHeu1g555qBcYr0lblZ2Af+UGFk34Nk4Dac8JdJZJ6YSJs=@lists.infradead.org, AJvYcCXtfGKorD4QZJNS9219s4HaCeYG8CRijG00Dgn6SkBalpEm2gxd7oduppAG9zy+ESabmBNRVN6/yn/D+MYrLQOa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxP40/LvZW2fLeTH1xpT84f6V+Xxtmgprww/FqBbqovKMruaU8g
+	ryH0o9y3ztysYdiBrc/pq3DHPwr1jmh5kghINbMD2CW5rbQDgc9z
+X-Gm-Gg: ASbGncus7bRubZ4TBqdNaF8PkXjsLMxm6WDZvMYeFo82jU/8KilxDg5EhuxSrevRXVe
+	5QEFacmuCzXOe6yX9jFGC9r1YL5Be2qBNFc+tkZA4JJAr0oymKTy1f8misY7fAToXJUlIajbu4W
+	uM0SP+qCEkIkSx8omQ2wuDVAk7Fn3pQBqm6rl+URE9n4kO6Nyiu7WsqF4Aal328HuT/+GdU+QkE
+	i1Teh2c04aUmvNPRh9/cFyaSdUXyHXHXFJwntJnSCEpsaInPpYTMBYapcKrdDYaXmQOPVXCdsKQ
+	PCKNaRsSSh7lgRTB0e/P
+X-Google-Smtp-Source: AGHT+IFF4yBb+hCS7ZBQCfCT1ORUYw/Gj0CKaqbDjWG3VtyoJXnhpEJioVXA7e3Pa/pLe1dzFKh+kA==
+X-Received: by 2002:a05:6214:1c49:b0:6e8:fa72:be47 with SMTP id 6a1803df08f44-6e900604eaamr17244676d6.8.1741310215325;
+        Thu, 06 Mar 2025 17:16:55 -0800 (PST)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e8f71724d4sm13217566d6.112.2025.03.06.17.16.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 17:16:41 -0800 (PST)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@bootlin.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>
+Cc: Inochi Amaoto <inochiama@gmail.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 02/11] perf dso: kernel-doc for enum dso_binary_type
-Message-ID: <Z8pIiM2Z_jtNNUhN@google.com>
-References: <20250304050305.901167-1-irogers@google.com>
- <20250304050305.901167-3-irogers@google.com>
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH net-next v7 0/4] riscv: sophgo: Add ethernet support for SG2044
+Date: Fri,  7 Mar 2025 09:16:13 +0800
+Message-ID: <20250307011623.440792-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250304050305.901167-3-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_171452_877201_472940C8 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20250306_171656_757111_31DA01EB 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,122 +132,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:02:56PM -0800, Ian Rogers wrote:
-> There are many and non-obvious meanings to the dso_binary_type enum
-> values. Add kernel-doc to speed interpretting their meanings.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/dso.h | 53 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 53 insertions(+)
-> 
-> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-> index dfd763a0bd9d..f3ca2a5e7670 100644
-> --- a/tools/perf/util/dso.h
-> +++ b/tools/perf/util/dso.h
-> @@ -20,30 +20,83 @@ struct perf_env;
->  #define DSO__NAME_KALLSYMS	"[kernel.kallsyms]"
->  #define DSO__NAME_KCORE		"[kernel.kcore]"
->  
-> +/**
-> + * enum dso_binary_type - The kind of DSO generally associated with a memory
-> + *                        region (struct map).
-> + */
+The ethernet controller of SG2044 is Synopsys DesignWare IP with
+custom clock. Add glue layer for it.
 
-Thanks for adding these comments!
+Changed from v6:
+- https://lore.kernel.org/netdev/20250305063920.803601-1-inochiama@gmail.com/
+1. rebase against latest net-next/main
 
+Changed from v5:
+- https://lore.kernel.org/netdev/20250216123953.1252523-1-inochiama@gmail.com/
+1. apply Andrew's tag for patch 2,3
+3. patch 1: add dma-noncoherent property.
+2. patch 2,3: separate original patch into 2 part
+4. patch 4: adopt new stmmac_set_clk_tx_rate helper function
 
->  enum dso_binary_type {
-> +	/** @DSO_BINARY_TYPE__KALLSYMS: Symbols from /proc/kallsyms file. */
->  	DSO_BINARY_TYPE__KALLSYMS = 0,
-> +	/** @DSO_BINARY_TYPE__GUEST_KALLSYMS: Guest /proc/kallsyms file. */
->  	DSO_BINARY_TYPE__GUEST_KALLSYMS,
-> +	/** @DSO_BINARY_TYPE__VMLINUX: Path to guest kernel /boot/vmlinux file. */
->  	DSO_BINARY_TYPE__VMLINUX,
+Changed from v4:
+- https://lore.kernel.org/netdev/20250209013054.816580-1-inochiama@gmail.com/
+1. apply Romain's tag
+2. patch 3: use device variable to replace &pdev->dev.
+3. patch 3: remove unused include.
+4. patch 3: make error message more useful.
 
-It's not for guest.  Also I think the vmlinux file can come from
-different places.
+Changed from v3:
+- https://lore.kernel.org/netdev/20241223005843.483805-1-inochiama@gmail.com/
+1. rebase for 6.14.rc1
+2. remove the dependency requirement as it was already merged
+   into master.
 
+Changed from RFC:
+- https://lore.kernel.org/netdev/20241101014327.513732-1-inochiama@gmail.com/
+1. patch 1: apply Krzysztof' tag
 
-> +	/** @DSO_BINARY_TYPE__GUEST_VMLINUX: Path to kernel /boot/vmlinux file. */
->  	DSO_BINARY_TYPE__GUEST_VMLINUX,
+Changed from v2:
+- https://lore.kernel.org/netdev/20241025011000.244350-1-inochiama@gmail.com/
+1. patch 1: merge the first and the second bindings patch to show the all
+            compatible change.
+2. patch 2: use of_device_compatible_match helper function to perform check.
+2. patch 3: remove unused include and sort the left.
+3. patch 3: fix wrong variable usage in sophgo_dwmac_fix_mac_speed
+4. patch 3: drop unused variable in the patch.
 
-This is for guest. :)
+Changed from v1:
+- https://lore.kernel.org/netdev/20241021103617.653386-1-inochiama@gmail.com/
+1. patch 2: remove sophgo,syscon as this mac delay is resolved.
+2. patch 2: apply all the properties unconditionally.
+3. patch 4: remove sophgo,syscon code as this mac delay is resolved.
+4. patch 4: use the helper function to compute rgmii clock.
+5. patch 4: use remove instead of remove_new for the platform driver.
 
-Thanks,
-Namhyung
+Inochi Amaoto (4):
+  dt-bindings: net: Add support for Sophgo SG2044 dwmac
+  net: stmmac: platform: Group GMAC4 compatible check
+  net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+  net: stmmac: Add glue layer for Sophgo SG2044 SoC
 
+ .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
+ .../bindings/net/sophgo,sg2044-dwmac.yaml     | 126 ++++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/Kconfig   |  11 ++
+ drivers/net/ethernet/stmicro/stmmac/Makefile  |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-sophgo.c    |  75 +++++++++++
+ .../ethernet/stmicro/stmmac/stmmac_platform.c |  17 ++-
+ 6 files changed, 229 insertions(+), 5 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+ create mode 100644 drivers/net/ethernet/stmicro/stmmac/dwmac-sophgo.c
 
-> +	/** @DSO_BINARY_TYPE__JAVA_JIT: Symbols from /tmp/perf.map file. */
->  	DSO_BINARY_TYPE__JAVA_JIT,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__DEBUGLINK: Debug file readable from the file path
-> +	 * in the .gnu_debuglink ELF section of the dso.
-> +	 */
->  	DSO_BINARY_TYPE__DEBUGLINK,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE: File named after buildid located in
-> +	 * the buildid cache with an elf filename.
-> +	 */
->  	DSO_BINARY_TYPE__BUILD_ID_CACHE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO: File named after buildid
-> +	 * located in the buildid cache with a debug filename.
-> +	 */
->  	DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__FEDORA_DEBUGINFO: Debug file in /usr/lib/debug
-> +	 * with .debug suffix.
-> +	 */
->  	DSO_BINARY_TYPE__FEDORA_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__UBUNTU_DEBUGINFO: Debug file in /usr/lib/debug. */
->  	DSO_BINARY_TYPE__UBUNTU_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO: dso__long_name debuginfo
-> +	 * file in /usr/lib/debug/lib rather than the expected
-> +	 * /usr/lib/debug/usr/lib.
-> +	 */
->  	DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILDID_DEBUGINFO: File named after buildid located
-> +	 * in /usr/lib/debug/.build-id/.
-> +	 */
->  	DSO_BINARY_TYPE__BUILDID_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_DSO: A regular executable/shared-object file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_DSO,
-> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE: Guest kernel module .ko file. */
->  	DSO_BINARY_TYPE__GUEST_KMODULE,
-> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE_COMP: Guest kernel module .ko.gz file. */
->  	DSO_BINARY_TYPE__GUEST_KMODULE_COMP,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE: Kernel module .ko file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP: Kernel module .ko.gz file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP,
-> +	/** @DSO_BINARY_TYPE__KCORE: /proc/kcore file. */
->  	DSO_BINARY_TYPE__KCORE,
-> +	/** @DSO_BINARY_TYPE__GUEST_KCORE: Guest /proc/kcore file. */
->  	DSO_BINARY_TYPE__GUEST_KCORE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO: Openembedded/Yocto -dbg
-> +	 * package debug info.
-> +	 */
->  	DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__BPF_PROG_INFO: jitted BPF code. */
->  	DSO_BINARY_TYPE__BPF_PROG_INFO,
-> +	/** @DSO_BINARY_TYPE__BPF_IMAGE: jitted BPF trampoline or dispatcher code. */
->  	DSO_BINARY_TYPE__BPF_IMAGE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__OOL: out of line code such as kprobe-replaced
-> +	 * instructions or optimized kprobes or ftrace trampolines.
-> +	 */
->  	DSO_BINARY_TYPE__OOL,
-> +	/** @DSO_BINARY_TYPE__NOT_FOUND: Unknown DSO kind. */
->  	DSO_BINARY_TYPE__NOT_FOUND,
->  };
->  
-> -- 
-> 2.48.1.711.g2feabab25a-goog
-> 
+--
+2.48.1
+
 
 _______________________________________________
 linux-riscv mailing list
