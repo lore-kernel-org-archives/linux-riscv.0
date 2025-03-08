@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2453BC282DE
-	for <linux-riscv@archiver.kernel.org>; Sat,  8 Mar 2025 02:04:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B23D1C28B25
+	for <linux-riscv@archiver.kernel.org>; Sat,  8 Mar 2025 03:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tztXT/+QoAhkHdbs9o+LQlsD284c29/YveSv4alyUqs=; b=ifAQeUksCeUMAK
-	9UZx/cBg/1XLuEYq/Ck0GawdU/hedC5WF+Joyq/f9jo8wYmC3KFT/Ag5n0eELQ2yEH1W0kEAXsg5a
-	ysA34S4VhdaKuCn3gRd71y5M7ZCxkeRpk2U/PvqmKJ6wG5WXPp+/VXoMcugfgFoGLFiQUU23uJ4Ty
-	UYnG6IzLotSybsqPxG7VhbijFfeL5eExxZrCcZHwNADa5zWkxhe/Pi23zNiUExq1ges/qqTNb/Z0B
-	kdfRHSdbWB6ruDoQhlzo9LiHVKwnNyxnkKe1U+NKXR3dobdK7QIyaCd/lso+atXmr3JYzODHYbXWA
-	BdjQtqIj1OXwcGcBNJJQ==;
+	List-Owner; bh=i/bTzouLq3zC9pkgjN8ZYaH0lif20PeBE9+w4cAshrk=; b=2PM35/ZZ5RSo3a
+	JfHEdXR5foCMtUbSV21rpDlbEMBLg1OIzbnFgMvyQCEA4Tff902J6/EDJ0OpiPW05zGtrg6vc5P7k
+	ELCRSi4V8IUigvM7wWyPrRC+PmJOgDRdnJ82ESHkT0tT4K3ABWh0gAVwdfHpj3CD6+ck+7XgsXITJ
+	ysTogIqRdAdP0fIxniVeF8TgbrYdoyPCB+YAgC2WZ8iVdcUKu1hMvITrCDwHtCVf2X/B1h4ZSnZ7A
+	4DuYXzOasF0WnCOkrzT72/AruoDZUjJytR08o00ukWfed0gW6Yi44Zf6257G9Gf0tCC/uxY+5PhJd
+	NSKuebqL2BDmFE3OdGEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqjXw-0000000G29Y-0Stw;
-	Sat, 08 Mar 2025 02:04:12 +0000
-Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
+	id 1tql5h-0000000G7sx-2m51;
+	Sat, 08 Mar 2025 03:43:09 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqi7L-0000000FuPH-0XC9
-	for linux-riscv@lists.infradead.org;
-	Sat, 08 Mar 2025 00:32:40 +0000
-Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6fd43b37dc3so35425657b3.3
-        for <linux-riscv@lists.infradead.org>; Fri, 07 Mar 2025 16:32:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741393958; x=1741998758; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=aBag0ZTpgw2jBnuqcdEe2ctv9zQnS+6XrNEn3QpM0IU=;
-        b=JLq9fumMbejfMLz/Fe6iybHK0vCVNZlD1X29+zaZP9cgUFaiJWKhcf0bzlQlROhQYA
-         9STQlDh8tJxTf1O3xC671kYc9M+n+2rQxm3M1WEO0u9x65rrWgXTS94TjkP/wQpY8Meo
-         NZ8dzojrrzvYglbCRGofJDakYJ1dbTW3+yMEqZJ7ggMVwpvjprE8M4JkS5Xd7tA2L4Ta
-         PMyiPK346jluoHclsaF94O94iPksoK3Psoy5l8S7BzmsgFW2E5REKJfREo3d6mzEjSW5
-         r5qptYlpsRln2beHYS1wmpHeEjI8FnnwjnDHlZnefH35MtERYQcFaPOvwW0E9rZR/Kys
-         5brw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741393958; x=1741998758;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=aBag0ZTpgw2jBnuqcdEe2ctv9zQnS+6XrNEn3QpM0IU=;
-        b=PpMAhYGE9wYG89BrgiBpqdyGCRdsy+YMf/5tzQwL3/RnYEkQzIbwVrg/+cTjWm1s1E
-         BGCvKhvr2Vt2wwem8isIyLets7hQ22GRGpAdUyEXb8NJHRKpyOl7FIW00LSMn/7j/nLf
-         CUTR7+pg544Iev4sB5PGLCGvi/Vu2DsdLvDzl96DvMtChGtEc/8+H6//a+zkvGvz5jKe
-         EuyUUA5vic+lEXqIZ2WzW1x2tonDrOWKOqoss7oK5pBml+vbHQMX9Rwb3gqmTyNtDi/N
-         go6Yf8y3r3GXVLFDhOmjW/Wg5exEuRUwSkjPjRXXdxQWlbpIknYf5XXGWFiPD0Qnrj7y
-         iURw==
-X-Forwarded-Encrypted: i=1; AJvYcCWk2Yp03pM5Dt2J1sozDe0AfGvgH0trUw2D31rTnbnArEvLwDEmj2AHNOXGatX+QGbn8uSs7MaPxrY6eA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0llP9X9nsM8dN7OmWbz8SVHWC0I4zq/TZPKcSbJGMf5MkOrSy
-	f1h9//AmLB9cu9nFpst8aub9XxIduWGKiqaRU3nCcAhyjUjCo9U8JqZtu1nBbiNkBwrX0uPHSQ7
-	Jw/wOPg==
-X-Google-Smtp-Source: AGHT+IGhJSVrXcuIauCCTdcdrck6v986JR4xLPN3EKMbWJDNglYuGen8NURA01YPhhzdv9BlJdEWKZRc9pFA
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:1541:e490:aa80:5766])
- (user=irogers job=sendgmr) by 2002:a05:690c:2901:b0:6eb:ac7:b4bc with SMTP id
- 00721157ae682-6febf2a661cmr5088337b3.2.1741393957696; Fri, 07 Mar 2025
- 16:32:37 -0800 (PST)
-Date: Fri,  7 Mar 2025 16:32:09 -0800
-In-Reply-To: <20250308003209.234114-1-irogers@google.com>
-Message-Id: <20250308003209.234114-12-irogers@google.com>
-Mime-Version: 1.0
-References: <20250308003209.234114-1-irogers@google.com>
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Subject: [PATCH v5 11/11] perf syscalltbl: Mask off ABI type for MIPS system calls
-From: Ian Rogers <irogers@google.com>
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	Arnd Bergmann <arnd@arndb.de>
+	id 1tql2o-0000000G7NL-24cb;
+	Sat, 08 Mar 2025 03:40:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 263335C66B2;
+	Sat,  8 Mar 2025 03:37:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB0C3C4CEE8;
+	Sat,  8 Mar 2025 03:40:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741405208;
+	bh=VbfFId+c8hU5TKBC8vVV3K3Ub0jULqeS8673sNKaj7g=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=mV7oTwwpvL0aeS+JSNZl3l8a9/aRCG7F9Js6RToq04XDgUGqYoGAPcje1iM9jtDNn
+	 8KdCPVCgeiA9aadZfulZYr4hUzqfWPIyhUY0uZZqpO8yYKKqFDsIlNX3iQ1qBSIi9b
+	 VLVPJMaSHVflnFMNfUrjcW+MmlWE0a+zhK/SfdfyreuWSia4jVQ+wyJBEXBtnk8MJX
+	 RGCNk0ygocpcj0TgkwAu6AegZtA67CQDjTw0H2rO+59j0Vm7XTv//hUK+oVAG3B1+V
+	 rc9BVSkzgtfG+38Ici/qeBxoWWQ7CwfbubBDbn6H1hqsKQ0P4FRe3OgtGN8lsPsrgd
+	 CgtPosWoTw7Qw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 71901380CFFB;
+	Sat,  8 Mar 2025 03:40:43 +0000 (UTC)
+MIME-Version: 1.0
+Subject: Re: [PATCH net-next v7 0/4] riscv: sophgo: Add ethernet support for
+ SG2044
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <174140524199.2565853.4357984309163755989.git-patchwork-notify@kernel.org>
+Date: Sat, 08 Mar 2025 03:40:41 +0000
+References: <20250307011623.440792-1-inochiama@gmail.com>
+In-Reply-To: <20250307011623.440792-1-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, unicorn_wang@outlook.com, inochiama@outlook.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ richardcochran@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, alex@ghiti.fr, clement.leger@bootlin.com,
+ emil.renner.berthing@canonical.com, jan.petrous@oss.nxp.com,
+ yong.liang.choong@linux.intel.com, jszhang@kernel.org,
+ rmk+kernel@armlinux.org.uk, olteanv@gmail.com, 0x1207@gmail.com,
+ romain.gantois@bootlin.com, fancer.lancer@gmail.com,
+ joe@pf.is.s.u-tokyo.ac.jp, l.rubusch@gmail.com,
+ bartosz.golaszewski@linaro.org, peppe.cavallaro@st.com, joabreu@synopsys.com,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ dlan@gentoo.org, looong.bin@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_163239_172227_CCD569B3 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250307_194010_571738_227D2D15 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,38 +89,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Arnd Bergmann described that MIPS system calls don't necessarily start
-from 0 as an ABI prefix is applied:
-https://lore.kernel.org/lkml/8ed7dfb2-1e4d-4aa4-a04b-0397a89365d1@app.fastmail.com/
-When decoding the "id" (aka system call number) for MIPS ignore values
-greater-than 1000.
+Hello:
 
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/util/syscalltbl.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index db0d2b81aed1..ace66e69c1bc 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -46,6 +46,14 @@ const char *syscalltbl__name(int e_machine, int id)
- {
- 	const struct syscalltbl *table = find_table(e_machine);
- 
-+	if (e_machine == EM_MIPS && id > 1000) {
-+		/*
-+		 * MIPS may encode the N32/64/O32 type in the high part of
-+		 * syscall number. Mask this off if present. See the values of
-+		 * __NR_N32_Linux, __NR_64_Linux, __NR_O32_Linux and __NR_Linux.
-+		 */
-+		id = id % 1000;
-+	}
- 	if (table && id >= 0 && id < table->num_to_name_len)
- 		return table->num_to_name[id];
- 	return NULL;
+On Fri,  7 Mar 2025 09:16:13 +0800 you wrote:
+> The ethernet controller of SG2044 is Synopsys DesignWare IP with
+> custom clock. Add glue layer for it.
+> 
+> Changed from v6:
+> - https://lore.kernel.org/netdev/20250305063920.803601-1-inochiama@gmail.com/
+> 1. rebase against latest net-next/main
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v7,1/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
+    https://git.kernel.org/netdev/net-next/c/114508a89ddc
+  - [net-next,v7,2/4] net: stmmac: platform: Group GMAC4 compatible check
+    https://git.kernel.org/netdev/net-next/c/f8add6654d3c
+  - [net-next,v7,3/4] net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+    https://git.kernel.org/netdev/net-next/c/9ef17cafc36b
+  - [net-next,v7,4/4] net: stmmac: Add glue layer for Sophgo SG2044 SoC
+    https://git.kernel.org/netdev/net-next/c/a22221ef5dee
+
+You are awesome, thank you!
 -- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
