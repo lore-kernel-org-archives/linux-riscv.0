@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A675C35FF2
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 09:02:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3F6BC28B2E
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 09:02:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HM0OiD8nOIyKXHOi8go877ZWuXtVv+DTjB0llz1XccA=; b=abHrHaq3KnPIBS
-	8rpnAerEn4aiR4uz5FfXXgVHNf8pqYbRCoUfdmPJaI2Df66VbMXEPLfcAKXZj6942NRBMZ3NbezU/
-	Et1jt6vY2gvt+0L+wS6onyCqtpje1PcfFZkVWNX2RbD+KoYk5tXfEKg8ezuqUsoJzwpec6vugvHoA
-	8DS4HJwZcfocYHgfAH7/1Rea053sMg/aiz3E2f2HYvlWRqVSSjIrd7WjAWW3NESHywqf773TZLt+P
-	PKxswsztYRPiekSSZnm9wsw/qj1GvBnkVvKnPFE6aH08K+81A9PcMu771J3+fda6iBi85mSJZQ4WJ
-	LZhBz/8vDZk2+wW/bDKA==;
+	List-Owner; bh=EBycXvv43xlLW3thPUNUBxLUUYRfiKlwJNp5CONK5lo=; b=MBXtxqUxkmLI53
+	NaRLvIf36yFrpoRaMqVWMwN92GfHdyvJe8ra4HohjGK4k7HRXfFbbiXQP8rRLv5eK/NRkPCEgYAEM
+	oD3ImLykep9Lmb5xR5Dn+dMtji/Sew12ZIfQwzZd7gUjmvdUg2Oe+RftAXaU7Udu6UOp59KGsrvXz
+	/k3G10ttq+Pm53IPvSdgW7WECfTTQtOMT5Onm8/fGGz3qQB6/7Kytlnxufr6AbYf/jS//nkxSH9Lv
+	Lm57HCOo9/vUZ5+joY1Wpz8LjBZmmNlCGPfdvYgBXB7WqtLNMpokBkFzd8yqlxrNuOAEEoEkx3C4W
+	wE+WTfFs1iUiaKpgyxoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZ1s-00000001zn2-0rpQ;
-	Mon, 10 Mar 2025 09:02:32 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1trZ1q-00000001zmD-46g0;
+	Mon, 10 Mar 2025 09:02:30 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZ1k-00000001ziA-0mqQ
+	id 1trZ1j-00000001zia-2mnv
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 09:02:29 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250310090218euoutp0180480614fef1d56af94c57eb74234f34~rZY1P0glO0780207802euoutp016
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 09:02:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250310090218euoutp0180480614fef1d56af94c57eb74234f34~rZY1P0glO0780207802euoutp016
+	Mon, 10 Mar 2025 09:02:28 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250310090221euoutp02ff94215f1eda7077387d4c60c657bee4~rZY4IFLo02551425514euoutp02y
+	for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 09:02:21 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250310090221euoutp02ff94215f1eda7077387d4c60c657bee4~rZY4IFLo02551425514euoutp02y
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741597338;
-	bh=QlOPvGKaMPU/idJug/zylqhE7fvuqnxP/B0lxZPddds=;
+	s=mail20170921; t=1741597341;
+	bh=GvH+KGxOLMWPvCT3kvkzzW6sq/iRIHCpZUQmHgtdxxI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CGjpLjrhg8y/z3a9e6bcpvc2VZ89s5gpeJ7R3QXQf3KY9rzj20wotdOokLIb7ziOS
-	 wzdLPp0KAJYrEjAAxUgDJ4gmlB5rrUo9NHkxKCX5npCKF27VWvQuHY/qT+0pJtkVwC
-	 OphXZiNP0Q0Cjund6vpDgvdWdjrzl6RYAHMxrllI=
+	b=bxznMqa9nXhUI8+SFusigApWXFGROHO2Annprj0ShgQ+lBhu4giEVznN92Kp1GHWV
+	 zDrPjQueKr5mf5fPi8xWBjUxen/rs5AffFvUnEVcyrd//DgH/wtNXby8J0yRwDrqaU
+	 j43MKqpsEsHm/RrFTql1ESjDKI+Cb0bFuoXmzhes=
 Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
 	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250310090217eucas1p100fc3752de49bb7a7b1ed0e67e1cf273~rZY0wb_bE2282522825eucas1p1F;
-	Mon, 10 Mar 2025 09:02:17 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 03.86.20409.99AAEC76; Mon, 10
-	Mar 2025 09:02:17 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250310090217eucas1p2051d00809a53d8daca663c8ef8d78dc8~rZY0UoIW22912429124eucas1p2i;
-	Mon, 10 Mar 2025 09:02:17 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250310090217eusmtrp25434d7b666433bb05eb197ed40b200eb~rZY0T27pH2373823738eusmtrp2Z;
-	Mon, 10 Mar 2025 09:02:17 +0000 (GMT)
-X-AuditID: cbfec7f4-c39fa70000004fb9-c5-67ceaa99e909
+	20250310090221eucas1p18c5a64e40afb46abab95016c08a70fa2~rZY36jzSy2333723337eucas1p10;
+	Mon, 10 Mar 2025 09:02:21 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 19.86.20409.D9AAEC76; Mon, 10
+	Mar 2025 09:02:21 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250310090220eucas1p1bcb94d4d6c7145fa12a85305cb73068c~rZY3g6_8w2339523395eucas1p1v;
+	Mon, 10 Mar 2025 09:02:20 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250310090220eusmtrp1ad878aee0609448e3166f1fd98b0d986~rZY3gKuI41041010410eusmtrp1D;
+	Mon, 10 Mar 2025 09:02:20 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-d7-67ceaa9d9371
 Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 30.E5.19920.99AAEC76; Mon, 10
-	Mar 2025 09:02:17 +0000 (GMT)
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id BE.0F.19654.C9AAEC76; Mon, 10
+	Mar 2025 09:02:20 +0000 (GMT)
 Received: from AMDC4942.home (unknown [106.210.136.40]) by
 	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250310090216eusmtip224d54353dec5bb0b78398c86006803f3~rZYzQVSZl2674426744eusmtip2b;
-	Mon, 10 Mar 2025 09:02:16 +0000 (GMT)
+	20250310090220eusmtip26340f4f58568cd1b70452f8d5f384cac~rZY2rD9Xf2911429114eusmtip2G;
+	Mon, 10 Mar 2025 09:02:20 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
 To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
 	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
@@ -68,60 +68,58 @@ To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
 	jszhang@kernel.org, ulf.hansson@linaro.org, m.szyprowski@samsung.com
 Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Michal
-	Wilczynski <m.wilczynski@samsung.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 1/5] dt-bindings: firmware: thead,th1520: Add support for
- firmware node
-Date: Mon, 10 Mar 2025 10:02:07 +0100
-Message-Id: <20250310090211.286549-2-m.wilczynski@samsung.com>
+	Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v7 5/5] riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
+Date: Mon, 10 Mar 2025 10:02:11 +0100
+Message-Id: <20250310090211.286549-6-m.wilczynski@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250310090211.286549-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrBKsWRmVeSWpSXmKPExsWy7djPc7ozV51LN1iz2Mzi2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOz2Pt6K7vF5V1z2Cw+9x5htNj2uYXN
-	Yu2Ru+wW67/OZ7J4ebmH2aJtFr/F/z072C2Orw23aNk/hcVB2OPNy5csHoc7vrB73DsxjdVj
-	06pONo871/aweWxeUu/RsvYYk8f7fVfZPPq2rGL0uNR8nd3j8ya5AO4oLpuU1JzMstQifbsE
-	roxTDUvYC1aJV7ycP5W5gXGJcBcjJ4eEgInE7v/n2bsYuTiEBFYwSvR2b2UESQgJfGGUOLcl
-	HiLxmVFi0d8DTDAd++b1s0IkljNKTNjVBdX+hlHiQuNNNpAqNgEjiQfL54NViQj0M0n0HfkP
-	5jALPGSUeP2yCcjh4BAWiJG41RAJ0sAioCox6+ljdhCbV8BOYse95VDr5CX2HzzLDGJzCthL
-	vNi4iRGiRlDi5MwnLCA2M1BN89bZzCDzJQS2c0pce/uKGaLZReLW1XVQtrDEq+Nb2CFsGYn/
-	O+dDLciXeLD1E1RNjcTOnuNQtrXEnXO/2EDuZBbQlFi/Sx8i7Chx718nE0hYQoBP4sZbQYgT
-	+CQmbZvODBHmlehoE4KoVpOY2tMLt/Tcim1QSz0k9u25zjqBUXEWkmdmIXlmFsLeBYzMqxjF
-	U0uLc9NTi43yUsv1ihNzi0vz0vWS83M3MQIT4+l/x7/sYFz+6qPeIUYmDsZDjBIczEoivGrb
-	T6UL8aYkVlalFuXHF5XmpBYfYpTmYFES5120vzVdSCA9sSQ1OzW1ILUIJsvEwSnVwNTHcCdm
-	e4jPhSfKXptzGa0mMJZtY+76sqzNJGuzwpHr2fYzOeZMiP9p90g9lnu1oknmkx053i/K5U1j
-	/11n1O9Yu9iXJSvkxDof/RMX+kq0OpynfQr7G1WbLXrkzqQ7e96eenXu46aU365LuL516i98
-	LNDx+Ld/yfuN8SwvTp85duRqcgtfvZ/0FscmCZP+7DWC4p9/esktf6yrszb2vfNtsaMTBdo4
-	DYRu/jW6wypSeu9uLMeK6wyLTkrUX2OOVIzLOMClKCNSqPpz4bnFHPOdLCdt4j1RzvH2Ymjd
-	6XtuL2uuFX6tXab8a5GJhy3zjMRGp/Zv/RPeb76Y3Lp2p0De1tyz7fUptdGH77ocP6fEUpyR
-	aKjFXFScCACf+9n0+wMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrBIsWRmVeSWpSXmKPExsVy+t/xe7ozV51LN2g8IGbx7M5XVoutv2ex
-	W6zZe47JYv6Rc6wW9y5tYbJ4sbeRxaL52Ho2i5ez7rFZ7H29ld3i8q45bBafe48wWmz73MJm
-	sfbIXXaL9V/nM1m8vNzDbNE2i9/i/54d7BbH14ZbtOyfwuIg7PHm5UsWj8MdX9g97p2Yxuqx
-	aVUnm8eda3vYPDYvqfdoWXuMyeP9vqtsHn1bVjF6XGq+zu7xeZNcAHeUnk1RfmlJqkJGfnGJ
-	rVK0oYWRnqGlhZ6RiaWeobF5rJWRqZK+nU1Kak5mWWqRvl2CXsaphiXsBavEK17On8rcwLhE
-	uIuRk0NCwERi37x+1i5GLg4hgaWMEg/bl7NBJGQkrnW/ZIGwhSX+XOtigyh6xSix8fpmRpAE
-	m4CRxIPl88G6RQQWMklcnbKBGSTBLPCUUWLbDXEQW1ggSmL9jrtMIDaLgKrErKeP2UFsXgE7
-	iR33ljNBbJCX2H/wLFgvp4C9xIuNm8AWCIHUdL9jhagXlDg58wkLxHx5ieats5knMArMQpKa
-	hSS1gJFpFaNIamlxbnpusaFecWJucWleul5yfu4mRmAUbzv2c/MOxnmvPuodYmTiYDzEKMHB
-	rCTCq7b9VLoQb0piZVVqUX58UWlOavEhRlOguycyS4km5wPTSF5JvKGZgamhiZmlgamlmbGS
-	OK/b5fNpQgLpiSWp2ampBalFMH1MHJxSDUxht1PXVvDb767p5i9RKqzKOewo9u9AvELoFD/T
-	uli9gz+CDKKu28/bJfp32zWFkvNPs63ZuNOTl2hVHPnKdTDVaMPH2zLGdv1WS2tSd1UsWyj8
-	z0F+wjeegEkxEcx2Qi+X5dg1+L0Tf5nZfitCa14nv6ilqaTthfJbLV8V+JcWik+e4zfTp3tP
-	o1z9svX3d8RfatfnFio7Pzs+lq3a1yN0yZPkmikLz82z7fmc8alT76vgrE/KexulW36eVw1h
-	N9syN/i1/3ybvkZuzRveArf2fS+9ZmkVuVVrluwvTaNWw8eWoX3PNt/hqdB+0WBzz3bG1tDD
-	j0O/879YPX2F5KGX1axnZd3spJW3z9R7rMRSnJFoqMVcVJwIAC/heFhrAwAA
-X-CMS-MailID: 20250310090217eucas1p2051d00809a53d8daca663c8ef8d78dc8
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrCKsWRmVeSWpSXmKPExsWy7djP87pzV51LN/hyWsji2Z2vrBZbf89i
+	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
+	Yv3X+UwWLy/3MFu0zeK3+L9nB7vF8bXhFi37p7A4CHm8efmSxeNwxxd2j3snprF6bFrVyeZx
+	59oeNo/NS+o9WtYeY/J4v+8qm0ffllWMHpear7N7fN4kF8AdxWWTkpqTWZZapG+XwJUxe+0Z
+	poIpnBU9uy+wNTCeZu9i5OSQEDCRuHH3N3MXIxeHkMAKRonns+YyQjhfGCUOX9kD5XxmlPjw
+	bDEbTEvn1C1QLcsZJX6f+scK4bxhlLjV+JEJpIpNwEjiwfL5YAkRgX4mib4j/8EcZoGVjBL3
+	L5xlBqkSFvCQeN3xFuwUFgFVid4ZT1lAbF4BO4meGddZIfbJS+w/CFHPKWAv8WLjJkaIGkGJ
+	kzOfgNUzA9U0b53NDFG/mVNi6tsACNtFYnHPGqi4sMSr41ug3paROD25hwXCzpd4sPUTVE2N
+	xM6e41C2tcSdc7+AfuYAmq8psX6XPkTYUeLMnq1gYQkBPokbbwUhLuCTmLRtOjNEmFeio00I
+	olpNYmpPL9zScyu2MUHYHhKfj79hnsCoOAvJL7OQ/DILYe8CRuZVjOKppcW56anFRnmp5XrF
+	ibnFpXnpesn5uZsYgQnx9L/jX3YwLn/1Ue8QIxMH4yFGCQ5mJRFete2n0oV4UxIrq1KL8uOL
+	SnNSiw8xSnOwKInzLtrfmi4kkJ5YkpqdmlqQWgSTZeLglGpg2v5w561A60+cJZxhmRvXet+a
+	Nq3E4smpMK5C1xeGdvOvclXJ6HwqNP9/N+aozpxfltde5F9ny+xlrewWkPvRHalQzZoXvMlK
+	KY3hVM/KcI0NC56du8+g9Zz5UQ/nb/ufqQLai4Il10rqbjwrXPwls/fVumNqbE62J5O4Jk0p
+	Md4t/PAgw8LoXWovXBf0TGhRjqjfrOCgPXVeMMOEJTt40nfmGE4oYL9T/M0qJfTXobPtjALL
+	btp8FGg1UH+6K9k5QzZwj7fc9XVnXFLkpXVUIz/dkKltvrDyj6X0B62Q41PKOt0ffamZv9f0
+	2eKn6owTbkr+fLvs8J1f2tU3lxn/bmvbvcd7tXqBMi+fddJ2JZbijERDLeai4kQA9VAKKPcD
+	AAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrCIsWRmVeSWpSXmKPExsVy+t/xe7pzVp1LN1hzwcTi2Z2vrBZbf89i
+	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
+	Yv3X+UwWLy/3MFu0zeK3+L9nB7vF8bXhFi37p7A4CHm8efmSxeNwxxd2j3snprF6bFrVyeZx
+	59oeNo/NS+o9WtYeY/J4v+8qm0ffllWMHpear7N7fN4kF8AdpWdTlF9akqqQkV9cYqsUbWhh
+	pGdoaaFnZGKpZ2hsHmtlZKqkb2eTkpqTWZZapG+XoJcxe+0ZpoIpnBU9uy+wNTCeZu9i5OSQ
+	EDCR6Jy6hbmLkYtDSGApo8SFH81sEAkZiWvdL1kgbGGJP9e62CCKXjFKtD6dywySYBMwkniw
+	fD4rSEJEYCGTxNUpG8BGMQusZZQ4fPUS2A5hAQ+J1x1vwWwWAVWJ3hlPwcbyCthJ9My4zgqx
+	Ql5i/8GzYFM5BewlXmzcxAhiCwHV7Oh+xwpRLyhxcuYTsF5moPrmrbOZJzAKzEKSmoUktYCR
+	aRWjSGppcW56brGRXnFibnFpXrpecn7uJkZg9G479nPLDsaVrz7qHWJk4mA8xCjBwawkwqu2
+	/VS6EG9KYmVValF+fFFpTmrxIUZToLsnMkuJJucD00deSbyhmYGpoYmZpYGppZmxkjgv25Xz
+	aUIC6YklqdmpqQWpRTB9TBycUg1Mc0MOZN47eZhTI9XTlX3WN0Hn6Lnd7ycL70u+FPf9LEdN
+	EcsJLomPju+OJDt+mnaq7WN5gFBrbfDd5cHivAYSoRtcHLWb/jDJXmf/leJlPEeWY5dhse0U
+	91zte0JRe0L913gIHLrnyrneTEexxHXjSc0KrWupP4MK524W/mGapOjv+dBWzN7KRN5+moQy
+	t3LzNr7ELJaVbPeY9+2ZuqG54N0DmaWZ+78zHJp8uVlwNtf+j0IG388dvP35j5rylbyrjhzb
+	H664/CXnt3NFs9Vf/uVzN3HOLW6bMjHq0dtzO6sjKnw4fbJ95DZO50z2v3n7y/adD+5aPJMR
+	k4j4ZMqn9Lg/9GHNwelKL/zr3bmVWIozEg21mIuKEwF33gf7ZwMAAA==
+X-CMS-MailID: 20250310090220eucas1p1bcb94d4d6c7145fa12a85305cb73068c
 X-Msg-Generator: CA
-X-RootMTR: 20250310090217eucas1p2051d00809a53d8daca663c8ef8d78dc8
+X-RootMTR: 20250310090220eucas1p1bcb94d4d6c7145fa12a85305cb73068c
 X-EPHeader: CA
 CMS-TYPE: 201P
-X-CMS-RootMailID: 20250310090217eucas1p2051d00809a53d8daca663c8ef8d78dc8
+X-CMS-RootMailID: 20250310090220eucas1p1bcb94d4d6c7145fa12a85305cb73068c
 References: <20250310090211.286549-1-m.wilczynski@samsung.com>
-	<CGME20250310090217eucas1p2051d00809a53d8daca663c8ef8d78dc8@eucas1p2.samsung.com>
+	<CGME20250310090220eucas1p1bcb94d4d6c7145fa12a85305cb73068c@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_020225_091242_8DF9457D 
-X-CRM114-Status: GOOD (  16.63  )
+X-CRM114-CacheID: sfid-20250310_020225_097993_E3206669 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,89 +136,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The kernel communicates with the E902 core through the mailbox
-transport using AON firmware protocol. Add dt-bindings to document it
-the dt node.
+T-Head SoCs feature separate power domains (power islands) for major
+components like the GPU, Audio, and NPU. To manage the power states of
+these components effectively, the kernel requires generic power domain
+support.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+This commit enables `CONFIG_PM_GENERIC_DOMAINS` for T-Head SoCs,
+allowing the power domain driver for these components to be compiled and
+integrated. This ensures proper power management and energy efficiency
+on T-Head platforms.
+
+By selecting `PM_GENERIC_DOMAINS`, we provide the necessary framework
+for the power domain drivers to function correctly on RISC-V
+architecture with T-Head SoCs.
+
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- .../bindings/firmware/thead,th1520-aon.yaml   | 53 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 54 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+ arch/riscv/Kconfig.socs | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-new file mode 100644
-index 000000000000..bbc183200400
---- /dev/null
-+++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/firmware/thead,th1520-aon.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: T-HEAD TH1520 AON (Always-On) Firmware
-+
-+description: |
-+  The Always-On (AON) subsystem in the TH1520 SoC is responsible for managing
-+  low-power states, system wakeup events, and power management tasks. It is
-+  designed to operate independently in a dedicated power domain, allowing it to
-+  remain functional even during the SoC's deep sleep states.
-+
-+  At the heart of the AON subsystem is the E902, a low-power core that executes
-+  firmware responsible for coordinating tasks such as power domain control,
-+  clock management, and system wakeup signaling. Communication between the main
-+  SoC and the AON subsystem is handled through a mailbox interface, which
-+  enables message-based interactions with the AON firmware.
-+
-+maintainers:
-+  - Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+properties:
-+  compatible:
-+    const: thead,th1520-aon
-+
-+  mboxes:
-+    maxItems: 1
-+
-+  mbox-names:
-+    items:
-+      - const: aon
-+
-+  "#power-domain-cells":
-+    const: 1
-+
-+required:
-+  - compatible
-+  - mboxes
-+  - mbox-names
-+  - "#power-domain-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    aon: aon {
-+        compatible = "thead,th1520-aon";
-+        mboxes = <&mbox_910t 1>;
-+        mbox-names = "aon";
-+        #power-domain-cells = <1>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ed7aa6867674..15f4bc618064 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20427,6 +20427,7 @@ L:	linux-riscv@lists.infradead.org
- S:	Maintained
- T:	git https://github.com/pdp7/linux.git
- F:	Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
-+F:	Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
- F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
- F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
- F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 1916cf7ba450..83833ded8908 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -53,6 +53,7 @@ config ARCH_THEAD
+ 	bool "T-HEAD RISC-V SoCs"
+ 	depends on MMU && !XIP_KERNEL
+ 	select ERRATA_THEAD
++	select PM_GENERIC_DOMAINS if PM
+ 	help
+ 	  This enables support for the RISC-V based T-HEAD SoCs.
+ 
 -- 
 2.34.1
 
