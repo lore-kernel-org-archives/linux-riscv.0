@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63EB1C28B30
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 19:55:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAE6C282DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 19:55:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
 	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aDerGgnOQQgK5hUSWD7DOxZd4gkPBg2n9YNWmZq6vpc=; b=O8LrDIIYXMr3+L
-	whieNv9Ti42yL5QAC0o5W4NJkQdfD6JZG0h8zD5TztvFIpKFwBpUVMAqAAyAmD+crKZ5T/zZAaMSR
-	+riCnTGg+KF3ZN+hcC+MJyVr9UDToOh6p7Rk5UaxGtJPnb+yrmZI5xXAmYE6rK+P0+kqv9l29ir8v
-	J5a7fgBrogNyBct6NGM6TRD223+2kHnUGGgFI50/L7eJloH/DMWSTiJ1U/MLkLDJeVSPK00DdKqim
-	ZeCq1rUwYTodTs4zhqRulcui2TohqqqjGJobx3gdmtkceahx+lKPNu9XaG9dWxIm8xa6LTbeCZ7zZ
-	DPG0LWN6N/2cE5i/HMLw==;
+	List-Owner; bh=B+a5+dvogHZSW00yDSN6bbfhRncongv2l2R04p94BRA=; b=h3t947gUKLRNlz
+	TRs6JgxPv8AZBOFofy7OjSJa8wP5350vCa3tMslKoF8T8RAznw0LQlgLCUIut0UKvhgg++PicQ8mJ
+	DFcHowAoepaxpheOyXNhVcxQb6A8/O2jgNmIGeCRotqr+pfV/hg/y9iadt3t/biLO0g+P8GpDyrIA
+	CKfseR1tWz1CNFi4i5x87W74CdDsHwrlWx9jf/CwBOq0S/IlDhuoZS7ff/vDsKTJz3oR1godg13gg
+	V7m4rYnCnomNpJcy1btAZs7J+7TfaJc6gBL3h2oPeBdFCbwWkUDq/mXPKADvHCTofr09aIiIaf5AO
+	xUxUGaWT5FTK3z+f+xng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjDm-00000003mBK-1553;
-	Mon, 10 Mar 2025 19:55:30 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1trjE3-00000003mIH-3bOu;
+	Mon, 10 Mar 2025 19:55:47 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjDi-00000003m9d-4BHK
+	id 1trjE1-00000003mGI-1Xir
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 19:55:28 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-225107fbdc7so41058975ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 12:55:25 -0700 (PDT)
+	Mon, 10 Mar 2025 19:55:46 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff68033070so7469083a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 12:55:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741636525; x=1742241325; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1741636543; x=1742241343; darn=lists.infradead.org;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=Mtw5A6pnErP63NBf+2oMOxljRBPUk1W+HOiO6no4Q+Y=;
-        b=usk9jXiA8ZPZOBnI08OaUXGD5kujUGLSugQedEvOR9mKR1JcGItY8AZIk8gWoWQV+i
-         xXCilVvSYRZ+K1C9fyBBzEvobYN1Ho16JOisc+clpyRDdibK8GZJbeEYxvggUGdqLgjs
-         UNU63dYIr89VNc4P5owlx86O6uwZOvxepZAgn/E2LXcH0QWhvGPGKusxX+IH8xcjXgoE
-         OiKizXA3eDL81e2QP/s9eiMhBCw7DSCXOzmvXhwbkQweXUWT+05E427unCFZXYuw4p4u
-         i09dI8NzirsIkY9+qWoBR7+w+ItpsIQxTqdNstqNtLyI6F/qh2aiFA/svMSWh5yZY+vO
-         0HNQ==
+        bh=2/JlJMcZ5IMZUK/raTA8JFgLCXPXl7h3UP7dz91G4Lk=;
+        b=RjFSKWO/74KSFhp+FB2ABpIxOQm5JPnv/2rOZAEqeKbNqm2KCm1Xw6cB4MtOGJTAh1
+         iIaPJSloy0GnpPnrc9aR1v/TXr5aHKkbWFxVDEIU49+/Isa2pQv8ovEkdGhmbZ3ZAQ7O
+         /enGojGQHLVH5cN+If8rclErVoLFbktnVz1XHUCNxnpGbdyP9lpl7hH2ga33O6FvOlQs
+         vuv+2jvqnyFu0XKLc8TB+exwWAQnTpR0GAmLa2k8y6bz0O91QADrl0cdJ/Qu/wRcVnPo
+         eQUPzUm5rlq9RI69EmfRvCNJXHtYzWx7h5mYYK3kiBlsnMMnkSUpGFmhCUri1dM0n5C9
+         H2dQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741636525; x=1742241325;
+        d=1e100.net; s=20230601; t=1741636543; x=1742241343;
         h=to:from:subject:message-id:references:mime-version:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mtw5A6pnErP63NBf+2oMOxljRBPUk1W+HOiO6no4Q+Y=;
-        b=IJG+Yr2Ty361jDFvIqPy3pT4vioMVkjzZoN793nq9FTg7vZXJWqbxY9mj7wjB3GkzL
-         qTY9gtyN/p+ptU+4wLogL1petUGVK63sDbTEQwIZGEkrvGyMEWHTGNh03HGtCl0tAVgG
-         lVigYuUlnywQpAUhUcwLtIpRq9nvUV0glNkieh9a5MILwxFnDsz01BCHJVmJyA/7B+Cm
-         LuXpwe41ypvd9Wcy4S8+D8GaUi8su3QwFG2SKckwU4KOUe4OxLpJBCsGOeAZbWEjgxCD
-         Y2wBR0TLcoJP7VSZG6aKuvurNCrGPfp5a2oGmaK8aSOxpBT0XoT91Re7zRdbwuepjMlf
-         bIgw==
-X-Forwarded-Encrypted: i=1; AJvYcCXe25DKqjJ564wRMXGRPS3GQ9JL7pkiOf0LysPIDkFHnDh1xw51KePlYFyF5DVU3m3BJrPQnnDfUsbqpg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yye+axYo+VrD0+bdnBvYnN/Xdy/oRZm/B7vPH3T/X8FWTCTHTWc
-	fcsGjqmlUQ+5x8EUZwS325LWn3/+ESPU7rnFAS6elqsYm8+ZJi2zAaNkAkqlNUDnLTMbf7fLp/D
-	20lcrLg==
-X-Google-Smtp-Source: AGHT+IFGWlShb5kIWxI+81Al+aKaRpPgOqN7dElfZLMAJXDNRxxbs9Dr7UEPZnwpTE1mHFFuj6jma5OrHpr5
-X-Received: from pllo19.prod.google.com ([2002:a17:902:7793:b0:223:5a6e:b17])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:32c6:b0:224:13c0:58e3
- with SMTP id d9443c01a7336-22428bf1976mr198632485ad.51.1741636525408; Mon, 10
- Mar 2025 12:55:25 -0700 (PDT)
-Date: Mon, 10 Mar 2025 12:55:17 -0700
+        bh=2/JlJMcZ5IMZUK/raTA8JFgLCXPXl7h3UP7dz91G4Lk=;
+        b=T20i7J6Y+SN5A+ezJvFYUosT6AxWxjhUS8yXIGJ0GeVy/H6hylAnynpk16uMsLHht6
+         EZu6RXXvHgUNgD4mGaS+Q66XeYS/9HhEqHEAvtMRm+V3dY3MtVGmd/kCRrzynUjdZ6VU
+         oW+nROpyas2VsW0ZcbEOSuQwgTHGO5YKslnE+44NuD5MgawfEAlo415JaGtAev7MLfZY
+         csduQ72fmAfEmh1VzvOZTeuPjqm0pzeUhVbgs3hOsZ/ukcILxYJLHbWIsnU745ZSLfCD
+         D2LwXvXrm44D+AsAz5hw1odoY3mkVxCH3X5kqUYHTqQyTX6HLNkySnUCBTVsOooIxpJA
+         PFZA==
+X-Forwarded-Encrypted: i=1; AJvYcCXft5j2WZuRB4xRc7UpPe2JrALX+PZBvW8D+kiFEhgW/gZtIihAmkoz9JQrPS0jDu15v+Lbhp6MtUILrQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHe0BxP3lTxswoYiZXvXJqulgARYz3DEXI8loSy2Hxj02zoY9Q
+	gdhXASTkQQwHzF1TIKMFQfGYUisYFZYGLIBDrViGqb2NvhQAPuMBTHJwN247sP+qAEx5+7tlC5W
+	C3qRH9w==
+X-Google-Smtp-Source: AGHT+IGP7PL/RMy/It9PScbVC2X+jH+eqAEL95lIMDqaAQGQUShkH4NAm1SwHY2/IvlM+vSWSNYh1/DSNv1g
+X-Received: from pjbpd6.prod.google.com ([2002:a17:90b:1dc6:b0:2fa:15aa:4d1e])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:53c8:b0:2fa:157e:c78e
+ with SMTP id 98e67ed59e1d1-300ff0a441cmr1509149a91.7.1741636543305; Mon, 10
+ Mar 2025 12:55:43 -0700 (PDT)
+Date: Mon, 10 Mar 2025 12:55:18 -0700
 In-Reply-To: <20250310195518.2012571-1-irogers@google.com>
 Mime-Version: 1.0
 References: <20250310195518.2012571-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Message-ID: <20250310195518.2012571-2-irogers@google.com>
-Subject: [PATCH v1 1/2] perf parse-events: Make legacy events always have
- priority over sysfs/json
+Message-ID: <20250310195518.2012571-3-irogers@google.com>
+Subject: [PATCH v1 2/2] Revert "perf evsel: Add alternate_hw_config and use in evsel__match"
 From: Ian Rogers <irogers@google.com>
 To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
 	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -82,8 +81,8 @@ To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	Leo Yan <leo.yan@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_125527_042691_C32AF142 
-X-CRM114-Status: GOOD (  24.41  )
+X-CRM114-CacheID: sfid-20250310_125545_411489_3876753E 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,166 +99,411 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts the behavior of commit a24d9d9dc096 ("perf parse-events:
-Make legacy events lower priority than sysfs/JSON"). That commit
-states:
+This reverts commit 22a4db3c36034e2b034c5b88414680857fc59cf4.
 
-  As part of that report Mark Rutland <mark.rutland@arm.com> requested
-  that legacy events not be higher in priority when a PMU is specified
-  reversing what has until this change been perf's default behavior.
-
-with an Acked-by: Mark Rutland <mark.rutland@arm.com> tag. Mark
-expresses this preference here:
-https://lore.kernel.org/lkml/ZVzXjz_0nYbmSGPQ@FVFF77S0Q05N.cambridge.arm.com/
-On an Alderlake this commit caused `cpu_core/instructions/` to be
-encoded as:
-
-  ------------------------------------------------------------
-  perf_event_attr:
-    type                             4 (cpu_core)
-    size                             136
-    config                           0xc0 (instructions)
-    sample_type                      IDENTIFIER
-    read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING
-    disabled                         1
-    inherit                          1
-    enable_on_exec                   1
-    exclude_guest                    1
-  ------------------------------------------------------------
-
-While `instructions` would be encoded as:
-
-  ------------------------------------------------------------
-  perf_event_attr:
-    type                             0 (PERF_TYPE_HARDWARE)
-    size                             136
-    config                           0x400000001
-    sample_type                      IDENTIFIER
-    read_format                      TOTAL_TIME_ENABLED|TOTAL_TIME_RUNNING
-    disabled                         1
-    inherit                          1
-    enable_on_exec                   1
-    exclude_guest                    1
-  ------------------------------------------------------------
-
-As the event parsing for legacy events uses parse_events_add_numeric,
-rather than the more generic PMU handling case, we end up with the
-same event name being encoded two ways. However, as instructions is
-also a cpu_atom event on Alderlake, or any hybrid system, the PMU
-prefixes are added in the stat output meaning instructions is reported
-as cpu_core/instructions/ and cpu_atom/instructions/ even though those
-events are encoded differently and potentially have different
-behaviors. We shouldn't be having the same event with two different
-encodings and I followed up the commit with changing the
-prioritization of legacy events also when no PMU is specified in
-commit 617824a7f0f7 ("perf parse-events: Prefer sysfs/JSON hardware
-events over legacy").
-
-RISC-V have been asking that legacy events also be a lower priority
-than sysfs/json to avoid driver complexity. They've since had to work
-around this issue meaning it isn't a necessity:
-
-  If the overriding legacy with JSON is available, each future vendor
-  may just provide the json file instead of modifying the driver.
-  However, it will be a matter of convenience and clutter free future
-  rather than a necessity at this point.
-
-https://lists.riscv.org/g/sig-perf-analysis/topic/110906276#msg458
-
-Landing the commit making encoding consistent and having sysfs/json a
-priority has been pushed back against by Namhyung Kim, Arnaldo
-Carvalho de Melo and James Clark. James assert the ARM drivers are now
-fixed and don't need the prioritization. RISC-V's interests have been
-ignored. The fact that legacy events are antiquated, imprecise in
-meaning, brittle, misleading and don't give us a way to fix kernel
-issues in software, have also been ignored:
-https://lore.kernel.org/lkml/Z8sMcta0zTWeOso4@x1/
-
-Given the push back against sysfs/json being a priority, contrary to
-Mark Rutland's insistence this was the sensible way to do things,
-contrary to RISC-V's wishes, and contrary to my own preference that
-legacy events do become legacy, this patch changes the priority back
-to legacy events being the priority consistently - that is
-instructions and cpu_core/instructions/ are both encoded using legacy
-events. It isn't a straight revert as clean-ups/refactorings are kept
-in place.
+Now legacy events are prioritized there is no need to worry about a
+sysfs/json event being used when trying to pattern match a legacy
+event.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/tests/parse-events.c | 13 +++----------
- tools/perf/util/parse-events.c  | 26 +++++++++-----------------
- 2 files changed, 12 insertions(+), 27 deletions(-)
+ tools/perf/builtin-diff.c      |  6 ++--
+ tools/perf/util/evsel.c        | 21 -------------
+ tools/perf/util/evsel.h        | 19 ++++++++++--
+ tools/perf/util/parse-events.c | 55 +++++++++++++---------------------
+ tools/perf/util/parse-events.h |  8 +----
+ tools/perf/util/parse-events.y |  2 +-
+ tools/perf/util/pmu.c          |  6 +---
+ tools/perf/util/pmu.h          |  2 +-
+ 8 files changed, 45 insertions(+), 74 deletions(-)
 
-diff --git a/tools/perf/tests/parse-events.c b/tools/perf/tests/parse-events.c
-index 5ec2e5607987..78e8ae825bf8 100644
---- a/tools/perf/tests/parse-events.c
-+++ b/tools/perf/tests/parse-events.c
-@@ -162,16 +162,9 @@ static int test__checkevent_numeric(struct evlist *evlist)
+diff --git a/tools/perf/builtin-diff.c b/tools/perf/builtin-diff.c
+index ae490d58af92..b49c1dc1fd96 100644
+--- a/tools/perf/builtin-diff.c
++++ b/tools/perf/builtin-diff.c
+@@ -470,13 +470,13 @@ static int diff__process_sample_event(const struct perf_tool *tool,
  
- static int assert_hw(struct perf_evsel *evsel, enum perf_hw_id id, const char *name)
+ static struct perf_diff pdiff;
+ 
+-static struct evsel *evsel_match(struct evsel *evsel, struct evlist *evlist)
++static struct evsel *evsel_match(struct evsel *evsel,
++				      struct evlist *evlist)
  {
--	struct perf_pmu *pmu;
--
--	if (evsel->attr.type == PERF_TYPE_HARDWARE) {
--		TEST_ASSERT_VAL("wrong config", test_perf_config(evsel, id));
--		return 0;
--	}
--	pmu = perf_pmus__find_by_type(evsel->attr.type);
--
--	TEST_ASSERT_VAL("unexpected PMU type", pmu);
--	TEST_ASSERT_VAL("PMU missing event", perf_pmu__have_event(pmu, name));
-+	TEST_ASSERT_VAL("wrong type", PERF_TYPE_HARDWARE == evsel->attr.type);
-+	TEST_ASSERT_VAL("wrong config", test_perf_config(evsel, id));
-+	TEST_ASSERT_VAL("wrong name", !strcmp(evsel__hw_names[id], name));
- 	return 0;
+ 	struct evsel *e;
+ 
+ 	evlist__for_each_entry(evlist, e) {
+-		if ((evsel->core.attr.type == e->core.attr.type) &&
+-		    (evsel->core.attr.config == e->core.attr.config))
++		if (evsel__match2(evsel, e))
+ 			return e;
+ 	}
+ 
+diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
+index 4a0ef095db92..5566232f9bb9 100644
+--- a/tools/perf/util/evsel.c
++++ b/tools/perf/util/evsel.c
+@@ -404,7 +404,6 @@ void evsel__init(struct evsel *evsel,
+ 	evsel->collect_stat  = false;
+ 	evsel->group_pmu_name = NULL;
+ 	evsel->skippable     = false;
+-	evsel->alternate_hw_config = PERF_COUNT_HW_MAX;
+ 	evsel->script_output_type = -1; // FIXME: OUTPUT_TYPE_UNSET, see builtin-script.c
  }
  
+@@ -551,8 +550,6 @@ struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig)
+ 	if (evsel__copy_config_terms(evsel, orig) < 0)
+ 		goto out_err;
+ 
+-	evsel->alternate_hw_config = orig->alternate_hw_config;
+-
+ 	return evsel;
+ 
+ out_err:
+@@ -1848,24 +1845,6 @@ static int evsel__read_group(struct evsel *leader, int cpu_map_idx, int thread)
+ 	return evsel__process_group_data(leader, cpu_map_idx, thread, data);
+ }
+ 
+-bool __evsel__match(const struct evsel *evsel, u32 type, u64 config)
+-{
+-
+-	u32 e_type = evsel->core.attr.type;
+-	u64 e_config = evsel->core.attr.config;
+-
+-	if (e_type != type) {
+-		return type == PERF_TYPE_HARDWARE && evsel->pmu && evsel->pmu->is_core &&
+-			evsel->alternate_hw_config == config;
+-	}
+-
+-	if ((type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE) &&
+-	    perf_pmus__supports_extended_type())
+-		e_config &= PERF_HW_EVENT_MASK;
+-
+-	return e_config == config;
+-}
+-
+ int evsel__read_counter(struct evsel *evsel, int cpu_map_idx, int thread)
+ {
+ 	if (evsel__is_tool(evsel))
+diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
+index aae431d63d64..c199481d3338 100644
+--- a/tools/perf/util/evsel.h
++++ b/tools/perf/util/evsel.h
+@@ -87,7 +87,6 @@ struct evsel {
+ 		int			bpf_fd;
+ 		struct bpf_object	*bpf_obj;
+ 		struct list_head	config_terms;
+-		u64			alternate_hw_config;
+ 	};
+ 
+ 	/*
+@@ -370,10 +369,26 @@ u64 format_field__intval(struct tep_format_field *field, struct perf_sample *sam
+ struct tep_format_field *evsel__field(struct evsel *evsel, const char *name);
+ struct tep_format_field *evsel__common_field(struct evsel *evsel, const char *name);
+ 
+-bool __evsel__match(const struct evsel *evsel, u32 type, u64 config);
++static inline bool __evsel__match(const struct evsel *evsel, u32 type, u64 config)
++{
++	if (evsel->core.attr.type != type)
++		return false;
++
++	if ((type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE)  &&
++	    perf_pmus__supports_extended_type())
++		return (evsel->core.attr.config & PERF_HW_EVENT_MASK) == config;
++
++	return evsel->core.attr.config == config;
++}
+ 
+ #define evsel__match(evsel, t, c) __evsel__match(evsel, PERF_TYPE_##t, PERF_COUNT_##c)
+ 
++static inline bool evsel__match2(struct evsel *e1, struct evsel *e2)
++{
++	return (e1->core.attr.type == e2->core.attr.type) &&
++	       (e1->core.attr.config == e2->core.attr.config);
++}
++
+ int evsel__read_counter(struct evsel *evsel, int cpu_map_idx, int thread);
+ 
+ int __evsel__read_on_cpu(struct evsel *evsel, int cpu_map_idx, int thread, bool scale);
 diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 35e48fe56dfa..04bb70ba4292 100644
+index 04bb70ba4292..a71492829c58 100644
 --- a/tools/perf/util/parse-events.c
 +++ b/tools/perf/util/parse-events.c
-@@ -1023,12 +1023,10 @@ static int config_term_pmu(struct perf_event_attr *attr,
- 			return -EINVAL;
- 		}
- 		/*
--		 * Rewrite the PMU event to a legacy cache one unless the PMU
--		 * doesn't support legacy cache events or the event is present
--		 * within the PMU.
-+		 * Rewrite the PMU event to a legacy cache one as legacy events
-+		 * take priority over sysfs/json.
- 		 */
--		if (perf_pmu__supports_legacy_cache(pmu) &&
--		    !perf_pmu__have_event(pmu, term->config)) {
-+		if (perf_pmu__supports_legacy_cache(pmu)) {
- 			attr->type = PERF_TYPE_HW_CACHE;
- 			return parse_events__decode_legacy_cache(term->config, pmu->type,
- 								 &attr->config);
-@@ -1049,19 +1047,13 @@ static int config_term_pmu(struct perf_event_attr *attr,
- 			return -EINVAL;
- 		}
- 		/*
--		 * If the PMU has a sysfs or json event prefer it over
--		 * legacy. ARM requires this.
-+		 * Rewrite the PMU event to a legacy cache one as legacy events
-+		 * take priority over sysfs/json.
- 		 */
--		if (perf_pmu__have_event(pmu, term->config)) {
--			term->type_term = PARSE_EVENTS__TERM_TYPE_USER;
--			term->no_value = true;
--			term->alternate_hw_config = true;
--		} else {
--			attr->type = PERF_TYPE_HARDWARE;
--			attr->config = term->val.num;
--			if (perf_pmus__supports_extended_type())
--				attr->config |= (__u64)pmu->type << PERF_PMU_TYPE_SHIFT;
--		}
-+		attr->type = PERF_TYPE_HARDWARE;
-+		attr->config = term->val.num;
-+		if (perf_pmus__supports_extended_type())
-+			attr->config |= (__u64)pmu->type << PERF_PMU_TYPE_SHIFT;
- 		return 0;
+@@ -229,7 +229,7 @@ __add_event(struct list_head *list, int *idx,
+ 	    bool init_attr,
+ 	    const char *name, const char *metric_id, struct perf_pmu *pmu,
+ 	    struct list_head *config_terms, bool auto_merge_stats,
+-	    struct perf_cpu_map *cpu_list, u64 alternate_hw_config)
++	    struct perf_cpu_map *cpu_list)
+ {
+ 	struct evsel *evsel;
+ 	struct perf_cpu_map *cpus = perf_cpu_map__is_empty(cpu_list) && pmu ? pmu->cpus : cpu_list;
+@@ -264,7 +264,6 @@ __add_event(struct list_head *list, int *idx,
+ 	evsel->core.is_pmu_core = pmu ? pmu->is_core : false;
+ 	evsel->auto_merge_stats = auto_merge_stats;
+ 	evsel->pmu = pmu;
+-	evsel->alternate_hw_config = alternate_hw_config;
+ 
+ 	if (name)
+ 		evsel->name = strdup(name);
+@@ -287,19 +286,16 @@ struct evsel *parse_events__add_event(int idx, struct perf_event_attr *attr,
+ {
+ 	return __add_event(/*list=*/NULL, &idx, attr, /*init_attr=*/false, name,
+ 			   metric_id, pmu, /*config_terms=*/NULL,
+-			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL,
+-			   /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
++			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL);
+ }
+ 
+ static int add_event(struct list_head *list, int *idx,
+ 		     struct perf_event_attr *attr, const char *name,
+-		     const char *metric_id, struct list_head *config_terms,
+-		     u64 alternate_hw_config)
++		     const char *metric_id, struct list_head *config_terms)
+ {
+ 	return __add_event(list, idx, attr, /*init_attr*/true, name, metric_id,
+ 			   /*pmu=*/NULL, config_terms,
+-			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL,
+-			   alternate_hw_config) ? 0 : -ENOMEM;
++			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL) ? 0 : -ENOMEM;
+ }
+ 
+ /**
+@@ -423,7 +419,7 @@ bool parse_events__filter_pmu(const struct parse_events_state *parse_state,
+ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 				struct list_head *list, struct perf_pmu *pmu,
+ 				const struct parse_events_terms *const_parsed_terms,
+-				bool auto_merge_stats, u64 alternate_hw_config);
++				bool auto_merge_stats);
+ 
+ int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
+ 			   struct parse_events_state *parse_state,
+@@ -449,8 +445,7 @@ int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
+ 			 */
+ 			ret = parse_events_add_pmu(parse_state, list, pmu,
+ 						   parsed_terms,
+-						   perf_pmu__auto_merge_stats(pmu),
+-						   /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
++						   perf_pmu__auto_merge_stats(pmu));
+ 			if (ret)
+ 				return ret;
+ 			continue;
+@@ -481,8 +476,7 @@ int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
+ 
+ 		if (__add_event(list, idx, &attr, /*init_attr*/true, config_name ?: name,
+ 				metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
+-				/*cpu_list=*/NULL,
+-				/*alternate_hw_config=*/PERF_COUNT_HW_MAX) == NULL)
++				/*cpu_list=*/NULL) == NULL)
+ 			return -ENOMEM;
+ 
+ 		free_config_terms(&config_terms);
+@@ -750,7 +744,7 @@ int parse_events_add_breakpoint(struct parse_events_state *parse_state,
+ 	name = get_config_name(head_config);
+ 
+ 	return add_event(list, &parse_state->idx, &attr, name, /*mertic_id=*/NULL,
+-			&config_terms, /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
++			 &config_terms);
+ }
+ 
+ static int check_type_val(struct parse_events_term *term,
+@@ -1354,9 +1348,8 @@ static int __parse_events_add_numeric(struct parse_events_state *parse_state,
+ 	name = get_config_name(head_config);
+ 	metric_id = get_config_metric_id(head_config);
+ 	ret = __add_event(list, &parse_state->idx, &attr, /*init_attr*/true, name,
+-			  metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
+-			  /*cpu_list=*/NULL, /*alternate_hw_config=*/PERF_COUNT_HW_MAX
+-		) == NULL ? -ENOMEM : 0;
++			metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
++			/*cpu_list=*/NULL) ? 0 : -ENOMEM;
+ 	free_config_terms(&config_terms);
+ 	return ret;
+ }
+@@ -1407,7 +1400,7 @@ static bool config_term_percore(struct list_head *config_terms)
+ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 				struct list_head *list, struct perf_pmu *pmu,
+ 				const struct parse_events_terms *const_parsed_terms,
+-				bool auto_merge_stats, u64 alternate_hw_config)
++				bool auto_merge_stats)
+ {
+ 	struct perf_event_attr attr;
+ 	struct perf_pmu_info info;
+@@ -1444,7 +1437,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 				    /*init_attr=*/true, /*name=*/NULL,
+ 				    /*metric_id=*/NULL, pmu,
+ 				    /*config_terms=*/NULL, auto_merge_stats,
+-				    /*cpu_list=*/NULL, alternate_hw_config);
++				    /*cpu_list=*/NULL);
+ 		return evsel ? 0 : -ENOMEM;
  	}
- 	if (term->type_term == PARSE_EVENTS__TERM_TYPE_USER ||
+ 
+@@ -1465,8 +1458,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 
+ 	/* Look for event names in the terms and rewrite into format based terms. */
+ 	if (perf_pmu__check_alias(pmu, &parsed_terms,
+-				  &info, &alias_rewrote_terms,
+-				  &alternate_hw_config, err)) {
++				  &info, &alias_rewrote_terms, err)) {
+ 		parse_events_terms__exit(&parsed_terms);
+ 		return -EINVAL;
+ 	}
+@@ -1513,8 +1505,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ 	evsel = __add_event(list, &parse_state->idx, &attr, /*init_attr=*/true,
+ 			    get_config_name(&parsed_terms),
+ 			    get_config_metric_id(&parsed_terms), pmu,
+-			    &config_terms, auto_merge_stats, /*cpu_list=*/NULL,
+-			    alternate_hw_config);
++			    &config_terms, auto_merge_stats, /*cpu_list=*/NULL);
+ 	if (!evsel) {
+ 		parse_events_terms__exit(&parsed_terms);
+ 		return -ENOMEM;
+@@ -1535,7 +1526,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
+ }
+ 
+ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
+-			       const char *event_name, u64 hw_config,
++			       const char *event_name,
+ 			       const struct parse_events_terms *const_parsed_terms,
+ 			       struct list_head **listp, void *loc_)
+ {
+@@ -1588,7 +1579,7 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
+ 
+ 		auto_merge_stats = perf_pmu__auto_merge_stats(pmu);
+ 		if (!parse_events_add_pmu(parse_state, list, pmu,
+-					  &parsed_terms, auto_merge_stats, hw_config)) {
++					  &parsed_terms, auto_merge_stats)) {
+ 			struct strbuf sb;
+ 
+ 			strbuf_init(&sb, /*hint=*/ 0);
+@@ -1601,7 +1592,7 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
+ 
+ 	if (parse_state->fake_pmu) {
+ 		if (!parse_events_add_pmu(parse_state, list, perf_pmus__fake_pmu(), &parsed_terms,
+-					  /*auto_merge_stats=*/true, hw_config)) {
++					  /*auto_merge_stats=*/true)) {
+ 			struct strbuf sb;
+ 
+ 			strbuf_init(&sb, /*hint=*/ 0);
+@@ -1642,15 +1633,13 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
+ 	/* Attempt to add to list assuming event_or_pmu is a PMU name. */
+ 	pmu = perf_pmus__find(event_or_pmu);
+ 	if (pmu && !parse_events_add_pmu(parse_state, *listp, pmu, const_parsed_terms,
+-					 /*auto_merge_stats=*/false,
+-					 /*alternate_hw_config=*/PERF_COUNT_HW_MAX))
++					/*auto_merge_stats=*/false))
+ 		return 0;
+ 
+ 	if (parse_state->fake_pmu) {
+ 		if (!parse_events_add_pmu(parse_state, *listp, perf_pmus__fake_pmu(),
+ 					  const_parsed_terms,
+-					  /*auto_merge_stats=*/false,
+-					  /*alternate_hw_config=*/PERF_COUNT_HW_MAX))
++					  /*auto_merge_stats=*/false))
+ 			return 0;
+ 	}
+ 
+@@ -1663,8 +1652,7 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
+ 
+ 			if (!parse_events_add_pmu(parse_state, *listp, pmu,
+ 						  const_parsed_terms,
+-						  auto_merge_stats,
+-						  /*alternate_hw_config=*/PERF_COUNT_HW_MAX)) {
++						  auto_merge_stats)) {
+ 				ok++;
+ 				parse_state->wild_card_pmus = true;
+ 			}
+@@ -1675,8 +1663,7 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
+ 
+ 	/* Failure to add, assume event_or_pmu is an event name. */
+ 	zfree(listp);
+-	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, PERF_COUNT_HW_MAX,
+-					const_parsed_terms, listp, loc))
++	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, const_parsed_terms, listp, loc))
+ 		return 0;
+ 
+ 	if (asprintf(&help, "Unable to find PMU or event on a PMU of '%s'", event_or_pmu) < 0)
+diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
+index e176a34ab088..0edb8b14e522 100644
+--- a/tools/perf/util/parse-events.h
++++ b/tools/perf/util/parse-events.h
+@@ -128,12 +128,6 @@ struct parse_events_term {
+ 	 * value is assumed to be 1. An event name also has no value.
+ 	 */
+ 	bool no_value;
+-	/**
+-	 * @alternate_hw_config: config is the event name but num is an
+-	 * alternate PERF_TYPE_HARDWARE config value which is often nice for the
+-	 * sake of quick matching.
+-	 */
+-	bool alternate_hw_config;
+ };
+ 
+ struct parse_events_error {
+@@ -244,7 +238,7 @@ struct evsel *parse_events__add_event(int idx, struct perf_event_attr *attr,
+ 				      struct perf_pmu *pmu);
+ 
+ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
+-			       const char *event_name, u64 hw_config,
++			       const char *event_name,
+ 			       const struct parse_events_terms *const_parsed_terms,
+ 			       struct list_head **listp, void *loc);
+ 
+diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
+index f888cbb076d6..5c4669264177 100644
+--- a/tools/perf/util/parse-events.y
++++ b/tools/perf/util/parse-events.y
+@@ -290,7 +290,7 @@ PE_NAME sep_dc
+ 	struct list_head *list;
+ 	int err;
+ 
+-	err = parse_events_multi_pmu_add(_parse_state, $1, PERF_COUNT_HW_MAX, NULL, &list, &@1);
++	err = parse_events_multi_pmu_add(_parse_state, $1, NULL, &list, &@1);
+ 	if (err < 0) {
+ 		struct parse_events_state *parse_state = _parse_state;
+ 		struct parse_events_error *error = parse_state->error;
+diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
+index 57450c73fb63..7b32b9638d5f 100644
+--- a/tools/perf/util/pmu.c
++++ b/tools/perf/util/pmu.c
+@@ -1662,7 +1662,7 @@ static int check_info_data(struct perf_pmu *pmu,
+  */
+ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_terms,
+ 			  struct perf_pmu_info *info, bool *rewrote_terms,
+-			  u64 *alternate_hw_config, struct parse_events_error *err)
++			  struct parse_events_error *err)
+ {
+ 	struct parse_events_term *term, *h;
+ 	struct perf_pmu_alias *alias;
+@@ -1699,7 +1699,6 @@ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_
+ 						NULL);
+ 			return ret;
+ 		}
+-
+ 		*rewrote_terms = true;
+ 		ret = check_info_data(pmu, alias, info, err, term->err_term);
+ 		if (ret)
+@@ -1708,9 +1707,6 @@ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_
+ 		if (alias->per_pkg)
+ 			info->per_pkg = true;
+ 
+-		if (term->alternate_hw_config)
+-			*alternate_hw_config = term->val.num;
+-
+ 		list_del_init(&term->list);
+ 		parse_events_term__delete(term);
+ 	}
+diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
+index b93014cc3670..71b979a4a9dc 100644
+--- a/tools/perf/util/pmu.h
++++ b/tools/perf/util/pmu.h
+@@ -231,7 +231,7 @@ __u64 perf_pmu__format_bits(struct perf_pmu *pmu, const char *name);
+ int perf_pmu__format_type(struct perf_pmu *pmu, const char *name);
+ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_terms,
+ 			  struct perf_pmu_info *info, bool *rewrote_terms,
+-			  u64 *alternate_hw_config, struct parse_events_error *err);
++			  struct parse_events_error *err);
+ int perf_pmu__find_event(struct perf_pmu *pmu, const char *event, void *state, pmu_event_callback cb);
+ 
+ void perf_pmu_format__set_value(void *format, int config, unsigned long *bits);
 -- 
 2.49.0.rc0.332.g42c0ae87b1-goog
 
