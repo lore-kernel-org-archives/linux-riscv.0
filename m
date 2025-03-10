@@ -4,85 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAE6C282DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 19:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6B4C282DE
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 22:04:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:References:
-	Mime-Version:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=B+a5+dvogHZSW00yDSN6bbfhRncongv2l2R04p94BRA=; b=h3t947gUKLRNlz
-	TRs6JgxPv8AZBOFofy7OjSJa8wP5350vCa3tMslKoF8T8RAznw0LQlgLCUIut0UKvhgg++PicQ8mJ
-	DFcHowAoepaxpheOyXNhVcxQb6A8/O2jgNmIGeCRotqr+pfV/hg/y9iadt3t/biLO0g+P8GpDyrIA
-	CKfseR1tWz1CNFi4i5x87W74CdDsHwrlWx9jf/CwBOq0S/IlDhuoZS7ff/vDsKTJz3oR1godg13gg
-	V7m4rYnCnomNpJcy1btAZs7J+7TfaJc6gBL3h2oPeBdFCbwWkUDq/mXPKADvHCTofr09aIiIaf5AO
-	xUxUGaWT5FTK3z+f+xng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ewZM+rVuCTtehzjNWnqyPaXxSsK2d44C7lMtaM8ZI5U=; b=M6QB/QvJf1XUsb
+	zn0AZt7LmKqC5fjLAVJHN1ELuCYljgT7hdCOY0Cm43VJJZ05w9yHyiK927jZ7o1uetnlbzkiPWAKH
+	RevEw2/xqFVLO1/f/ERj0tvJjC9mCFpLmsHAy3+AwSQhxzkLwdZduTiIeduShjsKMqwH7k57XqcrQ
+	Orh5qBDeqxPmSm+qjMW4Hoo23Dp6yrRDQO0JadQCVuLissGHt//2tmhhFhFbqbxswutaeJDTCTCgP
+	O+ld3pJOlLk5gq+y81WTlI7iZBUVo/qqoD1QQegsZHEd6B3NY7xHgNvYEi/NM1MPdKqTEGQ/y3xfc
+	bPJSXkw9B2vghO6b9hqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjE3-00000003mIH-3bOu;
-	Mon, 10 Mar 2025 19:55:47 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1trlEV-000000044i4-25T5;
+	Mon, 10 Mar 2025 22:04:23 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjE1-00000003mGI-1Xir
+	id 1trlES-000000044e3-37v9
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 19:55:46 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff68033070so7469083a91.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 12:55:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741636543; x=1742241343; darn=lists.infradead.org;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=2/JlJMcZ5IMZUK/raTA8JFgLCXPXl7h3UP7dz91G4Lk=;
-        b=RjFSKWO/74KSFhp+FB2ABpIxOQm5JPnv/2rOZAEqeKbNqm2KCm1Xw6cB4MtOGJTAh1
-         iIaPJSloy0GnpPnrc9aR1v/TXr5aHKkbWFxVDEIU49+/Isa2pQv8ovEkdGhmbZ3ZAQ7O
-         /enGojGQHLVH5cN+If8rclErVoLFbktnVz1XHUCNxnpGbdyP9lpl7hH2ga33O6FvOlQs
-         vuv+2jvqnyFu0XKLc8TB+exwWAQnTpR0GAmLa2k8y6bz0O91QADrl0cdJ/Qu/wRcVnPo
-         eQUPzUm5rlq9RI69EmfRvCNJXHtYzWx7h5mYYK3kiBlsnMMnkSUpGFmhCUri1dM0n5C9
-         H2dQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741636543; x=1742241343;
-        h=to:from:subject:message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=2/JlJMcZ5IMZUK/raTA8JFgLCXPXl7h3UP7dz91G4Lk=;
-        b=T20i7J6Y+SN5A+ezJvFYUosT6AxWxjhUS8yXIGJ0GeVy/H6hylAnynpk16uMsLHht6
-         EZu6RXXvHgUNgD4mGaS+Q66XeYS/9HhEqHEAvtMRm+V3dY3MtVGmd/kCRrzynUjdZ6VU
-         oW+nROpyas2VsW0ZcbEOSuQwgTHGO5YKslnE+44NuD5MgawfEAlo415JaGtAev7MLfZY
-         csduQ72fmAfEmh1VzvOZTeuPjqm0pzeUhVbgs3hOsZ/ukcILxYJLHbWIsnU745ZSLfCD
-         D2LwXvXrm44D+AsAz5hw1odoY3mkVxCH3X5kqUYHTqQyTX6HLNkySnUCBTVsOooIxpJA
-         PFZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXft5j2WZuRB4xRc7UpPe2JrALX+PZBvW8D+kiFEhgW/gZtIihAmkoz9JQrPS0jDu15v+Lbhp6MtUILrQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHe0BxP3lTxswoYiZXvXJqulgARYz3DEXI8loSy2Hxj02zoY9Q
-	gdhXASTkQQwHzF1TIKMFQfGYUisYFZYGLIBDrViGqb2NvhQAPuMBTHJwN247sP+qAEx5+7tlC5W
-	C3qRH9w==
-X-Google-Smtp-Source: AGHT+IGP7PL/RMy/It9PScbVC2X+jH+eqAEL95lIMDqaAQGQUShkH4NAm1SwHY2/IvlM+vSWSNYh1/DSNv1g
-X-Received: from pjbpd6.prod.google.com ([2002:a17:90b:1dc6:b0:2fa:15aa:4d1e])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:53c8:b0:2fa:157e:c78e
- with SMTP id 98e67ed59e1d1-300ff0a441cmr1509149a91.7.1741636543305; Mon, 10
- Mar 2025 12:55:43 -0700 (PDT)
-Date: Mon, 10 Mar 2025 12:55:18 -0700
-In-Reply-To: <20250310195518.2012571-1-irogers@google.com>
-Mime-Version: 1.0
-References: <20250310195518.2012571-1-irogers@google.com>
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Message-ID: <20250310195518.2012571-3-irogers@google.com>
-Subject: [PATCH v1 2/2] Revert "perf evsel: Add alternate_hw_config and use in evsel__match"
-From: Ian Rogers <irogers@google.com>
-To: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	Kan Liang <kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	James Clark <james.clark@linaro.org>, Dominique Martinet <asmadeus@codewreck.org>, 
-	Yang Jihong <yangjihong@bytedance.com>, Yang Li <yang.lee@linux.alibaba.com>, 
-	Weilin Wang <weilin.wang@intel.com>, linux-perf-users@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	Leo Yan <leo.yan@arm.com>
+	Mon, 10 Mar 2025 22:04:22 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
+	s=key1; t=1741644253;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vMEhOW9fgJPCr4InVKo09seDTKCph02bUyGs2pruQNI=;
+	b=N28ATju+SsOf5mOLkX4xSXH0ni5rpddkGVzQ0AFC5fZJcs6P9VO9pz7SF8qelSzN+l2NqC
+	8kfjOzO5vJk/0dupShTH1+xEiBt1YfuUS0lNDnS+CaDl5gjrC+TAduQkxHPxR2JbuBY8dT
+	j2wlpSllboIUsJ5sIPqcjTn/9mOURqWUOYZ6c/TGMSauNtDAR5erQ72gz/Td0PRtI7fBEn
+	BD3YkUwNcoep0OKwNa9/4u5ftcPliRRNb65AdzzivcwQbINktEq+ujn/vjK1IGQJi8uvsS
+	UnVv0QwKNYfl9M/wc/mFp+6ZjOaSkFGFYRITqUfIkQrcf5YsCIKSgtLPRhqhWQ==
+From: Ignacio Encinas <ignacio@iencinas.com>
+Date: Mon, 10 Mar 2025 23:03:55 +0100
+Subject: [PATCH RFC] riscv: introduce asm/swab.h
+MIME-Version: 1.0
+Message-Id: <20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com>
+X-B4-Tracking: v=1; b=H4sIAMphz2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDYwNz3aLM4uQy3eLyxCTdJAvDJEuTRMvEZMMkJaCGgqLUtMwKsGHRSkF
+ uzkqxtbUAh1/042EAAAA=
+X-Change-ID: 20250307-riscv-swab-b81b94a9ac1b
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev, 
+ skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ Ignacio Encinas <ignacio@iencinas.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_125545_411489_3876753E 
-X-CRM114-Status: GOOD (  21.20  )
+X-CRM114-CacheID: sfid-20250310_150421_344635_E1FB3D61 
+X-CRM114-Status: GOOD (  13.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,413 +75,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This reverts commit 22a4db3c36034e2b034c5b88414680857fc59cf4.
+Implement endianness swap macros for RISC-V.
 
-Now legacy events are prioritized there is no need to worry about a
-sysfs/json event being used when trying to pattern match a legacy
-event.
+Use the rev8 instruction when Zbb is available. Otherwise, rely on the
+default mask-and-shift implementation.
 
-Signed-off-by: Ian Rogers <irogers@google.com>
+Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
 ---
- tools/perf/builtin-diff.c      |  6 ++--
- tools/perf/util/evsel.c        | 21 -------------
- tools/perf/util/evsel.h        | 19 ++++++++++--
- tools/perf/util/parse-events.c | 55 +++++++++++++---------------------
- tools/perf/util/parse-events.h |  8 +----
- tools/perf/util/parse-events.y |  2 +-
- tools/perf/util/pmu.c          |  6 +---
- tools/perf/util/pmu.h          |  2 +-
- 8 files changed, 45 insertions(+), 74 deletions(-)
+Motivated by [1]. A couple of things to note:
 
-diff --git a/tools/perf/builtin-diff.c b/tools/perf/builtin-diff.c
-index ae490d58af92..b49c1dc1fd96 100644
---- a/tools/perf/builtin-diff.c
-+++ b/tools/perf/builtin-diff.c
-@@ -470,13 +470,13 @@ static int diff__process_sample_event(const struct perf_tool *tool,
- 
- static struct perf_diff pdiff;
- 
--static struct evsel *evsel_match(struct evsel *evsel, struct evlist *evlist)
-+static struct evsel *evsel_match(struct evsel *evsel,
-+				      struct evlist *evlist)
- {
- 	struct evsel *e;
- 
- 	evlist__for_each_entry(evlist, e) {
--		if ((evsel->core.attr.type == e->core.attr.type) &&
--		    (evsel->core.attr.config == e->core.attr.config))
-+		if (evsel__match2(evsel, e))
- 			return e;
- 	}
- 
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index 4a0ef095db92..5566232f9bb9 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -404,7 +404,6 @@ void evsel__init(struct evsel *evsel,
- 	evsel->collect_stat  = false;
- 	evsel->group_pmu_name = NULL;
- 	evsel->skippable     = false;
--	evsel->alternate_hw_config = PERF_COUNT_HW_MAX;
- 	evsel->script_output_type = -1; // FIXME: OUTPUT_TYPE_UNSET, see builtin-script.c
- }
- 
-@@ -551,8 +550,6 @@ struct evsel *evsel__clone(struct evsel *dest, struct evsel *orig)
- 	if (evsel__copy_config_terms(evsel, orig) < 0)
- 		goto out_err;
- 
--	evsel->alternate_hw_config = orig->alternate_hw_config;
--
- 	return evsel;
- 
- out_err:
-@@ -1848,24 +1845,6 @@ static int evsel__read_group(struct evsel *leader, int cpu_map_idx, int thread)
- 	return evsel__process_group_data(leader, cpu_map_idx, thread, data);
- }
- 
--bool __evsel__match(const struct evsel *evsel, u32 type, u64 config)
--{
--
--	u32 e_type = evsel->core.attr.type;
--	u64 e_config = evsel->core.attr.config;
--
--	if (e_type != type) {
--		return type == PERF_TYPE_HARDWARE && evsel->pmu && evsel->pmu->is_core &&
--			evsel->alternate_hw_config == config;
--	}
--
--	if ((type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE) &&
--	    perf_pmus__supports_extended_type())
--		e_config &= PERF_HW_EVENT_MASK;
--
--	return e_config == config;
--}
--
- int evsel__read_counter(struct evsel *evsel, int cpu_map_idx, int thread)
- {
- 	if (evsel__is_tool(evsel))
-diff --git a/tools/perf/util/evsel.h b/tools/perf/util/evsel.h
-index aae431d63d64..c199481d3338 100644
---- a/tools/perf/util/evsel.h
-+++ b/tools/perf/util/evsel.h
-@@ -87,7 +87,6 @@ struct evsel {
- 		int			bpf_fd;
- 		struct bpf_object	*bpf_obj;
- 		struct list_head	config_terms;
--		u64			alternate_hw_config;
- 	};
- 
- 	/*
-@@ -370,10 +369,26 @@ u64 format_field__intval(struct tep_format_field *field, struct perf_sample *sam
- struct tep_format_field *evsel__field(struct evsel *evsel, const char *name);
- struct tep_format_field *evsel__common_field(struct evsel *evsel, const char *name);
- 
--bool __evsel__match(const struct evsel *evsel, u32 type, u64 config);
-+static inline bool __evsel__match(const struct evsel *evsel, u32 type, u64 config)
-+{
-+	if (evsel->core.attr.type != type)
-+		return false;
+We need a default implementation to fall back on, but there isn't any in
+`asm-generic/swab.h`. Should I introduce a first patch moving 
+___constant_swab<XX> into include/uapi/asm-generic/swab.h?
+
+I don't particularly like the ARCH_SWAB macro but I can't think of
+anything better that doesn't result in code duplication.
+
+Tested with crc_kunit as pointed out here [2]. I can't provide
+performance numbers as I don't have RISC-V hardware yet.
+
+Ccing everyone involved with [1].
+
+[1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
+[2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
+---
+ arch/riscv/include/asm/swab.h | 81 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 81 insertions(+)
+
+diff --git a/arch/riscv/include/asm/swab.h b/arch/riscv/include/asm/swab.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..8f8a13b343f6ffbefbb3c7747ab4e14243852014
+--- /dev/null
++++ b/arch/riscv/include/asm/swab.h
+@@ -0,0 +1,81 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_SWAB_H
++#define _ASM_RISCV_SWAB_H
 +
-+	if ((type == PERF_TYPE_HARDWARE || type == PERF_TYPE_HW_CACHE)  &&
-+	    perf_pmus__supports_extended_type())
-+		return (evsel->core.attr.config & PERF_HW_EVENT_MASK) == config;
++#include <linux/types.h>
++#include <linux/compiler.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
 +
-+	return evsel->core.attr.config == config;
-+}
- 
- #define evsel__match(evsel, t, c) __evsel__match(evsel, PERF_TYPE_##t, PERF_COUNT_##c)
- 
-+static inline bool evsel__match2(struct evsel *e1, struct evsel *e2)
-+{
-+	return (e1->core.attr.type == e2->core.attr.type) &&
-+	       (e1->core.attr.config == e2->core.attr.config);
++#if defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE)
++
++/*
++ * FIXME, RFC PATCH: This is copypasted from include/uapi/linux/swab.h
++ * should I move these `#defines` to include/uapi/asm-generic/swab.h
++ * and include that file here and in include/uapi/linux/swab.h ?
++ */
++#define ___constant_swab16(x) ((__u16)(				\
++	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
++	(((__u16)(x) & (__u16)0xff00U) >> 8)))
++
++#define ___constant_swab32(x) ((__u32)(				\
++	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
++	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
++	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
++	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
++
++#define ___constant_swab64(x) ((__u64)(				\
++	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
++	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
++	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
++	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
++	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
++	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
++	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
++	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
++
++#define ___constant_swahw32(x) ((__u32)(			\
++	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
++	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
++
++#define ___constant_swahb32(x) ((__u32)(			\
++	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
++	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
++
++
++#define ARCH_SWAB(size) \
++static __always_inline unsigned long __arch_swab##size(__u##size value) \
++{									\
++	unsigned long x = value;					\
++									\
++	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,			\
++			     RISCV_ISA_EXT_ZBB, 1)			\
++			     :::: legacy);				\
++									\
++	asm volatile (".option push\n"					\
++		      ".option arch,+zbb\n"				\
++		      "rev8 %0, %1\n"					\
++		      ".option pop\n"					\
++		      : "=r" (x) : "r" (x));				\
++									\
++	return x >> (BITS_PER_LONG - size);				\
++									\
++legacy:									\
++	return  ___constant_swab##size(value);				\
 +}
 +
- int evsel__read_counter(struct evsel *evsel, int cpu_map_idx, int thread);
- 
- int __evsel__read_on_cpu(struct evsel *evsel, int cpu_map_idx, int thread, bool scale);
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 04bb70ba4292..a71492829c58 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -229,7 +229,7 @@ __add_event(struct list_head *list, int *idx,
- 	    bool init_attr,
- 	    const char *name, const char *metric_id, struct perf_pmu *pmu,
- 	    struct list_head *config_terms, bool auto_merge_stats,
--	    struct perf_cpu_map *cpu_list, u64 alternate_hw_config)
-+	    struct perf_cpu_map *cpu_list)
- {
- 	struct evsel *evsel;
- 	struct perf_cpu_map *cpus = perf_cpu_map__is_empty(cpu_list) && pmu ? pmu->cpus : cpu_list;
-@@ -264,7 +264,6 @@ __add_event(struct list_head *list, int *idx,
- 	evsel->core.is_pmu_core = pmu ? pmu->is_core : false;
- 	evsel->auto_merge_stats = auto_merge_stats;
- 	evsel->pmu = pmu;
--	evsel->alternate_hw_config = alternate_hw_config;
- 
- 	if (name)
- 		evsel->name = strdup(name);
-@@ -287,19 +286,16 @@ struct evsel *parse_events__add_event(int idx, struct perf_event_attr *attr,
- {
- 	return __add_event(/*list=*/NULL, &idx, attr, /*init_attr=*/false, name,
- 			   metric_id, pmu, /*config_terms=*/NULL,
--			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL,
--			   /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
-+			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL);
- }
- 
- static int add_event(struct list_head *list, int *idx,
- 		     struct perf_event_attr *attr, const char *name,
--		     const char *metric_id, struct list_head *config_terms,
--		     u64 alternate_hw_config)
-+		     const char *metric_id, struct list_head *config_terms)
- {
- 	return __add_event(list, idx, attr, /*init_attr*/true, name, metric_id,
- 			   /*pmu=*/NULL, config_terms,
--			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL,
--			   alternate_hw_config) ? 0 : -ENOMEM;
-+			   /*auto_merge_stats=*/false, /*cpu_list=*/NULL) ? 0 : -ENOMEM;
- }
- 
- /**
-@@ -423,7 +419,7 @@ bool parse_events__filter_pmu(const struct parse_events_state *parse_state,
- static int parse_events_add_pmu(struct parse_events_state *parse_state,
- 				struct list_head *list, struct perf_pmu *pmu,
- 				const struct parse_events_terms *const_parsed_terms,
--				bool auto_merge_stats, u64 alternate_hw_config);
-+				bool auto_merge_stats);
- 
- int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
- 			   struct parse_events_state *parse_state,
-@@ -449,8 +445,7 @@ int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
- 			 */
- 			ret = parse_events_add_pmu(parse_state, list, pmu,
- 						   parsed_terms,
--						   perf_pmu__auto_merge_stats(pmu),
--						   /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
-+						   perf_pmu__auto_merge_stats(pmu));
- 			if (ret)
- 				return ret;
- 			continue;
-@@ -481,8 +476,7 @@ int parse_events_add_cache(struct list_head *list, int *idx, const char *name,
- 
- 		if (__add_event(list, idx, &attr, /*init_attr*/true, config_name ?: name,
- 				metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
--				/*cpu_list=*/NULL,
--				/*alternate_hw_config=*/PERF_COUNT_HW_MAX) == NULL)
-+				/*cpu_list=*/NULL) == NULL)
- 			return -ENOMEM;
- 
- 		free_config_terms(&config_terms);
-@@ -750,7 +744,7 @@ int parse_events_add_breakpoint(struct parse_events_state *parse_state,
- 	name = get_config_name(head_config);
- 
- 	return add_event(list, &parse_state->idx, &attr, name, /*mertic_id=*/NULL,
--			&config_terms, /*alternate_hw_config=*/PERF_COUNT_HW_MAX);
-+			 &config_terms);
- }
- 
- static int check_type_val(struct parse_events_term *term,
-@@ -1354,9 +1348,8 @@ static int __parse_events_add_numeric(struct parse_events_state *parse_state,
- 	name = get_config_name(head_config);
- 	metric_id = get_config_metric_id(head_config);
- 	ret = __add_event(list, &parse_state->idx, &attr, /*init_attr*/true, name,
--			  metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
--			  /*cpu_list=*/NULL, /*alternate_hw_config=*/PERF_COUNT_HW_MAX
--		) == NULL ? -ENOMEM : 0;
-+			metric_id, pmu, &config_terms, /*auto_merge_stats=*/false,
-+			/*cpu_list=*/NULL) ? 0 : -ENOMEM;
- 	free_config_terms(&config_terms);
- 	return ret;
- }
-@@ -1407,7 +1400,7 @@ static bool config_term_percore(struct list_head *config_terms)
- static int parse_events_add_pmu(struct parse_events_state *parse_state,
- 				struct list_head *list, struct perf_pmu *pmu,
- 				const struct parse_events_terms *const_parsed_terms,
--				bool auto_merge_stats, u64 alternate_hw_config)
-+				bool auto_merge_stats)
- {
- 	struct perf_event_attr attr;
- 	struct perf_pmu_info info;
-@@ -1444,7 +1437,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
- 				    /*init_attr=*/true, /*name=*/NULL,
- 				    /*metric_id=*/NULL, pmu,
- 				    /*config_terms=*/NULL, auto_merge_stats,
--				    /*cpu_list=*/NULL, alternate_hw_config);
-+				    /*cpu_list=*/NULL);
- 		return evsel ? 0 : -ENOMEM;
- 	}
- 
-@@ -1465,8 +1458,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
- 
- 	/* Look for event names in the terms and rewrite into format based terms. */
- 	if (perf_pmu__check_alias(pmu, &parsed_terms,
--				  &info, &alias_rewrote_terms,
--				  &alternate_hw_config, err)) {
-+				  &info, &alias_rewrote_terms, err)) {
- 		parse_events_terms__exit(&parsed_terms);
- 		return -EINVAL;
- 	}
-@@ -1513,8 +1505,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
- 	evsel = __add_event(list, &parse_state->idx, &attr, /*init_attr=*/true,
- 			    get_config_name(&parsed_terms),
- 			    get_config_metric_id(&parsed_terms), pmu,
--			    &config_terms, auto_merge_stats, /*cpu_list=*/NULL,
--			    alternate_hw_config);
-+			    &config_terms, auto_merge_stats, /*cpu_list=*/NULL);
- 	if (!evsel) {
- 		parse_events_terms__exit(&parsed_terms);
- 		return -ENOMEM;
-@@ -1535,7 +1526,7 @@ static int parse_events_add_pmu(struct parse_events_state *parse_state,
- }
- 
- int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
--			       const char *event_name, u64 hw_config,
-+			       const char *event_name,
- 			       const struct parse_events_terms *const_parsed_terms,
- 			       struct list_head **listp, void *loc_)
- {
-@@ -1588,7 +1579,7 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 
- 		auto_merge_stats = perf_pmu__auto_merge_stats(pmu);
- 		if (!parse_events_add_pmu(parse_state, list, pmu,
--					  &parsed_terms, auto_merge_stats, hw_config)) {
-+					  &parsed_terms, auto_merge_stats)) {
- 			struct strbuf sb;
- 
- 			strbuf_init(&sb, /*hint=*/ 0);
-@@ -1601,7 +1592,7 @@ int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
- 
- 	if (parse_state->fake_pmu) {
- 		if (!parse_events_add_pmu(parse_state, list, perf_pmus__fake_pmu(), &parsed_terms,
--					  /*auto_merge_stats=*/true, hw_config)) {
-+					  /*auto_merge_stats=*/true)) {
- 			struct strbuf sb;
- 
- 			strbuf_init(&sb, /*hint=*/ 0);
-@@ -1642,15 +1633,13 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
- 	/* Attempt to add to list assuming event_or_pmu is a PMU name. */
- 	pmu = perf_pmus__find(event_or_pmu);
- 	if (pmu && !parse_events_add_pmu(parse_state, *listp, pmu, const_parsed_terms,
--					 /*auto_merge_stats=*/false,
--					 /*alternate_hw_config=*/PERF_COUNT_HW_MAX))
-+					/*auto_merge_stats=*/false))
- 		return 0;
- 
- 	if (parse_state->fake_pmu) {
- 		if (!parse_events_add_pmu(parse_state, *listp, perf_pmus__fake_pmu(),
- 					  const_parsed_terms,
--					  /*auto_merge_stats=*/false,
--					  /*alternate_hw_config=*/PERF_COUNT_HW_MAX))
-+					  /*auto_merge_stats=*/false))
- 			return 0;
- 	}
- 
-@@ -1663,8 +1652,7 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
- 
- 			if (!parse_events_add_pmu(parse_state, *listp, pmu,
- 						  const_parsed_terms,
--						  auto_merge_stats,
--						  /*alternate_hw_config=*/PERF_COUNT_HW_MAX)) {
-+						  auto_merge_stats)) {
- 				ok++;
- 				parse_state->wild_card_pmus = true;
- 			}
-@@ -1675,8 +1663,7 @@ int parse_events_multi_pmu_add_or_add_pmu(struct parse_events_state *parse_state
- 
- 	/* Failure to add, assume event_or_pmu is an event name. */
- 	zfree(listp);
--	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, PERF_COUNT_HW_MAX,
--					const_parsed_terms, listp, loc))
-+	if (!parse_events_multi_pmu_add(parse_state, event_or_pmu, const_parsed_terms, listp, loc))
- 		return 0;
- 
- 	if (asprintf(&help, "Unable to find PMU or event on a PMU of '%s'", event_or_pmu) < 0)
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index e176a34ab088..0edb8b14e522 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -128,12 +128,6 @@ struct parse_events_term {
- 	 * value is assumed to be 1. An event name also has no value.
- 	 */
- 	bool no_value;
--	/**
--	 * @alternate_hw_config: config is the event name but num is an
--	 * alternate PERF_TYPE_HARDWARE config value which is often nice for the
--	 * sake of quick matching.
--	 */
--	bool alternate_hw_config;
- };
- 
- struct parse_events_error {
-@@ -244,7 +238,7 @@ struct evsel *parse_events__add_event(int idx, struct perf_event_attr *attr,
- 				      struct perf_pmu *pmu);
- 
- int parse_events_multi_pmu_add(struct parse_events_state *parse_state,
--			       const char *event_name, u64 hw_config,
-+			       const char *event_name,
- 			       const struct parse_events_terms *const_parsed_terms,
- 			       struct list_head **listp, void *loc);
- 
-diff --git a/tools/perf/util/parse-events.y b/tools/perf/util/parse-events.y
-index f888cbb076d6..5c4669264177 100644
---- a/tools/perf/util/parse-events.y
-+++ b/tools/perf/util/parse-events.y
-@@ -290,7 +290,7 @@ PE_NAME sep_dc
- 	struct list_head *list;
- 	int err;
- 
--	err = parse_events_multi_pmu_add(_parse_state, $1, PERF_COUNT_HW_MAX, NULL, &list, &@1);
-+	err = parse_events_multi_pmu_add(_parse_state, $1, NULL, &list, &@1);
- 	if (err < 0) {
- 		struct parse_events_state *parse_state = _parse_state;
- 		struct parse_events_error *error = parse_state->error;
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 57450c73fb63..7b32b9638d5f 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1662,7 +1662,7 @@ static int check_info_data(struct perf_pmu *pmu,
-  */
- int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_terms,
- 			  struct perf_pmu_info *info, bool *rewrote_terms,
--			  u64 *alternate_hw_config, struct parse_events_error *err)
-+			  struct parse_events_error *err)
- {
- 	struct parse_events_term *term, *h;
- 	struct perf_pmu_alias *alias;
-@@ -1699,7 +1699,6 @@ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_
- 						NULL);
- 			return ret;
- 		}
--
- 		*rewrote_terms = true;
- 		ret = check_info_data(pmu, alias, info, err, term->err_term);
- 		if (ret)
-@@ -1708,9 +1707,6 @@ int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_
- 		if (alias->per_pkg)
- 			info->per_pkg = true;
- 
--		if (term->alternate_hw_config)
--			*alternate_hw_config = term->val.num;
--
- 		list_del_init(&term->list);
- 		parse_events_term__delete(term);
- 	}
-diff --git a/tools/perf/util/pmu.h b/tools/perf/util/pmu.h
-index b93014cc3670..71b979a4a9dc 100644
---- a/tools/perf/util/pmu.h
-+++ b/tools/perf/util/pmu.h
-@@ -231,7 +231,7 @@ __u64 perf_pmu__format_bits(struct perf_pmu *pmu, const char *name);
- int perf_pmu__format_type(struct perf_pmu *pmu, const char *name);
- int perf_pmu__check_alias(struct perf_pmu *pmu, struct parse_events_terms *head_terms,
- 			  struct perf_pmu_info *info, bool *rewrote_terms,
--			  u64 *alternate_hw_config, struct parse_events_error *err);
-+			  struct parse_events_error *err);
- int perf_pmu__find_event(struct perf_pmu *pmu, const char *event, void *state, pmu_event_callback cb);
- 
- void perf_pmu_format__set_value(void *format, int config, unsigned long *bits);
++#ifdef CONFIG_64BIT
++ARCH_SWAB(64)
++#define __arch_swab64 __arch_swab64
++#endif
++
++ARCH_SWAB(32)
++#define __arch_swab32 __arch_swab32
++
++ARCH_SWAB(16)
++#define __arch_swab16 __arch_swab16
++
++#undef ARCH_SWAB
++
++#endif /* defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE) */
++#endif /* _ASM_RISCV_SWAB_H */
+
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250307-riscv-swab-b81b94a9ac1b
+
+Best regards,
 -- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+Ignacio Encinas <ignacio@iencinas.com>
 
 
 _______________________________________________
