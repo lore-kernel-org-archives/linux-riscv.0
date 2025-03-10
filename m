@@ -4,123 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64C04C282DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 09:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AEBC28B30
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 09:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uP+dVQN9Loq4ZSRst/hPA7qfjJOCH1HAB1e7GXO8cYo=; b=k06Ced35KO3rUl
-	anlclOyypVX3RY9gEYzAReG3J0ogFpO+WrjY+qUmblCw/mjjcB9xKuG49zh5DY5WuBeY9owPdaCMp
-	/pGUsnWorKOpRdSGJZIvb1xlvCYM7FlNQo7/baiS58YGB12rO8JM3CNxDeoxzTsMx2yfq7VSVDPRH
-	bwKMsUx3pRVscsI4Oph44kPi19lowSnAm23sv45QJ+fW40A7NwtfxSv0eahuHfhMURS8ZSMGfa8Rd
-	nrVnVbb6TYvXBTS767ztFes928vX8pAePPA8z4l+sbzqYAb1yewfd+mBzLLsTvstc/jtjmahv3GJi
-	iuPNSceRqAe5Xs3+YoNQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=iH5or2kBtfKVFtmgFRx96BklmzjKA+ehbvCesNFx+s8=; b=cXrIqtxWcpJBj1
+	5EzEmIBujnc09HZytyzp6RXY2re5p0MAhPRvTQr4dOxq1um+Iv11Axyd9tL3hd1CeH4DrO/k/ASpj
+	OlXoKK+NiehCQwwD6sa5TO9tC/1eoYQPMKzCaYSYjPljdjx000FkyVR9RuRvBzdwsn4Dxf/RagjIY
+	KNyCGNe+YIGBTfHcsy5o0khZHFpTQLNkEGpGXUYvbccMKLta3Tz4Qv73hoKn1jUqeEx3rDRHIwZYm
+	6gmJbI1li45iumIzwtDGylAJc1BIwtbQWSa73mdqxJ6H1SNWwkGQ05klO5yDhctIut8xFkgQUH7Q8
+	qM/8U0Q1puPkGf5M3Ovg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZ1p-00000001zlQ-1eoi;
-	Mon, 10 Mar 2025 09:02:29 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1trZKJ-000000023uD-3qgp;
+	Mon, 10 Mar 2025 09:21:35 +0000
+Received: from mail.commetro.pl ([217.61.16.142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZ1j-00000001ziP-2mno
+	id 1trZJt-000000023p2-1XOL
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 09:02:28 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250310090220euoutp02c6e1cd1d0453013c17c1042678dc7330~rZY21s-u32542325423euoutp02r
-	for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 09:02:20 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250310090220euoutp02c6e1cd1d0453013c17c1042678dc7330~rZY21s-u32542325423euoutp02r
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741597340;
-	bh=K2KBwS7B77Ev1bGYtdC2d+pddTbj6i1oKKCPxQ8uO3s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oBR9X44DdmQIOnuF2oo+Opcdz4fRJR/q5Bh/58MzXLQOEeXqP/SmsMSFGRMk0U0my
-	 3c6GhPUKwVsEmuifFasi66why9An0K7Nn4N/fY9fzZcIra55eQ53CMJ/hXTV2kUyDv
-	 E0h4MIG9yzBTWxpDFu5v79aJbTESXlrSM9K9tvAw=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250310090219eucas1p120f9c79a52e77ac5756fcb51a23bf9f0~rZY2bsv_A2598725987eucas1p1t;
-	Mon, 10 Mar 2025 09:02:19 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id A3.97.20397.B9AAEC76; Mon, 10
-	Mar 2025 09:02:19 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250310090219eucas1p14066b32edfec12b55de972f76b641f6f~rZY2BanGF2339523395eucas1p1u;
-	Mon, 10 Mar 2025 09:02:19 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250310090219eusmtrp1c1f197ae31dc3cb973033aa4362e1bbf~rZY16Vl0i1037610376eusmtrp1S;
-	Mon, 10 Mar 2025 09:02:19 +0000 (GMT)
-X-AuditID: cbfec7f5-ed1d670000004fad-e2-67ceaa9b9f6b
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id CA.0F.19654.B9AAEC76; Mon, 10
-	Mar 2025 09:02:19 +0000 (GMT)
-Received: from AMDC4942.home (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250310090218eusmtip217372da02225495c4d254f123f828c0a~rZY1ABsYp3233232332eusmtip2x;
-	Mon, 10 Mar 2025 09:02:18 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
-	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	jszhang@kernel.org, ulf.hansson@linaro.org, m.szyprowski@samsung.com
-Cc: linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Michal
-	Wilczynski <m.wilczynski@samsung.com>, Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v7 3/5] dt-bindings: power: Add TH1520 SoC power domains
-Date: Mon, 10 Mar 2025 10:02:09 +0100
-Message-Id: <20250310090211.286549-4-m.wilczynski@samsung.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250310090211.286549-1-m.wilczynski@samsung.com>
+	Mon, 10 Mar 2025 09:21:10 +0000
+Received: by mail.commetro.pl (Postfix, from userid 1002)
+	id CBB6283040; Mon, 10 Mar 2025 10:06:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetro.pl; s=mail;
+	t=1741597641; bh=COht1CALZmZz8MRkow5xVDQUyVzx29Nu6ozA/Y0jgb4=;
+	h=Date:From:To:Subject:From;
+	b=G4VW96iQ5yn/TZeDS+BDfNed26z+kzlk1P60bECzuzYf4CKh9lelEYYQGWH4Z7GJ5
+	 5w/9EOuKnzBTzUlRIeOjBwrdh5PBh21vEMOEfhy38B1vtFzqcnF4hGQj+/btFvz6eT
+	 RrNA5YJG0Oj+mMcVPB04kRWOr5/vUgjGjNqPGh4x1oXb74f4emJ7wjEqXu5vTx3mfL
+	 oKfxmp7zLSleN8apEiLBpWdBrb+WRZMxCt/ZBUFLLdanzgByE25a+huTmKAmrfhI+P
+	 zIvxRElaicUHS0EBL2tn8D6kxubTvOotXCgk04J69twDjMgEx7NCEJwJ7PIWL1ewSN
+	 gWW21ls+RPPLQ==
+Received: by mail.commetro.pl for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 09:06:09 GMT
+Message-ID: <20250310084500-0.1.1a.fbr4.0.8xk0q4be9h@commetro.pl>
+Date: Mon, 10 Mar 2025 09:06:09 GMT
+From: =?UTF-8?Q?"Jaros=C5=82aw_Kownacki"?= <jaroslaw.kownacki@commetro.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: =?UTF-8?Q?Pytanie_o_ofert=C4=99?=
+X-Mailer: mail.commetro.pl
 MIME-Version: 1.0
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrJKsWRmVeSWpSXmKPExsWy7djP87qzV51LN7h6RdPi2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOz2Pt6K7vF5V1z2Cw+9x5htNj2uYXN
-	Yu2Ru+wW67/OZ7J4ebmH2aJtFr/F/z072C2Orw23aNk/hcVB2OPNy5csHoc7vrB73DsxjdVj
-	06pONo871/aweWxeUu/RsvYYk8f7fVfZPPq2rGL0uNR8nd3j8ya5AO4oLpuU1JzMstQifbsE
-	rozvexUL+nkr/qz/wdjA2MvdxcjJISFgInHr1SSWLkYuDiGBFYwSR1fMZYdwvjBKNB1cwwjh
-	fGaUuHfhJyNMy8Rj06BaljNKbOy/BdXyhlHi+6qdzCBVbAJGEg+Wz2cFSYgI9DNJ9B35D+Yw
-	CzxklHj9sokVpEpYwENi1dJvYHNZBFQlFuz8CtbNK2An0bpvMzvEPnmJ/QfPgsU5BewlXmzc
-	xAhRIyhxcuYTFhCbGaimeetsZpAFEgLbOSXuNBxghWh2kbje2AY1SFji1fEtULaMxOnJPSwQ
-	dr7Eg62fmCHsGomdPcehbGuJO+d+sXUxcgAt0JRYv0sfIuwoca19CSNIWEKAT+LGW0GIE/gk
-	Jm2bzgwR5pXoaBOCqFaTmNrTC7f03IptTBC2h8STTbOZJzAqzkLyzCwkz8xC2LuAkXkVo3hq
-	aXFuemqxcV5quV5xYm5xaV66XnJ+7iZGYGo8/e/41x2MK1591DvEyMTBeIhRgoNZSYRXbfup
-	dCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8i/a3pgsJpCeWpGanphakFsFkmTg4pRqYiniMagyZ
-	1wSvXPzjgk1hSdITx6dsAgU2fw6fFDHMEO7ZrvtlZ7nlNof9URuvWLcvWzJ9goLtC5/odev6
-	PRXTFDYVn+9Zrns2qZ2pyY3tfItRSIO/xb7s5mksZYqLcrqOFWjLTJh971cUv7q74SmOCQ9f
-	d23geF4ns0Uv+Vk1t/zDDxMr/j7OZ7Z5v+fV11qZsGrDE1s3hTf82/f4zlqx/XmLFwRbyl1L
-	qpmhprhbg6PKYJqG8prFHYozKpc3Fh/qlJ7E6LyyXEHjkfptFhlP/qat1zgZC1fMj1b5xtP+
-	f2qW1LcrRkfc4jt6/O7znz7GLKHb92u/hnktzyqxWz517bdf7dNuyLlnt0t563IlluKMREMt
-	5qLiRAAJmBEE/AMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrOIsWRmVeSWpSXmKPExsVy+t/xe7qzV51LN/i4jcvi2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOz2Pt6K7vF5V1z2Cw+9x5htNj2uYXN
-	Yu2Ru+wW67/OZ7J4ebmH2aJtFr/F/z072C2Orw23aNk/hcVB2OPNy5csHoc7vrB73DsxjdVj
-	06pONo871/aweWxeUu/RsvYYk8f7fVfZPPq2rGL0uNR8nd3j8ya5AO4oPZui/NKSVIWM/OIS
-	W6VoQwsjPUNLCz0jE0s9Q2PzWCsjUyV9O5uU1JzMstQifbsEvYzvexUL+nkr/qz/wdjA2Mvd
-	xcjJISFgIjHx2DSWLkYuDiGBpYwS63tvsEMkZCSudb9kgbCFJf5c62KDKHrFKLHh/2ZGkASb
-	gJHEg+XzWUESIgILmSSuTtnADJJgFnjKKLHthjiILSzgIbFq6TewBhYBVYkFO7+C1fAK2Em0
-	7tsMtU1eYv/Bs2BxTgF7iRcbN4HVCwHV7Oh+xwpRLyhxcuYTFoj58hLNW2czT2AUmIUkNQtJ
-	agEj0ypGkdTS4tz03GIjveLE3OLSvHS95PzcTYzAGN527OeWHYwrX33UO8TIxMF4iFGCg1lJ
-	hFdt+6l0Id6UxMqq1KL8+KLSnNTiQ4ymQHdPZJYSTc4HJpG8knhDMwNTQxMzSwNTSzNjJXFe
-	tivn04QE0hNLUrNTUwtSi2D6mDg4pRqYprotOr3vzcE1J+b+eCrxyDj7ef/l6rMaPS+fdvE+
-	b9idZihsqJDJ2SVsuEfMYFHTrh9nvPynT6qR4Lk9LW32c3Ur7cnvctU+pnC7GVxd2KFYu+Tx
-	x706kpecNEVaGztEmr4demb5oePy50dahZdzaud/YBRbP6v984dFpV02vPvN3MpyZzCZZefL
-	zPq954ONmjuHiYmykZjo++flhfKhxW8M2yPfXTvZsnNKS8lplb48e93T/W/uSJXd5c3ve+4q
-	L3fEy0VWhGNyjVFuzAyG2wxWXbFiAYsvL5gvanLBK+DOE/GeHdaMNo5q0fsOzn2XI/Z6w8X5
-	kdyr7FkesLMxu6UV/U3N9om4Ef/j2wclluKMREMt5qLiRACf6oHXagMAAA==
-X-CMS-MailID: 20250310090219eucas1p14066b32edfec12b55de972f76b641f6f
-X-Msg-Generator: CA
-X-RootMTR: 20250310090219eucas1p14066b32edfec12b55de972f76b641f6f
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250310090219eucas1p14066b32edfec12b55de972f76b641f6f
-References: <20250310090211.286549-1-m.wilczynski@samsung.com>
-	<CGME20250310090219eucas1p14066b32edfec12b55de972f76b641f6f@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_020225_085462_E8DE8B2B 
-X-CRM114-Status: GOOD (  13.55  )
+X-CRM114-CacheID: sfid-20250310_022109_528956_BCE304FD 
+X-CRM114-Status: UNSURE (   1.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,63 +61,16 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add power domain ID's for the TH1520 SoC power domains.
-
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
----
- MAINTAINERS                                   |  1 +
- .../dt-bindings/power/thead,th1520-power.h    | 19 +++++++++++++++++++
- 2 files changed, 20 insertions(+)
- create mode 100644 include/dt-bindings/power/thead,th1520-power.h
-
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 27fdf3d6a5c7..efef657ee528 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20438,6 +20438,7 @@ F:	drivers/mailbox/mailbox-th1520.c
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
- F:	drivers/pinctrl/pinctrl-th1520.c
- F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
-+F:	include/dt-bindings/power/thead,th1520-power.h
- F:	include/linux/firmware/thead/thead,th1520-aon.h
- 
- RNBD BLOCK DRIVERS
-diff --git a/include/dt-bindings/power/thead,th1520-power.h b/include/dt-bindings/power/thead,th1520-power.h
-new file mode 100644
-index 000000000000..8395bd1459f3
---- /dev/null
-+++ b/include/dt-bindings/power/thead,th1520-power.h
-@@ -0,0 +1,19 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2022 Alibaba Group Holding Limited.
-+ * Copyright (c) 2024 Samsung Electronics Co., Ltd.
-+ * Author: Michal Wilczynski <m.wilczynski@samsung.com>
-+ */
-+
-+#ifndef __DT_BINDINGS_POWER_TH1520_H
-+#define __DT_BINDINGS_POWER_TH1520_H
-+
-+#define TH1520_AUDIO_PD		0
-+#define TH1520_VDEC_PD		1
-+#define TH1520_NPU_PD		2
-+#define TH1520_VENC_PD		3
-+#define TH1520_GPU_PD		4
-+#define TH1520_DSP0_PD		5
-+#define TH1520_DSP1_PD		6
-+
-+#endif
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RHppZcWEIGRvYnJ5LAoKQ3p5IHBvdHJ6ZWJ1asSFIFBhxYRzdHdvIGFrdHVhbG5pZSBub3d5Y2gg
+a2xpZW50w7N3ID8KClNrdXRlY3puaWUgcG9tYWdhbXkgcm96cG9jenluYcSHIHJvem1vd3kgaGFu
+ZGxvd2UgeiBrbGllbnRhbWkgemFpbnRlcmVzb3dhbnltaSBQYcWEc3R3YSBvZmVydMSFLgoKWmFw
+cmFzemFtIGRvIGtvbnRha3R1IHp3cm90bmVnby4KCgpQb3pkcmF3aWFtIHNlcmRlY3puaWUKSmFy
+b3PFgmF3IEtvd25hY2tpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
