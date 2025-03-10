@@ -4,106 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1AEAC282DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 15:44:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAA80C35FF1
+	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 15:47:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9TQ+a8yVy3B/bxqeOdneO2JL5XTeOfgmUQ3FcZuqPaw=; b=tXI7Q8fLniazdA
-	wu2b849rN5T82eHulliUzaEoEUT87syKWXpidxQwxoRdfgz2SUuPUBE2kfIaAA1tY8APoxIJEP25F
-	DrAEdwwhuihGd/xDdMdE/4Yr5jwtn5v2PPR2quLDMTzCb2KNmnT3u65A8bT1tz1GKhgbMazBB4lKm
-	AEtRxpwevkWQ/GqGALtcu9OdsT+ON2D56yR/3LPVpUKzp/AmCTptRoHJJ9yVz/cf9WF7qvpfc+NTh
-	Z0dVmYJd07rZRG2Fb9QyaTjQQkNYamUMyKKB0zzXAfXZSH1WymjIC5+0SGAZEh4KPl7+nxrNwbyJv
-	LXnu6ZkoBQh2YJVZVF4Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=jrUhNUX1K/+rPLAA20JP991apgEoCqF47QZiQOe9ZAo=; b=nBHK0rCyKbpzZm
+	1WPgtN/77vtfwr2hvRsc1Q9VUB549dL4EehbXken7oP+brE01utH/G4NV5iUc5n+V+EOsWNVmYEOi
+	WacQGezqcQjI6hcD8+G37r+Bo4e54KRPJC+UZkbzPu+zaEg1Gfo72DmOaV3fOS82afrgB5hUGVLnP
+	sbZ/A/4yzIOVwCXRsHo+FeluxUvyWskeJZyeF5oJtPICHgZNBVLiG6gQcnIPO3a2nZY4JrrPiTbRM
+	UPW2M5WZg/CjITga8Y9zwulwhXimqC5jfPL75pNdgQQqfYYxPCDBBMvDTwWCiqzzMSClGQKMBKhP6
+	k1sOKnLZQ8MKSlTbYpdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trfIc-00000003F0D-0jYI;
-	Mon, 10 Mar 2025 15:44:14 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1trfLo-00000003FrJ-3CBQ;
+	Mon, 10 Mar 2025 15:47:32 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1treVc-0000000322F-3a1e
+	id 1treoB-000000037KH-2LaY
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 14:53:38 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-223378e2b0dso62392405ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 07:53:36 -0700 (PDT)
+	Mon, 10 Mar 2025 15:12:49 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-223fd89d036so85373285ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 08:12:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741618416; x=1742223216; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tdDNQkSVTKtNTxsV0uSmAnlAiDQNW7ggaTdWphzDp8I=;
-        b=GN6MwOoh5ILyNUlH62+p79RjLpO+uJFiI+RJSaELyx0y5K1WTNwAK+BbO4KwgHGQpI
-         bVMGzNi/ny7PQDrErZY0U4dOXUhcaHUeOKhw6+5hIKr4T5zFH3U3GPZLuyPrhxXVJGx1
-         9ETAhoCZlsJxS2w1FLpQ+i9hcIuf0C1M7AplCY31eq+VgudhBGgjIl4Zxnwg8Rfk6j0I
-         cfoTTgymrPgn2pjkpT52XAOPO15l+AjiRaOZn2qS2AaFclch8WdoCKg/SFVDEQx7mzQA
-         zCe8y3kcv+u3HgMlxtJa/xmuFq7ezWSWSZbV1Q0oGjB/1fAsAoCtjfvArexcdYpLFrSr
-         FzsQ==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741619566; x=1742224366; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=WET834fPtyfjXUSYYGbdV0Bszy0RPsJUskkYImXS/yw=;
+        b=xt7+zqlVT/Zpa5pST13PAhh3h5lD2jSnWC8Yuih0ikjeJWE4CKzSv8csv2F+Bitd76
+         EJjOkgBWVVTTtEGgFRDVbU3mF7bd7fzlgA1iEyUNK27F4TPKR+zkeP6uz667JQEUDuKG
+         mVh78ej2phL5aqS6YB2SAhWubtxX6mvkFBUmm4uidEyECWAsiclMdDLf2BgmjIjQpP2y
+         +OoQINUALEF4GHxIeCGO4UCjdCAnScqB5EtuOXrhrYTWMvJDrFKnfGquUV9eBuWFahGO
+         I/Zfn0pRRbqt1j/JhvZwyUAVPulcujImI+eEz0nwXLBXz9BGWwjiy3BJpNu/2VPJLuoK
+         PYuA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741618416; x=1742223216;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tdDNQkSVTKtNTxsV0uSmAnlAiDQNW7ggaTdWphzDp8I=;
-        b=V1lFD3JatYgK1zAqlZo20VD38nKTM2yrzZO7syUajz4NDRAMG7sYFAfAYgyDVzUa1u
-         VtQFx7cloup5+jgreaPeWwrwZMMNj8DICT4tKsN20+ntIibeiSwIGhbQxXSqzu49deg4
-         wd+AK4nWFsJfMYcQEHc2uj2WdbnnHNjU05ailpvG2RlLIrWfFv5+RdXQsyQ674F1B/K9
-         9Ax7Wr+JW5bJb58Cjn/3kNongtm+xyMsH0wVEB65bqco6tt+jnD+RevWQu7NH+XscBnG
-         IifL0dIcDIR8aAZ8Fihsjd10ZqwwyS7NLFTRepBoMacJF+tyNPtP86hNaunRG6DB+mn4
-         y5zA==
-X-Forwarded-Encrypted: i=1; AJvYcCX02B5xjfdDLp4WL+lOG9N4AJzxfnbia6w4BRPLQx1oSZ5sHK/zFJ37YLxmSjm8KtEdTN36jzo/HeehRQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz81mi7HoB/j/eTtnnZ6RiXKOrqdf47EoL10r2/Wk4seL9JKSHM
-	WYL8GACJY+7AWJ7sC68enlQSihnj/IQsB+2vMHJytjZoSb/w1wcGo+A1BqEFfwg=
-X-Gm-Gg: ASbGncsvr5dHb0xUlrJSJqTZuqqBlHMYDn8VTBuH98fQSmZKSC2+344Usae9/TpC9k2
-	yKoX1p1kmqPo7YwP1EzPxInOaFvbk1JfubXwMUETRM+ZQ01ouY0dHdfYNsCa+CAxvPBVs8SoATn
-	Z6F1fTcJG6o3xHR7j6+XBsMhddQBQR8k8ptQQab5AZY1YCXi2fYTIG+4/KguznoZuuR6dMxt+M+
-	bpiKNaRREENT6h8Siib8gZfDSip4c6lF9rwwYlUTlf+wKLdxSv59pzY6V/+OB2lrlywNWcDe5Xo
-	JvH/ZnmvxFB5vbfDucKEQQa9Sb9JkyZha3yQJHJk/odpxBa7E/NOf24=
-X-Google-Smtp-Source: AGHT+IFaFODVJO35zmAo4CgY/g0ssVNrnGer/dAkzpFZFHLuf8O1kgqUgyNRnEx4GJyvPtN1uJ38Mg==
-X-Received: by 2002:a05:6a21:4606:b0:1f5:7df9:f147 with SMTP id adf61e73a8af0-1f57df9f49dmr7386102637.40.1741618416216;
-        Mon, 10 Mar 2025 07:53:36 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-736d11d4600sm2890275b3a.116.2025.03.10.07.53.33
+        d=1e100.net; s=20230601; t=1741619566; x=1742224366;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WET834fPtyfjXUSYYGbdV0Bszy0RPsJUskkYImXS/yw=;
+        b=FEiuk1Ohqdb/DiVioKCgeKCix7RegkPYvWk67GXK7vRNOiex08oEGEXqI9NoHhfjX7
+         A61vMLNCU0/Elj5bpBdj/iWGOUiHR+oKSGzyAwenO8blvwKsm+iFQrQfvzfyhZ/fC6eo
+         SvzlPzcrksGtp8fI65Lyje1eLb6CSQrE05UEA4qwh9ZfECOD7j0sCpR8XBij/yUL7Eh6
+         Faq4nQkLkJ/Ipoj1x2lzhvtzoKbtjoejxV/3U0/Yc88wgNyD5mpIS9r5eDHfD6vGLsjr
+         gK8DYCWA8p0XllHuDs1knNspaav4NWndlZ9X/yLTPcoa4ympwRskypeX+7608WUbz6Sd
+         5dkQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV5WHEe8ATzH0rNK6a5FeeCgfFlRpdaenTM71SBuLsYUU2CSb6xojV8hkd8jbq/Fde2ZYAJSqFWTm+sig==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywx4nMiwA3tbSFIJd4eB8Qdng3wqb347gTbqZs95XCGkWCIEc6k
+	6L3w1eqwG5u0m5S8PXiGKhyXy+MpbcSv3xEuUfwlCs1RUNUvvKHK3EqcwXhK51RAA/0HHhyeNw+
+	JTOE=
+X-Gm-Gg: ASbGnctXoqZSyC52zP6B3sZZStMzmDJtw6fPb3Y18cwqoU2uls+MYVDbcumV8A3Gmda
+	lLruT9Pe6hY5Epp/G6C0ZRVahcTrlZYwqSIp7JKIrV4Acem8S7Qh0jWZXq5+MUy/dvzz7bTTBSd
+	XGk+vzlVPRlR7P4YdX++aIOWQiX/7BjvPRfm8MKX8yzBCXxhzF9wt7MlGzvcS4EvFyDBc+uI4RJ
+	c2WeStdmEO4WQMofF+PxijajmFM2kpypruD+3TuUKtyproh1106T2w46G5VKLTUJ5jTu2wCK3Um
+	XDv1Wgn4MQxX39LXtpDfunlQ4t4iu7hgW5EF5SUeQRbY6w==
+X-Google-Smtp-Source: AGHT+IEDrhoKW7rr9/McSHUbkOLSWYi1sSzsVFxLf+Ak7uOZ2UAbwnGmTpmu6+G3w62SnxldCFFNoA==
+X-Received: by 2002:a17:902:e5d2:b0:224:160d:3f5b with SMTP id d9443c01a7336-22428c1169cmr234143285ad.49.1741619566397;
+        Mon, 10 Mar 2025 08:12:46 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-224109e99dfsm79230515ad.91.2025.03.10.08.12.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 07:53:35 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Mon, 10 Mar 2025 07:52:48 -0700
-Subject: [PATCH v11 26/27] riscv: Documentation for shadow stack on riscv
+        Mon, 10 Mar 2025 08:12:45 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v3 00/17] riscv: add SBI FWFT misaligned exception delegation support
+Date: Mon, 10 Mar 2025 16:12:07 +0100
+Message-ID: <20250310151229.2365992-1-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Message-Id: <20250310-v5_user_cfi_series-v11-26-86b36cbfb910@rivosinc.com>
-References: <20250310-v5_user_cfi_series-v11-0-86b36cbfb910@rivosinc.com>
-In-Reply-To: <20250310-v5_user_cfi_series-v11-0-86b36cbfb910@rivosinc.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
- Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_075336_910454_ED94F1C2 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20250310_081247_595535_B4A595C9 
+X-CRM114-Status: GOOD (  16.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,220 +102,196 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adding documentation on shadow stack for user mode on riscv and kernel
-interfaces exposed so that user tasks can enable it.
-
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
----
- Documentation/arch/riscv/index.rst   |   1 +
- Documentation/arch/riscv/zicfiss.rst | 176 +++++++++++++++++++++++++++++++++++
- 2 files changed, 177 insertions(+)
-
-diff --git a/Documentation/arch/riscv/index.rst b/Documentation/arch/riscv/index.rst
-index be7237b69682..e240eb0ceb70 100644
---- a/Documentation/arch/riscv/index.rst
-+++ b/Documentation/arch/riscv/index.rst
-@@ -15,6 +15,7 @@ RISC-V architecture
-     vector
-     cmodx
-     zicfilp
-+    zicfiss
- 
-     features
- 
-diff --git a/Documentation/arch/riscv/zicfiss.rst b/Documentation/arch/riscv/zicfiss.rst
-new file mode 100644
-index 000000000000..5ba389f15b3f
---- /dev/null
-+++ b/Documentation/arch/riscv/zicfiss.rst
-@@ -0,0 +1,176 @@
-+.. SPDX-License-Identifier: GPL-2.0
-+
-+:Author: Deepak Gupta <debug@rivosinc.com>
-+:Date:   12 January 2024
-+
-+=========================================================
-+Shadow stack to protect function returns on RISC-V Linux
-+=========================================================
-+
-+This document briefly describes the interface provided to userspace by Linux
-+to enable shadow stack for user mode applications on RISV-V
-+
-+1. Feature Overview
-+--------------------
-+
-+Memory corruption issues usually result in to crashes, however when in hands of
-+an adversary and if used creatively can result into variety security issues.
-+
-+One of those security issues can be code re-use attacks on program where
-+adversary can use corrupt return addresses present on stack and chain them
-+together to perform return oriented programming (ROP) and thus compromising
-+control flow integrity (CFI) of the program.
-+
-+Return addresses live on stack and thus in read-write memory and thus are
-+susceptible to corruption and allows an adversary to reach any program counter
-+(PC) in address space. On RISC-V ``zicfiss`` extension provides an alternate
-+stack termed as shadow stack on which return addresses can be safely placed in
-+prolog of the function and retrieved in epilog. ``zicfiss`` extension makes
-+following changes:
-+
-+- PTE encodings for shadow stack virtual memory
-+  An earlier reserved encoding in first stage translation i.e.
-+  PTE.R=0, PTE.W=1, PTE.X=0  becomes PTE encoding for shadow stack pages.
-+
-+- ``sspush x1/x5`` instruction pushes (stores) ``x1/x5`` to shadow stack.
-+
-+- ``sspopchk x1/x5`` instruction pops (loads) from shadow stack and compares
-+  with ``x1/x5`` and if un-equal, CPU raises ``software check exception`` with
-+  ``*tval = 3``
-+
-+Compiler toolchain makes sure that function prologue have ``sspush x1/x5`` to
-+save return address on shadow stack in addition to regular stack. Similarly
-+function epilogs have ``ld x5, offset(x2)`` followed by ``sspopchk x5`` to
-+ensure that popped value from regular stack matches with popped value from
-+shadow stack.
-+
-+2. Shadow stack protections and linux memory manager
-+-----------------------------------------------------
-+
-+As mentioned earlier, shadow stack get new page table encodings and thus have
-+some special properties assigned to them and instructions that operate on them
-+as below:
-+
-+- Regular stores to shadow stack memory raises access store faults. This way
-+  shadow stack memory is protected from stray inadvertant writes.
-+
-+- Regular loads to shadow stack memory are allowed. This allows stack trace
-+  utilities or backtrace functions to read true callstack (not tampered).
-+
-+- Only shadow stack instructions can generate shadow stack load or shadow stack
-+  store.
-+
-+- Shadow stack load / shadow stack store on read-only memory raises AMO/store
-+  page fault. Thus both ``sspush x1/x5`` and ``sspopchk x1/x5`` will raise AMO/
-+  store page fault. This simplies COW handling in kernel During fork, kernel
-+  can convert shadow stack pages into read-only memory (as it does for regular
-+  read-write memory) and as soon as subsequent ``sspush`` or ``sspopchk`` in
-+  userspace is encountered, then kernel can perform COW.
-+
-+- Shadow stack load / shadow stack store on read-write, read-write-execute
-+  memory raises an access fault. This is a fatal condition because shadow stack
-+  should never be operating on read-write, read-write-execute memory.
-+
-+3. ELF and psABI
-+-----------------
-+
-+Toolchain sets up :c:macro:`GNU_PROPERTY_RISCV_FEATURE_1_BCFI` for property
-+:c:macro:`GNU_PROPERTY_RISCV_FEATURE_1_AND` in notes section of the object file.
-+
-+4. Linux enabling
-+------------------
-+
-+User space programs can have multiple shared objects loaded in its address space
-+and it's a difficult task to make sure all the dependencies have been compiled
-+with support of shadow stack. Thus it's left to dynamic loader to enable
-+shadow stack for the program.
-+
-+5. prctl() enabling
-+--------------------
-+
-+:c:macro:`PR_SET_SHADOW_STACK_STATUS` / :c:macro:`PR_GET_SHADOW_STACK_STATUS` /
-+:c:macro:`PR_LOCK_SHADOW_STACK_STATUS` are three prctls added to manage shadow
-+stack enabling for tasks. prctls are arch agnostic and returns -EINVAL on other
-+arches.
-+
-+* prctl(PR_SET_SHADOW_STACK_STATUS, unsigned long arg)
-+
-+If arg1 :c:macro:`PR_SHADOW_STACK_ENABLE` and if CPU supports ``zicfiss`` then
-+kernel will enable shadow stack for the task. Dynamic loader can issue this
-+:c:macro:`prctl` once it has determined that all the objects loaded in address
-+space have support for shadow stack. Additionally if there is a
-+:c:macro:`dlopen` to an object which wasn't compiled with ``zicfiss``, dynamic
-+loader can issue this prctl with arg1 set to 0 (i.e.
-+:c:macro:`PR_SHADOW_STACK_ENABLE` being clear)
-+
-+* prctl(PR_GET_SHADOW_STACK_STATUS, unsigned long *arg)
-+
-+Returns current status of indirect branch tracking. If enabled it'll return
-+:c:macro:`PR_SHADOW_STACK_ENABLE`.
-+
-+* prctl(PR_LOCK_SHADOW_STACK_STATUS, unsigned long arg)
-+
-+Locks current status of shadow stack enabling on the task. User space may want
-+to run with strict security posture and wouldn't want loading of objects
-+without ``zicfiss`` support in it and thus would want to disallow disabling of
-+shadow stack on current task. In that case user space can use this prctl to
-+lock current settings.
-+
-+5. violations related to returns with shadow stack enabled
-+-----------------------------------------------------------
-+
-+Pertaining to shadow stack, CPU raises software check exception in following
-+condition:
-+
-+- On execution of ``sspopchk x1/x5``, ``x1/x5`` didn't match top of shadow
-+  stack. If mismatch happens then cpu does ``*tval = 3`` and raise software
-+  check exception.
-+
-+Linux kernel will treat this as :c:macro:`SIGSEV`` with code =
-+:c:macro:`SEGV_CPERR` and follow normal course of signal delivery.
-+
-+6. Shadow stack tokens
-+-----------------------
-+Regular stores on shadow stacks are not allowed and thus can't be tampered
-+with via arbitrary stray writes due to bugs. Method of pivoting / switching to
-+shadow stack is simply writing to csr ``CSR_SSP`` changes active shadow stack.
-+This can be problematic because usually value to be written to ``CSR_SSP`` will
-+be loaded somewhere in writeable memory and thus allows an adversary to
-+corruption bug in software to pivot to an any address in shadow stack range.
-+Shadow stack tokens can help mitigate this problem by making sure that:
-+
-+- When software is switching away from a shadow stack, shadow stack pointer
-+  should be saved on shadow stack itself and call it ``shadow stack token``
-+
-+- When software is switching to a shadow stack, it should read the
-+  ``shadow stack token`` from shadow stack pointer and verify that
-+  ``shadow stack token`` itself is pointer to shadow stack itself.
-+
-+- Once the token verification is done, software can perform the write to
-+  ``CSR_SSP`` to switch shadow stack.
-+
-+Here software can be user mode task runtime itself which is managing various
-+contexts as part of single thread. Software can be kernel as well when kernel
-+has to deliver a signal to user task and must save shadow stack pointer. Kernel
-+can perform similar procedure by saving a token on user shadow stack itself.
-+This way whenever :c:macro:`sigreturn` happens, kernel can read the token and
-+verify the token and then switch to shadow stack. Using this mechanism, kernel
-+helps user task so that any corruption issue in user task is not exploited by
-+adversary by arbitrarily using :c:macro:`sigreturn`. Adversary will have to
-+make sure that there is a ``shadow stack token`` in addition to invoking
-+:c:macro:`sigreturn`
-+
-+7. Signal shadow stack
-+-----------------------
-+Following structure has been added to sigcontext for RISC-V::
-+
-+    struct __sc_riscv_cfi_state {
-+        unsigned long ss_ptr;
-+    };
-+
-+As part of signal delivery, shadow stack token is saved on current shadow stack
-+itself and updated pointer is saved away in :c:macro:`ss_ptr` field in
-+:c:macro:`__sc_riscv_cfi_state` under :c:macro:`sigcontext`. Existing shadow
-+stack allocation is used for signal delivery. During :c:macro:`sigreturn`,
-+kernel will obtain :c:macro:`ss_ptr` from :c:macro:`sigcontext` and verify the
-+saved token on shadow stack itself and switch shadow stack.
-
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIFNCSSBGaXJtd2FyZSBGZWF0dXJlIGV4dGVuc2lvbiBhbGxvd3MgdGhlIFMtbW9kZSB0byBy
+ZXF1ZXN0IHNvbWUKc3BlY2lmaWMgZmVhdHVyZXMgKGVpdGhlciBoYXJkd2FyZSBvciBzb2Z0d2Fy
+ZSkgdG8gYmUgZW5hYmxlZC4gVGhpcwpzZXJpZXMgdXNlcyB0aGlzIGV4dGVuc2lvbiB0byByZXF1
+ZXN0IG1pc2FsaWduZWQgYWNjZXNzIGV4Y2VwdGlvbgpkZWxlZ2F0aW9uIHRvIFMtbW9kZSBpbiBv
+cmRlciB0byBsZXQgdGhlIGtlcm5lbCBoYW5kbGUgaXQuIEl0IGFsc28gYWRkcwpzdXBwb3J0IGZv
+ciB0aGUgS1ZNIEZXRlQgU0JJIGV4dGVuc2lvbiBiYXNlZCBvbiB0aGUgbWlzYWxpZ25lZCBhY2Nl
+c3MKaGFuZGxpbmcgaW5mcmFzdHJ1Y3R1cmUuCgpGV0ZUIFNCSSBleHRlbnNpb24gaXMgcGFydCBv
+ZiB0aGUgU0JJIFYzLjAgc3BlY2lmaWNhdGlvbnMgWzFdLiBJdCBjYW4gYmUKdGVzdGVkIHVzaW5n
+IHRoZSBxZW11IHByb3ZpZGVkIGF0IFsyXSB3aGljaCBjb250YWlucyB0aGUgc2VyaWVzIGZyb20K
+WzNdLiBrdm0tdW5pdC10ZXN0cyBbNF0gY2FuIGJlIHVzZWQgaW5zaWRlIGt2bSB0byB0ZXN0cyB0
+aGUgY29ycmVjdApkZWxlZ2F0aW9uIG9mIG1pc2FsaWduZWQgZXhjZXB0aW9ucy4gVXBzdHJlYW0g
+T3BlblNCSSBjYW4gYmUgdXNlZC4KCk5vdGU6IFNpbmNlIFNCSSBWMy4wIGlzIG5vdCB5ZXQgcmF0
+aWZpZWQsIEZXRlQgZXh0ZW5zaW9uIEFQSSBpcyBzcGxpdApiZXR3ZWVuIGludGVyZmFjZSBvbmx5
+IGFuZCBpbXBsZW1lbnRhdGlvbiwgYWxsb3dpbmcgdG8gcGljayBvbmx5IHRoZQppbnRlcmZhY2Ug
+d2hpY2ggZG8gbm90IGhhdmUgaGFyZCBkZXBlbmRlbmNpZXMgb24gU0JJLgoKVGhlIHRlc3RzIGNh
+biBiZSBydW4gdXNpbmcgdGhlIGluY2x1ZGVkIGtzZWxmdGVzdDoKCiQgcWVtdS1zeXN0ZW0tcmlz
+Y3Y2NCBcCgktY3B1IHJ2NjQsdHJhcC1taXNhbGlnbmVkLWFjY2Vzcz10cnVlLHY9dHJ1ZSBcCgkt
+TSB2aXJ0IFwKCS1tIDEwMjRNIFwKCS1iaW9zIGZ3X2R5bmFtaWMuYmluIFwKCS1rZXJuZWwgSW1h
+Z2UKIC4uLgoKICMgLi9taXNhbGlnbmVkCiBUQVAgdmVyc2lvbiAxMwogMS4uMjMKICMgU3RhcnRp
+bmcgMjMgdGVzdHMgZnJvbSAxIHRlc3QgY2FzZXMuCiAjICBSVU4gICAgICAgICAgIGdsb2JhbC5n
+cF9sb2FkX2xoIC4uLgogIyAgICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9saAogb2sgMSBn
+bG9iYWwuZ3BfbG9hZF9saAogIyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3BfbG9hZF9saHUgLi4u
+CiAjICAgICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX2xodQogb2sgMiBnbG9iYWwuZ3BfbG9h
+ZF9saHUKICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfbHcgLi4uCiAjICAgICAgICAg
+ICAgT0sgIGdsb2JhbC5ncF9sb2FkX2x3CiBvayAzIGdsb2JhbC5ncF9sb2FkX2x3CiAjICBSVU4g
+ICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2x3dSAuLi4KICMgICAgICAgICAgICBPSyAgZ2xvYmFs
+LmdwX2xvYWRfbHd1CiBvayA0IGdsb2JhbC5ncF9sb2FkX2x3dQogIyAgUlVOICAgICAgICAgICBn
+bG9iYWwuZ3BfbG9hZF9sZCAuLi4KICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfbGQK
+IG9rIDUgZ2xvYmFsLmdwX2xvYWRfbGQKICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRf
+Y19sdyAuLi4KICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfY19sdwogb2sgNiBnbG9i
+YWwuZ3BfbG9hZF9jX2x3CiAjICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2NfbGQgLi4u
+CiAjICAgICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX2NfbGQKIG9rIDcgZ2xvYmFsLmdwX2xv
+YWRfY19sZAogIyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3BfbG9hZF9jX2xkc3AgLi4uCiAjICAg
+ICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX2NfbGRzcAogb2sgOCBnbG9iYWwuZ3BfbG9hZF9j
+X2xkc3AKICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfc2ggLi4uCiAjICAgICAgICAg
+ICAgT0sgIGdsb2JhbC5ncF9sb2FkX3NoCiBvayA5IGdsb2JhbC5ncF9sb2FkX3NoCiAjICBSVU4g
+ICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX3N3IC4uLgogIyAgICAgICAgICAgIE9LICBnbG9iYWwu
+Z3BfbG9hZF9zdwogb2sgMTAgZ2xvYmFsLmdwX2xvYWRfc3cKICMgIFJVTiAgICAgICAgICAgZ2xv
+YmFsLmdwX2xvYWRfc2QgLi4uCiAjICAgICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX3NkCiBv
+ayAxMSBnbG9iYWwuZ3BfbG9hZF9zZAogIyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3BfbG9hZF9j
+X3N3IC4uLgogIyAgICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9jX3N3CiBvayAxMiBnbG9i
+YWwuZ3BfbG9hZF9jX3N3CiAjICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2Nfc2QgLi4u
+CiAjICAgICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX2Nfc2QKIG9rIDEzIGdsb2JhbC5ncF9s
+b2FkX2Nfc2QKICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfY19zZHNwIC4uLgogIyAg
+ICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9jX3Nkc3AKIG9rIDE0IGdsb2JhbC5ncF9sb2Fk
+X2Nfc2RzcAogIyAgUlVOICAgICAgICAgICBnbG9iYWwuZnB1X2xvYWRfZmx3IC4uLgogIyAgICAg
+ICAgICAgIE9LICBnbG9iYWwuZnB1X2xvYWRfZmx3CiBvayAxNSBnbG9iYWwuZnB1X2xvYWRfZmx3
+CiAjICBSVU4gICAgICAgICAgIGdsb2JhbC5mcHVfbG9hZF9mbGQgLi4uCiAjICAgICAgICAgICAg
+T0sgIGdsb2JhbC5mcHVfbG9hZF9mbGQKIG9rIDE2IGdsb2JhbC5mcHVfbG9hZF9mbGQKICMgIFJV
+TiAgICAgICAgICAgZ2xvYmFsLmZwdV9sb2FkX2NfZmxkIC4uLgogIyAgICAgICAgICAgIE9LICBn
+bG9iYWwuZnB1X2xvYWRfY19mbGQKIG9rIDE3IGdsb2JhbC5mcHVfbG9hZF9jX2ZsZAogIyAgUlVO
+ICAgICAgICAgICBnbG9iYWwuZnB1X2xvYWRfY19mbGRzcCAuLi4KICMgICAgICAgICAgICBPSyAg
+Z2xvYmFsLmZwdV9sb2FkX2NfZmxkc3AKIG9rIDE4IGdsb2JhbC5mcHVfbG9hZF9jX2ZsZHNwCiAj
+ICBSVU4gICAgICAgICAgIGdsb2JhbC5mcHVfc3RvcmVfZnN3IC4uLgogIyAgICAgICAgICAgIE9L
+ICBnbG9iYWwuZnB1X3N0b3JlX2Zzdwogb2sgMTkgZ2xvYmFsLmZwdV9zdG9yZV9mc3cKICMgIFJV
+TiAgICAgICAgICAgZ2xvYmFsLmZwdV9zdG9yZV9mc2QgLi4uCiAjICAgICAgICAgICAgT0sgIGds
+b2JhbC5mcHVfc3RvcmVfZnNkCiBvayAyMCBnbG9iYWwuZnB1X3N0b3JlX2ZzZAogIyAgUlVOICAg
+ICAgICAgICBnbG9iYWwuZnB1X3N0b3JlX2NfZnNkIC4uLgogIyAgICAgICAgICAgIE9LICBnbG9i
+YWwuZnB1X3N0b3JlX2NfZnNkCiBvayAyMSBnbG9iYWwuZnB1X3N0b3JlX2NfZnNkCiAjICBSVU4g
+ICAgICAgICAgIGdsb2JhbC5mcHVfc3RvcmVfY19mc2RzcCAuLi4KICMgICAgICAgICAgICBPSyAg
+Z2xvYmFsLmZwdV9zdG9yZV9jX2ZzZHNwCiBvayAyMiBnbG9iYWwuZnB1X3N0b3JlX2NfZnNkc3AK
+ICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdlbl9zaWdidXMgLi4uCiBbMTI3OTcuOTg4NjQ3XSBt
+aXNhbGlnbmVkWzYxOF06IHVuaGFuZGxlZCBzaWduYWwgNyBjb2RlIDB4MSBhdCAweDAwMDAwMDAw
+MDAwMTRkYzAgaW4gbWlzYWxpZ25lZFs0ZGMwLDEwMDAwKzc2MDAwXQogWzEyNzk3Ljk4ODk5MF0g
+Q1BVOiAwIFVJRDogMCBQSUQ6IDYxOCBDb21tOiBtaXNhbGlnbmVkIE5vdCB0YWludGVkIDYuMTMu
+MC1yYzYtMDAwMDgtZzRlYzQ0Njg5NjdjOS1kaXJ0eSAjNTEKIFsxMjc5Ny45ODkxNjldIEhhcmR3
+YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKIFsxMjc5Ny45ODkyNjRdIGVwYyA6IDAw
+MDAwMDAwMDAwMTRkYzAgcmEgOiAwMDAwMDAwMDAwMDE0ZDAwIHNwIDogMDAwMDdmZmZlMTY1ZDEw
+MAogWzEyNzk3Ljk4OTQwN10gIGdwIDogMDAwMDAwMDAwMDA4ZjZlOCB0cCA6IDAwMDAwMDAwMDAw
+OTU3NjAgdDAgOiAwMDAwMDAwMDAwMDAwMDA4CiBbMTI3OTcuOTg5NTQ0XSAgdDEgOiAwMDAwMDAw
+MDAwMDk2NWQ4IHQyIDogMDAwMDAwMDAwMDA4ZTgzMCBzMCA6IDAwMDA3ZmZmZTE2NWQxNjAKIFsx
+Mjc5Ny45ODk2OTJdICBzMSA6IDAwMDAwMDAwMDAwMDAwMWEgYTAgOiAwMDAwMDAwMDAwMDAwMDAw
+IGExIDogMDAwMDAwMDAwMDAwMDAwMgogWzEyNzk3Ljk4OTgzMV0gIGEyIDogMDAwMDAwMDAwMDAw
+MDAwMCBhMyA6IDAwMDAwMDAwMDAwMDAwMDAgYTQgOiBmZmZmZmZmZmRlYWRiZWVmCiBbMTI3OTcu
+OTg5OTY0XSAgYTUgOiAwMDAwMDAwMDAwMDhlZjYxIGE2IDogNjI2NzY5NzM1ZjZlMDAwMCBhNyA6
+IGZmZmZmZmZmZmZmZmYwMDAKIFsxMjc5Ny45OTAwOTRdICBzMiA6IDAwMDAwMDAwMDAwMDAwMDEg
+czMgOiAwMDAwN2ZmZmUxNjVkODM4IHM0IDogMDAwMDdmZmZlMTY1ZDg0OAogWzEyNzk3Ljk5MDIz
+OF0gIHM1IDogMDAwMDAwMDAwMDAwMDAxYSBzNiA6IDAwMDAwMDAwMDAwMTA0NDIgczcgOiAwMDAw
+MDAwMDAwMDEwMjAwCiBbMTI3OTcuOTkwMzkxXSAgczggOiAwMDAwMDAwMDAwMDAwMDNhIHM5IDog
+MDAwMDAwMDAwMDA5NDUwOCBzMTA6IDAwMDAwMDAwMDAwMDAwMDAKIFsxMjc5Ny45OTA1MjZdICBz
+MTE6IDAwMDA1NTU1Njc0NjA2NjggdDMgOiAwMDAwN2ZmZmUxNjVkMDcwIHQ0IDogMDAwMDAwMDAw
+MDA5NjVkMAogWzEyNzk3Ljk5MDY1Nl0gIHQ1IDogZmVmZWZlZmVmZWZlZmVmZiB0NiA6IDAwMDAw
+MDAwMDAwMDAwNzMKIFsxMjc5Ny45OTA3NTZdIHN0YXR1czogMDAwMDAwMDIwMDAwNDAyMCBiYWRh
+ZGRyOiAwMDAwMDAwMDAwMDhlZjYxIGNhdXNlOiAwMDAwMDAwMDAwMDAwMDA2CiBbMTI3OTcuOTkw
+OTExXSBDb2RlOiA4NzkzIDg3OTEgMzQyMyBmY2Y0IDM3ODMgZmM4NCBjNzM3IGRlYWQgMDcxMyBl
+ZWY3IChjMzk4KSAwMDAxCiAjICAgICAgICAgICAgT0sgIGdsb2JhbC5nZW5fc2lnYnVzCiBvayAy
+MyBnbG9iYWwuZ2VuX3NpZ2J1cwogIyBQQVNTRUQ6IDIzIC8gMjMgdGVzdHMgcGFzc2VkLgogIyBU
+b3RhbHM6IHBhc3M6MjMgZmFpbDowIHhmYWlsOjAgeHBhc3M6MCBza2lwOjAgZXJyb3I6MAoKV2l0
+aCBrdm0tdG9vbHM6CgogIyBsa3ZtIHJ1biAtayBzYmkuZmxhdCAtbSAxMjgKICBJbmZvOiAjIGxr
+dm0gcnVuIC1rIHNiaS5mbGF0IC1tIDEyOCAtYyAxIC0tbmFtZSBndWVzdC05NwogIEluZm86IFJl
+bW92ZWQgZ2hvc3Qgc29ja2V0IGZpbGUgIi9yb290Ly5sa3ZtLy9ndWVzdC05Ny5zb2NrIi4KCiAj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIwogIyAgICBrdm0tdW5pdC10ZXN0cwogIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMK
+CiAuLi4gW3Rlc3QgbWVzc2FnZXMgZWxpZGVkXQogUEFTUzogc2JpOiBmd2Z0OiBGV0ZUIGV4dGVu
+c2lvbiBwcm9iaW5nIG5vIGVycm9yCiBQQVNTOiBzYmk6IGZ3ZnQ6IGdldC9zZXQgcmVzZXJ2ZWQg
+ZmVhdHVyZSAweDYgZXJyb3IgPT0gU0JJX0VSUl9ERU5JRUQKIFBBU1M6IHNiaTogZndmdDogZ2V0
+L3NldCByZXNlcnZlZCBmZWF0dXJlIDB4M2ZmZmZmZmYgZXJyb3IgPT0gU0JJX0VSUl9ERU5JRUQK
+IFBBU1M6IHNiaTogZndmdDogZ2V0L3NldCByZXNlcnZlZCBmZWF0dXJlIDB4ODAwMDAwMDAgZXJy
+b3IgPT0gU0JJX0VSUl9ERU5JRUQKIFBBU1M6IHNiaTogZndmdDogZ2V0L3NldCByZXNlcnZlZCBm
+ZWF0dXJlIDB4YmZmZmZmZmYgZXJyb3IgPT0gU0JJX0VSUl9ERU5JRUQKIFBBU1M6IHNiaTogZndm
+dDogbWlzYWxpZ25lZF9kZWxlZzogR2V0IG1pc2FsaWduZWQgZGVsZWcgZmVhdHVyZSBubyBlcnJv
+cgogUEFTUzogc2JpOiBmd2Z0OiBtaXNhbGlnbmVkX2RlbGVnOiBTZXQgbWlzYWxpZ25lZCBkZWxl
+ZyBmZWF0dXJlIGludmFsaWQgdmFsdWUgZXJyb3IKIFBBU1M6IHNiaTogZndmdDogbWlzYWxpZ25l
+ZF9kZWxlZzogU2V0IG1pc2FsaWduZWQgZGVsZWcgZmVhdHVyZSBpbnZhbGlkIHZhbHVlIGVycm9y
+CiBQQVNTOiBzYmk6IGZ3ZnQ6IG1pc2FsaWduZWRfZGVsZWc6IFNldCBtaXNhbGlnbmVkIGRlbGVn
+IGZlYXR1cmUgdmFsdWUgbm8gZXJyb3IKIFBBU1M6IHNiaTogZndmdDogbWlzYWxpZ25lZF9kZWxl
+ZzogU2V0IG1pc2FsaWduZWQgZGVsZWcgZmVhdHVyZSB2YWx1ZSAwCiBQQVNTOiBzYmk6IGZ3ZnQ6
+IG1pc2FsaWduZWRfZGVsZWc6IFNldCBtaXNhbGlnbmVkIGRlbGVnIGZlYXR1cmUgdmFsdWUgbm8g
+ZXJyb3IKIFBBU1M6IHNiaTogZndmdDogbWlzYWxpZ25lZF9kZWxlZzogU2V0IG1pc2FsaWduZWQg
+ZGVsZWcgZmVhdHVyZSB2YWx1ZSAxCiBQQVNTOiBzYmk6IGZ3ZnQ6IG1pc2FsaWduZWRfZGVsZWc6
+IFZlcmlmeSBtaXNhbGlnbmVkIGxvYWQgZXhjZXB0aW9uIHRyYXAgaW4gc3VwZXJ2aXNvcgogU1VN
+TUFSWTogNTAgdGVzdHMsIDIgdW5leHBlY3RlZCBmYWlsdXJlcywgMTIgc2tpcHBlZAoKVGhpcyBz
+ZXJpZXMgaXMgYXZhaWxhYmxlIGF0IFs2XS4KCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNj
+di1ub24taXNhL3Jpc2N2LXNiaS1kb2MvcmVsZWFzZXMvZG93bmxvYWQvdnYzLjAtcmMyL3Jpc2N2
+LXNiaS5wZGYgWzFdCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXZvc2luYy9xZW11L3RyZWUv
+ZGV2L2NsZWdlci9taXNhbGlnbmVkIFsyXQpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9h
+bGwvMjAyNDEyMTEyMTE5MzMuMTk4NzkyLTMtZmtvbnJhZEBhbWQuY29tL1QvIFszXQpMaW5rOiBo
+dHRwczovL2dpdGh1Yi5jb20vY2xlbWVudGxlZ2VyL2t2bS11bml0LXRlc3RzL3RyZWUvZGV2L2Ns
+ZWdlci9md2Z0X3YxIFs0XQpMaW5rOiBodHRwczovL2dpdGh1Yi5jb20vY2xlbWVudGxlZ2VyL3Vu
+YWxpZ25lZF90ZXN0IFs1XQpMaW5rOiBodHRwczovL2dpdGh1Yi5jb20vcml2b3NpbmMvbGludXgv
+dHJlZS9kZXYvY2xlZ2VyL2Z3ZnRfdjEgWzZdCi0tLQoKVjM6CiAtIEFkZGVkIGNvbW1lbnQgYWJv
+dXQga3ZtIHNiaSBmd2Z0IHN1cHBvcnRlZC9zZXQvZ2V0IGNhbGxiYWNrCiAgIHJlcXVpcmVtZW50
+cwogLSBNb3ZlIHN0cnVjdCBrdm1fc2JpX2Z3ZnRfZmVhdHVyZSBpbiBrdm1fc2JpX2Z3ZnQuYwog
+LSBBZGQgYSBGV0ZUIGludGVyZmFjZQoKVjI6CiAtIEFkZGVkIEtzZWxmdGVzdCBmb3IgbWlzYWxp
+Z25lZCB0ZXN0aW5nCiAtIEFkZGVkIGdldF91c2VyKCkgdXNhZ2UgaW5zdGVhZCBvZiBfX2dldF91
+c2VyKCkKIC0gUmVlbmFibGUgaW50ZXJydXB0IHdoZW4gcG9zc2libGUgaW4gbWlzYWxpZ25lZCBh
+Y2Nlc3MgaGFuZGxpbmcKIC0gRG9jdW1lbnQgdGhhdCByaXNjdiBzdXBwb3J0cyB1bmFsaWduZWQt
+dHJhcHMKIC0gRml4IEtWTSBleHRlbnNpb24gc3RhdGUgd2hlbiBhbiBpbml0IGZ1bmN0aW9uIGlz
+IHByZXNlbnQKIC0gUmV3b3JrIFNCSSBtaXNhbGlnbmVkIGFjY2Vzc2VzIHRyYXAgZGVsZWdhdGlv
+biBjb2RlCiAtIEFkZGVkIHN1cHBvcnQgZm9yIENQVSBob3RwbHVnZ2luZwogLSBBZGRlZCBLVk0g
+U0JJIHJlc2V0IGNhbGxiYWNrCiAtIEFkZGVkIHJlc2V0IGZvciBLVk0gU0JJIEZXRlQgbG9jawog
+LSBSZXR1cm4gU0JJX0VSUl9ERU5JRURfTE9DS0VEIHdoZW4gTE9DSyBmbGFnIGlzIHNldAoKQ2zD
+qW1lbnQgTMOpZ2VyICgxNyk6CiAgcmlzY3Y6IGFkZCBGaXJtd2FyZSBGZWF0dXJlIChGV0ZUKSBT
+QkkgZXh0ZW5zaW9ucyBkZWZpbml0aW9ucwogIHJpc2N2OiBzYmk6IGFkZCBGV0ZUIGV4dGVuc2lv
+biBpbnRlcmZhY2UKICByaXNjdjogc2JpOiBhZGQgU0JJIEZXRlQgZXh0ZW5zaW9uIGNhbGxzCiAg
+cmlzY3Y6IG1pc2FsaWduZWQ6IHJlcXVlc3QgbWlzYWxpZ25lZCBleGNlcHRpb24gZnJvbSBTQkkK
+ICByaXNjdjogbWlzYWxpZ25lZDogdXNlIG9uX2VhY2hfY3B1KCkgZm9yIHNjYWxhciBtaXNhbGln
+bmVkIGFjY2VzcwogICAgcHJvYmluZwogIHJpc2N2OiBtaXNhbGlnbmVkOiB1c2UgY29ycmVjdCBD
+T05GSUdfIGlmZGVmIGZvcgogICAgbWlzYWxpZ25lZF9hY2Nlc3Nfc3BlZWQKICByaXNjdjogbWlz
+YWxpZ25lZDogbW92ZSBlbXVsYXRlZCBhY2Nlc3MgdW5pZm9ybWl0eSBjaGVjayBpbiBhIGZ1bmN0
+aW9uCiAgcmlzY3Y6IG1pc2FsaWduZWQ6IGFkZCBhIGZ1bmN0aW9uIHRvIGNoZWNrIG1pc2FsaWdu
+IHRyYXAgZGVsZWdhYmlsaXR5CiAgcmlzY3Y6IG1pc2FsaWduZWQ6IGZhY3Rvcml6ZSB0cmFwIGhh
+bmRsaW5nCiAgcmlzY3Y6IG1pc2FsaWduZWQ6IGVuYWJsZSBJUlFzIHdoaWxlIGhhbmRsaW5nIG1p
+c2FsaWduZWQgYWNjZXNzZXMKICByaXNjdjogbWlzYWxpZ25lZDogdXNlIGdldF91c2VyKCkgaW5z
+dGVhZCBvZiBfX2dldF91c2VyKCkKICBEb2N1bWVudGF0aW9uL3N5c2N0bDogYWRkIHJpc2N2IHRv
+IHVuYWxpZ25lZC10cmFwIHN1cHBvcnRlZCBhcmNocwogIHNlbGZ0ZXN0czogcmlzY3Y6IGFkZCBt
+aXNhbGlnbmVkIGFjY2VzcyB0ZXN0aW5nCiAgUklTQy1WOiBLVk06IGFkZCBTQkkgZXh0ZW5zaW9u
+IGluaXQoKS9kZWluaXQoKSBmdW5jdGlvbnMKICBSSVNDLVY6IEtWTTogYWRkIFNCSSBleHRlbnNp
+b24gcmVzZXQgY2FsbGJhY2sKICBSSVNDLVY6IEtWTTogYWRkIHN1cHBvcnQgZm9yIEZXRlQgU0JJ
+IGV4dGVuc2lvbgogIFJJU0MtVjogS1ZNOiBhZGQgc3VwcG9ydCBmb3IgU0JJX0ZXRlRfTUlTQUxJ
+R05FRF9ERUxFRwoKIERvY3VtZW50YXRpb24vYWRtaW4tZ3VpZGUvc3lzY3RsL2tlcm5lbC5yc3Qg
+ICB8ICAgNCArLQogYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVmZWF0dXJlLmggICAgICAgICAg
+IHwgICA4ICstCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmggICAgICAgICAgICAg
+fCAgIDUgKy0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmggICAgICAgICB8
+ICAxMiArCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaV9md2Z0LmggICAgfCAg
+MzEgKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oICAgICAgICAgICAgICAgICAgfCAg
+MzggKysrCiBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmggICAgICAgICAgICAgfCAg
+IDEgKwogYXJjaC9yaXNjdi9rZXJuZWwvc2JpLmMgICAgICAgICAgICAgICAgICAgICAgIHwgMTIz
+ICsrKysrKysrKwogYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHMuYyAgICAgICAgICAgICAgICAgICAg
+IHwgIDU3ICsrLS0KIGFyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyAgICAgICAg
+ICB8IDExOSArKysrKysrLQogYXJjaC9yaXNjdi9rZXJuZWwvdW5hbGlnbmVkX2FjY2Vzc19zcGVl
+ZC5jICAgIHwgIDExICstCiBhcmNoL3Jpc2N2L2t2bS9NYWtlZmlsZSAgICAgICAgICAgICAgICAg
+ICAgICAgfCAgIDEgKwogYXJjaC9yaXNjdi9rdm0vdmNwdS5jICAgICAgICAgICAgICAgICAgICAg
+ICAgIHwgICA3ICstCiBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5jICAgICAgICAgICAgICAgICAg
+ICAgfCAgNTcgKysrKwogYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfZndmdC5jICAgICAgICAgICAg
+ICAgIHwgMjUxICsrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9zdGEu
+YyAgICAgICAgICAgICAgICAgfCAgIDMgKy0KIC4uLi9zZWxmdGVzdHMvcmlzY3YvbWlzYWxpZ25l
+ZC8uZ2l0aWdub3JlICAgICB8ICAgMSArCiAuLi4vc2VsZnRlc3RzL3Jpc2N2L21pc2FsaWduZWQv
+TWFrZWZpbGUgICAgICAgfCAgMTIgKwogLi4uL3NlbGZ0ZXN0cy9yaXNjdi9taXNhbGlnbmVkL2Nv
+bW1vbi5TICAgICAgIHwgIDMzICsrKwogLi4uL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L21pc2Fs
+aWduZWQvZnB1LlMgIHwgMTgwICsrKysrKysrKysrKysKIHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3Rz
+L3Jpc2N2L21pc2FsaWduZWQvZ3AuUyB8IDEwMyArKysrKysrCiAuLi4vc2VsZnRlc3RzL3Jpc2N2
+L21pc2FsaWduZWQvbWlzYWxpZ25lZC5jICAgfCAyNTQgKysrKysrKysrKysrKysrKysrCiAyMiBm
+aWxlcyBjaGFuZ2VkLCAxMjY0IGluc2VydGlvbnMoKyksIDQ3IGRlbGV0aW9ucygtKQogY3JlYXRl
+IG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpX2Z3ZnQuaAog
+Y3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQuYwogY3JlYXRl
+IG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L21pc2FsaWduZWQvLmdp
+dGlnbm9yZQogY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2
+L21pc2FsaWduZWQvTWFrZWZpbGUKIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy90ZXN0aW5nL3Nl
+bGZ0ZXN0cy9yaXNjdi9taXNhbGlnbmVkL2NvbW1vbi5TCiBjcmVhdGUgbW9kZSAxMDA2NDQgdG9v
+bHMvdGVzdGluZy9zZWxmdGVzdHMvcmlzY3YvbWlzYWxpZ25lZC9mcHUuUwogY3JlYXRlIG1vZGUg
+MTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L21pc2FsaWduZWQvZ3AuUwogY3Jl
+YXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3Jpc2N2L21pc2FsaWduZWQv
+bWlzYWxpZ25lZC5jCgotLSAKMi40Ny4yCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
