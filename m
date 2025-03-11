@@ -4,66 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7409C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 20:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3A8C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 21:07:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5YoKE73tWXaAaXe8WXPxETtjVlR4M+tYUifIdEjwUU=; b=QlgOCWXPh/H9QxVUo+P8LH4WkU
-	rrFCN2UUxk5ZUxNOhSwVPn1vpOEoWWXvVfkpaheNV+3LZSIUsaLKMnMocDfudn/1TvG6jfLBq/zkk
-	0Kj1A5nTj41Ht4bv/UUDFIxjQgxLkfIXtwzp/AwBHmFhSOz0jvtEg5SiYM86fIjVGHHkwTiE9wLFI
-	Qct++8avSFsGOGJeS/miclgYmLduIL3Sz2EmDRwZKU7JL1/UMlYTdY7snW4CwIAzftOQjrOOHPpB+
-	XuUGBl4Be10GzIE02phVg6B0BGSYFWv2xEJrA07maE+JXWJSoWI5H+Y4eN0Dcx5luYOoSx3DmsM33
-	2bbJfoVA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=F7PQXoJUJNkrT78uOR627VTpyXLXIU3Knijzz744SXE=; b=qOFBioVFhLC/mr
+	S7jN8+qJaH93Dy0bP8ShbP1giFnNtAeR+MgMJjunlzmC6gSd4hh/HazqXxvl5ShrdgJX28eSClglT
+	dxAMVOFMLOy2EJbufYQ+rDFk/5nJcnH50LDlKIUetftkoSgpH3JEBkqxJXvGInSVQvC1S1u6KXNYe
+	1ELIdWM85YU4Bnua0hLmBIBekptWYzMh159pLmcYpz/sJ/QTSDAiiWbn0LOCidWaUa/yVDfISJvc0
+	cNbNGX67LhnroMOl24EWc1TDNXBLb9Zs5fIbzzOpxiBsRNnB/220jO4X7Y5Fx8DP81Vc2n39K7NHX
+	n8tsL3rAwOEbTHTexKBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts6Uc-00000006xWe-20yc;
-	Tue, 11 Mar 2025 20:46:26 +0000
+	id 1ts6ou-00000006zSd-22EL;
+	Tue, 11 Mar 2025 21:07:24 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts6Ua-00000006xWA-2CbZ
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 20:46:26 +0000
+	id 1ts6or-00000006zRV-2Jli;
+	Tue, 11 Mar 2025 21:07:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D4B45C54DF;
-	Tue, 11 Mar 2025 20:44:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 392C2C4CEE9;
-	Tue, 11 Mar 2025 20:46:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8DFAB5C06AD;
+	Tue, 11 Mar 2025 21:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25BDBC4CEE9;
+	Tue, 11 Mar 2025 21:07:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741725983;
-	bh=LbZesismxX7E9wcOE1PTIHl6vTm03qtzd8ZKWTPOcRA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RBFZi2TOz7HAhBovwML44NZQj/uAJfAsdgSh9L5DFXRZ5816zHWO5Pbl54ee3KTy7
-	 ZdLN3d4+gwSYJdiaaAUv8E8dIht/xklWyxmJj9tgEEMwzScXe9JQaCtLY2Mqr4OqLT
-	 msB72ui9conHDuqp2ww2OcYY4nJog2XYT7Io5CbjgeuVt6r8kHLzHHtQRVnsiTYXJu
-	 kIVoJkdanGR6imvlXsqbrxV77cG0e7mgc+VR3KawS6UF8PE1+FRFpM1fasm3L+iyAU
-	 D7Inp3bEEtmLyaTcfh8F2xbAgN3JhoMMPr6pjI3udgJ+fvthsjZ1+zRnODXGcVOV8g
-	 lRTSo1tU8QBfg==
-Date: Tue, 11 Mar 2025 20:46:18 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Rob Herring <robh@kernel.org>
-Cc: Nick Hu <nick.hu@sifive.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
+	s=k20201202; t=1741727240;
+	bh=rNimSVN80xWe5rcUWVjkmfCgcoptPPb9Jv9OZmpPkd4=;
+	h=Date:From:To:Subject:References:In-Reply-To:From;
+	b=C1iHqPEKFmOZ1AdRri3tQAqNRCUTPzRJDLMlo7w9miEeyKlINu4yaWAdRhzIs0paH
+	 jfkQRnK0XKmpkNOb3HtMEZGNKykGUrnuj1eWXqoXCuk4rS12Ikm530MvS19u7Mf4J3
+	 tH/UJQzFzlpWZeIQ8GU3qF5sOrZxvuNLkXsoHttkETnhl82ybMrj85LRdzmLv+hBla
+	 wPX3Fb5aCd0lbfNzAcpKqyB8kieIZqzft75UbkCyh4kRvACkkIIDZ2qg0qRSwpfeTU
+	 KbinhUeYSjsKqONFQqPFUHd8wwI3NPOSMI/Iwxdn5G8aIP9ZQgz2eFjKKr2GfyLFcr
+	 AI9TcpmJNf73w==
+Date: Tue, 11 Mar 2025 23:06:56 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] dt-bindings: timer: Add SiFive CLINT2
-Message-ID: <20250311-erasure-rival-f68525c21742@spud>
-References: <20250311051903.3825-1-nick.hu@sifive.com>
- <20250311195953.GA14239-robh@kernel.org>
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH 10/13] arch, mm: set high_memory in free_area_init()
+Message-ID: <Z9Cl8JKkRGhaRrgM@kernel.org>
+References: <20250306185124.3147510-1-rppt@kernel.org>
+ <20250306185124.3147510-11-rppt@kernel.org>
+ <cee346ec-5fa5-4d0b-987b-413ee585dbaa@sirena.org.uk>
 MIME-Version: 1.0
-In-Reply-To: <20250311195953.GA14239-robh@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <cee346ec-5fa5-4d0b-987b-413ee585dbaa@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_134624_648017_46E61715 
-X-CRM114-Status: GOOD (  19.93  )
+X-CRM114-CacheID: sfid-20250311_140721_677285_107E37E9 
+X-CRM114-Status: GOOD (  16.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,117 +104,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7364610949696981053=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Mark,
 
---===============7364610949696981053==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0fd6JZQkWEDyMXyS"
-Content-Disposition: inline
+On Tue, Mar 11, 2025 at 05:51:06PM +0000, Mark Brown wrote:
+> On Thu, Mar 06, 2025 at 08:51:20PM +0200, Mike Rapoport wrote:
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> > 
+> > high_memory defines upper bound on the directly mapped memory.
+> > This bound is defined by the beginning of ZONE_HIGHMEM when a system has
+> > high memory and by the end of memory otherwise.
+> > 
+> > All this is known to generic memory management initialization code that
+> > can set high_memory while initializing core mm structures.
+> > 
+> > Remove per-architecture calculation of high_memory and add a generic
+> > version to free_area_init().
+> 
+> This patch appears to be causing breakage on a number of 32 bit arm
+> platforms, including qemu's virt-2.11,gic-version=3.  Affected platforms
+> die on boot with no output, a bisect with qemu points at this commit and
+> those for physical platforms appear to be converging on the same place.
 
+Can you share how this can be reproduced with qemu?
 
---0fd6JZQkWEDyMXyS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Mar 11, 2025 at 02:59:53PM -0500, Rob Herring wrote:
-> On Tue, Mar 11, 2025 at 01:19:03PM +0800, Nick Hu wrote:
-> > Add compatible string and property for the SiFive CLINT v2.
-> >=20
-> > Signed-off-by: Nick Hu <nick.hu@sifive.com>
-> > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> > ---
-> >  .../bindings/timer/sifive,clint.yaml          | 19 +++++++++++++++++++
-> >  1 file changed, 19 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml =
-b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > index 76d83aea4e2b..93d74c504b5f 100644
-> > --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> > @@ -36,6 +36,9 @@ properties:
-> >                - starfive,jh7110-clint   # StarFive JH7110
-> >                - starfive,jh8100-clint   # StarFive JH8100
-> >            - const: sifive,clint0        # SiFive CLINT v0 IP block
->=20
-> Notice that we don't allow clint0 by itself. We shouldn't start now.
->=20
-> > +      - items:
->=20
-> If you don't have a specific one yet, then add '- {}' for the first=20
-> entry.
->=20
-> > +          - const: sifive,clint2        # SiFive CLINT v2 IP block
-> > +        description: SiFive CLINT v2 is the HRT that supports the Zicn=
-tr
-> >        - items:
-> >            - enum:
-> >                - allwinner,sun20i-d1-clint
-> > @@ -62,6 +65,22 @@ properties:
-> >      minItems: 1
-> >      maxItems: 4095
-> > =20
-> > +  sifive,fine-ctr-bits:
-> > +    description: The width in bits of the fine counter.
->=20
-> maximum: 15
->=20
-> Unless you know of a different maximum in which case why aren't you=20
-> documenting that too?
-
-I'm curious why this is not something that can be discerned from the
-compatible. It's max 15, but are there actually versions of this with a
-less-than-15-bit width?
-
->=20
-> > +
-> > +if:
-> > +  properties:
-> > +    compatible:
-> > +      contains:
-> > +        const: sifive,clint2
-> > +then:
-> > +  properties:
-> > +    sifive,fine-ctr-bits:
-> > +      maximum: 15
-> > +else:
-> > +  properties:
-> > +    sifive,fine-ctr-bits: false
-> > +
-> >  additionalProperties: false
-> > =20
-> >  required:
-> > --=20
-> > 2.17.1
-> >=20
-
---0fd6JZQkWEDyMXyS
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9ChGgAKCRB4tDGHoIJi
-0ihcAQCvzEPh3CyOg5RGcbc3WFKyP9lEHbdVA1DmpDaT0ef8PQEA8lE22unjuWly
-UWaSwzt3ffOJka+dyI5Lh24LUPlymws=
-=7hoV
------END PGP SIGNATURE-----
-
---0fd6JZQkWEDyMXyS--
-
-
---===============7364610949696981053==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7364610949696981053==--
-
