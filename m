@@ -4,73 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDE3C28B2F
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 15:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F67CC282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 15:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4/KYmp4rLL1bnCWEVdbu+cYEgHsc0i383STwkHYd7eE=; b=VMZrpgHUScIYKo
-	YLMY1KDtV8tVZwpiBLZDsF8Pu0s6qc/64PkWKBCXpdMt6QpWqOphzs3XjezjaLRgR7tzPOBhI8JWk
-	bDLgpxA0YBmodzsn3LRNMcKZ2UASxNeF7qYJJRGwxL2WCP8kYVkG0PIcfJdAE482xLRuFIG1ZaUMP
-	/FNUTctYzYcQnDJ8H25FC1LEiXgUOs1daGhXELebNC+7naaivNWFP2+RinnDwXbT/sHMpcZW0ALOm
-	1EzwyO9uH2SRglWjQf1u11oddqIt77PtVj39sTejsfFphfBfsEl4EAVNS54KuLl2fAwju3pheWddn
-	+R0ARLeYwQAtlegqwB5A==;
+	List-Owner; bh=JT/YMqoSjqUwSRhe7OulouHHr/LXJtPSVgPSEOOaTg4=; b=053mw4dCTohknu
+	+wkjGRB959ih/sIG3SJ+LeMCPNOUlmtVobH+9pks73V/+ruPw+znAbBIw0SiOerqPxfUddYXrRgei
+	bt4kQoExGXdXHIYqxB67SPEcmEpfUOUA27SNVA72m7j/zir1spPQOcSDsV/uHYaNhNiSpCJGnGbZw
+	r7gERhxilFQh3StzKVyvE5piRlQu/wD44JsZzkKAVa9Tmvn05HW+U96yqtRbyjgSjtnEi4RJJyeNV
+	AJn27bCtZiRD1XlMjx+Q6VbtfECZlm/b1FLRTNgxiP4DE/rGjuPG4XYtF6jE2vUuOVQlAmVCjjTeo
+	7GxwLTvpvffxhA8Tf51w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts16o-000000063mw-1dya;
-	Tue, 11 Mar 2025 15:01:30 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ts1U2-000000068ja-1sWM;
+	Tue, 11 Mar 2025 15:25:30 +0000
+Received: from mail-yw1-x1136.google.com ([2607:f8b0:4864:20::1136])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts13g-000000063MQ-2Tch;
-	Tue, 11 Mar 2025 14:58:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C3AC75C6485;
-	Tue, 11 Mar 2025 14:55:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED553C4CEF2;
-	Tue, 11 Mar 2025 14:58:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741705095;
-	bh=y4ryVf0YNOjwtuAvfEB/68jmLIXNfkpji8SHUgQfHwo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NR0tVOSg1upZbE2fEnyq9W9Y3RVKJ+tzky3/D+NrptcRvtdtGIWka/OYqly8MeSpp
-	 lo076w/j5pWmgipzkujd5xbRgbtBnKD17m9kM2OOZLTqto0fy8xOrPzXDq5DKv+s2l
-	 8Gnuyx71HplMB2FE9EZ3yBpwlxvZg9Ck8WL5ZE8KswsxlZ2CQjzvaOOFlwg1F5IpN6
-	 fIR7Ht2Iph5kvMCIHhYCLUsas1FS7E3k8G1L9j03WTAdlqfL/yEwBslCuWgmURWkjD
-	 oHhikPGChRCkC7VT5m/rET4dXsDx0+mTsLKnuSrGjKF+qC6t0/zyA1TRHC2nXV4zsX
-	 6kDLqw8p1twvw==
-Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-2bc66e26179so2361853fac.2;
-        Tue, 11 Mar 2025 07:58:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUHnXrafMSPAoYtM/Mp/ulDMokx70qrWcn4lxdYbim6L9gJZpsJ6anVUZyBqDaABqbMA0mMmXHHriSDYWtdwlTA@lists.infradead.org, AJvYcCUeT+b1eTrJq24R8qZAx4/ZD/vOKtFGKPui7/Ybmx95kyieD+kxc+h7yoE+IBhUj4oI+iGXhQMk4x8R1No=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHnWK+AvN15T8TO83JwJRAoGbhsED7GmPYb05QFow33761SdWA
-	sFed0BLHu4+wKMSVYVPo5F0S8QOjDWgzo7yZmcT00WHIt/mgwaOVrE4fzap+wEx0XyEGkJEvFmg
-	wBPxIadxJvge8UYVvVDN2q3Q4ieY=
-X-Google-Smtp-Source: AGHT+IFQOxYvpetHFZ5qF/modjQEJMQgK5sXcQo1XO+E1NqNBmeXGZ0DgBu5WKIIpycj+LOLM2pmlvVhXDd30xgHFNo=
-X-Received: by 2002:a05:6870:b906:b0:2c2:5270:f182 with SMTP id
- 586e51a60fabf-2c26136df6bmr9904732fac.39.1741705094125; Tue, 11 Mar 2025
- 07:58:14 -0700 (PDT)
+	id 1ts1RE-000000067ZW-0E30
+	for linux-riscv@lists.infradead.org;
+	Tue, 11 Mar 2025 15:22:37 +0000
+Received: by mail-yw1-x1136.google.com with SMTP id 00721157ae682-6fd8be1e534so52935387b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 08:22:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741706555; x=1742311355; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=HdiaqU+kYXkNBNnpqC5PVQou0G4lEwUYRv6GT9pOGpI=;
+        b=EgRLhvY30JlfIRfTgCXNlnJYFOv6e6Mbtof4MmDKP2XLmAKt4mKNZkyP79egNjaaNB
+         28PIwCUVFEPSgWy+QHeeHXZmGu6fCFYHYnfg+F6ZQl//vbOW0WR66QYNbwYR4hWwiNB4
+         QJULHxAMZc8tQx8SIpLErGFI/r4HBokfZ0R9la8P0KWInypg5+MvdeGv7eF17ewl4AGi
+         97kFTxFD0DzERw5gxOp85uZ+FqXzdH20eA8qE+5KtUH9J58oJdEqCgPwVwbddPQX+nhz
+         IrbUHTGpZcYyr+4TuruWDRB08Wl8ZRp9tuod/CFGZa9WiJ1qV85Dk+F9bdnQRj3X3pri
+         ZOOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741706555; x=1742311355;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HdiaqU+kYXkNBNnpqC5PVQou0G4lEwUYRv6GT9pOGpI=;
+        b=nh9kuxxHCbfKmFvw3yIcsTwWxk2WLtJvu5iU+DeNNnnYhK8hHPC7lSyO5t1cWlPyBO
+         yPTe53uGq8HAyOTzaGuxCEpZCIW980M5DR2s0Rcbdokm5GasPTltUl7uW8cd8q2El+Dl
+         CUHj/1MBi+MHXzC8sz3+d2wgT2iqLCVAckYDuJAhAuB+XBKQeCj2KlZhIrs7mZBKVhgE
+         ZuEAqBfd96z65VSPwVDm3bKr8+GStn8MnkMy1WHqe52KdLsWskXmdL7HiaiXF4xQTKPA
+         jhcpXJyfdMbzmADGTvMjMC+8E4s1/qT/dpqIUOC5AlhYD46B5QmoCYff/vJwC7dduumt
+         efFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXfL/YiW+tIt1/Z2KVfx1HEcVrhml6j7Q/E/F01CL2jhoR/o2jwN/ZnoS4bIPWgXs2U0lGeUT5RNhYIRw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YysTmGvF8AvpN6M68aSYxCz91wGNjOyHUgS/yUPVJsuwtQZm+Hu
+	r/J43r3LWWyn9I/vVdr5xCkx5hwchZqpx/dmIex3VmPrRwxo6iQhcEEetqLLeqJ6U3UnPhRJEM9
+	SDSilZsvz0A+QjeX4KcEgO1x4yUpgFVdhwKEaPA==
+X-Gm-Gg: ASbGncvRQmt6/54RTDS2RsuwleHpo/DIb20fn/LesqmYz7BNQ7/VO8PLEV7nhyv5PAK
+	7Wf1vjvPFHSbEkuV/rRo53S7jDCvd108ln989Y60cajP7x18YDFKpwEpwnzew0EM2txJbqJOs4I
+	MMj0z4mnuqq1DVjYTlcv1/5Hb3C7k=
+X-Google-Smtp-Source: AGHT+IGAy6+55/xUbWPLWAhWa/JJEH75eRRXo5nC8iwxe2xNn2XBzu/ByvzI/h9Bw5amhUiPp08ireVcbtB30aKD1pc=
+X-Received: by 2002:a05:690c:688f:b0:6f9:88b7:b6b7 with SMTP id
+ 00721157ae682-6febf3e990dmr252844457b3.37.1741706554935; Tue, 11 Mar 2025
+ 08:22:34 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250307145547.2784821-1-ping.bai@nxp.com> <CAPDyKFqsE4nArB+Qn5gH5P7vVePpZ6Z7ruas2-EGYsctGV-=4w@mail.gmail.com>
-In-Reply-To: <CAPDyKFqsE4nArB+Qn5gH5P7vVePpZ6Z7ruas2-EGYsctGV-=4w@mail.gmail.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 11 Mar 2025 15:58:02 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jjezx5sUEZwsbsw-iZiwbirmB+690-syOCur26DvOSNQ@mail.gmail.com>
-X-Gm-Features: AQ5f1Jpg9YGKxiXZ8IeOPwdPNsqgPkaGl3fl_2Y1dOoOEeGA0VymC_oHOAASzwc
-Message-ID: <CAJZ5v0jjezx5sUEZwsbsw-iZiwbirmB+690-syOCur26DvOSNQ@mail.gmail.com>
-Subject: Re: [PATCH v5] cpuidle: Init cpuidle only for present CPUs
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: rafael@kernel.org, Jacky Bai <ping.bai@nxp.com>, daniel.lezcano@linaro.org, 
-	lpieralisi@kernel.org, sudeep.holla@arm.com, james.morse@arm.com, 
-	d-gole@ti.com, anup@brainfault.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, imx@lists.linux.dev, khilman@baylibre.com, 
-	quic_tingweiz@quicinc.com, quic_yuanjiey@quicinc.com
+References: <CGME20250310090220eucas1p1d5cf6a56935e21b5854f77fdc22236b1@eucas1p1.samsung.com>
+ <20250310090211.286549-1-m.wilczynski@samsung.com> <20250310090211.286549-5-m.wilczynski@samsung.com>
+In-Reply-To: <20250310090211.286549-5-m.wilczynski@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 11 Mar 2025 16:21:59 +0100
+X-Gm-Features: AQ5f1JoXRXq5ucc-B5U0o3JR0rVlad9-RVtJACjXjl-xVuXRu_bgY0MVKH5Qe8E
+Message-ID: <CAPDyKFpAxkVgscMQpe2MZFCmNyaFq9YqiPQknLDf3CJ9zMdZ6g@mail.gmail.com>
+Subject: Re: [PATCH v7 4/5] pmdomain: thead: Add power-domain driver for TH1520
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, 
+	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, 
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org, 
+	m.szyprowski@samsung.com, linux-pm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_075816_741001_7F871000 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250311_082236_091539_F2825D2C 
+X-CRM114-Status: GOOD (  24.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,38 +93,133 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBNYXIgMTEsIDIwMjUgYXQgMzo0M+KAr1BNIFVsZiBIYW5zc29uIDx1bGYuaGFuc3Nv
-bkBsaW5hcm8ub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgNyBNYXIgMjAyNSBhdCAxNTo1NCwgSmFj
-a3kgQmFpIDxwaW5nLmJhaUBueHAuY29tPiB3cm90ZToKPiA+Cj4gPiBmb3JfZWFjaF9wb3NzaWJs
-ZV9jcHUoKSBpcyBjdXJyZW50bHkgdXNlZCB0byBpbml0aWFsaXplIGNwdWlkbGUKPiA+IGluIGJl
-bG93IGNwdWlkbGUgZHJpdmVyczoKPiA+ICAgZHJpdmVycy9jcHVpZGxlL2NwdWlkbGUtYXJtLmMK
-PiA+ICAgZHJpdmVycy9jcHVpZGxlL2NwdWlkbGUtYmlnX2xpdHRsZS5jCj4gPiAgIGRyaXZlcnMv
-Y3B1aWRsZS9jcHVpZGxlLXBzY2kuYwo+ID4gICBkcml2ZXJzL2NwdWlkbGUvY3B1aWRsZS1xY29t
-LXNwbS5jCj4gPiAgIGRyaXZlcnMvY3B1aWRsZS9jcHVpZGxlLXJpc2N2LXNiaS5jCj4gPgo+ID4g
-SG93ZXZlciwgaW4gY3B1X2Rldl9yZWdpc3Rlcl9nZW5lcmljKCksIGZvcl9lYWNoX3ByZXNlbnRf
-Y3B1KCkKPiA+IGlzIHVzZWQgdG8gcmVnaXN0ZXIgQ1BVIGRldmljZXMgd2hpY2ggbWVhbnMgdGhl
-IENQVSBkZXZpY2VzIGFyZQo+ID4gb25seSByZWdpc3RlcmVkIGZvciBwcmVzZW50IENQVXMgYW5k
-IG5vdCBhbGwgcG9zc2libGUgQ1BVcy4KPiA+Cj4gPiBXaXRoIG5vc21wIG9yIG1heGNwdXM9MCwg
-b25seSB0aGUgYm9vdCBDUFUgaXMgcHJlc2VudCwgbGVhZAo+ID4gdG8gdGhlIGZhaWx1cmU6Cj4g
-Pgo+ID4gICB8ICBGYWlsZWQgdG8gcmVnaXN0ZXIgY3B1aWRsZSBkZXZpY2UgZm9yIGNwdTEKPiA+
-Cj4gPiBUaGVuIHJvbGxiYWNrIHRvIGNhbmNlbCBhbGwgQ1BVcycgY3B1aWRsZSByZWdpc3RyYXRp
-b24uCj4gPgo+ID4gQ2hhbmdlIGZvcl9lYWNoX3Bvc3NpYmxlX2NwdSgpIHRvIGZvcl9lYWNoX3By
-ZXNlbnRfY3B1KCkgaW4gdGhlCj4gPiBhYm92ZSBjcHVpZGxlIGRyaXZlcnMgdG8gZW5zdXJlIGl0
-IG9ubHkgcmVnaXN0ZXJzIGNwdWlkbGUgZGV2aWNlcwo+ID4gZm9yIENQVXMgdGhhdCBhcmUgYWN0
-dWFsbHkgcHJlc2VudC4KPiA+Cj4gPiBGaXhlczogYjBjNjllMTIxNGJjICgiZHJpdmVyczogYmFz
-ZTogVXNlIHByZXNlbnQgQ1BVcyBpbiBHRU5FUklDX0NQVV9ERVZJQ0VTIikKPiA+IFJldmlld2Vk
-LWJ5OiBEaHJ1dmEgR29sZSA8ZC1nb2xlQHRpLmNvbT4KPiA+IFJldmlld2VkLWJ5OiBTdWRlZXAg
-SG9sbGEgPHN1ZGVlcC5ob2xsYUBhcm0uY29tPgo+ID4gVGVzdGVkLWJ5OiBZdWFuamllIFlhbmcg
-PHF1aWNfeXVhbmppZXlAcXVpY2luYy5jb20+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBKYWNreSBCYWkg
-PHBpbmcuYmFpQG54cC5jb20+Cj4KPiBSZXZpZXdlZC1ieTogVWxmIEhhbnNzb24gPHVsZi5oYW5z
-c29uQGxpbmFyby5vcmc+Cj4KPiBSYWZhZWwsIEkgYXNzdW1lIHlvdSB3aWxsIHBpY2sgdGhlc2Ug
-dXA/IE9yIGxldCBtZSBrbm93IGlmIHlvdSB3YW50IG1lCj4gdG8gdGFrZSB0aGVtIHZpYSBteSBw
-bWRvbWFpbiB0cmVlLgoKSSBjYW4gcGljayBpdCB1cC4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Mon, 10 Mar 2025 at 10:02, Michal Wilczynski
+<m.wilczynski@samsung.com> wrote:
+>
+> The T-Head TH1520 SoC contains multiple power islands that can be
+> programmatically turned on and off using the AON (Always-On) protocol
+> and a hardware mailbox [1]. The relevant mailbox driver has already been
+> merged into the mainline kernel in commit 5d4d263e1c6b ("mailbox:
+> Introduce support for T-head TH1520 Mailbox driver");
+>
+> Introduce a power-domain driver for the TH1520 SoC, which is using AON
+> firmware protocol to communicate with E902 core through the hardware
+> mailbox. This way it can send power on/off commands to the E902 core.
+>
+> The interaction with AUDIO power island e.g trying to turn it OFF proved
+> to crash the firmware running on the E902 core. Introduce the workaround
+> to disable interacting with the power island.
+>
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
+>
+> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> ---
+
+[...]
+
+> +
+> +static int th1520_pd_probe(struct platform_device *pdev)
+> +{
+> +       struct generic_pm_domain **domains;
+> +       struct genpd_onecell_data *pd_data;
+> +       struct th1520_aon_chan *aon_chan;
+> +       struct device *dev = &pdev->dev;
+> +       int i;
+> +
+> +       aon_chan = th1520_aon_init(dev);
+> +       if (IS_ERR(aon_chan))
+> +               return dev_err_probe(dev, PTR_ERR(aon_chan),
+> +                                    "Failed to get AON channel\n");
+> +
+> +       platform_set_drvdata(pdev, aon_chan);
+> +
+> +       domains = devm_kcalloc(dev, ARRAY_SIZE(th1520_pd_ranges),
+> +                              sizeof(*domains), GFP_KERNEL);
+> +       if (!domains)
+> +               return -ENOMEM;
+> +
+> +       pd_data = devm_kzalloc(dev, sizeof(*pd_data), GFP_KERNEL);
+> +       if (!pd_data)
+> +               return -ENOMEM;
+> +
+> +       for (i = 0; i < ARRAY_SIZE(th1520_pd_ranges); i++) {
+> +               struct th1520_power_domain *pd;
+> +
+> +               if (th1520_pd_ranges[i].disabled)
+> +                       continue;
+> +
+> +               pd = th1520_add_pm_domain(dev, &th1520_pd_ranges[i]);
+> +               if (IS_ERR(pd))
+> +                       return PTR_ERR(pd);
+> +
+> +               pd->aon_chan = aon_chan;
+> +               domains[i] = &pd->genpd;
+> +               dev_dbg(dev, "added power domain %s\n", pd->genpd.name);
+> +       }
+> +
+> +       pd_data->domains = domains;
+> +       pd_data->num_domains = ARRAY_SIZE(th1520_pd_ranges);
+> +       pd_data->xlate = th1520_pd_xlate;
+> +
+> +       /*
+> +        * Initialize all power domains to off to ensure they start in a
+> +        * low-power state. This allows device drivers to manage power
+> +        * domains by turning them on or off as needed.
+> +        */
+> +       th1520_pd_init_all_off(domains, dev);
+> +
+> +       return of_genpd_add_provider_onecell(dev->of_node, pd_data);
+
+If this fails, we should clean-up properly, not just returning an error code.
+
+> +}
+> +
+> +static void th1520_pd_remove(struct platform_device *pdev)
+> +{
+> +       struct th1520_aon_chan *aon_chan = platform_get_drvdata(pdev);
+> +
+> +       th1520_aon_deinit(aon_chan);
+
+The genpd providers need to be cleaned-up here too.
+
+Or, as I said before, if you think doing a proper clean-up is going to
+be a problem (in most cases it is), we can also make this a
+builtin_platform_driver() with "suppress_bind_attrs = true".
+
+> +}
+> +
+> +static const struct of_device_id th1520_pd_match[] = {
+> +       { .compatible = "thead,th1520-aon" },
+> +       { /* Sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, th1520_pd_match);
+> +
+> +static struct platform_driver th1520_pd_driver = {
+> +       .driver = {
+> +               .name = "th1520-pd",
+> +               .of_match_table = th1520_pd_match,
+> +       },
+> +       .probe = th1520_pd_probe,
+> +       .remove = th1520_pd_remove,
+> +};
+> +module_platform_driver(th1520_pd_driver);
+> +
+> +MODULE_AUTHOR("Michal Wilczynski <m.wilczynski@samsung.com>");
+> +MODULE_DESCRIPTION("T-HEAD TH1520 SoC power domain controller");
+> +MODULE_LICENSE("GPL");
+> --
+> 2.34.1
+>
+
+Kind regards
+Uffe
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
