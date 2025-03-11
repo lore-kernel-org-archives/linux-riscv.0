@@ -4,94 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D221C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 12:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B59C8C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 12:50:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ke0fTkZ3V0vWgv4w//PTnCcvOBf1dVU3B0puwV4WJT4=; b=KrTOjcPrHWu4el
-	uIR+2bzQJOgl9ll09k0Bk0rEkuw+wTQqhVf14cU3hMhg3hcozJZTxD/19MxVTc75kqwJsEMgwA9Qn
-	3LRNKw5GsLE21LAY04vPzqDaKWf26lv2L94GqXtS0MEigvu2AcFGpc6ZOB3EjfhqopWmboRPeoBkV
-	EoTYqvpCdx1H685jFaeoZi+rMw7Txb24kJsUWUolMoTwq1CntltrURDBpXGhQinRlN26vdHH1TIXN
-	3PjEIEHHwo08L0ZyRwuuFkhlMiaC+OBTkhuXgROfr9hIILVzT80EfuzdPkOuU89y3N+rrjvib2w4N
-	K+Ki/Bi4VeUJfyJnWDmQ==;
+	List-Owner; bh=HT+N3lMbz5kWuSciwZIr9lDAshYvaheqQQpnkjtvD5w=; b=Y+HfHZFokq1fvz
+	yKcOkmaW0CcDGJ1S5GAj9/5dQ4r5BtpFxdrO6qTCpq0nYmChmRWitrmdNhmfjWMTZi/uB1JxCl01X
+	Hef1wAFXW7Lulgx48Rzch9IS6odLvool+9IPNpa7YM/PsFmWhX0gdKXgGUhyS/lfTcOoyxX9Xr6jx
+	UE1G6nYJQDgPrquvuK3pSx2EVu+Vg8r1URn3F83aICk0IjQzpfLKPMfySFukmTOR0z14YJzC5Pjmg
+	7yKcjUKFZjnKZq60pefH0Wj5h/BT0Ii6Ox9Pf0R4COr4Lj8a6ta3MHwkcWAPX9jd+InE2trh4TrVh
+	C152pZGNSZF58wEUIa9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryvX-00000005gwv-3toi;
-	Tue, 11 Mar 2025 12:41:43 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1trz3d-00000005jmN-26Q1;
+	Tue, 11 Mar 2025 12:50:05 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryfj-00000005d6j-1Wa3
+	id 1tryoG-00000005fOC-3PS7
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 12:25:24 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22359001f1aso127549345ad.3
-        for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 05:25:23 -0700 (PDT)
+	Tue, 11 Mar 2025 12:34:13 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7c3bf231660so558493785a.0
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 05:34:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1741695922; x=1742300722; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
-        b=fHi/f5ie5g+Raron2UT8ctucRsTpWdXbh5bc78KgqgOZeoH3xy3CojPxpdDKWCNIgO
-         G8DkRn71T1IJlSWckodvIrm2EIGNV2hNQPuIejIW01GnueNgv0mBcMFlla3DR0A9L7Db
-         aDN7g2F+IbNPw3JIZNImY6ZwUI3H9Tz418bX6ZTO0yejSS4ZQyTM2fat9fr7iQOo9dr4
-         RyjSqLWdWxaQjNbZqLHCO4Tm6NGZLFIVYD0DP7GuGqqCoAKmg1jZEwIqaB3EAR19Mrdk
-         zJlC01ZSGIn7je9gZqgR35OOTwjcLA51CojNC94J6SXnC9I8ijxpWRdbfOseW3fft9rX
-         QPHQ==
+        d=gmail.com; s=20230601; t=1741696450; x=1742301250; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=m1ZxqjyMUd+isnYc/2JZqNQs5zU7eDZecHhSMewZT7k=;
+        b=XJiVj73OmcSktmznnIakZknns4E9hxB2IAEN/uvgv+RPpHm8VBE6YKiZbYzkf2hH7R
+         ZRCAF67Rtcop6BPPG0sofg5dzKLpNadeN+bSwhfoyMCIpQhjkPBIM2Vn7cK2JrCSSgHg
+         N7IlQOd3fUnMEZv0vDmVap2x2kuAv8WxhE7y9HtDPsYDNcmx2udoZOhSCTI5K/pu/nif
+         bf9O/Z+rLW9K9yf7OBhGymUZS7q3CxYnuHpr5YmXRm9PgRllFOYtvI9E/J43OMwN3eH5
+         5dFbX2knFvcoihCQZIpWuO6AfaGGEUSVncr9MPk1DlksnpYsqNzON4FeC4xOio7EKgoF
+         cymg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741695922; x=1742300722;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
-        b=L8fGAmz6H3ZzogJ1K5DibUlk3wmjGdbzCBvsdezjdInyHexVfNSuO7nwUCsEhy8dLt
-         Wna7ixqr074NDq6Lfx+PkrIurJgk4kQW4VAVzlGk1CqCyhFdybY0U7X/GBec3iyNbB3p
-         GHcr6ODhdY07dQEpQyN/i427LMdqfcGEjUpo/00zXC7wZi3XMx4qwwbuZPOdzAchglGf
-         Elu/TsmMS2KZdmcl5rrKIlL6PKGsIpF58rWPSGgKVc4fzrwS9/6NFfFGRX4LWIrpmXGm
-         ODfTjHevEHmefJHLemTrO82FRAhcxbKYrRm0ZIQzDrSvxZRQqxjIJHgPt0dohY+uX9iz
-         bcKg==
-X-Forwarded-Encrypted: i=1; AJvYcCUH259Tzytq4XKRHe1bxrtBE03ldhg+0TNehWPth4YO6v3Fdj2tpS9y4wkqkn/Z1pi05A0lpe2V7qssnQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwUQg2/SKkGtZmvSs17hXRKzusw6MgiTyO6mO3rTqX5LaivGNI
-	lPzRkc35UgUFpkYZ/HeBkZIxZ3mBHO0O3RtkebZKxBDpb9Y8vYm6GxCPWe9n1JI=
-X-Gm-Gg: ASbGncumZ8BDZyJIsGVGOaAAQYSH2SSHlAtos/mxB4/4T7n6iEHuvVLhq8hTRuYKOnJ
-	yHpiCY+EnZtMcvj6IZNqDWqPigxtX3G77n3FS0AecMB6CGXdkjYR8M3IUR1D3QidrKs3bIXzWf3
-	yfea/Y47ce8TKfAUPfYrOtyJ9ozeEGx2StY+w8p2KMR87Y6WfcrSkP1BOaPKnXw64F5Rfa27Nlv
-	TKcTI1nMVj1eIxEpiCLVQHKnyaVcNB4JHiXB/VeZY14eMol3wSvPRRS1N/IOAgGTU617zD3PiqU
-	Ng6zNd8oiaSCUv9RetjwJRZcQ9GRaEtrhPgdGw1nZhygMqdAjzo7P9HgRdI9bVZP2qDA/UIvgmV
-	HgQiNYZzXVGxhF7eFxzIxrO88ajc=
-X-Google-Smtp-Source: AGHT+IF+AKaM7+LGh1MSeSzuaMnYSTp9Pfd35y7XVQv+2e9hDZ72MVIWeURa7iA/fxUl+/8M2l45Ow==
-X-Received: by 2002:a05:6a20:c891:b0:1f5:59e5:8ada with SMTP id adf61e73a8af0-1f559e58e8dmr18738163637.4.1741695922464;
-        Tue, 11 Mar 2025 05:25:22 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.56])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73698450244sm10226621b3a.80.2025.03.11.05.25.18
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 11 Mar 2025 05:25:22 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: akpm@linux-foundation.org,
-	jhubbard@nvidia.com,
-	kirill.shutemov@linux.intel.com,
-	tjeznach@rivosinc.com,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com
-Cc: lihangjing@bytedance.com,
-	xieyongji@bytedance.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH v2 1/4] mm/gup: Add huge pte handling logic in follow_page_pte()
-Date: Tue, 11 Mar 2025 20:25:07 +0800
-Message-Id: <20250311122510.72934-2-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250311122510.72934-1-luxu.kernel@bytedance.com>
-References: <20250311122510.72934-1-luxu.kernel@bytedance.com>
+        d=1e100.net; s=20230601; t=1741696450; x=1742301250;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=m1ZxqjyMUd+isnYc/2JZqNQs5zU7eDZecHhSMewZT7k=;
+        b=Fi6oXKlciKkm8O1QSOy5ci3M8zZLc3AjwDWdu4isH9s6sEv4H67jTdeK115HJskxR/
+         TecdZdQirytmGdjVDpGdUjHHIhG2WM0vLxt6D3q6uklXdFzivfPnuwys93UEOwWyV1CA
+         Q6+t7ZW4aDn2Rdstx+GbrQn4uJmoomtxALc194QUzKuyFZDUv+6IOwczfarCdaPKWfmP
+         AMUZQ1MeIJuUNFjq0D+hiI1I4m0KTKTvahs2b/r9t5DjoIYccL3Bt2dLTf9qtzzUF0zH
+         JpFwhgIy0qHFovXMzGPqf1vcIpt6xLk3NqXrRHL5MjVUX7YZLDTMzyjQ82Ntpa9iuCWR
+         i0dQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTrt3yRXhzJSjXMVImxhB0Rw9teS0GVm7w38Of7aFChwlJEufkS3T21T5ZMY+ovmCM4n2t4OTJP/FyOg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCwReFeKAV3ZXDcGpJVyvNkIGDwNIk/HekxA0kj9kDXSAi6yE1
+	VracQ9Kq/OdnF+K6maxZpplB57G154kA7eios3YS1qLhYQw7wahk
+X-Gm-Gg: ASbGnctrOFLtCE13xk+68RTMMpSmAyAJeROXfdu8NMxkoWKryp3Z0SoJ51beDH/TMqV
+	74j1A43ATqbrA0YfHxoVIvxnQJlcPFffK+YOUPfy8WlY+5AG5R06cgrtgoVMpwz2tWqv3r+wNpW
+	GlzhJLfs8gcAzk93q8JbncnDLpoktp5hDKPGasVSGmOybSAynjkFHWlDB1RY6y2EfxgP1jTUdnX
+	4NOFP6LKLHLNP8IocqkK9LXRe8gsiC1Z1iYeN3vh5DI+OTtTxIisnbBWBhV0Oue7LAbJhDr1F//
+	gDJKLlo8HQFr23+OSIeP
+X-Google-Smtp-Source: AGHT+IFU2cAqaMeCXlZ0Hqy6Zv7mfjOYRy5JKPusGv2guBlnRHiq/LPliOv7yz6eaX2PsMQjmuIglQ==
+X-Received: by 2002:a05:620a:26a3:b0:7c5:55f9:4bc1 with SMTP id af79cd13be357-7c555f94e42mr850962085a.42.1741696450372;
+        Tue, 11 Mar 2025 05:34:10 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c56630e44dsm34135885a.86.2025.03.11.05.34.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 05:34:09 -0700 (PDT)
+Date: Tue, 11 Mar 2025 20:34:02 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Jonathan Corbet <corbet@lwn.net>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>, Charlie Jenkins <charlie@rivosinc.com>, 
+	Evan Green <evan@rivosinc.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Jesse Taube <jesse@rivosinc.com>, Andy Chiu <andybnac@gmail.com>, 
+	Alexandre Ghiti <alexghiti@rivosinc.com>, Yong-Xuan Wang <yongxuan.wang@sifive.com>, 
+	Yu Chien Peter Lin <peterlin@andestech.com>, Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, 
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v4 0/3] riscv: Add bfloat16 instruction support
+Message-ID: <d6t25jmcf57sqpjqwykhdf3ju6v3wwpyaiumll4x6bjfhcohl5@oikmnpusjn6u>
+References: <20250213003849.147358-1-inochiama@gmail.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250213003849.147358-1-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_052523_414238_D4D68E71 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250311_053412_848738_173AC39C 
+X-CRM114-Status: GOOD (  12.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,143 +102,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Page mapped at pte level can also be huge page when ARM CONT_PTE or
-RISC-V SVNAPOT is applied. Lack of huge pte handling logic in
-follow_page_pte() may lead to both performance and correctness issues.
+On Thu, Feb 13, 2025 at 08:38:44AM +0800, Inochi Amaoto wrote:
+> Add description for the BFloat16 precision Floating-Point ISA extension,
+> (Zfbfmin, Zvfbfmin, Zvfbfwma). which was ratified in commit 4dc23d62
+> ("Added Chapter title to BF16") of the riscv-isa-manual.
+> =
 
-For example, on RISC-V platform, pages in the same 64K huge page have
-the same pte value, which means follow_page_pte() will get the same page
-for all of them using pte_pfn(). Then __get_user_pages() will return an
-array of pages with the same pfn. Mapping these pages causes memory
-confusion. This error can be triggered by the following code:
+> Changed from v3:
+> 1. rebase for v6.14-rc1
+> 2. patch2: add validate for zfbfmin, zvfbfmin, zvfbfwma
+> 3. patch2: apply Cl=E9ment's tag
+> =
 
-  void *addr = mmap(NULL, 0x10000, PROT_READ | PROT_WRITE, MAP_ANONYMOUS |
-		  MAP_PRIVATE | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
-  struct vfio_iommu_type1_dma_map dmap_map = {
-	  .argsz = sizeof(dma_map),
-	  .flags = VFIO_DMA_MAP_FLAG_READ | VFIO_DMA_MAP_FLAG_WRITE,
-	  .vaddr = (uint64_t)addr,
-	  .size = 0x10000,
-  };
+> Changed from v2:
+> 1. rebase for v6.13-rc1
+> =
 
-  ioctl(vfio_container_fd, VFIO_IOMMU_MAP_DMA, &dma_map);
+> Changed from v1:
+> 1. patch3: add missing code in sys_hwprobe.c
+> =
 
-This commit supplies huge pte handling logic in follow_page_pte() to
-avoid such problems.
+> Inochi Amaoto (3):
+>   dt-bindings: riscv: add bfloat16 ISA extension description
+>   riscv: add ISA extension parsing for bfloat16 ISA extension
+>   riscv: hwprobe: export bfloat16 ISA extension
+> =
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/pgtable.h |  6 ++++++
- include/linux/pgtable.h          |  8 ++++++++
- mm/gup.c                         | 17 +++++++++++------
- 3 files changed, 25 insertions(+), 6 deletions(-)
+>  Documentation/arch/riscv/hwprobe.rst          | 12 +++++
+>  .../devicetree/bindings/riscv/extensions.yaml | 45 +++++++++++++++++++
+>  arch/riscv/include/asm/hwcap.h                |  3 ++
+>  arch/riscv/include/uapi/asm/hwprobe.h         |  3 ++
+>  arch/riscv/kernel/cpufeature.c                | 35 +++++++++++++++
+>  arch/riscv/kernel/sys_hwprobe.c               |  3 ++
+>  6 files changed, 101 insertions(+)
+> =
 
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 050fdc49b5ad7..40ae5979dd82c 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -800,6 +800,12 @@ static inline bool pud_user_accessible_page(pud_t pud)
- #endif
- 
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-+#define pte_trans_huge	pte_trans_huge
-+static inline int pte_trans_huge(pte_t pte)
-+{
-+	return pte_huge(pte) && pte_napot(pte);
-+}
-+
- static inline int pmd_trans_huge(pmd_t pmd)
- {
- 	return pmd_leaf(pmd);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 94d267d02372e..3f57ee6dcf017 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1584,6 +1584,14 @@ static inline unsigned long my_zero_pfn(unsigned long addr)
- 
- #ifdef CONFIG_MMU
- 
-+#if (defined(CONFIG_TRANSPARENT_HUGEPAGE) && !defined(pte_trans_huge)) || \
-+	(!defined(CONFIG_TRANSPARENT_HUGEPAGE))
-+static inline int pte_trans_huge(pte_t pte)
-+{
-+	return 0;
-+}
-+#endif
-+
- #ifndef CONFIG_TRANSPARENT_HUGEPAGE
- static inline int pmd_trans_huge(pmd_t pmd)
- {
-diff --git a/mm/gup.c b/mm/gup.c
-index 3883b307780ea..67981ee28df86 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -838,7 +838,7 @@ static inline bool can_follow_write_pte(pte_t pte, struct page *page,
- 
- static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmd, unsigned int flags,
--		struct dev_pagemap **pgmap)
-+		struct follow_page_context *ctx)
- {
- 	struct mm_struct *mm = vma->vm_mm;
- 	struct folio *folio;
-@@ -879,8 +879,8 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		 * case since they are only valid while holding the pgmap
- 		 * reference.
- 		 */
--		*pgmap = get_dev_pagemap(pte_pfn(pte), *pgmap);
--		if (*pgmap)
-+		ctx->pgmap = get_dev_pagemap(pte_pfn(pte), ctx->pgmap);
-+		if (ctx->pgmap)
- 			page = pte_page(pte);
- 		else
- 			goto no_page;
-@@ -940,6 +940,11 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		 */
- 		folio_mark_accessed(folio);
- 	}
-+	if (is_vm_hugetlb_page(vma) || pte_trans_huge(pte)) {
-+		ctx->page_mask = (1 << folio_order(folio)) - 1;
-+		page = folio_page(folio, 0) +
-+		       ((address & (folio_size(folio) - 1)) >> PAGE_SHIFT);
-+	}
- out:
- 	pte_unmap_unlock(ptep, ptl);
- 	return page;
-@@ -975,7 +980,7 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
- 		return no_page_table(vma, flags, address);
- 	}
- 	if (likely(!pmd_leaf(pmdval)))
--		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+		return follow_page_pte(vma, address, pmd, flags, ctx);
- 
- 	if (pmd_protnone(pmdval) && !gup_can_follow_protnone(vma, flags))
- 		return no_page_table(vma, flags, address);
-@@ -988,14 +993,14 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
- 	}
- 	if (unlikely(!pmd_leaf(pmdval))) {
- 		spin_unlock(ptl);
--		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+		return follow_page_pte(vma, address, pmd, flags, ctx);
- 	}
- 	if (pmd_trans_huge(pmdval) && (flags & FOLL_SPLIT_PMD)) {
- 		spin_unlock(ptl);
- 		split_huge_pmd(vma, pmd, address);
- 		/* If pmd was left empty, stuff a page table in there quickly */
- 		return pte_alloc(mm, pmd) ? ERR_PTR(-ENOMEM) :
--			follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+			follow_page_pte(vma, address, pmd, flags, ctx);
- 	}
- 	page = follow_huge_pmd(vma, address, pmd, flags, ctx);
- 	spin_unlock(ptl);
--- 
-2.20.1
+> --
+> 2.48.1
+> =
 
+
+I wonder whether this patch could get merged? So I can
+submit the SG2044 board dts without this as dependency.
+
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
