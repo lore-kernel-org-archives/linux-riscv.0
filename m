@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 930A2C2BA1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 18:32:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 825DEC28B2F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 18:33:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B2MbhLoIa1oc5N+m+RmN0Nhr06aDEVThiMLkMO83TwQ=; b=ywspGC4dCq/njXvGGZM1kHZO4Z
-	wKUpfWWIbpQGwSzznom/Om/KedD5y7Nj9jpFTcZ7o8oDugL6xRGaZzEq9bendWq8j8QeSxlOT9H/0
-	C6pzxmiZukdt6d5zHhh3bRfpyWT+9MGMyHxBkaO0cR4uSSUJ/V3FHSZ8iWUP91Apr08OhuR8lcxS6
-	UY7nCM17MpAbJCJTkx1QoKYw8wlkfb/dRw4BJPZtpH2U6inYMzwytopnGwsW2XETTZwMP8eth0CU+
-	4nHYLXIK7HH4Qvw+UzCfoNeoLGx0odCa+j3/4X/LUXoX/qx0TAtp24UNBmGBss+wmRFr4XrAEHWQW
-	OSU9wGFA==;
+	bh=UvPv/lY1BH4OODM1uTR6TEqpJUmc+BZZsEo8Hz76lT4=; b=iEIPN9w+WpOWE2oGYUST+nEMrI
+	pcVYiD9f9NFZv93vTPz0y9KJFH2Fe5aVzFZwf0TS37+2xHW5HSIz22Q2T0QFhcX632rq0JhK50L0/
+	1qqySYutt7g69TgC6RiscakXIpteI0uae/ZZB7oMkXomWDYSJocFNe0kbmooqhU76AA6lFtKll/FH
+	z+CwnJLNLIH4MS0FKsJlDQu1MpFlSumRDXwLyh3rvK55/MZxq6kaGv2vtDXjZ4NDLV34datX4DYzo
+	LISYR4WjlfNdcgu94dMt/UepalvwRvcgXDiXDYOkE8oDs9OHymx8eAYJhFi9JNMYwemvWxzZZBf7y
+	SeI2HH2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4Oc-00000006dH0-0RUd;
-	Tue, 11 Mar 2025 18:32:06 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ts4QE-00000006dYf-1yMU;
+	Tue, 11 Mar 2025 18:33:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts451-00000006Zvu-3Vhn
+	id 1ts45X-00000006a5j-2jR1
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 18:11:53 +0000
+	Tue, 11 Mar 2025 18:12:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F3EA4A4611F;
-	Tue, 11 Mar 2025 18:06:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 370A0C4CEEF;
-	Tue, 11 Mar 2025 18:11:46 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2E7305C4D92;
+	Tue, 11 Mar 2025 18:10:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A918C4CEE9;
+	Tue, 11 Mar 2025 18:12:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741716710;
-	bh=6F/k+ohWhXcoXwg5XBr9rp54e3QcQ9v3bx+s3rTBQZw=;
+	s=k20201202; t=1741716742;
+	bh=3H5O6bWO/yhhqtga12cTBlakPqsT0CqcPydgL8g9Xeg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SbNZ//VPLZlh9QJO50mf5586izFK6ZQOSDpMdacVnUloSNC2dTtGORykLAYOYgXi1
-	 V3uaVsi3Vn0ZGmVyRbA708FTYANDdK7bYnzhJtmQn4X1juNUE2o8ocyRmlU8sfB74n
-	 nXY3DFqrYT/xjCXpK+TivylNgCYmgfdqZxRKYYYF3OkDGIhhBmyqe8owtRXb8MPZci
-	 Mk4+DSQzg0PRGWbJhM1eR/UJkr8l416k4Yj17KJEJHruAyS6QHzoPbPQ3aDGXa1ZCh
-	 5wQRufVfLB65+lf1e0b68N2cphBx0CTWuyLABvg2c4J2JQ7h4pAnt/YHeYopZIg8UT
-	 ZgeM4FuSY61gA==
-Date: Tue, 11 Mar 2025 18:11:43 +0000
+	b=B8gOrxnvhqd7g5q2G+7udUnkNP0oImP6iG9oOu18TP8KImBZJdYGGeBqtmyA94Pok
+	 bdYtg4YhaB1dVfdGzpCs2FFVOPt4t6lG8ycFg4b6Q/wEA1PQeh7I0uj4ZfvrvtYbDK
+	 LhuZYHMcJwVz5wPNkw/ImDq+1pqKFEnuaDud+Oxp6lIuaPhthxvdcUxWMvmWYiEZou
+	 zMqT/8YOo0l2bqYYttA4hGhcPki4Gwn4uvItSVu2NrnMKO+nPmKPJg/gaw147eTTW/
+	 +ihLgsw3X2OLZ2Aq84/Qyp0gsqwoBApxwNWCO1geeSkQQgUIatLWmvKelcW4UXQzOX
+	 q//kQsiKQnnFw==
+Date: Tue, 11 Mar 2025 18:12:16 +0000
 From: Conor Dooley <conor@kernel.org>
 To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -65,16 +65,16 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	rafal@milecki.pl, Anup Patel <anup@brainfault.org>,
 	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 05/10] dt-bindings: cache: sifive,ccache0: Add ESWIN
- EIC7700 SoC compatibility
-Message-ID: <20250311-exposure-relive-f33873964914@spud>
+Subject: Re: [PATCH 07/10] dt-bindings: interrupt-controller: Add ESWIN
+ EIC7700 PLIC
+Message-ID: <20250311-stitch-revisit-9f24ef006dca@spud>
 References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
- <20250311073432.4068512-6-pinkesh.vaghela@einfochips.com>
+ <20250311073432.4068512-8-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-In-Reply-To: <20250311073432.4068512-6-pinkesh.vaghela@einfochips.com>
+In-Reply-To: <20250311073432.4068512-8-pinkesh.vaghela@einfochips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_111152_009322_653943E8 
-X-CRM114-Status: GOOD (  17.46  )
+X-CRM114-CacheID: sfid-20250311_111223_812035_0561610E 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,130 +86,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3324030954307125783=="
+Content-Type: multipart/mixed; boundary="===============6885599018314322818=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3324030954307125783==
+--===============6885599018314322818==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="4KqL/Ursy/O0/Cxs"
+	protocol="application/pgp-signature"; boundary="YTSoY6KxqwAVELjH"
 Content-Disposition: inline
 
 
---4KqL/Ursy/O0/Cxs
+--YTSoY6KxqwAVELjH
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 11, 2025 at 01:04:27PM +0530, Pinkesh Vaghela wrote:
-> From: Pritesh Patel <pritesh.patel@einfochips.com>
+On Tue, Mar 11, 2025 at 01:04:29PM +0530, Pinkesh Vaghela wrote:
+> From: Darshan Prajapati <darshan.prajapati@einfochips.com>
 >=20
-> This cache controller is also used on the ESWIN EIC7700 SoC.
-> However, it have 256KB private L2 Cache and shared L3 Cache of 4MB.
-> So add dedicated compatible string for it.
+> Add compatible string for ESWIN EIC7700 PLIC.
 >=20
-> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> Signed-off-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
 > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 > Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+
 > ---
->  .../bindings/cache/sifive,ccache0.yaml        | 28 +++++++++++++++++--
->  1 file changed, 25 insertions(+), 3 deletions(-)
+>  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+>  1 file changed, 1 insertion(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml =
-b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-> index 7e8cebe21584..11e9df2cd153 100644
-> --- a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-> +++ b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
-> @@ -39,6 +39,7 @@ properties:
->            - const: cache
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifiv=
+e,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/=
+sifive,plic-1.0.0.yaml
+> index 3dfe425909d1..ea7093fde060 100644
+> --- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
+1.0.0.yaml
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-=
+1.0.0.yaml
+> @@ -58,6 +58,7 @@ properties:
 >        - items:
 >            - enum:
-> +              - eswin,eic7700-l3-cache
->                - starfive,jh7100-ccache
->                - starfive,jh7110-ccache
->            - const: sifive,ccache0
-> @@ -55,10 +56,10 @@ properties:
->      enum: [2, 3]
-> =20
->    cache-sets:
-> -    enum: [1024, 2048]
-> +    enum: [1024, 2048, 4096]
-> =20
->    cache-size:
-> -    const: 2097152
-> +    enum: [2097152, 4194304]
-
-Making this an enum makes either value permitted on each SoC. Can you
-add cache-size restrictions to the if statements below to keep it
-restricted to the correct value please?
-
-Cheers,
-Conor.
-
-> =20
->    cache-unified: true
-> =20
-> @@ -89,6 +90,7 @@ allOf:
->          compatible:
->            contains:
->              enum:
-> +              - eswin,eic7700-l3-cache
->                - sifive,fu740-c000-ccache
->                - starfive,jh7100-ccache
->                - starfive,jh7110-ccache
-> @@ -122,11 +124,31 @@ allOf:
->          cache-sets:
->            const: 2048
-> =20
-> -    else:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - microchip,mpfs-ccache
-> +              - sifive,fu540-c000-ccache
-> +
-> +    then:
->        properties:
->          cache-sets:
->            const: 1024
-> =20
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - eswin,eic7700-l3-cache
-> +
-> +    then:
-> +      properties:
-> +        cache-sets:
-> +          const: 4096
-> +
->    - if:
->        properties:
->          compatible:
+>                - canaan,k210-plic
+> +              - eswin,eic7700-plic
+>                - sifive,fu540-c000-plic
+>                - spacemit,k1-plic
+>                - starfive,jh7100-plic
 > --=20
 > 2.25.1
 >=20
 
---4KqL/Ursy/O0/Cxs
+--YTSoY6KxqwAVELjH
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9B83wAKCRB4tDGHoIJi
-0qg6AP9/9GbV4BfcxIJ0Hq3/t9Jb3rfm4yxgeB1hMbL/+rUcHgD/eGLTFdv6dNBd
-zNDict/2TFKThTFRgSv01Oz9CJbLGAA=
-=BjHP
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9B8/wAKCRB4tDGHoIJi
+0p6EAQDifbJmeyNsMj+bYCpjnv1K/o1pQIdyzSatN7nK3XfckQEAqy0UUe1dgpw9
+HgV3/eXX2X+SVhYeCCMy5KEoMW8lWQg=
+=dAbH
 -----END PGP SIGNATURE-----
 
---4KqL/Ursy/O0/Cxs--
+--YTSoY6KxqwAVELjH--
 
 
---===============3324030954307125783==
+--===============6885599018314322818==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -220,5 +162,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3324030954307125783==--
+--===============6885599018314322818==--
 
