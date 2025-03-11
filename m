@@ -4,61 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6B4C282DE
-	for <linux-riscv@archiver.kernel.org>; Mon, 10 Mar 2025 22:04:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08B0C28B2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 05:20:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ewZM+rVuCTtehzjNWnqyPaXxSsK2d44C7lMtaM8ZI5U=; b=M6QB/QvJf1XUsb
-	zn0AZt7LmKqC5fjLAVJHN1ELuCYljgT7hdCOY0Cm43VJJZ05w9yHyiK927jZ7o1uetnlbzkiPWAKH
-	RevEw2/xqFVLO1/f/ERj0tvJjC9mCFpLmsHAy3+AwSQhxzkLwdZduTiIeduShjsKMqwH7k57XqcrQ
-	Orh5qBDeqxPmSm+qjMW4Hoo23Dp6yrRDQO0JadQCVuLissGHt//2tmhhFhFbqbxswutaeJDTCTCgP
-	O+ld3pJOlLk5gq+y81WTlI7iZBUVo/qqoD1QQegsZHEd6B3NY7xHgNvYEi/NM1MPdKqTEGQ/y3xfc
-	bPJSXkw9B2vghO6b9hqQ==;
+	List-Owner; bh=ALgyFLVZnseje63vfov43u44aq3sK2K0p+0znRiChqA=; b=wjq4RolgriI01B
+	X3AMpOsUk/DR5EBTItpJ8YNSqXm7FQmjkxriGUFRGIx4RqzRQciDN5j/FqOiFNEXGLJhKIgUg6Ryt
+	4Y/c1UQBzHwJiiY+PXENIoBg4XQMw+xzgvl77fEowlzILbDDMQ3cz/oi/DaHq9EfDfX56C4wQdq7T
+	wdE3wEu3MgM+2XES6FVsKDNdz0O1T1lXOUGfhg8FVUivOKukYgiGUta9oauqz/Ax7gtSs1TvHhzTA
+	UVuGux/o44oGJzTjDlOJJ14OIUAO262LqI0DgB5pLS8aqU96JdzZcJmeg/PcLCIoCLY8Mpybw/UHd
+	KKOVPK/s40VBL9iQadVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trlEV-000000044i4-25T5;
-	Mon, 10 Mar 2025 22:04:23 +0000
-Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
+	id 1trs2F-00000004e1i-2cLq;
+	Tue, 11 Mar 2025 05:20:11 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trlES-000000044e3-37v9
+	id 1trs1e-00000004dxn-3p0Z
 	for linux-riscv@lists.infradead.org;
-	Mon, 10 Mar 2025 22:04:22 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1741644253;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vMEhOW9fgJPCr4InVKo09seDTKCph02bUyGs2pruQNI=;
-	b=N28ATju+SsOf5mOLkX4xSXH0ni5rpddkGVzQ0AFC5fZJcs6P9VO9pz7SF8qelSzN+l2NqC
-	8kfjOzO5vJk/0dupShTH1+xEiBt1YfuUS0lNDnS+CaDl5gjrC+TAduQkxHPxR2JbuBY8dT
-	j2wlpSllboIUsJ5sIPqcjTn/9mOURqWUOYZ6c/TGMSauNtDAR5erQ72gz/Td0PRtI7fBEn
-	BD3YkUwNcoep0OKwNa9/4u5ftcPliRRNb65AdzzivcwQbINktEq+ujn/vjK1IGQJi8uvsS
-	UnVv0QwKNYfl9M/wc/mFp+6ZjOaSkFGFYRITqUfIkQrcf5YsCIKSgtLPRhqhWQ==
-From: Ignacio Encinas <ignacio@iencinas.com>
-Date: Mon, 10 Mar 2025 23:03:55 +0100
-Subject: [PATCH RFC] riscv: introduce asm/swab.h
-MIME-Version: 1.0
-Message-Id: <20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com>
-X-B4-Tracking: v=1; b=H4sIAMphz2cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1MDYwNz3aLM4uQy3eLyxCTdJAvDJEuTRMvEZMMkJaCGgqLUtMwKsGHRSkF
- uzkqxtbUAh1/042EAAAA=
-X-Change-ID: 20250307-riscv-swab-b81b94a9ac1b
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev, 
- skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>, 
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
- Ignacio Encinas <ignacio@iencinas.com>
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Mar 2025 05:19:36 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2254e0b4b79so1268185ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 22:19:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1741670373; x=1742275173; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+i/dt0ZX89cRHtWHaB/kc777cnfXfjLxAIjIrBqsq1Y=;
+        b=cpiFeJ5eYnWUJF8KoQ0p35SOrf/Do+jQy8jUkzGKXuVPLHuC5Eo5wsHHbbFwXxOLCQ
+         XGP//hcIhRqKlQ5WDqgI2uB+iWoGicdMwyBfjMcTwKRxteY3IxzbbBgnIifuLyhRPhGW
+         HWpxIlUjTXx41wNVIHRFnLdsUNYD07Cfx/V2RNswZMn3JPiNihngASFxGuWEFkJyXK6v
+         TldV+j0mZpzx4y2uxe7cAhIqNiF54vto/BDLNjQMHm5Hn7DbaerGrx7O0Lz9ouutS5iw
+         n26Vjb/NEjlBurWkKEDLaaI4A5qnFNLFLd1Q2Hb2zyVPn4felgqHj1I1VEAye9Jr16b5
+         dBog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741670373; x=1742275173;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=+i/dt0ZX89cRHtWHaB/kc777cnfXfjLxAIjIrBqsq1Y=;
+        b=SjWcumeeI3t8uO3jFBy8eu9CpvEVHutQY+TSJYVkVatp8Rql54Eem3pONR3Xz5gTKY
+         MLa3Ju/nFPvcrhXp0QW8cAxZImvBz3nRLjgjFsHBx5UaOfdmAHAXZvCp4lc4fQgtCk+d
+         0/COt7juPEJxhy63zxveXbDOCjBMiBL2JxS6GeUBFMdNGkfIs46e6REIG0GDP1gpJAWP
+         OFWr1AYIcFJTBvx8Gxatqoyezm2T0D/kSEjKDhk1TsYGIoSK9o28I5+TVTN0Z2F7tFf7
+         othxTcDRl8EiHXoRjZ0SNKqoGhjHXDv/c8PmG61Vr1AJed7uVe/NGY2XIk3hGkrnlfJ/
+         nwhg==
+X-Forwarded-Encrypted: i=1; AJvYcCWIUheIfbQFDaLGqrc1oCRwHyZmVdzfOG0+fbbyoa/9cgjXX+b3wSVD3b4KWqCGfjVRtAymSvKF9aA5Vg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyGa1PM4dNfKSaqYJF+qQ3IeiMygY0TQRHHrbHF/NgplgKF++zn
+	o1EDX0PYoQ3XJI5LbfZ9wA4zEj1Z6K3zRm9uWQ29ltT6B9NVlJOzmYoLGQ/o43g=
+X-Gm-Gg: ASbGnctYxGCkFpmqvckmb1IYi2TFRFbe5ab0h9mkoXOEDIBTGygzWgD86qvfXfO2z+c
+	qTYsu41x/A/5WzEgSocQeL9re/kQQ7nPEFixTNQEzpJs2Z45TIEGsYeHixXe//iVWkq3bCaa0Ac
+	WcySu5YzZQeF685PrE2natpRP7cvv5PVDXs96+/VFgQjamVVGtwapBOhbxL8XO/y//i/6vKAS0W
+	JxatlSAsBDxTgMpRddEjMeb95UuPutji7muDnarMjviWRzO3MOvz3V7+CyNXCgbFRmAs/OLpnM2
+	srEPTzShwkmV3cEMUJj2SM5k5zp9c9qymjimTtS1jU7crO1m4CdQye4VzD7r4vAq5DU=
+X-Google-Smtp-Source: AGHT+IEntr734nFZJCJi9wFIrZS3LNF88PAO3SBZe3Z3mk94wDz9J7xsCrG6KvNbYGMyW21bfvgtPw==
+X-Received: by 2002:a17:902:d48f:b0:224:1219:934b with SMTP id d9443c01a7336-22428c099abmr227046695ad.50.1741670372831;
+        Mon, 10 Mar 2025 22:19:32 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-224109e9fbfsm88597995ad.92.2025.03.10.22.19.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Mar 2025 22:19:32 -0700 (PDT)
+From: Nick Hu <nick.hu@sifive.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>
+Cc: Nick Hu <nick.hu@sifive.com>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] dt-bindings: timer: Add SiFive CLINT2
+Date: Tue, 11 Mar 2025 13:19:03 +0800
+Message-Id: <20250311051903.3825-1-nick.hu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_150421_344635_E1FB3D61 
-X-CRM114-Status: GOOD (  13.70  )
+X-CRM114-CacheID: sfid-20250310_221934_962882_A06A6535 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,133 +99,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement endianness swap macros for RISC-V.
+Add compatible string and property for the SiFive CLINT v2.
 
-Use the rev8 instruction when Zbb is available. Otherwise, rely on the
-default mask-and-shift implementation.
-
-Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+Signed-off-by: Nick Hu <nick.hu@sifive.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 ---
-Motivated by [1]. A couple of things to note:
+ .../bindings/timer/sifive,clint.yaml          | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-We need a default implementation to fall back on, but there isn't any in
-`asm-generic/swab.h`. Should I introduce a first patch moving 
-___constant_swab<XX> into include/uapi/asm-generic/swab.h?
-
-I don't particularly like the ARCH_SWAB macro but I can't think of
-anything better that doesn't result in code duplication.
-
-Tested with crc_kunit as pointed out here [2]. I can't provide
-performance numbers as I don't have RISC-V hardware yet.
-
-Ccing everyone involved with [1].
-
-[1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
-[2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
----
- arch/riscv/include/asm/swab.h | 81 +++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 81 insertions(+)
-
-diff --git a/arch/riscv/include/asm/swab.h b/arch/riscv/include/asm/swab.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..8f8a13b343f6ffbefbb3c7747ab4e14243852014
---- /dev/null
-+++ b/arch/riscv/include/asm/swab.h
-@@ -0,0 +1,81 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+#ifndef _ASM_RISCV_SWAB_H
-+#define _ASM_RISCV_SWAB_H
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index 76d83aea4e2b..93d74c504b5f 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -36,6 +36,9 @@ properties:
+               - starfive,jh7110-clint   # StarFive JH7110
+               - starfive,jh8100-clint   # StarFive JH8100
+           - const: sifive,clint0        # SiFive CLINT v0 IP block
++      - items:
++          - const: sifive,clint2        # SiFive CLINT v2 IP block
++        description: SiFive CLINT v2 is the HRT that supports the Zicntr
+       - items:
+           - enum:
+               - allwinner,sun20i-d1-clint
+@@ -62,6 +65,22 @@ properties:
+     minItems: 1
+     maxItems: 4095
+ 
++  sifive,fine-ctr-bits:
++    description: The width in bits of the fine counter.
 +
-+#include <linux/types.h>
-+#include <linux/compiler.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
++if:
++  properties:
++    compatible:
++      contains:
++        const: sifive,clint2
++then:
++  properties:
++    sifive,fine-ctr-bits:
++      maximum: 15
++else:
++  properties:
++    sifive,fine-ctr-bits: false
 +
-+#if defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE)
-+
-+/*
-+ * FIXME, RFC PATCH: This is copypasted from include/uapi/linux/swab.h
-+ * should I move these `#defines` to include/uapi/asm-generic/swab.h
-+ * and include that file here and in include/uapi/linux/swab.h ?
-+ */
-+#define ___constant_swab16(x) ((__u16)(				\
-+	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
-+	(((__u16)(x) & (__u16)0xff00U) >> 8)))
-+
-+#define ___constant_swab32(x) ((__u32)(				\
-+	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
-+	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
-+	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
-+	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
-+
-+#define ___constant_swab64(x) ((__u64)(				\
-+	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
-+	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
-+	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
-+	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
-+	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
-+	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
-+	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
-+	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
-+
-+#define ___constant_swahw32(x) ((__u32)(			\
-+	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
-+	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
-+
-+#define ___constant_swahb32(x) ((__u32)(			\
-+	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
-+	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
-+
-+
-+#define ARCH_SWAB(size) \
-+static __always_inline unsigned long __arch_swab##size(__u##size value) \
-+{									\
-+	unsigned long x = value;					\
-+									\
-+	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,			\
-+			     RISCV_ISA_EXT_ZBB, 1)			\
-+			     :::: legacy);				\
-+									\
-+	asm volatile (".option push\n"					\
-+		      ".option arch,+zbb\n"				\
-+		      "rev8 %0, %1\n"					\
-+		      ".option pop\n"					\
-+		      : "=r" (x) : "r" (x));				\
-+									\
-+	return x >> (BITS_PER_LONG - size);				\
-+									\
-+legacy:									\
-+	return  ___constant_swab##size(value);				\
-+}
-+
-+#ifdef CONFIG_64BIT
-+ARCH_SWAB(64)
-+#define __arch_swab64 __arch_swab64
-+#endif
-+
-+ARCH_SWAB(32)
-+#define __arch_swab32 __arch_swab32
-+
-+ARCH_SWAB(16)
-+#define __arch_swab16 __arch_swab16
-+
-+#undef ARCH_SWAB
-+
-+#endif /* defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE) */
-+#endif /* _ASM_RISCV_SWAB_H */
-
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250307-riscv-swab-b81b94a9ac1b
-
-Best regards,
+ additionalProperties: false
+ 
+ required:
 -- 
-Ignacio Encinas <ignacio@iencinas.com>
+2.17.1
 
 
 _______________________________________________
