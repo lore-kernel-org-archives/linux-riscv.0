@@ -4,90 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B08B0C28B2E
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 05:20:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34C0EC28B2E
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 06:02:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ALgyFLVZnseje63vfov43u44aq3sK2K0p+0znRiChqA=; b=wjq4RolgriI01B
-	X3AMpOsUk/DR5EBTItpJ8YNSqXm7FQmjkxriGUFRGIx4RqzRQciDN5j/FqOiFNEXGLJhKIgUg6Ryt
-	4Y/c1UQBzHwJiiY+PXENIoBg4XQMw+xzgvl77fEowlzILbDDMQ3cz/oi/DaHq9EfDfX56C4wQdq7T
-	wdE3wEu3MgM+2XES6FVsKDNdz0O1T1lXOUGfhg8FVUivOKukYgiGUta9oauqz/Ax7gtSs1TvHhzTA
-	UVuGux/o44oGJzTjDlOJJ14OIUAO262LqI0DgB5pLS8aqU96JdzZcJmeg/PcLCIoCLY8Mpybw/UHd
-	KKOVPK/s40VBL9iQadVQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N9+G4uvZQskiwRgR1vlHAF964W++gIhncmQHDMKN1ZY=; b=QtOFx+3/WbJTaa
+	0PxFqWGt4UzwpQyfZVslmsiSH1TuVRkIXaIA9pHJm0Hjvgl/b48oCE7wnybW62mplnELYFvYF5Fjz
+	9mYF7MCR9iT6P99hV4LRcz9oe8/A7Ed+IpoWDsX1yuy2VfqTGcZzisQBiFZucVL+u5p/5TOsJtd7v
+	TLnnuDZnRVjYnJ9RQSASzyWZsVNa02VAIGQzAXRgq2vShArqlid1bY2X9/gUZxdxxe2hNkM/vHuuN
+	sIli6J8fWkcBUMMnM20+M7W+t9+5WirsxvPTp3Yj/E++kS0/Vitg1xuqIKS5iFM5+F6ULT8VRtE4i
+	Uta45S0mKGteZOQqFG+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trs2F-00000004e1i-2cLq;
-	Tue, 11 Mar 2025 05:20:11 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1trshV-00000004i9V-29yj;
+	Tue, 11 Mar 2025 06:02:49 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trs1e-00000004dxn-3p0Z
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 05:19:36 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2254e0b4b79so1268185ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 10 Mar 2025 22:19:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1741670373; x=1742275173; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=+i/dt0ZX89cRHtWHaB/kc777cnfXfjLxAIjIrBqsq1Y=;
-        b=cpiFeJ5eYnWUJF8KoQ0p35SOrf/Do+jQy8jUkzGKXuVPLHuC5Eo5wsHHbbFwXxOLCQ
-         XGP//hcIhRqKlQ5WDqgI2uB+iWoGicdMwyBfjMcTwKRxteY3IxzbbBgnIifuLyhRPhGW
-         HWpxIlUjTXx41wNVIHRFnLdsUNYD07Cfx/V2RNswZMn3JPiNihngASFxGuWEFkJyXK6v
-         TldV+j0mZpzx4y2uxe7cAhIqNiF54vto/BDLNjQMHm5Hn7DbaerGrx7O0Lz9ouutS5iw
-         n26Vjb/NEjlBurWkKEDLaaI4A5qnFNLFLd1Q2Hb2zyVPn4felgqHj1I1VEAye9Jr16b5
-         dBog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741670373; x=1742275173;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=+i/dt0ZX89cRHtWHaB/kc777cnfXfjLxAIjIrBqsq1Y=;
-        b=SjWcumeeI3t8uO3jFBy8eu9CpvEVHutQY+TSJYVkVatp8Rql54Eem3pONR3Xz5gTKY
-         MLa3Ju/nFPvcrhXp0QW8cAxZImvBz3nRLjgjFsHBx5UaOfdmAHAXZvCp4lc4fQgtCk+d
-         0/COt7juPEJxhy63zxveXbDOCjBMiBL2JxS6GeUBFMdNGkfIs46e6REIG0GDP1gpJAWP
-         OFWr1AYIcFJTBvx8Gxatqoyezm2T0D/kSEjKDhk1TsYGIoSK9o28I5+TVTN0Z2F7tFf7
-         othxTcDRl8EiHXoRjZ0SNKqoGhjHXDv/c8PmG61Vr1AJed7uVe/NGY2XIk3hGkrnlfJ/
-         nwhg==
-X-Forwarded-Encrypted: i=1; AJvYcCWIUheIfbQFDaLGqrc1oCRwHyZmVdzfOG0+fbbyoa/9cgjXX+b3wSVD3b4KWqCGfjVRtAymSvKF9aA5Vg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGa1PM4dNfKSaqYJF+qQ3IeiMygY0TQRHHrbHF/NgplgKF++zn
-	o1EDX0PYoQ3XJI5LbfZ9wA4zEj1Z6K3zRm9uWQ29ltT6B9NVlJOzmYoLGQ/o43g=
-X-Gm-Gg: ASbGnctYxGCkFpmqvckmb1IYi2TFRFbe5ab0h9mkoXOEDIBTGygzWgD86qvfXfO2z+c
-	qTYsu41x/A/5WzEgSocQeL9re/kQQ7nPEFixTNQEzpJs2Z45TIEGsYeHixXe//iVWkq3bCaa0Ac
-	WcySu5YzZQeF685PrE2natpRP7cvv5PVDXs96+/VFgQjamVVGtwapBOhbxL8XO/y//i/6vKAS0W
-	JxatlSAsBDxTgMpRddEjMeb95UuPutji7muDnarMjviWRzO3MOvz3V7+CyNXCgbFRmAs/OLpnM2
-	srEPTzShwkmV3cEMUJj2SM5k5zp9c9qymjimTtS1jU7crO1m4CdQye4VzD7r4vAq5DU=
-X-Google-Smtp-Source: AGHT+IEntr734nFZJCJi9wFIrZS3LNF88PAO3SBZe3Z3mk94wDz9J7xsCrG6KvNbYGMyW21bfvgtPw==
-X-Received: by 2002:a17:902:d48f:b0:224:1219:934b with SMTP id d9443c01a7336-22428c099abmr227046695ad.50.1741670372831;
-        Mon, 10 Mar 2025 22:19:32 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-224109e9fbfsm88597995ad.92.2025.03.10.22.19.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 22:19:32 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
+	id 1trsbH-00000004gWJ-3zUE;
+	Tue, 11 Mar 2025 05:56:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D3DBF5C4D94;
+	Tue, 11 Mar 2025 05:54:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D93EC4CEED;
+	Tue, 11 Mar 2025 05:56:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741672582;
+	bh=JR5aE1/6W9bEsH29C5z708XdvBh3y3whu03ldRN1cT0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=f48a7jPdRs+4CFxnOQTPCHsm75344xXl4kGcXGjsNF7CXHD6rakA6cXBClsJrVEtn
+	 WMcp4MDOS6ujAbPjNce+g3L+xfZC5vi4RqizMWw2e621BlT1F9Ay/Loxsxa26BilyR
+	 V3RuJvI1gFKwfV3U+Q95PUC/u4Gy4+xVTdXkrb9dHTeavvebfTfgzz2yhmQ89ydU2G
+	 kiwkfL2BapKmKWzCToyXgMHRmDr7W8auvyr26g/1+MWMbdjrYYGY9Pgy3JpC8H5B/G
+	 ocFRu6iz+c47Alu4XK27RyF2DFlSe0JprTDW9yyHuXhbUMDy3L4Bzl+ZBGVJfIovu1
+	 qQCLqsddFmhPA==
+Date: Tue, 11 Mar 2025 07:55:55 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Heiko Carstens <hca@linux.ibm.com>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Nick Hu <nick.hu@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] dt-bindings: timer: Add SiFive CLINT2
-Date: Tue, 11 Mar 2025 13:19:03 +0800
-Message-Id: <20250311051903.3825-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH 07/13] s390: make setup_zero_pages() use memblock
+Message-ID: <Z8_Qawg0dGtZdys7@kernel.org>
+References: <20250306185124.3147510-1-rppt@kernel.org>
+ <20250306185124.3147510-8-rppt@kernel.org>
+ <20250307152815.9880Gbd-hca@linux.ibm.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250307152815.9880Gbd-hca@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_221934_962882_A06A6535 
-X-CRM114-Status: UNSURE (   6.90  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_225624_094369_6A07DD0C 
+X-CRM114-Status: GOOD (  25.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,60 +104,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string and property for the SiFive CLINT v2.
+On Fri, Mar 07, 2025 at 04:28:15PM +0100, Heiko Carstens wrote:
+> On Thu, Mar 06, 2025 at 08:51:17PM +0200, Mike Rapoport wrote:
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> > 
+> > Allocating the zero pages from memblock is simpler because the memory is
+> > already reserved.
+> > 
+> > This will also help with pulling out memblock_free_all() to the generic
+> > code and reducing code duplication in arch::mem_init().
+> > 
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> > ---
+> >  arch/s390/mm/init.c | 14 +++-----------
+> >  1 file changed, 3 insertions(+), 11 deletions(-)
+> 
+> Acked-by: Heiko Carstens <hca@linux.ibm.com>
+> 
+> > -	empty_zero_page = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
+> > +	empty_zero_page = (unsigned long)memblock_alloc(PAGE_SIZE << order, order);
+> >  	if (!empty_zero_page)
+> >  		panic("Out of memory in setup_zero_pages");
+> 
+> This could have been converted to memblock_alloc_or_panic(), but I
+> guess this can also be done at a later point in time.
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Duh, I should have remembered about memblock_alloc_or_panic() :)
+
+@Andrew, can you please pick this as a fixup?
+
+From 344fec8519e5152c25809c9277b54a68f9cde0e9 Mon Sep 17 00:00:00 2001
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+Date: Tue, 11 Mar 2025 07:51:27 +0200
+Subject: [PATCH] s390: use memblock_alloc_or_panic() in setup_zero_page()
+
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 ---
- .../bindings/timer/sifive,clint.yaml          | 19 +++++++++++++++++++
- 1 file changed, 19 insertions(+)
+ arch/s390/mm/init.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index 76d83aea4e2b..93d74c504b5f 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -36,6 +36,9 @@ properties:
-               - starfive,jh7110-clint   # StarFive JH7110
-               - starfive,jh8100-clint   # StarFive JH8100
-           - const: sifive,clint0        # SiFive CLINT v0 IP block
-+      - items:
-+          - const: sifive,clint2        # SiFive CLINT v2 IP block
-+        description: SiFive CLINT v2 is the HRT that supports the Zicntr
-       - items:
-           - enum:
-               - allwinner,sun20i-d1-clint
-@@ -62,6 +65,22 @@ properties:
-     minItems: 1
-     maxItems: 4095
+diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
+index ab8ece3c41f1..c6a97329d7e7 100644
+--- a/arch/s390/mm/init.c
++++ b/arch/s390/mm/init.c
+@@ -81,9 +81,7 @@ static void __init setup_zero_pages(void)
+ 	while (order > 2 && (total_pages >> 10) < (1UL << order))
+ 		order--;
  
-+  sifive,fine-ctr-bits:
-+    description: The width in bits of the fine counter.
-+
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: sifive,clint2
-+then:
-+  properties:
-+    sifive,fine-ctr-bits:
-+      maximum: 15
-+else:
-+  properties:
-+    sifive,fine-ctr-bits: false
-+
- additionalProperties: false
+-	empty_zero_page = (unsigned long)memblock_alloc(PAGE_SIZE << order, order);
+-	if (!empty_zero_page)
+-		panic("Out of memory in setup_zero_pages");
++	empty_zero_page = (unsigned long)memblock_alloc_or_panic(PAGE_SIZE << order, order);
  
- required:
+ 	zero_page_mask = ((PAGE_SIZE << order) - 1) & PAGE_MASK;
+ }
 -- 
-2.17.1
+2.47.2
 
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
