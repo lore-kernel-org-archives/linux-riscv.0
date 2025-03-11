@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43B46C2BA1B
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 07:36:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDDC4C28B2F
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 07:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/pUNpF4EOHwtzTBg491TVMbttzvZpPUd8QWY+eGftPg=; b=kQgU63KnFhKz2J
-	7uYxGvOO21r0ejIlwMwsiGsXU4P9/q8tyJ6BmZ/00Xqtr34ctO1zpt17BKYc7unx6yTAHxseZwe2z
-	PgufPpxociyJrYbME25C7K1y5IboH3Z3nL5vRCHnAvTzvLmLmVzQVA9e4weXfZsS+sniOGTZMKtiR
-	2xuMOiWllpv5R1B8APwRGR79zlamt2BlOt1hQgY8MSTcUMGC6ea1MyzppPednuKkAdZbG3KombdzX
-	UhxsRK8yddl7qRXfsEal+dBZF3a2zOOhbEE8G1wEc7ZeMpOt4PGosv91my8jnv0ZVFymQaLpC1vFb
-	RzHbpP5EpIbG6vHKvN9w==;
+	List-Owner; bh=n8QvRvmoLgIZU2gYUm26CV90ou3Hs7QjapCns1vE5nA=; b=umOgBaXs+SyUQC
+	wApSV4jUYpvTA/D5Y6ztEtJuMw+7xRrRWt5jRhdidNZM7kM4+BKJaz1FKiwg36ERfqedz1zfMamuM
+	Sg19/fwDkcoABmR2ZSInjFhVZYbLCQO4ZHueJUufbFqa+wzLLLISu/9brIwT+7X72oSLuzY/nbxH0
+	7V1GAsvorfg4JxFS6QjYFPJFMbQ7pzdyJzxkiZkIHSDoOR/XFAlhrsBw9VYFbdSZkU9NHCAu1yAfB
+	7HNdyw+8oKvhBm/+Ya3MmHpvCW2T2DxZ6XFpOdkDKYbSyS+elbf+jNF5Ok8ydthae5kZSGcrR/0Jb
+	nlvrOI30iaHGZiW+7fHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru9e-00000004r0Y-0oKF;
-	Tue, 11 Mar 2025 07:35:58 +0000
+	id 1tru9h-00000004r3A-00qz;
+	Tue, 11 Mar 2025 07:36:01 +0000
 Received: from naesa03.arrow.com ([216.150.161.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru8O-00000004qdd-2nV0
+	id 1tru8S-00000004qgi-1ErW
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 07:34:42 +0000
+	Tue, 11 Mar 2025 07:34:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=2010; q=dns/txt;
-  s=NAESA-Selector1; t=1741678480; x=1773214480;
+  d=einfochips.com; i=@einfochips.com; l=1089; q=dns/txt;
+  s=NAESA-Selector1; t=1741678484; x=1773214484;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=qeUqFJ/XMVvzusQ5Xy9z1HmZ0fH2eXJgXXxVlj4pokU=;
-  b=l/eRTHcwc6CXCSDRAYFxyyOY21EwJGsBJAkhFnwAS8H7KhY6E5C4MTE0
-   o6pWfEEwqtHPUE2euAZip4ePQDajyjx/L6cfedt2BJjCBcuQlknggBOVd
-   9rMCJgjDitspl5UPJUVUiW7V9miQ+zkfiGhrzMRJNkeiaxaCg3DbZxb7N
-   0saJ2QanSHMOv2T5RYrMlWrOxWq70atWxlM4g6ktoYKkIucpH5884egIB
-   V3iyCD4zGycXOTbYmJPp9fq+/P/yBGo+pUxo1uwvacokTcfTTDIiovnCf
-   ylc1rRT11PxXq6fHdewlDdeE98nylmsuJRzifUS06SRrRiN1bX4PQNBrv
-   Q==;
-X-CSE-ConnectionGUID: t2W/YAHMQBOtOPWrAPxfpw==
-X-CSE-MsgGUID: P1il40UxRW6eWZMkPRpR9A==
+  bh=2J8ImN1eOLZcCD3mcs/m/xlW9C0b++wBIjdeDhMtX88=;
+  b=snOGueN74Oa6XdoBVQ3ntj3fbwen6kuOZzZSV28RxDAwT+SRtVODSnwy
+   oLpefI7Z43KpRLmqwZ2eLQ9APdO0TJrHayMfJOIZS+W7L3wFSZlUIrync
+   z7yLpTfznfil7BPwj+XNr74WfFDkBAB2IiehLfGEXfFIu28OZlnVaRE2Z
+   5YV1E9z7l3mkveAjQTlVbPngydtdAS0Wg6rPbQmc4AqoxUh2lMkD3UDOe
+   78DOOcrxMrOWZFawgRjhzAkiwq5Q5hLQChVyj3byODxGcTpC3AyMqcjHz
+   q1DQIDXcW8SyzmUap5n9HHYD6wUn2Bu53/K24ulQBcEZPq0Exdg8VurHX
+   w==;
+X-CSE-ConnectionGUID: 4LpS8vRURV6CvBiQ625flg==
+X-CSE-MsgGUID: NmgEBWRET8qnCp+fi3NGbA==
 X-IronPort-AV: E=Sophos;i="6.14,238,1736838000"; 
-   d="scan'208";a="79624724"
+   d="scan'208";a="79624751"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa03out.arrow.com with ESMTP; 11 Mar 2025 01:34:38 -0600
+  by naesa03out.arrow.com with ESMTP; 11 Mar 2025 01:34:43 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
-	 Tue, 11 Mar 2025 13:04:32 +0530
+	 Tue, 11 Mar 2025 13:04:33 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -75,17 +75,18 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 04/10] dt-bindings: riscv: Add SiFive HiFive Premier P550 board
-Date: Tue, 11 Mar 2025 13:04:26 +0530
-Message-Id: <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH 08/10] dt-bindings: timer: Add ESWIN EIC7700 CLINT
+Date: Tue, 11 Mar 2025 13:04:30 +0530
+Message-Id: <20250311073432.4068512-9-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
 References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 11 Mar 2025 07:34:32.0906 (UTC) FILETIME=[082632A0:01DB9258]
+X-OriginalArrivalTime: 11 Mar 2025 07:34:33.0149 (UTC) FILETIME=[084B46D0:01DB9258]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_003440_773653_3DEFB9AC 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250311_003444_403005_6FE357A1 
+X-CRM114-Status: UNSURE (   7.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,72 +103,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pritesh Patel <pritesh.patel@einfochips.com>
+From: Darshan Prajapati <darshan.prajapati@einfochips.com>
 
-Add DT binding documentation for the ESWIN EIC7700 SoC and
-HiFive Premier P550 Board
+Add compatible string for ESWIN EIC7700 CLINT.
 
-Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+Signed-off-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 ---
- .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
- MAINTAINERS                                   |  6 ++++
- 2 files changed, 35 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/eswin.yaml b/Documentation/devicetree/bindings/riscv/eswin.yaml
-new file mode 100644
-index 000000000000..c603c45eef22
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/eswin.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/eswin.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ESWIN SoC-based boards
-+
-+maintainers:
-+  - Min Lin <linmin@eswincomputing.com>
-+  - Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+  - Pritesh Patel <pritesh.patel@einfochips.com>
-+
-+description:
-+  ESWIN SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - sifive,hifive-premier-p550
-+          - const: eswin,eic7700
-+
-+additionalProperties: true
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 25c86f47353d..901d0e0adb25 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8572,6 +8572,12 @@ L:	linux-can@vger.kernel.org
- S:	Maintained
- F:	drivers/net/can/usb/esd_usb.c
- 
-+ESWIN DEVICETREES
-+M:	Min Lin <linmin@eswincomputing.com>
-+M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+M:	Pritesh Patel <pritesh.patel@einfochips.com>
-+S:	Maintained
-+
- ET131X NETWORK DRIVER
- M:	Mark Einon <mark.einon@gmail.com>
- S:	Odd Fixes
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index 76d83aea4e2b..eb03a0602315 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -30,6 +30,7 @@ properties:
+       - items:
+           - enum:
+               - canaan,k210-clint       # Canaan Kendryte K210
++              - eswin,eic7700-clint     # ESWIN EIC7700
+               - sifive,fu540-c000-clint # SiFive FU540
+               - spacemit,k1-clint       # SpacemiT K1
+               - starfive,jh7100-clint   # StarFive JH7100
 -- 
 2.25.1
 
