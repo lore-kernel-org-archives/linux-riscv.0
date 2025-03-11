@@ -4,73 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AEFFC282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 13:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4514DC282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 13:32:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Nn/X6xl4PDxkzJ3YcMP7FUe+A/a9AqCqKOQfAgaQ5ac=; b=r7dGD9wB8UmWJ+
-	zTdl+d3BgvrtehtS0z+UBAloGdRkWOBbpSi5yl1CIuP8y0zsgM9gzZdzigmzYtUNn3Gkv4lFUEFD5
-	hTWeObWu1O5s/Gh7jzWxYTmgVBHfC5lHfZLzzRaUSs0nBgnvgGqbUqlqxT04awtHrjDnfPl46fY6s
-	sbkERePLLMDFvlyDMIzUxkWCGZUitUIbQZ+0rMQQZh6Nq6FJWX6yE+sIt7ELfjN3jYVBNCsGKRbW3
-	SAxP8b3SxA62gDuljR+JoeuYkU+9MYF0fOcz0hTsyO76S0aJw4KGOzmaJ3wMQgAh5vu5lzzLvuMWf
-	KZY6ajkZ1avbzjeJUsvg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ll2jlTxWhR203SbnUGUOjLTcgTcxsMz36oLAGo9GEfw=; b=SUZqojaGPl3Vwc
+	OhyhQyocMv88MvQGRwv49wmxVn5EcLhY7JBjZ6oM/AHeG7MRq/TRM6Y6GMOhLGRq5d9T4zlKP7fVi
+	uaOhU+k7NoGD6X3jzDEqCZobIcI5gQl9q6KNOfj4QFeqT2A7JBA59vcy0ZFv/nAQY5VNbKBZZ4wB7
+	BQneVaMq0xDagp7ExaKWRO/iMW7aaiwDXW2cb95TRAH/NweKIjbKeYwjdT6hqEf6X1kJZlHAekVjr
+	c9xO4ukP69JG3wme5SoUyeBdHRrc5yceLLdZHtg60pWrtqWSoW8QvVQfvP89xnC3Il62saTMMrpnO
+	FoMqmeKYXVrYOAjBQmIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzaM-00000005pOA-24So;
-	Tue, 11 Mar 2025 13:23:54 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1trziY-00000005qrO-2ORV;
+	Tue, 11 Mar 2025 13:32:22 +0000
+Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzXZ-00000005oVv-2JMS
-	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 13:21:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.216])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZBvWq71Rqz4f3m7Y
-	for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 21:20:23 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.112])
-	by mail.maildlp.com (Postfix) with ESMTP id C711A1A157F
-	for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 21:20:47 +0800 (CST)
-Received: from ultra.huawei.com (unknown [10.90.53.71])
-	by APP1 (Coremail) with SMTP id cCh0CgCHN3itONBncFhpGA--.35049S2;
-	Tue, 11 Mar 2025 21:20:46 +0800 (CST)
-From: Pu Lehui <pulehui@huaweicloud.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
-	"Steven Rostedt (Google)" <rostedt@goodmis.org>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Pu Lehui <pulehui@huawei.com>
-Subject: [PATCH] riscv: fgraph: Fix stack layout to match __arch_ftrace_regs argument of ftrace_return_to_handler
-Date: Tue, 11 Mar 2025 13:22:43 +0000
-Message-Id: <20250311132243.2178271-1-pulehui@huaweicloud.com>
-X-Mailer: git-send-email 2.34.1
+	id 1trzgu-00000005qbF-29yQ;
+	Tue, 11 Mar 2025 13:30:41 +0000
+Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-51eb1a6ca1bso2243375e0c.1;
+        Tue, 11 Mar 2025 06:30:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741699839; x=1742304639; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=OS+kx1EYJx8zGVZAVZxDQft66T1VTJ/fMWqkBxUi750=;
+        b=kEWuFiQ6cb1ZAxMnv1r6K5wOnRkjEq5fA4xlpPnI2JtrD1UoezGPezRp2kxL7T840D
+         zE5gLLE4U46FWTd2JZziFq0XIGeMtXcYReTMmnhEisiV69rnYhRREbHhohUFNIG9bVzw
+         v8T2o/m19piDFwKiiHNG+S+wXDPCdN2Oi++wPBNKjegeZXlST2OU9ASzOuJLNtKnhrrA
+         RExr7h0bZVh8MWFiL6U10GIb5RYTFV1Xvb1fMIfkCqbmX7jBuPpasc5M4UOVz8pwHCEi
+         NcB7gsc9E0L3qvKzah8HahGheqmtrK3anieqln1QgCK+v96/vx9Nx+kiWNewroSYgLIW
+         C4jQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741699839; x=1742304639;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=OS+kx1EYJx8zGVZAVZxDQft66T1VTJ/fMWqkBxUi750=;
+        b=C8Rm5DHYmyfyA6PYAQph14XUKCt7GsGEGMjgpJEI89Qh5sF09a1nIgNuvkUITXzomy
+         PqieLA5jpBgJIVa8zKAsPOT529I/KXa3S8+OnsCWVazZS52Z6K1RZhUDx8uy+S9bvsRx
+         bjgOn8X9ykR54400TxOvwpzyrF29G2DU4/lWykrG3LIXUvtF/BMJz/EY9yijfNwGQDu0
+         nQQX4gtFETG0C61+KVQUiGtz7C4luuXSkPLWkXGqXzNedPIw4CE0GYwH+NEyRXV3sHMo
+         SI6z4lDtKF9ogoS/+VM+BKPFXQx+5rrbTmPqT2CB9BN4g5VP/TROB0KgC4WLyL1rAdok
+         8TVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUwHryO1RqdxrrD0sc8YLr+kQVGO3jxph1RVjv3uBBTe9uEzdI+FLMmJwTZen2tfh0rUw7aGUGc4aCgaZhBlsFZ@lists.infradead.org, AJvYcCWzA8OxUdF2MxoOxC0epa2qn/BoynGzG1DOi9pEKQ0nXSDt2pxAH3zOUYuLENY8riV7S22ivXb0CqxiIUw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzsKLmtQaYUjVJUV7yoQN/2uoqhZd4cF+GUxhCL2NsozLBNxZLr
+	ZA3v+LenPEE5GVJFLjFsQEezYs+d12B8jvtcaKIL1m6rtRcw+SSnLAEPQLqR9qivjoaIo9t/0sS
+	a3XzyE03R++ub4j2h0b1I2PvEhVg=
+X-Gm-Gg: ASbGnctVfUUEjQ5iy/bPUWxRl2hPr+7kbHVozoP9bFBBgHBx07x6NOMrshCnqjv3NEV
+	965j9rrumAY1lL5ISogYvrbOUeaPgNlaFYQOFmJo0pL3ydxn6wyg2OA9ULRlRLIcJzV4DY9jP1a
+	/oMoxgVcwR+YODJmNwIBOH9c3ONA==
+X-Google-Smtp-Source: AGHT+IFy2Sl8rkBIl4+/ZfojG+Lp511BkNoNkiebfxbXz25a/xXmKtCtJuK/D9U65TOMGgOaav+c8ESCttCkqV6X1J8=
+X-Received: by 2002:a05:6122:2011:b0:520:42d3:91aa with SMTP id
+ 71dfb90a1353d-523e3ff118fmr11782712e0c.2.1741699839299; Tue, 11 Mar 2025
+ 06:30:39 -0700 (PDT)
 MIME-Version: 1.0
-X-CM-TRANSID: cCh0CgCHN3itONBncFhpGA--.35049S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCF4UJw45JFyxJrWrXr1xuFg_yoWrur47pr
-	WYqr17Cr4kGFnFva4ayr15Kr45Jr1UA3W3GF9rJr1rCF1q9w1DJ3ZrtryUJr9xt3yfGry7
-	urnYgr4jkr1UA3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUyKb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JMxkF7I0En4kS14v26r126r1DMxAIw28IcxkI
-	7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxV
-	Cjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY
-	6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6x
-	AIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY
-	1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUwxhLUUUUU
-X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
+References: <Z82tWYZulV12Pjir@shell.armlinux.org.uk> <E1trIAQ-005nto-3w@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1trIAQ-005nto-3w@rmk-PC.armlinux.org.uk>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 11 Mar 2025 13:30:13 +0000
+X-Gm-Features: AQ5f1Jp3UtuRRhR-96fKi5aM9eNN6ctPoGEYrjWhhbpHpPNGlFs33K9fIDMWwbw
+Message-ID: <CA+V-a8u34cKgccW=qEw=FC34HH+Q6pVmRqeMq7Q_btxqkqNtnQ@mail.gmail.com>
+Subject: Re: [PATCH net-next 6/7] dt-bindings: deprecate "snps,en-tx-lpi-clockgating"
+ property
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, 
+	Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Jose Abreu <joabreu@synopsys.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, 
+	netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rob Herring <robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_062101_916608_D98070A8 
-X-CRM114-Status: UNSURE (   9.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_063040_554834_C9147315 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,123 +101,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Pu Lehui <pulehui@huawei.com>
-
-Naresh Kamboju reported a "Bad frame pointer" kernel warning while
-running LTP trace ftrace_stress_test.sh in riscv. We can reproduce the
-same issue with the following command:
-
-```
-$ cd /sys/kernel/debug/tracing
-$ echo 'f:myprobe do_nanosleep%return args1=$retval' > dynamic_events
-$ echo 1 > events/fprobes/enable
-$ echo 1 > tracing_on
-$ sleep 1
-```
-
-And we can get the following kernel warning:
-
-[  127.692888] ------------[ cut here ]------------
-[  127.693755] Bad frame pointer: expected ff2000000065be50, received ba34c141e9594000
-[  127.693755]   from func do_nanosleep return to ffffffff800ccb16
-[  127.698699] WARNING: CPU: 1 PID: 129 at kernel/trace/fgraph.c:755 ftrace_return_to_handler+0x1b2/0x1be
-[  127.699894] Modules linked in:
-[  127.700908] CPU: 1 UID: 0 PID: 129 Comm: sleep Not tainted 6.14.0-rc3-g0ab191c74642 #32
-[  127.701453] Hardware name: riscv-virtio,qemu (DT)
-[  127.701859] epc : ftrace_return_to_handler+0x1b2/0x1be
-[  127.702032]  ra : ftrace_return_to_handler+0x1b2/0x1be
-[  127.702151] epc : ffffffff8013b5e0 ra : ffffffff8013b5e0 sp : ff2000000065bd10
-[  127.702221]  gp : ffffffff819c12f8 tp : ff60000080853100 t0 : 6e00000000000000
-[  127.702284]  t1 : 0000000000000020 t2 : 6e7566206d6f7266 s0 : ff2000000065bd80
-[  127.702346]  s1 : ff60000081262000 a0 : 000000000000007b a1 : ffffffff81894f20
-[  127.702408]  a2 : 0000000000000010 a3 : fffffffffffffffe a4 : 0000000000000000
-[  127.702470]  a5 : 0000000000000000 a6 : 0000000000000008 a7 : 0000000000000038
-[  127.702530]  s2 : ba34c141e9594000 s3 : 0000000000000000 s4 : ff2000000065bdd0
-[  127.702591]  s5 : 00007fff8adcf400 s6 : 000055556dc1d8c0 s7 : 0000000000000068
-[  127.702651]  s8 : 00007fff8adf5d10 s9 : 000000000000006d s10: 0000000000000001
-[  127.702710]  s11: 00005555737377c8 t3 : ffffffff819d899e t4 : ffffffff819d899e
-[  127.702769]  t5 : ffffffff819d89a0 t6 : ff2000000065bb18
-[  127.702826] status: 0000000200000120 badaddr: 0000000000000000 cause: 0000000000000003
-[  127.703292] [<ffffffff8013b5e0>] ftrace_return_to_handler+0x1b2/0x1be
-[  127.703760] [<ffffffff80017bce>] return_to_handler+0x16/0x26
-[  127.704009] [<ffffffff80017bb8>] return_to_handler+0x0/0x26
-[  127.704057] [<ffffffff800d3352>] common_nsleep+0x42/0x54
-[  127.704117] [<ffffffff800d44a2>] __riscv_sys_clock_nanosleep+0xba/0x10a
-[  127.704176] [<ffffffff80901c56>] do_trap_ecall_u+0x188/0x218
-[  127.704295] [<ffffffff8090cc3e>] handle_exception+0x14a/0x156
-[  127.705436] ---[ end trace 0000000000000000 ]---
-
-The reason is that the stack layout for constructing argument for the
-ftrace_return_to_handler in the return_to_handler does not match the
-__arch_ftrace_regs structure of riscv, leading to unexpected results.
-
-Fixes: a3ed4157b7d8 ("fgraph: Replace fgraph_ret_regs with ftrace_regs")
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Closes: https://lore.kernel.org/all/CA+G9fYvp_oAxeDFj88Tk2rfEZ7jtYKAKSwfYS66=57Db9TBdyA@mail.gmail.com
-Signed-off-by: Pu Lehui <pulehui@huawei.com>
----
- arch/riscv/kernel/mcount.S | 24 +++++++++++-------------
- 1 file changed, 11 insertions(+), 13 deletions(-)
-
-diff --git a/arch/riscv/kernel/mcount.S b/arch/riscv/kernel/mcount.S
-index 068168046e0e..da4a4000e57e 100644
---- a/arch/riscv/kernel/mcount.S
-+++ b/arch/riscv/kernel/mcount.S
-@@ -12,8 +12,6 @@
- #include <asm/asm-offsets.h>
- #include <asm/ftrace.h>
- 
--#define ABI_SIZE_ON_STACK	80
--
- 	.text
- 
- 	.macro SAVE_ABI_STATE
-@@ -28,12 +26,12 @@
- 	 * register if a0 was not saved.
- 	 */
- 	.macro SAVE_RET_ABI_STATE
--	addi	sp, sp, -ABI_SIZE_ON_STACK
--	REG_S	ra, 1*SZREG(sp)
--	REG_S	s0, 8*SZREG(sp)
--	REG_S	a0, 10*SZREG(sp)
--	REG_S	a1, 11*SZREG(sp)
--	addi	s0, sp, ABI_SIZE_ON_STACK
-+	addi	sp, sp, -FREGS_SIZE_ON_STACK
-+	REG_S	ra, FREGS_RA(sp)
-+	REG_S	s0, FREGS_S0(sp)
-+	REG_S	a0, FREGS_A0(sp)
-+	REG_S	a1, FREGS_A1(sp)
-+	addi	s0, sp, FREGS_SIZE_ON_STACK
- 	.endm
- 
- 	.macro RESTORE_ABI_STATE
-@@ -43,11 +41,11 @@
- 	.endm
- 
- 	.macro RESTORE_RET_ABI_STATE
--	REG_L	ra, 1*SZREG(sp)
--	REG_L	s0, 8*SZREG(sp)
--	REG_L	a0, 10*SZREG(sp)
--	REG_L	a1, 11*SZREG(sp)
--	addi	sp, sp, ABI_SIZE_ON_STACK
-+	REG_L	ra, FREGS_RA(sp)
-+	REG_L	s0, FREGS_S0(sp)
-+	REG_L	a0, FREGS_A0(sp)
-+	REG_L	a1, FREGS_A1(sp)
-+	addi	sp, sp, FREGS_SIZE_ON_STACK
- 	.endm
- 
- SYM_TYPED_FUNC_START(ftrace_stub)
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gU3VuLCBNYXIgOSwgMjAyNSBhdCAzOjEz4oCvUE0gUnVzc2VsbCBLaW5nIChPcmFjbGUpCjxy
+bWsra2VybmVsQGFybWxpbnV4Lm9yZy51az4gd3JvdGU6Cj4KPiBXaGV0aGVyIHRoZSBNSUkgdHJh
+bnNtaXQgY2xvY2sgY2FuIGJlIHN0b3BwZWQgaXMgcHJpbWFyaWx5IGEgcHJvcGVydHkKPiBvZiB0
+aGUgUEhZICh0aGVyZSBpcyBhIGNhcGFiaWxpdHkgYml0IHRoYXQgc2hvdWxkIGJlIGNoZWNrZWQg
+Zmlyc3QuKQo+IFdoZXRoZXIgdGhlIE1BQyBpcyBjYXBhYmxlIG9mIHN0b3BwaW5nIHRoZSB0cmFu
+c21pdCBjbG9jayBpcyBhIHNlcGFyYXRlCj4gaXNzdWUsIGJ1dCB0aGlzIGlzIGFscmVhZHkgaGFu
+ZGxlZCBieSB0aGUgY29yZSBEZXNpZ25XYXJlIE1BQyBjb2RlLgo+Cj4gVGhlcmVmb3JlLCBzbnBz
+LGVuLXR4LWxwaS1jbG9ja2dhdGluZyBpcyB0ZWNobmljYWxseSBpbmNvcnJlY3QsIHNvIHRoaXMK
+PiBjb21taXQgZGVwcmVjYXRlcyB0aGUgcHJvcGVydHkgaW4gdGhlIGJpbmRpbmcuCj4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBSdXNzZWxsIEtpbmcgKE9yYWNsZSkgPHJtaytrZXJuZWxAYXJtbGludXgub3Jn
+LnVrPgo+IC0tLQo+ICBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L3NucHMs
+ZHdtYWMueWFtbCB8IDEgKwo+ICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKykKPgoKUmV2
+aWV3ZWQtYnk6IExhZCBQcmFiaGFrYXIgPHByYWJoYWthci5tYWhhZGV2LWxhZC5yakBicC5yZW5l
+c2FzLmNvbT4KCkNoZWVycywKUHJhYmhha2FyCgo+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9u
+L2RldmljZXRyZWUvYmluZGluZ3MvbmV0L3NucHMsZHdtYWMueWFtbCBiL0RvY3VtZW50YXRpb24v
+ZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvc25wcyxkd21hYy55YW1sCj4gaW5kZXggM2YwYWE0NmQ3
+OThlLi43OGIzMDMwZGM1NmQgMTAwNjQ0Cj4gLS0tIGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVl
+L2JpbmRpbmdzL25ldC9zbnBzLGR3bWFjLnlhbWwKPiArKysgYi9Eb2N1bWVudGF0aW9uL2Rldmlj
+ZXRyZWUvYmluZGluZ3MvbmV0L3NucHMsZHdtYWMueWFtbAo+IEBAIC00OTQsNiArNDk0LDcgQEAg
+dGl0bGU6IFN5bm9wc3lzIERlc2lnbldhcmUgTUFDCj4KPiAgICBzbnBzLGVuLXR4LWxwaS1jbG9j
+a2dhdGluZzoKPiAgICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL2Zs
+YWcKPiArICAgIGRlcHJlY2F0ZWQ6IHRydWUKPiAgICAgIGRlc2NyaXB0aW9uOgo+ICAgICAgICBF
+bmFibGUgZ2F0aW5nIG9mIHRoZSBNQUMgVFggY2xvY2sgZHVyaW5nIFRYIGxvdy1wb3dlciBtb2Rl
+Cj4KPiAtLQo+IDIuMzAuMgo+Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
