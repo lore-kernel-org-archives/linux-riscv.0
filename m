@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 217D2C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 14:16:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB2CC282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 11 Mar 2025 14:52:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1D3Oaphk35Et9Cd9GMQR20D4A4r639SzzWEyzL0HOiI=; b=ZxSfEh+ddz66Wq
-	CFIqpcrwrhtmuy5HT0cW8UdFFzBsSHrP6ztRYMBKN6B4xxKCruIZA3ZCRf3s58v1EHQsOMd8XlFTU
-	SLxbRi5WkF967pMjPNPR+3NEHTf9HZYOo2Pgs0KETux7eRnyhHCjYDQktbrhrwi/ck6TeUHfF3vsu
-	Xfqoiak2A7Xegw1QlrCg1K3CyG+Ug1gmNJ1UAk3u7cNTJexCGNdDpdt9WT4VUtWzCr0jwBMrUqVYj
-	og6i4uVIbHtd4xM8oilgt9NREznaXwz2+v3rSc3A7lBOCPMhPwuptAQhD3yDYgK4gORBcETHxAaWH
-	KVaVTRwaaA/w6Y0f0VTw==;
+	List-Owner; bh=gUX5ltp4OoX3rJ6b+FnEajksFg2B3XifeJr3KKauiYQ=; b=sb+pIkXIfaPS6j
+	ma7Pec79vdL8b++PbGQbKU+j7IwHAejBdJJWrbpziKRTYL4DtygFNIPahaUJcwuL4UhDDA6R0t2V7
+	+Djz5iyjDJHcGv2EqYGD56/T8bf8L07e6+URBdW31qFrYbfGSyq5BtVZHjbF3FVTnXNuQQsGeTnLg
+	/0EbQvfBnPpVKgCUrjwBXNp9eaDSkwUxsbRMnsm6uEJL31nk/WXNv3jH4YjYzJjT9i6SB9Xv4lq7D
+	FbBzDNnueANl87t93b3CcRSTLa0QubZVhLOmu0ONBjnL5z6qcXcH35s6z5t0UwWXNXAYP3GaLxC0O
+	zgED5UP/1tsv5nT5dM5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0PI-00000005wvw-1Hfa;
-	Tue, 11 Mar 2025 14:16:32 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1ts0y9-000000062W2-09RJ;
+	Tue, 11 Mar 2025 14:52:33 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0NG-00000005wNz-0qCG
+	id 1ts0p3-000000061PF-3ZbM
 	for linux-riscv@lists.infradead.org;
-	Tue, 11 Mar 2025 14:14:27 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 91CB644257;
-	Tue, 11 Mar 2025 14:14:19 +0000 (UTC)
-Message-ID: <536b4feb-4631-4727-b918-c2e39e8217fb@ghiti.fr>
-Date: Tue, 11 Mar 2025 15:14:18 +0100
+	Tue, 11 Mar 2025 14:43:11 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6feb0742878so51970747b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 11 Mar 2025 07:43:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741704187; x=1742308987; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8eN7PsSljamLFmL3eAZGuj/XK8vFI8v0YSA3pxuzua8=;
+        b=vS8+3yA5Fu5PLfjbAuwbmRsPtteeTqJe06zuaHNuehtEYzFr+mU4SfnNzw9BIyyzVN
+         8TLlVqp+QLEqWboTxXzEh8KB80b/0aEQ0X/J1KUGbqA+jkUNndpqiIYd/OuYniW4uLS/
+         U0A7iYU+X8K7//FlyMY59zlADhdS7HN39kAlee1FdODBSw/ajinUkQbOIm35Dzlp8FT0
+         EEZOTxpu9m6YCXbIcN8zoxP8e7r28gyPKmaleShr7LHORWCBOORg15np1bTNgt2azYPF
+         Ps/lCLwzikEsQIx8MO8AArau1tg73m4W7iIUKUMaIfLKTQmm2uBQjJ+wiCO30RzhABt/
+         zcUg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741704187; x=1742308987;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8eN7PsSljamLFmL3eAZGuj/XK8vFI8v0YSA3pxuzua8=;
+        b=wIpb9S96iTmbt0s4p6PxOKD+cemRDEm3w4RVadGUCf4G/AdRznqXIfDaPqtG0U36Vx
+         f5Pb4UCegIRrIWT/MD1mcdVo3weJitelWSlEGFsDcd5qG0kz8CVYmolUkSmImwcBLm3v
+         B9zgmGPaANE+FbZ3XLljFgjMf4Dwm8KrDDpz/gz9R/y+msotEVrUixHWVXC5WqiWS939
+         3o0B2HHmDjN6ZI9hRJL0oEt+NIIYBQoNC9mUt7fXpCboGd9Gqul8XxFStY4gZNnOj480
+         bIO2SrJxneC7WzTxhlGj7nvuYA8VFvbaQmc047lZgXkQmOIDm0r9XVwrLkybEGE1YpJg
+         z9DA==
+X-Forwarded-Encrypted: i=1; AJvYcCWWOTdCfkKJRpqFrujotdUFeZLLOWeNbXOYO0M0qRMc/JxYG+sUZsoy0Ad0Z8ehCi2Z7nT6Gc8j1cBdbg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzb8z5P4395/0djkBGuEhUYAGHxpdgbvrZZhg9oYsPkYjMBZJsg
+	I3F43MZglUjfS92Blf2aNOY0HguRJBWGyy+0hU5N998MBiok5tQdQmGEtjAhBzUNiC2k2p8tOHm
+	JEzLsOUHdk2ivtTetkZVnMup0Tz3jFaflBInd/Q==
+X-Gm-Gg: ASbGnctDJB8DKRi/1sjAj4Pv2fK53a8TNakeGZvR9lEBOOGrNpEWFCq6ml3/+TRVYkA
+	DlEopwoyL2E3MTfK5FriL368YUhOnoKoeRu/BJMIZdlMff/l+FLBKD9giiLl8Nwjbs2SraqvbYB
+	qqoiy0AVKsh/Yieu91VrXw59aplLk=
+X-Google-Smtp-Source: AGHT+IG/Nkb2MMo911BY6LZyKSsboklHqls3Mfm0CSui2XrmwBdOBouV0yL+jXkPDlFtJivejjAsU40tXjhf+7Ul5/s=
+X-Received: by 2002:a05:690c:3706:b0:6fb:a696:b23b with SMTP id
+ 00721157ae682-6febf3c519dmr225655647b3.33.1741704187487; Tue, 11 Mar 2025
+ 07:43:07 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: fgraph: Fix stack layout to match
- __arch_ftrace_regs argument of ftrace_return_to_handler
-Content-Language: en-US
-To: Pu Lehui <pulehui@huaweicloud.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: Palmer Dabbelt <palmer@dabbelt.com>,
- "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
- "Steven Rostedt (Google)" <rostedt@goodmis.org>,
- Naresh Kamboju <naresh.kamboju@linaro.org>, Pu Lehui <pulehui@huawei.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
-References: <20250311132243.2178271-1-pulehui@huaweicloud.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250311132243.2178271-1-pulehui@huaweicloud.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvddvgeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeeuffegheeugfeugeegvdeigeegieegkeejhfeludejhfegvdehvefghfevkedtleenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhmtghouhhnthdrshgsnecukfhppeefuddrfedvrdekuddrudekjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeefuddrfedvrdekuddrudekjedphhgvlhhopegludelvddrudeikedrvddurddvhegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehpuhhlvghhuhhisehhuhgrfigvihgtlhhouhgurdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhop
- ehmhhhirhgrmhgrtheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopehnrghrvghshhdrkhgrmhgsohhjuheslhhinhgrrhhordhorhhgpdhrtghpthhtohepphhulhgvhhhuiheshhhurgifvghirdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+References: <20250307145547.2784821-1-ping.bai@nxp.com>
+In-Reply-To: <20250307145547.2784821-1-ping.bai@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 11 Mar 2025 15:42:31 +0100
+X-Gm-Features: AQ5f1JpuVnMxrQT-gRgqkxyP6H2nzFhKukp5aY_RBibf6JhIgaCor4IM8qvGE-0
+Message-ID: <CAPDyKFqsE4nArB+Qn5gH5P7vVePpZ6Z7ruas2-EGYsctGV-=4w@mail.gmail.com>
+Subject: Re: [PATCH v5] cpuidle: Init cpuidle only for present CPUs
+To: rafael@kernel.org, Jacky Bai <ping.bai@nxp.com>
+Cc: daniel.lezcano@linaro.org, lpieralisi@kernel.org, sudeep.holla@arm.com, 
+	james.morse@arm.com, d-gole@ti.com, anup@brainfault.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	imx@lists.linux.dev, khilman@baylibre.com, quic_tingweiz@quicinc.com, 
+	quic_yuanjiey@quicinc.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_071426_384130_95243B1F 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20250311_074309_888100_F9634F37 
+X-CRM114-Status: GOOD (  28.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,95 +93,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUHUsCgpUaGFua3MgZm9yIHdvcmtpbmcgb24gdGhpcywgd2Ugd2VyZSB0YWxraW5nIGFib3V0
-IHRoaXMgaXNzdWUgd2l0aCBCasO2cm4gCnRoaXMgbW9ybmluZyEKCk9uIDExLzAzLzIwMjUgMTQ6
-MjIsIFB1IExlaHVpIHdyb3RlOgo+IEZyb206IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+
-Cj4KPiBOYXJlc2ggS2FtYm9qdSByZXBvcnRlZCBhICJCYWQgZnJhbWUgcG9pbnRlciIga2VybmVs
-IHdhcm5pbmcgd2hpbGUKPiBydW5uaW5nIExUUCB0cmFjZSBmdHJhY2Vfc3RyZXNzX3Rlc3Quc2gg
-aW4gcmlzY3YuIFdlIGNhbiByZXByb2R1Y2UgdGhlCj4gc2FtZSBpc3N1ZSB3aXRoIHRoZSBmb2xs
-b3dpbmcgY29tbWFuZDoKPgo+IGBgYAo+ICQgY2QgL3N5cy9rZXJuZWwvZGVidWcvdHJhY2luZwo+
-ICQgZWNobyAnZjpteXByb2JlIGRvX25hbm9zbGVlcCVyZXR1cm4gYXJnczE9JHJldHZhbCcgPiBk
-eW5hbWljX2V2ZW50cwo+ICQgZWNobyAxID4gZXZlbnRzL2Zwcm9iZXMvZW5hYmxlCj4gJCBlY2hv
-IDEgPiB0cmFjaW5nX29uCj4gJCBzbGVlcCAxCj4gYGBgCj4KPiBBbmQgd2UgY2FuIGdldCB0aGUg
-Zm9sbG93aW5nIGtlcm5lbCB3YXJuaW5nOgo+Cj4gWyAgMTI3LjY5Mjg4OF0gLS0tLS0tLS0tLS0t
-WyBjdXQgaGVyZSBdLS0tLS0tLS0tLS0tCj4gWyAgMTI3LjY5Mzc1NV0gQmFkIGZyYW1lIHBvaW50
-ZXI6IGV4cGVjdGVkIGZmMjAwMDAwMDA2NWJlNTAsIHJlY2VpdmVkIGJhMzRjMTQxZTk1OTQwMDAK
-PiBbICAxMjcuNjkzNzU1XSAgIGZyb20gZnVuYyBkb19uYW5vc2xlZXAgcmV0dXJuIHRvIGZmZmZm
-ZmZmODAwY2NiMTYKPiBbICAxMjcuNjk4Njk5XSBXQVJOSU5HOiBDUFU6IDEgUElEOiAxMjkgYXQg
-a2VybmVsL3RyYWNlL2ZncmFwaC5jOjc1NSBmdHJhY2VfcmV0dXJuX3RvX2hhbmRsZXIrMHgxYjIv
-MHgxYmUKPiBbICAxMjcuNjk5ODk0XSBNb2R1bGVzIGxpbmtlZCBpbjoKPiBbICAxMjcuNzAwOTA4
-XSBDUFU6IDEgVUlEOiAwIFBJRDogMTI5IENvbW06IHNsZWVwIE5vdCB0YWludGVkIDYuMTQuMC1y
-YzMtZzBhYjE5MWM3NDY0MiAjMzIKPiBbICAxMjcuNzAxNDUzXSBIYXJkd2FyZSBuYW1lOiByaXNj
-di12aXJ0aW8scWVtdSAoRFQpCj4gWyAgMTI3LjcwMTg1OV0gZXBjIDogZnRyYWNlX3JldHVybl90
-b19oYW5kbGVyKzB4MWIyLzB4MWJlCj4gWyAgMTI3LjcwMjAzMl0gIHJhIDogZnRyYWNlX3JldHVy
-bl90b19oYW5kbGVyKzB4MWIyLzB4MWJlCj4gWyAgMTI3LjcwMjE1MV0gZXBjIDogZmZmZmZmZmY4
-MDEzYjVlMCByYSA6IGZmZmZmZmZmODAxM2I1ZTAgc3AgOiBmZjIwMDAwMDAwNjViZDEwCj4gWyAg
-MTI3LjcwMjIyMV0gIGdwIDogZmZmZmZmZmY4MTljMTJmOCB0cCA6IGZmNjAwMDAwODA4NTMxMDAg
-dDAgOiA2ZTAwMDAwMDAwMDAwMDAwCj4gWyAgMTI3LjcwMjI4NF0gIHQxIDogMDAwMDAwMDAwMDAw
-MDAyMCB0MiA6IDZlNzU2NjIwNmQ2ZjcyNjYgczAgOiBmZjIwMDAwMDAwNjViZDgwCj4gWyAgMTI3
-LjcwMjM0Nl0gIHMxIDogZmY2MDAwMDA4MTI2MjAwMCBhMCA6IDAwMDAwMDAwMDAwMDAwN2IgYTEg
-OiBmZmZmZmZmZjgxODk0ZjIwCj4gWyAgMTI3LjcwMjQwOF0gIGEyIDogMDAwMDAwMDAwMDAwMDAx
-MCBhMyA6IGZmZmZmZmZmZmZmZmZmZmUgYTQgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWyAgMTI3Ljcw
-MjQ3MF0gIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6IDAwMDAwMDAwMDAwMDAwMDggYTcgOiAw
-MDAwMDAwMDAwMDAwMDM4Cj4gWyAgMTI3LjcwMjUzMF0gIHMyIDogYmEzNGMxNDFlOTU5NDAwMCBz
-MyA6IDAwMDAwMDAwMDAwMDAwMDAgczQgOiBmZjIwMDAwMDAwNjViZGQwCj4gWyAgMTI3LjcwMjU5
-MV0gIHM1IDogMDAwMDdmZmY4YWRjZjQwMCBzNiA6IDAwMDA1NTU1NmRjMWQ4YzAgczcgOiAwMDAw
-MDAwMDAwMDAwMDY4Cj4gWyAgMTI3LjcwMjY1MV0gIHM4IDogMDAwMDdmZmY4YWRmNWQxMCBzOSA6
-IDAwMDAwMDAwMDAwMDAwNmQgczEwOiAwMDAwMDAwMDAwMDAwMDAxCj4gWyAgMTI3LjcwMjcxMF0g
-IHMxMTogMDAwMDU1NTU3MzczNzdjOCB0MyA6IGZmZmZmZmZmODE5ZDg5OWUgdDQgOiBmZmZmZmZm
-ZjgxOWQ4OTllCj4gWyAgMTI3LjcwMjc2OV0gIHQ1IDogZmZmZmZmZmY4MTlkODlhMCB0NiA6IGZm
-MjAwMDAwMDA2NWJiMTgKPiBbICAxMjcuNzAyODI2XSBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMjAg
-YmFkYWRkcjogMDAwMDAwMDAwMDAwMDAwMCBjYXVzZTogMDAwMDAwMDAwMDAwMDAwMwo+IFsgIDEy
-Ny43MDMyOTJdIFs8ZmZmZmZmZmY4MDEzYjVlMD5dIGZ0cmFjZV9yZXR1cm5fdG9faGFuZGxlcisw
-eDFiMi8weDFiZQo+IFsgIDEyNy43MDM3NjBdIFs8ZmZmZmZmZmY4MDAxN2JjZT5dIHJldHVybl90
-b19oYW5kbGVyKzB4MTYvMHgyNgo+IFsgIDEyNy43MDQwMDldIFs8ZmZmZmZmZmY4MDAxN2JiOD5d
-IHJldHVybl90b19oYW5kbGVyKzB4MC8weDI2Cj4gWyAgMTI3LjcwNDA1N10gWzxmZmZmZmZmZjgw
-MGQzMzUyPl0gY29tbW9uX25zbGVlcCsweDQyLzB4NTQKPiBbICAxMjcuNzA0MTE3XSBbPGZmZmZm
-ZmZmODAwZDQ0YTI+XSBfX3Jpc2N2X3N5c19jbG9ja19uYW5vc2xlZXArMHhiYS8weDEwYQo+IFsg
-IDEyNy43MDQxNzZdIFs8ZmZmZmZmZmY4MDkwMWM1Nj5dIGRvX3RyYXBfZWNhbGxfdSsweDE4OC8w
-eDIxOAo+IFsgIDEyNy43MDQyOTVdIFs8ZmZmZmZmZmY4MDkwY2MzZT5dIGhhbmRsZV9leGNlcHRp
-b24rMHgxNGEvMHgxNTYKPiBbICAxMjcuNzA1NDM2XSAtLS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAw
-MDAwMDAwIF0tLS0KPgo+IFRoZSByZWFzb24gaXMgdGhhdCB0aGUgc3RhY2sgbGF5b3V0IGZvciBj
-b25zdHJ1Y3RpbmcgYXJndW1lbnQgZm9yIHRoZQo+IGZ0cmFjZV9yZXR1cm5fdG9faGFuZGxlciBp
-biB0aGUgcmV0dXJuX3RvX2hhbmRsZXIgZG9lcyBub3QgbWF0Y2ggdGhlCj4gX19hcmNoX2Z0cmFj
-ZV9yZWdzIHN0cnVjdHVyZSBvZiByaXNjdiwgbGVhZGluZyB0byB1bmV4cGVjdGVkIHJlc3VsdHMu
-Cj4KPiBGaXhlczogYTNlZDQxNTdiN2Q4ICgiZmdyYXBoOiBSZXBsYWNlIGZncmFwaF9yZXRfcmVn
-cyB3aXRoIGZ0cmFjZV9yZWdzIikKPiBSZXBvcnRlZC1ieTogTGludXggS2VybmVsIEZ1bmN0aW9u
-YWwgVGVzdGluZyA8bGtmdEBsaW5hcm8ub3JnPgo+IENsb3NlczogaHR0cHM6Ly9sb3JlLmtlcm5l
-bC5vcmcvYWxsL0NBK0c5Zll2cF9vQXhlREZqODhUazJyZkVaN2p0WUtBS1N3ZllTNjY9NTdEYjlU
-QmR5QUBtYWlsLmdtYWlsLmNvbQo+IFNpZ25lZC1vZmYtYnk6IFB1IExlaHVpIDxwdWxlaHVpQGh1
-YXdlaS5jb20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQuUyB8IDI0ICsrKysr
-KysrKysrLS0tLS0tLS0tLS0tLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDExIGluc2VydGlvbnMoKyks
-IDEzIGRlbGV0aW9ucygtKQo+Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL21jb3Vu
-dC5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvbWNvdW50LlMKPiBpbmRleCAwNjgxNjgwNDZlMGUuLmRh
-NGE0MDAwZTU3ZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC9tY291bnQuUwo+ICsr
-KyBiL2FyY2gvcmlzY3Yva2VybmVsL21jb3VudC5TCj4gQEAgLTEyLDggKzEyLDYgQEAKPiAgICNp
-bmNsdWRlIDxhc20vYXNtLW9mZnNldHMuaD4KPiAgICNpbmNsdWRlIDxhc20vZnRyYWNlLmg+Cj4g
-ICAKPiAtI2RlZmluZSBBQklfU0laRV9PTl9TVEFDSwk4MAo+IC0KPiAgIAkudGV4dAo+ICAgCj4g
-ICAJLm1hY3JvIFNBVkVfQUJJX1NUQVRFCj4gQEAgLTI4LDEyICsyNiwxMiBAQAo+ICAgCSAqIHJl
-Z2lzdGVyIGlmIGEwIHdhcyBub3Qgc2F2ZWQuCj4gICAJICovCj4gICAJLm1hY3JvIFNBVkVfUkVU
-X0FCSV9TVEFURQo+IC0JYWRkaQlzcCwgc3AsIC1BQklfU0laRV9PTl9TVEFDSwo+IC0JUkVHX1MJ
-cmEsIDEqU1pSRUcoc3ApCj4gLQlSRUdfUwlzMCwgOCpTWlJFRyhzcCkKPiAtCVJFR19TCWEwLCAx
-MCpTWlJFRyhzcCkKPiAtCVJFR19TCWExLCAxMSpTWlJFRyhzcCkKPiAtCWFkZGkJczAsIHNwLCBB
-QklfU0laRV9PTl9TVEFDSwo+ICsJYWRkaQlzcCwgc3AsIC1GUkVHU19TSVpFX09OX1NUQUNLCj4g
-KwlSRUdfUwlyYSwgRlJFR1NfUkEoc3ApCj4gKwlSRUdfUwlzMCwgRlJFR1NfUzAoc3ApCj4gKwlS
-RUdfUwlhMCwgRlJFR1NfQTAoc3ApCj4gKwlSRUdfUwlhMSwgRlJFR1NfQTEoc3ApCj4gKwlhZGRp
-CXMwLCBzcCwgRlJFR1NfU0laRV9PTl9TVEFDSwo+ICAgCS5lbmRtCj4gICAKPiAgIAkubWFjcm8g
-UkVTVE9SRV9BQklfU1RBVEUKPiBAQCAtNDMsMTEgKzQxLDExIEBACj4gICAJLmVuZG0KPiAgIAo+
-ICAgCS5tYWNybyBSRVNUT1JFX1JFVF9BQklfU1RBVEUKPiAtCVJFR19MCXJhLCAxKlNaUkVHKHNw
-KQo+IC0JUkVHX0wJczAsIDgqU1pSRUcoc3ApCj4gLQlSRUdfTAlhMCwgMTAqU1pSRUcoc3ApCj4g
-LQlSRUdfTAlhMSwgMTEqU1pSRUcoc3ApCj4gLQlhZGRpCXNwLCBzcCwgQUJJX1NJWkVfT05fU1RB
-Q0sKPiArCVJFR19MCXJhLCBGUkVHU19SQShzcCkKPiArCVJFR19MCXMwLCBGUkVHU19TMChzcCkK
-PiArCVJFR19MCWEwLCBGUkVHU19BMChzcCkKPiArCVJFR19MCWExLCBGUkVHU19BMShzcCkKPiAr
-CWFkZGkJc3AsIHNwLCBGUkVHU19TSVpFX09OX1NUQUNLCj4gICAJLmVuZG0KPiAgIAo+ICAgU1lN
-X1RZUEVEX0ZVTkNfU1RBUlQoZnRyYWNlX3N0dWIpCgoKSXQgbG9va3MgZ29vZCB0byBtZSwgc286
-CgpSZXZpZXdlZC1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoK
-VGhhbmtzLAoKQWxleAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
-YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
-cmlzY3YK
+On Fri, 7 Mar 2025 at 15:54, Jacky Bai <ping.bai@nxp.com> wrote:
+>
+> for_each_possible_cpu() is currently used to initialize cpuidle
+> in below cpuidle drivers:
+>   drivers/cpuidle/cpuidle-arm.c
+>   drivers/cpuidle/cpuidle-big_little.c
+>   drivers/cpuidle/cpuidle-psci.c
+>   drivers/cpuidle/cpuidle-qcom-spm.c
+>   drivers/cpuidle/cpuidle-riscv-sbi.c
+>
+> However, in cpu_dev_register_generic(), for_each_present_cpu()
+> is used to register CPU devices which means the CPU devices are
+> only registered for present CPUs and not all possible CPUs.
+>
+> With nosmp or maxcpus=0, only the boot CPU is present, lead
+> to the failure:
+>
+>   |  Failed to register cpuidle device for cpu1
+>
+> Then rollback to cancel all CPUs' cpuidle registration.
+>
+> Change for_each_possible_cpu() to for_each_present_cpu() in the
+> above cpuidle drivers to ensure it only registers cpuidle devices
+> for CPUs that are actually present.
+>
+> Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
+> Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
+
+Rafael, I assume you will pick these up? Or let me know if you want me
+to take them via my pmdomain tree.
+
+Kind regards
+Uffe
+
+> ---
+>  - v5 changes:
+>    - add changes for cpuidle-qcom-spm
+>
+>  - v4 changes:
+>   - add changes for other cpuidle driver that has the similar issue
+>     as cpuidle-pcsi driver.
+>
+>  - v3 changes:
+>   - improve the changelog as suggested by Sudeep
+> ---
+>  drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
+>  drivers/cpuidle/cpuidle-big_little.c | 2 +-
+>  drivers/cpuidle/cpuidle-psci.c       | 4 ++--
+>  drivers/cpuidle/cpuidle-qcom-spm.c   | 2 +-
+>  drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
+>  5 files changed, 10 insertions(+), 10 deletions(-)
+>
+> diff --git a/drivers/cpuidle/cpuidle-arm.c b/drivers/cpuidle/cpuidle-arm.c
+> index caba6f4bb1b7..e044fefdb816 100644
+> --- a/drivers/cpuidle/cpuidle-arm.c
+> +++ b/drivers/cpuidle/cpuidle-arm.c
+> @@ -137,9 +137,9 @@ static int __init arm_idle_init_cpu(int cpu)
+>  /*
+>   * arm_idle_init - Initializes arm cpuidle driver
+>   *
+> - * Initializes arm cpuidle driver for all CPUs, if any CPU fails
+> - * to register cpuidle driver then rollback to cancel all CPUs
+> - * registration.
+> + * Initializes arm cpuidle driver for all present CPUs, if any
+> + * CPU fails to register cpuidle driver then rollback to cancel
+> + * all CPUs registration.
+>   */
+>  static int __init arm_idle_init(void)
+>  {
+> @@ -147,7 +147,7 @@ static int __init arm_idle_init(void)
+>         struct cpuidle_driver *drv;
+>         struct cpuidle_device *dev;
+>
+> -       for_each_possible_cpu(cpu) {
+> +       for_each_present_cpu(cpu) {
+>                 ret = arm_idle_init_cpu(cpu);
+>                 if (ret)
+>                         goto out_fail;
+> diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
+> index 74972deda0ea..4abba42fcc31 100644
+> --- a/drivers/cpuidle/cpuidle-big_little.c
+> +++ b/drivers/cpuidle/cpuidle-big_little.c
+> @@ -148,7 +148,7 @@ static int __init bl_idle_driver_init(struct cpuidle_driver *drv, int part_id)
+>         if (!cpumask)
+>                 return -ENOMEM;
+>
+> -       for_each_possible_cpu(cpu)
+> +       for_each_present_cpu(cpu)
+>                 if (smp_cpuid_part(cpu) == part_id)
+>                         cpumask_set_cpu(cpu, cpumask);
+>
+> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+> index dd8d776d6e39..b46a83f5ffe4 100644
+> --- a/drivers/cpuidle/cpuidle-psci.c
+> +++ b/drivers/cpuidle/cpuidle-psci.c
+> @@ -403,7 +403,7 @@ static int psci_idle_init_cpu(struct device *dev, int cpu)
+>  /*
+>   * psci_idle_probe - Initializes PSCI cpuidle driver
+>   *
+> - * Initializes PSCI cpuidle driver for all CPUs, if any CPU fails
+> + * Initializes PSCI cpuidle driver for all present CPUs, if any CPU fails
+>   * to register cpuidle driver then rollback to cancel all CPUs
+>   * registration.
+>   */
+> @@ -413,7 +413,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
+>         struct cpuidle_driver *drv;
+>         struct cpuidle_device *dev;
+>
+> -       for_each_possible_cpu(cpu) {
+> +       for_each_present_cpu(cpu) {
+>                 ret = psci_idle_init_cpu(&pdev->dev, cpu);
+>                 if (ret)
+>                         goto out_fail;
+> diff --git a/drivers/cpuidle/cpuidle-qcom-spm.c b/drivers/cpuidle/cpuidle-qcom-spm.c
+> index 3ab240e0e122..5f386761b156 100644
+> --- a/drivers/cpuidle/cpuidle-qcom-spm.c
+> +++ b/drivers/cpuidle/cpuidle-qcom-spm.c
+> @@ -135,7 +135,7 @@ static int spm_cpuidle_drv_probe(struct platform_device *pdev)
+>         if (ret)
+>                 return dev_err_probe(&pdev->dev, ret, "set warm boot addr failed");
+>
+> -       for_each_possible_cpu(cpu) {
+> +       for_each_present_cpu(cpu) {
+>                 ret = spm_cpuidle_register(&pdev->dev, cpu);
+>                 if (ret && ret != -ENODEV) {
+>                         dev_err(&pdev->dev,
+> diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> index 0c92a628bbd4..0fe1ece9fbdc 100644
+> --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
+> +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+> @@ -529,8 +529,8 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
+>                         return ret;
+>         }
+>
+> -       /* Initialize CPU idle driver for each CPU */
+> -       for_each_possible_cpu(cpu) {
+> +       /* Initialize CPU idle driver for each present CPU */
+> +       for_each_present_cpu(cpu) {
+>                 ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
+>                 if (ret) {
+>                         pr_debug("HART%ld: idle driver init failed\n",
+> --
+> 2.34.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
