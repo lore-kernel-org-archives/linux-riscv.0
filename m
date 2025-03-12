@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02643C28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 18:00:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6443C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 19:35:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=I7Hrc4efM4DnPx/u7ylF+X+TZ0KpyQeenhejDzfT9jQ=; b=Hs5EVXHV8Ky8g+
-	wuxTHMZG6AkEjc7zE2hr/E5I2MDps7iIUa7zB/n9Rf/7zX+jPXhyFRpn9QpHo8Sv9eGnk6/11XPA8
-	mtPQzp7NTzciglX8AVwt/ZY8RlVJeJLtfispxornux/FVuEnOw1gjrqXpHLuajfu5Plh5K2wMwDkl
-	RNVyd/guSTedUXE0dZSW5AAGxvlEMB+qczseVdcTxfgSDUhDjkgVVqya17QAVg+A+Wp1lnAlEZYc+
-	TCCNhwEcb/xTZypfq8le40MO6G3ItoveqKwtDKLyl1RxQpNDl0geb5KaJUY5Ze7tJ+mD8GJ9nk+mf
-	BLLGD25WAgv9VSyfUX2A==;
+	List-Owner; bh=VU1nnUkcbev/d5X7ds6kEqq+OZz8U2JX2+Pv6SHu5cc=; b=BLbFzpqHdsTGlS
+	pkKHdqsvIqzKLJ7tzlCEPjugZxM8XOtTtwl6hJ1sAzkbuHABGDDJ2L+pTnv4N3OwdsPRpxPx7MSQB
+	+y77QF7NSIt9evLcWw1VAxekdh/hTK5ZhFVz4XpHLSn5V+bqyPENjKafGvq5MNUcIndlsa8ysjcVU
+	0Jb0qKnJ1ndSaijclW/JpT2NcglcvY7GpSI/+mSZf5v+y+ZnqINGUgmW4irxBweaQma4iKyGCWgL7
+	sEdp9a+G6BLKuQ3enRmiWZ3ROR59TjqHS3nx7ZHOOfDp0n1ERNWtvKgsLIGN3s1q5W4DDhIHGiS33
+	qMAg3tC1dAT0k4NT0rMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQNa-00000009CZi-0deD;
-	Wed, 12 Mar 2025 18:00:30 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsRrQ-00000009LBO-1Ulx;
+	Wed, 12 Mar 2025 19:35:24 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQKc-00000009Blo-3Ph5;
-	Wed, 12 Mar 2025 17:57:28 +0000
+	id 1tsRrN-00000009LAr-2KL9
+	for linux-riscv@lists.infradead.org;
+	Wed, 12 Mar 2025 19:35:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7BCF0A47174;
-	Wed, 12 Mar 2025 17:51:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A790C4CEDD;
-	Wed, 12 Mar 2025 17:57:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 993CE5C3E80;
+	Wed, 12 Mar 2025 19:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB038C4CEDD;
+	Wed, 12 Mar 2025 19:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741802245;
-	bh=zljP+mDHAaQAZnFdNotLuiGw3OZI9tbEnF6C6rmzp7s=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nEIcU+Uz5BcICdmCXOe35LcQyckIKPgl3m2lHMHP2VQ1CnJY195bKoCiO9yxCVBkT
-	 pwER7G7WR4IGxk0JXC6fUwPRTzGaFSnKxRDkvCOTO2Gopg6Y/NA2GGzQ+kNIrBi8x9
-	 hqz/UvuRbAv/N7LHK9hjRpRfnvAnUq8mttoMckvGEgYyQsVrs8Omp6eAnG/k+TPV0W
-	 4DQBEXSc1qtteDUnxE+xgD/TrG9IUibQlaPyTdH8Nn1BfaOCuRPoEPtW/JNriM86R5
-	 IGRAdDG73EdBwnZ9DzAyypEOHpItoHvbWx7zsrPQUfu/Zi1qPAS/WtfJdmh9ooYCRv
-	 l4uH7vHeWlLgw==
-Date: Wed, 12 Mar 2025 14:57:22 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 06/11] perf dso: Add support for reading the e_machine
- type for a dso
-Message-ID: <Z9HLArg6uGiK8FzM@x1>
-References: <20250308003209.234114-1-irogers@google.com>
- <20250308003209.234114-7-irogers@google.com>
+	s=k20201202; t=1741808118;
+	bh=M7+fyGOccmn1F32HBUZ/rVE79bzT22RXFBotLnZ+pnE=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=aQJ3+8p6fBwpOXEoh6GvXpk0RJ1mLsxFNRyOfDYvPJVsJfMjjE1qgqFH6yYkH2g1W
+	 6HS/MW8DmQtGobiIy6Gn1FzYH4FnIe7XKHd7cTxg7+Ojs4F0tSxMuFP8chjQo3PsWR
+	 ah3G8UoaACRNCF3QFNGyxqaONyQXiSxLOyHwu6sj/ya2CIkGIwKSPaOTRqKaVdCksf
+	 hbvznQCMx2/39jeQ8sKkEcW0/uPudiwcF1Dd9/ekn6BPqBnn2qiVsQT4RcY4G4xAdR
+	 yq/gHuPvuQw0/cg11V55/52mhFcFUBrvQme/KdXF+uBe5zb8ezrX/TzxKaQJHkXKrY
+	 N8vUqpBOVkgoA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Pu Lehui <pulehui@huaweicloud.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ "Masami Hiramatsu (Google)" <mhiramat@kernel.org>, "Steven Rostedt
+ (Google)" <rostedt@goodmis.org>, Naresh Kamboju
+ <naresh.kamboju@linaro.org>, Pu Lehui <pulehui@huawei.com>
+Subject: Re: [PATCH] riscv: fgraph: Fix stack layout to match
+ __arch_ftrace_regs argument of ftrace_return_to_handler
+In-Reply-To: <20250311132243.2178271-1-pulehui@huaweicloud.com>
+References: <20250311132243.2178271-1-pulehui@huaweicloud.com>
+Date: Wed, 12 Mar 2025 20:35:14 +0100
+Message-ID: <87wmcucaa5.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250308003209.234114-7-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_105726_991723_BC809A57 
-X-CRM114-Status: GOOD (  24.69  )
+X-CRM114-CacheID: sfid-20250312_123521_678886_9B729B83 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,225 +70,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 04:32:04PM -0800, Ian Rogers wrote:
-> For ELF file dsos read the e_machine from the ELF header. For kernel
-> types assume the e_machine matches the perf tool. In other cases
-> return EM_NONE.
-> 
-> When reading from the ELF header use DSO__SWAP that may need
-> dso->needs_swap initializing. Factor out dso__swap_init to allow this.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/dso.c        | 88 ++++++++++++++++++++++++++++++++++++
->  tools/perf/util/dso.h        |  3 ++
->  tools/perf/util/symbol-elf.c | 27 -----------
->  3 files changed, 91 insertions(+), 27 deletions(-)
-
-This one, due to this having already been merged:
-
-commit b10f74308e1305275e69ddde711ec817cc69e306 (perf-tools-next/perf-tools-next)
-Author: Stephen Brennan <stephen.s.brennan@oracle.com>
-Date:   Fri Mar 7 15:22:03 2025 -0800
-
-    perf symbol: Support .gnu_debugdata for symbols
-
-Needs this so that we read the e_machine from the ELF file:
-
-diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-index 8188ba4d432cd5ac..8d2d8bb22e077bea 100644
---- a/tools/perf/util/dso.c
-+++ b/tools/perf/util/dso.c
-@@ -1203,6 +1203,7 @@ uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
- 	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
- 	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
- 	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
-+	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
- 		break;
- 	case DSO_BINARY_TYPE__NOT_FOUND:
- 	default:
- 
----
-
-Continuing the review and test.
-
-- Arnaldo
-
-> diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
-> index 5c6e85fdae0d..00fec1bc32bc 100644
-> --- a/tools/perf/util/dso.c
-> +++ b/tools/perf/util/dso.c
-> @@ -1170,6 +1170,67 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
->  	return data_read_write_offset(dso, machine, offset, data, size, true);
->  }
->  
-> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
-> +{
-> +	uint16_t e_machine = EM_NONE;
-> +	int fd;
-> +
-> +	switch (dso__binary_type(dso)) {
-> +	case DSO_BINARY_TYPE__KALLSYMS:
-> +	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
-> +	case DSO_BINARY_TYPE__VMLINUX:
-> +	case DSO_BINARY_TYPE__GUEST_VMLINUX:
-> +	case DSO_BINARY_TYPE__GUEST_KMODULE:
-> +	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
-> +	case DSO_BINARY_TYPE__KCORE:
-> +	case DSO_BINARY_TYPE__GUEST_KCORE:
-> +	case DSO_BINARY_TYPE__BPF_PROG_INFO:
-> +	case DSO_BINARY_TYPE__BPF_IMAGE:
-> +	case DSO_BINARY_TYPE__OOL:
-> +	case DSO_BINARY_TYPE__JAVA_JIT:
-> +		return EM_HOST;
-> +	case DSO_BINARY_TYPE__DEBUGLINK:
-> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
-> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
-> +	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
-> +	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
-> +		break;
-> +	case DSO_BINARY_TYPE__NOT_FOUND:
-> +	default:
-> +		return EM_NONE;
-> +	}
-> +
-> +	pthread_mutex_lock(&dso__data_open_lock);
-> +
-> +	/*
-> +	 * dso__data(dso)->fd might be closed if other thread opened another
-> +	 * file (dso) due to open file limit (RLIMIT_NOFILE).
-> +	 */
-> +	try_to_open_dso(dso, machine);
-> +	fd = dso__data(dso)->fd;
-> +	if (fd >= 0) {
-> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
-> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
-> +		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
-> +			unsigned char eidata;
-> +
-> +			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
-> +				dso__swap_init(dso, eidata);
-> +		}
-> +		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
-> +		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
-> +			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
-> +	}
-> +	pthread_mutex_unlock(&dso__data_open_lock);
-> +	return e_machine;
-> +}
-> +
->  /**
->   * dso__data_read_addr - Read data from dso address
->   * @dso: dso object
-> @@ -1525,6 +1586,33 @@ void dso__put(struct dso *dso)
->  		RC_CHK_PUT(dso);
->  }
->  
-> +int dso__swap_init(struct dso *dso, unsigned char eidata)
-> +{
-> +	static unsigned int const endian = 1;
-> +
-> +	dso__set_needs_swap(dso, DSO_SWAP__NO);
-> +
-> +	switch (eidata) {
-> +	case ELFDATA2LSB:
-> +		/* We are big endian, DSO is little endian. */
-> +		if (*(unsigned char const *)&endian != 1)
-> +			dso__set_needs_swap(dso, DSO_SWAP__YES);
-> +		break;
-> +
-> +	case ELFDATA2MSB:
-> +		/* We are little endian, DSO is big endian. */
-> +		if (*(unsigned char const *)&endian != 0)
-> +			dso__set_needs_swap(dso, DSO_SWAP__YES);
-> +		break;
-> +
-> +	default:
-> +		pr_err("unrecognized DSO data encoding %d\n", eidata);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
->  void dso__set_build_id(struct dso *dso, struct build_id *bid)
->  {
->  	RC_CHK_ACCESS(dso)->bid = *bid;
-> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-> index 4aa8c3d36566..38d9e3eac501 100644
-> --- a/tools/perf/util/dso.h
-> +++ b/tools/perf/util/dso.h
-> @@ -730,6 +730,8 @@ bool dso__sorted_by_name(const struct dso *dso);
->  void dso__set_sorted_by_name(struct dso *dso);
->  void dso__sort_by_name(struct dso *dso);
->  
-> +int dso__swap_init(struct dso *dso, unsigned char eidata);
-> +
->  void dso__set_build_id(struct dso *dso, struct build_id *bid);
->  bool dso__build_id_equal(const struct dso *dso, struct build_id *bid);
->  void dso__read_running_kernel_build_id(struct dso *dso,
-> @@ -818,6 +820,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
->  off_t dso__data_size(struct dso *dso, struct machine *machine);
->  ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
->  			      u64 offset, u8 *data, ssize_t size);
-> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
->  ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
->  			    struct machine *machine, u64 addr,
->  			    u8 *data, ssize_t size);
-> diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
-> index 66fd1249660a..71df13a5722a 100644
-> --- a/tools/perf/util/symbol-elf.c
-> +++ b/tools/perf/util/symbol-elf.c
-> @@ -1173,33 +1173,6 @@ int filename__read_debuglink(const char *filename, char *debuglink,
->  
->  #endif
->  
-> -static int dso__swap_init(struct dso *dso, unsigned char eidata)
-> -{
-> -	static unsigned int const endian = 1;
-> -
-> -	dso__set_needs_swap(dso, DSO_SWAP__NO);
-> -
-> -	switch (eidata) {
-> -	case ELFDATA2LSB:
-> -		/* We are big endian, DSO is little endian. */
-> -		if (*(unsigned char const *)&endian != 1)
-> -			dso__set_needs_swap(dso, DSO_SWAP__YES);
-> -		break;
-> -
-> -	case ELFDATA2MSB:
-> -		/* We are little endian, DSO is big endian. */
-> -		if (*(unsigned char const *)&endian != 0)
-> -			dso__set_needs_swap(dso, DSO_SWAP__YES);
-> -		break;
-> -
-> -	default:
-> -		pr_err("unrecognized DSO data encoding %d\n", eidata);
-> -		return -EINVAL;
-> -	}
-> -
-> -	return 0;
-> -}
-> -
->  bool symsrc__possibly_runtime(struct symsrc *ss)
->  {
->  	return ss->dynsym || ss->opdsec;
-> -- 
-> 2.49.0.rc0.332.g42c0ae87b1-goog
-> 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+UHUgTGVodWkgPHB1bGVodWlAaHVhd2VpY2xvdWQuY29tPiB3cml0ZXM6Cgo+IEZyb206IFB1IExl
+aHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+Cj4KPiBOYXJlc2ggS2FtYm9qdSByZXBvcnRlZCBhICJC
+YWQgZnJhbWUgcG9pbnRlciIga2VybmVsIHdhcm5pbmcgd2hpbGUKPiBydW5uaW5nIExUUCB0cmFj
+ZSBmdHJhY2Vfc3RyZXNzX3Rlc3Quc2ggaW4gcmlzY3YuIFdlIGNhbiByZXByb2R1Y2UgdGhlCj4g
+c2FtZSBpc3N1ZSB3aXRoIHRoZSBmb2xsb3dpbmcgY29tbWFuZDoKPgo+IGBgYAo+ICQgY2QgL3N5
+cy9rZXJuZWwvZGVidWcvdHJhY2luZwo+ICQgZWNobyAnZjpteXByb2JlIGRvX25hbm9zbGVlcCVy
+ZXR1cm4gYXJnczE9JHJldHZhbCcgPiBkeW5hbWljX2V2ZW50cwo+ICQgZWNobyAxID4gZXZlbnRz
+L2Zwcm9iZXMvZW5hYmxlCj4gJCBlY2hvIDEgPiB0cmFjaW5nX29uCj4gJCBzbGVlcCAxCj4gYGBg
+Cj4KPiBBbmQgd2UgY2FuIGdldCB0aGUgZm9sbG93aW5nIGtlcm5lbCB3YXJuaW5nOgo+Cj4gWyAg
+MTI3LjY5Mjg4OF0gLS0tLS0tLS0tLS0tWyBjdXQgaGVyZSBdLS0tLS0tLS0tLS0tCj4gWyAgMTI3
+LjY5Mzc1NV0gQmFkIGZyYW1lIHBvaW50ZXI6IGV4cGVjdGVkIGZmMjAwMDAwMDA2NWJlNTAsIHJl
+Y2VpdmVkIGJhMzRjMTQxZTk1OTQwMDAKPiBbICAxMjcuNjkzNzU1XSAgIGZyb20gZnVuYyBkb19u
+YW5vc2xlZXAgcmV0dXJuIHRvIGZmZmZmZmZmODAwY2NiMTYKPiBbICAxMjcuNjk4Njk5XSBXQVJO
+SU5HOiBDUFU6IDEgUElEOiAxMjkgYXQga2VybmVsL3RyYWNlL2ZncmFwaC5jOjc1NSBmdHJhY2Vf
+cmV0dXJuX3RvX2hhbmRsZXIrMHgxYjIvMHgxYmUKPiBbICAxMjcuNjk5ODk0XSBNb2R1bGVzIGxp
+bmtlZCBpbjoKPiBbICAxMjcuNzAwOTA4XSBDUFU6IDEgVUlEOiAwIFBJRDogMTI5IENvbW06IHNs
+ZWVwIE5vdCB0YWludGVkIDYuMTQuMC1yYzMtZzBhYjE5MWM3NDY0MiAjMzIKPiBbICAxMjcuNzAx
+NDUzXSBIYXJkd2FyZSBuYW1lOiByaXNjdi12aXJ0aW8scWVtdSAoRFQpCj4gWyAgMTI3LjcwMTg1
+OV0gZXBjIDogZnRyYWNlX3JldHVybl90b19oYW5kbGVyKzB4MWIyLzB4MWJlCj4gWyAgMTI3Ljcw
+MjAzMl0gIHJhIDogZnRyYWNlX3JldHVybl90b19oYW5kbGVyKzB4MWIyLzB4MWJlCj4gWyAgMTI3
+LjcwMjE1MV0gZXBjIDogZmZmZmZmZmY4MDEzYjVlMCByYSA6IGZmZmZmZmZmODAxM2I1ZTAgc3Ag
+OiBmZjIwMDAwMDAwNjViZDEwCj4gWyAgMTI3LjcwMjIyMV0gIGdwIDogZmZmZmZmZmY4MTljMTJm
+OCB0cCA6IGZmNjAwMDAwODA4NTMxMDAgdDAgOiA2ZTAwMDAwMDAwMDAwMDAwCj4gWyAgMTI3Ljcw
+MjI4NF0gIHQxIDogMDAwMDAwMDAwMDAwMDAyMCB0MiA6IDZlNzU2NjIwNmQ2ZjcyNjYgczAgOiBm
+ZjIwMDAwMDAwNjViZDgwCj4gWyAgMTI3LjcwMjM0Nl0gIHMxIDogZmY2MDAwMDA4MTI2MjAwMCBh
+MCA6IDAwMDAwMDAwMDAwMDAwN2IgYTEgOiBmZmZmZmZmZjgxODk0ZjIwCj4gWyAgMTI3LjcwMjQw
+OF0gIGEyIDogMDAwMDAwMDAwMDAwMDAxMCBhMyA6IGZmZmZmZmZmZmZmZmZmZmUgYTQgOiAwMDAw
+MDAwMDAwMDAwMDAwCj4gWyAgMTI3LjcwMjQ3MF0gIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6
+IDAwMDAwMDAwMDAwMDAwMDggYTcgOiAwMDAwMDAwMDAwMDAwMDM4Cj4gWyAgMTI3LjcwMjUzMF0g
+IHMyIDogYmEzNGMxNDFlOTU5NDAwMCBzMyA6IDAwMDAwMDAwMDAwMDAwMDAgczQgOiBmZjIwMDAw
+MDAwNjViZGQwCj4gWyAgMTI3LjcwMjU5MV0gIHM1IDogMDAwMDdmZmY4YWRjZjQwMCBzNiA6IDAw
+MDA1NTU1NmRjMWQ4YzAgczcgOiAwMDAwMDAwMDAwMDAwMDY4Cj4gWyAgMTI3LjcwMjY1MV0gIHM4
+IDogMDAwMDdmZmY4YWRmNWQxMCBzOSA6IDAwMDAwMDAwMDAwMDAwNmQgczEwOiAwMDAwMDAwMDAw
+MDAwMDAxCj4gWyAgMTI3LjcwMjcxMF0gIHMxMTogMDAwMDU1NTU3MzczNzdjOCB0MyA6IGZmZmZm
+ZmZmODE5ZDg5OWUgdDQgOiBmZmZmZmZmZjgxOWQ4OTllCj4gWyAgMTI3LjcwMjc2OV0gIHQ1IDog
+ZmZmZmZmZmY4MTlkODlhMCB0NiA6IGZmMjAwMDAwMDA2NWJiMTgKPiBbICAxMjcuNzAyODI2XSBz
+dGF0dXM6IDAwMDAwMDAyMDAwMDAxMjAgYmFkYWRkcjogMDAwMDAwMDAwMDAwMDAwMCBjYXVzZTog
+MDAwMDAwMDAwMDAwMDAwMwo+IFsgIDEyNy43MDMyOTJdIFs8ZmZmZmZmZmY4MDEzYjVlMD5dIGZ0
+cmFjZV9yZXR1cm5fdG9faGFuZGxlcisweDFiMi8weDFiZQo+IFsgIDEyNy43MDM3NjBdIFs8ZmZm
+ZmZmZmY4MDAxN2JjZT5dIHJldHVybl90b19oYW5kbGVyKzB4MTYvMHgyNgo+IFsgIDEyNy43MDQw
+MDldIFs8ZmZmZmZmZmY4MDAxN2JiOD5dIHJldHVybl90b19oYW5kbGVyKzB4MC8weDI2Cj4gWyAg
+MTI3LjcwNDA1N10gWzxmZmZmZmZmZjgwMGQzMzUyPl0gY29tbW9uX25zbGVlcCsweDQyLzB4NTQK
+PiBbICAxMjcuNzA0MTE3XSBbPGZmZmZmZmZmODAwZDQ0YTI+XSBfX3Jpc2N2X3N5c19jbG9ja19u
+YW5vc2xlZXArMHhiYS8weDEwYQo+IFsgIDEyNy43MDQxNzZdIFs8ZmZmZmZmZmY4MDkwMWM1Nj5d
+IGRvX3RyYXBfZWNhbGxfdSsweDE4OC8weDIxOAo+IFsgIDEyNy43MDQyOTVdIFs8ZmZmZmZmZmY4
+MDkwY2MzZT5dIGhhbmRsZV9leGNlcHRpb24rMHgxNGEvMHgxNTYKPiBbICAxMjcuNzA1NDM2XSAt
+LS1bIGVuZCB0cmFjZSAwMDAwMDAwMDAwMDAwMDAwIF0tLS0KPgo+IFRoZSByZWFzb24gaXMgdGhh
+dCB0aGUgc3RhY2sgbGF5b3V0IGZvciBjb25zdHJ1Y3RpbmcgYXJndW1lbnQgZm9yIHRoZQo+IGZ0
+cmFjZV9yZXR1cm5fdG9faGFuZGxlciBpbiB0aGUgcmV0dXJuX3RvX2hhbmRsZXIgZG9lcyBub3Qg
+bWF0Y2ggdGhlCj4gX19hcmNoX2Z0cmFjZV9yZWdzIHN0cnVjdHVyZSBvZiByaXNjdiwgbGVhZGlu
+ZyB0byB1bmV4cGVjdGVkIHJlc3VsdHMuCj4KPiBGaXhlczogYTNlZDQxNTdiN2Q4ICgiZmdyYXBo
+OiBSZXBsYWNlIGZncmFwaF9yZXRfcmVncyB3aXRoIGZ0cmFjZV9yZWdzIikKPiBSZXBvcnRlZC1i
+eTogTGludXggS2VybmVsIEZ1bmN0aW9uYWwgVGVzdGluZyA8bGtmdEBsaW5hcm8ub3JnPgo+IENs
+b3NlczogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL0NBK0c5Zll2cF9vQXhlREZqODhUazJy
+ZkVaN2p0WUtBS1N3ZllTNjY9NTdEYjlUQmR5QUBtYWlsLmdtYWlsLmNvbQo+IFNpZ25lZC1vZmYt
+Ynk6IFB1IExlaHVpIDxwdWxlaHVpQGh1YXdlaS5jb20+CgpXaXRoIHRoaXMgcGF0Y2gsIEkgZ2V0
+IChmcm9tIGZ0cmFjZSBzdGFydHVwIHRlc3RzKToKICBUZXN0aW5nIHRyYWNlciBmdW5jdGlvbl9n
+cmFwaDogUEFTU0VECmluc3RlYWQgb2YgdGhlIHNwbGF0IGFib3ZlISBUaGFua3MhCgpUZXN0ZWQt
+Ynk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
