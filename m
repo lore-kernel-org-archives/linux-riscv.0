@@ -4,79 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D0FCC28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:05:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9E1C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tIMfU98LJR+t1naNRyIVfdj3ViKTY4oFZFyDlEmcW4s=; b=B+GTFbVexfMEui
-	TYWjxLYcuUJ26qKFQacNfdiiF1UFqx8OsN4pWM9zPrM3FkxK6gQbLetweQUrMvYqmgyBjTN2IZ7gs
-	RxgF/L+DjSPaWEi68pXW/ge1/CMahKkQIoOFmA3Ce+S32xKS91DVHuu0qBIMOvNluEVVndb9oesIN
-	Nt5JlAxllYgSV65cac1UbG1dU9T+2Kf2V6MqyLGHrnfPTNtXAHslC94qiSqECOX9XGPGVolO/nwr+
-	DBu3MU2i6FlAaVjJegjdYFI6g+bKZc2Am7sGiFxxjfTfsZb7u7d1JOBkav+Zq9ZjOOYjflwe1Lj9T
-	K21egpbI8OFaMsbwIB4w==;
+	List-Owner; bh=7ufXXlJQ83m9AeGp11ozI/7Xq9H1CghoklOZWNYY6Mo=; b=JJDKLEC9c3eRwH
+	6I0uXmjm1nNWWIus3cSIrRPV2IdXjb34D7HXaVOHuSGEKGQ9oHoD4NNDfx/P1Orf36fnUwAPUgDR2
+	1YFrdxjWy6YeAnADJPcKnNXuBTUc2FqRVVuomjSi9/l/X4BSeBIpeOBaYZN71EcMkVxeEr/ziMIov
+	5WntCCse4mIVSYE+/zm1SAVrQplBoMupZh3OczjwE0rRytmBdAWTcgx+MuGX2hUm6e6xH+RX2j0qC
+	Bow7lSTlaF3HN1Dn0U0TtPStN809e/XazRGI2qmGI1w5kd9OBtxNY2nFuMX2ZDCKL0/2mQEG4+hia
+	eZkbrFodi++V7EGkqAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMiS-00000008eOn-1IEh;
-	Wed, 12 Mar 2025 14:05:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsMwx-00000008flR-2rvb;
+	Wed, 12 Mar 2025 14:20:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKnv-00000008LW6-1D5m
+	id 1tsLcz-00000008TXA-3jPg
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Mar 2025 12:03:20 +0000
+	Wed, 12 Mar 2025 12:56:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1513EA4710C;
-	Wed, 12 Mar 2025 11:57:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2C3EC4CEE3;
-	Wed, 12 Mar 2025 12:03:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 60DFB5C5668;
+	Wed, 12 Mar 2025 12:53:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA737C4CEE3;
+	Wed, 12 Mar 2025 12:55:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741780997;
-	bh=7fyVSWAB8Ertria+vE/ZF+M57y8nsHzIxjq/lWexlzY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WQHqGr280PrWdMuhLX6TgwQYWT1XEsPRZi/aGuLUufvkxrLutUR/PenBmMclmv9yd
-	 gPpbnjLWMBbRGBjASWhRVGQH7F6eUfw/sa8snCkEkLrCuHiuBS+ET6LBnpoK60rh2q
-	 q6rRvPH6m3lucVqdN8YvzSXgUhDFQG2Ut3Uxhl7GaLIoxBNyQo75Y/0dJXHoNxkKGO
-	 opGU+MVwm4b4QBfD0cYC8gsmJe/czNM1q31T7je8i9qqNpoWcMrhU2qFk78vXcD/XE
-	 +N2060+q9Jyqj65y/V6uvMiLr265IgXnbf49XCQgQXceZj27wQG9hI/6OGBS4mwaPv
-	 Di60w3Js6WqGA==
-Date: Wed, 12 Mar 2025 13:03:09 +0100
-From: Matthias Brugger <matthias.bgg@kernel.org>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
-	rafal@milecki.pl, Anup Patel <anup@brainfault.org>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
+	s=k20201202; t=1741784164;
+	bh=wJ7fHyUs8xs1euFzJj14ou3MrH+5y2ERndEvz+sPh7U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G1IdBPlkDRajdBwIuI3aZsfdey8qggTlHNF+X0+SRT4KB/PB98QAt9vEWKQw2x/IX
+	 WqAa/JUC1rmh62QvtbTvveZ7wOkczuIYHi6O3ZjiJbGJF1/5GgaIXuMPIQ2dn8oAh+
+	 WBOargLnCNHU9Dn/xy33mIN7dUP65UohvCX0iblZD67/tB8i+WX75Cv+jEPzuX38JM
+	 nosxefrX2QaLILViP58iUoQCrs5Qdaq4Qt7B6kUtigmUuN0cMJcD5qjePbMuBdKH47
+	 9EA+aXuW820w57MKoeUd0Sru3zrISJ6zZBhIaZ0qkLwGZgAGBxN9ytdKmIAP7Gswq2
+	 TTZF32fz/OfTg==
+Message-ID: <f6601929-3d1e-49ae-8120-c3005f99e57b@kernel.org>
+Date: Wed, 12 Mar 2025 13:55:52 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 04/10] dt-bindings: riscv: Add SiFive HiFive Premier P550
  board
-Message-ID: <Z9F3_Zb4RvHLvgSd@ziggy.stardust>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Min Lin <linmin@eswincomputing.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
+ <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Yu Chien Peter Lin <peterlin@andestech.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Kanak Shilledar <kanakshilledar@gmail.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>, rafal@milecki.pl,
+ Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
  <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
-MIME-Version: 1.0
-Content-Disposition: inline
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
 In-Reply-To: <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_050319_456190_DBD286F6 
-X-CRM114-Status: GOOD (  16.12  )
+X-CRM114-CacheID: sfid-20250312_055606_045212_8B79349C 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,7 +134,7 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 01:04:26PM +0530, Pinkesh Vaghela wrote:
+On 11/03/2025 08:34, Pinkesh Vaghela wrote:
 > From: Pritesh Patel <pritesh.patel@einfochips.com>
 > 
 > Add DT binding documentation for the ESWIN EIC7700 SoC and
@@ -101,54 +142,18 @@ On Tue, Mar 11, 2025 at 01:04:26PM +0530, Pinkesh Vaghela wrote:
 > 
 > Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
 > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+
+
+This Rb tag appears everywhere, while this is a v1 and it was not given
+on the lists, so I want to be sure this was not some blank tag added to
+series because someone said "yeah, lgtm". Was it really review as in
+*reviewers statement of oversight*?
+
 > Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 > ---
->  .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
->  MAINTAINERS                                   |  6 ++++
->  2 files changed, 35 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/eswin.yaml b/Documentation/devicetree/bindings/riscv/eswin.yaml
-> new file mode 100644
-> index 000000000000..c603c45eef22
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/eswin.yaml
-> @@ -0,0 +1,29 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/eswin.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ESWIN SoC-based boards
-> +
-> +maintainers:
-> +  - Min Lin <linmin@eswincomputing.com>
-> +  - Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> +  - Pritesh Patel <pritesh.patel@einfochips.com>
-> +
-> +description:
-> +  ESWIN SoC-based boards
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - sifive,hifive-premier-p550
-> +          - const: eswin,eic7700
+..
 
-That should be the other way around. You could have, let's say eic7701
-with different peripherals but smae p550 IP core. I don't expect a new
-eic7700 with a CPU IP other then p550.
 
-Regards,
-Matthias
-
-> +
-> +additionalProperties: true
 > +
 > +...
 > diff --git a/MAINTAINERS b/MAINTAINERS
@@ -164,18 +169,11 @@ Matthias
 > +M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 > +M:	Pritesh Patel <pritesh.patel@einfochips.com>
 > +S:	Maintained
-> +
->  ET131X NETWORK DRIVER
->  M:	Mark Einon <mark.einon@gmail.com>
->  S:	Odd Fixes
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+If you add this entry here, then add the path for the eswin binding.
+
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
