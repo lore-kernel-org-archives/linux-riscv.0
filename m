@@ -4,126 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CE8C28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5543C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 15:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1UpiUudbEvjmVhTaxSDyaEmm7iK+x0VPDyNICFSzFoA=; b=ih25QBoORvicYc
-	nU05LT7Og0U3rRuhu2o+yV0VtWAfqqysGkci1RdqizlQhakonNPjmB64YGv5dmMpWiqja2f3JHuxL
-	M8/0n5uZV0Hi7XtUbDd3ad1jUTDmXCPxxN5PBD0fK1LNpTtM4vcGCdDC+150BQiLTYNTAo3dS6GZO
-	mB0uvZ/EIEGX5rNdY82lvU/LubycEPNHT334VEMpJ241G2Jh3JKmL/36vVlHM94uGr+w0n8GTN7sZ
-	he68q1FEJLto4f8OgzMJWEgqpmiC5R6MkANALVrHb7cjSFjIz8Fxy89c2HMy7PUmNbQLEoiyvghBO
-	YbA1j4uclgcb3TLQyCZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RLjlnlhVVOqnYqxgpeDsHCMUADXAgGT3cAVzIZ3snHI=; b=TNrounTomjxKubkQOFQCk6lFmy
+	jZ/L1oXFV6tjfzxWZE606pMZZPs+EdhaByF4rVVd7dCMuHi2nGe4bOtb5ffrKJCQJ1HZXdbN/C2gM
+	Fzjk+xQdYjoiEkhOJznt5O9ApI4Vf1F5PnH0Xjmq5dmCwOx4zHB3sck90dWyIWLQe/dc5++RCbsCR
+	i7RisLzqTb7yH5IkedcTkQS9ryNTiS5lcobhL3MgkyFMyiNPju1SSkrtXU+BLS9KZnbI2CmVYqhmF
+	+0SpuWEhuLmU89YYC+hWEwuBboorp17avi6xxHRr+1owkWk3zB1zqvur0Q3RGBNYC4lxkRckPf2+l
+	rprBlE4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsN75-00000008hUH-2DQ4;
-	Wed, 12 Mar 2025 14:31:15 +0000
-Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
+	id 1tsNyQ-00000008rWU-3eri;
+	Wed, 12 Mar 2025 15:26:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsN70-00000008hTv-3HT7
-	for linux-riscv@lists.infradead.org;
-	Wed, 12 Mar 2025 14:31:13 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250312143106euoutp012cd95c258566f425688e945fa994d18a~sFKexEVPy1771417714euoutp01f
-	for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 14:31:06 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250312143106euoutp012cd95c258566f425688e945fa994d18a~sFKexEVPy1771417714euoutp01f
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741789866;
-	bh=HnNcfwuXLGzsfvb6BDDyoiMjkg8CaNMTx1t8raBxs8w=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=asrTPuojlI5fCuvw5P8zGLgaOyB9y8r+a0SHRhZ+kdHTcswwOVwR9XoqC8a4U6ja6
-	 JngZiqX/74HATy5urvzMhSUKgBmcZndewwGkrVyGTr0Na4aI/vm0/QYr0esK5tJ+jc
-	 CaXbPwLo04tObtNjo7jLKz4L95gW8dgUOzmAhK4U=
-Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250312143106eucas1p10573c9cfc8a335a17c7693e49baae594~sFKedJ3_F2225522255eucas1p1I;
-	Wed, 12 Mar 2025 14:31:06 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges2new.samsung.com (EUCPMTA) with SMTP id 36.05.20409.9AA91D76; Wed, 12
-	Mar 2025 14:31:05 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250312143105eucas1p28e084a13846ec3a228745ffea6f12dbf~sFKd5EkDa2675626756eucas1p2Z;
-	Wed, 12 Mar 2025 14:31:05 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250312143105eusmtrp1ca1951535f7ffd1b4ac1436b1cb77495~sFKd4UBcp2360523605eusmtrp1O;
-	Wed, 12 Mar 2025 14:31:05 +0000 (GMT)
-X-AuditID: cbfec7f4-c39fa70000004fb9-71-67d19aa9baec
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id C6.2F.19920.9AA91D76; Wed, 12
-	Mar 2025 14:31:05 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250312143104eusmtip2ee3c4f1dba47a901cfe23aae17ecfa4a~sFKdERw6m2544525445eusmtip2i;
-	Wed, 12 Mar 2025 14:31:04 +0000 (GMT)
-Message-ID: <4b45236e-8252-4dd5-b3f7-3595b0924182@samsung.com>
-Date: Wed, 12 Mar 2025 15:31:04 +0100
+	id 1tsNyO-00000008rVC-1FCu;
+	Wed, 12 Mar 2025 15:26:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D5E355C5AEC;
+	Wed, 12 Mar 2025 15:24:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E2A9C4CEDD;
+	Wed, 12 Mar 2025 15:26:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741793179;
+	bh=Q7awIL7HKUND4G5BgT8sxgfvPYxZ5dldw9MgDhs69ls=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ky/BCax3DFeowvZEZBaSvHz/FRjz1Ff2w3mZvorveefBQ9QItq7spH+9lPk04kMHc
+	 XFcWV+q8BLDxTsMg3kWEEMrJvLlM02Ov9qT4y5J6eushhPAVsWOV5ed7v5on6xpI5H
+	 t1Jida96hvmMXnQmaaYU62DS/XhHnkqgw1xy5aAbcXTY7h92ihBZ7RpuPzMnvvZIID
+	 4Llux6n6amMPvoDVic/J1BHmAr19Dq0COPgBWULz9Gberd6x0wlqoRfavURfSg5lJv
+	 0Xm3eB6wpryKJveHw8pu/I7JXnt8N5CGgjBp/ANgLyo/AFa/GXs+sbZv0RiHoWV9rf
+	 Q6NAbrOOruTNw==
+Date: Wed, 12 Mar 2025 15:26:05 +0000
+From: Mark Brown <broonie@kernel.org>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	Mike Rapoport <rppt@kernel.org>
+Subject: Re: [PATCH 10/13] arch, mm: set high_memory in free_area_init()
+Message-ID: <6d3be692-3dc3-400c-8eeb-3d378adc8dbe@sirena.org.uk>
+Mail-Followup-To: Geert Uytterhoeven <geert@linux-m68k.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org,
+	Mike Rapoport <rppt@kernel.org>
+References: <20250306185124.3147510-1-rppt@kernel.org>
+ <20250306185124.3147510-11-rppt@kernel.org>
+ <cee346ec-5fa5-4d0b-987b-413ee585dbaa@sirena.org.uk>
+ <Z9Cl8JKkRGhaRrgM@kernel.org>
+ <5e40219b-f149-4e0f-aa10-c09fa183945e@sirena.org.uk>
+ <CAMuHMdUGnBeo69NkYsv35YHp6H9GJSu-hoES2A8_0WhpX1zFhQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8 0/5] TH1520 SoC: Add AON firmware & power-domain
- support
-To: Ulf Hansson <ulf.hansson@linaro.org>, drew@pdp7.com, guoren@kernel.org,
-	wefu@redhat.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, jszhang@kernel.org, m.szyprowski@samsung.com,
-	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrFKsWRmVeSWpSXmKPExsWy7djP87orZ11MN7h00tTi2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
-	4uXlHmaLtln8Fv/37GC3OL423KJl/xQWB0GPNy9fsngc7vjC7nHvxDRWj02rOtk87lzbw+ax
-	eUm9R8vaY0we7/ddZfPo27KK0eNS83V2j8+b5AK4o7hsUlJzMstSi/TtErgyWiYcYC3YrlJx
-	sfMGawPjCZkuRk4OCQETibV9Cxi7GLk4hARWMEr8v/mbCcL5wijROnk7lPOZUeLh+l2MMC39
-	zf/YIRLLGSXO/r7NDOG8ZZSY8beDCaSKV8BOYsq3XawgNouAqsTr/U/ZIOKCEidnPmEBsUUF
-	5CXu35rBDmILCwRKbJ+5B2yDiECsxMwJs8FWMwvsZpJ42nUUrIhZQFzi1pP5YAvYBIwkHiyf
-	D7SAg4MTqPn0q2SIEnmJ7W/ngB0kIXCJU2JN02I2iLNdJLZee8kMYQtLvDq+hR3ClpE4PbmH
-	BcLOl3iw9RNUTY3Ezp7jULa1xJ1zv9hAdjELaEqs36UPEXaUeHi5gQkkLCHAJ3HjrSDECXwS
-	k7ZNZ4YI80p0tAlBVKtJTO3phVt6bsU2pgmMSrOQAmUWkh9nIXlmFsLeBYwsqxjFU0uLc9NT
-	i43yUsv1ihNzi0vz0vWS83M3MQKT4+l/x7/sYFz+6qPeIUYmDsZDjBIczEoivKttL6QL8aYk
-	VlalFuXHF5XmpBYfYpTmYFES5120vzVdSCA9sSQ1OzW1ILUIJsvEwSnVwDTN/Ui1Qazkh/MX
-	+r41T+J8eabff7uVSMGSrODeW3elg36wcp1RYtWNuOOiP1spu/VXwi0jp2Aj1btMck+zdlz+
-	lCQ3R6dgdoX+MY6pbLGbf0WLbPj/7uVFRvvbtS9+ft+zsOSEv8qSPyIf/MMuZIXt8b0n8CTF
-	nulg4bx9zvFnlv38d89aa/OKpHsOgWkl0f4TrKbpVG4K+D/LafmC/yFiF68wnrr3qVPzplJz
-	+UqxzuPVr999l+5Y0lxlyuL4Zd8qD84pf08m6yssex5lefurZeyZOw8fnY1jkOncpnO56fDT
-	N+GMK5a22jAvtnHsZT6cuEBx2Z0i94sblzxNlDum0dGT3ikxZWr48+2SJ7iUWIozEg21mIuK
-	EwGJLdmU/QMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrDIsWRmVeSWpSXmKPExsVy+t/xe7orZ11MN9jzUNji2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
-	4uXlHmaLtln8Fv/37GC3OL423KJl/xQWB0GPNy9fsngc7vjC7nHvxDRWj02rOtk87lzbw+ax
-	eUm9R8vaY0we7/ddZfPo27KK0eNS83V2j8+b5AK4o/RsivJLS1IVMvKLS2yVog0tjPQMLS30
-	jEws9QyNzWOtjEyV9O1sUlJzMstSi/TtEvQyWiYcYC3YrlJxsfMGawPjCZkuRk4OCQETif7m
-	f+xdjFwcQgJLGSVufD3CBJGQkbjW/ZIFwhaW+HOtiw2i6DWjxJ+G5YwgCV4BO4kp33axgtgs
-	AqoSr/c/ZYOIC0qcnPkErFlUQF7i/q0Z7CC2sECgxPaZe8B6RQRiJT50bmEEGcossJtJ4szm
-	P4wQG24xSpxc1AN2BrOAuMStJ/PBbDYBI4kHy+cDbePg4ASadPpVMojJLKAusX6eEES1vMT2
-	t3OYJzAKzUJyxiwkg2YhdMxC0rGAkWUVo0hqaXFuem6xoV5xYm5xaV66XnJ+7iZGYDLYduzn
-	5h2M81591DvEyMTBeIhRgoNZSYR3te2FdCHelMTKqtSi/Pii0pzU4kOMpsCgmMgsJZqcD0xH
-	eSXxhmYGpoYmZpYGppZmxkrivG6Xz6cJCaQnlqRmp6YWpBbB9DFxcEo1MDleYitUrsh0m9qZ
-	3PY7wcfUJ8Ht97Yjuk7HJqRuuGWqtX3qptN/2J64RGsFyE747fRS77ZyrbXruYk1tQy5X28G
-	HJBWOment055o0O8/Rmxtxs3Vh2fKCBR2ZV1wLvH/Nb1gFe5/a4prRer1l/eHTBh97kC1p5N
-	rfMac7X9121ffTm94Ls139GjlcscLHfL3dnG8PrT1SmfxbbV+p/kWf5o80PeST53w643712j
-	tP3AxYfbuX7WmantcHTbr1Y3OaT78cGteYm9Oj4/tT294pO1RN65nz2qtVlm+97cfqZXxv67
-	+zPbEnT2Ln+34VbAHdHyZSHqG7a8NGHOTq9xytI9fYLbIbX/9fSTdqz3NJRYijMSDbWYi4oT
-	AW71z36PAwAA
-X-CMS-MailID: 20250312143105eucas1p28e084a13846ec3a228745ffea6f12dbf
-X-Msg-Generator: CA
-X-RootMTR: 20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd
-References: <CGME20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd@eucas1p1.samsung.com>
-	<20250311171900.1549916-1-m.wilczynski@samsung.com>
-	<CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
+In-Reply-To: <CAMuHMdUGnBeo69NkYsv35YHp6H9GJSu-hoES2A8_0WhpX1zFhQ@mail.gmail.com>
+X-Cookie: You will outgrow your usefulness.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_073111_461256_DCF56594 
-X-CRM114-Status: GOOD (  24.48  )
+X-CRM114-CacheID: sfid-20250312_082620_416411_5C7E9B90 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,119 +148,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1035741986068886470=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
+--===============1035741986068886470==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="auPMsTU3HApbt9PI"
+Content-Disposition: inline
 
-On 3/12/25 14:40, Ulf Hansson wrote:
-> On Tue, 11 Mar 2025 at 18:20, Michal Wilczynski
-> <m.wilczynski@samsung.com> wrote:
->>
->> This patch series introduces and documents power management (PM) support and
->> the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
->> board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
->> upstream, these patches can merge independently.
->>
->> Bigger series cover letter:
->> https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
->>
->> This series is versioned to maintain continuity with the bigger patchset it is
->> a subseries of. Please find below a changelog for the AON & power-domain:
-> 
-> I can pick up patch1 -> patch4 via my pmdomain tree, assuming I can
-> get an ack from some of the thead-SoC maintainers.
-> 
-> Patch5 is probably better to be routed through the SoC maintainers
-> tree, but let me know if you prefer me to take this one too.
 
-Thanks, I don't have a preference, I'll leave it up to SoC maintainers.
-I haven't included the device tree changes in this mini-series, as then
-the PM & firmware, clock, and reset mini-series might conflict with each
-other in th1520.dtsi file, but SoC maintainers might also find it useful
-to pick this commit [1], along with the patch5.
+--auPMsTU3HApbt9PI
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-[1] - https://lore.kernel.org/all/20250219140239.1378758-20-m.wilczynski@samsung.com/
+On Tue, Mar 11, 2025 at 10:41:28PM +0100, Geert Uytterhoeven wrote:
+> On Tue, 11 Mar 2025 at 22:33, Mark Brown <broonie@kernel.org> wrote:
 
-> 
-> Kind regards
-> Uffe
-> 
-> 
->>
->> v8:
->> - add proper cleanup in the th1520_pd_probe()
->> - add "suppress_bind_attrs = true", since there is no need to unbound the driver
->>   during runtime. This simplifies the code by eliminating the remove function
->>
->> v7:
->> - add '#include <linux/slab.h", due to kernel robot issue
->>
->> v6:
->> - split the firmware & power-domain patches into a separate series
->>
->> v5:
->> - changed the AON driver to be a set of library functions rather than a
->>   standalone driver
->>
->> v4:
->> - added workaround to disable AUDIO power domain to prevent firmware crashes
->>
->> v3:
->>  - consolidated device tree representation by merging aon and power-domain nodes
->>    while maintaining separate drivers internally
->>  - power-domain driver is now instantiated from within the aon driver
->>  - fixed optional module dependencies in Kconfig
->>  - added kernel-doc comments for all exported functions
->>  - implemented th1520_aon_remove() to properly clean up mailbox channel
->>    resources
->>
->> v2:
->>  - introduced a new firmware driver to manage power-related operations.
->>  - rewrote the power-domain driver to function alongside the firmware driver.
->>    These nodes in the device tree lack direct address spaces, despite
->>    representing HW blocks. Control is achieved via firmware protocol messages
->>    transmitted through a mailbox to the E902 core.
->>  - added new dt-bindings for power and firmware nodes.
->>  - ran dtbs_check and dt_binding_check to ensure compliance.
->>
->> Michal Wilczynski (5):
->>   dt-bindings: firmware: thead,th1520: Add support for firmware node
->>   firmware: thead: Add AON firmware protocol driver
->>   dt-bindings: power: Add TH1520 SoC power domains
->>   pmdomain: thead: Add power-domain driver for TH1520
->>   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
->>
->>  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
->>  MAINTAINERS                                   |   5 +
->>  arch/riscv/Kconfig.socs                       |   1 +
->>  drivers/firmware/Kconfig                      |   9 +
->>  drivers/firmware/Makefile                     |   1 +
->>  drivers/firmware/thead,th1520-aon.c           | 248 ++++++++++++++++++
->>  drivers/pmdomain/Kconfig                      |   1 +
->>  drivers/pmdomain/Makefile                     |   1 +
->>  drivers/pmdomain/thead/Kconfig                |  12 +
->>  drivers/pmdomain/thead/Makefile               |   2 +
->>  drivers/pmdomain/thead/th1520-pm-domains.c    | 218 +++++++++++++++
->>  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
->>  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
->>  13 files changed, 770 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
->>  create mode 100644 drivers/firmware/thead,th1520-aon.c
->>  create mode 100644 drivers/pmdomain/thead/Kconfig
->>  create mode 100644 drivers/pmdomain/thead/Makefile
->>  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
->>  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
->>  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
->>
->> --
->> 2.34.1
->>
-> 
+> > [    0.000000] efi: UEFI not found.
+> > [    0.000000] cma: Reserved 64 MiB at 0x00000000
+
+> > - I'd only been sampling the logs for the physical platforms, none of
+> > which had shown anything.
+
+> Hangs that early need "earlycon", which the qemu boot above does have.
+
+Indeed, the physical platforms either don't support earlycon or I just
+don't wire it up as standard in my CI.  I see a fix should already be on
+the way, but FWIW the physical platforms do seem to have bisected to the
+same commit.
+
+--auPMsTU3HApbt9PI
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfRp40ACgkQJNaLcl1U
+h9ClrAf9FHrCQNmJXN4iyTK9lTj/btaMWsS34HTwQo5atjLix3MlaM4Oe1X8wWdQ
+rSJgppPAE2cv7YjUDvJGyXeNJEiBsMtnourIYIcXwHIlSknwUTW93aLuOShlc+KF
+iC2gJoynMVm1M0mcCvUSxVXjQXN1rxY3pcXLx99UJqFnR+uWkHqfKq18AdWJzzrD
+MwKz6EmBguL6eE0EstxjYPLlpJ3iYWORVdj2/2h3DYrRMLDlV+dm/xW9xGlq5sxJ
+c/3bxdgHyKWQqTxjQsPQKSz99U2Amjx1VloV+6yG9htGbdo+yNQv+tUP20dHw9c8
+ECZ91Jtf4LTcMPjk/IfIVIr0Hu3V3w==
+=0Ulf
+-----END PGP SIGNATURE-----
+
+--auPMsTU3HApbt9PI--
+
+
+--===============1035741986068886470==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1035741986068886470==--
+
