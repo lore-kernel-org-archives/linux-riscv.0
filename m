@@ -4,89 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC2CC28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 11:05:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DECF8C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 12:45:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:MIME-Version:Subject:Cc
-	:To:From:References:In-Reply-To:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekxZrpCmxPXszEBUbO+6RufBOkSlodbblR971LPybNQ=; b=qofJv91f+eURoF
-	JNSKdGAHif1KLJNtMQq5QBMJihjBl6QIpxOyOuOnzb4UACqKDuI60G58FVc7OCGDUohcQFc0/lrQV
-	uSFc+Nfj6JfkmDCAQPNb3L0H+MzWooUvREUy6edrY0naub6EePHXt6kVSYjXeClZT65mNjPdj2T9c
-	cCH69YnzK52FXjd068XO+Jop9XHOGTob2i6K9DAEJ3zfjq6d3XOkFajTseMcpDrxLqIZU8/kbjeGk
-	Qii+3oweccDMtI3mzWppcEFhoQ850HIV8PPiqoQjWjCol1P1K/j84qO3XY7qmXxhqaYv/711c5Ifv
-	N6tl8aiiRiglq3CxiGGg==;
+	List-Owner; bh=oYfXNr7EmzHuja6YN6lT/ajJUd0SJtN00Pwcq7YKy1Y=; b=29f6Fok+rrpRm6
+	Mi9qbpBGZEQTIqQjrrcTthDptkgNmyY0tIf/7zQupMOSAax2ss1cDlj4omOodtoR2m0vgCs7x4dWI
+	940pen32QhYB+VigYsKHYRzhHXjlki++bkgRx9Y1eb/wXIJez2x24kS+dE9GY4a7Sak4/M0OXgIym
+	VFIcdqzxvj9kpDblDkGaaShrGqj2gI1zsp81GpaI/BqGZWDDQAMRgJUPkkzw+JaxwE4GVw8qU1xHK
+	cHvvBrny3saIA5is32W1v17eKwI+fkWDKiIKjMB10etF+3J5raDOuLSkyAK7DkaWkFG4aXIJhOQK7
+	Miz/vjZeDvrZzgNoRD0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJuE-00000008Crg-0BzH;
-	Wed, 12 Mar 2025 11:05:46 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tsLSP-00000008RZD-2VXX;
+	Wed, 12 Mar 2025 12:45:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIUy-00000007zbZ-0ZDD;
-	Wed, 12 Mar 2025 09:35:37 +0000
+	id 1tsKUY-00000008Ijg-2UNA
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 12 Mar 2025 11:43:18 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=66r/Df/WRe1wVFnyIOw0GOt/Z4fFGvLuV3Qb0yAd/5Y=; b=tG6i5Av6LflwHt6a2VdGms32kA
-	Tq7GZ5d//QSr++0OPfvaJS5d14Y9OmDTYUUoluxyruiNXCudNteoiJ57l/BdT71/uufNJrzZREk1T
-	ISrh1iSSfukOCYhBmA1EnAAcrtobqpYApUEDEGRptmLvtmeCoWKfn5NHa9XSdInSM6z6f/o7dJVvA
-	GXT2TgOPhEduvQaqyXUl4mU3gykx7v2cYcGbKBhoYBzcUegwaqfTmOuys2sZ+Vmfft5Hado7ic9Jk
-	z9sivj9nhlis33jmHlZK+18xqriYfm+De+m5fjnGv1/ux6pdhPt7tlXGnT1d9xWWXOX35au87pAjW
-	EIHpU59A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42840 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIUb-0005IH-02;
-	Wed, 12 Mar 2025 09:35:13 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIUF-005vGd-C5; Wed, 12 Mar 2025 09:34:51 +0000
-In-Reply-To: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	devicetree@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=; b=oGhoweT0F60ChhiXzCE2sHn237
+	ISmbDJLimVlBjbU0bMitIIlteEA4YBR3nwsok5ENAY00zuKB3mH5SmWSC2s3d8n+QWSljONXu7cOm
+	wakBxInxQuactUvAv8p8i60w1/mtejS+MtmtSL9oBJ9k/KuOfWb+DzJGG65JHvHY8ACBY7BRVJU6Z
+	RSqgQd5fs8NXglLL4eWwKRVYH2ggOqLWRGfqItCbath+y9vzWCo76RIzs7wwJF6sRAtlhiSYstSxO
+	lJL7LSZjmH6PB+kANWMA3TZDB79Dly/rXJpNaeAQEojUx0m80ebblzZW1+Su8jfrCN+kY3l+xBD10
+	henJz9wA==;
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsKUV-00000002Mav-1ks8
+	for linux-riscv@lists.infradead.org;
+	Wed, 12 Mar 2025 11:43:17 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso40715e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 04:43:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741779792; x=1742384592; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=;
+        b=PgBZ5seaugSIcUEK1q/Ie4Fx5PDrP9IW/4dzxSnOTcs6nmlvXaXVPG605DjeXW2Sff
+         8+LlMwj2DU2+oYdlFltwy3mAmRtw1x05belBl6RRahVB6jSCzgNwdHI9WBIEEEZD0LAz
+         GrHEeoExMuT6hu8wpeOMb7D2+/kukGqATtWsFWTWYRgonMtIDBYBbGoSJo8x45Fy/pd6
+         W7ZTKGYRy2hltkhiYeTNs1IGOvNPz3dEEGcVUdAdAGHSr3KkKGX6ScADWXv8aY8uO2e3
+         jFNgszgLnz2OYEetmS9uWZl7Kw5FXV5YevQdQEH5E4bSHvTKvWTTjCDD0bDlmrKhiZKR
+         B59w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741779792; x=1742384592;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=;
+        b=sFQXr3Afc+R6owcjedR//4yybuR/PQ1bQP6qVTmDSylD4ukxtfaGq1Cxx9OKTHJJOq
+         1Za8wTRB2PCVKWHWMUDE9d05zK1VPkeY1phOzjU/ybUXXPXkRq2XMrLCv/sec4CQvalo
+         DO4deidGQhAYXMgsOMCzMw2J0uTXi42sUccMC4YaRdiHC9CNcpTFFVvxbICvhnSeSspD
+         jOSHFBniJg73G6Q3C4EXYdN2HYtbncSI6BYWQrTZzHvjiyE1WHo0fkMk3mLLxrddZvdJ
+         kRwJDNs6JBMP1KV/BwVk54wNjsSxgmTqfwd+owAD17yuEvqRDpdI2N/cSHz+vC7TPdFC
+         c27Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVrfGHyj7rVfqi8W3mf+qAJmswBww18WsTAk6iwKbgc1/df5+MePrveqPGBpc8JqAX2cBb58oBwu7cjgQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAxJi8aLPPBW7wyKgHmx/Pw8LfVytXykW9lw419ZhG5eMqLp99
+	8Yc17bvU7apSOERWqLG9ZYfSNUUAElT3ViNLGNR/bEMof46C6xxTUbuHzZ8kRw==
+X-Gm-Gg: ASbGncsNQO2SGnt+OPZEQKQ2wMn9hhO7etn2Z0n9cLEgYbWz6bwX/UjfFw+gS5C4EAE
+	eFXgs01htUCYQOz8WPBCzaS8+ptXdGBYfcyCjRSv23BF/uAy0nC45/vTRkheBPaJM347M1/hJ1N
+	cJLk7/BGcgf/rz0ayU7cAWiPf/39KE72Bv1BJeWrQeeU+9Te4nWXLxvxStYq8acPYopiDR3Nuox
+	WgBU+OEjVMI0qg3as9pS0pk+2A7fhritCWHI3/RGbogLxZlIkQdNZfk0RXnSIIul5eNLww6ExM9
+	UaAPRYRTxbLW5CEyYh3jEY+mSoxITnQ46ukSEwYfvG4+RXd35TdvwPoNxm+dLTJURrsdlg8hoxO
+	wgIXc
+X-Google-Smtp-Source: AGHT+IGAlRZ9FGEpVbzn9/E/l/2Ksb4Pgfv6rI6D7I3wU6Ogl1uoOZwLKHkEYMZpOjmtLPXmOnf3OA==
+X-Received: by 2002:a7b:c8d1:0:b0:439:8d84:32ff with SMTP id 5b1f17b1804b1-43d0a5e40ccmr994365e9.3.1741779792013;
+        Wed, 12 Mar 2025 04:43:12 -0700 (PDT)
+Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d0a72ea88sm18970735e9.7.2025.03.12.04.43.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 04:43:11 -0700 (PDT)
+Date: Wed, 12 Mar 2025 11:43:07 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	netdev@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paolo Abeni <pabeni@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH net-next v2 6/7] dt-bindings: deprecate
- "snps,en-tx-lpi-clockgating" property
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v3 03/23] iommu/pages: Remove
+ __iommu_alloc_pages()/__iommu_free_pages()
+Message-ID: <Z9FzS-AzZNzYhrou@google.com>
+References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+ <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-Message-Id: <E1tsIUF-005vGd-C5@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:34:51 +0000
+In-Reply-To: <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_023536_172305_5874CCCA 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_114315_544738_75706EFB 
+X-CRM114-Status: GOOD (  22.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +143,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Whether the MII transmit clock can be stopped is primarily a property
-of the PHY (there is a capability bit that should be checked first.)
-Whether the MAC is capable of stopping the transmit clock is a separate
-issue, but this is already handled by the core DesignWare MAC code.
+On Tue, Feb 25, 2025 at 03:39:20PM -0400, Jason Gunthorpe wrote:
+> These were only used by tegra-smmu and leaked the struct page out of the
+> API. Delete them since tega-smmu has been converted to the other APIs.
+> 
+> In the process flatten the call tree so we have fewer one line functions
+> calling other one line functions.. iommu_alloc_pages_node() is the real
+> allocator and everything else can just call it directly.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-Therefore, snps,en-tx-lpi-clockgating is technically incorrect, so this
-commit deprecates the property in the binding.
-
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 3f0aa46d798e..78b3030dc56d 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -494,6 +494,7 @@ title: Synopsys DesignWare MAC
- 
-   snps,en-tx-lpi-clockgating:
-     $ref: /schemas/types.yaml#/definitions/flag
-+    deprecated: true
-     description:
-       Enable gating of the MAC TX clock during TX low-power mode
- 
--- 
-2.30.2
-
+> ---
+>  drivers/iommu/iommu-pages.h | 49 ++++++-------------------------------
+>  1 file changed, 7 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
+> index 82ebf00330811c..0ca2437989a0e1 100644
+> --- a/drivers/iommu/iommu-pages.h
+> +++ b/drivers/iommu/iommu-pages.h
+> @@ -46,40 +46,6 @@ static inline void __iommu_free_account(struct page *page, int order)
+>  	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
+>  }
+>  
+> -/**
+> - * __iommu_alloc_pages - allocate a zeroed page of a given order.
+> - * @gfp: buddy allocator flags
+> - * @order: page order
+> - *
+> - * returns the head struct page of the allocated page.
+> - */
+> -static inline struct page *__iommu_alloc_pages(gfp_t gfp, int order)
+> -{
+> -	struct page *page;
+> -
+> -	page = alloc_pages(gfp | __GFP_ZERO, order);
+> -	if (unlikely(!page))
+> -		return NULL;
+> -
+> -	__iommu_alloc_account(page, order);
+> -
+> -	return page;
+> -}
+> -
+> -/**
+> - * __iommu_free_pages - free page of a given order
+> - * @page: head struct page of the page
+> - * @order: page order
+> - */
+> -static inline void __iommu_free_pages(struct page *page, int order)
+> -{
+> -	if (!page)
+> -		return;
+> -
+> -	__iommu_free_account(page, order);
+> -	__free_pages(page, order);
+> -}
+> -
+>  /**
+>   * iommu_alloc_pages_node - allocate a zeroed page of a given order from
+>   * specific NUMA node.
+> @@ -110,12 +76,7 @@ static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp, int order)
+>   */
+>  static inline void *iommu_alloc_pages(gfp_t gfp, int order)
+>  {
+> -	struct page *page = __iommu_alloc_pages(gfp, order);
+> -
+> -	if (unlikely(!page))
+> -		return NULL;
+> -
+> -	return page_address(page);
+> +	return iommu_alloc_pages_node(numa_node_id(), gfp, order);
+>  }
+>  
+>  /**
+> @@ -138,7 +99,7 @@ static inline void *iommu_alloc_page_node(int nid, gfp_t gfp)
+>   */
+>  static inline void *iommu_alloc_page(gfp_t gfp)
+>  {
+> -	return iommu_alloc_pages(gfp, 0);
+> +	return iommu_alloc_pages_node(numa_node_id(), gfp, 0);
+>  }
+>  
+>  /**
+> @@ -148,10 +109,14 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+>   */
+>  static inline void iommu_free_pages(void *virt, int order)
+>  {
+> +	struct page *page;
+> +
+>  	if (!virt)
+>  		return;
+>  
+> -	__iommu_free_pages(virt_to_page(virt), order);
+> +	page = virt_to_page(virt);
+> +	__iommu_free_account(page, order);
+> +	__free_pages(page, order);
+>  }
+>  
+>  /**
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
