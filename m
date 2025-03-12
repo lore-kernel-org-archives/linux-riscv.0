@@ -4,120 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE9E1C28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:20:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2439C28B2F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:20:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7ufXXlJQ83m9AeGp11ozI/7Xq9H1CghoklOZWNYY6Mo=; b=JJDKLEC9c3eRwH
-	6I0uXmjm1nNWWIus3cSIrRPV2IdXjb34D7HXaVOHuSGEKGQ9oHoD4NNDfx/P1Orf36fnUwAPUgDR2
-	1YFrdxjWy6YeAnADJPcKnNXuBTUc2FqRVVuomjSi9/l/X4BSeBIpeOBaYZN71EcMkVxeEr/ziMIov
-	5WntCCse4mIVSYE+/zm1SAVrQplBoMupZh3OczjwE0rRytmBdAWTcgx+MuGX2hUm6e6xH+RX2j0qC
-	Bow7lSTlaF3HN1Dn0U0TtPStN809e/XazRGI2qmGI1w5kd9OBtxNY2nFuMX2ZDCKL0/2mQEG4+hia
-	eZkbrFodi++V7EGkqAYw==;
+	List-Owner; bh=PGj5sk3yq4Yzpuu2LO2IQpJC0Ti13M6Z8CwWBC31OB0=; b=INtPXkf7mGwvXD
+	StdnlSmkqQGPwvqhl+1tDTSND0KAWP5g6boodWVNY9iXvdjQSiXgKRblS4ZJjn3yOV8U4lbA+ovRg
+	JUF9c4ElWbngZLDGF9T5XHZqVGXbWnfwP1Kb8DtreKUw/0wpR36xW/yfeqSugErNdRGTR0nnBwyQ+
+	mzTElNEqZlSEzf8y01bJVyZKbuBwnFaELzqQ4PyMAHYvnZUE69ykviQWP1QN5EjduzzQhYq/RyjZP
+	O/LhkwwUdFiHeedvVgyBJWBAfpx988ezJ3kV+wlO9G2wuYM5x2+FinqZ8SISw32YcsSQ/brkUS/Jw
+	ZOeBbBK3G0w1Pm5ybK+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMwx-00000008flR-2rvb;
-	Wed, 12 Mar 2025 14:20:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsMwz-00000008fmS-0jNJ;
+	Wed, 12 Mar 2025 14:20:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLcz-00000008TXA-3jPg
+	id 1tsLfz-00000008Tus-2sk2
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 12 Mar 2025 12:59:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=; b=WrT8yfUFsIRFCHbtfuOzl7b28K
+	wZZXkUsxvnA9v998jckdy3iKsAWddsLQmZAXUpaJagO6eatUzsLmM6CyIkCoxuImOMCnD9gApMCHf
+	EDpFhlNRgWm1weXdhPk98iCItdpgTBKtmTAcZKdKoz0/d+pdCU571GymkhbusxlGANHPQyNFPO/E6
+	tPEITMwVmEzDyJ+ELwJ95td9UZxlxWB/5YXC8UL3Iy+gRoR6zgdOFkEm5n/recIbF7HoECf6+KSzn
+	un9r/UxfRhW1qxBh4hBdDUTEMQrOGokzeRNiyRS+HVBl50VH5xPFAUazq/JQwga4HMeBJLoYaDeYl
+	bsS9M+kA==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsLfv-00000002NUQ-1lGA
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Mar 2025 12:56:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 60DFB5C5668;
-	Wed, 12 Mar 2025 12:53:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA737C4CEE3;
-	Wed, 12 Mar 2025 12:55:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741784164;
-	bh=wJ7fHyUs8xs1euFzJj14ou3MrH+5y2ERndEvz+sPh7U=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=G1IdBPlkDRajdBwIuI3aZsfdey8qggTlHNF+X0+SRT4KB/PB98QAt9vEWKQw2x/IX
-	 WqAa/JUC1rmh62QvtbTvveZ7wOkczuIYHi6O3ZjiJbGJF1/5GgaIXuMPIQ2dn8oAh+
-	 WBOargLnCNHU9Dn/xy33mIN7dUP65UohvCX0iblZD67/tB8i+WX75Cv+jEPzuX38JM
-	 nosxefrX2QaLILViP58iUoQCrs5Qdaq4Qt7B6kUtigmUuN0cMJcD5qjePbMuBdKH47
-	 9EA+aXuW820w57MKoeUd0Sru3zrISJ6zZBhIaZ0qkLwGZgAGBxN9ytdKmIAP7Gswq2
-	 TTZF32fz/OfTg==
-Message-ID: <f6601929-3d1e-49ae-8120-c3005f99e57b@kernel.org>
-Date: Wed, 12 Mar 2025 13:55:52 +0100
+	Wed, 12 Mar 2025 12:59:10 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso45145e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 05:59:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741784345; x=1742389145; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=;
+        b=MNDWRXOSAuKVxeHLN2anVrolfjLky2klkV+kF0lJ+24sxteHDtdNd+Us9q988C0VAg
+         gnudJLDCltJJtOnhhXAOYh5VPazQeEb0Q0IwncKU8Iavk65qx4tE043xQnesmpatcVgn
+         p2bMQmLIrDoHcHapYRNcFX+clC3eiK3oiuRidh06kQq9OD/RPswmAT+HL+owPihxlTtC
+         /Hn2SjptnFb8CH5m55ZblyHqrKQhmxvTyYxdK985LGtHb9m/8jm61xo6xKNsjM1G+r7k
+         kcfQwzJhpiAI54epj14RWModrb7FKqPKkgrqMdESQCmVYxaDcRrWJrSnTEK/qQCeA5ds
+         jXwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741784345; x=1742389145;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=;
+        b=cys35PRfLCI8dbMvOOF4RCQwTLtitP0PrZBqNvTh3ccM0l1/VjSUR1rxGcnlPcShE1
+         WHGTSqXpncDPTx4TsQZDd3EgfunD/P2EZT/dZLSsXQlN1lIUDU3M814UJIdJ1IXAYJij
+         X9EmuiJ0FwaPR2tTkOYcJOBWpVA66vbkksec38aSZP6htPtuadV8abKI23dZB4WWgJ6w
+         LBYTLNvyIxjx/dYKslAab88up1/6mL6JWrmsEq0zorCVoyNpc7LSu/Ugz1LdvTX7Dmpq
+         wa0ZG6bxKg8WCQobD9C+HsVsPsg6MjssOyR7QnbOgmwkayP7RVQT/1Ck0K+dLunDRdH3
+         mVjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXnVB3aXLm+wrqZPiL6XIJamjBNEwgS0F76yk4cTyiGVVS3Ftwb0Xh0G15VaYshvv9KZ+KpVZOLR+1EiQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4iTi0BhU03c87vrHAeuHctAFNfEq/loPkg4LuylqkR53wYbtv
+	POLCZ5S+s0AO2bk20VWrCX+3wDs4wS8vTSnJu+IX8bCm9Y+Lf0wwIWrpPx2tpQ==
+X-Gm-Gg: ASbGncvMbQrBJ7hARZp0JpJFTaabx9qZFMvXc2yPUpENyFcHFxlBO1QqT6mj0cApYlF
+	lalGddTSC0qur5R78Wzd5oWmUcyM1OKlfHv/yUeVN2qpxv0UAkyPtNQXMRtMTLpHvU28Tfy8QiC
+	/oBfTixmzm+TMKrc4VPMmc3s6CaNGwP871tHWtkyFIXUxNZJCN+YsvWAtEAklxJIh6W8xe8tv47
+	IPZxg6z44pF3x1gty4IBXowKp/x6jaSOzEUUPABSG644E819v6d9nyNSXRJRKqctuADYTufvmA4
+	eY56yEytJWAWkDn5bG6kC1SAnqWCNOu/h2rlqn9CcSRKukJKAeOwT/TaxmECBOC1Qk7Y0MlW8S0
+	uZwnq
+X-Google-Smtp-Source: AGHT+IGv3VwL/nDTfZJkT02Z+Ln6cpEc0JtjX8qb40ZbVAGSWsBoi80OOQ8vIb/VOjdd5NkKwgkkDw==
+X-Received: by 2002:a05:600c:1c11:b0:439:9434:1b66 with SMTP id 5b1f17b1804b1-43d0a5e3299mr1028055e9.1.1741784344924;
+        Wed, 12 Mar 2025 05:59:04 -0700 (PDT)
+Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3947a24449bsm1688998f8f.45.2025.03.12.05.59.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 05:59:04 -0700 (PDT)
+Date: Wed, 12 Mar 2025 12:59:00 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v3 20/23] iommu: Update various drivers to pass in lg2sz
+ instead of order to iommu pages
+Message-ID: <Z9GFFBvUFg7a9WEg@google.com>
+References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+ <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 04/10] dt-bindings: riscv: Add SiFive HiFive Premier P550
- board
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Min Lin <linmin@eswincomputing.com>,
- Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
- <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Yu Chien Peter Lin <peterlin@andestech.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- Kanak Shilledar <kanakshilledar@gmail.com>,
- Darshan Prajapati <darshan.prajapati@einfochips.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>, rafal@milecki.pl,
- Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
- <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
+Content-Disposition: inline
+In-Reply-To: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_055606_045212_8B79349C 
-X-CRM114-Status: GOOD (  12.14  )
+X-CRM114-CacheID: sfid-20250312_125907_565097_5CAED73C 
+X-CRM114-Status: GOOD (  33.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,46 +143,223 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 08:34, Pinkesh Vaghela wrote:
-> From: Pritesh Patel <pritesh.patel@einfochips.com>
+On Tue, Feb 25, 2025 at 03:39:37PM -0400, Jason Gunthorpe wrote:
+> Convert most of the places calling get_order() as an argument to the
+> iommu-pages allocator into order_base_2() or the _sz flavour
+> instead. These places already have an exact size, there is no particular
+> reason to use order here.
 > 
-> Add DT binding documentation for the ESWIN EIC7700 SoC and
-> HiFive Premier P550 Board
-> 
-> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-
-
-This Rb tag appears everywhere, while this is a v1 and it was not given
-on the lists, so I want to be sure this was not some blank tag added to
-series because someone said "yeah, lgtm". Was it really review as in
-*reviewers statement of oversight*?
-
-> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
 > ---
-..
-
-
-> +
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 25c86f47353d..901d0e0adb25 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -8572,6 +8572,12 @@ L:	linux-can@vger.kernel.org
->  S:	Maintained
->  F:	drivers/net/can/usb/esd_usb.c
+>  drivers/iommu/amd/init.c        | 29 +++++++++++++++--------------
+>  drivers/iommu/intel/dmar.c      |  6 +++---
+>  drivers/iommu/io-pgtable-arm.c  |  3 +--
+>  drivers/iommu/io-pgtable-dart.c | 12 +++---------
+>  drivers/iommu/sun50i-iommu.c    |  4 ++--
+>  5 files changed, 24 insertions(+), 30 deletions(-)
+> 
+> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
+> index e3f4283ebbc201..a5720df7b22397 100644
+> --- a/drivers/iommu/amd/init.c
+> +++ b/drivers/iommu/amd/init.c
+> @@ -635,8 +635,8 @@ static int __init find_last_devid_acpi(struct acpi_table_header *table, u16 pci_
+>  /* Allocate per PCI segment device table */
+>  static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
+>  {
+> -	pci_seg->dev_table = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
+> -					       get_order(pci_seg->dev_table_size));
+> +	pci_seg->dev_table = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
+> +						  pci_seg->dev_table_size);
+>  	if (!pci_seg->dev_table)
+>  		return -ENOMEM;
 >  
-> +ESWIN DEVICETREES
-> +M:	Min Lin <linmin@eswincomputing.com>
-> +M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> +M:	Pritesh Patel <pritesh.patel@einfochips.com>
-> +S:	Maintained
+> @@ -716,8 +716,7 @@ static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
+>   */
+>  static int __init alloc_command_buffer(struct amd_iommu *iommu)
+>  {
+> -	iommu->cmd_buf = iommu_alloc_pages(GFP_KERNEL,
+> -					   get_order(CMD_BUFFER_SIZE));
+> +	iommu->cmd_buf = iommu_alloc_pages_sz(GFP_KERNEL, CMD_BUFFER_SIZE);
+>  
+>  	return iommu->cmd_buf ? 0 : -ENOMEM;
+>  }
+> @@ -820,14 +819,16 @@ static void __init free_command_buffer(struct amd_iommu *iommu)
+>  void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
+>  				  size_t size)
+>  {
+> -	int order = get_order(size);
+> -	void *buf = iommu_alloc_pages(gfp, order);
+> +	void *buf;
+>  
+> -	if (buf &&
+> -	    check_feature(FEATURE_SNP) &&
+> -	    set_memory_4k((unsigned long)buf, (1 << order))) {
+> +	size = PAGE_ALIGN(size);
+> +	buf = iommu_alloc_pages_sz(gfp, size);
+> +	if (!buf)
+> +		return NULL;
+> +	if (check_feature(FEATURE_SNP) &&
+> +	    set_memory_4k((unsigned long)buf, size / PAGE_SIZE)) {
+>  		iommu_free_pages(buf);
+> -		buf = NULL;
+> +		return NULL;
+>  	}
+>  
+>  	return buf;
+> @@ -922,11 +923,11 @@ static int iommu_init_ga_log(struct amd_iommu *iommu)
+>  	if (!AMD_IOMMU_GUEST_IR_VAPIC(amd_iommu_guest_ir))
+>  		return 0;
+>  
+> -	iommu->ga_log = iommu_alloc_pages(GFP_KERNEL, get_order(GA_LOG_SIZE));
+> +	iommu->ga_log = iommu_alloc_pages_sz(GFP_KERNEL, GA_LOG_SIZE);
+>  	if (!iommu->ga_log)
+>  		goto err_out;
+>  
+> -	iommu->ga_log_tail = iommu_alloc_pages(GFP_KERNEL, get_order(8));
+> +	iommu->ga_log_tail = iommu_alloc_pages_sz(GFP_KERNEL, 8);
+>  	if (!iommu->ga_log_tail)
+>  		goto err_out;
+>  
+> @@ -1021,8 +1022,8 @@ static bool __copy_device_table(struct amd_iommu *iommu)
+>  	if (!old_devtb)
+>  		return false;
+>  
+> -	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
+> -						     get_order(pci_seg->dev_table_size));
+> +	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages_sz(
+> +		GFP_KERNEL | GFP_DMA32, pci_seg->dev_table_size);
+>  	if (pci_seg->old_dev_tbl_cpy == NULL) {
+>  		pr_err("Failed to allocate memory for copying old device table!\n");
+>  		memunmap(old_devtb);
+> diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
+> index c812c83d77da10..4c7ce92acf6976 100644
+> --- a/drivers/iommu/intel/dmar.c
+> +++ b/drivers/iommu/intel/dmar.c
+> @@ -1681,7 +1681,6 @@ int dmar_enable_qi(struct intel_iommu *iommu)
+>  {
+>  	struct q_inval *qi;
+>  	void *desc;
+> -	int order;
+>  
+>  	if (!ecap_qis(iommu->ecap))
+>  		return -ENOENT;
+> @@ -1702,8 +1701,9 @@ int dmar_enable_qi(struct intel_iommu *iommu)
+>  	 * Need two pages to accommodate 256 descriptors of 256 bits each
+>  	 * if the remapping hardware supports scalable mode translation.
+>  	 */
+> -	order = ecap_smts(iommu->ecap) ? 1 : 0;
+> -	desc = iommu_alloc_pages_node(iommu->node, GFP_ATOMIC, order);
+> +	desc = iommu_alloc_pages_node_sz(iommu->node, GFP_ATOMIC,
+> +					 ecap_smts(iommu->ecap) ? SZ_8K :
+> +								  SZ_4K);
+>  	if (!desc) {
+>  		kfree(qi);
+>  		iommu->qi = NULL;
+> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+> index 08d0f62abe8a09..d13149ec5be77e 100644
+> --- a/drivers/iommu/io-pgtable-arm.c
+> +++ b/drivers/iommu/io-pgtable-arm.c
+> @@ -263,14 +263,13 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
+>  				    void *cookie)
+>  {
+>  	struct device *dev = cfg->iommu_dev;
+> -	int order = get_order(size);
+>  	dma_addr_t dma;
+>  	void *pages;
+>  
+>  	if (cfg->alloc)
+>  		pages = cfg->alloc(cookie, size, gfp);
+>  	else
+> -		pages = iommu_alloc_pages_node(dev_to_node(dev), gfp, order);
+> +		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
 
-If you add this entry here, then add the path for the eswin binding.
+Although, the current implementation of iommu_alloc_pages_node_sz() would round
+the size to order, but this is not correct according to the API definition
+"The returned allocation is round_up_pow_two(size) big, and is physically aligned
+to its size."
 
-Best regards,
-Krzysztof
+SMMUv3 has special alignment with small number of entries at the start level,
+according the manual:
+	A 64-byte minimum alignment on starting-level translation table addresses
+	is imposed when TG0 selects 64KB granules and the effective IPS value
+	indicates 52-bit output. In this case bits [5:0] are treated as zero.
+
+And according to the Arm Arm (ex D24.2.195 in Version L)
+	- Bits A[(x-1):0] of the stage 1 translation table base address are zero.
+	... The smallest permitted value of x is 5.
+Which 32 bytes
+
+For a case as (which is valid in Linux)
+- S1 with IAS 40-bits and 4K, start level has 2 entries (16 bytes) but alignment
+  must be at least 32 bytes.
+
+- Similarly with 16K and 48 bits.
+
+I'd say we can align the size or use min with 64 bytes before calling the
+function would be enough (or change the API to state that allocations
+are rounded to order)
+
+Thanks,
+Mostafa
+
+>  
+>  	if (!pages)
+>  		return NULL;
+> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
+> index ebf330e67bfa30..a0988669bb951a 100644
+> --- a/drivers/iommu/io-pgtable-dart.c
+> +++ b/drivers/iommu/io-pgtable-dart.c
+> @@ -107,13 +107,6 @@ static phys_addr_t iopte_to_paddr(dart_iopte pte,
+>  	return paddr;
+>  }
+>  
+> -static void *__dart_alloc_pages(size_t size, gfp_t gfp)
+> -{
+> -	int order = get_order(size);
+> -
+> -	return iommu_alloc_pages(gfp, order);
+> -}
+> -
+>  static int dart_init_pte(struct dart_io_pgtable *data,
+>  			     unsigned long iova, phys_addr_t paddr,
+>  			     dart_iopte prot, int num_entries,
+> @@ -255,7 +248,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
+>  
+>  	/* no L2 table present */
+>  	if (!pte) {
+> -		cptep = __dart_alloc_pages(tblsz, gfp);
+> +		cptep = iommu_alloc_pages_sz(gfp, tblsz);
+>  		if (!cptep)
+>  			return -ENOMEM;
+>  
+> @@ -412,7 +405,8 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
+>  	cfg->apple_dart_cfg.n_ttbrs = 1 << data->tbl_bits;
+>  
+>  	for (i = 0; i < cfg->apple_dart_cfg.n_ttbrs; ++i) {
+> -		data->pgd[i] = __dart_alloc_pages(DART_GRANULE(data), GFP_KERNEL);
+> +		data->pgd[i] =
+> +			iommu_alloc_pages_sz(GFP_KERNEL, DART_GRANULE(data));
+>  		if (!data->pgd[i])
+>  			goto out_free_data;
+>  		cfg->apple_dart_cfg.ttbr[i] = virt_to_phys(data->pgd[i]);
+> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
+> index 6385560dbc3fb0..76c9620af4bba8 100644
+> --- a/drivers/iommu/sun50i-iommu.c
+> +++ b/drivers/iommu/sun50i-iommu.c
+> @@ -690,8 +690,8 @@ sun50i_iommu_domain_alloc_paging(struct device *dev)
+>  	if (!sun50i_domain)
+>  		return NULL;
+>  
+> -	sun50i_domain->dt = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
+> -					      get_order(DT_SIZE));
+> +	sun50i_domain->dt =
+> +		iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32, DT_SIZE);
+>  	if (!sun50i_domain->dt)
+>  		goto err_free_domain;
+>  
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
