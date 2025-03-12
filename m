@@ -4,129 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2439C28B2F
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7CE8C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 14:31:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PGj5sk3yq4Yzpuu2LO2IQpJC0Ti13M6Z8CwWBC31OB0=; b=INtPXkf7mGwvXD
-	StdnlSmkqQGPwvqhl+1tDTSND0KAWP5g6boodWVNY9iXvdjQSiXgKRblS4ZJjn3yOV8U4lbA+ovRg
-	JUF9c4ElWbngZLDGF9T5XHZqVGXbWnfwP1Kb8DtreKUw/0wpR36xW/yfeqSugErNdRGTR0nnBwyQ+
-	mzTElNEqZlSEzf8y01bJVyZKbuBwnFaELzqQ4PyMAHYvnZUE69ykviQWP1QN5EjduzzQhYq/RyjZP
-	O/LhkwwUdFiHeedvVgyBJWBAfpx988ezJ3kV+wlO9G2wuYM5x2+FinqZ8SISw32YcsSQ/brkUS/Jw
-	ZOeBbBK3G0w1Pm5ybK+g==;
+	List-Owner; bh=1UpiUudbEvjmVhTaxSDyaEmm7iK+x0VPDyNICFSzFoA=; b=ih25QBoORvicYc
+	nU05LT7Og0U3rRuhu2o+yV0VtWAfqqysGkci1RdqizlQhakonNPjmB64YGv5dmMpWiqja2f3JHuxL
+	M8/0n5uZV0Hi7XtUbDd3ad1jUTDmXCPxxN5PBD0fK1LNpTtM4vcGCdDC+150BQiLTYNTAo3dS6GZO
+	mB0uvZ/EIEGX5rNdY82lvU/LubycEPNHT334VEMpJ241G2Jh3JKmL/36vVlHM94uGr+w0n8GTN7sZ
+	he68q1FEJLto4f8OgzMJWEgqpmiC5R6MkANALVrHb7cjSFjIz8Fxy89c2HMy7PUmNbQLEoiyvghBO
+	YbA1j4uclgcb3TLQyCZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMwz-00000008fmS-0jNJ;
-	Wed, 12 Mar 2025 14:20:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsN75-00000008hUH-2DQ4;
+	Wed, 12 Mar 2025 14:31:15 +0000
+Received: from [210.118.77.11] (helo=mailout1.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLfz-00000008Tus-2sk2
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 12 Mar 2025 12:59:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=; b=WrT8yfUFsIRFCHbtfuOzl7b28K
-	wZZXkUsxvnA9v998jckdy3iKsAWddsLQmZAXUpaJagO6eatUzsLmM6CyIkCoxuImOMCnD9gApMCHf
-	EDpFhlNRgWm1weXdhPk98iCItdpgTBKtmTAcZKdKoz0/d+pdCU571GymkhbusxlGANHPQyNFPO/E6
-	tPEITMwVmEzDyJ+ELwJ95td9UZxlxWB/5YXC8UL3Iy+gRoR6zgdOFkEm5n/recIbF7HoECf6+KSzn
-	un9r/UxfRhW1qxBh4hBdDUTEMQrOGokzeRNiyRS+HVBl50VH5xPFAUazq/JQwga4HMeBJLoYaDeYl
-	bsS9M+kA==;
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLfv-00000002NUQ-1lGA
+	id 1tsN70-00000008hTv-3HT7
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Mar 2025 12:59:10 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso45145e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 05:59:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741784345; x=1742389145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=;
-        b=MNDWRXOSAuKVxeHLN2anVrolfjLky2klkV+kF0lJ+24sxteHDtdNd+Us9q988C0VAg
-         gnudJLDCltJJtOnhhXAOYh5VPazQeEb0Q0IwncKU8Iavk65qx4tE043xQnesmpatcVgn
-         p2bMQmLIrDoHcHapYRNcFX+clC3eiK3oiuRidh06kQq9OD/RPswmAT+HL+owPihxlTtC
-         /Hn2SjptnFb8CH5m55ZblyHqrKQhmxvTyYxdK985LGtHb9m/8jm61xo6xKNsjM1G+r7k
-         kcfQwzJhpiAI54epj14RWModrb7FKqPKkgrqMdESQCmVYxaDcRrWJrSnTEK/qQCeA5ds
-         jXwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741784345; x=1742389145;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4hVHQpBdFL8A1OMCaWXXGUDiGHIY98dt+fAh5aFuAqk=;
-        b=cys35PRfLCI8dbMvOOF4RCQwTLtitP0PrZBqNvTh3ccM0l1/VjSUR1rxGcnlPcShE1
-         WHGTSqXpncDPTx4TsQZDd3EgfunD/P2EZT/dZLSsXQlN1lIUDU3M814UJIdJ1IXAYJij
-         X9EmuiJ0FwaPR2tTkOYcJOBWpVA66vbkksec38aSZP6htPtuadV8abKI23dZB4WWgJ6w
-         LBYTLNvyIxjx/dYKslAab88up1/6mL6JWrmsEq0zorCVoyNpc7LSu/Ugz1LdvTX7Dmpq
-         wa0ZG6bxKg8WCQobD9C+HsVsPsg6MjssOyR7QnbOgmwkayP7RVQT/1Ck0K+dLunDRdH3
-         mVjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXnVB3aXLm+wrqZPiL6XIJamjBNEwgS0F76yk4cTyiGVVS3Ftwb0Xh0G15VaYshvv9KZ+KpVZOLR+1EiQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4iTi0BhU03c87vrHAeuHctAFNfEq/loPkg4LuylqkR53wYbtv
-	POLCZ5S+s0AO2bk20VWrCX+3wDs4wS8vTSnJu+IX8bCm9Y+Lf0wwIWrpPx2tpQ==
-X-Gm-Gg: ASbGncvMbQrBJ7hARZp0JpJFTaabx9qZFMvXc2yPUpENyFcHFxlBO1QqT6mj0cApYlF
-	lalGddTSC0qur5R78Wzd5oWmUcyM1OKlfHv/yUeVN2qpxv0UAkyPtNQXMRtMTLpHvU28Tfy8QiC
-	/oBfTixmzm+TMKrc4VPMmc3s6CaNGwP871tHWtkyFIXUxNZJCN+YsvWAtEAklxJIh6W8xe8tv47
-	IPZxg6z44pF3x1gty4IBXowKp/x6jaSOzEUUPABSG644E819v6d9nyNSXRJRKqctuADYTufvmA4
-	eY56yEytJWAWkDn5bG6kC1SAnqWCNOu/h2rlqn9CcSRKukJKAeOwT/TaxmECBOC1Qk7Y0MlW8S0
-	uZwnq
-X-Google-Smtp-Source: AGHT+IGv3VwL/nDTfZJkT02Z+Ln6cpEc0JtjX8qb40ZbVAGSWsBoi80OOQ8vIb/VOjdd5NkKwgkkDw==
-X-Received: by 2002:a05:600c:1c11:b0:439:9434:1b66 with SMTP id 5b1f17b1804b1-43d0a5e3299mr1028055e9.1.1741784344924;
-        Wed, 12 Mar 2025 05:59:04 -0700 (PDT)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3947a24449bsm1688998f8f.45.2025.03.12.05.59.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 05:59:04 -0700 (PDT)
-Date: Wed, 12 Mar 2025 12:59:00 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v3 20/23] iommu: Update various drivers to pass in lg2sz
- instead of order to iommu pages
-Message-ID: <Z9GFFBvUFg7a9WEg@google.com>
-References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+	Wed, 12 Mar 2025 14:31:13 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250312143106euoutp012cd95c258566f425688e945fa994d18a~sFKexEVPy1771417714euoutp01f
+	for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 14:31:06 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250312143106euoutp012cd95c258566f425688e945fa994d18a~sFKexEVPy1771417714euoutp01f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741789866;
+	bh=HnNcfwuXLGzsfvb6BDDyoiMjkg8CaNMTx1t8raBxs8w=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=asrTPuojlI5fCuvw5P8zGLgaOyB9y8r+a0SHRhZ+kdHTcswwOVwR9XoqC8a4U6ja6
+	 JngZiqX/74HATy5urvzMhSUKgBmcZndewwGkrVyGTr0Na4aI/vm0/QYr0esK5tJ+jc
+	 CaXbPwLo04tObtNjo7jLKz4L95gW8dgUOzmAhK4U=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250312143106eucas1p10573c9cfc8a335a17c7693e49baae594~sFKedJ3_F2225522255eucas1p1I;
+	Wed, 12 Mar 2025 14:31:06 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 36.05.20409.9AA91D76; Wed, 12
+	Mar 2025 14:31:05 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250312143105eucas1p28e084a13846ec3a228745ffea6f12dbf~sFKd5EkDa2675626756eucas1p2Z;
+	Wed, 12 Mar 2025 14:31:05 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250312143105eusmtrp1ca1951535f7ffd1b4ac1436b1cb77495~sFKd4UBcp2360523605eusmtrp1O;
+	Wed, 12 Mar 2025 14:31:05 +0000 (GMT)
+X-AuditID: cbfec7f4-c39fa70000004fb9-71-67d19aa9baec
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id C6.2F.19920.9AA91D76; Wed, 12
+	Mar 2025 14:31:05 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250312143104eusmtip2ee3c4f1dba47a901cfe23aae17ecfa4a~sFKdERw6m2544525445eusmtip2i;
+	Wed, 12 Mar 2025 14:31:04 +0000 (GMT)
+Message-ID: <4b45236e-8252-4dd5-b3f7-3595b0924182@samsung.com>
+Date: Wed, 12 Mar 2025 15:31:04 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 0/5] TH1520 SoC: Add AON firmware & power-domain
+ support
+To: Ulf Hansson <ulf.hansson@linaro.org>, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, jszhang@kernel.org, m.szyprowski@samsung.com,
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrFKsWRmVeSWpSXmKPExsWy7djP87orZ11MN7h00tTi2Z2vrBZbf89i
+	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
+	4uXlHmaLtln8Fv/37GC3OL423KJl/xQWB0GPNy9fsngc7vjC7nHvxDRWj02rOtk87lzbw+ax
+	eUm9R8vaY0we7/ddZfPo27KK0eNS83V2j8+b5AK4o7hsUlJzMstSi/TtErgyWiYcYC3YrlJx
+	sfMGawPjCZkuRk4OCQETibV9Cxi7GLk4hARWMEr8v/mbCcL5wijROnk7lPOZUeLh+l2MMC39
+	zf/YIRLLGSXO/r7NDOG8ZZSY8beDCaSKV8BOYsq3XawgNouAqsTr/U/ZIOKCEidnPmEBsUUF
+	5CXu35rBDmILCwRKbJ+5B2yDiECsxMwJs8FWMwvsZpJ42nUUrIhZQFzi1pP5YAvYBIwkHiyf
+	D7SAg4MTqPn0q2SIEnmJ7W/ngB0kIXCJU2JN02I2iLNdJLZee8kMYQtLvDq+hR3ClpE4PbmH
+	BcLOl3iw9RNUTY3Ezp7jULa1xJ1zv9hAdjELaEqs36UPEXaUeHi5gQkkLCHAJ3HjrSDECXwS
+	k7ZNZ4YI80p0tAlBVKtJTO3phVt6bsU2pgmMSrOQAmUWkh9nIXlmFsLeBYwsqxjFU0uLc9NT
+	i43yUsv1ihNzi0vz0vWS83M3MQKT4+l/x7/sYFz+6qPeIUYmDsZDjBIczEoivKttL6QL8aYk
+	VlalFuXHF5XmpBYfYpTmYFES5120vzVdSCA9sSQ1OzW1ILUIJsvEwSnVwDTN/Ui1Qazkh/MX
+	+r41T+J8eabff7uVSMGSrODeW3elg36wcp1RYtWNuOOiP1spu/VXwi0jp2Aj1btMck+zdlz+
+	lCQ3R6dgdoX+MY6pbLGbf0WLbPj/7uVFRvvbtS9+ft+zsOSEv8qSPyIf/MMuZIXt8b0n8CTF
+	nulg4bx9zvFnlv38d89aa/OKpHsOgWkl0f4TrKbpVG4K+D/LafmC/yFiF68wnrr3qVPzplJz
+	+UqxzuPVr999l+5Y0lxlyuL4Zd8qD84pf08m6yssex5lefurZeyZOw8fnY1jkOncpnO56fDT
+	N+GMK5a22jAvtnHsZT6cuEBx2Z0i94sblzxNlDum0dGT3ikxZWr48+2SJ7iUWIozEg21mIuK
+	EwGJLdmU/QMAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrDIsWRmVeSWpSXmKPExsVy+t/xe7orZ11MN9jzUNji2Z2vrBZbf89i
+	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOzuLxrDpvF594jjBbbPrewWaw9cpfd
+	4uXlHmaLtln8Fv/37GC3OL423KJl/xQWB0GPNy9fsngc7vjC7nHvxDRWj02rOtk87lzbw+ax
+	eUm9R8vaY0we7/ddZfPo27KK0eNS83V2j8+b5AK4o/RsivJLS1IVMvKLS2yVog0tjPQMLS30
+	jEws9QyNzWOtjEyV9O1sUlJzMstSi/TtEvQyWiYcYC3YrlJxsfMGawPjCZkuRk4OCQETif7m
+	f+xdjFwcQgJLGSVufD3CBJGQkbjW/ZIFwhaW+HOtiw2i6DWjxJ+G5YwgCV4BO4kp33axgtgs
+	AqoSr/c/ZYOIC0qcnPkErFlUQF7i/q0Z7CC2sECgxPaZe8B6RQRiJT50bmEEGcossJtJ4szm
+	P4wQG24xSpxc1AN2BrOAuMStJ/PBbDYBI4kHy+cDbePg4ASadPpVMojJLKAusX6eEES1vMT2
+	t3OYJzAKzUJyxiwkg2YhdMxC0rGAkWUVo0hqaXFuem6xoV5xYm5xaV66XnJ+7iZGYDLYduzn
+	5h2M81591DvEyMTBeIhRgoNZSYR3te2FdCHelMTKqtSi/Pii0pzU4kOMpsCgmMgsJZqcD0xH
+	eSXxhmYGpoYmZpYGppZmxkrivG6Xz6cJCaQnlqRmp6YWpBbB9DFxcEo1MDleYitUrsh0m9qZ
+	3PY7wcfUJ8Ht97Yjuk7HJqRuuGWqtX3qptN/2J64RGsFyE747fRS77ZyrbXruYk1tQy5X28G
+	HJBWOment055o0O8/Rmxtxs3Vh2fKCBR2ZV1wLvH/Nb1gFe5/a4prRer1l/eHTBh97kC1p5N
+	rfMac7X9121ffTm94Ls139GjlcscLHfL3dnG8PrT1SmfxbbV+p/kWf5o80PeST53w643712j
+	tP3AxYfbuX7WmantcHTbr1Y3OaT78cGteYm9Oj4/tT294pO1RN65nz2qtVlm+97cfqZXxv67
+	+zPbEnT2Ln+34VbAHdHyZSHqG7a8NGHOTq9xytI9fYLbIbX/9fSTdqz3NJRYijMSDbWYi4oT
+	AW71z36PAwAA
+X-CMS-MailID: 20250312143105eucas1p28e084a13846ec3a228745ffea6f12dbf
+X-Msg-Generator: CA
+X-RootMTR: 20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd
+References: <CGME20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd@eucas1p1.samsung.com>
+	<20250311171900.1549916-1-m.wilczynski@samsung.com>
+	<CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_125907_565097_5CAED73C 
-X-CRM114-Status: GOOD (  33.08  )
+X-CRM114-CacheID: sfid-20250312_073111_461256_DCF56594 
+X-CRM114-Status: GOOD (  24.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,222 +140,111 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 03:39:37PM -0400, Jason Gunthorpe wrote:
-> Convert most of the places calling get_order() as an argument to the
-> iommu-pages allocator into order_base_2() or the _sz flavour
-> instead. These places already have an exact size, there is no particular
-> reason to use order here.
+
+
+On 3/12/25 14:40, Ulf Hansson wrote:
+> On Tue, 11 Mar 2025 at 18:20, Michal Wilczynski
+> <m.wilczynski@samsung.com> wrote:
+>>
+>> This patch series introduces and documents power management (PM) support and
+>> the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
+>> board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
+>> upstream, these patches can merge independently.
+>>
+>> Bigger series cover letter:
+>> https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
+>>
+>> This series is versioned to maintain continuity with the bigger patchset it is
+>> a subseries of. Please find below a changelog for the AON & power-domain:
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-> ---
->  drivers/iommu/amd/init.c        | 29 +++++++++++++++--------------
->  drivers/iommu/intel/dmar.c      |  6 +++---
->  drivers/iommu/io-pgtable-arm.c  |  3 +--
->  drivers/iommu/io-pgtable-dart.c | 12 +++---------
->  drivers/iommu/sun50i-iommu.c    |  4 ++--
->  5 files changed, 24 insertions(+), 30 deletions(-)
+> I can pick up patch1 -> patch4 via my pmdomain tree, assuming I can
+> get an ack from some of the thead-SoC maintainers.
 > 
-> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-> index e3f4283ebbc201..a5720df7b22397 100644
-> --- a/drivers/iommu/amd/init.c
-> +++ b/drivers/iommu/amd/init.c
-> @@ -635,8 +635,8 @@ static int __init find_last_devid_acpi(struct acpi_table_header *table, u16 pci_
->  /* Allocate per PCI segment device table */
->  static inline int __init alloc_dev_table(struct amd_iommu_pci_seg *pci_seg)
->  {
-> -	pci_seg->dev_table = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
-> -					       get_order(pci_seg->dev_table_size));
-> +	pci_seg->dev_table = iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32,
-> +						  pci_seg->dev_table_size);
->  	if (!pci_seg->dev_table)
->  		return -ENOMEM;
->  
-> @@ -716,8 +716,7 @@ static void __init free_alias_table(struct amd_iommu_pci_seg *pci_seg)
->   */
->  static int __init alloc_command_buffer(struct amd_iommu *iommu)
->  {
-> -	iommu->cmd_buf = iommu_alloc_pages(GFP_KERNEL,
-> -					   get_order(CMD_BUFFER_SIZE));
-> +	iommu->cmd_buf = iommu_alloc_pages_sz(GFP_KERNEL, CMD_BUFFER_SIZE);
->  
->  	return iommu->cmd_buf ? 0 : -ENOMEM;
->  }
-> @@ -820,14 +819,16 @@ static void __init free_command_buffer(struct amd_iommu *iommu)
->  void *__init iommu_alloc_4k_pages(struct amd_iommu *iommu, gfp_t gfp,
->  				  size_t size)
->  {
-> -	int order = get_order(size);
-> -	void *buf = iommu_alloc_pages(gfp, order);
-> +	void *buf;
->  
-> -	if (buf &&
-> -	    check_feature(FEATURE_SNP) &&
-> -	    set_memory_4k((unsigned long)buf, (1 << order))) {
-> +	size = PAGE_ALIGN(size);
-> +	buf = iommu_alloc_pages_sz(gfp, size);
-> +	if (!buf)
-> +		return NULL;
-> +	if (check_feature(FEATURE_SNP) &&
-> +	    set_memory_4k((unsigned long)buf, size / PAGE_SIZE)) {
->  		iommu_free_pages(buf);
-> -		buf = NULL;
-> +		return NULL;
->  	}
->  
->  	return buf;
-> @@ -922,11 +923,11 @@ static int iommu_init_ga_log(struct amd_iommu *iommu)
->  	if (!AMD_IOMMU_GUEST_IR_VAPIC(amd_iommu_guest_ir))
->  		return 0;
->  
-> -	iommu->ga_log = iommu_alloc_pages(GFP_KERNEL, get_order(GA_LOG_SIZE));
-> +	iommu->ga_log = iommu_alloc_pages_sz(GFP_KERNEL, GA_LOG_SIZE);
->  	if (!iommu->ga_log)
->  		goto err_out;
->  
-> -	iommu->ga_log_tail = iommu_alloc_pages(GFP_KERNEL, get_order(8));
-> +	iommu->ga_log_tail = iommu_alloc_pages_sz(GFP_KERNEL, 8);
->  	if (!iommu->ga_log_tail)
->  		goto err_out;
->  
-> @@ -1021,8 +1022,8 @@ static bool __copy_device_table(struct amd_iommu *iommu)
->  	if (!old_devtb)
->  		return false;
->  
-> -	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
-> -						     get_order(pci_seg->dev_table_size));
-> +	pci_seg->old_dev_tbl_cpy = iommu_alloc_pages_sz(
-> +		GFP_KERNEL | GFP_DMA32, pci_seg->dev_table_size);
->  	if (pci_seg->old_dev_tbl_cpy == NULL) {
->  		pr_err("Failed to allocate memory for copying old device table!\n");
->  		memunmap(old_devtb);
-> diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
-> index c812c83d77da10..4c7ce92acf6976 100644
-> --- a/drivers/iommu/intel/dmar.c
-> +++ b/drivers/iommu/intel/dmar.c
-> @@ -1681,7 +1681,6 @@ int dmar_enable_qi(struct intel_iommu *iommu)
->  {
->  	struct q_inval *qi;
->  	void *desc;
-> -	int order;
->  
->  	if (!ecap_qis(iommu->ecap))
->  		return -ENOENT;
-> @@ -1702,8 +1701,9 @@ int dmar_enable_qi(struct intel_iommu *iommu)
->  	 * Need two pages to accommodate 256 descriptors of 256 bits each
->  	 * if the remapping hardware supports scalable mode translation.
->  	 */
-> -	order = ecap_smts(iommu->ecap) ? 1 : 0;
-> -	desc = iommu_alloc_pages_node(iommu->node, GFP_ATOMIC, order);
-> +	desc = iommu_alloc_pages_node_sz(iommu->node, GFP_ATOMIC,
-> +					 ecap_smts(iommu->ecap) ? SZ_8K :
-> +								  SZ_4K);
->  	if (!desc) {
->  		kfree(qi);
->  		iommu->qi = NULL;
-> diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
-> index 08d0f62abe8a09..d13149ec5be77e 100644
-> --- a/drivers/iommu/io-pgtable-arm.c
-> +++ b/drivers/iommu/io-pgtable-arm.c
-> @@ -263,14 +263,13 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
->  				    void *cookie)
->  {
->  	struct device *dev = cfg->iommu_dev;
-> -	int order = get_order(size);
->  	dma_addr_t dma;
->  	void *pages;
->  
->  	if (cfg->alloc)
->  		pages = cfg->alloc(cookie, size, gfp);
->  	else
-> -		pages = iommu_alloc_pages_node(dev_to_node(dev), gfp, order);
-> +		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
+> Patch5 is probably better to be routed through the SoC maintainers
+> tree, but let me know if you prefer me to take this one too.
 
-Although, the current implementation of iommu_alloc_pages_node_sz() would round
-the size to order, but this is not correct according to the API definition
-"The returned allocation is round_up_pow_two(size) big, and is physically aligned
-to its size."
+Thanks, I don't have a preference, I'll leave it up to SoC maintainers.
+I haven't included the device tree changes in this mini-series, as then
+the PM & firmware, clock, and reset mini-series might conflict with each
+other in th1520.dtsi file, but SoC maintainers might also find it useful
+to pick this commit [1], along with the patch5.
 
-SMMUv3 has special alignment with small number of entries at the start level,
-according the manual:
-	A 64-byte minimum alignment on starting-level translation table addresses
-	is imposed when TG0 selects 64KB granules and the effective IPS value
-	indicates 52-bit output. In this case bits [5:0] are treated as zero.
+[1] - https://lore.kernel.org/all/20250219140239.1378758-20-m.wilczynski@samsung.com/
 
-And according to the Arm Arm (ex D24.2.195 in Version L)
-	- Bits A[(x-1):0] of the stage 1 translation table base address are zero.
-	... The smallest permitted value of x is 5.
-Which 32 bytes
-
-For a case as (which is valid in Linux)
-- S1 with IAS 40-bits and 4K, start level has 2 entries (16 bytes) but alignment
-  must be at least 32 bytes.
-
-- Similarly with 16K and 48 bits.
-
-I'd say we can align the size or use min with 64 bytes before calling the
-function would be enough (or change the API to state that allocations
-are rounded to order)
-
-Thanks,
-Mostafa
-
->  
->  	if (!pages)
->  		return NULL;
-> diff --git a/drivers/iommu/io-pgtable-dart.c b/drivers/iommu/io-pgtable-dart.c
-> index ebf330e67bfa30..a0988669bb951a 100644
-> --- a/drivers/iommu/io-pgtable-dart.c
-> +++ b/drivers/iommu/io-pgtable-dart.c
-> @@ -107,13 +107,6 @@ static phys_addr_t iopte_to_paddr(dart_iopte pte,
->  	return paddr;
->  }
->  
-> -static void *__dart_alloc_pages(size_t size, gfp_t gfp)
-> -{
-> -	int order = get_order(size);
-> -
-> -	return iommu_alloc_pages(gfp, order);
-> -}
-> -
->  static int dart_init_pte(struct dart_io_pgtable *data,
->  			     unsigned long iova, phys_addr_t paddr,
->  			     dart_iopte prot, int num_entries,
-> @@ -255,7 +248,7 @@ static int dart_map_pages(struct io_pgtable_ops *ops, unsigned long iova,
->  
->  	/* no L2 table present */
->  	if (!pte) {
-> -		cptep = __dart_alloc_pages(tblsz, gfp);
-> +		cptep = iommu_alloc_pages_sz(gfp, tblsz);
->  		if (!cptep)
->  			return -ENOMEM;
->  
-> @@ -412,7 +405,8 @@ apple_dart_alloc_pgtable(struct io_pgtable_cfg *cfg, void *cookie)
->  	cfg->apple_dart_cfg.n_ttbrs = 1 << data->tbl_bits;
->  
->  	for (i = 0; i < cfg->apple_dart_cfg.n_ttbrs; ++i) {
-> -		data->pgd[i] = __dart_alloc_pages(DART_GRANULE(data), GFP_KERNEL);
-> +		data->pgd[i] =
-> +			iommu_alloc_pages_sz(GFP_KERNEL, DART_GRANULE(data));
->  		if (!data->pgd[i])
->  			goto out_free_data;
->  		cfg->apple_dart_cfg.ttbr[i] = virt_to_phys(data->pgd[i]);
-> diff --git a/drivers/iommu/sun50i-iommu.c b/drivers/iommu/sun50i-iommu.c
-> index 6385560dbc3fb0..76c9620af4bba8 100644
-> --- a/drivers/iommu/sun50i-iommu.c
-> +++ b/drivers/iommu/sun50i-iommu.c
-> @@ -690,8 +690,8 @@ sun50i_iommu_domain_alloc_paging(struct device *dev)
->  	if (!sun50i_domain)
->  		return NULL;
->  
-> -	sun50i_domain->dt = iommu_alloc_pages(GFP_KERNEL | GFP_DMA32,
-> -					      get_order(DT_SIZE));
-> +	sun50i_domain->dt =
-> +		iommu_alloc_pages_sz(GFP_KERNEL | GFP_DMA32, DT_SIZE);
->  	if (!sun50i_domain->dt)
->  		goto err_free_domain;
->  
-> -- 
-> 2.43.0
+> 
+> Kind regards
+> Uffe
+> 
+> 
+>>
+>> v8:
+>> - add proper cleanup in the th1520_pd_probe()
+>> - add "suppress_bind_attrs = true", since there is no need to unbound the driver
+>>   during runtime. This simplifies the code by eliminating the remove function
+>>
+>> v7:
+>> - add '#include <linux/slab.h", due to kernel robot issue
+>>
+>> v6:
+>> - split the firmware & power-domain patches into a separate series
+>>
+>> v5:
+>> - changed the AON driver to be a set of library functions rather than a
+>>   standalone driver
+>>
+>> v4:
+>> - added workaround to disable AUDIO power domain to prevent firmware crashes
+>>
+>> v3:
+>>  - consolidated device tree representation by merging aon and power-domain nodes
+>>    while maintaining separate drivers internally
+>>  - power-domain driver is now instantiated from within the aon driver
+>>  - fixed optional module dependencies in Kconfig
+>>  - added kernel-doc comments for all exported functions
+>>  - implemented th1520_aon_remove() to properly clean up mailbox channel
+>>    resources
+>>
+>> v2:
+>>  - introduced a new firmware driver to manage power-related operations.
+>>  - rewrote the power-domain driver to function alongside the firmware driver.
+>>    These nodes in the device tree lack direct address spaces, despite
+>>    representing HW blocks. Control is achieved via firmware protocol messages
+>>    transmitted through a mailbox to the E902 core.
+>>  - added new dt-bindings for power and firmware nodes.
+>>  - ran dtbs_check and dt_binding_check to ensure compliance.
+>>
+>> Michal Wilczynski (5):
+>>   dt-bindings: firmware: thead,th1520: Add support for firmware node
+>>   firmware: thead: Add AON firmware protocol driver
+>>   dt-bindings: power: Add TH1520 SoC power domains
+>>   pmdomain: thead: Add power-domain driver for TH1520
+>>   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
+>>
+>>  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
+>>  MAINTAINERS                                   |   5 +
+>>  arch/riscv/Kconfig.socs                       |   1 +
+>>  drivers/firmware/Kconfig                      |   9 +
+>>  drivers/firmware/Makefile                     |   1 +
+>>  drivers/firmware/thead,th1520-aon.c           | 248 ++++++++++++++++++
+>>  drivers/pmdomain/Kconfig                      |   1 +
+>>  drivers/pmdomain/Makefile                     |   1 +
+>>  drivers/pmdomain/thead/Kconfig                |  12 +
+>>  drivers/pmdomain/thead/Makefile               |   2 +
+>>  drivers/pmdomain/thead/th1520-pm-domains.c    | 218 +++++++++++++++
+>>  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
+>>  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
+>>  13 files changed, 770 insertions(+)
+>>  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+>>  create mode 100644 drivers/firmware/thead,th1520-aon.c
+>>  create mode 100644 drivers/pmdomain/thead/Kconfig
+>>  create mode 100644 drivers/pmdomain/thead/Makefile
+>>  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
+>>  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
+>>  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
+>>
+>> --
+>> 2.34.1
+>>
 > 
 
 _______________________________________________
