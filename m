@@ -4,113 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0172C28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 12:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D649CC28B2F
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 13:06:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Message-Id:Subject:
+	References:In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P5byYus9SHhApOIceu7SsurNf4zSCv8z5xdCJotQDic=; b=drtZWww7dXKat6
-	ZPZZetmb53VLO0/Rnq5tePkpHYTXLW/TGxyVdGTzvgVsrS0BuTL+nr8fSt6BfPhIXpz1fGQ6BHvHV
-	jxwIODMprqQq//H54UntYWCYaHsRm2RHOq1u0Tr7oDH84uR+OLfR3ms6hSaUZZYC5DFihRtCs9JMj
-	yhVeX5PJ1QgpwDoeX8fmji10GKvlMzMybGgwvdbXW75MALeIcyQdRxgDkP+dB5XaAmvZ3i088YgVl
-	V0is5kaw/5BWSflOBaBDY9wTi7lNFLPGVfBcSBnX+iP8oBLIkMJk/GIxruypAeNuWRWJ+Q/l0izRY
-	/VPPVWkqok7yHHo981vQ==;
+	List-Owner; bh=k5q9R0ccXi3W0Rg3R3gzNk19c6UZPzlVWe5yRIsaT3M=; b=W+CS63EOiKl4oE
+	7wvHUjJ2vs5A+NXoi53MrWHfadaZ3jgFZ32EDs36sHI5TCWwghawO+HTMvcABVEvRVVzwpdoBYOeF
+	qKIkHzgRzwiuAEKj6ml4X7PkUEYS/fdhRoC/mHtkl14gzq4Y0vLPS4/g8eMe5sDKdc9iiYWwaPZS+
+	syGAbdkz3BXOMC956yt+9VAU11xw0gd9VHplrp4uWxkPzaVOMuQR5aIHxFPXJd/vJVfSvO3GuWZIc
+	6nfFWOSJou05Pk5Q5EhTN0VoHbyEAUcncAejXFu6WBvZL/b5KX7ZnqRDKzGKkoHoCKwY7ZklF/2ah
+	Y3lLcAhZcjl7VMiRB3AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLVg-00000008STw-30zQ;
-	Wed, 12 Mar 2025 12:48:32 +0000
-Received: from mail-wm1-f49.google.com ([209.85.128.49])
+	id 1tsLnI-00000008VTx-36Hl;
+	Wed, 12 Mar 2025 13:06:44 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKVf-00000008IqN-1xw9
+	id 1tsLNN-00000008Qd8-01rR
 	for linux-riscv@lists.infradead.org;
-	Wed, 12 Mar 2025 11:44:29 +0000
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-438d9c391fcso41085e9.0
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 04:44:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741779865; x=1742384665; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ztC6TyGPn8HN7qvx3r0adwSfOw9X1SdqpmyY8+RWC3k=;
-        b=X/FHot8B7BGW+IVLiTSJqhvPOmgUzYvqI0K/FvAmXlRgVkHPJr1SAFsHxGog0lpHFA
-         SqRjJxGPp73J+5pixS6V3Z0tOjUafXcamrTEMb8XQt9zmZPfX9DxWC5tOD4ilZr0xK9p
-         0TVrhm1QoURPh1fPsjzN19+oPBXpAMjAviERMgRetAG0UfGk4e3uZPH1dSzoDmm5XP0a
-         l1Xy0a85yX+fEPnOV5SVzwUjlPk4uxlPz5lslTUF04dBt9TU0mHcIwMbMnKn3XtMWwaQ
-         uT7vTWWzbuJtVvOGlB//wT07YeEASJoLVfar37iW4yLkAq0VpGgzEeRxriGjaSUK3qor
-         7iFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741779865; x=1742384665;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ztC6TyGPn8HN7qvx3r0adwSfOw9X1SdqpmyY8+RWC3k=;
-        b=cHhuc67b19h9/kqoJ1pxoeoZaz0WXeM+lmBxFjH4hycClP/b11fOrZ1gLmI4EPbZy9
-         CC1rql3eU8KybElYFcfM7vPBxuKrcmwzDfCSXZjJkx18KO2hWtO5CsnbpDV+PJF3aCd5
-         J2zcGNeK6L4+UQgJt/1g1QCrsYdmu4h4UE1Gu1JRc6basYJ+yJc7Ukqqbc49q/NJ+H+6
-         lUKcRWX3E7l4GeUWQQvb4Sq2YArHoAx6L7dqFbsigxe86TIfPJ++mhudKiZuJOJRt6sk
-         SG2YWP35u8KGX5pfhLZXhel76n49W0W4esdPtWkvxkITNpfSbJfvPMeqa+gSVo22iGxv
-         q9YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWYUCujoSyxKF984/UEtMDb+iDsZqTKaLcGVHE2BuFkYV4Rr+gn+UHc4N5WYxqRIiuG+QVd/jJ6Z3oIyQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywx0BJEIgjAe8cj22i3oDOc3/6LIQMP38rBYngxDcQD0uA5oww+
-	J/ZtmMAT8RPLnXDXIVQ3LmGy+oltgY70G3YQumoQhtS2ra9sv+Ida9izqKyU7w==
-X-Gm-Gg: ASbGncuU1g2PH1eB4Zn3Lsfkjd4jXJYE41ZHaZo9YMo9hHYFlNITgNNztV4fdruFSdF
-	KE93w+E08SaG7nWbK3mZV9EPEc1/0O2x+I0odvnsKkROUw/RbQ1i4nMayoVaf2HMpyDbfZKl/60
-	CJzDuLnqvVEKprL59sfgAULV6hsDAg+6l/yyimBNCxHn5B86PCpHYd3fKn690FM39tjSqeDrr6x
-	UtI0mGoO7BWmth8m9TuZJfc6pev/TKNXKimq7AwSlH91TbzO0jzseN/RWng/b9kbOeLq8oijUJF
-	h0W/YGyKqAHARfnery3JwZuoWN2fVpxifkh1E/bgZUKku3WfSGOJIFwA64ncNw70O47Y1z1HFYz
-	s3Z32
-X-Google-Smtp-Source: AGHT+IFOC+WzkzIkaDYmFvYURyzlmZIIdd06+VT8kwhTpj+efwMx5qrVlyUWLRP/E95iBlLvUPXLVA==
-X-Received: by 2002:a05:600c:c84:b0:43b:c396:7405 with SMTP id 5b1f17b1804b1-43d0a5fd606mr1026575e9.7.1741779865249;
-        Wed, 12 Mar 2025 04:44:25 -0700 (PDT)
-Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d0a72ea88sm19001575e9.7.2025.03.12.04.44.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 04:44:24 -0700 (PDT)
-Date: Wed, 12 Mar 2025 11:44:20 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Hector Martin <marcan@marcan.st>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: Re: [PATCH v3 06/23] iommu/pages: Remove iommu_free_page()
-Message-ID: <Z9FzlCfkRzDnvHuJ@google.com>
-References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <6-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+	Wed, 12 Mar 2025 12:39:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3BE9FA45BD5;
+	Wed, 12 Mar 2025 12:34:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E249C4CEE3;
+	Wed, 12 Mar 2025 12:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741783195;
+	bh=uZiOVB8yQ9iEfQm3YhLtHeR0IQkVJXdxQFzGtq4+Wns=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=bbQ4ukLvpEYQWQ1qWqxi0sY7vsSyUPCOm3PHti24zHG0WGJnQqmiwt9xEuUHr3KMt
+	 htqoqorYex7ALPwAKmFH+rihbbwBKpjrpGMOS7DLt/jlJSfU67Ft4tYTaLO4hxQEtH
+	 VOTHI062k12tz9zfAWsPF0fNYVJIJa64nLWxWq6ze8PkSbfqfIgB4brTphVOPRFxHt
+	 SfmDpuucqlTH763Nfx6t8hYed2lg3MCcQTB176yG8fD7a39lOAm8ANOY1rD8nhQzF7
+	 dnWrMIwVLdyj8Wv28N1fVFtHori2uW3SPtBxNmOUq+HHSiVvZeTVrxFi/YN1Zx968V
+	 oOogCKhPP5P0g==
+From: Mark Brown <broonie@kernel.org>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Longbin Li <looong.bin@gmail.com>
+Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ sophgo@lists.linux.dev
+In-Reply-To: <20250304083548.10101-1-looong.bin@gmail.com>
+References: <20250304083548.10101-1-looong.bin@gmail.com>
+Subject: Re: [PATCH v2 0/2] spi: sophgo: add Sophgo SPI NOR controller
+ driver
+Message-Id: <174178319298.22638.1373062138685342011.b4-ty@kernel.org>
+Date: Wed, 12 Mar 2025 12:39:52 +0000
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <6-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+X-Mailer: b4 0.15-dev-1b0d6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_044427_516575_D0205AB8 
-X-CRM114-Status: GOOD (  26.25  )
+X-CRM114-CacheID: sfid-20250312_053957_114073_0C5550C7 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,363 +79,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 03:39:23PM -0400, Jason Gunthorpe wrote:
-> Use iommu_free_pages() instead.
+On Tue, 04 Mar 2025 16:35:41 +0800, Longbin Li wrote:
+> Add SPI NOR driver for Sophgo, including read, write operations.
+> This driver is only suitable for NOR flash.
 > 
-> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
-Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-> ---
->  drivers/iommu/amd/init.c          |  2 +-
->  drivers/iommu/amd/io_pgtable.c    |  4 ++--
->  drivers/iommu/amd/io_pgtable_v2.c |  8 ++++----
->  drivers/iommu/amd/iommu.c         |  4 ++--
->  drivers/iommu/intel/dmar.c        |  4 ++--
->  drivers/iommu/intel/iommu.c       | 12 ++++++------
->  drivers/iommu/intel/pasid.c       |  4 ++--
->  drivers/iommu/iommu-pages.h       |  9 ---------
->  drivers/iommu/riscv/iommu.c       |  6 +++---
->  drivers/iommu/rockchip-iommu.c    |  8 ++++----
->  drivers/iommu/tegra-smmu.c        | 12 ++++++------
->  11 files changed, 32 insertions(+), 41 deletions(-)
-> 
-> diff --git a/drivers/iommu/amd/init.c b/drivers/iommu/amd/init.c
-> index f47ff0e0c75f4e..73ebcb958ad864 100644
-> --- a/drivers/iommu/amd/init.c
-> +++ b/drivers/iommu/amd/init.c
-> @@ -955,7 +955,7 @@ static int __init alloc_cwwb_sem(struct amd_iommu *iommu)
->  static void __init free_cwwb_sem(struct amd_iommu *iommu)
->  {
->  	if (iommu->cmd_sem)
-> -		iommu_free_page((void *)iommu->cmd_sem);
-> +		iommu_free_pages((void *)iommu->cmd_sem);
->  }
->  
->  static void iommu_enable_xt(struct amd_iommu *iommu)
-> diff --git a/drivers/iommu/amd/io_pgtable.c b/drivers/iommu/amd/io_pgtable.c
-> index f3399087859fd1..025d8a3fe9cb78 100644
-> --- a/drivers/iommu/amd/io_pgtable.c
-> +++ b/drivers/iommu/amd/io_pgtable.c
-> @@ -153,7 +153,7 @@ static bool increase_address_space(struct amd_io_pgtable *pgtable,
->  
->  out:
->  	spin_unlock_irqrestore(&domain->lock, flags);
-> -	iommu_free_page(pte);
-> +	iommu_free_pages(pte);
->  
->  	return ret;
->  }
-> @@ -229,7 +229,7 @@ static u64 *alloc_pte(struct amd_io_pgtable *pgtable,
->  
->  			/* pte could have been changed somewhere. */
->  			if (!try_cmpxchg64(pte, &__pte, __npte))
-> -				iommu_free_page(page);
-> +				iommu_free_pages(page);
->  			else if (IOMMU_PTE_PRESENT(__pte))
->  				*updated = true;
->  
-> diff --git a/drivers/iommu/amd/io_pgtable_v2.c b/drivers/iommu/amd/io_pgtable_v2.c
-> index c616de2c5926ec..cce3fc9861ef77 100644
-> --- a/drivers/iommu/amd/io_pgtable_v2.c
-> +++ b/drivers/iommu/amd/io_pgtable_v2.c
-> @@ -121,10 +121,10 @@ static void free_pgtable(u64 *pt, int level)
->  		if (level > 2)
->  			free_pgtable(p, level - 1);
->  		else
-> -			iommu_free_page(p);
-> +			iommu_free_pages(p);
->  	}
->  
-> -	iommu_free_page(pt);
-> +	iommu_free_pages(pt);
->  }
->  
->  /* Allocate page table */
-> @@ -159,7 +159,7 @@ static u64 *v2_alloc_pte(int nid, u64 *pgd, unsigned long iova,
->  			__npte = set_pgtable_attr(page);
->  			/* pte could have been changed somewhere. */
->  			if (!try_cmpxchg64(pte, &__pte, __npte))
-> -				iommu_free_page(page);
-> +				iommu_free_pages(page);
->  			else if (IOMMU_PTE_PRESENT(__pte))
->  				*updated = true;
->  
-> @@ -181,7 +181,7 @@ static u64 *v2_alloc_pte(int nid, u64 *pgd, unsigned long iova,
->  		if (pg_size == IOMMU_PAGE_SIZE_1G)
->  			free_pgtable(__pte, end_level - 1);
->  		else if (pg_size == IOMMU_PAGE_SIZE_2M)
-> -			iommu_free_page(__pte);
-> +			iommu_free_pages(__pte);
->  	}
->  
->  	return pte;
-> diff --git a/drivers/iommu/amd/iommu.c b/drivers/iommu/amd/iommu.c
-> index b48a72bd7b23df..e23d104d177ad9 100644
-> --- a/drivers/iommu/amd/iommu.c
-> +++ b/drivers/iommu/amd/iommu.c
-> @@ -1812,7 +1812,7 @@ static void free_gcr3_tbl_level1(u64 *tbl)
->  
->  		ptr = iommu_phys_to_virt(tbl[i] & PAGE_MASK);
->  
-> -		iommu_free_page(ptr);
-> +		iommu_free_pages(ptr);
->  	}
->  }
->  
-> @@ -1845,7 +1845,7 @@ static void free_gcr3_table(struct gcr3_tbl_info *gcr3_info)
->  	/* Free per device domain ID */
->  	pdom_id_free(gcr3_info->domid);
->  
-> -	iommu_free_page(gcr3_info->gcr3_tbl);
-> +	iommu_free_pages(gcr3_info->gcr3_tbl);
->  	gcr3_info->gcr3_tbl = NULL;
->  }
->  
-> diff --git a/drivers/iommu/intel/dmar.c b/drivers/iommu/intel/dmar.c
-> index 9f424acf474e94..c812c83d77da10 100644
-> --- a/drivers/iommu/intel/dmar.c
-> +++ b/drivers/iommu/intel/dmar.c
-> @@ -1187,7 +1187,7 @@ static void free_iommu(struct intel_iommu *iommu)
->  	}
->  
->  	if (iommu->qi) {
-> -		iommu_free_page(iommu->qi->desc);
-> +		iommu_free_pages(iommu->qi->desc);
->  		kfree(iommu->qi->desc_status);
->  		kfree(iommu->qi);
->  	}
-> @@ -1714,7 +1714,7 @@ int dmar_enable_qi(struct intel_iommu *iommu)
->  
->  	qi->desc_status = kcalloc(QI_LENGTH, sizeof(int), GFP_ATOMIC);
->  	if (!qi->desc_status) {
-> -		iommu_free_page(qi->desc);
-> +		iommu_free_pages(qi->desc);
->  		kfree(qi);
->  		iommu->qi = NULL;
->  		return -ENOMEM;
-> diff --git a/drivers/iommu/intel/iommu.c b/drivers/iommu/intel/iommu.c
-> index cc46098f875b16..1e73bfa00329ae 100644
-> --- a/drivers/iommu/intel/iommu.c
-> +++ b/drivers/iommu/intel/iommu.c
-> @@ -571,17 +571,17 @@ static void free_context_table(struct intel_iommu *iommu)
->  	for (i = 0; i < ROOT_ENTRY_NR; i++) {
->  		context = iommu_context_addr(iommu, i, 0, 0);
->  		if (context)
-> -			iommu_free_page(context);
-> +			iommu_free_pages(context);
->  
->  		if (!sm_supported(iommu))
->  			continue;
->  
->  		context = iommu_context_addr(iommu, i, 0x80, 0);
->  		if (context)
-> -			iommu_free_page(context);
-> +			iommu_free_pages(context);
->  	}
->  
-> -	iommu_free_page(iommu->root_entry);
-> +	iommu_free_pages(iommu->root_entry);
->  	iommu->root_entry = NULL;
->  }
->  
-> @@ -744,7 +744,7 @@ static struct dma_pte *pfn_to_dma_pte(struct dmar_domain *domain,
->  			tmp = 0ULL;
->  			if (!try_cmpxchg64(&pte->val, &tmp, pteval))
->  				/* Someone else set it while we were thinking; use theirs. */
-> -				iommu_free_page(tmp_page);
-> +				iommu_free_pages(tmp_page);
->  			else
->  				domain_flush_cache(domain, pte, sizeof(*pte));
->  		}
-> @@ -857,7 +857,7 @@ static void dma_pte_free_level(struct dmar_domain *domain, int level,
->  		      last_pfn < level_pfn + level_size(level) - 1)) {
->  			dma_clear_pte(pte);
->  			domain_flush_cache(domain, pte, sizeof(*pte));
-> -			iommu_free_page(level_pte);
-> +			iommu_free_pages(level_pte);
->  		}
->  next:
->  		pfn += level_size(level);
-> @@ -881,7 +881,7 @@ static void dma_pte_free_pagetable(struct dmar_domain *domain,
->  
->  	/* free pgd */
->  	if (start_pfn == 0 && last_pfn == DOMAIN_MAX_PFN(domain->gaw)) {
-> -		iommu_free_page(domain->pgd);
-> +		iommu_free_pages(domain->pgd);
->  		domain->pgd = NULL;
->  	}
->  }
-> diff --git a/drivers/iommu/intel/pasid.c b/drivers/iommu/intel/pasid.c
-> index 00da94b1c4c907..4249f12db7fc43 100644
-> --- a/drivers/iommu/intel/pasid.c
-> +++ b/drivers/iommu/intel/pasid.c
-> @@ -96,7 +96,7 @@ void intel_pasid_free_table(struct device *dev)
->  	max_pde = pasid_table->max_pasid >> PASID_PDE_SHIFT;
->  	for (i = 0; i < max_pde; i++) {
->  		table = get_pasid_table_from_pde(&dir[i]);
-> -		iommu_free_page(table);
-> +		iommu_free_pages(table);
->  	}
->  
->  	iommu_free_pages(pasid_table->table);
-> @@ -160,7 +160,7 @@ static struct pasid_entry *intel_pasid_get_entry(struct device *dev, u32 pasid)
->  		tmp = 0ULL;
->  		if (!try_cmpxchg64(&dir[dir_index].val, &tmp,
->  				   (u64)virt_to_phys(entries) | PASID_PTE_PRESENT)) {
-> -			iommu_free_page(entries);
-> +			iommu_free_pages(entries);
->  			goto retry;
->  		}
->  		if (!ecap_coherent(info->iommu->ecap)) {
-> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
-> index 88587da1782b94..fcd17b94f7b830 100644
-> --- a/drivers/iommu/iommu-pages.h
-> +++ b/drivers/iommu/iommu-pages.h
-> @@ -122,15 +122,6 @@ static inline void iommu_free_pages(void *virt)
->  	put_page(page);
->  }
->  
-> -/**
-> - * iommu_free_page - free page
-> - * @virt: virtual address of the page to be freed.
-> - */
-> -static inline void iommu_free_page(void *virt)
-> -{
-> -	iommu_free_pages(virt);
-> -}
-> -
->  /**
->   * iommu_put_pages_list - free a list of pages.
->   * @page: the head of the lru list to be freed.
-> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-> index 1868468d018a28..4fe07343d84e61 100644
-> --- a/drivers/iommu/riscv/iommu.c
-> +++ b/drivers/iommu/riscv/iommu.c
-> @@ -1105,7 +1105,7 @@ static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
->  	if (freelist)
->  		list_add_tail(&virt_to_page(ptr)->lru, freelist);
->  	else
-> -		iommu_free_page(ptr);
-> +		iommu_free_pages(ptr);
->  }
->  
->  static unsigned long *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
-> @@ -1148,7 +1148,7 @@ static unsigned long *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
->  			old = pte;
->  			pte = _io_pte_entry(virt_to_pfn(addr), _PAGE_TABLE);
->  			if (cmpxchg_relaxed(ptr, old, pte) != old) {
-> -				iommu_free_page(addr);
-> +				iommu_free_pages(addr);
->  				goto pte_retry;
->  			}
->  		}
-> @@ -1393,7 +1393,7 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
->  	domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
->  					RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
->  	if (domain->pscid < 0) {
-> -		iommu_free_page(domain->pgd_root);
-> +		iommu_free_pages(domain->pgd_root);
->  		kfree(domain);
->  		return ERR_PTR(-ENOMEM);
->  	}
-> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
-> index 323cc665c35703..798e85bd994d56 100644
-> --- a/drivers/iommu/rockchip-iommu.c
-> +++ b/drivers/iommu/rockchip-iommu.c
-> @@ -737,7 +737,7 @@ static u32 *rk_dte_get_page_table(struct rk_iommu_domain *rk_domain,
->  	pt_dma = dma_map_single(dma_dev, page_table, SPAGE_SIZE, DMA_TO_DEVICE);
->  	if (dma_mapping_error(dma_dev, pt_dma)) {
->  		dev_err(dma_dev, "DMA mapping error while allocating page table\n");
-> -		iommu_free_page(page_table);
-> +		iommu_free_pages(page_table);
->  		return ERR_PTR(-ENOMEM);
->  	}
->  
-> @@ -1086,7 +1086,7 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
->  	return &rk_domain->domain;
->  
->  err_free_dt:
-> -	iommu_free_page(rk_domain->dt);
-> +	iommu_free_pages(rk_domain->dt);
->  err_free_domain:
->  	kfree(rk_domain);
->  
-> @@ -1107,13 +1107,13 @@ static void rk_iommu_domain_free(struct iommu_domain *domain)
->  			u32 *page_table = phys_to_virt(pt_phys);
->  			dma_unmap_single(dma_dev, pt_phys,
->  					 SPAGE_SIZE, DMA_TO_DEVICE);
-> -			iommu_free_page(page_table);
-> +			iommu_free_pages(page_table);
->  		}
->  	}
->  
->  	dma_unmap_single(dma_dev, rk_domain->dt_dma,
->  			 SPAGE_SIZE, DMA_TO_DEVICE);
-> -	iommu_free_page(rk_domain->dt);
-> +	iommu_free_pages(rk_domain->dt);
->  
->  	kfree(rk_domain);
->  }
-> diff --git a/drivers/iommu/tegra-smmu.c b/drivers/iommu/tegra-smmu.c
-> index c134647292fb22..844682a41afa66 100644
-> --- a/drivers/iommu/tegra-smmu.c
-> +++ b/drivers/iommu/tegra-smmu.c
-> @@ -303,7 +303,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
->  
->  	as->count = kcalloc(SMMU_NUM_PDE, sizeof(u32), GFP_KERNEL);
->  	if (!as->count) {
-> -		iommu_free_page(as->pd);
-> +		iommu_free_pages(as->pd);
->  		kfree(as);
->  		return NULL;
->  	}
-> @@ -311,7 +311,7 @@ static struct iommu_domain *tegra_smmu_domain_alloc_paging(struct device *dev)
->  	as->pts = kcalloc(SMMU_NUM_PDE, sizeof(*as->pts), GFP_KERNEL);
->  	if (!as->pts) {
->  		kfree(as->count);
-> -		iommu_free_page(as->pd);
-> +		iommu_free_pages(as->pd);
->  		kfree(as);
->  		return NULL;
->  	}
-> @@ -608,14 +608,14 @@ static u32 *as_get_pte(struct tegra_smmu_as *as, dma_addr_t iova,
->  		dma = dma_map_single(smmu->dev, pt, SMMU_SIZE_PT,
->  				     DMA_TO_DEVICE);
->  		if (dma_mapping_error(smmu->dev, dma)) {
-> -			iommu_free_page(pt);
-> +			iommu_free_pages(pt);
->  			return NULL;
->  		}
->  
->  		if (!smmu_dma_addr_valid(smmu, dma)) {
->  			dma_unmap_single(smmu->dev, dma, SMMU_SIZE_PT,
->  					 DMA_TO_DEVICE);
-> -			iommu_free_page(pt);
-> +			iommu_free_pages(pt);
->  			return NULL;
->  		}
->  
-> @@ -656,7 +656,7 @@ static void tegra_smmu_pte_put_use(struct tegra_smmu_as *as, unsigned long iova)
->  
->  		dma_unmap_single(smmu->dev, pte_dma, SMMU_SIZE_PT,
->  				 DMA_TO_DEVICE);
-> -		iommu_free_page(pt);
-> +		iommu_free_pages(pt);
->  		as->pts[pde] = NULL;
->  	}
->  }
-> @@ -707,7 +707,7 @@ static struct tegra_pt *as_get_pde_page(struct tegra_smmu_as *as,
->  	 */
->  	if (as->pts[pde]) {
->  		if (pt)
-> -			iommu_free_page(pt);
-> +			iommu_free_pages(pt);
->  
->  		pt = as->pts[pde];
->  	}
-> -- 
-> 2.43.0
-> 
+Applied to
+
+   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+
+Thanks!
+
+[1/2] dt-bindings: spi: add SG2044 SPI NOR controller driver
+      commit: 9f95e2dff3fe6a5f4cec786a106558bb8f268a16
+[2/2] spi: sophgo: add SG2044 SPI NOR controller driver
+      commit: de16c322eefbe9026d4eabc8ae934bb778cffd1d
+
+All being well this means that it will be integrated into the linux-next
+tree (usually sometime in the next 24 hours) and sent to Linus during
+the next merge window (or sooner if it is a bug fix), however if
+problems are discovered then the patch may be dropped or reverted.
+
+You may get further e-mails resulting from automated or manual testing
+and review of the tree, please engage with people reporting problems and
+send followup patches addressing any issues that are reported if needed.
+
+If any updates are required or you are submitting further changes they
+should be sent as incremental updates against current git, existing
+patches will not be replaced.
+
+Please add any relevant lists and maintainers to the CCs when replying
+to this mail.
+
+Thanks,
+Mark
+
 
 _______________________________________________
 linux-riscv mailing list
