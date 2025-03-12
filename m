@@ -4,98 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 534C7C28B28
-	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 16:13:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02643C28B28
+	for <linux-riscv@archiver.kernel.org>; Wed, 12 Mar 2025 18:00:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9F8v9M1zh4O8yZHPD/i8pHbDfrhQRGfJXSpPq1xW+Z4=; b=zIYv7IPqGGv2mE
-	Q2TMbXa2FHXXSnEK6bpdXGOLC+nuV5wLDf97McV42jinmwBUeQvilZV5UdqjVjKUnjcVDJgGFvT8o
-	XVj8jTmXbxu4L8V1vGSfuXILNGRmAH05q2ecd3gwGlKz/PiJeuUYdh+D9KrwxPdzRHP4hYM1WQ+7m
-	Az3hVGQ0pMBPLeS/kjQrerUSBsv+3LQDpP9/O4aSz5enB3SLMMJuQGWWdswy+8Y01JcbTt+X/2VIb
-	lbC4baElsVtdB2bYw6Pwppc+mgBzqp/Nr7RMTeuqmySgpx9lkcv0XdfPdM8hPk/iRBOPlO7PtOzTE
-	Cnjv7rWQmu+qGKm+4PYQ==;
+	List-Owner; bh=I7Hrc4efM4DnPx/u7ylF+X+TZ0KpyQeenhejDzfT9jQ=; b=Hs5EVXHV8Ky8g+
+	wuxTHMZG6AkEjc7zE2hr/E5I2MDps7iIUa7zB/n9Rf/7zX+jPXhyFRpn9QpHo8Sv9eGnk6/11XPA8
+	mtPQzp7NTzciglX8AVwt/ZY8RlVJeJLtfispxornux/FVuEnOw1gjrqXpHLuajfu5Plh5K2wMwDkl
+	RNVyd/guSTedUXE0dZSW5AAGxvlEMB+qczseVdcTxfgSDUhDjkgVVqya17QAVg+A+Wp1lnAlEZYc+
+	TCCNhwEcb/xTZypfq8le40MO6G3ItoveqKwtDKLyl1RxQpNDl0geb5KaJUY5Ze7tJ+mD8GJ9nk+mf
+	BLLGD25WAgv9VSyfUX2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsOhq-0000000904e-3aLu;
-	Wed, 12 Mar 2025 16:13:18 +0000
+	id 1tsQNa-00000009CZi-0deD;
+	Wed, 12 Mar 2025 18:00:30 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsOeB-00000008zUv-28Bj;
-	Wed, 12 Mar 2025 16:09:33 +0000
+	id 1tsQKc-00000009Blo-3Ph5;
+	Wed, 12 Mar 2025 17:57:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AE4BCA41156;
-	Wed, 12 Mar 2025 16:04:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBA43C4CEDD;
-	Wed, 12 Mar 2025 16:09:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7BCF0A47174;
+	Wed, 12 Mar 2025 17:51:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8A790C4CEDD;
+	Wed, 12 Mar 2025 17:57:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741795770;
-	bh=U+kn0eqCA1vTkLcceUerHMcbUlG4P1T7ky+SM+cNeZ0=;
+	s=k20201202; t=1741802245;
+	bh=zljP+mDHAaQAZnFdNotLuiGw3OZI9tbEnF6C6rmzp7s=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o1nXbH0lAp/Eqh29Z9apDenWiT7PjuKxKiO2JQvLOJVWK5GP4OmPvFpXi6asrnzZT
-	 nu94zZUymz0UiYH5e2oHwUKtTI1fSzIDWOtzi+i34Gkz1xkL6x5U9bzNGRhUtzuTKS
-	 DXX5HBMSnM0KQHz9TeDEZUAKZi2/XgNg8n+fKtj+coTJt3gRJNcK3xsnp4c0Rfm92c
-	 yO1JQdFiH5w2Gbb11wg1ZkFYIseNAErd8Fb7JJ7KzSSF/QC6tMXJP/39miA0uSvCwy
-	 IrlqFK1R0v32Dh9qsAKLmrl9vNb/vAYRou4oKyLZKKWsSVO2mj5QR0FroBYJHAdDo/
-	 ffW5IRilofYyA==
-Date: Wed, 12 Mar 2025 18:09:07 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Heiko Carstens <hca@linux.ibm.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexander Gordeev <agordeev@linux.ibm.com>,
-	Andreas Larsson <andreas@gaisler.com>,
-	Andy Lutomirski <luto@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
-	Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Geert Uytterhoeven <geert@linux-m68k.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Guo Ren <guoren@kernel.org>, Helge Deller <deller@gmx.de>,
-	Huacai Chen <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>,
-	Jiaxun Yang <jiaxun.yang@flygoat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Madhavan Srinivasan <maddy@linux.ibm.com>,
-	Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	Michal Simek <monstr@monstr.eu>,
+	b=nEIcU+Uz5BcICdmCXOe35LcQyckIKPgl3m2lHMHP2VQ1CnJY195bKoCiO9yxCVBkT
+	 pwER7G7WR4IGxk0JXC6fUwPRTzGaFSnKxRDkvCOTO2Gopg6Y/NA2GGzQ+kNIrBi8x9
+	 hqz/UvuRbAv/N7LHK9hjRpRfnvAnUq8mttoMckvGEgYyQsVrs8Omp6eAnG/k+TPV0W
+	 4DQBEXSc1qtteDUnxE+xgD/TrG9IUibQlaPyTdH8Nn1BfaOCuRPoEPtW/JNriM86R5
+	 IGRAdDG73EdBwnZ9DzAyypEOHpItoHvbWx7zsrPQUfu/Zi1qPAS/WtfJdmh9ooYCRv
+	 l4uH7vHeWlLgw==
+Date: Wed, 12 Mar 2025 14:57:22 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Richard Weinberger <richard@nod.at>,
-	Russell King <linux@armlinux.org.uk>,
-	Stafford Horne <shorne@gmail.com>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
-	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
-	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
-	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
-	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
-	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH 07/13] s390: make setup_zero_pages() use memblock
-Message-ID: <Z9GxozjZTKOGDPv1@kernel.org>
-References: <20250306185124.3147510-1-rppt@kernel.org>
- <20250306185124.3147510-8-rppt@kernel.org>
- <20250307152815.9880Gbd-hca@linux.ibm.com>
- <Z8_Qawg0dGtZdys7@kernel.org>
- <CAMj1kXHS1YbnYVqVgsyfFSpg9kJM599Yp9TO8AP6--Nbgk7dHQ@mail.gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 06/11] perf dso: Add support for reading the e_machine
+ type for a dso
+Message-ID: <Z9HLArg6uGiK8FzM@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <20250308003209.234114-7-irogers@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAMj1kXHS1YbnYVqVgsyfFSpg9kJM599Yp9TO8AP6--Nbgk7dHQ@mail.gmail.com>
+In-Reply-To: <20250308003209.234114-7-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_090931_678467_168BB852 
-X-CRM114-Status: GOOD (  32.59  )
+X-CRM114-CacheID: sfid-20250312_105726_991723_BC809A57 
+X-CRM114-Status: GOOD (  24.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,70 +95,218 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 04:56:59PM +0100, Ard Biesheuvel wrote:
-> On Tue, 11 Mar 2025 at 06:56, Mike Rapoport <rppt@kernel.org> wrote:
-> >
-> > On Fri, Mar 07, 2025 at 04:28:15PM +0100, Heiko Carstens wrote:
-> > > On Thu, Mar 06, 2025 at 08:51:17PM +0200, Mike Rapoport wrote:
-> > > > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > > >
-> > > > Allocating the zero pages from memblock is simpler because the memory is
-> > > > already reserved.
-> > > >
-> > > > This will also help with pulling out memblock_free_all() to the generic
-> > > > code and reducing code duplication in arch::mem_init().
-> > > >
-> > > > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > > > ---
-> > > >  arch/s390/mm/init.c | 14 +++-----------
-> > > >  1 file changed, 3 insertions(+), 11 deletions(-)
-> > >
-> > > Acked-by: Heiko Carstens <hca@linux.ibm.com>
-> > >
-> > > > -   empty_zero_page = __get_free_pages(GFP_KERNEL | __GFP_ZERO, order);
-> > > > +   empty_zero_page = (unsigned long)memblock_alloc(PAGE_SIZE << order, order);
-> > > >     if (!empty_zero_page)
-> > > >             panic("Out of memory in setup_zero_pages");
-> > >
-> > > This could have been converted to memblock_alloc_or_panic(), but I
-> > > guess this can also be done at a later point in time.
-> >
-> > Duh, I should have remembered about memblock_alloc_or_panic() :)
-> >
-> > @Andrew, can you please pick this as a fixup?
-> >
-> > From 344fec8519e5152c25809c9277b54a68f9cde0e9 Mon Sep 17 00:00:00 2001
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> > Date: Tue, 11 Mar 2025 07:51:27 +0200
-> > Subject: [PATCH] s390: use memblock_alloc_or_panic() in setup_zero_page()
-> >
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  arch/s390/mm/init.c | 4 +---
-> >  1 file changed, 1 insertion(+), 3 deletions(-)
-> >
-> > diff --git a/arch/s390/mm/init.c b/arch/s390/mm/init.c
-> > index ab8ece3c41f1..c6a97329d7e7 100644
-> > --- a/arch/s390/mm/init.c
-> > +++ b/arch/s390/mm/init.c
-> > @@ -81,9 +81,7 @@ static void __init setup_zero_pages(void)
-> >         while (order > 2 && (total_pages >> 10) < (1UL << order))
-> >                 order--;
-> >
-> > -       empty_zero_page = (unsigned long)memblock_alloc(PAGE_SIZE << order, order);
-> > -       if (!empty_zero_page)
-> > -               panic("Out of memory in setup_zero_pages");
-> > +       empty_zero_page = (unsigned long)memblock_alloc_or_panic(PAGE_SIZE << order, order);
-> >
+On Fri, Mar 07, 2025 at 04:32:04PM -0800, Ian Rogers wrote:
+> For ELF file dsos read the e_machine from the ELF header. For kernel
+> types assume the e_machine matches the perf tool. In other cases
+> return EM_NONE.
 > 
-> memblock_alloc_or_panic() takes the alignment is in bytes, no? So
-> shouldn't the second argument be BIT(order)?
+> When reading from the ELF header use DSO__SWAP that may need
+> dso->needs_swap initializing. Factor out dso__swap_init to allow this.
+> 
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/util/dso.c        | 88 ++++++++++++++++++++++++++++++++++++
+>  tools/perf/util/dso.h        |  3 ++
+>  tools/perf/util/symbol-elf.c | 27 -----------
+>  3 files changed, 91 insertions(+), 27 deletions(-)
 
-The second argument should be PAGE_SIZE. Thanks for catching that!
+This one, due to this having already been merged:
 
--- 
-Sincerely yours,
-Mike.
+commit b10f74308e1305275e69ddde711ec817cc69e306 (perf-tools-next/perf-tools-next)
+Author: Stephen Brennan <stephen.s.brennan@oracle.com>
+Date:   Fri Mar 7 15:22:03 2025 -0800
+
+    perf symbol: Support .gnu_debugdata for symbols
+
+Needs this so that we read the e_machine from the ELF file:
+
+diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+index 8188ba4d432cd5ac..8d2d8bb22e077bea 100644
+--- a/tools/perf/util/dso.c
++++ b/tools/perf/util/dso.c
+@@ -1203,6 +1203,7 @@ uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
+ 	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
+ 	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
+ 	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
++	case DSO_BINARY_TYPE__GNU_DEBUGDATA:
+ 		break;
+ 	case DSO_BINARY_TYPE__NOT_FOUND:
+ 	default:
+ 
+---
+
+Continuing the review and test.
+
+- Arnaldo
+
+> diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+> index 5c6e85fdae0d..00fec1bc32bc 100644
+> --- a/tools/perf/util/dso.c
+> +++ b/tools/perf/util/dso.c
+> @@ -1170,6 +1170,67 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+>  	return data_read_write_offset(dso, machine, offset, data, size, true);
+>  }
+>  
+> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
+> +{
+> +	uint16_t e_machine = EM_NONE;
+> +	int fd;
+> +
+> +	switch (dso__binary_type(dso)) {
+> +	case DSO_BINARY_TYPE__KALLSYMS:
+> +	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
+> +	case DSO_BINARY_TYPE__VMLINUX:
+> +	case DSO_BINARY_TYPE__GUEST_VMLINUX:
+> +	case DSO_BINARY_TYPE__GUEST_KMODULE:
+> +	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
+> +	case DSO_BINARY_TYPE__KCORE:
+> +	case DSO_BINARY_TYPE__GUEST_KCORE:
+> +	case DSO_BINARY_TYPE__BPF_PROG_INFO:
+> +	case DSO_BINARY_TYPE__BPF_IMAGE:
+> +	case DSO_BINARY_TYPE__OOL:
+> +	case DSO_BINARY_TYPE__JAVA_JIT:
+> +		return EM_HOST;
+> +	case DSO_BINARY_TYPE__DEBUGLINK:
+> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
+> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
+> +	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
+> +		break;
+> +	case DSO_BINARY_TYPE__NOT_FOUND:
+> +	default:
+> +		return EM_NONE;
+> +	}
+> +
+> +	pthread_mutex_lock(&dso__data_open_lock);
+> +
+> +	/*
+> +	 * dso__data(dso)->fd might be closed if other thread opened another
+> +	 * file (dso) due to open file limit (RLIMIT_NOFILE).
+> +	 */
+> +	try_to_open_dso(dso, machine);
+> +	fd = dso__data(dso)->fd;
+> +	if (fd >= 0) {
+> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		if (dso__needs_swap(dso) == DSO_SWAP__UNSET) {
+> +			unsigned char eidata;
+> +
+> +			if (pread(fd, &eidata, sizeof(eidata), EI_DATA) == sizeof(eidata))
+> +				dso__swap_init(dso, eidata);
+> +		}
+> +		if (dso__needs_swap(dso) != DSO_SWAP__UNSET &&
+> +		    pread(fd, &e_machine, sizeof(e_machine), 18) == sizeof(e_machine))
+> +			e_machine = DSO__SWAP(dso, uint16_t, e_machine);
+> +	}
+> +	pthread_mutex_unlock(&dso__data_open_lock);
+> +	return e_machine;
+> +}
+> +
+>  /**
+>   * dso__data_read_addr - Read data from dso address
+>   * @dso: dso object
+> @@ -1525,6 +1586,33 @@ void dso__put(struct dso *dso)
+>  		RC_CHK_PUT(dso);
+>  }
+>  
+> +int dso__swap_init(struct dso *dso, unsigned char eidata)
+> +{
+> +	static unsigned int const endian = 1;
+> +
+> +	dso__set_needs_swap(dso, DSO_SWAP__NO);
+> +
+> +	switch (eidata) {
+> +	case ELFDATA2LSB:
+> +		/* We are big endian, DSO is little endian. */
+> +		if (*(unsigned char const *)&endian != 1)
+> +			dso__set_needs_swap(dso, DSO_SWAP__YES);
+> +		break;
+> +
+> +	case ELFDATA2MSB:
+> +		/* We are little endian, DSO is big endian. */
+> +		if (*(unsigned char const *)&endian != 0)
+> +			dso__set_needs_swap(dso, DSO_SWAP__YES);
+> +		break;
+> +
+> +	default:
+> +		pr_err("unrecognized DSO data encoding %d\n", eidata);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  void dso__set_build_id(struct dso *dso, struct build_id *bid)
+>  {
+>  	RC_CHK_ACCESS(dso)->bid = *bid;
+> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+> index 4aa8c3d36566..38d9e3eac501 100644
+> --- a/tools/perf/util/dso.h
+> +++ b/tools/perf/util/dso.h
+> @@ -730,6 +730,8 @@ bool dso__sorted_by_name(const struct dso *dso);
+>  void dso__set_sorted_by_name(struct dso *dso);
+>  void dso__sort_by_name(struct dso *dso);
+>  
+> +int dso__swap_init(struct dso *dso, unsigned char eidata);
+> +
+>  void dso__set_build_id(struct dso *dso, struct build_id *bid);
+>  bool dso__build_id_equal(const struct dso *dso, struct build_id *bid);
+>  void dso__read_running_kernel_build_id(struct dso *dso,
+> @@ -818,6 +820,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
+>  off_t dso__data_size(struct dso *dso, struct machine *machine);
+>  ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+>  			      u64 offset, u8 *data, ssize_t size);
+> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
+>  ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
+>  			    struct machine *machine, u64 addr,
+>  			    u8 *data, ssize_t size);
+> diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+> index 66fd1249660a..71df13a5722a 100644
+> --- a/tools/perf/util/symbol-elf.c
+> +++ b/tools/perf/util/symbol-elf.c
+> @@ -1173,33 +1173,6 @@ int filename__read_debuglink(const char *filename, char *debuglink,
+>  
+>  #endif
+>  
+> -static int dso__swap_init(struct dso *dso, unsigned char eidata)
+> -{
+> -	static unsigned int const endian = 1;
+> -
+> -	dso__set_needs_swap(dso, DSO_SWAP__NO);
+> -
+> -	switch (eidata) {
+> -	case ELFDATA2LSB:
+> -		/* We are big endian, DSO is little endian. */
+> -		if (*(unsigned char const *)&endian != 1)
+> -			dso__set_needs_swap(dso, DSO_SWAP__YES);
+> -		break;
+> -
+> -	case ELFDATA2MSB:
+> -		/* We are little endian, DSO is big endian. */
+> -		if (*(unsigned char const *)&endian != 0)
+> -			dso__set_needs_swap(dso, DSO_SWAP__YES);
+> -		break;
+> -
+> -	default:
+> -		pr_err("unrecognized DSO data encoding %d\n", eidata);
+> -		return -EINVAL;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  bool symsrc__possibly_runtime(struct symsrc *ss)
+>  {
+>  	return ss->dynsym || ss->opdsec;
+> -- 
+> 2.49.0.rc0.332.g42c0ae87b1-goog
+> 
 
 _______________________________________________
 linux-riscv mailing list
