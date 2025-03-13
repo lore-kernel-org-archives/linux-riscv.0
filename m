@@ -4,105 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 113ECC282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 14:34:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CC52C282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 14:36:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bTnIq/B861UhMeya6cGdRt4hqoDrWmeerG4aTHiYKco=; b=TK5cZm88dECDaJ
-	qQZanEP5ablMBdh1UErb2dN0XDHl3eEzSU2bRWsuQoXEjZZV+gTYzvDyCxp4HQeU3oCSCHKwL5490
-	0LhrFzkPjzzbdXcjZ2TGR2yRAoZtmGovEmPn/rtq5rJFjWMDbnEBfMmqqzq2FQMSxN2NV2JMKjEBt
-	zfmoYs37Qmoypypj5pPeUjp3Cmv/7XDcnyEupkbvgc1X2Zcq87QtjypdHrjCzpwMBDKfBOn2vLgRZ
-	qxZvw9+LlASXwmo3IoLZcHyxlxE9/7aJRC+aviygNBIR6T0XOj2uc8ByZg/g8fcgrXhGNkZeRFRbn
-	DMxtaIG4hfCIDOhLhPOg==;
+	List-Owner; bh=l10Y5UjmA4gULa1v3S2I9gRY8ppXBc9WstrWqZyyF+g=; b=a68+I31soro1cr
+	o1RJXMMrCBImXIKeVzPpMdzc4SFGGa0DVdBO5iDciWgxJvZzKQvy/3euuft2bAicVYGGI6KrZ6Cms
+	R5F8kCskp3yMRMQ3fvK7KaywEEYWYXhyVRoHOY0tiR+18COw7J2n6GKfRILNjPbG2f1SUYeNnHVK2
+	hbfkybsfSH34fA6j0itL6G9rCnUU6eihgeb0sUSJRmUE1XmH9nSCHd1m8yzuzRShozNFe1+JnLHvp
+	ZtImLxd9Lexb2HzfCdSjTQJM6yTQPIbymonWjYppzmuojfnB6aXfwSmOuRD9raKgWlzVWLs1hrJh2
+	CzF8sup1z1XL5lP4kpLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjdt-0000000BY3u-3VcD;
-	Thu, 13 Mar 2025 14:34:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsjf9-0000000BYKI-43cZ;
+	Thu, 13 Mar 2025 14:35:55 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjds-0000000BY3V-25FZ
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 13 Mar 2025 14:34:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=GICFi0VoA04wMmuC8eF7tQ0MeFnd48JKTtPTlIjvHiI=; b=IsOU0i6p7oQInneTeygHlgR7Ub
-	UODYjB0zoAaeQBEHlK6K4inDzt5yGDQlHr/yQqIUGMBtZtRw8n0mnzF8j3Nz85odH5mjjGpaU+BOB
-	P68FjF0UJuu/HFrBEqnPon4aNrgqYO1x9L+/ICF1XCr9M1ENsFvnux3oKeP+s8HvtVCSUXD+Gmy/U
-	O5TXZakXpZNCCBsREdXkHdjt+YMwyVeYkbsKP1k3+YQNlzCr+NJOASbnLz24nNrPGHw1UXZ6Os/P2
-	6PADY3X8P6kzuhlQLPPYh4i0GpfmrZs8VYRUQlCe6v/Kr5FGr9x1hhWJpR5RiK0V82cGVValC7ryO
-	ty2RprJA==;
-Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjdp-00000002gzx-2DtJ
+	id 1tsiTH-0000000BMs2-35Ue
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 14:34:35 +0000
-Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ff6ae7667dso2240046a91.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 07:34:31 -0700 (PDT)
+	Thu, 13 Mar 2025 13:19:36 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ac2ed007aacso195501766b.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:19:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741876470; x=1742481270; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=GICFi0VoA04wMmuC8eF7tQ0MeFnd48JKTtPTlIjvHiI=;
-        b=Z3VTdr/eD52yW5TmT7+JgVmOc2xFNrfIT5HD10w+bPTdd+o1HD8xAXQbCc46/BnRZv
-         seYZvbRP7IwGYMsl9gYyanZja3iY9dg/eZwiu7VLJVr/xf+X4Xacc7IUTU/0NECK+gt5
-         fbGk3G2GFX7gpx9HkVdkR7V3fXZNCoocdHaO71vZcEh7xRIRgnY1QmQH89g7mfdNig9s
-         5jIJSVKJdDCN6vUjPm0YSRiV55iaenYWykaa5yR1WBJlBbXO19ifyKhRpJ3b4o5wAWUA
-         hyjKMasoruKKdx1P/adcD+EJBe5vqTprmSEWqxmLpoKYjPc2T7Yfvmc83u0pRAqDGwbt
-         uD1w==
+        d=ventanamicro.com; s=google; t=1741871974; x=1742476774; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=SLwI9+XgDvx6y1QmCRm2s349AXzMPGhMLML8/FN0xLk=;
+        b=Q+CF92D7OdQX3/6lSyjcafKY9Huv11qRV5u966vihoZKTT0o1nypPcVN/PzCbRT6H+
+         odOo9yHZkmoYBzUfqkBc/j1Gj4BmaBuwW/j0hvCdWzI5XXPJ0dE8V5gFzAc4CHuNQhCI
+         03GhPVSsyGWDNOLKwS04Oq7KTKNVOGZTAst/s7SN2Px9FZ9E4YJUFHxYRYQqkicEcAzW
+         WFODR2YWYiSIBJAqegW84v0qTJdMDGmPfphynEuhzf/oc3AhBxyhUdRBgNtrY3DdrHMi
+         +A1FG+ENvLayxIlDIfj67UPnsMI++ZurwjehdJx3bxVpiuPuFEhcjStk8VJrWXXXm10N
+         yGoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741876470; x=1742481270;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GICFi0VoA04wMmuC8eF7tQ0MeFnd48JKTtPTlIjvHiI=;
-        b=no1a1rO6Nt8WKECSb7KRJMM/BfnBeYQ+gpiT8BS6y/rI3atk7OI8yXiLTJ7UUOpz+X
-         32aCk08xYbcgZcpKkqdw+43ELP4N7qkrp/FGLBVRnNRQuRWXtt2rHgOwTzCXKrExPD2/
-         sKla8i+boqRfWzq2HXkMhAiEhz9Lx/jWCwLwdC5dtw7/I4yDrWP59OLa+CsPfrwvmDer
-         0qbVegUhnDIGbLvaUvxHupvcqAqbx3NMdc+jvn265XBB4o4QIJadkznkVddzHrEie5iQ
-         0Ue1eF/uTTUng/sv/cATwl/xnQnvHHw0kVbE1dN012WsvnoXmeuEmsKZfLBV7ermqV1m
-         Qg4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWHhaGQlXyUmZhOsZAsoztqfPOFqYa+unstC4eyx2gAjaKMSDyDTrgZVIXlJ+ofTNqkavC3d2rmDRBpdg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzu+lPSAieATE1o0toJqoRgoswEYlHiFLiaI3RqPxxjMZVvDsUI
-	6rae2wioMzJyFCKLmacGyptaxuf4oHuwLPSxnzTB0NQMO3NkIqyz
-X-Gm-Gg: ASbGncsxpfHaPEo2o39LExHfbuot3bTUf4RQ6u1ZtQoL/vmXLLooXd8DnaTWoLUXMBy
-	wtH1PfNjjZ3/dPURqpRTYOvsPBNkkaSO24CGb4yGumvnxV2joUkqhjxbWigJA43V9RWriQMKHwb
-	AJ3YgNMEr67o2y3ITUvFj6R8pRyEf/je1KZZ8n+ToHzbOT8OeSIcazsFiZCKql2bGcWuag9xpkZ
-	Aio0k1UYvek8sJXy6O9RaXVvd9Fi2LFpppjHICH3AJgRbiKXzUE5H4k8e0a4Ajf4vfMQtjulYcY
-	vQjwDCtxNlb0WhYHknRLP+BlKBRsNLM=
-X-Google-Smtp-Source: AGHT+IGfaVAk+c9RAVXj/AWvec/u2Em3Jena5j9eOn/cnAaGId16whELS7F/FD8YOMC2w8PrpvsyVA==
-X-Received: by 2002:a17:90b:380e:b0:2f2:a664:df1a with SMTP id 98e67ed59e1d1-2ff7ce594ccmr39877404a91.2.1741876469920;
-        Thu, 13 Mar 2025 07:34:29 -0700 (PDT)
-Received: from localhost ([2a0f:7803:fac5:a7b6::1])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-30119265943sm3891865a91.36.2025.03.13.07.34.28
+        d=1e100.net; s=20230601; t=1741871974; x=1742476774;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SLwI9+XgDvx6y1QmCRm2s349AXzMPGhMLML8/FN0xLk=;
+        b=YgdCPlLQlIkQN+enFObAqmKIg1uws98YH2BIirqbj/y3GzuWvXC91k2G5Ic9jT9DYY
+         XoULeXSz2aAKY91YoViYvR8KaQoRK/Uud1Ii0YUrX5xEABK3e6J9sr7jx1gQpwsW+p6t
+         RKVDRKPslFvCiyYv5qYOy+GM6qZzH95chM7ht60hBUe2iajj06RydTwnfOpMJUQCHvH/
+         u3N9CfkMqvQ/A0Cp8YaEN2vwJsYqHuzWKsW2Ox8Uhe8AlNOrWiHcutORdlKBxBZG22Zb
+         oUNvG65EEfCVpd2PdctVcigipQEaT3i5JiJnh6U5c7vf16OxYJ2InBc5E2wBZ8RyJf9l
+         5iwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXZltjhie4PiqbEimS5hK5naTVnNeADdMO1CtJBw0XH/qBeFGK0RaxvSUsjxEQxKNtXS/t3PRIAr/ufNg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUXVeFwPknmQJdL+/2ttsuq8nHOCBNgZWwIaNmmzfjxwpNAm+e
+	es8UBYTJMlb9IANpx4yjq0JA3MaPyA6LWpI6iYeaOf0VHqSfPQdb6SaNfmYQN5g=
+X-Gm-Gg: ASbGncs/0YuucXI7YhfXrrp5wLE68kKsYkyIjxT5wjbh3B71c+KNkXsdVnWjPLwckwy
+	B9sIHGMZkigElTDMRAA8IABXnHVQ4ZKkmoV/P62C2p/sse7txeRHYrhAYOlHL7Dt0UKp+BQ77OR
+	QTwG//BRkBtcoX2mnm8hq1KsVNAlSiMHI4rIP4CMLe6Cyi/5sDjELerb0kJ3P++MO65N2eyvxn1
+	fJRE8COUuT6oZviNG+tgPCLP0RwvtkxohtbAcVNF2LVLIkKACF/PRTr3K6Og9xFK5HWthMxDQ8m
+	pRBbrjJ6jWBU/M2aEIQI1v96akog0mhV
+X-Google-Smtp-Source: AGHT+IF3RjvN3caMGccSNmH1eaKCAyeC0UKLdIujqC0Ubvi5/eGttJVhWRGqhwIRTen+UtV+e2lwpQ==
+X-Received: by 2002:a17:907:7da8:b0:ac1:dd6f:f26c with SMTP id a640c23a62f3a-ac2b9ede2f5mr1499361666b.46.1741871973986;
+        Thu, 13 Mar 2025 06:19:33 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::59a5])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3147ead1dsm81138266b.58.2025.03.13.06.19.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 07:34:29 -0700 (PDT)
-Date: Thu, 13 Mar 2025 22:34:25 +0800
-From: Zixian Zeng <sycamoremoon376@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@outlook.com>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
-	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, dlan@gentoo.org
-Subject: Re: [PATCH v3 2/2] riscv: sophgo: dts: Add spi controller for SG2042
-Message-ID: <ujqeq5do2xqf5jvepxaynaxridccalbjows7gid4ehyj7jduyk@2axt2thtet6z>
-References: <20250313-sfg-spi-v3-0-e686427314b2@gmail.com>
- <20250313-sfg-spi-v3-2-e686427314b2@gmail.com>
- <6262dfd2-9e0b-402e-bb03-a2174d544923@kernel.org>
+        Thu, 13 Mar 2025 06:19:33 -0700 (PDT)
+Date: Thu, 13 Mar 2025 14:19:32 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: Re: [PATCH v3 08/17] riscv: misaligned: add a function to check
+ misalign trap delegability
+Message-ID: <20250313-4bea400c5770a5a5d3d70b38@orel>
+References: <20250310151229.2365992-1-cleger@rivosinc.com>
+ <20250310151229.2365992-9-cleger@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6262dfd2-9e0b-402e-bb03-a2174d544923@kernel.org>
+In-Reply-To: <20250310151229.2365992-9-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_143433_638460_98477F24 
-X-CRM114-Status: GOOD (  14.49  )
+X-CRM114-CacheID: sfid-20250313_061935_822117_373E4687 
+X-CRM114-Status: GOOD (  19.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,42 +99,107 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 25/03/13 02:43PM, Krzysztof Kozlowski wrote:
-> On 13/03/2025 14:11, Zixian Zeng wrote:
-> > Add spi controllers for SG2042.
-> > 
-> > SG2042 uses the upstreamed Synopsys DW SPI IP.
-> > 
-> > Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 26 ++++++++++++++++++++++++++
-> >  1 file changed, 26 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> > index e62ac51ac55abd922b5ef796ba8c2196383850c4..9e0ec64e91a2330698aea202c8f0a2ca1f7e0919 100644
-> > --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-> > @@ -545,5 +545,31 @@ sd: mmc@704002b000 {
-> >  				      "timer";
-> >  			status = "disabled";
-> >  		};
-> > +
-> > +		spi0: spi@7040004000 {
-> 
-> Does not look like you keep order by unit address (see DTS coding style).
-> 
-Thanks for reminding, I will read it more carefully.
-> 
-> Best regards,
-> Krzysztof
+On Mon, Mar 10, 2025 at 04:12:15PM +0100, Cl=E9ment L=E9ger wrote:
+> Checking for the delegability of the misaligned access trap is needed
+> for the KVM FWFT extension implementation. Add a function to get the
+> delegability of the misaligned trap exception.
+> =
 
-Best regards,
-Zixian Zeng
+> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/cpufeature.h  |  5 +++++
+>  arch/riscv/kernel/traps_misaligned.c | 17 +++++++++++++++--
+>  2 files changed, 20 insertions(+), 2 deletions(-)
+> =
+
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index ad7d26788e6a..8b97cba99fc3 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -69,12 +69,17 @@ int cpu_online_unaligned_access_init(unsigned int cpu=
+);
+>  #if defined(CONFIG_RISCV_SCALAR_MISALIGNED)
+>  void unaligned_emulation_finish(void);
+>  bool unaligned_ctl_available(void);
+> +bool misaligned_traps_can_delegate(void);
+>  DECLARE_PER_CPU(long, misaligned_access_speed);
+>  #else
+>  static inline bool unaligned_ctl_available(void)
+>  {
+>  	return false;
+>  }
+> +static inline bool misaligned_traps_can_delegate(void)
+> +{
+> +	return false;
+> +}
+>  #endif
+>  =
+
+>  bool check_vector_unaligned_access_emulated_all_cpus(void);
+> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
+ps_misaligned.c
+> index db31966a834e..a67a6e709a06 100644
+> --- a/arch/riscv/kernel/traps_misaligned.c
+> +++ b/arch/riscv/kernel/traps_misaligned.c
+> @@ -716,10 +716,10 @@ static int cpu_online_check_unaligned_access_emulat=
+ed(unsigned int cpu)
+>  }
+>  #endif
+>  =
+
+> -#ifdef CONFIG_RISCV_SBI
+> -
+>  static bool misaligned_traps_delegated;
+>  =
+
+> +#ifdef CONFIG_RISCV_SBI
+> +
+>  static int cpu_online_sbi_unaligned_setup(unsigned int cpu)
+>  {
+>  	if (sbi_fwft_set(SBI_FWFT_MISALIGNED_EXC_DELEG, 1, 0) &&
+> @@ -761,6 +761,7 @@ static int cpu_online_sbi_unaligned_setup(unsigned in=
+t cpu __always_unused)
+>  {
+>  	return 0;
+>  }
+> +
+>  #endif
+>  =
+
+>  int cpu_online_unaligned_access_init(unsigned int cpu)
+> @@ -773,3 +774,15 @@ int cpu_online_unaligned_access_init(unsigned int cp=
+u)
+>  =
+
+>  	return cpu_online_check_unaligned_access_emulated(cpu);
+>  }
+> +
+> +bool misaligned_traps_can_delegate(void)
+> +{
+> +	/*
+> +	 * Either we successfully requested misaligned traps delegation for all
+> +	 * CPUS or the SBI does not implemented FWFT extension but delegated the
+> +	 * exception by default.
+> +	 */
+> +	return misaligned_traps_delegated ||
+> +	       all_cpus_unaligned_scalar_access_emulated();
+> +}
+> +EXPORT_SYMBOL_GPL(misaligned_traps_can_delegate);
+> \ No newline at end of file
+
+Check your editor settings.
+
+> -- =
+
+> 2.47.2
+
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
