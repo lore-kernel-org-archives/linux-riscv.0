@@ -4,90 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5297CC282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:09:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50443C282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:12:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q+7HsF/jxJeY6G7NTZrTn8UTGIzT+dcRLmn6eHALb+g=; b=zZvAYWU2tRiTM/
-	5ktHk7zBEogKFgoWoCmCLZVGMCzerm81KPhB/8eeOu6MikXwVi0VNqBnNi8+9G3PcXgJeiEAHcI5B
-	uSyQaQlBAAKV0e8rzF8GRf/4PFCS9gbBA1JuU/ZgYqhbCcaaqhHcVYx5U5/qukBjzu4ni/ofksXm3
-	GY1N1WlZ9awAAc0yTEce0fPzo/rtD0cRtxXV0NDqcM7gNfB5l4APppCQUB/AxB/cH3tu4sGb7ygbn
-	gXPi8ZfbOW6HgKsl9soI7LasPNERurBX03ofk15kfSAEaES8dhhx3bcQuPphoNxVuONqKx/Rl3/rr
-	iHzHObQ1bOs9fceio41w==;
+	List-Owner; bh=1WEJ+oIzyOXN01KXat5XjIn2pJGmAopnuXbAO4JiDpI=; b=XpQcQZB2ytwt/4
+	GI3V88pgT83Y0DZmsF8NagPmmLhVKEOqIwW5ZHpptn7Gja0/00c/yQ4Ytpe5z5kbh00n3Z3GNo3Ci
+	+kmCRV8dhILZCQE60HLkjhJfSmtRjcyp6fOKSt5j0hV6qbYATRf1SCyL6/gio51fCwURgs7nCdaLT
+	TwYwI8iB6tZGPNaQzLInPxWWqFZlIpS0S0CMU5BXTQi190LpuEuBdsPgxvsl0BjXb0Vv7DmnOc4pu
+	Pl5Az4yT+BOw3wbTmnKlgwjni8hUVK+xTgIiP0TwQOfbKlkfDovuMe0A8/LQkToHhZlvzRx+SHPci
+	POJA1fRIT6HisH9TuHfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiJt-0000000BL0S-0FSb;
-	Thu, 13 Mar 2025 13:09:53 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tsiM3-0000000BLrI-2lyX;
+	Thu, 13 Mar 2025 13:12:07 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiHR-0000000BKW5-0OFk
+	id 1tsiM1-0000000BLqO-1ooI
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 13:07:22 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-39133f709f5so579874f8f.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:07:20 -0700 (PDT)
+	Thu, 13 Mar 2025 13:12:06 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2239aa5da08so16723555ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:12:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1741871239; x=1742476039; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=kL64DFiTXok1q71S+zi/kYHeS1QK7/sbz4oMoXWMASU=;
-        b=epTd4ycYsd3WfAjc3ZXG0a5A2fPwJUZl9+EiiRsFvCAWIpu0+OqbWR3RO6HbG4Ck1q
-         C8UWE/8qF4+Em1cz58RLK03QDn0oIK1ZT2cf5iK+MK2Hf9puSvLpVaJ+KTcGPst6mHjI
-         qHGSeoS2OHTvfIBXqG3togFWhXBQ3hrU7f5VHOpWuee9LAM3/eIDDuNHiy5NxLTIjMQ2
-         sez7VucSSKQsKlRqrvvo1NHMcHuOei0pnqEwnRpK1sfrRZ0yI0P5Dt+G8EGnOxIg6vMv
-         joI7MzsKPP6KtgitZCf+d1aKS0/1hAoL8LW5dI6mCEYSsxyh87+Bhe/FRjvn5FtetB9T
-         H6+A==
+        d=gmail.com; s=20230601; t=1741871524; x=1742476324; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ioHnF4CSbRYwCOFInozClNxdEAsDMbHLiEMPDV5mWJ8=;
+        b=LxHO7vPyHNvpmca0nDFALCF0unwMsIpJNtZtUPtoI4rC57e0b0N5XGAgZOQRxyCewp
+         cbPlnMlqY2N6iRKU0fSlTkHyd+LtWxSgdXjEDd9Gw0oUVoYuOvFTZyhyJaOb/KXCUVGx
+         EIYQUkzDZrY3sAyRzdQ3qx2K8LjszqXSUTR8ynWa2cFXbXmJRGXGZO4W/FyaCq6uCPUL
+         QP3Rj5aJTQg4zMR1UiFbtLT1mlWUmw+szt3k8BW1iVJz7lxB2zNU5xJGMGJsnkoTzlxP
+         8hsFcLjChjtIIYWE73tuLpKTxpdd8g2LPHuDr8lfqvJ7NqLFl2/GR8cSjYYDNtXwkZi7
+         2Qjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741871239; x=1742476039;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kL64DFiTXok1q71S+zi/kYHeS1QK7/sbz4oMoXWMASU=;
-        b=BpOM47+s0BKdJT+nulJM4LSLlcEYEcYXcgElqzhp5YrRSn7sKXUl0kN3h1lDiBM3wa
-         Q5VPJWUa9Q7PwmDgrDxvzzPpWqWgvSIHq1XJIukqT8OPijyZX4BzsbUkU9zEoY7ekvMl
-         cbrX6kU158hoJiuchQ6uywmT24hv6BBvKN0s+VdL54gSUVXyZo8mpmICaI7XPfbwwW5S
-         wIX1v91rSghrRPcVeE+a/lBoSF4RzmKHVQJVFf01RU1IqS0ZWkfDpZdhR/Cv60DA8U6E
-         qUV2TeJEp/fqbllOj6PC+DCWxoGh9s9v34PBP/x5ypxG8Suhnz/XqIOwih+QxMpQzqYH
-         Yp2A==
-X-Forwarded-Encrypted: i=1; AJvYcCWGmLAMrCnIcOnjyiWRUS/CKzo7T8kRTSCOEpmGV4qDZukMJRa91LuEJxGqCdfINYJy8i0Zuztt5e3Hxg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzeP/dHpbR3fyVUTfM2L8U7bGQcqHm19PVMKA+9qdWQLVQ173Lk
-	3quuci2GKRxHfbSvxM0SSdsvzTGUp4FojGWVNKfTcN2yMCLM8djEJHUhZmbJZo4=
-X-Gm-Gg: ASbGnctLl8FB74M9nmXBKPLKCw4VrhcJkgoDhb42xceTDa9RoROMyHIK5vT18djjbNR
-	Z5SLaLEHpGZxo/0zRD9lH83l19hhyPmjgtvZ/sOB8AW300bil7Rx8UZrlo4EwdQzXQi5i4P02cX
-	zfH/QADPIL6R1a5vnFdmnJvCkwv8iIPr1MWt46u/NlXNbuTKUkKtBx8rkRI/1uYi5Ou2GZTTZiB
-	HONapLCZv5RkbqxxzfxTFsip3iqjoeRYBieo9svmmg9OHvxIUaj8jaEV95delDA5ePF2xdZwiaS
-	AlUMuIiLsieeaJr5BW23X/oVmAcVumQr
-X-Google-Smtp-Source: AGHT+IFa3kUJDoicJ8fhht/dP0MNLzwH7jshhQs0/MiP3cN1RHdBOvdNu6RA1GEeL6KH0hkbmig8fQ==
-X-Received: by 2002:a05:6000:18a3:b0:390:e7c1:59d3 with SMTP id ffacd0b85a97d-39132d16de1mr20255337f8f.2.1741871239342;
-        Thu, 13 Mar 2025 06:07:19 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb7ebbc3sm2013164f8f.88.2025.03.13.06.07.18
+        d=1e100.net; s=20230601; t=1741871524; x=1742476324;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ioHnF4CSbRYwCOFInozClNxdEAsDMbHLiEMPDV5mWJ8=;
+        b=rf9wPEoubZAQk5yhNzJ7sVO3hIwdC7jN6beQISuXx2KL8ygVNxvXZGWvcs/0WKmKyw
+         GV63aBZbzixZON6VdmRJ37JVPNnTphi9CVrKdane2HaGq12EiuJWtKqOyKJNPJMF9MQz
+         P781cUX1u4VeEd33Qk2LqfpN3G/zzvRujpHAMRGpTr9KWNndvRDepIEoRRKGU+oJnjHY
+         0+iHYToTY+ZhhIdqufteECb5HLreHOzukBj30bedMR8OC6HhWVQlPf0hk9E/pzpjrBDc
+         grpRCPiWTKqMjUCwK7aDoANx5HLzDXaYjAqy7ATLbIiqHUk125q6bAQ3aNAqLkAYJdrk
+         8kWQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZ2HRCKdDT8MNiQz4+920dQuP4H5vqOHgfNkGklQSwdLFl3/EXJ+5oTeo+Ki3l7Koqoz81sejE7RKzcg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1WjNZZckUxYyp1A9s0KezXpJEf/C8CLTlsFb2sq+lCZtQrE3H
+	ZK/cm1EnQUNR9I60NDJyibJ9lx26iyp1UYp2kfVjRl64NkBM2xHI
+X-Gm-Gg: ASbGncuFjt2Qeg8BFY9tquxneyILc+7WnRkt9TvJG3DBtbqLm7Tg/Z1JnFxXe5Xhmfk
+	+eJE7kGE1sQkcegAildbWsnKOGYGc0LhIGUkhKR1x3FWxZyyjMyYJy4vtPRMOoNsBObW4GU4dv+
+	vWABc436k5Y2L45SA1uW4qDY/R3UPKsWdGVaqef4YSwsopF5pndo8qelfs5NfeK25dz02hhUKoI
+	LMZ4vLFONqzBvzKwI6vSn10EFSVyt0l1GCr/orT//BDqbALE9XCGNVhtSLahRe68GKA1Vd/wZ4P
+	4duEK+PwPn5BFG/FctNJcbCRnOj749UEhTU=
+X-Google-Smtp-Source: AGHT+IH2Tw+QYfXY3WazHSYYhYEHi4iFK5Rz3wHX0nrqtQpHEZJOcKdnWkhmCHmNlfUvzg4HFsOddg==
+X-Received: by 2002:a17:902:e80a:b0:224:6ee:ad with SMTP id d9443c01a7336-22428c01371mr410617775ad.44.1741871524191;
+        Thu, 13 Mar 2025 06:12:04 -0700 (PDT)
+Received: from [198.18.0.9] ([2a0f:7803:fac5:a7b6::1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba6d52sm12539615ad.116.2025.03.13.06.11.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 06:07:18 -0700 (PDT)
-Date: Thu, 13 Mar 2025 14:07:18 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v3 07/17] riscv: misaligned: move emulated access
- uniformity check in a function
-Message-ID: <20250313-89b46bd06fbea0072ac4932f@orel>
-References: <20250310151229.2365992-1-cleger@rivosinc.com>
- <20250310151229.2365992-8-cleger@rivosinc.com>
+        Thu, 13 Mar 2025 06:12:03 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Date: Thu, 13 Mar 2025 21:11:49 +0800
+Subject: [PATCH v3 1/2] spi: dt-bindings: snps,dw-apb-ssi: Add compatible
+ for SOPHGO SG2042 SoC
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250310151229.2365992-8-cleger@rivosinc.com>
+Message-Id: <20250313-sfg-spi-v3-1-e686427314b2@gmail.com>
+References: <20250313-sfg-spi-v3-0-e686427314b2@gmail.com>
+In-Reply-To: <20250313-sfg-spi-v3-0-e686427314b2@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com, 
+ xiaoguang.xing@sophgo.com, dlan@gentoo.org, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741871512; l=949;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=losN7+Xc5utDKmJ4z+1lgugBumic+UE1GU4OYTnTOco=;
+ b=ndAuJNM+9Z0GCvopXpM8mOuezwgblTRngkyxWcXuEIrGOBWqA386LTSVTso8ktm5ASWERKBR2
+ QOnejMyOqQdCTA3gURZiiSj9KkfobekfTyP2sNO3oT/NcCArQUd2yVc
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_060721_134546_4430D96A 
-X-CRM114-Status: GOOD (  18.06  )
+X-CRM114-CacheID: sfid-20250313_061205_479831_FE28BDF0 
+X-CRM114-Status: UNSURE (   7.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,75 +109,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 04:12:14PM +0100, Cl=E9ment L=E9ger wrote:
-> Split the code that check for the uniformity of misaligned accesses
-> performance on all cpus from check_unaligned_access_emulated_all_cpus()
-> to its own function which will be used for delegation check. No
-> functional changes intended.
-> =
+add compatible property to include "sophgo,sg2042-spi" for
+the SOPHGO SG2042 SoC SPI Controller.
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> ---
->  arch/riscv/kernel/traps_misaligned.c | 18 +++++++++++++-----
->  1 file changed, 13 insertions(+), 5 deletions(-)
-> =
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+ Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index 7fe25adf2539..db31966a834e 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -673,10 +673,20 @@ static int cpu_online_check_unaligned_access_emulat=
-ed(unsigned int cpu)
->  	return 0;
->  }
->  =
+diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+index bccd00a1ddd0ad92b437eed5b525a6ea1963db57..33fb21267df2594e68419cfb980a40909868e337 100644
+--- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
++++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+@@ -92,6 +92,10 @@ properties:
+         items:
+           - const: thead,th1520-spi
+           - const: snps,dw-apb-ssi
++      - description: SOPHGO SG2042 SoC SPI Controller
++        items:
++          - const: sophgo,sg2042-spi
++          - const: snps,dw-apb-ssi
+ 
+   reg:
+     minItems: 1
 
-> -bool check_unaligned_access_emulated_all_cpus(void)
-> +static bool all_cpus_unaligned_scalar_access_emulated(void)
->  {
->  	int cpu;
->  =
+-- 
+2.48.1
 
-> +	for_each_online_cpu(cpu)
-> +		if (per_cpu(misaligned_access_speed, cpu) !=3D
-> +		    RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
-> +			return false;
-> +
-> +	return true;
-> +}
-> +
-> +bool check_unaligned_access_emulated_all_cpus(void)
-> +{
->  	/*
->  	 * We can only support PR_UNALIGN controls if all CPUs have misaligned
->  	 * accesses emulated since tasks requesting such control can run on any
-> @@ -684,10 +694,8 @@ bool check_unaligned_access_emulated_all_cpus(void)
->  	 */
->  	on_each_cpu(check_unaligned_access_emulated, NULL, 1);
->  =
-
-> -	for_each_online_cpu(cpu)
-> -		if (per_cpu(misaligned_access_speed, cpu)
-> -		    !=3D RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
-> -			return false;
-> +	if (!all_cpus_unaligned_scalar_access_emulated())
-> +		return false;
->  =
-
->  	unaligned_ctl =3D true;
->  	return true;
-> -- =
-
-> 2.47.2
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
