@@ -4,118 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AC3CC282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AC6C282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dZhstXR/Mt/bV56GYDiOy/WMTJTkvm5Buy9lCfhCizs=; b=LOWSVc5GSaBKhU
-	Il8DvVfdiTqlWno0gPcMMuibzm/KjJiN9jOoV6rxevEy9ZwrWB82nF/PD70GCfoBpCH85M27J9/Rq
-	U3PmfGNseFWZEP1p5kVH9oxBc49Hx5uMJ8qrUzPiIUrtqnsu7UK8dBkBa46JZJRxSM3L79ehZ/FnZ
-	JOOaH4cxF7SrV5Mjmrwe75j2iqLHxYMLNE0Drj1TyfrIg1e7Tk2GrPgxR/c9YBji5p1LiIP4W0DQh
-	VVk85mX1WBF3Supgzfdzcd12r/5MR07M9kmDnodmbNvRwN15Cr49CN/x7xLjMFiuKD8lbtLfG2DFS
-	O+GVW9yXeqPbPtjVO5pA==;
+	List-Owner; bh=LdX3AdIzqgNGyEKTv7yxoLpmv8x5Tkz5sLM8CGUed+I=; b=xVHwnRSwxjP/44
+	yx9NEC3Xm7ikz12z6TxlAI60A4Jl8MvT7SAW5eXKqFgVTh6xY6vxcNXvDbWLnUTJTia4pZXjBOthj
+	N3jpKsHiddshHnQAo9yHpbi4KZZmwkQMugaCIAOWtKugUTkBq+1NRxOzZF84jGCmOEfxSjmidfJ2T
+	vM7M5uLMuEtkQKBMA3wOiMDMTdMLYvT8/WJ/IAJs7xGeqmvLXhNGqfJr3Rdvx7kVxSJYTC3oiWhTm
+	hDI/BhiswnBFjy4tSkf3lVUGnJyzsdXrLHGbSR2oD3LjjyazYfu4FZlVapxRHH3R0lXQbY0gpm5Y+
+	bwAC26ZMfpEo+vZ7NiMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8J-0000000BwZM-2WwK;
-	Thu, 13 Mar 2025 17:14:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsm9R-0000000ByNm-346w;
+	Thu, 13 Mar 2025 17:15:21 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskRL-0000000BeN4-3NGe;
-	Thu, 13 Mar 2025 15:25:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1ii1IFZdoC6n5uv3UgvYeObshpXYt3dV3HzZ5zG8DvA=; b=lRuOWyxbyyOyqnZlaNedgwwAl6
-	hyx5l1fpq6QPKQrvJNM1x+ia67WOMO3so0oE8pnQNX0bmRqxzQEUeoc8VjmF4c2S3Qo+R6GxOpTqC
-	u9JAwgH4CDkJM9r1njHakdLcfgWnzJaHxMwYMDVbB76kPIAXeR5jc3MquxaU31tXngqgbbw1ENzbf
-	6PfNSYqCaSsw7A5SN1DMXJW4jCeMfx6Y9rBrX+G/sfvJvhd24CU8OvcypfEZ/drzJ7SVRtnXq720T
-	S+wPbvflM87pFlP3yui+FZaKGm9RnGlt9CbbdAlMP5tWFECGQNIf5si5gBf08LcHCc/UzQaIReTCL
-	tBthwRRw==;
-Received: from mail-ed1-f45.google.com ([209.85.208.45])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskRI-00000002j1y-3HCA;
-	Thu, 13 Mar 2025 15:25:42 +0000
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5e614da8615so2111559a12.1;
-        Thu, 13 Mar 2025 08:25:39 -0700 (PDT)
+	id 1tslcS-0000000BrjP-0t0f
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Mar 2025 16:41:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741884075;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/AOuWXnGYR13C3EsQl2M3GLqAI/OrlKtR5FIj9y6Kyo=;
+	b=GmAhBIzCLwZs89TfINHEX5xfDJ67TpQ/S+iKBtHMifOwouPcaI90tIceWep1ov54HVMLY/
+	rqmzyILsKedRaOyWxu9FNu8AZgaEj64g2I9zRwDUG9qrExyfNW3+BXJioRFSYYAVr/gstV
+	GK7Cq8+Gwn95RoNnyjEFQDJ+DRPHL3E=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-675-IdyRiDTAOe-gVEmndJQwmA-1; Thu, 13 Mar 2025 12:41:14 -0400
+X-MC-Unique: IdyRiDTAOe-gVEmndJQwmA-1
+X-Mimecast-MFC-AGG-ID: IdyRiDTAOe-gVEmndJQwmA_1741884072
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3011cfa31f6so2096240a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 09:41:13 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741879538; x=1742484338;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1ii1IFZdoC6n5uv3UgvYeObshpXYt3dV3HzZ5zG8DvA=;
-        b=dEp9bakR/d5OgnG87WobSwOCGt1zUZ+ZTJ5ianqdU0nuFzfLKoZJzER0CDI9KZdtlo
-         APqT8yfxaVsVgWlbJozNztBX+GyCaOIvMLIKH0hJ3NWLYhKZL7gQ1Kev63LucBSFBe9D
-         S7BUGTPPckYj8Bvpe4lzcl264XI3eGCUzrAG67oZ5B5D+of/3vvLFB6RSqG2x3jt53fX
-         aZMUserp8awZ34KIAkd69DVzRaGSk94+W2ZJ8juy4CNmj8mL+om/sbRPEZ9q3CZbGmRN
-         TvTl9jrqN/2V+LSUqgNCU+VkQ1Ic6tBIR4ojpaYe6CNBSQdFxwtgIx84LxQs1QKKzmkP
-         L37g==
-X-Forwarded-Encrypted: i=1; AJvYcCUjHb02O418z9XhwZPhATdpe3m+/PAlEfsMbdDN4H269QzhzF1jNDLkgtIA76IXBqTPeBk2KdZUi8s=@lists.infradead.org, AJvYcCVJdF3Sgl5Ax0I8m/5V3d+gT0BBTTp6BXulV5n32+ksTN0ifevk487ifNE96X13zpZXAa7V8sL3ihCPUbA=@lists.infradead.org, AJvYcCVjCUrIS58u4TEOemdzmGiOewHH8Jk7BAKmomRits3lNRxxLjyfLEs/70eNJ5OMqFflNp8mg2xnYJrMC4IaI3SK@lists.infradead.org, AJvYcCX0dyR/D4bmX6FqDh6yAMHLeMhNHZj/EcnN8vYJiJiAn+kspXMpD9utY7QHvORmlkNjgXTT8fATyGJhXLeRuG8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUkMNHRj/L5iyVTOqTbs5TF6cRs3WgnL88Ed8o3o4b9Eehkap0
-	6NMKB4MHARhUY9tOHi4ZM3NUg9Aq4TT3EUKP+YN9iHHK8fHMceVu/sLlJf1ep5E=
-X-Gm-Gg: ASbGncv0+OIBUWlU9ymIjMieJ+nDNODBK/0HsUCj/e6JzFHHnhVMqZRTKwoepMHEbmg
-	WBOMrnCSltqiAqkdYunRY6YRobJW1qchffHPVr5LxTNlk3K43teH0uWsFAgmULHTVxxslD7cjpp
-	FRVDnZg9vJc1edJz5JuXGFJ2g5gOHupp0K/ibe/CZbTTALXrPEJo2OGMFT1UYvrOELV5xhyErvx
-	EQe5jFR+tR6mrl9RoaN43Xr4NsxVBnzuQhnEvtV2Vmy7BTX3LwjYaq1uivl76lALN5tI6xSb7D1
-	UiVVVQMLK3zl7sm/tVO3dtffbC6FVh+cxGOKygAd3tyPrEsB9zhVYbyUjCwUSrtLxawUr1yipw6
-	XjmQIlbw=
-X-Google-Smtp-Source: AGHT+IFUOtWBI6NaleiIpQzNbPm2FUEIxsccumL8465K+O7e52a2EisYzv+KU+18QlzYziVsq7ktqA==
-X-Received: by 2002:a05:6402:26cc:b0:5e4:a1e8:3ef1 with SMTP id 4fb4d7f45d1cf-5e814e73895mr3417803a12.9.1741879537856;
-        Thu, 13 Mar 2025 08:25:37 -0700 (PDT)
-Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com. [209.85.208.49])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816ad9cbbsm807983a12.54.2025.03.13.08.25.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Mar 2025 08:25:36 -0700 (PDT)
-Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5e5deb6482cso3910426a12.1;
-        Thu, 13 Mar 2025 08:25:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUQFpvhkCI/1lYgflKHvG5Hg2EXzwp6FdptwPqrNM96H5l56jefHEOB6THa+u4v7px7FS1bk6shhi7hnnDMltUn@lists.infradead.org, AJvYcCVG1ZONmH1kwb9zv1m7zU95fZbSBXLw18P90hZTBj1Yiuy0xN3+dJezkvTE1zCef4cR6ugjk+qoUEEOB7U=@lists.infradead.org, AJvYcCXb+BDSlTjUtAyngyitN+I+lQXzUsnTGUhJYMV50DQVCuS8q2kLaR0DwYKNozmBlADzukjT9EWg/lo=@lists.infradead.org, AJvYcCXviQE4N3QyB8tP0YPyE9gCut9DDX2lJNhBNz6tilLUoBtQEh0B8nM+TesDDPXn342IKJIx3MzzceYH/BQXPYA=@lists.infradead.org
-X-Received: by 2002:a17:907:9626:b0:ac3:d1c:89ce with SMTP id
- a640c23a62f3a-ac312305664mr252326866b.9.1741879178133; Thu, 13 Mar 2025
- 08:19:38 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741884072; x=1742488872;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/AOuWXnGYR13C3EsQl2M3GLqAI/OrlKtR5FIj9y6Kyo=;
+        b=LhEHxVOpC7cw9Wp7hZSExcstoEPTcgPLKSzj3w8rbZbhuS94VKyTjOX0FddmQyB+bu
+         R6Q2E8DhpQUZeTiludl2DG/bCctkR0g+DMVHTQHQrgSoZDbtg8NeP0vZ/ge82yjQMj7p
+         qStOHbycK8/hl91ltuGqbGq4PX1szlQKF21wxA/4lOgcJPBOWdq/S64POtL4MmoUWFPu
+         os5ql4sYLNtqbl/wcYiR9qvgy8VQESCj9/7E8UnO0zueaLUxRweotbiKrzp6Rfdxdnfb
+         GxSvZ0gb2GXPX8MantCMexSDJZ0w46I3KLT/UdR8iIVE3xyvOmXEg4MTAkz6Ws2/QMza
+         gojw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0z6WLVIXJcCNcALnIjOxC4eIHv2+dRYmtn+uZcBGimhrk8X9ZVT55uNO1t+ZSZ6ANjowUZPI9nlRoAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFh2DZLM2hRjmjK2kJ0EIDBn48fCOpFcFz48TcIJZ8o+DzWEa/
+	mfdW2XubPj9IR5Ik9KDbJFZWRYgMlOOXxy3ikDlxWdzYMAcNvD5AI3R4NOVadM7NVmH5wM4p+Gs
+	huNAKiC2FtcPOgawjyit4hpWF6hqJCe3wscw94/SaqDbz4RCWlmjOOwmPZnwGnwrane6cXhQTEd
+	Y14pwxQMU4thL+FiRwEPDhlB53HYsGH78a4lIrZsTJEGopvio0eZvSgw==
+X-Gm-Gg: ASbGncudFBW8p+WaEy385R4iyYfQlXGERUOsZ2h9yBw4afXfC6lf8UJw82EiX7mFDuw
+	UqjnDzAjvRuKZgE9yALNgA6T04bLegzalpaypMCMp3Xq8ZS1j0PEUDPwt1xXRqy5T05uo7ug=
+X-Received: by 2002:a17:90b:2812:b0:2fe:6942:370e with SMTP id 98e67ed59e1d1-3014e814787mr282598a91.7.1741884071601;
+        Thu, 13 Mar 2025 09:41:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGZSR0GKOgpT9qIwRRXIxVMEVNcO4hzEa3HpTc2cVefBnUNShY5U2qKEnTkHJXaXXzQjc2Wb29JilB9GlX1pNU=
+X-Received: by 2002:a17:90b:2812:b0:2fe:6942:370e with SMTP id
+ 98e67ed59e1d1-3014e814787mr282561a91.7.1741884071208; Thu, 13 Mar 2025
+ 09:41:11 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250313135003.836600-1-rppt@kernel.org> <20250313135003.836600-14-rppt@kernel.org>
-In-Reply-To: <20250313135003.836600-14-rppt@kernel.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 13 Mar 2025 16:19:10 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWCBL_cg1NgbHCA3e9GTob_P9mTuN_Tepvigci6rxDmbg@mail.gmail.com>
-X-Gm-Features: AQ5f1Jr9qHWq5jtnIT3-BmFGhQQ_nRM0uVNr9PeQK5Y9eEomJSZyndfwbc1wpbs
-Message-ID: <CAMuHMdWCBL_cg1NgbHCA3e9GTob_P9mTuN_Tepvigci6rxDmbg@mail.gmail.com>
-Subject: Re: [PATCH v2 13/13] arch, mm: make releasing of memory to page
- allocator more explicit
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>, Alexander Gordeev <agordeev@linux.ibm.com>, 
-	Andreas Larsson <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, 
-	"David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, 
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Guo Ren <guoren@kernel.org>, 
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>, 
-	Ingo Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>, 
-	Johannes Berg <johannes@sipsolutions.net>, 
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Mark Brown <broonie@kernel.org>, Matt Turner <mattst88@gmail.com>, 
-	Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>, 
-	Stafford Horne <shorne@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
-	Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>, 
-	Will Deacon <will@kernel.org>, linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
-	loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org, 
-	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-sh@vger.kernel.org, sparclinux@vger.kernel.org, 
-	linux-um@lists.infradead.org, linux-arch@vger.kernel.org, linux-mm@kvack.org, 
-	x86@kernel.org
+References: <20250313114329.284104-1-acarmina@redhat.com> <20250313114329.284104-8-acarmina@redhat.com>
+ <20250313122503.GA7438@willie-the-truck>
+In-Reply-To: <20250313122503.GA7438@willie-the-truck>
+From: Alessandro Carminati <acarmina@redhat.com>
+Date: Thu, 13 Mar 2025 17:40:59 +0100
+X-Gm-Features: AQ5f1JoRjBn0wYL3TNCgo2Be9gEw3kQ3UV-S3_DQ-XzPf4lVXAvFHPCcZEOjQyQ
+Message-ID: <CAGegRW5r3V2-_44-X353vS-GZwDYG=SVwc6MzSGE8GdFQuFoKA@mail.gmail.com>
+Subject: Re: [PATCH v4 07/14] arm64: Add support for suppressing warning backtraces
+To: Will Deacon <will@kernel.org>
+Cc: linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, 
+	Arnd Bergmann <arnd@arndb.de>, =?UTF-8?B?TWHDrXJhIENhbmFs?= <mcanal@igalia.com>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>, 
+	Daniel Diaz <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>, 
+	Arthur Grillo <arthurgrillo@riseup.net>, Brendan Higgins <brendan.higgins@linux.dev>, 
+	Naresh Kamboju <naresh.kamboju@linaro.org>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard <mripard@kernel.org>, 
+	=?UTF-8?B?VmlsbGUgU3lyasOkbMOk?= <ville.syrjala@linux.intel.com>, 
+	Daniel Vetter <daniel@ffwll.ch>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Guenter Roeck <linux@roeck-us.net>, Alessandro Carminati <alessandro.carminati@gmail.com>, 
+	Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org, 
+	kunit-dev@googlegroups.com, linux-arch@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	loongarch@lists.linux.dev, x86@kernel.org, 
+	Linux Kernel Functional Testing <lkft@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: SxNhLuzSdmqVYe7DONr3PNKby09xRX1I2rLWi9F6qUY_1741884072
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_152540_971635_0E836091 
-X-CRM114-Status: GOOD (  21.25  )
+X-CRM114-CacheID: sfid-20250313_094116_319754_EE1C8D3D 
+X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,44 +116,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 at 14:53, Mike Rapoport <rppt@kernel.org> wrote:
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
-> The point where the memory is released from memblock to the buddy allocator
-> is hidden inside arch-specific mem_init()s and the call to
-> memblock_free_all() is needlessly duplicated in every artiste cure and
-> after introduction of arch_mm_preinit() hook, mem_init() implementation on
-> many architecture only contains the call to memblock_free_all().
->
-> Pull memblock_free_all() call into mm_core_init() and drop mem_init() on
-> relevant architectures to make it more explicit where the free memory is
-> released from memblock to the buddy allocator and to reduce code
-> duplication in architecture specific code.
->
-> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>     # x86
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-
->  arch/m68k/mm/init.c          |  2 --
-
-Acked-by: Geert Uytterhoeven <geert@linux-m68k.org> # m68k
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGVsbG8gV2lsbCwKCk9uIFRodSwgTWFyIDEzLCAyMDI1IGF0IDE6MjXigK9QTSBXaWxsIERlYWNv
+biA8d2lsbEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIFRodSwgTWFyIDEzLCAyMDI1IGF0IDEx
+OjQzOjIyQU0gKzAwMDAsIEFsZXNzYW5kcm8gQ2FybWluYXRpIHdyb3RlOgo+ID4gZGlmZiAtLWdp
+dCBhL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20vYnVnLmggYi9hcmNoL2FybTY0L2luY2x1ZGUvYXNt
+L2J1Zy5oCj4gPiBpbmRleCAyOGJlMDQ4ZGIzZjYuLjA0NGM1ZTI0YTE3ZCAxMDA2NDQKPiA+IC0t
+LSBhL2FyY2gvYXJtNjQvaW5jbHVkZS9hc20vYnVnLmgKPiA+ICsrKyBiL2FyY2gvYXJtNjQvaW5j
+bHVkZS9hc20vYnVnLmgKPiA+IEBAIC0xMSw4ICsxMSwxNCBAQAo+ID4KPiA+ICAjaW5jbHVkZSA8
+YXNtL2FzbS1idWcuaD4KPiA+Cj4gPiArI2lmZGVmIEhBVkVfQlVHX0ZVTkNUSU9OCj4gPiArIyBk
+ZWZpbmUgX19CVUdfRlVOQyAgX19mdW5jX18KPiA+ICsjZWxzZQo+ID4gKyMgZGVmaW5lIF9fQlVH
+X0ZVTkMgIE5VTEwKPiA+ICsjZW5kaWYKPiA+ICsKPiA+ICAjZGVmaW5lIF9fQlVHX0ZMQUdTKGZs
+YWdzKSAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+IC0gICAgIGFzbSB2b2xhdGlsZSAo
+X19zdHJpbmdpZnkoQVNNX0JVR19GTEFHUyhmbGFncykpKTsKPiA+ICsgICAgIGFzbSB2b2xhdGls
+ZSAoX19zdHJpbmdpZnkoQVNNX0JVR19GTEFHUyhmbGFncywgJWMwKSkgOiA6ICJpIiAoX19CVUdf
+RlVOQykpOwo+Cj4gV2h5IGlzICdpJyB0aGUgcmlnaHQgYXNtIGNvbnN0cmFpbnQgdG8gdXNlIGhl
+cmU/IEl0IHNlZW1zIGEgYml0IG9kZCB0bwo+IHVzZSB0aGF0IGZvciBhIHBvaW50ZXIuCgpJIHJl
+Y2VpdmVkIHRoaXMgY29kZSBhcyBsZWdhY3kgZnJvbSBhIHByZXZpb3VzIHZlcnNpb24uCkluIG15
+IHJldmlldywgSSBjb25zaWRlcmVkIHRoZSBjYXNlIHdoZW4gSEFWRV9CVUdfRlVOQ1RJT04gaXMg
+ZGVmaW5lZDoKSGVyZSwgX19CVUdfRlVOQyBpcyBkZWZpbmVkIGFzIF9fZnVuY19fLCB3aGljaCBp
+cyB0aGUgbmFtZSBvZiB0aGUKY3VycmVudCBmdW5jdGlvbiBhcyBhIHN0cmluZyBsaXRlcmFsLgpV
+c2luZyB0aGUgY29uc3RyYWludCAiaSIgc2VlbXMgYXBwcm9wcmlhdGUgdG8gbWUgaW4gdGhpcyBj
+YXNlLgoKSG93ZXZlciwgd2hlbiBIQVZFX0JVR19GVU5DVElPTiBpcyBub3QgZGVmaW5lZDoKX19C
+VUdfRlVOQyBpcyBkZWZpbmVkIGFzIE5VTEwuIEluaXRpYWxseSwgSSBjb25zaWRlcmVkIGl0IGxp
+dGVyYWwgMCwKYnV0IGFmdGVyIGludmVzdGlnYXRpbmcgeW91ciBjb25jZXJuLCBJIGZvdW5kOgoK
+YGBgCiQgZWNobyAtRSAiI2luY2x1ZGUgPHN0ZGlvLmg+XG4jaW5jbHVkZSA8c3RkZGVmLmg+XG5p
+bnQgbWFpbigpCntcbnJldHVybiAwO1xufSIgfCBhYXJjaDY0LWxpbnV4LWdudS1nY2MgLUUgLWRN
+IC0gfCBncmVwIE5VTEwKI2RlZmluZSBOVUxMICgodm9pZCAqKTApCmBgYAoKSSByZWFsaXplZCB0
+aGF0IE5VTEwgaXMgYWN0dWFsbHkgYSBwb2ludGVyIHRoYXQgaXMgbm90IGEgbGluayB0aW1lCnN5
+bWJvbCwgYW5kIHVzaW5nIHRoZSAiaSIgY29uc3RyYWludCB3aXRoIE5VTEwgbWF5IHJlc3VsdCBp
+biB1bmRlZmluZWQKYmVoYXZpb3IuCgpXb3VsZCB0aGUgZm9sbG93aW5nIGFsdGVybmF0aXZlIGRl
+ZmluaXRpb24gZm9yIF9fQlVHX0ZVTkMgYmUgbW9yZSBjb252aW5jaW5nPwoKYGBgCiNpZmRlZiBI
+QVZFX0JVR19GVU5DVElPTgogICAgI2RlZmluZSBfX0JVR19GVU5DIF9fZnVuY19fCiNlbHNlCiAg
+ICAjZGVmaW5lIF9fQlVHX0ZVTkMgKHVpbnRwdHJfdCkwCiNlbmRpZgpgYGAKTGV0IG1lIGtub3cg
+eW91ciB0aG91Z2h0cy4KCj4KPiBXaWxsCj4KCgoKLS0KLS0tCjE3MgoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
