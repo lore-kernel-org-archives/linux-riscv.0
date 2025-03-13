@@ -4,80 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 997D4C282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 07:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC28C28B2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 07:56:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rE1PZrdBw0lEg/77dBb1wB3MlnEDP4k16yQQowX8mBk=; b=E4jNTX1/41hhmK
-	49iwy5yPeeM+vTj+vllIt7/+3gmvI+/3JLtPo+TFScrtWgfj6R/OzaWFgtY9EdDg2byfqocHibojE
-	JyTrrGcn4UriZ/ITvd04oPFcDPzqyzMdlwXePRJSa/JDC43dgr7Pu38OMZeRxxoBBSDghnYrfqL9D
-	Fb7Ada34jsBERamE8tVtoKTAj47PwGfpoRYGtSrebwGXUvQDl9bz6q+R6w6kAt4BaHjW4cP9/GCiv
-	u5okR/FahBC9GkDKIGgH8Zj986a3nZUhEcwcD4FSeKd6CUzXzXOPYAPGNFm1eZDl9b0oJGCReVSSt
-	zxWenYUG32hCUcS9TCAg==;
+	List-Owner; bh=tNLUP7sVAyRR4P5LnSOk3C7ABKXNDVzq+jxXYXwHocw=; b=hysGYc+wF0H/Se
+	FgpnYke7XBKevoOl88a1xo2JQGfA+7g4eF3Xu01n40y8sFjVIJARIBoyTwtBQmqpwU3OYXAr6E9mD
+	8Xfy93d748tMmP+nyGxyW7ToMUmaJvxLiUGkQpafFXjsflSfiEhJBVfbG9u/IoQYqhVuaeI1tpXxW
+	l+FVEbrcH6J+EBHMRQMP+9tzdoXt7cy7MRDeKLUDGwuijsOdqMihWg/PGxa9dmTX5mAdU0O/D2iTu
+	QmEXm7OJurHmX0mTRlVaNc3xYuKNS1p+BuORhObggcjrmOBTMkHV6nYU3vPJZx+KR6t5Y6Qp+exrT
+	x8BHbXjf8EfgcPsmSt4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsd4G-0000000AOCE-0xWs;
-	Thu, 13 Mar 2025 07:33:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsdQy-0000000ATkZ-3UFB;
+	Thu, 13 Mar 2025 07:56:52 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscjI-0000000AK1E-2glw;
-	Thu, 13 Mar 2025 07:11:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 998725C56ED;
-	Thu, 13 Mar 2025 07:09:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01A1CC4CEDD;
-	Thu, 13 Mar 2025 07:11:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741849903;
-	bh=q9Dl0FHGQmih4lZVAN04K/wTRrdLBiM11KRo6Ki9rEk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WDH4wrX262Bl/pXty7Tof6tDNbPo/AyqOM3f7eHVGWpenOwQUTomh+UZnLsJawuPR
-	 etJaZfPdMuc2JgoqLqpKWXh0sxBRNitJhbu/SLtzHqyCU8nynYpyXGmi6Zjk8wR0TZ
-	 mCF/amFQk+Y23iE0bNlSUeMXoTQifpX/TAycLijvkILamzG+uAAksftzSElsS6aJgr
-	 HBuZHnCE6/zHROd/BVVoCoGRUEDfxJE2ZzXRV1fU26svGsncAxCvLdk6QqNvNdvXJY
-	 plkWuxZdnoTsh9vDiR133bIBdp0M5znL3hRUR7tIj1DDFtDVCca9S47/7pg2GeM9B6
-	 SynX5brK73BdQ==
-Date: Thu, 13 Mar 2025 00:11:40 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9KFLGpenwOP32q3@google.com>
-References: <20250308003209.234114-1-irogers@google.com>
+	id 1tsdQw-0000000ATjL-02Ps
+	for linux-riscv@lists.infradead.org;
+	Thu, 13 Mar 2025 07:56:51 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-2ff694d2d4dso1228994a91.0
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 00:56:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1741852609; x=1742457409; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=38L2hz1chNfviXDy2tP0Lz340mHS97KT0hvfgoNEhj0=;
+        b=AtF/TxSQBR33ouKm0MLoUQ1FkJ5fUgOXa+rexgralosaIjNInGk3/QcXqgvG8hHCUS
+         X2BkPzs7bbR8gNZ0VWGY7WF1cLc21DoQOf0q5io1FZTQuAZg9ccBtjeP7AlGdf8M/0dd
+         AC4J7NKpet/nkJ21+OIVePQkwixcP3u1mVp595OWSrn+VL+aK/5/ItkVc9SERuRXQhW+
+         2RVaFkcoBb5BYiQ6wFUAdYQZjmjZ003ooO+yqXoz4FVTRvXnr7eLvdw4YzQyCbI1nUfl
+         Eod62cj5q5mtOy9+hFKiV4uBkwJu9nGuHBm33GvwvHIEwU9YRpZfau7f0aSZp/oYCB+S
+         ZryA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741852609; x=1742457409;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=38L2hz1chNfviXDy2tP0Lz340mHS97KT0hvfgoNEhj0=;
+        b=XG3V8V/2uGw6Wzf1bbfq9LQEcmdnTpJOzg+4Y92LSzXkwMczuvQ4eVa8Kf9TqEVqXQ
+         Azc/CIdy9lg3WKz6W64fOOwxKNnuV0wd0RLOuNRz104yzv7xmJFG3c9fOPz0pzKO+aO7
+         1oMNYWkKZcmljvK6zL4tsMFt21dBZny+448a5O8vim9ebRW7w+SylPw1hX1HMxkviYBo
+         m5gmyQgDCm66S8PTC1jVU3nClpFq5AhdrRq+ASRFrhI7hn/UW3QNApJieZlu7//jf9Ql
+         kYmFybx+8YCdwmq5ZHp0GcyDikek0bfmock5u3h/DGkEDr6Kj4L7XsHKnbSQZQKKrat6
+         Tkew==
+X-Forwarded-Encrypted: i=1; AJvYcCVabOFB507DeoBE++x5XUBrhhOVM6qYpa8GH3xmIuo1dOBnta6RfAiIhs9nZ27voh9arbrrFzIpmSgJdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwHIMsGzfwGJlaSi+VAHU1SvYroBuICU5Fk/FS18ugT1kZKQLFb
+	rTcMEWP/my48IhZTJvTsgAEofkJqrOHfBTTiuph/nthLfNLu26Hdxa3pS34CJiY=
+X-Gm-Gg: ASbGncsKS33c60RCW1UUg0CsI1dbQEL0aKR8ZUrUNkLS0DREmQTraQSMOA/1A8p9rDI
+	QzfoYRi8isR3Mz4PDJhKOuNK0C7Kzni6D5d17AaoaStNpPWdj/MSSiSfprmhYukBzBUDNTKjDEE
+	e0QcBMWkSV5o+M1IloMYzPjfBZ6COXVln6ZC8hPE0KJImvwgWsAWLhz/+RAVxZd5E9RyQ9UOLDM
+	MED46hHuLPEn4wigbq60ddyXgw9jsW6bZAfp7I8d4d7owefLMhZbc7OnC9EUnIHZfE3FWlwaKab
+	hHUNQiF6lUvr70SdXBlwzdYpXw==
+X-Google-Smtp-Source: AGHT+IExdVBJ3/gcWBXodBlgc0t0CtGEm8NtDZGsZZGRgntPtjMcoKU8fMdl0fX1ZXY61aguSYRxkA==
+X-Received: by 2002:a17:90b:4f8d:b0:2f8:b2c:5ef3 with SMTP id 98e67ed59e1d1-2ff7ce8a02fmr39178985a91.14.1741852608708;
+        Thu, 13 Mar 2025 00:56:48 -0700 (PDT)
+Received: from x1 ([97.115.231.194])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30138f89db9sm796672a91.34.2025.03.13.00.56.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 00:56:48 -0700 (PDT)
+Date: Thu, 13 Mar 2025 00:56:46 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	jszhang@kernel.org, ulf.hansson@linaro.org,
+	m.szyprowski@samsung.com, linux-pm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 0/5] TH1520 SoC: Add AON firmware & power-domain
+ support
+Message-ID: <Z9KPvig0dPRO0cX1@x1>
+References: <CGME20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd@eucas1p1.samsung.com>
+ <20250311171900.1549916-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250308003209.234114-1-irogers@google.com>
+In-Reply-To: <20250311171900.1549916-1-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_001144_824949_E8C1987E 
-X-CRM114-Status: GOOD (  25.39  )
+X-CRM114-CacheID: sfid-20250313_005650_337400_0D2AA72E 
+X-CRM114-Status: GOOD (  23.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,202 +104,89 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 04:31:58PM -0800, Ian Rogers wrote:
-> This work builds on the clean up of system call tables and removal of
-> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+On Tue, Mar 11, 2025 at 06:18:55PM +0100, Michal Wilczynski wrote:
+> This patch series introduces and documents power management (PM) support and
+> the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
+> board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
+> upstream, these patches can merge independently.
 > 
-> The system call table in perf trace is used to map system call numbers
-> to names and vice versa. Prior to these changes, a single table
-> matching the perf binary's build was present. The table would be
-> incorrect if tracing say a 32-bit binary from a 64-bit version of
-> perf, the names and numbers wouldn't match.
+> Bigger series cover letter:
+> https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
 > 
-> Change the build so that a single system call file is built and the
-> potentially multiple tables are identifiable from the ELF machine type
-> of the process being examined. To determine the ELF machine type, the
-> executable's maps are searched and the associated DSOs ELF headers are
-> read. When this fails and when live, /proc/pid/exe's ELF header is
-> read. Fallback to using the perf's binary type when unknown.
-
-Now it works well for me!
-
-  $ sudo ./perf trace a32.out
-           ? (         ): a32.out/1267727  ... [continued]: execve())                                           = 0
-           ? (         ): a32.out/1267727  ... [continued]: brk())                                              = 0x57f33000
-       0.062 ( 0.003 ms): a32.out/1267727 access(filename: 0xf7f170cc, mode: R)                                 = -1 ENOENT (No such file or directory)
-       0.070 ( 0.011 ms): a32.out/1267727 openat(dfd: CWD, filename: 0xf7f1347f, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
-       0.070 ( 0.023 ms): a32.out/1267727  ... [continued]: close())                                            = 0
-       0.103 ( 0.009 ms): a32.out/1267727 openat(dfd: CWD, filename: 0xf7ee43e0, flags: RDONLY|CLOEXEC|LARGEFILE) = 3
-       0.113 ( 0.002 ms): a32.out/1267727 read(fd: 3, buf: 0xff854990, count: 512)                              = 512
-       0.113 ( 0.049 ms): a32.out/1267727  ... [continued]: close())                                            = 0
-       0.113 ( 0.060 ms): a32.out/1267727  ... [continued]: set_tid_address())                                  = 1267727 (a32.out)
-       0.175 ( 0.001 ms): a32.out/1267727 set_robust_list(head: 0xf7ee556c, len: 12)                            = 
-       0.222 ( 0.005 ms): a32.out/1267727 mprotect(start: 0xf7ebc000, len: 8192, prot: READ)                    = 0
-       0.230 ( 0.004 ms): a32.out/1267727 mprotect(start: 0x565b1000, len: 4096, prot: READ)                    = 0
-       0.237 ( 0.003 ms): a32.out/1267727 mprotect(start: 0xf7f1f000, len: 8192, prot: READ)                    = 0
-       0.258 ( 0.006 ms): a32.out/1267727 munmap(addr: 0xf7ec9000, len: 108298)                                 = 0
-       0.258 ( 0.027 ms): a32.out/1267727  ... [continued]: brk())                                              = 0x57f33000
-       0.258 ( 0.031 ms): a32.out/1267727  ... [continued]: brk())                                              = 0x57f54000
-       0.258 ( 0.033 ms): a32.out/1267727  ... [continued]: brk())                                              = 0x57f55000
-       0.296 ( 0.008 ms): a32.out/1267727 openat(dfd: CWD, filename: 0x565b000a)                                = 3
-       0.316 ( 0.002 ms): a32.out/1267727 read(fd: 3, buf: 0xff8544a8, count: 4096)                             = 211
-       0.319 ( 0.001 ms): a32.out/1267727 read(fd: 3, buf: 0x57f332e0, count: 4096)                             = 0
-       0.319 ( 0.005 ms): a32.out/1267727  ... [continued]: close())                                            = 0
-       0.319 ( 0.010 ms): a32.out/1267727  ... [continued]: brk())                                              = 0x57f54000
-       0.337 (         ): a32.out/1267727 exit_group()                                                          = ?
-
-Thanks,
-Namhyung
-
+> This series is versioned to maintain continuity with the bigger patchset it is
+> a subseries of. Please find below a changelog for the AON & power-domain:
 > 
-> Remove some runtime types used by the system call tables and make
-> equivalents generated at build time.
+> v8:
+> - add proper cleanup in the th1520_pd_probe()
+> - add "suppress_bind_attrs = true", since there is no need to unbound the driver
+>   during runtime. This simplifies the code by eliminating the remove function
 > 
-> v5: Add byte swap to dso__e_machine and fix comment as suggested by
->     Namhyung.
+> v7:
+> - add '#include <linux/slab.h", due to kernel robot issue
 > 
-> v4: Add reading the e_machine from the thread's maps dsos, only read
->     from /proc/pid/exe on failure and when live as requested by
->     Namhyung. Add patches to add dso comments and remove unused
->     dso_data variables that are unused without libunwind.
+> v6:
+> - split the firmware & power-domain patches into a separate series
 > 
-> v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
->     Bergmann <arnd@arndb.de> on additional optional column and MIPS
->     system call numbering. Rebase past Namhyung's global system call
->     statistics and add comments that they don't yet support an
->     e_machine other than EM_HOST.
+> v5:
+> - changed the AON driver to be a set of library functions rather than a
+>   standalone driver
 > 
-> v2: Change the 1 element cache for the last table as suggested by
->     Howard Chu, add Howard's reviewed-by tags.
->     Add a comment and apology to Charlie for not doing better in
->     guiding:
->     https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
->     After discussion on v1 and he agreed this patch series would be
->     the better direction.
+> v4:
+> - added workaround to disable AUDIO power domain to prevent firmware crashes
 > 
-> Ian Rogers (11):
->   perf dso: Move libunwind dso_data variables into ifdef
->   perf dso: kernel-doc for enum dso_binary_type
->   perf syscalltbl: Remove syscall_table.h
->   perf trace: Reorganize syscalls
->   perf syscalltbl: Remove struct syscalltbl
->   perf dso: Add support for reading the e_machine type for a dso
->   perf thread: Add support for reading the e_machine type for a thread
->   perf trace beauty: Add syscalltbl.sh generating all system call tables
->   perf syscalltbl: Use lookup table containing multiple architectures
->   perf build: Remove Makefile.syscalls
->   perf syscalltbl: Mask off ABI type for MIPS system calls
+> v3:
+>  - consolidated device tree representation by merging aon and power-domain nodes
+>    while maintaining separate drivers internally
+>  - power-domain driver is now instantiated from within the aon driver
+>  - fixed optional module dependencies in Kconfig
+>  - added kernel-doc comments for all exported functions
+>  - implemented th1520_aon_remove() to properly clean up mailbox channel
+>    resources
 > 
->  tools/perf/Makefile.perf                      |  10 +-
->  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
->  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/alpha/include/syscall_table.h |   2 -
->  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
->  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
->  tools/perf/arch/arc/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
->  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
->  tools/perf/arch/arm/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
->  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
->  tools/perf/arch/arm64/include/syscall_table.h |   8 -
->  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
->  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
->  tools/perf/arch/csky/include/syscall_table.h  |   2 -
->  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
->  .../entry/syscalls/Makefile.syscalls          |   3 -
->  .../arch/loongarch/include/syscall_table.h    |   2 -
->  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
->  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/mips/include/syscall_table.h  |   2 -
->  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
->  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
->  .../perf/arch/parisc/include/syscall_table.h  |   8 -
->  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
->  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
->  .../perf/arch/powerpc/include/syscall_table.h |   8 -
->  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
->  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
->  tools/perf/arch/riscv/include/syscall_table.h |   8 -
->  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
->  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/s390/include/syscall_table.h  |   2 -
->  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
->  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
->  tools/perf/arch/sh/include/syscall_table.h    |   2 -
->  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
->  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/sparc/include/syscall_table.h |   8 -
->  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
->  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
->  tools/perf/arch/x86/include/syscall_table.h   |   8 -
->  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
->  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
->  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
->  tools/perf/builtin-trace.c                    | 290 +++++++++++-------
->  tools/perf/scripts/Makefile.syscalls          |  61 ----
->  tools/perf/scripts/syscalltbl.sh              |  86 ------
->  tools/perf/trace/beauty/syscalltbl.sh         | 274 +++++++++++++++++
->  tools/perf/util/dso.c                         |  88 ++++++
->  tools/perf/util/dso.h                         |  58 ++++
->  tools/perf/util/symbol-elf.c                  |  27 --
->  tools/perf/util/syscalltbl.c                  | 148 ++++-----
->  tools/perf/util/syscalltbl.h                  |  22 +-
->  tools/perf/util/thread.c                      |  80 +++++
->  tools/perf/util/thread.h                      |  14 +-
->  57 files changed, 792 insertions(+), 536 deletions(-)
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
->  delete mode 100644 tools/perf/scripts/Makefile.syscalls
->  delete mode 100755 tools/perf/scripts/syscalltbl.sh
->  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
+> v2:
+>  - introduced a new firmware driver to manage power-related operations.
+>  - rewrote the power-domain driver to function alongside the firmware driver.
+>    These nodes in the device tree lack direct address spaces, despite
+>    representing HW blocks. Control is achieved via firmware protocol messages
+>    transmitted through a mailbox to the E902 core.
+>  - added new dt-bindings for power and firmware nodes.
+>  - ran dtbs_check and dt_binding_check to ensure compliance.
+> 
+> Michal Wilczynski (5):
+>   dt-bindings: firmware: thead,th1520: Add support for firmware node
+>   firmware: thead: Add AON firmware protocol driver
+>   dt-bindings: power: Add TH1520 SoC power domains
+>   pmdomain: thead: Add power-domain driver for TH1520
+>   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
+> 
+>  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
+>  MAINTAINERS                                   |   5 +
+>  arch/riscv/Kconfig.socs                       |   1 +
+>  drivers/firmware/Kconfig                      |   9 +
+>  drivers/firmware/Makefile                     |   1 +
+>  drivers/firmware/thead,th1520-aon.c           | 248 ++++++++++++++++++
+>  drivers/pmdomain/Kconfig                      |   1 +
+>  drivers/pmdomain/Makefile                     |   1 +
+>  drivers/pmdomain/thead/Kconfig                |  12 +
+>  drivers/pmdomain/thead/Makefile               |   2 +
+>  drivers/pmdomain/thead/th1520-pm-domains.c    | 218 +++++++++++++++
+>  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
+>  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
+>  13 files changed, 770 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+>  create mode 100644 drivers/firmware/thead,th1520-aon.c
+>  create mode 100644 drivers/pmdomain/thead/Kconfig
+>  create mode 100644 drivers/pmdomain/thead/Makefile
+>  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
+>  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
+>  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
 > 
 > -- 
-> 2.49.0.rc0.332.g42c0ae87b1-goog
-> 
+> 2.34.1
+
+For the series:
+
+Acked-by: Drew Fustini <drew@pdp7.com>
 
 _______________________________________________
 linux-riscv mailing list
