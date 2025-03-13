@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F038C282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 12:16:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A028DC28B2E
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 12:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hn4NicO1wStWLH12rFfSqYKAlUgk8TfNrssCIQf+DVY=; b=eOUq7Yql7dFhb4
-	kONW0aB+yzEq5uinXTlV6EGfZR0v8qUVaW0jrWos3L1+HMJnMBZI2gxx0KcfZ5Z7gFZ4ggjN9NMz1
-	N8WBRNH7UmhJQu843DAy890M06RE6kUO1iJ+n84r33bahueVla3aZnvTTnxp7bMDikvb2V5U3k19z
-	ZNZ2Q/paHas1RnWNhoB5obor/pGrEjNiA+35FJ76bfWDB7KfZUHZOSdaH7WW605npCem3HGHBaT4W
-	6Wq3DPJFLZfkydN8fsM/kh/OCRMpCraH/oNLXfqtDl++gA7wsX2NybLxnBk6X2zX1MyTe9jTHrwpO
-	uIIvsVQeDN5JxGz/MAig==;
+	List-Owner; bh=MMGxffRnsyGHQnseyZGiXrLiYZ25cDicM6Oyo0QBc2U=; b=syEjzT8Zsrxcs0
+	P/FFBmIRoq6T1J58FEBfHTCrgmEo2u4s3LT9SCOJahuvz1+tw9D9FzJS+IpQrDWAMIduD3kivMg2E
+	cqPmbwY3VtVSaf/Wj2bLTPb8texrqUmFoswYMkix4kn5/LIE7R9W6rgS3vnTAgwr2rSt2NhVHSN6y
+	Tj909JTMhxEL64xa4pHOraWYxIVBp17NTde5NW918/AQ32KbLkdIAxHhOCLzyimEBvqlwLZgMOG+k
+	QkDuP87w2gcAnxNTEI7JDQzGq7CGl5IZyZ2EP1CmUj+2FJOXQB2lBrM+ewHcl7rBg6WwrzZHcT817
+	o3DacxUsqt24yp50D6wg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshUB-0000000BD5L-1ZIf;
-	Thu, 13 Mar 2025 12:16:27 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tshfb-0000000BEwT-3AeM;
+	Thu, 13 Mar 2025 12:28:15 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsh1h-0000000B6BF-40rN
+	id 1tshcE-0000000BEM5-16fG
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 11:47:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741866421;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=fuCFF39iXwBMHtdVpJheMeZKmjdk+AFM9NbRaPloTHM=;
-	b=frspNvJTyWWLt6zSu2Xs5mqLTfPMoywV7611fqxgf07nxgkIhFUgtkXuQCrYoEMzzMQ0Ok
-	CoAfCSSxljhCp+ulJDX/U2YEJZyLUaToS7XKWpbQCPYZhGzFBU03Ga1Ooh49pxD+WkMleO
-	HOtlTvOeItJJr4XWMfPML9lXgZufaXc=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-656-GVsCbHyhNnCpsBy-tsQKDA-1; Thu, 13 Mar 2025 07:44:55 -0400
-X-MC-Unique: GVsCbHyhNnCpsBy-tsQKDA-1
-X-Mimecast-MFC-AGG-ID: GVsCbHyhNnCpsBy-tsQKDA_1741866294
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43d00017e9dso4357245e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 04:44:54 -0700 (PDT)
+	Thu, 13 Mar 2025 12:24:47 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3913b539aabso549720f8f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 05:24:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1741868684; x=1742473484; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=jdwK1Zh8ZZo6rwDf542VaxRAlTlQ9sZFdzOTXwzDIRU=;
+        b=ZMdDd89jXKSsU0HjLaq9TiARvdvM08O+m2tb2gqX9p8zRMdCH6b35g5e86zlGJkYcw
+         Ik3wzitxaNHOMMgLAnmmiAuLYlbi8I/QvCYYjsSnY6Jn2WcJFqif0zYxQ0cwEyzc3K2o
+         mxz05+JlmKMmvmYlq65CcgSMfm+ZImoMFo1tqbYIVGIlS+oQrgSQv1POkcNgx8LQ9jXr
+         Ss+66ffWfe1F9ETAiI/i6+PY0GeRv6lCh8HUXybthh1d+A7GHJ45PudmMZ4hwNLFKwR9
+         ML1/5k6BCgG1gQLSWhmHkCSdooGCIJ7Lh88nG9Sb7FtKL9Oe2F2vA65f2bxgyLS8Wt6l
+         +5cg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741866294; x=1742471094;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fuCFF39iXwBMHtdVpJheMeZKmjdk+AFM9NbRaPloTHM=;
-        b=cuiu7rBvMpwNylqpJg73ngCTfV296fAa06qgj+ymxX+eozQDV7AM9Yk5y3xJ7OE81L
-         jKJYkXtzL51L3n0HCv6VYaeW6F7cirdnV7zHRvH6obJaPaGZd3gY7ITgbdz1j/EF1fki
-         3Ua68sR6Jt8Q1IhWMmjdxZisC0Q83zgRPtOe34v8/9u0nBorj9SJ6PyfETkRkDaJDo4S
-         EO6/Nt/9kI9CedNg6KflU1zf3z2iSjJA78Ji8iKJH9+ilzSe/CbRYyDVd+hOxhWwj/hh
-         oCjOTHSjxMLqt/wGO16Xe5XsPDei/IcJ+/HisG80WyWzPYQey74M5TM0vCz2re1fqwce
-         VAjA==
-X-Forwarded-Encrypted: i=1; AJvYcCWSap0PYkXE04ByHPSqwBtfVxEgttTlOdx6C0nfiJRkNpRWIufS8kWNxxXzW/1gUIOnR+0Q8BCesmQ0og==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0h9hUqX7Xu7tmdb+KNSglY4tHZR8Ogwdi9dU+Ll3hhPA2NtGK
-	g8EL1Xu7sEdRB6irs3HiXs0+X3tNg1ZtWabzpVpTMUaEciDF/FKQzOkT//z1T4hx9h4emaB52/j
-	/DK4VmRXcdTX/MMr542hT9AWnibB+FHXEOMDB646CsZkB3vLPZQXGGsQTHhMIMLRFag==
-X-Gm-Gg: ASbGncuqRVnh0aPUuMlRe983LzLO92Il8CMrj7cE0oboibWiMmRQvEnGZkEabn0foSL
-	DsPPxBYG5THpdCUMIKpQo9MhN/24UM19/i5Hosc3XB3NjQeHXxXfnkFFkJOKbsi6qC5olWvrwlg
-	gQOKCjdCj6Mqh28Nc2nnC00/W2uZEkOLscfcYFWn4ccg5VWE6z7Qqo7i9Ned7Dch70sonmetcgO
-	97bZMleqZqCYsjleofJrWvqJ1l7b4bPXSjNxbRpGwA0lIbD1CvYsT8LerIfBPkrd1MySQ6zMOl8
-	QN/xqpgGHedbS6/Jqs81
-X-Received: by 2002:a05:600c:448a:b0:43c:ee62:33f5 with SMTP id 5b1f17b1804b1-43cee6235b7mr136023295e9.27.1741866293863;
-        Thu, 13 Mar 2025 04:44:53 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH0wHJ2zwJ8yj3cYw/s9VH9lfhVlHVsfQsMYeCFjOVxBPaF+5L2/VWS3+5UdzriUt/uCnhyuw==
-X-Received: by 2002:a05:600c:448a:b0:43c:ee62:33f5 with SMTP id 5b1f17b1804b1-43cee6235b7mr136023005e9.27.1741866293519;
-        Thu, 13 Mar 2025 04:44:53 -0700 (PDT)
-Received: from lab.hqhome163.com ([81.57.75.210])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d188b754asm17844115e9.14.2025.03.13.04.44.51
+        d=1e100.net; s=20230601; t=1741868684; x=1742473484;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=jdwK1Zh8ZZo6rwDf542VaxRAlTlQ9sZFdzOTXwzDIRU=;
+        b=uScImLIYc9q4QkulceK8JGU0I3zN23Cg9XeYsFXsKq5zXyIb4Paeg82Ljf/VKHHI/I
+         07Kh2kE/9T3m2Nx3rL5c0nJp3tbAuGLY2AA+OkFwv4ROVVVdrlA+M6m7HowE40pE97tN
+         z3/uDDOKZ3SKWBmPvZvAarixTMikw3mF/SsFCa5u9v8AIL/Q5AIOP/fzx/7ObAN5+tnp
+         YqRK8HiqX+QZsm9dO9y0woczA+7qKJyDv6wHQVI4yUBglips0fn5ylGgHuwQnrzY48Md
+         g7Ly29nYPZpuR1D6HysV/MiBijLPosiBV8gsjpyQPZybXRh3M7RX76EbLw1bVXlA1uKb
+         qocg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbXoTBfpaFJgDV5AYGEFdHhi6/KO2ZOhYwsmazzQ9C7r0h/CxKXGolz5yYKj5iS+GshJX/BgM4IiOb0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxWjqw1eFo1zsjvLrErqbnPYZ1E/HYg9gacStUuBzFDXQe9PSO
+	Qk3W3RhidJ0xv7LfctU32wVu43q8D0o4YXIeFXz126es4eVlf0CQsAlYwSr0PKE=
+X-Gm-Gg: ASbGncvDewMHjc1b7bxC1k4MTfYazWBA6BKa9I7EBxWt4LWAU6pLgVA4lYsN6nejkSH
+	MrqNxkskUBmActAFpQaY0HhiVVmFnNUvOAnrkiSR2pS9p7H56mAjuk1O9u8NhHxunZsFMYJOFbG
+	gKa7e/2Z2cwaK2Nq9I7+uEfopnq1yDeijHvknWiWbgNX+sEwE8t1LuunDrimIBdKw64PJyj9ajI
+	8ToCeqbb1nQV/v5B7M/RjLa4P1jkB8DbGltZulEBgh7i0wR3D4TNmqYO2itA99ZkyfMFh4e3aso
+	ZwdRSCTRwuxQbm3NKytYAIISNIe9pJxJ
+X-Google-Smtp-Source: AGHT+IHTTFdUMyPE8J6/FJ/Tz2TmgEnvUPiqAP3Vg4LJA9U623EyzHKoPA3QMg0KCVbZ9Z4v0fkfMA==
+X-Received: by 2002:a05:6000:402a:b0:390:e5c6:920 with SMTP id ffacd0b85a97d-39132d22aa7mr18761264f8f.3.1741868684583;
+        Thu, 13 Mar 2025 05:24:44 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::59a5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c8975b90sm2006325f8f.53.2025.03.13.05.24.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 04:44:52 -0700 (PDT)
-From: Alessandro Carminati <acarmina@redhat.com>
-To: linux-kselftest@vger.kernel.org
-Cc: David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Kees Cook <keescook@chromium.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	=?UTF-8?q?Ville=20Syrj=C3=A4l=C3=A4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Alessandro Carminati <alessandro.carminati@gmail.com>,
-	Jani Nikula <jani.nikula@intel.com>,
-	dri-devel@lists.freedesktop.org,
-	kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	x86@kernel.org,
-	Linux Kernel Functional Testing <lkft@linaro.org>,
-	Yoshinori Sato <ysato@users.sourceforge.jp>,
-	Rich Felker <dalias@libc.org>,
-	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
-	Alessandro Carminati <acarmina@redhat.com>
-Subject: [PATCH v4 11/14] sh: Add support for suppressing warning backtraces
-Date: Thu, 13 Mar 2025 11:43:26 +0000
-Message-Id: <20250313114329.284104-12-acarmina@redhat.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250313114329.284104-1-acarmina@redhat.com>
-References: <20250313114329.284104-1-acarmina@redhat.com>
+        Thu, 13 Mar 2025 05:24:44 -0700 (PDT)
+Date: Thu, 13 Mar 2025 13:24:43 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	Samuel Holland <samuel.holland@sifive.com>, Deepak Gupta <debug@rivosinc.com>
+Subject: Re: [PATCH v3 01/17] riscv: add Firmware Feature (FWFT) SBI
+ extensions definitions
+Message-ID: <20250313-924c6711597160f50c4cf90e@orel>
+References: <20250310151229.2365992-1-cleger@rivosinc.com>
+ <20250310151229.2365992-2-cleger@rivosinc.com>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: UsRwQpDyOVFQIfkstc7EmWWrZ2Mi98VkK85qMABT0HQ_1741866294
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20250310151229.2365992-2-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_044702_064960_81D24D84 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250313_052446_305389_50627E76 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,106 +100,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guenter Roeck <linux@roeck-us.net>
+On Mon, Mar 10, 2025 at 04:12:08PM +0100, Cl=E9ment L=E9ger wrote:
+> The Firmware Features extension (FWFT) was added as part of the SBI 3.0
+> specification. Add SBI definitions to use this extension.
+> =
 
-Add name of functions triggering warning backtraces to the __bug_table
-object section to enable support for suppressing WARNING backtraces.
+> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Tested-by: Samuel Holland <samuel.holland@sifive.com>
+> Reviewed-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>  arch/riscv/include/asm/sbi.h | 33 +++++++++++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+>
 
-To limit image size impact, the pointer to the function name is only added
-to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-parameter is replaced with a (dummy) NULL parameter to avoid an image size
-increase due to unused __func__ entries (this is necessary because __func__
-is not a define but a virtual variable).
-
-Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Yoshinori Sato <ysato@users.sourceforge.jp>
-Cc: Rich Felker <dalias@libc.org>
-Cc: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
-Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
----
- arch/sh/include/asm/bug.h | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
-
-diff --git a/arch/sh/include/asm/bug.h b/arch/sh/include/asm/bug.h
-index 05a485c4fabc..470ce6567d20 100644
---- a/arch/sh/include/asm/bug.h
-+++ b/arch/sh/include/asm/bug.h
-@@ -24,21 +24,36 @@
-  * The offending file and line are encoded in the __bug_table section.
-  */
- #ifdef CONFIG_DEBUG_BUGVERBOSE
-+
-+#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-+# define HAVE_BUG_FUNCTION
-+# define __BUG_FUNC_PTR	"\t.long %O2\n"
-+#else
-+# define __BUG_FUNC_PTR
-+#endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
-+
- #define _EMIT_BUG_ENTRY				\
- 	"\t.pushsection __bug_table,\"aw\"\n"	\
- 	"2:\t.long 1b, %O1\n"			\
--	"\t.short %O2, %O3\n"			\
--	"\t.org 2b+%O4\n"			\
-+	__BUG_FUNC_PTR				\
-+	"\t.short %O3, %O4\n"			\
-+	"\t.org 2b+%O5\n"			\
- 	"\t.popsection\n"
- #else
- #define _EMIT_BUG_ENTRY				\
- 	"\t.pushsection __bug_table,\"aw\"\n"	\
- 	"2:\t.long 1b\n"			\
--	"\t.short %O3\n"			\
--	"\t.org 2b+%O4\n"			\
-+	"\t.short %O4\n"			\
-+	"\t.org 2b+%O5\n"			\
- 	"\t.popsection\n"
- #endif
- 
-+#ifdef HAVE_BUG_FUNCTION
-+# define __BUG_FUNC	__func__
-+#else
-+# define __BUG_FUNC	NULL
-+#endif
-+
- #define BUG()						\
- do {							\
- 	__asm__ __volatile__ (				\
-@@ -47,6 +62,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__), "i" (0),		\
- 		   "i" (sizeof(struct bug_entry)));	\
- 	unreachable();					\
-@@ -60,6 +76,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__),			\
- 		   "i" (BUGFLAG_WARNING|(flags)),	\
- 		   "i" (sizeof(struct bug_entry)));	\
-@@ -85,6 +102,7 @@ do {							\
- 		 :					\
- 		 : "n" (TRAPA_BUG_OPCODE),		\
- 		   "i" (__FILE__),			\
-+		   "i" (__BUG_FUNC),			\
- 		   "i" (__LINE__),			\
- 		   "i" (BUGFLAG_UNWINDER),		\
- 		   "i" (sizeof(struct bug_entry)));	\
--- 
-2.34.1
-
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
