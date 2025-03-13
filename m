@@ -4,90 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDB68C282EC
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 14:21:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AE85C282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 14:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZWT1qjbnGPSC0YeHeOV79DEv2KMvKlMrgqFYwWdSrW8=; b=2QXPdwqgj9qxqe
-	NEL7GGZqc4ox3eLs9YQ3JcTqo/8uYGI3SmqQX8z/UqiozyGdrqp84e2U+AgRGn2mOILW1zClDgJQ4
-	Glj+lt1yQwO99F1Ep0fQU5P5seSjo1lP+6ruYhimf8L1z5je8847lVlqkbtna+BQBk+U8DjvrN6Sf
-	ccVjh5/hZUM1VXxbnuQEggvgU1YfDMAbV5k1ZCZzZ1N+7bNQRPdsit0DXWugp2d5X3UrBtVMIkNw3
-	ax/QswW9Dy0UoXFm0dkOjKnKkVlb5SreDsyAZhgEOK+OASjDZgBDyH+wr1Iam1OgIw+U4n6Xnd8Q8
-	CpxUb7YMDmaCsLL02IzA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZF5pSaP9YndQ+dKk3jaC1KOI1WPdoNcf9dVrf6CNrQY=; b=wjAHZRBr5H1EAs
+	XAqyV6wf2l1uuRa3Tk5Rcnn8PKPs9uedbKoGzrSivPzNM1Q4uZjBDYv+fBoWapHxUDoKuvXmxSCl+
+	nFpbAktuXlS2vYkmoCMXX1h9MwBlmbhW7Zz5fFj3zlCqma4NTd/eI3sD2RHswGuXkhclsmKfuxXvc
+	C4JKOmgmNkE9Q+vR8pda+1wLQ2pW8Mqlma+BGKUuU5jb99/sud5cPPYbqOa1Wwm+MBm3sLEBk8d6d
+	6OE1dPVkka4zZPQMgWI5eUudh4cwbG++a7h5ygT6ahytYtaNwBhqQX8gU8daWuHR/gN6qfwzj7fQo
+	l599/vXZAywfrAqPdy9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjQg-0000000BVdx-2EWY;
-	Thu, 13 Mar 2025 14:20:58 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tsjQi-0000000BVgM-1O0y;
+	Thu, 13 Mar 2025 14:21:00 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiGL-0000000BKI7-06vl
+	id 1tsiLv-0000000BLoy-2s0E
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 13:06:14 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso5626835e9.2
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:06:12 -0700 (PDT)
+	Thu, 13 Mar 2025 13:12:01 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-224171d6826so21126065ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:11:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1741871171; x=1742475971; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=JykEzm+QtlDREfjY9aCf97M8p4eU9HkNtWKu9+Cs/cE=;
-        b=jk2ddD3DI3oTlmqBDrsBrTUcWvJTQMYf1zIZ1cpiPs0D/HNzDBE7bf0pdFNJkE50Dj
-         qm9Ho5RC1hv59kq1ia0iayblR5WHVhepPejwJ6vuZ9vxCn3O/IG9dxmEv2axd4xQ99i6
-         2QJ3mKJOy1vW52jN+tbHW7y2qZcNDQzcYtvNfHK4Ta4mNEHzsE3+r1mSs5k1UYj38Na7
-         it4Syk3kVbOPtDXM3XNGmeeQ8vrkiaipqUBGqswIozG19d3kpfSW0vgQc27z6DmwzyTw
-         QEhkAQrivNPEoJQXGT0VRUzVbQfo9iMh5HJlukPC+RgrdAVLs/SrDdATIipKUvi7BHuw
-         FZEg==
+        d=gmail.com; s=20230601; t=1741871518; x=1742476318; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=whAbkbFeemn/zGkgo0Y/FdRAbnzleJIZKjpHt+Srrxs=;
+        b=FIm9sE7LPYsa1+3tkKDYGdJxYOL8KQeGFlzWccoUVYE12vnA1MdDkmbuKXIrqFe4ay
+         dI9j29vgAkmNWazP/y56SV7WYYqqVLsvNGMuFV9fmb1JZRZcxRcBGuqnnXpqocI3OIkA
+         MbFBsV/AQUxI4J4t5WN5hy62BIOmx21UhoX99HE33H1ffNQOJ+syW7W6KMm0jLqalS71
+         YUMxyt6XcxtuAmZp6oIGFhYS8DJlskjsi6n89prQx3RQ71jJsanxF3ydCfaoJj6L/slJ
+         XHovF1nLjpx7RYpTgEwTWl0Je7fN6DNdikmzE6StgHsca+liU4DWn3ye1tbx+OIBklI4
+         RWhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741871171; x=1742475971;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JykEzm+QtlDREfjY9aCf97M8p4eU9HkNtWKu9+Cs/cE=;
-        b=SF4Ml+2bsJB6JAkzX+BZEUfLezSWIJLazv57vpnySYKwhga58pS97y/GlLuFLI891K
-         qAu7O8Nli8+0wLOp1OgGtjUNhPS2gKymd1+W1XmRGvHo0/q+NMKMemsA1kFTIzD6qgoT
-         +iNCM5Jl2GZTQFLgPxg7Mv4k1E4sNn55omJ3W62A7z1IF1Bgb18sQMp5iUOuAlwiWuGh
-         iurQZNvLofAvGdvNi9AAh5sica6pZ0FzkC+CL6YBJNTbZ92TeK2JvGfefsx9byqa+eJD
-         dgWuLLvRSPhcxJp9ll6/8mccBQak2inbeHhnPzIJ/vlCSVl9lcR72hj5599ubaM2m1HV
-         gHFA==
-X-Forwarded-Encrypted: i=1; AJvYcCXBbuIs9zOge0osvPNF3FhnKulN3nmwsiJyY5WEf9/Teocw9qKsFC86Rz41SCMTAUJ5yKt5y8FjXWEYQg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwgIxPjmGkSrYWwhyx2Kc+urA35i4ocHUVvnr7ol3U9Foj/fCd0
-	YcqQEmhFAQshdI6k6/iqN07WUgvuIkPNdqboCdOQ50EZWDQLTqoC5AQjgE5qPe4=
-X-Gm-Gg: ASbGncuTZ5QKh71Jw7It5falmgva1RXwO08dNmy6f4a+R8KgE/uoTwM6hfapTwx0P+w
-	E//I4abKTslnO+W+L2/HYsa73B4qGYox+i5tjJ7fDan+CwHWS0mDtk/U0uDn2n0/dqJES3Dhuig
-	6peFn8UsFap4LyAB9IxEWDFeXtECynz+lYizosGYAwiLbOXEWOLWa0mEUOIygN5ONZ9tctKIkra
-	2nzG+QMZ8s+HaeFK/RsHR+VTBiOlMohBQ/ChZzLJApEjjfWV2hEqe0rsm771ortCGKfMvycc9DW
-	DyzjJTTNw+CpSTHa1ptUfisirjh14tQl
-X-Google-Smtp-Source: AGHT+IHbHWsyXLkkKJFKW9xqRqjCmH9M6Hc04X13GIMAwv1uQuG0cXmClbOatlbE9Co87YMRA/AdwA==
-X-Received: by 2002:a05:600c:3b13:b0:43c:e9f7:d6a3 with SMTP id 5b1f17b1804b1-43d01be652fmr113577215e9.13.1741871171136;
-        Thu, 13 Mar 2025 06:06:11 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c7df413esm2048987f8f.20.2025.03.13.06.06.10
+        d=1e100.net; s=20230601; t=1741871518; x=1742476318;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=whAbkbFeemn/zGkgo0Y/FdRAbnzleJIZKjpHt+Srrxs=;
+        b=KpRYTAfYHE3ziE0AsICkRLFT2mZQMLhTc4XPMEisFATxahyZl+Ua4tE2tljbTte5dB
+         IMD72J7y5P5kJrDyKiaj6zOopydftiLmqqkAxeVAW3+haG3vOopGibRPGofFSIaKoAbv
+         l3DjeF8uALfuaPPv23m+PA8//2HQjD6CvCGxeB2j4SEcebDUSV7ieaKoqjgKxPWTxwxX
+         6vB6jT/xVroAW4w6xTZFA7tKipUn0f11/SNvxxt5ZMXIePKec3qnbgQu3ekhyC4vg/tO
+         Qx7vfRizewVDJrMAfEWpg2cmp2eYo0uXt9JIPuF7JjJJY69cUA6imdOO0KEWRm0y+RY/
+         yiCA==
+X-Forwarded-Encrypted: i=1; AJvYcCU2pZUx+81PrDYbTVPOtwk2nw2TnezQSJPeUVkLXI+tMRGp+/EchMoSz36eU4SwwkpQFjfHCnpIXKvU4Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkHE3cfIPK5BjnmC8Lkjdhs5Xutzt8w03M+AqHbimXQdf7Gwmo
+	f3W9GmO9QM7uNUJBJFq5/UnuD6vFapS1+jGrwnfm2IYZ4Bvij6a8
+X-Gm-Gg: ASbGnctyLG8eA9aOFkXaLZHhEBPCeGp0HLTYyIjugsUuXzyVmKwf9N/VwG3E9YfvNlg
+	cuLuCXpJrpkYhm+KPFBVyhCsLh66SP5T+qlbd0rkPD5z7ZqiNiJjunpKenz+tW8RGmc824Kgz22
+	I5qLCKMIYyVERHnKCtETYsHqrzpHYulit3ucLkLOF3f1103PAkwyCI3wLAMLZc7rXM525e8CC2g
+	GvHLYRuI2koAAnYmXEDTy1pD1m8HdqluXLCWRsqinWsxbOROClzXUHCXCgMUnEC2ujs9krlMWsr
+	Kp9EJ6Dg62XGQX5AeTSNr/u63dA1h2mPljI=
+X-Google-Smtp-Source: AGHT+IGYDZAgi/KLUPOznQ5xgfjN0dWdgaVF7llKO+O2iscvEuZFt77ZOFuioppulgZ1uLXSYl+/UQ==
+X-Received: by 2002:a17:903:230d:b0:223:f9a4:3fb6 with SMTP id d9443c01a7336-2242887b4abmr382460685ad.11.1741871517948;
+        Thu, 13 Mar 2025 06:11:57 -0700 (PDT)
+Received: from [198.18.0.9] ([2a0f:7803:fac5:a7b6::1])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba6d52sm12539615ad.116.2025.03.13.06.11.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 06:06:10 -0700 (PDT)
-Date: Thu, 13 Mar 2025 14:06:09 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, 
-	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v3 06/17] riscv: misaligned: use correct CONFIG_ ifdef
- for misaligned_access_speed
-Message-ID: <20250313-a437330d8e1c638a9aa61e0a@orel>
-References: <20250310151229.2365992-1-cleger@rivosinc.com>
- <20250310151229.2365992-7-cleger@rivosinc.com>
+        Thu, 13 Mar 2025 06:11:57 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Subject: [PATCH v3 0/2] (no cover subject)
+Date: Thu, 13 Mar 2025 21:11:48 +0800
+Message-Id: <20250313-sfg-spi-v3-0-e686427314b2@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250310151229.2365992-7-cleger@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIAJTZ0mcC/3WMywrCMBBFf6XM2kgysZC48j+Ki6SdtAP2QSJBK
+ f13064EcXku95wVEkWmBNdqhUiZE89TAX2qoB3c1JPgrjCgxFoiGpFCL9LCgnRAR62T1nko7yV
+ S4NdRau6FB07POb6PcFb7+tvISijhrbGOOnuxSt360fHj3M4j7I2MfzwsnvE+oPam7iR9e9u2f
+ QCfbwvy1gAAAA==
+X-Change-ID: 20250228-sfg-spi-e3f2aeca09ab
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@outlook.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com, 
+ xiaoguang.xing@sophgo.com, dlan@gentoo.org, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741871512; l=1276;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=ymhFzABxxhmuPpjW8bVGj4OoIaYa+Zw8k01HF8R1co4=;
+ b=ceQjO7hj4JE91EZ1K+OmC7H/r1+Yyt7wnSBhFNdaAQyaqmBpaeoOe3uYiEL1M4O+ok1M+xlVp
+ c0kytGfEnFvDm4NumSnrSAsMqwu9q4iIQxryJ1f2zrVPUKtWQcjC/En
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_060613_059184_4EB6C530 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250313_061159_725791_596A5883 
+X-CRM114-Status: UNSURE (   7.53  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,68 +110,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 04:12:13PM +0100, Cl=E9ment L=E9ger wrote:
-> misaligned_access_speed is defined under CONFIG_RISCV_SCALAR_MISALIGNED
-> but was used under CONFIG_RISCV_PROBE_UNALIGNED_ACCESS. Fix that by
-> using the correct config option.
-> =
+This is tested on milkv-pioneer board. Using driver/spi/spidev.c
+for creating /dev/spidevX.Y and tools/spi/spidev_test for testing
+functionality.
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> ---
->  arch/riscv/kernel/traps_misaligned.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> =
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+Changes in v3:
+- disable the spi status on sg2042-milkv-pioneer board
+- create dt-binding of compatible property
+- replace the general compatible property with SoC-specific in dts
+- Link to v2: https://lore.kernel.org/r/20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com
 
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index ffac424faa88..7fe25adf2539 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -362,7 +362,7 @@ static int handle_scalar_misaligned_load(struct pt_re=
-gs *regs)
->  =
+Changes in v2:
+- rebase v1 to sophgo/master(github.com/sophgo/linux.git).
+- order properties in device node.
+- remove unevaluated properties `clock-frequency`.
+- set default status to disable.
+- Link to v1: https://lore.kernel.org/r/20250228-sfg-spi-v1-1-b989aed94911@gmail.com
 
->  	perf_sw_event(PERF_COUNT_SW_ALIGNMENT_FAULTS, 1, regs, addr);
->  =
+---
+Zixian Zeng (2):
+      spi: dt-bindings: snps,dw-apb-ssi: Add compatible for SOPHGO SG2042 SoC
+      riscv: sophgo: dts: Add spi controller for SG2042
 
-> -#ifdef CONFIG_RISCV_PROBE_UNALIGNED_ACCESS
-> +#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
->  	*this_cpu_ptr(&misaligned_access_speed) =3D RISCV_HWPROBE_MISALIGNED_SC=
-ALAR_EMULATED;
->  #endif
+ .../devicetree/bindings/spi/snps,dw-apb-ssi.yaml   |  4 ++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 26 ++++++++++++++++++++++
+ 2 files changed, 30 insertions(+)
+---
+base-commit: aa5ee7180ec41bb77c3e327e95d119f2294babea
+change-id: 20250228-sfg-spi-e3f2aeca09ab
 
-Sure, but CONFIG_RISCV_PROBE_UNALIGNED_ACCESS selects
-CONFIG_RISCV_SCALAR_MISALIGNED, so this isn't fixing anything. Changing it
-does make sense though since this line in handle_scalar_misaligned_load()
-"belongs" to check_unaligned_access_emulated() which is also under
-CONFIG_RISCV_SCALAR_MISALIGNED. Anyway, all this unaligned configs need a
-major cleanup.
+Best regards,
+-- 
+Zixian Zeng <sycamoremoon376@gmail.com>
 
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
-
->  =
-
-> -- =
-
-> 2.47.2
-> =
-
-> =
-
-> -- =
-
-> kvm-riscv mailing list
-> kvm-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/kvm-riscv
 
 _______________________________________________
 linux-riscv mailing list
