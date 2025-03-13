@@ -4,106 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90EAFC35FF7
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 18:53:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8A2C35FF1
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 19:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PkWfuFhaORbvnUctvY5ByrF1lkfElz7b3rSJatIlsvQ=; b=xZzzRBECw0BEty
-	LrapGmsfPdPh7sbzyGC34l+50LGMY1w3wz6vEFRWPT3gYRPDREUOTBrQ16zEbGiJgEp8K7/mRTpGj
-	yHGzY6LNXRkZJcmedDl9PveOm6fz1jymGLmmA8Kb7lEXZD8fPhChn2RX1rnBWKKO8sQyyxUPAVT/p
-	CHjRDI3FANhUZ5fwx4g7qQvLCXv9NX7VlaL3dBx1u5h8BR1s60PeQ+ql3+EJ71et3tmc+eECJozuq
-	lS8m/mZ9cfmyAwK24C+2579qYSJrfLU2BMe5g+WvdEHkDUhTGoZ21SnKXb8J+DE8VrK/0LNIGgoqC
-	brkk7Vw/1SqtDV6MY9pQ==;
+	List-Owner; bh=ctdYPDv6qDPIQT1pwg4Kw//gU+lrN8DsdqX/1xCrd8M=; b=HfA2osMHkCHQlQ
+	+YnbjpUPkngE16lVwHiSVXKKl16O8EXTHhlEGcv0r2JDgPRkxgZTqRhkevRrX3tBCQcXWjLIx7A7h
+	ZNB/KsMEGxxuQXcXy3JZyZwNGuAgwsGXYGHqiCCMONL9DlSf2mXWVpiqZIUJ/9rj/iGKC55O5VO79
+	VeDSb0Cuk9N+9WUfJOGyusiDFr6gVKoWsSXR+nBNGKL6T6MFDw1pJfxWQllq7wvnYhjRfoAq8BUqe
+	2ILuRXgZxX/kffPNcgl7h0knzhXNYIVCWHtOFh58vIAXUUyej0gMkMv5RJJEp1eVCgG8+x4Ci+8Xz
+	fYg0kAPAoWC2h/4P0cJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsng3-0000000CEnI-2exE;
-	Thu, 13 Mar 2025 18:53:07 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tso9N-0000000CJ1i-1UHw;
+	Thu, 13 Mar 2025 19:23:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnKs-0000000CCNM-40nt;
-	Thu, 13 Mar 2025 18:31:16 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-223959039f4so28916655ad.3;
-        Thu, 13 Mar 2025 11:31:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741890674; x=1742495474; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Jt5WSssG+OEvsuPkFz6BZY4vYElG8JeyaALVDa3jMX0=;
-        b=ZL4YkUlJhKeNLQ9v5pQ7LDhsoe3g3nTfrsv8zXLjGAOTBofcJyBbXbKsinaxsc4VsL
-         +Ueb38m9Q/Gd4N6AWCH7qggp0z5AdKQ6K07swL0mmH5++BL+HIFhApeaQCX6xTma5kYl
-         zjShFmki+ZI0eY7DeoH+APkF/5A5DY5PuDrJYo6WRT/CxYzVXSEyxVPMVqgrGNqxhUwF
-         BMRQpBMd1+9pTAgs+j7PaTLa4TcSgjHvJKbbJ97bX6PSRsOCuM+BYlUzL7+FjQPc8cPB
-         DUcdsYTD3foUF8W52xrZekgvZwMIvrydXL4mqA8CkgEJZvOY0nwCasXzUUnpkoBVLIUX
-         FbHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741890674; x=1742495474;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Jt5WSssG+OEvsuPkFz6BZY4vYElG8JeyaALVDa3jMX0=;
-        b=g0whNuGDbR/sXuLJJ1Gm1lAzufRq3rir5N9Ar71EhLF5MJXviMoXuVuz6Kldy7nhID
-         l2lm3fV7uqGyvoEkZnCjsm/sHtqM4stzLZSAu+LrCBYqDPITe279v+1cEDhBzd7O7dFS
-         InzHC4mS9i3+4eTTFvLl2vjnYxL7Gt1Ex5ejR9x9x2eilNKDaxNz8cr/NIu63vpU584e
-         lYwOVQFclBYTGi4g52ocecvSkoUn6TV9fwpXFoEmSSPlwBGoaSFgLrEWB+0IBXwV6/yB
-         OlAMRzlslj5rVq2R/XCDF6Bzqo+KdFoX+AsQd42XJgJSxsT2/EKzl4v0cd884T2ycYDM
-         OT/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV3u0mkzk5R0Xgx2+7dEovgXCaTuYxzTKM44HB/DZw5FHq3r/LvyqJDsOdDThVdzvoVo0M7Qzph+QPGNqYbE/0V@lists.infradead.org, AJvYcCVEvlYIVHr8h7otkU8Pm42unz90l9XgUU9ZogpMWJvpnwPswxghEUw++NaHdM2s/KzukG1uAdMVF5uEyU0=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzQ+Fvk7PYw3f/QUw+EpWE5wfIsyDbV9PsgklR8RAeEqOGKiLJ
-	avW5YnSNNFrukechJDMnFRduNGWV/YYin1kql0GRag+e3RWR1lP9
-X-Gm-Gg: ASbGncvTa/4IDwqlVZQoJAxSMXeirzQIV1lrbadepgxD/kFmoFzRlap/JstFuQxKKcc
-	S/5vzrBfD5Jvpk122UY5l+7xbUGxLOUK7vjm8dngcJ5bOm0GlG2h4MCrbn2OY8dPDP4n+T5MNCP
-	I1n4MIpFV4NxoYGILfAPYc1+fTpR+0B0Jpcx28/WTy767GPP1u7RQN0LlDD2gE3yDL3w5ZkzSKW
-	N4lJnRg+g8Tbaaj3qy4OsLUNQp47+aVh4nsuD/yfmEJm+lkTdovPRNnlD+XcT8DWjkp1h7D4aiz
-	hFpYkMjYgxjFoLdTrmCcicX2IuD7eb/DRmxkw5Pf8FFLeO52lTC5MbGhAg==
-X-Google-Smtp-Source: AGHT+IHUyL3JZBiKaHL1hLSTeQrgywlLwwEUN5of1N0Gy8TC0X3IRTq509SX5+fcaAZt7Xsc6jRvwQ==
-X-Received: by 2002:a17:902:d48f:b0:220:fb23:48df with SMTP id d9443c01a7336-225dd8ed442mr5472005ad.36.1741890673680;
-        Thu, 13 Mar 2025 11:31:13 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm4185647a91.35.2025.03.13.11.31.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 11:31:13 -0700 (PDT)
-Date: Thu, 13 Mar 2025 11:31:12 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Alessandro Carminati <acarmina@redhat.com>,
-	linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Daniel Diaz <daniel.diaz@linaro.org>,
-	David Gow <davidgow@google.com>,
-	Arthur Grillo <arthurgrillo@riseup.net>,
-	Brendan Higgins <brendan.higgins@linux.dev>,
-	Naresh Kamboju <naresh.kamboju@linaro.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Alessandro Carminati <alessandro.carminati@gmail.com>,
-	Jani Nikula <jani.nikula@intel.com>,
-	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] Add support for suppressing warning backtraces
-Message-ID: <c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
-References: <20250313114329.284104-1-acarmina@redhat.com>
- <202503131016.5DCEAEC945@keescook>
- <20250313-abiding-vivid-robin-159dfa@houat>
+	id 1tso7h-0000000CIrS-1zLg;
+	Thu, 13 Mar 2025 19:21:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4BAC95C34D7;
+	Thu, 13 Mar 2025 19:19:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 325E1C4CEDD;
+	Thu, 13 Mar 2025 19:21:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741893699;
+	bh=IYiWOwwKf+URAc5DyfQcTEda3N2qRFfbrrv01xDgHQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NzRoteWbepqPDywTZDbjJoY2BY85XR+U1gJ0nTqL+Pie++q/sD/n18VPLE8gn9Q3J
+	 rbtoK/p63FJzkxrjLkwznrDk4S9cxXcKpSFnV4UappZrog3/DkrsGf2Uxfwy3taih/
+	 RoacYLFFyb9ZNEKwzHui5uUkx/TzcoJdLDjMIKvMeAeUF6XbgHQaR8Y0SwcWFVwb/X
+	 ZWUe6pZS/awCUgDuN9rB526lr7esdyfu16l4YfL/n969WNNktjbYUNBLvEdnMFx+sG
+	 Z2C31KeKoamew8eHXD/O9dRCmgztqNfXVrbzoN4QjPT580ZqvQvTA6RGvInl1MLcyz
+	 nrSePUi8nznnw==
+Date: Thu, 13 Mar 2025 16:21:36 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 09/11] perf syscalltbl: Use lookup table containing
+ multiple architectures
+Message-ID: <Z9MwQJ5bRu6-N43w@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <20250308003209.234114-10-irogers@google.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250313-abiding-vivid-robin-159dfa@houat>
+In-Reply-To: <20250308003209.234114-10-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_113114_997869_E5A8F8EA 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250313_122141_631965_0BE0D010 
+X-CRM114-Status: GOOD (  10.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,20 +95,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 06:24:25PM +0100, Maxime Ripard wrote:
-> > 
-> > Yeah, as with my prior review, I'm a fan of this. It makes a bunch of my
-> > very noisy tests much easier to deal with.
+On Fri, Mar 07, 2025 at 04:32:07PM -0800, Ian Rogers wrote:
+> Switch to use the lookup table containing all architectures rather
+> than tables matching the perf binary.
 > 
-> And for the record, we're also affected by this in DRM and would very
-> much like to get it merged in one shape or another.
+> This fixes perf trace when executed on a 32-bit i386 binary on an
+> x86-64 machine. Note in the following the system call names of the
+> 32-bit i386 binary as seen by an x86-64 perf.
 > 
 
-I was unable to get maintainers of major architectures interested enough
-to provide feedback, and did not see a path forward. Maybe Alessandro
-has more success than me.
+Reproduced the results here:
 
-Guenter
+root@number:/home/acme/c# file faccessat2
+faccessat2: ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux.so.2, BuildID[sha1]=8dafcc1549658d57248dce883e8ec7eea3d6e8a5, for GNU/Linux 3.2.0, not stripped
+root@number:/home/acme/c#
+
+root@number:/home/acme/c# strace ./faccessat2 |& head 
+execve("./faccessat2", ["./faccessat2"], 0x7ffce63265e0 /* 39 vars */) = 0
+[ Process PID=2552445 runs in 32 bit mode. ]
+brk(NULL)                               = 0x849a000
+mmap2(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0xf7fb3000
+access("/etc/ld.so.preload", R_OK)      = -1 ENOENT (No such file or directory)
+openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+statx(3, "", AT_STATX_SYNC_AS_STAT|AT_NO_AUTOMOUNT|AT_EMPTY_PATH, STATX_BASIC_STATS, {stx_mask=STATX_ALL|STATX_MNT_ID|STATX_SUBVOL, stx_attributes=0, stx_mode=S_IFREG|0644, stx_size=85091, ...}) = 0
+mmap2(NULL, 85091, PROT_READ, MAP_PRIVATE, 3, 0) = 0xf7f9e000
+close(3)                                = 0
+openat(AT_FDCWD, "/lib/libc.so.6", O_RDONLY|O_LARGEFILE|O_CLOEXEC) = 3
+root@number:/home/acme/c#
+
+Before:
+
+root@number:/home/acme/c# perf trace ./faccessat2 |& head
+faccessat2(123, (null), X_OK, AT_EACCESS | AT_SYMLINK_NOFOLLOW) = -1
+         ? (         ): faccessat2/2552543  ... [continued]: munmap())                                           = 0
+     0.024 ( 0.002 ms): faccessat2/2552543 recvfrom(ubuf: 0x2, size: 4159848428, flags: DONTROUTE|CTRUNC|TRUNC|DONTWAIT|EOR|WAITALL|FIN|SYN|CONFIRM|RST|ERRQUEUE|SOCK_DEVMEM|ZEROCOPY|FASTOPEN|CMSG_CLOEXEC|0x91f20000, addr: 0xe30, addr_len: 0xffcda98c) = 138993664
+     0.047 ( 0.006 ms): faccessat2/2552543 lgetxattr(name: "", value: 0x3, size: 34)                             = 4159602688
+     0.063 ( 0.003 ms): faccessat2/2552543 dup2(oldfd: -135160188, newfd: 4)                                     = -1 ENOENT (No such file or directory)
+     0.071 ( 0.023 ms): faccessat2/2552543 preadv(fd: 4294967196, vec: 0xf7f16420, vlen: 557056, pos_h: 4159848428) = 3
+     0.098 ( 0.004 ms): faccessat2/2552543 lgetxattr(name: "", value: 0x1, size: 2)                              = 4159516672
+     0.104 ( 0.001 ms): faccessat2/2552543 lstat(filename: "", statbuf: 0x14c63)                                 = 0
+     0.114 ( 0.004 ms): faccessat2/2552543 preadv(fd: 4294967196, vec: 0xf7ee8380, vlen: 557056, pos_h: 4159848428) = 3
+     0.118 ( 0.002 ms): faccessat2/2552543 close(fd: 3)                                                          = 512
+root@number:/home/acme/c# 
+
+After:
+
+root@number:/home/acme/c# perf trace ./faccessat2 |& head
+faccessat2(123, (null), X_OK, AT_EACCESS | AT_SYMLINK_NOFOLLOW) = -1
+sh: line 1: perf-read-vdso32: command not found
+         ? (         ): faccessat2/2556897  ... [continued]: execve())                                           = 0
+     0.028 ( 0.002 ms): faccessat2/2556897 brk()                                                                 = 0x8fe4000
+     0.068 ( 0.003 ms): faccessat2/2556897 access(filename: 0xf7ff2e84, mode: R)                                 = -1 ENOENT (No such file or directory)
+     0.080 ( 0.005 ms): faccessat2/2556897 openat(dfd: CWD, filename: "/etc/ld.so.cache", flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+     0.094 ( 0.001 ms): faccessat2/2556897 close(fd: 3)                                                          = 0
+     0.103 ( 0.003 ms): faccessat2/2556897 openat(dfd: CWD, filename: "/lib/libc.so.6", flags: RDONLY|CLOEXEC|LARGEFILE) = 3
+     0.108 ( 0.002 ms): faccessat2/2556897 read(fd: 3, buf: 0xffdd84b0, count: 512)                              = 512
+     0.216 ( 0.001 ms): faccessat2/2556897 close(fd: 3)                                                          = 0
+root@number:/home/acme/c#
+
+And interestingly the openat syscall got its contents obtained via the
+BPF augmenter... better to test this more thoroughly, but I think it
+should come after this series lands.
+
+- Arnaldo
+
 
 _______________________________________________
 linux-riscv mailing list
