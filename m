@@ -4,84 +4,125 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F18DC282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:46:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8542C35FF5
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zYJzGqS1DBNBTQEJCnk1369uOOJsmTAllL+feacg6PY=; b=ZHSbCsovSMYjrx
-	nlmY+iC6QBhVB7VRbGlxhzFwBCCIXQniBkEn33Dd52zMVcAwM3Se4ZLw5rnssGs/hdHikN5lPeOrc
-	nUN1MXhc6f+Zh2QkuvzgG3YFRjreot8TiPNkfWiSFt9zk/zKYCpFkZMzxH1sopT/hBcBcVEMEJbyr
-	r9lkGBNYBov9QTj2j0OnvXXaDwuQZA8koJ53gBVSyag2oMz8cP+P/pcU7n+HAtbgjSwh9T/2VUUqo
-	NpCT4YQJyL8a2E3lLqrOI+bhwXk0cHWiByThhaBkQiVQoAPpVXH0HKxbyVRO6zCGbnA12sjiZfk0B
-	ulq6uGcRwT+Knxk5lEvA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=reG3nqRvgzXnowNON/zAx8SStnFctD3TItQ86X5Bwtc=; b=BY2qJk3d2lRmdf
+	vo6z7oPeHPOkm47MYZz81B0RJDBQhzej1AioekNLl2e3zybzek7l+i4dvx+DIOQguijM8MUN7tA+o
+	i0mPT8ejtUttpn5HDw6NTtdVd7bSaX91O1ly+pWjltG/Sg+wflCnnfXNipphzfNqV/DXlVsTUKm4Q
+	ifdOizi1B4MPacfcVOvP7LRUg5HA39N9xnOo82dW9T+JjWcwnqIO01SSzqT4CM+/f8AxGt2sACQBQ
+	/uBlux46AwBEjNNGaQ5WwWwun9I683GtFZUsXl24EO+pTJtK+D7vI+ArO2QyxgGgMDuuq+0UupOWt
+	ZPgbBRj+eDsgNUqUrTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsitT-0000000BQNH-1Faj;
-	Thu, 13 Mar 2025 13:46:39 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1tsizi-0000000BRcp-0ayY;
+	Thu, 13 Mar 2025 13:53:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsitR-0000000BQMf-2m1Q
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 13:46:38 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-6fece18b3c8so8905617b3.3
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 06:46:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741873597; x=1742478397; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3pruppk4STwGuRQ4gOsQ41gA9jN4GcpyPa2+9qAli4c=;
-        b=RpY5Dn/dp63V2iugvawnTI9TL9yKGuqt6TUQuaAwLpnRb10XAe994ilxMhP3twobaq
-         Ay3SCXRaWBLNh8cbpBxFyuvqp4hNN34OXyTd34R5LcNFIKUbp8s7vSbiLzD4qaM2RV+1
-         f8VbWidXdKSrAJ4ANlvSAUDmCgjDxsIJjHE6JufzCMw1cxJQf3NqyXYCaz2eS89uKEKR
-         pxDFJ0p3XqL2YwOqGoBKYeotl8X2C0O1BUJnliCMTXItJr+yeL8ba7XHSETmXkUiZDnt
-         zuOYYw1B4T1ik0o3lNZQtq9yubIeIUnArulN3J5WzifLvr6dW9vpna1daicGGS18phRR
-         M9EQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741873597; x=1742478397;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=3pruppk4STwGuRQ4gOsQ41gA9jN4GcpyPa2+9qAli4c=;
-        b=eST0mfZybmvLSnO/vMXowUfIU1Viazdys0XEz8ktFWM+4LW+1vcNUBOYVU3/EzxA8N
-         W/Lp53O4VL7jC1mqm7PLcfK8s7h04vNgYucr8nJAG0pOcFojhMK3nTa1mOMh3vy0w39f
-         IvQMIogfsPXnIFWWLc5Ff/t5EHu97ARrMrA05wV2Cxb1p3YOz4RhWlfqCOd1bTgCmjYT
-         JIlPd9uPSF3Uc/GzSwwvzOScD2i9FISvpIuUB4SRkmZjinXUpO5Q26h5ylLylXCQ3iSj
-         kP+tJc2mX+MGFrHwWTDf06WhNsoJyEffomZzrtGElJSgWy8LRfEzz9hxGFd2t2fBjRHT
-         X6+w==
-X-Forwarded-Encrypted: i=1; AJvYcCUaZHCt2ufMlsuhMbn5ASDyPsL+wDB95R5v+OrUKY/nuWETzU669sl0f/ZUQl9K9VNwXuErzVr2r8XgPA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD1Kg+ZDom6IMH73TA/mTDvgP5VYTPU9kizRWbiOJ4otdIFOlE
-	6KjIoUV+1HJgMWsZ0tU4ptc/BbBeW9qLB4sfj8dQb6b+BheDtd2NSzrXSQJizwgp358Yk8J4iD0
-	ElbwrxR/YxnkAtTJfoqfcmnVEGXTK/tW7YtoflA==
-X-Gm-Gg: ASbGncvbbBvEQLYvFwZWIJJw3YSfIv7WTugHCVEuzL5ESMnLTbhxqXDlB559s6Afs1M
-	OeTT9ToWqTBqPZtgqyI5+SOyrUZOgBxgiizW9mmjg32bVp05dMZ/hp54cps0C/Qm8PqdZXFZJhu
-	wnFc3m0EXgthXkIxq+ex+d+C3mm3Q=
-X-Google-Smtp-Source: AGHT+IG7vBn4URXM8J2dFID1L7Pg4fVMsep6yAv6gvLGLKB/Q06ncJU71pTeAeJFVFPXcY3eqoO5qEZ7cJRZ/u07cAs=
-X-Received: by 2002:a81:fe0a:0:b0:6fe:bf9c:8e7a with SMTP id
- 00721157ae682-6febf9c9506mr280796267b3.0.1741873596783; Thu, 13 Mar 2025
- 06:46:36 -0700 (PDT)
+	id 1tsixC-0000000BQjp-3wFV;
+	Thu, 13 Mar 2025 13:50:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=q3twzRg7JFtCcj4wct+pthKqDwlnYSVDhBZsfaP3eKQ=; b=iG/p7YuCG4MfQw89LNk72vralS
+	Yi+Ri7OYIeYgjGtFCQy+K5dVuSZ16g/x4JVlEPJLVWZTzmKP3GWaKlW/8AR811DtJWCpIlIjeMnDT
+	tmbwdZU+r37A+QExq0AIkOoedBb9B0/Df0xTJskbx/ah6Zp0LNiEs9SaEx2/XeqZeG8lMcH1z+sFZ
+	KoVex6tnp4r8JLM/6QcPIXTM5K3tF5Ke1ZRtb+yZhFVI/txPR3uQi+IEBs4VgIGar1+n8u60k2KqH
+	1jDvjJ6UVQ6+D50sCuVkhm6VlrNXSvbOhYxG1335gBbsf2eAeLK0+IsYCMZURd2LOFafJbZPkNZyw
+	9yFinc5w==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsix9-00000002eMf-07Ad;
+	Thu, 13 Mar 2025 13:50:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3BAE8A474BF;
+	Thu, 13 Mar 2025 13:44:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C704BC4CEEA;
+	Thu, 13 Mar 2025 13:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741873822;
+	bh=62myLVbZVVZFvzPE89he3yMa/a5QAFc2vHsMKxeLVb8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=aBWKPm/h37x/i5+4FCPzxXZYbNjC4QtR+6/uzYQ4j82YaZ0nkwcNlRiBhZ3s4R+Lr
+	 UbF6tAw/GLOmZOSjCm3jrX37f1OqnkT6FdjX3Szfhc1wjS/Zyf835B0imLzLMqYjcF
+	 W5cI3ghKtUKRswhAYc77+5GSp1YmJnwSpf+x4AqcOGMZBAqFa6QHJIit/O7bFjGzmZ
+	 g/lU9Dt6wqDCDU2wFqrq4LXF68UvvU/ytVgt54uUuF2Vagcx8WobuHEk6mGKRWMGKp
+	 aLWh5ch4M9p8CvWw5jWVVvEJFFmiQHZ9S4CLDqJpDLqZJs/1wj2uAhd2lAzYblfH7W
+	 BgZb5J0KHNyow==
+From: Mike Rapoport <rppt@kernel.org>
+To: Andrew Morton <akpm@linux-foundation.org>
+Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>,
+	Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mark Brown <broonie@kernel.org>,
+	Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
+	Mike Rapoport <rppt@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>,
+	Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>,
+	linux-alpha@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org,
+	loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org,
+	linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org,
+	linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org,
+	linux-mm@kvack.org,
+	x86@kernel.org
+Subject: [PATCH v2 00/13] arch, mm: reduce code duplication in mem_init()
+Date: Thu, 13 Mar 2025 15:49:50 +0200
+Message-ID: <20250313135003.836600-1-rppt@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-References: <CGME20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd@eucas1p1.samsung.com>
- <20250311171900.1549916-1-m.wilczynski@samsung.com> <Z9KPvig0dPRO0cX1@x1>
-In-Reply-To: <Z9KPvig0dPRO0cX1@x1>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 13 Mar 2025 14:46:01 +0100
-X-Gm-Features: AQ5f1Jr2C0RzgSrdaklEVa_RV8h0CZizF651FuL4N37mJLMsiwagGMmTnahMvkg
-Message-ID: <CAPDyKFrCFURcTpwZnx4bs71Kw_JrRKLiuDh7954xD2k+rCDN_A@mail.gmail.com>
-Subject: Re: [PATCH v8 0/5] TH1520 SoC: Add AON firmware & power-domain support
-To: Michal Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org, 
-	m.szyprowski@samsung.com, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_064637_713128_6B56202C 
-X-CRM114-Status: GOOD (  25.17  )
+X-CRM114-CacheID: sfid-20250313_135027_393658_14C1D962 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,98 +139,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 at 08:56, Drew Fustini <drew@pdp7.com> wrote:
->
-> On Tue, Mar 11, 2025 at 06:18:55PM +0100, Michal Wilczynski wrote:
-> > This patch series introduces and documents power management (PM) support and
-> > the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
-> > board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
-> > upstream, these patches can merge independently.
-> >
-> > Bigger series cover letter:
-> > https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
-> >
-> > This series is versioned to maintain continuity with the bigger patchset it is
-> > a subseries of. Please find below a changelog for the AON & power-domain:
-> >
-> > v8:
-> > - add proper cleanup in the th1520_pd_probe()
-> > - add "suppress_bind_attrs = true", since there is no need to unbound the driver
-> >   during runtime. This simplifies the code by eliminating the remove function
-> >
-> > v7:
-> > - add '#include <linux/slab.h", due to kernel robot issue
-> >
-> > v6:
-> > - split the firmware & power-domain patches into a separate series
-> >
-> > v5:
-> > - changed the AON driver to be a set of library functions rather than a
-> >   standalone driver
-> >
-> > v4:
-> > - added workaround to disable AUDIO power domain to prevent firmware crashes
-> >
-> > v3:
-> >  - consolidated device tree representation by merging aon and power-domain nodes
-> >    while maintaining separate drivers internally
-> >  - power-domain driver is now instantiated from within the aon driver
-> >  - fixed optional module dependencies in Kconfig
-> >  - added kernel-doc comments for all exported functions
-> >  - implemented th1520_aon_remove() to properly clean up mailbox channel
-> >    resources
-> >
-> > v2:
-> >  - introduced a new firmware driver to manage power-related operations.
-> >  - rewrote the power-domain driver to function alongside the firmware driver.
-> >    These nodes in the device tree lack direct address spaces, despite
-> >    representing HW blocks. Control is achieved via firmware protocol messages
-> >    transmitted through a mailbox to the E902 core.
-> >  - added new dt-bindings for power and firmware nodes.
-> >  - ran dtbs_check and dt_binding_check to ensure compliance.
-> >
-> > Michal Wilczynski (5):
-> >   dt-bindings: firmware: thead,th1520: Add support for firmware node
-> >   firmware: thead: Add AON firmware protocol driver
-> >   dt-bindings: power: Add TH1520 SoC power domains
-> >   pmdomain: thead: Add power-domain driver for TH1520
-> >   riscv: Enable PM_GENERIC_DOMAINS for T-Head SoCs
-> >
-> >  .../bindings/firmware/thead,th1520-aon.yaml   |  53 ++++
-> >  MAINTAINERS                                   |   5 +
-> >  arch/riscv/Kconfig.socs                       |   1 +
-> >  drivers/firmware/Kconfig                      |   9 +
-> >  drivers/firmware/Makefile                     |   1 +
-> >  drivers/firmware/thead,th1520-aon.c           | 248 ++++++++++++++++++
-> >  drivers/pmdomain/Kconfig                      |   1 +
-> >  drivers/pmdomain/Makefile                     |   1 +
-> >  drivers/pmdomain/thead/Kconfig                |  12 +
-> >  drivers/pmdomain/thead/Makefile               |   2 +
-> >  drivers/pmdomain/thead/th1520-pm-domains.c    | 218 +++++++++++++++
-> >  .../dt-bindings/power/thead,th1520-power.h    |  19 ++
-> >  .../linux/firmware/thead/thead,th1520-aon.h   | 200 ++++++++++++++
-> >  13 files changed, 770 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> >  create mode 100644 drivers/firmware/thead,th1520-aon.c
-> >  create mode 100644 drivers/pmdomain/thead/Kconfig
-> >  create mode 100644 drivers/pmdomain/thead/Makefile
-> >  create mode 100644 drivers/pmdomain/thead/th1520-pm-domains.c
-> >  create mode 100644 include/dt-bindings/power/thead,th1520-power.h
-> >  create mode 100644 include/linux/firmware/thead/thead,th1520-aon.h
-> >
-> > --
-> > 2.34.1
->
-> For the series:
->
-> Acked-by: Drew Fustini <drew@pdp7.com>
+From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Okay, patch 1 -> patch 4 applied for next, thanks!
+Hi,
 
-I am leaving patch5 for now.
+Every architecture has implementation of mem_init() function and some
+even more than one. All these release free memory to the buddy
+allocator, most of them set high_memory to the end of directly
+addressable memory and many of them set max_mapnr for FLATMEM case.
 
-Kind regards
-Uffe
+These patches pull the commonalities into the generic code and refactor
+some of the mem_init() implementations so that many of them can be just
+dropped.
+
+v2 changes:
+* don't use generic version for setting high_memory on architectures
+  that use that varialble earlier than free_area_init()
+* use memblock_alloc_or_panig() to allocate zero pages on MIPS and s390
+* fix alignment in allocation of zero pages on s390
+* add Acked-by
+
+v1: https://lore.kernel.org/all/20250306185124.3147510-1-rppt@kernel.org
+
+Mike Rapoport (Microsoft) (13):
+  arm: mem_init: use memblock_phys_free() to free DMA memory on SA1111
+  csky: move setup_initrd() to setup.c
+  hexagon: move initialization of init_mm.context init to paging_init()
+  MIPS: consolidate mem_init() for NUMA machines
+  MIPS: make setup_zero_pages() use memblock
+  nios2: move pr_debug() about memory start and end to setup_arch()
+  s390: make setup_zero_pages() use memblock
+  xtensa: split out printing of virtual memory layout to a function
+  arch, mm: set max_mapnr when allocating memory map for FLATMEM
+  arch, mm: set high_memory in free_area_init()
+  arch, mm: streamline HIGHMEM freeing
+  arch, mm: introduce arch_mm_preinit
+  arch, mm: make releasing of memory to page allocator more explicit
+
+ arch/alpha/mm/init.c               |  8 ----
+ arch/arc/mm/init.c                 | 25 +----------
+ arch/arm/mm/init.c                 | 43 +------------------
+ arch/arm64/mm/init.c               | 12 +-----
+ arch/csky/kernel/setup.c           | 43 +++++++++++++++++++
+ arch/csky/mm/init.c                | 67 ------------------------------
+ arch/hexagon/mm/init.c             | 32 ++------------
+ arch/loongarch/kernel/numa.c       |  6 ---
+ arch/loongarch/mm/init.c           |  8 ----
+ arch/m68k/mm/init.c                |  2 -
+ arch/microblaze/mm/init.c          | 25 -----------
+ arch/mips/include/asm/mmzone.h     |  2 -
+ arch/mips/loongson64/numa.c        |  7 ----
+ arch/mips/mm/init.c                | 51 ++++-------------------
+ arch/mips/sgi-ip27/ip27-memory.c   |  9 ----
+ arch/nios2/kernel/setup.c          |  3 +-
+ arch/nios2/mm/init.c               | 16 +------
+ arch/openrisc/mm/init.c            |  6 ---
+ arch/parisc/mm/init.c              |  4 --
+ arch/powerpc/kernel/setup-common.c |  2 -
+ arch/powerpc/mm/mem.c              | 18 +-------
+ arch/riscv/mm/init.c               |  5 +--
+ arch/s390/mm/init.c                | 20 +--------
+ arch/sh/mm/init.c                  | 10 -----
+ arch/sparc/mm/init_32.c            | 31 +-------------
+ arch/sparc/mm/init_64.c            |  4 --
+ arch/um/include/shared/mem_user.h  |  1 -
+ arch/um/kernel/mem.c               |  9 ++--
+ arch/um/kernel/physmem.c           | 12 ------
+ arch/um/kernel/um_arch.c           |  2 -
+ arch/x86/include/asm/highmem.h     |  3 --
+ arch/x86/include/asm/numa.h        |  4 --
+ arch/x86/include/asm/numa_32.h     | 13 ------
+ arch/x86/kernel/setup.c            |  2 -
+ arch/x86/mm/Makefile               |  2 -
+ arch/x86/mm/highmem_32.c           | 34 ---------------
+ arch/x86/mm/init_32.c              | 41 ++----------------
+ arch/x86/mm/init_64.c              |  7 ++--
+ arch/x86/mm/numa_32.c              |  3 --
+ arch/xtensa/mm/init.c              | 66 +++++++----------------------
+ include/asm-generic/memory_model.h |  5 ++-
+ include/linux/memblock.h           |  1 -
+ include/linux/mm.h                 | 13 +-----
+ mm/internal.h                      |  3 +-
+ mm/memblock.c                      |  3 +-
+ mm/memory.c                        | 16 -------
+ mm/mm_init.c                       | 65 +++++++++++++++++++++++++----
+ mm/nommu.c                         |  6 ---
+ 48 files changed, 158 insertions(+), 612 deletions(-)
+ delete mode 100644 arch/x86/include/asm/numa_32.h
+ delete mode 100644 arch/x86/mm/highmem_32.c
+
+
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+-- 
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
