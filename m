@@ -4,86 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11344C28B2E
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 12:39:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B77BC282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 12:56:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZBx2YEaGVJTVAOGBiovWBe8n8MoQkQMsswPflef81XM=; b=sjf2CDE6Uhs1kC
-	HgmOFr1k7PPcWnG06PkUtM8ngc/Za1urP4hWeVLEtElF18nWvVcS3G0gg9A8GIoVqtCX5bzxl0bdG
-	ekHKLP1vqaTEioPYMkaBu58eYlLO54MoiCo3Q4qxOv5yrTxGzlmwjc/6fZKUPMFpLUvrhy1Ct7iC1
-	o9sBd/Tp6x69CtrD10/OJCdZuiiHsqtw4FkaiqQlKgaedt6Dd9fCkl7goZm/vVn/CouHy+btIV3XA
-	8el3eUs/W3H0lH9v2/UIZkashiakdy4zuRH64XHB9Hf3DOAw0ci+3mxnZeDU0xkAkP0t5LgX+bjSO
-	Ek5bnLFprDde+JQhTTwQ==;
+	List-Owner; bh=6lJoZObQ/nEDeycCpwQmqkS5SioDwa0QIl5m3G6Qpho=; b=TaxGOoJ6mhS4Qr
+	YHR9dTIAmSyUNQnxTSbh+ugwYaKRGmoHFClPdd4t296dcWpmXW8Pm2+1DY8nZY5VpnONmubO9sBHT
+	4DHG2WhElUdOuP9lCIKqa+Wvj1X3xVTlAvNuLYcxmkt/zB7/D8JoC5hQ4V+xWAk7EifvXMMST1n82
+	j9JM4OOwHIOj8O2FgOmZoFWY5SBf0QFzsoNS3NdUBt1pRrDrmpXigvvlcBHdtCZDlA4elHPgRiDPl
+	OB30naL99wOVyBtAymiSuDPQtKvg/LkZJH2JU8Wp0eMzyc8mr/sL+MVHdWrgNxfsPaDY/7x4iFg+K
+	iGwHTAIA2TwI6X4/hCug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshqM-0000000BGlL-3HLe;
-	Thu, 13 Mar 2025 12:39:22 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsi6Q-0000000BIgg-3vym;
+	Thu, 13 Mar 2025 12:55:58 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshqL-0000000BGks-3rJg
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 13 Mar 2025 12:39:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=xSlQ1L6rFi2oeV1zF6QF9pposhG4AHSuAju9zq00g0c=; b=ZM2PfuWnKhso7N1O0Um7+fQr3c
-	qUaitblHS7/7c9SnYWjgCy+t6Bbf06Y6YBv2PXut+6XZGggBmzrFgPBWjISMY57xVA4xcTAgO5c1j
-	qraIPtQwJ6VtPHcI2yl2OkPibuQIHgyR7dZHEX6x/eCsZ3tEFmse1irhJxyosmPBgYtWxrdCYYDWW
-	hw3Pi1etq9/Ngi1jjB1ay0SxBSOTjl4PKY8l52hk0ufrZCgQo278MYybe+2gqYTapaG68WFvZFP9n
-	4kEa7lQPrz0eQjSFKhBW8HxcMJGvgGV2Renr7Kj9Y2Zr0czByQ/Ln3cj8Q2OuSjAUPbOF0txbCGl5
-	/m45/hDg==;
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshqI-00000002c9l-44X7
+	id 1tsi3b-0000000BIM9-0Vv0
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 12:39:20 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-4394a0c65fcso8228755e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 05:39:17 -0700 (PDT)
+	Thu, 13 Mar 2025 12:53:04 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43d0618746bso5914585e9.2
+        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 05:53:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1741869556; x=1742474356; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1741870380; x=1742475180; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=xSlQ1L6rFi2oeV1zF6QF9pposhG4AHSuAju9zq00g0c=;
-        b=ZEPtcLvvkkCazDpeVE61XriJyd/X0S3e8RyJnTQBt98pIXn9c4o8FrAXQdIn0pbEGf
-         tPhACQUxMLGaNijxzZe8M+Pyh7fx2yMS3uBNXcVQIG01f6vX/Sj1FZ4+pc0d2FsXkUOQ
-         +pV8aMefFYx9ouwWxuqEl4Il6V7lyjj5cY7bmCHOPXXBDknEvPHj6L9wuyOXRvK710+T
-         Ir0EX0dVmlCCZIv2C6CN/jeNvbIfSiyAu2+XhM+xqE2BzjVbJB7cgsbCN7H6b9BI9Qx1
-         ZoC0iXYGPIU3+PGGJDPchQmxyGEM0sJ6E2/whgF4XQNyW26eTaVLtbAvupWGI2h1uOS6
-         /Ihw==
+        bh=whJ5WLOnqJqIdekbdowFNyLodSkqgwLzZprjEG6v7KA=;
+        b=EWuENBj3o5dVKSEUokdSaXScK9rItYu+XIV1s9tDyH42Ca+BPcG9q7vSdyp9cgw2tT
+         0oKgX2+1WmCgklpvRMO4vw2MNccfjzv7Wf4Emq2eQSCsv7kjWWTTtHtwL8HN4Rb87BoY
+         VcI5dyKEZ7VTwP0uemDuF7Rpy4fKmapBgLadlBCILOexBhIQmy4QWrq1Gyfbo8sM/NhP
+         cQC+wdJtzFFb31th6YoDLi050lcmZMrlwySeYGjJTda7lKvs0Sc7ZSjuvZsIjNFaW7LL
+         PjbSVwBjLG2AWegw+ciut4k/Cs9XyYa9l7LY6lWxYICSqpkviy08eMSlrIuqaxQRk12J
+         neBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741869556; x=1742474356;
+        d=1e100.net; s=20230601; t=1741870380; x=1742475180;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xSlQ1L6rFi2oeV1zF6QF9pposhG4AHSuAju9zq00g0c=;
-        b=qtVgXYeRZ2WcWgZycs9axrK0KNjN7vn7rcwnx5GDOaMa65WtlwGtlsCQapE3+liZ3k
-         QVaF2fu6wW2vbuNNbKZjHqn117nY2s+vU9Y7ia5K5U6iYgBUT8nlmuaQLB7ymc3OJGBe
-         FI3q4PCWC1uqcHhia/hqWC4xwmPI6MrSTXp59eKf2eJdI9z2sPHpBiMfXFgyBRoZloQL
-         /i/6NJS3nPWpk55u5lShZs+9ZFS15XfrSCgQL2FX31tV0Dfp3OglrD4/KSQe8wT9j+fx
-         1eBsYTenULs2t6OFAEtyf5etAtemHMg9aODbbnaAY7H3MPq2cXaGBQR5pViuBBH5N7PS
-         3z1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXUos//IeTm1z1Oqv94LHR+mI9IMVuUBmFn2p1bv6xrulzCIg7EyX1bseCYei17KwK7A2uMsy6HwVlclg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzb4FVfPaMYoKfFLctVOjb6PQPp2Wva301F8wipxZXOla3U5E5d
-	Os5GWH6l7BRgrU0D1MHx5u9P3t3OCdfAsRRb4fC6AhIJKMKv6FHV4UM3FP2+wtk=
-X-Gm-Gg: ASbGncvFCeMt9MPgoPciASeBTGXA42tAgH0YWxY3ppb63emCfYih61XO2050bWNOK+5
-	wwwN5YyAEnlsZXFZZ6HA4TE7Vv+9K00H0JGKMmB0e21wAeC7fwqw/3St9Oz0+OYzIVvTfnhCLOt
-	oNfeT4Gz76s/tZFNy78EsopPxWwvsW8AdJOQ+jXQqoCxFh+uRxijjHNvhDZO8HqDPe83ted5Eon
-	k62k7CvHLxqCm+5s1i+GgiBmD0c8qeFIBpBwRdnidWDOg7YG8Q9+vyX0rGh8LhWiemYiLvDj9nI
-	fIDT1PeMbMRuR5gZ+p82w2/hJjHNGfUaqUGIh6tiMMI=
-X-Google-Smtp-Source: AGHT+IHljsBKLiMSwe9a9spi/guXRSlSUeFAziwYEZ2f83TIkAwW439SP28/QrmHbhabYpknI9/fAQ==
-X-Received: by 2002:a5d:64ac:0:b0:38d:dfb8:3679 with SMTP id ffacd0b85a97d-39132d228c5mr22022486f8f.17.1741869556082;
-        Thu, 13 Mar 2025 05:39:16 -0700 (PDT)
+        bh=whJ5WLOnqJqIdekbdowFNyLodSkqgwLzZprjEG6v7KA=;
+        b=YGZM01sFrXMjjTppGIDj3wHnpzbjQ0ddO3W59ZsRR2BHVD1Tmrgy7erqd5zoMnMyim
+         PoDlcp+IxrlZXrw05Gx+JKckBTQJxRXE/joWkl2gJAUS3Du7MKclfQjzF9DAKsOBPXWE
+         /rykOa4gPPQFWwkNJ+ik3bzb0+mUN4KIjMb4jKhUtgzOcBQ7mzTBaN6G4aXpJuMMgZ30
+         hKNqZhB4NjmRySvm1P13dBt/HIDE70MGw1g7q02VteGGgkJgYsB48tgiQ8i1TbiLGHwR
+         vIHiuXonM+db15I7MaaclcWcoaZwdOLW0PgaMfuaJ0BGzsLlnfgjq6uw4RSmhoUZslt8
+         KEwg==
+X-Forwarded-Encrypted: i=1; AJvYcCVp3d8dWEQaIc1YlhDWJs8OorQx888knREliSewmWbnATxjupTZrfjHOXsN1ZSX8+S4Fqie0+Mni0E5Lw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyLFtIWpZxQE291385ey9kgKAVGfrfyKBugVEDYtjCd30AWvacY
+	8BBpzxtiJwmv7gPehAt/W311kK5/Pi111qDX/xo1JhrIkWv8eAx5rFKQtKrEGDM=
+X-Gm-Gg: ASbGncsKYjs2nyqF20466CB7zhpTwNHfQ8wgoWV4/SLRTlrokVQlcHsc0tImgsbZgYh
+	lRe5g3NCr7+e/ki0agvfWX/JcH+Ha3F1UJLGSm+bkjVcRoz6U0ybv94+d/z2fpRciVeiGgXvL3l
+	TznDz2TFVI7WzFCCZYJicGkAv1MWSmv9fsyvRgHtZJAJ6geU23tX+UhDioSgdNvOvPk+8ACe6di
+	C0F9siwsAWVlXarkxlSUkLJeIssL1Isq1VXmANMwubXl52aOD0o6HpZIhOW07kpPrcRIA/iCEt4
+	PLujfKKcKVl+waz4YBsLHwIK5PhYC81D
+X-Google-Smtp-Source: AGHT+IG41qlHvVlMBTz+EBNgOBL90SoyA5MRu9vVFfQYuH5YBZLTfvMhSZKO57zcnXjrEIFxRRHKsw==
+X-Received: by 2002:a05:600c:3ba4:b0:43c:fabf:9146 with SMTP id 5b1f17b1804b1-43cfabf940emr138350995e9.17.1741870380371;
+        Thu, 13 Mar 2025 05:53:00 -0700 (PDT)
 Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c7df33aasm1978419f8f.2.2025.03.13.05.39.15
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d186e9639sm20720865e9.0.2025.03.13.05.52.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 05:39:15 -0700 (PDT)
-Date: Thu, 13 Mar 2025 13:39:14 +0100
+        Thu, 13 Mar 2025 05:52:59 -0700 (PDT)
+Date: Thu, 13 Mar 2025 13:52:58 +0100
 From: Andrew Jones <ajones@ventanamicro.com>
 To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -92,16 +77,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
 	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
 	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v3 02/17] riscv: sbi: add FWFT extension interface
-Message-ID: <20250313-5c22df0c08337905367fa125@orel>
+Subject: Re: [PATCH v3 04/17] riscv: misaligned: request misaligned exception
+ from SBI
+Message-ID: <20250313-28a56381a2c44ebeff100f91@orel>
 References: <20250310151229.2365992-1-cleger@rivosinc.com>
- <20250310151229.2365992-3-cleger@rivosinc.com>
+ <20250310151229.2365992-5-cleger@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250310151229.2365992-3-cleger@rivosinc.com>
+In-Reply-To: <20250310151229.2365992-5-cleger@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_123919_088819_EBC211DF 
-X-CRM114-Status: GOOD (  27.67  )
+X-CRM114-CacheID: sfid-20250313_055303_169795_708872A4 
+X-CRM114-Status: GOOD (  25.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,185 +104,220 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 04:12:09PM +0100, Cl=E9ment L=E9ger wrote:
-> This SBI extensions enables supervisor mode to control feature that are
-> under M-mode control (For instance, Svadu menvcfg ADUE bit, Ssdbltrp
-> DTE, etc).
+On Mon, Mar 10, 2025 at 04:12:11PM +0100, Cl=E9ment L=E9ger wrote:
+> Now that the kernel can handle misaligned accesses in S-mode, request
+> misaligned access exception delegation from SBI. This uses the FWFT SBI
+> extension defined in SBI version 3.0.
 > =
 
 > Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
 > ---
->  arch/riscv/include/asm/sbi.h |  5 ++
->  arch/riscv/kernel/sbi.c      | 97 ++++++++++++++++++++++++++++++++++++
->  2 files changed, 102 insertions(+)
+>  arch/riscv/include/asm/cpufeature.h        |  3 +-
+>  arch/riscv/kernel/traps_misaligned.c       | 77 +++++++++++++++++++++-
+>  arch/riscv/kernel/unaligned_access_speed.c | 11 +++-
+>  3 files changed, 86 insertions(+), 5 deletions(-)
 > =
 
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index bb077d0c912f..fc87c609c11a 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -503,6 +503,11 @@ int sbi_remote_hfence_vvma_asid(const struct cpumask=
- *cpu_mask,
->  				unsigned long asid);
->  long sbi_probe_extension(int ext);
+> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
+/cpufeature.h
+> index 569140d6e639..ad7d26788e6a 100644
+> --- a/arch/riscv/include/asm/cpufeature.h
+> +++ b/arch/riscv/include/asm/cpufeature.h
+> @@ -64,8 +64,9 @@ void __init riscv_user_isa_enable(void);
+>  	_RISCV_ISA_EXT_DATA(_name, _id, _sub_exts, ARRAY_SIZE(_sub_exts), _vali=
+date)
 >  =
 
-> +int sbi_fwft_all_cpus_set(u32 feature, unsigned long value, unsigned lon=
-g flags,
-> +			  bool revert_on_failure);
-> +int sbi_fwft_get(u32 feature, unsigned long *value);
-> +int sbi_fwft_set(u32 feature, unsigned long value, unsigned long flags);
-> +
->  /* Check if current SBI specification version is 0.1 or not */
->  static inline int sbi_spec_is_0_1(void)
+>  bool check_unaligned_access_emulated_all_cpus(void);
+> +void unaligned_access_init(void);
+> +int cpu_online_unaligned_access_init(unsigned int cpu);
+>  #if defined(CONFIG_RISCV_SCALAR_MISALIGNED)
+> -void check_unaligned_access_emulated(struct work_struct *work __always_u=
+nused);
+>  void unaligned_emulation_finish(void);
+>  bool unaligned_ctl_available(void);
+>  DECLARE_PER_CPU(long, misaligned_access_speed);
+> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
+ps_misaligned.c
+> index 7cc108aed74e..90ac74191357 100644
+> --- a/arch/riscv/kernel/traps_misaligned.c
+> +++ b/arch/riscv/kernel/traps_misaligned.c
+> @@ -16,6 +16,7 @@
+>  #include <asm/entry-common.h>
+>  #include <asm/hwprobe.h>
+>  #include <asm/cpufeature.h>
+> +#include <asm/sbi.h>
+>  #include <asm/vector.h>
+>  =
+
+>  #define INSN_MATCH_LB			0x3
+> @@ -635,7 +636,7 @@ bool check_vector_unaligned_access_emulated_all_cpus(=
+void)
+>  =
+
+>  static bool unaligned_ctl __read_mostly;
+>  =
+
+> -void check_unaligned_access_emulated(struct work_struct *work __always_u=
+nused)
+> +static void check_unaligned_access_emulated(struct work_struct *work __a=
+lways_unused)
 >  {
-> diff --git a/arch/riscv/kernel/sbi.c b/arch/riscv/kernel/sbi.c
-> index 1989b8cade1b..256910db1307 100644
-> --- a/arch/riscv/kernel/sbi.c
-> +++ b/arch/riscv/kernel/sbi.c
-> @@ -299,6 +299,103 @@ static int __sbi_rfence_v02(int fid, const struct c=
-pumask *cpu_mask,
->  	return 0;
+>  	int cpu =3D smp_processor_id();
+>  	long *mas_ptr =3D per_cpu_ptr(&misaligned_access_speed, cpu);
+> @@ -646,6 +647,13 @@ void check_unaligned_access_emulated(struct work_str=
+uct *work __always_unused)
+>  	__asm__ __volatile__ (
+>  		"       "REG_L" %[tmp], 1(%[ptr])\n"
+>  		: [tmp] "=3Dr" (tmp_val) : [ptr] "r" (&tmp_var) : "memory");
+> +}
+> +
+> +static int cpu_online_check_unaligned_access_emulated(unsigned int cpu)
+> +{
+> +	long *mas_ptr =3D per_cpu_ptr(&misaligned_access_speed, cpu);
+> +
+> +	check_unaligned_access_emulated(NULL);
+>  =
+
+>  	/*
+>  	 * If unaligned_ctl is already set, this means that we detected that all
+> @@ -654,9 +662,10 @@ void check_unaligned_access_emulated(struct work_str=
+uct *work __always_unused)
+>  	 */
+>  	if (unlikely(unaligned_ctl && (*mas_ptr !=3D RISCV_HWPROBE_MISALIGNED_S=
+CALAR_EMULATED))) {
+>  		pr_crit("CPU misaligned accesses non homogeneous (expected all emulate=
+d)\n");
+> -		while (true)
+> -			cpu_relax();
+> +		return -EINVAL;
+>  	}
+> +
+> +	return 0;
 >  }
 >  =
 
-> +int sbi_fwft_get(u32 feature, unsigned long *value)
+>  bool check_unaligned_access_emulated_all_cpus(void)
+> @@ -688,4 +697,66 @@ bool check_unaligned_access_emulated_all_cpus(void)
+>  {
+>  	return false;
+>  }
+> +static int cpu_online_check_unaligned_access_emulated(unsigned int cpu)
 > +{
-> +	return -EOPNOTSUPP;
+> +	return 0;
+> +}
+>  #endif
+> +
+> +#ifdef CONFIG_RISCV_SBI
+> +
+> +static bool misaligned_traps_delegated;
+> +
+> +static int cpu_online_sbi_unaligned_setup(unsigned int cpu)
+> +{
+> +	if (sbi_fwft_set(SBI_FWFT_MISALIGNED_EXC_DELEG, 1, 0) &&
+> +	    misaligned_traps_delegated) {
+> +		pr_crit("Misaligned trap delegation non homogeneous (expected delegate=
+d)");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
 > +}
 > +
-> +/**
-> + * sbi_fwft_set() - Set a feature on all online cpus
-
-copy+paste of description from sbi_fwft_all_cpus_set(). This function
-only sets the feature on the calling hart.
-
-> + * @feature: The feature to be set
-> + * @value: The feature value to be set
-> + * @flags: FWFT feature set flags
-> + *
-> + * Return: 0 on success, appropriate linux error code otherwise.
-> + */
-> +int sbi_fwft_set(u32 feature, unsigned long value, unsigned long flags)
-> +{
-> +	return -EOPNOTSUPP;
-> +}
-> +
-> +struct fwft_set_req {
-> +	u32 feature;
-> +	unsigned long value;
-> +	unsigned long flags;
-> +	cpumask_t mask;
-> +};
-> +
-> +static void cpu_sbi_fwft_set(void *arg)
-> +{
-> +	struct fwft_set_req *req =3D arg;
-> +
-> +	if (sbi_fwft_set(req->feature, req->value, req->flags))
-> +		cpumask_clear_cpu(smp_processor_id(), &req->mask);
-> +}
-> +
-> +static int sbi_fwft_feature_local_set(u32 feature, unsigned long value,
-> +				      unsigned long flags,
-> +				      bool revert_on_fail)
+> +static void unaligned_sbi_request_delegation(void)
 > +{
 > +	int ret;
-> +	unsigned long prev_value;
-> +	cpumask_t tmp;
-> +	struct fwft_set_req req =3D {
-> +		.feature =3D feature,
-> +		.value =3D value,
-> +		.flags =3D flags,
-> +	};
 > +
-> +	cpumask_copy(&req.mask, cpu_online_mask);
+> +	ret =3D sbi_fwft_all_cpus_set(SBI_FWFT_MISALIGNED_EXC_DELEG, 1, 0, 0);
+> +	if (ret)
+> +		return;
 > +
-> +	/* We can not revert if features are locked */
-> +	if (revert_on_fail && flags & SBI_FWFT_SET_FLAG_LOCK)
-
-Should use () around the flags &. I thought checkpatch complained about
-that?
-
-> +		return -EINVAL;
+> +	misaligned_traps_delegated =3D true;
+> +	pr_info("SBI misaligned access exception delegation ok\n");
+> +	/*
+> +	 * Note that we don't have to take any specific action here, if
+> +	 * the delegation is successful, then
+> +	 * check_unaligned_access_emulated() will verify that indeed the
+> +	 * platform traps on misaligned accesses.
+> +	 */
+> +}
 > +
-> +	/* Reset value is the same for all cpus, read it once. */
-
-How do we know we're reading the reset value? sbi_fwft_all_cpus_set() may
-be called multiple times on the same feature. And harts may have had
-sbi_fwft_set() called on them independently. I think we should drop the
-whole prev_value optimization.
-
-> +	ret =3D sbi_fwft_get(feature, &prev_value);
+> +void unaligned_access_init(void)
+> +{
+> +	if (sbi_probe_extension(SBI_EXT_FWFT) > 0)
+> +		unaligned_sbi_request_delegation();
+> +}
+> +#else
+> +void unaligned_access_init(void) {}
+> +
+> +static int cpu_online_sbi_unaligned_setup(unsigned int cpu __always_unus=
+ed)
+> +{
+> +	return 0;
+> +}
+> +#endif
+> +
+> +int cpu_online_unaligned_access_init(unsigned int cpu)
+> +{
+> +	int ret;
+> +
+> +	ret =3D cpu_online_sbi_unaligned_setup(cpu);
 > +	if (ret)
 > +		return ret;
 > +
-> +	/* Feature might already be set to the value we want */
-> +	if (prev_value =3D=3D value)
-> +		return 0;
-> +
-> +	on_each_cpu_mask(&req.mask, cpu_sbi_fwft_set, &req, 1);
-> +	if (cpumask_equal(&req.mask, cpu_online_mask))
-> +		return 0;
-> +
-> +	pr_err("Failed to set feature %x for all online cpus, reverting\n",
-> +	       feature);
-
-nit: I'd let the above line stick out. We have 100 chars.
-
-> +
-> +	req.value =3D prev_value;
-> +	cpumask_copy(&tmp, &req.mask);
-> +	on_each_cpu_mask(&req.mask, cpu_sbi_fwft_set, &req, 1);
-> +	if (cpumask_equal(&req.mask, &tmp))
-> +		return 0;
-
-I'm not sure we want the revert_on_fail support either. What happens when
-the revert fails and we return -EINVAL below? Also returning zero when
-revert succeeds means the caller won't know if we successfully set what
-we wanted or just successfully reverted.
-
-> +
-> +	return -EINVAL;
+> +	return cpu_online_check_unaligned_access_emulated(cpu);
 > +}
+> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kern=
+el/unaligned_access_speed.c
+> index 91f189cf1611..2f3aba073297 100644
+> --- a/arch/riscv/kernel/unaligned_access_speed.c
+> +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> @@ -188,13 +188,20 @@ arch_initcall_sync(lock_and_set_unaligned_access_st=
+atic_branch);
+>  =
+
+>  static int riscv_online_cpu(unsigned int cpu)
+>  {
+> +	int ret;
+>  	static struct page *buf;
+>  =
+
+>  	/* We are already set since the last check */
+>  	if (per_cpu(misaligned_access_speed, cpu) !=3D RISCV_HWPROBE_MISALIGNED=
+_SCALAR_UNKNOWN)
+>  		goto exit;
+>  =
+
+> -	check_unaligned_access_emulated(NULL);
+> +	ret =3D cpu_online_unaligned_access_init(cpu);
+> +	if (ret)
+> +		return ret;
 > +
-> +/**
-> + * sbi_fwft_all_cpus_set() - Set a feature on all online cpus
-> + * @feature: The feature to be set
-> + * @value: The feature value to be set
-> + * @flags: FWFT feature set flags
-> + * @revert_on_fail: true if feature value should be restored to it's ori=
-gnal
-
-its original
-
-> + * 		    value on failure.
-
-Line 'value' up under 'true'
-
-> + *
-> + * Return: 0 on success, appropriate linux error code otherwise.
-> + */
-> +int sbi_fwft_all_cpus_set(u32 feature, unsigned long value, unsigned lon=
-g flags,
-> +			  bool revert_on_fail)
-> +{
-> +	if (feature & SBI_FWFT_GLOBAL_FEATURE_BIT)
-> +		return sbi_fwft_set(feature, value, flags);
+> +	if (per_cpu(misaligned_access_speed, cpu) =3D=3D RISCV_HWPROBE_MISALIGN=
+ED_SCALAR_EMULATED)
+> +		goto exit;
 > +
-> +	return sbi_fwft_feature_local_set(feature, value, flags,
-> +					  revert_on_fail);
-> +}
+>  	buf =3D alloc_pages(GFP_KERNEL, MISALIGNED_BUFFER_ORDER);
+>  	if (!buf) {
+>  		pr_warn("Allocation failure, not measuring misaligned performance\n");
+> @@ -403,6 +410,8 @@ static int check_unaligned_access_all_cpus(void)
+>  {
+>  	bool all_cpus_emulated, all_cpus_vec_unsupported;
+>  =
+
+> +	unaligned_access_init();
 > +
->  /**
->   * sbi_set_timer() - Program the timer for next timer event.
->   * @stime_value: The value after which next timer event should fire.
+>  	all_cpus_emulated =3D check_unaligned_access_emulated_all_cpus();
+>  	all_cpus_vec_unsupported =3D check_vector_unaligned_access_emulated_all=
+_cpus();
+>  =
+
 > -- =
 
 > 2.47.2
+>
 
-Thanks,
-drew
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
 _______________________________________________
 linux-riscv mailing list
