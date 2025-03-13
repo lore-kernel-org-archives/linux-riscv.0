@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8542C35FF5
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 355D8C35FF6
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:53:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=reG3nqRvgzXnowNON/zAx8SStnFctD3TItQ86X5Bwtc=; b=BY2qJk3d2lRmdf
-	vo6z7oPeHPOkm47MYZz81B0RJDBQhzej1AioekNLl2e3zybzek7l+i4dvx+DIOQguijM8MUN7tA+o
-	i0mPT8ejtUttpn5HDw6NTtdVd7bSaX91O1ly+pWjltG/Sg+wflCnnfXNipphzfNqV/DXlVsTUKm4Q
-	ifdOizi1B4MPacfcVOvP7LRUg5HA39N9xnOo82dW9T+JjWcwnqIO01SSzqT4CM+/f8AxGt2sACQBQ
-	/uBlux46AwBEjNNGaQ5WwWwun9I683GtFZUsXl24EO+pTJtK+D7vI+ArO2QyxgGgMDuuq+0UupOWt
-	ZPgbBRj+eDsgNUqUrTdg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=o/UW2zdvD5J7+TvrMVTJCd/II0UE8oTta/+Ny/yfx+A=; b=Drtr6PX0dVjmKf
+	kbjiIL+hbsEpGrZ5Lm4RzYi5uK7zo/PAOsTsN+l959yuOQZQ8D/uUiVreMQWnLXS63VlXXkoDR57w
+	QiFWhzsKMOYfR8qruwjCTd+AZHUbQKADNenG+0ntT8IuA/BGWf8S+13xCCifyFht69aMtsD0VGdOc
+	/D+0d4hb/Y+jPPPJE051RAlTziFg79ZUhG13i5jehf6DJsVFXypG0eHPvOUSXkP/2/Mi7mX6LsGQR
+	kt30v1J5+blzORZCXjZ4MAGO326Oy6qk3paDJdMnQJAYGZovTIce76W/wGfvMVN1X+ZvsSLQpM6eC
+	l5BynhDlCs+ZoAmfNZaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsizi-0000000BRcp-0ayY;
-	Thu, 13 Mar 2025 13:53:06 +0000
+	id 1tsizj-0000000BRdq-1xXT;
+	Thu, 13 Mar 2025 13:53:07 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsixC-0000000BQjp-3wFV;
-	Thu, 13 Mar 2025 13:50:31 +0000
+	id 1tsixO-0000000BQly-40w2;
+	Thu, 13 Mar 2025 13:50:42 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=q3twzRg7JFtCcj4wct+pthKqDwlnYSVDhBZsfaP3eKQ=; b=iG/p7YuCG4MfQw89LNk72vralS
-	Yi+Ri7OYIeYgjGtFCQy+K5dVuSZ16g/x4JVlEPJLVWZTzmKP3GWaKlW/8AR811DtJWCpIlIjeMnDT
-	tmbwdZU+r37A+QExq0AIkOoedBb9B0/Df0xTJskbx/ah6Zp0LNiEs9SaEx2/XeqZeG8lMcH1z+sFZ
-	KoVex6tnp4r8JLM/6QcPIXTM5K3tF5Ke1ZRtb+yZhFVI/txPR3uQi+IEBs4VgIGar1+n8u60k2KqH
-	1jDvjJ6UVQ6+D50sCuVkhm6VlrNXSvbOhYxG1335gBbsf2eAeLK0+IsYCMZURd2LOFafJbZPkNZyw
-	9yFinc5w==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=+UjMwhEht30vCR6c5BWARp/0Kl/5L2IcrBToHAC3ydk=; b=oWUD6hirmwC6iOcUEe2sREDQNP
+	sjJwOzaRvT+bI4fggfezC1JijxicSrdztxkUWKB8nSM3bOowhadYyp1DhAUkgjV5XpmI6Xj6YT5ap
+	tbyelr/jZdFWYxWajLJCpcprPicaUCDyyV8nTj9cihFsr6tX/11fkFJberaAFlluDRlT7xMiT4/Px
+	Ybx07apdtF6YFi42PIy5cTi766zC6NAtRtXG9wHn3JWQl/F9/v5Y8DzLNXTGUsqhYlOYPJr9dRs8A
+	mbaQncpGnvxbKkdG70zu5Zzd+Tx/rmYXkOu7sJYfpcQIKMuJU8P0xoXwC4LqQ7gJ1OMTxJM4unwL8
+	nPzHohUQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsix9-00000002eMf-07Ad;
-	Thu, 13 Mar 2025 13:50:29 +0000
+	id 1tsixK-00000002eOu-46VM;
+	Thu, 13 Mar 2025 13:50:41 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3BAE8A474BF;
-	Thu, 13 Mar 2025 13:44:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C704BC4CEEA;
-	Thu, 13 Mar 2025 13:50:09 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id B00B25C5DAE;
+	Thu, 13 Mar 2025 13:48:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46EA7C4CEEB;
+	Thu, 13 Mar 2025 13:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741873822;
-	bh=62myLVbZVVZFvzPE89he3yMa/a5QAFc2vHsMKxeLVb8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=aBWKPm/h37x/i5+4FCPzxXZYbNjC4QtR+6/uzYQ4j82YaZ0nkwcNlRiBhZ3s4R+Lr
-	 UbF6tAw/GLOmZOSjCm3jrX37f1OqnkT6FdjX3Szfhc1wjS/Zyf835B0imLzLMqYjcF
-	 W5cI3ghKtUKRswhAYc77+5GSp1YmJnwSpf+x4AqcOGMZBAqFa6QHJIit/O7bFjGzmZ
-	 g/lU9Dt6wqDCDU2wFqrq4LXF68UvvU/ytVgt54uUuF2Vagcx8WobuHEk6mGKRWMGKp
-	 aLWh5ch4M9p8CvWw5jWVVvEJFFmiQHZ9S4CLDqJpDLqZJs/1wj2uAhd2lAzYblfH7W
-	 BgZb5J0KHNyow==
+	s=k20201202; t=1741873836;
+	bh=xXhNVtoRAjb56OLfL+MIUyuiC6fNrGdmFypg4AHZHss=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=vM8kjhflpGv3ifczYRBjucOLjPNbTjYEFQMj1aEp0KsLhRKStFJlWIGjAEJLt2da+
+	 HjtiQkCtGzrOP1Lfase8Tm5L6D5Mn8i2K2X8xlpqdSbVd+khSOen+r9N4+2Ckwctvl
+	 vd45q3fsT5VFequdtDMR6RGd84DUAVt5h+T7EQZSGqGj3wc9JcT8Kf80HGB1m/4qV/
+	 YmMUDr49NOXjSCqI/uf+x2MqyPp4kBxltU4mmCjCvwKgvY2LEte6vnTXfX463yflwU
+	 D9m/XyUzL5ubJawlpBJuZyq0tgbiYauzm+IdYU+m35MKZ0/I3YkEYIrUzw4+S42UjY
+	 9rlNZpu0kjehA==
 From: Mike Rapoport <rppt@kernel.org>
 To: Andrew Morton <akpm@linux-foundation.org>
 Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
@@ -115,14 +115,16 @@ Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
 	linux-arch@vger.kernel.org,
 	linux-mm@kvack.org,
 	x86@kernel.org
-Subject: [PATCH v2 00/13] arch, mm: reduce code duplication in mem_init()
-Date: Thu, 13 Mar 2025 15:49:50 +0200
-Message-ID: <20250313135003.836600-1-rppt@kernel.org>
+Subject: [PATCH v2 01/13] arm: mem_init: use memblock_phys_free() to free DMA memory on SA1111
+Date: Thu, 13 Mar 2025 15:49:51 +0200
+Message-ID: <20250313135003.836600-2-rppt@kernel.org>
 X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250313135003.836600-1-rppt@kernel.org>
+References: <20250313135003.836600-1-rppt@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_135027_393658_14C1D962 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20250313_135039_409942_0A599DB8 
+X-CRM114-Status: GOOD (  12.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,95 +143,36 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
 
-Hi,
+This will help to pull out memblock_free_all() to generic code.
 
-Every architecture has implementation of mem_init() function and some
-even more than one. All these release free memory to the buddy
-allocator, most of them set high_memory to the end of directly
-addressable memory and many of them set max_mapnr for FLATMEM case.
+Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+---
+ arch/arm/mm/init.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-These patches pull the commonalities into the generic code and refactor
-some of the mem_init() implementations so that many of them can be just
-dropped.
-
-v2 changes:
-* don't use generic version for setting high_memory on architectures
-  that use that varialble earlier than free_area_init()
-* use memblock_alloc_or_panig() to allocate zero pages on MIPS and s390
-* fix alignment in allocation of zero pages on s390
-* add Acked-by
-
-v1: https://lore.kernel.org/all/20250306185124.3147510-1-rppt@kernel.org
-
-Mike Rapoport (Microsoft) (13):
-  arm: mem_init: use memblock_phys_free() to free DMA memory on SA1111
-  csky: move setup_initrd() to setup.c
-  hexagon: move initialization of init_mm.context init to paging_init()
-  MIPS: consolidate mem_init() for NUMA machines
-  MIPS: make setup_zero_pages() use memblock
-  nios2: move pr_debug() about memory start and end to setup_arch()
-  s390: make setup_zero_pages() use memblock
-  xtensa: split out printing of virtual memory layout to a function
-  arch, mm: set max_mapnr when allocating memory map for FLATMEM
-  arch, mm: set high_memory in free_area_init()
-  arch, mm: streamline HIGHMEM freeing
-  arch, mm: introduce arch_mm_preinit
-  arch, mm: make releasing of memory to page allocator more explicit
-
- arch/alpha/mm/init.c               |  8 ----
- arch/arc/mm/init.c                 | 25 +----------
- arch/arm/mm/init.c                 | 43 +------------------
- arch/arm64/mm/init.c               | 12 +-----
- arch/csky/kernel/setup.c           | 43 +++++++++++++++++++
- arch/csky/mm/init.c                | 67 ------------------------------
- arch/hexagon/mm/init.c             | 32 ++------------
- arch/loongarch/kernel/numa.c       |  6 ---
- arch/loongarch/mm/init.c           |  8 ----
- arch/m68k/mm/init.c                |  2 -
- arch/microblaze/mm/init.c          | 25 -----------
- arch/mips/include/asm/mmzone.h     |  2 -
- arch/mips/loongson64/numa.c        |  7 ----
- arch/mips/mm/init.c                | 51 ++++-------------------
- arch/mips/sgi-ip27/ip27-memory.c   |  9 ----
- arch/nios2/kernel/setup.c          |  3 +-
- arch/nios2/mm/init.c               | 16 +------
- arch/openrisc/mm/init.c            |  6 ---
- arch/parisc/mm/init.c              |  4 --
- arch/powerpc/kernel/setup-common.c |  2 -
- arch/powerpc/mm/mem.c              | 18 +-------
- arch/riscv/mm/init.c               |  5 +--
- arch/s390/mm/init.c                | 20 +--------
- arch/sh/mm/init.c                  | 10 -----
- arch/sparc/mm/init_32.c            | 31 +-------------
- arch/sparc/mm/init_64.c            |  4 --
- arch/um/include/shared/mem_user.h  |  1 -
- arch/um/kernel/mem.c               |  9 ++--
- arch/um/kernel/physmem.c           | 12 ------
- arch/um/kernel/um_arch.c           |  2 -
- arch/x86/include/asm/highmem.h     |  3 --
- arch/x86/include/asm/numa.h        |  4 --
- arch/x86/include/asm/numa_32.h     | 13 ------
- arch/x86/kernel/setup.c            |  2 -
- arch/x86/mm/Makefile               |  2 -
- arch/x86/mm/highmem_32.c           | 34 ---------------
- arch/x86/mm/init_32.c              | 41 ++----------------
- arch/x86/mm/init_64.c              |  7 ++--
- arch/x86/mm/numa_32.c              |  3 --
- arch/xtensa/mm/init.c              | 66 +++++++----------------------
- include/asm-generic/memory_model.h |  5 ++-
- include/linux/memblock.h           |  1 -
- include/linux/mm.h                 | 13 +-----
- mm/internal.h                      |  3 +-
- mm/memblock.c                      |  3 +-
- mm/memory.c                        | 16 -------
- mm/mm_init.c                       | 65 +++++++++++++++++++++++++----
- mm/nommu.c                         |  6 ---
- 48 files changed, 158 insertions(+), 612 deletions(-)
- delete mode 100644 arch/x86/include/asm/numa_32.h
- delete mode 100644 arch/x86/mm/highmem_32.c
-
-
-base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+diff --git a/arch/arm/mm/init.c b/arch/arm/mm/init.c
+index 5345d218899a..9aec1cb2386f 100644
+--- a/arch/arm/mm/init.c
++++ b/arch/arm/mm/init.c
+@@ -277,14 +277,14 @@ void __init mem_init(void)
+ 
+ 	set_max_mapnr(pfn_to_page(max_pfn) - mem_map);
+ 
+-	/* this will put all unused low memory onto the freelists */
+-	memblock_free_all();
+-
+ #ifdef CONFIG_SA1111
+ 	/* now that our DMA memory is actually so designated, we can free it */
+-	free_reserved_area(__va(PHYS_OFFSET), swapper_pg_dir, -1, NULL);
++	memblock_phys_free(PHYS_OFFSET, __pa(swapper_pg_dir) - PHYS_OFFSET);
+ #endif
+ 
++	/* this will put all unused low memory onto the freelists */
++	memblock_free_all();
++
+ 	free_highpages();
+ 
+ 	/*
 -- 
 2.47.2
 
