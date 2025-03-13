@@ -4,92 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CBB6C282DE
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 08:19:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8505BC282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 08:42:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tP3PvXZNogKrFhzo+AqufEKpTfmg7FsANlV06jn93oo=; b=ir21mT3hCxdPL7
-	A29MfSsqF1Eo1MOaF6ddRW4CNinRvTDTLvyRxer1S4LE/gYv0Yo/e0A4H+dVxwZUTIj6tpe2DJKlu
-	qqsRzX7BdhBbH3/grcFvfWAC7hYKqM+6H7WqJRohVK3waGMtqTA0jYv4vPhniZtkGNprVawJn9V1O
-	/3vMwp7TiYUN4um52oc8JRGe7lR6hmIpP6YFvT38kcGFwnRzU5MzJaVyomf92Cv8N/nhUOzcur3nv
-	k5aROLO4T/wKye3Bf0Y08gzvJ+lZoKr8b+mVMMf/JIRHgb253h4ZuSAcR8qltTrvQPcs7GAdLcmoW
-	fA9hmXQudNlC5c2HsgWA==;
+	List-Owner; bh=v5n1Kv3OcMUxYAH9uCJiajEh3TdrtnG90AJbmkebhw8=; b=Y7DNWS2zYqV/yY
+	PFCKhwCzCLnbTmcazfTvXkca/B+0PibKshXhlM+iP6oEkF71vr/5FQ3jj3w/QUtL5SSpRc49ewsCR
+	X5PYxD6CDdMNlsnCFQNzyueMeUtr1EFEs9Om69JVtKclhHuWuaXJTjEdsum2PNXGCLPnR6HBcjyGb
+	Z80KE8QQegge9Is59QWOjsZUznO5oU8B1bVJsppBRv+1Ufp3lgBC0wZmp7jgqE98yCB09FHHYoVNU
+	2HlqRw6RxjlGhrQsaf+G2xJhzT8zA0kysosGrU+FOaxxiQZvLw+wgbMEDvmwqi+ao9D1xDhNRXa1L
+	5csTHq5ekYvazBoWGG4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdmu-0000000AWi8-3sDX;
-	Thu, 13 Mar 2025 08:19:33 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tse8Y-0000000AaBn-3Km1;
+	Thu, 13 Mar 2025 08:41:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdms-0000000AWhm-3Pfb
+	id 1tse6Q-0000000AZWx-2ypc
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 08:19:32 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22409077c06so17488025ad.1
-        for <linux-riscv@lists.infradead.org>; Thu, 13 Mar 2025 01:19:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1741853970; x=1742458770; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZWEt0i+2shFRFdfbZiPgVihU5WzfabKYy6Z4Ak51Ze4=;
-        b=n58/tHf1pj4Lu67Qih9CcGzB/KVKhdT0cWik7gQXOAIU2mexSonULwdqBaLCV3eapu
-         5UzLcrQBL31raJZp34VnFbMRqRLaW8bkw2c1GTSgkSW04gm7/X+TA+xnDXqI6E9JinLg
-         7mRuOWYVpCjGaIqrbDbm+DAQqHfJ5BgYcEyRDA3pIrFKdFebphqbNV7PNBD2IZ1MM9oC
-         oZqRR5Npd8NrNG2c5cXiJkePLByoUAxSJpTVQa16vM4/jveQjp2DZQOGxl4bGFjmsrwS
-         H0jg6jyT4hsCBmmvRQW11gY/947ym95g8j80mD618JuapmBbgd7N4igFslyEe+Rb/eE7
-         gtBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741853970; x=1742458770;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZWEt0i+2shFRFdfbZiPgVihU5WzfabKYy6Z4Ak51Ze4=;
-        b=e6ykADMNkCsb7kgW1O2yWehYD6o5MsyCpynrRRBqWinuSOqk23X8VbZSf39ARP4b+Y
-         6zZXu5OS3jGHrvMRw9cYJIXAH68iBi4dSXbgY6x2PNXy4KlpDpU7RPQyj9QxMeuyfd+b
-         yCL/4HjXkO0IMbc/rfxPluoBz0IcDP/5Jb+r7MU7qPT17E3ydMoFEvUZXR7QmLnRDT/+
-         k1fAla0RKiuk+N7cV8bhz0d+XUSojV3Xi4PoY90f6t/9yn8HomHrrWnx0FcEIdJWAk1A
-         n78s/EoJ6C0NoKwuU9aWG2zocCW4ZkGNdgpHzfx4S6DPjI47H9S286aR1rg4RjlhyTIW
-         WKsw==
-X-Forwarded-Encrypted: i=1; AJvYcCUoMleWSOU1I2tJg9FcAACK/PoS1WDuTR+hYv3pZEP8Ad4WXWUZp5qx58SDaNZ3WWx0s/hnYVTm6ge4oA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzANOrlI8JP16sWBNs0ZCQQ5N9DncblIaSyeHAw+Fr6Mb31PAH8
-	a5ucFHN2Zm+FRoNCkAYN8t/7OS3kwtxC5Mxu1dx3mbz4xEXa0XfOY9oh460qd08=
-X-Gm-Gg: ASbGncvS3tUuoIiKr0JjvVPxZ3RxP8zyxYmnlglCrNZ7rM+CXHEblJPAZaVFdNg/Wy+
-	U2Ij2fR9Tya3dB5eyd+oCEVYqV5fpNG5CcWIypPx2TWsF+dqV2J9Wirr0ARBrBerSn0cFY1GjHN
-	mjXfma2AOv/mwM4UbOcktOXPrRj0n8ouYU8VVChDkTRwMVClIzSnIiUwpD4xVO1tQr81M4qEFYu
-	UoEcdhXGqPAvGNxvhfT9rr8873JbR8+3auKXimowtcWlLOdqMLC11mwTXoxh1noXb0GjK2jRq00
-	8U7/OLbV521xVISfjP3mEDUgpQ==
-X-Google-Smtp-Source: AGHT+IGvY/QZ39O2R90TZNOtRAufIJfxJ4YdpteHqgXktgzR2lShse5uenWthjfQWslvwJsLPVd98A==
-X-Received: by 2002:a17:902:ec92:b0:220:e9ef:ec98 with SMTP id d9443c01a7336-22428896a74mr388719455ad.19.1741853969936;
-        Thu, 13 Mar 2025 01:19:29 -0700 (PDT)
-Received: from x1 ([97.115.231.194])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd3c59sm7843595ad.218.2025.03.13.01.19.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 01:19:29 -0700 (PDT)
-Date: Thu, 13 Mar 2025 01:19:27 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Conor Dooley <conor.dooley@microchip.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Michal Wilczynski <m.wilczynski@samsung.com>, guoren@kernel.org,
-	wefu@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org,
-	m.szyprowski@samsung.com, linux-pm@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v8 0/5] TH1520 SoC: Add AON firmware & power-domain
- support
-Message-ID: <Z9KVD1GKGKPwMR+9@x1>
-References: <CGME20250311172030eucas1p12dda42760f751174e774b8d1a3d3f4cd@eucas1p1.samsung.com>
- <20250311171900.1549916-1-m.wilczynski@samsung.com>
- <CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
+	Thu, 13 Mar 2025 08:39:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2AE7A5C5ACC;
+	Thu, 13 Mar 2025 08:37:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A446DC4CEEA;
+	Thu, 13 Mar 2025 08:39:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741855181;
+	bh=B5wSWI7qx24vDT9BiR+67WlYh6byq1ZPkQTF3xYLPOA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VsGi178aSYTidfj8Dpev/ag/PrcSgr8XCNjVLpuAXHNYfiGoq/5d0AWGrlLn0dx1u
+	 QiGW1x/HfmhYs2IwV6YoFS7bH2ESuhPAcIYHqHJwQJxUCfwCAIhf4fXrz5+W3F9T1b
+	 RlMwD8qYJL65A7WprQUo9MXje9y2RLaLJoPCXaeYuLhqmV9JhzcX+SGKauC+AH5FMy
+	 R6+3LsWTvs6SYTURsRYJrBrwh2Z8TlAN4dmb7qR4V0pMtuBbyJ4g1iqT3GxaUAZg4Y
+	 UIK44tViQZ293Xc0ClaSZBjfl9p97VmRMzmjPAu+SrFpmWWHJJLrNjWSTnNoJHpe+U
+	 e9B3lVu/6lXTw==
+Message-ID: <cf1ed486-49d8-46da-a023-eba8b3f45277@kernel.org>
+Date: Thu, 13 Mar 2025 09:39:30 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFqeaq5xVNA=0CpMWSt_78qXJsY6+mpE1CSmLrVMQazAjg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 04/10] dt-bindings: riscv: Add SiFive HiFive Premier P550
+ board
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Min Lin <linmin@eswincomputing.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
+ <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Yu Chien Peter Lin <peterlin@andestech.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Kanak Shilledar <kanakshilledar@gmail.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>, rafal@milecki.pl,
+ Anup Patel <anup@brainfault.org>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
+ <20250311073432.4068512-5-pinkesh.vaghela@einfochips.com>
+ <f6601929-3d1e-49ae-8120-c3005f99e57b@kernel.org>
+ <2b240ccb-e18b-49f1-ba15-7c7c6c647bcc@sifive.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <2b240ccb-e18b-49f1-ba15-7c7c6c647bcc@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_011930_868713_3634E5B3 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250313_013942_871389_306BFDCA 
+X-CRM114-Status: UNSURE (   9.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +132,27 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 02:40:05PM +0100, Ulf Hansson wrote:
-> On Tue, 11 Mar 2025 at 18:20, Michal Wilczynski
-> <m.wilczynski@samsung.com> wrote:
-> >
-> > This patch series introduces and documents power management (PM) support and
-> > the AON firmware driver for the T-Head TH1520 SoC, as used on the LicheePi 4A
-> > board. While part of a larger effort to enable the Imagination BXM-4-64 GPU
-> > upstream, these patches can merge independently.
-> >
-> > Bigger series cover letter:
-> > https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
-> >
-> > This series is versioned to maintain continuity with the bigger patchset it is
-> > a subseries of. Please find below a changelog for the AON & power-domain:
-> 
-> I can pick up patch1 -> patch4 via my pmdomain tree, assuming I can
-> get an ack from some of the thead-SoC maintainers.
-> 
-> Patch5 is probably better to be routed through the SoC maintainers
-> tree, but let me know if you prefer me to take this one too.
-> 
-> Kind regards
-> Uffe
-
-Conor - would you be able to take the arch/riscv/Kconfig.socs patch?
-
-Thanks,
-Drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTMvMDMvMjAyNSAwOToxNSwgU2FtdWVsIEhvbGxhbmQgd3JvdGU6Cj4gSGkgS3J6eXN6dG9m
+LAo+IAo+IE9uIDIwMjUtMDMtMTIgNzo1NSBBTSwgS3J6eXN6dG9mIEtvemxvd3NraSB3cm90ZToK
+Pj4gT24gMTEvMDMvMjAyNSAwODozNCwgUGlua2VzaCBWYWdoZWxhIHdyb3RlOgo+Pj4gRnJvbTog
+UHJpdGVzaCBQYXRlbCA8cHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNvbT4KPj4+Cj4+PiBBZGQg
+RFQgYmluZGluZyBkb2N1bWVudGF0aW9uIGZvciB0aGUgRVNXSU4gRUlDNzcwMCBTb0MgYW5kCj4+
+PiBIaUZpdmUgUHJlbWllciBQNTUwIEJvYXJkCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogUHJpdGVz
+aCBQYXRlbCA8cHJpdGVzaC5wYXRlbEBlaW5mb2NoaXBzLmNvbT4KPj4+IFJldmlld2VkLWJ5OiBT
+YW11ZWwgSG9sbGFuZCA8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT4KPj4KPj4KPj4gVGhpcyBS
+YiB0YWcgYXBwZWFycyBldmVyeXdoZXJlLCB3aGlsZSB0aGlzIGlzIGEgdjEgYW5kIGl0IHdhcyBu
+b3QgZ2l2ZW4KPj4gb24gdGhlIGxpc3RzLCBzbyBJIHdhbnQgdG8gYmUgc3VyZSB0aGlzIHdhcyBu
+b3Qgc29tZSBibGFuayB0YWcgYWRkZWQgdG8KPj4gc2VyaWVzIGJlY2F1c2Ugc29tZW9uZSBzYWlk
+ICJ5ZWFoLCBsZ3RtIi4gV2FzIGl0IHJlYWxseSByZXZpZXcgYXMgaW4KPj4gKnJldmlld2VycyBz
+dGF0ZW1lbnQgb2Ygb3ZlcnNpZ2h0Kj8KPiAKPiBZZXMsIHRvIGJlIGNsZWFyLCB0aGUgc2VyaWVz
+IGhhcyBteToKPiAKPiBSZXZpZXdlZC1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5k
+QHNpZml2ZS5jb20+Cj4gCj4gcGVyIHRoZSByZXZpZXdlcuKAmXMgc3RhdGVtZW50IG9mIG92ZXJz
+aWdodC4KVGhhbmtzIQoKQmVzdCByZWdhcmRzLApLcnp5c3p0b2YKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAps
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
+L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
