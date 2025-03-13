@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A7CC282EC
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:45:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5C24C282DE
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 13:45:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mo4DR6MO8rE2X/8oUX7PTdU567cz2LW5QbOOZuiJb60=; b=xTqKmWrazHYdx+
-	0LEkOv7ifaf6McRnOriKRQPMhNHt4Ua0qZ+rF0iRSDd0HxPZXrJat0boQeXFPEep/3PJINeMvGli+
-	pINQtuKV0Ic2Jmy+C6pJsNzJ3pPy+dIkFraOtVaQ0pyW3k9vYBMyHaV0pIRo3ChOHPop82ndnU5e6
-	SaNVICME26oJ2RaBjeEWeWmHf5dsxCSmwNp1UmQxq4qKBLCnb+ILamD422sWWJIodm6k+Tk14m1+F
-	nX/uCEZfSVWdqb2CojXiINT3n3UtzIpiP/fSSAjOBHGKwEpOuiQIqZLnoClAOH/dJLDRQXRvqIZVP
-	dqzTSFm4wNXSSWxwBUgw==;
+	List-Owner; bh=e8JuQSE/Cu9LB38/lRMyBaIJYiSk9+P5Mj1H4grGirI=; b=qG9veWzD3XCcf6
+	3oVchor2PCksWSQvkrSY8cY+2qx7KCozxQXTK7zm+NvBCe2KleXSPKNB7PZMXPyLglpV7tqzVAGlU
+	Uvxk6JVNS4NxYGvQxdMTYCQJoZQ4IpQFKzpuAVHMFDSkPZhx6+D1tVAEXijF3Ub0IkE0RUHE4vlsu
+	2/9fn8lnpWGLrUEw751lsTMpbDTsemx+iGVDQ9+SZA8ACCS7NqrzrvKPFGOs+o8Odaz1WKFfvsZE5
+	qnfm6cqS8xCxQd65WMpVmHGUxZxCt9SQ3z4BTaZN35f1m4Hkuf1vDjp7drx9jQORH7shYgFXTNmcd
+	YkVRXsWv3st1D9ARAI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsisj-0000000BQ8p-05xj;
+	id 1tsisj-0000000BQ96-2aua;
 	Thu, 13 Mar 2025 13:45:53 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsiqJ-0000000BPkp-3iFS
+	id 1tsiqu-0000000BPrX-08AX
 	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 13:43:25 +0000
+	Thu, 13 Mar 2025 13:44:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2BC2AA4751E;
-	Thu, 13 Mar 2025 13:37:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7148C4CEDD;
-	Thu, 13 Mar 2025 13:43:16 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9382F5C0ECF;
+	Thu, 13 Mar 2025 13:41:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D78D6C4CEDD;
+	Thu, 13 Mar 2025 13:43:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741873402;
-	bh=vOk4S332xlilcD3/5Zv5IewZwOgUvqlBp4xafVFonoI=;
+	s=k20201202; t=1741873439;
+	bh=XnfzLvPWLAssRS90aQXqy6BPWCvs9KKiuSagZ8ODCZE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GH08m7jsuEG03/Km/P1ykpmdUS0tYG8qyuhFyFRHNkd6x87erTWJMHMvvoTaoXwgC
-	 hYI5M3WjKINt1lqlBvkYSn/cpUsERKf3Z66cGzybskguPNsN1wEgN3pRkT6pP6j7Md
-	 V+PMIn9RwLNzuqgREavht47cLfhN7BVxrMx08UUdo8K9birzgeEBWvKe8lmgztRcbv
-	 HVxWUPJG+TeZ+tC37rAhAtfdRgRZZTCgAeEXd8ak4uS487NjdRpDG9Dj3QYkbHcYh9
-	 MButCVTcHMeR2O6GZLxQZ4P90NVjJYcLX65lEL7hQIIiAIdHwROz5tiBStyioe6g/D
-	 OuYHO4ShEkD6Q==
-Message-ID: <1e775b14-7c72-4a3c-90bf-0e63627325e6@kernel.org>
-Date: Thu, 13 Mar 2025 14:43:14 +0100
+	b=BxieW2h6rFT5GjUIhCyE3lJAo+c8bdnBN8vqsXAJrIRa1fPuSnMscKcFotdhVq5lZ
+	 zk74jPwDdFPWfSbkvnzwzFijjw4+dRdwfd3u1UO5rUbq0+0ajHWoKUes9bSzgbxUsh
+	 dITMTo4m6NN6lJdDWB9+AJSQmNBSuCLgxFHQwNpgpaOIN9cIXtqkzoWaK4ut1sGeY6
+	 gMXLTUDled8FH4p/Dl0ZODuI8MpWycA/EsZchonZezMtIO2tYoI4wFShR0xQCfP1uJ
+	 yv9xMgqURPOYMxpSFpGEC+hpdD5nrE5h+bAikXbXSzt5RRxXVyWjVSws51BCW+Ud8a
+	 qxtOLbMO/twNA==
+Message-ID: <6262dfd2-9e0b-402e-bb03-a2174d544923@kernel.org>
+Date: Thu, 13 Mar 2025 14:43:50 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/2] spi: dt-bindings: snps,dw-apb-ssi: Add compatible
- for SOPHGO SG2042 SoC
+Subject: Re: [PATCH v3 2/2] riscv: sophgo: dts: Add spi controller for SG2042
 To: Zixian Zeng <sycamoremoon376@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
@@ -58,7 +57,7 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, chao.wei@sophgo.com,
  xiaoguang.xing@sophgo.com, dlan@gentoo.org
 References: <20250313-sfg-spi-v3-0-e686427314b2@gmail.com>
- <20250313-sfg-spi-v3-1-e686427314b2@gmail.com>
+ <20250313-sfg-spi-v3-2-e686427314b2@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,10 +103,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250313-sfg-spi-v3-1-e686427314b2@gmail.com>
+In-Reply-To: <20250313-sfg-spi-v3-2-e686427314b2@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_064324_068406_DFE8F4B9 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250313_064400_162239_F73E07F8 
+X-CRM114-Status: GOOD (  10.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,26 +124,27 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 13/03/2025 14:11, Zixian Zeng wrote:
-> add compatible property to include "sophgo,sg2042-spi" for
-> the SOPHGO SG2042 SoC SPI Controller.
+> Add spi controllers for SG2042.
+> 
+> SG2042 uses the upstreamed Synopsys DW SPI IP.
 > 
 > Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
 > ---
->  Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 4 ++++
->  1 file changed, 4 insertions(+)
+>  arch/riscv/boot/dts/sophgo/sg2042.dtsi | 26 ++++++++++++++++++++++++++
+>  1 file changed, 26 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> index bccd00a1ddd0ad92b437eed5b525a6ea1963db57..33fb21267df2594e68419cfb980a40909868e337 100644
-> --- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> +++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
-> @@ -92,6 +92,10 @@ properties:
->          items:
->            - const: thead,th1520-spi
->            - const: snps,dw-apb-ssi
-> +      - description: SOPHGO SG2042 SoC SPI Controller
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> index e62ac51ac55abd922b5ef796ba8c2196383850c4..9e0ec64e91a2330698aea202c8f0a2ca1f7e0919 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
+> @@ -545,5 +545,31 @@ sd: mmc@704002b000 {
+>  				      "timer";
+>  			status = "disabled";
+>  		};
+> +
+> +		spi0: spi@7040004000 {
 
-Please do not add things to the end - it increases conflicts and makes
-it difficult to find entries when reading the code. Place it after Renesas.
+Does not look like you keep order by unit address (see DTS coding style).
 
 
 Best regards,
