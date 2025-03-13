@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E361C28B30
-	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 02:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6B58C28B28
+	for <linux-riscv@archiver.kernel.org>; Thu, 13 Mar 2025 02:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u3vGLW2FV+tqYL/RIEVZByqIZRTiAUKfo1PwqvEURzw=; b=Y1YuXzcG172z4N
-	gANuZaJ/HkUWgRx7cDjbUW2TPixYY816lkOPhls4tzi4VMniUkWEsB1vRECM4fZdMc95Xjt6g3NOL
-	mtvaa3gmBxYtPEu0LzzciI3xvLp0wHsuatcZuH/Iuv8+MNENwEbKpYg9IojsJm1OJ2XvarOSS1Gn+
-	iZa4yX5OoofIrkhhnM1sdPXlI7It9NIce5epexA1yD4lLgxVx0qxxSyotDtkcgJpLb5aGFDWvOivd
-	VI99fg4pzzHrVaWsUuThXC4bwPMz7fY7PM8cpvXT2sXUmJx/7tK3Gy5yEMtL3XVHptevN2BQyqziE
-	Nds5P6QzmXsi9unGEjyg==;
+	List-Owner; bh=MJjsqdjlTjbxdnpwMMpSSBfHUav1IVosQogN4j3ZFJ4=; b=pGEU1yJcpD8kk0
+	jLZgKUKs4N/H69N9xf+l/LqCI7n3KfAvmo2qs/lwLmhxG5xFy45+jK3++RqqoLRdw3tIQ+8ASlYb9
+	N2KYylUqhShi3RpaWpn6jcypjJi+d5XFEScAWEw9DQLLLNd6i6Xq9vUQPdnzkpgJCdiZXvYnbsxhq
+	6Oehfc3+dQ0gvf5kXXNm7/2bP2s+8fg5apl5wnf2tXBhYG1vcWb4XRQXFAOiW5P043nS3Xwprellq
+	ESt4AdGsNbAd60sNAf5Qv/u1OE7o2Yf3kt6pRR09h11VQEudB8XcWe+0juaV4xWki6qZJI+VjwXO/
+	fNV9Kw3mZRi0B1qXEDNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsYB9-00000009uwd-1nDg;
-	Thu, 13 Mar 2025 02:20:11 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tsYjN-00000009yT8-47iD;
+	Thu, 13 Mar 2025 02:55:33 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsYB6-00000009uut-3WaH
-	for linux-riscv@lists.infradead.org;
-	Thu, 13 Mar 2025 02:20:10 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-22423adf751so6770475ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 12 Mar 2025 19:20:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741832408; x=1742437208; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=xhrJ8HGtR8k3dxAA+AgdZEOnZohoN1a96l9KBcI/XnA=;
-        b=V8SJD6qDBxGF+QqmebMAs7mMpAbboMwqbvCx2zhF35cL6o6YjVhptj4gOBtG2PZKlG
-         Cy7zgQghOokUYQvM2qSufoVtU8jW4RK6slQ0LFOVK06nhbe1JMSdBy3iVO+HuL5EKuXp
-         K/sjdZ1VOWwng82hf/YyXxeTiQjLCDuevIenzbE6cSeAiyyeuBZEkKhItS3s9kuq+uwh
-         XvzQgWTcq1PLK6udg7YCFTvpq2QY/1XCrTwCLc9iCVL2NT+UpbpP7byEE3kaT+cr/jGz
-         YxVhlJLieJyua3/aB6uG+WWJ3ydvbInsHfGJ2uCEnOO18bowGwMm2nLqa2Brbmfzitjh
-         3fQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741832408; x=1742437208;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=xhrJ8HGtR8k3dxAA+AgdZEOnZohoN1a96l9KBcI/XnA=;
-        b=RaRyX01DlzaziJuQYVCt2fCNpaLktnFdSzr3YA+RFRVPViqFk1MTaWGNjbAnU8VDiN
-         Rkcn/yh0MnTqc8BZV3ZLeSmtXl0+dmqNNBerIrijJgOSiB4sx5bgVkfQzoDTBW5mBxQv
-         hCISgmIWklpqA0w5ghk+/z3MhpOecX8QO7YEdOr78QCEAMjoOb0sEFS/ch5+Vg4X1EAL
-         NNPlhfs3zsNRdOaXK0RGKDGHIcuM2aH24M8qGMjHdo0UE0sCzCo39ujfxdVdhNAPo7KG
-         EuA7SnH8rAEmkdqEZ5CsfcdlecOxlGcDH/ii/3bmmanYW4wcw4h/qrQWRUvmGWesB9Q6
-         PkLA==
-X-Forwarded-Encrypted: i=1; AJvYcCXvbSya/XWzsTMTYyqRe6Nusmb3mlFCu6jbLPIeFJcdAippk0Ck9NQcq+hznwyvSYTrmD6xh8MndLFqEw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9gNVqdwjhpmIQzs7tjt8yhqP/gs8pu1w2atgmDHO0sw0XNlQ4
-	7rvC7StD/EFaJcUir5TvWwVaU8/wonBAKT8PnIy2hvdMwbaLhJDw
-X-Gm-Gg: ASbGncsh8FRv5uOXHbN0ALdfhJGzVdkw+JWfl7eaYRgHGxO2Aww50AUotW/Ok03pQkR
-	EIbJVrpULUr7YrU/Se97IMdVA/a84PY1cb6C4ZEuQWrFMZ+CyLvrQFS80G7I1Rj0yKdO82jQcGn
-	muh33m0RfbMxbpuS2hmJ4+hujllV3RrNPKy+0EHmGwSxCEkcgwZCSy6Dj9YJESm9Eh95k0yt1pC
-	uN8z+0DvEIHA+MGw/PPjUqExdRg5NPIGo7kfFperb7QEkJMUlhArBLLbcUL1TYwVSDPVNiePT2V
-	vaLojdnCs6LLzy2vVPySBe0EUX+lX+B4IOhNELiwfoz0
-X-Google-Smtp-Source: AGHT+IFcQfoNRBmW4J0WVDBuE/gGCx1w5h+8C1HXlvpyeZVWWTFjP7qL4lXzgdHuMvZqdEU+k1TZgA==
-X-Received: by 2002:a05:6a00:a09:b0:736:ab1d:83c4 with SMTP id d2e1a72fcca58-736eb65d07amr13574673b3a.0.1741832408295;
-        Wed, 12 Mar 2025 19:20:08 -0700 (PDT)
-Received: from localhost ([216.228.125.129])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7371155934asm232634b3a.56.2025.03.12.19.20.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 19:20:07 -0700 (PDT)
-From: Yury Norov <yury.norov@gmail.com>
-To: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Yury Norov <yury.norov@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>
-Subject: [PATCH 4/4] cpumask: drop cpumask_assign_cpu()
-Date: Wed, 12 Mar 2025 22:19:52 -0400
-Message-ID: <20250313021953.86035-5-yury.norov@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250313021953.86035-1-yury.norov@gmail.com>
-References: <20250313021953.86035-1-yury.norov@gmail.com>
+	id 1tsYim-00000009yNW-2btj;
+	Thu, 13 Mar 2025 02:54:57 +0000
+Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CKdMuS010776;
+	Thu, 13 Mar 2025 02:54:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=QzUbwZ
+	IB4F19T72AKaCGQM/30jhxW1JXzj8DiQnDWoc=; b=toCLS3F1c2VK7uPr8BdLxJ
+	F6MTKgHyGbxZJVsVuKazNR8vel0Qlv7RglTPLYYO1nsgEGyAnoa9UpyddJN6/1Vh
+	l7Qtw0efh870r8qXauSWW67eXW+vMyW0RQA20ioUX88uatik22Nuurbr93Ayhih0
+	jqaSmKJ63brpLkJHuzbC3FgKfc04WZ/EM4xEgHXifXQHjEiQX0dGWeg1Afkq82vL
+	jxFHAO7PjhFRvPwhOT67wbprC8FbjphZVIzQ/zU8LBjzO4qLY1LvwU0yaz1z9WvR
+	wvWRljR2Jlq6i1f5VCJusy3qbYGcaKv+YnRKSclcox1KmHfjEOZPex/L1Vs/jWeQ
+	==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45bhg098ks-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 02:54:46 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52D0uGkg026021;
+	Thu, 13 Mar 2025 02:54:46 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 45atspfhd9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 02:54:46 +0000
+Received: from smtpav02.fra02v.mail.ibm.com (smtpav02.fra02v.mail.ibm.com [10.20.54.101])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52D2siVG19792278
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Mar 2025 02:54:44 GMT
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 5E99420043;
+	Thu, 13 Mar 2025 02:54:44 +0000 (GMT)
+Received: from smtpav02.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id E4F4320040;
+	Thu, 13 Mar 2025 02:54:43 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav02.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Thu, 13 Mar 2025 02:54:43 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 0DB40602DC;
+	Thu, 13 Mar 2025 13:54:40 +1100 (AEDT)
+Message-ID: <006ac081cf0e130426bcf0ef777bed346f6df002.camel@linux.ibm.com>
+Subject: Re: [PATCH v13 00/11] Support page table check on PowerPC
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org, linux-mm@kvack.org,
+        pasha.tatashin@soleen.com, akpm@linux-foundation.org,
+        maddy@linux.ibm.com
+Cc: x86@kernel.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        sweettea-kernel@dorminy.me
+Date: Thu, 13 Mar 2025 13:54:39 +1100
+In-Reply-To: <20250211161404.850215-1-ajd@linux.ibm.com>
+References: <20250211161404.850215-1-ajd@linux.ibm.com>
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: jFxsMj_j4znHUDzGj8WLKmOskt7bM7Fc
+X-Proofpoint-ORIG-GUID: jFxsMj_j4znHUDzGj8WLKmOskt7bM7Fc
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-13_01,2025-03-11_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ mlxlogscore=845 lowpriorityscore=0 spamscore=0 impostorscore=0 bulkscore=0
+ clxscore=1011 mlxscore=0 phishscore=0 adultscore=0 priorityscore=1501
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503130018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_192009_122289_321709E8 
-X-CRM114-Status: UNSURE (   8.40  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_195456_772730_1CCBAB03 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,53 +112,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Commit decde1fa209323c7 ("cpumask: Add assign cpu") was merged bypassing
-cpumasks reviewers. It adds atomic and non-atomic cpumask_assign_cpu()
-helpers.
+On Wed, 2025-02-12 at 03:13 +1100, Andrew Donnellan wrote:
+> Support page table check on all PowerPC platforms. This works by
+> serialising assignments, reassignments and clears of page table
+> entries at each level in order to ensure that anonymous mappings
+> have at most one writable consumer, and likewise that file-backed
+> mappings are not simultaneously also anonymous mappings.
+> 
+> In order to support this infrastructure, a number of stubs must be
+> defined for all powerpc platforms. Additionally, seperate
+> set_pte_at()
+> and set_pte_at_unchecked(), to allow for internal, uninstrumented
+> mappings.
 
-In the same merge window, commit 5c563ee90a22d3 ("cpumask: introduce
-assign_cpu() macro") added the same functionality. So now we have it
-duplicated.
+Talking to Maddy about this off-list - given that this series touches
+on generic code and several architectures, would it be best to take it
+through the mm tree rather than powerpc?
 
-__cpumask_assign_cpu() has never been used since introducing, and because
-this series reworks the only user of cpumask_assign_cpu(), both functions
-become a dead code.
-
-Signed-off-by: Yury Norov <yury.norov@gmail.com>
----
- include/linux/cpumask.h | 16 ----------------
- 1 file changed, 16 deletions(-)
-
-diff --git a/include/linux/cpumask.h b/include/linux/cpumask.h
-index f8caa025c6bb..ddeefb2744b1 100644
---- a/include/linux/cpumask.h
-+++ b/include/linux/cpumask.h
-@@ -558,22 +558,6 @@ static __always_inline void __cpumask_clear_cpu(int cpu, struct cpumask *dstp)
- 	__clear_bit(cpumask_check(cpu), cpumask_bits(dstp));
- }
- 
--/**
-- * cpumask_assign_cpu - assign a cpu in a cpumask
-- * @cpu: cpu number (< nr_cpu_ids)
-- * @dstp: the cpumask pointer
-- * @bool: the value to assign
-- */
--static __always_inline void cpumask_assign_cpu(int cpu, struct cpumask *dstp, bool value)
--{
--	assign_bit(cpumask_check(cpu), cpumask_bits(dstp), value);
--}
--
--static __always_inline void __cpumask_assign_cpu(int cpu, struct cpumask *dstp, bool value)
--{
--	__assign_bit(cpumask_check(cpu), cpumask_bits(dstp), value);
--}
--
- /**
-  * cpumask_test_cpu - test for a cpu in a cpumask
-  * @cpu: cpu number (< nr_cpu_ids)
 -- 
-2.43.0
-
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
 _______________________________________________
 linux-riscv mailing list
