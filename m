@@ -4,119 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26477C35FF1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 16:47:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEE9C282EC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 17:12:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YkCPbcQqeyV7Rbl//O+5zyyK5gxrwQC2M0OwEIIaz8Q=; b=haeJgZ1wC5hZVq
-	4dd5HAu3nyfb5iueYGidMB60Q1ks7U+TqgPqndAGtkfvzXJ19K6BdKstSwEsuHk4jZMm5FjusspN6
-	WFLdRWFGa7/wySim8DTsSZWBZaAnrH2/ZHYJKKqPl2esTiqLsdom/lR/SLElGqWj5seZfBRDV44K4
-	xI9G4Ldtl8YhDfEN5XEbgFvQ4U77gxZcZuk66maa3uAeRnei5GwXBvuop1uCw/tJro8pLsOoSk2BO
-	hnf74MarYIZafbhCFfJbGLwf0GMsQAH+8Vqp6U4vJQMIoNTvK0zvGFZZgvNL58nqw2MwsvGjSs3nC
-	M0203PDk2bbIliy+j0KQ==;
+	List-Owner; bh=szJmxN1Po2kWcfIVmq35vgrA55jn6TAj3pc5OEi/E/k=; b=EF6pdsUjnv1RLU
+	MjSbRXLLhYlkd2ee8966iotoJZXZujOsXyvJibfVZ/6CqrUfrravItOWv2eoMRDLB6MQ9kdUcASfh
+	uTsrcoeoJre2CVFnCyH8vZjK0jHjx1StT2L1v+/qk5BxahKeyP4kkGw/FnUzqLoEqPnK8XBjeZP70
+	LkhySSsPXDlH4QYkQM0pYG5jizav5JNznaU5ajZXMJKSQBXw754ZrLISJDpBCohlcNgQvZP+OevMO
+	T/7+HEQxH5CuNn6rz5EOXrtfqIKWVVCmZaovsVeyX4lZVCnkCq62wu7rGfAm/4F8s7mjYCw9teoG1
+	3izsm8mxRxN/y6jHvgxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8BS-0000000EmrZ-2h3U;
-	Fri, 14 Mar 2025 16:46:54 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1tt8aR-0000000EpYW-0aaw;
+	Fri, 14 Mar 2025 17:12:43 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt86Y-0000000Elua-1Rnb
-	for linux-riscv@lists.infradead.org;
-	Fri, 14 Mar 2025 16:41:52 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250314164146euoutp01048ba2471a8c6486f344e08741eb4af9~suPIzsrZV1012010120euoutp010
-	for <linux-riscv@lists.infradead.org>; Fri, 14 Mar 2025 16:41:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250314164146euoutp01048ba2471a8c6486f344e08741eb4af9~suPIzsrZV1012010120euoutp010
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741970506;
-	bh=lqm59DIlU8Uravjb1r9ttfGo+LbA8OSm6CzNRKe5hJc=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=gllG0Kdb9Y8NTlPmK93k2GJgd8T7nJiytIUo1OMQgDQOJKbtV9sWqbrFxJPzaqq34
-	 npcK/O5ENdTRo5bbldMIsoAm9NeRj8j56IlseFYJJU+iyiGCI3QtqdseJUxeWK9r4j
-	 wO+ZCAHrhsjIqZCbJwXiy8mlX0DtCcxaFPdXmEt8=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250314164146eucas1p13f14cfd3854a8bbf5bc969a85a48dc75~suPIqwzVb0132101321eucas1p1M;
-	Fri, 14 Mar 2025 16:41:46 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 9B.1F.20397.94C54D76; Fri, 14
-	Mar 2025 16:41:46 +0000 (GMT)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250314164145eucas1p25e7a2cc4fab4cc15471b5c1b42cd16bc~suPIEhrzU2579325793eucas1p2N;
-	Fri, 14 Mar 2025 16:41:45 +0000 (GMT)
-Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250314164145eusmtrp2f2f24762421d6b18bccfe4837e014844~suPID5b_J1293912939eusmtrp2c;
-	Fri, 14 Mar 2025 16:41:45 +0000 (GMT)
-X-AuditID: cbfec7f5-e59c770000004fad-c7-67d45c49a3c7
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms1.samsung.com (EUCPMTA) with SMTP id 48.92.19920.94C54D76; Fri, 14
-	Mar 2025 16:41:45 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250314164144eusmtip2dce068d92b28a397692e243b7a37dbfe~suPHeu5jY0477404774eusmtip2f;
-	Fri, 14 Mar 2025 16:41:44 +0000 (GMT)
-Message-ID: <d4afcf0e-3b6b-4b2a-af51-7756e57136b0@samsung.com>
-Date: Fri, 14 Mar 2025 17:41:44 +0100
+	id 1tt8Yk-0000000EpQg-1lk2;
+	Fri, 14 Mar 2025 17:10:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B4123A48706;
+	Fri, 14 Mar 2025 17:05:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A66C3C4CEE3;
+	Fri, 14 Mar 2025 17:10:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741972257;
+	bh=3qP/K6PXaEbNCIbhWyqtBndfXRD1PmrR9u5qWPtx+EM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i5KAdulOYgMy3ouEcbFDhjjRmX2PTm/c5kxpGiIgEd9iHVllcNGqlGQAuz2n+X2+R
+	 sD4Cz79U3Tu9xoURi0jxEuxYMt6N5HISh5IItBwW8auateSihlVnVhJ4zWCnVpQpsm
+	 /t5KrbTGd8fE1jGsk/7YGBtAsjJED9o3CeNUBNEdjQUKDF5D3f7Vq7RzcSYGQd/mFQ
+	 wcknwDegn3KZIBWPhoWw+vrP2+h8q+PoCv3uGwN2jZ5fzX+oBMP6Tvhmk2R/+7h4Bf
+	 b3CyO4xiflCXNnrTFlRdJ+lMat42gpOwSJsRMkUfQVTvknoX0VvTmCes5t+v0XOx6n
+	 O4cpFlPMbldSw==
+Date: Fri, 14 Mar 2025 14:10:54 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
+ the build
+Message-ID: <Z9RjHpEJGWtj8PAM@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <Z9KFLGpenwOP32q3@google.com>
+ <Z9M24AJzui9lFbGo@x1>
+ <Z9M9-YhDJg3NgiUy@x1>
+ <Z9NEX3j_1RUvaFI0@x1>
+ <Z9PCjQ8PhOadVGQ8@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pmdomain: thead: fix TH1520_AON_PROTOCOL dependency
-To: Arnd Bergmann <arnd@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, linux-riscv@lists.infradead.org,
-	linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <20250314154834.4053416-1-arnd@kernel.org>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrPKsWRmVeSWpSXmKPExsWy7djPc7peMVfSDVatZ7L4O+kYu8W2LZtY
-	Le5d2sJk8WJvI4vF5V1z2Cw+9x5htNj2uYXN4vjacIuW/VNYHDg9fv+axOixaVUnm8eda3vY
-	PDYvqfdoWXuMyeP9vqtsHp83yQWwR3HZpKTmZJalFunbJXBlnLx3mangOV/F7K9NTA2Ml3i6
-	GDk5JARMJJquvWXvYuTiEBJYwSjxbc03NgjnC6NE+6pOJpAqIYHPjBLbdtbBdHxa9QKqYzmj
-	xPdtH5ghnLeMEqsuLAfr4BWwkzi++yYriM0ioCox9RvIDpC4oMTJmU9YQGxRAXmJ+7dmgMWF
-	BTwkrrybCjZIRGARo0TP+wlgRcwCNRK3179mgrDFJW49mQ9mswkYSTxYPh9sAaeAucSZ2dMZ
-	IWrkJba/nQM2SELgP4fEgh897BB3u0icaG9nhrCFJV4d3wIVl5H4vxNiqIRAvsSDrZ+gamok
-	dvYch7KtJe6c+wUMGA6gBZoS63fpQ4QdJdb8X8cCEpYQ4JO48VYQ4gQ+iUnbpjNDhHklOtqE
-	IKrVJKb29MItPbdiG9MERqVZSKEyC8mTs5A8Mwth7wJGllWM4qmlxbnpqcXGeanlesWJucWl
-	eel6yfm5mxiBaer0v+NfdzCuePVR7xAjEwfjIUYJDmYlEd49KlfShXhTEiurUovy44tKc1KL
-	DzFKc7AoifMu2t+aLiSQnliSmp2aWpBaBJNl4uCUamASlgzuDtgst319WJGIxluXsNUfFm7t
-	k7maMfXAP7dZchY787pjPuZE6id/6gg9K6Hjt40lWdNx/93q+bq3pJVu2em+1f0cF+NQpMQY
-	01e9lWN34NkQ1n8VtSLGOelvtgStvJN/0jY+5UBMyh2f2pY4Drv66+4bd73/W+ZSEtIt//fp
-	tyXvfzitj3SfmunZvm3Jmrq70+pFsrdsefrllpkDb9KhJw2L1e6rpObcudnm5yLUE/pBxd6v
-	/661VKT8i7NaRTuOrHKIYbOMO/hbsv6x32bV19zTuw4Lyf1QUOH2f+pceH7H5e7zjRtaT/s4
-	FLPdNVgXrC6pouN26/k/32nVqbr8vdcSbtS9bEmoVWIpzkg01GIuKk4EADdCufvCAwAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrEIsWRmVeSWpSXmKPExsVy+t/xe7qeMVfSDab0ilr8nXSM3WLblk2s
-	FvcubWGyeLG3kcXi8q45bBafe48wWmz73MJmcXxtuEXL/iksDpwev39NYvTYtKqTzePOtT1s
-	HpuX1Hu0rD3G5PF+31U2j8+b5ALYo/RsivJLS1IVMvKLS2yVog0tjPQMLS30jEws9QyNzWOt
-	jEyV9O1sUlJzMstSi/TtEvQyTt67zFTwnK9i9tcmpgbGSzxdjJwcEgImEp9WvWDvYuTiEBJY
-	yigx/8lHZoiEjMS17pcsELawxJ9rXWwQRa8ZJSbP+MYGkuAVsJM4vvsmK4jNIqAqMfXbW3aI
-	uKDEyZlPwJpFBeQl7t+aARYXFvCQuPJuKjPIIBGBRYwSJw7PZAJJMAvUSEzb3swKsaGLUWLr
-	h0WsEAlxiVtP5oMVsQkYSTxYPh8szilgLnFm9nTGLkYOoBp1ifXzhCDK5SW2v53DPIFRaBaS
-	O2YhmTQLoWMWko4FjCyrGEVSS4tz03OLDfWKE3OLS/PS9ZLzczcxAiNz27Gfm3cwznv1Ue8Q
-	IxMH4yFGCQ5mJRHePSpX0oV4UxIrq1KL8uOLSnNSiw8xmgLDYiKzlGhyPjA15JXEG5oZmBqa
-	mFkamFqaGSuJ87pdPp8mJJCeWJKanZpakFoE08fEwSnVwLRMNSDJWHlqZ7zzVPE3MlriQoYH
-	FnMtj9xw3TAnoGb+1mpTdQnWJZr30v/efBadpDb/okvb7+v2mi5b+c5/mm2aMXdtVbyx1cmJ
-	DVs3rGvKLvzfe3GObWJt+MSmj6uPvG3QOXLu5ISjXxZcmCgz52+y/DRX+cR7GcViv/5kOAkn
-	hVxacXlWstIbMc+6UzWXDhmxGl+6ceZaa4KvgoKSsroD+4X0rsOfDxgJpuaXL3J21E6ZxC0t
-	2LSdtXwSa4f8NN8yoSsLVq/ZcmDr8y1ayhFnXz5Z9OfEfh22cyfEDs+ye6M+dVJYX2XHxpf2
-	i1+tq74ft2NpcmGeaOKsrqTPKZ+uBhVPnfJZj+1U6Yz/ts5KLMUZiYZazEXFiQAZ0dUDVQMA
-	AA==
-X-CMS-MailID: 20250314164145eucas1p25e7a2cc4fab4cc15471b5c1b42cd16bc
-X-Msg-Generator: CA
-X-RootMTR: 20250314154843eucas1p19fcaec24b94ca2479511cc8ea616bec2
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250314154843eucas1p19fcaec24b94ca2479511cc8ea616bec2
-References: <CGME20250314154843eucas1p19fcaec24b94ca2479511cc8ea616bec2@eucas1p1.samsung.com>
-	<20250314154834.4053416-1-arnd@kernel.org>
+Content-Disposition: inline
+In-Reply-To: <Z9PCjQ8PhOadVGQ8@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_094150_664740_AF86AB69 
-X-CRM114-Status: GOOD (  17.70  )
+X-CRM114-CacheID: sfid-20250314_101058_586123_5E16944C 
+X-CRM114-Status: GOOD (  19.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,54 +93,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
+> On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrote:
+> > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wrot=
+e:
+> > > Still building, but noticed this on x86_64:
+> > > =
+
+> > > 105: perf trace enum augmentation tests                              =
+: FAILED!
+> > > 106: perf trace BTF general tests                                    =
+: FAILED!
+> > > 107: perf trace exit race                                            =
+: Ok
+> > > 108: perf trace record and replay                                    =
+: FAILED!
+> > > =
+
+> > > =
+
+> > > The first doesn=B4t help that much with verbose mode, haven't checked=
+ if
+> > > before this series it was failing :-\
+> > > =
+
+> > > root@x1:~# perf test -vvv 105
+> > > 105: perf trace enum augmentation tests:
+> > > --- start ---
+> > > test child forked, pid 19411
+> > > Checking if vmlinux exists
+> > > Tracing syscall landlock_add_rule
+> > > ---- end(-1) ----
+> > > 105: perf trace enum augmentation tests                              =
+: FAILED!
+> > > root@x1:~#
+> > =
+
+> > So:
+> > =
+
+> > root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
+> > root@x1:~# =
+
+> > =
+
+> > But:
+> > =
+
+> > root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
+> >     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, ru=
+le_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45) =
+=3D -1 EINVAL (Invalid argument)
+> >     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, ru=
+le_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) =3D =
+-1 EINVAL (Invalid argument)
+> > root@x1:~# =
+
+> > =
+
+> > -e is having some trouble, when no event is specified, then it works.
+> > =
+
+> > Something in the changes made to:
+> > =
+
+> > static int trace__parse_events_option(const struct option *opt, const c=
+har *str,
+> >                                       int unset __maybe_unused)
+> =
+
+> Thanks for the test, I think this should fix it:
+> =
 
 
-On 3/14/25 16:48, Arnd Bergmann wrote:
-> From: Arnd Bergmann <arnd@arndb.de>
-> 
-> Kconfig treats the dependency as optional, but the header file only provides
-> normal declarations and no empty API stubs:
-> 
-> ld: fs/btrfs/extent_io.o: in function `writepage_delalloc':
-> extent_io.c:(.text+0x2b42): undefined reference to `__udivdi3'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_off':
-> th1520-pm-domains.c:(.text+0x57): undefined reference to `th1520_aon_power_update'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_on':
-> th1520-pm-domains.c:(.text+0x8a): undefined reference to `th1520_aon_power_update'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_probe':
-> th1520-pm-domains.c:(.text+0xb8): undefined reference to `th1520_aon_init'
-> ld: th1520-pm-domains.c:(.text+0x1c6): undefined reference to `th1520_aon_power_update'
-> 
-> Since the firmware code can easily be enabled for compile testing, there
-> is no need to add stubs either, so just make it a hard dependency.
-> 
-> Fixes: dc9a897dbb03 ("pmdomain: thead: Add power-domain driver for TH1520")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
-> ---
->  drivers/pmdomain/thead/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
-> index c7a1ac0c61dc..7d52f8374b07 100644
-> --- a/drivers/pmdomain/thead/Kconfig
-> +++ b/drivers/pmdomain/thead/Kconfig
-> @@ -2,7 +2,7 @@
->  
->  config TH1520_PM_DOMAINS
->  	tristate "Support TH1520 Power Domains"
-> -	depends on TH1520_AON_PROTOCOL || !TH1520_AON_PROTOCOL
-> +	depends on TH1520_AON_PROTOCOL
->  	select REGMAP_MMIO
->  	help
->  	  This driver enables power domain management for the T-HEAD
+Well, not really:
 
-Thanks a lot !
-Reviewed-by: Michal Wilczynski <m.wilczynski@samsung.com>
+root@number:~# perf trace -e landlock_add_rule perf test -w landlock
+perf: Segmentation fault
+Obtained 10 stack frames.
+perf() [0x5be761]
+perf() [0x5be7f9]
+/lib64/libc.so.6(+0x40fd0) [0x7fe005c4efd0]
+perf() [0x491bc1]
+perf() [0x497090]
+perf() [0x4973ab]
+perf() [0x413483]
+/lib64/libc.so.6(+0x2a088) [0x7fe005c38088]
+/lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe005c3814b]
+perf() [0x413ad5]
+Segmentation fault (core dumped)
+root@number:~#
+
+Time for me to test another patch from Ian, the one symbolizing the
+above backtrace...
+
+- Arnaldo
+
+
+> =
+
+> =
+
+> ---8<---
+> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
+> index ace66e69c1bcde1e..67a8ec10e9e4bc8d 100644
+> --- a/tools/perf/util/syscalltbl.c
+> +++ b/tools/perf/util/syscalltbl.c
+> @@ -76,7 +76,7 @@ int syscalltbl__id(int e_machine, const char *name)
+>  {
+>         const struct syscalltbl *table =3D find_table(e_machine);
+>         struct syscall_cmp_key key;
+> -       const int *id;
+> +       const uint16_t *id;
+>  =
+
+>         if (!table)
+>                 return -1;
 
 _______________________________________________
 linux-riscv mailing list
