@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBEE9C282EC
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 17:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F166C35FF1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 17:28:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=szJmxN1Po2kWcfIVmq35vgrA55jn6TAj3pc5OEi/E/k=; b=EF6pdsUjnv1RLU
-	MjSbRXLLhYlkd2ee8966iotoJZXZujOsXyvJibfVZ/6CqrUfrravItOWv2eoMRDLB6MQ9kdUcASfh
-	uTsrcoeoJre2CVFnCyH8vZjK0jHjx1StT2L1v+/qk5BxahKeyP4kkGw/FnUzqLoEqPnK8XBjeZP70
-	LkhySSsPXDlH4QYkQM0pYG5jizav5JNznaU5ajZXMJKSQBXw754ZrLISJDpBCohlcNgQvZP+OevMO
-	T/7+HEQxH5CuNn6rz5EOXrtfqIKWVVCmZaovsVeyX4lZVCnkCq62wu7rGfAm/4F8s7mjYCw9teoG1
-	3izsm8mxRxN/y6jHvgxQ==;
+	List-Owner; bh=carEjTxFCzm9RE+HlTF0utlknIpLHfSFUc2iYOkTYKQ=; b=Pcm4a4LVl/C/aH
+	nPyLwLQTJLotTpJbUQWxMl0pHWr6UF70qxTNP3SujHGBQLwuiYY9J6kiBBK0/ANH2ZN8Vc/gzt9+c
+	XrBOp58LMlbmYnlgB3eIlogh6E1cqq3gCDcfLCJN9EQaK7SJbKAx6JhI3k1ww8VYbmnzPkSAiwzza
+	/k+XPxLe1k2shlRz7d7A04swc1iQXwqh+eMzWahvlXC5384iwmXsCpQXeJnbT4KAU8FuRV0x4ser/
+	1AXdsiM+ONz3HSIcFp9srWsyjpGuGxyZKDBhFYhCzYfj8401lPlTVzyui4G3nM9gRuEFlFmUHsEX+
+	L90I78/GkaVwAgU8+O9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8aR-0000000EpYW-0aaw;
-	Fri, 14 Mar 2025 17:12:43 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tt8pi-0000000Erkf-17h5;
+	Fri, 14 Mar 2025 17:28:30 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8Yk-0000000EpQg-1lk2;
-	Fri, 14 Mar 2025 17:10:59 +0000
+	id 1tt8o1-0000000ErPC-2Y4X;
+	Fri, 14 Mar 2025 17:26:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B4123A48706;
-	Fri, 14 Mar 2025 17:05:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A66C3C4CEE3;
-	Fri, 14 Mar 2025 17:10:56 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7FE7EA48726;
+	Fri, 14 Mar 2025 17:21:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2662C4CEEE;
+	Fri, 14 Mar 2025 17:26:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741972257;
-	bh=3qP/K6PXaEbNCIbhWyqtBndfXRD1PmrR9u5qWPtx+EM=;
+	s=k20201202; t=1741973204;
+	bh=KkiVUBJqS82/ZAZxfj0qf27tw7VtghnwZimo7bY835Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=i5KAdulOYgMy3ouEcbFDhjjRmX2PTm/c5kxpGiIgEd9iHVllcNGqlGQAuz2n+X2+R
-	 sD4Cz79U3Tu9xoURi0jxEuxYMt6N5HISh5IItBwW8auateSihlVnVhJ4zWCnVpQpsm
-	 /t5KrbTGd8fE1jGsk/7YGBtAsjJED9o3CeNUBNEdjQUKDF5D3f7Vq7RzcSYGQd/mFQ
-	 wcknwDegn3KZIBWPhoWw+vrP2+h8q+PoCv3uGwN2jZ5fzX+oBMP6Tvhmk2R/+7h4Bf
-	 b3CyO4xiflCXNnrTFlRdJ+lMat42gpOwSJsRMkUfQVTvknoX0VvTmCes5t+v0XOx6n
-	 O4cpFlPMbldSw==
-Date: Fri, 14 Mar 2025 14:10:54 -0300
+	b=mMsNUN1xSLDSyBven2d76R+1AdL+jQP0MK50eptkf3aVcdtQKta9NJ8EbEk+isGge
+	 MTD2FCEo7J6G1Kjca+jijbQWQKEabwqLxg2MC2HxFJgri2riKxWrj1mpGamjfKEVib
+	 zFioHjdgXrG7GkbAE6V7F0J+jQvVe3bGpkNvuPK1KTEGYRgVrUN6MeaP58tj1120zr
+	 qjxMja5IyRQDiFIAAARLh7wWOI7UJD9mllNnB1j3m72i66Ch7wPgghldbzlqurr99b
+	 KwMCbHnuEKMAWfo9RAu1xBqH5ra02axDg8YAPcFarIjbI/v8UDWiAnpLIjdoxdgxou
+	 nT4e2P2pKwefw==
+Date: Fri, 14 Mar 2025 14:26:41 -0300
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
@@ -69,19 +69,20 @@ Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
 Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
  the build
-Message-ID: <Z9RjHpEJGWtj8PAM@x1>
+Message-ID: <Z9Rm0W6YLpxKIcI1@x1>
 References: <20250308003209.234114-1-irogers@google.com>
  <Z9KFLGpenwOP32q3@google.com>
  <Z9M24AJzui9lFbGo@x1>
  <Z9M9-YhDJg3NgiUy@x1>
  <Z9NEX3j_1RUvaFI0@x1>
  <Z9PCjQ8PhOadVGQ8@google.com>
+ <Z9RjHpEJGWtj8PAM@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Z9PCjQ8PhOadVGQ8@google.com>
+In-Reply-To: <Z9RjHpEJGWtj8PAM@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_101058_586123_5E16944C 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250314_102645_783424_5FF35B30 
+X-CRM114-Status: GOOD (  25.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,122 +99,208 @@ Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
-> On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrote:
-> > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wrot=
+On Fri, Mar 14, 2025 at 02:10:57PM -0300, Arnaldo Carvalho de Melo wrote:
+> On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
+> > On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrot=
 e:
-> > > Still building, but noticed this on x86_64:
+> > > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wr=
+ote:
+> > > > Still building, but noticed this on x86_64:
+> > > > =
+
+> > > > 105: perf trace enum augmentation tests                            =
+  : FAILED!
+> > > > 106: perf trace BTF general tests                                  =
+  : FAILED!
+> > > > 107: perf trace exit race                                          =
+  : Ok
+> > > > 108: perf trace record and replay                                  =
+  : FAILED!
+> > > > =
+
+> > > > =
+
+> > > > The first doesn=B4t help that much with verbose mode, haven't check=
+ed if
+> > > > before this series it was failing :-\
+> > > > =
+
+> > > > root@x1:~# perf test -vvv 105
+> > > > 105: perf trace enum augmentation tests:
+> > > > --- start ---
+> > > > test child forked, pid 19411
+> > > > Checking if vmlinux exists
+> > > > Tracing syscall landlock_add_rule
+> > > > ---- end(-1) ----
+> > > > 105: perf trace enum augmentation tests                            =
+  : FAILED!
+> > > > root@x1:~#
 > > > =
 
-> > > 105: perf trace enum augmentation tests                              =
-: FAILED!
-> > > 106: perf trace BTF general tests                                    =
-: FAILED!
-> > > 107: perf trace exit race                                            =
-: Ok
-> > > 108: perf trace record and replay                                    =
-: FAILED!
+> > > So:
 > > > =
+
+> > > root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
+> > > root@x1:~# =
 
 > > > =
 
-> > > The first doesn=B4t help that much with verbose mode, haven't checked=
- if
-> > > before this series it was failing :-\
+> > > But:
 > > > =
 
-> > > root@x1:~# perf test -vvv 105
-> > > 105: perf trace enum augmentation tests:
-> > > --- start ---
-> > > test child forked, pid 19411
-> > > Checking if vmlinux exists
-> > > Tracing syscall landlock_add_rule
-> > > ---- end(-1) ----
-> > > 105: perf trace enum augmentation tests                              =
-: FAILED!
-> > > root@x1:~#
-> > =
-
-> > So:
-> > =
-
-> > root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
-> > root@x1:~# =
-
-> > =
-
-> > But:
-> > =
-
-> > root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
-> >     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, ru=
-le_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45) =
+> > > root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
+> > >     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, =
+rule_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45=
+) =3D -1 EINVAL (Invalid argument)
+> > >     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, =
+rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) =
 =3D -1 EINVAL (Invalid argument)
-> >     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, ru=
-le_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) =3D =
--1 EINVAL (Invalid argument)
-> > root@x1:~# =
+> > > root@x1:~# =
 
+> > > =
+
+> > > -e is having some trouble, when no event is specified, then it works.
+> > > =
+
+> > > Something in the changes made to:
+> > > =
+
+> > > static int trace__parse_events_option(const struct option *opt, const=
+ char *str,
+> > >                                       int unset __maybe_unused)
 > > =
 
-> > -e is having some trouble, when no event is specified, then it works.
+> > Thanks for the test, I think this should fix it:
 > > =
 
-> > Something in the changes made to:
-> > =
-
-> > static int trace__parse_events_option(const struct option *opt, const c=
-har *str,
-> >                                       int unset __maybe_unused)
 > =
 
-> Thanks for the test, I think this should fix it:
+> Well, not really:
 > =
 
+> root@number:~# perf trace -e landlock_add_rule perf test -w landlock
+> perf: Segmentation fault
+> Obtained 10 stack frames.
+> perf() [0x5be761]
+> perf() [0x5be7f9]
+> /lib64/libc.so.6(+0x40fd0) [0x7fe005c4efd0]
+> perf() [0x491bc1]
+> perf() [0x497090]
+> perf() [0x4973ab]
+> perf() [0x413483]
+> /lib64/libc.so.6(+0x2a088) [0x7fe005c38088]
+> /lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe005c3814b]
+> perf() [0x413ad5]
+> Segmentation fault (core dumped)
+> root@number:~#
+> =
 
-Well, not really:
+> Time for me to test another patch from Ian, the one symbolizing the
+> above backtrace...
+> =
 
-root@number:~# perf trace -e landlock_add_rule perf test -w landlock
-perf: Segmentation fault
-Obtained 10 stack frames.
-perf() [0x5be761]
-perf() [0x5be7f9]
-/lib64/libc.so.6(+0x40fd0) [0x7fe005c4efd0]
-perf() [0x491bc1]
-perf() [0x497090]
-perf() [0x4973ab]
-perf() [0x413483]
-/lib64/libc.so.6(+0x2a088) [0x7fe005c38088]
-/lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe005c3814b]
-perf() [0x413ad5]
-Segmentation fault (core dumped)
-root@number:~#
+> Worked, but didn't help as much, with gdb:
+> =
 
-Time for me to test another patch from Ian, the one symbolizing the
-above backtrace...
+> (gdb) run trace -e landlock_add_rule perf test -w landlock
+> Starting program: /root/bin/perf trace -e landlock_add_rule perf test -w =
+landlock
+> =
+
+> This GDB supports auto-downloading debuginfo from the following URLs:
+>   <https://debuginfod.fedoraproject.org/>
+> Enable debuginfod for this session? (y or [n]) y
+> Debuginfod has been enabled.
+> To make this setting permanent, add 'set debuginfod enabled on' to .gdbin=
+it.
+> Downloading 53.88 K separate debug info for system-supplied DSO at 0x7fff=
+f7fc6000
+> Downloading 458.26 K separate debug info for /lib64/libtracefs.so.1      =
+                                                                           =
+                                           =
+
+> [Thread debugging using libthread_db enabled]                            =
+                                                                           =
+                                           =
+
+> Using host libthread_db library "/lib64/libthread_db.so.1".
+> [Detaching after fork from child process 39141]
+> =
+
+> Program received signal SIGSEGV, Segmentation fault.
+> 0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=3D0x7fffff=
+ffa510, sc=3D0x10fb7b0) at builtin-trace.c:3882
+> 3882				bool is_pointer =3D field->flags & TEP_FIELD_IS_POINTER,
+> (gdb) p field
+> $1 =3D (struct tep_format_field *) 0x64656e6769736e75
+> (gdb) bt
+> #0  0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=3D0x7f=
+ffffffa510, sc=3D0x10fb7b0) at builtin-trace.c:3882
+> #1  0x00000000004cf3de in trace__init_syscalls_bpf_prog_array_maps (trace=
+=3D0x7fffffffa510, e_machine=3D62) at builtin-trace.c:4040
+> #2  0x00000000004bf626 in trace__run (trace=3D0x7fffffffa510, argc=3D4, a=
+rgv=3D0x7fffffffde40) at builtin-trace.c:4473
+> #3  0x00000000004bb7a9 in cmd_trace (argc=3D4, argv=3D0x7fffffffde40) at =
+builtin-trace.c:5741
+> #4  0x00000000004d873f in run_builtin (p=3D0xf83d48 <commands+648>, argc=
+=3D7, argv=3D0x7fffffffde40) at perf.c:351
+> #5  0x00000000004d7df3 in handle_internal_command (argc=3D7, argv=3D0x7ff=
+fffffde40) at perf.c:404
+> #6  0x00000000004d860f in run_argv (argcp=3D0x7fffffffdc7c, argv=3D0x7fff=
+ffffdc70) at perf.c:448
+> #7  0x00000000004d7a4f in main (argc=3D7, argv=3D0x7fffffffde40) at perf.=
+c:556
+> (gdb) list -10
+> 3867		return NULL;
+> 3868	=
+
+> 3869	try_to_find_pair:
+> 3870		for (int i =3D 0, num_idx =3D syscalltbl__num_idx(sc->e_machine); i=
+ < num_idx; ++i) {
+> 3871			int id =3D syscalltbl__id_at_idx(sc->e_machine, i);
+> 3872			struct syscall *pair =3D trace__syscall_info(trace, NULL, sc->e_ma=
+chine, id);
+> 3873			struct bpf_program *pair_prog;
+> 3874			bool is_candidate =3D false;
+> 3875	=
+
+> 3876			if (pair =3D=3D NULL || pair =3D=3D sc ||
+> (gdb)
+
+Humm
+
+(gdb) p i
+$1 =3D 147
+(gdb) p num_idx
+$2 =3D 379
+(gdb) p id
+$3 =3D 192
+(gdb) p pair
+$4 =3D (struct syscall *) 0x10fe8f0
+(gdb) p *pair
+$5 =3D {e_machine =3D 62, id =3D 192, tp_format =3D 0x10f6c00, nr_args =3D =
+3, args_size =3D 48, bpf_prog =3D {sys_enter =3D 0x0, sys_exit =3D 0x0}, is=
+_exit =3D false, is_open =3D false, nonexistent =3D false, =
+
+  use_btf =3D false, args =3D 0x10f9480, name =3D 0x814406 "lgetxattr", fmt=
+ =3D 0x0, arg_fmt =3D 0x10fa0a0}
+(gdb) p sc
+$6 =3D (struct syscall *) 0x10fb7b0
+(gdb) p sc->args
+$7 =3D (struct tep_format_field *) 0x64656e6769736e75
+(gdb) p *pair
+$8 =3D {e_machine =3D 62, id =3D 192, tp_format =3D 0x10f6c00, nr_args =3D =
+3, args_size =3D 48, bpf_prog =3D {sys_enter =3D 0x0, sys_exit =3D 0x0}, is=
+_exit =3D false, is_open =3D false, nonexistent =3D false, =
+
+  use_btf =3D false, args =3D 0x10f9480, name =3D 0x814406 "lgetxattr", fmt=
+ =3D 0x0, arg_fmt =3D 0x10fa0a0}
+(gdb)
+
+it finds the pair, but then its sc->args has a bogus pointer... I'll see
+where this isn't being initialized...
 
 - Arnaldo
-
-
-> =
-
-> =
-
-> ---8<---
-> diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-> index ace66e69c1bcde1e..67a8ec10e9e4bc8d 100644
-> --- a/tools/perf/util/syscalltbl.c
-> +++ b/tools/perf/util/syscalltbl.c
-> @@ -76,7 +76,7 @@ int syscalltbl__id(int e_machine, const char *name)
->  {
->         const struct syscalltbl *table =3D find_table(e_machine);
->         struct syscall_cmp_key key;
-> -       const int *id;
-> +       const uint16_t *id;
->  =
-
->         if (!table)
->                 return -1;
 
 _______________________________________________
 linux-riscv mailing list
