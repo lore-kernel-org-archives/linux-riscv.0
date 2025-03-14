@@ -4,75 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6E39C35FF6
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 07:12:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD5DC35FF1
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 07:38:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=km9L8qooK1bBIcvCJzy0FgoXFQ3eOUIkVl2m68qgtFQ=; b=ixXtN/G7iKpWGG
-	gIFiElpfs+I8RLhr0nJceO9g56Zl2yoHtsaW37p3F0OJA2o2fNS3HsAKvfLu8nNfEjwTGB6a6wk4F
-	yo0mQqKBkHsIlvxymI1I2SOMIuqHFAOIh92bcX7oJW6qoguGCtargI6wVtoVqLa+A/IgMAPmEAOo9
-	sPtk61X1v/usqnjsC2iF/q1nNuUSrN0CKVk4g3IMigM4FTj//SAjruElEPjvlY29Pkxt4JByeqeWV
-	EKAqDPQBtOE93SuYc8r+IOWAdp2kVspbQ3KWuyk4NepLmlVnZ6xfpu0a6QumrFQ/TJaGqxoJe51H2
-	wgqhAiqUIvUhYIqdlseA==;
+	List-Owner; bh=tnHXxdGCxtuSHbhZ7bRXwTCdufFiSA29MRH+3OmJN/U=; b=PwWkMyknJv4AkQ
+	1dUni+vpb2I4K7SAc400tuuAPGPefUjMxQYF270/47F76BNOz0AZkezI/+gzfQk2FO55BH8GtwXMx
+	LZJJVTkBHRlFQ9v6s9X9eNTw3fmfZUqIBA2Oz3UfJMxJPwR4T+OmY4fMDzK2JwrxlmoDNGjlrfne+
+	IQq/4893pIF/8rMLofnUrNJCT2UqTZpFPSQrccZ3xZrZfYqJWK083d4ZksD77gTr9E55FtiAg8Q/m
+	1RIbqCTfmFJCAYBTtnQPEXBFor11vORYluSejGB2xOjU/8h1tAXqUQTfosq7rht7Yp7lK6+/mNDHJ
+	TpkOUzqCNx1GcLGsUhnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszDk-0000000DH5z-3R8I;
-	Fri, 14 Mar 2025 07:12:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tszcW-0000000DKWt-2MaR;
+	Fri, 14 Mar 2025 07:38:16 +0000
+Received: from mail-il1-x12d.google.com ([2607:f8b0:4864:20::12d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tszDh-0000000DH4u-43Ow
+	id 1tszcT-0000000DKW7-2ICp
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Mar 2025 07:12:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741936356;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=S0V5zrFIOURPITvPgqR8KYkDthor4LqqYo4fLuXCVlA=;
-	b=I69lc7XpPqYbr2y6YTfLiCfhvSeXszVA+efZVIRtxQHI88XG5NbcITvJD7EaNTjVjuqk7+
-	5+RylKwp9myidgD9dWFmh9TZhFU1rlu34dOOeQl8GwtR/bUla9nqCR50mPV+bX3/0YnTru
-	s85J+o3yj9dX2wmvaXiSObwfY1n/wsE=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-364-G8hLKXYINSigt_9mROuGjg-1; Fri,
- 14 Mar 2025 03:12:33 -0400
-X-MC-Unique: G8hLKXYINSigt_9mROuGjg-1
-X-Mimecast-MFC-AGG-ID: G8hLKXYINSigt_9mROuGjg_1741936351
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 90FFA1800259;
-	Fri, 14 Mar 2025 07:12:31 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.44.32.82])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 767C518001DE;
-	Fri, 14 Mar 2025 07:12:27 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Arnd Bergmann <arnd@arndb.de>,
-	linux-arch@vger.kernel.org,
-	Thomas Huth <thuth@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH 29/41] riscv: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
-Date: Fri, 14 Mar 2025 08:10:00 +0100
-Message-ID: <20250314071013.1575167-30-thuth@redhat.com>
-In-Reply-To: <20250314071013.1575167-1-thuth@redhat.com>
-References: <20250314071013.1575167-1-thuth@redhat.com>
+	Fri, 14 Mar 2025 07:38:14 +0000
+Received: by mail-il1-x12d.google.com with SMTP id e9e14a558f8ab-3d04932a36cso18464315ab.1
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Mar 2025 00:38:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1741937892; x=1742542692; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6P83z22nVsy0TdwN/y1tzBRhznwCiNekdo216cawsLo=;
+        b=Veiw8ZtG38yAMaIslEpJnyqsY17XHCzNiY9XETszA/kZWvDodER7mHlRIpgJrBn/0r
+         SoeqEVu2EQl3YA8E4L/BWcQTziC9357E+iUqOkgBtOM/+EnjT0x3ab0MdwWRtMT1dr38
+         YVyzmIX9nUyRGddxE7GjkhHewFd76XeyaJLJ6sJHTcPR9sAf74PrYzXsEcm/aIOvvrru
+         OsOHgRaCRL43TuZPRmx9X3mLkJ5xkRCwnC3RTwrd1gj2aCk5T7l0w1UJWM84B9DWw7HK
+         xslyWTn8ILIHVPjWaJv2HyJxEDfkykkqihg5TQUW3zAb1oqUvA/lUBjEVN1sv4QCIY0Q
+         rtzQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741937892; x=1742542692;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6P83z22nVsy0TdwN/y1tzBRhznwCiNekdo216cawsLo=;
+        b=A0Y/u3PNtI+gasdReOHwsRMn81ZyDqtbol2/GL9LutxAGNc3Z6qRhD/UvCGxUl42DT
+         nwVJ+LZOO/vJLhjZ3krmuFfGlAmxxzcD2R33PeZJr/i1PGHUAyGkbCuJhBtZGH64V5g1
+         pO7h+/p7M8qgSLfE2aBTIziO5C8ZnbDnQpErd5Nq3zfNjx2CVDhyGWSmUGjoF++X7hOv
+         gROT3sPpbV+8jenRlS3gamB8rObeVMx8ZWa/drhwjmo1MhTXcmz2kXBXVD+9mtWg/a3J
+         88F/H/3FfkHTZdZWZGoe5YKZiVMkT9AP/Stn8geldD2qWMitHoqh2F/kqzrCBTudPBjC
+         YwwA==
+X-Forwarded-Encrypted: i=1; AJvYcCWd2gO7lt3CsCLaDkkZJ5E9kvalj5uJD6fUhvYOycJhVooHS1qObWX0DglYTwHPVVTWS3kfd/zHMzYIWQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXSy2kGzxcozlEWRyS9ECF0EuHPh7h2+gRXx9SsdyHtV0rydRx
+	egfWLYJrQnZ3nwCU+xNfmI63FqmphYJ5l46f06o/BRa3Fkvs1WfbxHgdiG2vLV+1T3taJO/rbFX
+	ggj2oWyHB+VKStPzPnBwYeGdjW3rvI+vqLdLHjA==
+X-Gm-Gg: ASbGncveQqRM+A7pf1KrAKUy7iiF59fO5CJjoMLKhSNVzdJ7/bkXjmAv+jSuYO+3rHg
+	8S0gdh5dCfuojLidptXieaTWr2gE4gGzk1K/nVcjRaj3vPpfxjiHQT1yapNiCe8zAqrMhMB36uU
+	PIf4XXIR9jCPAGcCTIHgqDqrWqbBB+GD9Ho1fzIYM=
+X-Google-Smtp-Source: AGHT+IFyvkT12+i013M0vxzjGYoHvGKmiPNTdSQO7eiKOWYYyKKOPLHni3BWX5f++FKmCcCNeYHl2rGHeIQykLNckAU=
+X-Received: by 2002:a05:6e02:1aa8:b0:3d3:f4fc:a291 with SMTP id
+ e9e14a558f8ab-3d483a8dc2amr13220485ab.19.1741937892021; Fri, 14 Mar 2025
+ 00:38:12 -0700 (PDT)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+References: <20250310-v5_user_cfi_series-v11-0-86b36cbfb910@rivosinc.com> <20250310-v5_user_cfi_series-v11-23-86b36cbfb910@rivosinc.com>
+In-Reply-To: <20250310-v5_user_cfi_series-v11-23-86b36cbfb910@rivosinc.com>
+From: Zong Li <zong.li@sifive.com>
+Date: Fri, 14 Mar 2025 15:37:58 +0800
+X-Gm-Features: AQ5f1JrlSOfjsucljdPYnudPUFm9fomUfZIh4MbxfMyusAcNQh-nryqNstYXxqM
+Message-ID: <CANXhq0rsMGx_MXfss+RROHip0VLxmsWevvY0ukpRqyqscEthdw@mail.gmail.com>
+Subject: Re: [PATCH v11 23/27] arch/riscv: compile vdso with landing pad
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
+	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
+	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
+	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
+	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_001238_158039_B34ED84F 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250314_003813_603358_873EA237 
+X-CRM114-Status: GOOD (  26.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,830 +107,152 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This can be very confusing when switching between userspace
-and kernelspace coding, or when dealing with uapi headers that
-rather should use __ASSEMBLER__ instead. So let's standardize on
-the __ASSEMBLER__ macro that is provided by the compilers now.
-
-This is a completely mechanical patch (done with a simple "sed -i"
-statement).
-
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- arch/riscv/include/asm/alternative-macros.h   | 12 ++++++------
- arch/riscv/include/asm/alternative.h          |  2 +-
- arch/riscv/include/asm/asm-extable.h          |  6 +++---
- arch/riscv/include/asm/asm.h                  | 10 +++++-----
- arch/riscv/include/asm/assembler.h            |  2 +-
- arch/riscv/include/asm/barrier.h              |  4 ++--
- arch/riscv/include/asm/cache.h                |  4 ++--
- arch/riscv/include/asm/cpu_ops_sbi.h          |  2 +-
- arch/riscv/include/asm/csr.h                  |  4 ++--
- arch/riscv/include/asm/current.h              |  4 ++--
- arch/riscv/include/asm/errata_list.h          |  6 +++---
- arch/riscv/include/asm/ftrace.h               |  6 +++---
- arch/riscv/include/asm/gpr-num.h              |  6 +++---
- arch/riscv/include/asm/image.h                |  4 ++--
- arch/riscv/include/asm/insn-def.h             |  6 +++---
- arch/riscv/include/asm/jump_label.h           |  4 ++--
- arch/riscv/include/asm/kasan.h                |  2 +-
- arch/riscv/include/asm/kgdb.h                 |  4 ++--
- arch/riscv/include/asm/mmu.h                  |  4 ++--
- arch/riscv/include/asm/page.h                 |  4 ++--
- arch/riscv/include/asm/pgtable.h              |  4 ++--
- arch/riscv/include/asm/processor.h            |  4 ++--
- arch/riscv/include/asm/ptrace.h               |  4 ++--
- arch/riscv/include/asm/scs.h                  |  4 ++--
- arch/riscv/include/asm/set_memory.h           |  4 ++--
- arch/riscv/include/asm/thread_info.h          |  4 ++--
- arch/riscv/include/asm/vdso.h                 |  4 ++--
- arch/riscv/include/asm/vdso/gettimeofday.h    |  4 ++--
- arch/riscv/include/asm/vdso/processor.h       |  4 ++--
- arch/riscv/include/asm/vdso/vsyscall.h        |  4 ++--
- tools/arch/riscv/include/asm/csr.h            |  6 +++---
- tools/arch/riscv/include/asm/vdso/processor.h |  4 ++--
- 32 files changed, 73 insertions(+), 73 deletions(-)
-
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 721ec275ce57e..b63644f441dd0 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -4,7 +4,7 @@
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- .macro ALT_ENTRY oldptr newptr vendor_id patch_id new_len
- 	.4byte \oldptr - .
-@@ -53,7 +53,7 @@
- #define __ALTERNATIVE_CFG(...)		ALTERNATIVE_CFG __VA_ARGS__
- #define __ALTERNATIVE_CFG_2(...)	ALTERNATIVE_CFG_2 __VA_ARGS__
- 
--#else /* !__ASSEMBLY__ */
-+#else /* !__ASSEMBLER__ */
- 
- #include <asm/asm.h>
- #include <linux/stringify.h>
-@@ -98,7 +98,7 @@
- 	__ALTERNATIVE_CFG(old_c, new_c_1, vendor_id_1, patch_id_1, enable_1)	\
- 	ALT_NEW_CONTENT(vendor_id_2, patch_id_2, enable_2, new_c_2)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #define _ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, CONFIG_k)	\
- 	__ALTERNATIVE_CFG(old_c, new_c, vendor_id, patch_id, IS_ENABLED(CONFIG_k))
-@@ -109,7 +109,7 @@
- 				   new_c_2, vendor_id_2, patch_id_2, IS_ENABLED(CONFIG_k_2))
- 
- #else /* CONFIG_RISCV_ALTERNATIVE */
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- .macro ALTERNATIVE_CFG old_c
- 	\old_c
-@@ -121,7 +121,7 @@
- #define _ALTERNATIVE_CFG_2(old_c, ...)	\
- 	ALTERNATIVE_CFG old_c
- 
--#else /* !__ASSEMBLY__ */
-+#else /* !__ASSEMBLER__ */
- 
- #define __ALTERNATIVE_CFG(old_c)	\
- 	old_c "\n"
-@@ -132,7 +132,7 @@
- #define _ALTERNATIVE_CFG_2(old_c, ...)	\
- 	__ALTERNATIVE_CFG(old_c)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* CONFIG_RISCV_ALTERNATIVE */
- 
- /*
-diff --git a/arch/riscv/include/asm/alternative.h b/arch/riscv/include/asm/alternative.h
-index 3c2b59b250179..0e95539ba451b 100644
---- a/arch/riscv/include/asm/alternative.h
-+++ b/arch/riscv/include/asm/alternative.h
-@@ -8,7 +8,7 @@
- 
- #include <asm/alternative-macros.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifdef CONFIG_RISCV_ALTERNATIVE
- 
-diff --git a/arch/riscv/include/asm/asm-extable.h b/arch/riscv/include/asm/asm-extable.h
-index 0c8bfd54fc4e0..37d425d7a7629 100644
---- a/arch/riscv/include/asm/asm-extable.h
-+++ b/arch/riscv/include/asm/asm-extable.h
-@@ -10,7 +10,7 @@
- 
- #ifdef CONFIG_MMU
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
- 	.pushsection	__ex_table, "a";		\
-@@ -25,7 +25,7 @@
- 	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_FIXUP, 0)
- 	.endm
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #include <linux/bits.h>
- #include <linux/stringify.h>
-@@ -77,7 +77,7 @@
- 			    EX_DATA_REG(ADDR, addr)				\
- 			  ")")
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #else /* CONFIG_MMU */
- 	#define _ASM_EXTABLE_UACCESS_ERR(insn, fixup, err)
-diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
-index 776354895b81e..bd7b9632024ba 100644
---- a/arch/riscv/include/asm/asm.h
-+++ b/arch/riscv/include/asm/asm.h
-@@ -6,7 +6,7 @@
- #ifndef _ASM_RISCV_ASM_H
- #define _ASM_RISCV_ASM_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define __ASM_STR(x)	x
- #else
- #define __ASM_STR(x)	#x
-@@ -29,7 +29,7 @@
- #define LGREG		__REG_SEL(3, 2)
- 
- #if __SIZEOF_POINTER__ == 8
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define RISCV_PTR		.dword
- #define RISCV_SZPTR		8
- #define RISCV_LGPTR		3
-@@ -39,7 +39,7 @@
- #define RISCV_LGPTR		"3"
- #endif
- #elif __SIZEOF_POINTER__ == 4
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define RISCV_PTR		.word
- #define RISCV_SZPTR		4
- #define RISCV_LGPTR		2
-@@ -68,7 +68,7 @@
- #error "Unexpected __SIZEOF_SHORT__"
- #endif
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #include <asm/asm-offsets.h>
- 
- /* Common assembly source macros */
-@@ -193,6 +193,6 @@
- #define ASM_NOKPROBE(name)
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_ASM_H */
-diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
-index 44b1457d3e956..16931712beab6 100644
---- a/arch/riscv/include/asm/assembler.h
-+++ b/arch/riscv/include/asm/assembler.h
-@@ -5,7 +5,7 @@
-  * Author: Jee Heng Sia <jeeheng.sia@starfivetech.com>
-  */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #error "Only include this from assembly code"
- #endif
- 
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index e1d9bf1deca68..8d2cc2df7f270 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -10,7 +10,7 @@
- #ifndef _ASM_RISCV_BARRIER_H
- #define _ASM_RISCV_BARRIER_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/cmpxchg.h>
- #include <asm/fence.h>
- 
-@@ -87,6 +87,6 @@ do {									\
- 
- #include <asm-generic/barrier.h>
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_BARRIER_H */
-diff --git a/arch/riscv/include/asm/cache.h b/arch/riscv/include/asm/cache.h
-index 570e9d8acad1e..eb42b739d1328 100644
---- a/arch/riscv/include/asm/cache.h
-+++ b/arch/riscv/include/asm/cache.h
-@@ -24,7 +24,7 @@
- #define ARCH_SLAB_MINALIGN	16
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- extern int dma_cache_alignment;
- #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-@@ -35,6 +35,6 @@ static inline int dma_get_cache_alignment(void)
- }
- #endif
- 
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_CACHE_H */
-diff --git a/arch/riscv/include/asm/cpu_ops_sbi.h b/arch/riscv/include/asm/cpu_ops_sbi.h
-index d6e4665b31954..776fa55fbaa45 100644
---- a/arch/riscv/include/asm/cpu_ops_sbi.h
-+++ b/arch/riscv/include/asm/cpu_ops_sbi.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_CPU_OPS_SBI_H
- #define __ASM_CPU_OPS_SBI_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/init.h>
- #include <linux/sched.h>
- #include <linux/threads.h>
-diff --git a/arch/riscv/include/asm/csr.h b/arch/riscv/include/asm/csr.h
-index 6fed42e377059..4a37a98398ad3 100644
---- a/arch/riscv/include/asm/csr.h
-+++ b/arch/riscv/include/asm/csr.h
-@@ -513,7 +513,7 @@
- #define IE_TIE		(_AC(0x1, UL) << RV_IRQ_TIMER)
- #define IE_EIE		(_AC(0x1, UL) << RV_IRQ_EXT)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define csr_swap(csr, val)					\
- ({								\
-@@ -575,6 +575,6 @@
- 			      : "memory");			\
- })
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_CSR_H */
-diff --git a/arch/riscv/include/asm/current.h b/arch/riscv/include/asm/current.h
-index 21774d868c65b..ba5aa72aff631 100644
---- a/arch/riscv/include/asm/current.h
-+++ b/arch/riscv/include/asm/current.h
-@@ -13,7 +13,7 @@
- #include <linux/bug.h>
- #include <linux/compiler.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct task_struct;
- 
-@@ -35,6 +35,6 @@ static __always_inline struct task_struct *get_current(void)
- 
- register unsigned long current_stack_pointer __asm__("sp");
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_CURRENT_H */
-diff --git a/arch/riscv/include/asm/errata_list.h b/arch/riscv/include/asm/errata_list.h
-index 6e426ed7919a4..e17d6c98b3bfd 100644
---- a/arch/riscv/include/asm/errata_list.h
-+++ b/arch/riscv/include/asm/errata_list.h
-@@ -29,7 +29,7 @@
- #define	ERRATA_THEAD_NUMBER 3
- #endif
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #define ALT_INSN_FAULT(x)						\
- ALTERNATIVE(__stringify(RISCV_PTR do_trap_insn_fault),			\
-@@ -42,7 +42,7 @@ ALTERNATIVE(__stringify(RISCV_PTR do_page_fault),			\
- 	    __stringify(RISCV_PTR sifive_cip_453_page_fault_trp),	\
- 	    SIFIVE_VENDOR_ID, ERRATA_SIFIVE_CIP_453,			\
- 	    CONFIG_ERRATA_SIFIVE_CIP_453)
--#else /* !__ASSEMBLY__ */
-+#else /* !__ASSEMBLER__ */
- 
- #define ALT_SFENCE_VMA_ASID(asid)					\
- asm(ALTERNATIVE("sfence.vma x0, %0", "sfence.vma", SIFIVE_VENDOR_ID,	\
-@@ -123,6 +123,6 @@ asm volatile(ALTERNATIVE(						\
- #define THEAD_C9XX_RV_IRQ_PMU			17
- #define THEAD_C9XX_CSR_SCOUNTEROF		0x5c5
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index c4721ce44ca47..fc34692fbca5b 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -13,7 +13,7 @@
- #endif
- 
- #define ARCH_SUPPORTS_FTRACE_OPS 1
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- extern void *return_address(unsigned int level);
- 
-@@ -118,7 +118,7 @@ do {									\
-  */
- #define MCOUNT_INSN_SIZE 8
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- struct dyn_ftrace;
- int ftrace_init_nop(struct module *mod, struct dyn_ftrace *rec);
- #define ftrace_init_nop ftrace_init_nop
-@@ -228,7 +228,7 @@ static inline void arch_ftrace_set_direct_caller(struct ftrace_regs *fregs, unsi
- }
- #endif /* CONFIG_DYNAMIC_FTRACE_WITH_ARGS */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* CONFIG_DYNAMIC_FTRACE */
- 
-diff --git a/arch/riscv/include/asm/gpr-num.h b/arch/riscv/include/asm/gpr-num.h
-index efeb5edf8a3af..b499cf8327341 100644
---- a/arch/riscv/include/asm/gpr-num.h
-+++ b/arch/riscv/include/asm/gpr-num.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_GPR_NUM_H
- #define __ASM_GPR_NUM_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- 	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31
- 	.equ	.L__gpr_num_x\num, \num
-@@ -41,7 +41,7 @@
- 	.equ	.L__gpr_num_t5,		30
- 	.equ	.L__gpr_num_t6,		31
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #define __DEFINE_ASM_GPR_NUMS					\
- "	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31\n" \
-@@ -80,6 +80,6 @@
- "	.equ	.L__gpr_num_t5,		30\n"			\
- "	.equ	.L__gpr_num_t6,		31\n"
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_GPR_NUM_H */
-diff --git a/arch/riscv/include/asm/image.h b/arch/riscv/include/asm/image.h
-index e0b319af3681a..68118538f38d2 100644
---- a/arch/riscv/include/asm/image.h
-+++ b/arch/riscv/include/asm/image.h
-@@ -29,7 +29,7 @@
- #define RISCV_HEADER_VERSION (RISCV_HEADER_VERSION_MAJOR << 16 | \
- 			      RISCV_HEADER_VERSION_MINOR)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /**
-  * struct riscv_image_header - riscv kernel image header
-  * @code0:		Executable code
-@@ -61,5 +61,5 @@ struct riscv_image_header {
- 	u32 magic2;
- 	u32 res3;
- };
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* _ASM_RISCV_IMAGE_H */
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index 9a913010cdd93..503bba7bdf080 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -18,7 +18,7 @@
- #define INSN_I_RD_SHIFT			 7
- #define INSN_I_OPCODE_SHIFT		 0
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #ifdef CONFIG_AS_HAS_INSN
- 
-@@ -56,7 +56,7 @@
- #define __INSN_R(...)	insn_r __VA_ARGS__
- #define __INSN_I(...)	insn_i __VA_ARGS__
- 
--#else /* ! __ASSEMBLY__ */
-+#else /* ! __ASSEMBLER__ */
- 
- #ifdef CONFIG_AS_HAS_INSN
- 
-@@ -110,7 +110,7 @@
- 
- #endif
- 
--#endif /* ! __ASSEMBLY__ */
-+#endif /* ! __ASSEMBLER__ */
- 
- #define INSN_R(opcode, func3, func7, rd, rs1, rs2)		\
- 	__INSN_R(RV_##opcode, RV_##func3, RV_##func7,		\
-diff --git a/arch/riscv/include/asm/jump_label.h b/arch/riscv/include/asm/jump_label.h
-index 87a71cc6d146c..3ab5f2e3212be 100644
---- a/arch/riscv/include/asm/jump_label.h
-+++ b/arch/riscv/include/asm/jump_label.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_JUMP_LABEL_H
- #define __ASM_JUMP_LABEL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- #include <asm/asm.h>
-@@ -66,5 +66,5 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
- 	return true;
- }
- 
--#endif  /* __ASSEMBLY__ */
-+#endif  /* __ASSEMBLER__ */
- #endif	/* __ASM_JUMP_LABEL_H */
-diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
-index e6a0071bdb56c..60af6691f9032 100644
---- a/arch/riscv/include/asm/kasan.h
-+++ b/arch/riscv/include/asm/kasan.h
-@@ -4,7 +4,7 @@
- #ifndef __ASM_KASAN_H
- #define __ASM_KASAN_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /*
-  * The following comment was copied from arm64:
-diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-index 46677daf708bd..c379cb91794b9 100644
---- a/arch/riscv/include/asm/kgdb.h
-+++ b/arch/riscv/include/asm/kgdb.h
-@@ -17,7 +17,7 @@
- #define BREAK_INSTR_SIZE	4
- #endif
- 
--#ifndef	__ASSEMBLY__
-+#ifndef	__ASSEMBLER__
- 
- extern unsigned long kgdb_compiled_break;
- 
-@@ -29,7 +29,7 @@ static inline void arch_kgdb_breakpoint(void)
- 	    ".option rvc\n");
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #define DBG_REG_ZERO "zero"
- #define DBG_REG_RA "ra"
-diff --git a/arch/riscv/include/asm/mmu.h b/arch/riscv/include/asm/mmu.h
-index 1cc90465d75b1..cf8e6eac77d52 100644
---- a/arch/riscv/include/asm/mmu.h
-+++ b/arch/riscv/include/asm/mmu.h
-@@ -7,7 +7,7 @@
- #ifndef _ASM_RISCV_MMU_H
- #define _ASM_RISCV_MMU_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- typedef struct {
- #ifndef CONFIG_MMU
-@@ -40,6 +40,6 @@ typedef struct {
- 
- void __meminit create_pgd_mapping(pgd_t *pgdp, uintptr_t va, phys_addr_t pa, phys_addr_t sz,
- 				  pgprot_t prot);
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_MMU_H */
-diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
-index 125f5ecd95652..ea6ff84c3d9fd 100644
---- a/arch/riscv/include/asm/page.h
-+++ b/arch/riscv/include/asm/page.h
-@@ -40,7 +40,7 @@
- #define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
- #endif /* CONFIG_64BIT */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #ifdef CONFIG_RISCV_ISA_ZICBOZ
- void clear_page(void *page);
-@@ -202,7 +202,7 @@ static __always_inline void *pfn_to_kaddr(unsigned long pfn)
- 	return __va(pfn << PAGE_SHIFT);
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #define virt_addr_valid(vaddr)	({						\
- 	unsigned long _addr = (unsigned long)vaddr;				\
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 050fdc49b5ad7..f7b7849d810c1 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -107,7 +107,7 @@
- 
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/page.h>
- #include <asm/tlbflush.h>
-@@ -993,6 +993,6 @@ extern unsigned long empty_zero_page[PAGE_SIZE / sizeof(unsigned long)];
- 	WARN_ON_ONCE(pgd_present(*pgdp) && !pgd_same(*pgdp, pgd)); \
- 	set_pgd(pgdp, pgd); \
- })
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_PGTABLE_H */
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a9..4554b18b04a87 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -51,7 +51,7 @@
- #define TASK_UNMAPPED_BASE	PAGE_ALIGN(TASK_SIZE / 3)
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/cpumask.h>
- 
- struct task_struct;
-@@ -186,6 +186,6 @@ long get_tagged_addr_ctrl(struct task_struct *task);
- #define GET_TAGGED_ADDR_CTRL()		get_tagged_addr_ctrl(current)
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_PROCESSOR_H */
-diff --git a/arch/riscv/include/asm/ptrace.h b/arch/riscv/include/asm/ptrace.h
-index b5b0adcc85c18..e26a79054c614 100644
---- a/arch/riscv/include/asm/ptrace.h
-+++ b/arch/riscv/include/asm/ptrace.h
-@@ -10,7 +10,7 @@
- #include <asm/csr.h>
- #include <linux/compiler.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct pt_regs {
- 	unsigned long epc;
-@@ -178,6 +178,6 @@ static inline int regs_irqs_disabled(struct pt_regs *regs)
- 	return !(regs->status & SR_PIE);
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_PTRACE_H */
-diff --git a/arch/riscv/include/asm/scs.h b/arch/riscv/include/asm/scs.h
-index 0e45db78b24bf..ab7714aa93bdc 100644
---- a/arch/riscv/include/asm/scs.h
-+++ b/arch/riscv/include/asm/scs.h
-@@ -2,7 +2,7 @@
- #ifndef _ASM_SCS_H
- #define _ASM_SCS_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #include <asm/asm-offsets.h>
- 
- #ifdef CONFIG_SHADOW_CALL_STACK
-@@ -49,6 +49,6 @@
- .endm
- 
- #endif /* CONFIG_SHADOW_CALL_STACK */
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_SCS_H */
-diff --git a/arch/riscv/include/asm/set_memory.h b/arch/riscv/include/asm/set_memory.h
-index ea263d3683ef6..87389e93325a3 100644
---- a/arch/riscv/include/asm/set_memory.h
-+++ b/arch/riscv/include/asm/set_memory.h
-@@ -6,7 +6,7 @@
- #ifndef _ASM_RISCV_SET_MEMORY_H
- #define _ASM_RISCV_SET_MEMORY_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * Functions to change memory attributes.
-  */
-@@ -45,7 +45,7 @@ int set_direct_map_default_noflush(struct page *page);
- int set_direct_map_valid_noflush(struct page *page, unsigned nr, bool valid);
- bool kernel_page_present(struct page *page);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #if defined(CONFIG_STRICT_KERNEL_RWX) || defined(CONFIG_XIP_KERNEL)
- #ifdef CONFIG_64BIT
-diff --git a/arch/riscv/include/asm/thread_info.h b/arch/riscv/include/asm/thread_info.h
-index f5916a70879a8..c33d8b7dd4880 100644
---- a/arch/riscv/include/asm/thread_info.h
-+++ b/arch/riscv/include/asm/thread_info.h
-@@ -37,7 +37,7 @@
- 
- #define IRQ_STACK_SIZE		THREAD_SIZE
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/processor.h>
- #include <asm/csr.h>
-@@ -98,7 +98,7 @@ struct thread_info {
- void arch_release_task_struct(struct task_struct *tsk);
- int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- /*
-  * thread information flags
-diff --git a/arch/riscv/include/asm/vdso.h b/arch/riscv/include/asm/vdso.h
-index f891478829a52..f1bd232b85dd3 100644
---- a/arch/riscv/include/asm/vdso.h
-+++ b/arch/riscv/include/asm/vdso.h
-@@ -16,7 +16,7 @@
- 
- #define __VVAR_PAGES    2
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <generated/vdso-offsets.h>
- 
- #define VDSO_SYMBOL(base, name)							\
-@@ -34,7 +34,7 @@ extern char compat_vdso_start[], compat_vdso_end[];
- 
- extern char vdso_start[], vdso_end[];
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* CONFIG_MMU */
- 
-diff --git a/arch/riscv/include/asm/vdso/gettimeofday.h b/arch/riscv/include/asm/vdso/gettimeofday.h
-index ba3283cf7acca..4ece833a6be1a 100644
---- a/arch/riscv/include/asm/vdso/gettimeofday.h
-+++ b/arch/riscv/include/asm/vdso/gettimeofday.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_GETTIMEOFDAY_H
- #define __ASM_VDSO_GETTIMEOFDAY_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/barrier.h>
- #include <asm/unistd.h>
-@@ -91,6 +91,6 @@ const struct vdso_data *__arch_get_timens_vdso_data(const struct vdso_data *vd)
- 	return _timens_data;
- }
- #endif
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_GETTIMEOFDAY_H */
-diff --git a/arch/riscv/include/asm/vdso/processor.h b/arch/riscv/include/asm/vdso/processor.h
-index 8f383f05a290f..98fb44336c055 100644
---- a/arch/riscv/include/asm/vdso/processor.h
-+++ b/arch/riscv/include/asm/vdso/processor.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_PROCESSOR_H
- #define __ASM_VDSO_PROCESSOR_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/barrier.h>
- #include <asm/insn-def.h>
-@@ -23,6 +23,6 @@ static inline void cpu_relax(void)
- 	barrier();
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_PROCESSOR_H */
-diff --git a/arch/riscv/include/asm/vdso/vsyscall.h b/arch/riscv/include/asm/vdso/vsyscall.h
-index e8a9c4b53c0c9..6123b2efc484b 100644
---- a/arch/riscv/include/asm/vdso/vsyscall.h
-+++ b/arch/riscv/include/asm/vdso/vsyscall.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_VSYSCALL_H
- #define __ASM_VDSO_VSYSCALL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <vdso/datapage.h>
- 
-@@ -18,6 +18,6 @@ static __always_inline struct vdso_data *__riscv_get_k_vdso_data(void)
- /* The asm-generic header needs to be included after the definitions above */
- #include <asm-generic/vdso/vsyscall.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_VSYSCALL_H */
-diff --git a/tools/arch/riscv/include/asm/csr.h b/tools/arch/riscv/include/asm/csr.h
-index 0dfc09254f99a..56d7367ee344c 100644
---- a/tools/arch/riscv/include/asm/csr.h
-+++ b/tools/arch/riscv/include/asm/csr.h
-@@ -468,13 +468,13 @@
- #define IE_TIE		(_AC(0x1, UL) << RV_IRQ_TIMER)
- #define IE_EIE		(_AC(0x1, UL) << RV_IRQ_EXT)
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define __ASM_STR(x)    x
- #else
- #define __ASM_STR(x)    #x
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define csr_swap(csr, val)					\
- ({								\
-@@ -536,6 +536,6 @@
- 			      : "memory");			\
- })
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_RISCV_CSR_H */
-diff --git a/tools/arch/riscv/include/asm/vdso/processor.h b/tools/arch/riscv/include/asm/vdso/processor.h
-index 662aca0398481..0665b117f30f2 100644
---- a/tools/arch/riscv/include/asm/vdso/processor.h
-+++ b/tools/arch/riscv/include/asm/vdso/processor.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_PROCESSOR_H
- #define __ASM_VDSO_PROCESSOR_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm-generic/barrier.h>
- 
-@@ -27,6 +27,6 @@ static inline void cpu_relax(void)
- 	barrier();
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_PROCESSOR_H */
--- 
-2.48.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXIgMTAsIDIwMjUgYXQgMTE6NDTigK9QTSBEZWVwYWsgR3VwdGEgPGRlYnVnQHJp
+dm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiBGcm9tOiBKaW0gU2h1IDxqaW0uc2h1QHNpZml2ZS5jb20+
+Cj4KPiB1c2VyIG1vZGUgdGFza3MgY29tcGlsZWQgd2l0aCB6aWNmaWxwIG1heSBjYWxsIGluZGly
+ZWN0bHkgaW50byB2ZHNvIChsaWtlCj4gaHdwcm9iZSBpbmRpcmVjdCBjYWxscykuIEFkZCBsYW5k
+aW5nIHBhZCBjb21waWxlIHN1cHBvcnQgaW4gdmRzby4gdmRzbwo+IHdpdGggbGFuZGluZyBwYWQg
+aW4gaXQgd2lsbCBiZSBub3AgZm9yIHRhc2tzIHdoaWNoIGhhdmUgbm90IGVuYWJsZWQKPiBsYW5k
+aW5nIHBhZC4KPiBUaGlzIHBhdGNoIGFsbG93cyB0byBydW4gdXNlciBtb2RlIHRhc2tzIHdpdGgg
+Y2ZpIGVhbmJsZWQgYW5kIGRvIG5vIGhhcm0uCj4KPiBGdXR1cmUgd29yayBjYW4gYmUgZG9uZSBv
+biB0aGlzIHRvIGRvIGJlbG93Cj4gIC0gbGFiZWxlZCBsYW5kaW5nIHBhZCBvbiB2ZHNvIGZ1bmN0
+aW9ucyAod2hlbmV2ZXIgbGFiZWxpbmcgc3VwcG9ydCBzaG93cwo+ICAgIHVwIGluIGdudS10b29s
+Y2hhaW4pCj4gIC0gZW1pdCBzaGFkb3cgc3RhY2sgaW5zdHJ1Y3Rpb25zIG9ubHkgaW4gdmRzbyBj
+b21waWxlZCBvYmplY3RzIGFzIHBhcnQgb2YKPiAgICBrZXJuZWwgY29tcGlsZS4KPgo+IFNpZ25l
+ZC1vZmYtYnk6IEppbSBTaHUgPGppbS5zaHVAc2lmaXZlLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBE
+ZWVwYWsgR3VwdGEgPGRlYnVnQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9NYWtl
+ZmlsZSAgICAgICAgICAgICAgICAgICB8ICA3ICsrKysrLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2Fzc2VtYmxlci5oICAgIHwgNDQgKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZSAgICAgICB8IDEyICsrKysrKysr
+KysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9mbHVzaF9pY2FjaGUuUyB8ICA0ICsrKysKPiAg
+YXJjaC9yaXNjdi9rZXJuZWwvdmRzby9nZXRjcHUuUyAgICAgICB8ICA0ICsrKysKPiAgYXJjaC9y
+aXNjdi9rZXJuZWwvdmRzby9ydF9zaWdyZXR1cm4uUyB8ICA0ICsrKysKPiAgYXJjaC9yaXNjdi9r
+ZXJuZWwvdmRzby9zeXNfaHdwcm9iZS5TICB8ICA0ICsrKysKPiAgNyBmaWxlcyBjaGFuZ2VkLCA3
+OCBpbnNlcnRpb25zKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9NYWtlZmlsZSBiL2FyY2gvcmlzY3YvTWFrZWZpbGUKPiBpbmRleCAxM2ZiYzBmOTQyMzguLmVh
+OTQ2OGFmMmNiNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L01ha2VmaWxlCj4gKysrIGIvYXJj
+aC9yaXNjdi9NYWtlZmlsZQo+IEBAIC04NywxMCArODcsMTUgQEAgcmlzY3YtbWFyY2gtJChDT05G
+SUdfVE9PTENIQUlOX0hBU19aQUNBUykgOj0gJChyaXNjdi1tYXJjaC15KV96YWNhcwo+Cj4gICMg
+Q2hlY2sgaWYgdGhlIHRvb2xjaGFpbiBzdXBwb3J0cyBaYWJoYQo+ICByaXNjdi1tYXJjaC0kKENP
+TkZJR19UT09MQ0hBSU5fSEFTX1pBQkhBKSA6PSAkKHJpc2N2LW1hcmNoLXkpX3phYmhhCj4gKyMg
+Q2hlY2sgaWYgdGhlIHRvb2xjaGFpbiBzdXBwb3J0cyBaaWhpbnRwYXVzZSBleHRlbnNpb24KPiAr
+cmlzY3YtbWFyY2gtJChDT05GSUdfVE9PTENIQUlOX0hBU19aSUhJTlRQQVVTRSkgOj0gJChyaXNj
+di1tYXJjaC15KV96aWhpbnRwYXVzZQoKSSB0aGluayB3ZSBkb24ndCBuZWVkIHRoaXMsIGl0IGhh
+cyByZW1vdmVkIGJ5IHRoZSAnNmRhMTExNTc0YmFmCigicmlzY3Y6IFByb3ZpZGUgYSBkZWZpbml0
+aW9uIGZvciAncGF1c2UnIiknLiBBcGFydCBmcm9tIHRoYXQsIHRoaXMKcGF0Y2ggbG9va3MgZ29v
+ZCB0byBtZS4KClJldmlld2VkLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cgo+ICsK
+PiArS0JVSUxEX0JBU0VfSVNBID0gLW1hcmNoPSQoc2hlbGwgZWNobyAkKHJpc2N2LW1hcmNoLXkp
+IHwgc2VkIC1FICdzLyhydjMyaW1hfHJ2NjRpbWEpZmQoW152X10qKXY/L1wxXDIvJykKPiArZXhw
+b3J0IEtCVUlMRF9CQVNFX0lTQQo+Cj4gICMgUmVtb3ZlIEYsRCxWIGZyb20gaXNhIHN0cmluZyBm
+b3IgYWxsLiBLZWVwIGV4dGVuc2lvbnMgYmV0d2VlbiAiZmQiIGFuZCAidiIgYnkKPiAgIyBtYXRj
+aGluZyBub24tdiBhbmQgbm9uLW11bHRpLWxldHRlciBleHRlbnNpb25zIG91dCB3aXRoIHRoZSBm
+aWx0ZXIgKFtedl9dKikKPiAtS0JVSUxEX0NGTEFHUyArPSAtbWFyY2g9JChzaGVsbCBlY2hvICQo
+cmlzY3YtbWFyY2gteSkgfCBzZWQgLUUgJ3MvKHJ2MzJpbWF8cnY2NGltYSlmZChbXnZfXSopdj8v
+XDFcMi8nKQo+ICtLQlVJTERfQ0ZMQUdTICs9ICQoS0JVSUxEX0JBU0VfSVNBKQo+Cj4gIEtCVUlM
+RF9BRkxBR1MgKz0gLW1hcmNoPSQocmlzY3YtbWFyY2gteSkKPgo+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL2Fzc2VtYmxlci5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9h
+c3NlbWJsZXIuaAo+IGluZGV4IDQ0YjE0NTdkM2U5NS4uYTA1OGVhNWU5YzU4IDEwMDY0NAo+IC0t
+LSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vYXNzZW1ibGVyLmgKPiArKysgYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvYXNtL2Fzc2VtYmxlci5oCj4gQEAgLTgwLDMgKzgwLDQ3IEBACj4gICAgICAgICAu
+ZW5kbQo+Cj4gICNlbmRpZiAvKiBfX0FTTV9BU1NFTUJMRVJfSCAqLwo+ICsKPiArI2lmIGRlZmlu
+ZWQoQ09ORklHX1JJU0NWX1VTRVJfQ0ZJKSAmJiAoX19yaXNjdl94bGVuID09IDY0KQo+ICsubWFj
+cm8gdmRzb19scGFkCj4gK2xwYWQgMAo+ICsuZW5kbQo+ICsjZWxzZQo+ICsubWFjcm8gdmRzb19s
+cGFkCj4gKy5lbmRtCj4gKyNlbmRpZgo+ICsKPiArLyoKPiArICogVGhpcyBtYWNybyBlbWl0cyBh
+IHByb2dyYW0gcHJvcGVydHkgbm90ZSBzZWN0aW9uIGlkZW50aWZ5aW5nCj4gKyAqIGFyY2hpdGVj
+dHVyZSBmZWF0dXJlcyB3aGljaCByZXF1aXJlIHNwZWNpYWwgaGFuZGxpbmcsIG1haW5seSBmb3IK
+PiArICogdXNlIGluIGFzc2VtYmx5IGZpbGVzIGluY2x1ZGVkIGluIHRoZSBWRFNPLgo+ICsgKi8K
+PiArI2RlZmluZSBOVF9HTlVfUFJPUEVSVFlfVFlQRV8wICA1Cj4gKyNkZWZpbmUgR05VX1BST1BF
+UlRZX1JJU0NWX0ZFQVRVUkVfMV9BTkQgMHhjMDAwMDAwMAo+ICsKPiArI2RlZmluZSBHTlVfUFJP
+UEVSVFlfUklTQ1ZfRkVBVFVSRV8xX1pJQ0ZJTFAgICAgICAoMVUgPDwgMCkKPiArI2RlZmluZSBH
+TlVfUFJPUEVSVFlfUklTQ1ZfRkVBVFVSRV8xX1pJQ0ZJU1MgICAgICAoMVUgPDwgMSkKPiArCj4g
+KyNpZiBkZWZpbmVkKENPTkZJR19SSVNDVl9VU0VSX0NGSSkgJiYgKF9fcmlzY3ZfeGxlbiA9PSA2
+NCkKPiArI2RlZmluZSBHTlVfUFJPUEVSVFlfUklTQ1ZfRkVBVFVSRV8xX0RFRkFVTFQgXAo+ICsg
+ICAgICAgKEdOVV9QUk9QRVJUWV9SSVNDVl9GRUFUVVJFXzFfWklDRklMUCkKPiArI2VuZGlmCj4g
+Kwo+ICsjaWZkZWYgR05VX1BST1BFUlRZX1JJU0NWX0ZFQVRVUkVfMV9ERUZBVUxUCj4gKy5tYWNy
+byBlbWl0X3Jpc2N2X2ZlYXR1cmVfMV9hbmQsIGZlYXQgPSBHTlVfUFJPUEVSVFlfUklTQ1ZfRkVB
+VFVSRV8xX0RFRkFVTFQKPiArICAgICAgIC5wdXNoc2VjdGlvbiAubm90ZS5nbnUucHJvcGVydHks
+ICJhIgo+ICsgICAgICAgLnAyYWxpZ24gICAgICAgIDMKPiArICAgICAgIC53b3JkICAgICAgICAg
+ICA0Cj4gKyAgICAgICAud29yZCAgICAgICAgICAgMTYKPiArICAgICAgIC53b3JkICAgICAgICAg
+ICBOVF9HTlVfUFJPUEVSVFlfVFlQRV8wCj4gKyAgICAgICAuYXNjaXogICAgICAgICAgIkdOVSIK
+PiArICAgICAgIC53b3JkICAgICAgICAgICBHTlVfUFJPUEVSVFlfUklTQ1ZfRkVBVFVSRV8xX0FO
+RAo+ICsgICAgICAgLndvcmQgICAgICAgICAgIDQKPiArICAgICAgIC53b3JkICAgICAgICAgICBc
+ZmVhdAo+ICsgICAgICAgLndvcmQgICAgICAgICAgIDAKPiArICAgICAgIC5wb3BzZWN0aW9uCj4g
+Ky5lbmRtCj4gKyNlbHNlCj4gKy5tYWNybyBlbWl0X3Jpc2N2X2ZlYXR1cmVfMV9hbmQsIGZlYXQg
+PSAwCj4gKy5lbmRtCj4gKyNlbmRpZgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC92
+ZHNvL01ha2VmaWxlIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9NYWtlZmlsZQo+IGluZGV4IDlh
+MWI1NTVlODczMy4uZGFhMTBjMmIwZGQxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVs
+L3Zkc28vTWFrZWZpbGUKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxlCj4g
+QEAgLTEzLDEyICsxMywxOCBAQCB2ZHNvLXN5bXMgKz0gZmx1c2hfaWNhY2hlCj4gIHZkc28tc3lt
+cyArPSBod3Byb2JlCj4gIHZkc28tc3ltcyArPSBzeXNfaHdwcm9iZQo+Cj4gK2lmZGVmIENPTkZJ
+R19SSVNDVl9VU0VSX0NGSQo+ICtMUEFEX01BUkNIID0gX3ppY2ZpbHAKPiArZW5kaWYKPiArCj4g
+ICMgRmlsZXMgdG8gbGluayBpbnRvIHRoZSB2ZHNvCj4gIG9iai12ZHNvID0gJChwYXRzdWJzdCAl
+LCAlLm8sICQodmRzby1zeW1zKSkgbm90ZS5vCj4KPiAgY2NmbGFncy15IDo9IC1mbm8tc3RhY2st
+cHJvdGVjdG9yCj4gIGNjZmxhZ3MteSArPSAtRERJU0FCTEVfQlJBTkNIX1BST0ZJTElORwo+ICBj
+Y2ZsYWdzLXkgKz0gLWZuby1idWlsdGluCj4gK2NjZmxhZ3MteSArPSAkKEtCVUlMRF9CQVNFX0lT
+QSkkKExQQURfTUFSQ0gpCj4gK2FzZmxhZ3MteSArPSAkKEtCVUlMRF9CQVNFX0lTQSkkKExQQURf
+TUFSQ0gpCj4KPiAgaWZuZXEgKCQoYy1nZXR0aW1lb2ZkYXkteSksKQo+ICAgIENGTEFHU192Z2V0
+dGltZW9mZGF5Lm8gKz0gLWZQSUMgLWluY2x1ZGUgJChjLWdldHRpbWVvZmRheS15KQo+IEBAIC00
+MCw2ICs0NiwxMiBAQCBlbmRpZgo+ICBDRkxBR1NfUkVNT1ZFX3ZnZXR0aW1lb2ZkYXkubyA9ICQo
+Q0NfRkxBR1NfRlRSQUNFKSAkKENDX0ZMQUdTX1NDUykKPiAgQ0ZMQUdTX1JFTU9WRV9od3Byb2Jl
+Lm8gPSAkKENDX0ZMQUdTX0ZUUkFDRSkgJChDQ19GTEFHU19TQ1MpCj4KPiArIyBEaXNhYmxlIHBy
+b2ZpbGluZyBhbmQgaW5zdHJ1bWVudGF0aW9uIGZvciBWRFNPIGNvZGUKPiArR0NPVl9QUk9GSUxF
+IDo9IG4KPiArS0NPVl9JTlNUUlVNRU5UIDo9IG4KPiArS0FTQU5fU0FOSVRJWkUgOj0gbgo+ICtV
+QlNBTl9TQU5JVElaRSA6PSBuCj4gKwo+ICAjIEZvcmNlIGRlcGVuZGVuY3kKPiAgJChvYmopL3Zk
+c28ubzogJChvYmopL3Zkc28uc28KPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC92
+ZHNvL2ZsdXNoX2ljYWNoZS5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9mbHVzaF9pY2FjaGUu
+Uwo+IGluZGV4IDhmODg0MjI3ZThiYy4uZTRjNTY5NzA5MDVlIDEwMDY0NAo+IC0tLSBhL2FyY2gv
+cmlzY3Yva2VybmVsL3Zkc28vZmx1c2hfaWNhY2hlLlMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5l
+bC92ZHNvL2ZsdXNoX2ljYWNoZS5TCj4gQEAgLTUsMTEgKzUsMTMgQEAKPgo+ICAjaW5jbHVkZSA8
+bGludXgvbGlua2FnZS5oPgo+ICAjaW5jbHVkZSA8YXNtL3VuaXN0ZC5oPgo+ICsjaW5jbHVkZSA8
+YXNtL2Fzc2VtYmxlci5oPgo+Cj4gICAgICAgICAudGV4dAo+ICAvKiBpbnQgX192ZHNvX2ZsdXNo
+X2ljYWNoZSh2b2lkICpzdGFydCwgdm9pZCAqZW5kLCB1bnNpZ25lZCBsb25nIGZsYWdzKTsgKi8K
+PiAgU1lNX0ZVTkNfU1RBUlQoX192ZHNvX2ZsdXNoX2ljYWNoZSkKPiAgICAgICAgIC5jZmlfc3Rh
+cnRwcm9jCj4gKyAgICAgICB2ZHNvX2xwYWQKPiAgI2lmZGVmIENPTkZJR19TTVAKPiAgICAgICAg
+IGxpIGE3LCBfX05SX3Jpc2N2X2ZsdXNoX2ljYWNoZQo+ICAgICAgICAgZWNhbGwKPiBAQCAtMjAs
+MyArMjIsNSBAQCBTWU1fRlVOQ19TVEFSVChfX3Zkc29fZmx1c2hfaWNhY2hlKQo+ICAgICAgICAg
+cmV0Cj4gICAgICAgICAuY2ZpX2VuZHByb2MKPiAgU1lNX0ZVTkNfRU5EKF9fdmRzb19mbHVzaF9p
+Y2FjaGUpCj4gKwo+ICtlbWl0X3Jpc2N2X2ZlYXR1cmVfMV9hbmQKPiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9rZXJuZWwvdmRzby9nZXRjcHUuUyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vZ2V0
+Y3B1LlMKPiBpbmRleCA5YzFiZDUzMTkwN2YuLjVjMWVjYzRlMTQ2NSAxMDA2NDQKPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC92ZHNvL2dldGNwdS5TCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwv
+dmRzby9nZXRjcHUuUwo+IEBAIC01LDE0ICs1LDE4IEBACj4KPiAgI2luY2x1ZGUgPGxpbnV4L2xp
+bmthZ2UuaD4KPiAgI2luY2x1ZGUgPGFzbS91bmlzdGQuaD4KPiArI2luY2x1ZGUgPGFzbS9hc3Nl
+bWJsZXIuaD4KPgo+ICAgICAgICAgLnRleHQKPiAgLyogaW50IF9fdmRzb19nZXRjcHUodW5zaWdu
+ZWQgKmNwdSwgdW5zaWduZWQgKm5vZGUsIHZvaWQgKnVudXNlZCk7ICovCj4gIFNZTV9GVU5DX1NU
+QVJUKF9fdmRzb19nZXRjcHUpCj4gICAgICAgICAuY2ZpX3N0YXJ0cHJvYwo+ICsgICAgICAgdmRz
+b19scGFkCj4gICAgICAgICAvKiBGb3Igbm93LCBqdXN0IGRvIHRoZSBzeXNjYWxsLiAqLwo+ICAg
+ICAgICAgbGkgYTcsIF9fTlJfZ2V0Y3B1Cj4gICAgICAgICBlY2FsbAo+ICAgICAgICAgcmV0Cj4g
+ICAgICAgICAuY2ZpX2VuZHByb2MKPiAgU1lNX0ZVTkNfRU5EKF9fdmRzb19nZXRjcHUpCj4gKwo+
+ICtlbWl0X3Jpc2N2X2ZlYXR1cmVfMV9hbmQKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
+ZWwvdmRzby9ydF9zaWdyZXR1cm4uUyBiL2FyY2gvcmlzY3Yva2VybmVsL3Zkc28vcnRfc2lncmV0
+dXJuLlMKPiBpbmRleCAzZGMwMjJhYTg5MzEuLmU4Mjk4N2RjMzczOSAxMDA2NDQKPiAtLS0gYS9h
+cmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3J0X3NpZ3JldHVybi5TCj4gKysrIGIvYXJjaC9yaXNjdi9r
+ZXJuZWwvdmRzby9ydF9zaWdyZXR1cm4uUwo+IEBAIC01LDEyICs1LDE2IEBACj4KPiAgI2luY2x1
+ZGUgPGxpbnV4L2xpbmthZ2UuaD4KPiAgI2luY2x1ZGUgPGFzbS91bmlzdGQuaD4KPiArI2luY2x1
+ZGUgPGFzbS9hc3NlbWJsZXIuaD4KPgo+ICAgICAgICAgLnRleHQKPiAgU1lNX0ZVTkNfU1RBUlQo
+X192ZHNvX3J0X3NpZ3JldHVybikKPiAgICAgICAgIC5jZmlfc3RhcnRwcm9jCj4gICAgICAgICAu
+Y2ZpX3NpZ25hbF9mcmFtZQo+ICsgICAgICAgdmRzb19scGFkCj4gICAgICAgICBsaSBhNywgX19O
+Ul9ydF9zaWdyZXR1cm4KPiAgICAgICAgIGVjYWxsCj4gICAgICAgICAuY2ZpX2VuZHByb2MKPiAg
+U1lNX0ZVTkNfRU5EKF9fdmRzb19ydF9zaWdyZXR1cm4pCj4gKwo+ICtlbWl0X3Jpc2N2X2ZlYXR1
+cmVfMV9hbmQKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9zeXNfaHdwcm9i
+ZS5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9zeXNfaHdwcm9iZS5TCj4gaW5kZXggNzdlNTdm
+ODMwNTIxLi5mMTY5NDQ1MWE2MGMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdmRz
+by9zeXNfaHdwcm9iZS5TCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby9zeXNfaHdwcm9i
+ZS5TCj4gQEAgLTMsMTMgKzMsMTcgQEAKPgo+ICAjaW5jbHVkZSA8bGludXgvbGlua2FnZS5oPgo+
+ICAjaW5jbHVkZSA8YXNtL3VuaXN0ZC5oPgo+ICsjaW5jbHVkZSA8YXNtL2Fzc2VtYmxlci5oPgo+
+Cj4gIC50ZXh0Cj4gIFNZTV9GVU5DX1NUQVJUKHJpc2N2X2h3cHJvYmUpCj4gICAgICAgICAuY2Zp
+X3N0YXJ0cHJvYwo+ICsgICAgICAgdmRzb19scGFkCj4gICAgICAgICBsaSBhNywgX19OUl9yaXNj
+dl9od3Byb2JlCj4gICAgICAgICBlY2FsbAo+ICAgICAgICAgcmV0Cj4KPiAgICAgICAgIC5jZmlf
+ZW5kcHJvYwo+ICBTWU1fRlVOQ19FTkQocmlzY3ZfaHdwcm9iZSkKPiArCj4gK2VtaXRfcmlzY3Zf
+ZmVhdHVyZV8xX2FuZAo+Cj4gLS0KPiAyLjM0LjEKPgo+Cj4gX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KPiBsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKPiBs
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCj4gaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
+cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
+bi9saXN0aW5mby9saW51eC1yaXNjdgo=
