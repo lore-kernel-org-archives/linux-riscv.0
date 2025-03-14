@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F166C35FF1
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 17:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8745DC28B30
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 20:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=carEjTxFCzm9RE+HlTF0utlknIpLHfSFUc2iYOkTYKQ=; b=Pcm4a4LVl/C/aH
-	nPyLwLQTJLotTpJbUQWxMl0pHWr6UF70qxTNP3SujHGBQLwuiYY9J6kiBBK0/ANH2ZN8Vc/gzt9+c
-	XrBOp58LMlbmYnlgB3eIlogh6E1cqq3gCDcfLCJN9EQaK7SJbKAx6JhI3k1ww8VYbmnzPkSAiwzza
-	/k+XPxLe1k2shlRz7d7A04swc1iQXwqh+eMzWahvlXC5384iwmXsCpQXeJnbT4KAU8FuRV0x4ser/
-	1AXdsiM+ONz3HSIcFp9srWsyjpGuGxyZKDBhFYhCzYfj8401lPlTVzyui4G3nM9gRuEFlFmUHsEX+
-	L90I78/GkaVwAgU8+O9w==;
+	List-Owner; bh=0MgESOMBLjqTu4QBb/fQ8x0pVjHdrWW1Pq7QZ5lgfWs=; b=A9j42wfMAmi1uO
+	AzYDPRyI8AhS9Sq8gfhEqB8S9yvigLC+N2BxRysvHnoImGD96aX2Pt1Rfn9VMPCb1xHxBmWvjb3QR
+	aESm0ZmbMIqYnuUVRLa5nOi/+gLJSQYXEYclbP8Ck1XoP22//i0Nupdy1nXDQpL7OQaHXEO9tk8pR
+	CPPuX2gmhykC9+076FHMlVUQBJbxAqOysS7obB5sOKKIsoWE7CcXW4VY5Oa5yL7ELVKgyp9GrJXiL
+	hQghxnpeM6SZ3iwexVaFG69x+YKLROSWqqJ6RVUU+GPQjPAewtMtDQIzM9McpjmfCYhM1B3xbyn8h
+	cGLtqFTHugMHfWIcl5hA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8pi-0000000Erkf-17h5;
-	Fri, 14 Mar 2025 17:28:30 +0000
+	id 1ttByj-0000000FG9s-2uFT;
+	Fri, 14 Mar 2025 20:50:01 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt8o1-0000000ErPC-2Y4X;
-	Fri, 14 Mar 2025 17:26:47 +0000
+	id 1ttBx2-0000000FG2B-0dY2;
+	Fri, 14 Mar 2025 20:48:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 7FE7EA48726;
-	Fri, 14 Mar 2025 17:21:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2662C4CEEE;
-	Fri, 14 Mar 2025 17:26:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7268CA452F9;
+	Fri, 14 Mar 2025 20:42:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6662EC4CEE3;
+	Fri, 14 Mar 2025 20:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741973204;
-	bh=KkiVUBJqS82/ZAZxfj0qf27tw7VtghnwZimo7bY835Y=;
+	s=k20201202; t=1741985294;
+	bh=QZITLRQh5Pilrk+i/O0RCZEME5s/otaVmwmlBiRuMuc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mMsNUN1xSLDSyBven2d76R+1AdL+jQP0MK50eptkf3aVcdtQKta9NJ8EbEk+isGge
-	 MTD2FCEo7J6G1Kjca+jijbQWQKEabwqLxg2MC2HxFJgri2riKxWrj1mpGamjfKEVib
-	 zFioHjdgXrG7GkbAE6V7F0J+jQvVe3bGpkNvuPK1KTEGYRgVrUN6MeaP58tj1120zr
-	 qjxMja5IyRQDiFIAAARLh7wWOI7UJD9mllNnB1j3m72i66Ch7wPgghldbzlqurr99b
-	 KwMCbHnuEKMAWfo9RAu1xBqH5ra02axDg8YAPcFarIjbI/v8UDWiAnpLIjdoxdgxou
-	 nT4e2P2pKwefw==
-Date: Fri, 14 Mar 2025 14:26:41 -0300
+	b=L3Ixpg0HJRCUFTfxE27Wt1rf8UBwz/oBrqEwQ9TeF9/iO30PlBJ8WNVSSD5qv5EqV
+	 0QZowG9NQuNgXghNkjEX/Tx//JTcWhTB+KMh7ybKLX5Td2nN+NXi3lYZEhzxwVPsXr
+	 CBZvSaTK2r4/M/SSF53bjnEDUhx9cygiadLNhksopMJag21XS1RvvDrHOOiyQvC4q3
+	 KzpDNpGOq86V8Bs8t/v0iom/0v/rp39B2r7cXw8M5qtlRboDqOAiyuruu8z1dCjK62
+	 g33yb3zw2Yj9QIlS8v0fOot5OPXhLXXBjoIA7/RltVeW6qxvels5qW8AGtYIxV/Lww
+	 tropxqqdJRitQ==
+Date: Fri, 14 Mar 2025 17:48:12 -0300
 From: Arnaldo Carvalho de Melo <acme@kernel.org>
 To: Namhyung Kim <namhyung@kernel.org>
 Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
@@ -69,7 +69,7 @@ Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
 Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
  the build
-Message-ID: <Z9Rm0W6YLpxKIcI1@x1>
+Message-ID: <Z9SWDGsdgagMr8PV@x1>
 References: <20250308003209.234114-1-irogers@google.com>
  <Z9KFLGpenwOP32q3@google.com>
  <Z9M24AJzui9lFbGo@x1>
@@ -77,12 +77,13 @@ References: <20250308003209.234114-1-irogers@google.com>
  <Z9NEX3j_1RUvaFI0@x1>
  <Z9PCjQ8PhOadVGQ8@google.com>
  <Z9RjHpEJGWtj8PAM@x1>
+ <Z9Rm0W6YLpxKIcI1@x1>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Z9RjHpEJGWtj8PAM@x1>
+In-Reply-To: <Z9Rm0W6YLpxKIcI1@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_102645_783424_5FF35B30 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20250314_134816_325985_76B42110 
+X-CRM114-Status: GOOD (  12.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,215 +95,69 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 14, 2025 at 02:10:57PM -0300, Arnaldo Carvalho de Melo wrote:
-> On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
-> > On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrot=
-e:
-> > > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wr=
-ote:
-> > > > Still building, but noticed this on x86_64:
-> > > > =
-
-> > > > 105: perf trace enum augmentation tests                            =
-  : FAILED!
-> > > > 106: perf trace BTF general tests                                  =
-  : FAILED!
-> > > > 107: perf trace exit race                                          =
-  : Ok
-> > > > 108: perf trace record and replay                                  =
-  : FAILED!
-> > > > =
-
-> > > > =
-
-> > > > The first doesn=B4t help that much with verbose mode, haven't check=
-ed if
-> > > > before this series it was failing :-\
-> > > > =
-
-> > > > root@x1:~# perf test -vvv 105
-> > > > 105: perf trace enum augmentation tests:
-> > > > --- start ---
-> > > > test child forked, pid 19411
-> > > > Checking if vmlinux exists
-> > > > Tracing syscall landlock_add_rule
-> > > > ---- end(-1) ----
-> > > > 105: perf trace enum augmentation tests                            =
-  : FAILED!
-> > > > root@x1:~#
-> > > =
-
-> > > So:
-> > > =
-
-> > > root@x1:~# perf trace -e landlock_add_rule perf test -w landlock
-> > > root@x1:~# =
-
-> > > =
-
-> > > But:
-> > > =
-
-> > > root@x1:~# perf trace perf test -w landlock |& grep landlock_add_rule
-> > >     26.120 ( 0.002 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, =
-rule_type: LANDLOCK_RULE_PATH_BENEATH, rule_attr: 0x7ffde75e2680, flags: 45=
-) =3D -1 EINVAL (Invalid argument)
-> > >     26.124 ( 0.001 ms): perf/19791 landlock_add_rule(ruleset_fd: 11, =
-rule_type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffde75e2690, flags: 45) =
-=3D -1 EINVAL (Invalid argument)
-> > > root@x1:~# =
-
-> > > =
-
-> > > -e is having some trouble, when no event is specified, then it works.
-> > > =
-
-> > > Something in the changes made to:
-> > > =
-
-> > > static int trace__parse_events_option(const struct option *opt, const=
- char *str,
-> > >                                       int unset __maybe_unused)
-> > =
-
-> > Thanks for the test, I think this should fix it:
-> > =
-
-> =
-
-> Well, not really:
-> =
-
-> root@number:~# perf trace -e landlock_add_rule perf test -w landlock
-> perf: Segmentation fault
-> Obtained 10 stack frames.
-> perf() [0x5be761]
-> perf() [0x5be7f9]
-> /lib64/libc.so.6(+0x40fd0) [0x7fe005c4efd0]
-> perf() [0x491bc1]
-> perf() [0x497090]
-> perf() [0x4973ab]
-> perf() [0x413483]
-> /lib64/libc.so.6(+0x2a088) [0x7fe005c38088]
-> /lib64/libc.so.6(__libc_start_main+0x8b) [0x7fe005c3814b]
-> perf() [0x413ad5]
-> Segmentation fault (core dumped)
-> root@number:~#
-> =
-
-> Time for me to test another patch from Ian, the one symbolizing the
-> above backtrace...
-> =
-
-> Worked, but didn't help as much, with gdb:
-> =
-
-> (gdb) run trace -e landlock_add_rule perf test -w landlock
-> Starting program: /root/bin/perf trace -e landlock_add_rule perf test -w =
-landlock
-> =
-
-> This GDB supports auto-downloading debuginfo from the following URLs:
->   <https://debuginfod.fedoraproject.org/>
-> Enable debuginfod for this session? (y or [n]) y
-> Debuginfod has been enabled.
-> To make this setting permanent, add 'set debuginfod enabled on' to .gdbin=
-it.
-> Downloading 53.88 K separate debug info for system-supplied DSO at 0x7fff=
-f7fc6000
-> Downloading 458.26 K separate debug info for /lib64/libtracefs.so.1      =
-                                                                           =
-                                           =
-
-> [Thread debugging using libthread_db enabled]                            =
-                                                                           =
-                                           =
-
-> Using host libthread_db library "/lib64/libthread_db.so.1".
-> [Detaching after fork from child process 39141]
-> =
-
-> Program received signal SIGSEGV, Segmentation fault.
-> 0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=3D0x7fffff=
-ffa510, sc=3D0x10fb7b0) at builtin-trace.c:3882
-> 3882				bool is_pointer =3D field->flags & TEP_FIELD_IS_POINTER,
-> (gdb) p field
-> $1 =3D (struct tep_format_field *) 0x64656e6769736e75
-> (gdb) bt
-> #0  0x00000000004d0e56 in trace__find_usable_bpf_prog_entry (trace=3D0x7f=
-ffffffa510, sc=3D0x10fb7b0) at builtin-trace.c:3882
-> #1  0x00000000004cf3de in trace__init_syscalls_bpf_prog_array_maps (trace=
-=3D0x7fffffffa510, e_machine=3D62) at builtin-trace.c:4040
-> #2  0x00000000004bf626 in trace__run (trace=3D0x7fffffffa510, argc=3D4, a=
-rgv=3D0x7fffffffde40) at builtin-trace.c:4473
-> #3  0x00000000004bb7a9 in cmd_trace (argc=3D4, argv=3D0x7fffffffde40) at =
-builtin-trace.c:5741
-> #4  0x00000000004d873f in run_builtin (p=3D0xf83d48 <commands+648>, argc=
-=3D7, argv=3D0x7fffffffde40) at perf.c:351
-> #5  0x00000000004d7df3 in handle_internal_command (argc=3D7, argv=3D0x7ff=
-fffffde40) at perf.c:404
-> #6  0x00000000004d860f in run_argv (argcp=3D0x7fffffffdc7c, argv=3D0x7fff=
-ffffdc70) at perf.c:448
-> #7  0x00000000004d7a4f in main (argc=3D7, argv=3D0x7fffffffde40) at perf.=
-c:556
-> (gdb) list -10
-> 3867		return NULL;
-> 3868	=
-
-> 3869	try_to_find_pair:
-> 3870		for (int i =3D 0, num_idx =3D syscalltbl__num_idx(sc->e_machine); i=
- < num_idx; ++i) {
-> 3871			int id =3D syscalltbl__id_at_idx(sc->e_machine, i);
-> 3872			struct syscall *pair =3D trace__syscall_info(trace, NULL, sc->e_ma=
-chine, id);
-> 3873			struct bpf_program *pair_prog;
-> 3874			bool is_candidate =3D false;
-> 3875	=
-
-> 3876			if (pair =3D=3D NULL || pair =3D=3D sc ||
-> (gdb)
-
-Humm
-
-(gdb) p i
-$1 =3D 147
-(gdb) p num_idx
-$2 =3D 379
-(gdb) p id
-$3 =3D 192
-(gdb) p pair
-$4 =3D (struct syscall *) 0x10fe8f0
-(gdb) p *pair
-$5 =3D {e_machine =3D 62, id =3D 192, tp_format =3D 0x10f6c00, nr_args =3D =
-3, args_size =3D 48, bpf_prog =3D {sys_enter =3D 0x0, sys_exit =3D 0x0}, is=
-_exit =3D false, is_open =3D false, nonexistent =3D false, =
-
-  use_btf =3D false, args =3D 0x10f9480, name =3D 0x814406 "lgetxattr", fmt=
- =3D 0x0, arg_fmt =3D 0x10fa0a0}
-(gdb) p sc
-$6 =3D (struct syscall *) 0x10fb7b0
-(gdb) p sc->args
-$7 =3D (struct tep_format_field *) 0x64656e6769736e75
-(gdb) p *pair
-$8 =3D {e_machine =3D 62, id =3D 192, tp_format =3D 0x10f6c00, nr_args =3D =
-3, args_size =3D 48, bpf_prog =3D {sys_enter =3D 0x0, sys_exit =3D 0x0}, is=
-_exit =3D false, is_open =3D false, nonexistent =3D false, =
-
-  use_btf =3D false, args =3D 0x10f9480, name =3D 0x814406 "lgetxattr", fmt=
- =3D 0x0, arg_fmt =3D 0x10fa0a0}
-(gdb)
-
-it finds the pair, but then its sc->args has a bogus pointer... I'll see
-where this isn't being initialized...
-
-- Arnaldo
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgMTQsIDIwMjUgYXQgMDI6MjY6NDFQTSAtMDMwMCwgQXJuYWxkbyBDYXJ2YWxo
+byBkZSBNZWxvIHdyb3RlOgo+IGl0IGZpbmRzIHRoZSBwYWlyLCBidXQgdGhlbiBpdHMgc2MtPmFy
+Z3MgaGFzIGEgYm9ndXMgcG9pbnRlci4uLiBJJ2xsIHNlZQo+IHdoZXJlIHRoaXMgaXNuJ3QgYmVp
+bmcgaW5pdGlhbGl6ZWQuLi4KCkJyZWFrcG9pbnQgNCwgdHJhY2VfX2ZpbmRfdXNhYmxlX2JwZl9w
+cm9nX2VudHJ5ICh0cmFjZT0weDdmZmZmZmZmYTUxMCwgc2M9MHgxMDQ2ZjEwKSBhdCBidWlsdGlu
+LXRyYWNlLmM6Mzg3NAozODc0CQkJYm9vbCBpc19jYW5kaWRhdGUgPSBmYWxzZTsKKGdkYikgbgoz
+ODc2CQkJaWYgKHBhaXIgPT0gTlVMTCB8fCBwYWlyID09IHNjIHx8CihnZGIpIHAgcGFpcgokNyA9
+IChzdHJ1Y3Qgc3lzY2FsbCAqKSAweDEwODNjNTAKKGdkYikgcCBwYWlyLT5uYW1lCiQ4ID0gMHg4
+MTQ3OGUgImFjY2VwdDQiCihnZGIpIG4KMzg3NwkJCSAgICBwYWlyLT5icGZfcHJvZy5zeXNfZW50
+ZXIgPT0gdHJhY2UtPnNrZWwtPnByb2dzLnN5c2NhbGxfdW5hdWdtZW50ZWQpCihnZGIpIHAgaQok
+OSA9IDEKKGdkYikgbgozODc2CQkJaWYgKHBhaXIgPT0gTlVMTCB8fCBwYWlyID09IHNjIHx8Cihn
+ZGIpIG4KMzg4MAkJCXByaW50Zigic2M9JXBcbiIsIHNjKTsgZmZsdXNoKHN0ZG91dCk7CihnZGIp
+IG4Kc2M9MHgxMDQ2ZjEwCjM4ODEJCQlwcmludGYoInNjLT5uYW1lPSVwXG4iLCBzYy0+bmFtZSk7
+IGZmbHVzaChzdGRvdXQpOwooZ2RiKSBuCnNjLT5uYW1lPTB4NmM2NjIwMmM3ODZjMzgzMAozODgy
+CQkJcHJpbnRmKCJzYy0+bnJfYXJncz0lZCwgc2MtPmFyZ3M9JXBcbiIsIHNjLT5ucl9hcmdzLCBz
+Yy0+YXJncyk7IGZmbHVzaChzdGRvdXQpOwooZ2RiKSBwIHNjLT5ucl9hcmdzCiQxMCA9IDE5MzU2
+MzUwNDUKKGdkYikgcCBzYy0+YXJncwokMTEgPSAoc3RydWN0IHRlcF9mb3JtYXRfZmllbGQgKikg
+MHgyNTc4MzAyMDNhNmU2NTZjCihnZGIpIHAgKnNjCiQxMiA9IHtlX21hY2hpbmUgPSA1NDA2OTc3
+MDIsIGlkID0gODA3NzYxOTY4LCB0cF9mb3JtYXQgPSAweDY1NzA3NTIwMmM3ODZjMzgsIG5yX2Fy
+Z3MgPSAxOTM1NjM1MDQ1LCBhcmdzX3NpemUgPSAxNjM0NDI3NzU5LCBicGZfcHJvZyA9IHtzeXNf
+ZW50ZXIgPSAweDI1NzgzMDIwM2E3MjY0NjQsIAogICAgc3lzX2V4aXQgPSAweDcwNzUyMDJjNzg2
+YzM4MzB9LCBpc19leGl0ID0gMTAxLCBpc19vcGVuID0gMTAxLCBub25leGlzdGVudCA9IDExNCwg
+dXNlX2J0ZiA9IDk1LCBhcmdzID0gMHgyNTc4MzAyMDNhNmU2NTZjLCAKICBuYW1lID0gMHg2YzY2
+MjAyYzc4NmMzODMwIDxlcnJvcjogQ2Fubm90IGFjY2VzcyBtZW1vcnkgYXQgYWRkcmVzcyAweDZj
+NjYyMDJjNzg2YzM4MzA+LCBmbXQgPSAweDI1NzgzMDIwM2E3MzY3NjEsIGFyZ19mbXQgPSAweDc4
+NmMzODMwfQooZ2RiKSAKCk9rLCByYW4gb3V0IG9mIHRpbWUsIGJ1dCBpZiBJIHNpbXBsZSBhdm9p
+ZCB0aGUgc2Vjb25kIGxvb3AgaW46CgpzdGF0aWMgaW50IHRyYWNlX19pbml0X3N5c2NhbGxzX2Jw
+Zl9wcm9nX2FycmF5X21hcHMoc3RydWN0IHRyYWNlICp0cmFjZSwgaW50IGVfbWFjaGluZSkKCgpJ
+LmUuIHRoZSBvbmUgdGhhdCBzdGFydHMgd2l0aDoKCiAgICAgICAgLyoKICAgICAgICAgKiBOb3cg
+bGV0cyBkbyBhIHNlY29uZCBwYXNzIGxvb2tpbmcgZm9yIGVuYWJsZWQgc3lzY2FsbHMgd2l0aG91
+dAogICAgICAgICAqIGFuIGF1Z21lbnRlciB0aGF0IGhhdmUgYSBzaWduYXR1cmUgdGhhdCBpcyBh
+IHN1cGVyc2V0IG9mIGFub3RoZXIKICAgICAgICAgKiBzeXNjYWxsIHdpdGggYW4gYXVnbWVudGVy
+IHNvIHRoYXQgd2UgY2FuIGF1dG8tcmV1c2UgaXQuCgpUaGlzOgoKZGlmZiAtLWdpdCBhL3Rvb2xz
+L3BlcmYvYnVpbHRpbi10cmFjZS5jIGIvdG9vbHMvcGVyZi9idWlsdGluLXRyYWNlLmMKaW5kZXgg
+ZTA0MzRmN2RjNjdjYjk4OC4uMzY2NGJiNTEyYzcwY2FiZiAxMDA2NDQKLS0tIGEvdG9vbHMvcGVy
+Zi9idWlsdGluLXRyYWNlLmMKKysrIGIvdG9vbHMvcGVyZi9idWlsdGluLXRyYWNlLmMKQEAgLTM5
+ODksNiArMzk4OSw4IEBAIHN0YXRpYyBpbnQgdHJhY2VfX2luaXRfc3lzY2FsbHNfYnBmX3Byb2df
+YXJyYXlfbWFwcyhzdHJ1Y3QgdHJhY2UgKnRyYWNlLCBpbnQgZV9tCiAgICAgICAgICAgICAgICAg
+ICAgICAgIGdvdG8gb3V0OwogICAgICAgIH0KIAorICAgICAgIHJldHVybiAwOworCiAgICAgICAg
+LyoKICAgICAgICAgKiBOb3cgbGV0cyBkbyBhIHNlY29uZCBwYXNzIGxvb2tpbmcgZm9yIGVuYWJs
+ZWQgc3lzY2FsbHMgd2l0aG91dAogICAgICAgICAqIGFuIGF1Z21lbnRlciB0aGF0IGhhdmUgYSBz
+aWduYXR1cmUgdGhhdCBpcyBhIHN1cGVyc2V0IG9mIGFub3RoZXIK4qyiIFthY21lQHRvb2xib3gg
+cGVyZi10b29scy1uZXh0XSQgCgoKVGhlbiBhbGwgd29ya3MsIHdlIGRvbid0IHJldXNlIGFueSBC
+UEYgcHJvZ3JhbSwgYnV0IHRoZW4gdGhhdCBpcyBhbgpoZXVyaXN0aWMgYW55d2F5LCB0aGF0IGlz
+IHRyaWVkIGJlY3Vhc2UgbGFuZGxvY2tfYWRkX3J1bGUgaGFzIGEgcG9pbnRlcgphcmd1bWVudDoK
+CnJvb3RAbnVtYmVyOn4jIHBlcmYgdHJhY2UgLWUgbGFuZGxvY2tfYWRkX3J1bGUgcGVyZiB0ZXN0
+IC13IGxhbmRsb2NrCiAgICAgMC4wMDAgKCAwLjAwMyBtcyk6IHBlcmYvNzEwMzQgbGFuZGxvY2tf
+YWRkX3J1bGUocnVsZXNldF9mZDogMTEsIHJ1bGVfdHlwZTogTEFORExPQ0tfUlVMRV9QQVRIX0JF
+TkVBVEgsIHJ1bGVfYXR0cjogMHg3ZmZmNmYyYmI1NTAsIGZsYWdzOiA0NSkgPSAtMSBFSU5WQUwg
+KEludmFsaWQgYXJndW1lbnQpCiAgICAgMC4wMDQgKCAwLjAwMSBtcyk6IHBlcmYvNzEwMzQgbGFu
+ZGxvY2tfYWRkX3J1bGUocnVsZXNldF9mZDogMTEsIHJ1bGVfdHlwZTogTEFORExPQ0tfUlVMRV9O
+RVRfUE9SVCwgcnVsZV9hdHRyOiAweDdmZmY2ZjJiYjU0MCwgZmxhZ3M6IDQ1KSA9IC0xIEVJTlZB
+TCAoSW52YWxpZCBhcmd1bWVudCkKcm9vdEBudW1iZXI6fiMgcGVyZiB0ZXN0IGVudW0KMTA1OiBw
+ZXJmIHRyYWNlIGVudW0gYXVnbWVudGF0aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgOiBPawpyb290QG51bWJlcjp+IwoKU28gaXRzIHNvbWUgc29ydCBvZiBzeW5jcm9uaXph
+dGlvbiBvbiB0aGUgdmFyaW91cyBuZXcgdGFibGVzLCBzb3J0ZWQgYnkKbmFtZSwgZXRjIHRoYXQg
+dGhlbiB3aGVuIGl0ZXJhdGluZyBvdmVyIHRoZSBzeXNjYWxscyBlbmRzIHVwIHVzaW5nIGEgc2MK
+dGhhdCBpcyBub3QgaW5pdGlhbGl6ZWQuCgotIEFybmFsZG8KCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
