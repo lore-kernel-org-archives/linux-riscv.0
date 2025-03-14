@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 386D8C35FF6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C2FEC35FF7
 	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 22:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,83 +12,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4zqeylQw6K1XmeN+KmrsDIr9DHpPuxliJ1VDOvHF6kw=; b=KWR92DI1MLkfsZ
-	BIZ/cPHD7X0p5uKRw3/AkBDApje2Ob7kOmDkO9/myEpsL5KipX4FGcuCc9w7kNLmM8WzHz5OO+nL1
-	+AUMxYS928MnRi4GjcHXN2ZD2koV2QUHVqP9T4XHHwoZaYMM/uNS41dHsPGqXJL74/26gj2PzMYhb
-	lTPr/1S16vpnUAC4wnWlNG8AZ6spkvSOpEACqwirfj8stWSrDre9PFNzrylbVPJOOIsJ2uZUsrXxh
-	KnCISy8xN2v6vp7CPo/NTN9YmNJudsNMjEfSKRRhc2YtzPnMEpED+Wpq2FK0KfqlaIpiMTBHMY13G
-	2UfeHazzfsAnt5TpMreQ==;
+	List-Owner; bh=UR1+LlIrSYvWOuZqUZXBFYk+a2om5cnc4iuoNRvUgpg=; b=cN0+5bALx3hbEI
+	qeStmbcJeFO4TXbSsZs6fxkGHRxvonUIdHJv2bch2Ans7kukRuF6bD8LiVwK6EQvINFCjo24ddFsI
+	i1RqNxI14LPvBYH2V+IG4MfNFdNvwywnO01JJ5fdwdOyITXc9Swnd4aJHNN6fUmgT1hd2T5ugHg/7
+	3LaIFlVWTTDk1q6eZcJL24s7kRPDjF1xzc/tFeDQ8o5Kw0WmoeVbVvjpMDQ/roXH1GavzMfvGEF0Q
+	HUa47WE/8g4YqrJOzHsK6sOMlriU61eE6Jng83vxGhrlpQ0r+0DokyQIrADgMASUSEm5xKt48tVGd
+	Jq0R7WGaKuBjgPf/GIcA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttDry-0000000FStp-3xgz;
-	Fri, 14 Mar 2025 22:51:10 +0000
+	id 1ttDs1-0000000FSvc-1Se0;
+	Fri, 14 Mar 2025 22:51:13 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttClT-0000000FLBl-1HxE
+	id 1ttCll-0000000FLPg-1YGW
 	for linux-riscv@bombadil.infradead.org;
-	Fri, 14 Mar 2025 21:40:23 +0000
+	Fri, 14 Mar 2025 21:40:41 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=N78rd5bu5L3Nb7UCylb6NhXzPkib+ej1wIZfC16ALRg=; b=PDfN8zloXmviQldlcHZ4xjztT7
-	O+jkb4Vmll/x86rGve+usR1SwBdjgXHcops89By+Oad3ZWHvzWp0PmFUsXJp5m++4GdWcGO0CpKmJ
-	Pgw1WF2B2NikBWsYXk8HU9JfU9vNxj+VWQyMmknQzYUOYuom5hDIjKCfXfef/kTHCavvVyeYyPZzp
-	qt5SD3a1VcORLtNvBFfZBHI6KwkS5JU9cuHURu3UjVC0sUcTfXMcmIw6nyxVErTRI7GYBhY0LL/fL
-	J/SP4c2PO5mM6yFey5yB8HqZUJmSa1veSxrwHaqKcY3W3WNTKclEjOkrZJhrBe74ThjqJj9k+ke5M
-	2Ku6LDiA==;
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	bh=RHgO3WLw+YmwdWGhLYAhQ6tJSqW/uFwu3lLubQj4jZ0=; b=rMuMF7XszuKdUiZNe3pn+G7Fll
+	CgvOoyaY693WINQg8NUt4aoV8XfoL5dipxG/811wVZ8Gnc9tMUGlyxftLgIBOXEe/49jnI3FsP+oi
+	qP/WuZQiWkCc9hZamj6AeYyE+E0knzg7coyoZ0QxnnP5OZs16Hnm9D7CWsLIPfJNlkoeIQ9/V2ecL
+	BB6zT0nEJmJ+5lCnb1pnssfLYvZP7iHeG7+XHwMceR276Gx+i/yaedO4LSDowOD/3aHITo/45ZwrZ
+	w/US6mR3lcpQduQlrDFFK2ZvcvI2ZtHdSyIkD8IRHuSybwKAJUHcps9XSHVy6QDO0pxkRjWXjLoaL
+	6x5VBGHQ==;
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttClK-00000002x8K-1S44
+	id 1ttClh-00000002xIf-0iJE
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Mar 2025 21:40:20 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-224341bbc1dso51367255ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Mar 2025 14:40:10 -0700 (PDT)
+	Fri, 14 Mar 2025 21:40:39 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22349bb8605so56814425ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 14 Mar 2025 14:40:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741988409; x=1742593209; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1741988434; x=1742593234; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=N78rd5bu5L3Nb7UCylb6NhXzPkib+ej1wIZfC16ALRg=;
-        b=NLzrouTXJ/TjD5dob7CH37Qg5UEIxHRFrPoer2OOgAcnMRmY7gtotlQ50RbJVFDrS0
-         69GgH5Y9tc+GsMQISsFR5ALNFC3HEDM35cqqCLzZXUeew4UnbWmi8CoHF4A/qOATd/Mh
-         TqWW2NgD7OMhOGDyV5izL1mTRjx4DeArXI6CDMAyf7f5X+54KMHCPwKBbtbU5Hpp6Fk5
-         MOFXhxQr5hxG5Ius9wpEpX2XLIxNAHgSbB8AQQTe9dNyYhkLxZkDGM6+A82nRqo0ch/W
-         UDmH1I7HGbq8E/0Q8rQGyGt00dzRTljt/GghRZwGq7mM01PYXkiwMgoFFcCPz+70HBlU
-         ToWg==
+        bh=RHgO3WLw+YmwdWGhLYAhQ6tJSqW/uFwu3lLubQj4jZ0=;
+        b=Kr82odX6gR++vjYic6H2KQyNIRaKUjReB7v8yKmj7raoFI2uNMrbyJCgnHmRZlew6g
+         eniVzlsWvA7uXdqxxfU2N9z6IfPZ50kA8T+BptNFdmMzCBHdehtberSoE41FNTRzMbnt
+         cSNiXD467M+WVLyLxEjBXM8HhKSKgnz0LWd+iahuV10KSCq87TugALNl1MkZKMq+3alo
+         AEwPY/ByXI36bpi9nGuLlTjrcmlnBbgzWvx21AGk9+yAtxI2LQVJWGEPrKh2R8pVCNxJ
+         R8tuMDosW7BjUrYPguOSaiNtFOCpj0dnB2MxtRUrFzvntUtdcaR9qUNKRr0YM2aywmcS
+         Xpeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741988409; x=1742593209;
+        d=1e100.net; s=20230601; t=1741988434; x=1742593234;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=N78rd5bu5L3Nb7UCylb6NhXzPkib+ej1wIZfC16ALRg=;
-        b=kFSYPyB7KWuqiwFNlyW+qecXJjwOKDYHfO2fsBm3myGqNWAjhLw7HV30hbOigqgRI4
-         R2LT4PBlDPRRtLZYO6KeGPpK/2OYUl0R6FUh4jBu06NoDhjthKeGm7Jzrr+H8fmGL/rk
-         NDM/tBYV4Nr/2CPXKDgx+S0bvASqo6j6IUr8Fh4GY1N3kqcVYASTrB1jI3qG/a0KoLyh
-         RBJZmFQ4TwWsIVTRMtmUWeGsGlz15DUSVzK49JiqLQmIlX4FfTb5ooArc6fd/WsBLBS+
-         nNXUCq58CdvnRy576Jg+wwkNnIAVB2+XikNqJvEcDE0vzS/o2I/JaxybRRBomgbsvwgL
-         LgiQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9DyXZDHEfFuGSnv+ZNvzS+zL5xCipcviC9v7z8+ohk1jBsih7acteW2Aa85O1QYUUEhF0aNtBmBBGPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzR0C48C7fNldkHddTxpZglt62dsK5s/zc3dIHg73r/OtnznT6
-	R0VuRsAS021DBNsKeUFz21CNE8t7Ius+rMq4FukxpSXDNl89uK/npbGSgD2DaA4=
-X-Gm-Gg: ASbGncs0er0STbm19+bVCAbHM+r+h6iaoUdKdgXQ0fN9iJqMDU62ZgQprJyRe4EmHkp
-	GrYIi+uN/cJpZ0nWauBpMUUbx5utxkel5+95l8JYMz6pJpli3MIDjXu/yp3/JJkCBXtBmHlHEX/
-	VO4vU9E/yNzCco5FOjcre/iHVB+OuyJKYUrVush7R7YCLssu4iN2iYeW4iS1GSUD2yTxxyvIqs+
-	/aHLoGcCL5ZNiLu7wCCMaxTiZbOfb72M1JRZeEdxAk8GFQW4A4XM5QE3DXm5HIZqgE/Ys2lS7Hc
-	Y+zPn2osF6ltWmZ/z4kyx1JCbjTN3v0gJ/v0HYsNHhkyjA1tpIBkLEY=
-X-Google-Smtp-Source: AGHT+IFSKd+2xICbPyI9jv8e0eee8m28O0Z2xE2zkf1BJxJdHUC0s7Oxq9dFc7HadAqrreCNrCxPSg==
-X-Received: by 2002:a17:902:f712:b0:223:42ca:10ef with SMTP id d9443c01a7336-225e0b09816mr52846915ad.43.1741988408934;
-        Fri, 14 Mar 2025 14:40:08 -0700 (PDT)
+        bh=RHgO3WLw+YmwdWGhLYAhQ6tJSqW/uFwu3lLubQj4jZ0=;
+        b=YjHCKSG46HvkANu8dGwGimBCwYw6Br5fCdhDXAoOxFaWweIwcK+t3FfQ0go1f5jxy8
+         VnjZBv4+ByZWc5BaQ8PvetZDDTDWxlLe/H7AgbbA+FUr5qXDEAE1xDvTt0QsokM0kdCV
+         2abi7Be/U0RJ7oITM79NjBUYOvPRB1o3X+X5z8MZk5fjgKmtfNNshmjlluvNMYZzNePd
+         4KtRMktRV45Yx04IawecD0zI6amjjuztsnh04kXyrRuq0jGrzSWdYaYpz/YE+9Mrp+80
+         EaeWBsqSMSvRA/coD69HQF9koYrJ9Ao1cCWFjfcrozK8FO46U0+D8I8iK/XOv2dzIIHF
+         XsBw==
+X-Forwarded-Encrypted: i=1; AJvYcCWfaosIcHJ8ESkMf38EprRrS2RaowwWftGu7FvN6Kn8AAqQnCxRCQNo/cab/qCva81tRXLgRTazabNIJA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxpaZRkwg/GU1qX5985VzajQOEqE1+afDz4L+7Zn0rbpzeN4v8X
+	78BlEkwXCzrKt/kNU0EOSyUoaQ84qSfersReh3zPQsCBVczwrWj+gbyIlSZ38Ag=
+X-Gm-Gg: ASbGncvrA/hUfDQcE56Oua2oWWXnWtLtRj4RSZjYtWSC7NFDcpMmasLq47s9MLyWevI
+	mnyFskgospckmv7SV47jt3kpcUtVhlXM9SQWE3dXCpBguLkUCzncmM1u/kRJtruxbXtAar9zvZA
+	x1Wb9uw2ymxYL+diHgXvPcP/5pZc002beGZBp7EMpeRjJgl1/+ELGjbJJCY4lN8bdPXXhmzFMeb
+	KlV/crpbp53oCr5kSFS7dZ67bXEwTui/TLo257etAYaJtwoArC1kZfL2JtKAYl8mRSfPmo6KAAA
+	ftDLmccA+G0H2Cc+10uZKqgFtIg1+meNHLj5caBP7CEaX0bIoKf+O3Y=
+X-Google-Smtp-Source: AGHT+IGwO6FdmJUbA9RsVYM+YTvEHEJUu4luaiuDWiqjNtcj9WvZlSftHA3OvhahsPKrta0EdbsKUA==
+X-Received: by 2002:a05:6a21:394c:b0:1f5:7d57:8309 with SMTP id adf61e73a8af0-1f5c119438dmr5984307637.21.1741988433739;
+        Fri, 14 Mar 2025 14:40:33 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68a6e09sm33368855ad.55.2025.03.14.14.40.06
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68a6e09sm33368855ad.55.2025.03.14.14.40.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 14:40:08 -0700 (PDT)
+        Fri, 14 Mar 2025 14:40:33 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Fri, 14 Mar 2025 14:39:35 -0700
-Subject: [PATCH v12 16/28] riscv: signal: abstract header saving for
- setup_sigcontext
+Date: Fri, 14 Mar 2025 14:39:44 -0700
+Subject: [PATCH v12 25/28] riscv: create a config for shadow stack and
+ landing pad instr support
 MIME-Version: 1.0
-Message-Id: <20250314-v5_user_cfi_series-v12-16-e51202b53138@rivosinc.com>
+Message-Id: <20250314-v5_user_cfi_series-v12-25-e51202b53138@rivosinc.com>
 References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
 In-Reply-To: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -115,11 +115,12 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com
+ rick.p.edgecombe@intel.com, Zong Li <zong.li@sifive.com>, 
+ Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_214015_336988_FE26E81E 
-X-CRM114-Status: GOOD (  24.76  )
+X-CRM114-CacheID: sfid-20250314_214037_487192_4F734482 
+X-CRM114-Status: GOOD (  10.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,150 +137,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andy Chiu <andybnac@gmail.com>
+This patch creates a config for shadow stack support and landing pad instr
+support. Shadow stack support and landing instr support can be enabled by
+selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
+up path to enumerate CPU support and if cpu support exists, kernel will
+support cpu assisted user mode cfi.
 
-The function save_v_state() served two purposes. First, it saved
-extension context into the signal stack. Then, it constructed the
-extension header if there was no fault. The second part is independent
-of the extension itself. As a result, we can pull that part out, so
-future extensions may reuse it. This patch adds arch_ext_list and makes
-setup_sigcontext() go through all possible extensions' save() callback.
-The callback returns a positive value indicating the size of the
-successfully saved extension. Then the kernel proceeds to construct the
-header for that extension. The kernel skips an extension if it does
-not exist, or if the saving fails for some reasons. The error code is
-propagated out on the later case.
+If CONFIG_RISCV_USER_CFI is selected, select `ARCH_USES_HIGH_VMA_FLAGS`,
+`ARCH_HAS_USER_SHADOW_STACK` and DYNAMIC_SIGFRAME for riscv.
 
-This patch does not introduce any functional changes.
-
-Signed-off-by: Andy Chiu <andybnac@gmail.com>
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/vector.h |  3 ++
- arch/riscv/kernel/signal.c      | 62 +++++++++++++++++++++++++++--------------
- 2 files changed, 44 insertions(+), 21 deletions(-)
+ arch/riscv/Kconfig | 20 ++++++++++++++++++++
+ 1 file changed, 20 insertions(+)
 
-diff --git a/arch/riscv/include/asm/vector.h b/arch/riscv/include/asm/vector.h
-index e8a83f55be2b..05390538ea8a 100644
---- a/arch/riscv/include/asm/vector.h
-+++ b/arch/riscv/include/asm/vector.h
-@@ -407,6 +407,9 @@ static inline bool riscv_v_vstate_ctrl_user_allowed(void) { return false; }
- #define riscv_v_thread_free(tsk)		do {} while (0)
- #define  riscv_v_setup_ctx_cache()		do {} while (0)
- #define riscv_v_thread_alloc(tsk)		do {} while (0)
-+#define get_cpu_vector_context()		do {} while (0)
-+#define put_cpu_vector_context()		do {} while (0)
-+#define riscv_v_vstate_set_restore(task, regs)	do {} while (0)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..0a2e50f056e8 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -250,6 +250,26 @@ config ARCH_HAS_BROKEN_DWARF5
+ 	# https://github.com/llvm/llvm-project/commit/7ffabb61a5569444b5ac9322e22e5471cc5e4a77
+ 	depends on LD_IS_LLD && LLD_VERSION < 180000
  
- #endif /* CONFIG_RISCV_ISA_V */
- 
-diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
-index 94e905eea1de..80c70dccf09f 100644
---- a/arch/riscv/kernel/signal.c
-+++ b/arch/riscv/kernel/signal.c
-@@ -68,18 +68,19 @@ static long save_fp_state(struct pt_regs *regs,
- #define restore_fp_state(task, regs) (0)
- #endif
- 
--#ifdef CONFIG_RISCV_ISA_V
--
--static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
-+static long save_v_state(struct pt_regs *regs, void __user *sc_vec)
- {
--	struct __riscv_ctx_hdr __user *hdr;
- 	struct __sc_riscv_v_state __user *state;
- 	void __user *datap;
- 	long err;
- 
--	hdr = *sc_vec;
--	/* Place state to the user's signal context space after the hdr */
--	state = (struct __sc_riscv_v_state __user *)(hdr + 1);
-+	if (!IS_ENABLED(CONFIG_RISCV_ISA_V) ||
-+	    !((has_vector() || has_xtheadvector()) &&
-+	    riscv_v_vstate_query(regs)))
-+		return 0;
++config RISCV_USER_CFI
++	def_bool y
++	bool "riscv userspace control flow integrity"
++	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
++	depends on RISCV_ALTERNATIVE
++	select ARCH_HAS_USER_SHADOW_STACK
++	select ARCH_USES_HIGH_VMA_FLAGS
++	select DYNAMIC_SIGFRAME
++	help
++	  Provides CPU assisted control flow integrity to userspace tasks.
++	  Control flow integrity is provided by implementing shadow stack for
++	  backward edge and indirect branch tracking for forward edge in program.
++	  Shadow stack protection is a hardware feature that detects function
++	  return address corruption. This helps mitigate ROP attacks.
++	  Indirect branch tracking enforces that all indirect branches must land
++	  on a landing pad instruction else CPU will fault. This mitigates against
++	  JOP / COP attacks. Applications must be enabled to use it, and old user-
++	  space does not get protection "for free".
++	  default y
 +
-+	/* Place state to the user's signal context spac */
-+	state = (struct __sc_riscv_v_state __user *)sc_vec;
- 	/* Point datap right after the end of __sc_riscv_v_state */
- 	datap = state + 1;
- 
-@@ -97,15 +98,11 @@ static long save_v_state(struct pt_regs *regs, void __user **sc_vec)
- 	err |= __put_user((__force void *)datap, &state->v_state.datap);
- 	/* Copy the whole vector content to user space datap. */
- 	err |= __copy_to_user(datap, current->thread.vstate.datap, riscv_v_vsize);
--	/* Copy magic to the user space after saving  all vector conetext */
--	err |= __put_user(RISCV_V_MAGIC, &hdr->magic);
--	err |= __put_user(riscv_v_sc_size, &hdr->size);
- 	if (unlikely(err))
--		return err;
-+		return -EFAULT;
- 
--	/* Only progress the sv_vec if everything has done successfully  */
--	*sc_vec += riscv_v_sc_size;
--	return 0;
-+	/* Only return the size if everything has done successfully  */
-+	return riscv_v_sc_size;
- }
- 
- /*
-@@ -142,10 +139,20 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
- 	 */
- 	return copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
- }
--#else
--#define save_v_state(task, regs) (0)
--#define __restore_v_state(task, regs) (0)
--#endif
-+
-+struct arch_ext_priv {
-+	__u32 magic;
-+	long (*save)(struct pt_regs *regs, void __user *sc_vec);
-+};
-+
-+struct arch_ext_priv arch_ext_list[] = {
-+	{
-+		.magic = RISCV_V_MAGIC,
-+		.save = &save_v_state,
-+	},
-+};
-+
-+const size_t nr_arch_exts = ARRAY_SIZE(arch_ext_list);
- 
- static long restore_sigcontext(struct pt_regs *regs,
- 	struct sigcontext __user *sc)
-@@ -276,7 +283,8 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- {
- 	struct sigcontext __user *sc = &frame->uc.uc_mcontext;
- 	struct __riscv_ctx_hdr __user *sc_ext_ptr = &sc->sc_extdesc.hdr;
--	long err;
-+	struct arch_ext_priv *arch_ext;
-+	long err, i, ext_size;
- 
- 	/* sc_regs is structured the same as the start of pt_regs */
- 	err = __copy_to_user(&sc->sc_regs, regs, sizeof(sc->sc_regs));
-@@ -284,8 +292,20 @@ static long setup_sigcontext(struct rt_sigframe __user *frame,
- 	if (has_fpu())
- 		err |= save_fp_state(regs, &sc->sc_fpregs);
- 	/* Save the vector state. */
--	if ((has_vector() || has_xtheadvector()) && riscv_v_vstate_query(regs))
--		err |= save_v_state(regs, (void __user **)&sc_ext_ptr);
-+	for (i = 0; i < nr_arch_exts; i++) {
-+		arch_ext = &arch_ext_list[i];
-+		if (!arch_ext->save)
-+			continue;
-+
-+		ext_size = arch_ext->save(regs, sc_ext_ptr + 1);
-+		if (ext_size <= 0) {
-+			err |= ext_size;
-+		} else {
-+			err |= __put_user(arch_ext->magic, &sc_ext_ptr->magic);
-+			err |= __put_user(ext_size, &sc_ext_ptr->size);
-+			sc_ext_ptr = (void *)sc_ext_ptr + ext_size;
-+		}
-+	}
- 	/* Write zero to fp-reserved space and check it on restore_sigcontext */
- 	err |= __put_user(0, &sc->sc_extdesc.reserved);
- 	/* And put END __riscv_ctx_hdr at the end. */
+ config ARCH_MMAP_RND_BITS_MIN
+ 	default 18 if 64BIT
+ 	default 8
 
 -- 
 2.34.1
