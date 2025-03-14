@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8C90C282EC
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 15:23:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50279C282EC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 15:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bv2iDhMly4RcFddnMBZ1p8bMcTxd2F+Z50Ni0xzmmF4=; b=j5en+etZbD5UGp
-	Mv5a/JwCu0eDgk0Axkg3QWdsJJybqGWgwtjxvrPtaT0G0lMrc2jVIAKx2xoipI5/4/PNTZtG2N5fz
-	DAdWNK3pPPU0tLMDDhhzL/TClPzEbjHdmx0Tli4m5/ZQvhYJR8NHn5hvEu6kReVTb7R67LruaZcqb
-	RsOMvQx5ymAgxiHNS1/FX+slu3PsYQI1aUyeOLlVNs9XFOqheN/mGbcvABbLYs/FlMDXXuL4K/jPe
-	nyZBmAtnk1Rt7fFgOmlb3HbLb7ar/TZN/6ses1Am/KKCj1VCIVowRCxEnlca+tJ0MX88/m58Qo87m
-	vnv31AaN3gtbcu+ttoNA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XNVHHpd7Opr2QyV+/nkSPk/H+9o1lkCJs+GHDmu08rc=; b=3yKa4TrmkElbYW
+	ziON+S+iWv+wcXAyG7kwoT5ETN1TI7H7DxyDJu09NX/4U+vpINQ235jLj9XmjRhxZUxZyLuZ6indj
+	oCRqnno+EMV0Bvb1/6XsUz9U6tHcQwMVesC6yZTA4yOQe5A2WoMWmvMRz7M0SDQxQ1PFbiIn0G/TB
+	mrljAU9y/sTgUzJbGT5bDKUzslr8CdBnya1JlcaR6sz0ltN2JksUL1StM03zjwzvYHmAw8Q/mpej9
+	OssQvMgoA6s7C/pviKzLSfoO6+YD2UvK6xSB/OIT+IeB8OXDEwmCAmLXDuI9CvkrIjaiqA01LLDHh
+	g2Q3oogtVfXGBeQTi2rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6se-0000000EY1e-3KOf;
-	Fri, 14 Mar 2025 15:23:24 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tt7H9-0000000EcU8-0kZn;
+	Fri, 14 Mar 2025 15:48:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt6sZ-0000000EY0O-0jx3
+	id 1tt7H6-0000000EcTa-2ddz
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Mar 2025 15:23:20 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aaecf50578eso387662066b.2
-        for <linux-riscv@lists.infradead.org>; Fri, 14 Mar 2025 08:23:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741965797; x=1742570597; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SZ7EUzDkggWA/pzQu9ZQkMN9eRwOa+n3WjsOJVcqJvU=;
-        b=eolbWaXYugcaB96eBnHwr7VPNE+luyJOEApViwTehRUIpvb0K+X8QFqChLh0STz0Qh
-         jWpZVdWvXXLK+fS2tmtoOJH/1k5rTh6UkwzxDy7am03GXy6B+X8ZlYt+XsOGNuMZcTqJ
-         GrO6CxhmVFH6sqD4mm6MrWvPIVIWDDGEJnNbcaXIoy8V/cAsQcvUhA6i+8wohzZ/g6UQ
-         F2Cj4CTrGHAqEc3+t/c87WuSCHw+9tdvyQNahsYgOsUD/Zf8LBYgYqph4pbpmOFjBiYA
-         ouzDnT2gg77K5jZJcAT8x9cBYy5qycqIVwQD//rtwE8iDMiTxy6i3TfiprKTR6pdRxUK
-         4zOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741965797; x=1742570597;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SZ7EUzDkggWA/pzQu9ZQkMN9eRwOa+n3WjsOJVcqJvU=;
-        b=W28ydEe6HlpTuWk1vWkcqvtsq4RGsjsRgKozeE9vT1wMmQkYEU9MVES8dqbyT2m45Y
-         cuhpS4mavezwTtPgJnx/5Rh5AqlkgdIZmiPmRoBnw41H5bz5ibStPOhYZ43W7h/uWgyh
-         HRFoEgy+H4/hV6DCL0etsMXx89hWv0w5/KuNTyzcVtnSj1FdM1wXKAk+cKECMqbOrojO
-         DcT17W0sHrJ8w9I5DJT0jQ2nRiqedq/RjGFVqyKPh5ESyz5H1jRkXoRre9ETYZsYSYwN
-         OZuF1FPzrrDO7mu9b71T6fbHaAc/81IUmKh+bDy/aTczGzn3p6GVrTdbyaVWGhGFf/rl
-         A5pA==
-X-Forwarded-Encrypted: i=1; AJvYcCV8l8LseebrmQSfBlrzEHR60XkWCwiHbY+XvKKDZCm0Pr58vezGergpMB/PMP7H+XTZ1uag6RAGny/PuQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAvStPw9QJLZfULmVoz2izy02pd6Zqw/ukVUSgQiBMrFx0nFFE
-	eRrvYboFD1kdYk/MWvcIB3jR/+uteKmYM2VgZgz9qX6fI7spL08e
-X-Gm-Gg: ASbGnctULPBZjAdbUTlxFlsihj7GWvd9AIno6hFk/foVUTL17ng3tsgElkfXprGz4pL
-	L173l0W9Jr16f10uwLqjVW8c/G4ukjnRkN3ea0bp1mgI1K04mhcOavHRTdpEKz8Wha7KLsFeKE1
-	zk/ewAZfWTFfCa1XG/u9w60qtJ2x7/gogHr4FUsgCsEaaAVXkt8pJeQvL68w1inKp6RiHg9CMeS
-	m83V2HNjjhRLrbpxqohbo+zxda0+TnOChoqheEjWLEByO0IxPmXOpjFtFptQH9m3TRIiD2TEhgx
-	3p77hEwb4hqHWKdCM47t5WZXLAR75GJmJ0aCYxGS
-X-Google-Smtp-Source: AGHT+IFRZHaKw/M0LwPzqxvi7UcpNKMZqHHUGZAlPcs/3janJF5m6KNqjVQYLlLF7g1QT60YMvUAsw==
-X-Received: by 2002:a17:907:6ea9:b0:ac2:510c:a3cc with SMTP id a640c23a62f3a-ac330129f06mr347515366b.1.1741965796739;
-        Fri, 14 Mar 2025 08:23:16 -0700 (PDT)
-Received: from andrea ([31.189.82.201])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac31484b0e5sm235067566b.76.2025.03.14.08.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 14 Mar 2025 08:23:16 -0700 (PDT)
-Date: Fri, 14 Mar 2025 16:23:12 +0100
-From: Andrea Parri <parri.andrea@gmail.com>
-To: Andy Chiu <andybnac@gmail.com>
-Cc: =?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, bjorn@rivosinc.com,
-	puranjay12@gmail.com, alexghiti@rivosinc.com,
-	yongxuan.wang@sifive.com, greentime.hu@sifive.com,
-	nick.hu@sifive.com, nylon.chen@sifive.com, tommy.wu@sifive.com,
-	eric.lin@sifive.com, viccent.chen@sifive.com, zong.li@sifive.com,
-	samuel.holland@sifive.com
-Subject: Re: [PATCH v3 6/7] riscv: add a data fence for CMODX in the kernel
- mode
-Message-ID: <Z9RJ4D2VdtNmfpqC@andrea>
-References: <20241127172908.17149-1-andybnac@gmail.com>
- <20241127172908.17149-7-andybnac@gmail.com>
- <87ldtck8k0.fsf@all.your.base.are.belong.to.us>
- <Z9AwF5hwF0ES9Grl@andrea>
- <87ldtbwrdb.fsf@all.your.base.are.belong.to.us>
- <Z9B8vgdTq1M9r3_k@andrea>
- <CAFTtA3NawdhM3fF_xc9a0EogaejHGWSxhWGre+FpLeXH9J+q5A@mail.gmail.com>
+	Fri, 14 Mar 2025 15:48:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E7AEA4768B;
+	Fri, 14 Mar 2025 15:43:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6FA4C4CEE9;
+	Fri, 14 Mar 2025 15:48:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741967319;
+	bh=cjpKAPzkSfWP+V9JdaT/PCmkXC4+EeuFVF3S8kTC2Qs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GtGXbqpY5BeWics6m+RWZJbYCR1wFIrt7oHarMgmwvg713Q9cRdMVUZU0NF5pWnkI
+	 Kd+U0SvkPHsv/sFHf2bMDjvPD68+kUwTjrvCoc12eUr0JqDvpm4OK0YVd37LmrIWUk
+	 bsqak4qqKSMvf60xugBP+xeCBBCNG6KWlQ+ocBI21MbHxraq2NdZ+G9ue/Wrb76sZO
+	 JJwHYkTbBeZq4Je19TNzRT2b7QoNaW1HkCbY+e0wk73hahOz6noL65/Im+TDs+zoVZ
+	 P9ar+P90I4ze3irZtsX4LLKgkXQkC6exx4/bRwnvCh4Vq4OK/iEeGpmi3I6f/G7FDc
+	 P8ZIGAi221GLA==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Drew Fustini <drew@pdp7.com>,
+	Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] pmdomain: thead: fix TH1520_AON_PROTOCOL dependency
+Date: Fri, 14 Mar 2025 16:48:31 +0100
+Message-Id: <20250314154834.4053416-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAFTtA3NawdhM3fF_xc9a0EogaejHGWSxhWGre+FpLeXH9J+q5A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_082319_214771_A37153D4 
-X-CRM114-Status: GOOD (  19.08  )
+X-CRM114-CacheID: sfid-20250314_084840_735846_9530D0FE 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,48 +76,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> I found that Apple's aic irqchip uses writel_relaxed for sending IPIs.
-> I am not sure if it is a practice using relaxed mmio in the driver to
-> deal with IPIs. I am more convinced that driver should use the relaxed
-> version if there is no data/io dependency for the driver itself. But
-> it is true that a fence in the driver makes programming easier.
+From: Arnd Bergmann <arnd@arndb.de>
 
-I emphatize with this viewpoint.
+Kconfig treats the dependency as optional, but the header file only provides
+normal declarations and no empty API stubs:
 
-Perhaps a first counterargument/remark is that lifting those fences (e.g.,
-irq-gic-v3) out of the various drivers into core/more generic code would
-mean having some generic primitives to "order" the stores vs send_ipis;
-however, we (kernel developers) don't have such an API today.  Perhaps
-unsurprisingly, considered that (as already recalled in this thread) even
-on a same architecture send_ipis can mean things/operations as different
-as "do an MMIO write", "write a system register", "execute an environment
-call instruction" and what more; as a consequence, such matters tend to
-become quite tricky even within a given/single driver (e.g., 80e4e1f472889
-("irqchip/gic-v3: Use dsb(ishst) to order writes with ICC_SGI1R_EL1
-accesses"), more so at "Linux level".
+ld: fs/btrfs/extent_io.o: in function `writepage_delalloc':
+extent_io.c:(.text+0x2b42): undefined reference to `__udivdi3'
+ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_off':
+th1520-pm-domains.c:(.text+0x57): undefined reference to `th1520_aon_power_update'
+ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_on':
+th1520-pm-domains.c:(.text+0x8a): undefined reference to `th1520_aon_power_update'
+ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_probe':
+th1520-pm-domains.c:(.text+0xb8): undefined reference to `th1520_aon_init'
+ld: th1520-pm-domains.c:(.text+0x1c6): undefined reference to `th1520_aon_power_update'
 
+Since the firmware code can easily be enabled for compile testing, there
+is no need to add stubs either, so just make it a hard dependency.
 
-> As far as OpenSBI is concerned, there is a wmb(), which translated to
-> fence ow, ow, in the generic code path. Regardless, there may be more
-> than one flavor of SBIs, should we also consider that?
+Fixes: dc9a897dbb03 ("pmdomain: thead: Add power-domain driver for TH1520")
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+---
+ drivers/pmdomain/thead/Kconfig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-For the sake of argument, how would you proceed to do that?
+diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
+index c7a1ac0c61dc..7d52f8374b07 100644
+--- a/drivers/pmdomain/thead/Kconfig
++++ b/drivers/pmdomain/thead/Kconfig
+@@ -2,7 +2,7 @@
+ 
+ config TH1520_PM_DOMAINS
+ 	tristate "Support TH1520 Power Domains"
+-	depends on TH1520_AON_PROTOCOL || !TH1520_AON_PROTOCOL
++	depends on TH1520_AON_PROTOCOL
+ 	select REGMAP_MMIO
+ 	help
+ 	  This driver enables power domain management for the T-HEAD
+-- 
+2.39.5
 
-Let me put it this way.  If the answer to your question is "no, we should
-not", then you have just showed that the fence w, o added by the patch is
-redundant if riscv_use_sbi_for_rfence().  If the answer is "yes", then I
-think the patch could use some words to describe why the newly added fence
-suffices to order the explicit writes before the ecall at stake _for each_
-of the relevant implementations.  IIRC, the ISA wordings for ecall (and
-fences) do not appear to provide much help to that end.  Hence, to iterate,
-I really don't see other ways other than digging into the implementations
-and asking the developers or the experts of interest to achieve that.
-After all, what I'm saying seems to align with what you've done for (some
-version of) OpenSBI.
-
-  Andrea
-
-[1] https://lore.kernel.org/all/6432e7e97b828d887da8794c150161c4@kernel.org/T/#mc90f2a2eb423ce1ba579fc4f566ad49a16825041
 
 _______________________________________________
 linux-riscv mailing list
