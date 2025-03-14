@@ -4,54 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A4BC28B30
-	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 13:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 887D2C282EC
+	for <linux-riscv@archiver.kernel.org>; Fri, 14 Mar 2025 13:37:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:From:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9l3EAe91m7X+5jVAMzMsGiz/MEZd6+GyJZQ2BqsqTN4=; b=rPyF00dCWBwvfN
-	STSYIAHV8ryB/8csN6taH8zDRT4Zl5z8tdiE+P82Xv9vcvbK7yfsmhUB0HHKmbvok3NC80wEJrMWH
-	Uuppj7xnMGJF+Km3s3espHdqRn4TkOtrnzi4pRXsqzGllCTVjbDTjqjPzZw7/q5RlXjZPuMDu7dSl
-	4ZCiOaLgCwYkjuzzs0vofJOYl4j6EtW6CC1HEdjx3teP3KRFt8bU0WHIw1++lpo4TiWtLCwmGra7w
-	WUGawIYIVHTUMt5+j4ljFOWVaxjPACu4sjB8GVIROYlXBvkyqistf1LCsNpLpR6ePgrlHQXMKfrAR
-	A9eUb2Wh3iOTkPNlEH8g==;
+	List-Owner; bh=n+2mXHj8aXruc9QclS/7R/T8zMzMSyQAbBvMlxmhxJ4=; b=1XmQNl72s/sRsX
+	7qvGzjHWhkawdXIgUfd6BHaGzefTm1I4tAbnS9HY/eMGbTxTMBtTW5WTnG4SlWwi1z+2rBUjD1YKR
+	92dlJTFAAipI46sELjEmQ4HsNa3Lz5dK+ecECIvJtjXjJRhLaxNbGmzgqj+v+GB9+WDp0j9D6LK06
+	4V4+c7UkgpE5X3kvnOtg+obXzdVi8T8rp/qIJZtqgeFgJ1Fyue4Ox8yLUT9ySPesaNIzmgQtScuZT
+	p2buiDB4p990aPOXXyz5fXaB5IcRB9Oyz+3ZIsDuxiSarrLB0oCH6wuTN+pIgbFapQKAUP/x2JDn4
+	K32hGyRSGYONX07f7g3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt5Dt-0000000EIeN-3LkX;
+	id 1tt5Dt-0000000EIe4-0oa3;
 	Fri, 14 Mar 2025 13:37:13 +0000
 Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tt55r-0000000EHFo-3Qnr
+	id 1tt55i-0000000EHBj-2RVL
 	for linux-riscv@lists.infradead.org;
-	Fri, 14 Mar 2025 13:28:57 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DE96044380;
-	Fri, 14 Mar 2025 13:28:52 +0000 (UTC)
-Message-ID: <9a94c74f-4826-479f-aaa0-e87b3bfd30ff@ghiti.fr>
-Date: Fri, 14 Mar 2025 14:28:52 +0100
+	Fri, 14 Mar 2025 13:28:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BA90D42FF4;
+	Fri, 14 Mar 2025 13:28:38 +0000 (UTC)
+Message-ID: <4f6c83c0-39f6-467d-83c6-13d37440fb20@ghiti.fr>
+Date: Fri, 14 Mar 2025 14:28:38 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: Re: [PATCH v3 1/4] riscv: implement user_access_begin() and families
+Subject: Re: [PATCH v3 0/4] riscv: uaccess: optimizations
+Content-Language: en-US
 To: Cyril Bur <cyrilbur@tenstorrent.com>, palmer@dabbelt.com,
  aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
  jrtc27@jrtc27.com, ben.dooks@codethink.co.uk
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  jszhang@kernel.org
 References: <20250221000924.734006-1-cyrilbur@tenstorrent.com>
- <20250221000924.734006-2-cyrilbur@tenstorrent.com>
-Content-Language: en-US
-In-Reply-To: <20250221000924.734006-2-cyrilbur@tenstorrent.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250221000924.734006-1-cyrilbur@tenstorrent.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtleehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfhuffvvehfjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejffetjedtkeefheelkeetteffjeetgeefkeethfdvleehjeetuddvuefgjefhieenucffohhmrghinhepghhithhhuhgsrdgtohhmnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtoheptgihrhhilhgsuhhrsehtvghnshhtohhrrhgvnhhtrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepr
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddufedtleehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemugehrgefmeehsgeisgemuggvfhekmeeltdguvggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtoheptgihrhhilhgsuhhrsehtvghnshhtohhrrhgvnhhtrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepr
  ghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjrhhttgdvjeesjhhrthgtvdejrdgtohhmpdhrtghpthhtohepsggvnhdrughoohhkshestghouggvthhhihhnkhdrtghordhukhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250314_062855_991530_DD07EE55 
-X-CRM114-Status: GOOD (  23.51  )
+X-CRM114-CacheID: sfid-20250314_062846_760910_C131DDE1 
+X-CRM114-Status: GOOD (  19.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,131 +70,61 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hi Cyril,
 
 On 21/02/2025 01:09, Cyril Bur wrote:
-> From: Jisheng Zhang<jszhang@kernel.org>
+> This series tries to optimize riscv uaccess by allowing the use of
+> user_access_begin() and user_access_end() which permits grouping user accesses
+> and avoiding the CSR write penalty for each access.
 >
-> Currently, when a function like strncpy_from_user() is called,
-> the userspace access protection is disabled and enabled
-> for every word read.
+> The error path can also be optimised using asm goto which patches 3 and 4
+> achieve. This will speed up jumping to labels by avoiding the need of an
+> intermediary error type variable within the uaccess macros
 >
-> By implementing user_access_begin() and families, the protection
-> is disabled at the beginning of the copy and enabled at the end.
+> I did read the discussion this series generated. It isn't clear to me
+> which direction to take the patches, if any.
 >
-> The __inttype macro is borrowed from x86 implementation.
+> V2:
+> I've taken on this series as there isn't any response from Jisheng. No
+> significant changes other than build fixes.
+> - Fixes build breakage in patch 3 to do with not having used 'goto' keyword.
+> - Fixes build breakage in patch 4 on 32bit not having delcared __ptr in the
+>    macro.
 >
-> Signed-off-by: Jisheng Zhang<jszhang@kernel.org>
-> Signed-off-by: Cyril Bur<cyrilbur@tenstorrent.com>
-> ---
->   arch/riscv/include/asm/uaccess.h | 63 ++++++++++++++++++++++++++++++++
->   1 file changed, 63 insertions(+)
+> V3:
+> Significant commit message rewrites.
+>   - Corrected the justification for patch 2
+>   - Better explained/justified patches 3 and 4
+> Minor code changes for legibility and more comments.
 >
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index fee56b0c8058..43db1d9c2f99 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -61,6 +61,19 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
->   #define __disable_user_access()							\
->   	__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
->   
-> +/*
-> + * This is the smallest unsigned integer type that can fit a value
-> + * (up to 'long long')
-> + */
-> +#define __inttype(x) __typeof__(		\
-> +	__typefits(x,char,			\
-> +	  __typefits(x,short,			\
-> +	    __typefits(x,int,			\
-> +	      __typefits(x,long,0ULL)))))
-> +
-> +#define __typefits(x,type,not) \
-> +	__builtin_choose_expr(sizeof(x)<=sizeof(type),(unsigned type)0,not)
-> +
->   /*
->    * The exception table consists of pairs of addresses: the first is the
->    * address of an instruction that is allowed to fault, and the second is
-> @@ -368,6 +381,56 @@ do {									\
->   		goto err_label;						\
->   } while (0)
->   
-> +static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
-> +{
-> +	if (unlikely(!access_ok(ptr,len)))
-> +		return 0;
-> +	__enable_user_access();
-> +	return 1;
-> +}
-> +#define user_access_begin(a,b)	user_access_begin(a,b)
+> Jisheng Zhang (4):
+>    riscv: implement user_access_begin() and families
+>    riscv: uaccess: use input constraints for ptr of __put_user()
+>    riscv: uaccess: use 'asm goto' for put_user()
+>    riscv: uaccess: use 'asm_goto_output' for get_user()
+>
+>   arch/riscv/include/asm/uaccess.h | 205 +++++++++++++++++++++++--------
+>   1 file changed, 152 insertions(+), 53 deletions(-)
+>
+Following up on Ben's comment here 
+https://lore.kernel.org/linux-riscv/b45aab1e-6d37-4027-9a15-4fa917d806b9@codethink.co.uk/
 
+The problem that Ben mentions is caused by the use of *macros* which 
+used to make the evaluation of the parameter inside the user-accessible 
+section, and since this parameter could be a sleeping function, we could 
+schedule another process with the SUM bit set, which could be cleared by 
+this process, which would make the first process fault when trying to 
+access user memory. I did not find any macro using unsafe_XXX() 
+functions which could cause a problem right now, but I may have missed 
+one and new could come up later, so we have multiple solutions here:
 
-Nit: no need for (a,b) here
+- suppose that a macro using unsafe_get/put_user() and passing a 
+sleeping function as argument won't happen and then do nothing
+- or save/restore CSR sstatus when switching processes
+- or simply check that SUM is not set when switching processes
 
-
-> +#define user_access_end()	__disable_user_access()
-> +
-> +static inline unsigned long user_access_save(void) { return 0UL; }
-> +static inline void user_access_restore(unsigned long enabled) { }
-> +
-> +/*
-> + * We want the unsafe accessors to always be inlined and use
-> + * the error labels - thus the macro games.
-> + */
-> +#define unsafe_put_user(x, ptr, label)	do {				\
-> +	long __err = 0;							\
-> +	__put_user_nocheck(x, (ptr), __err);				\
-> +	if (__err) goto label;						\
-> +} while (0)
-> +
-> +#define unsafe_get_user(x, ptr, label)	do {				\
-> +	long __err = 0;							\
-> +	__inttype(*(ptr)) __gu_val;					\
-> +	__get_user_nocheck(__gu_val, (ptr), __err);			\
-> +	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-> +	if (__err) goto label;						\
-> +} while (0)
-> +
-> +#define unsafe_copy_loop(dst, src, len, type, label)				\
-> +	while (len >= sizeof(type)) {						\
-> +		unsafe_put_user(*(type *)(src),(type __user *)(dst),label);	\
-> +		dst += sizeof(type);						\
-> +		src += sizeof(type);						\
-> +		len -= sizeof(type);						\
-> +	}
-> +
-> +#define unsafe_copy_to_user(_dst,_src,_len,label)			\
-> +do {									\
-> +	char __user *__ucu_dst = (_dst);				\
-> +	const char *__ucu_src = (_src);					\
-> +	size_t __ucu_len = (_len);					\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, label);	\
-> +} while (0)
-> +
->   #else /* CONFIG_MMU */
->   #include <asm-generic/uaccess.h>
->   #endif /* CONFIG_MMU */
-
-There is a bunch of checkpatch errors to fix, see 
-https://gist.github.com/linux-riscv-bot/98f23fd1b04d6da7c23c6cb18245a158
-
-Why isn't there an implementation for unsafe_copy_from_user()? Let's 
-take the following example:
-
-user_access_begin()
-unsafe_copy_from_user()
-unsafe_get_user() <==== This one will fail since unsafe_copy_from_user() 
--> raw_copy_from_user() -> __asm_vector_usercopy() which enables and 
-disables the SUM bit.
-user_access_end()
-
-Another thing is that with this patch, we lose the vectorized user 
-access functions, can you fix that too?
+Let me know what you think.
 
 Thanks,
 
 Alex
-
-
 
 
 _______________________________________________
