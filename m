@@ -4,95 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B62C282DE
-	for <linux-riscv@archiver.kernel.org>; Sun, 16 Mar 2025 07:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31394C28B30
+	for <linux-riscv@archiver.kernel.org>; Sun, 16 Mar 2025 07:46:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vj1n0e8T8QO41hmPrsgbGd98YTyaQzdd1eIhAjFvqrk=; b=cJc4gKVGrXP/v2
-	Fri76U/Agu0m/MBUX1mobmvHfKaGGBoSVUdTuGBz8Ay/UEMb0JCSPtegxD09Jrx6f4kHcrrp4BRHq
-	WSwUn+Y2h9WAAxZZPB4Q9C0XzRqUwptTfyF3WNm0iSRU0PDgr7vGIa/8hcscPXKQdb37m/IA04Bd/
-	QSc26ilKfcFnKiNun3GftPdOsin41rpRSZbQbTW66we+YCSJA1PxATAhDY8Ndo06aGgo8b1ao3TLQ
-	nWxfgHx10cKV+lensntYk10sozkqBCz6szbmeZmZxB5o2gPX2f4ePSjMXy/QnUYvVZMa1Ve2X+xOK
-	NaILwJHhwA9C1ZKVCXyQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Pkt7DIEZEboC89r4svBSOo11qEqecK9ehIoHdFoeawE=; b=02licKlu3gjOSN
+	IoQJyitZpqKV0Oh8GDVOiQ3sVJ7bdfPIy68GV1ckL+9KNoLtWa52hSiFug520Z4W+M4iHqUR0kMOO
+	LiYHdSW5IQ1NbL91bcUeDo+nQhIogzCH3BXOyTJPut/TYBZUSYyJuj/MdHNF7lM358iaIsbm5J9Yd
+	4hCJqNzzGuYJf/m2xBJCZ6fWNef+FkRiVHEqQPTqNLWfO7vtQlDNXVuSYAmd9XVZwvuKbHXc2sIBG
+	23j7gElPBYvZ3bWwxG/aLAE6H3hvTGNabcb4HzNZfkof4mY0BT6GW5Dyz8LCyWC6JYC/80eueHrAb
+	E9FCHFfiMleBPm6wJqww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttihO-0000000HSMk-1a0X;
-	Sun, 16 Mar 2025 07:46:18 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1ttihJ-0000000HSLL-38Li;
+	Sun, 16 Mar 2025 07:46:13 +0000
+Received: from mail-pl1-x642.google.com ([2607:f8b0:4864:20::642])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ttihL-0000000HSLS-1TLW
+	id 1ttihH-0000000HSKg-3p4q
 	for linux-riscv@lists.infradead.org;
-	Sun, 16 Mar 2025 07:46:17 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-225a28a511eso55543395ad.1
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Mar 2025 00:46:15 -0700 (PDT)
+	Sun, 16 Mar 2025 07:46:13 +0000
+Received: by mail-pl1-x642.google.com with SMTP id d9443c01a7336-225d66a4839so39460505ad.1
+        for <linux-riscv@lists.infradead.org>; Sun, 16 Mar 2025 00:46:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742111174; x=1742715974; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Uh4Y53V77ruJXW8QR5flp6pUeWx/bYICn3Mwn1bkPIM=;
-        b=LYa4aAXKAUjzNAB+Ycwh+0QkMG0+YQDFAjhXO/w60/69DfxJ4TkZKH0yCX9GCMqdY+
-         Jiff0Kk/cFC6G/Lz8px/OpzlMraneWy7K343P70LITY5Tlwv+3xD4fRr7EaNUPc7O/Qi
-         5GIZq+bgZi9JnpVCqQXbRIgIrDaI34HyVCZFn2z62hsWAeIbQVBHmLANLRzJg9lfkh0R
-         whztXVJx81FB21Rtbhsp727+gLWglPIsK29dvGyL2jLwju7YFlAlgsSjiEIP3OJDpOTh
-         FBnmtRdoSEf3KbDKXvkQ3uI9jFywCSHyTvXEfyBFsoTCJnhZOynPV3IU8OTqEVWwOVFW
-         7xYw==
+        d=gmail.com; s=20230601; t=1742111169; x=1742715969; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2IkSfkjVGK93Nfu1mrVNAL701+LlNJUfQ8vvVyUgSzo=;
+        b=mx5MEIoQfMowvyCF4C6lGaseuoooYvqJeKfRDzv0t+boRxJ09jYIXCoSw20skhk4ED
+         Cr+x7evcGkC11gCQKLDy2OrjO9VJ35W4RXRPnggmyNEYvYTD7BtEJ254gYJWj9ibMg3W
+         cA7spB92/jlc2nWm3oIj2iTyre12KAPm1p82qsPL4WO1mdnCbn+WPP8IHW4M9DgQ+CHJ
+         nQ9OvT72Ti63Z9/wf3I3grMuNiKd5msgCft7OzD3wjGqI4lpuijKdOREYcwe5zYr1yxG
+         jsd8XKCXXY64SLf0317WjWGzf7hw9S4cGhB3a9A8jmt8K1pqFDFMgpxiK812krfN6aMo
+         IsEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742111174; x=1742715974;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Uh4Y53V77ruJXW8QR5flp6pUeWx/bYICn3Mwn1bkPIM=;
-        b=FSzP2sj0sSGElxnrTKKv/+xrEKnbsjpJ+xw3RmSjY5LvGRqkXD6cSMl0Q5StqlQx/1
-         fiYsk6JhJvtvMxO/RsiE01WrmoUmeVEtMrLFM+q13nS7sfrvTXjf+X5EZ2jmFnun7pVe
-         atx9qbZ2tPeyWksvjJRD8XZ518lKsbolcI2pTmbJp0cOmCWTYOdRL3aXzcyASUokDrbx
-         EW1DD2SbDCXckC6UOpmNKM4BtjaIszCNRLvvyU2HZ9KFkQEQt1lUIKYF8R93GeJc5rPR
-         2uTAhpCyaLifyGrrfo254ZSGSGF/L+ftPmOo7gZVuTdKiWYO2rjX88uhw3v4l1mn/uXx
-         hRtg==
-X-Gm-Message-State: AOJu0YxAoHIz1WiwTY+qc+qVFWSqLT6C9jqJUv224ZHHpL8Fj8oLL15W
-	dL1lCkRbRTORZkfQpGzoKstolx4EOFiO7djSX57mxULPi1AX9DxXnpuN5R+D14QI/dHD
-X-Gm-Gg: ASbGncvwVISiQMuk34duL4w3DBw6PjZArVUtSrm0B1nLMabCCJVZ7tLxLOo8SHlnls5
-	Jr1I/lb7UEcv3QhEXPQJx+9OlOCO6RQRvuZAElNmTCNWPXRPuDXntiZDnxqAmlPFfF9NLInGhao
-	Z8Y4GQ4Y6DVE6x1y5FX3x4eWDxyq2mQvYl1t5eJpTNL5pTr68+m/8h2bx//SPiOzimtp//gy6va
-	Yd/ls5+NcFZQSC8HMCxtunDfN5hf+73WLUqDIPvtjc1cY/hYVOsxzNIOMXompvgLgBh1/SlpJKY
-	hAISoX9W5PuO4MdIg74VClAguJ6s09qi/yOkddk=
-X-Google-Smtp-Source: AGHT+IHnoTX4HvYj6GA+XsaeR/Z5lsvK9bYDQeHmDp9+70ZV3nun+eVO850kkAELvfo3/3lwtE3oqA==
-X-Received: by 2002:a05:6a00:4b05:b0:736:ff65:3fcc with SMTP id d2e1a72fcca58-737223ed33bmr8204799b3a.16.1742111173585;
-        Sun, 16 Mar 2025 00:46:13 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742111169; x=1742715969;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2IkSfkjVGK93Nfu1mrVNAL701+LlNJUfQ8vvVyUgSzo=;
+        b=gIYr936P6BA2aykSTLhwRmxNXnRXy8XZt99sReabmEmv6e/KySVK9WrvGGR7RznrQT
+         +hl/rLr5gG49e8s0Cn2LmOKuQYuVNj+n6z4WsFkW4c2dczeAwvkIJrp3iCTfJ8rWkN9/
+         TV4bi9pD49d5v12Tsgk00kiJ89BADqJ1/ALRsOkbo+78hOwSV10k8w1qYYC+fY26z8M2
+         UdRWe/gElSjLPLH1Y1Nch/eEYjSJGxSONdx8UAnEZT/NvsmSCvTOyWYpOpUdkWRDCHgO
+         c42n4B+isloFJBFhxQbMo0RpjdlWd4XU7T+XGcskbQC5ir1byx3ofV1Q1DrxsL+wOkCt
+         m3jw==
+X-Gm-Message-State: AOJu0YwAJU6hMIiGpn86Coz4p1T4WoTX6Z52PelBHinNcXCRf9nWq9Fw
+	PeCzv61fzmGlBso4zlLpj9gy4iln2h9EcchLTbu6UAWdZ9xViPfqV5MnSfZrEMjw/Y2+
+X-Gm-Gg: ASbGncvsPbw4FKLptK02T0eE0vuidaDOeKEFqfSc7G7nH3+XVxVz5NeixXmHxHJtP2H
+	9ZQG5YU+lDkCAvF707GpQI2Bxg3g/Gsb4HdrWYuSlrqt6E5AdnzeovsTPqnTlN4h7b1PGlzoeOt
+	SpMsVQCGiFnHuMbhk5K9AuDYEUFpRDRgLZj+0VTm2cuvt67aQXYcU8kQKOUi0uqDzqvoTzXU5Ek
+	ueDW0kaGXlU404qydFy8VLUT5APBbiXA2tUVRMr1XTq+EfcM8Ii9IiCiqg/VBxwEqj4R+vuoRgr
+	ZCEClWkz0A1vNIacTIWMnnBuT896
+X-Google-Smtp-Source: AGHT+IE2O3uFJ+yF3EAYj3QGzcCAyvKMtu0Ii6LYiJpbv2l7DbZH2GxXxFMzaZQmFwu0WiuMyJgpuA==
+X-Received: by 2002:a05:6a20:914e:b0:1f3:3864:bbe0 with SMTP id adf61e73a8af0-1f5c28109cbmr9421291637.8.1742111169041;
+        Sun, 16 Mar 2025 00:46:09 -0700 (PDT)
 Received: from [127.0.1.1] ([2602:f919:106::1b8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73711694e56sm5575907b3a.130.2025.03.16.00.46.09
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73711694e56sm5575907b3a.130.2025.03.16.00.46.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 16 Mar 2025 00:46:13 -0700 (PDT)
+        Sun, 16 Mar 2025 00:46:08 -0700 (PDT)
 From: Troy Mitchell <troymitchell988@gmail.com>
-Date: Sun, 16 Mar 2025 15:43:21 +0800
-Subject: [PATCH v7 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
+Subject: [PATCH v7 0/2] riscv: spacemit: add i2c support to K1 SoC
+Date: Sun, 16 Mar 2025 15:43:20 +0800
+Message-Id: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
 MIME-Version: 1.0
-Message-Id: <20250316-k1-i2c-master-v7-1-f2d5c43e2f40@gmail.com>
-References: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
-In-Reply-To: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
+X-B4-Tracking: v=1; b=H4sIABmB1mcC/5WQy27bMBBFf8XQOjQ4M3zJq/xAd90VWVDkMCZiR
+ S2lCgkM/3soJYEFbYouLwbn4M69NiOXzGNzOlybwnMe8/Bag304NOHsX59Z5FhzgxIVSALxAiJ
+ jEL0fJy4isU22kzFwS01lfhdO+W31/XqqOZWhF9O5sN9Y0ElNiPJIyqAjAeJnGd5/5Cmc+XJpn
+ Xt87n2+HMPQfzkL//lbq02f4nuz02ExSoNm6SVBdH7MQcRJgPcEzNyFiKdZL556Y1GdfZ5OB8c
+ ttqHTyjArDK03EFElz0YaqbllghZJq2b54pzHaSjv60izWiusnwDq3R6zElLIRFE7Z4hMt3llM
+ c20oQH3NFVaS6k7WydF6fY03un/WnGFYQODllYDqSMo1Srt/k3rb1pLkrQvrmtxhJiC9TEx2T1
+ ttrTd06bSpBLYiNEzhC19u90+AHJPF8WlAgAA
+X-Change-ID: 20241031-k1-i2c-master-fe7f7b0dce93
 To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
  Troy Mitchell <troymitchell988@gmail.com>
 Cc: linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>
+ spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, 
+ Alex Elder <elder@riscstar.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742111004; l=2169;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1742111004; l=6000;
  i=troymitchell988@gmail.com; h=from:subject:message-id;
- bh=XJqQ9vN219kTUQDWWgsn5UwgncFFcAviYm9fDZ7tTqw=;
- b=QN7vDkWymm9DXNpwH7BLID5XKsUCIqAc8T69dLCpf51XfHi9rFbn0wEu2xY3I4LyEJhNDsdQz
- kaS++L6eUuDBi3HmNLXanwqZeQUZHTc52mLBYrp++RilH5LSBEKkPkO
+ bh=/O6L7QiZ8zFKZWd4bNiBePCbud6VGcPpsDUPMRXsf+A=;
+ b=9XsbVcSTaSuv3OKjj1YONesUpSxojveXf3fy2BiosADWY+eIzTLsg+2NqN2GeUSMujkeTGRgE
+ fFzvgJX0rqnAiU+RwmrQyf5n98GpC1ksQ3QNhtb3eU1Q8L2wYdonu8t
 X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
  pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_004615_939550_488673CE 
-X-CRM114-Status: UNSURE (   9.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250316_004611_999831_4AD22CC9 
+X-CRM114-Status: GOOD (  18.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,86 +114,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The I2C of K1 supports fast-speed-mode and high-speed-mode,
-and supports FIFO transmission.
+Hi all,
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Link: https://lore.kernel.org/all/20250128-k1-maintainer-1-v1-1-e5dec4f379eb@gentoo.org [1]
-Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+This patch implements I2C driver for the SpacemiT K1 SoC,
+providing basic support for I2C read/write communication which
+compatible with standard I2C bus specifications.
+
+In this version, the driver defaults to use fast-speed-mode and
+interrupts for transmission, and does not support DMA, high-speed mode, or FIFO.
+
+The docs of I2C can be found here, in chapter 16.1 I2C [1]
+
+Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf#part5 [1]
 ---
- .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   | 61 ++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+Changes in v7:
+- Patch #2:
+        - Adjust structure member types  
+        - Default to 400,000 Hz if `clock-frequency` is unavailable  
+        - Fix code style
+        - Fix comments  
+        - Kconfig: Rename "Spacemit" to "SpacemiT"  
+        - Use local variables in `spacemit_xfer_msgs`
+        - Rename `spacemit_i2c_wait_bus_busy` to `spacemit_i2c_wait_bus_idle`
+        - Reduce transmission timeout in `spacemit_i2c_calc_timeout`  
+Link to v6:
+https://lore.kernel.org/r/20250307-k1-i2c-master-v6-0-34f17d2dae1c@gmail.com
 
-diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..3d6aefb0d0f185ba64e414ac7f5b96cd18659fd3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: I2C controller embedded in SpacemiT's K1 SoC
-+
-+maintainers:
-+  - Troy Mitchell <troymitchell988@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-i2c
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: I2C Functional Clock
-+      - description: APB Bus Clock
-+
-+  clock-names:
-+    items:
-+      - const: func
-+      - const: bus
-+
-+  clock-frequency:
-+    description: |
-+      K1 support three different modes which running different frequencies
-+      standard speed mode: up to 100000 (100Hz)
-+      fast speed mode    : up to 400000 (400Hz)
-+      high speed mode    : up to 3300000 (3.3Mhz)
-+    default: 400000
-+    maximum: 3300000
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c@d4010800 {
-+        compatible = "spacemit,k1-i2c";
-+        reg = <0xd4010800 0x38>;
-+        interrupt-parent = <&plic>;
-+        interrupts = <36>;
-+        clocks =<&ccu 32>, <&ccu 84>;
-+        clock-names = "func", "bus";
-+        clock-frequency = <100000>;
-+    };
-+
-+...
+Change in v6:
+- Patch #1:
+        - Give a brief clock description and a clear clock name
+        - Changed the clock numbers in the example to match those
+          in the mainline clock driver
+- Patch #2:
+        - Fix incorrect comments in macro definitions
+        - Fix code style
+        - Merge `spacemit_i2c_xfer_core` into `spacemit_i2c_xfer`
+        - Remove `reset` and `enable_irq` before each transfer
+          and place `reset` in the probe function.
+        - SPACEMIT_I2C_GET_ERR -> SPACEMIT_I2C_SR_ERR
+        - spacemit_i2c_recover_bus_busy -> spacemit_i2c_wait_bus_busy
+        - Support standard mode
+Link to v5:
+https://lore.kernel.org/all/20250303-k1-i2c-master-v5-0-21dfc7adfe37@gmail.com/
 
+Change in v5:
+- Patch #1:
+        - Add `clock-names` property
+        - Modify the clock property into two
+- Patch #2:
+        - Enable the APB clock
+        - Fix comment and code styles
+        - Fix typo and drop unnecessary description in Kconfig
+        - Prefix all macro definitions with SPACEMIT_
+        - Rename `spacemit_i2c_bus_reset` to `spacemit_i2c_conditionally_reset_bus`
+        - Remove all `unlikely` and `likely`
+        - Remove unused register and bit macros
+        - Remove the "err" field, as it only contains a subset of the status field
+        - Retrieve `clock-frequency` from the device tree instead of using a macro
+        - Use a local variable to track the current message
+        - Use `i2c->read` to represent read and write statuses instead of `i2c->dir`
+Link to v4:
+https://lore.kernel.org/all/20241125-k1-i2c-master-v4-0-0f3d5886336b@gmail.com/
+
+Change in v4:
+- Patch #1:
+	- Change the default value of clock-frequency from 100000 to
+	  400000. This is to correspond to the driver's default value.
+	- Drop the minimum of clock-frequency
+	- Modify the description of clock-frequency
+- Patch #2:
+	- Drop the `inline` qualifier from the `spacemit_i2c_xfer_core` function
+	- Drop the initialization of `ret` to 0 in `spacemit_i2c_xfer_core` function
+	- Drop useless wrap
+Link to v3:
+https://lore.kernel.org/all/20241112-k1-i2c-master-v3-0-5005b70dc208@gmail.com/
+
+Change in v3:
+- Patch #1:
+	- Change the maxItems of reg from 2 to 1 in properties
+	- Modify reg in dts example
+	- Changed the enum selection for clock-frequency to a range,
+	  setting a minimum value of 1 and a maximum value of 3,300,000.
+- Patch #2:
+	- Drop unused judgement in `spacemit_i2c_xfer_msg`
+	- Fix the dangling else warning in `spacemit_i2c_is_last_msg`
+	- Fix the error check for `i2c->base`
+	- Modify Kconfig dependencies
+Link to v2:
+https://lore.kernel.org/all/20241028053220.346283-1-TroyMitchell988@gmail.com/
+
+Change in v2:
+- Patch #1:
+	- Change the maxItems of reg from 1 to 2 in properties
+	- Change 'i2c' to 'I2C' in the commit message.
+	- Drop fifo-disable property
+	- Drop alias in dts example
+	- Move `unevaluatedProperties` after `required:` block
+- Patch #2:
+	- Alphabetize Makefile and Kconfig
+	- Change `.remove_new` to `.remove` in `struct platform_driver`
+	- Change `dev_alert` to `dev_warn_ratelimited` in `spacemit_i2c_bus_reset`
+	- Change `spacemit_i2c_read/write_reg` to `read/writel`
+	- Change `spacemit_i2c_dt_match` to `spacemit_i2c_of_match`
+	- Clean up code flow
+	- Fix unnecessary line wraps
+	- Move `spacemit_i2c_handle_err` to a suitable location
+	- Modify Kconfig dependencies
+	- Use `PTR_ERR(i2c->base)` directly as the `dev_err_probe` parameter instead of
+	  the intermediate variable
+Link to v1:
+https://lore.kernel.org/all/20241015075134.1449458-1-TroyMitchell988@gmail.com/
+
+---
+Troy Mitchell (2):
+      dt-bindings: i2c: spacemit: add support for K1 SoC
+      i2c: spacemit: add support for SpacemiT K1 SoC
+
+ .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   |  61 +++
+ drivers/i2c/busses/Kconfig                         |  17 +
+ drivers/i2c/busses/Makefile                        |   1 +
+ drivers/i2c/busses/i2c-k1.c                        | 605 +++++++++++++++++++++
+ 4 files changed, 684 insertions(+)
+---
+base-commit: 8e929cb546ee42c9a61d24fae60605e9e3192354
+change-id: 20241031-k1-i2c-master-fe7f7b0dce93
+prerequisite-change-id: 20240626-k1-01-basic-dt-1aa31eeebcd2:v5
+prerequisite-patch-id: 47dcf6861f7d434d25855b379e6d7ef4ce369c9c
+prerequisite-patch-id: 77787fe82911923aff15ccf565e8fa451538c3a6
+prerequisite-patch-id: b0bdb1742d96c5738f05262c3b0059102761390b
+prerequisite-patch-id: 3927d39d8d77e35d5bfe53d9950da574ff8f2054
+prerequisite-patch-id: a98039136a4796252a6029e474f03906f2541643
+prerequisite-patch-id: c95f6dc0547a2a63a76e3cba0cf5c623b212b4e6
+prerequisite-patch-id: 66e750e438ee959ddc2a6f0650814a2d8c989139
+prerequisite-patch-id: 29a0fd8c36c1a4340f0d0b68a4c34d2b8abfb1ab
+prerequisite-patch-id: 0bdfff661c33c380d1cf00a6c68688e05f88c0b3
+prerequisite-patch-id: 99f15718e0bfbb7ed1a96dfa19f35841b004dae9
+
+Best regards,
 -- 
-2.34.1
+Troy Mitchell <troymitchell988@gmail.com>
 
 
 _______________________________________________
