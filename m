@@ -4,87 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EC42C282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 14:21:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4373C282EC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 14:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uzymgmX3H+njtv5MrvOpSCqWkXgBqkbzfxKjXeW8Bbg=; b=K90RGWBymfAlu4
-	jdWBhekEP4wrrKI/KdLGYJiB/5sQgStW6fdDhOvqnstOaPufLWJoTiE66mBjiIYPI9WGaAEnj8h2J
-	c+aVWLxrAsr7IAhpfZJmcrVQ6YW+fo2JnQeShK0qyed+0t7lbyiHVrt9YLNymGt6giZq0yeg7o/rg
-	ENfsREESqNSguS8x+r+MsNmbJ9KoxG6YomGST/IlOOK+Jcu7wdLwoWdX5yd47f31/FMfmq1EFflK1
-	1j+4yk/xBjqtzfSPE59zgwmKST7PFPLrHMxlghndF1CYo2tojh9ofV5OzPKnwwn+DRr2eYKLrYW2I
-	9rV2UKGoh9CgfZlkPL3A==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ovf9uxns8Z9XcpQFlDWIQ7pVCfY2dPO5l4fD2hiiCLg=; b=KmSfL2WacOajodl0GmCOx5EQk2
+	mRhvU4yT+is03l8jfiNQbR76+AC/0dC7jSAm1Se2QcBibCa2Et0NnkBr/Z16DkQn8cqAOc62rUFXU
+	tezZjQhxvRjcXXp+UmuSn0OY+dZVLeNr8GJN7auw17nh5mLTJ7g/QM3oTPd35U71Uasnv0ifrAFEx
+	0CDDkOcyBwhhuOu7+q9Y5M8nlAsxS0rBzqX+CsVKrS6vXgSDPL2q87wdOPs4XWALOj0uOXnCGJUWg
+	tnXFpLiTZJmE+JGx79LRxQjGFo29aB4zeFvN7D/6IiQx2NC0Ebr01nQYApd3vsPRq30M1UC6GsFfR
+	gBsSUpgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBLe-00000002uN2-2A0a;
-	Mon, 17 Mar 2025 14:21:46 +0000
-Received: from mail-qk1-f176.google.com ([209.85.222.176])
+	id 1tuBLd-00000002uM5-2zU8;
+	Mon, 17 Mar 2025 14:21:45 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBJ0-00000002tl7-1OnN
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 14:19:03 +0000
-Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-7c58974ed57so166391485a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 07:19:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742221139; x=1742825939;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FQzfQJUTkwGhun6W4CYWdgvhWW8H+wpChsA4H5Uf+0w=;
-        b=qd5aiQgKB6jsHH7bKv9xHuHDcFjSIghpwx4IhICtKbBimwCOthCkg948mgJuaR85sk
-         VV/qIfVd3nQZ12UoyytPUChXZMXAhs96iUTJEaAvsl0oE1MIULlmUIp33P36bmYstgsg
-         ysfzDi1sfbc5gPOcyzP7PCVyhbH7agxAYuIvZGM9qtTmJ2BbUKH4G4yqq6aElsFfP5jT
-         hnj7FWMnmsF9xh/mrqN1dVOaz9mbPfIX82IcOpUL4+ujTmLONcvo3QMMBANTR0BuONAt
-         2AyxO4awy+3s+/tGUSSgNYqL8i83Okg1dgHZwRCvm3oigBMxKop+VVe0TAjKnfySvVK4
-         f75A==
-X-Forwarded-Encrypted: i=1; AJvYcCVlOPSbWOUzwCT3kvjVVDNL/cZkG6Q74TSFidF+NJoVj9qVYAciYoUIF8Gtf9OoR/SGviasVCbtvtHuGA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYLbZLvptnquftEVZkZ9+RP4fMzdNQYrS7uLimZcK19jIuE5Cy
-	wprJsasptmaeN/YpxLeMvpzQkTuZzj1cOAE6BSKDeWrV1qc+QHzXaQnfseDe
-X-Gm-Gg: ASbGncu8klPFW8hKzgbCfTwJ0fSuDzpqjP/GssxjQtnADiTAww4tswLn0ijtfoV7uOj
-	gE3HU7LmFPfi52xs4TF8J70414t9+O2EFmjqWaqN5UoiC6J+SVh3a5W6LReSrHgkzWNMj+UBuND
-	99/unNVaMjaJVNXaCblam7bwQb0cdYqMxRlHVhefMOjuY2KSDFtQhe9/KdPX6e7MFWDutV/2YPe
-	cOgwjI2iPqReW3bLNf/iNHaS2gvXBPm94in5AlxiW/vf1LNaZbPMgss22aVAFHb7/8Gz5HyNKet
-	lRb9tAhCs4/UqoEQbB/Wm624NMz8HKyNiu1yvhFvv9CtBn1J3ga863Yx5Xf1YR5PCA+5sZjkCgZ
-	BWyCe9js=
-X-Google-Smtp-Source: AGHT+IHPuWXL1QTpsYFGQCNZQaWq0wibohlY+KaB2Bk8BmTDD8jGHUaHjI7iGXdS/6KGLmITeYRF3w==
-X-Received: by 2002:a05:620a:3905:b0:7c5:538f:ae4a with SMTP id af79cd13be357-7c57c80efd7mr1929415585a.26.1742221138714;
-        Mon, 17 Mar 2025 07:18:58 -0700 (PDT)
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com. [209.85.219.51])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c573d6fc94sm593097485a.74.2025.03.17.07.18.57
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 17 Mar 2025 07:18:58 -0700 (PDT)
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-6e8efefec89so39864416d6.3
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 07:18:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVGZJp/r1WIlpKXgIi2qG4lYck2LOpURf/1ltd/zMookwPyEp3eAJjEsOknQ2Dmdga9KmUC2iEimCHoyA==@lists.infradead.org
-X-Received: by 2002:a0c:eb82:0:b0:6e8:feae:929c with SMTP id
- 6a1803df08f44-6eaeaa63b4bmr161375046d6.21.1742221137414; Mon, 17 Mar 2025
- 07:18:57 -0700 (PDT)
+	id 1tuBIY-00000002tfN-1vTA;
+	Mon, 17 Mar 2025 14:18:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 17D2DA44255;
+	Mon, 17 Mar 2025 14:13:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24269C4CEE3;
+	Mon, 17 Mar 2025 14:18:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742221113;
+	bh=IM+geYv9I4lQxYv0svGAAXnD8Yh3yBQXBX8Re0+OfXM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=KRliIwH7lSQSVNuW+ytxs9t6HzgpmCdyYfcBuuG66XAYWMXDfzzPeYg9smYtzYSJJ
+	 EqT3VAUhiER8BL3KBHhXTobwuDcW4YO3sDtbxbQNuk1gdlv0X5Pz7F3nhdGLoKdy/F
+	 ynbGCHoE/8sXyWvmBbjPPE1ei2m1zElzgiEt8MElHokxrirbwDTYsBmzV1IRpGESr9
+	 obhvyRMy4SWlp7XvhAGSnp9CtEl3Dtx9CcA/+mrubYkjxd7pelEXVqtylWrUsLS3C6
+	 QamIHJAMQ/j5QUGXn4YxZTJDCDkvlQ+GWqueeU+cxLg5V6RmfZOYfa9T4Mxx67HyOq
+	 MabOTKrqjVelQ==
+Date: Mon, 17 Mar 2025 09:18:32 -0500
 MIME-Version: 1.0
-References: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
- <CAMuHMdV4xWLEuCvCC54GBfCdELE=QSHqaOyUPD-ezE0QLYRnVA@mail.gmail.com>
- <20250317124120-GYA1983@gentoo> <CAMuHMdWM5ymPVRe36+Atr0cDAdRGyw39jFJvE+9PWTUUiiMfCg@mail.gmail.com>
- <20250317132955-GYC1983@gentoo>
-In-Reply-To: <20250317132955-GYC1983@gentoo>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 17 Mar 2025 15:18:45 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUWUd-xAzhRvazurD-1t3pFb2OUMXqEpeDyTVVbAUG19g@mail.gmail.com>
-X-Gm-Features: AQ5f1JrurBlRutNcrH6Q6idcmvXYK5KPYEnvrshCL60keuYt9BH4Ng3SnCR2u0Y
-Message-ID: <CAMuHMdUWUd-xAzhRvazurD-1t3pFb2OUMXqEpeDyTVVbAUG19g@mail.gmail.com>
-Subject: Re: [PATCH v3] pinctrl: spacemit: enable config option
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Alex Elder <elder@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>, 
-	Alex Elder <elder@riscstar.com>
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: sophgo@lists.linux.dev, Will Deacon <will@kernel.org>, 
+ Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, soc@lists.linux.dev, 
+ Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Conor Dooley <conor+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>, 
+ linux-riscv@lists.infradead.org, Inochi Amaoto <inochiama@gmail.com>, 
+ devicetree@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>, 
+ Palmer Dabbelt <palmer@dabbelt.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+In-Reply-To: <20250316185640.3750873-1-alexander.sverdlin@gmail.com>
+References: <20250316185640.3750873-1-alexander.sverdlin@gmail.com>
+Message-Id: <174221818050.3957183.18032992749339066585.robh@kernel.org>
+Subject: Re: [PATCH v5 0/7] arm64 support for Milk-V Duo Module 01 EVB
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_071902_374342_F1BA70F1 
-X-CRM114-Status: GOOD (  34.16  )
+X-CRM114-CacheID: sfid-20250317_071834_623938_1921678F 
+X-CRM114-Status: GOOD (  24.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,62 +80,124 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Yixun,
 
-On Mon, 17 Mar 2025 at 14:30, Yixun Lan <dlan@gentoo.org> wrote:
-> On 13:59 Mon 17 Mar     , Geert Uytterhoeven wrote:
-> > On Mon, 17 Mar 2025 at 13:41, Yixun Lan <dlan@gentoo.org> wrote:
-> > > On 09:18 Mon 17 Mar     , Geert Uytterhoeven wrote:
-> > > > Thanks for your patch, which is now commit 7ff4faba63571c51
-> > > > ("pinctrl: spacemit: enable config option") in v6.14-rc7.
-> > > >
-> > > > On Tue, 18 Feb 2025 at 01:32, Yixun Lan <dlan@gentoo.org> wrote:
-> > > > > Pinctrl is an essential driver for SpacemiT's SoC,
-> > > > > The uart driver requires it, same as sd card driver,
-> > > > > so let's enable it by default for this SoC.
-> > > > >
-> > > > > The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
-> > > > > 'make defconfig' to select kernel configuration options.
-> > > > > This result in a broken uart driver where fail at probe()
-> > > > > stage due to no pins found.
-> > > >
-> > > > Perhaps this is an issue with the uart driver?
-> > > > I just disabled CONFIG_PINCTRL_RZA2 on RZA2MEVB (which is one of the
-> > > > few Renesas platforms where the pin control driver is not enabled by
-> > > > default, for saving memory), and the system booted fine into a Debian
-> > > > nfsroot.  Probe order of some devices did change, and "Trying to
-> > > > probe devices needed for running init" was printed.
-> > > >
-> > > my problem was CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled, result as
-> > > # CONFIG_PINCTRL_SPACEMIT_K1 is not set
-> > >
-> > > for your case, is CONFIG_PINCTRL_RZA2 built as module?
-> > > it should work for uart driver with deferred probe mechanism..
-> >
-> > No, CONFIG_PINCTRL_RZA2 was disabled in my testing.
-> >
-> emm, this is interesting, there might be problem that uart driver
-> fail to have correct pin settings without pre initialization..
->
-> which uart driver is used in RZA2MEVB platform? any pinctrl dts property?
-> different hardware may vary..
+On Sun, 16 Mar 2025 19:56:30 +0100, Alexander Sverdlin wrote:
+> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
+> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
+> been chosen because the upstream toolchain can be utilized.
+> 
+> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
+> peripherals with an addition of ARM64 core. Therefore it would be
+> beneficial not to copy-paste the peripherals' device-tree, but rather split
+> the most suitable riscv DT into ARCH-specific and peripherals parts and
+> just include the latter on the arm64 side.
+> 
+> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
+> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
+> SG2000 SoC inside (separate .dtsi).
+> 
+> This series has been tested with Sophgo-provided U-Boot binary [2]: it
+> boots from SD card; pinctrl, serial, GPIO drivers are functional (same
+> as for RiscV-based CV18xx SoCs).
+> 
+> Partial SoC documentation is available [3].
+> 
+> This series lacks the support of:
+> - USB
+> - Audio
+> - Ethernet
+> - WiFi
+> - Bluetooth
+> - eMMC
+> - Video
+> 
+> Changelog:
+> v5:
+> - PSCI node in DT
+> v4:
+> - minimized patch 1/7 (cleanups dropped)
+> - cv18xx-cpu-intc.dtsi instead of cv18xx-cpu.dtsi+cv18xx-intc.dtsi in
+> patch 1/7
+> v3:
+> - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
+> were moved into cv18xx-intc.dtsi to reduce code duplication;
+> v2:
+> - dropped all patches related to the new reboot driver and corresponding DT
+> and bindings;
+> - grouped DT-related and config-related patches together;
+> - added patch moving sophgo.yaml from riscv into soc (to share it with
+> ARM); added SG2000 SoC and Milk-V Duo Module 01 EVB into it;
+> - other changes are documented in the corresponding patches;
+> 
+> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
+> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
+> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
+> 
+> Alexander Sverdlin (7):
+>   riscv: dts: sophgo: cv18xx: Move RiscV-specific part into SoCs' .dtsi
+>     files
+>   dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add
+>     SG2000
+>   arm64: dts: sophgo: Add initial SG2000 SoC device tree
+>   arm64: dts: sophgo: Add Duo Module 01
+>   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+>   arm64: Add SOPHGO SOC family Kconfig support
+>   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
+> 
+>  .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
+>  arch/arm64/Kconfig.platforms                  |  6 ++
+>  arch/arm64/boot/dts/Makefile                  |  1 +
+>  arch/arm64/boot/dts/sophgo/Makefile           |  2 +
+>  .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++
+>  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++
+>  arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 81 +++++++++++++++++
+>  arch/arm64/configs/defconfig                  |  4 +
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       |  5 +
+>  arch/riscv/boot/dts/sophgo/cv1812h.dtsi       |  5 +
+>  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |  2 +-
+>  .../boot/dts/sophgo/cv18xx-cpu-intc.dtsi      | 54 +++++++++++
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 91 +++++--------------
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi        |  5 +
+>  14 files changed, 309 insertions(+), 70 deletions(-)
+>  rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (80%)
+>  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+>  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu-intc.dtsi
+> 
+> --
+> 2.48.1
+> 
+> 
+> 
 
-It indeed depends on both hardware and firmware.
-RZA2MEVB uses the sh-sci driver, and its serial console is set up
-by the boot loader.
 
-Does your serial console work with "earlycon"?
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-Gr{oetje,eeting}s,
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-                        Geert
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+  pip3 install dtschema --upgrade
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/sophgo/' for 20250316185640.3750873-1-alexander.sverdlin@gmail.com:
+
+arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dtb: psci: 'cpu_off' is a required property
+	from schema $id: http://devicetree.org/schemas/arm/psci.yaml#
+arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dtb: psci: 'cpu_on' is a required property
+	from schema $id: http://devicetree.org/schemas/arm/psci.yaml#
+
+
+
+
+
 
 _______________________________________________
 linux-riscv mailing list
