@@ -4,83 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4558AC28B2F
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 02:36:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C0CDC28B2F
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 03:08:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Dc+teJ70ZrlB4EI3rcn8aQWP4n6t9xtbVE8FUNh06Pw=; b=32YFFa32TpVbhV
-	XuMQ5tNrSm6LczvL0EiPkm99CRll36MizzzSe9EhNoVB4mukvROZjWhEznE07jvDyk/cxlqXZw2tV
-	yB8wxNEzQMvi4WxaxGsQYW2mHCCpVPh08mPnVdsBlUpq1xnl+PjuJZgeQ9nwbe5D6DDAaS8nMKoPE
-	T5H+icfIpkPG/na03gIIxTGRfVfYQ+b8siTeuzEvLW0trO1PyYYWaN1ELCW2t4planZRdBICUIZX/
-	MmmQGJrn2z+/JMeQgqeIfiXjkcWZu53wz36aJ/ospCI0Jug2ltAwf6Eir+065WOcLcsiR3aJGK8pM
-	1qjje8cZh5EYJE9xfE+w==;
+	List-Owner; bh=znqijF1vzteyOkgS3HKY3VmoCionJSRwe/sRI2HSJP0=; b=x0IYw2Efjolgo9
+	zdFt1mWGhJ0fHsuqnW4SU9Rsysx2SNdX8EnhcrNnwCNHV8yQ2Df1jqSSmKx6pMWRILJTLrPjZWp/K
+	Rb9/Dh3JOzlGnqQ/jEoRSuEccogN8ODpb/6MTvK0SOBPvJB9HeSRJOZqGcyQUdVGXxJBuVBxF5ggl
+	7w/iwibQtLuPqFDmFSZghLNqtlPnmdheE93dJrzv/FG0nVD8flzDyCrb21RujBjxMK4bRANk+OAEx
+	gQr9o/BJyz49F6uRV3YagTYUn6jmuy26VApPT0cSLHOTSefXW8wabwXq6PELM5+VpSSAtzh1RDm2H
+	DWVldREZAzx2XbVYasEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu0L9-00000000xHV-29y1;
-	Mon, 17 Mar 2025 02:36:31 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1tu0pn-000000011ax-0HxZ;
+	Mon, 17 Mar 2025 03:08:11 +0000
+Received: from dggsgout11.his.huawei.com ([45.249.212.51])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu0L7-00000000xH3-1hy5
+	id 1tu0oN-000000011OP-0h6P
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 02:36:30 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-6ff0c9d1761so33770147b3.1
-        for <linux-riscv@lists.infradead.org>; Sun, 16 Mar 2025 19:36:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1742178988; x=1742783788; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TAieqnBLry50aVc92wHL94KklEr+s0AxPers8TB3S70=;
-        b=BOhbGqcEdc3yYielUd0Ic/SqLIo5ZdfSZ0KFICEaUP6HtrsUTV/25rp9XmRaPyNlls
-         mawUaJTpu2JLA5mfjhreY2D9cWDvCFywSMRKy/7WzwTlwak0sD08jBXfhqfwdOveHM6i
-         wQ2jNMQhrwlBFR10IE0Wh9hGQPh/fdBtLmEzK35t80tTQb3MyMhQGSkcC2CWBitwZAQ/
-         AkBe5UjMpIWbgaz5tWtMlNOGldOz0jRoDqK6I8iWE9dFohkjEE94nc8JXWaxRq7Adl4L
-         99dd7Uoi+Zq+lFr0ItT8Mk7Yc4hFfxJVCAj2wczJ9rvjC2FAv/VDuSNGmUfcwuf6F1hV
-         YaFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742178988; x=1742783788;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TAieqnBLry50aVc92wHL94KklEr+s0AxPers8TB3S70=;
-        b=T67lQq70nvJNcOkqnwyXrJwwZ1EzTFM8uP8ddL2UgROL5zq13ZDf+Dh+KDhjuiUy/c
-         lVgkdxqwoiWyl4yS8UjdSdpDWXp3/6wbTHFmm9KC1abHPZ8O+Xefco+sqmFnIw9FJC9N
-         XWDVWQItroq9YKjj/2CogxbTQMUxN26N2NCLE83Box5Tn+m34qtIz8Bo8Cf0fGA7LsLS
-         mpv+DNRd5MPtqK3dS8iZ5HTLjK22iAKQChGfajuF1lFGuRCAJ6JBjcccefEqnADYon0S
-         XLq2dWHEgksvOIHZCOkcjL6kMxxIfiiGE5JXiR+bZFwGT68CYzpBWd0YlSn7Pnkr2rxr
-         80FQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX158X7NuqkiOM8g21+t+jMDfI+G4+jeFEiwNRiwFot3n4oKcy/f83H36AFZJi6n4qz6xkxpAlUi/teVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUerq3kGVLLSCVRKdzsIELFe99FW0ud71yhyxKsMLZlFc4SYAf
-	KxkS8PwOMJK1A5B2Dx9HiY8KjlEs4msix6Ul9PN+tTh1zMc5wLgivDC/RuErCWA0fC+LwdWd1JB
-	L18avaDcHTi2cPAqykmZJrP6bXXCenh37FqFy1w==
-X-Gm-Gg: ASbGnctkASgJLHInGAl89IB5jlqfoGjPSH5ElFzBcjlYFDQdFvUbxAAL1Sv/RqNLffC
-	9JFdux+lNfQNRStfOoBTKqJ1Rto9F4l5fXmCDw7NkeXyuOYIR71PKQOweKwiNf16IVkpROotrJT
-	J8leI+srQTkHpIxN2iWJ++U4dZrv5l
-X-Google-Smtp-Source: AGHT+IGW3uDLXtocExH9Ui6jGjDWWOMIuY5YmS12I91XdJtgAAD4qEnqqakbaR8kQz5+u4xtC5NQ/6Jpth0ECfaHJ6o=
-X-Received: by 2002:a05:690c:380e:b0:6fd:4670:80e0 with SMTP id
- 00721157ae682-6ff46025b58mr146044977b3.36.1742178987743; Sun, 16 Mar 2025
- 19:36:27 -0700 (PDT)
+	Mon, 17 Mar 2025 03:06:45 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.216])
+	by dggsgout11.his.huawei.com (SkyGuard) with ESMTP id 4ZGKcP09Gdz4f3jt8
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 11:06:13 +0800 (CST)
+Received: from mail02.huawei.com (unknown [10.116.40.128])
+	by mail.maildlp.com (Postfix) with ESMTP id 3B6651A1D02
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 11:06:30 +0800 (CST)
+Received: from [10.67.109.184] (unknown [10.67.109.184])
+	by APP4 (Coremail) with SMTP id gCh0CgCnB1ywkddnJjbjGg--.29453S2;
+	Mon, 17 Mar 2025 11:06:26 +0800 (CST)
+Message-ID: <18b3bbb9-0733-4f0a-b859-2aabceefbc67@huaweicloud.com>
+Date: Mon, 17 Mar 2025 11:06:24 +0800
 MIME-Version: 1.0
-References: <20250314081255.3718-1-nick.hu@sifive.com> <20250314232518.GA2513550-robh@kernel.org>
-In-Reply-To: <20250314232518.GA2513550-robh@kernel.org>
-From: Nick Hu <nick.hu@sifive.com>
-Date: Mon, 17 Mar 2025 10:36:16 +0800
-X-Gm-Features: AQ5f1Jo9JyczHGQbgVa9wnBIi8jG5ccbXuDLUoEYQjCpRWIiVXWEgSUSfb62P4U
-Message-ID: <CAKddAkCL1qKG7dRaVDAO0HCdsEiRR3NxOEka8aFONvkXnZ5j5A@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: timer: Add SiFive CLINT2
-To: Rob Herring <robh@kernel.org>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: fgraph: Fix stack layout to match
+ __arch_ftrace_regs argument of ftrace_return_to_handler
+To: kernel test robot <lkp@intel.com>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ "Masami Hiramatsu (Google)" <mhiramat@kernel.org>,
+ "Steven Rostedt (Google)" <rostedt@goodmis.org>,
+ Naresh Kamboju <naresh.kamboju@linaro.org>, Pu Lehui <pulehui@huawei.com>
+References: <20250311132243.2178271-1-pulehui@huaweicloud.com>
+ <202503160820.dvqMpH0g-lkp@intel.com>
+Content-Language: en-US
+From: Pu Lehui <pulehui@huaweicloud.com>
+In-Reply-To: <202503160820.dvqMpH0g-lkp@intel.com>
+X-CM-TRANSID: gCh0CgCnB1ywkddnJjbjGg--.29453S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXr4kJFW5Zr13JrWkAw1UWrg_yoWrCFy3pr
+	W8A3WDG3yFkr1Iga4IyrZ7uw4Utw4Duw1rWF93Ars7WF4qvrWIk3Wxtrs0qryvqr40gr9F
+	9ryj9wsFkrWUAw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUv0b4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
+	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
+	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7Cj
+	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
+	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
+	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
+	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
+	14v26r1q6r43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
+	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8
+	ZwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x
+	0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_
+	Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU1
+	7KsUUUUUU==
+X-CM-SenderInfo: psxovxtxl6x35dzhxuhorxvhhfrp/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250316_193629_457612_1E760C8B 
-X-CRM114-Status: GOOD (  18.87  )
+X-CRM114-CacheID: sfid-20250316_200643_509914_8CF1DDD8 
+X-CRM114-Status: GOOD (  11.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +86,114 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUm9iCgpTb3JyeSwgSSB0aG91Z2h0IEkgaGFkIHJlcGxpZWQgdG8gdGhlIG1haWxpbmcgbGlz
-dCwgYnV0IGl0IGxvb2tzIGxpa2UKSSBvbmx5IHNlbnQgaXQgdG8gQ29ub3IuCgpUaGUgY29udHJv
-bCBvZiBzaWZpdmUsY2xpbnQyIGRpZmZlcnMgZnJvbSB0aGF0IG9mIHNpZml2ZSxjbGludDAsCm1h
-a2luZyB0aGVtIGluY29tcGF0aWJsZS4KCk9uIFNhdCwgTWFyIDE1LCAyMDI1IGF0IDc6MjXigK9B
-TSBSb2IgSGVycmluZyA8cm9iaEBrZXJuZWwub3JnPiB3cm90ZToKPgo+IE9uIEZyaSwgTWFyIDE0
-LCAyMDI1IGF0IDA0OjEyOjU0UE0gKzA4MDAsIE5pY2sgSHUgd3JvdGU6Cj4gPiBBZGQgY29tcGF0
-aWJsZSBzdHJpbmcgYW5kIHByb3BlcnR5IGZvciB0aGUgU2lGaXZlIENMSU5UIHYyLgo+Cj4gQ29u
-b3IgYXNrZWQgYWJvdXQgYmVpbmcgYmFja3dhcmRzIGNvbXBhdGlibGUgd2l0aCB2MS4gUGxlYXNl
-IHNheSB3aHkgaXQKPiBpc24ndCBoZXJlLgo+Cj4gPgo+ID4gU2lnbmVkLW9mZi1ieTogTmljayBI
-dSA8bmljay5odUBzaWZpdmUuY29tPgo+ID4gUmV2aWV3ZWQtYnk6IFNhbXVlbCBIb2xsYW5kIDxz
-YW11ZWwuaG9sbGFuZEBzaWZpdmUuY29tPgo+ID4gLS0tCj4gPiAtIHYyIGNoYW5nZXM6Cj4gPiAg
-IC0gRG9uJ3QgYWxsb3cgc2lmaXZlLGNsaW50MiBieSBpdHNlbGYuIEFkZCAnLXt9JyB0byB0aGUg
-Zmlyc3QgZW50cnkKPiA+ICAgLSBNYXJrIHRoZSBzaWZpdmUsZmluZS1jdHItYml0cyBhcyB0aGUg
-cmVxdWlyZWQgcHJvcGVydHkgd2hlbgo+ID4gICAgIHRoZSBjb21wYXRpYmxlIGluY2x1ZGVzIHRo
-ZSBzaWZpdmUsY2xpbnQyCj4gPgo+ID4gIC4uLi9iaW5kaW5ncy90aW1lci9zaWZpdmUsY2xpbnQu
-eWFtbCAgICAgICAgICB8IDIwICsrKysrKysrKysrKysrKysrKysKPiA+ICAxIGZpbGUgY2hhbmdl
-ZCwgMjAgaW5zZXJ0aW9ucygrKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9Eb2N1bWVudGF0aW9uL2Rl
-dmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwgYi9Eb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiA+IGluZGV4IDc2
-ZDgzYWVhNGUyYi4uNGI5ZGFkMTFjMWU5IDEwMDY0NAo+ID4gLS0tIGEvRG9jdW1lbnRhdGlvbi9k
-ZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL3NpZml2ZSxjbGludC55YW1sCj4gPiArKysgYi9Eb2N1
-bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvc2lmaXZlLGNsaW50LnlhbWwKPiA+
-IEBAIC0zNiw2ICszNiwxMCBAQCBwcm9wZXJ0aWVzOgo+ID4gICAgICAgICAgICAgICAgLSBzdGFy
-Zml2ZSxqaDcxMTAtY2xpbnQgICAjIFN0YXJGaXZlIEpINzExMAo+ID4gICAgICAgICAgICAgICAg
-LSBzdGFyZml2ZSxqaDgxMDAtY2xpbnQgICAjIFN0YXJGaXZlIEpIODEwMAo+ID4gICAgICAgICAg
-ICAtIGNvbnN0OiBzaWZpdmUsY2xpbnQwICAgICAgICAjIFNpRml2ZSBDTElOVCB2MCBJUCBibG9j
-awo+ID4gKyAgICAgIC0gaXRlbXM6Cj4gPiArICAgICAgICAgIC0ge30KPiA+ICsgICAgICAgICAg
-LSBjb25zdDogc2lmaXZlLGNsaW50MiAgICAgICAgIyBTaUZpdmUgQ0xJTlQgdjIgSVAgYmxvY2sK
-PiA+ICsgICAgICAgIGRlc2NyaXB0aW9uOiBTaUZpdmUgQ0xJTlQgdjIgaXMgdGhlIEhSVCB0aGF0
-IHN1cHBvcnRzIHRoZSBaaWNudHIKPiA+ICAgICAgICAtIGl0ZW1zOgo+ID4gICAgICAgICAgICAt
-IGVudW06Cj4gPiAgICAgICAgICAgICAgICAtIGFsbHdpbm5lcixzdW4yMGktZDEtY2xpbnQKPiA+
-IEBAIC02Miw2ICs2NiwyMiBAQCBwcm9wZXJ0aWVzOgo+ID4gICAgICBtaW5JdGVtczogMQo+ID4g
-ICAgICBtYXhJdGVtczogNDA5NQo+ID4KPiA+ICsgIHNpZml2ZSxmaW5lLWN0ci1iaXRzOgo+ID4g
-KyAgICBtYXhpbXVtOiAxNQo+ID4gKyAgICBkZXNjcmlwdGlvbjogVGhlIHdpZHRoIGluIGJpdHMg
-b2YgdGhlIGZpbmUgY291bnRlci4KPiA+ICsKPiA+ICtpZjoKPiA+ICsgIHByb3BlcnRpZXM6Cj4g
-PiArICAgIGNvbXBhdGlibGU6Cj4gPiArICAgICAgY29udGFpbnM6Cj4gPiArICAgICAgICBjb25z
-dDogc2lmaXZlLGNsaW50Mgo+ID4gK3RoZW46Cj4gPiArICByZXF1aXJlZDoKPiA+ICsgICAgLSBz
-aWZpdmUsZmluZS1jdHItYml0cwo+ID4gK2Vsc2U6Cj4gPiArICBwcm9wZXJ0aWVzOgo+ID4gKyAg
-ICBzaWZpdmUsZmluZS1jdHItYml0czogZmFsc2UKPiA+ICsKPiA+ICBhZGRpdGlvbmFsUHJvcGVy
-dGllczogZmFsc2UKPiA+Cj4gPiAgcmVxdWlyZWQ6Cj4gPiAtLQo+ID4gMi4xNy4xCj4gPgoKQmVz
-dCBSZWdhcmRzLApOaWNrCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+On 2025/3/16 9:16, kernel test robot wrote:
+> Hi Pu,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on linus/master]
+> [also build test ERROR on v6.14-rc6 next-20250314]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Pu-Lehui/riscv-fgraph-Fix-stack-layout-to-match-__arch_ftrace_regs-argument-of-ftrace_return_to_handler/20250311-212440
+> base:   linus/master
+> patch link:    https://lore.kernel.org/r/20250311132243.2178271-1-pulehui%40huaweicloud.com
+> patch subject: [PATCH] riscv: fgraph: Fix stack layout to match __arch_ftrace_regs argument of ftrace_return_to_handler
+> config: riscv-randconfig-001-20250316 (https://download.01.org/0day-ci/archive/20250316/202503160820.dvqMpH0g-lkp@intel.com/config)
+> compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 87916f8c32ebd8e284091db9b70339df57fd1e90)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250316/202503160820.dvqMpH0g-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202503160820.dvqMpH0g-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+>>> <instantiation>:1:14: error: operand must be a symbol with %lo/%pcrel_lo/%tprel_lo modifier or an integer in the range [-2048, 2047]
+>     addi sp, sp, -FREGS_SIZE_ON_STACK
+>                  ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>>> <instantiation>:2:17: error: unexpected token
+>      sw ra, FREGS_RA(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>     <instantiation>:3:17: error: unexpected token
+>      sw s0, FREGS_S0(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>     <instantiation>:4:17: error: unexpected token
+>      sw a0, FREGS_A0(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>     <instantiation>:5:17: error: unexpected token
+>      sw a1, FREGS_A1(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>     <instantiation>:6:15: error: operand must be a symbol with %lo/%pcrel_lo/%tprel_lo modifier or an integer in the range [-2048, 2047]
+>      addi s0, sp, FREGS_SIZE_ON_STACK
+>                   ^
+>     arch/riscv/kernel/mcount.S:73:2: note: while in macro instantiation
+>      SAVE_RET_ABI_STATE
+>      ^
+>     <instantiation>:1:16: error: unexpected token
+>     lw ra, FREGS_RA(sp)
+>                    ^
+>     arch/riscv/kernel/mcount.S:77:2: note: while in macro instantiation
+>      RESTORE_RET_ABI_STATE
+>      ^
+>>> <instantiation>:2:17: error: unexpected token
+>      lw s0, FREGS_S0(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:77:2: note: while in macro instantiation
+>      RESTORE_RET_ABI_STATE
+>      ^
+>     <instantiation>:3:17: error: unexpected token
+>      lw a0, FREGS_A0(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:77:2: note: while in macro instantiation
+>      RESTORE_RET_ABI_STATE
+>      ^
+>     <instantiation>:4:17: error: unexpected token
+>      lw a1, FREGS_A1(sp)
+>                     ^
+>     arch/riscv/kernel/mcount.S:77:2: note: while in macro instantiation
+>      RESTORE_RET_ABI_STATE
+>      ^
+>     <instantiation>:5:15: error: operand must be a symbol with %lo/%pcrel_lo/%tprel_lo modifier or an integer in the range [-2048, 2047]
+>      addi sp, sp, FREGS_SIZE_ON_STACK
+>                   ^
+>     arch/riscv/kernel/mcount.S:77:2: note: while in macro instantiation
+>      RESTORE_RET_ABI_STATE
+>      ^
+> 
+
+Nice catch. The reason is that HAVE_DYNAMIC_FTRACE can be diabled when 
+CONFIG_MMU=n, and lead to disable HAVE_DYNAMIC_FTRACE_WITH_ARGS. 
+However, the current fgraph on riscv relies on the infrastructure of 
+DYNAMIC_FTRACE_WITH_ARGS. So let's select HAVE_FUNCTION_GRAPH_TRACER 
+depends on HAVE_DYNAMIC_FTRACE_WITH_ARGS. I will send new soon.
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
