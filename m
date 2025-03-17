@@ -4,86 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6EE8C282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 21:21:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43552C282EC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 21:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nthMjxv0wWAT0zfa+Hboq8AgDAON6r0sWwUXn2l9jHo=; b=cfSI0isi2OGazG
-	hBH3YGvRAEEHu/Kc0daiTcwdJ5WJyaUC/JuCj5MZ6LlYJ9IwCVGi3QQ3ImykiIenXHLp5jfcbCPNQ
-	WbxoaG9XL0+piBnZvC1s0u4A73Xkks9B7Cql20VdM/sh3adv8F29LHMriFcL49dmZMCrDvbi78Q2P
-	pgx9Ss5/jsNW0Iu1KShr7WSTnh6pneqUxvKr2DUfXLu3X3IuE9WfjdtgKH8/X5MO1yoHMP8UbiCPm
-	yrKKteJo2qMV54MJxTOsGp7SB0Tc7L7WPGF0NmQYOWhMJCRAUw1e2YUkdmCr5SBXelUj3JTvwUhid
-	wEWu3Utl6bYNKL1trbNA==;
+	List-Owner; bh=KdDeHW8eOgfFIFG2C0hXpULBkztUZMtPOZ3Ydxt/GV0=; b=mWzerEjGm86NF0
+	e9/ASyWgG8iiY4F5Ccr5K/BpA4/UwFtNLIwe+J1tRS2Dg614cvI5tQqjRBlj3XyXxMKtp67A7Ns6w
+	sZ0e2p6EZGOJCA/7juK9QGOckrTV8MWTLieYnS+5RbynkeC5SEJn+HCQ352UyylBjtb813BcEFbwG
+	KpYEJbUIvlrpln0Lxe3SRstLB81N5OH2Y9jHPtKkyniRhzGjgmisOuHFXP/gNacafDADQKPE4/WM2
+	fx0hEnjstYOkJl1lRUnPfC6+1sAApRhMSCDbV8zwJ6eDpJVNeynpiTPlAqjhIXsQ/DzLgbwhzQBTk
+	2zfc4eBhkcGlE4esPtZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuHty-000000041Vm-30kw;
-	Mon, 17 Mar 2025 21:21:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tuIEb-000000043fK-2ObY;
+	Mon, 17 Mar 2025 21:42:57 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuHsH-000000041Nz-3MWx;
-	Mon, 17 Mar 2025 21:19:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E9E455C4CA0;
-	Mon, 17 Mar 2025 21:17:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B8C8C4CEE3;
-	Mon, 17 Mar 2025 21:19:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742246392;
-	bh=sJ6V7jkkaFv6f6/KnI1DYggtxUE5WU7pJdhow50px1E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=EWCv+zb65t1erf7mNp1n3wlDSg7N1Ehr3MtQYr69qMkJx4fNJ9PsNwrjwE69hGJ3Q
-	 y0c6PtQGJ9sZOHq564nBFC53Y03F56F5/t5PKQfLk7/EFiuvUKHPH4Lg3xMu6WHEkN
-	 MP41himlDFtUSaLWdxHAH8lIBoz/00EqeX9VaIMZ59jFuxig/TycEOxsPy43dq7WEN
-	 /XUwcJQWoGM6q4JMjDTiMcbE4nADwtjGimkee72dcNZZkRhPfjEgo17vQB2AQ1OqYO
-	 dCtrOhP7C0RKkIYVtstp3RjOjs2YTICgixi7y9HsuY7KnSkdy16WlvZ8zz8G0cKaNn
-	 ZOaRpmBdUssrA==
-Date: Mon, 17 Mar 2025 18:19:50 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9iR9iocSKg0SPph@x1>
-References: <20250308003209.234114-1-irogers@google.com>
- <Z9KFLGpenwOP32q3@google.com>
- <Z9M24AJzui9lFbGo@x1>
- <Z9M9-YhDJg3NgiUy@x1>
- <Z9NEX3j_1RUvaFI0@x1>
- <Z9PCjQ8PhOadVGQ8@google.com>
- <Z9RjHpEJGWtj8PAM@x1>
- <Z9iKhwoj1GXvH4c9@x1>
+	id 1tuIEZ-000000043eY-0Zvv
+	for linux-riscv@lists.infradead.org;
+	Mon, 17 Mar 2025 21:42:56 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3d450154245so38564605ab.2
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 14:42:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ieee.org; s=google; t=1742247774; x=1742852574; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/3xQ5zZmXUjhGDYgf9JDZwTpw40dRx5XKZ5GtTioiJg=;
+        b=d8/2I0e2Sk4HSCqxMQ036T8E5TRea9LMZLytOO5QM75PLVy0XhpJ4AGV+kwMDgN+oh
+         oC8R2dND6qpia0orH0T5ZZAZ/VSF6uQnOsw3IiiuMQobgHbEbAooE0erdlMRkU1/t4PK
+         TS0A88DktkNqjuTuUQ9QSiGZ4q5JdDzytJKVc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742247774; x=1742852574;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/3xQ5zZmXUjhGDYgf9JDZwTpw40dRx5XKZ5GtTioiJg=;
+        b=sT5hUa3O/4oM3pXIV2mTArVPzlY3+RtDuM0WQ7ymCCumSp492EskS3NT4kQG0a/wGO
+         RrntxBv9xTxZGpwKJSEU0xOw1D0/5Vh02btwUodXfdl3EAFcBcolXQfQfpw/SSE5121S
+         WmB3EiNzW8qe8Q/Wz4wXrjRL/lbarVZpQ+w2SXwVa2u2yvPiZMOHDLnZYIM+Sfq5wI8S
+         sGBJbnL/WQHge2sp3zmKSt4zFAjLHG98MlvGKcsZOPfPZPo6OxwOdgtXEUjmTeaL1NCy
+         l+i0/op5nJV7UZe0Ga8ZaqC9QdzMh9SelGJCxIG2XZrOzilT5N8/tB7MKTNXncX703RT
+         dE1w==
+X-Gm-Message-State: AOJu0Yx49KPGvdKXfAmwmmwJsT9B/aRe6xCS7E2Qp0CATDc/SUY6jN6O
+	zJkhGcmwPoakHi0EvnxqFGjNaqyuKYoo5Zp4iyHxM2hpKrCNi7vYle0mflQXZg==
+X-Gm-Gg: ASbGncut1Zuw6WD6jPuOc8Hl3odoiLP3zSOJOemxXkrXkzXDV2dIMAt7Ah8uYb0f1+x
+	WBpbh/q9XnpqQK2mXouUF0N9fI6DjzJm12rptj3gknkPlCpxqgep2f3drkNuf7Zn3Ay6TjqWlX7
+	WbPb27atng+TodZNvg9QdR+DZj46RwCEZTHf4qtQR/q+1/gHvrRatK2zKSngyB0JNvLixBiX5Hx
+	HSwGgdLruFU1syurX9kwHW+pYTUlVp4OW3SmnpnBCvqSuXOUke05K9yT44vAQejodutZ+SG6s06
+	ROgMgrn/Bl/1CRYzP7OpMl7pDspX2K+nUNv4sM1HFnFcR1xlEsvpZRMAmWH8dEfZBkDeNlP6p/t
+	4NTw=
+X-Google-Smtp-Source: AGHT+IFodoEZ0iTIZiA6FhVLkShreO9KYufA0wdJJTCzNeJU0iLZRijzbSwcc1+/UDyTpRTIB0KdFg==
+X-Received: by 2002:a05:6e02:12e8:b0:3d4:6f37:3748 with SMTP id e9e14a558f8ab-3d483a6ef52mr154160345ab.16.1742247773772;
+        Mon, 17 Mar 2025 14:42:53 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.googlemail.com with ESMTPSA id 8926c6da1cb9f-4f2637faa36sm2431266173.77.2025.03.17.14.42.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Mar 2025 14:42:53 -0700 (PDT)
+Message-ID: <401059d0-6b2c-4c40-8c4d-51749dca27f3@ieee.org>
+Date: Mon, 17 Mar 2025 16:42:51 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <Z9iKhwoj1GXvH4c9@x1>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+To: Troy Mitchell <troymitchell988@gmail.com>,
+ Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>
+Cc: linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, Alex Elder <elder@riscstar.com>
+References: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
+ <20250316-k1-i2c-master-v7-2-f2d5c43e2f40@gmail.com>
+Content-Language: en-US
+From: Alex Elder <elder@ieee.org>
+In-Reply-To: <20250316-k1-i2c-master-v7-2-f2d5c43e2f40@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_141953_947196_E0090DD8 
-X-CRM114-Status: GOOD (  22.63  )
+X-CRM114-CacheID: sfid-20250317_144255_185563_51022D7B 
+X-CRM114-Status: GOOD (  29.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,149 +96,161 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMTcsIDIwMjUgYXQgMDU6NDg6MTBQTSAtMDMwMCwgQXJuYWxkbyBDYXJ2YWxo
-byBkZSBNZWxvIHdyb3RlOgo+IE9uIEZyaSwgTWFyIDE0LCAyMDI1IGF0IDAyOjEwOjU0UE0gLTAz
-MDAsIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyB3cm90ZToKPiA+IE9uIFRodSwgTWFyIDEzLCAy
-MDI1IGF0IDEwOjQ1OjQ5UE0gLTA3MDAsIE5hbWh5dW5nIEtpbSB3cm90ZToKPiA+ID4gT24gVGh1
-LCBNYXIgMTMsIDIwMjUgYXQgMDU6NDc6MjdQTSAtMDMwMCwgQXJuYWxkbyBDYXJ2YWxobyBkZSBN
-ZWxvIHdyb3RlOgo+ID4gPiA+IE9uIFRodSwgTWFyIDEzLCAyMDI1IGF0IDA1OjIwOjA5UE0gLTAz
-MDAsIEFybmFsZG8gQ2FydmFsaG8gZGUgTWVsbyB3cm90ZToKPiA+ID4gPiA+IFN0aWxsIGJ1aWxk
-aW5nLCBidXQgbm90aWNlZCB0aGlzIG9uIHg4Nl82NDoKPiA+ID4gPiA+IAo+ID4gPiA+ID4gMTA1
-OiBwZXJmIHRyYWNlIGVudW0gYXVnbWVudGF0aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgOiBGQUlMRUQhCj4gPiA+ID4gPiAxMDY6IHBlcmYgdHJhY2UgQlRGIGdlbmVyYWwg
-dGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IEZBSUxFRCEKPiA+ID4g
-PiA+IDEwNzogcGVyZiB0cmFjZSBleGl0IHJhY2UgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgIDogT2sKPiA+ID4gPiA+IDEwODogcGVyZiB0cmFjZSByZWNvcmQgYW5k
-IHJlcGxheSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogRkFJTEVEIQo+ID4g
-PiA+ID4gCj4gPiA+ID4gPiAKPiA+ID4gPiA+IFRoZSBmaXJzdCBkb2VzbsK0dCBoZWxwIHRoYXQg
-bXVjaCB3aXRoIHZlcmJvc2UgbW9kZSwgaGF2ZW4ndCBjaGVja2VkIGlmCj4gPiA+ID4gPiBiZWZv
-cmUgdGhpcyBzZXJpZXMgaXQgd2FzIGZhaWxpbmcgOi1cCj4gPiA+ID4gPiAKPiA+ID4gPiA+IHJv
-b3RAeDE6fiMgcGVyZiB0ZXN0IC12dnYgMTA1Cj4gPiA+ID4gPiAxMDU6IHBlcmYgdHJhY2UgZW51
-bSBhdWdtZW50YXRpb24gdGVzdHM6Cj4gPiA+ID4gPiAtLS0gc3RhcnQgLS0tCj4gPiA+ID4gPiB0
-ZXN0IGNoaWxkIGZvcmtlZCwgcGlkIDE5NDExCj4gPiA+ID4gPiBDaGVja2luZyBpZiB2bWxpbnV4
-IGV4aXN0cwo+ID4gPiA+ID4gVHJhY2luZyBzeXNjYWxsIGxhbmRsb2NrX2FkZF9ydWxlCj4gPiA+
-ID4gPiAtLS0tIGVuZCgtMSkgLS0tLQo+ID4gPiA+ID4gMTA1OiBwZXJmIHRyYWNlIGVudW0gYXVn
-bWVudGF0aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBGQUlMRUQhCj4g
-PiA+ID4gPiByb290QHgxOn4jCiAKPiBUaGlzIG9uZSBpcyBub3cgb2s6CiAKPiAgICAgIDAuMDA0
-ICggMC4wMDAgbXMpOiBwZXJmLzIwMDM0MiBsYW5kbG9ja19hZGRfcnVsZShydWxlc2V0X2ZkOiAx
-MSwgcnVsZV90eXBlOiBMQU5ETE9DS19SVUxFX05FVF9QT1JULCBydWxlX2F0dHI6IDB4N2ZmZDY0
-OWJkMGQwLCBmbGFnczogNDUpID0gLTEgRUlOVkFMIChJbnZhbGlkIGFyZ3VtZW50KQo+IHJvb3RA
-bnVtYmVyOn4jIHBlcmYgdGVzdCBlbnVtCj4gMTA1OiBwZXJmIHRyYWNlIGVudW0gYXVnbWVudGF0
-aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBPawo+IHJvb3RAbnVtYmVy
-On4jCiAKPiBub3cgbG9va2luZyBhdDoKIAo+IHJvb3RAbnVtYmVyOn4jIHBlcmYgdGVzdCAtdnZ2
-dnZ2dnZ2IDEwNgo+IDEwNjogcGVyZiB0cmFjZSBCVEYgZ2VuZXJhbCB0ZXN0czoKPiAtLS0gc3Rh
-cnQgLS0tCj4gdGVzdCBjaGlsZCBmb3JrZWQsIHBpZCAyMDA0NjcKPiBDaGVja2luZyBpZiB2bWxp
-bnV4IEJURiBleGlzdHMKPiBUZXN0aW5nIHBlcmYgdHJhY2UncyBzdHJpbmcgYXVnbWVudGF0aW9u
-Cj4gU3RyaW5nIGF1Z21lbnRhdGlvbiB0ZXN0IGZhaWxlZAo+IC0tLS0gZW5kKC0xKSAtLS0tCj4g
-MTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgOiBGQUlMRUQhCj4gcm9vdEBudW1iZXI6fiMKIAo+IE5vIGNsdWUgZnJvbSB0
-aGUgdGVzdCwgcmVhZGluZyBpdHMgc291cmNlIGNvZGUgbm93IHRvIHNlZSB3aGVyZSBpdCBpcwo+
-IGZhaWxpbmcgdG8gdHJ5IGFuZCByZXByb2R1Y2UgdGhlIHByb2JsZW0uCgpyb290QG51bWJlcjp+
-IyBybSAtZiAvdG1wLzEyMzQ1NjcgOyB0b3VjaCAvdG1wLzEyMzQ1NjcgOyBwZXJmIHRyYWNlIC1l
-IHJlbmFtZWF0KiAtLW1heC1ldmVudHM9MSAtLSBtdiAvdG1wLzEyMzQ1NjcgL3RtcC9hYmNkZWZn
-CiAgICAgICAgID8gKCAgICAgICAgICk6IG12LzIwMDY5OCAgLi4uIFtjb250aW51ZWRdOiByZW5h
-bWVhdDIoKSkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPSAtMSBFRVhJ
-U1QgKEZpbGUgZXhpc3RzKQpyb290QG51bWJlcjp+IyAKCkF0IHRoaXMgcG9pbnQgaXQgd29ya3M6
-CgrirKIgW2FjbWVAdG9vbGJveCBwZXJmLXRvb2xzLW5leHRdJCBnaXQgbG9nIC0xCmNvbW1pdCA1
-OGY0ZjI5NGIzNTg4NjFhZGFlZTY4ZGZkMTlkYTEwNjAwNThlYzI3IChIRUFEKQpBdXRob3I6IEph
-bWVzIENsYXJrIDxqYW1lcy5jbGFya0BsaW5hcm8ub3JnPgpEYXRlOiAgIE1vbiBKYW4gNiAxNjo0
-Mjo1OCAyMDI1ICswMDAwCgogICAgcGVyZiB0ZXN0IHRyYWNlX2J0Zl9nZW5lcmFsOiBGaXggc2hl
-bGxjaGVjayB3YXJuaW5nCgoKcm9vdEBudW1iZXI6fiMgcm0gLWYgL3RtcC8xMjM0NTY3IDsgdG91
-Y2ggL3RtcC8xMjM0NTY3IDsgcGVyZiB0cmFjZSAtZSByZW5hbWVhdCogLS1tYXgtZXZlbnRzPTEg
-LS0gbXYgL3RtcC8xMjM0NTY3IC90bXAvYWJjZGVmZwogICAgIDAuMDAwICggMC4wMDYgbXMpOiBt
-di8yMTgyODIgcmVuYW1lYXQyKG9sZGRmZDogQ1dELCBvbGRuYW1lOiAiL3RtcC8xMjM0NTY3Iiwg
-bmV3ZGZkOiBDV0QsIG5ld25hbWU6ICIvdG1wL2FiY2RlZmciLCBmbGFnczogTk9SRVBMQUNFKSA9
-IC0xIEVFWElTVCAoRmlsZSBleGlzdHMpCnJvb3RAbnVtYmVyOn4jCgpTZWVtcyBsaWtlIHNvbWUg
-dHJhbnNpZW50IHByb2JsZW0gb24gdGhpcyB0ZXN0IG1hY2hpbmUsIGRpZG4ndCBtYW5hZ2UgdG8K
-YmlzZWN0IGFuZCBub3cgZXZlcnl0aGluZyBzZWVtcyB0byB3b3JrOgoKV2VsbCwgbm90IGFsd2F5
-cyA6LVwKCnJvb3RAbnVtYmVyOn4jIHBlcmYgdGVzdCAxMDUgMTA2IDEwNyAxMDggCjEwNTogcGVy
-ZiB0cmFjZSBlbnVtIGF1Z21lbnRhdGlvbiB0ZXN0cyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIDogT2sKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgOiBPawoxMDc6IHBlcmYgdHJhY2UgZXhpdCByYWNlICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IE9rCjEwODogcGVyZiB0cmFj
-ZSByZWNvcmQgYW5kIHJlcGxheSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDog
-T2sKcm9vdEBudW1iZXI6fiMgcGVyZiB0ZXN0IDEwNSAxMDYgMTA3IDEwOCAKMTA1OiBwZXJmIHRy
-YWNlIGVudW0gYXVnbWVudGF0aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-OiBPawoxMDY6IHBlcmYgdHJhY2UgQlRGIGdlbmVyYWwgdGVzdHMgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICA6IE9rCjEwNzogcGVyZiB0cmFjZSBleGl0IHJhY2UgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sKMTA4OiBwZXJmIHRyYWNlIHJl
-Y29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBPawpy
-b290QG51bWJlcjp+IyBwZXJmIHRlc3QgMTA1IDEwNiAxMDcgMTA4IAoxMDU6IHBlcmYgdHJhY2Ug
-ZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IEZB
-SUxFRCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgOiBGQUlMRUQhCjEwNzogcGVyZiB0cmFjZSBleGl0IHJhY2UgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sKMTA4OiBwZXJmIHRy
-YWNlIHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-OiBPawpyb290QG51bWJlcjp+IyBwZXJmIHRlc3QgMTA1IDEwNiAxMDcgMTA4IAoxMDU6IHBlcmYg
-dHJhY2UgZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICA6IEZBSUxFRCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgOiBGQUlMRUQhCjEwNzogcGVyZiB0cmFjZSBleGl0IHJh
-Y2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sKMTA4OiBw
-ZXJmIHRyYWNlIHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgOiBPawpyb290QG51bWJlcjp+IyBwZXJmIHRlc3QgMTA1IDEwNiAxMDcgMTA4IAoxMDU6
-IHBlcmYgdHJhY2UgZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICA6IEZBSUxFRCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBGQUlMRUQhCjEwNzogcGVyZiB0cmFjZSBl
-eGl0IHJhY2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sK
-MTA4OiBwZXJmIHRyYWNlIHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgOiBPawpyb290QG51bWJlcjp+IyBwZXJmIHRlc3QgMTA1IDEwNiAxMDcgMTA4
-IAoxMDU6IHBlcmYgdHJhY2UgZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICA6IEZBSUxFRCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3Rz
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBGQUlMRUQhCjEwNzogcGVyZiB0
-cmFjZSBleGl0IHJhY2UgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-IDogT2sKMTA4OiBwZXJmIHRyYWNlIHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgOiBPawpyb290QG51bWJlcjp+IyBwZXJmIHRlc3QgMTA1IDEwNiAx
-MDcgMTA4IAoxMDU6IHBlcmYgdHJhY2UgZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICA6IE9rCjEwNjogcGVyZiB0cmFjZSBCVEYgZ2VuZXJhbCB0ZXN0
-cyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogRkFJTEVEIQoxMDc6IHBlcmYg
-dHJhY2UgZXhpdCByYWNlICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICA6IE9rCjEwODogcGVyZiB0cmFjZSByZWNvcmQgYW5kIHJlcGxheSAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgIDogT2sKcm9vdEBudW1iZXI6fiMgZm9yIHRlc3QgaW4gMTA1IDEw
-NiAxMDcgMTA4IDsgZG8gcGVyZiB0ZXN0ICR0ZXN0IDsgZG9uZQoxMDU6IHBlcmYgdHJhY2UgZW51
-bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IEZBSUxF
-RCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgOiBGQUlMRUQhCjEwNzogcGVyZiB0cmFjZSBleGl0IHJhY2UgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sKMTA4OiBwZXJmIHRyYWNl
-IHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBP
-awpyb290QG51bWJlcjp+IyBmb3IgdGVzdCBpbiAxMDUgMTA2IDEwNyAxMDggOyBkbyBwZXJmIHRl
-c3QgJHRlc3QgOyBkb25lCjEwNTogcGVyZiB0cmFjZSBlbnVtIGF1Z21lbnRhdGlvbiB0ZXN0cyAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogRkFJTEVEIQoxMDY6IHBlcmYgdHJhY2UgQlRG
-IGdlbmVyYWwgdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IEZBSUxF
-RCEKMTA3OiBwZXJmIHRyYWNlIGV4aXQgcmFjZSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgOiBPawoxMDg6IHBlcmYgdHJhY2UgcmVjb3JkIGFuZCByZXBsYXkgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IE9rCnJvb3RAbnVtYmVyOn4jCgpTbywg
-b3ZlcmFsbCwgSSB0aGluayB0aGlzIHNob3VsZCBsYW5kIGFuZCB3ZSBzaG91bGQgY29udGludWUg
-dHJ5aW5nIHRvCmZpZ3VyZSBvdXQgaG93IHRvIGZpbmQgb3V0IGFib3V0IHRoZSBhYm92ZSBmYWls
-dXJlIGNhc2VzLCBwcm9iYWJseSB0aGUKcGVyZiB0cmFjZSBjYXNlcywgc2luY2UgdGhleSBkbyBz
-ZXQgdXAgQlBGIHByb2dyYW1zLCBldGMgc2hvdWxkIGJlIGRvbmUKc2VyaWFsbHk/CgpEb2Vzbid0
-IHNlZW0gdG8gYmUgdGhlIGNhc2U6Cgpyb290QG51bWJlcjp+IyBmb3IgdGVzdCBpbiAxMDUgMTA2
-IDEwNyAxMDggOyBkbyBwZXJmIHRlc3QgLS1zZXF1ZW50aWFsICR0ZXN0IDsgZG9uZQoxMDU6IHBl
-cmYgdHJhY2UgZW51bSBhdWdtZW50YXRpb24gdGVzdHMgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICA6IEZBSUxFRCEKMTA2OiBwZXJmIHRyYWNlIEJURiBnZW5lcmFsIHRlc3RzICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBPawoxMDc6IHBlcmYgdHJhY2UgZXhpdCByYWNl
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IE9rCjEwODogcGVy
-ZiB0cmFjZSByZWNvcmQgYW5kIHJlcGxheSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIDogT2sKcm9vdEBudW1iZXI6fiMgZm9yIHRlc3QgaW4gMTA1IDEwNiAxMDcgMTA4IDsgZG8g
-cGVyZiB0ZXN0IC0tc2VxdWVudGlhbCAkdGVzdCA7IGRvbmUKMTA1OiBwZXJmIHRyYWNlIGVudW0g
-YXVnbWVudGF0aW9uIHRlc3RzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBGQUlMRUQh
-CjEwNjogcGVyZiB0cmFjZSBCVEYgZ2VuZXJhbCB0ZXN0cyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgIDogT2sKMTA3OiBwZXJmIHRyYWNlIGV4aXQgcmFjZSAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgOiBPawoxMDg6IHBlcmYgdHJhY2UgcmVjb3Jk
-IGFuZCByZXBsYXkgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA6IE9rCnJvb3RA
-bnVtYmVyOn4jIHBlcmYgdGVzdCAtLXNlcXVlbnRpYWwgMTA1IDEwNiAxMDcgMTA4CjEwNTogcGVy
-ZiB0cmFjZSBlbnVtIGF1Z21lbnRhdGlvbiB0ZXN0cyAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgIDogRkFJTEVEIQoxMDY6IHBlcmYgdHJhY2UgQlRGIGdlbmVyYWwgdGVzdHMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICA6IE9rCjEwNzogcGVyZiB0cmFjZSBleGl0IHJhY2Ug
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDogT2sKMTA4OiBwZXJm
-IHRyYWNlIHJlY29yZCBhbmQgcmVwbGF5ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgOiBPawpyb290QG51bWJlcjp+IyAKCkJ1dCB0aGVuIGlmIHRoYXQgaXMgdGhlIGNhc2UgaXQg
-bmVlZHMgc29tZSBsb3ZlIGFuZCBjYXJlIHRvIGRlYWwgd2l0aApvdGhlciBCUEYgdXNlcnMgaW4g
-dGhlIHN5c3RlbSwgYmVpbmcgbW9yZSBncmFjZWZ1bCBpbiB0aGUgZmFjZSBvZgplcnJvcnMuCgot
-IEFybmFsZG8KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 3/16/25 2:43 AM, Troy Mitchell wrote:
+> This patch introduces basic I2C support for the SpacemiT K1 SoC,
+> utilizing interrupts for transfers.
+> 
+> The driver has been tested using i2c-tools on a Bananapi-F3 board,
+> and basic I2C read/write operations have been confirmed to work.
+> 
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+> Link: https://lore.kernel.org/all/20250128-k1-maintainer-1-v1-1-e5dec4f379eb@gentoo.org [1]
+> Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
+
+I know I said it was fine, but I'm going to reiterate two comments in
+the probe function.
+
+> ---
+>   drivers/i2c/busses/Kconfig  |  17 ++
+>   drivers/i2c/busses/Makefile |   1 +
+>   drivers/i2c/busses/i2c-k1.c | 605 ++++++++++++++++++++++++++++++++++++++++++++
+>   3 files changed, 623 insertions(+)
+> 
+
+. . .
+
+> diff --git a/drivers/i2c/busses/i2c-k1.c b/drivers/i2c/busses/i2c-k1.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..ae43dcd31e8aa480766b44be91656657c7aaaf4a
+> --- /dev/null
+> +++ b/drivers/i2c/busses/i2c-k1.c
+> @@ -0,0 +1,605 @@
+
+. . .
+
+> +static int spacemit_i2c_probe(struct platform_device *pdev)
+> +{
+> +	struct clk *clk;
+> +	struct device *dev = &pdev->dev;
+> +	struct device_node *of_node = pdev->dev.of_node;
+> +	struct spacemit_i2c_dev *i2c;
+> +	int ret;
+> +
+> +	i2c = devm_kzalloc(dev, sizeof(*i2c), GFP_KERNEL);
+> +	if (!i2c)
+> +		return -ENOMEM;
+> +
+> +	ret = of_property_read_u32(of_node, "clock-frequency", &i2c->clock_freq);
+> +	if (ret)
+> +		dev_warn(dev, "failed to read clock-frequency property\n");
+
+If the property doesn't exist, I don't think this warrants a warning,
+because it's optional.  Perhaps if a different error (something other
+than -EINVAL) is returned it would warrant a warning.
+
+> +
+> +	/* For now, this driver doesn't support high-speed. */
+> +	if (!i2c->clock_freq || i2c->clock_freq < 1 ||
+
+For an unsigned value, !i2c->clock_freq is *the same as*
+i2c->clock_freq < 1.  Get rid of the latter.
+
+I'll leave it up to the maintainer to decide whether these
+comments can just be ignored--my Reviewed-by is fine, even
+if you don't change these.
+
+					-Alex
+
+> +	    i2c->clock_freq > SPACEMIT_I2C_MAX_FAST_MODE_FREQ) {
+> +		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+> +			 i2c->clock_freq, SPACEMIT_I2C_MAX_FAST_MODE_FREQ);
+> +		i2c->clock_freq = SPACEMIT_I2C_MAX_FAST_MODE_FREQ;
+> +	} else if (i2c->clock_freq < SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ) {
+> +		dev_warn(dev, "unsupported clock frequency %u; using %u\n",
+> +			 i2c->clock_freq,  SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ);
+> +		i2c->clock_freq = SPACEMIT_I2C_MAX_STANDARD_MODE_FREQ;
+> +	}
+> +
+> +	i2c->dev = &pdev->dev;
+> +
+> +	i2c->base = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(i2c->base))
+> +		return dev_err_probe(dev, PTR_ERR(i2c->base), "failed to do ioremap");
+> +
+> +	i2c->irq = platform_get_irq(pdev, 0);
+> +	if (i2c->irq < 0)
+> +		return dev_err_probe(dev, i2c->irq, "failed to get irq resource");
+> +
+> +	ret = devm_request_irq(i2c->dev, i2c->irq, spacemit_i2c_irq_handler,
+> +			       IRQF_NO_SUSPEND | IRQF_ONESHOT, dev_name(i2c->dev), i2c);
+> +	if (ret)
+> +		return dev_err_probe(dev, ret, "failed to request irq");
+> +
+> +	clk = devm_clk_get_enabled(dev, "func");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable func clock");
+> +
+> +	clk = devm_clk_get_enabled(dev, "bus");
+> +	if (IS_ERR(clk))
+> +		return dev_err_probe(dev, PTR_ERR(clk), "failed to enable bus clock");
+> +
+> +	spacemit_i2c_reset(i2c);
+> +
+> +	i2c_set_adapdata(&i2c->adapt, i2c);
+> +	i2c->adapt.owner = THIS_MODULE;
+> +	i2c->adapt.algo = &spacemit_i2c_algo;
+> +	i2c->adapt.dev.parent = i2c->dev;
+> +	i2c->adapt.nr = pdev->id;
+> +
+> +	i2c->adapt.dev.of_node = of_node;
+> +
+> +	strscpy(i2c->adapt.name, "spacemit-i2c-adapter", sizeof(i2c->adapt.name));
+> +
+> +	init_completion(&i2c->complete);
+> +
+> +	platform_set_drvdata(pdev, i2c);
+> +
+> +	ret = i2c_add_numbered_adapter(&i2c->adapt);
+> +	if (ret)
+> +		return dev_err_probe(&pdev->dev, ret, "failed to add i2c adapter");
+> +
+> +	return 0;
+> +}
+> +
+> +static void spacemit_i2c_remove(struct platform_device *pdev)
+> +{
+> +	struct spacemit_i2c_dev *i2c = platform_get_drvdata(pdev);
+> +
+> +	i2c_del_adapter(&i2c->adapt);
+> +}
+> +
+> +static const struct of_device_id spacemit_i2c_of_match[] = {
+> +	{ .compatible = "spacemit,k1-i2c", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, spacemit_i2c_of_match);
+> +
+> +static struct platform_driver spacemit_i2c_driver = {
+> +	.probe = spacemit_i2c_probe,
+> +	.remove = spacemit_i2c_remove,
+> +	.driver = {
+> +		.name = "i2c-k1",
+> +		.of_match_table = spacemit_i2c_of_match,
+> +	},
+> +};
+> +module_platform_driver(spacemit_i2c_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("I2C bus driver for SpacemiT K1 SoC");
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
