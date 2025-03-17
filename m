@@ -4,61 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDFFEC282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 20:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5CBCC28B28
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 20:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hra9VHsWTijXUXzrcXnvSPL/4ez2AhdCoJht3an3KZ8=; b=1OiD3Bpvj8E5PH
-	7RQwjVO2hwu34ypzmIkqrqV5U/MC/pYi4pJi3vlwwjiXGAHtR6d+PML/tTJIqra2bN7d5fsMLvibg
-	1Tc9ADMMWzdfDs296/8qPf3jorfe4pvS9E250aXLddlZWmEQNZtS4PK+JBB+FXLYjZX07GeWsLTYf
-	RTtg8Mj8+fMlIP+hKu5y79S6NYNx2zK4HtFYOWZOGyUVL+RcOsfJIkrDCypvm/6bdWQ3Nrvc++yqp
-	65KVjaCcT+G6E/wPXOkUSaeth/tkuhtVzyQjyjCrhKK8GU60zceWKUgV+Gk4ZqvbL2Yrn3eBhTLlu
-	oe+8bX7kcCJcgkyQsGKQ==;
+	List-Owner; bh=9ZtWphK7iEXnK4OESROVe/KS5PjConbos3yUTQLLbJY=; b=dOS2r4uPrVUFFq
+	i1wc3cUKRjfycZTW+OnUy9rOMye94KHgbGudgtCPDRfOHkNTQEwXk8c5Jyx2fMaddjONuskUEuG38
+	ksp4m/aoUaSfarsVwKnJq9x5zrrMxmx/ZAMsCacv66uSAELHytYLOSwFTRHqCrud7O2Eq4EuIMBjh
+	tc3vP4026LRsA43u3hgckDxcZPLeo/GzX3wB5K/VgBA64NC1YZvdaKrEnoIGG9ndqZmhjlHXIHvnH
+	qbkyw6YXCSseaRGKrr1iTcwfyckwNUOeR3EArFC2nqgYHut4ETnKYFg9CziNphf/YC+YkXZZKro+3
+	vOepB6Lg+f9Jim8HmGEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuH5X-00000003uZa-1AbH;
-	Mon, 17 Mar 2025 20:29:31 +0000
-Received: from out-186.mta0.migadu.com ([2001:41d0:1004:224b::ba])
+	id 1tuHPI-00000003x8P-2Glw;
+	Mon, 17 Mar 2025 20:49:56 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuH5U-00000003uYb-3Cfq
-	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 20:29:30 +0000
-Message-ID: <8729ccb4-cdd2-48f7-a8d4-f55a24964bc4@iencinas.com>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1742243365;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=z2gPp8ZZpEDOPhCSsNGFmD3VmlQ7JFSNt9SswdFFzlU=;
-	b=w2FTOwgjsx7saoQwKyeyBl1fhl0fcyDSJgA2K/1oGFLpnKWZ5PG9HBkeFzaw/4Nlj2e0Hm
-	xhsQRP06Q7vUiB36Y7CRl82oxq+MPGTZuDeFqjBCCH06LBE7qGgW8vSAI/FGdYm7V5Xj+A
-	ww3ri5CC3UIlnHpe+jadeoV5FyUBtMoF860oFlg1/+QZTzbsjZBsu8XThWagzgP9qvCpyW
-	kRzS27lH075qI+yf+CU5VuCp5Ziu+Tw1iWEmaAkL6YPQFxwJUIBhW4VchiL2IW4OjfKrc1
-	lMtS9M3FIYRSltcyxWxu/It/unHJw44S8H3ZJN64e6jWXb7Ok89MIwJDdSGLXA==
-Date: Mon, 17 Mar 2025 21:29:20 +0100
+	id 1tuHNb-00000003wgi-0klf;
+	Mon, 17 Mar 2025 20:48:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 864305C571A;
+	Mon, 17 Mar 2025 20:45:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9A50DC4CEED;
+	Mon, 17 Mar 2025 20:48:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742244490;
+	bh=8pdTXWSW1pT+VXM+eBfg/U6FahxzWexs17ihcIHPMJ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EhM8veCqfacvRpt+f0Tvr+Tb69xlnreFzyM3CYm4DK4T3+uPl9ru59UEfXTq0ebK0
+	 CFqn/N9smSOGJjxnJp8Q7S4i7UImh1Net50w71WOgCOAVzz2OpwFsYRLV+agzk6Z1C
+	 3LTvtiRUgukYDcBgUBk5iLbCljivyEw6ZCgak1vig2/flA/wQErtA9Pu1GdpMbJYyz
+	 RElF6rdsfJrE/Kj0PJIhJnwP2Q/Uv03S9bGrKUxd3bkKaSRkFnXF6f1oMA2fvj+RKm
+	 mxOb9rT8SCANLJJFg+gkynqiThXDC7UvCVYwLN6XBKjkV7uOvLG7zGq8p2g2kCvRgV
+	 qUsnEfHJIxt6w==
+Date: Mon, 17 Mar 2025 17:48:07 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
+ the build
+Message-ID: <Z9iKhwoj1GXvH4c9@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <Z9KFLGpenwOP32q3@google.com>
+ <Z9M24AJzui9lFbGo@x1>
+ <Z9M9-YhDJg3NgiUy@x1>
+ <Z9NEX3j_1RUvaFI0@x1>
+ <Z9PCjQ8PhOadVGQ8@google.com>
+ <Z9RjHpEJGWtj8PAM@x1>
 MIME-Version: 1.0
-Subject: Re: [PATCH RFC] riscv: introduce asm/swab.h
-To: Alexandre Ghiti <alex@ghiti.fr>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-References: <20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com>
- <d964bf15-7172-448b-9aa1-72d5bf3e1695@ghiti.fr>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ignacio Encinas Rubio <ignacio@iencinas.com>
-In-Reply-To: <d964bf15-7172-448b-9aa1-72d5bf3e1695@ghiti.fr>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <Z9RjHpEJGWtj8PAM@x1>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_132929_143359_7CC01888 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250317_134811_369683_42096B8E 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,42 +94,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 17/3/25 17:36, Alexandre Ghiti wrote:
->> We need a default implementation to fall back on, but there isn't any in
->> `asm-generic/swab.h`. Should I introduce a first patch moving
->> ___constant_swab<XX> into include/uapi/asm-generic/swab.h?
-> 
-> Yes, that or something else to avoid the code duplication.
+On Fri, Mar 14, 2025 at 02:10:54PM -0300, Arnaldo Carvalho de Melo wrote:
+> On Thu, Mar 13, 2025 at 10:45:49PM -0700, Namhyung Kim wrote:
+> > On Thu, Mar 13, 2025 at 05:47:27PM -0300, Arnaldo Carvalho de Melo wrot=
+e:
+> > > On Thu, Mar 13, 2025 at 05:20:09PM -0300, Arnaldo Carvalho de Melo wr=
+ote:
+> > > > Still building, but noticed this on x86_64:
+> > > > =
 
-Thanks for double checking. I figured as much but I ended up getting a
-bit confused with the include directories.
+> > > > 105: perf trace enum augmentation tests                            =
+  : FAILED!
+> > > > 106: perf trace BTF general tests                                  =
+  : FAILED!
+> > > > 107: perf trace exit race                                          =
+  : Ok
+> > > > 108: perf trace record and replay                                  =
+  : FAILED!
+> > > > =
 
->> +#if defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE)
-> 
-> NO_ALTERNATIVE does not exist to my knowledge, and you don't need to check for ALTERNATIVE as alternative-macros.h will do the right thing in that case.
+> > > > =
 
-It's a define hardcoded into drivers/firmware/efi/libstub/Makefile. It
-was introduced in [1]. It helps avoid these types of warnings [2]:
+> > > > The first doesn=B4t help that much with verbose mode, haven't check=
+ed if
+> > > > before this series it was failing :-\
+> > > > =
 
-  riscv64-unknown-linux-gnu-ld: warning: orphan section 
-  `.init.alternative' from `./drivers/firmware/efi/libstub/riscv.stub.o' 
-  being placed in section `.init.alternative'
+> > > > root@x1:~# perf test -vvv 105
+> > > > 105: perf trace enum augmentation tests:
+> > > > --- start ---
+> > > > test child forked, pid 19411
+> > > > Checking if vmlinux exists
+> > > > Tracing syscall landlock_add_rule
+> > > > ---- end(-1) ----
+> > > > 105: perf trace enum augmentation tests                            =
+  : FAILED!
+> > > > root@x1:~#
 
-Let me know if you think I should drop it.
+This one is now ok:
 
-[1] https://lore.kernel.org/all/20231031064553.2319688-3-xiao.w.wang@intel.com/
-[2] https://lore.kernel.org/all/DM8PR11MB5751DA69DEEAAC9B06623E0BB80FA@DM8PR11MB5751.namprd11.prod.outlook.com/
+     0.004 ( 0.000 ms): perf/200342 landlock_add_rule(ruleset_fd: 11, rule_=
+type: LANDLOCK_RULE_NET_PORT, rule_attr: 0x7ffd649bd0d0, flags: 45) =3D -1 =
+EINVAL (Invalid argument)
+root@number:~# perf test enum
+105: perf trace enum augmentation tests                              : Ok
+root@number:~#
 
-> It would be nice to have some perf numbers too, maybe Bjorn will chime in :)
-> 
-> Thanks for your patch, looking forward the v2,
+now looking at:
 
-Thank you! 
+root@number:~# perf test -vvvvvvvvv 106
+106: perf trace BTF general tests:
+--- start ---
+test child forked, pid 200467
+Checking if vmlinux BTF exists
+Testing perf trace's string augmentation
+String augmentation test failed
+---- end(-1) ----
+106: perf trace BTF general tests                                    : FAIL=
+ED!
+root@number:~#
+
+No clue from the test, reading its source code now to see where it is
+failing to try and reproduce the problem.
+
+- Arnaldo
 
 _______________________________________________
 linux-riscv mailing list
