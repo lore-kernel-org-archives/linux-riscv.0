@@ -4,34 +4,34 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84749C282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 14:40:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B672DC35FF3
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 14:42:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eGblH5BoQB8zz/2j3ZJbS+tSjm9KuxySTjitP1SoAzE=; b=Sgey11+CXS5Zkp
-	AiE/1mmD10tpqA+ZFMr3i1vXG06+gyqoXDyEKISF0bhwzNbGw1+abGV1l5fGWPZaHh/UrlA6fp9Y6
-	FLHkP4e2hlh8BCCZ/ciFG2blDaE9yhuCYWuI9cqrIPDt+YKvmHWl8dIXB1/O4xFBFyc7o/LBMzN00
-	Tt69jMZ8aBvd5iYM76lnyDm64MNFso+CABr4Tn1JrA7bhHYuRkKDtwjgtHySSTAnRHrspWWYqU0wG
-	jTgdIdHB9xisHDhffbWKLTTXDy1wmV3vft2bjzLFRIvd6QzCP+2LPQegxIFBeWemlepVgXNyNRhJE
-	BQ/P3gVZpubOLlfnMpnQ==;
+	List-Owner; bh=nLOQEitT6OHZNBjncXTinHeqkTn1bd6CfTPjc4pkiiE=; b=E1IbJ8I/dS0/+G
+	dC2dUii6+QKD+iNgjsEIafHirKA18GCVOwbU4ThuRKbRwa+24PYXm8yqNblgPxp6SNzG71VpFIOVT
+	FKoD8VoVgFEY8BmmhE3QiANNrm/z1oCLHukOxETa2JDeta00lx1oFZt7a1HHmWyzKGQg9+WzCRXlN
+	kXj9wgfBt/h6dBmNTPw6B5ODwBDaCUuFXVrWDZyAPenB17lVj45EqOBVDDeQ6nKM7sZRviaBrjOWk
+	njR2vvzcKvGk+Kt+ygHOnI07ACRi91OrqLqLTylqEhfcc17nlQz/YW3WpAOw1TjAXrf+bcFTAUwt5
+	DzlsQJBRAftSDOKO8nxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBdt-00000003043-2t5i;
-	Mon, 17 Mar 2025 14:40:37 +0000
+	id 1tuBfX-000000030OO-45yX;
+	Mon, 17 Mar 2025 14:42:19 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuBM8-00000002ukh-3e6Y;
-	Mon, 17 Mar 2025 14:22:18 +0000
+	id 1tuBMD-00000002unh-22qa;
+	Mon, 17 Mar 2025 14:22:22 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6E78C22FA;
-	Mon, 17 Mar 2025 07:22:25 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06A762573;
+	Mon, 17 Mar 2025 07:22:30 -0700 (PDT)
 Received: from e123572-lin.arm.com (e123572-lin.cambridge.arm.com [10.1.194.54])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 46C2C3F63F;
-	Mon, 17 Mar 2025 07:22:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D35C43F63F;
+	Mon, 17 Mar 2025 07:22:16 -0700 (PDT)
 From: Kevin Brodsky <kevin.brodsky@arm.com>
 To: linux-mm@kvack.org
 Cc: linux-kernel@vger.kernel.org,
@@ -65,17 +65,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	linuxppc-dev@lists.ozlabs.org,
 	sparclinux@vger.kernel.org
-Subject: [PATCH 10/11] arm64: mm: Call PUD/P4D ctor in __create_pgd_mapping()
-Date: Mon, 17 Mar 2025 14:16:59 +0000
-Message-ID: <20250317141700.3701581-11-kevin.brodsky@arm.com>
+Subject: [PATCH 11/11] riscv: mm: Call PUD/P4D ctor in special kernel pgtable alloc
+Date: Mon, 17 Mar 2025 14:17:00 +0000
+Message-ID: <20250317141700.3701581-12-kevin.brodsky@arm.com>
 X-Mailer: git-send-email 2.47.0
 In-Reply-To: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 References: <20250317141700.3701581-1-kevin.brodsky@arm.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_072216_975854_B5ECD224 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250317_072221_577555_04202C16 
+X-CRM114-Status: GOOD (  10.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,30 +93,52 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Constructors for PUD/P4D-level pgtables were recently introduced.
 They should be called for all pgtables; make sure they are called
-for special kernel mappings created by __create_pgd_mapping() too.
+for special kernel mappings created by create_pgd_mapping() too.
+
+While at it also switch to using pagetable_alloc() like
+in alloc_{pte,pmd}_late().
 
 Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
 ---
- arch/arm64/mm/mmu.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/mm/init.c | 16 ++++++++--------
+ 1 file changed, 8 insertions(+), 8 deletions(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index accb0a33c59f..10bf39654e77 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -497,7 +497,11 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm,
- 	case TABLE_PMD:
- 		BUG_ON(!pagetable_pmd_ctor(mm, ptdesc));
- 		break;
--	default:
-+	case TABLE_PUD:
-+		pagetable_pud_ctor(ptdesc);
-+		break;
-+	case TABLE_P4D:
-+		pagetable_p4d_ctor(ptdesc);
- 		break;
- 	}
+diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+index fb18940113f2..dc2715f3fd00 100644
+--- a/arch/riscv/mm/init.c
++++ b/arch/riscv/mm/init.c
+@@ -557,11 +557,11 @@ static phys_addr_t __init alloc_pud_fixmap(uintptr_t va)
  
+ static phys_addr_t __meminit alloc_pud_late(uintptr_t va)
+ {
+-	unsigned long vaddr;
++	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
+ 
+-	vaddr = __get_free_page(GFP_KERNEL);
+-	BUG_ON(!vaddr);
+-	return __pa(vaddr);
++	BUG_ON(!ptdesc);
++	pagetable_pud_ctor(ptdesc);
++	return __pa((pud_t *)ptdesc_address(ptdesc));
+ }
+ 
+ static p4d_t *__init get_p4d_virt_early(phys_addr_t pa)
+@@ -595,11 +595,11 @@ static phys_addr_t __init alloc_p4d_fixmap(uintptr_t va)
+ 
+ static phys_addr_t __meminit alloc_p4d_late(uintptr_t va)
+ {
+-	unsigned long vaddr;
++	struct ptdesc *ptdesc = pagetable_alloc(GFP_KERNEL, 0);
+ 
+-	vaddr = __get_free_page(GFP_KERNEL);
+-	BUG_ON(!vaddr);
+-	return __pa(vaddr);
++	BUG_ON(!ptdesc);
++	pagetable_p4d_ctor(ptdesc);
++	return __pa((p4d_t *)ptdesc_address(ptdesc));
+ }
+ 
+ static void __meminit create_pud_mapping(pud_t *pudp, uintptr_t va, phys_addr_t pa, phys_addr_t sz,
 -- 
 2.47.0
 
