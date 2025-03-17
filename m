@@ -4,81 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD03CC282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 10:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F56C35FF3
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 12:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5Dk0V512ZqbkFsgB3pTtp88L/OFz9xRtsK2XF6k9hqA=; b=zBG/zilr3Bxmuq
-	lDwK9sBPH6Vv7MXPXVgrv2s+jbgcxaeLW1kjAxbGz5cltI9NDsreiiQFDc9mXAgtJQD8yL8pqk4dv
-	o4WKDYEMtrfKpq90zoj+Ew620DWSWgAZM+wNzXMo1UD7W0H0+yKANV0do06TSp5lwJ2nfITDlb737
-	0sB10DNItKc9N2P19FvPvDoDg8Bt3+EjC/hEJtGICbVYvI5/CI57H/wdpc1rhH9zrhMerMl0MRjEs
-	hZuIGRCvHuV5JIN+v9qVAPG/YUGsVs1IEnQc5ruhHgcklGzDVq7aMmzbPDE4p18Z6e0qW/xedDQhW
-	6NKLbgR+aHwxDwoSO16A==;
+	List-Owner; bh=R2jFuXLShu/YyS6C5TFj73QSLkfVgjccHNAOApXSSQQ=; b=vJqIErh0Bvbu4a
+	RlhRwtKJfUdD7LE03n4K1iXro/KHp4eX4U6MMOTwBdQK+CFbZXhV97eT7UuNZp48w+BsF/zwh1hVk
+	y/nMdRKz2dA0pNLToedDfM3zsNAj8AdWR2yE95ynReWP6Rpd1Yke8l6n5EFWvVEsmdbLsK1iwpY/I
+	e4ZDirpMejiFFBoAuymAKCWacuLhhbKywTaqZLyI4HeyxdZPJRY21v/94Tgraa3jf9KAe80x14use
+	tsgHcX1ZAAM74m5s0SK2kOr3qQUppkES/O9S9ZWj7EvOdxmkOTZ9FfoLu7+RxMyq4ckS6SnsZ1tnL
+	dkSZ9eGbiGFAFDehucyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu85q-00000002GIx-3KBu;
-	Mon, 17 Mar 2025 10:53:14 +0000
-Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
+	id 1tu9Kz-00000002Ww8-2sUB;
+	Mon, 17 Mar 2025 12:12:57 +0000
+Received: from mail-il1-x132.google.com ([2607:f8b0:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu846-00000002FpI-3QN5
+	id 1tu9JK-00000002WT7-4BN5
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 10:51:28 +0000
-Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-6ff37565232so33277257b3.3
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 03:51:26 -0700 (PDT)
+	Mon, 17 Mar 2025 12:11:17 +0000
+Received: by mail-il1-x132.google.com with SMTP id e9e14a558f8ab-3d445a722b9so24098275ab.3
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 05:11:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742208685; x=1742813485; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hhHd7SXnwkBnjLxo83dsWFNVVc7WEn7JrzvB0bh3I1s=;
-        b=AWlNeaa3vQXyEskha+qfkS41yF7Vrnin3+J/q8ubGWK9Uzbrf2IV+j3MsE81UiVTrs
-         5dZt4YbJhjo9u+O1+tlB1KZZ+Q950gEvuYkW1s6S2rQI2BRW2pHgiwxC58UNIXFEBesA
-         iWVWaY/pGcmpRwbQcvaY9MFTEg4DDP/Xr7lTG8a8jBTGnOUQ4PhdQyHi4OgDC0cjGjkB
-         964kQbigRCKgVFnx7dPTnVM3xg1wDRztKP5TsNxwgCrsSi0m7AzXltArz5JhhZ+q0ptP
-         16xICV1NdVcPbsuwWApNkhURFGouX1MBiOX8PXd3Tn0wXZM4oOuqNO+JKVyVG3seaaFE
-         OxPQ==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742213473; x=1742818273; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=C0AefTr+b/KmSIHJ/y0w6HkDTitHcQhMEPmgA2zTVn0=;
+        b=FyoQuFR54NyhsMs9a2uS7lanJYPM9jBgpl5hOvJ/naTpe/ZafWfRkjNtdMH4jRLBJ4
+         l3mNfAGXEKx+w61v/0xlydY/fNoXjvcK1ndPles03rkEHsvmq+AlPmzjzVE4i1KhP80+
+         JmS+18+G1y35G25ph9bhSrlee824peWcNa1PFHX89zDHP4f9fiLt1acqJWoaLwqDxGBZ
+         cu9+CTb/oOvdQyH3BIJ9YS8jT3lTqs90I9CMJj/M8MwFRvLgc7mQIsL2yDR2etT4m9ie
+         TNSx02iHeu/lq0MLxQS4YmGS2i6TzLOQZIdp+tiKNSxPIli3BmeK/F2bCoG2sSp2eGAn
+         4YqA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742208685; x=1742813485;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hhHd7SXnwkBnjLxo83dsWFNVVc7WEn7JrzvB0bh3I1s=;
-        b=Bkzzc7L+6rtLgZ3aDvY5rBmBPEVsjiUBKjq8Ktv+PY6Iwrbzsga6Qa7I6ii8s/TlZL
-         6xNfr5xYaJWV1NobzgVQvKwDQEL9x9T7Dml5O935wKgMfn2wipQi0tJ8zwHgA0MyerPL
-         LJpnjFne1YU1c+8VlVycuR5XpoAKUS3Y2AP6Q3aujenGF/YuN2kg+P/c2uFO9AZV9EJO
-         WPghLPgDjSCusjMygSFIm8nOb9nYCxoBjgzG61OeYUaZRnqItiJYLW9pIA5Uuf+ALnOk
-         8ZOTex7YNNzC3VrEic9XysMKw4/voTotvhxYQLNOjwnf1iDTnSuGpN/5aK0/pfHjQKjy
-         9rEQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAtfO+hlGxJiBy3t0OUOG0Jc/Con3X237h9Y2oxFswxdq4OQqfHVBYyg1UJSW79xmi3+mxwhhWoU0wgA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwzEESKWsrLV8QeNZkm3kfVXLFyV6Zicy1ESdD3sLuj8SwrqdRO
-	vN8Xgky1jlXnvRzUntu53dK6m+SMgbZTkeD6voGiU6TzrFAMpcYIlbVtPph9fdD8TeGayHgJAhE
-	Cha2LjTK9/9XmSWN/HfuDbKDNsvB7tJKSxrA/Gw==
-X-Gm-Gg: ASbGnctfamSAb0ft8YYy7Yp6XCGTc75ifuwAmcyBQRl1R0J6Nl/RURq5Lafm+xo41DW
-	iOHt/VC54dghVnw5PTFOO9eRzAgyLuVvXoCq1RQqZITzejTUPPJmR6ddgx6UnGjHPffY7rlyLE6
-	iUHRHSnvaWr29SKehyJqkIsCdhsSg=
-X-Google-Smtp-Source: AGHT+IEe40CfksyDI5mdSQUSHhqAslmj6SGjaz3DQ4bTsoYnRMhPf4eCW4qJvzXcD+bNgB+yF6CSG5NQVgbkPysQZfM=
-X-Received: by 2002:a05:690c:b8e:b0:6f7:5605:c62b with SMTP id
- 00721157ae682-6ff4600ebd2mr140912807b3.27.1742208684308; Mon, 17 Mar 2025
- 03:51:24 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742213473; x=1742818273;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=C0AefTr+b/KmSIHJ/y0w6HkDTitHcQhMEPmgA2zTVn0=;
+        b=QjH3uSagiMWvUj3ndlZaQJkiKWxlGT97z8oU12EpxKcGaQpiuK4svkT4e0rd6Wtk16
+         +GFhZxKNBvQy1o0ijZLFPxWwld0d1qu4FOFA/+3jXIHcrlg/BprOh//7JG3YPJli8XQw
+         QXPF9XFTOuiVI9ooKspmrqyg2SBNIDyA0QsrQ4nQCVC/Gk9CaRBfogym2s4XYqkTttyf
+         Wgbv79LdAq/LduynXRd6VhV5zc+M2TxKrPSlsv8M4TxPkUXJnPUs51dqVkK06TN/ILnO
+         f0F0RLSRJkF+8K3q6uzMhZ56YWegO0To4NjpFZOswfW66g3uQVgPeTNxAIK2JfqTB1Gg
+         wGuA==
+X-Forwarded-Encrypted: i=1; AJvYcCUhWK/klbgkYDM6PRm5PdKcc6lwHq338SaCThpw4EJK9Le1ASKAzBoUBLjFk29hSTOQ/uhU29BLewnh7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzI14nq5gHVK0ZtP9UTPli5YHqDlOrXULJAt7i2cgWoZLrI/lRQ
+	GnfvWnJVWYnyPkh+u0yxN0oygg1ZxBpUKx1Lfz2vU2Z2AtaMZLyjV3A+M8Ap+xw=
+X-Gm-Gg: ASbGncvZqqWfgQ0XcSnUj/kOWJSJJYKhifsGO+5WBI6m9/sX7b06GyZvvYaz6ypK3au
+	HPIA+hipBvLq3Xkk5UvK10KD+YY0Y1ug8VZdB1AHwS9lLT5g8+8FpQ6OIDUGYI4MVYjdkf+xwjQ
+	Lv+M3YHipX9+qfE+yT25ROlOox+cHQjjd6oQn7bbhn6ttaiySNbSAjdwwoO8MWyF3eMi4/hOLlQ
+	d8+7XG4hYJpB6m9rgJ7PJSHO1JGUnFxQPGefIvx0oo5v53g2PRP8BOOI745x3Ce5Pnsx25GKXpc
+	ziAy981DDOt1QL88YTkm4WmXDRAB1MEKYeUVvSqa8AJABYs5ctgMqzBidCihPHDn7rvYMzKw2XU
+	q1glCogJ+
+X-Google-Smtp-Source: AGHT+IHihbZvdnYYDfqQYS9Hgz8z5Z3z4PweP7imJlwjMD1yaS93kmhWHJcx0wBiJ8Y5JrB0JR4bZA==
+X-Received: by 2002:a05:6e02:3041:b0:3d4:6dd2:3989 with SMTP id e9e14a558f8ab-3d483a88a3emr151134105ab.20.1742213473560;
+        Mon, 17 Mar 2025 05:11:13 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d47a666583sm26051995ab.16.2025.03.17.05.11.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 17 Mar 2025 05:11:13 -0700 (PDT)
+Message-ID: <26f931a0-602b-45a9-a533-b297033655ae@riscstar.com>
+Date: Mon, 17 Mar 2025 07:11:11 -0500
 MIME-Version: 1.0
-References: <20250314154834.4053416-1-arnd@kernel.org>
-In-Reply-To: <20250314154834.4053416-1-arnd@kernel.org>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 17 Mar 2025 11:50:47 +0100
-X-Gm-Features: AQ5f1Jr6iktPjJh5-3SyBgHuMVQK2t5ir32zhMU3Ip0MrgbDCFUExx4K6sMmMQQ
-Message-ID: <CAPDyKFrBfoMpGxnYM1g4M2+LViy8OAtogLL9swUFQfhhm9Ge1Q@mail.gmail.com>
-Subject: Re: [PATCH] pmdomain: thead: fix TH1520_AON_PROTOCOL dependency
-To: Arnd Bergmann <arnd@kernel.org>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
-	Michal Wilczynski <m.wilczynski@samsung.com>, Arnd Bergmann <arnd@arndb.de>, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] pinctrl: spacemit: enable config option
+To: Geert Uytterhoeven <geert@linux-m68k.org>, Yixun Lan <dlan@gentoo.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Alex Elder <elder@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, spacemit@lists.linux.dev,
+ Conor Dooley <conor.dooley@microchip.com>
+References: <20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org>
+ <CAMuHMdV4xWLEuCvCC54GBfCdELE=QSHqaOyUPD-ezE0QLYRnVA@mail.gmail.com>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <CAMuHMdV4xWLEuCvCC54GBfCdELE=QSHqaOyUPD-ezE0QLYRnVA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_035126_857399_3748B70A 
-X-CRM114-Status: GOOD (  18.27  )
+X-CRM114-CacheID: sfid-20250317_051116_124128_2F4A9456 
+X-CRM114-Status: GOOD (  20.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,60 +100,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 14 Mar 2025 at 16:48, Arnd Bergmann <arnd@kernel.org> wrote:
->
-> From: Arnd Bergmann <arnd@arndb.de>
->
-> Kconfig treats the dependency as optional, but the header file only provides
-> normal declarations and no empty API stubs:
->
-> ld: fs/btrfs/extent_io.o: in function `writepage_delalloc':
-> extent_io.c:(.text+0x2b42): undefined reference to `__udivdi3'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_off':
-> th1520-pm-domains.c:(.text+0x57): undefined reference to `th1520_aon_power_update'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_power_on':
-> th1520-pm-domains.c:(.text+0x8a): undefined reference to `th1520_aon_power_update'
-> ld: drivers/pmdomain/thead/th1520-pm-domains.o: in function `th1520_pd_probe':
-> th1520-pm-domains.c:(.text+0xb8): undefined reference to `th1520_aon_init'
-> ld: th1520-pm-domains.c:(.text+0x1c6): undefined reference to `th1520_aon_power_update'
->
-> Since the firmware code can easily be enabled for compile testing, there
-> is no need to add stubs either, so just make it a hard dependency.
->
-> Fixes: dc9a897dbb03 ("pmdomain: thead: Add power-domain driver for TH1520")
-> Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+On 3/17/25 3:18 AM, Geert Uytterhoeven wrote:
+> Hi Yixun,
+> 
+> Thanks for your patch, which is now commit 7ff4faba63571c51
+> ("pinctrl: spacemit: enable config option") in v6.14-rc7.
+> 
+> On Tue, 18 Feb 2025 at 01:32, Yixun Lan <dlan@gentoo.org> wrote:
+>> Pinctrl is an essential driver for SpacemiT's SoC,
+>> The uart driver requires it, same as sd card driver,
+>> so let's enable it by default for this SoC.
+>>
+>> The CONFIG_PINCTRL_SPACEMIT_K1 isn't enabled when using
+>> 'make defconfig' to select kernel configuration options.
+>> This result in a broken uart driver where fail at probe()
+>> stage due to no pins found.
+> 
+> Perhaps this is an issue with the uart driver?
+> I just disabled CONFIG_PINCTRL_RZA2 on RZA2MEVB (which is one of the
+> few Renesas platforms where the pin control driver is not enabled by
+> default, for saving memory), and the system booted fine into a Debian
+> nfsroot.  Probe order of some devices did change, and "Trying to
+> probe devices needed for running init" was printed.
+> 
+>> Fixes: a83c29e1d145 ("pinctrl: spacemit: add support for SpacemiT K1 SoC")
+>> Reported-by: Alex Elder <elder@kernel.org>
+>> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> Tested-by: Alex Elder <elder@riscstar.com>
+>> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> 
+>> --- a/drivers/pinctrl/spacemit/Kconfig
+>> +++ b/drivers/pinctrl/spacemit/Kconfig
+>> @@ -4,9 +4,10 @@
+>>   #
+>>
+>>   config PINCTRL_SPACEMIT_K1
+>> -       tristate "SpacemiT K1 SoC Pinctrl driver"
+>> +       bool "SpacemiT K1 SoC Pinctrl driver"
+>>          depends on ARCH_SPACEMIT || COMPILE_TEST
+>>          depends on OF
+>> +       default y
+> 
+> Ouch, fix sent...
+> "[PATCH] pinctrl: spacemit: PINCTRL_SPACEMIT_K1 should not default to
+> y unconditionally"
+> https://lore.kernel.org/6881b8d1ad74ac780af8a974e604b5ef3f5d4aad.1742198691.git.geert+renesas@glider.be
 
-Applied for next, thanks!
+This is interesting; what you say was what was proposed in v1
+of the patch series.
 
-Kind regards
-Uffe
+I did not understand COMPILE_TEST to be used the way you say,
+but I think that just means you understood it better than I do.
 
+I think the rule is that "depends on FOO || COMPILE_TEST" alone
+is fine.  But if you are going to specify a default, it should
+be "default FOO" and not "default y".
 
-> ---
->  drivers/pmdomain/thead/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/pmdomain/thead/Kconfig b/drivers/pmdomain/thead/Kconfig
-> index c7a1ac0c61dc..7d52f8374b07 100644
-> --- a/drivers/pmdomain/thead/Kconfig
-> +++ b/drivers/pmdomain/thead/Kconfig
-> @@ -2,7 +2,7 @@
->
->  config TH1520_PM_DOMAINS
->         tristate "Support TH1520 Power Domains"
-> -       depends on TH1520_AON_PROTOCOL || !TH1520_AON_PROTOCOL
-> +       depends on TH1520_AON_PROTOCOL
->         select REGMAP_MMIO
->         help
->           This driver enables power domain management for the T-HEAD
-> --
-> 2.39.5
->
+Thanks for pointing this out.  I'll go respond to your patch.
+
+					-Alex
+
+>>          select GENERIC_PINCTRL_GROUPS
+>>          select GENERIC_PINMUX_FUNCTIONS
+>>          select GENERIC_PINCONF
+> 
+> Gr{oetje,eeting}s,
+> 
+>                          Geert
+> 
+
 
 _______________________________________________
 linux-riscv mailing list
