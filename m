@@ -4,81 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DB52C282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 16:09:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3921C282EC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 16:12:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=Z7hhc4QF8CMNxGXHPhPI3Inm85wxIWQ80KkKlKefzVY=; b=XsXgWQI0xA5Iop9ITp4hjrRi7s
-	ldMUAEUtu3+LXC6qYNJds+CON2+MEOHPCuphUL7ZcpO5OHxdZDi3v2k/24LtZodGAZk1ijxiS8IfI
-	nsfpIg5zGEzQrw+RGSZlvYroYumA87DLujyuwKDSc2i9DEojVQqG9bADdXYpmcwNJux7nNkeIqIZK
-	dNuf8A5OSTA5Pn25uoyeJt7D3ovh8Dj9rz7cUcysW1Y3UZpEnGN+JrCDRCF57366NAAlw0nUWZEX7
-	X+urLWCfDN3w5DS9I72LlyxbKwKWcryiB5eGeh0OBqzUR/k0uOdYhfJkznW0H30IsEqvGzc8rx7Pr
-	Kyt/o/7A==;
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k8oLMIwQldgKY7yyjExcUAozM6adPnQRviWz62lav8I=; b=X+yoM6MuPHqf7B
+	oVZe8QcfG640XrFjgbPvzTw/UUce0TFRCDmLBdVfOW+R7YWFh3T5EzneHOiTRkMq8EXJHie0XHmq5
+	pYSRr9LZLlPdM92LJLay9hDT2G9OmYQS/87pQdjJNFreZHw38f/FAPx8z155VeSAHC5zQgIqIlxFC
+	Uxs6hOA8XOgfiJSZ3Atpp1ObZAvjXaVdMs5O0/fGoN5pdL7z7o+XIQtGNkHQZ8wachFjZtRrFUCbi
+	J/veSnAHybjAqlY9/wZN3FGuxzWGiH+uv3HrAYAR372Uibz/iZ3tkB//IraGlzfjrvF054meW3YmR
+	Tn3U4eVIT0LXl+Jus90w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuD1k-00000003H9o-1roC;
-	Mon, 17 Mar 2025 16:09:20 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1tuD4t-00000003HrJ-0d7i;
+	Mon, 17 Mar 2025 16:12:35 +0000
+Received: from [210.118.77.12] (helo=mailout2.w1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuD0c-00000003Gug-1O3M
+	id 1tuD4n-00000003Hpk-0pPA
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 16:08:13 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-2ff62f96b10so2981039a91.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 09:08:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742227689; x=1742832489; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kFGsIS9GUasJNsr+AyNzSWrAC+Oat7GEq5DJqh+FPjE=;
-        b=sKbQSoaM81/C1sBuTJjqlS+UDdNskMvVB4ih/DY7oMqOHTgNs64CvPZViZSewJTUvX
-         QLundUx9O5IkC3S70mVU59qBHO2BVEVE+Sx2bkdQBJiwBqRvam6YNodRCYFT2Ivud6M7
-         EglrcaCnmegZtj53FI9iAKLJj2n1FpmJ5YwkNw8GJCWITZEbf/0S06/3mTH610HZ5dk4
-         PEw94LjyS95klGD7rWCjCQ/5wzd88LwnkhBKCLxceiU5k4x5Cr1u6fXUd+s36JCotW1j
-         Jbz3c5b2E51DWUFmjuvhTwPo0nI4oFYPs0PtuMsN5ghOiAIeI8+RRVaoBD0t0aimGEUl
-         pu9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742227689; x=1742832489;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kFGsIS9GUasJNsr+AyNzSWrAC+Oat7GEq5DJqh+FPjE=;
-        b=LaGWWaFGKDJvjqcZe2FqfZpAtDdbOfkxPz4x/1WmW5mJCb4CRkCF6mGRvDkYGIKuSr
-         xBBtMX972Uhv96SJhukCXNkSFzVmDHtfbJMcMBvNjugg9wK8oZB81tQryP1Yy0IbLkh6
-         mw/Z1GbouMpwAgC0u2ouTD0rRwoJerypbCkTqhfNONaARCWxGrubMwFyWjoQrFoxoxTA
-         V4rblxoHCO0oxjiNH5RVgHsCUrowghFHQzsbRX2EeqYxzL7MC24BS/WO5zA0iRpDFgBW
-         4vAn/+Z/+ACkaTEn57smKYmOYJkbcISZfzBgUywvafKS/cTLvQfL1eqOHwf+UeRjdB8F
-         3sgg==
-X-Forwarded-Encrypted: i=1; AJvYcCUqOKItLkiTStvM1gZJjMy2LxvB5wvJlHpHNGfVW775VWh4oxWFa3sOZjn0JzW/9ibrWteuea00Zc6u6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHFxVbnmgOCPD/4m6p8xQB7QomhNyOMI2UhIgQDmPL1ugoerS4
-	UvBFOZtd5kNtGvzbdvEV/7P9ZklxD52uecYBrpyxSqZrbiBEGqOFmaC6xWcOAVJyQjQznU8BtIA
-	EYY8JUuqiGODc66j/hPPESCZ1FWBYM8FrNGbP9DbrjMQAotifIRnbYNwvnxxqj4fLfWRnpNA=
-X-Google-Smtp-Source: AGHT+IF+hruQfmOR7ShC4vLyikmFYkRsFWDD656xmQF7xQnZ3FiYAQLSOrsH0dqIoNXqWj4kGILXNWg7yAo=
-X-Received: from pjbli15.prod.google.com ([2002:a17:90b:48cf:b0:2ef:d136:17fc])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2e48:b0:2fa:4926:d18d
- with SMTP id 98e67ed59e1d1-3019f4f043cmr10445a91.13.1742227688937; Mon, 17
- Mar 2025 09:08:08 -0700 (PDT)
-Date: Mon, 17 Mar 2025 09:08:06 -0700
-In-Reply-To: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
-Mime-Version: 1.0
-References: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
-Message-ID: <Z9hI5vEHngcKvvRa@google.com>
-Subject: Re: [PATCH] RISC-V: KVM: Teardown riscv specific bits after kvm_exit
-From: Sean Christopherson <seanjc@google.com>
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
-	Anup Patel <apatel@ventanamicro.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-ccpol: medium
+	Mon, 17 Mar 2025 16:12:33 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250317161223euoutp02c498be642437ffcac81e5afc2bd81d21~toxWMi-zi2062620626euoutp02x
+	for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 16:12:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250317161223euoutp02c498be642437ffcac81e5afc2bd81d21~toxWMi-zi2062620626euoutp02x
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1742227943;
+	bh=10IRgpQMbNFI29XLq0glZJu7GX+CLOY5La5kAdANtP0=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=FtHlbCC681XxT1DuUm/nRdaG8JbvNlNQRadmRUUBMk3n6SHvCwGox5BXToo2CcAya
+	 2paX1Kof8mvBX/OGLXSllT1UdbjI77U0hp13rfodngtaRjRGwJiMLmZUL+CSd1q5RX
+	 r4iAPNPjli5VfbjJxolgGgryLSEjXiaf5Pqw869k=
+Received: from eusmges2new.samsung.com (unknown [203.254.199.244]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250317161223eucas1p2a8cc4443496c567f65a5849291747afb~toxWEUBr01643216432eucas1p2-;
+	Mon, 17 Mar 2025 16:12:23 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges2new.samsung.com (EUCPMTA) with SMTP id 38.77.20409.7E948D76; Mon, 17
+	Mar 2025 16:12:23 +0000 (GMT)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250317161223eucas1p2bdbfa7a0af7ad83b7ef863321a0d032c~toxVx8rCT2939529395eucas1p24;
+	Mon, 17 Mar 2025 16:12:23 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250317161223eusmtrp1969425f9ffeec33b4f1ebe258ff55e7d~toxVxdU7e1163311633eusmtrp1U;
+	Mon, 17 Mar 2025 16:12:23 +0000 (GMT)
+X-AuditID: cbfec7f4-c0df970000004fb9-6a-67d849e7fcc7
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id AF.99.19920.7E948D76; Mon, 17
+	Mar 2025 16:12:23 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250317161223eusmtip23dfbeb4f75cc480f1074cc93b7fa760c~toxVimyjl2406624066eusmtip25;
+	Mon, 17 Mar 2025 16:12:23 +0000 (GMT)
+Message-ID: <a67c8b72-b7dd-4346-a9a1-2cdc17623312@samsung.com>
+Date: Mon, 17 Mar 2025 17:12:22 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [bug report] firmware: thead: Add AON firmware protocol driver
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrCIsWRmVeSWpSXmKPExsWy7djPc7rPPW+kG5w4qWLxYV4ru8W2zy1s
+	Dkwed67tYfPYvKQ+gCmKyyYlNSezLLVI3y6BK6Pn5ySWgmd8FYuffWVsYGzl6mLk5JAQMJF4
+	3vCEtYuRi0NIYAWjxLmTLSwQzhdGid/9E5khnM+MEqenvWOFadm7/gMjRGI5o8ThuceYIJy3
+	jBI/Ji5kAaniFbCTeHbuIlA7BweLgKrE5SlGEGFBiZMzn4CViArIS9y/NYMdxBYW8Ja4NLeP
+	GcQWEdCR+Pd3MlgNs4CyxLG1vVC2uMStJ/OZQGw2ASOJB8vngx3EKeAiMXPCcWaIGnmJ5q2z
+	wa6WEFjIIbFx92N2iKtdJD5PnMACYQtLvDq+BSouI3F6cg9UPF/iwdZPzBB2jcTOnuNQtrXE
+	nXO/2EB+YRbQlFi/Sx8i7Cjx7tZ/sLCEAJ/EjbeCECfwSUzaNp0ZIswr0dEmBFGtJjG1pxdu
+	6bkV25gmMCrNQgqUWUienIXkmVkIexcwsqxiFE8tLc5NTy02ykst1ytOzC0uzUvXS87P3cQI
+	TBin/x3/soNx+auPeocYmTgYDzFKcDArifC6P7meLsSbklhZlVqUH19UmpNafIhRmoNFSZx3
+	0f7WdCGB9MSS1OzU1ILUIpgsEwenVAOTl4bNAu9985yKXLnvVkbf9moqeSU/ef9so6krVv47
+	7vJ6wUrbJ1+XZnMfnM94IUDbR8N/+XQ+h5NuD7UZYqPfPcvynCB46EZ6wI33Su4y6zsKPvB4
+	LnVxWh9e0Jwm6v9cU9x30QeuIumtv2/f/iUuP8eiOL1wYojhzrMLn8UFnKq3DIor3XbsqP/K
+	4LO657/3Rikd47RhKz1SeSVrhcn/KW//rblZZCnYMjVlpeqi6ZujUre8lHtywe5E+RRvab1t
+	XCrihYZr34jfuix2vUTeMYfjCV/9pdRvTXobt3see7+8ed+2y0ty7lnXKN9buESJ9cojpW0z
+	jLRveJy/kVjaN6MzQS2MsfKtnniNf/o5JZbijERDLeai4kQAkCUypocDAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpjkeLIzCtJLcpLzFFi42I5/e/4Pd3nnjfSDba9ErL4MK+V3WLb5xY2
+	ByaPO9f2sHlsXlIfwBSlZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdkYqlnaGwea2VkqqRvZ5OS
+	mpNZllqkb5egl9HzcxJLwTO+isXPvjI2MLZydTFyckgImEjsXf+BsYuRi0NIYCmjxMQvPxgh
+	EjIS17pfskDYwhJ/rnWxQRS9ZpRo2dLDDpLgFbCTeHbuInMXIwcHi4CqxOUpRhBhQYmTM5+A
+	9YoKyEvcvzUDrFxYwFvi0tw+ZhBbREBH4t/fyWA1zALKEsfW9rJAzJ/OKLFsynp2iIS4xK0n
+	85lAbDYBI4kHy+ezgticAi4SMyccB9vLLKAusX6eEES5vETz1tnMExiFZiE5YxaSSbMQOmYh
+	6VjAyLKKUSS1tDg3PbfYUK84Mbe4NC9dLzk/dxMjMEK2Hfu5eQfjvFcf9Q4xMnEwHmKU4GBW
+	EuF1f3I9XYg3JbGyKrUoP76oNCe1+BCjKTAkJjJLiSbnA2M0ryTe0MzA1NDEzNLA1NLMWEmc
+	1+3y+TQhgfTEktTs1NSC1CKYPiYOTqkGJjufXqlp5dXvtpU++5e9eF7CVMlddnvMz9+/Ntmr
+	+cD9m8eC9yrfDg/vZIxncIyW8XwlZ3tGp0lKIWnbQ031216NUdlPF19Z8vn+hPTAzU4Cia/3
+	uykHy7wpqhWq9d72+XX484mK6xQaDntsdM0zVjtTO8esep57md1MHhljbs+OpewTf7Jpeh9Z
+	fqU5lI9Zfs7951cvn+nfdShNIjgqSlh3fTzrhsVN2qrvXKs+9K/jqO7TOmm2b6PvHN723eYv
+	rWdM2acsdaD45oOJVt6NmqxGv856ztu+PD5ehv9zDZ/I0fePT9Z0uG55vOvWshSXUO0v9yZc
+	OXTzU1Tcv8uSCQeY9vqKrHjfePDWK06RT0osxRmJhlrMRcWJABivKCQZAwAA
+X-CMS-MailID: 20250317161223eucas1p2bdbfa7a0af7ad83b7ef863321a0d032c
+X-Msg-Generator: CA
+X-RootMTR: 20250315095420eucas1p2826e528bf27f1e8a5f7a9122f79bbce0
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250315095420eucas1p2826e528bf27f1e8a5f7a9122f79bbce0
+References: <CGME20250315095420eucas1p2826e528bf27f1e8a5f7a9122f79bbce0@eucas1p2.samsung.com>
+	<17a0ccce-060b-4b9d-a3c4-8d5d5823b1c9@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_090810_371056_0532E6ED 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20250317_091229_856913_81E2970B 
+X-CRM114-Status: UNSURE (   8.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,85 +123,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025, Atish Patra wrote:
-> During a module removal, kvm_exit invokes arch specific disable
-> call which disables AIA. However, we invoke aia_exit before kvm_exit
-> resulting in the following warning. KVM kernel module can't be inserted
-> afterwards due to inconsistent state of IRQ.
-> 
-> [25469.031389] percpu IRQ 31 still enabled on CPU0!
-> [25469.031732] WARNING: CPU: 3 PID: 943 at kernel/irq/manage.c:2476 __free_percpu_irq+0xa2/0x150
-> [25469.031804] Modules linked in: kvm(-)
-> [25469.031848] CPU: 3 UID: 0 PID: 943 Comm: rmmod Not tainted 6.14.0-rc5-06947-g91c763118f47-dirty #2
-> [25469.031905] Hardware name: riscv-virtio,qemu (DT)
-> [25469.031928] epc : __free_percpu_irq+0xa2/0x150
-> [25469.031976]  ra : __free_percpu_irq+0xa2/0x150
-> [25469.032197] epc : ffffffff8007db1e ra : ffffffff8007db1e sp : ff2000000088bd50
-> [25469.032241]  gp : ffffffff8131cef8 tp : ff60000080b96400 t0 : ff2000000088baf8
-> [25469.032285]  t1 : fffffffffffffffc t2 : 5249207570637265 s0 : ff2000000088bd90
-> [25469.032329]  s1 : ff60000098b21080 a0 : 037d527a15eb4f00 a1 : 037d527a15eb4f00
-> [25469.032372]  a2 : 0000000000000023 a3 : 0000000000000001 a4 : ffffffff8122dbf8
-> [25469.032410]  a5 : 0000000000000fff a6 : 0000000000000000 a7 : ffffffff8122dc10
-> [25469.032448]  s2 : ff60000080c22eb0 s3 : 0000000200000022 s4 : 000000000000001f
-> [25469.032488]  s5 : ff60000080c22e00 s6 : ffffffff80c351c0 s7 : 0000000000000000
-> [25469.032582]  s8 : 0000000000000003 s9 : 000055556b7fb490 s10: 00007ffff0e12fa0
-> [25469.032621]  s11: 00007ffff0e13e9a t3 : ffffffff81354ac7 t4 : ffffffff81354ac7
-> [25469.032664]  t5 : ffffffff81354ac8 t6 : ffffffff81354ac7
-> [25469.032698] status: 0000000200000100 badaddr: ffffffff8007db1e cause: 0000000000000003
-> [25469.032738] [<ffffffff8007db1e>] __free_percpu_irq+0xa2/0x150
-> [25469.032797] [<ffffffff8007dbfc>] free_percpu_irq+0x30/0x5e
-> [25469.032856] [<ffffffff013a57dc>] kvm_riscv_aia_exit+0x40/0x42 [kvm]
-> [25469.033947] [<ffffffff013b4e82>] cleanup_module+0x10/0x32 [kvm]
-> [25469.035300] [<ffffffff8009b150>] __riscv_sys_delete_module+0x18e/0x1fc
-> [25469.035374] [<ffffffff8000c1ca>] syscall_handler+0x3a/0x46
-> [25469.035456] [<ffffffff809ec9a4>] do_trap_ecall_u+0x72/0x134
-> [25469.035536] [<ffffffff809f5e18>] handle_exception+0x148/0x156
-> 
-> Invoke aia_exit and other arch specific cleanup functions after kvm_exit
-> so that disable gets a chance to be called first before exit.
-> 
-> Fixes: 54e43320c2ba ("RISC-V: KVM: Initial skeletal support for AIA")
-> 
-> Signed-off-by: Atish Patra <atishp@rivosinc.com>
-> ---
-
-FWIW,
-
-Reviewed-by: Sean Christopherson <seanjc@google.com>
-
->  arch/riscv/kvm/main.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
-> index 1fa8be5ee509..4b24705dc63a 100644
-> --- a/arch/riscv/kvm/main.c
-> +++ b/arch/riscv/kvm/main.c
-> @@ -172,8 +172,8 @@ module_init(riscv_kvm_init);
->  
->  static void __exit riscv_kvm_exit(void)
->  {
-> -	kvm_riscv_teardown();
-> -
->  	kvm_exit();
-> +
-> +	kvm_riscv_teardown();
-
-I wonder if there's a way we can guard against kvm_init()/kvm_exit() being called
-too early/late.  x86 had similar bugs for a very long time, e.g. see commit
-e32b120071ea ("KVM: VMX: Do _all_ initialization before exposing /dev/kvm to userspace").
-
-E.g. maybe we do something like create+destroy a VM at the end of kvm_init() and
-the beginning of kvm_exit()?  Not sure if that would work for kvm_exit(), but it
-should definitely be fine for kvm_init().
-
-It wouldn't prevent bugs, but maybe it would help detect them during development?
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAzLzE1LzI1IDEwOjU0LCBEYW4gQ2FycGVudGVyIHdyb3RlOgo+IEhlbGxvIE1pY2hhbCBX
+aWxjenluc2tpLAo+IAo+IENvbW1pdCBlNGIzY2JkODQwZTUgKCJmaXJtd2FyZTogdGhlYWQ6IEFk
+ZCBBT04gZmlybXdhcmUgcHJvdG9jb2wKPiBkcml2ZXIiKSBmcm9tIE1hciAxMSwgMjAyNSAobGlu
+dXgtbmV4dCksIGxlYWRzIHRvIHRoZSBmb2xsb3dpbmcKPiBTbWF0Y2ggc3RhdGljIGNoZWNrZXIg
+d2FybmluZzoKPiAKPiAJZHJpdmVycy9maXJtd2FyZS90aGVhZCx0aDE1MjAtYW9uLmM6MTc0IHRo
+MTUyMF9hb25fcG93ZXJfdXBkYXRlKCkKPiAJZXJyb3I6IGJ1ZmZlciBvdmVyZmxvdyAnZGF0YScg
+MiA8PSAzCj4gCj4gZHJpdmVycy9maXJtd2FyZS90aGVhZCx0aDE1MjAtYW9uLmMKPiAgICAgMTY0
+IHsKPiAgICAgMTY1ICAgICAgICAgc3RydWN0IHRoMTUyMF9hb25fbXNnX3JlcV9zZXRfcmVzb3Vy
+Y2VfcG93ZXJfbW9kZSBtc2cgPSB7fTsKPiAgICAgMTY2ICAgICAgICAgc3RydWN0IHRoMTUyMF9h
+b25fcnBjX21zZ19oZHIgKmhkciA9ICZtc2cuaGRyOwo+ICAgICAxNjcgICAgICAgICBpbnQgcmV0
+Owo+ICAgICAxNjggCj4gICAgIDE2OSAgICAgICAgIGhkci0+c3ZjID0gVEgxNTIwX0FPTl9SUENf
+U1ZDX1BNOwo+ICAgICAxNzAgICAgICAgICBoZHItPmZ1bmMgPSBUSDE1MjBfQU9OX1BNX0ZVTkNf
+U0VUX1JFU09VUkNFX1BPV0VSX01PREU7Cj4gICAgIDE3MSAgICAgICAgIGhkci0+c2l6ZSA9IFRI
+MTUyMF9BT05fUlBDX01TR19OVU07Cj4gICAgIDE3MiAKPiAgICAgMTczICAgICAgICAgUlBDX1NF
+VF9CRTE2KCZtc2cucmVzb3VyY2UsIDAsIHJzcmMpOwo+IC0tPiAxNzQgICAgICAgICBSUENfU0VU
+X0JFMTYoJm1zZy5yZXNvdXJjZSwgMiwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIF4KPiAmbXNnLnJlc291cmNlIGlzIGEgMiBieXRlIGFycmF5LiAgVGhpcyBz
+ZXRzIHRoZSAzcmQgYW5kIDR0aCBieXRlcy4KPiBJdCdzIGludGVudGlvbmFsIGJ1dCB1Z2x5LiAg
+VXNlICZtc2cubW9kZSBpbnN0ZWFkLgo+IEFsc28gdXNlIHByb3BlciBlbmRpYW4gY29udmVyc2lv
+biBtYWNyb3Mgd2hpY2ggZG9uJ3QgYXNzdW1lIHRoYXQKPiB3ZSdyZSBvbiBhIGxpdHRsZSBlbmRp
+YW4gc3lzdGVtLiAgKEFsdGhvdWdoIEludGVsIGRyaXZlcnMgYXNzdW1lIHRoZXkKPiBhcmUgb24g
+bGl0dGxlIGVuZGlhbiBzeXN0ZW1zLiAgU28gdGhlcmUgaXMgcHJlY2VkZW5jZS4gIEkgc3VwcG9z
+ZWQuKQoKVGhhbmsgeW91IHZlcnkgbXVjaCBmb3IgeW91ciByZXBvcnQuIFdpbGwgZm9sbG93IHVw
+IHdpdGggdGhlIGZpeCBwYXRjaC4KClJlZ2FyZHMsCk1pY2hhxYIKCj4gCj4gICAgIDE3NSAgICAg
+ICAgICAgICAgICAgICAgICAocG93ZXJfb24gPyBUSDE1MjBfQU9OX1BNX1BXX01PREVfT04gOgo+
+ICAgICAxNzYgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVEgxNTIwX0FPTl9QTV9Q
+V19NT0RFX09GRikpOwo+ICAgICAxNzcgCj4gICAgIDE3OCAgICAgICAgIHJldCA9IHRoMTUyMF9h
+b25fY2FsbF9ycGMoYW9uX2NoYW4sICZtc2cpOwo+ICAgICAxNzkgICAgICAgICBpZiAocmV0KQo+
+ICAgICAxODAgICAgICAgICAgICAgICAgIGRldl9lcnIoYW9uX2NoYW4tPmNsLmRldiwgImZhaWxl
+ZCB0byBwb3dlciAlcyByZXNvdXJjZSAlZCByZXQgJWRcbiIsCj4gICAgIDE4MSAgICAgICAgICAg
+ICAgICAgICAgICAgICBwb3dlcl9vbiA/ICJ1cCIgOiAib2ZmIiwgcnNyYywgcmV0KTsKPiAgICAg
+MTgyIAo+ICAgICAxODMgICAgICAgICByZXR1cm4gcmV0Owo+ICAgICAxODQgfQo+IAo+IHJlZ2Fy
+ZHMsCj4gZGFuIGNhcnBlbnRlcgo+IAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
