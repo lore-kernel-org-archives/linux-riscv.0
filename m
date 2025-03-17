@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507A5C282EC
-	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 07:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12E83C282EC
+	for <linux-riscv@archiver.kernel.org>; Mon, 17 Mar 2025 07:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=9iu6hhauc2ryE6ehtPCSUDpKLZbGSsE7a/K77f/i95Y=; b=a33VyGuXS8/cqQ
-	a23jI/TLcI5pe9eLmr3IsMO5Quwnzpv8ZVw0MRTRGYAAYVRERIJFshk4HKyZcC22GRYI2vUJc59SC
-	2+EbEuKpW5NOPeDX82T6HEeS11H67unHZzWnxUdeeoentdjJcLtMmFAGs8PNRQdDxDoITI/RZZ5w7
-	fsvlOKigA70rQcfhoGgZCVB4v7lasrET4reC6Q+yDxNkkoZOAbPZSKG2S+yILBJ1haiviA34gBDes
-	sA0dB2dblpEmzwC8HOuFnF7I9L4LvHV6xta/vQ06f3R6cQj9tIc/yzNF9P86xnFtx9gEjA4Dt5TfE
-	rs1yUzg/C6MjZueM7OBA==;
+	List-Owner; bh=oYROYFI7s8aUCpmBd+YfrJXIAfztId8rSZTFbg4kBUY=; b=FcAEOcTUo+eszc
+	DyeRVFelf4iCj5TSy6UbILzACEhWyC2NfPxjUqVgNNPUafHVcWgOgaeTJB/v8qdOC5yU+1U3yRVCZ
+	6qu1D41g8lfc4tleXR0MN1rGNUOSExqz5YJbE0YrCZlF334iMH55i0R3LZETprLzYx9YqVlOl1ENO
+	B/Ay2NCl/B6PJt/B95krcE+Ltfok8oxBMy6+qHv2PQYPUm7W7I6BbqFMx2ByZchDVTKCYKEtKU8dj
+	wCCTMniK3hIPcRzB+a4d5ti2q6vxmG9sneuTDV7nwTHE2vL28Uu+AWHmjuYyI1abw289j8bNKxIDW
+	ioUlpyn7ZqrJNDZ+gMgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4vo-00000001aIL-364w;
-	Mon, 17 Mar 2025 07:30:40 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tu56g-00000001cHv-0ZjW;
+	Mon, 17 Mar 2025 07:41:54 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tu4rH-00000001Ypt-0Che
+	id 1tu56d-00000001cGx-2PRt
 	for linux-riscv@lists.infradead.org;
-	Mon, 17 Mar 2025 07:26:00 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-39104c1cbbdso2260681f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 00:25:58 -0700 (PDT)
+	Mon, 17 Mar 2025 07:41:52 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-223f4c06e9fso67287725ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 00:41:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742196357; x=1742801157; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=l2Rgxfmy4wvi0IV1iIeDi36GnLsMRf14zDXApk09KVM=;
-        b=b5pyx7xJVJw+EzJUUEF6Rqlvhs6K7GPiQIg3o+t3G4ElsuzQIdrkyaY5VDgCSxNkMf
-         FKfHYL9YhGn1wkcPRBWj1z/USgzPZZPO0n/vxAjjiCO6cDDTmmdSuujxBYSHEeOE8wl+
-         eDVd37vKiYF7YQlNLW6be6GjwoS/CwUZ0wk2dAk7SNnFqgFEWWi7O0cumRpo52hkhEzc
-         /ftN62NmP/EiCyrvUzcGggcNZpwtmYVQCtNchIkUMCKZoE6a2sEvqgvFjpeZJcyztiGW
-         L7KCc9J9mTTI+pT1EH67VGiw7X5m+/4VjhxoTsdeoqZP4gEn2wb+69XqzjueoUgSQ5ZX
-         dHnw==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742197310; x=1742802110; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=BWPfpt8VAXB3af6uH6FGAR6gVvoFFmvCHpj+nN5EIrc=;
+        b=17/OSxQzgnOAq4hIA1e4bYfX4nOlzjcdt1px4yNW7ELyB8ll3Qur622ChX9Xj7ehmq
+         oh9Ot36zWGAjiry64I+RL460A6dSlFUt4O02mfYbzZ+ajJ+kNISgJsK8oEjh9j0Dhvc8
+         3oELyTynzoXVI9lepLh4xfZcHBo5ys3o5HEGfpG7FqoOIbOdiPelo4vz54q3L9v2FTsw
+         ciqZB4iqEzVlfViFF/zHUxCscmBB/JzYewTkDG+IShkVMzxrQuEtlkJS1MxIzchJzhmj
+         MHHxcVBa2+zWi9P9tB0x1aXM2I0hLE7QogudTdjLUhw9ckqBBe1KOXu12VETwngBfhF5
+         5mLA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742196357; x=1742801157;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1742197310; x=1742802110;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=l2Rgxfmy4wvi0IV1iIeDi36GnLsMRf14zDXApk09KVM=;
-        b=ZWOYXdUY7UOAmkKFvOLCE/bqTjNcXEx6YQ/BwXi2pcBgmqEyFajaPMsu9ZlLfZVSGh
-         54zv2rxMPEqz7aKusz4Xy5rx46Iy+0w5GIeSqAegrQOA1/WpVrvUTVQTTOf0RD62RndV
-         rmKDtn+RNlxEd0pBL+b4oidZxbQqYjOhXQO3awOVwXhdQpaABznyRpD8LU7cvHokC+R/
-         liU0Iy9yIFBXE9zn+B0hzEOvx3cnUohyGrO4/Lc9HYFHQ6BrmcZEWF/BUm7UlZWlDQgj
-         WlNSiuxRacgOriqETYpnXqQi8hb162VVHZC20S53SB68m1rsu5dRv+TwSM60Sbyh7Ixw
-         2SoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ+rZbi9DjT9cNNU267rAc5Cyp9WeKVfYW3WZCssT3nJvTQOwhXOMM4LXbl9vrYXx78/SRZ6xVclB8vg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwkkvGzkCMTaf/Pmu9IbB7oe420yN1Q4haQeFkev68Key51zm6i
-	iFaTtiW7Dfu/IlyUmWxLE+DibZ1K+GYBhApe8muADU27n2J1Suy56dFJulk2oqA=
-X-Gm-Gg: ASbGncuJuM5y0LsJ3bPwo4nkK1CubyM8xIkp3f4E91hkwDMZI6ZDJ6VeXAPc7eJiZp0
-	/Rou+PN6qh5gxBvYgDj6tv7KX5Yx4VXK7aamZv0qfuaxaWDNZoR4wVAxb8krz8cEN24TjBJvdEM
-	ysdwo5tp7Ja+Q6CfKja322n6fhHrnok56wQkguVyd0fOMNagHdSitkNgxpflNCBRxf2Rpg+GMnk
-	YKnPsNYA2sGtniNzwNV8GQV3pALNC/X5z/eu0yulINm+3EkRCxklzHhJDSQNbmsIIleP84CO0fy
-	fq+jjub3vxpCsHQYBEoHiTJVC5trkHJDBabyqr4IwZQac0iZpvuJBTC8GwjSy76pIw==
-X-Google-Smtp-Source: AGHT+IGFDMFLc6+xi+GWz3Dc64P/p7dYSStQUrPd9vMMUlqPXgkzGWncVuX7U3JZiTVznPWilKKpOg==
-X-Received: by 2002:a05:6000:18a8:b0:391:2d8f:dd56 with SMTP id ffacd0b85a97d-3971ded3840mr11909327f8f.29.1742196356823;
-        Mon, 17 Mar 2025 00:25:56 -0700 (PDT)
-Received: from alex-rivos.ba.rivosinc.com ([31.32.81.187])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c8881187sm13887907f8f.41.2025.03.17.00.25.56
+        bh=BWPfpt8VAXB3af6uH6FGAR6gVvoFFmvCHpj+nN5EIrc=;
+        b=USzsBaD58j7/fcu5nErxKA2ZoSAPQZBUc3IIDmgf6v1CO9kdn381gZ3+5qltJ11qAm
+         bI8xkgKaVkmjH15duAxKz4r/ArahsrkaJPXEZ+7IkQCvQiN/n9j+DX+fl5q649FOmEb6
+         hFRqz8kH96fBFm0AVpDjnvrvgqi5dOaS8J8MGP7ECRDZli6Hn2enWIyX14o+MFQlWesV
+         BHHT6Mz8Afapl0iapSYwt8iyoPZnZTOYk2lmxlyCRFy6+KF+ajsqoEZOeUcsg7q6jLiQ
+         xen+7LlnlQTo3S8al0iopv9cjZMRBfhvlr+JgxB32G2F5jsFrOglXvtM/B/G5SR5TAff
+         bn5g==
+X-Forwarded-Encrypted: i=1; AJvYcCXRBl2EaqXLIrM80YBOt/06cgp+iPckh/MPfH6412gVUepj3+JOD/WP0meUsAff98CPuG0roTQ5+kL/5A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxvfk1ryYlX7YwGfHEqLYbgFVnSvv56UWVtp/LKlKBcS4h0n6JD
+	hzrG96WVgjyeJyblesQ7aUGDqQ36S6iZwbcJUFdtKC9LSEyScB1HYXycVFlz7UU=
+X-Gm-Gg: ASbGnctWBjiOjfFRZDiCU0NICUpEA/YVUdNubvdFciw8XCkSp2z8S/5B8aBSdOovivg
+	RHVxlAXRSSS0oQDdSF3e+PmXt5/gYlsRWcCcY44VyvjywO/2JhY1vb5sK6KBymBVg/itAU9/8ix
+	IfeXFRpB4R96hVgvM0f+i7g8GQgck6KPvdT+f1POG07srvht3U0haSsu/giXIGAjxLI5Fa5HhcR
+	DW13iMaPaaGpXxI8+Pm3IS8R8KVeN78ff2ToTlqPqGf1Xv4lCZubcxyRJwYhfGQyfV8B7+8+JBv
+	a1r+xEE4YcU+G4HlR4F2sOiGyvxon4dAvU1ZHuxv05EU+TYm3vKhIeZ/9g==
+X-Google-Smtp-Source: AGHT+IFs7Rf6sPUtecH+s3HQAFvCcmzDdiTgKOaVqa0qXb6f/a/R2HaloGPq4WHogQPMfmpEkOl+tA==
+X-Received: by 2002:a17:902:d48b:b0:215:b1e3:c051 with SMTP id d9443c01a7336-225e16b0fa3mr112060465ad.11.1742197310458;
+        Mon, 17 Mar 2025 00:41:50 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4dabsm68863435ad.233.2025.03.17.00.41.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 17 Mar 2025 00:25:56 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Qinglin Pan <panqinglin2020@iscas.ac.cn>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH] riscv: Fix hugetlb retrieval of number of ptes in case of !present pte
-Date: Mon, 17 Mar 2025 08:25:51 +0100
-Message-Id: <20250317072551.572169-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
+        Mon, 17 Mar 2025 00:41:50 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Mon, 17 Mar 2025 00:41:44 -0700
+Subject: [PATCH] RISC-V: KVM: Teardown riscv specific bits after kvm_exit
 MIME-Version: 1.0
+Message-Id: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
+X-B4-Tracking: v=1; b=H4sIADfS12cC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDY0Mz3eyy3PjUisyS+LTMCl1z8+QUAzNjoxRzEwMloJaColSgMNi46Nj
+ aWgCyH6qWXgAAAA==
+X-Change-ID: 20250316-kvm_exit_fix-77cd0632d740
+To: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Andrew Jones <ajones@ventanamicro.com>
+Cc: Anup Patel <apatel@ventanamicro.com>, kvm@vger.kernel.org, 
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250317_002559_290526_EFE3C072 
-X-CRM114-Status: GOOD (  15.18  )
+X-CRM114-CacheID: sfid-20250317_004151_606928_22D41E77 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,155 +104,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ryan sent a fix [1] for arm64 that applies to riscv too: in some hugetlb
-functions, we must not use the pte value to get the size of a mapping
-because the pte may not be present.
+During a module removal, kvm_exit invokes arch specific disable
+call which disables AIA. However, we invoke aia_exit before kvm_exit
+resulting in the following warning. KVM kernel module can't be inserted
+afterwards due to inconsistent state of IRQ.
 
-So use the already present size parameter for huge_pte_clear() and the
-newly introduced size parameter for huge_ptep_get_and_clear(). And make
-sure to gather A/D bits only on present ptes.
+[25469.031389] percpu IRQ 31 still enabled on CPU0!
+[25469.031732] WARNING: CPU: 3 PID: 943 at kernel/irq/manage.c:2476 __free_percpu_irq+0xa2/0x150
+[25469.031804] Modules linked in: kvm(-)
+[25469.031848] CPU: 3 UID: 0 PID: 943 Comm: rmmod Not tainted 6.14.0-rc5-06947-g91c763118f47-dirty #2
+[25469.031905] Hardware name: riscv-virtio,qemu (DT)
+[25469.031928] epc : __free_percpu_irq+0xa2/0x150
+[25469.031976]  ra : __free_percpu_irq+0xa2/0x150
+[25469.032197] epc : ffffffff8007db1e ra : ffffffff8007db1e sp : ff2000000088bd50
+[25469.032241]  gp : ffffffff8131cef8 tp : ff60000080b96400 t0 : ff2000000088baf8
+[25469.032285]  t1 : fffffffffffffffc t2 : 5249207570637265 s0 : ff2000000088bd90
+[25469.032329]  s1 : ff60000098b21080 a0 : 037d527a15eb4f00 a1 : 037d527a15eb4f00
+[25469.032372]  a2 : 0000000000000023 a3 : 0000000000000001 a4 : ffffffff8122dbf8
+[25469.032410]  a5 : 0000000000000fff a6 : 0000000000000000 a7 : ffffffff8122dc10
+[25469.032448]  s2 : ff60000080c22eb0 s3 : 0000000200000022 s4 : 000000000000001f
+[25469.032488]  s5 : ff60000080c22e00 s6 : ffffffff80c351c0 s7 : 0000000000000000
+[25469.032582]  s8 : 0000000000000003 s9 : 000055556b7fb490 s10: 00007ffff0e12fa0
+[25469.032621]  s11: 00007ffff0e13e9a t3 : ffffffff81354ac7 t4 : ffffffff81354ac7
+[25469.032664]  t5 : ffffffff81354ac8 t6 : ffffffff81354ac7
+[25469.032698] status: 0000000200000100 badaddr: ffffffff8007db1e cause: 0000000000000003
+[25469.032738] [<ffffffff8007db1e>] __free_percpu_irq+0xa2/0x150
+[25469.032797] [<ffffffff8007dbfc>] free_percpu_irq+0x30/0x5e
+[25469.032856] [<ffffffff013a57dc>] kvm_riscv_aia_exit+0x40/0x42 [kvm]
+[25469.033947] [<ffffffff013b4e82>] cleanup_module+0x10/0x32 [kvm]
+[25469.035300] [<ffffffff8009b150>] __riscv_sys_delete_module+0x18e/0x1fc
+[25469.035374] [<ffffffff8000c1ca>] syscall_handler+0x3a/0x46
+[25469.035456] [<ffffffff809ec9a4>] do_trap_ecall_u+0x72/0x134
+[25469.035536] [<ffffffff809f5e18>] handle_exception+0x148/0x156
 
-Fixes: 82a1a1f3bfb6 ("riscv: mm: support Svnapot in hugetlb page")
-Link: https://lore.kernel.org/all/20250217140419.1702389-1-ryan.roberts@arm.com/ [1]
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Invoke aia_exit and other arch specific cleanup functions after kvm_exit
+so that disable gets a chance to be called first before exit.
+
+Fixes: 54e43320c2ba ("RISC-V: KVM: Initial skeletal support for AIA")
+
+Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- arch/riscv/mm/hugetlbpage.c | 76 ++++++++++++++++++++++---------------
- 1 file changed, 45 insertions(+), 31 deletions(-)
+ arch/riscv/kvm/main.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/mm/hugetlbpage.c b/arch/riscv/mm/hugetlbpage.c
-index b4a78a4b35cf..375dd96bb4a0 100644
---- a/arch/riscv/mm/hugetlbpage.c
-+++ b/arch/riscv/mm/hugetlbpage.c
-@@ -148,22 +148,25 @@ unsigned long hugetlb_mask_last_page(struct hstate *h)
- static pte_t get_clear_contig(struct mm_struct *mm,
- 			      unsigned long addr,
- 			      pte_t *ptep,
--			      unsigned long pte_num)
-+			      unsigned long ncontig)
+diff --git a/arch/riscv/kvm/main.c b/arch/riscv/kvm/main.c
+index 1fa8be5ee509..4b24705dc63a 100644
+--- a/arch/riscv/kvm/main.c
++++ b/arch/riscv/kvm/main.c
+@@ -172,8 +172,8 @@ module_init(riscv_kvm_init);
+ 
+ static void __exit riscv_kvm_exit(void)
  {
--	pte_t orig_pte = ptep_get(ptep);
--	unsigned long i;
+-	kvm_riscv_teardown();
 -
--	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++) {
--		pte_t pte = ptep_get_and_clear(mm, addr, ptep);
--
--		if (pte_dirty(pte))
--			orig_pte = pte_mkdirty(orig_pte);
--
--		if (pte_young(pte))
--			orig_pte = pte_mkyoung(orig_pte);
-+	pte_t pte, tmp_pte;
-+	bool present;
+ 	kvm_exit();
 +
-+	pte = ptep_get_and_clear(mm, addr, ptep);
-+	present = pte_present(pte);
-+	while (--ncontig) {
-+		ptep++;
-+		addr += PAGE_SIZE;
-+		tmp_pte = ptep_get_and_clear(mm, addr, ptep);
-+		if (present) {
-+			if (pte_dirty(tmp_pte))
-+				pte = pte_mkdirty(pte);
-+			if (pte_young(tmp_pte))
-+				pte = pte_mkyoung(pte);
-+		}
- 	}
--
--	return orig_pte;
-+	return pte;
++	kvm_riscv_teardown();
  }
- 
- static pte_t get_clear_contig_flush(struct mm_struct *mm,
-@@ -212,6 +215,26 @@ static void clear_flush(struct mm_struct *mm,
- 	flush_tlb_range(&vma, saddr, addr);
- }
- 
-+static int num_contig_ptes_from_size(unsigned long sz, size_t *pgsize)
-+{
-+	unsigned long hugepage_shift;
-+
-+	if (sz >= PGDIR_SIZE)
-+		hugepage_shift = PGDIR_SHIFT;
-+	else if (sz >= P4D_SIZE)
-+		hugepage_shift = P4D_SHIFT;
-+	else if (sz >= PUD_SIZE)
-+		hugepage_shift = PUD_SHIFT;
-+	else if (sz >= PMD_SIZE)
-+		hugepage_shift = PMD_SHIFT;
-+	else
-+		hugepage_shift = PAGE_SHIFT;
-+
-+	*pgsize = 1 << hugepage_shift;
-+
-+	return sz >> hugepage_shift;
-+}
-+
- /*
-  * When dealing with NAPOT mappings, the privileged specification indicates that
-  * "if an update needs to be made, the OS generally should first mark all of the
-@@ -226,22 +249,10 @@ void set_huge_pte_at(struct mm_struct *mm,
- 		     pte_t pte,
- 		     unsigned long sz)
- {
--	unsigned long hugepage_shift, pgsize;
-+	size_t pgsize;
- 	int i, pte_num;
- 
--	if (sz >= PGDIR_SIZE)
--		hugepage_shift = PGDIR_SHIFT;
--	else if (sz >= P4D_SIZE)
--		hugepage_shift = P4D_SHIFT;
--	else if (sz >= PUD_SIZE)
--		hugepage_shift = PUD_SHIFT;
--	else if (sz >= PMD_SIZE)
--		hugepage_shift = PMD_SHIFT;
--	else
--		hugepage_shift = PAGE_SHIFT;
--
--	pte_num = sz >> hugepage_shift;
--	pgsize = 1 << hugepage_shift;
-+	pte_num = num_contig_ptes_from_size(sz, &pgsize);
- 
- 	if (!pte_present(pte)) {
- 		for (i = 0; i < pte_num; i++, ptep++, addr += pgsize)
-@@ -295,13 +306,14 @@ pte_t huge_ptep_get_and_clear(struct mm_struct *mm,
- 			      unsigned long addr,
- 			      pte_t *ptep, unsigned long sz)
- {
-+	size_t pgsize;
- 	pte_t orig_pte = ptep_get(ptep);
- 	int pte_num;
- 
- 	if (!pte_napot(orig_pte))
- 		return ptep_get_and_clear(mm, addr, ptep);
- 
--	pte_num = napot_pte_num(napot_cont_order(orig_pte));
-+	pte_num = num_contig_ptes_from_size(sz, &pgsize);
- 
- 	return get_clear_contig(mm, addr, ptep, pte_num);
- }
-@@ -351,6 +363,7 @@ void huge_pte_clear(struct mm_struct *mm,
- 		    pte_t *ptep,
- 		    unsigned long sz)
- {
-+	size_t pgsize;
- 	pte_t pte = ptep_get(ptep);
- 	int i, pte_num;
- 
-@@ -359,8 +372,9 @@ void huge_pte_clear(struct mm_struct *mm,
- 		return;
- 	}
- 
--	pte_num = napot_pte_num(napot_cont_order(pte));
--	for (i = 0; i < pte_num; i++, addr += PAGE_SIZE, ptep++)
-+	pte_num = num_contig_ptes_from_size(sz, &pgsize);
-+
-+	for (i = 0; i < pte_num; i++, addr += pgsize, ptep++)
- 		pte_clear(mm, addr, ptep);
- }
- 
--- 
-2.39.2
+ module_exit(riscv_kvm_exit);
+
+---
+base-commit: 4701f33a10702d5fc577c32434eb62adde0a1ae1
+change-id: 20250316-kvm_exit_fix-77cd0632d740
+--
+Regards,
+Atish patra
 
 
 _______________________________________________
