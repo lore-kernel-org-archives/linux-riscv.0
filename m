@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5355C35FFA
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 04:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0215AC282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 04:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nFffb7+EGlzSecglz7jd3VaFH+udym1LMlEAgOOjpMQ=; b=np5V7L9ignc6wH
-	JsBpReyBpZ06vkeqIxDzyJYwMiXj9TJCR+bEy8TfOzqky5Whn5quTYfhiPucaRBbTshyZeZ5x7Awi
-	2m6sCuT9zOB+WM1slC+5IMqWF6/0eSKaMzpdrPin87Mtw9K8IEAR3RhHj9UhWR41bX9V8gt4ZYrRh
-	8CjuqG+ADUUyxKPtewBswZ84lIPP/ZGZj4hZYSYOd8PVZe2R93VVHg+XnDbmhrh/AnCaOL3kfmZTj
-	6ZGietbmn3yYNHn0toetYQ77kTV6hcQFeU9IF4abou4G26FrpS6TzawNO/P9x+NRQnPNIfksHTPST
-	jXNcJ+wzMD71xMpXceIQ==;
+	List-Owner; bh=ke0fTkZ3V0vWgv4w//PTnCcvOBf1dVU3B0puwV4WJT4=; b=QlvHmAkIlEiZXn
+	Ex/U6s/qetWSeeYnaqGNOtYYl9MYH+cUw4ow5dsRJ45aKEosoNWF20QY4FbfYQ29CWX9FrzfOO5kP
+	1zp/femacjF9s2uZQQ/42ZMPgejJE5iv+6265C1U8zyHTfnYuP7SctOWEA8IXWVKqqe/uuALBkhxR
+	yPCsF7ZZuV9BKjUOy8eN1spO91cdrOTNo4IIeGUacSN/YjFD4bkIL5blbZIlb5QufnagkL3hDuy9d
+	l9izGp4r/zCZx/56ppP0g/GFQmB9g70yn0P3kW1zyrgp/58Zu7g+MU+HvRD+FZln5mqlKhK0AaMOK
+	zh5Ah82P95UWo4jmLiFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuOEb-00000004bWA-3UgK;
-	Tue, 18 Mar 2025 04:07:21 +0000
+	id 1tuOEa-00000004bUp-1z61;
+	Tue, 18 Mar 2025 04:07:20 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuO7U-00000004af2-0x3M
+	id 1tuO7K-00000004adt-3yud
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 18 Mar 2025 04:00:00 +0000
+	Tue, 18 Mar 2025 03:59:51 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=xaRB3Z7Zn9kGyUKfUpl8WYZaXTZf5T6vpq1GZf0TWl4=; b=DCnUwvcMobG3MkmHWPGenb7igw
-	cHr5LS5b77TrCDe0iRTZqbPhPcKtDcxZS5jAgRDidFQvhSctNodH6RX+6iCLDHy/kVIQySHj9aN8/
-	Jdf8wQrObnOxuIvvYjLrpOq3UFIMFriz0wHodEX4rXEABkIv6AW2WPpetR9LpACvFsYI5AbaW9Mds
-	gWFtop1nVKrXGEbtf7pDp17AAkqjzGcYWVh7fQiMFzty3dTS5rwcEGBQaWYZ7crOvaehJzXLxnwDL
-	OAMGZPraSyP9F725fa154VrT+VzQOw3hYNhHPNDxrezFLv596dPpt8Grxj3IzGZl6ioPd4d5B5i5T
-	Bjn1ZNFw==;
+	bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=; b=IR+YwRVWHoMI8L4pC/IV0VhApe
+	yH+yzks68WWVs6peM4ZC+OvizgLwkauwOktBIWatYiYwN9DzTRW9CZAbBWoW3ZYQlszNOOeSipOon
+	PhtzPEPmFurDeIATaWfAKcfK0jQDl6swOYDvTiJFwiBlnJuHbYvRbTWh1h77IoOa4MnfgtOfGMNat
+	wGh9sTtX9iWSAR/wOSZ/9Ipr1f1q4wjyRvdLh2a8ru/U2oSDUt65Z2MY2lM0mu0pbstucwcLmGm66
+	Jj40qgmk1Q+ec03HInZpZSO3j0oiLxKl2cQPvkcp0tgtGmq1hOJJkZMQ/GYZan/o/Yq3T6cSyUM+Q
+	gJjke5Zg==;
 Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuO7R-00000003eXJ-1jJD
+	id 1tuO7H-00000003eW1-3opP
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 03:59:59 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-223a7065ff8so62366745ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 20:59:57 -0700 (PDT)
+	Tue, 18 Mar 2025 03:59:49 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22622ddcc35so28790175ad.2
+        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 20:59:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1742270396; x=1742875196; darn=lists.infradead.org;
+        d=bytedance.com; s=google; t=1742270385; x=1742875185; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xaRB3Z7Zn9kGyUKfUpl8WYZaXTZf5T6vpq1GZf0TWl4=;
-        b=f5LHS71y8pikhrG72hkdHUiLJMvDmrJ1X8dUKbAb9g+xtD2ODPoIwJ1V0jqwrIiOH7
-         rDq5CbvoWFybdaTegz4gC+hpT3XKp+9l0VBdAqMhHnBSrl9aQLEVLf2w0EU0ejraNTOr
-         jMTEywU/rwKbtWifupb268Dw2jyclo8AMrwO7Nq5A4iY6aUYTUgCzC5VPS9mc01u02l/
-         PT5opk35NHyQOkowtcIgfuj0sy2kiXyBQa8l2UBlq6I6b4T7Elw47uJn0DTgDgQE5GlP
-         joqSSQJ+qtEcUowKinzlahdxqQliitnSXbXaPAg0jTUeNPa0SijMY9ywU2sygvB+ifFr
-         g43w==
+        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
+        b=P+UXjf/RitKr/XpJhGoBj2JiM/K+O4OEp/Y0E3KV9RCE9nFxY/ky2D0zv62/nhUXe6
+         ylR/mVFpMqWTnd+g+b6MVOx6cAPeTRAAMQzpm+kTpafeNXKsJVjxH8IUkvugKw9L8B/l
+         QKi/qNhPB4/4oG8GHM8Zl0abbmBOd0RiE2/ZwsT0dwu1PmQBjhRp+2HFzzT8GQNk5XMk
+         V9NsVJ3IDN1foSzgDtXaDTOMr54EUXdJli0tiG+lZoJ4F2ocEw2POhkBGXxybWRpPbRG
+         b0t1L0IhKII0ziRGzd4QSVbEK+MfRYJPoOhLVUngSfQhroWJK79XvE8FfsA7gCEQIJDZ
+         lnbw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742270396; x=1742875196;
+        d=1e100.net; s=20230601; t=1742270385; x=1742875185;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xaRB3Z7Zn9kGyUKfUpl8WYZaXTZf5T6vpq1GZf0TWl4=;
-        b=sW3pSPAvf40F3dhW3VgOnjXduRCwgOCeg6U4f9KzIPgIFhlXuxV4y3VNkakRt9eE+P
-         mJ/iDtrPvppQ09v8+ymG8jHkNo0kJoEx9dh6ocmSukGx3QjYEZjS38LEoSM79CkP4Mym
-         Y0FWPXY1N7QyaxY9wGOkwvvvxcl8T2IwvRYEB/mzftbwwAjIIZFtXJs3RvoblVHPhRoh
-         JUCMRDOlA8vSTzFv30R5kJ6x1PvjLISK1tXYoMiYoc46yXM+9W4FzBk9gWgiCiKlwrUs
-         /G5+nJ6YdOPV3GRmpqrs/ig9FScwR4YSEnSxk3HGyfYlzfUHUX72T2Aj/D9MZ+d1TKBn
-         Zjtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXiR54hVJy+yFnIE7wnbEh7CoW/xYpBZ1nhSg9aMWk4wGgicZ5azylZbSvV6ZIpZMaGiR7/5sNOyycG5w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAZeww5dMBbIPYIngNq9U4ca8ns1lLg8YXbsacKxv3kT3SaY3Z
-	DYGO73Q0YPYVkgUsDG5LX5gvhycaPO1eGTV3uZaxL0NacXC+EsGxt8SlfxLEQ6g=
-X-Gm-Gg: ASbGncsrys07QdObSikaLYuvMjrdQI5VETR6smQ+VzA7NrhVAMUyaeYhUPtlY0BSB+0
-	f+NZrjUnl25Z9+eRUfgj2oXrcCgNaZYoWYUbmlzBN2CM6yj4FnhKeRqejXRVGggZ8w3xoFQSKI5
-	vfXcVdvJJ/qa/BY3zPNwzfkoGrNRJDM9zSVd8BonzuT/dJme4oRCocPO6GgB0YMf685/gYR7Zc7
-	nJy+OuVmZhJ2iZf2CrV+yysbIEr0gfDny8toT7+v8/UcqVbl1KAi4eYCk5l7IPmt3Tuk3WZaL/5
-	jeS9NJZSn2tNNB7p4wmBnul5Od3QXM/kRjAQYsQo6CJJYozEyal7Wqp7pdZFlcAjkSvmSRULdew
-	glev16USYCST88tUnh3YuZiHmbDE=
-X-Google-Smtp-Source: AGHT+IExX+iDrDCGHA8Aq12SWZuDNNckGnu8pihoRkyjLOg0HP1RuQ216rkdL14FWV3g+VDeX680Yg==
-X-Received: by 2002:a17:903:238b:b0:223:6180:1bf7 with SMTP id d9443c01a7336-225e0b2fba7mr186404745ad.42.1742270395708;
-        Mon, 17 Mar 2025 20:59:55 -0700 (PDT)
+        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
+        b=qxHvcD1FyEyp5vAIhnnK9IaLVtNj0ZRJyQeQEHs0Bo/i3UWrMz4RGuXbpSDaqcs8u3
+         3Nk4TFcknPQ+Niki3ef+uN+qzDY5ugQTyxLKixOR9UpBYIt5yhHyuPbyKEAMYIlU/FYE
+         ikxGAhzI5DkPVdU4fL8s9YE7UPTfYKEJimM5a+d/PhXK2czVk5iN4JpvsNtDLTMolyDW
+         3o2x4ZEVtc70LWDRsPVYkxZDyQpP1LFL+d76J9QK5jQjnNc97TpjskFGx/ncsR109THH
+         UqVLobERm0MjCNjWQhozUFH9048jWrqSL+JAXlT0X4wZjqrhoCW44l8NmIwTp39Vpk7P
+         nODA==
+X-Forwarded-Encrypted: i=1; AJvYcCV8WWDikxiCB0R6nC3tUP/YP7LpSok4zhN6wPtlGjZptm3tglW03kE7CnXOgQYvVHtzP9bU7Q47V/GVIQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwY1jzUqs691JECPB2x2RT+5oVAJOXd0D/BdxwUwzOlcdizm5YM
+	C5o3rfyz59AyLTWcR720puXLwBwy8ZuaD76F1Bh7TU8EhgfLLQ1VlGP7f3ceFlI=
+X-Gm-Gg: ASbGnct6wwy5zvIAnhPz7UGtzNSN72oMqMSMJUcDrCszMyUPHfd4g7ayLGFQhCwS/KV
+	0fWYyS9meNVG677BSldePgV09a9fhw/WSFosmHon+qURpUNZCEVbMR2OXdsZcrKIAW/o/Wmsz0G
+	0dO6Lou/XdyqY2IM1/uzqAqVGqQO+ECBQ/KNfVJmTLfKUtyEtn6MkCv/G/EQPtBCXsQdsqlGUbQ
+	Obq9REVaEysLfcN3Cs3UfSQTteDkpNodjrGesIPLEUulsNrKxj8ls+tJ7CE60BjS4geZ3sARO/u
+	11dPCMyAS0PHrbL5A6rm62VZA40ImMxOyX/AJs4Kmm1I2UDDBRs5v5x2tEDE1F0ca5Cbc5jlZfG
+	0w2o3XyOUya8NwTSRoQRyO91r9/4=
+X-Google-Smtp-Source: AGHT+IGHO8cx8ckfDIHxWMgqvQhdq4sCCYAYAML9a+Udl9ONIKirtb2WHArjW9djfVtwLHqHp3jjYg==
+X-Received: by 2002:a17:903:1ca:b0:21f:b483:2ad5 with SMTP id d9443c01a7336-2262c555e78mr19060495ad.20.1742270385373;
+        Mon, 17 Mar 2025 20:59:45 -0700 (PDT)
 Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4b30sm83720135ad.235.2025.03.17.20.59.50
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4b30sm83720135ad.235.2025.03.17.20.59.40
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 17 Mar 2025 20:59:54 -0700 (PDT)
+        Mon, 17 Mar 2025 20:59:44 -0700 (PDT)
 From: Xu Lu <luxu.kernel@bytedance.com>
 To: akpm@linux-foundation.org,
 	jhubbard@nvidia.com,
@@ -98,16 +98,16 @@ Cc: lihangjing@bytedance.com,
 	linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
 	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH RESEND v2 3/4] iommu/riscv: Introduce IOMMU page table lock
-Date: Tue, 18 Mar 2025 11:59:29 +0800
-Message-Id: <20250318035930.11855-4-luxu.kernel@bytedance.com>
+Subject: [PATCH RESEND v2 1/4] mm/gup: Add huge pte handling logic in follow_page_pte()
+Date: Tue, 18 Mar 2025 11:59:27 +0800
+Message-Id: <20250318035930.11855-2-luxu.kernel@bytedance.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20250318035930.11855-1-luxu.kernel@bytedance.com>
 References: <20250318035930.11855-1-luxu.kernel@bytedance.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_035957_581661_9FBB44AF 
-X-CRM114-Status: GOOD (  16.14  )
+X-CRM114-CacheID: sfid-20250318_035948_068494_0F103D9D 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,256 +124,135 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce page table lock to address competition issues when modifying
-multiple PTEs, for example, when applying Svnapot. We use fine-grained
-page table locks to minimize lock contention.
+Page mapped at pte level can also be huge page when ARM CONT_PTE or
+RISC-V SVNAPOT is applied. Lack of huge pte handling logic in
+follow_page_pte() may lead to both performance and correctness issues.
+
+For example, on RISC-V platform, pages in the same 64K huge page have
+the same pte value, which means follow_page_pte() will get the same page
+for all of them using pte_pfn(). Then __get_user_pages() will return an
+array of pages with the same pfn. Mapping these pages causes memory
+confusion. This error can be triggered by the following code:
+
+  void *addr = mmap(NULL, 0x10000, PROT_READ | PROT_WRITE, MAP_ANONYMOUS |
+		  MAP_PRIVATE | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
+  struct vfio_iommu_type1_dma_map dmap_map = {
+	  .argsz = sizeof(dma_map),
+	  .flags = VFIO_DMA_MAP_FLAG_READ | VFIO_DMA_MAP_FLAG_WRITE,
+	  .vaddr = (uint64_t)addr,
+	  .size = 0x10000,
+  };
+
+  ioctl(vfio_container_fd, VFIO_IOMMU_MAP_DMA, &dma_map);
+
+This commit supplies huge pte handling logic in follow_page_pte() to
+avoid such problems.
 
 Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
 ---
- drivers/iommu/riscv/iommu.c | 123 +++++++++++++++++++++++++++++++-----
- 1 file changed, 107 insertions(+), 16 deletions(-)
+ arch/riscv/include/asm/pgtable.h |  6 ++++++
+ include/linux/pgtable.h          |  8 ++++++++
+ mm/gup.c                         | 17 +++++++++++------
+ 3 files changed, 25 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 3b0c934decd08..ce4cf6569ffb4 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -808,6 +808,7 @@ struct riscv_iommu_domain {
- 	struct iommu_domain domain;
- 	struct list_head bonds;
- 	spinlock_t lock;		/* protect bonds list updates. */
-+	spinlock_t page_table_lock;	/* protect page table updates. */
- 	int pscid;
- 	bool amo_enabled;
- 	int numa_node;
-@@ -1086,8 +1087,80 @@ static void riscv_iommu_iotlb_sync(struct iommu_domain *iommu_domain,
- #define _io_pte_none(pte)	(pte_val(pte) == 0)
- #define _io_pte_entry(pn, prot)	(__pte((_PAGE_PFN_MASK & ((pn) << _PAGE_PFN_SHIFT)) | (prot)))
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index 050fdc49b5ad7..40ae5979dd82c 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -800,6 +800,12 @@ static inline bool pud_user_accessible_page(pud_t pud)
+ #endif
  
-+#define RISCV_IOMMU_PMD_LEVEL		1
-+
-+static bool riscv_iommu_ptlock_init(struct ptdesc *ptdesc, int level)
+ #ifdef CONFIG_TRANSPARENT_HUGEPAGE
++#define pte_trans_huge	pte_trans_huge
++static inline int pte_trans_huge(pte_t pte)
 +{
-+	if (level <= RISCV_IOMMU_PMD_LEVEL)
-+		return ptlock_init(ptdesc);
-+	return true;
++	return pte_huge(pte) && pte_napot(pte);
 +}
 +
-+static void riscv_iommu_ptlock_free(struct ptdesc *ptdesc, int level)
+ static inline int pmd_trans_huge(pmd_t pmd)
+ {
+ 	return pmd_leaf(pmd);
+diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
+index 94d267d02372e..3f57ee6dcf017 100644
+--- a/include/linux/pgtable.h
++++ b/include/linux/pgtable.h
+@@ -1584,6 +1584,14 @@ static inline unsigned long my_zero_pfn(unsigned long addr)
+ 
+ #ifdef CONFIG_MMU
+ 
++#if (defined(CONFIG_TRANSPARENT_HUGEPAGE) && !defined(pte_trans_huge)) || \
++	(!defined(CONFIG_TRANSPARENT_HUGEPAGE))
++static inline int pte_trans_huge(pte_t pte)
 +{
-+	if (level <= RISCV_IOMMU_PMD_LEVEL)
-+		ptlock_free(ptdesc);
++	return 0;
 +}
-+
-+static spinlock_t *riscv_iommu_ptlock(struct riscv_iommu_domain *domain,
-+				      pte_t *pte, int level)
-+{
-+	spinlock_t *ptl; /* page table page lock */
-+
-+#ifdef CONFIG_SPLIT_PTE_PTLOCKS
-+	if (level <= RISCV_IOMMU_PMD_LEVEL)
-+		ptl = ptlock_ptr(page_ptdesc(virt_to_page(pte)));
-+	else
 +#endif
-+		ptl = &domain->page_table_lock;
-+	spin_lock(ptl);
 +
-+	return ptl;
-+}
-+
-+static void *riscv_iommu_alloc_pagetable_node(int numa_node, gfp_t gfp, int level)
-+{
-+	struct ptdesc *ptdesc;
-+	void *addr;
-+
-+	addr = iommu_alloc_page_node(numa_node, gfp);
-+	if (!addr)
-+		return NULL;
-+
-+	ptdesc = page_ptdesc(virt_to_page(addr));
-+	if (!riscv_iommu_ptlock_init(ptdesc, level)) {
-+		iommu_free_page(addr);
-+		addr = NULL;
-+	}
-+
-+	return addr;
-+}
-+
-+static void riscv_iommu_free_pagetable(void *addr, int level)
-+{
-+	struct ptdesc *ptdesc = page_ptdesc(virt_to_page(addr));
-+
-+	riscv_iommu_ptlock_free(ptdesc, level);
-+	iommu_free_page(addr);
-+}
-+
-+static int pgsize_to_level(size_t pgsize)
-+{
-+	int level = RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV57 -
-+			RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
-+	int shift = PAGE_SHIFT + PT_SHIFT * level;
-+
-+	while (pgsize < ((size_t)1 << shift)) {
-+		shift -= PT_SHIFT;
-+		level--;
-+	}
-+
-+	return level;
-+}
-+
- static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
--				 pte_t pte, struct list_head *freelist)
-+				 pte_t pte, int level,
-+				 struct list_head *freelist)
+ #ifndef CONFIG_TRANSPARENT_HUGEPAGE
+ static inline int pmd_trans_huge(pmd_t pmd)
  {
- 	pte_t *ptr;
- 	int i;
-@@ -1102,10 +1175,11 @@ static void riscv_iommu_pte_free(struct riscv_iommu_domain *domain,
- 		pte = ptr[i];
- 		if (!_io_pte_none(pte)) {
- 			ptr[i] = __pte(0);
--			riscv_iommu_pte_free(domain, pte, freelist);
-+			riscv_iommu_pte_free(domain, pte, level - 1, freelist);
- 		}
- 	}
+diff --git a/mm/gup.c b/mm/gup.c
+index 3883b307780ea..67981ee28df86 100644
+--- a/mm/gup.c
++++ b/mm/gup.c
+@@ -838,7 +838,7 @@ static inline bool can_follow_write_pte(pte_t pte, struct page *page,
  
-+	riscv_iommu_ptlock_free(page_ptdesc(virt_to_page(ptr)), level);
- 	if (freelist)
- 		list_add_tail(&virt_to_page(ptr)->lru, freelist);
- 	else
-@@ -1117,8 +1191,9 @@ static pte_t *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
- 				    gfp_t gfp)
+ static struct page *follow_page_pte(struct vm_area_struct *vma,
+ 		unsigned long address, pmd_t *pmd, unsigned int flags,
+-		struct dev_pagemap **pgmap)
++		struct follow_page_context *ctx)
  {
- 	pte_t *ptr = domain->pgd_root;
--	pte_t pte, old;
-+	pte_t pte;
- 	int level = domain->pgd_mode - RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
-+	spinlock_t *ptl; /* page table page lock */
- 	void *addr;
- 
- 	do {
-@@ -1146,14 +1221,21 @@ static pte_t *riscv_iommu_pte_alloc(struct riscv_iommu_domain *domain,
- 		 * page table. This might race with other mappings, retry.
+ 	struct mm_struct *mm = vma->vm_mm;
+ 	struct folio *folio;
+@@ -879,8 +879,8 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
+ 		 * case since they are only valid while holding the pgmap
+ 		 * reference.
  		 */
- 		if (_io_pte_none(pte)) {
--			addr = iommu_alloc_page_node(domain->numa_node, gfp);
-+			addr = riscv_iommu_alloc_pagetable_node(domain->numa_node, gfp,
-+								level - 1);
- 			if (!addr)
- 				return NULL;
--			old = ptep_get(ptr);
--			if (!_io_pte_none(old))
-+
-+			ptl = riscv_iommu_ptlock(domain, ptr, level);
-+			pte = ptep_get(ptr);
-+			if (!_io_pte_none(pte)) {
-+				spin_unlock(ptl);
-+				riscv_iommu_free_pagetable(addr, level - 1);
- 				goto pte_retry;
-+			}
- 			pte = _io_pte_entry(virt_to_pfn(addr), _PAGE_TABLE);
- 			set_pte(ptr, pte);
-+			spin_unlock(ptl);
- 		}
- 		ptr = (pte_t *)pfn_to_virt(pte_pfn(pte));
- 	} while (level-- > 0);
-@@ -1193,9 +1275,10 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
- 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
- 	size_t size = 0;
- 	pte_t *ptr;
--	pte_t pte, old;
-+	pte_t pte;
- 	unsigned long pte_prot;
--	int rc = 0;
-+	int rc = 0, level;
-+	spinlock_t *ptl; /* page table page lock */
- 	LIST_HEAD(freelist);
- 
- 	if (!(prot & IOMMU_WRITE))
-@@ -1212,11 +1295,12 @@ static int riscv_iommu_map_pages(struct iommu_domain *iommu_domain,
- 			break;
- 		}
- 
--		old = ptep_get(ptr);
-+		level = pgsize_to_level(pgsize);
-+		ptl = riscv_iommu_ptlock(domain, ptr, level);
-+		riscv_iommu_pte_free(domain, ptep_get(ptr), level, &freelist);
- 		pte = _io_pte_entry(phys_to_pfn(phys), pte_prot);
- 		set_pte(ptr, pte);
--
--		riscv_iommu_pte_free(domain, old, &freelist);
-+		spin_unlock(ptl);
- 
- 		size += pgsize;
- 		iova += pgsize;
-@@ -1251,6 +1335,7 @@ static size_t riscv_iommu_unmap_pages(struct iommu_domain *iommu_domain,
- 	pte_t *ptr;
- 	size_t unmapped = 0;
- 	size_t pte_size;
-+	spinlock_t *ptl; /* page table page lock */
- 
- 	while (unmapped < size) {
- 		ptr = riscv_iommu_pte_fetch(domain, iova, &pte_size);
-@@ -1261,7 +1346,9 @@ static size_t riscv_iommu_unmap_pages(struct iommu_domain *iommu_domain,
- 		if (iova & (pte_size - 1))
- 			return unmapped;
- 
-+		ptl = riscv_iommu_ptlock(domain, ptr, pgsize_to_level(pte_size));
- 		set_pte(ptr, __pte(0));
-+		spin_unlock(ptl);
- 
- 		iommu_iotlb_gather_add_page(&domain->domain, gather, iova,
- 					    pte_size);
-@@ -1291,13 +1378,14 @@ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
- {
- 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
- 	const unsigned long pfn = virt_to_pfn(domain->pgd_root);
-+	int level = domain->pgd_mode - RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
- 
- 	WARN_ON(!list_empty(&domain->bonds));
- 
- 	if ((int)domain->pscid > 0)
- 		ida_free(&riscv_iommu_pscids, domain->pscid);
- 
--	riscv_iommu_pte_free(domain, _io_pte_entry(pfn, _PAGE_TABLE), NULL);
-+	riscv_iommu_pte_free(domain, _io_pte_entry(pfn, _PAGE_TABLE), level, NULL);
- 	kfree(domain);
- }
- 
-@@ -1358,7 +1446,7 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
- 	struct riscv_iommu_device *iommu;
- 	unsigned int pgd_mode;
- 	dma_addr_t va_mask;
--	int va_bits;
-+	int va_bits, level;
- 
- 	iommu = dev_to_iommu(dev);
- 	if (iommu->caps & RISCV_IOMMU_CAPABILITIES_SV57) {
-@@ -1381,11 +1469,14 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
- 
- 	INIT_LIST_HEAD_RCU(&domain->bonds);
- 	spin_lock_init(&domain->lock);
-+	spin_lock_init(&domain->page_table_lock);
- 	domain->numa_node = dev_to_node(iommu->dev);
- 	domain->amo_enabled = !!(iommu->caps & RISCV_IOMMU_CAPABILITIES_AMO_HWAD);
- 	domain->pgd_mode = pgd_mode;
--	domain->pgd_root = iommu_alloc_page_node(domain->numa_node,
--						 GFP_KERNEL_ACCOUNT);
-+	level = domain->pgd_mode - RISCV_IOMMU_DC_FSC_IOSATP_MODE_SV39 + 2;
-+	domain->pgd_root = riscv_iommu_alloc_pagetable_node(domain->numa_node,
-+							    GFP_KERNEL_ACCOUNT,
-+							    level);
- 	if (!domain->pgd_root) {
- 		kfree(domain);
- 		return ERR_PTR(-ENOMEM);
-@@ -1394,7 +1485,7 @@ static struct iommu_domain *riscv_iommu_alloc_paging_domain(struct device *dev)
- 	domain->pscid = ida_alloc_range(&riscv_iommu_pscids, 1,
- 					RISCV_IOMMU_MAX_PSCID, GFP_KERNEL);
- 	if (domain->pscid < 0) {
--		iommu_free_page(domain->pgd_root);
-+		riscv_iommu_free_pagetable(domain->pgd_root, level);
- 		kfree(domain);
- 		return ERR_PTR(-ENOMEM);
+-		*pgmap = get_dev_pagemap(pte_pfn(pte), *pgmap);
+-		if (*pgmap)
++		ctx->pgmap = get_dev_pagemap(pte_pfn(pte), ctx->pgmap);
++		if (ctx->pgmap)
+ 			page = pte_page(pte);
+ 		else
+ 			goto no_page;
+@@ -940,6 +940,11 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
+ 		 */
+ 		folio_mark_accessed(folio);
  	}
++	if (is_vm_hugetlb_page(vma) || pte_trans_huge(pte)) {
++		ctx->page_mask = (1 << folio_order(folio)) - 1;
++		page = folio_page(folio, 0) +
++		       ((address & (folio_size(folio) - 1)) >> PAGE_SHIFT);
++	}
+ out:
+ 	pte_unmap_unlock(ptep, ptl);
+ 	return page;
+@@ -975,7 +980,7 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
+ 		return no_page_table(vma, flags, address);
+ 	}
+ 	if (likely(!pmd_leaf(pmdval)))
+-		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
++		return follow_page_pte(vma, address, pmd, flags, ctx);
+ 
+ 	if (pmd_protnone(pmdval) && !gup_can_follow_protnone(vma, flags))
+ 		return no_page_table(vma, flags, address);
+@@ -988,14 +993,14 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
+ 	}
+ 	if (unlikely(!pmd_leaf(pmdval))) {
+ 		spin_unlock(ptl);
+-		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
++		return follow_page_pte(vma, address, pmd, flags, ctx);
+ 	}
+ 	if (pmd_trans_huge(pmdval) && (flags & FOLL_SPLIT_PMD)) {
+ 		spin_unlock(ptl);
+ 		split_huge_pmd(vma, pmd, address);
+ 		/* If pmd was left empty, stuff a page table in there quickly */
+ 		return pte_alloc(mm, pmd) ? ERR_PTR(-ENOMEM) :
+-			follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
++			follow_page_pte(vma, address, pmd, flags, ctx);
+ 	}
+ 	page = follow_huge_pmd(vma, address, pmd, flags, ctx);
+ 	spin_unlock(ptl);
 -- 
 2.20.1
 
