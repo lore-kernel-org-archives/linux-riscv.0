@@ -4,89 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4303C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 09:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CF2C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 09:23:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Hfj8lh0AfHCdY0TkEDi/Fgg6Z4tcmmB+Phrw0UNja4c=; b=gr9tDCWwS4b2ds
-	p2XVZI59jWMUNQ1H/KSWzXCbt2WOVFIADgMjfhM8xbdQO0q2UhbNCjQZ6weBTCdIq/6AMUQ8KPh5i
-	l7ZYfdcMrYZGbs5KLFLHgyvA9JoPmtmx7cP2yLwj0fVTtbP8ASIyByfegeF7y1Ay+lcXR1n4/xzjY
-	lwpYfAg+T7bpeheMoEDc12OnyV7z79/9gzYJZG5ySNDeDGI6ST7v3hx7ooNLv+X+daDqhXr2/WGlU
-	NNQKxrKQCwtDyDmR85INmikTT+ZgRlvezd/oG6tiRwRnLpREB4yK6rdZ41u7t7h6WGXdZJE4UCPA+
-	KucPpca5yBGNNPl0nFIQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=exq+lTmGbz2u0F0drLoD4ReGRp5pHvvRtQQTSH+9G3E=; b=Jz8UItjeeypFtFMXG4iOqwdMli
+	BhFhzd38p6eTvwxwVfw5gbiDgTAX4jkuy5L+jNnoERkV2GDWYcx0SDhX+4F7N6jhME++5BN5tBPr/
+	gE6kNKyMUZM0H8TJV0NbTyRI+YOTr2u9O6ZgtZFDesUSCr5LIj+iU2B85H6aKI/3WbAZdA+ztHZlE
+	AY5erPME8POA7p7HBnfD+Oju4lPmY1Cg3scm4o+b3SoK0K2k9qyuAzVEwxssZbYP0wlLfYVjYoV/T
+	s/h6n6gl7xy4z0yo/HdfJVX+jvFe2yGuPFJM+U7ZCG1sLj4olZSYCE9c8OQUnyr4Gr0sZklKm8Vws
+	iCCuQZLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSua-00000005H5y-1op3;
-	Tue, 18 Mar 2025 09:07:00 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tuTAW-00000005Ixb-49om;
+	Tue, 18 Mar 2025 09:23:28 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuSob-00000005Flp-1CfI
+	id 1tuTAU-00000005Iwm-0278
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 09:00:50 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5cded3e2eso7843639a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 02:00:48 -0700 (PDT)
+	Tue, 18 Mar 2025 09:23:28 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5e5e34f4e89so9665028a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 02:23:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742288447; x=1742893247; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Wr4dUiqaKywBCUa33frJJ04baPImRwSaV0A/LlSiREE=;
-        b=d3Ey9JrKuhPJioghr4L0Epjc4Oqy3VjdY0ZU4cW6If3xaAjM+VGkM0+EfcV59ONie+
-         7OKY2VU1NV4wuM4JoUKG1uMMVZHEl6tx0+SuLsKNK9nRZLQFtTpA05B2pxIlsZcFnJo3
-         cw18WJhr7A8KuB1FTNt5ZbAS5HQtDypxeKcIPfAHCwMz9GQmDpHFfbIVo27wh8NnseTm
-         +QoQFwL4yUer5dWALGhI5NHcOxGb7MklMFc17oo3xG4zFSC5OwQzuBbOeayDfq4wac7n
-         BM9qXpu2OXCV9Z+sL0sAMVf1NnVgay/hwFigpY0txO5ujMTVQHB5PGfn9voXIa+AbcxB
-         0IWA==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1742289804; x=1742894604; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZU/vvHDuGhTduZB0clQayUgjj8LXd6feyCcIDz4QkME=;
+        b=cXzx4TXwdOPJ5E49FyVsChrnINnRVwjij3kzNHp+kbQPYXZOSpiMdYeXhtou2unnma
+         4JtF8JtY02BW25r6V7Ef4qRSy5uWNzbmygKBVM3uOG17X7H1PoPM3xQKkJpccrTVYyNx
+         62SYgUxItat+1zEaXViPwcFWm7aT7/a0xUfYzzlXnfgdYMBYg8Dc8BUoUmrj3V4jGEAK
+         YRe8+Xi/efTsbiD75NkVvYjmK+f0gLvPDLQfi9+iSPDDYbc8vcb1e+ajmpK6/ZddjkL6
+         hYi1EYhzD78GGmuVIAjRG6joZ9pK0pesngtYVzULu+IorbPMImOHjK0gm+vKG8OmTiPt
+         VF2g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742288447; x=1742893247;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Wr4dUiqaKywBCUa33frJJ04baPImRwSaV0A/LlSiREE=;
-        b=nX8InFqhjFO5zHHg4N7Xoj6UaxoRKwn7JzrSrd+gh9kFiYLs7M7baCAfOO8y4vj0KI
-         8ZDfwaU1Tb/R3rzavc9R/9xA/RDQln58/KhP8RVrhpvVtzgbMZh7mXy+t3GimSEB3GsG
-         9knz5DaJ/rPx/NJi0FjJ1gXOKo5ElHPLI3kjTBphMwjofUh0u9H2QPM6LMOP5fncD6n+
-         ZC1dsJ5NXr7lCXlADgFK6vXIKDHGVrSkBequkv3ehd6qX3QMZYydBWYCkZbuwhLmCTPZ
-         GaulsZZ2pkA5dumdYeoXCamLlGym4UJ3+YWEttGGEq1OGiSS3Wi/ZBLaz0F2u6bagRCt
-         CQ0w==
-X-Gm-Message-State: AOJu0Yyb8MpQSd1AIvkphuNAX0LpMcJeiGDr3yzd3CP4aF6til25N/jz
-	0KZlkCwSzXkNp4rNAD1sE332ayA5yUothpFBnBZfUoqOsmxCzqMnmVZUmsYmslY=
-X-Gm-Gg: ASbGncu4WKTQ0EesKbhgY4s9EvZWoF0UKX4+L/1ZhZBqBnvDoq3sUg5FnKgu/wonS9X
-	wCSvk+zvaUegzIw6LUd13eQzTyj3p8nVHfDUegv2bG6xXwKXT2LNfKlwBXQg5FGOi2+gtkJ8nMC
-	b6U7DOCHHcKaBOQ0QhmM5xK28axk2wQHyy8wUAuQC7tGjYCX732/IrFC5DWTU7yq2u2/VKr7ihL
-	mfJ/TwgvYWY3S6ncMYK2GeWU8KUmAoKjr3TPaV9WksfG8/6tBB9Tm/m95FmfOizVnEH5DRanY0O
-	iPUtM6cWtHGyL2NmCY8kKRLcHDxvY50No/3rv0R+53o=
-X-Google-Smtp-Source: AGHT+IGBsklbulm+vYAotQHhh8oVdp47PW9k6WK8XOOUPLWd/0Ehy9b34njTBzMzUsYjAPB/A6Vdow==
-X-Received: by 2002:a05:6402:51ca:b0:5dc:c943:7b6 with SMTP id 4fb4d7f45d1cf-5eb1dec1a1bmr2420615a12.3.1742288447279;
-        Tue, 18 Mar 2025 02:00:47 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816977a5fsm7228660a12.32.2025.03.18.02.00.46
+        d=1e100.net; s=20230601; t=1742289804; x=1742894604;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZU/vvHDuGhTduZB0clQayUgjj8LXd6feyCcIDz4QkME=;
+        b=St527Ph0VE5M38yEYEuPOUUZu7YB5EYcHWRXph6dPpcjwov3MRWJQinK2UAoO/kqS3
+         PiRBCgCeEDjcLQe1aNnnTETq6/boBWnKBQe4ggETqJ1qCN+R2squdiSQGbqu4kxRNrrq
+         /l8RMLMQeG2+5kDNqVXa51TBPeg78vmS0zoSaHcloJw8tQCADgrfwtVK8bBOEUwiCY3N
+         sv8aAjYPx2lifhMNdT/HbnmVtyxMTmPbWq90exU4BOFoMvGLYvTx0kyNUSc9I17OmqJ2
+         9NThpYLbrz3+WssLX7EOwZvpjiSvd/8UIDpKqIdSxPEwNenCXSxwI04IQg0XFWtPaJME
+         dvoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWir+mSm8Q0SldIjURR9aW2ZfhCtrajKhqkE7/N6r3ZB3ZQuf/mueggnjKDm0U/xrm0+616Krkk2C/vew==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7MvdrBQ6g4+nx1tFlCqVMo9SMojGDY/jfw8irOy9H+olwCSmq
+	rnBWvU9k7i2J5wwQ1xAL7cadLQKmT9fM5JM5wRURJyWx9E/fGDbSbpgJ7fp7+6c=
+X-Gm-Gg: ASbGncu2MY6Z5xV1epueQwDwblbtYeJ2PipUCrSW9wkzh2sq0MyJgPV/xQwQ+Vieuov
+	TJKzXT0QzFHETk3PfFugpq9n0iD7Tgz74a2aeEYu/1URZ8Iro9l7+9ju3/8svyX1E2JAT5lzIu8
+	ZmQ4i37u15l+ulU0FWwNSUbG9k5j5VhYS0cA5IBT80PX3VFv+6M1wHE1GmGhN34/mX/B2a049eR
+	d7B9M5SxYBbWUl8HMUOD3nOMTfftSn+tvwOjbj9L1cCoKqAOE6FfIVQeisZiCrHVi07YmLctabO
+	ZoK2pm3G4CbC4l9+b8oWL53KK1b+WsY0NVEGOqGlLbfIjdhtB6oKWJf9UioDAQJEKfzODgFGCC+
+	sSyGY8ABh/Uk=
+X-Google-Smtp-Source: AGHT+IFwtT4t5BJ31fMOagUfAPcPJQ9nOWEjcwUgulSB82NQzjLhdlaZFO+fufBv9ePXiB8ie77s9g==
+X-Received: by 2002:a05:6402:354a:b0:5e7:b00f:9fe6 with SMTP id 4fb4d7f45d1cf-5eb1df95a3dmr2487075a12.26.1742289803650;
+        Tue, 18 Mar 2025 02:23:23 -0700 (PDT)
+Received: from localhost (p200300f65f14610400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f14:6104::1b9])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e8169b021bsm7635128a12.33.2025.03.18.02.23.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 02:00:46 -0700 (PDT)
-Date: Tue, 18 Mar 2025 10:00:46 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	charlie@rivosinc.com, cleger@rivosinc.com, Anup Patel <apatel@ventanamicro.com>, 
-	corbet@lwn.net
-Subject: Re: [PATCH v3 7/8] riscv: Add parameter for skipping access speed
- tests
-Message-ID: <20250318-61be6a5455ea164b45d6dc64@orel>
-References: <20250304120014.143628-10-ajones@ventanamicro.com>
- <20250304120014.143628-17-ajones@ventanamicro.com>
- <1b7e3d0f-0526-4afb-9f7a-2695e4166a9b@ghiti.fr>
- <20250318-1b03e58fe508b077e5d38233@orel>
+        Tue, 18 Mar 2025 02:23:22 -0700 (PDT)
+Date: Tue, 18 Mar 2025 10:23:21 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <ghdqkv33owyqngxlwuwjogqgaasilnakcqq3znv7ae5hsdi763@dpqzqtypgtkq>
+References: <20241224093902.1632627-1-nylon.chen@sifive.com>
+ <zqkx7cx5nalslfmxeoxdnsjbvrvzajrjybsmsyeyc65a64sntr@gpc5qp6aoyp7>
+ <CAHh=Yk-_0rKB=FG6Voif2MDjtRxzUA5vXDP2J-o5=8ru1ewt0w@mail.gmail.com>
+ <CAHh=Yk-TosOmwEughfK9mMx-=DgzWK5H_bf6H641SGh1ue8BrA@mail.gmail.com>
+ <zneb3qwgf52zitcbq4wz76shnmhwfkabbsts3sussjpc5s5tsz@uneaxdfp4m2f>
+ <CAHh=Yk_oTdURhkna_saF6mrA9gDY=+v_j5NoY_7jTDLuZ=EXtg@mail.gmail.com>
+ <7bcnckef23w6g47ll5l3bktygedrcfvr7fk3qjuq2swtoffhec@zs4w4tuh6qvm>
+ <5robb7ipl346daf3lqaqnsi3fcgj3wzmch5dqit2dczdyeknmv@dqft77bhwryg>
+ <CAHh=Yk-p69ppWWspEzzznhDnuk3i6dRGKzUaqZCwg_uAxB3FVA@mail.gmail.com>
+ <CAHh=Yk8kC1+D4dPQ7iAtn1WSPSk+OU6vwEyGF9VZAS5o5gPHmA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250318-1b03e58fe508b077e5d38233@orel>
+In-Reply-To: <CAHh=Yk8kC1+D4dPQ7iAtn1WSPSk+OU6vwEyGF9VZAS5o5gPHmA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_020049_325707_FD5637F7 
-X-CRM114-Status: GOOD (  37.84  )
+X-CRM114-CacheID: sfid-20250318_022326_252425_DC3FAD45 
+X-CRM114-Status: GOOD (  34.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,144 +104,218 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============2442855577526789913=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 09:48:21AM +0100, Andrew Jones wrote:
-> On Mon, Mar 17, 2025 at 03:39:01PM +0100, Alexandre Ghiti wrote:
-> > Hi Drew,
-> > =
 
-> > On 04/03/2025 13:00, Andrew Jones wrote:
-> > > Allow skipping scalar and vector unaligned access speed tests. This
-> > > is useful for testing alternative code paths and to skip the tests in
-> > > environments where they run too slowly. All CPUs must have the same
-> > > unaligned access speed.
-> > =
+--===============2442855577526789913==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7zj2eh5wo3yw56vr"
+Content-Disposition: inline
 
-> > I'm not a big fan of the command line parameter, this is not where we s=
-hould
-> > push uarch decisions because there could be many other in the future, t=
-he
-> > best solution to me should be in DT/ACPI and since the DT folks, accord=
-ing
-> > to Palmer, shut down this solution, it remains using an extension.
-> > =
 
-> > I have been reading a bit about unaligned accesses. Zicclsm was describ=
-ed as
-> > "Even though mandated, misaligned loads and stores might execute extrem=
-ely
-> > slowly. Standard software distributions should assume their existence o=
-nly
-> > for correctness, not for performance." in rva20/22 but *not* in rva23. =
-So
-> > what about using this "hole" and consider that a platform that *adverti=
-ses*
-> > Zicclsm means its unaligned accesses are fast? After internal discussio=
-n, It
-> > actually does not make sense to advertise Zicclsm if the platform acces=
-ses
-> > are slow right?
-> =
+--7zj2eh5wo3yw56vr
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+MIME-Version: 1.0
 
-> This topic pops up every so often, including in yesterday's server
-> platform TG call. In that call, and, afaict, every other time it has
-> popped up, the result is to reiterate that ISA extensions never say
-> anything about performance. So, Zicclsm will never mean fast and we
-> won't likely be able to add any extension that does.
-> =
+Hello Nylon,
 
-> > =
+On Tue, Mar 04, 2025 at 05:02:13PM +0800, Nylon Chen wrote:
+> Nylon Chen <nylon.chen@sifive.com> =E6=96=BC 2025=E5=B9=B41=E6=9C=8823=E6=
+=97=A5 =E9=80=B1=E5=9B=9B =E4=B8=8A=E5=8D=888:20=E5=AF=AB=E9=81=93=EF=BC=9A
+> >
+> > Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com> =E6=96=BC 2025=E5=
+=B9=B41=E6=9C=8822=E6=97=A5 =E9=80=B1=E4=B8=89 =E4=B8=8B=E5=8D=887:44=E5=AF=
+=AB=E9=81=93=EF=BC=9A
+> > >
+> > > Hello Nylon,
+> > >
+> > > I took another look in the driver and found another problem:
+> > Hi Uwe, Thank you for the information.
+> >
+> > I'll need some time to verify and understand these details, as well as
+> > conduct the relevant tests
+> > >
+> > > On Tue, Jan 21, 2025 at 07:12:10PM +0100, Uwe Kleine-K=C3=B6nig wrote:
+> > > > On Tue, Jan 21, 2025 at 04:47:46PM +0800, Nylon Chen wrote:
+> > > > > Uwe Kleine-K=C3=B6nig <u.kleine-koenig@baylibre.com> =E6=96=BC 20=
+25=E5=B9=B41=E6=9C=8821=E6=97=A5 =E9=80=B1=E4=BA=8C =E4=B8=8B=E5=8D=883:47=
+=E5=AF=AB=E9=81=93=EF=BC=9A
+> > > > > >
+> > > > > > Hello,
+> > > > > >
+> > > > > > On Sun, Jan 19, 2025 at 03:03:16PM +0800, Nylon Chen wrote:
+> > > > > > > I ran some basic tests by changing the period and duty cycle =
+in both
+> > > > > > > decreasing and increasing sequences (see the script below).
+> > > > > >
+> > > > > > What is clk_get_rate(ddata->clk) for you?
+> > > > > 130 MHz
+> > > >
+> > > > OK, so the possible period lengths are
+> > > >
+> > > >       (1 << (16 + scale)) / (130 MHz)
+> > > >
+> > > > for scale in [0, .. 15], right? That's
+> > > >
+> > > >       2^scale * 504123.07692307694 ns
+> > > >
+> > > > So testing period in the range between 5000 ns and 15000 ns isn't
+> > > > sensible? Did I get something wrong? If the above is right, switchi=
+ng
+> > > > between period=3D1008246 ns and 1008247 ns is likely to trigger a
+> > > > warning.
+> > >
+> > > The possible periods are of the form
+> > >
+> > >         2^scale * A
+> > >
+> > > where A is constant and only depends on the input clock rate. scale
+> > > ranges over [0, ... 15]. (If I got it right in my last mail, we have =
+A =3D
+> > > 504123.07692307694 ns.)
+> > >
+> > > If you request say:
+> > >
+> > >         .period =3D 3.9 * A
+> > >         .duty_cycle =3D 1.9 * A
+> > >
+> > > the period actually emitted by the PWM will be 2 * A. But to calculate
+> > > frac the originally requested period (i.e. 3.9 * A) is used. So frac
+> > > becomes 31927 resulting in .duty_cycle being ~0.974 A. A better value
+> > > would be frac =3D 62259 which results in .duty_cycle =E2=89=85 1.9 * =
+A.
+> > > (Depending on A the values for frac might be off by one due to roundi=
+ng
+> > > differences.)
+> > >
+> > > So I would expect that PWM_DEBUG is angry with you if you go from
+> > >
+> > >         .period =3D 2 * A
+> > >         .duty_cycle =3D 1.9 * A
+> > >
+> > > to
+> > >
+> > >         .period =3D 3.9 * A
+> > >         .duty_cycle =3D 1.9 * A
+> > >
+> > > .
+> > >
+> > > Best regards
+> > > Uwe
+>=20
+> Hi Uwe, Based on your suggestions, I conducted relevant tests and
+> corrected algorithm errors.
+>=20
+> According to this test program, I can make the system generate related
+> error messages on v10's patchset.
+>=20
+> e.g.
+> [ 75.043652] pwm-sifive 10021000.pwm: .apply is supposed to round down
+> duty_cycle (requested: 360/504000, applied: 361/504124)
+> [ 75.055042] pwm-sifive 10021000.pwm: .apply is supposed to round down
+> period (requested: 504000, applied: 504124)
+>=20
+> PWMCHIP=3D1
+> PWMCHANNEL=3D0
+> PERIOD=3D504000
+> STEP=3D1
+> MAX_DUTY=3D504000
+>=20
+> echo 0 > /sys/class/pwm/pwmchip${PWMCHIP}/export
+>=20
+> echo $PERIOD > /sys/class/pwm/pwmchip${PWMCHIP}/pwm${PWMCHANNEL}/period
+> echo "Set period to $PERIOD ns (scale=3D0 region)"
+>=20
+> COUNT=3D$((MAX_DUTY / STEP))
+> echo "Testing duty-cycle from 0 to $MAX_DUTY in step of $STEP..."
+> echo "Total steps (forward): $((COUNT+1))"
+>=20
+>=20
+> CURRENT=3D0
+> while [ $CURRENT -le $MAX_DUTY ]; do
+>     echo $CURRENT > /sys/class/pwm/pwmchip${PWMCHIP}/pwm${PWMCHANNEL}/dut=
+y_cycle
+>     CURRENT=3D$((CURRENT + STEP))
+> done
+>=20
+> echo "Now do a backward test from $MAX_DUTY down to 0 in step of $STEP..."
+> echo "Total steps (backward): $((COUNT+1))"
+>=20
+>=20
+> CURRENT=3D$MAX_DUTY
+> while [ $CURRENT -ge 0 ]; do
+>     echo $CURRENT > /sys/class/pwm/pwmchip${PWMCHIP}/pwm${PWMCHANNEL}/dut=
+y_cycle
+>     CURRENT=3D$((CURRENT - STEP))
+> done
+>=20
+>=20
+> echo 0 > /sys/class/pwm/pwmchip${PWMCHIP}/pwm${PWMCHANNEL}/enable
+> echo ${PWMCHANNEL} > /sys/class/pwm/pwmchip${PWMCHIP}/unexport
+>=20
+> echo "Done!"
+>=20
+> Based on your previous suggestions, I have made the following related
+> modifications, and now I'm able to fix the relevant errors.
+>=20
+> But I want to make sure my understanding aligns with your suggestions,
+> so I'd like to discuss with you first before sending the patch.
+>=20
+> - In .apply, use "round down" for calculations to ensure the value
+> doesn't exceed what the user requested. (Never set a duty cycle higher
+> than what the user requested.)
+> pwm_sifive_apply() {
+>     - frac =3D DIV64_U64_ROUND_CLOSEST(num, state->period);
+>     +frac =3D num / state->period;
+> }
+> - When converting hardware values back to duty_cycle in .get_state,
+> use "round up" to compensate for the errors introduced by .apply.()
+> pwm_sifive_get_state() {
+>     - state->duty_cycle =3D (u64)duty * ddata->real_period >> PWM_SIFIVE_=
+CMPWIDTH;
+>     + state->duty_cycle =3D DIV_ROUND_UP_ULL((u64)duty *
+> ddata->real_period, (1U << PWM_SIFIVE_CMPWIDTH));
+> }
 
-> > arm64 for example considers that armv8 has fast unaligned accesses and =
-can
-> > then enable HAVE_EFFICIENT_ALIGNED_ACCESS in the kernel, even though so=
-me
-> > uarchs are slow. Distros will very likely use rva23 as baseline so they=
- will
-> > enable Zicclsm which would allow us to take advantage of this too, with=
-out
-> > this, we lose a lot of perf improvement in the kernel, see
-> > https://lore.kernel.org/lkml/20231225044207.3821-1-jszhang@kernel.org/.
-> > =
+That sounds right.
 
-> > Or we could have a new named feature for this, even though it's weird to
-> > have a named feature which would basically=A0 mean "Zicclsm is fast". W=
-e don't
-> > have, for example, a named feature to say "Zicboz is fast" but given the
-> > vague wording in the profile spec, maybe we can ask for one in that cas=
-e?
-> > =
+Best regards
+Uwe
 
-> > Sorry for the late review and for triggering this debate...
-> =
+--7zj2eh5wo3yw56vr
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> No problem, let's try to pick the best option. I'll try listing all the
-> options and there pros/cons.
-> =
+-----BEGIN PGP SIGNATURE-----
 
-> 1. Leave as is, which is to always probe
->    pro: Nothing to do
->    con: Not ideal in all environments
-> =
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfZO4cACgkQj4D7WH0S
+/k5aSgf/S+7QjofA+CHDa6zV1OUJbLv3VBQS1gX1YK4Mps+QnOK2hlrMQQOVDVk3
+t28rjpcMJD8m70ZClOt+kfHM3O6DqlWJd2tl/AX/Wq0rETMNq2F3YFRecGs91xku
+OF4rZwQVaSl5wr2VZP6j0k/8AilXmIHg6kHfvnMQrIqJwA4W/aVFbnt0sNlo+eGf
+nB2Ju3+GNzUw6AiEUEgCHvIiD71aagqD90G772pT+OpGaiZmj8GIX0MxpaRiQ2V0
+ZkdcM8lWic/7IbMkYoyHz4g6edbTJ+yhn9/RIAKeRNw+N6aK3VjZkOT/6WgggzZo
+QzJe/nGspANnzvsW8QcLUPvEe+eVuQ==
+=Mvcc
+-----END PGP SIGNATURE-----
 
-> 2. New DT/ACPI description
->    pro: Describing whether or not misaligned accesses are implemented in
->         HW (which presumably means fast) is something that should be done
-> 	in HW descriptions
->    con: We'll need to live with probing until we can get the descriptions
->         defined, which may be never if there's too much opposition
-> =
+--7zj2eh5wo3yw56vr--
 
-> 3. Command line
->    pro: Easy and serves its purpose, which is to skip probing in the
->         environments where probing is not desired
->    con: Yet another command line option (which we may want to deprecate
->         someday)
-> =
 
-> 4. New ISA extension
->    pro: Easy to add to HW descriptions
->    con: Not likely to get it through ratification
-> =
-
-> 5. New SBI FWFT feature
->    pro: Probably easier to get through ratification than an ISA extension
->    con: Instead of probing, kernel would have to ask SBI -- would that
->         even be faster? Will all the environments that want to skip
-> 	probing even have a complete SBI?
-> =
-
-> 6. ??
-
-I forgot one, which was v1 of this series and already rejected,
-
- 6. Use ID registers
-    pro: None of the above cons, including the main con with the command
-         line, which is that there could be many other decisions in the
-	 future, implying we could need many more command line options.
-    con: A slippery slope. We don't want to open the door to
-         features-by-idregs. (However, we can at least always close the
-	 door again if better mechanisms become available. Command
-	 lines would need to be deprecated, but feature-by-idreg code
-	 can just be deleted.)
-
-Thanks,
-drew
-
-> =
-
-> I'm voting for (3), which is why I posted this patchset, but I'm happy
-> to hear other votes or other proposals and discuss.
-> =
-
-> Thanks,
-> drew
+--===============2442855577526789913==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2442855577526789913==--
+
