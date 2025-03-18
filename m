@@ -4,110 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0215AC282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 04:07:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A5CC28B2F
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 04:40:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ke0fTkZ3V0vWgv4w//PTnCcvOBf1dVU3B0puwV4WJT4=; b=QlvHmAkIlEiZXn
-	Ex/U6s/qetWSeeYnaqGNOtYYl9MYH+cUw4ow5dsRJ45aKEosoNWF20QY4FbfYQ29CWX9FrzfOO5kP
-	1zp/femacjF9s2uZQQ/42ZMPgejJE5iv+6265C1U8zyHTfnYuP7SctOWEA8IXWVKqqe/uuALBkhxR
-	yPCsF7ZZuV9BKjUOy8eN1spO91cdrOTNo4IIeGUacSN/YjFD4bkIL5blbZIlb5QufnagkL3hDuy9d
-	l9izGp4r/zCZx/56ppP0g/GFQmB9g70yn0P3kW1zyrgp/58Zu7g+MU+HvRD+FZln5mqlKhK0AaMOK
-	zh5Ah82P95UWo4jmLiFA==;
+	List-Owner; bh=mPq1tMVNsxXIxTYT+B0Fq05s9g+bUOR3ZTiAYVnrPX0=; b=JufW8VZ38GMjJt
+	mfUmnYwZGVQcVDStoyPpmyz6UNEIjfo6K+aNiPmb5V6wMvf0dAHp9AvdisV3zZwfHpkcV5m4mDmzE
+	FroWnv8uH3SEGfnkNZDh1ghFHY8kQyHzs2Vy0kv+nYBFINCm58sPjFjsTbYRxG3HcVWY/gnQdaCW8
+	4CtXqTtSS7zVqpQqhiM/G6wfTqqwMwB+SMrEpqUx4HzY9Md4AHPA00HtXXNLcLauX7a41OSOR0kQm
+	G0Dw/CDl1JCqhXMYr+/CijsCaLgmAL9556NqmbuhbqZFtrl4XBRJ+GNj9eE3+RDQSi5Rs8e2J1pOa
+	VFzAIcdw3k6cCSNKgd/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuOEa-00000004bUp-1z61;
-	Tue, 18 Mar 2025 04:07:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuO7K-00000004adt-3yud
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 18 Mar 2025 03:59:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=; b=IR+YwRVWHoMI8L4pC/IV0VhApe
-	yH+yzks68WWVs6peM4ZC+OvizgLwkauwOktBIWatYiYwN9DzTRW9CZAbBWoW3ZYQlszNOOeSipOon
-	PhtzPEPmFurDeIATaWfAKcfK0jQDl6swOYDvTiJFwiBlnJuHbYvRbTWh1h77IoOa4MnfgtOfGMNat
-	wGh9sTtX9iWSAR/wOSZ/9Ipr1f1q4wjyRvdLh2a8ru/U2oSDUt65Z2MY2lM0mu0pbstucwcLmGm66
-	Jj40qgmk1Q+ec03HInZpZSO3j0oiLxKl2cQPvkcp0tgtGmq1hOJJkZMQ/GYZan/o/Yq3T6cSyUM+Q
-	gJjke5Zg==;
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuO7H-00000003eW1-3opP
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 03:59:49 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22622ddcc35so28790175ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 17 Mar 2025 20:59:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1742270385; x=1742875185; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
-        b=P+UXjf/RitKr/XpJhGoBj2JiM/K+O4OEp/Y0E3KV9RCE9nFxY/ky2D0zv62/nhUXe6
-         ylR/mVFpMqWTnd+g+b6MVOx6cAPeTRAAMQzpm+kTpafeNXKsJVjxH8IUkvugKw9L8B/l
-         QKi/qNhPB4/4oG8GHM8Zl0abbmBOd0RiE2/ZwsT0dwu1PmQBjhRp+2HFzzT8GQNk5XMk
-         V9NsVJ3IDN1foSzgDtXaDTOMr54EUXdJli0tiG+lZoJ4F2ocEw2POhkBGXxybWRpPbRG
-         b0t1L0IhKII0ziRGzd4QSVbEK+MfRYJPoOhLVUngSfQhroWJK79XvE8FfsA7gCEQIJDZ
-         lnbw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742270385; x=1742875185;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8OMb2TInCE9Qb7KUVvNgWIsY4Uxx9EaJDiVCyGMWyMw=;
-        b=qxHvcD1FyEyp5vAIhnnK9IaLVtNj0ZRJyQeQEHs0Bo/i3UWrMz4RGuXbpSDaqcs8u3
-         3Nk4TFcknPQ+Niki3ef+uN+qzDY5ugQTyxLKixOR9UpBYIt5yhHyuPbyKEAMYIlU/FYE
-         ikxGAhzI5DkPVdU4fL8s9YE7UPTfYKEJimM5a+d/PhXK2czVk5iN4JpvsNtDLTMolyDW
-         3o2x4ZEVtc70LWDRsPVYkxZDyQpP1LFL+d76J9QK5jQjnNc97TpjskFGx/ncsR109THH
-         UqVLobERm0MjCNjWQhozUFH9048jWrqSL+JAXlT0X4wZjqrhoCW44l8NmIwTp39Vpk7P
-         nODA==
-X-Forwarded-Encrypted: i=1; AJvYcCV8WWDikxiCB0R6nC3tUP/YP7LpSok4zhN6wPtlGjZptm3tglW03kE7CnXOgQYvVHtzP9bU7Q47V/GVIQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwY1jzUqs691JECPB2x2RT+5oVAJOXd0D/BdxwUwzOlcdizm5YM
-	C5o3rfyz59AyLTWcR720puXLwBwy8ZuaD76F1Bh7TU8EhgfLLQ1VlGP7f3ceFlI=
-X-Gm-Gg: ASbGnct6wwy5zvIAnhPz7UGtzNSN72oMqMSMJUcDrCszMyUPHfd4g7ayLGFQhCwS/KV
-	0fWYyS9meNVG677BSldePgV09a9fhw/WSFosmHon+qURpUNZCEVbMR2OXdsZcrKIAW/o/Wmsz0G
-	0dO6Lou/XdyqY2IM1/uzqAqVGqQO+ECBQ/KNfVJmTLfKUtyEtn6MkCv/G/EQPtBCXsQdsqlGUbQ
-	Obq9REVaEysLfcN3Cs3UfSQTteDkpNodjrGesIPLEUulsNrKxj8ls+tJ7CE60BjS4geZ3sARO/u
-	11dPCMyAS0PHrbL5A6rm62VZA40ImMxOyX/AJs4Kmm1I2UDDBRs5v5x2tEDE1F0ca5Cbc5jlZfG
-	0w2o3XyOUya8NwTSRoQRyO91r9/4=
-X-Google-Smtp-Source: AGHT+IGHO8cx8ckfDIHxWMgqvQhdq4sCCYAYAML9a+Udl9ONIKirtb2WHArjW9djfVtwLHqHp3jjYg==
-X-Received: by 2002:a17:903:1ca:b0:21f:b483:2ad5 with SMTP id d9443c01a7336-2262c555e78mr19060495ad.20.1742270385373;
-        Mon, 17 Mar 2025 20:59:45 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.55])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6bd4b30sm83720135ad.235.2025.03.17.20.59.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 17 Mar 2025 20:59:44 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: akpm@linux-foundation.org,
-	jhubbard@nvidia.com,
-	kirill.shutemov@linux.intel.com,
-	tjeznach@rivosinc.com,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com
-Cc: lihangjing@bytedance.com,
-	xieyongji@bytedance.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mm@kvack.org,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH RESEND v2 1/4] mm/gup: Add huge pte handling logic in follow_page_pte()
-Date: Tue, 18 Mar 2025 11:59:27 +0800
-Message-Id: <20250318035930.11855-2-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250318035930.11855-1-luxu.kernel@bytedance.com>
-References: <20250318035930.11855-1-luxu.kernel@bytedance.com>
+	id 1tuOkA-00000004e13-0ydd;
+	Tue, 18 Mar 2025 04:39:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuOiS-00000004dtJ-02WE;
+	Tue, 18 Mar 2025 04:38:13 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 300C2152B;
+	Mon, 17 Mar 2025 21:38:16 -0700 (PDT)
+Received: from [10.163.44.33] (unknown [10.163.44.33])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B992E3F63F;
+	Mon, 17 Mar 2025 21:38:00 -0700 (PDT)
+Message-ID: <392723e2-da82-4bdb-bebe-ed1c982d0d5f@arm.com>
+Date: Tue, 18 Mar 2025 10:07:56 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64/ptdump: Replace u64 with pteval_t
+To: Ryan Roberts <ryan.roberts@arm.com>, linux-mm@kvack.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Steven Price <steven.price@arm.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+ Heiko Carstens <hca@linux.ibm.com>, Peter Zijlstra <peterz@infradead.org>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, Marc Zyngier <maz@kernel.org>
+References: <20250317061818.16244-1-anshuman.khandual@arm.com>
+ <20250317061818.16244-3-anshuman.khandual@arm.com>
+ <16c12c3f-f2c2-45fa-9db6-4dfaeb002059@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <16c12c3f-f2c2-45fa-9db6-4dfaeb002059@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_035948_068494_0F103D9D 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20250317_213812_147722_1E8D1072 
+X-CRM114-Status: GOOD (  26.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,138 +75,248 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Page mapped at pte level can also be huge page when ARM CONT_PTE or
-RISC-V SVNAPOT is applied. Lack of huge pte handling logic in
-follow_page_pte() may lead to both performance and correctness issues.
 
-For example, on RISC-V platform, pages in the same 64K huge page have
-the same pte value, which means follow_page_pte() will get the same page
-for all of them using pte_pfn(). Then __get_user_pages() will return an
-array of pages with the same pfn. Mapping these pages causes memory
-confusion. This error can be triggered by the following code:
 
-  void *addr = mmap(NULL, 0x10000, PROT_READ | PROT_WRITE, MAP_ANONYMOUS |
-		  MAP_PRIVATE | MAP_HUGETLB | MAP_HUGE_64KB, -1, 0);
-  struct vfio_iommu_type1_dma_map dmap_map = {
-	  .argsz = sizeof(dma_map),
-	  .flags = VFIO_DMA_MAP_FLAG_READ | VFIO_DMA_MAP_FLAG_WRITE,
-	  .vaddr = (uint64_t)addr,
-	  .size = 0x10000,
-  };
+On 3/17/25 14:58, Ryan Roberts wrote:
+> On 17/03/2025 06:18, Anshuman Khandual wrote:
+>> Page table entry's value, mask and protection are represented with pteval_t
+>> data type format not u64 that has been assumed while dumping the page table
+>> entries. Replace all such u64 instances with pteval_t instead as required.
+>>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/include/asm/ptdump.h | 8 ++++----
+>>  arch/arm64/mm/ptdump.c          | 2 +-
+>>  2 files changed, 5 insertions(+), 5 deletions(-)
+>>
+>> diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+>> index e5da9ce8a515..476a870489b9 100644
+>> --- a/arch/arm64/include/asm/ptdump.h
+>> +++ b/arch/arm64/include/asm/ptdump.h
+>> @@ -24,8 +24,8 @@ struct ptdump_info {
+>>  };
+>>  
+>>  struct ptdump_prot_bits {
+>> -	u64		mask;
+>> -	u64		val;
+>> +	pteval_t	mask;
+>> +	pteval_t	val;
+> 
+> Given Ard's suggestion of using "ptdesc" as a generic term for PTDESC_SHIFT (or
+> PTDESC_ORDER, or whatever we ended up calling it), I wonder if it would be
+> cleaner to do the same with the types? We could have a ptdesc_t, which is
+> typedef'ed as u64 (or u128), then pteval_t, pmdval_t, ..., could all be
+> typedef'ed as ptdesc_t. Then for code that just wants a generic pgtable
+> descriptor value, we can use that type to indicate that it can be at any level.
 
-  ioctl(vfio_container_fd, VFIO_IOMMU_MAP_DMA, &dma_map);
+Something like the following ? Will cross check again if this might have
+missed something which could be converted as ptdesc_t as well.
 
-This commit supplies huge pte handling logic in follow_page_pte() to
-avoid such problems.
-
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- arch/riscv/include/asm/pgtable.h |  6 ++++++
- include/linux/pgtable.h          |  8 ++++++++
- mm/gup.c                         | 17 +++++++++++------
- 3 files changed, 25 insertions(+), 6 deletions(-)
-
-diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
-index 050fdc49b5ad7..40ae5979dd82c 100644
---- a/arch/riscv/include/asm/pgtable.h
-+++ b/arch/riscv/include/asm/pgtable.h
-@@ -800,6 +800,12 @@ static inline bool pud_user_accessible_page(pud_t pud)
- #endif
+diff --git a/arch/arm64/include/asm/pgtable-types.h b/arch/arm64/include/asm/pgtable-types.h
+index 6d6d4065b0cb..686541e986e3 100644
+--- a/arch/arm64/include/asm/pgtable-types.h
++++ b/arch/arm64/include/asm/pgtable-types.h
+@@ -11,11 +11,13 @@
  
- #ifdef CONFIG_TRANSPARENT_HUGEPAGE
-+#define pte_trans_huge	pte_trans_huge
-+static inline int pte_trans_huge(pte_t pte)
-+{
-+	return pte_huge(pte) && pte_napot(pte);
-+}
+ #include <asm/types.h>
+ 
+-typedef u64 pteval_t;
+-typedef u64 pmdval_t;
+-typedef u64 pudval_t;
+-typedef u64 p4dval_t;
+-typedef u64 pgdval_t;
++typedef u64 ptdesc_t;
 +
- static inline int pmd_trans_huge(pmd_t pmd)
++typedef ptdesc_t pteval_t;
++typedef ptdesc_t pmdval_t;
++typedef ptdesc_t pudval_t;
++typedef ptdesc_t p4dval_t;
++typedef ptdesc_t pgdval_t;
+ 
+ /*
+  * These are used to make use of C type-checking..
+@@ -46,7 +48,7 @@ typedef struct { pgdval_t pgd; } pgd_t;
+ #define pgd_val(x)	((x).pgd)
+ #define __pgd(x)	((pgd_t) { (x) } )
+ 
+-typedef struct { pteval_t pgprot; } pgprot_t;
++typedef struct { ptdesc_t pgprot; } pgprot_t;
+ #define pgprot_val(x)	((x).pgprot)
+ #define __pgprot(x)	((pgprot_t) { (x) } )
+ 
+diff --git a/arch/arm64/include/asm/ptdump.h b/arch/arm64/include/asm/ptdump.h
+index e5da9ce8a515..9548813bc877 100644
+--- a/arch/arm64/include/asm/ptdump.h
++++ b/arch/arm64/include/asm/ptdump.h
+@@ -24,8 +24,8 @@ struct ptdump_info {
+ };
+ 
+ struct ptdump_prot_bits {
+-	u64		mask;
+-	u64		val;
++	ptdesc_t	mask;
++	ptdesc_t	val;
+ 	const char	*set;
+ 	const char	*clear;
+ };
+@@ -34,7 +34,7 @@ struct ptdump_pg_level {
+ 	const struct ptdump_prot_bits *bits;
+ 	char name[4];
+ 	int num;
+-	u64 mask;
++	ptdesc_t mask;
+ };
+ 
+ /*
+@@ -51,7 +51,7 @@ struct ptdump_pg_state {
+ 	const struct mm_struct *mm;
+ 	unsigned long start_address;
+ 	int level;
+-	u64 current_prot;
++	ptdesc_t current_prot;
+ 	bool check_wx;
+ 	unsigned long wx_pages;
+ 	unsigned long uxn_pages;
+diff --git a/arch/arm64/kernel/efi.c b/arch/arm64/kernel/efi.c
+index 1d25d8899dbf..42e281c07c2f 100644
+--- a/arch/arm64/kernel/efi.c
++++ b/arch/arm64/kernel/efi.c
+@@ -29,7 +29,7 @@ static bool region_is_misaligned(const efi_memory_desc_t *md)
+  * executable, everything else can be mapped with the XN bits
+  * set. Also take the new (optional) RO/XP bits into account.
+  */
+-static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
++static __init ptdesc_t create_mapping_protection(efi_memory_desc_t *md)
  {
- 	return pmd_leaf(pmd);
-diff --git a/include/linux/pgtable.h b/include/linux/pgtable.h
-index 94d267d02372e..3f57ee6dcf017 100644
---- a/include/linux/pgtable.h
-+++ b/include/linux/pgtable.h
-@@ -1584,6 +1584,14 @@ static inline unsigned long my_zero_pfn(unsigned long addr)
+ 	u64 attr = md->attribute;
+ 	u32 type = md->type;
+@@ -83,7 +83,7 @@ static __init pteval_t create_mapping_protection(efi_memory_desc_t *md)
  
- #ifdef CONFIG_MMU
- 
-+#if (defined(CONFIG_TRANSPARENT_HUGEPAGE) && !defined(pte_trans_huge)) || \
-+	(!defined(CONFIG_TRANSPARENT_HUGEPAGE))
-+static inline int pte_trans_huge(pte_t pte)
-+{
-+	return 0;
-+}
-+#endif
-+
- #ifndef CONFIG_TRANSPARENT_HUGEPAGE
- static inline int pmd_trans_huge(pmd_t pmd)
+ int __init efi_create_mapping(struct mm_struct *mm, efi_memory_desc_t *md)
  {
-diff --git a/mm/gup.c b/mm/gup.c
-index 3883b307780ea..67981ee28df86 100644
---- a/mm/gup.c
-+++ b/mm/gup.c
-@@ -838,7 +838,7 @@ static inline bool can_follow_write_pte(pte_t pte, struct page *page,
+-	pteval_t prot_val = create_mapping_protection(md);
++	ptdesc_t prot_val = create_mapping_protection(md);
+ 	bool page_mappings_only = (md->type == EFI_RUNTIME_SERVICES_CODE ||
+ 				   md->type == EFI_RUNTIME_SERVICES_DATA);
  
- static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		unsigned long address, pmd_t *pmd, unsigned int flags,
--		struct dev_pagemap **pgmap)
-+		struct follow_page_context *ctx)
+diff --git a/arch/arm64/kernel/pi/map_kernel.c b/arch/arm64/kernel/pi/map_kernel.c
+index e57b043f324b..a00f57c73d81 100644
+--- a/arch/arm64/kernel/pi/map_kernel.c
++++ b/arch/arm64/kernel/pi/map_kernel.c
+@@ -159,7 +159,7 @@ static void noinline __section(".idmap.text") set_ttbr0_for_lpa2(u64 ttbr)
+ static void __init remap_idmap_for_lpa2(void)
  {
- 	struct mm_struct *mm = vma->vm_mm;
- 	struct folio *folio;
-@@ -879,8 +879,8 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		 * case since they are only valid while holding the pgmap
- 		 * reference.
- 		 */
--		*pgmap = get_dev_pagemap(pte_pfn(pte), *pgmap);
--		if (*pgmap)
-+		ctx->pgmap = get_dev_pagemap(pte_pfn(pte), ctx->pgmap);
-+		if (ctx->pgmap)
- 			page = pte_page(pte);
- 		else
- 			goto no_page;
-@@ -940,6 +940,11 @@ static struct page *follow_page_pte(struct vm_area_struct *vma,
- 		 */
- 		folio_mark_accessed(folio);
- 	}
-+	if (is_vm_hugetlb_page(vma) || pte_trans_huge(pte)) {
-+		ctx->page_mask = (1 << folio_order(folio)) - 1;
-+		page = folio_page(folio, 0) +
-+		       ((address & (folio_size(folio) - 1)) >> PAGE_SHIFT);
-+	}
- out:
- 	pte_unmap_unlock(ptep, ptl);
- 	return page;
-@@ -975,7 +980,7 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
- 		return no_page_table(vma, flags, address);
- 	}
- 	if (likely(!pmd_leaf(pmdval)))
--		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+		return follow_page_pte(vma, address, pmd, flags, ctx);
+ 	/* clear the bits that change meaning once LPA2 is turned on */
+-	pteval_t mask = PTE_SHARED;
++	ptdesc_t mask = PTE_SHARED;
  
- 	if (pmd_protnone(pmdval) && !gup_can_follow_protnone(vma, flags))
- 		return no_page_table(vma, flags, address);
-@@ -988,14 +993,14 @@ static struct page *follow_pmd_mask(struct vm_area_struct *vma,
+ 	/*
+ 	 * We have to clear bits [9:8] in all block or page descriptors in the
+diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+index 2b69e3beeef8..30c6bc50844f 100644
+--- a/arch/arm64/kernel/pi/map_range.c
++++ b/arch/arm64/kernel/pi/map_range.c
+@@ -30,7 +30,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 		      int level, pte_t *tbl, bool may_use_cont, u64 va_offset)
+ {
+ 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
+-	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
++	ptdesc_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
+ 	int lshift = (3 - level) * (PAGE_SHIFT - 3);
+ 	u64 lmask = (PAGE_SIZE << lshift) - 1;
+ 
+@@ -87,7 +87,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
  	}
- 	if (unlikely(!pmd_leaf(pmdval))) {
- 		spin_unlock(ptl);
--		return follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+		return follow_page_pte(vma, address, pmd, flags, ctx);
- 	}
- 	if (pmd_trans_huge(pmdval) && (flags & FOLL_SPLIT_PMD)) {
- 		spin_unlock(ptl);
- 		split_huge_pmd(vma, pmd, address);
- 		/* If pmd was left empty, stuff a page table in there quickly */
- 		return pte_alloc(mm, pmd) ? ERR_PTR(-ENOMEM) :
--			follow_page_pte(vma, address, pmd, flags, &ctx->pgmap);
-+			follow_page_pte(vma, address, pmd, flags, ctx);
- 	}
- 	page = follow_huge_pmd(vma, address, pmd, flags, ctx);
- 	spin_unlock(ptl);
+ }
+ 
+-asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, pteval_t clrmask)
++asmlinkage u64 __init create_init_idmap(pgd_t *pg_dir, ptdesc_t clrmask)
+ {
+ 	u64 ptep = (u64)pg_dir + PAGE_SIZE;
+ 	pgprot_t text_prot = PAGE_KERNEL_ROX;
+diff --git a/arch/arm64/kernel/pi/pi.h b/arch/arm64/kernel/pi/pi.h
+index c91e5e965cd3..91dcb5b6bbd1 100644
+--- a/arch/arm64/kernel/pi/pi.h
++++ b/arch/arm64/kernel/pi/pi.h
+@@ -33,4 +33,4 @@ void map_range(u64 *pgd, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 
+ asmlinkage void early_map_kernel(u64 boot_status, void *fdt);
+ 
+-asmlinkage u64 create_init_idmap(pgd_t *pgd, pteval_t clrmask);
++asmlinkage u64 create_init_idmap(pgd_t *pgd, ptdesc_t clrmask);
+diff --git a/arch/arm64/mm/mmap.c b/arch/arm64/mm/mmap.c
+index 07aeab8a7606..c86c348857c4 100644
+--- a/arch/arm64/mm/mmap.c
++++ b/arch/arm64/mm/mmap.c
+@@ -83,7 +83,7 @@ arch_initcall(adjust_protection_map);
+ 
+ pgprot_t vm_get_page_prot(unsigned long vm_flags)
+ {
+-	pteval_t prot;
++	ptdesc_t prot;
+ 
+ 	/* Short circuit GCS to avoid bloating the table. */
+ 	if (system_supports_gcs() && (vm_flags & VM_SHADOW_STACK)) {
+diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+index fd1610b4fd15..280e850f1688 100644
+--- a/arch/arm64/mm/ptdump.c
++++ b/arch/arm64/mm/ptdump.c
+@@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+ 	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+ 	struct ptdump_pg_level *pg_level = st->pg_level;
+ 	static const char units[] = "KMGTPE";
+-	u64 prot = 0;
++	ptdesc_t prot = 0;
+ 
+ 	/* check if the current level has been folded dynamically */
+ 	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
 -- 
-2.20.1
+2.25.1
 
+> 
+> Thanks,
+> Ryan
+> 
+>>  	const char	*set;
+>>  	const char	*clear;
+>>  };
+>> @@ -34,7 +34,7 @@ struct ptdump_pg_level {
+>>  	const struct ptdump_prot_bits *bits;
+>>  	char name[4];
+>>  	int num;
+>> -	u64 mask;
+>> +	pteval_t mask;
+>>  };
+>>  
+>>  /*
+>> @@ -51,7 +51,7 @@ struct ptdump_pg_state {
+>>  	const struct mm_struct *mm;
+>>  	unsigned long start_address;
+>>  	int level;
+>> -	u64 current_prot;
+>> +	pteval_t current_prot;
+>>  	bool check_wx;
+>>  	unsigned long wx_pages;
+>>  	unsigned long uxn_pages;
+>> diff --git a/arch/arm64/mm/ptdump.c b/arch/arm64/mm/ptdump.c
+>> index fd1610b4fd15..a5651be95868 100644
+>> --- a/arch/arm64/mm/ptdump.c
+>> +++ b/arch/arm64/mm/ptdump.c
+>> @@ -194,7 +194,7 @@ void note_page(struct ptdump_state *pt_st, unsigned long addr, int level,
+>>  	struct ptdump_pg_state *st = container_of(pt_st, struct ptdump_pg_state, ptdump);
+>>  	struct ptdump_pg_level *pg_level = st->pg_level;
+>>  	static const char units[] = "KMGTPE";
+>> -	u64 prot = 0;
+>> +	pteval_t prot = 0;
+>>  
+>>  	/* check if the current level has been folded dynamically */
+>>  	if (st->mm && ((level == 1 && mm_p4d_folded(st->mm)) ||
+> 
 
 _______________________________________________
 linux-riscv mailing list
