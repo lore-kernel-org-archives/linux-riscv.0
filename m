@@ -4,90 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7BDC282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 13:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F2DDC28B28
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 13:10:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R0sDkfSnfoDxoOHjhLdN74UWnX9nle8n4YBhLkmu3kM=; b=RhYEf7UCFZ6LDe
-	X7m98Ma8iNjA+mZD2a4J2HDt2SnGyZVOYy3FfIkDzRe/oQDmOhWmy7LQcZkVITuy2nLxrTr75OSj3
-	+LgXcLSO3rZZps0SKXdKND8/1/HqhvPQ4tXcL0ng8UsimRGX4ZjtoyyVujAP8Tz8UbTrWC6DfNI+x
-	lLhlQDxkwlocAohFZ8U/ruCFMIlFRM3lJ4xMsmiLKLO3155iw8Pxcoth+uHyzFk0wAJmW2S5hEVCF
-	L66gVcdyx2iKVWT0VQy6bCkVapXKpT3gF0hGdL/L4AYzHSOcUn8KhHXs+ay6YY4mFKBEskG5joWix
-	Y3M8wG3cLag2JOm8udtw==;
+	List-Owner; bh=tZ9kr4GlGy8AVWAJu/TxeF9IGwSJi9tJtMjqQTW/1ds=; b=M8e2O8faDf7/wm
+	u5VNlG226Y//9Py82svwowDI4GilnnC/BRDuYQ950e0R3rjZOLZ/4IRPfBTm49RdQwyRUxXG+p3Qu
+	5V4EeQXjuNkvO+uTIHopGqhi2VfAunI6GM8h0swyQOS9iK0IBmQ9tjoe24gYHTKIJR4gTDA1+7piT
+	FKPSrz/0oJD576FS//qJf2NbZObVMH/Y9YVGx9q9UC6yXD1s8cgGW4vWwE9jC/EVrn4xGE+BW59ng
+	kBUzqp8clh1Qo9qOjREdS9DRTz3YcGIfkbZhKgdj96Gg7yyzpMP7hW/U+RDCSIrSyiSkJdld/yuLG
+	9ng5HwF1by+yDLfb64aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuWbl-00000005xsY-1bxx;
-	Tue, 18 Mar 2025 13:03:49 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tuWiP-00000005yvU-1a38;
+	Tue, 18 Mar 2025 13:10:41 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuWK3-00000005vGr-0lcV
+	id 1tuWWO-00000005x3r-24sB
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 12:45:32 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5cd420781so10685452a12.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 05:45:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742301929; x=1742906729; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=qXTe4Yk90Sg3VlPoYATULTaZLwTfgsY3sNRfc2hTRIU=;
-        b=Ymgx/Ok3+lBrmtEC/vi3iBw6/9PcUc1AxqcFYwKmYt/KL/QuUia5O6KYumvh2CqPpJ
-         VPuzWsqRfcVADZkrkaJitv9+8XMR+qcsBlLv/bfiE5GrPLYFVN/Q0e8dZmrzsNAiwuaS
-         10IFxlO6eF6UgeTYCf1juksjFYjV5HnnLV4fFQZEy+Bzgu65636YaPzreZkixybfuxAf
-         vCkkNUJl5XRhSH++IHgGJQd9AN/rJ8G6SvBygizf9P4pHfdVfHV/pPIjn9zHekeN2J66
-         jIJhpwVZ5wbaZGmY7oKLZFQtC6N8zrfhJpreKzAXQxhxckoo4UG90rzy/5c+EXDir4w5
-         mM+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742301929; x=1742906729;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qXTe4Yk90Sg3VlPoYATULTaZLwTfgsY3sNRfc2hTRIU=;
-        b=G5QBFA3KX2mGs+IVMLGF0LkS7KuvPQQfxgavdtoRZn84jGTli4MlSDJnvEVb7Xmphv
-         hVaQFdsPkauTQ1jbXvmTg3XZPDKNHqsx2t2OPuZBXZbJi5RGu8HUBmSO0pgguskU7GZ1
-         OyZbtTvdlkdeMKHcA02J4rEiC6t/Yxpl4p+i/yfyG1PODgUmFGjGFw8EBETYr6SAKS4j
-         b69K6hov4VIs4WX0qLi4ZSzhwKMY0HojkzjxNaDjmBkZLOpmz0ps4zOxS1MPgEkX4kby
-         lHqKYzAEcue/ClCw7ppBE2T4DBzrbEXZN1Rl1LtOq+Ro4q2l5ByI1YO0psdE3KuBRriO
-         ePYA==
-X-Gm-Message-State: AOJu0YwviSZykVbJ4/4K+i36tAVHYmJbyJVskYmjHl0ta2EXBuWQOQoW
-	7d1R4Rq8vPMRVVqGg5G1tf+tSu0vUmPoO2kaMshhLJNKUPvJMq/FKgSsP3cgmRM=
-X-Gm-Gg: ASbGnct3Ib/Q99Y/JOWk5vLMYxhJtBLbnYmrn+o98TdrkHdAVD7HWtMqdRB1xinA00L
-	UK/u73+BdDvP5k80sRW7Zcef6jwbMLjgLhzIPCYJQxAq/q0mNky6kgCxYS855y5Nc/cm7PS0zga
-	unVMbQL4in7zq8CkhSOr8dJ8d3DSfWo5GUlOBU0DG0Qx/u0seFTNwSmY2GpdU5xlzJo08vcAavz
-	TZTMtDHa+cVGtIHfv1rVXvUnU6ULzLzADF7aPGvynDfT7to6bbdw/ZTi9lwVWoend1ElfVeYCG5
-	org7k0SqWCJeD1EuF6f1IeW8mp7ot6bI
-X-Google-Smtp-Source: AGHT+IGvtDbPjVoxVTWOd1NdIY09lXluivgwU090ch5Y5u/dyIz8R3TJbsTLRkeF7B6H3y+DKjJ5nA==
-X-Received: by 2002:a05:6402:278a:b0:5e8:bf2a:7e8c with SMTP id 4fb4d7f45d1cf-5eb1dee2f2bmr3489732a12.11.1742301929333;
-        Tue, 18 Mar 2025 05:45:29 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e8169b04e5sm7873781a12.35.2025.03.18.05.45.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 18 Mar 2025 05:45:28 -0700 (PDT)
-Date: Tue, 18 Mar 2025 13:45:28 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	charlie@rivosinc.com, cleger@rivosinc.com, Anup Patel <apatel@ventanamicro.com>, 
-	corbet@lwn.net
+	Tue, 18 Mar 2025 12:58:17 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 15C0B43420;
+	Tue, 18 Mar 2025 12:58:10 +0000 (UTC)
+Message-ID: <d7a04d06-766b-4b43-8c42-2b681629c35d@ghiti.fr>
+Date: Tue, 18 Mar 2025 13:58:10 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v3 7/8] riscv: Add parameter for skipping access speed
  tests
-Message-ID: <20250318-18b96818299ef211ef8ca620@orel>
+Content-Language: en-US
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ charlie@rivosinc.com, cleger@rivosinc.com,
+ Anup Patel <apatel@ventanamicro.com>, corbet@lwn.net
 References: <20250304120014.143628-10-ajones@ventanamicro.com>
  <20250304120014.143628-17-ajones@ventanamicro.com>
  <1b7e3d0f-0526-4afb-9f7a-2695e4166a9b@ghiti.fr>
  <20250318-1b03e58fe508b077e5d38233@orel>
  <c5e174e4-4fce-4c7f-821a-cf3781becab4@ghiti.fr>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <c5e174e4-4fce-4c7f-821a-cf3781becab4@ghiti.fr>
+ <20250318-18b96818299ef211ef8ca620@orel>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250318-18b96818299ef211ef8ca620@orel>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugedvhedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejieeuudejieekveeutdeguefhkeduledugeevhefffeejudeggedufffgleeugfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtoheprghjohhnvghssehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggur
+ dhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqughotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_054531_230553_FED374C3 
-X-CRM114-Status: GOOD (  45.42  )
+X-CRM114-CacheID: sfid-20250318_055816_690095_2C5CC7AF 
+X-CRM114-Status: GOOD (  27.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,161 +68,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 01:13:18PM +0100, Alexandre Ghiti wrote:
-> =
-
-> On 18/03/2025 09:48, Andrew Jones wrote:
-> > On Mon, Mar 17, 2025 at 03:39:01PM +0100, Alexandre Ghiti wrote:
-> > > Hi Drew,
-> > > =
-
-> > > On 04/03/2025 13:00, Andrew Jones wrote:
-> > > > Allow skipping scalar and vector unaligned access speed tests. This
-> > > > is useful for testing alternative code paths and to skip the tests =
-in
-> > > > environments where they run too slowly. All CPUs must have the same
-> > > > unaligned access speed.
-> > > I'm not a big fan of the command line parameter, this is not where we=
- should
-> > > push uarch decisions because there could be many other in the future,=
- the
-> > > best solution to me should be in DT/ACPI and since the DT folks, acco=
-rding
-> > > to Palmer, shut down this solution, it remains using an extension.
-> > > =
-
-> > > I have been reading a bit about unaligned accesses. Zicclsm was descr=
-ibed as
-> > > "Even though mandated, misaligned loads and stores might execute extr=
-emely
-> > > slowly. Standard software distributions should assume their existence=
- only
-> > > for correctness, not for performance." in rva20/22 but *not* in rva23=
-. So
-> > > what about using this "hole" and consider that a platform that *adver=
-tises*
-> > > Zicclsm means its unaligned accesses are fast? After internal discuss=
-ion, It
-> > > actually does not make sense to advertise Zicclsm if the platform acc=
-esses
-> > > are slow right?
-> > This topic pops up every so often, including in yesterday's server
-> > platform TG call. In that call, and, afaict, every other time it has
-> > popped up, the result is to reiterate that ISA extensions never say
-> > anything about performance. So, Zicclsm will never mean fast and we
-> > won't likely be able to add any extension that does.
-> =
-
-> =
-
-> Ok, I should not say "fast". Usually, when an extension is advertised by a
-> platform, we don't question its speed (zicboz, zicbom...etc), we simply u=
-se
-> it and it's up to the vendor to benchmark its implementation and act
-> accordingly (i.e. do not set it in the isa string).
-> =
-
-> =
-
-> > > arm64 for example considers that armv8 has fast unaligned accesses an=
-d can
-> > > then enable HAVE_EFFICIENT_ALIGNED_ACCESS in the kernel, even though =
-some
-> > > uarchs are slow. Distros will very likely use rva23 as baseline so th=
-ey will
-> > > enable Zicclsm which would allow us to take advantage of this too, wi=
-thout
-> > > this, we lose a lot of perf improvement in the kernel, see
-> > > https://lore.kernel.org/lkml/20231225044207.3821-1-jszhang@kernel.org=
-/.
-> > > =
-
-> > > Or we could have a new named feature for this, even though it's weird=
- to
-> > > have a named feature which would basically=A0 mean "Zicclsm is fast".=
- We don't
-> > > have, for example, a named feature to say "Zicboz is fast" but given =
-the
-> > > vague wording in the profile spec, maybe we can ask for one in that c=
-ase?
-> > > =
-
-> > > Sorry for the late review and for triggering this debate...
-> > No problem, let's try to pick the best option. I'll try listing all the
-> > options and there pros/cons.
-> > =
-
-> > 1. Leave as is, which is to always probe
-> >     pro: Nothing to do
-> >     con: Not ideal in all environments
-> > =
-
-> > 2. New DT/ACPI description
-> >     pro: Describing whether or not misaligned accesses are implemented =
-in
-> >          HW (which presumably means fast) is something that should be d=
-one
-> > 	in HW descriptions
-> >     con: We'll need to live with probing until we can get the descripti=
-ons
-> >          defined, which may be never if there's too much opposition
-> > =
-
-> > 3. Command line
-> >     pro: Easy and serves its purpose, which is to skip probing in the
-> >          environments where probing is not desired
-> >     con: Yet another command line option (which we may want to deprecate
-> >          someday)
-> > =
-
-> > 4. New ISA extension
-> >     pro: Easy to add to HW descriptions
-> >     con: Not likely to get it through ratification
-> > =
-
-> > 5. New SBI FWFT feature
-> >     pro: Probably easier to get through ratification than an ISA extens=
-ion
-> >     con: Instead of probing, kernel would have to ask SBI -- would that
-> >          even be faster? Will all the environments that want to skip
-> > 	probing even have a complete SBI?
-> > =
-
-> > 6. ??
-> =
-
-> =
-
-> So what about:
-> =
-
-> 7. New enum value describing the performance as "FORCED" or "HW" (or
-> anything better)
-> =A0=A0=A0 pro: We only use the existing Zicclsm
-> =A0=A0=A0 con: It's not clear that the accesses are fast but it basically=
- says to
-> SW "don't think too much, I'm telling you that you can use it", up to us =
-to
-> describe this correctly for users to understand.
-
-But Zicclsm doesn't mean misaligned accesses are in HW, it just means
-they're not going to explode. We'd still need the probing to find out
-if the accesses are emulated (slow) or hw (fast). We at least want to
-know the answer to that question because we advertise it to userspace
-through hwprobe.
-
-(BTW, another pro of the command line is that it can be used to test
-both slow and fast paths without recompiling.)
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMTgvMDMvMjAyNSAxMzo0NSwgQW5kcmV3IEpvbmVzIHdyb3RlOgo+IE9uIFR1ZSwgTWFyIDE4
+LCAyMDI1IGF0IDAxOjEzOjE4UE0gKzAxMDAsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gT24g
+MTgvMDMvMjAyNSAwOTo0OCwgQW5kcmV3IEpvbmVzIHdyb3RlOgo+Pj4gT24gTW9uLCBNYXIgMTcs
+IDIwMjUgYXQgMDM6Mzk6MDFQTSArMDEwMCwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+Pj4+IEhp
+IERyZXcsCj4+Pj4KPj4+PiBPbiAwNC8wMy8yMDI1IDEzOjAwLCBBbmRyZXcgSm9uZXMgd3JvdGU6
+Cj4+Pj4+IEFsbG93IHNraXBwaW5nIHNjYWxhciBhbmQgdmVjdG9yIHVuYWxpZ25lZCBhY2Nlc3Mg
+c3BlZWQgdGVzdHMuIFRoaXMKPj4+Pj4gaXMgdXNlZnVsIGZvciB0ZXN0aW5nIGFsdGVybmF0aXZl
+IGNvZGUgcGF0aHMgYW5kIHRvIHNraXAgdGhlIHRlc3RzIGluCj4+Pj4+IGVudmlyb25tZW50cyB3
+aGVyZSB0aGV5IHJ1biB0b28gc2xvd2x5LiBBbGwgQ1BVcyBtdXN0IGhhdmUgdGhlIHNhbWUKPj4+
+Pj4gdW5hbGlnbmVkIGFjY2VzcyBzcGVlZC4KPj4+PiBJJ20gbm90IGEgYmlnIGZhbiBvZiB0aGUg
+Y29tbWFuZCBsaW5lIHBhcmFtZXRlciwgdGhpcyBpcyBub3Qgd2hlcmUgd2Ugc2hvdWxkCj4+Pj4g
+cHVzaCB1YXJjaCBkZWNpc2lvbnMgYmVjYXVzZSB0aGVyZSBjb3VsZCBiZSBtYW55IG90aGVyIGlu
+IHRoZSBmdXR1cmUsIHRoZQo+Pj4+IGJlc3Qgc29sdXRpb24gdG8gbWUgc2hvdWxkIGJlIGluIERU
+L0FDUEkgYW5kIHNpbmNlIHRoZSBEVCBmb2xrcywgYWNjb3JkaW5nCj4+Pj4gdG8gUGFsbWVyLCBz
+aHV0IGRvd24gdGhpcyBzb2x1dGlvbiwgaXQgcmVtYWlucyB1c2luZyBhbiBleHRlbnNpb24uCj4+
+Pj4KPj4+PiBJIGhhdmUgYmVlbiByZWFkaW5nIGEgYml0IGFib3V0IHVuYWxpZ25lZCBhY2Nlc3Nl
+cy4gWmljY2xzbSB3YXMgZGVzY3JpYmVkIGFzCj4+Pj4gIkV2ZW4gdGhvdWdoIG1hbmRhdGVkLCBt
+aXNhbGlnbmVkIGxvYWRzIGFuZCBzdG9yZXMgbWlnaHQgZXhlY3V0ZSBleHRyZW1lbHkKPj4+PiBz
+bG93bHkuIFN0YW5kYXJkIHNvZnR3YXJlIGRpc3RyaWJ1dGlvbnMgc2hvdWxkIGFzc3VtZSB0aGVp
+ciBleGlzdGVuY2Ugb25seQo+Pj4+IGZvciBjb3JyZWN0bmVzcywgbm90IGZvciBwZXJmb3JtYW5j
+ZS4iIGluIHJ2YTIwLzIyIGJ1dCAqbm90KiBpbiBydmEyMy4gU28KPj4+PiB3aGF0IGFib3V0IHVz
+aW5nIHRoaXMgImhvbGUiIGFuZCBjb25zaWRlciB0aGF0IGEgcGxhdGZvcm0gdGhhdCAqYWR2ZXJ0
+aXNlcyoKPj4+PiBaaWNjbHNtIG1lYW5zIGl0cyB1bmFsaWduZWQgYWNjZXNzZXMgYXJlIGZhc3Q/
+IEFmdGVyIGludGVybmFsIGRpc2N1c3Npb24sIEl0Cj4+Pj4gYWN0dWFsbHkgZG9lcyBub3QgbWFr
+ZSBzZW5zZSB0byBhZHZlcnRpc2UgWmljY2xzbSBpZiB0aGUgcGxhdGZvcm0gYWNjZXNzZXMKPj4+
+PiBhcmUgc2xvdyByaWdodD8KPj4+IFRoaXMgdG9waWMgcG9wcyB1cCBldmVyeSBzbyBvZnRlbiwg
+aW5jbHVkaW5nIGluIHllc3RlcmRheSdzIHNlcnZlcgo+Pj4gcGxhdGZvcm0gVEcgY2FsbC4gSW4g
+dGhhdCBjYWxsLCBhbmQsIGFmYWljdCwgZXZlcnkgb3RoZXIgdGltZSBpdCBoYXMKPj4+IHBvcHBl
+ZCB1cCwgdGhlIHJlc3VsdCBpcyB0byByZWl0ZXJhdGUgdGhhdCBJU0EgZXh0ZW5zaW9ucyBuZXZl
+ciBzYXkKPj4+IGFueXRoaW5nIGFib3V0IHBlcmZvcm1hbmNlLiBTbywgWmljY2xzbSB3aWxsIG5l
+dmVyIG1lYW4gZmFzdCBhbmQgd2UKPj4+IHdvbid0IGxpa2VseSBiZSBhYmxlIHRvIGFkZCBhbnkg
+ZXh0ZW5zaW9uIHRoYXQgZG9lcy4KPj4KPj4gT2ssIEkgc2hvdWxkIG5vdCBzYXkgImZhc3QiLiBV
+c3VhbGx5LCB3aGVuIGFuIGV4dGVuc2lvbiBpcyBhZHZlcnRpc2VkIGJ5IGEKPj4gcGxhdGZvcm0s
+IHdlIGRvbid0IHF1ZXN0aW9uIGl0cyBzcGVlZCAoemljYm96LCB6aWNib20uLi5ldGMpLCB3ZSBz
+aW1wbHkgdXNlCj4+IGl0IGFuZCBpdCdzIHVwIHRvIHRoZSB2ZW5kb3IgdG8gYmVuY2htYXJrIGl0
+cyBpbXBsZW1lbnRhdGlvbiBhbmQgYWN0Cj4+IGFjY29yZGluZ2x5IChpLmUuIGRvIG5vdCBzZXQg
+aXQgaW4gdGhlIGlzYSBzdHJpbmcpLgo+Pgo+Pgo+Pj4+IGFybTY0IGZvciBleGFtcGxlIGNvbnNp
+ZGVycyB0aGF0IGFybXY4IGhhcyBmYXN0IHVuYWxpZ25lZCBhY2Nlc3NlcyBhbmQgY2FuCj4+Pj4g
+dGhlbiBlbmFibGUgSEFWRV9FRkZJQ0lFTlRfQUxJR05FRF9BQ0NFU1MgaW4gdGhlIGtlcm5lbCwg
+ZXZlbiB0aG91Z2ggc29tZQo+Pj4+IHVhcmNocyBhcmUgc2xvdy4gRGlzdHJvcyB3aWxsIHZlcnkg
+bGlrZWx5IHVzZSBydmEyMyBhcyBiYXNlbGluZSBzbyB0aGV5IHdpbGwKPj4+PiBlbmFibGUgWmlj
+Y2xzbSB3aGljaCB3b3VsZCBhbGxvdyB1cyB0byB0YWtlIGFkdmFudGFnZSBvZiB0aGlzIHRvbywg
+d2l0aG91dAo+Pj4+IHRoaXMsIHdlIGxvc2UgYSBsb3Qgb2YgcGVyZiBpbXByb3ZlbWVudCBpbiB0
+aGUga2VybmVsLCBzZWUKPj4+PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sLzIwMjMxMjI1
+MDQ0MjA3LjM4MjEtMS1qc3poYW5nQGtlcm5lbC5vcmcvLgo+Pj4+Cj4+Pj4gT3Igd2UgY291bGQg
+aGF2ZSBhIG5ldyBuYW1lZCBmZWF0dXJlIGZvciB0aGlzLCBldmVuIHRob3VnaCBpdCdzIHdlaXJk
+IHRvCj4+Pj4gaGF2ZSBhIG5hbWVkIGZlYXR1cmUgd2hpY2ggd291bGQgYmFzaWNhbGx5wqAgbWVh
+biAiWmljY2xzbSBpcyBmYXN0Ii4gV2UgZG9uJ3QKPj4+PiBoYXZlLCBmb3IgZXhhbXBsZSwgYSBu
+YW1lZCBmZWF0dXJlIHRvIHNheSAiWmljYm96IGlzIGZhc3QiIGJ1dCBnaXZlbiB0aGUKPj4+PiB2
+YWd1ZSB3b3JkaW5nIGluIHRoZSBwcm9maWxlIHNwZWMsIG1heWJlIHdlIGNhbiBhc2sgZm9yIG9u
+ZSBpbiB0aGF0IGNhc2U/Cj4+Pj4KPj4+PiBTb3JyeSBmb3IgdGhlIGxhdGUgcmV2aWV3IGFuZCBm
+b3IgdHJpZ2dlcmluZyB0aGlzIGRlYmF0ZS4uLgo+Pj4gTm8gcHJvYmxlbSwgbGV0J3MgdHJ5IHRv
+IHBpY2sgdGhlIGJlc3Qgb3B0aW9uLiBJJ2xsIHRyeSBsaXN0aW5nIGFsbCB0aGUKPj4+IG9wdGlv
+bnMgYW5kIHRoZXJlIHByb3MvY29ucy4KPj4+Cj4+PiAxLiBMZWF2ZSBhcyBpcywgd2hpY2ggaXMg
+dG8gYWx3YXlzIHByb2JlCj4+PiAgICAgIHBybzogTm90aGluZyB0byBkbwo+Pj4gICAgICBjb246
+IE5vdCBpZGVhbCBpbiBhbGwgZW52aXJvbm1lbnRzCj4+Pgo+Pj4gMi4gTmV3IERUL0FDUEkgZGVz
+Y3JpcHRpb24KPj4+ICAgICAgcHJvOiBEZXNjcmliaW5nIHdoZXRoZXIgb3Igbm90IG1pc2FsaWdu
+ZWQgYWNjZXNzZXMgYXJlIGltcGxlbWVudGVkIGluCj4+PiAgICAgICAgICAgSFcgKHdoaWNoIHBy
+ZXN1bWFibHkgbWVhbnMgZmFzdCkgaXMgc29tZXRoaW5nIHRoYXQgc2hvdWxkIGJlIGRvbmUKPj4+
+IAlpbiBIVyBkZXNjcmlwdGlvbnMKPj4+ICAgICAgY29uOiBXZSdsbCBuZWVkIHRvIGxpdmUgd2l0
+aCBwcm9iaW5nIHVudGlsIHdlIGNhbiBnZXQgdGhlIGRlc2NyaXB0aW9ucwo+Pj4gICAgICAgICAg
+IGRlZmluZWQsIHdoaWNoIG1heSBiZSBuZXZlciBpZiB0aGVyZSdzIHRvbyBtdWNoIG9wcG9zaXRp
+b24KPj4+Cj4+PiAzLiBDb21tYW5kIGxpbmUKPj4+ICAgICAgcHJvOiBFYXN5IGFuZCBzZXJ2ZXMg
+aXRzIHB1cnBvc2UsIHdoaWNoIGlzIHRvIHNraXAgcHJvYmluZyBpbiB0aGUKPj4+ICAgICAgICAg
+ICBlbnZpcm9ubWVudHMgd2hlcmUgcHJvYmluZyBpcyBub3QgZGVzaXJlZAo+Pj4gICAgICBjb246
+IFlldCBhbm90aGVyIGNvbW1hbmQgbGluZSBvcHRpb24gKHdoaWNoIHdlIG1heSB3YW50IHRvIGRl
+cHJlY2F0ZQo+Pj4gICAgICAgICAgIHNvbWVkYXkpCj4+Pgo+Pj4gNC4gTmV3IElTQSBleHRlbnNp
+b24KPj4+ICAgICAgcHJvOiBFYXN5IHRvIGFkZCB0byBIVyBkZXNjcmlwdGlvbnMKPj4+ICAgICAg
+Y29uOiBOb3QgbGlrZWx5IHRvIGdldCBpdCB0aHJvdWdoIHJhdGlmaWNhdGlvbgo+Pj4KPj4+IDUu
+IE5ldyBTQkkgRldGVCBmZWF0dXJlCj4+PiAgICAgIHBybzogUHJvYmFibHkgZWFzaWVyIHRvIGdl
+dCB0aHJvdWdoIHJhdGlmaWNhdGlvbiB0aGFuIGFuIElTQSBleHRlbnNpb24KPj4+ICAgICAgY29u
+OiBJbnN0ZWFkIG9mIHByb2JpbmcsIGtlcm5lbCB3b3VsZCBoYXZlIHRvIGFzayBTQkkgLS0gd291
+bGQgdGhhdAo+Pj4gICAgICAgICAgIGV2ZW4gYmUgZmFzdGVyPyBXaWxsIGFsbCB0aGUgZW52aXJv
+bm1lbnRzIHRoYXQgd2FudCB0byBza2lwCj4+PiAJcHJvYmluZyBldmVuIGhhdmUgYSBjb21wbGV0
+ZSBTQkk/Cj4+Pgo+Pj4gNi4gPz8KPj4KPj4gU28gd2hhdCBhYm91dDoKPj4KPj4gNy4gTmV3IGVu
+dW0gdmFsdWUgZGVzY3JpYmluZyB0aGUgcGVyZm9ybWFuY2UgYXMgIkZPUkNFRCIgb3IgIkhXIiAo
+b3IKPj4gYW55dGhpbmcgYmV0dGVyKQo+PiAgwqDCoMKgIHBybzogV2Ugb25seSB1c2UgdGhlIGV4
+aXN0aW5nIFppY2Nsc20KPj4gIMKgwqDCoCBjb246IEl0J3Mgbm90IGNsZWFyIHRoYXQgdGhlIGFj
+Y2Vzc2VzIGFyZSBmYXN0IGJ1dCBpdCBiYXNpY2FsbHkgc2F5cyB0bwo+PiBTVyAiZG9uJ3QgdGhp
+bmsgdG9vIG11Y2gsIEknbSB0ZWxsaW5nIHlvdSB0aGF0IHlvdSBjYW4gdXNlIGl0IiwgdXAgdG8g
+dXMgdG8KPj4gZGVzY3JpYmUgdGhpcyBjb3JyZWN0bHkgZm9yIHVzZXJzIHRvIHVuZGVyc3RhbmQu
+Cj4gQnV0IFppY2Nsc20gZG9lc24ndCBtZWFuIG1pc2FsaWduZWQgYWNjZXNzZXMgYXJlIGluIEhX
+LCBpdCBqdXN0IG1lYW5zCj4gdGhleSdyZSBub3QgZ29pbmcgdG8gZXhwbG9kZS4KCgpUaGV5IG5l
+dmVyIGV4cGxvZGUgc2luY2UgaWYgdGhleSBhcmUgbm90IHN1cHBvcnRlZCBieSB0aGUgSFcsIHdl
+IHJlbHkgb24gClMtbW9kZSBlbXVsYXRpb24gYWxyZWFkeS4KCgo+IFdlJ2Qgc3RpbGwgbmVlZCB0
+aGUgcHJvYmluZyB0byBmaW5kIG91dAo+IGlmIHRoZSBhY2Nlc3NlcyBhcmUgZW11bGF0ZWQgKHNs
+b3cpIG9yIGh3IChmYXN0KS4gV2UgYXQgbGVhc3Qgd2FudCB0bwo+IGtub3cgdGhlIGFuc3dlciB0
+byB0aGF0IHF1ZXN0aW9uIGJlY2F1c2Ugd2UgYWR2ZXJ0aXNlIGl0IHRvIHVzZXJzcGFjZQo+IHRo
+cm91Z2ggaHdwcm9iZS4KPgo+IChCVFcsIGFub3RoZXIgcHJvIG9mIHRoZSBjb21tYW5kIGxpbmUg
+aXMgdGhhdCBpdCBjYW4gYmUgdXNlZCB0byB0ZXN0Cj4gYm90aCBzbG93IGFuZCBmYXN0IHBhdGhz
+IHdpdGhvdXQgcmVjb21waWxpbmcuKQo+Cj4gVGhhbmtzLAo+IGRyZXcKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
