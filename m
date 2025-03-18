@@ -4,54 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78147C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 12:02:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE7FC35FF3
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 12:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=+mByFuPJPNwzh/mBGe2XJSzwC6YfQ+DKnAH1mZE/jjA=; b=U7D
-	v763qH22Nu0cWhV/3hHWhVGFXG0y2BVoEOW87Fqe1iKWXMg0O0Jlt+LuNam6Kb/0B6FElKTwTH/Au
-	0PnlwXPR3PQKZ/n3DIOvH+nNiB9m/M/cV3Hba4Z0emFckaXR4Xe62WCwnCG2MdLfwSNG0fQV2Fxe2
-	Nvp9UL0S2hC9Cl068HbGFqb1qt+JNlcTyU5GIphxzhKBlmK3/+oKXCdi0q/w/hruB/z9pR0gUHJ5w
-	Gcw7mxe/AJpNiT/AxGbM6r4+ZBCjiYWgCmHlBpWiv7kQHQ4kolRbD96lr0omdK9UkzWpSzoB2Q5NL
-	6USFvC7oedqh1qhlq4//pCPZG+C89Zg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7jpDCcZBYriO8mFtbyYc0dANNIZgRthLr+9Nxrdqt1g=; b=sDsTIElOeB+8KR
+	P1oervJ1UFh6RSTdT/GGMRQXQSRjo5XGUK/oQ/jRRaCFAip7PXY2Tzi6WerE/ybtdFNnVofELri3U
+	Kd5S/XESQUsciqPzRojThVW4CzIAmgK46ga9qLyUBtXUEPeetxGerMPl4jcsu5+61SzdprdHL1Sy+
+	YPojp6up4MXkZ3cAH16rySObvcJLdO5wRxPK1IZFqR6zs2NIK9c8nXVeFcLcBFu0/3Ce4jbty2C6v
+	JqU1HNBikU4QqhKrfHPciNdSskw3L1b8MLiQLkaWy0kVSZqpJSVntr0JMD7otKZ4KnjcFzH4GbAZS
+	2X0wBtmi82+oq8aUaU2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVeH-00000005ohH-0se2;
-	Tue, 18 Mar 2025 12:02:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tuVfw-00000005p5K-267P;
+	Tue, 18 Mar 2025 12:04:04 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVZf-00000005nmm-39oW
-	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 11:57:37 +0000
+	id 1tuVa2-00000005npu-0zBQ;
+	Tue, 18 Mar 2025 11:57:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 276C7A40BAC
-	for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 11:52:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 979B4C4CEE3;
-	Tue, 18 Mar 2025 11:57:33 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8ADACA43555;
+	Tue, 18 Mar 2025 11:52:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA00C4CEFC;
+	Tue, 18 Mar 2025 11:57:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742299054;
-	bh=rmLMUpUg9TKlv0t12MsX0VOhIQD3OdV+vDBtl6zVpao=;
-	h=Date:From:To:Cc:Subject:From;
-	b=vCuGMsfMlLcLCFGPlZUXvf9LR7aFshQKJcZiZQehD5UgXl0/o6pb9iuGMQMDdNzj6
-	 J5ZsJWfUNnV/YSu2kkpWd/COk11ZCXSq+n0o5Cow58rQl7UhK1m1EgiUcMPpySN0kf
-	 voZ5eFSLwqfU+zwPo2dahiemJACj3UUSMws4fwBqKKSwm5RAgTkHIXL1U4NFcq49C4
-	 mlLyBL6dRfSl+PTgp30GTZzX19y3BqXThX2nM+xambHFcbRCEb7tiNrZlTfvTR/YcP
-	 RTNs7i5yFGQsanK+p9APHWkM/HoGwT58k/NecvGjOSoHAxg1XNQLvwa14JcmB1AEGo
-	 wvXnf4FwZiAVw==
-Date: Tue, 18 Mar 2025 11:57:31 +0000
-From: Conor Dooley <conor@kernel.org>
-To: soc@kernel.org
-Cc: conor@kernel.org, linux-riscv@lists.infradead.org
-Subject: [GIT PULL] RISC-V Devicetrees for v6.15
-Message-ID: <20250318-favorite-presuming-bf2fcf55bf6a@spud>
+	s=k20201202; t=1742299076;
+	bh=CIhTjH9kKlO1VYGiipc2V9drjBD3Ayt0OkD0U7KRb6w=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=VNZz+D/dtbyshE97W4HnLDn48vAHhWJ1qM3mL/ZcYLXzJCavmJHa91JYiiOlMNJbz
+	 3UQHEcUGagflvTa1naQQ3WhxL7VDkHEqM2S7CkzCA9R2QNMrKsOF/87TV8TeAU7pag
+	 JnyeHsFK4NM+n6Sd6iwRDBgTTtsst7XHqqi+SMHGvuW0tYLqcabFNOqlgCauzVkD73
+	 FEV87vVnNi6+5cugxgHyXPjIWm09qmE4hdd7e5vWrscoz4DVCqYqP4MsFlrfEg/D+e
+	 hisoP8e3IL/aZBRIfu7TRQITKlDjGtX7HEA5nLU4mGdskuoLTKP3Pn1CaVYbWjJBBQ
+	 A9XO+vMkI9ejg==
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so8669595a12.2;
+        Tue, 18 Mar 2025 04:57:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUExeOBmX/zLWPoouMBtGnTVddztDmbYXPLoFTsi7WZLz5+CATmFVCCgaNQnK2T6h397YmsbmAN2L0/YQwFkBFA4w==@lists.infradead.org, AJvYcCVJ4YiEq5+eSYPmP0EgeqmaGnSQjR/2uE3lVhucTc6hmPQdyL/svUXPKvfCyhEznqz+Skzwj0PhRks1MxC4L29P@lists.infradead.org, AJvYcCXslvRvQkMR98QPyAYPldX1YMfC4z23AKiRIGiWLqQhvMAvm71kcQnE/VGtksAupbh8HHEv87/IuSnyGbY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1Pf89FOYPXveyy6ftxVh7S8BxYXHCOolvbd2yMyg3PA20TgLm
+	wdwE119l5ymHgl/lT08tYc0lpNektVHrXa11hLB1wdH5mZ/KG353wFL3c3kHz4BeUnKR4K+wRvA
+	wkreDi+OoaBXZgX+Kfb5qbG8c1fg=
+X-Google-Smtp-Source: AGHT+IHWKrMLWQmDlK3EXFGkIz3JuWrB7n/PbIZxnJSxvCf68cavwFPKlU+WgeLv6v2/CTfArLyeiik7sHtiA+Oo+58=
+X-Received: by 2002:a17:907:1009:b0:ac3:3f10:e8e3 with SMTP id
+ a640c23a62f3a-ac33f10ed5cmr1299294766b.1.1742299074804; Tue, 18 Mar 2025
+ 04:57:54 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250115-fix-riscv-rt_group_sched-v4-0-607606fe73a5@coelacanthus.name>
+ <20250115-fix-riscv-rt_group_sched-v4-4-607606fe73a5@coelacanthus.name> <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
+In-Reply-To: <t2dustbykx2qd24wazjeiw5hch5nwr6z2ewmaf4srg6r2grwrf@rdw47chzkef2>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Tue, 18 Mar 2025 19:57:44 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4fTGs-7EXE0EcR=P6GqHF2fokRE-kEte+cDmhjy=FYsA@mail.gmail.com>
+X-Gm-Features: AQ5f1Jo4W5NNqo2SfcBdxKCe2OFxQs4im7DaCODl6wEw6MnCM3-sp2pnyba2ZAw
+Message-ID: <CAAhV-H4fTGs-7EXE0EcR=P6GqHF2fokRE-kEte+cDmhjy=FYsA@mail.gmail.com>
+Subject: Re: [PATCH v4 4/4] arm: defconfig: drop RT_GROUP_SCHED=y from bcm2835/tegra/omap2plus
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Celeste Liu <uwu@coelacanthus.name>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Guo Ren <guoren@kernel.org>, 
+	Anup Patel <anup@brainfault.org>, 
+	Heinrich Schuchardt <heinrich.schuchardt@canonical.com>, WANG Xuerui <kernel@xen0n.name>, 
+	Yoshinori Sato <ysato@users.sourceforge.jp>, Rich Felker <dalias@libc.org>, 
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>, Russell King <linux@armlinux.org.uk>, 
+	Florian Fainelli <florian.fainelli@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Tony Lindgren <tony@atomide.com>, 
+	Jonathan Hunter <jonathanh@nvidia.com>, Aaro Koskinen <aaro.koskinen@iki.fi>, 
+	Andreas Kemnade <andreas@kemnade.info>, Kevin Hilman <khilman@baylibre.com>, 
+	Roger Quadros <rogerq@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev, 
+	linux-sh@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-omap@vger.kernel.org, 
+	linux-tegra@vger.kernel.org, Stefan Wahren <wahrenst@gmx.net>, 
+	Thierry Reding <treding@nvidia.com>, soc@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_045735_859265_378C880D 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250318_045758_404349_EDC9A886 
+X-CRM114-Status: GOOD (  21.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,104 +94,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============6220209905542224621=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============6220209905542224621==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="Zkv9McmXFIblZL5Z"
-Content-Disposition: inline
-
-
---Zkv9McmXFIblZL5Z
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-
-Hey Arnd,
-
-Not too much this window, was hoping to get the k230 (canaan soc) this
-time around, but the clock side of things was not ready.
-
-Cheers,
-Conor.
-
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
-
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.15
-
-for you to fetch changes up to 38818f7c9c179351334b1faffc4d40bd28cc9c72:
-
-  riscv: dts: starfive: jh7110-pine64-star64: enable USB 3.0 port (2025-02-18 16:32:25 +0000)
-
-----------------------------------------------------------------
-RISC-V Devicetrees for v6.15
-
-Starfive:
-All changes for jh7110-based boards including the removal of a dac
-that does not exist and the addition of usb3 support on the star64 board
-and pcie on the framework mainboard.
-
-Microchip:
-Update pcie reg properties to fix a mistake originally describing them.
-Here rather than in fixes, since the driver maintains support for the
-old format.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
-
-----------------------------------------------------------------
-Conor Dooley (2):
-      riscv: dts: microchip: update pcie reg properties to new format
-      riscv: dts: starfive: remove non-existent dac from jh7110
-
-E Shattow (2):
-      riscv: dts: starfive: jh7110: pciephy0 USB 3.0 configuration registers
-      riscv: dts: starfive: jh7110-pine64-star64: enable USB 3.0 port
-
-Sandie Cao (1):
-      riscv: dts: starfive: fml13v01: enable pcie1
-
-Shengyu Qu (1):
-      riscv: dts: starfive: Unify regulator naming scheme
-
- .../boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi |  5 ++--
- .../boot/dts/microchip/mpfs-m100pfs-fabric.dtsi    |  5 ++--
- .../boot/dts/microchip/mpfs-polarberry-fabric.dtsi |  5 ++--
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |  8 +----
- .../dts/starfive/jh7110-deepcomputing-fml13v01.dts | 34 ++++++++++++++++++++++
- .../boot/dts/starfive/jh7110-pine64-star64.dts     |  5 ++++
- arch/riscv/boot/dts/starfive/jh7110.dtsi           |  2 ++
- 7 files changed, 51 insertions(+), 13 deletions(-)
-
---Zkv9McmXFIblZL5Z
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9lfqwAKCRB4tDGHoIJi
-0gCiAPsE2utscwOvp0WzwLA3spcR3+1jORwrts/LiBGNrYQ06QD+KoBcIlha6JL2
-WQMSCRpVANtjmtODfKlmlbH8BH24owY=
-=0nHQ
------END PGP SIGNATURE-----
-
---Zkv9McmXFIblZL5Z--
-
-
---===============6220209905542224621==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============6220209905542224621==--
-
+T24gRnJpLCBNYXIgNywgMjAyNSBhdCAzOjE54oCvQU0gVGhpZXJyeSBSZWRpbmcgPHRoaWVycnku
+cmVkaW5nQGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBPbiBXZWQsIEphbiAxNSwgMjAyNSBhdCAwNDo0
+MToyM0FNICswODAwLCBDZWxlc3RlIExpdSB3cm90ZToKPiA+IENvbW1pdCA2NzNjZTAwYzVkNmMg
+KCJBUk06IG9tYXAycGx1c19kZWZjb25maWc6IEFkZCBzdXBwb3J0IGZvciBkaXN0cm9zCj4gPiB3
+aXRoIHN5c3RlbWQiKSBzYWlkIGl0J3MgYmVjYXVzZSBvZiByZWNvbW1lbmRhdGlvbiBmcm9tIHN5
+c3RlbWQuIEJ1dAo+ID4gc3lzdGVtZCBjaGFuZ2VkIHRoZWlyIHJlY29tbWVuZGF0aW9uIGxhdGVy
+LlsxXQo+ID4KPiA+IEZvciBjZ3JvdXAgdjEsIGlmIHR1cm5lZCBvbiwgYW5kIHRoZXJlJ3MgYW55
+IGNncm91cCBpbiB0aGUgImNwdSIgaGllcmFyY2h5IGl0Cj4gPiBuZWVkcyBhbiBSVCBidWRnZXQg
+YXNzaWduZWQsIG90aGVyd2lzZSB0aGUgcHJvY2Vzc2VzIGluIGl0IHdpbGwgbm90IGJlIGFibGUg
+dG8KPiA+IGdldCBSVCBhdCBhbGwuIFRoZSBwcm9ibGVtIHdpdGggUlQgZ3JvdXAgc2NoZWR1bGlu
+ZyBpcyB0aGF0IGl0IHJlcXVpcmVzIHRoZQo+ID4gYnVkZ2V0IGFzc2lnbmVkIGJ1dCB0aGVyZSdz
+IG5vIHdheSB3ZSBjb3VsZCBhc3NpZ24gYSBkZWZhdWx0IGJ1ZGdldCwgc2luY2UgdGhlCj4gPiB2
+YWx1ZXMgdG8gYXNzaWduIGFyZSBib3RoIHVwcGVyIGFuZCBsb3dlciB0aW1lIGxpbWl0cywgYXJl
+IGFic29sdXRlLCBhbmQgbmVlZCB0bwo+ID4gYmUgc3VtIHVwIHRvIDwgMSBmb3IgZWFjaCBpbmRp
+dmlkYWwgY2dyb3VwLiBUaGF0IG1lYW5zIHdlIGNhbm5vdCByZWFsbHkgY29tZSB1cAo+ID4gd2l0
+aCB2YWx1ZXMgdGhhdCB3b3VsZCB3b3JrIGJ5IGRlZmF1bHQgaW4gdGhlIGdlbmVyYWwgY2FzZS5b
+Ml0KPiA+Cj4gPiBGb3IgY2dyb3VwIHYyLCBpdCdzIGFsbW9zdCB1bnVzYWJsZSBhcyB3ZWxsLiBJ
+ZiBpdCB0dXJuZWQgb24sIHRoZSBjcHUgY29udHJvbGxlcgo+ID4gY2FuIG9ubHkgYmUgZW5hYmxl
+ZCB3aGVuIGFsbCBSVCBwcm9jZXNzZXMgYXJlIGluIHRoZSByb290IGNncm91cC4gQnV0IGl0IHdp
+bGwKPiA+IGxvc2UgdGhlIGJlbmVmaXRzIG9mIGNncm91cCB2MiBpZiBhbGwgUlQgcHJvY2VzcyB3
+ZXJlIHBsYWNlZCBpbiB0aGUgc2FtZSBjZ3JvdXAuCj4gPgo+ID4gUmVkIEhhdCwgR2VudG9vLCBB
+cmNoIExpbnV4IGFuZCBEZWJpYW4gYWxsIGRpc2FibGUgaXQuIHN5c3RlbWQgYWxzbyBkb2Vzbid0
+Cj4gPiBzdXBwb3J0IGl0Lgo+ID4KPiA+IFsxXTogaHR0cHM6Ly9naXRodWIuY29tL3N5c3RlbWQv
+c3lzdGVtZC9jb21taXQvZjRlNzRiZTE4NTZiM2FjMDU4YWNiZjFiZTMyMWMzMWQ1Mjk5ZjY5Zgo+
+ID4gWzJdOiBodHRwczovL2J1Z3ppbGxhLnJlZGhhdC5jb20vc2hvd19idWcuY2dpP2lkPTEyMjk3
+MDAKPiA+Cj4gPiBUZXN0ZWQtYnk6IFN0ZWZhbiBXYWhyZW4gPHdhaHJlbnN0QGdteC5uZXQ+Cj4g
+PiBBY2tlZC1ieTogS2V2aW4gSGlsbWFuIDxraGlsbWFuQGJheWxpYnJlLmNvbT4KPiA+IEFja2Vk
+LWJ5OiBUaGllcnJ5IFJlZGluZyA8dHJlZGluZ0BudmlkaWEuY29tPgo+ID4gU2lnbmVkLW9mZi1i
+eTogQ2VsZXN0ZSBMaXUgPHV3dUBjb2VsYWNhbnRodXMubmFtZT4KPiA+IC0tLQo+ID4gIGFyY2gv
+YXJtL2NvbmZpZ3MvYmNtMjgzNV9kZWZjb25maWcgICB8IDEgLQo+ID4gIGFyY2gvYXJtL2NvbmZp
+Z3Mvb21hcDJwbHVzX2RlZmNvbmZpZyB8IDEgLQo+ID4gIGFyY2gvYXJtL2NvbmZpZ3MvdGVncmFf
+ZGVmY29uZmlnICAgICB8IDEgLQo+ID4gIDMgZmlsZXMgY2hhbmdlZCwgMyBkZWxldGlvbnMoLSkK
+Pgo+IEhpIEFybmQsCj4KPiBpcyB0aGlzIHNvbWV0aGluZyB0aGF0IHlvdSBjb3VsZCBwaWNrIHVw
+PyBJIHRoaW5rIHNvIGZhciBvbmx5IHRoZSBSSVNDLVYKPiBwYXRjaCB3YXMgcGlja2VkIHVwLCBi
+dXQgbm9ib2R5IHNlZW1zIHRvIGZlZWwgcmVzcG9uc2libGUgZm9yIHRoZSBBUk0KPiBwYXRjaCBo
+ZXJlLgpJIHdpbGwgdGFrZSB0aGUgTG9vbmdBcmNoIHBhdGNoLCBidXQgbWF5IGJlIHNxdWFzaGVk
+IHRvIGFub3RoZXIgb25lCmFib3V0IGNvbmZpZyBmaWxlIHVwZGF0ZS4KCkh1YWNhaQoKPgo+IFRo
+aWVycnkKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
+bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
+dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
