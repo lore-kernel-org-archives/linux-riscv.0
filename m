@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87B89C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 19:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCF6C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 21:41:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wdl/zCBRJdm/0R3YmfvWKIiZiA4XMN2pYBh4pXQt++0=; b=FPYb6t1PcF7IWs
-	C0FWa9gpk/ERlVg0aMhZr2HxxUY0ehJNqm4MybPogU1PYPYB0sLQwgPOvgVuEelYqqJ3DJOZGEPle
-	y7cDhhQZ4FNF8Ua1EFG3AXV4VQh5bm7aGkkYBwZtJ67dUILXkC9Afp+rymlzdm2Q/B30UqpWo9Amg
-	1ekez8V6ph6NPGFPvtpL+LsH2s3TXoMnPb65TiOs9WkDUAn8u+EHFDlz7+FmouL0Jr8ETXPyDjf//
-	AzPbJPuB/+rdVoeqU59RUeUOrXBwOjRyXC5AFc+OOZK2bF7f620p3VBoL+jiw1OJg/4vmTS/wR51I
-	dqfEuDBuH+s5Vkvl9NHw==;
+	List-Owner; bh=zuOduKbjf9eDJJgPqPYW3UD9GAnmEeKn81rV2UkWKSM=; b=bubXxBdkqsPK7Z
+	hRcjpDLxAYHLS3v69FZ37Gq4Xhfw1Bysyc10pwdKTfpKWZP0NSBjGB93PBhWul12nstCcAfAGBxoQ
+	AIOX5F5dJP68dXRXI/Pw3yO5+0Y3537kPewvXIcDhIiKYsEqOTPBhWCUrOUGQT5pfnr115YWcxu5U
+	FIBF9/Xyuv0uRsegr4aMgk3LtVJAwRj1HaoSiOueGT1X8rhRa7upZwLf5EF8LrhruVOOWT6ut9+Sk
+	MQ/J/S6tzuUaOJn6Zh8q7FrPSZs8BuH0bBxDWbj6zw3pLHxrhWraiX+dDUMKNEtjMU9nG4xhNVRly
+	VQyL39Pbtg4FR+lcOxxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucGQ-00000006slV-3Yej;
-	Tue, 18 Mar 2025 19:06:10 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tuegY-000000078xN-3PQI;
+	Tue, 18 Mar 2025 21:41:18 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tucEi-00000006sY0-2nsN;
-	Tue, 18 Mar 2025 19:04:25 +0000
+	id 1tuegX-000000078x0-16io
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Mar 2025 21:41:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 7DAEA5C588D;
-	Tue, 18 Mar 2025 19:02:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9514CC4CEDD;
-	Tue, 18 Mar 2025 19:04:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 978B461586;
+	Tue, 18 Mar 2025 21:41:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 868E1C4CEDD;
+	Tue, 18 Mar 2025 21:41:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742324663;
-	bh=q8oOp41cHl33YfGvOaDk6/xbHYWsX2yx6+8wUa0yDHg=;
+	s=k20201202; t=1742334076;
+	bh=BEXxbDACahqR6NIWAUeOiMICou1IfERSdqow0dpWsxQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=AEJkeNyn8a4ZrsAPb8DRhFNwI2U050JwzDRxBsfpmEsMpvv9kTob/NUbhpWIIugn5
-	 4cpDRdE+pN1pJ0QvBuA3rlcH/Qzak7OZmUVOQ5BJcb1p1n5t8NKwnY8YseJ93ATUyY
-	 YyUqD3Np3LvcrBf+IlDFQB90KXtymd4mnuXx1vS56gFlTS+M2KoOS09izWC03RpDVq
-	 x6MNaW+CiHXW5tYTHhFn+hC0XYyo//h7PKFixoeb0hJOK2BGF0WNebgpWo5u1gN2VQ
-	 LABMVs/ujFoE9y9A57vJnVsPaa+W/SSmd4GIumkSbtXvoLjYoZOZvE736hJPm49vd7
-	 vs3CB19du7HEw==
-Date: Tue, 18 Mar 2025 16:04:20 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v6 13/13] perf trace: Fix BTF memory leak
-Message-ID: <Z9nDtMyoARGiHAGg@x1>
-References: <20250318033150.119174-1-irogers@google.com>
- <20250318033150.119174-14-irogers@google.com>
+	b=fhGpH2I1ueS9/GTixrWDP38+d0Hx2m1vLtecLXyqlvMmZ1TbxwTGgilNBv94gBEUd
+	 nUvjB8hoqrISm3V37ui8Dwjx1L8VGwWGhQz4M9CrP5WfkGSj11uO5DrtVWizHnqKvW
+	 tBArcC+K+Uru3mSPpcWyF+3rm8tDofMbnTDqFkjPfIRKWgrLr+aKyMQHHlVLHwFPTF
+	 2g2UZNRHIflzb7WaMcsRtZxraIDvE5ABhFS/hxWkZxS5Lk6sVm3ldg4mUwZczdu/jn
+	 gZ6Adoear+N0OB9HGDfn5E0bWPDVq3SVsmiHwzPGVAJ5cgtGZ8WXDjObIr69DM7SYc
+	 v5w6lwSzIag+g==
+Date: Tue, 18 Mar 2025 22:41:11 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: Troy Mitchell <troymitchell988@gmail.com>, Alex Elder <elder@ieee.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org, 
+	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v7 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+Message-ID: <lvwiyxitkuzi57cbbcvuanqpvhaihafarwqhkflxbctzs6j4o7@ev45pe3yuzj3>
+References: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
+ <20250316-k1-i2c-master-v7-2-f2d5c43e2f40@gmail.com>
+ <401059d0-6b2c-4c40-8c4d-51749dca27f3@ieee.org>
+ <c7dc26a0-7cbc-4909-b2ac-582d108fc5e7@gmail.com>
+ <a7862a8b-4d81-4b1b-90d9-3cedde0699a5@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250318033150.119174-14-irogers@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_120424_750180_E20A4ACD 
-X-CRM114-Status: GOOD (  15.17  )
+In-Reply-To: <a7862a8b-4d81-4b1b-90d9-3cedde0699a5@riscstar.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,51 +71,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-15"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 08:31:50PM -0700, Ian Rogers wrote:
-> Add missing btf__free in trace__exit.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/builtin-trace.c | 6 ++++++
->  1 file changed, 6 insertions(+)
-> 
-> diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-> index a5f31472980b..d4bbb6a1e817 100644
-> --- a/tools/perf/builtin-trace.c
-> +++ b/tools/perf/builtin-trace.c
-> @@ -5339,6 +5339,12 @@ static void trace__exit(struct trace *trace)
->  		zfree(&trace->syscalls.table);
->  	}
->  	zfree(&trace->perfconfig_events);
-> +#ifdef HAVE_LIBBPF_SUPPORT
-> +	if (trace->btf != NULL) {
+On Tue, Mar 18, 2025 at 07:04:19AM -0500, Alex Elder wrote:
+> On 3/18/25 12:44 AM, Troy Mitchell wrote:
+> > > I'll leave it up to the maintainer to decide whether these
+> > > comments can just be ignored--my Reviewed-by is fine, even
+> > > if you don't change these.
+> > > =
 
-No need for the check, btf__free() does:
+> > >  =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 -Alex
+> > I know it's right what you said.
+> > But I don't know if it's worth to send v8?
+> > Maybe I can fix it when I add FIFO function?
+> > If I'm wrong, let me know.
+> =
 
-void btf__free(struct btf *btf)
-{
-        if (IS_ERR_OR_NULL(btf))
-                return;
+> Unless the maintainer wants you do do v8, please just
+> address these suggestions later.  Thank you.
 
-Up to Namhyung to turn this into the simpler:
+it's easier to just send it rather than asking for a v8 :-).
 
-	btf__free(trace->btf);
-	trace->btf = NULL;
+What I care more is if you would give an r-b if your last
+comment was addressed. If so Troy still has time to send a v8 to
+get the series in this cycle, otherwise I can change things
+myself before merging.
 
-> +		btf__free(trace->btf);
-> +		trace->btf = NULL;
-> +	}
-> +#endif
->  }
->  
->  #ifdef HAVE_BPF_SKEL
-> -- 
-> 2.49.0.rc1.451.g8f38331e32-goog
+Andi
 
 _______________________________________________
 linux-riscv mailing list
