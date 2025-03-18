@@ -4,57 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966C9C282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 12:14:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71E99C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 12:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mQqpICHCVRZ44GBOtXpwNd7VC3p70QlbrVRbrBZzyBE=; b=SCU0XOZsY7c409
-	CSfbeayizPLDD+XUYk1ofNYAQKNE7nx8Qxzdh/SW4F4e1ExmaekLVfIvexC4Ctv0Y/zsLisKC3+Cn
-	uXiBniRYap+D68SEeallj9wULjTJhQezQPMZLdJbHpogM49OtOwMjRSpy+cCJ+7BA6sGP4ll7E4Il
-	b/rVdoKcaYExoEcbdm6ZH/6q42fIjXX6wfXHIvbQZ7Zp3y2U80Ukv8eq4e2fLLkWfsMaw4Eh8Kwy8
-	wtZBsDBjwqKDe0AXgAFtspXYQqFOUK/ZqX0wnkg4VG4hhD205cG/KB/39zl85GuxaEnANnBfRX+0z
-	PGv2/YnqsC6n3M3k3Hyw==;
+	List-Owner; bh=Y/eZtrLEohz1qqA0k8/1r0BannBLPczEtgxbqQzQYzc=; b=c2OgsHQjThyTSj
+	mNaGkC20Atn2DTtv0DEnBNFrKeV8vgjt8hRRC5IkCD4jsRy0FUAccU5L135i8nSi7VRPjrZ8GPnHV
+	DAbJcy2jXqyJstog7odK0jDXezZn9svLPr30k4re4z+z1cE85Lt1mZzWpHRhWIplPPaA+yX0XTS/T
+	TMx7iHSnaEwa+/00ZCJ7V+46CUl/q++h/VbFeC1u/7r7Uyi+8R+i8lAldKgPyIz2fsEA/MllQIISN
+	PCq+/E6BBIw2CABnH4PFGZNyrOWa7Xzv3+LAFZbmWQBfqdOuRrErD2bVyl5ttOj7i9qBeJA4drd1m
+	DShQcCkmS4iXColSRuuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVqL-00000005qnu-2jJe;
-	Tue, 18 Mar 2025 12:14:49 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1tuVtf-00000005rUv-1IMe;
+	Tue, 18 Mar 2025 12:18:15 +0000
+Received: from mail-yw1-x1133.google.com ([2607:f8b0:4864:20::1133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuVoy-00000005qcH-1VHx
+	id 1tuVqN-00000005qo0-0cnA
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 12:13:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6AB524327D;
-	Tue, 18 Mar 2025 12:13:19 +0000 (UTC)
-Message-ID: <c5e174e4-4fce-4c7f-821a-cf3781becab4@ghiti.fr>
-Date: Tue, 18 Mar 2025 13:13:18 +0100
+	Tue, 18 Mar 2025 12:14:52 +0000
+Received: by mail-yw1-x1133.google.com with SMTP id 00721157ae682-6ff37565232so45292037b3.3
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 05:14:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1742300089; x=1742904889; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1/y8nwDFP5hJBBvbUUG0QfBtnCqzgdSuPLHojeq2gsc=;
+        b=iGv95z5Tzw0picnVjUDiUEd8t9oDcPr7Kn5fnSHZDwyyIFLWVqSV4tSh8D5ISwA763
+         FiCxQeoDSDO+tuLn3m6ZdC725WLKRS5UjOYlpP5wJdxxZUID/B33YwvFifDQNIFd0ydG
+         I5aP7reKjpxpmoM/+eaZQyfPgll+gaIGj5RNBAi/yFGCUhq1KZZMiAUisOzyMruJO5FM
+         BHuuSoloa4qBDcS9vnqiXczd60dnqcGrTd0Zx+QtghGp6ZZcPF1TtjKEU/m6l4bUiYYn
+         ZIXvBS+G923sK8jREGAfvbvys3qh1901i801tyJEWtAirZfR9H3be5fgSNkjBQrxjqUc
+         jUCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742300089; x=1742904889;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1/y8nwDFP5hJBBvbUUG0QfBtnCqzgdSuPLHojeq2gsc=;
+        b=B7t0U7X0UPr4TaLNYYqBVIw0Dfn4cmPdXLGTDgYfIrx5I/G/qkGTb52GaY4LjiLVg1
+         if0k/ldCdePGG67r+ymxlXdP0drQBKyNgx488vwAJI83wSe2eE0ftKjDp7dch/keLjqz
+         S2mcXllBNtoFrsAQJwNOO1PBAn61rxB29QD3nPfeFO1VSRWDblzpx5Hr+easkKiXOtnX
+         eaPbC4xN9iG8DDiK6jcki+eSAvpJx4oJ4tPDVeL1rII3ItY6jQCabgFqY8chCIrGdB8C
+         BfJUP8RlinRP3v9mNrvACn39HeBP75z+fLMOmguTKQ6xUv4sc3rVcMNEB0hCG1hZCuRB
+         tyuw==
+X-Forwarded-Encrypted: i=1; AJvYcCUVBCpol9/orfA0mGazQJP3TLWL02tz2SBd2ZDKHY6yWmlev/tUD3ctpJT0FBClCmF5caxZnbsNKTbeIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7V5921XsGC3qCMRIgwFHJGzvMfQyoWUphDLl39kYss6uqkEMb
+	5Q9sm4XkPi4OdF2jF60bfqON4mI/S2M4RtP2IBbK0mdUaWhRu6qYLtsjz77T5cA78YsVxI+2QYT
+	2y9rNAgVsmOobFMzjnoOSnDxF4umParFCUug8Rg==
+X-Gm-Gg: ASbGncvh1tudiv8ut5SeooIbWn/WWV7hwZGGRsTzTSn/iGuJs2sUwi1qysTdAsRXp7D
+	ILTJhF/y+sSm1SqrN5PpWGXLCREopJ1fsTJJANkS+5f4TwkGARfStvCA+lodTIK8nYlNdy8aa7B
+	6p42Wja08Nssz2ajbix8Gnh2rbLNY=
+X-Google-Smtp-Source: AGHT+IEb+NzrbCeNRdPzm3xEMtkofIje/IsnUYw+kILlbfLc0DlZPY9+TQaCk80CJVoK/tOOND9xyncng+d5HjDNmyU=
+X-Received: by 2002:a05:690c:6ac4:b0:6f6:7b02:2568 with SMTP id
+ 00721157ae682-6ff460529d9mr218205717b3.32.1742300089569; Tue, 18 Mar 2025
+ 05:14:49 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 7/8] riscv: Add parameter for skipping access speed
- tests
-Content-Language: en-US
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- charlie@rivosinc.com, cleger@rivosinc.com,
- Anup Patel <apatel@ventanamicro.com>, corbet@lwn.net
-References: <20250304120014.143628-10-ajones@ventanamicro.com>
- <20250304120014.143628-17-ajones@ventanamicro.com>
- <1b7e3d0f-0526-4afb-9f7a-2695e4166a9b@ghiti.fr>
- <20250318-1b03e58fe508b077e5d38233@orel>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250318-1b03e58fe508b077e5d38233@orel>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugedvgeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejieeuudejieekveeutdeguefhkeduledugeevhefffeejudeggedufffgleeugfenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemtggrvdehmeeifhdtkeemiegtfegsmeehtgeftdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddtpdhrtghpthhtoheprghjohhnvghssehvvghnthgrnhgrmhhitghrohdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggur
- dhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqughotgesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+References: <f19be994-d355-48a6-ab45-d0f7e5955daf@stanley.mountain>
+In-Reply-To: <f19be994-d355-48a6-ab45-d0f7e5955daf@stanley.mountain>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Tue, 18 Mar 2025 13:14:13 +0100
+X-Gm-Features: AQ5f1JqEJzBTaaSWFDJFRns2Qyn4YifFIkvKDJuCkDwbsG7HAzOkL1ON5MzrQiw
+Message-ID: <CAPDyKFo8hyTJHZVLTAVXe2EW4FCPPLm39WWwpjOCqzUQnfNJ3Q@mail.gmail.com>
+Subject: Re: [PATCH next] firmware: thead,th1520-aon: Fix use after free in th1520_aon_init()
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_051324_526163_BFDA2FDB 
-X-CRM114-Status: GOOD (  30.89  )
+X-CRM114-CacheID: sfid-20250318_051451_205763_3273C28F 
+X-CRM114-Status: GOOD (  14.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,90 +89,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDE4LzAzLzIwMjUgMDk6NDgsIEFuZHJldyBKb25lcyB3cm90ZToKPiBPbiBNb24sIE1hciAx
-NywgMjAyNSBhdCAwMzozOTowMVBNICswMTAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4+IEhp
-IERyZXcsCj4+Cj4+IE9uIDA0LzAzLzIwMjUgMTM6MDAsIEFuZHJldyBKb25lcyB3cm90ZToKPj4+
-IEFsbG93IHNraXBwaW5nIHNjYWxhciBhbmQgdmVjdG9yIHVuYWxpZ25lZCBhY2Nlc3Mgc3BlZWQg
-dGVzdHMuIFRoaXMKPj4+IGlzIHVzZWZ1bCBmb3IgdGVzdGluZyBhbHRlcm5hdGl2ZSBjb2RlIHBh
-dGhzIGFuZCB0byBza2lwIHRoZSB0ZXN0cyBpbgo+Pj4gZW52aXJvbm1lbnRzIHdoZXJlIHRoZXkg
-cnVuIHRvbyBzbG93bHkuIEFsbCBDUFVzIG11c3QgaGF2ZSB0aGUgc2FtZQo+Pj4gdW5hbGlnbmVk
-IGFjY2VzcyBzcGVlZC4KPj4gSSdtIG5vdCBhIGJpZyBmYW4gb2YgdGhlIGNvbW1hbmQgbGluZSBw
-YXJhbWV0ZXIsIHRoaXMgaXMgbm90IHdoZXJlIHdlIHNob3VsZAo+PiBwdXNoIHVhcmNoIGRlY2lz
-aW9ucyBiZWNhdXNlIHRoZXJlIGNvdWxkIGJlIG1hbnkgb3RoZXIgaW4gdGhlIGZ1dHVyZSwgdGhl
-Cj4+IGJlc3Qgc29sdXRpb24gdG8gbWUgc2hvdWxkIGJlIGluIERUL0FDUEkgYW5kIHNpbmNlIHRo
-ZSBEVCBmb2xrcywgYWNjb3JkaW5nCj4+IHRvIFBhbG1lciwgc2h1dCBkb3duIHRoaXMgc29sdXRp
-b24sIGl0IHJlbWFpbnMgdXNpbmcgYW4gZXh0ZW5zaW9uLgo+Pgo+PiBJIGhhdmUgYmVlbiByZWFk
-aW5nIGEgYml0IGFib3V0IHVuYWxpZ25lZCBhY2Nlc3Nlcy4gWmljY2xzbSB3YXMgZGVzY3JpYmVk
-IGFzCj4+ICJFdmVuIHRob3VnaCBtYW5kYXRlZCwgbWlzYWxpZ25lZCBsb2FkcyBhbmQgc3RvcmVz
-IG1pZ2h0IGV4ZWN1dGUgZXh0cmVtZWx5Cj4+IHNsb3dseS4gU3RhbmRhcmQgc29mdHdhcmUgZGlz
-dHJpYnV0aW9ucyBzaG91bGQgYXNzdW1lIHRoZWlyIGV4aXN0ZW5jZSBvbmx5Cj4+IGZvciBjb3Jy
-ZWN0bmVzcywgbm90IGZvciBwZXJmb3JtYW5jZS4iIGluIHJ2YTIwLzIyIGJ1dCAqbm90KiBpbiBy
-dmEyMy4gU28KPj4gd2hhdCBhYm91dCB1c2luZyB0aGlzICJob2xlIiBhbmQgY29uc2lkZXIgdGhh
-dCBhIHBsYXRmb3JtIHRoYXQgKmFkdmVydGlzZXMqCj4+IFppY2Nsc20gbWVhbnMgaXRzIHVuYWxp
-Z25lZCBhY2Nlc3NlcyBhcmUgZmFzdD8gQWZ0ZXIgaW50ZXJuYWwgZGlzY3Vzc2lvbiwgSXQKPj4g
-YWN0dWFsbHkgZG9lcyBub3QgbWFrZSBzZW5zZSB0byBhZHZlcnRpc2UgWmljY2xzbSBpZiB0aGUg
-cGxhdGZvcm0gYWNjZXNzZXMKPj4gYXJlIHNsb3cgcmlnaHQ/Cj4gVGhpcyB0b3BpYyBwb3BzIHVw
-IGV2ZXJ5IHNvIG9mdGVuLCBpbmNsdWRpbmcgaW4geWVzdGVyZGF5J3Mgc2VydmVyCj4gcGxhdGZv
-cm0gVEcgY2FsbC4gSW4gdGhhdCBjYWxsLCBhbmQsIGFmYWljdCwgZXZlcnkgb3RoZXIgdGltZSBp
-dCBoYXMKPiBwb3BwZWQgdXAsIHRoZSByZXN1bHQgaXMgdG8gcmVpdGVyYXRlIHRoYXQgSVNBIGV4
-dGVuc2lvbnMgbmV2ZXIgc2F5Cj4gYW55dGhpbmcgYWJvdXQgcGVyZm9ybWFuY2UuIFNvLCBaaWNj
-bHNtIHdpbGwgbmV2ZXIgbWVhbiBmYXN0IGFuZCB3ZQo+IHdvbid0IGxpa2VseSBiZSBhYmxlIHRv
-IGFkZCBhbnkgZXh0ZW5zaW9uIHRoYXQgZG9lcy4KCgpPaywgSSBzaG91bGQgbm90IHNheSAiZmFz
-dCIuIFVzdWFsbHksIHdoZW4gYW4gZXh0ZW5zaW9uIGlzIGFkdmVydGlzZWQgYnkgCmEgcGxhdGZv
-cm0sIHdlIGRvbid0IHF1ZXN0aW9uIGl0cyBzcGVlZCAoemljYm96LCB6aWNib20uLi5ldGMpLCB3
-ZSAKc2ltcGx5IHVzZSBpdCBhbmQgaXQncyB1cCB0byB0aGUgdmVuZG9yIHRvIGJlbmNobWFyayBp
-dHMgaW1wbGVtZW50YXRpb24gCmFuZCBhY3QgYWNjb3JkaW5nbHkgKGkuZS4gZG8gbm90IHNldCBp
-dCBpbiB0aGUgaXNhIHN0cmluZykuCgoKPj4gYXJtNjQgZm9yIGV4YW1wbGUgY29uc2lkZXJzIHRo
-YXQgYXJtdjggaGFzIGZhc3QgdW5hbGlnbmVkIGFjY2Vzc2VzIGFuZCBjYW4KPj4gdGhlbiBlbmFi
-bGUgSEFWRV9FRkZJQ0lFTlRfQUxJR05FRF9BQ0NFU1MgaW4gdGhlIGtlcm5lbCwgZXZlbiB0aG91
-Z2ggc29tZQo+PiB1YXJjaHMgYXJlIHNsb3cuIERpc3Ryb3Mgd2lsbCB2ZXJ5IGxpa2VseSB1c2Ug
-cnZhMjMgYXMgYmFzZWxpbmUgc28gdGhleSB3aWxsCj4+IGVuYWJsZSBaaWNjbHNtIHdoaWNoIHdv
-dWxkIGFsbG93IHVzIHRvIHRha2UgYWR2YW50YWdlIG9mIHRoaXMgdG9vLCB3aXRob3V0Cj4+IHRo
-aXMsIHdlIGxvc2UgYSBsb3Qgb2YgcGVyZiBpbXByb3ZlbWVudCBpbiB0aGUga2VybmVsLCBzZWUK
-Pj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8yMDIzMTIyNTA0NDIwNy4zODIxLTEtanN6
-aGFuZ0BrZXJuZWwub3JnLy4KPj4KPj4gT3Igd2UgY291bGQgaGF2ZSBhIG5ldyBuYW1lZCBmZWF0
-dXJlIGZvciB0aGlzLCBldmVuIHRob3VnaCBpdCdzIHdlaXJkIHRvCj4+IGhhdmUgYSBuYW1lZCBm
-ZWF0dXJlIHdoaWNoIHdvdWxkIGJhc2ljYWxsecKgIG1lYW4gIlppY2Nsc20gaXMgZmFzdCIuIFdl
-IGRvbid0Cj4+IGhhdmUsIGZvciBleGFtcGxlLCBhIG5hbWVkIGZlYXR1cmUgdG8gc2F5ICJaaWNi
-b3ogaXMgZmFzdCIgYnV0IGdpdmVuIHRoZQo+PiB2YWd1ZSB3b3JkaW5nIGluIHRoZSBwcm9maWxl
-IHNwZWMsIG1heWJlIHdlIGNhbiBhc2sgZm9yIG9uZSBpbiB0aGF0IGNhc2U/Cj4+Cj4+IFNvcnJ5
-IGZvciB0aGUgbGF0ZSByZXZpZXcgYW5kIGZvciB0cmlnZ2VyaW5nIHRoaXMgZGViYXRlLi4uCj4g
-Tm8gcHJvYmxlbSwgbGV0J3MgdHJ5IHRvIHBpY2sgdGhlIGJlc3Qgb3B0aW9uLiBJJ2xsIHRyeSBs
-aXN0aW5nIGFsbCB0aGUKPiBvcHRpb25zIGFuZCB0aGVyZSBwcm9zL2NvbnMuCj4KPiAxLiBMZWF2
-ZSBhcyBpcywgd2hpY2ggaXMgdG8gYWx3YXlzIHByb2JlCj4gICAgIHBybzogTm90aGluZyB0byBk
-bwo+ICAgICBjb246IE5vdCBpZGVhbCBpbiBhbGwgZW52aXJvbm1lbnRzCj4KPiAyLiBOZXcgRFQv
-QUNQSSBkZXNjcmlwdGlvbgo+ICAgICBwcm86IERlc2NyaWJpbmcgd2hldGhlciBvciBub3QgbWlz
-YWxpZ25lZCBhY2Nlc3NlcyBhcmUgaW1wbGVtZW50ZWQgaW4KPiAgICAgICAgICBIVyAod2hpY2gg
-cHJlc3VtYWJseSBtZWFucyBmYXN0KSBpcyBzb21ldGhpbmcgdGhhdCBzaG91bGQgYmUgZG9uZQo+
-IAlpbiBIVyBkZXNjcmlwdGlvbnMKPiAgICAgY29uOiBXZSdsbCBuZWVkIHRvIGxpdmUgd2l0aCBw
-cm9iaW5nIHVudGlsIHdlIGNhbiBnZXQgdGhlIGRlc2NyaXB0aW9ucwo+ICAgICAgICAgIGRlZmlu
-ZWQsIHdoaWNoIG1heSBiZSBuZXZlciBpZiB0aGVyZSdzIHRvbyBtdWNoIG9wcG9zaXRpb24KPgo+
-IDMuIENvbW1hbmQgbGluZQo+ICAgICBwcm86IEVhc3kgYW5kIHNlcnZlcyBpdHMgcHVycG9zZSwg
-d2hpY2ggaXMgdG8gc2tpcCBwcm9iaW5nIGluIHRoZQo+ICAgICAgICAgIGVudmlyb25tZW50cyB3
-aGVyZSBwcm9iaW5nIGlzIG5vdCBkZXNpcmVkCj4gICAgIGNvbjogWWV0IGFub3RoZXIgY29tbWFu
-ZCBsaW5lIG9wdGlvbiAod2hpY2ggd2UgbWF5IHdhbnQgdG8gZGVwcmVjYXRlCj4gICAgICAgICAg
-c29tZWRheSkKPgo+IDQuIE5ldyBJU0EgZXh0ZW5zaW9uCj4gICAgIHBybzogRWFzeSB0byBhZGQg
-dG8gSFcgZGVzY3JpcHRpb25zCj4gICAgIGNvbjogTm90IGxpa2VseSB0byBnZXQgaXQgdGhyb3Vn
-aCByYXRpZmljYXRpb24KPgo+IDUuIE5ldyBTQkkgRldGVCBmZWF0dXJlCj4gICAgIHBybzogUHJv
-YmFibHkgZWFzaWVyIHRvIGdldCB0aHJvdWdoIHJhdGlmaWNhdGlvbiB0aGFuIGFuIElTQSBleHRl
-bnNpb24KPiAgICAgY29uOiBJbnN0ZWFkIG9mIHByb2JpbmcsIGtlcm5lbCB3b3VsZCBoYXZlIHRv
-IGFzayBTQkkgLS0gd291bGQgdGhhdAo+ICAgICAgICAgIGV2ZW4gYmUgZmFzdGVyPyBXaWxsIGFs
-bCB0aGUgZW52aXJvbm1lbnRzIHRoYXQgd2FudCB0byBza2lwCj4gCXByb2JpbmcgZXZlbiBoYXZl
-IGEgY29tcGxldGUgU0JJPwo+Cj4gNi4gPz8KCgpTbyB3aGF0IGFib3V0OgoKNy4gTmV3IGVudW0g
-dmFsdWUgZGVzY3JpYmluZyB0aGUgcGVyZm9ybWFuY2UgYXMgIkZPUkNFRCIgb3IgIkhXIiAob3Ig
-CmFueXRoaW5nIGJldHRlcikKIMKgwqDCoCBwcm86IFdlIG9ubHkgdXNlIHRoZSBleGlzdGluZyBa
-aWNjbHNtCiDCoMKgwqAgY29uOiBJdCdzIG5vdCBjbGVhciB0aGF0IHRoZSBhY2Nlc3NlcyBhcmUg
-ZmFzdCBidXQgaXQgYmFzaWNhbGx5IApzYXlzIHRvIFNXICJkb24ndCB0aGluayB0b28gbXVjaCwg
-SSdtIHRlbGxpbmcgeW91IHRoYXQgeW91IGNhbiB1c2UgaXQiLCAKdXAgdG8gdXMgdG8gZGVzY3Jp
-YmUgdGhpcyBjb3JyZWN0bHkgZm9yIHVzZXJzIHRvIHVuZGVyc3RhbmQuCgpUaGFua3MsCgpBbGV4
-CgoKPgo+IEknbSB2b3RpbmcgZm9yICgzKSwgd2hpY2ggaXMgd2h5IEkgcG9zdGVkIHRoaXMgcGF0
-Y2hzZXQsIGJ1dCBJJ20gaGFwcHkKPiB0byBoZWFyIG90aGVyIHZvdGVzIG9yIG90aGVyIHByb3Bv
-c2FscyBhbmQgZGlzY3Vzcy4KPgo+IFRoYW5rcywKPiBkcmV3CgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sat, 15 Mar 2025 at 11:04, Dan Carpenter <dan.carpenter@linaro.org> wrote:
+>
+> Record the error code before freeing "aon_chan" to avoid a
+> use after free.
+>
+> Fixes: e4b3cbd840e5 ("firmware: thead: Add AON firmware protocol driver")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+
+Applied for next, thanks!
+
+Kind regards
+Uffe
+
+
+> ---
+>  drivers/firmware/thead,th1520-aon.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/firmware/thead,th1520-aon.c b/drivers/firmware/thead,th1520-aon.c
+> index 4416e9bbf854..38f812ac9920 100644
+> --- a/drivers/firmware/thead,th1520-aon.c
+> +++ b/drivers/firmware/thead,th1520-aon.c
+> @@ -203,6 +203,7 @@ struct th1520_aon_chan *th1520_aon_init(struct device *dev)
+>  {
+>         struct th1520_aon_chan *aon_chan;
+>         struct mbox_client *cl;
+> +       int ret;
+>
+>         aon_chan = kzalloc(sizeof(*aon_chan), GFP_KERNEL);
+>         if (!aon_chan)
+> @@ -217,8 +218,9 @@ struct th1520_aon_chan *th1520_aon_init(struct device *dev)
+>         aon_chan->ch = mbox_request_channel_byname(cl, "aon");
+>         if (IS_ERR(aon_chan->ch)) {
+>                 dev_err(dev, "Failed to request aon mbox chan\n");
+> +               ret = PTR_ERR(aon_chan->ch);
+>                 kfree(aon_chan);
+> -               return ERR_CAST(aon_chan->ch);
+> +               return ERR_PTR(ret);
+>         }
+>
+>         mutex_init(&aon_chan->transaction_lock);
+> --
+> 2.47.2
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
