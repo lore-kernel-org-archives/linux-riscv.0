@@ -4,65 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A47CC28B28
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 08:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA25DC282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 08:56:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=M5cfEUraa9k3sIAYZ+/kM5crLyYhQ6FNJouYf/bpOtM=; b=D4Q3BAWUa5Cmhr
-	KfVrHodfbfqE7rieCPfvfiVonBN6coTVlTAScndUvEZmyevSkysGXpZKPem0TvMHXtP5sPaDArdyC
-	a+iL4PpdDbrOvOIE8zLBnkWdFRqrqZ/7+ud/y6x9zjRdX6cmNDushg29/foOp2FK15CfJO0iE7ViV
-	tvqMPXZ28WljD+ktFhSAeAE5YY+u7vof4bAzf212nsbUT8NAYUrnOlBDvOR6UM4L0w90BHCTNcyWg
-	Rr57ZlY2lXE2mWrT6ILjUdHVLTSU2+UwCsWy5nidj69NoFfFCviOvlab18baHpK+vQdzWPRB+2xHq
-	ITz0YIrCJz9p2oiESQiQ==;
+	List-Owner; bh=m781FVSJb9VlAgUKtQzpeL/DDmZ3q0CvvpGE79vcCF8=; b=ryFF+kvqR1mKsb
+	iOonUS/c0HadGQPU1fgU/k2J/H5V+7rM01ujW1GxZPxiQTHcenTiQAz+UyR+YnCqJgZcEQmN+fus+
+	h3IB2Zyc3m/kYTzAVV2sQYIJWwZM+HJXAs/2tdxGBDtGsRzndd5/CM20ts8DSYb46/WgC1SOn+ZT5
+	lrNL2AxcCGsFoh3Zf4b1fK4+C2h+S6T1OdAglDn7YrnU01bInwNI8R0Whkhj7HCudXRQEpHRVLXQU
+	fr9rqiywnrzFphNlWwuBRrI8SgoNhu09XsVB0BxdWOwACQajZx8JhcVsQZqSZ6FC4fbQJ1kJidLnm
+	hwOYHv4T+bCZ6lZjdc/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRyg-000000055n8-0UQ2;
-	Tue, 18 Mar 2025 08:07:10 +0000
-Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
+	id 1tuSkc-00000005F6Q-0w8s;
+	Tue, 18 Mar 2025 08:56:42 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuRuX-000000054sZ-0BFJ
+	id 1tuScZ-00000005DkL-2GQ0
 	for linux-riscv@lists.infradead.org;
-	Tue, 18 Mar 2025 08:02:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=bVnYcV85zatttdVWEcG8loEvcr+gkH1XrFyQXfytOEI=; b=pq5bzkLi3D0CWPwuv9eCvPRhx1
-	tCNPOD1necWsIdsHZ7mNeoTxY6vDKFAeCp8u+y3myCBHn53mQPwWgLffQQYp5dV+9N8fCsTGZk2+t
-	aeQZsX7+tco6n03o/0wp6Q+HY9kSfhHQzHyR9srPuF8D4N0tELFdjBVDCPuLzJ3lmtUOXUx9cO1EH
-	ef4QGphUwCc0fmsuGHyiehhTT+lDNAX5eH9IilBLbtjipWGd+mQ3/Cwgw0cdy9jdVWUW3VKO2ulSL
-	XSr2G7USZnrEna9f8N7i9qurQ1r5SxGLYoHdG1pDGa6HJ+hRc4rgiukMauv9K+X5A9fWt0bghuKO3
-	c7w6BZ7w==;
-Received: from [167.98.27.226] (helo=[10.35.6.194])
-	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
-	id 1tuRuL-00HYKY-Gg; Tue, 18 Mar 2025 08:02:41 +0000
-Message-ID: <8ee4944a-01d3-49e7-8934-e4a866ccc628@codethink.co.uk>
-Date: Tue, 18 Mar 2025 08:02:40 +0000
+	Tue, 18 Mar 2025 08:48:24 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac2a089fbbdso938966566b.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 01:48:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1742287701; x=1742892501; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=WqyNv0rkWuAmQG+zonKK152xqjaBxNEetZ8Fug7pRk0=;
+        b=IeO1NkP5w1GpREvDo31K8Whq1Or/WOAsmtd1VShUWm12LzaI/oMnw3wvjwYJh1LAco
+         Wob1llM7Djh1l6sX4LGf5LzxnQNerWFHwJZG2f4i3xQxpnQxgty65jH+z7gdEFI4VLgG
+         WcsmHl2mXGIp6mrGamPeGxFetB21rhkP0ZUiLOeHgng7as3FUy91O9EE6JtlkKPb3exd
+         j2guMdvt2c1Q4we9YMCi3gTVeE9F02eh8lPu9poGeQZQSh5dZgOiRfT99wawgaI1IhTh
+         t8YnKdYlLP5KeYeuc/RmnsBdY5c2w0CfGbBDyij6VDAtwqhDDsPjxgtipEQxyCwAElVU
+         lssw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742287701; x=1742892501;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WqyNv0rkWuAmQG+zonKK152xqjaBxNEetZ8Fug7pRk0=;
+        b=FguyJB5WiDW9lIEs+wFHLySZdt1q/uFaLOA7BAy3NpQzQkvn1GbWIpoNhmfh4tBkWw
+         xcNAxefMdkGzuLUac3zlDpjBR1KVjom6o8tc3GEHGWGDRIo4n7JH7farCSoB0Aw26fpX
+         DztLC7TPhToDwBC9+/kuWZQHgvrpf8cm9AcdnRmFt/zL9Fj0jUT7cobW9+8tJ1o1whQE
+         2irTXwmAPx4X/O/pm4m/IUPjbjo6Ggt60xAbO5Tnfg/TPSSl3BDU5ehNTbOrTsKE4s7o
+         Ub1OOvaL+tKTjuVUnlcCt2I3Ocf/cfqdafwY8d0+bLocs/lGEgRjADibJ5dkAIhUiZfq
+         10FA==
+X-Gm-Message-State: AOJu0Yzb/6Oj26InX9V3+lwK8mKeelqa0+jwndkgouSCDxNb9FCMXPgS
+	fnTNCsWHSPO16ovVsFNhSOsJc2EZyXFTV0HmS3qqCH6/gE9tqDELyZNYbh5ut7w=
+X-Gm-Gg: ASbGncuppM2K2LjlNxt5spHCKd9YjgoqhWatAhaN8UctzLNikxMZ8DqOX97np2oUpog
+	ZgffTzn9TcVAotQUEkMxJVNSJ0PFxkrO22HrkSAPND1bPD5P2hSjml99Oppkdyw8jK0vl1OE4Xc
+	ehiHgjO+6I1C5sFZTGdwCF+cTrvt7UinlO7CO86Alg6xsCykpbn8bXk3CYdJ84PuYiDdeSPM+qF
+	5OduTz15E59QAYsBSbbzJunxEBX5DfREDdpin7o79HEsqv9UVxynoizcl6lqCjnbhWPVUiqRNUk
+	6xctgCR7m7E+UJu2T/9Lho2cDZv/Vb2r
+X-Google-Smtp-Source: AGHT+IH0qrrdRDWB/aWr2KgdxO/sTiN4xjisSw2joUvqvleAHMb/eh591Phxpukd/P9DfWxekAP8Eg==
+X-Received: by 2002:a17:907:7ba4:b0:ac2:3a1:5a81 with SMTP id a640c23a62f3a-ac38fab7961mr200393166b.26.1742287701201;
+        Tue, 18 Mar 2025 01:48:21 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::59a5])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3147e9ab1sm817130566b.52.2025.03.18.01.48.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 18 Mar 2025 01:48:20 -0700 (PDT)
+Date: Tue, 18 Mar 2025 09:48:19 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	charlie@rivosinc.com, cleger@rivosinc.com, Anup Patel <apatel@ventanamicro.com>, 
+	corbet@lwn.net
+Subject: Re: [PATCH v3 7/8] riscv: Add parameter for skipping access speed
+ tests
+Message-ID: <20250318-1b03e58fe508b077e5d38233@orel>
+References: <20250304120014.143628-10-ajones@ventanamicro.com>
+ <20250304120014.143628-17-ajones@ventanamicro.com>
+ <1b7e3d0f-0526-4afb-9f7a-2695e4166a9b@ghiti.fr>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXT] Re: [PATCH v3 0/4] riscv: uaccess: optimizations
-To: Cyril Bur <cyrilbur@tenstorrent.com>, Alexandre Ghiti <alex@ghiti.fr>,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
- charlie@rivosinc.com, jrtc27@jrtc27.com
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org
-References: <20250221000924.734006-1-cyrilbur@tenstorrent.com>
- <4f6c83c0-39f6-467d-83c6-13d37440fb20@ghiti.fr>
- <5a81a72d-550d-42b4-8549-176f2b27ffc9@codethink.co.uk>
- <ac5b93be-5b9c-4d39-bce6-a78032e43fbf@tenstorrent.com>
-Content-Language: en-GB
-From: Ben Dooks <ben.dooks@codethink.co.uk>
-Organization: Codethink Limited.
-In-Reply-To: <ac5b93be-5b9c-4d39-bce6-a78032e43fbf@tenstorrent.com>
+Content-Disposition: inline
+In-Reply-To: <1b7e3d0f-0526-4afb-9f7a-2695e4166a9b@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_010253_163078_3A8BABC1 
-X-CRM114-Status: GOOD (  28.59  )
+X-CRM114-CacheID: sfid-20250318_014823_582675_9BE4966D 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,84 +97,106 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMTcvMDMvMjAyNSAyMzo1MiwgQ3lyaWwgQnVyIHdyb3RlOgo+IAo+IAo+IE9uIDE1LzMvMjAy
-NSAxMjo0OSBhbSwgQmVuIERvb2tzIHdyb3RlOgo+PiBPbiAxNC8wMy8yMDI1IDEzOjI4LCBBbGV4
-YW5kcmUgR2hpdGkgd3JvdGU6Cj4+PiBIaSBDeXJpbCwKPj4+Cj4+PiBPbiAyMS8wMi8yMDI1IDAx
-OjA5LCBDeXJpbCBCdXIgd3JvdGU6Cj4+Pj4gVGhpcyBzZXJpZXMgdHJpZXMgdG8gb3B0aW1pemUg
-cmlzY3YgdWFjY2VzcyBieSBhbGxvd2luZyB0aGUgdXNlIG9mCj4+Pj4gdXNlcl9hY2Nlc3NfYmVn
-aW4oKSBhbmQgdXNlcl9hY2Nlc3NfZW5kKCkgd2hpY2ggcGVybWl0cyBncm91cGluZyAKPj4+PiB1
-c2VyIGFjY2Vzc2VzCj4+Pj4gYW5kIGF2b2lkaW5nIHRoZSBDU1Igd3JpdGUgcGVuYWx0eSBmb3Ig
-ZWFjaCBhY2Nlc3MuCj4+Pj4KPj4+PiBUaGUgZXJyb3IgcGF0aCBjYW4gYWxzbyBiZSBvcHRpbWlz
-ZWQgdXNpbmcgYXNtIGdvdG8gd2hpY2ggcGF0Y2hlcyAzIAo+Pj4+IGFuZCA0Cj4+Pj4gYWNoaWV2
-ZS4gVGhpcyB3aWxsIHNwZWVkIHVwIGp1bXBpbmcgdG8gbGFiZWxzIGJ5IGF2b2lkaW5nIHRoZSBu
-ZWVkIAo+Pj4+IG9mIGFuCj4+Pj4gaW50ZXJtZWRpYXJ5IGVycm9yIHR5cGUgdmFyaWFibGUgd2l0
-aGluIHRoZSB1YWNjZXNzIG1hY3Jvcwo+Pj4+Cj4+Pj4gSSBkaWQgcmVhZCB0aGUgZGlzY3Vzc2lv
-biB0aGlzIHNlcmllcyBnZW5lcmF0ZWQuIEl0IGlzbid0IGNsZWFyIHRvIG1lCj4+Pj4gd2hpY2gg
-ZGlyZWN0aW9uIHRvIHRha2UgdGhlIHBhdGNoZXMsIGlmIGFueS4KPj4+Pgo+Pj4+IFYyOgo+Pj4+
-IEkndmUgdGFrZW4gb24gdGhpcyBzZXJpZXMgYXMgdGhlcmUgaXNuJ3QgYW55IHJlc3BvbnNlIGZy
-b20gSmlzaGVuZy4gTm8KPj4+PiBzaWduaWZpY2FudCBjaGFuZ2VzIG90aGVyIHRoYW4gYnVpbGQg
-Zml4ZXMuCj4+Pj4gLSBGaXhlcyBidWlsZCBicmVha2FnZSBpbiBwYXRjaCAzIHRvIGRvIHdpdGgg
-bm90IGhhdmluZyB1c2VkICdnb3RvJyAKPj4+PiBrZXl3b3JkLgo+Pj4+IC0gRml4ZXMgYnVpbGQg
-YnJlYWthZ2UgaW4gcGF0Y2ggNCBvbiAzMmJpdCBub3QgaGF2aW5nIGRlbGNhcmVkIF9fcHRyIAo+
-Pj4+IGluIHRoZQo+Pj4+IMKgwqAgbWFjcm8uCj4+Pj4KPj4+PiBWMzoKPj4+PiBTaWduaWZpY2Fu
-dCBjb21taXQgbWVzc2FnZSByZXdyaXRlcy4KPj4+PiDCoCAtIENvcnJlY3RlZCB0aGUganVzdGlm
-aWNhdGlvbiBmb3IgcGF0Y2ggMgo+Pj4+IMKgIC0gQmV0dGVyIGV4cGxhaW5lZC9qdXN0aWZpZWQg
-cGF0Y2hlcyAzIGFuZCA0Cj4+Pj4gTWlub3IgY29kZSBjaGFuZ2VzIGZvciBsZWdpYmlsaXR5IGFu
-ZCBtb3JlIGNvbW1lbnRzLgo+Pj4+Cj4+Pj4gSmlzaGVuZyBaaGFuZyAoNCk6Cj4+Pj4gwqDCoCBy
-aXNjdjogaW1wbGVtZW50IHVzZXJfYWNjZXNzX2JlZ2luKCkgYW5kIGZhbWlsaWVzCj4+Pj4gwqDC
-oCByaXNjdjogdWFjY2VzczogdXNlIGlucHV0IGNvbnN0cmFpbnRzIGZvciBwdHIgb2YgX19wdXRf
-dXNlcigpCj4+Pj4gwqDCoCByaXNjdjogdWFjY2VzczogdXNlICdhc20gZ290bycgZm9yIHB1dF91
-c2VyKCkKPj4+PiDCoMKgIHJpc2N2OiB1YWNjZXNzOiB1c2UgJ2FzbV9nb3RvX291dHB1dCcgZm9y
-IGdldF91c2VyKCkKPj4+Pgo+Pj4+IMKgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdWFjY2Vzcy5o
-IHwgMjA1ICsrKysrKysrKysrKysrKysrKysrKysgCj4+Pj4gKy0tLS0tLS0tCj4+Pj4gwqAgMSBm
-aWxlIGNoYW5nZWQsIDE1MiBpbnNlcnRpb25zKCspLCA1MyBkZWxldGlvbnMoLSkKPj4+Pgo+Pj4g
-Rm9sbG93aW5nIHVwIG9uIEJlbidzIGNvbW1lbnQgaGVyZSBodHRwczovL2xvcmUua2VybmVsLm9y
-Zy9saW51eC0gCj4+PiByaXNjdi8gYjQ1YWFiMWUtNmQzNy00MDI3LTlhMTUtNGZhOTE3ZDgwNmI5
-QGNvZGV0aGluay5jby51ay8KPj4+Cj4+PiBUaGUgcHJvYmxlbSB0aGF0IEJlbiBtZW50aW9ucyBp
-cyBjYXVzZWQgYnkgdGhlIHVzZSBvZiAqbWFjcm9zKiB3aGljaCAKPj4+IHVzZWQgdG8gbWFrZSB0
-aGUgZXZhbHVhdGlvbiBvZiB0aGUgcGFyYW1ldGVyIGluc2lkZSB0aGUgdXNlci0gCj4+PiBhY2Nl
-c3NpYmxlIHNlY3Rpb24sIGFuZCBzaW5jZSB0aGlzIHBhcmFtZXRlciBjb3VsZCBiZSBhIHNsZWVw
-aW5nIAo+Pj4gZnVuY3Rpb24sIHdlIGNvdWxkIHNjaGVkdWxlIGFub3RoZXIgcHJvY2VzcyB3aXRo
-IHRoZSBTVU0gYml0IHNldCwgCj4+PiB3aGljaCBjb3VsZCBiZSBjbGVhcmVkIGJ5IHRoaXMgcHJv
-Y2Vzcywgd2hpY2ggd291bGQgbWFrZSB0aGUgZmlyc3QgCj4+PiBwcm9jZXNzIGZhdWx0IHdoZW4g
-dHJ5aW5nIHRvIGFjY2VzcyB1c2VyIG1lbW9yeS4gSSBkaWQgbm90IGZpbmQgYW55IAo+Pj4gbWFj
-cm8gdXNpbmcgdW5zYWZlX1hYWCgpIGZ1bmN0aW9ucyB3aGljaCBjb3VsZCBjYXVzZSBhIHByb2Js
-ZW0gcmlnaHQgCj4+PiBub3csIGJ1dCBJIG1heSBoYXZlIG1pc3NlZCBvbmUgYW5kIG5ldyBjb3Vs
-ZCBjb21lIHVwIGxhdGVyLCBzbyB3ZSAKPj4+IGhhdmUgbXVsdGlwbGUgc29sdXRpb25zIGhlcmU6
-Cj4+Pgo+Pj4gLSBzdXBwb3NlIHRoYXQgYSBtYWNybyB1c2luZyB1bnNhZmVfZ2V0L3B1dF91c2Vy
-KCkgYW5kIHBhc3NpbmcgYSAKPj4+IHNsZWVwaW5nIGZ1bmN0aW9uIGFzIGFyZ3VtZW50IHdvbid0
-IGhhcHBlbiBhbmQgdGhlbiBkbyBub3RoaW5nCj4+PiAtIG9yIHNhdmUvcmVzdG9yZSBDU1Igc3N0
-YXR1cyB3aGVuIHN3aXRjaGluZyBwcm9jZXNzZXMKPj4+IC0gb3Igc2ltcGx5IGNoZWNrIHRoYXQg
-U1VNIGlzIG5vdCBzZXQgd2hlbiBzd2l0Y2hpbmcgcHJvY2Vzc2VzCj4+Pgo+Pj4gTGV0IG1lIGtu
-b3cgd2hhdCB5b3UgdGhpbmsuCj4+Cj4+IEknbSBvbiB0aGUgc2F2ZSB0aGUgZmxhZyBzaWRlLCBm
-b3IgdGhlc2UgcmVhc29uczoKPj4KPj4gIzEgc2xlZXBpbmcgZnVuY3Rpb25zIGNhbiBoYXBwZW4g
-bW9yZSBvZnRlbiB3aGVuIHZhcmlvdXMgY2hlY2tzCj4+IMKgwqDCoCBnZXQgZW5hYmxlZCBpbiB0
-aGUga2VybmVsICh0aGlzIHdhcyB3aHkgdGhlIG9yaWdpbmFsIGZhdWx0Cj4+IMKgwqDCoCB3YXMg
-Zm91bmQpLsKgIEFkZGluZyBsYXJnZXIgc2VjdGlvbnMgaXMganVzdCBnb2luZyB0byBtYWtlCj4+
-IMKgwqDCoCB0aGUgZmF1bHQgcG9wIHVwIGFnYWluIGF0IHNvbWUgcG9pbnQgaW4gdGhlIGZ1dHVy
-ZS4KPj4KPj4gIzIgdGhlIHNhdmUvcmVzdG9yZSBpcyBhIHNtYWxsIGFkZGl0aW9uIHRvIHRoZSBz
-d2FwIHJlZ2lzdGVycwo+Pgo+PiAjMyBzYXZpbmcgU1VNIG92ZXIgYSByZWdzIHN3YXAgaXMgYWx3
-YXlzIGdvaW5nIHRvIG1ha2Ugc3VyZSB3ZQo+PiDCoMKgwqAgbmV2ZXIgc2VlIHRoaXMgZ3JlbWxp
-biB0dXJuIHVwIGFnYWluCj4+Cj4+IEZZSSwgSSB0aGluayBJIG1heSBoYXZlIHBvc3RlZCBvdXIg
-b3JpZ2luYWwgdGVzdCB0aHJlYWQgYXQgc29tZQo+PiBwb2ludCwgYnV0IEkgY291bGQgZG8gc28g
-YWdhaW4uCj4gCj4gWWVzLCBhZnRlciBCZW4gcG9pbnRlZCBvdXQgdGhlIGlzc3VlIEkgY2FtZSB0
-byB0aGUgY29uY2x1c2lvbiB3ZSAKPiBwcm9iYWJseSB3YW50IEJlbnMgcGF0Y2ggd2hpY2ggc2F2
-ZXMgdGhlIGJpdC4gQXBvbG9naWVzIGlmIEkgZGlkbid0IAo+IGV4cHJlc3MgdGhpcyB0aG91Z2h0
-IGluIGVtYWlsLgo+IAo+IEknbSBoYXBweSB0byB0YWtlIHRoZSBwYXRjaCBhbmQgcHV0IGl0IG9u
-IHRoZSBmcm9udCBvZiB0aGlzIHNlcmllcywgCj4gYWx0aG91Z2ggcGVyaGFwcyBpdCBtYWtlcyBt
-b3JlIHNlbnNlIHlvdSB0byByZXZpdmUgdGhlIHBhdGNoIHNpbmNlIAo+IHlvdSdyZSBzdGlsbCBh
-cm91bmQgQmVuPwoKWWVzLCBJJ20gY3VycmVudGx5IHZlcnkgYnVzeSBzbyBoYXBweSBmb3Igc29t
-ZW9uZSBlbHNlIHRvIGdldCB0aGlzCm1lcmdlZCBhbmQgdGVzdGVkLgoKV2UgY291bGQgZG8gd2l0
-aCBzb21lIGJldHRlciB0ZXN0aW5nIG9uIHdoZXRoZXIgd2UgbGVhayBmbGFncyBvbgp0YXNrIHN3
-aXRjaGVzIChwb3NzaWJseSksIGJ1dCB0aGF0J3MgYSBzaWRlIHF1ZXN0IGFuZCBub3QgZm9yIG5v
-dy4KCi0tIApCZW4gRG9va3MJCQkJaHR0cDovL3d3dy5jb2RldGhpbmsuY28udWsvClNlbmlvciBF
-bmdpbmVlcgkJCQlDb2RldGhpbmsgLSBQcm92aWRpbmcgR2VuaXVzCgpodHRwczovL3d3dy5jb2Rl
-dGhpbmsuY28udWsvcHJpdmFjeS5odG1sCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
-dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
-bmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Mar 17, 2025 at 03:39:01PM +0100, Alexandre Ghiti wrote:
+> Hi Drew,
+> =
+
+> On 04/03/2025 13:00, Andrew Jones wrote:
+> > Allow skipping scalar and vector unaligned access speed tests. This
+> > is useful for testing alternative code paths and to skip the tests in
+> > environments where they run too slowly. All CPUs must have the same
+> > unaligned access speed.
+> =
+
+> I'm not a big fan of the command line parameter, this is not where we sho=
+uld
+> push uarch decisions because there could be many other in the future, the
+> best solution to me should be in DT/ACPI and since the DT folks, according
+> to Palmer, shut down this solution, it remains using an extension.
+> =
+
+> I have been reading a bit about unaligned accesses. Zicclsm was described=
+ as
+> "Even though mandated, misaligned loads and stores might execute extremely
+> slowly. Standard software distributions should assume their existence only
+> for correctness, not for performance." in rva20/22 but *not* in rva23. So
+> what about using this "hole" and consider that a platform that *advertise=
+s*
+> Zicclsm means its unaligned accesses are fast? After internal discussion,=
+ It
+> actually does not make sense to advertise Zicclsm if the platform accesses
+> are slow right?
+
+This topic pops up every so often, including in yesterday's server
+platform TG call. In that call, and, afaict, every other time it has
+popped up, the result is to reiterate that ISA extensions never say
+anything about performance. So, Zicclsm will never mean fast and we
+won't likely be able to add any extension that does.
+
+> =
+
+> arm64 for example considers that armv8 has fast unaligned accesses and can
+> then enable HAVE_EFFICIENT_ALIGNED_ACCESS in the kernel, even though some
+> uarchs are slow. Distros will very likely use rva23 as baseline so they w=
+ill
+> enable Zicclsm which would allow us to take advantage of this too, without
+> this, we lose a lot of perf improvement in the kernel, see
+> https://lore.kernel.org/lkml/20231225044207.3821-1-jszhang@kernel.org/.
+> =
+
+> Or we could have a new named feature for this, even though it's weird to
+> have a named feature which would basically=A0 mean "Zicclsm is fast". We =
+don't
+> have, for example, a named feature to say "Zicboz is fast" but given the
+> vague wording in the profile spec, maybe we can ask for one in that case?
+> =
+
+> Sorry for the late review and for triggering this debate...
+
+No problem, let's try to pick the best option. I'll try listing all the
+options and there pros/cons.
+
+1. Leave as is, which is to always probe
+   pro: Nothing to do
+   con: Not ideal in all environments
+
+2. New DT/ACPI description
+   pro: Describing whether or not misaligned accesses are implemented in
+        HW (which presumably means fast) is something that should be done
+	in HW descriptions
+   con: We'll need to live with probing until we can get the descriptions
+        defined, which may be never if there's too much opposition
+
+3. Command line
+   pro: Easy and serves its purpose, which is to skip probing in the
+        environments where probing is not desired
+   con: Yet another command line option (which we may want to deprecate
+        someday)
+
+4. New ISA extension
+   pro: Easy to add to HW descriptions
+   con: Not likely to get it through ratification
+
+5. New SBI FWFT feature
+   pro: Probably easier to get through ratification than an ISA extension
+   con: Instead of probing, kernel would have to ask SBI -- would that
+        even be faster? Will all the environments that want to skip
+	probing even have a complete SBI?
+
+6. ??
+
+I'm voting for (3), which is why I posted this patchset, but I'm happy
+to hear other votes or other proposals and discuss.
+
+Thanks,
+drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
