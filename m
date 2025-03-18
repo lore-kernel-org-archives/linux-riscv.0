@@ -4,71 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C4ACC282EC
-	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 10:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78147C282EC
+	for <linux-riscv@archiver.kernel.org>; Tue, 18 Mar 2025 12:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bUiIYJD6covY2yYbcril0Aed72Jin+LIPRzt20a0+ec=; b=QMcScjU+Or6E/F
-	AKqyZ16xySaxsluekW/AScJvc4XVpI2mTR5ERBCgRtiBG+FsFW4eTNRdtMWjtCB6fySfgvHvKXI1j
-	pUR7si1f6MXmfgT/T6doJMh3jIIpgvw1voYl+50TN3v7bpLUwKUs/8Zo0p1Zhj7omkyuBCvWkI7GZ
-	P1WD15wLRuq51KSFyukk6SwBPhLf3Ci1c9iGzNJMVk0vSH1/ACufL2MG8qHb71ccBvFjlVqhBvdPU
-	+UVh9ePvSD+XBgOb3TwSJ4WnPD8UrUi7XY6WRFt3axBIj8NhYnZ6lx02WzHxyyUfGgbTO9wh+5Pab
-	drIr+IJvZKzYn1fTIlBQ==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=+mByFuPJPNwzh/mBGe2XJSzwC6YfQ+DKnAH1mZE/jjA=; b=U7D
+	v763qH22Nu0cWhV/3hHWhVGFXG0y2BVoEOW87Fqe1iKWXMg0O0Jlt+LuNam6Kb/0B6FElKTwTH/Au
+	0PnlwXPR3PQKZ/n3DIOvH+nNiB9m/M/cV3Hba4Z0emFckaXR4Xe62WCwnCG2MdLfwSNG0fQV2Fxe2
+	Nvp9UL0S2hC9Cl068HbGFqb1qt+JNlcTyU5GIphxzhKBlmK3/+oKXCdi0q/w/hruB/z9pR0gUHJ5w
+	Gcw7mxe/AJpNiT/AxGbM6r4+ZBCjiYWgCmHlBpWiv7kQHQ4kolRbD96lr0omdK9UkzWpSzoB2Q5NL
+	6USFvC7oedqh1qhlq4//pCPZG+C89Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUfb-00000005cbA-3hFr;
-	Tue, 18 Mar 2025 10:59:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuUdv-00000005cSs-1Iey;
-	Tue, 18 Mar 2025 10:57:56 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4ADA713D5;
-	Tue, 18 Mar 2025 03:58:03 -0700 (PDT)
-Received: from [10.57.40.187] (unknown [10.57.40.187])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DC01D3F63F;
-	Tue, 18 Mar 2025 03:57:48 -0700 (PDT)
-Message-ID: <b956d9d0-d169-4deb-9b7e-cbec95363214@arm.com>
-Date: Tue, 18 Mar 2025 10:57:47 +0000
+	id 1tuVeH-00000005ohH-0se2;
+	Tue, 18 Mar 2025 12:02:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tuVZf-00000005nmm-39oW
+	for linux-riscv@lists.infradead.org;
+	Tue, 18 Mar 2025 11:57:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 276C7A40BAC
+	for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 11:52:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 979B4C4CEE3;
+	Tue, 18 Mar 2025 11:57:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742299054;
+	bh=rmLMUpUg9TKlv0t12MsX0VOhIQD3OdV+vDBtl6zVpao=;
+	h=Date:From:To:Cc:Subject:From;
+	b=vCuGMsfMlLcLCFGPlZUXvf9LR7aFshQKJcZiZQehD5UgXl0/o6pb9iuGMQMDdNzj6
+	 J5ZsJWfUNnV/YSu2kkpWd/COk11ZCXSq+n0o5Cow58rQl7UhK1m1EgiUcMPpySN0kf
+	 voZ5eFSLwqfU+zwPo2dahiemJACj3UUSMws4fwBqKKSwm5RAgTkHIXL1U4NFcq49C4
+	 mlLyBL6dRfSl+PTgp30GTZzX19y3BqXThX2nM+xambHFcbRCEb7tiNrZlTfvTR/YcP
+	 RTNs7i5yFGQsanK+p9APHWkM/HoGwT58k/NecvGjOSoHAxg1XNQLvwa14JcmB1AEGo
+	 wvXnf4FwZiAVw==
+Date: Tue, 18 Mar 2025 11:57:31 +0000
+From: Conor Dooley <conor@kernel.org>
+To: soc@kernel.org
+Cc: conor@kernel.org, linux-riscv@lists.infradead.org
+Subject: [GIT PULL] RISC-V Devicetrees for v6.15
+Message-ID: <20250318-favorite-presuming-bf2fcf55bf6a@spud>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 20/23] iommu: Update various drivers to pass in lg2sz
- instead of order to iommu pages
-To: Mostafa Saleh <smostafa@google.com>, Jason Gunthorpe <jgg@nvidia.com>
-Cc: Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, Lu Baolu <baolu.lu@linux.intel.com>,
- David Woodhouse <dwmw2@infradead.org>, Heiko Stuebner <heiko@sntech.de>,
- iommu@lists.linux.dev, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
- Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <20-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
- <Z9GFFBvUFg7a9WEg@google.com> <20250317133500.GC9311@nvidia.com>
- <Z9lO-viudk9YGakl@google.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <Z9lO-viudk9YGakl@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_035755_443776_4547967D 
-X-CRM114-Status: GOOD (  15.27  )
+X-CRM114-CacheID: sfid-20250318_045735_859265_378C880D 
+X-CRM114-Status: GOOD (  10.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,66 +63,104 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============6220209905542224621=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-18 10:46 am, Mostafa Saleh wrote:
-> On Mon, Mar 17, 2025 at 10:35:00AM -0300, Jason Gunthorpe wrote:
->> On Wed, Mar 12, 2025 at 12:59:00PM +0000, Mostafa Saleh wrote:
->>>> --- a/drivers/iommu/io-pgtable-arm.c
->>>> +++ b/drivers/iommu/io-pgtable-arm.c
->>>> @@ -263,14 +263,13 @@ static void *__arm_lpae_alloc_pages(size_t size, gfp_t gfp,
->>>>   				    void *cookie)
->>>>   {
->>>>   	struct device *dev = cfg->iommu_dev;
->>>> -	int order = get_order(size);
->>>>   	dma_addr_t dma;
->>>>   	void *pages;
->>>>   
->>>>   	if (cfg->alloc)
->>>>   		pages = cfg->alloc(cookie, size, gfp);
->>>>   	else
->>>> -		pages = iommu_alloc_pages_node(dev_to_node(dev), gfp, order);
->>>> +		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp, size);
->>>
->>> Although, the current implementation of iommu_alloc_pages_node_sz() would round
->>> the size to order, but this is not correct according to the API definition
->>> "The returned allocation is round_up_pow_two(size) big, and is physically aligned
->>> to its size."
->>
->> Yes.. The current implementation is limited to full PAGE_SIZE only,
->> the documentation imagines a future where it is not. Drivers should
->> ideally not assume the PAGE_SIZE limit during this conversion.
->>
->>> I'd say we can align the size or use min with 64 bytes before calling the
->>> function would be enough (or change the API to state that allocations
->>> are rounded to order)
->>
->> OK, like this:
->>
->> 	if (cfg->alloc) {
->> 		pages = cfg->alloc(cookie, size, gfp);
->> 	} else {
->> 		/*
->> 		 * For very small starting-level translation tables the HW
->> 		 * requires a minimum alignment of at least 64 to cover all
->> 		 * cases.
->> 		 */
->> 		pages = iommu_alloc_pages_node_sz(dev_to_node(dev), gfp,
->> 						  max(size, 64));
->> 	}
-> 
-> Yes, that looks good.
 
-Although for completeness it really wants to cover both paths, so an 
-unconditional "size = max(size, 64);" further up would be even better.
+--===============6220209905542224621==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Zkv9McmXFIblZL5Z"
+Content-Disposition: inline
 
-Thanks,
-Robin.
+
+--Zkv9McmXFIblZL5Z
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+
+Hey Arnd,
+
+Not too much this window, was hoping to get the k230 (canaan soc) this
+time around, but the clock side of things was not ready.
+
+Cheers,
+Conor.
+
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/conor/linux.git/ riscv-dt-for-v6.15
+
+for you to fetch changes up to 38818f7c9c179351334b1faffc4d40bd28cc9c72:
+
+  riscv: dts: starfive: jh7110-pine64-star64: enable USB 3.0 port (2025-02-18 16:32:25 +0000)
+
+----------------------------------------------------------------
+RISC-V Devicetrees for v6.15
+
+Starfive:
+All changes for jh7110-based boards including the removal of a dac
+that does not exist and the addition of usb3 support on the star64 board
+and pcie on the framework mainboard.
+
+Microchip:
+Update pcie reg properties to fix a mistake originally describing them.
+Here rather than in fixes, since the driver maintains support for the
+old format.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+----------------------------------------------------------------
+Conor Dooley (2):
+      riscv: dts: microchip: update pcie reg properties to new format
+      riscv: dts: starfive: remove non-existent dac from jh7110
+
+E Shattow (2):
+      riscv: dts: starfive: jh7110: pciephy0 USB 3.0 configuration registers
+      riscv: dts: starfive: jh7110-pine64-star64: enable USB 3.0 port
+
+Sandie Cao (1):
+      riscv: dts: starfive: fml13v01: enable pcie1
+
+Shengyu Qu (1):
+      riscv: dts: starfive: Unify regulator naming scheme
+
+ .../boot/dts/microchip/mpfs-icicle-kit-fabric.dtsi |  5 ++--
+ .../boot/dts/microchip/mpfs-m100pfs-fabric.dtsi    |  5 ++--
+ .../boot/dts/microchip/mpfs-polarberry-fabric.dtsi |  5 ++--
+ arch/riscv/boot/dts/starfive/jh7110-common.dtsi    |  8 +----
+ .../dts/starfive/jh7110-deepcomputing-fml13v01.dts | 34 ++++++++++++++++++++++
+ .../boot/dts/starfive/jh7110-pine64-star64.dts     |  5 ++++
+ arch/riscv/boot/dts/starfive/jh7110.dtsi           |  2 ++
+ 7 files changed, 51 insertions(+), 13 deletions(-)
+
+--Zkv9McmXFIblZL5Z
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9lfqwAKCRB4tDGHoIJi
+0gCiAPsE2utscwOvp0WzwLA3spcR3+1jORwrts/LiBGNrYQ06QD+KoBcIlha6JL2
+WQMSCRpVANtjmtODfKlmlbH8BH24owY=
+=0nHQ
+-----END PGP SIGNATURE-----
+
+--Zkv9McmXFIblZL5Z--
+
+
+--===============6220209905542224621==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6220209905542224621==--
+
