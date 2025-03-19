@@ -4,94 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3EDEC36001
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 09:38:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB280C36000
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 10:20:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vj1n0e8T8QO41hmPrsgbGd98YTyaQzdd1eIhAjFvqrk=; b=ZgGmiS5St2L2Qd
-	aSqZ99GaiYy7xVwzqLM4KkbmJXjIQr33M76tt3zzB/d3mH/pEz5+M6QLcyuwr4FysIJWxsoMyZUof
-	/WY8AbpDJ24W4Pxm/qiKqi7dz7GevS5aVjXmTTOT3pNjqy9Q30ebDk0kVtoGQay9xON4+Po3kkrBf
-	Y9eMVrEWnBoyRxQPs4O9d+oOPvVXT2BILcn58RkWUUmNJnyhR/BD8LP8YwGEUIF3/xKvvZo8BaYNS
-	vqW1cq3ZS1JAX42871XNSWSUw48xya0NETi2kSj+QK/4gwVHKb2zz//DQJDqqopxeZKnF/MY/sxVI
-	piHRZ+BlVUyFhTFQflrw==;
+	List-Owner; bh=ncsK05ep9oqTVJzV/D2nZLAji7fy6gf23T34O6w/9A0=; b=jh30rIMOERlxtR
+	r+dAJsJDOrsktA1LRky41ejSiYX+JHVRUA3I41TDZ2SgWE6vSJnKkjJI1yPVWpWOMZFyMDBossFEk
+	EKs5vygE+iCStduSSr2XipPsFcZXk1pzYA+DkU2rjjRtTp3sRVlT3UYH8BmrZjiF6q2e0iIP4FNkH
+	j6dYGbNKZ4DdbyiHi5t/6P4RQfs9QTNUTLOrmRuqkgUgouLIqdekE+koCLKYY0Kli8tY9dQ3fzU1v
+	u9Lf4Qr35tNEEL0xCYBd9yDJwzQhJtsRaga21rNL+jEUakXep3E6oKWlzh+ykt7KtRv3NGGebL19L
+	rVWBqzKE3E/m8X8cXB1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupsE-00000008WBb-2Eob;
-	Wed, 19 Mar 2025 09:38:06 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1tuqX6-00000008dlN-1JuW;
+	Wed, 19 Mar 2025 10:20:20 +0000
+Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupmR-00000008UgW-1A4W
+	id 1tuqX3-00000008djr-1y0f
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 09:32:08 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-22398e09e39so141698745ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 02:32:07 -0700 (PDT)
+	Wed, 19 Mar 2025 10:20:18 +0000
+Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-399676b7c41so1932176f8f.3
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 03:20:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742376726; x=1742981526; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Uh4Y53V77ruJXW8QR5flp6pUeWx/bYICn3Mwn1bkPIM=;
-        b=dm6ml3nnYR2AYwmPJl3GlH3oHExWxJZb/+gL1bRrjP7MPO9KuGrgH1FzIa8UlJKbPZ
-         mY4UGl6n3JhIQHKJptku3DnoaNQZs1dfOtmOk7bV0nQHJgGDY8XWltm5OFinXqXi+cny
-         ZUgWF2vAvpHUJLtlYrZP3lTq/9oQr5RsDlJx/SltYXwtLZdF5uIWmCsDrRAcPQ2zNMgD
-         3mrDd9MMzd2CsS04lpvvZWsYr9u0kE9LPQ5sp7SH5ei5tF9unuoOm46amcOHQ7kQGXcp
-         95Xal8S7OVRxsQQcKsq7pD70Ww2oeDxHEwKcCjuM2Zpe5TmHaLjmoo68cMRTOscFMa9G
-         fEnQ==
+        d=linaro.org; s=google; t=1742379616; x=1742984416; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZWxtYxkS3ZmfTDBR3Ubow/eGPhpGRxs9B2tOpbPHly4=;
+        b=Y0E83llGpBM5YjX2IGa0YIsRGPiOeSoGZp8b3JqqGdO1iNBRnIM2ZM0YSVaUybilNU
+         wGQ6vuTB0vwAX3FtjhN+C9qB8JAkJscBvUgOd4rbCODLwQeTX6y5NhLAE04kj59IEQmq
+         Spgzs0VMCquB8H5EK9PLu8n9L2sWknbWxGKj7D91o2V/pN/xXL0+/x86fLIsX2A0Q677
+         XyygoAV8fqm4XdU+ItR1Qa1tls5+6vob8/X7+pdPA/3s7k/dv+J2sCBVpMEF4uNITwTK
+         2Dx/PZ4jRGZcVyId2+scX792kY6p881xtOMQuIuK/eNhWYK4SiEnBcsX/uLTgiYxC4Vx
+         hO6Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742376726; x=1742981526;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Uh4Y53V77ruJXW8QR5flp6pUeWx/bYICn3Mwn1bkPIM=;
-        b=ClgDcEFb/cAVKLDGelzO1lXdBeVROr6nw12s9HuUGFbGIHeFSJ2KFBWIR6twxzWor5
-         4gVcm5zW1swma7so1Gw5oq3KjqdVIYk+F9IsHG78wIUrARD4OhpHcBN04HWf7p8DegHe
-         slYk6akMhiTKFMiubs5NeuLBJSAZv+Q1ir4oT3MKSApvINSDUouVVe+WouOVX8V/xWmY
-         Tog8pBQ7hzVfjyCEbkI7DkcIin2Ff/JUCqrto/U1GjmfUHubbzOFiv/lU+5cA2zztcaz
-         4IPSVvALJL4Wt8/YaYsVb519p4mbu/5tYjBtsPzsv5ukmhYY7p3Ez2+F8Wj6GCs6/IC5
-         9sVQ==
-X-Gm-Message-State: AOJu0YzwyCB8oGEu+42rN8H8cAI3m+yJaagSvYP9jvn1DVbALtE0lQkt
-	RdbrrjF/DQX6b+EYSMxu37y4YuVRnibCbD1d1aNXJLyGlUOUH640
-X-Gm-Gg: ASbGncvRplcP2HdCNXjLC9EYq+Oa5Qrkya+A5U3TN0vCq2oaG4rSyxy8Xyk5qt506px
-	P+AqrcDSG5C09uL9Ph5ZQhod8VD8cyUuVBsBJh7mAAwjq6uC47eKp8VMHDpxcVqF3Yt9m8/V2qH
-	lyo2OZB/miVnMpCDjRsPiP+9IBlIDnG4JGj90HiBp0oJEHgjhf0E1EsevWEzG1qSmLsHUMIwsA9
-	xXC6Ctwff+p/lryxUaUql2Kwp4styVZd7+93USD/Kia2a8yF0gZpAQZRCrAXhItKm5I5JpZ+jQb
-	9QVb5iUAyYHNxtwnlVrg9IvEcPEA
-X-Google-Smtp-Source: AGHT+IEJ7BbacbEjBca1zxi+l+r4IWpLrgxPdjplfun8EpRskeUbZl5L1DXxfpSILrv8YPi3IzkmNQ==
-X-Received: by 2002:a05:6a00:1950:b0:736:4d44:8b77 with SMTP id d2e1a72fcca58-7376d602e89mr4285875b3a.8.1742376726411;
-        Wed, 19 Mar 2025 02:32:06 -0700 (PDT)
-Received: from [127.0.1.1] ([2602:f919:106::1b8])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-737115294b3sm11124315b3a.5.2025.03.19.02.32.02
+        d=1e100.net; s=20230601; t=1742379616; x=1742984416;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ZWxtYxkS3ZmfTDBR3Ubow/eGPhpGRxs9B2tOpbPHly4=;
+        b=Qvn0veh/2haJmt6zH/BvBiWYm0G6u5iY7udFZo4QDrdLJbibbsDv5m9HNFIkk/lkJS
+         3Bo+LWR9HuW4M9+FJQJceSMKVhdF22z/K7a+2EpNPvecD/Bhe7HeNtUmnM0Bld+bf90k
+         EQEqCKCIFlNBiCR9K5QSrUj7319sf9gGjljXCJUGtM0EL2L2R4rcW2DWyr9iIwUOIi9B
+         FjD6D2Os5WB5v4eISEXK7bepG9c8Ypu5U1SdTPd6IkRi228TXbSxBrhMZcpq7pkdmghc
+         bYHpB7bQWw7wbSSp6HVS0kDTqzKozp48veHn15PxOhQXDHvAUfwcteevfqudLmhwc3BB
+         1q+A==
+X-Forwarded-Encrypted: i=1; AJvYcCWXq4npu3FVMrf/eUwRHveBY3qcrFTs9izOv25u7GH1b+EdvgTdHND7vfCTeS/IH3ZvQdKEnexyVEhvFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywsd9IXL9ly0SIYScAnqEteDY2mnllveiYgMrJqwJH+p7JeS/LB
+	PwVEfGDLTwLJ4MhPbe9mRrAlNQK6KeTiZIdTHM5tIfjSjZOuo7l0fKnJ/WkPIuo=
+X-Gm-Gg: ASbGncsbbNswcvzcKKUgThydEsrv6K8d9LnRpa7DTfkEZmDxpGFXUuxV//t0BElQRI9
+	++meKrvXjP4+1DYt8IJgSPKC1uXljRZIudpks2t+zxwNSN2CvRC6QOvRmWVgaOXE6QBtgK/7UeS
+	kP5qhm1jTVD8Cukbu+Sshg+v0GctTnHdcGkak6qYOolinkjJeTnzAs8xeK+HjkR85sU4ceLHIB1
+	MBRYfc5XA8jHBk5LmPTIBw+JS8YHaesY+uSvOrNMZ773xZ6XRTk5RhpXAFvJvN2ygm2E9jaxlEW
+	AIU8Bzty5AI1RED0cISna0J2l1B26fTGZ4kICm6r2OsmDrDmRQ==
+X-Google-Smtp-Source: AGHT+IHjcG6/IeV2BOfDblPqcpvGjw3L7kajd7hg9EDti/4DwNoU0L0nZRG8X9Tat0FLH2nt55nwLg==
+X-Received: by 2002:a05:6000:1541:b0:390:e655:f998 with SMTP id ffacd0b85a97d-399739ca2a8mr1441536f8f.26.1742379615798;
+        Wed, 19 Mar 2025 03:20:15 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-395c7df3506sm21189338f8f.11.2025.03.19.03.20.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 02:32:05 -0700 (PDT)
-From: Troy Mitchell <troymitchell988@gmail.com>
-Date: Wed, 19 Mar 2025 17:28:59 +0800
-Subject: [PATCH v8 1/2] dt-bindings: i2c: spacemit: add support for K1 SoC
+        Wed, 19 Mar 2025 03:20:15 -0700 (PDT)
+Date: Wed, 19 Mar 2025 13:20:10 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>
+Cc: Will Deacon <will@kernel.org>,
+	Alessandro Carminati <acarmina@redhat.com>,
+	linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Kees Cook <keescook@chromium.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Alessandro Carminati <alessandro.carminati@gmail.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
+	Catalin Marinas <catalin.marinas@arm.com>
+Subject: Re: [PATCH v4 07/14] arm64: Add support for suppressing warning
+ backtraces
+Message-ID: <fc197abf-e65a-439f-9d35-83f4665519f3@stanley.mountain>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-8-acarmina@redhat.com>
+ <20250313122503.GA7438@willie-the-truck>
+ <CAGegRW5r3V2-_44-X353vS-GZwDYG=SVwc6MzSGE8GdFQuFoKA@mail.gmail.com>
+ <20250318155946.GC13829@willie-the-truck>
+ <a64bf821-ea90-4fd9-92ec-13bf7b7a3067@csgroup.eu>
 MIME-Version: 1.0
-Message-Id: <20250319-k1-i2c-master-v8-1-013e2df2b78d@gmail.com>
-References: <20250319-k1-i2c-master-v8-0-013e2df2b78d@gmail.com>
-In-Reply-To: <20250319-k1-i2c-master-v8-0-013e2df2b78d@gmail.com>
-To: Andi Shyti <andi.shyti@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Troy Mitchell <troymitchell988@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- spacemit@lists.linux.dev, Conor Dooley <conor.dooley@microchip.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1742376553; l=2169;
- i=troymitchell988@gmail.com; h=from:subject:message-id;
- bh=XJqQ9vN219kTUQDWWgsn5UwgncFFcAviYm9fDZ7tTqw=;
- b=ZFqrmrmY/RWmGj7gLZCWgUTyAZDH/C6mwYsfTc7zti10F5HuSECxeuGJzGC70nnaguSUYNzC1
- XRwzIOgU+UbBQzELodEkO37GCtbQMP9WNVPJcdR59lFVF2Ap5222r23
-X-Developer-Key: i=troymitchell988@gmail.com; a=ed25519;
- pk=2spEMGBd/Wkpd36N1aD9KFWOk0aHrhVxZQt+jxLXVC0=
+Content-Disposition: inline
+In-Reply-To: <a64bf821-ea90-4fd9-92ec-13bf7b7a3067@csgroup.eu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_023207_322159_9396791C 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250319_032017_581148_769C046A 
+X-CRM114-Status: GOOD (  10.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,86 +129,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The I2C of K1 supports fast-speed-mode and high-speed-mode,
-and supports FIFO transmission.
+On Wed, Mar 19, 2025 at 09:05:27AM +0100, Christophe Leroy wrote:
+> 
+> Doesn't sparse and/or checkpatch complain about 0 being used in lieu of NULL
+> ?
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Link: https://lore.kernel.org/all/20250128-k1-maintainer-1-v1-1-e5dec4f379eb@gentoo.org [1]
-Signed-off-by: Troy Mitchell <troymitchell988@gmail.com>
----
- .../devicetree/bindings/i2c/spacemit,k1-i2c.yaml   | 61 ++++++++++++++++++++++
- 1 file changed, 61 insertions(+)
+Sparse does have a "Using plain integer as NULL pointer" warning, yes.
 
-diff --git a/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..3d6aefb0d0f185ba64e414ac7f5b96cd18659fd3
---- /dev/null
-+++ b/Documentation/devicetree/bindings/i2c/spacemit,k1-i2c.yaml
-@@ -0,0 +1,61 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/i2c/spacemit,k1-i2c.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: I2C controller embedded in SpacemiT's K1 SoC
-+
-+maintainers:
-+  - Troy Mitchell <troymitchell988@gmail.com>
-+
-+properties:
-+  compatible:
-+    const: spacemit,k1-i2c
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: I2C Functional Clock
-+      - description: APB Bus Clock
-+
-+  clock-names:
-+    items:
-+      - const: func
-+      - const: bus
-+
-+  clock-frequency:
-+    description: |
-+      K1 support three different modes which running different frequencies
-+      standard speed mode: up to 100000 (100Hz)
-+      fast speed mode    : up to 400000 (400Hz)
-+      high speed mode    : up to 3300000 (3.3Mhz)
-+    default: 400000
-+    maximum: 3300000
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    i2c@d4010800 {
-+        compatible = "spacemit,k1-i2c";
-+        reg = <0xd4010800 0x38>;
-+        interrupt-parent = <&plic>;
-+        interrupts = <36>;
-+        clocks =<&ccu 32>, <&ccu 84>;
-+        clock-names = "func", "bus";
-+        clock-frequency = <100000>;
-+    };
-+
-+...
+I can't apply this patchset and I haven't been following the conversation
+closely (plus I'm pretty stupid as well) so I'm not sure if it will
+trigger here...
 
--- 
-2.34.1
+regards,
+dan carpenter
 
 
 _______________________________________________
