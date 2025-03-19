@@ -4,89 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80ABDC35FFB
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:32:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93916C35FFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 06:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
-	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ozs6Bgyy+dOUOCfsrqzjwQio9f2u1+bJJ+IMGcpeGmI=; b=w+GUof+RaKd/Qa
-	S0Re2UkrqdNYCn4rIAK9z6nVCeKWDN0TyACAMMTRmIgNjgqYVjPB7JtbfvMRQQxhslGDUJ/yGyxTz
-	ivzem9gHn54VODqVNWeKUhclr5BMfVszzlctPg5PVqBiG0JdLIhS6hKUqyzp6FLJbfkvwzTHmYBFF
-	tfnscdiAhderRdNeG/XsCP3zAM1wozVBpV9yjmo6Hj7NXWq8j3kIa55FUa1tuj+PhF0/xHhwhA4y/
-	pBANaM1S4AK/19ZHMn+S/yT+17h5kxzY/2PJtuR9c0rD6+/tvqGLTlpdvJTMZFh1ie/8u3uJwfO+G
-	zMTg3qi9F6HPxVkrvVBA==;
+	List-Owner; bh=q+98KOD2CQ9rV6LLaSVZ4GcmXllnaVLhVCjhG+7AR3M=; b=QjH8plp1L3xU6g
+	vU6bRlMaghvR3k8t9ceP6yuTGwjrmGW07X48LTDO65YEy5w24anTRh7T39yY4HPkAzKbCHMjoAfa0
+	ZlcFdWK/EAUu2vz8foZd3Lh4wATFfoOUPToquAIjyT7E9fdCWux4B8sV5PBCdPP+HPU8YztbYzQgN
+	/k3K1/qfj3YLJEXP/Xa8mDuMass6jR+alUuv8QaUYe8jA3tW1qjT/wuvYxgu67Iof+IpNG+Hx01G6
+	L1cUKEQ0n5jDXIqMWFEhDy7Pso/eb0iNdOER5Z7wi0XECPp7o4Cp+efcDyA3XpNbk1mq+dN3Oz00V
+	S1PxN5b58Z7y459f3G8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tum2C-00000008466-3sUT;
-	Wed, 19 Mar 2025 05:32:08 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1tun1o-000000088IB-1hcG;
+	Wed, 19 Mar 2025 06:35:48 +0000
+Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulf5-000000080vJ-1f5b
+	id 1tun1B-000000088Cj-0yi4
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 05:08:21 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6fec6c91630so89806887b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:08:14 -0700 (PDT)
+	Wed, 19 Mar 2025 06:35:11 +0000
+Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54acc0cd458so220239e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 23:35:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360894; x=1742965694; darn=lists.infradead.org;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=L7xBPeAI1ZGK/na4YhBc+S5M0v2o7F6+AZ1yRtBTaOg=;
-        b=Hkm/aZK19qspDVCizqXS02qtTnEkyHs4dMQRSt67XqspNC+65BrxJuv+FBFcpkwm22
-         AwMJAq1xFW2yeZJOkjo9f4l22pB0Bk4Z6lrJi/W+Jc3lioXzRXLr/y6/gWOhdvyXZa4z
-         bN6079pJxlEi+ckQcgr034y682AT+J3bxJZ3hMc3zCeHMm7Iw6LWulewGebJtM8qbDwK
-         /Yw+bQ5D7OXy52O2kU7VG1KSn2sr8BTXSUu2TRUbLBF8jiccN/UbqD7Dv4yOzmSN7evP
-         3vyQy4tBfj/Z6RrTO0HgVnqKfkjx9peEuc/8hcsmwQIRN0oZKTDIwxk9XMjcSSwQFYxO
-         OXMw==
+        d=ventanamicro.com; s=google; t=1742366107; x=1742970907; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nRcMBAnBB1cdPSStkQP8KD4Ik0+X3f5WUJpWyEcmszQ=;
+        b=kqt3mdgaxKhBp2P0c+x3OEEPtZfbu1gMon0gLZTaGD9kOQlgkf1syyd6D/kkgzt3yM
+         iYVLtV9bsa9EoENaEb70nnp4TZdc0C3AczXifmTll2wGhTLokH39Dx1PsGn7TAwCCzNL
+         qTK+TnGpTCVU1q7vwJ90nz5LQW0q/kThHu/u9IYWlUI35wADK+0DyyQKkKp+S7zWRMib
+         uCsLUwV9yyr/6KAn6EOUQ8m70WsDLSGMW1QNDUUsyrksGYKsbiyR99SGUCmHQv8i5c3T
+         ZCJN1ICnNopKnpxNESTrQxb84XGiMxGyN2crwnp4wLQLE/Gjw6n+OuWy4QjOyyNXsEWh
+         lM0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360894; x=1742965694;
-        h=to:from:subject:references:mime-version:message-id:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=L7xBPeAI1ZGK/na4YhBc+S5M0v2o7F6+AZ1yRtBTaOg=;
-        b=VtSajTr4szFqY2u4M0LaYa3gFmq81HGGYVibNApQDoFrXn516xPg5A3RO0YIYdEJ7U
-         sU3T4GYomwohcwihQpTFMXZHGKod+e45ixzh4SlcRYVg950Vcjs4Ikdl1PbAWR1kfT97
-         2zTvYj2jBZpPyvSO5LWesQggB13xHw71g3rfx9Z3K3sw1Vrf6kAEqyQ4UHr+nRtqu6uP
-         4ymocrWbcXACCNpoN5wSlNJOceGPQUnZHG6AmUXdirrXkis3da0kRLzYLqgz+K5jM66D
-         ICNX0dQbpDP46cK6vHJlYdd1P70lj4WZZ7ceo5xcvUfKepo/mBCIuPAh3HA2lzlVl5gR
-         iO3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUBij2EMQroPgjJVCFdMmekUuq4UzDVJUanFupOx/KTHPnTiZ9ErrSqLYffGNrKpdpc2lXY9s9GcUx7uw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx87mEdSSexzqEWkCFwiG1rSzjWL/Sz3E5By2egSXe3GThvKmoZ
-	gJPJkwezwqDEH5wrXEPwV298itd81IrPA5ajmTfAqlbt+XhRkImx9WM+z4n79UwQCmtUCjo540C
-	5vLtDOA==
-X-Google-Smtp-Source: AGHT+IED/ZLlykbehWpsCbnxI7/VEXCzdceMElPMiVtqa8xKpgrgI1AFRxFexUYRexGCPPRyPnT6SSPwC/n+
-X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a05:6902:1824:b0:e5b:33c4:7279 with SMTP
- id 3f1490d57ef6-e667b432965mr506276.4.1742360893839; Tue, 18 Mar 2025
- 22:08:13 -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:39 -0700
-In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-13-irogers@google.com>
-Mime-Version: 1.0
-References: <20250319050741.269828-1-irogers@google.com>
-X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 12/14] perf trace: Make syscall table stable
-From: Ian Rogers <irogers@google.com>
-To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Kan Liang <kan.liang@linux.intel.com>, 
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>, 
-	James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>, 
-	Leo Yan <leo.yan@linux.dev>, guoren <guoren@kernel.org>, 
+        d=1e100.net; s=20230601; t=1742366107; x=1742970907;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=nRcMBAnBB1cdPSStkQP8KD4Ik0+X3f5WUJpWyEcmszQ=;
+        b=iXxkQhQG+uKenOYceTL611iHgf4TGCdmAqmyGXHq9SS+1dYgB2cqnXyrdMTmnF+4SX
+         3gCgSHzgUEyZtSS+ZA9Ih2X9jfLvFaHE1OLqVeOXpsgi4Sk/Yh/fFaddlS1QKmGOW5tJ
+         HGoLkkcFIVJsGrAVcWSBKnsZdNOo0f8CZsWXUzvCMWWR4F7mtztfHb5AsrTinyX2JV3L
+         Qjz3f5iDfSwwo4CykfduNHnihLCc5HXJ4l0ZmNJ6JkJCAat976sPINyN0po2+Q6WfWBc
+         JXbaeDKCGQB19qdmYZ4pJfyRLxDVAMWaThuNZ8TukWNkXLSzHX3ZQywkRfg1uEFMJUrM
+         M+oA==
+X-Forwarded-Encrypted: i=1; AJvYcCUmkacM4PYWRg1JvOHsE+CV2q4g/U0MvNvkHW9tMCZZ2fxg9E0hLczGrnpxCGZcfrw6RXFZ0bqQQI7zvw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3C6HVOyOIVpa/KTZf9DfRU+LvgLU6P8MPUNte1WcbppbJ1dGN
+	zOSDLK5qspVaMcpY+rG13O5IKFxyIO4z0e7yzWHkVFoyRg1LsOdQXhSv/rlXLXkNwvktKpOqOG2
+	ZcOO7TVrYWfCpyMeCDhzDx+UGhd04HNTr05rdWA==
+X-Gm-Gg: ASbGnctEtD0ZSQvkcw9dqve1QdJwwTLrQF3vnklvq2g6KZmDHWR/rSE12ftIdzUhde5
+	Eoqr4mPp0FgtkM7GC/r6tzqycBKW3pZ/uVk4wMI4kzPk/9SwzndQCtndfXXjbvTt5vm+6EN8xMl
+	ixuWajJlngwUu14xZSO5YUnJQ732o=
+X-Google-Smtp-Source: AGHT+IG2DF9ysJOnGisWYlJRKJjNI7goJzS2EHde/phn2/2Rqicusog58ZNjwKuNH+aDT8iIlFKP1DPR1Tk9Qcbg6iY=
+X-Received: by 2002:a05:6512:2c89:b0:54a:cc09:eacc with SMTP id
+ 2adb3069b0e04-54acc09ebcemr366625e87.39.1742366106954; Tue, 18 Mar 2025
+ 23:35:06 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
+In-Reply-To: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 19 Mar 2025 12:04:55 +0530
+X-Gm-Features: AQ5f1JqvoOcfbMQnETX7LXFFQmbgXKx4mcvkbI8cra0TF1szaF4KZK20bqrxCC4
+Message-ID: <CAK9=C2XzuUO3NiKOwwa+Xyh+j7XUtHNBb=YCbe49kHHJY0Ke8Q@mail.gmail.com>
+Subject: Re: [PATCH] RISC-V: KVM: Teardown riscv specific bits after kvm_exit
+To: Atish Patra <atishp@rivosinc.com>
+Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Charlie Jenkins <charlie@rivosinc.com>, 
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Jiri Slaby <jirislaby@kernel.org>, 
-	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@rivosinc.com>, Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
-	Arnd Bergmann <arnd@arndb.de>
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220815_433108_12BA0842 
-X-CRM114-Status: GOOD (  20.28  )
+X-CRM114-CacheID: sfid-20250318_233509_292338_29C2B87A 
+X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,208 +92,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Namhyung fixed the syscall table being reallocated and moving by
-reloading the system call pointer after a move:
-https://lore.kernel.org/lkml/Z9YHCzINiu4uBQ8B@google.com/
-This could be brittle so this patch changes the syscall table to be an
-array of pointers of "struct syscall" that don't move. Remove
-unnecessary copies and searches with this change.
-
-Signed-off-by: Ian Rogers <irogers@google.com>
----
- tools/perf/builtin-trace.c | 87 +++++++++++++++++++++++---------------
- 1 file changed, 53 insertions(+), 34 deletions(-)
-
-diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 1c080d95c1e2..a5f31472980b 100644
---- a/tools/perf/builtin-trace.c
-+++ b/tools/perf/builtin-trace.c
-@@ -151,7 +151,7 @@ struct trace {
- 	struct perf_tool	tool;
- 	struct {
- 		/** Sorted sycall numbers used by the trace. */
--		struct syscall  *table;
-+		struct syscall  **table;
- 		/** Size of table. */
- 		size_t		table_size;
- 		struct {
-@@ -2473,24 +2473,41 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
- 	return printed;
- }
- 
--static void syscall__init(struct syscall *sc, int e_machine, int id)
-+static struct syscall *syscall__new(int e_machine, int id)
- {
--	memset(sc, 0, sizeof(*sc));
-+	struct syscall *sc = zalloc(sizeof(*sc));
-+
-+	if (!sc)
-+		return NULL;
-+
- 	sc->e_machine = e_machine;
- 	sc->id = id;
-+	return sc;
- }
- 
--static void syscall__exit(struct syscall *sc)
-+static void syscall__delete(struct syscall *sc)
- {
- 	if (!sc)
- 		return;
- 
--	zfree(&sc->arg_fmt);
-+	free(sc->arg_fmt);
-+	free(sc);
-+}
-+
-+static int syscall__bsearch_cmp(const void *key, const void *entry)
-+{
-+	const struct syscall *a = key, *b = *((const struct syscall **)entry);
-+
-+	if (a->e_machine != b->e_machine)
-+		return a->e_machine - b->e_machine;
-+
-+	return a->id - b->id;
- }
- 
- static int syscall__cmp(const void *va, const void *vb)
- {
--	const struct syscall *a = va, *b = vb;
-+	const struct syscall *a = *((const struct syscall **)va);
-+	const struct syscall *b = *((const struct syscall **)vb);
- 
- 	if (a->e_machine != b->e_machine)
- 		return a->e_machine - b->e_machine;
-@@ -2504,27 +2521,33 @@ static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, i
- 		.e_machine = e_machine,
- 		.id = id,
- 	};
--	struct syscall *sc, *tmp;
-+	struct syscall *sc, **tmp;
- 
- 	if (trace->syscalls.table) {
--		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
--			     sizeof(struct syscall), syscall__cmp);
--		if (sc)
--			return sc;
-+		struct syscall **sc_entry = bsearch(&key, trace->syscalls.table,
-+						    trace->syscalls.table_size,
-+						    sizeof(trace->syscalls.table[0]),
-+						    syscall__bsearch_cmp);
-+
-+		if (sc_entry)
-+			return *sc_entry;
- 	}
- 
-+	sc = syscall__new(e_machine, id);
-+	if (!sc)
-+		return NULL;
-+
- 	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
--			   sizeof(struct syscall));
--	if (!tmp)
-+			   sizeof(trace->syscalls.table[0]));
-+	if (!tmp) {
-+		syscall__delete(sc);
- 		return NULL;
-+	}
- 
- 	trace->syscalls.table = tmp;
--	sc = &trace->syscalls.table[trace->syscalls.table_size++];
--	syscall__init(sc, e_machine, id);
--	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
-+	trace->syscalls.table[trace->syscalls.table_size++] = sc;
-+	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(trace->syscalls.table[0]),
- 	      syscall__cmp);
--	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
--		     sizeof(struct syscall), syscall__cmp);
- 	return sc;
- }
- 
-@@ -3855,14 +3878,14 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int e_machine, i
- 	return -1;
- }
- 
--static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *_sc)
-+static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace,
-+							     struct syscall *sc)
- {
--	struct syscall sc = *_sc; /* Copy as trace__syscall_info may invalidate pointer. */
- 	struct tep_format_field *field, *candidate_field;
- 	/*
- 	 * We're only interested in syscalls that have a pointer:
- 	 */
--	for (field = sc.args; field; field = field->next) {
-+	for (field = sc->args; field; field = field->next) {
- 		if (field->flags & TEP_FIELD_IS_POINTER)
- 			goto try_to_find_pair;
- 	}
-@@ -3870,18 +3893,17 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 	return NULL;
- 
- try_to_find_pair:
--	for (int i = 0, num_idx = syscalltbl__num_idx(sc.e_machine); i < num_idx; ++i) {
--		int id = syscalltbl__id_at_idx(sc.e_machine, i);
--		/* calling trace__syscall_info() may invalidate '_sc' */
--		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
-+	for (int i = 0, num_idx = syscalltbl__num_idx(sc->e_machine); i < num_idx; ++i) {
-+		int id = syscalltbl__id_at_idx(sc->e_machine, i);
-+		struct syscall *pair = trace__syscall_info(trace, NULL, sc->e_machine, id);
- 		struct bpf_program *pair_prog;
- 		bool is_candidate = false;
- 
--		if (pair == NULL || pair->id == sc.id ||
-+		if (pair == NULL || pair->id == sc->id ||
- 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
- 			continue;
- 
--		for (field = sc.args, candidate_field = pair->args;
-+		for (field = sc->args, candidate_field = pair->args;
- 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
- 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
- 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
-@@ -3948,7 +3970,8 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 				goto next_candidate;
- 		}
- 
--		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc.name);
-+		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name,
-+			 sc->name);
- 		return pair_prog;
- 	next_candidate:
- 		continue;
-@@ -4044,11 +4067,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_m
- 		pair_prog = trace__find_usable_bpf_prog_entry(trace, sc);
- 		if (pair_prog == NULL)
- 			continue;
--		/*
--		 * Get syscall info again as find usable entry above might
--		 * modify the syscall table and shuffle it.
--		 */
--		sc = trace__syscall_info(trace, NULL, e_machine, key);
-+
- 		sc->bpf_prog.sys_enter = pair_prog;
- 
- 		/*
-@@ -5316,7 +5335,7 @@ static void trace__exit(struct trace *trace)
- 	zfree(&trace->ev_qualifier_ids.entries);
- 	if (trace->syscalls.table) {
- 		for (size_t i = 0; i < trace->syscalls.table_size; i++)
--			syscall__exit(&trace->syscalls.table[i]);
-+			syscall__delete(trace->syscalls.table[i]);
- 		zfree(&trace->syscalls.table);
- 	}
- 	zfree(&trace->perfconfig_events);
--- 
-2.49.0.rc1.451.g8f38331e32-goog
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBNYXIgMTcsIDIwMjUgYXQgMToxMeKAr1BNIEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2
+b3NpbmMuY29tPiB3cm90ZToKPgo+IER1cmluZyBhIG1vZHVsZSByZW1vdmFsLCBrdm1fZXhpdCBp
+bnZva2VzIGFyY2ggc3BlY2lmaWMgZGlzYWJsZQo+IGNhbGwgd2hpY2ggZGlzYWJsZXMgQUlBLiBI
+b3dldmVyLCB3ZSBpbnZva2UgYWlhX2V4aXQgYmVmb3JlIGt2bV9leGl0Cj4gcmVzdWx0aW5nIGlu
+IHRoZSBmb2xsb3dpbmcgd2FybmluZy4gS1ZNIGtlcm5lbCBtb2R1bGUgY2FuJ3QgYmUgaW5zZXJ0
+ZWQKPiBhZnRlcndhcmRzIGR1ZSB0byBpbmNvbnNpc3RlbnQgc3RhdGUgb2YgSVJRLgo+Cj4gWzI1
+NDY5LjAzMTM4OV0gcGVyY3B1IElSUSAzMSBzdGlsbCBlbmFibGVkIG9uIENQVTAhCj4gWzI1NDY5
+LjAzMTczMl0gV0FSTklORzogQ1BVOiAzIFBJRDogOTQzIGF0IGtlcm5lbC9pcnEvbWFuYWdlLmM6
+MjQ3NiBfX2ZyZWVfcGVyY3B1X2lycSsweGEyLzB4MTUwCj4gWzI1NDY5LjAzMTgwNF0gTW9kdWxl
+cyBsaW5rZWQgaW46IGt2bSgtKQo+IFsyNTQ2OS4wMzE4NDhdIENQVTogMyBVSUQ6IDAgUElEOiA5
+NDMgQ29tbTogcm1tb2QgTm90IHRhaW50ZWQgNi4xNC4wLXJjNS0wNjk0Ny1nOTFjNzYzMTE4ZjQ3
+LWRpcnR5ICMyCj4gWzI1NDY5LjAzMTkwNV0gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFl
+bXUgKERUKQo+IFsyNTQ2OS4wMzE5MjhdIGVwYyA6IF9fZnJlZV9wZXJjcHVfaXJxKzB4YTIvMHgx
+NTAKPiBbMjU0NjkuMDMxOTc2XSAgcmEgOiBfX2ZyZWVfcGVyY3B1X2lycSsweGEyLzB4MTUwCj4g
+WzI1NDY5LjAzMjE5N10gZXBjIDogZmZmZmZmZmY4MDA3ZGIxZSByYSA6IGZmZmZmZmZmODAwN2Ri
+MWUgc3AgOiBmZjIwMDAwMDAwODhiZDUwCj4gWzI1NDY5LjAzMjI0MV0gIGdwIDogZmZmZmZmZmY4
+MTMxY2VmOCB0cCA6IGZmNjAwMDAwODBiOTY0MDAgdDAgOiBmZjIwMDAwMDAwODhiYWY4Cj4gWzI1
+NDY5LjAzMjI4NV0gIHQxIDogZmZmZmZmZmZmZmZmZmZmYyB0MiA6IDUyNDkyMDc1NzA2MzcyNjUg
+czAgOiBmZjIwMDAwMDAwODhiZDkwCj4gWzI1NDY5LjAzMjMyOV0gIHMxIDogZmY2MDAwMDA5OGIy
+MTA4MCBhMCA6IDAzN2Q1MjdhMTVlYjRmMDAgYTEgOiAwMzdkNTI3YTE1ZWI0ZjAwCj4gWzI1NDY5
+LjAzMjM3Ml0gIGEyIDogMDAwMDAwMDAwMDAwMDAyMyBhMyA6IDAwMDAwMDAwMDAwMDAwMDEgYTQg
+OiBmZmZmZmZmZjgxMjJkYmY4Cj4gWzI1NDY5LjAzMjQxMF0gIGE1IDogMDAwMDAwMDAwMDAwMGZm
+ZiBhNiA6IDAwMDAwMDAwMDAwMDAwMDAgYTcgOiBmZmZmZmZmZjgxMjJkYzEwCj4gWzI1NDY5LjAz
+MjQ0OF0gIHMyIDogZmY2MDAwMDA4MGMyMmViMCBzMyA6IDAwMDAwMDAyMDAwMDAwMjIgczQgOiAw
+MDAwMDAwMDAwMDAwMDFmCj4gWzI1NDY5LjAzMjQ4OF0gIHM1IDogZmY2MDAwMDA4MGMyMmUwMCBz
+NiA6IGZmZmZmZmZmODBjMzUxYzAgczcgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWzI1NDY5LjAzMjU4
+Ml0gIHM4IDogMDAwMDAwMDAwMDAwMDAwMyBzOSA6IDAwMDA1NTU1NmI3ZmI0OTAgczEwOiAwMDAw
+N2ZmZmYwZTEyZmEwCj4gWzI1NDY5LjAzMjYyMV0gIHMxMTogMDAwMDdmZmZmMGUxM2U5YSB0MyA6
+IGZmZmZmZmZmODEzNTRhYzcgdDQgOiBmZmZmZmZmZjgxMzU0YWM3Cj4gWzI1NDY5LjAzMjY2NF0g
+IHQ1IDogZmZmZmZmZmY4MTM1NGFjOCB0NiA6IGZmZmZmZmZmODEzNTRhYzcKPiBbMjU0NjkuMDMy
+Njk4XSBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRkcjogZmZmZmZmZmY4MDA3ZGIxZSBj
+YXVzZTogMDAwMDAwMDAwMDAwMDAwMwo+IFsyNTQ2OS4wMzI3MzhdIFs8ZmZmZmZmZmY4MDA3ZGIx
+ZT5dIF9fZnJlZV9wZXJjcHVfaXJxKzB4YTIvMHgxNTAKPiBbMjU0NjkuMDMyNzk3XSBbPGZmZmZm
+ZmZmODAwN2RiZmM+XSBmcmVlX3BlcmNwdV9pcnErMHgzMC8weDVlCj4gWzI1NDY5LjAzMjg1Nl0g
+WzxmZmZmZmZmZjAxM2E1N2RjPl0ga3ZtX3Jpc2N2X2FpYV9leGl0KzB4NDAvMHg0MiBba3ZtXQo+
+IFsyNTQ2OS4wMzM5NDddIFs8ZmZmZmZmZmYwMTNiNGU4Mj5dIGNsZWFudXBfbW9kdWxlKzB4MTAv
+MHgzMiBba3ZtXQo+IFsyNTQ2OS4wMzUzMDBdIFs8ZmZmZmZmZmY4MDA5YjE1MD5dIF9fcmlzY3Zf
+c3lzX2RlbGV0ZV9tb2R1bGUrMHgxOGUvMHgxZmMKPiBbMjU0NjkuMDM1Mzc0XSBbPGZmZmZmZmZm
+ODAwMGMxY2E+XSBzeXNjYWxsX2hhbmRsZXIrMHgzYS8weDQ2Cj4gWzI1NDY5LjAzNTQ1Nl0gWzxm
+ZmZmZmZmZjgwOWVjOWE0Pl0gZG9fdHJhcF9lY2FsbF91KzB4NzIvMHgxMzQKPiBbMjU0NjkuMDM1
+NTM2XSBbPGZmZmZmZmZmODA5ZjVlMTg+XSBoYW5kbGVfZXhjZXB0aW9uKzB4MTQ4LzB4MTU2Cj4K
+PiBJbnZva2UgYWlhX2V4aXQgYW5kIG90aGVyIGFyY2ggc3BlY2lmaWMgY2xlYW51cCBmdW5jdGlv
+bnMgYWZ0ZXIga3ZtX2V4aXQKPiBzbyB0aGF0IGRpc2FibGUgZ2V0cyBhIGNoYW5jZSB0byBiZSBj
+YWxsZWQgZmlyc3QgYmVmb3JlIGV4aXQuCj4KPiBGaXhlczogNTRlNDMzMjBjMmJhICgiUklTQy1W
+OiBLVk06IEluaXRpYWwgc2tlbGV0YWwgc3VwcG9ydCBmb3IgQUlBIikKClRoZSBrdm1fcmlzY3Zf
+dHJlYWRvd24oKSB3YXMgaW50cm9kdWNlZCBieSBzb21lIG90aGVyIGNvbW1pdCBzbwp3ZSBzaG91
+bGQgaW5jbHVkZSBhIHNlY29uZCBGaXhlcyB0YWcgd2hpY2ggaXM6CgpGaXhlczogZWRlZDY3NTRm
+Mzk4ICgicmlzY3Y6IEtWTTogYWRkIGJhc2ljIHN1cHBvcnQgZm9yIGhvc3QgdnMgZ3Vlc3QKcHJv
+ZmlsaW5nIikKCj4KPiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5j
+LmNvbT4KCk90aGVyd2lzZSwgdGhpcyBsb29rcyBnb29kIHRvIG1lLgoKUmV2aWV3ZWQtYnk6IEFu
+dXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBh
+cmNoL3Jpc2N2L2t2bS9tYWluLmMgfCA0ICsrLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0
+aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS9t
+YWluLmMgYi9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiBpbmRleCAxZmE4YmU1ZWU1MDkuLjRiMjQ3
+MDVkYzYzYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiArKysgYi9hcmNo
+L3Jpc2N2L2t2bS9tYWluLmMKPiBAQCAtMTcyLDggKzE3Miw4IEBAIG1vZHVsZV9pbml0KHJpc2N2
+X2t2bV9pbml0KTsKPgo+ICBzdGF0aWMgdm9pZCBfX2V4aXQgcmlzY3Zfa3ZtX2V4aXQodm9pZCkK
+PiAgewo+IC0gICAgICAga3ZtX3Jpc2N2X3RlYXJkb3duKCk7Cj4gLQo+ICAgICAgICAga3ZtX2V4
+aXQoKTsKPiArCj4gKyAgICAgICBrdm1fcmlzY3ZfdGVhcmRvd24oKTsKPiAgfQo+ICBtb2R1bGVf
+ZXhpdChyaXNjdl9rdm1fZXhpdCk7Cj4KPiAtLS0KPiBiYXNlLWNvbW1pdDogNDcwMWYzM2ExMDcw
+MmQ1ZmM1NzdjMzI0MzRlYjYyYWRkZTBhMWFlMQo+IGNoYW5nZS1pZDogMjAyNTAzMTYta3ZtX2V4
+aXRfZml4LTc3Y2QwNjMyZDc0MAo+IC0tCj4gUmVnYXJkcywKPiBBdGlzaCBwYXRyYQo+CgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
+YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
+aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
