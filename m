@@ -4,112 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9C70C36000
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 21:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834A4C35FFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 22:35:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=7FH7ANSvBGPjQN6IbNs4q7+xNWpx9nM2UBLEMfH++FY=; b=eM0bebFqnyYdV0+GlpZNlTRY1m
-	TEtBtdYRnRx+/2gjadCAUrVIZC0pLfTwRGGm/5hkNx1i1/JlJ3YLJaBJMVvV+TwFdYyElb4v8nV/1
-	IhhjtDd4cNfjuywzct4Xrsg9zqDIkadjwZAjnKAdNFECShJX8nQD//GDChZe28YpkAQs0fqxmwTbe
-	Idh4sHC5HjIFaPGRjbjdutWbuQCej5xTJu80FsYLkVokHMEv+1U3KvuJowqvIVcUUEZNtDxXkHX6z
-	OpimobZKIH/z45dQJ1iXooxdcqZmBLmzkZAccrCYd87pl25LVsezs1381ffhf6v86d7qtRoM5lNb8
-	GEwJgGbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hO5Do/2BcWPNv1htePxKOGjep2iYQqGu3jlhnAfrZKE=; b=l9CI/qyk1YIQrg
+	cK8Mu9jEDNsDUZ4BB/N7X5Nx0pvPCQp+Mlr5KZwza+0XYIJc057ByGQ2nQcEgJaWcB8kWi4mc7E0G
+	pQrM/RCwgt9zHyhB2tgDfR2Yk3N2xmh1KKuIq9GHe/U8ILV1VoqrN8Q3MF8SFmHB9Zhx+C9/4i8V3
+	wak4Ie+Qe/N4zPwA/tQc1dO7i6Lcaoge/1JwgtZtdFOKGLsuzZiO/Sk3cNlszB0GRENOkyad3D/v0
+	1XSIuOqHX2GE1dlwDdX1LaI+qsFFay5xpz1y6sfwbXYJwhxxeuZxVrz/EvHon9ptCsqVPIWAVL4IS
+	nRHjFgCW6K5jIqpXy3yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1Qc-0000000ADsu-3LsB;
-	Wed, 19 Mar 2025 21:58:22 +0000
-Received: from fout-b5-smtp.messagingengine.com ([202.12.124.148])
+	id 1tv20Q-0000000AIkt-0hzB;
+	Wed, 19 Mar 2025 22:35:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tv1It-0000000ACDX-0lWa
+	id 1tv20N-0000000AIkW-2zFH
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 21:50:24 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailfout.stl.internal (Postfix) with ESMTP id 382A711400EC;
-	Wed, 19 Mar 2025 17:50:22 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Wed, 19 Mar 2025 17:50:22 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742421022;
-	 x=1742507422; bh=WfKJMezWqc+nSdhVQn3eKqAC+DlMem0afV5xnH1fPhs=; b=
-	QEhnGNi1M+zgofeg+Yvb5pS5Af5xFoQ5wv/VpID9XUdfThbqRJhy4G04Mzkzoz7i
-	opKuvx5GKytYSq98eB5CtktenwKjEPjMNQCPeoxqQdBA2JgJTsjBNZuDHDxJjYep
-	msqvG5qbJlnjJlkG9/i+OKdAI0fajrcFOisMSKrmBMo3jK6FtjWCt4yzXQvqZiam
-	NDgncv4XwccqGvtoK+0er8UOvAi9qwHInamwyass80eOvP/7UoDtIc3ASs7F/PNk
-	BqbXDQX+b1xySx8hokyekXVXki7jp70pvBee+2aqNceSU+Dvqx67uxLCb9uNFkmg
-	nnPa9sqdQrSyIq74KaEGYg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742421022; x=
-	1742507422; bh=WfKJMezWqc+nSdhVQn3eKqAC+DlMem0afV5xnH1fPhs=; b=F
-	rIE3W3BnFNfV9MEQcWY+tc+5XIZvTEoDBq4KXLVC2DNpr2hW9ewpIQLqnQ01AXX/
-	XZzCKqRLoGMUi4x9K7APM95RI3cYVSRnlf0QVg6bxJNVilq+kg5h7QFH0+rBgITa
-	piSppB2By2lMz2mlZVY9GB3hSlCyfU852n5MkUtgljqM8eo016apgMd5QWiIdCpa
-	tzvLkoWG7KzLSCff6zQtnQnABW06URn6FDSL9OQEbH4G19v5pDD/uWP265FxNBAl
-	0Hp/tXcd16alZJ7qiTI/rGi+ZKwqaZI08b9cznMubpTZMiMbEz8ubTlGFcCCIfgr
-	y1nHiidtmS5gEI5hn7KNQ==
-X-ME-Sender: <xms:HTzbZ4YISa3tXZnJMLbbntX_3bIUQWsB0idtTGl3U6KIlom8q5yGlQ>
-    <xme:HTzbZzYhP73lp-jkb0PB4NTb7S2Yk2ig2Ln8LDwmiWWVsQlWfa_6pH9vLTQGgQ1yg
-    Gv33hwnM_MMyYkbOJc>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeeigeehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    uddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehprghlmhgvrhesuggrsggsvg
-    hlthdrtghomhdprhgtphhtthhopegrlhgvgiesghhhihhtihdrfhhrpdhrtghpthhtohep
-    iihhihhhrghnghdrshhhrghordhishgtrghssehgmhgrihhlrdgtohhmpdhrtghpthhtoh
-    epihhgnhgrtghiohesihgvnhgtihhnrghsrdgtohhmpdhrtghpthhtohepsghjohhrnhes
-    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepvggsihhgghgvrhhssehkvghrnhgvlhdroh
-    hrghdprhgtphhtthhopehskhhhrghnsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhg
-    pdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrug
-    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhdqmhgvnhhtvggvsheslhhi
-    shhtshdrlhhinhhugidruggvvh
-X-ME-Proxy: <xmx:HTzbZy8A4LQKrfGEy0FNdDSsQltJ7sY46nzls3TIbSlsACctFKz1Qw>
-    <xmx:HTzbZyq6wXVf1AvrLFgjc3nvxn2WlKic6OQk_5i5t3NdOVFCLm2NAg>
-    <xmx:HTzbZzrEuXeKSO1g7Z4Cdjprre8yHxgWTHBQVHcD5edRNK0PTaQfEA>
-    <xmx:HTzbZwRFw5J29nH6KcAW5mrV_U9qrcYlzx2ILAoyXt2eJIni-TPsbw>
-    <xmx:HjzbZ8SghM61MZuaTbhUjCASxZQHEi-qw2XAKzoWwzfv7SzijGL4wL05>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 77B0B2220072; Wed, 19 Mar 2025 17:50:21 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Wed, 19 Mar 2025 22:35:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id E1FC0434B0;
+	Wed, 19 Mar 2025 22:35:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DB3E6C4CEE4;
+	Wed, 19 Mar 2025 22:35:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742423719;
+	bh=A3iFvLtzRQh3dCCRxhX6u7YQ8Gd1PwoaAxY//GmR/TU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VHURJnhCKSyrVQ20KD3r0sewq8kKaaO367PBbxMkBo9SGGZ8/1Mjl2vcTss/1dENx
+	 C6g1t6n8dEZxREdpemXmfcs4lQUcHsq/z1FR/0Y+3uE5ZPGaM3jRIxQvpjtSeeIeK6
+	 L2ZKXw0ViST+8qX4SlyBRJAww+EiMFSgF/nG4ACH92iTQm5RstBdIxM8he1u/VnYai
+	 eS+gh+LTJv2QyYaY0R7OO7JJzWmmwPZviIX0l6+tnGC7rRfeHmDN1CllPSeHpwI6F4
+	 pYuNSq9k284eA6rDy78Gwzu8iTSsL87hU9uyfOtQvqGuwy4E8dnh7LlFOpSLcEt/r9
+	 LlSHIEnR8MAJg==
+Date: Wed, 19 Mar 2025 23:35:16 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Troy Mitchell <troymitchell988@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, Alex Elder <elder@riscstar.com>
+Subject: Re: [PATCH v8 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+Message-ID: <iyefoqhlel7dwupjiidn2hcibkk6ooxcwpyjrb53f4tzup7r4v@2pl42nbgifof>
+References: <20250319-k1-i2c-master-v8-0-013e2df2b78d@gmail.com>
+ <20250319-k1-i2c-master-v8-2-013e2df2b78d@gmail.com>
 MIME-Version: 1.0
-X-ThreadId: T04d17f90b906d792
-Date: Wed, 19 Mar 2025 22:49:57 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Ignacio Encinas" <ignacio@iencinas.com>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Alexandre Ghiti" <alex@ghiti.fr>
-Cc: "Eric Biggers" <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- "Shuah Khan" <skhan@linuxfoundation.org>,
- "Zhihang Shao" <zhihang.shao.iscas@gmail.com>,
- =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>
-Message-Id: <07b8051b-9d5e-440e-b74d-1ca97402fe2a@app.fastmail.com>
-In-Reply-To: <4d45df0c-d44e-4bb6-8daa-0dba1b834bc4@iencinas.com>
-References: <20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com>
- <20250319-riscv-swab-v2-1-d53b6d6ab915@iencinas.com>
- <2afab9dc-e39c-4399-ac5a-87ade4da5ab0@app.fastmail.com>
- <4d45df0c-d44e-4bb6-8daa-0dba1b834bc4@iencinas.com>
-Subject: Re: [PATCH v2 1/2] include/uapi/linux/swab.h: move default implementation for
- swab macros into asm-generic
+Content-Disposition: inline
+In-Reply-To: <20250319-k1-i2c-master-v8-2-013e2df2b78d@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_145023_286919_7FFDE86B 
-X-CRM114-Status: GOOD (  13.98  )
+X-CRM114-CacheID: sfid-20250319_153519_768033_D10DC79D 
+X-CRM114-Status: GOOD (  10.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,40 +75,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025, at 22:37, Ignacio Encinas Rubio wrote:
-> On 19/3/25 22:12, Arnd Bergmann wrote:
->> On Wed, Mar 19, 2025, at 22:09, Ignacio Encinas wrote:
->>> Move the default byteswap implementation into asm-generic so that it can
->>> be included from arch code.
->>>
->>> This is required by RISC-V in order to have a fallback implementation
->>> without duplicating it.
->>>
->>> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
->>> ---
->>>  include/uapi/asm-generic/swab.h | 32 ++++++++++++++++++++++++++++++++
->>>  include/uapi/linux/swab.h       | 33 +--------------------------------
->>>  2 files changed, 33 insertions(+), 32 deletions(-)
->>>
->> 
->> I think we should just remove these entirely in favor of the
->> compiler-povided built-ins.
->
-> Got it. I assumed they existed to explicitly avoid relying on
-> __builtin_bswap as they might not exist. However, I did a quick grep and
-> found that there are some uses in the wild.
+Hi Troy,
 
-Right, I do remember when we had a discussion about this maybe
-15 years ago when gcc didn't have the builtins on all architectures
-yet, but those versions are long gone, and we never cleaned it up.
+On Wed, Mar 19, 2025 at 05:29:00PM +0800, Troy Mitchell wrote:
+> This patch introduces basic I2C support for the SpacemiT K1 SoC,
+> utilizing interrupts for transfers.
+> 
+> The driver has been tested using i2c-tools on a Bananapi-F3 board,
+> and basic I2C read/write operations have been confirmed to work.
+> 
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+> Link: https://lore.kernel.org/all/20250128-k1-maintainer-1-v1-1-e5dec4f379eb@gentoo.org [1]
 
-> I couldn't find compiler builtins for ___constant_swahb32 nor 
-> ___constant_swahw32, so I guess I'll leave them as they are.
+please, next time don't add the Link: tag here, I will add it
+myself via b4. The link is not even correct.
 
-Correct. There are also 24-bit and 48-bit swap functions
-in include/linux/unaligned.h that have no corresponding builtins.
+I think this confuses b4 as well.
 
-      Arnd
+Anyway, I merged the two patches to i2c/i2c-host.
+
+Thanks,
+Andi
 
 _______________________________________________
 linux-riscv mailing list
