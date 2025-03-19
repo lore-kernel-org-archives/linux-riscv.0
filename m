@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14E36C35FF1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80ABDC35FFB
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:32:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+WTkX6eV4fMo/cpPIL6pJ7Yruijytyz3qdCuYnkkiVI=; b=HcYUewq+TKg3j/
-	DyxmnUbOogfhKRYuEbEF5VT6dhEbLmKMM+nfR6JKB9YeKweII3xp1M+DGmfT8qzdYJssIZG+OFR7m
-	VwA3+YhvFA+qtVt+bkBGRPmA+4Gc5hd/k1Xs04TSdNa5JIPhedQh3NjmFtHJ5H9cEVPBKlFB7pbsk
-	xsvWHGC9aQPjf4spIxpSrnWGhpFF//hIJBchiYO7wtBMet2DNztxy97w4r9BOwjBHeHF3TK+p+9Y4
-	59XvgJ94IwA/A39OqX9nttCNlIDVctuERFfkDhHBfqgH29X7dP4szXrFaUxPCG97hpaEwzBcJ4ZF4
-	WhpU4bila0ZXtv0KabGw==;
+	List-Owner; bh=ozs6Bgyy+dOUOCfsrqzjwQio9f2u1+bJJ+IMGcpeGmI=; b=w+GUof+RaKd/Qa
+	S0Re2UkrqdNYCn4rIAK9z6nVCeKWDN0TyACAMMTRmIgNjgqYVjPB7JtbfvMRQQxhslGDUJ/yGyxTz
+	ivzem9gHn54VODqVNWeKUhclr5BMfVszzlctPg5PVqBiG0JdLIhS6hKUqyzp6FLJbfkvwzTHmYBFF
+	tfnscdiAhderRdNeG/XsCP3zAM1wozVBpV9yjmo6Hj7NXWq8j3kIa55FUa1tuj+PhF0/xHhwhA4y/
+	pBANaM1S4AK/19ZHMn+S/yT+17h5kxzY/2PJtuR9c0rD6+/tvqGLTlpdvJTMZFh1ie/8u3uJwfO+G
+	zMTg3qi9F6HPxVkrvVBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tum0Y-000000083uf-2nkI;
-	Wed, 19 Mar 2025 05:30:26 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1tum2C-00000008466-3sUT;
+	Wed, 19 Mar 2025 05:32:08 +0000
+Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulf9-000000080xu-3mzl
+	id 1tulf5-000000080vJ-1f5b
 	for linux-riscv@lists.infradead.org;
 	Wed, 19 Mar 2025 05:08:21 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e63f6cdaf27so6903717276.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:08:19 -0700 (PDT)
+Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6fec6c91630so89806887b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:08:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360899; x=1742965699; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742360894; x=1742965694; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=jGnh5R7F2nGjibuMN1IiOugHr5YAQ01+XconQh81ims=;
-        b=k9tunLFDqk9h6GWFhNv1fYDO5wCFD3hfO+F7jEOk1p793CekG6UTZgd2IKaOauaP9z
-         9aot53nDKb9R/eObCurnIAyj868YjaBh3oPYwsxTF0MuyePGkVWaeMJvzzny6tw/hvkK
-         VXzfk0EfdO+squaH1LqYyCxVL54nULLo/Z0go7sV4DJSypEaYMIlIlIJHaze2uq3+Ltf
-         PZmOAFy1y6SdhSQ/CVGuwQ74aSn810UNT6jcYZETPL4PvYYUSj8GuneJVGEFdIILsyp6
-         yIzpC6RAyf8MIAOVsOfCUkmrGlApxEA5pi/UnXr1ZZZjkmvgk4neUth8dZ9BxSuR8ijr
-         PGAA==
+        bh=L7xBPeAI1ZGK/na4YhBc+S5M0v2o7F6+AZ1yRtBTaOg=;
+        b=Hkm/aZK19qspDVCizqXS02qtTnEkyHs4dMQRSt67XqspNC+65BrxJuv+FBFcpkwm22
+         AwMJAq1xFW2yeZJOkjo9f4l22pB0Bk4Z6lrJi/W+Jc3lioXzRXLr/y6/gWOhdvyXZa4z
+         bN6079pJxlEi+ckQcgr034y682AT+J3bxJZ3hMc3zCeHMm7Iw6LWulewGebJtM8qbDwK
+         /Yw+bQ5D7OXy52O2kU7VG1KSn2sr8BTXSUu2TRUbLBF8jiccN/UbqD7Dv4yOzmSN7evP
+         3vyQy4tBfj/Z6RrTO0HgVnqKfkjx9peEuc/8hcsmwQIRN0oZKTDIwxk9XMjcSSwQFYxO
+         OXMw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360899; x=1742965699;
+        d=1e100.net; s=20230601; t=1742360894; x=1742965694;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=jGnh5R7F2nGjibuMN1IiOugHr5YAQ01+XconQh81ims=;
-        b=GqRvMgtqEeZfx+qKt6BHcND57cX5KapLQIG1plgBtwBuYOEdaEk6V3QD+3jxJv7OX6
-         nQ3w41Gzs+khBNJdXlbQPfJgNrxKakHTEhfydPsYghevcLTZubzu/P9qtbSmOpGOOxiV
-         A8DPxmNFahBni1ZckwOuAlr9iL0R9bJGoHURCLvQZ7eqL5aF2E5Zhut5ju5ODE1DM4Zg
-         tjMsBn97bySdk+1FQuL0vVxKmgFWKhwW+siV5kuyzZjp1XPg3zvuw5mKjvV/wNOVA8YT
-         MhWAmjbWsIdiKrrb1JEDD4aTlsC6bS9silfIbmEHnnt19Y6FUEuMb0BO3Ob4mhdPI+qq
-         DmFQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXCmTqOCzLSyLrp2K7/tkmNNB05FaCAI4iBddFipZdIlvB4+xWAsQt2KnoFFq+TIvYS2xjAgF/9X+ubYA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvgjkVItGT7Qqpr/qV+0mTTMgFJD9kKXf0DWk7l5BIPzjmNiB6
-	L5YmaGKx/RaV7YYq0k0yiSZrDgHYh/H4mcr2BUe5wFL3lN8qBH/2SvOYUV/U3lw+/oWNNBkENVq
-	IEAFajg==
-X-Google-Smtp-Source: AGHT+IHv1nfcfv3Ye5fOTqwhfAPWbuVvzkQzn8h4pmksBhQF9eFLTiSxCvjG8QByREOpkefDEY1DbG6A3hXY
+        bh=L7xBPeAI1ZGK/na4YhBc+S5M0v2o7F6+AZ1yRtBTaOg=;
+        b=VtSajTr4szFqY2u4M0LaYa3gFmq81HGGYVibNApQDoFrXn516xPg5A3RO0YIYdEJ7U
+         sU3T4GYomwohcwihQpTFMXZHGKod+e45ixzh4SlcRYVg950Vcjs4Ikdl1PbAWR1kfT97
+         2zTvYj2jBZpPyvSO5LWesQggB13xHw71g3rfx9Z3K3sw1Vrf6kAEqyQ4UHr+nRtqu6uP
+         4ymocrWbcXACCNpoN5wSlNJOceGPQUnZHG6AmUXdirrXkis3da0kRLzYLqgz+K5jM66D
+         ICNX0dQbpDP46cK6vHJlYdd1P70lj4WZZ7ceo5xcvUfKepo/mBCIuPAh3HA2lzlVl5gR
+         iO3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUBij2EMQroPgjJVCFdMmekUuq4UzDVJUanFupOx/KTHPnTiZ9ErrSqLYffGNrKpdpc2lXY9s9GcUx7uw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx87mEdSSexzqEWkCFwiG1rSzjWL/Sz3E5By2egSXe3GThvKmoZ
+	gJPJkwezwqDEH5wrXEPwV298itd81IrPA5ajmTfAqlbt+XhRkImx9WM+z4n79UwQCmtUCjo540C
+	5vLtDOA==
+X-Google-Smtp-Source: AGHT+IED/ZLlykbehWpsCbnxI7/VEXCzdceMElPMiVtqa8xKpgrgI1AFRxFexUYRexGCPPRyPnT6SSPwC/n+
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a25:dc03:0:b0:e63:699a:4e6b with SMTP id
- 3f1490d57ef6-e667b41463bmr514276.4.1742360898600; Tue, 18 Mar 2025 22:08:18
- -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:41 -0700
+ (user=irogers job=sendgmr) by 2002:a05:6902:1824:b0:e5b:33c4:7279 with SMTP
+ id 3f1490d57ef6-e667b432965mr506276.4.1742360893839; Tue, 18 Mar 2025
+ 22:08:13 -0700 (PDT)
+Date: Tue, 18 Mar 2025 22:07:39 -0700
 In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-15-irogers@google.com>
+Message-Id: <20250319050741.269828-13-irogers@google.com>
 Mime-Version: 1.0
 References: <20250319050741.269828-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 14/14] perf trace: Fix evlist memory leak
+Subject: [PATCH v7 12/14] perf trace: Make syscall table stable
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -85,8 +85,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
 	Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220819_940534_7211234A 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250318_220815_433108_12BA0842 
+X-CRM114-Status: GOOD (  20.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,41 +103,198 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Leak sanitizer was reporting a memory leak in the "perf record and
-replay" test. Add evlist__delete to trace__exit, also ensure
-trace__exit is called after trace__record.
+Namhyung fixed the syscall table being reallocated and moving by
+reloading the system call pointer after a move:
+https://lore.kernel.org/lkml/Z9YHCzINiu4uBQ8B@google.com/
+This could be brittle so this patch changes the syscall table to be an
+array of pointers of "struct syscall" that don't move. Remove
+unnecessary copies and searches with this change.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/builtin-trace.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ tools/perf/builtin-trace.c | 87 +++++++++++++++++++++++---------------
+ 1 file changed, 53 insertions(+), 34 deletions(-)
 
 diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index 1d4ad5d19b10..a102748bd0c9 100644
+index 1c080d95c1e2..a5f31472980b 100644
 --- a/tools/perf/builtin-trace.c
 +++ b/tools/perf/builtin-trace.c
-@@ -5339,6 +5339,8 @@ static void trace__exit(struct trace *trace)
+@@ -151,7 +151,7 @@ struct trace {
+ 	struct perf_tool	tool;
+ 	struct {
+ 		/** Sorted sycall numbers used by the trace. */
+-		struct syscall  *table;
++		struct syscall  **table;
+ 		/** Size of table. */
+ 		size_t		table_size;
+ 		struct {
+@@ -2473,24 +2473,41 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
+ 	return printed;
+ }
+ 
+-static void syscall__init(struct syscall *sc, int e_machine, int id)
++static struct syscall *syscall__new(int e_machine, int id)
+ {
+-	memset(sc, 0, sizeof(*sc));
++	struct syscall *sc = zalloc(sizeof(*sc));
++
++	if (!sc)
++		return NULL;
++
+ 	sc->e_machine = e_machine;
+ 	sc->id = id;
++	return sc;
+ }
+ 
+-static void syscall__exit(struct syscall *sc)
++static void syscall__delete(struct syscall *sc)
+ {
+ 	if (!sc)
+ 		return;
+ 
+-	zfree(&sc->arg_fmt);
++	free(sc->arg_fmt);
++	free(sc);
++}
++
++static int syscall__bsearch_cmp(const void *key, const void *entry)
++{
++	const struct syscall *a = key, *b = *((const struct syscall **)entry);
++
++	if (a->e_machine != b->e_machine)
++		return a->e_machine - b->e_machine;
++
++	return a->id - b->id;
+ }
+ 
+ static int syscall__cmp(const void *va, const void *vb)
+ {
+-	const struct syscall *a = va, *b = vb;
++	const struct syscall *a = *((const struct syscall **)va);
++	const struct syscall *b = *((const struct syscall **)vb);
+ 
+ 	if (a->e_machine != b->e_machine)
+ 		return a->e_machine - b->e_machine;
+@@ -2504,27 +2521,33 @@ static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, i
+ 		.e_machine = e_machine,
+ 		.id = id,
+ 	};
+-	struct syscall *sc, *tmp;
++	struct syscall *sc, **tmp;
+ 
+ 	if (trace->syscalls.table) {
+-		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
+-			     sizeof(struct syscall), syscall__cmp);
+-		if (sc)
+-			return sc;
++		struct syscall **sc_entry = bsearch(&key, trace->syscalls.table,
++						    trace->syscalls.table_size,
++						    sizeof(trace->syscalls.table[0]),
++						    syscall__bsearch_cmp);
++
++		if (sc_entry)
++			return *sc_entry;
+ 	}
+ 
++	sc = syscall__new(e_machine, id);
++	if (!sc)
++		return NULL;
++
+ 	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
+-			   sizeof(struct syscall));
+-	if (!tmp)
++			   sizeof(trace->syscalls.table[0]));
++	if (!tmp) {
++		syscall__delete(sc);
+ 		return NULL;
++	}
+ 
+ 	trace->syscalls.table = tmp;
+-	sc = &trace->syscalls.table[trace->syscalls.table_size++];
+-	syscall__init(sc, e_machine, id);
+-	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
++	trace->syscalls.table[trace->syscalls.table_size++] = sc;
++	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(trace->syscalls.table[0]),
+ 	      syscall__cmp);
+-	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
+-		     sizeof(struct syscall), syscall__cmp);
+ 	return sc;
+ }
+ 
+@@ -3855,14 +3878,14 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int e_machine, i
+ 	return -1;
+ }
+ 
+-static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *_sc)
++static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace,
++							     struct syscall *sc)
+ {
+-	struct syscall sc = *_sc; /* Copy as trace__syscall_info may invalidate pointer. */
+ 	struct tep_format_field *field, *candidate_field;
+ 	/*
+ 	 * We're only interested in syscalls that have a pointer:
+ 	 */
+-	for (field = sc.args; field; field = field->next) {
++	for (field = sc->args; field; field = field->next) {
+ 		if (field->flags & TEP_FIELD_IS_POINTER)
+ 			goto try_to_find_pair;
+ 	}
+@@ -3870,18 +3893,17 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
+ 	return NULL;
+ 
+ try_to_find_pair:
+-	for (int i = 0, num_idx = syscalltbl__num_idx(sc.e_machine); i < num_idx; ++i) {
+-		int id = syscalltbl__id_at_idx(sc.e_machine, i);
+-		/* calling trace__syscall_info() may invalidate '_sc' */
+-		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
++	for (int i = 0, num_idx = syscalltbl__num_idx(sc->e_machine); i < num_idx; ++i) {
++		int id = syscalltbl__id_at_idx(sc->e_machine, i);
++		struct syscall *pair = trace__syscall_info(trace, NULL, sc->e_machine, id);
+ 		struct bpf_program *pair_prog;
+ 		bool is_candidate = false;
+ 
+-		if (pair == NULL || pair->id == sc.id ||
++		if (pair == NULL || pair->id == sc->id ||
+ 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
+ 			continue;
+ 
+-		for (field = sc.args, candidate_field = pair->args;
++		for (field = sc->args, candidate_field = pair->args;
+ 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
+ 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
+ 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
+@@ -3948,7 +3970,8 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
+ 				goto next_candidate;
+ 		}
+ 
+-		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc.name);
++		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name,
++			 sc->name);
+ 		return pair_prog;
+ 	next_candidate:
+ 		continue;
+@@ -4044,11 +4067,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_m
+ 		pair_prog = trace__find_usable_bpf_prog_entry(trace, sc);
+ 		if (pair_prog == NULL)
+ 			continue;
+-		/*
+-		 * Get syscall info again as find usable entry above might
+-		 * modify the syscall table and shuffle it.
+-		 */
+-		sc = trace__syscall_info(trace, NULL, e_machine, key);
++
+ 		sc->bpf_prog.sys_enter = pair_prog;
+ 
+ 		/*
+@@ -5316,7 +5335,7 @@ static void trace__exit(struct trace *trace)
+ 	zfree(&trace->ev_qualifier_ids.entries);
+ 	if (trace->syscalls.table) {
+ 		for (size_t i = 0; i < trace->syscalls.table_size; i++)
+-			syscall__exit(&trace->syscalls.table[i]);
++			syscall__delete(trace->syscalls.table[i]);
  		zfree(&trace->syscalls.table);
  	}
  	zfree(&trace->perfconfig_events);
-+	evlist__delete(trace->evlist);
-+	trace->evlist = NULL;
- #ifdef HAVE_LIBBPF_SUPPORT
- 	btf__free(trace->btf);
- 	trace->btf = NULL;
-@@ -5719,8 +5721,10 @@ int cmd_trace(int argc, const char **argv)
- 		}
- 	}
- 
--	if ((argc >= 1) && (strcmp(argv[0], "record") == 0))
--		return trace__record(&trace, argc-1, &argv[1]);
-+	if ((argc >= 1) && (strcmp(argv[0], "record") == 0)) {
-+		err = trace__record(&trace, argc-1, &argv[1]);
-+		goto out;
-+	}
- 
- 	/* Using just --errno-summary will trigger --summary */
- 	if (trace.errno_summary && !trace.summary && !trace.summary_only)
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
