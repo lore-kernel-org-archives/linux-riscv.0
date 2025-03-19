@@ -4,129 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A257C35FFA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 09:22:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A983EC35FFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 09:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BB2r2G3m/vn0/Kds0JGIZaPq8ihRMmgKLKbCRGnxq9I=; b=U3Wt1LM0r74+aG
-	N9fnh8RPvO+hogAFlnMzM4M59wU6CZ3rAB2kbrctgoKqfiwcxLZyGVN9leQ/8NR1/U9/o6hqCAbV+
-	/ylqUneu1wCzdQg0vusvXiQyPTU+m9gLYPa7vYsRsrsHVHSdJil6qOczy/bScY0VwItAD+HKiPLPi
-	ZkgRPiiNMtraUee7RdCP1KOBCOjAvSXAcwugKUl+aABHKPqy0csl915Xw7es5hkOVvhTsAnajEGT/
-	6eK2nnA09yZPQK8ItrXleN1qjR18G8fOV0nLE7hybx3D0UE3uajjrmMnzG3Rv3MYmRCDZ72kWzJOV
-	5LsZGk+I6epDQ8TpnOdA==;
+	List-Owner; bh=AlnojjgKvnuaJhtd241uMIqVVgHHOesiFSF4dZDKCDY=; b=A1UBdrOf16eLUm
+	EZHpYnqKtHnzps5U/2I+r2gihgf7Y2iOFsj9BUDgMhOPi/r1axiGDlFd041eEcslSJCTdzE8PftU1
+	jdt/+F+vHfraG25h2Jjih0ouk+pCNHbAOHQZ48epj7+FlAaUaGlRHDgQmoPmhPAaxqj4BYCl/j6dK
+	dZdTTrvkJST75UsMZzG4S2qt7IEopVrTj0hYHly1INASvqwWZ+Sh3FPbVeAcM62KI9flF24dKipMC
+	33okmKFpbu/3gyHyJPf+k+bmxmUt3cTapNzwuwOPIcia0uZMrfYZWK/Mdu8UihcAtqs8qIfBnojva
+	4dU0rbuxarszgU5IPM5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupd1-00000008TMF-0XJO;
-	Wed, 19 Mar 2025 09:22:23 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1tupn6-00000008UqT-2ATa;
+	Wed, 19 Mar 2025 09:32:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tupcx-00000008TKq-155h
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 09:22:21 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250319092214euoutp0276c7ac8c72e11f534e6cbf3c493d2f81~uKdzZdu3T1601216012euoutp02J
-	for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 09:22:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250319092214euoutp0276c7ac8c72e11f534e6cbf3c493d2f81~uKdzZdu3T1601216012euoutp02J
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1742376134;
-	bh=xziCeePU8VJH3HPvHWkmHqvN/zw2drIJZnyVPgks6DM=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=IyIyCsOM4YrF0U4Ki51TGDxHSXSSvgjqYO4MD68nMNP8sAiMxl/41PSGx9Ok2eLpO
-	 gogrb4tEp4G/hE8SyR5nTS2+mXSwtiJBcXhZTdJbJ9vu4rvA2sN7Qkyf65Q5to2Ugf
-	 rWrHEIL1c2yRz7SAw7hD3yBg9fzb4JH7ieCSRT5w=
-Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250319092213eucas1p1afea36ec858edac801d86b9fe4df0d19~uKdyzAxs_2948529485eucas1p1v;
-	Wed, 19 Mar 2025 09:22:13 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges3new.samsung.com (EUCPMTA) with SMTP id 4E.60.20397.5CC8AD76; Wed, 19
-	Mar 2025 09:22:13 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250319092213eucas1p159ec41756a40a4139a0c222e65a7a05b~uKdyP6lOr2951729517eucas1p1L;
-	Wed, 19 Mar 2025 09:22:13 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250319092213eusmtrp1cbe8c083bbe4d0478d70d8413b02d2a5~uKdyPLt9D1884918849eusmtrp1F;
-	Wed, 19 Mar 2025 09:22:13 +0000 (GMT)
-X-AuditID: cbfec7f5-ed1d670000004fad-40-67da8cc592da
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 3B.DA.19654.4CC8AD76; Wed, 19
-	Mar 2025 09:22:12 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250319092212eusmtip13c59f2b45dc28429110a264bc2191f47~uKdxOUuC12074820748eusmtip1I;
-	Wed, 19 Mar 2025 09:22:11 +0000 (GMT)
-Message-ID: <e90a0c77-61a0-49db-86ba-bac253f8ec53@samsung.com>
-Date: Wed, 19 Mar 2025 10:22:11 +0100
+	id 1tuplO-00000008UNd-30H8;
+	Wed, 19 Mar 2025 09:31:02 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AACC5615EA;
+	Wed, 19 Mar 2025 09:31:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EDF41C4CEEA;
+	Wed, 19 Mar 2025 09:30:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742376661;
+	bh=nXAYpC2swsn1QDFpjOFNZQf9gXeszA6Q+yFh+Zwcw1k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=XoDubxg92DFVlrdEmnpI3FQNYON2UgXmQTy/TYSFx5gLOXZVwU6o5jhRFvz5YSOKf
+	 MrEzLk4cdWxNM/Y9hviJAOFeJDgZ7iVCd/nXSWrRA06p9MHcNORzIVV+i2dLJUu1df
+	 gOCw3n0UYghBk3/t5B5GhFEQxMbzVQxrsQtaWwPaxPmnM1jOds0pmBMDjQz+Hfjbcs
+	 9uzCIzEedNjCelPf1IDczHXismnwfJwPLIIT78G/lIYzK9PHY0r3EVk9EovMdRWV8H
+	 Jo4LEs/lhSiQWhnnJj2FYn2kgw26uEeRagozTQff9EC2QRJ8pVfX0FDSIJXZkb00Dk
+	 Sx6/TIdSy/pJg==
+From: "Jiri Slaby (SUSE)" <jirislaby@kernel.org>
+To: tglx@linutronix.de
+Cc: maz@kernel.org,
+	linux-kernel@vger.kernel.org,
+	"Jiri Slaby (SUSE)" <jirislaby@kernel.org>,
+	Antoine Tenart <atenart@kernel.org>,
+	Sven Peter <sven@svenpeter.dev>,
+	Janne Grunau <j@jannau.net>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Gregory Clement <gregory.clement@bootlin.com>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Imre Kaloz <kaloz@openwrt.org>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Nishanth Menon <nm@ti.com>,
+	Tero Kristo <kristo@kernel.org>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	asahi@lists.linux.dev,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linux-amlogic@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: [PATCH v2 06/57] irqdomain: irqchip: Switch to of_fwnode_handle()
+Date: Wed, 19 Mar 2025 10:28:59 +0100
+Message-ID: <20250319092951.37667-7-jirislaby@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250319092951.37667-1-jirislaby@kernel.org>
+References: <20250319092951.37667-1-jirislaby@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/4] clk: thead: Add GPU clock gate control with
- CLKGEN reset support
-To: Philipp Zabel <p.zabel@pengutronix.de>, Stephen Boyd <sboyd@kernel.org>,
-	alex@ghiti.fr, aou@eecs.berkeley.edu, conor+dt@kernel.org, drew@pdp7.com,
-	guoren@kernel.org, jszhang@kernel.org, krzk+dt@kernel.org,
-	m.szyprowski@samsung.com, mturquette@baylibre.com, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, robh@kernel.org, wefu@redhat.com
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <aacd03a071dce7b340d7170eae59d662d58f23b1.camel@pengutronix.de>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOKsWRmVeSWpSXmKPExsWy7djPc7pHe26lGyz8q2bx7M5XVoutv2ex
-	W6zZe47JYv6Rc6wW9y5tYbJ4sbeRxaL52Ho2i5ez7rFZfOy5x2pxedccNottn1vYLNYeuctu
-	cfGUq8XdeydYLF5e7mG2aJvFb/F/zw52i3/XNrJYtOyfwuIg7PH+Riu7x5uXL1k8Dnd8Yfe4
-	d2Iaq8emVZ1sHpuX1Hu0rD3G5NH/18Dj/b6rbB59W1Yxelxqvs7u8XmTXABPFJdNSmpOZllq
-	kb5dAlfGj9OHWQruG1dcufaIrYHxuGYXIyeHhICJxLope1m6GLk4hARWMEr073zABuF8YZTY
-	ceUWM4TzmVFixq8DTDAt515vYgSxhQSWM0rMO5sOUfSWUeLN1tPMIAleATuJQ5+OsHcxcnCw
-	CKhKvD1dCREWlDg58wkLiC0qIC9x/9YMdhBbWCBO4sa2k0wgc0QEbjNJ/OrdyAaSYBaokthx
-	/wY7hC0ucevJfLAj2ASMJB4sn88KYnMK+Eh8WfiXBaJGXqJ562ywqyUEnnFK7NzwhRHiaheJ
-	pysXs0DYwhKvjm9hh7BlJE5P7oGK50s82PqJGcKukdjZcxzKtpa4c+4XG8gzzAKaEut36UOE
-	HSUev97PCBKWEOCTuPFWEOIEPolJ26YzQ4R5JTrahCCq1SSm9vTCLT23YhvTBEalWUihMgvJ
-	k7OQPDMLYe8CRpZVjOKppcW56anFxnmp5XrFibnFpXnpesn5uZsYgWnz9L/jX3cwrnj1Ue8Q
-	IxMH4yFGCQ5mJRFe9yfX04V4UxIrq1KL8uOLSnNSiw8xSnOwKInzLtrfmi4kkJ5YkpqdmlqQ
-	WgSTZeLglGpgkvreY2Rr81iJjeFIsqD6ZNk2v9hFL2W/ZLbveNGTxZ/FLBP3OUzup+FSz4n6
-	oZGKJn1f/4Y3nD9TWhY+IZAjt+Nn+9T9jcqH76naObwU1noQJnNzj4G+5pF+u7KNIbMdDU+G
-	mCbdPZWwfp3eLrH5ncq36y1XlVjm1HsHsORzbbIOmxkrYKwR6DyTjeeRVeHrvfLnNzNKrY9f
-	0rck9unTCJvcwvmXxGU+29aWns25vUdIRf34r6mJE3ac/109ecXKdN0VfK3tiuePBEV6y+rF
-	LRE2y6zwv6BtYj/77iZdcTejlphFlbvNjsWlrxFfLR2/m081aaW61Xf283vOPO/OabFRlW6P
-	27HsZJrXEiWW4oxEQy3mouJEANRis3AKBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupileLIzCtJLcpLzFFi42I5/e/4Xd0jPbfSDWY3WVk8u/OV1WLr71ns
-	Fmv2nmOymH/kHKvFvUtbmCxe7G1ksWg+tp7N4uWse2wWH3vusVpc3jWHzWLb5xY2i7VH7rJb
-	XDzlanH33gkWi5eXe5gt2mbxW/zfs4Pd4t+1jSwWLfunsDgIe7y/0cru8eblSxaPwx1f2D3u
-	nZjG6rFpVSebx+Yl9R4ta48xefT/NfB4v+8qm0ffllWMHpear7N7fN4kF8ATpWdTlF9akqqQ
-	kV9cYqsUbWhhpGdoaaFnZGKpZ2hsHmtlZKqkb2eTkpqTWZZapG+XoJfx4/RhloL7xhVXrj1i
-	a2A8rtnFyMkhIWAice71JsYuRi4OIYGljBKfzzWwQCRkJK51v4SyhSX+XOtigyh6zSjxeF4P
-	WIJXwE7i0Kcj7F2MHBwsAqoSb09XQoQFJU7OfAJWIiogL3H/1gx2EFtYIE7i/K5VrCBzRARu
-	M0lse74ArIhZoEri/N4rrBALvjBJzP+2gxkiIS5x68l8JhCbTcBI4sHy+awgNqeAj8SXhX9Z
-	QBYzC6hLrJ8nBFEuL9G8dTbzBEahWUjumIVk0iyEjllIOhYwsqxiFEktLc5Nzy020itOzC0u
-	zUvXS87P3cQITBTbjv3csoNx5auPeocYmTgYDzFKcDArifC6P7meLsSbklhZlVqUH19UmpNa
-	fIjRFBgUE5mlRJPzgakqryTe0MzA1NDEzNLA1NLMWEmcl+3K+TQhgfTEktTs1NSC1CKYPiYO
-	TqkGpvV/ZEOrz+9TTKiUSPesXC0VMMnsyNf6lUuDfB6crWeLLNs3z03o2S3eLQ0m7y05/Die
-	LCuU3umSd3KBatY36RSn64eMV52IttvjO5FPL1vmyZ17k61Y59059nbKSaXesMgfDxK+7MkU
-	qf5aJfsu32L71QPruGqW/2U48+uKldrqhvNHlCSazS++vcO76lz7Xa7uqK2BDB1sO55u0A5u
-	lpytcqslpzhWx/j70hlu/+9HbnHLNEzlj3efVRZRUG7EwzR57aray5EZMdlm5gmXEnYopTGt
-	is9fc80mcnuR7XL+l596/1ivljjrc51r1sGC0HhlsQtnP9p7mdW95DhY6HOjZIPPambxgwoi
-	ifpySizFGYmGWsxFxYkA2lC6eJ0DAAA=
-X-CMS-MailID: 20250319092213eucas1p159ec41756a40a4139a0c222e65a7a05b
-X-Msg-Generator: CA
-X-RootMTR: 20250303143637eucas1p1a3abdea520ab88688de1263a5f07bba0
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250303143637eucas1p1a3abdea520ab88688de1263a5f07bba0
-References: <20250303143629.400583-1-m.wilczynski@samsung.com>
-	<CGME20250303143637eucas1p1a3abdea520ab88688de1263a5f07bba0@eucas1p1.samsung.com>
-	<20250303143629.400583-5-m.wilczynski@samsung.com>
-	<de50dd55e1285726e8d5ebae73877486.sboyd@kernel.org>
-	<4c035603-4c11-4e71-8ef3-b857a81bf5ef@samsung.com>
-	<aacd03a071dce7b340d7170eae59d662d58f23b1.camel@pengutronix.de>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_022220_010758_06E98508 
-X-CRM114-Status: GOOD (  39.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,125 +100,465 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAzLzEzLzI1IDEwOjI1LCBQaGlsaXBwIFphYmVsIHdyb3RlOgo+IE9uIERvLCAyMDI1LTAz
-LTA2IGF0IDE3OjQzICswMTAwLCBNaWNoYWwgV2lsY3p5bnNraSB3cm90ZToKPj4KPj4gT24gMy82
-LzI1IDAwOjQ3LCBTdGVwaGVuIEJveWQgd3JvdGU6Cj4+PiBRdW90aW5nIE1pY2hhbCBXaWxjenlu
-c2tpICgyMDI1LTAzLTAzIDA2OjM2OjI5KQo+Pj4+IFRoZSBULUhFQUQgVEgxNTIwIGhhcyB0aHJl
-ZSBHUFUgY2xvY2tzOiBjb3JlLCBjZmcsIGFuZCBtZW0uIFRoZSBtZW0KPj4+PiBjbG9jayBnYXRl
-IGlzIG1hcmtlZCBhcyAiUmVzZXJ2ZWQiIGluIGhhcmR3YXJlLCB3aGlsZSBjb3JlIGFuZCBjZmcg
-YXJlCj4+Pj4gY29uZmlndXJhYmxlLiBJbiBvcmRlciBmb3IgdGhlc2UgY2xvY2sgZ2F0ZXMgdG8g
-d29yayBwcm9wZXJseSwgdGhlCj4+Pj4gQ0xLR0VOIHJlc2V0IG11c3QgYmUgbWFuYWdlZCBpbiBh
-IHNwZWNpZmljIHNlcXVlbmNlLgo+Pj4+Cj4+Pj4gTW92ZSB0aGUgQ0xLR0VOIHJlc2V0IGhhbmRs
-aW5nIHRvIHRoZSBjbG9jayBkcml2ZXIgc2luY2UgaXQncwo+Pj4+IGZ1bmRhbWVudGFsbHkgYSBj
-bG9jay1yZWxhdGVkIHdvcmthcm91bmQgWzFdLiBUaGlzIGVuc3VyZXMgdGhhdCBjbGtfZW5hYmxl
-ZAo+Pj4+IEdQVSBjbG9ja3Mgc3RheSBwaHlzaWNhbGx5IGVuYWJsZWQgd2l0aG91dCBleHRlcm5h
-bCBpbnRlcmZlcmVuY2UgZnJvbQo+Pj4+IHRoZSByZXNldCBkcml2ZXIuICBUaGUgcmVzZXQgaXMg
-bm93IGRlYXNzZXJ0ZWQgb25seSB3aGVuIGJvdGggY29yZSBhbmQKPj4+PiBjZmcgY2xvY2tzIGFy
-ZSBlbmFibGVkLCBhbmQgYXNzZXJ0ZWQgd2hlbiBlaXRoZXIgb2YgdGhlbSBpcyBkaXNhYmxlZC4K
-Pj4+Pgo+Pj4+IFRoZSBtZW0gY2xvY2sgaXMgY29uZmlndXJlZCB0byB1c2Ugbm9wIG9wZXJhdGlv
-bnMgc2luY2UgaXQgY2Fubm90IGJlCj4+Pj4gY29udHJvbGxlZC4KPj4+Pgo+Pj4+IExpbms6IGh0
-dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC85NDVmYjdlOTEzYTljM2RjYjQwNjk3MzI4YjdlOTg0
-MmI3NWZlYTVjLmNhbWVsQHBlbmd1dHJvbml4LmRlIFsxXQo+Pj4+Cj4+Pj4gU2lnbmVkLW9mZi1i
-eTogTWljaGFsIFdpbGN6eW5za2kgPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KPj4+IFsuLi5d
-Cj4+Pj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1MjAtYXAuYyBiL2Ry
-aXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1MjAtYXAuYwo+Pj4+IGluZGV4IGVhOTZkMDA3YWVjZC4u
-MWRmY2RlODY3MjMzIDEwMDY0NAo+Pj4+IC0tLSBhL2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1
-MjAtYXAuYwo+Pj4+ICsrKyBiL2RyaXZlcnMvY2xrL3RoZWFkL2Nsay10aDE1MjAtYXAuYwo+Pj4+
-IEBAIC04NjIsMTcgKzg2Myw3MCBAQCBzdGF0aWMgQ0NVX0dBVEUoQ0xLX1NSQU0xLCBzcmFtMV9j
-bGssICJzcmFtMSIsIGF4aV9hY2xrX3BkLCAweDIwYywgQklUKDMpLCAwKTsKPj4+IFsuLi5dCj4+
-Pj4gIAo+Pj4+ICBzdGF0aWMgQ0NVX0dBVEVfQ0xLX09QUyhDTEtfR1BVX01FTSwgZ3B1X21lbV9j
-bGssICJncHUtbWVtLWNsayIsCj4+Pj4gICAgICAgICAgICAgICAgICAgICAgICAgdmlkZW9fcGxs
-X2Nsa19wZCwgMHgwLCBCSVQoMiksIDAsIGNsa19ub3Bfb3BzKTsKPj4+PiArc3RhdGljIENDVV9H
-QVRFX0NMS19PUFMoQ0xLX0dQVV9DT1JFLCBncHVfY29yZV9jbGssICJncHUtY29yZS1jbGsiLAo+
-Pj4+ICsgICAgICAgICAgICAgICAgICAgICAgIHZpZGVvX3BsbF9jbGtfcGQsIDB4MCwgQklUKDMp
-LCAwLCBjY3VfZ2F0ZV9ncHVfb3BzKTsKPj4+PiArc3RhdGljIENDVV9HQVRFX0NMS19PUFMoQ0xL
-X0dQVV9DRkdfQUNMSywgZ3B1X2NmZ19hY2xrLCAiZ3B1LWNmZy1hY2xrIiwKPj4+PiArICAgICAg
-ICAgICAgICAgICAgICAgICB2aWRlb19wbGxfY2xrX3BkLCAweDAsIEJJVCg0KSwgMCwgY2N1X2dh
-dGVfZ3B1X29wcyk7Cj4+Pj4gKwo+Pj4+ICtzdGF0aWMgdm9pZCBjY3VfZ3B1X2Nsa19kaXNhYmxl
-KHN0cnVjdCBjbGtfaHcgKmh3KQo+Pj4+ICt7Cj4+Pj4gKyAgICAgICBzdHJ1Y3QgY2N1X2dhdGUg
-KmNnID0gaHdfdG9fY2N1X2dhdGUoaHcpOwo+Pj4+ICsgICAgICAgdW5zaWduZWQgbG9uZyBmbGFn
-czsKPj4+PiArCj4+Pj4gKyAgICAgICBzcGluX2xvY2tfaXJxc2F2ZSgmZ3B1X3Jlc2V0X2xvY2ss
-IGZsYWdzKTsKPj4+PiArCj4+Pj4gKyAgICAgICBjY3VfZGlzYWJsZV9oZWxwZXIoJmNnLT5jb21t
-b24sIGNnLT5lbmFibGUpOwo+Pj4+ICsKPj4+PiArICAgICAgIGlmICgoY2cgPT0gJmdwdV9jb3Jl
-X2NsayAmJgo+Pj4+ICsgICAgICAgICAgICAhY2xrX2h3X2lzX2VuYWJsZWQoJmdwdV9jZmdfYWNs
-ay5jb21tb24uaHcpKSB8fAo+Pj4+ICsgICAgICAgICAgIChjZyA9PSAmZ3B1X2NmZ19hY2xrICYm
-Cj4+Pj4gKyAgICAgICAgICAgICFjbGtfaHdfaXNfZW5hYmxlZCgmZ3B1X2NvcmVfY2xrLmNvbW1v
-bi5odykpKQo+Pj4+ICsgICAgICAgICAgICAgICByZXNldF9jb250cm9sX2Fzc2VydChncHVfcmVz
-ZXQpOwo+Pj4KPj4+IFdoeSBjYW4ndCB0aGUgY2xrIGNvbnN1bWVyIGNvbnRyb2wgdGhlIHJlc2V0
-IGl0c2VsZj8gRG9pbmcgdGhpcyBoZXJlIGlzCj4+PiBub3QgaWRlYWwgYmVjYXVzZSB3ZSBob2xk
-IHRoZSBjbGsgbG9jayB3aGVuIHdlIHRyeSB0byBncmFiIHRoZSByZXNldAo+Pj4gbG9jay4gVGhl
-c2UgYXJlIGFsbCBzcGlubG9ja3MgdGhhdCBzaG91bGQgYmUgc21hbGwgaW4gbGluZXMgb2YgY29k
-ZQo+Pj4gd2hlcmUgdGhlIGxvY2sgaXMgaGVsZCwgYnV0IHdlJ3JlIGNhbGxpbmcgaW50byBhbiBl
-bnRpcmUgb3RoZXIgZnJhbWV3b3JrCj4+PiB1bmRlciBhIHNwaW5sb2NrLiBJZiBhbiAodW5yZWxh
-dGVkKSByZXNldCBkcml2ZXIgdHJpZXMgdG8gZ3JhYiB0aGUgY2xrCj4+PiBsb2NrIGl0IHdpbGwg
-ZGVhZGxvY2suCj4+Cj4+IFNvIGluIG91ciBjYXNlIHRoZSBjbGsgY29uc3VtZXIgaXMgdGhlIGRy
-bS9pbWFnaW5hdGlvbiBkcml2ZXIuIEhlcmUgaXMKPj4gdGhlIGNvbW1lbnQgZnJvbSB0aGUgbWFp
-bnRhaW5lciBmb3IgbXkgcHJldmlvdXMgYXR0ZW1wdCB0byB1c2UgYSByZXNldAo+PiBkcml2ZXIg
-dG8gYWJzdHJhY3QgdGhlIEdQVSBpbml0IHNlcXVlbmNlIFsxXToKPj4KPj4gIkRvIHlvdSBrbm93
-IHdoYXQgdGhpcyByZXNldHM/IEZyb20gb3VyIHNpZGUsIHRoZSBHUFUgb25seSBoYXMgYSBzaW5n
-bGUKPj4gcmVzZXQgbGluZSAod2hpY2ggSSBhc3N1bWUgdG8gYmUgR1BVX1JFU0VUKS4iCj4+Cj4+
-ICJJIGRvbid0IGxvdmUgdGhhdCB0aGlzIHByb2NlZHVyZSBhcHBlYXJzIGluIHRoZSBwbGF0Zm9y
-bSByZXNldCBkcml2ZXIuCj4+IEkgYXBwcmVjaWF0ZSBpdCBtYXkgbm90IGJlIGNsZWFyIGZyb20g
-dGhlIFNvQyBUUk0sIGJ1dCB0aGlzIGlzIHRoZQo+PiBzdGFuZGFyZCByZXNldCBwcm9jZWR1cmUg
-Zm9yIGFsbCBJTUcgUm9ndWUgR1BVcy4gVGhlIGN1cnJlbnRseQo+PiBzdXBwb3J0ZWQgVEkgU29D
-IGhhbmRsZXMgdGhpcyBpbiBzaWxpY29uLCB3aGVuIHBvd2VyIHVwL2Rvd24gcmVxdWVzdHMKPj4g
-YXJlIHNlbnQgc28gd2UgbmV2ZXIgbmVlZGVkIHRvIGVuY29kZSBpdCBpbiB0aGUgZHJpdmVyIGJl
-Zm9yZS4KPj4KPj4gU3RyaWN0bHkgc3BlYWtpbmcsIHRoZSAzMiBjeWNsZSBkZWxheSBpcyByZXF1
-aXJlZCBiZXR3ZWVuIHBvd2VyIGFuZAo+PiBjbG9ja3MgYmVpbmcgZW5hYmxlZCBhbmQgdGhlIHJl
-c2V0IGxpbmUgYmVpbmcgZGVhc3NlcnRlZC4gSWYgbm90aGluZwo+PiBoZXJlIHRvdWNoZXMgcG93
-ZXIgb3IgY2xvY2tzICh3aGljaCBJIGRvbid0IHRoaW5rIGl0IHNob3VsZCksIHRoZSBkZWxheQo+
-PiBjb3VsZCBwb3RlbnRpYWxseSBiZSBsaWZ0ZWQgdG8gdGhlIEdQVSBkcml2ZXIuIiAKPj4KPj4g
-RnJvbSB0aGUgZHJtL2ltYWdpbmF0aW9uIG1haW50YWluZXJzIHBvaW50IG9mIHZpZXcgdGhlaXIg
-aGFyZHdhcmUgaGFzCj4+IG9ubHkgb25lIHJlc2V0LCB0aGUgZXh0cmEgQ0xLR0VOIHJlc2V0IGlz
-IFNvQyBzcGVjaWZpYy4KPiAKPiBJZiBJIGFtIHVuZGVyc3RhbmRpbmcgY29ycmVjdGx5LCB0aGUg
-Q0xLR0VOIHJlc2V0IGRvZXNuJ3QgcmVzZXQKPiBhbnl0aGluZyBpbiB0aGUgR1BVIGl0c2VsZiwg
-YnV0IGhvbGRzIHRoZSBHUFUgY2xvY2sgZ2VuZXJhdG9yIGJsb2NrIGluCj4gcmVzZXQsIGVmZmVj
-dGl2ZWx5IGRpc2FibGluZyB0aGUgdGhyZWUgR1BVIGNsb2NrcyBhcyBhIHdvcmthcm91bmQgZm9y
-Cj4gdGhlIGFsd2F5cy11bmdhdGVkIEdQVV9NRU0gY2xvY2suCj4gCj4+IEFsc28gdGhlIHJlc2V0
-IGRyaXZlciBtYWludGFpbmVyIGRpZG4ndCBsaWtlIG15IHdheSBvZiBhYnN0cmFjdGluZyB0d28K
-Pj4gcmVzZXRzICgiR1BVIiBhbmQgYW5kIFNvQyBzcGVjaWZpYyJDTEtHRU4iKSBpbnRvIG9uZSBy
-ZXNldAo+IAo+IFRoYXQgaXMgb25lIHBhcnQgb2YgaXQuIFRoZSBvdGhlciBpcyB0aGF0IChhY2Nv
-cmRpbmcgdG8gbXkKPiB1bmRlcnN0YW5kaW5nIGFzIGxhaWQgb3V0IGFib3ZlKSwgdGhlIGNvbWJp
-bmVkIEdQVStDTEtHRU4gcmVzZXQgd291bGQKPiBlZmZlY3RpdmVseSBkaXNhYmxlIGFsbCB0aHJl
-ZSBHUFUgY2xvY2tzIGZvciBhIHdoaWxlLCBhZnRlciB0aGUgR1BVCj4gZHJpdmVyIGhhcyBhbHJl
-YWR5IHJlcXVlc3RlZCB0aGVtIHRvIGJlIGVuYWJsZWQuCgpUaGFuayB5b3UgZm9yIHlvdXIgY29t
-bWVudHMgUGhpbGlwcCwgaXQgc2VlbXMgbGlrZSB3ZSdyZSBvbiB0aGUgc2FtZQpwYWdlIGhlcmUu
-IEkgd2FzIHdvbmRlcmluZyB3aGV0aGVyIHRoZXJlIGlzIGFueXRoaW5nIEkgY2FuIGRvIHRvIG1v
-dmUgdGhlCnBhdGNoZXMgZm9yd2FyZC4KClN0ZXBoZW4sIGlmIHRoZSBjdXJyZW50IHBhdGNoIGlz
-IGEgbm8gZ28gZnJvbSB5b3VyIHBlcnNwZWN0aXZlIGNvdWxkIHlvdQpwbGVhc2UgYWR2aXNlIHdo
-ZXRoZXIgdGhlcmUgaXMgYSB3YXkgdG8gc29sdmUgdGhpcyBpbiBhIGNsb2NrIHRoYXQgd291bGQK
-YmUgYWNjZXB0YWJsZSB0byB5b3UuCgpUaGFua3MsCk1pY2hhxYIKCj4gCj4+IHRvIG1ha2UgaXQK
-Pj4gc2VlbSB0byB0aGUgY29uc3VtZXIgZHJpdmVyIGRybS9pbWFnaW5hdGlvbiBsaWtlIHRoZXJl
-IGlzIG9ubHkgb25lCj4+IHJlc2V0IGFuZCBzdWdnZXN0ZWQgYW5kIGF0dGVtcHQgdG8gY29kZSB0
-aGUgcmUtc2V0dGluZyBpbiB0aGUgY2xvY2sKPj4gZHJpdmVyIFsyXS4gRXZlbiB0aG91Z2ggaGUg
-c3VnZ2VzdGVkIGEgZGlmZmVyZW50IHdheSBvZiBhY2hpZXZpbmcgdGhhdDogCj4+Cj4+ICJJbiBt
-eSBtaW5kIGl0IHNob3VsZG4ndCBiZSBtdWNoOiB0aGUgR1BVIGNsb2NrcyBjb3VsZCBhbGwgc2hh
-cmUgdGhlCj4+IHNhbWUgcmVmY291bnRlZCBpbXBsZW1lbnRhdGlvbi4gVGhlIGZpcnN0IGNsb2Nr
-IHRvIGdldCBlbmFibGVkIHdvdWxkCj4+IHVuZ2F0ZSBib3RoIEdQVV9DT1JFIGFuZCBHUFVfQ0ZH
-X0FDTEsgZ2F0ZXMgYW5kIGRlYXNzZXJ0Cj4+IEdQVV9TV19DTEtHRU5fUlNULCBhbGwgaW4gb25l
-IHBsYWNlLiBUaGUgcmVtYWluaW5nIGVuYWJsZShzKSB3b3VsZCBiZQo+PiBuby1vcHMuIFdvdWxk
-IHRoYXQgd29yaz8iCj4+Cj4+IFRoZSBhYm92ZSB3b3VsZCBoYXZlIHNpbWlsYXIgZWZmZWN0LCBi
-dXQgSSBmZWx0IGxpa2UgZW5hYmxpbmcgYm90aAo+PiBjbG9ja3MgaW4gc2luZ2xlIC5lbmFibGUg
-Y2FsbGJhY2sgY291bGQgYmUgY29uZnVzaW5nIHNvIEkgZW5kZWQgdXAgd2l0aAo+PiB0aGUgY3Vy
-cmVudCBhcHByb2FjaC4gVGhpcyBjb3VsZCBiZSBlYXNpbHkgcmUtZG9uZSBpZiB5b3UgZmVlbCB0
-aGlzCj4+IHdvdWxkIGJlIGJldHRlci4KPj4KPj4gSSBhZ3JlZSB0aGF0IHVzaW5nIHNwaW5sb2Nr
-cyBoZXJlIGlzIGRhbmdlcm91cywgYnV0IGxvb2tpbmcgYXQgdGhlIGNvZGUKPj4gb2YgdGhlIHJl
-c2V0X2NvbnRyb2xfZGVhc3NlcnQgYW5kIHJlc2V0X2NvbnRyb2xfYXNzZXJ0LCBpdCBkb2Vzbid0
-IHNlZW0KPj4gbGlrZSBhbnkgc3BpbmxvY2tzIGFyZSBhY3F1aXJlZC9yZWxhc2VkIGluIHRoYXQg
-Y29kZSBmbG93LCB1bmxlc3MgdGhlCj4+IGRyaXZlciBvcHMgd291bGQgaW50cm9kdWNlIHRoYXQu
-IFNvIGluIHRoaXMgc3BlY2lmaWMgY2FzZSBkZWFkbG9jawo+PiBzaG91bGRuJ3QgaGFwcGVuID8K
-PiAKPiBUaGVyZSBhcmUgbm8gc3BpbmxvY2tzIGluIHRoZSByZXNldF9jb250cm9sXyhkZSlhc3Nl
-cnQgcGF0aHMgaW4gdGhlCj4gcmVzZXQgZnJhbWV3b3JrLCBidXQgaW4gZ2VuZXJhbCB0aGVyZSBj
-b3VsZCBiZSBpbiB0aGUgZHJpdmVyLiBUaGUgdGhlYWQKPiBkcml2ZXIgWzFdLCB1c2VzIHJlZ21h
-cF91cGRhdGVfYml0cygpIG9uIGEgcmVnbWFwIHdpdGggLmZhc3RfaW8gPSB0cnVlLAo+IHdoaWNo
-IHVzZXMgdGhlIGludGVybmFsIHN0cnVjdCByZWdtYXA6OnNwaW5sb2NrLgo+IAo+IFsxXSBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTAzMDMxNTI1MTEuNDk0NDA1LTMtbS53aWxjenlu
-c2tpQHNhbXN1bmcuY29tLwo+IAo+IAo+IHJlZ2FyZHMKPiBQaGlsaXBwCj4gCgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5n
-IGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFk
-ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+of_node_to_fwnode() is irqdomain's reimplementation of the "officially"
+defined of_fwnode_handle(). The former is in the process of being
+removed, so use the latter instead.
+
+Signed-off-by: Jiri Slaby (SUSE) <jirislaby@kernel.org>
+Cc: Antoine Tenart <atenart@kernel.org>
+Cc: Sven Peter <sven@svenpeter.dev>
+Cc: Janne Grunau <j@jannau.net>
+Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+Cc: Andrew Lunn <andrew@lunn.ch>
+Cc: Gregory Clement <gregory.clement@bootlin.com>
+Cc: Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Linus Walleij <linusw@kernel.org>
+Cc: Imre Kaloz <kaloz@openwrt.org>
+Cc: Herve Codina <herve.codina@bootlin.com>
+Cc: Huacai Chen <chenhuacai@kernel.org>
+Cc: WANG Xuerui <kernel@xen0n.name>
+Cc: Jiaxun Yang <jiaxun.yang@flygoat.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>
+Cc: Kevin Hilman <khilman@baylibre.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Anup Patel <anup@brainfault.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: Nishanth Menon <nm@ti.com>
+Cc: Tero Kristo <kristo@kernel.org>
+Cc: Santosh Shilimkar <ssantosh@kernel.org>
+Cc: Kunihiko Hayashi <hayashi.kunihiko@socionext.com>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: asahi@lists.linux.dev
+Cc: loongarch@lists.linux.dev
+Cc: linux-mips@vger.kernel.org
+Cc: linux-amlogic@lists.infradead.org
+Cc: linux-riscv@lists.infradead.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+---
+ drivers/irqchip/irq-alpine-msi.c            | 2 +-
+ drivers/irqchip/irq-apple-aic.c             | 4 ++--
+ drivers/irqchip/irq-armada-370-xp.c         | 4 ++--
+ drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c | 2 +-
+ drivers/irqchip/irq-gic-v3.c                | 4 ++--
+ drivers/irqchip/irq-ixp4xx.c                | 2 +-
+ drivers/irqchip/irq-lan966x-oic.c           | 2 +-
+ drivers/irqchip/irq-loongarch-cpu.c         | 2 +-
+ drivers/irqchip/irq-loongson-eiointc.c      | 2 +-
+ drivers/irqchip/irq-loongson-htvec.c        | 2 +-
+ drivers/irqchip/irq-loongson-liointc.c      | 2 +-
+ drivers/irqchip/irq-loongson-pch-msi.c      | 2 +-
+ drivers/irqchip/irq-loongson-pch-pic.c      | 2 +-
+ drivers/irqchip/irq-ls-scfg-msi.c           | 2 +-
+ drivers/irqchip/irq-meson-gpio.c            | 2 +-
+ drivers/irqchip/irq-mvebu-gicp.c            | 2 +-
+ drivers/irqchip/irq-mvebu-odmi.c            | 2 +-
+ drivers/irqchip/irq-mvebu-sei.c             | 6 +++---
+ drivers/irqchip/irq-qcom-mpm.c              | 2 +-
+ drivers/irqchip/irq-riscv-intc.c            | 2 +-
+ drivers/irqchip/irq-sni-exiu.c              | 2 +-
+ drivers/irqchip/irq-stm32mp-exti.c          | 2 +-
+ drivers/irqchip/irq-ti-sci-inta.c           | 4 ++--
+ drivers/irqchip/irq-ti-sci-intr.c           | 2 +-
+ drivers/irqchip/irq-uniphier-aidet.c        | 2 +-
+ 25 files changed, 31 insertions(+), 31 deletions(-)
+
+diff --git a/drivers/irqchip/irq-alpine-msi.c b/drivers/irqchip/irq-alpine-msi.c
+index a1430ab60a8a..0207d35135da 100644
+--- a/drivers/irqchip/irq-alpine-msi.c
++++ b/drivers/irqchip/irq-alpine-msi.c
+@@ -213,7 +213,7 @@ static int alpine_msix_init_domains(struct alpine_msix_data *priv,
+ 		return -ENOMEM;
+ 	}
+ 
+-	msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(node),
++	msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(node),
+ 					       &alpine_msix_domain_info,
+ 					       middle_domain);
+ 	if (!msi_domain) {
+diff --git a/drivers/irqchip/irq-apple-aic.c b/drivers/irqchip/irq-apple-aic.c
+index 974dc088c853..032d66dceb8e 100644
+--- a/drivers/irqchip/irq-apple-aic.c
++++ b/drivers/irqchip/irq-apple-aic.c
+@@ -1014,7 +1014,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
+ 
+ 	irqc->info.die_stride = off - start_off;
+ 
+-	irqc->hw_domain = irq_domain_create_tree(of_node_to_fwnode(node),
++	irqc->hw_domain = irq_domain_create_tree(of_fwnode_handle(node),
+ 						 &aic_irq_domain_ops, irqc);
+ 	if (WARN_ON(!irqc->hw_domain))
+ 		goto err_unmap;
+@@ -1067,7 +1067,7 @@ static int __init aic_of_ic_init(struct device_node *node, struct device_node *p
+ 
+ 	if (is_kernel_in_hyp_mode()) {
+ 		struct irq_fwspec mi = {
+-			.fwnode		= of_node_to_fwnode(node),
++			.fwnode		= of_fwnode_handle(node),
+ 			.param_count	= 3,
+ 			.param		= {
+ 				[0]	= AIC_FIQ, /* This is a lie */
+diff --git a/drivers/irqchip/irq-armada-370-xp.c b/drivers/irqchip/irq-armada-370-xp.c
+index 2aa6a51e05d0..de98d16c1718 100644
+--- a/drivers/irqchip/irq-armada-370-xp.c
++++ b/drivers/irqchip/irq-armada-370-xp.c
+@@ -353,7 +353,7 @@ static int __init mpic_msi_init(struct mpic *mpic, struct device_node *node,
+ 	if (!mpic->msi_inner_domain)
+ 		return -ENOMEM;
+ 
+-	mpic->msi_domain = pci_msi_create_irq_domain(of_node_to_fwnode(node), &mpic_msi_domain_info,
++	mpic->msi_domain = pci_msi_create_irq_domain(of_fwnode_handle(node), &mpic_msi_domain_info,
+ 						     mpic->msi_inner_domain);
+ 	if (!mpic->msi_domain) {
+ 		irq_domain_remove(mpic->msi_inner_domain);
+@@ -492,7 +492,7 @@ static int __init mpic_ipi_init(struct mpic *mpic, struct device_node *node)
+ {
+ 	int base_ipi;
+ 
+-	mpic->ipi_domain = irq_domain_create_linear(of_node_to_fwnode(node), IPI_DOORBELL_NR,
++	mpic->ipi_domain = irq_domain_create_linear(of_fwnode_handle(node), IPI_DOORBELL_NR,
+ 						    &mpic_ipi_domain_ops, mpic);
+ 	if (WARN_ON(!mpic->ipi_domain))
+ 		return -ENOMEM;
+diff --git a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+index 8e87fc35f8aa..11549d85f23b 100644
+--- a/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
++++ b/drivers/irqchip/irq-gic-v3-its-fsl-mc-msi.c
+@@ -152,7 +152,7 @@ static void __init its_fsl_mc_of_msi_init(void)
+ 		if (!of_property_read_bool(np, "msi-controller"))
+ 			continue;
+ 
+-		its_fsl_mc_msi_init_one(of_node_to_fwnode(np),
++		its_fsl_mc_msi_init_one(of_fwnode_handle(np),
+ 					np->full_name);
+ 	}
+ }
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index 270d7a4d85a6..efc791c43d44 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -1826,7 +1826,7 @@ static int partition_domain_translate(struct irq_domain *d,
+ 
+ 	ppi_idx = __gic_get_ppi_index(ppi_intid);
+ 	ret = partition_translate_id(gic_data.ppi_descs[ppi_idx],
+-				     of_node_to_fwnode(np));
++				     of_fwnode_handle(np));
+ 	if (ret < 0)
+ 		return ret;
+ 
+@@ -2192,7 +2192,7 @@ static void __init gic_populate_ppi_partitions(struct device_node *gic_node)
+ 
+ 		part = &parts[part_idx];
+ 
+-		part->partition_id = of_node_to_fwnode(child_part);
++		part->partition_id = of_fwnode_handle(child_part);
+ 
+ 		pr_info("GIC: PPI partition %pOFn[%d] { ",
+ 			child_part, part_idx);
+diff --git a/drivers/irqchip/irq-ixp4xx.c b/drivers/irqchip/irq-ixp4xx.c
+index f23b02f62a5c..a9a5a52b818a 100644
+--- a/drivers/irqchip/irq-ixp4xx.c
++++ b/drivers/irqchip/irq-ixp4xx.c
+@@ -261,7 +261,7 @@ static int __init ixp4xx_of_init_irq(struct device_node *np,
+ 		pr_crit("IXP4XX: could not ioremap interrupt controller\n");
+ 		return -ENODEV;
+ 	}
+-	fwnode = of_node_to_fwnode(np);
++	fwnode = of_fwnode_handle(np);
+ 
+ 	/* These chip variants have 64 interrupts */
+ 	is_356 = of_device_is_compatible(np, "intel,ixp43x-interrupt") ||
+diff --git a/drivers/irqchip/irq-lan966x-oic.c b/drivers/irqchip/irq-lan966x-oic.c
+index 41ac880e3b87..9445c3a6b1b0 100644
+--- a/drivers/irqchip/irq-lan966x-oic.c
++++ b/drivers/irqchip/irq-lan966x-oic.c
+@@ -224,7 +224,7 @@ static int lan966x_oic_probe(struct platform_device *pdev)
+ 		.exit		= lan966x_oic_chip_exit,
+ 	};
+ 	struct irq_domain_info d_info = {
+-		.fwnode		= of_node_to_fwnode(pdev->dev.of_node),
++		.fwnode		= of_fwnode_handle(pdev->dev.of_node),
+ 		.domain_flags	= IRQ_DOMAIN_FLAG_DESTROY_GC,
+ 		.size		= LAN966X_OIC_NR_IRQ,
+ 		.hwirq_max	= LAN966X_OIC_NR_IRQ,
+diff --git a/drivers/irqchip/irq-loongarch-cpu.c b/drivers/irqchip/irq-loongarch-cpu.c
+index e62dab4c97fc..950bc087e388 100644
+--- a/drivers/irqchip/irq-loongarch-cpu.c
++++ b/drivers/irqchip/irq-loongarch-cpu.c
+@@ -100,7 +100,7 @@ static const struct irq_domain_ops loongarch_cpu_intc_irq_domain_ops = {
+ static int __init cpuintc_of_init(struct device_node *of_node,
+ 				struct device_node *parent)
+ {
+-	cpuintc_handle = of_node_to_fwnode(of_node);
++	cpuintc_handle = of_fwnode_handle(of_node);
+ 
+ 	irq_domain = irq_domain_create_linear(cpuintc_handle, EXCCODE_INT_NUM,
+ 				&loongarch_cpu_intc_irq_domain_ops, NULL);
+diff --git a/drivers/irqchip/irq-loongson-eiointc.c b/drivers/irqchip/irq-loongson-eiointc.c
+index bb79e19dfb59..b2860eb2d32c 100644
+--- a/drivers/irqchip/irq-loongson-eiointc.c
++++ b/drivers/irqchip/irq-loongson-eiointc.c
+@@ -554,7 +554,7 @@ static int __init eiointc_of_init(struct device_node *of_node,
+ 		priv->vec_count = VEC_COUNT;
+ 
+ 	priv->node = 0;
+-	priv->domain_handle = of_node_to_fwnode(of_node);
++	priv->domain_handle = of_fwnode_handle(of_node);
+ 
+ 	ret = eiointc_init(priv, parent_irq, 0);
+ 	if (ret < 0)
+diff --git a/drivers/irqchip/irq-loongson-htvec.c b/drivers/irqchip/irq-loongson-htvec.c
+index 5da02c7ad0b3..d8558eb35044 100644
+--- a/drivers/irqchip/irq-loongson-htvec.c
++++ b/drivers/irqchip/irq-loongson-htvec.c
+@@ -248,7 +248,7 @@ static int htvec_of_init(struct device_node *node,
+ 	}
+ 
+ 	err = htvec_init(res.start, resource_size(&res),
+-			num_parents, parent_irq, of_node_to_fwnode(node));
++			num_parents, parent_irq, of_fwnode_handle(node));
+ 	if (err < 0)
+ 		return err;
+ 
+diff --git a/drivers/irqchip/irq-loongson-liointc.c b/drivers/irqchip/irq-loongson-liointc.c
+index 2b1bd4a96665..95cade56e0be 100644
+--- a/drivers/irqchip/irq-loongson-liointc.c
++++ b/drivers/irqchip/irq-loongson-liointc.c
+@@ -363,7 +363,7 @@ static int __init liointc_of_init(struct device_node *node,
+ 	}
+ 
+ 	err = liointc_init(res.start, resource_size(&res),
+-			revision, of_node_to_fwnode(node), node);
++			revision, of_fwnode_handle(node), node);
+ 	if (err < 0)
+ 		return err;
+ 
+diff --git a/drivers/irqchip/irq-loongson-pch-msi.c b/drivers/irqchip/irq-loongson-pch-msi.c
+index 9c62108b3ad5..c07876ae7b49 100644
+--- a/drivers/irqchip/irq-loongson-pch-msi.c
++++ b/drivers/irqchip/irq-loongson-pch-msi.c
+@@ -243,7 +243,7 @@ static int pch_msi_of_init(struct device_node *node, struct device_node *parent)
+ 		return -EINVAL;
+ 	}
+ 
+-	err = pch_msi_init(res.start, irq_base, irq_count, parent_domain, of_node_to_fwnode(node));
++	err = pch_msi_init(res.start, irq_base, irq_count, parent_domain, of_fwnode_handle(node));
+ 	if (err < 0)
+ 		return err;
+ 
+diff --git a/drivers/irqchip/irq-loongson-pch-pic.c b/drivers/irqchip/irq-loongson-pch-pic.c
+index 69efda35a8e7..62e6bf3a0611 100644
+--- a/drivers/irqchip/irq-loongson-pch-pic.c
++++ b/drivers/irqchip/irq-loongson-pch-pic.c
+@@ -392,7 +392,7 @@ static int pch_pic_of_init(struct device_node *node,
+ 	}
+ 
+ 	err = pch_pic_init(res.start, resource_size(&res), vec_base,
+-				parent_domain, of_node_to_fwnode(node), 0);
++				parent_domain, of_fwnode_handle(node), 0);
+ 	if (err < 0)
+ 		return err;
+ 
+diff --git a/drivers/irqchip/irq-ls-scfg-msi.c b/drivers/irqchip/irq-ls-scfg-msi.c
+index 3cb80796cc7c..cbe11a8afe4f 100644
+--- a/drivers/irqchip/irq-ls-scfg-msi.c
++++ b/drivers/irqchip/irq-ls-scfg-msi.c
+@@ -225,7 +225,7 @@ static int ls_scfg_msi_domains_init(struct ls_scfg_msi *msi_data)
+ 	}
+ 
+ 	msi_data->msi_domain = pci_msi_create_irq_domain(
+-				of_node_to_fwnode(msi_data->pdev->dev.of_node),
++				of_fwnode_handle(msi_data->pdev->dev.of_node),
+ 				&ls_scfg_msi_domain_info,
+ 				msi_data->parent);
+ 	if (!msi_data->msi_domain) {
+diff --git a/drivers/irqchip/irq-meson-gpio.c b/drivers/irqchip/irq-meson-gpio.c
+index 0a25536a5d07..7d177626d64b 100644
+--- a/drivers/irqchip/irq-meson-gpio.c
++++ b/drivers/irqchip/irq-meson-gpio.c
+@@ -607,7 +607,7 @@ static int meson_gpio_irq_of_init(struct device_node *node, struct device_node *
+ 
+ 	domain = irq_domain_create_hierarchy(parent_domain, 0,
+ 					     ctl->params->nr_hwirq,
+-					     of_node_to_fwnode(node),
++					     of_fwnode_handle(node),
+ 					     &meson_gpio_irq_domain_ops,
+ 					     ctl);
+ 	if (!domain) {
+diff --git a/drivers/irqchip/irq-mvebu-gicp.c b/drivers/irqchip/irq-mvebu-gicp.c
+index d67f93f6d750..521cc265c05e 100644
+--- a/drivers/irqchip/irq-mvebu-gicp.c
++++ b/drivers/irqchip/irq-mvebu-gicp.c
+@@ -232,7 +232,7 @@ static int mvebu_gicp_probe(struct platform_device *pdev)
+ 
+ 	inner_domain = irq_domain_create_hierarchy(parent_domain, 0,
+ 						   gicp->spi_cnt,
+-						   of_node_to_fwnode(node),
++						   of_fwnode_handle(node),
+ 						   &gicp_domain_ops, gicp);
+ 	if (!inner_domain)
+ 		return -ENOMEM;
+diff --git a/drivers/irqchip/irq-mvebu-odmi.c b/drivers/irqchip/irq-mvebu-odmi.c
+index 28f7e81df94f..c1fcd4525e3b 100644
+--- a/drivers/irqchip/irq-mvebu-odmi.c
++++ b/drivers/irqchip/irq-mvebu-odmi.c
+@@ -207,7 +207,7 @@ static int __init mvebu_odmi_init(struct device_node *node,
+ 
+ 	inner_domain = irq_domain_create_hierarchy(parent_domain, 0,
+ 						   odmis_count * NODMIS_PER_FRAME,
+-						   of_node_to_fwnode(node),
++						   of_fwnode_handle(node),
+ 						   &odmi_domain_ops, NULL);
+ 	if (!inner_domain) {
+ 		ret = -ENOMEM;
+diff --git a/drivers/irqchip/irq-mvebu-sei.c b/drivers/irqchip/irq-mvebu-sei.c
+index ebd4a9014e8d..5030fcecdcc3 100644
+--- a/drivers/irqchip/irq-mvebu-sei.c
++++ b/drivers/irqchip/irq-mvebu-sei.c
+@@ -402,7 +402,7 @@ static int mvebu_sei_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	/* Create the root SEI domain */
+-	sei->sei_domain = irq_domain_create_linear(of_node_to_fwnode(node),
++	sei->sei_domain = irq_domain_create_linear(of_fwnode_handle(node),
+ 						   (sei->caps->ap_range.size +
+ 						    sei->caps->cp_range.size),
+ 						   &mvebu_sei_domain_ops,
+@@ -418,7 +418,7 @@ static int mvebu_sei_probe(struct platform_device *pdev)
+ 	/* Create the 'wired' domain */
+ 	sei->ap_domain = irq_domain_create_hierarchy(sei->sei_domain, 0,
+ 						     sei->caps->ap_range.size,
+-						     of_node_to_fwnode(node),
++						     of_fwnode_handle(node),
+ 						     &mvebu_sei_ap_domain_ops,
+ 						     sei);
+ 	if (!sei->ap_domain) {
+@@ -432,7 +432,7 @@ static int mvebu_sei_probe(struct platform_device *pdev)
+ 	/* Create the 'MSI' domain */
+ 	sei->cp_domain = irq_domain_create_hierarchy(sei->sei_domain, 0,
+ 						     sei->caps->cp_range.size,
+-						     of_node_to_fwnode(node),
++						     of_fwnode_handle(node),
+ 						     &mvebu_sei_cp_domain_ops,
+ 						     sei);
+ 	if (!sei->cp_domain) {
+diff --git a/drivers/irqchip/irq-qcom-mpm.c b/drivers/irqchip/irq-qcom-mpm.c
+index 7942d8eb3d00..00c770e367d0 100644
+--- a/drivers/irqchip/irq-qcom-mpm.c
++++ b/drivers/irqchip/irq-qcom-mpm.c
+@@ -447,7 +447,7 @@ static int qcom_mpm_init(struct device_node *np, struct device_node *parent)
+ 
+ 	priv->domain = irq_domain_create_hierarchy(parent_domain,
+ 				IRQ_DOMAIN_FLAG_QCOM_MPM_WAKEUP, pin_cnt,
+-				of_node_to_fwnode(np), &qcom_mpm_ops, priv);
++				of_fwnode_handle(np), &qcom_mpm_ops, priv);
+ 	if (!priv->domain) {
+ 		dev_err(dev, "failed to create MPM domain\n");
+ 		ret = -ENOMEM;
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index f653c13de62b..e5805885394e 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -242,7 +242,7 @@ static int __init riscv_intc_init(struct device_node *node,
+ 		chip = &andes_intc_chip;
+ 	}
+ 
+-	return riscv_intc_init_common(of_node_to_fwnode(node), chip);
++	return riscv_intc_init_common(of_fwnode_handle(node), chip);
+ }
+ 
+ IRQCHIP_DECLARE(riscv, "riscv,cpu-intc", riscv_intc_init);
+diff --git a/drivers/irqchip/irq-sni-exiu.c b/drivers/irqchip/irq-sni-exiu.c
+index c7db617e1a2f..7d10bf6e5824 100644
+--- a/drivers/irqchip/irq-sni-exiu.c
++++ b/drivers/irqchip/irq-sni-exiu.c
+@@ -249,7 +249,7 @@ static int __init exiu_dt_init(struct device_node *node,
+ 		return -ENXIO;
+ 	}
+ 
+-	data = exiu_init(of_node_to_fwnode(node), &res);
++	data = exiu_init(of_fwnode_handle(node), &res);
+ 	if (IS_ERR(data))
+ 		return PTR_ERR(data);
+ 
+diff --git a/drivers/irqchip/irq-stm32mp-exti.c b/drivers/irqchip/irq-stm32mp-exti.c
+index cb83d6cc6113..649b84f12efc 100644
+--- a/drivers/irqchip/irq-stm32mp-exti.c
++++ b/drivers/irqchip/irq-stm32mp-exti.c
+@@ -531,7 +531,7 @@ static int stm32mp_exti_domain_alloc(struct irq_domain *dm,
+ 		if (ret)
+ 			return ret;
+ 		/* we only support one parent, so far */
+-		if (of_node_to_fwnode(out_irq.np) != dm->parent->fwnode)
++		if (of_fwnode_handle(out_irq.np) != dm->parent->fwnode)
+ 			return -EINVAL;
+ 
+ 		of_phandle_args_to_fwspec(out_irq.np, out_irq.args,
+diff --git a/drivers/irqchip/irq-ti-sci-inta.c b/drivers/irqchip/irq-ti-sci-inta.c
+index a887efba262c..38dfc1f9a56b 100644
+--- a/drivers/irqchip/irq-ti-sci-inta.c
++++ b/drivers/irqchip/irq-ti-sci-inta.c
+@@ -233,7 +233,7 @@ static struct ti_sci_inta_vint_desc *ti_sci_inta_alloc_parent_irq(struct irq_dom
+ 	INIT_LIST_HEAD(&vint_desc->list);
+ 
+ 	parent_node = of_irq_find_parent(dev_of_node(&inta->pdev->dev));
+-	parent_fwspec.fwnode = of_node_to_fwnode(parent_node);
++	parent_fwspec.fwnode = of_fwnode_handle(parent_node);
+ 
+ 	if (of_device_is_compatible(parent_node, "arm,gic-v3")) {
+ 		/* Parent is GIC */
+@@ -709,7 +709,7 @@ static int ti_sci_inta_irq_domain_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 	}
+ 
+-	msi_domain = ti_sci_inta_msi_create_irq_domain(of_node_to_fwnode(node),
++	msi_domain = ti_sci_inta_msi_create_irq_domain(of_fwnode_handle(node),
+ 						&ti_sci_inta_msi_domain_info,
+ 						domain);
+ 	if (!msi_domain) {
+diff --git a/drivers/irqchip/irq-ti-sci-intr.c b/drivers/irqchip/irq-ti-sci-intr.c
+index b49a73106c69..686a8f69fd9c 100644
+--- a/drivers/irqchip/irq-ti-sci-intr.c
++++ b/drivers/irqchip/irq-ti-sci-intr.c
+@@ -149,7 +149,7 @@ static int ti_sci_intr_alloc_parent_irq(struct irq_domain *domain,
+ 		goto err_irqs;
+ 
+ 	parent_node = of_irq_find_parent(dev_of_node(intr->dev));
+-	fwspec.fwnode = of_node_to_fwnode(parent_node);
++	fwspec.fwnode = of_fwnode_handle(parent_node);
+ 
+ 	if (of_device_is_compatible(parent_node, "arm,gic-v3")) {
+ 		/* Parent is GIC */
+diff --git a/drivers/irqchip/irq-uniphier-aidet.c b/drivers/irqchip/irq-uniphier-aidet.c
+index 601f9343d5b3..6005c2d28dd9 100644
+--- a/drivers/irqchip/irq-uniphier-aidet.c
++++ b/drivers/irqchip/irq-uniphier-aidet.c
+@@ -188,7 +188,7 @@ static int uniphier_aidet_probe(struct platform_device *pdev)
+ 	priv->domain = irq_domain_create_hierarchy(
+ 					parent_domain, 0,
+ 					UNIPHIER_AIDET_NR_IRQS,
+-					of_node_to_fwnode(dev->of_node),
++					of_fwnode_handle(dev->of_node),
+ 					&uniphier_aidet_domain_ops, priv);
+ 	if (!priv->domain)
+ 		return -ENOMEM;
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
