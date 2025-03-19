@@ -4,105 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22802C35FFA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 18:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4155C35FFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 18:49:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IRcEPWnJEs6I7IJu/bGixzc4ik2u1+S968cWMtYxoas=; b=s0t3ebY1ACDhb7
-	hZMcgIrorxiof5ldoFOIxKVfZOVzqoIFIwrFJ32lNU/k0JPwBUDHm8oUDu7Fdf6kT1cN0WomgT5jF
-	ZLrhZaUWrAuO4LeO4cw6cdtlMcSjAbfQWcbszHeIY0B7jNlIa8RRUROgHpLIyGwqG8FG6k7a+rdUI
-	Ml/O7T6h6gxcZZYab8Uzsckzfd+qsv6h6iy1pQ8YJawCp0W2ov8gi0nQG3ZcBgHvp1vlsh20kAK69
-	0kpAb+l4h1bovutIrwJtIOP/ngpa3uB8BgfP6iVvd85hYDE86+JjDwE3fANPKdXwxWi0TYLjuzyxS
-	+d6ejbgS00mIHL46k/6Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4+r62uXEbmvWbYFazh/zxHkvQbLE2sQord2u6TWIAlk=; b=he5YEVDdwBZVah
+	1iq5Pg2L9mAMlje/3rPj6s9UCE4EkxXk/X8wDkRflwzzs3C2aeTVb3SpFtwNRst/0sZDET2IMrBcD
+	Q6i47AduC2I+ml43YrOrJct28C+HdYwL8EP5teHk4SK/r1759qjuck6/5SNiD7BYT0c1rYrI2g3vd
+	rUe3Syjj+rOe76F6dRkQdQdj6oaIKSOMQKOvuI3SQGBPaQPbz3RD6ViVMTPiudnG4BeCK1ZX/RNtl
+	oonIFeI47FK7dZ4VKl2oqlh6wn+4aGq8sdWDssO2kNRoUst1UuVn1qRKR5lhdGZDVTBK4yN/d/QCN
+	eOk1hmhjk5UwPfkJFWPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyGL-00000009qgi-2PYl;
-	Wed, 19 Mar 2025 18:35:33 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tuyU0-00000009sLx-1g3b;
+	Wed, 19 Mar 2025 18:49:40 +0000
+Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyGI-00000009qfH-2GNe
-	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 18:35:32 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-223a7065ff8so62246315ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 11:35:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742409330; x=1743014130; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=QLB94k0pWwcNjDTf4HpckyyyYqaKP2kOAdvgI5dwRD0=;
-        b=HR2KIJPDTh8jOF+MgVGGcG5lARnCROPuOOGMjpI01kqs01LcHPz2fLWlPq1/+az1rI
-         YQvfTewtZdfZ7QoST18vW33THv6c6UIYLrJbKZREFwrf0jQWs8ibMP1PtXsb7OE0ilH9
-         a91/izpHSI7AxIKXilbcgipftZvdCnNEtgZ4Rvrv3raIlEIDnXeF00bR06yPsdYTQRur
-         gUAVq0/YXl3ZIzK1l+qbVISfMBYs2Y0v0HssGfoCAkZkF2F79xNF5iHoB8Q1kFT/xUPk
-         V8MdfzBPQYS6uasKfIiflC0f5YQQUgkXtRBUnDfXVKN0TPPO1mxIDerINMt/KmdovB1f
-         Mnxw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742409330; x=1743014130;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QLB94k0pWwcNjDTf4HpckyyyYqaKP2kOAdvgI5dwRD0=;
-        b=GAI4cmbAUaN8iYi2DuqpaGzX04KUp+EdGikWvbBFxol+JVjqUcekfafMZsoJtWVSCg
-         rnHg7esh9dIHDUfV+W1ITGLPlr8ZBJEyexK4MS6KMiuZ9Q8PE6cb6+CiCy46OUUfXLvU
-         14z+bCAmYJkBLFDSoiquVhm4zdxLg4IUVpqmgIvZjS/nfE9VH7V/RL7l3r47MABRctlf
-         WDNU21DAdn9g4jRQtIXd/hf7yII3+EN7B9ZQdpO9/aDVRh1zlxAI054VUp3C8z98huW7
-         6AjNj/d1ETh2W8jnLG9kyCPBrP5HVRwPEpp5wZUW3ivEL+uEL3qlbYMH1EFhpWvKE7RP
-         5+5Q==
-X-Gm-Message-State: AOJu0YyBYxB5HFfv6+WtyJeFYRUNZ20iKXqcLEHzdY8CGTZqXDe/K3US
-	FjGV3TvF7XpyRBN5OYo5sWubd267H+qlG7sO0vFLe5RLLfFGDfznFM+npH9tcyg=
-X-Gm-Gg: ASbGncuYTCfT71rivrix+MNqE32q6H4lV3MpfvUSzhijD1efNUBjbzzMzGbWT//fzO/
-	BgV3MFjFCd24jyEc5415aHPDodIF7DXJ3pOQvbUm+fX1c1uzilL4eivqomBImW9eT1UV7lrrGXo
-	No6FHppdIqrgU5PnaXTa+2CzpMqzIyQ7+f0hZsTFjbOjkrqkgBJllsV6a7dcUgRt9mytvtS+l53
-	RYk728rxvH8AaaSFMrwMXRe3hmjwKTaMmTdp5zwymoXX0K8rpKSXOvoQMV4U2TuEdj3QqkpyUdG
-	AvFOZOhyXRN/xh01/Be6jdRbs3IUaswTB+B0+3FMn6UBvyFN3SJNA6DloHu1
-X-Google-Smtp-Source: AGHT+IFVencsDHsxhBLdjviuxV/nTve4fWCDhTlSSgoJ73p52e8QK2ha6x6mXRahaOg9bIfOX//V7Q==
-X-Received: by 2002:a05:6a00:98f:b0:736:42a8:a742 with SMTP id d2e1a72fcca58-7376d631f92mr6684951b3a.11.1742409329749;
-        Wed, 19 Mar 2025 11:35:29 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7371167e109sm11993844b3a.115.2025.03.19.11.35.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 11:35:28 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Subject: [PATCH v10 0/2] riscv: Add runtime constant support
-Date: Wed, 19 Mar 2025 11:35:18 -0700
-Message-Id: <20250319-runtime_const_riscv-v10-0-745b31a11d65@rivosinc.com>
+	id 1tuySI-00000009sAn-1Pma;
+	Wed, 19 Mar 2025 18:47:56 +0000
+Date: Wed, 19 Mar 2025 18:47:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1742410061;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=zqyBVaYb9ts4lSaXiElKMyansdaMcGaJGQGVhzkplWo=;
+	b=xaQi4Ef4746B+A1AJBeekKoem5X9BsU2Zv43rk34K1b57B9N/UUB0WB7+ebMMyAm4dfIwQ
+	po8r8m5IqUgNRKUb/IkSMFPDZP7ikmojvJbVFmFRwuujjWoxhQaSwuSjM3plvtnggGTY0s
+	MOiuRmYvVaZE3dOZtPg1/9XMdLYCzcU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Yosry Ahmed <yosry.ahmed@linux.dev>
+To: Borislav Petkov <bp@alien8.de>
+Cc: Brendan Jackman <jackmanb@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org, kvm@vger.kernel.org,
+	linux-efi@vger.kernel.org, Junaid Shahid <junaids@google.com>
+Subject: Re: [PATCH RFC v2 04/29] mm: asi: Add infrastructure for boot-time
+ enablement
+Message-ID: <Z9sRQ0cK0rupEiT-@google.com>
+References: <20250110-asi-rfc-v2-v2-0-8419288bc805@google.com>
+ <20250110-asi-rfc-v2-v2-4-8419288bc805@google.com>
+ <20250319172935.GMZ9r-_zzXhyhHBLfj@fat_crate.local>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAGYO22cC/43Q3UoDMRAF4Fcpe20kk8mvV76HSMkmE5sLdyWpQ
- Sl9d9OCdJEUvJwD881wTlOlkqlOT7vTVKjlmtelD8AfdlM4+OWNWI49mAQXioNAVj6XY36nfVi
- XetyXXENjOkSrJJGwYKa++VEo5a8r+/La50Oux7V8X680uKS/nhl6DRgw49TMBZIXfH4uua01L
- +ExrO/ThWziH4zojFOeTEjOeHQDBreMHTPYGQAnhLOORMQBIzcM8jEjO9O3dZAwm9mFAaNujOD
- jrpvqzBw0GNQe+08DRm8YEGNGdwYpcZB6RhhWbLbMnW5MZ0giGI2gTEoDxt4Y5GrM2M4kr3VCq
- W30o27chrn3jWOcxRhRoYxIlv4w5/P5BxAjYmzyAgAA
-X-Change-ID: 20250123-runtime_const_riscv-6cd854ee2817
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Ard Biesheuvel <ardb@kernel.org>, 
- Ben Dooks <ben.dooks@codethink.co.uk>, 
- Pasha Bouzarjomehri <pasha@rivosinc.com>, 
- Emil Renner Berthing <emil.renner.berthing@canonical.com>, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, 
- Steven Rostedt <rostedt@goodmis.org>, 
- Masami Hiramatsu <mhiramat@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
- Albert Ou <aou@eecs.berkeley.edu>, Peter Zijlstra <peterz@infradead.org>, 
- Josh Poimboeuf <jpoimboe@kernel.org>, Jason Baron <jbaron@akamai.com>, 
- Andrew Jones <ajones@ventanamicro.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-trace-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3346; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=W5HAab9oDLuYRICYvlEMdiuN+/zGZj7GP8xToCVp9CQ=;
- b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/ptvowLqtdfbshw2Xz1884ba15c+cgRezlkuu4FO1W36
- aKfreM0O0pZGMS4GGTFFFl4rjUwt97RLzsqWjYBZg4rE8gQBi5OAZiI/VaGX8yPm1Yw+srpR2+S
- UOWcsf+wpuWmw5vrDrFWLjRsbTNQ38/wv3jV4Q3lDLNsDe/Lzp8W9W1yyZLzYlciOiulzndtmG5
- lzgsA
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
+Content-Disposition: inline
+In-Reply-To: <20250319172935.GMZ9r-_zzXhyhHBLfj@fat_crate.local>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_113530_778348_22EC93BE 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250319_114754_653078_0DA184AF 
+X-CRM114-Status: GOOD (  38.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,83 +89,134 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ard brought this to my attention in this patch [1].
+On Wed, Mar 19, 2025 at 06:29:35PM +0100, Borislav Petkov wrote:
+> On Fri, Jan 10, 2025 at 06:40:30PM +0000, Brendan Jackman wrote:
+> > Add a boot time parameter to control the newly added X86_FEATURE_ASI.
+> > "asi=on" or "asi=off" can be used in the kernel command line to enable
+> > or disable ASI at boot time. If not specified, ASI enablement depends
+> > on CONFIG_ADDRESS_SPACE_ISOLATION_DEFAULT_ON, which is off by default.
+> 
+> I don't know yet why we need this default-on thing...
 
-I benchmarked this patch on the Nezha D1 (which does not contain Zba or
-Zbkb so it uses the default algorithm) by navigating through a large
-directory structure. I created a 1000-deep directory structure and then
-cd and ls through it. With this patch there was a 0.57% performance
-improvement.
+It's a convenience to avoid needing to set asi=on if you want ASI to be
+on by default. It's similar to HUGETLB_PAGE_OPTIMIZE_VMEMMAP_DEFAULT_ON
+or ZSWAP_DEFAULT_ON.
 
-[1] https://lore.kernel.org/lkml/CAMj1kXE4DJnwFejNWQu784GvyJO=aGNrzuLjSxiowX_e7nW8QA@mail.gmail.com/
+[..]
+> > @@ -175,7 +184,11 @@ static __always_inline bool asi_is_restricted(void)
+> >  	return (bool)asi_get_current();
+> >  }
+> >  
+> > -/* If we exit/have exited, can we stay that way until the next asi_enter? */
+> > +/*
+> > + * If we exit/have exited, can we stay that way until the next asi_enter?
+> 
+> What is that supposed to mean here?
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
----
-Changes in v10:
-- Use _AC() instead of just adding U to the end of a constant
-- Link to v9: https://lore.kernel.org/r/20250318-runtime_const_riscv-v9-0-ddd3534d3e8e@rivosinc.com
+asi_is_relaxed() checks if the thread is outside an ASI critical
+section.
 
-Changes in v9:
-- Fix bug where stale register data may be used when an lui is replaced
-  with a nop. In the following addiw, add to register x0 instead of the
-  stale register to resolve.
-- Add locks for text_mutex before using patch_insn_write()
-- Link to v8: https://lore.kernel.org/r/20250305-runtime_const_riscv-v8-1-fa66f3468dac@rivosinc.com
+I say "the thread" because it will also return true if we are executing
+an interrupt that arrived during the critical section, even though the
+interrupt handler is not technically part of the critical section.
 
-Changes in v8:
-- Rebase to linux v6.14-rc5
-- Link to v7: https://lore.kernel.org/r/20250218-runtime_const_riscv-v7-1-e431763157ff@rivosinc.com
+Now the reason it says "if we exit we stay that way" is probably
+referring to the fact that an asi_exit() when interrupting a critical
+section will be undone in the interrupt epilogue by re-entering ASI.
 
-Changes in v7:
-- Added benchmarking info
-- Added CONFIG_RISCV_ISA_ZBA and CONFIG_RISCV_ISA_ZBKB to check that the
-  compiler supports the extensions.
-- Link to v6: https://lore.kernel.org/r/20250212-runtime_const_riscv-v6-1-3ef0146b310b@rivosinc.com
+I agree the wording here is confusing. We should probably describe this
+more explicitly and probably rename the function after the API
+discussions you had in the previous patch.
 
-Changes in v6:
-- .option arch only became officially supported by clang in version 17.
-  Add a config to check that and guard the alternatives uses .option
-  arch.
-- Link to v5: https://lore.kernel.org/r/20250203-runtime_const_riscv-v5-1-bc61736a3229@rivosinc.com
+> 
+> > + *
+> > + * When ASI is disabled, this returns true.
+> > + */
+> >  static __always_inline bool asi_is_relaxed(void)
+> >  {
+> >  	return !asi_get_target(current);
+[..]
+> > @@ -66,10 +73,36 @@ const char *asi_class_name(enum asi_class_id class_id)
+> >  	return asi_class_names[class_id];
+> >  }
+> >  
+> > +void __init asi_check_boottime_disable(void)
+> > +{
+> > +	bool enabled = IS_ENABLED(CONFIG_MITIGATION_ADDRESS_SPACE_ISOLATION_DEFAULT_ON);
+> > +	char arg[4];
+> > +	int ret;
+> > +
+> > +	ret = cmdline_find_option(boot_command_line, "asi", arg, sizeof(arg));
+> > +	if (ret == 3 && !strncmp(arg, "off", 3)) {
+> > +		enabled = false;
+> > +		pr_info("ASI disabled through kernel command line.\n");
+> > +	} else if (ret == 2 && !strncmp(arg, "on", 2)) {
+> > +		enabled = true;
+> > +		pr_info("Ignoring asi=on param while ASI implementation is incomplete.\n");
+> > +	} else {
+> > +		pr_info("ASI %s by default.\n",
+> > +			enabled ? "enabled" : "disabled");
+> > +	}
+> > +
+> > +	if (enabled)
+> > +		pr_info("ASI enablement ignored due to incomplete implementation.\n");
+> 
+> Incomplete how?
 
-Changes in v5:
-- Split instructions into 16-bit parcels to avoid alignment (Emil)
-- Link to v4: https://lore.kernel.org/r/20250130-runtime_const_riscv-v4-1-2d36c41b7b9c@rivosinc.com
+This is referring to the fact that ASI is still not fully/correctly
+functional, but it will be after the following patches.
 
-Changes in v4:
-- Add newlines after riscv32 assembler directives
-- Align instructions along 32-bit boundary (Emil)
-- Link to v3: https://lore.kernel.org/r/20250128-runtime_const_riscv-v3-1-11922989e2d3@rivosinc.com
+I think it will be clearer if we just add the feature flag here so that
+we have something to check for in the following patches, but add the
+infrastructure for boot-time enablement at the end of the series when
+the impelemntation is complete.
 
-Changes in v3:
-- Leverage "pack" instruction for runtime_const_ptr() to reduce hot path
-  by 3 instructions if Zbkb is supported. Suggested by Pasha Bouzarjomehri (pasha@rivosinc.com)
-- Link to v2: https://lore.kernel.org/r/20250127-runtime_const_riscv-v2-1-95ae7cf97a39@rivosinc.com
+Basically start by a feature flag that has no way of being enabled, use
+it in the implmentation, then add means of enabling it.
 
-Changes in v2:
-- Treat instructions as __le32 and do proper conversions (Ben)
-- Link to v1: https://lore.kernel.org/r/20250127-runtime_const_riscv-v1-1-795b023ea20b@rivosinc.com
+> 
+> > +}
+> > +
+> >  static void __asi_destroy(struct asi *asi)
+> >  {
+> > -	lockdep_assert_held(&asi->mm->asi_init_lock);
+> > +	WARN_ON_ONCE(asi->ref_count <= 0);
+> > +	if (--(asi->ref_count) > 0)
+> 
+> Switch that to
+> 
+> include/linux/kref.h
+> 
+> It gives you a sanity-checking functionality too so you don't need the WARN...
 
----
-Charlie Jenkins (2):
-      riscv: Move nop definition to insn-def.h
-      riscv: Add runtime constant support
+I think we hve internal changes that completely get rid of this
+ref_count and simplifies the lifetime handling that we can squash here.
+We basically keep ASI objects around until the process is torn down,
+which makes this simpler and avoids the need for complex synchronization
+when we try to context switch or run userspace without exiting ASI
+(spoiler alert :) ).
 
- arch/riscv/Kconfig                     |  22 +++
- arch/riscv/include/asm/asm.h           |   1 +
- arch/riscv/include/asm/ftrace.h        |   1 -
- arch/riscv/include/asm/insn-def.h      |   3 +
- arch/riscv/include/asm/runtime-const.h | 265 +++++++++++++++++++++++++++++++++
- arch/riscv/kernel/ftrace.c             |   6 +-
- arch/riscv/kernel/jump_label.c         |   4 +-
- arch/riscv/kernel/vmlinux.lds.S        |   3 +
- 8 files changed, 299 insertions(+), 6 deletions(-)
----
-base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
-change-id: 20250123-runtime_const_riscv-6cd854ee2817
--- 
-- Charlie
-
+> 
+> > +		return;
+> >  
+> > +	free_pages((ulong)asi->pgd, PGD_ALLOCATION_ORDER);
+> > +	memset(asi, 0, sizeof(struct asi));
+> 
+> And then you can do:
+> 
+> 	if (kref_put())
+> 		free_pages...
+> 
+> and so on.
+> 
+> Thx.
+> 
+> -- 
+> Regards/Gruss,
+>     Boris.
+> 
+> https://people.kernel.org/tglx/notes-about-netiquette
+> 
 
 _______________________________________________
 linux-riscv mailing list
