@@ -4,83 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93916C35FFA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 06:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6D0C35FFA
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 06:57:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	Cc:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=q+98KOD2CQ9rV6LLaSVZ4GcmXllnaVLhVCjhG+7AR3M=; b=QjH8plp1L3xU6g
-	vU6bRlMaghvR3k8t9ceP6yuTGwjrmGW07X48LTDO65YEy5w24anTRh7T39yY4HPkAzKbCHMjoAfa0
-	ZlcFdWK/EAUu2vz8foZd3Lh4wATFfoOUPToquAIjyT7E9fdCWux4B8sV5PBCdPP+HPU8YztbYzQgN
-	/k3K1/qfj3YLJEXP/Xa8mDuMass6jR+alUuv8QaUYe8jA3tW1qjT/wuvYxgu67Iof+IpNG+Hx01G6
-	L1cUKEQ0n5jDXIqMWFEhDy7Pso/eb0iNdOER5Z7wi0XECPp7o4Cp+efcDyA3XpNbk1mq+dN3Oz00V
-	S1PxN5b58Z7y459f3G8Q==;
+	List-Owner; bh=Nth02g5M04wK2GXPc4KetdTWSGuWlrxUOMhDjzSL+Yk=; b=yEUdrTz/bHbRHU
+	rdxkh5nfGvRSq54fCSnMoPxoQGvYqI5dGoBQCv0MPUS+utzMIrheldYxO0B5Sd9Q9ljoyn5LI1zq7
+	a5qmuHnWJTzm5Yl25E4SgHl/FimoXUlzLsem6+mBCOO0rMa1iWRtsbcKieVrBdAydjTdFf/9hwq72
+	wivx4Gvj3zcJ9Ohf12b9CZG8vUqJiZDK30viNxSQF/ETQ9rt6Bk67YbdNUjRBYH/yr1aB9EHVmdXI
+	QxnOysufE0OE6QTtyhRDDaVQaaaViVSk+Iebii8d1SmJy2dKuLHWsqMHy1hPO9N/UEZqGXFCCidug
+	p31weNHkC+ecg4A9BtJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tun1o-000000088IB-1hcG;
-	Wed, 19 Mar 2025 06:35:48 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1tunMp-00000008AHD-036X;
+	Wed, 19 Mar 2025 06:57:31 +0000
+Received: from mail-pj1-x1043.google.com ([2607:f8b0:4864:20::1043])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tun1B-000000088Cj-0yi4
+	id 1tunMn-00000008AGi-01HU
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 06:35:11 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-54acc0cd458so220239e87.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 23:35:08 -0700 (PDT)
+	Wed, 19 Mar 2025 06:57:30 +0000
+Received: by mail-pj1-x1043.google.com with SMTP id 98e67ed59e1d1-3011737dda0so5544469a91.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 23:57:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742366107; x=1742970907; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nRcMBAnBB1cdPSStkQP8KD4Ik0+X3f5WUJpWyEcmszQ=;
-        b=kqt3mdgaxKhBp2P0c+x3OEEPtZfbu1gMon0gLZTaGD9kOQlgkf1syyd6D/kkgzt3yM
-         iYVLtV9bsa9EoENaEb70nnp4TZdc0C3AczXifmTll2wGhTLokH39Dx1PsGn7TAwCCzNL
-         qTK+TnGpTCVU1q7vwJ90nz5LQW0q/kThHu/u9IYWlUI35wADK+0DyyQKkKp+S7zWRMib
-         uCsLUwV9yyr/6KAn6EOUQ8m70WsDLSGMW1QNDUUsyrksGYKsbiyR99SGUCmHQv8i5c3T
-         ZCJN1ICnNopKnpxNESTrQxb84XGiMxGyN2crwnp4wLQLE/Gjw6n+OuWy4QjOyyNXsEWh
-         lM0g==
+        d=gmail.com; s=20230601; t=1742367447; x=1742972247; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:cc:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=qcizybZfOtX7zd/8muYLl1W2Y9HegSIfPjr4unQ/52w=;
+        b=jwSxJ4M4HemAa4rl9ne8cdA8jAKUCdhVAj6dTQQQirE4JIECMLmk6DkNQW3Y+4FSFC
+         wJF8iyc97mmSav+DA4FbdMY3uh2bNT/RwhHUweCeB3QxSTVR03EbwS3X+5YPKcemwyEp
+         YUsQ6Nq7H742oKkoxp+7+o7Lmp06LIKl3lCQm/93LPyOoD0PMir04FNxEsvRJI6J12uk
+         qM95sVpVxUZiIzdcBJ0XJhynhjY/pnbZj1hk52xEX27QDYlftHPlv1bXc8Fp1vEmVvTy
+         WRY9K0w5PWw2oAhoRbUC0VSVKDmisks5G4j9WFqn96s68FjFdgxBTACWXdJYmTw5h4V9
+         Uf3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742366107; x=1742970907;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nRcMBAnBB1cdPSStkQP8KD4Ik0+X3f5WUJpWyEcmszQ=;
-        b=iXxkQhQG+uKenOYceTL611iHgf4TGCdmAqmyGXHq9SS+1dYgB2cqnXyrdMTmnF+4SX
-         3gCgSHzgUEyZtSS+ZA9Ih2X9jfLvFaHE1OLqVeOXpsgi4Sk/Yh/fFaddlS1QKmGOW5tJ
-         HGoLkkcFIVJsGrAVcWSBKnsZdNOo0f8CZsWXUzvCMWWR4F7mtztfHb5AsrTinyX2JV3L
-         Qjz3f5iDfSwwo4CykfduNHnihLCc5HXJ4l0ZmNJ6JkJCAat976sPINyN0po2+Q6WfWBc
-         JXbaeDKCGQB19qdmYZ4pJfyRLxDVAMWaThuNZ8TukWNkXLSzHX3ZQywkRfg1uEFMJUrM
-         M+oA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmkacM4PYWRg1JvOHsE+CV2q4g/U0MvNvkHW9tMCZZ2fxg9E0hLczGrnpxCGZcfrw6RXFZ0bqQQI7zvw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3C6HVOyOIVpa/KTZf9DfRU+LvgLU6P8MPUNte1WcbppbJ1dGN
-	zOSDLK5qspVaMcpY+rG13O5IKFxyIO4z0e7yzWHkVFoyRg1LsOdQXhSv/rlXLXkNwvktKpOqOG2
-	ZcOO7TVrYWfCpyMeCDhzDx+UGhd04HNTr05rdWA==
-X-Gm-Gg: ASbGnctEtD0ZSQvkcw9dqve1QdJwwTLrQF3vnklvq2g6KZmDHWR/rSE12ftIdzUhde5
-	Eoqr4mPp0FgtkM7GC/r6tzqycBKW3pZ/uVk4wMI4kzPk/9SwzndQCtndfXXjbvTt5vm+6EN8xMl
-	ixuWajJlngwUu14xZSO5YUnJQ732o=
-X-Google-Smtp-Source: AGHT+IG2DF9ysJOnGisWYlJRKJjNI7goJzS2EHde/phn2/2Rqicusog58ZNjwKuNH+aDT8iIlFKP1DPR1Tk9Qcbg6iY=
-X-Received: by 2002:a05:6512:2c89:b0:54a:cc09:eacc with SMTP id
- 2adb3069b0e04-54acc09ebcemr366625e87.39.1742366106954; Tue, 18 Mar 2025
- 23:35:06 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1742367447; x=1742972247;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:cc:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=qcizybZfOtX7zd/8muYLl1W2Y9HegSIfPjr4unQ/52w=;
+        b=V98UovYG4uXAMKbL1vvLCT/G39ZmBa8UbDnsOq8tvtAOkiuXHrjFE7daFmHhpBn00s
+         EFcgnCRjT1izN5Xm8PEOaZY+tboBoUjpNXRj/6fiejgEmwQKMzJFR/sciJd0EvokfY2C
+         wYjBAiJNqRiuLgqCNnhZf+TfiSMZuB0F3k51WIp4KH90/5JDjtqekuoYapmDihsxEbvt
+         XhlkaeSawqD9zqKVqO9qayaigSC2nTGttORQ/QOHoXYBxOwp9/aULhEGNNck05ByeydE
+         +M44AU8naiEcDHqFB0RwdNJfG+FcOBEZa3di4FpRcOOEuz50GXusU39KcVYNoPqI9ogM
+         sOIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmHT1JFfyCVwIcn/s4Ue4Vs9z8Bljw6CsNzyJ3orvGrbncsgCgprtrzEtvsOJnlptaw4ubIDryVYbriw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxfTrGYyflL7Etb6kls7sM3x+vYGrb/31giAvG+xxjLI/xhwDo
+	dwh8fRcw70aJgB972u+kRfpSyUGAS6Uw7C2QK7i0UTWn3ntAo+SE
+X-Gm-Gg: ASbGncsLf8tUEiVB8C1A9oWK6+3xfZlNjpklzkw0jgTVjFjN2HfRPCUBSHkxCn8yjOQ
+	ZEBvHxkS+cmRVWYk3Y6SVSouHO2i/2ApeD7/wLAH8pgActh3MXsHplJok+LmXq6eROXD5wbGNfC
+	KwnVh16J+KKAcXANVfQEOruoMDvAeaDJ0me3eTRsO1hdNoYZCCqeF4n4WlWbdj32yQnN8f028jj
+	r2EuEik+Dmzc/MwudkK5Amk9PNr1NwxelFgUzkptg6Aap2/C4NxRylzN//qj0ZmxBHVDNBAUEZ/
+	w01UpXt0OZC4yIYRw8OrHSNInsO1dg==
+X-Google-Smtp-Source: AGHT+IFFwhNQ/t6dDSlJCbtxQ/cI6+UzpKK0sAxbXmmxiGE86fdpdk9WXkOD2IVcXL9Kox7DXY3lpw==
+X-Received: by 2002:a17:90b:2f44:b0:2f9:d9fe:e72e with SMTP id 98e67ed59e1d1-301bdf91cc2mr3092116a91.16.1742367447258;
+        Tue, 18 Mar 2025 23:57:27 -0700 (PDT)
+Received: from [172.29.0.1] ([2a0d:2683:c100::bf])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-301bf5b81casm741412a91.37.2025.03.18.23.57.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 18 Mar 2025 23:57:26 -0700 (PDT)
+Message-ID: <fbd59e2b-1d9b-4585-85a8-aec79bc10dd6@gmail.com>
+Date: Wed, 19 Mar 2025 14:57:19 +0800
 MIME-Version: 1.0
-References: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
-In-Reply-To: <20250317-kvm_exit_fix-v1-1-aa5240c5dbd2@rivosinc.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Wed, 19 Mar 2025 12:04:55 +0530
-X-Gm-Features: AQ5f1JqvoOcfbMQnETX7LXFFQmbgXKx4mcvkbI8cra0TF1szaF4KZK20bqrxCC4
-Message-ID: <CAK9=C2XzuUO3NiKOwwa+Xyh+j7XUtHNBb=YCbe49kHHJY0Ke8Q@mail.gmail.com>
-Subject: Re: [PATCH] RISC-V: KVM: Teardown riscv specific bits after kvm_exit
-To: Atish Patra <atishp@rivosinc.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Cc: troymitchell988@gmail.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ linux-riscv@lists.infradead.org, linux-i2c@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, Alex Elder <elder@riscstar.com>
+Subject: Re: [PATCH v7 2/2] i2c: spacemit: add support for SpacemiT K1 SoC
+To: Andi Shyti <andi.shyti@kernel.org>
+References: <20250316-k1-i2c-master-v7-0-f2d5c43e2f40@gmail.com>
+ <20250316-k1-i2c-master-v7-2-f2d5c43e2f40@gmail.com>
+ <na4oeypp3a3qfaolhzvmj5b4s24zbgaq4vwsvm4wf2mefpcney@wuzszlh4ct3o>
+Content-Language: en-US
+From: Troy Mitchell <troymitchell988@gmail.com>
+In-Reply-To: <na4oeypp3a3qfaolhzvmj5b4s24zbgaq4vwsvm4wf2mefpcney@wuzszlh4ct3o>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_233509_292338_29C2B87A 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250318_235729_051704_1B90C5A9 
+X-CRM114-Status: GOOD (  27.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,73 +100,206 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXIgMTcsIDIwMjUgYXQgMToxMeKAr1BNIEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2
-b3NpbmMuY29tPiB3cm90ZToKPgo+IER1cmluZyBhIG1vZHVsZSByZW1vdmFsLCBrdm1fZXhpdCBp
-bnZva2VzIGFyY2ggc3BlY2lmaWMgZGlzYWJsZQo+IGNhbGwgd2hpY2ggZGlzYWJsZXMgQUlBLiBI
-b3dldmVyLCB3ZSBpbnZva2UgYWlhX2V4aXQgYmVmb3JlIGt2bV9leGl0Cj4gcmVzdWx0aW5nIGlu
-IHRoZSBmb2xsb3dpbmcgd2FybmluZy4gS1ZNIGtlcm5lbCBtb2R1bGUgY2FuJ3QgYmUgaW5zZXJ0
-ZWQKPiBhZnRlcndhcmRzIGR1ZSB0byBpbmNvbnNpc3RlbnQgc3RhdGUgb2YgSVJRLgo+Cj4gWzI1
-NDY5LjAzMTM4OV0gcGVyY3B1IElSUSAzMSBzdGlsbCBlbmFibGVkIG9uIENQVTAhCj4gWzI1NDY5
-LjAzMTczMl0gV0FSTklORzogQ1BVOiAzIFBJRDogOTQzIGF0IGtlcm5lbC9pcnEvbWFuYWdlLmM6
-MjQ3NiBfX2ZyZWVfcGVyY3B1X2lycSsweGEyLzB4MTUwCj4gWzI1NDY5LjAzMTgwNF0gTW9kdWxl
-cyBsaW5rZWQgaW46IGt2bSgtKQo+IFsyNTQ2OS4wMzE4NDhdIENQVTogMyBVSUQ6IDAgUElEOiA5
-NDMgQ29tbTogcm1tb2QgTm90IHRhaW50ZWQgNi4xNC4wLXJjNS0wNjk0Ny1nOTFjNzYzMTE4ZjQ3
-LWRpcnR5ICMyCj4gWzI1NDY5LjAzMTkwNV0gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFl
-bXUgKERUKQo+IFsyNTQ2OS4wMzE5MjhdIGVwYyA6IF9fZnJlZV9wZXJjcHVfaXJxKzB4YTIvMHgx
-NTAKPiBbMjU0NjkuMDMxOTc2XSAgcmEgOiBfX2ZyZWVfcGVyY3B1X2lycSsweGEyLzB4MTUwCj4g
-WzI1NDY5LjAzMjE5N10gZXBjIDogZmZmZmZmZmY4MDA3ZGIxZSByYSA6IGZmZmZmZmZmODAwN2Ri
-MWUgc3AgOiBmZjIwMDAwMDAwODhiZDUwCj4gWzI1NDY5LjAzMjI0MV0gIGdwIDogZmZmZmZmZmY4
-MTMxY2VmOCB0cCA6IGZmNjAwMDAwODBiOTY0MDAgdDAgOiBmZjIwMDAwMDAwODhiYWY4Cj4gWzI1
-NDY5LjAzMjI4NV0gIHQxIDogZmZmZmZmZmZmZmZmZmZmYyB0MiA6IDUyNDkyMDc1NzA2MzcyNjUg
-czAgOiBmZjIwMDAwMDAwODhiZDkwCj4gWzI1NDY5LjAzMjMyOV0gIHMxIDogZmY2MDAwMDA5OGIy
-MTA4MCBhMCA6IDAzN2Q1MjdhMTVlYjRmMDAgYTEgOiAwMzdkNTI3YTE1ZWI0ZjAwCj4gWzI1NDY5
-LjAzMjM3Ml0gIGEyIDogMDAwMDAwMDAwMDAwMDAyMyBhMyA6IDAwMDAwMDAwMDAwMDAwMDEgYTQg
-OiBmZmZmZmZmZjgxMjJkYmY4Cj4gWzI1NDY5LjAzMjQxMF0gIGE1IDogMDAwMDAwMDAwMDAwMGZm
-ZiBhNiA6IDAwMDAwMDAwMDAwMDAwMDAgYTcgOiBmZmZmZmZmZjgxMjJkYzEwCj4gWzI1NDY5LjAz
-MjQ0OF0gIHMyIDogZmY2MDAwMDA4MGMyMmViMCBzMyA6IDAwMDAwMDAyMDAwMDAwMjIgczQgOiAw
-MDAwMDAwMDAwMDAwMDFmCj4gWzI1NDY5LjAzMjQ4OF0gIHM1IDogZmY2MDAwMDA4MGMyMmUwMCBz
-NiA6IGZmZmZmZmZmODBjMzUxYzAgczcgOiAwMDAwMDAwMDAwMDAwMDAwCj4gWzI1NDY5LjAzMjU4
-Ml0gIHM4IDogMDAwMDAwMDAwMDAwMDAwMyBzOSA6IDAwMDA1NTU1NmI3ZmI0OTAgczEwOiAwMDAw
-N2ZmZmYwZTEyZmEwCj4gWzI1NDY5LjAzMjYyMV0gIHMxMTogMDAwMDdmZmZmMGUxM2U5YSB0MyA6
-IGZmZmZmZmZmODEzNTRhYzcgdDQgOiBmZmZmZmZmZjgxMzU0YWM3Cj4gWzI1NDY5LjAzMjY2NF0g
-IHQ1IDogZmZmZmZmZmY4MTM1NGFjOCB0NiA6IGZmZmZmZmZmODEzNTRhYzcKPiBbMjU0NjkuMDMy
-Njk4XSBzdGF0dXM6IDAwMDAwMDAyMDAwMDAxMDAgYmFkYWRkcjogZmZmZmZmZmY4MDA3ZGIxZSBj
-YXVzZTogMDAwMDAwMDAwMDAwMDAwMwo+IFsyNTQ2OS4wMzI3MzhdIFs8ZmZmZmZmZmY4MDA3ZGIx
-ZT5dIF9fZnJlZV9wZXJjcHVfaXJxKzB4YTIvMHgxNTAKPiBbMjU0NjkuMDMyNzk3XSBbPGZmZmZm
-ZmZmODAwN2RiZmM+XSBmcmVlX3BlcmNwdV9pcnErMHgzMC8weDVlCj4gWzI1NDY5LjAzMjg1Nl0g
-WzxmZmZmZmZmZjAxM2E1N2RjPl0ga3ZtX3Jpc2N2X2FpYV9leGl0KzB4NDAvMHg0MiBba3ZtXQo+
-IFsyNTQ2OS4wMzM5NDddIFs8ZmZmZmZmZmYwMTNiNGU4Mj5dIGNsZWFudXBfbW9kdWxlKzB4MTAv
-MHgzMiBba3ZtXQo+IFsyNTQ2OS4wMzUzMDBdIFs8ZmZmZmZmZmY4MDA5YjE1MD5dIF9fcmlzY3Zf
-c3lzX2RlbGV0ZV9tb2R1bGUrMHgxOGUvMHgxZmMKPiBbMjU0NjkuMDM1Mzc0XSBbPGZmZmZmZmZm
-ODAwMGMxY2E+XSBzeXNjYWxsX2hhbmRsZXIrMHgzYS8weDQ2Cj4gWzI1NDY5LjAzNTQ1Nl0gWzxm
-ZmZmZmZmZjgwOWVjOWE0Pl0gZG9fdHJhcF9lY2FsbF91KzB4NzIvMHgxMzQKPiBbMjU0NjkuMDM1
-NTM2XSBbPGZmZmZmZmZmODA5ZjVlMTg+XSBoYW5kbGVfZXhjZXB0aW9uKzB4MTQ4LzB4MTU2Cj4K
-PiBJbnZva2UgYWlhX2V4aXQgYW5kIG90aGVyIGFyY2ggc3BlY2lmaWMgY2xlYW51cCBmdW5jdGlv
-bnMgYWZ0ZXIga3ZtX2V4aXQKPiBzbyB0aGF0IGRpc2FibGUgZ2V0cyBhIGNoYW5jZSB0byBiZSBj
-YWxsZWQgZmlyc3QgYmVmb3JlIGV4aXQuCj4KPiBGaXhlczogNTRlNDMzMjBjMmJhICgiUklTQy1W
-OiBLVk06IEluaXRpYWwgc2tlbGV0YWwgc3VwcG9ydCBmb3IgQUlBIikKClRoZSBrdm1fcmlzY3Zf
-dHJlYWRvd24oKSB3YXMgaW50cm9kdWNlZCBieSBzb21lIG90aGVyIGNvbW1pdCBzbwp3ZSBzaG91
-bGQgaW5jbHVkZSBhIHNlY29uZCBGaXhlcyB0YWcgd2hpY2ggaXM6CgpGaXhlczogZWRlZDY3NTRm
-Mzk4ICgicmlzY3Y6IEtWTTogYWRkIGJhc2ljIHN1cHBvcnQgZm9yIGhvc3QgdnMgZ3Vlc3QKcHJv
-ZmlsaW5nIikKCj4KPiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5j
-LmNvbT4KCk90aGVyd2lzZSwgdGhpcyBsb29rcyBnb29kIHRvIG1lLgoKUmV2aWV3ZWQtYnk6IEFu
-dXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+CgpSZWdhcmRzLApBbnVwCgo+IC0tLQo+ICBh
-cmNoL3Jpc2N2L2t2bS9tYWluLmMgfCA0ICsrLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0
-aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS9t
-YWluLmMgYi9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiBpbmRleCAxZmE4YmU1ZWU1MDkuLjRiMjQ3
-MDVkYzYzYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS9tYWluLmMKPiArKysgYi9hcmNo
-L3Jpc2N2L2t2bS9tYWluLmMKPiBAQCAtMTcyLDggKzE3Miw4IEBAIG1vZHVsZV9pbml0KHJpc2N2
-X2t2bV9pbml0KTsKPgo+ICBzdGF0aWMgdm9pZCBfX2V4aXQgcmlzY3Zfa3ZtX2V4aXQodm9pZCkK
-PiAgewo+IC0gICAgICAga3ZtX3Jpc2N2X3RlYXJkb3duKCk7Cj4gLQo+ICAgICAgICAga3ZtX2V4
-aXQoKTsKPiArCj4gKyAgICAgICBrdm1fcmlzY3ZfdGVhcmRvd24oKTsKPiAgfQo+ICBtb2R1bGVf
-ZXhpdChyaXNjdl9rdm1fZXhpdCk7Cj4KPiAtLS0KPiBiYXNlLWNvbW1pdDogNDcwMWYzM2ExMDcw
-MmQ1ZmM1NzdjMzI0MzRlYjYyYWRkZTBhMWFlMQo+IGNoYW5nZS1pZDogMjAyNTAzMTYta3ZtX2V4
-aXRfZml4LTc3Y2QwNjMyZDc0MAo+IC0tCj4gUmVnYXJkcywKPiBBdGlzaCBwYXRyYQo+CgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBt
-YWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMu
-aW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On 2025/3/19 06:18, Andi Shyti wrote:
+> Hi Troy,
+> 
+> the driver looks good, I just have a few neetpicks to point out,
+> that, along with Alex last comments, makes the v8 a good
+> candidate to be sent.
+> 
+> We still have time, to get this merged in this release cycle.
+
+Hi Andi,
+
+I accept all of your and Alex's suggestions and will send v8 today.
+
+Thank you both for your patience!
+
+> 
+> ...
+> 
+>> +enum spacemit_i2c_state {
+>> +	STATE_IDLE,
+>> +	STATE_START,
+>> +	STATE_READ,
+>> +	STATE_WRITE,
+> 
+> Can you please use the SPACEMIT prefix for these enume?
+> 
+>> +};
+> 
+> ...
+> 
+>> +static void spacemit_i2c_init(struct spacemit_i2c_dev *i2c)
+>> +{
+>> +	u32 val;
+>> +
+>> +	/*
+>> +	 * Unmask interrupt bits for all xfer mode:
+>> +	 * bus error, arbitration loss detected.
+>> +	 * For transaction complete signal, we use master stop
+>> +	 * interrupt, so we don't need to unmask SPACEMIT_CR_TXDONEIE.
+>> +	 */
+>> +	val = SPACEMIT_CR_BEIE | SPACEMIT_CR_ALDIE;
+>> +
+>> +	/*
+>> +	 * Unmask interrupt bits for interrupt xfer mode:
+>> +	 * DBR RX full.
+>> +	 * For tx empty interrupt SPACEMIT_CR_DTEIE, we only
+>> +	 * need to enable when trigger byte transfer to start
+>> +	 * data sending.
+> 
+> Can you please rephrase this sentence to something more
+> understandable?
+> 
+>> +	 */
+>> +	val |= SPACEMIT_CR_DRFIE;
+>> +
+>> +	if (i2c->clock_freq == SPACEMIT_I2C_MAX_FAST_MODE_FREQ)
+>> +		val |= SPACEMIT_CR_MODE_FAST;
+>> +
+>> +	/* disable response to general call */
+>> +	val |= SPACEMIT_CR_GCD;
+>> +
+>> +	/* enable SCL clock output */
+>> +	val |= SPACEMIT_CR_SCLE;
+>> +
+>> +	/* enable master stop detected */
+>> +	val |= SPACEMIT_CR_MSDE | SPACEMIT_CR_MSDIE;
+>> +
+>> +	writel(val, i2c->base + SPACEMIT_ICR);
+>> +}
+>> +
+>> +static inline void
+>> +spacemit_i2c_clear_int_status(struct spacemit_i2c_dev *i2c, u32 mask)
+>> +{
+>> +	writel(mask & SPACEMIT_I2C_INT_STATUS_MASK, i2c->base + SPACEMIT_ISR);
+>> +}
+>> +
+>> +static void spacemit_i2c_start(struct spacemit_i2c_dev *i2c)
+>> +{
+>> +	u32 slave_addr_rw, val;
+> 
+> please don't use the word "slave_*", use "target_*, instead,
+> that's the new standard. Unless it aligns with the datasheets,
+> but that's not the case.
+> 
+>> +	struct i2c_msg *cur_msg = i2c->msgs + i2c->msg_idx;
+>> +
+>> +	i2c->read = !!(cur_msg->flags & I2C_M_RD);
+> 
+> ...
+> 
+>> +static int spacemit_i2c_xfer_msg(struct spacemit_i2c_dev *i2c)
+>> +{
+>> +	unsigned long time_left;
+> 
+> you can move this declaration inside the for loop.
+> 
+>> +	for (i2c->msg_idx = 0; i2c->msg_idx < i2c->msg_num; i2c->msg_idx++) {
+>> +		struct i2c_msg *msg = &i2c->msgs[i2c->msg_idx];
+>> +
+> 
+> ...
+> 
+>> +static void spacemit_i2c_err_check(struct spacemit_i2c_dev *i2c)
+>> +{
+>> +	u32 val;
+>> +
+>> +	/*
+>> +	 * send transaction complete signal:
+> 
+> nit: /send/Send/
+> 
+>> +	 * error happens, detect master stop
+>> +	 */
+>> +	if (!(i2c->status & (SPACEMIT_SR_ERR | SPACEMIT_SR_MSD)))
+>> +		return;
+> 
+> ...
+> 
+>> +static void spacemit_i2c_calc_timeout(struct spacemit_i2c_dev *i2c)
+>> +{
+>> +	unsigned long timeout;
+>> +	int idx = 0, cnt = 0;
+>> +
+>> +	while (idx < i2c->msg_num) {
+>> +		cnt += (i2c->msgs + idx)->len + 1;
+>> +		idx++;
+>> +	}
+> 
+> nit: with a for loop you would save the brackets and the idx
+> initialization.
+> 
+>> +
+>> +	/*
+>> +	 * multiply by 9 because each byte in I2C transmission requires
+> 
+> nit: /multiply/Multiply/
+> 
+>> +	 * 9 clock cycles: 8 bits of data plus 1 ACK/NACK bit.
+>> +	 */
+>> +	timeout = cnt * 9 * USEC_PER_SEC / i2c->clock_freq;
+>> +
+>> +	i2c->adapt.timeout = usecs_to_jiffies(timeout + USEC_PER_SEC / 10) / i2c->msg_num;
+>> +}
+>> +
+>> +static int spacemit_i2c_xfer(struct i2c_adapter *adapt, struct i2c_msg *msgs, int num)
+>> +{
+>> +	struct spacemit_i2c_dev *i2c = i2c_get_adapdata(adapt);
+>> +	int ret;
+>> +
+>> +	i2c->msgs = msgs;
+>> +	i2c->msg_num = num;
+>> +
+>> +	spacemit_i2c_calc_timeout(i2c);
+>> +
+>> +	spacemit_i2c_init(i2c);
+>> +
+>> +	spacemit_i2c_enable(i2c);
+>> +
+>> +	ret = spacemit_i2c_wait_bus_idle(i2c);
+>> +	if (!ret)
+>> +		spacemit_i2c_xfer_msg(i2c);
+>> +
+>> +	if (ret < 0)
+>> +		dev_dbg(i2c->dev, "i2c transfer error: %d\n", ret);
+>> +	else if (ret)
+>> +		spacemit_i2c_check_bus_release(i2c);
+> 
+> Nit: this can all be:
+> 
+> 	if (!ret)
+> 		...
+> 	else if (ret < 0)
+> 		...
+> 	else
+> 		...
+> 
+>> +
+>> +	spacemit_i2c_disable(i2c);
+>> +
+>> +	if (ret == -ETIMEDOUT || ret == -EAGAIN)
+>> +		dev_alert(i2c->dev, "i2c transfer failed, ret %d err 0x%lx\n",
+>> +			  ret, i2c->status & SPACEMIT_SR_ERR);
+> 
+> dev_alert? Is it that bad? Let's use dev_err() instead.
+> 
+>> +
+>> +	return ret < 0 ? ret : num;
+>> +}
+> 
+> ...
+
+-- 
+Troy Mitchell
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
