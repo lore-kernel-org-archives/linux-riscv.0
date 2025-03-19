@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B85AC35FFA
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 18:35:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B4FC35FFF
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 18:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OyxtHN6ATGfhykDzhR2yOTYUAWunx3WDfeKceAUBNhs=; b=A3h5nq3ACoF4Sg
-	+Xgtfz4FfiNt/5xaNjcZqQnWMarwmEWESX0P+CWx2BTsKYNWXok0dlwKRicxCOJzkvoV24fhNl4bt
-	pVAUJtpKBCpHuqOssevZHfbrZsLjjsReUfTHAv3dN6TzFCuxUYp4ebbR1BwYpu7lOJE7E16d0XTX0
-	S+hRiG8IWZ/mSt9W6NU7ulNPxrZJ5+Ug+PYyA13nlqo7ieNbHN28NDARw+dks2d/4O2kCyNwJQVPc
-	h6QOHHOATriebDT+k1ju879cnbvS1J+yDTeb+NyjqVT30RGI3vOukotB0NHbb6m6NaF4SZjq7O5eE
-	VtTHQ80n6tyOqsI6w9DQ==;
+	List-Owner; bh=l3snYU9cYcmL76IlC9Ss4UNDLRRmXrq7868cZ/4bk8E=; b=AFqUihcjsv7YtY
+	VxJwFUADTXUmTOnaRQ0UcbpZbhwyV0eJcH+d7QjwwOs0vjbdnqLHuDSP6qMCOr6/0nITyufCN7qBu
+	m08BjD9YUzM/+MYQma8Y29Ukl83RxOk5YcKrn832r8aQQgUBwT8HU+RLLNyL9sggvoUPVQlYVfGgV
+	r0ES4yim3WjpQCW5FxjTAC1NcbXS8qULrvCsNUvCbeVhttJuxWho0PLK/7IsVPKRqKN1tq7s9EOps
+	W9a99pNzYaUUeMmYqT/EWtc3USPlupZDNrs4w48SHBWx35zgmO40TNjYxpmbOminy1YsRxFvBPSLZ
+	x6oAvy2r3NxQFGX41HzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyGN-00000009qhS-0Xs7;
-	Wed, 19 Mar 2025 18:35:35 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tuyGO-00000009qi1-30FC;
+	Wed, 19 Mar 2025 18:35:36 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuyGK-00000009qfp-1Q0e
+	id 1tuyGM-00000009qgw-34zt
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 18:35:33 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22580c9ee0aso129418095ad.2
-        for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 11:35:32 -0700 (PDT)
+	Wed, 19 Mar 2025 18:35:35 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-225e3002dffso86728445ad.1
+        for <linux-riscv@lists.infradead.org>; Wed, 19 Mar 2025 11:35:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742409332; x=1743014132; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742409334; x=1743014134; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=uR51xah4xxVpBSnTg/IV2alN19Fnn1YAZeJAKTDPRYQ=;
-        b=tfkJXiB2TW7C2LadrNimiTqmM1WfqhWenPr1C7yCNG2HVWNMJnuMKCEjdjloiRRF71
-         Qn+Vrl5RCAgCkjGr473JFEQBugS24jDX964el2FG6lj8l8xdUtR1CIeOyoRQ4INnTS94
-         9MyPqlPMMQoVRv2tlABHb+1GzaYfhMjnC5P1u8v/e660KPYl8ZS52Xn3XhItPXQY5hHj
-         hLhH6PYnKPPOhnpFsTeZXyRSf6oo88YiZeJFJmP6n5fz9xZQCqhP44Kmwyw37UHXg1Po
-         BicaM+cJTONev2fRIPVL/ciZMxNytdHfyViFzGIeCwRl9P0SI+Poozq0GTjn5be4m527
-         Nf+Q==
+        bh=la5qHyryzXsEWAgnraL41q7vvu0SZEHfO3JYEM8IBZk=;
+        b=kaOxlcDm5eb7uZ2UGLdo/1ynXGSYcCwolGQEdQE2j+bzrM2swoabHcWVT5lAmFTCwC
+         ysEEFojCp3kkXPFiuBH4tGnpFTl5nFspWQGFhw0RR1RSi1ZNMyMSnHQkuxnzy+dHbJI9
+         79UwBtTwm+DlPeKO6ivdNRJ8V926tq+tOtXTHbmHC5P5poD4M5SqePaFvGC2E90Gukyo
+         QSV4iZWyEq2ggSrJ96esApEcqS8yCuH0QDai0w0hXXaUKp8BANguEiwBAY8nile51MMD
+         O+ISqxjI8IQqS7WOUpYGTSQD6nUBQPFdGqZKee08QznuSyy5EvntI+asjRuiJvbtZO/v
+         3KOg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742409332; x=1743014132;
+        d=1e100.net; s=20230601; t=1742409334; x=1743014134;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=uR51xah4xxVpBSnTg/IV2alN19Fnn1YAZeJAKTDPRYQ=;
-        b=ppaGTEzZApxN3/v1AgOUdxqO6m2mJAxHeC409q9+3+2c0wbeAqM50hRx6fbYnyhmxK
-         kmCBqxWx/PLj3v1QCIfdUOCrWhlsEdWZBFscacj8BG5RNQtlQlEca3DeHBh6QGxtF4vY
-         aEODMDeKtMUUlPq0w0G1n2aY7ivHVZiX3+hCMFuEOm7b8/J72W9V6tMPj4gK5e9mmnfV
-         NoS9aYFT9Wtf/KEGhf2/eHGjpFLcyHsBPXCZV61AawVNcztaVuJj9uh8GcAQeueMNTu8
-         /r2+fq6N08mYGaU2w3pjoOsy7oxkUNuYBQUSjq9i8Ilq2xS4B/w6LL6AJ7fi8pd1GSOT
-         jrPQ==
-X-Gm-Message-State: AOJu0YwMbtWfpIFPCLNeYFnIHIjySKTEnX7gkiApRg54iG6QARdyydYu
-	PBU7mCUhsZTGmlZRzDbQX4RmqUxfBubdLQ0M1bcS/LFpxnEmdtFLY1R8R/zI/gE=
-X-Gm-Gg: ASbGncvYxNq767OBhRlE8zA2LTuJnz2G6Y1MnTqySVkco5IQvE2yNQvPea65shNVPiP
-	aDXpSFa99svJq+5xva68QBpFv23AaNthQkJdyEv9t8ptZxRoic+0mMzUJWoJwCFH+e1kbxuinkp
-	1btcR1l+oskXb4Gk4Hk4W7Be77/k02OMjDfpAq2tNr3Yv5detIGOuJn6jNCezTK/OfIJ3mtLC5l
-	FyRjq7emh369Y9WW2nHwYnISzxURs/UXkTZ3Jm7PqxDxIwbAbv8LPGauhKQ8jT3TP739YxgtqCT
-	WaP7tQ4+ogt24nVprDey2nLn7aMkcJIhLb18HOjeN1A7G+SzldAU5xZgSdg/
-X-Google-Smtp-Source: AGHT+IGVWjR9gQffmmSDn2uRl9PI4o0YcgivPHUzO9gwlKWf+ydGj9+4bhZ79+++dyKX8S+kHEzYqQ==
-X-Received: by 2002:a05:6a00:1486:b0:736:3979:369e with SMTP id d2e1a72fcca58-7377a83e678mr333529b3a.9.1742409331719;
-        Wed, 19 Mar 2025 11:35:31 -0700 (PDT)
+        bh=la5qHyryzXsEWAgnraL41q7vvu0SZEHfO3JYEM8IBZk=;
+        b=DW6e4aKZaVf5ihC/dV9r3/v7dAeJGcj5jQS8oD4VhbunHIOnlnJciRmCu2lGV6EOee
+         2GM7u5vNeP1V3KyZJNMgIj5dSiSatetql3V37KXhrQt0o+ehv6/sUeMSoxq75aAScP3j
+         SRfBDutLztEniqAmGJ0nFVfA7W7Vjk0WswcWTtduOoCxCMlNVrYeGkuH4OXkKGKMv00P
+         IM1TQTdbI50ign/IOobZM9bSCEXiFYzWohoCKd7GYSkKVc3HqB9rEfyRH8M1aSZVjW9+
+         HU16j3624bwW2aYVfFo2FR5MZdfxMPoCuFVKsNctTscPqeQ4R9yn5Bo2twamy+1hlCdY
+         Ae1Q==
+X-Gm-Message-State: AOJu0YwMzucFHcKeLwArAIg+scri0fnbBIOeu76d4klU8l7JgIQQu1aL
+	vZ0IAUCnCSsTuippoC7cw90RofgZ4zZyOln4bqQFxAqZ4+01F8nbr7d1b/WLW7c=
+X-Gm-Gg: ASbGncvOsxNHhNxRQcttO8Zk9POn/W0lQjxBim3dzczLO0zXg6Fw1F+Zlcfp94M6HUt
+	5cdnXdF4zCTcpr73ERyNiycxDrmT+Sjt9Icl0yMlb5VaWky3D1PqV4GKmbtdb7kbMmHjK85Uo8z
+	BcjsWYWll95vApt89YQGAa2uUNt+aFWQrPe0yj8yUGqJWO9M+th8WyJcrSUVbQJTRrYyv+fcKPI
+	6a49yb7mE9Sb6kH5+9OstdCcAAoM/BTyFbCLZKuP/qJid/uCHdoNq+/NdtwRJ8miG1Q0hbsHiNL
+	aXtrupqfph7KYuEzk08JnLB2xvdEY3B8lFyQA08shccAZLhFlgsvuZ/ha+1/bIkOFKaOuCs=
+X-Google-Smtp-Source: AGHT+IHCOA+9CrSaw86lUNtvagoFCsKrSr9rd6nDGuzkvUete4IY2k60ro+RPGhImED2JD0D5kTgjw==
+X-Received: by 2002:a05:6a20:1587:b0:1f5:535c:82df with SMTP id adf61e73a8af0-1fbed3131e6mr6855293637.27.1742409333790;
+        Wed, 19 Mar 2025 11:35:33 -0700 (PDT)
 Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7371167e109sm11993844b3a.115.2025.03.19.11.35.29
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7371167e109sm11993844b3a.115.2025.03.19.11.35.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 19 Mar 2025 11:35:30 -0700 (PDT)
+        Wed, 19 Mar 2025 11:35:32 -0700 (PDT)
 From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Wed, 19 Mar 2025 11:35:19 -0700
-Subject: [PATCH v10 1/2] riscv: Move nop definition to insn-def.h
+Date: Wed, 19 Mar 2025 11:35:20 -0700
+Subject: [PATCH v10 2/2] riscv: Add runtime constant support
 MIME-Version: 1.0
-Message-Id: <20250319-runtime_const_riscv-v10-1-745b31a11d65@rivosinc.com>
+Message-Id: <20250319-runtime_const_riscv-v10-2-745b31a11d65@rivosinc.com>
 References: <20250319-runtime_const_riscv-v10-0-745b31a11d65@rivosinc.com>
 In-Reply-To: <20250319-runtime_const_riscv-v10-0-745b31a11d65@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -88,17 +88,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
  linux-trace-kernel@vger.kernel.org, Charlie Jenkins <charlie@rivosinc.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3767; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=jcUMUpSTP0w83s8S9BETds7fzlXnkTNKzrbHYn+Xbas=;
- b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/ptvvxq/RDmibtNz5uscts8ac62l2u5nj+7yXlDs8vcN
- ps55eeBjlIWBjEuBlkxRRaeaw3MrXf0y46Klk2AmcPKBDKEgYtTACZy5zzD/3pjQ+OmwJJV33kz
- FGoiNDfuCTmU2Fq+7kRMp678tu+vohj+2RW06e8ocriTLtd+/Ud0QlCJo3+K71TJ0yvj5u59eU+
- KCQA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11510; i=charlie@rivosinc.com;
+ h=from:subject:message-id; bh=63cSUUnxwjEBh6V2AkklarmCWoJh2az/xIh3a/F6s+Y=;
+ b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/ptvvwDu532G04T10wuihS9sDzx6t6iZSrr9zKZB3xnz
+ S37XlfRUcrCIMbFICumyMJzrYG59Y5+2VHRsgkwc1iZQIYwcHEKwESc/jP8FY5eeeDCYZFmM9F6
+ Po9DDWFHwq3f/rpSt7OB4Rj393j5F4wMrz84bD7N1cP4OsPPuvxnoMfD2aaPPk4xt/L5tE1M9Uk
+ gOwA=
 X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
  fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250319_113532_389211_9E7F2338 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250319_113534_784734_825D4BBB 
+X-CRM114-Status: GOOD (  23.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,100 +115,354 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-We have duplicated the definition of the nop instruction in ftrace.h and
-in jump_label.c. Move this definition into the generic file insn-def.h
-so that they can share the definition with each other and with future
-files.
+Implement the runtime constant infrastructure for riscv. Use this
+infrastructure to generate constants to be used by the d_hash()
+function.
+
+This is the riscv variant of commit 94a2bc0f611c ("arm64: add 'runtime
+constant' support") and commit e3c92e81711d ("runtime constants: add
+x86 architecture support").
 
 Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/ftrace.h   | 1 -
- arch/riscv/include/asm/insn-def.h | 3 +++
- arch/riscv/kernel/ftrace.c        | 6 +++---
- arch/riscv/kernel/jump_label.c    | 4 ++--
- 4 files changed, 8 insertions(+), 6 deletions(-)
+ arch/riscv/Kconfig                     |  22 +++
+ arch/riscv/include/asm/asm.h           |   1 +
+ arch/riscv/include/asm/runtime-const.h | 265 +++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/vmlinux.lds.S        |   3 +
+ 4 files changed, 291 insertions(+)
 
-diff --git a/arch/riscv/include/asm/ftrace.h b/arch/riscv/include/asm/ftrace.h
-index c4721ce44ca474654b37b3d51bc0a63d46bc1eff..b7f361a50f6445d02a0d88eef5547ee27c1fb52e 100644
---- a/arch/riscv/include/asm/ftrace.h
-+++ b/arch/riscv/include/asm/ftrace.h
-@@ -79,7 +79,6 @@ struct dyn_arch_ftrace {
- #define AUIPC_RA		(0x00000097)
- #define JALR_T0			(0x000282e7)
- #define AUIPC_T0		(0x00000297)
--#define NOP4			(0x00000013)
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e35607f1dd4603a596416d3357a71..c123f7c0579c1aca839e3c04bdb662d6856ae765 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -783,6 +783,28 @@ config RISCV_ISA_ZBC
  
- #define to_jalr_t0(offset)						\
- 	(((offset & JALR_OFFSET_MASK) << JALR_SHIFT) | JALR_T0)
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index 9a913010cdd93cdfdd93f467e7880e20cce0dd2b..71060a2f838e24200e3eb4ad8dfb32ef6bd2f57a 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -199,5 +199,8 @@
- #define RISCV_PAUSE	".4byte 0x100000f"
- #define ZAWRS_WRS_NTO	".4byte 0x00d00073"
- #define ZAWRS_WRS_STO	".4byte 0x01d00073"
-+#define RISCV_NOP4	".4byte 0x00000013"
+ 	   If you don't know what to do here, say Y.
+ 
++config TOOLCHAIN_HAS_ZBKB
++	bool
++	default y
++	depends on !64BIT || $(cc-option,-mabi=lp64 -march=rv64ima_zbkb)
++	depends on !32BIT || $(cc-option,-mabi=ilp32 -march=rv32ima_zbkb)
++	depends on LLD_VERSION >= 150000 || LD_VERSION >= 23900
++	depends on AS_HAS_OPTION_ARCH
 +
-+#define RISCV_INSN_NOP4	_AC(0x00000013, U)
++config RISCV_ISA_ZBKB
++	bool "Zbkb extension support for bit manipulation instructions"
++	depends on TOOLCHAIN_HAS_ZBKB
++	depends on RISCV_ALTERNATIVE
++	default y
++	help
++	   Adds support to dynamically detect the presence of the ZBKB
++	   extension (bit manipulation for cryptography) and enable its usage.
++
++	   The Zbkb extension provides instructions to accelerate a number
++	   of common cryptography operations (pack, zip, etc).
++
++	   If you don't know what to do here, say Y.
++
+ config RISCV_ISA_ZICBOM
+ 	bool "Zicbom extension support for non-coherent DMA operation"
+ 	depends on MMU
+diff --git a/arch/riscv/include/asm/asm.h b/arch/riscv/include/asm/asm.h
+index 776354895b81e7dc332e58265548aaf7365a6037..a8a2af6dfe9d2406625ca8fc94014fe5180e4fec 100644
+--- a/arch/riscv/include/asm/asm.h
++++ b/arch/riscv/include/asm/asm.h
+@@ -27,6 +27,7 @@
+ #define REG_ASM		__REG_SEL(.dword, .word)
+ #define SZREG		__REG_SEL(8, 4)
+ #define LGREG		__REG_SEL(3, 2)
++#define SRLI		__REG_SEL(srliw, srli)
  
- #endif /* __ASM_INSN_DEF_H */
-diff --git a/arch/riscv/kernel/ftrace.c b/arch/riscv/kernel/ftrace.c
-index 3524db5e4fa014a4594465f849d898a030bfb7b8..674dcdfae7a149c339f1e791adb450535f22991b 100644
---- a/arch/riscv/kernel/ftrace.c
-+++ b/arch/riscv/kernel/ftrace.c
-@@ -36,7 +36,7 @@ static int ftrace_check_current_call(unsigned long hook_pos,
- 				     unsigned int *expected)
- {
- 	unsigned int replaced[2];
--	unsigned int nops[2] = {NOP4, NOP4};
-+	unsigned int nops[2] = {RISCV_INSN_NOP4, RISCV_INSN_NOP4};
- 
- 	/* we expect nops at the hook position */
- 	if (!expected)
-@@ -68,7 +68,7 @@ static int __ftrace_modify_call(unsigned long hook_pos, unsigned long target,
- 				bool enable, bool ra)
- {
- 	unsigned int call[2];
--	unsigned int nops[2] = {NOP4, NOP4};
-+	unsigned int nops[2] = {RISCV_INSN_NOP4, RISCV_INSN_NOP4};
- 
- 	if (ra)
- 		make_call_ra(hook_pos, target, call);
-@@ -97,7 +97,7 @@ int ftrace_make_call(struct dyn_ftrace *rec, unsigned long addr)
- int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
- 		    unsigned long addr)
- {
--	unsigned int nops[2] = {NOP4, NOP4};
-+	unsigned int nops[2] = {RISCV_INSN_NOP4, RISCV_INSN_NOP4};
- 
- 	if (patch_insn_write((void *)rec->ip, nops, MCOUNT_INSN_SIZE))
- 		return -EPERM;
-diff --git a/arch/riscv/kernel/jump_label.c b/arch/riscv/kernel/jump_label.c
-index 654ed159c830b3d5e34ac58bf367107066eb73a1..b4c1a6a3fbd28533552036194f27ed206bea305d 100644
---- a/arch/riscv/kernel/jump_label.c
-+++ b/arch/riscv/kernel/jump_label.c
-@@ -11,8 +11,8 @@
- #include <asm/bug.h>
- #include <asm/cacheflush.h>
- #include <asm/text-patching.h>
+ #if __SIZEOF_POINTER__ == 8
+ #ifdef __ASSEMBLY__
+diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..a23a9bd47903b2765608c75cd83f01ae578dffaa
+--- /dev/null
++++ b/arch/riscv/include/asm/runtime-const.h
+@@ -0,0 +1,265 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_RISCV_RUNTIME_CONST_H
++#define _ASM_RISCV_RUNTIME_CONST_H
++
++#include <asm/asm.h>
++#include <asm/alternative.h>
++#include <asm/cacheflush.h>
 +#include <asm/insn-def.h>
- 
--#define RISCV_INSN_NOP 0x00000013U
- #define RISCV_INSN_JAL 0x0000006fU
- 
- bool arch_jump_label_transform_queue(struct jump_entry *entry,
-@@ -33,7 +33,7 @@ bool arch_jump_label_transform_queue(struct jump_entry *entry,
- 			(((u32)offset & GENMASK(10,  1)) << (21 -  1)) |
- 			(((u32)offset & GENMASK(20, 20)) << (31 - 20));
- 	} else {
--		insn = RISCV_INSN_NOP;
-+		insn = RISCV_INSN_NOP4;
++#include <linux/memory.h>
++#include <asm/text-patching.h>
++
++#include <linux/uaccess.h>
++
++#ifdef CONFIG_32BIT
++#define runtime_const_ptr(sym)					\
++({								\
++	typeof(sym) __ret;					\
++	asm_inline(".option push\n\t"				\
++		".option norvc\n\t"				\
++		"1:\t"						\
++		"lui	%[__ret],0x89abd\n\t"			\
++		"addi	%[__ret],%[__ret],-0x211\n\t"		\
++		".option pop\n\t"				\
++		".pushsection runtime_ptr_" #sym ",\"a\"\n\t"	\
++		".long 1b - .\n\t"				\
++		".popsection"					\
++		: [__ret] "=r" (__ret));			\
++	__ret;							\
++})
++#else
++/*
++ * Loading 64-bit constants into a register from immediates is a non-trivial
++ * task on riscv64. To get it somewhat performant, load 32 bits into two
++ * different registers and then combine the results.
++ *
++ * If the processor supports the Zbkb extension, we can combine the final
++ * "slli,slli,srli,add" into the single "pack" instruction. If the processor
++ * doesn't support Zbkb but does support the Zbb extension, we can
++ * combine the final "slli,srli,add" into one instruction "add.uw".
++ */
++#define RISCV_RUNTIME_CONST_64_PREAMBLE				\
++	".option push\n\t"					\
++	".option norvc\n\t"					\
++	"1:\t"							\
++	"lui	%[__ret],0x89abd\n\t"				\
++	"lui	%[__tmp],0x1234\n\t"				\
++	"addiw	%[__ret],%[__ret],-0x211\n\t"			\
++	"addiw	%[__tmp],%[__tmp],0x567\n\t"			\
++
++#define RISCV_RUNTIME_CONST_64_BASE				\
++	"slli	%[__tmp],%[__tmp],32\n\t"			\
++	"slli	%[__ret],%[__ret],32\n\t"			\
++	"srli	%[__ret],%[__ret],32\n\t"			\
++	"add	%[__ret],%[__ret],%[__tmp]\n\t"			\
++
++#define RISCV_RUNTIME_CONST_64_ZBA				\
++	".option push\n\t"					\
++	".option arch,+zba\n\t"					\
++	"slli	%[__tmp],%[__tmp],32\n\t"			\
++	"add.uw %[__ret],%[__ret],%[__tmp]\n\t"			\
++	"nop\n\t"						\
++	"nop\n\t"						\
++	".option pop\n\t"					\
++
++#define RISCV_RUNTIME_CONST_64_ZBKB				\
++	".option push\n\t"					\
++	".option arch,+zbkb\n\t"				\
++	"pack	%[__ret],%[__ret],%[__tmp]\n\t"			\
++	"nop\n\t"						\
++	"nop\n\t"						\
++	"nop\n\t"						\
++	".option pop\n\t"					\
++
++#define RISCV_RUNTIME_CONST_64_POSTAMBLE(sym)			\
++	".option pop\n\t"					\
++	".pushsection runtime_ptr_" #sym ",\"a\"\n\t"		\
++	".long 1b - .\n\t"					\
++	".popsection"						\
++
++#if defined(CONFIG_RISCV_ISA_ZBA) && defined(CONFIG_RISCV_ISA_ZBKB)
++#define runtime_const_ptr(sym)						\
++({									\
++	typeof(sym) __ret, __tmp;					\
++	asm_inline(RISCV_RUNTIME_CONST_64_PREAMBLE			\
++		ALTERNATIVE_2(						\
++			RISCV_RUNTIME_CONST_64_BASE,			\
++			RISCV_RUNTIME_CONST_64_ZBA,			\
++			0, RISCV_ISA_EXT_ZBA, 1,			\
++			RISCV_RUNTIME_CONST_64_ZBKB,			\
++			0, RISCV_ISA_EXT_ZBKB, 1			\
++		)							\
++		RISCV_RUNTIME_CONST_64_POSTAMBLE(sym)			\
++		: [__ret] "=r" (__ret), [__tmp] "=r" (__tmp));		\
++	__ret;								\
++})
++#elif defined(CONFIG_RISCV_ISA_ZBA)
++#define runtime_const_ptr(sym)						\
++({									\
++	typeof(sym) __ret, __tmp;					\
++	asm_inline(RISCV_RUNTIME_CONST_64_PREAMBLE			\
++		ALTERNATIVE(						\
++			RISCV_RUNTIME_CONST_64_BASE,			\
++			RISCV_RUNTIME_CONST_64_ZBA,			\
++			0, RISCV_ISA_EXT_ZBA, 1				\
++		)							\
++		RISCV_RUNTIME_CONST_64_POSTAMBLE(sym)			\
++		: [__ret] "=r" (__ret), [__tmp] "=r" (__tmp));		\
++	__ret;								\
++})
++#elif defined(CONFIG_RISCV_ISA_ZBKB)
++#define runtime_const_ptr(sym)						\
++({									\
++	typeof(sym) __ret, __tmp;					\
++	asm_inline(RISCV_RUNTIME_CONST_64_PREAMBLE			\
++		ALTERNATIVE(						\
++			RISCV_RUNTIME_CONST_64_BASE,			\
++			RISCV_RUNTIME_CONST_64_ZBKB,			\
++			0, RISCV_ISA_EXT_ZBKB, 1			\
++		)							\
++		RISCV_RUNTIME_CONST_64_POSTAMBLE(sym)			\
++		: [__ret] "=r" (__ret), [__tmp] "=r" (__tmp));		\
++	__ret;								\
++})
++#else
++#define runtime_const_ptr(sym)						\
++({									\
++	typeof(sym) __ret, __tmp;					\
++	asm_inline(RISCV_RUNTIME_CONST_64_PREAMBLE			\
++		RISCV_RUNTIME_CONST_64_BASE				\
++		RISCV_RUNTIME_CONST_64_POSTAMBLE(sym)			\
++		: [__ret] "=r" (__ret), [__tmp] "=r" (__tmp));		\
++	__ret;								\
++})
++#endif
++#endif
++
++#define runtime_const_shift_right_32(val, sym)			\
++({								\
++	u32 __ret;						\
++	asm_inline(".option push\n\t"				\
++		".option norvc\n\t"				\
++		"1:\t"						\
++		SRLI " %[__ret],%[__val],12\n\t"		\
++		".option pop\n\t"				\
++		".pushsection runtime_shift_" #sym ",\"a\"\n\t"	\
++		".long 1b - .\n\t"				\
++		".popsection"					\
++		: [__ret] "=r" (__ret)				\
++		: [__val] "r" (val));				\
++	__ret;							\
++})
++
++#define runtime_const_init(type, sym) do {			\
++	extern s32 __start_runtime_##type##_##sym[];		\
++	extern s32 __stop_runtime_##type##_##sym[];		\
++								\
++	runtime_const_fixup(__runtime_fixup_##type,		\
++			    (unsigned long)(sym),		\
++			    __start_runtime_##type##_##sym,	\
++			    __stop_runtime_##type##_##sym);	\
++} while (0)
++
++static inline void __runtime_fixup_caches(void *where, unsigned int insns)
++{
++	/* On riscv there are currently only cache-wide flushes so va is ignored. */
++	__always_unused uintptr_t va = (uintptr_t)where;
++
++	flush_icache_range(va, va + 4 * insns);
++}
++
++/*
++ * The 32-bit immediate is stored in a lui+addi pairing.
++ * lui holds the upper 20 bits of the immediate in the first 20 bits of the instruction.
++ * addi holds the lower 12 bits of the immediate in the first 12 bits of the instruction.
++ */
++static inline void __runtime_fixup_32(__le16 *lui_parcel, __le16 *addi_parcel, unsigned int val)
++{
++	unsigned int lower_immediate, upper_immediate;
++	u32 lui_insn, addi_insn, addi_insn_mask;
++	__le32 lui_res, addi_res;
++
++	/* Mask out upper 12 bit of addi */
++	addi_insn_mask = 0x000fffff;
++
++	lui_insn = (u32)le16_to_cpu(lui_parcel[0]) | (u32)le16_to_cpu(lui_parcel[1]) << 16;
++	addi_insn = (u32)le16_to_cpu(addi_parcel[0]) | (u32)le16_to_cpu(addi_parcel[1]) << 16;
++
++	lower_immediate = sign_extend32(val, 11);
++	upper_immediate = (val - lower_immediate);
++
++	if (upper_immediate & 0xfffff000) {
++		/* replace upper 20 bits of lui with upper immediate */
++		lui_insn &= 0x00000fff;
++		lui_insn |= upper_immediate & 0xfffff000;
++	} else {
++		/* replace lui with nop if immediate is small enough to fit in addi */
++		lui_insn = RISCV_INSN_NOP4;
++		/* 
++		 * lui is being skipped, so do a load instead of an add. A load
++		 * is performed by adding with the x0 register. Setting rs to
++		 * zero with the following mask will accomplish this goal.
++		 */
++		addi_insn_mask &= 0x07fff;
++	}
++
++	if (lower_immediate & 0x00000fff) {
++		/* replace upper 12 bits of addi with lower 12 bits of val */
++		addi_insn &= addi_insn_mask;
++		addi_insn |= (lower_immediate & 0x00000fff) << 20;
++	} else {
++		/* replace addi with nop if lower_immediate is empty */
++		addi_insn = RISCV_INSN_NOP4;
++	}
++
++	addi_res = cpu_to_le32(addi_insn);
++	lui_res = cpu_to_le32(lui_insn);
++	mutex_lock(&text_mutex);
++	patch_insn_write(addi_parcel, &addi_res, sizeof(addi_res));
++	patch_insn_write(lui_parcel, &lui_res, sizeof(lui_res));
++	mutex_unlock(&text_mutex);
++}
++
++static inline void __runtime_fixup_ptr(void *where, unsigned long val)
++{
++#ifdef CONFIG_32BIT
++		__runtime_fixup_32(where, where + 4, val);
++		__runtime_fixup_caches(where, 2);
++#else
++		__runtime_fixup_32(where, where + 8, val);
++		__runtime_fixup_32(where + 4, where + 12, val >> 32);
++		__runtime_fixup_caches(where, 4);
++#endif
++}
++
++/*
++ * Replace the least significant 5 bits of the srli/srliw immediate that is
++ * located at bits 20-24
++ */
++static inline void __runtime_fixup_shift(void *where, unsigned long val)
++{
++	__le16 *parcel = where;
++	__le32 res;
++	u32 insn;
++
++	insn = (u32)le16_to_cpu(parcel[0]) | (u32)le16_to_cpu(parcel[1]) << 16;
++
++	insn &= 0xfe0fffff;
++	insn |= (val & 0b11111) << 20;
++
++	res = cpu_to_le32(insn);
++	mutex_lock(&text_mutex);
++	patch_text_nosync(where, &res, sizeof(insn));
++	mutex_unlock(&text_mutex);
++}
++
++static inline void runtime_const_fixup(void (*fn)(void *, unsigned long),
++				       unsigned long val, s32 *start, s32 *end)
++{
++	while (start < end) {
++		fn(*start + (void *)start, val);
++		start++;
++	}
++}
++
++#endif /* _ASM_RISCV_RUNTIME_CONST_H */
+diff --git a/arch/riscv/kernel/vmlinux.lds.S b/arch/riscv/kernel/vmlinux.lds.S
+index 002ca58dd998cb78b662837b5ebac988fb6c77bb..61bd5ba6680a786bf1db7dc37bf1acda0639b5c7 100644
+--- a/arch/riscv/kernel/vmlinux.lds.S
++++ b/arch/riscv/kernel/vmlinux.lds.S
+@@ -97,6 +97,9 @@ SECTIONS
+ 	{
+ 		EXIT_DATA
  	}
++
++	RUNTIME_CONST_VARIABLES
++
+ 	PERCPU_SECTION(L1_CACHE_BYTES)
  
- 	if (early_boot_irqs_disabled) {
+ 	.rel.dyn : {
 
 -- 
 2.43.0
