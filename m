@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5383EC35FF1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C556DC35FF1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:13:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,61 +13,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:Message-Id:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=2VwqYdwIrhvSgi+6cbuIe4r5DB+P1Qo6TSLgXYoWUiE=; b=O3mw4sGHdvmCYROhHyrWY7DO2h
-	ng8k5OIEpuPCAt4WgXL0+m7yVxlJ1/xyG/D//3rv30ScbbWXlsreaBdzpY0wdDwhf7Z0fMU2zbxqD
-	r1RH1MXJeGZ3JiJf95Vhd1VPfU474CvBZpYYmb6PyIWJM5b7TY32YVeXWLI+bLhec/L7OEwXApZn4
-	YB7p7Fn0bOUgHDW78tuSrNNzqLEr8cEBvhY3q0Ly6o1mSthV2lrPJezeQe5i9e8oekg4IHBcbu3vg
-	Gd49L77f9+w6off0PMgw+k62B34TTPETfO8wU1zIFss1gbiQNLC5FZC2HqAd1nffWP8qJoa1hXa1z
-	eJchVEew==;
+	bh=yrR3eZHPZ8FeaUiy52e4JumIhFK11Ym2hJlH5HN3QJE=; b=AAKVCDQ4uA9tsRkg5V6NZxO7Ij
+	HQZ8+SopANyRsTUQnQ5SlaWs2ejgfgTQGjaMmxG1B79l8z1w3Jfvf8JCtX0BrTrBGtWHjREt8T7a6
+	S7fdbUEiM3XEKvMbLkW80D3S6qKUwi14KGvbKujOsF9AOR2g66YLC7G3N67KYBqTyjbjarx4T/BHu
+	N8f9y8aNaZK/MvKfWjEL9GjrhR1nEvS9lAATBwJMVIOp+6/ibWPKYRYd0McFp+nIAVpW/bTv+xhTM
+	dk7WIiDP4SggNDHUd8pPICBgvkOjppQhJROtisOEmJHYVm3xgcy8yS2cc/F5ALcnnpvlu+N4l3B+M
+	2apc7jfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuli0-000000081Uw-0fdD;
-	Wed, 19 Mar 2025 05:11:16 +0000
-Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
+	id 1tulje-000000081o0-36WM;
+	Wed, 19 Mar 2025 05:12:58 +0000
+Received: from mail-yw1-x114a.google.com ([2607:f8b0:4864:20::114a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tulef-000000080gF-0HBM
+	id 1tuleh-000000080hq-44aY
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 05:07:50 +0000
-Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e63458181eeso10293193276.0
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:07:48 -0700 (PDT)
+	Wed, 19 Mar 2025 05:07:53 +0000
+Received: by mail-yw1-x114a.google.com with SMTP id 00721157ae682-6f2737d115eso84463947b3.2
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:07:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360867; x=1742965667; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742360870; x=1742965670; darn=lists.infradead.org;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=abYRMOxViqYMp92GMDii3ruSxpFYmB3QwrQR3Z5L6HY=;
-        b=yJNhReJzkxm2e8LGhYEiqjWled5/44YViF/cY6eFVtPrRmoNX1Fl5PdOMsgh00ne+p
-         LybWA3kfuqMCUv9jJs3Xz9BIwMmi1g3hK9x2R9EQ6E+DFEWPdiw7T/RmYUyf+8TDBEQU
-         Wx8eGO3ANgLrJog3lub0oSAsMr+30/luv7MIh4S4muWRDE5FP7LMljVRUv8xdD7n6wTh
-         eV2Jvr7KEf7ha1bfo6Yf+7xy+0SGx+OG64ZEc2qz16Fbo2nKDvTHDT+Ne5B8vAZZhUzp
-         f3PaSrb3sh01n+7uwwJBcHgvp5kuLtSBqsWbkLsN7DbJTXFRtnUdph6dBCPgOkfoIomy
-         ZzJg==
+        bh=XQUhpTPLVb6N2m+nc4ISL7gti6LwY0Os+AgxG8mcvpY=;
+        b=H9zOjDEHSRtwjh5Bzz9+hjtmSDY8fUaI6sSjDtXCWwMcqY35xCzgH8lMBMClZ3RCch
+         tX8zAYhKM0JAlioSRrH0VUfdvXeBFEFfGMDpXXaHdPpqld5G+w2RidHjEPPIrO7aAoNc
+         t+ikV40RZQhw9iz3of60PXoObjWwHac4LDZd9ZJHdu1m0b3Mkzyd7oue2jsA42W9RmIs
+         zNLcG2dLwH7b7PeEY4UbyaJ8YOJiyhtCxJVh2HeR6D0NtobyUGnuSnyZFV6VBkezfjtI
+         D/X8zRc5Asx8wIBQTqluXsNVPWQ9sj2yJYUUiVgoaUgiEztS/UfEJ4z1pUnXEqykEtmR
+         mHdQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360867; x=1742965667;
+        d=1e100.net; s=20230601; t=1742360870; x=1742965670;
         h=cc:to:from:subject:references:mime-version:message-id:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=abYRMOxViqYMp92GMDii3ruSxpFYmB3QwrQR3Z5L6HY=;
-        b=ntq5DYGN2d5zZ+Ymm5YbVN127iKa+OB1cOpObfkmIYgawG/uM9FVIUP6doHVH/N3YQ
-         tR+nNzH0YkaZK4fln5W7/v7A4hy/uelE74YTPdUzcET2QvLccnKOHc/sLklsgnRICKro
-         1eQLXavb0pyseAxHB57gd7heOMAHpLB3eLn7lciTBkCqAw9raPZomQGOdETNHglG1MyM
-         KbshQwPLj270BzXoYLEtvE4uUYwtmaE+nzFVssGP2TZZUU8sPyKjRlAREmttZSOvhSPB
-         ELVSbKQALDXExdLsW/8/Nt+KMJdZcp/uNr6jZLIHdDUU6Utyx2DS4H7N/BzjLIi9fyOC
-         BvTA==
-X-Forwarded-Encrypted: i=1; AJvYcCUSyLtXaHgYfII2T61gOt1fMFsQg9fPdydFeFfVi+NRzaE/gMdJXT2R3qAANkAmvOdnD4VgdFtrCTp15Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxA5SJEm+J83Jr+qZ0EeDfj+YeDNmPwMlobggra7M1OdYLYaclk
-	chBWfUKWrphYOlz2HnO7X11x6vvFOIhFdu53ZSXcPxS78E8VDru6eCBA5zS9aD9F9qtDJblj6nA
-	VrUSg7Q==
-X-Google-Smtp-Source: AGHT+IGRmoWaZCuVB5ee3Iv2LzVEuNeEJLA9zgD9tzBFtuvqHm9F4Ignee+o0RWj2MTQlY6HLf9109e/Wj7N
+        bh=XQUhpTPLVb6N2m+nc4ISL7gti6LwY0Os+AgxG8mcvpY=;
+        b=Ux3RhCyHIRVGvo4bnCPNF2meWnQ/7otk7j7UGfB1a/PX6Dy2E0ytsv7lfUdVglAeRO
+         1NUVDqWAmwmWKk1cicEM4NXoh7/R9pZ2YTy2o0EzROYptNPhaESawnH4hoV1k/Dp6PfS
+         zspgICwsA38/KOOgVUdD3MzcsBHjUSID66w+caikb5TetUrRZ188kN/rlLLhssGJjQqm
+         aRZcXQAVbKaBttPH0n0D/fgvkD9BN+DQdtWlRHpPJs1hGqX/dlpjBIRE6v+IefCn/hOV
+         SImD+A/eISNaK3J3B0fAL/MYPnxRmv1kfpm/vO7XArhF3ldE3Pcdr/zqwbtRpPJwgD5S
+         om9w==
+X-Forwarded-Encrypted: i=1; AJvYcCVn2xQfxp219CTB2M50KEqXT+7ePYfeFLH4zb93o74qeSdLtkyIQG3D4Z9N57Bc3YrwldUCntVDwu2HHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBJIZms7JOD5OfCh3oWiUnKHv7vKcP3wXgufHuCYK58clOqZyR
+	na21Wm9YiRE4q9XuMTaINIoXcS92F0vUsES/8g0GfttxJFgW69CKqK0it/R51h8/ucibrKSdXor
+	r39deOA==
+X-Google-Smtp-Source: AGHT+IHOW262Yn1ggfPbRXiaD4JOO6KMlLE7LTu3k1LoYE6sevtUdiYlZtBYV3AOcRBRzOEXQI22siUbHecM
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a25:b323:0:b0:e5b:f74:f5a with SMTP id
- 3f1490d57ef6-e667b456dc4mr504276.8.1742360867177; Tue, 18 Mar 2025 22:07:47
- -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:28 -0700
+ (user=irogers job=sendgmr) by 2002:a05:690c:6912:b0:6f9:98c3:a191 with SMTP
+ id 00721157ae682-7009bf44550mr5967b3.2.1742360869976; Tue, 18 Mar 2025
+ 22:07:49 -0700 (PDT)
+Date: Tue, 18 Mar 2025 22:07:29 -0700
 In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-2-irogers@google.com>
+Message-Id: <20250319050741.269828-3-irogers@google.com>
 Mime-Version: 1.0
 References: <20250319050741.269828-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 01/14] perf dso: Move libunwind dso_data variables into ifdef
+Subject: [PATCH v7 02/14] perf dso: kernel-doc for enum dso_binary_type
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -87,8 +87,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	Arnd Bergmann <arnd@arndb.de>
 Cc: Arnaldo Carvalho de Melo <acme@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220749_104007_DB5FC0E6 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250318_220752_005894_854DF65F 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,34 +105,108 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The variables elf_base_addr, debug_frame_offset, eh_frame_hdr_addr and
-eh_frame_hdr_offset are only accessed in unwind-libunwind-local.c
-which is conditionally built on having libunwind support. Make the
-variables conditional on libunwind support too.
+There are many and non-obvious meanings to the dso_binary_type enum
+values. Add kernel-doc to speed interpretting their meanings.
 
-Reviewed-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Acked-by: Arnaldo Carvalho de Melo <acme@redhat.com>
 Signed-off-by: Ian Rogers <irogers@google.com>
 ---
- tools/perf/util/dso.h | 2 ++
- 1 file changed, 2 insertions(+)
+ tools/perf/util/dso.h | 57 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
 diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-index 846b74510038..2cc1f6593f9e 100644
+index 2cc1f6593f9e..53e3b9b337e5 100644
 --- a/tools/perf/util/dso.h
 +++ b/tools/perf/util/dso.h
-@@ -155,10 +155,12 @@ struct dso_data {
- 	int		 status;
- 	u32		 status_seen;
- 	u64		 file_size;
-+#ifdef HAVE_LIBUNWIND_SUPPORT
- 	u64		 elf_base_addr;
- 	u64		 debug_frame_offset;
- 	u64		 eh_frame_hdr_addr;
- 	u64		 eh_frame_hdr_offset;
-+#endif
+@@ -20,31 +20,88 @@ struct perf_env;
+ #define DSO__NAME_KALLSYMS	"[kernel.kallsyms]"
+ #define DSO__NAME_KCORE		"[kernel.kcore]"
+ 
++/**
++ * enum dso_binary_type - The kind of DSO generally associated with a memory
++ *                        region (struct map).
++ */
+ enum dso_binary_type {
++	/** @DSO_BINARY_TYPE__KALLSYMS: Symbols from /proc/kallsyms file. */
+ 	DSO_BINARY_TYPE__KALLSYMS = 0,
++	/** @DSO_BINARY_TYPE__GUEST_KALLSYMS: Guest /proc/kallsyms file. */
+ 	DSO_BINARY_TYPE__GUEST_KALLSYMS,
++	/** @DSO_BINARY_TYPE__VMLINUX: Path to kernel /boot/vmlinux file. */
+ 	DSO_BINARY_TYPE__VMLINUX,
++	/** @DSO_BINARY_TYPE__GUEST_VMLINUX: Path to guest kernel /boot/vmlinux file. */
+ 	DSO_BINARY_TYPE__GUEST_VMLINUX,
++	/** @DSO_BINARY_TYPE__JAVA_JIT: Symbols from /tmp/perf.map file. */
+ 	DSO_BINARY_TYPE__JAVA_JIT,
++	/**
++	 * @DSO_BINARY_TYPE__DEBUGLINK: Debug file readable from the file path
++	 * in the .gnu_debuglink ELF section of the dso.
++	 */
+ 	DSO_BINARY_TYPE__DEBUGLINK,
++	/**
++	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE: File named after buildid located in
++	 * the buildid cache with an elf filename.
++	 */
+ 	DSO_BINARY_TYPE__BUILD_ID_CACHE,
++	/**
++	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO: File named after buildid
++	 * located in the buildid cache with a debug filename.
++	 */
+ 	DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO,
++	/**
++	 * @DSO_BINARY_TYPE__FEDORA_DEBUGINFO: Debug file in /usr/lib/debug
++	 * with .debug suffix.
++	 */
+ 	DSO_BINARY_TYPE__FEDORA_DEBUGINFO,
++	/** @DSO_BINARY_TYPE__UBUNTU_DEBUGINFO: Debug file in /usr/lib/debug. */
+ 	DSO_BINARY_TYPE__UBUNTU_DEBUGINFO,
++	/**
++	 * @DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO: dso__long_name debuginfo
++	 * file in /usr/lib/debug/lib rather than the expected
++	 * /usr/lib/debug/usr/lib.
++	 */
+ 	DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO,
++	/**
++	 * @DSO_BINARY_TYPE__BUILDID_DEBUGINFO: File named after buildid located
++	 * in /usr/lib/debug/.build-id/.
++	 */
+ 	DSO_BINARY_TYPE__BUILDID_DEBUGINFO,
++	/**
++	 * @DSO_BINARY_TYPE__GNU_DEBUGDATA: MiniDebuginfo where a compressed
++	 * ELF file is placed in a .gnu_debugdata section.
++	 */
+ 	DSO_BINARY_TYPE__GNU_DEBUGDATA,
++	/** @DSO_BINARY_TYPE__SYSTEM_PATH_DSO: A regular executable/shared-object file. */
+ 	DSO_BINARY_TYPE__SYSTEM_PATH_DSO,
++	/** @DSO_BINARY_TYPE__GUEST_KMODULE: Guest kernel module .ko file. */
+ 	DSO_BINARY_TYPE__GUEST_KMODULE,
++	/** @DSO_BINARY_TYPE__GUEST_KMODULE_COMP: Guest kernel module .ko.gz file. */
+ 	DSO_BINARY_TYPE__GUEST_KMODULE_COMP,
++	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE: Kernel module .ko file. */
+ 	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE,
++	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP: Kernel module .ko.gz file. */
+ 	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP,
++	/** @DSO_BINARY_TYPE__KCORE: /proc/kcore file. */
+ 	DSO_BINARY_TYPE__KCORE,
++	/** @DSO_BINARY_TYPE__GUEST_KCORE: Guest /proc/kcore file. */
+ 	DSO_BINARY_TYPE__GUEST_KCORE,
++	/**
++	 * @DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO: Openembedded/Yocto -dbg
++	 * package debug info.
++	 */
+ 	DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO,
++	/** @DSO_BINARY_TYPE__BPF_PROG_INFO: jitted BPF code. */
+ 	DSO_BINARY_TYPE__BPF_PROG_INFO,
++	/** @DSO_BINARY_TYPE__BPF_IMAGE: jitted BPF trampoline or dispatcher code. */
+ 	DSO_BINARY_TYPE__BPF_IMAGE,
++	/**
++	 * @DSO_BINARY_TYPE__OOL: out of line code such as kprobe-replaced
++	 * instructions or optimized kprobes or ftrace trampolines.
++	 */
+ 	DSO_BINARY_TYPE__OOL,
++	/** @DSO_BINARY_TYPE__NOT_FOUND: Unknown DSO kind. */
+ 	DSO_BINARY_TYPE__NOT_FOUND,
  };
  
- struct dso_bpf_prog {
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
