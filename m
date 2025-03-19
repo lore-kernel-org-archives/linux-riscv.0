@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72609C35FF1
-	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:14:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62F6CC35FF1
+	for <linux-riscv@archiver.kernel.org>; Wed, 19 Mar 2025 05:18:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:References:Mime-Version
 	:Message-Id:In-Reply-To:Date:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gj9In4SF4sw3XDKEOo4mm5HCsDU2ulyiF5qrvQgxVDk=; b=3Eu1eAiNFB2jfw
-	s98Hs+gFqDnXj9jFCe4ax7dIr7O1neFRtqIGhID0xhJl7I9FMMbLVhaHyvR/TSh4EUzi2b24D6KnS
-	m4xZFii7juh9Pn5ORMPQSWEoQ7TjFA/MAewZAgucqE9Z3Y1NNYelsoHTLsHpAk3rSrKep1BA6mcpb
-	l/VGOvqoOkn4XeEoBc1qVzeIHMRICNqS+eKxlNWQBV7EghQVkGx2BcQlisJfrEgTTcZzJnuPER5eU
-	TMQijlfS+a7Exsm+/x7Ora7iC8Q8SwThsCePYYn4FuupJs3stEsgD+csQ6PBnpYbHsGrOAU/+68ic
-	4BxR+MY0QCaZWpbMVOHg==;
+	List-Owner; bh=v9N6h39/R51kY5USa6J8kwizVdAd5vHUysR7BLxYgrU=; b=dqdOzE497K2BxM
+	BC40nlFaDA2hEuv54eCoU0B7OXJiLjyDnH0zLYv/d84t7Wrm948ZvcuTzGKytaQHQQdhehRXo1DL1
+	RBiPiJ2TVtwaP8v7quRJmv3FBA8LIp1yCn+rpROnC1o88TnkdiV721Z104fqZjPo7eK/13FnpTfSg
+	beBUPI6jZy9QXoSKL3V1KKaNAZMXESgF9E1pgAKDhHsy2PQTPaRjH7Dgii1vyvMWMosfZPqW9Chb3
+	ph72OgUIbENVOOGHROWEcE98o0HSPFcuHJ7fwp7iqxsSk0BvWrYwZ3Jpj3+PMFlnCz1TRBb1ZXCqm
+	HYfwVHuRZMBpuviJnY7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tullL-0000000825T-1AGX;
-	Wed, 19 Mar 2025 05:14:43 +0000
-Received: from mail-yw1-x1149.google.com ([2607:f8b0:4864:20::1149])
+	id 1tulod-000000082NF-3q0b;
+	Wed, 19 Mar 2025 05:18:07 +0000
+Received: from mail-yb1-xb49.google.com ([2607:f8b0:4864:20::b49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tuleo-000000080ku-28Rg
+	id 1tulem-000000080jk-17o6
 	for linux-riscv@lists.infradead.org;
-	Wed, 19 Mar 2025 05:08:00 +0000
-Received: by mail-yw1-x1149.google.com with SMTP id 00721157ae682-6ef85037f3bso4998857b3.1
-        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:07:57 -0700 (PDT)
+	Wed, 19 Mar 2025 05:08:01 +0000
+Received: by mail-yb1-xb49.google.com with SMTP id 3f1490d57ef6-e63aad1e67dso10271185276.1
+        for <linux-riscv@lists.infradead.org>; Tue, 18 Mar 2025 22:07:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1742360877; x=1742965677; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1742360875; x=1742965675; darn=lists.infradead.org;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=hCu3Vx7OmrvmpWlPHZUlvo0KIzrMgeMGs8eeWosVvZ8=;
-        b=uiwLAPZLlXs3jjOBZ11mUJFV/uYZ2LvaFrwhpLeJEyR1qBFRBePBGzUzWnffF+zfxt
-         7bs39VMWu+2xkvwFZ/7VqQ8H5nbmZH0+YpFaU0FeAi5B4rSwzSsrpzRWtkWXOdY3Fn1t
-         1fsFWYcD1wkOVRk2fScfs50JxXGEiZ81Ho1EmEKNkLHwnnhb3uaPxjcOeq/hGfj7JTfA
-         AWH801ZFDuUTYFQ1ckQ+HFrZvyoPqQe+Y+iSxyLHLJT6Mbeu4Jaa4pyGvKZ//aniChtq
-         ELXJF2f/Q4M6tZX806Z2bGcU+BnbY21TeAatpzSDTVIEvzPThxcoQK1fqpUIdIoXg7NM
-         gXHA==
+        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
+        b=jvQBhtOqXTLtyILfPO8D0wa3RO24tH27JIsZ4GiLKBCKeZ4/XU/x881hs+gIM/8BoI
+         KcFkZirYuKSGmi+c2FTDyaD2VfsBAt2w64riXWf55N4oVH4qSE2toBmBq/3idkB5zqDF
+         C4m4cVT2r8RV2wQrcX92YV7BrUypFBsMpqSlqbIpMgsiiTQ4J072OEp1fGBHaHzOUTGo
+         +iA/vj5ID2j244qy10ZzgXi6bapGcv07y/bSqHV+kyygl+af4WK6nQC+L/0kXCFOElji
+         dCCIVbbO9iLQd6Na807U1EfW1SX7U/GfuxgOL59M8ZUngYg0MOcNE9WoPaYgdDshMVHm
+         4ogA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742360877; x=1742965677;
+        d=1e100.net; s=20230601; t=1742360875; x=1742965675;
         h=to:from:subject:references:mime-version:message-id:in-reply-to:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hCu3Vx7OmrvmpWlPHZUlvo0KIzrMgeMGs8eeWosVvZ8=;
-        b=qES7XMLLaCvbH2+tWowoT4Hw4UEboIpPuwrXYMFdnJgBvWzh5yN3+zL+AK2UF/P7xN
-         1rIQGKl/xrh/CLN7poXBLRgwZkLhm0IswYYp5qwUh5vvNKWm7EnM83mqN5vaLhEXLISw
-         wyP2I0N4GZ+eoWzXegVWrFKejST7uqowGkMxUdG1/zGW+FWjfmwuO2/Bi/fQjZG4hsNs
-         x2MH5LSmEUUEEGJ8ldqd+S+ZheD7ajSwg2l7pmllTMlNkcIwulttIlMdKP0J54cuCrOm
-         tI7ndBTXiVEZjX8W1K7kx4tFgDem9QBdjhbfpCuHbapWY7zcHpSfkkVsHg9eqndO06lf
-         uTkA==
-X-Forwarded-Encrypted: i=1; AJvYcCWrsMfImx8gqf9xIJfyTaXZ5GsTJmhhJm5JNg3GY9EgAxuxDhUzvpolYHkEbEf5hchpxc9oICyQRgyChw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDZbsiRg59xTaRF8tEKSsx6DNwrpVD1iZitahxeGiEKjfgItZy
-	8a7ppNxXr7Ohvq+Bi6hoCHvRPJxhMQUrkRRAELvjq34snrL3uvUogWiX8LKtvE5CrqxRfI5DMgD
-	ZcIaruQ==
-X-Google-Smtp-Source: AGHT+IFFuCfBJcXKbtLFy1Oq1UnQYe25pK9PgSHo3asgGuzg+QqZEsnz8KyEWhdkGx9fDGrtTzz67Y05pfJi
+        bh=O1nK5uvxYAHiuhO7vp1MDxMA7qbFQ4SO2G8OmMvCRSM=;
+        b=SXAk1R+1cp2Q8Lfv7bCqlHHvcsYk4upleqrfgtt40ncQLMCLSfncX8NXVDHgJpbFn0
+         cKVIo52f5MugtpmQTSKmzr/ELrss2f253CIRy9BTI0orof6HkO9B0s3b6eSFPO1g48Zt
+         igyS4OANGUyMzN4GDdTKbGEmDTBCDS91bo6zLmlEDeXle97BBjzJlMH0qW71p0pz9XBP
+         VIB2BR2wLC7xz+Nyxyo2nlJWmDYwOk8OYQCPQ+Jl16TfUWIBxEPea3NIE1sgp+JxTbsH
+         eO9YZ6ll+1wRXtPZZfU0MNOgCjr4tCK4PIWq/c6AeB5A6PcQKq/B/NtUwa9oLSR0EKS8
+         Khhg==
+X-Forwarded-Encrypted: i=1; AJvYcCUjtN1QmVQSaZp1l5U4+gbUI9ex/irXxBEGfvC8s+4XJs7uh7a71c916fAe6F2PwV94jQeneD8AVQueEg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw8Z0WI0E5zkvc0m/7dkDNHAuoEmmj/YUNG04F1nZMwk8pmHvqi
+	E2MPYTCMKNWmWVCt4yTsGkb/7gZtvWJTqPskZGK0DhfznPyg0n3k9LfezuNT1LSZmfKFLQUPxaC
+	WyXEwSg==
+X-Google-Smtp-Source: AGHT+IFUeD1q1mcBgOYS6b/K4PBymwrwksBbIlprzmhn8jIvW3OyAPriR4x65RqgffXv43hJ4u3eA1io7qGZ
 X-Received: from irogers.svl.corp.google.com ([2620:15c:2c5:11:8a11:10b5:af90:6031])
- (user=irogers job=sendgmr) by 2002:a05:6902:20ca:b0:e5b:1418:5733 with SMTP
- id 3f1490d57ef6-e667b40dd71mr812276.5.1742360877089; Tue, 18 Mar 2025
- 22:07:57 -0700 (PDT)
-Date: Tue, 18 Mar 2025 22:07:32 -0700
+ (user=irogers job=sendgmr) by 2002:a25:b183:0:b0:e60:8c57:d650 with SMTP id
+ 3f1490d57ef6-e667b42f1edmr499276.4.1742360874651; Tue, 18 Mar 2025 22:07:54
+ -0700 (PDT)
+Date: Tue, 18 Mar 2025 22:07:31 -0700
 In-Reply-To: <20250319050741.269828-1-irogers@google.com>
-Message-Id: <20250319050741.269828-6-irogers@google.com>
+Message-Id: <20250319050741.269828-5-irogers@google.com>
 Mime-Version: 1.0
 References: <20250319050741.269828-1-irogers@google.com>
 X-Mailer: git-send-email 2.49.0.rc1.451.g8f38331e32-goog
-Subject: [PATCH v7 05/14] perf syscalltbl: Remove struct syscalltbl
+Subject: [PATCH v7 04/14] perf trace: Reorganize syscalls
 From: Ian Rogers <irogers@google.com>
 To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>, 
 	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
@@ -85,8 +85,8 @@ To: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
 	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>, linux-riscv@lists.infradead.org, 
 	Arnd Bergmann <arnd@arndb.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250318_220758_555214_83BAC231 
-X-CRM114-Status: GOOD (  27.48  )
+X-CRM114-CacheID: sfid-20250318_220756_308901_7512CD83 
+X-CRM114-Status: GOOD (  26.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,607 +103,434 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The syscalltbl held entries of system call name and number pairs,
-generated from a native syscalltbl at start up. As there are gaps in
-the system call number there is a notion of index into the
-table. Going forward we want the system call table to be identifiable
-by a machine type, for example, i386 vs x86-64. Change the interface
-to the syscalltbl so (1) a (currently unused machine type of EM_HOST)
-is passed (2) the index to syscall number and system call name mapping
-is computed at build time.
-
-Two tables are used for this, an array of system call number to name,
-an array of system call numbers sorted by the system call name. The
-sorted array doesn't store strings in part to save memory and
-relocations. The index notion is carried forward and is an index into
-the sorted array of system call numbers, the data structures are
-opaque (held only in syscalltbl.c), and so the number of indices for a
-machine type is exposed as a new API.
-
-The arrays are computed in the syscalltbl.sh script and so no start-up
-time computation and storage is necessary.
+Identify struct syscall information in the syscalls table by a machine
+type and syscall number, not just system call number. Having the
+machine type means that 32-bit system calls can be differentiated from
+64-bit ones on a machine capable of both. Having a table for all
+machine types and all system call numbers would be too large, so
+maintain a sorted array of system calls as they are encountered.
 
 Signed-off-by: Ian Rogers <irogers@google.com>
 Reviewed-by: Howard Chu <howardchu95@gmail.com>
 Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
 ---
- tools/perf/builtin-trace.c       | 106 +++++++++++++++++------------
- tools/perf/scripts/syscalltbl.sh |  36 ++++------
- tools/perf/util/syscalltbl.c     | 113 ++++++++++---------------------
- tools/perf/util/syscalltbl.h     |  22 ++----
- 4 files changed, 117 insertions(+), 160 deletions(-)
+ tools/perf/builtin-trace.c | 197 +++++++++++++++++++++++++------------
+ 1 file changed, 132 insertions(+), 65 deletions(-)
 
 diff --git a/tools/perf/builtin-trace.c b/tools/perf/builtin-trace.c
-index bdfd3d5128b7..3017291242cf 100644
+index 092c5f6404ba..bdfd3d5128b7 100644
 --- a/tools/perf/builtin-trace.c
 +++ b/tools/perf/builtin-trace.c
-@@ -149,7 +149,6 @@ enum summary_mode {
+@@ -66,6 +66,7 @@
+ #include "syscalltbl.h"
+ #include "../perf.h"
+ #include "trace_augment.h"
++#include "dwarf-regs.h"
  
- struct trace {
+ #include <errno.h>
+ #include <inttypes.h>
+@@ -86,6 +87,7 @@
+ 
+ #include <linux/ctype.h>
+ #include <perf/mmap.h>
++#include <tools/libc_compat.h>
+ 
+ #ifdef HAVE_LIBTRACEEVENT
+ #include <event-parse.h>
+@@ -149,7 +151,10 @@ struct trace {
  	struct perf_tool	tool;
--	struct syscalltbl	*sctbl;
+ 	struct syscalltbl	*sctbl;
  	struct {
- 		/** Sorted sycall numbers used by the trace. */
++		/** Sorted sycall numbers used by the trace. */
  		struct syscall  *table;
-@@ -188,6 +187,14 @@ struct trace {
- 		pid_t		*entries;
- 		struct bpf_map  *map;
- 	}			filter_pids;
-+	/*
-+	 * TODO: The map is from an ID (aka system call number) to struct
-+	 * syscall_stats. If there is >1 e_machine, such as i386 and x86-64
-+	 * processes, then the stats here will gather wrong the statistics for
-+	 * the non EM_HOST system calls. A fix would be to add the e_machine
-+	 * into the key, but this would make the code inconsistent with the
-+	 * per-thread version.
-+	 */
- 	struct hashmap		*syscall_stats;
- 	double			duration_filter;
- 	double			runtime_ms;
-@@ -2141,7 +2148,7 @@ static int syscall__read_info(struct syscall *sc, struct trace *trace)
- 		return 0;
- 	}
++		/** Size of table. */
++		size_t		table_size;
+ 		struct {
+ 			struct evsel *sys_enter,
+ 				*sys_exit,
+@@ -1454,22 +1459,37 @@ static const struct syscall_fmt *syscall_fmt__find_by_alias(const char *alias)
+ 	return __syscall_fmt__find_by_alias(syscall_fmts, nmemb, alias);
+ }
  
--	name = syscalltbl__name(trace->sctbl, sc->id);
-+	name = syscalltbl__name(sc->e_machine, sc->id);
+-/*
+- * is_exit: is this "exit" or "exit_group"?
+- * is_open: is this "open" or "openat"? To associate the fd returned in sys_exit with the pathname in sys_enter.
+- * args_size: sum of the sizes of the syscall arguments, anything after that is augmented stuff: pathname for openat, etc.
+- * nonexistent: Just a hole in the syscall table, syscall id not allocated
++/**
++ * struct syscall
+  */
+ struct syscall {
++	/** @e_machine: The ELF machine associated with the entry. */
++	int e_machine;
++	/** @id: id value from the tracepoint, the system call number. */
++	int id;
+ 	struct tep_event    *tp_format;
+ 	int		    nr_args;
++	/**
++	 * @args_size: sum of the sizes of the syscall arguments, anything
++	 * after that is augmented stuff: pathname for openat, etc.
++	 */
++
+ 	int		    args_size;
+ 	struct {
+ 		struct bpf_program *sys_enter,
+ 				   *sys_exit;
+ 	}		    bpf_prog;
++	/** @is_exit: is this "exit" or "exit_group"? */
+ 	bool		    is_exit;
++	/**
++	 * @is_open: is this "open" or "openat"? To associate the fd returned in
++	 * sys_exit with the pathname in sys_enter.
++	 */
+ 	bool		    is_open;
++	/**
++	 * @nonexistent: Name lookup failed. Just a hole in the syscall table,
++	 * syscall id not allocated.
++	 */
+ 	bool		    nonexistent;
+ 	bool		    use_btf;
+ 	struct tep_format_field *args;
+@@ -2107,22 +2127,21 @@ static int syscall__set_arg_fmts(struct syscall *sc)
+ 	return 0;
+ }
+ 
+-static int trace__read_syscall_info(struct trace *trace, int id)
++static int syscall__read_info(struct syscall *sc, struct trace *trace)
+ {
+ 	char tp_name[128];
+-	struct syscall *sc;
+-	const char *name = syscalltbl__name(trace->sctbl, id);
++	const char *name;
+ 	int err;
+ 
+-	if (trace->syscalls.table == NULL) {
+-		trace->syscalls.table = calloc(trace->sctbl->syscalls.max_id + 1, sizeof(*sc));
+-		if (trace->syscalls.table == NULL)
+-			return -ENOMEM;
+-	}
+-	sc = trace->syscalls.table + id;
+ 	if (sc->nonexistent)
+ 		return -EEXIST;
+ 
++	if (sc->name) {
++		/* Info already read. */
++		return 0;
++	}
++
++	name = syscalltbl__name(trace->sctbl, sc->id);
  	if (name == NULL) {
  		sc->nonexistent = true;
  		return -EEXIST;
-@@ -2241,10 +2248,14 @@ static int trace__validate_ev_qualifier(struct trace *trace)
+@@ -2145,15 +2164,16 @@ static int trace__read_syscall_info(struct trace *trace, int id)
+ 	 */
+ 	if (IS_ERR(sc->tp_format)) {
+ 		sc->nonexistent = true;
+-		return PTR_ERR(sc->tp_format);
++		err = PTR_ERR(sc->tp_format);
++		sc->tp_format = NULL;
++		return err;
+ 	}
  
- 	strlist__for_each_entry(pos, trace->ev_qualifier) {
- 		const char *sc = pos->s;
--		int id = syscalltbl__id(trace->sctbl, sc), match_next = -1;
-+		/*
-+		 * TODO: Assume more than the validation/warnings are all for
-+		 * the same binary type as perf.
-+		 */
-+		int id = syscalltbl__id(EM_HOST, sc), match_next = -1;
+ 	/*
+ 	 * The tracepoint format contains __syscall_nr field, so it's one more
+ 	 * than the actual number of syscall arguments.
+ 	 */
+-	if (syscall__alloc_arg_fmts(sc, IS_ERR(sc->tp_format) ?
+-					RAW_SYSCALL_ARGS_NUM : sc->tp_format->format.nr_fields - 1))
++	if (syscall__alloc_arg_fmts(sc, sc->tp_format->format.nr_fields - 1))
+ 		return -ENOMEM;
  
- 		if (id < 0) {
--			id = syscalltbl__strglobmatch_first(trace->sctbl, sc, &match_next);
-+			id = syscalltbl__strglobmatch_first(EM_HOST, sc, &match_next);
- 			if (id >= 0)
- 				goto matches;
+ 	sc->args = sc->tp_format->format.fields;
+@@ -2442,13 +2462,69 @@ static size_t syscall__scnprintf_args(struct syscall *sc, char *bf, size_t size,
+ 	return printed;
+ }
  
-@@ -2264,7 +2275,7 @@ static int trace__validate_ev_qualifier(struct trace *trace)
- 			continue;
++static void syscall__init(struct syscall *sc, int e_machine, int id)
++{
++	memset(sc, 0, sizeof(*sc));
++	sc->e_machine = e_machine;
++	sc->id = id;
++}
++
++static void syscall__exit(struct syscall *sc)
++{
++	if (!sc)
++		return;
++
++	zfree(&sc->arg_fmt);
++}
++
++static int syscall__cmp(const void *va, const void *vb)
++{
++	const struct syscall *a = va, *b = vb;
++
++	if (a->e_machine != b->e_machine)
++		return a->e_machine - b->e_machine;
++
++	return a->id - b->id;
++}
++
++static struct syscall *trace__find_syscall(struct trace *trace, int e_machine, int id)
++{
++	struct syscall key = {
++		.e_machine = e_machine,
++		.id = id,
++	};
++	struct syscall *sc, *tmp;
++
++	if (trace->syscalls.table) {
++		sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
++			     sizeof(struct syscall), syscall__cmp);
++		if (sc)
++			return sc;
++	}
++
++	tmp = reallocarray(trace->syscalls.table, trace->syscalls.table_size + 1,
++			   sizeof(struct syscall));
++	if (!tmp)
++		return NULL;
++
++	trace->syscalls.table = tmp;
++	sc = &trace->syscalls.table[trace->syscalls.table_size++];
++	syscall__init(sc, e_machine, id);
++	qsort(trace->syscalls.table, trace->syscalls.table_size, sizeof(struct syscall),
++	      syscall__cmp);
++	sc = bsearch(&key, trace->syscalls.table, trace->syscalls.table_size,
++		     sizeof(struct syscall), syscall__cmp);
++	return sc;
++}
++
+ typedef int (*tracepoint_handler)(struct trace *trace, struct evsel *evsel,
+ 				  union perf_event *event,
+ 				  struct perf_sample *sample);
  
- 		while (1) {
--			id = syscalltbl__strglobmatch_next(trace->sctbl, sc, &match_next);
-+			id = syscalltbl__strglobmatch_next(EM_HOST, sc, &match_next);
- 			if (id < 0)
- 				break;
- 			if (nr_allocated == nr_used) {
-@@ -2722,6 +2733,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
+-static struct syscall *trace__syscall_info(struct trace *trace,
+-					   struct evsel *evsel, int id)
++static struct syscall *trace__syscall_info(struct trace *trace, struct evsel *evsel,
++					   int e_machine, int id)
+ {
++	struct syscall *sc;
+ 	int err = 0;
+ 
+ 	if (id < 0) {
+@@ -2473,28 +2549,20 @@ static struct syscall *trace__syscall_info(struct trace *trace,
+ 
+ 	err = -EINVAL;
+ 
+-	if (id > trace->sctbl->syscalls.max_id) {
+-		goto out_cant_read;
+-	}
+-
+-	if ((trace->syscalls.table == NULL || trace->syscalls.table[id].name == NULL) &&
+-	    (err = trace__read_syscall_info(trace, id)) != 0)
+-		goto out_cant_read;
+-
+-	if (trace->syscalls.table && trace->syscalls.table[id].nonexistent)
+-		goto out_cant_read;
++	sc = trace__find_syscall(trace, e_machine, id);
++	if (sc)
++		err = syscall__read_info(sc, trace);
+ 
+-	return &trace->syscalls.table[id];
+-
+-out_cant_read:
+-	if (verbose > 0) {
++	if (err && verbose > 0) {
+ 		char sbuf[STRERR_BUFSIZE];
+-		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err, str_error_r(-err, sbuf, sizeof(sbuf)));
+-		if (id <= trace->sctbl->syscalls.max_id && trace->syscalls.table[id].name != NULL)
+-			fprintf(trace->output, "(%s)", trace->syscalls.table[id].name);
++
++		fprintf(trace->output, "Problems reading syscall %d: %d (%s)", id, -err,
++			str_error_r(-err, sbuf, sizeof(sbuf)));
++		if (sc && sc->name)
++			fprintf(trace->output, "(%s)", sc->name);
+ 		fputs(" information\n", trace->output);
+ 	}
+-	return NULL;
++	return err ? NULL : sc;
+ }
+ 
+ struct syscall_stats {
+@@ -2643,14 +2711,6 @@ static void *syscall__augmented_args(struct syscall *sc, struct perf_sample *sam
+ 	return NULL;
+ }
+ 
+-static void syscall__exit(struct syscall *sc)
+-{
+-	if (!sc)
+-		return;
+-
+-	zfree(&sc->arg_fmt);
+-}
+-
+ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
+ 			    union perf_event *event __maybe_unused,
+ 			    struct perf_sample *sample)
+@@ -2662,7 +2722,7 @@ static int trace__sys_enter(struct trace *trace, struct evsel *evsel,
  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
  	int augmented_args_size = 0;
  	void *augmented_args = NULL;
-+	/* TODO: get e_machine from thread. */
- 	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+-	struct syscall *sc = trace__syscall_info(trace, evsel, id);
++	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
  	struct thread_trace *ttrace;
  
-@@ -2796,6 +2808,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
+ 	if (sc == NULL)
+@@ -2736,7 +2796,7 @@ static int trace__fprintf_sys_enter(struct trace *trace, struct evsel *evsel,
  	struct thread_trace *ttrace;
  	struct thread *thread;
  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1;
-+	/* TODO: get e_machine from thread. */
- 	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+-	struct syscall *sc = trace__syscall_info(trace, evsel, id);
++	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
  	char msg[1024];
  	void *args, *augmented_args = NULL;
-@@ -2871,6 +2884,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
+ 	int augmented_args_size;
+@@ -2811,7 +2871,7 @@ static int trace__sys_exit(struct trace *trace, struct evsel *evsel,
  	struct thread *thread;
  	int id = perf_evsel__sc_tp_uint(evsel, id, sample), err = -1, callchain_ret = 0, printed = 0;
  	int alignment = trace->args_alignment;
-+	/* TODO: get e_machine from thread. */
- 	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+-	struct syscall *sc = trace__syscall_info(trace, evsel, id);
++	struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
  	struct thread_trace *ttrace;
  
-@@ -3224,6 +3238,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
+ 	if (sc == NULL)
+@@ -3164,7 +3224,7 @@ static int trace__event_handler(struct trace *trace, struct evsel *evsel,
  
  	if (evsel == trace->syscalls.events.bpf_output) {
  		int id = perf_evsel__sc_tp_uint(evsel, id, sample);
-+		/* TODO: get e_machine from thread. */
- 		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
+-		struct syscall *sc = trace__syscall_info(trace, evsel, id);
++		struct syscall *sc = trace__syscall_info(trace, evsel, EM_HOST, id);
  
  		if (sc) {
-@@ -3731,9 +3746,9 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
- 	return trace->skel->progs.syscall_unaugmented;
- }
+ 			fprintf(trace->output, "%s(", sc->name);
+@@ -3673,7 +3733,7 @@ static struct bpf_program *trace__find_syscall_bpf_prog(struct trace *trace, str
  
--static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
-+static void trace__init_syscall_bpf_progs(struct trace *trace, int e_machine, int id)
+ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
  {
--	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, e_machine, id);
+-	struct syscall *sc = trace__syscall_info(trace, NULL, id);
++	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
  
  	if (sc == NULL)
  		return;
-@@ -3742,22 +3757,22 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
- 	sc->bpf_prog.sys_exit  = trace__find_syscall_bpf_prog(trace, sc, sc->fmt ? sc->fmt->bpf_prog_name.sys_exit  : NULL,  "exit");
- }
+@@ -3684,20 +3744,20 @@ static void trace__init_syscall_bpf_progs(struct trace *trace, int id)
  
--static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
-+static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int e_machine, int id)
+ static int trace__bpf_prog_sys_enter_fd(struct trace *trace, int id)
  {
--	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, e_machine, id);
+-	struct syscall *sc = trace__syscall_info(trace, NULL, id);
++	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
  	return sc ? bpf_program__fd(sc->bpf_prog.sys_enter) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
  }
  
--static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
-+static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int e_machine, int id)
+ static int trace__bpf_prog_sys_exit_fd(struct trace *trace, int id)
  {
--	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, e_machine, id);
+-	struct syscall *sc = trace__syscall_info(trace, NULL, id);
++	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, id);
  	return sc ? bpf_program__fd(sc->bpf_prog.sys_exit) : bpf_program__fd(trace->skel->progs.syscall_unaugmented);
  }
  
--static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
-+static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int e_machine, int key, unsigned int *beauty_array)
+ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigned int *beauty_array)
  {
  	struct tep_format_field *field;
--	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
-+	struct syscall *sc = trace__syscall_info(trace, NULL, e_machine, key);
+-	struct syscall *sc = trace__syscall_info(trace, NULL, key);
++	struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
  	const struct btf_type *bt;
  	char *struct_offset, *tmp, name[32];
  	bool can_augment = false;
-@@ -3854,8 +3869,8 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 	return NULL;
- 
- try_to_find_pair:
--	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
--		int id = syscalltbl__id_at_idx(trace->sctbl, i);
-+	for (int i = 0, num_idx = syscalltbl__num_idx(sc.e_machine); i < num_idx; ++i) {
-+		int id = syscalltbl__id_at_idx(sc.e_machine, i);
- 		/* calling trace__syscall_info() may invalidate '_sc' */
- 		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
- 		struct bpf_program *pair_prog;
-@@ -3941,7 +3956,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
- 	return NULL;
- }
- 
--static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
-+static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace, int e_machine)
- {
- 	int map_enter_fd = bpf_map__fd(trace->skel->maps.syscalls_sys_enter);
- 	int map_exit_fd  = bpf_map__fd(trace->skel->maps.syscalls_sys_exit);
-@@ -3949,27 +3964,27 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 	int err = 0;
- 	unsigned int beauty_array[6];
- 
--	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
--		int prog_fd, key = syscalltbl__id_at_idx(trace->sctbl, i);
-+	for (int i = 0, num_idx = syscalltbl__num_idx(e_machine); i < num_idx; ++i) {
-+		int prog_fd, key = syscalltbl__id_at_idx(e_machine, i);
- 
- 		if (!trace__syscall_enabled(trace, key))
- 			continue;
- 
--		trace__init_syscall_bpf_progs(trace, key);
-+		trace__init_syscall_bpf_progs(trace, e_machine, key);
- 
- 		// It'll get at least the "!raw_syscalls:unaugmented"
--		prog_fd = trace__bpf_prog_sys_enter_fd(trace, key);
-+		prog_fd = trace__bpf_prog_sys_enter_fd(trace, e_machine, key);
- 		err = bpf_map_update_elem(map_enter_fd, &key, &prog_fd, BPF_ANY);
- 		if (err)
- 			break;
--		prog_fd = trace__bpf_prog_sys_exit_fd(trace, key);
-+		prog_fd = trace__bpf_prog_sys_exit_fd(trace, e_machine, key);
- 		err = bpf_map_update_elem(map_exit_fd, &key, &prog_fd, BPF_ANY);
- 		if (err)
- 			break;
- 
- 		/* use beauty_map to tell BPF how many bytes to collect, set beauty_map's value here */
- 		memset(beauty_array, 0, sizeof(beauty_array));
--		err = trace__bpf_sys_enter_beauty_map(trace, key, (unsigned int *)beauty_array);
-+		err = trace__bpf_sys_enter_beauty_map(trace, e_machine, key, (unsigned int *)beauty_array);
- 		if (err)
- 			continue;
- 		err = bpf_map_update_elem(beauty_map_fd, &key, beauty_array, BPF_ANY);
-@@ -4005,9 +4020,9 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 	 * first and second arg (this one on the raw_syscalls:sys_exit prog
- 	 * array tail call, then that one will be used.
- 	 */
--	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
--		int key = syscalltbl__id_at_idx(trace->sctbl, i);
--		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
-+	for (int i = 0, num_idx = syscalltbl__num_idx(e_machine); i < num_idx; ++i) {
-+		int key = syscalltbl__id_at_idx(e_machine, i);
-+		struct syscall *sc = trace__syscall_info(trace, NULL, e_machine, key);
- 		struct bpf_program *pair_prog;
- 		int prog_fd;
- 
-@@ -4032,7 +4047,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
- 		 * Get syscall info again as find usable entry above might
- 		 * modify the syscall table and shuffle it.
- 		 */
--		sc = trace__syscall_info(trace, NULL, EM_HOST, key);
-+		sc = trace__syscall_info(trace, NULL, e_machine, key);
- 		sc->bpf_prog.sys_enter = pair_prog;
- 
- 		/*
-@@ -4457,8 +4472,13 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
- 		goto out_error_mem;
- 
- #ifdef HAVE_BPF_SKEL
--	if (trace->skel && trace->skel->progs.sys_enter)
--		trace__init_syscalls_bpf_prog_array_maps(trace);
-+	if (trace->skel && trace->skel->progs.sys_enter) {
-+		/*
-+		 * TODO: Initialize for all host binary machine types, not just
-+		 * those matching the perf binary.
-+		 */
-+		trace__init_syscalls_bpf_prog_array_maps(trace, EM_HOST);
-+	}
- #endif
- 
- 	if (trace->ev_qualifier_ids.nr > 0) {
-@@ -4483,7 +4503,8 @@ static int trace__run(struct trace *trace, int argc, const char **argv)
- 	 *  So just disable this beautifier (SCA_FD, SCA_FDAT) when 'close' is
- 	 *  not in use.
- 	 */
--	trace->fd_path_disabled = !trace__syscall_enabled(trace, syscalltbl__id(trace->sctbl, "close"));
-+	/* TODO: support for more than just perf binary machine type close. */
-+	trace->fd_path_disabled = !trace__syscall_enabled(trace, syscalltbl__id(EM_HOST, "close"));
- 
- 	err = trace__expand_filters(trace, &evsel);
- 	if (err)
-@@ -4796,7 +4817,7 @@ static struct syscall_entry *syscall__sort_stats(struct hashmap *syscall_stats)
- 	return entry;
- }
- 
--static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
-+static size_t syscall__dump_stats(struct trace *trace, int e_machine, FILE *fp,
- 				  struct hashmap *syscall_stats)
- {
- 	size_t printed = 0;
-@@ -4827,7 +4848,7 @@ static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
- 			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
- 			avg /= NSEC_PER_MSEC;
- 
--			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST, entry->syscall);
-+			sc = trace__syscall_info(trace, /*evsel=*/NULL, e_machine, entry->syscall);
- 			if (!sc)
- 				continue;
- 
-@@ -4854,14 +4875,14 @@ static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
- }
- 
- static size_t thread__dump_stats(struct thread_trace *ttrace,
--				 struct trace *trace, FILE *fp)
-+				 struct trace *trace, int e_machine, FILE *fp)
- {
--	return syscall__dump_stats(trace, fp, ttrace->syscall_stats);
-+	return syscall__dump_stats(trace, e_machine, fp, ttrace->syscall_stats);
- }
- 
--static size_t system__dump_stats(struct trace *trace, FILE *fp)
-+static size_t system__dump_stats(struct trace *trace, int e_machine, FILE *fp)
- {
--	return syscall__dump_stats(trace, fp, trace->syscall_stats);
-+	return syscall__dump_stats(trace, e_machine, fp, trace->syscall_stats);
- }
- 
- static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trace *trace)
-@@ -4887,7 +4908,8 @@ static size_t trace__fprintf_thread(FILE *fp, struct thread *thread, struct trac
- 	else if (fputc('\n', fp) != EOF)
- 		++printed;
- 
--	printed += thread__dump_stats(ttrace, trace, fp);
-+	/* TODO: get e_machine from thread. */
-+	printed += thread__dump_stats(ttrace, trace, EM_HOST, fp);
- 
- 	return printed;
- }
-@@ -4948,7 +4970,8 @@ static size_t trace__fprintf_total_summary(struct trace *trace, FILE *fp)
- 	else if (fputc('\n', fp) != EOF)
- 		++printed;
- 
--	printed += system__dump_stats(trace, fp);
-+	/* TODO: get all system e_machines. */
-+	printed += system__dump_stats(trace, EM_HOST, fp);
- 
- 	return printed;
- }
-@@ -5140,8 +5163,9 @@ static int trace__parse_events_option(const struct option *opt, const char *str,
- 			*sep = '\0';
- 
- 		list = 0;
--		if (syscalltbl__id(trace->sctbl, s) >= 0 ||
--		    syscalltbl__strglobmatch_first(trace->sctbl, s, &idx) >= 0) {
-+		/* TODO: support for more than just perf binary machine type syscalls. */
-+		if (syscalltbl__id(EM_HOST, s) >= 0 ||
-+		    syscalltbl__strglobmatch_first(EM_HOST, s, &idx) >= 0) {
- 			list = 1;
- 			goto do_concat;
- 		}
-@@ -5294,7 +5318,6 @@ static void trace__exit(struct trace *trace)
- 			syscall__exit(&trace->syscalls.table[i]);
- 		zfree(&trace->syscalls.table);
- 	}
--	syscalltbl__delete(trace->sctbl);
- 	zfree(&trace->perfconfig_events);
- }
- 
-@@ -5443,9 +5466,8 @@ int cmd_trace(int argc, const char **argv)
- 	sigaction(SIGCHLD, &sigchld_act, NULL);
- 
- 	trace.evlist = evlist__new();
--	trace.sctbl = syscalltbl__new();
- 
--	if (trace.evlist == NULL || trace.sctbl == NULL) {
-+	if (trace.evlist == NULL) {
- 		pr_err("Not enough memory to run!\n");
- 		err = -ENOMEM;
- 		goto out;
-diff --git a/tools/perf/scripts/syscalltbl.sh b/tools/perf/scripts/syscalltbl.sh
-index 1ce0d5aa8b50..a39b3013b103 100755
---- a/tools/perf/scripts/syscalltbl.sh
-+++ b/tools/perf/scripts/syscalltbl.sh
-@@ -50,37 +50,27 @@ fi
- infile="$1"
- outfile="$2"
- 
--nxt=0
--
--syscall_macro() {
--    nr="$1"
--    name="$2"
--
--    echo "	[$nr] = \"$name\","
--}
--
--emit() {
--    nr="$1"
--    entry="$2"
--
--    syscall_macro "$nr" "$entry"
--}
--
--echo "static const char *const syscalltbl[] = {" > $outfile
--
- sorted_table=$(mktemp /tmp/syscalltbl.XXXXXX)
- grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | sort -n > $sorted_table
- 
--max_nr=0
-+echo "static const char *const syscall_num_to_name[] = {" > $outfile
- # the params are: nr abi name entry compat
- # use _ for intentionally unused variables according to SC2034
- while read nr _ name _ _; do
--    emit "$nr" "$name" >> $outfile
--    max_nr=$nr
-+	echo "	[$nr] = \"$name\"," >> $outfile
- done < $sorted_table
-+echo "};" >> $outfile
- 
--rm -f $sorted_table
-+echo "static const uint16_t syscall_sorted_names[] = {" >> $outfile
- 
-+# When sorting by name, add a suffix of 0s upto 20 characters so that system
-+# calls that differ with a numerical suffix don't sort before those
-+# without. This default behavior of sort differs from that of strcmp used at
-+# runtime. Use sed to strip the trailing 0s suffix afterwards.
-+grep -E "^[0-9]+[[:space:]]+$abis" "$infile" | awk '{printf $3; for (i = length($3); i < 20; i++) { printf "0"; }; print " " $1}'| sort | sed 's/\([a-zA-Z1-9]\+\)0\+ \([0-9]\+\)/\1 \2/' > $sorted_table
-+while read name nr; do
-+	echo "	$nr,	/* $name */" >> $outfile
-+done < $sorted_table
- echo "};" >> $outfile
- 
--echo "#define SYSCALLTBL_MAX_ID ${max_nr}" >> $outfile
-+rm -f $sorted_table
-diff --git a/tools/perf/util/syscalltbl.c b/tools/perf/util/syscalltbl.c
-index 2f76241494c8..760ac4d0869f 100644
---- a/tools/perf/util/syscalltbl.c
-+++ b/tools/perf/util/syscalltbl.c
-@@ -9,6 +9,7 @@
- #include <stdlib.h>
- #include <asm/bitsperlong.h>
- #include <linux/compiler.h>
-+#include <linux/kernel.h>
- #include <linux/zalloc.h>
- 
- #include <string.h>
-@@ -20,112 +21,66 @@
-   #include <asm/syscalls_32.h>
- #endif
- 
--const int syscalltbl_native_max_id = SYSCALLTBL_MAX_ID;
--static const char *const *syscalltbl_native = syscalltbl;
-+const char *syscalltbl__name(int e_machine __maybe_unused, int id)
-+{
-+	if (id >= 0 && id <= (int)ARRAY_SIZE(syscall_num_to_name))
-+		return syscall_num_to_name[id];
-+	return NULL;
-+}
- 
--struct syscall {
--	int id;
-+struct syscall_cmp_key {
- 	const char *name;
-+	const char *const *tbl;
- };
- 
- static int syscallcmpname(const void *vkey, const void *ventry)
- {
--	const char *key = vkey;
--	const struct syscall *entry = ventry;
-+	const struct syscall_cmp_key *key = vkey;
-+	const uint16_t *entry = ventry;
- 
--	return strcmp(key, entry->name);
-+	return strcmp(key->name, key->tbl[*entry]);
- }
- 
--static int syscallcmp(const void *va, const void *vb)
-+int syscalltbl__id(int e_machine __maybe_unused, const char *name)
- {
--	const struct syscall *a = va, *b = vb;
--
--	return strcmp(a->name, b->name);
-+	struct syscall_cmp_key key = {
-+		.name = name,
-+		.tbl = syscall_num_to_name,
-+	};
-+	const int *id = bsearch(&key, syscall_sorted_names,
-+				ARRAY_SIZE(syscall_sorted_names),
-+				sizeof(syscall_sorted_names[0]),
-+				syscallcmpname);
-+
-+	return id ? *id : -1;
- }
- 
--static int syscalltbl__init_native(struct syscalltbl *tbl)
-+int syscalltbl__num_idx(int e_machine __maybe_unused)
- {
--	int nr_entries = 0, i, j;
--	struct syscall *entries;
--
--	for (i = 0; i <= syscalltbl_native_max_id; ++i)
--		if (syscalltbl_native[i])
--			++nr_entries;
--
--	entries = tbl->syscalls.entries = malloc(sizeof(struct syscall) * nr_entries);
--	if (tbl->syscalls.entries == NULL)
--		return -1;
--
--	for (i = 0, j = 0; i <= syscalltbl_native_max_id; ++i) {
--		if (syscalltbl_native[i]) {
--			entries[j].name = syscalltbl_native[i];
--			entries[j].id = i;
--			++j;
--		}
--	}
--
--	qsort(tbl->syscalls.entries, nr_entries, sizeof(struct syscall), syscallcmp);
--	tbl->syscalls.nr_entries = nr_entries;
--	tbl->syscalls.max_id	 = syscalltbl_native_max_id;
--	return 0;
-+	return ARRAY_SIZE(syscall_sorted_names);
- }
- 
--struct syscalltbl *syscalltbl__new(void)
-+int syscalltbl__id_at_idx(int e_machine __maybe_unused, int idx)
- {
--	struct syscalltbl *tbl = malloc(sizeof(*tbl));
--	if (tbl) {
--		if (syscalltbl__init_native(tbl)) {
--			free(tbl);
--			return NULL;
--		}
--	}
--	return tbl;
--}
--
--void syscalltbl__delete(struct syscalltbl *tbl)
--{
--	zfree(&tbl->syscalls.entries);
--	free(tbl);
--}
--
--const char *syscalltbl__name(const struct syscalltbl *tbl __maybe_unused, int id)
--{
--	return id <= syscalltbl_native_max_id ? syscalltbl_native[id]: NULL;
--}
--
--int syscalltbl__id(struct syscalltbl *tbl, const char *name)
--{
--	struct syscall *sc = bsearch(name, tbl->syscalls.entries,
--				     tbl->syscalls.nr_entries, sizeof(*sc),
--				     syscallcmpname);
--
--	return sc ? sc->id : -1;
--}
--
--int syscalltbl__id_at_idx(struct syscalltbl *tbl, int idx)
--{
--	struct syscall *syscalls = tbl->syscalls.entries;
--
--	return idx < tbl->syscalls.nr_entries ? syscalls[idx].id : -1;
-+	return syscall_sorted_names[idx];
- }
- 
--int syscalltbl__strglobmatch_next(struct syscalltbl *tbl, const char *syscall_glob, int *idx)
-+int syscalltbl__strglobmatch_next(int e_machine __maybe_unused, const char *syscall_glob, int *idx)
- {
--	int i;
--	struct syscall *syscalls = tbl->syscalls.entries;
-+	for (int i = *idx + 1; i < (int)ARRAY_SIZE(syscall_sorted_names); ++i) {
-+		const char *name = syscall_num_to_name[syscall_sorted_names[i]];
- 
--	for (i = *idx + 1; i < tbl->syscalls.nr_entries; ++i) {
--		if (strglobmatch(syscalls[i].name, syscall_glob)) {
-+		if (strglobmatch(name, syscall_glob)) {
- 			*idx = i;
--			return syscalls[i].id;
-+			return syscall_sorted_names[i];
- 		}
- 	}
- 
+@@ -3779,13 +3839,14 @@ static int trace__bpf_sys_enter_beauty_map(struct trace *trace, int key, unsigne
  	return -1;
  }
  
--int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_glob, int *idx)
-+int syscalltbl__strglobmatch_first(int e_machine, const char *syscall_glob, int *idx)
+-static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *sc)
++static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace, struct syscall *_sc)
  {
- 	*idx = -1;
--	return syscalltbl__strglobmatch_next(tbl, syscall_glob, idx);
-+	return syscalltbl__strglobmatch_next(e_machine, syscall_glob, idx);
- }
-diff --git a/tools/perf/util/syscalltbl.h b/tools/perf/util/syscalltbl.h
-index 362411a6d849..2bb628eff367 100644
---- a/tools/perf/util/syscalltbl.h
-+++ b/tools/perf/util/syscalltbl.h
-@@ -2,22 +2,12 @@
- #ifndef __PERF_SYSCALLTBL_H
- #define __PERF_SYSCALLTBL_H
++	struct syscall sc = *_sc; /* Copy as trace__syscall_info may invalidate pointer. */
+ 	struct tep_format_field *field, *candidate_field;
+ 	/*
+ 	 * We're only interested in syscalls that have a pointer:
+ 	 */
+-	for (field = sc->args; field; field = field->next) {
++	for (field = sc.args; field; field = field->next) {
+ 		if (field->flags & TEP_FIELD_IS_POINTER)
+ 			goto try_to_find_pair;
+ 	}
+@@ -3795,15 +3856,16 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
+ try_to_find_pair:
+ 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
+ 		int id = syscalltbl__id_at_idx(trace->sctbl, i);
+-		struct syscall *pair = trace__syscall_info(trace, NULL, id);
++		/* calling trace__syscall_info() may invalidate '_sc' */
++		struct syscall *pair = trace__syscall_info(trace, NULL, sc.e_machine, id);
+ 		struct bpf_program *pair_prog;
+ 		bool is_candidate = false;
  
--struct syscalltbl {
--	struct {
--		int max_id;
--		int nr_entries;
--		void *entries;
--	} syscalls;
--};
-+const char *syscalltbl__name(int e_machine, int id);
-+int syscalltbl__id(int e_machine, const char *name);
-+int syscalltbl__num_idx(int e_machine);
-+int syscalltbl__id_at_idx(int e_machine, int idx);
+-		if (pair == NULL || pair == sc ||
++		if (pair == NULL || pair->id == sc.id ||
+ 		    pair->bpf_prog.sys_enter == trace->skel->progs.syscall_unaugmented)
+ 			continue;
  
--struct syscalltbl *syscalltbl__new(void);
--void syscalltbl__delete(struct syscalltbl *tbl);
+-		for (field = sc->args, candidate_field = pair->args;
++		for (field = sc.args, candidate_field = pair->args;
+ 		     field && candidate_field; field = field->next, candidate_field = candidate_field->next) {
+ 			bool is_pointer = field->flags & TEP_FIELD_IS_POINTER,
+ 			     candidate_is_pointer = candidate_field->flags & TEP_FIELD_IS_POINTER;
+@@ -3870,7 +3932,7 @@ static struct bpf_program *trace__find_usable_bpf_prog_entry(struct trace *trace
+ 				goto next_candidate;
+ 		}
+ 
+-		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc->name);
++		pr_debug("Reusing \"%s\" BPF sys_enter augmenter for \"%s\"\n", pair->name, sc.name);
+ 		return pair_prog;
+ 	next_candidate:
+ 		continue;
+@@ -3945,7 +4007,7 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
+ 	 */
+ 	for (int i = 0; i < trace->sctbl->syscalls.nr_entries; ++i) {
+ 		int key = syscalltbl__id_at_idx(trace->sctbl, i);
+-		struct syscall *sc = trace__syscall_info(trace, NULL, key);
++		struct syscall *sc = trace__syscall_info(trace, NULL, EM_HOST, key);
+ 		struct bpf_program *pair_prog;
+ 		int prog_fd;
+ 
+@@ -3966,7 +4028,11 @@ static int trace__init_syscalls_bpf_prog_array_maps(struct trace *trace)
+ 		pair_prog = trace__find_usable_bpf_prog_entry(trace, sc);
+ 		if (pair_prog == NULL)
+ 			continue;
 -
--const char *syscalltbl__name(const struct syscalltbl *tbl, int id);
--int syscalltbl__id(struct syscalltbl *tbl, const char *name);
--int syscalltbl__id_at_idx(struct syscalltbl *tbl, int idx);
--
--int syscalltbl__strglobmatch_first(struct syscalltbl *tbl, const char *syscall_glob, int *idx);
--int syscalltbl__strglobmatch_next(struct syscalltbl *tbl, const char *syscall_glob, int *idx);
-+int syscalltbl__strglobmatch_first(int e_machine, const char *syscall_glob, int *idx);
-+int syscalltbl__strglobmatch_next(int e_machine, const char *syscall_glob, int *idx);
++		/*
++		 * Get syscall info again as find usable entry above might
++		 * modify the syscall table and shuffle it.
++		 */
++		sc = trace__syscall_info(trace, NULL, EM_HOST, key);
+ 		sc->bpf_prog.sys_enter = pair_prog;
  
- #endif /* __PERF_SYSCALLTBL_H */
+ 		/*
+@@ -4761,7 +4827,10 @@ static size_t syscall__dump_stats(struct trace *trace, FILE *fp,
+ 			pct = avg ? 100.0 * stddev_stats(&stats->stats) / avg : 0.0;
+ 			avg /= NSEC_PER_MSEC;
+ 
+-			sc = &trace->syscalls.table[entry->syscall];
++			sc = trace__syscall_info(trace, /*evsel=*/NULL, EM_HOST, entry->syscall);
++			if (!sc)
++				continue;
++
+ 			printed += fprintf(fp, "   %-15s", sc->name);
+ 			printed += fprintf(fp, " %8" PRIu64 " %6" PRIu64 " %9.3f %9.3f %9.3f",
+ 					   n, stats->nr_failures, entry->msecs, min, avg);
+@@ -5218,12 +5287,10 @@ static int trace__config(const char *var, const char *value, void *arg)
+ 
+ static void trace__exit(struct trace *trace)
+ {
+-	int i;
+-
+ 	strlist__delete(trace->ev_qualifier);
+ 	zfree(&trace->ev_qualifier_ids.entries);
+ 	if (trace->syscalls.table) {
+-		for (i = 0; i <= trace->sctbl->syscalls.max_id; i++)
++		for (size_t i = 0; i < trace->syscalls.table_size; i++)
+ 			syscall__exit(&trace->syscalls.table[i]);
+ 		zfree(&trace->syscalls.table);
+ 	}
 -- 
 2.49.0.rc1.451.g8f38331e32-goog
 
