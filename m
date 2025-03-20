@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58974C36002
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15AF8C36005
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mxVkhgvA5jpmu2OPSk2aVz6JUENUCKNvSba0ZbAhclk=; b=McBtwS7eg5w0YI
-	XN05LbI9Kh5TdLNed4eDg5CKAu0Un11HkRvgZPeHmpWclYknUEDclHbyQJl1u2QxX6YDe6QK6rvwt
-	OpN0K/cmF5sEooPVH7MQEVSmzvC5RrlnLr5FMmEhGmmfa9ZEIc3MNnaUrk/H7VzLVQjNiCJl8a37w
-	Y488ZCC7pISROnifu4XNj6vvzBC4JI+oTRSkDwpid/Crh2Cjz2FRj1zxZOkZoCLpZvELWgKEHUUJ0
-	NUJJux+gxWsF0JbxrwEsw0f082mthA0ZR2vBBRvboawEMS7F+NL4yLJ4tqr6FE09IzncpjvGQ35CI
-	8tHQV6z7jnluo3jOJ7TA==;
+	List-Owner; bh=LeScKZlsnTAsFSpxbMuddpuImFUnEVWbjsrWljdQy7E=; b=Vq4knkik2JZ/dx
+	/4Uwbrlng4Bsces46Gedz1Wp8a82vFyLrcb27KNNTBYpj8fzZBqctcbStRhdgvita3S9HD1XCNTsj
+	1NUvtLasEsCIRcUEOzw1N8TyRU+udJo+yoNBLd1j7HPOxwLViZWMxsWMQk6i3Iy8W5c3tptsQ4DUX
+	UihvHldzOwgyhXKyqqBUkkXH7QEKEmZgeTuz8tUPuz5QjIL2CORoOCVJ3/Uk0WXBELpJHKlNKBu6q
+	tckJOkzBsx6f2GrAtxuqSP+I0MBsWYI0S19rvm5dzx7or1r5QzZ4PMpC+I01iBGgiRdItS5dk9Aqe
+	tf+yUbNlbWo83x07rpBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDYD-0000000Bs0b-0NMA;
-	Thu, 20 Mar 2025 10:55:01 +0000
+	id 1tvDYE-0000000Bs1h-0UUw;
+	Thu, 20 Mar 2025 10:55:02 +0000
 Received: from naesa03.arrow.com ([216.150.161.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDY8-0000000Brv6-08Ip
+	id 1tvDY9-0000000BrxO-1wfm
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 10:54:57 +0000
+	Thu, 20 Mar 2025 10:54:58 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=2124; q=dns/txt;
-  s=NAESA-Selector1; t=1742468096; x=1774004096;
+  d=einfochips.com; i=@einfochips.com; l=2708; q=dns/txt;
+  s=NAESA-Selector1; t=1742468097; x=1774004097;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=eS3MaGonIoU9nAIFGQh9EPnwWnxVAYDNEq2SAR0mRpQ=;
-  b=MEQLRdxa+7l6uLHbzorpU9NOeCPeJ4W6NUartNrC6F34CJK5FhG8JvlU
-   e8ihSQlS7g2202aaFLlRj1nmk6G5wu7o+myboZViUcJZlGlkMFMD6UQTW
-   7HQqGSrU5+HNTas9ktjSekH7vlyLtDP8PZhDkgo0vXF1Uma5t5W4ss9B/
-   kjgsjODdQym4tc1OtmHZ93MUemuXEhZ5epFfkPGrukF53S8HDLv9hrTHV
-   4rqKzffGi4egCO9ez5e1rHAzlDmYZjvISMI4QH6+APTvfX7uooga/cw/Y
-   6RcwK1ml1TU2Gj8Ce2akLACwj3FFJFOHolZScbk2A/GGZ1t6U/mM9pKJ/
-   Q==;
-X-CSE-ConnectionGUID: TXbtMtAZQ/Oo06xXHZP0jQ==
-X-CSE-MsgGUID: hLc8YZSxTG+EJLYX6BLXKA==
+  bh=H3wnlGqXSSS/oiZRRPE2KJNofPHwThcoVMkEwdUNQ7I=;
+  b=Q2uDmJz2pkVaWcMTjjiPi1FiFTzunse/QANRHrjOIIFXVMzyXbP1OgGs
+   oFiukTWMDGSoiK9EXnerkkdwwXF4ylgC3F56d8Bc+4XFk1VaQNLPlNsea
+   0/ymjBwd/X0COfkOc4Gue3tDpDHKo15yfbmouqy2ZSFXaKl8oRxBpVVLw
+   eroitUkOBfXJCZuhDf2fdw7Ql5tE4KTeyXDV0Yf30MUsRcWAVMcaf5D/2
+   x0kj7YsVJygA7pwFDFw+q3ia+pqvJuzq24NM56ZA0AHWdW+zKZDygLw7C
+   2iuruPwpQrTWiUhHHew5kxcx9uh7ExxUobwouoXpB9mKTp8tmu5e6ylwl
+   A==;
+X-CSE-ConnectionGUID: JNpILgqOTVW0rkGPMHwoIg==
+X-CSE-MsgGUID: WihiOzVeR26qmgZs1p7IAw==
 X-IronPort-AV: E=Sophos;i="6.14,261,1736838000"; 
-   d="scan'208";a="80317543"
+   d="scan'208";a="80317548"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:54:55 -0600
+  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:54:56 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
 	 Thu, 20 Mar 2025 16:24:49 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
@@ -75,17 +75,18 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 04/10] dt-bindings: riscv: Add SiFive HiFive Premier P550 board
-Date: Thu, 20 Mar 2025 16:24:43 +0530
-Message-Id: <20250320105449.2094192-5-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v2 05/10] dt-bindings: cache: sifive,ccache0: Add ESWIN EIC7700 SoC compatibility
+Date: Thu, 20 Mar 2025 16:24:44 +0530
+Message-Id: <20250320105449.2094192-6-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 20 Mar 2025 10:54:49.0835 (UTC) FILETIME=[8083CBB0:01DB9986]
+X-OriginalArrivalTime: 20 Mar 2025 10:54:49.0944 (UTC) FILETIME=[80946D80:01DB9986]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_035456_132945_52DF8771 
-X-CRM114-Status: GOOD (  11.26  )
+X-CRM114-CacheID: sfid-20250320_035457_567845_FC433BAD 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +105,106 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Pritesh Patel <pritesh.patel@einfochips.com>
 
-Add DT binding documentation for the ESWIN EIC7700 SoC and
-HiFive Premier P550 Board
+This cache controller is also used on the ESWIN EIC7700 SoC.
+However, it have 256KB private L2 Cache and shared L3 Cache of 4MB.
+So add dedicated compatible string for it.
 
 Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Reviewed-by: Matthias Brugger <matthias.bgg@kernel.org>
 ---
- .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
- MAINTAINERS                                   |  7 +++++
- 2 files changed, 36 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+ .../bindings/cache/sifive,ccache0.yaml        | 44 +++++++++++++++++--
+ 1 file changed, 41 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/riscv/eswin.yaml b/Documentation/devicetree/bindings/riscv/eswin.yaml
-new file mode 100644
-index 000000000000..c603c45eef22
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/eswin.yaml
-@@ -0,0 +1,29 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/eswin.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: ESWIN SoC-based boards
-+
-+maintainers:
-+  - Min Lin <linmin@eswincomputing.com>
-+  - Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+  - Pritesh Patel <pritesh.patel@einfochips.com>
-+
-+description:
-+  ESWIN SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - sifive,hifive-premier-p550
-+          - const: eswin,eic7700
-+
-+additionalProperties: true
-+
-+...
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 25c86f47353d..fc3c9191b00f 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8572,6 +8572,13 @@ L:	linux-can@vger.kernel.org
- S:	Maintained
- F:	drivers/net/can/usb/esd_usb.c
+diff --git a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+index 7e8cebe21584..579bacb66f34 100644
+--- a/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
++++ b/Documentation/devicetree/bindings/cache/sifive,ccache0.yaml
+@@ -39,6 +39,7 @@ properties:
+           - const: cache
+       - items:
+           - enum:
++              - eswin,eic7700-l3-cache
+               - starfive,jh7100-ccache
+               - starfive,jh7110-ccache
+           - const: sifive,ccache0
+@@ -55,10 +56,10 @@ properties:
+     enum: [2, 3]
  
-+ESWIN DEVICETREES
-+M:	Min Lin <linmin@eswincomputing.com>
-+M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-+M:	Pritesh Patel <pritesh.patel@einfochips.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/eswin.yaml
+   cache-sets:
+-    enum: [1024, 2048]
++    enum: [1024, 2048, 4096]
+ 
+   cache-size:
+-    const: 2097152
++    enum: [2097152, 4194304]
+ 
+   cache-unified: true
+ 
+@@ -89,6 +90,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - eswin,eic7700-l3-cache
+               - sifive,fu740-c000-ccache
+               - starfive,jh7100-ccache
+               - starfive,jh7110-ccache
+@@ -108,6 +110,22 @@ allOf:
+             Must contain entries for DirError, DataError and DataFail signals.
+           maxItems: 3
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: eswin,eic7700-l3-cache
 +
- ET131X NETWORK DRIVER
- M:	Mark Einon <mark.einon@gmail.com>
- S:	Odd Fixes
++    then:
++      properties:
++        cache-size:
++          const: 4194304
++
++    else:
++      properties:
++        cache-size:
++          const: 2097152
++
+   - if:
+       properties:
+         compatible:
+@@ -122,11 +140,31 @@ allOf:
+         cache-sets:
+           const: 2048
+ 
+-    else:
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - microchip,mpfs-ccache
++              - sifive,fu540-c000-ccache
++
++    then:
+       properties:
+         cache-sets:
+           const: 1024
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - eswin,eic7700-l3-cache
++
++    then:
++      properties:
++        cache-sets:
++          const: 4096
++
+   - if:
+       properties:
+         compatible:
 -- 
 2.25.1
 
