@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3736EC36000
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9ABC36000
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 12:07:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qZW447ohG3osFOQ8hdv4OMZETq4v8p2fsAY5i42VGGs=; b=aTAMtfOBEm7fdj
-	v+JY1T+ncy8caYeQxH5QA38LWEsBIWEdxckNoa4a94aZO61usQK+l/LJf2FNOcgJXSM3VOkh3rii+
-	UpJpLrN5N1csPGn3VxSkpkWf89MJkB4RBrWyJ8PM5aa2Ep6FWa6ewRXfo1xM19FZvCxIi+SvuZUPz
-	LFc8Q7BAVNaQzIDL9wY6YPHOnAl85Bu9H0HpVDreRfCibZhMbvOxxQ9vwjEZyIQMT9DCpqFs5Ytdt
-	k6AbIm8p/77trxmdjZWQ7git0RC3lDBrQ5HOROoUqet/AVMTvNZg3UC7Dq8kxt7V2j0Me8ZK8c7f/
-	0zoffn9Sbza/q5Y5gjcw==;
+	List-Owner; bh=R8re0Z94JfEB9L5U3EiWGMzCHNsVv/KyToMa6K8TA6Y=; b=S5dhVNGP/dhHJU
+	RiXihfY8Mv940iqAKoqq4OPuOKFLvX9SbIhu3Fsw3SlTz4pJz6OvXQj7pPfCF26ZqQQmvePq+bkSY
+	riaegjAA13lYb9BhUVuww+bBjcENm8Ib9zpYKOGO+QVtMVbpdg757nDoiP5x4tmzNkWu5qUxHQ9Hx
+	O94bS0vxMrsmHFqmd30j++7yXYe4VeRCs8vFkPQcGSrgg1Dr6xbTWwKDt47fW5s4Zgs0BWL2bCEVX
+	Awo6cfphmg/4xqAxS6uD1WZxOdYXAZpBeWcpNt6YAEQBHyg5pHQvzjEJ3Qy5q9RsJfgwg81TmCQD5
+	+5C6ABAv+iF1tM9JEGAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDYI-0000000Bs6Q-13mg;
-	Thu, 20 Mar 2025 10:55:06 +0000
-Received: from naesa03.arrow.com ([216.150.161.23])
+	id 1tvEgL-0000000C3S2-3ldt;
+	Thu, 20 Mar 2025 12:07:29 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDYD-0000000BrxO-45dE
+	id 1tvESE-0000000C0Vi-0QAs
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 10:55:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=11155;
-  q=dns/txt; s=NAESA-Selector1; t=1742468102;
-  x=1774004102;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=A++sTJp631GU4rYpkCwwWLsyavsd2d6nbFZsHYnmCBE=;
-  b=I7f1PZFVA5lA0qgDVhRKHWkFic8lMQXxGGfIFis/5w8I4xHIO32Q+1Bs
-   erxVNMxoBXCMO1oib5/RjHLllFoJkBG8T58rtVozUPfxl8Vq2uuALi3zu
-   9fxikgw1WYaWMpcHV0J9vPjMRcBWAy/XZlJoI71qsARMrrjBxhHFtQZ6b
-   t37mBQmJNeYAthJLzlR+Ix4Vt+2bTweaa9EVRfb99n6HO7CDyA+5pAvlh
-   1Ok36b7bJ/ebmg7CJuwHqE/KER/YJjyzPxvt4jlva4XivNxxeWIXHQQ5r
-   gI77smYiAcwFJeEF3r+vmXos28EWdF6o/5TUHB9+4VGsYH6XCWZkhuX0X
-   g==;
-X-CSE-ConnectionGUID: 30D9kLkIQVCUa12VbnvxDA==
-X-CSE-MsgGUID: YKaNagUPTxK07CawiaJV5g==
-X-IronPort-AV: E=Sophos;i="6.14,261,1736838000"; 
-   d="scan'208";a="80317569"
-Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:55:01 -0600
-Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
-	 Thu, 20 Mar 2025 16:24:50 +0530
-From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-To: Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Aradhya Bhatia <a-bhatia1@ti.com>,
-	rafal@milecki.pl,
-	Anup Patel <anup@brainfault.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 09/10] riscv: dts: add initial support for EIC7700 SoC
-Date: Thu, 20 Mar 2025 16:24:48 +0530
-Message-Id: <20250320105449.2094192-10-pinkesh.vaghela@einfochips.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
-References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
+	Thu, 20 Mar 2025 11:52:56 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3913b539aabso338545f8f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 04:52:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1742471572; x=1743076372; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=W7Q+Uv9PP7IrwTG/eBced107V/Y8wAy3D1YQ6SsCvek=;
+        b=HSbyc88gp4B8KCrZ70Qqf/Kbo3ux3S1qU5Y3pu+ZyvQlbCHaMnXSrel/CH6HF2HDUF
+         bmG+IcoeS4IrTDmzeHCOCrINDFzp0hCwEx8Bc/oybVVYaCW+0X+aZfmvbe4Zex6oPmeb
+         Rsn+aURnFHGjyIy6tMcZW991qFdCx/RC4CyY4SxqBQuQWfzWGiOL4ls/9HLxruJX5pcA
+         iXZgiB01ouiQmCltrSiCuEAsujdry58ptbbCyJH5y8wiFX1qlUPSS9cRW433zW17i4ez
+         ZIZmnDH1+oK4ARFlILaqo9wiA0dNGwXsMpD0wjLMbXB0eftfGuZ2x6O7Fs/ZzSlO29eC
+         UD8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742471572; x=1743076372;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=W7Q+Uv9PP7IrwTG/eBced107V/Y8wAy3D1YQ6SsCvek=;
+        b=RuVOn+wGdMCUu5/Sat9+NAXude8VkghULPxiL+K1RE24ogOIg7q6qkhVFbtlEvKB53
+         LoRW/OcIStVOhRBPOCHAESmKliZZfzq4GZNnvWpE32pCr1gtgI7rouyeIpg5/RXqiG6R
+         KcQeVuSx1MpxgFmhbzc+ZIuXiNiuIPvn3k5vw0ACgM9m1mlScxeU15Om5Besp38Nj48G
+         94AzGsG76lBPByoE4JF9xUXco/JWtqEAWK7GNG7+Gnu/VAjYjlXYhlP+68Lta+xwytwd
+         cMjS8tI7xn0vquOCwMryZP6ESvlRoOOAixHXthYUfnotqmQupUm/pVaCtcsUkFNJQq6C
+         hQWg==
+X-Forwarded-Encrypted: i=1; AJvYcCXA80TRTga15tZeldRROI++a4yLLwnrOYVDIENbSC6I7ZINfQjwr8y8OQ8HklgtpCA5HmN//1Yxwf/x6Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyP4qulkXv3eA1kI0K6CVDTQg9ehAp5zYeLCmoe/wuvD/8wXaOn
+	hSwQN0vlRF0og3S1OSHmqd3iQJMtJjbmSs6dfdHcjZOiaB8Z6luv222qR28D8Jc=
+X-Gm-Gg: ASbGncspWZEIqdKg/vBfTzFh0aVXJqgT0LcCE8PZ8y1K5om8VG+OcDB3mNDaeLIOc56
+	AIqALQ3Zf88iVHliK+O2FcIoL3niZWAX2dPFrL5OVpZUGlH4JLI/PNSK9zZ2SQLYaqC/+DIX64z
+	jqEoiIHirCQrGmnIt+uYhUJPIR4LEbwMGX2+SEdgh7Wu+ipMqZTDSsVnYU6Xy//fpOGrJW3CyLA
+	QPI8BYiAxm7W/sSZ5CXd1ToLIiMgkGuDx65lQ2vq4TDyOBGT0gt7xEN44JrfWt6J015gRB/uqCE
+	BefFOf4dDrVeUgpsozZy+vgHNdHtRA/2
+X-Google-Smtp-Source: AGHT+IHeyTD2wSXlAOfdAKS53YepR+/8W8LiJeiUCHJdoX9DdjQszAGbC8mMUKoCZx6XO5JpwnfZmg==
+X-Received: by 2002:a05:6000:188e:b0:391:2e6a:30de with SMTP id ffacd0b85a97d-399739beb10mr5536213f8f.19.1742471572182;
+        Thu, 20 Mar 2025 04:52:52 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::59a5])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997e3eb672sm404452f8f.95.2025.03.20.04.52.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 20 Mar 2025 04:52:51 -0700 (PDT)
+Date: Thu, 20 Mar 2025 12:52:50 +0100
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, Himanshu Chauhan <hchauhan@ventanamicro.com>, 
+	Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>, 
+	Atish Patra <atishp@atishpatra.org>
+Subject: Re: [PATCH v3 2/4] riscv: add support for SBI Supervisor Software
+ Events extension
+Message-ID: <20250320-5f9612f1b503c79c9b185b10@orel>
+References: <20241206163102.843505-1-cleger@rivosinc.com>
+ <20241206163102.843505-3-cleger@rivosinc.com>
+ <20250319-46b625cf8b771616d4c7c053@orel>
+ <b3fbd730-295f-4491-b0d6-d4e258941ae5@rivosinc.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 20 Mar 2025 10:54:50.0119 (UTC) FILETIME=[80AF2170:01DB9986]
+Content-Disposition: inline
+In-Reply-To: <b3fbd730-295f-4491-b0d6-d4e258941ae5@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_035502_090850_CC01CB5E 
-X-CRM114-Status: GOOD (  13.56  )
+X-CRM114-CacheID: sfid-20250320_045254_146697_6AA87C01 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,397 +100,165 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Min Lin <linmin@eswincomputing.com>
+On Thu, Mar 20, 2025 at 09:16:07AM +0100, Cl=E9ment L=E9ger wrote:
+> =
 
-Add initial support for EIC7700 SoC that uses a SiFive Quad-Core
-P550 CPU cluster.
+> =
 
-This file is expected to grow as more device drivers are added to the
-kernel.
+> On 19/03/2025 18:08, Andrew Jones wrote:
+> > On Fri, Dec 06, 2024 at 05:30:58PM +0100, Cl=E9ment L=E9ger wrote:
+> > ...
+> >> +int arch_sse_init_event(struct sse_event_arch_data *arch_evt, u32 evt=
+_id, int cpu)
+> >> +{
+> >> +	void *stack;
+> >> +
+> >> +	arch_evt->evt_id =3D evt_id;
+> >> +	stack =3D sse_stack_alloc(cpu, SSE_STACK_SIZE);
+> >> +	if (!stack)
+> >> +		return -ENOMEM;
+> >> +
+> >> +	arch_evt->stack =3D stack + SSE_STACK_SIZE;
+> >> +
+> >> +	if (sse_init_scs(cpu, arch_evt))
+> >> +		goto free_stack;
+> >> +
+> >> +	if (is_kernel_percpu_address((unsigned long)&arch_evt->interrupted))=
+ {
+> >> +		arch_evt->interrupted_state_phys =3D
+> >> +				per_cpu_ptr_to_phys(&arch_evt->interrupted);
+> >> +	} else {
+> >> +		arch_evt->interrupted_state_phys =3D
+> >> +				virt_to_phys(&arch_evt->interrupted);
+> >> +	}
+> >> +
+> >> +	return 0;
+> > =
 
-Signed-off-by: Min Lin <linmin@eswincomputing.com>
-Co-developed-by: Pritesh Patel <pritesh.patel@einfochips.com>
-Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-Co-developed-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
-Signed-off-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-Tested-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
----
- MAINTAINERS                            |   1 +
- arch/riscv/boot/dts/eswin/eic7700.dtsi | 344 +++++++++++++++++++++++++
- 2 files changed, 345 insertions(+)
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
+> > Hi Cl=E9ment,
+> > =
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index fc3c9191b00f..2c29023c6725 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -8578,6 +8578,7 @@ M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
- M:	Pritesh Patel <pritesh.patel@einfochips.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/riscv/eswin.yaml
-+F:	arch/riscv/boot/dts/eswin/
- 
- ET131X NETWORK DRIVER
- M:	Mark Einon <mark.einon@gmail.com>
-diff --git a/arch/riscv/boot/dts/eswin/eic7700.dtsi b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-new file mode 100644
-index 000000000000..9cef940f07e4
---- /dev/null
-+++ b/arch/riscv/boot/dts/eswin/eic7700.dtsi
-@@ -0,0 +1,344 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (c) 2024 Beijing ESWIN Computing Technology Co., Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+/ {
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+		timebase-frequency = <1000000>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "sifive,p550", "riscv";
-+			device_type = "cpu";
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <32>;
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <32>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2_cache_0>;
-+			reg = <0x0>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
-+					       "zba", "zbb", "zicsr", "zifencei";
-+			tlb-split;
-+
-+			cpu0_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu1: cpu@1 {
-+			compatible = "sifive,p550", "riscv";
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <32>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <32>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2_cache_1>;
-+			reg = <0x1>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
-+					       "zba", "zbb", "zicsr", "zifencei";
-+			tlb-split;
-+
-+			cpu1_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu2: cpu@2 {
-+			compatible = "sifive,p550", "riscv";
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <32>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <32>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2_cache_2>;
-+			reg = <0x2>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
-+					       "zba", "zbb", "zicsr", "zifencei";
-+			tlb-split;
-+
-+			cpu2_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		cpu3: cpu@3 {
-+			compatible = "sifive,p550", "riscv";
-+			d-cache-block-size = <64>;
-+			d-cache-sets = <128>;
-+			d-cache-size = <32768>;
-+			d-tlb-sets = <1>;
-+			d-tlb-size = <32>;
-+			device_type = "cpu";
-+			i-cache-block-size = <64>;
-+			i-cache-sets = <128>;
-+			i-cache-size = <32768>;
-+			i-tlb-sets = <1>;
-+			i-tlb-size = <32>;
-+			mmu-type = "riscv,sv48";
-+			next-level-cache = <&l2_cache_3>;
-+			reg = <0x3>;
-+			riscv,isa-base = "rv64i";
-+			riscv,isa-extensions = "i", "m", "a", "f", "d", "c", "h", "sscofpmf",
-+					       "zba", "zbb", "zicsr", "zifencei";
-+			tlb-split;
-+
-+			cpu3_intc: interrupt-controller {
-+				compatible = "riscv,cpu-intc";
-+				#interrupt-cells = <1>;
-+				interrupt-controller;
-+			};
-+		};
-+
-+		l2_cache_0: l2-cache0 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <262144>;
-+			cache-unified;
-+			next-level-cache = <&ccache>;
-+		};
-+
-+		l2_cache_1: l2-cache1 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <262144>;
-+			cache-unified;
-+			next-level-cache = <&ccache>;
-+		};
-+
-+		l2_cache_2: l2-cache2 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <262144>;
-+			cache-unified;
-+			next-level-cache = <&ccache>;
-+		};
-+
-+		l2_cache_3: l2-cache3 {
-+			compatible = "cache";
-+			cache-block-size = <64>;
-+			cache-level = <2>;
-+			cache-sets = <512>;
-+			cache-size = <262144>;
-+			cache-unified;
-+			next-level-cache = <&ccache>;
-+		};
-+	};
-+
-+	pmu {
-+		compatible = "riscv,pmu";
-+		riscv,event-to-mhpmcounters =
-+				<0x00001 0x00001 0x00000001>,
-+				<0x00002 0x00002 0x00000004>,
-+				<0x00004 0x00006 0x00000078>,
-+				<0x10009 0x10009 0x00000078>,
-+				<0x10019 0x10019 0x00000078>,
-+				<0x10021 0x10021 0x00000078>;
-+		riscv,event-to-mhpmevent =
-+				<0x00004 0x00000000 0x00000202>,
-+				<0x00005 0x00000000 0x00004000>,
-+				<0x00006 0x00000000 0x00002001>,
-+				<0x10009 0x00000000 0x00000102>,
-+				<0x10019 0x00000000 0x00001002>,
-+				<0x10021 0x00000000 0x00000802>;
-+		riscv,raw-event-to-mhpmcounters =
-+				<0x00000000 0x00000000 0xffffffff 0xfc0000ff 0x00000078>,
-+				<0x00000000 0x00000001 0xffffffff 0xfffe07ff 0x00000078>,
-+				<0x00000000 0x00000002 0xffffffff 0xfffe00ff 0x00000078>,
-+				<0x00000000 0x00000003 0xfffffffc 0x000000ff 0x00000078>,
-+				<0x00000000 0x00000004 0xffffffc0 0x000000ff 0x00000078>,
-+				<0x00000000 0x00000005 0xffffffff 0xfffffdff 0x00000078>,
-+				<0x00000000 0x00000006 0xfffffe00 0x110204ff 0x00000078>,
-+				<0x00000000 0x00000007 0xffffffff 0xf00000ff 0x00000078>,
-+				<0x00000000 0x00000008 0xfffffe04 0x000000ff 0x00000078>,
-+				<0x00000000 0x00000009 0xffffffff 0xffffc0ff 0x00000078>,
-+				<0x00000000 0x0000000a 0xffffffff 0xf00000ff 0x00000078>,
-+				<0x00000000 0x0000000b 0xffffffff 0xfffffcff 0x00000078>,
-+				<0x00000000 0x0000000c 0xfffffff0 0x000000ff 0x00000078>,
-+				<0x00000000 0x0000000d 0xffffffff 0x800000ff 0x00000078>,
-+				<0x00000000 0x0000000e 0xffffffff 0xf80000ff 0x00000078>,
-+				<0x00000000 0x0000000f 0xfffffffc 0x000000ff 0x00000078>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		ranges;
-+		interrupt-parent = <&plic>;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		clint: timer@2000000 {
-+			compatible = "eswin,eic7700-clint", "sifive,clint0";
-+			reg = <0x0 0x02000000 0x0 0x10000>;
-+			interrupts-extended =
-+				<&cpu0_intc 3>, <&cpu0_intc 7>,
-+				<&cpu1_intc 3>, <&cpu1_intc 7>,
-+				<&cpu2_intc 3>, <&cpu2_intc 7>,
-+				<&cpu3_intc 3>, <&cpu3_intc 7>;
-+		};
-+
-+		ccache: cache-controller@2010000 {
-+			compatible = "eswin,eic7700-l3-cache", "sifive,ccache0", "cache";
-+			reg = <0x0 0x2010000 0x0 0x4000>;
-+			interrupts = <1>, <3>, <4>, <2>;
-+			cache-block-size = <64>;
-+			cache-level = <3>;
-+			cache-sets = <4096>;
-+			cache-size = <4194304>;
-+			cache-unified;
-+		};
-+
-+		plic: interrupt-controller@c000000 {
-+			compatible = "eswin,eic7700-plic", "sifive,plic-1.0.0";
-+			reg = <0x0 0xc000000 0x0 0x4000000>;
-+			interrupt-controller;
-+			interrupts-extended =
-+				<&cpu0_intc 11>, <&cpu0_intc 9>,
-+				<&cpu1_intc 11>, <&cpu1_intc 9>,
-+				<&cpu2_intc 11>, <&cpu2_intc 9>,
-+				<&cpu3_intc 11>, <&cpu3_intc 9>;
-+			riscv,ndev = <520>;
-+			#address-cells = <0>;
-+			#interrupt-cells = <1>;
-+		};
-+
-+		uart0: serial@50900000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x50900000 0x0 0x10000>;
-+			interrupts = <100>;
-+			clock-frequency = <200000000>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@50910000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x50910000 0x0 0x10000>;
-+			interrupts = <101>;
-+			clock-frequency = <200000000>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@50920000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x50920000 0x0 0x10000>;
-+			interrupts = <102>;
-+			clock-frequency = <200000000>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@50930000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x50930000 0x0 0x10000>;
-+			interrupts = <103>;
-+			clock-frequency = <200000000>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@50940000 {
-+			compatible = "snps,dw-apb-uart";
-+			reg = <0x0 0x50940000 0x0 0x10000>;
-+			interrupts = <104>;
-+			clock-frequency = <200000000>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		gpio@51600000 {
-+			compatible = "snps,dw-apb-gpio";
-+			reg = <0x0 0x51600000 0x0 0x80>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			porta: gpio-port@0 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <0>;
-+				interrupt-controller;
-+				#interrupt-cells = <2>;
-+				interrupts =
-+					<303>, <304>, <305>, <306>, <307>, <308>, <309>,
-+					<310>, <311>, <312>, <313>, <314>, <315>, <316>,
-+					<317>, <318>, <319>, <320>, <321>, <322>, <323>,
-+					<324>, <325>, <326>, <327>, <328>, <329>, <330>,
-+					<331>, <332>, <333>, <334>;
-+				gpio-controller;
-+				ngpios = <32>;
-+				#gpio-cells = <2>;
-+			};
-+
-+			portb: gpio-port@1 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <1>;
-+				gpio-controller;
-+				ngpios = <32>;
-+				#gpio-cells = <2>;
-+			};
-+
-+			portc: gpio-port@2 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <2>;
-+				gpio-controller;
-+				ngpios = <32>;
-+				#gpio-cells = <2>;
-+			};
-+
-+			portd: gpio-port@3 {
-+				compatible = "snps,dw-apb-gpio-port";
-+				reg = <3>;
-+				gpio-controller;
-+				ngpios = <16>;
-+				#gpio-cells = <2>;
-+			};
-+		};
-+	};
-+};
--- 
-2.25.1
+> > Testing SSE support with tools/testing/selftests/kvm/riscv/sbi_pmu_test
+> > led to an opensbi sbi_trap_error because the output_phys_lo address pas=
+sed
+> > to sbi_sse_read_attrs() wasn't a physical address. The reason is that
+> > is_kernel_percpu_address() can only be used on static percpu addresses,
+> > but local sse events get their percpu addresses with alloc_percpu(), so
+> > is_kernel_percpu_address() was returning false even for local events. I
+> > made the following changes to get things working.
+> =
+
+> Hi Andrew,
+> =
+
+> Did something changed recently ? Because I tested that when it was send
+> (PMU + some kernel internal testsuite) and didn't saw that. Anyway, I'll
+> respin it with your changes as well.
+
+It depends on the kernel config. Configs that don't have many
+alloc_percpu() calls prior to the one made by sse can work, because,
+iiuc, alloc_percpu() will get its allocation from the percpu allocator's
+first chunk until that chunck fills up. The first chunck is shared with
+the static allocations.
+
+Thanks,
+drew
+
+> =
+
+> Thanks !
+> =
+
+> Cl=E9ment
+> =
+
+> > =
+
+> > Thanks,
+> > drew
+> > =
+
+> > diff --git a/arch/riscv/kernel/sse.c b/arch/riscv/kernel/sse.c
+> > index b48ae69dad8d..f46893946086 100644
+> > --- a/arch/riscv/kernel/sse.c
+> > +++ b/arch/riscv/kernel/sse.c
+> > @@ -100,12 +100,12 @@ int arch_sse_init_event(struct sse_event_arch_dat=
+a *arch_evt, u32 evt_id, int cp
+> >         if (sse_init_scs(cpu, arch_evt))
+> >                 goto free_stack;
+> > =
+
+> > -       if (is_kernel_percpu_address((unsigned long)&arch_evt->interrup=
+ted)) {
+> > +       if (sse_event_is_global(evt_id)) {
+> >                 arch_evt->interrupted_state_phys =3D
+> > -                               per_cpu_ptr_to_phys(&arch_evt->interrup=
+ted);
+> > +                               virt_to_phys(&arch_evt->interrupted);
+> >         } else {
+> >                 arch_evt->interrupted_state_phys =3D
+> > -                               virt_to_phys(&arch_evt->interrupted);
+> > +                               per_cpu_ptr_to_phys(&arch_evt->interrup=
+ted);
+> >         }
+> > =
+
+> >         return 0;
+> > diff --git a/drivers/firmware/riscv/riscv_sse.c b/drivers/firmware/risc=
+v/riscv_sse.c
+> > index 511db9ad7a9e..fef375046f75 100644
+> > --- a/drivers/firmware/riscv/riscv_sse.c
+> > +++ b/drivers/firmware/riscv/riscv_sse.c
+> > @@ -62,11 +62,6 @@ void sse_handle_event(struct sse_event_arch_data *ar=
+ch_event,
+> >                         ret);
+> >  }
+> > =
+
+> > -static bool sse_event_is_global(u32 evt)
+> > -{
+> > -       return !!(evt & SBI_SSE_EVENT_GLOBAL);
+> > -}
+> > -
+> >  static
+> >  struct sse_event *sse_event_get(u32 evt)
+> >  {
+> > diff --git a/include/linux/riscv_sse.h b/include/linux/riscv_sse.h
+> > index 16700677f1e8..06b757b036b0 100644
+> > --- a/include/linux/riscv_sse.h
+> > +++ b/include/linux/riscv_sse.h
+> > @@ -8,6 +8,7 @@
+> > =
+
+> >  #include <linux/types.h>
+> >  #include <linux/linkage.h>
+> > +#include <asm/sbi.h>
+> > =
+
+> >  struct sse_event;
+> >  struct pt_regs;
+> > @@ -16,6 +17,11 @@ struct ghes;
+> > =
+
+> >  typedef int (sse_event_handler)(u32 event_num, void *arg, struct pt_re=
+gs *regs);
+> > =
+
+> > +static inline bool sse_event_is_global(u32 evt)
+> > +{
+> > +       return !!(evt & SBI_SSE_EVENT_GLOBAL);
+> > +}
+> > +
+> >  #ifdef CONFIG_RISCV_SSE
+> > =
+
+> >  struct sse_event *sse_event_register(u32 event_num, u32 priority,
+> =
 
 
 _______________________________________________
