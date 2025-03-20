@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCBAC28B30
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 21:36:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBB33C28B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 22:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rsPYwksJrnNSZhK2fwVDubfLz1upwJOfKgmQxTrOiX0=; b=dMiOcZNsVOoBlQ
-	YvBT/sf9WdNf+LpNIQ+FETtpKRnp85VsWkC614nr+JBPU5ho7FfJNd7PwP81icKjWFt8A6Ul/H1Cx
-	07iSzcZiX1hb4wz3nQaRLbBtfxwSnYOYT3+JOg38BJZd7Ak81+EgATGdasnK/yuqloVHXfWA/O+68
-	0svPDJjuiRJl0DrHZskQ/tGU4pkLXiGu13DXgqvAQey/CufnzjggnsTMM981yEGlZMJF4xIYzJ8DX
-	35itILdvEpVfg0CYUXpyaCQ05B/Wt9G95AlScWBfpRTEnFikmkK24d0VCmSOw6yqXELSNwW+YVMNT
-	59dglZAvPwSUMu1ti2Xw==;
+	List-Owner; bh=qOAw2gvnv3pFjjrWj9Bn6uNEjgXuEQDtcRcT9LQPoS4=; b=KrfahQFzI90iwt
+	U+fBPjoCYX7+4yieIBK3REMsqPONA+GbWUNUJpXxolilsxKvjoKgBaDUd61jiglwxd8ginE1DoLXi
+	xWITDKJptnzWkvPECKeMf2jUMlLsasUPa9qQ11b5M8uontmHPvRym7CLj0Tkl8qRS8nXcAdbqvaE5
+	embAOG/zhnIxiVKah4jo9DU8EKghaycaAqH1qR3x4Ixm0R1anL3hLCxSYvbCn9nFKMsk7wOz6Op5e
+	UJ/X/IpXGOhup3moU61wg3OOh3YqV8fv5FU59EGlfm4awrrTOEFA5pVa+Q2aGg2pxi+D8B/GxXKqU
+	Z4yNzEXfHnNEhF3XPZfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvNYV-0000000DGGi-2KFI;
-	Thu, 20 Mar 2025 21:35:59 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1tvO7a-0000000DKT1-3xaf;
+	Thu, 20 Mar 2025 22:12:14 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvNYT-0000000DGFd-0wrn
+	id 1tvO5d-0000000DJy0-1HEp
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 21:35:58 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43d4ff56136so474625e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 14:35:56 -0700 (PDT)
+	Thu, 20 Mar 2025 22:10:14 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf7c2c351so949445e9.0
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 15:10:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742506555; x=1743111355; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
+        d=ventanamicro.com; s=google; t=1742508611; x=1743113411; darn=lists.infradead.org;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JqJgAERJO0hWodgjO+O6nsJOj3YPTpObkXEvNBlmG3c=;
-        b=XglR/uMuYyB0Tq1M3e+wbM8x9cQRe0IwHqQ/toJCCQqKn2V5vPka/fEKSLtLyqJcFX
-         ll44NgJor8bWwKM/RWtx3xyuLTX202CA2kwnMawJ+ykKyO5xAP84TYBXT/ZhYZ0c9ZKq
-         CLDVJrMrWOlVGJ/0BdLIVbthQQOehPIBqWuPoOkaK1wy3/FFkqQ1VA5I/U6Ia6RpcAwU
-         tSGdWn7DLUUHB5rhH0yQJKWZ0zLJAdo1qWPRR4+PUJOTdnDuCqeMzPGWREjNBGRv1Wgv
-         l92//PcKPbdEAibLSP7Qzl2h/NRdKQ5MNrDJ9Br7bvbmBqbOFJJC96l8lwb9Mq0WR3iM
-         1Tgw==
+        bh=ewXqUeA7RBIygwSLbMlGfEG1GVvVQPFVPFBcsvVuklE=;
+        b=dRX+qTDu8t6EYzprkPhccbooxWcFrHBpMxKiK72ayGZ96N6tT+tP3It4SU5yag4RzF
+         YqGINZK4+WaiftTVXbgnEIvKX3vdQbysNCB7O8p2TZMf75buyL24Jq17ijAJo1pLQqKH
+         6HCcntech0ribv4XOqZkRejuS6N/9V97Q7+C/q83R21fB02KM8I4MxvhY+1Gaffylne9
+         cMnahU6hpSSKQo9zPp/KChaowYhILuDFLcTnBCMPZJaRqNXkMBHVoHTlr+kwumno/X68
+         H+2Tz7Un51m3KcSGfjeddOGS9VxC/kc7A7lZSCeZVXeTA45qouZEmnXE52KkNaY4nuw+
+         xe0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742506555; x=1743111355;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
+        d=1e100.net; s=20230601; t=1742508611; x=1743113411;
+        h=in-reply-to:references:subject:from:to:cc:message-id:date
          :content-transfer-encoding:mime-version:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=JqJgAERJO0hWodgjO+O6nsJOj3YPTpObkXEvNBlmG3c=;
-        b=lyttVhqsYH1Ec+aYL7PVYLmbeEN/fBGZcSb/FuwmXa2uNd6GWB15WYEhXqDbaualBF
-         e1gqIULp9UU02xD3C3SGbaYCXjB91AMZzKgRkkV0CZwvcaobYVptczT30Pz7cylPLgu4
-         DL4vEnvWqFgSsnPqOl8AxTMKzUf0odJAwkJ5NRZ7IVbVM1cpr+NSdMJcy/PhIP8x6Dx/
-         36lvUUYlnUXbAlcbRwmfjtY+Os8EK91sO4BR6fPbpixPtnc5jqtP+LSGj0ocb94b2HxS
-         V9V1ozo8kuOGAqMs3sN0x13K2Txd2gKtutE/OCUkNj4uUWqgMHPASis3+gfSNztk6qVU
-         alaA==
-X-Forwarded-Encrypted: i=1; AJvYcCWlsd6GOVGIAyWlZNO1MSemoFmA32FkjRdiOqYt50v76IaHAVTrk0yUjbPzfCz6hneS7eCB0T676Gn1zQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy38KflvBRh+cYXPpNXkNLxN6I/KZPhLLpd4UtB8gflUVEkvb4V
-	8c9WvD4yJOE8IFa2ay7xYNdaQICqPBpHj+DrdPGNFG93iqmJ0E9Am7X1az6NFmA=
-X-Gm-Gg: ASbGncsMZ32ozCjy3uBDv6HRu2ER/iCS7CqAHAZy+bFZhBQ6krRtfx+jzqXp67kIBs7
-	ttHUnRzK62Ez2Av49zf1DSXRc3TqSlQ87gM/De1dcTH7wwULGkyN02wPiChBuvIB08DEKbWqb+k
-	tUqCESCa0D4MR/f2FzjyGzdoo+VFXZ7J+s/KXa65CreVAQ+ihU2jLjo3DqLzc9FFIP+eg5UT4kS
-	6Fuq1hOrWKrmfLfW1eJnktQ/G7QxG6Ou+xR0j1taqxvFCweYmJ0oymEVhuBZG+DYu70Cbfx7iT0
-	HRor1augB3B3q/WLoLTvMEuKM/4lIORsuBdFOQlwEp9WYMXZDeSUC+bpwyw8Nd4YPevuH+Z+ssH
-	/pY9S
-X-Google-Smtp-Source: AGHT+IHQLBHBcxn45pDMJ6mBe7Q5GjHdSOzikTUHc7bZFFqM3IvCF49MKGgOPWFCY1ifjxDw5fxebw==
-X-Received: by 2002:a05:600c:3552:b0:439:9a40:aa1a with SMTP id 5b1f17b1804b1-43d5170c622mr550105e9.6.1742506555439;
-        Thu, 20 Mar 2025 14:35:55 -0700 (PDT)
+        bh=ewXqUeA7RBIygwSLbMlGfEG1GVvVQPFVPFBcsvVuklE=;
+        b=Rg4hDFvciu4nQV6BhePnku+RTwNjGgEn2j5NV9EZwbZONMahsK6yAeuI2cwZwYdKbK
+         Cxmp7oNwLn8nWSqveoF82CBOOot7oDqgWwBuLuLjSuakmXEC9t5gqEaVfH95z5VoB0l0
+         Uew9h68+8eMyOywFZ72DZm6uv8VbtuOj/YOkovHI6OVa+cih99pzpHs/5kyjskD3NiNw
+         Lu5VnehUCwPpeqxN4LjlwXIZd1x43v6TeHL7UY2jVd53qoZDysezy+UmFv2zfpc4C+Bv
+         DsMqto2gIo++DpUj0IOylIv3FfWLVMI9cohSiEJ708mwXHpag3LUzUx7nmWI5buVjV5B
+         egvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUautpuSdjnQ07eMy2cYUAp2ENsI3AXI+sBxqhjY74trlBLueaaKtS5xSnd9fjswmJmYJx1wN8z7ASrHw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9ph6D8Xv5z//TcgWMGPx+7FUqr0dVQmvEt2Lt+lEMOPmUqqMM
+	wC3tj9rrbFUOoMwTjUe2x1A+G2ESRkU7HptobqDO7xEZC8GldSsjEwp3xKPWioI=
+X-Gm-Gg: ASbGncvdtG7LogetraqcFKqgKMxFltekAqzkMNG6hG0SSLSmmm9cq6Q4FxTc75OW3rD
+	z4ZN6bx7P0f0TRV7cQHPo7XvAOn9N1fZnppLcF90vxfoThJGUpnNjdCwNSeDBxJXHdTCkjgxQN3
+	om0u/QQnjBWSYPPwQTnaeFmpBZtEWIUJ3Et65euiSPJJAteLCqWSoVc3iL7/m64hzWLZeEPtWdb
+	JeGtY3A8JtvlRPZ+crG8dA+z9U/vLPbsJFPyxri1SsiQAL0ZVWrPqBExvxLcat8d1EqhmVj91Oi
+	BnPRGDKqTPVP9Hf3MDP0csY1EnTeMvH2chXH18aUNeJiH6asEXzuuJbJ9+mVgj81+Wrhkhkmgt+
+	F87qZboiu9uKzzyA=
+X-Google-Smtp-Source: AGHT+IG3iOdJG0QpOBXcV58Rkg48UtcOBUQNUhvPAa+an4gh1o0G7FLaaJ5j+6uFEW3mo9uctUtXkw==
+X-Received: by 2002:a05:600c:5252:b0:439:9909:c785 with SMTP id 5b1f17b1804b1-43d5171da80mr576165e9.7.1742508611223;
+        Thu, 20 Mar 2025 15:10:11 -0700 (PDT)
 Received: from localhost (ip-89-103-73-235.bb.vodafone.cz. [89.103.73.235])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9ef16csm605211f8f.86.2025.03.20.14.35.53
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9eef37sm655138f8f.85.2025.03.20.15.10.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 14:35:53 -0700 (PDT)
+        Thu, 20 Mar 2025 15:10:08 -0700 (PDT)
 Mime-Version: 1.0
-Date: Thu, 20 Mar 2025 22:35:52 +0100
-Message-Id: <D8LF0RDZ6809.1I3MCCVSHRSQ2@ventanamicro.com>
-Subject: Re: [PATCH v12 23/28] riscv: kernel command line option to opt out
- of user cfi
+Date: Thu, 20 Mar 2025 23:10:06 +0100
+Message-Id: <D8LFQYX4EHF8.2AJ01XL34WK0W@ventanamicro.com>
 Cc: <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
  <linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
  <devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
@@ -82,7 +80,8 @@ Cc: <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
  <jim.shu@sifive.com>, <andybnac@gmail.com>, <kito.cheng@sifive.com>,
  <charlie@rivosinc.com>, <atishp@rivosinc.com>, <evan@rivosinc.com>,
  <cleger@rivosinc.com>, <alexghiti@rivosinc.com>, <samitolvanen@google.com>,
- <broonie@kernel.org>, <rick.p.edgecombe@intel.com>, "linux-riscv"
+ <broonie@kernel.org>, <rick.p.edgecombe@intel.com>, "Zong Li"
+ <zong.li@sifive.com>, "linux-riscv"
  <linux-riscv-bounces@lists.infradead.org>
 To: "Deepak Gupta" <debug@rivosinc.com>, "Thomas Gleixner"
  <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov"
@@ -100,12 +99,14 @@ To: "Deepak Gupta" <debug@rivosinc.com>, "Thomas Gleixner"
  <corbet@lwn.net>, "Shuah Khan" <shuah@kernel.org>, "Jann Horn"
  <jannh@google.com>, "Conor Dooley" <conor+dt@kernel.org>
 From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+Subject: Re: [PATCH v12 22/28] riscv: enable kernel access to shadow stack
+ memory via FWFT sbi call
 References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
- <20250314-v5_user_cfi_series-v12-23-e51202b53138@rivosinc.com>
-In-Reply-To: <20250314-v5_user_cfi_series-v12-23-e51202b53138@rivosinc.com>
+ <20250314-v5_user_cfi_series-v12-22-e51202b53138@rivosinc.com>
+In-Reply-To: <20250314-v5_user_cfi_series-v12-22-e51202b53138@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_143557_264171_A1DE9E09 
-X-CRM114-Status: GOOD (  15.35  )
+X-CRM114-CacheID: sfid-20250320_151013_337736_2DE2F20B 
+X-CRM114-Status: GOOD (  10.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,69 +123,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2025-03-14T14:39:42-07:00, Deepak Gupta <debug@rivosinc.com>:
-> This commit adds a kernel command line option using which user cfi can be
-> disabled.
+2025-03-14T14:39:41-07:00, Deepak Gupta <debug@rivosinc.com>:
+> Kernel will have to perform shadow stack operations on user shadow stack.
+> Like during signal delivery and sigreturn, shadow stack token must be
+> created and validated respectively. Thus shadow stack access for kernel
+> must be enabled.
+
+Why can't kernel access the user shadow stack through an aliased WR
+mapping?
+
+> In future when kernel shadow stacks are enabled for linux kernel, it must
+> be enabled as early as possible for better coverage and prevent imbalance
+> between regular stack and shadow stack. After `relocate_enable_mmu` has
+> been done, this is as early as possible it can enabled.
 >
+> Reviewed-by: Zong Li <zong.li@sifive.com>
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 > ---
->  arch/riscv/kernel/usercfi.c | 21 +++++++++++++++++++++
->  1 file changed, 21 insertions(+)
->
-> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
-> index d31d89618763..813162ce4f15 100644
-> --- a/arch/riscv/kernel/usercfi.c
-> +++ b/arch/riscv/kernel/usercfi.c
-> @@ -17,6 +17,8 @@
->  #include <asm/csr.h>
->  #include <asm/usercfi.h>
->  
-> +bool disable_riscv_usercfi;
-> +
->  #define SHSTK_ENTRY_SIZE sizeof(void *)
->  
->  bool is_shstk_enabled(struct task_struct *task)
-> @@ -396,6 +398,9 @@ int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
->  	unsigned long size = 0, addr = 0;
->  	bool enable_shstk = false;
->  
-> +	if (disable_riscv_usercfi)
-> +		return 0;
-> +
->  	if (!cpu_supports_shadow_stack())
->  		return -EINVAL;
->  
-> @@ -475,6 +480,9 @@ int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
->  {
->  	bool enable_indir_lp = false;
->  
-> +	if (disable_riscv_usercfi)
-> +		return 0;
-> +
->  	if (!cpu_supports_indirect_br_lp_instr())
->  		return -EINVAL;
->  
-> @@ -507,3 +515,16 @@ int arch_lock_indir_br_lp_status(struct task_struct *task,
->  
->  	return 0;
->  }
-> +
-> +static int __init setup_global_riscv_enable(char *str)
-> +{
-> +	if (strcmp(str, "true") == 0)
-> +		disable_riscv_usercfi = true;
-> +
-> +	pr_info("Setting riscv usercfi to be %s\n",
-> +		(disable_riscv_usercfi ? "disabled" : "enabled"));
-> +
-> +	return 1;
-> +}
-> +
-> +__setup("disable_riscv_usercfi=", setup_global_riscv_enable);
+> diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
+> @@ -320,6 +326,12 @@ SYM_CODE_START(_start_kernel)
+>  	la tp, init_task
+>  	la sp, init_thread_union + THREAD_SIZE
+>  	addi sp, sp, -PT_SIZE_ON_STACK
+> +	li a7, SBI_EXT_FWFT
+> +	li a6, SBI_EXT_FWFT_SET
+> +	li a0, SBI_FWFT_SHADOW_STACK
+> +	li a1, 1 /* enable supervisor to access shadow stack access */
+> +	li a2, SBI_FWFT_SET_FLAG_LOCK
+> +	ecall
 
-I'd prefer two command line options instead.
-
-In any case, I think we still document params in kernel-parameters.txt.
+I think the ecall can fail even on machines that have Zicfiss, so it
+would be good to disable user shadow stack if that happens.
 
 _______________________________________________
 linux-riscv mailing list
