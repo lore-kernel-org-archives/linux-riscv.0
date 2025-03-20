@@ -4,74 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9837C36000
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 21:25:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BCBAC28B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 21:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yHgsPyl/SqZ1ffBP+tlLp/3vCK5Zl4iBHjqkC2Lqtqo=; b=tS4KigHk1HzRYo
-	8zhqjsSy/mFRwkcrCgaMkpfp+At14MWTkBhDZAkfyKR9RqhX7itu/N7adbfBGGjxIEdmjflpLATbR
-	vvpD0/mSQGIyjg2v2zXdBjCrfyjLRKWrB4/jK2i5JttHS0dRxF0BwHTYXeHMeGJ7wdl0ulL/LoxzF
-	7Nwj8/IYsHNR+rvSvMWHvYO3IZEeLgi9wx3KUqQvLl0wPNPKijdQ29Ja5YW0O5Wk9UugzhpstZZqV
-	Fw+lgi6hm8RBVCwpHWUbcXKHiJZenLf5HkKRHcJJCZK+GMBdrln0AfgAKkO3rXgPezKfdUYYC8spY
-	/vojp5bRciQm3cH9+CAA==;
+	List-Owner; bh=rsPYwksJrnNSZhK2fwVDubfLz1upwJOfKgmQxTrOiX0=; b=dMiOcZNsVOoBlQ
+	YvBT/sf9WdNf+LpNIQ+FETtpKRnp85VsWkC614nr+JBPU5ho7FfJNd7PwP81icKjWFt8A6Ul/H1Cx
+	07iSzcZiX1hb4wz3nQaRLbBtfxwSnYOYT3+JOg38BJZd7Ak81+EgATGdasnK/yuqloVHXfWA/O+68
+	0svPDJjuiRJl0DrHZskQ/tGU4pkLXiGu13DXgqvAQey/CufnzjggnsTMM981yEGlZMJF4xIYzJ8DX
+	35itILdvEpVfg0CYUXpyaCQ05B/Wt9G95AlScWBfpRTEnFikmkK24d0VCmSOw6yqXELSNwW+YVMNT
+	59dglZAvPwSUMu1ti2Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvNOS-0000000DEwH-2FCS;
-	Thu, 20 Mar 2025 21:25:36 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tvNYV-0000000DGGi-2KFI;
+	Thu, 20 Mar 2025 21:35:59 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvNOQ-0000000DEvB-0ozT
+	id 1tvNYT-0000000DGFd-0wrn
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 21:25:35 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43ba8bbeae2so1476565e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 14:25:33 -0700 (PDT)
+	Thu, 20 Mar 2025 21:35:58 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43d4ff56136so474625e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 14:35:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742505932; x=1743110732; darn=lists.infradead.org;
-        h=in-reply-to:references:subject:from:to:cc:message-id:date
+        d=ventanamicro.com; s=google; t=1742506555; x=1743111355; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
          :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=/BM8p6OTMwPELuLuoM3O1JzZA7D2mDcWqh6aQhebe2w=;
-        b=cE3MzaHwS7vBfE9+KSzuhDzQgRBfn7l9SIDVBApYVyBBBhHHeT7FbWEE84Yzo/byEm
-         hKB5xnW0Q3PUgwjTaMdMDFo4LsG6H8a6eYYd/eOfUr0Ilh58tu8WH51gDyhQKnKy5KSD
-         n6zJr5gTQ8gqQeFHJt6GiRRa46DXL+BhZ6PLsqotqsbA4KN9cy/n5hBr0MIugg/3rQ2x
-         mSBWcDH5FUeHzYCx7uRJdXOuuSSX/myUXkGYwJZkXlnMdGVwdX8GGtvoCPKMAEgN0QOK
-         knC9J6pQr+ojLboewC1GakkfPg/e6UYnYy+iHZ5x21ZsvBRD1UMQS94u7SsbFHjW0Z61
-         4kww==
+        bh=JqJgAERJO0hWodgjO+O6nsJOj3YPTpObkXEvNBlmG3c=;
+        b=XglR/uMuYyB0Tq1M3e+wbM8x9cQRe0IwHqQ/toJCCQqKn2V5vPka/fEKSLtLyqJcFX
+         ll44NgJor8bWwKM/RWtx3xyuLTX202CA2kwnMawJ+ykKyO5xAP84TYBXT/ZhYZ0c9ZKq
+         CLDVJrMrWOlVGJ/0BdLIVbthQQOehPIBqWuPoOkaK1wy3/FFkqQ1VA5I/U6Ia6RpcAwU
+         tSGdWn7DLUUHB5rhH0yQJKWZ0zLJAdo1qWPRR4+PUJOTdnDuCqeMzPGWREjNBGRv1Wgv
+         l92//PcKPbdEAibLSP7Qzl2h/NRdKQ5MNrDJ9Br7bvbmBqbOFJJC96l8lwb9Mq0WR3iM
+         1Tgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742505932; x=1743110732;
-        h=in-reply-to:references:subject:from:to:cc:message-id:date
+        d=1e100.net; s=20230601; t=1742506555; x=1743111355;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
          :content-transfer-encoding:mime-version:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=/BM8p6OTMwPELuLuoM3O1JzZA7D2mDcWqh6aQhebe2w=;
-        b=Iy4kFrnQLQOck7Mx6hCi9bi2jdB5qcwkx7tP+Q/w4FCLf1Qgtx4bneyhYHrt2HUFA3
-         PBPp0RdwBonlcxHfGuhoAURm1zSRWG5KSvneijIVi6CAwczgdc6G2t4V3dSbmIffGzV/
-         jRmgk577tFQauii4Y/yheGfdSolPznjWOtfSnHKstSUg8WJvlmG79nOu7VU8KCXEYoi8
-         7/Tc1rV7UTA2ljxcc5AYBjiJSA8d0VQOD2dfrn9wg04yPyoqaHaKo+FRAkfwGr9GQPgH
-         rsVVookTBIXS9CWzYlf3gYbNXv5OeOoWkhFD+j5N12EtM1k5gTLKeuAEWDUR7zMIBvUR
-         4SYg==
-X-Forwarded-Encrypted: i=1; AJvYcCUNSnSYR5PnJE9B8p8WlnZDNV9fY2wvjn4l535xWkD+GEtKohMIvxMI3Y+YiMwAB6FHFC59HFLc9LYKrw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuHhNWwK36qWXOZOM4TovotlWZ8IGzpRncM6xWlgqQ8BchqjxY
-	8Baj0t7rM5wSF0wvhAyK7SQbJhq8jqhANg0DAbB26GFXT+GUnKmO8DWS/29Am0M=
-X-Gm-Gg: ASbGnctrIQSdf8kYiKQdBjie5MTc1SkcsM0JGsXTZYBtUxqI2VioBY5YOuEohHOR7+o
-	yhQ5IUG4T1bMYo9zNWqt9Sz76aGojlOV54zC1yzLqQSNeK/S8kSjPOBCNJCBAYTQE8YpnltWFnN
-	TEmWCN+GJNnfKKWw1/6SpgxBO5cjEilsuKQzmZLoFcU/NzWU4gYkXsxkQiTO8JDphUkSnV80zgH
-	bGu77hSJPVt6msaWuU9raUfuyQS7KS4RIuwKGgPo4wMBc//nUOdH+x9n4JRMIZYuz+nN6rWUQN5
-	jRw0puL56P7MFCtIArymYi97NYXfQUVcOHP6A0KN87k9Ou5o2qQ80Vfv0Boe11hn4fYX7qMfNWE
-	zKYC4
-X-Google-Smtp-Source: AGHT+IENUyr/tuJjthynG7pDAFWYzf7OBnXUo8NpuhgchW3KTo0PDxUCxZfCqwEA5Mqzg2/ebVjxow==
-X-Received: by 2002:a05:600c:46c3:b0:439:8294:2115 with SMTP id 5b1f17b1804b1-43d50a53d12mr2494095e9.8.1742505931793;
-        Thu, 20 Mar 2025 14:25:31 -0700 (PDT)
+        bh=JqJgAERJO0hWodgjO+O6nsJOj3YPTpObkXEvNBlmG3c=;
+        b=lyttVhqsYH1Ec+aYL7PVYLmbeEN/fBGZcSb/FuwmXa2uNd6GWB15WYEhXqDbaualBF
+         e1gqIULp9UU02xD3C3SGbaYCXjB91AMZzKgRkkV0CZwvcaobYVptczT30Pz7cylPLgu4
+         DL4vEnvWqFgSsnPqOl8AxTMKzUf0odJAwkJ5NRZ7IVbVM1cpr+NSdMJcy/PhIP8x6Dx/
+         36lvUUYlnUXbAlcbRwmfjtY+Os8EK91sO4BR6fPbpixPtnc5jqtP+LSGj0ocb94b2HxS
+         V9V1ozo8kuOGAqMs3sN0x13K2Txd2gKtutE/OCUkNj4uUWqgMHPASis3+gfSNztk6qVU
+         alaA==
+X-Forwarded-Encrypted: i=1; AJvYcCWlsd6GOVGIAyWlZNO1MSemoFmA32FkjRdiOqYt50v76IaHAVTrk0yUjbPzfCz6hneS7eCB0T676Gn1zQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy38KflvBRh+cYXPpNXkNLxN6I/KZPhLLpd4UtB8gflUVEkvb4V
+	8c9WvD4yJOE8IFa2ay7xYNdaQICqPBpHj+DrdPGNFG93iqmJ0E9Am7X1az6NFmA=
+X-Gm-Gg: ASbGncsMZ32ozCjy3uBDv6HRu2ER/iCS7CqAHAZy+bFZhBQ6krRtfx+jzqXp67kIBs7
+	ttHUnRzK62Ez2Av49zf1DSXRc3TqSlQ87gM/De1dcTH7wwULGkyN02wPiChBuvIB08DEKbWqb+k
+	tUqCESCa0D4MR/f2FzjyGzdoo+VFXZ7J+s/KXa65CreVAQ+ihU2jLjo3DqLzc9FFIP+eg5UT4kS
+	6Fuq1hOrWKrmfLfW1eJnktQ/G7QxG6Ou+xR0j1taqxvFCweYmJ0oymEVhuBZG+DYu70Cbfx7iT0
+	HRor1augB3B3q/WLoLTvMEuKM/4lIORsuBdFOQlwEp9WYMXZDeSUC+bpwyw8Nd4YPevuH+Z+ssH
+	/pY9S
+X-Google-Smtp-Source: AGHT+IHQLBHBcxn45pDMJ6mBe7Q5GjHdSOzikTUHc7bZFFqM3IvCF49MKGgOPWFCY1ifjxDw5fxebw==
+X-Received: by 2002:a05:600c:3552:b0:439:9a40:aa1a with SMTP id 5b1f17b1804b1-43d5170c622mr550105e9.6.1742506555439;
+        Thu, 20 Mar 2025 14:35:55 -0700 (PDT)
 Received: from localhost (ip-89-103-73-235.bb.vodafone.cz. [89.103.73.235])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9efe55sm579763f8f.88.2025.03.20.14.25.31
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997f9ef16csm605211f8f.86.2025.03.20.14.35.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 14:25:31 -0700 (PDT)
+        Thu, 20 Mar 2025 14:35:53 -0700 (PDT)
 Mime-Version: 1.0
-Date: Thu, 20 Mar 2025 22:25:30 +0100
-Message-Id: <D8LESTM58PV0.7F6M6XYSL4BU@ventanamicro.com>
+Date: Thu, 20 Mar 2025 22:35:52 +0100
+Message-Id: <D8LF0RDZ6809.1I3MCCVSHRSQ2@ventanamicro.com>
+Subject: Re: [PATCH v12 23/28] riscv: kernel command line option to opt out
+ of user cfi
 Cc: <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
  <linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
  <devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
@@ -80,8 +82,7 @@ Cc: <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
  <jim.shu@sifive.com>, <andybnac@gmail.com>, <kito.cheng@sifive.com>,
  <charlie@rivosinc.com>, <atishp@rivosinc.com>, <evan@rivosinc.com>,
  <cleger@rivosinc.com>, <alexghiti@rivosinc.com>, <samitolvanen@google.com>,
- <broonie@kernel.org>, <rick.p.edgecombe@intel.com>, "Zong Li"
- <zong.li@sifive.com>, "linux-riscv"
+ <broonie@kernel.org>, <rick.p.edgecombe@intel.com>, "linux-riscv"
  <linux-riscv-bounces@lists.infradead.org>
 To: "Deepak Gupta" <debug@rivosinc.com>, "Thomas Gleixner"
  <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov"
@@ -99,14 +100,12 @@ To: "Deepak Gupta" <debug@rivosinc.com>, "Thomas Gleixner"
  <corbet@lwn.net>, "Shuah Khan" <shuah@kernel.org>, "Jann Horn"
  <jannh@google.com>, "Conor Dooley" <conor+dt@kernel.org>
 From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-Subject: Re: [PATCH v12 25/28] riscv: create a config for shadow stack and
- landing pad instr support
 References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
- <20250314-v5_user_cfi_series-v12-25-e51202b53138@rivosinc.com>
-In-Reply-To: <20250314-v5_user_cfi_series-v12-25-e51202b53138@rivosinc.com>
+ <20250314-v5_user_cfi_series-v12-23-e51202b53138@rivosinc.com>
+In-Reply-To: <20250314-v5_user_cfi_series-v12-23-e51202b53138@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_142534_230847_C8297E00 
-X-CRM114-Status: GOOD (  12.11  )
+X-CRM114-CacheID: sfid-20250320_143557_264171_A1DE9E09 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,47 +122,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-2025-03-14T14:39:44-07:00, Deepak Gupta <debug@rivosinc.com>:
-> This patch creates a config for shadow stack support and landing pad instr
-> support. Shadow stack support and landing instr support can be enabled by
-> selecting `CONFIG_RISCV_USER_CFI`. Selecting `CONFIG_RISCV_USER_CFI` wires
-> up path to enumerate CPU support and if cpu support exists, kernel will
-> support cpu assisted user mode cfi.
+2025-03-14T14:39:42-07:00, Deepak Gupta <debug@rivosinc.com>:
+> This commit adds a kernel command line option using which user cfi can be
+> disabled.
 >
-> If CONFIG_RISCV_USER_CFI is selected, select `ARCH_USES_HIGH_VMA_FLAGS`,
-> `ARCH_HAS_USER_SHADOW_STACK` and DYNAMIC_SIGFRAME for riscv.
->
-> Reviewed-by: Zong Li <zong.li@sifive.com>
 > Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 > ---
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> @@ -250,6 +250,26 @@ config ARCH_HAS_BROKEN_DWARF5
-> +config RISCV_USER_CFI
-> +	def_bool y
-> +	bool "riscv userspace control flow integrity"
-> +	depends on 64BIT && $(cc-option,-mabi=lp64 -march=rv64ima_zicfiss)
-> +	depends on RISCV_ALTERNATIVE
-> +	select ARCH_HAS_USER_SHADOW_STACK
-> +	select ARCH_USES_HIGH_VMA_FLAGS
-> +	select DYNAMIC_SIGFRAME
-> +	help
-> +	  Provides CPU assisted control flow integrity to userspace tasks.
-> +	  Control flow integrity is provided by implementing shadow stack for
-> +	  backward edge and indirect branch tracking for forward edge in program.
-> +	  Shadow stack protection is a hardware feature that detects function
-> +	  return address corruption. This helps mitigate ROP attacks.
-> +	  Indirect branch tracking enforces that all indirect branches must land
-> +	  on a landing pad instruction else CPU will fault. This mitigates against
-> +	  JOP / COP attacks. Applications must be enabled to use it, and old user-
-> +	  space does not get protection "for free".
-> +	  default y
+>  arch/riscv/kernel/usercfi.c | 21 +++++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+>
+> diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+> index d31d89618763..813162ce4f15 100644
+> --- a/arch/riscv/kernel/usercfi.c
+> +++ b/arch/riscv/kernel/usercfi.c
+> @@ -17,6 +17,8 @@
+>  #include <asm/csr.h>
+>  #include <asm/usercfi.h>
+>  
+> +bool disable_riscv_usercfi;
+> +
+>  #define SHSTK_ENTRY_SIZE sizeof(void *)
+>  
+>  bool is_shstk_enabled(struct task_struct *task)
+> @@ -396,6 +398,9 @@ int arch_set_shadow_stack_status(struct task_struct *t, unsigned long status)
+>  	unsigned long size = 0, addr = 0;
+>  	bool enable_shstk = false;
+>  
+> +	if (disable_riscv_usercfi)
+> +		return 0;
+> +
+>  	if (!cpu_supports_shadow_stack())
+>  		return -EINVAL;
+>  
+> @@ -475,6 +480,9 @@ int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
+>  {
+>  	bool enable_indir_lp = false;
+>  
+> +	if (disable_riscv_usercfi)
+> +		return 0;
+> +
+>  	if (!cpu_supports_indirect_br_lp_instr())
+>  		return -EINVAL;
+>  
+> @@ -507,3 +515,16 @@ int arch_lock_indir_br_lp_status(struct task_struct *task,
+>  
+>  	return 0;
+>  }
+> +
+> +static int __init setup_global_riscv_enable(char *str)
+> +{
+> +	if (strcmp(str, "true") == 0)
+> +		disable_riscv_usercfi = true;
+> +
+> +	pr_info("Setting riscv usercfi to be %s\n",
+> +		(disable_riscv_usercfi ? "disabled" : "enabled"));
+> +
+> +	return 1;
+> +}
+> +
+> +__setup("disable_riscv_usercfi=", setup_global_riscv_enable);
 
-A high level question to kick off my review:
+I'd prefer two command line options instead.
 
-Why are landing pads and shadow stacks merged together?
-
-Apart from adding build flexibility, we could also split the patches
-into two isolated series, because the features are independent.
+In any case, I think we still document params in kernel-parameters.txt.
 
 _______________________________________________
 linux-riscv mailing list
