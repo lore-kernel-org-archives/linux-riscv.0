@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B13BC36008
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B168EC36009
 	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,42 +12,42 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XKr6iiqsF/4njot5dK+jCyQWiwwO75H7G+RlT7EQxcc=; b=c359UkrbXxHden
-	LhH2pygPCjmKDF1UPzSAS8w8SDCZyHrZUofZ/2mP+JKgPFVaGRF6iLX/mSPUd7OGWiIgt4MNS8BO4
-	GfrKDe4+r4DaDIP63Ef+cZqjirfEW25CdMeIVHWf+7WI7P1wHEQh3oT1J8q3tDp3d/DtXg77hnl/E
-	7rLTx7U267lt/SbCPZmckpkeN7pE4OAkeqhsx+zlYIDqYqcTm4siijIrQMm5x/SwdbaMYF9KpnV9I
-	fqKB5MpSh4NKQrP9Rg95/CzzoFbWfIZ+7KG+QF0JJ3ny7NVz2Cml+PppTaLnq/y+btrRAZGsyOjJ5
-	jgSeWmWjeQj7jhK606qg==;
+	List-Owner; bh=oHtQBKz6M/JIbgZQ8h5ny1h4iiyyW0ft11Y63eNEUeM=; b=EeBjOulNkj30ku
+	2td07GfmFtTELvK5WeavmPS7etUtygaV+LnGoQknGJjSxYVC0mzsnjSz4q3Fg4JfuvkhE0R2GFQe4
+	APbgTK/eplrp6quJgW6TNzp+j/GWEMPkQOxsohk3YTo+SGQBlrt8xVQbIjB6nWHK7NRZs2GagLnTb
+	1iUFQsOtGCDLTm8Kw5s7pZ3FrLHelhKbrsa3DuqIDlGoE6YsRwvx4PevTpZ2z+V55BpHQ3jPFRkKD
+	zjhQ5ZuzCbivZkb/ys3HpSGTwQwqvOUkKdrDScU7fCl8R2ci4np8lR0OtifnlcF8MJUIILlbOvUjW
+	68PTp0FiJCQQhBcH0vlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDY8-0000000Brwi-1AuN;
-	Thu, 20 Mar 2025 10:54:56 +0000
+	id 1tvDYH-0000000Bs51-1G2k;
+	Thu, 20 Mar 2025 10:55:05 +0000
 Received: from naesa03.arrow.com ([216.150.161.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDY5-0000000BrvA-43x6
+	id 1tvDYC-0000000Brv6-3SpA
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 10:54:55 +0000
+	Thu, 20 Mar 2025 10:55:02 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=984; q=dns/txt;
-  s=NAESA-Selector1; t=1742468094; x=1774004094;
+  d=einfochips.com; i=@einfochips.com; l=1142; q=dns/txt;
+  s=NAESA-Selector1; t=1742468101; x=1774004101;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=48tAi45I8uFpjXnUr6Whz6NO1YAMjCklEIDkcMApDYw=;
-  b=b2u1QVxlnmcBIjDdVhR0eVPS1/dDN7P+pmMgWaIoaU1otyv9qjMbCrgL
-   OQQHVe9DX3d+INpi2hVLOdvETiEgeYsc0yg404QNjpg6kMuwyGk5Xdal7
-   YCOSOX8RCBw0gYyC0S/mTQYyVjb4UsIEEVP+5mPG8RFzzzLn3/n4ZfqFO
-   J+jcJlQM0p0wMSxhErnyjc92d5i3LX7JTqtt5mn8nucZK1DmzhBKAHFYC
-   LEb5/FlEigZDdjzeBJrQYzLKd7OC4NGzUz3akiLrelu1FTCPGTfRV80Ia
-   tBCfsp+RGbGfDtFNsFyYeGMO9kgKK64fl4jb+YL8WUoDUgMh49pvy3x6l
-   g==;
-X-CSE-ConnectionGUID: LjMWKreeTb6AXkiy6xRnuw==
-X-CSE-MsgGUID: ooJxgaMMQeioREujX2HGqw==
+  bh=/DfX64G/gD+2bC60ieqN4nFImELPORhEeqU2sLa5/xM=;
+  b=JMb6s+/jM92iL5mi6blRk1za6rLWmH/TurToEy8wB8D4gwIeFdYZCQP8
+   +vz0J+u86o0pLe62XY9dwDwUY18PiV/btODJF0NR50OODzRoyfcI7HoCq
+   bGPvgH41Xlr2ifM0KgsP4rresDagZ13lMi49CiEzeKFBC0xcg3mGmno1Q
+   HRXAJSVCL5WXm1VTuTttMxkbc+SMHKBpOWlTp5B5D4Pv9wrrmwnKY7ouv
+   QxAIKc33IaGLJk3oV/HhC8zL4bZpqIm/X1nWBqpdeV8c/09XBUYl4oMTe
+   HVvxeMmYQcO3GHmWKf5btc+nzKzptFtlCMESZdXZY2CCdKCIhoaluXJ9p
+   Q==;
+X-CSE-ConnectionGUID: H535aqlvTUWHVParSJ3T4g==
+X-CSE-MsgGUID: 8h5E3CcoQtmsv/32AVCEZw==
 X-IronPort-AV: E=Sophos;i="6.14,261,1736838000"; 
-   d="scan'208";a="80317528"
+   d="scan'208";a="80317563"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:54:52 -0600
+  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:55:00 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
-	 Thu, 20 Mar 2025 16:24:49 +0530
+	 Thu, 20 Mar 2025 16:24:50 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -75,17 +75,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 01/10] dt-bindings: riscv: Add SiFive P550 CPU compatible
-Date: Thu, 20 Mar 2025 16:24:40 +0530
-Message-Id: <20250320105449.2094192-2-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v2 08/10] dt-bindings: timer: Add ESWIN EIC7700 CLINT
+Date: Thu, 20 Mar 2025 16:24:47 +0530
+Message-Id: <20250320105449.2094192-9-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 20 Mar 2025 10:54:49.0757 (UTC) FILETIME=[8077E4D0:01DB9986]
+X-OriginalArrivalTime: 20 Mar 2025 10:54:50.0022 (UTC) FILETIME=[80A05460:01DB9986]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_035454_068317_D390835C 
-X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-CacheID: sfid-20250320_035501_000075_3650F0AB 
+X-CRM114-Status: UNSURE (   6.96  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,28 +105,28 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Darshan Prajapati <darshan.prajapati@einfochips.com>
 
-Update Documentation for supporting SiFive P550 based CPU
+Add compatible string for ESWIN EIC7700 CLINT.
 
 Signed-off-by: Darshan Prajapati <darshan.prajapati@einfochips.com>
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
 Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/devicetree/bindings/riscv/cpus.yaml | 1 +
+ Documentation/devicetree/bindings/timer/sifive,clint.yaml | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/riscv/cpus.yaml b/Documentation/devicetree/bindings/riscv/cpus.yaml
-index 2c72f148a74b..3ee7468001f6 100644
---- a/Documentation/devicetree/bindings/riscv/cpus.yaml
-+++ b/Documentation/devicetree/bindings/riscv/cpus.yaml
-@@ -51,6 +51,7 @@ properties:
-               - sifive,e5
-               - sifive,e7
-               - sifive,e71
-+              - sifive,p550
-               - sifive,rocket0
-               - sifive,s7
-               - sifive,u5
+diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+index 76d83aea4e2b..eb03a0602315 100644
+--- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
++++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
+@@ -30,6 +30,7 @@ properties:
+       - items:
+           - enum:
+               - canaan,k210-clint       # Canaan Kendryte K210
++              - eswin,eic7700-clint     # ESWIN EIC7700
+               - sifive,fu540-c000-clint # SiFive FU540
+               - spacemit,k1-clint       # SpacemiT K1
+               - starfive,jh7100-clint   # StarFive JH7100
 -- 
 2.25.1
 
