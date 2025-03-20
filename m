@@ -4,80 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8415C28B30
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 14:15:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26BDCC35FFF
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 16:03:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=EePOl5AYj6STcrNI9f0vxBAt7PjTv5KzbWA1jhKQ+nQ=; b=fjZgzHqp5aP9LT
-	Q6pj5JA5byyCPyVdtsSdoPOUkriAp5gY/jrQmBVvJWln0rY9zTW0jSKYFrUxG0kdO6Hmnnix3ThLz
-	6mPFZg1AhM+E7EWwKDBr8cvJnPeql9f9lNghO1Y1DYHbTtBrGyP4bj1JEr1CUTRSac0W9cd5yBcm/
-	cQYd963U1j7vbIFxtOB55bQsX3wsDveZqcU74iIvDdwShNeqE3Rd85F+FHljPj+KrIsxNSW81kics
-	6DRyqklr8Y6p6LQ2ecUz4KbzeO1F/V0EdDL3Kb3x3zY+RUu972u4EVnjmqnM/cWTZZXcRJ8CIloyo
-	qaiLdxkl3QmhBbyu8wzA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=roOPFGt5/rnc5gUaDzDsZkyZdZwxWnkrkF7xGbNGA9A=; b=QYcYwAnYBOo+x8
+	aw2/9OvGGggtGTeB4J9nUZI7OJUuUF6H2b8XRCqIokluCKRZSV3JBRekjJnlOk9kDTY7FZ/evK8uU
+	4TRlJOvF9/ptwj5zM50GC9/inI5CLWhDwgdqGvH63dB/yojhmzb6W0uuqVY/ZHDGdnNSCrNGgdy9e
+	cofFapwkiSaD/QfaOPFhiZLFSZ/JfMa8UGU8R6806B9fU7NYcb6LcK3HTqg7iWy/h6gBhfwdHpPCN
+	/lWAcILjkQ6arel21GAX1F2Q0SC+lVkBllL2MKg1MNgC0XfqqhZdMnoXh7Jz6nbTOkjtBqCNf3pWe
+	LfYUbmTGSQ1XYv3c3KHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGg8-0000000CLxe-2brZ;
-	Thu, 20 Mar 2025 14:15:24 +0000
-Received: from mail-il1-x12c.google.com ([2607:f8b0:4864:20::12c])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvGg5-0000000CLwZ-3Opp
-	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 14:15:23 +0000
-Received: by mail-il1-x12c.google.com with SMTP id e9e14a558f8ab-3d439dc0548so2631515ab.3
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 07:15:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1742480121; x=1743084921; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=pOuUOTjtcVbSe8J5UUkNu5FVmT0qaTxwu9FnCnOOamg=;
-        b=b+mFVcj2Oa62ppvz2QktsH/anSjDt2Ca+nPvn4ryNFBk+VZiQQlRPGN4UtFxj/gHqo
-         nxCwyMAsMiPleGEthb5U9LuRE9D936ZgKxoJpW1phqRK2YAHbxleAPoTP7zVtn2B3hEJ
-         XrvZceKC1oypi5nBhzG1XufgYLlPo+iw8rBrwU+AJAUaq07idL7Siujau64VAKT1Tcf6
-         +cZhaQNGWdRX/z18Z+pLyFGNw5mVJDuDMcMWFddU2ZWmn3I+I7riZXXy3TQC/2ow4PPG
-         3l+iCHaZH6OIO32FhG0YQk7EiZ7sBphvhEV0Vlxg+TX+EYwjx24P9zJGaOJzp9GKTb7G
-         usPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742480121; x=1743084921;
-        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pOuUOTjtcVbSe8J5UUkNu5FVmT0qaTxwu9FnCnOOamg=;
-        b=EKddqjHTYyivYDyp6Jy/CqmkMYA4xTyDrFiF/t526Pn1qCfUg3mcAlOim7X+vpltdQ
-         xS/KnsTbGwhvbiSeW3NeUv9PoNX//fQjui3fT+AnbxIS2fZq36T8gDmM4be3JSnuvzG3
-         UZUD8ePjBEGdG0/QIagxL1g7BpXgVc2oaR6Rsr14c43wV4WQ88xNPIJgbd4RJ0qZOhdH
-         s6JVnvzFKdfQv2p/aZ54PiOC1y3zvcMOklIOPVX3o2z5L9akpunURKdpjrMNo7wqys3G
-         f9utw1g7brtmv0ZvHwAAA8gZF4YBo69YRjrI/oI/8t3yEIALCwa+Yx88Lh9lkIj0bvGY
-         f7ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVodN9/kl9/blp4mS0aJM9YKGnT0W7lTsPnTVWuvoqtDCOFkw/EbddVOdyVoTT7GKSwixO71Ko6uwwFzQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzp7AM9Zx+Mu3qKU6mLv0VQ64GfP0ieO/TXN1Kw4VBes3OgFxlP
-	VOspbQ4xzA4PJTQGArO6P7XWTVRO70qc4vP68JzFrjyr/c6QTi5p6Vvvsp+GcAVqX5ZDUmrcUTB
-	AZAhmT7U3wrsLbeFTocL39M64mPXvGp5wOWZCEw==
-X-Gm-Gg: ASbGnctoNxdvC3HffQmdCOr56rIiEMnuWac2XnyjJZ3VLEUpWDT7BM/kaOpnX1p28ue
-	aZXqeOgjSbkwp9o/6GyMPSn9NUENp0WJ95Rf9q4TQYlbP9KhLNFjFpaCuq0eZ6BiRFIYyUFEiQq
-	PZQ9wO2VJ+RoITZG2Hj36xxyQWyRw=
-X-Google-Smtp-Source: AGHT+IFK5YVWMg7oHmMx8fPJHlpZWuvdFWhVDFV08fjTW/MyiiCgPNx7YiNRyCTVAurBTzb3xFeOlwvq/fI1K8EDP74=
-X-Received: by 2002:a05:6e02:370a:b0:3cf:bac5:d90c with SMTP id
- e9e14a558f8ab-3d586baad39mr81833385ab.18.1742480120521; Thu, 20 Mar 2025
- 07:15:20 -0700 (PDT)
+	id 1tvIMC-0000000Cbvj-3dNX;
+	Thu, 20 Mar 2025 16:02:56 +0000
+Received: from hch by bombadil.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvI1V-0000000CZ6M-01Db;
+	Thu, 20 Mar 2025 15:41:33 +0000
+Date: Thu, 20 Mar 2025 08:41:32 -0700
+From: Christoph Hellwig <hch@infradead.org>
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, anshuman.khandual@arm.com, akpm@linux-foundation.org,
+	mingo@kernel.org, catalin.marinas@arm.com, ryan.roberts@arm.com,
+	kirill.shutemov@linux.intel.com, namcao@linutronix.de,
+	bjorn@rivosinc.com, arnd@arndb.de, stuart.menefy@codasip.com,
+	luxu.kernel@bytedance.com, vincenzo.frascino@arm.com,
+	samuel.holland@sifive.com, christophe.leroy@csgroup.eu,
+	dawei.li@shingroup.cn, rppt@kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: introduce the ioremap_prot() function
+Message-ID: <Z9w3LL8oZixBKM3t@infradead.org>
+References: <20250320084428.51151-1-cuiyunhui@bytedance.com>
 MIME-Version: 1.0
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 20 Mar 2025 19:45:09 +0530
-X-Gm-Features: AQ5f1Jrt7GwUjf0k1HKl9UBx8575Wok6_pgNuJLSWasl2rfXma4VEBXKWaRUvPU
-Message-ID: <CAAhSdy380StEE03G=RPjKoxtY89nLeufpXbjYwbRypzzrkQN+g@mail.gmail.com>
-Subject: [GIT PULL] KVM/riscv changes for 6.15
-To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Palmer Dabbelt <palmer@rivosinc.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atishp@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, KVM General <kvm@vger.kernel.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_071522_114793_E96502C1 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <20250320084428.51151-1-cuiyunhui@bytedance.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,53 +59,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Paolo,
+> +{
+> +	phys_addr_t addr = PFN_PHYS(pfn);
+> +
+> +	/* avoid false positives for bogus PFNs, see comment in pfn_valid() */
+> +	if (PHYS_PFN(addr) != pfn)
+> +		return 0;
+> +
+> +	return memblock_is_map_memory(addr);
+> +}
+> +EXPORT_SYMBOL(pfn_is_map_memory);
 
-We mainly have two fixes and few PMU selftests improvements
-for 6.15. There are quite a few in-flight patches dependent on
-SBI v3.0 specification which will freeze soon.
+This should not be exported or even exposed.  Please just open code it
+in the only caller.
 
-Please pull.
+> +void __iomem *ioremap_prot(phys_addr_t phys_addr, size_t size,
+> +			   pgprot_t pgprot)
+> +{
+> +	/* Don't allow RAM to be mapped. */
+> +	if (WARN_ON(pfn_is_map_memory(__phys_to_pfn(phys_addr))))
+> +		return NULL;
 
-Regards,
-Anup
+Or just use pfn_valid as that's what we usually use for that check.
+Or am I missing something specific here?
 
-The following changes since commit 7eb172143d5508b4da468ed59ee857c6e5e01da6:
-
-  Linux 6.14-rc5 (2025-03-02 11:48:20 -0800)
-
-are available in the Git repository at:
-
-  https://github.com/kvm-riscv/linux.git tags/kvm-riscv-6.15-1
-
-for you to fetch changes up to b3f263a98d30fe2e33eefea297598c590ee3560e:
-
-  RISC-V: KVM: Optimize comments in kvm_riscv_vcpu_isa_disable_allowed
-(2025-03-20 11:33:56 +0530)
-
-----------------------------------------------------------------
-KVM/riscv changes for 6.15
-
-- Disable the kernel perf counter during configure
-- KVM selftests improvements for PMU
-- Fix warning at the time of KVM module removal
-
-----------------------------------------------------------------
-Atish Patra (5):
-      RISC-V: KVM: Disable the kernel perf counter during configure
-      KVM: riscv: selftests: Do not start the counter in the overflow handler
-      KVM: riscv: selftests: Change command line option
-      KVM: riscv: selftests: Allow number of interrupts to be configurable
-      RISC-V: KVM: Teardown riscv specific bits after kvm_exit
-
-Chao Du (1):
-      RISC-V: KVM: Optimize comments in kvm_riscv_vcpu_isa_disable_allowed
-
- arch/riscv/kvm/main.c                            |  4 +-
- arch/riscv/kvm/vcpu_onereg.c                     |  2 +-
- arch/riscv/kvm/vcpu_pmu.c                        |  1 +
- tools/testing/selftests/kvm/riscv/sbi_pmu_test.c | 81 ++++++++++++++++--------
- 4 files changed, 60 insertions(+), 28 deletions(-)
+It would also be nice to just life this to common code.
 
 _______________________________________________
 linux-riscv mailing list
