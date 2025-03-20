@@ -4,97 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB6F4C35FFF
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 17:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33FD8C36002
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 19:45:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=krkUCHe7704INogIR8lX67ywhTCuyxYoBPIkDzaVNvo=; b=IkLORvyWfmufnz
-	StxqDkwppsUXfx4fxLY0xN1UvByvuRngrn434a0D+yOYOFWyU9o/42gs9SARePj2NJNIcTJ78DgIn
-	JicVbPNoYN8xQpwDxReB+R+VAfSCgon+rL0KySIXZX5c9qUEA5n6Y06VcPPvR9D/BZ5/yZ3RSf093
-	L8PP30pWG7bOBQh4bmG7krQLgKT000kn0Rw5w06IVVmWhIx794+sxOqoqv+zOc7Z0I4gkGK5wHGQB
-	hylH1l9p7WKV9CAuP6ZZsrOjYUWWbLolIpVYT6Qdyyi7SS42hasFi+UagZufft1m+qBk4hMNLEoby
-	SNM1SxdSMHBv+JY7vMMQ==;
+	List-Owner; bh=XnGXZngf5Ja60KGy3wb74S8ZFjSp3TMv0KqNFaN07jo=; b=Q60BgIvLGrOTIm
+	pmfJZsC+hj9YJ/ijxmvT1ICO/DyEjIq0prtXnZcqzToL0ntUAL7Tv7hmSxspnxNdL5iJTzwTnMqRj
+	URkYQFg1imqGpWgOQrYcdDjv8zvkAOBeEFIU6sUcak3xQA0e3B6PuprUpgRLZpyEVxfq2q2QhNm0u
+	87VyqyjN2rzy/q0yhuCQ0HI6gXWe27VaM31Ms26Z5+JBOJkd94MUkbTVLGwj4lq5UpbKgtbMufXk3
+	+ZA1ZYuN2enVfjrMw06IksgFKDqdV1PrvG5qViWSMJ/q6Kp05a9xeWT5iRel36oZwNtq97XzKHonz
+	S03tfzExzMSpa2vCkEiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJjg-0000000CoGH-3YtU;
-	Thu, 20 Mar 2025 17:31:16 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1tvLp6-0000000D6N2-2HP4;
+	Thu, 20 Mar 2025 19:45:00 +0000
+Received: from mail-io1-xd2f.google.com ([2607:f8b0:4864:20::d2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvJi6-0000000Cnz4-0tJA
+	id 1tvLp3-0000000D6Lh-2uQs
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 17:29:39 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-224100e9a5cso21626765ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 10:29:38 -0700 (PDT)
+	Thu, 20 Mar 2025 19:44:58 +0000
+Received: by mail-io1-xd2f.google.com with SMTP id ca18e2360f4ac-85dac9729c3so92623439f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 12:44:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1742491777; x=1743096577; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ehMUm3J1yyvZGiQlan49h9651rjeLktXjDjteQa4YzI=;
-        b=KPa6t8zcmg+lE6rXNQ3auWt8vchhGgntrAfftJUnOmBoaahpNRajiRzJEx8gncExzu
-         k4vyGd1xNOBV9zbpp5hGiFrMY3j0xd1lHh1qZ9tjWPoGIfvJmhjJJEXxNfKsifku9Fzw
-         f2oVzP9izhYXP7GM35jJpI/pP4MvYF1zp4yZ89dDl15hhIgT6enAkr5Jp/mespV5lw0z
-         gDpyN1qXiWyX62n2b+t2p0izzfRhZLM96JPXTLHZraR1LQCzVtBEft6bYNlDJb7i+B+V
-         hLnBYjGuzmz8yrfgR4zRqPWoFW0B54sZhRQ8g7XRP7ZPr/Cg1/aUne2MrJG7gm+oLXUv
-         yd1g==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742499897; x=1743104697; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+8oqjEMMafA14xwGBAA8P5aE0E7j2tKNWQP5nX11uxM=;
+        b=bZu4mSRBRQLdCpDcw89sbWvCxZ+B4QQ09ENH3t1/Jw1GwMj2p/tFBk9CkZTB7blYPM
+         hDCHXEw4hD07jNh5Z0N/0wsw40WqEu1by+pudID43yZ47rp8wWHYLO1t4Hvqf55LMtWr
+         oreZ58d6CjJyuvkYF1JfjE23Nhi9BQNwv1NSTZwPB/EmyGE5NbR0h8eCA9PNKGRB0q37
+         ndyfeMwPd6sb+q4gYSl2zqeLhXvS/dimjjoEkGYrL3nE7BGXdn46vfvh35W7nekjsPVX
+         4LAF2rXnDvUVG/xCbDz02FiPObQRuqVTiZDVgPHvjzA6vv+v/zPF9Lp3fkjDx1dfL0Gt
+         lH0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742491777; x=1743096577;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1742499897; x=1743104697;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ehMUm3J1yyvZGiQlan49h9651rjeLktXjDjteQa4YzI=;
-        b=XXDktKjTnu4z3msI5wuZboQHUKtCmcjMmD31myeb2T3Lc0x4P0lm51zlFesB5gf0oK
-         c9Rw/pD7gxTd6Vh5jZjEIx17MzyWVBEkyDJbqHYRqG1KBvjOTO7uV/46rgUllL9cuh7b
-         BwBx+Anmn2E+iAhAOKvqTCiEoAlhR3oN9NWiOR5IPLztUZfJ1lzG2tzY/WefkdSrHman
-         JaSCGMIL7gdsi70zs2xMXBznGMyOJHTtdJv77nXt7rNj+D9pNS1Tuj/qbi58mUiymh2d
-         TfrWOTLsHS7sUsoBVmGZZEzRpZTCWoYhS7pL/2KA8+IsZu2HsS2WYpJi+neCSi//wjLH
-         uZOA==
-X-Gm-Message-State: AOJu0YxXStjJM380w1exKpUtSA0xXy3oQXebcJbHs7QdHiMxBjS+U5/F
-	fIt9pWu17RCriveGRhmWYD4HjI4S2JKUWdhfud04CprI92cQU7XVy1X7iWePJqo=
-X-Gm-Gg: ASbGncuRgOS8y+nNZnXfccoA6wcKNzq11tpdBU700B5lbK3HeI7YrGhj5YdJffyDz92
-	EocdQcImP+JIRQoh/8sH+doZ2qb+xcuCxd9RNWBVu+3plWTKpc04VUuHMmC6966S0yU51o9lmfb
-	IfnrGB6Wf1mLf37pktf5Bl/xaJBluUabURuroEh4w8emKhyoqbOp6qJ6QDBCvPDpLOh7U+TNMbQ
-	3hF96aT0hLOSS1OrDoUpHMQQbQG/fBqeQ/6wCSZv2rj4NukmuRHLI+Cu7RVvIlfldN9qRtxJ/sn
-	Q7Wp2/DA5l/MvORQn6yx53Ym0ExdcR0+LVN8uIkiqWNBY+zpzVvBuPnCVlId
-X-Google-Smtp-Source: AGHT+IHosJQQFvVMIroy5HqFrhcvWEZzb29pVdZNHAFlNJkZE8gGcxmxyZzEuwUqug8vYxa+GU6q9w==
-X-Received: by 2002:a17:902:d4c5:b0:221:7e36:b13e with SMTP id d9443c01a7336-22780c7a32dmr3719635ad.12.1742491777384;
-        Thu, 20 Mar 2025 10:29:37 -0700 (PDT)
-Received: from charlie.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f45994sm554075ad.81.2025.03.20.10.29.35
+        bh=+8oqjEMMafA14xwGBAA8P5aE0E7j2tKNWQP5nX11uxM=;
+        b=UZMvJHuXTY6EfOgvCfM2uIF7AMTG23PY+R9sUPbkyj/qz2A1H2bNSAIQZE4Tvf4fgT
+         8humlT5qEv90ZNtWMKpKbSFJyCI0Z396OS1YtjXH1AosVkJ4zvO9K25BvHTD0VEAkqqe
+         Fb+BEX7FrZps4oJmu89LTWIDG2v0Hd7KY9ePj2Pk8q0mmdO6m4uxPGkZhxXY2rlS0CAF
+         h7KH+KyILNTbuiTv/fTM6LZxs0rUgvh/mRC+643f3U3ydwOJpgzZ6TnQaprgEsr6TZe0
+         rCivS2bWbnXKpsyS7ZkqgHHLR7xPSas4PqI+JkYbDg4wZq77szkdbYpYBuEF8lsPkFsI
+         XR4w==
+X-Forwarded-Encrypted: i=1; AJvYcCX9q9h+QoK2WDLYHXXOo3tp5r0Z7edqMseD0P8UApMw1KCndBAs/AoWklMeVbNaKmS0nhNNOvszYUMmSg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyRPm/vFLGAryHVQMPpybE5BL9Uq4UhsFLPf+kU3Pz3gHp+9nhM
+	PfzbKkyjE1tv4j6SiapjsrQuXhtax2g3OMVZsNuk1Hp5TvW4OCjyfUOLLK69jY8=
+X-Gm-Gg: ASbGnct8zQ4iBy9TYN9hI1/yx0ZdrD6dNR023+P5bw8c3wWJQkSXLa4eDREMdvUxcDq
+	PqqNP2/Cz6JTFzV+d8slA2YhByC5vB5347mHQo6Gt4Ma2dAx7eOZnGbUNxRaldwve1y/8TjagvK
+	wF+M7ZScIaL33JIXS+U7LatxM2DYzqS92Z4BV1c+WmqCy1iGB7zh+lowzmrZadsxM0W2HATU17C
+	D/DRtsbNXL//qX8GqXUVeDSHnYb4YnYVz7GAUX8RVz3Xa9dChZeAvtGmKvxq6wDel4VjSfwxi9i
+	dltHQCsyKPNVbca2Arvo36xurat8BsVs27CIC18jVNwNsSajDhaom48w0N5yXlWkBKq1Ibgu4Ct
+	+fZefl6xJLcBJTA252P4qc+EQ
+X-Google-Smtp-Source: AGHT+IE0HnT0gHPp7UKf3TtmiqLLIYHOa3X3172V4PY0PqjTK+kdQE3txVupAc7Grypt+2MRtP2v8w==
+X-Received: by 2002:a05:6602:380b:b0:85c:5521:cbfe with SMTP id ca18e2360f4ac-85e2caaf4bcmr59453439f.8.1742499896878;
+        Thu, 20 Mar 2025 12:44:56 -0700 (PDT)
+Received: from zoltan.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-85e2bd8c40fsm8341439f.32.2025.03.20.12.44.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 10:29:36 -0700 (PDT)
-From: Charlie Jenkins <charlie@rivosinc.com>
-Date: Thu, 20 Mar 2025 10:29:22 -0700
-Subject: [PATCH v6 2/4] riscv: entry: Split ret_from_fork() into user and
- kernel
+        Thu, 20 Mar 2025 12:44:56 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: p.zabel@pengutronix.de,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	dlan@gentoo.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heylenay@4d2.org,
+	guodong@riscstar.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 2/7] clk: spacemit: define struct k1_ccu_data
+Date: Thu, 20 Mar 2025 14:44:43 -0500
+Message-ID: <20250320194449.510569-3-elder@riscstar.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250320194449.510569-1-elder@riscstar.com>
+References: <20250320194449.510569-1-elder@riscstar.com>
 MIME-Version: 1.0
-Message-Id: <20250320-riscv_optimize_entry-v6-2-63e187e26041@rivosinc.com>
-References: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
-In-Reply-To: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Huacai Chen <chenhuacai@kernel.org>, 
- WANG Xuerui <kernel@xen0n.name>, Thomas Gleixner <tglx@linutronix.de>, 
- Peter Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>, 
- Alexandre Ghiti <alexghiti@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>, 
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- loongarch@lists.linux.dev, Charlie Jenkins <charlie@rivosinc.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4464; i=charlie@rivosinc.com;
- h=from:subject:message-id; bh=LoTSopBOka5A9kpDiPFFurbF+1mjOb81UBycxnBlNbA=;
- b=owGbwMvMwCXWx5hUnlvL8Y3xtFoSQ/qdgKoixkOt4od/iEifL9zYlhO5zOWE7Vw5m4ApZ998y
- O14lMvdUcrCIMbFICumyMJzrYG59Y5+2VHRsgkwc1iZQIYwcHEKwEQ2pDL8d4p6u1r9XZ/p36Ph
- jJrvuJPnX6/4mvmoWWO2f7i9ULmTNcNfuVlX/l06sK2ofs2Kdtmgf/l/nq4y9epjOXvN4/StFeu
- UuAA=
-X-Developer-Key: i=charlie@rivosinc.com; a=openpgp;
- fpr=7D834FF11B1D8387E61C776FFB10D1F27D6B1354
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_102938_248451_6F411763 
-X-CRM114-Status: GOOD (  13.31  )
+X-CRM114-CacheID: sfid-20250320_124457_729742_611DBF18 
+X-CRM114-Status: GOOD (  18.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,121 +112,162 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This function was unified into a single function in commit ab9164dae273
-("riscv: entry: Consolidate ret_from_kernel_thread into ret_from_fork").
-However that imposed a performance degradation. Partially reverting this
-commit to have ret_from_fork() split again results in a 1% increase on
-the number of times fork is able to be called per second.
+Define a new structure type to be used for describing the OF match data.
+Rather than using the array of spacemit_ccu_clk structures for match
+data, we use this structure instead.
 
-Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
+Move the definition of the spacemit_ccu_clk structure closer to the top
+of the source file, and add the new structure definition below it.
+
+Shorten the name of spacemit_ccu_register() to be k1_ccu_register().
+
+Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- arch/riscv/include/asm/asm-prototypes.h |  3 ++-
- arch/riscv/kernel/entry.S               | 13 ++++++++++---
- arch/riscv/kernel/process.c             | 17 +++++++++++------
- 3 files changed, 23 insertions(+), 10 deletions(-)
+ drivers/clk/spacemit/ccu-k1.c | 58 ++++++++++++++++++++++++++---------
+ 1 file changed, 43 insertions(+), 15 deletions(-)
 
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index 733ff609778797001006c33bba9e3cc5b1f15387..bfc8ea5f9319b19449ec59493b45b926df888832 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -52,7 +52,8 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
- DECLARE_DO_ERROR_INFO(do_trap_break);
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index 44db48ae71313..f7367271396a0 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -129,6 +129,15 @@
+ #define APMU_EMAC0_CLK_RES_CTRL		0x3e4
+ #define APMU_EMAC1_CLK_RES_CTRL		0x3ec
  
--asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
-+asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs);
-+asmlinkage void ret_from_fork_user(struct pt_regs *regs);
- asmlinkage void handle_bad_stack(struct pt_regs *regs);
- asmlinkage void do_page_fault(struct pt_regs *regs);
- asmlinkage void do_irq(struct pt_regs *regs);
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index b2dc5e7c7b3a843fa4aa02eba2a911eb3ce31d1f..0fb338000c6dc0358742cd03497fa54b9e9d1aec 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -319,14 +319,21 @@ SYM_CODE_END(handle_kernel_stack_overflow)
- ASM_NOKPROBE(handle_kernel_stack_overflow)
- #endif
- 
--SYM_CODE_START(ret_from_fork_asm)
-+SYM_CODE_START(ret_from_fork_kernel_asm)
- 	call schedule_tail
- 	move a0, s1 /* fn_arg */
- 	move a1, s0 /* fn */
- 	move a2, sp /* pt_regs */
--	call ret_from_fork
-+	call ret_from_fork_kernel
- 	j ret_from_exception
--SYM_CODE_END(ret_from_fork_asm)
-+SYM_CODE_END(ret_from_fork_kernel_asm)
++struct spacemit_ccu_clk {
++	int id;
++	struct clk_hw *hw;
++};
 +
-+SYM_CODE_START(ret_from_fork_user_asm)
-+	call schedule_tail
-+	move a0, sp /* pt_regs */
-+	call ret_from_fork_user
-+	j ret_from_exception
-+SYM_CODE_END(ret_from_fork_user_asm)
++struct k1_ccu_data {
++	struct spacemit_ccu_clk *clk;		/* array with sentinel */
++};
++
+ /*	APBS clocks start	*/
  
- #ifdef CONFIG_IRQ_STACKS
- /*
-diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
-index 7b0a0bfe29aec896c2bdd8976d855dd390de88d7..485ec7a80a56097e8905cd6395af29633846b5c8 100644
---- a/arch/riscv/kernel/process.c
-+++ b/arch/riscv/kernel/process.c
-@@ -38,7 +38,8 @@ unsigned long __stack_chk_guard __read_mostly;
- EXPORT_SYMBOL(__stack_chk_guard);
- #endif
+ /* Frequency of pll{1,2} should not be updated at runtime */
+@@ -1359,11 +1368,6 @@ static CCU_GATE_DEFINE(emmc_bus_clk, CCU_PARENT_HW(pmua_aclk),
+ 		       0);
+ /*	APMU clocks end		*/
  
--extern asmlinkage void ret_from_fork_asm(void);
-+extern asmlinkage void ret_from_fork_kernel_asm(void);
-+extern asmlinkage void ret_from_fork_user_asm(void);
+-struct spacemit_ccu_clk {
+-	int id;
+-	struct clk_hw *hw;
+-};
+-
+ static struct spacemit_ccu_clk k1_ccu_apbs_clks[] = {
+ 	{ CLK_PLL1,		&pll1.common.hw },
+ 	{ CLK_PLL2,		&pll2.common.hw },
+@@ -1403,6 +1407,10 @@ static struct spacemit_ccu_clk k1_ccu_apbs_clks[] = {
+ 	{ 0,			NULL },
+ };
  
- void noinstr arch_cpu_idle(void)
++static const struct k1_ccu_data k1_ccu_apbs_data = {
++	.clk		= k1_ccu_apbs_clks,
++};
++
+ static struct spacemit_ccu_clk k1_ccu_mpmu_clks[] = {
+ 	{ CLK_PLL1_307P2,	&pll1_d8_307p2.common.hw },
+ 	{ CLK_PLL1_76P8,	&pll1_d32_76p8.common.hw },
+@@ -1440,6 +1448,10 @@ static struct spacemit_ccu_clk k1_ccu_mpmu_clks[] = {
+ 	{ 0,			NULL },
+ };
+ 
++static const struct k1_ccu_data k1_ccu_mpmu_data = {
++	.clk		= k1_ccu_mpmu_clks,
++};
++
+ static struct spacemit_ccu_clk k1_ccu_apbc_clks[] = {
+ 	{ CLK_UART0,		&uart0_clk.common.hw },
+ 	{ CLK_UART2,		&uart2_clk.common.hw },
+@@ -1544,6 +1556,10 @@ static struct spacemit_ccu_clk k1_ccu_apbc_clks[] = {
+ 	{ 0,			NULL },
+ };
+ 
++static const struct k1_ccu_data k1_ccu_apbc_data = {
++	.clk		= k1_ccu_apbc_clks,
++};
++
+ static struct spacemit_ccu_clk k1_ccu_apmu_clks[] = {
+ 	{ CLK_CCI550,		&cci550_clk.common.hw },
+ 	{ CLK_CPU_C0_HI,	&cpu_c0_hi_clk.common.hw },
+@@ -1610,9 +1626,13 @@ static struct spacemit_ccu_clk k1_ccu_apmu_clks[] = {
+ 	{ 0,			NULL },
+ };
+ 
+-static int spacemit_ccu_register(struct device *dev,
+-				 struct regmap *regmap, struct regmap *lock_regmap,
+-				 const struct spacemit_ccu_clk *clks)
++static const struct k1_ccu_data k1_ccu_apmu_data = {
++	.clk		= k1_ccu_apmu_clks,
++};
++
++static int k1_ccu_register(struct device *dev, struct regmap *regmap,
++			   struct regmap *lock_regmap,
++			   struct spacemit_ccu_clk *clks)
  {
-@@ -208,14 +209,18 @@ int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src)
- 	return 0;
+ 	const struct spacemit_ccu_clk *clk;
+ 	int i, ret, max_id = 0;
+@@ -1648,15 +1668,24 @@ static int spacemit_ccu_register(struct device *dev,
+ 
+ 	clk_data->num = max_id + 1;
+ 
+-	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
++	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
++	if (ret)
++		dev_err(dev, "error %d adding clock hardware provider\n", ret);
++
++	return ret;
  }
  
--asmlinkage void ret_from_fork(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
-+asmlinkage void ret_from_fork_kernel(void *fn_arg, int (*fn)(void *), struct pt_regs *regs)
+ static int k1_ccu_probe(struct platform_device *pdev)
  {
--	if (unlikely(fn))
--		fn(fn_arg);
-+	fn(fn_arg);
+ 	struct regmap *base_regmap, *lock_regmap = NULL;
+ 	struct device *dev = &pdev->dev;
++	const struct k1_ccu_data *data;
+ 	int ret;
  
- 	syscall_exit_to_user_mode(regs);
- }
- 
-+asmlinkage void ret_from_fork_user(struct pt_regs *regs)
-+{
-+	syscall_exit_to_user_mode(regs);
-+}
++	data = of_device_get_match_data(dev);
++	if (!data)
++		return -EINVAL;
 +
- int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- {
- 	unsigned long clone_flags = args->flags;
-@@ -238,6 +243,7 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 
- 		p->thread.s[0] = (unsigned long)args->fn;
- 		p->thread.s[1] = (unsigned long)args->fn_arg;
-+		p->thread.ra = (unsigned long)ret_from_fork_kernel_asm;
- 	} else {
- 		*childregs = *(current_pt_regs());
- 		/* Turn off status.VS */
-@@ -247,12 +253,11 @@ int copy_thread(struct task_struct *p, const struct kernel_clone_args *args)
- 		if (clone_flags & CLONE_SETTLS)
- 			childregs->tp = tls;
- 		childregs->a0 = 0; /* Return value of fork() */
--		p->thread.s[0] = 0;
-+		p->thread.ra = (unsigned long)ret_from_fork_user_asm;
+ 	base_regmap = device_node_to_regmap(dev->of_node);
+ 	if (IS_ERR(base_regmap))
+ 		return dev_err_probe(dev, PTR_ERR(base_regmap),
+@@ -1677,8 +1706,7 @@ static int k1_ccu_probe(struct platform_device *pdev)
+ 					     "failed to get lock regmap\n");
  	}
- 	p->thread.riscv_v_flags = 0;
- 	if (has_vector() || has_xtheadvector())
- 		riscv_v_thread_alloc(p);
--	p->thread.ra = (unsigned long)ret_from_fork_asm;
- 	p->thread.sp = (unsigned long)childregs; /* kernel sp */
- 	return 0;
- }
-
+ 
+-	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap,
+-				    of_device_get_match_data(dev));
++	ret = k1_ccu_register(dev, base_regmap, lock_regmap, data->clk);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to register clocks\n");
+ 
+@@ -1688,19 +1716,19 @@ static int k1_ccu_probe(struct platform_device *pdev)
+ static const struct of_device_id of_k1_ccu_match[] = {
+ 	{
+ 		.compatible	= "spacemit,k1-pll",
+-		.data		= k1_ccu_apbs_clks,
++		.data		= &k1_ccu_apbs_data,
+ 	},
+ 	{
+ 		.compatible	= "spacemit,k1-syscon-mpmu",
+-		.data		= k1_ccu_mpmu_clks,
++		.data		= &k1_ccu_mpmu_data,
+ 	},
+ 	{
+ 		.compatible	= "spacemit,k1-syscon-apbc",
+-		.data		= k1_ccu_apbc_clks,
++		.data		= &k1_ccu_apbc_data,
+ 	},
+ 	{
+ 		.compatible	= "spacemit,k1-syscon-apmu",
+-		.data		= k1_ccu_apmu_clks,
++		.data		= &k1_ccu_apmu_data,
+ 	},
+ 	{ }
+ };
 -- 
 2.43.0
 
