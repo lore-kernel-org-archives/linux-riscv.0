@@ -4,91 +4,118 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5A31C28B30
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 09:02:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E986C28B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 09:22:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vlIYO2p4d1Kwnt3f8afImQtP9aXnaXfmws0liKPc1JQ=; b=U6LtC7WIS5T8AB
-	CIMDHQrczJROYszdW5yy/wd+HsUn+U1PDvumToob8XfaAtQbNVgnDTuSnfov4O0cgLVA+xb6J823/
-	cxzRQjjqxWKZEhE9U22ffMGh9UNp1oFOUxe7CVLTVCtMKik30UAIrLF3f8WHkVuw7iajeMQ4ku3/p
-	G0N4Qz/UeE6aiQMzrCAL3zTfWNAWq/pytisiym8O9yiVqDsD2JhqMxkCMF/qjtStQrxZz40ZSOCo6
-	IozMt0EniQwKbCzD8iB94VT+8i1hBtW8FOE3fcuhxiP7YKx30+bH+qDNgiWwoGWtQfjE75XrVbVYX
-	YPEtSMW5yd1BHOyWQF7Q==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=ZJYjHRsuoCwl6DLhqtNwuxZh1vVEriv1eEbAJzZiafw=; b=cL3SEfEgLf90bZS09bZF7wrjOH
+	QPI9sRdNuQ8Jc0/N8G2Sdhl5HVfoZDkiQjxaMxPm7/G6c/P6WpxWFlSg9Uvg29G+ajSo4SEmGv7Lk
+	CGiWEgP47nyTAC57ekj+3WVds4pjxRhab5gaYMiO7xHrmmBX8PugB6Srltg8WOcGUBTsyE82TLXPz
+	fhepS4ArzWtB40+QWBdJPfLhQi4VS0eIZKmO0JsYaHABTR04SYCSzZpaBig00Sp3XRC/qY1Fpwo0O
+	UGug5oBbBLgL5l0HbBGez0Tlx3f3n770wihJB3yu349MW4IIiXBWIzXmnsP9ovXPobsN28+M7hxV6
+	57rqporA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBnU-0000000BdMg-0CDt;
-	Thu, 20 Mar 2025 09:02:40 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1tvC69-0000000Bfxd-2dmD;
+	Thu, 20 Mar 2025 09:21:57 +0000
+Received: from fout-a5-smtp.messagingengine.com ([103.168.172.148])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvBnR-0000000BdLR-0r0d
+	id 1tvC66-0000000Bfwm-3clz
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 09:02:38 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cf3192f3bso4486455e9.1
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 02:02:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742461356; x=1743066156; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=72uAcvX5/rJRkialBraZlcCWh3cO7qq403Dc9iTXm5o=;
-        b=DYrQvESLrqfQ2WjXXbZ25ZL3KJlkplwo4ab5TSo0Mza50eYZb5Q31OkCXvE54hWNHx
-         W7weR81el/jUbb3w/7SPQYfyrPWaE9KyF6bCx/UeSUoR8lJEzpeRfdZp29pB4ZrcoTQe
-         DJBXAdpoalhz5ijEG8EoAJFLvdjae9ZQEM778F0NJjPyk47gr38y/LX8ct5masEJmJVg
-         TrrtcPTFg8mFOABfflaUewBsG/n8W9DxBPcK6wEj9VRw/xGGINynjL8T0VR4omkzoc1+
-         T1rP9PbU/I+uusSiDklTIkXqj6oeLjos8eryqVLtYzXjVDRQd/hHTVSCreuBZJvYpzhp
-         b/6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742461356; x=1743066156;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=72uAcvX5/rJRkialBraZlcCWh3cO7qq403Dc9iTXm5o=;
-        b=gez4eI0C+QzrSo6HaqBxN+2cDnNvg/4f/CucanyMBA79UVlR9v7lGe+wqnYWA90JYR
-         zCfTw9dMQuCwZJhmjni3UH40xVaLNY3sdwi5SF7RO6rTNbqHWYGfoRVK+/QHWi226vK1
-         PIx/+6FXL0HxsCWKyMPsW6cxMk/vraiYj5Whei1JO7C9AcvsdDqFBJcmwZE13S31r5XN
-         h+htxse/DvVGZBrl3fsgG+6WQi89JFMaCa+Z4U/0ujui8f911iIM+qTwCY9rnP4ioHIV
-         HY8uz/PH94eif3917OfwakDbup16nAUsFQGeB3fcOdPrER6+yqgw8Ya09y7JIE0H4OSj
-         5veg==
-X-Forwarded-Encrypted: i=1; AJvYcCWVXec9G4l7wPQVAitWC3QSUrznj/ktpV5eNDCj3T8vRPdvrPjjI/Pwu2A+iwNlFR0ggQFeAul27TKMeA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu+rbdhR82QHZXxdLsJjG07nV/83KCgKUoIa+Ukvzw4SJNaCJ/
-	XdffK9TXXMMfKO7d1+wvgusQtW45yZSZUD69ct1PWy3RiFOOzzVY4TpYxd/46w4=
-X-Gm-Gg: ASbGnct+JFCDov5cEkpAOUfZOXmT94JRGliqz9rt2Qk+sPNIEnEOPgTzhWnEPbLPcH8
-	TKvtX/NeffyVfarY3tmmFvG33ScukN3CRSjhRPFD892JEzsPxlNM5GwmW9rwsjz0tVllmXN65ME
-	Z/JXtCCroXb7XMJ79dQ7GlPBQeb8hs5dtnieNZX7aiX4eCqaOE2KiM5yiiJzdR4Trn9zZ4RPcB0
-	Kb+5OkHXiAGiEbCeteJKtM3uBabKejWAvIOgEMFwZ8UhrWSN92v0VhLDaB5pm2k8a22tsZP0e/R
-	WRDuoOmIci1dpBW+E4qLlUfogc2pTCs2
-X-Google-Smtp-Source: AGHT+IGEgBOjhueRBJQDOOD+YjPfNJuNtGPXMADUyLrPBgDpdIBjVWb7iZ7LsyjAfh/7UNsZ+oLmUA==
-X-Received: by 2002:a05:6000:1565:b0:391:122c:8b2 with SMTP id ffacd0b85a97d-399795ae3a9mr2247824f8f.31.1742461355604;
-        Thu, 20 Mar 2025 02:02:35 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395c7df413esm22708633f8f.20.2025.03.20.02.02.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 02:02:34 -0700 (PDT)
-Date: Thu, 20 Mar 2025 10:02:33 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Charlie Jenkins <charlie@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Ben Dooks <ben.dooks@codethink.co.uk>, Pasha Bouzarjomehri <pasha@rivosinc.com>, 
-	Emil Renner Berthing <emil.renner.berthing@canonical.com>, Alexandre Ghiti <alexghiti@rivosinc.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Peter Zijlstra <peterz@infradead.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	Jason Baron <jbaron@akamai.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-trace-kernel@vger.kernel.org
-Subject: Re: [PATCH v10 1/2] riscv: Move nop definition to insn-def.h
-Message-ID: <20250320-25d2b6edb008a666151b786f@orel>
-References: <20250319-runtime_const_riscv-v10-0-745b31a11d65@rivosinc.com>
- <20250319-runtime_const_riscv-v10-1-745b31a11d65@rivosinc.com>
+	Thu, 20 Mar 2025 09:21:56 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfout.phl.internal (Postfix) with ESMTP id 5FF471382D7C;
+	Thu, 20 Mar 2025 05:21:53 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Thu, 20 Mar 2025 05:21:53 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:content-transfer-encoding:content-type:content-type:date:date
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1742462513;
+	 x=1742548913; bh=bQtSbsAebIiFW2nPgYN3fEu05hmxSDGpViPkOh0koQY=; b=
+	UZUcr4fx0KomfbUqK39EysoFlxL9GhmhTZMPcCYxOz4b/G6z/eM3ebkeTdXToCbK
+	5SiGo+qH5s/HQZw+d4PGWXNQuEeHnhN7M7+JSpLpmdQ4YqvhEh4YwqkXzGKmFqpF
+	sjFEB1m8CUAtFPKEwaHyEFUtSl4UCUPog+l+T4PZUhB4s5DAfREqpk7Oyyq74bRE
+	Xu83hvKcooGVjp2MoPzr0S5lcAzaYbRq1sa7Aao6p+Whp1lUiHyoXy61YoDF6TJH
+	1VLUcW4tCnSyTmTWgffkJC4cZQYhbtL11PEl6RPanqD/6pR3485/FWpgLuWc5FhD
+	aMLyteTXwpqUEHvYqN3Dsg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:content-transfer-encoding:content-type
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1742462513; x=1742548913; bh=b
+	QtSbsAebIiFW2nPgYN3fEu05hmxSDGpViPkOh0koQY=; b=jLPI9mzxH/l3E0zsf
+	SzC9PLwK8Ff7q42HgpNcoebmCDgABrfYWmVYYgLcoNzAk9vzRJCnXUY8yGQf9l6/
+	lMNbgexOaWdfgwzfEOvj0Ts6iInMyDIWEgfJZYEFdSHu+kWj/VEDy28pgl02te9u
+	JFyiOic06liT4waRmKRaLd4LT6YT4LNy2cEJou4firkiz7NPfiZwQGVxWbGh++e9
+	Cl1zsl9L/putUkRmO7MR2I0t1vO/L7NBwzxDTNxBZv+khkFeGBWVb1JXX3Ibzn14
+	XBBofO/z0orgipB1c1coFL0e+w90+oK14xPH2OxXbV4a5Byt22VRrQMeaOMyDMzk
+	VCvRQ==
+X-ME-Sender: <xms:Lt7bZ8pWqXjAQ6u7qBzAZuT0FRf-IKSNeJpeJYlgmXyiPqsms9wDFg>
+    <xme:Lt7bZyqMQfpTjS15apx_W1On5aBJvFYOrpUsN4FjzMBOqO_v_nyE5yaUkzUtU1SkI
+    g8S-JACu45bn1b9mJM>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddugeejkeefucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvffkjghfufgtgfesthejredtredt
+    tdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusg
+    druggvqeenucggtffrrghtthgvrhhnpefhkeeltdfffefhgffhteetheeuhffgteeghfdt
+    ueefudeuleetgfehtdejieffhfenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmh
+    epmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedv
+    vddpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnshhhuhhmrghnrdhkhhgrnh
+    guuhgrlhesrghrmhdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghs
+    segrrhhmrdgtohhmpdhrtghpthhtoheprhihrghnrdhrohgsvghrthhssegrrhhmrdgtoh
+    hmpdhrtghpthhtohepvhhinhgtvghniihordhfrhgrshgtihhnohesrghrmhdrtghomhdp
+    rhgtphhtthhopegtuhhihihunhhhuhhisegshihtvggurghntggvrdgtohhmpdhrtghpth
+    htoheplhhugihurdhkvghrnhgvlhessgihthgvuggrnhgtvgdrtghomhdprhgtphhtthho
+    pehsthhurghrthdrmhgvnhgvfhihsegtohgurghsihhprdgtohhmpdhrtghpthhtoheptg
+    hhrhhishhtohhphhgvrdhlvghrohihsegtshhgrhhouhhprdgvuhdprhgtphhtthhopehp
+    rghlmhgvrhesuggrsggsvghlthdrtghomh
+X-ME-Proxy: <xmx:Lt7bZxPC7gt6magmAguzg9AaQpy15VbQT7DAikwuuVy00CL9frpODg>
+    <xmx:Lt7bZz4gbT_UC3NYCu_FnAfGC6KGYSFj93BoAlDuEPCzMyMXguwKFw>
+    <xmx:Lt7bZ74y2sX7ZoHXB_-nyGLbPsYukcxteYVAyynniwTubpHATHw9og>
+    <xmx:Lt7bZzjrjFNl3O27frSyV2o8kCHLfLT-UhkPHyF4Gd7PfxRxyqLA4w>
+    <xmx:Md7bZ8T8nxjacSeX6SLbQC8QitXN-rHGe1jXSiFmXzkSPnWKCN671kNX>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 65F342220072; Thu, 20 Mar 2025 05:21:50 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250319-runtime_const_riscv-v10-1-745b31a11d65@rivosinc.com>
+X-ThreadId: T4d23c9949082f1fa
+Date: Thu, 20 Mar 2025 10:21:19 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Yunhui Cui" <cuiyunhui@bytedance.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>,
+ "Anshuman Khandual" <anshuman.khandual@arm.com>,
+ "Andrew Morton" <akpm@linux-foundation.org>,
+ "Ingo Molnar" <mingo@kernel.org>,
+ "Catalin Marinas" <catalin.marinas@arm.com>,
+ "Ryan Roberts" <ryan.roberts@arm.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+ "Nam Cao" <namcao@linutronix.de>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@rivosinc.com>,
+ "Stuart Menefy" <stuart.menefy@codasip.com>,
+ "Xu Lu" <luxu.kernel@bytedance.com>,
+ "Vincenzo Frascino" <vincenzo.frascino@arm.com>,
+ "Samuel Holland" <samuel.holland@sifive.com>,
+ "Christophe Leroy" <christophe.leroy@csgroup.eu>,
+ "Dawei Li" <dawei.li@shingroup.cn>, "Mike Rapoport" <rppt@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Message-Id: <9256ca10-323d-41b4-b935-5281f925d50c@app.fastmail.com>
+In-Reply-To: <20250320084428.51151-1-cuiyunhui@bytedance.com>
+References: <20250320084428.51151-1-cuiyunhui@bytedance.com>
+Subject: Re: [PATCH] riscv: introduce the ioremap_prot() function
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_020237_241749_EA9912F9 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20250320_022155_364294_91F65B75 
+X-CRM114-Status: GOOD (  15.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,23 +132,51 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 19, 2025 at 11:35:19AM -0700, Charlie Jenkins wrote:
-> We have duplicated the definition of the nop instruction in ftrace.h and
-> in jump_label.c. Move this definition into the generic file insn-def.h
-> so that they can share the definition with each other and with future
-> files.
-> 
-> Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  arch/riscv/include/asm/ftrace.h   | 1 -
->  arch/riscv/include/asm/insn-def.h | 3 +++
->  arch/riscv/kernel/ftrace.c        | 6 +++---
->  arch/riscv/kernel/jump_label.c    | 4 ++--
->  4 files changed, 8 insertions(+), 6 deletions(-)
+On Thu, Mar 20, 2025, at 09:44, Yunhui Cui wrote:
+> It's advisable to avoid mapping memory with the non-cache attribute.
+> This is because issues may arise when the same physical address is
+> mapped as both cacheable and non-cacheable simultaneously, such as
+> in the case of hardware prefetching.
+>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+Makes sense to me. Ideally we'd have the check in generic_ioremap_prot(),
+but I believe this would break on (at least) x86 because of
+legacy callers of ioremap() on memory.
+
+> diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+> index a0e51840b9db..736c5557bd06 100644
+> --- a/arch/riscv/include/asm/io.h
+> +++ b/arch/riscv/include/asm/io.h
+> @@ -133,6 +133,8 @@ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
+>  #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
+>  #endif
+> 
+> +#define ioremap_prot ioremap_prot
+> +
+>  #include <asm-generic/io.h>
+> 
+>  #ifdef CONFIG_MMU
+
+This feels slightly wrong to me, the "#define foo foo" method
+is normally used to override a declaration or inline function with
+another one, but this one only overrides the implementation, not
+the declaration.
+
+I see the same is done on arc, arm64, parisc, powerpc, s390,
+sh and xtensa, so we can keep this one as well, but it would be
+nice to change all of these to a less surprising approach.
+
+Maybe we should just remove these macros from asm/io.h and
+the trivial wrapper from mm/ioremap.c, and instead change the
+other architectures that have GENERIC_IOREMAP to use
+
+#define ioremap_prot generic_ioremap_prot
+
+It seems this would be only csky, hexagon, (some) loongarch
+and openrisc.
+
+     Arnd
 
 _______________________________________________
 linux-riscv mailing list
