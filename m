@@ -4,91 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9ABC36000
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 12:07:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5568CC28B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 12:12:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R8re0Z94JfEB9L5U3EiWGMzCHNsVv/KyToMa6K8TA6Y=; b=S5dhVNGP/dhHJU
-	RiXihfY8Mv940iqAKoqq4OPuOKFLvX9SbIhu3Fsw3SlTz4pJz6OvXQj7pPfCF26ZqQQmvePq+bkSY
-	riaegjAA13lYb9BhUVuww+bBjcENm8Ib9zpYKOGO+QVtMVbpdg757nDoiP5x4tmzNkWu5qUxHQ9Hx
-	O94bS0vxMrsmHFqmd30j++7yXYe4VeRCs8vFkPQcGSrgg1Dr6xbTWwKDt47fW5s4Zgs0BWL2bCEVX
-	Awo6cfphmg/4xqAxS6uD1WZxOdYXAZpBeWcpNt6YAEQBHyg5pHQvzjEJ3Qy5q9RsJfgwg81TmCQD5
-	+5C6ABAv+iF1tM9JEGAQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xuNYsazjfM0nF2/QtMhi+Sxekt6TsIKl5TjSg4Pj9cY=; b=JyEetQGcd3ux1fMJqd7vlfmqp7
+	Ji2DiKUCLhPavK2AwcragBzRoDo4j/bCDeAWhyvwGq58kcXE9fP2kjQXE1Ypw/L7Pu/lyn9oUybQ+
+	xcf2jgl0kiKS5uwE3M4JldRA6Co/E4nueQg2wkT3llVi+8JcypovobyxZCJYx51WnMnmjqJh3DKGd
+	ej1im2pe4NZuG+vjbtxAQYL0MrDDdtz9wkIGm/irWtZBiFMg7ZE4OBVjzDz+rsG3SQVcrJErGuyLn
+	6jmCpSFrwIC+YAChM7AzI+K6vJbMEf2QgTj4tSLde9Bcfri3/rEY4OLcvRoF+7F5VAkbjuPNnZjPD
+	jAxUDp1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvEgL-0000000C3S2-3ldt;
-	Thu, 20 Mar 2025 12:07:29 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1tvElM-0000000C4iD-1g7a;
+	Thu, 20 Mar 2025 12:12:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvESE-0000000C0Vi-0QAs
+	id 1tvEZu-0000000C29A-49j0
 	for linux-riscv@lists.infradead.org;
-	Thu, 20 Mar 2025 11:52:56 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3913b539aabso338545f8f.2
-        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 04:52:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1742471572; x=1743076372; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=W7Q+Uv9PP7IrwTG/eBced107V/Y8wAy3D1YQ6SsCvek=;
-        b=HSbyc88gp4B8KCrZ70Qqf/Kbo3ux3S1qU5Y3pu+ZyvQlbCHaMnXSrel/CH6HF2HDUF
-         bmG+IcoeS4IrTDmzeHCOCrINDFzp0hCwEx8Bc/oybVVYaCW+0X+aZfmvbe4Zex6oPmeb
-         Rsn+aURnFHGjyIy6tMcZW991qFdCx/RC4CyY4SxqBQuQWfzWGiOL4ls/9HLxruJX5pcA
-         iXZgiB01ouiQmCltrSiCuEAsujdry58ptbbCyJH5y8wiFX1qlUPSS9cRW433zW17i4ez
-         ZIZmnDH1+oK4ARFlILaqo9wiA0dNGwXsMpD0wjLMbXB0eftfGuZ2x6O7Fs/ZzSlO29eC
-         UD8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742471572; x=1743076372;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=W7Q+Uv9PP7IrwTG/eBced107V/Y8wAy3D1YQ6SsCvek=;
-        b=RuVOn+wGdMCUu5/Sat9+NAXude8VkghULPxiL+K1RE24ogOIg7q6qkhVFbtlEvKB53
-         LoRW/OcIStVOhRBPOCHAESmKliZZfzq4GZNnvWpE32pCr1gtgI7rouyeIpg5/RXqiG6R
-         KcQeVuSx1MpxgFmhbzc+ZIuXiNiuIPvn3k5vw0ACgM9m1mlScxeU15Om5Besp38Nj48G
-         94AzGsG76lBPByoE4JF9xUXco/JWtqEAWK7GNG7+Gnu/VAjYjlXYhlP+68Lta+xwytwd
-         cMjS8tI7xn0vquOCwMryZP6ESvlRoOOAixHXthYUfnotqmQupUm/pVaCtcsUkFNJQq6C
-         hQWg==
-X-Forwarded-Encrypted: i=1; AJvYcCXA80TRTga15tZeldRROI++a4yLLwnrOYVDIENbSC6I7ZINfQjwr8y8OQ8HklgtpCA5HmN//1Yxwf/x6Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP4qulkXv3eA1kI0K6CVDTQg9ehAp5zYeLCmoe/wuvD/8wXaOn
-	hSwQN0vlRF0og3S1OSHmqd3iQJMtJjbmSs6dfdHcjZOiaB8Z6luv222qR28D8Jc=
-X-Gm-Gg: ASbGncspWZEIqdKg/vBfTzFh0aVXJqgT0LcCE8PZ8y1K5om8VG+OcDB3mNDaeLIOc56
-	AIqALQ3Zf88iVHliK+O2FcIoL3niZWAX2dPFrL5OVpZUGlH4JLI/PNSK9zZ2SQLYaqC/+DIX64z
-	jqEoiIHirCQrGmnIt+uYhUJPIR4LEbwMGX2+SEdgh7Wu+ipMqZTDSsVnYU6Xy//fpOGrJW3CyLA
-	QPI8BYiAxm7W/sSZ5CXd1ToLIiMgkGuDx65lQ2vq4TDyOBGT0gt7xEN44JrfWt6J015gRB/uqCE
-	BefFOf4dDrVeUgpsozZy+vgHNdHtRA/2
-X-Google-Smtp-Source: AGHT+IHeyTD2wSXlAOfdAKS53YepR+/8W8LiJeiUCHJdoX9DdjQszAGbC8mMUKoCZx6XO5JpwnfZmg==
-X-Received: by 2002:a05:6000:188e:b0:391:2e6a:30de with SMTP id ffacd0b85a97d-399739beb10mr5536213f8f.19.1742471572182;
-        Thu, 20 Mar 2025 04:52:52 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::59a5])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3997e3eb672sm404452f8f.95.2025.03.20.04.52.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 20 Mar 2025 04:52:51 -0700 (PDT)
-Date: Thu, 20 Mar 2025 12:52:50 +0100
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Himanshu Chauhan <hchauhan@ventanamicro.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>, 
-	Atish Patra <atishp@atishpatra.org>
-Subject: Re: [PATCH v3 2/4] riscv: add support for SBI Supervisor Software
- Events extension
-Message-ID: <20250320-5f9612f1b503c79c9b185b10@orel>
-References: <20241206163102.843505-1-cleger@rivosinc.com>
- <20241206163102.843505-3-cleger@rivosinc.com>
- <20250319-46b625cf8b771616d4c7c053@orel>
- <b3fbd730-295f-4491-b0d6-d4e258941ae5@rivosinc.com>
+	Thu, 20 Mar 2025 12:00:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AFB4DA45C11;
+	Thu, 20 Mar 2025 11:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5709BC4CEEA;
+	Thu, 20 Mar 2025 12:00:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742472049;
+	bh=I2BU+qsSWA9Jxmh2vNgtN0RHEtMSdlZf/at4dwi6RJ8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=i6yGMcMtI495UC0u2NOvqjljFvh/k1FKhOq+4zKWZuefs2TuWkfvGS1rGKNpcGGb8
+	 NdBcJR+93RLe3JKkQDr3YkmhKkXPdk1msjKXlERZpXvi26JR/FuR+Rl7Je2+aiwie1
+	 1ixb9lkYYyEkkAuPhNBXnDvLa9RUSR0qH8t76Abd84UE5GS+HFISpVqA3Sq40kDkNr
+	 sSERXHf+itD/iwo8qEy4QuxW/jtNXkjWdaDW3ixR3E4Jve7AiAz1NevNrzHgjooS4S
+	 7fpHAWq916cJLvgbaDftt1JCwM2jz2njTTfDbY2jNsW6N7TA0ejjrR4eMSZX47H/I0
+	 HgLIz6+G3dZkw==
+Date: Thu, 20 Mar 2025 12:00:42 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Min Lin <linmin@eswincomputing.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Yu Chien Peter Lin <peterlin@andestech.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+	"rafal@milecki.pl" <rafal@milecki.pl>,
+	Anup Patel <anup@brainfault.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 00/10] Basic device tree support for ESWIN EIC7700 RISC-V
+ SoC
+Message-ID: <20250320-uprising-couch-0af012a1fee6@spud>
+References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
+ <20250311-backdrop-porthole-440ae005e8fa@spud>
+ <SA3PR04MB893164FCD6C4CB8924FC8DE583D82@SA3PR04MB8931.namprd04.prod.outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b3fbd730-295f-4491-b0d6-d4e258941ae5@rivosinc.com>
+In-Reply-To: <SA3PR04MB893164FCD6C4CB8924FC8DE583D82@SA3PR04MB8931.namprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_045254_146697_6AA87C01 
-X-CRM114-Status: GOOD (  27.19  )
+X-CRM114-CacheID: sfid-20250320_050051_160817_EF06F715 
+X-CRM114-Status: GOOD (  19.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,168 +89,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="===============1398501326775779988=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20, 2025 at 09:16:07AM +0100, Cl=E9ment L=E9ger wrote:
-> =
 
-> =
+--===============1398501326775779988==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="dqsjL8OpJogiK+vA"
+Content-Disposition: inline
 
-> On 19/03/2025 18:08, Andrew Jones wrote:
-> > On Fri, Dec 06, 2024 at 05:30:58PM +0100, Cl=E9ment L=E9ger wrote:
-> > ...
-> >> +int arch_sse_init_event(struct sse_event_arch_data *arch_evt, u32 evt=
-_id, int cpu)
-> >> +{
-> >> +	void *stack;
-> >> +
-> >> +	arch_evt->evt_id =3D evt_id;
-> >> +	stack =3D sse_stack_alloc(cpu, SSE_STACK_SIZE);
-> >> +	if (!stack)
-> >> +		return -ENOMEM;
-> >> +
-> >> +	arch_evt->stack =3D stack + SSE_STACK_SIZE;
-> >> +
-> >> +	if (sse_init_scs(cpu, arch_evt))
-> >> +		goto free_stack;
-> >> +
-> >> +	if (is_kernel_percpu_address((unsigned long)&arch_evt->interrupted))=
- {
-> >> +		arch_evt->interrupted_state_phys =3D
-> >> +				per_cpu_ptr_to_phys(&arch_evt->interrupted);
-> >> +	} else {
-> >> +		arch_evt->interrupted_state_phys =3D
-> >> +				virt_to_phys(&arch_evt->interrupted);
-> >> +	}
-> >> +
-> >> +	return 0;
-> > =
 
-> > Hi Cl=E9ment,
-> > =
+--dqsjL8OpJogiK+vA
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> > Testing SSE support with tools/testing/selftests/kvm/riscv/sbi_pmu_test
-> > led to an opensbi sbi_trap_error because the output_phys_lo address pas=
-sed
-> > to sbi_sse_read_attrs() wasn't a physical address. The reason is that
-> > is_kernel_percpu_address() can only be used on static percpu addresses,
-> > but local sse events get their percpu addresses with alloc_percpu(), so
-> > is_kernel_percpu_address() was returning false even for local events. I
-> > made the following changes to get things working.
-> =
+On Thu, Mar 20, 2025 at 10:39:52AM +0000, Pinkesh Vaghela wrote:
+> Hi Conor,
+>=20
+> On Tue, Mar 11, 2025 at 11:38 PM, Conor Dooley wrote:
+> > On Tue, Mar 11, 2025 at 01:04:22PM +0530, Pinkesh Vaghela wrote:
+> > > Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
+> > > P550 CPU cluster and the first development board that uses it, the
+> > > SiFive HiFive Premier P550.
+> > >
+> > > This patch series adds initial device tree and also adds ESWIN
+> > > architecture support.
+> > >
+> > > Boot-tested using intiramfs with Linux 6.14.0-rc2 on HiFive Premier
+> > > P550 board using U-Boot 2024.01 and OpenSBI 1.4.
+> >=20
+> > There's no git tree in your MAINTAINERS entry, nor mention here of what=
+ the
+> > story is going to be in terms of sending patches to Arnd. Who is going =
+to be
+> > doing that?
+>=20
+> We are not currently set up for sending signed pull requests,
+> so for now we plan to send changes to Arnd as separate patches.
 
-> Hi Andrew,
-> =
+Undesirable, but sure. You didn't answer the first part of my question
+though, and there's no git tree listed in your v2 series. That part is
+not negotiable, you have to have one and get it included in linux-next.
 
-> Did something changed recently ? Because I tested that when it was send
-> (PMU + some kernel internal testsuite) and didn't saw that. Anyway, I'll
-> respin it with your changes as well.
+Cheers,
+Conor.
 
-It depends on the kernel config. Configs that don't have many
-alloc_percpu() calls prior to the one made by sse can work, because,
-iiuc, alloc_percpu() will get its allocation from the percpu allocator's
-first chunk until that chunck fills up. The first chunck is shared with
-the static allocations.
+--dqsjL8OpJogiK+vA
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Thanks,
-drew
+-----BEGIN PGP SIGNATURE-----
 
-> =
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ9wDagAKCRB4tDGHoIJi
+0qi/AP9YKzFUiYQGiDGSwHohlkUToDB0pum+R3rZQuqFodKXXAEAk6gtT0rvQonb
+1UJ5lZsOGhW0cLSxRu5z5tlnca1WJAM=
+=UrIu
+-----END PGP SIGNATURE-----
 
-> Thanks !
-> =
+--dqsjL8OpJogiK+vA--
 
-> Cl=E9ment
-> =
 
-> > =
-
-> > Thanks,
-> > drew
-> > =
-
-> > diff --git a/arch/riscv/kernel/sse.c b/arch/riscv/kernel/sse.c
-> > index b48ae69dad8d..f46893946086 100644
-> > --- a/arch/riscv/kernel/sse.c
-> > +++ b/arch/riscv/kernel/sse.c
-> > @@ -100,12 +100,12 @@ int arch_sse_init_event(struct sse_event_arch_dat=
-a *arch_evt, u32 evt_id, int cp
-> >         if (sse_init_scs(cpu, arch_evt))
-> >                 goto free_stack;
-> > =
-
-> > -       if (is_kernel_percpu_address((unsigned long)&arch_evt->interrup=
-ted)) {
-> > +       if (sse_event_is_global(evt_id)) {
-> >                 arch_evt->interrupted_state_phys =3D
-> > -                               per_cpu_ptr_to_phys(&arch_evt->interrup=
-ted);
-> > +                               virt_to_phys(&arch_evt->interrupted);
-> >         } else {
-> >                 arch_evt->interrupted_state_phys =3D
-> > -                               virt_to_phys(&arch_evt->interrupted);
-> > +                               per_cpu_ptr_to_phys(&arch_evt->interrup=
-ted);
-> >         }
-> > =
-
-> >         return 0;
-> > diff --git a/drivers/firmware/riscv/riscv_sse.c b/drivers/firmware/risc=
-v/riscv_sse.c
-> > index 511db9ad7a9e..fef375046f75 100644
-> > --- a/drivers/firmware/riscv/riscv_sse.c
-> > +++ b/drivers/firmware/riscv/riscv_sse.c
-> > @@ -62,11 +62,6 @@ void sse_handle_event(struct sse_event_arch_data *ar=
-ch_event,
-> >                         ret);
-> >  }
-> > =
-
-> > -static bool sse_event_is_global(u32 evt)
-> > -{
-> > -       return !!(evt & SBI_SSE_EVENT_GLOBAL);
-> > -}
-> > -
-> >  static
-> >  struct sse_event *sse_event_get(u32 evt)
-> >  {
-> > diff --git a/include/linux/riscv_sse.h b/include/linux/riscv_sse.h
-> > index 16700677f1e8..06b757b036b0 100644
-> > --- a/include/linux/riscv_sse.h
-> > +++ b/include/linux/riscv_sse.h
-> > @@ -8,6 +8,7 @@
-> > =
-
-> >  #include <linux/types.h>
-> >  #include <linux/linkage.h>
-> > +#include <asm/sbi.h>
-> > =
-
-> >  struct sse_event;
-> >  struct pt_regs;
-> > @@ -16,6 +17,11 @@ struct ghes;
-> > =
-
-> >  typedef int (sse_event_handler)(u32 event_num, void *arg, struct pt_re=
-gs *regs);
-> > =
-
-> > +static inline bool sse_event_is_global(u32 evt)
-> > +{
-> > +       return !!(evt & SBI_SSE_EVENT_GLOBAL);
-> > +}
-> > +
-> >  #ifdef CONFIG_RISCV_SSE
-> > =
-
-> >  struct sse_event *sse_event_register(u32 event_num, u32 priority,
-> =
-
+--===============1398501326775779988==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1398501326775779988==--
+
