@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96F8BC36000
-	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74882C28B30
+	for <linux-riscv@archiver.kernel.org>; Thu, 20 Mar 2025 10:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RtbUAFvpFlcy7/xJnOAvNJIoQdWlFIpqtpQKAQKT5/4=; b=xslR2DK6FHm7oq
-	9cp+17RDVN+K1WNiINtfSmk/+7QHsNE3VSrjhcSSD36lobHSPOOPLRFmSnRhTm0VcLtFHXapd0FMu
-	qhP5ze5WuSGaHihE0zkD1qM3YkP701pMB6OARVsQuwOUY2q/RMeGolANQ68atPuVBzSFwYnFiGdxG
-	15SG/A/2Y5911Jbk1GcJEf7DT8ETNydikRygNaKmn6k/LpT7QFi6wRxDmIR86iypzQ3IXOsKyZy4W
-	N/vLlzSET1WDHbRRopQUZ+5FNxpzaH5+eGn/VG8ss6kQLCSNjs9iVynxNCtS8V1UZ2l3eJTAIciYX
-	LlbIaL0bb75NLWkTls7A==;
+	List-Owner; bh=uT60+G+fiDUEeHrYf88cbbO4gynbzy+f/FPUqmdAbhY=; b=P17tcVFQgHsPw7
+	n83tymAYV7jLflf2T3UZr8Cw9Sy96YjISGn1LrSk93EhCS4be7tCje3Zie4hQixBOy9P2XXOor0it
+	Z79McqWdSwWd2R5tXeQcz81fuqIjgSKlrllqdDdDLLEnwPO9UqsBvWX6jvhgokbi/Picay2J8gnzq
+	ByaSYwDYROWWmoKvSQZm2EJo+TL+5McXVoscHuUjquyiWTa7sAoKeW/1sQfkw5+FBkffdtTP2FF7s
+	E1gWWvFn4zLka5T76zQEjDOZofd1EB6qBU5banl5SJmC9QM5s+oB4vnrpRtc76lTX5vlpZITiiOX3
+	qYF+1hU4l35COo+9vNMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDYB-0000000BryI-26zg;
-	Thu, 20 Mar 2025 10:54:59 +0000
+	id 1tvDYC-0000000BrzS-0tfy;
+	Thu, 20 Mar 2025 10:55:00 +0000
 Received: from naesa03.arrow.com ([216.150.161.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvDY7-0000000Brvh-0O5P
+	id 1tvDY7-0000000BrvA-1Hb2
 	for linux-riscv@lists.infradead.org;
 	Thu, 20 Mar 2025 10:54:56 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=754; q=dns/txt;
+  d=einfochips.com; i=@einfochips.com; l=1173; q=dns/txt;
   s=NAESA-Selector1; t=1742468095; x=1774004095;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=UqA7xvW45JJ2k7vIZdX/kp4Mb5++ZRHaADRZ/l5k7Zk=;
-  b=qrWHhyzR9v1Hpfz11LskLFji6Tpvt87YwaKQfLH1aK3sBGHvnbVuwUg7
-   OjBcTFMnMtJveV4fYhjHqgt3F9TNnwHgdsabjXcaaaUqc6wM5pId3jmlM
-   8UE5CR5I/CkmNNfFQ8F0T3KfYriKp89UQCVPAW354qn3csbY/NSQpZyoI
-   cNHYYw1gvv9i+UF1oz924Wpa3Hw6rw4ybfKxOmLnAbGAwRWOf5nOVAC6r
-   5hfVK/8KWuC/8fz3FIj3tizEE/fIUfeJu6ggq0Mk0QNzCl02tz9ZDMYs9
-   zt6ozBJbEJYgNt/Oho8eJuLTiZJ27N8g7W7vk6EYqf0Jbt1xnSxakXttz
+  bh=nz4TSR/yeylSySeEwBwXH8XYkLvFxfEvkT0aa/4zgd0=;
+  b=L9vYLutSvsrw0zYDRF/xOqki5f3pk65poxQA7FMIPBUvgo3o+W+6eIN+
+   FWsCUxHzS6wMoDTIt0JRwFKiqcmpBZlmlQcNR3O8hFMZpuO/ZPyUSWQ8q
+   9MMzPw9uUcJjWBMIDm6cl92/dwTJBmMyqVNOpCdHi4yKM506lwxg0zuBA
+   TAglhLpYZpEVCl/rmCPHP/5BVg5W38JFlBh4NX9Kmqzrrm58+TlL3170w
+   16vjtS1HvJB/0kdwRZ17s0wSjTm+nKWeCGt3Inh+mYSQkR/XMSBWzre/Y
+   l6HGw3ySpdZ0Z/uXCCsvFyqN9+z705MJ9QcLfBy2VxUzQQtJ8zWxujd7X
    w==;
-X-CSE-ConnectionGUID: TK4OG7BjT+y7bjzyMjSTuA==
-X-CSE-MsgGUID: bN16bQlASxmwwdUoTjelLA==
+X-CSE-ConnectionGUID: HoGrIcKXRRmtoWt9daW9TQ==
+X-CSE-MsgGUID: A9EtlFOoR5WUGSi+cdZUWg==
 X-IronPort-AV: E=Sophos;i="6.14,261,1736838000"; 
-   d="scan'208";a="80317533"
+   d="scan'208";a="80317538"
 Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:54:53 -0600
+  by naesa03out.arrow.com with ESMTP; 20 Mar 2025 04:54:54 -0600
 Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
 	 Thu, 20 Mar 2025 16:24:49 +0530
 From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
@@ -75,17 +75,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 02/10] riscv: Add Kconfig option for ESWIN platforms
-Date: Thu, 20 Mar 2025 16:24:41 +0530
-Message-Id: <20250320105449.2094192-3-pinkesh.vaghela@einfochips.com>
+Subject: [PATCH v2 03/10] dt-bindings: vendor-prefixes: add eswin
+Date: Thu, 20 Mar 2025 16:24:42 +0530
+Message-Id: <20250320105449.2094192-4-pinkesh.vaghela@einfochips.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 20 Mar 2025 10:54:49.0788 (UTC) FILETIME=[807C9FC0:01DB9986]
+X-OriginalArrivalTime: 20 Mar 2025 10:54:49.0819 (UTC) FILETIME=[80815AB0:01DB9986]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_035455_191350_3A33FAE5 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20250320_035455_406225_08D6A145 
+X-CRM114-Status: UNSURE (   7.53  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -103,31 +103,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Create a config option to build ESWIN SoC specific resources
+From: Pritesh Patel <pritesh.patel@einfochips.com>
 
-Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Add new vendor string to dt bindings.
+This new vendor string is used by
+- ESWIN EIC770X SoC
+- HiFive Premier P550 board which uses EIC7700 SoC.
+
+Link: https://www.eswin.com/en/
+Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
 Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/Kconfig.socs | 6 ++++++
- 1 file changed, 6 insertions(+)
+ Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
-index 1916cf7ba450..35594e365ca6 100644
---- a/arch/riscv/Kconfig.socs
-+++ b/arch/riscv/Kconfig.socs
-@@ -1,5 +1,11 @@
- menu "SoC selection"
- 
-+config ARCH_ESWIN
-+	bool "ESWIN SoCs"
-+	help
-+	  This enables support for ESWIN SoC platform hardware,
-+	  including the ESWIN EIC7700 SoC.
-+
- config ARCH_MICROCHIP_POLARFIRE
- 	def_bool ARCH_MICROCHIP
- 
+diff --git a/Documentation/devicetree/bindings/vendor-prefixes.yaml b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+index 5079ca6ce1d1..07ff140e67dc 100644
+--- a/Documentation/devicetree/bindings/vendor-prefixes.yaml
++++ b/Documentation/devicetree/bindings/vendor-prefixes.yaml
+@@ -490,6 +490,8 @@ patternProperties:
+     description: Espressif Systems Co. Ltd.
+   "^est,.*":
+     description: ESTeem Wireless Modems
++  "^eswin,.*":
++    description: Beijing ESWIN Technology Group Co. Ltd.
+   "^ettus,.*":
+     description: NI Ettus Research
+   "^eukrea,.*":
 -- 
 2.25.1
 
