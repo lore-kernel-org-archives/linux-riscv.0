@@ -4,124 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B73C36000
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 10:17:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1D96C35FFF
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 10:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Rqd/BuUNwUAgkb6/Y0I7BLvhdgt+r+8ALumtsbLAvRk=; b=ZG5a7GY84sDK+p
-	dYa4yPj1s6AnPUhOZQ7lWM3vqjqUKq5OfBD+WGJoppHbbuSOrWB6pRoZpjuwgk+9Q/clLbNaGCu/1
-	ye3pjxmFpalAJWLr9L8/t/NKNhPXXjF7JyzXFS9ZnT5pCcXu+E4qpiE+KHQXpdznZklly7o/HZOCL
-	ZmB9qtDecD4StRq4g7okaUoMZbKJUqzQmjeUcL2XQoEs5HxkL8WTzah3/bovdbfzgqnoLeh00sipF
-	kOgFVoTDMcy4xeafTRzq5QSXKvL+DD9CigR7zeo6sL345IjMDVAppwxlGPXhCTHF+LO+fTqehx6EC
-	ITDFzEl9keTG1rGkMIFw==;
+	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
+	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=O8l2bQfU0g9B2eiGE9P9eQLWcmcCEEg2chgVcw5aJv0=; b=Rnj/l2o7A0dX2lvzk2HJGKdQmN
+	S0dHT8p37FyxWDRSb9Za/jSrOraP4+cTvgTmXCzOvQRTwWfUQWy4iPlFLl0fjvA49jV0qtJdwa3G6
+	6kb8r3LTCvNWt/k9SlJn2MtoG1gi7G8NcamQ7L6U/EVKDVew7uhM/4LCqwnL5sjjphDJALQ0yz6iY
+	FSZLeZF1z2Gf8Yck6LCs9npjnkV4CK1fQCe96LO+7Gp2BywBKiY9b6VvnODwwT+HJe//uRppGEjfa
+	eQ0KFlDn+7wPqHR4PzTQRKjJdg8t0XbXLQIaBBfODo29b6tCc/hEaBVBXrL/+A8PDiT46BpboU7pE
+	VKZIiIcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvZRJ-0000000EUvU-2xtM;
-	Fri, 21 Mar 2025 10:17:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tvZmq-0000000EYFS-2LST;
+	Fri, 21 Mar 2025 10:39:36 +0000
+Received: from fhigh-a6-smtp.messagingengine.com ([103.168.172.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYoi-0000000EOGG-105u
+	id 1tvZXQ-0000000EVuu-0aS3
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 09:37:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E6B6A42DFF;
-	Fri, 21 Mar 2025 09:31:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48D46C4CEE3;
-	Fri, 21 Mar 2025 09:37:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742549847;
-	bh=poV5m0XgApGdvCxNPJk25+DH7c6vk1mpZNIXwAz1Hlg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CUnhUQO/ebvzor3VTHKrObpa6P6l0ILcwrfwZZSJSsgtQgNIhZ/aSJbfY4xkqL59g
-	 hMbFR9QxY71wLfIyAM452l78S7ZGTmIrux7IvRzZYi4O0LgZc0eXJ89tGDqX8qJkYY
-	 V0Wijd2uVX5Z/jlcUWVHZ6AbqqEKFsdYjX44oyZ9KxwTtRsHf/MYMegBqc8AFd+xYy
-	 xsOTeYMrCN/cwaLEEm8Ev/Qzwy44sagVJKfKEvbC41C9kv/MOv5jiWq3ZH8GH9vch3
-	 kQ/cO9c5dPYOhJm3Rnb3e1767IBsXAfmfKuUzACX61gzDKens6A7jNYfMLJfLHhgWR
-	 NcX20zkCl7uDw==
-Message-ID: <f0dd950a-02a7-402b-a08e-015db458b273@kernel.org>
-Date: Fri, 21 Mar 2025 10:37:18 +0100
+	Fri, 21 Mar 2025 10:23:41 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id CE17011400EE;
+	Fri, 21 Mar 2025 06:23:38 -0400 (EDT)
+Received: from phl-imap-11 ([10.202.2.101])
+  by phl-compute-07.internal (MEProxy); Fri, 21 Mar 2025 06:23:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1742552618;
+	 x=1742639018; bh=4UJevjEnua/hzuv6hukkiRL584yrJsU8XeWiL1LLMD8=; b=
+	Aj8WzG1IUqT3lWmRHOZ7RrH+yaiNF6O+b1ll6F8XwGji2k6T7Gq+RCxrn5gCNfZN
+	WC+mK6nvClR8BgcNVb8kyg/Gcju+HXbBPySim8hTNGG3rKYDQ1MJS+UKlNghWfbg
+	k0Y87P4xbfAUjqfMPiE2LXI0NI0h1YEUaZonDEUhdh8V69/ZJz5S2/xxceHUufsa
+	wf5WjhD3HJY/ZLbOPhOzozlk3XNA/EYAM8c8yluWzAij1FsHHFmXt5pqFHwbWS4A
+	RWS5G+nrNUmMhu7aczpNVc9VV9axKXtR+6iojehnhmfWzIfseVF3B2WU/mxKihwz
+	8m5c9cFOL79eZy64GPN0IA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1742552618; x=
+	1742639018; bh=4UJevjEnua/hzuv6hukkiRL584yrJsU8XeWiL1LLMD8=; b=z
+	ly6AD+Ihs5gg7Xi6hEB+ltIrUd4lsTKMbCGVQ/Q6NwWP9muAIj3pTWDBT62AgYnK
+	RPwqvQ2tdI3D7WdEfWWiMCorOeYPtmJidLWSQqEJKaGVJiv1Du/khrli/hn32Lgo
+	RJsyufpWPdBFeOvlwN0+a02DMm/jJsT5b2XzajNffBnmfDMUMpBezXWXGYnChIbg
+	TRc2BJJ3Kz3N49oMp03R0aiVcSwlq+ylWqYx+5ITeKqQEPpi1vBMDjY5Cbkpu0uC
+	xU9TpPD4yvBoRPGHDZ3xMfnahGpiXp9Wre/LdRe8naQxSVgPskw2mQNtMaXASNLe
+	u3gkuh4YgzV7djzCCHNWg==
+X-ME-Sender: <xms:Kj7dZykJk9SsWjjvP9qQsveFNQdd4dHB9tl78p3Xz08gyY9DGmePzw>
+    <xme:Kj7dZ53Yl-Su9tLE2JAS8RYLxGdcIbp5Wq8PAz9xfaTPBDR21PK-JjLwR_g2VTOcv
+    hlBW3HMGRjGVHjaIcI>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedtkeehucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
+    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
+    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
+    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
+    uddvpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehprghlmhgvrhesuggrsggsvg
+    hlthdrtghomhdprhgtphhtthhopegrlhgvgiesghhhihhtihdrfhhrpdhrtghpthhtohep
+    iihhihhhrghnghdrshhhrghordhishgtrghssehgmhgrihhlrdgtohhmpdhrtghpthhtoh
+    epihhgnhgrtghiohesihgvnhgtihhnrghsrdgtohhmpdhrtghpthhtohepsghjohhrnhes
+    khgvrhhnvghlrdhorhhgpdhrtghpthhtohepvggsihhgghgvrhhssehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehskhhhrghnsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhg
+    pdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrug
+    drohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhdqmhgvnhhtvggvsheslhhi
+    shhtshdrlhhinhhugidruggvvh
+X-ME-Proxy: <xmx:Kj7dZwqhYI8KVO9p2qwoKMwwDOBjgHGLyOa41iE_lI5pbFguaAmVWQ>
+    <xmx:Kj7dZ2n57kKHcok9q14JayhgRSuMMjUK0w-d3Be7gE0cpoFX4Oyb1Q>
+    <xmx:Kj7dZw1M5GoiRkOoXkgelQZpJdwWb9OnyMKpVsYf06QcTh6Jcus0Sg>
+    <xmx:Kj7dZ9uraoJ3pE9R4GYSmHJpFKQhkeBLbud9ZEDotc4ffIoECPq6sw>
+    <xmx:Kj7dZ1trPzB9iuKKEJApJowMAXKCYdRD4F601K1ruzXd1y-RkwcNDPzg>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id 5311C2220072; Fri, 21 Mar 2025 06:23:38 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/10] Basic device tree support for ESWIN EIC7700 RISC-V
- SoC
-To: Conor Dooley <conor@kernel.org>,
- Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Thomas Gleixner <tglx@linutronix.de>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Samuel Holland <samuel.holland@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- Min Lin <linmin@eswincomputing.com>,
- Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
- <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Yu Chien Peter Lin <peterlin@andestech.com>,
- Charlie Jenkins <charlie@rivosinc.com>,
- Kanak Shilledar <kanakshilledar@gmail.com>,
- Darshan Prajapati <darshan.prajapati@einfochips.com>,
- Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
- <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
- "rafal@milecki.pl" <rafal@milecki.pl>, Anup Patel <anup@brainfault.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
- <20250311-backdrop-porthole-440ae005e8fa@spud>
- <SA3PR04MB893164FCD6C4CB8924FC8DE583D82@SA3PR04MB8931.namprd04.prod.outlook.com>
- <20250320-uprising-couch-0af012a1fee6@spud>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250320-uprising-couch-0af012a1fee6@spud>
+X-ThreadId: T04d17f90b906d792
+Date: Fri, 21 Mar 2025 11:23:18 +0100
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Ignacio Encinas" <ignacio@iencinas.com>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Alexandre Ghiti" <alex@ghiti.fr>
+Cc: "Eric Biggers" <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
+ "Shuah Khan" <skhan@linuxfoundation.org>,
+ "Zhihang Shao" <zhihang.shao.iscas@gmail.com>,
+ =?UTF-8?Q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>,
+ Linux-Arch <linux-arch@vger.kernel.org>
+Message-Id: <583340a9-411d-406f-aee9-d3e2eb80ca43@app.fastmail.com>
+In-Reply-To: <ac0b1f3e-6abe-4de2-bf5a-a4b3207a22c3@iencinas.com>
+References: <20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com>
+ <20250319-riscv-swab-v2-1-d53b6d6ab915@iencinas.com>
+ <2afab9dc-e39c-4399-ac5a-87ade4da5ab0@app.fastmail.com>
+ <4d45df0c-d44e-4bb6-8daa-0dba1b834bc4@iencinas.com>
+ <07b8051b-9d5e-440e-b74d-1ca97402fe2a@app.fastmail.com>
+ <ac0b1f3e-6abe-4de2-bf5a-a4b3207a22c3@iencinas.com>
+Subject: Re: [PATCH v2 1/2] include/uapi/linux/swab.h: move default implementation for
+ swab macros into asm-generic
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_023728_404702_13F4673D 
-X-CRM114-Status: GOOD (  14.99  )
+X-CRM114-CacheID: sfid-20250321_032340_666019_34A9AE80 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,42 +128,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 20/03/2025 13:00, Conor Dooley wrote:
-> On Thu, Mar 20, 2025 at 10:39:52AM +0000, Pinkesh Vaghela wrote:
->> Hi Conor,
->>
->> On Tue, Mar 11, 2025 at 11:38 PM, Conor Dooley wrote:
->>> On Tue, Mar 11, 2025 at 01:04:22PM +0530, Pinkesh Vaghela wrote:
->>>> Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
->>>> P550 CPU cluster and the first development board that uses it, the
->>>> SiFive HiFive Premier P550.
->>>>
->>>> This patch series adds initial device tree and also adds ESWIN
->>>> architecture support.
->>>>
->>>> Boot-tested using intiramfs with Linux 6.14.0-rc2 on HiFive Premier
->>>> P550 board using U-Boot 2024.01 and OpenSBI 1.4.
->>>
->>> There's no git tree in your MAINTAINERS entry, nor mention here of what the
->>> story is going to be in terms of sending patches to Arnd. Who is going to be
->>> doing that?
->>
->> We are not currently set up for sending signed pull requests,
->> so for now we plan to send changes to Arnd as separate patches.
-> 
-> Undesirable, but sure. You didn't answer the first part of my question
+On Thu, Mar 20, 2025, at 23:36, Ignacio Encinas Rubio wrote:
+> On 19/3/25 22:49, Arnd Bergmann wrote:
+>> On Wed, Mar 19, 2025, at 22:37, Ignacio Encinas Rubio wrote:
+>>> On 19/3/25 22:12, Arnd Bergmann wrote:
+>> Right, I do remember when we had a discussion about this maybe
+>> 15 years ago when gcc didn't have the builtins on all architectures
+>> yet, but those versions are long gone, and we never cleaned it up.
+>
+> I just had a chance to look at this and it looks a bit more complex than
+> I initially thought. ___constant_swab macros are used in more places
+> than I expected, and {little,big}_endian.h define their own macros that
+> are used elsewhere, ...
+>
+> It is not clear to me how to proceed here. I could:
+>
+>   1) Just remove ___constant_swab macros and replace them with
+>   __builtin_swap everywhere
+>
+>   2) Go a step further and evaluate removing __constant_htonl and
+>   relatives
+>
+> Let me know what you think is the best option :)
 
-Just to clarify - separate patches as separate postings to soc@ after
-the review was done on the lists and then you applied them to the tree
-Conor asked below, right?
+I think we can start enabling CONFIG_ARCH_USE_BUILTIN_BSWAP
+on all architectures and removing the custom versions
+from arch/*/include/uapi/asm/swab.h, which all seem to
+predate the compiler builtins and likely produce worse code.
 
-> though, and there's no git tree listed in your v2 series. That part is
-> not negotiable, you have to have one and get it included in linux-next.
-
-
-
-Best regards,
-Krzysztof
+    Arnd
 
 _______________________________________________
 linux-riscv mailing list
