@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7462CC36002
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 21:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55516C3600B
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 21:55:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OXvvogh+Y1sS6S/0eQ9qCQGBKnJmP5w4Tg0HdBT3Cf0=; b=Vj+raMnHq1n/ER
-	JT9kVAUt+lCzM8ibLnqIFjAUXRU1fQ9lscmto7rYx25IXqJd3KiVZCYhbpxvCPCluBgnWwkuQ9jS3
-	NFTAnI65oolr94Ct743WQ8n4JZ2lLhDxmExgCJ8nA+0okY50khaH7GJLGTbINIshSvC1HEehazNcM
-	utN9GZNUXgwn2HCmPwdQ0ChKftCE47z8nLNtGzEY3SnQiCFDMO75I+vZkpIg/96qaHqUzW5VGDk8e
-	mfofm3C7fWSKti/3TS6YETYnZcab2GoVj0IIYQSlg+hfuwPIqHH3I66oGk0OB1LB+qS8LjqutsHZA
-	iVazibR3sS7tik/KFNdg==;
+	List-Owner; bh=lDqHVQDN37ZH4RIFRA34clgk6F+Se1GfmCYgVN/TQrw=; b=Q9Bf06/cjU1dvL
+	28jLUalZQsiANTdDaMkaphnf8JWgOvKJpMBtB/9QnOb9M0tftsahXpNlE/CpNIB++0FdY7rCS3EBA
+	PcYWJk+TMLoqUMaE8wHBiQCuYJZmExkL7EswVEbWYKnrPeKCxpSyJtaA7PiGXwpfb8Wqx06f7cmSS
+	Y5isFX0WqKbWwsHtj1l0zcpQYV5OJdpdEh9VGcFSnXMv7BHEEc+Zx8ZxvbbfPJkZJiEwghDxItY5Y
+	4ZIpm54ol+OCGo0rja9bxaTAXRW0CUyn24sL4QtzTUoKWVgKSv+SqzO6mo/qsEY0Sy746c3yApBsU
+	V9TrN37e4hc9YZA1+85A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvjpB-0000000GLKk-1r0E;
-	Fri, 21 Mar 2025 21:22:41 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tvkKN-0000000GPuy-0JkZ;
+	Fri, 21 Mar 2025 21:54:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvjp8-0000000GLJm-2HYZ
+	id 1tvkKK-0000000GPtm-2K9W
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 21:22:39 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1742592157;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+oNseWKuGBEgshNs5P0talv9xg+inN17z1K2AF90QsY=;
-	b=urekzMMtfA3kTy822lbKa4nufWzR1OXLr8MKXehncBoDdm+XaFkjEu7bTZMYsxv8ltVwoi
-	lvGqR9Z+4hyzbhRh4AC896uxdlwHvHw0veohERNmwzCmdAQ04k4q/CHT/60zHV4CdzuzTA
-	n6YkpC/n1jRVZjiX3ycpakTyHVyDhKkoHtGemUXzU9umIyUgY056GYou5iCqFHnXf8FjpT
-	MXxRYQ9tHrj/Lojkqh8tvOra2HYQEqECrVf9+ATCAHPRq5ctBn54mBq/86YWqdn1cU6oNr
-	KT/foI3j5FKmu9mdRZ04kF+JZgKJ/qOzzln5uAjmxECTHSDiRZ7wmLllDx7eaA==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1742592157;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+oNseWKuGBEgshNs5P0talv9xg+inN17z1K2AF90QsY=;
-	b=EZS5gE+VsWIJ5vRL3eP5Jndiht64acIE4ql10QAAbAlD7H53yy7I4AqzDTceNhmWCpRnL1
-	9Xun/0Uq9tAy9gAQ==
-To: Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Huacai
- Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Peter
- Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>,
- Alexandre Ghiti <alexghiti@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- loongarch@lists.linux.dev, Charlie Jenkins <charlie@rivosinc.com>
-Subject: Re: [PATCH v6 0/4] entry: Move ret_from_fork() to C and inline
- syscall_exit_to_user_mode()
-In-Reply-To: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
-References: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
-Date: Fri, 21 Mar 2025 22:22:36 +0100
-Message-ID: <87frj613kz.ffs@tglx>
+	Fri, 21 Mar 2025 21:54:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 46122A48B4B;
+	Fri, 21 Mar 2025 21:49:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B452C4CEE3;
+	Fri, 21 Mar 2025 21:54:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742594091;
+	bh=ST89ptphulKjZHhKBjFlDo2o2KSI8FUPiuo7L/N9YQQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ArM5ztOW6vejfrtGII/jYjuX0RAXxiNjqlXEOAbD5FZJYGyOrb5eqfL/YkahlU9P7
+	 r3PSG4nekLZAXEbpzTdwNiGcAuaZeutEuFhZlZ6WLX8xEgul9010c26IEJ39C4HwJM
+	 JWDWvGAo/jGJKphL0O+Em8gdlBsaQGQd2RF6WSgvLgQq6xhUXjagaZ8tFU6Fb9ymzx
+	 rIsizMoVNTghu3FmS+1iawjyNbTMtK6VqlFPUHjaZH04d9EUpoVfQbcePmZ+O/N8E5
+	 9ZOkK+f0tkZausZH3skYBoR+7wzTnS7XQNhgveoHNL1Uat3nOr7hRXNfCY2StsJQJo
+	 YEEwTMsfxcbmA==
+Date: Fri, 21 Mar 2025 16:54:50 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Conor Dooley <conor@kernel.org>,
+	Yu Chien Peter Lin <peterlin@andestech.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	linux-riscv@lists.infradead.org, Aradhya Bhatia <a-bhatia1@ti.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Min Lin <linmin@eswincomputing.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Albert Ou <aou@eecs.berkeley.edu>, rafal@milecki.pl,
+	Heiko Stuebner <heiko@sntech.de>, Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>
+Subject: Re: [PATCH v2 04/10] dt-bindings: riscv: Add SiFive HiFive Premier
+ P550 board
+Message-ID: <174259408740.4183990.13657262859263435933.robh@kernel.org>
+References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
+ <20250320105449.2094192-5-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250320105449.2094192-5-pinkesh.vaghela@einfochips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_142238_718792_3C3F462C 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20250321_145452_658956_6880B537 
+X-CRM114-Status: UNSURE (   8.77  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,28 +93,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 20 2025 at 10:29, Charlie Jenkins wrote:
-> Similar to commit 221a164035fd ("entry: Move
-> syscall_enter_from_user_mode() to header file"), move
-> syscall_exit_to_user_mode() to the header file as well.
->
-> Testing was done with the byte-unixbench [1] syscall benchmark (which
-> calls getpid) and QEMU. On riscv I measured a 7.09246% improvement, on
-> x86 a 2.98843% improvement, on loongarch a 6.07954% improvement, and on
-> s390 a 11.1328% improvement.
->
-> The Intel bot also reported "kernel test robot noticed a 1.9%
-> improvement of stress-ng.seek.ops_per_sec" [2]
->
-> Since this is on QEMU, I know these numbers are not perfect, but they
-> show a trend of general improvement across all architectures that use
-> the generic entry code.
 
-This looks sane now. I've bookmarked it as post-merge window material.
+On Thu, 20 Mar 2025 16:24:43 +0530, Pinkesh Vaghela wrote:
+> From: Pritesh Patel <pritesh.patel@einfochips.com>
+> 
+> Add DT binding documentation for the ESWIN EIC7700 SoC and
+> HiFive Premier P550 Board
+> 
+> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> Reviewed-by: Matthias Brugger <matthias.bgg@kernel.org>
+> ---
+>  .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
+>  MAINTAINERS                                   |  7 +++++
+>  2 files changed, 36 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+> 
 
-Thanks,
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-        tglx
 
 _______________________________________________
 linux-riscv mailing list
