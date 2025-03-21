@@ -4,91 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4B46C35FF3
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 08:35:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F498C35FFF
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 09:09:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=eSAUbROCc0h00o9rCl4v6AngEMCGFxb3dUWame2CIoM=; b=pcgN0KnJ1u76Rm
-	j7BOoQOuIjmtStxI4eMpP/AcO/X8DyAL7FeaVQbSfWDYuH4/DneO5z+GHCEdITpvEEPNnfbsRYCpb
-	mMbMZRckQYh3O55p9AZPC6cCKfHSb/FWgNwqAq44VFX+RqwNJniXUAWUqOhCgpJ+v5LMQrBk4qvqg
-	JDP4DY1/0QxHx/O69aut1zMMLrhEslcQDYOg2bCwTUIrcDsL6e+U0XaImogOi2ga71h2bliFQoIi3
-	sv46r6R5XboMRV/kYlruWbEqdNZrbc29mQ4AXjwRjt0Xk9pTnMIyWXcJqSx9ku8P6uRhhRx1EAk28
-	Dsvxj2ctenKSsY+pf1+A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=4xmRlffxXvKwMgValV9FemMzBzNixYk5LxiYJOxsRLY=; b=F0yecCBT2ntb82
+	PxNs4gnu0j5NoffLgWhPDb0uN7sxWFl5nH3uXA42cyquGTLy9/Z7CYQ0rbtRf7zT6r2rPnGlZjQvK
+	ON+0NKPKENkLzlsgmseTkGAFN7/sdY91w2b8VhQGMWpGq0ULFkG0zuqHrcbFQOU+E/Qp5Qai9AoJR
+	Wkvj8KGQ02NzBKm4layLWZYusD76vD+DH71NJopO/qoZXDQkj005yuyoaebmCQKGbhV5KkspQmbIj
+	6QMgm1GtOKB2eRDyBI6yjvaeq/zFPjQXihcwsuAUovs2TSyf1/Hy5/JTggqYHhaa+UOPgr3tz3UqT
+	9C6QZsekCnRfm1gN24Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXqc-0000000EG0c-1I1F;
-	Fri, 21 Mar 2025 08:35:22 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1tvYNo-0000000EKUr-3Zhp;
+	Fri, 21 Mar 2025 09:09:40 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvXqa-0000000EG0E-2ZkC
+	id 1tvYNl-0000000EKU7-3m07
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 08:35:21 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22401f4d35aso35115295ad.2
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 01:35:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1742546119; x=1743150919; darn=lists.infradead.org;
-        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KNIYAxNTxrJgvNOeOr0z0lxXWvmJniaTC55sev3rziA=;
-        b=NhTZo4Kf1Z7FAKq8IpNEV4CWpM/oHM9DLnO5ZbiNWM1u9a1ELfoxSeHrIn0d1hIL5W
-         TbiCf626/lF6wZximCfjcsrgQWnAkafF49AepKXKN0/lO0XNAsuqD2u9Ye7BMnhU8MHA
-         Rv/skPfE3okzyn5+Y9zhlXmTBecJrsEzRh8K+ccH+VuzQ1pzx6qX7GM0soBNou1BRBD+
-         G84+K3iEndgo+YFqSHXK5DdG8LLzzYTWAP6qvy+U3lLaK2x5/YHGzAuAwg/5wtZWUD88
-         lrvUMlK+Yr05zWirsZ/2xOBmCDWb8RWr5h+aZk0DqVRQNYXpmYa/fURdQK3t05/JqDSP
-         EjXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742546119; x=1743150919;
-        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KNIYAxNTxrJgvNOeOr0z0lxXWvmJniaTC55sev3rziA=;
-        b=U2iG6gumQK2QOohcGbQxH/oMYN3WzVqKl+Y3KZ6Y0f8tR+C/lky/WObL5kTJJ2cDKs
-         obul2bU6z4iF0682MD8QuC/un+RE1rduDd977qu5SwrrblNr+qbrEu2zlnCQH7MaW0K3
-         yfsKRrV+CZKHEoM409cCCeVkxJeXgFNxHquTAMxzUEv6uMBpNmC4V5mhiQM71zhVRLwd
-         5OQxCO3dHYKUnHlvMaH0IHWGQNstcQyMMMKw8IPNvdjPdoaYZUCuWo9QgEo9Ns+oMJWU
-         /LnSU9R4r0958XbvH7ftSXHxonlRkkDBYfScIQI3z7Zj12SzbBQhGg/6lFtlFZ6We/9r
-         Bycw==
-X-Forwarded-Encrypted: i=1; AJvYcCW8JNHlcYXxVsptuluj2DehogWHBw1lXd2wkxSjj1DYg+HPScUifiLDiMkgc1eAs+lx/W7kY0itfbPrCQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx6VtGyTEMG0y/TkR6Z3x1lROjuAAxCpHoqEG1mIugYNKU6APkm
-	wwRnspWWoodokY1dG4qs3V4ewvewn8ZabS9o/uIHDZGGG8yMxl8smAtrs65oXtk=
-X-Gm-Gg: ASbGncueoDbV7dmVTedd956RT4vH/cvGoIPt9FiwReyhBOtT9N3SsY2NI4yYIkPSrWk
-	UIApTF8gD4r1aRL4oEzyzoAHPVul+d3rQ+hxKHagfIEIwaP7SCuE3ZgRpXBmiNLm/EJnEHDmEIh
-	s2XZ40e+/1Y0n7/wiJv7eCl6+l9y0RBI9FkUrX6pCiV52LRKmJLqqvgi2goCYjI/oissxnjUggW
-	aiUhLxHhcjgrevdrwCJlR4tgui/Dt/TFdpOui+/rOjov1fTAYyqiO56hmktPljc3T8uxGR2aZLl
-	cSB9oxKBqAFfBGc473sEQEiuhR2S+xUc8Z7oftg76lvHS92+olpWt5aPV3wJP5KJ+poTJaksvWF
-	Vkg==
-X-Google-Smtp-Source: AGHT+IGXFGLuEoU/vQJUliqJjmPIq4zF6xy634F564ds+E0ZTlK8S163nLM7MaGqqNkry0aYcIfGgQ==
-X-Received: by 2002:a17:902:ebc9:b0:220:c63b:d93c with SMTP id d9443c01a7336-22780e234c5mr34978645ad.44.1742546119383;
-        Fri, 21 Mar 2025 01:35:19 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-227811f1462sm10857625ad.210.2025.03.21.01.35.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 01:35:19 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>
-Cc: Nick Hu <nick.hu@sifive.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v3] dt-bindings: timer: Add SiFive CLINT2
-Date: Fri, 21 Mar 2025 16:35:06 +0800
-Message-Id: <20250321083507.25298-1-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.17.1
+	Fri, 21 Mar 2025 09:09:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 7087B20452;
+	Fri, 21 Mar 2025 09:09:33 +0000 (UTC)
+Message-ID: <7556bdd0-1015-4175-a810-d2d53662ba64@ghiti.fr>
+Date: Fri, 21 Mar 2025 10:09:32 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/5] riscv: save the SR_SUM status over switches
+Content-Language: en-US
+To: Cyril Bur <cyrilbur@tenstorrent.com>, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
+ jrtc27@jrtc27.com, ben.dooks@codethink.co.uk
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ jszhang@kernel.org, syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+References: <20250320224423.1838493-1-cyrilbur@tenstorrent.com>
+ <20250320224423.1838493-2-cyrilbur@tenstorrent.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250320224423.1838493-2-cyrilbur@tenstorrent.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedtjedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhlefhffeggfeftddvtdeukeelgfehkeehhfeuheehleefkeelgffglefghfffueenucffohhmrghinhepvghnthhrhidrshgsnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehuddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddupdhrtghpthhtoheptgihrhhilhgsuhhrsehtvghnshhtohhrrhgvnhhtrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghou
+ hesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjrhhttgdvjeesjhhrthgtvdejrdgtohhmpdhrtghpthhtohepsggvnhdrughoohhkshestghouggvthhhihhnkhdrtghordhukhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_013520_656404_FB0E77ED 
-X-CRM114-Status: UNSURE (   9.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250321_020938_084261_24413E37 
+X-CRM114-Status: GOOD (  32.79  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +63,179 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string and property for the SiFive CLINT v2. The SiFive
-CLINT v2 is incompatible with the SiFive CLINT v0 due to differences
-in their control methods.
+Hi Cyril/Ben,
 
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
----
-- v3 changes:
-  - Add the reason for the incompatibility between sifive,clint2 and
-    sifive,clint0.
-- v2 changes:
-  - Don't allow sifive,clint2 by itself. Add '-{}' to the first entry
-  - Mark the sifive,fine-ctr-bits as the required property when
-    the compatible includes the sifive,clint2
+On 20/03/2025 23:44, Cyril Bur wrote:
+> From: Ben Dooks <ben.dooks@codethink.co.uk>
+>
+> When threads/tasks are switched we need to ensure the old execution's
+> SR_SUM state is saved and the new thread has the old SR_SUM state
+> restored.
+>
+> The issue is seen under heavy load especially with the syz-stress tool
+> running, with crashes as follows in schedule_tail:
+>
+> Unable to handle kernel access to user memory without uaccess routines
+> at virtual address 000000002749f0d0
+> Oops [#1]
+> Modules linked in:
+> CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
+> 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
+> Hardware name: riscv-virtio,qemu (DT)
+> epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+>   ra : task_pid_vnr include/linux/sched.h:1421 [inline]
+>   ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
+> epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
+>   gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
+>   t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
+>   s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
+>   a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
+>   a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
+>   s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
+>   s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
+>   s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
+>   s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
+>   t5 : ffffffc4043cafba t6 : 0000000000040000
+> status: 0000000000000120 badaddr: 000000002749f0d0 cause:
+> 000000000000000f
+> Call Trace:
+> [<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+> [<ffffffe000005570>] ret_from_exception+0x0/0x14
+> Dumping ftrace buffer:
+>     (ftrace buffer empty)
+> ---[ end trace b5f8f9231dc87dda ]---
+>
+> The issue comes from the put_user() in schedule_tail
+> (kernel/sched/core.c)
+> doing the following:
+>
+> asmlinkage __visible void schedule_tail(struct task_struct *prev)
+> {
+> ...
+>          if (current->set_child_tid)
+>                  put_user(task_pid_vnr(current), current->set_child_tid);
+> ...
+> }
+>
+> the put_user() macro causes the code sequence to come out as follows:
+>
+> 1:	__enable_user_access()
+> 2:	reg = task_pid_vnr(current);
+> 3:	*current->set_child_tid = reg;
+> 4:	__disable_user_access()
+>
+> This means the task_pid_vnr() is being called with user-access enabled
+> which itself is not a good idea, but that is a separate issue. Here we
+> have a function that /might/ sleep being called with the SR_SUM and if
+> it does, then it returns with the SR_SUM flag possibly cleared thus
+> causing the above abort.
+>
+> To try and deal with this, and stop the SR_SUM leaking out into other
+> threads (this has also been tested and see under stress. It can rarely
+> happen but it /does/ under load) make sure the __switch_to() will save
+> and restore the SR_SUM flag, and clear it possibly for the next thread
+> if it does not need it.
+>
+> Note, test code to be supplied once other checks have been finished.
+>
+> There may be further issues with the mstatus flags with this, this
+> can be discussed further once some initial testing has been done.
 
- .../bindings/timer/sifive,clint.yaml          | 22 +++++++++++++++++++
- 1 file changed, 22 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-index 76d83aea4e2b..34684cda8b15 100644
---- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-+++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-@@ -36,6 +36,12 @@ properties:
-               - starfive,jh7110-clint   # StarFive JH7110
-               - starfive,jh8100-clint   # StarFive JH8100
-           - const: sifive,clint0        # SiFive CLINT v0 IP block
-+      - items:
-+          - {}
-+          - const: sifive,clint2        # SiFive CLINT v2 IP block
-+        description:
-+          SiFive CLINT v2 is the HRT that supports the Zicntr. The control of sifive,clint2
-+          differs from that of sifive,clint0, making them incompatible.
-       - items:
-           - enum:
-               - allwinner,sun20i-d1-clint
-@@ -62,6 +68,22 @@ properties:
-     minItems: 1
-     maxItems: 4095
- 
-+  sifive,fine-ctr-bits:
-+    maximum: 15
-+    description: The width in bits of the fine counter.
-+
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        const: sifive,clint2
-+then:
-+  required:
-+    - sifive,fine-ctr-bits
-+else:
-+  properties:
-+    sifive,fine-ctr-bits: false
-+
- additionalProperties: false
- 
- required:
--- 
-2.17.1
+The whole changelog is outdated, it needs to be reworded:
+
+"To prevent the evaluation of preemptible functions in 
+unsafe_get/put_XXX() which could clear SUM bit set by 
+get_user_access()... etc etc"
+
+
+>
+> Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
+> ---
+>   arch/riscv/include/asm/processor.h | 1 +
+>   arch/riscv/kernel/asm-offsets.c    | 5 +++++
+>   arch/riscv/kernel/entry.S          | 8 ++++++++
+>   3 files changed, 14 insertions(+)
+>
+> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+> index 5f56eb9d114a..0de05d652e0f 100644
+> --- a/arch/riscv/include/asm/processor.h
+> +++ b/arch/riscv/include/asm/processor.h
+> @@ -103,6 +103,7 @@ struct thread_struct {
+>   	struct __riscv_d_ext_state fstate;
+>   	unsigned long bad_cause;
+>   	unsigned long envcfg;
+> +	unsigned long flags;
+
+
+I would prefer the use of status since it stores the sstatus csr.
+
+
+>   	u32 riscv_v_flags;
+>   	u32 vstate_ctrl;
+>   	struct __riscv_v_ext_state vstate;
+> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+> index e89455a6a0e5..556ebcbb7e22 100644
+> --- a/arch/riscv/kernel/asm-offsets.c
+> +++ b/arch/riscv/kernel/asm-offsets.c
+> @@ -34,6 +34,7 @@ void asm_offsets(void)
+>   	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
+>   	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+>   	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
+> +	OFFSET(TASK_THREAD_FLAGS, task_struct, thread.flags);
+>   
+>   	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+>   	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
+> @@ -347,6 +348,10 @@ void asm_offsets(void)
+>   		  offsetof(struct task_struct, thread.s[11])
+>   		- offsetof(struct task_struct, thread.ra)
+>   	);
+> +	DEFINE(TASK_THREAD_FLAGS_RA,
+> +		  offsetof(struct task_struct, thread.flags)
+> +		- offsetof(struct task_struct, thread.ra)
+> +	);
+>   
+>   	DEFINE(TASK_THREAD_F0_F0,
+>   		  offsetof(struct task_struct, thread.fstate.f[0])
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> index 33a5a9f2a0d4..c278b3ac37b9 100644
+> --- a/arch/riscv/kernel/entry.S
+> +++ b/arch/riscv/kernel/entry.S
+> @@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
+>   	REG_S s9,  TASK_THREAD_S9_RA(a3)
+>   	REG_S s10, TASK_THREAD_S10_RA(a3)
+>   	REG_S s11, TASK_THREAD_S11_RA(a3)
+> +
+> +	/* save (and disable the user space access flag) */
+> +	li    s0, SR_SUM
+> +	csrrc s1, CSR_STATUS, s0
+
+
+Here (again), I don't think we need to clear sstatus.
+
+
+> +	REG_S s1, TASK_THREAD_FLAGS_RA(a3)
+> +
+>   	/* Save the kernel shadow call stack pointer */
+>   	scs_save_current
+>   	/* Restore context from next->thread */
+> +	REG_L s0,  TASK_THREAD_FLAGS_RA(a4)
+> +	csrs  CSR_STATUS, s0
+>   	REG_L ra,  TASK_THREAD_RA_RA(a4)
+>   	REG_L sp,  TASK_THREAD_SP_RA(a4)
+>   	REG_L s0,  TASK_THREAD_S0_RA(a4)
+
+
+Thanks,
+
+Alex
 
 
 _______________________________________________
