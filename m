@@ -4,80 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2D63C28B30
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 00:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A18C28B30
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 00:06:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lcx2eZoJsKgf9MjdpBLNZ5Khu/s4sARN8CEEoud8jpE=; b=D/U5wbX6XRpgv+
-	pJ9q3lqHE9G8Us2It6Ri/4YQ/wjsusaj+ecn5g9TJWd9i6FvbLMP+It8kQTMkjGpEs2FCTlJR88kc
-	zYa/VDq+4lDmpBi8Q7bRoNl1fntOFFdAkeT+mAzHfo7QSAhLc61QrcL4x8YforJHIsWeoBSaqZV+n
-	1sIDJwfPdH9K9umJBdhbgV5cY+uT6nO5+UU/9LlV7i0goTQYcp27glx0z7iQZHJNT0s8SU3HbfaEr
-	LrgIh2FzBdPlHzPs9m1jEg3uocKVRQqMaNI8zrxQALCaQZ04cym/S2VLRUUfIGRrajMYQvC5Cjqac
-	yt6YKGmvbbTAdTxt1UtQ==;
+	List-Owner; bh=cR/ZOWgNBbaxHeMikHepMhDJpAqHIxChJLROHUzKiBE=; b=JSnYTWkpu++ihr
+	PxT60BD8PjYfCxv4Kf6tEc0u6lUfwgCfeqfv9cGoz3u5gDu2C3TLpDcJZxYYXDkk9eFm92oG6Ot/h
+	I4t1TUKzZ0XV7ZdN0bX+TsESANleNHafr7LbtKrzejO7dbCI+e5aguMh7tGWJKavzFJYZvSMtP00K
+	sD31Xmi95lsAhyNVAzxz5RdIsAzx0B3Q2ihOxhgTLSRAl4G0ECpPLrNRPgIvkUA5OudiJlawO2VCt
+	6KAHMKA7J1lyLG+H7PEVFi70MWvmrSGCCivpyRIwXPVak2AH05axe3GnX+jTAa24qYBVoAXDHkAJO
+	SAPEW0Aluc4EpWDQOGZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvPp0-0000000DVQm-2l1C;
-	Fri, 21 Mar 2025 00:01:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tvPtl-0000000DVu9-3VnJ;
+	Fri, 21 Mar 2025 00:06:05 +0000
+Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvPnE-0000000DVIO-42mg;
-	Thu, 20 Mar 2025 23:59:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A2606434C0;
-	Thu, 20 Mar 2025 23:59:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2221C4CEE3;
-	Thu, 20 Mar 2025 23:59:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742515160;
-	bh=evM+amhGbjZ9x7OIKn/QbuenV/Wj5MsmMJhPkJ8VTjY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Rs0DPUV9zV0Uh3UJUVAaqOSZ8/AXf7YpZaSg3W5xA2NUU1AUIhYHnewaUWoEqnIoI
-	 Y0WJnRxRrJ9S1x3G4bAM9ETNT4nEz5N0ENjmdtPSMkyWC7BmoodOjSRQfD6CHjsUp+
-	 F1dL60Sqi+VsMHv3ZJGxutJNf0bdeaxmk9d9RK+WDeNI6iouW/TwreD/0gT/8VPWPu
-	 /DXBXlAAVg28MxmvIPQIyMOPEf1l11zmBbmB6raXMn5YxfCa0p4BMhytQyYa63mi05
-	 VNvu3dKS87nWgN+l+eRy8aKFQzzzOx3ltasno+/aFng3wMLttpShWjnUFAlnm/mM0S
-	 n4T3x8sQPeM3g==
-Date: Thu, 20 Mar 2025 16:59:17 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v7 00/14] perf: Support multiple system call tables in
- the build
-Message-ID: <Z9yr1dnrX0DgDHgn@google.com>
-References: <20250319050741.269828-1-irogers@google.com>
+	id 1tvPtg-0000000DVt6-1FY9
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Mar 2025 00:06:04 +0000
+Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-85ad83ba141so177464139f.2
+        for <linux-riscv@lists.infradead.org>; Thu, 20 Mar 2025 17:05:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742515559; x=1743120359; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=n4TfadqjZ0j6MqAFYL1jRZZ+rK1DG5WpxhhztW2TPnw=;
+        b=BHxBqGmoz+tDb2ww4qrqM957X03k3Yp0erwsI8ZCIcKHfbU0sTzT5oHqPkR7ZAEwKM
+         4qOdIePPQw75tiafvy7SIfPKB2riY8tyHUxdGAfWSiDAjjHQuaMeTDlSgFbhUShQFg/u
+         iKDJqzn1S/L07vIUvbvmKzWkfD+fDKZ3NTr06HuRRk6lXT9K0wrPQwy6BbDjHmb7rkbg
+         RFBrH+MFxxN0NXChz8dQuP0U/cJXS8Z4Gyl6PZ4eNyfcdkkLFaEc4VEYyCM2Gde+ACFu
+         WSE8WHY8uaKdJLthYqOGf69mje8aaoVromGWBcWkZn409LiJUGThjLVp/d/R7UFiRnWD
+         XWnw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742515559; x=1743120359;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=n4TfadqjZ0j6MqAFYL1jRZZ+rK1DG5WpxhhztW2TPnw=;
+        b=UAU1SlRv2y/djrxz64r4Mse6ejEKcHjFAj177Ml2oFmWycfXO/oHNuNdBVrNH7Vx7/
+         RZ1SBPyXxKsZMArMrg4ydPtF6v7m8aC5500G3gFW5VAQdd0qOnJOsvYziCLdDPwMpKXX
+         berRudOGm9j8FBFfuMgPpn29t+7LErc7M9VV9G5sWuIr2Jg8QQq8alDT1hn/bXgmyit4
+         GR4cO2wLShLcLpdHgAciByFXpulOtmljpUm5dThRuECQwHYiq3k7AxwQg+ypz50LhegG
+         TN7xHP4i36PBwoyicilXDZe99IOLwm1KyK9Q6Fus6xJv52GuBTvy6AYnlzF5qgCP9gKz
+         Ybhw==
+X-Forwarded-Encrypted: i=1; AJvYcCVzBA9S42eN/1xgUn0xw50IeBEl207eNtN5wRSCN4Rp+Ku8IPauI2PN+sK0sAlrMo8ILUsxhmHFkd3obQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywl7aaBxo66fFjjSc12nSIsmGZyAK4UAXBoqoG+hiFplmkEcf17
+	QmvXEuyVMTKu/Ex72Uv+xHpLzAK6ky+4qiKz4rvTsXR9IP/UW4/LNQ1rjFFpt1c=
+X-Gm-Gg: ASbGncuAeAwxIJbppd5+ThgOVKVMcVx2a9zKa4qfgKmwmFTLXLyeZRh7jZ2X67v4rSV
+	Ew3p2eV/1AZdQpL7cLIUt5p0voSDq0lmyfzCo6gHuJWPe4Kvr4gMboTFkJO9hbAQLozh12tYh4t
+	r08N5DvMWnROsJz6ZGjL7gPp3SvB/oRO6yaz++47hL6CPCnP3c698fgxeOmIrOujY5kvZL6xQjb
+	0BTV2d/TDdtB3pg0b0N97A7MAAjqD8Ap7PDet+2hkHzdn1cEYsYhWg7SEaQ61JzSixAKmM1tqGV
+	JjDCG7BwtcJuUxv2F5KezE/kpIFuBrjB5JX3vK2/uaRLqfzxGyLPZri0NG5YivKuPYwvJGNWIkw
+	X+Isk0mkXa6x8QoIqcLki2eGv8t7U
+X-Google-Smtp-Source: AGHT+IGzFnEpgZCQdgtfV3+fVi3PtzjOuuJwDIrbNxEcjYjLjI8xkEowRotMUucCu+Yti4QqnIOtrA==
+X-Received: by 2002:a05:6602:3f08:b0:85d:a5d3:618c with SMTP id ca18e2360f4ac-85e2cb59310mr109252739f.11.1742515559239;
+        Thu, 20 Mar 2025 17:05:59 -0700 (PDT)
+Received: from [10.211.55.5] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2cbeb21b0sm167895173.115.2025.03.20.17.05.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 20 Mar 2025 17:05:58 -0700 (PDT)
+Message-ID: <fe26de4f-5593-4f34-a752-5fb051972c31@riscstar.com>
+Date: Thu, 20 Mar 2025 19:05:57 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250319050741.269828-1-irogers@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/7] clk: spacemit: add K1 reset support
+To: Yixun Lan <dlan@gentoo.org>
+Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heylenay@4d2.org,
+ guodong@riscstar.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250320194449.510569-1-elder@riscstar.com>
+ <20250320232128-GYA10498@gentoo>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250320232128-GYA10498@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_165921_044626_254A3AD0 
-X-CRM114-Status: GOOD (  29.04  )
+X-CRM114-CacheID: sfid-20250320_170600_571491_D04114F3 
+X-CRM114-Status: GOOD (  21.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,197 +100,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 18, 2025 at 10:07:27PM -0700, Ian Rogers wrote:
-> This work builds on the clean up of system call tables and removal of
-> libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+On 3/20/25 6:21 PM, Yixun Lan wrote:
+> Hi Alex:
 > 
-> The system call table in perf trace is used to map system call numbers
-> to names and vice versa. Prior to these changes, a single table
-> matching the perf binary's build was present. The table would be
-> incorrect if tracing say a 32-bit binary from a 64-bit version of
-> perf, the names and numbers wouldn't match.
+> Thanks for sending this patch series
 > 
-> Change the build so that a single system call file is built and the
-> potentially multiple tables are identifiable from the ELF machine type
-> of the process being examined. To determine the ELF machine type, the
-> executable's maps are searched and the associated DSOs ELF headers are
-> read. When this fails and when live, /proc/pid/exe's ELF header is
-> read. Fallback to using the perf's binary type when unknown.
-> 
-> Remove some runtime types used by the system call tables and make
-> equivalents generated at build time.
-> 
-> v7: Rebase for dso data locking changes. Don't NULL check before
->     btf__free (Arnaldo). Add patch to clean up perf trace's evlist to
->     make leak sanitizer happier.
-> 
-> v6: Incorporate Namhyung's fixes:
->     https://lore.kernel.org/lkml/Z9PCjQ8PhOadVGQ8@google.com/
->     https://lore.kernel.org/lkml/Z9YHCzINiu4uBQ8B@google.com/
->     Which highlighted an issue with syscall pointers becoming
->     stale. Add a patch 12 to make the syscall table a table of
->     pointers that don't move so that struct syscalls don't move. Add a
->     patch 13 fixing a BTF memory leak.
-> 
-> v5: Add byte swap to dso__e_machine and fix comment as suggested by
->     Namhyung.
-> 
-> v4: Add reading the e_machine from the thread's maps dsos, only read
->     from /proc/pid/exe on failure and when live as requested by
->     Namhyung. Add patches to add dso comments and remove unused
->     dso_data variables that are unused without libunwind.
-> 
-> v3: Add Charlie's reviewed-by tags. Incorporate feedback from Arnd
->     Bergmann <arnd@arndb.de> on additional optional column and MIPS
->     system call numbering. Rebase past Namhyung's global system call
->     statistics and add comments that they don't yet support an
->     e_machine other than EM_HOST.
-> 
-> v2: Change the 1 element cache for the last table as suggested by
->     Howard Chu, add Howard's reviewed-by tags.
->     Add a comment and apology to Charlie for not doing better in
->     guiding:
->     https://lore.kernel.org/all/20250114-perf_syscall_arch_runtime-v1-1-5b304e408e11@rivosinc.com/
->     After discussion on v1 and he agreed this patch series would be
->     the better direction.
-> 
-> Ian Rogers (14):
->   perf dso: Move libunwind dso_data variables into ifdef
->   perf dso: kernel-doc for enum dso_binary_type
->   perf syscalltbl: Remove syscall_table.h
->   perf trace: Reorganize syscalls
->   perf syscalltbl: Remove struct syscalltbl
->   perf dso: Add support for reading the e_machine type for a dso
->   perf thread: Add support for reading the e_machine type for a thread
->   perf trace beauty: Add syscalltbl.sh generating all system call tables
->   perf syscalltbl: Use lookup table containing multiple architectures
->   perf build: Remove Makefile.syscalls
->   perf syscalltbl: Mask off ABI type for MIPS system calls
->   perf trace: Make syscall table stable
->   perf trace: Fix BTF memory leak
->   perf trace: Fix evlist memory leak
+> Can you also CC spacemit mailing list: spacemit@lists.linux.dev
+> it should be handled automaticlly in next 6.15-rc1 version as the
+> MAINTAINERS file updated
+> https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=4a0c4e723c94
 
-Reviewed-by: Namhyung Kim <namhyung@kernel.org>
+Sorry about that.  I will copy it on my next version.
 
-Thanks,
-Namhyung
+Are you asking me to RESEND this series with that addition?
 
+					-Alex
+
+> On 14:44 Thu 20 Mar     , Alex Elder wrote:
+>> This series adds reset controller support for the SpacemiT K1 SoC.
+>> It is based on Linux v6.14-rc1.
+>>
+>> It is built upon the clock controller driver that Haylen Chu
+>> currently has out for review (currently at v5):
+>>    https://lore.kernel.org/lkml/20250306175750.22480-2-heylenay@4d2.org/
+>>
+>> It also depends on two commits that will land in v6.15: 5728c92ae1123
+>> ("mfd: syscon: Restore device_node_to_regmap() for non-syscon nodes")
+>> and 7ff4faba63571 ("pinctrl: spacemit: enable config option").
+>>
+> you can use b4 to handle patch dependency, and currently you may got
+> linux.riscv.bot complaint, but may fix later
+> https://github.com/linux-riscv/github-ci/issues/24
 > 
->  tools/perf/Makefile.perf                      |  10 +-
->  tools/perf/arch/alpha/entry/syscalls/Kbuild   |   2 -
->  .../alpha/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/alpha/include/syscall_table.h |   2 -
->  tools/perf/arch/arc/entry/syscalls/Kbuild     |   2 -
->  .../arch/arc/entry/syscalls/Makefile.syscalls |   3 -
->  tools/perf/arch/arc/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm/entry/syscalls/Kbuild     |   4 -
->  .../arch/arm/entry/syscalls/Makefile.syscalls |   2 -
->  tools/perf/arch/arm/include/syscall_table.h   |   2 -
->  tools/perf/arch/arm64/entry/syscalls/Kbuild   |   3 -
->  .../arm64/entry/syscalls/Makefile.syscalls    |   6 -
->  tools/perf/arch/arm64/include/syscall_table.h |   8 -
->  tools/perf/arch/csky/entry/syscalls/Kbuild    |   2 -
->  .../csky/entry/syscalls/Makefile.syscalls     |   3 -
->  tools/perf/arch/csky/include/syscall_table.h  |   2 -
->  .../perf/arch/loongarch/entry/syscalls/Kbuild |   2 -
->  .../entry/syscalls/Makefile.syscalls          |   3 -
->  .../arch/loongarch/include/syscall_table.h    |   2 -
->  tools/perf/arch/mips/entry/syscalls/Kbuild    |   2 -
->  .../mips/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/mips/include/syscall_table.h  |   2 -
->  tools/perf/arch/parisc/entry/syscalls/Kbuild  |   3 -
->  .../parisc/entry/syscalls/Makefile.syscalls   |   6 -
->  .../perf/arch/parisc/include/syscall_table.h  |   8 -
->  tools/perf/arch/powerpc/entry/syscalls/Kbuild |   3 -
->  .../powerpc/entry/syscalls/Makefile.syscalls  |   6 -
->  .../perf/arch/powerpc/include/syscall_table.h |   8 -
->  tools/perf/arch/riscv/entry/syscalls/Kbuild   |   2 -
->  .../riscv/entry/syscalls/Makefile.syscalls    |   4 -
->  tools/perf/arch/riscv/include/syscall_table.h |   8 -
->  tools/perf/arch/s390/entry/syscalls/Kbuild    |   2 -
->  .../s390/entry/syscalls/Makefile.syscalls     |   5 -
->  tools/perf/arch/s390/include/syscall_table.h  |   2 -
->  tools/perf/arch/sh/entry/syscalls/Kbuild      |   2 -
->  .../arch/sh/entry/syscalls/Makefile.syscalls  |   4 -
->  tools/perf/arch/sh/include/syscall_table.h    |   2 -
->  tools/perf/arch/sparc/entry/syscalls/Kbuild   |   3 -
->  .../sparc/entry/syscalls/Makefile.syscalls    |   5 -
->  tools/perf/arch/sparc/include/syscall_table.h |   8 -
->  tools/perf/arch/x86/entry/syscalls/Kbuild     |   3 -
->  .../arch/x86/entry/syscalls/Makefile.syscalls |   6 -
->  tools/perf/arch/x86/include/syscall_table.h   |   8 -
->  tools/perf/arch/xtensa/entry/syscalls/Kbuild  |   2 -
->  .../xtensa/entry/syscalls/Makefile.syscalls   |   4 -
->  .../perf/arch/xtensa/include/syscall_table.h  |   2 -
->  tools/perf/builtin-trace.c                    | 339 ++++++++++++------
->  tools/perf/scripts/Makefile.syscalls          |  61 ----
->  tools/perf/scripts/syscalltbl.sh              |  86 -----
->  tools/perf/trace/beauty/syscalltbl.sh         | 274 ++++++++++++++
->  tools/perf/util/dso.c                         |  89 +++++
->  tools/perf/util/dso.h                         |  62 ++++
->  tools/perf/util/symbol-elf.c                  |  27 --
->  tools/perf/util/syscalltbl.c                  | 148 ++++----
->  tools/perf/util/syscalltbl.h                  |  22 +-
->  tools/perf/util/thread.c                      |  80 +++++
->  tools/perf/util/thread.h                      |  14 +-
->  57 files changed, 839 insertions(+), 543 deletions(-)
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/alpha/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/alpha/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/arm64/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/arm64/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/csky/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/csky/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/loongarch/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/loongarch/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/mips/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/mips/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/parisc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/parisc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/powerpc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/powerpc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/riscv/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/riscv/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/s390/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/s390/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sh/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sh/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/sparc/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/sparc/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/x86/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/x86/include/syscall_table.h
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Kbuild
->  delete mode 100644 tools/perf/arch/xtensa/entry/syscalls/Makefile.syscalls
->  delete mode 100644 tools/perf/arch/xtensa/include/syscall_table.h
->  delete mode 100644 tools/perf/scripts/Makefile.syscalls
->  delete mode 100755 tools/perf/scripts/syscalltbl.sh
->  create mode 100755 tools/perf/trace/beauty/syscalltbl.sh
+>> The first patch adds three more system controller CCU nodes to those
+>> implemented by the SpacemiT K1.  The second updates the existing clock
+>> driver with a structure used for OF match data, allowing both clocks
+>> and resets to be specified.  The third provides code that implements
+>> reset functionality.  The fourth defines groups of reset controls
+>> implemented by the CCUs that have alraady been defined.  The fifth
+>> makes it possible for a CCU to be defined with resets but no clocks.
+>> The sixth defines three new CCUs which define only resets.  And the
+>> last patch defines these additional syscon nodes in "k1.dtsi".
+>>
+>> All of these patches are available here:
+>>    https://github.com/riscstar/linux/tree/outgoing/reset-v1
+>>
+>> 					-Alex
+>>
+>> Alex Elder (7):
+>>    dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
+>>    clk: spacemit: define struct k1_ccu_data
+>>    clk: spacemit: add reset controller support
+>>    clk: spacemit: define existing syscon resets
+>>    clk: spacemit: make clocks optional
+>>    clk: spacemit: define new syscons with only resets
+>>    riscv: dts: spacemit: add reset support for the K1 SoC
+>>
+>>   .../soc/spacemit/spacemit,k1-syscon.yaml      |  13 +-
+>>   arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 +
+>>   drivers/clk/spacemit/ccu-k1.c                 | 393 +++++++++++++++++-
+>>   include/dt-bindings/clock/spacemit,k1-ccu.h   | 134 ++++++
+>>   4 files changed, 539 insertions(+), 19 deletions(-)
+>>
+>> -- 
+>> 2.43.0
+>>
 > 
-> -- 
-> 2.49.0.rc1.451.g8f38331e32-goog
-> 
+
 
 _______________________________________________
 linux-riscv mailing list
