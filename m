@@ -4,44 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96DFDC36002
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 17:23:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41460C36000
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 17:23:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DTNPaWpvEVyTPd3WjVUGmnN4qHhVWezAiP3w+F2Fn2M=; b=rGuCmHgJ+5bLNL
-	3UK2ucXLF52K8mhOChUJwdpChYepg/30tGd/Qa/X4kaTFQ/kbI8VFnYpM4IzpJMfYfFvTZJA83ElS
-	NzYIpVN55thF8LDBoYmtFXwyZZS1bDd6/nlibF56AQ5Yj818q3fkSze2bA4IkoqK8wEPCwO5i5wxc
-	HW6OQt0HSRR6u4aEQSXePzGlc6ATGi1xAzFqWBeZ+kF8OWP58uo2JnUYSX7FdcY5OY9d5P1bR8b/h
-	XpG6rP77cTXyY+Y5L7p3eXGvk6VgjjYPzsd1rYoE4lRsZuoM/IrjtUQf2bp6IXgdg2ShkouqoIXzB
-	jkp3AUMKZDvSmGvWI6fg==;
+	List-Owner; bh=vyf01PSqP5rggZeqAiq6FYsEMnJreM41dEaBPaGygBU=; b=GdTZJk+54OMa82
+	nhC0hCVQsdGsmR7P8JnHrDAmXWzeFQunONwwbEUm7Rj/juSLLwukyctjxiGJWG+gvmciP8p+cBPNg
+	2yLTp7anv+1C8kVo8vxTvxqX/BA+/VTANRRBG7l+INsXaYncQq4ax7Zs5yiHXTiOGjesPqL4FQAJt
+	r09Q3RCJfcBwqMI2RuBgbzkAF0QNPGiDXpeIrMROkBOdMceF3KWgSPDrW/ueZVGLCbRcRM4TZNvqq
+	lczIhDbh01L3KmXRpPGQUWkpelGhCy49fUYpOVELHv9VCKs7jb7ODib/drCxZc9L+7gDId4Z8yQj6
+	Tk2SfXcN1aQmOS3Rf+jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg5q-0000000FgjA-0Da3;
-	Fri, 21 Mar 2025 17:23:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tvg66-0000000Fgud-3P2P;
+	Fri, 21 Mar 2025 17:23:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg5m-0000000FggG-3g4W
+	id 1tvg65-0000000Fgt7-2lmp
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 21 Mar 2025 17:23:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=PV0NcdZH3aQIAvqySUIimNgKt6GdeaLMnFZ8BspN3Gs=; b=RJzYSyFY0cUmN95WqzMoorDAZ7
+	DaFD504+cCu+HUss4VCSpH84YWSF4qLvCYI1pUxr/CuQw88X1LhwuAY/5YMeHhPZfIbvxHXvPdWlF
+	iCrI5NXPAgowP1WS82wl/WyDCdGEuJUme9Dq4J+Lz14+2qh9mpEr3+YebW2sLEr+f1+FKrMt5cw52
+	MO+hp3i/NLgCtPy54iquv6zPT8/XtDmYr1FoSNY9h5yq1R240tyZgm4IFjFawF2RkgCqKYprvPJ9X
+	tQ8JeNa4rmbAcskijeTf4bHD7jGB3+U10z4pw68F4pU+c+AIS4XZsYIMV4IA3KbxicAUKF3TR78jd
+	KkxoDg4A==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvg62-00000004TYR-1Rvz
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 17:23:36 +0000
+	Fri, 21 Mar 2025 17:23:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2CCC943BA2;
-	Fri, 21 Mar 2025 17:23:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD39C4CEEA;
-	Fri, 21 Mar 2025 17:23:31 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8BA45C6DBE;
+	Fri, 21 Mar 2025 17:21:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47C6FC4CEE8;
+	Fri, 21 Mar 2025 17:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742577814;
-	bh=js28aTzobaVq0lLOj3miTgsiXAxIDM2wJUkCtN7LbIg=;
+	s=k20201202; t=1742577825;
+	bh=RIaLytEA1lVSh28yAE2eOkonTtXe8DgddLseiGsgHsg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=pvNJ4VMYMELWa8gkQccAfXnjCKHIiI95QI9gzYRLw42/AGzTGFxi8VCz8msVY1geP
-	 GYKjj4AFA+dZOjRsV8H3KGw2GKkwox4tMRZo5w7VVv0x3grhBEzIGJYrffO70D0Ds9
-	 hOVKZwnRkUcgeJ+E1DpdwRypVunhb5wUjAolv19ac1cdy9UNbRCEot5UEmotjtokVQ
-	 pMS0Ni50085baM0UTuVCEvdqq5tBlliM5t0wQIbjO5kfCbrbxw2cQpl8DEG31R38z4
-	 dFVH+QCA2sa0MM05klnCnzOteN09QUyRGva/Tt5PIQM+cKLou0AIE+h7GHzF409C9R
-	 DjPrQbpaC4Erg==
+	b=KSi2QU4C4MkwyZp7XLlZbfQXkHggO3qye8NVPCwfuNYmq1QeCAh47TT1N89laedQp
+	 TRcGvK2mO++wGxY7KIaXPiiHMX0QQQlfHF4k8SBVuS9sN1t90g1TB2FmsUsRmMSXtl
+	 DfhbCrVRsoOqfZj21KzPEoaFey8qEfZZtsYO7ZpliykaOESKR9RhKKv6w35VVFaokU
+	 abo6nd+zzoErGgcGK8IObWPswZCkVJ4/CTxBp49mZv4daMzfrAlSFMn/p/4DAf7hrj
+	 mrl2eZEjOL6IR9I8Nly42dVkRCTGseLZVnOwJz0wD6qHDoW5JBcGHwywjkukFi7WFB
+	 OXIRo5WsxYwbg==
 From: Conor Dooley <conor@kernel.org>
 To: Stephen Boyd <sboyd@kernel.org>
 Cc: conor@kernel.org,
@@ -61,18 +76,18 @@ Cc: conor@kernel.org,
 	linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 6/9] riscv: dts: microchip: fix mailbox description
-Date: Fri, 21 Mar 2025 17:22:39 +0000
-Message-ID: <20250321-culminate-greyhound-941bce25856e@spud>
+Subject: [RFC PATCH v2 9/9] clk: microchip: mpfs: use regmap clock types
+Date: Fri, 21 Mar 2025 17:22:42 +0000
+Message-ID: <20250321-aflutter-unearned-1d6078241fb3@spud>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
 References: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2048; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=oTMuiGOOhhC3GQAioxBkdjP6pkdPZ7VZK2gf4k/K1jo=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOl3F0QtOfF2kcD7Uq3DrTMvtatOSIj4e3y/4EPvR+923 r/H9afIvqOUhUGMg0FWTJEl8XZfi9T6Py47nHvewsxhZQIZwsDFKQAT6XjE8E/z2W/nFP5vO96s P+F6WjYh++/TExZz+t8sbN65pMOLYf8kRoYpN6bYKni84//1/qt5xVbvjDnTk8TWcPBvl1367fS E0685AA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=10027; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=pQhEwkt5Ys1X5PbTe/h5CRH87bs0UPsQSVu7EETaHAE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOl3F0SvNG+oPOHvtGWXacUPnZTnqyffSfgaa2f3O+dTT soU39uRHaUsDGIcDLJiiiyJt/tapNb/cdnh3PMWZg4rE8gQBi5OAZjIw10M/2ObZeJlZjz02yDv eVN427PvX4rDnXwfdtp8Sz0cvezTg90M/7PLjvWvSWjt0jI/sbJCS1+me6trSbD8++WadW/Y/v7 awgoA
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_102334_954523_2701536B 
-X-CRM114-Status: GOOD (  12.03  )
+X-CRM114-CacheID: sfid-20250321_172350_784329_7D45FCF0 
+X-CRM114-Status: GOOD (  22.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +106,295 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Conor Dooley <conor.dooley@microchip.com>
 
-When the binding for the mailbox on PolarFire SoC was originally
-written, and later modified, mistakes were made - and the precise
-nature of the later modification should have been a giveaway, but alas
-I was naive at the time.
-
-A more correct modelling of the hardware is to use two syscons and have
-a single reg entry for the mailbox, containing the mailbox region. The
-two syscons contain the general control/status registers for the mailbox
-and the interrupt related registers respectively. The reason for two
-syscons is that the same mailbox is present on the non-SoC version of
-the FPGA, which has no interrupt controller, and the shared part of the
-rtl was unchanged between devices.
+Convert the PolarFire SoC clock driver to use regmap clock types as a
+preparatory work for supporting the new binding for this device that
+will only provide the second of the two register regions, and will
+require the use of syscon regmap to access the "cfg" and "periph" clocks
+currently supported by the driver.
 
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/microchip/mpfs.dtsi | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ drivers/clk/microchip/Kconfig    |   4 +
+ drivers/clk/microchip/clk-mpfs.c | 151 ++++++++++++++++++++-----------
+ 2 files changed, 101 insertions(+), 54 deletions(-)
 
-diff --git a/arch/riscv/boot/dts/microchip/mpfs.dtsi b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-index 9883ca3554c5..f9d6bf08e717 100644
---- a/arch/riscv/boot/dts/microchip/mpfs.dtsi
-+++ b/arch/riscv/boot/dts/microchip/mpfs.dtsi
-@@ -259,6 +259,11 @@ clkcfg: clkcfg@20002000 {
- 			#reset-cells = <1>;
- 		};
+diff --git a/drivers/clk/microchip/Kconfig b/drivers/clk/microchip/Kconfig
+index 0724ce65898f..cab9a909893b 100644
+--- a/drivers/clk/microchip/Kconfig
++++ b/drivers/clk/microchip/Kconfig
+@@ -7,6 +7,10 @@ config MCHP_CLK_MPFS
+ 	bool "Clk driver for PolarFire SoC"
+ 	depends on ARCH_MICROCHIP_POLARFIRE || COMPILE_TEST
+ 	default ARCH_MICROCHIP_POLARFIRE
++	depends on MFD_SYSCON
+ 	select AUXILIARY_BUS
++	select COMMON_CLK_DIVIDER_REGMAP
++	select COMMON_CLK_GATE_REGMAP
++	select REGMAP_MMIO
+ 	help
+ 	  Supports Clock Configuration for PolarFire SoC
+diff --git a/drivers/clk/microchip/clk-mpfs.c b/drivers/clk/microchip/clk-mpfs.c
+index c22632a7439c..c7fec0fcbe37 100644
+--- a/drivers/clk/microchip/clk-mpfs.c
++++ b/drivers/clk/microchip/clk-mpfs.c
+@@ -6,8 +6,10 @@
+  */
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <linux/regmap.h>
+ #include <dt-bindings/clock/microchip,mpfs-clock.h>
+ #include <soc/microchip/mpfs.h>
  
-+		sysreg_scb: syscon@20003000 {
-+			compatible = "microchip,mpfs-sysreg-scb", "syscon";
-+			reg = <0x0 0x20003000 0x0 0x1000>;
-+		};
-+
- 		ccc_se: clock-controller@38010000 {
- 			compatible = "microchip,mpfs-ccc";
- 			reg = <0x0 0x38010000 0x0 0x1000>, <0x0 0x38020000 0x0 0x1000>,
-@@ -521,10 +526,14 @@ usb: usb@20201000 {
- 			status = "disabled";
- 		};
+@@ -30,6 +32,14 @@
+ #define MSSPLL_POSTDIV_WIDTH	0x07u
+ #define MSSPLL_FIXED_DIV	4u
  
--		mbox: mailbox@37020000 {
-+		control_scb: syscon@37020000 {
-+			compatible = "microchip,mpfs-control-scb", "syscon";
-+			reg = <0x0 0x37020000 0x0 0x100>;
-+		};
++static const struct regmap_config clk_mpfs_regmap_config = {
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.val_format_endian = REGMAP_ENDIAN_LITTLE,
++	.max_register = REG_SUBBLK_CLOCK_CR,
++};
 +
-+		mbox: mailbox@37020800 {
- 			compatible = "microchip,mpfs-mailbox";
--			reg = <0x0 0x37020000 0x0 0x58>, <0x0 0x2000318C 0x0 0x40>,
--			      <0x0 0x37020800 0x0 0x100>;
-+			reg = <0x0 0x37020800 0x0 0x1000>;
- 			interrupt-parent = <&plic>;
- 			interrupts = <96>;
- 			#mbox-cells = <1>;
+ /*
+  * This clock ID is defined here, rather than the binding headers, as it is an
+  * internal clock only, and therefore has no consumers in other peripheral
+@@ -39,6 +49,7 @@
+ 
+ struct mpfs_clock_data {
+ 	struct device *dev;
++	struct regmap *regmap;
+ 	void __iomem *base;
+ 	void __iomem *msspll_base;
+ 	struct clk_hw_onecell_data hw_data;
+@@ -68,14 +79,12 @@ struct mpfs_msspll_out_hw_clock {
+ #define to_mpfs_msspll_out_clk(_hw) container_of(_hw, struct mpfs_msspll_out_hw_clock, hw)
+ 
+ struct mpfs_cfg_hw_clock {
+-	struct clk_divider cfg;
+-	struct clk_init_data init;
++	struct clk_divider_regmap divider;
+ 	unsigned int id;
+-	u32 reg_offset;
+ };
+ 
+ struct mpfs_periph_hw_clock {
+-	struct clk_gate periph;
++	struct clk_gate_regmap gate;
+ 	unsigned int id;
+ };
+ 
+@@ -172,15 +181,15 @@ static int mpfs_clk_register_mssplls(struct device *dev, struct mpfs_msspll_hw_c
+  * MSS PLL output clocks
+  */
+ 
+-#define CLK_PLL_OUT(_id, _name, _parent, _flags, _shift, _width, _offset) {	\
+-	.id = _id,								\
+-	.output.shift = _shift,							\
+-	.output.width = _width,							\
+-	.output.table = NULL,							\
+-	.reg_offset = _offset,							\
+-	.output.flags = _flags,							\
+-	.output.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),	\
+-	.output.lock = &mpfs_clk_lock,						\
++#define CLK_PLL_OUT(_id, _name, _parent, _flags, _shift, _width, _offset) {		\
++	.id = _id,									\
++	.output.shift = _shift,								\
++	.output.width = _width,								\
++	.output.table = NULL,								\
++	.reg_offset = _offset,								\
++	.output.flags = _flags,								\
++	.output.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_regmap_ops, 0),	\
++	.output.lock = &mpfs_clk_lock,							\
+ }
+ 
+ static struct mpfs_msspll_out_hw_clock mpfs_msspll_out_clks[] = {
+@@ -220,15 +229,14 @@ static int mpfs_clk_register_msspll_outs(struct device *dev,
+  * "CFG" clocks
+  */
+ 
+-#define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {		\
+-	.id = _id,									\
+-	.cfg.shift = _shift,								\
+-	.cfg.width = _width,								\
+-	.cfg.table = _table,								\
+-	.reg_offset = _offset,								\
+-	.cfg.flags = _flags,								\
+-	.cfg.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_ops, 0),		\
+-	.cfg.lock = &mpfs_clk_lock,							\
++#define CLK_CFG(_id, _name, _parent, _shift, _width, _table, _flags, _offset) {	\
++	.id = _id,								\
++	.divider.shift = _shift,						\
++	.divider.width = _width,						\
++	.divider.table = _table,						\
++	.divider.map_offset = _offset,						\
++	.divider.flags = _flags,						\
++	.divider.hw.init = CLK_HW_INIT(_name, _parent, &clk_divider_regmap_ops, 0),	\
+ }
+ 
+ #define CLK_CPU_OFFSET		0u
+@@ -245,13 +253,13 @@ static struct mpfs_cfg_hw_clock mpfs_cfg_clks[] = {
+ 		REG_CLOCK_CONFIG_CR),
+ 	{
+ 		.id = CLK_RTCREF,
+-		.cfg.shift = 0,
+-		.cfg.width = 12,
+-		.cfg.table = mpfs_div_rtcref_table,
+-		.reg_offset = REG_RTC_CLOCK_CR,
+-		.cfg.flags = CLK_DIVIDER_ONE_BASED,
+-		.cfg.hw.init =
+-			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &clk_divider_ops, 0),
++		.divider.shift = 0,
++		.divider.width = 12,
++		.divider.table = mpfs_div_rtcref_table,
++		.divider.map_offset = REG_RTC_CLOCK_CR,
++		.divider.flags = CLK_DIVIDER_ONE_BASED,
++		.divider.hw.init =
++			CLK_HW_INIT_PARENTS_DATA("clk_rtcref", mpfs_ext_ref, &clk_divider_regmap_ops, 0),
+ 	}
+ };
+ 
+@@ -264,14 +272,14 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_cfg_hw_clock *cfg_hw = &cfg_hws[i];
+ 
+-		cfg_hw->cfg.reg = data->base + cfg_hw->reg_offset;
+-		ret = devm_clk_hw_register(dev, &cfg_hw->cfg.hw);
++		cfg_hw->divider.regmap = data->regmap;
++		ret = devm_clk_hw_register(dev, &cfg_hw->divider.hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+ 					     cfg_hw->id);
+ 
+ 		id = cfg_hw->id;
+-		data->hw_data.hws[id] = &cfg_hw->cfg.hw;
++		data->hw_data.hws[id] = &cfg_hw->divider.hw;
+ 	}
+ 
+ 	return 0;
+@@ -281,15 +289,14 @@ static int mpfs_clk_register_cfgs(struct device *dev, struct mpfs_cfg_hw_clock *
+  * peripheral clocks - devices connected to axi or ahb buses.
+  */
+ 
+-#define CLK_PERIPH(_id, _name, _parent, _shift, _flags) {			\
+-	.id = _id,								\
+-	.periph.bit_idx = _shift,						\
+-	.periph.hw.init = CLK_HW_INIT_HW(_name, _parent, &clk_gate_ops,		\
+-				  _flags),					\
+-	.periph.lock = &mpfs_clk_lock,						\
++#define CLK_PERIPH(_id, _name, _parent, _shift, _flags) {				\
++	.id = _id,									\
++	.gate.map_offset = REG_SUBBLK_CLOCK_CR,						\
++	.gate.bit_idx = _shift,								\
++	.gate.hw.init = CLK_HW_INIT_HW(_name, _parent, &clk_gate_regmap_ops, _flags),	\
+ }
+ 
+-#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT##_OFFSET].cfg.hw)
++#define PARENT_CLK(PARENT) (&mpfs_cfg_clks[CLK_##PARENT##_OFFSET].divider.hw)
+ 
+ /*
+  * Critical clocks:
+@@ -346,19 +353,60 @@ static int mpfs_clk_register_periphs(struct device *dev, struct mpfs_periph_hw_c
+ 	for (i = 0; i < num_clks; i++) {
+ 		struct mpfs_periph_hw_clock *periph_hw = &periph_hws[i];
+ 
+-		periph_hw->periph.reg = data->base + REG_SUBBLK_CLOCK_CR;
+-		ret = devm_clk_hw_register(dev, &periph_hw->periph.hw);
++		periph_hw->gate.map = data->regmap;
++		ret = devm_clk_hw_register(dev, &periph_hw->gate.hw);
+ 		if (ret)
+ 			return dev_err_probe(dev, ret, "failed to register clock id: %d\n",
+ 					     periph_hw->id);
+ 
+ 		id = periph_hws[i].id;
+-		data->hw_data.hws[id] = &periph_hw->periph.hw;
++		data->hw_data.hws[id] = &periph_hw->gate.hw;
+ 	}
+ 
+ 	return 0;
+ }
+ 
++static inline int mpfs_clk_syscon_probe(struct mpfs_clock_data *clk_data,
++					struct platform_device *pdev)
++{
++	clk_data->regmap = syscon_regmap_lookup_by_compatible("microchip,mpfs-mss-top-sysreg");
++	if (IS_ERR(clk_data->regmap))
++		return PTR_ERR(clk_data->regmap);
++
++	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(clk_data->msspll_base))
++		return PTR_ERR(clk_data->msspll_base);
++
++	return 0;
++}
++
++static inline int mpfs_clk_old_format_probe(struct mpfs_clock_data *clk_data,
++					    struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	int ret;
++
++	dev_warn(&pdev->dev, "falling back to old devicetree format");
++
++	clk_data->base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(clk_data->base))
++		return PTR_ERR(clk_data->base);
++
++	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 1);
++	if (IS_ERR(clk_data->msspll_base))
++		return PTR_ERR(clk_data->msspll_base);
++
++	clk_data->regmap = devm_regmap_init_mmio(dev, clk_data->base, &clk_mpfs_regmap_config);
++	if (IS_ERR(clk_data->regmap))
++		return PTR_ERR(clk_data->regmap);
++
++	ret = mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
++	if (ret)
++		return ret;
++
++	return 0;
++}
++
+ static int mpfs_clk_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -374,13 +422,12 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
+-	clk_data->base = devm_platform_ioremap_resource(pdev, 0);
+-	if (IS_ERR(clk_data->base))
+-		return PTR_ERR(clk_data->base);
+-
+-	clk_data->msspll_base = devm_platform_ioremap_resource(pdev, 1);
+-	if (IS_ERR(clk_data->msspll_base))
+-		return PTR_ERR(clk_data->msspll_base);
++	ret = mpfs_clk_syscon_probe(clk_data, pdev);
++	if (ret) {
++		ret = mpfs_clk_old_format_probe(clk_data, pdev);
++		if (ret)
++			return ret;
++	}
+ 
+ 	clk_data->hw_data.num = num_clks;
+ 	clk_data->dev = dev;
+@@ -406,11 +453,7 @@ static int mpfs_clk_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
+ 
+-	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, &clk_data->hw_data);
+-	if (ret)
+-		return ret;
+-
+-	return mpfs_reset_controller_register(dev, clk_data->base + REG_SUBBLK_RESET_CR);
++	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, &clk_data->hw_data);
+ }
+ 
+ static const struct of_device_id mpfs_clk_of_match_table[] = {
 -- 
 2.45.2
 
