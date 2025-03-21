@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703BBC36002
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 21:17:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7462CC36002
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 21:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rufrO3SosVB8BQwRKoc3p0K7D1O7xECLTY+5dVoKF0k=; b=cPz1MzKxQG+k5e
-	2oFzpaap3VhCvBRiX6rn5T30PreJDnD0qfADYIjg63NiLf1gfN8zz2lJqis6UpsCIK1nRyFbIEBg8
-	fFLxhhz9SSrLW+wpoYwUx2U+MLp3RdUeY5jW/w7MbNSOsaXdCGMGTCwuQRdWuv2QQffnIQafMljbA
-	kxqHQwHOEEQeP0dpXKP/ev2zYOgrz54mJNDq4Itx3U1pdwC3IIjb4sYZYW9BQwuCrmUMLTSUYrP9E
-	z8DnM2/+WS5x7SeWrCyIP1xBU0exne4bMahNS+HFTt5/JW2Noq1zYXMERmELAnONz54pU/84DCW6B
-	5514ceGPdomHqdy0ghbw==;
+	List-Owner; bh=OXvvogh+Y1sS6S/0eQ9qCQGBKnJmP5w4Tg0HdBT3Cf0=; b=Vj+raMnHq1n/ER
+	JT9kVAUt+lCzM8ibLnqIFjAUXRU1fQ9lscmto7rYx25IXqJd3KiVZCYhbpxvCPCluBgnWwkuQ9jS3
+	NFTAnI65oolr94Ct743WQ8n4JZ2lLhDxmExgCJ8nA+0okY50khaH7GJLGTbINIshSvC1HEehazNcM
+	utN9GZNUXgwn2HCmPwdQ0ChKftCE47z8nLNtGzEY3SnQiCFDMO75I+vZkpIg/96qaHqUzW5VGDk8e
+	mfofm3C7fWSKti/3TS6YETYnZcab2GoVj0IIYQSlg+hfuwPIqHH3I66oGk0OB1LB+qS8LjqutsHZA
+	iVazibR3sS7tik/KFNdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvjjo-0000000GKN9-1t8M;
-	Fri, 21 Mar 2025 21:17:08 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tvjpB-0000000GLKk-1r0E;
+	Fri, 21 Mar 2025 21:22:41 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvjjm-0000000GKMP-216z
+	id 1tvjp8-0000000GLJm-2HYZ
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 21:17:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=9I1UFRdpTQORdgr7JFOGekbkH0vyOzdoO/6a82DByUk=; b=PL
-	4SZiXhSRtaDXCa/X5vPcQA+OKp1MG594XOOAMZye6xybAFFrxnFUBJOSlyGV4ZQ06509oIl6JrUGB
-	kWm8bptJMhaxP64fxjvOFZ0oQkzLr0CAqMrGb0lFt3NSVkkz/xH3/Je14iIPgMncOosy6yuNNGG57
-	4r22yXvEXLxjNvw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tvjja-006em6-2R; Fri, 21 Mar 2025 22:16:54 +0100
-Date: Fri, 21 Mar 2025 22:16:54 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Gregory CLEMENT <gregory.clement@bootlin.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Tawfik Bayouk <tawfik.bayouk@mobileye.com>
-Subject: Re: [PATCH net-next 13/13] MIPS: mobileye: eyeq5-epm: add two
- Cadence GEM Ethernet PHYs
-Message-ID: <905d367f-ff06-4a3b-b410-1e3c65e31f54@lunn.ch>
-References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
- <20250321-macb-v1-13-537b7e37971d@bootlin.com>
+	Fri, 21 Mar 2025 21:22:39 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1742592157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oNseWKuGBEgshNs5P0talv9xg+inN17z1K2AF90QsY=;
+	b=urekzMMtfA3kTy822lbKa4nufWzR1OXLr8MKXehncBoDdm+XaFkjEu7bTZMYsxv8ltVwoi
+	lvGqR9Z+4hyzbhRh4AC896uxdlwHvHw0veohERNmwzCmdAQ04k4q/CHT/60zHV4CdzuzTA
+	n6YkpC/n1jRVZjiX3ycpakTyHVyDhKkoHtGemUXzU9umIyUgY056GYou5iCqFHnXf8FjpT
+	MXxRYQ9tHrj/Lojkqh8tvOra2HYQEqECrVf9+ATCAHPRq5ctBn54mBq/86YWqdn1cU6oNr
+	KT/foI3j5FKmu9mdRZ04kF+JZgKJ/qOzzln5uAjmxECTHSDiRZ7wmLllDx7eaA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1742592157;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+oNseWKuGBEgshNs5P0talv9xg+inN17z1K2AF90QsY=;
+	b=EZS5gE+VsWIJ5vRL3eP5Jndiht64acIE4ql10QAAbAlD7H53yy7I4AqzDTceNhmWCpRnL1
+	9Xun/0Uq9tAy9gAQ==
+To: Charlie Jenkins <charlie@rivosinc.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Huacai
+ Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Peter
+ Zijlstra <peterz@infradead.org>, Andy Lutomirski <luto@kernel.org>,
+ Alexandre Ghiti <alexghiti@rivosinc.com>, Arnd Bergmann <arnd@arndb.de>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ loongarch@lists.linux.dev, Charlie Jenkins <charlie@rivosinc.com>
+Subject: Re: [PATCH v6 0/4] entry: Move ret_from_fork() to C and inline
+ syscall_exit_to_user_mode()
+In-Reply-To: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
+References: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
+Date: Fri, 21 Mar 2025 22:22:36 +0100
+Message-ID: <87frj613kz.ffs@tglx>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250321-macb-v1-13-537b7e37971d@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_141706_519769_BF94F96B 
-X-CRM114-Status: GOOD (  11.64  )
+X-CRM114-CacheID: sfid-20250321_142238_718792_3C3F462C 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,57 +77,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 08:09:44PM +0100, Th=E9o Lebrun wrote:
-> The Mobileye EyeQ5 eval board (EPM) embeds two MDIO PHYs.
-> =
+On Thu, Mar 20 2025 at 10:29, Charlie Jenkins wrote:
+> Similar to commit 221a164035fd ("entry: Move
+> syscall_enter_from_user_mode() to header file"), move
+> syscall_exit_to_user_mode() to the header file as well.
+>
+> Testing was done with the byte-unixbench [1] syscall benchmark (which
+> calls getpid) and QEMU. On riscv I measured a 7.09246% improvement, on
+> x86 a 2.98843% improvement, on loongarch a 6.07954% improvement, and on
+> s390 a 11.1328% improvement.
+>
+> The Intel bot also reported "kernel test robot noticed a 1.9%
+> improvement of stress-ng.seek.ops_per_sec" [2]
+>
+> Since this is on QEMU, I know these numbers are not perfect, but they
+> show a trend of general improvement across all architectures that use
+> the generic entry code.
 
-> Signed-off-by: Th=E9o Lebrun <theo.lebrun@bootlin.com>
-> ---
->  arch/mips/boot/dts/mobileye/eyeq5-epm5.dts | 26 ++++++++++++++++++++++++=
-++
->  1 file changed, 26 insertions(+)
-> =
+This looks sane now. I've bookmarked it as post-merge window material.
 
-> diff --git a/arch/mips/boot/dts/mobileye/eyeq5-epm5.dts b/arch/mips/boot/=
-dts/mobileye/eyeq5-epm5.dts
-> index 6898b2d8267dfadeea511a84d1df3f70744f17bb..20dfc85681bb03330981ca0f1=
-1b2edfff3fa57bc 100644
-> --- a/arch/mips/boot/dts/mobileye/eyeq5-epm5.dts
-> +++ b/arch/mips/boot/dts/mobileye/eyeq5-epm5.dts
-> @@ -21,3 +21,29 @@ memory@0 {
->  		      <0x8 0x02000000 0x0 0x7E000000>;
->  	};
->  };
-> +
-> +&macb0 {
-> +	phy-mode =3D "sgmii";
-> +	phy-handle =3D <&macb0_phy>;
-> +
-> +	mdio {
-> +		#address-cells =3D <1>;
-> +		#size-cells =3D <0>;
-> +		macb0_phy: ethernet-phy@e {
-> +			reg =3D <0xE>;
+Thanks,
 
-The DT coding style might say this should be lower case?
-
-> +		};
-> +	};
-> +};
-> +
-> +&macb1 {
-> +	phy-mode =3D "rgmii-id";
-
-Hurrah.  A correct rgmii phy-mode.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-
-    Andrew
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
