@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D0FC36001
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0E77C36000
 	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 15:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,63 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m0aSWXVLf/NB2XCagnlD1w4bxtZ3v2OXajjJ2343mDg=; b=0Vz37XcCxTdxHf
-	r0lMP6gUC2XiD5ACEP92mLgg2KLH7xFivQsZMkESyningMBWvJHbCv+gFaJMb0VmZuU/CTypzz21r
-	NLlid3lsaTfYBogueX2m9EUtw88USybgK1Vjoyip+lYEp+/OWnYoC9g9CZd4elclM9XJhqsOTcr+s
-	b0QNgDMfPyW/V4fpMd8AP2/85c3Csd1Pkp6CzlsEOfnhzAmjGce4NZCdKKmdowH2HgeRj6R1LVfCG
-	GfmnSuziaqRWPRvdf5RZ095QVBGVbK3mpEtNp1SjD4EZGTi4LGB9/yeE0FH25GOcmD6/jFFQGXzLk
-	9k2k3rHu8fs3tXRfUb9w==;
+	List-Owner; bh=c1M+rSUL9izvkcsZH10lwone6btc79s6AudkWlNWTKo=; b=BIDUhnjClaF5vc
+	i7XrAo28cYH47/Mv4vhTGZcpBd4cbaS8gGjsh9/wZKNCPsb+rHBBzQI/pqv/wM9bdDjDP1r6Cpuh3
+	f8r4DWs2rJWdidZpSAr3K1Rk7LShMzjR+0cWacN8FwzTlozBNaDaXXEjxpOe8ZzXdVJBIS5xYruuH
+	/CfWBHbPACMUaYsTEqCo0ZgUcWAOXJkAR4rDNCT++y9eMSG2qz8MA7CBfb7a7itByS2edgTJ2RuTX
+	6ssmv32Lkh2cgmdfZMDR2lb4NkHso09IvtF52+AT3vUMFvnPgOv2yJ1qt3SbsOWo1Uz74Jz0xeq1f
+	RowfjCGysv0mRkqBjMAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tveA7-0000000FHcl-1MXX;
-	Fri, 21 Mar 2025 15:19:55 +0000
-Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
+	id 1tveA8-0000000FHdw-2a7u;
+	Fri, 21 Mar 2025 15:19:56 +0000
+Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tve8w-0000000FHMn-38oB
+	id 1tve8z-0000000FHOA-0eUJ
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 15:18:43 +0000
-Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3d589ed2b63so17365935ab.0
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 08:18:42 -0700 (PDT)
+	Fri, 21 Mar 2025 15:18:46 +0000
+Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-85df99da233so168635639f.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 08:18:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742570322; x=1743175122; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742570324; x=1743175124; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=s9/aOcBOjeqmg8r4cUHY2uYIdNBiCau+sheqrs82fvw=;
-        b=RXvZMwpuX08KWti1khkFE4cf04NZYcHTfYnrGKTslmyrlxcR98Hhg4P/OR/JqPGBfu
-         9218NGBtzIs2h66ATg50moPsHkuZDamh06ZmhjRbGJ6zsyca0J1CY/ySaQPKZlAp2f2I
-         qH/Kua3b3EP0DEECkUSsdUYlnmg0X2KHxkrYKNT0cgGK8AQ9CS/PHf7A3NH08ZyHmByw
-         Ee/+rCa0kj+LVSD4lEJPTLEoh4qkl8Q+zfDJz5Zw3BpG5WbXDwSLxBV2hOdBJeJ62Sgu
-         TnSHWY/V9QOUVT0zQXTJAza8kL3dHbXxOkoWilxRFJGb/tNNo/zXS0X5/5n7DAZka5Mu
-         pT+g==
+        bh=nY3+cr8LwPrnwPUbr8ZQVdT4sW06Crewhjj4AmYBWuU=;
+        b=KXXVUnxBbiX/rk/VXfA9gjyQsoJZl0EDZiHTEpJDOW60DgFWr49IKJZtroF9CqVung
+         H/47yV33700Jo0E1jpTin1nR3P3QyUi2QnopIlBAQP1njLaXHNAROWFnD/9TzCnlEgOY
+         yWJt6Zk/9ezDyrJvDf/a/+6YNPcwipjpdDbA7BEWqaAUYGBDl1zLi93s8zFg3JM9repT
+         ovhOc5zemzCZjCRlLTmkKEyEfYhDs1WihM2exAoMhM1R3uvLVLCzCNEhfnGM7kUsVGW3
+         XAkKlyPBX7kYy2HP3v/Fku7mBhMGXDGoThm9bdRGbImfzQhnG+atnLA8qrAyu91+OOgV
+         Jfzg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742570322; x=1743175122;
+        d=1e100.net; s=20230601; t=1742570324; x=1743175124;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=s9/aOcBOjeqmg8r4cUHY2uYIdNBiCau+sheqrs82fvw=;
-        b=lXgh0rlrPX5EfB8Y+iWHKiLztUs1Hw+9Ixc7qnSa3rpLWpvPJRmca8IP+cNbZcOtOs
-         PpjJBeMYiga6qxvo7YKH7z0n9syf/j+MXpAnrN+SJVPJLO14ZMife+JsqFkigms2XFqY
-         3AIbP9fEG4GUEZ0Mi1+0viP9il5qySHpCY7cqysdb5N8MNvVH2X5SKEvb3LR8qIRD8JG
-         jcjmhsMu07dFPPX+TyYf5RDzhvRm0lLvANXEt2ZUhmIcwqpHs+9jMd/dOvu4O8hoj75q
-         RZfvHv7QeuDuxHvluMx9spwPCPXp7Wtmdu54BvVexNIYSal/7lN4uX694FMdPliHIAnV
-         1zQA==
-X-Forwarded-Encrypted: i=1; AJvYcCWf0PHg7ZoPYy4wU75biJzk2QlsShfI3wSh1pKX4UkF2lYZXUDEVUkWJRLCE27mHC86pXnnd9hc0YNiyA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjKlK5G2wgzf4sWyNI5YJgyzm9vQArxfRjeiVRHAYcHaQcj41h
-	iCwt8YRlVUmJaVM9WfDp/+f4TxIZvTN9/2wPBsuujf9xkqJw/nzmt+gozmuOVrY=
-X-Gm-Gg: ASbGncv16meSSvFM6ruDwIPNOjdHU4+ETlUgzL9/nTYuGfPJvAt9vWmgQaDl0I3M2wH
-	BjdCQvxn0AR4EQA4k8Cbhn7n9xb+89xDA4jtGWSaolskaPVH6REhAqMkQ9AICix79HGvLgcuM4m
-	5mggXQQ5raUeNPfoIoMLwsgUPEwbW0GI7dH3MHQiSRPlErJSbpU1eJZGHA+vLWpn7/xiXikJ3CW
-	WqneHh4q9Hy78ZbLDYiCTUsSI02OVimhuoR4wYJ8mVZLpj6HueSNM2/EhCWESCn1XcnawRzp0zm
-	QZiSD0ygHZns77nlz2U60UymgmkiU17ByQU7xEAjW8ILkHkE79F57l36hwmwwMC97AMu7oJfrOJ
-	ApUtJYwQyncL8y5lnY0tUq49q
-X-Google-Smtp-Source: AGHT+IFo/JEVnsqki/6fdgfg3xjuRm3SDdlZLf3knFyzM9tCDQmdiRd3jcBZUEzW8DfADwT94MufXQ==
-X-Received: by 2002:a05:6e02:188a:b0:3d5:8103:1a77 with SMTP id e9e14a558f8ab-3d5960ce9b6mr45841105ab.1.1742570321661;
-        Fri, 21 Mar 2025 08:18:41 -0700 (PDT)
+        bh=nY3+cr8LwPrnwPUbr8ZQVdT4sW06Crewhjj4AmYBWuU=;
+        b=Exy+bwBj+uf7ME6DApsUCUwRPZNs+H8nTYq6CijYolObSr0zOQDMMYKY2ok+QY/rEX
+         osyc1DiPEDjBJjET9Qojy1DSLWq8E2jkOqQ5sF4N/wty8RakJWVvCyjHo6pYn/Z2U2m/
+         bEZYw2PwbCj9b2D3vhFBJ8l4TDdMCG3rlmuM1J4THVSGfOHw3RIqX24VhQQKi+gcs6mb
+         bAIadMEqw7HIiBzgcrZvorqP5JYX/EbfofQUmSs4UNTFmvK6GSHf7eTttmmYNz0dQFsm
+         C/J4mQW32tgGg6lTtT37BnOYck7LK9kE34tFYh6momYqIWBCfalBKvSbp/GBG7rRHpv4
+         +YRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfTCRKUAv4P99uT2qWhDQY2lR4nHujuAHiBEQDZ5RHB0sufapAuQUu5VjSI9olo3vyNoy3HaPTImPCIw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzjKDOoSakzYv6PdIZn16lEMh7+IyrOCG8OWE5tX4wSx3yxVmXD
+	hwvdIaZo6blkiowLotUjHYHemqYcO7Vdbr71MiCfcu8h5x/5jHhEZ5qjyVIonHI=
+X-Gm-Gg: ASbGnctbI7X3kjr9DPYtwaoExhb7Ym+scDUHCWD2QGcsVU1J8K0e/ON2ezkQPcVM9sz
+	56poBu5b39ncKtHgP2/ivILtbFCxDHtJsuK4p3S9O8SErGDLOd0wjPzy42jkm581J1dXaza32CG
+	JLe5Wcu+ODcVNcBFy808OFiFKBOYHz027TCqSowoamj5GMH4KdBsaA98beTtrJLQgVbfhr1+2aO
+	3rUuzgeDWfWYaETj+wqY5k+ew28p0OAu2JWInj+3AcdcBocnEB2qDBNjcrbIj5eTe5YXxfpX9gG
+	rGFOvvqCe0ERU0Eau0Ann5THBoTZCgTTQ9GnXwp/WITE999LJ9ZzaWgySqMSUymYvVkG+07IGWX
+	Cqt6/f4/UI+DxzBfm9gBjr4OF
+X-Google-Smtp-Source: AGHT+IGguI55dL71gHl0tK+hT91rVomg7KnVgw+/XoVslENUEzuEPRHi4KDVzYnSZRrU4EihCkbgug==
+X-Received: by 2002:a05:6602:7512:b0:85b:3c49:8825 with SMTP id ca18e2360f4ac-85e2ca62dd3mr380237239f.4.1742570324050;
+        Fri, 21 Mar 2025 08:18:44 -0700 (PDT)
 Received: from zoltan.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2cbdd0a21sm475553173.41.2025.03.21.08.18.40
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2cbdd0a21sm475553173.41.2025.03.21.08.18.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 21 Mar 2025 08:18:41 -0700 (PDT)
+        Fri, 21 Mar 2025 08:18:43 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: p.zabel@pengutronix.de,
 	mturquette@baylibre.com,
@@ -87,16 +87,17 @@ Cc: robh@kernel.org,
 	linux-clk@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH RESEND 5/7] clk: spacemit: make clocks optional
-Date: Fri, 21 Mar 2025 10:18:28 -0500
-Message-ID: <20250321151831.623575-6-elder@riscstar.com>
+Subject: [PATCH RESEND 7/7] riscv: dts: spacemit: add reset support for the K1 SoC
+Date: Fri, 21 Mar 2025 10:18:30 -0500
+Message-ID: <20250321151831.623575-8-elder@riscstar.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250321151831.623575-1-elder@riscstar.com>
 References: <20250321151831.623575-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_081842_777775_8383A7AF 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250321_081845_186830_A162D69F 
+X-CRM114-Status: UNSURE (   8.03  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,40 +114,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are some syscon devices that support both clocks and resets,
-but for now only their reset functionality is required.  Make
-defining clocks optional for a SpacemiT CCU, though at least one
-clock or at least one reset controller must be defined.
+Define syscon nodes for the RCPU, RCPU2, and APBC2 SpacemiT CCUS, which
+currently support resets but not clocks in the SpacemiT K1.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
 ---
- drivers/clk/spacemit/ccu-k1.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index be8abd27753cb..17e321c25959a 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -1830,6 +1830,10 @@ static int k1_ccu_register(struct device *dev, struct regmap *regmap,
- 	const struct spacemit_ccu_clk *clk;
- 	int i, ret, max_id = 0;
+diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+index 09a9100986b19..f86d1b58c6d35 100644
+--- a/arch/riscv/boot/dts/spacemit/k1.dtsi
++++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+@@ -350,6 +350,18 @@ soc {
+ 		dma-noncoherent;
+ 		ranges;
  
-+	/* Clocks are optional */
-+	if (!clks)
-+		return 0;
++		syscon_rcpu: system-controller@c0880000 {
++			compatible = "spacemit,k1-syscon-rcpu";
++			reg = <0x0 0xc0880000 0x0 0x2048>;
++			#reset-cells = <1>;
++		};
 +
- 	for (clk = clks; clk->hw; clk++)
- 		max_id = max(max_id, clk->id);
++		syscon_rcpu2: system-controller@c0888000 {
++			compatible = "spacemit,k1-syscon-rcpu2";
++			reg = <0x0 0xc0888000 0x0 0x28>;
++			#reset-cells = <1>;
++		};
++
+ 		syscon_apbc: system-control@d4015000 {
+ 			compatible = "spacemit,k1-syscon-apbc";
+ 			reg = <0x0 0xd4015000 0x0 0x1000>;
+@@ -518,6 +530,12 @@ clint: timer@e4000000 {
+ 					      <&cpu7_intc 3>, <&cpu7_intc 7>;
+ 		};
  
-@@ -1903,7 +1907,7 @@ static int k1_ccu_probe(struct platform_device *pdev)
- 	int ret;
- 
- 	data = of_device_get_match_data(dev);
--	if (!data)
-+	if (!data || !(data->clk || data->rst_data))
- 		return -EINVAL;
- 
- 	base_regmap = device_node_to_regmap(dev->of_node);
++		syscon_apbc2: system-controller@f0610000 {
++			compatible = "spacemit,k1-syscon-apbc2";
++			reg = <0x0 0xf0610000 0x0 0x20>;
++			#reset-cells = <1>;
++		};
++
+ 		sec_uart1: serial@f0612000 {
+ 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+ 			reg = <0x0 0xf0612000 0x0 0x100>;
 -- 
 2.43.0
 
