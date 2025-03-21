@@ -4,54 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F498C35FFF
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 09:09:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B73C36000
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 10:17:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4xmRlffxXvKwMgValV9FemMzBzNixYk5LxiYJOxsRLY=; b=F0yecCBT2ntb82
-	PxNs4gnu0j5NoffLgWhPDb0uN7sxWFl5nH3uXA42cyquGTLy9/Z7CYQ0rbtRf7zT6r2rPnGlZjQvK
-	ON+0NKPKENkLzlsgmseTkGAFN7/sdY91w2b8VhQGMWpGq0ULFkG0zuqHrcbFQOU+E/Qp5Qai9AoJR
-	Wkvj8KGQ02NzBKm4layLWZYusD76vD+DH71NJopO/qoZXDQkj005yuyoaebmCQKGbhV5KkspQmbIj
-	6QMgm1GtOKB2eRDyBI6yjvaeq/zFPjQXihcwsuAUovs2TSyf1/Hy5/JTggqYHhaa+UOPgr3tz3UqT
-	9C6QZsekCnRfm1gN24Rg==;
+	List-Owner; bh=Rqd/BuUNwUAgkb6/Y0I7BLvhdgt+r+8ALumtsbLAvRk=; b=ZG5a7GY84sDK+p
+	dYa4yPj1s6AnPUhOZQ7lWM3vqjqUKq5OfBD+WGJoppHbbuSOrWB6pRoZpjuwgk+9Q/clLbNaGCu/1
+	ye3pjxmFpalAJWLr9L8/t/NKNhPXXjF7JyzXFS9ZnT5pCcXu+E4qpiE+KHQXpdznZklly7o/HZOCL
+	ZmB9qtDecD4StRq4g7okaUoMZbKJUqzQmjeUcL2XQoEs5HxkL8WTzah3/bovdbfzgqnoLeh00sipF
+	kOgFVoTDMcy4xeafTRzq5QSXKvL+DD9CigR7zeo6sL345IjMDVAppwxlGPXhCTHF+LO+fTqehx6EC
+	ITDFzEl9keTG1rGkMIFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYNo-0000000EKUr-3Zhp;
-	Fri, 21 Mar 2025 09:09:40 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1tvZRJ-0000000EUvU-2xtM;
+	Fri, 21 Mar 2025 10:17:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvYNl-0000000EKU7-3m07
+	id 1tvYoi-0000000EOGG-105u
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 09:09:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7087B20452;
-	Fri, 21 Mar 2025 09:09:33 +0000 (UTC)
-Message-ID: <7556bdd0-1015-4175-a810-d2d53662ba64@ghiti.fr>
-Date: Fri, 21 Mar 2025 10:09:32 +0100
+	Fri, 21 Mar 2025 09:37:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0E6B6A42DFF;
+	Fri, 21 Mar 2025 09:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48D46C4CEE3;
+	Fri, 21 Mar 2025 09:37:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742549847;
+	bh=poV5m0XgApGdvCxNPJk25+DH7c6vk1mpZNIXwAz1Hlg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=CUnhUQO/ebvzor3VTHKrObpa6P6l0ILcwrfwZZSJSsgtQgNIhZ/aSJbfY4xkqL59g
+	 hMbFR9QxY71wLfIyAM452l78S7ZGTmIrux7IvRzZYi4O0LgZc0eXJ89tGDqX8qJkYY
+	 V0Wijd2uVX5Z/jlcUWVHZ6AbqqEKFsdYjX44oyZ9KxwTtRsHf/MYMegBqc8AFd+xYy
+	 xsOTeYMrCN/cwaLEEm8Ev/Qzwy44sagVJKfKEvbC41C9kv/MOv5jiWq3ZH8GH9vch3
+	 kQ/cO9c5dPYOhJm3Rnb3e1767IBsXAfmfKuUzACX61gzDKens6A7jNYfMLJfLHhgWR
+	 NcX20zkCl7uDw==
+Message-ID: <f0dd950a-02a7-402b-a08e-015db458b273@kernel.org>
+Date: Fri, 21 Mar 2025 10:37:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/5] riscv: save the SR_SUM status over switches
+Subject: Re: [PATCH 00/10] Basic device tree support for ESWIN EIC7700 RISC-V
+ SoC
+To: Conor Dooley <conor@kernel.org>,
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Thomas Gleixner <tglx@linutronix.de>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>,
+ Min Lin <linmin@eswincomputing.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>, Yangyu Chen
+ <cyy@cyyself.name>, Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Yu Chien Peter Lin <peterlin@andestech.com>,
+ Charlie Jenkins <charlie@rivosinc.com>,
+ Kanak Shilledar <kanakshilledar@gmail.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Heiko Stuebner
+ <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
+ "rafal@milecki.pl" <rafal@milecki.pl>, Anup Patel <anup@brainfault.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
+ <20250311-backdrop-porthole-440ae005e8fa@spud>
+ <SA3PR04MB893164FCD6C4CB8924FC8DE583D82@SA3PR04MB8931.namprd04.prod.outlook.com>
+ <20250320-uprising-couch-0af012a1fee6@spud>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Cyril Bur <cyrilbur@tenstorrent.com>, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
- jrtc27@jrtc27.com, ben.dooks@codethink.co.uk
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org, syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-References: <20250320224423.1838493-1-cyrilbur@tenstorrent.com>
- <20250320224423.1838493-2-cyrilbur@tenstorrent.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250320224423.1838493-2-cyrilbur@tenstorrent.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduhedtjedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhlefhffeggfeftddvtdeukeelgfehkeehhfeuheehleefkeelgffglefghfffueenucffohhmrghinhepvghnthhrhidrshgsnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehudenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehuddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemleekgeekmeeksgdvudemheefudejmedugeehudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddupdhrtghpthhtoheptgihrhhilhgsuhhrsehtvghnshhtohhrrhgvnhhtrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghou
- hesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehjrhhttgdvjeesjhhrthgtvdejrdgtohhmpdhrtghpthhtohepsggvnhdrughoohhkshestghouggvthhhihhnkhdrtghordhukhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
-X-GND-Sasl: alex@ghiti.fr
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250320-uprising-couch-0af012a1fee6@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_020938_084261_24413E37 
-X-CRM114-Status: GOOD (  32.79  )
+X-CRM114-CacheID: sfid-20250321_023728_404702_13F4673D 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,180 +133,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Cyril/Ben,
+On 20/03/2025 13:00, Conor Dooley wrote:
+> On Thu, Mar 20, 2025 at 10:39:52AM +0000, Pinkesh Vaghela wrote:
+>> Hi Conor,
+>>
+>> On Tue, Mar 11, 2025 at 11:38 PM, Conor Dooley wrote:
+>>> On Tue, Mar 11, 2025 at 01:04:22PM +0530, Pinkesh Vaghela wrote:
+>>>> Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
+>>>> P550 CPU cluster and the first development board that uses it, the
+>>>> SiFive HiFive Premier P550.
+>>>>
+>>>> This patch series adds initial device tree and also adds ESWIN
+>>>> architecture support.
+>>>>
+>>>> Boot-tested using intiramfs with Linux 6.14.0-rc2 on HiFive Premier
+>>>> P550 board using U-Boot 2024.01 and OpenSBI 1.4.
+>>>
+>>> There's no git tree in your MAINTAINERS entry, nor mention here of what the
+>>> story is going to be in terms of sending patches to Arnd. Who is going to be
+>>> doing that?
+>>
+>> We are not currently set up for sending signed pull requests,
+>> so for now we plan to send changes to Arnd as separate patches.
+> 
+> Undesirable, but sure. You didn't answer the first part of my question
 
-On 20/03/2025 23:44, Cyril Bur wrote:
-> From: Ben Dooks <ben.dooks@codethink.co.uk>
->
-> When threads/tasks are switched we need to ensure the old execution's
-> SR_SUM state is saved and the new thread has the old SR_SUM state
-> restored.
->
-> The issue is seen under heavy load especially with the syz-stress tool
-> running, with crashes as follows in schedule_tail:
->
-> Unable to handle kernel access to user memory without uaccess routines
-> at virtual address 000000002749f0d0
-> Oops [#1]
-> Modules linked in:
-> CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
-> 5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
-> Hardware name: riscv-virtio,qemu (DT)
-> epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
->   ra : task_pid_vnr include/linux/sched.h:1421 [inline]
->   ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
-> epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
->   gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
->   t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
->   s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
->   a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
->   a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
->   s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
->   s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
->   s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
->   s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
->   t5 : ffffffc4043cafba t6 : 0000000000040000
-> status: 0000000000000120 badaddr: 000000002749f0d0 cause:
-> 000000000000000f
-> Call Trace:
-> [<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
-> [<ffffffe000005570>] ret_from_exception+0x0/0x14
-> Dumping ftrace buffer:
->     (ftrace buffer empty)
-> ---[ end trace b5f8f9231dc87dda ]---
->
-> The issue comes from the put_user() in schedule_tail
-> (kernel/sched/core.c)
-> doing the following:
->
-> asmlinkage __visible void schedule_tail(struct task_struct *prev)
-> {
-> ...
->          if (current->set_child_tid)
->                  put_user(task_pid_vnr(current), current->set_child_tid);
-> ...
-> }
->
-> the put_user() macro causes the code sequence to come out as follows:
->
-> 1:	__enable_user_access()
-> 2:	reg = task_pid_vnr(current);
-> 3:	*current->set_child_tid = reg;
-> 4:	__disable_user_access()
->
-> This means the task_pid_vnr() is being called with user-access enabled
-> which itself is not a good idea, but that is a separate issue. Here we
-> have a function that /might/ sleep being called with the SR_SUM and if
-> it does, then it returns with the SR_SUM flag possibly cleared thus
-> causing the above abort.
->
-> To try and deal with this, and stop the SR_SUM leaking out into other
-> threads (this has also been tested and see under stress. It can rarely
-> happen but it /does/ under load) make sure the __switch_to() will save
-> and restore the SR_SUM flag, and clear it possibly for the next thread
-> if it does not need it.
->
-> Note, test code to be supplied once other checks have been finished.
->
-> There may be further issues with the mstatus flags with this, this
-> can be discussed further once some initial testing has been done.
+Just to clarify - separate patches as separate postings to soc@ after
+the review was done on the lists and then you applied them to the tree
+Conor asked below, right?
+
+> though, and there's no git tree listed in your v2 series. That part is
+> not negotiable, you have to have one and get it included in linux-next.
 
 
-The whole changelog is outdated, it needs to be reworded:
 
-"To prevent the evaluation of preemptible functions in 
-unsafe_get/put_XXX() which could clear SUM bit set by 
-get_user_access()... etc etc"
-
-
->
-> Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-> Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
-> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
-> ---
->   arch/riscv/include/asm/processor.h | 1 +
->   arch/riscv/kernel/asm-offsets.c    | 5 +++++
->   arch/riscv/kernel/entry.S          | 8 ++++++++
->   3 files changed, 14 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-> index 5f56eb9d114a..0de05d652e0f 100644
-> --- a/arch/riscv/include/asm/processor.h
-> +++ b/arch/riscv/include/asm/processor.h
-> @@ -103,6 +103,7 @@ struct thread_struct {
->   	struct __riscv_d_ext_state fstate;
->   	unsigned long bad_cause;
->   	unsigned long envcfg;
-> +	unsigned long flags;
-
-
-I would prefer the use of status since it stores the sstatus csr.
-
-
->   	u32 riscv_v_flags;
->   	u32 vstate_ctrl;
->   	struct __riscv_v_ext_state vstate;
-> diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-> index e89455a6a0e5..556ebcbb7e22 100644
-> --- a/arch/riscv/kernel/asm-offsets.c
-> +++ b/arch/riscv/kernel/asm-offsets.c
-> @@ -34,6 +34,7 @@ void asm_offsets(void)
->   	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
->   	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
->   	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
-> +	OFFSET(TASK_THREAD_FLAGS, task_struct, thread.flags);
->   
->   	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
->   	OFFSET(TASK_TI_FLAGS, task_struct, thread_info.flags);
-> @@ -347,6 +348,10 @@ void asm_offsets(void)
->   		  offsetof(struct task_struct, thread.s[11])
->   		- offsetof(struct task_struct, thread.ra)
->   	);
-> +	DEFINE(TASK_THREAD_FLAGS_RA,
-> +		  offsetof(struct task_struct, thread.flags)
-> +		- offsetof(struct task_struct, thread.ra)
-> +	);
->   
->   	DEFINE(TASK_THREAD_F0_F0,
->   		  offsetof(struct task_struct, thread.fstate.f[0])
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 33a5a9f2a0d4..c278b3ac37b9 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
->   	REG_S s9,  TASK_THREAD_S9_RA(a3)
->   	REG_S s10, TASK_THREAD_S10_RA(a3)
->   	REG_S s11, TASK_THREAD_S11_RA(a3)
-> +
-> +	/* save (and disable the user space access flag) */
-> +	li    s0, SR_SUM
-> +	csrrc s1, CSR_STATUS, s0
-
-
-Here (again), I don't think we need to clear sstatus.
-
-
-> +	REG_S s1, TASK_THREAD_FLAGS_RA(a3)
-> +
->   	/* Save the kernel shadow call stack pointer */
->   	scs_save_current
->   	/* Restore context from next->thread */
-> +	REG_L s0,  TASK_THREAD_FLAGS_RA(a4)
-> +	csrs  CSR_STATUS, s0
->   	REG_L ra,  TASK_THREAD_RA_RA(a4)
->   	REG_L sp,  TASK_THREAD_SP_RA(a4)
->   	REG_L s0,  TASK_THREAD_S0_RA(a4)
-
-
-Thanks,
-
-Alex
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
