@@ -4,64 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06151C36000
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 16:17:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 067DAC36000
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 16:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bu3kVqGc3SIWBmCqtgNNvonYOuCZ/yWfJ+asADi8DHo=; b=mUa8ML+YzR16W4UpAyKqxZuUxT
-	INl8k+bBhdYnh+1uFsVRl5OUwHuZQM7dXgEUe7Q3Boul6bGb6+shfmO6a0+P626H5GZRqr+F16Qy7
-	LHEZnA687d8XzNoKnm41WMG8haZ0yeAZsj9j6QH9KBrnRpUdnKwob5w70YH6t2PboJ8yTVa2IhXLg
-	e0CedMO1xQug4yNpyEtQaiwk1WmpCSateyfkUNicAmgx0vfSbAwxaqn001imaFoX6Kna6zLnnyGcQ
-	R/GO6kHHxKHSYE8ojfxqi4Pt5GrsE8ecMy6uyBPqFrhd7FHKrX6I3yc8dc1P4rXaVpP5OUyUR5kRJ
-	c0dbMo5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3ULW2ddl+5xBMdrmC9kUe1UDeS6DrFWyFz3hJiZRYKw=; b=agYnHdDV/6m5FF
+	Twbc3nAokdZua/rNtnUSKa0eXWUUw2yl3+mB587HxL9aWtupv9VU9TXiOLU5vUhWJQi5lstuixuOt
+	HFNVbGthTGdemonxpT4JaR9gZuEp88NsSPhy4M1sbd+xcRoaodaiUdd9d90KlYOzvQu/Yz0HCcyCA
+	elnTMxKK7Av1NFMNcHtww/ERlknOj6FYDyAlee6nOiAqVnJukNL+beXr++/VlqHNGXTX65qip9ih2
+	69nuS8y8kJfT0gnTAw/pd5cdtexiQmsfQWV8dVzbdCT+n5R5Z7DNOxgN6SAsGtyiFlIFVrTVvSlFU
+	2ivmSa6EVOyBukpfRfEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvf3m-0000000FStO-0LO2;
-	Fri, 21 Mar 2025 16:17:26 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tvf9T-0000000FUIt-1dFP;
+	Fri, 21 Mar 2025 16:23:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvf3U-0000000FSnd-3eHG
+	id 1tvf9Q-0000000FUIG-24Qr
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 16:17:10 +0000
+	Fri, 21 Mar 2025 16:23:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E2A2B5C679E;
-	Fri, 21 Mar 2025 16:14:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5272AC4CEE3;
-	Fri, 21 Mar 2025 16:17:05 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 2064BA447B0;
+	Fri, 21 Mar 2025 16:17:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B070BC4CEE3;
+	Fri, 21 Mar 2025 16:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742573827;
-	bh=umYqcnZz+agf38qEhHYrPYvQsxuxpuc1Mi3ge1ApdAc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=itDBty/KNEjPSwYMNa8z9uFKfsH0bVgmDLPIEi8PauRGi2IsNeIKCWCHA+7pug8TT
-	 HQGf94iD4NvsRp/7HPBYE0eBFgeIVSrDYjvkCaHWzwfWaauADPnUSFUHGyerp/SbAZ
-	 +LV1En1EFRXbtrXjhZXDbkGW/WllYWVrD+e7Fh+5rVh/qNWtfy1+8ZXyyMGvPkHL2c
-	 77sS5sVOpcqkOyU5IxGJNnBXBprsQ0Nn+f9+zIDJtt38hg4h0iZiEvDPGkRbyJHv+O
-	 OoLu72AYlRCo291i+Nvavko7MTXmPvzRrhF5k1RqmO/nxl4ApxB8OmBk5yPIV9Upmr
-	 pZr243kG80S9Q==
-Date: Fri, 21 Mar 2025 16:17:03 +0000
+	s=k20201202; t=1742574195;
+	bh=uhN6QJh0tP83UgoduWmaigRwPkVaACTLj8V+BUixCws=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=t7gPvO3okxvDMLDqE4vtR0NptCjPnaTAqAqUwY3qA/DfySDChcOVpbmG5vpe/8RVJ
+	 TUcu7fYT1pYBNBo4cVtentnH6ATRwjYhV+cdQ5304hCyc7giVcUGIL1peapF9KXO4X
+	 dCZ3Bw/RstpIWLo8sOLQk1F/lH76+JK5lPWlIHmi45fKc6WWBGieuK3VRGwsi3gFVj
+	 meQnBcSupj12gb67FwJHx/QdKAjjM4T84Xr4JPigVlnzD0sckKH9HG1UiHspr9PTi4
+	 Kgq+CNkVvN9OvmaQ9UF67LRzXC56ukdco3SYjd4lsdz2e8IP5aR0rkm//NdtUwJJD4
+	 1iICj7yAU750g==
 From: Conor Dooley <conor@kernel.org>
-To: Nick Hu <nick.hu@sifive.com>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+To: Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Samuel Holland <samuel.holland@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3] dt-bindings: timer: Add SiFive CLINT2
-Message-ID: <20250321-crazily-attention-1aeb67606cf3@spud>
-References: <20250321083507.25298-1-nick.hu@sifive.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Min Lin <linmin@eswincomputing.com>,
+	Pritesh Patel <pritesh.patel@einfochips.com>,
+	Yangyu Chen <cyy@cyyself.name>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Yu Chien Peter Lin <peterlin@andestech.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Kanak Shilledar <kanakshilledar@gmail.com>,
+	Darshan Prajapati <darshan.prajapati@einfochips.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Aradhya Bhatia <a-bhatia1@ti.com>,
+	rafal@milecki.pl,
+	Anup Patel <anup@brainfault.org>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 00/10] Basic device tree support for ESWIN EIC7700 RISC-V SoC
+Date: Fri, 21 Mar 2025 16:21:50 +0000
+Message-ID: <20250321-trimness-unwind-0ffafee4ac8a@spud>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
+References: <20250320105449.2094192-1-pinkesh.vaghela@einfochips.com>
 MIME-Version: 1.0
-In-Reply-To: <20250321083507.25298-1-nick.hu@sifive.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=646; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=G5nMXPv07/5t5qEEHTEA3VTjgeOZ3saVfKZymta3BuE=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOl3Jyk6nJ7/OTf/3mtx64Ctwmf+FhRPnFWmpLMvnW2v3 Iz5PoVbO0pZGMQ4GGTFFFkSb/e1SK3/47LDuectzBxWJpAhDFycAjARpxyG/8URCaFT+Q/8UrpX 6lXeUV/3Ty9tTemRRZVB7IevGfmfWcLIcM8o7Hvinq2Jy8V3zirel7PHSO/G6kNHXfkkdrNl/zV dxQAA
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_091709_020581_B10380AB 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250321_092316_596699_9FE438BD 
+X-CRM114-Status: GOOD (  10.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,114 +93,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5348263165860965415=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+From: Conor Dooley <conor.dooley@microchip.com>
 
---===============5348263165860965415==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="dT2myeOCt2U0MUNc"
-Content-Disposition: inline
+On Thu, 20 Mar 2025 16:24:39 +0530, Pinkesh Vaghela wrote:
+> Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
+> P550 CPU cluster and the first development board that uses it, the
+> SiFive HiFive Premier P550.
+> 
+> This patch series adds initial device tree and also adds ESWIN
+> architecture support.
+> 
+> [...]
 
+Applied to riscv-cache-for-next, but too late for this merge window.
+They'll be 6.16 material, the commit hashes below will change when I
+rebase on top of 6.15-rc1.
 
---dT2myeOCt2U0MUNc
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+[05/10] dt-bindings: cache: sifive,ccache0: Add ESWIN EIC7700 SoC compatibility
+        https://git.kernel.org/conor/c/a506a819af37
+[06/10] cache: sifive_ccache: Add ESWIN EIC7700 support
+        https://git.kernel.org/conor/c/4a9d4db6ba17
 
-On Fri, Mar 21, 2025 at 04:35:06PM +0800, Nick Hu wrote:
-> Add compatible string and property for the SiFive CLINT v2. The SiFive
-> CLINT v2 is incompatible with the SiFive CLINT v0 due to differences
-> in their control methods.
->=20
-> Signed-off-by: Nick Hu <nick.hu@sifive.com>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
-> ---
-> - v3 changes:
->   - Add the reason for the incompatibility between sifive,clint2 and
->     sifive,clint0.
-> - v2 changes:
->   - Don't allow sifive,clint2 by itself. Add '-{}' to the first entry
->   - Mark the sifive,fine-ctr-bits as the required property when
->     the compatible includes the sifive,clint2
->=20
->  .../bindings/timer/sifive,clint.yaml          | 22 +++++++++++++++++++
->  1 file changed, 22 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/timer/sifive,clint.yaml b/=
-Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> index 76d83aea4e2b..34684cda8b15 100644
-> --- a/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> +++ b/Documentation/devicetree/bindings/timer/sifive,clint.yaml
-> @@ -36,6 +36,12 @@ properties:
->                - starfive,jh7110-clint   # StarFive JH7110
->                - starfive,jh8100-clint   # StarFive JH8100
->            - const: sifive,clint0        # SiFive CLINT v0 IP block
-> +      - items:
-> +          - {}
-> +          - const: sifive,clint2        # SiFive CLINT v2 IP block
-> +        description:
-> +          SiFive CLINT v2 is the HRT that supports the Zicntr. The contr=
-ol of sifive,clint2
-> +          differs from that of sifive,clint0, making them incompatible.
->        - items:
->            - enum:
->                - allwinner,sun20i-d1-clint
-> @@ -62,6 +68,22 @@ properties:
->      minItems: 1
->      maxItems: 4095
-> =20
-> +  sifive,fine-ctr-bits:
-> +    maximum: 15
-> +    description: The width in bits of the fine counter.
-> +
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: sifive,clint2
-> +then:
-> +  required:
-> +    - sifive,fine-ctr-bits
-> +else:
-> +  properties:
-> +    sifive,fine-ctr-bits: false
-> +
->  additionalProperties: false
-> =20
->  required:
-> --=20
-> 2.17.1
->=20
-
---dT2myeOCt2U0MUNc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ92Q/wAKCRB4tDGHoIJi
-0rQ6AQCiSS55Yt7GDJR+NVBVe/vA621bKXpmgoK5F4s/BCg0YQD/cAZ/JN+9lRZi
-SzUkk9S/gW9bBvtexlGOY8rgWEaEmQ8=
-=pGkd
------END PGP SIGNATURE-----
-
---dT2myeOCt2U0MUNc--
-
-
---===============5348263165860965415==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+Conor.
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============5348263165860965415==--
-
