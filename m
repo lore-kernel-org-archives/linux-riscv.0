@@ -4,90 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61B19C36005
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 18:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414E0C36002
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 18:35:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U6ugI11qvFRhdsgDWC5kQNO5K+HOvm8DWy2xfnp8xyg=; b=DUOoSJdt1zxW9k
-	rspHW83V6GWwQfY7UINWWJX3hJx5IwC6CNKzAfehD5gfsRFWAW0Kcgd+PGLmUmRynZGLGBTOAiFsn
-	bwmBDxXmhw1F0rH8KZVlwOr+eRxegOgRISZIV8xCgI7RBdBxU91LgZ96nDr/BMNgffOQ5/bKGbIYm
-	0QYX51pkY2ROMQZdiUb3VGc/ptJS1sSqcsIi0aBVacjT0wBEvlm43cQ/hN5NBikC2JytKwohiSX6l
-	uZXk3/tdMDhGWFqVT7KDtnvuAf/WE5uKC/lil8fTpj5g4eHPpTAQeVvnY6JAn17cCA0+AWcOBhBiJ
-	urIUJRwYIB4hTaxYCC+g==;
+	List-Owner; bh=7K3lAqPtiK6soT5gyjhVrCJIXk37r0mIGoHcf2GVjcE=; b=a481LGMjl/8H5Q
+	LnKc5ZnOAJkD7+KHMTGcnbG2o4Rhy9qZZKoJBmG4SUKdH+xlzPmVpnpLMovXNRewKMjuxuzkeU3HU
+	8CzbmjA6aQ9XLD/boi0lcXtkc7WSCAinzZZy5JODxmTDkUw3DMv1R1HczplNW0hkwrRSP+hVUDeWM
+	gJeFG6DDvoKgbOta8S/g5YIf6PfiaaEFK/yQNtxlO14a5GdhJWtWH2mptqGgO0SyoKn+FF90LBjgF
+	sRgt23UEMr6wS8ieEuNeusMIaOinYjMEsjCORIgiL52SFP4F+kcGRZcwAjF1fDST6t7AnFbQ20p33
+	p28Xeozs3KxMJ5/fyNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhCO-0000000Fs1s-2Mq6;
-	Fri, 21 Mar 2025 18:34:28 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tvhDF-0000000FsFA-3Lt8;
+	Fri, 21 Mar 2025 18:35:21 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg61-0000000Fgqh-38Wy
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 21 Mar 2025 17:23:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=SquaEQ+pBmeUfbEEtk0zSxtyG3TrQz7/GGF/AV87f64=; b=FXselN1urs49ySFun9UJlzDWma
-	3L680QhezKSukmbUm7D0h0l+pWXbT0pUbK50ZC4Sm96M9ieaQA3yxlDhOMz4IVMApsDa0xhOQgFPF
-	nsSx6KnkgJmRbH+KClPKaVg+loEer1uDA4zJkt5NU3AmtVVyvYFJSwvFuYhUgF0DohjnPUHFysNHB
-	sEtfsq/lvZFeYQWB8oX5CoQJQ+ctcb36BT4Sd9hQFmnxfdvX/tQ2wTIab6WBBeChymOqiazBDmMqs
-	8gUD8FQyYU7a38jB4P/HK1N7VgcsW/nAQFjJRBUsbwNu4LnBhv4Dpufg4MNwsZUfrhkVwK8x+qV+O
-	2JY1kb9g==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvg5w-00000004TXv-350C
+	id 1tvhAB-0000000FrP7-0ElT
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 17:23:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 90FEB43BA2;
-	Fri, 21 Mar 2025 17:23:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E60BC4CEE3;
-	Fri, 21 Mar 2025 17:23:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742577821;
-	bh=aB34ByX9mpTgTIlR+cCfgK1543xO+JC1F3K//rNwxXA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=srwlV6+ypBgs+uY585agWaS6KpnkPd12sSwaUxkjfrz8B4clWO14I4/bhNxodnKQ+
-	 sngZgYUCeF7jcuFGHqdrAI2gzSPJ4+yE1S1TlYf8wYRc290cFO2ni4S9Ng2UdzrZge
-	 1x85la40sbaeryERil9BVXvSV78wpIwmrvP5KmqaXmnsE9pEYID5S9Q8G73XqxEp5S
-	 yI+EeSAa8BmtyFK4+pSa8LpKnqB0i+/YYjpjRWw1qiTlTfMI/t7X+aVnY/TSq0mtFb
-	 phXYuEv6hmJF4lWaWnfiPLMcjpOULY7n9E2I8qJmNeZs7DnaO1J0ayuG/EkbgzGnUG
-	 GbKvmExZTT66A==
-From: Conor Dooley <conor@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: conor@kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	pierre-henry.moussay@microchip.com,
-	valentina.fernandezalanis@microchip.com,
-	Michael Turquette <mturquette@baylibre.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Lee Jones <lee@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	linux-riscv@lists.infradead.org,
-	linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [RFC PATCH v2 8/9] clk: divider, gate: create regmap-backed copies of gate and divider clocks
-Date: Fri, 21 Mar 2025 17:22:41 +0000
-Message-ID: <20250321-dandelion-canola-c10f5934434b@spud>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
-References: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
+	Fri, 21 Mar 2025 18:32:12 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-549967c72bcso2731210e87.3
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 11:32:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=atishpatra.org; s=google; t=1742581929; x=1743186729; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jZk4MLwYE/VQt4fqcjAW6b/FrOtkSOdml4Fv3RNcxZo=;
+        b=haBW71c1x/PyM5irP4kNdofl19H/WATDA2FYdik/XyIIMtgmgT+xxN3F497vyvWU5H
+         2vwE+t+UhETvVXJEE5nXBUBn9isd+poQrOH8cCGb3XLzPesZJClcprQBcx8BkyXBrF/X
+         7JPIUvWTM50320usqwAND4uvKOJPUbWuA6d0g=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742581929; x=1743186729;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=jZk4MLwYE/VQt4fqcjAW6b/FrOtkSOdml4Fv3RNcxZo=;
+        b=X3yd6y/KsFqoeBnIYmF409a0yb+BqKE0ITvBhJme5n1NaoRIt5RB8h+uFtbJVGYhv4
+         mVb/i50M0xonov6tfYzlLIoICdd8V8GJ2eikyt6/e/I5YULQYWbEP/CEgIWVZlfCEJMJ
+         AXm3liC8L01OKek+lgF7x8Ydo2vwX1D6U9Z8gP73RiqcIItLrLSILxQQR4RFkrYhcbbk
+         z03gXjk6EYSMSDWTwbq17lndUTHAii0AJxZglE4t9PCOJ2SLbl2WKdWteOcgBagpqC+w
+         9aFotbKu8zUd0KwHwGHAxucG8kbsjqsZONKPDwEGdhWyNzvAw57ybScw+uya9THWK3ih
+         3wiA==
+X-Gm-Message-State: AOJu0Yxkf6YV+aTghZfOJfQE/sIjP1bpFtLIoATCY+E2RAvhLNfnEJ2z
+	jZ2IQwFRhcxtHRM5KSdOWcxmoAdCbJZmgS96skWOMqS6+iOPsR15hI7VkJIEFhLN3UsJCHRUX9p
+	pno6c7txFldgPALVIr9mVQ+SktiDgvpa59/0T
+X-Gm-Gg: ASbGncv0+V2Gwr+tnCZsuaT4B16tO14Lua9a7CYOTpZk6MSQUiysUsx2KyCMdcavhQw
+	HliwUEuAMWOcExDfOzv7s3/EGPeF0D6l/O+jpXAvl99mWG4LFBYqkKD2TRX+QxjfCyWw63uxcEE
+	yxiZhkGd64kGTuR35t5Rpp198=
+X-Google-Smtp-Source: AGHT+IFydwhpwDyAxK+PqqqMwQZkO6KmypA7vFIQbQ4IfQs3Lq4ahQKxHvUyO78bWaiTqz47WsfETos8btTHEykUkik=
+X-Received: by 2002:a05:6512:b03:b0:548:de7f:b3be with SMTP id
+ 2adb3069b0e04-54ad648083dmr1567517e87.21.1742581928562; Fri, 21 Mar 2025
+ 11:32:08 -0700 (PDT)
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=23227; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=SCIDhTNPhozb9oBMIMNc8Q2Cnxi+hnFffsPWb9nTuRs=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOl3F0R1rNcynhvnzsAsZpnn/WhhzLJ3LbM5I+/tc46q2 9LmPdu6o5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABMJMWT4K/L8fmJ6+YwpXuxX DoWUHGQ9n7nx56PS3A3lh59d7njfOJORYfE9yW3+759NOPRC9aRrzcogjhN8T++ueDv/kUu2Sve UE7wA
-X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+References: <20250213220341.3215660-1-samuel.holland@sifive.com>
+ <Z7ZLB-wZY9wTZSBZ@google.com> <CAOnJCUJYKkGXOJiLTnPOgPSnEiCeXFaoGQRiT5Au+rbvP1unZQ@mail.gmail.com>
+ <1198d3ac-d715-4f82-853e-bf9d0ad9dde7@sifive.com>
+In-Reply-To: <1198d3ac-d715-4f82-853e-bf9d0ad9dde7@sifive.com>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 21 Mar 2025 11:31:57 -0700
+X-Gm-Features: AQ5f1JpAvioRH5pIJkZpbP8QU5kqeF9REnt49n819vwaL6pEMkQ5gEPq1IyxaSg
+Message-ID: <CAOnJCUKUY8YQ0UtLa39EkGEjckiOqdnuqEsf2ak4Dcp779iY+Q@mail.gmail.com>
+Subject: Re: [RESEND PATCH 0/7] perf vendor events riscv: Update SiFive CPU
+ PMU events
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: linux-riscv@lists.infradead.org, 
+	Arnaldo Carvalho de Melo <acme@redhat.com>, Ian Rogers <irogers@google.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, linux-perf-users@vger.kernel.org, 
+	Mark Rutland <mark.rutland@arm.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, linux-kernel@vger.kernel.org, 
+	Jiri Olsa <jolsa@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, Atish Patra <atishp@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_172345_233063_907796C4 
-X-CRM114-Status: GOOD (  23.71  )
+X-CRM114-CacheID: sfid-20250321_113211_264509_21993457 
+X-CRM114-Status: GOOD (  36.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,790 +93,144 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Conor Dooley <conor.dooley@microchip.com>
-
-Implement regmap-backed copies of gate and divider clocks by replacing
-the iomem pointer to the clock registers with a regmap and offset
-within.
-
-Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
----
- drivers/clk/Kconfig              |   8 +
- drivers/clk/Makefile             |   2 +
- drivers/clk/clk-divider-regmap.c | 270 +++++++++++++++++++++++++++++++
- drivers/clk/clk-gate-regmap.c    | 253 +++++++++++++++++++++++++++++
- drivers/clk/clk-gate.c           |   5 +-
- include/linux/clk-provider.h     | 120 ++++++++++++++
- 6 files changed, 656 insertions(+), 2 deletions(-)
- create mode 100644 drivers/clk/clk-divider-regmap.c
- create mode 100644 drivers/clk/clk-gate-regmap.c
-
-diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-index 713573b6c86c..c700b6ef4f34 100644
---- a/drivers/clk/Kconfig
-+++ b/drivers/clk/Kconfig
-@@ -33,6 +33,14 @@ menuconfig COMMON_CLK
- 
- if COMMON_CLK
- 
-+config COMMON_CLK_DIVIDER_REGMAP
-+	bool
-+	select REGMAP
-+
-+config COMMON_CLK_GATE_REGMAP
-+	bool
-+	select REGMAP
-+
- config COMMON_CLK_WM831X
- 	tristate "Clock driver for WM831x/2x PMICs"
- 	depends on MFD_WM831X
-diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-index bf4bd45adc3a..c57f72af5db9 100644
---- a/drivers/clk/Makefile
-+++ b/drivers/clk/Makefile
-@@ -20,11 +20,13 @@ clk-test-y			:= clk_test.o \
- 				   kunit_clk_assigned_rates_zero_consumer.dtbo.o \
- 				   kunit_clk_parent_data_test.dtbo.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-divider.o
-+obj-$(CONFIG_COMMON_CLK_DIVIDER_REGMAP)	+= clk-divider-regmap.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-fixed-factor.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-fixed-rate.o
- obj-$(CONFIG_CLK_FIXED_RATE_KUNIT_TEST)	+= clk-fixed-rate-test.o
- clk-fixed-rate-test-y		:= clk-fixed-rate_test.o kunit_clk_fixed_rate_test.dtbo.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-gate.o
-+obj-$(CONFIG_COMMON_CLK_GATE_REGMAP)	+= clk-gate-regmap.o
- obj-$(CONFIG_CLK_GATE_KUNIT_TEST) += clk-gate_test.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-multiplier.o
- obj-$(CONFIG_COMMON_CLK)	+= clk-mux.o
-diff --git a/drivers/clk/clk-divider-regmap.c b/drivers/clk/clk-divider-regmap.c
-new file mode 100644
-index 000000000000..2906130a2b47
---- /dev/null
-+++ b/drivers/clk/clk-divider-regmap.c
-@@ -0,0 +1,270 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/slab.h>
-+
-+static inline u32 clk_div_regmap_readl(struct clk_divider_regmap *divider)
-+{
-+	u32 val;
-+
-+	regmap_read(divider->regmap, divider->map_offset, &val);
-+
-+	return val;
-+}
-+
-+static inline void clk_div_regmap_writel(struct clk_divider_regmap *divider, u32 val)
-+{
-+	regmap_write(divider->regmap, divider->map_offset, val);
-+
-+}
-+
-+static unsigned long clk_divider_regmap_recalc_rate(struct clk_hw *hw,
-+		unsigned long parent_rate)
-+{
-+	struct clk_divider_regmap *divider = to_clk_divider_regmap(hw);
-+	unsigned int val;
-+
-+	val = clk_div_regmap_readl(divider) >> divider->shift;
-+	val &= clk_div_mask(divider->width);
-+
-+	return divider_recalc_rate(hw, parent_rate, val, divider->table,
-+				   divider->flags, divider->width);
-+}
-+
-+static long clk_divider_regmap_round_rate(struct clk_hw *hw, unsigned long rate,
-+				unsigned long *prate)
-+{
-+	struct clk_divider_regmap *divider = to_clk_divider_regmap(hw);
-+
-+	/* if read only, just return current value */
-+	if (divider->flags & CLK_DIVIDER_READ_ONLY) {
-+		u32 val;
-+
-+		val = clk_div_regmap_readl(divider) >> divider->shift;
-+		val &= clk_div_mask(divider->width);
-+
-+		return divider_ro_round_rate(hw, rate, prate, divider->table,
-+					     divider->width, divider->flags,
-+					     val);
-+	}
-+
-+	return divider_round_rate(hw, rate, prate, divider->table,
-+				  divider->width, divider->flags);
-+}
-+
-+static int clk_divider_regmap_determine_rate(struct clk_hw *hw,
-+				      struct clk_rate_request *req)
-+{
-+	struct clk_divider_regmap *divider = to_clk_divider_regmap(hw);
-+
-+	/* if read only, just return current value */
-+	if (divider->flags & CLK_DIVIDER_READ_ONLY) {
-+		u32 val;
-+
-+		val = clk_div_regmap_readl(divider) >> divider->shift;
-+		val &= clk_div_mask(divider->width);
-+
-+		return divider_ro_determine_rate(hw, req, divider->table,
-+						 divider->width,
-+						 divider->flags, val);
-+	}
-+
-+	return divider_determine_rate(hw, req, divider->table, divider->width,
-+				      divider->flags);
-+}
-+
-+static int clk_divider_regmap_set_rate(struct clk_hw *hw, unsigned long rate,
-+				unsigned long parent_rate)
-+{
-+	struct clk_divider_regmap *divider = to_clk_divider_regmap(hw);
-+	int value;
-+	unsigned long flags = 0;
-+	u32 val;
-+
-+	value = divider_get_val(rate, parent_rate, divider->table,
-+				divider->width, divider->flags);
-+	if (value < 0)
-+		return value;
-+
-+	if (divider->lock)
-+		spin_lock_irqsave(divider->lock, flags);
-+	else
-+		__acquire(divider->lock);
-+
-+	if (divider->flags & CLK_DIVIDER_HIWORD_MASK) {
-+		val = clk_div_mask(divider->width) << (divider->shift + 16);
-+	} else {
-+		val = clk_div_regmap_readl(divider);
-+		val &= ~(clk_div_mask(divider->width) << divider->shift);
-+	}
-+	val |= (u32)value << divider->shift;
-+	clk_div_regmap_writel(divider, val);
-+
-+	if (divider->lock)
-+		spin_unlock_irqrestore(divider->lock, flags);
-+	else
-+		__release(divider->lock);
-+
-+	return 0;
-+}
-+
-+const struct clk_ops clk_divider_regmap_ops = {
-+	.recalc_rate = clk_divider_regmap_recalc_rate,
-+	.round_rate = clk_divider_regmap_round_rate,
-+	.determine_rate = clk_divider_regmap_determine_rate,
-+	.set_rate = clk_divider_regmap_set_rate,
-+};
-+EXPORT_SYMBOL_GPL(clk_divider_regmap_ops);
-+
-+const struct clk_ops clk_divider_regmap_ro_ops = {
-+	.recalc_rate = clk_divider_regmap_recalc_rate,
-+	.round_rate = clk_divider_regmap_round_rate,
-+	.determine_rate = clk_divider_regmap_determine_rate,
-+};
-+EXPORT_SYMBOL_GPL(clk_divider_regmap_ro_ops);
-+
-+struct clk_hw *__clk_hw_register_divider_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock)
-+{
-+	struct clk_divider_regmap *div;
-+	struct clk_hw *hw;
-+	struct clk_init_data init = {};
-+	int ret;
-+
-+	if (clk_divider_flags & CLK_DIVIDER_HIWORD_MASK) {
-+		if (width + shift > 16) {
-+			pr_warn("divider value exceeds LOWORD field\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
-+	/* allocate the divider */
-+	div = kzalloc(sizeof(*div), GFP_KERNEL);
-+	if (!div)
-+		return ERR_PTR(-ENOMEM);
-+
-+	init.name = name;
-+	if (clk_divider_flags & CLK_DIVIDER_READ_ONLY)
-+		init.ops = &clk_divider_regmap_ro_ops;
-+	else
-+		init.ops = &clk_divider_regmap_ops;
-+	init.flags = flags;
-+	init.parent_names = parent_name ? &parent_name : NULL;
-+	init.parent_hws = parent_hw ? &parent_hw : NULL;
-+	init.parent_data = parent_data;
-+	if (parent_name || parent_hw || parent_data)
-+		init.num_parents = 1;
-+	else
-+		init.num_parents = 0;
-+
-+	/* struct clk_divider assignments */
-+	div->regmap = regmap;
-+	div->map_offset = map_offset;
-+	div->shift = shift;
-+	div->width = width;
-+	div->flags = clk_divider_flags;
-+	div->lock = lock;
-+	div->hw.init = &init;
-+	div->table = table;
-+
-+	/* register the clock */
-+	hw = &div->hw;
-+	ret = clk_hw_register(dev, hw);
-+	if (ret) {
-+		kfree(div);
-+		hw = ERR_PTR(ret);
-+	}
-+
-+	return hw;
-+}
-+EXPORT_SYMBOL_GPL(__clk_hw_register_divider_regmap);
-+
-+struct clk *clk_register_divider_regmap_table(struct device *dev, const char *name,
-+		const char *parent_name, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock)
-+{
-+	struct clk_hw *hw;
-+
-+	hw =  __clk_hw_register_divider_regmap(dev, NULL, name, parent_name, NULL,
-+					       NULL, flags, regmap, map_offset,
-+					       shift, width, clk_divider_flags,
-+					       table, lock);
-+	if (IS_ERR(hw))
-+		return ERR_CAST(hw);
-+	return hw->clk;
-+}
-+EXPORT_SYMBOL_GPL(clk_register_divider_regmap_table);
-+
-+void clk_unregister_divider_regmap(struct clk *clk)
-+{
-+	struct clk_divider_regmap *div;
-+	struct clk_hw *hw;
-+
-+	hw = __clk_get_hw(clk);
-+	if (!hw)
-+		return;
-+
-+	div = to_clk_divider_regmap(hw);
-+
-+	clk_unregister(clk);
-+	kfree(div);
-+}
-+EXPORT_SYMBOL_GPL(clk_unregister_divider_regmap);
-+
-+/**
-+ * clk_hw_unregister_divider_regmap - unregister a clk divider
-+ * @hw: hardware-specific clock data to unregister
-+ */
-+void clk_hw_unregister_divider_regmap(struct clk_hw *hw)
-+{
-+	struct clk_divider_regmap *div;
-+
-+	div = to_clk_divider_regmap(hw);
-+
-+	clk_hw_unregister(hw);
-+	kfree(div);
-+}
-+EXPORT_SYMBOL_GPL(clk_hw_unregister_divider_regmap);
-+
-+static void devm_clk_hw_release_divider_regmap(struct device *dev, void *res)
-+{
-+	clk_hw_unregister_divider_regmap(*(struct clk_hw **)res);
-+}
-+
-+struct clk_hw *__devm_clk_hw_register_divider_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock)
-+{
-+	struct clk_hw **ptr, *hw;
-+
-+	ptr = devres_alloc(devm_clk_hw_release_divider_regmap, sizeof(*ptr), GFP_KERNEL);
-+	if (!ptr)
-+		return ERR_PTR(-ENOMEM);
-+
-+	hw = __clk_hw_register_divider_regmap(dev, np, name, parent_name, parent_hw,
-+					      parent_data, flags, regmap, map_offset,
-+					      shift, width, clk_divider_flags, table,
-+					      lock);
-+
-+	if (!IS_ERR(hw)) {
-+		*ptr = hw;
-+		devres_add(dev, ptr);
-+	} else {
-+		devres_free(ptr);
-+	}
-+
-+	return hw;
-+}
-+EXPORT_SYMBOL_GPL(__devm_clk_hw_register_divider_regmap);
-diff --git a/drivers/clk/clk-gate-regmap.c b/drivers/clk/clk-gate-regmap.c
-new file mode 100644
-index 000000000000..cf9e48407971
---- /dev/null
-+++ b/drivers/clk/clk-gate-regmap.c
-@@ -0,0 +1,253 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <linux/clk-provider.h>
-+#include <linux/device.h>
-+#include <linux/module.h>
-+#include <linux/slab.h>
-+#include <linux/io.h>
-+#include <linux/err.h>
-+#include <linux/string.h>
-+
-+/**
-+ * DOC: basic gatable clock which can gate and ungate its output
-+ *
-+ * Traits of this clock:
-+ * prepare - clk_(un)prepare only ensures parent is (un)prepared
-+ * enable - clk_enable and clk_disable are functional & control gating
-+ * rate - inherits rate from parent.  No clk_set_rate support
-+ * parent - fixed parent.  No clk_set_parent support
-+ */
-+
-+static inline u32 clk_gate_regmap_readl(struct clk_gate_regmap *gate)
-+{
-+	u32 val;
-+
-+	regmap_read(gate->map, gate->map_offset, &val);
-+
-+	return val;
-+}
-+
-+static inline void clk_gate_regmap_writel(struct clk_gate_regmap *gate, u32 val)
-+{
-+	regmap_write(gate->map, gate->map_offset, val);
-+
-+}
-+
-+/*
-+ * It works on following logic:
-+ *
-+ * For enabling clock, enable = 1
-+ *	set2dis = 1	-> clear bit	-> set = 0
-+ *	set2dis = 0	-> set bit	-> set = 1
-+ *
-+ * For disabling clock, enable = 0
-+ *	set2dis = 1	-> set bit	-> set = 1
-+ *	set2dis = 0	-> clear bit	-> set = 0
-+ *
-+ * So, result is always: enable xor set2dis.
-+ */
-+static void clk_gate_regmap_endisable(struct clk_hw *hw, int enable)
-+{
-+	struct clk_gate_regmap *gate = to_clk_gate_regmap(hw);
-+	int set = gate->flags & CLK_GATE_SET_TO_DISABLE ? 1 : 0;
-+	unsigned long flags;
-+	u32 reg;
-+
-+	set ^= enable;
-+
-+	if (gate->lock)
-+		spin_lock_irqsave(gate->lock, flags);
-+	else
-+		__acquire(gate->lock);
-+
-+	if (gate->flags & CLK_GATE_HIWORD_MASK) {
-+		reg = BIT(gate->bit_idx + 16);
-+		if (set)
-+			reg |= BIT(gate->bit_idx);
-+	} else {
-+		reg = clk_gate_regmap_readl(gate);
-+
-+		if (set)
-+			reg |= BIT(gate->bit_idx);
-+		else
-+			reg &= ~BIT(gate->bit_idx);
-+	}
-+
-+	clk_gate_regmap_writel(gate, reg);
-+
-+	if (gate->lock)
-+		spin_unlock_irqrestore(gate->lock, flags);
-+	else
-+		__release(gate->lock);
-+}
-+
-+static int clk_gate_regmap_enable(struct clk_hw *hw)
-+{
-+	clk_gate_regmap_endisable(hw, 1);
-+
-+	return 0;
-+}
-+
-+static void clk_gate_regmap_disable(struct clk_hw *hw)
-+{
-+	clk_gate_regmap_endisable(hw, 0);
-+}
-+
-+int clk_gate_regmap_is_enabled(struct clk_hw *hw)
-+{
-+	u32 reg;
-+	struct clk_gate_regmap *gate = to_clk_gate_regmap(hw);
-+
-+	reg = clk_gate_regmap_readl(gate);
-+
-+	/* if a set bit disables this clk, flip it before masking */
-+	if (gate->flags & CLK_GATE_SET_TO_DISABLE)
-+		reg ^= BIT(gate->bit_idx);
-+
-+	reg &= BIT(gate->bit_idx);
-+
-+	return reg ? 1 : 0;
-+}
-+EXPORT_SYMBOL_GPL(clk_gate_regmap_is_enabled);
-+
-+const struct clk_ops clk_gate_regmap_ops = {
-+	.enable = clk_gate_regmap_enable,
-+	.disable = clk_gate_regmap_disable,
-+	.is_enabled = clk_gate_regmap_is_enabled,
-+};
-+EXPORT_SYMBOL_GPL(clk_gate_regmap_ops);
-+
-+struct clk_hw *__clk_hw_register_gate_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data,
-+		unsigned long flags,
-+		struct regmap *map, u8 map_offset, u8 bit_idx,
-+		u8 clk_gate_flags, spinlock_t *lock)
-+{
-+	struct clk_gate_regmap *gate;
-+	struct clk_hw *hw;
-+	struct clk_init_data init = {};
-+	int ret = -EINVAL;
-+
-+	if (clk_gate_flags & CLK_GATE_HIWORD_MASK) {
-+		if (bit_idx > 15) {
-+			pr_err("gate bit exceeds LOWORD field\n");
-+			return ERR_PTR(-EINVAL);
-+		}
-+	}
-+
-+	/* allocate the gate */
-+	gate = kzalloc(sizeof(*gate), GFP_KERNEL);
-+	if (!gate)
-+		return ERR_PTR(-ENOMEM);
-+
-+	init.name = name;
-+	init.ops = &clk_gate_regmap_ops;
-+	init.flags = flags;
-+	init.parent_names = parent_name ? &parent_name : NULL;
-+	init.parent_hws = parent_hw ? &parent_hw : NULL;
-+	init.parent_data = parent_data;
-+	if (parent_name || parent_hw || parent_data)
-+		init.num_parents = 1;
-+	else
-+		init.num_parents = 0;
-+
-+	/* struct clk_gate_regmap assignments */
-+	gate->map = map;
-+	gate->map_offset = map_offset;
-+	gate->bit_idx = bit_idx;
-+	gate->flags = clk_gate_flags;
-+	gate->lock = lock;
-+	gate->hw.init = &init;
-+
-+	hw = &gate->hw;
-+	if (dev || !np)
-+		ret = clk_hw_register(dev, hw);
-+	else if (np)
-+		ret = of_clk_hw_register(np, hw);
-+	if (ret) {
-+		kfree(gate);
-+		hw = ERR_PTR(ret);
-+	}
-+
-+	return hw;
-+
-+}
-+EXPORT_SYMBOL_GPL(__clk_hw_register_gate_regmap);
-+
-+struct clk *clk_register_gate_regmap(struct device *dev, const char *name,
-+		const char *parent_name, unsigned long flags, struct regmap *map,
-+		u8 map_offset, u8 bit_idx, u8 clk_gate_flags, spinlock_t *lock)
-+{
-+	struct clk_hw *hw;
-+
-+	hw = __clk_hw_register_gate_regmap(dev, NULL, name, parent_name, NULL,
-+					   NULL, flags, map, map_offset, bit_idx,
-+					   clk_gate_flags, lock);
-+	if (IS_ERR(hw))
-+		return ERR_CAST(hw);
-+	return hw->clk;
-+}
-+EXPORT_SYMBOL_GPL(clk_register_gate_regmap);
-+
-+void clk_unregister_gate_regmap(struct clk *clk)
-+{
-+	struct clk_gate_regmap *gate;
-+	struct clk_hw *hw;
-+
-+	hw = __clk_get_hw(clk);
-+	if (!hw)
-+		return;
-+
-+	gate = to_clk_gate_regmap(hw);
-+
-+	clk_unregister(clk);
-+	kfree(gate);
-+}
-+EXPORT_SYMBOL_GPL(clk_unregister_gate_regmap);
-+
-+void clk_hw_unregister_gate_regmap(struct clk_hw *hw)
-+{
-+	struct clk_gate_regmap *gate;
-+
-+	gate = to_clk_gate_regmap(hw);
-+
-+	clk_hw_unregister(hw);
-+	kfree(gate);
-+}
-+EXPORT_SYMBOL_GPL(clk_hw_unregister_gate_regmap);
-+
-+static void devm_clk_hw_release_gate_regmap(struct device *dev, void *res)
-+{
-+	clk_hw_unregister_gate_regmap(*(struct clk_hw **)res);
-+}
-+
-+struct clk_hw *__devm_clk_hw_register_gate_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data,
-+		unsigned long flags, struct regmap *map,
-+		u8 map_offset, u8 bit_idx,
-+		u8 clk_gate_flags, spinlock_t *lock)
-+{
-+	struct clk_hw **ptr, *hw;
-+
-+	ptr = devres_alloc(devm_clk_hw_release_gate_regmap, sizeof(*ptr), GFP_KERNEL);
-+	if (!ptr)
-+		return ERR_PTR(-ENOMEM);
-+
-+	hw = __clk_hw_register_gate_regmap(dev, np, name, parent_name, parent_hw,
-+					   parent_data, flags, map, map_offset,
-+					   bit_idx, clk_gate_flags, lock);
-+
-+	if (!IS_ERR(hw)) {
-+		*ptr = hw;
-+		devres_add(dev, ptr);
-+	} else {
-+		devres_free(ptr);
-+	}
-+
-+	return hw;
-+}
-+EXPORT_SYMBOL_GPL(__devm_clk_hw_register_gate_regmap);
-diff --git a/drivers/clk/clk-gate.c b/drivers/clk/clk-gate.c
-index 68e585a02fd9..1e3f21a249ca 100644
---- a/drivers/clk/clk-gate.c
-+++ b/drivers/clk/clk-gate.c
-@@ -34,10 +34,11 @@ static inline u32 clk_gate_readl(struct clk_gate *gate)
- 
- static inline void clk_gate_writel(struct clk_gate *gate, u32 val)
- {
--	if (gate->flags & CLK_GATE_BIG_ENDIAN)
-+	if (gate->flags & CLK_GATE_BIG_ENDIAN) {
- 		iowrite32be(val, gate->reg);
--	else
-+	} else {
- 		writel(val, gate->reg);
-+	}
- }
- 
- /*
-diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
-index 2e6e603b7493..6f5cf6670b48 100644
---- a/include/linux/clk-provider.h
-+++ b/include/linux/clk-provider.h
-@@ -8,6 +8,7 @@
- 
- #include <linux/of.h>
- #include <linux/of_clk.h>
-+#include <linux/regmap.h>
- 
- /*
-  * flags used across common struct clk.  these flags should only affect the
-@@ -526,6 +527,7 @@ void of_fixed_clk_setup(struct device_node *np);
- struct clk_gate {
- 	struct clk_hw hw;
- 	void __iomem	*reg;
-+	u8		map_offset;
- 	u8		bit_idx;
- 	u8		flags;
- 	spinlock_t	*lock;
-@@ -538,6 +540,37 @@ struct clk_gate {
- #define CLK_GATE_BIG_ENDIAN		BIT(2)
- 
- extern const struct clk_ops clk_gate_ops;
-+
-+#ifdef CONFIG_COMMON_CLK_GATE_REGMAP
-+/**
-+ * struct clk_gate_regmap - gating clock via regmap
-+ *
-+ * @hw:		handle between common and hardware-specific interfaces
-+ * @map:	regmap controlling gate
-+ * @map_offset:	register offset within the regmap controlling gate
-+ * @bit_idx:	single bit controlling gate
-+ * @flags:	hardware-specific flags
-+ * @lock:	register lock
-+ *
-+ * Clock which can gate its output.  Implements .enable & .disable
-+ *
-+ * Flags:
-+ * See clk_gate
-+ */
-+struct clk_gate_regmap {
-+	struct clk_hw hw;
-+	struct regmap	*map;
-+	u8		map_offset;
-+	u8		bit_idx;
-+	u8		flags;
-+	spinlock_t	*lock;
-+};
-+
-+#define to_clk_gate_regmap(_hw) container_of(_hw, struct clk_gate_regmap, hw)
-+
-+extern const struct clk_ops clk_gate_regmap_ops;
-+#endif
-+
- struct clk_hw *__clk_hw_register_gate(struct device *dev,
- 		struct device_node *np, const char *name,
- 		const char *parent_name, const struct clk_hw *parent_hw,
-@@ -663,6 +696,31 @@ void clk_unregister_gate(struct clk *clk);
- void clk_hw_unregister_gate(struct clk_hw *hw);
- int clk_gate_is_enabled(struct clk_hw *hw);
- 
-+#ifdef CONFIG_COMMON_CLK_GATE_REGMAP
-+struct clk_hw *__clk_hw_register_gate_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data,
-+		unsigned long flags,
-+		struct regmap *map, u8 map_offset, u8 bit_idx,
-+		u8 clk_gate_flags, spinlock_t *lock);
-+struct clk_hw *__devm_clk_hw_register_gate_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data,
-+		unsigned long flags,
-+		struct regmap *map, u8 map_offset, u8 bit_idx,
-+		u8 clk_gate_flags, spinlock_t *lock);
-+struct clk *clk_register_gate_regmap(struct device *dev, const char *name,
-+		const char *parent_name, unsigned long flags,
-+		struct regmap *map, u8 map_offset, u8 bit_idx,
-+		u8 clk_gate_flags, spinlock_t *lock);
-+
-+void clk_unregister_gate_regmap(struct clk *clk);
-+void clk_hw_unregister_gate_regmap(struct clk_hw *hw);
-+int clk_gate_regmap_is_enabled(struct clk_hw *hw);
-+#endif
-+
- struct clk_div_table {
- 	unsigned int	val;
- 	unsigned int	div;
-@@ -736,6 +794,41 @@ struct clk_divider {
- extern const struct clk_ops clk_divider_ops;
- extern const struct clk_ops clk_divider_ro_ops;
- 
-+#ifdef CONFIG_COMMON_CLK_DIVIDER_REGMAP
-+/**
-+ * struct clk_divider_regmap - adjustable divider clock via regmap
-+ *
-+ * @hw:		handle between common and hardware-specific interfaces
-+ * @map:	regmap containing the divider
-+ * @map_offset:	register offset within the regmap containing the divider
-+ * @shift:	shift to the divider bit field
-+ * @width:	width of the divider bit field
-+ * @table:	array of value/divider pairs, last entry should have div = 0
-+ * @lock:	register lock
-+ *
-+ * Clock with an adjustable divider affecting its output frequency.  Implements
-+ * .recalc_rate, .set_rate and .round_rate
-+ *
-+ * @flags:
-+ * See clk_divider
-+ */
-+struct clk_divider_regmap {
-+	struct clk_hw	hw;
-+	struct regmap	*regmap;
-+	u8		map_offset;
-+	u8		shift;
-+	u8		width;
-+	u8		flags;
-+	const struct clk_div_table	*table;
-+	spinlock_t	*lock;
-+};
-+
-+#define to_clk_divider_regmap(_hw) container_of(_hw, struct clk_divider_regmap, hw)
-+
-+extern const struct clk_ops clk_divider_regmap_ops;
-+extern const struct clk_ops clk_divider_regmap_ro_ops;
-+#endif
-+
- unsigned long divider_recalc_rate(struct clk_hw *hw, unsigned long parent_rate,
- 		unsigned int val, const struct clk_div_table *table,
- 		unsigned long flags, unsigned long width);
-@@ -972,6 +1065,33 @@ struct clk *clk_register_divider_table(struct device *dev, const char *name,
- void clk_unregister_divider(struct clk *clk);
- void clk_hw_unregister_divider(struct clk_hw *hw);
- 
-+#ifdef CONFIG_COMMON_CLK_DIVIDER_REGMAP
-+struct clk_hw *__clk_hw_register_divider_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock);
-+
-+struct clk_hw *__devm_clk_hw_register_divider_regmap(struct device *dev,
-+		struct device_node *np, const char *name,
-+		const char *parent_name, const struct clk_hw *parent_hw,
-+		const struct clk_parent_data *parent_data, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock);
-+
-+struct clk *clk_register_divider_regmap_table(struct device *dev,
-+		const char *name, const char *parent_name, unsigned long flags,
-+		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
-+		u8 clk_divider_flags, const struct clk_div_table *table,
-+		spinlock_t *lock);
-+
-+void clk_unregister_divider_regmap(struct clk *clk);
-+void clk_hw_unregister_divider_regmap(struct clk_hw *hw);
-+#endif
-+
- /**
-  * struct clk_mux - multiplexer clock
-  *
--- 
-2.45.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCBNYXIgNywgMjAyNSBhdCAxOjE54oCvQU0gU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5o
+b2xsYW5kQHNpZml2ZS5jb20+IHdyb3RlOgo+Cj4gSGkgQXRpc2gsCj4KPiBPbiAyMDI1LTAzLTAx
+IDM6MjEgQU0sIEF0aXNoIFBhdHJhIHdyb3RlOgo+ID4gT24gV2VkLCBGZWIgMTksIDIwMjUgYXQg
+MToyN+KAr1BNIE5hbWh5dW5nIEtpbSA8bmFtaHl1bmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4gPj4K
+PiA+PiBIZWxsbywKPiA+Pgo+ID4+IE9uIFdlZCwgRmViIDEyLCAyMDI1IGF0IDA1OjIxOjMzUE0g
+LTA4MDAsIFNhbXVlbCBIb2xsYW5kIHdyb3RlOgo+ID4+PiBUaGlzIHNlcmllcyB1cGRhdGVzIHRo
+ZSBQTVUgZXZlbnQgSlNPTiBmaWxlcyB0byBhZGQgc3VwcG9ydCBmb3IgbmV3ZXIKPiA+Pj4gU2lG
+aXZlIENQVXMsIGluY2x1ZGluZyB0aG9zZSB1c2VkIGluIHRoZSBIaUZpdmUgUHJlbWllciBQNTUw
+IGJvYXJkLgo+ID4+PiBTaW5jZSBtb3N0IGNoYW5nZXMgYXJlIGluY3JlbWVudGFsLCBzeW1ib2xp
+YyBsaW5rcyBhcmUgdXNlZCB3aGVuIGEgc2V0Cj4gPj4+IG9mIGV2ZW50cyBpcyB1bmNoYW5nZWQg
+ZnJvbSB0aGUgcHJldmlvdXMgQ1BVIHNlcmllcy4KPiA+Pj4KPiA+Pj4gSSBvcmlnaW5hbGx5IHNl
+bnQgdGhpcyBzZXJpZXMgYWJvdXQgYSB5ZWFyIGFnb1sxXSwgYnV0IHJlY2VpdmVkIG5vCj4gPj4+
+IGZlZWRiYWNrLiBUaGUgUDU1MCBib2FyZCBpcyBub3cgYXZhaWxhYmxlIChhbmQgSSBoYXZlIHRl
+c3RlZCB0aGlzIHNlcmllcwo+ID4+PiBvbiBpdCksIHNvIGl0IHdvdWxkIGJlIGdvb2QgdG8gZ2V0
+IHBlcmYgc3VwcG9ydCBmb3IgaXQgdXBzdHJlYW0uCj4gPj4+Cj4gPj4+IFsxXTogaHR0cHM6Ly9s
+b3JlLmtlcm5lbC5vcmcvbGludXgtcGVyZi11c2Vycy8yMDI0MDUwOTAyMTUzMS42ODA5MjAtMS1z
+YW11ZWwuaG9sbGFuZEBzaWZpdmUuY29tLwo+ID4+Pgo+ID4KPiA+IFRlc3RlZCB0aGUgcGF0Y2hl
+cyB0aGF0IGFyZSBwYXJ0IG9mIHNpZml2ZSdzIHJlbGVhc2UgdHJlZSBmb3IgcDU1MC4KPiA+IEJv
+dGggcGVyZiBzdGF0L3JlY29yZCBzZWVtcyB0byB3b3JrIGZpbmUKPiA+IGZvciBhIGJ1bmNoIG9m
+IGV2ZW50cy4KPiA+Cj4gPiBCYXNlZCBvbiB0aGF0Cj4gPiBUZXN0ZWQtYnk6IEF0aXNoIFBhdHJh
+IDxhdGlzaHBAcml2b3NpbmMuY29tPgo+Cj4gVGhhbmtzIGZvciB0ZXN0aW5nIQo+Cj4gPiBAU2Ft
+dWVsIEhvbGxhbmQgOiBwZXJmIHJlcG9ydCB0aGF0IHRoZSBmb2xsb3dpbmcgdHdvIGV2ZW50cyBh
+cmUgbm90Cj4gPiBzdXBwb3J0ZWQgb24gdGhlIHA1NTAgYm9hcmQuCj4gPgo+ID4gY3ljbGUgYW5k
+IGluc3RydWN0aW9uIGNvdW50Ogo+ID4gICBjb3JlX2Nsb2NrX2N5Y2xlcwo+ID4gICAgICAgIFtD
+b3VudHMgY29yZSBjbG9jayBjeWNsZXNdCj4gPiAgIGluc3RydWN0aW9uc19yZXRpcmVkCj4gPiAg
+ICAgICAgW0NvdW50cyBpbnN0cnVjdGlvbnMgcmV0aXJlZF0KPiA+Cj4gPiBJIGFzc3VtZWQgdGhh
+dCB0aGVzZSBhcmUgcmF3IGV2ZW50cyBjeWNsZS9pbnN0cnVjdGlvbiByZXRpcmVkIGV2ZW50cwo+
+ID4gdGhhdCBjYW4gc3VwcG9ydAo+ID4gcGVyZiBzYW1wbGluZyBhcyB3ZWxsLiBNYXliZSBJIGFt
+IG1pc3Npbmcgc29tZXRoaW5nID8gRFQgYmluZGluZyA/Cj4KPiBwZXJmIGlzIGNvcnJlY3QuIFRo
+b3NlIHR3byBldmVudHMgYXJlIG5vdCBzdXBwb3J0ZWQgb24gUDU1MCwgb25seSBieSB0aGUgbmV3
+ZXIKPiBjb3JlcyAoYnVsbGVkLTBkIGFuZCBwNjUwKS4gWWVzLCB0aG9zZSBhcmUgYWxpYXNlcyBv
+ZiBjeWNsZXMgYW5kIGluc3RydWN0aW9ucwo+IHRoYXQgd2VyZSBhZGRlZCB0byBzdXBwb3J0IHNh
+bXBsaW5nLgo+CgpUaGFua3MgZm9yIHRoZSBjb25maXJtYXRpb24uIEFyZSB0aGVyZSBvdGhlciBl
+dmVudHMgdGhhdCBjYW4gYmUgdXNlZCB0byBzYW1wbGUKaW5zdHJ1Y3Rpb24gY291bnQgb24gUDU1
+MCA/IEkgZGlkIG5vdCBmaW5kIGFueXRoaW5nIGluIHRoZSBwZXJmIGxpc3QKb3IgdGhlIGpzb24g
+ZmlsZS4KSSBhbSBub3Qgc3VyZSBpZiBJIG1pc3NlZCBzb21ldGhpbmcuCgo+IFJlZ2FyZHMsCj4g
+U2FtdWVsCj4KPiA+Pj4KPiA+Pj4gRXJpYyBMaW4gKDUpOgo+ID4+PiAgIHBlcmYgdmVuZG9yIGV2
+ZW50cyByaXNjdjogVXBkYXRlIFNpRml2ZSBCdWxsZXQgZXZlbnRzCj4gPj4+ICAgcGVyZiB2ZW5k
+b3IgZXZlbnRzIHJpc2N2OiBBZGQgU2lGaXZlIEJ1bGxldCB2ZXJzaW9uIDB4MDcgZXZlbnRzCj4g
+Pj4+ICAgcGVyZiB2ZW5kb3IgZXZlbnRzIHJpc2N2OiBBZGQgU2lGaXZlIEJ1bGxldCB2ZXJzaW9u
+IDB4MGQgZXZlbnRzCj4gPj4+ICAgcGVyZiB2ZW5kb3IgZXZlbnRzIHJpc2N2OiBBZGQgU2lGaXZl
+IFA1NTAgZXZlbnRzCj4gPj4+ICAgcGVyZiB2ZW5kb3IgZXZlbnRzIHJpc2N2OiBBZGQgU2lGaXZl
+IFA2NTAgZXZlbnRzCj4gPj4+Cj4gPj4+IFNhbXVlbCBIb2xsYW5kICgyKToKPiA+Pj4gICBwZXJm
+IHZlbmRvciBldmVudHMgcmlzY3Y6IFJlbmFtZSBVNzQgdG8gQnVsbGV0Cj4gPj4+ICAgcGVyZiB2
+ZW5kb3IgZXZlbnRzIHJpc2N2OiBSZW1vdmUgbGVhZGluZyB6ZXJvZXMKPiA+Pgo+ID4+IEl0J2Qg
+YmUgbmljZSBpZiBhbnlvbmUgaW4gdGhlIFJJU0MtViBjb21tdW5pdHkgY2FuIHJldmlldyB0aGlz
+Lgo+ID4+Cj4gPj4gVGhhbmtzLAo+ID4+IE5hbWh5dW5nCj4gPj4KPiA+Pj4KPiA+Pj4gIHRvb2xz
+L3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L21hcGZpbGUuY3N2ICB8ICA2ICstCj4gPj4+ICAu
+Li4vY3ljbGUtYW5kLWluc3RydWN0aW9uLWNvdW50Lmpzb24gICAgICAgICAgfCAxMiArKysKPiA+
+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2ZS9idWxsZXQtMDcvZmlybXdhcmUuanNvbiB8ICAxICsK
+PiA+Pj4gIC4uLi9yaXNjdi9zaWZpdmUvYnVsbGV0LTA3L2luc3RydWN0aW9uLmpzb24gICB8ICAx
+ICsKPiA+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2ZS9idWxsZXQtMDcvbWVtb3J5Lmpzb24gICB8
+ICAxICsKPiA+Pj4gIC4uLi9yaXNjdi9zaWZpdmUvYnVsbGV0LTA3L21pY3JvYXJjaC5qc29uICAg
+ICB8IDYyICsrKysrKysrKysrKysKPiA+Pj4gIC4uLi9yaXNjdi9zaWZpdmUvYnVsbGV0LTA3L3dh
+dGNocG9pbnQuanNvbiAgICB8IDQyICsrKysrKysrKwo+ID4+PiAgLi4uL2N5Y2xlLWFuZC1pbnN0
+cnVjdGlvbi1jb3VudC5qc29uICAgICAgICAgIHwgIDEgKwo+ID4+PiAgLi4uL2FyY2gvcmlzY3Yv
+c2lmaXZlL2J1bGxldC0wZC9maXJtd2FyZS5qc29uIHwgIDEgKwo+ID4+PiAgLi4uL3Jpc2N2L3Np
+Zml2ZS9idWxsZXQtMGQvaW5zdHJ1Y3Rpb24uanNvbiAgIHwgIDEgKwo+ID4+PiAgLi4uL2FyY2gv
+cmlzY3Yvc2lmaXZlL2J1bGxldC0wZC9tZW1vcnkuanNvbiAgIHwgIDEgKwo+ID4+PiAgLi4uL3Jp
+c2N2L3NpZml2ZS9idWxsZXQtMGQvbWljcm9hcmNoLmpzb24gICAgIHwgNzIgKysrKysrKysrKysr
+KysrCj4gPj4+ICAuLi4vcmlzY3Yvc2lmaXZlL2J1bGxldC0wZC93YXRjaHBvaW50Lmpzb24gICAg
+fCAgMSArCj4gPj4+ICAuLi4vc2lmaXZlL3t1NzQgPT4gYnVsbGV0fS9maXJtd2FyZS5qc29uICAg
+ICAgfCAgMAo+ID4+PiAgLi4uL2FyY2gvcmlzY3Yvc2lmaXZlL2J1bGxldC9pbnN0cnVjdGlvbi5q
+c29uIHwgOTIgKysrKysrKysrKysrKysrKysrKwo+ID4+PiAgLi4uL2FyY2gvcmlzY3Yvc2lmaXZl
+L2J1bGxldC9tZW1vcnkuanNvbiAgICAgIHwgMzIgKysrKysrKwo+ID4+PiAgLi4uL2FyY2gvcmlz
+Y3Yvc2lmaXZlL2J1bGxldC9taWNyb2FyY2guanNvbiAgIHwgNTcgKysrKysrKysrKysrCj4gPj4+
+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDU1MC9maXJtd2FyZS5qc29uICAgICAgfCAgMSArCj4g
+Pj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDU1MC9pbnN0cnVjdGlvbi5qc29uICAgfCAgMSAr
+Cj4gPj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDU1MC9tZW1vcnkuanNvbiAgICAgICAgfCA0
+NyArKysrKysrKysrCj4gPj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDU1MC9taWNyb2FyY2gu
+anNvbiAgICAgfCAgMSArCj4gPj4+ICAuLi4vcDY1MC9jeWNsZS1hbmQtaW5zdHJ1Y3Rpb24tY291
+bnQuanNvbiAgICAgfCAgMSArCj4gPj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDY1MC9maXJt
+d2FyZS5qc29uICAgICAgfCAgMSArCj4gPj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDY1MC9p
+bnN0cnVjdGlvbi5qc29uICAgfCAgMSArCj4gPj4+ICAuLi4vYXJjaC9yaXNjdi9zaWZpdmUvcDY1
+MC9tZW1vcnkuanNvbiAgICAgICAgfCA1NyArKysrKysrKysrKysKPiA+Pj4gIC4uLi9hcmNoL3Jp
+c2N2L3NpZml2ZS9wNjUwL21pY3JvYXJjaC5qc29uICAgICB8IDYyICsrKysrKysrKysrKysKPiA+
+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2ZS9wNjUwL3dhdGNocG9pbnQuanNvbiAgICB8ICAxICsK
+PiA+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2ZS91NzQvaW5zdHJ1Y3Rpb25zLmpzb24gICB8IDky
+IC0tLS0tLS0tLS0tLS0tLS0tLS0KPiA+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2ZS91NzQvbWVt
+b3J5Lmpzb24gICAgICAgICB8IDMyIC0tLS0tLS0KPiA+Pj4gIC4uLi9hcmNoL3Jpc2N2L3NpZml2
+ZS91NzQvbWljcm9hcmNoLmpzb24gICAgICB8IDU3IC0tLS0tLS0tLS0tLQo+ID4+PiAgMzAgZmls
+ZXMgY2hhbmdlZCwgNTU1IGluc2VydGlvbnMoKyksIDE4MiBkZWxldGlvbnMoLSkKPiA+Pj4gIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUv
+YnVsbGV0LTA3L2N5Y2xlLWFuZC1pbnN0cnVjdGlvbi1jb3VudC5qc29uCj4gPj4+ICBjcmVhdGUg
+bW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL2J1bGxl
+dC0wNy9maXJtd2FyZS5qc29uCj4gPj4+ICBjcmVhdGUgbW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9w
+bXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL2J1bGxldC0wNy9pbnN0cnVjdGlvbi5qc29uCj4g
+Pj4+ICBjcmVhdGUgbW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yv
+c2lmaXZlL2J1bGxldC0wNy9tZW1vcnkuanNvbgo+ID4+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRv
+b2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9idWxsZXQtMDcvbWljcm9hcmNo
+Lmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJj
+aC9yaXNjdi9zaWZpdmUvYnVsbGV0LTA3L3dhdGNocG9pbnQuanNvbgo+ID4+PiAgY3JlYXRlIG1v
+ZGUgMTIwMDAwIHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9idWxsZXQt
+MGQvY3ljbGUtYW5kLWluc3RydWN0aW9uLWNvdW50Lmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEy
+MDAwMCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUvYnVsbGV0LTBkL2Zp
+cm13YXJlLmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEyMDAwMCB0b29scy9wZXJmL3BtdS1ldmVu
+dHMvYXJjaC9yaXNjdi9zaWZpdmUvYnVsbGV0LTBkL2luc3RydWN0aW9uLmpzb24KPiA+Pj4gIGNy
+ZWF0ZSBtb2RlIDEyMDAwMCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUv
+YnVsbGV0LTBkL21lbW9yeS5qc29uCj4gPj4+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVy
+Zi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL2J1bGxldC0wZC9taWNyb2FyY2guanNvbgo+
+ID4+PiAgY3JlYXRlIG1vZGUgMTIwMDAwIHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2
+L3NpZml2ZS9idWxsZXQtMGQvd2F0Y2hwb2ludC5qc29uCj4gPj4+ICByZW5hbWUgdG9vbHMvcGVy
+Zi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL3t1NzQgPT4gYnVsbGV0fS9maXJtd2FyZS5q
+c29uICgxMDAlKQo+ID4+PiAgY3JlYXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50
+cy9hcmNoL3Jpc2N2L3NpZml2ZS9idWxsZXQvaW5zdHJ1Y3Rpb24uanNvbgo+ID4+PiAgY3JlYXRl
+IG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9idWxs
+ZXQvbWVtb3J5Lmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1l
+dmVudHMvYXJjaC9yaXNjdi9zaWZpdmUvYnVsbGV0L21pY3JvYXJjaC5qc29uCj4gPj4+ICBjcmVh
+dGUgbW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL3A1
+NTAvZmlybXdhcmUuanNvbgo+ID4+PiAgY3JlYXRlIG1vZGUgMTIwMDAwIHRvb2xzL3BlcmYvcG11
+LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9wNTUwL2luc3RydWN0aW9uLmpzb24KPiA+Pj4gIGNy
+ZWF0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUv
+cDU1MC9tZW1vcnkuanNvbgo+ID4+PiAgY3JlYXRlIG1vZGUgMTIwMDAwIHRvb2xzL3BlcmYvcG11
+LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9wNTUwL21pY3JvYXJjaC5qc29uCj4gPj4+ICBjcmVh
+dGUgbW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL3A2
+NTAvY3ljbGUtYW5kLWluc3RydWN0aW9uLWNvdW50Lmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEy
+MDAwMCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUvcDY1MC9maXJtd2Fy
+ZS5qc29uCj4gPj4+ICBjcmVhdGUgbW9kZSAxMjAwMDAgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2Fy
+Y2gvcmlzY3Yvc2lmaXZlL3A2NTAvaW5zdHJ1Y3Rpb24uanNvbgo+ID4+PiAgY3JlYXRlIG1vZGUg
+MTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9hcmNoL3Jpc2N2L3NpZml2ZS9wNjUwL21lbW9y
+eS5qc29uCj4gPj4+ICBjcmVhdGUgbW9kZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2Fy
+Y2gvcmlzY3Yvc2lmaXZlL3A2NTAvbWljcm9hcmNoLmpzb24KPiA+Pj4gIGNyZWF0ZSBtb2RlIDEy
+MDAwMCB0b29scy9wZXJmL3BtdS1ldmVudHMvYXJjaC9yaXNjdi9zaWZpdmUvcDY1MC93YXRjaHBv
+aW50Lmpzb24KPiA+Pj4gIGRlbGV0ZSBtb2RlIDEwMDY0NCB0b29scy9wZXJmL3BtdS1ldmVudHMv
+YXJjaC9yaXNjdi9zaWZpdmUvdTc0L2luc3RydWN0aW9ucy5qc29uCj4gPj4+ICBkZWxldGUgbW9k
+ZSAxMDA2NDQgdG9vbHMvcGVyZi9wbXUtZXZlbnRzL2FyY2gvcmlzY3Yvc2lmaXZlL3U3NC9tZW1v
+cnkuanNvbgo+ID4+PiAgZGVsZXRlIG1vZGUgMTAwNjQ0IHRvb2xzL3BlcmYvcG11LWV2ZW50cy9h
+cmNoL3Jpc2N2L3NpZml2ZS91NzQvbWljcm9hcmNoLmpzb24KPiA+Pj4KPiA+Pj4gLS0KPiA+Pj4g
+Mi40Ny4wCj4gPj4+Cj4gPj4KPiA+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+ID4+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+ID4+IGxpbnV4LXJp
+c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiA+PiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cj4gPgo+ID4KPiA+Cj4gPiAtLQo+ID4gUmVnYXJk
+cywKPiA+IEF0aXNoCj4KCgotLSAKUmVnYXJkcywKQXRpc2gKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
