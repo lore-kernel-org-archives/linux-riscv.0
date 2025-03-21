@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCF3AC36001
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 13:41:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D0FC36001
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 15:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m25AZCEyrW9phYWnupXOEWcBRTpalnpONM6sH9vYOIo=; b=LU6OM7aJ7oBu9D/S2K++NqkIoU
-	+ODRNdJ99NxH2Ej8zfBVt2A9XCnAsjO14m2wOCu4hpsGMIvz9DO8DhYHVGPpwut0ulFUpSZTQFjd/
-	b+yLpD3+I4vsIUNtZmnLot7bX6ZHkOgRoBePECCiMniF4gI1CExR/FrP1QY7AkvLBVL1A8LRFZt9U
-	7jem+XgugQeU8ajwGTwCCIn9G88MQxUwgttGDtapGu1M07FmBuBuEZWiqhMhVL4U5J7wmDwMz4ZOq
-	Plh2TnVjsYZT+JtyoGz4QDFV+HHQSfhCKvnpPAlBgQN39gZChua2wnSt2akYM3XfIIc8HInNRONsK
-	Dld1ur2g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=m0aSWXVLf/NB2XCagnlD1w4bxtZ3v2OXajjJ2343mDg=; b=0Vz37XcCxTdxHf
+	r0lMP6gUC2XiD5ACEP92mLgg2KLH7xFivQsZMkESyningMBWvJHbCv+gFaJMb0VmZuU/CTypzz21r
+	NLlid3lsaTfYBogueX2m9EUtw88USybgK1Vjoyip+lYEp+/OWnYoC9g9CZd4elclM9XJhqsOTcr+s
+	b0QNgDMfPyW/V4fpMd8AP2/85c3Csd1Pkp6CzlsEOfnhzAmjGce4NZCdKKmdowH2HgeRj6R1LVfCG
+	GfmnSuziaqRWPRvdf5RZ095QVBGVbK3mpEtNp1SjD4EZGTi4LGB9/yeE0FH25GOcmD6/jFFQGXzLk
+	9k2k3rHu8fs3tXRfUb9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvcdA-0000000ExPC-0JOF;
-	Fri, 21 Mar 2025 13:41:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tveA7-0000000FHcl-1MXX;
+	Fri, 21 Mar 2025 15:19:55 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvcd7-0000000ExOL-2YVe
+	id 1tve8w-0000000FHMn-38oB
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 13:41:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D28F0A4510B;
-	Fri, 21 Mar 2025 13:36:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 348FAC4CEE3;
-	Fri, 21 Mar 2025 13:41:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742564503;
-	bh=eq+z2NNjf7FTukWVpkQ2qGB887ccsImFLhwuR8Nvkig=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OzHYr6/U/ZegOdlAf62w1ezW1sGmXONWKXfuFieNOPMJqwKJHtgyig3pZhX94c0ES
-	 7XtlQUDhKntSUlcrVgGUPR6aLFzafbJ372aIKmdgT6aUv5T9HMVCVfqt9tV14HcYoA
-	 rQs/E5mRdoOaczY4PFC6LspPLGY0caJtGl3hTwavq6fJnS71PlDL1ZS7Yx5NhY4ooN
-	 5OcLK1oHBol6POy9lF5riGyC5/xFFcWQij2uaTSEO/+4YkN+C29YrNLrFyPkVLakTx
-	 qK52FLMCkcTU9Jm1TdvG76AywsFvf8nVdxxIRIYYuzq9uDFE3YKTozaOHwNkP40s8s
-	 cY+0AYcTmBrJA==
-Date: Fri, 21 Mar 2025 13:41:36 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
-	"rafal@milecki.pl" <rafal@milecki.pl>,
-	Anup Patel <anup@brainfault.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 00/10] Basic device tree support for ESWIN EIC7700 RISC-V
- SoC
-Message-ID: <20250321-pacifier-varied-bbb1cae00182@spud>
-References: <20250311073432.4068512-1-pinkesh.vaghela@einfochips.com>
- <20250311-backdrop-porthole-440ae005e8fa@spud>
- <SA3PR04MB893164FCD6C4CB8924FC8DE583D82@SA3PR04MB8931.namprd04.prod.outlook.com>
- <20250320-uprising-couch-0af012a1fee6@spud>
- <f0dd950a-02a7-402b-a08e-015db458b273@kernel.org>
- <SA3PR04MB893147FE3E09B43DA41A7DF283DB2@SA3PR04MB8931.namprd04.prod.outlook.com>
+	Fri, 21 Mar 2025 15:18:43 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3d589ed2b63so17365935ab.0
+        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 08:18:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742570322; x=1743175122; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s9/aOcBOjeqmg8r4cUHY2uYIdNBiCau+sheqrs82fvw=;
+        b=RXvZMwpuX08KWti1khkFE4cf04NZYcHTfYnrGKTslmyrlxcR98Hhg4P/OR/JqPGBfu
+         9218NGBtzIs2h66ATg50moPsHkuZDamh06ZmhjRbGJ6zsyca0J1CY/ySaQPKZlAp2f2I
+         qH/Kua3b3EP0DEECkUSsdUYlnmg0X2KHxkrYKNT0cgGK8AQ9CS/PHf7A3NH08ZyHmByw
+         Ee/+rCa0kj+LVSD4lEJPTLEoh4qkl8Q+zfDJz5Zw3BpG5WbXDwSLxBV2hOdBJeJ62Sgu
+         TnSHWY/V9QOUVT0zQXTJAza8kL3dHbXxOkoWilxRFJGb/tNNo/zXS0X5/5n7DAZka5Mu
+         pT+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742570322; x=1743175122;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s9/aOcBOjeqmg8r4cUHY2uYIdNBiCau+sheqrs82fvw=;
+        b=lXgh0rlrPX5EfB8Y+iWHKiLztUs1Hw+9Ixc7qnSa3rpLWpvPJRmca8IP+cNbZcOtOs
+         PpjJBeMYiga6qxvo7YKH7z0n9syf/j+MXpAnrN+SJVPJLO14ZMife+JsqFkigms2XFqY
+         3AIbP9fEG4GUEZ0Mi1+0viP9il5qySHpCY7cqysdb5N8MNvVH2X5SKEvb3LR8qIRD8JG
+         jcjmhsMu07dFPPX+TyYf5RDzhvRm0lLvANXEt2ZUhmIcwqpHs+9jMd/dOvu4O8hoj75q
+         RZfvHv7QeuDuxHvluMx9spwPCPXp7Wtmdu54BvVexNIYSal/7lN4uX694FMdPliHIAnV
+         1zQA==
+X-Forwarded-Encrypted: i=1; AJvYcCWf0PHg7ZoPYy4wU75biJzk2QlsShfI3wSh1pKX4UkF2lYZXUDEVUkWJRLCE27mHC86pXnnd9hc0YNiyA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjKlK5G2wgzf4sWyNI5YJgyzm9vQArxfRjeiVRHAYcHaQcj41h
+	iCwt8YRlVUmJaVM9WfDp/+f4TxIZvTN9/2wPBsuujf9xkqJw/nzmt+gozmuOVrY=
+X-Gm-Gg: ASbGncv16meSSvFM6ruDwIPNOjdHU4+ETlUgzL9/nTYuGfPJvAt9vWmgQaDl0I3M2wH
+	BjdCQvxn0AR4EQA4k8Cbhn7n9xb+89xDA4jtGWSaolskaPVH6REhAqMkQ9AICix79HGvLgcuM4m
+	5mggXQQ5raUeNPfoIoMLwsgUPEwbW0GI7dH3MHQiSRPlErJSbpU1eJZGHA+vLWpn7/xiXikJ3CW
+	WqneHh4q9Hy78ZbLDYiCTUsSI02OVimhuoR4wYJ8mVZLpj6HueSNM2/EhCWESCn1XcnawRzp0zm
+	QZiSD0ygHZns77nlz2U60UymgmkiU17ByQU7xEAjW8ILkHkE79F57l36hwmwwMC97AMu7oJfrOJ
+	ApUtJYwQyncL8y5lnY0tUq49q
+X-Google-Smtp-Source: AGHT+IFo/JEVnsqki/6fdgfg3xjuRm3SDdlZLf3knFyzM9tCDQmdiRd3jcBZUEzW8DfADwT94MufXQ==
+X-Received: by 2002:a05:6e02:188a:b0:3d5:8103:1a77 with SMTP id e9e14a558f8ab-3d5960ce9b6mr45841105ab.1.1742570321661;
+        Fri, 21 Mar 2025 08:18:41 -0700 (PDT)
+Received: from zoltan.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2cbdd0a21sm475553173.41.2025.03.21.08.18.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 21 Mar 2025 08:18:41 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: p.zabel@pengutronix.de,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	dlan@gentoo.org
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heylenay@4d2.org,
+	guodong@riscstar.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	spacemit@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND 5/7] clk: spacemit: make clocks optional
+Date: Fri, 21 Mar 2025 10:18:28 -0500
+Message-ID: <20250321151831.623575-6-elder@riscstar.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250321151831.623575-1-elder@riscstar.com>
+References: <20250321151831.623575-1-elder@riscstar.com>
 MIME-Version: 1.0
-In-Reply-To: <SA3PR04MB893147FE3E09B43DA41A7DF283DB2@SA3PR04MB8931.namprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_064145_773153_3D5696EA 
-X-CRM114-Status: GOOD (  28.97  )
+X-CRM114-CacheID: sfid-20250321_081842_777775_8383A7AF 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,93 +108,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1260579547819296293=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+There are some syscon devices that support both clocks and resets,
+but for now only their reset functionality is required.  Make
+defining clocks optional for a SpacemiT CCU, though at least one
+clock or at least one reset controller must be defined.
 
---===============1260579547819296293==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="jB7oSH4WdargtE72"
-Content-Disposition: inline
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+ drivers/clk/spacemit/ccu-k1.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index be8abd27753cb..17e321c25959a 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -1830,6 +1830,10 @@ static int k1_ccu_register(struct device *dev, struct regmap *regmap,
+ 	const struct spacemit_ccu_clk *clk;
+ 	int i, ret, max_id = 0;
+ 
++	/* Clocks are optional */
++	if (!clks)
++		return 0;
++
+ 	for (clk = clks; clk->hw; clk++)
+ 		max_id = max(max_id, clk->id);
+ 
+@@ -1903,7 +1907,7 @@ static int k1_ccu_probe(struct platform_device *pdev)
+ 	int ret;
+ 
+ 	data = of_device_get_match_data(dev);
+-	if (!data)
++	if (!data || !(data->clk || data->rst_data))
+ 		return -EINVAL;
+ 
+ 	base_regmap = device_node_to_regmap(dev->of_node);
+-- 
+2.43.0
 
---jB7oSH4WdargtE72
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 21, 2025 at 11:29:27AM +0000, Pinkesh Vaghela wrote:
-> On Fri, Mar 21, 2025 at 3:07 PM, Krzysztof Kozlowski wrote:
-> > > On Thu, Mar 20, 2025 at 10:39:52AM +0000, Pinkesh Vaghela wrote:
-> > >> On Tue, Mar 11, 2025 at 11:38 PM, Conor Dooley wrote:
-> > >>> On Tue, Mar 11, 2025 at 01:04:22PM +0530, Pinkesh Vaghela wrote:
-> > >>>> Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
-> > >>>> P550 CPU cluster and the first development board that uses it, the
-> > >>>> SiFive HiFive Premier P550.
-> > >>>>
-> > >>>> This patch series adds initial device tree and also adds ESWIN
-> > >>>> architecture support.
-> > >>>>
-> > >>>> Boot-tested using intiramfs with Linux 6.14.0-rc2 on HiFive Premier
-> > >>>> P550 board using U-Boot 2024.01 and OpenSBI 1.4.
-> > >>>
-> > >>> There's no git tree in your MAINTAINERS entry, nor mention here of
-> > >>> what the story is going to be in terms of sending patches to Arnd.
-> > >>> Who is going to be doing that?
-> > >>
-> > >> We are not currently set up for sending signed pull requests, so for
-> > >> now we plan to send changes to Arnd as separate patches.
-> > >
-> > > Undesirable, but sure. You didn't answer the first part of my question
-> >=20
-> > Just to clarify - separate patches as separate postings to soc@ after t=
-he review
-> > was done on the lists and then you applied them to the tree Conor asked
-> > below, right?
->=20
-> Correct. Once the patches are reviewed, will send separate patches to @soc
-> and then apply to the git tree.
-
-No, that's the wrong order. You apply reviewed patches to the git tree,
-they then appear in linux-next, after some time soaking there, you send
-a PR (or in your case patches) to soc@kernel.org, usually around rc6 or
-rc7. Fixes get applied to a different branch and can be sent at any
-time. I expect both branches to appear in linux-next.
-
-Bear in mind that patches for this SoC might be sent by other people,
-for example me if I find some issues, and you'll need to forward those
-on to soc@kernel.org on top of whatever work you're doing to bring up
-the SoC.
-
-> > > though, and there's no git tree listed in your v2 series. That part is
-> > > not negotiable, you have to have one and get it included in linux-nex=
-t.
-
---jB7oSH4WdargtE72
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ91skAAKCRB4tDGHoIJi
-0uEXAQCPJJkOErMXPJI1hMZw+JZzaLhhY2ew43wR9BFZRSWvTQD6A03L62ZGb0HW
-nyCNJA8Q+NY5eQpX+dyXYdiMkC6QAg4=
-=sX2X
------END PGP SIGNATURE-----
-
---jB7oSH4WdargtE72--
-
-
---===============1260579547819296293==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1260579547819296293==--
-
