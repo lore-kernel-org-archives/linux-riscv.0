@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13199C28B30
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 00:41:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBB98C36001
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 03:39:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BqtcT0r/VmB9ytFeB+XDcbYxujBjhu4z7BI0XhlCJtM=; b=xNs/7wG3f3V6CI
-	5EL1LWTaD7qTM7zNanPze9aS3DGVZe0XMLG9jICzEG/m04/IRKtyG4joYrpiI5Dq8zWeJ3+fvcm9W
-	CGdAkHZmxiYOI2y3y2HhI0XD/JhO2dYNKlLnZDbSdL5Wjol+2aXZEdnYvgX5JbZzLL+qa/e2Ywjk7
-	y8hKbSWN1KpvgJ9v7kSDsPyRV8kvwr95rzcq7qrrssa701XTL2GaX064RdMwnx6bYje+Ozpb3bFMl
-	AO+PwdjF+psojuMDXKyN3PbPflznQIQtYrypjAOGerobHHICNU1H0uPpnMz7WahwM58s6Ml8Gp+hI
-	w3Z6+zlTMSbX4S0GAe/A==;
+	List-Owner; bh=btSVyymfiWSwzEpVkviY6lD0IWdjjqFQhqqKBbS/XGs=; b=u2Cfz5BmFRfTV+
+	lo8D4fCCLDo6j4ktDjRBJvAWsQ4PH0Y2AvEhITNgzO26cGYxXm/rmSygxXxNzIxhvAWek9nvaeAgY
+	9wqlBhoHVwRgDZBFsI+8Zu6MS18y286RlZ5N31i0gtI5sYMo8Sk7tBzC1bg4opwSUqcWf+GNZPs6O
+	raVqpwDi2+jr7A7GJl1UiYEfkYftADSE17r1ejRbwrSzUKfVVow7PllcyJnJ2ZIDk5wU5JKMrVPof
+	ChEkeFKMnhAzQsgL6/Ush+iv312/uLCgDgVNVm51uA4yxdbuGYB6jLmF6gl6qisSa85BhVA3jovk7
+	blVQg3k9En/j2EZTB50g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvQSN-0000000DZyW-3v7S;
-	Fri, 21 Mar 2025 00:41:51 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1tvTDu-0000000DlVy-1AHz;
+	Fri, 21 Mar 2025 03:39:06 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvQ3W-0000000DX9u-2wxJ
+	id 1tvTCF-0000000DlL6-1rry
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 00:16:11 +0000
-Received: from localhost (unknown [116.232.18.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 6ED493431C2;
-	Fri, 21 Mar 2025 00:16:09 +0000 (UTC)
-Date: Fri, 21 Mar 2025 00:16:05 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heylenay@4d2.org, guodong@riscstar.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/7] clk: spacemit: add K1 reset support
-Message-ID: <20250321001605-GYA10514@gentoo>
-References: <20250320194449.510569-1-elder@riscstar.com>
- <20250320232128-GYA10498@gentoo>
- <fe26de4f-5593-4f34-a752-5fb051972c31@riscstar.com>
+	Fri, 21 Mar 2025 03:37:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CCBB8615CA;
+	Fri, 21 Mar 2025 03:37:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04C3EC4CEDD;
+	Fri, 21 Mar 2025 03:37:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742528242;
+	bh=aL28XEpJktFyzSrtGRAjtcrEGubi+gEbKi8XefWZizM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=t6XuhqVyWbogmwwm749xUsJgPCnAqqSeCGZTosFqhBb1Xe/PFfgZLonAAxLGXYM2h
+	 H5Rjl+jZ+/nUhpAcyb+NZ3oZa+MJTxsW9iUFlD1i+O9EsR5L+oU0GujSqvdi5uPkrH
+	 NR5NNeo7jJmgJyvlx+SP0oVtTV3I4MXd52BPL0GeYVJC4yST0Ie41FpzM8R9TM50UP
+	 6R0RliihTl36P+7U+ey9yJeNLMJSgXvTkqGnQFHTSzVzTxurGNRx2Vx1Ei5SBQ3zV6
+	 HfkpAUO/Iox/kqVD+SqJQdCciahcO9jLLNHKy8PNLdy25hshCxVkg0yldLmNOb2Ub9
+	 neF2SocRn9Dvw==
+Date: Thu, 20 Mar 2025 20:37:18 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Ignacio Encinas <ignacio@iencinas.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann <arnd@arndb.de>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org,
+	Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	linux-arch@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] riscv: introduce asm/swab.h
+Message-ID: <20250321033718.GA98513@sol.localdomain>
+References: <20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com>
+ <20250319-riscv-swab-v2-2-d53b6d6ab915@iencinas.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <fe26de4f-5593-4f34-a752-5fb051972c31@riscstar.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250320_171610_762481_FC5E4CB2 
-X-CRM114-Status: GOOD (  13.09  )
+In-Reply-To: <20250319-riscv-swab-v2-2-d53b6d6ab915@iencinas.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,30 +76,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex:
+On Wed, Mar 19, 2025 at 10:09:46PM +0100, Ignacio Encinas wrote:
+> +#define ARCH_SWAB(size) \
+> +static __always_inline unsigned long __arch_swab##size(__u##size value) \
+> +{									\
+> +	unsigned long x = value;					\
+> +									\
+> +	asm goto(ALTERNATIVE("j %l[legacy]", "nop", 0,			\
+> +			     RISCV_ISA_EXT_ZBB, 1)			\
+> +			     :::: legacy);				\
 
-On 19:05 Thu 20 Mar     , Alex Elder wrote:
-> On 3/20/25 6:21 PM, Yixun Lan wrote:
-> > Hi Alex:
-> > 
-> > Thanks for sending this patch series
-> > 
-> > Can you also CC spacemit mailing list: spacemit@lists.linux.dev
-> > it should be handled automaticlly in next 6.15-rc1 version as the
-> > MAINTAINERS file updated
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git/commit/?id=4a0c4e723c94
-> 
-> Sorry about that.  I will copy it on my next version.
-> 
-> Are you asking me to RESEND this series with that addition?
-> 
-A resend would be great, so people subscrited to that list will
-receive the emails.. in this case, I will wait to add more comments.
+Is there a reason to use this instead of
+riscv_has_extension_likely(RISCV_ISA_EXT_ZBB) which seems to do the same thing,
+including using a static branch?
 
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
