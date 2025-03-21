@@ -4,68 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D2B0C36000
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 18:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A781C36000
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 19:14:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
-	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qw03pWhBWPWxeBgwguSQaRY+LeX01HfUv0VG0VrvmmY=; b=GAI7jzHHHGjkc3
-	glXEDWW063kd+VvP1ArIgU/nR66iyCULa/UiFbdoyGv1gzuNN/TJGPxXJ27qZ1LNQDdbylXbfNbwE
-	eHtmj4M/1mIexYWcReGRteIBvKT3kFffupLRJmG1eNq2lkjdDjD1kJJZ44EQ1f/1vyXukKQX+Aj7x
-	ZTulji5IeuWL8mmDO9mdU+LG5hSaLytdoafgP5XrZFZRvPh8e4MrjKveW27MrL/XLq5zV8TVd+szm
-	FGM74eLT4qANd4HfGokJGcy7whC+A9LE70IxEcGKoXnPu8FVAeaLngphykxWPuenkEbiHmyx+Ydil
-	6lnbaVg+4Hhkw/S26fLQ==;
+	List-Owner; bh=uVHG87ySuv/OAPePm8aknpRJX4HfO3j6LNz7sMYuKEg=; b=LDdR2QoJ7s7dfq
+	QsfyxC9b72q0MaC4ikilFALDlCKPpah/yYlLq7W+vwDvYGtCU2kp4fXC/2I9H9UiDvA52b/EH/ctf
+	R8gDWytDw5vtiecWJB21jT8nHjIxHamAcGDSzAlzwyyBiCFV88gBjEyknl98tgxuwm9kqrcoCjoSq
+	VXA2pgAlOY09yG1K4zDKw5Ov1SO4d+caIvdjbGLCHR4Ix23w39kpP1XWsSkWNJiponhZTLPBNwKb3
+	7W78vh3C7FSqCkanO8rMMawRzJDHMM7DK5gvCM6kWR+NTICoOLiaFw30NNCzbGlBPvNbs2FH3H2ck
+	BXy9ELDhiRGURhzgkIbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhGr-0000000Fsun-2RNV;
-	Fri, 21 Mar 2025 18:39:05 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1tvhp8-0000000FzRN-0xrY;
+	Fri, 21 Mar 2025 19:14:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvhGn-0000000Fstu-3y5J
+	id 1tvhoi-0000000FzKp-3T0j
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 21 Mar 2025 19:14:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=IuZZ1c6pfeMUYzSCc2NncoPGK60qkvSILYq+w9aYkTE=; b=oGKPZE3oPQivFlViziVtUKCQ4G
+	z/TKbiuIU+XIYNbYtJGRuIeIIQ+8tb8DJzdKO1FNkleSow0T2cmyeYJbgrQPmvoMurIyOaNaa8rBF
+	TAK7TOPIU2ZYmr/QI0UmPvC/yOjGw0EMvDBWn5xZScDxCIUocw2ieqAkDt+lnV6i8DBHWhYENHeI0
+	IumHlNTl8Th6yL1RjEPZNJu3XpWgalmsiuzDZduCbdRCrWK7aOWOoxLbCdxbnMwT6BLFObg17YMpN
+	CEnd/5OGwvC4j181HHpdPn4Av4HyABT6v80iq0aF3QG5c9IWDt1tIu/VlLdvjUaCLv9VYGQtV9i4r
+	D5klA+PQ==;
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tvhof-00000004VmE-2ztO
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 18:39:04 +0000
-Message-ID: <b3b59747-0484-4042-bdc4-c067688e3bfe@iencinas.com>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1742582339;
+	Fri, 21 Mar 2025 19:14:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D215344551;
+	Fri, 21 Mar 2025 19:13:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742584437;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=/l61PMZ8ZONjm1VBcYbvcyTIE/eIAlBdEyNM703h8Wg=;
-	b=LQr8od9Eoo1BpEq7o+7c/an+WLbBfCL0f8tZSGR68BOyccf1eIvgALCsoOWT+7qHzhfGwd
-	yn0NDKfsiZoX26dbpZT1+rz9C9U1DMXK/0pTwtqI34yXRlZFbkzgqXuEjoyrlPlcJ0LJuK
-	Bj0fXQFBZAtzXpgmscYRilgQjjdj5++IwrQhlHkMVw+0ZodToECeslq47XrqyuM+WzjI7s
-	e352THyHY4+OVl7l9mLaOERKk71lq/DVWr2JrB3jTN03qYKQzUoP97bRvAVZ3lwq2pJX4v
-	6FZOSzOf/sskaOtvO/1ffD9W8jxenGDR/LxEDH+kkX3WyNCQKT/fE8xP6AJd/Q==
-Date: Fri, 21 Mar 2025 19:38:54 +0100
+	bh=IuZZ1c6pfeMUYzSCc2NncoPGK60qkvSILYq+w9aYkTE=;
+	b=hwPN6zqjrifTQtFg0tzBTL/P6yepJ4OWg2zrll4M2vwWlDEyESdpFSwFJgNyB8IGmIRyTB
+	9dsSSrLg8UitTnXlV809wNVRtnYHhDV7nB1HgE9PceOBPsp43EZ+dr+ulQbbXiDOqiQHh9
+	J1flOeKER6aXXkzABmZC9FHtwuJqmamXLe4JOYT05OPl65tFMPZ/ey+c/KYDmrG5Xd/+Bo
+	f9zS4HY74/h908abnI2bp1Kk4tnNLD4YIhHaOFJ9K/Dw5mRCMzMvclu+FyaOa7oiELUXqC
+	vjWEzOOmMEOZ0m/axPJkvJr4XHGfFOzJsAgQDugvV85bOVeFXNr07BbAowqXNQ==
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Date: Fri, 21 Mar 2025 20:09:32 +0100
+Subject: [PATCH net-next 01/13] dt-bindings: net: cdns,macb: add Mobileye
+ EyeQ5 ethernet interface
 MIME-Version: 1.0
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Ignacio Encinas Rubio <ignacio@iencinas.com>
-Subject: Re: [PATCH v2 1/2] include/uapi/linux/swab.h: move default
- implementation for swab macros into asm-generic
-To: Arnd Bergmann <arnd@arndb.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- Shuah Khan <skhan@linuxfoundation.org>,
- Zhihang Shao <zhihang.shao.iscas@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Linux-Arch <linux-arch@vger.kernel.org>
-References: <20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com>
- <20250319-riscv-swab-v2-1-d53b6d6ab915@iencinas.com>
- <2afab9dc-e39c-4399-ac5a-87ade4da5ab0@app.fastmail.com>
- <4d45df0c-d44e-4bb6-8daa-0dba1b834bc4@iencinas.com>
- <07b8051b-9d5e-440e-b74d-1ca97402fe2a@app.fastmail.com>
- <ac0b1f3e-6abe-4de2-bf5a-a4b3207a22c3@iencinas.com>
- <583340a9-411d-406f-aee9-d3e2eb80ca43@app.fastmail.com>
-Content-Language: en-US
-In-Reply-To: <583340a9-411d-406f-aee9-d3e2eb80ca43@app.fastmail.com>
-X-Migadu-Flow: FLOW_OUT
+Message-Id: <20250321-macb-v1-1-537b7e37971d@bootlin.com>
+References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
+In-Reply-To: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland <samuel.holland@sifive.com>, 
+ Richard Cochran <richardcochran@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, 
+ Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
+ Gregory CLEMENT <gregory.clement@bootlin.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-mips@vger.kernel.org, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheduledtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomhepvfhhrohoucfnvggsrhhunhcuoehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeelvefhkeeufedvkefghefhgfdukeejlefgtdehtdeivddtteetgedvieelieeuhfenucfkphepjeejrddufeehrdekuddrieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepjeejrddufeehrdekuddrieehpdhhvghloheplgduledvrdduieekrddurdeftdgnpdhmrghilhhfrhhomhepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdekpdhrtghpthhtohepghhrvghgohhrhidrtghlvghmvghnthessghoohhtlhhinhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepthhssghoghgvnhgusegrlhhphhgrrdhfrhgrnhhkvghnrdguvgdprhgtphhtthhopehkuhgsrgesk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhhitgholhgrshdrfhgvrhhrvgesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehthhhomhgrshdrphgvthgriiiiohhnihessghoohhtlhhinhdrtghomh
+X-GND-Sasl: theo.lebrun@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_113902_336916_61753A50 
-X-CRM114-Status: GOOD (  20.19  )
+X-CRM114-CacheID: sfid-20250321_191401_892074_6F4F5AD4 
+X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +105,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 21/3/25 11:23, Arnd Bergmann wrote:
-> On Thu, Mar 20, 2025, at 23:36, Ignacio Encinas Rubio wrote:
->> On 19/3/25 22:49, Arnd Bergmann wrote:
->>> On Wed, Mar 19, 2025, at 22:37, Ignacio Encinas Rubio wrote:
->>>> On 19/3/25 22:12, Arnd Bergmann wrote:
->>> Right, I do remember when we had a discussion about this maybe
->>> 15 years ago when gcc didn't have the builtins on all architectures
->>> yet, but those versions are long gone, and we never cleaned it up.
->>
->> I just had a chance to look at this and it looks a bit more complex than
->> I initially thought. ___constant_swab macros are used in more places
->> than I expected, and {little,big}_endian.h define their own macros that
->> are used elsewhere, ...
->>
->> It is not clear to me how to proceed here. I could:
->>
->>   1) Just remove ___constant_swab macros and replace them with
->>   __builtin_swap everywhere
->>
->>   2) Go a step further and evaluate removing __constant_htonl and
->>   relatives
->>
->> Let me know what you think is the best option :)
-> 
-> I think we can start enabling CONFIG_ARCH_USE_BUILTIN_BSWAP
-> on all architectures and removing the custom versions
-> from arch/*/include/uapi/asm/swab.h, which all seem to
-> predate the compiler builtins and likely produce worse code.
-
-This seems fine for some architectures but I don't think we can use
-this approach for RISC-V. RISC-V code assumes that the bitmanip 
-extension might not be available (see arch/riscv/include/asm/bitops.h).
-
-The current approach [1] is to detect this at boot and patch the kernel 
-to adapt it to the actual hardware running it (using specific 
-instructions or not).
-
-On the other hand, I tried using __builtin_swap for the RISC-V version 
-as an alternative to the "optimized" one (instead of relying on
-___constant_swab, see [2]) and I immediately got compilation errors. 
-
-Some architectures seem to require definitions for __bswapsi2 and 
-__bswapdi2 [3]. I'm guessing this happens for the architectures that
-don't require bit manipulation instructions but have them as extensions.
-
-arm,csky,mips and xtensa seem to fit this description as they 
-feature their own __bswapsi2 implementations. Note that they simply
-call ___constant_swab or are ___constant_swab written in assembly
-language [4] [5].
-
-Unless I'm missing something, it seems to me that using compiler 
-builtins (at least for RISC-V, and potentially others) is even more 
-problematic than keeping ___constant_swab around. What do you think, 
-should we keep patch 1 after all?
-
-We could remove __arch_swab for architectures that always assume bit 
-manipulation instructions availability, but then the kernel would fall
-back into ___constant_swab when CONFIG_ARCH_USE_BUILTIN_BSWAP=n. Turning
-their custom implementations into 
-
-	#define __arch_swabXY __builtin_bswapXY
-
-would solve this issue, but I'm not sure it is an acceptable approach.
-
-Thanks!
-
-[1] https://lore.kernel.org/all/ce034f2b-2f6e-403a-81f1-680af4c72929@ghiti.fr/
-[2] https://lore.kernel.org/all/20250319-riscv-swab-v2-2-d53b6d6ab915@iencinas.com/
-[3] https://gcc.gnu.org/onlinedocs/gcc-13.3.0/gccint.pdf
-[4] https://lore.kernel.org/all/20230512164815.2150839-1-jcmvbkbc@gmail.com/
-[5] https://lore.kernel.org/all/1664437198-31260-3-git-send-email-yangtiezhu@loongson.cn/
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIGNkbnMsZXllcTUtZ2VtIGFzIGNvbXBhdGlibGUgZm9yIHRoZSBpbnRlZ3JhdGVkIEdFTSBi
+bG9jayBpbnNpZGUKTW9iaWxleWUgRXllUTUgU29Dcy4gQWRkIGEgcGhhbmRsZSAoYW5kIHR3byBv
+ZmZzZXQgYXJndW1lbnRzKSBmb3IKYWNjZXNzaW5nIHN5c2NvbiByZWdpc3RlcnMuCgpTaWduZWQt
+b2ZmLWJ5OiBUaMOpbyBMZWJydW4gPHRoZW8ubGVicnVuQGJvb3RsaW4uY29tPgotLS0KIC4uLi9k
+ZXZpY2V0cmVlL2JpbmRpbmdzL25ldC9jZG5zLG1hY2IueWFtbCAgICAgICAgICB8IDIxICsrKysr
+KysrKysrKysrKysrKysrKwogMSBmaWxlIGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKykKCmRpZmYg
+LS1naXQgYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2NkbnMsbWFjYi55
+YW1sIGIvRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL25ldC9jZG5zLG1hY2IueWFt
+bAppbmRleCAzYzMwZGQyM2NkNGVmYTE3ZTE0YjE3YmZiNDFjNTRkZTRlYmFkY2FhLi4zMDZkMTQ5
+NTg3NzhkZjFhODBhMTVlMjRkOGVkNTQwOTcwNDYxM2JlIDEwMDY0NAotLS0gYS9Eb2N1bWVudGF0
+aW9uL2RldmljZXRyZWUvYmluZGluZ3MvbmV0L2NkbnMsbWFjYi55YW1sCisrKyBiL0RvY3VtZW50
+YXRpb24vZGV2aWNldHJlZS9iaW5kaW5ncy9uZXQvY2RucyxtYWNiLnlhbWwKQEAgLTUxLDYgKzUx
+LDcgQEAgcHJvcGVydGllczoKICAgICAgICAgICAtIGF0bWVsLHNhbWE1ZDItZ2VtICAgICAgICAg
+IyBHRU0gSVAgKDEwLzEwMCkgb24gQXRtZWwgc2FtYTVkMiBTb0NzCiAgICAgICAgICAgLSBhdG1l
+bCxzYW1hNWQzLWdlbSAgICAgICAgICMgR2lnYWJpdCBJUCBvbiBBdG1lbCBzYW1hNWQzIFNvQ3MK
+ICAgICAgICAgICAtIGF0bWVsLHNhbWE1ZDQtZ2VtICAgICAgICAgIyBHRU0gSVAgKDEwLzEwMCkg
+b24gQXRtZWwgc2FtYTVkNCBTb0NzCisgICAgICAgICAgLSBtb2JpbGV5ZSxleWVxNS1nZW0gICAg
+ICAgICMgTW9iaWxleWUgRXllUTUgU29DcwogICAgICAgICAgIC0gY2RucyxucDQtbWFjYiAgICAg
+ICAgICAgICAjIE5QNCBTb0MgZGV2aWNlcwogICAgICAgICAgIC0gbWljcm9jaGlwLHNhbWE3ZzUt
+ZW1hYyAgICAjIE1pY3JvY2hpcCBTQU1BN0c1IGV0aGVybmV0IGludGVyZmFjZQogICAgICAgICAg
+IC0gbWljcm9jaGlwLHNhbWE3ZzUtZ2VtICAgICAjIE1pY3JvY2hpcCBTQU1BN0c1IGdpZ2FiaXQg
+ZXRoZXJuZXQgaW50ZXJmYWNlCkBAIC0xMzYsNiArMTM3LDE0IEBAIHByb3BlcnRpZXM6CiAgICAg
+ICBOb2RlIGNvbnRhaW5pbmcgUEhZIGNoaWxkcmVuLiBJZiB0aGlzIG5vZGUgaXMgbm90IHByZXNl
+bnQsIHRoZW4gUEhZcyB3aWxsCiAgICAgICBiZSBkaXJlY3QgY2hpbGRyZW4uCiAKKyAgbW9iaWxl
+eWUsb2xiOgorICAgICRyZWY6IC9zY2hlbWFzL3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3BoYW5k
+bGUtYXJyYXkKKyAgICBpdGVtczoKKyAgICAgIC0gaXRlbXM6CisgICAgICAgICAgLSBkZXNjcmlw
+dGlvbjogcGhhbmRsZSB0byBPTEIgbm9kZQorICAgICAgICAgIC0gZGVzY3JpcHRpb246IE1BQyBH
+ZW5lcmFsLVB1cnBvc2UgcmVnaXN0ZXIgb2Zmc2V0CisgICAgICAgICAgLSBkZXNjcmlwdGlvbjog
+TUFDIFNHTUlJIHJlZ2lzdGVyIG9mZnNldAorCiBwYXR0ZXJuUHJvcGVydGllczoKICAgIl5ldGhl
+cm5ldC1waHlAWzAtOWEtZl0kIjoKICAgICB0eXBlOiBvYmplY3QKQEAgLTE3NCw2ICsxODMsMTgg
+QEAgYWxsT2Y6CiAgICAgICAgIHJlZzoKICAgICAgICAgICBtYXhJdGVtczogMQogCisgIC0gaWY6
+CisgICAgICBwcm9wZXJ0aWVzOgorICAgICAgICBjb21wYXRpYmxlOgorICAgICAgICAgIGNvbnRh
+aW5zOgorICAgICAgICAgICAgY29uc3Q6IG1vYmlsZXllLGV5ZXE1LWdlbQorICAgIHRoZW46Cisg
+ICAgICByZXF1aXJlZDoKKyAgICAgICAgLSBtb2JpbGV5ZSxvbGIKKyAgICBlbHNlOgorICAgICAg
+cHJvcGVydGllczoKKyAgICAgICAgbW9iaWxleWUsb2xiOiBmYWxzZQorCiB1bmV2YWx1YXRlZFBy
+b3BlcnRpZXM6IGZhbHNlCiAKIGV4YW1wbGVzOgoKLS0gCjIuNDguMQoKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
