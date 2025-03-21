@@ -4,90 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0637DC36000
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 16:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793BBC36002
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 17:09:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Mnrd5kvaqKdqKKkZ5Nfbcq8tPoIPDKRKZWzzzQDoEzk=; b=TSlvxENcpnmEI/
-	cNVqer4aJ/tgy4efbysLCN/3CtsoWHr/2oei8dBXmk0SbFiOOeezVGwJ4z2zThqOZiK2uGd8F4K4T
-	dij+uNF3oTo11ZwQiIUdD2eV19p6CSwYnhiKUsFCLrEipluJEURboHxpphgqS+vsgii2PXS/EXuI5
-	2Uz8opW5sppqITP1RFSiJnpnQClbZH3f2BtV6DY2e4JcTWSX8KDbO8dSBzl9cGAUfwTPlZcjmbwoq
-	sHpLOe87xvFt21mNBaIlScNPwqKpm1yTHKv7x5Bcq7lj5L/KlSI4JjsU8qRAeV9k04Ko3yj0Zin0V
-	BXcCwI5pOzlMxZj2+Xuw==;
+	List-Owner; bh=77spn8onxcX3j7VVwkSbT4/5pHptlYk17xiEMNfY14Y=; b=dWkxr/L7Pi2FXd
+	lgOThByMxRfmk8XklBwg2NA+HQkoG8htViGkwVdgdelS1Jo1otRD3cqXFBuLufFQ/7vshsACW4nWa
+	xJJRuJ3lYG1i7Jf16VSSD++YoNuz52hlKtBPKAEhWo1InA6mloDpc/g7ZC0RrPAdZfM0Nv3N0VM1s
+	rUeN7xcbqKylNKYmOc3wIz0R6XstahwwaDJ0Vr3Y7/PAj2iBSS0WxaUDYzxhkm+txEBRLI5r6Uklc
+	WUcJisnHFf18d8nzRaxP64T0lsCBzKMirYxl0OCLxw9IA9ebk7ztga/xOl08SnlDI/vQC9Lw/yana
+	qoVXzRuBthiQ9F0jTmbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfaZ-0000000FaWG-2ktZ;
-	Fri, 21 Mar 2025 16:51:19 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1tvfsP-0000000Fdv6-2wYI;
+	Fri, 21 Mar 2025 17:09:45 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfaW-0000000FaV1-1OeG
-	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 16:51:17 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-85e14ce87ceso67358439f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 21 Mar 2025 09:51:16 -0700 (PDT)
+	id 1tvfon-0000000FdIl-336B;
+	Fri, 21 Mar 2025 17:06:02 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2235189adaeso44034555ad.0;
+        Fri, 21 Mar 2025 10:06:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742575875; x=1743180675; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=pzK1WGYHzNSQEzJMM5cCsywytwS/BE8E1AY6ka1PBNQ=;
-        b=lkAHPjEdXZQleOCRcCswbAJXF0cF/j5WuOlU6ErmcTZSE9pQem/h3eTxT9RnpTIl4v
-         Yvcjss4VLRa8iVUgrk+kYbBQKE2kj8jHVXcnI3DnGmVPf7ac+0pT7nzoHSPODNg5Drjm
-         BoowQHvNUi3hsMHhKM2JZfnfOYcP6eu25QkACXi0SqkvMAUJfEtKCz6PjqS9nqKpsN/t
-         kYvH/vpDuJQ1mi0gXY9hzL3cs389hM+JWzkU5ojRD2+QOHn+tOTg2a7ON96m1hDevb5R
-         Jtublx4qb5ykjEWh3drqJ20kV8Jw31Zt7wNogRffTdRE6eOZYKwgzj7zmSdo7BeAoOrH
-         qctg==
+        d=gmail.com; s=20230601; t=1742576760; x=1743181560; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=DGn88oPkGY52kMYyELFbKZ2t+jeQDt845yU5wPNCV7I=;
+        b=IKnC/l0Pq/QyOb1jbMlpzg3oCpWaF9iprIacBDARVoUNcqUOfqH/IvqNlvOMnLSrex
+         /Wgn+1LTj6WBwN2Y07SXbIyBBEK83nUuJX4qmlU0nv241+rN1QF1i179w23KkJVPNad5
+         CfIYx8Oe3Ei1uUAscv5pns3W3OlwWQcnEJydwz+BsgiCJyJaw9Dnx5XBCkcwWxgrghKa
+         f3+AwZECL7UCVbPQyNgGUHOCT1AmoVCBo+X03MZIK8W62ik48eKQ8TdmRFBjL/iY48MS
+         T2XibJhwDBd1wk+CqazWszUb9RMnV0dDGMeci/Y005pfrtEt1fYr5sOeDbmVcHxptNoi
+         IkvA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742575875; x=1743180675;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pzK1WGYHzNSQEzJMM5cCsywytwS/BE8E1AY6ka1PBNQ=;
-        b=OSAFr+JQKL9I20il4PC6vQdIURs8A49fplqFSZbGxCT+YYXYNAhTJR0c41bq9bG35o
-         PVnZOF7ETGavKHPdh2by6Vo7YRdw4Dw+915FbA6Rpkxvcy+iV5/eRKc0QDN3bFO4DtFN
-         N2nHE/U16winarK4xFBoNNi4gXPpoRbKkfPMtuzvWvHOc0SCdluBYDwVHA02sDIqAAF6
-         jCKhEuUVNmr6Kil+3f3+j/9+NNFWppL9QDoGbpseEe2iYdmImU72M+uy2PzwSXczFYz6
-         bNLMxrOrpB+29gysw3++2t+Nkf6MJJkSZXl1CrV6Mk4BezAt9UVpSxE29gx3jzJQNtI4
-         q1zg==
-X-Forwarded-Encrypted: i=1; AJvYcCUAPlotGIwbUCAg4fQSlt2zh2hFfRajrbmOeh3iComDMDgfL3sj8vxUw7wiy3IlKXVQcL3JYfP1nEk6kw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzjFGB52Ee49fXcryAD9Vv7IEDoZWKLDuUrmx8ZJ2JAZ8NtngBX
-	f2r5BqG6EcBRoylWy2AQEY68bT0AcaihkGH+7YP50a6EKYLA15NvDUgVar6r7nk=
-X-Gm-Gg: ASbGncuuXMWNkvy61l+Y0UbtSJUP+1P5/a59sZYh6rDNmtImQrqKl5uEjNxNPgfa8uT
-	4GK2BYeKy5g4ytMsNjrb845F/nY2x0NQb9pyNuRzamcPlKXz76D+o77mHDIeeMTNZTbqB1Kji3M
-	e7Zk1PEeqA+91BV7Ta3kCRfbzIJHAhyIdZFqekPGVIW4F5aoAJzrn2+tv1SLxhqncz154U9pJ6W
-	KvYy6QGSRI7XZjWJxIXQFpJoiv68M/cf74V3FroMj2e9lss64PIM9eBmHHYW7Bgkjr5kTO01QNy
-	EAYo73sCh+M1CTuJ2LCDNBdSVLP1Of/ycoSwc24vFENSwhEHbyhml4VOaupa7Vr0lQoYC9dWTNt
-	2BY0Ws+yxwwE6wZbPiw==
-X-Google-Smtp-Source: AGHT+IH20L7xZ9FbSSWQT43kyWkhTGHjv6LRqusofBtW84SCRx5VKyrgNItG2BhiTqAgVRCVgxE9tA==
-X-Received: by 2002:a05:6602:6a89:b0:85b:4cb9:5cf6 with SMTP id ca18e2360f4ac-85e2bc71838mr361639039f.0.1742575875339;
-        Fri, 21 Mar 2025 09:51:15 -0700 (PDT)
-Received: from [10.211.55.5] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-85e2bc13d74sm45863839f.11.2025.03.21.09.51.14
+        d=1e100.net; s=20230601; t=1742576760; x=1743181560;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DGn88oPkGY52kMYyELFbKZ2t+jeQDt845yU5wPNCV7I=;
+        b=Ug936O49pnJkQRwRY2x/KQi7SVDjtw0M7A1EHYFgFBCwk7qiXW+ZBJzwz/WcdjkIa4
+         fO4QqsPS8W6BPsJSHD+XgECJeMvE74dYLpmL+K4i93OO2P8xtrtwYRUq+Z3GusAuGnfb
+         U3mWdyzdudcg/tHWbAPB5KbdWV4J2NtnK/HRmHm0IVelpMTPaVEF2SIVw9ujL+r1+Wye
+         OpM1h+Cn7v322ps9T8BPD8x40G2MyfSkuuvGFrTMKUqWxB0IcpbYtXvBVCLnKs/WBKy4
+         e73M3jkspXuAVbyFDUzwk2MY17nEcKsAf5m2IKIfcqbqoScD+YBiMyOj0CMY8H+YCctC
+         leSQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUqOWULdUagPuREN3YN/fl6B41u29wfCsGWzObgpY3TY4sPvT2gO3/qsKEtsisYOqfynTfwPr4vHK046nI=@lists.infradead.org, AJvYcCWoacuX+UoXXgUb/Q0f+E5UOH8JLVQNgVkKD5L/y3PdN88c/IpD7w6kc1otfn2QAroz2TXaG9Eh51rBhozsIdN6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwppsjdQV2jAk8vAFlxMuesdHuNJ5QDp9KMI9gVsmnI4YdbI5RT
+	nI86WhKYxv1hQOZOpFfODZWWR/Z5tD7tXxcp37a67l/tADUp3twt
+X-Gm-Gg: ASbGncuRvXYWpFNDP467OWisRjyet5IiOt4AqKNew2nMFWlB+oMY3PAiVrlRHonNnHi
+	JKIxBNjs08LojWzmh3tmtxgEe3fc+0E+PNHaBFqCZl4M8j7U+vNtdx4pOO2DeT2qu7ojAnazljo
+	FXZVg55FafEMZ2GqcQXQ1PnQzT/8NmI+w9UjZJyCECk+T/bSpVFqJ2hCXp8xhm0HSiYhvTY7QZ5
+	+ViueWoVbC5b2zNOvGGk2u1xvmNZzYK7WJQyzQ9M8SQUIUXU5DXCqxWzL1pyy5IaW6bcywnle0f
+	4wHiPe/7L9PeYI1oaTbITkBLw9dkH5XwNdWSS9Xc3ZqruCFGsHJr67Vkh67O/St2FB+YIPCT4Fc
+	4krP5tLJ3CldiXkUcfA==
+X-Google-Smtp-Source: AGHT+IGlJ+Z2e1+BqNuKZjJeYaVTSO5uEIrxfNDx54p4mNFYbbGfGIs11ZjWWb6jUGSm+z6+aHdutQ==
+X-Received: by 2002:a17:902:ce84:b0:223:fb95:b019 with SMTP id d9443c01a7336-2265e7a1b2emr136230625ad.24.1742576760001;
+        Fri, 21 Mar 2025 10:06:00 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f45879sm19661595ad.65.2025.03.21.10.05.56
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Mar 2025 09:51:14 -0700 (PDT)
-Message-ID: <b0583550-eb2c-4918-b9e7-7041d3fd2e9e@riscstar.com>
-Date: Fri, 21 Mar 2025 11:51:13 -0500
+        Fri, 21 Mar 2025 10:05:59 -0700 (PDT)
+Message-ID: <b6bb68f0-7e93-4db2-9fe6-f615f06ddeb1@roeck-us.net>
+Date: Fri, 21 Mar 2025 10:05:55 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
-To: Yixun Lan <dlan@gentoo.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
-Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
- <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
+Subject: Re: [PATCH v4 10/14] s390: Add support for suppressing warning
+ backtraces
+To: Alessandro Carminati <acarmina@redhat.com>,
+ linux-kselftest@vger.kernel.org
+Cc: David Airlie <airlied@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+ =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+ Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>,
+ Daniel Diaz <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>,
+ Arthur Grillo <arthurgrillo@riseup.net>,
+ Brendan Higgins <brendan.higgins@linux.dev>,
+ Naresh Kamboju <naresh.kamboju@linaro.org>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard
+ <mripard@kernel.org>, =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?=
+ <ville.syrjala@linux.intel.com>, Daniel Vetter <daniel@ffwll.ch>,
+ Thomas Zimmermann <tzimmermann@suse.de>,
+ Alessandro Carminati <alessandro.carminati@gmail.com>,
+ Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org,
+ kunit-dev@googlegroups.com, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+ loongarch@lists.linux.dev, x86@kernel.org,
+ Linux Kernel Functional Testing <lkft@linaro.org>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-11-acarmina@redhat.com>
 Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <20250313114329.284104-11-acarmina@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_095116_647637_6A8375F3 
-X-CRM114-Status: GOOD (  22.71  )
+X-CRM114-CacheID: sfid-20250321_100601_770877_AE664C74 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,164 +167,66 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2/13/25 4:58 AM, Yixun Lan wrote:
-> The SDHCI controller found in SpacemiT K1 SoC features SD,
-> SDIO, eMMC support, such as:
+On 3/13/25 04:43, Alessandro Carminati wrote:
+> From: Guenter Roeck <linux@roeck-us.net>
 > 
-> - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
-> - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
-> - Compatible for 8bit eMMC5.1, up to HS400
+> Add name of functions triggering warning backtraces to the __bug_table
+> object section to enable support for suppressing WARNING backtraces.
 > 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-
-Why is this RFC? Have you tested it?
-
-I have a few minor comments but this seems reasonable to me.
-
+> To limit image size impact, the pointer to the function name is only added
+> to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
+> CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
+> parameter is replaced with a (dummy) NULL parameter to avoid an image size
+> increase due to unused __func__ entries (this is necessary because
+> __func__ is not a define but a virtual variable).
+> 
+> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Cc: Heiko Carstens <hca@linux.ibm.com>
+> Cc: Vasily Gorbik <gor@linux.ibm.com>
+> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
+> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+> Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
 > ---
->   drivers/mmc/host/Kconfig       |  14 ++
->   drivers/mmc/host/Makefile      |   1 +
->   drivers/mmc/host/sdhci-of-k1.c | 320 +++++++++++++++++++++++++++++++++++++++++
->   3 files changed, 335 insertions(+)
+>   arch/s390/include/asm/bug.h | 17 ++++++++++++++---
+>   1 file changed, 14 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/s390/include/asm/bug.h b/arch/s390/include/asm/bug.h
+> index c500d45fb465..44d4e9f24ae0 100644
+> --- a/arch/s390/include/asm/bug.h
+> +++ b/arch/s390/include/asm/bug.h
+> @@ -8,6 +8,15 @@
+>   
+>   #ifdef CONFIG_DEBUG_BUGVERBOSE
+>   
+> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
+> +# define HAVE_BUG_FUNCTION
+> +# define __BUG_FUNC_PTR	"	.long	%0-.\n"
+> +# define __BUG_FUNC	__func__
 
-. . .
+gcc 7.5.0 on s390 barfs; it doesn't like the use of "__func__" with "%0-."
 
-> +#define SDHC_PHY_DLLCFG			0x168
-> +#define  DLL_PREDLY_NUM			0x04
-> +#define  DLL_FULLDLY_RANGE		0x10
-> +#define  DLL_VREG_CTRL			0x40
-> +#define  DLL_ENABLE			0x80000000
-> +#define  DLL_REFRESH_SWEN_SHIFT		0x1C
-> +#define  DLL_REFRESH_SW_SHIFT		0x1D
-> +
-> +#define SDHC_PHY_DLLCFG1		0x16C
-> +#define  DLL_REG2_CTRL			0x0C
-> +#define  DLL_REG3_CTRL_MASK		0xFF
+drivers/gpu/drm/bridge/analogix/analogix-i2c-dptx.c: In function 'anx_dp_aux_transfer':
+././include/linux/compiler_types.h:492:20: warning: asm operand 0 probably doesn't match constraints
 
-As Adrian said, please use GENMASK() (or BIT()) to define
-these masks, and FIELD_GET() or similar to manipulate them.
-I prefer lower-case hex digits too.
+I was unable to find an alternate constraint that the compiler would accept.
 
-> +#define  DLL_REG3_CTRL_SHIFT		0x10
-> +#define  DLL_REG2_CTRL_MASK		0xFF
-> +#define  DLL_REG2_CTRL_SHIFT		0x08
-> +#define  DLL_REG1_CTRL			0x92
-> +#define  DLL_REG1_CTRL_MASK		0xFF
-> +#define  DLL_REG1_CTRL_SHIFT		0x00
-> +
-> +#define SDHC_PHY_DLLSTS			0x170
-> +#define  DLL_LOCK_STATE			0x01
-> +
-> +#define SDHC_PHY_DLLSTS1		0x174
-> +#define  DLL_MASTER_DELAY_MASK		0xFF
-> +#define  DLL_MASTER_DELAY_SHIFT		0x10
-> +
-> +#define SDHC_PHY_PADCFG_REG		0x178
-> +#define  RX_BIAS_CTRL			BIT(5)
-> +#define  PHY_DRIVE_SEL_MASK		0x7
-> +#define  PHY_DRIVE_SEL_DEFAULT		0x4
-> +
-> +struct spacemit_sdhci_host {
-> +	struct clk *clk_core;
-> +	struct clk *clk_io;
-> +};
-> +
+I don't know if the same problem is seen with older compilers on other architectures,
+or if the problem is relevant in the first place.
 
-I don't think the next few functions add any real value.
+gcc 10.3.0 and later do not have this problem. I also tried s390 builds with gcc 9.4
+and 9.5 but they both crash for unrelated reasons.
 
-Just call sdhci_writel() and sdhci_readl() directly.  It
-might even take fewer characters (but above all, I think
-it's clearer without the function hiding what's done).
+If this is a concern, the best idea I have is to make KUNIT_SUPPRESS_BACKTRACE
+depend on, say,
+	depends on CC_IS_CLANG || (CC_IS_GCC && GCC_VERSION >= 100300)
 
-> +static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
-> +{
-> +	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
-> +}
-> +
-> +static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
-> +{
-> +	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
-> +}
-> +
+A more complex solution might be to define an architecture flag such
+as HAVE_SUPPRESS_BACKTRACE, make that conditional on the gcc version
+for s390 only, and make KUNIT_SUPPRESS_BACKTRACE depend on it.
 
-This too, just open-code this function in the two places it's used.
+Guenter
 
-> +static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
-> +{
-> +	u32 val = sdhci_readl(host, reg);
-> +
-> +	val = (val & ~clr) | set;
-> +	sdhci_writel(host, val, reg);
-> +}
-> +
-> +static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
-> +{
-> +	struct platform_device *pdev;
-> +
-
-. . .
-
-> +	udelay(5);
-> +
-> +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-> +}
-> +
-
-I don't feel as strongly about this, but...
-
-Here too, what the next function does is very typical and all
-of it could go in the probe function.  I do understand that it
-groups the clock-related code though.
-
-But aside from that, I think assigning pltfm_host->clock could
-be done in the probe function rather than hiding it in here.
-
-> +static inline int spacemit_sdhci_get_clocks(struct device *dev,
-> +					    struct sdhci_pltfm_host *pltfm_host)
-> +{
-> +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> +
-> +	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
-> +	if (IS_ERR(sdhst->clk_core))
-> +		return -EINVAL;
-> +
-> +	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
-> +	if (IS_ERR(sdhst->clk_io))
-> +		return -EINVAL;
-> +
-> +	pltfm_host->clk = sdhst->clk_io;
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct sdhci_ops spacemit_sdhci_ops = {
-> +	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
-> +	.reset			= spacemit_sdhci_reset,
-> +	.set_bus_width		= sdhci_set_bus_width,
-> +	.set_clock		= spacemit_sdhci_set_clock,
-> +	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
-> +};
-> +
-
-I think you should make the next structure be used as platform
-data for "spacemit,k1-sdhci", rather than just a global.  That
-way you could conceivably use the same driver with slightly
-different (or even the same) quirks for future hardware.
-
-					-Alex
-
-> +static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
-> +	.ops = &spacemit_sdhci_ops,
-> +	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
-> +		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
-> +		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
-> +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> +		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
-> +		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> +	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
-> +		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> +};
-> +. . .
 
 _______________________________________________
 linux-riscv mailing list
