@@ -4,153 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 793BBC36002
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 17:09:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FE5FC36000
+	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 17:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=77spn8onxcX3j7VVwkSbT4/5pHptlYk17xiEMNfY14Y=; b=dWkxr/L7Pi2FXd
-	lgOThByMxRfmk8XklBwg2NA+HQkoG8htViGkwVdgdelS1Jo1otRD3cqXFBuLufFQ/7vshsACW4nWa
-	xJJRuJ3lYG1i7Jf16VSSD++YoNuz52hlKtBPKAEhWo1InA6mloDpc/g7ZC0RrPAdZfM0Nv3N0VM1s
-	rUeN7xcbqKylNKYmOc3wIz0R6XstahwwaDJ0Vr3Y7/PAj2iBSS0WxaUDYzxhkm+txEBRLI5r6Uklc
-	WUcJisnHFf18d8nzRaxP64T0lsCBzKMirYxl0OCLxw9IA9ebk7ztga/xOl08SnlDI/vQC9Lw/yana
-	qoVXzRuBthiQ9F0jTmbw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=CYv2rCrDc8m9PKnlaYGJiE+7ARBrJCQ6b1KPJYaffss=; b=Y8p1Yk4TZimnK2
+	qkj0bvb1O+xMJMN6YoTG08hQ8HOb20iY3YrsiMgCdvyrpqKC5sI/b4aXjc6m4njX0aT35PWA8tMiN
+	V8gutYYPG1zK0hIe6o9mzlYjn6k9Zl1rMR8o0DMBr2cESz3bRq2ihVzfCSK6Y8/W/H25XLlMkxvMm
+	4LgXQp/Gg8OA1jV+7j7DqHJLnGD0GbIchfnm7iExckzAPbkfUhrITdJcUmyh0ohLlZeWguJc7IRvu
+	mlXTmw92duD9Dr3I9gcFHttLZNW779XY9D+8+JDlBfRyX0As1/WGKF3qZmWUZjLoOHQqQF5tEZRRh
+	uecGVbanP/05uTBJqqjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfsP-0000000Fdv6-2wYI;
-	Fri, 21 Mar 2025 17:09:45 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1tvg5V-0000000FgV2-1qpj;
+	Fri, 21 Mar 2025 17:23:17 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvfon-0000000FdIl-336B;
-	Fri, 21 Mar 2025 17:06:02 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2235189adaeso44034555ad.0;
-        Fri, 21 Mar 2025 10:06:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742576760; x=1743181560; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=DGn88oPkGY52kMYyELFbKZ2t+jeQDt845yU5wPNCV7I=;
-        b=IKnC/l0Pq/QyOb1jbMlpzg3oCpWaF9iprIacBDARVoUNcqUOfqH/IvqNlvOMnLSrex
-         /Wgn+1LTj6WBwN2Y07SXbIyBBEK83nUuJX4qmlU0nv241+rN1QF1i179w23KkJVPNad5
-         CfIYx8Oe3Ei1uUAscv5pns3W3OlwWQcnEJydwz+BsgiCJyJaw9Dnx5XBCkcwWxgrghKa
-         f3+AwZECL7UCVbPQyNgGUHOCT1AmoVCBo+X03MZIK8W62ik48eKQ8TdmRFBjL/iY48MS
-         T2XibJhwDBd1wk+CqazWszUb9RMnV0dDGMeci/Y005pfrtEt1fYr5sOeDbmVcHxptNoi
-         IkvA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742576760; x=1743181560;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DGn88oPkGY52kMYyELFbKZ2t+jeQDt845yU5wPNCV7I=;
-        b=Ug936O49pnJkQRwRY2x/KQi7SVDjtw0M7A1EHYFgFBCwk7qiXW+ZBJzwz/WcdjkIa4
-         fO4QqsPS8W6BPsJSHD+XgECJeMvE74dYLpmL+K4i93OO2P8xtrtwYRUq+Z3GusAuGnfb
-         U3mWdyzdudcg/tHWbAPB5KbdWV4J2NtnK/HRmHm0IVelpMTPaVEF2SIVw9ujL+r1+Wye
-         OpM1h+Cn7v322ps9T8BPD8x40G2MyfSkuuvGFrTMKUqWxB0IcpbYtXvBVCLnKs/WBKy4
-         e73M3jkspXuAVbyFDUzwk2MY17nEcKsAf5m2IKIfcqbqoScD+YBiMyOj0CMY8H+YCctC
-         leSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqOWULdUagPuREN3YN/fl6B41u29wfCsGWzObgpY3TY4sPvT2gO3/qsKEtsisYOqfynTfwPr4vHK046nI=@lists.infradead.org, AJvYcCWoacuX+UoXXgUb/Q0f+E5UOH8JLVQNgVkKD5L/y3PdN88c/IpD7w6kc1otfn2QAroz2TXaG9Eh51rBhozsIdN6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwppsjdQV2jAk8vAFlxMuesdHuNJ5QDp9KMI9gVsmnI4YdbI5RT
-	nI86WhKYxv1hQOZOpFfODZWWR/Z5tD7tXxcp37a67l/tADUp3twt
-X-Gm-Gg: ASbGncuRvXYWpFNDP467OWisRjyet5IiOt4AqKNew2nMFWlB+oMY3PAiVrlRHonNnHi
-	JKIxBNjs08LojWzmh3tmtxgEe3fc+0E+PNHaBFqCZl4M8j7U+vNtdx4pOO2DeT2qu7ojAnazljo
-	FXZVg55FafEMZ2GqcQXQ1PnQzT/8NmI+w9UjZJyCECk+T/bSpVFqJ2hCXp8xhm0HSiYhvTY7QZ5
-	+ViueWoVbC5b2zNOvGGk2u1xvmNZzYK7WJQyzQ9M8SQUIUXU5DXCqxWzL1pyy5IaW6bcywnle0f
-	4wHiPe/7L9PeYI1oaTbITkBLw9dkH5XwNdWSS9Xc3ZqruCFGsHJr67Vkh67O/St2FB+YIPCT4Fc
-	4krP5tLJ3CldiXkUcfA==
-X-Google-Smtp-Source: AGHT+IGlJ+Z2e1+BqNuKZjJeYaVTSO5uEIrxfNDx54p4mNFYbbGfGIs11ZjWWb6jUGSm+z6+aHdutQ==
-X-Received: by 2002:a17:902:ce84:b0:223:fb95:b019 with SMTP id d9443c01a7336-2265e7a1b2emr136230625ad.24.1742576760001;
-        Fri, 21 Mar 2025 10:06:00 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f45879sm19661595ad.65.2025.03.21.10.05.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 21 Mar 2025 10:05:59 -0700 (PDT)
-Message-ID: <b6bb68f0-7e93-4db2-9fe6-f615f06ddeb1@roeck-us.net>
-Date: Fri, 21 Mar 2025 10:05:55 -0700
+	id 1tvg5S-0000000FgUG-2ct3
+	for linux-riscv@lists.infradead.org;
+	Fri, 21 Mar 2025 17:23:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8BA6C5C66F9;
+	Fri, 21 Mar 2025 17:20:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E527EC4CEE3;
+	Fri, 21 Mar 2025 17:23:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742577792;
+	bh=ALF8uIdVgunXcUP0TGmP+eJ0CmXSJCrrrJygn06nOiM=;
+	h=From:To:Cc:Subject:Date:From;
+	b=eBW8ma+yGXEACHnQAT1uqCIasZxE+WTQAkhXFnS+npwir/3VFXtY26bPunv+XNyie
+	 HXe2TQFw5JeR1PdFheb4r8SzpNDZBViEIuPRWOSUby7cpKPiRYbn0V0/YoKbAhAMLP
+	 bVrKSeVO0XCvKZ1DSdggUHL/cGAmmjLRZII7U/4MfA3ZI4kKXCj6/szJ18VuAjIaA1
+	 nKAGWI+pLSPB3z2Qs8nPyTLdaWS/z4pnzncmOhuj5cKdFycyEYg+Thr+SJfiClyoBr
+	 WwGfXxszZm2EmNC2yod//zm6wXOk45HpDDiCLXxiZdcGjMsfULmzFki42xlCA7G6Bw
+	 teEvcE3LTNWog==
+From: Conor Dooley <conor@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [RFC PATCH v2 0/9] Redo PolarFire SoC's mailbox/clock devicestrees and related code
+Date: Fri, 21 Mar 2025 17:22:33 +0000
+Message-ID: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 10/14] s390: Add support for suppressing warning
- backtraces
-To: Alessandro Carminati <acarmina@redhat.com>,
- linux-kselftest@vger.kernel.org
-Cc: David Airlie <airlied@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
- =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
- Dan Carpenter <dan.carpenter@linaro.org>, Kees Cook <keescook@chromium.org>,
- Daniel Diaz <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>,
- Arthur Grillo <arthurgrillo@riseup.net>,
- Brendan Higgins <brendan.higgins@linux.dev>,
- Naresh Kamboju <naresh.kamboju@linaro.org>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Andrew Morton <akpm@linux-foundation.org>, Maxime Ripard
- <mripard@kernel.org>, =?UTF-8?B?VmlsbGUgU3lyasOkbMOk?=
- <ville.syrjala@linux.intel.com>, Daniel Vetter <daniel@ffwll.ch>,
- Thomas Zimmermann <tzimmermann@suse.de>,
- Alessandro Carminati <alessandro.carminati@gmail.com>,
- Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org,
- kunit-dev@googlegroups.com, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
- loongarch@lists.linux.dev, x86@kernel.org,
- Linux Kernel Functional Testing <lkft@linaro.org>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>
-References: <20250313114329.284104-1-acarmina@redhat.com>
- <20250313114329.284104-11-acarmina@redhat.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20250313114329.284104-11-acarmina@redhat.com>
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5347; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=v72IsBW2yUvcvDH5N5nR2Mvll104/cwB1qRKakjs864=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDOl3F0TsqLATvPxVRrIrN5V7uvMEKb4CgYjTKz6qJL0Qf x7nlbito5SFQYyDQVZMkSXxdl+L1Po/Ljuce97CzGFlAhnCwMUpABPhXMfwv9Q1fMecYmvxSw6B LDGv47mD0pvm3F3r0Ka2YfPJA1yzmhkZ5gqdytFb+in49i4/N0VRhRkCp+S1DpufCZPjTl/R+u8 lMwA=
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_100601_770877_AE664C74 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250321_102314_748155_52062A8D 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,70 +82,125 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/13/25 04:43, Alessandro Carminati wrote:
-> From: Guenter Roeck <linux@roeck-us.net>
-> 
-> Add name of functions triggering warning backtraces to the __bug_table
-> object section to enable support for suppressing WARNING backtraces.
-> 
-> To limit image size impact, the pointer to the function name is only added
-> to the __bug_table section if both CONFIG_KUNIT_SUPPRESS_BACKTRACE and
-> CONFIG_DEBUG_BUGVERBOSE are enabled. Otherwise, the __func__ assembly
-> parameter is replaced with a (dummy) NULL parameter to avoid an image size
-> increase due to unused __func__ entries (this is necessary because
-> __func__ is not a define but a virtual variable).
-> 
-> Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
-> Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-> Signed-off-by: Guenter Roeck <linux@roeck-us.net>
-> Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
-> ---
->   arch/s390/include/asm/bug.h | 17 ++++++++++++++---
->   1 file changed, 14 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/s390/include/asm/bug.h b/arch/s390/include/asm/bug.h
-> index c500d45fb465..44d4e9f24ae0 100644
-> --- a/arch/s390/include/asm/bug.h
-> +++ b/arch/s390/include/asm/bug.h
-> @@ -8,6 +8,15 @@
->   
->   #ifdef CONFIG_DEBUG_BUGVERBOSE
->   
-> +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
-> +# define HAVE_BUG_FUNCTION
-> +# define __BUG_FUNC_PTR	"	.long	%0-.\n"
-> +# define __BUG_FUNC	__func__
+From: Conor Dooley <conor.dooley@microchip.com>
 
-gcc 7.5.0 on s390 barfs; it doesn't like the use of "__func__" with "%0-."
+(Back to RFC again, as I'm really just wanting to hear from Stephen on
+what I did with the regmap clocks, and if it was what he was looking
+for)
 
-drivers/gpu/drm/bridge/analogix/analogix-i2c-dptx.c: In function 'anx_dp_aux_transfer':
-././include/linux/compiler_types.h:492:20: warning: asm operand 0 probably doesn't match constraints
+Yo,
 
-I was unable to find an alternate constraint that the compiler would accept.
+Here's something that I've been mulling over for a while, since I
+started to understand how devicetree stuff was "meant" to be done.
+There'd been little reason to actually press forward with it, because it
+is fairly disruptive. I've finally opted to do it, because a user has
+come along with a hwmon driver that needs to access the same register
+region as the mailbox and the author is not keen on using the aux bus,
+and because I do not want the new pic64gx SoC that's based on PolarFire
+SoC to use bindings etc that I know to be incorrect.
 
-I don't know if the same problem is seen with older compilers on other architectures,
-or if the problem is relevant in the first place.
+Given backwards compatibility needs to be maintained, this patch series
+isn't the prettiest thing I have ever written. The reset driver needs to
+retain support for the auxiliary bus, which looks a bit mess, but not
+much can be done there. The mailbox and clock drivers both have to have
+an "old probe" function to handle the old layout. Thankfully in the
+clock driver, regmap support can be used to identically
+handle both old and new devicetree formats - but using a regmap in the
+mailbox driver was only really possible for the new format, so the code
+there is unfortunately a bit of an if/else mess that I'm both not proud
+of, nor really sure is worth "improving".
 
-gcc 10.3.0 and later do not have this problem. I also tried s390 builds with gcc 9.4
-and 9.5 but they both crash for unrelated reasons.
+The series should be pretty splitable per subsystem, only the dts change
+has some sort of dependency, but I'll not be applying that till
+everything else is in Linus' tree, so that's not a big deal.
 
-If this is a concern, the best idea I have is to make KUNIT_SUPPRESS_BACKTRACE
-depend on, say,
-	depends on CC_IS_CLANG || (CC_IS_GCC && GCC_VERSION >= 100300)
+I don't really want this stuff in stable, hence a lack of cc: stable
+anywhere here, since what's currently in the tree works fine for the
+currently supported hardware.
 
-A more complex solution might be to define an architecture flag such
-as HAVE_SUPPRESS_BACKTRACE, make that conditional on the gcc version
-for s390 only, and make KUNIT_SUPPRESS_BACKTRACE depend on it.
+AFAIK, the only other project affected here is U-Boot, which I have
+already modified to support the new format.
 
-Guenter
+I previously submitted this as an RFC, only to Lee and the dt list, in
+order to get some feedback on the syscon/mfd bindings:
+https://lore.kernel.org/all/20240815-shindig-bunny-fd42792d638a@spud/
+I'm not really going to bother with a proper changelog, since that was
+submitted with lots of WIP code to get answers to some questions. The
+main change was "removing" some of the child nodes of the syscons.
+
+and as a "real" series where discussion lead to me dropping use of the
+amlogic clk-regmap support:
+https://lore.kernel.org/linux-clk/20241002-private-unequal-33cfa6101338@spud/
+As a result of that, I've implemented what I think Stephen was asking
+for - but I'm not at all sure that it is..
+
+Cheers,
+Conor.
+
+CC: Conor Dooley <conor.dooley@microchip.com>
+CC: Daire McNamara <daire.mcnamara@microchip.com>
+CC: pierre-henry.moussay@microchip.com
+CC: valentina.fernandezalanis@microchip.com
+CC: Michael Turquette <mturquette@baylibre.com>
+CC: Stephen Boyd <sboyd@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Jassi Brar <jassisinghbrar@gmail.com>
+CC: Lee Jones <lee@kernel.org>
+CC: Paul Walmsley <paul.walmsley@sifive.com>
+CC: Palmer Dabbelt <palmer@dabbelt.com>
+CC: Philipp Zabel <p.zabel@pengutronix.de>
+CC: linux-riscv@lists.infradead.org
+CC: linux-clk@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+
+Conor Dooley (9):
+  dt-bindings: mfd: syscon document the control-scb syscon on PolarFire
+    SoC
+  dt-bindings: soc: microchip: document the simple-mfd syscon on
+    PolarFire SoC
+  soc: microchip: add mfd drivers for two syscon regions on PolarFire
+    SoC
+  reset: mpfs: add non-auxiliary bus probing
+  dt-bindings: clk: microchip: mpfs: remove first reg region
+  riscv: dts: microchip: fix mailbox description
+  riscv: dts: microchip: convert clock and reset to use syscon
+  clk: divider, gate: create regmap-backed copies of gate and divider
+    clocks
+  clk: microchip: mpfs: use regmap clock types
+
+ .../bindings/clock/microchip,mpfs-clkcfg.yaml |  36 ++-
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ .../microchip,mpfs-mss-top-sysreg.yaml        |  49 ++++
+ arch/riscv/boot/dts/microchip/mpfs.dtsi       |  34 ++-
+ drivers/clk/Kconfig                           |   8 +
+ drivers/clk/Makefile                          |   2 +
+ drivers/clk/clk-divider-regmap.c              | 270 ++++++++++++++++++
+ drivers/clk/clk-gate-regmap.c                 | 253 ++++++++++++++++
+ drivers/clk/clk-gate.c                        |   5 +-
+ drivers/clk/microchip/Kconfig                 |   4 +
+ drivers/clk/microchip/clk-mpfs.c              | 151 ++++++----
+ drivers/reset/reset-mpfs.c                    |  81 ++++--
+ drivers/soc/microchip/Kconfig                 |  13 +
+ drivers/soc/microchip/Makefile                |   1 +
+ drivers/soc/microchip/mpfs-control-scb.c      |  45 +++
+ drivers/soc/microchip/mpfs-mss-top-sysreg.c   |  48 ++++
+ include/linux/clk-provider.h                  | 120 ++++++++
+ 17 files changed, 1026 insertions(+), 96 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/soc/microchip/microchip,mpfs-mss-top-sysreg.yaml
+ create mode 100644 drivers/clk/clk-divider-regmap.c
+ create mode 100644 drivers/clk/clk-gate-regmap.c
+ create mode 100644 drivers/soc/microchip/mpfs-control-scb.c
+ create mode 100644 drivers/soc/microchip/mpfs-mss-top-sysreg.c
+
+-- 
+2.45.2
 
 
 _______________________________________________
