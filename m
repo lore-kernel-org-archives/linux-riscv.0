@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A745AC35FFC
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Mar 2025 06:31:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92792C35FFC
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Mar 2025 07:34:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=+QTDSVgK3sM4VDH3OuAYkcGo/acI362WI7B0ITWgFaE=; b=qcSFC5fj2fW6Nl
-	smDanpfVyh/qDgPget+3zplGxo5Fc4MJ+0dmBijtOMVwJ+qSi444LAuzuM5ObG2EiZYyFTVzYdSoD
-	ajwtWVO4O2ftCRTIuSYn7l9/xut1UwiyHAQ68w9gvNrtiojlhWvj+fMsB2Fjtv87GuBq5UpjmpfUW
-	yD4bxjDoD0PHLOX2JRXgUdpMvYJUtbSbqQKk0YJ9aUMzA6KEh3AXvhqP7j5/VuauLfgkUDgx835mi
-	+WrVcWJC3rGHhQPYQbWAkS2YvDWC8LBk9gzP1g3SQ4njqMouJJMkotQJlIfnNBB5UMMI6gxFuMA74
-	jqMmmFCCTvMjFEqSpN7Q==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=N6/7nvZHLJQX3nqmwqOy4MZoPnp9OYZID+YGin2H8XU=; b=BiyFthiD1VCkZP
+	Z4Y5N1lBJeqk9FbVu8wo8458yWGf7J2R/CDbB7+5VP+szaJO9NyItVxgTwDRvEA7K+sTnEMAWnXd9
+	OEtmB1zx9scwo+0edXY5Vc+2l+QVc9jGdEbkodbqK+VlCiEm9xHfmfeNRHajsTGPKAz612EdNlQ0x
+	VFpLi+TwEKeZcuAgdg/RyzmZYwSvw77sNFvZ1F+pri2GkCaXPJJJMmhrkrPvsFb0KkFXnrbxmrF5h
+	GxzlRPgZBah2TgbFNHJ8THhk5Z7hpCmVHt/LYtim1WbHRCI5F/vQltd2kxA5Qfe2Pl3n6E6eFBnOC
+	PdwsFe36ndjKLtj9zD+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvsO2-0000000GwOr-0SYj;
-	Sat, 22 Mar 2025 06:31:14 +0000
-Received: from [54.204.34.129] (helo=smtpbguseast1.qq.com)
+	id 1tvtN1-0000000H16r-0FqW;
+	Sat, 22 Mar 2025 07:34:15 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvsNq-0000000GwOK-3IqW
+	id 1tvtMy-0000000H15H-3FxJ
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Mar 2025 06:31:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1742624935;
-	bh=ZUwDzUOO8B21ZdXUlMK7jpoccKcRIaUuh/idrOVRgTQ=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=QA4cWYam8yzPDtPEzOJuX43jOD38n1L5/af5QmkDeQESy8vpfw72Wwfq2aejupf9V
-	 9UTYj8cBb2QCIWSXvrtVWTn4cLMpULYP8X5fuIIhVsdmaBSGdnuHSEm4WX2+YrOBEB
-	 wLPMyFim7FXk4kCDvYk07OuDTJqkIAy4gH1Yzfms=
-X-QQ-mid: bizesmtpip2t1742624924t25799d
-X-QQ-Originating-IP: EoFty24JGgb8Uv27sxTo45Myx+tTjSV1ie5YhBKGeFM=
-Received: from localhost.localdomain ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 22 Mar 2025 14:28:42 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 6533944679590139330
-From: WangYuli <wangyuli@uniontech.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: wangyuli@uniontech.com,
-	chenhuacai@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vincent.chen@sifive.com,
-	palmerdabbelt@google.com,
-	zhanjun@uniontech.com,
-	niecheng1@uniontech.com,
-	guanwentao@uniontech.com,
-	Huacai Chen <chenhuacai@loongson.cn>
-Subject: [PATCH] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Date: Sat, 22 Mar 2025 14:28:36 +0800
-Message-ID: <CEF1937DAC500D66+20250322062836.362600-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.49.0
+	Sat, 22 Mar 2025 07:34:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1742628846; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=BbVHTg/lXZ0/BfmT52We84mtU0Sd2e+gWxZ4rY/zNeXSTTzdPVm/X9Q0CiHKJNzvc8M+aM+vU47LQYofHK19phDaTCCmTK5Y5sLB6AKzhONja+thhK77Q62tsRpp/WTXN0lc+rfftS6oa1ukU6EPkUuWaf71ygVaKQw50VR5rtg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1742628846; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UJWGwSmM6R2Fl1f2HJVagURPx9n2oq24WYtXhSh6rlM=; 
+	b=Xwq4mGIxp1fKgljJX+Y7wjw0kLz603t0FcoXg98tKRshrso8t/7KEZAaUUPrr8vELTm13CZ4332xLapVkU6MxdznkNdquxDmjIUgA5T5U8HHAU1PnrphpdofKwuFpgxiFH4a1GnJrJTOEflqo6lJeKIs3Lls2/4EZqShAWQzY2E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1742628846;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:From:From:Subject:Subject:To:To:Cc:Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=UJWGwSmM6R2Fl1f2HJVagURPx9n2oq24WYtXhSh6rlM=;
+	b=d5CnVdSEG3aE6HJKi9kFODNnC+xAeRE8GlAldZNrKcXmXEev2runk+w1XWOZfST5
+	bl2EYsNgKG/rs6K5JRkebvLBbRAnwJ0cJk3d6Og3T9mEnSZbgCOQAoTNIW2RzEfKpEf
+	QUo6KgnpWzmQY44qHAeAdBz7qlTwu5DXXR51Dq9g=
+Received: by mx.zohomail.com with SMTPS id 1742628844944113.08852694491645;
+	Sat, 22 Mar 2025 00:34:04 -0700 (PDT)
+Message-ID: <ef7a6ae8-4cc7-401a-81f1-0975c939176c@zohomail.com>
+Date: Sat, 22 Mar 2025 15:33:44 +0800
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: N7JihbTpIyPvPSrqEYLxHxCEbLmgFfxpOk0S8bgDnTJ1m/Ve+qZ4zuEE
-	7yw+yIa+3MlOlVYi0utsKQJC8+xvbxpJ0yyjx6dmrObwh/72ZVljJukZge1adwURJJs9zeP
-	CjTJi/EwFpcFgZMpsyJ2uYHQ/OAd6zEGAxrPm0rSUVTmG9mjiaryxdv2VwYaMxLzU5jeR/8
-	+ZQyP9xiffkbgxuALF+4rgWrvvZf2JD0EZNItXLBfRSsVOYuPfvg2Ujrkeozr+UOzFU5KpH
-	Gy6+ejvSyVp/zp7eN0sq5xp2EunDzuj0w7yKj7gRJHK9fhwWAmWDqHpr/cRU4MPWjTi8H6P
-	ywjNyShDsqNAEvbTLHj87yWTauYG1v6aHbf0eca1eiUZNko7RrGzyRu5H90yDCjZvfk8cF/
-	R4GHtoNLDJgLFxTqmwHHtcU1d6qd+a8/jW7h5IkKrsTecgJfAZCkFn+x0s01WVxsbAPjfzJ
-	95PhANTZJXcDuCHAtKlQMMtZ7j53K/71XssbsD6xmN/ko+dTHMap11G3fdzbq7W99MP60mh
-	ZtHNynnsGyBspxPgX65QxIKSZGTSMfEmmTYWr5m794hJk17ezoTIC01hQnzYqKGDKlP4YC9
-	2y1NsYatqhf5ayG75q99Mr/wtekTg413k0aemr5PCduaz4JyT6L0JPOmmXzzapg+WgKGHuF
-	ui9/z8wPlMyClsH/3AGjltbvoK5jymXdmxwpMx8/QE6iekZtTpTnVIx9EjDatk8qZfcROHS
-	RwApEfmkFvy4LTFM3T8ErWoD9HEvgictjWbeXtyft0e5iKUzGGsBa2NXgjQP5IEDPdp52Js
-	3QDq3BQ0r8l8RLUKnnGMWt1h6JAqBRTGYEXe6HcqAdxTA+n93u/PzrnoS1BL5uLygQUVlYM
-	wAcSjK4+Wnn6ATAtoie6Zy3jpmzkHru/ffyzan5qT+dn/JzNJjjEMYHEa89i1R2pGxjKLVa
-	hJyULdpKKo30O5xYTyUkFMT30Q7B9GgVhkpl5h8yYiQq+rpFBHh6UtubRqibM4a/Iw5GIdW
-	F5fwKZpj09b8DckLzI
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: Re: [PATCH RESEND v5 2/3] clk: canaan: Add clock driver for Canaan
+ K230
+To: Troy Mitchell <troymitchell988@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Stephen Boyd <sboyd@kernel.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Michael Turquette <mturquette@baylibre.com>
+References: <20250320-b4-k230-clk-v5-0-0e9d089c5488@zohomail.com>
+ <20250320-b4-k230-clk-v5-2-0e9d089c5488@zohomail.com>
+ <fb9dba11-5a23-48a2-8b11-a544580eeaca@gmail.com>
+Content-Language: en-US
+In-Reply-To: <fb9dba11-5a23-48a2-8b11-a544580eeaca@gmail.com>
+Feedback-ID: rr08011227694213b15691645fc5dee3060000846e6e90dc712a730651b5c0ca9f16e2afeab99011fa1f2ba5:zu08011227dc4ba870fae43f0f7d64d01a00000c05db20beae40b21e1fd964d227b011bc3a6ebef9c7cddc49:rf0801122b7e97f2d734872b03f8d1bba2000082c89c112c6e9e32b5b1c613199179b3fbcd8322557d58bc50111f3322:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_233103_646565_7DC276F5 
-X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-CacheID: sfid-20250322_003412_886569_10BC3666 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,74 +91,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
-symbol using inline assembly.
+On 2025/3/20 15:09, Troy Mitchell wrote:
+> On 2025/3/20 11:25, Xukai Wang wrote:
+> ...
+>> +struct k230_clk {
+>> +	int id;
+>> +	struct k230_sysclk *ksc;
+>> +	struct clk_hw hw;
+>> +};
+>> +
+>> +#define to_k230_clk(_hw)	container_of(_hw, struct k230_clk, hw)
+>> +
+>> +/* K230 SYSCLK. */
+> Check other places and remove unnecessary comments.
+OK, I get it.
+>> +
+>> +static unsigned long k230_pll_get_rate(struct clk_hw *hw, unsigned long parent_rate)
+>> +{
+>> +	struct k230_pll *pll = to_k230_pll(hw);
+>> +	struct k230_sysclk *ksc = pll->ksc;
+>> +	u32 reg;
+>> +	u32 r, f, od;
+>> +
+>> +	reg = readl(pll->bypass);
+>> +	if (reg & K230_PLL_BYPASS_ENABLE)
+>> +		return parent_rate;
+>> +
+>> +	reg = readl(pll->lock);
+>> +	if (!(reg & (K230_PLL_STATUS_MASK))) { /* unlocked */
+> unnecessary comment and wrong position.
+I'll modify it.
+>> +		dev_err(&ksc->pdev->dev, "%s is unlock.\n", clk_hw_get_name(hw));
+>> +		return 0;
+>> +	}
+>> +
+>> +	reg = readl(pll->div);
+>> +	r = ((reg >> K230_PLL_R_SHIFT) & K230_PLL_R_MASK) + 1;
+>> +	f = ((reg >> K230_PLL_F_SHIFT) & K230_PLL_F_MASK) + 1;
+>> +	od = ((reg >> K230_PLL_OD_SHIFT) & K230_PLL_OD_MASK) + 1;
+>> +
+>> +	return mul_u64_u32_div(parent_rate, f, r * od);
+>> +}
+>> +
+> ...
+>
+>> +
+>> +static int k230_clk_probe(struct platform_device *pdev)
+>> +{
+>> +	int ret;
+>> +	struct k230_sysclk *ksc;
+>> +
+>> +	ksc = devm_kzalloc(&pdev->dev, sizeof(struct k230_sysclk), GFP_KERNEL);
+> you can use `sizeof(*ksc)` instead. same below.
+OK, I get it.
 
-There's a potential issue where the compiler might inline
-arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
-symbol multiple times, leading to fail to link vmlinux.o.
-
-This isn't merely a potential compilation problem. The intent here
-is to determine the global symbol address of kgdb_compiled_break,
-and if this function is inlined multiple times, it would logically
-be a grave error.
-
-Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
----
- arch/riscv/include/asm/kgdb.h | 13 +------------
- arch/riscv/kernel/kgdb.c      |  8 ++++++++
- 2 files changed, 9 insertions(+), 12 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-index 46677daf708b..566ab1bc66fa 100644
---- a/arch/riscv/include/asm/kgdb.h
-+++ b/arch/riscv/include/asm/kgdb.h
-@@ -17,20 +17,9 @@
- #define BREAK_INSTR_SIZE	4
- #endif
- 
--#ifndef	__ASSEMBLY__
--
-+extern void arch_kgdb_breakpoint(void);
- extern unsigned long kgdb_compiled_break;
- 
--static inline void arch_kgdb_breakpoint(void)
--{
--	asm(".global kgdb_compiled_break\n"
--	    ".option norvc\n"
--	    "kgdb_compiled_break: ebreak\n"
--	    ".option rvc\n");
--}
--
--#endif /* !__ASSEMBLY__ */
--
- #define DBG_REG_ZERO "zero"
- #define DBG_REG_RA "ra"
- #define DBG_REG_SP "sp"
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 2e0266ae6bd7..5d1ce8dacaf5 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -254,6 +254,14 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
- 	regs->epc = pc;
- }
- 
-+noinline void arch_kgdb_breakpoint(void)
-+{
-+	asm(".global kgdb_compiled_break\n"
-+	    ".option norvc\n"
-+	    "kgdb_compiled_break: ebreak\n"
-+	    ".option rvc\n");
-+}
-+
- void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
- 				char *remcom_out_buffer)
- {
--- 
-2.49.0
+And thanks for your review.
 
 
 _______________________________________________
