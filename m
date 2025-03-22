@@ -4,56 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 438EEC36001
-	for <linux-riscv@archiver.kernel.org>; Fri, 21 Mar 2025 23:58:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A745AC35FFC
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Mar 2025 06:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BiTUw00Hf2NI9E+rrxgD0KGGI6XSCZ6nkGB5TlD3Nj0=; b=2c7V5sJZooa8gS
-	1q3deSbbqRkt/DbNvbv8p7Kq1VIT9keZmaKHZcpZqGqi0u0hnUrJ6oPAIjyITq3zv67PDWjM9E6Ka
-	amV40tuBLe3L7PpW9vzaTMJN62ElbV/ot1UX1FXdZPPcZZMGdWecdrG7H8htVj1rDLBEr3sYv47Th
-	Aw8yAI2XEUV5gaWGtzQPiNY/QGdtuoGypaAVHESk8NEDjmtC+7QYkyeZk+685/Gb5Kp+kCw9WJKQ7
-	7AeLpSogXtBcLBVllJB7Wa1WM+cFOCxjBYrQojyQucItSGE1U+pHl4qaxd8MMOCRNlzmlXIxqfxaL
-	j8amXNsBsnqu8cEhEYpQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+QTDSVgK3sM4VDH3OuAYkcGo/acI362WI7B0ITWgFaE=; b=qcSFC5fj2fW6Nl
+	smDanpfVyh/qDgPget+3zplGxo5Fc4MJ+0dmBijtOMVwJ+qSi444LAuzuM5ObG2EiZYyFTVzYdSoD
+	ajwtWVO4O2ftCRTIuSYn7l9/xut1UwiyHAQ68w9gvNrtiojlhWvj+fMsB2Fjtv87GuBq5UpjmpfUW
+	yD4bxjDoD0PHLOX2JRXgUdpMvYJUtbSbqQKk0YJ9aUMzA6KEh3AXvhqP7j5/VuauLfgkUDgx835mi
+	+WrVcWJC3rGHhQPYQbWAkS2YvDWC8LBk9gzP1g3SQ4njqMouJJMkotQJlIfnNBB5UMMI6gxFuMA74
+	jqMmmFCCTvMjFEqSpN7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvmG7-0000000GaZz-2Kyh;
-	Fri, 21 Mar 2025 23:58:39 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1tvsO2-0000000GwOr-0SYj;
+	Sat, 22 Mar 2025 06:31:14 +0000
+Received: from [54.204.34.129] (helo=smtpbguseast1.qq.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tvmG5-0000000GaZe-1B84
+	id 1tvsNq-0000000GwOK-3IqW
 	for linux-riscv@lists.infradead.org;
-	Fri, 21 Mar 2025 23:58:38 +0000
-Received: from localhost (unknown [116.232.48.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 3CC7F343162;
-	Fri, 21 Mar 2025 23:58:34 +0000 (UTC)
-Date: Fri, 21 Mar 2025 23:58:30 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RFC 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
-Message-ID: <20250321235830-GYA13359@gentoo>
-References: <20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org>
- <20250213-20-k1-sdhci-v1-2-1f4362a980cd@gentoo.org>
- <b0583550-eb2c-4918-b9e7-7041d3fd2e9e@riscstar.com>
+	Sat, 22 Mar 2025 06:31:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1742624935;
+	bh=ZUwDzUOO8B21ZdXUlMK7jpoccKcRIaUuh/idrOVRgTQ=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=QA4cWYam8yzPDtPEzOJuX43jOD38n1L5/af5QmkDeQESy8vpfw72Wwfq2aejupf9V
+	 9UTYj8cBb2QCIWSXvrtVWTn4cLMpULYP8X5fuIIhVsdmaBSGdnuHSEm4WX2+YrOBEB
+	 wLPMyFim7FXk4kCDvYk07OuDTJqkIAy4gH1Yzfms=
+X-QQ-mid: bizesmtpip2t1742624924t25799d
+X-QQ-Originating-IP: EoFty24JGgb8Uv27sxTo45Myx+tTjSV1ie5YhBKGeFM=
+Received: from localhost.localdomain ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sat, 22 Mar 2025 14:28:42 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 6533944679590139330
+From: WangYuli <wangyuli@uniontech.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: wangyuli@uniontech.com,
+	chenhuacai@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	vincent.chen@sifive.com,
+	palmerdabbelt@google.com,
+	zhanjun@uniontech.com,
+	niecheng1@uniontech.com,
+	guanwentao@uniontech.com,
+	Huacai Chen <chenhuacai@loongson.cn>
+Subject: [PATCH] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
+Date: Sat, 22 Mar 2025 14:28:36 +0800
+Message-ID: <CEF1937DAC500D66+20250322062836.362600-1-wangyuli@uniontech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <b0583550-eb2c-4918-b9e7-7041d3fd2e9e@riscstar.com>
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: N7JihbTpIyPvPSrqEYLxHxCEbLmgFfxpOk0S8bgDnTJ1m/Ve+qZ4zuEE
+	7yw+yIa+3MlOlVYi0utsKQJC8+xvbxpJ0yyjx6dmrObwh/72ZVljJukZge1adwURJJs9zeP
+	CjTJi/EwFpcFgZMpsyJ2uYHQ/OAd6zEGAxrPm0rSUVTmG9mjiaryxdv2VwYaMxLzU5jeR/8
+	+ZQyP9xiffkbgxuALF+4rgWrvvZf2JD0EZNItXLBfRSsVOYuPfvg2Ujrkeozr+UOzFU5KpH
+	Gy6+ejvSyVp/zp7eN0sq5xp2EunDzuj0w7yKj7gRJHK9fhwWAmWDqHpr/cRU4MPWjTi8H6P
+	ywjNyShDsqNAEvbTLHj87yWTauYG1v6aHbf0eca1eiUZNko7RrGzyRu5H90yDCjZvfk8cF/
+	R4GHtoNLDJgLFxTqmwHHtcU1d6qd+a8/jW7h5IkKrsTecgJfAZCkFn+x0s01WVxsbAPjfzJ
+	95PhANTZJXcDuCHAtKlQMMtZ7j53K/71XssbsD6xmN/ko+dTHMap11G3fdzbq7W99MP60mh
+	ZtHNynnsGyBspxPgX65QxIKSZGTSMfEmmTYWr5m794hJk17ezoTIC01hQnzYqKGDKlP4YC9
+	2y1NsYatqhf5ayG75q99Mr/wtekTg413k0aemr5PCduaz4JyT6L0JPOmmXzzapg+WgKGHuF
+	ui9/z8wPlMyClsH/3AGjltbvoK5jymXdmxwpMx8/QE6iekZtTpTnVIx9EjDatk8qZfcROHS
+	RwApEfmkFvy4LTFM3T8ErWoD9HEvgictjWbeXtyft0e5iKUzGGsBa2NXgjQP5IEDPdp52Js
+	3QDq3BQ0r8l8RLUKnnGMWt1h6JAqBRTGYEXe6HcqAdxTA+n93u/PzrnoS1BL5uLygQUVlYM
+	wAcSjK4+Wnn6ATAtoie6Zy3jpmzkHru/ffyzan5qT+dn/JzNJjjEMYHEa89i1R2pGxjKLVa
+	hJyULdpKKo30O5xYTyUkFMT30Q7B9GgVhkpl5h8yYiQq+rpFBHh6UtubRqibM4a/Iw5GIdW
+	F5fwKZpj09b8DckLzI
+X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250321_165837_353632_60D5A9A2 
-X-CRM114-Status: GOOD (  39.45  )
+X-CRM114-CacheID: sfid-20250321_233103_646565_7DC276F5 
+X-CRM114-Status: UNSURE (   8.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,206 +102,75 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex:
+The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
+symbol using inline assembly.
 
-On 11:51 Fri 21 Mar     , Alex Elder wrote:
-> On 2/13/25 4:58 AM, Yixun Lan wrote:
-> > The SDHCI controller found in SpacemiT K1 SoC features SD,
-> > SDIO, eMMC support, such as:
-> > 
-> > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
-> > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
-> > - Compatible for 8bit eMMC5.1, up to HS400
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> 
-> Why is this RFC? Have you tested it?
-> 
-I'd explicitly mark it as RFC before clock/reset driver merged,
-in case there is anything changed break this driver, and also
- notify maintainer to only review the code but not merge it.
+There's a potential issue where the compiler might inline
+arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
+symbol multiple times, leading to fail to link vmlinux.o.
 
-Yes, I've tested, it works
+This isn't merely a potential compilation problem. The intent here
+is to determine the global symbol address of kgdb_compiled_break,
+and if this function is inlined multiple times, it would logically
+be a grave error.
 
-> I have a few minor comments but this seems reasonable to me.
-> 
-> > ---
-> >   drivers/mmc/host/Kconfig       |  14 ++
-> >   drivers/mmc/host/Makefile      |   1 +
-> >   drivers/mmc/host/sdhci-of-k1.c | 320 +++++++++++++++++++++++++++++++++++++++++
-> >   3 files changed, 335 insertions(+)
-> 
-> . . .
-> 
-> > +#define SDHC_PHY_DLLCFG			0x168
-> > +#define  DLL_PREDLY_NUM			0x04
-> > +#define  DLL_FULLDLY_RANGE		0x10
-> > +#define  DLL_VREG_CTRL			0x40
-> > +#define  DLL_ENABLE			0x80000000
-> > +#define  DLL_REFRESH_SWEN_SHIFT		0x1C
-> > +#define  DLL_REFRESH_SW_SHIFT		0x1D
-> > +
-> > +#define SDHC_PHY_DLLCFG1		0x16C
-> > +#define  DLL_REG2_CTRL			0x0C
-> > +#define  DLL_REG3_CTRL_MASK		0xFF
-> 
-> As Adrian said, please use GENMASK() (or BIT()) to define
-> these masks, and FIELD_GET() or similar to manipulate them.
-> I prefer lower-case hex digits too.
-> 
-ok, will fix in next version
+Fixes: fe89bd2be866 ("riscv: Add KGDB support")
+Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
+Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
+Signed-off-by: WangYuli <wangyuli@uniontech.com>
+---
+ arch/riscv/include/asm/kgdb.h | 13 +------------
+ arch/riscv/kernel/kgdb.c      |  8 ++++++++
+ 2 files changed, 9 insertions(+), 12 deletions(-)
 
-> > +#define  DLL_REG3_CTRL_SHIFT		0x10
-> > +#define  DLL_REG2_CTRL_MASK		0xFF
-> > +#define  DLL_REG2_CTRL_SHIFT		0x08
-> > +#define  DLL_REG1_CTRL			0x92
-> > +#define  DLL_REG1_CTRL_MASK		0xFF
-> > +#define  DLL_REG1_CTRL_SHIFT		0x00
-> > +
-> > +#define SDHC_PHY_DLLSTS			0x170
-> > +#define  DLL_LOCK_STATE			0x01
-> > +
-> > +#define SDHC_PHY_DLLSTS1		0x174
-> > +#define  DLL_MASTER_DELAY_MASK		0xFF
-> > +#define  DLL_MASTER_DELAY_SHIFT		0x10
-> > +
-> > +#define SDHC_PHY_PADCFG_REG		0x178
-> > +#define  RX_BIAS_CTRL			BIT(5)
-> > +#define  PHY_DRIVE_SEL_MASK		0x7
-> > +#define  PHY_DRIVE_SEL_DEFAULT		0x4
-> > +
-> > +struct spacemit_sdhci_host {
-> > +	struct clk *clk_core;
-> > +	struct clk *clk_io;
-> > +};
-> > +
-> 
-> I don't think the next few functions add any real value.
-> 
-> Just call sdhci_writel() and sdhci_readl() directly.  It
-> might even take fewer characters (but above all, I think
-> it's clearer without the function hiding what's done).
-> 
-on the opposite, I thought introducing a helper function make it more readable
-1) give a function name as setbits(), clrbits(), we know clearly what's doing here
-2) without helper, we either need to break the code into several lines -
-read first, then write, or if put them into one line, then reg variable usually
-come as macro which quite long and need to repeat twice which easily exceed max line number
-
-
-> > +static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
-> > +{
-> > +	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
-> > +}
-> > +
-> > +static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
-> > +{
-> > +	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
-> > +}
-> > +
-> 
-> This too, just open-code this function in the two places it's used.
-> 
-> > +static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
-> > +{
-> > +	u32 val = sdhci_readl(host, reg);
-> > +
-> > +	val = (val & ~clr) | set;
-> > +	sdhci_writel(host, val, reg);
-> > +}
-> > +
-> > +static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
-> > +{
-> > +	struct platform_device *pdev;
-> > +
-> 
-> . . .
-> 
-> > +	udelay(5);
-> > +
-> > +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-> > +}
-> > +
-> 
-> I don't feel as strongly about this, but...
-> 
-> Here too, what the next function does is very typical and all
-> of it could go in the probe function.  I do understand that it
-> groups the clock-related code though.
-> 
-I would like to keep it as is if possible, or if other maintainer has objection?
-
-the motivation here is breaking the logic into more small parts, then 
-people review probe() can move more quickly, and if want to further audit
-clock (maybe reset - plan to group them together), then can do it separately
-
-> But aside from that, I think assigning pltfm_host->clock could
-> be done in the probe function rather than hiding it in here.
-> 
-I'd consider all clock related, so reasonable to put them together
-
-in another perspective, introducing spacemit_sdhci_host which only 
-contain clk_core, clk_io sounds not necessary in current stage as they
-are not used in later functions, but will eventually do when implement
-suspend/resume functionality.
-
-> > +static inline int spacemit_sdhci_get_clocks(struct device *dev,
-> > +					    struct sdhci_pltfm_host *pltfm_host)
-> > +{
-> > +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> > +
-> > +	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
-> > +	if (IS_ERR(sdhst->clk_core))
-> > +		return -EINVAL;
-> > +
-> > +	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
-> > +	if (IS_ERR(sdhst->clk_io))
-> > +		return -EINVAL;
-> > +
-> > +	pltfm_host->clk = sdhst->clk_io;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct sdhci_ops spacemit_sdhci_ops = {
-> > +	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
-> > +	.reset			= spacemit_sdhci_reset,
-> > +	.set_bus_width		= sdhci_set_bus_width,
-> > +	.set_clock		= spacemit_sdhci_set_clock,
-> > +	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
-> > +};
-> > +
-> 
-> I think you should make the next structure be used as platform
-> data for "spacemit,k1-sdhci", rather than just a global.  That
-> way you could conceivably use the same driver with slightly
-> different (or even the same) quirks for future hardware.
-> 
-I'm not sure if we should do it now, or postpone later in future
- when we really come to it (lazy implementation).
-
-As I have no idea of how future hardware is, they may change to 
-use another IP.
-
-> 					-Alex
-> 
-> > +static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
-> > +	.ops = &spacemit_sdhci_ops,
-> > +	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
-> > +		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
-> > +		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
-> > +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> > +		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
-> > +		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> > +	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
-> > +		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> > +};
-> > +. . .
-
+diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
+index 46677daf708b..566ab1bc66fa 100644
+--- a/arch/riscv/include/asm/kgdb.h
++++ b/arch/riscv/include/asm/kgdb.h
+@@ -17,20 +17,9 @@
+ #define BREAK_INSTR_SIZE	4
+ #endif
+ 
+-#ifndef	__ASSEMBLY__
+-
++extern void arch_kgdb_breakpoint(void);
+ extern unsigned long kgdb_compiled_break;
+ 
+-static inline void arch_kgdb_breakpoint(void)
+-{
+-	asm(".global kgdb_compiled_break\n"
+-	    ".option norvc\n"
+-	    "kgdb_compiled_break: ebreak\n"
+-	    ".option rvc\n");
+-}
+-
+-#endif /* !__ASSEMBLY__ */
+-
+ #define DBG_REG_ZERO "zero"
+ #define DBG_REG_RA "ra"
+ #define DBG_REG_SP "sp"
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 2e0266ae6bd7..5d1ce8dacaf5 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -254,6 +254,14 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
+ 	regs->epc = pc;
+ }
+ 
++noinline void arch_kgdb_breakpoint(void)
++{
++	asm(".global kgdb_compiled_break\n"
++	    ".option norvc\n"
++	    "kgdb_compiled_break: ebreak\n"
++	    ".option rvc\n");
++}
++
+ void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
+ 				char *remcom_out_buffer)
+ {
 -- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
