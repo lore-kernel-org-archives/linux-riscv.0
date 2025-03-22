@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D75D5C35FFC
-	for <linux-riscv@archiver.kernel.org>; Sat, 22 Mar 2025 15:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20833C36005
+	for <linux-riscv@archiver.kernel.org>; Sat, 22 Mar 2025 16:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TJ2NFz79e9ZiMMy9h3ZQl0fsmHvJhb+Et1PQQHtb+qE=; b=BgRCQCGCnqlIS4
-	zeCalT84JKuzAPgF8MDOU/13k3REau4NeZdPRKzzmsDRQ/IYjgQ0yxd0r4FtmYBQttn/cSrREIN98
-	+yWE06gAGKxwBI4FPRlShQXdP0WaB8IYgvZPkHFl2humZKUFErCjSDei/Umk1fHRuFJ0E/KVDjk6o
-	YeltZt7i9mHwGe3hSb/zqNyJN/Yix9DWyZNdgsYi6S12c3qjwpAjlgx4/sb5x0zS1J0T3DsdNjA9g
-	rujSqVD9iNwsbPfaqMQjBmU2ChXLlKlZwgmuJTkSTjYYuef4LIp9aVnOhF+AIEkXvpJ3l3svORBbm
-	8WlwWIksh0BzUDf2Lp1g==;
+	List-Owner; bh=XcYlX/vTYzcIPVMZ2jqY4RiUuWZR0cPTyceMN8TvKmc=; b=1UhQ9wdB69Zr1N
+	sMpUUY/coRWsk/JffcyzJmEUr9Q+etsgAoayAZJCZfRjFe1d43txCBGbcKbFckc3AETglCKW7Yy9U
+	icxlAMw2pRB4SbaiR2ioWZzS4ZJ/8EYIDAhaZ7nIFv6zAIidpengjYB/MTT9eDtmK1ztosOlsFhTY
+	p5cJW0Fy5WIX9J2ALBztSw+uEEG3kRbKLKkIrvwrcThzN7UV0vpVxaxk9BA/0Z7mH//5CBrZnEIDE
+	ITirO2/ztkosjbvrvaiHRvwMihMAUT2WxiNKtj7xS6gjk7BAg01uzY913VyJes25crUuO+XjB+vgA
+	tVVnPdrsT+SsDJs5bXQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw17U-000000002VS-0RVG;
-	Sat, 22 Mar 2025 15:50:44 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1tw1Zi-000000004vT-1oBD;
+	Sat, 22 Mar 2025 16:19:54 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tw17R-000000002Ug-2kRH
+	id 1tw1Zf-000000004v0-1cFS
 	for linux-riscv@lists.infradead.org;
-	Sat, 22 Mar 2025 15:50:42 +0000
+	Sat, 22 Mar 2025 16:19:52 +0000
 Received: from localhost (unknown [116.232.48.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 137C73431B5;
-	Sat, 22 Mar 2025 15:50:38 +0000 (UTC)
-Date: Sat, 22 Mar 2025 15:50:34 +0000
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BA60834307B;
+	Sat, 22 Mar 2025 16:19:49 +0000 (UTC)
+Date: Sat, 22 Mar 2025 16:19:45 +0000
 From: Yixun Lan <dlan@gentoo.org>
 To: Alex Elder <elder@riscstar.com>
 Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
@@ -43,16 +43,16 @@ Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
 	palmer@dabbelt.com, aou@eecs.berkeley.edu, spacemit@lists.linux.dev,
 	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH RESEND 2/7] clk: spacemit: define struct k1_ccu_data
-Message-ID: <20250322155034-GYB11633@gentoo>
+Subject: Re: [PATCH RESEND 3/7] clk: spacemit: add reset controller support
+Message-ID: <20250322161945-GYC11633@gentoo>
 References: <20250321151831.623575-1-elder@riscstar.com>
- <20250321151831.623575-3-elder@riscstar.com>
+ <20250321151831.623575-4-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250321151831.623575-3-elder@riscstar.com>
+In-Reply-To: <20250321151831.623575-4-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_085041_725775_C61B00B4 
-X-CRM114-Status: GOOD (  28.82  )
+X-CRM114-CacheID: sfid-20250322_091951_453497_6A36F7CA 
+X-CRM114-Status: GOOD (  30.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,178 +71,185 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hi Alex:
 
-this patch change relate to clock only, so how about let's fold
-it into clk patches (which now has not been merged), so we make
-the code right at first place? cause some moving around and renaming
-
 On 10:18 Fri 21 Mar     , Alex Elder wrote:
-> Define a new structure type to be used for describing the OF match data.
-> Rather than using the array of spacemit_ccu_clk structures for match
-> data, we use this structure instead.
+> Define ccu_reset_data as a structure that contains the constant
+> register offset and bitmasks used to assert and deassert a reset
+> control on a SpacemiT K1 CCU. Define ccu_reset_controller_data as
+> a structure that contains the address of an array of those structures
+> and a count of the number of elements in the array.
 > 
-> Move the definition of the spacemit_ccu_clk structure closer to the top
-> of the source file, and add the new structure definition below it.
+> Add a pointer to a ccu_reset_controller_data structure to the
+> k1_ccu_data structure.  Reset support is optional for SpacemiT CCUs;
+> the new pointer field will be null for CCUs without any resets.
 > 
-> Shorten the name of spacemit_ccu_register() to be k1_ccu_register().
-any good reason to change this? it make the code style inconsistent,
-do you just change it for shorten function, or want it to be more k1
-specific, so next SoC - e.g maybe k2? will introduce another function?
-
+> Finally, define a new ccu_reset_controller structure, which (for
+> a CCU with resets) contains a pointer to the constant reset data,
+> the regmap to be used for the controller, and an embedded a reset
+> controller structure.
+> 
+> Each reset control is asserted or deasserted by updating bits in
+> a register.  The bits used are defined by an assert mask and a
+> deassert mask.  In some cases, one (non-zero) mask asserts reset
+> and a different (non-zero) mask deasserts it.  Otherwise one mask
+> is nonzero, and the other is zero.  Either way, the bits in
+> both masks are cleared, then either the assert mask or the deassert
+> mask is set in a register to affect the state of a reset control.
 > 
 > Signed-off-by: Alex Elder <elder@riscstar.com>
 > ---
->  drivers/clk/spacemit/ccu-k1.c | 58 ++++++++++++++++++++++++++---------
->  1 file changed, 43 insertions(+), 15 deletions(-)
+>  drivers/clk/spacemit/ccu-k1.c | 93 +++++++++++++++++++++++++++++++++++
+>  1 file changed, 93 insertions(+)
 > 
 > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index 44db48ae71313..f7367271396a0 100644
+> index f7367271396a0..6d879411c6c05 100644
 > --- a/drivers/clk/spacemit/ccu-k1.c
 > +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -129,6 +129,15 @@
->  #define APMU_EMAC0_CLK_RES_CTRL		0x3e4
->  #define APMU_EMAC1_CLK_RES_CTRL		0x3ec
+> @@ -10,6 +10,7 @@
+>  #include <linux/minmax.h>
+>  #include <linux/module.h>
+>  #include <linux/platform_device.h>
+> +#include <linux/reset-controller.h>
 >  
-> +struct spacemit_ccu_clk {
-> +	int id;
-> +	struct clk_hw *hw;
+>  #include "ccu_common.h"
+>  #include "ccu_pll.h"
+> @@ -134,8 +135,26 @@ struct spacemit_ccu_clk {
+>  	struct clk_hw *hw;
+>  };
+>  
+> +struct ccu_reset_data {
+> +	u32 offset;
+> +	u32 assert_mask;
+> +	u32 deassert_mask;
 > +};
 > +
-> +struct k1_ccu_data {
-> +	struct spacemit_ccu_clk *clk;		/* array with sentinel */
+> +struct ccu_reset_controller_data {
+> +	u32 count;
+> +	const struct ccu_reset_data *data;	/* array */
 > +};
 > +
+>  struct k1_ccu_data {
+>  	struct spacemit_ccu_clk *clk;		/* array with sentinel */
+> +	const struct ccu_reset_controller_data *rst_data;
+> +};
+> +
+> +struct ccu_reset_controller {
+> +	struct regmap *regmap;
+> +	const struct ccu_reset_controller_data *data;
+> +	struct reset_controller_dev rcdev;
+>  };
+>  
 >  /*	APBS clocks start	*/
->  
->  /* Frequency of pll{1,2} should not be updated at runtime */
-> @@ -1359,11 +1368,6 @@ static CCU_GATE_DEFINE(emmc_bus_clk, CCU_PARENT_HW(pmua_aclk),
->  		       0);
->  /*	APMU clocks end		*/
->  
-> -struct spacemit_ccu_clk {
-> -	int id;
-> -	struct clk_hw *hw;
-> -};
-> -
->  static struct spacemit_ccu_clk k1_ccu_apbs_clks[] = {
->  	{ CLK_PLL1,		&pll1.common.hw },
->  	{ CLK_PLL2,		&pll2.common.hw },
-> @@ -1403,6 +1407,10 @@ static struct spacemit_ccu_clk k1_ccu_apbs_clks[] = {
->  	{ 0,			NULL },
+> @@ -1630,6 +1649,48 @@ static const struct k1_ccu_data k1_ccu_apmu_data = {
+>  	.clk		= k1_ccu_apmu_clks,
 >  };
 >  
-> +static const struct k1_ccu_data k1_ccu_apbs_data = {
-> +	.clk		= k1_ccu_apbs_clks,
-> +};
+> +static struct ccu_reset_controller *
+> +rcdev_to_controller(struct reset_controller_dev *rcdev)
+I'd suggest to avoid the line break to make it slightly more readable, intuitive
+as the 80 column limit isn't hard rule
+
+there are maybe more place similar to this, I won't add more comments
+https://github.com/torvalds/linux/commit/bdc48fa11e46f867ea4d75fa59ee87a7f48be144
+
+> +{
+> +	return container_of(rcdev, struct ccu_reset_controller, rcdev);
+> +}
+since this function is only used once, open-code it?
+but I'd fine with either way if you prefer to keep it
+
 > +
->  static struct spacemit_ccu_clk k1_ccu_mpmu_clks[] = {
->  	{ CLK_PLL1_307P2,	&pll1_d8_307p2.common.hw },
->  	{ CLK_PLL1_76P8,	&pll1_d32_76p8.common.hw },
-> @@ -1440,6 +1448,10 @@ static struct spacemit_ccu_clk k1_ccu_mpmu_clks[] = {
->  	{ 0,			NULL },
->  };
->  
-> +static const struct k1_ccu_data k1_ccu_mpmu_data = {
-> +	.clk		= k1_ccu_mpmu_clks,
-> +};
+> +static int
+> +k1_rst_update(struct reset_controller_dev *rcdev, unsigned long id, bool assert)
+s/k1_rst_update/k1_reset_update/g
+this is a taste change, but I found more people follow this when grep driver/reset
+> +{
+> +	struct ccu_reset_controller *controller = rcdev_to_controller(rcdev);
+> +	struct regmap *regmap = controller->regmap;
+> +	const struct ccu_reset_data *data;
+> +	u32 val;
+> +	int ret;
 > +
->  static struct spacemit_ccu_clk k1_ccu_apbc_clks[] = {
->  	{ CLK_UART0,		&uart0_clk.common.hw },
->  	{ CLK_UART2,		&uart2_clk.common.hw },
-> @@ -1544,6 +1556,10 @@ static struct spacemit_ccu_clk k1_ccu_apbc_clks[] = {
->  	{ 0,			NULL },
->  };
->  
-> +static const struct k1_ccu_data k1_ccu_apbc_data = {
-> +	.clk		= k1_ccu_apbc_clks,
-> +};
+> +	data = &controller->data->data[id];
 > +
->  static struct spacemit_ccu_clk k1_ccu_apmu_clks[] = {
->  	{ CLK_CCI550,		&cci550_clk.common.hw },
->  	{ CLK_CPU_C0_HI,	&cpu_c0_hi_clk.common.hw },
-> @@ -1610,9 +1626,13 @@ static struct spacemit_ccu_clk k1_ccu_apmu_clks[] = {
->  	{ 0,			NULL },
->  };
->  
-> -static int spacemit_ccu_register(struct device *dev,
-> -				 struct regmap *regmap, struct regmap *lock_regmap,
-> -				 const struct spacemit_ccu_clk *clks)
-> +static const struct k1_ccu_data k1_ccu_apmu_data = {
-> +	.clk		= k1_ccu_apmu_clks,
-> +};
-> +
-> +static int k1_ccu_register(struct device *dev, struct regmap *regmap,
-> +			   struct regmap *lock_regmap,
-> +			   struct spacemit_ccu_clk *clks)
->  {
->  	const struct spacemit_ccu_clk *clk;
->  	int i, ret, max_id = 0;
-> @@ -1648,15 +1668,24 @@ static int spacemit_ccu_register(struct device *dev,
->  
->  	clk_data->num = max_id + 1;
->  
-> -	return devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
-> +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
+> +	ret = regmap_read(regmap, data->offset, &val);
 > +	if (ret)
-> +		dev_err(dev, "error %d adding clock hardware provider\n", ret);
+> +		return ret;
 > +
-> +	return ret;
-I'd use "return 0;", nothing different, just explicitly short
-
-ok, I can understand this change ease debug procedure once there is problem.
-(but I'm fine with either way, failure should rarely happen & will
-identify early)
-
+> +	val &= ~(data->assert_mask | data->deassert_mask);
+> +	val |= assert ? data->assert_mask : data->deassert_mask;
+> +
+> +	return regmap_write(regmap, data->offset, val);
+> +}
+> +
+> +static int k1_rst_assert(struct reset_controller_dev *rcdev, unsigned long id)
+same reason, rst -> reset, more below
+> +{
+> +	return k1_rst_update(rcdev, id, true);
+> +}
+> +
+> +static int k1_rst_deassert(struct reset_controller_dev *rcdev, unsigned long id)
+> +{
+> +	return k1_rst_update(rcdev, id, false);
+> +}
+> +
+> +static const struct reset_control_ops k1_reset_control_ops = {
+> +	.assert		= k1_rst_assert,
+> +	.deassert	= k1_rst_deassert,
+> +};
+> +
+>  static int k1_ccu_register(struct device *dev, struct regmap *regmap,
+>  			   struct regmap *lock_regmap,
+>  			   struct spacemit_ccu_clk *clks)
+> @@ -1675,6 +1736,33 @@ static int k1_ccu_register(struct device *dev, struct regmap *regmap,
+>  	return ret;
 >  }
 >  
+> +static int
+> +k1_reset_controller_register(struct device *dev, struct regmap *regmap,
+> +			     const struct ccu_reset_controller_data *data)
+> +{
+> +	struct ccu_reset_controller *controller;
+> +	struct reset_controller_dev *rcdev;
+> +
+> +	/* Resets are optional */
+> +	if (!data)
+> +		return 0;
+> +
+> +	controller = devm_kzalloc(dev, sizeof(*controller), GFP_KERNEL);
+> +	if (!controller)
+> +		return -ENOMEM;
+> +
+> +	controller->regmap = regmap;
+> +	controller->data = data;
+> +
+> +	rcdev = &controller->rcdev;
+..
+> +	rcdev->owner = THIS_MODULE;
+move to last?
+> +	rcdev->nr_resets = data->count;
+> +	rcdev->ops = &k1_reset_control_ops;
+> +	rcdev->of_node = dev->of_node;
+> +
+> +	return devm_reset_controller_register(dev, rcdev);
+> +}
+> +
 >  static int k1_ccu_probe(struct platform_device *pdev)
 >  {
 >  	struct regmap *base_regmap, *lock_regmap = NULL;
->  	struct device *dev = &pdev->dev;
-> +	const struct k1_ccu_data *data;
->  	int ret;
->  
-> +	data = of_device_get_match_data(dev);
-> +	if (!data)
-> +		return -EINVAL;
-> +
->  	base_regmap = device_node_to_regmap(dev->of_node);
->  	if (IS_ERR(base_regmap))
->  		return dev_err_probe(dev, PTR_ERR(base_regmap),
-> @@ -1677,8 +1706,7 @@ static int k1_ccu_probe(struct platform_device *pdev)
->  					     "failed to get lock regmap\n");
->  	}
->  
-> -	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap,
-> -				    of_device_get_match_data(dev));
-> +	ret = k1_ccu_register(dev, base_regmap, lock_regmap, data->clk);
+> @@ -1710,6 +1798,11 @@ static int k1_ccu_probe(struct platform_device *pdev)
 >  	if (ret)
 >  		return dev_err_probe(dev, ret, "failed to register clocks\n");
 >  
-> @@ -1688,19 +1716,19 @@ static int k1_ccu_probe(struct platform_device *pdev)
->  static const struct of_device_id of_k1_ccu_match[] = {
->  	{
->  		.compatible	= "spacemit,k1-pll",
-> -		.data		= k1_ccu_apbs_clks,
-> +		.data		= &k1_ccu_apbs_data,
->  	},
->  	{
->  		.compatible	= "spacemit,k1-syscon-mpmu",
-> -		.data		= k1_ccu_mpmu_clks,
-> +		.data		= &k1_ccu_mpmu_data,
->  	},
->  	{
->  		.compatible	= "spacemit,k1-syscon-apbc",
-> -		.data		= k1_ccu_apbc_clks,
-> +		.data		= &k1_ccu_apbc_data,
->  	},
->  	{
->  		.compatible	= "spacemit,k1-syscon-apmu",
-> -		.data		= k1_ccu_apmu_clks,
-> +		.data		= &k1_ccu_apmu_data,
->  	},
->  	{ }
-	{ /* sentinel */ }
->  };
+> +	ret = k1_reset_controller_register(dev, base_regmap, data->rst_data);
+..
+> +	if (ret)
+> +		return dev_err_probe(dev, ret,
+> +				     "failed to register reset controller\n");
+same 100 column reason
+> +
+>  	return 0;
+>  }
+>  
 > -- 
 > 2.43.0
 > 
