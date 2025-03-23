@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 687AEC36008
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 06:07:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6F3EC28B30
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 08:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t1aofl5Vv58qLoXQqScFwhCGsvCQiszw+7vM38JbIUg=; b=OLREarDMBYZVrY
-	6Q0eGHmRVaSnY8T2or9lraLi2dpHZdwAHH48dtZtHN4V3uvtbMhGN9lmB2W1/dn9fmE2MXGB/8s/t
-	TnFurMsnlWrtVhFt8K7T0p7/cDor2ym1EAI6cn/C2EEeTVA0wADlyViAo+DpHpTOFyqC7LO/fabge
-	utDWlSYWHIZVf60A/pN7dZkmYS6cqjhW3y23vC/08gRSM8gNyKor9aOEhlNhRqldwrzTp/ttiRqBT
-	3V868fzwQAZPEffWjoYb5TV9UBohHSOFty9Aq+Tn8ueW94gA+1kKTkuE50NrN5Wu+p7mhQazWtJa7
-	yARTkTv+HJEj1aPSb4Aw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=zkgH/sYKiGQs8YNdan1JiWGjRwcWUU8ypXD8O4jrgB4=; b=KbYIrj2xgLte/4
+	TfdVOY8GeMFqYa4EiIbSxRmy+YB1uoIjCtxwCQpwahnk8yyipfGLHx4u+U5Ft33cAu6u0aaM2k5A6
+	PGmkIQUyGVzgIk/gVRqgWGAbORwBWJ0M+bUd0Kb2AcpycawIHQBEmWgT+POAkMZof66m/20OqVRqs
+	HMI6D9h/0Btk1LdowA6SaKAAxlQpiPxf01ZthDEEiV/IuRx4BXpQXw0ZcHh920HQNm6gMjuiQVnDy
+	fAN8t99EbADLr8bm3mMjWG8VniQsHNfJblcQr2XhgR+msJ8Y5BmjjCL+RnJcQpLGjQFXH6Jx8M2y4
+	880YOmm+6Wk3XUF1F0pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twEU0-00000000jrr-1bn7;
-	Sun, 23 Mar 2025 06:06:52 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1twH7W-00000000uhO-38FI;
+	Sun, 23 Mar 2025 08:55:50 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twETy-00000000jrN-0nGS
+	id 1twH7T-00000000ugp-0Izr
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Mar 2025 06:06:51 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-227b650504fso853395ad.0
-        for <linux-riscv@lists.infradead.org>; Sat, 22 Mar 2025 23:06:49 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742710009; x=1743314809; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=/hRrLYrQqWoUWab1kJtk8tDpV6Q/Kh0bvdM9UsTNmZY=;
-        b=at7VBduAeitsXitLnG/JTCUYP0eKw3MWPrwixhtcnK+eofKtCnFZ/UDDLeCvIYm5wL
-         bRBBUVgKf8+nnBR7NA7Bq1KC4cBuJCMmtxu6FH1hIs4tuWvfQNIQAzTcASNqssuUNtPC
-         SKlMIvn6kyu/3C9dukF2Km+iOK+LS+dh3wZfokAmM7XQDTihw1PK7jLAUYHHQEDuJR3u
-         bLiJ57n8UiWyvutHrlUlwrODhdflnoCo7zsL7aE8DEEsDsXCyiFSG7YdIdVm/IHw7HFW
-         MSz0FJ/SpTgK1eFpFLDIrYtclxa7QAEs7ohuQUBm9GRX9FySbYCLkxlG5rmCt/h3wGF7
-         E8lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742710009; x=1743314809;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/hRrLYrQqWoUWab1kJtk8tDpV6Q/Kh0bvdM9UsTNmZY=;
-        b=d+qOEeAq2T9qFnpyXlmIDv9yQARm/ZshpcHWWJxqHTT7YI6m2YMpvDPmOpwaAe/sf5
-         Aii/GDZhaEUXIq+MQLtGMgaCthdipPeWR7SA8324gXNQiYVjyFUrz/ySJRHJDaKei4zI
-         aIajFttD2ijgEEYdXPyRRlcZW/8JlryVJLgnldbe6ZvZYJRm13rnXMBfD5/nITvUkU1J
-         0k2AVbVXuOfr8fCp6N3Lv1sRknhHey8Q4bvN4aJPZCNb51bovi/HPcle0v0Hm6Vs8N7k
-         6fCPttlLtsVxeabipSRDc+PedOxqNUBKi8+r91aTjfQ3d5C95Et/++m1ioV0D6YLuupl
-         3Jgg==
-X-Forwarded-Encrypted: i=1; AJvYcCXmkscSR+GUuuNWCA+xCdQ1Lnri3O/3mTmf4ZxltdYvim/aEuAOkodRN5Q3DO+54ZL39NS46IjjcbI+bg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzADMK9HQEeCLz0XjKtGj119Lpn2EhmWkN5jCes3L18sbw2xR2k
-	aGRd18Xa7kgCExJ9+cYUYYT3Iu5pmkUoDNWcndEaopkkem/HuICe
-X-Gm-Gg: ASbGnct0K7zDSZhidWSgy8K5loPtbr3Rw8kzcUyZgcuQjGbcbVdy7GeDSHGqWs8GQG9
-	FS08/Dr4i8Hlz29UZi1kRDpwxcftdwhrpiItRjPVkiE6lJEuyNyv6ABDYoT0BRaj7Y3Lgw/Hfde
-	l75wuLrw0IFYNqxl0xb2D7jfyjxqKQh7BOKHtRMPGmOYpFDx/qDC9GYUumT/XpDUj+j0ClXAwks
-	njKjZKW5gdFlQvIWAvVsgb1d7tDtjaoJN/cb4E2voGmcOIMUDgsmKilEcF4NuJqYsTHzorR3YQC
-	TOjiVTIA0MSrG5wWuRSZRb6z5HikWpBcssTlVbu32QBclHjE06u6DgX1F3kPkOMGwg6EM+xfign
-	nKDx2lRS4J9NjkDYTFovx/B6F+8grz70=
-X-Google-Smtp-Source: AGHT+IFdTzdYwVw4qAZHzhbbTSWg3s2s5hfhGqEcU9flZ/U2rK2lNN4Qh8/poZ0SnK+VH3t/JQOFQQ==
-X-Received: by 2002:a17:902:e803:b0:227:ac2a:1dcf with SMTP id d9443c01a7336-227ac2a2536mr25143875ad.23.1742710008825;
-        Sat, 22 Mar 2025 23:06:48 -0700 (PDT)
-Received: from localhost.localdomain (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f3a2e0sm45406045ad.39.2025.03.22.23.06.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 22 Mar 2025 23:06:48 -0700 (PDT)
-From: Ryo Takakura <ryotkkr98@gmail.com>
-To: gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	paul.walmsley@sifive.com,
-	samuel.holland@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	john.ogness@linutronix.de,
-	pmladek@suse.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Ryo Takakura <ryotkkr98@gmail.com>
-Subject: [PATCH] serial: sifive: Switch to nbcon console
-Date: Sun, 23 Mar 2025 15:06:03 +0900
-Message-Id: <20250323060603.388621-1-ryotkkr98@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sun, 23 Mar 2025 08:55:48 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 67FEEEC59F1;
+	Sun, 23 Mar 2025 01:55:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1742720143; bh=42KjRZG4Ec7xBTXyyzIFb+83EFkreEJzD1byDRrYTvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YB0GOurS6e7ntM1c3szslhrVmNfTs29qW3DmV+4LusNNm/ZbyPsW22qezs41sbOmi
+	 Ny4wYzkogpnaK/lDgdomhH262gh1l0gCMIKIeH9v/0zD3Eq7NTZ9XbIUi9i3vB5wvt
+	 UYbntCXgGgr/w2Y4lkeATFRgAD/zQr9PbYURbHuZO66z8MQwrfluHDwgzqis3RLRb9
+	 FdsrvWv6O9MSbWvEO8y1YS/kTw4A+T7UDqVWlM+7krZn8dYOPd9R7DCnGN9Ct/rtfo
+	 scuWnLfZ1ycbhEbCyyZFHKC7Jb44vmqFqKcpyUlw6HPaEjZGuFzNkOpP2XXX7L5ZS3
+	 hnHNxcqmvj/Dw==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id cxXVrxWgCf42; Sun, 23 Mar 2025 01:55:40 -0700 (PDT)
+Received: from ketchup (unknown [183.217.80.115])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 58C7DEC59EE;
+	Sun, 23 Mar 2025 01:55:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1742720140; bh=42KjRZG4Ec7xBTXyyzIFb+83EFkreEJzD1byDRrYTvU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NCQDlCUcrc4vhN8OBM1cEf/Rw4Catjgu4eGkIeUvAN8bFaEzI8TBhnHzzvDGmYclf
+	 PPhmMpX7zIrmDfxICl/VQ0B2nMb+X4LzAEslEZga5vKaLZoHyMXO5ivn3K+UgTpiTN
+	 kGiit+2e9HxwtIs4sXD8doRmPzhC9bWR7jfIF/yjCiJLaGHOh+JGH7FYHuwPv9xeBO
+	 4st5JpY68yfbJuljaEgSgQYJ4okfB/DfuMO5QpKLrXt5DgkFh+6tfS6RtAcoL30Sz4
+	 TN6tvJ1SYgWkY0fOb88bQy/kPUo7mj/nO2rxj0xpcIVKRM+IaOAxEkX9968uLu0Oq8
+	 sWkVC4OpSoTEQ==
+Date: Sun, 23 Mar 2025 08:55:28 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Inochi Amaoto <inochiama@gmail.com>, Yixun Lan <dlan@gentoo.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>, linux-riscv@lists.infradead.org,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, spacemit@lists.linux.dev,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+Subject: Re: [PATCH v5 3/5] clk: spacemit: Add clock support for Spacemit K1
+ SoC
+Message-ID: <Z9_MgAZE53eQ-FV8@ketchup>
+References: <20250306175750.22480-2-heylenay@4d2.org>
+ <20250306175750.22480-5-heylenay@4d2.org>
+ <20250318053736-GYA2516@gentoo>
+ <xwo2jjqy634z4rimgyrbjmxlgzxzauxmqzl57qr5oasph74qwj@7we45fnhwfzh>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <xwo2jjqy634z4rimgyrbjmxlgzxzauxmqzl57qr5oasph74qwj@7we45fnhwfzh>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250322_230650_234963_2BCEE644 
-X-CRM114-Status: GOOD (  17.34  )
+X-CRM114-CacheID: sfid-20250323_015547_454577_EE97FF13 
+X-CRM114-Status: GOOD (  22.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,178 +102,101 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the necessary callbacks(write_atomic, write_thread, device_lock
-and device_unlock) and CON_NBCON flag to switch the sifive console
-driver to perform as nbcon console.
+On Tue, Mar 18, 2025 at 01:43:52PM +0800, Inochi Amaoto wrote:
+> On Tue, Mar 18, 2025 at 05:37:36AM +0000, Yixun Lan wrote:
+> > Hi Haylen Chu:
+> > 
+> > On 17:57 Thu 06 Mar     , Haylen Chu wrote:
+> > > The clock tree of K1 SoC contains three main types of clock hardware
+> > > (PLL/DDN/MIX) and has control registers split into several multifunction
+> > > devices: APBS (PLLs), MPMU, APBC and APMU.
+> > > 
+> > > All register operations are done through regmap to ensure atomiciy
+> > > between concurrent operations of clock driver and reset,
+> > > power-domain driver that will be introduced in the future.
+> > > 
+> > > Signed-off-by: Haylen Chu <heylenay@4d2.org>
+> > > ---
+> > >  drivers/clk/Kconfig               |    1 +
+> > >  drivers/clk/Makefile              |    1 +
+> > >  drivers/clk/spacemit/Kconfig      |   20 +
+> > >  drivers/clk/spacemit/Makefile     |    5 +
+> > >  drivers/clk/spacemit/ccu-k1.c     | 1714 +++++++++++++++++++++++++++++
+> > >  drivers/clk/spacemit/ccu_common.h |   47 +
+> > >  drivers/clk/spacemit/ccu_ddn.c    |   80 ++
+> > >  drivers/clk/spacemit/ccu_ddn.h    |   48 +
+> > >  drivers/clk/spacemit/ccu_mix.c    |  284 +++++
+> > >  drivers/clk/spacemit/ccu_mix.h    |  246 +++++
+> > >  drivers/clk/spacemit/ccu_pll.c    |  146 +++
+> > >  drivers/clk/spacemit/ccu_pll.h    |   76 ++
+> > >  12 files changed, 2668 insertions(+)
+> > >  create mode 100644 drivers/clk/spacemit/Kconfig
+> > >  create mode 100644 drivers/clk/spacemit/Makefile
+> > >  create mode 100644 drivers/clk/spacemit/ccu-k1.c
+> > >  create mode 100644 drivers/clk/spacemit/ccu_common.h
+> > >  create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+> > >  create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+> > >  create mode 100644 drivers/clk/spacemit/ccu_mix.c
+> > >  create mode 100644 drivers/clk/spacemit/ccu_mix.h
+> > >  create mode 100644 drivers/clk/spacemit/ccu_pll.c
+> > >  create mode 100644 drivers/clk/spacemit/ccu_pll.h
+> > > 
+> > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > > index 713573b6c86c..19c1ed280fd7 100644
+> > > --- a/drivers/clk/Kconfig
+> > > +++ b/drivers/clk/Kconfig
+> > > @@ -517,6 +517,7 @@ source "drivers/clk/samsung/Kconfig"
+> > >  source "drivers/clk/sifive/Kconfig"
+> > >  source "drivers/clk/socfpga/Kconfig"
+> > >  source "drivers/clk/sophgo/Kconfig"
+> > > +source "drivers/clk/spacemit/Kconfig"
+> > >  source "drivers/clk/sprd/Kconfig"
+> > >  source "drivers/clk/starfive/Kconfig"
+> > >  source "drivers/clk/sunxi/Kconfig"
+> > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> > > index bf4bd45adc3a..42867cd37c33 100644
+> > > --- a/drivers/clk/Makefile
+> > > +++ b/drivers/clk/Makefile
+> > > @@ -145,6 +145,7 @@ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
+> > >  obj-$(CONFIG_CLK_SIFIVE)		+= sifive/
+> > >  obj-y					+= socfpga/
+> > >  obj-y					+= sophgo/
+> > > +obj-y					+= spacemit/
+> > >  obj-$(CONFIG_PLAT_SPEAR)		+= spear/
+> > >  obj-y					+= sprd/
+> > >  obj-$(CONFIG_ARCH_STI)			+= st/
+> > > diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
+> > > new file mode 100644
+> > > index 000000000000..76090cd85668
+> > > --- /dev/null
+> > > +++ b/drivers/clk/spacemit/Kconfig
+> > > @@ -0,0 +1,20 @@
+> > > +# SPDX-License-Identifier: GPL-2.0-only
+> > > +
 
-Both ->write_atomic() and ->write_thread() will check for console
-ownership whenever they are accessing registers.
+Hi Inochi, Yixun,
 
-The ->device_lock()/unlock() will provide the additional serilization
-necessary for ->write_thread() which is called from dedicated printing
-thread.
+> > > +config SPACEMIT_CCU
+> > > +	tristate "Clock support for Spacemit SoCs"
+> > > +	default y
+> > similar reason to pinctrl with these patches [1], [2]
+> > I'd suggest switch to "bool + default ARCH_SPACEMIT" 
+> > 
+> > Link: https://lore.kernel.org/all/20250218-k1-pinctrl-option-v3-1-36e031e0da1b@gentoo.org [1]
+> > Link: https://lore.kernel.org/all/6881b8d1ad74ac780af8a974e604b5ef3f5d4aad.1742198691.git.geert+renesas@glider.be [2]
+> > 
+> 
+> Clk subsystem prefers no defalt and set it in defconfig,
+> so should no default there.
 
-Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
----
+Thanks for these hints, I will drop default and set the configuration in
+defconfig, in which case it seems okay to keep it as bool.
 
-Hi!
+> Regards,
+> Inochi
 
-I referred to the already converted console drivers 8250 [0], imx [1]
-and amba-pl011 [2]. I tested the patch for each of the NBCON priority
-(PANIC, EMERGENCY and NORMAL) on riscv qemu.
-Hope to get feedbacks, thanks!
-
-Sincerely,
-Ryo Takakura
-
-[0] https://lore.kernel.org/lkml/20250107212702.169493-1-john.ogness@linutronix.de/
-[1] https://lore.kernel.org/linux-arm-kernel/20240913-serial-imx-nbcon-v3-1-4c627302335b@geanix.com/
-[2] https://lore.kernel.org/linux-serial/20250204044428.2191983-1-fj6611ie@aa.jp.fujitsu.com/
-
----
- drivers/tty/serial/sifive.c | 87 +++++++++++++++++++++++++++++++------
- 1 file changed, 74 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index 5904a2d4c..d032de619 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -151,6 +151,7 @@ struct sifive_serial_port {
- 	unsigned long		baud_rate;
- 	struct clk		*clk;
- 	struct notifier_block	clk_notifier;
-+	bool			console_line_ended;
- };
- 
- /*
-@@ -779,33 +780,88 @@ static void sifive_serial_console_putchar(struct uart_port *port, unsigned char
- 
- 	__ssp_wait_for_xmitr(ssp);
- 	__ssp_transmit_char(ssp, ch);
-+
-+	ssp->console_line_ended = (ch == '\n');
-+}
-+
-+static void sifive_serial_device_lock(struct console *co, unsigned long *flags)
-+{
-+	struct uart_port *up = &sifive_serial_console_ports[co->index]->port;
-+
-+	return __uart_port_lock_irqsave(up, flags);
-+}
-+
-+static void sifive_serial_device_unlock(struct console *co, unsigned long flags)
-+{
-+	struct uart_port *up = &sifive_serial_console_ports[co->index]->port;
-+
-+	return __uart_port_unlock_irqrestore(up, flags);
- }
- 
--static void sifive_serial_console_write(struct console *co, const char *s,
--					unsigned int count)
-+static void sifive_serial_console_write_atomic(struct console *co,
-+					       struct nbcon_write_context *wctxt)
- {
- 	struct sifive_serial_port *ssp = sifive_serial_console_ports[co->index];
--	unsigned long flags;
-+	struct uart_port *port = &ssp->port;
- 	unsigned int ier;
--	int locked = 1;
- 
- 	if (!ssp)
- 		return;
- 
--	if (oops_in_progress)
--		locked = uart_port_trylock_irqsave(&ssp->port, &flags);
--	else
--		uart_port_lock_irqsave(&ssp->port, &flags);
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
- 
- 	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
- 	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
--	uart_console_write(&ssp->port, s, count, sifive_serial_console_putchar);
-+	if (!ssp->console_line_ended)
-+		uart_console_write(port, "\n", 1, sifive_serial_console_putchar);
-+	uart_console_write(port, wctxt->outbuf, wctxt->len,
-+			   sifive_serial_console_putchar);
- 
- 	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
--	if (locked)
--		uart_port_unlock_irqrestore(&ssp->port, flags);
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void sifive_serial_console_write_thread(struct console *co,
-+					       struct nbcon_write_context *wctxt)
-+{
-+	struct sifive_serial_port *ssp = sifive_serial_console_ports[co->index];
-+	struct uart_port *port = &ssp->port;
-+	unsigned int ier;
-+
-+	if (!ssp)
-+		return;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
-+	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
-+
-+	if (nbcon_exit_unsafe(wctxt)) {
-+		int len = READ_ONCE(wctxt->len);
-+		int i;
-+
-+		for (i = 0; i < len; i++) {
-+			if (!nbcon_enter_unsafe(wctxt))
-+				break;
-+
-+			uart_console_write(port, wctxt->outbuf + i, 1,
-+					   sifive_serial_console_putchar);
-+
-+			if (!nbcon_exit_unsafe(wctxt))
-+				break;
-+		}
-+	}
-+
-+	while (!nbcon_enter_unsafe(wctxt))
-+		nbcon_reacquire_nobuf(wctxt);
-+
-+	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
-+
-+	nbcon_exit_unsafe(wctxt);
- }
- 
- static int sifive_serial_console_setup(struct console *co, char *options)
-@@ -823,6 +879,8 @@ static int sifive_serial_console_setup(struct console *co, char *options)
- 	if (!ssp)
- 		return -ENODEV;
- 
-+	ssp->console_line_ended = true;
-+
- 	if (options)
- 		uart_parse_options(options, &baud, &parity, &bits, &flow);
- 
-@@ -833,10 +891,13 @@ static struct uart_driver sifive_serial_uart_driver;
- 
- static struct console sifive_serial_console = {
- 	.name		= SIFIVE_TTY_PREFIX,
--	.write		= sifive_serial_console_write,
-+	.write_atomic	= sifive_serial_console_write_atomic,
-+	.write_thread	= sifive_serial_console_write_thread,
-+	.device_lock	= sifive_serial_device_lock,
-+	.device_unlock	= sifive_serial_device_unlock,
- 	.device		= uart_console_device,
- 	.setup		= sifive_serial_console_setup,
--	.flags		= CON_PRINTBUFFER,
-+	.flags		= CON_PRINTBUFFER | CON_NBCON,
- 	.index		= -1,
- 	.data		= &sifive_serial_uart_driver,
- };
--- 
-2.34.1
-
+Thanks,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
