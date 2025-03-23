@@ -4,60 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C5CC28B30
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 22:24:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99BF8C28B30
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 22:30:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2pfrbcFUCetAL3KtUnCG8ppoPITsICQHXe3DZiqrrag=; b=vclCD2B5PnPtEp
-	hguHdp8v7Q2X0+menR9tltuNXMxQZ2J8s0SbgGA9pgWemba5+2+ndHhs1Rc11svPdD1J0zlKtN7iU
-	FiFZV35iSomKOwPdXaV0yBfNNfOhEazdDbjIRvEn60pHE1D6bkq+vcodemMbx0jB1HL7RA6jzRSI6
-	UV1eCTWdzQ8bWCCq62oKHismLlQVjrrdQtrvrwdbKbQVd+a9JfgByuJMZgEkmDxtKVvRSLDSti6pa
-	ah5IkxDrQINt8d+V22g69Um4uhcaoHpdfxq1z5YrfUHvDrgLBEduApT9QCZbaEnascJAtOT549uqK
-	tmtSfZmc7sSijO0ZxwJQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KOPc/asEwMzMzJSUuSx3fO9ekc5BhixHUuiEVFjXSw8=; b=ijXsMTNTXsLaT7
+	6v861f/OMvw5OH87MN+LSB4hkLPBptp2bGvlC6cghA8xzGqAjiRs+zM6jHsIgvhyVlrIP+28cE3JO
+	1XOv25RbwhJyFnSB9JVjLMc0ZOuH7zMWe4S9ZQn3ArbCozaLs/fldTyLmdCBh1IbOLg4WN8/P0j7B
+	U21/9DXAv1you2vHVggwF9125Mboe+ML/u352VPyMh2t/1iA3YRglfjvguCUned20F1kKq091ZvjF
+	hyLa5mkLCq2GPI5V99PVxHToeDXi0TVYBQQ/07EKdxubzn7T60rAGOSfkldsfsnW6ykIVmlZewR/3
+	/FLtDE4oWwRjcUWffopw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTjy-00000001o0E-30GE;
-	Sun, 23 Mar 2025 22:24:23 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1twTq1-00000001oVE-2ruW;
+	Sun, 23 Mar 2025 22:30:37 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twTju-00000001nyo-3dfC
+	id 1twTpy-00000001oUm-3D5K
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Mar 2025 22:24:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9CD3DA4A41E;
-	Sun, 23 Mar 2025 22:18:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B934C4CEE2;
-	Sun, 23 Mar 2025 22:24:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742768657;
-	bh=pSuPLgb3YUS81mURBOzGRLLehj+iUHT29QAhz8DJIGc=;
-	h=Date:From:To:Cc:Subject:From;
-	b=qYrCNWGbkDBb/JDwwf394RfwE0N8Wv7N1D3ccFYVIZkXiCzZpRYrTywKtc87gonn2
-	 yKkl1XTxMov6pgMjn6cdaKclE6unWWdrslUb8djX8wlsBJvTQIMpXAdCFCSk6yFh+o
-	 MXyRHjC+5RJtaLd7fTj6GQw376vJnvD23Gw1DfSd0RvKZT8UfqiKtakuhKG3YqrgwS
-	 FlVraDPyAHdJ+X78El44JtVbzMSLTlrEGXaLR41rih0y9suGV45wtalwkzthLZu+Ez
-	 Jn+pZDxxE5+FssVmyWR+qx0lX4g5nd4K5GZwK0pzLhsOR6zD/dUvCLR+McpKV5AwNe
-	 8i+i9ayDMVhWw==
-Date: Sun, 23 Mar 2025 15:24:15 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	x86@kernel.org, linux-crypto@vger.kernel.org,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Ard Biesheuvel <ardb@kernel.org>, Keith Busch <kbusch@kernel.org>,
-	"Martin K. Petersen" <martin.petersen@oracle.com>,
-	Uros Bizjak <ubizjak@gmail.com>
-Subject: [GIT PULL] CRC updates for 6.15
-Message-ID: <20250323222415.GC9584@sol.localdomain>
+	Sun, 23 Mar 2025 22:30:36 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-85b5e49615aso331389139f.1
+        for <linux-riscv@lists.infradead.org>; Sun, 23 Mar 2025 15:30:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742769033; x=1743373833; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=nTRlExMDyawWBV8YJuZYM4CxYbcHVqfU+45dmVV3tsQ=;
+        b=Gf/W5BSEo6xy+ReRLljHDEBoS/T6RjjqBzItASKTdvE66VYh7hy53jfGF9S6UIQujb
+         SvQtL4nWITe7MuQLWrdAh2hG65+Au4MB4ZiSF9cKw3/czAaZdREOYgFErN4RGcmhB6/B
+         6aFHTPQMiCF39ktdOI5VE3QrXHH83DkcoHOv41P+srNKRJCd6o42aFuG/ZLmpMIxMz/W
+         tpH7A8Bsg1bO0nhjwCThG7PqpoMd7hnLZ7Siao/COuJBixsFjvq3KZyDAOy/OW8Rf+od
+         z7aQ7+OcWTD2RNd6Z3Gv0NhckDrpNGlAIE/YbVQvFu07+cHJR2YlssHiw6ZThql3Ztue
+         dZ4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1742769033; x=1743373833;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=nTRlExMDyawWBV8YJuZYM4CxYbcHVqfU+45dmVV3tsQ=;
+        b=IiF5tMyeWrklSdwJT7Zl0PYgHE4LV8TPJOSQfTX3L1GiV3WFom0DzJv1nyjuUAIKfz
+         nvtKrEAmbE6aqjWwv39VHH/WpYGIRvfxTPYv0vPR6gV/WLz7sCvlByaKM3VofeRMXQ9f
+         WSaatsscTGiMSLMdfAfX6pyjGx+XrDA4GDIgsqHPNxgKzTpGduvnImE+TB2PiRko8OSz
+         PCjrh97B7yyRQdrkLm91baEyqVRTJJkrtlBvj95u5T3qeKEtGHEfNudWgXys8Iw7kGMR
+         59idxgLLHD1xMrEKxbKfip2UQCWHdrezFqeRoX1jZ3yLdCIlt8hoYQhyW3pjLg4riFgo
+         //RA==
+X-Forwarded-Encrypted: i=1; AJvYcCWDfyT1k/+e/gXZ+1BvSNuyj9lB2oN2d19tVqSUojTrFp/YBQqyE+gxKfH3ZKKSukyHpeJIcBwjRTdF6A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzunE/KDEhHstv+hNarDnR9S7ylOzPeH/tGTQNE0Ggvikfa4/M3
+	YpmaSwPtkDAh39mlmd5OvyKZPBUjQD2YBttONRwZg+C1Jtfqo2Gn4Fn1sEjeGE8=
+X-Gm-Gg: ASbGncsLqR3Y7n+VVI1HAIZ0Qsvq/sewi2AxTFgG3SGssY98rZBX9mm9HxfxiCTeveO
+	fDU+TJOCdH3khXmtACOFhRsk8ItNlLZncSFQsvPUjfydg2fB/kTlXp8gOTsO9Y70r5gFM4lIorg
+	NlI4283I8sdpwZNaiw3xF9O6HgAEd5grCBK0Gki6qY1laK0m4iC87UVcFGktBGrpgUMUZGj3HWQ
+	mR0Z/JONdS37ocOX1t+sH4WbM0a32yA0cGNR6fcnGuEBapyQKSF1nTa5Agz5BltWR1Bh/8vI5Hy
+	YgTkAwEpfxAOSsUwvakL43Sa0gzz2mxwwcNEuM2OHfMS/uIhHdX4ZhY3ij1N6FS11Zt8wMOnZk7
+	BgL30odixufK2orrJxQ==
+X-Google-Smtp-Source: AGHT+IGH7axJe7eTCwDAhgnxz/2TT8RhnJt+UseNxV/R3diYZCOSlRPsij/3sX+uVBgUHGoEXTkhpw==
+X-Received: by 2002:a05:6e02:3e03:b0:3d0:239a:c46a with SMTP id e9e14a558f8ab-3d596114994mr121950535ab.9.1742769032889;
+        Sun, 23 Mar 2025 15:30:32 -0700 (PDT)
+Received: from [10.211.55.5] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2cbeb52f9sm1538014173.130.2025.03.23.15.30.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 23 Mar 2025 15:30:32 -0700 (PDT)
+Message-ID: <661457f2-aad9-4b3c-926a-6ee021355dac@riscstar.com>
+Date: Sun, 23 Mar 2025 17:30:30 -0500
 MIME-Version: 1.0
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND 2/7] clk: spacemit: define struct k1_ccu_data
+To: Yixun Lan <dlan@gentoo.org>
+Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heylenay@4d2.org,
+ guodong@riscstar.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, spacemit@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250321151831.623575-1-elder@riscstar.com>
+ <20250321151831.623575-3-elder@riscstar.com> <20250322155034-GYB11633@gentoo>
+ <45526855-17b2-4de4-8e12-6320b7d84c8e@riscstar.com>
+ <20250323130430-GYB15267@gentoo>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250323130430-GYB15267@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_152419_176236_3CB5DF3D 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250323_153035_080062_899E5EFB 
+X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,229 +102,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+On 3/23/25 8:04 AM, Yixun Lan wrote:
+> On 07:43 Sun 23 Mar     , Alex Elder wrote:
+>> On 3/22/25 10:50 AM, Yixun Lan wrote:
+>>> Hi Alex:
+>>>
+>>> this patch change relate to clock only, so how about let's fold
+>>> it into clk patches (which now has not been merged), so we make
+>>> the code right at first place? cause some moving around and renaming
+>>
+>> No I don't want to do that.
+>>
+>> The clock patches are Haylen's and the are getting closer to
+>> acceptance.  Let's not confuse things by adding a bunch of new
+>> functionality.  Get those patches in, and mine can follow not
+>> too long after that.
+>>
+> 
+> I only mean patch [2/7], not all patches, as it's still clock related
+> but, either way fine by me if you insist
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+I see.  It would be great for Haylen to implement this, it's a
+better way to do it anyway--you can define the number of
+elements in the array using ARRAY_SIZE() this way also (rather
+than having to count them at runtime).
 
-are available in the Git repository at:
+Haylen is welcome to use my patch as the basis of this, but
+if it doesn't get into that code I'll add it.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/crc-for-linus
+					-Alex
 
-for you to fetch changes up to acf9f8da5e19fc1cbf26f2ecb749369e13e7cd85:
+> 
 
-  x86/crc: drop the avx10_256 functions and rename avx10_512 to avx512 (2025-03-19 12:22:00 -0700)
-
-----------------------------------------------------------------
-
-Another set of improvements to the kernel's CRC (cyclic redundancy
-check) code:
-
-- Rework the CRC64 library functions to be directly optimized, like what
-  I did last cycle for the CRC32 and CRC-T10DIF library functions.
-
-- Rewrite the x86 PCLMULQDQ-optimized CRC code, and add VPCLMULQDQ
-  support and acceleration for crc64_be and crc64_nvme.
-
-- Rewrite the riscv Zbc-optimized CRC code, and add acceleration for
-  crc_t10dif, crc64_be, and crc64_nvme.
-
-- Remove crc_t10dif and crc64_rocksoft from the crypto API, since they
-  are no longer needed there.
-
-- Rename crc64_rocksoft to crc64_nvme, as the old name was incorrect.
-
-- Add kunit test cases for crc64_nvme and crc7.
-
-- Eliminate redundant functions for calculating the Castagnoli CRC32,
-  settling on just crc32c().
-
-- Remove unnecessary prompts from some of the CRC kconfig options.
-
-- Further optimize the x86 crc32c code.
-
-----------------------------------------------------------------
-Eric Biggers (36):
-      lib/crc64-rocksoft: stop wrapping the crypto API
-      crypto: crc64-rocksoft - remove from crypto API
-      lib/crc64: rename CRC64-Rocksoft to CRC64-NVME
-      lib/crc_kunit.c: add test and benchmark for CRC64-NVME
-      lib/crc64: add support for arch-optimized implementations
-      lib/crc32: remove obsolete CRC32 options from defconfig files
-      mips/crc32: remove unused enums
-      lib/crc32: use void pointer for data
-      lib/crc32: don't bother with pure and const function attributes
-      lib/crc32: standardize on crc32c() name for Castagnoli CRC32
-      lib/crc32: rename __crc32c_le_combine() to crc32c_combine()
-      lib/crc32: remove "_le" from crc32c base and arch functions
-      crypto: crct10dif - remove from crypto API
-      lib/crc-t10dif: remove crc_t10dif_is_optimized()
-      x86: move ZMM exclusion list into CPU feature flag
-      scripts/gen-crc-consts: add gen-crc-consts.py
-      x86/crc: add "template" for [V]PCLMULQDQ based CRC functions
-      x86/crc32: implement crc32_le using new template
-      x86/crc-t10dif: implement crc_t10dif using new template
-      x86/crc64: implement crc64_be and crc64_nvme using new template
-      x86/crc32: improve crc32c_arch() code generation with clang
-      x86/crc: add ANNOTATE_NOENDBR to suppress objtool warnings
-      riscv/crc: add "template" for Zbc optimized CRC functions
-      riscv/crc32: reimplement the CRC32 functions using new template
-      riscv/crc-t10dif: add Zbc optimized CRC-T10DIF function
-      riscv/crc64: add Zbc optimized CRC64 functions
-      x86/crc32: optimize tail handling for crc32c short inputs
-      lib/crc_kunit.c: add test and benchmark for crc7_be()
-      lib/crc_kunit.c: update comment in crc_benchmark()
-      lib/crc7: unexport crc7_be_syndrome_table
-      lib/crc: remove unnecessary prompt for CONFIG_CRC4
-      lib/crc: remove unnecessary prompt for CONFIG_CRC7
-      lib/crc: remove unnecessary prompt for CONFIG_CRC8
-      lib/crc: remove unnecessary prompt for CONFIG_LIBCRC32C
-      lib/crc: remove unnecessary prompt for CONFIG_CRC64
-      x86/crc: drop the avx10_256 functions and rename avx10_512 to avx512
-
- MAINTAINERS                                    |   1 +
- arch/arm/configs/dove_defconfig                |   1 -
- arch/arm/configs/ep93xx_defconfig              |   1 -
- arch/arm/configs/imx_v6_v7_defconfig           |   2 -
- arch/arm/configs/lpc18xx_defconfig             |   1 -
- arch/arm/configs/moxart_defconfig              |   1 -
- arch/arm/configs/multi_v5_defconfig            |   1 -
- arch/arm/configs/mvebu_v5_defconfig            |   1 -
- arch/arm/configs/mxs_defconfig                 |   1 -
- arch/arm/configs/omap1_defconfig               |   1 -
- arch/arm/configs/omap2plus_defconfig           |   2 -
- arch/arm/configs/spitz_defconfig               |   1 -
- arch/arm/configs/stm32_defconfig               |   1 -
- arch/arm/configs/wpcm450_defconfig             |   1 -
- arch/arm/lib/crc-t10dif-glue.c                 |   6 -
- arch/arm/lib/crc32-glue.c                      |  12 +-
- arch/arm64/lib/crc-t10dif-glue.c               |   6 -
- arch/arm64/lib/crc32-glue.c                    |  10 +-
- arch/hexagon/configs/comet_defconfig           |   1 -
- arch/loongarch/lib/crc32-loongarch.c           |   6 +-
- arch/mips/configs/bcm47xx_defconfig            |   1 -
- arch/mips/configs/bigsur_defconfig             |   1 -
- arch/mips/configs/cobalt_defconfig             |   1 -
- arch/mips/configs/db1xxx_defconfig             |   1 -
- arch/mips/configs/decstation_64_defconfig      |   1 -
- arch/mips/configs/decstation_defconfig         |   1 -
- arch/mips/configs/decstation_r4k_defconfig     |   1 -
- arch/mips/configs/fuloong2e_defconfig          |   1 -
- arch/mips/configs/ip32_defconfig               |   1 -
- arch/mips/configs/rt305x_defconfig             |   1 -
- arch/mips/configs/xway_defconfig               |   1 -
- arch/mips/lib/crc32-mips.c                     |  15 +-
- arch/parisc/configs/generic-64bit_defconfig    |   1 -
- arch/powerpc/configs/85xx/ge_imp3a_defconfig   |   1 -
- arch/powerpc/configs/adder875_defconfig        |   1 -
- arch/powerpc/configs/ep88xc_defconfig          |   1 -
- arch/powerpc/configs/mpc866_ads_defconfig      |   1 -
- arch/powerpc/configs/mpc885_ads_defconfig      |   1 -
- arch/powerpc/configs/skiroot_defconfig         |   1 -
- arch/powerpc/configs/tqm8xx_defconfig          |   1 -
- arch/powerpc/lib/crc-t10dif-glue.c             |   6 -
- arch/powerpc/lib/crc32-glue.c                  |  10 +-
- arch/riscv/Kconfig                             |   2 +
- arch/riscv/lib/Makefile                        |   5 +
- arch/riscv/lib/crc-clmul-consts.h              | 122 ++++++
- arch/riscv/lib/crc-clmul-template.h            | 265 +++++++++++
- arch/riscv/lib/crc-clmul.h                     |  23 +
- arch/riscv/lib/crc-t10dif.c                    |  24 +
- arch/riscv/lib/crc16_msb.c                     |  18 +
- arch/riscv/lib/crc32-riscv.c                   | 311 -------------
- arch/riscv/lib/crc32.c                         |  53 +++
- arch/riscv/lib/crc32_lsb.c                     |  18 +
- arch/riscv/lib/crc32_msb.c                     |  18 +
- arch/riscv/lib/crc64.c                         |  34 ++
- arch/riscv/lib/crc64_lsb.c                     |  18 +
- arch/riscv/lib/crc64_msb.c                     |  18 +
- arch/s390/configs/debug_defconfig              |   3 -
- arch/s390/configs/defconfig                    |   3 -
- arch/s390/lib/crc32-glue.c                     |   2 +-
- arch/sh/configs/se7206_defconfig               |   2 -
- arch/sh/configs/sh2007_defconfig               |   1 -
- arch/sh/configs/titan_defconfig                |   1 -
- arch/sparc/configs/sparc32_defconfig           |   1 -
- arch/sparc/configs/sparc64_defconfig           |   1 -
- arch/sparc/lib/crc32_glue.c                    |  10 +-
- arch/x86/Kconfig                               |   3 +-
- arch/x86/crypto/aesni-intel_glue.c             |  22 +-
- arch/x86/include/asm/cpufeatures.h             |   1 +
- arch/x86/kernel/cpu/intel.c                    |  22 +
- arch/x86/lib/Makefile                          |   5 +-
- arch/x86/lib/crc-pclmul-consts.h               | 195 +++++++++
- arch/x86/lib/crc-pclmul-template.S             | 582 +++++++++++++++++++++++++
- arch/x86/lib/crc-pclmul-template.h             |  76 ++++
- arch/x86/lib/crc-t10dif-glue.c                 |  29 +-
- arch/x86/lib/crc16-msb-pclmul.S                |   6 +
- arch/x86/lib/crc32-glue.c                      |  57 +--
- arch/x86/lib/crc32-pclmul.S                    | 219 +---------
- arch/x86/lib/crc64-glue.c                      |  50 +++
- arch/x86/lib/crc64-pclmul.S                    |   7 +
- arch/x86/lib/crct10dif-pcl-asm_64.S            | 332 --------------
- block/Kconfig                                  |   2 +-
- block/t10-pi.c                                 |   2 +-
- crypto/Kconfig                                 |  20 -
- crypto/Makefile                                |   3 -
- crypto/crc32c_generic.c                        |   8 +-
- crypto/crc64_rocksoft_generic.c                |  89 ----
- crypto/crct10dif_generic.c                     | 168 -------
- crypto/tcrypt.c                                |   8 -
- crypto/testmgr.c                               |  14 -
- crypto/testmgr.h                               | 303 -------------
- drivers/crypto/stm32/stm32-crc32.c             |   2 +-
- drivers/infiniband/sw/siw/siw.h                |   4 +-
- drivers/md/raid5-cache.c                       |  31 +-
- drivers/md/raid5-ppl.c                         |  16 +-
- drivers/net/ethernet/broadcom/bnx2x/bnx2x_sp.c |   2 +-
- drivers/thunderbolt/ctl.c                      |   2 +-
- drivers/thunderbolt/eeprom.c                   |   2 +-
- include/linux/crc-t10dif.h                     |  12 -
- include/linux/crc32.h                          |  55 ++-
- include/linux/crc32c.h                         |   8 -
- include/linux/crc64.h                          |  38 +-
- include/linux/crc7.h                           |   7 -
- include/net/sctp/checksum.h                    |   7 +-
- lib/Kconfig                                    |  45 +-
- lib/Kconfig.debug                              |   1 +
- lib/Makefile                                   |   1 -
- lib/crc32.c                                    |  21 +-
- lib/crc64-rocksoft.c                           | 126 ------
- lib/crc64.c                                    |  49 +--
- lib/crc7.c                                     |   6 +-
- lib/crc_kunit.c                                |  68 ++-
- lib/gen_crc64table.c                           |  10 +-
- scripts/gen-crc-consts.py                      | 291 +++++++++++++
- sound/soc/codecs/aw88395/aw88395_device.c      |   2 +-
- tools/testing/selftests/arm64/fp/kernel-test.c |   1 -
- 115 files changed, 2121 insertions(+), 1969 deletions(-)
- create mode 100644 arch/riscv/lib/crc-clmul-consts.h
- create mode 100644 arch/riscv/lib/crc-clmul-template.h
- create mode 100644 arch/riscv/lib/crc-clmul.h
- create mode 100644 arch/riscv/lib/crc-t10dif.c
- create mode 100644 arch/riscv/lib/crc16_msb.c
- delete mode 100644 arch/riscv/lib/crc32-riscv.c
- create mode 100644 arch/riscv/lib/crc32.c
- create mode 100644 arch/riscv/lib/crc32_lsb.c
- create mode 100644 arch/riscv/lib/crc32_msb.c
- create mode 100644 arch/riscv/lib/crc64.c
- create mode 100644 arch/riscv/lib/crc64_lsb.c
- create mode 100644 arch/riscv/lib/crc64_msb.c
- create mode 100644 arch/x86/lib/crc-pclmul-consts.h
- create mode 100644 arch/x86/lib/crc-pclmul-template.S
- create mode 100644 arch/x86/lib/crc-pclmul-template.h
- create mode 100644 arch/x86/lib/crc16-msb-pclmul.S
- create mode 100644 arch/x86/lib/crc64-glue.c
- create mode 100644 arch/x86/lib/crc64-pclmul.S
- delete mode 100644 arch/x86/lib/crct10dif-pcl-asm_64.S
- delete mode 100644 crypto/crc64_rocksoft_generic.c
- delete mode 100644 crypto/crct10dif_generic.c
- delete mode 100644 lib/crc64-rocksoft.c
- create mode 100755 scripts/gen-crc-consts.py
 
 _______________________________________________
 linux-riscv mailing list
