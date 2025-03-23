@@ -4,92 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF0BEC36002
-	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 13:23:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C5CC28B30
+	for <linux-riscv@archiver.kernel.org>; Sun, 23 Mar 2025 22:24:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Edemc5UUdaoyRsda7fASASBv+Ko6wvaDymSA/GnLrs8=; b=3ifQptrjMoEY/9
-	W7WFflQS9FY78zTXDI+QFoucHDEUZbClrZ3mjxWf83pAlWWZMeN82yxQNitKhdcDqbE4QfVnbUT8l
-	ph5cEtUTHwNQ2+6xmxb3v8LnXQNZADjZNB97LbD/0/LA2pwvWFcv21e0fkIm6PBAKTAxDhukNJ6Jd
-	ggH4DHxgfaz5mZl08+R6tiCpDsmjk05jlrE/DHaqxzbE3RE09tibq+naHl/FIk+RdQDIVTyvgjrQK
-	UfIgJknPvjHZqOYgbDbtPaaupnblLLJ11ZIijyAMnt2je6hDa7TGYOhzCnxSuyWk41ful+zlWZpGE
-	wTyKxfb8pIvj9k++CRqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=2pfrbcFUCetAL3KtUnCG8ppoPITsICQHXe3DZiqrrag=; b=vclCD2B5PnPtEp
+	hguHdp8v7Q2X0+menR9tltuNXMxQZ2J8s0SbgGA9pgWemba5+2+ndHhs1Rc11svPdD1J0zlKtN7iU
+	FiFZV35iSomKOwPdXaV0yBfNNfOhEazdDbjIRvEn60pHE1D6bkq+vcodemMbx0jB1HL7RA6jzRSI6
+	UV1eCTWdzQ8bWCCq62oKHismLlQVjrrdQtrvrwdbKbQVd+a9JfgByuJMZgEkmDxtKVvRSLDSti6pa
+	ah5IkxDrQINt8d+V22g69Um4uhcaoHpdfxq1z5YrfUHvDrgLBEduApT9QCZbaEnascJAtOT549uqK
+	tmtSfZmc7sSijO0ZxwJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twLIt-00000001FLG-3uD4;
-	Sun, 23 Mar 2025 13:23:51 +0000
-Received: from mail-io1-xd34.google.com ([2607:f8b0:4864:20::d34])
+	id 1twTjy-00000001o0E-30GE;
+	Sun, 23 Mar 2025 22:24:23 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twLIs-00000001FKb-1Mud
+	id 1twTju-00000001nyo-3dfC
 	for linux-riscv@lists.infradead.org;
-	Sun, 23 Mar 2025 13:23:51 +0000
-Received: by mail-io1-xd34.google.com with SMTP id ca18e2360f4ac-85afd2b9106so378288539f.0
-        for <linux-riscv@lists.infradead.org>; Sun, 23 Mar 2025 06:23:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742736230; x=1743341030; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=vOluyEJJQfX6U4qT7bfq8l8QHshCFBSDzvPzJIBTv80=;
-        b=UcHBaeOA9ldgzPwTNJfOFsA7aLl8oFY5XiBKkJI5xC52iiXaYJo2MqhnXwa3iX4rJU
-         FPHTsnU/jvZNJF21PMq1CSe4EUX6HLvp0AEm2YGPchWxWW9brY/FmhV1QUi8mHFBX3hA
-         aD5KlejM5iFzDaNHswEc3fKPoQUZk4pmeRfs5Vx0ANeTqEkLQQG/ToGxUG2TtCnfM5qD
-         j0gMUK7jTdrjv6SHw4gOZgh3Vh/86UVb9PpdrjbQC6SRSrkF6Yjg46vUgt3gK6V7Xoff
-         ipTpCHeA/IO0eoQGIkHqVxdh9XVHMmtPsgbXwHZdcQEFWCF4PUR91JywHAoZRCEdcIy5
-         uIKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742736230; x=1743341030;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=vOluyEJJQfX6U4qT7bfq8l8QHshCFBSDzvPzJIBTv80=;
-        b=F7856jSHri7JE/X4MVtdiFRr5KUmC/ZfSG2CIhyVcMENa3HpiAkvHU3pWSSYSf3qoA
-         Sm4TzPlIDBo/ctEaqohlrcjjA7fD5KmNCHHToTHjvYk3GFKi1OiqhR9eXiYxdBTyVruh
-         JnkRmkXmuPfB0cWDjVygTPxpyQmhtssDWXdHmhmSgYgEm+ETo72Xw7d3zX46K5pRzf1H
-         VmEuKtQJQlQyMDdxu0OIovRuoyxbb7lyFUnyANVV9qoOxNLFnVj00jLJhcBHDyvN4gh5
-         zGowK4nqCSPi6Aceg73CP4Q9oIFkY/xMZjlDqJMa+Tul7zZ3PruulvIDCoDxAhviWHCW
-         vqKA==
-X-Forwarded-Encrypted: i=1; AJvYcCWuxCqv2YvauWChH9hLLUxp9O3bj7NNTtsiiymEhaeYjI4hrEVxqX9h6qijd6nQZgt+3znpU8rYUsd51g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxWDIF/Ps1NYTjGlRlA4tEtP9F35QPUXgr8g21+H436o5qD92XD
-	e7KfxFlXtS9eKs3BVO20WWxxnKer9boCKaqat/FqQWZH+Fh5yz4K67buZjjk0hg=
-X-Gm-Gg: ASbGncu8HY1A245NXqiHHjpXTZH+V8iG7npi/TaZ/x316Blt++feru3gQao3N76qiQa
-	FCo2PLNTIY42fkChfz1TlAL2lIaRtCJ6ynMJAS1owB+MXw9Rtkv9SROQm5a2IPlSYHQGN6BCy7k
-	ZnN2UuH1A/rCUwPrwxqQAvQ8Dytry9vDbJNq11O8h9fMJN1mm4bA7+Lr5L/pgMXQPpfmtjcBcN3
-	xHeRFt5ToEg/vVC/8DspeVC3nYjLlVwHeAm7cT4d53f2W1saAAl940fxCAI5Z6kilG2nbihuUtZ
-	YWeZYMyxEu7m1XgkSUwNjysEGUiZPioh4h73WoO2dPK/Sx2YNja2lrsXdEu+ohMq3Q9iz3o7lvA
-	wstkFSbe52K2ayePRoD0dUR6H5Y9w
-X-Google-Smtp-Source: AGHT+IHvNHoOTQ7GjqXvKjbkWRzMHajkOVeKgTFwJL+MCalCStZsW2aoR41uPaZSxapIX+qE0BXZHg==
-X-Received: by 2002:a05:6602:7512:b0:85b:3c49:8825 with SMTP id ca18e2360f4ac-85e2ca62dd3mr974589339f.4.1742736229595;
-        Sun, 23 Mar 2025 06:23:49 -0700 (PDT)
-Received: from [10.211.55.5] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-85e2bc13d74sm125798039f.11.2025.03.23.06.23.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 23 Mar 2025 06:23:49 -0700 (PDT)
-Message-ID: <b5af3a7a-c5da-497a-ad67-c99edfdf665e@riscstar.com>
-Date: Sun, 23 Mar 2025 08:23:48 -0500
+	Sun, 23 Mar 2025 22:24:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9CD3DA4A41E;
+	Sun, 23 Mar 2025 22:18:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B934C4CEE2;
+	Sun, 23 Mar 2025 22:24:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742768657;
+	bh=pSuPLgb3YUS81mURBOzGRLLehj+iUHT29QAhz8DJIGc=;
+	h=Date:From:To:Cc:Subject:From;
+	b=qYrCNWGbkDBb/JDwwf394RfwE0N8Wv7N1D3ccFYVIZkXiCzZpRYrTywKtc87gonn2
+	 yKkl1XTxMov6pgMjn6cdaKclE6unWWdrslUb8djX8wlsBJvTQIMpXAdCFCSk6yFh+o
+	 MXyRHjC+5RJtaLd7fTj6GQw376vJnvD23Gw1DfSd0RvKZT8UfqiKtakuhKG3YqrgwS
+	 FlVraDPyAHdJ+X78El44JtVbzMSLTlrEGXaLR41rih0y9suGV45wtalwkzthLZu+Ez
+	 Jn+pZDxxE5+FssVmyWR+qx0lX4g5nd4K5GZwK0pzLhsOR6zD/dUvCLR+McpKV5AwNe
+	 8i+i9ayDMVhWw==
+Date: Sun, 23 Mar 2025 15:24:15 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	x86@kernel.org, linux-crypto@vger.kernel.org,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Ard Biesheuvel <ardb@kernel.org>, Keith Busch <kbusch@kernel.org>,
+	"Martin K. Petersen" <martin.petersen@oracle.com>,
+	Uros Bizjak <ubizjak@gmail.com>
+Subject: [GIT PULL] CRC updates for 6.15
+Message-ID: <20250323222415.GC9584@sol.localdomain>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND 7/7] riscv: dts: spacemit: add reset support for
- the K1 SoC
-To: Yixun Lan <dlan@gentoo.org>
-Cc: p.zabel@pengutronix.de, mturquette@baylibre.com, sboyd@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heylenay@4d2.org,
- guodong@riscstar.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, spacemit@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250321151831.623575-1-elder@riscstar.com>
- <20250321151831.623575-8-elder@riscstar.com> <20250322164830-GYE11633@gentoo>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250322164830-GYE11633@gentoo>
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250323_062350_371938_1AD4756B 
-X-CRM114-Status: GOOD (  17.71  )
+X-CRM114-CacheID: sfid-20250323_152419_176236_3CB5DF3D 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,88 +69,229 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 3/22/25 11:48 AM, Yixun Lan wrote:
-> On 10:18 Fri 21 Mar     , Alex Elder wrote:
->> Define syscon nodes for the RCPU, RCPU2, and APBC2 SpacemiT CCUS, which
->> currently support resets but not clocks in the SpacemiT K1.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   arch/riscv/boot/dts/spacemit/k1.dtsi | 18 ++++++++++++++++++
->>   1 file changed, 18 insertions(+)
->>
->> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
->> index 09a9100986b19..f86d1b58c6d35 100644
->> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
->> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
->> @@ -350,6 +350,18 @@ soc {
->>   		dma-noncoherent;
->>   		ranges;
->>   
->> +		syscon_rcpu: system-controller@c0880000 {
-> I'm not sure if syscon_rcpu is good name to go, it's AUDIO Peripherals
-> in docs, see
-> 
-> 7.2 Main CPU Domain Address Mapping
-> https://developer.spacemit.com/documentation?token=LzJyw97BCipK1dkUygrcbT0NnMg
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-They call it "AUD_MCUSYSCTRL section <RCPU(0xC0880000)>",
-where the registers layouts are defined, and the register
-names use the "RCPU" prefix by convention.
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
 
-I guess I could use "AUDIO" instead, but I think it's
-"RCPU" is a little better because of the way things in
-the region are named.  It's a little like how "pll" is
-used for the DT node name for things in the "APBS" region.
-I don't really like that, because the connection between
-the two isn't very clear.
+are available in the Git repository at:
 
->> +			compatible = "spacemit,k1-syscon-rcpu";
->> +			reg = <0x0 0xc0880000 0x0 0x2048>;
->> +			#reset-cells = <1>;
->> +		};
->> +
->> +		syscon_rcpu2: system-controller@c0888000 {
-> not found this address mapping in above docs link
+  https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git tags/crc-for-linus
 
-You're right.  I was following what the downstream code did.
-I'll gladly just include this in the main "RCPU" node.
+for you to fetch changes up to acf9f8da5e19fc1cbf26f2ecb749369e13e7cd85:
 
-Thank you very much for the review Yixun.
+  x86/crc: drop the avx10_256 functions and rename avx10_512 to avx512 (2025-03-19 12:22:00 -0700)
 
-					-Alex
+----------------------------------------------------------------
 
->> +			compatible = "spacemit,k1-syscon-rcpu2";
->> +			reg = <0x0 0xc0888000 0x0 0x28>;
->> +			#reset-cells = <1>;
->> +		};
->> +
->>   		syscon_apbc: system-control@d4015000 {
->>   			compatible = "spacemit,k1-syscon-apbc";
->>   			reg = <0x0 0xd4015000 0x0 0x1000>;
->> @@ -518,6 +530,12 @@ clint: timer@e4000000 {
->>   					      <&cpu7_intc 3>, <&cpu7_intc 7>;
->>   		};
->>   
->> +		syscon_apbc2: system-controller@f0610000 {
->> +			compatible = "spacemit,k1-syscon-apbc2";
->> +			reg = <0x0 0xf0610000 0x0 0x20>;
->> +			#reset-cells = <1>;
->> +		};
->> +
->>   		sec_uart1: serial@f0612000 {
->>   			compatible = "spacemit,k1-uart", "intel,xscale-uart";
->>   			reg = <0x0 0xf0612000 0x0 0x100>;
->> -- 
->> 2.43.0
->>
-> 
+Another set of improvements to the kernel's CRC (cyclic redundancy
+check) code:
 
+- Rework the CRC64 library functions to be directly optimized, like what
+  I did last cycle for the CRC32 and CRC-T10DIF library functions.
+
+- Rewrite the x86 PCLMULQDQ-optimized CRC code, and add VPCLMULQDQ
+  support and acceleration for crc64_be and crc64_nvme.
+
+- Rewrite the riscv Zbc-optimized CRC code, and add acceleration for
+  crc_t10dif, crc64_be, and crc64_nvme.
+
+- Remove crc_t10dif and crc64_rocksoft from the crypto API, since they
+  are no longer needed there.
+
+- Rename crc64_rocksoft to crc64_nvme, as the old name was incorrect.
+
+- Add kunit test cases for crc64_nvme and crc7.
+
+- Eliminate redundant functions for calculating the Castagnoli CRC32,
+  settling on just crc32c().
+
+- Remove unnecessary prompts from some of the CRC kconfig options.
+
+- Further optimize the x86 crc32c code.
+
+----------------------------------------------------------------
+Eric Biggers (36):
+      lib/crc64-rocksoft: stop wrapping the crypto API
+      crypto: crc64-rocksoft - remove from crypto API
+      lib/crc64: rename CRC64-Rocksoft to CRC64-NVME
+      lib/crc_kunit.c: add test and benchmark for CRC64-NVME
+      lib/crc64: add support for arch-optimized implementations
+      lib/crc32: remove obsolete CRC32 options from defconfig files
+      mips/crc32: remove unused enums
+      lib/crc32: use void pointer for data
+      lib/crc32: don't bother with pure and const function attributes
+      lib/crc32: standardize on crc32c() name for Castagnoli CRC32
+      lib/crc32: rename __crc32c_le_combine() to crc32c_combine()
+      lib/crc32: remove "_le" from crc32c base and arch functions
+      crypto: crct10dif - remove from crypto API
+      lib/crc-t10dif: remove crc_t10dif_is_optimized()
+      x86: move ZMM exclusion list into CPU feature flag
+      scripts/gen-crc-consts: add gen-crc-consts.py
+      x86/crc: add "template" for [V]PCLMULQDQ based CRC functions
+      x86/crc32: implement crc32_le using new template
+      x86/crc-t10dif: implement crc_t10dif using new template
+      x86/crc64: implement crc64_be and crc64_nvme using new template
+      x86/crc32: improve crc32c_arch() code generation with clang
+      x86/crc: add ANNOTATE_NOENDBR to suppress objtool warnings
+      riscv/crc: add "template" for Zbc optimized CRC functions
+      riscv/crc32: reimplement the CRC32 functions using new template
+      riscv/crc-t10dif: add Zbc optimized CRC-T10DIF function
+      riscv/crc64: add Zbc optimized CRC64 functions
+      x86/crc32: optimize tail handling for crc32c short inputs
+      lib/crc_kunit.c: add test and benchmark for crc7_be()
+      lib/crc_kunit.c: update comment in crc_benchmark()
+      lib/crc7: unexport crc7_be_syndrome_table
+      lib/crc: remove unnecessary prompt for CONFIG_CRC4
+      lib/crc: remove unnecessary prompt for CONFIG_CRC7
+      lib/crc: remove unnecessary prompt for CONFIG_CRC8
+      lib/crc: remove unnecessary prompt for CONFIG_LIBCRC32C
+      lib/crc: remove unnecessary prompt for CONFIG_CRC64
+      x86/crc: drop the avx10_256 functions and rename avx10_512 to avx512
+
+ MAINTAINERS                                    |   1 +
+ arch/arm/configs/dove_defconfig                |   1 -
+ arch/arm/configs/ep93xx_defconfig              |   1 -
+ arch/arm/configs/imx_v6_v7_defconfig           |   2 -
+ arch/arm/configs/lpc18xx_defconfig             |   1 -
+ arch/arm/configs/moxart_defconfig              |   1 -
+ arch/arm/configs/multi_v5_defconfig            |   1 -
+ arch/arm/configs/mvebu_v5_defconfig            |   1 -
+ arch/arm/configs/mxs_defconfig                 |   1 -
+ arch/arm/configs/omap1_defconfig               |   1 -
+ arch/arm/configs/omap2plus_defconfig           |   2 -
+ arch/arm/configs/spitz_defconfig               |   1 -
+ arch/arm/configs/stm32_defconfig               |   1 -
+ arch/arm/configs/wpcm450_defconfig             |   1 -
+ arch/arm/lib/crc-t10dif-glue.c                 |   6 -
+ arch/arm/lib/crc32-glue.c                      |  12 +-
+ arch/arm64/lib/crc-t10dif-glue.c               |   6 -
+ arch/arm64/lib/crc32-glue.c                    |  10 +-
+ arch/hexagon/configs/comet_defconfig           |   1 -
+ arch/loongarch/lib/crc32-loongarch.c           |   6 +-
+ arch/mips/configs/bcm47xx_defconfig            |   1 -
+ arch/mips/configs/bigsur_defconfig             |   1 -
+ arch/mips/configs/cobalt_defconfig             |   1 -
+ arch/mips/configs/db1xxx_defconfig             |   1 -
+ arch/mips/configs/decstation_64_defconfig      |   1 -
+ arch/mips/configs/decstation_defconfig         |   1 -
+ arch/mips/configs/decstation_r4k_defconfig     |   1 -
+ arch/mips/configs/fuloong2e_defconfig          |   1 -
+ arch/mips/configs/ip32_defconfig               |   1 -
+ arch/mips/configs/rt305x_defconfig             |   1 -
+ arch/mips/configs/xway_defconfig               |   1 -
+ arch/mips/lib/crc32-mips.c                     |  15 +-
+ arch/parisc/configs/generic-64bit_defconfig    |   1 -
+ arch/powerpc/configs/85xx/ge_imp3a_defconfig   |   1 -
+ arch/powerpc/configs/adder875_defconfig        |   1 -
+ arch/powerpc/configs/ep88xc_defconfig          |   1 -
+ arch/powerpc/configs/mpc866_ads_defconfig      |   1 -
+ arch/powerpc/configs/mpc885_ads_defconfig      |   1 -
+ arch/powerpc/configs/skiroot_defconfig         |   1 -
+ arch/powerpc/configs/tqm8xx_defconfig          |   1 -
+ arch/powerpc/lib/crc-t10dif-glue.c             |   6 -
+ arch/powerpc/lib/crc32-glue.c                  |  10 +-
+ arch/riscv/Kconfig                             |   2 +
+ arch/riscv/lib/Makefile                        |   5 +
+ arch/riscv/lib/crc-clmul-consts.h              | 122 ++++++
+ arch/riscv/lib/crc-clmul-template.h            | 265 +++++++++++
+ arch/riscv/lib/crc-clmul.h                     |  23 +
+ arch/riscv/lib/crc-t10dif.c                    |  24 +
+ arch/riscv/lib/crc16_msb.c                     |  18 +
+ arch/riscv/lib/crc32-riscv.c                   | 311 -------------
+ arch/riscv/lib/crc32.c                         |  53 +++
+ arch/riscv/lib/crc32_lsb.c                     |  18 +
+ arch/riscv/lib/crc32_msb.c                     |  18 +
+ arch/riscv/lib/crc64.c                         |  34 ++
+ arch/riscv/lib/crc64_lsb.c                     |  18 +
+ arch/riscv/lib/crc64_msb.c                     |  18 +
+ arch/s390/configs/debug_defconfig              |   3 -
+ arch/s390/configs/defconfig                    |   3 -
+ arch/s390/lib/crc32-glue.c                     |   2 +-
+ arch/sh/configs/se7206_defconfig               |   2 -
+ arch/sh/configs/sh2007_defconfig               |   1 -
+ arch/sh/configs/titan_defconfig                |   1 -
+ arch/sparc/configs/sparc32_defconfig           |   1 -
+ arch/sparc/configs/sparc64_defconfig           |   1 -
+ arch/sparc/lib/crc32_glue.c                    |  10 +-
+ arch/x86/Kconfig                               |   3 +-
+ arch/x86/crypto/aesni-intel_glue.c             |  22 +-
+ arch/x86/include/asm/cpufeatures.h             |   1 +
+ arch/x86/kernel/cpu/intel.c                    |  22 +
+ arch/x86/lib/Makefile                          |   5 +-
+ arch/x86/lib/crc-pclmul-consts.h               | 195 +++++++++
+ arch/x86/lib/crc-pclmul-template.S             | 582 +++++++++++++++++++++++++
+ arch/x86/lib/crc-pclmul-template.h             |  76 ++++
+ arch/x86/lib/crc-t10dif-glue.c                 |  29 +-
+ arch/x86/lib/crc16-msb-pclmul.S                |   6 +
+ arch/x86/lib/crc32-glue.c                      |  57 +--
+ arch/x86/lib/crc32-pclmul.S                    | 219 +---------
+ arch/x86/lib/crc64-glue.c                      |  50 +++
+ arch/x86/lib/crc64-pclmul.S                    |   7 +
+ arch/x86/lib/crct10dif-pcl-asm_64.S            | 332 --------------
+ block/Kconfig                                  |   2 +-
+ block/t10-pi.c                                 |   2 +-
+ crypto/Kconfig                                 |  20 -
+ crypto/Makefile                                |   3 -
+ crypto/crc32c_generic.c                        |   8 +-
+ crypto/crc64_rocksoft_generic.c                |  89 ----
+ crypto/crct10dif_generic.c                     | 168 -------
+ crypto/tcrypt.c                                |   8 -
+ crypto/testmgr.c                               |  14 -
+ crypto/testmgr.h                               | 303 -------------
+ drivers/crypto/stm32/stm32-crc32.c             |   2 +-
+ drivers/infiniband/sw/siw/siw.h                |   4 +-
+ drivers/md/raid5-cache.c                       |  31 +-
+ drivers/md/raid5-ppl.c                         |  16 +-
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_sp.c |   2 +-
+ drivers/thunderbolt/ctl.c                      |   2 +-
+ drivers/thunderbolt/eeprom.c                   |   2 +-
+ include/linux/crc-t10dif.h                     |  12 -
+ include/linux/crc32.h                          |  55 ++-
+ include/linux/crc32c.h                         |   8 -
+ include/linux/crc64.h                          |  38 +-
+ include/linux/crc7.h                           |   7 -
+ include/net/sctp/checksum.h                    |   7 +-
+ lib/Kconfig                                    |  45 +-
+ lib/Kconfig.debug                              |   1 +
+ lib/Makefile                                   |   1 -
+ lib/crc32.c                                    |  21 +-
+ lib/crc64-rocksoft.c                           | 126 ------
+ lib/crc64.c                                    |  49 +--
+ lib/crc7.c                                     |   6 +-
+ lib/crc_kunit.c                                |  68 ++-
+ lib/gen_crc64table.c                           |  10 +-
+ scripts/gen-crc-consts.py                      | 291 +++++++++++++
+ sound/soc/codecs/aw88395/aw88395_device.c      |   2 +-
+ tools/testing/selftests/arm64/fp/kernel-test.c |   1 -
+ 115 files changed, 2121 insertions(+), 1969 deletions(-)
+ create mode 100644 arch/riscv/lib/crc-clmul-consts.h
+ create mode 100644 arch/riscv/lib/crc-clmul-template.h
+ create mode 100644 arch/riscv/lib/crc-clmul.h
+ create mode 100644 arch/riscv/lib/crc-t10dif.c
+ create mode 100644 arch/riscv/lib/crc16_msb.c
+ delete mode 100644 arch/riscv/lib/crc32-riscv.c
+ create mode 100644 arch/riscv/lib/crc32.c
+ create mode 100644 arch/riscv/lib/crc32_lsb.c
+ create mode 100644 arch/riscv/lib/crc32_msb.c
+ create mode 100644 arch/riscv/lib/crc64.c
+ create mode 100644 arch/riscv/lib/crc64_lsb.c
+ create mode 100644 arch/riscv/lib/crc64_msb.c
+ create mode 100644 arch/x86/lib/crc-pclmul-consts.h
+ create mode 100644 arch/x86/lib/crc-pclmul-template.S
+ create mode 100644 arch/x86/lib/crc-pclmul-template.h
+ create mode 100644 arch/x86/lib/crc16-msb-pclmul.S
+ create mode 100644 arch/x86/lib/crc64-glue.c
+ create mode 100644 arch/x86/lib/crc64-pclmul.S
+ delete mode 100644 arch/x86/lib/crct10dif-pcl-asm_64.S
+ delete mode 100644 crypto/crc64_rocksoft_generic.c
+ delete mode 100644 crypto/crct10dif_generic.c
+ delete mode 100644 lib/crc64-rocksoft.c
+ create mode 100755 scripts/gen-crc-consts.py
 
 _______________________________________________
 linux-riscv mailing list
