@@ -4,80 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9791CC36008
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 08:55:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE582C36005
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 10:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=79OHlheqx55cquB2Ik/mdGqRDXuDMcodhNjHrnvePas=; b=J8MzwKYgEQIIpt
-	Dv6X7tGhzsAWivxXbTA7J9k3qQZOpIc4vgIxJxuD0FYcHehrteEVyjgd1uKK+O38M2K04VFSvfqzD
-	6rL/1vzapmHcpptV/EgR6oXzLWPulhkG7KuFmXJJpyNJz4Hx3wwsKnxcaZMluqHsmGmOFj9fDujoo
-	PGdTx1hoYkdGRuHP+m4IkYEB7rBK4+eERraVYq7Tt7AIMhDPX2umotD8OPGQ+rFVNahm7wcJAJHub
-	ZBhMB7uATgt1CFdeds0UD6NIsmiBb7TyJFHqncxym26ANxG3GdbG/5ViyGhigbeo+DuP+do0NrON6
-	7m0ggQ76BAQ3P0f3snAg==;
+	List-Owner; bh=roKHutqVr7oXHqmssv4vovF/JY8pbXUTO1t7m3cydIM=; b=lZIEYMpvogHC5o
+	7FmyvhvJhx1z/klCMYHpsdZvqynPvHb0JplcOjiQwMCMYqx+8hLr6kF0bBaxKnOrkNepvSitEYvMG
+	zI9XTh/0nHEjY6E+wfXiUMHSZpr9NQAyXY3H21TWYYb/Yh3kTY8Mp7vaChD0nb/xPT60Rfr2b7vWe
+	jeqPBoiXi8QZK9bd+T92ufvg8YwuGdItM5ALfTqAYgn5TOAeaPnQK3CYUhwg5N7l9okN75djhabUA
+	Yf5pFT6vKdeZVQjSdFCfrq2VCGUtY40QtzwCt9az3s+NZLcqi1thCbVnlrQPL0a7SeVKnRazEUOe1
+	FkR8dF6Lv0Rrdm7ftFXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twdao-00000002eCA-3W7N;
-	Mon, 24 Mar 2025 08:55:34 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1twfVK-00000002tR9-0ugs;
+	Mon, 24 Mar 2025 10:58:02 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twdal-00000002e9j-03eZ
-	for linux-riscv@lists.infradead.org;
-	Mon, 24 Mar 2025 08:55:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0BDA320489;
-	Mon, 24 Mar 2025 08:55:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742806525;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pG9q230YV2JmwTswVwXq9HoXcRvHfMmKuKyEAi/ub7U=;
-	b=hyikKVyfkgp3VtvCVq7oMLFqgKvnzKCJp7K2wdACjjNzSsQ91gySwi2Ltt9w4CBYd6RnTO
-	JR2GTENx6Axhwyd5snF5bf8HXghvJGlHSs+mf3LVk/YYSpdmbXVCCt8e/lfTSKB/x5zViO
-	msHBntXgYENI1S1o6FKruXpbLwgy+WrrTHuv9N6W8LWUxdL4TnTQKvNwiyw4PmV1507g1K
-	KDuDJFRFMjfhl93YD6BFEF8MrVmM29CrvM0M8NkBQMxeHJV7n7JQdas4O4dp8CcD07lJEH
-	1k6rHLrDYvZxr5tjbR2PeWvmE6q7PLGPmhCn0HhvCiKmSubpYL62PG8WPIImPg==
-Date: Mon, 24 Mar 2025 09:55:22 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: =?UTF-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Nicolas Ferre <nicolas.ferre@microchip.com>, Claudiu
- Beznea <claudiu.beznea@tuxon.dev>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
- <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Samuel Holland
- <samuel.holland@sifive.com>, Richard Cochran <richardcochran@gmail.com>,
- Russell King <linux@armlinux.org.uk>, Thomas Bogendoerfer
- <tsbogend@alpha.franken.de>, Vladimir Kondratiev
- <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
- <gregory.clement@bootlin.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mips@vger.kernel.org, Thomas
- Petazzoni <thomas.petazzoni@bootlin.com>, Tawfik Bayouk
- <tawfik.bayouk@mobileye.com>
-Subject: Re: [PATCH net-next 08/13] net: macb: introduce DMA descriptor
- helpers (is 64bit? is PTP?)
-Message-ID: <20250324095522.2ab1c38b@fedora.home>
-In-Reply-To: <20250321-macb-v1-8-537b7e37971d@bootlin.com>
-References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
-	<20250321-macb-v1-8-537b7e37971d@bootlin.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1twfLP-00000002s6f-3ZJz;
+	Mon, 24 Mar 2025 10:47:48 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52O9ptko016767;
+	Mon, 24 Mar 2025 10:47:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=VIga+xvQk4RxwLl37s8roD8US+RxZH
+	6wgAnN7cz6dUM=; b=DqSoWvn2hNYTALQxMlD7ZFoi+4zq0N1yWuxe53qPbwlofS
+	11EDXetv8BM4utLmdlLw0MYgxwUAi5gSGHNoREjNHy90tDmAWBicdY3u5OsLqFNm
+	FswP8lh4U8KL0Z+kmbDMnrfazqs0pMLjoe8sYQPDDhg+bESIKfnjQkeT2J5kZ8gZ
+	uTpBQo4JY573uCvrEvB6/7EY+71e5v7MwS2GmtATqmPLrQY+OFUtee+p4N29MFed
+	yMLrXbyFZsn7mGVDVNB3gW9NBCAPa3n7ktStYlAB993VUD+ET9ZqifqLhNy/ADTm
+	3QJgYd+LcjsIPnDPueY9NsSPBS5ASB0qja99r70Q==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45jkqp44qf-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Mar 2025 10:47:11 +0000 (GMT)
+Received: from m0356517.ppops.net (m0356517.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 52OAlA92022659;
+	Mon, 24 Mar 2025 10:47:10 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45jkqp44qc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Mar 2025 10:47:10 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52O77iAg025489;
+	Mon, 24 Mar 2025 10:47:09 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 45j7wywy1a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 24 Mar 2025 10:47:09 +0000
+Received: from smtpav01.fra02v.mail.ibm.com (smtpav01.fra02v.mail.ibm.com [10.20.54.100])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52OAl5LT16187800
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 24 Mar 2025 10:47:05 GMT
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 694862004B;
+	Mon, 24 Mar 2025 10:47:05 +0000 (GMT)
+Received: from smtpav01.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id CD8DB20040;
+	Mon, 24 Mar 2025 10:47:03 +0000 (GMT)
+Received: from osiris (unknown [9.179.14.66])
+	by smtpav01.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 24 Mar 2025 10:47:03 +0000 (GMT)
+Date: Mon, 24 Mar 2025 11:47:02 +0100
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Alessandro Carminati <acarmina@redhat.com>
+Cc: Guenter Roeck <linux@roeck-us.net>, linux-kselftest@vger.kernel.org,
+        David Airlie <airlied@gmail.com>, Arnd Bergmann <arnd@arndb.de>,
+        =?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+        Dan Carpenter <dan.carpenter@linaro.org>,
+        Kees Cook <keescook@chromium.org>,
+        Daniel Diaz <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>,
+        Arthur Grillo <arthurgrillo@riseup.net>,
+        Brendan Higgins <brendan.higgins@linux.dev>,
+        Naresh Kamboju <naresh.kamboju@linaro.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Maxime Ripard <mripard@kernel.org>,
+        Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+        Daniel Vetter <daniel@ffwll.ch>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        Alessandro Carminati <alessandro.carminati@gmail.com>,
+        Jani Nikula <jani.nikula@intel.com>, dri-devel@lists.freedesktop.org,
+        kunit-dev@googlegroups.com, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-parisc@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+        loongarch@lists.linux.dev, x86@kernel.org,
+        Linux Kernel Functional Testing <lkft@linaro.org>,
+        Vasily Gorbik <gor@linux.ibm.com>,
+        Alexander Gordeev <agordeev@linux.ibm.com>
+Subject: Re: [PATCH v4 10/14] s390: Add support for suppressing warning
+ backtraces
+Message-ID: <20250324104702.12139E73-hca@linux.ibm.com>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-11-acarmina@redhat.com>
+ <b6bb68f0-7e93-4db2-9fe6-f615f06ddeb1@roeck-us.net>
+ <CAGegRW4GinPmsav5=VBfjXBKy4cUEs5FWv-ixXODk7ajZ69vYg@mail.gmail.com>
 MIME-Version: 1.0
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduheelfeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepuefhfefggfdthffghfdvhffhhfetuedtkeetgffhteevheehjeejgfduieduhedunecukfhppedvrgdtudemtggsudelmeekugegheemgeeltddtmeeiheeikeemvdelsgdumeelvghfheemvgektgejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugeehmeegledttdemieehieekmedvlegsudemlegvfhehmegvkegtjedphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvdekpdhrtghpthhtohepthhhvghordhlvggsrhhunhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhft
- hdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <CAGegRW4GinPmsav5=VBfjXBKy4cUEs5FWv-ixXODk7ajZ69vYg@mail.gmail.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: -BXK6qMXWLef6jiJ2R9hHCsaI_IjDOmx
+X-Proofpoint-ORIG-GUID: 40o9NRITvQhnDK-iPsw_sUFfSwFPyp4T
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-24_04,2025-03-21_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 phishscore=0
+ suspectscore=0 priorityscore=1501 impostorscore=0 spamscore=0 adultscore=0
+ mlxscore=0 mlxlogscore=810 clxscore=1011 malwarescore=0 lowpriorityscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503240076
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_015531_795619_65477615 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250324_034747_894366_9BB08B62 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,35 +133,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gVGjDqW8sCgpPbiBGcmksIDIxIE1hciAyMDI1IDIwOjA5OjM5ICswMTAwClRow6lvIExl
-YnJ1biA8dGhlby5sZWJydW5AYm9vdGxpbi5jb20+IHdyb3RlOgoKPiBJbnRyb2R1Y2UgbWFjYl9k
-bWFfaXNfNjRiKCkgYW5kIG1hY2JfZG1hX2lzX3B0cCgpIGhlbHBlciBmdW5jdGlvbnMuCj4gTWFu
-eSBjb2RlcGF0aHMgYXJlIG1hZGUgc2ltcGxlciBieSBkcm9wcGluZyBjb25kaXRpb25hbCBjb21w
-aWxhdGlvbi4KPiAKPiBUaGlzIGltcGxpZXMgdGhyZWUgY2hhbmdlczoKPiAgLSBBbHdheXMgY29t
-cGlsZSByZWxhdGVkIHN0cnVjdHVyZSBkZWZpbml0aW9ucyBpbnNpZGUgPG1hY2IuaD4uCj4gIC0g
-TWFrZSB0aGUgZmllbGQgaHdfZG1hX2NhcCBpbiBzdHJ1Y3QgbWFjYiBhbHdheXMgcHJlc2VudC4K
-PiAgLSBNQUNCX0VYVF9ERVNDIGNhbiBiZSBkcm9wcGVkIGFzIGl0IGlzIHVzZWxlc3Mgbm93Lgo+
-IAo+IFRoZSBjb21tb24gY2FzZSBpczoKPiAKPiAJI2lmZGVmIENPTkZJR19BUkNIX0RNQV9BRERS
-X1RfNjRCSVQKPiAJCXN0cnVjdCBtYWNiX2RtYV9kZXNjXzY0ICpkZXNjXzY0Owo+IAkJaWYgKGJw
-LT5od19kbWFfY2FwICYgSFdfRE1BX0NBUF82NEIpIHsKPiAJCQlkZXNjXzY0ID0gbWFjYl82NGJf
-ZGVzYyhicCwgZGVzYyk7Cj4gCQkJLy8gLi4uCj4gCQl9Cj4gCSNlbmRpZgo+IAo+IEFuZCByZXBs
-YWNlZCBieToKPiAKPiAJc3RydWN0IG1hY2JfZG1hX2Rlc2NfNjQgKmRlc2NfNjQ7Cj4gCWlmICht
-YWNiX2RtYV9pc182NGIoYnApKSB7Cj4gCQlkZXNjXzY0ID0gbWFjYl82NGJfZGVzYyhicCwgZGVz
-Yyk7Cj4gCQkvLyAuLi4KPiAJfQoKSnVzdCBhIHRob3VnaHQsIGJ1dCB0aGlzIGlzIGFkZGluZyBz
-b21lIG1vcmUgYnJhbmNoZXMgaW4gdGhlIGhvdHBhdGggb24KMzIgYml0cyBETUEgc2V0dXBzLiBE
-aWQgeW91IG1lYXN1cmUgYW55IHBlcmZvcm1hbmNlIGNoYW5nZXMgb24KdGhlc2UgcGxhdGZvcm1z
-IChpZiB5b3UgaGF2ZSBhY2Nlc3MgdG8gb25lIDopICkKCkFzIHRoZSBjYXBzIGNhbid0IGJlIGNo
-YW5nZWQgZHluYW1pY2FsbHksIG1heWJlIHRoZXNlIGhlbHBlcnMgY291bGQgYmUKcmVwbGFjZWQg
-bW9yZSBlZmZpY2llbnRseSB3aXRoIHNvbWUgc3RhdGljX2tleSA/IFRoaXMgd291bGQgYmVuZWZp
-dApib3RoIDMyIGFuZCA2NCBiaXRzIHN5c3RlbXMgYXMgdGhlIGZvbGxvd2luZyB3b3VsZCBiZSBt
-b3JlIGVmZmljaWVudAoKCWlmIChicC0+aHdfZG1hX2NhcCAmIEhXX0RNQV9DQVBfNjRCKSB7CgkJ
-Ly8gIC4uLgoJfQoKSnVzdCBhIHRob3VnaHQgb2YgY291cnNlLCBtYXliZSB0aGlzIHBhdGNoIGRv
-ZXNuJ3QgcmVhbGx5IGh1cnQgcGVyZnMgOikKCk1heGltZQoKX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
-LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
-bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Fri, Mar 21, 2025 at 10:05:42PM +0100, Alessandro Carminati wrote:
+> > > +#ifdef CONFIG_KUNIT_SUPPRESS_BACKTRACE
+> > > +# define HAVE_BUG_FUNCTION
+> > > +# define __BUG_FUNC_PTR      "       .long   %0-.\n"
+> > > +# define __BUG_FUNC  __func__
+> >
+> > gcc 7.5.0 on s390 barfs; it doesn't like the use of "__func__" with "%0-."
+
+...
+
+> GCC makes significant efforts to handle this, and for several
+> architectures, it manages to solve the problem.
+> However, this is not universally the case.
+> Additionally, -fPIC is not widely used in kernel code... I have only
+> seen it used for VDSO, the x86 boot piggyback decompressor, PowerPC
+> boot, and the s390x architecture.
+> 
+> That said, GCC has been mitigating this issue, allowing us to treat a
+> non-compile-time constant as if it were one.
+> A proof of this is that, at least since GCC 11, the s390x version of
+> GCC is able to build this code.
+> Before that... certainly in GCC 7.5 it couldn't.
+> 
+> A simple fix would be to restrict usage to GCC versions greater than
+> 11 for s390.
+
+But please add that dependency only for this new feature for the time
+being. Right now I would not like to see that s390 is the only architecture
+(besides parisc) which requires a much higher minimum gcc level than every
+other architecture. Unless there are specific reasons.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
