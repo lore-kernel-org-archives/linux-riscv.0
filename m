@@ -4,63 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60770C3600C
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 15:24:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E48C36002
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 16:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AcNkxUd5u+KQRtWBg3yxEhy/dmuR9HXhuvrYioKSzZ0=; b=J1SOnZPW5WWC4n
-	qacs1IXp+rcUyxJESPWqxV75zBSooblFC40yHC1Vxc6Mj4qWOF0/ZnaczogeNTJEWHcjoDGtxH/AE
-	wAPjJKVIGvG8Iseid8xIFcE83HET0R5Q1Dm2bN6XAHkdgkrToGNIpmIGmOl4Zl58xilO4nm2V/unr
-	rZw3nuTa5FfTMzFuahuHh5M5Uc74hMfxSupY9kDfyS5HoMCPwzjYLBgCaPPibJrqOl/KPQsym7KA5
-	8RuUJ9ZRmrLOAQhHGx1jXm4xYCJeBIqa9l/l1N/W2IiNiolp5CBl+nxLyjMVAJCNuduh0379OJW+D
-	DzWmmiF9HuXyJkON3qcQ==;
+	List-Owner; bh=j3qtZSJcHaynzAyRxZ5sCOS0uWNm7LmBuv8GaZSJ0oY=; b=KHmBrpsJ0tlNKI
+	XcRpvnPkkHYepKS3AaWRLReALje1j9faSQOk4GTqpGlvK8msrCMv4saZReYLahdVoDoTgKkcpS9Bf
+	wFM8jrh1OOLfGfB4MSykc7Z5OjAiatiPa5ITvWMPCFnlBoDTk8STq/4WA2FJBWkAx0AY326iNObDy
+	0Vr6sGdApssWUVJ3lKICsuez7nf/wraz17WoSefyA266T+daewONRyyaFs0YahaRJoQ28yBPzPVfK
+	w3wM0PXP29gMXNMrcV8gkQ2AnD0TEww3gx4TMK28E2jW9u8sQy6Q0rNJL0wk1Qj3LpncBJFZ4IZSq
+	mtTIryuJJ+m6FvS9XpMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjfA-00000003W2L-3qHW;
-	Mon, 24 Mar 2025 15:24:28 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1twkW9-00000003cDA-0nIa;
+	Mon, 24 Mar 2025 16:19:13 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twjf7-00000003W14-3eSY
+	id 1twkRF-00000003bUM-0FJy
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Mar 2025 15:24:27 +0000
-From: John Ogness <john.ogness@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1742829861;
+	Mon, 24 Mar 2025 16:14:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C9EB62047D;
+	Mon, 24 Mar 2025 16:14:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1742832845;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=jRrIB+zDteaSXRYqxWriyHX454y+VkB0De55x4GzBvk=;
-	b=TGeVw+8pkcSvBNuPmnAf0Ivc1s2XnHagca3sg7spp526UKUSrce30RG8h0aA88YDXbrEiw
-	pwJXg7R757B3Z0GaVLwDZONvnybOJ30Vnac4qpOXTwk34oF+ePSAKU3+ILln/rnVNUXOHS
-	Pi3ukfmp0r0PD2WHvCPpttRugUa/g33TQPmMYMn1RSR8Iew3TcRY5Rkv004jpyA/O4bySF
-	falp5ShQ64bFtNURR2teuoqVys2o1Ky21zqM0tzc2EjWeYJdyFwGWbWuRkayEh+yMdeBX0
-	jyLdwqyHPv7BZyRc+Bh/zUKykF4aNwllVOs/IUI+0+domX7em/hsbhmOnlG/gQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1742829861;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jRrIB+zDteaSXRYqxWriyHX454y+VkB0De55x4GzBvk=;
-	b=XaiCGOxdtLXu/JxZ/a6rU1g0WPB1Doy+6lzB272lBaC+rGkX/RkUvaXyXKRfofNCOieFw+
-	NvtPGMEA2YDS9BCg==
-To: Ryo Takakura <ryotkkr98@gmail.com>, gregkh@linuxfoundation.org,
- jirislaby@kernel.org, paul.walmsley@sifive.com, samuel.holland@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, pmladek@suse.com
-Cc: linux-kernel@vger.kernel.org, linux-serial@vger.kernel.org,
- linux-riscv@lists.infradead.org, Ryo Takakura <ryotkkr98@gmail.com>
-Subject: Re: [PATCH] serial: sifive: Switch to nbcon console
-In-Reply-To: <20250323060603.388621-1-ryotkkr98@gmail.com>
-References: <20250323060603.388621-1-ryotkkr98@gmail.com>
-Date: Mon, 24 Mar 2025 16:30:20 +0106
-Message-ID: <84sen2fo4b.fsf@jogness.linutronix.de>
-MIME-Version: 1.0
+	bh=N6KzmIi53X4fObYuJrA4GCKCHJLPzFl8bnqM+4sgwCQ=;
+	b=Gf68N48IxHGYxw5YhiOZutJryK0qFHSxJJeAYRbkVLq+oNDSGW0qesENhdVAAjAfxKxj9D
+	ZE/cLxKqWuH93q2c0TTha9uIb72TJzQnCArJ60qE9rphdjgh2rXoahvIdv8WFP6+7om7f1
+	fHSKvAZ4eKzHpX4Us105kKzkdm35JbDjF4lr72btvKLJSU3WG2SZ2KULSLV5mQUM7D509K
+	Wbt9VlL2xLhEtaqv6+fe+BwzpPU02bkyjLbZ+DrlOmwxQ0Abn+cT68213S1R07uGTL+j4N
+	n2336Y+3wBww2TlzhtGWwataCUV4jvefAI8JSJyL1IjQHIcV/tFTyTlKYk6tEw==
+Mime-Version: 1.0
+Date: Mon, 24 Mar 2025 17:14:01 +0100
+Message-Id: <D8OMOI980I2X.1JH4RKWL1V86E@bootlin.com>
+Subject: Re: [PATCH net-next 01/13] dt-bindings: net: cdns,macb: add
+ Mobileye EyeQ5 ethernet interface
+Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
+ Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
+ "Conor Dooley" <conor+dt@kernel.org>, "Nicolas Ferre"
+ <nicolas.ferre@microchip.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
+ "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
+ <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
+ Ghiti" <alex@ghiti.fr>, "Samuel Holland" <samuel.holland@sifive.com>,
+ "Richard Cochran" <richardcochran@gmail.com>, "Russell King"
+ <linux@armlinux.org.uk>, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
+ "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
+ <gregory.clement@bootlin.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-mips@vger.kernel.org>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, "Tawfik Bayouk"
+ <tawfik.bayouk@mobileye.com>
+To: "Andrew Lunn" <andrew@lunn.ch>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
+ <20250321-macb-v1-1-537b7e37971d@bootlin.com>
+ <2dbbd6c0-84d0-4846-a48d-31891f395c7c@lunn.ch>
+In-Reply-To: <2dbbd6c0-84d0-4846-a48d-31891f395c7c@lunn.ch>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedtvddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkufevvffhofhfjgesthhqredtredtjeenucfhrhhomhepvfhhrohoucfnvggsrhhunhcuoehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeduteeltdevjedvkeelueejhfdvleeiueetvdfgveffffekueeghffhieduleejveenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepjeejrddufeehrdekuddrieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepjeejrddufeehrdekuddrieehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehpr
+ ggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: theo.lebrun@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_082426_062608_081C810F 
-X-CRM114-Status: GOOD (  13.39  )
+X-CRM114-CacheID: sfid-20250324_091409_699460_F9710528 
+X-CRM114-Status: UNSURE (   4.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,87 +90,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ryo,
-
-On 2025-03-23, Ryo Takakura <ryotkkr98@gmail.com> wrote:
-> Add the necessary callbacks(write_atomic, write_thread, device_lock
-> and device_unlock) and CON_NBCON flag to switch the sifive console
-> driver to perform as nbcon console.
->
-> Both ->write_atomic() and ->write_thread() will check for console
-> ownership whenever they are accessing registers.
->
-> The ->device_lock()/unlock() will provide the additional serilization
-> necessary for ->write_thread() which is called from dedicated printing
-> thread.
->
-> Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
-
-This driver has the same issue that the 8250 previously had. The
-->startup() and ->shutdown() callbacks are called without the port
-lock. However, the sifive driver is accessing SIFIVE_SERIAL_IE_OFFS in
-these callbacks and this register is also accessed by the ->write()
-callback. This needs to be synchronized.
-
-The related 8250 patches fixing this are startup [0] and shutdown [1]. I
-am assuming the following change would be sufficient:
-
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index d032de6199af..1de1b2a5833d 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -564,8 +564,11 @@ static void sifive_serial_break_ctl(struct uart_port *port, int break_state)
- static int sifive_serial_startup(struct uart_port *port)
- {
- 	struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
-+	unsigned long flags;
- 
-+	uart_port_lock_irqsave(&ssp->port, &flags);
- 	__ssp_enable_rxwm(ssp);
-+	uart_port_unlock_irqrestore(&ssp->port, flags);
- 
- 	return 0;
- }
-@@ -573,9 +576,12 @@ static int sifive_serial_startup(struct uart_port *port)
- static void sifive_serial_shutdown(struct uart_port *port)
- {
- 	struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
-+	unsigned long flags;
- 
-+	uart_port_lock_irqsave(&ssp->port, &flags);
- 	__ssp_disable_rxwm(ssp);
- 	__ssp_disable_txwm(ssp);
-+	uart_port_unlock_irqrestore(&ssp->port, flags);
- }
- 
- /**
-
-The fix should be applied first (and likely Cc stable) since it is
-fixing an existing mainline problem.
-
-Your patch also needs the synchronization. The ->write_atomic() callback
-does not use the port lock. However, the uart_port_*() functions also
-take the nbcon console ownership, so they synchronize against
-->write_atomic() callbacks.
-
-Otherwise, this patch looks good. If the ->startup() and ->shutdown()
-callbacks are fixed in a previous patch, feel free to add:
-
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
-
-to this patch.
-
-John Ogness
-
-[0] https://lore.kernel.org/lkml/20230525093159.223817-2-john.ogness@linutronix.de
-[1] https://lore.kernel.org/lkml/20230525093159.223817-9-john.ogness@linutronix.de
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpIE1hciAyMSwgMjAyNSBhdCA5OjQ5IFBNIENFVCwgQW5kcmV3IEx1bm4gd3JvdGU6Cj4+
+ICAgICAgICAgICAgLSBhdG1lbCxzYW1hNWQyLWdlbSAgICAgICAgICMgR0VNIElQICgxMC8xMDAp
+IG9uIEF0bWVsIHNhbWE1ZDIgU29Dcwo+PiAgICAgICAgICAgIC0gYXRtZWwsc2FtYTVkMy1nZW0g
+ICAgICAgICAjIEdpZ2FiaXQgSVAgb24gQXRtZWwgc2FtYTVkMyBTb0NzCj4+ICAgICAgICAgICAg
+LSBhdG1lbCxzYW1hNWQ0LWdlbSAgICAgICAgICMgR0VNIElQICgxMC8xMDApIG9uIEF0bWVsIHNh
+bWE1ZDQgU29Dcwo+PiArICAgICAgICAgIC0gbW9iaWxleWUsZXllcTUtZ2VtICAgICAgICAjIE1v
+YmlsZXllIEV5ZVE1IFNvQ3MKPj4gICAgICAgICAgICAtIGNkbnMsbnA0LW1hY2IgICAgICAgICAg
+ICAgIyBOUDQgU29DIGRldmljZXMKPj4gICAgICAgICAgICAtIG1pY3JvY2hpcCxzYW1hN2c1LWVt
+YWMgICAgIyBNaWNyb2NoaXAgU0FNQTdHNSBldGhlcm5ldCBpbnRlcmZhY2UKPj4gICAgICAgICAg
+ICAtIG1pY3JvY2hpcCxzYW1hN2c1LWdlbSAgICAgIyBNaWNyb2NoaXAgU0FNQTdHNSBnaWdhYml0
+IGV0aGVybmV0IGludGVyZmFjZQo+Cj4gVGhlc2UgYXJlIGtpbmQgb2Ygc29ydGVkLiBNYXliZSBw
+dXQgbW9iaWxleWUgYWZ0ZXIgbWljcm9jaGlwPwoKSSBuZXZlciB1bmRlcnN0b29kIGhvdyBtb3N0
+IGxpc3RzIGVuZCB1cCBtb3N0bHkgc29ydGVkLiBDaGFuZ2VzIGZvciBWMjoKIC0gYWRkIGEgImR0
+LWJpbmRpbmdzOiBuZXQ6IGNkbnMsbWFjYjogc29ydCBjb21wYXRpYmxlcyIgcGF0Y2gsCiAtIGFk
+ZCB0aGUgbW9iaWxleWUgY29tcGF0aWJsZSBiZWxvdyBtaWNyb2NoaXAncy4KClRoYW5rcywKCi0t
+ClRow6lvIExlYnJ1biwgQm9vdGxpbgpFbWJlZGRlZCBMaW51eCBhbmQgS2VybmVsIGVuZ2luZWVy
+aW5nCmh0dHBzOi8vYm9vdGxpbi5jb20KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlz
+dHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3Rp
+bmZvL2xpbnV4LXJpc2N2Cg==
