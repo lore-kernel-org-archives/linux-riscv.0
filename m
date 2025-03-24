@@ -4,114 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EDE6C36002
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 13:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7169C36002
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 13:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=V6L7oznDEpZO0El8qiweTR/BaiqRVY6DWuy4HtK5i5I=; b=vgVPQeRNoPmfps
-	vrsFjxdOdrWOnVcGbzSA3F0KJ1lt/14JwGvbG5E+OJiTjm3jSlyJgt5noHLAAs5H5ln1BMK7XYB4x
-	j4riTlvH5Ao6xKVIyJHfNH80xVwPzB1uhPGKMacrESCTz7Vk2VGm9x4VD0Xi4jzWmlFxScqLvXtY+
-	VK4seKx4Zvv/y/1fIauOplM0T0m7E8rqMNFRwSSEhDFSZzpe4rJyojlLh+Perch90EuKteR5f9SB8
-	cYyu3jicjBes4zlHBwuM5NK9miXoHe+4jQaNq8uXWlsuSryvnFDLYhv3kPNjAh7yTUkUFGaXse3K+
-	xQg1jeGMCg/Xsn2mpM3w==;
+	List-Owner; bh=kaIMJGLHRO9cY7Zte6x4A/go7tynDmHZjUvAQ9SEa28=; b=qFzE9oVyO08T8K
+	X5oVE0wgV+9rvivOe2ZWh5OE2Ojjf1CfjAnW0nO10kPFhsThrq9aSt9fQvQzmmjKW+mQ5FBYr3Il7
+	Oleu1oICZAH0XpSWmG6A1tX9ED1MzZRbvl00BeAQIdExhzQRwwepidclnoihwmKvFx6L48xb/vsdn
+	8sNEc7EAg3EY241wHJpnYvRiUkatfaW266cloFbB1juZ+guJU8m+wHWwZgDIxGzFdJ5sACgd48ktr
+	fjR7Y0nD/+WfESwIXXrZ2tBBzxZqxbZxsTMinDKOAUeRJ5ojjYYdTO/XQfbKX2bkquC8TufKvMu8G
+	vVOoUVE7QfDkVGE2xaIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhPO-00000003AEf-0Hhl;
-	Mon, 24 Mar 2025 13:00:02 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1twhSn-00000003BlX-1Agi;
+	Mon, 24 Mar 2025 13:03:33 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twhHn-000000035vw-0wJV
+	id 1twhIS-000000036EY-0Ypl
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Mar 2025 12:52:13 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3912622c9c0so486986f8f.3
-        for <linux-riscv@lists.infradead.org>; Mon, 24 Mar 2025 05:52:10 -0700 (PDT)
+	Mon, 24 Mar 2025 12:52:53 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-85de3e8d0adso42256339f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 24 Mar 2025 05:52:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1742820729; x=1743425529; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mjmaPyBHSXf8PuBe3jKy6bt1Qi4MPOA66CdtkxcGuKQ=;
-        b=LeOUPJvRovFRuh3ghnGGV3dIpmYEbwIsNiKOSjSSVbXXVEEgBrqXYPsloA6eDvlQ7k
-         zIkBYRBEFSxaT08xzQsXtK8TIqDwCWgAQWouMPxVZ+d1eZwg2WjEeIq3VY2gTg36fE7F
-         3Q7C+6Kc6w8gmBFEFZ4Wrqce4wORm6VMpozaxS11dX03mvV6sjmHfERCmSM7pUyPkgnm
-         1aAzfV6Dfr5vpf9caI/nMa2O7gcr5ZHNDpIDOuMVFKYBEHVp4c2PunbLp7pdcMacH4z5
-         Db4zBdtDgGeUZgnNfPwChU4XoHtgWZs4s6vv4g0H6Rmss9CG5DsuRptCmeIN9RWUxeMc
-         BOjg==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1742820770; x=1743425570; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6X0oWdoPDnrM5Ggl2vFdtnlylP4PXBXYERzQLRD3cjM=;
+        b=e1URaDaeff65sJjrVhqqXPuziBQcoJUloYDr4jJQMoXhs7WVCNwQC0Qv+QrRFl7shH
+         exbGb8sRGZi57Oj69HfoQg6tfKjL3G666yvQzDmewmZiO2j5gDAE2SQSC1XFSnd0+Y0Q
+         xL9olMgIPXD8z43Jd4IYbek9GwKvaKmWikMlW6zQYIsABdMDPNyfi5wTrIqtmAhJ9E/W
+         H7dO2g/9+dTDtlK1JQ66h/XtBSdmX4+yAQ2vSJMtvoVoqSDxOkhh0Y7at7NEkbvdz81j
+         QfDZpnhrXfgzBF7QVI62F1aQtnY6bh5ViFMVgXqpPAQxWHIaioa4+or/VQkmxBNKBrMi
+         0fRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742820729; x=1743425529;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mjmaPyBHSXf8PuBe3jKy6bt1Qi4MPOA66CdtkxcGuKQ=;
-        b=wi/y2hrx0FdMO46oET9t+hlgV5wIytcOemaOHG63oJ2vHTI0OOH/iTfjcCmB1YINAD
-         +/HpcnFfBeiMv+sK8JO7RZn/9Sr0KUO4UO1lqwEaBl/kKJZh0/pS0W7O/wn7Y6yBL4zb
-         uFEOED7YW2U+STst2SnkPXMlfPB4TgTH9Yc6O770D0nKDfmVPah+orH5/2GAgO39VOZS
-         S8RkQMmhL/UZ6gQIENP2WEVIyjI0sa1dzstvY+VpaUm9rOmqyTlUQ4IhAGHRuZmyLsD2
-         pOGf2GhzjrQH8A9eEk5mftCjr9XP0Aw1RlVZJoyJkt9Se2g6x0NRgn4/eiX7t+Uxb2qj
-         N+KQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVijxHgoK4C6eCkzx1+BNmCOYjcZTu0BO/fiK+BminYi9F9qOJ6rwwaUPQkSRNVi1xJPdKnSerV7MGpnQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD+1bUR1KgPzuOqrJgGAFVIHv9PoAPAA5Rb8/+U4mhAifudWKR
-	llX7cexZ8kThwCTBvtmScece6bmQ+vIAxPpOz+I/OIx2+KsXc1foPHX0muTFwuw=
-X-Gm-Gg: ASbGncuoTUj/5MSKouunpuDx4WUnbkcaR6K0GZyFCkqE1xxApKWts5APardOpauZHki
-	NZAqXlX9IpczoiN1ExH2XKafA38IFJt174jRFRaCZYGjCfuuI1iX3cbT8/Eg6Lf8DZzu52K5iva
-	G9XilXRqQ44Jc42x34KcQU7bVs7p+nEdwwTzdMRTltBsUZaHn2H24BSTzHVlkO0KuP3Wx3YKuZN
-	1VkT74uzMWwqkqyA0cs64pY+xbWlFLRU/l8DPcdwAGuHeh0p7qNYr9ey+qzrA/FVCr5Pm8JWRkv
-	ozKUYngRvBy1UWPf+hKfjhOjkgyGZsbSgf5SxurdUEv7IroBhlxK1Zpouw==
-X-Google-Smtp-Source: AGHT+IEqvip+CcbtHMcAP3ZwBIgJtEmf4kkkBavjhgyRCafFGFSCWjHrpx6YQVQWOVUsbGUmdeCJag==
-X-Received: by 2002:a05:6000:2c8:b0:391:320d:95de with SMTP id ffacd0b85a97d-3997f8fd165mr4483091f8f.4.1742820729282;
-        Mon, 24 Mar 2025 05:52:09 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.198.86])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d4fd2704bsm118704565e9.18.2025.03.24.05.52.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 24 Mar 2025 05:52:08 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srikanth Thokala <srikanth.thokala@intel.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Tom Joseph <tjoseph@cadence.com>,
-	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH 2/2] dt-bindings: PCI: sifive,fu740-pcie: Fix include placement in DTS example
-Date: Mon, 24 Mar 2025 13:52:02 +0100
-Message-ID: <20250324125202.81986-2-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
-References: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1742820770; x=1743425570;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6X0oWdoPDnrM5Ggl2vFdtnlylP4PXBXYERzQLRD3cjM=;
+        b=ZB2g6+DySDPgoBRVx7D2pGKEik80CTtp7wzykqv0tw4f5kCkdyQriyms6J3V45anua
+         TrRvc8g8LvAQz922LDJwNEpxKejneoOXw7DYj5GYE4mNfqBVmYxKR10Dk67IJ2I26FxD
+         Mf/Wr9p7+YCvZH6t0z2v+SanrGg+uPa+sACwr18bTgKQQmNY2XHOwimIrR9jp32wz+yw
+         diaWpc/V6aLVqBE4X8f5js5ovR2iw0Qlpkl6nOv863Vq9+wnr9uFZuLTnuoehqgw/GjF
+         RAzqueftAM9KJQauQ5YUAso5rWjW3D/L5TJXnFAaf7zTTBy2u7l7CCqKqWUfQa9E/cPs
+         FFdw==
+X-Forwarded-Encrypted: i=1; AJvYcCU35ebhGgWUpy3knWka+DEMs5z4tl+qBEz+2+KzEgb4fHC4ye1tW0FtC6qVXGnDZoE3+lAMPqv3dsds8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrhANyKNtCAWuw8yHrbb2JU+0nOcgBtLe5s+h6qflmHSwVqWpZ
+	mMLgSWxOne67r8pnyseWG2RMFQgeUR8ou7pk05FBYMe60ehaNstHuxCdFkHYuyY=
+X-Gm-Gg: ASbGncvE6r1BDldFH/+hmZk25OC2rv/eKo8/JtJJ39jpqz1cmYA+K5t+b7/aJiWkJ4s
+	dvPtv/YwKrg3xC6PqguKqgyjbIv893EsCPqIy0a2bzk5M147wZurgkGKeFXBt4f1/7SA7M1bS0p
+	SIUEb710XBneoj8+9avnB5J886I4iJx7gBOCRiGBXXMSFBZ6KAaM05bKZa21QdORw6o8ky5dRwT
+	t25QWQhnL532RsJc33vNsufUFV2dWIWtxDeomlzmULAC3Vr6GC4JIVfoVx5tSqtO6pyWCu2OuzP
+	X0Qs56D2/wdNAXEIeT3M2pxv83NljXTrpcOjNzn8FbQ/frP7wwPzuyCkEj+tGONPifpj+ss7U5h
+	ja6OI+PHV
+X-Google-Smtp-Source: AGHT+IGosqVsP6xD9EOhI7VXXnx9Y+44HitNgUDbYxTirUwdX5Z/bTtbV3lrW2oS8n5r7ikaiZEZ7g==
+X-Received: by 2002:a05:6602:488b:b0:85b:505a:7e01 with SMTP id ca18e2360f4ac-85e2ca364aamr1471217539f.5.1742820769907;
+        Mon, 24 Mar 2025 05:52:49 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-85e2bc273b7sm164604339f.19.2025.03.24.05.52.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 24 Mar 2025 05:52:49 -0700 (PDT)
+Message-ID: <b9af5eec-db85-4465-895f-d7781ebe9dd9@riscstar.com>
+Date: Mon, 24 Mar 2025 07:52:47 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND 3/7] clk: spacemit: add reset controller support
+To: Haylen Chu <heylenay@4d2.org>, p.zabel@pengutronix.de,
+ mturquette@baylibre.com, sboyd@kernel.org, dlan@gentoo.org
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ guodong@riscstar.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, spacemit@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250321151831.623575-1-elder@riscstar.com>
+ <20250321151831.623575-4-elder@riscstar.com> <Z-FOJFHOsU_dLkmS@ketchup>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <Z-FOJFHOsU_dLkmS@ketchup>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_055211_255462_E34D08F4 
-X-CRM114-Status: GOOD (  10.68  )
+X-CRM114-CacheID: sfid-20250324_055252_175741_250B428A 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,37 +100,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Coding style and common logic dictates that headers should not be
-included in device nodes.  No functional impact.
+On 3/24/25 7:20 AM, Haylen Chu wrote:
+> On Fri, Mar 21, 2025 at 10:18:26AM -0500, Alex Elder wrote:
+>> Define ccu_reset_data as a structure that contains the constant
+>> register offset and bitmasks used to assert and deassert a reset
+>> control on a SpacemiT K1 CCU. Define ccu_reset_controller_data as
+>> a structure that contains the address of an array of those structures
+>> and a count of the number of elements in the array.
+>>
+>> Add a pointer to a ccu_reset_controller_data structure to the
+>> k1_ccu_data structure.  Reset support is optional for SpacemiT CCUs;
+>> the new pointer field will be null for CCUs without any resets.
+>>
+>> Finally, define a new ccu_reset_controller structure, which (for
+>> a CCU with resets) contains a pointer to the constant reset data,
+>> the regmap to be used for the controller, and an embedded a reset
+>> controller structure.
+>>
+>> Each reset control is asserted or deasserted by updating bits in
+>> a register.  The bits used are defined by an assert mask and a
+>> deassert mask.  In some cases, one (non-zero) mask asserts reset
+>> and a different (non-zero) mask deasserts it.  Otherwise one mask
+>> is nonzero, and the other is zero.  Either way, the bits in
+>> both masks are cleared, then either the assert mask or the deassert
+>> mask is set in a register to affect the state of a reset control.
+>>
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> ---
+>>   drivers/clk/spacemit/ccu-k1.c | 93 +++++++++++++++++++++++++++++++++++
+>>   1 file changed, 93 insertions(+)
+>>
+>> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+>> index f7367271396a0..6d879411c6c05 100644
+>> --- a/drivers/clk/spacemit/ccu-k1.c
+>> +++ b/drivers/clk/spacemit/ccu-k1.c
+> 
+> ...
+> 
+>> +static int
+>> +k1_rst_update(struct reset_controller_dev *rcdev, unsigned long id, bool assert)
+>> +{
+>> +	struct ccu_reset_controller *controller = rcdev_to_controller(rcdev);
+>> +	struct regmap *regmap = controller->regmap;
+>> +	const struct ccu_reset_data *data;
+>> +	u32 val;
+>> +	int ret;
+>> +
+>> +	data = &controller->data->data[id];
+>> +
+>> +	ret = regmap_read(regmap, data->offset, &val);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	val &= ~(data->assert_mask | data->deassert_mask);
+>> +	val |= assert ? data->assert_mask : data->deassert_mask;
+>> +
+>> +	return regmap_write(regmap, data->offset, val);
+>> +}
+> 
+> I don't think it's safe to write the regmap based on a value read
+> earlier without the regmap's inner lock held: it's totally fine for the
+> clock part to issue an update of the register at the same time. Without
+> knowledge on it, reset code may rollback the clock bits written by clock
+> code earlier to the original value. That's why I keep using ccu_update()
+> everywhere and dropped ccu_write().
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+That's a great point, thank you.  I'll modify it to use
+regmap_update_bits(), which is better anyway.
 
-diff --git a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-index 844fc7142302..d35ff807936b 100644
---- a/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-+++ b/Documentation/devicetree/bindings/pci/sifive,fu740-pcie.yaml
-@@ -81,10 +81,10 @@ unevaluatedProperties: false
- 
- examples:
-   - |
-+    #include <dt-bindings/clock/sifive-fu740-prci.h>
-     bus {
-         #address-cells = <2>;
-         #size-cells = <2>;
--        #include <dt-bindings/clock/sifive-fu740-prci.h>
- 
-         pcie@e00000000 {
-             compatible = "sifive,fu740-pcie";
--- 
-2.43.0
+					-Alex
+
+> 
+> Thanks,
+> Haylen Chu
 
 
 _______________________________________________
