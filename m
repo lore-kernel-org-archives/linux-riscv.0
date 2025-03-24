@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B576C3600C
-	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 17:49:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFEEC36002
+	for <linux-riscv@archiver.kernel.org>; Mon, 24 Mar 2025 18:36:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8edHQDo3MQynSOJ2Qd9RyGzOAdhphYRnVhIl0eMomZA=; b=3T9ZqPek9Zm2IU
-	ztIxzoivjO3TBBc6IR6GjlGFVrHiFt+UT36nsW4vHghwW3aVOlTLefq0+QoZU7qW/xvUVWpcAqskq
-	U53WTB8dwm7yaKskLKIeAGg1pYj+XZvuhmbRrvzPzny3fYpyctK5bOxKWezbiPIYR30o4O9rOwHUP
-	RiZhVDQG+dMEP0v8iyLZiPNuF9vcy5ET1OcqmeaFcNE9yxeI9UO3NnQ+Wu8H560UGx4u8StuOeNil
-	PXolBOOsoBoIfD8VrT9cHoMYqlrA8qxySLM04T9UlETRLN3x/lN1spzcnXpKjtlWgoa801zOzRWRp
-	4Wjk1g9RQVoMwvGF/AEA==;
+	List-Owner; bh=NBR0SiP+B9DSTq9Mk5JK09MpA4EI+jHCfXWN05sIapw=; b=HirYhynPQnysYk
+	/ZNH9Zu2EYEcIuD8b+/rUt7RUtnchx/rchEGSdkxQxTwmfLcPa6X9UXxXI22X0/9mF4Wj4AED0ezY
+	IQ4lFsFnSqGKuWG+LrUzYetB3Xoj2n+NKzERMk67yLDYyeMIts2Tz9eE9MhCuOT3BWWutX93eB7Bz
+	ba1G0Vjho87famyTOtJ0WcdqYnL6Sy7ln5CzvnuhYS8tdayv+VLT/ad1C4MzSa7vs7KpKNhv0e7n/
+	gfh1QUDyEOkYVZb9sv9GqyrL6855oZAKd5PuRn+3WJJWnNtVGXZeyhCpCHBRaLY/AbxdxwEYn5mAJ
+	bTZCsqih2kd4LysyWmsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlvG-00000003r8p-33S6;
-	Mon, 24 Mar 2025 17:49:14 +0000
-Received: from relay5-d.mail.gandi.net ([2001:4b98:dc4:8::225])
+	id 1twmfL-00000003xbv-1SlJ;
+	Mon, 24 Mar 2025 18:36:51 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1twlvE-00000003r7A-0IHm
+	id 1twmez-00000003xXl-3nGY
 	for linux-riscv@lists.infradead.org;
-	Mon, 24 Mar 2025 17:49:13 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 763A944346;
-	Mon, 24 Mar 2025 17:49:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1742838549;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=N1co+hewvkHIAplFR3edQapFDqNXgn6Qh8Bh0s6Wls8=;
-	b=ILdBPfBwjDB6/i9FTF9i30HeNSmixqDNKdGblbcS4i9t2sLXeOp5FG+QgyOU32qSB1+F5F
-	7G9rkeO90zADgQ+rnU1dOgtm8+YfOPYu9jpY0t+YCXHScFmZ0BH/4JrjrLQ3LmKwidjHId
-	HR4OZKF6V00ajD3rHljdQxoMe5mlenxUy2lZfuefwBTKvp0fcmf1kg3ufCziKCgCnpSYGj
-	8U1BbgfQ9S3DEQNsyS42/gkGUXtf8M2dsl5l8DEesVi2FDdIuJbnqVm30On3W4Yn12maU9
-	L3BKaUnAld55T2YJog8v6Ui8vpsf+mfvkvXMu29AdhG8qNA4Jbz3o3Gh5QDDNw==
-Mime-Version: 1.0
-Date: Mon, 24 Mar 2025 18:49:05 +0100
-Message-Id: <D8OOPAXK16CI.3TE75O760JRSL@bootlin.com>
-Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Samuel Holland" <samuel.holland@sifive.com>,
- "Richard Cochran" <richardcochran@gmail.com>, "Russell King"
- <linux@armlinux.org.uk>, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-mips@vger.kernel.org>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, "Tawfik Bayouk"
- <tawfik.bayouk@mobileye.com>
-To: "Andrew Lunn" <andrew@lunn.ch>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+	Mon, 24 Mar 2025 18:36:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=X4F3sqvTWUFr3hm2OdD/nyNotX8RIX6/b7P9siq4rRk=; b=O1
+	ktSCBftk6ilHFHI8FsPU/AMeKO4wrvczxzcGq4nXakKm9e7dUZrW2uwOeycO6IoajlOuCHcT9ITm1
+	CT7GrwHUOAwCtujspynPvj2k6kGpmUDJSLQxtiygO89/y9H7VqqA6JkRwAMraFHOi6pFGb0hgYqCg
+	guyfF9TnKcsQ75s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1twmec-006y0k-WC; Mon, 24 Mar 2025 19:36:07 +0100
+Date: Mon, 24 Mar 2025 19:36:06 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: =?iso-8859-1?Q?Th=E9o?= Lebrun <theo.lebrun@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
+	Gregory CLEMENT <gregory.clement@bootlin.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Tawfik Bayouk <tawfik.bayouk@mobileye.com>
 Subject: Re: [PATCH net-next 07/13] net: macb: move HW IP alignment value to
  macb_config
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+Message-ID: <967fcb66-6a64-4e97-8293-a38b0ef1bc01@lunn.ch>
 References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
  <20250321-macb-v1-7-537b7e37971d@bootlin.com>
  <45b3e613-90c6-4499-b50b-383106172184@lunn.ch>
-In-Reply-To: <45b3e613-90c6-4499-b50b-383106172184@lunn.ch>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedtgeduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefvhffuofhfjgesthhqredtredtjeenucfhrhhomhepvfhhrohoucfnvggsrhhunhcuoehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeigfelffeuffetteetuddufffghefhudeuteeigeekteevgeeileejgfdvffelheenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepjeejrddufeehrdekuddrieehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepjeejrddufeehrdekuddrieehpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvkedprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehpr
- ggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: theo.lebrun@bootlin.com
+ <D8OOPAXK16CI.3TE75O760JRSL@bootlin.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <D8OOPAXK16CI.3TE75O760JRSL@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250324_104912_411023_67CE6562 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250324_113629_942632_D1D3C68F 
+X-CRM114-Status: GOOD (  21.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,111 +89,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gQW5kcmV3LAoKT24gRnJpIE1hciAyMSwgMjAyNSBhdCAxMDowNiBQTSBDRVQsIEFuZHJl
-dyBMdW5uIHdyb3RlOgo+IE9uIEZyaSwgTWFyIDIxLCAyMDI1IGF0IDA4OjA5OjM4UE0gKzAxMDAs
-IFRow6lvIExlYnJ1biB3cm90ZToKPj4gVGhlIGNvbnRyb2xsZXIgZG9lcyBJUCBhbGlnbm1lbnQg
-KHR3byBieXRlcykuCj4KPiBJJ20gYSBiaXQgY29uZnVzZWQgaGVyZS4gSXMgdGhpcyBoYXJkIGNv
-ZGVkLCBiYWtlZCBpbnRvIHRoZSBzaWxpY29uPwo+IEl0IHdpbGwgYWx3YXlzIGRvIElQIGFsaWdu
-bWVudD8gSXQgY2Fubm90IGJlIHR1cm5lZCBvZmY/CgpZZXMsIHRoZSBhbGlnbm1lbnQgaXMgYmFr
-ZWQgaW5zaWRlIHRoZSBzaWxpY29uLgpJIGxvb2tlZCBidXQgaGF2ZW4ndCBzZWVuIGFueSByZWdp
-c3RlciB0byBjb25maWd1cmUgdGhlIGFsaWdubWVudC4KClNvcnJ5IHRoZSBjb21taXQgbWVzc2Fn
-ZSBpc24ndCBjbGVhciwgaXQgbmVlZHMgaW1wcm92ZW1lbnRzLgoKPj4gCXNrYl9yZXNlcnZlKHNr
-YiwgTkVUX0lQX0FMSUdOKTsKPgo+IFdoeSBub3QganVzdCByZXBsYWNlIHRoaXMgd2l0aAo+Cj4g
-ICAgICAgICBza2JfcmVzZXJ2ZShza2IsIDIpOwoKT24gYXJtNjQsIE5FVF9JUF9BTElHTj0wLiBJ
-IGRvbid0IGhhdmUgSFcgdG8gdGVzdCwgYnV0IHRoZSBjdXJyZW50IGNvZGUKaXMgdGVsbGluZyB1
-cyB0aGF0IHRoZSBzaWxpY29uIGRvZXNuJ3QgZG8gYWxpZ25tZW50IG9uIHRob3NlOgoKICAgc2ti
-ID0gbmV0ZGV2X2FsbG9jX3NrYiguLi4pOwogICBwYWRkciA9IGRtYV9tYXBfc2luZ2xlKC4uLiwg
-c2tiLT5kYXRhLCAuLi4pOwogICBtYWNiX3NldF9hZGRyKC4uLiwgcGFkZHIpOwoKICAgLy8gYXJt
-ICAgPT4gTkVUX0lQX0FMSUdOPTIgPT4gc2lsaWNvbiBkb2VzIGFsaWdubWVudAogICAvLyBhcm02
-NCA9PiBORVRfSVBfQUxJR049MCA9PiBzaWxpY29uIGRvZXNuJ3QgZG8gYWxpZ25tZW50CiAgIHNr
-Yl9yZXNlcnZlKHNrYiwgTkVUX0lQX0FMSUdOKTsKClRoZSBwbGF0Zm9ybSB3ZSBpbnRyb2R1Y2Ug
-aXMgdGhlIGZpcnN0IG9uZSB3aGVyZSB0aGUgc2lsaWNvbiBhbGlnbm1lbnQKKDAgYnl0ZXMpIGlz
-IGRpZmZlcmVudCBmcm9tIHRoZSBORVRfSVBfQUxJR04gdmFsdWUgKE1JUFMsIDIgYnl0ZXMpLgoK
-RG9lcyB0aGF0IGNsYXJpZnkgdGhpbmdzPwoKPj4gVGhlIE5FVF9JUF9BTElHTiB2YWx1ZSBpcyBh
-cmNoLWRlcGVuZGVudCBhbmQgcGlja2VkIGJhc2VkIG9uIHVuYWxpZ25lZAo+PiBDUFUgYWNjZXNz
-IHBlcmZvcm1hbmNlLiBUaGUgaGFyZHdhcmUgYWxpZ25tZW50IHZhbHVlIHNob3VsZCBiZQo+PiBj
-b21wYXRpYmxlLXNwZWNpZmljIHJhdGhlciB0aGFuIGFyY2gtc3BlY2lmaWMuIE9mZmVyIGEgcGF0
-aCBmb3J3YXJkIGJ5Cj4+IGFkZGluZyBhIGh3X2lwX2FsaWduIGZpZWxkIGluc2lkZSBtYWNiX2Nv
-bmZpZy4KPj4gCj4+IFZhbHVlcyBmb3IgbWFjYl9jb25maWctPmh3X2lwX2FsaWduIGFyZSBwaWNr
-ZWQgYmFzZWQgb24gdXBzdHJlYW0KPj4gZGV2aWNldHJlZXM6Cj4+IAo+PiAgICAgQ29tcGF0aWJs
-ZSAgICAgICAgICAgICB8ICBEVFMgZm9sZGVycyAgICAgICAgICAgICAgfCAgaHdfaXBfYWxpZ24K
-Pj4gICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LXwtLS0tLS0tLS0tLS0tLS0tCj4+ICAgIGNkbnMsYXQ5MXNhbTkyNjAtbWFjYiAgIHwgYXJjaC9h
-cm0vICAgICAgICAgICAgICAgICB8IDIKPj4gICAgY2RucyxtYWNiICAgICAgICAgICAgICAgfCBh
-cmNoL3thcm0scmlzY3Z9LyAgICAgICAgIHwgTkVUX0lQX0FMSUdOCj4+ICAgIGNkbnMsbnA0LW1h
-Y2IgICAgICAgICAgIHwgTlVMTCAgICAgICAgICAgICAgICAgICAgICB8IE5FVF9JUF9BTElHTgo+
-PiAgICBjZG5zLHBjMzAyLWdlbSAgICAgICAgICB8IE5VTEwgICAgICAgICAgICAgICAgICAgICAg
-fCBORVRfSVBfQUxJR04KPj4gICAgY2RucyxnZW0gICAgICAgICAgICAgICAgfCBhcmNoL3thcm0s
-YXJtNjR9LyAgICAgICAgIHwgTkVUX0lQX0FMSUdOCj4+ICAgIGNkbnMsc2FtOXg2MC1tYWNiICAg
-ICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4gICAgYXRtZWwsc2FtYTVkMi1n
-ZW0gICAgICAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+PiAgICBhdG1lbCxzYW1h
-NWQyOS1nZW0gICAgICB8IGFyY2gvYXJtLyAgICAgICAgICAgICAgICAgfCAyCj4+ICAgIGF0bWVs
-LHNhbWE1ZDMtZ2VtICAgICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4gICAg
-YXRtZWwsc2FtYTVkMy1tYWNiICAgICAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+
-PiAgICBhdG1lbCxzYW1hNWQ0LWdlbSAgICAgICB8IGFyY2gvYXJtLyAgICAgICAgICAgICAgICAg
-fCAyCj4+ICAgIGNkbnMsYXQ5MXJtOTIwMC1lbWFjICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAg
-ICAgICB8IDIKPj4gICAgY2RucyxlbWFjICAgICAgICAgICAgICAgfCBhcmNoL2FybS8gICAgICAg
-ICAgICAgICAgIHwgMgo+PiAgICBjZG5zLHp5bnFtcC1nZW0gICAgICAgICB8ICpzYW1lIGFzIHhs
-bngsenlucW1wLWdlbSogfCAwCj4+ICAgIGNkbnMsenlucS1nZW0gICAgICAgICAgIHwgKnNhbWUg
-YXMgeGxueCx6eW5xLWdlbSogICB8IDIKPj4gICAgc2lmaXZlLGZ1NTQwLWMwMDAtZ2VtICAgfCBh
-cmNoL3Jpc2N2LyAgICAgICAgICAgICAgIHwgMgo+PiAgICBtaWNyb2NoaXAsbXBmcy1tYWNiICAg
-ICB8IGFyY2gvcmlzY3YvICAgICAgICAgICAgICAgfCAyCj4+ICAgIG1pY3JvY2hpcCxzYW1hN2c1
-LWdlbSAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4gICAgbWljcm9jaGlwLHNh
-bWE3ZzUtZW1hYyAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+PiAgICB4bG54LHp5
-bnFtcC1nZW0gICAgICAgICB8IGFyY2gvYXJtNjQvICAgICAgICAgICAgICAgfCAwCj4+ICAgIHhs
-bngsenlucS1nZW0gICAgICAgICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4g
-ICAgeGxueCx2ZXJzYWwtZ2VtICAgICAgICAgfCBOVUxMICAgICAgICAgICAgICAgICAgICAgIHwg
-TkVUX0lQX0FMSUdOCj4KPiBJIGRvbid0IHJlbWVtYmVyIHNlZWluZyBhbnkgb3RoZXIgZHJpdmVy
-IGRvaW5nIGFueXRoaW5nIGxpa2UKPiB0aGlzLiBUaGF0IG9mdGVuIG1lYW5zIGl0IGlzIHdyb25n
-Li4uLgoKR29vZCBxdWVzdGlvbiwgbGV0J3MgbG9vayBhdCBza2JfcmVzZXJ2ZSgpIHRoYXQgZm9s
-bG93IGRtYV9tYXBfc2luZ2xlKCk6CgogICDin6kgZ2l0IGdyZXAgLUEyMCBkbWFfbWFwX3Npbmds
-ZSBkcml2ZXJzL25ldC9ldGhlcm5ldC8gfCBcCiAgICAgIHJnIHNrYl9yZXNlcnZlIHwgZ3JlcCAt
-diBtYWNiX21haW4KICAgZHJpdmVycy9uZXQvZXRoZXJuZXQvc3VuL3N1bmJtYWMuYzogICAgICAg
-ICAgc2tiX3Jlc2VydmUoY29weV9za2IsIDIpOwogICBkcml2ZXJzL25ldC9ldGhlcm5ldC9zdW4v
-c3VuaG1lLmM6ICAgICAgICAgICBza2JfcmVzZXJ2ZShza2IsIFJYX09GRlNFVCk7CiAgIGRyaXZl
-cnMvbmV0L2V0aGVybmV0L3N1bi9zdW5obWUuYzogICAgICAgICAgIHNrYl9yZXNlcnZlKG5ld19z
-a2IsIFJYX09GRlNFVCk7CiAgIGRyaXZlcnMvbmV0L2V0aGVybmV0L3NnaS9pb2MzLWV0aC5jOiAg
-ICAgICAgIHNrYl9yZXNlcnZlKG5ld19za2IsIFJYX09GRlNFVCk7CiAgIGRyaXZlcnMvbmV0L2V0
-aGVybmV0L2NoZWxzaW8vY3hnYi9zZ2UuYzogICAgIHNrYl9yZXNlcnZlKHNrYiwgc2dlLT5yeF9w
-a3RfcGFkKTsKICAgZHJpdmVycy9uZXQvZXRoZXJuZXQvbWFydmVsbC9tdjY0M3h4X2V0aC5jOiAg
-c2tiX3Jlc2VydmUoc2tiLCAyKTsKICAgZHJpdmVycy9uZXQvZXRoZXJuZXQvZGVjL3R1bGlwL2Rl
-MjEwNHguYzogICAgc2tiX3Jlc2VydmUoY29weV9za2IsIFJYX09GRlNFVCk7CiAgIGRyaXZlcnMv
-bmV0L2V0aGVybmV0L21hcnZlbGwvcHhhMTY4X2V0aC5jOiAgIHNrYl9yZXNlcnZlKHNrYiwgRVRI
-X0hXX0lQX0FMSUdOKTsKICAgZHJpdmVycy9uZXQvZXRoZXJuZXQvYWxhY3JpdGVjaC9zbGljb3Nz
-LmM6ICAgc2tiX3Jlc2VydmUoc2tiLCBvZmZzZXQpOwogICBkcml2ZXJzL25ldC9ldGhlcm5ldC90
-b3NoaWJhL3RjMzU4MTUuYzogICAgICBza2JfcmVzZXJ2ZShza2IsIDIpOyAvKiBtYWtlIElQIGhl
-YWRlciA0Ynl0ZSBhbGlnbmVkICovCiAgIGRyaXZlcnMvbmV0L2V0aGVybmV0L2xhbnRpcV9ldG9w
-LmM6ICAgICAgICAgIHNrYl9yZXNlcnZlKGNoLT5za2JbY2gtPmRtYS5kZXNjXSwgTkVUX0lQX0FM
-SUdOKTsKCk91dCBvZiB0aG9zZSwgdHdvIGFyZSB1c2luZyBkeW5hbWljIHZhbHVlczoKCiAgIC8v
-IEluIGRyaXZlcnMvbmV0L2V0aGVybmV0L2NoZWxzaW8vY3hnYi9zZ2UuYwogICAvLyBUaGUgdmFs
-dWUgY29tZXMgZnJvbSBbMF06CiAgIHNnZS0+cnhfcGt0X3BhZCA9IHQxX2lzX1QxQihhZGFwdGVy
-KSA/IDAgOiAyOwogICAvLyBUaGUgbWFjcm8gcmVzb2x2ZXMgdG8gc29tZXRoaW5nIGxpa2UgWzFd
-OgogICBhZGFwLT5wYXJhbXMuY2hpcF92ZXJzaW9uID09IENIQlRfVEVSTV9UMSAmJiBhZGFwLT5w
-YXJhbXMuY2hpcF9yZXZpc2lvbiA9PSBURVJNX1QxQgoKICAgLy8gSW4gZHJpdmVycy9uZXQvZXRo
-ZXJuZXQvYWxhY3JpdGVjaC9zbGljb3NzLmMKICAgLy8gSW4gc2xpY19yZWZpbGxfcnhfcXVldWUo
-KSBbMl0KICAgLyogZW5zdXJlIGhlYWQgYnVmZmVyIGRlc2NyaXB0b3JzIGFyZSAyNTYgYnl0ZSBh
-bGlnbmVkICovCiAgIG9mZnNldCA9IDA7CiAgIG1pc2FsaWduID0gcGFkZHIgJiBBTElHTl9NQVNL
-OwogICBpZiAobWlzYWxpZ24pIHsKICAgICAgb2Zmc2V0ID0gU0xJQ19SWF9CVUZGX0FMSUdOIC0g
-bWlzYWxpZ247CiAgICAgIHNrYl9yZXNlcnZlKHNrYiwgb2Zmc2V0KTsKICAgfQoKQ29uY2x1c2lv
-bjoKIC0gb25lIGlzIEhXIHJldmlzaW9uIGRlcGVuZGVudCwKIC0gdGhlIG90aGVyIGtub3dzIHRo
-YXQgSFcgYWx3YXlzIGFsaWducyBpdHMgYnVmZmVyIHRvIDI1Ni4KCldlIGFyZW4ndCBhbG9uZSwg
-YnV0IHByZXR0eSBsb25lbHkuCgpNYXliZSBJIG1pc3NlZCBhIGNvbW1vbiBkZW5vbWluYXRvciB0
-aGF0IGNvdWxkIGJlIHVzZWQgdG8gaWRlbnRpZnkKY29tcGF0aWJsZXMgdGhhdCBkbyBvciBkbyBu
-b3QgaGF2ZSBoYXJkY29kZWQgYWxpZ25lbW50LiBXaXRob3V0IHN1Y2gKaW5mbywgdGhlIGFwcHJv
-YWNoIHRha2VuIChoYXZlIGFsaWdubWVudCBzdG9yZWQgaW5zaWRlIG1hdGNoIGRhdGEpCnNvdW5k
-cyByZWFzb25hYmxlIHRvIG1lLgoKRG8geW91IGFncmVlPwoKVGhhbmtzLAoKWzBdOiBodHRwczov
-L2VsaXhpci5ib290bGluLmNvbS9saW51eC92Ni4xMy43L3NvdXJjZS9kcml2ZXJzL25ldC9ldGhl
-cm5ldC9jaGVsc2lvL2N4Z2Ivc2dlLmMjTDIxMDYKWzFdOiBodHRwczovL2VsaXhpci5ib290bGlu
-LmNvbS9saW51eC92Ni4xMy43L3NvdXJjZS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jaGVsc2lvL2N4
-Z2IvY29tbW9uLmgjTDI5Mi1MMjk5ClsyXTogaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5jb20vbGlu
-dXgvdjYuMTMuNy9zb3VyY2UvZHJpdmVycy9uZXQvZXRoZXJuZXQvYWxhY3JpdGVjaC9zbGljb3Nz
-LmMjTDQxOC1MNDI0CgotLQpUaMOpbyBMZWJydW4sIEJvb3RsaW4KRW1iZWRkZWQgTGludXggYW5k
-IEtlcm5lbCBlbmdpbmVlcmluZwpodHRwczovL2Jvb3RsaW4uY29tCgoKX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0
-CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5v
-cmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, Mar 24, 2025 at 06:49:05PM +0100, Th=E9o Lebrun wrote:
+> Hello Andrew,
+> =
+
+> On Fri Mar 21, 2025 at 10:06 PM CET, Andrew Lunn wrote:
+> > On Fri, Mar 21, 2025 at 08:09:38PM +0100, Th=E9o Lebrun wrote:
+> >> The controller does IP alignment (two bytes).
+> >
+> > I'm a bit confused here. Is this hard coded, baked into the silicon?
+> > It will always do IP alignment? It cannot be turned off?
+> =
+
+> Yes, the alignment is baked inside the silicon.
+> I looked but haven't seen any register to configure the alignment.
+> =
+
+> Sorry the commit message isn't clear, it needs improvements.
+> =
+
+> >> 	skb_reserve(skb, NET_IP_ALIGN);
+> >
+> > Why not just replace this with
+> >
+> >         skb_reserve(skb, 2);
+> =
+
+> On arm64, NET_IP_ALIGN=3D0. I don't have HW to test, but the current code
+> is telling us that the silicon doesn't do alignment on those:
+
+This is part of the confusion. You say the hardware does alignment,
+and then say it does not....
+
+>    skb =3D netdev_alloc_skb(...);
+>    paddr =3D dma_map_single(..., skb->data, ...);
+>    macb_set_addr(..., paddr);
+> =
+
+>    // arm   =3D> NET_IP_ALIGN=3D2 =3D> silicon does alignment
+>    // arm64 =3D> NET_IP_ALIGN=3D0 =3D> silicon doesn't do alignment
+>    skb_reserve(skb, NET_IP_ALIGN);
+> =
+
+> The platform we introduce is the first one where the silicon alignment
+> (0 bytes) is different from the NET_IP_ALIGN value (MIPS, 2 bytes).
+
+This is starting to make it clearer. So the first statement that the
+controller does IP alignment (two bytes) is not the full story. I
+would start there, explain the full story, otherwise readers get the
+wrong idea.
+
+> >>     Compatible             |  DTS folders              |  hw_ip_align
+> >>    ------------------------|---------------------------|--------------=
+--
+> >>    cdns,at91sam9260-macb   | arch/arm/                 | 2
+> >>    cdns,macb               | arch/{arm,riscv}/         | NET_IP_ALIGN
+> >>    cdns,np4-macb           | NULL                      | NET_IP_ALIGN
+> >>    cdns,pc302-gem          | NULL                      | NET_IP_ALIGN
+> >>    cdns,gem                | arch/{arm,arm64}/         | NET_IP_ALIGN
+> >>    cdns,sam9x60-macb       | arch/arm/                 | 2
+> >>    atmel,sama5d2-gem       | arch/arm/                 | 2
+> >>    atmel,sama5d29-gem      | arch/arm/                 | 2
+> >>    atmel,sama5d3-gem       | arch/arm/                 | 2
+> >>    atmel,sama5d3-macb      | arch/arm/                 | 2
+> >>    atmel,sama5d4-gem       | arch/arm/                 | 2
+> >>    cdns,at91rm9200-emac    | arch/arm/                 | 2
+> >>    cdns,emac               | arch/arm/                 | 2
+> >>    cdns,zynqmp-gem         | *same as xlnx,zynqmp-gem* | 0
+> >>    cdns,zynq-gem           | *same as xlnx,zynq-gem*   | 2
+> >>    sifive,fu540-c000-gem   | arch/riscv/               | 2
+> >>    microchip,mpfs-macb     | arch/riscv/               | 2
+> >>    microchip,sama7g5-gem   | arch/arm/                 | 2
+> >>    microchip,sama7g5-emac  | arch/arm/                 | 2
+> >>    xlnx,zynqmp-gem         | arch/arm64/               | 0
+> >>    xlnx,zynq-gem           | arch/arm/                 | 2
+> >>    xlnx,versal-gem         | NULL                      | NET_IP_ALIGN
+
+I'm not sure this table is useful. What might be more interesting is
+
+     Compatible             |  architecture |  hw_ip_align | value of NET_I=
+P_ALIGN
+
+We can then see if there are cases when the 3rd and 4th column differ.
+
+	Andrew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
