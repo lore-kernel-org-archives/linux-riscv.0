@@ -4,159 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF6A8C36005
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:18:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5E5C36005
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:Cc:To:From:Date:MIME-Version:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=iEJbIDu987oR77UORlGV5IvFPgjkBN0WzfOLWndaimw=; b=WZn50vP3fpBhSz1kaRTD7GYxWP
-	sWLEaEqMjdZqmXx8PdXm1DYZYwoyifnjL5bk6ZPkmWYzpMl3uj8Ug18JBxMeoF4eV9t1tgX+jRckP
-	SE7oK4qQ+7UcxWrl4UR69b0CrqkNFZLK4gQAp+eohR4lsKzhAroWC1oOii2D1ToaG60LBIGKHRl1l
-	HwfUVRXe+858CbD8wj/3g9UUMrqoHGlctG5NHjLwUnS40ZpyPMYa8dB+TxUiXKjZhQMdxU/1H1Z18
-	dmyTGJUAItJjRjtcyDw1Wb1SAY8XdH/sLtn9LCwEL/TSAO9rIA+s8zZmdru0SWfGZK3LOwONhAbOc
-	6o5HN3hg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R+geFrb392aI2QSgF1FBOK1lnwvnLSk7qWtZKdDmadw=; b=iE/Sa5JmJE7O+6
+	fuNcoZDoTXG7ioJH+hMNvoyOZ4ovYjqf4zU51nZj7WxfCd6qxvwIOj7SyLb+Qsmo2HXgRv+9cAudO
+	Nd2DO1HUxR2Z6qoJBY0weyl3JojpgatNr99D+Imr0GAkA/tEE49WAtWuDw3uIKnkU5I3/b39RBzu6
+	0y1TR/+pwXyQ/gwKwmUgQDlIOA8Y8xqYZJdZnjuqBps8bBMHuidQ8raHPbZd18mmWdZScgL7d5jdi
+	93iDkxBA+h3p4xv9eTeDPLfp426B6oo/LWuNlcIIUjs+zvq+zOSt3LJEOw49jnPgsaXPwQQSodqk9
+	IhtrSitmaTg2i6iOV/Mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4B5-000000060Rz-1bGp;
-	Tue, 25 Mar 2025 13:18:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tx4io-000000066E2-1AJl;
+	Tue, 25 Mar 2025 13:53:38 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4B2-000000060R4-3WzJ;
-	Tue, 25 Mar 2025 13:18:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=7uJCsElQFNSpp9yzC8ZbXV0umGMGK1SA9vUHShT/4EA=; b=G+Y+PLPGq3KqRN134MwcYECwx1
-	Jo0/C/tGmC3tu5hB9jzVzt4Cz139rgwQcs9uUR3SgaHP45avA+RNE5uCHDMflGCDDUbW/oP0pcgYY
-	obNFihSbTPdgLEvgzI7LIyPBos5DMsPb+oSbVzULwEC8AJzjuHGtzt/ZNyXD6oaVotstt0CiP0JOo
-	CsJViICw3lue1baW8m0SC8ypPFv+ACn30sdClgXvDg2ZaKSnMNEmIoffQtmbqD25TeBqeCydfgOgn
-	ClUCiy0jicjnE4W1xDGxLo40SScG5ik5kixATiPi3TYH8EgDfd25N0p1oj/LSCZL50fy87cm9n3DK
-	IvGCGmaQ==;
-Received: from flow-b2-smtp.messagingengine.com ([202.12.124.137])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx4Az-00000005SJX-30ug;
-	Tue, 25 Mar 2025 13:18:43 +0000
-Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailflow.stl.internal (Postfix) with ESMTP id 2825F1D4180B;
-	Tue, 25 Mar 2025 09:18:34 -0400 (EDT)
-Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Tue, 25 Mar 2025 09:18:35 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1742908714;
-	 x=1742915914; bh=7uJCsElQFNSpp9yzC8ZbXV0umGMGK1SA9vUHShT/4EA=; b=
-	RTmZlZugzrB2Xpp2UNcmLvJ2IMWE1xdWamWnVAKU5SL2JAeh+Vzm0Hxb/YmAQpL9
-	mEwDWbQjzIx8gVGWNo0GPuIaibxKIdPeyAEapZyop9O5Rc5uyFfdcKWj0mXXSMHV
-	tLwO/tb+6euKYNuN8vIwReVYQNxdhZzz2I3fCYWR5ISpjQrEgrTKfSAa4Tgb96FJ
-	NNa5zvPiac2GlPmzCNKAS2OeK8aRzxprhy6dPptHE2iTkY1G7veSKjDOshKcIkI1
-	NwEKOiSERdwYBqG5jZ84YGoyPos94OBmvljQjiCmF1cWxzKZZsaQrQNkJ10870a8
-	HF71PKpsLcSgvdnbenoHmw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1742908714; x=
-	1742915914; bh=7uJCsElQFNSpp9yzC8ZbXV0umGMGK1SA9vUHShT/4EA=; b=B
-	rsqAGkTFZ3e7xsyWdPC+FXwVIENkzzxocGOEQttZ5W+XR+GQpG4zAES5j4XgeCAd
-	eD6S/IG0JPU4POYy8+9bTeUcSTeohmduHNbYSLdztyMoKfkDfg9G2NzngxuQGixe
-	eFxOgaxRleW2TpHUcOSW9GfofxLfMGG9wCfGXT/joYzpEbxOPO7rs3hh4UFbFfb0
-	Q4I0uXtwCKM17CbTMUdn151LDA7ZP089MSe7ujEUqAgobo5lJWYXNygdFIUSvaxn
-	StCRqsm02WEA4qHGz0MwAqLsSWSHI8yWHtiBId1grcbZVOuf26de0t1VAbsZUzkt
-	vt88I1ftKH2A7KsJ1ALJg==
-X-ME-Sender: <xms:Jq3iZ6foBiaKuAmJ77lrBr7E2T7Lcf99ZyKD2TH6e7ywY8lOgI9B2A>
-    <xme:Jq3iZ0M14fnjr8mp_r9sa4_yDoInwcEYNSlRBRpw6C_F5eC8tSdT45zsyFPOgjtme
-    WNTc9fdahH8oEnzlxQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvjeehucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftehrnhguuceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnug
-    gsrdguvgeqnecuggftrfgrthhtvghrnhephfdthfdvtdefhedukeetgefggffhjeeggeet
-    fefggfevudegudevledvkefhvdeinecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohep
-    hedtpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopegtthhsrghifeeltdesrghnug
-    gvshhtvggthhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdr
-    tghomhdprhgtphhtthhopegrthhishhhphesrghtihhshhhprghtrhgrrdhorhhgpdhrtg
-    hpthhtohepphhrrggshhgrkhgrrhdrmhgrhhgruggvvhdqlhgrugdrrhhjsegsphdrrhgv
-    nhgvshgrshdrtghomhdprhgtphhtthhopegrnhhuphessghrrghinhhfrghulhhtrdhorh
-    hgpdhrtghpthhtoheptghuihihuhhnhhhuihessgihthgvuggrnhgtvgdrtghomhdprhgt
-    phhtthhopehluhiguhdrkhgvrhhnvghlsegshihtvggurghntggvrdgtohhmpdhrtghpth
-    htohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepsghoqhhunhdr
-    fhgvnhhgsehgmhgrihhlrdgtohhm
-X-ME-Proxy: <xmx:Jq3iZ7g34uWKZZn3icXtpFQzihVPUTQeXbqOQpkZwmLOq4QVBnjroA>
-    <xmx:Jq3iZ3915FHYFpEO1oj9AmRy0IHdbHUk4bukRhLjZhwotBXSnjCRCw>
-    <xmx:Jq3iZ2vlLc99g7elQeex6GPBmu2dFTbaYxfz1XMG2UET0XkMYYlaTQ>
-    <xmx:Jq3iZ-FsMzw8YZ-IBw0ecwCIUEkUyjNSFiNcGn_QjfzWS3jB6OFPeA>
-    <xmx:Ka3iZ-xINV5alrDEqFG5rfvPtST31BRU49C56iDy1-Cp7zOpC40jnXoJ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id DF35E2220071; Tue, 25 Mar 2025 09:18:29 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
-MIME-Version: 1.0
-X-ThreadId: T218a0d8b70d1a53d
-Date: Tue, 25 Mar 2025 14:17:44 +0100
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Peter Zijlstra" <peterz@infradead.org>, guoren <guoren@kernel.org>
-Cc: "Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>,
- "Anup Patel" <anup@brainfault.org>,
- "Atish Patra" <atishp@atishpatra.org>, "Oleg Nesterov" <oleg@redhat.com>,
- "Kees Cook" <kees@kernel.org>, "Thomas Gleixner" <tglx@linutronix.de>,
- "Will Deacon" <will@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
- "Christian Brauner" <brauner@kernel.org>,
- "Andrew Morton" <akpm@linux-foundation.org>,
- "Steven Rostedt" <rostedt@goodmis.org>,
- "Eric Dumazet" <edumazet@google.com>,
- "Chen Wang" <unicorn_wang@outlook.com>,
- "Inochi Amaoto" <inochiama@outlook.com>, gaohan@iscas.ac.cn,
- shihua@iscas.ac.cn, jiawei@iscas.ac.cn, wuwei2016@iscas.ac.cn,
- "Drew Fustini" <drew@pdp7.com>, "Lad,
- Prabhakar" <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- ctsai390@andestech.com, wefu@redhat.com,
- "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- "Josef Bacik" <josef@toxicpanda.com>, "David Sterba" <dsterba@suse.com>,
- "Ingo Molnar" <mingo@redhat.com>, "Boqun Feng" <boqun.feng@gmail.com>,
- "Xiao W Wang" <xiao.w.wang@intel.com>, qingfang.deng@siflower.com.cn,
- "Leonardo Bras" <leobras@redhat.com>,
- "Jisheng Zhang" <jszhang@kernel.org>,
- "Conor.Dooley" <conor.dooley@microchip.com>,
- "Samuel Holland" <samuel.holland@sifive.com>, yongxuan.wang@sifive.com,
- "Xu Lu" <luxu.kernel@bytedance.com>,
- "David Hildenbrand" <david@redhat.com>,
- "Ruan Jinjie" <ruanjinjie@huawei.com>,
- "Yunhui Cui" <cuiyunhui@bytedance.com>,
- "Kefeng Wang" <wangkefeng.wang@huawei.com>, qiaozhe@iscas.ac.cn,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Alexei Starovoitov" <ast@kernel.org>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-mm@kvack.org,
- linux-crypto@vger.kernel.org, bpf@vger.kernel.org,
- linux-input@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- Linux-Arch <linux-arch@vger.kernel.org>, maple-tree@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, Netdev <netdev@vger.kernel.org>,
- linux-atm-general@lists.sourceforge.net, linux-btrfs@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- linux-nfs@vger.kernel.org, linux-sctp@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-media@vger.kernel.org
-Message-Id: <db3c9923-8800-4ed3-a352-4ee9ef79c0b7@app.fastmail.com>
-In-Reply-To: <20250325122640.GK36322@noisy.programming.kicks-ass.net>
+	id 1tx3Gy-00000005n3a-3LZv;
+	Tue, 25 Mar 2025 12:20:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 29C784389C;
+	Tue, 25 Mar 2025 12:20:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213B1C4CEE4;
+	Tue, 25 Mar 2025 12:20:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742905248;
+	bh=j18oLXPHFjnaGmgCwscTDaPTneiSyVqaoCKba61TqXg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Oz8iARGb8tr7htUnaAeUCJ6IYWmPD2sUy6Fahrj1eenZT1kKMM+eFWJiKMQdGqcqw
+	 rqWz1qpr3jo3lVxFFYwrBasJ+tHw3PWT4Rv+apRvPWQa/i4K/2vaflC0hzKnPuX+P4
+	 8bTM1EjGGpOTuQHdC8TBFwQkrFBcJI49u7thNpghWlOyMzJ3hMkq6mroidX2glUScJ
+	 uyG/XkFYIxn9NAsEUQSTt4TYvFJgoGc/h+TFjpPprvl74n7fsNLu4FNEPQT7I99tBn
+	 keJQj/Yhn5p3/N2C2J6YITPpmyRqNzvFWJV+jSwmuHsx+jq6dfD8Ek+CQ8ONbZxS8/
+	 mQmFdBGqaAdYQ==
+From: guoren@kernel.org
+To: arnd@arndb.de,
+	gregkh@linuxfoundation.org,
+	torvalds@linux-foundation.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	oleg@redhat.com,
+	kees@kernel.org,
+	tglx@linutronix.de,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	brauner@kernel.org,
+	akpm@linux-foundation.org,
+	rostedt@goodmis.org,
+	edumazet@google.com,
+	unicorn_wang@outlook.com,
+	inochiama@outlook.com,
+	gaohan@iscas.ac.cn,
+	shihua@iscas.ac.cn,
+	jiawei@iscas.ac.cn,
+	wuwei2016@iscas.ac.cn,
+	drew@pdp7.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	ctsai390@andestech.com,
+	wefu@redhat.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	josef@toxicpanda.com,
+	dsterba@suse.com,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	boqun.feng@gmail.com,
+	guoren@kernel.org,
+	xiao.w.wang@intel.com,
+	qingfang.deng@siflower.com.cn,
+	leobras@redhat.com,
+	jszhang@kernel.org,
+	conor.dooley@microchip.com,
+	samuel.holland@sifive.com,
+	yongxuan.wang@sifive.com,
+	luxu.kernel@bytedance.com,
+	david@redhat.com,
+	ruanjinjie@huawei.com,
+	cuiyunhui@bytedance.com,
+	wangkefeng.wang@huawei.com,
+	qiaozhe@iscas.ac.cn
+Cc: ardb@kernel.org,
+	ast@kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-crypto@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-serial@vger.kernel.org,
+	linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	maple-tree@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-atm-general@lists.sourceforge.net,
+	linux-btrfs@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	linux-nfs@vger.kernel.org,
+	linux-sctp@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-media@vger.kernel.org
+Subject: [RFC PATCH V3 17/43] rv64ilp32_abi: riscv: Adapt kasan memory layout
+Date: Tue, 25 Mar 2025 08:15:58 -0400
+Message-Id: <20250325121624.523258-18-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
- <20250325122640.GK36322@noisy.programming.kicks-ass.net>
-Subject: Re: [RFC PATCH V3 00/43] rv64ilp32_abi: Build CONFIG_64BIT kernel-self with
- ILP32 ABI
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_131842_055604_5798EAE1 
-X-CRM114-Status: GOOD (  19.41  )
+X-CRM114-CacheID: sfid-20250325_052048_876390_FAF5A037 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,60 +140,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 25, 2025, at 13:26, Peter Zijlstra wrote:
-> On Tue, Mar 25, 2025 at 08:15:41AM -0400, guoren@kernel.org wrote:
->> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
->> 
->> Since 2001, the CONFIG_64BIT kernel has been built with the LP64 ABI,
->> but this patchset allows the CONFIG_64BIT kernel to use an ILP32 ABI
->
-> Please, don't do this. This adds a significant maintenance burden on all
-> of us.
+From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-It would be easier to this with CONFIG_64BIT disabled and continue
-treating CONFIG_64BIT to be the same as BITS_PER_LONG=64, but I still
-think it's fundamentally a bad idea to support this in mainline
-kernels in any variation, other than supporting regular 32-bit
-compat mode tasks on a regular 64-bit kernel.
+For generic KASAN, the size of each memory granule is 8, which
+needs 1/8 address space. The kernel space is 2GiB in rv64ilp32,
+so we need 256MiB range (0x80000000 ~ 0x90000000), and the offset
+is 0x7000000 for the whole 4GiB address space.
 
->> The patchset targets RISC-V and is built on the RV64ILP32 ABI, which
->> was introduced into RISC-V's psABI in January 2025 [1]. This patchset
->> equips an rv64ilp32-abi kernel with all the functionalities of a
->> traditional lp64-abi kernel, yet restricts the address space to 2GiB.
->> Hence, the rv64ilp32-abi kernel simultaneously supports lp64-abi
->> userspace and ilp32-abi (compat) userspace, the same as the
->> traditional lp64-abi kernel.
+ Virtual kernel memory layout:
+       fixmap : 0x90a00000 - 0x90ffffff   (6144 kB)
+       pci io : 0x91000000 - 0x91ffffff   (  16 MB)
+      vmemmap : 0x92000000 - 0x93ffffff   (  32 MB)
+      vmalloc : 0x94000000 - 0xb3ffffff   ( 512 MB)
+      modules : 0xb4000000 - 0xb7ffffff   (  64 MB)
+       lowmem : 0xc0000000 - 0xc7ffffff   ( 128 MB)
+        kasan : 0x80000000 - 0x8fffffff   ( 256 MB) <=
+       kernel : 0xb8000000 - 0xbfffffff   ( 128 MB)
 
-You declare the syscall ABI to be the native 64-bit ABI, but this
-is fundamentally not true because a many uapi structures are
-defined in terms of 'long' or pointer values, in particular in
-the ioctl call. This might work for an rv64ilp32 userspace that
-uses the same headers and the same types, but you explicitly
-say that the goal is to run native rv64 or compat rv32 tasks,
-not rv64ilp32 (thanks!).
+Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+---
+ arch/riscv/include/asm/kasan.h | 6 +++++-
+ arch/riscv/mm/kasan_init.c     | 2 +-
+ 2 files changed, 6 insertions(+), 2 deletions(-)
 
-As far as I can tell, there is no way to rectify this design flaw
-other than to drop support for 64-bit userspace and only support
-regular rv32 userspace. I'm also skeptical that supporting rv64
-userspace helps in practice other than for testing, since
-generally most memory overhead is in userspace rather than the
-kernel, and there is much more to gain from shrinking the larger
-userspace by running rv32 compat mode binaries on a 64-bit kernel
-than the other way round.
+diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
+index e6a0071bdb56..dd3a211bc5d0 100644
+--- a/arch/riscv/include/asm/kasan.h
++++ b/arch/riscv/include/asm/kasan.h
+@@ -21,7 +21,7 @@
+  * [KASAN_SHADOW_OFFSET, KASAN_SHADOW_END) cover all 64-bits of virtual
+  * addresses. So KASAN_SHADOW_OFFSET should satisfy the following equation:
+  *      KASAN_SHADOW_OFFSET = KASAN_SHADOW_END -
+- *                              (1ULL << (64 - KASAN_SHADOW_SCALE_SHIFT))
++ *                              (1ULL << (BITS_PER_LONG - KASAN_SHADOW_SCALE_SHIFT))
+  */
+ #define KASAN_SHADOW_SCALE_SHIFT	3
+ 
+@@ -31,7 +31,11 @@
+  * aligned on PGDIR_SIZE, so force its alignment to ease its population.
+  */
+ #define KASAN_SHADOW_START	((KASAN_SHADOW_END - KASAN_SHADOW_SIZE) & PGDIR_MASK)
++#if defined(CONFIG_64BIT) && (BITS_PER_LONG == 32)
++#define KASAN_SHADOW_END	0x90000000UL
++#else
+ #define KASAN_SHADOW_END	MODULES_LOWEST_VADDR
++#endif
+ 
+ #ifdef CONFIG_KASAN
+ #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
+diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
+index 41c635d6aca4..1e864598779a 100644
+--- a/arch/riscv/mm/kasan_init.c
++++ b/arch/riscv/mm/kasan_init.c
+@@ -324,7 +324,7 @@ asmlinkage void __init kasan_early_init(void)
+ 	uintptr_t i;
+ 
+ 	BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
+-		KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
++		KASAN_SHADOW_END - (1UL << (BITS_PER_LONG - KASAN_SHADOW_SCALE_SHIFT)));
+ 
+ 	for (i = 0; i < PTRS_PER_PTE; ++i)
+ 		set_pte(kasan_early_shadow_pte + i,
+-- 
+2.40.1
 
-If you remove the CONFIG_64BIT changes that Peter mentioned and
-the support for ilp64 userland from your series, you end up
-with a kernel that is very similar to a native rv32 kernel
-but executes as rv64ilp32 and runs rv32 userspace. I don't have
-any objections to that approach, and the same thing has come
-up on arm64 as a possible idea as well, but I don't know if
-that actually brings any notable advantage over an rv32 kernel.
-
-Are there CPUs that can run rv64 kernels and rv32 userspace
-but not rv32 kernels, similar to what we have on Arm Cortex-A76
-and Cortex-A510?
-
-       Arnd
 
 _______________________________________________
 linux-riscv mailing list
