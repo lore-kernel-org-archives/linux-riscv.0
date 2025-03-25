@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C177C36010
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D89CC35FFC
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qWwtbbov5LMatvkiM7njdhVXNPVjjgmNLNgC1bTuWZ4=; b=gpZJrZnmyBGpLq
-	9EKvhPkzVR7FxnVqQG2s2PoR5lyoz8BK2BJKuUMPgVxQHGBHk3LeoFtvvfrbosna5P1zdDL7Ku5PC
-	06+BsweQHbgfqDBoNgS7UquQYQE6v2yZsRyPubXPraeMco1fvbBov9JwqZmWsQSgetsGWcQetOjQs
-	ASv1XM7Wp5R4YsFDHtIpZ+hDYZsmDe80wI+ik1Um3zTOrPe3T+U2u3ucJiqtWz6pu3k0Qz1pecPT2
-	j+IpM6oNGoX8V2+Oou4yIuz2rkcqF8H5PmGoouZE/M5waqWICDPnCULvGTh/CkNU2derHwko+M72b
-	orLQvsHrzCDxNNJjnHVQ==;
+	List-Owner; bh=l8snRbtWXOOh6vbQisDd93D8JTDypcpz/tDhNQEYEUI=; b=YvwSMVB8rplY5u
+	Uy2wXoDxigIoC+r3TWx5OrIK8IpLp6clohNPszYhLSFqvim0MCFcKp/7WnnDUGzRtS3GtLEt3xsFP
+	h+hAP8JV/4aA/Zl7RJNKIYyzQ55TSplXOSywAAMXztufo72LV8lO3/0esnuegmPdjriMuO0xywDsu
+	mRSK8dR0WShD24nUCaytmRyadc+DxbJYqFO5igWqfWrbhcTI/AVAEM/WK+m/8O3qcR16EHp7zithr
+	uTcJY9m4OaxvCXvmBkHunwuf5+lagrqK2oeYCAXZZY6sVJjv//0gaAsYKIMs1XvjLnGr+jDPi2zz5
+	xXlladGRHPVUPJFrkF/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3dK-00000005tav-3E2o;
-	Tue, 25 Mar 2025 12:43:54 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tx3dM-00000005tdd-2Zv4;
+	Tue, 25 Mar 2025 12:43:56 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3MS-00000005og1-02F2;
-	Tue, 25 Mar 2025 12:26:29 +0000
+	id 1tx3Mf-00000005ok2-1J5S;
+	Tue, 25 Mar 2025 12:26:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2D989A4A68A;
-	Tue, 25 Mar 2025 12:20:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B719EC4CEED;
-	Tue, 25 Mar 2025 12:26:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9ED5E43C5F;
+	Tue, 25 Mar 2025 12:26:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58230C4CEE4;
+	Tue, 25 Mar 2025 12:26:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905586;
-	bh=CN5WMBcSq4ybkzYSZlZQi/bVyuOph6iTDFSpBV5o4N8=;
+	s=k20201202; t=1742905600;
+	bh=gGEDexkonBv9xkqlklXH6H0siev5It/WclAJgWuLAaE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=JUZLlaeIY8Hwh6lRUruQPwQasNliWPwz7cJWB27ghj4+IZjN2b4GbBZ/fSSZ6XMji
-	 us+Hkvcz4IetM23aVYMu/AYs8cVXwsZBW7NeOsZgDbCgt6g5xqJd48sWMPOg1jFmZO
-	 dTGKmsr8CcSEXGjzQ6k8LM44Bk1+QDQseKg+PcX8rq6xmuSZhGjpiAtIF0iRessEj3
-	 aRKlIJp+k0H+q7J7Nwhehdmf4wV0LPBD/VdM8zp20s4PoYdcxn128IXf7LF6zj8Ai+
-	 3WimUJp5bM0Px6NuLSmw5Ey3muirnPyNTnJB+ycI51xStVOVnALDfDoGBxJW8uVnSm
-	 PDPGAqzidOZVg==
+	b=ihVlwKblKsuWFNcMtDJ1k3ctKSbBwY49h9IjoH9KGH6RI/zq8BylDBqvJ9wyno/qp
+	 IUv3RwZeYhK0sWieeIu1X7UarNylQxXDlKivCnDKhn4bx62KBOApARfUIXTkLXXsFn
+	 3rI4E6bpvA/elj8kLNZnsdeON0EYb/TTcZHXFJrgLVFjWNZTsDHQaIIhPnPY6YDHgo
+	 7rJORY6u+zOpHejnqnKv38Ge2nOcCABkagysYa3pxGYsHk/Lvc8HyUvKwE4GThzBZl
+	 GffrGstDg5zLMeOPdXBQ0RXicXDZjiJ6nMyN1iFUR0hjCFd9gaaZECI2ylLLzOHNni
+	 HKltn+V1I4Cmg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,16 +114,16 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 40/43] rv64ilp32_abi: tracepoint-defs: Using u64 for trace_print_flags.mask
-Date: Tue, 25 Mar 2025 08:16:21 -0400
-Message-Id: <20250325121624.523258-41-guoren@kernel.org>
+Subject: [RFC PATCH V3 41/43] rv64ilp32_abi: tty: Adapt ptr_to_compat
+Date: Tue, 25 Mar 2025 08:16:22 -0400
+Message-Id: <20250325121624.523258-42-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052628_120649_B0A4320A 
-X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-CacheID: sfid-20250325_052641_385178_D2C625E3 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -143,31 +143,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The rv64ilp32 ABI relies on CONFIG_64BIT, and mmflags.h defines
-VMA flags with BIT_ULL. Consequently, use "unsigned long long"
-for trace_print_flags.mask to align with VMAflag's type size.
+The RV64ILP32 ABI is based on 64-bit ISA, but BITS_PER_LONG is 32.
+So, the size of unsigned long is the same as compat_ulong_t and
+no need "(unsigned long)v.iomem_base >> 32 ? 0xfffffff : ..."
+detection.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- include/linux/tracepoint-defs.h | 4 ++++
+ drivers/tty/tty_io.c | 4 ++++
  1 file changed, 4 insertions(+)
 
-diff --git a/include/linux/tracepoint-defs.h b/include/linux/tracepoint-defs.h
-index aebf0571c736..3b51ede18e32 100644
---- a/include/linux/tracepoint-defs.h
-+++ b/include/linux/tracepoint-defs.h
-@@ -14,7 +14,11 @@
- struct static_call_key;
- 
- struct trace_print_flags {
-+#ifdef CONFIG_64BIT
-+	unsigned long long	mask;
+diff --git a/drivers/tty/tty_io.c b/drivers/tty/tty_io.c
+index 449dbd216460..75e256e879d0 100644
+--- a/drivers/tty/tty_io.c
++++ b/drivers/tty/tty_io.c
+@@ -2873,8 +2873,12 @@ static int compat_tty_tiocgserial(struct tty_struct *tty,
+ 	err = tty->ops->get_serial(tty, &v);
+ 	if (!err) {
+ 		memcpy(&v32, &v, offsetof(struct serial_struct32, iomem_base));
++#if BITS_PER_LONG == 64
+ 		v32.iomem_base = (unsigned long)v.iomem_base >> 32 ?
+ 			0xfffffff : ptr_to_compat(v.iomem_base);
 +#else
- 	unsigned long		mask;
++		v32.iomem_base = ptr_to_compat(v.iomem_base);
 +#endif
- 	const char		*name;
- };
- 
+ 		v32.iomem_reg_shift = v.iomem_reg_shift;
+ 		v32.port_high = v.port_high;
+ 		if (copy_to_user(ss, &v32, sizeof(v32)))
 -- 
 2.40.1
 
