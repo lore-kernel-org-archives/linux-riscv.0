@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC379C35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:40:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABFA2C3600E
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:43:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=i46OWgvj9EecIddQ1C3VuS0ZJQI9YMCMVk7m4e3FDl0=; b=tZSUrX7unMTjbG
-	1TwyciCKEwRFGvlxIcHTC5HHijLXNqwSelWQ9/VJelhlV5ixA9Ip1AHsi0fyNDXg+MRpuotFz7C9Z
-	p2SexXjwhGmzWuTQ49ZEE3YIMTTy4utwl9Q6BidKecH1zcTjUwy7fHItzO+rEXh3BMScRF7tAvA3q
-	XZtP9Fz+aBqU4/DBhE37A+nJSzmH417bwy0edOQQWILfWzKPxs+Gxi9fA9rxPPe93rMBPJjh5XgDy
-	a79F6PMsAIkoh+jFhDrT0dFIuW3K1N+PARZoZKk+5TuoXwbcTEawjZqYwxShwkjPM7ihjdDXIsdFK
-	na85sZzQ5vTTgg9L5O0Q==;
+	List-Owner; bh=yPjv5u3P7LVsalhffuuQ61USfv1tQLuC/5/J8Wp1+tc=; b=ATCo+9tj2FdsFu
+	d6Zirnnk7kWSgLIk/iFa2PwhgnpJQNQ5ditQhQLXEAElZKVZOkELapBRjCp0bcPmH8lMM6cLkorOX
+	F2yxrhqXgBfpYspVz2LzLAe/KFjzLMtXHT5cMI86i3QTxaxa5P7X+tlq12FMq7KIo19HU54JYBnju
+	7XVIzFdiUg85X+hph8eaSLySkQrof7nNNwPa3OQn0Wn21Wn9v9EvEU/SV/XJd5RakRYhFRIy70tho
+	txTRQVYhC2zpT+iM3679a3wI1kd1oPSlMkDgheaowevSCd7PBKbTNcVPH+ija+99GJnhU4FxQ9rUt
+	zd6JOlJ37CgU3qohB/aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3a9-00000005sfM-2Do3;
-	Tue, 25 Mar 2025 12:40:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx3dC-00000005tPb-1NPu;
+	Tue, 25 Mar 2025 12:43:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Gl-00000005mzf-0Pmd;
-	Tue, 25 Mar 2025 12:20:36 +0000
+	id 1tx3Ki-00000005o9I-2s1j;
+	Tue, 25 Mar 2025 12:24:40 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 790A343492;
-	Tue, 25 Mar 2025 12:20:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E3FBC4CEEE;
-	Tue, 25 Mar 2025 12:20:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DD69A61592;
+	Tue, 25 Mar 2025 12:24:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2D02C4CEED;
+	Tue, 25 Mar 2025 12:24:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905234;
-	bh=IFZFjonaMzbpRZ4swpgyItEna4nE83LkZzb9BRzGITE=;
+	s=k20201202; t=1742905479;
+	bh=+rpm/N8/UHXP5n3hRK8c2vpAMzIx7Ul4qNvFlNw8mss=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=YGv7Ju8FJqwJKAhoK+0bpefpHJmqwSqitCJQ3KA8SHoFBO3xjgZJGCnN1+EpM9Ri8
-	 G0F8vKvx8n6+OSgZoVo+DMyBKKoIIhJSCP3taMQ5FZeWGN/R31z9hqNogcz/s/Onyr
-	 z7gFsqQn85faeI7gGJQLGHu93WAcoXryyyRSyQsANFNuhZaVIo6Dx8943m3kKw9yDg
-	 27bjtFahCMk02wsXueW0/FZUhPIbW+fn3gQxchZIXU1nl5TX8/4hg5q3hXCN/9iqSh
-	 /WA528nukATyoTdAqfWLTZshpwfuMiYbtl8zLXtJpFV+4Wd+cfr5szXSWpIHHAHUjx
-	 4Ts1fcwAE9wQQ==
+	b=fJ61zsFNPv0tVZchhiONptI9S+phpKdkaxrIZlJXfqP8ZFhX5npdPIZKutJs7jnqd
+	 cCfXzR1Lhw26JF6STGdUIKZRIQjVQ3FNgrDHdOvq/LtsFHWE3zxFE/GTBVb31ANpi6
+	 beEwlo8W1sTeTn0cFAZJSTH8Xx2n6hy1MZKcm5ZKAENN6VnIKjbEvFrXx/UwseWpbr
+	 aofW9gTlCfs1lWzyuR3LRO5UKXtkNqYmP8M+/YlMc+6Le8QBFSTCqH374JFrd1SAX6
+	 1sinYuNojS4RMnq31N3OYBaEEMx5tdvpoFDLmiGmnn4c78h2enMsQS6DDCJxF83lgY
+	 sgAsBfhlY0xYg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,13 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 16/43] rv64ilp32_abi: riscv: Support physical addresses >= 0x80000000
-Date: Tue, 25 Mar 2025 08:15:57 -0400
-Message-Id: <20250325121624.523258-17-guoren@kernel.org>
+Subject: [RFC PATCH V3 33/43] rv64ilp32_abi: mm/auxvec: Adapt mm->saved_auxv[] to Elf64
+Date: Tue, 25 Mar 2025 08:16:14 -0400
+Message-Id: <20250325121624.523258-34-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052035_177947_BEC3E9DC 
-X-CRM114-Status: UNSURE (   7.46  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,142 +139,83 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The RV64ILP32 ABI has two independent 2GiB address space:
- - 0 ~ 0x7fffffff
- - 0xffffffff80000000 ~ 0xffffffffffffffff
-
-In the rv64ilp32 ABI, 0x80000000 is illegal; hence, use a
-temporary trap handler to zero-extend the address for jalr,
-load and store operations.
+Unable to handle kernel paging request at virtual address 60723de0
+Oops [#1]
+Modules linked in:
+CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 6.13.0-rc4-00031-g01dc3ca797b3-dirty #161
+Hardware name: riscv-virtio,qemu (DT)
+epc : percpu_counter_add_batch+0x38/0xc4
+ ra : filemap_map_pages+0x3ec/0x54c
+epc : ffffffffbc4ea02e ra : ffffffffbc1722e4 sp : ffffffffc1c4fc60
+ gp : ffffffffbd6d3918 tp : ffffffffc1c50000 t0 : 0000000000000000
+ t1 : 000000003fffefff t2 : 0000000000000000 s0 : ffffffffc1c4fca0
+ s1 : 0000000000000022 a0 : ffffffffc25c8250 a1 : 0000000000000003
+ a2 : 0000000000000020 a3 : 000000003fffefff a4 : 000000000b1c2000
+ a5 : 0000000060723de0 a6 : ffffffffbffff000 a7 : 000000003fffffff
+ s2 : ffffffffc25c8250 s3 : ffffffffc246e240 s4 : ffffffffc2138240
+ s5 : ffffffffbd70c4d0 s6 : 0000000000000003 s7 : 0000000000000000
+ s8 : ffffffff9a02d780 s9 : 0000000000000100 s10: ffffffffc1c4fda8
+ s11: 0000000000000003 t3 : 0000000000000000 t4 : 00000000000004f7
+ t5 : 0000000000000000 t6 : 0000000000000001
+status: 0000000200000100 badaddr: 0000000060723de0 cause: 000000000000000d
+[<bc4ea02e>] percpu_counter_add_batch+0x38/0xc4
+[<bc1722e4>] filemap_map_pages+0x3ec/0x54c
+[<bc1adc86>] handle_mm_fault+0xb6c/0xe9c
+[<bc01bb3e>] handle_page_fault+0xd0/0x418
+[<bca3e264>] do_page_fault+0x20/0x3a
+[<bca4882c>] _new_vmalloc_restore_context_a0+0xb0/0xbc
+Code: 8a93 4baa 511c 171b 0027 873b 00ea 4318 2481 9fb9 (aa03) 0007
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- arch/riscv/kernel/head.S | 112 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 112 insertions(+)
+ include/linux/mm_types.h | 4 ++++
+ kernel/sys.c             | 8 ++++++++
+ 2 files changed, 12 insertions(+)
 
-diff --git a/arch/riscv/kernel/head.S b/arch/riscv/kernel/head.S
-index e55a92be12b1..bd2f30aa6d01 100644
---- a/arch/riscv/kernel/head.S
-+++ b/arch/riscv/kernel/head.S
-@@ -170,6 +170,118 @@ secondary_start_sbi:
+diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
+index da3ba1a79ad5..0d436b0217fd 100644
+--- a/include/linux/mm_types.h
++++ b/include/linux/mm_types.h
+@@ -962,7 +962,11 @@ struct mm_struct {
+ 		unsigned long start_brk, brk, start_stack;
+ 		unsigned long arg_start, arg_end, env_start, env_end;
  
- .align 2
- .Lsecondary_park:
-+#ifdef CONFIG_ABI_RV64ILP32
-+.option push
-+.option norelax
-+.option norvc
-+	addiw sp, sp, -32
-+
-+	/* zext.w sp */
-+	slli  sp, sp, 32
-+	srli  sp, sp, 32
-+
-+	/* zext.w ra */
-+	slli ra, ra, 32
-+	srli ra, ra, 32
-+
-+	/* zext.w fp */
-+	slli fp, fp, 32
-+	srli fp, fp, 32
-+
-+	/* zext.w tp */
-+	slli tp, tp, 32
-+	srli tp, tp, 32
-+
-+	/* save tmp reg */
-+	REG_S ra, 24(sp)
-+	REG_S fp, 16(sp)
-+	REG_S tp,  8(sp)
-+	REG_S gp,  0(sp)
-+
-+	/* zext.w epc */
-+	csrr ra, CSR_EPC
-+	slli ra, ra, 32
-+	srli ra, ra, 32
-+	csrw CSR_SEPC, ra
-+
-+	csrr gp, CSR_CAUSE
-+
-+	/* EXC_INST_ACCESS */
-+	addiw fp, gp, -1
-+	beqz fp, 6f
-+
-+	/* EXC_LOAD_ACCESS */
-+	addiw fp, gp, -5
-+	beqz fp, 1f
-+
-+	/* EXC_STORE_ACCESS */
-+	addiw fp, gp, -7
-+	beqz fp, 1f
-+
-+	j 7f
-+1:
-+	/* get inst */
-+	lw ra, 0(ra)
-+	andi gp, ra, 0x3
-+
-+	/* c.(lw/sw/ld/sd)sp */
-+	addiw fp, gp, -2
-+	beqz fp, 6f
-+
-+	/* lw/sw/ld/sd */
-+	addiw fp, gp, -3
-+	beqz fp, 2f
-+
-+	/* c.(lw/sw/ld/sd) */
-+	li fp, 0x7
-+	slli fp, fp, 7
-+	and ra, fp, ra
-+	slli ra, ra, 8
-+	j 3f
-+
-+2:
-+	/* get rs1 */
-+	li fp, 0x1f
-+	slli fp, fp, 15
-+	and ra, fp, ra
-+
-+3:
-+	/* copy rs1 to rd */
-+	mv fp, ra
-+	srli fp, fp, 8
-+	or ra, fp, ra
-+
-+	/* modify slli */
-+	la fp, 4f
-+	lw tp, 0(fp)
-+	mv gp, tp
-+	or tp, ra, tp
-+	sw tp, 0(fp)
-+	fence.i
-+4:	slli x0, x0, 32
-+	sw gp, 0(fp)
-+
-+	/* modify srli */
-+	la fp, 5f
-+	lw tp, 0(fp)
-+	mv gp, tp
-+	or tp, ra, tp
-+	sw tp, 0(fp)
-+	fence.i
-+5:	srli x0, x0, 32
-+	sw gp, 0(fp)
-+
-+6:
-+	/* restore tmp reg */
-+	REG_L ra, 24(sp)
-+	REG_L fp, 16(sp)
-+	REG_L tp,  8(sp)
-+	REG_L gp,  0(sp)
-+	addi sp, sp, 32
-+	sret
-+.option pop
-+7:
++#ifdef CONFIG_64BIT
++		unsigned long long saved_auxv[AT_VECTOR_SIZE]; /* for /proc/PID/auxv */
++#else
+ 		unsigned long saved_auxv[AT_VECTOR_SIZE]; /* for /proc/PID/auxv */
 +#endif
- 	/*
- 	 * Park this hart if we:
- 	 *  - have too many harts on CONFIG_RISCV_BOOT_SPINWAIT
+ 
+ 		struct percpu_counter rss_stat[NR_MM_COUNTERS];
+ 
+diff --git a/kernel/sys.c b/kernel/sys.c
+index cb366ff8703a..81c0d94ff50d 100644
+--- a/kernel/sys.c
++++ b/kernel/sys.c
+@@ -2008,7 +2008,11 @@ static int validate_prctl_map_addr(struct prctl_mm_map *prctl_map)
+ static int prctl_set_mm_map(int opt, const void __user *addr, unsigned long data_size)
+ {
+ 	struct prctl_mm_map prctl_map = { .exe_fd = (u32)-1, };
++#ifdef CONFIG_64BIT
++	unsigned long long user_auxv[AT_VECTOR_SIZE];
++#else
+ 	unsigned long user_auxv[AT_VECTOR_SIZE];
++#endif
+ 	struct mm_struct *mm = current->mm;
+ 	int error;
+ 
+@@ -2122,7 +2126,11 @@ static int prctl_set_auxv(struct mm_struct *mm, unsigned long addr,
+ 	 * up to the caller to provide sane values here, otherwise userspace
+ 	 * tools which use this vector might be unhappy.
+ 	 */
++#ifdef CONFIG_64BIT
++	unsigned long long user_auxv[AT_VECTOR_SIZE] = {};
++#else
+ 	unsigned long user_auxv[AT_VECTOR_SIZE] = {};
++#endif
+ 
+ 	if (len > sizeof(user_auxv))
+ 		return -EINVAL;
 -- 
 2.40.1
 
