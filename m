@@ -4,95 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5440C35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 11:01:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5B44C36011
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=09OxJ1is2XKFqAOLaP4g2ugH7Nazzy6SZvs3J/BB2v4=; b=rImVYeuDwO2+VD
-	p4Lm9AOPisYgSGn1wyAhJkDTG5yp5tgBoB0VQZRWGBjTCsiQvDef5xfPHcwUvvMG4btfJ2O21G8N4
-	QdGyeLGgfNbZJKxAXlrzmM2wzjLJ/YVIg8bATimcOt84B9MHeLUYkLJbdu+sAFgPnKLGJPkP6OAX1
-	WDCNNobq+Nh2DVBBH6bAy8F+6jg0QcgymSrKyvGrxG8aEmZNMgb8iVLc4bMZXBXEGpE4+HtjwHOUE
-	L7c1RI4AMNwJ5/QE84R9crQP3RCZdybDSkLbGkqnTbKyXjXC1zr64bmcjf2eqYM0RNuXqzQE62gEA
-	NYYIFE5ee9um2/cZ2Hzg==;
+	List-Owner; bh=9Qo8A1mlkY6Fx/fmVfReaXpuuLow0q9EbDQt/wI0f/Q=; b=CaI7o+YqbRqXwu
+	xw+xkv/y7oj5oEI8hLQKb8WnGfrcWfnDzjhxo6H5O6q6JXORp+o/6dEtf+tIvSr2YxricZF00C6aj
+	Xz202Snao4gFcZCE4S1KyeJhBHAnO4B0sEO5OdEXW0fbehiMLSEmD+DZ3jiQuvx8UWwKNvHVLv5b4
+	mm3QTIrcU7S+isAMVx4xwCOfq8eGqVxTiGXS+ZVHE29smxhlFqDK4W0qdaf0yAy+jSMrpAZZAa3ci
+	FPFHDMhZpijRoh2zEIxqsqqeocX4pJMDyzMhO+Bz05XvnJmCr5oYUmI+MRDHGcofrifkYOgnvifST
+	y/JDb65cCyeu9BC2nfdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx21z-00000005ZTw-3Rbv;
-	Tue, 25 Mar 2025 11:01:15 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tx3YO-00000005rGV-1TGe;
+	Tue, 25 Mar 2025 12:38:48 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx21x-00000005ZTJ-1x4f
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Mar 2025 11:01:14 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22423adf751so99629035ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Mar 2025 04:01:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1742900472; x=1743505272; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AFQjpijP51sT2xR77PHLhJDe/bbbSDnZKMZrsva8hbs=;
-        b=XGNTN+SHg6nHUj+GXJCS/9YwOAB8H3A3ccP7+Trdjo/+fEwem55hEn+udTowGpUkb9
-         eLDTVlERgWCzkVAj25wqoMEfWVp9e/MedQbaOSe3OtiKgn2joN5V0kXmxVRLOV2b6u9l
-         PhDBNSOTXHNTIdnv95qkTB0YO0iRsvwOjmHwi82SVjw70MXPBNyi13HMui6MNZy8z06f
-         jD8tTUrnslj52ARQuOfnmSDSdu5qsEboJm9e1SByWv49PavIP6VClxSmAsia61L2vk+V
-         AdKeAvLGAs9/NiqPPkPGm0ICjbZB3nRIdhIv1hZNm8dhlfTfvtB0qAq+u0cZwT05DGV9
-         G2/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742900472; x=1743505272;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AFQjpijP51sT2xR77PHLhJDe/bbbSDnZKMZrsva8hbs=;
-        b=uPkWMD5HPhU0L0Hgmy0SxE/jeGeH04kDvYi8eFXSmsCzXpcPO96TwviKVgbjNblYw7
-         cc/72ss2RkgEO/G25FtjnWD9tw5OwYrBEJk/E/Z9pwJxcwsoeOUoiUd/uj8sSzDWT0wb
-         I8ZkkJksPNO3t3ExZ9jPnPmhai3mO/Vo7mo4Vq6AA6h0ZOuC5NgKePa81p77G8UY4/tW
-         e1EDlyafXueL9GbkJciHoW02ll68/+SLdz9qHzyyANskb6eor5H6rlAi6l5AzL6bmreR
-         sONhQZw8RCj1HuTTlnYiykhREB4pqHClkb7KkFYyH95mw29XCbI+pTo0P1XjF36I3Z23
-         ETMw==
-X-Forwarded-Encrypted: i=1; AJvYcCVjimFwu040hRkyzOAyRVV8A3HQqvJLPPrtEN9a/CO1gMmiZ/idr51TWQqt10mRTYhnVPcs8Y1CHGIFaA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2ctvWew3WiZCGqt3z759L2J3dAs7l7npc1XmtJdF82Ym/kw1a
-	ufopq8CYspzi19TarPDkl6hdWbHuN1kKImn2MDAOoSxc5pGOLEJj
-X-Gm-Gg: ASbGnctsIklkq1NHx8w2e0x/8+8d9rqve5VnXOEInhFbKOQBInnToRANWNuq6unyFIC
-	oxFRJwABnMB+iVUrGZHq+RDtM5hOCJc8W3gsEPFFX4+oPqT0+1Vx5znmdLMGEf+WXVuihvvsIP2
-	lk73OyqrL6Os4sZ9TpoYaZ7LChHgD2C/Xf59cU9bxICxbAK2Q7r3R8BTcdMUw0ZS6NHdzPdA5fE
-	R6TaliX/4Qznu/O2ixiCRtF6JckQHgDMB2IZ1gtUseMGylAUVqfE4JMtpleWYJJb4I7jHSSJ9f9
-	HUNeCWzCGzqQp0ptCpsVMGL44ltnf9WbzKxT+hJLdUjPrARb6ywTsug5SU2+fCZVUGU5qgQdXzk
-	5dJ1w0QuGkrloQIIOenme/GVUsg==
-X-Google-Smtp-Source: AGHT+IE/9aU5DXDSbNLr6CpVc3OhmADZ8TZGgoBnPhuMD9l4jDbW2fGVkGfWJrE5J2PwPPFItN+9FQ==
-X-Received: by 2002:a05:6a20:2585:b0:1f5:7eb5:72c7 with SMTP id adf61e73a8af0-1fe4300f7d1mr26494791637.29.1742900471815;
-        Tue, 25 Mar 2025 04:01:11 -0700 (PDT)
-Received: from DESKTOP-NBGHJ1C.local.valinux.co.jp (vagw.valinux.co.jp. [210.128.90.14])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af8a27d9a13sm8842971a12.6.2025.03.25.04.01.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Mar 2025 04:01:11 -0700 (PDT)
-From: Ryo Takakura <ryotkkr98@gmail.com>
-To: john.ogness@linutronix.de
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
+	id 1tx3Db-00000005m48-1Lnc;
+	Tue, 25 Mar 2025 12:17:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8EAAB6158C;
+	Tue, 25 Mar 2025 12:17:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89036C4CEEF;
+	Tue, 25 Mar 2025 12:17:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1742905038;
+	bh=LCI/yc1ahl/Zp9x+QUBbqr6DoNgqTtvLT0+YbqUE8Kc=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=M7zSCa31T5EIDOyp2pisnsb36omDKGCK3CtmKd0jmWms5JTGy4cL6gqroHU+U6Do3
+	 GF5N76/FLWX7xtVasdLhKMcInuvkPjYr3/XnVSZ0Pobo+jSDrMTbHwC4OV0hO+sPFI
+	 ioSKnCYcXTCDbUuV2wyGraJbUwJ9AzzjW2UTGrk2nCywWovoornRX4ZXKz0LVTxi7r
+	 qUcDCGXPxGB7Nv/XpwP22Vm+8YPGohVwdZX0Qz0dza/5WXPU3SnFd3lRUYrc4XYmk2
+	 cIekIVLnOX0Kw3qDsIdU2cHos9atrofsQ8fmXPfl7xnlXnTI5oe/zK85/xe5ly8pgc
+	 65J8Dyq0AYcUQ==
+From: guoren@kernel.org
+To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
+	torvalds@linux-foundation.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	anup@brainfault.org,
+	atishp@atishpatra.org,
+	oleg@redhat.com,
+	kees@kernel.org,
+	tglx@linutronix.de,
+	will@kernel.org,
+	mark.rutland@arm.com,
+	brauner@kernel.org,
+	akpm@linux-foundation.org,
+	rostedt@goodmis.org,
+	edumazet@google.com,
+	unicorn_wang@outlook.com,
+	inochiama@outlook.com,
+	gaohan@iscas.ac.cn,
+	shihua@iscas.ac.cn,
+	jiawei@iscas.ac.cn,
+	wuwei2016@iscas.ac.cn,
+	drew@pdp7.com,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	ctsai390@andestech.com,
+	wefu@redhat.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	josef@toxicpanda.com,
+	dsterba@suse.com,
+	mingo@redhat.com,
+	peterz@infradead.org,
+	boqun.feng@gmail.com,
+	guoren@kernel.org,
+	xiao.w.wang@intel.com,
+	qingfang.deng@siflower.com.cn,
+	leobras@redhat.com,
+	jszhang@kernel.org,
+	conor.dooley@microchip.com,
+	samuel.holland@sifive.com,
+	yongxuan.wang@sifive.com,
+	luxu.kernel@bytedance.com,
+	david@redhat.com,
+	ruanjinjie@huawei.com,
+	cuiyunhui@bytedance.com,
+	wangkefeng.wang@huawei.com,
+	qiaozhe@iscas.ac.cn
+Cc: ardb@kernel.org,
+	ast@kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-crypto@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-input@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
 	linux-serial@vger.kernel.org,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	pmladek@suse.com,
-	ryotkkr98@gmail.com,
-	samuel.holland@sifive.com
-Subject: Re: [PATCH] serial: sifive: Switch to nbcon console
-Date: Tue, 25 Mar 2025 20:01:07 +0900
-Message-Id: <20250325110107.28570-1-ryotkkr98@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <84sen2fo4b.fsf@jogness.linutronix.de>
-References: <84sen2fo4b.fsf@jogness.linutronix.de>
+	linux-fsdevel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	maple-tree@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-atm-general@lists.sourceforge.net,
+	linux-btrfs@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	linux-nfs@vger.kernel.org,
+	linux-sctp@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	linux-media@vger.kernel.org
+Subject: [RFC PATCH V3 02/43] rv64ilp32_abi: riscv: Adapt Makefile and Kconfig
+Date: Tue, 25 Mar 2025 08:15:43 -0400
+Message-Id: <20250325121624.523258-3-guoren@kernel.org>
+X-Mailer: git-send-email 2.40.1
+In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
+References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_040113_504916_09DA4FCB 
-X-CRM114-Status: GOOD (  18.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,94 +137,132 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi John,
+From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-On Mon, 24 Mar 2025 16:30:20 +0106, John Ogness wrote:
->On 2025-03-23, Ryo Takakura <ryotkkr98@gmail.com> wrote:
->> Add the necessary callbacks(write_atomic, write_thread, device_lock
->> and device_unlock) and CON_NBCON flag to switch the sifive console
->> driver to perform as nbcon console.
->>
->> Both ->write_atomic() and ->write_thread() will check for console
->> ownership whenever they are accessing registers.
->>
->> The ->device_lock()/unlock() will provide the additional serilization
->> necessary for ->write_thread() which is called from dedicated printing
->> thread.
->>
->> Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
->
->This driver has the same issue that the 8250 previously had. The
->->startup() and ->shutdown() callbacks are called without the port
->lock. However, the sifive driver is accessing SIFIVE_SERIAL_IE_OFFS in
->these callbacks and this register is also accessed by the ->write()
->callback. This needs to be synchronized.
+Extend the ARCH_RV64I base with ABI_RV64ILP32 to compile the Linux
+kernel self into ILP32 on CONFIG_64BIT=y, minimizing the kernel's
+memory footprint and cache occupation.
 
-I see. Thanks for pointing out.
-(I didn't know about console_on_rootfs() and what it does. Interesting!)
+The 'cmd_cpp_lds_S' in scripts/Makefile.build uses cpp_flags for
+ld.s generation, so add "-mabi=xxx" to KBUILD_CPPFLAGS, just like
+what we've done in KBUILD_CLFAGS and KBUILD_AFLAGS.
 
->The related 8250 patches fixing this are startup [0] and shutdown [1]. I
->am assuming the following change would be sufficient:
->
->diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
->index d032de6199af..1de1b2a5833d 100644
->--- a/drivers/tty/serial/sifive.c
->+++ b/drivers/tty/serial/sifive.c
->@@ -564,8 +564,11 @@ static void sifive_serial_break_ctl(struct uart_port *port, int break_state)
-> static int sifive_serial_startup(struct uart_port *port)
-> {
->       struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
->+      unsigned long flags;
->
->+      uart_port_lock_irqsave(&ssp->port, &flags);
->       __ssp_enable_rxwm(ssp);
->+      uart_port_unlock_irqrestore(&ssp->port, flags);
->
->       return 0;
-> }
->@@ -573,9 +576,12 @@ static int sifive_serial_startup(struct uart_port *port)
-> static void sifive_serial_shutdown(struct uart_port *port)
-> {
->       struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
->+      unsigned long flags;
->
->+      uart_port_lock_irqsave(&ssp->port, &flags);
->       __ssp_disable_rxwm(ssp);
->       __ssp_disable_txwm(ssp);
->+      uart_port_unlock_irqrestore(&ssp->port, flags);
-> }
->
-> /**
->
->The fix should be applied first (and likely Cc stable) since it is
->fixing an existing mainline problem.
+cmd_cpp_lds_S = $(CPP) $(cpp_flags) -P -U$(ARCH)
 
-Ok, I will add a patch in the next version and cc stable.
+The rv64ilp32 ABI reuses an rv64 toolchain whose default "-mabi="
+is lp64, so add "-mabi=ilp32" to correct it.
 
->Your patch also needs the synchronization. The ->write_atomic() callback
->does not use the port lock. However, the uart_port_*() functions also
->take the nbcon console ownership, so they synchronize against
->->write_atomic() callbacks.
+Add config entry with rv64ilp32.config fragment in Makefile:
+ - rv64ilp32_defconfig
 
-I see, nice!
+Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+---
+ arch/riscv/Kconfig                  | 12 ++++++++++--
+ arch/riscv/Makefile                 | 17 +++++++++++++++++
+ arch/riscv/configs/rv64ilp32.config |  1 +
+ 3 files changed, 28 insertions(+), 2 deletions(-)
+ create mode 100644 arch/riscv/configs/rv64ilp32.config
 
->Otherwise, this patch looks good. If the ->startup() and ->shutdown()
->callbacks are fixed in a previous patch, feel free to add:
->
->Reviewed-by: John Ogness <john.ogness@linutronix.de>
->
->to this patch.
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..da2111b0111c 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -213,7 +213,7 @@ config RISCV
+ 	select TRACE_IRQFLAGS_SUPPORT
+ 	select UACCESS_MEMCPY if !MMU
+ 	select USER_STACKTRACE_SUPPORT
+-	select ZONE_DMA32 if 64BIT
++	select ZONE_DMA32 if 64BIT && !ABI_RV64ILP32
+ 
+ config RUSTC_SUPPORTS_RISCV
+ 	def_bool y
+@@ -298,6 +298,7 @@ config PAGE_OFFSET
+ config KASAN_SHADOW_OFFSET
+ 	hex
+ 	depends on KASAN_GENERIC
++	default 0x70000000 if ABI_RV64ILP32
+ 	default 0xdfffffff00000000 if 64BIT
+ 	default 0xffffffff if 32BIT
+ 
+@@ -341,7 +342,7 @@ config FIX_EARLYCON_MEM
+ 
+ config ILLEGAL_POINTER_VALUE
+ 	hex
+-	default 0 if 32BIT
++	default 0 if 32BIT || ABI_RV64ILP32
+ 	default 0xdead000000000000 if 64BIT
+ 
+ config PGTABLE_LEVELS
+@@ -418,6 +419,13 @@ config ARCH_RV64I
+ 
+ endchoice
+ 
++config ABI_RV64ILP32
++	bool "ABI RV64ILP32"
++	depends on 64BIT
++	help
++	  Compile linux kernel self into RV64ILP32 ABI of RISC-V psabi
++	  specification.
++
+ # We must be able to map all physical memory into the kernel, but the compiler
+ # is still a bit more efficient when generating code if it's setup in a manner
+ # such that it can only map 2GiB of memory.
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 13fbc0f94238..76db01020a22 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -30,10 +30,21 @@ ifeq ($(CONFIG_ARCH_RV64I),y)
+ 	BITS := 64
+ 	UTS_MACHINE := riscv64
+ 
++ifeq ($(CONFIG_ABI_RV64ILP32),y)
++	KBUILD_CPPFLAGS += -mabi=ilp32
++
++	KBUILD_CFLAGS += -mabi=ilp32
++	KBUILD_AFLAGS += -mabi=ilp32
++
++	KBUILD_LDFLAGS += -melf32lriscv
++else
++	KBUILD_CPPFLAGS += -mabi=lp64
++
+ 	KBUILD_CFLAGS += -mabi=lp64
+ 	KBUILD_AFLAGS += -mabi=lp64
+ 
+ 	KBUILD_LDFLAGS += -melf64lriscv
++endif
+ 
+ 	KBUILD_RUSTFLAGS += -Ctarget-cpu=generic-rv64 --target=riscv64imac-unknown-none-elf \
+ 			    -Cno-redzone
+@@ -41,6 +52,8 @@ else
+ 	BITS := 32
+ 	UTS_MACHINE := riscv32
+ 
++	KBUILD_CPPFLAGS += -mabi=ilp32
++
+ 	KBUILD_CFLAGS += -mabi=ilp32
+ 	KBUILD_AFLAGS += -mabi=ilp32
+ 	KBUILD_LDFLAGS += -melf32lriscv
+@@ -224,6 +237,10 @@ PHONY += rv32_nommu_virt_defconfig
+ rv32_nommu_virt_defconfig:
+ 	$(Q)$(MAKE) -f $(srctree)/Makefile nommu_virt_defconfig 32-bit.config
+ 
++PHONY += rv64ilp32_defconfig
++rv64ilp32_defconfig:
++	$(Q)$(MAKE) -f $(srctree)/Makefile defconfig rv64ilp32.config
++
+ define archhelp
+   echo  '  Image		- Uncompressed kernel image (arch/riscv/boot/Image)'
+   echo  '  Image.gz	- Compressed kernel image (arch/riscv/boot/Image.gz)'
+diff --git a/arch/riscv/configs/rv64ilp32.config b/arch/riscv/configs/rv64ilp32.config
+new file mode 100644
+index 000000000000..07536586e169
+--- /dev/null
++++ b/arch/riscv/configs/rv64ilp32.config
+@@ -0,0 +1 @@
++CONFIG_ABI_RV64ILP32=y
+-- 
+2.40.1
 
-I'll add in the next verison.
-Thanks for reviewing!
-
-Sincerely,
-Ryo Takakura
-
->John Ogness
->
->[0] https://lore.kernel.org/lkml/20230525093159.223817-2-john.ogness@linutronix.de
->[1] https://lore.kernel.org/lkml/20230525093159.223817-9-john.ogness@linutronix.de
 
 _______________________________________________
 linux-riscv mailing list
