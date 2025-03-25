@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D89CC35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:44:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C60C3600D
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:44:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=l8snRbtWXOOh6vbQisDd93D8JTDypcpz/tDhNQEYEUI=; b=YvwSMVB8rplY5u
-	Uy2wXoDxigIoC+r3TWx5OrIK8IpLp6clohNPszYhLSFqvim0MCFcKp/7WnnDUGzRtS3GtLEt3xsFP
-	h+hAP8JV/4aA/Zl7RJNKIYyzQ55TSplXOSywAAMXztufo72LV8lO3/0esnuegmPdjriMuO0xywDsu
-	mRSK8dR0WShD24nUCaytmRyadc+DxbJYqFO5igWqfWrbhcTI/AVAEM/WK+m/8O3qcR16EHp7zithr
-	uTcJY9m4OaxvCXvmBkHunwuf5+lagrqK2oeYCAXZZY6sVJjv//0gaAsYKIMs1XvjLnGr+jDPi2zz5
-	xXlladGRHPVUPJFrkF/A==;
+	List-Owner; bh=i2+8MM0WY5SLxGATFamw67v2jCbsRRKxbEFcRAqDqT8=; b=Ka3dt2cwfYfeyo
+	xpL4J8NiDXp3VC+3qj9h69kCOkqc55tcDltFE06GGXImmUpQIYmn8WKvuRPqpb92xdiV0NL0vDbQg
+	Bjn36Z5bahiX0L38sm80iVpF896zoHOsxAeDINS6+/cN20KSBu7Cs+tw8VfEyBISv38KVTHOXHIO2
+	blu1aYPx4LkIfNBkCgvmsqX95CdJnO6u51AwNVxrrVA8jmSdxvaz1e4XIvYwh2YEBXWDkiNhtZrz1
+	R87GtzaGzLO34n13+AHeMJQNo1UmFYzzeL8U3nH3Zd2RSYw4B8ggCtMyCnEq1NVJrmKXUJqdHCXOG
+	ipyPHHQQ8F4K5hK8xtRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3dM-00000005tdd-2Zv4;
-	Tue, 25 Mar 2025 12:43:56 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx3dO-00000005thK-2jDC;
+	Tue, 25 Mar 2025 12:43:58 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Mf-00000005ok2-1J5S;
-	Tue, 25 Mar 2025 12:26:42 +0000
+	id 1tx3Mu-00000005oon-49E7;
+	Tue, 25 Mar 2025 12:26:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9ED5E43C5F;
-	Tue, 25 Mar 2025 12:26:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 58230C4CEE4;
-	Tue, 25 Mar 2025 12:26:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3B10A6159B;
+	Tue, 25 Mar 2025 12:26:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AD52C4CEED;
+	Tue, 25 Mar 2025 12:26:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905600;
-	bh=gGEDexkonBv9xkqlklXH6H0siev5It/WclAJgWuLAaE=;
+	s=k20201202; t=1742905616;
+	bh=9rClAibepR5410hMymY5QyjFNfu9myyrJTkBJ7yJs84=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ihVlwKblKsuWFNcMtDJ1k3ctKSbBwY49h9IjoH9KGH6RI/zq8BylDBqvJ9wyno/qp
-	 IUv3RwZeYhK0sWieeIu1X7UarNylQxXDlKivCnDKhn4bx62KBOApARfUIXTkLXXsFn
-	 3rI4E6bpvA/elj8kLNZnsdeON0EYb/TTcZHXFJrgLVFjWNZTsDHQaIIhPnPY6YDHgo
-	 7rJORY6u+zOpHejnqnKv38Ge2nOcCABkagysYa3pxGYsHk/Lvc8HyUvKwE4GThzBZl
-	 GffrGstDg5zLMeOPdXBQ0RXicXDZjiJ6nMyN1iFUR0hjCFd9gaaZECI2ylLLzOHNni
-	 HKltn+V1I4Cmg==
+	b=PSXvc+q07mYxURgabvhC0EDZ07GzmsdGsbFL99gOWwWn2P5z8FZ/BlJ02MvKw0oi0
+	 DebZmNXKJ2CXOdMnsWEWR3OoVOJMtpx5upcoqoGzimuBC7isnkYS1TqP5L1E6cxZU6
+	 4XrYv8tJiQ/yVO+KpHHDW9WJtvg1IAC6n5lPmXBEkrmtDpQIZKAsCw9ZnEWbQ7Gm8D
+	 EFr+OQdexB1ClgCWhZJhpf6cX91lUXmdACsoE7/AQufDa2ng7DPJR1k3C71ynpd+D/
+	 KrFEXsFArC7JDeWksZBrKc+/l/OmyTWBnHSzZmaXAgyqRcEOww2gygQgud3qZdqgXr
+	 KuA9Abd2ez09A==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,13 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 41/43] rv64ilp32_abi: tty: Adapt ptr_to_compat
-Date: Tue, 25 Mar 2025 08:16:22 -0400
-Message-Id: <20250325121624.523258-42-guoren@kernel.org>
+Subject: [RFC PATCH V3 42/43] rv64ilp32_abi: memfd: Use vm_flag_t
+Date: Tue, 25 Mar 2025 08:16:23 -0400
+Message-Id: <20250325121624.523258-43-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052641_385178_D2C625E3 
-X-CRM114-Status: UNSURE (   7.94  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,33 +139,68 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The RV64ILP32 ABI is based on 64-bit ISA, but BITS_PER_LONG is 32.
-So, the size of unsigned long is the same as compat_ulong_t and
-no need "(unsigned long)v.iomem_base >> 32 ? 0xfffffff : ..."
-detection.
+RV64ILP32 ABI linux kernel is based on CONFIG_64BIT, and uses
+unsigned long long as vm_flags_t. Using unsigned long would
+break rv64ilp32 abi.
+
+The definition of vm_flag_t exists, hence its usage is
+preferred even if it's not essential.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- drivers/tty/tty_io.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ include/linux/memfd.h | 4 ++--
+ mm/memfd.c            | 8 ++++----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/tty/tty_io.c b/drivers/tty/tty_io.c
-index 449dbd216460..75e256e879d0 100644
---- a/drivers/tty/tty_io.c
-+++ b/drivers/tty/tty_io.c
-@@ -2873,8 +2873,12 @@ static int compat_tty_tiocgserial(struct tty_struct *tty,
- 	err = tty->ops->get_serial(tty, &v);
- 	if (!err) {
- 		memcpy(&v32, &v, offsetof(struct serial_struct32, iomem_base));
-+#if BITS_PER_LONG == 64
- 		v32.iomem_base = (unsigned long)v.iomem_base >> 32 ?
- 			0xfffffff : ptr_to_compat(v.iomem_base);
-+#else
-+		v32.iomem_base = ptr_to_compat(v.iomem_base);
-+#endif
- 		v32.iomem_reg_shift = v.iomem_reg_shift;
- 		v32.port_high = v.port_high;
- 		if (copy_to_user(ss, &v32, sizeof(v32)))
+diff --git a/include/linux/memfd.h b/include/linux/memfd.h
+index 246daadbfde8..6f606d9573c3 100644
+--- a/include/linux/memfd.h
++++ b/include/linux/memfd.h
+@@ -14,7 +14,7 @@ struct folio *memfd_alloc_folio(struct file *memfd, pgoff_t idx);
+  * We also update VMA flags if appropriate by manipulating the VMA flags pointed
+  * to by vm_flags_ptr.
+  */
+-int memfd_check_seals_mmap(struct file *file, unsigned long *vm_flags_ptr);
++int memfd_check_seals_mmap(struct file *file, vm_flags_t *vm_flags_ptr);
+ #else
+ static inline long memfd_fcntl(struct file *f, unsigned int c, unsigned int a)
+ {
+@@ -25,7 +25,7 @@ static inline struct folio *memfd_alloc_folio(struct file *memfd, pgoff_t idx)
+ 	return ERR_PTR(-EINVAL);
+ }
+ static inline int memfd_check_seals_mmap(struct file *file,
+-					 unsigned long *vm_flags_ptr)
++					 vm_flags_t *vm_flags_ptr)
+ {
+ 	return 0;
+ }
+diff --git a/mm/memfd.c b/mm/memfd.c
+index 37f7be57c2f5..50dad90ffedc 100644
+--- a/mm/memfd.c
++++ b/mm/memfd.c
+@@ -332,10 +332,10 @@ static inline bool is_write_sealed(unsigned int seals)
+ 	return seals & (F_SEAL_WRITE | F_SEAL_FUTURE_WRITE);
+ }
+ 
+-static int check_write_seal(unsigned long *vm_flags_ptr)
++static int check_write_seal(vm_flags_t *vm_flags_ptr)
+ {
+-	unsigned long vm_flags = *vm_flags_ptr;
+-	unsigned long mask = vm_flags & (VM_SHARED | VM_WRITE);
++	vm_flags_t vm_flags = *vm_flags_ptr;
++	vm_flags_t mask = vm_flags & (VM_SHARED | VM_WRITE);
+ 
+ 	/* If a private matting then writability is irrelevant. */
+ 	if (!(mask & VM_SHARED))
+@@ -357,7 +357,7 @@ static int check_write_seal(unsigned long *vm_flags_ptr)
+ 	return 0;
+ }
+ 
+-int memfd_check_seals_mmap(struct file *file, unsigned long *vm_flags_ptr)
++int memfd_check_seals_mmap(struct file *file, vm_flags_t *vm_flags_ptr)
+ {
+ 	int err = 0;
+ 	unsigned int *seals_ptr = memfd_file_seals_ptr(file);
 -- 
 2.40.1
 
