@@ -4,33 +4,33 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F869C35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 09:54:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF7F2C35FFC
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 09:55:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XMgaYd+1IiChX+4VmkQ3dEKfmEIWStGsTrG7zwnEra0=; b=j3SzLorYWA4x77
-	STkbt7O09LnNDkxCOtiPeQ85zEhTEbkq1ntrkTCFUMVzYOW8r8nR7hnzOKOzo6jiHdTg49JaEpqf/
-	hMakxtVHEzQQLX1cEw+Pg2dGFbMPRHpisFcWyOzLSSOPOBIMK8yet6l1qHRyTQzqJgUp8n+TtLS6v
-	AmLc2LzYtP1VCxjgozRzC2a+pDroT1jjsO2m9tXijggwwX9GFFV8k7/QgEcAGxQmaiDvS+4bMKtcu
-	W4Pq2u7tu2P86UK3Iow8nBhQ0bmV8KomtIChl+/FM934GR7XBS9kdmAroQ/1GrYZDiKZW6lP0yf50
-	l2cjPzQkYBCUxFeg0gMw==;
+	List-Owner; bh=pjjA0+tcDAKIqJ3ee8+25ojZz2CT6i3ptBlAXA3V3g8=; b=3MTkCSkIGa84fB
+	MHsX8lJEc4Ta9MBAh80LEectgYqSyGYAtvSKJ2CRYFo2LFdHCxKy1KLRQrb9Lhgdc+eFZyehMw5Vy
+	ZNu+ZPyGKmF+LPsXBL7P0ld95aE7+IybrkFuRbLynKnkr83WQ7NdCXOF/+Ahw3D5ytoGPhgCt0+Xg
+	Ie6lbVLKtgh/9VAF35ZQEuSHLUF+3Xk5mxHhNwxgvuUNJzdLAt70u0NFw3+zuLvzZYE9ln/uCAaxe
+	TLYhvnB6STBjFRd5bWT3M++1NhxRr2fcy7wlaaEExFsNPi0bVewl7Uve8o89d6TxrvBGz93H0igNb
+	CIPGIbNUiAcG5jOrZrIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx0z3-00000005MqS-0bLP;
-	Tue, 25 Mar 2025 09:54:09 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1tx0zs-00000005N19-3myK;
+	Tue, 25 Mar 2025 09:55:00 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tx0xJ-00000005MXX-45I1
+	id 1tx0zo-00000005MzN-20yQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 25 Mar 2025 09:52:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 10B5E4435F;
-	Tue, 25 Mar 2025 09:52:17 +0000 (UTC)
-Message-ID: <8267fe1a-38e1-4936-9a87-0b3c4a847da6@ghiti.fr>
-Date: Tue, 25 Mar 2025 10:52:16 +0100
+	Tue, 25 Mar 2025 09:54:59 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B65E34328C;
+	Tue, 25 Mar 2025 09:54:49 +0000 (UTC)
+Message-ID: <76826aeb-9326-42f3-ab9f-e99fb5876c05@ghiti.fr>
+Date: Tue, 25 Mar 2025 10:54:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH V5] raid6: Add RISC-V SIMD syndrome and recovery
@@ -52,8 +52,8 @@ X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvfeegucetufdoteggode
  hgtphhtthhopehsohhngheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephihukhhurghifeeshhhurgifvghirdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_025222_432298_8B766CDB 
-X-CRM114-Status: GOOD (  28.13  )
+X-CRM114-CacheID: sfid-20250325_025456_986926_BE17FBFD 
+X-CRM114-Status: GOOD (  27.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,7 +70,10 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Please forget my previous message, Charlie's mail is not in my mailbox 
+but I found it on lore!
+
+Sorry for the noise
 
 On 05/03/2025 09:37, Chunyan Zhang wrote:
 > The assembly is originally based on the ARM NEON and int.uc, but uses
@@ -94,16 +97,6 @@ On 05/03/2025 09:37, Chunyan Zhang wrote:
 > [Charlie: - Fixup vector options]
 > Signed-off-by: Charlie Jenkins <charlie@rivosinc.com>
 > Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-
-
-Charlie, do you still get the kernel panic you mentioned in v2? Can you 
-give it a try?
-
-Thanks,
-
-Alex
-
-
 > ---
 > V5:
 > - Add rvv.h to fix a few checkpatch warnings.
