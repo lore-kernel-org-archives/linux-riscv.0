@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ACDBC35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7085CC36013
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kA+YkSHe9nDJlzrbmoArwpOmV6qPyGBVjMb/eaZx9Lo=; b=XrrzcJMhq1oP8N
-	44H7tuSordQK0Q+dKLlu5LwPLlNfnud7Y7J2+eX0Mvtj+iWyciZBbZo/Yes1jzpcyqDBCNk8ymH12
-	p5hZT4m9Sn1MFPVkNmXoc+V30lh22qD0jMH+xbbMcYRgqcEKCxo2DkUYOjkZyMUqji7Js4QK749nx
-	q2Mn8ev4AseQWhDfHFCXGoJljeEPaRICMQF++CVhMO3PQ7CVHiB5a9sQN7clga4eAk1EABAJx1nVl
-	dctI00GRctRrNcYtlf8lJhlSHrOjWRFvR5MXT8w+V0SRAcwARPLMFlbO1pel5oiebqVTCX77oMEM6
-	Zko7fxAY3ujsdAsjGdRw==;
+	List-Owner; bh=PB3lPSz6TBMZliCdeHIuD2mDzIBQMze/BLQEYtbiS9c=; b=oUfBL1dXVYokGu
+	yWBzngGJQCOgGb6j+fF88MR45QeMKquhvPsM8n9tyVLtmyw6UG9YbQUM/Mj2Yf07pTJG81yMhzUBD
+	UJYj7QrEOIwf/yjWDMHhw40sY72HxEQ1dxRD5JPsG0jIpn3Css0q/Z75qjMO2My1b3+JI6v1irkwK
+	sGhWpVFesd78qV403Xt4dxqAmE+B5Dl6vCsbvDK0tND7bW5NU2rMYSUW16kqOGVTdpnOqLFyZFpUK
+	E2GaEIsYP0UeE58CkZKf9FPf/zIUJcdKGQhl/Pq6I+V5QEkvru23LWzI8RALF5KkAF+fBWvlBY5dh
+	Tt4/gf91Hlhp0staXzjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4is-000000066JJ-2Y04;
-	Tue, 25 Mar 2025 13:53:42 +0000
+	id 1tx4ir-000000066I6-2Jmr;
+	Tue, 25 Mar 2025 13:53:41 +0000
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Hv-00000005nI7-3cuy;
-	Tue, 25 Mar 2025 12:21:49 +0000
+	id 1tx3Hh-00000005nEh-1zuz;
+	Tue, 25 Mar 2025 12:21:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 121CCA43621;
-	Tue, 25 Mar 2025 12:16:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CBB6BC4CEEE;
-	Tue, 25 Mar 2025 12:21:32 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A332CA40948;
+	Tue, 25 Mar 2025 12:16:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA472C4CEE4;
+	Tue, 25 Mar 2025 12:21:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905306;
-	bh=CZdS/GvkA90YU/kEAB36wBveXCqjeNawAvE607HO4+w=;
+	s=k20201202; t=1742905292;
+	bh=2jJgyb4FoTTfcF3Budy1LUhXG9H2Y2tw1xz71PydyxU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Yclr6uQ+H+fwk4FeZuO/o1L+d44Ijt8+G1fy933XmRQHqYsRSsd0sTScvUWf8jhFn
-	 posU+nxR0I0CJubB8JpreHpWy/aH5nvKFU2hJMpWF6yA979un6JU7n1rYErPHMB+OE
-	 1HtLAfDLBJWL5lUcfbf0A+xaNH26BIwc5uqCly6rbYZnlIoX+horQoW9v4j5Sryd9B
-	 XXw3PX/jNNQJEowJrGs9ycLTX55S8tjuI6nqYWKt5HT846Iutyoxz4uQ/nads2ZfRN
-	 d2AZWWzbzkjb2I7at8nkI5Hq2azsuTC7jh77lOOfoH2dxmDMXNH64ns6YpTd/KRsOD
-	 WXp0YdnLwIufw==
+	b=Gz9tM3JywmMT22uwAGn8qB+80WAYV3v7Tgh0B3cb9T/BoswxR3T/k//AbqcuWEKLF
+	 L4edD2clUau1Rpi1qbdeJXdbmBWHEi+zr+K+bY+S5OVJT+Z7Ij8LqPN4+oB1wJmn4L
+	 TwL4dvh9smbkloOkN5N7/q5+M1EhCXtMHNIajyoIJo/07VkhxeQQZJKSQHjYyaQ+Fa
+	 KHrViSi3S5tb9gQhPdFzLrO7vlzHmaGxIcQIxVasrFiSnuiKC9ZY2mJKzPZPtsmO7E
+	 gi4u3P8cxdVd4W23j785rOpnmEAPzxlKxOy5Pd/d9VTUepXHGjCRYsCE81kr/SXvGT
+	 b+Gh+GEiotvJg==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,16 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 21/43] rv64ilp32_abi: asm-generic: Add custom BITS_PER_LONG definition
-Date: Tue, 25 Mar 2025 08:16:02 -0400
-Message-Id: <20250325121624.523258-22-guoren@kernel.org>
+Subject: [RFC PATCH V3 20/43] rv64ilp32_abi: drivers/perf: Adapt xlen_t of sbiret
+Date: Tue, 25 Mar 2025 08:16:01 -0400
+Message-Id: <20250325121624.523258-21-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052148_035401_63F3924D 
-X-CRM114-Status: UNSURE (   7.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250325_052133_657058_2DC81654 
+X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,47 +142,49 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The RV64ILP32 ABI linux kernel is based on CONFIG_64BIT, but
-BITS_PER_LONG is 32. So, give a custom architectural definition
-of BITS_PER_LONG to match the correct macro definition.
+Because rv64ilp32_abi change the sbiret struct,
+
+from:
+struct sbiret {
+        long error;
+        long value;
+};
+
+to:
+struct sbiret {
+        xlen_t error;
+        xlen_t value;
+};
+
+So, use a cast long to prevent compile warning.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- arch/riscv/include/uapi/asm/bitsperlong.h | 6 ++++++
- include/asm-generic/bitsperlong.h         | 2 ++
- 2 files changed, 8 insertions(+)
+ drivers/perf/riscv_pmu_sbi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/uapi/asm/bitsperlong.h b/arch/riscv/include/uapi/asm/bitsperlong.h
-index 7d0b32e3b701..fec2ad91597c 100644
---- a/arch/riscv/include/uapi/asm/bitsperlong.h
-+++ b/arch/riscv/include/uapi/asm/bitsperlong.h
-@@ -9,6 +9,12 @@
+diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
+index 698de8ddf895..e2c4d1bcbc7c 100644
+--- a/drivers/perf/riscv_pmu_sbi.c
++++ b/drivers/perf/riscv_pmu_sbi.c
+@@ -638,7 +638,7 @@ static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
+ 	/* Free up the snapshot area memory and fall back to SBI PMU calls without snapshot */
+ 	if (ret.error) {
+ 		if (ret.error != SBI_ERR_NOT_SUPPORTED)
+-			pr_warn("pmu snapshot setup failed with error %ld\n", ret.error);
++			pr_warn("pmu snapshot setup failed with error %ld\n", (long)ret.error);
+ 		return sbi_err_map_linux_errno(ret.error);
+ 	}
  
- #define __BITS_PER_LONG (__SIZEOF_POINTER__ * 8)
- 
-+#if __BITS_PER_LONG == 64
-+#define BITS_PER_LONG 64
-+#else
-+#define BITS_PER_LONG 32
-+#endif
-+
- #include <asm-generic/bitsperlong.h>
- 
- #endif /* _UAPI_ASM_RISCV_BITSPERLONG_H */
-diff --git a/include/asm-generic/bitsperlong.h b/include/asm-generic/bitsperlong.h
-index 1023e2a4bd37..7ccbb7ce6610 100644
---- a/include/asm-generic/bitsperlong.h
-+++ b/include/asm-generic/bitsperlong.h
-@@ -6,7 +6,9 @@
- 
- 
- #ifdef CONFIG_64BIT
-+#ifndef BITS_PER_LONG
- #define BITS_PER_LONG 64
-+#endif
- #else
- #define BITS_PER_LONG 32
- #endif /* CONFIG_64BIT */
+@@ -679,7 +679,7 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
+ 				val |= ((u64)ret.value << 32);
+ 			else
+ 				WARN_ONCE(1, "Unable to read upper 32 bits of firmware counter error: %ld\n",
+-					  ret.error);
++					  (long)ret.error);
+ 		}
+ 	} else {
+ 		val = riscv_pmu_ctr_read_csr(info.csr);
 -- 
 2.40.1
 
