@@ -4,90 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81196C3600C
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 16:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61DBC36008
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 17:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JI3FDl87wxKDp+wyxqV02Zyky86MRA00ffhXeioHZPA=; b=Qd1w9jPQXyABYO
-	Kowxv60DJAl/b6JOBN59ORR1YtIO9OBOV9HaRk2GJDTJL7PPxx3Fn87/nDG6DtBbKmicto1FV8YJ+
-	keRRSxOhRmbXzp1tooqyfjOZlO8iDfgch3tKGeJK+QKm+h89MDbWxiK6q78V4rZrt0znDoyh1wgs5
-	iPbsJm6LOyBVVlJD3XY1WAE8YpZ6VSXad7s9IypdYpGgzHU09tySIg6tajt+bLBOUHvJRb2FPScFA
-	5NWq5tft+VHfFpG1UgRkJj90zt6xqFQtPwopXuLi5myjYj2kXUZp/6Uu1zr4RT2W8prGKpbr3ugfh
-	/nhetg9+SCHRWVsV2t6g==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=amJK7jamiF7xqmHeIQ/55LL93TK+5lEsIAJKKqYFy6E=; b=MnFo9mCldNuGtb
+	zjGyQRHGSPkK8zw3dPrFG3vs/PsbekSSzDWq4WgIvm4bEaHPMXkyy+dv2pWJyttcdlMYFPCW86O/5
+	g9wMmdpEYGseng/i6t5Gq846o8pECx+ICBjhkLsBc6dpiu17/45lrUvSHXSUUnVAmW/d+fkZNjkOr
+	W1/7YVjjy3/WskQpVBzEtp4uKnWZ/fCJXkTvPaxOYlzoxpHVY98050LCUHwHOG1Py1ooI5jcoimdE
+	RqeWZdgskBIkDkIh4SRXJ5FhK6B2f8war053fUWiD9GDNE3KzhCL1ZQTAEmsBoJLqlHltrbbD+lzc
+	2oPn55PZj/oqeBJwJTGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx7X4-00000006XnA-3Uf0;
-	Tue, 25 Mar 2025 16:53:42 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tx7wW-00000006b6e-1Iu5;
+	Tue, 25 Mar 2025 17:20:00 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx5Uf-00000006EN0-49El
-	for linux-riscv@lists.infradead.org;
-	Tue, 25 Mar 2025 14:43:07 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-227b828de00so46445945ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 25 Mar 2025 07:43:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1742913781; x=1743518581; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=bljuQ7L2ZXdxWuOFhGPKf4EDYNcT12ia204eGvgijaA=;
-        b=kOeRd0vVrtNSj1hruMIPZSv1WrkOvjrrI/0gBF/op7t8juk53z122KVnzqleH6Vtz3
-         +9aOE6RTpbzQAL306UXMkgecylT97gGIEH3i3z7VwEaCG7473kNqpwd8WFutV8XZfLtA
-         Z59ld/1fGp5qPQ68J3V2t9gr95SYtqH/qw0hl0B1yz+Oe2vtKRMY8yM/rXYRPwnXcce3
-         1rB9KzIo8EEsHj56wpdxr7ajHRnYg1g/z//ML8THX4/ZpTJMInFz4blpz9fY7z9JgVq6
-         XWufaa4WD0zlFW8swub/OFXNLH9Jt1OD7ZIzPnHs4K6QShYD+gi6WnQhoGzUZB9gzcP4
-         WV2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1742913781; x=1743518581;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bljuQ7L2ZXdxWuOFhGPKf4EDYNcT12ia204eGvgijaA=;
-        b=j1MjXcT1dHTq3MHJ+2BkcZgUWMJHyySKvMymIP74bL/Kqnkse5wEn/tfgv763LkGiB
-         yA4FPYk69xlTpMFS1PY5IYkhOXyx4DUbHuK+n1vbzN8AMXvm+Trj1ZxNoZwycdvOTDsS
-         yZry1TDvQR5HsJyYgMunHkaltQFpDPFD62PRKbfr0+fnaRyFT8adcr3mfYL41wVL/qns
-         c+802+CK+nxNdTYnmq1JfZI9VkhDHc+dVmQJtGslff53IVSCVIe7W3XOhxxOPoNlDC/4
-         JReTAQZN+iI2HXwYCtT78DnXLHoiBoyqx16tufTgodXk7CWu489BsRGSS7Dq7Qqwd8OY
-         jERw==
-X-Forwarded-Encrypted: i=1; AJvYcCXSwabLL5TzO2lmsGkGzSv9d/VgvXylHMvLXeWx+pV072qMU8vSPowgQDbxz7XSlvcdiuuDbnvTMj43VA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyKp3j/GNxqziT+yM2D49pM6/N1a4efAikzDcgcyN+KGRtRz22T
-	bQimIN2QzfZLtpQaHayu7Udjvj3a8Bq+Ps8KTo+RfXcurQMuI8I0v92rlUL33J4=
-X-Gm-Gg: ASbGncsAgGQY6X4juak5ntViXSAsZbLXg8DcPqYDvG8AxsMSWdWuLnaXeOIYzz02ezZ
-	7Jp4e4mqWynGjrmzAjpT/faxOvBXwKbMp9s3bJGU/X4F1Ep5ytNmTdiQi1H0/fPcau3WFe0djaQ
-	aEHJ3+kye3WGNUr7VrEEdKVYcr8sNQJdh3/lks5EvDe+XDn/d1NuFirgAvrJN+sj+EaH8WLB7WH
-	LrPEzn9soEb2bzLPXH83HVAoR2u8wmwkSHdRIwW/toEI8AoJ0p/+ZrTQuzmymycQUWxC1nLUQvi
-	AGghMP5xtm9UtqpDZfg6cDofnZSWVRNnTXs7o/7jVqtib9Zx9jjz0jx/fZMTqoTJCPrWHQjz0q+
-	BBOxbrpME1/S4RVOUdWpb7g5B1lUo2rHB/3VQzw==
-X-Google-Smtp-Source: AGHT+IHfViq5we3BRjn4gQvEwpQaIGaX5+RcC5JvR41oDoMV13Q99xQsSECoVp76jMvqJK4oIhXprQ==
-X-Received: by 2002:a17:902:d484:b0:223:3ef1:a30a with SMTP id d9443c01a7336-22780e239e1mr244870085ad.45.1742913780671;
-        Tue, 25 Mar 2025 07:43:00 -0700 (PDT)
-Received: from J9GPGXL7NT.bytedance.net ([61.213.176.58])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22780f39656sm90623745ad.5.2025.03.25.07.42.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 25 Mar 2025 07:43:00 -0700 (PDT)
-From: Xu Lu <luxu.kernel@bytedance.com>
-To: tjeznach@rivosinc.com,
-	joro@8bytes.org,
-	will@kernel.org,
-	robin.murphy@arm.com,
-	alex@ghiti.fr
-Cc: lihangjing@bytedance.com,
-	xieyongji@bytedance.com,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	iommu@lists.linux.dev,
-	Xu Lu <luxu.kernel@bytedance.com>
-Subject: [PATCH] iommu: riscv: Split 8-byte accesses on 32 bit I/O bus platform
-Date: Tue, 25 Mar 2025 22:42:52 +0800
-Message-Id: <20250325144252.27403-1-luxu.kernel@bytedance.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	id 1tx7wS-00000006b54-0U7a;
+	Tue, 25 Mar 2025 17:19:58 +0000
+Received: from [192.168.2.102] (213.87.136.199) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Tue, 25 Mar
+ 2025 20:19:41 +0300
+Message-ID: <05fec753-cdaa-45a5-a029-b6435c30eb07@omp.ru>
+Date: Tue, 25 Mar 2025 20:19:39 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH V3 25/43] rv64ilp32_abi: exec: Adapt 64lp64 env and
+ argv
+To: <guoren@kernel.org>, <arnd@arndb.de>, <gregkh@linuxfoundation.org>,
+	<torvalds@linux-foundation.org>, <paul.walmsley@sifive.com>,
+	<palmer@dabbelt.com>, <anup@brainfault.org>, <atishp@atishpatra.org>,
+	<oleg@redhat.com>, <kees@kernel.org>, <tglx@linutronix.de>,
+	<will@kernel.org>, <mark.rutland@arm.com>, <brauner@kernel.org>,
+	<akpm@linux-foundation.org>, <rostedt@goodmis.org>, <edumazet@google.com>,
+	<unicorn_wang@outlook.com>, <inochiama@outlook.com>, <gaohan@iscas.ac.cn>,
+	<shihua@iscas.ac.cn>, <jiawei@iscas.ac.cn>, <wuwei2016@iscas.ac.cn>,
+	<drew@pdp7.com>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	<ctsai390@andestech.com>, <wefu@redhat.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <josef@toxicpanda.com>, <dsterba@suse.com>,
+	<mingo@redhat.com>, <peterz@infradead.org>, <boqun.feng@gmail.com>,
+	<xiao.w.wang@intel.com>, <qingfang.deng@siflower.com.cn>,
+	<leobras@redhat.com>, <jszhang@kernel.org>, <conor.dooley@microchip.com>,
+	<samuel.holland@sifive.com>, <yongxuan.wang@sifive.com>,
+	<luxu.kernel@bytedance.com>, <david@redhat.com>, <ruanjinjie@huawei.com>,
+	<cuiyunhui@bytedance.com>, <wangkefeng.wang@huawei.com>,
+	<qiaozhe@iscas.ac.cn>
+CC: <ardb@kernel.org>, <ast@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+	<kvm-riscv@lists.infradead.org>, <linux-mm@kvack.org>,
+	<linux-crypto@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-input@vger.kernel.org>, <linux-perf-users@vger.kernel.org>,
+	<linux-serial@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-arch@vger.kernel.org>, <maple-tree@lists.infradead.org>,
+	<linux-trace-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<linux-atm-general@lists.sourceforge.net>, <linux-btrfs@vger.kernel.org>,
+	<netfilter-devel@vger.kernel.org>, <coreteam@netfilter.org>,
+	<linux-nfs@vger.kernel.org>, <linux-sctp@vger.kernel.org>,
+	<linux-usb@vger.kernel.org>, <linux-media@vger.kernel.org>
+References: <20250325121624.523258-1-guoren@kernel.org>
+ <20250325121624.523258-26-guoren@kernel.org>
+Content-Language: en-US
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Organization: Open Mobile Platform
+In-Reply-To: <20250325121624.523258-26-guoren@kernel.org>
+X-Originating-IP: [213.87.136.199]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 03/25/2025 16:50:54
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 192097 [Mar 25 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 51 0.3.51
+ 68896fb0083a027476849bf400a331a2d5d94398
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
+X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.136.199
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 03/25/2025 16:52:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 3/25/2025 3:18:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_074306_307323_5267F6E4 
-X-CRM114-Status: UNSURE (   8.31  )
+X-CRM114-CacheID: sfid-20250325_101956_159193_4D89D330 
+X-CRM114-Status: UNSURE (   8.26  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,91 +126,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce a new configuration CONFIG_RISCV_IOMMU_32BIT to enable
-splitting 8-byte access into 4-byte transactions for hardware platform
-whose I/O bus limits access to 4-byte transfers.
+On 3/25/25 3:16 PM, guoren@kernel.org wrote:
 
-Signed-off-by: Xu Lu <luxu.kernel@bytedance.com>
----
- drivers/iommu/riscv/Kconfig |  9 +++++++++
- drivers/iommu/riscv/iommu.h | 28 +++++++++++++++++++++++-----
- 2 files changed, 32 insertions(+), 5 deletions(-)
+> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+> 
+> The rv64ilp32 abi reuses the env and argv memory layout of the
+> lp64 abi, so leave the space to fit the lp64 struct layout.
+> 
+> Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
+> ---
+>  fs/exec.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/fs/exec.c b/fs/exec.c
+> index 506cd411f4ac..548d18b7ae92 100644
+> --- a/fs/exec.c
+> +++ b/fs/exec.c
+> @@ -424,6 +424,10 @@ static const char __user *get_user_arg_ptr(struct user_arg_ptr argv, int nr)
+>  	}
+>  #endif
+>  
+> +#if defined(CONFIG_64BIT) && (BITS_PER_LONG == 32)
 
-diff --git a/drivers/iommu/riscv/Kconfig b/drivers/iommu/riscv/Kconfig
-index c071816f59a6..b7c9ea22d969 100644
---- a/drivers/iommu/riscv/Kconfig
-+++ b/drivers/iommu/riscv/Kconfig
-@@ -18,3 +18,12 @@ config RISCV_IOMMU_PCI
- 	def_bool y if RISCV_IOMMU && PCI_MSI
- 	help
- 	  Support for the PCIe implementation of RISC-V IOMMU architecture.
-+
-+config RISCV_IOMMU_32BIT
-+	bool "Support 4-Byte Accesses on RISC-V IOMMU Registers"
-+	depends on RISCV_IOMMU
-+	default n
-+	help
-+	  Support hardware platform whose I/O bus limits access to 4-byte
-+	  transfers. When enabled, all accesses to IOMMU registers will be
-+	  split into 4-byte accesses.
-diff --git a/drivers/iommu/riscv/iommu.h b/drivers/iommu/riscv/iommu.h
-index 46df79dd5495..0e3552a8142d 100644
---- a/drivers/iommu/riscv/iommu.h
-+++ b/drivers/iommu/riscv/iommu.h
-@@ -14,6 +14,10 @@
- #include <linux/iommu.h>
- #include <linux/types.h>
- #include <linux/iopoll.h>
-+#ifdef CONFIG_RISCV_IOMMU_32BIT
-+#include <linux/io-64-nonatomic-hi-lo.h>
-+#include <linux/io-64-nonatomic-lo-hi.h>
-+#endif
- 
- #include "iommu-bits.h"
- 
-@@ -69,21 +73,35 @@ void riscv_iommu_disable(struct riscv_iommu_device *iommu);
- #define riscv_iommu_readl(iommu, addr) \
- 	readl_relaxed((iommu)->reg + (addr))
- 
--#define riscv_iommu_readq(iommu, addr) \
--	readq_relaxed((iommu)->reg + (addr))
--
- #define riscv_iommu_writel(iommu, addr, val) \
- 	writel_relaxed((val), (iommu)->reg + (addr))
- 
-+#define riscv_iommu_readl_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
-+	readx_poll_timeout(readl_relaxed, (iommu)->reg + (addr), val, cond, \
-+			   delay_us, timeout_us)
-+
-+#ifndef CONFIG_RISCV_IOMMU_32BIT
-+#define riscv_iommu_readq(iommu, addr) \
-+	readq_relaxed((iommu)->reg + (addr))
-+
- #define riscv_iommu_writeq(iommu, addr, val) \
- 	writeq_relaxed((val), (iommu)->reg + (addr))
- 
- #define riscv_iommu_readq_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
- 	readx_poll_timeout(readq_relaxed, (iommu)->reg + (addr), val, cond, \
- 			   delay_us, timeout_us)
-+#else /* CONFIG_RISCV_IOMMU_32BIT */
-+#define riscv_iommu_readq(iommu, addr) \
-+	hi_lo_readq_relaxed((iommu)->reg + (addr))
- 
--#define riscv_iommu_readl_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
--	readx_poll_timeout(readl_relaxed, (iommu)->reg + (addr), val, cond, \
-+#define riscv_iommu_writeq(iommu, addr, val) \
-+	((addr == RISCV_IOMMU_REG_IOHPMCYCLES) ? \
-+	 lo_hi_writeq_relaxed((val), (iommu)->reg + (addr)) : \
-+	 hi_lo_writeq_relaxed((val), (iommu)->reg + (addr)))
-+
-+#define riscv_iommu_readq_timeout(iommu, addr, val, cond, delay_us, timeout_us) \
-+	readx_poll_timeout(hi_lo_readq_relaxed, (iommu)->reg + (addr), val, cond, \
- 			   delay_us, timeout_us)
-+#endif /* CONFIG_RISCV_IOMMU_32BIT */
- 
- #endif
--- 
-2.20.1
+   Parens don't seem necessary...
+
+> +	nr = nr * 2;
+
+   Why not nr *= 2?
+
+[...]
+
+MBR, Sergey
 
 
 _______________________________________________
