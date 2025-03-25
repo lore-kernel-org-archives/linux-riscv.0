@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64026C36005
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 820BFC36005
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:54:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XZxzr38vZMpMP9Rvi0NCenOxX+07sPo+pyYWqwgiadg=; b=zayliZJMIsiHFz
-	i35WUXRYN4dUoXSJRsHvuHTRW2/mo4rctbEms+gzp0mP4BTKzWi00Na5c4GepKZle2KfX+k50L4pv
-	cPFP6abYPSMmGo2roYxam/i1z6WGEIZ3qYwGoS9tT3ot32CERmJMsTueluzqNMnCJYaR9Why8Nyno
-	hyD64RNCZMQOEKauyvPh3CEHL0WPq0B65C2Dd/scMznOed4ARUIg0dC0ErVNtUnYnwNXHLciSo/D/
-	Xh2MZPJjZvwAW14Mah6GONWmM1t5g4gOrNNE4k8cgzKscTsd/3+4lrq2EB0J+nhRHJB/pCu94d2Q5
-	0pLE2TtQUl7TObbZODkA==;
+	List-Owner; bh=WWjk90DLgVd//KzSEOxWp0XkO6aDwhvWyWNT10GN+gE=; b=3DDnANpGL7WO41
+	DunL0JmGXhgku+MoNE4aZY6JZw5WZrqwwfsezoVum/HVu4o4Xm0KI4gukJgLhaotPpNMt+y+ylLIB
+	SQ4aO0yQ68SAKqg8uHfVLokWTG7PKJ4y+dsUCDPOjQ22WFCby5oEksRWsqD4kKaqFoxegEtNfXwPm
+	j4YX81aI+wkZYKbrK4R4GgU2808GfD8/7+tZh6+LVBwnUPpzNnJs7wFzRfr2lDgjKqI7SxiH2gb9N
+	/zpiLjp6/7pkKUrofw2HDSOj/7XmZFDx1orqP5I+/Q3ykTdw0lDNCN4Bz+FGQBTMcct48KgtDcqNd
+	1G5MTl/SEaNuttgZkMMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4j3-000000066Zc-0ABU;
-	Tue, 25 Mar 2025 13:53:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx4j7-000000066ge-0YvD;
+	Tue, 25 Mar 2025 13:53:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3JY-00000005noX-2q1E;
-	Tue, 25 Mar 2025 12:23:29 +0000
+	id 1tx3K0-00000005nyF-3Dzi;
+	Tue, 25 Mar 2025 12:23:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 03F2A4368C;
-	Tue, 25 Mar 2025 12:23:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2976FC4CEE4;
-	Tue, 25 Mar 2025 12:23:14 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 11D495C5D06;
+	Tue, 25 Mar 2025 12:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF58FC4CEE4;
+	Tue, 25 Mar 2025 12:23:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905408;
-	bh=pIv4vnuS3dsIZ+vCl3ehqADgm2CZ2tBy3QR8swaXSZQ=;
+	s=k20201202; t=1742905435;
+	bh=1gg5o3afeYXr2oDy1XVLnTyki+lz38CMW137QmWraJ4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ecDCGr6OLJrXP13nyG/CgfeqC9ouA1qT3tlj+OsrVH1NtYD+Twp5WMbEHjMMkk81f
-	 stvP5ulWY1CYT8IOPOz08uY1HZBIlRPl1RvD/lfIzSGNe84mV4QvJl7p4JgmuvzAGK
-	 4RQVcdL24R3V34bLEfSycUxh++RgrXULYrYbovXoNTKWlQFJodYvno3cZge1QELjR8
-	 9C6TOI1VyQMTYJ6+SrsJ+n3smhuFVy+uvJ4yY+gtiJBw2C4LdtFBWY4B9hpCJDn6Wt
-	 XZ5TT6fYnWqqxrxfJ2ivZTzD3naWTrT9gp922T0ATA8xVyN89LV9zmP9RucwuPViGB
-	 6t4JQnchHEBxw==
+	b=L4cw2mlnpKO9zzlBV0K7R2SnFVRKniFFdGTiR1XJiWloP049xrRfsGdsekAZNO6iT
+	 0IyPu7HYxWtcNr/GVwIsyoiG0WQGDVHF9znzdKgcSLP4/Mx+qe6abUvE609AinUueV
+	 0KJNmISd/m0sVDU0CIIc8bPKS7tsLxYBWl6C9Q4zukQ4gJ5jyGZZAxFc2SGU/Bu4a5
+	 45akXD+WZ2MUCfkqONcTDqGPuoH+ifGT/z4RaEjXSFoHsvMQYWwCSPkJnIvizKw1Rw
+	 hDbQZdSoaf8SOQJv2hZJOxEN9nVfFJY2tF55Gmc3rr6AyEV5ls4O48mzUFO7UNigWe
+	 wLQU7WgDVZaDw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,16 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 28/43] rv64ilp32_abi: iov_iter: Resize kvec to match iov_iter's size
-Date: Tue, 25 Mar 2025 08:16:09 -0400
-Message-Id: <20250325121624.523258-29-guoren@kernel.org>
+Subject: [RFC PATCH V3 30/43] rv64ilp32_abi: kernel/smp: Disable CSD_LOCK_WAIT_DEBUG
+Date: Tue, 25 Mar 2025 08:16:11 -0400
+Message-Id: <20250325121624.523258-31-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052328_738704_B22A43F5 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250325_052356_899641_C9A4799E 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,32 +142,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-As drivers/vhost/vringh.c uses BUILD_BUG_ON(sizeof(struct iovec)
-!= sizeof(struct kvec)), make them the same.
+The rv64ilp32 abi is based on CONFIG_64BIT, but uses ILP32 for a
+smaller cache & memory footprint. So, disable CSD_LOCK_WAIT_DEBUG
+to get smaller csd struct.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- include/linux/uio.h | 6 ++++++
- 1 file changed, 6 insertions(+)
+ include/linux/smp_types.h | 2 +-
+ lib/Kconfig.debug         | 1 +
+ 2 files changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/uio.h b/include/linux/uio.h
-index 8ada84e85447..0e1ca023374c 100644
---- a/include/linux/uio.h
-+++ b/include/linux/uio.h
-@@ -17,7 +17,13 @@ typedef unsigned int __bitwise iov_iter_extraction_t;
- 
- struct kvec {
- 	void *iov_base; /* and that should *never* hold a userland pointer */
-+#if defined(CONFIG_64BIT) && (BITS_PER_LONG == 32)
-+	u32  __pad1;
-+#endif
- 	size_t iov_len;
-+#if defined(CONFIG_64BIT) && (BITS_PER_LONG == 32)
-+	u32  __pad2;
-+#endif
+diff --git a/include/linux/smp_types.h b/include/linux/smp_types.h
+index 2e8461af8df6..5912b694059f 100644
+--- a/include/linux/smp_types.h
++++ b/include/linux/smp_types.h
+@@ -61,7 +61,7 @@ struct __call_single_node {
+ 		unsigned int	u_flags;
+ 		atomic_t	a_flags;
+ 	};
+-#ifdef CONFIG_64BIT
++#if BITS_PER_LONG == 64
+ 	u16 src, dst;
+ #endif
  };
- 
- enum iter_type {
+diff --git a/lib/Kconfig.debug b/lib/Kconfig.debug
+index 1af972a92d06..f55f0ded826c 100644
+--- a/lib/Kconfig.debug
++++ b/lib/Kconfig.debug
+@@ -1613,6 +1613,7 @@ config CSD_LOCK_WAIT_DEBUG
+ 	depends on DEBUG_KERNEL
+ 	depends on SMP
+ 	depends on 64BIT
++	depends on !ABI_RV64ILP32
+ 	default n
+ 	help
+ 	  This option enables debug prints when CPUs are slow to respond
 -- 
 2.40.1
 
