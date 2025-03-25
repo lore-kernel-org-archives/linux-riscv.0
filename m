@@ -4,126 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FA63C35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:54:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B2AC36005
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K2NXIXArpbIr65TZTbk7Kh2IDhd86LLyerwFa430mJo=; b=BRh3y5rzf65yku
-	dsKyD3jRTYsA5HF5bT0+aViDGGyzAe2Bo8HvPrtgdv1MJbYVT/lpgelCuy4MeNiX/w7cswMOY2ow+
-	rKxl4A1x6KVidKc+D5vElDn+J3FGvBKUM6KqRWBXkGrkr8lBLriKP3OGDvWyac9EL1za03Bv7iY34
-	DdisDSEPLahOxwtzsE+2V1stuBvJueBQp22FOD9cUDaQs9xaeSo4PVe67nN2owOzPan8FNsFtl8KM
-	jQi7nT3nOvDl32Bf1t8ulpkkoYAhbNQ/rxigdZtrxp1Fjo1IbRZJ885owAUHQMTWyarPjs5/mHrxa
-	nF4Yy98T6jFTOkPKZh2Q==;
+	List-Owner; bh=pt2dEpsi8Cbk8CnXBUviwxM4Pegiv4oiWxhiyF7z7x0=; b=f+ysFYgDEjtLkW
+	RL9kSQ2Gzl/x9c2ABqlplpdXOfu5vxjGeTKvSRFXoEdM8wZeiGrBlwuv4IWojNFOswVpcVWAGWKiA
+	01e3+QJNWZkIROvBVEjUfCBdOl3sQJojU1zRllM77QaKsewtlEMXBy0t9dMar5Ut9RyJpKr7hPm33
+	x2ATZqfJ70mSrXKS8km6vrBaKcgOsCbm995tkZmdDbdOy0cG0m7G15sDSbAsqCSlU29n8DL38WtOg
+	pkYhGescNcrFSO8BqKJwu6BSJovc5NWLIuQ/S8vJWjVsdtBoiQVYY/hCzlcd1mac1cChs24zZDIpW
+	IgnSYZuihol/8PjAetFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4jB-000000066mj-0DoU;
-	Tue, 25 Mar 2025 13:54:01 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tx4jM-0000000674n-1JoW;
+	Tue, 25 Mar 2025 13:54:12 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3KT-00000005o5o-2IYx;
-	Tue, 25 Mar 2025 12:24:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B5ED2A4A682;
-	Tue, 25 Mar 2025 12:18:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B04FAC4CEE4;
-	Tue, 25 Mar 2025 12:24:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905464;
-	bh=JPoN7MLEf8eR2nMyp8/thu8bst5//5Hk8VxE062lQ9Y=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dEoFxhRXAgIXTk+izxMj8NAc58Z150abzTA52wVaUo6oYVdkPjOE5SSRWPRWeVTRZ
-	 U1/G1qYs1uREuzAoBzG0S14o2UVbqgxlA890HlC1yYQsuSNAzyB+Rmkj4zJV2ekZPy
-	 fzIcdDjyk24aWTyz20XnUJhgLKC2ybNiG3fcpWxbHC+p5onyj0QMYQr8LexFkeoHXi
-	 ika5eYC4afRp1Kftijmmo0sAT2pI8cXHBmJitbAMMAFNHKZ8/nrfoTyLZqlkraub3q
-	 7VNeoISO8HTPBn0sSZs3s+QMMmmB4sh2Efhd9ZKgZQ2gPqONiWgdp4ZF195RgbZqwa
-	 EQz1rLnxWUczg==
-From: guoren@kernel.org
-To: arnd@arndb.de,
-	gregkh@linuxfoundation.org,
-	torvalds@linux-foundation.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	anup@brainfault.org,
-	atishp@atishpatra.org,
-	oleg@redhat.com,
-	kees@kernel.org,
-	tglx@linutronix.de,
-	will@kernel.org,
-	mark.rutland@arm.com,
-	brauner@kernel.org,
-	akpm@linux-foundation.org,
-	rostedt@goodmis.org,
-	edumazet@google.com,
-	unicorn_wang@outlook.com,
-	inochiama@outlook.com,
-	gaohan@iscas.ac.cn,
-	shihua@iscas.ac.cn,
-	jiawei@iscas.ac.cn,
-	wuwei2016@iscas.ac.cn,
-	drew@pdp7.com,
-	prabhakar.mahadev-lad.rj@bp.renesas.com,
-	ctsai390@andestech.com,
-	wefu@redhat.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	josef@toxicpanda.com,
-	dsterba@suse.com,
-	mingo@redhat.com,
-	peterz@infradead.org,
-	boqun.feng@gmail.com,
-	guoren@kernel.org,
-	xiao.w.wang@intel.com,
-	qingfang.deng@siflower.com.cn,
-	leobras@redhat.com,
-	jszhang@kernel.org,
-	conor.dooley@microchip.com,
-	samuel.holland@sifive.com,
-	yongxuan.wang@sifive.com,
-	luxu.kernel@bytedance.com,
-	david@redhat.com,
-	ruanjinjie@huawei.com,
-	cuiyunhui@bytedance.com,
-	wangkefeng.wang@huawei.com,
-	qiaozhe@iscas.ac.cn
-Cc: ardb@kernel.org,
-	ast@kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	kvm@vger.kernel.org,
-	kvm-riscv@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-crypto@vger.kernel.org,
-	bpf@vger.kernel.org,
-	linux-input@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-serial@vger.kernel.org,
-	linux-fsdevel@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	maple-tree@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-atm-general@lists.sourceforge.net,
-	linux-btrfs@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	linux-nfs@vger.kernel.org,
-	linux-sctp@vger.kernel.org,
-	linux-usb@vger.kernel.org,
-	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 32/43] rv64ilp32_abi: mm: Remove _folio_nr_pages
-Date: Tue, 25 Mar 2025 08:16:13 -0400
-Message-Id: <20250325121624.523258-33-guoren@kernel.org>
-X-Mailer: git-send-email 2.40.1
-In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
-References: <20250325121624.523258-1-guoren@kernel.org>
+	id 1tx4Zz-000000064lR-1UxJ
+	for linux-riscv@lists.infradead.org;
+	Tue, 25 Mar 2025 13:44:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 0FD6C43152;
+	Tue, 25 Mar 2025 13:44:25 +0000 (UTC)
+Message-ID: <bff3d8a4-2873-4613-b7fd-de0e8320f191@ghiti.fr>
+Date: Tue, 25 Mar 2025 14:44:25 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/6] RISC-V: add vector crypto extension validation
+ checks
+Content-Language: en-US
+To: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org
+Cc: Conor Dooley <conor.dooley@microchip.com>,
+ Eric Biggers <ebiggers@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
+ <cleger@rivosinc.com>, Andy Chiu <andybnac@gmail.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250312-abide-pancreas-3576b8c44d2c@spud>
+ <20250312-entertain-shaking-b664142c2f99@spud>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250312-entertain-shaking-b664142c2f99@spud>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduiedvkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeehiefhuddtuddukeetkeehhedtffduhfevfeeftdefveffgfeuffejjeejfeekueenucffohhmrghinhepghhithhhuhgsrdgtohhmnecukfhppeefuddrfedvrdekuddrudekjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeefuddrfedvrdekuddrudekjedphhgvlhhopegludelvddrudeikedrvddurddvhegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheptghonhhorheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegtohhnohhrrdguohholhgvhiesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdpr
+ hgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052425_719569_CE33F8B8 
-X-CRM114-Status: GOOD (  11.54  )
+X-CRM114-CacheID: sfid-20250325_064431_548272_0541238E 
+X-CRM114-Status: GOOD (  28.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,107 +67,130 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
+Hi Conor,
 
-BITS_PER_LONG defines the layout of the struct page, and
-_folio_nr_pages would conflict with page->_mapcount for RV64ILP32
-ABI. Here is problem:
+On 12/03/2025 14:11, Conor Dooley wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> Using Clement's new validation callbacks, support checking that
+> dependencies have been satisfied for the vector crpyto extensions.
+> Currently riscv_isa_extension_available(<vector crypto>) will return
+> true on systems that support the extensions but vector itself has been
+> disabled by the kernel, adding validation callbacks will prevent such a
+> scenario from occuring and make the behaviour of the extension detection
+> functions more consistent with user expectations - it's not expected to
+> have to check for vector AND the specific crypto extension.
+>
+> The Unpriv spec states:
+> | The Zvknhb and Zvbc Vector Crypto Extensions --and accordingly the
+> | composite extensions Zvkn, Zvknc, Zvkng, and Zvksc-- require a Zve64x
+> | base, or application ("V") base Vector Extension. All of the other
+> | Vector Crypto Extensions can be built on any embedded (Zve*) or
+> | application ("V") base Vector Extension.
+>
+> While this could be used as the basis for checking that the correct base
+> for individual crypto extensions, but that's not really the kernel's job
+> in my opinion and it is sufficient to leave that sort of precision to
+> the dt-bindings. The kernel only needs to make sure that vector, in some
+> form, is available.
+>
+> Link: https://github.com/riscv/riscv-isa-manual/blob/main/src/vector-crypto.adoc#extensions-overview
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> ---
+>   arch/riscv/kernel/cpufeature.c | 49 +++++++++++++++++++++++-----------
+>   1 file changed, 33 insertions(+), 16 deletions(-)
+>
+> diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
+> index dbea6ed3f4da..4fa951e9f1cf 100644
+> --- a/arch/riscv/kernel/cpufeature.c
+> +++ b/arch/riscv/kernel/cpufeature.c
+> @@ -141,6 +141,23 @@ static int riscv_ext_vector_float_validate(const struct riscv_isa_ext_data *data
+>   	return 0;
+>   }
+>   
+> +static int riscv_ext_vector_crypto_validate(const struct riscv_isa_ext_data *data,
+> +					    const unsigned long *isa_bitmap)
+> +{
+> +	if (!IS_ENABLED(CONFIG_RISCV_ISA_V))
+> +		return -EINVAL;
+> +
+> +	/*
+> +	 * It isn't the kernel's job to check that the binding is correct, so
+> +	 * it should be enough to check that any of the vector extensions are
+> +	 * enabled, which in-turn means that vector is usable in this kernel
+> +	 */
 
-BUG: Bad page state in process kworker/u4:0  pfn:61eed
-page: refcount:0 mapcount:5 mapping:00000000 index:0x0 pfn:0x61eed
-flags: 0x0(zone=0)
-raw: 00000000 00000000 ffffffff 00000000 00000000 00000000 00000004 00000000
-raw: 00000000 00000000
-page dumped because: nonzero mapcount
-Modules linked in:
-CPU: 0 UID: 0 PID: 11 Comm: kworker/u4:0 Not tainted 6.13.0-rc4
-Hardware name: riscv-virtio,qemu (DT)
-Workqueue: async async_run_entry_fn
-Call Trace:
-[<bc015096>] dump_backtrace+0x1e/0x26
-[<bc002330>] show_stack+0x2a/0x38
-[<bc00f38c>] dump_stack_lvl+0x4a/0x68
-[<bc00f3c0>] dump_stack+0x16/0x1e
-[<bc1cadd8>] bad_page+0x120/0x142
-[<bc1cf2c2>] free_unref_page+0x510/0x5f8
-[<bc17fb16>] __folio_put+0x6a/0xbc
-[<bc1d6090>] free_large_kmalloc+0x6a/0xb8
-[<bc1d9144>] kfree+0x23c/0x300
-[<bcc02834>] unpack_to_rootfs+0x27c/0x2c0
-[<bcc02e96>] do_populate_rootfs+0x24/0x12e
-[<bc04c80c>] async_run_entry_fn+0x26/0xcc
-[<bc03e116>] process_one_work+0x136/0x224
-[<bc03e9e4>] worker_thread+0x234/0x30a
-[<bc046334>] kthread+0xca/0xe6
-[<bca47bea>] ret_from_fork+0xe/0x18
-Disabling lock debugging due to kernel taint
 
-So, remove _folio_nr_pages just like CONFIG_32BIT and use
-"_flags_1 & 0xff" instead.
+I'm not sure to understand this comment. For example, Zvknhb depends on 
+Zve64x so only checking for Zve32x would make Zvknhb usable in the 
+kernel even though it's actually not supported right? Or am I missing 
+something?
 
-Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
----
- include/linux/mm.h       | 4 ++--
- include/linux/mm_types.h | 2 +-
- mm/internal.h            | 2 +-
- 3 files changed, 4 insertions(+), 4 deletions(-)
+Thanks,
 
-diff --git a/include/linux/mm.h b/include/linux/mm.h
-index 7b1068ddcbb7..454fb8ca724c 100644
---- a/include/linux/mm.h
-+++ b/include/linux/mm.h
-@@ -2058,7 +2058,7 @@ static inline long folio_nr_pages(const struct folio *folio)
- {
- 	if (!folio_test_large(folio))
- 		return 1;
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- 	return folio->_folio_nr_pages;
- #else
- 	return 1L << (folio->_flags_1 & 0xff);
-@@ -2083,7 +2083,7 @@ static inline unsigned long compound_nr(struct page *page)
- 
- 	if (!test_bit(PG_head, &folio->flags))
- 		return 1;
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- 	return folio->_folio_nr_pages;
- #else
- 	return 1L << (folio->_flags_1 & 0xff);
-diff --git a/include/linux/mm_types.h b/include/linux/mm_types.h
-index 6b27db7f9496..da3ba1a79ad5 100644
---- a/include/linux/mm_types.h
-+++ b/include/linux/mm_types.h
-@@ -370,7 +370,7 @@ struct folio {
- 			atomic_t _entire_mapcount;
- 			atomic_t _nr_pages_mapped;
- 			atomic_t _pincount;
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- 			unsigned int _folio_nr_pages;
- #endif
- 	/* private: the union with struct page is transitional */
-diff --git a/mm/internal.h b/mm/internal.h
-index 109ef30fee11..c9372a8552ba 100644
---- a/mm/internal.h
-+++ b/mm/internal.h
-@@ -682,7 +682,7 @@ static inline void folio_set_order(struct folio *folio, unsigned int order)
- 		return;
- 
- 	folio->_flags_1 = (folio->_flags_1 & ~0xffUL) | order;
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- 	folio->_folio_nr_pages = 1U << order;
- #endif
- }
--- 
-2.40.1
+Alex
 
+
+> +	if (!__riscv_isa_extension_available(isa_bitmap, RISCV_ISA_EXT_ZVE32X))
+> +		return -EPROBE_DEFER;
+> +
+> +	return 0;
+> +}
+> +
+>   static int riscv_ext_zca_depends(const struct riscv_isa_ext_data *data,
+>   				 const unsigned long *isa_bitmap)
+>   {
+> @@ -400,8 +417,8 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>   	__RISCV_ISA_EXT_DATA(zksed, RISCV_ISA_EXT_ZKSED),
+>   	__RISCV_ISA_EXT_DATA(zksh, RISCV_ISA_EXT_ZKSH),
+>   	__RISCV_ISA_EXT_DATA(ztso, RISCV_ISA_EXT_ZTSO),
+> -	__RISCV_ISA_EXT_SUPERSET(zvbb, RISCV_ISA_EXT_ZVBB, riscv_zvbb_exts),
+> -	__RISCV_ISA_EXT_DATA(zvbc, RISCV_ISA_EXT_ZVBC),
+> +	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zvbb, RISCV_ISA_EXT_ZVBB, riscv_zvbb_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvbc, RISCV_ISA_EXT_ZVBC, riscv_ext_vector_crypto_validate),
+>   	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve32f, RISCV_ISA_EXT_ZVE32F, riscv_zve32f_exts, riscv_ext_vector_float_validate),
+>   	__RISCV_ISA_EXT_DATA_VALIDATE(zve32x, RISCV_ISA_EXT_ZVE32X, riscv_ext_vector_x_validate),
+>   	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve64d, RISCV_ISA_EXT_ZVE64D, riscv_zve64d_exts, riscv_ext_vector_float_validate),
+> @@ -409,20 +426,20 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
+>   	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zve64x, RISCV_ISA_EXT_ZVE64X, riscv_zve64x_exts, riscv_ext_vector_x_validate),
+>   	__RISCV_ISA_EXT_DATA(zvfh, RISCV_ISA_EXT_ZVFH),
+>   	__RISCV_ISA_EXT_DATA(zvfhmin, RISCV_ISA_EXT_ZVFHMIN),
+> -	__RISCV_ISA_EXT_DATA(zvkb, RISCV_ISA_EXT_ZVKB),
+> -	__RISCV_ISA_EXT_DATA(zvkg, RISCV_ISA_EXT_ZVKG),
+> -	__RISCV_ISA_EXT_BUNDLE(zvkn, riscv_zvkn_bundled_exts),
+> -	__RISCV_ISA_EXT_BUNDLE(zvknc, riscv_zvknc_bundled_exts),
+> -	__RISCV_ISA_EXT_DATA(zvkned, RISCV_ISA_EXT_ZVKNED),
+> -	__RISCV_ISA_EXT_BUNDLE(zvkng, riscv_zvkng_bundled_exts),
+> -	__RISCV_ISA_EXT_DATA(zvknha, RISCV_ISA_EXT_ZVKNHA),
+> -	__RISCV_ISA_EXT_DATA(zvknhb, RISCV_ISA_EXT_ZVKNHB),
+> -	__RISCV_ISA_EXT_BUNDLE(zvks, riscv_zvks_bundled_exts),
+> -	__RISCV_ISA_EXT_BUNDLE(zvksc, riscv_zvksc_bundled_exts),
+> -	__RISCV_ISA_EXT_DATA(zvksed, RISCV_ISA_EXT_ZVKSED),
+> -	__RISCV_ISA_EXT_DATA(zvksh, RISCV_ISA_EXT_ZVKSH),
+> -	__RISCV_ISA_EXT_BUNDLE(zvksg, riscv_zvksg_bundled_exts),
+> -	__RISCV_ISA_EXT_DATA(zvkt, RISCV_ISA_EXT_ZVKT),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvkb, RISCV_ISA_EXT_ZVKB, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvkg, RISCV_ISA_EXT_ZVKG, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvkn, riscv_zvkn_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvknc, riscv_zvknc_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvkned, RISCV_ISA_EXT_ZVKNED, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvkng, riscv_zvkng_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvknha, RISCV_ISA_EXT_ZVKNHA, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvknhb, RISCV_ISA_EXT_ZVKNHB, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvks, riscv_zvks_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksc, riscv_zvksc_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvksed, RISCV_ISA_EXT_ZVKSED, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvksh, RISCV_ISA_EXT_ZVKSH, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_BUNDLE_VALIDATE(zvksg, riscv_zvksg_bundled_exts, riscv_ext_vector_crypto_validate),
+> +	__RISCV_ISA_EXT_DATA_VALIDATE(zvkt, RISCV_ISA_EXT_ZVKT, riscv_ext_vector_crypto_validate),
+>   	__RISCV_ISA_EXT_DATA(smaia, RISCV_ISA_EXT_SMAIA),
+>   	__RISCV_ISA_EXT_DATA(smmpm, RISCV_ISA_EXT_SMMPM),
+>   	__RISCV_ISA_EXT_SUPERSET(smnpm, RISCV_ISA_EXT_SMNPM, riscv_xlinuxenvcfg_exts),
 
 _______________________________________________
 linux-riscv mailing list
