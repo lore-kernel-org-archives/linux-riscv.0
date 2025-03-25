@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5E5C36005
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60372C35FFC
 	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R+geFrb392aI2QSgF1FBOK1lnwvnLSk7qWtZKdDmadw=; b=iE/Sa5JmJE7O+6
-	fuNcoZDoTXG7ioJH+hMNvoyOZ4ovYjqf4zU51nZj7WxfCd6qxvwIOj7SyLb+Qsmo2HXgRv+9cAudO
-	Nd2DO1HUxR2Z6qoJBY0weyl3JojpgatNr99D+Imr0GAkA/tEE49WAtWuDw3uIKnkU5I3/b39RBzu6
-	0y1TR/+pwXyQ/gwKwmUgQDlIOA8Y8xqYZJdZnjuqBps8bBMHuidQ8raHPbZd18mmWdZScgL7d5jdi
-	93iDkxBA+h3p4xv9eTeDPLfp426B6oo/LWuNlcIIUjs+zvq+zOSt3LJEOw49jnPgsaXPwQQSodqk9
-	IhtrSitmaTg2i6iOV/Mg==;
+	List-Owner; bh=R2K/ydRQvWhB7JcS6vA9oIK0nZyRFvd00jnnS/xwJ2g=; b=LZGgFmZ2xhZQ7m
+	XyIe6dPFxWLnJoXWMRnvdFWTuJH42MSgTH84fTCqf7Fxq+uXCcf4EnwJ2pjb9f3SRFSk95H7Y/W1K
+	CGnGn7IEIpBlhcDay6rn5Y/sw3/VMhmhzq0DjUIQidWHZp27BD4thmIDz1mCvC9Cby2KkiyrLerLZ
+	HIvHNF113377mbRirXUUdt1A1P3INcIxwLl4ApQUvkOHiBj4hfniJH2bLzeqFUzWii1FUqTH/3mxq
+	cRB1JWXtEIJkDjpnViIoghkR19DYIdvTl84ZNIl8GIhScy6dv9stz1A/sxyx22eMWOY8wS5j1KK+W
+	aSlgV3eSfI7HMPdafD0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4io-000000066E2-1AJl;
-	Tue, 25 Mar 2025 13:53:38 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1tx4im-000000066Co-1cnb;
+	Tue, 25 Mar 2025 13:53:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Gy-00000005n3a-3LZv;
-	Tue, 25 Mar 2025 12:20:49 +0000
+	id 1tx3GI-00000005msO-41m5;
+	Tue, 25 Mar 2025 12:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 29C784389C;
-	Tue, 25 Mar 2025 12:20:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 213B1C4CEE4;
-	Tue, 25 Mar 2025 12:20:34 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5C0F443650;
+	Tue, 25 Mar 2025 12:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4631C4CEED;
+	Tue, 25 Mar 2025 12:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905248;
-	bh=j18oLXPHFjnaGmgCwscTDaPTneiSyVqaoCKba61TqXg=;
+	s=k20201202; t=1742905206;
+	bh=S5onwW8Rhyiou8sUliJC71k2++Mi5WmKeWwnQHNXJR4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Oz8iARGb8tr7htUnaAeUCJ6IYWmPD2sUy6Fahrj1eenZT1kKMM+eFWJiKMQdGqcqw
-	 rqWz1qpr3jo3lVxFFYwrBasJ+tHw3PWT4Rv+apRvPWQa/i4K/2vaflC0hzKnPuX+P4
-	 8bTM1EjGGpOTuQHdC8TBFwQkrFBcJI49u7thNpghWlOyMzJ3hMkq6mroidX2glUScJ
-	 uyG/XkFYIxn9NAsEUQSTt4TYvFJgoGc/h+TFjpPprvl74n7fsNLu4FNEPQT7I99tBn
-	 keJQj/Yhn5p3/N2C2J6YITPpmyRqNzvFWJV+jSwmuHsx+jq6dfD8Ek+CQ8ONbZxS8/
-	 mQmFdBGqaAdYQ==
+	b=SLdkNpDMElfs6JtH93HL2qjB8ooc8njsv/pKcwCApdLyBmrRvX5jPuX625CrCL3KO
+	 LLg2i7GO2jiDdmvOrZJHbXmmZ//hxLsMMV2R487NeFcTSsmqjUedkLmuzv7hLlERU6
+	 kiuccu5qk3IkbjYpbkj/s/pT/RPFgjJK5adv7y6A6BEEgO8BBTscDUHE/YjxJcfAd0
+	 ppo9vCiFRV5Tz05przlyIDyBiWv9hSmTIygPLI/aoXi+ZELjeBp9iCTv0eEu9tP+Tz
+	 vHMjNE6CxPdHgma3URda2HPkGEEkWTjPcCLQMXFENwL53LrB+OGroHLD8Txjexf9jd
+	 7/iF+KyP6XFLQ==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,16 +114,17 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 17/43] rv64ilp32_abi: riscv: Adapt kasan memory layout
-Date: Tue, 25 Mar 2025 08:15:58 -0400
-Message-Id: <20250325121624.523258-18-guoren@kernel.org>
+Subject: [RFC PATCH V3 14/43] rv64ilp32_abi: riscv: Adapt kernel module code
+Date: Tue, 25 Mar 2025 08:15:55 -0400
+Message-Id: <20250325121624.523258-15-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052048_876390_FAF5A037 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250325_052007_039560_7F001D66 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,65 +143,41 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-For generic KASAN, the size of each memory granule is 8, which
-needs 1/8 address space. The kernel space is 2GiB in rv64ilp32,
-so we need 256MiB range (0x80000000 ~ 0x90000000), and the offset
-is 0x7000000 for the whole 4GiB address space.
-
- Virtual kernel memory layout:
-       fixmap : 0x90a00000 - 0x90ffffff   (6144 kB)
-       pci io : 0x91000000 - 0x91ffffff   (  16 MB)
-      vmemmap : 0x92000000 - 0x93ffffff   (  32 MB)
-      vmalloc : 0x94000000 - 0xb3ffffff   ( 512 MB)
-      modules : 0xb4000000 - 0xb7ffffff   (  64 MB)
-       lowmem : 0xc0000000 - 0xc7ffffff   ( 128 MB)
-        kasan : 0x80000000 - 0x8fffffff   ( 256 MB) <=
-       kernel : 0xb8000000 - 0xbfffffff   ( 128 MB)
+Because riscv_insn_valid_32bit_offset is always true for ILP32,
+use BITS_PER_LONG instead of CONFIG_64BIT.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- arch/riscv/include/asm/kasan.h | 6 +++++-
- arch/riscv/mm/kasan_init.c     | 2 +-
- 2 files changed, 6 insertions(+), 2 deletions(-)
+ arch/riscv/kernel/module.c   | 2 +-
+ include/asm-generic/module.h | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/kasan.h b/arch/riscv/include/asm/kasan.h
-index e6a0071bdb56..dd3a211bc5d0 100644
---- a/arch/riscv/include/asm/kasan.h
-+++ b/arch/riscv/include/asm/kasan.h
-@@ -21,7 +21,7 @@
-  * [KASAN_SHADOW_OFFSET, KASAN_SHADOW_END) cover all 64-bits of virtual
-  * addresses. So KASAN_SHADOW_OFFSET should satisfy the following equation:
-  *      KASAN_SHADOW_OFFSET = KASAN_SHADOW_END -
-- *                              (1ULL << (64 - KASAN_SHADOW_SCALE_SHIFT))
-+ *                              (1ULL << (BITS_PER_LONG - KASAN_SHADOW_SCALE_SHIFT))
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 47d0ebeec93c..d7360878e618 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -45,7 +45,7 @@ struct relocation_handlers {
   */
- #define KASAN_SHADOW_SCALE_SHIFT	3
+ static bool riscv_insn_valid_32bit_offset(ptrdiff_t val)
+ {
+-#ifdef CONFIG_32BIT
++#if BITS_PER_LONG == 32
+ 	return true;
+ #else
+ 	return (-(1L << 31) - (1L << 11)) <= val && val < ((1L << 31) - (1L << 11));
+diff --git a/include/asm-generic/module.h b/include/asm-generic/module.h
+index 98e1541b72b7..f870171b14a8 100644
+--- a/include/asm-generic/module.h
++++ b/include/asm-generic/module.h
+@@ -12,7 +12,7 @@ struct mod_arch_specific
+ };
+ #endif
  
-@@ -31,7 +31,11 @@
-  * aligned on PGDIR_SIZE, so force its alignment to ease its population.
-  */
- #define KASAN_SHADOW_START	((KASAN_SHADOW_END - KASAN_SHADOW_SIZE) & PGDIR_MASK)
-+#if defined(CONFIG_64BIT) && (BITS_PER_LONG == 32)
-+#define KASAN_SHADOW_END	0x90000000UL
-+#else
- #define KASAN_SHADOW_END	MODULES_LOWEST_VADDR
-+#endif
- 
- #ifdef CONFIG_KASAN
- #define KASAN_SHADOW_OFFSET	_AC(CONFIG_KASAN_SHADOW_OFFSET, UL)
-diff --git a/arch/riscv/mm/kasan_init.c b/arch/riscv/mm/kasan_init.c
-index 41c635d6aca4..1e864598779a 100644
---- a/arch/riscv/mm/kasan_init.c
-+++ b/arch/riscv/mm/kasan_init.c
-@@ -324,7 +324,7 @@ asmlinkage void __init kasan_early_init(void)
- 	uintptr_t i;
- 
- 	BUILD_BUG_ON(KASAN_SHADOW_OFFSET !=
--		KASAN_SHADOW_END - (1UL << (64 - KASAN_SHADOW_SCALE_SHIFT)));
-+		KASAN_SHADOW_END - (1UL << (BITS_PER_LONG - KASAN_SHADOW_SCALE_SHIFT)));
- 
- 	for (i = 0; i < PTRS_PER_PTE; ++i)
- 		set_pte(kasan_early_shadow_pte + i,
+-#ifdef CONFIG_64BIT
++#if BITS_PER_LONG == 64
+ #define Elf_Shdr	Elf64_Shdr
+ #define Elf_Phdr	Elf64_Phdr
+ #define Elf_Sym		Elf64_Sym
 -- 
 2.40.1
 
