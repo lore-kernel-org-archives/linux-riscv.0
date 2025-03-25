@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7085CC36013
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45CF9C3600D
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PB3lPSz6TBMZliCdeHIuD2mDzIBQMze/BLQEYtbiS9c=; b=oUfBL1dXVYokGu
-	yWBzngGJQCOgGb6j+fF88MR45QeMKquhvPsM8n9tyVLtmyw6UG9YbQUM/Mj2Yf07pTJG81yMhzUBD
-	UJYj7QrEOIwf/yjWDMHhw40sY72HxEQ1dxRD5JPsG0jIpn3Css0q/Z75qjMO2My1b3+JI6v1irkwK
-	sGhWpVFesd78qV403Xt4dxqAmE+B5Dl6vCsbvDK0tND7bW5NU2rMYSUW16kqOGVTdpnOqLFyZFpUK
-	E2GaEIsYP0UeE58CkZKf9FPf/zIUJcdKGQhl/Pq6I+V5QEkvru23LWzI8RALF5KkAF+fBWvlBY5dh
-	Tt4/gf91Hlhp0staXzjA==;
+	List-Owner; bh=AwvV/5vaSHv9CFC9c36fdrGdtXQlmoIfb7xLOH1AWaA=; b=3AHeDV4iCxdPie
+	pyAWK14xbmHVja1LjPaRwVc9p8tuY3n2qNh4Lp12e/mSLUQT+r1G05hcbz2uIuM5nzIhv7+Sxmv/e
+	d/dLt5Sjv6J/ZQP+by+PUilPXAvAw9/ZilYzkH0n9M2KeADuajzIQCtkCNOBignEjtXQdP8NuEYtU
+	1sJ+KrqURFvux7ceScnwE+88xEHuMB/KRDYGsvRmio6to9K5bYRfDolzLlZ1+iGE9I4ZkD9XEAdl/
+	PhTUyM1jwp+Q2RQwVq9ViZo6+Rp+cu4WktkPZFz/IUqM+UGvjlIJt0o/KDWTVgThnn7FlHVcWJnAP
+	Rs1cIRb35fBvueP1hRDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4ir-000000066I6-2Jmr;
-	Tue, 25 Mar 2025 13:53:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tx4it-000000066KN-2uJf;
+	Tue, 25 Mar 2025 13:53:43 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Hh-00000005nEh-1zuz;
-	Tue, 25 Mar 2025 12:21:34 +0000
+	id 1tx3IB-00000005nN0-0BYh;
+	Tue, 25 Mar 2025 12:22:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A332CA40948;
-	Tue, 25 Mar 2025 12:16:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA472C4CEE4;
-	Tue, 25 Mar 2025 12:21:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 1FED16158D;
+	Tue, 25 Mar 2025 12:21:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3ED79C4CEE9;
+	Tue, 25 Mar 2025 12:21:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905292;
-	bh=2jJgyb4FoTTfcF3Budy1LUhXG9H2Y2tw1xz71PydyxU=;
+	s=k20201202; t=1742905322;
+	bh=EOiooLZvwzRM6FHGKB7Ghuvoq/JlTjUJTDs6W9lVozk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Gz9tM3JywmMT22uwAGn8qB+80WAYV3v7Tgh0B3cb9T/BoswxR3T/k//AbqcuWEKLF
-	 L4edD2clUau1Rpi1qbdeJXdbmBWHEi+zr+K+bY+S5OVJT+Z7Ij8LqPN4+oB1wJmn4L
-	 TwL4dvh9smbkloOkN5N7/q5+M1EhCXtMHNIajyoIJo/07VkhxeQQZJKSQHjYyaQ+Fa
-	 KHrViSi3S5tb9gQhPdFzLrO7vlzHmaGxIcQIxVasrFiSnuiKC9ZY2mJKzPZPtsmO7E
-	 gi4u3P8cxdVd4W23j785rOpnmEAPzxlKxOy5Pd/d9VTUepXHGjCRYsCE81kr/SXvGT
-	 b+Gh+GEiotvJg==
+	b=YiNwDozbmDOug84APDztOZ2kil/O/36KZmxFYgseIvSYpf80jP5BkPovMatjpEwF7
+	 9Mq3kmZ4ePc7RYLpMw9NEaSm0LGSMxns79AzH45x1KmUkZqWo4Skq6zfdG3Tlcxage
+	 +k81YCl4yto0KufO7fU24VbbmT5HpsiwnQ/LJNEbWscleUqJq17+j1b39fWz8LWMSg
+	 Uuit3b1JS+cJhBplzgf1jYyOjOrjET/O1rJQILxC4gg7nPXrpSCtouxe46dwFeFif2
+	 9u1eZQAL0xJs37uoPehOJHR0ac4C+89etNoi3+6KrTYRMMOEqLazYSIyboQBbBmP0S
+	 sxGJTKjz/HGow==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,16 +114,13 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 20/43] rv64ilp32_abi: drivers/perf: Adapt xlen_t of sbiret
-Date: Tue, 25 Mar 2025 08:16:01 -0400
-Message-Id: <20250325121624.523258-21-guoren@kernel.org>
+Subject: [RFC PATCH V3 22/43] rv64ilp32_abi: bpf: Change KERN_ARENA_SZ to 256MiB
+Date: Tue, 25 Mar 2025 08:16:03 -0400
+Message-Id: <20250325121624.523258-23-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052133_657058_2DC81654 
-X-CRM114-Status: GOOD (  11.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,49 +139,77 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-Because rv64ilp32_abi change the sbiret struct,
-
-from:
-struct sbiret {
-        long error;
-        long value;
-};
-
-to:
-struct sbiret {
-        xlen_t error;
-        xlen_t value;
-};
-
-So, use a cast long to prevent compile warning.
+The RV64ILP32 ABI limits the vmalloc range to 512MB, hence the
+arena kernel range is set to 256MiB instead of 4GiB.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- drivers/perf/riscv_pmu_sbi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ kernel/bpf/arena.c | 19 ++++++++++++++-----
+ 1 file changed, 14 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/perf/riscv_pmu_sbi.c b/drivers/perf/riscv_pmu_sbi.c
-index 698de8ddf895..e2c4d1bcbc7c 100644
---- a/drivers/perf/riscv_pmu_sbi.c
-+++ b/drivers/perf/riscv_pmu_sbi.c
-@@ -638,7 +638,7 @@ static int pmu_sbi_snapshot_setup(struct riscv_pmu *pmu, int cpu)
- 	/* Free up the snapshot area memory and fall back to SBI PMU calls without snapshot */
- 	if (ret.error) {
- 		if (ret.error != SBI_ERR_NOT_SUPPORTED)
--			pr_warn("pmu snapshot setup failed with error %ld\n", ret.error);
-+			pr_warn("pmu snapshot setup failed with error %ld\n", (long)ret.error);
- 		return sbi_err_map_linux_errno(ret.error);
- 	}
+diff --git a/kernel/bpf/arena.c b/kernel/bpf/arena.c
+index 870aeb51d70a..4eb99f83d4a1 100644
+--- a/kernel/bpf/arena.c
++++ b/kernel/bpf/arena.c
+@@ -40,7 +40,14 @@
  
-@@ -679,7 +679,7 @@ static u64 pmu_sbi_ctr_read(struct perf_event *event)
- 				val |= ((u64)ret.value << 32);
- 			else
- 				WARN_ONCE(1, "Unable to read upper 32 bits of firmware counter error: %ld\n",
--					  ret.error);
-+					  (long)ret.error);
- 		}
- 	} else {
- 		val = riscv_pmu_ctr_read_csr(info.csr);
+ /* number of bytes addressable by LDX/STX insn with 16-bit 'off' field */
+ #define GUARD_SZ (1ull << sizeof_field(struct bpf_insn, off) * 8)
+-#define KERN_VM_SZ (SZ_4G + GUARD_SZ)
++
++#if BITS_PER_LONG == 64
++#define KERN_ARENA_SZ SZ_4G
++#else
++#define KERN_ARENA_SZ SZ_256M
++#endif
++
++#define KERN_VM_SZ (KERN_ARENA_SZ + GUARD_SZ)
+ 
+ struct bpf_arena {
+ 	struct bpf_map map;
+@@ -115,7 +122,7 @@ static struct bpf_map *arena_map_alloc(union bpf_attr *attr)
+ 		return ERR_PTR(-EINVAL);
+ 
+ 	vm_range = (u64)attr->max_entries * PAGE_SIZE;
+-	if (vm_range > SZ_4G)
++	if (vm_range > KERN_ARENA_SZ)
+ 		return ERR_PTR(-E2BIG);
+ 
+ 	if ((attr->map_extra >> 32) != ((attr->map_extra + vm_range - 1) >> 32))
+@@ -321,7 +328,7 @@ static unsigned long arena_get_unmapped_area(struct file *filp, unsigned long ad
+ 
+ 	if (pgoff)
+ 		return -EINVAL;
+-	if (len > SZ_4G)
++	if (len > KERN_ARENA_SZ)
+ 		return -E2BIG;
+ 
+ 	/* if user_vm_start was specified at arena creation time */
+@@ -337,12 +344,14 @@ static unsigned long arena_get_unmapped_area(struct file *filp, unsigned long ad
+ 	ret = mm_get_unmapped_area(current->mm, filp, addr, len * 2, 0, flags);
+ 	if (IS_ERR_VALUE(ret))
+ 		return ret;
++#if BITS_PER_LONG == 64
+ 	if ((ret >> 32) == ((ret + len - 1) >> 32))
+ 		return ret;
++#endif
+ 	if (WARN_ON_ONCE(arena->user_vm_start))
+ 		/* checks at map creation time should prevent this */
+ 		return -EFAULT;
+-	return round_up(ret, SZ_4G);
++	return round_up(ret, KERN_ARENA_SZ);
+ }
+ 
+ static int arena_map_mmap(struct bpf_map *map, struct vm_area_struct *vma)
+@@ -366,7 +375,7 @@ static int arena_map_mmap(struct bpf_map *map, struct vm_area_struct *vma)
+ 		return -EBUSY;
+ 
+ 	/* Earlier checks should prevent this */
+-	if (WARN_ON_ONCE(vma->vm_end - vma->vm_start > SZ_4G || vma->vm_pgoff))
++	if (WARN_ON_ONCE(vma->vm_end - vma->vm_start > KERN_ARENA_SZ || vma->vm_pgoff))
+ 		return -EFAULT;
+ 
+ 	if (remember_vma(arena, vma))
 -- 
 2.40.1
 
