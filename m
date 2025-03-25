@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60372C35FFC
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC51AC36011
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R2K/ydRQvWhB7JcS6vA9oIK0nZyRFvd00jnnS/xwJ2g=; b=LZGgFmZ2xhZQ7m
-	XyIe6dPFxWLnJoXWMRnvdFWTuJH42MSgTH84fTCqf7Fxq+uXCcf4EnwJ2pjb9f3SRFSk95H7Y/W1K
-	CGnGn7IEIpBlhcDay6rn5Y/sw3/VMhmhzq0DjUIQidWHZp27BD4thmIDz1mCvC9Cby2KkiyrLerLZ
-	HIvHNF113377mbRirXUUdt1A1P3INcIxwLl4ApQUvkOHiBj4hfniJH2bLzeqFUzWii1FUqTH/3mxq
-	cRB1JWXtEIJkDjpnViIoghkR19DYIdvTl84ZNIl8GIhScy6dv9stz1A/sxyx22eMWOY8wS5j1KK+W
-	aSlgV3eSfI7HMPdafD0A==;
+	List-Owner; bh=eQhUwweOEeEOA2QhZJcLafcoQvLYv/wLIcVywOgAnpM=; b=DQLduT2OrBpu6m
+	aRG+zmZUJg8LrIndG8hw2Sl+3p5p16tIlF+rUh8htGNCaqrACdRd9M3VuAV0WXJF+aK4dHiccUYst
+	lt3isrLGeVyT9qF9qNfyjCCp/PHTUBaUq3b9PhGLsA3jzwbGAN5c+RhNFjkL8X9yuTkHuaOwA347+
+	h4Qm550B7lf6usZT98rvFacgu9rRik4kSy3ulHJysLV7GdrVnCTjZ3rxfx8Rdq8ZnN8shrdfD1Rtn
+	I1G5VUe8L7ih1tiFpcHdEb6Ffs9VFATg43eLR0bnAnqgCBqWm51NeOOu5Y3n8dowYqtFkxPjPmrd0
+	UF8DL2AyvEUbAJKDoUAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4im-000000066Co-1cnb;
-	Tue, 25 Mar 2025 13:53:36 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tx4iq-000000066GB-1MYx;
+	Tue, 25 Mar 2025 13:53:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3GI-00000005msO-41m5;
-	Tue, 25 Mar 2025 12:20:08 +0000
+	id 1tx3HS-00000005nAi-0s0X;
+	Tue, 25 Mar 2025 12:21:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5C0F443650;
-	Tue, 25 Mar 2025 12:20:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4631C4CEED;
-	Tue, 25 Mar 2025 12:19:51 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 62D99A43621;
+	Tue, 25 Mar 2025 12:15:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE0C8C4CEED;
+	Tue, 25 Mar 2025 12:21:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905206;
-	bh=S5onwW8Rhyiou8sUliJC71k2++Mi5WmKeWwnQHNXJR4=;
+	s=k20201202; t=1742905277;
+	bh=2UWsq5ym5VI7/vPr12wsi4xJfQOhojxJV/AkLgh/hzg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SLdkNpDMElfs6JtH93HL2qjB8ooc8njsv/pKcwCApdLyBmrRvX5jPuX625CrCL3KO
-	 LLg2i7GO2jiDdmvOrZJHbXmmZ//hxLsMMV2R487NeFcTSsmqjUedkLmuzv7hLlERU6
-	 kiuccu5qk3IkbjYpbkj/s/pT/RPFgjJK5adv7y6A6BEEgO8BBTscDUHE/YjxJcfAd0
-	 ppo9vCiFRV5Tz05przlyIDyBiWv9hSmTIygPLI/aoXi+ZELjeBp9iCTv0eEu9tP+Tz
-	 vHMjNE6CxPdHgma3URda2HPkGEEkWTjPcCLQMXFENwL53LrB+OGroHLD8Txjexf9jd
-	 7/iF+KyP6XFLQ==
+	b=CASldfZKFy6JxMfog2czdRUW400bjKu3qkIqf2g0bO4mAfdCAZJOHjQKj39cz8aqg
+	 XG1civv4o3gD3MK48Yhqik6WW027RRpl8DQvIB9Yob7C9kX6E9qV9uYudT8hhev5cL
+	 QTVrUoI6O6nkCMoTVAOPFZqdY9GzjntjKQO6ayze5oXkt5L0UWJbyNb4+aKdlWWzz3
+	 3BCk6+WJF49ZitzC7I5AW48N1eiiEebNx/f6MnTwAH2grSuKMLPrEypZXRY8Sm16qK
+	 mLSvyciL4KYAbVkJERD8dZPZNRmSFb8RH3/1NqleyW9uvgrIwTuaYlC1t3hgHEcd/Z
+	 SqwIoUbHe8uUw==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,16 +114,16 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 14/43] rv64ilp32_abi: riscv: Adapt kernel module code
-Date: Tue, 25 Mar 2025 08:15:55 -0400
-Message-Id: <20250325121624.523258-15-guoren@kernel.org>
+Subject: [RFC PATCH V3 19/43] rv64ilp32_abi: irqchip: irq-riscv-intc: Use xlen_t instead of ulong
+Date: Tue, 25 Mar 2025 08:16:00 -0400
+Message-Id: <20250325121624.523258-20-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052007_039560_7F001D66 
-X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-CacheID: sfid-20250325_052118_374495_D36C8583 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -143,41 +143,42 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-Because riscv_insn_valid_32bit_offset is always true for ILP32,
-use BITS_PER_LONG instead of CONFIG_64BIT.
+The RV64ILP32 ABI is based on CONFIG_64BIT, so use xlen/xlen_t
+instead of BITS_PER_LONG/ulong.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- arch/riscv/kernel/module.c   | 2 +-
- include/asm-generic/module.h | 2 +-
- 2 files changed, 2 insertions(+), 2 deletions(-)
+ drivers/irqchip/irq-riscv-intc.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
-index 47d0ebeec93c..d7360878e618 100644
---- a/arch/riscv/kernel/module.c
-+++ b/arch/riscv/kernel/module.c
-@@ -45,7 +45,7 @@ struct relocation_handlers {
-  */
- static bool riscv_insn_valid_32bit_offset(ptrdiff_t val)
- {
--#ifdef CONFIG_32BIT
-+#if BITS_PER_LONG == 32
- 	return true;
- #else
- 	return (-(1L << 31) - (1L << 11)) <= val && val < ((1L << 31) - (1L << 11));
-diff --git a/include/asm-generic/module.h b/include/asm-generic/module.h
-index 98e1541b72b7..f870171b14a8 100644
---- a/include/asm-generic/module.h
-+++ b/include/asm-generic/module.h
-@@ -12,7 +12,7 @@ struct mod_arch_specific
- };
- #endif
+diff --git a/drivers/irqchip/irq-riscv-intc.c b/drivers/irqchip/irq-riscv-intc.c
+index f653c13de62b..4fc7d5704acf 100644
+--- a/drivers/irqchip/irq-riscv-intc.c
++++ b/drivers/irqchip/irq-riscv-intc.c
+@@ -20,18 +20,19 @@
+ #include <linux/soc/andes/irq.h>
  
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- #define Elf_Shdr	Elf64_Shdr
- #define Elf_Phdr	Elf64_Phdr
- #define Elf_Sym		Elf64_Sym
+ #include <asm/hwcap.h>
++#include <asm/ptrace.h>
+ 
+ static struct irq_domain *intc_domain;
+-static unsigned int riscv_intc_nr_irqs __ro_after_init = BITS_PER_LONG;
+-static unsigned int riscv_intc_custom_base __ro_after_init = BITS_PER_LONG;
++static unsigned int riscv_intc_nr_irqs __ro_after_init = __riscv_xlen;
++static unsigned int riscv_intc_custom_base __ro_after_init = __riscv_xlen;
+ static unsigned int riscv_intc_custom_nr_irqs __ro_after_init;
+ 
+ static void riscv_intc_irq(struct pt_regs *regs)
+ {
+-	unsigned long cause = regs->cause & ~CAUSE_IRQ_FLAG;
++	xlen_t cause = regs->cause & ~CAUSE_IRQ_FLAG;
+ 
+ 	if (generic_handle_domain_irq(intc_domain, cause))
+-		pr_warn_ratelimited("Failed to handle interrupt (cause: %ld)\n", cause);
++		pr_warn_ratelimited("Failed to handle interrupt (cause: " REG_FMT ")\n", cause);
+ }
+ 
+ static void riscv_intc_aia_irq(struct pt_regs *regs)
 -- 
 2.40.1
 
