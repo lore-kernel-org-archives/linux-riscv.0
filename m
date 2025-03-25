@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D809C36011
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 167D8C36010
 	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 12:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YhRsBMLeysK/+o+9hpo+HDxOp1CLP18m64AzOFLb1yY=; b=NJW3vRe1sDhdVh
-	epnlot88OG5oRf/IPsL0/F3p6ttLcDGX9J39TvdPMyLrBynKuqUO8Nvj/VXNLGeTswRBCfl8ER1p3
-	rZQx4xc5QirReZflf8UXRfqjx2vO4Y+LdUQfzbVd65tYcL3a6uh47qH4QxoNLw2jRV328TyejzBCJ
-	aeYjppt3LN0+OighgBI3+XA7owZ9KlRGO1s5xMZFb1TiP0z1MKppyZUjuqr8UvWJc7snNLhI7PCx7
-	9bRftZ91/RAOtI+5m5lS6kGzDQ+VVIs0MsoMHEMg76k3SvmFIe7CFxGwdRhRVwW1PT9jyfcSIx1yi
-	kKUtg31Ze0WpOhloNHEw==;
+	List-Owner; bh=5kc8HiFJA9rodyEr86a1GZ38uH69877GoL2I3GHD1bg=; b=tE/77AgdeTOHuW
+	BDvRwp55FENRirv+tcHSpv4BCS2bp1aeyUAT7IpWJoQL/rZ0pdbrdUoCpw0bwbrN/ek3mqHZM5PI2
+	CsW/JDFEpl96OuzEPVix53C7J/i2k1dRV3CcNZGfTtATpOXyjSMBYySOaF5OgA0aFPqwuuaVSbqvY
+	Tav/KFPf2my77jxkEWGNbpwvga5IXLnFla7yNchR5QILDwbIay6U3muPDqBL9+9v3FfH1jMj6rWMh
+	Selqbzy+Gu42Vng9NZd5awyJf0vjRg0VeQa8SyvB3QCc5n4GcqjT6/H6rO36ZS8EUESBPJdXQaUde
+	yYcoJtBN0BF/t86jjkrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3YU-00000005rP9-3RSo;
-	Tue, 25 Mar 2025 12:38:54 +0000
+	id 1tx3YT-00000005rNb-2UPd;
+	Tue, 25 Mar 2025 12:38:53 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3Ej-00000005mQS-3T7U;
-	Tue, 25 Mar 2025 12:18:31 +0000
+	id 1tx3EV-00000005mM2-2Fnd;
+	Tue, 25 Mar 2025 12:18:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3C4DF43C29;
-	Tue, 25 Mar 2025 12:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC5F5C4CEE9;
-	Tue, 25 Mar 2025 12:18:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id DB38F43C1F;
+	Tue, 25 Mar 2025 12:18:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3232CC4CEE4;
+	Tue, 25 Mar 2025 12:18:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905109;
-	bh=BZhFrxC5LqWkJB24//QTxmrLgLREqoX75xqFkQDG2c4=;
+	s=k20201202; t=1742905095;
+	bh=UABL4vMSXTJ7ioKDShPOJnvQ/v/SXYqnkdRYWjffYuI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WAArLR1cIlUkjcVTXX0Tls/hyrhxZQce1pwWCWmmrhVqZo6CHID40/UUJJxlUdSIH
-	 pvJzyeJsFsbR3Qj6oZQI0sosmdA0f0axmt/j3x0JtA4NVFN4oEroDbhzfKMj77LjcG
-	 VpeybYwfnePV+fqBKEfi+c8b/VpfgQniRgpy+YGfPxfyz64Z96hgATbQA+bOjettSE
-	 TFQQdcxc3W5FBVyXIBMFFRRS9NmLp2l79WVGP9idTb0YBrpmWMraoXJreb1OnK+1kW
-	 R4WBNVgCauqIfaxd2Ttz8fBWM1S2wpc+NpxrTt7N9OYAE6+nKKUlTbfrvFhzZhVeQ9
-	 0U3othdem+g7g==
+	b=teUw2FHOlBQ1lrIKT7Hs+qUfkkWnEEpTWG7+L12tSB2mbphU+tEwWLTIzWHI0iiRJ
+	 DbQvjYXhNoIHuNkVkJjJR9grTurlc5egb+jrZsRmnn/7yCBhuoST5sWNFrEg4whn8S
+	 R8w4LPsMxn2q34XM1d2a9BJgQLJkEbNoee3acd75JHM7OSqPc/dbF55YqAnxMmxb3B
+	 GonCtkmj1hPTAVD6eZOTRDAsO7Au8f+9qjRty68GqzTjCoMQ60GAujyzoXiVezS8hQ
+	 Cw9dI4jq4Uyzfsd0C+8lhRsjuPYR84Qgic3GJeVkTgp4byQiRpTz3vrpRfdwMGr/ce
+	 BEShK8B1mJ11Q==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,16 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 07/43] rv64ilp32_abi: riscv: arch_hweight: Adapt cpopw & cpop of zbb extension
-Date: Tue, 25 Mar 2025 08:15:48 -0400
-Message-Id: <20250325121624.523258-8-guoren@kernel.org>
+Subject: [RFC PATCH V3 06/43] rv64ilp32_abi: riscv: csum: Utilize 64-bit width to improve the performance
+Date: Tue, 25 Mar 2025 08:15:47 -0400
+Message-Id: <20250325121624.523258-7-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_051829_913469_F5155AAD 
-X-CRM114-Status: UNSURE (   8.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250325_051815_624615_EF499216 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,48 +142,139 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The RV64ILP32 ABI is based on 64-bit ISA, but BITS_PER_LONG is 32.
-Use cpopw for u32_weight and cpop for u64_weight.
+The RV64ILP32 ABI, derived from a 64-bit ISA, uses 32-bit
+BITS_PER_LONG. Therefore, checksum algorithm could utilize 64-bit
+width to improve the performance.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- arch/riscv/include/asm/arch_hweight.h | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ arch/riscv/lib/csum.c | 48 +++++++++++++++++++++----------------------
+ 1 file changed, 24 insertions(+), 24 deletions(-)
 
-diff --git a/arch/riscv/include/asm/arch_hweight.h b/arch/riscv/include/asm/arch_hweight.h
-index 613769b9cdc9..42577965f5bb 100644
---- a/arch/riscv/include/asm/arch_hweight.h
-+++ b/arch/riscv/include/asm/arch_hweight.h
-@@ -12,7 +12,11 @@
- #if (BITS_PER_LONG == 64)
- #define CPOPW	"cpopw "
- #elif (BITS_PER_LONG == 32)
-+#ifdef CONFIG_64BIT
-+#define CPOPW	"cpopw "
-+#else
- #define CPOPW	"cpop "
-+#endif
- #else
- #error "Unexpected BITS_PER_LONG"
- #endif
-@@ -47,7 +51,7 @@ static inline unsigned int __arch_hweight8(unsigned int w)
- 	return __arch_hweight32(w & 0xff);
- }
- 
--#if BITS_PER_LONG == 64
-+#ifdef CONFIG_64BIT
- static __always_inline unsigned long __arch_hweight64(__u64 w)
+diff --git a/arch/riscv/lib/csum.c b/arch/riscv/lib/csum.c
+index 7fb12c59e571..7139ab855349 100644
+--- a/arch/riscv/lib/csum.c
++++ b/arch/riscv/lib/csum.c
+@@ -22,17 +22,17 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
+ 			__u32 len, __u8 proto, __wsum csum)
  {
- # ifdef CONFIG_RISCV_ISA_ZBB
-@@ -61,7 +65,7 @@ static __always_inline unsigned long __arch_hweight64(__u64 w)
- 	     ".option pop\n"
- 	     : "=r" (w) : "r" (w) :);
+ 	unsigned int ulen, uproto;
+-	unsigned long sum = (__force unsigned long)csum;
++	xlen_t sum = (__force xlen_t)csum;
  
--	return w;
-+	return (unsigned long)w;
+-	sum += (__force unsigned long)saddr->s6_addr32[0];
+-	sum += (__force unsigned long)saddr->s6_addr32[1];
+-	sum += (__force unsigned long)saddr->s6_addr32[2];
+-	sum += (__force unsigned long)saddr->s6_addr32[3];
++	sum += (__force xlen_t)saddr->s6_addr32[0];
++	sum += (__force xlen_t)saddr->s6_addr32[1];
++	sum += (__force xlen_t)saddr->s6_addr32[2];
++	sum += (__force xlen_t)saddr->s6_addr32[3];
  
- legacy:
- # endif
+-	sum += (__force unsigned long)daddr->s6_addr32[0];
+-	sum += (__force unsigned long)daddr->s6_addr32[1];
+-	sum += (__force unsigned long)daddr->s6_addr32[2];
+-	sum += (__force unsigned long)daddr->s6_addr32[3];
++	sum += (__force xlen_t)daddr->s6_addr32[0];
++	sum += (__force xlen_t)daddr->s6_addr32[1];
++	sum += (__force xlen_t)daddr->s6_addr32[2];
++	sum += (__force xlen_t)daddr->s6_addr32[3];
+ 
+ 	ulen = (__force unsigned int)htonl((unsigned int)len);
+ 	sum += ulen;
+@@ -46,7 +46,7 @@ __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
+ 	 */
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+ 	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+-		unsigned long fold_temp;
++		xlen_t fold_temp;
+ 
+ 		/*
+ 		 * Zbb is likely available when the kernel is compiled with Zbb
+@@ -85,12 +85,12 @@ EXPORT_SYMBOL(csum_ipv6_magic);
+ #define OFFSET_MASK 7
+ #endif
+ 
+-static inline __no_sanitize_address unsigned long
+-do_csum_common(const unsigned long *ptr, const unsigned long *end,
+-	       unsigned long data)
++static inline __no_sanitize_address xlen_t
++do_csum_common(const xlen_t *ptr, const xlen_t *end,
++	       xlen_t data)
+ {
+ 	unsigned int shift;
+-	unsigned long csum = 0, carry = 0;
++	xlen_t csum = 0, carry = 0;
+ 
+ 	/*
+ 	 * Do 32-bit reads on RV32 and 64-bit reads otherwise. This should be
+@@ -130,8 +130,8 @@ static inline __no_sanitize_address unsigned int
+ do_csum_with_alignment(const unsigned char *buff, int len)
+ {
+ 	unsigned int offset, shift;
+-	unsigned long csum, data;
+-	const unsigned long *ptr, *end;
++	xlen_t csum, data;
++	const xlen_t *ptr, *end;
+ 
+ 	/*
+ 	 * Align address to closest word (double word on rv64) that comes before
+@@ -140,7 +140,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+ 	 */
+ 	offset = (unsigned long)buff & OFFSET_MASK;
+ 	kasan_check_read(buff, len);
+-	ptr = (const unsigned long *)(buff - offset);
++	ptr = (const xlen_t *)(buff - offset);
+ 
+ 	/*
+ 	 * Clear the most significant bytes that were over-read if buff was not
+@@ -153,7 +153,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+ #else
+ 	data = (data << shift) >> shift;
+ #endif
+-	end = (const unsigned long *)(buff + len);
++	end = (const xlen_t *)(buff + len);
+ 	csum = do_csum_common(ptr, end, data);
+ 
+ #ifdef CC_HAS_ASM_GOTO_TIED_OUTPUT
+@@ -163,7 +163,7 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+ 	 */
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+ 	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+-		unsigned long fold_temp;
++		xlen_t fold_temp;
+ 
+ 		/*
+ 		 * Zbb is likely available when the kernel is compiled with Zbb
+@@ -233,15 +233,15 @@ do_csum_with_alignment(const unsigned char *buff, int len)
+ static inline __no_sanitize_address unsigned int
+ do_csum_no_alignment(const unsigned char *buff, int len)
+ {
+-	unsigned long csum, data;
+-	const unsigned long *ptr, *end;
++	xlen_t csum, data;
++	const xlen_t *ptr, *end;
+ 
+-	ptr = (const unsigned long *)(buff);
++	ptr = (const xlen_t *)(buff);
+ 	data = *(ptr++);
+ 
+ 	kasan_check_read(buff, len);
+ 
+-	end = (const unsigned long *)(buff + len);
++	end = (const xlen_t *)(buff + len);
+ 	csum = do_csum_common(ptr, end, data);
+ 
+ 	/*
+@@ -250,7 +250,7 @@ do_csum_no_alignment(const unsigned char *buff, int len)
+ 	 */
+ 	if (IS_ENABLED(CONFIG_RISCV_ISA_ZBB) &&
+ 	    IS_ENABLED(CONFIG_RISCV_ALTERNATIVE)) {
+-		unsigned long fold_temp;
++		xlen_t fold_temp;
+ 
+ 		/*
+ 		 * Zbb is likely available when the kernel is compiled with Zbb
 -- 
 2.40.1
 
