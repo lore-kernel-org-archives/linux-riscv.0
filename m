@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56726C36005
-	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80EE3C3600B
+	for <linux-riscv@archiver.kernel.org>; Tue, 25 Mar 2025 13:53:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=P6w/CgGOPWwJmjVxM3Ud0BM7zAshxUpx2YeHpdME5LY=; b=fCskIB6MIW76r+
-	X6an0xC/74IoC2RKrUT8WrTTLBpDi/YOylezaYYClwjoH07nHZAn2jOg6jU+psEcuQZB52Dvt/ao9
-	VU4PoSFE1qKK+/Qdn8kh9EWv4zrZkGH8ChJvQbMgGjWVFE7iOsCbzyZdMVq24SxGDr2wiIK6Y9i+Y
-	FSS4Se2qvcgO4NP3nNzr8cNkTEQbq1Tcmjbcl5l9kc+O61q6gMGKbS+4KAz4Rs8S9VHZw0RwE2Th2
-	N/CqDLfCDNH/T5VekHkfPOxV6D3kMKVs1Zr6kXbRqPrjRmip9VeUJ/+osrkVUqaqHTXp9ebyC2wUr
-	F2dspwbbf0eww8gzldcg==;
+	List-Owner; bh=xZ7L2h0euWh5ttxD3cWWe9n0zwIImx79DZ+ye+BzBT4=; b=pUfJmI/m6v9gb6
+	ZbOOP9rNyyla6RnWUb42Sd2JHzsXFFjEhP1Wnxfand3E/X/cFgkVF3qvZ4eTBooYPtuQEpKtnaBnP
+	W55gQDHb5TNVQYkGh6RqsuRctDZTjPQI/95nPIVeNF9O5movq6NRyNvu17CE+49bvEZMv4jbesC+w
+	ZQwiHMnnGSOGVnO95O4+aQOwiyIyNtk+UF0swiXUGcCtTEDaHsKF1I1utdmVHivSgnxE718whDzge
+	T6bGZsuBuNGUJuVU2u/14kBbyOv3MeNRb6GwFsN3P/utUU2tZ9IWIEHmts5Jc5807KQ2ejdbr2ZWP
+	LfU9tKSKzvf1jSNe4LvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx4iz-000000066Tm-3eQ6;
-	Tue, 25 Mar 2025 13:53:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1tx4j1-000000066Vr-0dl5;
+	Tue, 25 Mar 2025 13:53:51 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tx3J6-00000005nfP-44Xg;
-	Tue, 25 Mar 2025 12:23:02 +0000
+	id 1tx3JL-00000005nk8-2pS8;
+	Tue, 25 Mar 2025 12:23:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 536EA4368C;
+	by tor.source.kernel.org (Postfix) with ESMTP id CDCAC61588;
+	Tue, 25 Mar 2025 12:23:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EADAAC4CEED;
 	Tue, 25 Mar 2025 12:23:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E4CEC4CEE4;
-	Tue, 25 Mar 2025 12:22:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742905380;
-	bh=kGPsHFFMg2CAbXtRnGFCoMZoeXyVXOmvw2ykjsD95WE=;
+	s=k20201202; t=1742905394;
+	bh=ZdAkreXNjU924DvNhCbpfQtujvhWVn4yr+yoUPb7XPY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ntclLWycxIrsN91q9/Iq7DZLV3nwTWOf4Qo5f6R8yJlXo1s0ypvyO9gc8nw1n9iJa
-	 FXE4HvXg9jbtr74bzaGhsm46h50G8b9MlQPjOkwWiuLMEejz6lYx8r2CpJVGHd+i84
-	 Y9n4c1aA4xtTudNn6+y4oe79jba9Mxkk0kZFXd/7xCyMom+qmIyy4T/0ysXPzI7bay
-	 5sdbYuoQbrTw4El0JuMiLQwd1ke34f9kjkg3HXYA3l/Iwam2xe4E80RyKMurhKZ1jo
-	 s5Lzild3//u1NkkMe5ZEFU8hjrRZDyJHVc5UpBWJ9x1eZ2XWDKu2b3FH9QfncuRVF3
-	 1ztYGTU3Jqe1Q==
+	b=e0wh/8TxUniEX/ZB9PGz8ZaGiNSQaTZGsJyssDgFsfp+2sbfBlRKcQH+lkBCu3zaB
+	 +q5JKkf/6/6G9uTXxsQGTjo+cVtnmWczJLZwsleSvMn8bvWHhxQEszuBw4x52yi9Bk
+	 RNfQry6flnLoDYkb77T9WYq6b9r6RmFWBsHS2ig0gx5/AlMuJzcHEncwWe7YEL1iNP
+	 87fpjQaGqgvuIa+FZFiDtwpz20AgIa6I0L4yQIwx2Bw4QTCN9Co6vjT0+kAHFSHwyB
+	 wE+o43JlKf9U+bBptVGvCfBIgJ0CtZ70Z/obq8KrvHdjwDYUww471PY6i6UOaWxc62
+	 UYzxYGeDDf+ug==
 From: guoren@kernel.org
 To: arnd@arndb.de,
 	gregkh@linuxfoundation.org,
@@ -114,17 +114,13 @@ Cc: ardb@kernel.org,
 	linux-sctp@vger.kernel.org,
 	linux-usb@vger.kernel.org,
 	linux-media@vger.kernel.org
-Subject: [RFC PATCH V3 26/43] rv64ilp32_abi: file_ref: Use 32-bit width for refcnt
-Date: Tue, 25 Mar 2025 08:16:07 -0400
-Message-Id: <20250325121624.523258-27-guoren@kernel.org>
+Subject: [RFC PATCH V3 27/43] rv64ilp32_abi: input: Adapt BITS_PER_LONG to dword
+Date: Tue, 25 Mar 2025 08:16:08 -0400
+Message-Id: <20250325121624.523258-28-guoren@kernel.org>
 X-Mailer: git-send-email 2.40.1
 In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
 References: <20250325121624.523258-1-guoren@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_052301_049562_64BFDBA9 
-X-CRM114-Status: UNSURE (   8.84  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,37 +139,30 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
 
-The sizeof(atomic_t) is 4 in rv64ilp32 abi linux kernel, which
-could provide a higher density of cache and a smaller memory
-footprint.
+The RV64ILP32 ABI linux kernel is based on CONFIG_64BIT, but
+BITS_PER_LONG is 32. So, adapt bits to dword with BITS_PER_LONG.
 
 Signed-off-by: Guo Ren (Alibaba DAMO Academy) <guoren@kernel.org>
 ---
- include/linux/file_ref.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/input/input.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/include/linux/file_ref.h b/include/linux/file_ref.h
-index 9b3a8d9b17ab..ce9b47359e14 100644
---- a/include/linux/file_ref.h
-+++ b/include/linux/file_ref.h
-@@ -27,7 +27,7 @@
-  * 0xFFFFFFFFFFFFFFFFUL
-  */
+diff --git a/drivers/input/input.c b/drivers/input/input.c
+index c9e3ac64bcd0..7af5e8c66f25 100644
+--- a/drivers/input/input.c
++++ b/drivers/input/input.c
+@@ -1006,7 +1006,11 @@ static int input_bits_to_string(char *buf, int buf_size,
+ 	int len = 0;
  
--#ifdef CONFIG_64BIT
+ 	if (in_compat_syscall()) {
 +#if BITS_PER_LONG == 64
- #define FILE_REF_ONEREF		0x0000000000000000UL
- #define FILE_REF_MAXREF		0x7FFFFFFFFFFFFFFFUL
- #define FILE_REF_SATURATED	0xA000000000000000UL
-@@ -44,7 +44,7 @@
- #endif
+ 		u32 dword = bits >> 32;
++#else
++		u32 dword = bits;
++#endif
+ 		if (dword || !skip_empty)
+ 			len += snprintf(buf, buf_size, "%x ", dword);
  
- typedef struct {
--#ifdef CONFIG_64BIT
-+#if BITS_PER_LONG == 64
- 	atomic64_t refcnt;
- #else
- 	atomic_t refcnt;
 -- 
 2.40.1
 
