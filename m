@@ -4,94 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C41BC36008
-	for <linux-riscv@archiver.kernel.org>; Wed, 26 Mar 2025 06:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47139C36008
+	for <linux-riscv@archiver.kernel.org>; Wed, 26 Mar 2025 06:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5MO5PAPsdhrSU93ncRSDh3nQLeIdFzehtzYE4zcDQQQ=; b=y8RfiRMARQ/B/p
-	1WXCOZxGSPrHiDj8z5uRl+khzt+IsYryg5rUfPM7Wojh3Ly4yE2UOQOs6LZlMnAA1svo6RuX5zwF3
-	srI4dVPpnlmBdSkq7V2Np5niQA4exUY3J78J46JH+kvEq8lfq4L0YmOA8R92iK98P7mT8XcQdIj2N
-	YfiOazBLgc6FldbMeVgPsLxpvtShgSygWyWXlWkxAGO5WANOJsOVCD1DRnTsZdWOxJqTYgaX0J4NO
-	U8nIpMtwc0fA7suAmIo0sGQ1RWIW1QPxIep5ZgSzvt7HSlzsgQ5YU92P2aeEjI6U1V4eQaZfFsgym
-	olP9htH6BAUjv1W7/aRQ==;
+	List-Owner; bh=Ylz3Sr4lLvx41VwDVk2ENUfTaNnenDQvww2LssT9Tzk=; b=mksAtRKCUo7Tsz
+	7bDMpp5tepdkz0bEG9ckoJ3+EEK2vFYXyA96QqRvR4hMAQKBvgNLQ9QajVIGv68xBHpOZvHxCS6lm
+	PH0/Qzaa/wv0MgwX1Z3UUUDFr4L60HKF9AFPWPAXNf547nz0jK47XabWk7jOtIXs36S9/aW55Jn6X
+	52cXWPj48ocsG4QnCHrfjmot4gIt8GOtmJm5kNHkG4LdkE49VPIoz2YGcyB0MV1VCF3Jz+bMCzHmV
+	mxY4tq+Fw/ldqqrCUwr0IHXW8frBfukglS+Q8XdhK5FmAhenSBEtvNi0YCvEGRmi+qpSQeza231EE
+	UQWYoMkCAWWTJZoc10Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKN4-00000007fuA-3Uqw;
-	Wed, 26 Mar 2025 06:36:14 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1txKeQ-00000007hWo-3c2E;
+	Wed, 26 Mar 2025 06:54:10 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txKLi-00000007fgN-2P5K;
-	Wed, 26 Mar 2025 06:34:51 +0000
+	id 1txKeO-00000007hWK-2aCD
+	for linux-riscv@lists.infradead.org;
+	Wed, 26 Mar 2025 06:54:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 22F0CA40A9B;
-	Wed, 26 Mar 2025 06:29:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B80F3C19422;
-	Wed, 26 Mar 2025 06:34:48 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 717495C5BE2;
+	Wed, 26 Mar 2025 06:51:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D562DC4CEE2;
+	Wed, 26 Mar 2025 06:53:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1742970888;
-	bh=2MGPnAtzDlcfNFkgrjhcbs+PSZK/71xFqiqfm4ICurw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oqWCSEWgqSzuZihIGSGxBq/NFjOUhZjOlwZMMZY+/2ybNPO86h100+06K+NuCc9Mt
-	 WYnoiWB1I5d60B7CRE6XuosOocePqX6eDdBEP/8SE+DYlhSfcxkLZF9LrlQ68Y4veL
-	 H8xWmZsln8RTeTMzlPXP6pl8crUOBBsMQcncsHm3UJYg5K3kU3IXi4FH/Qc4qv2wOO
-	 yEJnquI42uVFFeIsvvRh3GMWQ+sFTb7U/WMNtlSVXjGbMeRckEm9GTcI5P7A0b/Ro3
-	 nMSrwoZKByN/PZoX2e4Jn/Y5mLcclU97Oe6eskkQTsOcmnMnijIJvWokjpBxxC2uqF
-	 n5hVyTRxxXDfw==
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-3913d45a148so5217720f8f.3;
-        Tue, 25 Mar 2025 23:34:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUkYEBB3P6rFEimArWfYgfPpbV/yNU2oQxA53gKFS4Xb/+l6i/4wjWMtkxbgGeJSXVVwGFxfQKVfsHGvws=@lists.infradead.org, AJvYcCXBPa/2d3lvuBaB2xIJ4YJVRYehYDiwyHHBIlW+SjiIdCfcWLAXLGTpedkNukftMJVD+A6Mmg5+zjDsWQ==@lists.infradead.org, AJvYcCXS1cA+ugkPNwVz4GKPcS2/ClaO+oGAIE606PYzE/FvHFw5j/aDVf5By74vyQs+UINzA08ifJogRPc=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQqtmOtn2pi+hwSeShAGt5MKPg/MEIKgZX+wqn9qPv+c1sY6oJ
-	6uEWFGjDBP5ZI2jPhb+v47eIY7yccTbKt/neYS0g6SrAM5BgYSjTsfpZ1LWow9yj+yV0QYgGg1e
-	hVwYmLBJP4T06HTbBYZR407nvYWQ=
-X-Google-Smtp-Source: AGHT+IGIApydo9VgmdhIDcmOnmG1sSv1FEEmzeINRVbJ26tbvLOq+REJlE+tfl+WofDYebAF8b+RY6kbO+n3ISps8p8=
-X-Received: by 2002:a5d:47c6:0:b0:38d:d371:e04d with SMTP id
- ffacd0b85a97d-3997f937cd7mr16526330f8f.34.1742970886849; Tue, 25 Mar 2025
- 23:34:46 -0700 (PDT)
+	s=k20201202; t=1742972045;
+	bh=7zwoyPdNuSVZVKiHsKqqG73eThecfXF83qgiVSIJ2U4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=I1yoyuRTZPYV+8QANl6Hc+Tw0BUQ9tvDhKCElr9TXtHQrMPD5vJM3eq62OiGFazBD
+	 R9FMd6nzLbhowCjQzMTsO+yJOuISqMdYMKO+NOhmEXqyabxKGK/KXHBnfEONTDo7mL
+	 ikicBP8MAdHVQxpFhEQwCNsT3KB0ZhlotpRDL3koQaIprPByu3HdvfHzMGamM3juqc
+	 hWDTYpd/f4JRsDHHTQ/Td3Rzzzz5lwgfO9d+G6pmV56oQu2dAQAUAIcdMRMedzEPsb
+	 WWm7S1ZHj16CcZ8wgqTWltrydfwqiHigsM2OoVOG1/OCacCow/AI5RF6BIEAWYw0pD
+	 E1/EIY3TA2Kxg==
+Message-ID: <58bb1186-08ee-41cf-8593-a6664bd874e6@kernel.org>
+Date: Wed, 26 Mar 2025 07:53:55 +0100
 MIME-Version: 1.0
-References: <20250325121624.523258-1-guoren@kernel.org> <20250325121624.523258-2-guoren@kernel.org>
- <CAHk-=wiVgTJpSxrQbEi28pUOmuWXrox45vV9kPhe9q5CcRxEbw@mail.gmail.com>
-In-Reply-To: <CAHk-=wiVgTJpSxrQbEi28pUOmuWXrox45vV9kPhe9q5CcRxEbw@mail.gmail.com>
-From: Guo Ren <guoren@kernel.org>
-Date: Wed, 26 Mar 2025 14:34:32 +0800
-X-Gmail-Original-Message-ID: <CAJF2gTRZyAAgrM1RMrTi7Zi+Vx_VBnM1=CWwZZtLy+uHZ=vZpw@mail.gmail.com>
-X-Gm-Features: AQ5f1JpGXhmRPDvCQOc_Kwk_PFeqm824JtKAYEkQji0TkGjMeyznsoqjkxAkPig
-Message-ID: <CAJF2gTRZyAAgrM1RMrTi7Zi+Vx_VBnM1=CWwZZtLy+uHZ=vZpw@mail.gmail.com>
-Subject: Re: [RFC PATCH V3 01/43] rv64ilp32_abi: uapi: Reuse lp64 ABI interface
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: arnd@arndb.de, gregkh@linuxfoundation.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org, 
-	oleg@redhat.com, kees@kernel.org, tglx@linutronix.de, will@kernel.org, 
-	mark.rutland@arm.com, brauner@kernel.org, akpm@linux-foundation.org, 
-	rostedt@goodmis.org, edumazet@google.com, unicorn_wang@outlook.com, 
-	inochiama@outlook.com, gaohan@iscas.ac.cn, shihua@iscas.ac.cn, 
-	jiawei@iscas.ac.cn, wuwei2016@iscas.ac.cn, drew@pdp7.com, 
-	prabhakar.mahadev-lad.rj@bp.renesas.com, ctsai390@andestech.com, 
-	wefu@redhat.com, kuba@kernel.org, pabeni@redhat.com, josef@toxicpanda.com, 
-	dsterba@suse.com, mingo@redhat.com, peterz@infradead.org, 
-	boqun.feng@gmail.com, xiao.w.wang@intel.com, qingfang.deng@siflower.com.cn, 
-	leobras@redhat.com, jszhang@kernel.org, conor.dooley@microchip.com, 
-	samuel.holland@sifive.com, yongxuan.wang@sifive.com, 
-	luxu.kernel@bytedance.com, david@redhat.com, ruanjinjie@huawei.com, 
-	cuiyunhui@bytedance.com, wangkefeng.wang@huawei.com, qiaozhe@iscas.ac.cn, 
-	ardb@kernel.org, ast@kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	kvm-riscv@lists.infradead.org, linux-mm@kvack.org, 
-	linux-crypto@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-input@vger.kernel.org, linux-perf-users@vger.kernel.org, 
-	linux-serial@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, maple-tree@lists.infradead.org, 
-	linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-atm-general@lists.sourceforge.net, linux-btrfs@vger.kernel.org, 
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org, 
-	linux-nfs@vger.kernel.org, linux-sctp@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-media@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v2 2/9] dt-bindings: soc: microchip: document the
+ simple-mfd syscon on PolarFire SoC
+To: Conor Dooley <conor@kernel.org>
+Cc: Stephen Boyd <sboyd@kernel.org>, Conor Dooley
+ <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>,
+ pierre-henry.moussay@microchip.com, valentina.fernandezalanis@microchip.com,
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
+ <20250321-ramrod-scabby-a1869f9979b6@spud>
+ <20250325-quiet-waxbill-of-realization-675469@krzk-bin>
+ <20250325-feline-roundworm-dc391b755673@spud>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250325-feline-roundworm-dc391b755673@spud>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250325_233450_753291_BFFEFB57 
-X-CRM114-Status: GOOD (  24.30  )
+X-CRM114-CacheID: sfid-20250325_235408_748068_E42609B4 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +124,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXIgMjYsIDIwMjUgYXQgNDo0MeKAr0FNIExpbnVzIFRvcnZhbGRzCjx0b3J2YWxk
-c0BsaW51eC1mb3VuZGF0aW9uLm9yZz4gd3JvdGU6Cj4KPiBPbiBUdWUsIDI1IE1hciAyMDI1IGF0
-IDA1OjE3LCA8Z3VvcmVuQGtlcm5lbC5vcmc+IHdyb3RlOgo+ID4KPiA+IFRoZSBydjY0aWxwMzIg
-YWJpIGtlcm5lbCBhY2NvbW1vZGF0ZXMgdGhlIGxwNjQgYWJpIHVzZXJzcGFjZSBhbmQKPiA+IGxl
-dmVyYWdlcyB0aGUgbHA2NCBhYmkgTGludXggaW50ZXJmYWNlLiBIZW5jZSwgdW5pZnkgdGhlCj4g
-PiBCSVRTX1BFUl9MT05HID0gMzIgbWVtb3J5IGxheW91dCB0byBtYXRjaCBCSVRTX1BFUl9MT05H
-ID0gNjQuCj4KPiBOby4KPgo+IFRoaXMgaXNuJ3QgaGFwcGVuaW5nLgo+Cj4gWW91IGNhbid0IGRv
-IGNyYXp5IHRoaW5ncyBpbiB0aGUgUklTQy1WIGNvZGUgYW5kIHRoZW4gZXhwZWN0IHRoZSByZXN0
-Cj4gb2YgdGhlIGtlcm5lbCB0byBqdXN0IGdvICJvaywgd2UnbGwgZG8gY3JhenkgdGhpbmdzIi4K
-Pgo+IFdlJ3JlIG5vdCBkb2luZyBjcmF6eSBfX3Jpc2N2X3hsZW4gaGFja2VyeSB3aXRoIHJhbmRv
-bSBzdHJ1Y3R1cmVzCj4gY29udGFpbmluZyA2NC1iaXQgdmFsdWVzIHRoYXQgdGhlIGtlcm5lbCB0
-aGVuIG9ubHkgbG9va3MgYXQgdGhlIGxvdyAzMgo+IGJpdHMuIFRoYXQncyB3cm9uZyBvbiAqc28q
-IG1hbnkgbGV2ZWxzLgo+Cj4gSSdtIHdpbGxpbmcgdG8gc2F5ICJiaWctZW5kaWFuIGlzIGRlYWQi
-LCBidXQgSSdtIG5vdCB3aWxsaW5nIHRvIGFjY2VwdAo+IHRoaXMga2luZCBvZiBjcmF6eSBoYWNr
-ZXJ5Lgo+Cj4gTm90IHRvZGF5LCBub3QgZXZlci4KPgo+IElmIHlvdSB3YW50IHRvIHJ1biBhIGls
-cDMyIGtlcm5lbCBvbiA2NC1iaXQgaGFyZHdhcmUgKGFuZCBzdXBwb3J0Cj4gNjQtYml0IEFCSSBq
-dXN0IGluIGEgMzItYml0IHZpcnR1YWwgbWVtb3J5IHNpemUpLCBJIHdvdWxkIHN1Z2dlc3QgeW91
-Cj4KPiAgKGEpIHRyZWF0IHRoZSBrZXJuZWwgYXMgbmF0aXZlbHkgMzItYml0IChvYnZpb3VzbHkg
-eW91IGNhbiB0aGVuIHRlbGwKPiB0aGUgY29tcGlsZXIgdG8gdXNlIHRoZSBydjY0IGluc3RydWN0
-aW9ucywgd2hpY2ggSSBwcmVzdW1lIHlvdSdyZQo+IGFscmVhZHkgZG9pbmcgLSBJIGRpZG4ndCBs
-b29rKQpJIHVzZWQgQ09ORklHXzMyQklUIGluIHYxIGFuZCB2MiwgYnV0IEkndmUgYWJhbmRvbmVk
-IHRoZW0gYmVjYXVzZSwKYmFzZWQgb24gQ09ORklHXzY0QklULCBJIGdhaW4gbW9yZSBmdW5jdGlv
-bmFsaXR5IGJ5IGluaGVyaXRpbmcgdGhlCmxwNjQtYWJpIGtlcm5lbC4gSSB3YW50IHRoZSBmdWxs
-IGZ1bmN0aW9uYWxpdHkgb2YgdGhlIENPTkZJR182NEJJVApMaW51eCBrZXJuZWwsIHdoaWNoIGNh
-biBiZSBlcXVpdmFsZW50LCB1c2VkIGludGVyY2hhbmdlYWJseSwgYW5kCnNlYW1sZXNzbHkuCgo+
-Cj4gIChiKSBsb29rIGF0IG1ha2luZyB0aGUgY29tcGF0IHN0dWZmIGRvIHRoZSBjb252ZXJzaW9u
-IHRoZSAid3Jvbmcgd2F5Ii4KPgo+IEFuZCBidHcsIHRoYXQgKGIpIGltcGxpZXMgKm5vdCoganVz
-dCBpZ25vcmluZyB0aGUgaGlnaCBiaXRzLiBJZgo+IHVzZXItc3BhY2UgZ2l2ZXMgNjQtYml0IHBv
-aW50ZXIsIHlvdSBkb24ndCBqdXN0IHRyZWF0IGl0IGFzIGEgMzItYml0Cj4gb25lIGJ5IGRyb3Bw
-aW5nIHRoZSBoaWdoIGJpdHMuIFlvdSBhZGQgc29tZSBsb2dpYyB0byBjb252ZXJ0IGl0IHRvIGFu
-Cj4gaW52YWxpZCBwb2ludGVyIHNvIHRoYXQgdXNlciBzcGFjZSBnZXRzIC1FRkFVTFQuClRoYW5r
-cyBmb3IgdGhlIGFkdmljZS4gSSdtIGxvb2tpbmcgYXQgaG93IHRvIG1ha2UgdGhlIGNvbXBhdCBz
-dHVmZi4KCi0tIApCZXN0IFJlZ2FyZHMKIEd1byBSZW4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On 25/03/2025 17:03, Conor Dooley wrote:
+> On Tue, Mar 25, 2025 at 09:13:22AM +0100, Krzysztof Kozlowski wrote:
+>> On Fri, Mar 21, 2025 at 05:22:35PM +0000, Conor Dooley wrote:
+>>> +title: Microchip PolarFire SoC Microprocessor Subsystem (MSS) sysreg register region
+>>> +
+>>> +maintainers:
+>>> +  - Conor Dooley <conor.dooley@microchip.com>
+>>> +
+>>> +description:
+>>> +  An wide assortment of registers that control elements of the MSS on PolarFire
+>>> +  SoC, including pinmuxing, resets and clocks among others.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    items:
+>>> +      - const: microchip,mpfs-mss-top-sysreg
+>>> +      - const: syscon
+>>> +      - const: simple-mfd
+>>
+>> You need to list the children if you use simple-mfd. Commit msg
+>> mentioned clock controller, so where is it?
+> 
+> I don't think a child node is required here, there's not enough
+
+Then this is not a simple-mfd.
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
