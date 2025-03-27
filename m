@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E0B5C3600B
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 17:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC84DC3600B
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 19:40:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Subject:From:To:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IMyM1tngQhEkhCmMtONcPipNIT7ICKU86q1KPW+fJRY=; b=LnrW3xVawtVkZW
-	4Cp1mDubK96Up/c2eRx7068VkhMSfWgQboC0h4lm6f2sLpb00dQZqcSQNlqV38LsuDa9yA4I8gByt
-	TazloR7dRj4rNvgWTztPZQ3G0nCMJVBipirGk/qPQ6ZQ8CLC2bT18wWI9wH0bh9F1MQYy8kVisZZr
-	7I97LPIWdF2qQw8u3Iebms/FaGzkI8sUkd2kWhLYGSV+NRNpJ9T0X5+XfGYjf3wIn/Hal58/CGGCR
-	jMY+7vmefFVb6y3wVs9TWsKxZt0wSCrIldbBNUviKoZ25gB9a/H6nrOaZQBXrFe/+EOucC5pIgBOD
-	gQq84p8mM1u44HEGt8tA==;
+	List-Owner; bh=6WS+fWuxIOmSbifME/80Py6+yAdddbhZwIYWzQWG1gQ=; b=w8BEX+eruJNW8r
+	BcT1VsR5fKQd9u9RBBj/hwbzn3HJSA6gYpqB5pCIeCUxAC9M4rPeCQsFIWHFUEBy4p9AB0pX7Yw5I
+	EPmOIfzJ9k/H4Pgk4+ZbcoGBdo0frWtcKEUbyHDP+IRgQYI963dYZNREP7MnS7O8ufP9JOD/YLVsf
+	XwWfbA2SnmBMND8HVAvgTRt0inwPW6FqS01nptELDTf5npOZgbJeYY8VNy5r7QSIsUFMTZDTO2VOx
+	00FtokcK/ob4JOTB3RO7B4yCANpd25rOEC0VxB+eoYwzAT08v3F5kNmTq7UhIe/c3+ZtSJU0kTkt2
+	BmuiJ1+y+XjTw7b8HorA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqjA-0000000BcSK-1Irt;
-	Thu, 27 Mar 2025 17:09:12 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1txt4y-0000000BqZK-49mT;
+	Thu, 27 Mar 2025 19:39:53 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txqhP-0000000BcAz-19Sc
+	id 1txt1S-0000000BpSK-21Dt
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Mar 2025 17:07:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 6E20B4424E;
-	Thu, 27 Mar 2025 17:07:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1743095239;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UdhTLdNrpirrNqXWYpfQ6mk/u/0zez3SEY7a+4LtZhQ=;
-	b=pquV8/LvdCRSxF1toX4HU3e4N4ii7PO8LWLGS+EgcwbdcmadVNBPmg5Nf/azep1I0TZUIE
-	m/nnZlbO7I1ftRSXTmW+JI+AwbHWQiMBEWgYlUip+F7xF5XXhHqIW5FRGxkD8EmvG49Y1s
-	ednGhlGdPjkrxnYTdXROvmp6wLAAPv+yRAyZx4oR6biquHn4qRlp7V/QdsI6Fdz/JHqRhx
-	Czhn71bpeZpnq4UBjrkXkMtrAQmgqUJ3tUWvZ2lGJE2Je1WGMP2WvyHVKPYPhUyLI5scod
-	OjFzxi+gCgnjgZksfgD+049BKcvlUgDPOXp5WlXi0MSBZMUAf9p7asMmoLDI5A==
-Mime-Version: 1.0
-Date: Thu, 27 Mar 2025 18:07:13 +0100
-Message-Id: <D8R7OVRDZF3J.3FH8JD5J0AWWF@bootlin.com>
-Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Nicolas Ferre"
- <nicolas.ferre@microchip.com>, "Claudiu Beznea" <claudiu.beznea@tuxon.dev>,
- "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Samuel Holland" <samuel.holland@sifive.com>,
- "Richard Cochran" <richardcochran@gmail.com>, "Russell King"
- <linux@armlinux.org.uk>, "Thomas Bogendoerfer" <tsbogend@alpha.franken.de>,
- "Vladimir Kondratiev" <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, "netdev@vger.kernel.org"
- <netdev@vger.kernel.org>, "devicetree@vger.kernel.org"
- <devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
- <linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
- <linux-riscv@lists.infradead.org>, "linux-mips@vger.kernel.org"
- <linux-mips@vger.kernel.org>, "Thomas Petazzoni"
- <thomas.petazzoni@bootlin.com>, "Tawfik Bayouk"
- <tawfik.bayouk@mobileye.com>
-To: "Katakam, Harini" <harini.katakam@amd.com>, "Andrew Lunn"
- <andrew@lunn.ch>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next 07/13] net: macb: move HW IP alignment value to
- macb_config
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250321-macb-v1-0-537b7e37971d@bootlin.com>
- <20250321-macb-v1-7-537b7e37971d@bootlin.com>
- <45b3e613-90c6-4499-b50b-383106172184@lunn.ch>
- <D8OOPAXK16CI.3TE75O760JRSL@bootlin.com>
- <967fcb66-6a64-4e97-8293-a38b0ef1bc01@lunn.ch>
- <SJ2PR12MB8739A1E03E116F9D6A312EB99EA62@SJ2PR12MB8739.namprd12.prod.outlook.com>
-In-Reply-To: <SJ2PR12MB8739A1E03E116F9D6A312EB99EA62@SJ2PR12MB8739.namprd12.prod.outlook.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduieekleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegggfgtfffkvefvhffuofhfjgesthhqredtredtjeenucfhrhhomhepvfhhrohoucfnvggsrhhunhcuoehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeigfelffeuffetteetuddufffghefhudeuteeigeekteevgeeileejgfdvffelheenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeeiieegsgemfhdtfhhfmehfvgdutdemlegvfhgunecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeeiieegsgemfhdtfhhfmehfvgdutdemlegvfhgupdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehthhgvohdrlhgvsghruhhnsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvledprhgtphhtthhopehhrghrihhnihdrkhgrthgrkhgrmhesrghmugdrtghomhdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopegrnhgurhgvfidonhgvthguvghvsehluhhnnhdrtghhpdhrtghpt
- hhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: theo.lebrun@bootlin.com
+	Thu, 27 Mar 2025 19:36:20 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-301e05b90caso2386710a91.2
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Mar 2025 12:36:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104173; x=1743708973; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KorWWUYNfGS3pclcLR4IVySOlyWdCxoV23QR28JCI2I=;
+        b=eZOjvGKyPROvZBhlFiSTPqsNv4pYkbr2cVVTSmojMOCcL8zRwZ/2Ddrjsj47CPqY+d
+         DnAtc7ifegihNYSiITJvV8ChfghzAsWrBu9odqH82JX6pjdW1wRqjdeESUUeS7JISYnA
+         1p9zjQp670z7yOBh9iSf2YXgwx9XbG97j9WlOrkBXSR8ZIvS3UTjSEVlBQ5NxFrTrjfm
+         fwXUfAijY7Mvf/qyFjx77HH3MEr3g11aVIufMPmrgiphIML7vkc3Hwy+wIYSQkXynyUi
+         LitYk4u+yyqO24aYbZss4KU6ls8AtPbqVvzoFMbdTz7WjLI+Jcg6Wt5XyQ0uLT+qoDjN
+         IVfw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743104173; x=1743708973;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=KorWWUYNfGS3pclcLR4IVySOlyWdCxoV23QR28JCI2I=;
+        b=YdwQ5paKxGkfY7NvZA/4P79bGpnuJWj63bFNe5rvQQDxamGVY8PUmKMe6Qr2WLkQQ5
+         EzHaOrryxBGcFMNTPXLyIpyvZdQNluyzoKLFWcfhzPdr7HG95XDz3r1jU4DnKEYgNNnY
+         7hfIJNnaiw3BGulp4eJ0jXBXVCbUyUy3aif5y8iR39hOI6EYp9HqkwE4pwjltZUmKnW1
+         zBCPw+JV5LANYLOr1HmY/r7sUB/OgRjIVIirYQwNYMEw32aGlVaraxLNwe6wAi6UUmpm
+         GyVb5iGVt5aFeYdNFIyAivkdR2IMpBoPz2GO1xjKaKfL9JohvDkz3rHhkBlrhWgZ1lKY
+         GOVg==
+X-Gm-Message-State: AOJu0YxckmJSORxmqvNLqHzNfrmuBFZhNd4h3KuStINblKsOvFsqaiUc
+	pVGyHbJzkfpdjBV81ijtxKvOCTi9MKtRGK+sxP2eQaR5n8YvM5NHsqo3MJ95zb0=
+X-Gm-Gg: ASbGncv3XnbGwf//IbYJYipEdDxUfD5VH8qGo8eOOaKK3Duc4JHPgZEHh6S3n65MMRd
+	s7rg+0bLrwYcF415o/1kViSYUN6QbyJocJNHhiKxR01f9dHCKnTKJWySV8DhAe4Gc0yE8RmvEp7
+	mg97eEY910ttmIn+B3g0nizJkf7tWDO4dF49P4ZWUywJmY4zfaBMQp4rl1Qsk3jnI4dR6E+jNYc
+	Rnjt8z19/Q/6JndXHXdV9j9Urf4iTs3uar8fYGnshBN0L1jX1Y5/VGLHhY54NYPYIWQpQIh941n
+	0dP0pufWmjqiSyxJcrG/1dB1SoZ1XAtU8hcQWAdz4speQ/9qCrZ50c/7pg==
+X-Google-Smtp-Source: AGHT+IGkXZdaqjPx7I39ddYrLUnzx7adhrgFE4aLrIPGcoW+vAkApyDwc5Oj/kcRn+YswOOIctcNYA==
+X-Received: by 2002:a17:90b:540c:b0:2ff:53a4:74f0 with SMTP id 98e67ed59e1d1-303a9192fabmr7576655a91.29.1743104173034;
+        Thu, 27 Mar 2025 12:36:13 -0700 (PDT)
+Received: from atishp.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 27 Mar 2025 12:36:12 -0700 (PDT)
+From: Atish Patra <atishp@rivosinc.com>
+Date: Thu, 27 Mar 2025 12:35:42 -0700
+Subject: [PATCH v5 01/21] perf pmu-events: Add functions in jevent.py to
+ parse counter and event info for hardware aware grouping
+MIME-Version: 1.0
+Message-Id: <20250327-counter_delegation-v5-1-1ee538468d1b@rivosinc.com>
+References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
+In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>, 
+ Atish Patra <atishp@atishpatra.org>, Will Deacon <will@kernel.org>, 
+ Mark Rutland <mark.rutland@arm.com>, Peter Zijlstra <peterz@infradead.org>, 
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org, 
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+ Atish Patra <atishp@rivosinc.com>
+X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_100724_238634_46FAC210 
-X-CRM114-Status: GOOD (  36.82  )
+X-CRM114-CacheID: sfid-20250327_123614_564828_B51CEC47 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,173 +106,969 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGVsbG8gSGFyaW5pLCBBbmRyZXcsCgpPbiBXZWQgTWFyIDI2LCAyMDI1IGF0IDY6MDEgQU0gQ0VU
-LCBLYXRha2FtLCBIYXJpbmkgd3JvdGU6Cj4gW0FNRCBPZmZpY2lhbCBVc2UgT25seSAtIEFNRCBJ
-bnRlcm5hbCBEaXN0cmlidXRpb24gT25seV0KPgo+IEhpIFRoZW8sCj4KPj4gLS0tLS1PcmlnaW5h
-bCBNZXNzYWdlLS0tLS0KPj4gRnJvbTogQW5kcmV3IEx1bm4gPGFuZHJld0BsdW5uLmNoPgo+PiBT
-ZW50OiBUdWVzZGF5LCBNYXJjaCAyNSwgMjAyNSAxMjowNiBBTQo+PiBUbzogVGjDqW8gTGVicnVu
-IDx0aGVvLmxlYnJ1bkBib290bGluLmNvbT4KPj4gQ2M6IEFuZHJldyBMdW5uIDxhbmRyZXcrbmV0
-ZGV2QGx1bm4uY2g+OyBEYXZpZCBTLiBNaWxsZXIKPj4gPGRhdmVtQGRhdmVtbG9mdC5uZXQ+OyBF
-cmljIER1bWF6ZXQgPGVkdW1hemV0QGdvb2dsZS5jb20+OyBKYWt1YiBLaWNpbnNraQo+PiA8a3Vi
-YUBrZXJuZWwub3JnPjsgUGFvbG8gQWJlbmkgPHBhYmVuaUByZWRoYXQuY29tPjsgUm9iIEhlcnJp
-bmcKPj4gPHJvYmhAa2VybmVsLm9yZz47IEtyenlzenRvZiBLb3psb3dza2kgPGtyemsrZHRAa2Vy
-bmVsLm9yZz47IENvbm9yIERvb2xleQo+PiA8Y29ub3IrZHRAa2VybmVsLm9yZz47IE5pY29sYXMg
-RmVycmUgPG5pY29sYXMuZmVycmVAbWljcm9jaGlwLmNvbT47IENsYXVkaXUKPj4gQmV6bmVhIDxj
-bGF1ZGl1LmJlem5lYUB0dXhvbi5kZXY+OyBQYXVsIFdhbG1zbGV5Cj4+IDxwYXVsLndhbG1zbGV5
-QHNpZml2ZS5jb20+OyBQYWxtZXIgRGFiYmVsdCA8cGFsbWVyQGRhYmJlbHQuY29tPjsgQWxiZXJ0
-IE91Cj4+IDxhb3VAZWVjcy5iZXJrZWxleS5lZHU+OyBBbGV4YW5kcmUgR2hpdGkgPGFsZXhAZ2hp
-dGkuZnI+OyBTYW11ZWwgSG9sbGFuZAo+PiA8c2FtdWVsLmhvbGxhbmRAc2lmaXZlLmNvbT47IFJp
-Y2hhcmQgQ29jaHJhbiA8cmljaGFyZGNvY2hyYW5AZ21haWwuY29tPjsKPj4gUnVzc2VsbCBLaW5n
-IDxsaW51eEBhcm1saW51eC5vcmcudWs+OyBUaG9tYXMgQm9nZW5kb2VyZmVyCj4+IDx0c2JvZ2Vu
-ZEBhbHBoYS5mcmFua2VuLmRlPjsgVmxhZGltaXIgS29uZHJhdGlldgo+PiA8dmxhZGltaXIua29u
-ZHJhdGlldkBtb2JpbGV5ZS5jb20+OyBHcmVnb3J5IENMRU1FTlQKPj4gPGdyZWdvcnkuY2xlbWVu
-dEBib290bGluLmNvbT47IG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc7Cj4+IGRldmljZXRyZWVAdmdl
-ci5rZXJuZWwub3JnOyBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnOyBsaW51eC0KPj4gcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZzsgbGludXgtbWlwc0B2Z2VyLmtlcm5lbC5vcmc7IFRob21h
-cyBQZXRhenpvbmkKPj4gPHRob21hcy5wZXRhenpvbmlAYm9vdGxpbi5jb20+OyBUYXdmaWsgQmF5
-b3VrIDx0YXdmaWsuYmF5b3VrQG1vYmlsZXllLmNvbT4KPj4gU3ViamVjdDogUmU6IFtQQVRDSCBu
-ZXQtbmV4dCAwNy8xM10gbmV0OiBtYWNiOiBtb3ZlIEhXIElQIGFsaWdubWVudCB2YWx1ZSB0bwo+
-PiBtYWNiX2NvbmZpZwo+Pgo+PiBPbiBNb24sIE1hciAyNCwgMjAyNSBhdCAwNjo0OTowNVBNICsw
-MTAwLCBUaMOpbyBMZWJydW4gd3JvdGU6Cj4+ID4gSGVsbG8gQW5kcmV3LAo+PiA+Cj4+ID4gT24g
-RnJpIE1hciAyMSwgMjAyNSBhdCAxMDowNiBQTSBDRVQsIEFuZHJldyBMdW5uIHdyb3RlOgo+PiA+
-ID4gT24gRnJpLCBNYXIgMjEsIDIwMjUgYXQgMDg6MDk6MzhQTSArMDEwMCwgVGjDqW8gTGVicnVu
-IHdyb3RlOgo+PiA+ID4+IFRoZSBjb250cm9sbGVyIGRvZXMgSVAgYWxpZ25tZW50ICh0d28gYnl0
-ZXMpLgo+PiA+ID4KPj4gPiA+IEknbSBhIGJpdCBjb25mdXNlZCBoZXJlLiBJcyB0aGlzIGhhcmQg
-Y29kZWQsIGJha2VkIGludG8gdGhlIHNpbGljb24/Cj4+ID4gPiBJdCB3aWxsIGFsd2F5cyBkbyBJ
-UCBhbGlnbm1lbnQ/IEl0IGNhbm5vdCBiZSB0dXJuZWQgb2ZmPwo+PiA+Cj4+ID4gWWVzLCB0aGUg
-YWxpZ25tZW50IGlzIGJha2VkIGluc2lkZSB0aGUgc2lsaWNvbi4KPj4gPiBJIGxvb2tlZCBidXQg
-aGF2ZW4ndCBzZWVuIGFueSByZWdpc3RlciB0byBjb25maWd1cmUgdGhlIGFsaWdubWVudC4KPj4g
-Pgo+PiA+IFNvcnJ5IHRoZSBjb21taXQgbWVzc2FnZSBpc24ndCBjbGVhciwgaXQgbmVlZHMgaW1w
-cm92ZW1lbnRzLgo+PiA+Cj4+ID4gPj4gIHNrYl9yZXNlcnZlKHNrYiwgTkVUX0lQX0FMSUdOKTsK
-Pj4gPiA+Cj4+ID4gPiBXaHkgbm90IGp1c3QgcmVwbGFjZSB0aGlzIHdpdGgKPj4gPiA+Cj4+ID4g
-PiAgICAgICAgIHNrYl9yZXNlcnZlKHNrYiwgMik7Cj4+ID4KPj4gPiBPbiBhcm02NCwgTkVUX0lQ
-X0FMSUdOPTAuIEkgZG9uJ3QgaGF2ZSBIVyB0byB0ZXN0LCBidXQgdGhlIGN1cnJlbnQKPj4gPiBj
-b2RlIGlzIHRlbGxpbmcgdXMgdGhhdCB0aGUgc2lsaWNvbiBkb2Vzbid0IGRvIGFsaWdubWVudCBv
-biB0aG9zZToKPj4KPj4gVGhpcyBpcyBwYXJ0IG9mIHRoZSBjb25mdXNpb24uIFlvdSBzYXkgdGhl
-IGhhcmR3YXJlIGRvZXMgYWxpZ25tZW50LCBhbmQgdGhlbiBzYXkgaXQKPj4gZG9lcyBub3QuLi4u
-Cj4+Cj4+ID4gICAgc2tiID0gbmV0ZGV2X2FsbG9jX3NrYiguLi4pOwo+PiA+ICAgIHBhZGRyID0g
-ZG1hX21hcF9zaW5nbGUoLi4uLCBza2ItPmRhdGEsIC4uLik7Cj4+ID4gICAgbWFjYl9zZXRfYWRk
-ciguLi4sIHBhZGRyKTsKPj4gPgo+PiA+ICAgIC8vIGFybSAgID0+IE5FVF9JUF9BTElHTj0yID0+
-IHNpbGljb24gZG9lcyBhbGlnbm1lbnQKPj4gPiAgICAvLyBhcm02NCA9PiBORVRfSVBfQUxJR049
-MCA9PiBzaWxpY29uIGRvZXNuJ3QgZG8gYWxpZ25tZW50Cj4+ID4gICAgc2tiX3Jlc2VydmUoc2ti
-LCBORVRfSVBfQUxJR04pOwo+PiA+Cj4+ID4gVGhlIHBsYXRmb3JtIHdlIGludHJvZHVjZSBpcyB0
-aGUgZmlyc3Qgb25lIHdoZXJlIHRoZSBzaWxpY29uIGFsaWdubWVudAo+PiA+ICgwIGJ5dGVzKSBp
-cyBkaWZmZXJlbnQgZnJvbSB0aGUgTkVUX0lQX0FMSUdOIHZhbHVlIChNSVBTLCAyIGJ5dGVzKS4K
-Pj4KPj4gVGhpcyBpcyBzdGFydGluZyB0byBtYWtlIGl0IGNsZWFyZXIuIFNvIHRoZSBmaXJzdCBz
-dGF0ZW1lbnQgdGhhdCB0aGUgY29udHJvbGxlciBkb2VzIElQCj4+IGFsaWdubWVudCAodHdvIGJ5
-dGVzKSBpcyBub3QgdGhlIGZ1bGwgc3RvcnkuIEkgd291bGQgc3RhcnQgdGhlcmUsIGV4cGxhaW4g
-dGhlIGZ1bGwgc3RvcnksCj4+IG90aGVyd2lzZSByZWFkZXJzIGdldCB0aGUgd3JvbmcgaWRlYS4K
-Pj4KPj4gPiA+PiAgICAgQ29tcGF0aWJsZSAgICAgICAgICAgICB8ICBEVFMgZm9sZGVycyAgICAg
-ICAgICAgICAgfCAgaHdfaXBfYWxpZ24KPj4gPiA+PiAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS18LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0KPj4gPiA+PiAg
-ICBjZG5zLGF0OTFzYW05MjYwLW1hY2IgICB8IGFyY2gvYXJtLyAgICAgICAgICAgICAgICAgfCAy
-Cj4+ID4gPj4gICAgY2RucyxtYWNiICAgICAgICAgICAgICAgfCBhcmNoL3thcm0scmlzY3Z9LyAg
-ICAgICAgIHwgTkVUX0lQX0FMSUdOCj4+ID4gPj4gICAgY2RucyxucDQtbWFjYiAgICAgICAgICAg
-fCBOVUxMICAgICAgICAgICAgICAgICAgICAgIHwgTkVUX0lQX0FMSUdOCj4+ID4gPj4gICAgY2Ru
-cyxwYzMwMi1nZW0gICAgICAgICAgfCBOVUxMICAgICAgICAgICAgICAgICAgICAgIHwgTkVUX0lQ
-X0FMSUdOCj4+ID4gPj4gICAgY2RucyxnZW0gICAgICAgICAgICAgICAgfCBhcmNoL3thcm0sYXJt
-NjR9LyAgICAgICAgIHwgTkVUX0lQX0FMSUdOCj4+ID4gPj4gICAgY2RucyxzYW05eDYwLW1hY2Ig
-ICAgICAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+PiA+ID4+ICAgIGF0bWVsLHNh
-bWE1ZDItZ2VtICAgICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4gPiA+PiAg
-ICBhdG1lbCxzYW1hNWQyOS1nZW0gICAgICB8IGFyY2gvYXJtLyAgICAgICAgICAgICAgICAgfCAy
-Cj4+ID4gPj4gICAgYXRtZWwsc2FtYTVkMy1nZW0gICAgICAgfCBhcmNoL2FybS8gICAgICAgICAg
-ICAgICAgIHwgMgo+PiA+ID4+ICAgIGF0bWVsLHNhbWE1ZDMtbWFjYiAgICAgIHwgYXJjaC9hcm0v
-ICAgICAgICAgICAgICAgICB8IDIKPj4gPiA+PiAgICBhdG1lbCxzYW1hNWQ0LWdlbSAgICAgICB8
-IGFyY2gvYXJtLyAgICAgICAgICAgICAgICAgfCAyCj4+ID4gPj4gICAgY2RucyxhdDkxcm05MjAw
-LWVtYWMgICAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+PiA+ID4+ICAgIGNkbnMs
-ZW1hYyAgICAgICAgICAgICAgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4gPiA+
-PiAgICBjZG5zLHp5bnFtcC1nZW0gICAgICAgICB8ICpzYW1lIGFzIHhsbngsenlucW1wLWdlbSog
-fCAwCj4+ID4gPj4gICAgY2Rucyx6eW5xLWdlbSAgICAgICAgICAgfCAqc2FtZSBhcyB4bG54LHp5
-bnEtZ2VtKiAgIHwgMgo+PiA+ID4+ICAgIHNpZml2ZSxmdTU0MC1jMDAwLWdlbSAgIHwgYXJjaC9y
-aXNjdi8gICAgICAgICAgICAgICB8IDIKPj4gPiA+PiAgICBtaWNyb2NoaXAsbXBmcy1tYWNiICAg
-ICB8IGFyY2gvcmlzY3YvICAgICAgICAgICAgICAgfCAyCj4+ID4gPj4gICAgbWljcm9jaGlwLHNh
-bWE3ZzUtZ2VtICAgfCBhcmNoL2FybS8gICAgICAgICAgICAgICAgIHwgMgo+PiA+ID4+ICAgIG1p
-Y3JvY2hpcCxzYW1hN2c1LWVtYWMgIHwgYXJjaC9hcm0vICAgICAgICAgICAgICAgICB8IDIKPj4g
-PiA+PiAgICB4bG54LHp5bnFtcC1nZW0gICAgICAgICB8IGFyY2gvYXJtNjQvICAgICAgICAgICAg
-ICAgfCAwCj4+ID4gPj4gICAgeGxueCx6eW5xLWdlbSAgICAgICAgICAgfCBhcmNoL2FybS8gICAg
-ICAgICAgICAgICAgIHwgMgo+PiA+ID4+ICAgIHhsbngsdmVyc2FsLWdlbSAgICAgICAgIHwgTlVM
-TCAgICAgICAgICAgICAgICAgICAgICB8IE5FVF9JUF9BTElHTgo+Cj4gVGhhbmtzIGZvciB0aGUg
-cGF0Y2guIHhsbngsdmVyc2FsLWdlbSBpcyBhcm02NCBhbmQgTkVUX0lQX0FMSUdOIGlzIDAuCj4K
-PiBBRkFJSywgSVAgYWxpZ25tZW50IGlzIGNvbnRyb2xsZWQgYnkgdGhlIHJlZ2lzdGVyIGZpZWxk
-ICIgcmVjZWl2ZSBidWZmZXIgb2Zmc2V0ICIKPiBpbiB0aGUgTlcgY29uZmlnIHJlZ2lzdGVyLiBU
-aGUgb25seSBleGNlcHRpb24gaXMgd2hlbiAiIGdlbV9wYnVmX3JzYyAiIGkuZS4KPiByZWNlaXZl
-IGNvYWxlc2NpbmcgaXMgZW5hYmxlZCBpbiB0aGUgUlRMIGluIHRoZSBJUC4gSW4gdGhhdCBjYXNl
-LCB0aGUgQ2FkZW5jCj4gc3BlY2lmaWNhdGlvbiBzdGF0ZXMgdGhhdCB0aGVzZSBiaXRzIGFyZSBp
-Z25vcmVkLgo+IFNvIHRvIHN1bW1hcml6ZSwgaWYgUlNDIGlzIG5vdCBlbmFibGVkIChzZWUgYml0
-IDI2IG9mIGRlc2lnbmNmZ19kZWJ1ZzYpLAo+IHRoZW4gdGhlIGN1cnJlbnQgaW1wbGVtZW50YXRp
-b24gd29ya3MgZm9yIGFsbCBhcmNoaXRlY3R1cmVzIGkuZS4gdGhlc2UgdHdvCj4gc3RhdGVtZW50
-cyBhcmUgaW4gc3luYzoKPiBjb25maWcgfD0gTUFDQl9CRihSQk9GLCBORVRfSVBfQUxJR04pOyAg
-LyogTWFrZSBldGggZGF0YSBhbGlnbmVkICovCj4gc2tiX3Jlc2VydmUoc2tiLCBORVRfSVBfQUxJ
-R04pOwo+Cj4gSG9wZSB0aGlzIGhlbHBzIHNpbXBsaWZ5IHRoZSBwYXRjaCAoYW5kIGFsc28gZmls
-bCB1cCB0aGUgdGFibGUgdGhhdCBBbmRyZXcgc3VnZ2VzdGVkKQoKV2VsbCwgYmlnIHRoYW5rcyEg
-VGhhdCdsbCBtYWtlIHRoZSBwYXRjaCBtdWNoIHNpbXBsZXIuIEVpdGhlciBFeWVRNQppcyB0aGUg
-Zmlyc3QgY29tcGF0aWJsZSB3aXRoIFJTQyBlbmFibGVkLCBvciBvdGhlcnMgd2l0aCBSU0MgZW5h
-YmxlZApoYXZlIE5FVF9JUF9BTElHTj0wLgoKQmVsb3cgaXMgd2hhdCB0aGUgcGF0Y2ggY291bGQg
-bG9vayBsaWtlIGZvciBWMi4KIC0gV2UgZGV0ZWN0IGF0IHByb2JlIGlmIHRoZSBIVyBpcyBSU0Mt
-Y2FwYWJsZS4KIC0gSWYgaXQgaXNuJ3QsIHdlIGtlZXAgdGhlIGNvZGUgdGhlIHNhbWUuCiAtIElm
-IGl0IGlzLCB0aGF0IG1lYW5zIHRoZSBhbGlnbm1lbnQgZmVhdHVyZSBpc24ndCBhdmFpbGFibGUu
-CiAgIFdlIGNhbid0IHJlc3BlY3Qgb3VyIGFyY2ggYWxpZ25tZW50IHJlcXVlc3QuCgpUaGF0IHJl
-bW92ZXMgYWxsIHRoZSBtYWNiX2NvbmZpZy0+aHdfaXBfYWxpZ24gbWVzcy4gTXVjaCBiZXR0ZXIu
-CgpOb3RlOiBJIHRyaWVkIGNoZWNraW5nIGlmIHRoZSBSQk9GIGZpZWxkIGlzIHJlYWQtb25seSB3
-aGVuIHRoZSAicmVjZWl2ZQpidWZmZXIgb2Zmc2V0IiBpc24ndCBhdmFpbGFibGUgYnV0IGl0IGlz
-bid0LgoKLQoKZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYi5o
-IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiLmgKaW5kZXggZDhlZTc4NzhlMTQ0
-Li40NzgxNTJmNzA1NjMgMTAwNjQ0Ci0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2Uv
-bWFjYi5oCisrKyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L2NhZGVuY2UvbWFjYi5oCkBAIC01MjUs
-NiArNTI1LDggQEAKIC8qIEJpdGZpZWxkcyBpbiBEQ0ZHNi4gKi8KICNkZWZpbmUgR0VNX1BCVUZf
-TFNPX09GRlNFVCAgICAgICAgMjcKICNkZWZpbmUgR0VNX1BCVUZfTFNPX1NJWkUgICAgICAgMQor
-I2RlZmluZSBHRU1fUEJVRl9SU0NfT0ZGU0VUICAgICAgICAyNgorI2RlZmluZSBHRU1fUEJVRl9S
-U0NfU0laRSAgICAgICAxCiAjZGVmaW5lIEdFTV9QQlVGX0NVVFRIUlVfT0ZGU0VUICAgICAgIDI1
-CiAjZGVmaW5lIEdFTV9QQlVGX0NVVFRIUlVfU0laRSAgICAgICAgIDEKICNkZWZpbmUgR0VNX0RB
-VzY0X09GRlNFVCAgICAgICAgMjMKQEAgLTczNiw2ICs3MzgsNyBAQAogI2RlZmluZSBNQUNCX0NB
-UFNfTkVFRF9UU1VDTEsgICAgICAgICBCSVQoMTApCiAjZGVmaW5lIE1BQ0JfQ0FQU19RVUVVRV9E
-SVNBQkxFICAgICAgIEJJVCgxMSkKICNkZWZpbmUgTUFDQl9DQVBTX05PX0xTTyAgICAgICAgQklU
-KDEyKQorI2RlZmluZSBNQUNCX0NBUFNfUlNDX0NBUEFCTEUgICAgICAgICBCSVQoMTMpCiAjZGVm
-aW5lIE1BQ0JfQ0FQU19QQ1MgICAgICAgICAgIEJJVCgyNCkKICNkZWZpbmUgTUFDQl9DQVBTX0hJ
-R0hfU1BFRUQgICAgICAgQklUKDI1KQogI2RlZmluZSBNQUNCX0NBUFNfQ0xLX0hXX0NIRyAgICAg
-ICBCSVQoMjYpCmRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNlL21hY2Jf
-bWFpbi5jIGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvY2FkZW5jZS9tYWNiX21haW4uYwppbmRleCBk
-YjhkYTg1OTBmZTAuLjUxZTgyZDY2NDAzYiAxMDA2NDQKLS0tIGEvZHJpdmVycy9uZXQvZXRoZXJu
-ZXQvY2FkZW5jZS9tYWNiX21haW4uYworKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9jYWRlbmNl
-L21hY2JfbWFpbi5jCkBAIC0xMzI5LDggKzEzMjksMTkgQEAgc3RhdGljIHZvaWQgZ2VtX3J4X3Jl
-ZmlsbChzdHJ1Y3QgbWFjYl9xdWV1ZSAqcXVldWUpCiAgICAgICAgIGRtYV93bWIoKTsKICAgICAg
-ICAgbWFjYl9zZXRfYWRkcihicCwgZGVzYywgcGFkZHIpOwoKLSAgICAgICAgLyogUHJvcGVybHkg
-YWxpZ24gRXRoZXJuZXQgaGVhZGVyLiAqLwotICAgICAgICBza2JfcmVzZXJ2ZShza2IsIE5FVF9J
-UF9BTElHTik7CisgICAgICAgIC8qIFByb3Blcmx5IGFsaWduIEV0aGVybmV0IGhlYWRlci4KKyAg
-ICAgICAgICoKKyAgICAgICAgICogSGFyZHdhcmUgY2FuIGFkZCBkdW1teSBieXRlcyBpZiBhc2tl
-ZCB1c2luZyB0aGUgUkJPRgorICAgICAgICAgKiBmaWVsZCBpbnNpZGUgdGhlIE5DRkdSIHJlZ2lz
-dGVyLiBUaGF0IGZlYXR1cmUgaXNuJ3QKKyAgICAgICAgICogYXZhaWxhYmxlIGlmIGhhcmR3YXJl
-IGlzIFJTQyBjYXBhYmxlLgorICAgICAgICAgKgorICAgICAgICAgKiBXZSBjYW5ub3QgZmFsbGJh
-Y2sgdG8gZG9pbmcgdGhlIDItYnl0ZSBzaGlmdCBiZWZvcmUKKyAgICAgICAgICogRE1BIG1hcHBp
-bmcgYmVjYXVzZSB0aGUgYWRkcmVzcyBmaWVsZCBkb2VzIG5vdCBhbGxvdworICAgICAgICAgKiBz
-ZXR0aW5nIHRoZSBsb3cgMi8zIGJpdHMuCisgICAgICAgICAqIEl0IGlzIDMgYml0cyBpZiBIV19E
-TUFfQ0FQX1BUUC4KKyAgICAgICAgICovCisgICAgICAgIGlmICghKGJwLT5jYXBzICYgTUFDQl9D
-QVBTX1JTQ19DQVBBQkxFKSkKKyAgICAgICAgICAgc2tiX3Jlc2VydmUoc2tiLCBORVRfSVBfQUxJ
-R04pOwogICAgICB9IGVsc2UgewogICAgICAgICBkZXNjLT5jdHJsID0gMDsKICAgICAgICAgZG1h
-X3dtYigpOwpAQCAtMjc4OCw3ICsyNzk5LDkgQEAgc3RhdGljIHZvaWQgbWFjYl9pbml0X2h3KHN0
-cnVjdCBtYWNiICpicCkKICAgbWFjYl9zZXRfaHdhZGRyKGJwKTsKCiAgIGNvbmZpZyA9IG1hY2Jf
-bWRjX2Nsa19kaXYoYnApOwotICBjb25maWcgfD0gTUFDQl9CRihSQk9GLCBORVRfSVBfQUxJR04p
-OyAvKiBNYWtlIGV0aCBkYXRhIGFsaWduZWQgKi8KKyAgLyogTWFrZSBldGggZGF0YSBhbGlnbmVk
-LiBJZiBSU0MgY2FwYWJsZSwgdGhhdCBvZmZzZXQgaXMgaWdub3JlZC4gKi8KKyAgaWYgKCEoYnAt
-PmNhcHMgJiBNQUNCX0NBUFNfUlNDX0NBUEFCTEUpKQorICAgICBjb25maWcgfD0gTUFDQl9CRihS
-Qk9GLCBORVRfSVBfQUxJR04pOwogICBjb25maWcgfD0gTUFDQl9CSVQoRFJGQ1MpOyAgICAvKiBE
-aXNjYXJkIFJ4IEZDUyAqLwogICBpZiAoYnAtPmNhcHMgJiBNQUNCX0NBUFNfSlVNQk8pCiAgICAg
-IGNvbmZpZyB8PSBNQUNCX0JJVChKRlJBTUUpOyAgIC8qIEVuYWJsZSBqdW1ibyBmcmFtZXMgKi8K
-QEAgLTQxMDksNiArNDEyMiw4IEBAIHN0YXRpYyB2b2lkIG1hY2JfY29uZmlndXJlX2NhcHMoc3Ry
-dWN0IG1hY2IgKmJwLAogICAgICBkY2ZnID0gZ2VtX3JlYWRsKGJwLCBEQ0ZHMik7CiAgICAgIGlm
-ICgoZGNmZyAmIChHRU1fQklUKFJYX1BLVF9CVUZGKSB8IEdFTV9CSVQoVFhfUEtUX0JVRkYpKSkg
-PT0gMCkKICAgICAgICAgYnAtPmNhcHMgfD0gTUFDQl9DQVBTX0ZJRk9fTU9ERTsKKyAgICAgaWYg
-KEdFTV9CRkVYVChQQlVGX1JTQywgZ2VtX3JlYWRsKGJwLCBEQ0ZHNikpKQorICAgICAgICBicC0+
-Y2FwcyB8PSBNQUNCX0NBUFNfUlNDX0NBUEFCTEU7CiAgICAgIGlmIChnZW1faGFzX3B0cChicCkp
-IHsKICAgICAgICAgaWYgKCFHRU1fQkZFWFQoVFNVLCBnZW1fcmVhZGwoYnAsIERDRkc1KSkpCiAg
-ICAgICAgICAgIGRldl9lcnIoJmJwLT5wZGV2LT5kZXYsCgpUaGFua3MgQW5kcmV3ICYgSGFyaW5p
-LAoKLS0KVGjDqW8gTGVicnVuLCBCb290bGluCkVtYmVkZGVkIExpbnV4IGFuZCBLZXJuZWwgZW5n
-aW5lZXJpbmcKaHR0cHM6Ly9ib290bGluLmNvbQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+From: Weilin Wang <weilin.wang@intel.com>
+
+These functions are added to parse event counter restrictions and counter
+availability info from json files so that the metric grouping method could
+do grouping based on the counter restriction of events and the counters
+that are available on the system.
+
+Signed-off-by: Weilin Wang <weilin.wang@intel.com>
+---
+ tools/perf/pmu-events/empty-pmu-events.c | 299 ++++++++++++++++++++-----------
+ tools/perf/pmu-events/jevents.py         | 205 ++++++++++++++++++++-
+ tools/perf/pmu-events/pmu-events.h       |  32 +++-
+ 3 files changed, 419 insertions(+), 117 deletions(-)
+
+diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
+index 1c7a2cfa321f..3a7ec31576f5 100644
+--- a/tools/perf/pmu-events/empty-pmu-events.c
++++ b/tools/perf/pmu-events/empty-pmu-events.c
+@@ -20,73 +20,73 @@ struct pmu_table_entry {
+ 
+ static const char *const big_c_string =
+ /* offset=0 */ "tool\000"
+-/* offset=5 */ "duration_time\000tool\000Wall clock interval time in nanoseconds\000config=1\000\00000\000\000"
+-/* offset=78 */ "user_time\000tool\000User (non-kernel) time in nanoseconds\000config=2\000\00000\000\000"
+-/* offset=145 */ "system_time\000tool\000System/kernel time in nanoseconds\000config=3\000\00000\000\000"
+-/* offset=210 */ "has_pmem\000tool\0001 if persistent memory installed otherwise 0\000config=4\000\00000\000\000"
+-/* offset=283 */ "num_cores\000tool\000Number of cores. A core consists of 1 or more thread, with each thread being associated with a logical Linux CPU\000config=5\000\00000\000\000"
+-/* offset=425 */ "num_cpus\000tool\000Number of logical Linux CPUs. There may be multiple such CPUs on a core\000config=6\000\00000\000\000"
+-/* offset=525 */ "num_cpus_online\000tool\000Number of online logical Linux CPUs. There may be multiple such CPUs on a core\000config=7\000\00000\000\000"
+-/* offset=639 */ "num_dies\000tool\000Number of dies. Each die has 1 or more cores\000config=8\000\00000\000\000"
+-/* offset=712 */ "num_packages\000tool\000Number of packages. Each package has 1 or more die\000config=9\000\00000\000\000"
+-/* offset=795 */ "slots\000tool\000Number of functional units that in parallel can execute parts of an instruction\000config=0xa\000\00000\000\000"
+-/* offset=902 */ "smt_on\000tool\0001 if simultaneous multithreading (aka hyperthreading) is enable otherwise 0\000config=0xb\000\00000\000\000"
+-/* offset=1006 */ "system_tsc_freq\000tool\000The amount a Time Stamp Counter (TSC) increases per second\000config=0xc\000\00000\000\000"
+-/* offset=1102 */ "default_core\000"
+-/* offset=1115 */ "bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000"
+-/* offset=1174 */ "bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000"
+-/* offset=1233 */ "l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000"
+-/* offset=1328 */ "segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\000"
+-/* offset=1427 */ "dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\000"
+-/* offset=1557 */ "eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\000"
+-/* offset=1672 */ "hisi_sccl,ddrc\000"
+-/* offset=1687 */ "uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000"
+-/* offset=1773 */ "uncore_cbox\000"
+-/* offset=1785 */ "unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000"
+-/* offset=2016 */ "event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000"
+-/* offset=2081 */ "event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000"
+-/* offset=2152 */ "hisi_sccl,l3c\000"
+-/* offset=2166 */ "uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000"
+-/* offset=2246 */ "uncore_imc_free_running\000"
+-/* offset=2270 */ "uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000"
+-/* offset=2365 */ "uncore_imc\000"
+-/* offset=2376 */ "uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000"
+-/* offset=2454 */ "uncore_sys_ddr_pmu\000"
+-/* offset=2473 */ "sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000"
+-/* offset=2546 */ "uncore_sys_ccn_pmu\000"
+-/* offset=2565 */ "sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000"
+-/* offset=2639 */ "uncore_sys_cmn_pmu\000"
+-/* offset=2658 */ "sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000"
+-/* offset=2798 */ "CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000"
+-/* offset=2820 */ "IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000"
+-/* offset=2883 */ "Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000"
+-/* offset=3049 */ "dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
+-/* offset=3113 */ "icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
+-/* offset=3180 */ "cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000"
+-/* offset=3251 */ "DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000"
+-/* offset=3345 */ "DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000"
+-/* offset=3479 */ "DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000"
+-/* offset=3543 */ "DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000"
+-/* offset=3611 */ "DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000"
+-/* offset=3681 */ "M1\000\000ipc + M2\000\000\000\000\000\000\000\00000"
+-/* offset=3703 */ "M2\000\000ipc + M1\000\000\000\000\000\000\000\00000"
+-/* offset=3725 */ "M3\000\0001 / M3\000\000\000\000\000\000\000\00000"
+-/* offset=3745 */ "L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000"
++/* offset=5 */ "duration_time\000tool\000Wall clock interval time in nanoseconds\000config=1\000\00000\000\000\000"
++/* offset=79 */ "user_time\000tool\000User (non-kernel) time in nanoseconds\000config=2\000\00000\000\000\000"
++/* offset=147 */ "system_time\000tool\000System/kernel time in nanoseconds\000config=3\000\00000\000\000\000"
++/* offset=213 */ "has_pmem\000tool\0001 if persistent memory installed otherwise 0\000config=4\000\00000\000\000\000"
++/* offset=287 */ "num_cores\000tool\000Number of cores. A core consists of 1 or more thread, with each thread being associated with a logical Linux CPU\000config=5\000\00000\000\000\000"
++/* offset=430 */ "num_cpus\000tool\000Number of logical Linux CPUs. There may be multiple such CPUs on a core\000config=6\000\00000\000\000\000"
++/* offset=531 */ "num_cpus_online\000tool\000Number of online logical Linux CPUs. There may be multiple such CPUs on a core\000config=7\000\00000\000\000\000"
++/* offset=646 */ "num_dies\000tool\000Number of dies. Each die has 1 or more cores\000config=8\000\00000\000\000\000"
++/* offset=720 */ "num_packages\000tool\000Number of packages. Each package has 1 or more die\000config=9\000\00000\000\000\000"
++/* offset=804 */ "slots\000tool\000Number of functional units that in parallel can execute parts of an instruction\000config=0xa\000\00000\000\000\000"
++/* offset=912 */ "smt_on\000tool\0001 if simultaneous multithreading (aka hyperthreading) is enable otherwise 0\000config=0xb\000\00000\000\000\000"
++/* offset=1017 */ "system_tsc_freq\000tool\000The amount a Time Stamp Counter (TSC) increases per second\000config=0xc\000\00000\000\000\000"
++/* offset=1114 */ "default_core\000"
++/* offset=1127 */ "bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000\000"
++/* offset=1187 */ "bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000\000"
++/* offset=1247 */ "l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000\000"
++/* offset=1343 */ "segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\0000,1\000"
++/* offset=1446 */ "dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\0000,1\000"
++/* offset=1580 */ "eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\0000,1\000"
++/* offset=1699 */ "hisi_sccl,ddrc\000"
++/* offset=1714 */ "uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000"
++/* offset=1801 */ "uncore_cbox\000"
++/* offset=1813 */ "unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000"
++/* offset=2048 */ "event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000"
++/* offset=2114 */ "event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000"
++/* offset=2186 */ "hisi_sccl,l3c\000"
++/* offset=2200 */ "uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000"
++/* offset=2281 */ "uncore_imc_free_running\000"
++/* offset=2305 */ "uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000"
++/* offset=2401 */ "uncore_imc\000"
++/* offset=2412 */ "uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000"
++/* offset=2491 */ "uncore_sys_ddr_pmu\000"
++/* offset=2510 */ "sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000"
++/* offset=2584 */ "uncore_sys_ccn_pmu\000"
++/* offset=2603 */ "sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000"
++/* offset=2678 */ "uncore_sys_cmn_pmu\000"
++/* offset=2697 */ "sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000"
++/* offset=2838 */ "CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000"
++/* offset=2860 */ "IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000"
++/* offset=2923 */ "Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000"
++/* offset=3089 */ "dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
++/* offset=3153 */ "icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
++/* offset=3220 */ "cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000"
++/* offset=3291 */ "DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000"
++/* offset=3385 */ "DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000"
++/* offset=3519 */ "DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000"
++/* offset=3583 */ "DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000"
++/* offset=3651 */ "DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000"
++/* offset=3721 */ "M1\000\000ipc + M2\000\000\000\000\000\000\000\00000"
++/* offset=3743 */ "M2\000\000ipc + M1\000\000\000\000\000\000\000\00000"
++/* offset=3765 */ "M3\000\0001 / M3\000\000\000\000\000\000\000\00000"
++/* offset=3785 */ "L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000"
+ ;
+ 
+ static const struct compact_pmu_event pmu_events__common_tool[] = {
+-{ 5 }, /* duration_time\000tool\000Wall clock interval time in nanoseconds\000config=1\000\00000\000\000 */
+-{ 210 }, /* has_pmem\000tool\0001 if persistent memory installed otherwise 0\000config=4\000\00000\000\000 */
+-{ 283 }, /* num_cores\000tool\000Number of cores. A core consists of 1 or more thread, with each thread being associated with a logical Linux CPU\000config=5\000\00000\000\000 */
+-{ 425 }, /* num_cpus\000tool\000Number of logical Linux CPUs. There may be multiple such CPUs on a core\000config=6\000\00000\000\000 */
+-{ 525 }, /* num_cpus_online\000tool\000Number of online logical Linux CPUs. There may be multiple such CPUs on a core\000config=7\000\00000\000\000 */
+-{ 639 }, /* num_dies\000tool\000Number of dies. Each die has 1 or more cores\000config=8\000\00000\000\000 */
+-{ 712 }, /* num_packages\000tool\000Number of packages. Each package has 1 or more die\000config=9\000\00000\000\000 */
+-{ 795 }, /* slots\000tool\000Number of functional units that in parallel can execute parts of an instruction\000config=0xa\000\00000\000\000 */
+-{ 902 }, /* smt_on\000tool\0001 if simultaneous multithreading (aka hyperthreading) is enable otherwise 0\000config=0xb\000\00000\000\000 */
+-{ 145 }, /* system_time\000tool\000System/kernel time in nanoseconds\000config=3\000\00000\000\000 */
+-{ 1006 }, /* system_tsc_freq\000tool\000The amount a Time Stamp Counter (TSC) increases per second\000config=0xc\000\00000\000\000 */
+-{ 78 }, /* user_time\000tool\000User (non-kernel) time in nanoseconds\000config=2\000\00000\000\000 */
++{ 5 }, /* duration_time\000tool\000Wall clock interval time in nanoseconds\000config=1\000\00000\000\000\000 */
++{ 213 }, /* has_pmem\000tool\0001 if persistent memory installed otherwise 0\000config=4\000\00000\000\000\000 */
++{ 287 }, /* num_cores\000tool\000Number of cores. A core consists of 1 or more thread, with each thread being associated with a logical Linux CPU\000config=5\000\00000\000\000\000 */
++{ 430 }, /* num_cpus\000tool\000Number of logical Linux CPUs. There may be multiple such CPUs on a core\000config=6\000\00000\000\000\000 */
++{ 531 }, /* num_cpus_online\000tool\000Number of online logical Linux CPUs. There may be multiple such CPUs on a core\000config=7\000\00000\000\000\000 */
++{ 646 }, /* num_dies\000tool\000Number of dies. Each die has 1 or more cores\000config=8\000\00000\000\000\000 */
++{ 720 }, /* num_packages\000tool\000Number of packages. Each package has 1 or more die\000config=9\000\00000\000\000\000 */
++{ 804 }, /* slots\000tool\000Number of functional units that in parallel can execute parts of an instruction\000config=0xa\000\00000\000\000\000 */
++{ 912 }, /* smt_on\000tool\0001 if simultaneous multithreading (aka hyperthreading) is enable otherwise 0\000config=0xb\000\00000\000\000\000 */
++{ 147 }, /* system_time\000tool\000System/kernel time in nanoseconds\000config=3\000\00000\000\000\000 */
++{ 1017 }, /* system_tsc_freq\000tool\000The amount a Time Stamp Counter (TSC) increases per second\000config=0xc\000\00000\000\000\000 */
++{ 79 }, /* user_time\000tool\000User (non-kernel) time in nanoseconds\000config=2\000\00000\000\000\000 */
+ 
+ };
+ 
+@@ -99,29 +99,29 @@ const struct pmu_table_entry pmu_events__common[] = {
+ };
+ 
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_default_core[] = {
+-{ 1115 }, /* bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000 */
+-{ 1174 }, /* bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000 */
+-{ 1427 }, /* dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\000 */
+-{ 1557 }, /* eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\000 */
+-{ 1233 }, /* l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000 */
+-{ 1328 }, /* segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\000 */
++{ 1127 }, /* bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000\000 */
++{ 1187 }, /* bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000\000 */
++{ 1446 }, /* dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\0000,1\000 */
++{ 1580 }, /* eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\0000,1\000 */
++{ 1247 }, /* l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000\000 */
++{ 1343 }, /* segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\0000,1\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_hisi_sccl_ddrc[] = {
+-{ 1687 }, /* uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000 */
++{ 1714 }, /* uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_hisi_sccl_l3c[] = {
+-{ 2166 }, /* uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000 */
++{ 2200 }, /* uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_cbox[] = {
+-{ 2016 }, /* event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000 */
+-{ 2081 }, /* event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000 */
+-{ 1785 }, /* unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000 */
++{ 2048 }, /* event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000 */
++{ 2114 }, /* event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000 */
++{ 1813 }, /* unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_imc[] = {
+-{ 2376 }, /* uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000 */
++{ 2412 }, /* uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_imc_free_running[] = {
+-{ 2270 }, /* uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000 */
++{ 2305 }, /* uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000 */
+ 
+ };
+ 
+@@ -129,51 +129,51 @@ const struct pmu_table_entry pmu_events__test_soc_cpu[] = {
+ {
+      .entries = pmu_events__test_soc_cpu_default_core,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_default_core),
+-     .pmu_name = { 1102 /* default_core\000 */ },
++     .pmu_name = { 1114 /* default_core\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_hisi_sccl_ddrc,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_hisi_sccl_ddrc),
+-     .pmu_name = { 1672 /* hisi_sccl,ddrc\000 */ },
++     .pmu_name = { 1699 /* hisi_sccl,ddrc\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_hisi_sccl_l3c,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_hisi_sccl_l3c),
+-     .pmu_name = { 2152 /* hisi_sccl,l3c\000 */ },
++     .pmu_name = { 2186 /* hisi_sccl,l3c\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_cbox,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_cbox),
+-     .pmu_name = { 1773 /* uncore_cbox\000 */ },
++     .pmu_name = { 1801 /* uncore_cbox\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_imc,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_imc),
+-     .pmu_name = { 2365 /* uncore_imc\000 */ },
++     .pmu_name = { 2401 /* uncore_imc\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_imc_free_running,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_imc_free_running),
+-     .pmu_name = { 2246 /* uncore_imc_free_running\000 */ },
++     .pmu_name = { 2281 /* uncore_imc_free_running\000 */ },
+ },
+ };
+ 
+ static const struct compact_pmu_event pmu_metrics__test_soc_cpu_default_core[] = {
+-{ 2798 }, /* CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000 */
+-{ 3479 }, /* DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000 */
+-{ 3251 }, /* DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000 */
+-{ 3345 }, /* DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000 */
+-{ 3543 }, /* DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
+-{ 3611 }, /* DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
+-{ 2883 }, /* Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000 */
+-{ 2820 }, /* IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000 */
+-{ 3745 }, /* L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000 */
+-{ 3681 }, /* M1\000\000ipc + M2\000\000\000\000\000\000\000\00000 */
+-{ 3703 }, /* M2\000\000ipc + M1\000\000\000\000\000\000\000\00000 */
+-{ 3725 }, /* M3\000\0001 / M3\000\000\000\000\000\000\000\00000 */
+-{ 3180 }, /* cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000 */
+-{ 3049 }, /* dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
+-{ 3113 }, /* icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
++{ 2838 }, /* CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000 */
++{ 3519 }, /* DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000 */
++{ 3291 }, /* DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000 */
++{ 3385 }, /* DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000 */
++{ 3583 }, /* DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
++{ 3651 }, /* DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
++{ 2923 }, /* Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000 */
++{ 2860 }, /* IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000 */
++{ 3785 }, /* L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000 */
++{ 3721 }, /* M1\000\000ipc + M2\000\000\000\000\000\000\000\00000 */
++{ 3743 }, /* M2\000\000ipc + M1\000\000\000\000\000\000\000\00000 */
++{ 3765 }, /* M3\000\0001 / M3\000\000\000\000\000\000\000\00000 */
++{ 3220 }, /* cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000 */
++{ 3089 }, /* dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
++{ 3153 }, /* icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
+ 
+ };
+ 
+@@ -181,18 +181,18 @@ const struct pmu_table_entry pmu_metrics__test_soc_cpu[] = {
+ {
+      .entries = pmu_metrics__test_soc_cpu_default_core,
+      .num_entries = ARRAY_SIZE(pmu_metrics__test_soc_cpu_default_core),
+-     .pmu_name = { 1102 /* default_core\000 */ },
++     .pmu_name = { 1114 /* default_core\000 */ },
+ },
+ };
+ 
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_ccn_pmu[] = {
+-{ 2565 }, /* sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000 */
++{ 2603 }, /* sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_cmn_pmu[] = {
+-{ 2658 }, /* sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000 */
++{ 2697 }, /* sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_ddr_pmu[] = {
+-{ 2473 }, /* sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000 */
++{ 2510 }, /* sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000 */
+ 
+ };
+ 
+@@ -200,17 +200,17 @@ const struct pmu_table_entry pmu_events__test_soc_sys[] = {
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_ccn_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_ccn_pmu),
+-     .pmu_name = { 2546 /* uncore_sys_ccn_pmu\000 */ },
++     .pmu_name = { 2584 /* uncore_sys_ccn_pmu\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_cmn_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_cmn_pmu),
+-     .pmu_name = { 2639 /* uncore_sys_cmn_pmu\000 */ },
++     .pmu_name = { 2678 /* uncore_sys_cmn_pmu\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_ddr_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_ddr_pmu),
+-     .pmu_name = { 2454 /* uncore_sys_ddr_pmu\000 */ },
++     .pmu_name = { 2491 /* uncore_sys_ddr_pmu\000 */ },
+ },
+ };
+ 
+@@ -227,6 +227,12 @@ struct pmu_metrics_table {
+         uint32_t num_pmus;
+ };
+ 
++/* Struct used to make the PMU counter layout table implementation opaque to callers. */
++struct pmu_layouts_table {
++        const struct compact_pmu_event *entries;
++        size_t length;
++};
++
+ /*
+  * Map a CPU to its table of PMU events. The CPU is identified by the
+  * cpuid field, which is an arch-specific identifier for the CPU.
+@@ -240,6 +246,7 @@ struct pmu_events_map {
+         const char *cpuid;
+         struct pmu_events_table event_table;
+         struct pmu_metrics_table metric_table;
++        struct pmu_layouts_table layout_table;
+ };
+ 
+ /*
+@@ -273,6 +280,7 @@ const struct pmu_events_map pmu_events_map[] = {
+ 	.cpuid = 0,
+ 	.event_table = { 0, 0 },
+ 	.metric_table = { 0, 0 },
++	.layout_table = { 0, 0 },
+ }
+ };
+ 
+@@ -317,6 +325,8 @@ static void decompress_event(int offset, struct pmu_event *pe)
+ 	pe->unit = (*p == '\0' ? NULL : p);
+ 	while (*p++);
+ 	pe->long_desc = (*p == '\0' ? NULL : p);
++	while (*p++);
++	pe->counters_list = (*p == '\0' ? NULL : p);
+ }
+ 
+ static void decompress_metric(int offset, struct pmu_metric *pm)
+@@ -348,6 +358,19 @@ static void decompress_metric(int offset, struct pmu_metric *pm)
+ 	pm->event_grouping = *p - '0';
+ }
+ 
++static void decompress_layout(int offset, struct pmu_layout *pm)
++{
++	const char *p = &big_c_string[offset];
++
++	pm->pmu = (*p == '\0' ? NULL : p);
++	while (*p++);
++	pm->desc = (*p == '\0' ? NULL : p);
++	p++;
++	pm->counters_num_gp = *p - '0';
++	p++;
++	pm->counters_num_fixed = *p - '0';
++}
++
+ static int pmu_events_table__for_each_event_pmu(const struct pmu_events_table *table,
+                                                 const struct pmu_table_entry *pmu,
+                                                 pmu_event_iter_fn fn,
+@@ -503,6 +526,21 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table,
+         return 0;
+ }
+ 
++int pmu_layouts_table__for_each_layout(const struct pmu_layouts_table *table,
++                                     pmu_layout_iter_fn fn,
++                                     void *data) {
++        for (size_t i = 0; i < table->length; i++) {
++                struct pmu_layout pm;
++                int ret;
++
++                decompress_layout(table->entries[i].offset, &pm);
++                ret = fn(&pm, data);
++                if (ret)
++                        return ret;
++        }
++        return 0;
++}
++
+ static const struct pmu_events_map *map_for_cpu(struct perf_cpu cpu)
+ {
+         static struct {
+@@ -595,6 +633,34 @@ const struct pmu_metrics_table *pmu_metrics_table__find(void)
+         return map ? &map->metric_table : NULL;
+ }
+ 
++const struct pmu_layouts_table *perf_pmu__find_layouts_table(void)
++{
++        const struct pmu_layouts_table *table = NULL;
++        struct perf_cpu cpu = {-1};
++        char *cpuid = get_cpuid_allow_env_override(cpu);
++        int i;
++
++        /* on some platforms which uses cpus map, cpuid can be NULL for
++         * PMUs other than CORE PMUs.
++         */
++        if (!cpuid)
++                return NULL;
++
++        i = 0;
++        for (;;) {
++                const struct pmu_events_map *map = &pmu_events_map[i++];
++                if (!map->arch)
++                        break;
++
++                if (!strcmp_cpuid_str(map->cpuid, cpuid)) {
++                        table = &map->layout_table;
++                        break;
++                }
++        }
++        free(cpuid);
++        return table;
++}
++
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+ {
+         for (const struct pmu_events_map *tables = &pmu_events_map[0];
+@@ -616,6 +682,16 @@ const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const
+         }
+         return NULL;
+ }
++const struct pmu_layouts_table *find_core_layouts_table(const char *arch, const char *cpuid)
++{
++        for (const struct pmu_events_map *tables = &pmu_events_map[0];
++             tables->arch;
++             tables++) {
++                if (!strcmp(tables->arch, arch) && !strcmp_cpuid_str(tables->cpuid, cpuid))
++                        return &tables->layout_table;
++        }
++        return NULL;
++}
+ 
+ int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data)
+ {
+@@ -644,6 +720,19 @@ int pmu_for_each_core_metric(pmu_metric_iter_fn fn, void *data)
+         return 0;
+ }
+ 
++int pmu_for_each_core_layout(pmu_layout_iter_fn fn, void *data)
++{
++        for (const struct pmu_events_map *tables = &pmu_events_map[0];
++             tables->arch;
++             tables++) {
++                int ret = pmu_layouts_table__for_each_layout(&tables->layout_table, fn, data);
++
++                if (ret)
++                        return ret;
++        }
++        return 0;
++}
++
+ const struct pmu_events_table *find_sys_events_table(const char *name)
+ {
+         for (const struct pmu_sys_events *tables = &pmu_sys_event_tables[0];
+diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
+index 3e204700b59a..fa7c466a5ef3 100755
+--- a/tools/perf/pmu-events/jevents.py
++++ b/tools/perf/pmu-events/jevents.py
+@@ -23,6 +23,8 @@ _metric_tables = []
+ _sys_metric_tables = []
+ # Mapping between sys event table names and sys metric table names.
+ _sys_event_table_to_metric_table_mapping = {}
++# List of regular PMU counter layout tables.
++_pmu_layouts_tables = []
+ # Map from an event name to an architecture standard
+ # JsonEvent. Architecture standard events are in json files in the top
+ # f'{_args.starting_dir}/{_args.arch}' directory.
+@@ -31,6 +33,10 @@ _arch_std_events = {}
+ _pending_events = []
+ # Name of events table to be written out
+ _pending_events_tblname = None
++# PMU counter layout to write out when the layout table is closed
++_pending_pmu_counts = []
++# Name of PMU counter layout table to be written out
++_pending_pmu_counts_tblname = None
+ # Metrics to write out when the table is closed
+ _pending_metrics = []
+ # Name of metrics table to be written out
+@@ -51,6 +57,11 @@ _json_event_attributes = [
+     'long_desc'
+ ]
+ 
++# Attributes that are in pmu_unit_layout.
++_json_layout_attributes = [
++    'pmu', 'desc'
++]
++
+ # Attributes that are in pmu_metric rather than pmu_event.
+ _json_metric_attributes = [
+     'metric_name', 'metric_group', 'metric_expr', 'metric_threshold',
+@@ -265,7 +276,7 @@ class JsonEvent:
+ 
+     def unit_to_pmu(unit: str) -> Optional[str]:
+       """Convert a JSON Unit to Linux PMU name."""
+-      if not unit:
++      if not unit or unit == "core":
+         return 'default_core'
+       # Comment brought over from jevents.c:
+       # it's not realistic to keep adding these, we need something more scalable ...
+@@ -336,6 +347,19 @@ class JsonEvent:
+     if 'Errata' in jd:
+       extra_desc += '  Spec update: ' + jd['Errata']
+     self.pmu = unit_to_pmu(jd.get('Unit'))
++    # The list of counter(s) the event could be collected with
++    class Counter:
++      gp = str()
++      fixed = str()
++    self.counters = {'list': str(), 'num': Counter()}
++    self.counters['list'] = jd.get('Counter')
++    # Number of generic counter
++    self.counters['num'].gp = jd.get('CountersNumGeneric')
++    # Number of fixed counter
++    self.counters['num'].fixed = jd.get('CountersNumFixed')
++    # If the event uses an MSR, other event uses the same MSR could not be
++    # schedule to collect at the same time.
++    self.msr = jd.get('MSRIndex')
+     filter = jd.get('Filter')
+     self.unit = jd.get('ScaleUnit')
+     self.perpkg = jd.get('PerPkg')
+@@ -411,8 +435,20 @@ class JsonEvent:
+         s += f'\t{attr} = {value},\n'
+     return s + '}'
+ 
+-  def build_c_string(self, metric: bool) -> str:
++  def build_c_string(self, metric: bool, layout: bool) -> str:
+     s = ''
++    if layout:
++      for attr in _json_layout_attributes:
++        x = getattr(self, attr)
++        if attr in _json_enum_attributes:
++          s += x if x else '0'
++        else:
++          s += f'{x}\\000' if x else '\\000'
++      x = self.counters['num'].gp
++      s += x if x else '0'
++      x = self.counters['num'].fixed
++      s += x if x else '0'
++      return s
+     for attr in _json_metric_attributes if metric else _json_event_attributes:
+       x = getattr(self, attr)
+       if metric and x and attr == 'metric_expr':
+@@ -425,15 +461,18 @@ class JsonEvent:
+         s += x if x else '0'
+       else:
+         s += f'{x}\\000' if x else '\\000'
++    if not metric:
++      x = self.counters['list']
++      s += f'{x}\\000' if x else '\\000'
+     return s
+ 
+-  def to_c_string(self, metric: bool) -> str:
++  def to_c_string(self, metric: bool, layout: bool) -> str:
+     """Representation of the event as a C struct initializer."""
+ 
+     def fix_comment(s: str) -> str:
+         return s.replace('*/', r'\*\/')
+ 
+-    s = self.build_c_string(metric)
++    s = self.build_c_string(metric, layout)
+     return f'{{ { _bcs.offsets[s] } }}, /* {fix_comment(s)} */\n'
+ 
+ 
+@@ -472,6 +511,8 @@ def preprocess_arch_std_files(archpath: str) -> None:
+           _arch_std_events[event.name.lower()] = event
+         if event.metric_name:
+           _arch_std_events[event.metric_name.lower()] = event
++        if event.counters['num'].gp:
++          _arch_std_events[event.pmu.lower()] = event
+     except Exception as e:
+         raise RuntimeError(f'Failure processing \'{item.name}\' in \'{archpath}\'') from e
+ 
+@@ -483,6 +524,8 @@ def add_events_table_entries(item: os.DirEntry, topic: str) -> None:
+       _pending_events.append(e)
+     if e.metric_name:
+       _pending_metrics.append(e)
++    if e.counters['num'].gp:
++      _pending_pmu_counts.append(e)
+ 
+ 
+ def print_pending_events() -> None:
+@@ -526,8 +569,8 @@ def print_pending_events() -> None:
+       last_pmu = event.pmu
+       pmus.add((event.pmu, pmu_name))
+ 
+-    _args.output_file.write(event.to_c_string(metric=False))
+     last_name = event.name
++    _args.output_file.write(event.to_c_string(metric=False, layout=False))
+   _pending_events = []
+ 
+   _args.output_file.write(f"""
+@@ -582,7 +625,7 @@ def print_pending_metrics() -> None:
+       last_pmu = metric.pmu
+       pmus.add((metric.pmu, pmu_name))
+ 
+-    _args.output_file.write(metric.to_c_string(metric=True))
++    _args.output_file.write(metric.to_c_string(metric=True, layout=False))
+   _pending_metrics = []
+ 
+   _args.output_file.write(f"""
+@@ -600,6 +643,35 @@ const struct pmu_table_entry {_pending_metrics_tblname}[] = {{
+ """)
+   _args.output_file.write('};\n\n')
+ 
++def print_pending_pmu_counter_layout_table() -> None:
++  '''Print counter layout data from counter.json file to counter layout table in
++    c-string'''
++
++  def pmu_counts_cmp_key(j: JsonEvent) -> Tuple[bool, str, str]:
++    def fix_none(s: Optional[str]) -> str:
++      if s is None:
++        return ''
++      return s
++
++    return (j.desc is not None, fix_none(j.pmu))
++
++  global _pending_pmu_counts
++  if not _pending_pmu_counts:
++    return
++
++  global _pending_pmu_counts_tblname
++  global pmu_layouts_tables
++  _pmu_layouts_tables.append(_pending_pmu_counts_tblname)
++
++  _args.output_file.write(
++      f'static const struct compact_pmu_event {_pending_pmu_counts_tblname}[] = {{\n')
++
++  for pmu_layout in sorted(_pending_pmu_counts, key=pmu_counts_cmp_key):
++    _args.output_file.write(pmu_layout.to_c_string(metric=False, layout=True))
++    _pending_pmu_counts = []
++
++  _args.output_file.write('};\n\n')
++
+ def get_topic(topic: str) -> str:
+   if topic.endswith('metrics.json'):
+     return 'metrics'
+@@ -636,10 +708,12 @@ def preprocess_one_file(parents: Sequence[str], item: os.DirEntry) -> None:
+     pmu_name = f"{event.pmu}\\000"
+     if event.name:
+       _bcs.add(pmu_name, metric=False)
+-      _bcs.add(event.build_c_string(metric=False), metric=False)
++      _bcs.add(event.build_c_string(metric=False, layout=False), metric=False)
+     if event.metric_name:
+       _bcs.add(pmu_name, metric=True)
+-      _bcs.add(event.build_c_string(metric=True), metric=True)
++      _bcs.add(event.build_c_string(metric=True, layout=False), metric=True)
++    if event.counters['num'].gp:
++      _bcs.add(event.build_c_string(metric=False, layout=True), metric=False)
+ 
+ def process_one_file(parents: Sequence[str], item: os.DirEntry) -> None:
+   """Process a JSON file during the main walk."""
+@@ -656,11 +730,14 @@ def process_one_file(parents: Sequence[str], item: os.DirEntry) -> None:
+   if item.is_dir() and is_leaf_dir_ignoring_sys(item.path):
+     print_pending_events()
+     print_pending_metrics()
++    print_pending_pmu_counter_layout_table()
+ 
+     global _pending_events_tblname
+     _pending_events_tblname = file_name_to_table_name('pmu_events_', parents, item.name)
+     global _pending_metrics_tblname
+     _pending_metrics_tblname = file_name_to_table_name('pmu_metrics_', parents, item.name)
++    global _pending_pmu_counts_tblname
++    _pending_pmu_counts_tblname = file_name_to_table_name('pmu_layouts_', parents, item.name)
+ 
+     if item.name == 'sys':
+       _sys_event_table_to_metric_table_mapping[_pending_events_tblname] = _pending_metrics_tblname
+@@ -694,6 +771,12 @@ struct pmu_metrics_table {
+         uint32_t num_pmus;
+ };
+ 
++/* Struct used to make the PMU counter layout table implementation opaque to callers. */
++struct pmu_layouts_table {
++        const struct compact_pmu_event *entries;
++        size_t length;
++};
++
+ /*
+  * Map a CPU to its table of PMU events. The CPU is identified by the
+  * cpuid field, which is an arch-specific identifier for the CPU.
+@@ -707,6 +790,7 @@ struct pmu_events_map {
+         const char *cpuid;
+         struct pmu_events_table event_table;
+         struct pmu_metrics_table metric_table;
++        struct pmu_layouts_table layout_table;
+ };
+ 
+ /*
+@@ -762,6 +846,12 @@ const struct pmu_events_map pmu_events_map[] = {
+               metric_size = '0'
+             if event_size == '0' and metric_size == '0':
+               continue
++            layout_tblname = file_name_to_table_name('pmu_layouts_', [], row[2].replace('/', '_'))
++            if layout_tblname in _pmu_layouts_tables:
++              layout_size = f'ARRAY_SIZE({layout_tblname})'
++            else:
++              layout_tblname = 'NULL'
++              layout_size = '0'
+             cpuid = row[0].replace('\\', '\\\\')
+             _args.output_file.write(f"""{{
+ \t.arch = "{arch}",
+@@ -773,6 +863,10 @@ const struct pmu_events_map pmu_events_map[] = {
+ \t.metric_table = {{
+ \t\t.pmus = {metric_tblname},
+ \t\t.num_pmus = {metric_size}
++\t}},
++\t.layout_table = {{
++\t\t.entries = {layout_tblname},
++\t\t.length = {layout_size}
+ \t}}
+ }},
+ """)
+@@ -783,6 +877,7 @@ const struct pmu_events_map pmu_events_map[] = {
+ \t.cpuid = 0,
+ \t.event_table = { 0, 0 },
+ \t.metric_table = { 0, 0 },
++\t.layout_table = { 0, 0 },
+ }
+ };
+ """)
+@@ -851,6 +946,9 @@ static void decompress_event(int offset, struct pmu_event *pe)
+       _args.output_file.write('\tp++;')
+     else:
+       _args.output_file.write('\twhile (*p++);')
++  _args.output_file.write('\twhile (*p++);')
++  _args.output_file.write(f'\n\tpe->counters_list = ')
++  _args.output_file.write("(*p == '\\0' ? NULL : p);\n")
+   _args.output_file.write("""}
+ 
+ static void decompress_metric(int offset, struct pmu_metric *pm)
+@@ -871,6 +969,30 @@ static void decompress_metric(int offset, struct pmu_metric *pm)
+       _args.output_file.write('\twhile (*p++);')
+   _args.output_file.write("""}
+ 
++static void decompress_layout(int offset, struct pmu_layout *pm)
++{
++\tconst char *p = &big_c_string[offset];
++""")
++  for attr in _json_layout_attributes:
++    _args.output_file.write(f'\n\tpm->{attr} = ')
++    if attr in _json_enum_attributes:
++      _args.output_file.write("*p - '0';\n")
++    else:
++      _args.output_file.write("(*p == '\\0' ? NULL : p);\n")
++    if attr == _json_layout_attributes[-1]:
++      continue
++    if attr in _json_enum_attributes:
++      _args.output_file.write('\tp++;')
++    else:
++      _args.output_file.write('\twhile (*p++);')
++  _args.output_file.write('\tp++;')
++  _args.output_file.write(f'\n\tpm->counters_num_gp = ')
++  _args.output_file.write("*p - '0';\n")
++  _args.output_file.write('\tp++;')
++  _args.output_file.write(f'\n\tpm->counters_num_fixed = ')
++  _args.output_file.write("*p - '0';\n")
++  _args.output_file.write("""}
++
+ static int pmu_events_table__for_each_event_pmu(const struct pmu_events_table *table,
+                                                 const struct pmu_table_entry *pmu,
+                                                 pmu_event_iter_fn fn,
+@@ -1026,6 +1148,21 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table,
+         return 0;
+ }
+ 
++int pmu_layouts_table__for_each_layout(const struct pmu_layouts_table *table,
++                                     pmu_layout_iter_fn fn,
++                                     void *data) {
++        for (size_t i = 0; i < table->length; i++) {
++                struct pmu_layout pm;
++                int ret;
++
++                decompress_layout(table->entries[i].offset, &pm);
++                ret = fn(&pm, data);
++                if (ret)
++                        return ret;
++        }
++        return 0;
++}
++
+ static const struct pmu_events_map *map_for_cpu(struct perf_cpu cpu)
+ {
+         static struct {
+@@ -1118,6 +1255,34 @@ const struct pmu_metrics_table *pmu_metrics_table__find(void)
+         return map ? &map->metric_table : NULL;
+ }
+ 
++const struct pmu_layouts_table *perf_pmu__find_layouts_table(void)
++{
++        const struct pmu_layouts_table *table = NULL;
++        struct perf_cpu cpu = {-1};
++        char *cpuid = get_cpuid_allow_env_override(cpu);
++        int i;
++
++        /* on some platforms which uses cpus map, cpuid can be NULL for
++         * PMUs other than CORE PMUs.
++         */
++        if (!cpuid)
++                return NULL;
++
++        i = 0;
++        for (;;) {
++                const struct pmu_events_map *map = &pmu_events_map[i++];
++                if (!map->arch)
++                        break;
++
++                if (!strcmp_cpuid_str(map->cpuid, cpuid)) {
++                        table = &map->layout_table;
++                        break;
++                }
++        }
++        free(cpuid);
++        return table;
++}
++
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid)
+ {
+         for (const struct pmu_events_map *tables = &pmu_events_map[0];
+@@ -1139,6 +1304,16 @@ const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const
+         }
+         return NULL;
+ }
++const struct pmu_layouts_table *find_core_layouts_table(const char *arch, const char *cpuid)
++{
++        for (const struct pmu_events_map *tables = &pmu_events_map[0];
++             tables->arch;
++             tables++) {
++                if (!strcmp(tables->arch, arch) && !strcmp_cpuid_str(tables->cpuid, cpuid))
++                        return &tables->layout_table;
++        }
++        return NULL;
++}
+ 
+ int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data)
+ {
+@@ -1167,6 +1342,19 @@ int pmu_for_each_core_metric(pmu_metric_iter_fn fn, void *data)
+         return 0;
+ }
+ 
++int pmu_for_each_core_layout(pmu_layout_iter_fn fn, void *data)
++{
++        for (const struct pmu_events_map *tables = &pmu_events_map[0];
++             tables->arch;
++             tables++) {
++                int ret = pmu_layouts_table__for_each_layout(&tables->layout_table, fn, data);
++
++                if (ret)
++                        return ret;
++        }
++        return 0;
++}
++
+ const struct pmu_events_table *find_sys_events_table(const char *name)
+ {
+         for (const struct pmu_sys_events *tables = &pmu_sys_event_tables[0];
+@@ -1330,6 +1518,7 @@ struct pmu_table_entry {
+     ftw(arch_path, [], process_one_file)
+     print_pending_events()
+     print_pending_metrics()
++    print_pending_pmu_counter_layout_table()
+ 
+   print_mapping_table(archs)
+   print_system_mapping_table()
+diff --git a/tools/perf/pmu-events/pmu-events.h b/tools/perf/pmu-events/pmu-events.h
+index 675562e6f770..9a5cbec32513 100644
+--- a/tools/perf/pmu-events/pmu-events.h
++++ b/tools/perf/pmu-events/pmu-events.h
+@@ -45,6 +45,11 @@ struct pmu_event {
+ 	const char *desc;
+ 	const char *topic;
+ 	const char *long_desc;
++	/**
++	 * The list of counter(s) the event could be collected on.
++	 * eg., "0,1,2,3,4,5,6,7".
++	 */
++	const char *counters_list;
+ 	const char *pmu;
+ 	const char *unit;
+ 	bool perpkg;
+@@ -67,8 +72,18 @@ struct pmu_metric {
+ 	enum metric_event_groups event_grouping;
+ };
+ 
++struct pmu_layout {
++	const char *pmu;
++	const char *desc;
++	/** Total number of generic counters*/
++	int counters_num_gp;
++	/** Total number of fixed counters. Set to zero if no fixed counter on the unit.*/
++	int counters_num_fixed;
++};
++
+ struct pmu_events_table;
+ struct pmu_metrics_table;
++struct pmu_layouts_table;
+ 
+ #define PMU_EVENTS__NOT_FOUND -1000
+ 
+@@ -80,6 +95,9 @@ typedef int (*pmu_metric_iter_fn)(const struct pmu_metric *pm,
+ 				  const struct pmu_metrics_table *table,
+ 				  void *data);
+ 
++typedef int (*pmu_layout_iter_fn)(const struct pmu_layout *pm,
++				  void *data);
++
+ int pmu_events_table__for_each_event(const struct pmu_events_table *table,
+ 				    struct perf_pmu *pmu,
+ 				    pmu_event_iter_fn fn,
+@@ -92,10 +110,13 @@ int pmu_events_table__for_each_event(const struct pmu_events_table *table,
+  * search of all tables.
+  */
+ int pmu_events_table__find_event(const struct pmu_events_table *table,
+-                                 struct perf_pmu *pmu,
+-                                 const char *name,
+-                                 pmu_event_iter_fn fn,
+-				 void *data);
++				struct perf_pmu *pmu,
++				const char *name,
++				pmu_event_iter_fn fn,
++				void *data);
++int pmu_layouts_table__for_each_layout(const struct pmu_layouts_table *table,
++					pmu_layout_iter_fn fn,
++					void *data);
+ size_t pmu_events_table__num_events(const struct pmu_events_table *table,
+ 				    struct perf_pmu *pmu);
+ 
+@@ -104,10 +125,13 @@ int pmu_metrics_table__for_each_metric(const struct pmu_metrics_table *table, pm
+ 
+ const struct pmu_events_table *perf_pmu__find_events_table(struct perf_pmu *pmu);
+ const struct pmu_metrics_table *pmu_metrics_table__find(void);
++const struct pmu_layouts_table *perf_pmu__find_layouts_table(void);
+ const struct pmu_events_table *find_core_events_table(const char *arch, const char *cpuid);
+ const struct pmu_metrics_table *find_core_metrics_table(const char *arch, const char *cpuid);
++const struct pmu_layouts_table *find_core_layouts_table(const char *arch, const char *cpuid);
+ int pmu_for_each_core_event(pmu_event_iter_fn fn, void *data);
+ int pmu_for_each_core_metric(pmu_metric_iter_fn fn, void *data);
++int pmu_for_each_core_layout(pmu_layout_iter_fn fn, void *data);
+ 
+ const struct pmu_events_table *find_sys_events_table(const char *name);
+ const struct pmu_metrics_table *find_sys_metrics_table(const char *name);
+
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
