@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C0D3C3600B
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 03:24:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3A0CC36002
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 03:24:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8le2uI93K3fuRWVCyPVwqTAsyz0CaDTpz0ux7StY1zQ=; b=gmiJ/Lc0gSpHOv
-	CTOIdjz4EX4qvJeGcOur6AJ04cgbVT2ForA2Sa4V83KqAYikvs4TdnS+BgwEhf2VTCAJkDY8Oj5KO
-	OGECvSf8/Ozjsnq3/hjqZiQIw14ewTs2bHof9ykeR1yaU379jwp/xomwcOtFXrBtD8BZAm5YsYH8G
-	hix9m1pAjx87UTTeCyTuin8t2gwAcfqH1tM41ZVjLMXpmx1N6ApoFdH1TUW9RKvu4lU7FPsUP4X5c
-	qyp+mLtBxHWU1AAnELuvSN52RV7Liu2fQ9m2XxV6LVkzsJb052P0asxcz3RZy5rE8utaygnQ7le5N
-	9d8KsH3ZnUG1eokPN24A==;
+	List-Owner; bh=/BYSErNfTEWcEwJPmBN3XBCx7/Lbz9c6Q6YCGn+2x+E=; b=slmy2Qeh/LmOpE
+	MOkUyqpYl20/Iukw8B452M4lqHJGcZkX7r/jmxrDjqtTMlr5FeM9x2Ax2ZvpBw1kW7vaDbm9EnAcJ
+	YWHzrURQDLQ5eDqbJXU9Al80TOpc0vNPIao7aK+d3tBuBaMUH9ImyLlbyoy1JnlV+YdM/LIIH9BBv
+	wGakN0cdDJovSwf1TIXTubka4TqUUeI1VHbifEbmuIAMaQx/uSeit5iVY+LlRVMl0a67WN/mN6mG4
+	w9416vnMXCpgq+BufVmJac81gDgbPTrN/PVnSo81ABsb64e68LYac3aMWhWk4dJc+V5hMB1N7Djz5
+	+b8hr5WCvaSz1DFeu4jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdqY-0000000A3zF-3xNv;
-	Thu, 27 Mar 2025 03:23:58 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1txdqc-0000000A41W-13Ur;
+	Thu, 27 Mar 2025 03:24:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdqV-0000000A3xe-1lSK
+	id 1txdqY-0000000A3yA-0qdh
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Mar 2025 03:23:55 +0000
+	Thu, 27 Mar 2025 03:23:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D7EF261163;
-	Thu, 27 Mar 2025 03:23:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E1CFC4CEDD;
-	Thu, 27 Mar 2025 03:23:54 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8CA43A41AA6;
+	Thu, 27 Mar 2025 03:18:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F24EC4CEDD;
+	Thu, 27 Mar 2025 03:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743045834;
-	bh=AZfAmtXWPjB78IvE3dih6OE3AEgEQndtmIduyANQAes=;
+	s=k20201202; t=1743045837;
+	bh=RwEjkDL2fS+r4oZqYYE//W3MjrsqbkHSq0YLkJXBptE=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=KLK+l8GGDlEaSm0rDjZoEcC1gOtqfGhEMjL2TT4AlqMouwOSIWNVisxw5wrohN1iJ
-	 cvxJ4WVl5HhOph5Ug1+C89OosjsedJ45Or1jGW6bnwIMXU1jc7nB7SbUFb8vfuBxan
-	 X+ZYb4NLpA8/KcwvpEMdi2huP+jzV/wFFzAfduBYl12c7fqzpwLdn/9ZxkCDLWlHq5
-	 A5U+o77BWENzNC7SAriIGzTXdLhyYSW7VGbT/UFuomNICi90M8QqdpT1mVCDJ0O0sN
-	 zKgqU7DlvHUExUAINrRPUsYI0gftDCuledS0R0G6Tls3Fp3YpdXV6fDnLvG9kttCYD
-	 KjMpnzaQF1tkQ==
+	b=PfBiy6+1GmzF/BqmKCCWlR13h6NguFPkm3sM+7+FlleTXyuJxyoj3AFeUyOR7v/fj
+	 v6OKmtuDErcHnw1224ySWVr3UdRU7yeDXqdRsKpSIB+tnN3JmOKrLBQz0yzWoFQMHG
+	 tMEqWtHQb4uyuKtKcZQtgk5uk+ppjhv0y+qCtMrjw/vSIXU2igbHNKcJm7/JVYaJ8V
+	 J9qoqHfP+/sYWiCOoHg4SLkxb10fSx6oTouP4NiLuOD+0lZ6xZ/FKE2aoOsXO6ZTfH
+	 xmQJ6g+s6KdyK6uV6SJwx2JLw+WbvbDhqHm5jelp+XJ1Ws2OXlwWKNPw/dgsjO3uhO
+	 A76zyL6AVPRlQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE13380AAFD;
-	Thu, 27 Mar 2025 03:24:31 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE2BA380AAFD;
+	Thu, 27 Mar 2025 03:24:34 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/2] Support SSTC while PM operations
+Subject: Re: [PATCH] riscv: remove redundant CMDLINE_FORCE check
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174304587049.1549280.16882804409549926349.git-patchwork-notify@kernel.org>
-Date: Thu, 27 Mar 2025 03:24:30 +0000
-References: <20250219114135.27764-1-nick.hu@sifive.com>
-In-Reply-To: <20250219114135.27764-1-nick.hu@sifive.com>
-To: Nick Hu <nick.hu@sifive.com>
+Message-Id: <174304587325.1549280.12018226648442560841.git-patchwork-notify@kernel.org>
+Date: Thu, 27 Mar 2025 03:24:33 +0000
+References: <20250114-rebund-v1-1-5632b2d54d6c@gmail.com>
+In-Reply-To: <20250114-rebund-v1-1-5632b2d54d6c@gmail.com>
+To: Zixian Zeng <sycamoremoon376@gmail.com>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250326_202358_326011_D392FA26 
+X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,27 +77,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Wed, 19 Feb 2025 19:41:33 +0800 you wrote:
-> When the cpu is going to be hotplug, stop the stimecmp to prevent pending
-> interrupt.
-> When the cpu is going to be suspended, save the stimecmp before entering
-> the suspend state and restore it in the resume path.
+On Tue, 14 Jan 2025 00:30:20 +0800 you wrote:
+> Drop redundant CMDLINE_FORCE check as it's already done in
+> function early_init_dt_scan_chosen().
 > 
-> changes in v4:
-> 1. Apply the suggestion from Daniel to stop the clock before disabling
-> the irq.
-> Link: https://lore.kernel.org/lkml/5f7179ec-e4ce-4644-8a60-ce407a4d2f11@linaro.org/
+> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+> ---
+> ---
+>  arch/riscv/kernel/setup.c | 5 -----
+>  1 file changed, 5 deletions(-)
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/2] riscv: Add stimecmp save and restore
-    https://git.kernel.org/riscv/c/ffef54ad4110
-  - [v4,2/2] clocksource/drivers/timer-riscv: Stop stimecmp when cpu hotplug
-    https://git.kernel.org/riscv/c/70c93b026ed0
+  - riscv: remove redundant CMDLINE_FORCE check
+    https://git.kernel.org/riscv/c/eac5b138814a
 
 You are awesome, thank you!
 -- 
