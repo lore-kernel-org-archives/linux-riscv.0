@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F3FC36002
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 04:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 307F6C36012
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 04:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CtY8GnXEm7O8CQtXRG+TWdNYuCVEPvYIjOJTa7SM8v8=; b=bhhMkaILl0DDzm
-	GLGKDMDcjAhk8jU7lZvn9SETE9wNR8DqeTzh94xJJsFnnB74AHR3ykEMOp9H4X4SSSELQkjErectO
-	u95TqdjL/FZ7QlnMWxhBiM7NbDd3iCB62v4IU0kzcB2Q0PId1SBhqj86SNI3l3Ag3A4r5lriDPcs4
-	YaPuwCC7B6INFz3bQdcG8ZwE3qYMqh4OyWRYQY+KJAmPLCw3zVKlrfhJ8G34gyESrRTB2+A1WT8I6
-	9PQnx0vx1tMsENIj4wNnSk1DRiNBDHZ1qCcKKGyBXeV9GMJ7eJwa62bJaa4ZJKGT/k1Glp32qjYC2
-	SE9nHC1wUnF9z993r4FA==;
+	List-Owner; bh=s8c9z5f47AUca4JES5bwbknuPvmOy3ctbQyy+lIpEXc=; b=O/VMs9zHYndIjg
+	fJZk+PTcDIp7BABin69M+mhUvg5sHUYrgV/L5d6NpHckHeOMhXuBj9lTn4mDEgvhvPdqg+yXKzx4G
+	umEZI/9+bcqdke6/CIdMLR0NjL71aygDE+xsQkUV3pacjcT3wiq9s+YL/4YfHMy7GrS5wxfc3YjAW
+	H1BYoRM6taKbWQl5Cj51ee7ImyWwPMOGFgurUfcANduLRO/QwdlykH79/dwl+uP/yA0lzQZxPbR45
+	hjm75DYvjp9WRc7XOSUZ081dPhTmnNU6HUhuI+qofpB2z/l405WJiKMeA7qf/744iFTZg7qJkUePk
+	1IcaWiBlqAzd+lETB4dQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txf1A-0000000A9yw-0Un5;
-	Thu, 27 Mar 2025 04:39:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1txf13-0000000A9tE-02eH;
+	Thu, 27 Mar 2025 04:38:53 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdrU-0000000A4yW-20Fc
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 27 Mar 2025 03:24:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=BBRZJt+l8XjAeStgcj/Ygwh34+xEJkJOL+vYv+weR7s=; b=bjcrDwuMEPnyO6XsxwFrXfJN5Q
-	FvOFwY+gve/nGGlig5N5RPw9a3JiEkvTr+kBfQGR1DFQ/egY0H8yM414iVlbVOFkYnkk0NSnftHSk
-	oHZwL0oyH+hSE4Uw323DkfyY/yud4VYvhJWR6ZVzHrZLkVMuwFlxTnH3WxqUk+bDIfTzrNd0sa0mi
-	6PHPV2WSSyznPky2u1vKY1fyfEQ0XmZXNAwU0gY3lVKro/C59AsrTJlcbIdA30FMalBhugmAlYvaC
-	l44QVBjUZSMW4hoYNw5zhKUzZCcX392KrYRH2mcUFhc7eGc9XkJ4K2xX2E6EVkD5hJ33gNvrgW77q
-	RNB4a5zw==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdrC-00000005tLD-41VZ
+	id 1txdqu-0000000A4Kx-0ebl
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Mar 2025 03:24:53 +0000
+	Thu, 27 Mar 2025 03:24:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F37DEA41AB9;
-	Thu, 27 Mar 2025 03:19:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9811EC4CEDD;
-	Thu, 27 Mar 2025 03:24:36 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8580CA41ABB;
+	Thu, 27 Mar 2025 03:18:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 246B7C4CEEE;
+	Thu, 27 Mar 2025 03:24:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743045876;
-	bh=Bn/Uw0tcOtu+ptdfREC8J1+mUrr776utjD3xLOZbgEY=;
+	s=k20201202; t=1743045859;
+	bh=q3uWifr4a1+xayQ552RxBKHFkKXY6qRWxXi9pE7LfJU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Rs6vK0Mc05loEiunJGgz7boRG9ds5YasZMOJzdSzQk320i6w+OqwsozSan9FA5j2L
-	 HtgH9/J/F6tUCohLlKoZWpGeNYvX7RKXbPweexeJ8567SD840tbPyBBZM4j0UFKX16
-	 gcG7tgpQwWbgUE0keg7aZyuVk9074/8cch0CTHJikwnfaEtWxu/he48HrYeFBiVkNO
-	 SlpHjp3/5BBMeUdRJbNHeLatctOyR/i5mPJBIvSPgbs0Vb0a3A05V84TK2l8wTb+Xg
-	 cr6lzQ72rndBVEyYj5Y6v5mwH3Rse92qBiXbL46syDeYlOKwrli1DQi/mtt9AwyWRx
-	 ej7/3MYoeC9Og==
+	b=PDsXEgSJtwj2Mjih1sDwHOgHBXgkOYVF5IktBUYPID/1O5spP9khhBIse1WWrNRYX
+	 ACd4JKcnyVJzlJcfxeSvGiaJkg7qg8OZm23pgLgMPZ2cMacrA2uvjRzUJ5T9IAfMMX
+	 L1x10rDBc5YD6M1cW79yqRmqEVYp/DBGPHLkCiWnHeKEcTFyUOzRheqK40Gp0EoZtZ
+	 4+/glFMR87VfU2Yvj85UesipsHEkd/Pf/WKTSXfinMwweomFXYfuq7XDIOQFHudwoa
+	 IN7/fqY8tS3c5Vck4bm3p+XPCUZwxk57BSFz3BHr5vHkr4XSdkLqVk9T5jj05CK2A2
+	 Cjy5KLfcGX6cw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33ADF380AAFD;
-	Thu, 27 Mar 2025 03:25:14 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADD60380AAFD;
+	Thu, 27 Mar 2025 03:24:56 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix a comment typo in set_mm_asid()
+Subject: Re: [PATCH v3 0/3] riscv: Add bfloat16 instruction support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174304591275.1549280.4529135035725430300.git-patchwork-notify@kernel.org>
-Date: Thu, 27 Mar 2025 03:25:12 +0000
-References: <20241114212725.4172401-1-yikming2222@gmail.com>
-In-Reply-To: <20241114212725.4172401-1-yikming2222@gmail.com>
-To: Chin Yik Ming <yikming2222@gmail.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- paul.walmsley@sifive.com, aou@eecs.berkeley.edu, alexghiti@rivosinc.com,
- samuel.holland@sifive.com, parri.andrea@gmail.com, atishp@rivosinc.com,
- charlie@rivosinc.com, linux-kernel@vger.kernel.org
+Message-Id: <174304589524.1549280.4582301504340621621.git-patchwork-notify@kernel.org>
+Date: Thu, 27 Mar 2025 03:24:55 +0000
+References: <20241206055829.1059293-1-inochiama@gmail.com>
+In-Reply-To: <20241206055829.1059293-1-inochiama@gmail.com>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-riscv@lists.infradead.org, unicorn_wang@outlook.com, corbet@lwn.net,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ cleger@rivosinc.com, evan@rivosinc.com, charlie@rivosinc.com,
+ ajones@ventanamicro.com, jesse@rivosinc.com, andybnac@gmail.com,
+ alexghiti@rivosinc.com, samuel.holland@sifive.com, yongxuan.wang@sifive.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, dlan@gentoo.org, looong.bin@gmail.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_032439_214917_1FDC135C 
-X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-CacheID: sfid-20250326_202420_317132_D6B179DD 
+X-CRM114-Status: UNSURE (   7.84  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,20 +83,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
+This series was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Fri, 15 Nov 2024 05:27:25 +0800 you wrote:
-> s/verion/version
+On Fri,  6 Dec 2024 13:58:26 +0800 you wrote:
+> Add description for the BFloat16 precision Floating-Point ISA extension,
+> (Zfbfmin, Zvfbfmin, Zvfbfwma). which was ratified in commit 4dc23d62
+> ("Added Chapter title to BF16") of the riscv-isa-manual.
 > 
-> Signed-off-by: Chin Yik Ming <yikming2222@gmail.com>
-> ---
->  arch/riscv/mm/context.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> Changed from v2:
+> 1. rebase for v6.13-rc1
+> 
+> [...]
 
 Here is the summary with links:
-  - riscv: Fix a comment typo in set_mm_asid()
-    https://git.kernel.org/riscv/c/418af0eafb48
+  - [v3,1/3] dt-bindings: riscv: add bfloat16 ISA extension description
+    https://git.kernel.org/riscv/c/35bc1883733c
+  - [v3,2/3] riscv: add ISA extension parsing for bfloat16 ISA extension
+    (no matching commit)
+  - [v3,3/3] riscv: hwprobe: export bfloat16 ISA extension
+    https://git.kernel.org/riscv/c/a4863e002cf0
 
 You are awesome, thank you!
 -- 
