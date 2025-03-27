@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E244C36011
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 20:10:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34251C3600B
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 20:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6fPHdtIxli4fHPeU9+h294u8EHdg+eyxy0DAoZd8eew=; b=1CFm/lvjmhj2G5
-	F00siOIv3jRVDj/nLM/F0pO6xU8akX/kfKV4u9+i9vd1GAfKhhL4M86Jk0GM6gnLwjAM9maRrN4Yr
-	Uknefymsz1+LnWtnCOzqgDH5MmGenjYM+cme15Kd1CnUnKkHnpJZ57C1QzzPJ+8ZuL0UMuzOvNc91
-	D9xDeTynskgk6qBQub0Te7P9KJ01IL7NoHEBegpYl0KgD97TCmdobe7UeogW8NBopeYjsQ+MQZYYZ
-	9sNBZnr6xcwSwx9L7O+h4lRn7IGueWOp2IdKxSYtnVip4tPnasQEcp5BA8vS5FpW+iJ5tdxAF1OXo
-	KeR53GbkHgquxDpWkrIQ==;
+	List-Owner; bh=42QoaekAwbVx60wX8VhJuf9C1xjt72dboGmlQk3PTq4=; b=Z4xIUWrTGQ70Id
+	qvjvqXE2JUz4jx+w2bYdxo3C2YdfIqBwP+bst0H5uSzbvUp7D1mr92uaVHtS/ACgstuOtMtQD1H7y
+	hmgpxW1LTzLI2Yjb13ELMj7pdVlV3LD/g2EROrjxRqwmT6xW/nxN/9nKxTYCxrMFzEF9V/VAe0rul
+	T4k2tSUNbA8y/cRrKC8k6UJxo/zFGPNJ4RmIDYwt+trP7r4zbbVxL7NGcGwkbrP5b3fd89PfQ18jA
+	DY7AvU+J9rZ243OQS94nhsP6mNtYQh+Ss7UKyVGyP4fMGEW84ARkYli+dOsHa86JkMcLtodNPSipK
+	KTlsGVInxVFNEras9KKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txtYM-0000000BwAo-3re2;
-	Thu, 27 Mar 2025 20:10:14 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1txtbm-0000000BwWG-1Q2d;
+	Thu, 27 Mar 2025 20:13:46 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txt1x-0000000Bpvm-0bln
+	id 1txt1y-0000000BpxI-4BoS
 	for linux-riscv@lists.infradead.org;
-	Thu, 27 Mar 2025 19:36:46 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-30332dfc821so2018190a91.3
-        for <linux-riscv@lists.infradead.org>; Thu, 27 Mar 2025 12:36:45 -0700 (PDT)
+	Thu, 27 Mar 2025 19:36:49 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2255003f4c6so30023085ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 27 Mar 2025 12:36:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104204; x=1743709004; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743104206; x=1743709006; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=prlp5XqgI/Khif6kUiv5FMK3OMCI6nzVA7nLGH/Y3s4=;
-        b=WmT5DqthND+pjKic26cmthSC3RR9tqQHHwX1OQ+ci6w4D5MYoW2aYccRDknpClMV8R
-         AON28wGSOdyADemHRVeM1jnaRjukuRyJDQ9RCe/SvInFiiKqAGZmgCtGYSDyM45jSlZ7
-         dWpTCcl2vzq+A0tyBICfyadWhCF0L4sYsqjE7XkqzbbeDBEMjy3ctSr7D8Sfdni5UQ7A
-         EhAXIL4kVDHAfyKTEN1Shr083uLOJKuiSTMCmxcvmXgQ/kVt3iKdjM+qSA7z6YI70quY
-         Oua+HtTEmcAZ/t/KGQtC67ptUsnnQfFpuXGH/AA+Fq3zlOyZdfPgTO3sybWOMsMEzJk7
-         ZxlA==
+        bh=3rXBekgxwrWqHmt4oM/pU0sf9hDrHDVKf/jA5yAU2uU=;
+        b=VJq2CDK70L8XV3iPtZEXnKegd8tCTAPnbD/eTseoa5tX7Wa/kJf/SAQGr01KvScXcf
+         hh29PiOOADVC46FUTfKnpZP/UgaP0TjT156xpwaobEsV93xbdBT17SbXXaTyFpqs4i+r
+         UhAjpTByL/+uh7xsZpa6wLMpnYiOagBHgTcIrWyGAwIhGUtOQ+/shFbzf3FKnye0Fwqj
+         8TPe4CRjUCBL0kFQTwyQTnTgalsApcRWA5/liHm/wq9PIjgvjquo980KTpL/7Nrgm7/p
+         yN1bu7BMwk8BLqHM0fS81eg50ZQY7t8UIvhCHgCOCIdylmVmRoCDOx7eaUrC81Tgh9BQ
+         l9vg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743104204; x=1743709004;
+        d=1e100.net; s=20230601; t=1743104206; x=1743709006;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=prlp5XqgI/Khif6kUiv5FMK3OMCI6nzVA7nLGH/Y3s4=;
-        b=BG8cxJoqmyBWDHQQIPyUAGH2IqOxYwroOJZ0fWABOvCvpIGDdzSes3b+XnA1olx1IH
-         NJ5hR3Bjb2YtIhlPNKuC0VX3nYTqyU+h3b27TJ3dfGlHVGqfu5MRFHjqhJCUysnkb6CN
-         VBmYdom71KYCHrEmKhO5ABEgNwulYiunRBNsCKCGwCHB4TwLerhYMzfJrOD46GF6DmdF
-         UsXi15wnBKI+JJRIgQHY85PiskUJJBGg/K/MQSFnyiG9VTfbG2sNmYjOLIrJ9ycUMmgn
-         MYYET356gsof68YAYUx+p7s039W5ly8KqyToGWLsTHwvTzZ3iyQivegbGE9ipZi8lDs/
-         kH2Q==
-X-Gm-Message-State: AOJu0YyqqcywL1g8BZ0bvoKaaoz7Q2HJ3xR2w12zetzp98zDC9rQ+UAf
-	ra7RbTaO3X5kAL7TDByPsjdFlBj6VLy8QBguSIWo9Y1M5ZftaBOgarywMRNFBCA=
-X-Gm-Gg: ASbGnctv+bpKkVrLYAXHUpDS6H5eXksr9iMKW3DMp/8uLVtKzCE8wfBGuaGNmfjQoEu
-	V5j5FE/jNrHAPwMlPxa8VrwINTkWFyFP+StJjrbRRr0FaSiWkTtBwfUFE/7+ZhsDp7QFRi6jJIv
-	b/J0G1frljxEqDgjDnGPnd4HIlEbedfQxtCvbGDskrsxA7w5QuW3cvDjr2v5T2N4cN1pCLriYMv
-	T/O3Rkq0OunhUcKre0OXrCO8hqMB4XmlVyAL92EoShRYnVEffwMc0OwRuN0ljBovIHlNgrAXFe/
-	0jrc1lsnImAkg1W9ZZaFlE7sK9OacfGsiWPi6aHmxs9Kn24CAtjXbUm/EMN3eByBR24y
-X-Google-Smtp-Source: AGHT+IE9RAtJmcVuiq+zzbza3XZnuj5S63rmVXq5BX9kQPkvxkIEVWCCAKOhZGnJte5v86VybNNn7Q==
-X-Received: by 2002:a17:90b:2dd2:b0:2f6:d266:f45e with SMTP id 98e67ed59e1d1-303a7d5b6b6mr8384578a91.2.1743104204412;
-        Thu, 27 Mar 2025 12:36:44 -0700 (PDT)
+        bh=3rXBekgxwrWqHmt4oM/pU0sf9hDrHDVKf/jA5yAU2uU=;
+        b=g2kJ2WaETg6boQs1gWXpNdmDtNYtm9cIWLU/fb1Fzfc8w8NaRcBqCxqAgv/y1WZlQS
+         PI2WLUdTf/Y7wfGqRjJ7eUh/yOvBzK0ORn1Uez3Z74mpnuk2AlTLivbCyduUkxTy45Qf
+         ePJwJ1CebYxDENr4C8A0VLYdV6oSDPikYOKAy9bBc9Wk7NBDQeeCc74lOrDiCIbvXhqO
+         AN1bYvUhk/zqYucNBzk0j1v8EnNq7Aik1912CmeJmEiteEQ1iQOisIEdZBsyLiduj3wO
+         HpWPcHxkyGHTjZjjY6M+HF1QGvwlljD+/gGfoOKk8FrGPWCPpUmzDEzsR7zyysMwqzX2
+         +Fdw==
+X-Gm-Message-State: AOJu0Yw4Fzzbrec0hoNBiDuBmYIgQgHYOLNK3mmOjLAV0gsoG6afYsFT
+	GDVfeWivV+Le/LXr71vOwvuSL/vXGuyO9MVORSvj+SsKfTfkc+5pgj8bEn005gM=
+X-Gm-Gg: ASbGncuZqpSGlBUSt+0pfL0ZNuGR1wswQP11/T0WIv/mPFMcffqQUxZWD4FV3h/tLH7
+	/aDatvD8q3k/u/D2s6BfwCvv2OOk+v9LlkEGKELAXxm7F9n1cydi4RoSMhpliPjzd7MBZSh8r8r
+	qCZPXseqyZZn8/Ymg7/XBpUFI49uIWlMEAO5D4AH4OFhHMDZilwjF4JyQz6teZM+FLVJM79dYiC
+	/P5lc2DVj0HLewkmbp5jJjREFJfRSyog+1xAKYUupNHqZhnzqTDzKTJj7fM3Mar7O3XPy1stC7X
+	Yy1qzRGBebGwMi4/sS6rcfa5lHcspguD6oiF32I8pU+x6TqgQJVWSQDZag==
+X-Google-Smtp-Source: AGHT+IH9NKCLk/QnpYHyTBwH9U3buFcM7VA47qx+ajM6QcLLQGPQ6NxN60bqOUlv4BayKDmEHseCSg==
+X-Received: by 2002:a17:90b:5184:b0:2ff:6788:cc67 with SMTP id 98e67ed59e1d1-303a916a9c2mr6348158a91.34.1743104206088;
+        Thu, 27 Mar 2025 12:36:46 -0700 (PDT)
 Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.43
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039f6b638csm2624220a91.44.2025.03.27.12.36.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 12:36:44 -0700 (PDT)
+        Thu, 27 Mar 2025 12:36:45 -0700 (PDT)
 From: Atish Patra <atishp@rivosinc.com>
-Date: Thu, 27 Mar 2025 12:36:01 -0700
-Subject: [PATCH v5 20/21] tools/perf: Pass the Counter constraint values in
- the pmu events
+Date: Thu, 27 Mar 2025 12:36:02 -0700
+Subject: [PATCH v5 21/21] Sync empty-pmu-events.c with autogenerated one
 MIME-Version: 1.0
-Message-Id: <20250327-counter_delegation-v5-20-1ee538468d1b@rivosinc.com>
+Message-Id: <20250327-counter_delegation-v5-21-1ee538468d1b@rivosinc.com>
 References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 In-Reply-To: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -93,8 +92,9 @@ Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
  Atish Patra <atishp@rivosinc.com>
 X-Mailer: b4 0.15-dev-42535
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_123645_218228_3E45F599 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250327_123647_108698_B7CE91E4 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,49 +111,237 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RISC-V doesn't have any standard event to counter mapping discovery
-mechanism in the ISA. The ISA defines 29 programmable counters and
-platforms can choose to implement any number of them and map any
-events to any counters. Thus, the perf tool need to inform the driver
-about the counter mapping of each events.
-
-The current perf infrastructure only parses the 'Counter' constraints
-in metrics. This patch extends that to pass in the pmu events so that
-any driver can retrieve those values via perf attributes if defined
-accordingly.
-
 Signed-off-by: Atish Patra <atishp@rivosinc.com>
 ---
- tools/perf/pmu-events/jevents.py | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ tools/perf/pmu-events/empty-pmu-events.c | 144 +++++++++++++++----------------
+ 1 file changed, 72 insertions(+), 72 deletions(-)
 
-diff --git a/tools/perf/pmu-events/jevents.py b/tools/perf/pmu-events/jevents.py
-index fdb7ddf093d2..f9f274678a32 100755
---- a/tools/perf/pmu-events/jevents.py
-+++ b/tools/perf/pmu-events/jevents.py
-@@ -274,6 +274,11 @@ class JsonEvent:
-         return fixed[name.lower()]
-       return event
+diff --git a/tools/perf/pmu-events/empty-pmu-events.c b/tools/perf/pmu-events/empty-pmu-events.c
+index 3a7ec31576f5..22f0463dc522 100644
+--- a/tools/perf/pmu-events/empty-pmu-events.c
++++ b/tools/perf/pmu-events/empty-pmu-events.c
+@@ -36,42 +36,42 @@ static const char *const big_c_string =
+ /* offset=1127 */ "bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000\000"
+ /* offset=1187 */ "bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000\000"
+ /* offset=1247 */ "l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000\000"
+-/* offset=1343 */ "segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\0000,1\000"
+-/* offset=1446 */ "dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\0000,1\000"
+-/* offset=1580 */ "eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\0000,1\000"
+-/* offset=1699 */ "hisi_sccl,ddrc\000"
+-/* offset=1714 */ "uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000"
+-/* offset=1801 */ "uncore_cbox\000"
+-/* offset=1813 */ "unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000"
+-/* offset=2048 */ "event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000"
+-/* offset=2114 */ "event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000"
+-/* offset=2186 */ "hisi_sccl,l3c\000"
+-/* offset=2200 */ "uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000"
+-/* offset=2281 */ "uncore_imc_free_running\000"
+-/* offset=2305 */ "uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000"
+-/* offset=2401 */ "uncore_imc\000"
+-/* offset=2412 */ "uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000"
+-/* offset=2491 */ "uncore_sys_ddr_pmu\000"
+-/* offset=2510 */ "sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000"
+-/* offset=2584 */ "uncore_sys_ccn_pmu\000"
+-/* offset=2603 */ "sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000"
+-/* offset=2678 */ "uncore_sys_cmn_pmu\000"
+-/* offset=2697 */ "sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000"
+-/* offset=2838 */ "CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000"
+-/* offset=2860 */ "IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000"
+-/* offset=2923 */ "Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000"
+-/* offset=3089 */ "dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
+-/* offset=3153 */ "icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
+-/* offset=3220 */ "cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000"
+-/* offset=3291 */ "DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000"
+-/* offset=3385 */ "DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000"
+-/* offset=3519 */ "DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000"
+-/* offset=3583 */ "DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000"
+-/* offset=3651 */ "DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000"
+-/* offset=3721 */ "M1\000\000ipc + M2\000\000\000\000\000\000\000\00000"
+-/* offset=3743 */ "M2\000\000ipc + M1\000\000\000\000\000\000\000\00000"
+-/* offset=3765 */ "M3\000\0001 / M3\000\000\000\000\000\000\000\00000"
+-/* offset=3785 */ "L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000"
++/* offset=1343 */ "segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80,counterid_mask=0x3\000\00000\000\0000,1\000"
++/* offset=1465 */ "dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20,counterid_mask=0x3\000\00000\000\0000,1\000"
++/* offset=1618 */ "eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000,counterid_mask=0x3\000\00000\000\0000,1\000"
++/* offset=1756 */ "hisi_sccl,ddrc\000"
++/* offset=1771 */ "uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000"
++/* offset=1858 */ "uncore_cbox\000"
++/* offset=1870 */ "unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81,counterid_mask=0x3\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000"
++/* offset=2124 */ "event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000"
++/* offset=2190 */ "event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000"
++/* offset=2262 */ "hisi_sccl,l3c\000"
++/* offset=2276 */ "uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000"
++/* offset=2357 */ "uncore_imc_free_running\000"
++/* offset=2381 */ "uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000"
++/* offset=2477 */ "uncore_imc\000"
++/* offset=2488 */ "uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000"
++/* offset=2567 */ "uncore_sys_ddr_pmu\000"
++/* offset=2586 */ "sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000"
++/* offset=2660 */ "uncore_sys_ccn_pmu\000"
++/* offset=2679 */ "sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000"
++/* offset=2754 */ "uncore_sys_cmn_pmu\000"
++/* offset=2773 */ "sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000"
++/* offset=2914 */ "CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000"
++/* offset=2936 */ "IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000"
++/* offset=2999 */ "Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000"
++/* offset=3165 */ "dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
++/* offset=3229 */ "icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000"
++/* offset=3296 */ "cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000"
++/* offset=3367 */ "DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000"
++/* offset=3461 */ "DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000"
++/* offset=3595 */ "DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000"
++/* offset=3659 */ "DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000"
++/* offset=3727 */ "DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000"
++/* offset=3797 */ "M1\000\000ipc + M2\000\000\000\000\000\000\000\00000"
++/* offset=3819 */ "M2\000\000ipc + M1\000\000\000\000\000\000\000\00000"
++/* offset=3841 */ "M3\000\0001 / M3\000\000\000\000\000\000\000\00000"
++/* offset=3861 */ "L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000"
+ ;
  
-+    def counter_list_to_bitmask(counterlist):
-+      counter_ids = list(map(int, counterlist.split(',')))
-+      bitmask = sum(1 << pos for pos in counter_ids)
-+      return bitmask
-+
-     def unit_to_pmu(unit: str) -> Optional[str]:
-       """Convert a JSON Unit to Linux PMU name."""
-       if not unit or unit == "core":
-@@ -427,6 +432,10 @@ class JsonEvent:
-       else:
-         raise argparse.ArgumentTypeError('Cannot find arch std event:', arch_std)
+ static const struct compact_pmu_event pmu_events__common_tool[] = {
+@@ -101,27 +101,27 @@ const struct pmu_table_entry pmu_events__common[] = {
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_default_core[] = {
+ { 1127 }, /* bp_l1_btb_correct\000branch\000L1 BTB Correction\000event=0x8a\000\00000\000\000\000 */
+ { 1187 }, /* bp_l2_btb_correct\000branch\000L2 BTB Correction\000event=0x8b\000\00000\000\000\000 */
+-{ 1446 }, /* dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20\000\00000\000\0000,1\000 */
+-{ 1580 }, /* eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000\000\00000\000\0000,1\000 */
++{ 1465 }, /* dispatch_blocked.any\000other\000Memory cluster signals to block micro-op dispatch for any reason\000event=9,period=200000,umask=0x20,counterid_mask=0x3\000\00000\000\0000,1\000 */
++{ 1618 }, /* eist_trans\000other\000Number of Enhanced Intel SpeedStep(R) Technology (EIST) transitions\000event=0x3a,period=200000,counterid_mask=0x3\000\00000\000\0000,1\000 */
+ { 1247 }, /* l3_cache_rd\000cache\000L3 cache access, read\000event=0x40\000\00000\000Attributable Level 3 cache access, read\000\000 */
+-{ 1343 }, /* segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80\000\00000\000\0000,1\000 */
++{ 1343 }, /* segment_reg_loads.any\000other\000Number of segment register loads\000event=6,period=200000,umask=0x80,counterid_mask=0x3\000\00000\000\0000,1\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_hisi_sccl_ddrc[] = {
+-{ 1714 }, /* uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000 */
++{ 1771 }, /* uncore_hisi_ddrc.flux_wcmd\000uncore\000DDRC write commands\000event=2\000\00000\000DDRC write commands\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_hisi_sccl_l3c[] = {
+-{ 2200 }, /* uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000 */
++{ 2276 }, /* uncore_hisi_l3c.rd_hit_cpipe\000uncore\000Total read hits\000event=7\000\00000\000Total read hits\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_cbox[] = {
+-{ 2048 }, /* event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000 */
+-{ 2114 }, /* event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000 */
+-{ 1813 }, /* unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000 */
++{ 2124 }, /* event-hyphen\000uncore\000UNC_CBO_HYPHEN\000event=0xe0\000\00000\000UNC_CBO_HYPHEN\000\000 */
++{ 2190 }, /* event-two-hyph\000uncore\000UNC_CBO_TWO_HYPH\000event=0xc0\000\00000\000UNC_CBO_TWO_HYPH\000\000 */
++{ 1870 }, /* unc_cbo_xsnp_response.miss_eviction\000uncore\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\000event=0x22,umask=0x81,counterid_mask=0x3\000\00000\000A cross-core snoop resulted from L3 Eviction which misses in some processor core\0000,1\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_imc[] = {
+-{ 2412 }, /* uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000 */
++{ 2488 }, /* uncore_imc.cache_hits\000uncore\000Total cache hits\000event=0x34\000\00000\000Total cache hits\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_cpu_uncore_imc_free_running[] = {
+-{ 2305 }, /* uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000 */
++{ 2381 }, /* uncore_imc_free_running.cache_miss\000uncore\000Total cache misses\000event=0x12\000\00000\000Total cache misses\000\000 */
  
-+    if self.counters['list']:
-+      bitmask = counter_list_to_bitmask(self.counters['list'])
-+      event += f',counterid_mask={bitmask:#x}'
-+
-     self.event = real_event(self.name, event)
+ };
  
-   def __repr__(self) -> str:
+@@ -134,46 +134,46 @@ const struct pmu_table_entry pmu_events__test_soc_cpu[] = {
+ {
+      .entries = pmu_events__test_soc_cpu_hisi_sccl_ddrc,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_hisi_sccl_ddrc),
+-     .pmu_name = { 1699 /* hisi_sccl,ddrc\000 */ },
++     .pmu_name = { 1756 /* hisi_sccl,ddrc\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_hisi_sccl_l3c,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_hisi_sccl_l3c),
+-     .pmu_name = { 2186 /* hisi_sccl,l3c\000 */ },
++     .pmu_name = { 2262 /* hisi_sccl,l3c\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_cbox,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_cbox),
+-     .pmu_name = { 1801 /* uncore_cbox\000 */ },
++     .pmu_name = { 1858 /* uncore_cbox\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_imc,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_imc),
+-     .pmu_name = { 2401 /* uncore_imc\000 */ },
++     .pmu_name = { 2477 /* uncore_imc\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_cpu_uncore_imc_free_running,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_cpu_uncore_imc_free_running),
+-     .pmu_name = { 2281 /* uncore_imc_free_running\000 */ },
++     .pmu_name = { 2357 /* uncore_imc_free_running\000 */ },
+ },
+ };
+ 
+ static const struct compact_pmu_event pmu_metrics__test_soc_cpu_default_core[] = {
+-{ 2838 }, /* CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000 */
+-{ 3519 }, /* DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000 */
+-{ 3291 }, /* DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000 */
+-{ 3385 }, /* DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000 */
+-{ 3583 }, /* DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
+-{ 3651 }, /* DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
+-{ 2923 }, /* Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000 */
+-{ 2860 }, /* IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000 */
+-{ 3785 }, /* L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000 */
+-{ 3721 }, /* M1\000\000ipc + M2\000\000\000\000\000\000\000\00000 */
+-{ 3743 }, /* M2\000\000ipc + M1\000\000\000\000\000\000\000\00000 */
+-{ 3765 }, /* M3\000\0001 / M3\000\000\000\000\000\000\000\00000 */
+-{ 3220 }, /* cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000 */
+-{ 3089 }, /* dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
+-{ 3153 }, /* icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
++{ 2914 }, /* CPI\000\0001 / IPC\000\000\000\000\000\000\000\00000 */
++{ 3595 }, /* DCache_L2_All\000\000DCache_L2_All_Hits + DCache_L2_All_Miss\000\000\000\000\000\000\000\00000 */
++{ 3367 }, /* DCache_L2_All_Hits\000\000l2_rqsts.demand_data_rd_hit + l2_rqsts.pf_hit + l2_rqsts.rfo_hit\000\000\000\000\000\000\000\00000 */
++{ 3461 }, /* DCache_L2_All_Miss\000\000max(l2_rqsts.all_demand_data_rd - l2_rqsts.demand_data_rd_hit, 0) + l2_rqsts.pf_miss + l2_rqsts.rfo_miss\000\000\000\000\000\000\000\00000 */
++{ 3659 }, /* DCache_L2_Hits\000\000d_ratio(DCache_L2_All_Hits, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
++{ 3727 }, /* DCache_L2_Misses\000\000d_ratio(DCache_L2_All_Miss, DCache_L2_All)\000\000\000\000\000\000\000\00000 */
++{ 2999 }, /* Frontend_Bound_SMT\000\000idq_uops_not_delivered.core / (4 * (cpu_clk_unhalted.thread / 2 * (1 + cpu_clk_unhalted.one_thread_active / cpu_clk_unhalted.ref_xclk)))\000\000\000\000\000\000\000\00000 */
++{ 2936 }, /* IPC\000group1\000inst_retired.any / cpu_clk_unhalted.thread\000\000\000\000\000\000\000\00000 */
++{ 3861 }, /* L1D_Cache_Fill_BW\000\00064 * l1d.replacement / 1e9 / duration_time\000\000\000\000\000\000\000\00000 */
++{ 3797 }, /* M1\000\000ipc + M2\000\000\000\000\000\000\000\00000 */
++{ 3819 }, /* M2\000\000ipc + M1\000\000\000\000\000\000\000\00000 */
++{ 3841 }, /* M3\000\0001 / M3\000\000\000\000\000\000\000\00000 */
++{ 3296 }, /* cache_miss_cycles\000group1\000dcache_miss_cpi + icache_miss_cycles\000\000\000\000\000\000\000\00000 */
++{ 3165 }, /* dcache_miss_cpi\000\000l1d\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
++{ 3229 }, /* icache_miss_cycles\000\000l1i\\-loads\\-misses / inst_retired.any\000\000\000\000\000\000\000\00000 */
+ 
+ };
+ 
+@@ -186,13 +186,13 @@ const struct pmu_table_entry pmu_metrics__test_soc_cpu[] = {
+ };
+ 
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_ccn_pmu[] = {
+-{ 2603 }, /* sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000 */
++{ 2679 }, /* sys_ccn_pmu.read_cycles\000uncore\000ccn read-cycles event\000config=0x2c\0000x01\00000\000\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_cmn_pmu[] = {
+-{ 2697 }, /* sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000 */
++{ 2773 }, /* sys_cmn_pmu.hnf_cache_miss\000uncore\000Counts total cache misses in first lookup result (high priority)\000eventid=1,type=5\000(434|436|43c|43a).*\00000\000\000\000 */
+ };
+ static const struct compact_pmu_event pmu_events__test_soc_sys_uncore_sys_ddr_pmu[] = {
+-{ 2510 }, /* sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000 */
++{ 2586 }, /* sys_ddr_pmu.write_cycles\000uncore\000ddr write-cycles event\000event=0x2b\000v8\00000\000\000\000 */
+ 
+ };
+ 
+@@ -200,17 +200,17 @@ const struct pmu_table_entry pmu_events__test_soc_sys[] = {
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_ccn_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_ccn_pmu),
+-     .pmu_name = { 2584 /* uncore_sys_ccn_pmu\000 */ },
++     .pmu_name = { 2660 /* uncore_sys_ccn_pmu\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_cmn_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_cmn_pmu),
+-     .pmu_name = { 2678 /* uncore_sys_cmn_pmu\000 */ },
++     .pmu_name = { 2754 /* uncore_sys_cmn_pmu\000 */ },
+ },
+ {
+      .entries = pmu_events__test_soc_sys_uncore_sys_ddr_pmu,
+      .num_entries = ARRAY_SIZE(pmu_events__test_soc_sys_uncore_sys_ddr_pmu),
+-     .pmu_name = { 2491 /* uncore_sys_ddr_pmu\000 */ },
++     .pmu_name = { 2567 /* uncore_sys_ddr_pmu\000 */ },
+ },
+ };
+ 
 
 -- 
 2.43.0
