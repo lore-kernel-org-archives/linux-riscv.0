@@ -4,62 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FB3C36012
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 03:24:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126BCC3600B
+	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 04:38:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4rf7H3JvRQtTG4QE65utsAPw/Mb1P2v5MkaagEXNdVM=; b=qLJCAAn1qyd88A
-	XwiewSUxpS36plMx2u0eYpBsX16FG9+uC1BBcdrcrQm4d3QpIhvOGyAu/yzqnxOBbr2XjCGCfOuJZ
-	VnTR1bhh+Ugu2FUVRWFPBBMh5ZJcy6Bm6o817a/eRjvXFIFtAzgE7yeN07wWDF9qSqkqD3fvttZyB
-	+tr9BmdT+JSeWqgCLZw60ZuPE9bhEgr9N1DNZEn0wdF0wbuVDl971TD1claRfGfgrxuWXv6zav04k
-	FqkVxeL2pduTZ8J11w6ot7Tn+Qb0r0YFCDasXjBemzffoCx+tg18lYfrqNg6LLUcHNeKB3AUirRcY
-	qaMDX6RWzwciXspbE/zQ==;
+	List-Owner; bh=JXSbl1WsjApoLTwDpElTFRSctM+igY9WI77U0Satu00=; b=dNtgvotIKQJQaM
+	K6RpHPjUVeXIfAsS7+8VveuJ835qStCEexwR8cED7r7iCBrGxFzNd6gTsS8t2hC/xaAQI6HV4wopw
+	J/ncTS9SqDYMID7mxApeGAM91FATqg3elpw87mMoDrQhLXDkRJw94/l3B2QeoWMYKof4fEQDnX63W
+	YwV8snG9t1eQYE5o9DRNpAexKeD0IVwHNeYvdz7UlY+BwlY9lZXWOUIsD26QDTr81thRbCroLp3q4
+	nXfwIh3/E45P14EkJzMt1ANIe1TMCmdCXtUvPLmw3eAY+FBhfmQlvA8UNXxVVO4gWfzVcmHs5/x2r
+	D6HXuXt8DCXHwRk8oMNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdqu-0000000A4LO-0WDd;
-	Thu, 27 Mar 2025 03:24:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1txf14-0000000A9ur-3RkD;
+	Thu, 27 Mar 2025 04:38:54 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txdqp-0000000A4Ef-1oxo;
-	Thu, 27 Mar 2025 03:24:16 +0000
+	id 1txdqw-0000000A4PT-3veZ
+	for linux-riscv@lists.infradead.org;
+	Thu, 27 Mar 2025 03:24:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E43675C6AA9;
-	Thu, 27 Mar 2025 03:21:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DA39C4CEE4;
-	Thu, 27 Mar 2025 03:24:14 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47058A41AA6;
+	Thu, 27 Mar 2025 03:18:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8B2DC4CEEA;
+	Thu, 27 Mar 2025 03:24:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743045854;
-	bh=s6pd1Oapn/Xfy41cHLXqSj8prrh5zDyVA8M/EDhHlgs=;
+	s=k20201202; t=1743045861;
+	bh=YtxfKvSWv2/a1oAlKoiwHfzUaB8Ez36lv4AOkIm9qzI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=hfRxvIVKwgGJtyuPK+0oKDZSb1KxlnOVeIBJeZhSNGuI6H7h+9gUTo4PcGPhdxLz0
-	 WtSiWr9hZkY/nCNREHOe0XclKw81ICoJoJOW2Ie4e8QLZXBm6S1ticvtHeEjrVShnh
-	 pFF0aqqmo5X/DEUMTYiMD4zOUoq0QRSS0ea2cDhI5D+i0nORrbqk+5/pRH22wf8ht0
-	 CCxPN0cHXLUKJfY2QO7p/89YsXkOQNN/y2FQXYbELDLqK+cg1Vjz/+/ywwg1/z+Stu
-	 CfR5wuqZmO7whx31SbbxG/vh5bPozAWcx5ReazxhtNheknvmCyQBhyZHavbBCXnLfW
-	 21MVAcUn/gYtQ==
+	b=G4aZQfYorl84c7rtvXXeCrzOmQpcx1lxEh7LOWAGryMmz8GUzjWtlRlQg9+qKFbVT
+	 rMQGjkH0KqeQ4vqQ07mPh7mnV1LSgNcttx92HBTwhFVKk0K/GrlqUB3qVs3RDQs1/r
+	 JXpn4Azp+jgBwCUQkF3KEDnm7p/aZapz2rzytNqSpafGSCZwqHZa/zUJ8J/DVb7uLX
+	 Cmz392YazAeoRLijed1VTQ/i6ssahkQ8RnsatM/9hab8/dP9CNDGVuvb8Sgi8BBcr0
+	 jAO+0ALvyK8X8YV53DV2Drwr7DW/qtCY/buqAsIPhXXdRyT8SUvxa86b3hbx8pcrgv
+	 QFrsc70/eal5w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33BEA380AAFD;
-	Thu, 27 Mar 2025 03:24:52 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70FD1380AAFD;
+	Thu, 27 Mar 2025 03:24:59 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2] riscv: KVM: Remove unnecessary vcpu kick
+Subject: Re: [PATCH v7 0/3] Enable Zicbom in usermode
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174304589076.1549280.903710261634215317.git-patchwork-notify@kernel.org>
-Date: Thu, 27 Mar 2025 03:24:50 +0000
-References: <20250221104538.2147-1-xiangwencheng@lanxincomputing.com>
-In-Reply-To: <20250221104538.2147-1-xiangwencheng@lanxincomputing.com>
-To: BillXiang <xiangwencheng@lanxincomputing.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org,
- ajones@ventanamicro.com, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org,
- linux-kernel@vger.kernel.org, atishp@atishpatra.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- rkrcmar@ventanamicro.com
+Message-Id: <174304589800.1549280.3544562224305376378.git-patchwork-notify@kernel.org>
+Date: Thu, 27 Mar 2025 03:24:58 +0000
+References: <20250226063206.71216-1-cuiyunhui@bytedance.com>
+In-Reply-To: <20250226063206.71216-1-cuiyunhui@bytedance.com>
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: linux-riscv@lists.infradead.org, ajones@ventanamicro.com,
+ alexghiti@rivosinc.com, andybnac@gmail.com, aou@eecs.berkeley.edu,
+ charlie@rivosinc.com, cleger@rivosinc.com, conor.dooley@microchip.com,
+ conor@kernel.org, corbet@lwn.net, evan@rivosinc.com, jesse@rivosinc.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, palmer@dabbelt.com,
+ paul.walmsley@sifive.com, samuel.holland@sifive.com, shuah@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250326_202415_538700_35C81F44 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20250326_202423_085241_7BB6FF6B 
+X-CRM114-Status: UNSURE (   6.80  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,27 +82,26 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This patch was applied to riscv/linux.git (for-next)
-by Anup Patel <anup@brainfault.org>:
+This series was applied to riscv/linux.git (for-next)
+by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Fri, 21 Feb 2025 18:45:38 +0800 you wrote:
-> Remove the unnecessary kick to the vCPU after writing to the vs_file
-> of IMSIC in kvm_riscv_vcpu_aia_imsic_inject.
+On Wed, 26 Feb 2025 14:32:03 +0800 you wrote:
+> v1/v2:
+> There is only the first patch: RISC-V: Enable cbo.clean/flush in usermode,
+> which mainly removes the enabling of cbo.inval in user mode.
 > 
-> For vCPUs that are running, writing to the vs_file directly forwards
-> the interrupt as an MSI to them and does not need an extra kick.
-> 
-> For vCPUs that are descheduled after emulating WFI, KVM will enable
-> the guest external interrupt for that vCPU in
-> kvm_riscv_aia_wakeon_hgei. This means that writing to the vs_file
-> will cause a guest external interrupt, which will cause KVM to wake
-> up the vCPU in hgei_interrupt to handle the interrupt properly.
+> v3:
+> Add the functionality of Expose Zicbom and selftests for Zicbom.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2] riscv: KVM: Remove unnecessary vcpu kick
-    https://git.kernel.org/riscv/c/d252435aca44
+  - [v7,1/3] RISC-V: Enable cbo.clean/flush in usermode
+    https://git.kernel.org/riscv/c/de70b532f91b
+  - [v7,2/3] RISC-V: hwprobe: Expose Zicbom extension and its block size
+    https://git.kernel.org/riscv/c/eb1003970940
+  - [v7,3/3] RISC-V: selftests: Add TEST_ZICBOM into CBO tests
+    https://git.kernel.org/riscv/c/36dec9e44805
 
 You are awesome, thank you!
 -- 
