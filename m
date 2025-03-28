@@ -4,111 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A648C36011
-	for <linux-riscv@archiver.kernel.org>; Thu, 27 Mar 2025 21:06:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 134E3C28B20
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 08:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=XjQiCcPTSVW3dbDsKVz3ivsPCHo4TRTThlLo1AJF3uw=; b=dJcN6I0H1V/I4j
-	8uQAn6+hs7qAj0Mlw+KBBlqQ2dW68PIBMkaS/kp3GDTIbZBC0dLQShD95RIX088S4gESlO5+bEO5P
-	a2D3mf+TB+9d7jzlpepWYLg4eSe3rF1XzFTN+lVhkzR+OlYnwW8wtF53ymjBoftDjb0beRrhDP2oy
-	PAXDYbazuqeE2FsMLWqpChqXiPrf3GUafFhi/hwjX/77VKBpVkpQcj+5aOaGyN2RH3/zHwu4KhzGW
-	APx+Dg1NfTdoT9EKxF1O98lZJBPcp1+D6NVtm0TYnpDzMZeXyw1QJxOVaaJb7N1XSmxU97kOw93qY
-	AShqBe4FR/nGqgo9jQ0w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oacp8thIO/xfyD9yFEv6LIa/6wBLYyG3AUaX0v7GOr8=; b=je0M/RZRFEBzG4
+	z8qVLOGKRJr+mwtKAuHOPa7KirETlwAxxXdtU+Y0q7mHSKM649rlHxqf6Q4YGzucmfuXPJrLO61MR
+	mIE5ss9S0eGt3iZ21BLCNEicy+ZAGdmx4FHPOOyziOXViPl1s09KZur2qkZqF2am3HIj4v5p+YjDB
+	p6sXfq+BNjTy/cF1pLcnGrNmBS/R+MZkRswtOhR94Y/zBzs/YPWEYBPhBWfXr5E5lzxPqQLHLLAk9
+	W/Ies+3GF9ogVDvB81bqcMbzYySKi7tBV0fjika+xKkGxVnQuINaz9M/gj29hMDWLxPHKGIK1EXuJ
+	fsof629UlYYXBG8SNF8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txuQu-0000000C20K-3Ngq;
-	Thu, 27 Mar 2025 21:06:36 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1ty4lg-0000000CsQx-3igb;
+	Fri, 28 Mar 2025 08:08:44 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1txuQs-0000000C1yv-231m;
-	Thu, 27 Mar 2025 21:06:35 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43d07ca6a80so8144005e9.1;
-        Thu, 27 Mar 2025 14:06:33 -0700 (PDT)
+	id 1ty4Z3-0000000CqnT-3pU3
+	for linux-riscv@lists.infradead.org;
+	Fri, 28 Mar 2025 07:55:43 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43948f77f1aso13085815e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Mar 2025 00:55:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743109592; x=1743714392; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JFrrEKOtsin+8uVvD5v18PtpdZsRPpaDruCArBuJl1k=;
-        b=WqUw9qDK1G4wEJstxoecDV5CLcfxgjFbg5Mht3o1f5kXQoMc6DRl3kaXNiTV6lr4xZ
-         hldW/Qa5vc+JmUXbBNZRQ9fA4DNeXfr9K4bnDyZs05itw08MAR6O2750qv1UeX01yQuS
-         fE7FIKLZJwzMcgbQ3q538qpV5ZUl9+BNeVxSYLQwfJLQGhmSotJiH66X1XBhP+CLo9PH
-         cTHWPpOhs3ae3XiBkHk3lGdnn8+elLDxEQnjj54ZWpuLK4GZ3ipPno516wb7IBT//QWj
-         U/2L8VPYlQd6l66tcFNEu78VtpTrQ3oXmuk32kwGxeXohxFR03JgCdfTHJK9Do2UQoSl
-         rSWg==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743148540; x=1743753340; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8qmXH6tUdBhyxCuOKPx5cChdmd3dLaKjPLtkEvOC6Z4=;
+        b=iNNxe/QsqWsbk/prP1m0BDRco4QEEIiD0/2F9Le1Q+H9Q3na3Cph4giDIXAszWSUUe
+         FL8d/RZhCSHDj22d6VqpIovoe8xOSouY//c0dYq4kxbKDC8GwxV/xi78DikJchSlF4Tk
+         dG9MpiVFVgEraMUsVsLcKL5nLR7WwiEg6UajgS633nCawvWaCOG+MT8tJI02ldH2eZR9
+         pzrgFs09zgLT+wZcHQFOOzY37HHpWNSEKfXNt4STOoXuEVlSRwJO/GhfkvjQ2CbcZK9E
+         4+S8xPBNaksqz0/CsC7ld4a8WBkELhpQDLWw1nZKQOFz+S+QN0wHCWyZ/yXMwsYZY3L1
+         eu6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743109592; x=1743714392;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JFrrEKOtsin+8uVvD5v18PtpdZsRPpaDruCArBuJl1k=;
-        b=CiPzy2ERCTO9zaXRUrKDJ/eERox+dNRe+ky9GMwjz81u0EBYY/hmxOydvP/LEzy5EY
-         DPQxdyVglhA5WXjRVEI53s8rYLX0F9JRZtmp7OgnXD6RfUD5e0Jnf33E/PjOQOKjhIlX
-         DEojlz6cDJsSI+8hnYbiYzdneTEdxhcXiNUSi8TmcgjA1z45Cg2wXIHssvQ/iJeKgK2E
-         T5R7qJX8zWM5AuNAIuaedvDnMP6oi4JU6yHL/EEwSQsg4leGEAp7iGFlAjqaEx8gsIDq
-         7+RughIRfBK69l7XVRb0soo6UvI2+PgW6gddRmFdSOJJ+QFDV7i4IMfH97W5ccuBm0W6
-         aEDQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVgCp2gPOcduIPAz7a2HEeLiX4ob+IMFNTARb9weHm7hmr1s29siS6ZRRrVZvIh6+d9buROs3jHJLX2Tw==@lists.infradead.org, AJvYcCWWIm46b0v3jnL+S3u4vkFdlhtxyAmkXglEOlPaxG2O25mASlVkHA75TPT/LYv4YXW5Chol5OwBqLlO9JU=@lists.infradead.org, AJvYcCXS46L9YN5joxfyW49h1PEFNqwo/t6P+tGjHgI/y5ek+grrdO2PPrWRgtSzGZu1TVkNq7lYRSEHZlA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCG2wkRSuh0mrQ6jhWpAqzJVSZm876cpewMXsELjFjI0p6PY/y
-	Daj6xrrvQvE5eOcsk5bN+i17RNsxBoyqPykNmWfJobTPaLrIQ1IG
-X-Gm-Gg: ASbGncsjfI+nAGcxSVNDzTzVJ8llesemV9qG3zv8Xgo3MUacKzQVSzZ7CSBjjWeiCkB
-	QX7SKavVduyjBNYd7ilo2e200RWBRCFfF+AUXRKTp/jPahX6m7W2zbYF954X6gAYl5qe7IQlUGI
-	ys6VEAI1PkClRnOXm18mD6iISDquWaOGTRMFUtc2rLiCHWQZunfbY4SMpV/3503KuTSyaBaym4S
-	vaPBVwxqk25gAUrWTUq0LvrMIH1YUmQPO5OK9HqD9aNMHuZ+W07MlnUmhzuKURaU9d45jXM2G6C
-	cwpee1nHul9JeUDo/sCNWa7GBCB5gTWv7STr9rPQ3vhuzGG+QaeZ8ERps4mdj1u/Tv29+HdMaOg
-	CmVFFZT0=
-X-Google-Smtp-Source: AGHT+IF3JVFu2jCYFxmmspP8DgX1SusdSEIsW7Os+9zvssuS6MfQig2v8nl6xgtDIG4B7nUqszDWww==
-X-Received: by 2002:a05:600c:4e05:b0:43d:26e3:f2f6 with SMTP id 5b1f17b1804b1-43d84f5e5bcmr60988395e9.5.1743109592161;
-        Thu, 27 Mar 2025 14:06:32 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d82dedc2dsm49307315e9.2.2025.03.27.14.06.27
+        d=1e100.net; s=20230601; t=1743148540; x=1743753340;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8qmXH6tUdBhyxCuOKPx5cChdmd3dLaKjPLtkEvOC6Z4=;
+        b=V1JMzAWJjiIkKYh2nYNRFQVicp9o7GHEt4LX+tpI1HLpoZBNCZlJoNhZ567h7ghjv9
+         ZL88G1DenxAqgp/1WBuSBnUr+1tTnjSMDWIUhw4RhZX/nU8qyXd4RSesBQG0qs2cyxxS
+         JNz5cWuXaMfJwLhFtO5mf13Elk+34AQCgRGpJxwtU8UCllYWvbwLEkpJimENqN0qRGAH
+         YUk/OLcqmbm9xJjYggDroJ96GbN5fuWaIySsWmZp+GmgRDmkE9ZVp21OcSinzFSsob2T
+         7Nhf2FfDy5JU7OuiDXRh7Fom66EK3RPvcIeE8agFjQXFmmL1f+mq55K5S6sYteQUNrDm
+         d4Vg==
+X-Forwarded-Encrypted: i=1; AJvYcCWFbWbnNDB603J2kXZkm40ucgCAbI5eHDIObH4cfe3W+NKCSd5HGBFhHYGK65D1Bifpw+3XXdMNXRSaNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU2+KzZIG+aztYt8hF2ljOMJujnPEv2hsOYgg1hiVCD8e0ACRj
+	uRBkjcXpuaznEE32dQgjn6GzM5R8XwsvibvEFDlCJpObgux8ah4ZxzXXutbK578=
+X-Gm-Gg: ASbGnctt/fKhVO0flzSzEjixWfjZokQfQg7HpZo8GIVakb1l0hwgr2u1b/l7vFy5fLz
+	CbVnw98hSUiI23IJ7nK3dzRAcbXl8puJWZHTbx4ps6Mh5VU45RPX9+6ge1oHFWWTxcTREwlAEsQ
+	7NJ/cHiO1TAghODnQtPzdixEh6KEhQ7Vg8X2Bw+0Ehg4KC6A0JfcMwwpThsW7X/grNhUx4D6mt4
+	DV70VCFZFA6h7E4ieo6gzP9mmh+JGpb+12nVlXoBz/+sWHOuVJZLfOePCGrr2M6rpHDFs9WwPXo
+	0H3g4DC7HS3aAAeFuCejdwUSKdEyQtDDO5hMEmErz9Tx+2QuU9qDRxs0iXBvn0WgfQk=
+X-Google-Smtp-Source: AGHT+IHCOMN8uZ+u+tWvAykTfDphcLmw89KftNnGG3qlRnjiUHtvL5LGK6mVPNUfynbX4LuKd5+uqA==
+X-Received: by 2002:a5d:6488:0:b0:391:2f2f:836 with SMTP id ffacd0b85a97d-39ad174bf52mr5128871f8f.17.1743148539525;
+        Fri, 28 Mar 2025 00:55:39 -0700 (PDT)
+Received: from alex-rivos.ba.rivosinc.com ([193.33.57.199])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b7a3d66sm1799249f8f.81.2025.03.28.00.55.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 27 Mar 2025 14:06:31 -0700 (PDT)
-Date: Thu, 27 Mar 2025 21:06:25 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: guoren@kernel.org
-Cc: arnd@arndb.de, gregkh@linuxfoundation.org,
- torvalds@linux-foundation.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, anup@brainfault.org, atishp@atishpatra.org,
- oleg@redhat.com, kees@kernel.org, tglx@linutronix.de, will@kernel.org,
- mark.rutland@arm.com, brauner@kernel.org, akpm@linux-foundation.org,
- rostedt@goodmis.org, edumazet@google.com, unicorn_wang@outlook.com,
- inochiama@outlook.com, gaohan@iscas.ac.cn, shihua@iscas.ac.cn,
- jiawei@iscas.ac.cn, wuwei2016@iscas.ac.cn, drew@pdp7.com,
- prabhakar.mahadev-lad.rj@bp.renesas.com, ctsai390@andestech.com,
- wefu@redhat.com, kuba@kernel.org, pabeni@redhat.com, josef@toxicpanda.com,
- dsterba@suse.com, mingo@redhat.com, peterz@infradead.org,
- boqun.feng@gmail.com, xiao.w.wang@intel.com, qingfang.deng@siflower.com.cn,
- leobras@redhat.com, jszhang@kernel.org, conor.dooley@microchip.com,
- samuel.holland@sifive.com, yongxuan.wang@sifive.com,
- luxu.kernel@bytedance.com, david@redhat.com, ruanjinjie@huawei.com,
- cuiyunhui@bytedance.com, wangkefeng.wang@huawei.com, qiaozhe@iscas.ac.cn,
- ardb@kernel.org, ast@kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-mm@kvack.org,
- linux-crypto@vger.kernel.org, bpf@vger.kernel.org,
- linux-input@vger.kernel.org, linux-perf-users@vger.kernel.org,
- linux-serial@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-arch@vger.kernel.org, maple-tree@lists.infradead.org,
- linux-trace-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-atm-general@lists.sourceforge.net, linux-btrfs@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- linux-nfs@vger.kernel.org, linux-sctp@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-media@vger.kernel.org
-Subject: Re: [RFC PATCH V3 00/43] rv64ilp32_abi: Build CONFIG_64BIT
- kernel-self with ILP32 ABI
-Message-ID: <20250327210625.7a3021d0@pumpkin>
-In-Reply-To: <20250325121624.523258-1-guoren@kernel.org>
-References: <20250325121624.523258-1-guoren@kernel.org>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Fri, 28 Mar 2025 00:55:39 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kbuild@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] scripts: Introduce ARCH_WANTS_RELA_DYN to avoid stripping .rela.dyn section
+Date: Fri, 28 Mar 2025 08:55:36 +0100
+Message-Id: <20250328075536.238782-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250327_140634_529310_4ECCFF56 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250328_005542_214515_261E5427 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,28 +105,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Mar 2025 08:15:41 -0400
-guoren@kernel.org wrote:
+riscv uses the .rela.dyn section to relocate the kernel at runtime but
+that section is stripped from vmlinux. That prevents kexec to
+successfully load vmlinux since it does not contain the relocations info
+needed.
 
-> From: "Guo Ren (Alibaba DAMO Academy)" <guoren@kernel.org>
-> 
-> Since 2001, the CONFIG_64BIT kernel has been built with the LP64 ABI,
-> but this patchset allows the CONFIG_64BIT kernel to use an ILP32 ABI
-> for construction to reduce cache & memory footprint (Compared to
-> kernel-lp64-abi, kernel-rv64ilp32-abi decreased the used memory by
-> about 20%, as shown in "free -h" in the following demo.)
-...
+Fix this by introducing a new config ARCH_WANTS_RELA_DYN that prevents
+.rela.dyn to be stripped.
 
-Why on earth would you want to run a 64bit application on a 32bit kernel.
-IIRC the main justification for 64bit was to get a larger address space.
+Fixes: 71d815bf5dfd ("kbuild: Strip runtime const RELA sections correctly")
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/Kconfig         | 7 +++++++
+ arch/riscv/Kconfig   | 1 +
+ scripts/Makefile.lib | 4 +++-
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
-Now you might want to compile a 32bit (ILP32) system that actually
-runs in 64bit mode (c/f x32) so that 64bit maths (long long) is
-more efficient - but that is a different issue.
-(I suspect you'd need to change the process switch code to save
-all 64bits of the registers - but maybe not much else??)
+diff --git a/arch/Kconfig b/arch/Kconfig
+index b8a4ff365582..d93f50ecb8f9 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -1544,6 +1544,13 @@ config HAVE_ARCH_PREL32_RELOCATIONS
+ 	  architectures, and don't require runtime relocation on relocatable
+ 	  kernels.
+ 
++config ARCH_WANTS_RELA_DYN
++	bool
++	depends on RELOCATABLE
++	help
++	  This prevents the .rela.dyn section to be stripped from vmlinux since
++	  it is needed to relocate the kernel at runtime.
++
+ config ARCH_USE_MEMREMAP_PROT
+ 	bool
+ 
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index 7612c52e9b1e..d58053efa4e4 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -84,6 +84,7 @@ config RISCV
+ 	select ARCH_WANT_OPTIMIZE_DAX_VMEMMAP
+ 	select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
+ 	select ARCH_WANTS_NO_INSTR
++	select ARCH_WANTS_RELA_DYN if RELOCATABLE
+ 	select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+ 	select ARCH_WEAK_RELEASE_ACQUIRE if ARCH_USE_QUEUED_SPINLOCKS
+ 	select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index cad20f0e66ee..e59210a9fde0 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -376,8 +376,10 @@ quiet_cmd_ar = AR      $@
+ quiet_cmd_objcopy = OBJCOPY $@
+ cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
+ 
++objcopy-args-$(CONFIG_ARCH_WANTS_RELA_DYN) += --remove-section=!.rela.dyn
++
+ quiet_cmd_strip_relocs = RSTRIP  $@
+-cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
++cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $(objcopy-args-y) $@
+ 
+ # Gzip
+ # ---------------------------------------------------------------------------
+-- 
+2.39.2
 
-	David
 
 _______________________________________________
 linux-riscv mailing list
