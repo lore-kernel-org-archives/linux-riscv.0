@@ -4,74 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FDF7C28B20
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 10:16:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38C8CC36010
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 10:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Date:Subject:Cc:To:From:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=gTOFtJA3FsKHQ0VXmelysz0eKfiSud3Gqo7dkQjfTqQ=; b=fxbQUhknqbJLyP
-	VC4NK+bLwR7oKS9bAwc0ieom/HT13oMKA8EECVEGcfUaHDIGBhWSuolEhFzLOnmlkx6DlHPtDyTfH
-	a7iM2CgiHof06H8L8tQF1NduEzK/cgNaHuzBpUOis3fS2CPXyKyh8B+SyYyVGdBSk3R44zBqPQ7s0
-	MowbTjKv83gEUU8gLLqErBI3+fy706umUQ5TeBseUaxWVUj0IGYWoT3fF9oj3H1GMCAadjbLKPujJ
-	CGMrrRX3zhwLhbQAqhcjDiFtodBlkEYMntLnrco5xnQUUG/XsIbNZze/YL/0U10gWbA804yCmolyg
-	aVykTCbNQOesthXlIgrw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cd7Yza9Z/mWmvDevpffNIa2pHrftdCZNFnExH6XzIj0=; b=RZ05/cHLqvT00qmKMet6nAnkpP
+	/qhVeQB5zpgwQ47Lpkm+Hw6AwKq5fdECpug0jEwx2yeaRSVzar8jxR8G2JRPlEjhnRLvK7vhggjP4
+	hoYl8Adg2aB//dludBdcw6WiXP8/WvgL/qO+8KUddDfpPrP+pgZ9jC8aCDP7eYkFqHAQ9aa0KKlRe
+	SmOl+ZLLy1ZGJDTm5lTs4AYEMlLq0iv1oncq4je2t3qFWun9caqj7kE9UjVaTCdFCiOnDvTid9pyF
+	0itud3e7hP9yEoVQndtd0YyhNgzNroxmLVSluffqBuWB/fD6f8hmGAnEi3iNZS5osKpkkhy4IpJ+o
+	puQ2Uo4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6kx-0000000D6cR-2yNY;
-	Fri, 28 Mar 2025 10:16:07 +0000
-Received: from xmbghk7.mail.qq.com ([43.163.128.53])
+	id 1ty727-0000000D927-1HCK;
+	Fri, 28 Mar 2025 10:33:51 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty6kV-0000000D6ZH-04Fc
+	id 1ty6w4-0000000D86Q-1BI7
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Mar 2025 10:16:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1743156923; bh=EcuiC7xJsstU7iMIVfSBPGIrko8IzU16J1B4XmArQFQ=;
-	h=From:To:Cc:Subject:Date;
-	b=cZAaOH9nPWadR1hgx+L69Kx3fTN4bcm3UOtzBk6BgN0t7T2l6qYti1WuHDTUbEH5t
-	 GLuUmvfg77+RxRqFS5gADYvnEZCMoGciUX2xVb3adY48f7XxQ7KuH6LWSD21MsUUJ9
-	 YO7001qSx5EC5CXSezNJwG7Ucq84XM2cp9LAntPc=
-Received: from mail.red54.com ([139.99.8.57])
-	by newxmesmtplogicsvrszb20-0.qq.com (NewEsmtp) with SMTP
-	id 3C52C2E7; Fri, 28 Mar 2025 18:15:05 +0800
-X-QQ-mid: xmsmtpt1743156905traegrmkl
-Message-ID: <tencent_A93C7FB46BFD20054AD2FEF4645913FF550A@qq.com>
-X-QQ-XMAILINFO: N2zgDHximsrq6XAvK1wKKG3gsLhFL0nvP/GWnZbACO7itADC08NUfqDnGjqbo+
-	 /m/BCrc7k4rCDdFU47S0uG5BJkDkMjnHTmi+PbrjajzIw9tIfORusIAa+MwyROTQ8NqjEOD6WpBC
-	 enbtYB9kpkrBXrSsRMiTWCKoln2962f+Ebh9gOJvsQrujgHJr+A2q691wjE2XnQ4S+88QWp6pzJw
-	 20twSRMP475SqKs8PMm9HnQgvv+NIBgesF0IncKWSah2MxZb9H3pzkwsKDT5iSMiIa4Tda3D8o7t
-	 Wllva/NGZWaEX7UcfZbnEfxB5xG1i8TMZ1jsLkBZy0kNlXI+yGkUWFJtSzCRTiQTq6y6e2BBWd2E
-	 OsaCUdVJVdreyqhe45roscWbTrj2gujYKYNEmdn0zOmIoj3ctXlnLfC4pLkUQXdRNbOqfL2GPErs
-	 K8AnY5uSdA+2WFILIB9/8wOM0NTovlVZKzAqA/EVCJ6FI13Lxh2UJieriRjaVQduGlv6lxb1eDgr
-	 cYPgRXLUsE5AWjlG6BvHLLZd3rKKEELEWS47ccRaooWpfqCcID+jvErsFsbUQ8cHFcZfa9GM98fv
-	 d4m9+bpOI0qLpbiGqrnt21ShHAFjoiQoCB24felJDzo7WcJmTW0lJtD6OZ0jIKoaDjZbJsB+WS9+
-	 YY5LrVYzN/J2EPFi/yLCZvMF59knYOw1gPPC0mGYIWuGwS+92JchDEhem/gmkRKvAqLJfhraLnMY
-	 mIE2a960p/fufP0rG5wKpwU2tEv9SGMV8OywoaNxnWXDdnwIGQb09aOIKRcALtYXMNDXhRymWD8p
-	 eXzg+cQ4vGM51By4YXD3+4pZowOJbCY+D1C+lBjcaHYilGm7yeUbGx5y6wRvVqTN3YOc23lJ4GuW
-	 5XGLmIX/A0joo5Q6HCrQXh+EV6l7GVAvDA7yY+vLxGojOxG+TTV1tr9kE3rdF8oX9a95lsmTFInQ
-	 wo2gTaJH1JFTYdUimHk2nKbn3dfbVfVE1lwmBEGsQCd9ud00sIXJc0f2tU8KZLXTORezgUcqbp8E
-	 /0dGwUZhYJq40GrGPk
-X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
-From: Yeking@Red54.com
-To: linux-riscv@lists.infradead.org
-Cc: =?UTF-8?q?=E8=B0=A2=E8=87=B4=E9=82=A6=20=28XIE=20Zhibang=29?= <Yeking@Red54.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Nick Kossifidis <mick@ics.forth.gr>,
-	Debbie Maliotaki <dmaliotaki@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] RISC-V: Kconfig: Fix help text of CMDLINE_EXTEND
-Date: Fri, 28 Mar 2025 10:14:22 +0000
-X-OQ-MSGID: <20250328101422.52851-1-Yeking@Red54.com>
-X-Mailer: git-send-email 2.43.0
+	Fri, 28 Mar 2025 10:27:38 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso1131593f8f.2
+        for <linux-riscv@lists.infradead.org>; Fri, 28 Mar 2025 03:27:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1743157654; x=1743762454; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Eax7YxGwWpnNu4N9Cuk0JD950DXdwRHhk8wiSiixGbg=;
+        b=tAXc9Ir5CSTUnlk2Hr+oLDWre583yUPTPR8nkVULyX8+eyR9TxZlLgdsXJ8Tje4F1S
+         tX50l3CELAYuXRoTPM1S/EdMtQPKG/gK5XV2BiKZAnU79lIK4o6NBRRfK97SlBLr62av
+         jvl5XGblzhSr5QytHOYJrw4Xa+7YIJ+gwCvkywtn5I6JWagqwJK9j1qRJTAbK/2lYDmN
+         C1MdUJlXBUJ3zVfDumh9itIUUyv6sOWuju8AqedyFR+xz4Hj9pSmy4ASwVhqOgfAY1IF
+         t9y3FPtwLP1N/fUu8mPChyH6InKJcPNDy8smGfFQUjoB2YhZ5WhimDagLrPo1fQa94uz
+         ZNqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743157654; x=1743762454;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Eax7YxGwWpnNu4N9Cuk0JD950DXdwRHhk8wiSiixGbg=;
+        b=T9bVuCwGVO1xzBWgmImkrNKK3YNeMNHWXYP9jmFW7M9tPDfe78ApnV2+CjNXvS9Y57
+         aId74XeY1cO8tz7TfXU+c83foGJvRv8zu6VUCWb+/nHkuca/P3JNsD3y6JbMuXF4Iyh9
+         OUreb9rN/9oDWMPcc8o9Qyyd49u0R/TIDloMPmJs8pVRso9oSiIuamAg4GzW5KTAH84t
+         /KgVAqwyLg9+tDYV3sXQfrCXtHlYk03fNr+v4ijqKC2sniVI22xBhz1I6BKShbNsTWx7
+         EC06HzTybHxxzWEUjjs5mn0Covhb2ZvrnCm0d/6kZOexfXW49lQJbEYYlogAlfm2u9og
+         93SA==
+X-Forwarded-Encrypted: i=1; AJvYcCUynbADiCaHfr3kWMhRi2ngzRPKDRVKQ23YqFb6WvFLdo/6g1LgbRAsUW+ypAVEW9q+GJYmG4pvV+/9Fg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzyQoNM2Te8ap+oSO6o31qT3mSWaXrQ2S9lQLVv2HqCGzwrczCU
+	FevOhksYJevFSk2gU/hkZOtaXdNDdFJr8GAoHQGMHBy5cMyU3HhsOsDjvr5dRY0=
+X-Gm-Gg: ASbGncsxXwGUe6MaCoZJEVbKw0+I9z9/tU4VJm3IwQQ4w+dsZe/ldE5kfyiLdI8kzvg
+	WS4p/qvqR8tRppupALB15rPgOJHNu45M7kAAMw8wWuCZK//AlyvTUq6YULr/rRcpv3IsDFxK5Hs
+	+oyUiDji2FoNnz3OPP/y2kWESeTqyU74CaxI6QAoRBIdeT3HLMtpy5VcV05/tD01pT34TOYxzHz
+	TRd1YB3i0jg2PLuzI0ZiArsvNVThaTATR1ZXc8StDww0PEolJKfUOva1BEYBKNC3UEfRj2jGnFU
+	/5IKWBsCk2zT2UPxaD5j10GuoGHR57Z3b3Psv/FLDm93m+gViHPt55ViyZKlxyMtTbGxQGR4FGO
+	orz5BNM+aM7Q=
+X-Google-Smtp-Source: AGHT+IEKgI3nQYHCH8DidEWqf2UoGJFR4wRiYpFWDfNslXOnE0ABJu9zI68fN3BS8uzY8lwCUjes4A==
+X-Received: by 2002:a05:6000:4284:b0:391:3aab:a7d0 with SMTP id ffacd0b85a97d-39ad1749aa3mr6077097f8f.19.1743157653814;
+        Fri, 28 Mar 2025 03:27:33 -0700 (PDT)
+Received: from localhost (p200300f65f14610400000000000001b9.dip0.t-ipconnect.de. [2003:f6:5f14:6104::1b9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c0b6588d0sm2148585f8f.7.2025.03.28.03.27.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 28 Mar 2025 03:27:33 -0700 (PDT)
+Date: Fri, 28 Mar 2025 11:27:31 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Nylon Chen <nylon.chen@sifive.com>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Samuel Holland <samuel.holland@sifive.com>, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <ktmanz3mufxvme3gspm46p7vyjxsmzfxckqxg2e5a2mbqc5pxe@uc56iqoryuzr>
+References: <20241224093902.1632627-1-nylon.chen@sifive.com>
+ <zqkx7cx5nalslfmxeoxdnsjbvrvzajrjybsmsyeyc65a64sntr@gpc5qp6aoyp7>
+ <CAHh=Yk_j1ZnJ+=XQ_geN1sXMaye=P4jk-vduwj0-1soM7d+wQw@mail.gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <CAHh=Yk_j1ZnJ+=XQ_geN1sXMaye=P4jk-vduwj0-1soM7d+wQw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_031603_820458_0D86BE46 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250328_032736_326083_1C35DA56 
+X-CRM114-Status: GOOD (  21.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,29 +97,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6144035519940189598=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTog6LCi6Ie06YKmIChYSUUgWmhpYmFuZykgPFlla2luZ0BSZWQ1NC5jb20+CgpJdCBpcyB0
-aGUgYnVpbHQtaW4gY29tbWFuZCBsaW5lIGFwcGVuZGVkIHRvIHRoZSBib290bG9hZGVyIGNvbW1h
-bmQgbGluZSwKbm90IHRoZSBib290bG9hZGVyIGNvbW1hbmQgbGluZSBhcHBlbmRlZCB0byB0aGUg
-YnVpbHQtaW4gY29tbWFuZCBsaW5lLgoKRml4ZXM6IDNhZWQ4YzQzMjY3ZSAoIlJJU0MtVjogVXBk
-YXRlIEtjb25maWcgdG8gYmV0dGVyIGhhbmRsZSBDTURMSU5FIikKU2lnbmVkLW9mZi1ieTog6LCi
-6Ie06YKmIChYSUUgWmhpYmFuZykgPFlla2luZ0BSZWQ1NC5jb20+Ci0tLQogYXJjaC9yaXNjdi9L
-Y29uZmlnIHwgNCArKy0tCiAxIGZpbGUgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0
-aW9ucygtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvS2NvbmZpZyBiL2FyY2gvcmlzY3YvS2Nv
-bmZpZwppbmRleCA1NGVkMmE4Y2Q3YWYuLjRjZDE4ZDBkMDdiMyAxMDA2NDQKLS0tIGEvYXJjaC9y
-aXNjdi9LY29uZmlnCisrKyBiL2FyY2gvcmlzY3YvS2NvbmZpZwpAQCAtMTE0NCw4ICsxMTQ0LDgg
-QEAgY29uZmlnIENNRExJTkVfRkFMTEJBQ0sKIGNvbmZpZyBDTURMSU5FX0VYVEVORAogCWJvb2wg
-IkV4dGVuZCBib290bG9hZGVyIGtlcm5lbCBhcmd1bWVudHMiCiAJaGVscAotCSAgVGhlIGNvbW1h
-bmQtbGluZSBhcmd1bWVudHMgcHJvdmlkZWQgZHVyaW5nIGJvb3Qgd2lsbCBiZQotCSAgYXBwZW5k
-ZWQgdG8gdGhlIGJ1aWx0LWluIGNvbW1hbmQgbGluZS4gVGhpcyBpcyB1c2VmdWwgaW4KKwkgIFRo
-ZSBidWlsdC1pbiBjb21tYW5kIGxpbmUgd2lsbCBiZSBhcHBlbmRlZCB0byB0aGUgY29tbWFuZC0K
-KwkgIGxpbmUgYXJndW1lbnRzIHByb3ZpZGVkIGR1cmluZyBib290LiBUaGlzIGlzIHVzZWZ1bCBp
-bgogCSAgY2FzZXMgd2hlcmUgdGhlIHByb3ZpZGVkIGFyZ3VtZW50cyBhcmUgaW5zdWZmaWNpZW50
-IGFuZAogCSAgeW91IGRvbid0IHdhbnQgdG8gb3IgY2Fubm90IG1vZGlmeSB0aGVtLgogCi0tIAoy
-LjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+--===============6144035519940189598==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="c2otz6rwcboba37k"
+Content-Disposition: inline
+
+
+--c2otz6rwcboba37k
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v10 0/3] Change PWM-controlled LED pin active mode and
+ algorithm
+MIME-Version: 1.0
+
+On Fri, Mar 28, 2025 at 05:41:37PM +0800, Nylon Chen wrote:
+>  * (T) period.
+> > > The `frac` variable is pulse "inactive" time so we need to invert it.
+> >
+> > I'm trying to understand that. You're saying that the PWMCMP register
+> > holds the inactive time. Looking at the logic diagram (Figure 29) of
+> > "SiFive FU740-C000 Manual v1p6" that is because pwms is feed into the
+> > comparator after going through that XNOR where the lower input is always
+> > 0 (as pwmcmpXcenter is always 0) and so effectively counts backwards,
+> > right?
+> > In that case the sentence "The output of each comparator is high
+> > whenever the value of pwms is greater than or equal to the corresponding
+> > pwmcmpX." from the description of the Compare Registers is wrong.
+> >
+> Hi Uwe, I've contacted the spec's author, and he is willing to correct
+> the spec-related error.
+>=20
+> Based on your suggestions, I think we have two approaches
+> 1. First add comments explaining where the spec and implementation
+> don't match, then after the spec is corrected, submit another patch to
+> remove the comments
+> 2. No need to add this error explanation part, because the spec will
+> be corrected later.
+>=20
+> I don't have a preference, so I wanted to check with you - do you lean
+> more toward option 1 or option 2
+
+I would go for 1, mentioning the version of the broken documenatation
+and the expectation that this will be fixed in later revisions. So there
+is no confusion when the documenatation is fixed but the comments not
+removed yet.
+
+Best regards
+Uwe
+
+--c2otz6rwcboba37k
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfmeZEACgkQj4D7WH0S
+/k44egf+LuxtxM7lTyagceD7gOIIrg8b15gWwsEr7jfLegP4q6GIa2Y25I+zqTqA
+AdjCfRboH1x1fp8tD2TIsb/fE4lZa0ywNQSCr3UVyW3CUSrjGCDxB0NuqxI5oaGb
+8mP+9Doa3A4UgYviPaeBxrK5pN5yPOJwigwyPzADtwMi/u18bn38sRDlGmRfQAbp
+AzzpywbZHJIhcBXCDM6j5bhsQD0jWiQM7/YBkHF1Ftiwx87wNmcOJGR8o9C0LKDG
+xfad+UWIz0nVJiGXxnFyeG6+quS7uUglSv0mvtLseWlh7pQ17MLVQkmnRILaESYy
+Ginzw97MvNyFjEns8lQWRr/yidY+rQ==
+=uVv6
+-----END PGP SIGNATURE-----
+
+--c2otz6rwcboba37k--
+
+
+--===============6144035519940189598==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6144035519940189598==--
+
