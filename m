@@ -4,49 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77712C28B20
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 08:18:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EA6C28B20
+	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 08:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3B5x1Rqe//0ubholCb6V7F8TA1X8YqMw1qCZXTvwnlM=; b=SLxcRtEy+dxsiSih3st/TcBG33
-	x5xGXfe2FKP+325Uizr2Yu0X2x+9MmCe8nOBBSPlqUPZwnx3I0xPtd/QFmSB5KUYoF6lAG9+dDYHb
-	O0kQAsf3ez/ja733dwLaXNP6LWFyEStCt+7NO3Mh5Sg68Hli9GsMtoB075ACORinb7kLXFho3Addv
-	o0egY0P2aYqD1r/EiVBw096jMsVW9uWKnsEhMklfJgI5Io4UnWi3vt/WjkYGOsbzpDcRLdeKq4CU8
-	V4S5sxWB6mR52fORnmZokuRk8FDO5+yXQ5Uwai9BgH9qfr/C76clUCl8h5/uYQSeOZjDciPekSTqV
-	hwOuZqpQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
+	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1JXPfJW74Gq3pjaFCWdNmkkUmFvuWPngyLj4Jcj2DN8=; b=ppPDCWdhdNk5wX
+	BAGWEOtNv1vQ8f7hgsBjAAnyaGbBFsKjlUyKpSnidBLlihYBVYL9faQ9RJxxVPg9wNrUg2yqNUTq0
+	ZdqEnIZJ93W0TgIVSuKMAEjZXuF0oU3X2YPN9e/Yk2nGqy195oUJ8aFEQnbiZuvvXH5UkRIb/ZTG/
+	5sA535H2j+kz0wyzVNXdIV0JDLHpvBmPKefJMUmujhFDMA5sWqSEmY+nJ+DGjRK2V+xwgoLCBdZYX
+	L4p1L1+6dPyFQuOOQ370KWYzAhqC0Ulg6gYXhBGuAT6Vc+ZPHNR0DkibEjCaUs4zav6rua4VMaHFV
+	v1btSCeEH9RJLcQUu05A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4un-0000000CtYU-49L6;
-	Fri, 28 Mar 2025 08:18:09 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1ty4xU-0000000CtwP-2ymP;
+	Fri, 28 Mar 2025 08:20:56 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1ty4uk-0000000CtXl-3pjt
+	id 1ty4wG-0000000Ctja-27bk
 	for linux-riscv@lists.infradead.org;
-	Fri, 28 Mar 2025 08:18:08 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id AC744443E0;
-	Fri, 28 Mar 2025 08:18:01 +0000 (UTC)
-Message-ID: <14b85486-c94d-41a1-aee5-c9ca101bdeaf@ghiti.fr>
-Date: Fri, 28 Mar 2025 09:18:01 +0100
+	Fri, 28 Mar 2025 08:19:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 80FEF614B4;
+	Fri, 28 Mar 2025 08:19:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 302D3C4CEE4;
+	Fri, 28 Mar 2025 08:19:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743149977;
+	bh=ejPr9pydniJZd8kDVyQTUzYUxPFrRYV5sFNPkeJTiSk=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=IyteNLF0WLlCEYh0nyKyfigx0sMxtu3wyYcIL8v33GtyjOBzQzZeTPLmNAtQM0RQD
+	 lMZ9pmi6MImTauzezTfR+Lybyl8Vu4WmAyG+u2TV/30Mj5DtiDg5p4aDrye5dspFG7
+	 7H9IdArCWSPu2XZE3qBCfLwxkBVY7itlBq4NS5JRlIOf09oZldhKQdI58XKZALgcjV
+	 VG8zovf5SMpcUWZOHrxyeBDhRkuQM3ygtG0lBnJZ+EuKUhozFS2sl4mkwd2ngwqyUi
+	 E/aYY5aCJc/S65fp/+IRET7zhNz5lXp5886Xoz+hIFniDvBF8JXtOadWOHOUbuHfey
+	 Xhu9CsCPqqRlQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Alexandre
+ Ghiti <alex@ghiti.fr>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Masahiro Yamada
+ <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Nicolas
+ Schier <nicolas@fjasle.eu>, Ard Biesheuvel <ardb@kernel.org>, Charlie
+ Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: Re: [PATCH] scripts: Introduce ARCH_WANTS_RELA_DYN to avoid
+ stripping .rela.dyn section
+In-Reply-To: <20250328075536.238782-1-alexghiti@rivosinc.com>
+References: <20250328075536.238782-1-alexghiti@rivosinc.com>
+Date: Fri, 28 Mar 2025 09:19:34 +0100
+Message-ID: <877c49tvmx.fsf@all.your.base.are.belong.to.us>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: errata: Use medany for relocatable builds
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@rivosinc.com>, samuel.holland@sifive.com,
- linux-riscv@lists.infradead.org
-References: <20250326224506.27165-2-palmer@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250326224506.27165-2-palmer@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddujedtjeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepueefhfffheehjeffueehfeffleekfeeguddvgffgvdfhkeevgeejlefhleefhfefnecuffhomhgrihhnpegsohhothhlihhnrdgtohhmpdhkvghrnhgvlhdrohhrghenucfkphepfedurdefvddrkedurddukeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepfedurdefvddrkedurddukeejpdhhvghloheplgduledvrdduieekrddvuddrfedungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeefpdhrtghpthhtohepphgrlhhmvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehsrghmuhgvlhdrhhholhhlrghnugesshhifhhivhgvrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_011807_089744_5768F3CA 
-X-CRM114-Status: GOOD (  16.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -58,54 +70,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 26/03/2025 23:45, Palmer Dabbelt wrote:
-> We're trying to mix non-PIC/PIE objects into the otherwise-PIE
-> relocatable kernels, to avoid GOT/PLT references during early boot
-> alternative resolution (which happens before the GOT/PLT are set up).
->
-> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/sifive/errata.o: relocation R_RISCV_HI20 against `tlb_flush_all_threshold' can not be used when making a shared object; recompile with -fPIC
-> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/thead/errata.o: relocation R_RISCV_HI20 against `riscv_cbom_block_size' can not be used when making a shared object; recompile with -fPIC
-
-
-thead erratas are already compiled with medany if 
-CONFIG_RISCV_ALTERNATIVE_EARLY is set 
-(https://elixir.bootlin.com/linux/v6.14-rc6/source/arch/riscv/errata/thead/Makefile#L2) 
-so why isn't it enough?
-
-
->
-> Fixes: 8dc2a7e8027f ("riscv: Fix relocatable kernels with early alternatives using -fno-pie")
-> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
-> ---
-> I'm not 100% sure it's possible to expose this without Samuel's NOMMU
-> relocatable builds, see
-> <https://lore.kernel.org/all/mhng-517c0318-c8fb-4c4a-aa0e-0d08f8d34d78@palmer-ri-x1c9/>
-> ---
->   arch/riscv/errata/Makefile | 6 +++++-
->   1 file changed, 5 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
-> index f0da9d7b39c3..bc6c77ba837d 100644
-> --- a/arch/riscv/errata/Makefile
-> +++ b/arch/riscv/errata/Makefile
-> @@ -1,5 +1,9 @@
->   ifdef CONFIG_RELOCATABLE
-> -KBUILD_CFLAGS += -fno-pie
-> +# We can't use PIC/PIE when handling early-boot errata parsing, as the kernel
-> +# doesn't have a GOT setup at that point.  So instead just use medany: it's
-> +# usually position-independent, so it should be good enough for the errata
-> +# handling.
-> +KBUILD_CFLAGS += -fno-pie -mcmodel=medany
->   endif
->   
->   ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPiB3cml0ZXM6Cgo+IHJpc2N2
+IHVzZXMgdGhlIC5yZWxhLmR5biBzZWN0aW9uIHRvIHJlbG9jYXRlIHRoZSBrZXJuZWwgYXQgcnVu
+dGltZSBidXQKPiB0aGF0IHNlY3Rpb24gaXMgc3RyaXBwZWQgZnJvbSB2bWxpbnV4LiBUaGF0IHBy
+ZXZlbnRzIGtleGVjIHRvCj4gc3VjY2Vzc2Z1bGx5IGxvYWQgdm1saW51eCBzaW5jZSBpdCBkb2Vz
+IG5vdCBjb250YWluIHRoZSByZWxvY2F0aW9ucyBpbmZvCj4gbmVlZGVkLgo+Cj4gRml4IHRoaXMg
+YnkgaW50cm9kdWNpbmcgYSBuZXcgY29uZmlnIEFSQ0hfV0FOVFNfUkVMQV9EWU4gdGhhdCBwcmV2
+ZW50cwo+IC5yZWxhLmR5biB0byBiZSBzdHJpcHBlZC4KPgo+IEZpeGVzOiA3MWQ4MTViZjVkZmQg
+KCJrYnVpbGQ6IFN0cmlwIHJ1bnRpbWUgY29uc3QgUkVMQSBzZWN0aW9ucyBjb3JyZWN0bHkiKQo+
+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4K
+ClRoYW5rcywgQWxleCEgVGhpcyBmaXggbWFrZXMgaXQgcG9zc2libGUgdG8ga2V4ZWMgaW50byBS
+SVNDLVYgdm1saW51eCB3LwpDT05GSUdfUkVMT0NBVEFCTEUuCgpUZXN0ZWQtYnk6IEJqw7ZybiBU
+w7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJq
+b3JuQHJpdm9zaW5jLmNvbT4KCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
