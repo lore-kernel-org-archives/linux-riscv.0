@@ -4,76 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CABF8C3600C
-	for <linux-riscv@archiver.kernel.org>; Fri, 28 Mar 2025 22:55:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0F13C36008
+	for <linux-riscv@archiver.kernel.org>; Sat, 29 Mar 2025 04:43:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	Message-Id:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NfcmWOKmrulmXnKAyUZdY0FYRbUjb3VVb+/GcML3qKQ=; b=nA0KS0FDrk0EqV
-	PnzX8KflFsK0eBrnUNNNIDbr12WeqEVDSjJR5fjRHQVFs9C36j0KxLOVmixsJhWji9oJv9/FyPT9d
-	pUuZkzWNmIWA6vxHzotPc2tJbjqxg9DYzCS9XotAT3hFeVlMxYdSU6EhG73QEUuWvyw2gZ9SCu1uq
-	SeA0P+LByLhUiH7xY3GMi6qtxyauq8qiCiEoSIlpqkseoNOd+dV+Qd+q4Q5f1soAKqlWI15QUQ5db
-	w6VaMOhhKFH1wOYyHB6xZGzEv5xwf/GT911HOa7Ewi36JrhsNT6wYHXTgODABhUJM1MNSxuVYMD70
-	heQlagZdHJe/EAfxl5fw==;
+	List-Owner; bh=clx3HRZDZFrnXd+FCWF4/uMQTRnx15AB//i7uhBsvLk=; b=wQtQu3pefbx6LP
+	RpVs9/m3IUxs0U8tpYdPrUBMZH8EdEEWoMxmlZ1hnotwLbPDH4jYc1dzChwUkzAaL9tiX5Vo4ixJ9
+	Hb46YSfKCjTxKZXKmTT3h4/iRZDI88Duupna66hfjegFwU6zUYZkYDMabbETxR3/GemQMd/4Dq4tC
+	Uesuns+2AP+vfvEnXwjV13e+dY7C4NYmEb/CBjvIj8Yjvwk6Lk0+0SXgUxggvfWmTNv9FkNPy0ljm
+	3TjJf04j+qKkBrPbmzpTMxdhSojvW+rGm1CvXSoK+FkMbJE8/PD53kGBhLFste+uTgod8EMkfTOiA
+	O23ZJYV+95XQFjIn8Emw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyIbG-0000000EQyS-2DG5;
-	Fri, 28 Mar 2025 22:54:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tyO2H-0000000EiTp-09Vd;
+	Sat, 29 Mar 2025 04:43:09 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyIZV-0000000EQlb-1DnC;
-	Fri, 28 Mar 2025 22:53:06 +0000
+	id 1tyO2G-0000000EiTj-1Ife
+	for linux-riscv@lists.infradead.org;
+	Sat, 29 Mar 2025 04:43:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C37B9A43040;
-	Fri, 28 Mar 2025 22:47:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 353EEC4CEE4;
-	Fri, 28 Mar 2025 22:53:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1743202383;
-	bh=uMHCMkIp1JpzwK/KslzBXCnJB3B/qFWTnmOMAK1in40=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=ILMyTjyBso7K5+o4nbs26Pn5cHVWQm2GLLUBUU6L6Xi+fwqx2KCM3V3LBajgA8puB
-	 KnrvP/bQN8GP5OomQ+aEM6tjBdfck+qoFXs8ztHAbcsuc/oeySEGgq4ad2PiOAdMnP
-	 tYCiaYsel0JulQkbsLDNglaz+OTqx9udrazM6AgY=
-Date: Fri, 28 Mar 2025 15:53:01 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Shuah Khan <skhan@linuxfoundation.org>
-Cc: Guenter Roeck <linux@roeck-us.net>, Brendan Higgins
- <brendan.higgins@linux.dev>, David Gow <davidgow@google.com>, Rae Moar
- <rmoar@google.com>, Maxime Ripard <mripard@kernel.org>, Kees Cook
- <kees@kernel.org>, Alessandro Carminati <acarmina@redhat.com>,
- linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, Arnd
- Bergmann <arnd@arndb.de>, =?ISO-8859-1?Q?Ma=EDra?= Canal
- <mcanal@igalia.com>, Dan Carpenter <dan.carpenter@linaro.org>, Daniel Diaz
- <daniel.diaz@linaro.org>, Arthur Grillo <arthurgrillo@riseup.net>, Naresh
- Kamboju <naresh.kamboju@linaro.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Ville =?ISO-8859-1?Q?Syrj=E4l=E4?=
- <ville.syrjala@linux.intel.com>, Daniel Vetter <daniel@ffwll.ch>, Thomas
- Zimmermann <tzimmermann@suse.de>, Alessandro Carminati
- <alessandro.carminati@gmail.com>, Jani Nikula <jani.nikula@intel.com>,
- dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] Add support for suppressing warning backtraces
-Message-Id: <20250328155301.ab5514e2ab8043512a8527bd@linux-foundation.org>
-In-Reply-To: <a998f3fa-495c-4165-884a-a11c5cb61e96@linuxfoundation.org>
-References: <20250313114329.284104-1-acarmina@redhat.com>
-	<202503131016.5DCEAEC945@keescook>
-	<20250313-abiding-vivid-robin-159dfa@houat>
-	<c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
-	<20250313150505.cf1568bf7197a52a8ab302e6@linux-foundation.org>
-	<a998f3fa-495c-4165-884a-a11c5cb61e96@linuxfoundation.org>
-X-Mailer: Sylpheed 3.8.0beta1 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250328_155305_482253_1092F695 
-X-CRM114-Status: GOOD (  17.96  )
+	by tor.source.kernel.org (Postfix) with ESMTP id BFF3560010;
+	Sat, 29 Mar 2025 04:43:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E616CC4CEE2;
+	Sat, 29 Mar 2025 04:42:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743223386;
+	bh=uSwmc85sM9+0Oil5i3TgIA6/atbjT0fvVTmGzPHOcFs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=N/YO923h4W5cT5sr6RpxaCVcDLeh3vL5Eh9x4B40khJjlWlaLaFq+k09DUyXEgBQL
+	 yNR/fvEcJVUIe2p3n5ju3tKV2aOV1KZ9gd5+oCepLtaUk0aUSRZMi6AnHIFfzH5At0
+	 mFfogdCANGpolvr0gIWAfsGjF+3UiIreXmxjZL+GZADPjTnL/eujt6Wibefh1pkcM6
+	 9QD6kwaLaCgAhRpIMcB4Duktpa+/muj6JRRNxnKK9AJOx/c1pOJ9AvARnxTBMeeVSs
+	 HdaVhcbnCo2QddbRVX1YsBKqE2raA0DDy81cu3tE8wUZYFHlpii0eUYnvCEdlNwztF
+	 rRHlhjJi58BMA==
+Message-ID: <5a17a122-6e17-408d-b4c1-49a7e1517861@kernel.org>
+Date: Sat, 29 Mar 2025 05:42:57 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/4] dt-bindings: pinctrl: Add eswin,eic7700-pinctrl
+ binding
+To: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+Cc: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>,
+ Min Lin <linmin@eswincomputing.com>,
+ Samuel Holland <samuel.holland@sifive.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250325141311.758787-1-emil.renner.berthing@canonical.com>
+ <20250325141311.758787-2-emil.renner.berthing@canonical.com>
+ <20250326-owl-of-algebraic-wealth-61aeda@krzk-bin>
+ <CAJM55Z9+dpbqt-c=55WXUXsw=Dhk6m6Q1_Js3s-T+8W7dtrURQ@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CAJM55Z9+dpbqt-c=55WXUXsw=Dhk6m6Q1_Js3s-T+8W7dtrURQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,45 +126,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Mar 2025 16:14:55 -0600 Shuah Khan <skhan@linuxfoundation.org> wrote:
+On 26/03/2025 10:57, Emil Renner Berthing wrote:
 
-> On 3/13/25 16:05, Andrew Morton wrote:
-> > On Thu, 13 Mar 2025 11:31:12 -0700 Guenter Roeck <linux@roeck-us.net> wrote:
-> > 
-> >> On Thu, Mar 13, 2025 at 06:24:25PM +0100, Maxime Ripard wrote:
-> >>>>
-> >>>> Yeah, as with my prior review, I'm a fan of this. It makes a bunch of my
-> >>>> very noisy tests much easier to deal with.
-> >>>
-> >>> And for the record, we're also affected by this in DRM and would very
-> >>> much like to get it merged in one shape or another.
-> >>>
-> >>
-> >> I was unable to get maintainers of major architectures interested enough
-> >> to provide feedback, and did not see a path forward. Maybe Alessandro
-> >> has more success than me.
-> > 
-> > I'll put them into mm.git, to advance things a bit.
+Please kindly trim the replies from unnecessary context. It makes it
+much easier to find new content.
+
+
+>>
+>>> +    type: object
+>>> +    additionalProperties: false
+>>> +
+>>> +    patternProperties:
+>>> +      '-pins$':
+>>> +        type: object
+>>> +        allOf:
+>>> +          - $ref: /schemas/pinctrl/pincfg-node.yaml#
+>>> +          - $ref: /schemas/pinctrl/pinmux-node.yaml#
+>>> +
+>>> +        additionalProperties: false
+>>> +
+>>> +        description:
+>>> +          A pinctrl node should contain at least one subnode describing one
+>>> +          or more pads and their associated pinmux and pinconf settings.
+>>> +
+>>> +        properties:
+>>> +          pins:
+>>> +            items:
+>>> +              enum: [ CHIP_MODE, MODE_SET0, MODE_SET1, MODE_SET2, MODE_SET3,
+>>> +                      XIN, RTC_XIN, RST_OUT_N, KEY_RESET_N, GPIO0, POR_SEL,
+>>> +                      JTAG0_TCK, JTAG0_TMS, JTAG0_TDI, JTAG0_TDO, GPIO5, SPI2_CS0_N,
+>>> +                      JTAG1_TCK, JTAG1_TMS, JTAG1_TDI, JTAG1_TDO, GPIO11, SPI2_CS1_N,
+>>> +                      PCIE_CLKREQ_N, PCIE_WAKE_N, PCIE_PERST_N, HDMI_SCL, HDMI_SDA,
+>>> +                      HDMI_CEC, JTAG2_TRST, RGMII0_CLK_125, RGMII0_TXEN,
+>>> +                      RGMII0_TXCLK, RGMII0_TXD0, RGMII0_TXD1, RGMII0_TXD2,
+>>> +                      RGMII0_TXD3, I2S0_BCLK, I2S0_WCLK, I2S0_SDI, I2S0_SDO,
+>>> +                      I2S_MCLK, RGMII0_RXCLK, RGMII0_RXDV, RGMII0_RXD0, RGMII0_RXD1,
+>>> +                      RGMII0_RXD2, RGMII0_RXD3, I2S2_BCLK, I2S2_WCLK, I2S2_SDI,
+>>> +                      I2S2_SDO, GPIO27, GPIO28, GPIO29, RGMII0_MDC, RGMII0_MDIO,
+>>> +                      RGMII0_INTB, RGMII1_CLK_125, RGMII1_TXEN, RGMII1_TXCLK,
+>>> +                      RGMII1_TXD0, RGMII1_TXD1, RGMII1_TXD2, RGMII1_TXD3, I2S1_BCLK,
+>>> +                      I2S1_WCLK, I2S1_SDI, I2S1_SDO, GPIO34, RGMII1_RXCLK,
+>>> +                      RGMII2_RXDV, RGMII2_RXD0, RGMII2_RXD1, RGMII2_RXD2,
+>>> +                      RGMII2_RXD3, SPI1_CS0_N, SPI1_CLK, SPI1_D0, SPI1_D1, SPI1_D2,
+>>> +                      SPI1_D3, SPI1_CS1_N, RGMII1_MDC, RGMII1_MDIO, RGMII1_INTB,
+>>> +                      USB0_PWREN, USB1_PWREN, I2C0_SCL, I2C0_SDA, I2C1_SCL, I2C1_SDA,
+>>> +                      I2C2_SCL, I2C2_SDA, I2C3_SCL, I2C3_SDA, I2C4_SCL, I2C4_SDA,
+>>> +                      I2C5_SCL, I2C5_SDA, UART0_TX, UART0_RX, UART1_TX, UART1_RX,
+>>> +                      UART1_CTS, UART1_RTS, UART2_TX, UART2_RX, JTAG2_TCK, JTAG2_TMS,
+>>> +                      JTAG2_TDI, JTAG2_TDO, FAN_PWM, FAN_TACH, MIPI_CSI0_XVS,
+>>> +                      MIPI_CSI0_XHS, MIPI_CSI0_MCLK, MIPI_CSI1_XVS, MIPI_CSI1_XHS,
+>>> +                      MIPI_CSI1_MCLK, MIPI_CSI2_XVS, MIPI_CSI2_XHS, MIPI_CSI2_MCLK,
+>>> +                      MIPI_CSI3_XVS, MIPI_CSI3_XHS, MIPI_CSI3_MCLK, MIPI_CSI4_XVS,
+>>> +                      MIPI_CSI4_XHS, MIPI_CSI4_MCLK, MIPI_CSI5_XVS, MIPI_CSI5_XHS,
+>>> +                      MIPI_CSI5_MCLK, SPI3_CS_N, SPI3_CLK, SPI3_DI, SPI3_DO, GPIO92,
+>>> +                      GPIO93, S_MODE, GPIO95, SPI0_CS_N, SPI0_CLK, SPI0_D0, SPI0_D1,
+>>> +                      SPI0_D2, SPI0_D3, I2C10_SCL, I2C10_SDA, I2C11_SCL, I2C11_SDA,
+>>> +                      GPIO106, BOOT_SEL0, BOOT_SEL1, BOOT_SEL2, BOOT_SEL3, GPIO111,
+>>> +                      LPDDR_REF_CLK ]
+>>
+>> All these should be lowercase.
 > 
-> I haven't heard from kunit maintainers yet. This thread got lost
-> in inbox due to travel.
-> 
-> David/Brendan/Rae, Okay to take this series?
-> 
->
-> Andrew, Okay to take this through your tree - this needs merging.
+> Plenty of pinctrl drivers use uppercase names for the pins, intel, amd,
+> mediatek to name a few, and this is also what the EIC7700 documentation uses.
+> Do you still wan't Linux to call the pins something else?
 
+I am not asking you to use different names than in datasheet. Names will
+be exactly the same and the case does not matter for humans/grepping
+with datasheet. I don't get why using poor examples is the way to argue.
+It's like someone wrote bug, so I can as well...
 
-The review for 07/14 made me expect an update - perhaps tweak the asm
-constraints and add a comment.  This can be addressed later, as long as
-we don't forget.
+Well fine.
 
-However
-https://lkml.kernel.org/r/20250324104702.12139E73-hca@linux.ibm.com
-needs to be addressed before a merge.  The series in mm.git breaks the
-s390 build.
-
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
