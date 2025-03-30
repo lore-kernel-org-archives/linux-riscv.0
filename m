@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12197C28B20
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 18:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1519C28B20
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 19:49:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
-	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=laUXb40UlGaJJlu7aWXH1EA4EEssKQuVW3T5nhKo7vg=; b=VEYs0K6ZJzFqJZ
-	yceB5FTPih9YLvxeIjZS/PcPVUlutSCn+iig6tCr9jrd/N/FxfPsW5yGb3W2Oz1ZQV++RHq9CqSy3
-	vaLYtv70exElEFQ8NTUY/y63193MlhIK6V6GgxRcp0Y8Vgw9q2u2GlNO3hwITgJoRnMUD7IaOxFzk
-	QzBtpwF169SpwhjHWUM8GroEJIV/Yx82/hLUh8f2rBlibEA3AX1ro4MTP7XuRAZudqOyuthazWIQy
-	IcglIt7XqUqDq45O4XIaOg9lfr/aDAWX/xWbLxFof/h/mdIu8obE0Ti4iV0WI4FJb5g9dQHfz4vMp
-	PRG5J1FjWNjHIzliOGxw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=P8b0nFsJ6L1Etf5WOLvbf620GgurZhqTtBXj6VyE51c=; b=wYwbYNCpwnIzjwLgzel41g6LWa
+	jRGI9KoEnxz1b+y1qZD/AkG14u2QOAXuWglt4Id9lfuGHi//xTKqGBc3yhCIG3z8cO67yGPILfDK6
+	Rhqr/ETbesgfu9TEmIQawf4FGgGZp7USan4oj9l3ElACta0pjOHsciT1bwcUJOoyCdJg1uC1MA8Db
+	GYMw9GkxXeusPZo0I4vJXpeQQLKVrbRKp6zNeBhHhS+INcK5yZCFW6BFa5aoJ6CptnqMqM6PU3Qpp
+	0dHhx8o6gvGlIA+YdxBCGqj04OSZ4/H6Er4iGFOh1bZvTpgsmi9arzr/A3DJwzQSM2v4gFRcOCdgt
+	TllgpPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyxdL-0000000GVua-1Ljo;
-	Sun, 30 Mar 2025 18:43:47 +0000
-Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
+	id 1tyyfC-0000000Gbw4-0GwY;
+	Sun, 30 Mar 2025 19:49:46 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyxdI-0000000GVu0-2qA4
+	id 1tyyWk-0000000GbJN-1jSw
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Mar 2025 18:43:45 +0000
-Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-30384072398so5017964a91.0
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 11:43:44 -0700 (PDT)
+	Sun, 30 Mar 2025 19:41:04 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2240b4de12bso43915535ad.2
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 12:41:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743360224; x=1743965024; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=yTHIj6pSnTi8mksj3ewma2KmkG/z7OTrATTw79miqqs=;
-        b=JY6wq6huP25Nd18LZDh+ru/IldxwnteYgaiLC1hHguj7fL/R5Fc4uDY21F8t38eXHP
-         LIjQpQ9oq1My9DQz4hrdNWCPbW3UdR31wyGV+LIPXSyRwIF6yxntaJN17dhTwrcXtmuw
-         Wd10nsHE+eixPFSVMNNnyZup3HyCVWTk40o4svlcddZREjwhhsPPudi/1NHgZcXVA1Pz
-         67NZRggAyzjddErvjHWeMqoEtmprKYBjke3Yg7CPL6z+Y9aOuo3qd12nGkUb5sUglN0m
-         oi8WFspnP/Fw/9xbCN1f/FLMVLi9M0VnnKinceFJAhW2YaGC/GF9uR7t8kKQYpG6J3HY
-         5Y6w==
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743363661; x=1743968461; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+OuhYgE9UKtdazOjGt7lZhWPBMr5ttmJNU0h7Ws00MA=;
+        b=TybaaBj9scJSnl9t8n448/qp5F6N4JoEvr44ufJJtvG54w29WK/p4TspbN1rzIBwbI
+         2jYtzjeLXHJ1zV1NDgd3Lma/JrdCjPyO7/Uj3ANhORDgOCGy3McGAkqzI92UJBSmk0ew
+         r+RrzcA9iEUgts/62EbB+NdbcA/gc6egdOtcA2dqf9Ki7+j2S1EYlDJJi3zqjW6uj3Gi
+         bWbEK5TUHDOPxHvbVOgCuhSj/HAvS4vdGCTfdL1+d3ZgCKYgox95+y+6BUlJHlda+DJH
+         Woh79KzCpIHKOUPCyDi3e+b3Zj5Ibt8El7T4DRQNU+jKhEUQ+GTAEUidE5807iHYQLH3
+         AuOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743360224; x=1743965024;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=yTHIj6pSnTi8mksj3ewma2KmkG/z7OTrATTw79miqqs=;
-        b=Ixbf2hxjGRtVz9cpxsGt02pAipm0YSEFcncE5zJg/mo39jinkuvKfTnXrnBgT1ho9N
-         vddfmxzwjOrWG05YdmCg7Ss6TlUfYfAGsJNa9oJcehysTHGfZ3s3FYVQmTag7NwANwGs
-         fwzmkbcLsBrHqx5QuCavvQTWrZ64DjWEHFbBpA60lFgADtVs2hjJsp05sF8B3Hormbwh
-         8aMol3EoPDoocS3wj7Nz2kcPfvTDcxtRjh8GwucFBhRluwO6UrEBKYutrJzj4CgEcSG5
-         u3V9nZltHrRw3I+hv+KkV3BMFXE/fyc6iCxWeQuC/JxcaPrmlVM8cZ8I5BtShPa/1zZk
-         5NOA==
-X-Forwarded-Encrypted: i=1; AJvYcCX1Ljz8E65LDmE5Lca5j9mChUigcjuvWX6AVCkgjGEkTvZ6QYDnHwnN+AU6rPtHLPao9ctwhmUW6033xA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxbU96niw/lIHOxbWEfEJl56IX4dwL3wq89wCwF0S2kzWCUsjo
-	KrizEIyYxDbMgIxUiC31Ezysrh9GwzJzvCeZEhCHaO5MIMSlV3/i
-X-Gm-Gg: ASbGncvGM344EuxEVcWlpDrQKF2jxktA37kB+8fxvHNNcvVJNA5xatSLjXifvu+oym7
-	vK3m/LJmSKNJ/P/H6V9lyEq1lnVdX18R23GqnXqhlOITBRrtEO37Bn68i8skQgPya+667N3FNYL
-	ROej9oW8Qc+GandeftKYcFl+G43pIEJ2EyIKG564ekkZZV61SE4ITb2JZZcCddzTtRlnkf2tNqf
-	tX1ihtSSxSKFD+KRWnWGUXk7UvcufnSg5Fi52gCoiPzji8iaBKNriBhdPSrKhBrJj9QSz1/Dhjd
-	PdSrVbkgUTqq8TzU07mN6HgZBbfBN8Xk6Mzy2Yca0ycifsFR
-X-Google-Smtp-Source: AGHT+IGTwjdTgA3d53CBEcgC1UhzuLmFkhq0pi1HXLWlT03QRj78CDBkQP1NrMYsAj+uFneRKugQIA==
-X-Received: by 2002:a17:90b:134d:b0:2fa:e9b:33b8 with SMTP id 98e67ed59e1d1-305320afaadmr10451666a91.18.1743360223746;
-        Sun, 30 Mar 2025 11:43:43 -0700 (PDT)
-Received: from localhost ([181.91.133.137])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30516fed5fbsm5734308a91.37.2025.03.30.11.43.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 30 Mar 2025 11:43:43 -0700 (PDT)
-Mime-Version: 1.0
-Date: Sun, 30 Mar 2025 15:43:40 -0300
-Message-Id: <D8TTMCQBDYX3.H8ACLTS7KL19@gmail.com>
-Cc: <ibm-acpi-devel@lists.sourceforge.net>,
- <platform-driver-x86@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, "Damian Tometzki"
- <damian@riscv-rocks.de>
-Subject: Re: [PATCH] platform/x86: thinkpad_acpi: Fix NULL pointer
- dereferences while probing
-From: "Kurt Borja" <kuurtb@gmail.com>
-To: "Kurt Borja" <kuurtb@gmail.com>, "Henrique de Moraes Holschuh"
- <hmh@hmh.eng.br>, "Hans de Goede" <hdegoede@redhat.com>,
- =?utf-8?q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, "Mark
- Pearson" <mpearson-lenovo@squebb.ca>
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250330-thinkpad-fix-v1-1-4906b3fe6b74@gmail.com>
-In-Reply-To: <20250330-thinkpad-fix-v1-1-4906b3fe6b74@gmail.com>
+        d=1e100.net; s=20230601; t=1743363661; x=1743968461;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+OuhYgE9UKtdazOjGt7lZhWPBMr5ttmJNU0h7Ws00MA=;
+        b=oiHgbpUDj4QDKbotPk5y/rW9ZaY0xpmXhNvGB4ro1xgl9EkM//h84ziK0WmS0FIGxE
+         E9uf1d6yvF28cGdn1TMbSOaPs8xwRedrrzRoT0qGsbrKUG+dOUEHd5kSOPCEMM99g7/y
+         ypxUt37V7S70RVeRcntW6M+uK1xpcES5t9viiPsVfLjMge/pPScNzVj7Mc5PYrSQ1QOh
+         qT52/Nd0g/TSLlS6iNdQHuxx8+VEXroPp3nrBiTnyBm9bvOD8eKg261opSzKhKg9sSeC
+         eYHgH6OTHA/wCGlhgNx4VNIQsH6tVBtpQgQN/0dTCHn6YqZLtUpi0rSwFgXxaw6vRkmm
+         49gA==
+X-Forwarded-Encrypted: i=1; AJvYcCV/CgC4WAa8bh5GB/mJqEAhmdIOawEIYnOlTQcK0cAjPlVAxIvyjYdCdn4vLaqFoQOyVtHirkGCfjN5SQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeKEQ6JawjfUhTGA8qhd1RZ92/X9r6LXABmKo8dul7KqsX6heG
+	qxYSEQ3XJI5IR9jp6mj1ozfjXQB1yMqRh9g5E1OTJncoE6NlrmkbcL2WxXQ6/KKS/9QO/w86EXD
+	5
+X-Gm-Gg: ASbGncucUJB/Te1Ihgses+2aLpkoL5ZUHLeWhBBF/WRfdb+oi664XXdv827hXuDef8f
+	xyzomPHA/ysGKN0CbIbcu6sgZ/raO8oOgTvq9ZvmaTqFD6tW2EptgCBR4RvITePGOiKJnCorUsq
+	8sswd7Nman1GONAP67wP9FDKP7Oq9H/SO5GCaKuK6aLTTauzHhzzF5RsWGsxUcWQDsGyMh5/1Z7
+	4lAIrjrR53hk/xu8sDNlKl4GfWNo5+w6ZIgxS4fpBHf5lrVPLvg/hfrpTaE9yPrcWg+ERv4HGTO
+	dcZNwXu5KD7LV7UEsttolCUvOkicheESYhNTxTtFxAI=
+X-Google-Smtp-Source: AGHT+IEG7YrYhpL/w09D8dnY5K3an5rvJtbNaqnybIxihpbpyRDNZbeGKtMfVSy2S9ch1DWCihaYZA==
+X-Received: by 2002:a17:902:d505:b0:224:7a4:b32 with SMTP id d9443c01a7336-2292f95bf43mr76417655ad.20.1743363661089;
+        Sun, 30 Mar 2025 12:41:01 -0700 (PDT)
+Received: from localhost ([192.184.165.199])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291f1f69desm55779605ad.253.2025.03.30.12.41.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 30 Mar 2025 12:41:00 -0700 (PDT)
+Date: Sun, 30 Mar 2025 12:41:00 -0700 (PDT)
+X-Google-Original-Date: Sun, 30 Mar 2025 12:40:53 PDT (-0700)
+Subject: Re: [PATCH] RISC-V: errata: Use medany for relocatable builds
+In-Reply-To: <14b85486-c94d-41a1-aee5-c9ca101bdeaf@ghiti.fr>
+CC: samuel.holland@sifive.com, linux-riscv@lists.infradead.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Message-ID: <mhng-b55f8035-7ce3-487d-92c8-988f5c8b58e7@palmer-ri-x1c9>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_114344_715973_67D98B47 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250330_124102_725701_0D99C9E9 
+X-CRM114-Status: GOOD (  17.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,41 +92,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun Mar 30, 2025 at 12:39 PM -03, Kurt Borja wrote:
-> Some subdrivers make use of the global reference tpacpi_pdev during
-> initialization, which is called from the platform driver's probe.
-> However, after
+On Fri, 28 Mar 2025 01:18:01 PDT (-0700), Alexandre Ghiti wrote:
+> On 26/03/2025 23:45, Palmer Dabbelt wrote:
+>> We're trying to mix non-PIC/PIE objects into the otherwise-PIE
+>> relocatable kernels, to avoid GOT/PLT references during early boot
+>> alternative resolution (which happens before the GOT/PLT are set up).
+>>
+>> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/sifive/errata.o: relocation R_RISCV_HI20 against `tlb_flush_all_threshold' can not be used when making a shared object; recompile with -fPIC
+>> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/thead/errata.o: relocation R_RISCV_HI20 against `riscv_cbom_block_size' can not be used when making a shared object; recompile with -fPIC
 >
-> commit 38b9ab80db31 ("platform/x86: thinkpad_acpi: Move subdriver initialization to tpacpi_pdriver's probe.")
 >
-> this variable is only properly initialized *after* probing and this can
-> result in a NULL pointer dereference.
->
-> In order to fix this without reverting the commit, register the platform
-> bundle in two steps, first create and initialize tpacpi_pdev, then
-> register the driver synchronously with platform_driver_probe(). This way
-> the benefits of commit 38b9ab80db31 are preserved.
->
-> Additionally,
->
-> commit 43fc63a1e8f6 ("platform/x86: thinkpad_acpi: Move HWMON initialization to tpacpi_hwmon_pdriver's probe")
->
-> introduced a similar problem, however tpacpi_sensors_pdev is only used
-> once inside the probe, so replace the global reference with the one
-> given by the probe.
+> thead erratas are already compiled with medany if
+> CONFIG_RISCV_ALTERNATIVE_EARLY is set
+> (https://elixir.bootlin.com/linux/v6.14-rc6/source/arch/riscv/errata/thead/Makefile#L2)
+> so why isn't it enough?
 
-I don't understand why b4 added the linux-riscv list to the recipients,
-but it was definitely not inteded.
+Those are linker errors, we can't pull the medlow code into PIC objects.  
+So any objects in relocatable kernels need to either be PIC/PIE or be 
+medany (which can't reference any absolute symbols).
 
-Sorry for the noise.
-
--- 
- ~ Kurt
+>> Fixes: 8dc2a7e8027f ("riscv: Fix relocatable kernels with early alternatives using -fno-pie")
+>> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+>> ---
+>> I'm not 100% sure it's possible to expose this without Samuel's NOMMU
+>> relocatable builds, see
+>> <https://lore.kernel.org/all/mhng-517c0318-c8fb-4c4a-aa0e-0d08f8d34d78@palmer-ri-x1c9/>
+>> ---
+>>   arch/riscv/errata/Makefile | 6 +++++-
+>>   1 file changed, 5 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
+>> index f0da9d7b39c3..bc6c77ba837d 100644
+>> --- a/arch/riscv/errata/Makefile
+>> +++ b/arch/riscv/errata/Makefile
+>> @@ -1,5 +1,9 @@
+>>   ifdef CONFIG_RELOCATABLE
+>> -KBUILD_CFLAGS += -fno-pie
+>> +# We can't use PIC/PIE when handling early-boot errata parsing, as the kernel
+>> +# doesn't have a GOT setup at that point.  So instead just use medany: it's
+>> +# usually position-independent, so it should be good enough for the errata
+>> +# handling.
+>> +KBUILD_CFLAGS += -fno-pie -mcmodel=medany
+>>   endif
+>>
+>>   ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
+>
+> _______________________________________________
+> linux-riscv mailing list
+> linux-riscv@lists.infradead.org
+> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
