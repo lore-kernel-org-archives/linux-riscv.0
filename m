@@ -4,90 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9FA9C36008
-	for <linux-riscv@archiver.kernel.org>; Sat, 29 Mar 2025 10:22:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8730C36008
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 00:31:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ecz4Na/98lqG63dIt2ttusk+OB3A+jsBKhY1TFEezHw=; b=qzHo3r0JwlBtcp
-	fFqFXrgD9e3fba53o05tshg+8qU22FEEJ0bHnYwdqbaQQUVIf6FKqFcVdXb3CbiXiu4Kp7b4Ovrar
-	wayjTCJSbNOm2e/Al5dKQWduu8vbNuDzFOQCHPT5P4c6GvvBelrlr0Ba1e8hje4i0KUR/eoBO+9BN
-	cKkOctXs29dMG9A2XTzoPYLq3+adWFwkAt70yyDuv8amZ29b1DKqsJsKGgwrKwXO2Zn1a15JXSEw/
-	qQcYr8JsGbE4gccRNwLi7UzcFmRed+vBUY1qfBk6hmIs41nTKKPewgkqPx5ZRa3CUoai+gUAGwqt1
-	ku0kg/rG4/RFuJHd579w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=n0yHdj/tEul/jlkeUPIaBXSAas/IPsKY+g1iaDhpmRM=; b=Wb8bzAM+u2vvCZ
+	6KhcH/b9fMmCPGLxZ3up3hXxCAtcMiPtoz/uyZrIukuSNA4DoieP8Zzz8cVR66Ze3vRNg1ktCn0bv
+	CdjpYVQ/Whl/0D7eE4zF1xTDRIo9m8/QdCKsiTCDD0i5dL55U7H88T4MkxSIz02eCyEYjmAC7hftn
+	k/Th9Ul1Aw4fcKjHrfvKU3wvC/slbkZ9LjnfTtHg1PM7BsqDoA2f0FjvA1MSoc0kV0+NVh3/Nw0KL
+	zzyRTnGR7I28Vb4dplNezRe+pSMp7KVn3Ru1FiwPi9QmDQUFHCo7/5aNqMXt14n+/LVsH6BweBkvy
+	hoA50EBAPgFi0YGnvPgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyTK5-0000000F1oa-3SMO;
-	Sat, 29 Mar 2025 10:21:53 +0000
-Received: from bayard.4d2.org ([155.254.16.17])
+	id 1tygaR-0000000FfhH-1m9a;
+	Sun, 30 Mar 2025 00:31:39 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyTK3-0000000F1o6-08Qa
+	id 1tygaO-0000000Ffgw-3Ydl
 	for linux-riscv@lists.infradead.org;
-	Sat, 29 Mar 2025 10:21:52 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id ED04FEC59F9;
-	Sat, 29 Mar 2025 03:21:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1743243708; bh=fhA90Tx9eI1SkiVBFprOFxj8QYdAvN7Gsg11849kV7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fb8y+ap7DBFY1LJ6n2D6DONFzaF6mhO+7+hgOC99FiAZsPJK8w/meTLkSqU7QWULK
-	 V2ck4SIV97dvsaxFGZqHqpEnF1yJr05wm/frUWsNfM3XRFPuXEN29Mtpxg22vdLpYZ
-	 IDWu9RfpD7gFCubi87Ob4jBdGii0HksDLLW2IMv0BEfLxeEJQ9mez4mMQRyPiihswo
-	 scxtJhsnQ+hshim06Y80tgL6hlbyDdLhbBA0vl+b+HeUcb4dV74XrxQ6riNj8fgwxQ
-	 DJJHAqWvuhJFuENxlFiKOg7fkSB2do6mLViCXWOgaWtN+QgFf8/CLQx5hULZw8YhaS
-	 itEkSikIZbkFQ==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id KLKqUTbdVgti; Sat, 29 Mar 2025 03:21:45 -0700 (PDT)
-Received: from ketchup (unknown [183.217.80.175])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id DF13BEC59F8;
-	Sat, 29 Mar 2025 03:21:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1743243704; bh=fhA90Tx9eI1SkiVBFprOFxj8QYdAvN7Gsg11849kV7w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=voX2CYElcjGryqXnLzklh0uk6LbuUxt46gQyvHJeKaAJ2fR77jLi8H9g0OO+I5kKg
-	 ATZaZvrKZhNu0sHGwJO+NH/e7yDxZ56RdFXqnZXY8dWMKnCsfMLkTGZVe6nVFCvVZg
-	 +B2A6IAn4qlDCL91e5NMf/DMJaza/Llge0oDrW9az4LQgDsLlwXB9CGs9SBYe3i32y
-	 1+0FPJ+BOlLATdOf4790A+EjoiOJdjacQNPiPu/HXJKzO/5BeHkEy5hqo3hjjcM9EQ
-	 g/BtB1CwdQ10rgiR/tSOcbLGbNCu6UZPbTiDlqR3FQdpPeGwM4YDsTXx/yXqJAYqW6
-	 0h3Fxm+zxG8wg==
-Date: Sat, 29 Mar 2025 10:21:36 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Alex Elder <elder@riscstar.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>
-Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Guodong Xu <guodong@riscstar.com>
-Subject: Re: [PATCH v5 3/5] clk: spacemit: Add clock support for Spacemit K1
- SoC
-Message-ID: <Z-fJsC_OnmE_0yys@ketchup>
-References: <20250306175750.22480-2-heylenay@4d2.org>
- <20250306175750.22480-5-heylenay@4d2.org>
- <d625c473-789c-42f9-918c-8a649d058513@riscstar.com>
- <Z-E-nhNzUx_YFFZZ@ketchup>
- <188bd370-6e9d-4104-8731-926ce4f3c211@riscstar.com>
+	Sun, 30 Mar 2025 00:31:38 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-301c4850194so4556180a91.2
+        for <linux-riscv@lists.infradead.org>; Sat, 29 Mar 2025 17:31:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743294696; x=1743899496; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=T8sX9JQgcjDM5B2WbHLYXAKpNL5V5b9vaaWmdqn5sl8=;
+        b=LFmHtSZyZD+wXo/ugzf2SvS3rk6Xj9uI8hgSEks++3HUd+MiGTHjSfXZgjiai69CFo
+         cgCNOwD+jMmOE4oZUkvmmxS0xQ9hE3vDLhNAVQy4h9AlGL9op1gJPhVKhq+jxzhvrgVD
+         3/Ge6uBp4XE+BlkbtnFFMU6tIcR/+2rTgQNV24VRuM9CflhZMLaxE2FTUD9/kA55rDOr
+         PGlUe+cnE7r3wgOBZvb50oju6lq7EiZ1CR8+OqFVKg6GMHszS/z26GmCSXWjh4R8HSOx
+         vlr8FsUAqHtxTPpJqcEb5xOU0ylnFwRN1gHVSHtVpEViRN+10zeJAEzkUB2AT19A/L+W
+         ktaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743294696; x=1743899496;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=T8sX9JQgcjDM5B2WbHLYXAKpNL5V5b9vaaWmdqn5sl8=;
+        b=QuU53QZpiZ/VfJ+fkSz6hGBaMMhWAGQuG/YRWXZUT4puxBhmaqKMFH2lDh1yO8L63j
+         sfROH1mEWFWk4Qk3jz4qvlCXYAVVodgeEo+pBY4CZRWFd4fy6z5x3rBvYzHDvpPoI8BP
+         monYcp+saQZfxdjwA2vC6rpY9m1v+l3cp6Mn8dSdD0c4beQFprWvEjME42ZWYMpDFvvS
+         r1EyeaEh3V17GKMRotW7KWTNtw//MkA0+3TnMBJQIG7kJ+PwlhJMxejyj2gk6ppHteP3
+         AFslMNzt1UwViHQ5Ln2HWH+onEIhBHlXIaBZ9AzvZdeVI/a8c0oYPepvVSabsgWEFH3x
+         +lgg==
+X-Forwarded-Encrypted: i=1; AJvYcCU/2KgGE1UL2qDe4rlcDfoIKnPrIDm/YXYZkm3JF9h3PDzIBWufOxKXUzsQdCYNPujza41BrSUuD2c9HA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE2X/MycAPMZCm0JtTcURcuibzdGlPFC4SBXJlOxb4vI4xReat
+	FhTlgp7ynsZi7nayKy7NDP9zlZRonsaK03BIKv9jnOYdfNkwr/LC
+X-Gm-Gg: ASbGncuusnm+MQvIOx4dZf2P+jyLdiFNGF/yUa5bKJ0LyEHRQqYm/QwY7rDlAHF76LB
+	fnGqeFJzY9Jtt7IuWuJKidCQAn1WCYFugmUID5GhaE+3YCnO+nY3j80F/37WCGXYlRGcTQMlpJ9
+	byNGf0JoB9/9IDWNu3Xy5fcFvfKxaYDr+9pqBMd0mjeNtVTv5PFv/TMdQxHKSrbSvMxg2KYctl8
+	ouwtpCtUzGL9bSrLmEC+VLg+6wmOCxyo8BZCI22GeStxutBz9Ny+L/y2QWZezttPjtK14lBXZhE
+	LwxMdE8fhv1+4NtRlpbNY6g6LcWFXFInBAN+TvCswxT1pnLsjv/Qi1RZkmGI1CTyY/rABPa30Ld
+	+hRk6klxZx978BIwsMflGdkeHQO9GPMg=
+X-Google-Smtp-Source: AGHT+IFjOYlNIkklCiPR6SNYbKSePzshOfqmakMpfEqa1st5hBR7yRveiAYE76V57DWiH0YclLcTpQ==
+X-Received: by 2002:a17:90b:56c8:b0:2fa:1e3e:9be5 with SMTP id 98e67ed59e1d1-30531e89c4cmr8376057a91.0.1743294695638;
+        Sat, 29 Mar 2025 17:31:35 -0700 (PDT)
+Received: from localhost.localdomain (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3039dfd497csm7466308a91.5.2025.03.29.17.31.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 29 Mar 2025 17:31:35 -0700 (PDT)
+From: Ryo Takakura <ryotkkr98@gmail.com>
+To: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	john.ogness@linutronix.de,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pmladek@suse.com,
+	samuel.holland@sifive.com,
+	bigeasy@linutronix.de,
+	conor.dooley@microchip.com,
+	u.kleine-koenig@baylibre.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org,
+	Ryo Takakura <ryotkkr98@gmail.com>
+Subject: [PATCH v2 0/2] serial: sifive: Convert sifive console to nbcon
+Date: Sun, 30 Mar 2025 09:30:58 +0900
+Message-Id: <20250330003058.386447-1-ryotkkr98@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <188bd370-6e9d-4104-8731-926ce4f3c211@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250329_032151_413099_C32D6EED 
-X-CRM114-Status: GOOD (  78.53  )
+X-CRM114-CacheID: sfid-20250329_173136_886106_A39F7AE9 
+X-CRM114-Status: UNSURE (   9.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,378 +110,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 28, 2025 at 09:00:40AM -0500, Alex Elder wrote:
-> On 3/24/25 6:14 AM, Haylen Chu wrote:
-> > On Tue, Mar 11, 2025 at 06:19:51PM -0500, Alex Elder wrote:
-> > > On 3/6/25 11:57 AM, Haylen Chu wrote:
-> > > > The clock tree of K1 SoC contains three main types of clock hardware
-> > > > (PLL/DDN/MIX) and has control registers split into several multifunction
-> > > > devices: APBS (PLLs), MPMU, APBC and APMU.
-> > > > 
-> > > > All register operations are done through regmap to ensure atomiciy
-> > > > between concurrent operations of clock driver and reset,
-> > > > power-domain driver that will be introduced in the future.
-> > > > 
-> > > > Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> > > 
-> > > I'm very glad you have the DT issues resolved now.
-> > > 
-> > > I again have lots of comments on the code, and I think I've
-> > > identified a few bugs.  Most of my comments, however, are
-> > > suggesting minor changes for consistency and readability.
-> > > 
-> > > I'm going to skip over a lot of "ccu-k1.c" because most of what I
-> > > say applies to the definitions in the header files.
-> 
-> Sorry I didn't respond to this earlier.
+Hi!
 
-I've already started to work on the v6, so it doesn't matter. I'll also
-cover some new decisions made during improving v6 in the reply.
+This series convert sifive console to nbcon.
 
-> > > > ---
-> > > >    drivers/clk/Kconfig               |    1 +
-> > > >    drivers/clk/Makefile              |    1 +
-> > > >    drivers/clk/spacemit/Kconfig      |   20 +
-> > > >    drivers/clk/spacemit/Makefile     |    5 +
-> > > >    drivers/clk/spacemit/ccu-k1.c     | 1714 +++++++++++++++++++++++++++++
-> > > >    drivers/clk/spacemit/ccu_common.h |   47 +
-> > > >    drivers/clk/spacemit/ccu_ddn.c    |   80 ++
-> > > >    drivers/clk/spacemit/ccu_ddn.h    |   48 +
-> > > >    drivers/clk/spacemit/ccu_mix.c    |  284 +++++
-> > > >    drivers/clk/spacemit/ccu_mix.h    |  246 +++++
-> > > >    drivers/clk/spacemit/ccu_pll.c    |  146 +++
-> > > >    drivers/clk/spacemit/ccu_pll.h    |   76 ++
-> > > >    12 files changed, 2668 insertions(+)
-> > > >    create mode 100644 drivers/clk/spacemit/Kconfig
-> > > >    create mode 100644 drivers/clk/spacemit/Makefile
-> > > >    create mode 100644 drivers/clk/spacemit/ccu-k1.c
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_common.h
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_ddn.c
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_ddn.h
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_mix.c
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_mix.h
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_pll.c
-> > > >    create mode 100644 drivers/clk/spacemit/ccu_pll.h
-> > > > 
-> > 
-> > ...
-> > 
-> > > > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> > > > new file mode 100644
-> > > > index 000000000000..5974a0a1b5f6
-> > > > --- /dev/null
-> > > > +++ b/drivers/clk/spacemit/ccu-k1.c
+The first patch fixes the issue which was pointed out by John [0] 
+that the driver has been accessing SIFIVE_SERIAL_IE_OFFS register 
+on its ->startup() and ->shutdown() without port lock synchronization 
+against ->write().
 
-...
+The fix on the first patch still applies to the second patch which 
+converts the console to nbcon as ->write_thread() holds port lock
+and ->write_atomic() checks for the console ownership.
 
-> > > > diff --git a/drivers/clk/spacemit/ccu_common.h b/drivers/clk/spacemit/ccu_common.h
-> > > > new file mode 100644
-> > > > index 000000000000..494cde96fe3c
-> > > > --- /dev/null
-> > > > +++ b/drivers/clk/spacemit/ccu_common.h
-> > > > @@ -0,0 +1,47 @@
-> > > > +/* SPDX-License-Identifier: GPL-2.0-only */
-> > > > +/*
-> > > > + * Copyright (c) 2024 SpacemiT Technology Co. Ltd
-> > > > + * Copyright (c) 2024 Haylen Chu <heylenay@4d2.org>
-> > > > + */
-> > > > +
-> > > > +#ifndef _CCU_COMMON_H_
-> > > > +#define _CCU_COMMON_H_
-> > > > +
-> > > > +#include <linux/regmap.h>
-> > > > +
-> > > 
-> > > I'm not going to suggest it at this point, but it might
-> > > have worked out more nicely if you defined a top-level CCU
-> > > structure that contained a union of structs, one for each
-> > > type of clock (PLL, DDN, mix).
-> > > 
-> > > > +struct ccu_common {
-> > > > +	struct regmap *regmap;
-> > > > +	struct regmap *lock_regmap;
-> > > 
-> > > The lock_regmap is only used for PLL type clocks, right?
-> > > So it could be included in the PLL struct within the union
-> > > below?
-> > 
-> > This makes sense to me.
-> 
-> It might make sense but in part my suggestion makes more
-> sense when taken with the comment I had above (about having
-> a CCU structure with a union rather than separate per-type
-> structures).  I think that would be better, but again I
-> don't want you to have to do all that work if it means
-> delaying getting your code accepted.
-> 
-> So move it to the union if that works, but for now it's
-> fine the way it is.
+Sincerely,
+Ryo Takakura
 
-I'll prefer to keep the regmap lock in the toplevel structure for now.
-Moving the pointer into the union requires special care: we cannot
-simply assign lock_regmap with NULL anymore in spacemit_ccu_register()
-without checking the subtype of clk_hw, or part of the mix/ddn's struct
-may be overwritten.
+[0] https://lore.kernel.org/lkml/84sen2fo4b.fsf@jogness.linutronix.de/
 
-Keeping lock_regmap out of the union ensures the code is simple and
-makes it less possible to accidentally mess the union up.
+---
 
-> > > > +
-> > > > +	union {
-> > > > +		/* For DDN and MIX */
-> > > > +		struct {
-> > > > +			u32 reg_ctrl;
-> > > > +			u32 reg_fc;
-> > > > +			u32 fc;
+Changes since v1:
+[1] https://lore.kernel.org/lkml/20250323060603.388621-1-ryotkkr98@gmail.com/
 
-...
+- Thank you John for the feedback!
+- Add a patch for synchronizing startup()/shutdown() vs write(). 
+- Add <Reviewed-by> by John.
 
-> > > 
-> > > You define PLL_SWCR3_EN in "ccu_pll.c" to have value BIT(31).
-> > > that's good.  But you should define its inverse, to define
-> > > which bits in the reg_swcr3 field are the valid "magic" part.
-> > > In both cases, I would define them here in this file, where
-> > > the structure type is defined (not in "ccu_pll.c").
-> > > #define SPACEMIT_PLL_SWCR3_EN	(u32)BIT(31)
-> > > #define SPACEMIT_PLL_SWCR3_MASK	~(SPACEMIT_PLL_SWCR3_EN)
+---
 
-I changed my mind and consider it's better to keep these macros in
-ccu_pll.c, since it isn't that useful outside of the file (knowing the
-exact definition of swcr3 doesn't help much, as we're really defining
-some magic values). It's not a strong opinion anyway.
+Ryo Takakura (2):
+  serial: sifive: lock port in startup()/shutdown() callbacks
+  serial: sifive: Switch to nbcon console
 
-> > > > +		};
-> > > > +	};
-> > > > +
-> > > > +	struct clk_hw hw;
-> > > > +};
+ drivers/tty/serial/sifive.c | 93 +++++++++++++++++++++++++++++++------
+ 1 file changed, 80 insertions(+), 13 deletions(-)
 
-...
+-- 
+2.34.1
 
-> > > > diff --git a/drivers/clk/spacemit/ccu_ddn.c b/drivers/clk/spacemit/ccu_ddn.c
-> > > > new file mode 100644
-> > > > index 000000000000..ee187687d0c4
-> > > > --- /dev/null
-> > > > +++ b/drivers/clk/spacemit/ccu_ddn.c
-> > > > @@ -0,0 +1,80 @@
-> > 
-> > ...
-> > 
-> > > > +static unsigned long clk_ddn_calc_best_rate(struct ccu_ddn *ddn,
-> > > > +					    unsigned long rate, unsigned long prate,
-> > > > +					    unsigned long *num, unsigned long *den)
-> > > > +{
-> > > > +	rational_best_approximation(rate, prate / 2,
-> > > > +				    ddn->den_mask, ddn->num_mask,
-> > > > +				    den, num);
-> > > 
-> > > Using rational_best_approximation() is excellent.  However I
-> > > think you have a bug, and I don't think the exact way you're
-> > > using it is clear (and might be wrong).
-> > > 
-> > > The bug is that the third and fourth arguments are the maximum
-> > > numerator and denominator, respectively.  You are passing mask
-> > > values, which in some sense represent the maximums.  However,
-> > > your masks are not always in the low-order bits.  Here is one
-> > > example:
-> > > 
-> > > static CCU_DDN_DEFINE(slow_uart1_14p74, pll1_d16_153p6,
-> > >                        MPMU_SUCCR,
-> > >                        GENMASK(28, 16), 16, GENMASK(12, 0), 0,
-> > >                        0);
-> > > 
-> > > The "_num_mask" argument to this macro is 0x1fff0000, and the
-> > > "_den_mask" is 0x00000fff.  The latter value (which gets passed
-> > > as the max_numerator argument to rational_best_approximation())
-> > > is fine, but the former is not.  So you need to shift both masks
-> > > right by their corresponding shift value.
-> > 
-> > Thanks for finding it! I forget to change the function when redefining
-> > struct ccu_ddn.
-> > 
-> > > Beyond that bug, rational_best_approximation() wants its first
-> > > two arguments to define the desired rate (as a fraction).
-> > 
-> > I don't think it's the way that rational_best_approximation() works.
-> > The first two arguments define the desired fraction, not the rate.
-> > 
-> > > So the desired rate should be the actual desired rate divided by 1
-> > > (rather than being divided by the half the parent rate).  So
-> > > this too might be a bug.
-> 
-> OK I took another look at this.  And I looked at the first commit
-> that used this function to understand how to use it:
->   534fca068ec80 imx: serial: use rational library function
-> 
-> You want to know what are the best available numerator and
-> denominator values to use (which fit into your register fields).
-> These should be as close as possible to the fraction you're after.
-> 
->     Fout = Fin * num / denom
-> 
-> Fin is the parent rate (always divided by two in this case),
-> or "prate / 2".  Fout is the desired rate, or "rate".  You might
-> get a better result if you express the "/ 2" in the parent rate
-> as "* 2" in the desired rate.
-> 
->     num_max = ddn->num_mask >> __ffs(ddn->num_mask);
->     den_max = ddn->den_mask >> __ffs(ddn->den_mask);
->     rational_best_approximation(rate * 2, prate,
-> 				num_max, den_max, &num, &den)
-
-Thanks, this should help :)
-
-...
-
-> > > > diff --git a/drivers/clk/spacemit/ccu_pll.c b/drivers/clk/spacemit/ccu_pll.c
-> > > > new file mode 100644
-> > > > index 000000000000..9df2149f6c98
-> > > > --- /dev/null
-> > > > +++ b/drivers/clk/spacemit/ccu_pll.c
-
-...
-
-> > > > +/* frequency unit Mhz, return pll vco freq */
-> > > > +static unsigned long ccu_pll_get_vco_freq(struct clk_hw *hw)
-> > > > +{
-> > > > +	const struct ccu_pll_rate_tbl *pll_rate_table;
-> > > > +	struct ccu_pll *p = hw_to_ccu_pll(hw);
-> > > > +	struct ccu_common *common = &p->common;
-> > > > +	u32 swcr1, swcr3, size;
-> > > > +	int i;
-> > > > +
-> > > > +	ccu_read(swcr1, common, &swcr1);
-> > > > +	ccu_read(swcr3, common, &swcr3);
-> > > 
-> > > You are masking off the EN bit, but you should really be
-> > > using a mask defining which bits are valid instead.  As
-> > > I said earlier:
-> > > 
-> > > #define SPACEMIT_PLL_SWCR3_MASK	~(SPACEMIT_PLL_SWCR3_EN)
-> > > 
-> > > > +	swcr3 &= ~PLL_SWCR3_EN;
-> > > 
-> > > 	swcr3 &= SPACEMIT_PLL_SWCR3_MASK;
-> > > > +
-> > > > +	pll_rate_table = p->pll.rate_tbl;
-> > > > +	size = p->pll.tbl_size;
-> > > > +
-> > > > +	for (i = 0; i < size; i++) {
-> > > > +		if (pll_rate_table[i].swcr1 == swcr1 &&
-> > > > +		    pll_rate_table[i].swcr3 == swcr3)
-> > > > +			return pll_rate_table[i].rate;
-> > > > +	}
-> > > > +
-> > > 
-> > > I have a general question here.  Once you set one of these
-> > > clock rates, it will always use one of the rates defined
-> > > in the table.
-> > > 
-> > > But what about initially?  Could the hardware start in a
-> > > state that is not defined by this code?  Do you *set* the
-> > > rate initially?  Should you (at least the first time the
-> > > clock is prepared/enabled)?
-> > 
-> > Thanks, I've also seen your later report. Here we may support
-> > clk_ops.init and reinitialize the PLL if it's not in a good state.
-> > 
-> > Could you please provide a possible reproducing scenario for me to test
-> > against the PLL problem?
-> 
-> What I can tell you is that I see the warning, perhaps when
-> I'm using the clock.  I'll try to narrow down a test case but
-> right now I don't have one.
-> 
-> [    0.145906] WARNING: CPU: 0 PID: 1 at drivers/clk/spacemit/ccu_pll.c:51
-> ccu_pll_recalc_rate+0x76/0x9a
-> 
-> I added code to report the swcr1 and swcr3 values but I don't
-> have those right now.
-
-I guess I've roughly located the cause, the warning is probably
-triggered by PLL3,
-
-- Comparing with vendor U-Boot, the driver is missing three or four
-  entries and one of them matches the SWCR1 value (0x0050cd61)
-- There's a typo when defining PLL3,
-
-+static CCU_PLL_DEFINE(pll3, pll3_rate_tbl,
-+                     APBS_PLL3_SWCR1, APBS_PLL2_SWCR3,
-+                     MPMU_POSR, POSR_PLL3_LOCK, CLK_SET_RATE_GATE);
-
-  here APBS_PLL2_SWCR3 should be APBS_PLL3_SWCR3. This explains the
-  value of SWCR3 (0x3fe00000) in your case, where it's actually read
-  from PLL2's register.
-
-I'll add the missing configuration entries and fix the typo in v6.
-
-> > 
-> > > > +	WARN_ON_ONCE(1);
-> > > 
-> > > Maybe WARN_ONCE(true, "msg");
-> > > 
-> > > > +
-> > > > +	return 0;
-> > > > +}
-> > > > +
-> > > > +static int ccu_pll_enable(struct clk_hw *hw)
-> > > > +{
-> > > > +	struct ccu_pll *p = hw_to_ccu_pll(hw);
-> > > > +	struct ccu_common *common = &p->common;
-> > > > +	unsigned int tmp;
-> > > > +	int ret;
-> > > > +
-> > > 
-> > > Get rid of ret (see below).
-> > > 
-> > > Will clk_ops->enable() ever be called when it's already
-> > > enabled?  (If it won't, this isn't needed.  If it will,
-> > > this checks the hardware, which is good.)
-> > 
-> > CCF holds a refcounter of clock consumers, so we could drop the check.
-
-I didn't expect calls to ccu_pll_enable() may happen when the
-previous stage bootloaders have already initialized the PLL. So the
-right anwswer is yes, clk_ops->enable() may be called when the
-underlying clock hardware has been enabled, but remove the check
-shouldn't hurt, either: it's okay to rewrite the register as long as
-we don't change rate-related settings if the PLL is enabled.
-
-> > > > +	if (ccu_pll_is_enabled(hw))
-> > > > +		return 0;
-> > > > +
-> > > > +	ccu_update(swcr3, common, PLL_SWCR3_EN, PLL_SWCR3_EN);
-> > > > +
-> > > > +	/* check lock status */
-> > > > +	ret = regmap_read_poll_timeout_atomic(common->lock_regmap,
-> > > > +					      p->pll.reg_lock,
-> > > > +					      tmp,
-> > > > +					      tmp & p->pll.lock_enable_bit,
-> > > > +					      5, PLL_DELAY_TIME);
-> > > 
-> > > Just:
-> > > 
-> > > 	return regmap_read_poll_timeout_atomic(...);
-> > > 
-> > > I note that you call this here, but you hide the call
-> > > to regmap_read_poll_timeout_atomic() behind the macro
-> > > ccu_poll().  And ccu_poll() (used for the FC bit) is
-> > > also only called once.
-> > > 
-> > > I suggest you get rid of regmap_poll() and just open-code
-> > > it.
-> > > 
-> > > (You use ccu_read() and ccu_update() numerous times, so
-> > > your "saving some characters" is justified.)
-> > 
-> > Makes sense to me, will take it.
-> > 
-> > > > +
-> > > > +	return ret;
-> > > > +}
-
-Thanks,
-Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
