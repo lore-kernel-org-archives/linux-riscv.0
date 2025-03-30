@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 038C5C28B20
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 11:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05ADFC28B20
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 12:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nQ56dXRR/2gfI2W5R0Z3IfJ+PIHi1ysVqQ1gv8I9BWw=; b=tZThOtNb3zP6jK
-	PqoS4G+S/JKmH3i3zYLiwYijHcusLaAud2Wcb9Bf+I1RRpaP/YcW9WLjz9pIZ2Toh2ucvIJHomvQz
-	I1P41dlf7C2SMZb+qg0raz1ZkSvbNDROrn9KNayTtrmyz/8HSCdsq252NqjA+6kim3YYS6uAyUbxj
-	6GdaHf4ZeqgK4eNstk/1R4A/8wwJQruAaRPLn00KBykkciu66pd3yEs5zRDnVzadkvX6Uh+4Dod/4
-	nNomRDYB12+lIXkw14gn/nniuOJ5KdtAO+pvApBN+eKR6IHvD0davX29THfU8hC8sI7Rzeiq6CFb2
-	kILpGGY3is0/94ZtBmVA==;
+	List-Owner; bh=JxeuDzOmDm9k2hRxpKVa0I/roUZ/564HcXqw45nFGj8=; b=GjKQcXDtjwVfjS
+	cNOHTJWrvXAUyEVG5UdtTa1VzeIMpWMHH94JsFgZIB6iIXBY5HgYonl0r9/q9cwj5UPDvTPetXGS9
+	B6IwqJ1ZbjfDXjYazFzooDktGdIfCFSbnMeh90wCBdmFlBNkKmlDtno0iKfzwBJqYlvTzcaATKy1b
+	GmX+ZCbamZRGMBLgwQenpNFOCP1tvUo6hmbTchycXI2ZPYvlkfnibAwHkJdfaiR75RiI3/IRmW840
+	Nxqt6ykLU6pAqkMlFGSmrkh3HHwyrQqqPotDu4Hxk+0/XmA7Nbcdi0ciAfrc2LkmB698D1/7SW7Oi
+	ZEsPuG6Xio7jPn2olVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyqjV-0000000G8w5-0VzW;
-	Sun, 30 Mar 2025 11:21:41 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1tyrk8-0000000GCPr-3VPS;
+	Sun, 30 Mar 2025 12:26:24 +0000
+Received: from xry111.site ([89.208.246.23])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyqjT-0000000G8vk-1JC2
+	id 1tyrcB-0000000GBdh-0qur
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Mar 2025 11:21:40 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-224100e9a5cso67897295ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 04:21:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743333698; x=1743938498; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iMZHL0UOoWagu8ugPnApvJFimUNmRJzmGaDhx8HHglA=;
-        b=ep4DqDO66Lffo/Y2iZunCH3SgF9sAB/vztioA3Z0/R1H+31KZYJp+CJpehMQSpIU4u
-         Z5PBCQ+LmdK/bDaCAbGk/FInFhHfXwZaZv72PIK/9u3GhViFejzhtKZqPCJP9nCoOgRy
-         kz1HCZyRQBo2VbxEhlFmnvyxdv/NTe5R6FS/Mm1Tdsj3DN3gUSsye0BAFMf5A7+WHbsh
-         gngxyHxgS1UD91F8SDQryeURNJKAGPTHhUyB4GIdJtgo4IbzEDQepSjEUaJt3HZ3j++A
-         mQTcj3ICHsU2jUJ24IMG75ViLKtJOOIAlulTq0amrxP80cbjemurb+ReN+ICgYyFUavS
-         uCBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743333698; x=1743938498;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iMZHL0UOoWagu8ugPnApvJFimUNmRJzmGaDhx8HHglA=;
-        b=p3QiGq1AhOZbNcSsteYic6OdIncftlOZFU4Jp9YBOPXjczxTl9/14R4WsEFrmqH39P
-         HGipYSBq2IcV+djmOoBCj4e14J7lGUrKlFqefKxLGBLFMhJ+LDQFJwFhzRYDzzoINM2l
-         tttqOanU2ktdGVplecl7TjyJYWcXslS4x3hrYZDtn6u2tJrAH6AkuceuWSNkz1A705m+
-         Jfa5aAthOTT93d93TDtMpTBScjtBPVRkJW9xOSyFKgLSENiy48Tl+Njart/xncxPaHkG
-         ojS7Qd9O1JA2z4QhVi0V5XLuFnikvDh1sv8AF6Q2n1F+6z7jv5xpS9i7xVkogLlV0Bqr
-         v98Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXO2Ce/KuomgjQt+SRuUkMvV1JsGQzhh6GLoDRBtTWNxUk8mRMRHvkBCR9xhJX4JHNbuF39pOdbSrqMvw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5cbiDbB3zGZf5mTQGH2AfEA8eI9fvbqHafaauXA6xiyGY9K3G
-	Z0+HTkX1oW7RJ8PxO8cQXcXRHYf86UR8wMWLMpU6wRrz5IbT+y3J
-X-Gm-Gg: ASbGncsuOvuz+YOqHSLmlnvcA/DqMLfk6t49u4ptGU3aqzNn+YHjLYqotKuZDV5Twq7
-	ecQqJ/VvGjilUySxP0vcq3qgIHvGNNX1ebNab+V8url/F7IIRC+pNks/KUnROUdNXBzgAvQrpaD
-	Ebf2Bu8BCzVnwfzzFo0QwS+knA0JV2QrMCz2QSgiyK3Z6MQSa4Q7OsGdsPDN2T2ki+dkmXwk/Yo
-	i8SMTR5NWl/Kbh7kmc57ANGcfTQrUhNcYiv4gPPJAQdgleRt13xaeKL42BlzQK/FGuD4S19++mh
-	dtoFMXbObWVSKxOGcVeI3uwg773s4T4+54W/bqZR/RI2CWQw0PHsz3u8BOUsQQB0DC/f0un3oR/
-	uejPhAJ0yl/nei1Gc1G2LlhrF1d98XKavCegXG2maeg==
-X-Google-Smtp-Source: AGHT+IH99+PhWGohVfsr72uKeMhi0Xw9rhOjQI/S3ZcNcnEaPoC4XzXMs6Rq7hlk5w+0eNCUsKccYw==
-X-Received: by 2002:a05:6a00:194a:b0:736:6ac4:d1ff with SMTP id d2e1a72fcca58-7398032c2damr8985734b3a.3.1743333698173;
-        Sun, 30 Mar 2025 04:21:38 -0700 (PDT)
-Received: from DESKTOP-NBGHJ1C.flets-east.jp (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73970deefe4sm4997845b3a.30.2025.03.30.04.21.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Mar 2025 04:21:37 -0700 (PDT)
-From: Ryo Takakura <ryotkkr98@gmail.com>
-To: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	john.ogness@linutronix.de,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	pmladek@suse.com,
-	samuel.holland@sifive.com,
-	bigeasy@linutronix.de,
-	conor.dooley@microchip.com,
-	u.kleine-koenig@baylibre.com
-Cc: linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	Ryo Takakura <ryotkkr98@gmail.com>
-Subject: [PATCH v3 2/2] serial: sifive: Switch to nbcon console
-Date: Sun, 30 Mar 2025 20:21:09 +0900
-Message-Id: <20250330112109.393526-1-ryotkkr98@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250330110957.392460-1-ryotkkr98@gmail.com>
-References: <20250330110957.392460-1-ryotkkr98@gmail.com>
+	Sun, 30 Mar 2025 12:18:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
+	s=default; t=1743337086;
+	bh=UqhtKa70a5/2askHmDGMX26oUmyn54ientlmKEHX2lk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
+	b=Ezlj5uz3KLCvLbixTDOfWM9JMvtSf6orMo8URoeZQs3kdZh4iirzBLX+p/eyrYfja
+	 ++VOhAphiak2/zxRHBW/Gc97Xy9SPbqtRUV5C+DRojnIIrH5Sud+ZSTAwxS69XVtcK
+	 RIAIedtBk6vzb9t1cyvyE3n3m0L/1kXqBjVx2+yw=
+Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
+	(Client did not present a certificate)
+	(Authenticated sender: xry111@xry111.site)
+	by xry111.site (Postfix) with ESMTPSA id 428AE659C8;
+	Sun, 30 Mar 2025 08:18:04 -0400 (EDT)
+Message-ID: <42dc2fc95fc9d56abd68ec620b29602eef9aa742.camel@xry111.site>
+Subject: Re: Ping: [PATCH 0/3] Drop explicit --hash-style= setting for new
+From: Xi Ruoyao <xry111@xry111.site>
+To: Guo Ren <guoren@kernel.org>
+Cc: Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Fangrui Song <i@maskray.me>, Tiezhu
+ Yang <yangtiezhu@loongson.cn>, 	linux-csky@vger.kernel.org,
+ loongarch@lists.linux.dev, 	linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, 	linux-kernel@vger.kernel.org
+Date: Sun, 30 Mar 2025 20:18:02 +0800
+In-Reply-To: <CAJF2gTRXyMX+9C_aEDbxAsxWDD2rbnDWO775YDZ3EmrQ=QinfQ@mail.gmail.com>
+References: <20250224112042.60282-1-xry111@xry111.site>
+	 <91797ac4bbe27d7d60b89053050e429bcd630db3.camel@xry111.site>
+	 <CAJF2gTRXyMX+9C_aEDbxAsxWDD2rbnDWO775YDZ3EmrQ=QinfQ@mail.gmail.com>
+User-Agent: Evolution 3.56.0 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_042139_349138_ADE78A51 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250330_051811_279482_C970F5C4 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,170 +71,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the necessary callbacks(write_atomic, write_thread, device_lock
-and device_unlock) and CON_NBCON flag to switch the sifive console
-driver to perform as nbcon console.
-
-Both ->write_atomic() and ->write_thread() will check for console
-ownership whenever they are accessing registers.
-
-The ->device_lock()/unlock() will provide the additional serilization
-necessary for ->write_thread() which is called from dedicated printing
-thread.
-
-Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
-Reviewed-by: John Ogness <john.ogness@linutronix.de>
----
- drivers/tty/serial/sifive.c | 87 +++++++++++++++++++++++++++++++------
- 1 file changed, 74 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
-index 054a8e630..37d5820af 100644
---- a/drivers/tty/serial/sifive.c
-+++ b/drivers/tty/serial/sifive.c
-@@ -151,6 +151,7 @@ struct sifive_serial_port {
- 	unsigned long		baud_rate;
- 	struct clk		*clk;
- 	struct notifier_block	clk_notifier;
-+	bool			console_line_ended;
- };
- 
- /*
-@@ -785,33 +786,88 @@ static void sifive_serial_console_putchar(struct uart_port *port, unsigned char
- 
- 	__ssp_wait_for_xmitr(ssp);
- 	__ssp_transmit_char(ssp, ch);
-+
-+	ssp->console_line_ended = (ch == '\n');
-+}
-+
-+static void sifive_serial_device_lock(struct console *co, unsigned long *flags)
-+{
-+	struct uart_port *up = &sifive_serial_console_ports[co->index]->port;
-+
-+	return __uart_port_lock_irqsave(up, flags);
-+}
-+
-+static void sifive_serial_device_unlock(struct console *co, unsigned long flags)
-+{
-+	struct uart_port *up = &sifive_serial_console_ports[co->index]->port;
-+
-+	return __uart_port_unlock_irqrestore(up, flags);
- }
- 
--static void sifive_serial_console_write(struct console *co, const char *s,
--					unsigned int count)
-+static void sifive_serial_console_write_atomic(struct console *co,
-+					       struct nbcon_write_context *wctxt)
- {
- 	struct sifive_serial_port *ssp = sifive_serial_console_ports[co->index];
--	unsigned long flags;
-+	struct uart_port *port = &ssp->port;
- 	unsigned int ier;
--	int locked = 1;
- 
- 	if (!ssp)
- 		return;
- 
--	if (oops_in_progress)
--		locked = uart_port_trylock_irqsave(&ssp->port, &flags);
--	else
--		uart_port_lock_irqsave(&ssp->port, &flags);
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
- 
- 	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
- 	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
--	uart_console_write(&ssp->port, s, count, sifive_serial_console_putchar);
-+	if (!ssp->console_line_ended)
-+		uart_console_write(port, "\n", 1, sifive_serial_console_putchar);
-+	uart_console_write(port, wctxt->outbuf, wctxt->len,
-+			   sifive_serial_console_putchar);
- 
- 	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
- 
--	if (locked)
--		uart_port_unlock_irqrestore(&ssp->port, flags);
-+	nbcon_exit_unsafe(wctxt);
-+}
-+
-+static void sifive_serial_console_write_thread(struct console *co,
-+					       struct nbcon_write_context *wctxt)
-+{
-+	struct sifive_serial_port *ssp = sifive_serial_console_ports[co->index];
-+	struct uart_port *port = &ssp->port;
-+	unsigned int ier;
-+
-+	if (!ssp)
-+		return;
-+
-+	if (!nbcon_enter_unsafe(wctxt))
-+		return;
-+
-+	ier = __ssp_readl(ssp, SIFIVE_SERIAL_IE_OFFS);
-+	__ssp_writel(0, SIFIVE_SERIAL_IE_OFFS, ssp);
-+
-+	if (nbcon_exit_unsafe(wctxt)) {
-+		int len = READ_ONCE(wctxt->len);
-+		int i;
-+
-+		for (i = 0; i < len; i++) {
-+			if (!nbcon_enter_unsafe(wctxt))
-+				break;
-+
-+			uart_console_write(port, wctxt->outbuf + i, 1,
-+					   sifive_serial_console_putchar);
-+
-+			if (!nbcon_exit_unsafe(wctxt))
-+				break;
-+		}
-+	}
-+
-+	while (!nbcon_enter_unsafe(wctxt))
-+		nbcon_reacquire_nobuf(wctxt);
-+
-+	__ssp_writel(ier, SIFIVE_SERIAL_IE_OFFS, ssp);
-+
-+	nbcon_exit_unsafe(wctxt);
- }
- 
- static int sifive_serial_console_setup(struct console *co, char *options)
-@@ -829,6 +885,8 @@ static int sifive_serial_console_setup(struct console *co, char *options)
- 	if (!ssp)
- 		return -ENODEV;
- 
-+	ssp->console_line_ended = true;
-+
- 	if (options)
- 		uart_parse_options(options, &baud, &parity, &bits, &flow);
- 
-@@ -839,10 +897,13 @@ static struct uart_driver sifive_serial_uart_driver;
- 
- static struct console sifive_serial_console = {
- 	.name		= SIFIVE_TTY_PREFIX,
--	.write		= sifive_serial_console_write,
-+	.write_atomic	= sifive_serial_console_write_atomic,
-+	.write_thread	= sifive_serial_console_write_thread,
-+	.device_lock	= sifive_serial_device_lock,
-+	.device_unlock	= sifive_serial_device_unlock,
- 	.device		= uart_console_device,
- 	.setup		= sifive_serial_console_setup,
--	.flags		= CON_PRINTBUFFER,
-+	.flags		= CON_PRINTBUFFER | CON_NBCON,
- 	.index		= -1,
- 	.data		= &sifive_serial_uart_driver,
- };
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCAyMDI1LTAzLTEwIGF0IDEwOjEzICswODAwLCBHdW8gUmVuIHdyb3RlOgo+IE9uIFdl
+ZCwgTWFyIDUsIDIwMjUgYXQgOToyN+KAr1BNIFhpIFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRl
+PiB3cm90ZToKPiA+IAo+ID4gUGluZy4KPiA+IAo+ID4gT24gTW9uLCAyMDI1LTAyLTI0IGF0IDE5
+OjIwICswODAwLCBYaSBSdW95YW8gd3JvdGU6Cj4gPiA+IEZvciByaXNjdiwgY3NreSwgYW5kIExv
+b25nQXJjaCwgR05VIGhhc2ggaGFkIGFscmVhZHkgYmVjb21lIHRoZSBkZS0KPiA+ID4gZmFjdG8K
+PiA+ID4gc3RhbmRhcmQgd2hlbiB0aGV5IGJvcm5lZCwgc28gdGhlcmUncyBubyBHbGliYy9NdXNs
+IHJlbGVhc2VzIGZvciB0aGVtCj4gPiA+IHdpdGhvdXQgR05VIGhhc2ggc3VwcG9ydCwgYW5kIHRo
+ZSB0cmFkaXRpb25hbCBTeXNWIGhhc2ggaXMganVzdAo+ID4gPiB3YXN0aW5nCj4gPiA+IHNwYWNl
+IGZvciB0aGVtLgo+ID4gPiAKPiA+ID4gUmVtb3ZlIHRob3NlIHNldHRpbmdzIGFuZCBmb2xsb3cg
+dGhlIGRpc3RybyB0b29sY2hhaW4gZGVmYXVsdCwgd2hpY2gKPiA+ID4gaXMKPiA+ID4gbGlrZWx5
+IC0taGFzaC1zdHlsZT1nbnUuwqAgSW4gdGhlIHBhc3QgaXQgY291bGQgYnJlYWsgdkRTTyBzZWxm
+IHRlc3RzLAo+ID4gPiBidXQgbm93IHRoZSBpc3N1ZSBoYXMgYmVlbiBhZGRyZXNzZWQgYnkgY29t
+bWl0Cj4gPiA+IGUwNzQ2YmRlNmY4MiAoInNlbGZ0ZXN0cy92RFNPOiBzdXBwb3J0IERUX0dOVV9I
+QVNIIikuCj4gPiA+IAo+ID4gPiBYaSBSdW95YW8gKDMpOgo+ID4gPiDCoCByaXNjdjogdkRTTzog
+UmVtb3ZlIC0taGFzaC1zdHlsZT1ib3RoCj4gVGhlIHBhdGNoJ3MgY29tbWVudCBpcyBpbmNvcnJl
+Y3Q7IHdoZW4gSSByZW1vdmVkIC0taGFzaC1zdHlsZT1ib3RoLAo+IHRoZSBvdXRwdXQgc3RpbGwg
+Y29udGFpbmVkIHRoZSBIQVNILCBhbmQgbm8gc3BhY2Ugd2FzIHNhdmVkLgoKVGhlIGlkZWEgaXMg
+Zm9sbG93aW5nIHRoZSBkaXN0cm8gdG9vbGNoYWluIGRlZmF1bHQgKHdoaWNoIGNhbiBiZQpjb25m
+aWd1cmVkIGJ1aWxkaW5nIGJpbnV0aWxzKS4KCklmIHRoZSBkaXN0cm8gdG9vbGNoYWluIGRlZmF1
+bHQgaXMgZ251LCB3ZSdsbCB1c2UgZ251LgoKSWYgdGhlIGRpc3RybyB0b29sY2hhaW4gZGVmYXVs
+dCBpcyBib3RoLCB0aGUgZGlzdHJvIGlzIGFscmVhZHkgd2FzdGluZwpzcGFjZSBldmVyeXdoZXJl
+IGZvciAoYSkgc29tZSBiaXphcnJlIGFwcGxpY2F0aW9ucyBkZXBlbmRpbmcgb24gRFRfSEFTSApm
+b3Igc29tZSBiaXp6YXJlIHJlYXNvbjsgb3IgKGIpIGFuIG92ZXJzaWdodC4KCkluIHRoZSBjYXNl
+IG9mIChhKSB0aGUgYml6YXJyZSBhcHBsaWNhdGlvbiBtYXkgbmVlZHMgRFRfSEFTSCBpbiB2RFNP
+IGFzCndlbGwsIGFuZCBpbiB0aGUgY2FzZSBvZiAoYikgaXQgc2hvdWxkIGJlIGZpeGVkIGZvciB0
+aGUgZW50aXJlIGRpc3RybywKbm90IG9ubHkgdkRTTywgZm9yIGV4YW1wbGUgd2hhdCB3ZSBhcmUg
+ZG9pbmcgZm9yIEFPU0M6Cmh0dHBzOi8vZ2l0aHViLmNvbS9BT1NDLURldi9hb3NjLW9zLWFiYnMv
+cHVsbC85NTMxCgotLSAKWGkgUnVveWFvIDx4cnkxMTFAeHJ5MTExLnNpdGU+ClNjaG9vbCBvZiBB
+ZXJvc3BhY2UgU2NpZW5jZSBhbmQgVGVjaG5vbG9neSwgWGlkaWFuIFVuaXZlcnNpdHkKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
