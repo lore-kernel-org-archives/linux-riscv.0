@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1519C28B20
-	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 19:49:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98B33C28B20
+	for <linux-riscv@archiver.kernel.org>; Sun, 30 Mar 2025 20:13:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=P8b0nFsJ6L1Etf5WOLvbf620GgurZhqTtBXj6VyE51c=; b=wYwbYNCpwnIzjwLgzel41g6LWa
-	jRGI9KoEnxz1b+y1qZD/AkG14u2QOAXuWglt4Id9lfuGHi//xTKqGBc3yhCIG3z8cO67yGPILfDK6
-	Rhqr/ETbesgfu9TEmIQawf4FGgGZp7USan4oj9l3ElACta0pjOHsciT1bwcUJOoyCdJg1uC1MA8Db
-	GYMw9GkxXeusPZo0I4vJXpeQQLKVrbRKp6zNeBhHhS+INcK5yZCFW6BFa5aoJ6CptnqMqM6PU3Qpp
-	0dHhx8o6gvGlIA+YdxBCGqj04OSZ4/H6Er4iGFOh1bZvTpgsmi9arzr/A3DJwzQSM2v4gFRcOCdgt
-	TllgpPEg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:From:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wEPwc6h9ihcaESrlm/w5pnirNMYNTEfTFfx5xyOsWpo=; b=4oteQX0mtTbJ+i
+	EYT7ee3b9Qm5bJ4yPbH09w3k7x93CaVL7C0y4iHAIQPc4JfaNceT3qkzVjF8Rv7crXaZLw/8Rl9ps
+	uZIhNqlxIP+8Dw2HYh0I2qy5eeV9O+tRLnKQZu+NJgndGyUCznyW5maNVd4xN448By6VTpr5sSBiq
+	e6IadAqUO+eI6YzRNN5B2adUMps0tDuabUaGqUSKnk2gcxxMYA97rhqwtjHwfrb40WOOZfkbMXIh7
+	lV013FxwuIG8PjQ6gEPF4leVQyxqezmzPbKRzAEGvk24KJPUWV6zgioXHhd7DIq30Ya+LOaRBFrQO
+	1S199snMY0Yemkpbbm8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyfC-0000000Gbw4-0GwY;
-	Sun, 30 Mar 2025 19:49:46 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1tyz1a-0000000Gdl0-26La;
+	Sun, 30 Mar 2025 20:12:54 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyWk-0000000GbJN-1jSw
+	id 1tyz1W-0000000Gdka-32a4
 	for linux-riscv@lists.infradead.org;
-	Sun, 30 Mar 2025 19:41:04 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-2240b4de12bso43915535ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 12:41:01 -0700 (PDT)
+	Sun, 30 Mar 2025 20:12:52 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2240b4de12bso44221845ad.2
+        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 13:12:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743363661; x=1743968461; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=+OuhYgE9UKtdazOjGt7lZhWPBMr5ttmJNU0h7Ws00MA=;
-        b=TybaaBj9scJSnl9t8n448/qp5F6N4JoEvr44ufJJtvG54w29WK/p4TspbN1rzIBwbI
-         2jYtzjeLXHJ1zV1NDgd3Lma/JrdCjPyO7/Uj3ANhORDgOCGy3McGAkqzI92UJBSmk0ew
-         r+RrzcA9iEUgts/62EbB+NdbcA/gc6egdOtcA2dqf9Ki7+j2S1EYlDJJi3zqjW6uj3Gi
-         bWbEK5TUHDOPxHvbVOgCuhSj/HAvS4vdGCTfdL1+d3ZgCKYgox95+y+6BUlJHlda+DJH
-         Woh79KzCpIHKOUPCyDi3e+b3Zj5Ibt8El7T4DRQNU+jKhEUQ+GTAEUidE5807iHYQLH3
-         AuOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743363661; x=1743968461;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1743365569; x=1743970369; darn=lists.infradead.org;
+        h=content-transfer-encoding:subject:from:cc:to:content-language
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+OuhYgE9UKtdazOjGt7lZhWPBMr5ttmJNU0h7Ws00MA=;
-        b=oiHgbpUDj4QDKbotPk5y/rW9ZaY0xpmXhNvGB4ro1xgl9EkM//h84ziK0WmS0FIGxE
-         E9uf1d6yvF28cGdn1TMbSOaPs8xwRedrrzRoT0qGsbrKUG+dOUEHd5kSOPCEMM99g7/y
-         ypxUt37V7S70RVeRcntW6M+uK1xpcES5t9viiPsVfLjMge/pPScNzVj7Mc5PYrSQ1QOh
-         qT52/Nd0g/TSLlS6iNdQHuxx8+VEXroPp3nrBiTnyBm9bvOD8eKg261opSzKhKg9sSeC
-         eYHgH6OTHA/wCGlhgNx4VNIQsH6tVBtpQgQN/0dTCHn6YqZLtUpi0rSwFgXxaw6vRkmm
-         49gA==
-X-Forwarded-Encrypted: i=1; AJvYcCV/CgC4WAa8bh5GB/mJqEAhmdIOawEIYnOlTQcK0cAjPlVAxIvyjYdCdn4vLaqFoQOyVtHirkGCfjN5SQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeKEQ6JawjfUhTGA8qhd1RZ92/X9r6LXABmKo8dul7KqsX6heG
-	qxYSEQ3XJI5IR9jp6mj1ozfjXQB1yMqRh9g5E1OTJncoE6NlrmkbcL2WxXQ6/KKS/9QO/w86EXD
-	5
-X-Gm-Gg: ASbGncucUJB/Te1Ihgses+2aLpkoL5ZUHLeWhBBF/WRfdb+oi664XXdv827hXuDef8f
-	xyzomPHA/ysGKN0CbIbcu6sgZ/raO8oOgTvq9ZvmaTqFD6tW2EptgCBR4RvITePGOiKJnCorUsq
-	8sswd7Nman1GONAP67wP9FDKP7Oq9H/SO5GCaKuK6aLTTauzHhzzF5RsWGsxUcWQDsGyMh5/1Z7
-	4lAIrjrR53hk/xu8sDNlKl4GfWNo5+w6ZIgxS4fpBHf5lrVPLvg/hfrpTaE9yPrcWg+ERv4HGTO
-	dcZNwXu5KD7LV7UEsttolCUvOkicheESYhNTxTtFxAI=
-X-Google-Smtp-Source: AGHT+IEG7YrYhpL/w09D8dnY5K3an5rvJtbNaqnybIxihpbpyRDNZbeGKtMfVSy2S9ch1DWCihaYZA==
-X-Received: by 2002:a17:902:d505:b0:224:7a4:b32 with SMTP id d9443c01a7336-2292f95bf43mr76417655ad.20.1743363661089;
-        Sun, 30 Mar 2025 12:41:01 -0700 (PDT)
-Received: from localhost ([192.184.165.199])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291f1f69desm55779605ad.253.2025.03.30.12.41.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 30 Mar 2025 12:41:00 -0700 (PDT)
-Date: Sun, 30 Mar 2025 12:41:00 -0700 (PDT)
-X-Google-Original-Date: Sun, 30 Mar 2025 12:40:53 PDT (-0700)
-Subject: Re: [PATCH] RISC-V: errata: Use medany for relocatable builds
-In-Reply-To: <14b85486-c94d-41a1-aee5-c9ca101bdeaf@ghiti.fr>
-CC: samuel.holland@sifive.com, linux-riscv@lists.infradead.org
-From: Palmer Dabbelt <palmer@rivosinc.com>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Message-ID: <mhng-b55f8035-7ce3-487d-92c8-988f5c8b58e7@palmer-ri-x1c9>
-Mime-Version: 1.0 (MHng)
+        bh=Vhb4LT6KQWXG3zGa3NfUUmWT42ubKxYSBSNseCuqZQ8=;
+        b=lO4SA5vMN3e37X3zVcutIFsyVIlcOWDf25+UZYYFpWrDg7hlU4HJbHhhfjog5j19RZ
+         zOHF0z3HrMOWGE7CO7aqLqxOVQmUidWEFtQHzqdp8AkvejRPklhxTaYdiSOb7OirG0Rq
+         yrfG7Yvxbc7RZ3dsN/rR3x0HtNQj+55dvuP+7loZgpGy0cgdXyh7jomxmCG9oQZu3kNm
+         R51fh6X2rG6ZQu3in4fDUvj7piRX+sqrRUa9MyVTMxikHL/sbQSDQoiWjlUuguhbeZl/
+         AIYNoEwnaso+FnzmnBw4R9rXLvSJt+k/I3mblAhnplk+tVTKyHlDlYTaggWmfEmC1z56
+         98Qg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743365569; x=1743970369;
+        h=content-transfer-encoding:subject:from:cc:to:content-language
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Vhb4LT6KQWXG3zGa3NfUUmWT42ubKxYSBSNseCuqZQ8=;
+        b=RrE21UR5wZxLh7S3Ec/4Yogz0bFNaffUgGrpyA/B384X17XuRHDt69htgk+FHWPmuP
+         1/iQFVAuYPfnC164luV0OD/RTfN4xdeHSxxl5wuwPq22K1i3BA++iZcBeciVrPWHwrmf
+         rPSeRtQHF0RN2M32RGrx+/kqzdS0dF5oqWYaigV7TmTrPxxJTRLBOarexmSdpXBX7yof
+         qxpHfj/QXxg9Uu2D56cA22YYo44Uy+EL+7KYOr0sFFvEnO3ppusfkyQ9B8Tsm2gcdtsC
+         LCuaLiTOBigEkurb1GDCdkAAS1NU4DmXpUg11z912mX8fdQkB+/NTVmOzCCQ98dOorK5
+         0CgA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNdZqeFGAIRU+o9nXVRHWGT2/2iOp2FrjUitCP/lU6+PiMgiKcFZY4usvTsEMKmWkbukPxzF3Nsbil9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9dlxX7fTGriWAJ6GPuMu0jiRthg5Z+il3P4M5dPS+eTo/0bvR
+	ZgSp23NODSL5LOSgwNjo+m1h5Y5HeKoIEuEE7IZAlKW0WdqufVLE
+X-Gm-Gg: ASbGncsM7DfEFPLiaVnSH5r+p59Zx2JQtJO8RASX0oOcsUZc8RNvFL+m+KicsZblZtZ
+	LT7cGhDX5Co2v0qdAvm0V1xM43KRYm7zPwFtYHCy6B5tZGHeBEo8deFyYq5cWeWSz8G7vcuLssZ
+	qoZi8ajjXgygK3I0TopUVlCbQMxpzkCtn9orDkQ3rC9yHzQclj+dYgay/Ziq1i37rM/HNuwFnU4
+	RqF6ENiLM82fiiCF/UTciojoCzqi5l4nn4j4olgm8nqLwyTKWSp0kJJUXaDEB++USscdfVje6oD
+	njcN0CFb4G1zRqE57YVADI5ymcf6+A3SzWbyjlrqjmrcT1XaXw==
+X-Google-Smtp-Source: AGHT+IF/x0K5aX2kTh2Wm50DBGGQO1b046arFWIUjKHrMmPbur7FoU4pZm4minYgXwVl1aTeQwvC5Q==
+X-Received: by 2002:a05:6a20:43a3:b0:1f5:8a1d:3904 with SMTP id adf61e73a8af0-2009f5bbad3mr12328737637.7.1743365569477;
+        Sun, 30 Mar 2025 13:12:49 -0700 (PDT)
+Received: from [192.168.0.33] ([136.24.137.112])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af93b8adb70sm5132840a12.47.2025.03.30.13.12.48
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 30 Mar 2025 13:12:49 -0700 (PDT)
+Message-ID: <32a55bf7-ffc7-4383-ab61-fd4d75f46b3a@gmail.com>
+Date: Sun, 30 Mar 2025 13:12:48 -0700
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr, linux-riscv@lists.infradead.org
+From: William Pierce <wgpierce17@gmail.com>
+Subject: [BUG] Module load relocation hashtable size can become huge and
+ unallocatable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_124102_725701_0D99C9E9 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20250330_131250_773215_AFA31D34 
+X-CRM114-Status: UNSURE (   5.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,60 +93,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Mar 2025 01:18:01 PDT (-0700), Alexandre Ghiti wrote:
-> On 26/03/2025 23:45, Palmer Dabbelt wrote:
->> We're trying to mix non-PIC/PIE objects into the otherwise-PIE
->> relocatable kernels, to avoid GOT/PLT references during early boot
->> alternative resolution (which happens before the GOT/PLT are set up).
->>
->> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/sifive/errata.o: relocation R_RISCV_HI20 against `tlb_flush_all_threshold' can not be used when making a shared object; recompile with -fPIC
->> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/thead/errata.o: relocation R_RISCV_HI20 against `riscv_cbom_block_size' can not be used when making a shared object; recompile with -fPIC
->
->
-> thead erratas are already compiled with medany if
-> CONFIG_RISCV_ALTERNATIVE_EARLY is set
-> (https://elixir.bootlin.com/linux/v6.14-rc6/source/arch/riscv/errata/thead/Makefile#L2)
-> so why isn't it enough?
+Hello, I have a kernel module that requires a huge number
+of relocations upon loading.
 
-Those are linker errors, we can't pull the medlow code into PIC objects.  
-So any objects in relocatable kernels need to either be PIC/PIE or be 
-medany (which can't reference any absolute symbols).
+On other architectures, it loads into the kernel just fine.
+However, on riscv, while allocating memory for its relocation
+hashtable, it ends up requesting 2097152 elements to kmalloc_array.
 
->> Fixes: 8dc2a7e8027f ("riscv: Fix relocatable kernels with early alternatives using -fno-pie")
->> Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
->> ---
->> I'm not 100% sure it's possible to expose this without Samuel's NOMMU
->> relocatable builds, see
->> <https://lore.kernel.org/all/mhng-517c0318-c8fb-4c4a-aa0e-0d08f8d34d78@palmer-ri-x1c9/>
->> ---
->>   arch/riscv/errata/Makefile | 6 +++++-
->>   1 file changed, 5 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/riscv/errata/Makefile b/arch/riscv/errata/Makefile
->> index f0da9d7b39c3..bc6c77ba837d 100644
->> --- a/arch/riscv/errata/Makefile
->> +++ b/arch/riscv/errata/Makefile
->> @@ -1,5 +1,9 @@
->>   ifdef CONFIG_RELOCATABLE
->> -KBUILD_CFLAGS += -fno-pie
->> +# We can't use PIC/PIE when handling early-boot errata parsing, as the kernel
->> +# doesn't have a GOT setup at that point.  So instead just use medany: it's
->> +# usually position-independent, so it should be good enough for the errata
->> +# handling.
->> +KBUILD_CFLAGS += -fno-pie -mcmodel=medany
->>   endif
->>
->>   ifdef CONFIG_RISCV_ALTERNATIVE_EARLY
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Right here I've dumped the values by recompiling the kernel:
+num_relocations: 1630985, hastable_size: 2097152
+https://elixir.bootlin.com/linux/v6.14-rc6/source/arch/riscv/kernel/module.c#L734
+
+which kmalloc_array->...->___kmalloc_large_node->...->
+__alloc_frozen_pages_noprof can't handle and returns
+"Cannot allocate memory" on insmod.
+
+How would it be recommended to fix this?
+I could imagine allocating a more discontiguous data structure
+to track the relocations or otherwise reworking the tracking to
+do the relocation tracking inline.
+
+Thank you,
+Will Pierce
 
 _______________________________________________
 linux-riscv mailing list
