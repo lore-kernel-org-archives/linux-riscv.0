@@ -4,111 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B479BC3600C
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 09:01:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE157C3600B
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 10:57:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WBDieIksVCsg3FbyAzaLdEK3mPlocRM4V9pC00d+r3I=; b=hUCG5mhzCp/FQ0
-	i5WbFPO5c/gQ2i9C+GQ9UBRZbMHsEFh3OTDoy+pA1LY0F7jcBXUvCLzomNLfIE/2QmMLRmbud5QQ8
-	kShYJCHOxP2WfSNQRowfQl+ZwV3p8TM4hUhyuvKdFEOEQldHW4Whf0nnE9VG/mbb6ODZg3ZrLGGFy
-	HillNHRFZAmmPVxZVkBATqLgNcMlfm2J1mTJ8KvEmN8bcpfMvMk0OJT5S22rWIa6zVIs0D0MywHoW
-	6ONyxesLxFuD01i2hz+W7ZDNyor3HVsSNUdKa+eBXhluBBd68eYd/YBzdlUAe8C8gTlvKcTgxh8WB
-	NVNWm+eDbYXOi2nmPR5Q==;
+	List-Owner; bh=WK8QRLRpmH4/ZDHGkh+hn2As2ScTNadvGwAjAibur9k=; b=APhZ2Ce2JYLCnZ
+	lT4ZBx/ZMKUulH5vcRLvCAnjTQfWQDbmFrRBRe+9VXnFkRqeQGd2KdmXP5DWxvRw3zJEmu0iUv1be
+	g+1npPYvwARdJrGVzT8jRhLJHGGeQZv0QI2gl9kMNL6igbsNPsLpMFHcym+WEHQoYKgQ73Gr5PkP0
+	rS8DDjkENjI9NZ84InHiDALDDFP5USHFxoO9T1PO8cSz2UEJyKpawJQyBzZ5W6QBUTHgfHSzPtr4z
+	48L7pT9PY3DyXo6YfAYe80fWduV/E74U+nXgXfxQE6lp66PYN+FcNodhTj8PGV49TEi1xJLnfT8Yg
+	qQ8pisRKEWjGYHrxMoGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzB1S-0000000HRc1-314S;
-	Mon, 31 Mar 2025 09:01:34 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1tzCpf-000000007gW-2D2Y;
+	Mon, 31 Mar 2025 10:57:31 +0000
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzAzk-0000000HRHc-30GP;
-	Mon, 31 Mar 2025 08:59:49 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52UKauVs020777;
-	Mon, 31 Mar 2025 08:59:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=/02MeeTgr+edfUre6+XCDI7lrRPKBN
-	s5wpBz5Bd11FQ=; b=P63v/gXsRF4hDLy7ssEBBwh/kzsyGiOtp0mumcM5+A/LNj
-	gdY0eBuzdPTmuXOhURZupJ1YyCReKhjV+btHVIxdh6bjRaJyvFsMnji9ym0MycpW
-	FQ/tEiPUhIT3tmZjgUk0k8RfDGEkMM5umV5et3jPN0aBemzHNEpTH7otsAqg2D2s
-	IgiQKjGXwzD3QmqVQYFZ00JQ3UFfmml/HrvUYzWU2spcPKwRznX4azB8E9B4uB+1
-	1QpX2jha71AOh/TNdKabH257Nmy0qCW899l9HxKC4fFcsNGdaAqFdrftLmaLGGiG
-	2KPUxEHGLnOeqqSwgqWBfYVrpnKHZUpIb/RQpJew==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286v-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Mar 2025 08:59:20 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 52V8pdhP010589;
-	Mon, 31 Mar 2025 08:59:19 GMT
-Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286t-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Mar 2025 08:59:19 +0000 (GMT)
-Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52V5GId8014560;
-	Mon, 31 Mar 2025 08:59:18 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 45pvpkw19g-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 31 Mar 2025 08:59:18 +0000
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52V8xEMj54460792
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 31 Mar 2025 08:59:14 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id B244A20067;
-	Mon, 31 Mar 2025 08:59:14 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7D62920065;
-	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
-Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.74.246])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
-Date: Mon, 31 Mar 2025 10:59:11 +0200
-From: Alexander Gordeev <agordeev@linux.ibm.com>
-To: Anshuman Khandual <anshuman.khandual@arm.com>
-Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
-        Ryan Roberts <ryan.roberts@arm.com>,
-        Madhavan Srinivasan <maddy@linux.ibm.com>,
-        Nicholas Piggin <npiggin@gmail.com>,
-        Paul Walmsley <paul.walmsley@sifive.com>,
-        Palmer Dabbelt <palmer@dabbelt.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Heiko Carstens <hca@linux.ibm.com>,
-        Peter Zijlstra <peterz@infradead.org>,
-        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
-        Andrew Morton <akpm@linux-foundation.org>,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-        linux-s390@vger.kernel.org
-Subject: Re: [PATCH 1/2] mm/ptdump: Split note_page() into level specific
- callbacks
-Message-ID: <Z+pZX2QmFnNnnjZ5@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
-References: <20250317061818.16244-1-anshuman.khandual@arm.com>
- <20250317061818.16244-2-anshuman.khandual@arm.com>
+	id 1tzCpd-000000007gB-1xya
+	for linux-riscv@lists.infradead.org;
+	Mon, 31 Mar 2025 10:57:30 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-227cf12df27so61054605ad.0
+        for <linux-riscv@lists.infradead.org>; Mon, 31 Mar 2025 03:57:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1743418648; x=1744023448; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fQxoGO+j1MyZc3JaI/rKrHOI5r9i4Uu5nnw1H4HdvvM=;
+        b=gttPjCpdwKvaNPL+cceWlbZOEK5QA7Pe4l6CN9pGPr0VyTpwHjp2VkmV7lrqYhHu/Y
+         C9hEdOGWDRZ4waKJGJfS5kyTa0HkLFSj6Losq+BI4ARukN5E0zxYYx0+dXrDxzDlhyLZ
+         2zXYGQ/CoHU+ulKvxhq3dLL1KuR+wSoD/dKYZWDmEtUTzWYLmHffZXBk3YlPIifCY5Vl
+         kyf0OCA8suvankIavsLVkQiO5UWqfU5mKstn0B5ztzS9hCYM9WONUtTWi4SJPw+nKEec
+         g7RW9PB5olxXDqDnDaf30AmCS5CaZ4Bx5E8JgWXQ33sQ1gRPUOFYkP1c0gdF71UZdZJ0
+         clkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743418648; x=1744023448;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fQxoGO+j1MyZc3JaI/rKrHOI5r9i4Uu5nnw1H4HdvvM=;
+        b=r3uvF8u3Q/HDZl2vIyKbDjNY7eK5q/wBtOSuaU+nDAPDAwjuZ359RpPDy6hVF5FhbS
+         +YXs1wW+3tkaueKhBcVcTn9RFinQrLGJ47cRDxE4kPP0fTuquRyutT56r5NLXwae4NlO
+         BGsLNASYngsFxxtLinMMSFfcaNQMXDTGrkynw5NuMrdaHsmZ0oCBlXSbaeuBhXimbyX9
+         QY2il4aXBAqLxDBf7I8fzOIWRi6d6IzfUwVc31QPKDbLipVbNzUAETwcb9ftaHCVZ9hq
+         MhqSkowPHJV3vw6PIUI1VSynlcaX7Qe8b1upMCITwgUyD14jcVnQn0Noj+oR1ueJYV0S
+         Oz8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU3LHrwtIKzCMI3WfPPydzd7Kw5rD2XOWWEUC8in7qywsF+T5+yz6PpVJNQXOMpFNrh40G4uD7mrv2OzQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCNk3i0BdTB69G9YLXJHp0vZ3d+hpKt8uXINe008ziv3hLx6ir
+	raVb0KC8mE+0xNONgx8BE1JhZMcsDggrj4PIxX32QigoSB/vJVMb
+X-Gm-Gg: ASbGncslX/fGV0amp7CLx9dI0sYOhZp46En+c5R0DpsBPSPton0ZguNb6JFeiJks+T3
+	fleyH3GKBuutDahHqVVzpujXBKa6/WHTKY2Ns787T5F7A0beOo6j+TOoDyhgtLacfWZgftmQ1zz
+	6wmbmtISh6BdIVZIjVlxcdeZ1QTsZspcIZ/WgBpnFrlUDrWbisyZo4yX+5zCCnfkjUR9JBpF0L6
+	+2iwsWlFyZ2ruyHMBABWvWceOuCTppKsFNrtcS7W6464j6Y1tHcKU/9S1B8lBzhW0AIzops9TAJ
+	yDyJFJTLh93dAR3E1GPuzfEXXWi1vVoP55KdXiTxnaArKe+gRQlCWuY5q/HGdEOFFeLvi9hjMPF
+	dk5B6xZlxHgClvnR0bf2xMRKJnmy4OueJ6im0lyNwwg==
+X-Google-Smtp-Source: AGHT+IHNmQ9Qu2Wh8ipfkyOz9gG66AB6OTRqclxipqrg+lUH4XOIHmm7HxeHOz4+gDNk+/q1p1iFAA==
+X-Received: by 2002:a17:903:2341:b0:21f:6f33:f96 with SMTP id d9443c01a7336-22921ca356bmr192345245ad.6.1743418648294;
+        Mon, 31 Mar 2025 03:57:28 -0700 (PDT)
+Received: from DESKTOP-NBGHJ1C.flets-east.jp (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7397109d241sm6660848b3a.129.2025.03.31.03.57.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 31 Mar 2025 03:57:28 -0700 (PDT)
+From: Ryo Takakura <ryotkkr98@gmail.com>
+To: bigeasy@linutronix.de
+Cc: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	conor.dooley@microchip.com,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	john.ogness@linutronix.de,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pmladek@suse.com,
+	ryotkkr98@gmail.com,
+	samuel.holland@sifive.com,
+	u.kleine-koenig@baylibre.com
+Subject: Re: [PATCH v3 2/2] serial: sifive: Switch to nbcon console
+Date: Mon, 31 Mar 2025 19:57:19 +0900
+Message-Id: <20250331105719.8409-1-ryotkkr98@gmail.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250331080318.BdZQodhu@linutronix.de>
+References: <20250331080318.BdZQodhu@linutronix.de>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250317061818.16244-2-anshuman.khandual@arm.com>
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: FB8uw0hSchlofFmG1jPA1lzwCpmzLf0-
-X-Proofpoint-ORIG-GUID: 3iKHP7Q1z45fUexTKfPdZicsNHs_J4-s
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-31_04,2025-03-27_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
- bulkscore=0 clxscore=1011 mlxscore=0 adultscore=0 mlxlogscore=741
- malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
- phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
- engine=8.19.0-2502280000 definitions=main-2503310063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_015948_874361_7A9C7E80 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20250331_035729_510439_3A038A84 
+X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,39 +108,31 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 17, 2025 at 11:48:17AM +0530, Anshuman Khandual wrote:
-
-Hi Anshuman,
-
-...
-> --- a/include/linux/ptdump.h
-> +++ b/include/linux/ptdump.h
-> @@ -11,9 +11,12 @@ struct ptdump_range {
->  };
->  
->  struct ptdump_state {
-> -	/* level is 0:PGD to 4:PTE, or -1 if unknown */
-> -	void (*note_page)(struct ptdump_state *st, unsigned long addr,
-> -			  int level, u64 val);
-> +	void (*note_page_pte)(struct ptdump_state *st, unsigned long addr, pte_t pte);
-> +	void (*note_page_pmd)(struct ptdump_state *st, unsigned long addr, pmd_t pmd);
-> +	void (*note_page_pud)(struct ptdump_state *st, unsigned long addr, pud_t pud);
-> +	void (*note_page_p4d)(struct ptdump_state *st, unsigned long addr, p4d_t p4d);
-> +	void (*note_page_pgd)(struct ptdump_state *st, unsigned long addr, pgd_t pgd);
-> +	void (*note_page_flush)(struct ptdump_state *st);
->  	void (*effective_prot)(struct ptdump_state *st, int level, u64 val);
-
-Should you treat effective_prot() similarly?
-
->  	const struct ptdump_range *range;
->  };
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgU2ViYXN0aWFuLAoKT24gTW9uLCAzMSBNYXIgMjAyNSAxMDowMzoxOCArMDIwMCwgU2ViYXN0
+aWFuIEFuZHJ6ZWogU2lld2lvciB3cm90ZToKPk9uIDIwMjUtMDMtMzAgMjA6MjE6MDkgWyswOTAw
+XSwgUnlvIFRha2FrdXJhIHdyb3RlOgo+PiAtLS0gYS9kcml2ZXJzL3R0eS9zZXJpYWwvc2lmaXZl
+LmMKPj4gKysrIGIvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jCj4+IEBAIC03ODUsMzMgKzc4
+Niw4OCBAQCBzdGF0aWMgdm9pZCBzaWZpdmVfc2VyaWFsX2NvbnNvbGVfcHV0Y2hhcihzdHJ1Y3Qg
+dWFydF9wb3J0ICpwb3J0LCB1bnNpZ25lZCBjaGFyCj4+ICAKPj4gIAlfX3NzcF93YWl0X2Zvcl94
+bWl0cihzc3ApOwo+PiAgCV9fc3NwX3RyYW5zbWl0X2NoYXIoc3NwLCBjaCk7Cj4+ICsKPj4gKwlz
+c3AtPmNvbnNvbGVfbGluZV9lbmRlZCA9IChjaCA9PSAnXG4nKTsKPj4gK30KPj4gKwo+PiArc3Rh
+dGljIHZvaWQgc2lmaXZlX3NlcmlhbF9kZXZpY2VfbG9jayhzdHJ1Y3QgY29uc29sZSAqY28sIHVu
+c2lnbmVkIGxvbmcgKmZsYWdzKQo+PiArewo+PiArCXN0cnVjdCB1YXJ0X3BvcnQgKnVwID0gJnNp
+Zml2ZV9zZXJpYWxfY29uc29sZV9wb3J0c1tjby0+aW5kZXhdLT5wb3J0Owo+PiArCj4+ICsJcmV0
+dXJuIF9fdWFydF9wb3J0X2xvY2tfaXJxc2F2ZSh1cCwgZmxhZ3MpOwo+Cj50aGlzIGRvZXMgbG9v
+ayBvZGQuIEEgcmV0dXJuIHN0YXRlbWVudCBpbiBhIHJldHVybi12b2lkIGZ1bmN0aW9uLiBUaGUK
+PmlteCBkcml2ZXIgc3RhcnRlZCBpdOKApgoKT2ggSSBzZWUuIEkgd2Fzbid0IHBheWluZyBlbm91
+Z2ggYXR0ZXRpb24gdG8gaXQuLi4KSSdsbCBmaXggaXQgZm9yIHRoZSBuZXh0IHZlcnNpb24sIFRo
+YW5rcyEKClNpbmNlcmVseSwKUnlvIFRha2FrdXJhCgo+PiArfQo+PiArCj4+ICtzdGF0aWMgdm9p
+ZCBzaWZpdmVfc2VyaWFsX2RldmljZV91bmxvY2soc3RydWN0IGNvbnNvbGUgKmNvLCB1bnNpZ25l
+ZCBsb25nIGZsYWdzKQo+PiArewo+PiArCXN0cnVjdCB1YXJ0X3BvcnQgKnVwID0gJnNpZml2ZV9z
+ZXJpYWxfY29uc29sZV9wb3J0c1tjby0+aW5kZXhdLT5wb3J0Owo+PiArCj4+ICsJcmV0dXJuIF9f
+dWFydF9wb3J0X3VubG9ja19pcnFyZXN0b3JlKHVwLCBmbGFncyk7Cj4+ICB9Cj4KPlNlYmFzdGlh
+bgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgt
+cmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDov
+L2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
