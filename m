@@ -4,81 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E286C28B20
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 02:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E221C28B20
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 03:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q3wq7Q+ZhZD40dEqwyiJYO1pJlvFVUuhehkyW08B9bs=; b=u/aBxXpLCKIKYM
-	x3/CESEDQsDpr8NLMK51OSUfuGYEtqPtxZ3wjzrkm30RTMgvzxL5TmaYxF7BGMJqti83W1rcSjLYp
-	Vi8rT3uQPvPDWNmhWL32XXu3PFavSLgm7D3Ev7BJNXqPvlcfsyCQwkKxQtXwAPJy71BaQsxIKhla2
-	QzP0gvYJwVEkEfpnvl+A041DMqF9r5kxVJJryNQU4Pj9aujtXdCRbq/kZw3dq/lzTcFEas13izjlL
-	VRqVX8pcQkTWFFAG5vlIAJ4LFgNnEd8dOXPuEcCqalCaW1z3ZLIZ+RWxrnTvQ3UCRoXwTiSfeWu2f
-	7y6jXSGEGkdsDIu4Bigw==;
+	List-Owner; bh=0XmE9b4JqFNqK/iEBCrkSzzIWMsnE4Qw3cMXQBUx0P8=; b=AgfUK5v0qm3emT
+	FpAdh8dIeNmygbh5IJd64/fqxA9rry4ZDZvHqcSQe1JRj7VfhT0Hbk8Dukxn3eJvcYq9v2vIk72Fh
+	40OhRCPNoKsrnYOLxBFeYVtHPE55nRnkzsUL+k6NS1mMjnwf6kB2h1plqtVLRjkn1I8p+mxBwY4gY
+	lG6hVcHOZhPvjJBXAQlhtIZLHwTXw94OxZV9QSovjDPoEJACm1D/gs0lu00+oIHbRUPuLKplJUnzf
+	+8ZhuVc7sjR+41g24EdrRQVmD/bWhG/oWDljQ0ax3oAT6YE4Kdt/kRdxXcxBoaE53yJ6K6AB6yDrx
+	GpDAgo2AE98NsyaqABhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz4T2-0000000Gtw4-00AV;
-	Mon, 31 Mar 2025 02:01:36 +0000
-Received: from mail-oi1-x22c.google.com ([2607:f8b0:4864:20::22c])
+	id 1tz5NY-0000000GwNh-2Bog;
+	Mon, 31 Mar 2025 03:00:00 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tz4Sz-0000000Gtuz-0opv
+	id 1tz5NV-0000000GwN3-1hIW
 	for linux-riscv@lists.infradead.org;
-	Mon, 31 Mar 2025 02:01:34 +0000
-Received: by mail-oi1-x22c.google.com with SMTP id 5614622812f47-3fea0363284so2300352b6e.1
-        for <linux-riscv@lists.infradead.org>; Sun, 30 Mar 2025 19:01:32 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743386492; x=1743991292; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=d2JS6EGqc0l3PzKtje4HJKFvA62a4rcCqEYUHac+00A=;
-        b=ZicIpAi4NiI3es8Yv0DTnijqZADRvmu1coYZvsi2VZxDz6DowQjrYb4kWZlo/jPWkf
-         MTgZAPWD7t0f9m4T4pjkm6aqul2Kd7xpbAvmMSWhdlzfeakGw607osertNhLbQkvOL1/
-         GKiC+iqPhhRgYDZOw2LhHPF1a2Tcxen5npYOJJvcu/7F9/xRpnFkk6xAOIYvJYmnhSSr
-         CxcOTXBt8Myq6BNNzeSATdNmf+Io+Umwo3vcj+GlScIWYRyG6TscgOS2xFOQsHUkca2O
-         6NxH7EnCXqRlcvfRwUzd+L3t6IxDusOiTZ65YwXNvlbHOooqIWx9G7jgCyHj8hfpY8jZ
-         XCXw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743386492; x=1743991292;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=d2JS6EGqc0l3PzKtje4HJKFvA62a4rcCqEYUHac+00A=;
-        b=MbS8gCt5C9pkylYZlYc9upr3FoaywbY9RwdkvLNhSMBndXOPcLIAEMeUg769/zVKq7
-         PlwON35ai2x3X9qlYuIdBxJPoiKQZ0TRcwJnNYLF7NNiCxgAe6vckC77JDLcRoiPVGT3
-         Owuoz2pBJZHWHuAqs5zvTp04TQdJQ3hroKEWhnToVsSkN0AOFVDtDHCNRt9l37otOcUo
-         ewwTgFqy9PoYr7Y2XHcqI0DOb3cqifEXDl+JY600eh6T9Ki9BzO83cyVMLyi29xCRD4n
-         DvU8CakudzRZru44a0CmXjErLwFbtICIAfCsKUNNdgCzPlub/slebm7N0LGo8U/iXJXX
-         WALA==
-X-Forwarded-Encrypted: i=1; AJvYcCXYwjKsTmEfLYy9XGg9n6bdj08c7Le+Ob6gAezU2hPDV+wBL87w7uLvKWPm6a+H8jDcVPFi2kUAJnJmjA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz0UzC5DyEjsCkuR52ndbg7gaz55BbDAE/dVbqHyAVyNYn3t8Ui
-	aD74/83pFvna1eiBQZYEDTbEWuy9csGfma0E2jD0SCtqPRVLUd0gmieSkAFJ4mm9ujkdRMPZwUX
-	cbwa/1YGNRSjy92oRTM53ZprO0iY=
-X-Gm-Gg: ASbGncvBSckxXMEt99X6jNN2H6/0WkL5QhtDGmSfr6VlOlmLn1qeWVmYICStJfWRu25
-	4sEfP0ROtvyhCK8bF5DH+v7rP/Q2VrpqnhEJgqS9UyMQL7SLfwbVgdebOQgcWUB67v/JVB3vWGJ
-	Rv5TrvMG4uCgLtZGEOEEbxuvHiiihsVhi6IMMhp3QYJr0iyIW+hbmFjA==
-X-Google-Smtp-Source: AGHT+IGCia+4Ex6NvLyvevMc9mKF3cPJmD6OJrIk6RNzqydwS1bAInXnp9yrCAsUBCFXOqxYOjoiJeXm5cnsG4w2QTI=
-X-Received: by 2002:a05:6808:144c:b0:3f6:a929:c41f with SMTP id
- 5614622812f47-3ff0ed03b7emr3895364b6e.16.1743386491794; Sun, 30 Mar 2025
- 19:01:31 -0700 (PDT)
+	Mon, 31 Mar 2025 02:59:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id D4BCDA40A4B;
+	Mon, 31 Mar 2025 02:54:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F00AC4CEDD;
+	Mon, 31 Mar 2025 02:59:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743389995;
+	bh=GxI67sniXYs1LInD4chej1qGwsAf613XKZkWZqH/aZk=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=HqauWL1cwCeDJhogdxw2H4ukxWmrd5pWOBjiIAr/S+FwntCxjMZwPMiqA/Y0oTF/p
+	 hbD211vi9vnY4g2DTay9dmS5jJ7Qu3Sz5ph6Mu6bUAPVjlS2ZlDR/vntNww5qOEfbK
+	 TL7ZzF/rWWb0BZ5Sw4ckqXaE3E58tiME5JH9lULKHLRwT/HF2zqrTsC13SefVe+/h/
+	 JnBDzbPk3VPVLDViNNFnP37FI95dIgceI1Ysf4HvhypnXzP94e2fZ8eTh7wHjakovA
+	 nFBiroZh3zsYPsLZHyy+AC9oUpr+B1p/lJELrkOx5Kdi6TKaCs5wL7h881bu/Bb5mU
+	 q5QDqe8+GR0Ag==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33F59380AA7A;
+	Mon, 31 Mar 2025 03:00:33 +0000 (UTC)
 MIME-Version: 1.0
-References: <20241113095833.1805746-1-zhangchunyan@iscas.ac.cn> <deb70c8d-aef9-49df-819c-53007a9ad699@ghiti.fr>
-In-Reply-To: <deb70c8d-aef9-49df-819c-53007a9ad699@ghiti.fr>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Mon, 31 Mar 2025 10:00:56 +0800
-X-Gm-Features: AQ5f1Jprv1mywV8jNuO9bqjz7phUTCJf-fZc6-R1RW6Kyq__r4IrV8nRfXiW904
-Message-ID: <CAAfSe-tbuFudwJZTzVoYExvGyMm1w6KxybczYbGHBxS2zVkywQ@mail.gmail.com>
-Subject: Re: [PATCH V5 0/3] riscv: mm: Add soft-dirty and uffd-wp support
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Chunyan Zhang <zhangchunyan@iscas.ac.cn>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] RISC-V: errata: Use medany for relocatable builds
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <174339003202.3660656.17286197691340909438.git-patchwork-notify@kernel.org>
+Date: Mon, 31 Mar 2025 03:00:32 +0000
+References: <20250326224506.27165-2-palmer@rivosinc.com>
+In-Reply-To: <20250326224506.27165-2-palmer@rivosinc.com>
+To: Palmer Dabbelt <palmer@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, samuel.holland@sifive.com, alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_190133_239057_9B327F2C 
-X-CRM114-Status: GOOD (  26.59  )
+X-CRM114-CacheID: sfid-20250330_195957_660474_957417A1 
+X-CRM114-Status: UNSURE (   8.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,84 +74,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
+Hello:
 
-On Sun, 30 Mar 2025 at 21:51, Alexandre Ghiti <alex@ghiti.fr> wrote:
->
-> Hi Chunyan,
->
-> On 13/11/2024 10:58, Chunyan Zhang wrote:
-> > This patchset adds soft dirty and userfaultfd write protect tracking
-> > support for RISC-V.
-> >
-> > As described in the patches, we are trying to utilize only one free PTE
-> > bit(9) to support three kernel features (devmap, soft-dirty, uffd-wp).
-> > Users cannot have them supported at the same time (have to select
-> > one when building the kernel).
-> >
-> > This patchset has been tested with:
-> > 1) The kselftest mm suite in which soft-dirty, madv_populate,
-> > test_unmerge_uffd_wp, and uffd-unit-tests run and pass, and no regressions
-> > are observed in any of the other tests.
-> >
-> > 2) CRIU:
-> > - 'criu check --feature mem_dirty_track' returns supported;
-> > - incremental_dumps[1] and simple_loop [2] dump and restores work fine;
-> > - zdtm test suite can run under host mode.
-> >
-> > This patchset applies on top of v6.12-rc7.
-> >
-> > V5:
-> > - Fixed typos and corrected some words in Kconfig and commit message;
-> > - Removed pte_wrprotect() from pte_swp_mkuffd_wp(), this is a copy-paste error;
-> > - Added Alex's Reviewed-by tag in patch 2.
-> >
-> > V4:
-> > - Added bit(4) descriptions into "Format of swap PTE".
-> >
-> > V3:
-> > - Fixed the issue reported by kernel test irobot <lkp@intel.com>.
-> >
-> > V1 -> V2:
-> > - Add uffd-wp supported;
-> > - Make soft-dirty uffd-wp and devmap mutually exclusive which all use the same PTE bit;
-> > - Add test results of CRIU in the cover-letter.
-> >
-> > [1] https://www.criu.org/Incremental_dumps
-> > [2] https://asciinema.org/a/232445
-> >
-> > Chunyan Zhang (3):
-> >    riscv: mm: Prepare for reusing PTE RSW bit(9)
-> >    riscv: mm: Add soft-dirty page tracking support
-> >    riscv: mm: Add uffd write-protect support
-> >
-> >   arch/riscv/Kconfig                    |  34 ++++++-
-> >   arch/riscv/include/asm/pgtable-64.h   |   2 +-
-> >   arch/riscv/include/asm/pgtable-bits.h |  31 ++++++
-> >   arch/riscv/include/asm/pgtable.h      | 133 +++++++++++++++++++++++++-
-> >   4 files changed, 197 insertions(+), 3 deletions(-)
->
->
-> As mentioned by Deepak, there is a new proposed extension Svrsw60t59b
-> which will free 2 more bits. It would help if you can come up with a new
-> version of this patchset using this new extension, would you mind
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@rivosinc.com>:
 
-Sure, I will cook up a new patchset using Svrsw60t59b, and will submit
-the new patchset after v6.15-rc1 is released.
+On Wed, 26 Mar 2025 15:45:07 -0700 you wrote:
+> We're trying to mix non-PIC/PIE objects into the otherwise-PIE
+> relocatable kernels, to avoid GOT/PLT references during early boot
+> alternative resolution (which happens before the GOT/PLT are set up).
+> 
+> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/sifive/errata.o: relocation R_RISCV_HI20 against `tlb_flush_all_threshold' can not be used when making a shared object; recompile with -fPIC
+> riscv64-unknown-linux-gnu-ld: arch/riscv/errata/thead/errata.o: relocation R_RISCV_HI20 against `riscv_cbom_block_size' can not be used when making a shared object; recompile with -fPIC
+> 
+> [...]
 
-> working on this? If not possible, let's discuss how I can help.
+Here is the summary with links:
+  - RISC-V: errata: Use medany for relocatable builds
+    https://git.kernel.org/riscv/c/bb58e1579f43
 
-No worries, and thanks for the reminder, I didn't notice this new
-extension supported in the kernel.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Thanks,
-Chunyan
 
->
-> Thanks,
->
-> Alex
->
 
 _______________________________________________
 linux-riscv mailing list
