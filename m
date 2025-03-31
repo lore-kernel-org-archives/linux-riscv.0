@@ -4,70 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E493C36011
-	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 08:05:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B479BC3600C
+	for <linux-riscv@archiver.kernel.org>; Mon, 31 Mar 2025 09:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jn9BuooeQJTfcT3FtvoXEfQflXsM82O2QBjaA65xFqE=; b=YWmN7OP3ap8IwN
-	pasP+ayDcaON2kMNErYTg9aDQYYPBSm9VqBOlX3OipIqqrZEYNUPLitB0n0Mahu9iEz9DbXFdhfXO
-	/mwzrG7ihLuEgt23nN2afulH99VR9P5QqzZ+eBt637jZP4gzh36y9QM8ZKLVBk4aUayqK9IEl0jPH
-	kD6apSuMrVu9gJ7ITI5tF9fKOzMiZYL15GuGEF/2TT8QqHh2G51b3dyqczoRLpdXDasFtQxoCH2gg
-	+QRvk9D6t6plFZi6tPUR0Uk4N52Bj3QII5OYN/upcpY+oqGart//DdvH1pO/GhlBQL3jNz2XNq+90
-	rT3GiRZsqJf+OVqOBIQg==;
+	List-Owner; bh=WBDieIksVCsg3FbyAzaLdEK3mPlocRM4V9pC00d+r3I=; b=hUCG5mhzCp/FQ0
+	i5WbFPO5c/gQ2i9C+GQ9UBRZbMHsEFh3OTDoy+pA1LY0F7jcBXUvCLzomNLfIE/2QmMLRmbud5QQ8
+	kShYJCHOxP2WfSNQRowfQl+ZwV3p8TM4hUhyuvKdFEOEQldHW4Whf0nnE9VG/mbb6ODZg3ZrLGGFy
+	HillNHRFZAmmPVxZVkBATqLgNcMlfm2J1mTJ8KvEmN8bcpfMvMk0OJT5S22rWIa6zVIs0D0MywHoW
+	6ONyxesLxFuD01i2hz+W7ZDNyor3HVsSNUdKa+eBXhluBBd68eYd/YBzdlUAe8C8gTlvKcTgxh8WB
+	NVNWm+eDbYXOi2nmPR5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzA9Y-0000000HIQX-0dVt;
-	Mon, 31 Mar 2025 08:05:52 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1tzB1S-0000000HRc1-314S;
+	Mon, 31 Mar 2025 09:01:34 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzA77-0000000HHyH-37DX
-	for linux-riscv@lists.infradead.org;
-	Mon, 31 Mar 2025 08:03:22 +0000
-Date: Mon, 31 Mar 2025 10:03:18 +0200
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1743408200;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=75LtVyshrpJURZDN4urZhi8S9CoAlSOeTIRvPjPMZJo=;
-	b=NKxlC4/aH1YHe9/fhfvyILrpo3cMwJRrA3MFoqOXhsalLN0hCEuLUmhulZUI6aP/kfEP7R
-	F+ldAEzgmSrbYKeTRjv0YpRZzCqHzZxy9i97E4RRAJMLWpnFBdS6Estd1uvSZfl5s4X3yX
-	4mEpV7ZoJqX+BN1SulNpzWxr8EJD29jq6fVRIaR92jKEvmrP2MncgunbT9Bv8oayllbaRD
-	in1wKZ8q7SvTjQPjNcONitjYJGxWqSHbbPT6xuwQTSBj91G8uuD0Yl0Sn0Jmjpw+BYiGMw
-	0Xmh3jkUymzKlVxhSEmPwKSXUwYLoBdbLpKML7FKGhFO/BL3PAmqNF8LNMd4Uw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1743408200;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=75LtVyshrpJURZDN4urZhi8S9CoAlSOeTIRvPjPMZJo=;
-	b=uSSqXfQnv8ErdniQp/vNTsDTt7J4Z1TE9vvTE//wlMYTSEmbq9c5pBUmTKI3fWplCy+UbN
-	s4MdZgfQfCBhYnDQ==
-From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-To: Ryo Takakura <ryotkkr98@gmail.com>
-Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, gregkh@linuxfoundation.org,
-	jirislaby@kernel.org, john.ogness@linutronix.de, palmer@dabbelt.com,
-	paul.walmsley@sifive.com, pmladek@suse.com,
-	samuel.holland@sifive.com, conor.dooley@microchip.com,
-	u.kleine-koenig@baylibre.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
-Subject: Re: [PATCH v3 2/2] serial: sifive: Switch to nbcon console
-Message-ID: <20250331080318.BdZQodhu@linutronix.de>
-References: <20250330110957.392460-1-ryotkkr98@gmail.com>
- <20250330112109.393526-1-ryotkkr98@gmail.com>
+	id 1tzAzk-0000000HRHc-30GP;
+	Mon, 31 Mar 2025 08:59:49 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52UKauVs020777;
+	Mon, 31 Mar 2025 08:59:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=/02MeeTgr+edfUre6+XCDI7lrRPKBN
+	s5wpBz5Bd11FQ=; b=P63v/gXsRF4hDLy7ssEBBwh/kzsyGiOtp0mumcM5+A/LNj
+	gdY0eBuzdPTmuXOhURZupJ1YyCReKhjV+btHVIxdh6bjRaJyvFsMnji9ym0MycpW
+	FQ/tEiPUhIT3tmZjgUk0k8RfDGEkMM5umV5et3jPN0aBemzHNEpTH7otsAqg2D2s
+	IgiQKjGXwzD3QmqVQYFZ00JQ3UFfmml/HrvUYzWU2spcPKwRznX4azB8E9B4uB+1
+	1QpX2jha71AOh/TNdKabH257Nmy0qCW899l9HxKC4fFcsNGdaAqFdrftLmaLGGiG
+	2KPUxEHGLnOeqqSwgqWBfYVrpnKHZUpIb/RQpJew==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:20 +0000 (GMT)
+Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 52V8pdhP010589;
+	Mon, 31 Mar 2025 08:59:19 GMT
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45qd4q286t-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:19 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 52V5GId8014560;
+	Mon, 31 Mar 2025 08:59:18 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 45pvpkw19g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 31 Mar 2025 08:59:18 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 52V8xEMj54460792
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 31 Mar 2025 08:59:14 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B244A20067;
+	Mon, 31 Mar 2025 08:59:14 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7D62920065;
+	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.171.74.246])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Mon, 31 Mar 2025 08:59:13 +0000 (GMT)
+Date: Mon, 31 Mar 2025 10:59:11 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-mm@kvack.org, Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
+        Ryan Roberts <ryan.roberts@arm.com>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+        Heiko Carstens <hca@linux.ibm.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+        linux-s390@vger.kernel.org
+Subject: Re: [PATCH 1/2] mm/ptdump: Split note_page() into level specific
+ callbacks
+Message-ID: <Z+pZX2QmFnNnnjZ5@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250317061818.16244-1-anshuman.khandual@arm.com>
+ <20250317061818.16244-2-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250330112109.393526-1-ryotkkr98@gmail.com>
+In-Reply-To: <20250317061818.16244-2-anshuman.khandual@arm.com>
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: FB8uw0hSchlofFmG1jPA1lzwCpmzLf0-
+X-Proofpoint-ORIG-GUID: 3iKHP7Q1z45fUexTKfPdZicsNHs_J4-s
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-31_04,2025-03-27_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 spamscore=0 suspectscore=0
+ bulkscore=0 clxscore=1011 mlxscore=0 adultscore=0 mlxlogscore=741
+ malwarescore=0 lowpriorityscore=0 impostorscore=0 priorityscore=1501
+ phishscore=0 classifier=spam adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2502280000 definitions=main-2503310063
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250331_010321_921560_A44454BA 
-X-CRM114-Status: UNSURE (   6.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250331_015948_874361_7A9C7E80 
+X-CRM114-Status: GOOD (  13.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,27 +120,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gMjAyNS0wMy0zMCAyMDoyMTowOSBbKzA5MDBdLCBSeW8gVGFrYWt1cmEgd3JvdGU6Cj4gLS0t
-IGEvZHJpdmVycy90dHkvc2VyaWFsL3NpZml2ZS5jCj4gKysrIGIvZHJpdmVycy90dHkvc2VyaWFs
-L3NpZml2ZS5jCj4gQEAgLTc4NSwzMyArNzg2LDg4IEBAIHN0YXRpYyB2b2lkIHNpZml2ZV9zZXJp
-YWxfY29uc29sZV9wdXRjaGFyKHN0cnVjdCB1YXJ0X3BvcnQgKnBvcnQsIHVuc2lnbmVkIGNoYXIK
-PiAgCj4gIAlfX3NzcF93YWl0X2Zvcl94bWl0cihzc3ApOwo+ICAJX19zc3BfdHJhbnNtaXRfY2hh
-cihzc3AsIGNoKTsKPiArCj4gKwlzc3AtPmNvbnNvbGVfbGluZV9lbmRlZCA9IChjaCA9PSAnXG4n
-KTsKPiArfQo+ICsKPiArc3RhdGljIHZvaWQgc2lmaXZlX3NlcmlhbF9kZXZpY2VfbG9jayhzdHJ1
-Y3QgY29uc29sZSAqY28sIHVuc2lnbmVkIGxvbmcgKmZsYWdzKQo+ICt7Cj4gKwlzdHJ1Y3QgdWFy
-dF9wb3J0ICp1cCA9ICZzaWZpdmVfc2VyaWFsX2NvbnNvbGVfcG9ydHNbY28tPmluZGV4XS0+cG9y
-dDsKPiArCj4gKwlyZXR1cm4gX191YXJ0X3BvcnRfbG9ja19pcnFzYXZlKHVwLCBmbGFncyk7Cgp0
-aGlzIGRvZXMgbG9vayBvZGQuIEEgcmV0dXJuIHN0YXRlbWVudCBpbiBhIHJldHVybi12b2lkIGZ1
-bmN0aW9uLiBUaGUKaW14IGRyaXZlciBzdGFydGVkIGl04oCmCgo+ICt9Cj4gKwo+ICtzdGF0aWMg
-dm9pZCBzaWZpdmVfc2VyaWFsX2RldmljZV91bmxvY2soc3RydWN0IGNvbnNvbGUgKmNvLCB1bnNp
-Z25lZCBsb25nIGZsYWdzKQo+ICt7Cj4gKwlzdHJ1Y3QgdWFydF9wb3J0ICp1cCA9ICZzaWZpdmVf
-c2VyaWFsX2NvbnNvbGVfcG9ydHNbY28tPmluZGV4XS0+cG9ydDsKPiArCj4gKwlyZXR1cm4gX191
-YXJ0X3BvcnRfdW5sb2NrX2lycXJlc3RvcmUodXAsIGZsYWdzKTsKPiAgfQoKU2ViYXN0aWFuCgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Mon, Mar 17, 2025 at 11:48:17AM +0530, Anshuman Khandual wrote:
+
+Hi Anshuman,
+
+...
+> --- a/include/linux/ptdump.h
+> +++ b/include/linux/ptdump.h
+> @@ -11,9 +11,12 @@ struct ptdump_range {
+>  };
+>  
+>  struct ptdump_state {
+> -	/* level is 0:PGD to 4:PTE, or -1 if unknown */
+> -	void (*note_page)(struct ptdump_state *st, unsigned long addr,
+> -			  int level, u64 val);
+> +	void (*note_page_pte)(struct ptdump_state *st, unsigned long addr, pte_t pte);
+> +	void (*note_page_pmd)(struct ptdump_state *st, unsigned long addr, pmd_t pmd);
+> +	void (*note_page_pud)(struct ptdump_state *st, unsigned long addr, pud_t pud);
+> +	void (*note_page_p4d)(struct ptdump_state *st, unsigned long addr, p4d_t p4d);
+> +	void (*note_page_pgd)(struct ptdump_state *st, unsigned long addr, pgd_t pgd);
+> +	void (*note_page_flush)(struct ptdump_state *st);
+>  	void (*effective_prot)(struct ptdump_state *st, int level, u64 val);
+
+Should you treat effective_prot() similarly?
+
+>  	const struct ptdump_range *range;
+>  };
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
