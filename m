@@ -4,89 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A8BC28B20
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 07:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C6F7C3601A
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 07:49:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xs8oJIFC02RAL3duIL2mk7TWHAI7MqzXeYARLJBbpRc=; b=F4rxJ0gWCxEk04
-	vKi4tUnTW/+zB4LbSCaPlIn4TbnVJxdjnmfmaBF20YuxRdKm+psFCfdNTCzGUW2N9KSu+L0GqIoTi
-	gEGw7SV5XtmGTISMIEYEsoSDH9ObaxFXyKr0h8ARNjh9CT7zCD/H7hVYmrdJYGujLkB/UHsgkV8a6
-	JaR93E86sIT+CV5E3ZnOCRPgDuN2zhbSj/yRh+8tFBNXSeYSq8N0Omk/AdwwLK6rIdMt8MAYS8HvW
-	78HGZsR2fwwDE1RksYi9XEqfuFk0LFooMiMQAV1NKryHB+EgkiVWNm4YnA+6lQJbuXLu5+Zovo9r5
-	Ki6nyrEWGYliGLrbk6Rw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=04F4DSlDdO4s0Bzie6vteRKIJA1ONlG0aM+cCHSBdL8=; b=UldAvdb6/sMHua
+	gp9u+Ur7h0tX5V5qH/L0pqqxC69ea4oJCoYaws0Z63qsqpiuA1ew8GJFoX+PCbksIxxgOmpdRtv2P
+	0O4og2boXm/vozqOhh6TsErBownFFl2DWt7Bi0Q0E/iuu6QVXVEDxPoI7oaeFDk0uKr/wh1lpCCWN
+	vtPgjpfl1k3arVMmLiOVf1+jb5IItKTFmABGFcX+FVqsBzPvubKoNuSozgmJPA+wYFJYQV1QThnP5
+	qz6UHis59PPf7yIgSwlALh9vX3zIWLwQZYynmF2WVTuvyB3/8dIwXaDUeZUoGRPKLusNi9Urq15Pa
+	usZYGsPuPT+LcBUxADbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsqs-00000005QrW-3HRh;
+	id 1tzsqs-00000005QrJ-0u44;
 	Wed, 02 Apr 2025 07:49:34 +0000
-Received: from smtpbguseast2.qq.com ([54.204.34.130])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsli-00000005Q2g-2gHR
-	for linux-riscv@lists.infradead.org;
-	Wed, 02 Apr 2025 07:44:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1743579783;
-	bh=IdRmZ2JBex4jUMOaecKtPJHj559XDfi8d/7kI9nzLXE=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=NTMll+tpcwyLZdU10Ew5UEXtQneoMxVjPHgE4HA+Od3B1WCziO3hhfrTNL9gsrsta
-	 HALDNqp0CYYOcKWzVwcoSDnrO4rbg78/e98sqgwD/d7sBd/exubnxW3xY++EMG780h
-	 bUumJynnowbRmVrosHX8jBY9poCJv2UkjxoajTtw=
-X-QQ-mid: bizesmtpip3t1743579772tmnkz9o
-X-QQ-Originating-IP: VXfI5PZC7A5F6pu2hcWgPmH22j/MPc1MoA5fwl1MiuU=
-Received: from localhost.localdomain ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 02 Apr 2025 15:42:50 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 18110157691820490132
-EX-QQ-RecipientCnt: 14
-From: WangYuli <wangyuli@uniontech.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: wangyuli@uniontech.com,
-	chenhuacai@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vincent.chen@sifive.com,
-	palmerdabbelt@google.com,
-	zhanjun@uniontech.com,
-	niecheng1@uniontech.com,
-	guanwentao@uniontech.com,
-	Huacai Chen <chenhuacai@loongson.cn>
-Subject: [PATCH v2] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Date: Wed,  2 Apr 2025 15:42:47 +0800
-Message-ID: <330B3BAFC6FDB763+20250402074247.64483-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.49.0
+	id 1tzsk2-00000005Pml-2EeP;
+	Wed, 02 Apr 2025 07:42:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=uwSUjXhnpPVALtfn6H/0Ef+Hu/5PlKbVNs0zSo5MJgI=; b=UbgPGhXYcAW7Ecq25uYBAa81JB
+	YejYfLTgWYPRfCDH2TETkjUUcMvwoBl851u/SlwbYNyM+yFIyh1vaxj3MsprEfF1FK26n5zhpDDHd
+	0RYGNmo+SUBtmS4ReHBp3tzeFKK0va69/75S9gYtFYaalaORY5Hw/o8guEL/XrRBXYj8AEbukW2Md
+	LGryWJxcZ1Mzcn3518Ul0AimhzGe/TBpi+hQ2z98XSyzcgUfOVyd2mTc3oBmaQQd81PMoT1r62W1T
+	CuUM7rCOZBxmcgETDmqQzITfoRPWmm3VOCvo6KMNAoKgoYfkVSHQQuqvcIPvXatsDpO3fjOfsgBNA
+	eJdGDGWg==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1tzsjs-00000006zGs-2jZ9;
+	Wed, 02 Apr 2025 07:42:21 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id C032230049D; Wed,  2 Apr 2025 09:42:19 +0200 (CEST)
+Date: Wed, 2 Apr 2025 09:42:19 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Guenter Roeck <linux@roeck-us.net>
+Cc: Alessandro Carminati <acarmina@redhat.com>,
+	linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	=?iso-8859-1?Q?Ma=EDra?= Canal <mcanal@igalia.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Kees Cook <keescook@chromium.org>,
+	Daniel Diaz <daniel.diaz@linaro.org>,
+	David Gow <davidgow@google.com>,
+	Arthur Grillo <arthurgrillo@riseup.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	Naresh Kamboju <naresh.kamboju@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Ville =?iso-8859-1?Q?Syrj=E4l=E4?= <ville.syrjala@linux.intel.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Alessandro Carminati <alessandro.carminati@gmail.com>,
+	Jani Nikula <jani.nikula@intel.com>,
+	dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>
+Subject: Re: [PATCH v4 06/14] x86: Add support for suppressing warning
+ backtraces
+Message-ID: <20250402074219.GP5880@noisy.programming.kicks-ass.net>
+References: <20250313114329.284104-1-acarmina@redhat.com>
+ <20250313114329.284104-7-acarmina@redhat.com>
+ <20250401170829.GO5880@noisy.programming.kicks-ass.net>
+ <ddc7939f-fb98-43af-aed1-0bc0594ecc41@roeck-us.net>
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: NiCl4APqUksb+8HYj8boGusd5DTPUqgW3qoll054UBU0TkRQh0V0q3ne
-	EQoc9ymysg322gFqmqWQ5lx6WmEAD9rZc7+j3RL20acHO01ZbeS0BubpCCf/UO7JOMKUWa9
-	z6ZOzPOveOkrvyeRuj2krj3TzTyiBR8hx8HsZv3JealRu8WG+Nw8yDSX58/wU6WPqNm5U+G
-	F5IY45AP71n5UrUEtl5QpDBe/YD9oB0ddp6eNgoKeok+KhbYs+vBKIRMnNTSGlAxGt4u/8L
-	bSt7NIFkA4oBvqoFfdGowNlGzEYyh4K5eVbK7O83kCi04v96pavjSw5bfJlnCjA35FiJjtv
-	UQjgsDp7PNfSk5igm73r5azOnmvGJT/coW4ZP/VaPJAyJZqkvaGRjyV5VzomZfG4LCuvAfD
-	Axxm62C6owno1SxCIUyfFtAp1+iDTwXQ0QnH296RBGJunjh7innihXi65IrbwMUdv3Uzcio
-	D/jHLSg9afS/FeZOGKvVGuyrRcTSH2+KcBYwQvB9H4UrYg1Km4ugiyE9J5UMG/iZ0LMltT9
-	29o/s80Tet2lxIMaxijDMwEK2zKHpefyYi/DcQMDclTw+NbWHHfv5kNerFaMO65D4RySa+g
-	n07/z0gtsntYnxvMDgWDUQJ66rW9r4JWerxh0/eaMc3RrgTb7nW5LDN8akNDeVtoaUgCbjs
-	oqkIo4yag9gYJU3/z/Dyad7TQfl9h4qKKAC6fs+RKmRgyTe2HBEJKgX1Nd0fGLBxpgIjwt2
-	SOUjTgQJZgcYgjVFH2Q02q+16lHXVf/8T2jYjtTAxI9GizM11ZcCzIT1fw9bOwqbBEE8vac
-	+MQ2YF5Ar3kFwt9Df2zreHmpAaWojb0Du8mzAAM2ZIw3wTZDqjai09Vr5XGNyx6ibrbBIcZ
-	Q8VximK+XfSHaH+gQqxOuJsePL4xGQHHnS5q+U0cY33pRjqgLRiY7rdKRD5UommlOjWcvun
-	17ArpFcNulC7fRas1Cn+G/+mA2BrYHCvQcwvC6Wk+3r/ikqaqeySpcv/kKAVPN+fSJfpqg9
-	tjirjWAg==
-X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
-X-QQ-RECHKSPAM: 0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_004415_181976_4F110FA7 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+Content-Disposition: inline
+In-Reply-To: <ddc7939f-fb98-43af-aed1-0bc0594ecc41@roeck-us.net>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,76 +100,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
-symbol using inline assembly.
+On Tue, Apr 01, 2025 at 10:53:46AM -0700, Guenter Roeck wrote:
 
-There's a potential issue where the compiler might inline
-arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
-symbol multiple times, leading to fail to link vmlinux.o.
+> > > @@ -92,7 +102,8 @@ do {								\
+> > >   do {								\
+> > >   	__auto_type __flags = BUGFLAG_WARNING|(flags);		\
+> > >   	instrumentation_begin();				\
+> > > -	_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
+> > > +	if (!KUNIT_IS_SUPPRESSED_WARNING(__func__))			\
+> > > +		_BUG_FLAGS(ASM_UD2, __flags, ANNOTATE_REACHABLE(1b));	\
+> > >   	instrumentation_end();					\
+> > >   } while (0)
+> > 
+> > NAK, this grows the BUG site for now appreciable reason.
+> 
+> Only if CONFIG_KUNIT_SUPPRESS_BACKTRACE is enabled. Why does that warrant a NACK ?
 
-This isn't merely a potential compilation problem. The intent here
-is to determine the global symbol address of kgdb_compiled_break,
-and if this function is inlined multiple times, it would logically
-be a grave error.
-
-Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
-Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
----
-Changelog:
- *v1->v2: Add the missing __ASSEMBLY__ check and substitute
-".option rvc/norvc" with ".option push/pop".
----
- arch/riscv/include/asm/kgdb.h | 9 +--------
- arch/riscv/kernel/kgdb.c      | 8 ++++++++
- 2 files changed, 9 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-index 46677daf708b..d9f6a8fc387f 100644
---- a/arch/riscv/include/asm/kgdb.h
-+++ b/arch/riscv/include/asm/kgdb.h
-@@ -19,16 +19,9 @@
- 
- #ifndef	__ASSEMBLY__
- 
-+extern void arch_kgdb_breakpoint(void);
- extern unsigned long kgdb_compiled_break;
- 
--static inline void arch_kgdb_breakpoint(void)
--{
--	asm(".global kgdb_compiled_break\n"
--	    ".option norvc\n"
--	    "kgdb_compiled_break: ebreak\n"
--	    ".option rvc\n");
--}
--
- #endif /* !__ASSEMBLY__ */
- 
- #define DBG_REG_ZERO "zero"
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 2e0266ae6bd7..5873d3970360 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -254,6 +254,14 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
- 	regs->epc = pc;
- }
- 
-+noinline void arch_kgdb_breakpoint(void)
-+{
-+	asm(".global kgdb_compiled_break\n"
-+	    ".option push\n"
-+	    "kgdb_compiled_break: ebreak\n"
-+	    ".option pop\n");
-+}
-+
- void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
- 				char *remcom_out_buffer)
- {
--- 
-2.49.0
-
+And isn't that something distros will want enabled? All I'm seeing is
+bloating every single UD2 site, and no real justification. As Josh said,
+this should be done on the other side of the trap if at all.
 
 _______________________________________________
 linux-riscv mailing list
