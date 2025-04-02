@@ -4,89 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C559BC3601A
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 13:00:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6F5C28B20
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 13:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0DBeqasEz31ed3WBldFECZ2MHR3YpIgmiSNpH4rmQ9Y=; b=of9DmswgH3FOri
-	0zbAGbdgPIuqWhZjApvRkkGIVkcaMm9WN6sRezQFgHvTENubLkP0ICs02/kWwKRtaYzFERYJnyUcw
-	Ft968VHZF9dMF8GPszHGD+x4Yz5gGshp9g1+e7C5t+tY1Aie2qgIOfqlvpOuAV9672leNHmv04CRt
-	+86e8UMCAPOW9m8QQWZo04nSdisL9VQt6NiVf0oNFvL5nP9O1DIdSsxcKaS0tzQAj1NbU/ehOdyEW
-	A2sDMStWnP0jvL81+TBy5hyhJ3SHWVhot14CvjKIMZ3FRokY+b9YR4P+otuolD6gc3DBIeaKl7VKJ
-	vQiOJXTAx9+JX2GRM9GQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=lSNQaOPfme/68VNrEtkjcLqFZsbkTIfUaS2SXgqLWrs=; b=zmo/9A55LVZbYr
+	iDgxcccakfoE1kt6rWgv+0zYpzXNw5FVXDQRcyK+FGhK4nwJ9Rt1YXABneFCTpB1vPtmcYFIuoZIR
+	xsJopY8291b90Huaj3bS08Cthh6tofEOxnzCNk+O0vN5QB5IZAq7AP22JxvQvA/wUb1ljT63oCwFQ
+	j8nQgaWLgSL22LRR+9HBsLfFrmKbnGYGJdTglKQw4X/S5xPOUlk+0xm6UN+sHOWRNIQjA97oSc3xL
+	SYqwMq8hA/252OLOhhEsa5gLzaRjj5qDT9qEabGD1QbmWgypKicFZTeHvwz92Db8qQZjOYWrEr6+5
+	SN2qWHHw7PCc1uwhE7gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxhx-00000006Aoy-1HOX;
-	Wed, 02 Apr 2025 13:00:41 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tzy1H-00000006DXy-28bu;
+	Wed, 02 Apr 2025 13:20:39 +0000
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzxhu-00000006Anl-1sGP
+	id 1tzy1E-00000006DXL-2vcc
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Apr 2025 13:00:40 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf3192f3bso66933405e9.1
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Apr 2025 06:00:38 -0700 (PDT)
+	Wed, 02 Apr 2025 13:20:38 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-523f1b31cf8so2683401e0c.0
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Apr 2025 06:20:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743598837; x=1744203637; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ngxDFq1nGLdsrKZFLcmh45jEs49yfqhaJP1grV4jxpE=;
-        b=ACrVM4jouHazeTpPIrbmlUDc8erCZre1lbe8mL2+QuIZaTEB/8Wd60PxJMwc5FCvIz
-         MkzDZxn2w4cBYG7GC/SIFCnj2ouRI630st0oyfpeDZBi0mcXh7WPkN31Z+GlRoIppg3H
-         D2BPg3fAFa9SFO1byM+uX4ay8GsU/1X04oHA/QptMKhXXYmvnPKmhGkcKqdDcBUzGAnA
-         F+ffYFCCcZNGY+ne3Q898W5kvKMBEkuL3WpYw3Qi7miGuMKjypDcqcZ8OvEbzKkZ6kc6
-         TQZ9oWV85efVPynemYywTdABTU2O/bTclvVBG+2FH8D4+wfKVpKejiIjRRcSs/arw3VM
-         a7PA==
+        d=linaro.org; s=google; t=1743600035; x=1744204835; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=In+1Y69nMBfgKqa4StrtMwmuVIRitgkzeLMrf8QA0XQ=;
+        b=Y4m8SkkFJVFq1bCtaFNazDNEEq9akeuijJxX3vCI75xV4i8561ezGdHMMFFqeIrUNG
+         HLpOvyOOuffUJIOmPwurm+pS4ZD9xoD89id85+1DmGiWW5Kr88dGVUE/DSsma12VBGzA
+         guctYLnEFn+YoffuP7LdD5BD4j4TJkAhV8VEwX+rUQqpL+TLEeWjJ63u3inb621p+c5e
+         Tgq6bNYp1zAiODi79QLt9RVGLRXVvkRxlSmDbTbYWwz9pzxshNa8hth4VYpeQzir1PSU
+         uXT2IgdRBAvcr1kZTgd15nhU7JGBwRS8mR3qnRl470E1y1DOpnudZegTPW48pOdVpF64
+         /AhQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743598837; x=1744203637;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ngxDFq1nGLdsrKZFLcmh45jEs49yfqhaJP1grV4jxpE=;
-        b=b5djPnOhUqfZSgAhewypily3oDiYg5RdyFnLSeJdGOz2yYouP2seYHrTqwOij9x1ge
-         dmtYsGl9lWBDGJV2Gten9tIo7S4ZjQsoSxuu9eQmIak7sUhdmaOH3GOowcQk3OHl/Bfx
-         C9lOSr10nzgZKckGafazsc22EnT1pjiyvVcGMO25M9o2FuRIymcMPYPPWw6XIEPlvsv/
-         gKPmHrBJwcvoFx9lfUdY/qvVoEZNEYZ2PezLdDikZKxXAsqFIb2/9GZSTr3E/SkMnWal
-         pdvGOgnJTb4bDQyS9w88Sw1lMlN/xvsGV9dUZn96pFaAzwIv12I/xktoIxOKLLWJE7s4
-         v/QA==
-X-Forwarded-Encrypted: i=1; AJvYcCUdFt3ZmNWXVKzDKg7ji/VSMDkv72XlE5i48DyKxtxF41o5Own98YGUi3Rpww/49soQWbEPfpfoe6Omlw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsuNGovjEks3QvGWE6Tub97F8TlK/cKHzwwjdkfQcyCSQRaGU3
-	LB4GDsTuUk0a0MeLUO1+gfXpzFp9ibQCIWlhL/PhArd6qJsa13zN
-X-Gm-Gg: ASbGncvQaliSRePCajldh8AYIIR7BAjAZt5HJg0T76bn9vuR0SDVQc1enks41yvRawI
-	X5kn7N93oSkLI/91MWRpTyzcNT1+j1cHB2CL7OmWYV14CJgkqMxp1ODV3aNc17zICn5L2RipM/y
-	8QMvOUR3yXJgCP0xFHGxMCFEIMgPqn8LTA4bLqRtsn2/8bTNtZy4bfyqgovr5O3LChneVPBQ9jn
-	zDZQLhaHDvDdCVEX4itWFRaMu464M3qRQS9ykEtGGnPN7YhwBbl/Y/xnMjr7KNEALfID6xT8gpX
-	h/JoS1kMY8UQ+Ya4MKVgZWQ2+K7mY9N+ore68l5pVR815elfiw/9kjV6FipmllTEm4M6FDwbjeY
-	ju0Vr8Yc=
-X-Google-Smtp-Source: AGHT+IEicv5KsZA/zLNoahNekdHnYAFlpnVcWaBREtvGIuqd11qcLb81th3r38X1cJ6IPJ8qdCPrVA==
-X-Received: by 2002:a05:600c:4f43:b0:43c:fad6:fa5a with SMTP id 5b1f17b1804b1-43db62b77acmr152520745e9.24.1743598836578;
-        Wed, 02 Apr 2025 06:00:36 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ea8d1673dsm41466725e9.0.2025.04.02.06.00.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 02 Apr 2025 06:00:36 -0700 (PDT)
-Date: Wed, 2 Apr 2025 14:00:34 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: Xu Lu <luxu.kernel@bytedance.com>, tjeznach@rivosinc.com,
- joro@8bytes.org, will@kernel.org, alex@ghiti.fr, lihangjing@bytedance.com,
- xieyongji@bytedance.com, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev
-Subject: Re: [PATCH] iommu: riscv: Split 8-byte accesses on 32 bit I/O bus
- platform
-Message-ID: <20250402140034.0fc4cbac@pumpkin>
-In-Reply-To: <8cfe938f-5eff-483e-95a1-c4029993e287@arm.com>
-References: <20250325144252.27403-1-luxu.kernel@bytedance.com>
-	<8cfe938f-5eff-483e-95a1-c4029993e287@arm.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        d=1e100.net; s=20230601; t=1743600035; x=1744204835;
+        h=cc:to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=In+1Y69nMBfgKqa4StrtMwmuVIRitgkzeLMrf8QA0XQ=;
+        b=F2YR7o/NNAKKtJCf1h15ZO+rVa7XtvXi7pEk4uRQx4+CZ45OLPr6bb3vwAjoFQTfw6
+         arY7JtLEbYmHKoUXsLXWSZN0U6jHqkM3oO9Lu72x5OPzz1u1JjwXIWJBeFjO4LuZBNyI
+         qHf0wVJRTnT50HlSIEZA/T3j8JV6B0ht8lRxvx1uJUMBsnQiC3xibKKfg4RdziwcmrRI
+         7D8uWkmDix+uBu/0x+BGTftJdeHYwJ2PmUHoXpFIHGZ5FLhafZSbo/dpLpCyqfjIH6/Z
+         cej/lIqxIDGs1t2vu4msjSbEPuZzddKOrms2sy+vSOPpKPeh9J4c0fUQXD2gRhRiR6y2
+         FkCQ==
+X-Gm-Message-State: AOJu0Yxb6SKxNqeazAyITLFEwHuRGNsA7yBVij2pK3IRyXE0CvvR3V7O
+	soXLos2gYGbKN1hdF9WfFoAVt3vhcV1RT1YbHt65dJcfccO706A3duqG7O4we0MdtWNVLIExmOw
+	qiORkTMAdRQOe4A8zpzWtV5tCcyKojhcckNeaiuhGokZkyZ4TXDU=
+X-Gm-Gg: ASbGncuxdPtv7W8HDbA6waye8yDccgObJ3QC/4yamdmWL/Ns3PQ71kaQXBrKu7z9MmH
+	yS5yrgHxE4Pc1r9c7PmLjt5SmdDeW+I03tRqM+Wtlj0tSVSbJDna0hj52QCUlyEHwyKUct+0Mk0
+	cd4KRsA3LXCDbLvDB+yJdzYZzOtRd3qvhb6AsooFBnKJ7hYhrIQoh5S9VHdXk=
+X-Google-Smtp-Source: AGHT+IFsHe2qgE/3dZ7ATZQlTlH2f6sgRKoBUonASYXuz0Bb/UAqUiZV1X4Y0sczKgfKtwF36TiHquI/NJM5jnDcsl4=
+X-Received: by 2002:a05:6122:249a:b0:526:42c2:8453 with SMTP id
+ 71dfb90a1353d-52642c2849fmr5205649e0c.7.1743600034755; Wed, 02 Apr 2025
+ 06:20:34 -0700 (PDT)
 MIME-Version: 1.0
+From: Naresh Kamboju <naresh.kamboju@linaro.org>
+Date: Wed, 2 Apr 2025 18:50:23 +0530
+X-Gm-Features: AQ5f1Jq96Wf-mikRgwQXfn81V0rc9lAZ1ueGPOm8SXNAmq3Q4b2XBmmyCtKsgkM
+Message-ID: <CA+G9fYug_77HoqyonvsnJiya2q+0-hf9k4Yjk_dDn7P91Sq+3A@mail.gmail.com>
+Subject: next-20250402: riscv/mm/tlbflush.c:195:23: error: 'start' redeclared
+ as different kind of symbol
+To: linux-riscv <linux-riscv@lists.infradead.org>, 
+	open list <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org, 
+	Linux Regressions <regressions@lists.linux.dev>
+Cc: Anders Roxell <anders.roxell@linaro.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Dan Carpenter <dan.carpenter@linaro.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_060038_620718_925DD08A 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250402_062036_743295_3EBAE978 
+X-CRM114-Status: UNSURE (   8.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,27 +94,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2 Apr 2025 12:28:54 +0100
-Robin Murphy <robin.murphy@arm.com> wrote:
+Regressions on riscv builds tinyconfig, allnoconfig failed with toolchains
+clang-20 and gcc-13 on the Linux next starting from next-20250328.
 
-...
-> It is not, in general, safe to do a split write to a running counter 
-> either way - low-high vs. high-low just moves the problem around, 
-> changing *which* combinations of values are problematic and capable of 
-> overflowing into each other between the writes. If the PMU driver can't 
-> write counters atomically, it will need to ensure that it only ever 
-> write them while stopped (at which point the order surely shouldn't 
-> matter). Conversely, though, reading from running counters is a bit more 
-> reasonable, but it needs more than just hi_lo_readq to guarantee it's 
-> not got a torn result.
+First seen on the next-20250328
+ Good: next-20250327
+ Bad: next-20250328..next-20250402
 
-Or have hardware that latches a value waiting for the following cycle.
-That could be done in the bus interface logic.
-In which case the cycle better come from the same cpu, not another
-cpu accessing an entirely different register.
-That requires a global lock for the device.
+Regressions found on riscv:
+  - build/gcc-13-tinyconfig
+  - build/gcc-13-allnoconfig
+  - build/clang-20-tinyconfig
+  - build/clang-20-allnoconfig
 
-	David
+Regression Analysis:
+ - New regression? Yes
+ - Reproducibility? Yes
+
+Boot regression: riscv tlbflush.c error 'start' redeclared as
+different kind of symbol
+
+Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+
+## Build log
+arch/riscv/mm/tlbflush.c: In function 'arch_tlbbatch_add_pending':
+arch/riscv/mm/tlbflush.c:195:23: error: 'start' redeclared as
+different kind of symbol
+  195 |         unsigned long start = uaddr & PAGE_MASK;
+      |                       ^~~~~
+arch/riscv/mm/tlbflush.c:193:53: note: previous definition of 'start'
+with type 'long unsigned int'
+  193 |                 struct mm_struct *mm, unsigned long start,
+unsigned long end)
+      |                                       ~~~~~~~~~~~~~~^~~~~
+arch/riscv/mm/tlbflush.c:195:31: error: 'uaddr' undeclared (first use
+in this function)
+  195 |         unsigned long start = uaddr & PAGE_MASK;
+      |                               ^~~~~
+arch/riscv/mm/tlbflush.c:195:31: note: each undeclared identifier is
+reported only once for each function it appears in
+
+
+## Source
+* Kernel version:  6.14.0
+* Git tree: https://git.kernel.org/pub/scm/linux/kernel/git/next/linux-next.git
+* Git sha: fefb886b1344e222b3218f3c0165b0fd770e8b88
+* Git describe: next-20250402
+* Project details:
+https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250402/
+* Architectures: riscv
+* Toolchains: clang-20, gcc-13
+* Kconfigs: tinyconfig, lkftconfig
+
+## Build
+* Build log: https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250402/testrun/27859100/suite/build/test/gcc-13-tinyconfig/log
+* Build history:
+https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250402/testrun/27859100/suite/build/test/gcc-13-tinyconfig/history/
+* Build details:
+https://qa-reports.linaro.org/lkft/linux-next-master/build/next-20250402/testrun/27859100/suite/build/test/gcc-13-tinyconfig/details/
+* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2v9owDFW4gzrtyDZItZlOSzN7Zd/
+* Kernel config:
+https://storage.tuxsuite.com/public/linaro/lkft/builds/2v9owDFW4gzrtyDZItZlOSzN7Zd/config
+
+## Steps to reproduce
+- tuxmake --runtime podman --target-arch riscv --toolchain clang-20
+--kconfig tinyconfig LLVM=1 LLVM_IAS=1
+
+
+--
+Linaro LKFT
+https://lkft.linaro.org
 
 _______________________________________________
 linux-riscv mailing list
