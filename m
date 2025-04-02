@@ -4,85 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0596C36010
-	for <linux-riscv@archiver.kernel.org>; Tue,  1 Apr 2025 22:18:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70C51C36014
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 05:40:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vw8BMFOrhZnVm5gR0w9SIWEbgdEYJLr4VPJzo+0iGYI=; b=ado1usv2s8q5XZ
-	6dnBCqr6YS6UXY53rmJvEha/p6yw0haYaUf+8+++RWhxDPKWfo6jWRSMxczPm9TME3vR8mPjnDCxU
-	qJFTbaWYOQtNxv7turI+fQqB9pylJH6mlCiFEyspQmFviszmjcnPxY5xC8EtnI4bYq5nK55287Oip
-	p8AHc6Wb7xbMIqKLPoP5Ab743WyhyWqX9lwADMyyqaHCcmuwF0u/dT7hixrvtSh4L8aefWMEbj8/L
-	wDMD3raUV71bmqoB1f+4KwJ2m3AJABK49FEM0fy8eYE7OWgzuhihPwKKfeckl9x4kGL1ns85+yV7L
-	uUD7bVfxkj537mZNB1Bg==;
+	List-Owner; bh=TBZylPTp9DMAWtvbGIrW7VEJGYVX0Zesn1pKFcvquXg=; b=yQDcJMI5OpaV35
+	NKm7HAiExfJz5ZUf/imqXSoYtWDEtmcYs+xz0TKoIRdKmDO2hHDef09L+jsp9TdF/XfU3iiAoUNgZ
+	j5nMO9AmqCdFztPoi8lzg4tivyh7PH3O/EYhT1Odiumk4DL/oF3SG99rBV0MCSlVIaDFBwq1lyGBS
+	wcP9B986/9N0jB3eiV1p4YsSvRxK53vt8kEMLD2kYkipTxOxktZ+79XopwDWrynScBhLE3yRM5FLG
+	dF6X4OHuPzcA4ScFs3KBBhtV/e1u1nEnXix3ZlpG6Cu51iXfglOQO9OuS26mpTVwiQcV4Bsig0tzu
+	v9G3tb48IU6WHsC4/A2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzjvS-00000004W6f-05Nd;
-	Tue, 01 Apr 2025 22:17:42 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
+	id 1tzqpe-00000005BHD-2bRa;
+	Wed, 02 Apr 2025 05:40:10 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tziVo-00000004LK1-0Esh
+	id 1tzqpb-00000005BGK-25gh
 	for linux-riscv@lists.infradead.org;
-	Tue, 01 Apr 2025 20:47:09 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-2242f3fd213so95151405ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 01 Apr 2025 13:47:07 -0700 (PDT)
+	Wed, 02 Apr 2025 05:40:08 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2264aefc45dso3004535ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 01 Apr 2025 22:40:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1743540427; x=1744145227; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
-        b=iH919S+JF9lSrHCOi/NT7fLlJe7UkUlTQL4frZGVjyofH0IfcubEXF1mOK4lQbHIAv
-         NA9IWmORX8kcHz0q+ojTUVclUrLahMLb4FCVNXGy8WB9JrdhtaufM+MDmeXGFQQMpYGh
-         F0wRKQIPMm1c/W4R5NLzHGrekY/JMT99hMVjU6LJGCLZA5rYcfTFEZGufcrQGL6J5mAz
-         ZdPUhE8F+OubB4kb9AH7Cgd9X9EdPuh9hhrh4hmaBZdd3iEDqnGmut1m2PJkOnsLklso
-         /3xDFvEQeOpgAC9LOFytyqKp8pLCyGNyIrZF0CSIeFHdxq6yYtSxUyNsrXehz83wUiOH
-         RXKA==
+        d=gmail.com; s=20230601; t=1743572406; x=1744177206; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DjIjctB/QPRLEP77fXTzu/z4MrK21ruwAaJUXHFpcxc=;
+        b=A+3qwTHqUqfGMGng9jnb3+Xk1Pbf7rN9OC3+iseD4ijdseIHCZP0uaTa/2y0lG2c+y
+         jRn3USHFTxfj6eopPw14yAvYMsaJMEc7gMXWyY1OiN3QkRAz5xPWrZTtxuY6hVP1LJxl
+         OvXa9FsxEOKGUBfEGiiFd/zhE4P6scPzeqI04nwILS+FjSZpsGHdCWe/GBF3T0WbqsSl
+         WyfJPM4eGSKAQ25fgPQeXS3fTgX9G1665gFXb4IvN3OuwB7Dpijo0NDZvMa07kqlpC9y
+         7QLIOynBFok0akoj1tNh/C/BajGftvO+jH5uXUdv+68TT0JaxF8QH44ESUZ7vVkfDr9H
+         N26g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743540427; x=1744145227;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7WhTcpnDfS966b8qcjFRKYTbiz5sb4vgFd+KNycoqKw=;
-        b=il1/Z64YdTFeUlZt3ITyuy8/HvBmNuOHyx2pBf5CH1Iu1vWbimD1y4TT31zJImlNfi
-         OOBZtir1xfaK+fr2FFKttxp0SctoXV7dbmjPWz84tvRYHsgi1wv1Pz1oq3Xr3V76SVpD
-         J4G//kN1/5NydebgjsV0JJc8ogv7M7ltjiwvqqRAp1nqiNgrbkBPa9WGQrp0o6HkJurF
-         HtLQ7hC842IXKdhNIJ29XFTXR4eGavobytFhUcLqqsD6F2zxRZScFTrUZPSGXanD2U4g
-         CMgLJOie3vw+MnMXkp8tAlhQEVz3A4ATGJ9p/TjM2s0BqMQsqWxtsnXAD6apL1Y5ndcy
-         bfRw==
-X-Forwarded-Encrypted: i=1; AJvYcCXnUOYIVh1RQ99V8mBYXwunWcbtUUUtEbJ3JNE3Vs8klXT19uKFyeukYHhjYW7c9vNV8X4CnfFlwsj2Kw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyApTafn0y2mj5lnNrkehfKEfYGsBXeOa1VQY0G0eMZEBdSRNa2
-	SKZ/6DHu35E+/pi/SwEIQ/SA6X/NrEG5HIAEvts3yIfbPthya/CT0IJzjzOj/P8h/R1R71Vu4q/
-	hsQ==
-X-Google-Smtp-Source: AGHT+IE69F+P2diWss4q1R2RCvqjJn9bih0SHo0zrhhUPWnYhjvt54Ev63/iq2FBMJOXU3F4HgV2IVY99W4=
-X-Received: from pfef19.prod.google.com ([2002:a05:6a00:2293:b0:736:5b36:db8f])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:853:b0:736:9fa2:bcbb
- with SMTP id d2e1a72fcca58-73980436cbamr22550678b3a.24.1743540426869; Tue, 01
- Apr 2025 13:47:06 -0700 (PDT)
-Date: Tue,  1 Apr 2025 13:44:23 -0700
-In-Reply-To: <20250401204425.904001-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250401204425.904001-1-seanjc@google.com>
-X-Mailer: git-send-email 2.49.0.504.g3bcea36a83-goog
-Message-ID: <20250401204425.904001-12-seanjc@google.com>
-Subject: [PATCH 11/12] KVM: selftests: Add utilities to create eventfds and do KVM_IRQFD
-From: Sean Christopherson <seanjc@google.com>
-To: Paolo Bonzini <pbonzini@redhat.com>, Ingo Molnar <mingo@redhat.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Juri Lelli <juri.lelli@redhat.com>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Sean Christopherson <seanjc@google.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, David Matlack <dmatlack@google.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>
+        d=1e100.net; s=20230601; t=1743572406; x=1744177206;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DjIjctB/QPRLEP77fXTzu/z4MrK21ruwAaJUXHFpcxc=;
+        b=XlCa2U+AyfJ8l0FCeyo/ZOu05N+m6mlF8XZUlyuS6k1wDspdquOVLc5v89Lf2dDovx
+         kUWzFR81LD5MYNgczl9p032PxL+ORQik33toRB5UO2WHwXEQ3os4NavVo/35gnJ7rf02
+         SkHZPa4AJacWnLUduLXQ4j0LsIyCUOcRc7p1Mn+YRqPXyZU9LplIgbfPhhB1dnnO1Kyh
+         AhE8QsvX8KmvvpMT/FeqbfKCtpQT0u3wygyIIC1MOgoZTl5wt7vtPVtxpFeE88176mMH
+         wiK3RiXxnVM+zWtvdmJ77E+TUE0G+HLiPhtSZP7uayRkk4iOj5CkILtCuLMPJ6K+hW8p
+         6nbg==
+X-Forwarded-Encrypted: i=1; AJvYcCUfbamEASVORG5C1H3zu9acoXkNmiaULWY9Yuboa9mF0nSisRCAjlf2cZZq80TG+40vRRT7aak7v01xyA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzy7jCO170edrOoQL+VrCZHmHiDHNCweERZX1R3jpp+4giieHod
+	a/i4IWU/dCOXuZBixb+1LQLIzq+Ebl5DwYatFvZqdrw0yZaJLDyE
+X-Gm-Gg: ASbGnctcfgU3cvxXPvYQntwwaZIV8rlkjsdaZDpXnKcAOb+mg+BEcIHy0KICSwP6mI4
+	IB7/jO6z3e1FUYGHLr1Ec4wS9k2RYQ7JUR0QUolKxMWy8Eg5rPw+ZQzXTnqj7TlM+jPJYC+VcFq
+	QEACXcEaWatgcCSLD3TFSX3vuIXL+9gb6+8rpj/CKJgg8QPF91fJkX0NIg+vCFbLxPNP2GVk3ES
+	Gco0Bmu025BSAndueRYVFPdVQkaZQTMNxXcg0bGAdJ+FNTBvohFyqvv+LfJbjqjb5i1Qt8t0IBU
+	Di7MNRooHxjk2ts8EoTTEEopEkbylG7Z7vkCGhmi+O0y3RXbbuBhl3U03F4=
+X-Google-Smtp-Source: AGHT+IF733ON4a+1X5hN83MMBr+Z4NWm57ynS5+gyLX9JLj4Qs4kOy/p35AO1RfVjiLQ9PSoaLvsOw==
+X-Received: by 2002:a17:902:e74e:b0:220:f59b:6e6 with SMTP id d9443c01a7336-2292f9494e1mr178545025ad.8.1743572406202;
+        Tue, 01 Apr 2025 22:40:06 -0700 (PDT)
+Received: from localhost.localdomain ([136.24.137.112])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2291eee1b3fsm99060125ad.74.2025.04.01.22.40.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 01 Apr 2025 22:40:05 -0700 (PDT)
+From: wgpierce17@gmail.com
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu
+Cc: alex@ghiti.fr,
+	linux-riscv@lists.infradead.org,
+	Will Pierce <wgpierce17@gmail.com>
+Subject: [PATCH] riscv: Use kvmalloc_array on relocation_hashtable
+Date: Tue,  1 Apr 2025 22:34:08 -0700
+Message-ID: <20250402053408.14052-1-wgpierce17@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <d9714824-810c-4dd8-aff4-d1431235702b@gmail.com>
+References: <d9714824-810c-4dd8-aff4-d1431235702b@gmail.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_134708_120598_A8E4793E 
-X-CRM114-Status: GOOD (  12.41  )
+X-CRM114-CacheID: sfid-20250401_224007_556491_0074D8F8 
+X-CRM114-Status: GOOD (  10.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,143 +96,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add helpers to create eventfds and to (de)assign eventfds via KVM_IRQFD.
+From: Will Pierce <wgpierce17@gmail.com>
 
-Signed-off-by: Sean Christopherson <seanjc@google.com>
+The number of relocations may be a huge value that is unallocatable
+by kmalloc. Use kvmalloc instead so that it does not fail.
+
+Signed-off-by: Will Pierce <wgpierce17@gmail.com>
 ---
- tools/testing/selftests/kvm/arm64/vgic_irq.c  | 12 ++----
- .../testing/selftests/kvm/include/kvm_util.h  | 40 +++++++++++++++++++
- .../selftests/kvm/x86/xen_shinfo_test.c       | 18 ++-------
- 3 files changed, 47 insertions(+), 23 deletions(-)
+ arch/riscv/kernel/module.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/arm64/vgic_irq.c b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-index f4ac28d53747..a09dd423c2d7 100644
---- a/tools/testing/selftests/kvm/arm64/vgic_irq.c
-+++ b/tools/testing/selftests/kvm/arm64/vgic_irq.c
-@@ -620,18 +620,12 @@ static void kvm_routing_and_irqfd_check(struct kvm_vm *vm,
- 	 * that no actual interrupt was injected for those cases.
- 	 */
- 
--	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
--		fd[f] = eventfd(0, 0);
--		TEST_ASSERT(fd[f] != -1, __KVM_SYSCALL_ERROR("eventfd()", fd[f]));
--	}
-+	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++)
-+		fd[f] = kvm_new_eventfd();
- 
- 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
--		struct kvm_irqfd irqfd = {
--			.fd  = fd[f],
--			.gsi = i - MIN_SPI,
--		};
- 		assert(i <= (uint64_t)UINT_MAX);
--		vm_ioctl(vm, KVM_IRQFD, &irqfd);
-+		kvm_assign_irqfd(vm, i - MIN_SPI, fd[f]);
+diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+index 47d0ebeec93c..bae3db50647c 100644
+--- a/arch/riscv/kernel/module.c
++++ b/arch/riscv/kernel/module.c
+@@ -648,7 +648,7 @@ process_accumulated_relocations(struct module *me,
+ 		kfree(bucket_iter);
  	}
  
- 	for (f = 0, i = intid; i < (uint64_t)intid + num; i++, f++) {
-diff --git a/tools/testing/selftests/kvm/include/kvm_util.h b/tools/testing/selftests/kvm/include/kvm_util.h
-index 373912464fb4..4f7bf8f000bb 100644
---- a/tools/testing/selftests/kvm/include/kvm_util.h
-+++ b/tools/testing/selftests/kvm/include/kvm_util.h
-@@ -18,6 +18,7 @@
- #include <asm/atomic.h>
- #include <asm/kvm.h>
- 
-+#include <sys/eventfd.h>
- #include <sys/ioctl.h>
- 
- #include "kvm_util_arch.h"
-@@ -496,6 +497,45 @@ static inline int vm_get_stats_fd(struct kvm_vm *vm)
- 	return fd;
+-	kfree(*relocation_hashtable);
++	kvfree(*relocation_hashtable);
  }
  
-+static inline int __kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
-+			      uint32_t flags)
-+{
-+	struct kvm_irqfd irqfd = {
-+		.fd = eventfd,
-+		.gsi = gsi,
-+		.flags = flags,
-+		.resamplefd = -1,
-+	};
-+
-+	return __vm_ioctl(vm, KVM_IRQFD, &irqfd);
-+}
-+
-+static inline void kvm_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd,
-+			      uint32_t flags)
-+{
-+	int ret = __kvm_irqfd(vm, gsi, eventfd, flags);
-+
-+	TEST_ASSERT_VM_VCPU_IOCTL(!ret, KVM_IRQFD, ret, vm);
-+}
-+
-+static inline void kvm_assign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
-+{
-+	kvm_irqfd(vm, gsi, eventfd, 0);
-+}
-+
-+static inline void kvm_deassign_irqfd(struct kvm_vm *vm, uint32_t gsi, int eventfd)
-+{
-+	kvm_irqfd(vm, gsi, eventfd, KVM_IRQFD_FLAG_DEASSIGN);
-+}
-+
-+static inline int kvm_new_eventfd(void)
-+{
-+	int fd = eventfd(0, 0);
-+
-+	TEST_ASSERT(fd >= 0, __KVM_SYSCALL_ERROR("eventfd()", fd));
-+	return fd;
-+}
-+
- static inline void read_stats_header(int stats_fd, struct kvm_stats_header *header)
- {
- 	ssize_t ret;
-diff --git a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-index 34d180cf4eed..23909b501ac2 100644
---- a/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-+++ b/tools/testing/selftests/kvm/x86/xen_shinfo_test.c
-@@ -547,11 +547,8 @@ int main(int argc, char *argv[])
- 	int irq_fd[2] = { -1, -1 };
+ static int add_relocation_to_accumulate(struct module *me, int type,
+@@ -752,7 +752,8 @@ initialize_relocation_hashtable(unsigned int num_relocations,
  
- 	if (do_eventfd_tests) {
--		irq_fd[0] = eventfd(0, 0);
--		TEST_ASSERT(irq_fd[0] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[0]));
--
--		irq_fd[1] = eventfd(0, 0);
--		TEST_ASSERT(irq_fd[1] >= 0, __KVM_SYSCALL_ERROR("eventfd()", irq_fd[1]));
-+		irq_fd[0] = kvm_new_eventfd();
-+		irq_fd[1] = kvm_new_eventfd();
+ 	hashtable_size <<= should_double_size;
  
- 		irq_routes.info.nr = 2;
- 
-@@ -569,15 +566,8 @@ int main(int argc, char *argv[])
- 
- 		vm_ioctl(vm, KVM_SET_GSI_ROUTING, &irq_routes.info);
- 
--		struct kvm_irqfd ifd = { };
--
--		ifd.fd = irq_fd[0];
--		ifd.gsi = 32;
--		vm_ioctl(vm, KVM_IRQFD, &ifd);
--
--		ifd.fd = irq_fd[1];
--		ifd.gsi = 33;
--		vm_ioctl(vm, KVM_IRQFD, &ifd);
-+		kvm_assign_irqfd(vm, 32, irq_fd[0]);
-+		kvm_assign_irqfd(vm, 33, irq_fd[1]);
- 
- 		struct sigaction sa = { };
- 		sa.sa_handler = handle_alrm;
+-	*relocation_hashtable = kmalloc_array(hashtable_size,
++	/* Number of relocations may be large, so kvmalloc it */
++	*relocation_hashtable = kvmalloc_array(hashtable_size,
+ 					      sizeof(**relocation_hashtable),
+ 					      GFP_KERNEL);
+ 	if (!*relocation_hashtable)
 -- 
-2.49.0.504.g3bcea36a83-goog
+2.49.0
 
 
 _______________________________________________
