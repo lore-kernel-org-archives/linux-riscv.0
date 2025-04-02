@@ -4,51 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D04DAC28B20
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 06:56:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8649C28B20
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 07:35:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sk9pFB02yBx+h+7VM0Xlgl8UUj60j2yjkLeCLFiembo=; b=xJD8SNfDyP9J5J
-	wqEjJACORiozzBiv+RddnihgEn7u6Rhkspn6UZeOQGA7aBhqkd1Dvb4y3zP+cDW/IpenkgYcFylMC
-	VRT9JI8CXA255sPxJKozeMYJ9LtNnIpf9DQmihJ6gvYUBLCpjObUUnYcH4TxGAA6NxhOULvkHTV1I
-	Tu3G6Q74oeV4uowgHrE5U1GScjrDIpT2pBKl+VXSZKi9R58jKJfg44p+ZRwXVFGaPReBWLE9JQebh
-	j9wBhDIXzzlO0HBYPEQ2DPHLhf9MwZYTHcpLg8EnaYz7Bm96n9ZWkDuDw2K96rSxr2hMRD70gwVBM
-	SGgq1XhUycqLgexa1YOw==;
+	List-Owner; bh=QJsHxbNhuJc/UsOpj12/aZjGUBJ0dJgSD/kUuLAMR+M=; b=DM5apFy6jPjali
+	N65r6RFDqyHf3BIhAKhn5PyENW1L6hur3xk8tuRGWTWg2FqX2bzdenBfUxGe/tf4E06Jui/ksZwZQ
+	3X630KXMAo4al6OtddUmEyFNEH0ND34UV1OKffETUN8zDa2pu6c77CRNcTGZyTqLxhV1dOxw/dPUD
+	zQX3unoSHBPNXIZY9Co4O2VPfjTaUY4mL13J+RgepinsatYmoh54lbAb4Ig+RG1qfYDI6/tge1sLJ
+	syCQSSlIDEhK/uAvNS8Rtn1yI6p4JRZaaC9BH2AeoTzrmE3PGw480YlP5WG6w8D+sgMxnpLZSGOnB
+	I9353R0vvNsGVfi1KfZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzs1T-00000005IKA-2o4c;
-	Wed, 02 Apr 2025 06:56:27 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tzsd5-00000005Oh0-3Y2e;
+	Wed, 02 Apr 2025 07:35:19 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzs1R-00000005IJE-0IM9
+	id 1tzsd3-00000005Ofx-3PSX
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Apr 2025 06:56:26 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 1D7E32047D;
-	Wed,  2 Apr 2025 06:56:17 +0000 (UTC)
-Message-ID: <e24dcb5b-750f-4bab-b975-38753a619e3a@ghiti.fr>
-Date: Wed, 2 Apr 2025 08:56:17 +0200
+	Wed, 02 Apr 2025 07:35:19 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E9B57442AD;
+	Wed,  2 Apr 2025 07:35:12 +0000 (UTC)
+Message-ID: <0c89da8c-10e5-42d2-99cd-557b25a8e91c@ghiti.fr>
+Date: Wed, 2 Apr 2025 09:35:12 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Use kvmalloc_array on relocation_hashtable
+Subject: Re: [PATCH 08/10] riscv: mm: Add page fault trace points
 Content-Language: en-US
-To: wgpierce17@gmail.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu
-Cc: linux-riscv@lists.infradead.org
-References: <d9714824-810c-4dd8-aff4-d1431235702b@gmail.com>
- <20250402053408.14052-1-wgpierce17@gmail.com>
+To: Nam Cao <namcao@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>,
+ Gabriele Monaco <gmonaco@redhat.com>, john.ogness@linutronix.de,
+ linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+References: <cover.1741708239.git.namcao@linutronix.de>
+ <672e2bed604c307c807f546627ba5a9454ef10eb.1741708239.git.namcao@linutronix.de>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250402053408.14052-1-wgpierce17@gmail.com>
+In-Reply-To: <672e2bed604c307c807f546627ba5a9454ef10eb.1741708239.git.namcao@linutronix.de>
 X-GND-State: clean
-X-GND-Score: 0
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeehtddtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecunecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnheptdeguefhhfevueejteevveeikeelkedvffdufeelveeggfeikeekgfeghfdttdevnecukfhppeefuddrfedvrdekuddrudekjeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeefuddrfedvrdekuddrudekjedphhgvlhhopegludelvddrudeikedrvddurdefudgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohephedprhgtphhtthhopeifghhpihgvrhgtvgdujeesghhmrghilhdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeehtdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepfedurdefvddrkedurddukeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepfedurdefvddrkedurddukeejpdhhvghloheplgduledvrdduieekrddvuddrfedungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopehnrghmtggroheslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhrtghpthhtohepghhmohhnrggtohesrhgvughhrghtrdgtohhmpdhrtghpthhtohepjhhohhhnrdhoghhnvghssheslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehlihhnuhigqdhtrhgrtggvqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnu
+ higqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250401_235625_274928_0430DB20 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250402_003518_005721_573897B0 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,40 +64,66 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgV2lsbCwKCk9uIDAyLzA0LzIwMjUgMDc6MzQsIHdncGllcmNlMTdAZ21haWwuY29tIHdyb3Rl
-Ogo+IEZyb206IFdpbGwgUGllcmNlIDx3Z3BpZXJjZTE3QGdtYWlsLmNvbT4KPgo+IFRoZSBudW1i
-ZXIgb2YgcmVsb2NhdGlvbnMgbWF5IGJlIGEgaHVnZSB2YWx1ZSB0aGF0IGlzIHVuYWxsb2NhdGFi
-bGUKPiBieSBrbWFsbG9jLiBVc2Uga3ZtYWxsb2MgaW5zdGVhZCBzbyB0aGF0IGl0IGRvZXMgbm90
-IGZhaWwuCj4KPiBTaWduZWQtb2ZmLWJ5OiBXaWxsIFBpZXJjZSA8d2dwaWVyY2UxN0BnbWFpbC5j
-b20+Cj4gLS0tCj4gICBhcmNoL3Jpc2N2L2tlcm5lbC9tb2R1bGUuYyB8IDUgKysrLS0KPiAgIDEg
-ZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCj4KPiBkaWZmIC0t
-Z2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxlLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tb2R1
-bGUuYwo+IGluZGV4IDQ3ZDBlYmVlYzkzYy4uYmFlM2RiNTA2NDdjIDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gvcmlzY3Yva2VybmVsL21vZHVsZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvbW9kdWxl
-LmMKPiBAQCAtNjQ4LDcgKzY0OCw3IEBAIHByb2Nlc3NfYWNjdW11bGF0ZWRfcmVsb2NhdGlvbnMo
-c3RydWN0IG1vZHVsZSAqbWUsCj4gICAJCWtmcmVlKGJ1Y2tldF9pdGVyKTsKPiAgIAl9Cj4gICAK
-PiAtCWtmcmVlKCpyZWxvY2F0aW9uX2hhc2h0YWJsZSk7Cj4gKwlrdmZyZWUoKnJlbG9jYXRpb25f
-aGFzaHRhYmxlKTsKPiAgIH0KPiAgIAo+ICAgc3RhdGljIGludCBhZGRfcmVsb2NhdGlvbl90b19h
-Y2N1bXVsYXRlKHN0cnVjdCBtb2R1bGUgKm1lLCBpbnQgdHlwZSwKPiBAQCAtNzUyLDcgKzc1Miw4
-IEBAIGluaXRpYWxpemVfcmVsb2NhdGlvbl9oYXNodGFibGUodW5zaWduZWQgaW50IG51bV9yZWxv
-Y2F0aW9ucywKPiAgIAo+ICAgCWhhc2h0YWJsZV9zaXplIDw8PSBzaG91bGRfZG91YmxlX3NpemU7
-Cj4gICAKPiAtCSpyZWxvY2F0aW9uX2hhc2h0YWJsZSA9IGttYWxsb2NfYXJyYXkoaGFzaHRhYmxl
-X3NpemUsCj4gKwkvKiBOdW1iZXIgb2YgcmVsb2NhdGlvbnMgbWF5IGJlIGxhcmdlLCBzbyBrdm1h
-bGxvYyBpdCAqLwo+ICsJKnJlbG9jYXRpb25faGFzaHRhYmxlID0ga3ZtYWxsb2NfYXJyYXkoaGFz
-aHRhYmxlX3NpemUsCj4gICAJCQkJCSAgICAgIHNpemVvZigqKnJlbG9jYXRpb25faGFzaHRhYmxl
-KSwKPiAgIAkJCQkJICAgICAgR0ZQX0tFUk5FTCk7Cj4gICAJaWYgKCEqcmVsb2NhdGlvbl9oYXNo
-dGFibGUpCgoKTGV0J3MgYWRkIGEgZml4ZXMgdGFnOgoKRml4ZXM6IDhmZDZjNTE0MjM5NSAoInJp
-c2N2OiBBZGQgcmVtYWluaW5nIG1vZHVsZSByZWxvY2F0aW9ucyIpCgpTaW5jZSBDbMOpbWVudCBz
-dWdnZXN0ZWQgdGhpcyBzb2x1dGlvbjoKClN1Z2dlc3RlZC1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxj
-bGVnZXJAcml2b3NpbmMuY29tPgoKQW5kIGZpbmFsbHksIHRoaXMgbG9va3MgZ29vZCB0byBtZSBz
-bzoKClJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+
-CgpJdCdzIGEgYml0IGxhdGUgZm9yIHJjMSBzbyBJJ2xsIHRha2UgdGhpcyBvbmUgZm9yIGEgbmV4
-dCByYy4KClRoYW5rcyBmb3IgdGhlIHBhdGNoIQoKQWxleAoKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Nam,
+
+On 11/03/2025 18:05, Nam Cao wrote:
+> Add page fault trace points, which are useful to implement RV monitor that
+> watches page faults.
+>
+> Signed-off-by: Nam Cao <namcao@linutronix.de>
+> ---
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: linux-riscv@lists.infradead.org
+> ---
+>   arch/riscv/mm/fault.c | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+>
+> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+> index 0194324a0c50..04ed6f8acae4 100644
+> --- a/arch/riscv/mm/fault.c
+> +++ b/arch/riscv/mm/fault.c
+> @@ -20,6 +20,9 @@
+>   #include <asm/ptrace.h>
+>   #include <asm/tlbflush.h>
+>   
+> +#define CREATE_TRACE_POINTS
+> +#include <trace/events/exceptions.h>
+> +
+>   #include "../kernel/head.h"
+>   
+>   static void show_pte(unsigned long addr)
+> @@ -291,6 +294,11 @@ void handle_page_fault(struct pt_regs *regs)
+>   	if (kprobe_page_fault(regs, cause))
+>   		return;
+>   
+> +	if (user_mode(regs))
+> +		trace_page_fault_user(addr, regs, cause);
+> +	else
+> +		trace_page_fault_kernel(addr, regs, cause);
+> +
+>   	/*
+>   	 * Fault-in kernel-space virtual memory on-demand.
+>   	 * The 'reference' page table is init_mm.pgd.
+
+
+For this riscv part, you can add:
+
+Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
