@@ -4,55 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8649C28B20
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 07:35:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8A8BC28B20
+	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 07:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QJsHxbNhuJc/UsOpj12/aZjGUBJ0dJgSD/kUuLAMR+M=; b=DM5apFy6jPjali
-	N65r6RFDqyHf3BIhAKhn5PyENW1L6hur3xk8tuRGWTWg2FqX2bzdenBfUxGe/tf4E06Jui/ksZwZQ
-	3X630KXMAo4al6OtddUmEyFNEH0ND34UV1OKffETUN8zDa2pu6c77CRNcTGZyTqLxhV1dOxw/dPUD
-	zQX3unoSHBPNXIZY9Co4O2VPfjTaUY4mL13J+RgepinsatYmoh54lbAb4Ig+RG1qfYDI6/tge1sLJ
-	syCQSSlIDEhK/uAvNS8Rtn1yI6p4JRZaaC9BH2AeoTzrmE3PGw480YlP5WG6w8D+sgMxnpLZSGOnB
-	I9353R0vvNsGVfi1KfZA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xs8oJIFC02RAL3duIL2mk7TWHAI7MqzXeYARLJBbpRc=; b=F4rxJ0gWCxEk04
+	vKi4tUnTW/+zB4LbSCaPlIn4TbnVJxdjnmfmaBF20YuxRdKm+psFCfdNTCzGUW2N9KSu+L0GqIoTi
+	gEGw7SV5XtmGTISMIEYEsoSDH9ObaxFXyKr0h8ARNjh9CT7zCD/H7hVYmrdJYGujLkB/UHsgkV8a6
+	JaR93E86sIT+CV5E3ZnOCRPgDuN2zhbSj/yRh+8tFBNXSeYSq8N0Omk/AdwwLK6rIdMt8MAYS8HvW
+	78HGZsR2fwwDE1RksYi9XEqfuFk0LFooMiMQAV1NKryHB+EgkiVWNm4YnA+6lQJbuXLu5+Zovo9r5
+	Ki6nyrEWGYliGLrbk6Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsd5-00000005Oh0-3Y2e;
-	Wed, 02 Apr 2025 07:35:19 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1tzsqs-00000005QrW-3HRh;
+	Wed, 02 Apr 2025 07:49:34 +0000
+Received: from smtpbguseast2.qq.com ([54.204.34.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tzsd3-00000005Ofx-3PSX
+	id 1tzsli-00000005Q2g-2gHR
 	for linux-riscv@lists.infradead.org;
-	Wed, 02 Apr 2025 07:35:19 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E9B57442AD;
-	Wed,  2 Apr 2025 07:35:12 +0000 (UTC)
-Message-ID: <0c89da8c-10e5-42d2-99cd-557b25a8e91c@ghiti.fr>
-Date: Wed, 2 Apr 2025 09:35:12 +0200
+	Wed, 02 Apr 2025 07:44:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1743579783;
+	bh=IdRmZ2JBex4jUMOaecKtPJHj559XDfi8d/7kI9nzLXE=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=NTMll+tpcwyLZdU10Ew5UEXtQneoMxVjPHgE4HA+Od3B1WCziO3hhfrTNL9gsrsta
+	 HALDNqp0CYYOcKWzVwcoSDnrO4rbg78/e98sqgwD/d7sBd/exubnxW3xY++EMG780h
+	 bUumJynnowbRmVrosHX8jBY9poCJv2UkjxoajTtw=
+X-QQ-mid: bizesmtpip3t1743579772tmnkz9o
+X-QQ-Originating-IP: VXfI5PZC7A5F6pu2hcWgPmH22j/MPc1MoA5fwl1MiuU=
+Received: from localhost.localdomain ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 02 Apr 2025 15:42:50 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 18110157691820490132
+EX-QQ-RecipientCnt: 14
+From: WangYuli <wangyuli@uniontech.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr
+Cc: wangyuli@uniontech.com,
+	chenhuacai@kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	vincent.chen@sifive.com,
+	palmerdabbelt@google.com,
+	zhanjun@uniontech.com,
+	niecheng1@uniontech.com,
+	guanwentao@uniontech.com,
+	Huacai Chen <chenhuacai@loongson.cn>
+Subject: [PATCH v2] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
+Date: Wed,  2 Apr 2025 15:42:47 +0800
+Message-ID: <330B3BAFC6FDB763+20250402074247.64483-1-wangyuli@uniontech.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 08/10] riscv: mm: Add page fault trace points
-Content-Language: en-US
-To: Nam Cao <namcao@linutronix.de>, Steven Rostedt <rostedt@goodmis.org>,
- Gabriele Monaco <gmonaco@redhat.com>, john.ogness@linutronix.de,
- linux-trace-kernel@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org
-References: <cover.1741708239.git.namcao@linutronix.de>
- <672e2bed604c307c807f546627ba5a9454ef10eb.1741708239.git.namcao@linutronix.de>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <672e2bed604c307c807f546627ba5a9454ef10eb.1741708239.git.namcao@linutronix.de>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeehtdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepfedurdefvddrkedurddukeejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepfedurdefvddrkedurddukeejpdhhvghloheplgduledvrdduieekrddvuddrfedungdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopehnrghmtggroheslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhrtghpthhtohepghhmohhnrggtohesrhgvughhrghtrdgtohhmpdhrtghpthhtohepjhhohhhnrdhoghhnvghssheslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehlihhnuhigqdhtrhgrtggvqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnu
- higqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: NiCl4APqUksb+8HYj8boGusd5DTPUqgW3qoll054UBU0TkRQh0V0q3ne
+	EQoc9ymysg322gFqmqWQ5lx6WmEAD9rZc7+j3RL20acHO01ZbeS0BubpCCf/UO7JOMKUWa9
+	z6ZOzPOveOkrvyeRuj2krj3TzTyiBR8hx8HsZv3JealRu8WG+Nw8yDSX58/wU6WPqNm5U+G
+	F5IY45AP71n5UrUEtl5QpDBe/YD9oB0ddp6eNgoKeok+KhbYs+vBKIRMnNTSGlAxGt4u/8L
+	bSt7NIFkA4oBvqoFfdGowNlGzEYyh4K5eVbK7O83kCi04v96pavjSw5bfJlnCjA35FiJjtv
+	UQjgsDp7PNfSk5igm73r5azOnmvGJT/coW4ZP/VaPJAyJZqkvaGRjyV5VzomZfG4LCuvAfD
+	Axxm62C6owno1SxCIUyfFtAp1+iDTwXQ0QnH296RBGJunjh7innihXi65IrbwMUdv3Uzcio
+	D/jHLSg9afS/FeZOGKvVGuyrRcTSH2+KcBYwQvB9H4UrYg1Km4ugiyE9J5UMG/iZ0LMltT9
+	29o/s80Tet2lxIMaxijDMwEK2zKHpefyYi/DcQMDclTw+NbWHHfv5kNerFaMO65D4RySa+g
+	n07/z0gtsntYnxvMDgWDUQJ66rW9r4JWerxh0/eaMc3RrgTb7nW5LDN8akNDeVtoaUgCbjs
+	oqkIo4yag9gYJU3/z/Dyad7TQfl9h4qKKAC6fs+RKmRgyTe2HBEJKgX1Nd0fGLBxpgIjwt2
+	SOUjTgQJZgcYgjVFH2Q02q+16lHXVf/8T2jYjtTAxI9GizM11ZcCzIT1fw9bOwqbBEE8vac
+	+MQ2YF5Ar3kFwt9Df2zreHmpAaWojb0Du8mzAAM2ZIw3wTZDqjai09Vr5XGNyx6ibrbBIcZ
+	Q8VximK+XfSHaH+gQqxOuJsePL4xGQHHnS5q+U0cY33pRjqgLRiY7rdKRD5UommlOjWcvun
+	17ArpFcNulC7fRas1Cn+G/+mA2BrYHCvQcwvC6Wk+3r/ikqaqeySpcv/kKAVPN+fSJfpqg9
+	tjirjWAg==
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_003518_005721_573897B0 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250402_004415_181976_4F110FA7 
+X-CRM114-Status: UNSURE (   9.22  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,63 +98,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nam,
+The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
+symbol using inline assembly.
 
-On 11/03/2025 18:05, Nam Cao wrote:
-> Add page fault trace points, which are useful to implement RV monitor that
-> watches page faults.
->
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
-> Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> Cc: Albert Ou <aou@eecs.berkeley.edu>
-> Cc: Alexandre Ghiti <alex@ghiti.fr>
-> Cc: linux-riscv@lists.infradead.org
-> ---
->   arch/riscv/mm/fault.c | 8 ++++++++
->   1 file changed, 8 insertions(+)
->
-> diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-> index 0194324a0c50..04ed6f8acae4 100644
-> --- a/arch/riscv/mm/fault.c
-> +++ b/arch/riscv/mm/fault.c
-> @@ -20,6 +20,9 @@
->   #include <asm/ptrace.h>
->   #include <asm/tlbflush.h>
->   
-> +#define CREATE_TRACE_POINTS
-> +#include <trace/events/exceptions.h>
-> +
->   #include "../kernel/head.h"
->   
->   static void show_pte(unsigned long addr)
-> @@ -291,6 +294,11 @@ void handle_page_fault(struct pt_regs *regs)
->   	if (kprobe_page_fault(regs, cause))
->   		return;
->   
-> +	if (user_mode(regs))
-> +		trace_page_fault_user(addr, regs, cause);
-> +	else
-> +		trace_page_fault_kernel(addr, regs, cause);
-> +
->   	/*
->   	 * Fault-in kernel-space virtual memory on-demand.
->   	 * The 'reference' page table is init_mm.pgd.
+There's a potential issue where the compiler might inline
+arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
+symbol multiple times, leading to fail to link vmlinux.o.
 
+This isn't merely a potential compilation problem. The intent here
+is to determine the global symbol address of kgdb_compiled_break,
+and if this function is inlined multiple times, it would logically
+be a grave error.
 
-For this riscv part, you can add:
+Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
+Fixes: fe89bd2be866 ("riscv: Add KGDB support")
+Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
+Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
+Signed-off-by: WangYuli <wangyuli@uniontech.com>
+---
+Changelog:
+ *v1->v2: Add the missing __ASSEMBLY__ check and substitute
+".option rvc/norvc" with ".option push/pop".
+---
+ arch/riscv/include/asm/kgdb.h | 9 +--------
+ arch/riscv/kernel/kgdb.c      | 8 ++++++++
+ 2 files changed, 9 insertions(+), 8 deletions(-)
 
-Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
+diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
+index 46677daf708b..d9f6a8fc387f 100644
+--- a/arch/riscv/include/asm/kgdb.h
++++ b/arch/riscv/include/asm/kgdb.h
+@@ -19,16 +19,9 @@
+ 
+ #ifndef	__ASSEMBLY__
+ 
++extern void arch_kgdb_breakpoint(void);
+ extern unsigned long kgdb_compiled_break;
+ 
+-static inline void arch_kgdb_breakpoint(void)
+-{
+-	asm(".global kgdb_compiled_break\n"
+-	    ".option norvc\n"
+-	    "kgdb_compiled_break: ebreak\n"
+-	    ".option rvc\n");
+-}
+-
+ #endif /* !__ASSEMBLY__ */
+ 
+ #define DBG_REG_ZERO "zero"
+diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+index 2e0266ae6bd7..5873d3970360 100644
+--- a/arch/riscv/kernel/kgdb.c
++++ b/arch/riscv/kernel/kgdb.c
+@@ -254,6 +254,14 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
+ 	regs->epc = pc;
+ }
+ 
++noinline void arch_kgdb_breakpoint(void)
++{
++	asm(".global kgdb_compiled_break\n"
++	    ".option push\n"
++	    "kgdb_compiled_break: ebreak\n"
++	    ".option pop\n");
++}
++
+ void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
+ 				char *remcom_out_buffer)
+ {
+-- 
+2.49.0
 
 
 _______________________________________________
