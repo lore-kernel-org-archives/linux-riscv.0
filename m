@@ -4,148 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC7B3C36017
-	for <linux-riscv@archiver.kernel.org>; Wed,  2 Apr 2025 18:43:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B291C3601E
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 06:42:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CpRItFXF/tuWFdfWZxXVR4GZ7iO2FIRTtb0ITmsT1sE=; b=F6a8aMQHdVCFP7
-	90AxPMQjvm/Kg0KZYPin9zcUiwKCOQoEgqmT4XRSjILeQgBGyKc4dTIfdlZHjVtkLgr8qedu1e7yf
-	bTypJE22ThfkInDarVkL0wbo1NDYjMpB/kvRNQnNsQIii7U+zcXbhCDC7cgmWmwEl7byy9rVfJnB6
-	I4lQ1+9wc3Pfl+e/T1cOhzArR7JOrgc8A1NNHq+27s9nYjE6qzUYAepidJjJTyrv0yIW0iwSk3zoF
-	RMYAfhQgxRcauMhvqPV++VB3xa6FkoyJ8D6PyHpBS497fQ5LvD5w28vDwnfqiBUUhNMY35rngN2Vx
-	S3FoSQZkvmiaMUdNqSpQ==;
+	List-Owner; bh=IbPQKDIuTzUQVz1mWTv6zAPZz72MhIYL36r9hck/urA=; b=WnCpGOZHY25MRk
+	fH/zAnDfMdxsVc8NWRjGa2lKeWo1p67nf7Cp5chlEkLEQGKWnM1wKjV+KRw9bGRA8x8u2sMMy+Emc
+	GXSz0FeCr2VF4DunbWnITFLdMIPhKRECs7lWmilTrgb9VwKPa78tE8FQfLGuVnJucTHmJ+GOrnagA
+	bIWnCj9p0bBlugsno/Q9h7EFEf+mN9emygl/BeD2UWWDLBxi5EOLZYo2TxXOYAm37fyK1m1zdA5Xs
+	P5DGik1exHmBSJhMcBkFrsnz2MG4PqLvcvo0SjiEoyp+lRPgJvsfiZmx5mZmTM61Ojvg3UNeFaxQG
+	g11375Cecf2Bz6TQWBsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u033T-00000006x58-1K3b;
-	Wed, 02 Apr 2025 18:43:15 +0000
-Received: from mail-dm6nam04on20611.outbound.protection.outlook.com ([2a01:111:f403:2409::611] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1u0EHN-00000007xZj-0MCL;
+	Thu, 03 Apr 2025 06:42:21 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u030s-00000006whM-0Nux;
-	Wed, 02 Apr 2025 18:40:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vyd4Ibd1XlKDxUtFqmW6iLY1ikolfQ0p1rF7p+8JH4jMPPkBD7D4pBkOxAjPPbiyJBJ6UCDHE2/PHjW4yY3aZevnmksNkL6CcQ/YyCU8oAwXRJ7bBK0d9CQG1yrlLfvpfpcBt9rZNF0Z71guOnl9tDx46VZTAM7oPsz0CeVHcIVQSp15jzK1fMAh3ibvXm8zt1naai5VJdFu0ARCJYfwGmLrlR1NUV5hSuXTFj+Pms3wWauDTui0wyVyf1wATiS6BXajgX793QgMbt7FpNTSi1s6DZNZ8IxEc43a60lkA7Msp3RB0HAsH69RdUrYGjRFfk3KzreSSCWrl6Ha8RDdSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZR40h/AG03DKumgJ8iw1gSdyiRK+YlTO9SZkKRwrUyM=;
- b=VzrLkuG+dU1c/+MXBnKU9QlK98Ku0gkJbhjAA4Ss358o4w5ZJqJ7gC5bTf4NUZhF5N6xmx0A0KvrsQYA5Y9NKYLwH1vBlUP4+K7PhFppiAzAXrrDvaL4Jq1OwQnaumBZMsaSpfhqPVCGdpbza8kYn/DOroL7Oc4anXKc9fn7ym2C7DXQzxWgedHlYKJkRLKy/B6o2R2fV3mGKOUB+hQqlw0jUbRP5jTWQAdc0V+SUgE/36SDsEdoZfNnBqS5kw1iCvnLxCDIrXoZ8eZ1J832sND6FISN/iJlq8jujaNh5TsYO77sI/fQWv+K3Ef2a6VAmlG7vfCH6asHV3kOK2mCIA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=google.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZR40h/AG03DKumgJ8iw1gSdyiRK+YlTO9SZkKRwrUyM=;
- b=DPZQkoa/5PtFuVhO1Htnh3euI3CB1Pmjl2wtCykCm7AyTsBfbb9BSVzKYeVlgxWUPrPZ8d1CJ53qY6q3fmLcCnHddkCnD7xXSYpEnUJIHGpYcTvEqeTy9CGMmLIxxwzeph7DA8yj/q2MAJ7ryYjlDnbaAvUjKRMs/whRkEuHGcM=
-Received: from CH2PR14CA0008.namprd14.prod.outlook.com (2603:10b6:610:60::18)
- by DM3PR12MB9436.namprd12.prod.outlook.com (2603:10b6:8:1af::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.47; Wed, 2 Apr
- 2025 18:40:29 +0000
-Received: from CH2PEPF00000142.namprd02.prod.outlook.com
- (2603:10b6:610:60:cafe::2) by CH2PR14CA0008.outlook.office365.com
- (2603:10b6:610:60::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8583.41 via Frontend Transport; Wed,
- 2 Apr 2025 18:40:29 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CH2PEPF00000142.mail.protection.outlook.com (10.167.244.75) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8606.22 via Frontend Transport; Wed, 2 Apr 2025 18:40:29 +0000
-Received: from [172.31.188.187] (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 2 Apr
- 2025 13:40:23 -0500
-Message-ID: <145ddb99-025b-4ed0-bee6-e1e2c70ff0bf@amd.com>
-Date: Thu, 3 Apr 2025 00:10:16 +0530
+	id 1u0EE2-00000007x7J-0Dey
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Apr 2025 06:38:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CA4BFA463A4
+	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 06:33:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C90EC4CEEC
+	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 06:38:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1743662332;
+	bh=2/tAIarhHMgZpqgml0rAXbaj403ah+N1dDuDl5YUD4g=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=jjcG3lq1WkVbTto5R6Sr0OQQAtu+hmbuYvbwt/TWvMAr2jk3HFuXk7vvaRqZ1NjCy
+	 rFwRBDVcphMkMwnBb+/1x37s/eGqUNjdl8SL9LhRY0gimuLuQLIfCTExGcZXe1doJV
+	 A2Atovl9RzyOD8Q41JU2PbIc5s6OH/7994AUW/P7GnFcBgxxf0QQC+iisJu4qRGyan
+	 f2ir04R+NLdjQWg1Bz4Dg0uXN5nXOvdlvqfV5MBTcekIVentKU7+DdG84NY66TROVG
+	 SvnQOI/SEnnbO0AzNPVxJpwjWTp/lxwzVsPv9bNeyQ9wE4xf494VG6s3/Wl5Ycay6T
+	 j0ycWugI+HlFQ==
+Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-549967c72bcso624165e87.3
+        for <linux-riscv@lists.infradead.org>; Wed, 02 Apr 2025 23:38:52 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVMM3L8JWEu87D6EKjJ2e+J1nyNd2cUj5FWwX3+l/2Ru5cWNP84v3Lubvbnw3+E2iLqwt5+zmLAbeUEMg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz97Ya2S31NmbEPTJlulURW50xF+L6Rrsb0DteegmNVCNb9NIkW
+	7+kJuR+cbztvpm24UEaO57ZaB08K05QzzDxIfp/YPTUVzgZ6qTsdZTBJX7q1xYbm5I2zjND0GrZ
+	gWQQwPqanaoHNm7qklgf65vNsp9o=
+X-Google-Smtp-Source: AGHT+IE4yQD8rhYnVSRXOnS3Y6pofP5obI3okmQ0iC4wJLgbKdsBb0CIGQU6+0Kd5+8+3okm+rb8AazhaZjHp1lAMRE=
+X-Received: by 2002:a05:6512:1149:b0:545:3031:40aa with SMTP id
+ 2adb3069b0e04-54b10db738dmr6083399e87.9.1743662330387; Wed, 02 Apr 2025
+ 23:38:50 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 06/12] sched/wait: Add a waitqueue helper for fully
- exclusive priority waiters
-To: Sean Christopherson <seanjc@google.com>
-CC: <kvm@vger.kernel.org>, Paolo Bonzini <pbonzini@redhat.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Oliver Upton <oliver.upton@linux.dev>, Marc
- Zyngier <maz@kernel.org>, Juri Lelli <juri.lelli@redhat.com>, Peter Zijlstra
-	<peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<kvmarm@lists.linux.dev>, <linux-riscv@lists.infradead.org>, David Matlack
-	<dmatlack@google.com>, Juergen Gross <jgross@suse.com>, Stefano Stabellini
-	<sstabellini@kernel.org>, Oleksandr Tyshchenko
-	<oleksandr_tyshchenko@epam.com>, Vincent Guittot <vincent.guittot@linaro.org>
-References: <20250401204425.904001-1-seanjc@google.com>
- <20250401204425.904001-7-seanjc@google.com>
-Content-Language: en-US
-From: K Prateek Nayak <kprateek.nayak@amd.com>
-In-Reply-To: <20250401204425.904001-7-seanjc@google.com>
-X-Originating-IP: [10.180.168.240]
-X-ClientProxiedBy: SATLEXMB04.amd.com (10.181.40.145) To SATLEXMB04.amd.com
- (10.181.40.145)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000142:EE_|DM3PR12MB9436:EE_
-X-MS-Office365-Filtering-Correlation-Id: 68190e15-3f13-4718-c0c6-08dd7215d777
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|7416014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YTk5SjR1YWtFUzRMZ0NSb1pyNWRUUG56QlZPT3c4Qkk3T0xSRS9BR2NuRElG?=
- =?utf-8?B?ejZvNlVRR3ZWblBoNExrNGJ1OGh5K2pWbG40Yy9KR3RuRW1weGNRamp2dUxH?=
- =?utf-8?B?c3J1UWZPaHNvdms4M0YwRWp4anE4bnNPMFZ3YzFEZnRYOC9vbGpScVVabGFU?=
- =?utf-8?B?ejVSZ21jTTdhMHEwcDVxeTJkQ1BNejNXTi85bFNwQWExc3VWV0tzZENReUdP?=
- =?utf-8?B?LzRtOWNPZ1c1dEdMWmJCWUlyOUZSUk1nTjFDekQ3U1NGdjlMR2tjbTZjZ2pP?=
- =?utf-8?B?ZTZzUXcvNWIvTnVEd2hMSG1BeU96MENHb3crRWFERE11OUdaUDZ1SEt4dFhD?=
- =?utf-8?B?RXh3dGcyeFVxZnh5d1ZGUlVXaTQ1M2syUGF2ZkZSdnNVbUJlSmwrSnpON04y?=
- =?utf-8?B?blNEektHWWZjZ3FCQXNNYWRVb1doR2hLYU5zVzh3cmdxbzNRaWt0S2VHZTl1?=
- =?utf-8?B?T3cyZ1h1ODlCemhaUno2VWhhb1ZXVWpMaEhTWVNIUldYTEYxMWtiSTk3T2tq?=
- =?utf-8?B?aGhpTlFHZ0tNaGZ0cllMZC9SK3IwQ3dKbU5wNThYSzVpcU5VOUVTdVRtNG05?=
- =?utf-8?B?Z0tQWDB2MnMvNjMyYVRSSVFPWEIvejB2aDhCblRsVGhhUUV6Mkk3WVFhYk44?=
- =?utf-8?B?UDVGVU9YYThhR3hIYTdid21ZeFV5QzZXc0RZZVZESy83SUFlMjFmVmZHTlhx?=
- =?utf-8?B?Rndza0xmam5pTDJDbS9XNnlUWDIvK2JyYUVTbnVZdzdOSEFBZ3Jsc1JEamRC?=
- =?utf-8?B?cUhNN3JuSGMvNENyYTM5WXhWNWIva3UrbVhYODBteEdSYTdsazFmK1hzQnZx?=
- =?utf-8?B?U285WXZVT3hHTC9RUUtCRm15a3hpbDNjRFBSd1BXckVTYm9aS01ibDVVcEht?=
- =?utf-8?B?RXZZeFVFK3BrdlovMG8vOEh4d1VrZ3V4YkFiUXA2ZHhpVlc0TWJvd2ZoOUdz?=
- =?utf-8?B?dWV5bWNMb0NzZ0NQQU9NOTZ6L1ZLZi9EaHhwL0dnNkl0RGd6RzVIdVkydVRW?=
- =?utf-8?B?NGN3eEYwbFFRY1JXOEpXZFhiaUxqN1FHekxHeVJORU83V2JmRUs5M1pIQmJm?=
- =?utf-8?B?dVFDOG9GS0tKRm1KcDY2YjdHbmx5ektzMHEvK0JsR0VFTHJObExkWjkzTjZQ?=
- =?utf-8?B?VndKRG56THUzaThZclgxMmgrOWczZG1qSGIxK1NSOGIxeWl2eThabk4zVnZW?=
- =?utf-8?B?NS9kbnBJdmxIUjUyWGVpaGpiRzJLNExEWXNXTkZKTCtZK3g0NW1IUmoydi81?=
- =?utf-8?B?Y2NOcnFkVC9qUDk3dVBZRDV5ejRDSFg2VXFNR2hRM3djalNKYkwvdHRCazNz?=
- =?utf-8?B?SVBSaHhiWG1CTTdoZlVhNTAvaGVLc1BwYmN5ZDd0ejlJOER6ZDc5d0FLMm5G?=
- =?utf-8?B?QlBBdGVqeHBFMzJpSmIxc2Jmc3pHZzRnYnZvRDZYSVNvSnJuWnlYVTc5VHBC?=
- =?utf-8?B?aG9HZFlUa0J0RXVRQ1NqNUpzbzF0cU90SmdVRXkvVGU0RjBpZkVXZnVlNVlV?=
- =?utf-8?B?MHpRcTRaZUg1TW11ZUNpUUUzcVdoUmpLdWRUUW5wQzZud1ZNekNGUkVnZHRB?=
- =?utf-8?B?ZTc4K2x6aXF4ck9OaDdSUkFTVHV5YmxHVlJtNU5KbytwcWFqejZmcTNTSzZI?=
- =?utf-8?B?dGVXNEJvZjJvMThuUDAyQTZiK0lBTGxiT1RxVmRGK3l4Q1NxZXlLSmZvNVhC?=
- =?utf-8?B?aWpxcHlHaEtVcW53WXhJUWpxZm1ReHBxV3B2WGUyeE9iYnpJSDVFVW04VGlu?=
- =?utf-8?B?Z1lkQ1pOcnJ0VjVHTElqRHNHZkgyNEZSaUErN3hMQ2tDN1pRMkQvQVBLS0pW?=
- =?utf-8?B?ak9hRzFIeUtlZjNVZnZMMjZKUkFmZXpqYlFsNkZXaThJNDA2RDFvU3NMc0pJ?=
- =?utf-8?B?Mm9ZNHJrSURFbGtLb0ZlOEtXc2hCOFJZTENwc3ZXaWpTamhpVVlKZ3M5L1hP?=
- =?utf-8?B?ZmJmNnYvdjF6TkRJWXl1T0plb0VlUzJDZ0wwT1RqVkJYWlQ0Wk1USEREVGRE?=
- =?utf-8?B?TVZZc0krV0NBOVU2ZFJJNjJTWWd4aFRUU09XcXdyYWZEUHBlWWF4REEvRlgz?=
- =?utf-8?Q?gPRRki?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(7416014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Apr 2025 18:40:29.0526
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 68190e15-3f13-4718-c0c6-08dd7215d777
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000142.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM3PR12MB9436
+References: <20250328075536.238782-1-alexghiti@rivosinc.com>
+In-Reply-To: <20250328075536.238782-1-alexghiti@rivosinc.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 3 Apr 2025 09:38:39 +0300
+X-Gmail-Original-Message-ID: <CAMj1kXGaUZZoKUMEJtv4Fvckub_kRcHBZbpMxet-skqOLD7SNw@mail.gmail.com>
+X-Gm-Features: AQ5f1JokvVmdXrd19nwvBkB35c-v0phYNi9QPm4nTBBdR2jkB4tn0Cxxj2EhIIw
+Message-ID: <CAMj1kXGaUZZoKUMEJtv4Fvckub_kRcHBZbpMxet-skqOLD7SNw@mail.gmail.com>
+Subject: Re: [PATCH] scripts: Introduce ARCH_WANTS_RELA_DYN to avoid stripping
+ .rela.dyn section
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
+	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas@fjasle.eu>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_114034_135179_FB04A903 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20250402_233854_237958_B02737E1 
+X-CRM114-Status: GOOD (  19.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,57 +82,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello Sean,
+On Fri, 28 Mar 2025 at 08:55, Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
+>
+> riscv uses the .rela.dyn section to relocate the kernel at runtime but
+> that section is stripped from vmlinux. That prevents kexec to
+> successfully load vmlinux since it does not contain the relocations info
+> needed.
+>
+> Fix this by introducing a new config ARCH_WANTS_RELA_DYN that prevents
+> .rela.dyn to be stripped.
+>
+> Fixes: 71d815bf5dfd ("kbuild: Strip runtime const RELA sections correctly")
+> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
-On 4/2/2025 2:14 AM, Sean Christopherson wrote:
-[..snip..]
-> diff --git a/kernel/sched/wait.c b/kernel/sched/wait.c
-> index 51e38f5f4701..80d90d1dc24d 100644
-> --- a/kernel/sched/wait.c
-> +++ b/kernel/sched/wait.c
-> @@ -47,6 +47,26 @@ void add_wait_queue_priority(struct wait_queue_head *wq_head, struct wait_queue_
->   }
->   EXPORT_SYMBOL_GPL(add_wait_queue_priority);
->   
-> +int add_wait_queue_priority_exclusive(struct wait_queue_head *wq_head,
-> +				      struct wait_queue_entry *wq_entry)
-> +{
-> +	struct list_head *head = &wq_head->head;
-> +	unsigned long flags;
-> +	int r = 0;
+Apologies for the breakage.
+
+
+
+> ---
+>  arch/Kconfig         | 7 +++++++
+>  arch/riscv/Kconfig   | 1 +
+>  scripts/Makefile.lib | 4 +++-
+>  3 files changed, 11 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/Kconfig b/arch/Kconfig
+> index b8a4ff365582..d93f50ecb8f9 100644
+> --- a/arch/Kconfig
+> +++ b/arch/Kconfig
+> @@ -1544,6 +1544,13 @@ config HAVE_ARCH_PREL32_RELOCATIONS
+>           architectures, and don't require runtime relocation on relocatable
+>           kernels.
+>
+> +config ARCH_WANTS_RELA_DYN
+
+I don't think we need this - just preserve .rela.dyn in all cases.
+
+> +       bool
+> +       depends on RELOCATABLE
+> +       help
+> +         This prevents the .rela.dyn section to be stripped from vmlinux since
+> +         it is needed to relocate the kernel at runtime.
 > +
-> +	wq_entry->flags |= WQ_FLAG_EXCLUSIVE | WQ_FLAG_PRIORITY;
-> +	spin_lock_irqsave(&wq_head->lock, flags);
-
-nit.
-
-Using "guard(spinlock_irqsave)(&wq_head->lock)" can help you get rid of
-both "flags" and "r".
-
-> +	if (!list_empty(head) &&
-> +	    (list_first_entry(head, typeof(*wq_entry), entry)->flags & WQ_FLAG_PRIORITY))
-> +		r = -EBUSY;
-> +	else
-> +		list_add(&wq_entry->entry, head);
-> +	spin_unlock_irqrestore(&wq_head->lock, flags);
+>  config ARCH_USE_MEMREMAP_PROT
+>         bool
+>
+> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+> index 7612c52e9b1e..d58053efa4e4 100644
+> --- a/arch/riscv/Kconfig
+> +++ b/arch/riscv/Kconfig
+> @@ -84,6 +84,7 @@ config RISCV
+>         select ARCH_WANT_OPTIMIZE_DAX_VMEMMAP
+>         select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
+>         select ARCH_WANTS_NO_INSTR
+> +       select ARCH_WANTS_RELA_DYN if RELOCATABLE
+>         select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
+>         select ARCH_WEAK_RELEASE_ACQUIRE if ARCH_USE_QUEUED_SPINLOCKS
+>         select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
+> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+> index cad20f0e66ee..e59210a9fde0 100644
+> --- a/scripts/Makefile.lib
+> +++ b/scripts/Makefile.lib
+> @@ -376,8 +376,10 @@ quiet_cmd_ar = AR      $@
+>  quiet_cmd_objcopy = OBJCOPY $@
+>  cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
+>
+> +objcopy-args-$(CONFIG_ARCH_WANTS_RELA_DYN) += --remove-section=!.rela.dyn
 > +
-> +	return r;
-> +}
-> +EXPORT_SYMBOL(add_wait_queue_priority_exclusive);
-> +
->   void remove_wait_queue(struct wait_queue_head *wq_head, struct wait_queue_entry *wq_entry)
->   {
->   	unsigned long flags;
-
--- 
-Thanks and Regards,
-Prateek
-
+>  quiet_cmd_strip_relocs = RSTRIP  $@
+> -cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
+> +cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $(objcopy-args-y) $@
+>
+>  # Gzip
+>  # ---------------------------------------------------------------------------
+> --
+> 2.39.2
+>
 
 _______________________________________________
 linux-riscv mailing list
