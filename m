@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60B8FC3600C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 13:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E4FC3600C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 13:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:Subject:References:To:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KwqLHM81tEsUB7y7Q2YYeQ7pcmKQVcrMqKlU7cK6okI=; b=cOhJqjjoO58GOL
-	XHoCbzjRxbSaDDWdByiwZlPe9whOUamNeWpD5GBZs+5vEnm8MiGWcH50nsGko1oI14i3UVi9j0HcN
-	aL53PmZyxvRVMbodzpJtmerUwjZArTtcZfnzNEXQFEIexBRUaEnLGLN6V+q6XFu7K2bTKV7PZzR8J
-	ojpQ0r7b9h4Cb7KsuiCSRFEdB8diBQwRu8v3f0b6axi6F9XpLA5fmsFkWAUPz0KcTYKK4zMlvV/Og
-	VSTtrh3bIm81uurYvDIjEzMqr3gvyoT1Ezb2LZhKcRHHPMC+Fr/R9+rIDvEO5vJ3PoJhIRtKYGIHO
-	zuHQsOl+CRK3s9f4zF+g==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gbEIw32Y1voStGXTPkSpCTmwWIeqae1XhPjm6ejyXL8=; b=ZFojMfBRHs35qG
+	sOq10OZR0Joec4/yZ5q2uWitnK4G4A7UnLh94FiOJxY6tZqkXpfEMkSXWyJotr7+MEDgxs9QK2GF/
+	ZFayW6HIFf6n8voVye4cZF9eJOZ/NrdEiIcGJn11TzsK2ysxp8mCOyVenLp0QDzdZEWkopUKmUYCJ
+	GCNyde/7tNQHC7fPSU6FxfselETT+xbTY4ySHtbNkmMlIDVdTG/kO4+uL1HT/rIF0HHDPfA5myp5l
+	QcKIv/5mP5cSyZWpMWxFegvcMqAKr2WadQlf2qD28WDJFIE5SLtxmKfGXkcFdxxzD1wm/AXd8hxWq
+	zwSV2bSEux2FlfkFeRHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0KPq-00000008tpt-1wkT;
-	Thu, 03 Apr 2025 13:15:30 +0000
-Received: from mout.web.de ([212.227.15.3])
+	id 1u0Kpl-00000008wep-3lfE;
+	Thu, 03 Apr 2025 13:42:17 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0KO0-00000008thG-3fn8;
-	Thu, 03 Apr 2025 13:13:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1743686000; x=1744290800; i=frank.scheiner@web.de;
-	bh=tq7Ewy84FWklJ0DM2lQqRrm1CFpORg7fNcv68fsFdoI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=jfpaWPDnqJlnn7d/eeKA+Q2dZ6gal+i27mW+REj0gdj86oe2hrp1rhPGmf7hy4Ps
-	 ucG7L7EDOF3MG/YJSYMNsvXaoeAKKiuPIFKvghBUxWs4T0rF+acXD/NDt/siXGzgj
-	 X8f+hJQZhTuPvqizGbwQAxuDK/ujk+GUPNZiM23PgGRC+xqSE/cfFEUrP53QV4RkI
-	 /N9DJ3bgz0roFD3YAqpyx7Bhmo015EwlCP2gSdoAbC8cJABBh/AsC+r5dxNClp5Tq
-	 L8ZyLbPeuNYG25J7trpGWIC1FtQp75NBD/OGH5SqZaeU8skoKP3ftavD+VnXM6vfa
-	 S+xM5OLloka1ig34xA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.30] ([84.152.250.142]) by smtp.web.de (mrweb005
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MZSBG-1tco0U2pmQ-00IJ9N; Thu, 03
- Apr 2025 15:13:20 +0200
-Message-ID: <667d272f-2b51-49d6-84ea-1156027e00a7@web.de>
-Date: Thu, 3 Apr 2025 15:13:17 +0200
+	id 1u0Kpi-00000008weL-3G5q
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Apr 2025 13:42:16 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3996af42857so1410623f8f.0
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Apr 2025 06:42:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1743687733; x=1744292533; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=KzSv22Tlh8b0C2DIJrcJuTRBaLWunIy9hBuJEBnkWz4=;
+        b=vYFJZFxUYtuO278oLrTUSAT4hwQMXXTAUINoiaRxJdwFe1LAhhF5Etf3B70qqYJqLR
+         HaiMIN7Pd8xbxwuyTzqb+tzZIakTEB4isRBkt+8RJWbwYYkU91cjZmtRggBDjYQICvlX
+         I2EhYGN+urkaQRN4QADCmNU43zzDW9kS9TB4a8KA9LFRykKL1gvNegzEYuU4xpNKZbgC
+         wKrl17tGCEIJsHk8ads1TXT31lHGlGEzZAe5BwyY/I1cggozE/Rd7W9sAOndp7Hv6m43
+         ciIKnT3PlfFkDCEYSK2d3iqpXT24COeKff9sigJa6UKKxBIjjBzAOac01wnjLD3XZads
+         U6VA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743687733; x=1744292533;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=KzSv22Tlh8b0C2DIJrcJuTRBaLWunIy9hBuJEBnkWz4=;
+        b=XdCW1vWZMhj6LrLN5Xd1bMOvdE4oGrHNW3wue6sYqwJKL9mR0IagDoXAgZkfLVqTCE
+         pcWaDriEsMo9dWqneBBxjuQUdj8SsF7qdzLYpe29n/mR2Y0FhW/0QV1U/0JiJoalU/jO
+         Z/e+Hj23xdSmo7HJr/Z+96vlVLByCr6GO84BEhYCqq0ONX+PFdoAiZBxqA/TBe0wo3wN
+         imLe7+S+AJWACVZ5bKc03NS5vQhzMl0XLIzK4toBCuIVCVYbSdoMfUltKjfzdVJNvnJC
+         qm8lfV29IttJXoqpQf0Dl5VsVAwd1KjDzWgjlYaGhGJ12xpv9GiWT50Z52fe66oQJ7gp
+         BuNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUBfu8FbG57e7ib2UPzrQzMtqfjuuYaeqUmg1XgoaO30yPN5mqRi3gvnYt1EWR2nfZo9t+CQSvjTcGVNA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRpTGtWkFA+oT+/G7To0yuYW6ut9kdQCEPhmT37NGK535Vc6Ze
+	XyxUwhbTO3TlYcmitQHK9GNIKZJCU415MbZFoVxohsClBG7PS6C5b6ah35Z+b60=
+X-Gm-Gg: ASbGnctn951Z3FgLe0VL2Kw9eq3vH7cy28/YJVbZaZOHhJeBL+8hROWfiYAAVxWYYNT
+	69e/M8eoQca6H+W402u9IgwWvjHMcq/rHUXxkLqk4drWxA/hKsSMsps3Jy4xbrP0DlaP0BUsWck
+	+hHeuwTD3CR1PNNkHzgPqdFzNWMw8rRdlI7dJoLTVIp/t4uF12xBXWH3fLp4dQLzQ4PM2m80nHs
+	/u5n9twG6QFnQit4GHRTUgFfkbL0EITkF87Ox0pb348EtagY/hB3IHsymQeBHhgjKQmcpZ+vKRO
+	D6WhDUoEZru8a6vfQlQJ8oYnh2Keqz2R+9ULOMdSEbBQxgpwURQ4BjzIGTBGi6uyTNETzKLc56M
+	=
+X-Google-Smtp-Source: AGHT+IGq/wOsMPKFUCVYs7nL4AsOHO70+LxMIkYWJmXF6+zZV/6eUJ+XSIteFv/WFh6+yfsrGoEdgg==
+X-Received: by 2002:a05:6000:1786:b0:39a:c9ae:9eea with SMTP id ffacd0b85a97d-39c2e617779mr3043553f8f.10.1743687733190;
+        Thu, 03 Apr 2025 06:42:13 -0700 (PDT)
+Received: from localhost.localdomain ([2001:861:3382:ef90:7c12:ff06:d34a:d3e9])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c301b76f2sm1854884f8f.53.2025.04.03.06.42.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Apr 2025 06:42:12 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kbuild@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2] scripts: Do not strip .rela.dyn section
+Date: Thu,  3 Apr 2025 15:42:00 +0200
+Message-Id: <20250403134200.385077-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: apatel@ventanamicro.com
-References: <20250217085657.789309-5-apatel@ventanamicro.com>
-Subject: Re: [PATCH v6 04/10] genirq: Introduce common
- irq_force_complete_move() implementation
-Content-Language: en-US
-From: Frank Scheiner <frank.scheiner@web.de>
-In-Reply-To: <20250217085657.789309-5-apatel@ventanamicro.com>
-X-Provags-ID: V03:K1:XEpgZJH4hjXKrAVtN6WYfb76caRsH3G/1YZh0k6iv/5gAuOD6JZ
- /5tde3RwkXrkd/Pey4Lz/oZqXIOJwitxEp+fORe/ccUTmOxTdKdt1JHSPo7f6gtuJfxNzDZ
- CT0pBBS+/1TDZFBQT8c7xRTvQ04Ld/hNbLksOh9snnDnKPRk4pMuFmuPo7JqqG7e0gsfnuM
- o7r8alGP5hXS3FrAzPIkg==
-UI-OutboundReport: notjunk:1;M01:P0:Of7XFgulvNQ=;OVh5LHzbZMeUCHWhdl2nXotRgit
- jM6j1jgD5opSeNE7yy/Joxn4dWxgFOVQNAKd/9JrMF5rl1I5wvE1WrzuIA55muGKCafDi+qNf
- VM/TKsQ5FYBPmRxIMIODE9vSzoN8nXhbs4547OCs/oQraFxSR2fQCUvX+/XD/H2fu07WZxDF5
- JiKyCXLZkwYuP49khkI1RPsWSuznFlZUD8xkeB8OkRIsOAAn1AmhQGeWaigIF8080IM0X8SJC
- /Q0MEC4U0PoYB6fVozKBItqDoDSyPT8v2xUPgpM4eqIEUz/mnXKAAbNZqlQhNx7VJQwkdljWy
- hanRggjC+qcyvNnLv4+wWV361WVPE0XqVtSWkPJVSerVB5ZvzYYDvKDy3rAZSunshNvPPkjjd
- nF2CDEmIkniaETkOsdfzv/bGnskgZxhNsUDmjt12xjJgtp7/OfqAJ4sV12Ni2o06jYqHCIntJ
- lAv1rJYy7HWdYf1eu5xtCgIz2GZossoQJvhoC6EMXI4aAS2+xuYfuaoQARne38XIb6Vp4yv7p
- LJ2UP9ONGwFBoW/2qaBKubFr/6edJ0npfgdLzR0HkovRPwe1Xw1xCOO6OOwvVoklqrUOZ2iQ3
- EJVg8HRlqql/7e0imy9xYuEaQpU6K7d9u4FYppWQILPTr0N8xW1vJ9P0YUf7Rf4znCKxsoS1F
- MKPB83tuLCXlQ5bG+q1Q9bxzHNyPNlhWh6AuWdY0+XbRKYXf1JTDJUlxSn3J464O2RPfPmqdH
- HDVSisM8e0I7C2Fzl9Gi2irOvjG78Pena6EpnNuhC2GbMVwM0HuEH9dVI8ZqtVQp9koggzIzA
- h126Bu/qYCnPX6wXzAfJAnf4X/8HbAQowX13W7CCxhdd4U+PioOYYWXHPkYx6nO5OiCCvJ6wC
- t4DcaQPA6IPUC2xmwpZ1iuyUMpNNT/3wbfPwE64sa6/CZXKN9f+9j4UnsQDKfw4okD1iQnwhd
- Me4LKEO/bYQrmX4ZB7PwRFV4KFK7498IYaO26+frpSRi3Qdo8SKDIS462jGpd0qsELf3rporN
- VSGoBRFYikvqgrNVjiF9ItOmcRROIjXooW4kWaQj0kEyKbuqUP/QBtx+e553himBLKWRbXQgL
- 2mT4LxpzgUB8pez1+EeTuoBBpnKPHLs8Lb5+MyIBhjxgyhlQcXmCWF8K/4PyimOqbld6BVBkB
- b9c897IE7qU4qZr4claegKPHTOt4zT3q3ERrHiC9shhf1l2jKNJAghCAwuQFOgZ2fudl7W8dH
- KvEZ3v9n2hpNTq6auTCW9guBFFRV8x/yI6TBWhZCNwS1me+uL8jO2BFF7UsXh1k0o21Lr6g01
- 9aVgDoQ7l/vgmrgyB4Q8U0n33dGHKGuujhqJuFENBBhBe/faxIMPYUI8/pmGoK9/KWTKz1rqf
- Mtr0mYNyydPx0M/YfvQCBhIITMLSUsU8z8F7zjYKtscMJFtszwQTLMRjqgV9A/k+5dxBAIvcW
- KOMwjXQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_061337_306650_88BBB5A5 
-X-CRM114-Status: UNSURE (   6.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_064215_170274_DC12A563 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,66 +101,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrew@lunn.ch, linux-ia64@vger.kernel.org, imx@lists.linux.dev, dave.hansen@linux.intel.com, hpa@zytor.com, linux-riscv@lists.infradead.org, anup@brainfault.org, gregory.clement@bootlin.com, x86@kernel.org, sebastian.hesselbarth@gmail.com, s.hauer@pengutronix.de, bp@alien8.de, paul.walmsley@sifive.com, tglx@linutronix.de, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, atishp@atishpatra.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, kernel@pengutronix.de, maz@kernel.org, ajones@ventanamicro.com, shawnguo@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi there,
+riscv uses the .rela.dyn section to relocate the kernel at runtime but
+that section is stripped from vmlinux. That prevents kexec to
+successfully load vmlinux since it does not contain the relocations info
+needed.
 
-this change, specfically the introduction of irq_force_complete_move()
-to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
-platform (i.e. Linux/ia64 for Ski):
+Fixes: 71d815bf5dfd ("kbuild: Strip runtime const RELA sections correctly")
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ scripts/Makefile.lib | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-```
-  CC      kernel/irq/affinity.o
-kernel/irq/migration.c: In function 'irq_force_complete_move':
-kernel/irq/migration.c:40:72: error: 'struct irq_data' has no member named 'parent_data'
-   40 |         for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-      |                                                                        ^~
-make[4]: *** [scripts/Makefile.build:207: kernel/irq/migration.o] Error 1
-```
-
-The reason seems to be that "d->parent_data" (i.e.
-"irq_data.parent_data") is used unguarded in this function:
-
-```
-void irq_force_complete_move(struct irq_desc *desc)
-{
-    for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-        if (d->chip && d->chip->irq_force_complete_move) {
-            d->chip->irq_force_complete_move(d);
-            return;
-        }
-    }
-}
-```
-
-...but "parent_data" is only present in `include/linux/irq.h` if
-`CONFIG_IRQ_DOMAIN_HIERARCHY` was selected.
-
-```
-struct irq_data {
-    u32            mask;
-    unsigned int        irq;
-    irq_hw_number_t        hwirq;
-    struct irq_common_data    *common;
-    struct irq_chip        *chip;
-    struct irq_domain    *domain;
-#ifdef    CONFIG_IRQ_DOMAIN_HIERARCHY
-    struct irq_data        *parent_data;
-#endif
-    void            *chip_data;
-};
-```
-
-So I guess, either the requirement in `linux/include/linux/irq.h` needs
-to go, or the use of "d->parent_data" or the whole of
-irq_force_complete_move() and its use needs to be guarded as well.
-
-Cheers,
-Frank
+diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
+index cad20f0e66ee..0a1f1e67a0ed 100644
+--- a/scripts/Makefile.lib
++++ b/scripts/Makefile.lib
+@@ -377,7 +377,7 @@ quiet_cmd_objcopy = OBJCOPY $@
+ cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
+ 
+ quiet_cmd_strip_relocs = RSTRIP  $@
+-cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
++cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' --remove-section=!.rela.dyn $@
+ 
+ # Gzip
+ # ---------------------------------------------------------------------------
+-- 
+2.39.2
 
 
 _______________________________________________
