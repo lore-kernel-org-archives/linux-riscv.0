@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0C3AC3601E
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 16:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F8D3C3600C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 16:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A+FTEyNVlXotQx5Oo0A56brmKRn3FpMSFtv0o+wWa+U=; b=44+1ST7+K0OTqj
-	TadGZ+APMfXyExjM9Yvt5qLR41/C8k99EYlxjX/YzAZet3a4qCkNZvsqczXO13A1+KhcOxCAXybOc
-	rPHZvV8sJELXkEVwxKalkX+TZH4UxzpEmH2st2vjfq/ypFAwvo3tr5f+3Ne+snWCaXciarV8xebEz
-	HTcNXT2qFTXzCJpHU9NWNDX9519eVrmV7xNURM/5Eg9ZWGfmZOGDxNGeaxhsVA8AZ9j8jMkOETQxL
-	prFWGFWLFArwkYFA4lPJxXUrha5HUhvK9NZ7J73VZnfh7HDZcO0INmW4a6XSkBUlSf7Y5jo7o3/zK
-	labv+2dijqKXw08MLfYQ==;
+	List-Owner; bh=qy/fnu0WcQtEDTm9nijkOWvvTiZDE3RCnxG5D3dbDrA=; b=l0TQHClv/R91Jd
+	bDSHKda32RMFyADD23PstXCDNZdgRrheiDkLNvEBc2SozoaKYOfdTT3u/X1YdpbUkTYuJV0Oo7qSO
+	t56dociNxSVHMhJmLyy8Kea6t+4p8Cxox4DnhLCGnnZw7fYuSmrOG6kjHrO76SOxpo4w1tWUp7htv
+	pFShUZtUItUUKb62ZuTDWSYEb65mo9TwBSRt9M2rGR+ZmT/hPLbVeeh5xCxAY6roeVPd6HcPUP+sd
+	SRwJcfeueFaz/czX2D7bVCJda7h1D0RVSiW8ZtnTJ2TIbvZpAcRzui0POjrRyNIV2LASUe0Gm6Od8
+	/JeJ3TwP+5VlRzJLG0AA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NIX-00000009LFu-1mWe;
-	Thu, 03 Apr 2025 16:20:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0NIY-00000009LHd-3eVM;
+	Thu, 03 Apr 2025 16:20:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NIT-00000009LAA-1w8n
+	id 1u0NIV-00000009LAt-1IBs
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 16:20:07 +0000
+	Thu, 03 Apr 2025 16:20:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DAE8C448FD;
-	Thu,  3 Apr 2025 16:19:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44A1BC4CEE5;
-	Thu,  3 Apr 2025 16:19:59 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5E8F343E9E;
+	Thu,  3 Apr 2025 16:20:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9CA2C4CEEB;
+	Thu,  3 Apr 2025 16:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743697199;
-	bh=nrJTfauafpSv2Poq9hOWLVq4kSCuHURQcXZ0sblPSak=;
+	s=k20201202; t=1743697200;
+	bh=j/Zw1Us83CYLMh45YX1P1HpPGlpHRPs3sHFliCIKkXI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=sl3rTlQVoLCwgetPGN0AdxcEcbT7hQYCPtpDdNPBCQ/w8AC9dyckACZhZTvnyyaIN
-	 CFyyGVQUbgBEYfbTmIfNd85FYmnJWy61WJSeGay6N3YGDz/G8UYsVt19PTYig8RH7A
-	 Veo0cBlXmgXjkYw3lxMtp7jQb5yEV9eSZ39goBcLhJ6Ms5h8SVPBJ5eypJVv/n1VND
-	 kTgBzmg8vQodF1ee9wXJ5fFn7J+UuwODrXi16slcKYJbd6Jnu0CemWlxdFG0KcU9Md
-	 9Q1YEJLR28OW8ZZA37ZVeSevOM4P5k8X/LhRq9kN3GYWxzfEkH+iJ32PnEzrHYsuUa
-	 BDQ2qEgQhJ1cA==
+	b=ciE/kNK4XWjcVK1j+oCSiVf1OBJ9HzSBIf2Hk9xjTMiNznLTc5BnwMm5nMhSB3eeM
+	 dvyTPj8chqr/oWJMadaBcEpwFj2HjJu6jf5jEzS5vAQCW5bVJbYvW7HtvK6QbCEI4S
+	 odc4NG9Z0XyXmPgWNWRCa9gWjL2rbXGlGL15S/JFErhUPRxyxHQokqhIljMFn51qAf
+	 n9pCsOp2+89eiORD45yciDJmHcLzWB2hTqBjL0a3rbmoE16C/0JEZwPFrwJ/ZhiBLA
+	 hlGlkFqB2rrBLDs4EYfqzfUKbpIH8zinEC87Nuk+MklnNxSMCMYwjXvoOHmNeVA6x0
+	 f4UolNqzcRc9A==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70C0F380664C;
-	Thu,  3 Apr 2025 16:20:37 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB361380664C;
+	Thu,  3 Apr 2025 16:20:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv/kexec_file: Handle R_RISCV_64 in purgatory relocator
+Subject: Re: [PATCH v2] selftests: riscv: fix v_exec_initval_nolibc.c
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174369723623.2563936.6647368095038423635.git-patchwork-notify@kernel.org>
-Date: Thu, 03 Apr 2025 16:20:36 +0000
-References: <20250326051445.55131-2-ziyao@disroot.org>
-In-Reply-To: <20250326051445.55131-2-ziyao@disroot.org>
-To: Yao Zi <ziyao@disroot.org>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- pasha.tatashin@soleen.com, kent.overstreet@linux.dev, petr@tesarici.cz,
- sunying@isrc.iscas.ac.cn, samuel.holland@sifive.com,
- linux-kernel@vger.kernel.org, rabenda.cn@gmail.com
+Message-Id: <174369723749.2563936.8850444880196164283.git-patchwork-notify@kernel.org>
+Date: Thu, 03 Apr 2025 16:20:37 +0000
+References: <20250306-fix-v_exec_initval_nolibc-v2-1-97f9dc8a7faf@iencinas.com>
+In-Reply-To: <20250306-fix-v_exec_initval_nolibc-v2-1-97f9dc8a7faf@iencinas.com>
+To: Ignacio Encinas <ignacio@iencinas.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel-mentees@lists.linux.dev,
+ skhan@linuxfoundation.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ alex@ghiti.fr, charlie@rivosinc.com, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_092005_523054_D4BE1785 
-X-CRM114-Status: UNSURE (   7.55  )
+X-CRM114-CacheID: sfid-20250403_092007_361864_0C256572 
+X-CRM114-Status: UNSURE (   9.33  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,19 +82,21 @@ Hello:
 This patch was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Wed, 26 Mar 2025 05:14:46 +0000 you wrote:
-> Commit 58ff537109ac ("riscv: Omit optimized string routines when
-> using KASAN") introduced calls to EXPORT_SYMBOL() in assembly string
-> routines, which result in R_RISCV_64 relocations against
-> .export_symbol section. As these rountines are reused by RISC-V
-> purgatory and our relocator doesn't recognize these relocations, this
-> fails kexec-file-load with dmesg like
+On Thu, 06 Mar 2025 20:49:27 +0100 you wrote:
+> Vector registers are zero initialized by the kernel. Stop accepting
+> "all ones" as a clean value.
+> 
+> Note that this was not working as expected given that
+> 	value == 0xff
+> can be assumed to be always false by the compiler as value's range is
+> [-128, 127]. Both GCC (-Wtype-limits) and clang
+> (-Wtautological-constant-out-of-range-compare) warn about this.
 > 
 > [...]
 
 Here is the summary with links:
-  - riscv/kexec_file: Handle R_RISCV_64 in purgatory relocator
-    https://git.kernel.org/riscv/c/28093cfef5dd
+  - [v2] selftests: riscv: fix v_exec_initval_nolibc.c
+    https://git.kernel.org/riscv/c/79ba5c1c7767
 
 You are awesome, thank you!
 -- 
