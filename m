@@ -4,86 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF91C3600C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 17:58:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1625AC3600C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 20:35:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:From:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Eink/2BcKAi6/j4TQN8SHBx0XxGLHiAb7WKt8MIQLKE=; b=eT/izJH7EXulQL
-	LDRvgw0ikXhtJpu6UBrwNAf/o53klGrNzreh/UHPjUAjfx6ROavTz531gs3OPlK1jeb48PVcsBU+9
-	04Xd9s/8tC0GYDx3iBQG8RM/+jzrqv5yE2pLRBhTCEhbKYTiLjwn/Gl3dKVv9ijWp1f8hsWqAU6vH
-	48nLmKoy/7CNIciCZxoaY+a2aEMp1+AgLs5xrnxaAZFbcPCvN+ExWvzAUPBPgZAxDJhntqLAzDSnh
-	0huZj9uiSyaZYQ6F5e+OkQKkyOzpQRAS9x6DKC0FeJ+w/2LzNBVSxlJlcUu38gUME/xy1vdpuSaut
-	MeCfSXbSt92HWbAOBWtg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=WIu6B9EqUso7dZ4OUteIVvOcun1u+Ot2wSYeZFfn7HI=; b=xt4xLJLZpdxCBk
+	I6pDrtHoTBXpdKdD4S8HbjUNwV3gd4B61pNLMjTM+Hq3oeNp61lL98pvP8dU678nIkL576cleFzuF
+	7uj/XsyLRRsoI6MGrR+bzSY1xKMyUo6k6vJbd2oR4UwB8+fNd6KO1i7DD86Rtes4xsM/IqmwNeCZ9
+	I68XOa2uhHjWgtMiDFflgo+dWdJjKrTfzFRLmjkBWq4a9beMEqjHwqY0Zn4nMx9qpZhkWKXeaRPq+
+	tAODOO7pyGmYptUvPq42RdX7gkIf41oHs24U6Z//fyKtzRLZgsJDzx4iOBvXOKnEunmPGGoTsiOdM
+	YgXa4AFs/XuYcASwfy7g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0OpO-00000009Vq5-2ayC;
-	Thu, 03 Apr 2025 17:58:10 +0000
-Received: from mout.web.de ([212.227.15.4])
+	id 1u0RHK-00000009yxV-1wa3;
+	Thu, 03 Apr 2025 20:35:10 +0000
+Received: from out-177.mta1.migadu.com ([2001:41d0:203:375::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0OfY-00000009Ui6-2y0y;
-	Thu, 03 Apr 2025 17:48:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1743702418; x=1744307218; i=frank.scheiner@web.de;
-	bh=H1sIW/fE2PWhkLk+OKhCS+zpamXiY+kKyuMISklWwjg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
-	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=I1RUVEfj6M/lrSVs2nXUN+F3Za0oLDTfoIUwyR6Bu/LpFTSVVYPEWG2SfVFyq95c
-	 787U9IXeSotxvVgAc4BABi6gFmZ8WEZpiiypd8fC46jeCY03yV5b0RFRHmWS412FT
-	 k54lKBckaqGH5m1NxtS0ZnCai28WcWeJVwN9VQ8S1CCFJqXtOTyWTwix8SLEAQGka
-	 GH8cmvRQF6HaRXhaIXCwlzH95HwJV8/qfJibrvHmeM3mNIxVdwhcLV/qneCnY7qaI
-	 p540z3cH0BZ+7+H2ToDBlg38AL7lb/KOMR2DNDUJiwHQtO8A55jL+LMRIS47vZXOG
-	 FS8Fh0iMQwQ+4468oQ==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.30] ([84.152.250.142]) by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MPKB7-1tk7Fn0k6n-00WvM9; Thu, 03
- Apr 2025 19:46:58 +0200
-Message-ID: <703d6f83-f054-48ec-a6da-6d0bbb9e65d4@web.de>
-Date: Thu, 3 Apr 2025 19:46:52 +0200
+	id 1u0RGu-00000009yrT-3jAK
+	for linux-riscv@lists.infradead.org;
+	Thu, 03 Apr 2025 20:34:46 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
+	s=key1; t=1743712480;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=UDfYL4ErdunlNmstrEsdYuv+0FhmfCu6RIMjgekzhfE=;
+	b=fipwsY+d+b6rrvO4vtfMK74We5DLTRxmJZCjFxcOm517hPj64VLEIduGp6NAUPREU89bjd
+	xZyKMR6nFCAMifx9XV1LmHzDsR58ZHEpgkfL4NkP+YcXqsECMzDYu5cQOnOEs/sUaH9WCw
+	ukcacLOEs519U2x8Xudi91EKa/cOBqF6WZ3YK8xvOjpS0qw7m1lnGoaB9bFBtJj7rfyaiJ
+	jdKLSDWnzKX12KL7x71yizY4dCcT3195iwvxltXgU7Q31Xyvw/0YkVQLNEmuAXzopXQl9u
+	hkfS8CjuyPo/Xascx/5iTJ2qdB8qF+NiTZrWIn+LWV/Zk2l8svIVyF5ej0JqTA==
+From: Ignacio Encinas <ignacio@iencinas.com>
+Subject: [PATCH v3 0/2] Implement endianess swap macros for RISC-V
+Date: Thu, 03 Apr 2025 22:34:16 +0200
+Message-Id: <20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Frank Scheiner <frank.scheiner@web.de>
-Subject: Re: [PATCH v6 04/10] genirq: Introduce common
- irq_force_complete_move() implementation
-To: Thomas Gleixner <tglx@linutronix.de>, apatel@ventanamicro.com
-References: <20250217085657.789309-5-apatel@ventanamicro.com>
- <667d272f-2b51-49d6-84ea-1156027e00a7@web.de> <87plhtuw18.ffs@tglx>
-Content-Language: en-US
-In-Reply-To: <87plhtuw18.ffs@tglx>
-X-Provags-ID: V03:K1:6MNV5zoHY7hCQ09bvOvJwv3kuECz3WxUa2bfbadzKiu8Nz/PUk3
- r4khTzLDonSLMS3CB0XogqYaE7OGkBBDVuYsfF7qkxe8x0p0ZXmBcDc+d+D3/cCMpa95o/j
- UunubNqjcMWGWkDIi36mSeYWey1wj5Vc325jNhAElfvL0lItLmH5oJW4HJ5twGTwB3HdGoR
- efZJC73+zd6VD6Ca/b8yQ==
-UI-OutboundReport: notjunk:1;M01:P0:vihVRggBLIw=;40mu8nvRzyn28pHYR+tyRa+glGA
- L9dS9EZZnssU8CZpd3S0dRgfmlpEQMuKMP36srLrat7dg5KrFfS5QcrpJSNuOyhAv8VTFe4wi
- eM5ASGmb4b5QPFNc64n1mPnJRMMnXF3OoAzouVuuussBJmCsgg1so5ORWeak/+WHLezyKpJic
- jaATezrrWdJ0nig2NE3MOAwfQqd5v6gCARk8fafoldUX7MVaL9Q7SDYyFq8pdgHNG7hdU6z7J
- njGKJCpE2tFVXuvZb/En9b24JwPRRbOBvQdat55Ww2oZGd3JKtzA/AYdHHailozKEDkiPX3rt
- i8iNamTaevB0GZZFVK2HrRFWW96+lcMx4wcNNDK0f12+TDMKseXGzou55pLMupGdGoeXCc6/6
- JTOyTCOl+soVnuCNxVuQHfhLbIHXRyRMj0tsAq53kgWxEAr+hiKOl5gLeC2RbPl6JBgWeAXFH
- +ngvCfZWtwvqUmZLakj4oK7mRkJlcyy19zHS6Umr+McoUXVf0xm3AWpHTaVwvuoydLGiKXed8
- R5dRi61Tpuk4p6X4Pbslq+PkNiecpXPYHqZkxUFZn2rgiV/f63abYRkHPFrkFVM11XmP/1jJZ
- Dq11OJT/XaumPqPD+UoCq7AtjXnkmMYzPvwsNF2/LVNRGPRNK5HGz5hNCCpnc0nOcI5IiXzYR
- Ph0nGHt85yOBMhE1bdwtb9tLpTECZ9v6Jd5MArIhEd4hAuofPQ11mNN2iM5t9U56JMVP1+ATc
- TrAz8UmO1f1NH0GV20zn4+SYOWiu6YWGGvJFxjco7QworCrMR1mQlEaWMjRHWfcUSW6eRtPfM
- 3MoF+2DBb+3E7G+hY7Oc7vzzEtckiRR3OzrYmOE1FokZgb71WdlLUDbdo1xHsnpKJZgKAyqfJ
- 9fX78iSu0CNN/8We7scRn3oMFmpi1CsidTvnZMEeL91sKLGP0dnO3ilrb2UCDbVru0uCBjL1m
- nOA+AWsMUTXmrTrczxCNEoXyE93d7wqj2y1xprwW8AEaLcrmJxGwrpRo/5CnY9MLet6uYYJWw
- bUzI6SKOIrkZdJhURWeF/BJzhFokJLtc9N9XzoDf3HOc8klP1P335Ss/i+rxI52jA9VUZNFc3
- qHQuKxHyyiSpE4Y/QQumO0K4y4Y06LGxpmmeXnhOXvuGGYqq7mCGw+ruDiovKdLg/usdctrsI
- dWLoSkllh27rNJcFiCSIM0Yc9Rkge2gf5KphceWpSY2PWU0fGMp/awsUa7bu0Ffre5l6TfyUj
- DyZQavkfN3Mlj7dDrPIapKO5jtRpoRYCXTLl/L6qeloJk4C3zRQJf2fMKOqjO6BuYfbZO3vOn
- tCDlr4+pNXnGH59LWm3v32wIVYTpPn+zG6o0NGy5NW+qBTi0juCMJN3xnKTKuTe9ZjT9VW0Dd
- 2FWe00Y0QziOltsETzc+OWc2wZ58YY0J0IUYZU/WcO2ZYprxjRmytNS282nz4TEdkGNtJ+VCp
- C7w/BVQ==
+X-B4-Tracking: v=1; b=H4sIAMjw7mcC/13MQQ7CIBCF4asY1mIYKCiuvIdxAXRqZyE1YFDT9
+ O7SxkV1+V7yfyPLmAgzO25GlrBQpiHWobYbFnoXr8iprZtJIbVQYs8T5VB4fjrP/QG8bZx1ATy
+ rwT1hR68FO1/q7ik/hvRe7ALz+2VArJkCHLhqjJbYAaI1J8IYKLq8C8ONzVKR69r+1JIL3mrlT
+ Wuct6D/6mmaPuSS1UflAAAA
+X-Change-ID: 20250307-riscv-swab-b81b94a9ac1b
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Arnd Bergmann <arnd@arndb.de>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev, 
+ skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ linux-arch@vger.kernel.org, Ignacio Encinas <ignacio@iencinas.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_104801_052186_5FEA8285 
-X-CRM114-Status: GOOD (  14.31  )
+X-CRM114-CacheID: sfid-20250403_133445_288505_21563652 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,56 +73,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: andrew@lunn.ch, linux-ia64@vger.kernel.org, imx@lists.linux.dev, dave.hansen@linux.intel.com, hpa@zytor.com, linux-riscv@lists.infradead.org, anup@brainfault.org, gregory.clement@bootlin.com, x86@kernel.org, sebastian.hesselbarth@gmail.com, s.hauer@pengutronix.de, bp@alien8.de, paul.walmsley@sifive.com, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, atishp@atishpatra.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, kernel@pengutronix.de, maz@kernel.org, ajones@ventanamicro.com, shawnguo@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03.04.25 17:03, Thomas Gleixner wrote:
-> On Thu, Apr 03 2025 at 15:13, Frank Scheiner wrote:
->> this change, specfically the introduction of irq_force_complete_move()
->> to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
->> platform (i.e. Linux/ia64 for Ski):
->
-> arch/itanic has hit the iceberg and sank with the release of v6.7...
+Motivated by [1]. A couple of things to note:
 
-Ha, ha, not in our waters. :-) Still I'm glad I could help finding
-errors in Linux by building for ia64.
+RISC-V needs a default implementation to fall back on. There is one
+available in include/uapi/linux/swab.h but that header can't be included
+from arch/riscv/include/asm/swab.h. Therefore, the first patch in this
+series moves the default implementation into asm-generic.
 
+Tested with crc_kunit as pointed out here [2]. I can't provide
+performance numbers as I don't have RISC-V hardware yet.
 
->> So I guess, either the requirement in `linux/include/linux/irq.h` needs
->> to go, or the use of "d->parent_data" or the whole of
->> irq_force_complete_move() and its use needs to be guarded as well.
->
-> Guessing is not a really good approach to solve a technical problem :)
+[1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
+[2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
 
-Thanks for the advice, though guessing was not involved here. It's just
-a way to say that I'm not sure what the right solution might be in this
-case. And then I'd rather leave such fixes to the experts in the
-specific field.
+Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+---
+Changes in v3:
 
-> ---
-> --- a/kernel/irq/migration.c
-> +++ b/kernel/irq/migration.c
-> @@ -37,7 +37,7 @@ bool irq_fixup_move_pending(struct irq_d
->
->  void irq_force_complete_move(struct irq_desc *desc)
->  {
-> -	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
-> +	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = irqd_get_parent_data(d)) {
->  		if (d->chip && d->chip->irq_force_complete_move) {
->  			d->chip->irq_force_complete_move(d);
->  			return;
->
+PATCH 2:
+  Use if(riscv_has_extension_likely) instead of asm goto (Eric). It 
+  looks like both versions generate the same assembly. Perhaps we should 
+  do the same change in other places such as arch/riscv/include/asm/bitops.h
 
-This fxes the build for me for that file. Much obliged.
-```
-  CC      kernel/irq/migration.o
-```
+- Link to v2: https://lore.kernel.org/r/20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com
 
-Cheers,
-Frank
+Arnd, I tried your suggestion but couldn't make it work. Let me know if
+I missed something in my response.
+
+Changes in v2:
+- Introduce first patch factoring out the default implementation into
+  asm-generic
+- Remove blank line to make checkpatch happy
+- Link to v1: https://lore.kernel.org/r/20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com
+
+---
+Ignacio Encinas (2):
+      include/uapi/linux/swab.h: move default implementation for swab macros into asm-generic
+      riscv: introduce asm/swab.h
+
+ arch/riscv/include/asm/swab.h   | 43 +++++++++++++++++++++++++++++++++++++++++
+ include/uapi/asm-generic/swab.h | 32 ++++++++++++++++++++++++++++++
+ include/uapi/linux/swab.h       | 33 +------------------------------
+ 3 files changed, 76 insertions(+), 32 deletions(-)
+---
+base-commit: a7f2e10ecd8f18b83951b0bab47ddaf48f93bf47
+change-id: 20250307-riscv-swab-b81b94a9ac1b
+
+Best regards,
+-- 
+Ignacio Encinas <ignacio@iencinas.com>
+
 
 _______________________________________________
 linux-riscv mailing list
