@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFD42C3600C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 15:11:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92040C3601A
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 15:45:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wv6ESp2Re5Bqt5/3JJRef4G3vQYTOkGjeIaICiuFqDY=; b=gz4J5pKksDC2vV
-	4YAkl+BwZtvXWkC6v1sVP6sREKvLTtbEsSYjAV6cy9m878jXU41oh8akhtJwN64gMpVAIwicvmeYQ
-	T576lf/rB8CdZQxhvE3npuAHELKNi5fTJQkltH52W1YE6Jhe6Vvd5pY1xXTCuw3L4kvWxRA0fac1P
-	tt9aVW1lJFqze6hnJrSfGi5lrWITFU9Y7GoWe86oqkh02L0zWyMThLovXcpzY6yaeEuQC4II7rVpU
-	UXq721D7FOaXBY7AfF4tL4mQeSFSfLOKdWBPda+xckzTiKTIVKX7VQEwNgTYiG2D8KnHQXH3M+zX6
-	+Om+X1dE/dyGJ/6+/V8A==;
+	List-Owner; bh=n1cLlyo11y3IPLr34/pbMa3xfH234rcK5Y49rH4BGuw=; b=h55pHsEkeEMpQt
+	kfiYJseObLPSuF5hNmfsQJnJxvbWVZK4yMVfO4hk2Lh461R2BfAWbqPhWBOZ7YObz7pA7+aTxUjua
+	0nijj7ZAZTNWNAnQLzVuJyE9tuY2A9STJxPy/94aTVAf0yyhN0G/I1dgJ3x5hV/itilb4WjrVD6pn
+	jukBfxDTuYRN5t72xAOO/7uM+xr9BDM8xa94ZXfTwc8JUjZrd5L2qG48RkJVPDj8hgEi0bGuLdzWJ
+	EvYOIJP4njMU0lM/3yjbym8Nl3iDroJ+1oh/4TYxy5L9ST8O6XUEO9OoxyI1QiE98SKxeVcBGWZ3o
+	PuDN+OuTvmJbmj1IUJfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ME6-00000009BdD-1SQC;
-	Thu, 03 Apr 2025 15:11:30 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0MlJ-00000009GqW-2pjJ;
+	Thu, 03 Apr 2025 15:45:49 +0000
+Received: from relay7-d.mail.gandi.net ([217.70.183.200])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0ME3-00000009BcW-1Qa7
+	id 1u0Mkx-00000009Gl3-1a7b
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 15:11:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B6092A43826
-	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 15:05:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B11CC4CEE5
-	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 15:11:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743693086;
-	bh=NIvLpPfAXrTuXtMOMB/pagZd8SPTLCI7I/aXMEmuZks=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=rg+elceHnlADL1mNP5zqvH3MnNX1SQTBq0g1DCEixGhxkvzyh0bOPFJCkL0ALZKyt
-	 +VCgmEkvQMtKdswZTk0K56LU+TDECxM85B1covP7XNz/If7qqhoT5TvDrn7HLoN9pz
-	 Rl9qHuAxeZTqau7PVURw/Zhr6jlYiMbZFHuIQSXA7XwEXkvzOzZN8Bs4mvEwYi1P9h
-	 JCZmfN1+807U9Eh1iCW6I1FgfnputbMkqPL5r4VEmr2pLWoLP5E32HPSY3oWk8JCW7
-	 k/ven923jDB2Khmp8j0mO9NxvC06cxe1YwAFAJ+x7vwn3GtSsLLGjIG3Wr999oHAce
-	 Bzw+vV9ZBS2qg==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-5499c5d9691so1191796e87.2
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Apr 2025 08:11:26 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUAVsrgI0dnwUcEQlwJr4nC1H/fSITRfoU8yKTAaTTIShbC4IJwk+VDGHuj9ky0Cb87PjGSyhW8sjcVPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0CRCHkIRrdOcdyXY8SIlV1JKlmthGVvY2N/l3VNqoDHJa8iDQ
-	TfNcf5S2dw3hADH0tozbPZ5SrgXZZamrA5/PcE0wHuMv5ItXbKfTpe0kuBqDT9UvZNjpgbeDTPN
-	urvOYKIi4MRoNMR+ZeaFHHv+77iM=
-X-Google-Smtp-Source: AGHT+IGHaE5sR5WjLPaAAsOgHiAcSbArxim9/nuGpNofJcAx2t/1OKmIKbXzElP29VwvJc0LcNAX9hLMl1nwdhodQks=
-X-Received: by 2002:a05:6512:3b13:b0:549:5b54:2c5b with SMTP id
- 2adb3069b0e04-54c1d8a6e03mr1065423e87.24.1743693084626; Thu, 03 Apr 2025
- 08:11:24 -0700 (PDT)
+	Thu, 03 Apr 2025 15:45:29 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 75DB344311;
+	Thu,  3 Apr 2025 15:45:22 +0000 (UTC)
+Message-ID: <2874fc20-9135-4b13-b825-43fb350ce552@ghiti.fr>
+Date: Thu, 3 Apr 2025 17:45:22 +0200
 MIME-Version: 1.0
-References: <20250403134200.385077-1-alexghiti@rivosinc.com>
-In-Reply-To: <20250403134200.385077-1-alexghiti@rivosinc.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 3 Apr 2025 18:11:13 +0300
-X-Gmail-Original-Message-ID: <CAMj1kXGzrn6i20LvUBnz_mGi946=GCogNHHUL=mNsv513qYv7A@mail.gmail.com>
-X-Gm-Features: AQ5f1JoKfhV3MERR1uNecpsdZk0_Zd-PQo949ieFdRrYe-B6KsP3bxkK_BwZ46w
-Message-ID: <CAMj1kXGzrn6i20LvUBnz_mGi946=GCogNHHUL=mNsv513qYv7A@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] scripts: Do not strip .rela.dyn section
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
+Content-Language: en-US
+To: Ard Biesheuvel <ardb@kernel.org>, Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@rivosinc.com>, Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>,
+ Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
+References: <20250403134200.385077-1-alexghiti@rivosinc.com>
+ <CAMj1kXGzrn6i20LvUBnz_mGi946=GCogNHHUL=mNsv513qYv7A@mail.gmail.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAMj1kXGzrn6i20LvUBnz_mGi946=GCogNHHUL=mNsv513qYv7A@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeekleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeduffeugedvtdegleeuhfeuteetueegfeefkefhheffvdduhfegvdehuddukeffgeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvledphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvlegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghom
+ hdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegsjhhorhhnsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehmrghsrghhihhrohihsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnrghthhgrnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhhitgholhgrshesfhhjrghslhgvrdgvuh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_081127_504769_D3A21D54 
-X-CRM114-Status: GOOD (  20.46  )
+X-CRM114-CacheID: sfid-20250403_084528_096036_57B75EB9 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +65,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 3 Apr 2025 at 16:42, Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
->
-> riscv uses the .rela.dyn section to relocate the kernel at runtime but
-> that section is stripped from vmlinux. That prevents kexec to
-> successfully load vmlinux since it does not contain the relocations info
-> needed.
->
-
-Maybe explain that .rela.dyn contains runtime relocations, which are
-only emitted if they are actually needed - as opposed to the static
-relocations that are not emitted as SHF_ALLOC sections, and are not
-considered to be part of the runtime image in the first place. It
-would be nice if we could use --remove-relocations= here, which only
-removes static relocations, but unfortunately, llvm-objcopy does not
-support this.
-
-Also, I wonder if this should apply to all of .rel.dyn, .rela.dyn and
-.relr.dyn, as they all carry runtime relocations.
-
-Finally, I'd be curious to know why RISC-V relies on --emit-relocs in
-the first place? Is the relocs check really needed? If not, it would
-be a nice opportunity to get rid of Makefile.postlink entirely.
-
-In any case, for this change, or a variation along the lines of what I
-wrote above,
-
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-
-
-> Fixes: 71d815bf5dfd ("kbuild: Strip runtime const RELA sections correctly")
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> ---
->  scripts/Makefile.lib | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index cad20f0e66ee..0a1f1e67a0ed 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -377,7 +377,7 @@ quiet_cmd_objcopy = OBJCOPY $@
->  cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
->
->  quiet_cmd_strip_relocs = RSTRIP  $@
-> -cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
-> +cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' --remove-section=!.rela.dyn $@
->
->  # Gzip
->  # ---------------------------------------------------------------------------
-> --
-> 2.39.2
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQXJkLAoKT24gMDMvMDQvMjAyNSAxNzoxMSwgQXJkIEJpZXNoZXV2ZWwgd3JvdGU6Cj4gT24g
+VGh1LCAzIEFwciAyMDI1IGF0IDE2OjQyLCBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZv
+c2luYy5jb20+IHdyb3RlOgo+PiByaXNjdiB1c2VzIHRoZSAucmVsYS5keW4gc2VjdGlvbiB0byBy
+ZWxvY2F0ZSB0aGUga2VybmVsIGF0IHJ1bnRpbWUgYnV0Cj4+IHRoYXQgc2VjdGlvbiBpcyBzdHJp
+cHBlZCBmcm9tIHZtbGludXguIFRoYXQgcHJldmVudHMga2V4ZWMgdG8KPj4gc3VjY2Vzc2Z1bGx5
+IGxvYWQgdm1saW51eCBzaW5jZSBpdCBkb2VzIG5vdCBjb250YWluIHRoZSByZWxvY2F0aW9ucyBp
+bmZvCj4+IG5lZWRlZC4KPj4KPiBNYXliZSBleHBsYWluIHRoYXQgLnJlbGEuZHluIGNvbnRhaW5z
+IHJ1bnRpbWUgcmVsb2NhdGlvbnMsIHdoaWNoIGFyZQo+IG9ubHkgZW1pdHRlZCBpZiB0aGV5IGFy
+ZSBhY3R1YWxseSBuZWVkZWQgLSBhcyBvcHBvc2VkIHRvIHRoZSBzdGF0aWMKPiByZWxvY2F0aW9u
+cyB0aGF0IGFyZSBub3QgZW1pdHRlZCBhcyBTSEZfQUxMT0Mgc2VjdGlvbnMsIGFuZCBhcmUgbm90
+Cj4gY29uc2lkZXJlZCB0byBiZSBwYXJ0IG9mIHRoZSBydW50aW1lIGltYWdlIGluIHRoZSBmaXJz
+dCBwbGFjZS4KCgpPayBJJ2xsIGRvLgoKCj4gSXQKPiB3b3VsZCBiZSBuaWNlIGlmIHdlIGNvdWxk
+IHVzZSAtLXJlbW92ZS1yZWxvY2F0aW9ucz0gaGVyZSwgd2hpY2ggb25seQo+IHJlbW92ZXMgc3Rh
+dGljIHJlbG9jYXRpb25zLCBidXQgdW5mb3J0dW5hdGVseSwgbGx2bS1vYmpjb3B5IGRvZXMgbm90
+Cj4gc3VwcG9ydCB0aGlzLgo+Cj4gQWxzbywgSSB3b25kZXIgaWYgdGhpcyBzaG91bGQgYXBwbHkg
+dG8gYWxsIG9mIC5yZWwuZHluLCAucmVsYS5keW4gYW5kCj4gLnJlbHIuZHluLCBhcyB0aGV5IGFs
+bCBjYXJyeSBydW50aW1lIHJlbG9jYXRpb25zLgoKCk9rLCBJJ2xsIGFkZCB0aGVtIHRvIHRoZSBu
+ZXh0IHZlcnNpb24uCgoKPgo+IEZpbmFsbHksIEknZCBiZSBjdXJpb3VzIHRvIGtub3cgd2h5IFJJ
+U0MtViByZWxpZXMgb24gLS1lbWl0LXJlbG9jcyBpbgo+IHRoZSBmaXJzdCBwbGFjZT8gSXMgdGhl
+IHJlbG9jcyBjaGVjayByZWFsbHkgbmVlZGVkPyBJZiBub3QsIGl0IHdvdWxkCj4gYmUgYSBuaWNl
+IG9wcG9ydHVuaXR5IHRvIGdldCByaWQgb2YgTWFrZWZpbGUucG9zdGxpbmsgZW50aXJlbHkuCgoK
+U28gSSBoYWQgdG8gY2hlY2sgYW5kIGl0IGhhcHBlbnMgdGhhdCB0aGlzIHdhcyBhbiBpc3N1ZSB3
+aXRoIHRoZSAKdG9vbGNoYWluLCBJIHNob3VsZCBjaGVjayBpZiB0aGF0IHN0aWxsIGhhcHBlbnMg
+d2l0aCBuZXdlciBvbmVzLgoKY29tbWl0IDU1OWQxZTQ1YTE2ZGNmMTU0MmU0MzBlYTNkY2U5YWI2
+MjViZTk4ZDAKQXV0aG9yOiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+
+CkRhdGU6wqDCoCBXZWQgTWFyIDI5IDA2OjUzOjI5IDIwMjMgKzAyMDAKCiDCoMKgwqAgcmlzY3Y6
+IFVzZSAtLWVtaXQtcmVsb2NzIGluIG9yZGVyIHRvIG1vdmUgLnJlbGEuZHluIGluIGluaXQKCiDC
+oMKgwqAgVG8gY2lyY3VtdmVudCBhbiBpc3N1ZSB3aGVyZSBwbGFjaW5nIHRoZSByZWxvY2F0aW9u
+cyBpbnNpZGUgdGhlIGluaXQKIMKgwqDCoCBzZWN0aW9ucyBwcm9kdWNlcyBlbXB0eSByZWxvY2F0
+aW9ucywgdXNlIC0tZW1pdC1yZWxvY3MuIEJ1dCB0byBhdm9pZAogwqDCoMKgIGNhcnJ5aW5nIHRo
+b3NlIHJlbG9jYXRpb25zIGluIHZtbGludXgsIHVzZSBhbiBpbnRlcm1lZGlhdGUKIMKgwqDCoCB2
+bWxpbnV4LnJlbG9jcyBmaWxlIHdoaWNoIGlzIGEgY29weSBvZiB2bWxpbnV4ICpiZWZvcmUqIHN0
+cmlwcGluZyBpdHMKIMKgwqDCoCByZWxvY2F0aW9ucy4KCiDCoMKgwqAgU3VnZ2VzdGVkLWJ5OiBC
+asO2cm4gVMO2cGVsIDxiam9ybkBrZXJuZWwub3JnPgogwqDCoMKgIFN1Z2dlc3RlZC1ieTogTmlj
+ayBEZXNhdWxuaWVycyA8bmRlc2F1bG5pZXJzQGdvb2dsZS5jb20+CiDCoMKgwqAgU2lnbmVkLW9m
+Zi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgogwqDCoMKgIExp
+bms6IApodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjMwMzI5MDQ1MzI5LjY0NTY1LTctYWxl
+eGdoaXRpQHJpdm9zaW5jLmNvbQogwqDCoMKgIFNpZ25lZC1vZmYtYnk6IFBhbG1lciBEYWJiZWx0
+IDxwYWxtZXJAcml2b3NpbmMuY29tPgoKCj4KPiBJbiBhbnkgY2FzZSwgZm9yIHRoaXMgY2hhbmdl
+LCBvciBhIHZhcmlhdGlvbiBhbG9uZyB0aGUgbGluZXMgb2Ygd2hhdCBJCj4gd3JvdGUgYWJvdmUs
+Cj4KPiBBY2tlZC1ieTogQXJkIEJpZXNoZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz4KCgpUaGFua3Ms
+CgpBbGV4CgoKPgo+Cj4+IEZpeGVzOiA3MWQ4MTViZjVkZmQgKCJrYnVpbGQ6IFN0cmlwIHJ1bnRp
+bWUgY29uc3QgUkVMQSBzZWN0aW9ucyBjb3JyZWN0bHkiKQo+PiBTaWduZWQtb2ZmLWJ5OiBBbGV4
+YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4+IC0tLQo+PiAgIHNjcmlwdHMv
+TWFrZWZpbGUubGliIHwgMiArLQo+PiAgIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigrKSwg
+MSBkZWxldGlvbigtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvc2NyaXB0cy9NYWtlZmlsZS5saWIgYi9z
+Y3JpcHRzL01ha2VmaWxlLmxpYgo+PiBpbmRleCBjYWQyMGYwZTY2ZWUuLjBhMWYxZTY3YTBlZCAx
+MDA2NDQKPj4gLS0tIGEvc2NyaXB0cy9NYWtlZmlsZS5saWIKPj4gKysrIGIvc2NyaXB0cy9NYWtl
+ZmlsZS5saWIKPj4gQEAgLTM3Nyw3ICszNzcsNyBAQCBxdWlldF9jbWRfb2JqY29weSA9IE9CSkNP
+UFkgJEAKPj4gICBjbWRfb2JqY29weSA9ICQoT0JKQ09QWSkgJChPQkpDT1BZRkxBR1MpICQoT0JK
+Q09QWUZMQUdTXyQoQEYpKSAkPCAkQAo+Pgo+PiAgIHF1aWV0X2NtZF9zdHJpcF9yZWxvY3MgPSBS
+U1RSSVAgICRACj4+IC1jbWRfc3RyaXBfcmVsb2NzID0gJChPQkpDT1BZKSAtLXJlbW92ZS1zZWN0
+aW9uPScucmVsKicgJEAKPj4gK2NtZF9zdHJpcF9yZWxvY3MgPSAkKE9CSkNPUFkpIC0tcmVtb3Zl
+LXNlY3Rpb249Jy5yZWwqJyAtLXJlbW92ZS1zZWN0aW9uPSEucmVsYS5keW4gJEAKPj4KPj4gICAj
+IEd6aXAKPj4gICAjIC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQo+PiAtLQo+PiAyLjM5LjIKPj4KPiBfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
+aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
+cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
