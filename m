@@ -4,48 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72B5AC36014
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 20:35:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DCEC36014
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 20:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=56wO7h88GRFg0EwkWGaMHA3f8vjpjzpIehveb2Cou7w=; b=ZCZYH4JwvFsn2n
-	6o9Og1to0YQSc64qrrE0IVp1Ug0246bzdFj43eP7zg8bilhMSfHygOkspKP4Mv1smwuZCO7PDJgvl
-	MW3xgDFoNvFaoLshDUupSPYZSbTbTFE5czIXwcVpfCLGRzrE5dPO9oWa2oy4RGD3HTF5KoXkue3kH
-	eXFH30ijzo/bQAdAvOzxXxWgI7nKiw4oCdggwzKGvGddv5oyfx1ClH5/DUU5ESGbT7DlVOfb3qqY7
-	knqdXiNG0zMAtUK4pfDZdXo5iMyAQGVf25MnfUE85FW1FoQ4SeSlSGbx1SUcZLKUKoCNVuW4+8olP
-	9ZJBhzgasDEtc6jswPeg==;
+	List-Owner; bh=5LeS24iki5dCvM9DHTlDvl6R2IODK/w29NvdebdZHdE=; b=i9nroByiOcgL4I
+	cOemySzLzOgHaSLx8+B6I/DH1O6KdI1Msc/rWk0uiad5/jc2pWY02IGAfy9qGw+189XXx4FoCH2E2
+	ydPa0zaURZwKf9SxAWzxBwSiBmz6POX7bHl5dec8Emk7QSe+FqnYBU3YFsOxRpIIQMjPOBsoCu8uy
+	1VsV3nBabcOLcQi3GU5FvvsXvEvnx1PbbfFVTTIoPrbE2HHuBwI5sD8kJUw4MPDFSKwENmMWkn+aY
+	fpAtrow7Dulg/4BGxzP3DTDOTTIvy21tM33GhbWVFVkEA6621O/ZcOdqdgkzHOrlapG0Uvc2Qe42a
+	EJ1C6cHbgjHZfnki3dsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0RHL-00000009yxp-0Dsk;
+	id 1u0RHL-00000009yy1-2u5R;
 	Thu, 03 Apr 2025 20:35:11 +0000
-Received: from out-186.mta1.migadu.com ([95.215.58.186])
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0RGv-00000009yrV-1SVb
+	id 1u0RGv-00000009yrz-3of3
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 20:34:46 +0000
+	Thu, 03 Apr 2025 20:34:47 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
-	s=key1; t=1743712481;
+	s=key1; t=1743712482;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=XottEP9+kxqN7k8r+CHXORR/CTolk7gMW8RtuPxzLJg=;
-	b=FcMOfVC+xU7hwwVLr0B5iWZuITi70KZBKm4qeHGCRW6+WbcUhz661oepH44LwuaDQ+9cKz
-	UTZij1H0QJGIb84cke/NAuBZGNbozLcHObxCyd2uvRVTfe5qfXpQKi6pkT9RLKuO4C5G0a
-	CIAEWfKq8W7hlph0Qg45iUfiPOVlF8YkX+PNZm6um6pt8/nqGvkktAEvCfZVvMtH6gZR47
-	xy9bCACXaHv0yOYcLSDjCNLGmzWwN1e35e7htTPw29Pi5yz4ws+xspnMXC3kO1j1gLznMz
-	EExAgTiLMZgzWo2QPxVkwazDq9zCDeQq0SAd0jE4czpD3i1GSQTt+eMMR/iPcg==
+	bh=uD5iR3j3WFLeggCmYAp0dLJAKr7cyaVudV3J9Ga4myY=;
+	b=MIwNf3eaBPBrPG9omxufAUV6tnp5q3ry1N627DcdtUnMzfiH67FN+ZUm12lE2dQVJVcjiB
+	bVZjU2tDudJbqxqc0ig1fsk1ti9GkNNbfEUmnqClXrVzOaOJz4JImFPCTJJ5WkBl968Bf1
+	8QZScsUZwv/RnH+AELw1It1J4QmMxg5SBRqAEnw2YJATgdsSie8QNRXnB2SAxGKGeCdgZU
+	MamUC6LihnbhVDyj1xCzw3rbsqExVOW1/u4kyMKzLyvQx08MVZhaTOnqONnt/kiQbAyrYq
+	povq+FHVJouPcG32144mW5tOJKBiWbMzBL7Ex204tZIR77KFOlAYzLRjRTC46w==
 From: Ignacio Encinas <ignacio@iencinas.com>
-Date: Thu, 03 Apr 2025 22:34:17 +0200
-Subject: [PATCH v3 1/2] include/uapi/linux/swab.h: move default
- implementation for swab macros into asm-generic
+Date: Thu, 03 Apr 2025 22:34:18 +0200
+Subject: [PATCH v3 2/2] riscv: introduce asm/swab.h
 MIME-Version: 1.0
-Message-Id: <20250403-riscv-swab-v3-1-3bf705d80e33@iencinas.com>
+Message-Id: <20250403-riscv-swab-v3-2-3bf705d80e33@iencinas.com>
 References: <20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com>
 In-Reply-To: <20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -58,9 +57,8 @@ Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
  linux-arch@vger.kernel.org, Ignacio Encinas <ignacio@iencinas.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_133445_537662_B00EE9D0 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250403_133446_099852_D5FD48B6 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,103 +75,65 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Move the default byteswap implementation into asm-generic so that it can
-be included from arch code.
+Implement endianness swap macros for RISC-V.
 
-This is required by RISC-V in order to have a fallback implementation
-without duplicating it.
+Use the rev8 instruction when Zbb is available. Otherwise, rely on the
+default mask-and-shift implementation.
 
 Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
 ---
- include/uapi/asm-generic/swab.h | 32 ++++++++++++++++++++++++++++++++
- include/uapi/linux/swab.h       | 33 +--------------------------------
- 2 files changed, 33 insertions(+), 32 deletions(-)
+ arch/riscv/include/asm/swab.h | 43 +++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-diff --git a/include/uapi/asm-generic/swab.h b/include/uapi/asm-generic/swab.h
-index f2da4e4fd4d1..43d83df007a6 100644
---- a/include/uapi/asm-generic/swab.h
-+++ b/include/uapi/asm-generic/swab.h
-@@ -16,4 +16,36 @@
- #endif
- #endif
- 
-+/*
-+ * casts are necessary for constants, because we never know how for sure
-+ * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
-+ */
-+#define ___constant_swab16(x) ((__u16)(				\
-+	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
-+	(((__u16)(x) & (__u16)0xff00U) >> 8)))
+diff --git a/arch/riscv/include/asm/swab.h b/arch/riscv/include/asm/swab.h
+new file mode 100644
+index 000000000000..7352e8405a99
+--- /dev/null
++++ b/arch/riscv/include/asm/swab.h
+@@ -0,0 +1,43 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++#ifndef _ASM_RISCV_SWAB_H
++#define _ASM_RISCV_SWAB_H
 +
-+#define ___constant_swab32(x) ((__u32)(				\
-+	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
-+	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
-+	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
-+	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
-+
-+#define ___constant_swab64(x) ((__u64)(				\
-+	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
-+	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
-+	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
-+	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
-+	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
-+	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
-+	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
-+	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
-+
-+#define ___constant_swahw32(x) ((__u32)(			\
-+	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
-+	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
-+
-+#define ___constant_swahb32(x) ((__u32)(			\
-+	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
-+	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
-+
- #endif /* _ASM_GENERIC_SWAB_H */
-diff --git a/include/uapi/linux/swab.h b/include/uapi/linux/swab.h
-index 01717181339e..ca808c492996 100644
---- a/include/uapi/linux/swab.h
-+++ b/include/uapi/linux/swab.h
-@@ -6,38 +6,7 @@
- #include <linux/stddef.h>
- #include <asm/bitsperlong.h>
- #include <asm/swab.h>
--
--/*
-- * casts are necessary for constants, because we never know how for sure
-- * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
-- */
--#define ___constant_swab16(x) ((__u16)(				\
--	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
--	(((__u16)(x) & (__u16)0xff00U) >> 8)))
--
--#define ___constant_swab32(x) ((__u32)(				\
--	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
--	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
--	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
--	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
--
--#define ___constant_swab64(x) ((__u64)(				\
--	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
--	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
--	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
--	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
--	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
--	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
--	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
--	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
--
--#define ___constant_swahw32(x) ((__u32)(			\
--	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
--	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
--
--#define ___constant_swahb32(x) ((__u32)(			\
--	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
--	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
++#include <linux/types.h>
++#include <linux/compiler.h>
++#include <asm/cpufeature-macros.h>
++#include <asm/hwcap.h>
 +#include <asm-generic/swab.h>
- 
- /*
-  * Implement the following as inlines, but define the interface using
++
++#if defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE)
++
++#define ARCH_SWAB(size) \
++static __always_inline unsigned long __arch_swab##size(__u##size value) \
++{									\
++	unsigned long x = value;					\
++									\
++	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)) {            \
++		asm volatile (".option push\n"				\
++			      ".option arch,+zbb\n"			\
++			      "rev8 %0, %1\n"				\
++			      ".option pop\n"				\
++			      : "=r" (x) : "r" (x));			\
++		return x >> (BITS_PER_LONG - size);			\
++	}                                                               \
++	return  ___constant_swab##size(value);				\
++}
++
++#ifdef CONFIG_64BIT
++ARCH_SWAB(64)
++#define __arch_swab64 __arch_swab64
++#endif
++
++ARCH_SWAB(32)
++#define __arch_swab32 __arch_swab32
++
++ARCH_SWAB(16)
++#define __arch_swab16 __arch_swab16
++
++#undef ARCH_SWAB
++
++#endif /* defined(CONFIG_RISCV_ISA_ZBB) && !defined(NO_ALTERNATIVE) */
++#endif /* _ASM_RISCV_SWAB_H */
 
 -- 
 2.49.0
