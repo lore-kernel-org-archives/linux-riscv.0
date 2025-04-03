@@ -4,73 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B291C3601E
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 06:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AA5DC3601E
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 10:13:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IbPQKDIuTzUQVz1mWTv6zAPZz72MhIYL36r9hck/urA=; b=WnCpGOZHY25MRk
-	fH/zAnDfMdxsVc8NWRjGa2lKeWo1p67nf7Cp5chlEkLEQGKWnM1wKjV+KRw9bGRA8x8u2sMMy+Emc
-	GXSz0FeCr2VF4DunbWnITFLdMIPhKRECs7lWmilTrgb9VwKPa78tE8FQfLGuVnJucTHmJ+GOrnagA
-	bIWnCj9p0bBlugsno/Q9h7EFEf+mN9emygl/BeD2UWWDLBxi5EOLZYo2TxXOYAm37fyK1m1zdA5Xs
-	P5DGik1exHmBSJhMcBkFrsnz2MG4PqLvcvo0SjiEoyp+lRPgJvsfiZmx5mZmTM61Ojvg3UNeFaxQG
-	g11375Cecf2Bz6TQWBsQ==;
+	List-Owner; bh=CtxmEES8Yj95P1rrtbyQBYs56o5QF350LKY0oHK4hjA=; b=1zIElXBtMzAA/3
+	sqlBwTxJXFjOFlr/s9b2VagGtLkiTZKrOfxmKYyetYO+gQi+cSb3rW6zeAn9mmARh+iC3ENWiHPha
+	ZeX5f2tWAiIXndLE7SHNM6RJH2LUhUwkwAU62yXePs+bHLZxd1WUhiiPxriX37KNmO6IbKNw5jxEa
+	ypXJpKZlV45b9eTX9iezFkT2Td+OuhLpFfzyRZ9uKqYDPb7B9cNFUhVloapqcekjKNur+0nErTPPB
+	aaMkTeAzm0VDpSNn5uBNufSK7qEHqb+bYtMsSmQnhiw5UvFDru/dVCUPXaHqoSeBYiqj7NDiS7Rzu
+	7t99wK9RPHh8gcfVCRCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EHN-00000007xZj-0MCL;
-	Thu, 03 Apr 2025 06:42:21 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u0HZP-00000008WGq-17iv;
+	Thu, 03 Apr 2025 10:13:11 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0EE2-00000007x7J-0Dey
+	id 1u0H7j-00000008RFi-2pJV
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 06:38:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CA4BFA463A4
-	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 06:33:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C90EC4CEEC
-	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 06:38:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743662332;
-	bh=2/tAIarhHMgZpqgml0rAXbaj403ah+N1dDuDl5YUD4g=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jjcG3lq1WkVbTto5R6Sr0OQQAtu+hmbuYvbwt/TWvMAr2jk3HFuXk7vvaRqZ1NjCy
-	 rFwRBDVcphMkMwnBb+/1x37s/eGqUNjdl8SL9LhRY0gimuLuQLIfCTExGcZXe1doJV
-	 A2Atovl9RzyOD8Q41JU2PbIc5s6OH/7994AUW/P7GnFcBgxxf0QQC+iisJu4qRGyan
-	 f2ir04R+NLdjQWg1Bz4Dg0uXN5nXOvdlvqfV5MBTcekIVentKU7+DdG84NY66TROVG
-	 SvnQOI/SEnnbO0AzNPVxJpwjWTp/lxwzVsPv9bNeyQ9wE4xf494VG6s3/Wl5Ycay6T
-	 j0ycWugI+HlFQ==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-549967c72bcso624165e87.3
-        for <linux-riscv@lists.infradead.org>; Wed, 02 Apr 2025 23:38:52 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVMM3L8JWEu87D6EKjJ2e+J1nyNd2cUj5FWwX3+l/2Ru5cWNP84v3Lubvbnw3+E2iLqwt5+zmLAbeUEMg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz97Ya2S31NmbEPTJlulURW50xF+L6Rrsb0DteegmNVCNb9NIkW
-	7+kJuR+cbztvpm24UEaO57ZaB08K05QzzDxIfp/YPTUVzgZ6qTsdZTBJX7q1xYbm5I2zjND0GrZ
-	gWQQwPqanaoHNm7qklgf65vNsp9o=
-X-Google-Smtp-Source: AGHT+IE4yQD8rhYnVSRXOnS3Y6pofP5obI3okmQ0iC4wJLgbKdsBb0CIGQU6+0Kd5+8+3okm+rb8AazhaZjHp1lAMRE=
-X-Received: by 2002:a05:6512:1149:b0:545:3031:40aa with SMTP id
- 2adb3069b0e04-54b10db738dmr6083399e87.9.1743662330387; Wed, 02 Apr 2025
- 23:38:50 -0700 (PDT)
+	Thu, 03 Apr 2025 09:44:38 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250403094432euoutp01bd07339a42cefb4c389539cd6e8090ac~yxckEcqYJ0662406624euoutp017
+	for <linux-riscv@lists.infradead.org>; Thu,  3 Apr 2025 09:44:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250403094432euoutp01bd07339a42cefb4c389539cd6e8090ac~yxckEcqYJ0662406624euoutp017
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1743673472;
+	bh=kExwcL4NEQLd9uoCfAh/3fBxxncVKWmzGw+zTUsCc70=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=shYNhR2LM5CkZ9J9SC6a6p5jJcPVz0v97wQcLifygi6u1WMVpnLmvPhAUTmxDpJYg
+	 Vq+DpkV7GRZQrofB6Y7uWrkkvsZAaKaN+wwlRV9VzXMth1hz8dk9d0Bcm9fQXpnBCS
+	 2u2INLBlzG9x4QaWtlZwxMtwfA7F3wOV4qNz+Xz0=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
+	20250403094432eucas1p1a709cb14de37ba09deb02ccc7a75ad73~yxcjhq3Dx2581025810eucas1p1i;
+	Thu,  3 Apr 2025 09:44:32 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 5B.93.20397.0885EE76; Thu,  3
+	Apr 2025 10:44:32 +0100 (BST)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250403094431eucas1p21412dff1c24aae077fdfeef08e0f802b~yxci5M0W71406714067eucas1p2K;
+	Thu,  3 Apr 2025 09:44:31 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250403094431eusmtrp2ce05d6a2c0dd262453cd9ee154f72bc8~yxci4Q8-q1352013520eusmtrp2j;
+	Thu,  3 Apr 2025 09:44:31 +0000 (GMT)
+X-AuditID: cbfec7f5-ed1d670000004fad-f6-67ee588001cc
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id CB.A9.19920.F785EE76; Thu,  3
+	Apr 2025 10:44:31 +0100 (BST)
+Received: from AMDC4942.home (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250403094430eusmtip23ece497bd59ff01169f0212b093815f3~yxchxcEa20708707087eusmtip2y;
+	Thu,  3 Apr 2025 09:44:30 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org,
+	wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org,
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Michal
+	Wilczynski <m.wilczynski@samsung.com>, Krzysztof Kozlowski
+	<krzysztof.kozlowski@linaro.org>, Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v7 1/3] dt-bindings: clock: thead: Add TH1520 VO clock
+ controller
+Date: Thu,  3 Apr 2025 11:44:23 +0200
+Message-Id: <20250403094425.876981-2-m.wilczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250403094425.876981-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-References: <20250328075536.238782-1-alexghiti@rivosinc.com>
-In-Reply-To: <20250328075536.238782-1-alexghiti@rivosinc.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 3 Apr 2025 09:38:39 +0300
-X-Gmail-Original-Message-ID: <CAMj1kXGaUZZoKUMEJtv4Fvckub_kRcHBZbpMxet-skqOLD7SNw@mail.gmail.com>
-X-Gm-Features: AQ5f1JokvVmdXrd19nwvBkB35c-v0phYNi9QPm4nTBBdR2jkB4tn0Cxxj2EhIIw
-Message-ID: <CAMj1kXGaUZZoKUMEJtv4Fvckub_kRcHBZbpMxet-skqOLD7SNw@mail.gmail.com>
-Subject: Re: [PATCH] scripts: Introduce ARCH_WANTS_RELA_DYN to avoid stripping
- .rela.dyn section
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Alexandre Ghiti <alex@ghiti.fr>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpmk+LIzCtJLcpLzFFi42LZduzned2GiHfpBs+v8ls8u/OV1WLr71ns
+	Fmv2nmOymLJpB7vF/CPnWC3uXdrCZPFibyOLRfOx9WwWL2fdY7PY+3oru8XHnnusFpd3zWGz
+	2Pa5hc1i7ZG77Bbrv85nsrh4ytXi7r0TLBYvL/cwW7TN4rf4vwdo2r9rG1ksWvZPYXEQ83h/
+	o5Xd483Llywehzu+sHvcOzGN1WPTqk42jzvX9rB5bF5S73Hnx1JGj5a1x5g8+v8aeLzfd5XN
+	o2/LKkaPS83X2T0+b5IL4IvisklJzcksSy3St0vgyjgy0abgsVzFmh2HmBsY2yS7GDk5JARM
+	JCa0LmQEsYUEVjBKnP+X2MXIBWR/YZT437afDcL5zCjx4+VuVpiO2bs/MUF0LGeUeHHFB6Lo
+	DaPE2/enwYrYBIwkHiyfzwqSEBHYwyTx/ftPZhCHWaCXSWLa0rlAczk4hAWCJfbvcgRpYBFQ
+	lZjxdz8LiM0rYCfR+/EWM8Q2eYn9B8+C2ZwC9hIbpjxmhKgRlDg58wlYPTNQTfPW2WDzJQQe
+	cUpM/XAHqtlFomH3H0YIW1ji1fEt7BC2jMT/nfOZIOx8iQdbP0HV10js7DkOZVtL3Dn3C+xO
+	ZgFNifW79CHCjhJzrh9lBAlLCPBJ3HgrCHECn8SkbdOZIcK8Eh1tQhDVahJTe3rhlp5bsQ1q
+	qYfE1gWvWCYwKs5C8swsJM/MQti7gJF5FaN4amlxbnpqsXFearlecWJucWleul5yfu4mRmA6
+	Pf3v+NcdjCtefdQ7xMjEwXiIUYKDWUmEt1DrbboQb0piZVVqUX58UWlOavEhRmkOFiVx3kX7
+	W9OFBNITS1KzU1MLUotgskwcnFINTBIMJS0nbHaf2N+x2el8RNfLePY/Oj35Tb95mTTubPp6
+	eZrT3DUp//4sPmYrW7UtuOvg3sefw52mndvuwJvVdrnzxxm5iV/0nMWnl3pyyf92VC7IaSyJ
+	iOmXq36/YnnatbMGVne/vuj29Lp5Wuri/I5ADY/Jtz78UTOWeNH4eUfmX+u3py28pm4NVjw9
+	oep4RAzr3xWnVm+5wJL928nyYNaFK+Y6v5ybeHPTAmK4Fe/+OnDibsB1l9kfNi7JTP4Q3H7w
+	zeqql1t3XuYX0dLZvp5nweb05ay2xyryzCN7Dx6Vf8Zwbz3fiibRe9oXWldNMOq89qrp4Q/e
+	TvdHlcunc3xPmZbgFHvE7NT0yMw+wZdKLMUZiYZazEXFiQCj1c1DFgQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrKIsWRmVeSWpSXmKPExsVy+t/xe7r1Ee/SDR48kLZ4ducrq8XW37PY
+	LdbsPcdkMWXTDnaL+UfOsVrcu7SFyeLF3kYWi+Zj69ksXs66x2ax9/VWdouPPfdYLS7vmsNm
+	se1zC5vF2iN32S3Wf53PZHHxlKvF3XsnWCxeXu5htmibxW/xfw/QtH/XNrJYtOyfwuIg5vH+
+	Riu7x5uXL1k8Dnd8Yfe4d2Iaq8emVZ1sHneu7WHz2Lyk3uPOj6WMHi1rjzF59P818Hi/7yqb
+	R9+WVYwel5qvs3t83iQXwBelZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdkYqlnaGwea2VkqqRv
+	Z5OSmpNZllqkb5egl3Fkok3BY7mKNTsOMTcwtkl2MXJySAiYSMze/Ympi5GLQ0hgKaPE07f7
+	2SASMhLXul+yQNjCEn+udbFBFL1ilDi58RZYEZuAkcSD5fNZQRIiAheYJHatWw02illgMpPE
+	pI/vmUCqhAUCJab8bgezWQRUJWb83Q82llfATqL34y1miBXyEvsPngWzOQXsJTZMecwIYgsB
+	1fy52c8MUS8ocXLmE7BeZqD65q2zmScwCsxCkpqFJLWAkWkVo0hqaXFuem6xoV5xYm5xaV66
+	XnJ+7iZGYPxvO/Zz8w7Gea8+6h1iZOJgPMQowcGsJMJbqPU2XYg3JbGyKrUoP76oNCe1+BCj
+	KdDdE5mlRJPzgQkoryTe0MzA1NDEzNLA1NLMWEmc1+3y+TQhgfTEktTs1NSC1CKYPiYOTqkG
+	Jo7AraZlVTmL2GJCGf90sgp5L/SsPu79ylG2ptxsx/ONZyfdyOqR7XFiDHiUyc/dq2stWdHn
+	pKgTqhj699xvkSe8S18yyrDx73UO75FRLJ8TfmP7rA86vatevlixuy5louhyRtv2vsx5zMfn
+	s6Q+y/9Vur7wno3o1sdhF7bfsvqx+3PI9a777u1r1y95LP/KUP/2aRnunP/fX/p1nn54vWjz
+	4XcHLpr0hi6odzgh7vTiA8O5S4z2rLGHbnAmzbdmyfR4u+vZDJE0Hb49u4+4MH/QymNkVZp2
+	6ZbRO9PLK5fJs2/yfPzs03xz3jct1msf32D+5JsvZP2ZK632abKg361CTi8rs94kcctlvwU3
+	KLEUZyQaajEXFScCACVS1eCIAwAA
+X-CMS-MailID: 20250403094431eucas1p21412dff1c24aae077fdfeef08e0f802b
+X-Msg-Generator: CA
+X-RootMTR: 20250403094431eucas1p21412dff1c24aae077fdfeef08e0f802b
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250403094431eucas1p21412dff1c24aae077fdfeef08e0f802b
+References: <20250403094425.876981-1-m.wilczynski@samsung.com>
+	<CGME20250403094431eucas1p21412dff1c24aae077fdfeef08e0f802b@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250402_233854_237958_B02737E1 
-X-CRM114-Status: GOOD (  19.85  )
+X-CRM114-CacheID: sfid-20250403_024437_105522_5F99B864 
+X-CRM114-Status: GOOD (  12.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,81 +140,113 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Mar 2025 at 08:55, Alexandre Ghiti <alexghiti@rivosinc.com> wrote:
->
-> riscv uses the .rela.dyn section to relocate the kernel at runtime but
-> that section is stripped from vmlinux. That prevents kexec to
-> successfully load vmlinux since it does not contain the relocations info
-> needed.
->
-> Fix this by introducing a new config ARCH_WANTS_RELA_DYN that prevents
-> .rela.dyn to be stripped.
->
-> Fixes: 71d815bf5dfd ("kbuild: Strip runtime const RELA sections correctly")
-> Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Add device tree bindings for the TH1520 Video Output (VO) subsystem
+clock controller. The VO sub-system manages clock gates for multimedia
+components including HDMI, MIPI, and GPU.
 
-Apologies for the breakage.
+Document the VIDEO_PLL requirements for the VO clock controller, which
+receives its input from the AP clock controller. The VIDEO_PLL is a
+Silicon Creations Sigma-Delta (integer) PLL typically running at 792 MHz
+with maximum FOUTVCO of 2376 MHz.
 
+This binding complements the existing AP sub-system clock controller
+which manages CPU, DPU, GMAC and TEE PLLs.
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../bindings/clock/thead,th1520-clk-ap.yaml   | 17 ++++++++--
+ .../dt-bindings/clock/thead,th1520-clk-ap.h   | 34 +++++++++++++++++++
+ 2 files changed, 48 insertions(+), 3 deletions(-)
 
-> ---
->  arch/Kconfig         | 7 +++++++
->  arch/riscv/Kconfig   | 1 +
->  scripts/Makefile.lib | 4 +++-
->  3 files changed, 11 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/Kconfig b/arch/Kconfig
-> index b8a4ff365582..d93f50ecb8f9 100644
-> --- a/arch/Kconfig
-> +++ b/arch/Kconfig
-> @@ -1544,6 +1544,13 @@ config HAVE_ARCH_PREL32_RELOCATIONS
->           architectures, and don't require runtime relocation on relocatable
->           kernels.
->
-> +config ARCH_WANTS_RELA_DYN
+diff --git a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
+index 0129bd0ba4b3..9d058c00ab3d 100644
+--- a/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
++++ b/Documentation/devicetree/bindings/clock/thead,th1520-clk-ap.yaml
+@@ -8,7 +8,8 @@ title: T-HEAD TH1520 AP sub-system clock controller
+ 
+ description: |
+   The T-HEAD TH1520 AP sub-system clock controller configures the
+-  CPU, DPU, GMAC and TEE PLLs.
++  CPU, DPU, GMAC and TEE PLLs. Additionally the VO subsystem configures
++  the clock gates for the HDMI, MIPI and the GPU.
+ 
+   SoC reference manual
+   https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf
+@@ -20,14 +21,24 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    const: thead,th1520-clk-ap
++    enum:
++      - thead,th1520-clk-ap
++      - thead,th1520-clk-vo
+ 
+   reg:
+     maxItems: 1
+ 
+   clocks:
+     items:
+-      - description: main oscillator (24MHz)
++      - description: |
++          One input clock:
++          - For "thead,th1520-clk-ap": the clock input must be the 24 MHz
++            main oscillator.
++          - For "thead,th1520-clk-vo": the clock input must be the VIDEO_PLL,
++            which is configured by the AP clock controller. According to the
++            TH1520 manual, VIDEO_PLL is a Silicon Creations Sigma-Delta PLL
++            (integer PLL) typically running at 792 MHz (FOUTPOSTDIV), with
++            a maximum FOUTVCO of 2376 MHz.
+ 
+   "#clock-cells":
+     const: 1
+diff --git a/include/dt-bindings/clock/thead,th1520-clk-ap.h b/include/dt-bindings/clock/thead,th1520-clk-ap.h
+index a199784b3512..09a9aa7b3ab1 100644
+--- a/include/dt-bindings/clock/thead,th1520-clk-ap.h
++++ b/include/dt-bindings/clock/thead,th1520-clk-ap.h
+@@ -93,4 +93,38 @@
+ #define CLK_SRAM3		83
+ #define CLK_PLL_GMAC_100M	84
+ #define CLK_UART_SCLK		85
++
++/* VO clocks */
++#define CLK_AXI4_VO_ACLK		0
++#define CLK_GPU_MEM			1
++#define CLK_GPU_CORE			2
++#define CLK_GPU_CFG_ACLK		3
++#define CLK_DPU_PIXELCLK0		4
++#define CLK_DPU_PIXELCLK1		5
++#define CLK_DPU_HCLK			6
++#define CLK_DPU_ACLK			7
++#define CLK_DPU_CCLK			8
++#define CLK_HDMI_SFR			9
++#define CLK_HDMI_PCLK			10
++#define CLK_HDMI_CEC			11
++#define CLK_MIPI_DSI0_PCLK		12
++#define CLK_MIPI_DSI1_PCLK		13
++#define CLK_MIPI_DSI0_CFG		14
++#define CLK_MIPI_DSI1_CFG		15
++#define CLK_MIPI_DSI0_REFCLK		16
++#define CLK_MIPI_DSI1_REFCLK		17
++#define CLK_HDMI_I2S			18
++#define CLK_X2H_DPU1_ACLK		19
++#define CLK_X2H_DPU_ACLK		20
++#define CLK_AXI4_VO_PCLK		21
++#define CLK_IOPMP_VOSYS_DPU_PCLK	22
++#define CLK_IOPMP_VOSYS_DPU1_PCLK	23
++#define CLK_IOPMP_VOSYS_GPU_PCLK	24
++#define CLK_IOPMP_DPU1_ACLK		25
++#define CLK_IOPMP_DPU_ACLK		26
++#define CLK_IOPMP_GPU_ACLK		27
++#define CLK_MIPIDSI0_PIXCLK		28
++#define CLK_MIPIDSI1_PIXCLK		29
++#define CLK_HDMI_PIXCLK			30
++
+ #endif
+-- 
+2.34.1
 
-I don't think we need this - just preserve .rela.dyn in all cases.
-
-> +       bool
-> +       depends on RELOCATABLE
-> +       help
-> +         This prevents the .rela.dyn section to be stripped from vmlinux since
-> +         it is needed to relocate the kernel at runtime.
-> +
->  config ARCH_USE_MEMREMAP_PROT
->         bool
->
-> diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-> index 7612c52e9b1e..d58053efa4e4 100644
-> --- a/arch/riscv/Kconfig
-> +++ b/arch/riscv/Kconfig
-> @@ -84,6 +84,7 @@ config RISCV
->         select ARCH_WANT_OPTIMIZE_DAX_VMEMMAP
->         select ARCH_WANT_OPTIMIZE_HUGETLB_VMEMMAP
->         select ARCH_WANTS_NO_INSTR
-> +       select ARCH_WANTS_RELA_DYN if RELOCATABLE
->         select ARCH_WANTS_THP_SWAP if HAVE_ARCH_TRANSPARENT_HUGEPAGE
->         select ARCH_WEAK_RELEASE_ACQUIRE if ARCH_USE_QUEUED_SPINLOCKS
->         select BINFMT_FLAT_NO_DATA_START_OFFSET if !MMU
-> diff --git a/scripts/Makefile.lib b/scripts/Makefile.lib
-> index cad20f0e66ee..e59210a9fde0 100644
-> --- a/scripts/Makefile.lib
-> +++ b/scripts/Makefile.lib
-> @@ -376,8 +376,10 @@ quiet_cmd_ar = AR      $@
->  quiet_cmd_objcopy = OBJCOPY $@
->  cmd_objcopy = $(OBJCOPY) $(OBJCOPYFLAGS) $(OBJCOPYFLAGS_$(@F)) $< $@
->
-> +objcopy-args-$(CONFIG_ARCH_WANTS_RELA_DYN) += --remove-section=!.rela.dyn
-> +
->  quiet_cmd_strip_relocs = RSTRIP  $@
-> -cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $@
-> +cmd_strip_relocs = $(OBJCOPY) --remove-section='.rel*' $(objcopy-args-y) $@
->
->  # Gzip
->  # ---------------------------------------------------------------------------
-> --
-> 2.39.2
->
 
 _______________________________________________
 linux-riscv mailing list
