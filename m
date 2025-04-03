@@ -4,54 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85979C3600C
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 10:20:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63C93C3601B
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 11:37:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KxLsrCo2GI2ZyzjZyQhRm5nLY70hV+TOdUWbjvXZUlE=; b=YS13vsJ4INrooy
-	sqgso6WaEzYtKA6AHSko1zCLxq8GPFvRCRFncIgHfcpoyAObrZrOZHKSt5hUKZmf5bgeHaFSmD5AX
-	d5h2U7pQWzVrdGwGWPLcFCeFM3KDf8rtVPKwJz2M1HbaQeLkjHnLkR9L4c1/EpXnMAgyg5mhPnqWh
-	bkKsEIEsF0MlFSODl2zCWow46bzplM1uKvF59xyyduYn13xwcSv0D2p55HTpHpy+svMWqM+5BZHqb
-	NqiKvVFe2ReKVyTWjkesUrV5Rfw1SR8t0R4dFbyDijFvGavrep52odpHaY3YVTDgTcyyN3Qj/vj/e
-	Uichs2sTbLwwA31uGhCw==;
+	List-Owner; bh=7JFnsE+4CTYQB4f4Re0xToxd/NH5J14kF+P5DVAiUTg=; b=I2mECLjRR1GECo
+	lPqNP03GnOdc2JfQ3nHcaxBqffxT2wgDqYFw+qazkzOKedZiYwgFq/OVTKeN9bL/6ZHduAqWQfd7k
+	YkawxzFdnjKzw2UXAmvoYEcHTWrarOvNY/hzVyR6UYeEhFV24/K4reNaklw839q4g/mwQA2DYCGld
+	OKhkBFajABHQ+9ehDcdlomjx2OBgkBJHNofMV2+z1erESgnviMeX/oIWgSrnPDpz6us8KvRmH5Fev
+	TpHNnuyTsWBDqoZAcLleli/JnkUJwjvFc4+frJn2ocg644U3iDcYt/GVIc7MBwFcrYhPyfIvN2lLp
+	zYejbUJLjq0JFZJhQf5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HgM-00000008YAG-2rfG;
-	Thu, 03 Apr 2025 10:20:22 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1u0ItD-00000008jSc-0ltp;
+	Thu, 03 Apr 2025 11:37:43 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0HLf-00000008TGG-0MiE
+	id 1u0Inu-00000008iSH-3iLW
 	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 09:59:01 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 8AFF943231;
-	Thu,  3 Apr 2025 09:58:50 +0000 (UTC)
-Message-ID: <5b0adf9b-2b22-43fe-ab74-68df94115b9a@ghiti.fr>
-Date: Thu, 3 Apr 2025 11:58:50 +0200
+	Thu, 03 Apr 2025 11:32:16 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43cf825f46bso734735e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 03 Apr 2025 04:32:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1743679933; x=1744284733; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WBJFdG3z/8VkLDYY4XL1oPtAwDow6ej1t0aXVg/kRKM=;
+        b=AAyw2tVPqvFvGlKZdvzvF7zb86fc9q1PamjOVMCJtS5uccYwOEQntUxPrHm1VUwW53
+         d9Y7YsNq2vsx9PwqqjetBx+OwEylvn7RhBc3faQ0LObUfThqGODvxlnHicvPuEmGmuUY
+         PHibHzjITS2EQvryndq8CbXPLUEpu2ckO4Y7l0PXpdCP7FYwxXqBvdxhB6z38gO05bIf
+         1twx4TlJJwA/GfVI3JD41isEGhxIDmuUEid9xuL2aEcsc8eYnqpMe0fRPZ+tuSZJUT1F
+         Nmw5VaOprnmNO7/DdQi/Bgy54Hs5FLqQHVNfqKzJ5DUEWD+cXQQO6k57KU90VOrc77+q
+         tHJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1743679933; x=1744284733;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WBJFdG3z/8VkLDYY4XL1oPtAwDow6ej1t0aXVg/kRKM=;
+        b=bWlKoT9uxXbgy3dj+OsjfJV3Nwevyk90txBBCljW3CxOr93HiNgRcC9YI1zXxYWM59
+         5XlIRqUfctw4E7OvPLrZ4sdWaffh91U0koU2L9xQ4mxlDIG0g4gGMQeN0GaeX/m2Bepk
+         5lrOhMqswNjVJt0MrXsvAudMeKQPBPm18Lsi+SuX+trqy3yDgJqX4rkVSzCIBt3AWMWY
+         Y1htaY7zcMolXEu29dU3tZ4GY68uPQakJxoOEElL9Y0UD6xOdz9J5vFKNLxfNBLxm2a0
+         a1mVXKkbyMJmbUXnETfuwA/vo5Xo2dTZywaZDEi5Mxh8D69vNyPT4UM+OdxpAuuhocfQ
+         EtZA==
+X-Forwarded-Encrypted: i=1; AJvYcCWADaPNNF+cBTTKcAF7ItRRIUJNlmGAwkONsBWi2dVlU4YaPOMgMDaLJQQ7JRRbLa69IdRz+khUBSjqgA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw51W39yGykxjx/w04iCoIAZA3fKPVlWV1KLFhK2xGlYLWXjmQt
+	Xcxx8UAEa8t8C2WGArYhXq/2sNwG4um2pfTfc9iSkPzaJr1fxyBGcqCDh6ht4L4=
+X-Gm-Gg: ASbGncvBULcuPT15Jo2EGflKQE3IU7YQ+DdIlwQyZjvzgYwpd75zJ1DMrb8apHKHgNt
+	Q2wyGQPWFcR4FGgknLY+OhcVAVPMNG45nVAMeqR0zF/FI5+0oyZyAqfJKuBKWYQokBcGp0jczBX
+	yS/yD3ecOjO/qodznqO+G1+vO87q3It/Rag8GjwjvngrbNVAAIjumVDTjD/AyMQzPVGFpnWr+fw
+	IjkptrVU1C/dl+d2fxx5cm0uWw91qz2cZtKwNQrDujokJ4hE4lqB8EZzovgDy/8yt+XzaAUIYFm
+	+z/TccXr08SnNoWquFegzu2LQ6IzbWYKA+pXgA9HBfHh+iSEOWEbZ/ZRxXd3O6aqmbNBSqcWevM
+	nVQ==
+X-Google-Smtp-Source: AGHT+IEmT1nc0GRaKk4V5Lw6Y+h94knU+oKxuBtmIqWaoagUJp23E2laTFWN8HrLfDImIKVCRKrM7g==
+X-Received: by 2002:a05:600c:3510:b0:43b:c825:6cde with SMTP id 5b1f17b1804b1-43ea93540demr38321015e9.3.1743679933409;
+        Thu, 03 Apr 2025 04:32:13 -0700 (PDT)
+Received: from localhost (cst2-173-141.cust.vodafone.cz. [31.30.173.141])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec3429f67sm16500145e9.7.2025.04.03.04.32.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 03 Apr 2025 04:32:13 -0700 (PDT)
+From: =?UTF-8?q?Radim=20Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+To: kvm-riscv@lists.infradead.org
+Cc: kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Mayuresh Chitale <mchitale@ventanamicro.com>
+Subject: [PATCH 2/5] KVM: RISC-V: refactor sbi reset request
+Date: Thu,  3 Apr 2025 13:25:21 +0200
+Message-ID: <20250403112522.1566629-5-rkrcmar@ventanamicro.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
+References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Content-Language: en-US
-To: WangYuli <wangyuli@uniontech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: chenhuacai@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
- palmerdabbelt@google.com, zhanjun@uniontech.com, niecheng1@uniontech.com,
- guanwentao@uniontech.com, Huacai Chen <chenhuacai@loongson.cn>
-References: <330B3BAFC6FDB763+20250402074247.64483-1-wangyuli@uniontech.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <330B3BAFC6FDB763+20250402074247.64483-1-wangyuli@uniontech.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddukeekvdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvledphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemjegtuddvmehffhdtieemugefgegrmegufegvlegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtohepfigrnhhghihulhhisehunhhiohhnthgvtghhrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpt
- hhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegthhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehvihhntggvnhhtrdgthhgvnhesshhifhhivhgvrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_025859_259069_ACC8999E 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250403_043214_948677_7E7ED0DA 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,102 +103,84 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi WangYuli,
-
-On 02/04/2025 09:42, WangYuli wrote:
-> The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
-> symbol using inline assembly.
->
-> There's a potential issue where the compiler might inline
-> arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
-
-
-I guess you meant kgdb_compiled_break.
-
-
-> symbol multiple times, leading to fail to link vmlinux.o.
-> This isn't merely a potential compilation problem. The intent here
-> is to determine the global symbol address of kgdb_compiled_break,
-> and if this function is inlined multiple times, it would logically
-> be a grave error.
->
-> Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
-> Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-> Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
-> Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
-> Signed-off-by: WangYuli <wangyuli@uniontech.com>
-> ---
-> Changelog:
->   *v1->v2: Add the missing __ASSEMBLY__ check and substitute
-> ".option rvc/norvc" with ".option push/pop".
-> ---
->   arch/riscv/include/asm/kgdb.h | 9 +--------
->   arch/riscv/kernel/kgdb.c      | 8 ++++++++
->   2 files changed, 9 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-> index 46677daf708b..d9f6a8fc387f 100644
-> --- a/arch/riscv/include/asm/kgdb.h
-> +++ b/arch/riscv/include/asm/kgdb.h
-> @@ -19,16 +19,9 @@
->   
->   #ifndef	__ASSEMBLY__
->   
-> +extern void arch_kgdb_breakpoint(void);
-
-
-The "extern" is not needed here.
-
-
->   extern unsigned long kgdb_compiled_break;
->   
-> -static inline void arch_kgdb_breakpoint(void)
-> -{
-> -	asm(".global kgdb_compiled_break\n"
-> -	    ".option norvc\n"
-> -	    "kgdb_compiled_break: ebreak\n"
-> -	    ".option rvc\n");
-> -}
-> -
->   #endif /* !__ASSEMBLY__ */
->   
->   #define DBG_REG_ZERO "zero"
-> diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-> index 2e0266ae6bd7..5873d3970360 100644
-> --- a/arch/riscv/kernel/kgdb.c
-> +++ b/arch/riscv/kernel/kgdb.c
-> @@ -254,6 +254,14 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
->   	regs->epc = pc;
->   }
->   
-> +noinline void arch_kgdb_breakpoint(void)
-> +{
-> +	asm(".global kgdb_compiled_break\n"
-> +	    ".option push\n"
-
-
-Here you forgot .option norvc. But this fix as mentioned by Samuel 
-should be in a separate patch.
-
-Thanks,
-
-Alex
-
-
-> +	    "kgdb_compiled_break: ebreak\n"
-> +	    ".option pop\n");
-> +}
-> +
->   void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
->   				char *remcom_out_buffer)
->   {
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIHNhbWUgY29kZSBpcyB1c2VkIHR3aWNlIGFuZCBTQkkgcmVzZXQgc2V0cyBvbmx5IHR3byB2
+YXJpYWJsZXMuCgpTaWduZWQtb2ZmLWJ5OiBSYWRpbSBLcsSNbcOhxZkgPHJrcmNtYXJAdmVudGFu
+YW1pY3JvLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oIHwg
+IDIgKysKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMgICAgICAgICAgICAgfCAxMiArKysrKysr
+KysrKysKIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2hzbS5jICAgICAgICAgfCAxMyArLS0tLS0t
+LS0tLS0tCiBhcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9zeXN0ZW0uYyAgICAgIHwgMTAgKy0tLS0t
+LS0tLQogNCBmaWxlcyBjaGFuZ2VkLCAxNiBpbnNlcnRpb25zKCspLCAyMSBkZWxldGlvbnMoLSkK
+CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oIGIvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9zYmkuaAppbmRleCA0ZWQ2MjAzY2RkMzAuLmFh
+YWE4MTM1NTI3NiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9z
+YmkuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oCkBAIC01NSw2
+ICs1NSw4IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX2ZvcndhcmQoc3RydWN0IGt2bV92Y3B1
+ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuKTsKIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3N5
+c3RlbV9yZXNldChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCiAJCQkJICAgICBzdHJ1Y3Qga3ZtX3J1
+biAqcnVuLAogCQkJCSAgICAgdTMyIHR5cGUsIHU2NCBmbGFncyk7Cit2b2lkIGt2bV9yaXNjdl92
+Y3B1X3NiaV9yZXF1ZXN0X3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKKyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBwYywgdW5zaWduZWQgbG9u
+ZyBhMSk7CiBpbnQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3JldHVybihzdHJ1Y3Qga3ZtX3ZjcHUgKnZj
+cHUsIHN0cnVjdCBrdm1fcnVuICpydW4pOwogaW50IGt2bV9yaXNjdl92Y3B1X3NldF9yZWdfc2Jp
+X2V4dChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCiAJCQkJICAgY29uc3Qgc3RydWN0IGt2bV9vbmVf
+cmVnICpyZWcpOwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYyBiL2FyY2gv
+cmlzY3Yva3ZtL3ZjcHVfc2JpLmMKaW5kZXggZDFjODNhNzc3MzVlLi5mNTgzNjhmN2RmMWQgMTAw
+NjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMKKysrIGIvYXJjaC9yaXNjdi9rdm0v
+dmNwdV9zYmkuYwpAQCAtMTU2LDYgKzE1NiwxOCBAQCB2b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9z
+eXN0ZW1fcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAogCXJ1bi0+ZXhpdF9yZWFzb24gPSBL
+Vk1fRVhJVF9TWVNURU1fRVZFTlQ7CiB9CiAKK3ZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3JlcXVl
+c3RfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAorICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICB1bnNpZ25lZCBsb25nIHBjLCB1bnNpZ25lZCBsb25nIGExKQoreworCXNw
+aW5fbG9jaygmdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOworCXZjcHUtPmFyY2guZ3Vlc3Rf
+cmVzZXRfY29udGV4dC5zZXBjID0gcGM7CisJdmNwdS0+YXJjaC5ndWVzdF9yZXNldF9jb250ZXh0
+LmEwID0gdmNwdS0+dmNwdV9pZDsKKwl2Y3B1LT5hcmNoLmd1ZXN0X3Jlc2V0X2NvbnRleHQuYTEg
+PSBhMTsKKwlzcGluX3VubG9jaygmdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOworCisJa3Zt
+X21ha2VfcmVxdWVzdChLVk1fUkVRX1ZDUFVfUkVTRVQsIHZjcHUpOworfQorCiBpbnQga3ZtX3Jp
+c2N2X3ZjcHVfc2JpX3JldHVybihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVjdCBrdm1fcnVu
+ICpydW4pCiB7CiAJc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY3AgPSAmdmNwdS0+YXJjaC5ndWVz
+dF9jb250ZXh0OwpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfaHNtLmMgYi9h
+cmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9oc20uYwppbmRleCAzMDcwYmIzMTc0NWQuLmYyNjIwN2Y4
+NGJhYiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfaHNtLmMKKysrIGIvYXJj
+aC9yaXNjdi9rdm0vdmNwdV9zYmlfaHNtLmMKQEAgLTE1LDcgKzE1LDYgQEAKIAogc3RhdGljIGlu
+dCBrdm1fc2JpX2hzbV92Y3B1X3N0YXJ0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKIHsKLQlzdHJ1
+Y3Qga3ZtX2NwdV9jb250ZXh0ICpyZXNldF9jbnR4OwogCXN0cnVjdCBrdm1fY3B1X2NvbnRleHQg
+KmNwID0gJnZjcHUtPmFyY2guZ3Vlc3RfY29udGV4dDsKIAlzdHJ1Y3Qga3ZtX3ZjcHUgKnRhcmdl
+dF92Y3B1OwogCXVuc2lnbmVkIGxvbmcgdGFyZ2V0X3ZjcHVpZCA9IGNwLT5hMDsKQEAgLTMyLDE3
+ICszMSw3IEBAIHN0YXRpYyBpbnQga3ZtX3NiaV9oc21fdmNwdV9zdGFydChzdHJ1Y3Qga3ZtX3Zj
+cHUgKnZjcHUpCiAJCWdvdG8gb3V0OwogCX0KIAotCXNwaW5fbG9jaygmdGFyZ2V0X3ZjcHUtPmFy
+Y2gucmVzZXRfY250eF9sb2NrKTsKLQlyZXNldF9jbnR4ID0gJnRhcmdldF92Y3B1LT5hcmNoLmd1
+ZXN0X3Jlc2V0X2NvbnRleHQ7Ci0JLyogc3RhcnQgYWRkcmVzcyAqLwotCXJlc2V0X2NudHgtPnNl
+cGMgPSBjcC0+YTE7Ci0JLyogdGFyZ2V0IHZjcHUgaWQgdG8gc3RhcnQgKi8KLQlyZXNldF9jbnR4
+LT5hMCA9IHRhcmdldF92Y3B1aWQ7Ci0JLyogcHJpdmF0ZSBkYXRhIHBhc3NlZCBmcm9tIGtlcm5l
+bCAqLwotCXJlc2V0X2NudHgtPmExID0gY3AtPmEyOwotCXNwaW5fdW5sb2NrKCZ0YXJnZXRfdmNw
+dS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOwotCi0Ja3ZtX21ha2VfcmVxdWVzdChLVk1fUkVRX1ZD
+UFVfUkVTRVQsIHRhcmdldF92Y3B1KTsKKwlrdm1fcmlzY3ZfdmNwdV9zYmlfcmVxdWVzdF9yZXNl
+dCh0YXJnZXRfdmNwdSwgY3AtPmExLCBjcC0+YTIpOwogCiAJX19rdm1fcmlzY3ZfdmNwdV9wb3dl
+cl9vbih0YXJnZXRfdmNwdSk7CiAKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2Jp
+X3N5c3RlbS5jIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfc3lzdGVtLmMKaW5kZXggYmMwZWJi
+YTg5MDAzLi4zNTliZTkwYjBmYzUgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2Jp
+X3N5c3RlbS5jCisrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX3N5c3RlbS5jCkBAIC0xMyw3
+ICsxMyw2IEBAIHN0YXRpYyBpbnQga3ZtX3NiaV9leHRfc3VzcF9oYW5kbGVyKHN0cnVjdCBrdm1f
+dmNwdSAqdmNwdSwgc3RydWN0IGt2bV9ydW4gKnJ1biwKIAkJCQkgICAgc3RydWN0IGt2bV92Y3B1
+X3NiaV9yZXR1cm4gKnJldGRhdGEpCiB7CiAJc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY3AgPSAm
+dmNwdS0+YXJjaC5ndWVzdF9jb250ZXh0OwotCXN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKnJlc2V0
+X2NudHg7CiAJdW5zaWduZWQgbG9uZyBmdW5jaWQgPSBjcC0+YTY7CiAJdW5zaWduZWQgbG9uZyBo
+dmEsIGk7CiAJc3RydWN0IGt2bV92Y3B1ICp0bXA7CkBAIC00NSwxNCArNDQsNyBAQCBzdGF0aWMg
+aW50IGt2bV9zYmlfZXh0X3N1c3BfaGFuZGxlcihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVj
+dCBrdm1fcnVuICpydW4sCiAJCQl9CiAJCX0KIAotCQlzcGluX2xvY2soJnZjcHUtPmFyY2gucmVz
+ZXRfY250eF9sb2NrKTsKLQkJcmVzZXRfY250eCA9ICZ2Y3B1LT5hcmNoLmd1ZXN0X3Jlc2V0X2Nv
+bnRleHQ7Ci0JCXJlc2V0X2NudHgtPnNlcGMgPSBjcC0+YTE7Ci0JCXJlc2V0X2NudHgtPmEwID0g
+dmNwdS0+dmNwdV9pZDsKLQkJcmVzZXRfY250eC0+YTEgPSBjcC0+YTI7Ci0JCXNwaW5fdW5sb2Nr
+KCZ2Y3B1LT5hcmNoLnJlc2V0X2NudHhfbG9jayk7Ci0KLQkJa3ZtX21ha2VfcmVxdWVzdChLVk1f
+UkVRX1ZDUFVfUkVTRVQsIHZjcHUpOworCQlrdm1fcmlzY3ZfdmNwdV9zYmlfcmVxdWVzdF9yZXNl
+dCh2Y3B1LCBjcC0+YTEsIGNwLT5hMik7CiAKIAkJLyogdXNlcnNwYWNlIHByb3ZpZGVzIHRoZSBz
+dXNwZW5kIGltcGxlbWVudGF0aW9uICovCiAJCWt2bV9yaXNjdl92Y3B1X3NiaV9mb3J3YXJkKHZj
+cHUsIHJ1bik7Ci0tIAoyLjQ4LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
