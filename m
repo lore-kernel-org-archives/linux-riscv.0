@@ -4,62 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0619C3601A
-	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 16:20:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF91C3600C
+	for <linux-riscv@archiver.kernel.org>; Thu,  3 Apr 2025 17:58:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Subject:From:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UfIcQ8F5HK9z5MGnYJ23cpyFJ/P/Xg4d5PX4LH2RnzA=; b=ezVRw8JGVWgMpO
-	WZTDfhO5LeNAPznvzl8fhLEWLyb0po/l2wx5BmKCWk8mJ3C7ORCuBL2Gh1YWYhTCJAerOEnmrX3fl
-	it69U1A+OWSAJ2BIhzCIpYF/m9jC2LLOwNzU7g7KjjgjDquTImmZne9MtC9fUEtjV0ZIM18CEvoX7
-	BMIxtBJ5J6T9UQMn7/2/an4U7Snsgjxw2DUAUAy5yUFnyhykCcmCJF1TqEzjvUoD9DVxDr1GbgnwO
-	IWOJBPd2zzAN2eqmBIz6XiYGOLDLz5mrFKXRJxt015OLmyUjuDA9ck4jgskzdkawtysD/Mmc02hJe
-	KpmnIhWV4JmV3pFhqOVg==;
+	List-Owner; bh=Eink/2BcKAi6/j4TQN8SHBx0XxGLHiAb7WKt8MIQLKE=; b=eT/izJH7EXulQL
+	LDRvgw0ikXhtJpu6UBrwNAf/o53klGrNzreh/UHPjUAjfx6ROavTz531gs3OPlK1jeb48PVcsBU+9
+	04Xd9s/8tC0GYDx3iBQG8RM/+jzrqv5yE2pLRBhTCEhbKYTiLjwn/Gl3dKVv9ijWp1f8hsWqAU6vH
+	48nLmKoy/7CNIciCZxoaY+a2aEMp1+AgLs5xrnxaAZFbcPCvN+ExWvzAUPBPgZAxDJhntqLAzDSnh
+	0huZj9uiSyaZYQ6F5e+OkQKkyOzpQRAS9x6DKC0FeJ+w/2LzNBVSxlJlcUu38gUME/xy1vdpuSaut
+	MeCfSXbSt92HWbAOBWtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NIa-00000009LJy-2mrF;
-	Thu, 03 Apr 2025 16:20:12 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u0OpO-00000009Vq5-2ayC;
+	Thu, 03 Apr 2025 17:58:10 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0NIY-00000009LBn-2vdH
-	for linux-riscv@lists.infradead.org;
-	Thu, 03 Apr 2025 16:20:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5F0DD44910;
-	Thu,  3 Apr 2025 16:20:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C096EC4CEE5;
-	Thu,  3 Apr 2025 16:20:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743697203;
-	bh=rcZGb9wxRSmf6FvWkV5IkQo4iouEKnBTw/tL9ai8L5k=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ukqS7FSfDgHDsXobOQquum9UKC4IZ2AITSYbMox9R5akm/JU3bfb8sSTN4yG8775M
-	 e6JaH8UfVlOHfqUSUglp5+HJV/FnmMkf3rMfC//iedOQWX3Yjq6iHsiLtprwp601pv
-	 vdYVHjVo5UPtu0Ms1rHXPvlNisq7fECSaRhVPRY+5kmH9FvfeoPjLsNRpThFuRB0eu
-	 pl7MLGcDBIlKqIS400H6+PfFFWDPBOqYCygiNFVBZTcgv6QMNl2Fj5VXxVXrfUZAua
-	 lx/suIVY4rvli6NErTEf2dXZGuxpiabEGlg4oMvGxH2r3Y2+y0Mf+rbHnHubCDAT46
-	 yudOUEv4aSYNw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBA6E380664C;
-	Thu,  3 Apr 2025 16:20:41 +0000 (UTC)
+	id 1u0OfY-00000009Ui6-2y0y;
+	Thu, 03 Apr 2025 17:48:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1743702418; x=1744307218; i=frank.scheiner@web.de;
+	bh=H1sIW/fE2PWhkLk+OKhCS+zpamXiY+kKyuMISklWwjg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:From:Subject:To:
+	 Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=I1RUVEfj6M/lrSVs2nXUN+F3Za0oLDTfoIUwyR6Bu/LpFTSVVYPEWG2SfVFyq95c
+	 787U9IXeSotxvVgAc4BABi6gFmZ8WEZpiiypd8fC46jeCY03yV5b0RFRHmWS412FT
+	 k54lKBckaqGH5m1NxtS0ZnCai28WcWeJVwN9VQ8S1CCFJqXtOTyWTwix8SLEAQGka
+	 GH8cmvRQF6HaRXhaIXCwlzH95HwJV8/qfJibrvHmeM3mNIxVdwhcLV/qneCnY7qaI
+	 p540z3cH0BZ+7+H2ToDBlg38AL7lb/KOMR2DNDUJiwHQtO8A55jL+LMRIS47vZXOG
+	 FS8Fh0iMQwQ+4468oQ==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.30] ([84.152.250.142]) by smtp.web.de (mrweb006
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MPKB7-1tk7Fn0k6n-00WvM9; Thu, 03
+ Apr 2025 19:46:58 +0200
+Message-ID: <703d6f83-f054-48ec-a6da-6d0bbb9e65d4@web.de>
+Date: Thu, 3 Apr 2025 19:46:52 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH] riscv: Fix hugetlb retrieval of number of ptes in case of
- !present pte
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174369724048.2563936.1581552891050877179.git-patchwork-notify@kernel.org>
-Date: Thu, 03 Apr 2025 16:20:40 +0000
-References: <20250317072551.572169-1-alexghiti@rivosinc.com>
-In-Reply-To: <20250317072551.572169-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, alex@ghiti.fr, panqinglin2020@iscas.ac.cn,
- ajones@ventanamicro.com, ryan.roberts@arm.com, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+From: Frank Scheiner <frank.scheiner@web.de>
+Subject: Re: [PATCH v6 04/10] genirq: Introduce common
+ irq_force_complete_move() implementation
+To: Thomas Gleixner <tglx@linutronix.de>, apatel@ventanamicro.com
+References: <20250217085657.789309-5-apatel@ventanamicro.com>
+ <667d272f-2b51-49d6-84ea-1156027e00a7@web.de> <87plhtuw18.ffs@tglx>
+Content-Language: en-US
+In-Reply-To: <87plhtuw18.ffs@tglx>
+X-Provags-ID: V03:K1:6MNV5zoHY7hCQ09bvOvJwv3kuECz3WxUa2bfbadzKiu8Nz/PUk3
+ r4khTzLDonSLMS3CB0XogqYaE7OGkBBDVuYsfF7qkxe8x0p0ZXmBcDc+d+D3/cCMpa95o/j
+ UunubNqjcMWGWkDIi36mSeYWey1wj5Vc325jNhAElfvL0lItLmH5oJW4HJ5twGTwB3HdGoR
+ efZJC73+zd6VD6Ca/b8yQ==
+UI-OutboundReport: notjunk:1;M01:P0:vihVRggBLIw=;40mu8nvRzyn28pHYR+tyRa+glGA
+ L9dS9EZZnssU8CZpd3S0dRgfmlpEQMuKMP36srLrat7dg5KrFfS5QcrpJSNuOyhAv8VTFe4wi
+ eM5ASGmb4b5QPFNc64n1mPnJRMMnXF3OoAzouVuuussBJmCsgg1so5ORWeak/+WHLezyKpJic
+ jaATezrrWdJ0nig2NE3MOAwfQqd5v6gCARk8fafoldUX7MVaL9Q7SDYyFq8pdgHNG7hdU6z7J
+ njGKJCpE2tFVXuvZb/En9b24JwPRRbOBvQdat55Ww2oZGd3JKtzA/AYdHHailozKEDkiPX3rt
+ i8iNamTaevB0GZZFVK2HrRFWW96+lcMx4wcNNDK0f12+TDMKseXGzou55pLMupGdGoeXCc6/6
+ JTOyTCOl+soVnuCNxVuQHfhLbIHXRyRMj0tsAq53kgWxEAr+hiKOl5gLeC2RbPl6JBgWeAXFH
+ +ngvCfZWtwvqUmZLakj4oK7mRkJlcyy19zHS6Umr+McoUXVf0xm3AWpHTaVwvuoydLGiKXed8
+ R5dRi61Tpuk4p6X4Pbslq+PkNiecpXPYHqZkxUFZn2rgiV/f63abYRkHPFrkFVM11XmP/1jJZ
+ Dq11OJT/XaumPqPD+UoCq7AtjXnkmMYzPvwsNF2/LVNRGPRNK5HGz5hNCCpnc0nOcI5IiXzYR
+ Ph0nGHt85yOBMhE1bdwtb9tLpTECZ9v6Jd5MArIhEd4hAuofPQ11mNN2iM5t9U56JMVP1+ATc
+ TrAz8UmO1f1NH0GV20zn4+SYOWiu6YWGGvJFxjco7QworCrMR1mQlEaWMjRHWfcUSW6eRtPfM
+ 3MoF+2DBb+3E7G+hY7Oc7vzzEtckiRR3OzrYmOE1FokZgb71WdlLUDbdo1xHsnpKJZgKAyqfJ
+ 9fX78iSu0CNN/8We7scRn3oMFmpi1CsidTvnZMEeL91sKLGP0dnO3ilrb2UCDbVru0uCBjL1m
+ nOA+AWsMUTXmrTrczxCNEoXyE93d7wqj2y1xprwW8AEaLcrmJxGwrpRo/5CnY9MLet6uYYJWw
+ bUzI6SKOIrkZdJhURWeF/BJzhFokJLtc9N9XzoDf3HOc8klP1P335Ss/i+rxI52jA9VUZNFc3
+ qHQuKxHyyiSpE4Y/QQumO0K4y4Y06LGxpmmeXnhOXvuGGYqq7mCGw+ruDiovKdLg/usdctrsI
+ dWLoSkllh27rNJcFiCSIM0Yc9Rkge2gf5KphceWpSY2PWU0fGMp/awsUa7bu0Ffre5l6TfyUj
+ DyZQavkfN3Mlj7dDrPIapKO5jtRpoRYCXTLl/L6qeloJk4C3zRQJf2fMKOqjO6BuYfbZO3vOn
+ tCDlr4+pNXnGH59LWm3v32wIVYTpPn+zG6o0NGy5NW+qBTi0juCMJN3xnKTKuTe9ZjT9VW0Dd
+ 2FWe00Y0QziOltsETzc+OWc2wZ58YY0J0IUYZU/WcO2ZYprxjRmytNS282nz4TEdkGNtJ+VCp
+ C7w/BVQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_092010_763552_F8C61548 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250403_104801_052186_5FEA8285 
+X-CRM114-Status: GOOD (  14.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,37 +95,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: andrew@lunn.ch, linux-ia64@vger.kernel.org, imx@lists.linux.dev, dave.hansen@linux.intel.com, hpa@zytor.com, linux-riscv@lists.infradead.org, anup@brainfault.org, gregory.clement@bootlin.com, x86@kernel.org, sebastian.hesselbarth@gmail.com, s.hauer@pengutronix.de, bp@alien8.de, paul.walmsley@sifive.com, mingo@redhat.com, linux-arm-kernel@lists.infradead.org, atishp@atishpatra.org, linux-kernel@vger.kernel.org, palmer@dabbelt.com, kernel@pengutronix.de, maz@kernel.org, ajones@ventanamicro.com, shawnguo@kernel.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On 03.04.25 17:03, Thomas Gleixner wrote:
+> On Thu, Apr 03 2025 at 15:13, Frank Scheiner wrote:
+>> this change, specfically the introduction of irq_force_complete_move()
+>> to `kernel/irq/migration.c`, strangely breaks our builds for the hp-sim
+>> platform (i.e. Linux/ia64 for Ski):
+>
+> arch/itanic has hit the iceberg and sank with the release of v6.7...
 
-This patch was applied to riscv/linux.git (for-next)
-by Alexandre Ghiti <alexghiti@rivosinc.com>:
-
-On Mon, 17 Mar 2025 08:25:51 +0100 you wrote:
-> Ryan sent a fix [1] for arm64 that applies to riscv too: in some hugetlb
-> functions, we must not use the pte value to get the size of a mapping
-> because the pte may not be present.
-> 
-> So use the already present size parameter for huge_pte_clear() and the
-> newly introduced size parameter for huge_ptep_get_and_clear(). And make
-> sure to gather A/D bits only on present ptes.
-> 
-> [...]
-
-Here is the summary with links:
-  - riscv: Fix hugetlb retrieval of number of ptes in case of !present pte
-    https://git.kernel.org/riscv/c/83d78ac677b9
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Ha, ha, not in our waters. :-) Still I'm glad I could help finding
+errors in Linux by building for ia64.
 
 
+>> So I guess, either the requirement in `linux/include/linux/irq.h` needs
+>> to go, or the use of "d->parent_data" or the whole of
+>> irq_force_complete_move() and its use needs to be guarded as well.
+>
+> Guessing is not a really good approach to solve a technical problem :)
+
+Thanks for the advice, though guessing was not involved here. It's just
+a way to say that I'm not sure what the right solution might be in this
+case. And then I'd rather leave such fixes to the experts in the
+specific field.
+
+> ---
+> --- a/kernel/irq/migration.c
+> +++ b/kernel/irq/migration.c
+> @@ -37,7 +37,7 @@ bool irq_fixup_move_pending(struct irq_d
+>
+>  void irq_force_complete_move(struct irq_desc *desc)
+>  {
+> -	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = d->parent_data) {
+> +	for (struct irq_data *d = irq_desc_get_irq_data(desc); d; d = irqd_get_parent_data(d)) {
+>  		if (d->chip && d->chip->irq_force_complete_move) {
+>  			d->chip->irq_force_complete_move(d);
+>  			return;
+>
+
+This fxes the build for me for that file. Much obliged.
+```
+  CC      kernel/irq/migration.o
+```
+
+Cheers,
+Frank
 
 _______________________________________________
 linux-riscv mailing list
