@@ -4,84 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9124EC36010
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Apr 2025 06:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2AEFC36010
+	for <linux-riscv@archiver.kernel.org>; Fri,  4 Apr 2025 08:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FQ0Z/g5u99vuOa9/oQeppfTBTWRmfaLs1k6w69d1/Ag=; b=XHwv8ToO4mGldT
-	+D/rhza0hBMH8U8cJ51bhPJZPhG5G4hWEYq2xAOX7CCbQe+GdkJZrni+YzW3rQ96hLrRoIL4x8wqE
-	P2/BKQoAyFTDtUVtZ6c1cNxpJTSxZlVtDoC2r63bY/pqY+TmSoNO0YDVPNbL4iQFhpdnDCxrz17v4
-	p0xQLVrAkSJZ6FwSSEtnlVB8APZbHyM/SS6+b0/PoUYhDGWBVw1qRkSabbWHgPgC2ntG+N0bqjxIF
-	E/00vgJvaAexm+4ifl7+qpw+Qv92ZeyMIdeTyoig2lWJwUgUdH/p2Fk0mINV8m8JIOlOfrsBnETgW
-	cXgwy4TSy1sfS+w1pQOg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Q9SIgd1V+kJiIxc54HdzzF34fEZsqY8woVtiwbjMNSo=; b=XmrkXYlcQBv5xa
+	Cv8+bpXVNgpZ9IihpM/Ojc4PG3VutjbiBx41i1IlTroSIWBxVTL/unkTHzm2v9ptA5l5ynQWfNjmO
+	UyybBYb43sYb5ZUJx9VWjksrQ81+cTc34Nqj4M7JoozNckCkH8HnssoSIlcvR34i0QvOps352asb0
+	NPdAXUJ3gdqcVDov2ybhz3nOeZ3upvjBdtv3nULtvhGB3CZv85E/jXMzE0iHeqT+BvrzM3wHLMYLx
+	5fKEiF+VuEoxxfeoO9WioJOUifLcv42vKgT+rpNAG1VVFuwT26oTx2FogZujwcg2js6oDS3nAkidT
+	tWKCalzOGKoYgSWLI9ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aU0-0000000AsGo-0Ejn;
-	Fri, 04 Apr 2025 06:24:52 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1u0bzP-0000000B5Vi-0Y1D;
+	Fri, 04 Apr 2025 08:01:23 +0000
+Received: from mail.ventrixor.pl ([91.134.88.136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0aTx-0000000AsGU-0q9L
+	id 1u0bzN-0000000B5UW-0do7
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Apr 2025 06:24:50 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22622ddcc35so22441155ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 03 Apr 2025 23:24:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743747888; x=1744352688; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=NPra/uVu0fwMtbsOjosnlZ9oVdxe4EQdPHbqyirBHx8=;
-        b=ml+FN3SvZC54MGH3NpkJcq/qJXLZIw+Hz/E89jf8scQRpjjr+ytYdRCqOfEuyeqmqe
-         IJv+j4JQZpJMgSaCv8QTOKSNbGZeCvefuctvz4qfJ9ImE0w1Q9TjkDfTDJMil3QByGQj
-         Bmj6EvrsX4HT0J+awXizhlD2x/DOyYTNQYGaARRlduwT2EHNQoSySRwzK4T9TlDOOlJw
-         EGUVHKYkcAAfWVSusTBNZj29tp25kTQeny1Rz2qRSRaLcLQnCcwVZAtUQdAQLJB+GV+u
-         zn7+VCOmiCK5cpIdRo/aXRdJ+m36/0UKKMUOzEDJAcUg02HTeSrjAwF5Y+5C4jdEjDwO
-         XzCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743747888; x=1744352688;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=NPra/uVu0fwMtbsOjosnlZ9oVdxe4EQdPHbqyirBHx8=;
-        b=D4BzMnPWP6yLvttFjVcUxPvxJN/xbmWdYthlHwGuarRhosGjqlMWihwjmsjFWcxtdC
-         xJNyHiD5X8CO/1AHhdqvkZ+ToO5Ig8JSNis14ICWtjReXaDFj3rhL0JzayxxrwI/UHzv
-         CdVrqVfS1LphAVtXvEjaG6t0AywGyELJKymfaF43TzItpw+JOAWaIRy/I7Cgmq7q5jv9
-         op0q4cHXONWeKHkfIqMQ4KAaDykyDE2TcR1x7u+Yf69Qv73FDVyxx6P1sC/I91bfq56D
-         EyJZK3k+5PuPM5vrub18eKkRhcDJSV6Dy7DubcFJkLLYFLHs2fJVVN0uuxy5SRL43OZK
-         Rm+A==
-X-Forwarded-Encrypted: i=1; AJvYcCWhGh3eVPIXGgoSI10hx6Ewwdc1P15EWzJPaziV9Bjj5iTcJyDqHLnXlgGAWpxgF4+n1YFn9ycwhqSUlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6JsGIFZchE1zLNNgAK1++U1SI1AsICbfk34UDYohvDX6y70XB
-	4nR5CstMkhMOEif+GLWuTEp7iTtj4nfbJaLz7j3RAq3yAadyRCEY
-X-Gm-Gg: ASbGncv0roq0Zw7EPqZ/MTmgRfK2lOeTlAZgIy6gZOe/HB2VJrljg58KFQWV1TxbbMB
-	9pxV7Vek51KRzQmniDzRnPiAQcsbb/0SukMK1l//IUUtHaSy8ltjBDISDn61EZN2jvSevK4jDEi
-	oRs+fcOUD4VAweg9QrgkhX6I96Ve9IdpfqCgQnAIkVisR5MRu92Vnk3mnTJf3goT5QAkvfdpdoh
-	sndTk59eeONOCtUuFtxLgGDjeYkjLt6OBm3rkxcgFwxUwN+DRKw72W6c3YRO5vP1mceIKNXRY9I
-	lXWvJKdQbINpe4EJgH/JG4Ht2HPW0i31dRU6ByJRSvAH3cQJqMeMMZ3J9S8eJCP4uQ==
-X-Google-Smtp-Source: AGHT+IGlEMzFNshDYRcWHZHgPFdWgnLcEMulJT3Fo00NHacGGpbppTsHCnm6IDXPxXPiYmt5FtjULQ==
-X-Received: by 2002:a17:903:3d0d:b0:224:7a4:b2a with SMTP id d9443c01a7336-22a8a045ceamr28350255ad.11.1743747887734;
-        Thu, 03 Apr 2025 23:24:47 -0700 (PDT)
-Received: from donnager-debian.. ([45.124.203.18])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297865dfd7sm24817375ad.136.2025.04.03.23.24.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 03 Apr 2025 23:24:47 -0700 (PDT)
-From: Joel Stanley <joel@jms.id.au>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Cc: Hal Feng <hal.feng@starfivetech.com>,
-	Michael Ellerman <mpe@ellerman.id.au>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH] riscv: config: Set MEDIA_SUPPORT_FILTER
-Date: Fri,  4 Apr 2025 16:52:34 +1030
-Message-ID: <20250404062235.671872-1-joel@jms.id.au>
-X-Mailer: git-send-email 2.47.2
+	Fri, 04 Apr 2025 08:01:22 +0000
+Received: by mail.ventrixor.pl (Postfix, from userid 1002)
+	id B569325C61; Fri,  4 Apr 2025 08:01:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ventrixor.pl; s=mail;
+	t=1743753679; bh=Pi9+p40l7//vLKO8DuYTv+ORJz3B9aWETGdVOxLyydc=;
+	h=Date:From:To:Subject:From;
+	b=yfE94t7Moewn8vu3EN1S52kQ5m2we56oAGKmR7GVV4uKXDjNJD0giZzwYA6ehLFe9
+	 BTQ2QBg/ETI0G6ayD1yg+W+3nAVkOBqPpGO80u+tZhKPSx5vDcUcBVIgsgcHPFXIde
+	 5ndjhm6iDTUXUelH7WKIS6sQt3R1TyZrIrLkDiFezVBXkm9WE16iy/SjqdA3+ur3ex
+	 aMzBt4Tfq3ZHR3lyVqv1q0R+157FklH4VtjU58CG5hoUi9BTlHiCEMZSiOdsPCZMmL
+	 y0ZHcqt6zMnYNDC9CkgVNdgsEys/SyJ3YzVh0vhicfur9GnG1uKyx4pW1iHMYDuC30
+	 j5mWQHicotPNw==
+Received: by mail.ventrixor.pl for <linux-riscv@lists.infradead.org>; Fri,  4 Apr 2025 08:00:53 GMT
+Message-ID: <20250404064500-0.1.6b.1c8xh.0.h11513rnjm@ventrixor.pl>
+Date: Fri,  4 Apr 2025 08:00:53 GMT
+From: "Jan Adamczyk" <jan.adamczyk@ventrixor.pl>
+To: <linux-riscv@lists.infradead.org>
+Subject: Rekrutacja handlowca 
+X-Mailer: mail.ventrixor.pl
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250403_232449_239271_08C674B5 
-X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-CacheID: sfid-20250404_010121_329621_83416146 
+X-CRM114-Status: UNSURE (   1.28  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -94,52 +61,17 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When Hal enabled MEIDA_SUPPORT in order to add the VIDEO_CADENCE_CSI2RX
-driver in commit d8a7d89abb09 ("riscv: defconfig: Enable StarFive JH7110
-drivers"), it turned on a few hundred (254) other MEDIA drivers.
-
-The subsystem has a option for this very case that keeps the other
-drivers disabled: MEDIA_SUPPORT_FILTER. Turn that on, and
-MEDIA_PLATFORM_SUPPORT, so the CSI2RX driver stays enabled.
-
-Signed-off-by: Joel Stanley <joel@jms.id.au>
----
-The filter option only appears in a small handful of arm32 defconfigs
-(and I maintain a few of them). That's because MEDIA_SUPPORT_FILTER is
-normally enabled unless EXPERT is on.
-
-The root of the issue is the riscv defconfig selects EXPERT. Most
-arch-wide defconfig don't have that on. Need to get to the bottom of
-that, and perhaps disable EXPERT?
-
-Signed-off-by: Joel Stanley <joel@jms.id.au>
----
- arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 0f7dcbe3c45b..c34fcf2c6a2f 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -182,6 +182,8 @@ CONFIG_REGULATOR_FIXED_VOLTAGE=y
- CONFIG_REGULATOR_AXP20X=y
- CONFIG_REGULATOR_GPIO=y
- CONFIG_MEDIA_SUPPORT=m
-+CONFIG_MEDIA_SUPPORT_FILTER=y
-+CONFIG_MEDIA_PLATFORM_SUPPORT=y
- CONFIG_VIDEO_CADENCE_CSI2RX=m
- CONFIG_DRM=m
- CONFIG_DRM_RADEON=m
--- 
-2.47.2
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+V2l0YW0sCgpDenkgbWFqxIUgUGHFhHN0d2EgYWt0dWFsbmllIHBvdHJ6ZWJ5IHogemFrcmVzdSBy
+ZWtydXRhY2ppIG9zw7NiIGRvIGR6aWHFgnUgaGFuZGxvd2Vnbz8gCgpQb21hZ2FteSBza3V0ZWN6
+bmllIHJla3J1dG93YcSHIG9zb2J5IG5hIHN0YW5vd2lza2EgUHJ6ZWRzdGF3aWNpZWxhIEhhbmRs
+b3dlZ28sIFNhbGVzIE1hbmFnZXJhLCBhIHRha8W8ZSBLYWRyeSBNYW5hZ2Vyc2tpZWogdyBvYnN6
+YXJ6ZSBzcHJ6ZWRhxbx5LgoKQ3p5IG1vxbxlbXkgcG9yb3ptYXdpYcSHPyAKCgpQb3pkcmF3aWFt
+CkphbiBBZGFtY3p5awoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
+aXNjdgo=
