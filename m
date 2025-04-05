@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05FFC36010
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Apr 2025 18:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E797BC3601A
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Apr 2025 20:03:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HcWgRjPMSGVcVuv8qgQGYYe1C3x08+Y/eL/l79MaOa8=; b=JPym8i7DpZ3D7K
-	JOediQJUmEQdIuj50PHO9B8gvVdUGo/gsMVf8erot6gmp4ETZLG3tKV9bcKk0M71c6DcgtkR5aYm3
-	mpKG4tKlxVc24IprFJC28/6bhm9e/E1mvHz/auHmTk2FKkBAWcL3I6W0Rz8yq3fcQX0+4J2CzBysN
-	6mhjc8XOA6XaTyEvdtvIE0zRorp7md6FvSQ9uMHOWUMMe2y+pn4ApEZUsnKVlr0UgaVjBiG7SVRIN
-	UQ+00+bvRnJ6eIKhqxBp+wYwFuqE74jCnwOhDOGZWXXcM9UplE7iYe4n1BEGuQL1MhAdQ9QoNTuY6
-	uK6t/78/kuQ8fWXPjHEQ==;
+	List-Owner; bh=syxleI7MXtU1O2lZanCoigqsdZFeuuAYJ5fMYC378FI=; b=jypY7wq8xJbw+U
+	MwO8JXz9166bHEfs1o/BSnPTaEVDsI/PiWBNkY9TofAKn4fAjujt7P5+qtt/U5K/Pr1lXqlR4YpNq
+	+dK/LNeqesr9zYZSavaYXzfoqX8rcmggJ6Z9eJjiw6gEF9jWrd979wLVMhVrwi8LZnZqvvLii1QSe
+	TjhJP2Eoa0tl6C5PYyjgnnR33nJRLJGfVmH06iJnw4ISn2AFAMNTSTjFZ7F1xPA2RUZjh4P9BFqNq
+	698e4B9u1UJv9iymlNtDxAKcbsGlIJWPEWmm6+M6F3cIn0gi0TwpCDL4AheQt8NdiCwHffoS1mpe7
+	/Eb+jKSo/lPsdfC8/Sfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u18WS-0000000ENu4-35xw;
-	Sat, 05 Apr 2025 18:45:40 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u19jR-0000000ES0V-4BWz;
+	Sat, 05 Apr 2025 20:03:10 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u18IB-0000000ELe9-3mWd;
-	Sat, 05 Apr 2025 18:30:57 +0000
+	id 1u18IE-0000000ELgh-08Mb;
+	Sat, 05 Apr 2025 18:30:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4DDE45C4D95;
-	Sat,  5 Apr 2025 18:28:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC72FC4CEE4;
-	Sat,  5 Apr 2025 18:30:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 80AAD61139;
+	Sat,  5 Apr 2025 18:30:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B91BCC4CEEE;
+	Sat,  5 Apr 2025 18:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743877855;
-	bh=3GecDYJPP+f/otGdToWIa9TB2f+in47vXsMRPZd3kDo=;
+	s=k20201202; t=1743877857;
+	bh=xm9pQBjynxcvCeIRTBV15aMlBzjyI8/pKv+7T2s3kQY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BMvkeX7PDVea3p39UTaGrF7AVBRn2MBPChS6OFi6ciRP0KDkF+rJawry/gPZGS2bo
-	 kSnVQBXr669M4rcIWxd+LCz6OGQ6eqBMUF6SrycfjCv9AajLSUPLCfMApP4PVQB6BY
-	 BCtfS7MzDpRRM0oxD0s5frAPm8YZx8Q0dfuwUWekYJaQPMfkO/bWdv8o9Kkm772t+I
-	 rxLq5WBMke1+sdyDTXtkWqynjbBAaId1V5cQvdL3Vll9/u6CVRAAKb8w3NmLb6CPZv
-	 Aj/VU9CLMWXaFtbR0F06zN2W4xfw/eecvkTamGE9xGSRM+MoJEkfsE8u2L0QyGZAbe
-	 npBiy5Aho48zg==
+	b=Ju1cg6yronHNVCwqCj3RXAUddHMdeVnV37A1BlKl8lKfGjcLZ1O5Jr47JPwtgEb8w
+	 kBtjrQz3oQTK0rF2GIxt9Jca1cQ2ovIovsG6x4ozwgzI/GbWA8lRcEtmfqMDHrTqpT
+	 GkdEJQJ46F2Rn2YbfgjD6ZNJWzdg9KZ4ECZmXWRKimG527EO6mCfbyhULimX30AAin
+	 iZ+x9yi8figCx1FLSGpxDTsI1oClBdWm+rRR1K6l7HqAHfcbGiEQ2Yy0vRh9G1DEDV
+	 Fz64+CRHAlOrMoZ3dqTecWbhgJP5bMpDNyYjfK3/ZQdfcw+7ZrPkaN6Q+fqq/Aktxg
+	 VZhaClah8z4gQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,16 +53,13 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 5/9] crypto: mips/chacha - remove the skcipher algorithms
-Date: Sat,  5 Apr 2025 11:26:05 -0700
-Message-ID: <20250405182609.404216-6-ebiggers@kernel.org>
+Subject: [PATCH 9/9] crypto: chacha - remove <crypto/internal/chacha.h>
+Date: Sat,  5 Apr 2025 11:26:09 -0700
+Message-ID: <20250405182609.404216-10-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250405182609.404216-1-ebiggers@kernel.org>
 References: <20250405182609.404216-1-ebiggers@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250405_113056_043393_F30A5D7F 
-X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,198 +78,118 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Since crypto/chacha.c now registers chacha20-$(ARCH), xchacha20-$(ARCH),
-and xchacha12-$(ARCH) skcipher algorithms that use the architecture's
-ChaCha and HChaCha library functions, individual architectures no longer
-need to do the same.  Therefore, remove the redundant skcipher
-algorithms and leave just the library functions.
+<crypto/internal/chacha.h> is now included only by crypto/chacha.c, so
+fold it into there.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/mips/crypto/Kconfig       |   6 --
- arch/mips/crypto/chacha-glue.c | 131 +--------------------------------
- 2 files changed, 3 insertions(+), 134 deletions(-)
+ crypto/chacha.c                  | 35 +++++++++++++++++++++++++-
+ include/crypto/internal/chacha.h | 43 --------------------------------
+ 2 files changed, 34 insertions(+), 44 deletions(-)
+ delete mode 100644 include/crypto/internal/chacha.h
 
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 545fc0e12422d..0189686de3a12 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -54,15 +54,9 @@ config CRYPTO_SHA512_OCTEON
- 	  Architecture: mips OCTEON using crypto instructions, when available
- 
- config CRYPTO_CHACHA_MIPS
- 	tristate
- 	depends on CPU_MIPS32_R2
--	select CRYPTO_SKCIPHER
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
--	help
--	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
--	  stream cipher algorithms
--
--	  Architecture: MIPS32r2
- 
- endmenu
-diff --git a/arch/mips/crypto/chacha-glue.c b/arch/mips/crypto/chacha-glue.c
-index 64ccaeaeaa1e1..334ecb29fb8fa 100644
---- a/arch/mips/crypto/chacha-glue.c
-+++ b/arch/mips/crypto/chacha-glue.c
-@@ -1,152 +1,27 @@
- // SPDX-License-Identifier: GPL-2.0
- /*
-- * MIPS accelerated ChaCha and XChaCha stream ciphers,
-- * including ChaCha20 (RFC7539)
-+ * ChaCha and HChaCha functions (MIPS optimized)
-  *
-  * Copyright (C) 2019 Linaro, Ltd. <ard.biesheuvel@linaro.org>
+diff --git a/crypto/chacha.c b/crypto/chacha.c
+index 2009038c5e56c..5103bc0b2881f 100644
+--- a/crypto/chacha.c
++++ b/crypto/chacha.c
+@@ -6,14 +6,47 @@
+  * Copyright (C) 2018 Google LLC
   */
  
--#include <asm/byteorder.h>
--#include <crypto/algapi.h>
+ #include <linux/unaligned.h>
+ #include <crypto/algapi.h>
 -#include <crypto/internal/chacha.h>
--#include <crypto/internal/skcipher.h>
 +#include <crypto/chacha.h>
- #include <linux/kernel.h>
+ #include <crypto/internal/skcipher.h>
  #include <linux/module.h>
  
- asmlinkage void chacha_crypt_arch(u32 *state, u8 *dst, const u8 *src,
- 				  unsigned int bytes, int nrounds);
- EXPORT_SYMBOL(chacha_crypt_arch);
- 
- asmlinkage void hchacha_block_arch(const u32 *state, u32 *stream, int nrounds);
- EXPORT_SYMBOL(hchacha_block_arch);
- 
--static int chacha_mips_stream_xor(struct skcipher_request *req,
--				  const struct chacha_ctx *ctx, const u8 *iv)
--{
--	struct skcipher_walk walk;
--	u32 state[16];
--	int err;
++struct chacha_ctx {
++	u32 key[8];
++	int nrounds;
++};
++
++static int chacha_setkey(struct crypto_skcipher *tfm,
++			 const u8 *key, unsigned int keysize, int nrounds)
++{
++	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
++	int i;
++
++	if (keysize != CHACHA_KEY_SIZE)
++		return -EINVAL;
++
++	for (i = 0; i < ARRAY_SIZE(ctx->key); i++)
++		ctx->key[i] = get_unaligned_le32(key + i * sizeof(u32));
++
++	ctx->nrounds = nrounds;
++	return 0;
++}
++
++static int chacha20_setkey(struct crypto_skcipher *tfm,
++			   const u8 *key, unsigned int keysize)
++{
++	return chacha_setkey(tfm, key, keysize, 20);
++}
++
++static int chacha12_setkey(struct crypto_skcipher *tfm,
++			   const u8 *key, unsigned int keysize)
++{
++	return chacha_setkey(tfm, key, keysize, 12);
++}
++
+ static int chacha_stream_xor(struct skcipher_request *req,
+ 			     const struct chacha_ctx *ctx, const u8 *iv,
+ 			     bool arch)
+ {
+ 	struct skcipher_walk walk;
+diff --git a/include/crypto/internal/chacha.h b/include/crypto/internal/chacha.h
+deleted file mode 100644
+index b085dc1ac1516..0000000000000
+--- a/include/crypto/internal/chacha.h
++++ /dev/null
+@@ -1,43 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
 -
--	err = skcipher_walk_virt(&walk, req, false);
+-#ifndef _CRYPTO_INTERNAL_CHACHA_H
+-#define _CRYPTO_INTERNAL_CHACHA_H
 -
--	chacha_init(state, ctx->key, iv);
+-#include <crypto/chacha.h>
+-#include <crypto/internal/skcipher.h>
+-#include <linux/crypto.h>
 -
--	while (walk.nbytes > 0) {
--		unsigned int nbytes = walk.nbytes;
--
--		if (nbytes < walk.total)
--			nbytes = round_down(nbytes, walk.stride);
--
--		chacha_crypt(state, walk.dst.virt.addr, walk.src.virt.addr,
--			     nbytes, ctx->nrounds);
--		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
--	}
--
--	return err;
--}
--
--static int chacha_mips(struct skcipher_request *req)
--{
--	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
--	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
--
--	return chacha_mips_stream_xor(req, ctx, req->iv);
--}
--
--static int xchacha_mips(struct skcipher_request *req)
--{
--	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
--	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
--	struct chacha_ctx subctx;
--	u32 state[16];
--	u8 real_iv[16];
--
--	chacha_init(state, ctx->key, req->iv);
--
--	hchacha_block(state, subctx.key, ctx->nrounds);
--	subctx.nrounds = ctx->nrounds;
--
--	memcpy(&real_iv[0], req->iv + 24, 8);
--	memcpy(&real_iv[8], req->iv + 16, 8);
--	return chacha_mips_stream_xor(req, &subctx, real_iv);
--}
--
--static struct skcipher_alg algs[] = {
--	{
--		.base.cra_name		= "chacha20",
--		.base.cra_driver_name	= "chacha20-mips",
--		.base.cra_priority	= 200,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= CHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha20_setkey,
--		.encrypt		= chacha_mips,
--		.decrypt		= chacha_mips,
--	}, {
--		.base.cra_name		= "xchacha20",
--		.base.cra_driver_name	= "xchacha20-mips",
--		.base.cra_priority	= 200,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= XCHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha20_setkey,
--		.encrypt		= xchacha_mips,
--		.decrypt		= xchacha_mips,
--	}, {
--		.base.cra_name		= "xchacha12",
--		.base.cra_driver_name	= "xchacha12-mips",
--		.base.cra_priority	= 200,
--		.base.cra_blocksize	= 1,
--		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
--		.base.cra_module	= THIS_MODULE,
--
--		.min_keysize		= CHACHA_KEY_SIZE,
--		.max_keysize		= CHACHA_KEY_SIZE,
--		.ivsize			= XCHACHA_IV_SIZE,
--		.chunksize		= CHACHA_BLOCK_SIZE,
--		.setkey			= chacha12_setkey,
--		.encrypt		= xchacha_mips,
--		.decrypt		= xchacha_mips,
--	}
+-struct chacha_ctx {
+-	u32 key[8];
+-	int nrounds;
 -};
 -
- bool chacha_is_arch_optimized(void)
- {
- 	return true;
- }
- EXPORT_SYMBOL(chacha_is_arch_optimized);
- 
--static int __init chacha_simd_mod_init(void)
+-static inline int chacha_setkey(struct crypto_skcipher *tfm, const u8 *key,
+-				unsigned int keysize, int nrounds)
 -{
--	return IS_REACHABLE(CONFIG_CRYPTO_SKCIPHER) ?
--		crypto_register_skciphers(algs, ARRAY_SIZE(algs)) : 0;
+-	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
+-	int i;
+-
+-	if (keysize != CHACHA_KEY_SIZE)
+-		return -EINVAL;
+-
+-	for (i = 0; i < ARRAY_SIZE(ctx->key); i++)
+-		ctx->key[i] = get_unaligned_le32(key + i * sizeof(u32));
+-
+-	ctx->nrounds = nrounds;
+-	return 0;
 -}
 -
--static void __exit chacha_simd_mod_fini(void)
+-static inline int chacha20_setkey(struct crypto_skcipher *tfm, const u8 *key,
+-				  unsigned int keysize)
 -{
--	if (IS_REACHABLE(CONFIG_CRYPTO_SKCIPHER))
--		crypto_unregister_skciphers(algs, ARRAY_SIZE(algs));
+-	return chacha_setkey(tfm, key, keysize, 20);
 -}
 -
--arch_initcall(chacha_simd_mod_init);
--module_exit(chacha_simd_mod_fini);
+-static inline int chacha12_setkey(struct crypto_skcipher *tfm, const u8 *key,
+-				  unsigned int keysize)
+-{
+-	return chacha_setkey(tfm, key, keysize, 12);
+-}
 -
--MODULE_DESCRIPTION("ChaCha and XChaCha stream ciphers (MIPS accelerated)");
-+MODULE_DESCRIPTION("ChaCha and HChaCha functions (MIPS optimized)");
- MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
- MODULE_LICENSE("GPL v2");
--MODULE_ALIAS_CRYPTO("chacha20");
--MODULE_ALIAS_CRYPTO("chacha20-mips");
--MODULE_ALIAS_CRYPTO("xchacha20");
--MODULE_ALIAS_CRYPTO("xchacha20-mips");
--MODULE_ALIAS_CRYPTO("xchacha12");
--MODULE_ALIAS_CRYPTO("xchacha12-mips");
+-#endif /* _CRYPTO_CHACHA_H */
 -- 
 2.49.0
 
