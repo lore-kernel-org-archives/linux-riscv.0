@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3C5AC36010
-	for <linux-riscv@archiver.kernel.org>; Sat,  5 Apr 2025 18:45:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05FFC36010
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Apr 2025 18:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ekyuEkQEU5MsJabln/X5ZvtAnVwH1V29lPSx9qEetsQ=; b=pa+FEsDeKRKwEj
-	4B6FIJQwHq8RAmZFlsM4clOgJhyG65OQmfqWAFdQbD0JLp0IgUU0Dkx0RmZiBouuEN0GW7ToyoPWz
-	1mIyIIUYPqc/LJ2JotlY9WIhoRsyUnzwkHPPOyZKtuQWLquIyaUCbIGpt4H3+6a44DNT6AJ3ndwZ2
-	ELW4mLsesXWuYCHWyIOXd+jB6sm2q5UjVoI0s+QbosToaaC2xNO6fH3V9mKH8oc4MxBAX4BNLLm04
-	UfZ8oq9Dk/HGVuY4oVVZn+zVu8Kh4S3g4ZELMy3IZozY+DXE7omImI4u4p1EzDKj0iPkdFITFHbEd
-	PuMh7UdKCXQhD3QO+0ew==;
+	List-Owner; bh=HcWgRjPMSGVcVuv8qgQGYYe1C3x08+Y/eL/l79MaOa8=; b=JPym8i7DpZ3D7K
+	JOediQJUmEQdIuj50PHO9B8gvVdUGo/gsMVf8erot6gmp4ETZLG3tKV9bcKk0M71c6DcgtkR5aYm3
+	mpKG4tKlxVc24IprFJC28/6bhm9e/E1mvHz/auHmTk2FKkBAWcL3I6W0Rz8yq3fcQX0+4J2CzBysN
+	6mhjc8XOA6XaTyEvdtvIE0zRorp7md6FvSQ9uMHOWUMMe2y+pn4ApEZUsnKVlr0UgaVjBiG7SVRIN
+	UQ+00+bvRnJ6eIKhqxBp+wYwFuqE74jCnwOhDOGZWXXcM9UplE7iYe4n1BEGuQL1MhAdQ9QoNTuY6
+	uK6t/78/kuQ8fWXPjHEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u18WT-0000000ENuD-1FVm;
-	Sat, 05 Apr 2025 18:45:41 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u18WS-0000000ENu4-35xw;
+	Sat, 05 Apr 2025 18:45:40 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u18ID-0000000ELg6-1bKZ;
+	id 1u18IB-0000000ELe9-3mWd;
 	Sat, 05 Apr 2025 18:30:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DAD0D61164;
-	Sat,  5 Apr 2025 18:30:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42FF8C4CEE7;
-	Sat,  5 Apr 2025 18:30:56 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4DDE45C4D95;
+	Sat,  5 Apr 2025 18:28:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC72FC4CEE4;
+	Sat,  5 Apr 2025 18:30:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1743877856;
-	bh=Xwh08sUrwMmQCiHRbYZtr7YEg0mBK+LLgKoP4B4fAZs=;
+	s=k20201202; t=1743877855;
+	bh=3GecDYJPP+f/otGdToWIa9TB2f+in47vXsMRPZd3kDo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PQAXJq/nTIrYXPGSD4Rnn6n3p4oa0uFWpwBny/fE1QMrnfmFAqlzJGqii9u2ExoNG
-	 VCxf3BI4IuLWmrth2IQ2UWIgWYqoY8u577ch5z3LTqObfLB4+yYjIJh/iNoPuvTyHY
-	 HKNBrhd0s8N4ndBt6e4BIcBy/UBCy2Hs84SVVpDfFKKV2MWLBgW6oThbeLlN1d6cy3
-	 cJXJHokTaaCN+H0JLtR7gX603ND3ilHiSKtDygFGgyLfhRn4t2F2xgKehWPgykgrl2
-	 3IGvAudA0Tkhuc4zSu/Gf30BqTSHJv8jBAdAAjhgKIHviWwQfAPkcbw43UA3Saj4X9
-	 BiFzjf/Mh0KSQ==
+	b=BMvkeX7PDVea3p39UTaGrF7AVBRn2MBPChS6OFi6ciRP0KDkF+rJawry/gPZGS2bo
+	 kSnVQBXr669M4rcIWxd+LCz6OGQ6eqBMUF6SrycfjCv9AajLSUPLCfMApP4PVQB6BY
+	 BCtfS7MzDpRRM0oxD0s5frAPm8YZx8Q0dfuwUWekYJaQPMfkO/bWdv8o9Kkm772t+I
+	 rxLq5WBMke1+sdyDTXtkWqynjbBAaId1V5cQvdL3Vll9/u6CVRAAKb8w3NmLb6CPZv
+	 Aj/VU9CLMWXaFtbR0F06zN2W4xfw/eecvkTamGE9xGSRM+MoJEkfsE8u2L0QyGZAbe
+	 npBiy5Aho48zg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-kernel@vger.kernel.org,
@@ -53,13 +53,16 @@ Cc: linux-kernel@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: [PATCH 8/9] crypto: x86/chacha - remove the skcipher algorithms
-Date: Sat,  5 Apr 2025 11:26:08 -0700
-Message-ID: <20250405182609.404216-9-ebiggers@kernel.org>
+Subject: [PATCH 5/9] crypto: mips/chacha - remove the skcipher algorithms
+Date: Sat,  5 Apr 2025 11:26:05 -0700
+Message-ID: <20250405182609.404216-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250405182609.404216-1-ebiggers@kernel.org>
 References: <20250405182609.404216-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250405_113056_043393_F30A5D7F 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,72 +89,64 @@ algorithms and leave just the library functions.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/x86/crypto/Kconfig       |   9 ---
- arch/x86/crypto/chacha_glue.c | 142 +---------------------------------
- 2 files changed, 4 insertions(+), 147 deletions(-)
+ arch/mips/crypto/Kconfig       |   6 --
+ arch/mips/crypto/chacha-glue.c | 131 +--------------------------------
+ 2 files changed, 3 insertions(+), 134 deletions(-)
 
-diff --git a/arch/x86/crypto/Kconfig b/arch/x86/crypto/Kconfig
-index 3d948f10c94cd..8cf0a3f55576e 100644
---- a/arch/x86/crypto/Kconfig
-+++ b/arch/x86/crypto/Kconfig
-@@ -350,22 +350,13 @@ config CRYPTO_ARIA_GFNI_AVX512_X86_64
- 	  Processes 64 blocks in parallel.
+diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
+index 545fc0e12422d..0189686de3a12 100644
+--- a/arch/mips/crypto/Kconfig
++++ b/arch/mips/crypto/Kconfig
+@@ -54,15 +54,9 @@ config CRYPTO_SHA512_OCTEON
+ 	  Architecture: mips OCTEON using crypto instructions, when available
  
- config CRYPTO_CHACHA20_X86_64
+ config CRYPTO_CHACHA_MIPS
  	tristate
- 	depends on X86 && 64BIT
+ 	depends on CPU_MIPS32_R2
 -	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_CHACHA_GENERIC
  	select CRYPTO_ARCH_HAVE_LIB_CHACHA
  	default CRYPTO_LIB_CHACHA_INTERNAL
 -	help
 -	  Length-preserving ciphers: ChaCha20, XChaCha20, and XChaCha12
 -	  stream cipher algorithms
 -
--	  Architecture: x86_64 using:
--	  - SSSE3 (Supplemental SSE3)
--	  - AVX2 (Advanced Vector Extensions 2)
--	  - AVX-512VL (Advanced Vector Extensions-512VL)
+-	  Architecture: MIPS32r2
  
- config CRYPTO_AEGIS128_AESNI_SSE2
- 	tristate "AEAD ciphers: AEGIS-128 (AES-NI/SSE4.1)"
- 	depends on X86 && 64BIT
- 	select CRYPTO_AEAD
-diff --git a/arch/x86/crypto/chacha_glue.c b/arch/x86/crypto/chacha_glue.c
-index 83a07b31cdd3a..71ec959caadaa 100644
---- a/arch/x86/crypto/chacha_glue.c
-+++ b/arch/x86/crypto/chacha_glue.c
-@@ -1,17 +1,14 @@
- // SPDX-License-Identifier: GPL-2.0-or-later
+ endmenu
+diff --git a/arch/mips/crypto/chacha-glue.c b/arch/mips/crypto/chacha-glue.c
+index 64ccaeaeaa1e1..334ecb29fb8fa 100644
+--- a/arch/mips/crypto/chacha-glue.c
++++ b/arch/mips/crypto/chacha-glue.c
+@@ -1,152 +1,27 @@
+ // SPDX-License-Identifier: GPL-2.0
  /*
-- * x64 SIMD accelerated ChaCha and XChaCha stream ciphers,
+- * MIPS accelerated ChaCha and XChaCha stream ciphers,
 - * including ChaCha20 (RFC7539)
-+ * ChaCha and HChaCha functions (x86_64 optimized)
++ * ChaCha and HChaCha functions (MIPS optimized)
   *
-  * Copyright (C) 2015 Martin Willi
+  * Copyright (C) 2019 Linaro, Ltd. <ard.biesheuvel@linaro.org>
   */
  
+-#include <asm/byteorder.h>
 -#include <crypto/algapi.h>
 -#include <crypto/internal/chacha.h>
-+#include <crypto/chacha.h>
- #include <crypto/internal/simd.h>
 -#include <crypto/internal/skcipher.h>
++#include <crypto/chacha.h>
  #include <linux/kernel.h>
  #include <linux/module.h>
- #include <linux/sizes.h>
- #include <asm/simd.h>
  
-@@ -152,126 +149,10 @@ void chacha_crypt_arch(u32 *state, u8 *dst, const u8 *src, unsigned int bytes,
- 		dst += todo;
- 	} while (bytes);
- }
+ asmlinkage void chacha_crypt_arch(u32 *state, u8 *dst, const u8 *src,
+ 				  unsigned int bytes, int nrounds);
  EXPORT_SYMBOL(chacha_crypt_arch);
  
--static int chacha_simd_stream_xor(struct skcipher_request *req,
+ asmlinkage void hchacha_block_arch(const u32 *state, u32 *stream, int nrounds);
+ EXPORT_SYMBOL(hchacha_block_arch);
+ 
+-static int chacha_mips_stream_xor(struct skcipher_request *req,
 -				  const struct chacha_ctx *ctx, const u8 *iv)
 -{
--	u32 state[CHACHA_STATE_WORDS] __aligned(8);
 -	struct skcipher_walk walk;
+-	u32 state[16];
 -	int err;
 -
 -	err = skcipher_walk_virt(&walk, req, false);
@@ -164,61 +159,45 @@ index 83a07b31cdd3a..71ec959caadaa 100644
 -		if (nbytes < walk.total)
 -			nbytes = round_down(nbytes, walk.stride);
 -
--		if (!static_branch_likely(&chacha_use_simd) ||
--		    !crypto_simd_usable()) {
--			chacha_crypt_generic(state, walk.dst.virt.addr,
--					     walk.src.virt.addr, nbytes,
--					     ctx->nrounds);
--		} else {
--			kernel_fpu_begin();
--			chacha_dosimd(state, walk.dst.virt.addr,
--				      walk.src.virt.addr, nbytes,
--				      ctx->nrounds);
--			kernel_fpu_end();
--		}
+-		chacha_crypt(state, walk.dst.virt.addr, walk.src.virt.addr,
+-			     nbytes, ctx->nrounds);
 -		err = skcipher_walk_done(&walk, walk.nbytes - nbytes);
 -	}
 -
 -	return err;
 -}
 -
--static int chacha_simd(struct skcipher_request *req)
+-static int chacha_mips(struct skcipher_request *req)
 -{
 -	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
 -	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
 -
--	return chacha_simd_stream_xor(req, ctx, req->iv);
+-	return chacha_mips_stream_xor(req, ctx, req->iv);
 -}
 -
--static int xchacha_simd(struct skcipher_request *req)
+-static int xchacha_mips(struct skcipher_request *req)
 -{
 -	struct crypto_skcipher *tfm = crypto_skcipher_reqtfm(req);
 -	struct chacha_ctx *ctx = crypto_skcipher_ctx(tfm);
--	u32 state[CHACHA_STATE_WORDS] __aligned(8);
 -	struct chacha_ctx subctx;
+-	u32 state[16];
 -	u8 real_iv[16];
 -
 -	chacha_init(state, ctx->key, req->iv);
 -
--	if (req->cryptlen > CHACHA_BLOCK_SIZE && crypto_simd_usable()) {
--		kernel_fpu_begin();
--		hchacha_block_ssse3(state, subctx.key, ctx->nrounds);
--		kernel_fpu_end();
--	} else {
--		hchacha_block_generic(state, subctx.key, ctx->nrounds);
--	}
+-	hchacha_block(state, subctx.key, ctx->nrounds);
 -	subctx.nrounds = ctx->nrounds;
 -
 -	memcpy(&real_iv[0], req->iv + 24, 8);
 -	memcpy(&real_iv[8], req->iv + 16, 8);
--	return chacha_simd_stream_xor(req, &subctx, real_iv);
+-	return chacha_mips_stream_xor(req, &subctx, real_iv);
 -}
 -
 -static struct skcipher_alg algs[] = {
 -	{
 -		.base.cra_name		= "chacha20",
--		.base.cra_driver_name	= "chacha20-simd",
--		.base.cra_priority	= 300,
+-		.base.cra_driver_name	= "chacha20-mips",
+-		.base.cra_priority	= 200,
 -		.base.cra_blocksize	= 1,
 -		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
 -		.base.cra_module	= THIS_MODULE,
@@ -228,12 +207,12 @@ index 83a07b31cdd3a..71ec959caadaa 100644
 -		.ivsize			= CHACHA_IV_SIZE,
 -		.chunksize		= CHACHA_BLOCK_SIZE,
 -		.setkey			= chacha20_setkey,
--		.encrypt		= chacha_simd,
--		.decrypt		= chacha_simd,
+-		.encrypt		= chacha_mips,
+-		.decrypt		= chacha_mips,
 -	}, {
 -		.base.cra_name		= "xchacha20",
--		.base.cra_driver_name	= "xchacha20-simd",
--		.base.cra_priority	= 300,
+-		.base.cra_driver_name	= "xchacha20-mips",
+-		.base.cra_priority	= 200,
 -		.base.cra_blocksize	= 1,
 -		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
 -		.base.cra_module	= THIS_MODULE,
@@ -243,12 +222,12 @@ index 83a07b31cdd3a..71ec959caadaa 100644
 -		.ivsize			= XCHACHA_IV_SIZE,
 -		.chunksize		= CHACHA_BLOCK_SIZE,
 -		.setkey			= chacha20_setkey,
--		.encrypt		= xchacha_simd,
--		.decrypt		= xchacha_simd,
+-		.encrypt		= xchacha_mips,
+-		.decrypt		= xchacha_mips,
 -	}, {
 -		.base.cra_name		= "xchacha12",
--		.base.cra_driver_name	= "xchacha12-simd",
--		.base.cra_priority	= 300,
+-		.base.cra_driver_name	= "xchacha12-mips",
+-		.base.cra_priority	= 200,
 -		.base.cra_blocksize	= 1,
 -		.base.cra_ctxsize	= sizeof(struct chacha_ctx),
 -		.base.cra_module	= THIS_MODULE,
@@ -258,46 +237,42 @@ index 83a07b31cdd3a..71ec959caadaa 100644
 -		.ivsize			= XCHACHA_IV_SIZE,
 -		.chunksize		= CHACHA_BLOCK_SIZE,
 -		.setkey			= chacha12_setkey,
--		.encrypt		= xchacha_simd,
--		.decrypt		= xchacha_simd,
--	},
+-		.encrypt		= xchacha_mips,
+-		.decrypt		= xchacha_mips,
+-	}
 -};
 -
  bool chacha_is_arch_optimized(void)
  {
- 	return static_key_enabled(&chacha_use_simd);
+ 	return true;
  }
  EXPORT_SYMBOL(chacha_is_arch_optimized);
-@@ -291,27 +172,12 @@ static int __init chacha_simd_mod_init(void)
- 		if (IS_ENABLED(CONFIG_AS_AVX512) &&
- 		    boot_cpu_has(X86_FEATURE_AVX512VL) &&
- 		    boot_cpu_has(X86_FEATURE_AVX512BW)) /* kmovq */
- 			static_branch_enable(&chacha_use_avx512vl);
- 	}
+ 
+-static int __init chacha_simd_mod_init(void)
+-{
 -	return IS_REACHABLE(CONFIG_CRYPTO_SKCIPHER) ?
 -		crypto_register_skciphers(algs, ARRAY_SIZE(algs)) : 0;
-+	return 0;
- }
+-}
 -
 -static void __exit chacha_simd_mod_fini(void)
 -{
--	if (IS_REACHABLE(CONFIG_CRYPTO_SKCIPHER) && boot_cpu_has(X86_FEATURE_SSSE3))
+-	if (IS_REACHABLE(CONFIG_CRYPTO_SKCIPHER))
 -		crypto_unregister_skciphers(algs, ARRAY_SIZE(algs));
 -}
 -
- arch_initcall(chacha_simd_mod_init);
+-arch_initcall(chacha_simd_mod_init);
 -module_exit(chacha_simd_mod_fini);
- 
- MODULE_LICENSE("GPL");
- MODULE_AUTHOR("Martin Willi <martin@strongswan.org>");
--MODULE_DESCRIPTION("ChaCha and XChaCha stream ciphers (x64 SIMD accelerated)");
+-
+-MODULE_DESCRIPTION("ChaCha and XChaCha stream ciphers (MIPS accelerated)");
++MODULE_DESCRIPTION("ChaCha and HChaCha functions (MIPS optimized)");
+ MODULE_AUTHOR("Ard Biesheuvel <ard.biesheuvel@linaro.org>");
+ MODULE_LICENSE("GPL v2");
 -MODULE_ALIAS_CRYPTO("chacha20");
--MODULE_ALIAS_CRYPTO("chacha20-simd");
+-MODULE_ALIAS_CRYPTO("chacha20-mips");
 -MODULE_ALIAS_CRYPTO("xchacha20");
--MODULE_ALIAS_CRYPTO("xchacha20-simd");
+-MODULE_ALIAS_CRYPTO("xchacha20-mips");
 -MODULE_ALIAS_CRYPTO("xchacha12");
--MODULE_ALIAS_CRYPTO("xchacha12-simd");
-+MODULE_DESCRIPTION("ChaCha and HChaCha functions (x86_64 optimized)");
+-MODULE_ALIAS_CRYPTO("xchacha12-mips");
 -- 
 2.49.0
 
