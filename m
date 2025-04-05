@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E491C36010
-	for <linux-riscv@archiver.kernel.org>; Fri,  4 Apr 2025 23:16:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1249C369A2
+	for <linux-riscv@archiver.kernel.org>; Sat,  5 Apr 2025 00:41:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z0Gklm69UFQ8rh2YaWg19rdc7dXbwXuA6eel+OmcT88=; b=yUNhQ1QitGDU/+
-	bOsMkj0U37RjvofJeLL+tV2a7YsLY3iQnJ13bObMGS4LF0bPTc3MGRv5AIzfJozu3YMRB+0qC336C
-	PZ1hppqebuaj1ycCTTF2518mYC24b6bb8fKy+jrmIyb2DXk/KlhB7uFJe2c0oWNwKsoVeHPqAyT/b
-	aVjuBOGDYVJVW3Lf4YMITwE93jukngPiJl6Tof2kuLcOBiLkgC6/RTy/gHxPKi0mBrrzS/01qQV6W
-	Z5G8tY2i0iM1jPXsGB7FAE/IfmnS6GCoDuoCYm8ONIuc/lt+N9YLY0odOgVU7TbHykuFywd7xlAUL
-	Jp70a4duSlxA3z82DT2A==;
+	List-Owner; bh=uqIx6iqV9wKPVmpD5eVy/wWEviBbioFq3IGz9by+ANE=; b=3O0BVDMmiKeI8y
+	Ptpvjw+M52JCtgXGb6fkWNHXYBow1yE22os3kYHa3r7YsCpkInLTwVHiCe1zO9sfYx8sdoZSDm3ri
+	XqeCQV7D/o9sEydDiPlxSOw/0jgkwZYRsWJG+pt+HjtriOWsCwR3XBrr7An6DW/xKQ3g/bqgIXPcC
+	aU2aBCiocf+BFItw+MiYIijbRTLxub2P3vpXVyYfj9dLoI2FDYWOBPZfDgIxNz6cSVHLEauaGw5HW
+	FIqRDwUsbKE8HGuw7dyDt8be1vAocYEic0bIiKJLm6v0+khlFh1HoF1efQ3DagziTX8aiT0EpsE62
+	EQua/p6rhytWscDA9BRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0qGr-0000000D3pK-2cwD;
-	Fri, 04 Apr 2025 23:16:21 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	id 1u0ram-0000000DDv5-0BXM;
+	Sat, 05 Apr 2025 00:41:00 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u0qGp-0000000D3on-2a7i
+	id 1u0raA-0000000DDq2-2DjS
 	for linux-riscv@lists.infradead.org;
-	Fri, 04 Apr 2025 23:16:21 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-303a66af07eso1957824a91.2
-        for <linux-riscv@lists.infradead.org>; Fri, 04 Apr 2025 16:16:19 -0700 (PDT)
+	Sat, 05 Apr 2025 00:40:24 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-227b650504fso25066405ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 04 Apr 2025 17:40:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1743808578; x=1744413378; darn=lists.infradead.org;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1743813622; x=1744418422; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Xi0GUgnEAFI8Tq5WlnIINEkOrw3m9T6yA0HO5ypDLqM=;
-        b=HzBXR9xpJvGO5TEenR00F/QxQXS/9/ao3c6Zl/sZpZdOzm/SPNrcAfkcb1VHL73qa8
-         SqY+3ORkFRPWmspcZw3OQ6rnSTLGBQnlTcTaA+zxSVT4VdN2X/xMRI260PR0ouQeJQft
-         6hrXgkA8qKW1A83ELF6Erk7hTFtg6+TcrbLjrRZ9WUL5AiMb3itL33QmJUcpUFE9OgNS
-         bJ8DcPEANpt4JKC0Br8xKHfEGLOu5xQoI601BqWOb2IZ1/bIZZOIvZ0zPxYCjjuE2X3s
-         4bLcWwq8eTISsq1h6EA//f5xrs0mStcHl8gQP4uMabYzP+M3MzCMAmbFXYXj5aPMcyB4
-         gHuw==
+        bh=KfoL6a33lyE8RWsO9SgyVcz36aO/OVd9DKI3BuJvE6Q=;
+        b=HKQjstd+Vs2gV9ghfvfBX28A/fbApYGibsq+XBGrMTYY4ey2ksVSZ+rClSAPbIZPYo
+         91A8rUzCpvHie+A+S27sphovD6eHK1dBD2a0l7LuTWIbHag3julQzBbD/4hAzLYLqJbF
+         J07LrOa8GbOmnmDmawWn+QOFuXYHewlvCM+Uf1MaNuGLys4Koj/KnwZdu1Q2oHabUK0x
+         lfyn2hLYS60S0YZk1I+nH4BxfWc3853TjDI/hWKTaDGXh5hi7UaF0r0Jf3wd4gIoxpYI
+         XfC00XrVSOGVAVZBlPu1XgOLPwCQJcS0PGboWCpWp3FgdQv4HkgHJHKZfNAe7BJadRHO
+         6ITQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743808578; x=1744413378;
+        d=1e100.net; s=20230601; t=1743813622; x=1744418422;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Xi0GUgnEAFI8Tq5WlnIINEkOrw3m9T6yA0HO5ypDLqM=;
-        b=BYQPeDH5lbJG6dYLfQUuFY/9mySvppOCCZQv9GZ9ofSGg9iVKe0jrP3jLzcvfEF7Td
-         FpD0rZnjO7P//y2b3a+xOq/REA3N2uJBlUlvPRsn8A7ZOD3a7nZn+k31Y6vlBicTMhgA
-         8bEplQg0G858cSBoN0ofgpxuToMcDfVpmT9K+akaGxSoob8pXPteFR9EjS4JQM8lgHqy
-         skXxuOZ6USUHrQmI3GgRKQLnMmDFij87eZaGZ1RbBBzrMrFDfXGii/mPLaL2OYUihRt5
-         QgR4evuaQ36daWyuS0EPHg9OB+uyEBbKBnVC5h+JATsegUyOB5H0XcyIQAKyFfOsxNhS
-         zG3g==
-X-Forwarded-Encrypted: i=1; AJvYcCXSB5KrjYTsx29Dxfk8M1zYt4zZIlkfp72t8vQVwRFbqNBbO+nJ4aeyNTSTF03HUs18Dkefle9S98/Q+A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzoB43v+lLzWkLMKOnUFmPxolm8dpqJ1DjsOSClJNdxuUPdHC04
-	vlh8VFJGBzkwf59TAkj7F6XK6S/7bp0C+W5b+m2dlIlmdK2NXeurbGto/O4Ts2I=
-X-Gm-Gg: ASbGncvsecZWUWKNhSqlE8lhyBJYXyp2+TkHZxwP4vNq5uwT6alTfRmdhltayxxXFKY
-	lv2U8epmO7YEB6mZBqxMbG9wcSFx5GjW5cVzQLr4U1Y+v5ySKPw6DAkckhdf8g3nDsm6oIgfXOM
-	JK7MgvZSN8yjZL5QrvVMAaozgthMK62jfuz8I/NzYXYuK5uMuwotJhIHIPmu1qKHF44/vqMbgsp
-	LcsINtZmF6MMP8X5OBGenArMFKlEzau/cxPPSQga3484Y35OdQ3OVlBX8bXFxEf4EgMThwnSrvc
-	IDjVFBDZ53pJ5JnLLbB2bB5L
-X-Google-Smtp-Source: AGHT+IHC31M9P+ufU9NLoFJjA+hcOFrxMJv1oldOlZ6NzGrsyiNFFvfRRMA/XiiS+ri4Zo313E4eog==
-X-Received: by 2002:a17:90a:d006:b0:305:2d68:8d39 with SMTP id 98e67ed59e1d1-306af71ce82mr1669762a91.12.1743808578500;
-        Fri, 04 Apr 2025 16:16:18 -0700 (PDT)
+        bh=KfoL6a33lyE8RWsO9SgyVcz36aO/OVd9DKI3BuJvE6Q=;
+        b=UVSR69/iuWwWDONUc1PE3Yh8T0sRUN0A8AiUrCsm8qZQrffNipzBjrrAtxBBHNa2P5
+         XYfp4+BZoyYiAHjc/McKvM/C7E3yKtPky25hz8yp06q86m0a1bipYiOwbZ5YEwSgDm1w
+         HN0nyt1xbS/KMWzeSly+0dtgAEVbofxm2bubQYboHmOnMcCFJvw/S2EAt7JFOtud2+2J
+         vZSwKCqT1Ofk+BZ11zE9wrfj2H0oWQz+jgw6RKT1J1+z1+RUmReJvl+C923bHMLCtdpT
+         K4CnQJm6udtQZnhLtOTF2XTqK3JgyLPswH9HQg6YX7dIsGnq3OsDgYyNC4jPu0udWMp6
+         qMgw==
+X-Forwarded-Encrypted: i=1; AJvYcCX21Q0qc2U0YWYAlZuEPbeEcg06RfDT0hQ8jgXpbHvacgc5llyLGF8mVnmjFSRNZ9TAR6zkjE465Yb0sw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3UoAOD2IQUcYCl/nJd9Q1ebNh2Te0aRsWQR6jNc+CMtaf0Oov
+	e+smw7PphzgnP+H5jIY1PcTtgfD59Ck8aMITkTRvAjIzDR3wOL2WTjmIoPa7kOM=
+X-Gm-Gg: ASbGnctOMMdv8ToCZdqnRgaIL6VVmQShiumY/R5138cjH6KmJ8HRKDYRGMqAZVdkQEX
+	0LbgnAwHMlfmzvEItNOoggsYp8xEEzSglyLkJXw+cTzTQkPJHYPpYvIO2Jmv2YK85JuVCT8alAo
+	oM4niu6+9XmpSIY2nhU67uXTT4GpZd27KO2em0Bx9pb5ku4xR7rNE8pbbxPr8j8u9yS9TkYGf+J
+	UtaYaK3FHVLGlOhB/Ju9xud9PtNysCIara/NafZ4BhhNuuhu1cThu+8eryxvht1Ug+J7LEtgHfc
+	oOIPQEZBeCMgMZKz8xAr6dFq
+X-Google-Smtp-Source: AGHT+IFLlRqb+B8Il0xSrLbIQ8LNYlVWESSp8k1D2Bpzp3CZ/lAiYjSrvaoBZJx+MHW3Im1cvg/mxw==
+X-Received: by 2002:a17:902:ec86:b0:21f:5cd8:c67 with SMTP id d9443c01a7336-22a8a080701mr71816545ad.31.1743813621742;
+        Fri, 04 Apr 2025 17:40:21 -0700 (PDT)
 Received: from x1 ([97.115.235.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-305841a8ae7sm4115878a91.12.2025.04.04.16.16.17
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d97d1be1sm4092468b3a.8.2025.04.04.17.40.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 04 Apr 2025 16:16:18 -0700 (PDT)
-Date: Fri, 4 Apr 2025 16:16:16 -0700
+        Fri, 04 Apr 2025 17:40:21 -0700 (PDT)
+Date: Fri, 4 Apr 2025 17:40:19 -0700
 From: Drew Fustini <drew@pdp7.com>
 To: Michal Wilczynski <m.wilczynski@samsung.com>
 Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
@@ -77,18 +77,18 @@ Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
 	p.zabel@pengutronix.de, m.szyprowski@samsung.com,
 	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
- controller
-Message-ID: <Z/BoQIXKEhL3/q50@x1>
+Subject: Re: [PATCH v7 2/3] clk: thead: Add clock support for VO subsystem in
+ T-HEAD TH1520 SoC
+Message-ID: <Z/B78yemvvSS1oLe@x1>
 References: <20250403094425.876981-1-m.wilczynski@samsung.com>
- <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
- <20250403094425.876981-4-m.wilczynski@samsung.com>
+ <CGME20250403094432eucas1p112aada697802092266bc36ef863f4299@eucas1p1.samsung.com>
+ <20250403094425.876981-3-m.wilczynski@samsung.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250403094425.876981-4-m.wilczynski@samsung.com>
+In-Reply-To: <20250403094425.876981-3-m.wilczynski@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250404_161619_917840_1B686D1C 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20250404_174022_832889_9BCE36C2 
+X-CRM114-Status: GOOD (  13.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,44 +105,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 03, 2025 at 11:44:25AM +0200, Michal Wilczynski wrote:
-> VO clocks reside in a different address space from the AP clocks on the
-> T-HEAD SoC. Add the device tree node of a clock-controller to handle
-> VO address space as well.
+On Thu, Apr 03, 2025 at 11:44:24AM +0200, Michal Wilczynski wrote:
+> The T-Head TH1520 SoC integrates a variety of clocks for its subsystems,
+> including the Application Processor (AP) and the Video Output (VO) [1].
+> Up until now, the T-Head clock driver only supported AP clocks.
+> 
+> Extend the driver to provide clock functionality for the VO subsystem.
+> At this stage, the focus is on implementing the VO clock gates, as these
+> are currently the most relevant and required components for enabling and
+> disabling the VO subsystem functionality.  Future enhancements may
+> introduce additional VO-related clocks as necessary.
+> 
+> Link: https://openbeagle.org/beaglev-ahead/beaglev-ahead/-/blob/main/docs/TH1520%20System%20User%20Manual.pdf [1]
 > 
 > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 7 +++++++
->  1 file changed, 7 insertions(+)
+>  drivers/clk/thead/clk-th1520-ap.c | 196 +++++++++++++++++++++++++-----
+>  1 file changed, 168 insertions(+), 28 deletions(-)
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index 527336417765..d4cba0713cab 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -489,6 +489,13 @@ clk: clock-controller@ffef010000 {
->  			#clock-cells = <1>;
->  		};
+> diff --git a/drivers/clk/thead/clk-th1520-ap.c b/drivers/clk/thead/clk-th1520-ap.c
+> index 4c9555fc6184..ebfb1d59401d 100644
+> --- a/drivers/clk/thead/clk-th1520-ap.c
+> +++ b/drivers/clk/thead/clk-th1520-ap.c
+> @@ -847,6 +847,67 @@ static CCU_GATE(CLK_SRAM1, sram1_clk, "sram1", axi_aclk_pd, 0x20c, BIT(3), 0);
+>  static CCU_GATE(CLK_SRAM2, sram2_clk, "sram2", axi_aclk_pd, 0x20c, BIT(2), 0);
+>  static CCU_GATE(CLK_SRAM3, sram3_clk, "sram3", axi_aclk_pd, 0x20c, BIT(1), 0);
 >  
-> +		clk_vo: clock-controller@ffef528050 {
-> +			compatible = "thead,th1520-clk-vo";
-> +			reg = <0xff 0xef528050 0x0 0xfb0>;
+> +static CCU_GATE(CLK_AXI4_VO_ACLK, axi4_vo_aclk, "axi4-vo-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(0), 0);
 
-Thanks for your patch. It is great to have more of the clocks supported
-upstream.
+Is CLKCTRL_GPU_MEM_CLK_EN (bit 2) skipped on purpose?
 
-The TH1520 System User Manual shows 0xFF_EF52_8000 for VO_SUBSYS on page
-205. Is there a reason you decided to use 0xFF_EF52_8050 as the base?
+> +static CCU_GATE(CLK_GPU_CORE, gpu_core_clk, "gpu-core-clk", video_pll_clk_pd,
+> +		0x0, BIT(3), 0);
+> +static CCU_GATE(CLK_GPU_CFG_ACLK, gpu_cfg_aclk, "gpu-cfg-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(4), 0);
+> +static CCU_GATE(CLK_DPU_PIXELCLK0, dpu0_pixelclk, "dpu0-pixelclk",
+> +		video_pll_clk_pd, 0x0, BIT(5), 0);
+> +static CCU_GATE(CLK_DPU_PIXELCLK1, dpu1_pixelclk, "dpu1-pixelclk",
+> +		video_pll_clk_pd, 0x0, BIT(6), 0);
+> +static CCU_GATE(CLK_DPU_HCLK, dpu_hclk, "dpu-hclk", video_pll_clk_pd, 0x0,
+> +		BIT(7), 0);
+> +static CCU_GATE(CLK_DPU_ACLK, dpu_aclk, "dpu-aclk", video_pll_clk_pd, 0x0,
+> +		BIT(8), 0);
+> +static CCU_GATE(CLK_DPU_CCLK, dpu_cclk, "dpu-cclk", video_pll_clk_pd, 0x0,
+> +		BIT(9), 0);
+> +static CCU_GATE(CLK_HDMI_SFR, hdmi_sfr_clk, "hdmi-sfr-clk", video_pll_clk_pd,
+> +		0x0, BIT(10), 0);
+> +static CCU_GATE(CLK_HDMI_PCLK, hdmi_pclk, "hdmi-pclk", video_pll_clk_pd, 0x0,
+> +		BIT(11), 0);
+> +static CCU_GATE(CLK_HDMI_CEC, hdmi_cec_clk, "hdmi-cec-clk", video_pll_clk_pd,
+> +		0x0, BIT(12), 0);
+> +static CCU_GATE(CLK_MIPI_DSI0_PCLK, mipi_dsi0_pclk, "mipi-dsi0-pclk",
+> +		video_pll_clk_pd, 0x0, BIT(13), 0);
+> +static CCU_GATE(CLK_MIPI_DSI1_PCLK, mipi_dsi1_pclk, "mipi-dsi1-pclk",
+> +		video_pll_clk_pd, 0x0, BIT(14), 0);
+> +static CCU_GATE(CLK_MIPI_DSI0_CFG, mipi_dsi0_cfg_clk, "mipi-dsi0-cfg-clk",
+> +		video_pll_clk_pd, 0x0, BIT(15), 0);
+> +static CCU_GATE(CLK_MIPI_DSI1_CFG, mipi_dsi1_cfg_clk, "mipi-dsi1-cfg-clk",
+> +		video_pll_clk_pd, 0x0, BIT(16), 0);
+> +static CCU_GATE(CLK_MIPI_DSI0_REFCLK, mipi_dsi0_refclk, "mipi-dsi0-refclk",
+> +		video_pll_clk_pd, 0x0, BIT(17), 0);
+> +static CCU_GATE(CLK_MIPI_DSI1_REFCLK, mipi_dsi1_refclk, "mipi-dsi1-refclk",
+> +		video_pll_clk_pd, 0x0, BIT(18), 0);
+> +static CCU_GATE(CLK_HDMI_I2S, hdmi_i2s_clk, "hdmi-i2s-clk", video_pll_clk_pd,
+> +		0x0, BIT(19), 0);
+> +static CCU_GATE(CLK_X2H_DPU1_ACLK, x2h_dpu1_aclk, "x2h-dpu1-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(20), 0);
+> +static CCU_GATE(CLK_X2H_DPU_ACLK, x2h_dpu_aclk, "x2h-dpu-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(21), 0);
+> +static CCU_GATE(CLK_AXI4_VO_PCLK, axi4_vo_pclk, "axi4-vo-pclk",
+> +		video_pll_clk_pd, 0x0, BIT(22), 0);
+> +static CCU_GATE(CLK_IOPMP_VOSYS_DPU_PCLK, iopmp_vosys_dpu_pclk,
+> +		"iopmp-vosys-dpu-pclk", video_pll_clk_pd, 0x0, BIT(23), 0);
+> +static CCU_GATE(CLK_IOPMP_VOSYS_DPU1_PCLK, iopmp_vosys_dpu1_pclk,
+> +		"iopmp-vosys-dpu1-pclk", video_pll_clk_pd, 0x0, BIT(24), 0);
+> +static CCU_GATE(CLK_IOPMP_VOSYS_GPU_PCLK, iopmp_vosys_gpu_pclk,
+> +		"iopmp-vosys-gpu-pclk", video_pll_clk_pd, 0x0, BIT(25), 0);
+> +static CCU_GATE(CLK_IOPMP_DPU1_ACLK, iopmp_dpu1_aclk, "iopmp-dpu1-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(27), 0);
+> +static CCU_GATE(CLK_IOPMP_DPU_ACLK, iopmp_dpu_aclk, "iopmp-dpu-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(28), 0);
+> +static CCU_GATE(CLK_IOPMP_GPU_ACLK, iopmp_gpu_aclk, "iopmp-gpu-aclk",
+> +		video_pll_clk_pd, 0x0, BIT(29), 0);
+> +static CCU_GATE(CLK_MIPIDSI0_PIXCLK, mipi_dsi0_pixclk, "mipi-dsi0-pixclk",
+> +		video_pll_clk_pd, 0x0, BIT(30), 0);
+> +static CCU_GATE(CLK_MIPIDSI1_PIXCLK, mipi_dsi1_pixclk, "mipi-dsi1-pixclk",
+> +		video_pll_clk_pd, 0x0, BIT(31), 0);
+> +static CCU_GATE(CLK_HDMI_PIXCLK, hdmi_pixclk, "hdmi-pixclk", video_pll_clk_pd,
+> +		0x4, BIT(0), 0);
 
-I see on page 213 that the first register for VO_SUBSYS starts with
-VOSYS_CLK_GATE at offset 0x50. I figure you did this to have the
-CCU_GATE macros use offset of 0x0 instead 0x50.
+Did you intentionally skip VOSYS_DPU_CCLK_CFG.VOSYS_DPU_CCLK_CFG and
+TEST_CLK_CFG.TEST_CLK_CFG as they aren't needed?
 
-I kind of think the reg property using the actual base address
-(0xFF_EF52_8000) makes more sense as that's a closer match to the tables
-in the manual. But I don't have a strong preference if you think think
-using 0xef528050 makes the CCU_GATE macros easier to read.
 
--Drew
+Thanks,
+Drew
 
 _______________________________________________
 linux-riscv mailing list
