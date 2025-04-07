@@ -4,127 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E02C369A1
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:30:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A04C369A1
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:41:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VQhFyfKtvGchfx4tODUVL618eedZCgxUmwo9igBE8fg=; b=foj97C+7USkTaL
-	EXurLECri82JdIDJ7NaN3k3idBACJVe+FIF41XqQpZfYW0ufnjUax/3HfRELse9n5CvKBgJpUUtnz
-	zQoKJpt/4LgQyeXnd0qNzvXbE+NMO+p24lgoqgF2PWa3nb4ZuhajL2ssMKPS+6ZgkP7ClpbFj7+33
-	PiZwU01jOeBszF+ItJciFjdAQ7nfWwQFYSYGQ5cGSZbcDWWKzcphTyrQY2AhlADDM+sudDdxpNqNr
-	zcpCE0PXHjMdsmvo8emD9e991deinaFePDrXDNOPZZn4Xjawm0hVwipI33A68YShy94sKy0ENylJB
-	xuWS0PxpDvmImQxRvp1w==;
+	List-Owner; bh=NQeaEB0t320IpdKZJ+Z/tQIZu1yYRFATKSkFiQTvsRU=; b=e4tc+QZ8YEtr+T
+	nfKMtknFK++G0tuui6GItK6vVXXBplP4aTmOlQLUUE8zuSBb4TtcF5xqenqixjXOpTg9GqjgPjO2k
+	6+Jsqzroo1B8dnambbzRlX7J+Gjdz02sGQGP8X+jif6gPBLnfssHZZmlkiyBxln6KRo3SQaYww5AL
+	NOHQKaTf1tSPaRMwlQXWtuVAkDTL9UgfbP9iCiIw//Tr+AuM0QE/iykECVfdfheXq//Dor2lHodjv
+	Mut7eT1ptdLUMCW9jfMX+FvRkB3Q/Cu2n55KpeDP/QqvP28u0R7w2/7XSldtXuyjHCB9sNlh4AwzN
+	4h550IycMCbg45UPwUKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pMV-00000001D5s-1Iib;
-	Mon, 07 Apr 2025 16:30:15 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1u1pXK-00000001FPM-0iMp;
+	Mon, 07 Apr 2025 16:41:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1oR3-00000000y8Y-0FCZ
+	id 1u1ofJ-000000010T7-093c
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 07 Apr 2025 15:45:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=P+SgoTY8IEomlopwBU92+E30kaA1qL0Nxq6ONBeXGmc=; b=LPnWQmnGSP0Es0Odd0W99uXd4r
+	9rUxNgzl/EOw0HLoLzxAiREuIcMiTkuysR4VEDrH8CQD1YlODjSQaQqH+4NOGvY61z/JRN2ypZDKW
+	jisBZ+q5Zu+VF1KKoOwAKbTa3RFaRIYl8djW+cYjq9ISVh/3dWDzHtyiKP7vUXUd7GeveQo99E6kV
+	9nLvSQqSAnWsh6wIond+VZhBtTx78oQfZS+GaUz/94TZNTDPq4B3E8jvmnlFmy1ZI1WH/cG6owbnq
+	4FoIyFOmPKUxqbFOE91oBrU2nkcCcF4aJ1vxDiALlE6OSS4SAp3H4AdVt0aAGCJE7v4YGV32n5Ksb
+	JIM21clw==;
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1ofF-0000000824r-0gJn
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 15:30:56 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250407153045euoutp0178e64a427b07fa2f626ec25ff89dcf20~0Ev-DhX2A3224232242euoutp01-
-	for <linux-riscv@lists.infradead.org>; Mon,  7 Apr 2025 15:30:45 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250407153045euoutp0178e64a427b07fa2f626ec25ff89dcf20~0Ev-DhX2A3224232242euoutp01-
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1744039845;
-	bh=9BJwn0vOy9yNn3qw/uCGoiDM3pU2h+s/V7Z34pEXRKg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=oxR1oq0J6B9cuI62mqsNxNAhoctPfuf1Ejxo77Cpwv9b7v9eumbp2qMIJrwvnqHiU
-	 GLxhjx3Yao98fp9hQxWsvKUQm7zxcJ5g8xTgZIHet0Exsfp+fsozqqBb7XPOsZPHMA
-	 hZZaEZ7LPa2dkTgU64rivvpKJyol6fDpAxlGr9JU=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250407153045eucas1p13848b86d799dfe9a1dc8b46f6a994482~0Ev_rcnSk0589105891eucas1p1f;
-	Mon,  7 Apr 2025 15:30:45 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 6E.E4.20821.4AFE3F76; Mon,  7
-	Apr 2025 16:30:44 +0100 (BST)
-Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250407153044eucas1p18bba34f155a00e71f0206dd1d5fe2a7a~0Ev_L3n_H0589505895eucas1p1o;
-	Mon,  7 Apr 2025 15:30:44 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250407153044eusmtrp237527516d1ec56985d56984a6f1070d3~0Ev_K1g1C2636926369eusmtrp2X;
-	Mon,  7 Apr 2025 15:30:44 +0000 (GMT)
-X-AuditID: cbfec7f2-b09c370000005155-9b-67f3efa4e2d0
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id C5.52.19654.4AFE3F76; Mon,  7
-	Apr 2025 16:30:44 +0100 (BST)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250407153043eusmtip164cc046b905ec84519a877f1240e86c0~0Ev9SdbDZ1954519545eusmtip1g;
-	Mon,  7 Apr 2025 15:30:43 +0000 (GMT)
-Message-ID: <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
-Date: Mon, 7 Apr 2025 17:30:43 +0200
+	Mon, 07 Apr 2025 15:45:35 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B8CF241E0D;
+	Mon,  7 Apr 2025 15:45:19 +0000 (UTC)
+Message-ID: <7b6d895a-d19e-4f2c-8e12-6fe933b26189@ghiti.fr>
+Date: Mon, 7 Apr 2025 17:45:13 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
- controller
-To: Drew Fustini <drew@pdp7.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 01/28] mm: VM_SHADOW_STACK definition for riscv
 Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <Z/BoQIXKEhL3/q50@x1>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrGKsWRmVeSWpSXmKPExsWy7djPc7pL3n9ON7h+08zi2Z2vrBZbf89i
-	t1iz9xyTxfwj51gt7l3awmTxYm8ji0XzsfVsFi9n3WOz+Nhzj9Xi8q45bBbbPrewWaw9cpfd
-	4uIpV4u7906wWLy83MNs0TaL3+L/nh3sFv+ubWSxaNk/hcVB2OP9jVZ2jzcvX7J4HO74wu5x
-	78Q0Vo9NqzrZPDYvqfdoWXuMyaP/r4HH+31X2Tz6tqxi9LjUfJ3d4/MmuQCeKC6blNSczLLU
-	In27BK6M47dECuYLVsw8e5qtgfEPbxcjJ4eEgInEgtvvWboYuTiEBFYwSqxYvY4ZwvnCKNE8
-	u5UdpEpI4DOjxJ2VyTAdLYuXMEEULWeUaF20CqrjLaPE3YmngGZxcPAK2Ek8nCsL0sAioCKx
-	YO8zJhCbV0BQ4uTMJywgtqiAvMT9WzPAFggLhEhsONPGDGKLCChInFtxCWwBs8ByZomFezaA
-	FTELiEvcejIfbBCbgJHEg+XzWUFsTgEliYX/WpggauQlmrfOBjtIQuAVp0TnyyusEGe7SNzd
-	2AllC0u8Or6FHcKWkfi/E2KohEC+xIOtn5gh7BqJnT3HoWxriTvnfrGBPMYsoCmxfpc+RNhR
-	YtLvTWBhCQE+iRtvBSFO4JOYtG06M0SYV6KjTQiiWk1iak8v3NJzK7YxTWBUmoUUKrOQPDkL
-	yTOzEPYuYGRZxSieWlqcm55abJiXWq5XnJhbXJqXrpecn7uJEZg0T/87/mkH49xXH/UOMTJx
-	MB5ilOBgVhLhtTz1KV2INyWxsiq1KD++qDQntfgQozQHi5I476L9relCAumJJanZqakFqUUw
-	WSYOTqkGJrme3bFHNrz0W55vFm0wq3rB9GNvPLbPc3m8ZdG6mldzfy79O9Vj5s//rTENSYdX
-	X55YpNnxSifPdJf2ty2Keu+ufVcu2Mga2fX878K2hXKtOa8eHOU3vsjCGL5j19yr2y04lm7y
-	eDJnl7mGwXaRi1atqslR59K4/dfeusZq+USm8eahnZ/CTXQKeVcZbd814eb26wyPJy03Y9xR
-	Zc0SsPyApvl/9divu6LELF8w5T8K96jxqNVZLbfLhjPnY5h3goyx9VuxQ9nXs8+u7rNV2HJ0
-	ivL7A+8kc8xOc/2Wb4/evejiVN4ZJZcD94q+7J81Tcz/pMjM38kWrvt5C7ZO/x3w8b3B+wzW
-	7D2S4Z81r+UqsRRnJBpqMRcVJwIAox2IGAkEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupgleLIzCtJLcpLzFFi42I5/e/4Xd0l7z+nG7QcE7N4ducrq8XW37PY
-	LdbsPcdkMf/IOVaLe5e2MFm82NvIYtF8bD2bxctZ99gsPvbcY7W4vGsOm8W2zy1sFmuP3GW3
-	uHjK1eLuvRMsFi8v9zBbtM3it/i/Zwe7xb9rG1ksWvZPYXEQ9nh/o5Xd483Llywehzu+sHvc
-	OzGN1WPTqk42j81L6j1a1h5j8uj/a+Dxft9VNo++LasYPS41X2f3+LxJLoAnSs+mKL+0JFUh
-	I7+4xFYp2tDCSM/Q0kLPyMRSz9DYPNbKyFRJ384mJTUnsyy1SN8uQS/j+C2RgvmCFTPPnmZr
-	YPzD28XIySEhYCLRsngJUxcjF4eQwFJGiZV7b7FCJGQkrnW/ZIGwhSX+XOtigyh6zSix7+46
-	oCIODl4BO4mHc2VBalgEVCQW7H3GBGLzCghKnJz5BKxXVEBe4v6tGewgtrBAiMSGM23MILaI
-	gILEuRWXwBYzCyxnlnjw6itYQkjgLqPE4+teIDazgLjErSfzwYayCRhJPFg+H+w4TgEliYX/
-	WphAbmAWUJdYP08IolxeonnrbOYJjEKzkJwxC8mkWQgds5B0LGBkWcUoklpanJueW2ykV5yY
-	W1yal66XnJ+7iRGYJLYd+7llB+PKVx/1DjEycTAeYpTgYFYS4bU89SldiDclsbIqtSg/vqg0
-	J7X4EKMpMCgmMkuJJucD01ReSbyhmYGpoYmZpYGppZmxkjgv25XzaUIC6YklqdmpqQWpRTB9
-	TBycUg1M2ffOfgtd1jv3iEFK70rmW9n5Zw3n2e2q+TkpVdPj3p/M7xnvT06eKm+tqGkjFm+z
-	+aHQNcbMplOdl2QUWf/se3pKYeecDaapupGiCUJVSm0eiQ9dbnoe8325wudWfuqcqvBbhu/E
-	evyq//2O+LnRq1tcuanYOSzn4u3Ntn4/V+VGbzttu1DOYGImxyIT+wnbVJbyz5G/UB74LNGh
-	/wFvsTojk2pRmvuRi66uT5iuHTXNTu8o6GP+sMo9edvvPFe/Ld8F9Td9+bAyJTtwU+/HFPk9
-	/w7JNbi2fbMvYIo21LwZEnb5ioSr6Z+81Mv9yQc7rnumC01VONSwl9PfcFKXScrvlgveBn4H
-	ZzAfMlJiKc5INNRiLipOBADznayFmwMAAA==
-X-CMS-MailID: 20250407153044eucas1p18bba34f155a00e71f0206dd1d5fe2a7a
-X-Msg-Generator: CA
-X-RootMTR: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
-References: <20250403094425.876981-1-m.wilczynski@samsung.com>
-	<CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
-	<20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1>
+To: Deepak Gupta <debug@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Christian Brauner <brauner@kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
+ rick.p.edgecombe@intel.com, Zong Li <zong.li@sifive.com>
+References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
+ <20250314-v5_user_cfi_series-v12-1-e51202b53138@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250314-v5_user_cfi_series-v12-1-e51202b53138@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtheelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepudejiedrudegjedrudeghedrgeegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudejiedrudegjedrudeghedrgeegpdhhvghloheplgduledvrdduieekrddurdduheefngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeegledprhgtphhtthhopeguvggsuhhgsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehmihhnghhosehrvgguhhgrthdrtghomhdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegurghvvgdrhhgrnhhsvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhhpr
+ gesiiihthhorhdrtghomhdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_083053_670882_D8C4F7D5 
-X-CRM114-Status: GOOD (  23.01  )
+X-CRM114-CacheID: sfid-20250407_164533_522901_25B70A8B 
+X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,49 +97,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA0LzUvMjUgMDE6MTYsIERyZXcgRnVzdGluaSB3cm90ZToKPiBPbiBUaHUsIEFwciAwMywg
-MjAyNSBhdCAxMTo0NDoyNUFNICswMjAwLCBNaWNoYWwgV2lsY3p5bnNraSB3cm90ZToKPj4gVk8g
-Y2xvY2tzIHJlc2lkZSBpbiBhIGRpZmZlcmVudCBhZGRyZXNzIHNwYWNlIGZyb20gdGhlIEFQIGNs
-b2NrcyBvbiB0aGUKPj4gVC1IRUFEIFNvQy4gQWRkIHRoZSBkZXZpY2UgdHJlZSBub2RlIG9mIGEg
-Y2xvY2stY29udHJvbGxlciB0byBoYW5kbGUKPj4gVk8gYWRkcmVzcyBzcGFjZSBhcyB3ZWxsLgo+
-Pgo+PiBTaWduZWQtb2ZmLWJ5OiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxjenluc2tpQHNhbXN1
-bmcuY29tPgo+PiAtLS0KPj4gIGFyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLmR0c2kg
-fCA3ICsrKysrKysKPj4gIDEgZmlsZSBjaGFuZ2VkLCA3IGluc2VydGlvbnMoKykKPj4KPj4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLmR0c2kgYi9hcmNoL3Jp
-c2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC5kdHNpCj4+IGluZGV4IDUyNzMzNjQxNzc2NS4uZDRj
-YmEwNzEzY2FiIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUy
-MC5kdHNpCj4+ICsrKyBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIwLmR0c2kKPj4g
-QEAgLTQ4OSw2ICs0ODksMTMgQEAgY2xrOiBjbG9jay1jb250cm9sbGVyQGZmZWYwMTAwMDAgewo+
-PiAgCQkJI2Nsb2NrLWNlbGxzID0gPDE+Owo+PiAgCQl9Owo+PiAgCj4+ICsJCWNsa192bzogY2xv
-Y2stY29udHJvbGxlckBmZmVmNTI4MDUwIHsKPj4gKwkJCWNvbXBhdGlibGUgPSAidGhlYWQsdGgx
-NTIwLWNsay12byI7Cj4+ICsJCQlyZWcgPSA8MHhmZiAweGVmNTI4MDUwIDB4MCAweGZiMD47Cj4g
-Cj4gVGhhbmtzIGZvciB5b3VyIHBhdGNoLiBJdCBpcyBncmVhdCB0byBoYXZlIG1vcmUgb2YgdGhl
-IGNsb2NrcyBzdXBwb3J0ZWQKPiB1cHN0cmVhbS4KPiAKPiBUaGUgVEgxNTIwIFN5c3RlbSBVc2Vy
-IE1hbnVhbCBzaG93cyAweEZGX0VGNTJfODAwMCBmb3IgVk9fU1VCU1lTIG9uIHBhZ2UKPiAyMDUu
-IElzIHRoZXJlIGEgcmVhc29uIHlvdSBkZWNpZGVkIHRvIHVzZSAweEZGX0VGNTJfODA1MCBhcyB0
-aGUgYmFzZT8KPiAKPiBJIHNlZSBvbiBwYWdlIDIxMyB0aGF0IHRoZSBmaXJzdCByZWdpc3RlciBm
-b3IgVk9fU1VCU1lTIHN0YXJ0cyB3aXRoCj4gVk9TWVNfQ0xLX0dBVEUgYXQgb2Zmc2V0IDB4NTAu
-IEkgZmlndXJlIHlvdSBkaWQgdGhpcyB0byBoYXZlIHRoZQo+IENDVV9HQVRFIG1hY3JvcyB1c2Ug
-b2Zmc2V0IG9mIDB4MCBpbnN0ZWFkIDB4NTAuCj4gCj4gSSBraW5kIG9mIHRoaW5rIHRoZSByZWcg
-cHJvcGVydHkgdXNpbmcgdGhlIGFjdHVhbCBiYXNlIGFkZHJlc3MKPiAoMHhGRl9FRjUyXzgwMDAp
-IG1ha2VzIG1vcmUgc2Vuc2UgYXMgdGhhdCdzIGEgY2xvc2VyIG1hdGNoIHRvIHRoZSB0YWJsZXMK
-PiBpbiB0aGUgbWFudWFsLiBCdXQgSSBkb24ndCBoYXZlIGEgc3Ryb25nIHByZWZlcmVuY2UgaWYg
-eW91IHRoaW5rIHRoaW5rCj4gdXNpbmcgMHhlZjUyODA1MCBtYWtlcyB0aGUgQ0NVX0dBVEUgbWFj
-cm9zIGVhc2llciB0byByZWFkLgoKVGhhbmsgeW91IGZvciB5b3VyIGNvbW1lbnQuCgpUaGlzIHdh
-cyBkaXNjdXNzZWQgc29tZSB0aW1lIGFnby4gVGhlIG1haW4gaXNzdWUgd2FzIHRoYXQgdGhlIGFk
-ZHJlc3MKc3BhY2Ugd2FzIGZyYWdtZW50ZWQgYmV0d2VlbiBjbG9ja3MgYW5kIHJlc2V0cy4gSW5p
-dGlhbGx5LCBJIHByb3Bvc2VkCnVzaW5nIHN5c2NvbiBhcyBhIHdheSB0byBhYnN0cmFjdCB0aGlz
-LCBidXQgdGhlIGlkZWEgd2Fzbid0IHBhcnRpY3VsYXJseQp3ZWxsIHJlY2VpdmVkLgoKU28gYXQg
-dGhlIHN0YXJ0IG9mIHRoZSAweEZGX0VGNTJfODAwMCB0aGVyZSBpcyBhIHJlc2V0IHJlZ2lzdGVy
-IEdQVV9SU1RfQ0ZHCkkgbmVlZCBmb3IgcmVzZXR0aW5nIHRoZSBHUFUuCgpGb3IgcmVmZXJlbmNl
-LCBoZXJlJ3MgdGhlIGVhcmxpZXIgZGlzY3Vzc2lvbjogWzFdCgpbMV0gLSBodHRwczovL2xvcmUu
-a2VybmVsLm9yZy9hbGwvMWIwNWIxMWIyYTgyODdjMGZmNGI2YmRkMDc5OTg4Yzcuc2JveWRAa2Vy
-bmVsLm9yZy8KClJlZ2FyZHMsCk1pY2hhxYIKCj4gCj4gLURyZXcKPiAKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Deepak,
+
+On 14/03/2025 22:39, Deepak Gupta wrote:
+> VM_HIGH_ARCH_5 is used for riscv
+>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   include/linux/mm.h | 7 +++++++
+>   1 file changed, 7 insertions(+)
+>
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index 7b1068ddcbb7..1ef231cbc8fe 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -378,6 +378,13 @@ extern unsigned int kobjsize(const void *objp);
+>   # define VM_SHADOW_STACK	VM_HIGH_ARCH_6
+>   #endif
+>   
+> +#if defined(CONFIG_RISCV_USER_CFI)
+> +/*
+> + * Following x86 and picking up the same bitpos.
+> + */
+> +# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
+> +#endif
+> +
+>   #ifndef VM_SHADOW_STACK
+>   # define VM_SHADOW_STACK	VM_NONE
+>   #endif
+>
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
