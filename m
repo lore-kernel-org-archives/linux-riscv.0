@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6927C36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 15:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68990C369A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 15:12:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2q8crTy/XaMM2sWGGGSTD9pSJ+TtkE1epZCGCPXoPoo=; b=vmXcmeai7NesEF
-	khn4Mg5SQL0J1NztiAiAlHO0yZKu4cOPocP5m/DTfEdUAEMHDxGGV6x766PNjdt+U2wGlc4Ly/Wvm
-	AglQ+1yrjIjUVrIC6R4TgpgA1Tj7sJCL+yL/hjfs3/Pfk0gUrYEwfGrv0zHCJl45LDji+LhXlp8L4
-	AIlDgk7UHMix8k1Yjqje4UCfiTWGo7B9n0L4zP7z0COlP2WBJ2M5fHFTeZ1z8DPw5i0PRBawqklcP
-	eptE5giagvYT2zBdZhRX5wDfG+SofcoX8M0AGxOb9I+4Xr2HBfZpYAsjde4S4qi7DfOVkmAqDe0mV
-	b6n97Hb+NEDkp9USyCrw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=IOXDl1u3cyc/OatD1uze3kjb+u3Srj7jW/NI44syknU=; b=4TPyoFHMu6b05H
+	sGhre3czGcw3QS58TudNjOHR9Hf4n1mpj99Iw229ZMYUeGbX9YI3bQq93hltH61GIhzh5ld9iaAdo
+	BDuM9McRVsI3qunMsnrpwtVF7mYkljIyY1VZalmE/RrUf3je5Q9pyeu1XBMXqCYxcscxVMrx4WYtq
+	Nuw2zCWu1YQ9ETR6xDz7sXrH06kJGPyl/i4YLzmZ5UMdvxpT0Y1F6uNUalWFT8YZQuCXbGBoNN7tM
+	3tdL+6VOy8upuhe0UG0A5Dhd/1Z7/rF/R695XV1d2rlDWS5U0cC49626zvEH4l6tWruvhG4yX1qBk
+	smC0hfUYc8Yxegsq4XBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1o9K-00000000thu-3EFm;
-	Mon, 07 Apr 2025 15:12:34 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1u1o9V-00000000tqs-1wMW;
+	Mon, 07 Apr 2025 15:12:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1llR-00000000JI6-0LIJ;
-	Mon, 07 Apr 2025 12:39:47 +0000
-Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [27.18.106.237])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 10ef566e5;
-	Mon, 7 Apr 2025 20:39:25 +0800 (GMT+08:00)
-From: Ze Huang <huangze@whut.edu.cn>
-Subject: [PATCH 0/7] Add USB3.0 PHY and host controller support for
- SpacemiT K1 SoC
-Date: Mon, 07 Apr 2025 20:38:45 +0800
-Message-Id: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
+	id 1u1n3d-00000000e8K-2zK3
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 07 Apr 2025 14:02:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=lby7W6R16jLmiSs9O5bQuZZMhw24L/r7TXzrvfvmENo=; b=rI8DwwzcFrEfBUx7T1WVadpRdg
+	KjxrejzpEtM8moRdTPfyWwMy8cx5dBBqZ1XnZeTthE9ulFPeLd56rLJgLuIqA9zw28/cAJSt8osfE
+	OrY8Cdvxm00j0xH16+Oo2y4kslQJ4S5zZkYKWYWt6pw4DFRLublq3RgirjmKPjggu2xf+gM81u8u7
+	0IYxkQ4IOHPwKG1tuOcyG5AfjAuWehkdUMNqTrASDbEo3hmyGrWYH1H7X9HhAgDqW9SlSRgROeEAW
+	YpAVHIhSpe4hhHiNyb4UJHThqdLxjFd2yzw7IdaLSKPR4V5lKbWQkBjwiV6gGDQ9ZRKEtkrpjvf8v
+	4SanxrBA==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1n3a-00000007y2U-3SJT
+	for linux-riscv@lists.infradead.org;
+	Mon, 07 Apr 2025 14:02:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id CA3C14350E;
+	Mon,  7 Apr 2025 14:02:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 108F3C4CEDD;
+	Mon,  7 Apr 2025 14:02:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744034553;
+	bh=W3SHYCW2Ors5dixyvIPe8YB5LgdUl989Vud2NXgXX8o=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Oh6ZWDP9gO1f5r6MxG/QQ4EWDh52V6RzQQ4W7G/Wc2DM7wj67nRy0OXFJbv5EybBe
+	 3E8lu4uRJh1oVrYXIzz8yV2GKMlDPbPy54XIRlSDZE4covfbvrht5pFYl27TMhAKgs
+	 KfQtzOwxVM+MCBPE6AjTY3U3+OKA7H20Mc9YLqJUADIOHD6Ais16TqBgY4N/Bt0An5
+	 W1NnfOgXPvjITsah7honbXqtG+6fz5TDUHnkJy5E0kcn1cpJ8TJCgHQWAqD3PdXEfk
+	 Jp8I1XN7InWFptl0b/MMeQ7KFCkdDDNhSgjMqxOGL9Z1cV5qU8QmVj68Cx69PAOViN
+	 o5zvSOgAi1mKw==
+Date: Mon, 7 Apr 2025 09:02:32 -0500
+From: Rob Herring <robh@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	ghost <2990955050@qq.com>,
+	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-mmc@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 7/9] dt-bindings: i2c: dw: Add Sophgo SG2044 SoC I2C
+ controller
+Message-ID: <20250407140232.GA2165777-robh@kernel.org>
+References: <20250407010616.749833-1-inochiama@gmail.com>
+ <20250407010616.749833-8-inochiama@gmail.com>
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFbH82cC/3WOQW6DMBBFr4K87iB77MGAqoiseoaqysLAlFgJ0
- NgENYpy97pkneUb6f03dxE5eI6izu4i8Oqjn6cE6i0T3dFNA4PvEwuUSNJIC62Bk4JrbDWsGhB
- UUaJzpkKiSiTrJ/C3/90Wvw5PDny5puHleRStiwzdPI5+qbO1yBVB6NS/O3KMbkvW2ftW1LJQl
- izJHNGUMvWOfDvz5G6N6TGfw7B7IWKJSqLWuZLWSk2ggM89hyb42MXFhTy98EJGLJSiiix8fO4
- NkSybgadlnnfi8Hj8AT3ztXI0AQAA
-X-Change-ID: 20250407-b4-k1-usb3-v3-2-1682aa492559
-To: Vinod Koul <vkoul@kernel.org>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Ze Huang <huangze@whut.edu.cn>, 
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744029565; l=3284;
- i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=guydDGrxtfiF0QxuG+IbBP1EBPIlelU7O0fNN/qWZUY=;
- b=Ghi1yoX13LsL5SLUgC8pQHW4O7dQb14bN9AeNv91Q+HWvOJWXFbLeEsB2kpBYQQlEISEzAiFr
- zTTHHmy28hhD9VK+mM5N7b4F11BN+cuWUUXYa2rT4UkbdGbiiSbzdB+
-X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
- pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHR4dVh0fGBpNQkNOQkhMGVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJTFVKQ1VKS01VSUhMWVdZFhoPEhUdFFlBWU9LSFVKS0lPT09LVUpLS1VLWQ
-	Y+
-X-HM-Tid: 0a961043447103a1kunm10ef566e5
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OCo6Aww5HzIMIUwtOBU3GjQt
-	KBwwChJVSlVKTE9PS0lCTkxJQk9CVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VKS01VSUhMWVdZCAFZQU5KQ0M3Bg++
+Content-Disposition: inline
+In-Reply-To: <20250407010616.749833-8-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_053945_317586_A36C6CA0 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_150235_092637_4FF9A474 
+X-CRM114-Status: GOOD (  14.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,68 +109,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces support for the USB on the SpacemiT K1 SoC,
-including DWC3 host controller, PCIe/USB3.0 combo PHY and the USB2.0 PHY.
-The implementation has been tested on the Milk-V Jupiter and BananaPi-f3.
+On Mon, Apr 07, 2025 at 09:06:12AM +0800, Inochi Amaoto wrote:
+> Add compatible string for Sophgo SG2044 SoC I2C controller which can be
+> used specifically for the SG2044 SoC.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  .../devicetree/bindings/i2c/snps,designware-i2c.yaml          | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> index bc5d0fb5abfe..677b39865af0 100644
+> --- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> +++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> @@ -38,6 +38,10 @@ properties:
+>            - const: snps,designware-i2c
+>        - description: Baikal-T1 SoC System I2C controller
+>          const: baikal,bt1-sys-i2c
+> +      - description: Sophgo SoCs I2C controller
+> +        items:
+> +          - const: sophgo,sg2044-i2c
+> +          - const: snps,designware-i2c
 
-USB3.0 PHY for usb2 is shared with PCIe port A, meaning that only one of
-these interfaces (PCIe or USB3.0) can be active at a given time.
+This is not a great pattern we've started. T-HEAD, Ocelot, and this 
+should all be combined into 1 enum. The description here is not that 
+useful.
 
-Overview of USB controllers on K1 SoC[1]:
-
-Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb#part5 [1]
----
-Ze Huang (7):
-      dt-bindings: phy: spacemit: add K1 USB2 PHY
-      dt-bindings: phy: spacemit: add K1 PCIe/USB3 combo PHY
-      dt-bindings: usb: add SpacemiT K1 DWC3 glue
-      phy: spacemit: support K1 USB2.0 PHY controller
-      phy: spacemit: add USB3 support for K1 PCIe/USB3 combo PHY
-      usb: dwc3: add spacemit dwc3 glue layer driver
-      riscv: dts: spacemit: add usb3.0 support for K1
-
- .../bindings/phy/spacemit,k1-combphy.yaml          |  53 +++++
- .../devicetree/bindings/phy/spacemit,usb2-phy.yaml |  40 ++++
- .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  |  78 +++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  55 +++++
- arch/riscv/boot/dts/spacemit/k1.dtsi               |  52 +++++
- drivers/phy/Kconfig                                |   1 +
- drivers/phy/Makefile                               |   1 +
- drivers/phy/spacemit/Kconfig                       |  20 ++
- drivers/phy/spacemit/Makefile                      |   3 +
- drivers/phy/spacemit/phy-k1-combphy.c              | 229 +++++++++++++++++++++
- drivers/phy/spacemit/phy-k1-usb2.c                 | 132 ++++++++++++
- drivers/usb/dwc3/Kconfig                           |   7 +
- drivers/usb/dwc3/Makefile                          |   1 +
- drivers/usb/dwc3/dwc3-spacemit.c                   | 127 ++++++++++++
- 14 files changed, 799 insertions(+)
----
-base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
-change-id: 20250407-b4-k1-usb3-v3-2-1682aa492559
-prerequisite-message-id: <20250306175750.22480-2-heylenay@4d2.org>
-prerequisite-patch-id: e0f9037d659502b7f10588f15b80505724eb9e35
-prerequisite-patch-id: 4414e37b16b1bc0039239f07da8c35935efb1601
-prerequisite-patch-id: 1e65bc4c0c0d41baef743819c311ad53f6696094
-prerequisite-patch-id: 43ef72522e30620f0244e0e22bd844884d89b0cd
-prerequisite-patch-id: 73008ee7c04e90cd4e825a3f5bd2e44ec24d8ad3
-prerequisite-message-id: <20250328210233.1077035-1-elder@riscstar.com>
-prerequisite-patch-id: 9b026005eb6ee1430ab7ca67edfc21de85a19dd2
-prerequisite-patch-id: 8ee238181e50c76d92458b149b72fa4909e0fede
-prerequisite-patch-id: 66f3ee8eb1cc016112dace699bce292b617a3186
-prerequisite-patch-id: c2deec49fc0308a08908fd9badadc10f921af348
-prerequisite-patch-id: 99afc2efdffc0fffe47a31e7b07b72af9d1d2e18
-prerequisite-patch-id: d06e8cd0fae4c405dbb56832a1fe48bfaa4e0fab
-prerequisite-patch-id: 5f53f8bf16fb067628092daebc4831293261aa01
-prerequisite-message-id: <20250226115957-GYA45508@gentoo>
-prerequisite-patch-id: 82dd2631d36c3fafb82768d3d89022ed956020c6
-prerequisite-patch-id: 5cc63738ba2d463e1840a91a94357f43199bd68f
-prerequisite-patch-id: f44247679d46a51c242703eca370ce0e3db2e61f
-prerequisite-patch-id: 9d4cd8be42a37798815d0aaae21d3c022f815414
-
-Best regards,
--- 
-Ze Huang <huangze@whut.edu.cn>
-
+>        - description: T-HEAD TH1520 SoCs I2C controller
+>          items:
+>            - const: thead,th1520-i2c
+> -- 
+> 2.49.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
