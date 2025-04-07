@@ -4,55 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D94C3601E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 12:35:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABF5C369A2
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 12:44:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QGtw44ZccGhXZHG0gus8jo8nditsIsPYxbfRUYIB+hU=; b=TuC4N8bBiqSCZqINAlCMfr1aa0
-	HKCtL5AM0VsHJ36rTV1TZCiAN0tKuI4mbGKMbrvNUcKXaa0IaZGgplHJXZPCwfiRmK51dvr1ndwc+
-	x4+UfoK5lEB2HNBzTjcA9nH164vMm8lu0bitMWB+QzfpYT0nprO+11bFlBPqZVI35bwer5bTytL/w
-	2PtmHktDSGJXgSCnDKefpnBo+yiIKU2uq7dhR713fLa1hzLYi5f0+2trqJXfZ5ADJSOBaZc6h2RQo
-	Hfb0DRyNJsiBjuBYn3H1+RCnv6lZwV1eVbltqj1BIjrb0C32Zmnb7FxqUYECyH4vEhWbmYgbwpAKI
-	8BYmZxbA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D4lRNT5SsdgRo1ZtNtxDNG5UtFlCkSySJ1yPEFqs0rk=; b=ecs2giiST06BmvJFrd+eVrWkTy
+	A6EOOWOee7S/oyjo4mhErJU5BTJ+GVabeF0dYbKZMGuHtRNNzgmHFKLOhVnpBlvgi6yhAn3cpL2ym
+	VB2SCj5lWYdOFk6THokDmWL/QqZ+kUAzX7yHNAFszjTL6TpRyrjVXecI7fnEOSF1jNrmXR4Up2Sn+
+	VkUoqZF5hOUDOHGIPDcYbREyc+7o35X+j7R1bS8PHL9CgzV9597yzhG9pOHEceM39g5Bl8zHn/BWZ
+	x9kjvzLfTvSVQVORVkbdKN7G+gXp/UAfMxgj3VL1sqveS2L5SD7/Zf4HDg0m8gI5IUZNa/27eEy6c
+	0NV53NZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lhh-00000000H0X-3INP;
-	Mon, 07 Apr 2025 12:35:53 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u1lqN-00000000Kjq-31Ad;
+	Mon, 07 Apr 2025 12:44:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lDQ-000000009MS-3LfF;
-	Mon, 07 Apr 2025 12:04:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E350243163;
-	Mon,  7 Apr 2025 12:04:28 +0000 (UTC)
-Message-ID: <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr>
-Date: Mon, 7 Apr 2025 14:04:27 +0200
+	id 1u1ldS-00000000FeA-1Ejk
+	for linux-riscv@lists.infradead.org;
+	Mon, 07 Apr 2025 12:31:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7AD4AA48965;
+	Mon,  7 Apr 2025 12:26:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34C4DC4CEDD;
+	Mon,  7 Apr 2025 12:31:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744029088;
+	bh=mWLxrmUWg2QbduQqGeynDbNIO+EvNnvSdkJRvmJ0LSU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=A/PTyzE6r+rflOEinzc+cMW6/l5y6kQp7OPqVae68mCaiQ7GTyDb4zFGqxCCtqRZO
+	 fw/C8hh2QgUFKSMOQ8ohXgqw80kg60aFnnFLFZE+m8+ky7HhqMeVKSRzRWWQCifsyU
+	 Jxpc4nhL7K6QJmT3Lf5Hvcv3xbQREuJ9DtXwf0fLhUdPtuHqQaHZxbirTjHu0/yqht
+	 P5UzN7Ow+wjCcHsVirpm0CpaLg49nUKa5S33ljVugn50Rpkc/HB9fru2GPZPDr1lwt
+	 Lh/xjP0WKNTBqjf8TOIGCHz6ff+MztzPzfvrc0UR/DdLyfQuekYirLw0xobYwDtkAf
+	 hGK2L5T4ojH1A==
+Date: Mon, 7 Apr 2025 14:31:24 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, ghost <2990955050@qq.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: sophgo: add pwm controller for
+ SG2044
+Message-ID: <jq55x7uhftvejninh56tzk32jtmmwa5wxzna5uxbkk5woi7zi5@6wrg2ctmyg7b>
+References: <20250407072056.8629-1-looong.bin@gmail.com>
+ <20250407072056.8629-2-looong.bin@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
-Content-Language: en-US
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland <mark.rutland@arm.com>,
- Matthew Wilcox <willy@infradead.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-mm@kvack.org
-References: <20250321130635.227011-1-alexghiti@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250321130635.227011-1-alexghiti@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtudegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveetvdfhvdeuheekvdettdegheetgeejiefgjeetvedtfeeuvddvtefhjeffgeevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomhdprhgtphhtthhopegtrghtrghlihhnrdhmrghrihhnrghssegrrhhmrdgtohhmpdhrtghpthhtohepfihilhhls
- ehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrhigrnhdrrhhosggvrhhtshesrghrmhdrtghomhdprhgtphhtthhopehmrghrkhdrrhhuthhlrghnugesrghrmhdrtghomhdprhgtphhtthhopeifihhllhihsehinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <20250407072056.8629-2-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_050436_994014_8B16F654 
-X-CRM114-Status: GOOD (  23.24  )
+X-CRM114-CacheID: sfid-20250407_053130_404707_09C64D80 
+X-CRM114-Status: GOOD (  11.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,108 +73,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7122621043355093562=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Can someone from arm64 review this? I think it's preferable to share the 
-same implementation between riscv and arm64.
 
-The end goal is the support of mTHP using svnapot on riscv, which we 
-want soon, so if that patchset does not gain any traction, I'll just 
-copy/paste the arm64 implementation into riscv.
+--===============7122621043355093562==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7u4pfjk7u4y7yhpc"
+Content-Disposition: inline
 
-Thanks,
 
-Alex
+--7u4pfjk7u4y7yhpc
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: sophgo: add pwm controller for
+ SG2044
+MIME-Version: 1.0
 
-On 21/03/2025 14:06, Alexandre Ghiti wrote:
-> This patchset intends to merge the contiguous ptes hugetlbfs implementation
-> of arm64 and riscv.
->
-> Both arm64 and riscv support the use of contiguous ptes to map pages that
-> are larger than the default page table size, respectively called contpte
-> and svnapot.
->
-> The riscv implementation differs from the arm64's in that the LSBs of the
-> pfn of a svnapot pte are used to store the size of the mapping, allowing
-> for future sizes to be added (for now only 64KB is supported). That's an
-> issue for the core mm code which expects to find the *real* pfn a pte points
-> to. Patch 1 fixes that by always returning svnapot ptes with the real pfn
-> and restores the size of the mapping when it is written to a page table.
->
-> The following patches are just merges of the 2 different implementations
-> that currently exist in arm64 and riscv which are very similar. It paves
-> the way to the reuse of the recent contpte THP work by Ryan [1] to avoid
-> reimplementing the same in riscv.
->
-> This patchset was tested by running the libhugetlbfs testsuite with 64KB
-> and 2MB pages on both architectures (on a 4KB base page size arm64 kernel).
->
-> [1] https://lore.kernel.org/linux-arm-kernel/20240215103205.2607016-1-ryan.roberts@arm.com/
->
-> v4: https://lore.kernel.org/linux-riscv/20250127093530.19548-1-alexghiti@rivosinc.com/
-> v3: https://lore.kernel.org/all/20240802151430.99114-1-alexghiti@rivosinc.com/
-> v2: https://lore.kernel.org/linux-riscv/20240508113419.18620-1-alexghiti@rivosinc.com/
-> v1: https://lore.kernel.org/linux-riscv/20240301091455.246686-1-alexghiti@rivosinc.com/
->
-> Changes in v5:
->    - Fix "int i" unused variable in patch 2 (as reported by PW)
->    - Fix !svnapot build
->    - Fix arch_make_huge_pte() which returned a real napot pte
->    - Make __ptep_get(), ptep_get_and_clear() and __set_ptes() napot aware to
->      avoid leaking real napot pfns to core mm
->    - Fix arch_contpte_get_num_contig() that used to always try to get the
->      mapping size from the ptep, which does not work if the ptep comes the core mm
->    - Rebase on top of 6.14-rc7 + fix for
->      huge_ptep_get_and_clear()/huge_pte_clear()
->      https://lore.kernel.org/linux-riscv/20250317072551.572169-1-alexghiti@rivosinc.com/
->
-> Changes in v4:
->    - Rebase on top of 6.13
->
-> Changes in v3:
->    - Split set_ptes and ptep_get into internal and external API (Ryan)
->    - Rename ARCH_HAS_CONTPTE into ARCH_WANT_GENERAL_HUGETLB_CONTPTE so that
->      we split hugetlb functions from contpte functions (actually riscv contpte
->      functions to support THP will come into another series) (Ryan)
->    - Rebase on top of 6.11-rc1
->
-> Changes in v2:
->    - Rebase on top of 6.9-rc3
->
-> Alexandre Ghiti (9):
->    riscv: Safely remove huge_pte_offset() when manipulating NAPOT ptes
->    riscv: Restore the pfn in a NAPOT pte when manipulated by core mm code
->    mm: Use common huge_ptep_get() function for riscv/arm64
->    mm: Use common set_huge_pte_at() function for riscv/arm64
->    mm: Use common huge_pte_clear() function for riscv/arm64
->    mm: Use common huge_ptep_get_and_clear() function for riscv/arm64
->    mm: Use common huge_ptep_set_access_flags() function for riscv/arm64
->    mm: Use common huge_ptep_set_wrprotect() function for riscv/arm64
->    mm: Use common huge_ptep_clear_flush() function for riscv/arm64
->
->   arch/arm64/Kconfig                  |   1 +
->   arch/arm64/include/asm/hugetlb.h    |  22 +--
->   arch/arm64/include/asm/pgtable.h    |  68 ++++++-
->   arch/arm64/mm/hugetlbpage.c         | 294 +---------------------------
->   arch/riscv/Kconfig                  |   1 +
->   arch/riscv/include/asm/hugetlb.h    |  36 +---
->   arch/riscv/include/asm/pgtable-64.h |  11 ++
->   arch/riscv/include/asm/pgtable.h    | 222 ++++++++++++++++++---
->   arch/riscv/mm/hugetlbpage.c         | 243 +----------------------
->   arch/riscv/mm/pgtable.c             |   6 +-
->   include/linux/hugetlb_contpte.h     |  39 ++++
->   mm/Kconfig                          |   3 +
->   mm/Makefile                         |   1 +
->   mm/hugetlb_contpte.c                | 258 ++++++++++++++++++++++++
->   14 files changed, 583 insertions(+), 622 deletions(-)
->   create mode 100644 include/linux/hugetlb_contpte.h
->   create mode 100644 mm/hugetlb_contpte.c
->
+Hello,
+
+On Mon, Apr 07, 2025 at 03:20:38PM +0800, Longbin Li wrote:
+> diff --git a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml=
+ b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> index bbb6326d47d7..e0e91aa237ec 100644
+> --- a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> @@ -17,7 +17,9 @@ allOf:
+>=20
+>  properties:
+>    compatible:
+> -    const: sophgo,sg2042-pwm
+> +    enum:
+> +      - sophgo,sg2042-pwm
+> +      - sophgo,sg2044-pwm
+
+Given that the sg2044 has more registers (to e.g. implement different
+polarity), but the sg2042 registers are identical, I wonder if the 2044
+device should use:
+
+	compatible =3D "sophgo,sg2044-pwm", "sophgo,sg2042-pwm";
+
+Note, I'm unsure here, only providing input to people who are more
+knowledgeable in DT that I am.
+
+Best regards
+Uwe
+
+--7u4pfjk7u4y7yhpc
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfzxZoACgkQj4D7WH0S
+/k73JAf/YF3lOc8ZTYHAVl5pC0RWr/ZB8pp9gKCGzYHdGYbogEGAgSewARKopzQ+
+ZEPmNeXoVEglTRPxfWXl0aDImSXG/NbOeA449I7kmpecXGHEX/iqwexGYR1kvNxh
+Yg8jl+bl2dxh/m+jw/KoCi2rpyq9jverosDJ0r3y/aum7lqd6LB8IPx1zsxcaQN9
+xXAuXOE4UnKaUSTZfRBqiwUvY0N62kg4/o/wFERPSdyKS3Tjfb7m8sTVy0rBoGEY
+s8SvRNjcapE/sSWqPsREl2XdULCQHlJ6CCMXk10oMisXB65FouAzb80ghiZ8WU+6
+0h9ascRYWtiItrTm/D854ODd/FgwmA==
+=GmB3
+-----END PGP SIGNATURE-----
+
+--7u4pfjk7u4y7yhpc--
+
+
+--===============7122621043355093562==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7122621043355093562==--
+
