@@ -4,55 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4BD2C36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 10:34:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F823C36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 10:50:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6/dtv40Nei8krJP+zC/R+yV3QhANAhRc/1yFgAETrNU=; b=0CVo9yHsuoFZNp
-	0F790doKQ2DIHjN2gpkxAOtF2GE0ts9iG/79VGZNiGNlGPc43kQOJhltcAuNBz/xJ7a3zatvUhTrz
-	pXOIEOBb0QUHl3yMfnHxZr/n3rx99OKa5OlwFJb4AVAcGJYwFOUaZmW+vmJlWncO1R+41ZA5NncK6
-	snKXCIdLgO1qTQj4aRzf5CbMc8P3b5ldlG8qWUa7UFlIa+a4EaGBFDMN498+4zZ5w7aHllf5XmC+A
-	r+a6yTvAYNib8JDfe4P2vbRHSwim0we63FdRnSXVQmlPxAMg9A1OWsNTWfIYGOXbzii839Avnekrf
-	L7bUaM7kkvpnPsTa0hoQ==;
+	List-Owner; bh=6nybmCnqHFu7XKe/Rchmz/qUnsu3ttJhZQ+PWC5jhcM=; b=dN+1b2xLDAujQH
+	yv2i+V1EnPFe7VEMH+PSW+28nAMfcniVqb+wxWHG94STDqd26cRILD2uOjSfZdAMZds7hzoxaBTiG
+	VvzYOk5/ayMXxUN6VelnJ5dWg+ZS9RLutOn6XyHzXdGzXd0hSMg3mKKQzBODRv4oVP6LUpjKR7dt0
+	ElBQCE31SVfFZH+cy6NXe0d62rwyKcRoUAQiiXAk3iHAjpB3JDXSMMvb+33j4VcWW5iECNygepmqP
+	/Ea6doX1xFCAxqCTFpl6Hz3+5cfEvEQMgHmfFFInq5O3PXzKxNxiJmZ9wNpsXkTtHtfLqA+AAj+3Z
+	IeGhpzzcYTbgOwkcVz9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1jni-0000000HOOl-02El;
-	Mon, 07 Apr 2025 10:33:58 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u1k3p-0000000HQ43-1Vze;
+	Mon, 07 Apr 2025 10:50:37 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1jnC-0000000HOJT-0u43
+	id 1u1k3k-0000000HQ0n-3ZdT
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 10:33:28 +0000
-Received: from localhost (unknown [116.232.27.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 80C5F3430B1;
-	Mon, 07 Apr 2025 10:33:24 +0000 (UTC)
-Date: Mon, 7 Apr 2025 10:33:20 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>,
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v3 2/2] gpiolib: support parsing gpio three-cell
- interrupts scheme
-Message-ID: <20250407103320-GYA13974@gentoo>
-References: <20250326-04-gpio-irq-threecell-v3-0-aab006ab0e00@gentoo.org>
- <20250326-04-gpio-irq-threecell-v3-2-aab006ab0e00@gentoo.org>
+	Mon, 07 Apr 2025 10:50:36 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 537AnfoF001527
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 7 Apr 2025 18:49:41 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Mon, 7 Apr 2025
+ 18:49:41 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <tim609@andestech.com>, "Ben
+ Zong-You Xie" <ben717@andestech.com>
+Subject: [PATCH 1/9] riscv: add Andes SoC family Kconfig support
+Date: Mon, 7 Apr 2025 18:49:29 +0800
+Message-ID: <20250407104937.315783-2-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250407104937.315783-1-ben717@andestech.com>
+References: <20250407104937.315783-1-ben717@andestech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250326-04-gpio-irq-threecell-v3-2-aab006ab0e00@gentoo.org>
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 537AnfoF001527
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_033326_274409_B94C0518 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250407_035033_213280_3F82F1A7 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,35 +74,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Linus Walleij:
+The first SoC in the Andes series is QiLai. It includes a high-performance
+quad-core RISC-V AX45MP cluster and one NX27V vector processor.
 
-On 06:06 Wed 26 Mar     , Yixun Lan wrote:
-> gpio irq which using three-cell scheme should always call
-> instance_match() function to find the correct irqdomain.
-> 
-> The select() function will be called with !DOMAIN_BUS_ANY,
-> so for specific gpio irq driver, it need to set bus token
-> explicitly, something like:
->   irq_domain_update_bus_token(girq->domain, DOMAIN_BUS_WIRED);
-> 
-> Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> ---
->  drivers/gpio/gpiolib-of.c |  8 ++++++++
->  drivers/gpio/gpiolib-of.h |  6 ++++++
->  drivers/gpio/gpiolib.c    | 22 ++++++++++++++++++----
->  3 files changed, 32 insertions(+), 4 deletions(-)
-> 
+For further information, refer to [1].
 
-  I'd assume this patch [2/2] will go via pinctrl's tree?
-as patch [1/2] has been accepted by Thomas into tip tree [1]..
-  Additonally need to pull that commit first? since it's a dependency
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
 
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/tip/tip.git/commit/?h=irq/core&id=0a02e1f4a54ace747304687ced3b76d159e58914
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ arch/riscv/Kconfig.errata | 2 +-
+ arch/riscv/Kconfig.socs   | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e318119d570d..be76883704a6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
+ 
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && ARCH_R9A07G043
++	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 8b503e54fa1b..2f1626daaad1 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,14 @@
+ menu "SoC selection"
+ 
++config ARCH_ANDES
++	bool "Andes SoCs"
++	depends on MMU && !XIP_KERNEL
++	select ERRATA_ANDES
++	select ERRATA_ANDES_CMO
++	select AX45MP_L2_CACHE
++	help
++	  This enables support for Andes SoC platform hardware.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
 -- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
