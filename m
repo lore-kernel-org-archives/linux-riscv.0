@@ -4,101 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FC5AC36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 18:52:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E38C36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 21:46:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DUc/CnGM69I2CO5nhDhChWoKHuhjs2gZOxMoofHpHWk=; b=at0nY3eqeNePom
-	/SBsBDXCu2snRFp5n+PaADh4cim7wJcsiAd9RqxmHMh4IaQSEj7Xn9hypCtT1t+iljUY6BWKz8oPV
-	2XgLdqL/FU1EA0SG6PHKhvvm3LnD7FgzKBm3DbNCGEy7Bkb8GOcnHBOGOMaWNgUgooC049ugq+qcF
-	SCtxI0HRT+0BBQ7whmQpkCSTGwmSSUhd0y4RPfTqOxwEYqeXk5naK/aH+pfbx8cO/9TUzHKhuYm/r
-	Dz/C4H9A9SG8vUb4d9eEFwx9ZR5uDVRkolLF4t0R1gnU10uysQZHLL1QJbmhDE5FcdtU3SZjcVyKl
-	D7O4nji0zM+IUZR8mUjw==;
+	List-Owner; bh=xlis6JYmnYD2JBjivKD6aSrmvLfHQxvvA6SCxcLJ2jc=; b=B+P2DhtH1eTKr8
+	wZ/34EgbJlzlhHqfqbQjSV9UKarA776T9Xv5UrhhaLmZDpRXnBeLBVLCFkTBn34+4EMm0UgMwi8JG
+	Mw1nozHPzYpsibeTJjrm0qcGD0BTpUh5K+Sg1DPsY8X25qolWeYryfIYyWoOKgUUuXGcmptKznfLf
+	pWVDQylm04ao1xxpHptfI4aNMQSzoOVFK1Kz9h8zlMEfycE/KWprS6L/Tqrorsd2+XuOnNt2XZ3iE
+	srn87MsQy6WT+b7ejGD9YMxyacRmywQTDpkcwxt/Bpx1PFGnr3pELQBFoPfrLQtiDOvSgG1kvyh6T
+	FhZBsRdlFpq3Y4YCmQcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1raR-00000001ghu-23cn;
-	Mon, 07 Apr 2025 18:52:47 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1u1uIq-00000002471-3MDn;
+	Mon, 07 Apr 2025 21:46:48 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1qup-00000001Tdw-1hwU
+	id 1u1r64-00000001XFC-1uai
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 18:09:48 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2255003f4c6so42077045ad.0
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 11:09:47 -0700 (PDT)
+	Mon, 07 Apr 2025 18:21:25 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-224171d6826so64586255ad.3
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 11:21:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744049386; x=1744654186; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fyM5SZww3BsIxLq5imP6WPb97ECb0VvvV7XlSlZ6uaA=;
-        b=iNxMPko+4rMMJzFUl3cPfQi1VOsT5CDHM7S8r3n7osgNggJ6/HRg8qYldTIv6tmgoa
-         FoxAmxW0QFTa/fTIhkc+BQ1K2afrVaoYh1ghpcHj/l/L/l7DuIGCmjtSq+tLdGP5Duon
-         OeCyTHybavOaZoHIonU9hikkDRoSzr60MqWvFJRFZNVVEptGt8TgPGEc0LCMH+eB+9Gj
-         XQ9o3eYOCe2nPWulLIINFYJSHva3Wy7q544HGO4ByXjcGdLnuyb5UvdyiLW3pP9POYi0
-         hUZh4/RJtKx6/FvQ0PFKAih86D/A0Mm9o45QF0S6rSR+og4iwrgBcKpmwCIGEdHqJxYn
-         YaVA==
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1744050083; x=1744654883; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=y1Xymma/bXOddjzuMPc0uNib0InwbFB+6iU+FgAga1I=;
+        b=kJKsvOf+e4vHUbJ0ND2EemeKGX2eA6otwS9R3fKfKcrVx0KoKHLcaX/eborU+egS4t
+         ULen0SW4Mwc390sQHVDB5kchZMdb9YyGuoztx2hX9Ma4OS5FGRwV7t2ffKNhw4ZYViQ+
+         DJqlumz58S3PBR2HvgzE78QCvJ0H1THcKHlpSmTE3pGPFQ9PvG6Y17uPo3RRMvx8vaBj
+         QgZ0NxM3W2+Ui6UOsYXXHMVKMiwLnvriYJA6/bhW39Pi49hulobtMvSNn8R+SRTPr6F4
+         LKGH/4W33FcBCOstN1HgXjkJQLl0OBj/UdFNE7lW0jWxBTXe9VhD+GVxEgjQNi8CUvy8
+         Zacw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744049386; x=1744654186;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fyM5SZww3BsIxLq5imP6WPb97ECb0VvvV7XlSlZ6uaA=;
-        b=p56cg38U/y0vrOIrE7EYccgquAE/ILcDOEDqN6Q81hIUJx9dQJ/RsXGhkAMlgFKHWk
-         eZR6a+QQTo6vRU7TyVqnc63N1/R+V9Z4icgiKLYLRsnpvWxkOEU/ucGh8on39iLMfwUF
-         eny1R05ira1kZLNAvY2apRIBtUfBHE9YYVMhLqXzVTSvgKGxEOwYhwunjLQZ52Ze/wCy
-         6y9ZEdoEuvjParERcqdsvCA/6Cz7lfJOm3ePSACqux269aiKeNjJAo9iZcUWZMO3vv+Q
-         /GPPbq94Y5b6/sDEgw4cHT/Z3orn3jvUHgTs1b+uVUr52VC93SEMx/Jbr/ef5MjOoir7
-         Zpvg==
-X-Gm-Message-State: AOJu0Yz8l4VGEwFWlp4xnVJhL/BeABz8EjTd5uU+m3elRtE83zIxfCGq
-	9ujJBJJyv9ag24w5+13mxzucZF4Fj+Gjt0xQzzTuFdTmCzudiahhA4atrlDv
-X-Gm-Gg: ASbGnctOyUqXvv2J417uamFnX+edLHtzFxT1/NDdIPcdDeFTlmuje3Du+gYM39rq8lg
-	jmsZg700hE9Bo19SEMyo205CQXpVnU8qrmVxCy5aOWmEzVSzOS0P2bK2mZQ0dmrq2PgtYS2odNf
-	TUF/CTiheF2yMPaAK98CnyyhYKnfjFwY2oRs83LOOlijVwU0RJXGacUbiDWM7etVdokGn3YHhXV
-	Mpxr17WWPKpdcPBdiZAJIoqKRPnhjnmE+2CabV0B8++hiEXzxCeqTbFL1NV+0Zh60xUTg7aISId
-	37+erI6mU12tzlBFw+VTFG1bsAKLKDmNFf2HhRt/z4QWvhe+jcx+pm66aT143F4ege3v46gzBOw
-	uuBzKF5svfvI+cagOehDZF2Yr/xcSp1RTqA==
-X-Google-Smtp-Source: AGHT+IH4QUToL7D8e8p/6On2iiP6OQv/SkBOfhg4jmTT3eYoxpzbIuK2HeFgMoBbObddEAjzAiLW1w==
-X-Received: by 2002:a17:902:c40c:b0:224:c47:cbd with SMTP id d9443c01a7336-22a89ebe8e4mr191891385ad.0.1744049386163;
-        Mon, 07 Apr 2025 11:09:46 -0700 (PDT)
-Received: from localhost.localdomain (118-160-134-247.dynamic-ip.hinet.net. [118.160.134.247])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297865e03esm84282455ad.146.2025.04.07.11.09.42
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 07 Apr 2025 11:09:45 -0700 (PDT)
-From: Andy Chiu <andybnac@gmail.com>
-To: linux-riscv@lists.infradead.org,
-	alexghiti@rivosinc.com,
-	palmer@dabbelt.com
-Cc: Andy Chiu <andybnac@gmail.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	bjorn@rivosinc.com,
-	puranjay12@gmail.com,
-	paul.walmsley@sifive.com,
-	greentime.hu@sifive.com,
-	nick.hu@sifive.com,
-	nylon.chen@sifive.com,
-	eric.lin@sifive.com,
-	vicent.chen@sifive.com,
-	zong.li@sifive.com,
-	yongxuan.wang@sifive.com,
-	samuel.holland@sifive.com,
-	olivia.chu@sifive.com,
-	c2232430@gmail.com
-Subject: [PATCH v4 12/12] riscv: Documentation: add a description about dynamic ftrace
-Date: Tue,  8 Apr 2025 02:08:36 +0800
-Message-Id: <20250407180838.42877-12-andybnac@gmail.com>
-X-Mailer: git-send-email 2.39.3 (Apple Git-145)
-In-Reply-To: <20250407180838.42877-1-andybnac@gmail.com>
-References: <20250407180838.42877-1-andybnac@gmail.com>
+        d=1e100.net; s=20230601; t=1744050083; x=1744654883;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y1Xymma/bXOddjzuMPc0uNib0InwbFB+6iU+FgAga1I=;
+        b=vHpabxG5tZ29YZUBDAe0iGjcJ2y/E+bnn395gG4DBp0cvSaVi65g0iy971NeB41pGP
+         LA9qdEpX+3pWviUJSkgD6z7BlRAQYc9u158rNKMYcrBgfrpFKG/HQkkYJyQ+jUeYwKOi
+         0EiThcRb0jLlqsWJVDItFh+6xm8nFynqGQKuWEAXYzRj7C8n3l0WRR+7Pom/W+BdjAXe
+         whn3rboi/h7nowNhbj0NVcw++FqCMME1soyjd9rgzBVVIwcosaeELhUx/F+KB4xACQf5
+         mJQN45cyKNVdJ0+83RK/55BlMjX+Ii9OXc1DSryjBaJWntAkSZm52BbmdVQU7qigmEAy
+         tTpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXq44Td1Kwdifw0fDoPbft8ye7xwa6Zo6ZV5rut0x+ZGsrDCPeS3EDtXYUA13VjD2XrVFNDlSCuqiuiVQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOM99tOWz82gPdGI4dERsySjy7LLucLchMCzZODhundHrIU3ZF
+	UzdoZh/h0cHYlC2RJ2ivmYNsQlyu2u+nFv/sd89gXQmjM26e74qEUVRfdEmmkh8=
+X-Gm-Gg: ASbGncv6i8Snj6bDJnRv7kQuMXskg1RDvr52zwI1UKtyAYBoAtgSXAhypghrC2EVPWi
+	r/fucPpHpzAkB4wuXURJBUSrNBBXn64DzVyl+XsIl4h6NwWeWmgDr6DgLaN2WKtpu3ZVlMS2YLd
+	Xp4QhNvkyfa1tikiJi9OcCSlN4dYNLMh7Rjy8uTcAc5Kc/onWHu2w/P+Ktp+8OGppjwf3U5wSBO
+	aPtMIeh4nyVK1jqQENXQBji4r2/hGIcyBs6k/Xe/iNQYaowG9qZHapSxOm0AsjPStLj2dZMwWCV
+	ifY4ko90CAQBjPFR8CYku1UK
+X-Google-Smtp-Source: AGHT+IH4N8/3oA4wTPg2n7e91UEX+RmIscvqAqA1lYwbrZipQb/yeKPrP5GdySfDb3Kadj7CbVN/Yg==
+X-Received: by 2002:a17:902:d4c2:b0:21f:74ec:1ff0 with SMTP id d9443c01a7336-22a8a0a3892mr142523725ad.32.1744050083610;
+        Mon, 07 Apr 2025 11:21:23 -0700 (PDT)
+Received: from x1 ([97.115.235.21])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2297866e612sm84407055ad.200.2025.04.07.11.21.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 11:21:23 -0700 (PDT)
+Date: Mon, 7 Apr 2025 11:21:21 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org,
+	wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org,
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
+ controller
+Message-ID: <Z/QXofChW/HeJ7DJ@x1>
+References: <20250403094425.876981-1-m.wilczynski@samsung.com>
+ <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
+ <20250403094425.876981-4-m.wilczynski@samsung.com>
+ <Z/BoQIXKEhL3/q50@x1>
+ <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_110947_442945_D99666EE 
-X-CRM114-Status: GOOD (  16.18  )
+X-CRM114-CacheID: sfid-20250407_112124_495554_F5C40355 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,73 +107,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add a section in cmodx to describe how dynamic ftrace works on riscv,
-limitations, and assumptions.
+On Mon, Apr 07, 2025 at 05:30:43PM +0200, Michal Wilczynski wrote:
+> 
+> 
+> On 4/5/25 01:16, Drew Fustini wrote:
+> > On Thu, Apr 03, 2025 at 11:44:25AM +0200, Michal Wilczynski wrote:
+> >> VO clocks reside in a different address space from the AP clocks on the
+> >> T-HEAD SoC. Add the device tree node of a clock-controller to handle
+> >> VO address space as well.
+> >>
+> >> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> >> ---
+> >>  arch/riscv/boot/dts/thead/th1520.dtsi | 7 +++++++
+> >>  1 file changed, 7 insertions(+)
+> >>
+> >> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> index 527336417765..d4cba0713cab 100644
+> >> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> @@ -489,6 +489,13 @@ clk: clock-controller@ffef010000 {
+> >>  			#clock-cells = <1>;
+> >>  		};
+> >>  
+> >> +		clk_vo: clock-controller@ffef528050 {
+> >> +			compatible = "thead,th1520-clk-vo";
+> >> +			reg = <0xff 0xef528050 0x0 0xfb0>;
+> > 
+> > Thanks for your patch. It is great to have more of the clocks supported
+> > upstream.
+> > 
+> > The TH1520 System User Manual shows 0xFF_EF52_8000 for VO_SUBSYS on page
+> > 205. Is there a reason you decided to use 0xFF_EF52_8050 as the base?
+> > 
+> > I see on page 213 that the first register for VO_SUBSYS starts with
+> > VOSYS_CLK_GATE at offset 0x50. I figure you did this to have the
+> > CCU_GATE macros use offset of 0x0 instead 0x50.
+> > 
+> > I kind of think the reg property using the actual base address
+> > (0xFF_EF52_8000) makes more sense as that's a closer match to the tables
+> > in the manual. But I don't have a strong preference if you think think
+> > using 0xef528050 makes the CCU_GATE macros easier to read.
+> 
+> Thank you for your comment.
+> 
+> This was discussed some time ago. The main issue was that the address
+> space was fragmented between clocks and resets. Initially, I proposed
+> using syscon as a way to abstract this, but the idea wasn't particularly
+> well received.
+> 
+> So at the start of the 0xFF_EF52_8000 there is a reset register GPU_RST_CFG
+> I need for resetting the GPU.
+> 
+> For reference, here's the earlier discussion: [1]
+> 
+> [1] - https://lore.kernel.org/all/1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org/
 
-Signed-off-by: Andy Chiu <andybnac@gmail.com>
----
- Documentation/arch/riscv/cmodx.rst | 46 +++++++++++++++++++++++++-----
- 1 file changed, 39 insertions(+), 7 deletions(-)
+Thanks for the explanation.
 
-diff --git a/Documentation/arch/riscv/cmodx.rst b/Documentation/arch/riscv/cmodx.rst
-index 8c48bcff3df9..e009873b2d17 100644
---- a/Documentation/arch/riscv/cmodx.rst
-+++ b/Documentation/arch/riscv/cmodx.rst
-@@ -10,13 +10,45 @@ modified by the program itself. Instruction storage and the instruction cache
- program must enforce its own synchronization with the unprivileged fence.i
- instruction.
- 
--However, the default Linux ABI prohibits the use of fence.i in userspace
--applications. At any point the scheduler may migrate a task onto a new hart. If
--migration occurs after the userspace synchronized the icache and instruction
--storage with fence.i, the icache on the new hart will no longer be clean. This
--is due to the behavior of fence.i only affecting the hart that it is called on.
--Thus, the hart that the task has been migrated to may not have synchronized
--instruction storage and icache.
-+CMODX in the Kernel Space
-+---------------------
-+
-+Dynamic ftrace
-+---------------------
-+
-+Essentially, dynamic ftrace directs the control flow by inserting a function
-+call at each patchable function entry, and patches it dynamically at runtime to
-+enable or disable the redirection. In the case of RISC-V, 2 instructions,
-+AUIPC + JALR, are required to compose a function call. However, it is impossible
-+to patch 2 instructions and expect that a concurrent read-side executes them
-+without a race condition. This series makes atmoic code patching possible in
-+RISC-V ftrace. Kernel preemption makes things even worse as it allows the old
-+state to persist across the patching process with stop_machine().
-+
-+In order to get rid of stop_machine() and run dynamic ftrace with full kernel
-+preemption, we partially initialize each patchable function entry at boot-time,
-+setting the first instruction to AUIPC, and the second to NOP. Now, atmoic
-+patching is possible because the kernel only has to update one instruction.
-+According to Ziccif, as long as an instruction is naturally aligned, the ISA
-+guarantee an  atomic update.
-+
-+By fixing down the first instruction, AUIPC, the range of the ftrace trampoline
-+is limited to +-2K from the predetermined target, ftrace_caller, due to the lack
-+of immediate encoding space in RISC-V. To address the issue, we introduce
-+CALL_OPS, where an 8B naturally align metadata is added in front of each
-+pacthable function. The metadata is resolved at the first trampoline, then the
-+execution can be derect to another custom trampoline.
-+
-+CMODX in the User Space
-+---------------------
-+
-+Though fence.i is an unprivileged instruction, the default Linux ABI prohibits
-+the use of fence.i in userspace applications. At any point the scheduler may
-+migrate a task onto a new hart. If migration occurs after the userspace
-+synchronized the icache and instruction storage with fence.i, the icache on the
-+new hart will no longer be clean. This is due to the behavior of fence.i only
-+affecting the hart that it is called on. Thus, the hart that the task has been
-+migrated to may not have synchronized instruction storage and icache.
- 
- There are two ways to solve this problem: use the riscv_flush_icache() syscall,
- or use the ``PR_RISCV_SET_ICACHE_FLUSH_CTX`` prctl() and emit fence.i in
--- 
-2.39.3 (Apple Git-145)
+Reviewed-by: Drew Fustini <drew@pdp7.com>
 
 
 _______________________________________________
