@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36A9FC36010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6905CC369A3
 	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:58:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,72 +12,71 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=A5r7RqFBiLP1RLdSMXg1OL3EwjxTgUzCnpNAAy+0ces=; b=jmVLl/m3YALFeb
-	dCLxmdeLhGk8MPsBY18hlEKhVrwkK0bCdGf81icR2SmwBdmeI4UyKYlgOhP0QLcCX74EMQiGeqraM
-	YLxW7RpuDfNN7RE1KLSibpbKmPWDmz2JJuOKytVkRHWjj6B02+nbC3eZMVoDVV2ISZ2ipmm5iJ9hy
-	GFNe5PLeVESy0Dr4XX79yGeeDeAO4oTu8EixbcQqxaf/VawyrHEa+YCWzBsTQqcuTRhJPxcalJVEe
-	FAb5p0n99gq2cKHxtAVhCxER0CPwkIf74OYxYbYiXapBoVFxU71F29e0OIW+U9g7EZVTxARGhQYnS
-	BsWgKNboGO2lc61I+j5g==;
+	List-Owner; bh=Xqw8SQQ5lHLn8inwc0FvfQfwQQnC7dUyQBiOhw9hcro=; b=HlPecycLxbWyHb
+	PaSehzRTXRV1KHY5xya0MPkhz5UWnhubtH+b3EDe2VVCkTA6yJk5XAeffHwrREXSg8dvAYYdVUsDH
+	ZfKL3g8B0BEDU2R2b0AIbd8COGpNviMOEYAhHB5F4zWlewfeOxZQff7qGIQ+ycXNqPPQEqYea1Qt6
+	G8rJ2eDKNfMud3gVyHqUE2AqiwsxNke9OXK97GNt2bE9AhccqBzzETYLjkKOO2D+OWMFQ9ZgdU/Y7
+	I9un/faFyxbUIoAKW2pFGocQWNRPxvt9GQAYVbn9K+6P6dIBeI0sc+xZQVhlbJHwVznU09sF1L0Wk
+	PDGIcm0CBy6fRLzrNJFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mzS-00000000clt-0uqJ;
-	Mon, 07 Apr 2025 13:58:18 +0000
+	id 1u1mzR-00000000clo-2W47;
+	Mon, 07 Apr 2025 13:58:17 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mge-00000000ZA3-1pgg
+	id 1u1mgM-00000000Z1z-1gfB
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 13:38:53 +0000
+	Mon, 07 Apr 2025 13:38:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 55ACC4433D;
-	Mon,  7 Apr 2025 13:38:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94B97C4CEDD;
-	Mon,  7 Apr 2025 13:38:51 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E0E24433D;
+	Mon,  7 Apr 2025 13:38:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6EA24C4CEDD;
+	Mon,  7 Apr 2025 13:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744033131;
-	bh=1F9LhW1V7Jl/4nlfW9DvA2Y0ImG8BNm2UMrmjZazqxc=;
+	s=k20201202; t=1744033113;
+	bh=R/+LUhaZu48S7bNuKq4PNvUVMZjjf3m1lZ4q6yzkqyo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GptQj2sp4ROzyVqijGrfeOg8cOCWBaPBVUGe9+mxx2erXzuel+E91GW/HRRUbZjCV
-	 Kt6XqC97RL4qZC+c92EhVmznm3NSy52VP6j+tPWqd50hicTNd1SdiLuOHDFYxiLGkv
-	 qMnHCKVPpQlLOQqoGNk4y5/GTy+eikre5XgqhbSgg+ws2XvvgUYyB53MoGOIAZsFd+
-	 wokRUCgYcW/I0Fh8e9o6QWqyxNsAYrgNGx1fj+qEb8fddmvvMPc21s+Ji0KncGzUuL
-	 jUpswAuMcUhpTuHXfg+kGYU9lYPDGnCTKn1CtqbOGL25YghmTwJzZUdcyB0dHdIEzG
-	 7UwKNusNriBsw==
-Date: Mon, 7 Apr 2025 08:38:50 -0500
+	b=KbQRmtq9/KVixr5Z5VrZP/HP1OUcSZToqDGLRIrfoTL2PXKFEpSuvphV6iYrN4YgI
+	 MYkcGgAkpGJsPj2ukt1pA8Rc7Xs5I/YJXCC5SYNuIf8ckqR6rT+m5v2Rkzrqtj7OKh
+	 LLmA5f0bF334my2qScGq099+fIMAUEZ3bJsPlKcG9HhHbbf2+9e5V6c2tvNKQvt2yp
+	 p3dIHRyB/whsgHdL3Y05vIidlru4VMgpvtRSGAKaiuOlsh7vH9HT5XZ66fSmaCSc4W
+	 Bn9cIQ4Ivnsxvbw8EBsKlFNCRfwazPn+L7oZCjm1Pgfz/eQ8PEgpkSerrOd7jE0H3f
+	 SgDD2uhCrUa+Q==
+Date: Mon, 7 Apr 2025 08:38:32 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
 To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-mmc@vger.kernel.org, Jisheng Zhang <jszhang@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>, linux-hwmon@vger.kernel.org,
+Cc: sophgo@lists.linux.dev, linux-hwmon@vger.kernel.org,
 	Jean Delvare <jdelvare@suse.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
 	Chen Wang <unicorn_wang@outlook.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, ghost <2990955050@qq.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>, sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org, Andi Shyti <andi.shyti@kernel.org>,
-	linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
-	Conor Dooley <conor+dt@kernel.org>,
-	Guenter Roeck <linux@roeck-us.net>,
 	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 3/9] dt-bindings: interrupt-controller: Add Sophgo SG2044
- PLIC
-Message-ID: <174403312992.2087419.10477124729045212954.robh@kernel.org>
+	Yixun Lan <dlan@gentoo.org>, linux-kernel@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-i2c@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Andi Shyti <andi.shyti@kernel.org>, ghost <2990955050@qq.com>,
+	linux-mmc@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Longbin Li <looong.bin@gmail.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Philipp Zabel <p.zabel@pengutronix.de>, devicetree@vger.kernel.org
+Subject: Re: [PATCH 2/9] dt-bindings: interrupt-controller: Add Sophgo SG2044
+ CLINT mswi
+Message-ID: <174403311198.2084156.511081791031518276.robh@kernel.org>
 References: <20250407010616.749833-1-inochiama@gmail.com>
- <20250407010616.749833-4-inochiama@gmail.com>
+ <20250407010616.749833-3-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250407010616.749833-4-inochiama@gmail.com>
+In-Reply-To: <20250407010616.749833-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_063852_492029_AB9ACB83 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20250407_063834_458890_824EDCC1 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,15 +95,13 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 07 Apr 2025 09:06:08 +0800, Inochi Amaoto wrote:
-> The SG2044 implement a standard T-HEAD C900 PLIC, which is
-> already supported by the kernel.
-> 
-> Add compatible string for Sophgo SG2044 plic.
+On Mon, 07 Apr 2025 09:06:07 +0800, Inochi Amaoto wrote:
+> As SG2044 also implements an enhanced ACLINT as SG204, add necessary
+> compatible string for SG2044 SoC.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+>  .../bindings/interrupt-controller/thead,c900-aclint-mswi.yaml    | 1 +
 >  1 file changed, 1 insertion(+)
 > 
 
