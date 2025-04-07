@@ -4,98 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3973DC36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 05:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81CDCC36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 05:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RFhj+cj8SRwUtWgaG8zEFOuxJ9+KUlOEKcVqTnjccYs=; b=y/R1omfppzOzGm
-	/L+ju1pkxbp54XP8AZ84vCDuPWL3m8K/Hvq8fMz8vZp2bH67C17UP7GE+tvZpdXKsCks9pasobPJ1
-	tbI8O2lPpRKJQsGNeQEeLkV09HKaAaRhk+b+FRsn2JoqeDp4cLQ8KwsLLOZe4s6q+j34/kLkzKgdM
-	2vXAcgnMQhmBjWsMTrjRbglHpU9ih55QvpVv5APP7e+Gyi67SzPLnazW1oRfKONHovzLDgcb1Bdr9
-	ZHCix13tyd6+tpT7OQPXSQ24JiQQ1GFbUGrmKRXP2UZ7nmSv/hkj43iaTyF1dI7caB9hVKC7fLi//
-	GHge1lj5RP9G85YyH2OQ==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=A6Rp/ogecPmWeh0gay2ggLpmbP91OHjudXBiBng0z7w=; b=DzNuDvPo2NJOFw
+	U4h53rVPo/8PvFvCQw9g92rW5fS1gSLdb2752gh0IJgNWOwqquUGhciP5iD5P1tUpgHLT+H6VrG9T
+	tGk/reslDgC/TrQO1iIyMA0g3s2hzA0jDqzAIsZEpZKTUUPGW7JxiBx/vtrKUSjYzz5xIQnMrbApR
+	tZJywfMe4vJVTaChlR7rTAXz03wydF3x5EHyaL08j/fi194m5ca5Lgn7PIUdC08MPRKC2UqnpMqtU
+	I5dgG22ztgdB4+SSTdCNlPj8l2s5o7Vnf8hdnO2ezwkcSE/7x+5/qUFRNJUwijGIAWnD76KWQFiuW
+	Z/laPsBgMQSQLXG5MEjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ezE-0000000GRkl-27cw;
-	Mon, 07 Apr 2025 05:25:32 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1u1f7p-0000000GSyf-2u6C;
+	Mon, 07 Apr 2025 05:34:25 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1eRc-0000000GNcG-0AlE
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 04:50:49 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-85b3f92c8dfso125920439f.2
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Apr 2025 21:50:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1744001446; x=1744606246; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=CSbT54uFLuQxmkO99JJbKmBYJPhP8w1aIEAoXHHJX9k=;
-        b=nXjmswsidREVTPFyircmlagX1tk4i2r3XV8izG3jgiq3jkv8nNzuT/l/J6qmaZo/s/
-         QcF0CcyvuCXuaDWxm7bQpL4tAThY7N5/2JDUg6IknnLhiDaGqzgKMfrCVAPl4x+S4Pu5
-         CHvFu91gEyC7D6QmFutSx3mrt9XX1rLt0xm6RjFtOIufoTha2YGXuzx1iYKBIhMTsf84
-         mYUiMhOPyd/8FOyYRcx3fV8I+qaBmZhdfqMZs6o4xLwLyQ5XZxN86iHlNf9YgDC5/yKO
-         Zu4guGp5/Zf0H+62A6UN4LPKQHYNjvwIAjRH1ZN8jHcRpRNqzETzmRR0z4LGzMweS3PS
-         ZZtA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744001446; x=1744606246;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=CSbT54uFLuQxmkO99JJbKmBYJPhP8w1aIEAoXHHJX9k=;
-        b=u/MTI4PPTPFK3In7skH+vJCV8EdFuSyrmVvhWsIEwsNpG8IMt8LF8BYZP7DR0e+QhY
-         ws59WYV86zpsX1I15NzWMDYuJhYKEnkfM1Piw+cmxazSritaUt71fi7BrdCV+y1aR8CO
-         GcZRyniEShHH9Nbm05ngwCMJPFY4xo6KWULqTbjfmPXMYY1jU6oRLdL3YJHooNUqiKak
-         3FP8arXwWYNZZkRFQ7hrfhUXkhfgReVG0MHbwUxh10wYBHd5Ug0WMh8VzuoeEA4xpi/n
-         zNlZJvNxgy/ab7VmB/iY6dEm372+eVXzH57KI0y2+7IlN1rOoGzvgouuxFKDtit2Z6fW
-         ylXA==
-X-Forwarded-Encrypted: i=1; AJvYcCUgM6ziaLiOhLBf9rN9Xpd4vAKn1qUW8m+9tu1ksCgfr9ubl6Dtwrw8knrlU06UYXKxyTETZDwfZEcwxg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YziA0DPX8ofqV7hYk1KOxnAq+CWN7FuFb0uDhNfv0Kgc3SMSmoV
-	NU1ATOvUaHwMSEimdvpRALWc+zlWjG8145mhMjqv9Ro4PJ5cFZvAMjJk5Zzm/aylzKIzwljmA3f
-	XqE1FZrNYDHwhaq68L8WVoBPs5DJyNjYRu3yCeA==
-X-Gm-Gg: ASbGncurXsJZib+bLD+5MGgT3ozdphAvOyp3yh6ck8kF8KXcOMVPjiX8K/R/vzD2ds/
-	OLxamPGZ/hrKh8MmkM4QJhm1ph9hxesenDBUWBZ65cfPyg+W/vZziOvGMNYYozXoVJ9gvMNG8Dp
-	2BBps4LTFcrVm5f/mWH77mZ+MnSPpM
-X-Google-Smtp-Source: AGHT+IHhVdalfJg/Z7eY6UsCfbBA0DkGD01gM9P/N23DqqMhnu+Yb+G3qK68lvaA0KDDPK6sloLhNYPOVe1kjlQCo1M=
-X-Received: by 2002:a05:6602:4009:b0:85e:201e:3e35 with SMTP id
- ca18e2360f4ac-8611c2a4dc8mr1200799239f.3.1744001446586; Sun, 06 Apr 2025
- 21:50:46 -0700 (PDT)
+	id 1u1f2c-0000000GSD0-2W2h;
+	Mon, 07 Apr 2025 05:29:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=dB9keRMOwVIcNoNRSHHCD2QKgPNuoGWRXYd2uwzW990=; b=UHwODn/VjKqS1kbYWo32znTwIw
+	MpG+JrhQnruzYLJX7YQgJWvbKzQEVRLBvy+UtAHi+prcy5LeUWFzHeyu50iWv7ZK2ZXKEI411HdBa
+	INdLSkaiUMFA7St1XvHZCW6gpjZ/2fBNspqrUn4sydcldmLTQK3JipGLUX6JBpyhtaGFyUko+gNb9
+	ahhkIXuXKtsuWfFxIr07DIWSvlFWv9XCC35yW/hlTv6DR0CyIboNnoXiPAZlcUDhopzdffRNRbUsV
+	bbEO4jeMKg2+Ye/30S7ktszHbEo4g+SHTyevuL6IO8GGowfjSH7PNtJ1Mzj5vhPd3xQZHT7RapLsr
+	wT/2Mn5g==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u1f2Y-00DNNS-2U;
+	Mon, 07 Apr 2025 13:28:59 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 07 Apr 2025 13:28:58 +0800
+Date: Mon, 7 Apr 2025 13:28:58 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, x86@kernel.org, ardb@kernel.org,
+	Jason@zx2c4.com, torvalds@linux-foundation.org
+Subject: Re: [PATCH 0/9] Remove per-architecture ChaCha skcipher glue code
+Message-ID: <Z_Nimiv1Wkfo3gBd@gondor.apana.org.au>
 MIME-Version: 1.0
-References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com> <20250314-v5_user_cfi_series-v12-10-e51202b53138@rivosinc.com>
-In-Reply-To: <20250314-v5_user_cfi_series-v12-10-e51202b53138@rivosinc.com>
-From: Zong Li <zong.li@sifive.com>
-Date: Mon, 7 Apr 2025 12:50:35 +0800
-X-Gm-Features: ATxdqUEcEvSvDd4YNmxt5x00v_2QFe_U7ZYW7BCOZdpLL6G50qHXNh2VbNcPJLM
-Message-ID: <CANXhq0rpHMWvJhWNUKuiMvJZoqN5iTz7USmZYHff=se-+-H+3w@mail.gmail.com>
-Subject: Re: [PATCH v12 10/28] riscv/mm: Implement map_shadow_stack() syscall
-To: Deepak Gupta <debug@rivosinc.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
-	"H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	"Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka <vbabka@suse.cz>, 
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Christian Brauner <brauner@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Oleg Nesterov <oleg@redhat.com>, Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, Jann Horn <jannh@google.com>, 
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, alistair.francis@wdc.com, 
-	richard.henderson@linaro.org, jim.shu@sifive.com, andybnac@gmail.com, 
-	kito.cheng@sifive.com, charlie@rivosinc.com, atishp@rivosinc.com, 
-	evan@rivosinc.com, cleger@rivosinc.com, alexghiti@rivosinc.com, 
-	samitolvanen@google.com, broonie@kernel.org, rick.p.edgecombe@intel.com
+Content-Disposition: inline
+In-Reply-To: <20250405182609.404216-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_215048_106666_D4ECBAC7 
-X-CRM114-Status: GOOD (  34.18  )
+X-CRM114-CacheID: sfid-20250406_222902_638512_1561FCE8 
+X-CRM114-Status: GOOD (  28.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,136 +71,101 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gU2F0LCBNYXIgMTUsIDIwMjUgYXQgNTozOeKAr0FNIERlZXBhayBHdXB0YSA8ZGVidWdAcml2
-b3NpbmMuY29tPiB3cm90ZToKPgo+IEFzIGRpc2N1c3NlZCBleHRlbnNpdmVseSBpbiB0aGUgY2hh
-bmdlbG9nIGZvciB0aGUgYWRkaXRpb24gb2YgdGhpcwo+IHN5c2NhbGwgb24geDg2ICgieDg2L3No
-c3RrOiBJbnRyb2R1Y2UgbWFwX3NoYWRvd19zdGFjayBzeXNjYWxsIikgdGhlCj4gZXhpc3Rpbmcg
-bW1hcCgpIGFuZCBtYWR2aXNlKCkgc3lzY2FsbHMgZG8gbm90IG1hcCBlbnRpcmVseSB3ZWxsIG9u
-dG8gdGhlCj4gc2VjdXJpdHkgcmVxdWlyZW1lbnRzIGZvciBzaGFkb3cgc3RhY2sgbWVtb3J5IHNp
-bmNlIHRoZXkgbGVhZCB0byB3aW5kb3dzCj4gd2hlcmUgbWVtb3J5IGlzIGFsbG9jYXRlZCBidXQg
-bm90IHlldCBwcm90ZWN0ZWQgb3Igc3RhY2tzIHdoaWNoIGFyZSBub3QKPiBwcm9wZXJseSBhbmQg
-c2FmZWx5IGluaXRpYWxpc2VkLiBJbnN0ZWFkIGEgbmV3IHN5c2NhbGwgbWFwX3NoYWRvd19zdGFj
-aygpCj4gaGFzIGJlZW4gZGVmaW5lZCB3aGljaCBhbGxvY2F0ZXMgYW5kIGluaXRpYWxpc2VzIGEg
-c2hhZG93IHN0YWNrIHBhZ2UuCj4KPiBUaGlzIHBhdGNoIGltcGxlbWVudHMgdGhpcyBzeXNjYWxs
-IGZvciByaXNjdi4gcmlzY3YgZG9lc24ndCByZXF1aXJlIHRva2VuCj4gdG8gYmUgc2V0dXAgYnkg
-a2VybmVsIGJlY2F1c2UgdXNlciBtb2RlIGNhbiBkbyB0aGF0IGJ5IGl0c2VsZi4gSG93ZXZlciB0
-bwo+IHByb3ZpZGUgY29tcGF0aWJpbGl0eSBhbmQgcG9ydGFiaWxpdHkgd2l0aCBvdGhlciBhcmNo
-aXRlY3R1ZXMsIHVzZXIgbW9kZQo+IGNhbiBzcGVjaWZ5IHRva2VuIHNldCBmbGFnLgo+Cj4gUmV2
-aWV3ZWQtYnk6IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KPiBTaWduZWQtb2ZmLWJ5OiBE
-ZWVwYWsgR3VwdGEgPGRlYnVnQHJpdm9zaW5jLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9rZXJu
-ZWwvTWFrZWZpbGUgIHwgICAxICsKPiAgYXJjaC9yaXNjdi9rZXJuZWwvdXNlcmNmaS5jIHwgMTQ0
-ICsrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrCj4gIDIgZmlsZXMg
-Y2hhbmdlZCwgMTQ1IGluc2VydGlvbnMoKykKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tl
-cm5lbC9NYWtlZmlsZSBiL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gaW5kZXggOGQxODZi
-ZmNlZDQ1Li4zYTg2MWQzMjA2NTQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFr
-ZWZpbGUKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9NYWtlZmlsZQo+IEBAIC0xMjUsMyArMTI1
-LDQgQEAgb2JqLSQoQ09ORklHX0FDUEkpICAgICAgICAgICs9IGFjcGkubwo+ICBvYmotJChDT05G
-SUdfQUNQSV9OVU1BKSAgICAgICAgKz0gYWNwaV9udW1hLm8KPgo+ICBvYmotJChDT05GSUdfR0VO
-RVJJQ19DUFVfVlVMTkVSQUJJTElUSUVTKSArPSBidWdzLm8KPiArb2JqLSQoQ09ORklHX1JJU0NW
-X1VTRVJfQ0ZJKSArPSB1c2VyY2ZpLm8KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwv
-dXNlcmNmaS5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdXNlcmNmaS5jCj4gbmV3IGZpbGUgbW9kZSAx
-MDA2NDQKPiBpbmRleCAwMDAwMDAwMDAwMDAuLjI0MDIyODA5YTdiNQo+IC0tLSAvZGV2L251bGwK
-PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC91c2VyY2ZpLmMKPiBAQCAtMCwwICsxLDE0NCBAQAo+
-ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogR1BMLTIuMAo+ICsvKgo+ICsgKiBDb3B5cmln
-aHQgKEMpIDIwMjQgUml2b3MsIEluYy4KPiArICogRGVlcGFrIEd1cHRhIDxkZWJ1Z0ByaXZvc2lu
-Yy5jb20+Cj4gKyAqLwo+ICsKPiArI2luY2x1ZGUgPGxpbnV4L3NjaGVkLmg+Cj4gKyNpbmNsdWRl
-IDxsaW51eC9iaXRvcHMuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3R5cGVzLmg+Cj4gKyNpbmNsdWRl
-IDxsaW51eC9tbS5oPgo+ICsjaW5jbHVkZSA8bGludXgvbW1hbi5oPgo+ICsjaW5jbHVkZSA8bGlu
-dXgvdWFjY2Vzcy5oPgo+ICsjaW5jbHVkZSA8bGludXgvc2l6ZXMuaD4KPiArI2luY2x1ZGUgPGxp
-bnV4L3VzZXIuaD4KPiArI2luY2x1ZGUgPGxpbnV4L3N5c2NhbGxzLmg+Cj4gKyNpbmNsdWRlIDxs
-aW51eC9wcmN0bC5oPgo+ICsjaW5jbHVkZSA8YXNtL2Nzci5oPgo+ICsjaW5jbHVkZSA8YXNtL3Vz
-ZXJjZmkuaD4KPiArCj4gKyNkZWZpbmUgU0hTVEtfRU5UUllfU0laRSBzaXplb2Yodm9pZCAqKQo+
-ICsKPiArLyoKPiArICogV3JpdGVzIG9uIHNoYWRvdyBzdGFjayBjYW4gZWl0aGVyIGJlIGBzc3B1
-c2hgIG9yIGBzc2Ftb3N3YXBgLiBgc3NwdXNoYCBjYW4gaGFwcGVuCj4gKyAqIGltcGxpY2l0bHkg
-b24gY3VycmVudCBzaGFkb3cgc3RhY2sgcG9pbnRlZCB0byBieSBDU1JfU1NQLiBgc3NhbW9zd2Fw
-YCB0YWtlcyBwb2ludGVyIHRvCj4gKyAqIHNoYWRvdyBzdGFjay4gVG8ga2VlcCBpdCBzaW1wbGUs
-IHdlIHBsYW4gdG8gdXNlIGBzc2Ftb3N3YXBgIHRvIHBlcmZvcm0gd3JpdGVzIG9uIHNoYWRvdwo+
-ICsgKiBzdGFjay4KPiArICovCj4gK3N0YXRpYyBub2lubGluZSB1bnNpZ25lZCBsb25nIGFtb191
-c2VyX3Noc3RrKHVuc2lnbmVkIGxvbmcgKmFkZHIsIHVuc2lnbmVkIGxvbmcgdmFsKQo+ICt7Cj4g
-KyAgICAgICAvKgo+ICsgICAgICAgICogTmV2ZXIgZXhwZWN0IC0xIG9uIHNoYWRvdyBzdGFjay4g
-RXhwZWN0IHJldHVybiBhZGRyZXNzZXMgYW5kIHplcm8KPiArICAgICAgICAqLwo+ICsgICAgICAg
-dW5zaWduZWQgbG9uZyBzd2FwID0gLTE7Cj4gKwo+ICsgICAgICAgX19lbmFibGVfdXNlcl9hY2Nl
-c3MoKTsKPiArICAgICAgIGFzbSBnb3RvKAo+ICsgICAgICAgICAgICAgICAiLm9wdGlvbiBwdXNo
-XG4iCj4gKyAgICAgICAgICAgICAgICIub3B0aW9uIGFyY2gsICt6aWNmaXNzXG4iCj4gKyAgICAg
-ICAgICAgICAgICIxOiBzc2Ftb3N3YXAuZCAlW3N3YXBdLCAlW3ZhbF0sICVbYWRkcl1cbiIKCkhp
-IERlZXBhaywKSXQganVzdCBjYW1lIHRvIG15IG1pbmQsIGRvIHdlIG5lZWQgdG8gZW5zdXJlIHRo
-YXQgbWVudmNmZy5TU0UgaXMgbm90Cnplcm8gYmVmb3JlIGV4ZWN1dGluZyB0aGUgc3NhbW9zd2Fw
-IGluc3RydWN0aW9uPyBTaW5jZSBzc2Ftb3N3YXAgaXMKbm90IGVuY29kZWQgdXNpbmcgTU9QLCBJ
-4oCZbSB3b25kZXJpbmcgaWYgd2Ugc2hvdWxkIG1ha2Ugc3VyZSB0aGF0CmV4ZWN1dGluZyBzc2Ft
-b3N3YXAgd29u4oCZdCBhY2NpZGVudGFsbHkgdHJpZ2dlciBhbiBpbGxlZ2FsIGluc3RydWN0aW9u
-CmV4Y2VwdGlvbi4gVGhhbmtzLgoKPiArICAgICAgICAgICAgICAgX0FTTV9FWFRBQkxFKDFiLCAl
-bFtmYXVsdF0pCj4gKyAgICAgICAgICAgICAgIFJJU0NWX0FDUVVJUkVfQkFSUklFUgo+ICsgICAg
-ICAgICAgICAgICAiLm9wdGlvbiBwb3BcbiIKPiArICAgICAgICAgICAgICAgOiBbc3dhcF0gIj1y
-IiAoc3dhcCksIFthZGRyXSAiK0EiICgqYWRkcikKPiArICAgICAgICAgICAgICAgOiBbdmFsXSAi
-ciIgKHZhbCkKPiArICAgICAgICAgICAgICAgOiAibWVtb3J5Igo+ICsgICAgICAgICAgICAgICA6
-IGZhdWx0Cj4gKyAgICAgICAgICAgICAgICk7Cj4gKyAgICAgICBfX2Rpc2FibGVfdXNlcl9hY2Nl
-c3MoKTsKPiArICAgICAgIHJldHVybiBzd2FwOwo+ICtmYXVsdDoKPiArICAgICAgIF9fZGlzYWJs
-ZV91c2VyX2FjY2VzcygpOwo+ICsgICAgICAgcmV0dXJuIC0xOwo+ICt9Cj4gKwo+ICsvKgo+ICsg
-KiBDcmVhdGUgYSByZXN0b3JlIHRva2VuIG9uIHRoZSBzaGFkb3cgc3RhY2suICBBIHRva2VuIGlz
-IGFsd2F5cyBYTEVOIHdpZGUKPiArICogYW5kIGFsaWduZWQgdG8gWExFTi4KPiArICovCj4gK3N0
-YXRpYyBpbnQgY3JlYXRlX3JzdG9yX3Rva2VuKHVuc2lnbmVkIGxvbmcgc3NwLCB1bnNpZ25lZCBs
-b25nICp0b2tlbl9hZGRyKQo+ICt7Cj4gKyAgICAgICB1bnNpZ25lZCBsb25nIGFkZHI7Cj4gKwo+
-ICsgICAgICAgLyogVG9rZW4gbXVzdCBiZSBhbGlnbmVkICovCj4gKyAgICAgICBpZiAoIUlTX0FM
-SUdORUQoc3NwLCBTSFNUS19FTlRSWV9TSVpFKSkKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1F
-SU5WQUw7Cj4gKwo+ICsgICAgICAgLyogT24gUklTQy1WIHdlJ3JlIGNvbnN0cnVjdGluZyB0b2tl
-biB0byBiZSBmdW5jdGlvbiBvZiBhZGRyZXNzIGl0c2VsZiAqLwo+ICsgICAgICAgYWRkciA9IHNz
-cCAtIFNIU1RLX0VOVFJZX1NJWkU7Cj4gKwo+ICsgICAgICAgaWYgKGFtb191c2VyX3Noc3RrKCh1
-bnNpZ25lZCBsb25nIF9fdXNlciAqKWFkZHIsICh1bnNpZ25lZCBsb25nKXNzcCkgPT0gLTEpCj4g
-KyAgICAgICAgICAgICAgIHJldHVybiAtRUZBVUxUOwo+ICsKPiArICAgICAgIGlmICh0b2tlbl9h
-ZGRyKQo+ICsgICAgICAgICAgICAgICAqdG9rZW5fYWRkciA9IGFkZHI7Cj4gKwo+ICsgICAgICAg
-cmV0dXJuIDA7Cj4gK30KPiArCj4gK3N0YXRpYyB1bnNpZ25lZCBsb25nIGFsbG9jYXRlX3NoYWRv
-d19zdGFjayh1bnNpZ25lZCBsb25nIGFkZHIsIHVuc2lnbmVkIGxvbmcgc2l6ZSwKPiArICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyB0b2tlbl9v
-ZmZzZXQsIGJvb2wgc2V0X3RvaykKPiArewo+ICsgICAgICAgaW50IGZsYWdzID0gTUFQX0FOT05Z
-TU9VUyB8IE1BUF9QUklWQVRFOwo+ICsgICAgICAgc3RydWN0IG1tX3N0cnVjdCAqbW0gPSBjdXJy
-ZW50LT5tbTsKPiArICAgICAgIHVuc2lnbmVkIGxvbmcgcG9wdWxhdGUsIHRva19sb2MgPSAwOwo+
-ICsKPiArICAgICAgIGlmIChhZGRyKQo+ICsgICAgICAgICAgICAgICBmbGFncyB8PSBNQVBfRklY
-RURfTk9SRVBMQUNFOwo+ICsKPiArICAgICAgIG1tYXBfd3JpdGVfbG9jayhtbSk7Cj4gKyAgICAg
-ICBhZGRyID0gZG9fbW1hcChOVUxMLCBhZGRyLCBzaXplLCBQUk9UX1JFQUQsIGZsYWdzLAo+ICsg
-ICAgICAgICAgICAgICAgICAgICAgVk1fU0hBRE9XX1NUQUNLIHwgVk1fV1JJVEUsIDAsICZwb3B1
-bGF0ZSwgTlVMTCk7Cj4gKyAgICAgICBtbWFwX3dyaXRlX3VubG9jayhtbSk7Cj4gKwo+ICsgICAg
-ICAgaWYgKCFzZXRfdG9rIHx8IElTX0VSUl9WQUxVRShhZGRyKSkKPiArICAgICAgICAgICAgICAg
-Z290byBvdXQ7Cj4gKwo+ICsgICAgICAgaWYgKGNyZWF0ZV9yc3Rvcl90b2tlbihhZGRyICsgdG9r
-ZW5fb2Zmc2V0LCAmdG9rX2xvYykpIHsKPiArICAgICAgICAgICAgICAgdm1fbXVubWFwKGFkZHIs
-IHNpemUpOwo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiArICAgICAgIH0KPiAr
-Cj4gKyAgICAgICBhZGRyID0gdG9rX2xvYzsKPiArCj4gK291dDoKPiArICAgICAgIHJldHVybiBh
-ZGRyOwo+ICt9Cj4gKwo+ICtTWVNDQUxMX0RFRklORTMobWFwX3NoYWRvd19zdGFjaywgdW5zaWdu
-ZWQgbG9uZywgYWRkciwgdW5zaWduZWQgbG9uZywgc2l6ZSwgdW5zaWduZWQgaW50LCBmbGFncykK
-PiArewo+ICsgICAgICAgYm9vbCBzZXRfdG9rID0gZmxhZ3MgJiBTSEFET1dfU1RBQ0tfU0VUX1RP
-S0VOOwo+ICsgICAgICAgdW5zaWduZWQgbG9uZyBhbGlnbmVkX3NpemUgPSAwOwo+ICsKPiArICAg
-ICAgIGlmICghY3B1X3N1cHBvcnRzX3NoYWRvd19zdGFjaygpKQo+ICsgICAgICAgICAgICAgICBy
-ZXR1cm4gLUVPUE5PVFNVUFA7Cj4gKwo+ICsgICAgICAgLyogQW55dGhpbmcgb3RoZXIgdGhhbiBz
-ZXQgdG9rZW4gc2hvdWxkIHJlc3VsdCBpbiBpbnZhbGlkIHBhcmFtICovCj4gKyAgICAgICBpZiAo
-ZmxhZ3MgJiB+U0hBRE9XX1NUQUNLX1NFVF9UT0tFTikKPiArICAgICAgICAgICAgICAgcmV0dXJu
-IC1FSU5WQUw7Cj4gKwo+ICsgICAgICAgLyoKPiArICAgICAgICAqIFVubGlrZSBvdGhlciBhcmNo
-aXRlY3R1cmVzLCBvbiBSSVNDLVYsIFNTUCBwb2ludGVyIGlzIGhlbGQgaW4gQ1NSX1NTUCBhbmQg
-aXMgYXZhaWxhYmxlCj4gKyAgICAgICAgKiBDU1IgaW4gYWxsIG1vZGVzLiBDU1IgYWNjZXNzZXMg
-YXJlIHBlcmZvcm1lZCB1c2luZyAxMmJpdCBpbmRleCBwcm9ncmFtbWVkIGluIGluc3RydWN0aW9u
-Cj4gKyAgICAgICAgKiBpdHNlbGYuIFRoaXMgcHJvdmlkZXMgc3RhdGljIHByb3BlcnR5IG9uIHJl
-Z2lzdGVyIHByb2dyYW1taW5nIGFuZCB3cml0ZXMgdG8gQ1NSIGNhbid0Cj4gKyAgICAgICAgKiBi
-ZSB1bmludGVudGlvbmFsIGZyb20gcHJvZ3JhbW1lcidzIHBlcnNwZWN0aXZlLiBBcyBsb25nIGFz
-IHByb2dyYW1tZXIgaGFzIGd1YXJkZWQgYXJlYXMKPiArICAgICAgICAqIHdoaWNoIHBlcmZvcm0g
-d3JpdGVzIHRvIENTUl9TU1AgcHJvcGVybHksIHNoYWRvdyBzdGFjayBwaXZvdGluZyBpcyBub3Qg
-cG9zc2libGUuIFNpbmNlCj4gKyAgICAgICAgKiBDU1JfU1NQIGlzIHdyaXRlYWJsZSBieSB1c2Vy
-IG1vZGUsIGl0IGl0c2VsZiBjYW4gc2V0dXAgYSBzaGFkb3cgc3RhY2sgdG9rZW4gc3Vic2VxdWVu
-dAo+ICsgICAgICAgICogdG8gYWxsb2NhdGlvbi4gQWx0aG91Z2ggaW4gb3JkZXIgdG8gcHJvdmlk
-ZSBwb3J0YWJsaXR5IHdpdGggb3RoZXIgYXJjaGl0ZWN0dXJlIChiZWNhdXNlCj4gKyAgICAgICAg
-KiBgbWFwX3NoYWRvd19zdGFja2AgaXMgYXJjaCBhZ25vc3RpYyBzeXNjYWxsKSwgUklTQy1WIHdp
-bGwgZm9sbG93IGV4cGVjdGF0aW9uIG9mIGEgdG9rZW4KPiArICAgICAgICAqIGZsYWcgaW4gZmxh
-Z3MgYW5kIGlmIHByb3ZpZGVkIGluIGZsYWdzLCBzZXR1cCBhIHRva2VuIGF0IHRoZSBiYXNlLgo+
-ICsgICAgICAgICovCj4gKwo+ICsgICAgICAgLyogSWYgdGhlcmUgaXNuJ3Qgc3BhY2UgZm9yIGEg
-dG9rZW4gKi8KPiArICAgICAgIGlmIChzZXRfdG9rICYmIHNpemUgPCBTSFNUS19FTlRSWV9TSVpF
-KQo+ICsgICAgICAgICAgICAgICByZXR1cm4gLUVOT1NQQzsKPiArCj4gKyAgICAgICBpZiAoYWRk
-ciAmJiAoYWRkciAmIChQQUdFX1NJWkUgLSAxKSkpCj4gKyAgICAgICAgICAgICAgIHJldHVybiAt
-RUlOVkFMOwo+ICsKPiArICAgICAgIGFsaWduZWRfc2l6ZSA9IFBBR0VfQUxJR04oc2l6ZSk7Cj4g
-KyAgICAgICBpZiAoYWxpZ25lZF9zaXplIDwgc2l6ZSkKPiArICAgICAgICAgICAgICAgcmV0dXJu
-IC1FT1ZFUkZMT1c7Cj4gKwo+ICsgICAgICAgcmV0dXJuIGFsbG9jYXRlX3NoYWRvd19zdGFjayhh
-ZGRyLCBhbGlnbmVkX3NpemUsIHNpemUsIHNldF90b2spOwo+ICt9Cj4KPiAtLQo+IDIuMzQuMQo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Eric Biggers <ebiggers@kernel.org> wrote:
+> Currently each architecture exposes ChaCha not only through the library
+> API, but also through the crypto_skcipher API.  That requires each
+> architecture to implement essentially the same skcipher glue code.
+> 
+> Following the example of what's been done for crc32 and crc32c,
+> eliminate this redundancy by making crypto/chacha.c register both the
+> generic and architecture-optimized skcipher algorithms, implemented on
+> top of the appropriate library functions.  This removes almost 800 lines
+> of code and disentangles the library code from the skcipher API.
+> 
+> From what I remember, the following are the reasons why it wasn't just
+> done this way originally.  But none of these really hold water:
+> 
+> - The skcipher code was there first, so it may have seemed more natural
+>  to add onto it rather than replace it.
+> 
+> - Architectures could register multiple skcipher algorithms using
+>  different CPU features and have them all be tested in a single boot.
+>  This was convenient in theory, but it never really worked properly.
+>  It didn't apply to the library code, the x86 ChaCha code wasn't
+>  actually doing this (it used static keys instead), and this cannot
+>  catch bugs like accidentally using an AVX instruction in SSE code.
+>  Instead, a correct solution, which also doesn't require any special
+>  kernel support, is to just boot the kernel in QEMU using different
+>  -cpu arguments as needed to test all the code.
+> 
+> - There was a concern about changing cra_driver_names potentially
+>  breaking users.  But in practice users rely on cra_name, not
+>  cra_driver_name.  We already change, add, and remove cra_driver_names
+>  occasionally for various reasons.  And even if someone was relying on
+>  a specific cra_driver_name, there are some more lightweight
+>  compatibility tricks that could be used.
+> 
+> - There was a desire for users to be able to override the kernel's
+>  choice of ChaCha implementation by blacklisting the arch-optimized
+>  ChaCha module.  But that already became mostly impossible when the
+>  library functions were added to the same module.  And in practice
+>  users don't do this anyway.  Even if, hypothetically, someone really
+>  needed to do this and for some reason the kernel couldn't be fixed to
+>  make the right choice in their case automatically, there are other
+>  ways this could be implemented such as a module parameter.
+> 
+> Eric Biggers (9):
+>  crypto: riscv/chacha - implement library instead of skcipher
+>  crypto: chacha - centralize the skcipher wrappers for arch code
+>  crypto: arm/chacha - remove the redundant skcipher algorithms
+>  crypto: arm64/chacha - remove the skcipher algorithms
+>  crypto: mips/chacha - remove the skcipher algorithms
+>  crypto: powerpc/chacha - remove the skcipher algorithms
+>  crypto: s390/chacha - remove the skcipher algorithms
+>  crypto: x86/chacha - remove the skcipher algorithms
+>  crypto: chacha - remove <crypto/internal/chacha.h>
+> 
+> arch/arm/crypto/Kconfig                 |   7 -
+> arch/arm/crypto/chacha-glue.c           | 243 +---------------------
+> arch/arm/crypto/chacha-neon-core.S      |   2 +-
+> arch/arm64/crypto/Kconfig               |   7 -
+> arch/arm64/crypto/chacha-neon-core.S    |   2 +-
+> arch/arm64/crypto/chacha-neon-glue.c    | 146 +------------
+> arch/mips/crypto/Kconfig                |   6 -
+> arch/mips/crypto/chacha-glue.c          | 131 +-----------
+> arch/powerpc/crypto/Kconfig             |   8 -
+> arch/powerpc/crypto/chacha-p10-glue.c   | 147 +-------------
+> arch/riscv/crypto/Kconfig               |  11 +-
+> arch/riscv/crypto/chacha-riscv64-glue.c | 112 ++++------
+> arch/riscv/crypto/chacha-riscv64-zvkb.S |  71 +++----
+> arch/s390/crypto/Kconfig                |   7 -
+> arch/s390/crypto/chacha-glue.c          |  99 ++-------
+> arch/x86/crypto/Kconfig                 |   9 -
+> arch/x86/crypto/chacha_glue.c           | 144 +------------
+> crypto/Makefile                         |   3 +-
+> crypto/chacha.c                         | 260 ++++++++++++++++++++++++
+> crypto/chacha_generic.c                 | 139 -------------
+> include/crypto/chacha.h                 |   9 +
+> include/crypto/internal/chacha.h        |  43 ----
+> 22 files changed, 413 insertions(+), 1193 deletions(-)
+> create mode 100644 crypto/chacha.c
+> delete mode 100644 crypto/chacha_generic.c
+> delete mode 100644 include/crypto/internal/chacha.h
+> 
+> base-commit: 56f944529ec2292cbe63377a76df3759d702dd39
+
+All applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
