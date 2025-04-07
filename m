@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F0BC36010
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF35C369A4
 	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 15:12:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iNU1zpsHWCdm0AtGnvdBKsJx0WKwz/5WTLeKV0yhDu8=; b=hhjyrKWlS9VBiE
-	sZTZgngFhPgO/gBrxoNJjIR6bncNbdFwTmiEjUJT6BG1ek8iamfjzmgRG+bbDy2Tzc2O8w4mucV5O
-	82HpTM2LXd+Hr57/NFVIZaG613KSVTuqi/21yZLgQmkIc2w/OESmh3QMhbzpw96seuVor/rKd8X4I
-	s1vt2tfzt6E9xEJJg8jfyFA6f+QHDx58luCNAgzX2ZRABhBM4BTPrSRSLFbA+WGN0Z+1OWhCGiuE1
-	mG4od+uTB0lIQcLPCzsbzA6UTrAPY5skAmilGl6XcmUqAyFhYWFsKbLzA57FqNmj2H33AmcbYaH5p
-	nbd79+VMGtfnOV1wQH+g==;
+	List-Owner; bh=7Rxs1Gg/PQsxtuKqLgxRHPGq30Qs49qAO8L4cMROGh4=; b=DVVme5RyMtQUfO
+	Ylr80qGxpuPuD+RQ6wKMx+InN2pfRK3IxWHogAnqlIcbZ0Hqc3IlTkz9jljPqgXUUC9WbCQ8GWQTQ
+	aHNiGW1jhYY+G4RPTiwGg3LX4IvhbLmUi6XjkUAAJHItzE/A6jiR2MI2SwtbVuFxDaZuTNiEh9cFu
+	yPkIrN55FGgUuBcHSpYZVHpY7CQYJ4ymfHqvT74+s/2esv1GMVZMK95Oi+a3jXzNjx0v0hZa7RrzV
+	ezbf39Db0eE8YwSfLBx4FJ85yR4zKZOwIis+gviobdAhfMnTK6jYLPxe0emUEVRoMYdXYFqHjTD3F
+	0q+vp/zsHiYWtPqXH/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1o9N-00000000tjp-1RFQ;
-	Mon, 07 Apr 2025 15:12:37 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1u1o9P-00000000tla-1D2V;
+	Mon, 07 Apr 2025 15:12:39 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lll-00000000JQd-291z;
-	Mon, 07 Apr 2025 12:40:06 +0000
+	id 1u1lm1-00000000JUx-0AwT;
+	Mon, 07 Apr 2025 12:40:22 +0000
 Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [27.18.106.237])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 10ef566f5;
-	Mon, 7 Apr 2025 20:39:56 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 10f021904;
+	Mon, 7 Apr 2025 20:40:12 +0800 (GMT+08:00)
 From: Ze Huang <huangze@whut.edu.cn>
-Date: Mon, 07 Apr 2025 20:38:49 +0800
-Subject: [PATCH 4/7] phy: spacemit: support K1 USB2.0 PHY controller
+Date: Mon, 07 Apr 2025 20:38:51 +0800
+Subject: [PATCH 6/7] usb: dwc3: add spacemit dwc3 glue layer driver
 MIME-Version: 1.0
-Message-Id: <20250407-b4-k1-usb3-v3-2-v1-4-bf0bcc41c9ba@whut.edu.cn>
+Message-Id: <20250407-b4-k1-usb3-v3-2-v1-6-bf0bcc41c9ba@whut.edu.cn>
 References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
 In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -51,25 +51,25 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744029565; l=6373;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744029565; l=5058;
  i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=fCF4W2ae2Sg3St3Ptz8ICrLtEbsAhI1y2Cp5Zv2SiSU=;
- b=Te6E216u1vE3ivQjnt7vNdYTz3acA0nO/FnbrOifcGbUCfMBFvpLyehy1XgPhBpBm73V0s3aV
- epdPXL0WvzgC1kc66ejNkvIwvU27RkRTKeyyvzcnOTMAD/5B0Nh3yxv
+ bh=Fd/9MKedec8AShJy/y3d+yVIscBZfEuehyAXjlgnTKA=;
+ b=0oUjkiZkghcan3Psxy1PQme5aj6x1I1dcVUwNTyPXUaLSXxVPZ0e6STZc1N2XerGnhy5DyYpF
+ CIkNmhVHWDHAM5Gc+FVLzCdtgoY3vrDb2i6BxTZdIXmyjD/kZoCS4ZX
 X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
  pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCSE5IVkxKSUMYTBlDQ0tISlYeHw5VEwETFhoSFy
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTE8eVkkZQk9OHxhOHRoYGlYeHw5VEwETFhoSFy
 	QUDg9ZV1kYEgtZQVlJTFVKQ1VKS01VSUhMWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
 	tLWQY+
-X-HM-Tid: 0a961043bb2003a1kunm10ef566f5
+X-HM-Tid: 0a961043f94e03a1kunm10f021904
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NBw6ETo*DzJMVkwdAhUxGist
-	Dy4wCwFVSlVKTE9PS0lCTUtISEhOVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VKS01VSUhMWVdZCAFZQUNLSkk3Bg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ngw6AQw4LjICA0woEhYrGjoT
+	Qw9PCQJVSlVKTE9PS0lCTUpCSkJDVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VKS01VSUhMWVdZCAFZQU1NQk03Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_054005_760710_ACE90D3A 
-X-CRM114-Status: GOOD (  18.54  )
+X-CRM114-CacheID: sfid-20250407_054021_290142_7D43CD5A 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,205 +86,174 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for SpacemiT K1 USB2.0 PHY.
+Add SpacemiT glue logic to support dwc3 HC on K1 SoC. The driver manages
+clock, reset and interrupt resource.
 
 Signed-off-by: Ze Huang <huangze@whut.edu.cn>
 ---
- drivers/phy/Kconfig                |   1 +
- drivers/phy/Makefile               |   1 +
- drivers/phy/spacemit/Kconfig       |  12 ++++
- drivers/phy/spacemit/Makefile      |   2 +
- drivers/phy/spacemit/phy-k1-usb2.c | 132 +++++++++++++++++++++++++++++++++++++
- 5 files changed, 148 insertions(+)
+ drivers/usb/dwc3/Kconfig         |   7 +++
+ drivers/usb/dwc3/Makefile        |   1 +
+ drivers/usb/dwc3/dwc3-spacemit.c | 127 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 135 insertions(+)
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 8d58efe998ec5fd50054eed2c90d6ecce6bd5dd8..fca589aa7926eb5bce14e99785cf32cf0395202e 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -114,6 +114,7 @@ source "drivers/phy/renesas/Kconfig"
- source "drivers/phy/rockchip/Kconfig"
- source "drivers/phy/samsung/Kconfig"
- source "drivers/phy/socionext/Kconfig"
-+source "drivers/phy/spacemit/Kconfig"
- source "drivers/phy/st/Kconfig"
- source "drivers/phy/starfive/Kconfig"
- source "drivers/phy/sunplus/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index e281442acc752820fe0bd638dfe38986a37c2a78..05993ff8a15daf7e2583b5f9b9b37ac584a30609 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -34,6 +34,7 @@ obj-y					+= allwinner/	\
- 					   rockchip/	\
- 					   samsung/	\
- 					   socionext/	\
-+					   spacemit/	\
- 					   st/		\
- 					   starfive/	\
- 					   sunplus/	\
-diff --git a/drivers/phy/spacemit/Kconfig b/drivers/phy/spacemit/Kconfig
-new file mode 100644
-index 0000000000000000000000000000000000000000..f0c2a33f53cc810e71c6140ae957aa68a2b6ff0c
---- /dev/null
-+++ b/drivers/phy/spacemit/Kconfig
-@@ -0,0 +1,12 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Phy drivers for SpacemiT platforms
-+#
-+config PHY_SPACEMIT_K1_USB2
-+	tristate "SpacemiT K1 USB 2.0 PHY support"
-+	depends on USB || USB_GADGET
-+	depends on ARCH_SPACEMIT || COMPILE_TEST
-+	select USB_PHY
+diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
+index 310d182e10b50b253d7e5a51674806e6ec442a2a..3c30680fa4f83565fc03c6800e867c6ced0fe101 100644
+--- a/drivers/usb/dwc3/Kconfig
++++ b/drivers/usb/dwc3/Kconfig
+@@ -189,4 +189,11 @@ config USB_DWC3_RTK
+ 	  or dual-role mode.
+ 	  Say 'Y' or 'M' if you have such device.
+ 
++config USB_DWC3_SPACEMIT
++	tristate "Spacemit Platforms"
++	default USB_DWC3
 +	help
-+	  Enable this to support K1 USB 2.0 PHY driver. This driver takes care of
-+	  enabling and clock setup and will be used by K1 udc/ehci/otg driver.
-diff --git a/drivers/phy/spacemit/Makefile b/drivers/phy/spacemit/Makefile
++	  Support SPACEMIT platforms with DesignWare Core USB3 IP.
++	  Say 'Y' or 'M' here if you have one such device
++
+ endif
+diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
+index 124eda2522d9c1f4caab222ec9770d0deaf655fc..61a87765c0c591e0a53c33b5a6544db056166f96 100644
+--- a/drivers/usb/dwc3/Makefile
++++ b/drivers/usb/dwc3/Makefile
+@@ -56,3 +56,4 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
+ obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
+ obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
+ obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
++obj-$(CONFIG_USB_DWC3_SPACEMIT)		+= dwc3-spacemit.o
+diff --git a/drivers/usb/dwc3/dwc3-spacemit.c b/drivers/usb/dwc3/dwc3-spacemit.c
 new file mode 100644
-index 0000000000000000000000000000000000000000..fec0b425a948541b39b814caef0b05e1e002d92f
+index 0000000000000000000000000000000000000000..4574ad3b34a200ffe999c7da61b74c2ef33c0483
 --- /dev/null
-+++ b/drivers/phy/spacemit/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+obj-$(CONFIG_PHY_SPACEMIT_K1_USB2)		+= phy-k1-usb2.o
-diff --git a/drivers/phy/spacemit/phy-k1-usb2.c b/drivers/phy/spacemit/phy-k1-usb2.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..acbf6a0ebad0ee6b53cc7fd89bad4780c7b7cab5
---- /dev/null
-+++ b/drivers/phy/spacemit/phy-k1-usb2.c
-@@ -0,0 +1,132 @@
++++ b/drivers/usb/dwc3/dwc3-spacemit.c
+@@ -0,0 +1,127 @@
 +// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * SpacemiT K1 USB 2.0 PHY driver
++ * dwc3-spacemit.c - Spacemit DWC3 Specific Glue layer
 + *
 + * Copyright (C) 2025 SpacemiT (Hangzhou) Technology Co. Ltd
-+ * Copyright (C) 2025 Ze Huang <huangze@whut.edu.cn>
++ *
++ * Author: Wilson <long.wan@spacemit.com>
++ * Contributor: Ze Huang <huangze@whut.edu.cn>
 + */
 +
 +#include <linux/clk.h>
-+#include <linux/iopoll.h>
++#include <linux/delay.h>
++#include <linux/of_platform.h>
++#include <linux/of_address.h>
 +#include <linux/platform_device.h>
-+#include <linux/usb/of.h>
++#include <linux/reset.h>
 +
-+#define USB2_PHY_REG01			0x04
-+#define  USB2_PHY_REG01_VAL		0x60ef
-+#define  USB2_PHY_REG01_PLL_IS_READY	BIT(0)
-+#define USB2_PHY_REG04			0x10
-+#define  USB2_PHY_REG04_AUTO_CLEAR_DIS	BIT(2)
-+#define USB2_PHY_REG0D			0x34
-+#define  USB2_PHY_REG0D_VAL		0x1c
-+#define USB2_PHY_REG26			0x98
-+#define  USB2_PHY_REG26_VAL		0xbec4
-+
-+#define USB2D_CTRL_RESET_TIME_MS	50
-+
-+struct spacemit_usb2phy {
-+	struct phy	*phy;
-+	struct clk	*clk;
-+	void __iomem	*base;
++struct dwc3_spacemit {
++	struct device		*dev;
++	struct clk		*clk;
++	struct reset_control	*reset;
 +};
 +
-+static int spacemit_usb2phy_init(struct phy *phy)
++static int dwc3_spacemit_init(struct dwc3_spacemit *data)
 +{
-+	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
-+	void __iomem *base = sphy->base;
-+	u32 val;
++	struct device *dev = data->dev;
++	int ret = 0;
++
++	data->reset = devm_reset_control_get(dev, NULL);
++	if (IS_ERR(data->reset))
++		return dev_err_probe(dev, PTR_ERR(data->reset), "failed to get reset\n");
++
++	ret = reset_control_assert(data->reset);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to assert reset\n");
++
++	usleep_range(10, 20);
++
++	ret = reset_control_deassert(data->reset);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to deassert reset\n");
++
++	return 0;
++}
++
++static int dwc3_spacemit_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *node = dev->of_node;
++	struct dwc3_spacemit *spacemit;
 +	int ret;
 +
-+	ret = clk_prepare_enable(sphy->clk);
-+	if (ret) {
-+		dev_err(&phy->dev, "failed to enable clock\n");
-+		return ret;
-+	}
-+
-+	/*
-+	 * make sure the usb controller is not under reset process before
-+	 * any configuration
-+	 */
-+	usleep_range(150, 200);
-+	writel(USB2_PHY_REG26_VAL, base + USB2_PHY_REG26); /* 24M ref clk */
-+
-+	ret = read_poll_timeout(readl, val, (val & USB2_PHY_REG01_PLL_IS_READY),
-+				500, USB2D_CTRL_RESET_TIME_MS * 1000, true,
-+				base + USB2_PHY_REG01);
-+	if (ret) {
-+		dev_err(&phy->dev, "wait PHY_REG01[PLLREADY] timeout\n");
-+		return ret;
-+	}
-+
-+	/* release usb2 phy internal reset and enable clock gating */
-+	writel(USB2_PHY_REG01_VAL, base + USB2_PHY_REG01);
-+	writel(USB2_PHY_REG0D_VAL, base + USB2_PHY_REG0D);
-+
-+	/* auto clear host disc */
-+	val = readl(base + USB2_PHY_REG04);
-+	val |= USB2_PHY_REG04_AUTO_CLEAR_DIS;
-+	writel(val, base + USB2_PHY_REG04);
-+
-+	return 0;
-+}
-+
-+static int spacemit_usb2phy_exit(struct phy *phy)
-+{
-+	struct spacemit_usb2phy *sphy = phy_get_drvdata(phy);
-+
-+	clk_disable_unprepare(sphy->clk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops spacemit_usb_phy_ops = {
-+	.init = spacemit_usb2phy_init,
-+	.exit = spacemit_usb2phy_exit,
-+	.owner = THIS_MODULE,
-+};
-+
-+static int spacemit_usb2phy_probe(struct platform_device *pdev)
-+{
-+	struct phy_provider *phy_provider;
-+	struct device *dev = &pdev->dev;
-+	struct spacemit_usb2phy *sphy;
-+
-+	sphy = devm_kzalloc(dev, sizeof(*sphy), GFP_KERNEL);
-+	if (!sphy)
++	spacemit = devm_kzalloc(dev, sizeof(*spacemit), GFP_KERNEL);
++	if (!spacemit)
 +		return -ENOMEM;
 +
-+	sphy->clk = devm_clk_get_prepared(&pdev->dev, NULL);
-+	if (IS_ERR(sphy->clk))
-+		return dev_err_probe(dev, PTR_ERR(sphy->clk), "Failed to get clock\n");
++	spacemit->dev = dev;
 +
-+	sphy->base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(sphy->base))
-+		return PTR_ERR(sphy->base);
++	platform_set_drvdata(pdev, spacemit);
 +
-+	sphy->phy = devm_phy_create(dev, NULL, &spacemit_usb_phy_ops);
-+	if (IS_ERR(sphy->phy))
-+		return dev_err_probe(dev, PTR_ERR(sphy->phy), "Failed to create phy\n");
++	spacemit->clk = devm_clk_get_enabled(dev, NULL);
++	if (IS_ERR(spacemit->clk))
++		return dev_err_probe(dev, PTR_ERR(spacemit->clk), "Failed to get clock\n");
 +
-+	phy_set_drvdata(sphy->phy, sphy);
-+	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
++	ret = dwc3_spacemit_init(spacemit);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to init SpacemiT USB3 glue\n");
 +
-+	return PTR_ERR_OR_ZERO(phy_provider);
++	ret = of_platform_populate(node, NULL, NULL, dev);
++	if (ret)
++		dev_err_probe(dev, ret, "failed to add dwc3 core\n");
++
++	return 0;
 +}
 +
-+static const struct of_device_id spacemit_usb2phy_dt_match[] = {
-+	{ .compatible = "spacemit,k1-usb2-phy", },
-+	{ /* sentinal */ }
-+};
-+MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
++static void dwc3_spacemit_remove(struct platform_device *pdev)
++{
++	of_platform_depopulate(&pdev->dev);
++}
 +
-+static struct platform_driver spacemit_usb2_phy_driver = {
-+	.probe	= spacemit_usb2phy_probe,
-+	.driver = {
-+		.name   = "spacemit-usb2-phy",
-+		.owner  = THIS_MODULE,
-+		.of_match_table = spacemit_usb2phy_dt_match,
++static const struct of_device_id spacemit_dwc3_match[] = {
++	{ .compatible = "spacemit,k1-dwc3", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, spacemit_dwc3_match);
++
++#ifdef CONFIG_PM_SLEEP
++static int dwc3_spacemit_suspend(struct device *dev)
++{
++	struct dwc3_spacemit *spacemit = dev_get_drvdata(dev);
++
++	clk_disable_unprepare(spacemit->clk);
++
++	return 0;
++}
++
++static int dwc3_spacemit_resume(struct device *dev)
++{
++	struct dwc3_spacemit *spacemit = dev_get_drvdata(dev);
++	int ret;
++
++	ret = clk_prepare_enable(spacemit->clk);
++
++	return ret;
++}
++
++static const struct dev_pm_ops dwc3_spacemit_dev_pm_ops = {
++	SET_SYSTEM_SLEEP_PM_OPS(dwc3_spacemit_suspend, dwc3_spacemit_resume)
++};
++#endif /* CONFIG_PM_SLEEP */
++
++static struct platform_driver dwc3_spacemit_driver = {
++	.probe		= dwc3_spacemit_probe,
++	.remove		= dwc3_spacemit_remove,
++	.driver		= {
++		.name	= "spacemit-dwc3",
++		.of_match_table = spacemit_dwc3_match,
++#ifdef CONFIG_PM_SLEEP
++		.pm	= &dwc3_spacemit_dev_pm_ops,
++#endif /* CONFIG_PM_SLEEP */
 +	},
 +};
-+module_platform_driver(spacemit_usb2_phy_driver);
++module_platform_driver(dwc3_spacemit_driver);
 +
-+MODULE_DESCRIPTION("Spacemit USB 2.0 PHY driver");
++MODULE_AUTHOR("Wilson <long.wan@spacemit.com>");
 +MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("DesignWare USB3 Spacemit Glue Layer");
 
 -- 
 2.49.0
