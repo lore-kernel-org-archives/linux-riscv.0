@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C422C3600C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 01:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01394C36002
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 01:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZyVMp72umUkLWWQQu8UWTpz5nlA82Xbzc1uqV3VhvBo=; b=nIQqyzSjpfWcQ9
-	QLGv0i+j5ABmkR+zpE5i5v1lTTfCjtfrnRFfog6YfokqgI3nc0aIQ/kp8uQ+nHdMyU2i+m2FOqYEM
-	9Pn0HhWS29Eui1jvUOi8sx0outeKFi8uncAPVyX0VJ1bzd/wWLax8Il0+vlAYj6xyjVWVYO+xVyrX
-	+lF5grQtnzEvC6lFb70cjubWlDI1jzhrm82j9Lx+DqT9ssKudRFjIS7fuU5vdDRW3ycnXEq5qh6KB
-	cg7DYLaPAwlPw89XgV1SehcTAotrqKZzQlzRB3Lz0LvH6NeSe1dktECQf28UP/mMGUttzn+9Ky2nI
-	K2QHhDhINoV6GvvEunJQ==;
+	List-Owner; bh=IZfLE6B88uvYYpxzD3D1ngpgJaZu7VSNc+CJFyMUI/k=; b=dgfHtjQ/G7L7Vw
+	Z1aKG5MOHXvWSPJFDaSqCSOrRp8Ky9l8hT9PjzWBKvP7ASCeRLwPtJbCIsksYTpy+fHonoCG/ioPV
+	cpi7neeIzQDr7xQmzaScnRlHKRumO28cKbjDExB6zAVC+bihNx2HlufDFruU3kUxA+54ZsHKk+J87
+	MkXCHrOQViclqsHdJDy6Mrc1E5EeNndqX2ESCQnKJuZcKsYKSs8U4a965/GGI3PwFKc+dZmrBWqfk
+	woOv9v+3rdOfLG+bOYjL8498tSxA09LgPJ0vIR+24VkAJF2k4Xrki0+mcnwucwYb6WoaPok1o4+wX
+	voeflLFOQcfPe00x7yXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1axI-0000000G5Lt-0el5;
-	Mon, 07 Apr 2025 01:07:16 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1u1axK-0000000G5NS-3bJz;
+	Mon, 07 Apr 2025 01:07:18 +0000
+Received: from mail-qv1-xf30.google.com ([2607:f8b0:4864:20::f30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1axF-0000000G5Kk-0Tml
+	id 1u1axI-0000000G5Ls-3K8O
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 01:07:14 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4768f90bf36so35038441cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Apr 2025 18:07:12 -0700 (PDT)
+	Mon, 07 Apr 2025 01:07:17 +0000
+Received: by mail-qv1-xf30.google.com with SMTP id 6a1803df08f44-6ecfa716ec1so39430936d6.2
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Apr 2025 18:07:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743988032; x=1744592832; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743988035; x=1744592835; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=PxGj95L/w2Qzs2Ze4BgVcXHP5P/GdsW8Q50TIa9jmhs=;
-        b=E/Wy9sxLDDi4Pd1gRStt6Q0drP/ZnLhK556JnPLkvy8JuQUwoMvqBqdhEXqcQIoQp6
-         rkiGAWKec3rzjTqqNCkQE8sDAUI5Qfkp2JeXv5OS4io5+4RqweAreZgeEiMn7kQ08wUU
-         ZvFvIC6VOk/9hrKeAsHxYXOZyMfZnyAchyH/kQozCGUjicGmoAi1s9klAkBZwoqjwdm4
-         VNoq76INMWourYlePjtkaVCkOZiUpypWjkJHoQxgEMluUcRW6bl7UVWVV5XjxV4ldyQw
-         4ijg1bFb1CWfv9kR5O2LwXX2JZ78Grw51AOrUfcKfmf+kJ0C5AcIg9Grp7YC/yD8KQ8g
-         HPHQ==
+        bh=igVn5a9lnYZiv748Bf1nucU57+aqB/uXYfi3TAKJX8Y=;
+        b=RNg2cqy9UB/HrHdegjM+lb1P6woJuec4TYclQWW9TqrB8g3XAn/9Ym7GSsSovj6tyM
+         PvCVveXPExT/BtUQU7T8ZHXh+tbcy/+0h0xxwjovASjwZf7lVKtLAt/XfOQYfxSj+Oea
+         06bvB778yR7OR8FAwBKyaIa4VJQE3sLeU84GQhy4k76MZynl/KPi5T/RrKeIFtpNzTCl
+         99Hrn0Nw9ilY2lpFWTYKb5hgLlQvx5PEStgm2OuyMQjKKpNZ8okhjljUELJeAqJEzqft
+         rboRTkTH4En7BJvvexRIDfRAhaABGfyP5/ZwBDRnU7dYimOHKY01OvAimvPn4L7e4y/O
+         yPxw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743988032; x=1744592832;
+        d=1e100.net; s=20230601; t=1743988035; x=1744592835;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=PxGj95L/w2Qzs2Ze4BgVcXHP5P/GdsW8Q50TIa9jmhs=;
-        b=QkOvNH+/taK/X2u4WeZx7r5porjTKmL+88jYoCs3GwOk4bBTKaosQjIzLSTSs9ON3y
-         0pgLNPGd1vNB9K+EIrTXyzM6bI+vKTzeG3KEX4hhKRlbv+HUAJrLEhsu0Q2f/adbqY6k
-         K4fHLsv1nmHpF0u9sglofo22rw+ygcf+tk7/zFXCGMM1AxjtncjuD63AXSDCdAFF6jew
-         /gIlR12P79QejjsGper8dEtcBkYg7FG01OLE1+niYjd0M+CXhMShBl7sWEaPOUYRPUjF
-         sFwVsaQjCjlmcwisOLXyXSkc/NgmZMBgN1/w1SvC+2Rne9W44vJEI6Y9gPZpU0kLRpZI
-         wpjQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXzMMlQKaqXwU/zdtWjH2INJfunKmzRgjZuUp3TShfRhVQFzienuOSQ6HUpaSRLoYJY61uVYcfi5WNnBw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwCdDcJydezdXqaS0dia6R7pk+kS7prsQXhYQ/2IqHK7ROVC4R8
-	5VUGfDuw5gSevqgT4UIDVoWpoUM9cM4kL3EGfojbMUNuOaTvf6Db
-X-Gm-Gg: ASbGnctdq0hYiNoVP4N5jFSRahI/z7U3X8DSO1FTwF/CXUEUM9SawW0rAGPeLV02mhE
-	W1sZyfrn3mDngjSz9B5WC3MLaL82PHgpFriAAKghuL1KCG+fbfx6besVFKHlP8/h4Sc+k95f0gP
-	Jq/iGAmiZAXgmzfkC6JNo+OxH9rkfJKgZyt8hRSHgy27iZOboyXJnyoHybKuMHrSksB/U9g0Tzc
-	V3uiepIKjxE/bWEjZmLF7YN/VxeIQ65EWDYUSiIF8O8e/N+om1P3kZ+8+vl2AEfOApZRxXqX/uZ
-	7EJGUfjRiEXhcn4UFKoc
-X-Google-Smtp-Source: AGHT+IHCyM7ZtX7jFmV5IRhKbjQ2Jxv7Idw4a15oEj0OBoQ/eDrGzMbPNQ9/4L42Cket5FjlilXjmg==
-X-Received: by 2002:ac8:5aca:0:b0:476:6625:eed4 with SMTP id d75a77b69052e-479249abda4mr164123331cf.38.1743988031833;
-        Sun, 06 Apr 2025 18:07:11 -0700 (PDT)
+        bh=igVn5a9lnYZiv748Bf1nucU57+aqB/uXYfi3TAKJX8Y=;
+        b=apw+VqITyBpmoKPcTEa1zBy7g3AJ/ulZkcQyCZ7AJOLOEHkeK2A31i8cqFy3zCjbh0
+         U6Zm2nLXGrIrMsWHieRjp1YXxJre99R1FuISMQuwr6NMBsR/xL/X+iAOlE+0xdRqgcg0
+         NbC5dig08qbpPgtGZWHPXqh7eEfPMFrH+M6l5sp5Ouk2U2LT9AbSeVWbjWtn0EDa6EWi
+         ngj9t8hfge6kcXU6baCQhMwvbrY/0lzl2il833/w1FR9cz9NGhIpCEC0mR4a0LngFHTa
+         KTqxFqcwcGC9t6RTDEKYm7BEJRj+F7ZqPLfopiJAbQONzAFBa0R7x4spoQGAbN+QZ5Fg
+         VfUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWF/6VbL1ECT94vnTxE1D0wx5ghS+J2GQwcC44J/xQZZD2v6zRkcsQKip4N2KrtxGn/7UrwSCsbMhrO8Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzkw7rI9Y3kMwAGhbd7HvXvYrV0Km/JPq/ZiZ380l08Y2k83GVt
+	2Jfz9/szi13+Rc5jcCh3Dqx+LnPWBPVD6TblNXLOE3B006leSvQ1
+X-Gm-Gg: ASbGncsU91qBV4L8nWHWGbqTUg1UF9+btUOybJ8msO3f1HNsDOT6hV0fSnb8LnRjWgV
+	Pl2oRFldYvy4zkSfnksfQKuwlW3eHcI5+ZDu9w6JRgqMHWzrEQGekOvMcY2C3+aqw6iCFmNKPtw
+	8BS9MU0KI9ZHn2AH2ludUOQBUq03YCdClfeagqfLhnwUDUzvj3UMcnPfdUI5S0WCuA39BGprh2L
+	kEYFgVbPUGBySKwaV0NvBLkD+MvfmBWmFCSwIP79qztG2GqyMVfSiFHaxH+d/PwkZK2Wg++6nI3
+	H5hcN5iKokPLssJvB63cYaW9zBtDfLg=
+X-Google-Smtp-Source: AGHT+IFNNT1TQk9hNsU8tcAP1XaXbTB54YiVS5jZhvg0FI/49XFrqaA3CzgEc9xU3GgDXEPKZXqRgw==
+X-Received: by 2002:a05:6214:2268:b0:6ea:d6e1:f3f8 with SMTP id 6a1803df08f44-6f01e7f5c1cmr141067116d6.45.1743988035598;
+        Sun, 06 Apr 2025 18:07:15 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-479364eaa28sm25496661cf.28.2025.04.06.18.07.10
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6ef0f010bfasm51815846d6.49.2025.04.06.18.07.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 18:07:11 -0700 (PDT)
+        Sun, 06 Apr 2025 18:07:14 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jean Delvare <jdelvare@suse.com>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -100,16 +100,17 @@ Cc: linux-hwmon@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 5/9] dt-bindings: hwmon: Add Sophgo SG2044 external hardware monitor support
-Date: Mon,  7 Apr 2025 09:06:10 +0800
-Message-ID: <20250407010616.749833-6-inochiama@gmail.com>
+Subject: [PATCH 6/9] dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo SG2044 support
+Date: Mon,  7 Apr 2025 09:06:11 +0800
+Message-ID: <20250407010616.749833-7-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407010616.749833-1-inochiama@gmail.com>
 References: <20250407010616.749833-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_180713_153537_E1D66FC2 
-X-CRM114-Status: GOOD (  10.55  )
+X-CRM114-CacheID: sfid-20250406_180716_847113_86E1904D 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,33 +127,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The MCU device on SG2044 exposes the same interface as SG2042, which is
-already supported by the kernel.
+The sdhci IP of SG2044 is similar to it of SG2042. They
+share the same clock and controller configuration.
 
-Add compatible string for monitor device of SG2044.
+Add compatible string for SG2044.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml  | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml        | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-index f0667ac41d75..b76805d39427 100644
---- a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-+++ b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-@@ -11,7 +11,11 @@ maintainers:
- 
- properties:
-   compatible:
--    const: sophgo,sg2042-hwmon-mcu
-+    oneOf:
+diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+index e6e604072d3c..47b5fc1b8e07 100644
+--- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
++++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+@@ -19,6 +19,9 @@ properties:
+               - rockchip,rk3562-dwcmshc
+               - rockchip,rk3576-dwcmshc
+           - const: rockchip,rk3588-dwcmshc
 +      - items:
-+          - const: sophgo,sg2044-hwmon-mcu
-+          - const: sophgo,sg2042-hwmon-mcu
-+      - const: sophgo,sg2042-hwmon-mcu
++          - const: sophgo,sg2044-dwcmshc
++          - const: sophgo,sg2042-dwcmshc
+       - enum:
+           - rockchip,rk3568-dwcmshc
+           - rockchip,rk3588-dwcmshc
+@@ -74,7 +77,9 @@ allOf:
+       properties:
+         compatible:
+           contains:
+-            const: sophgo,sg2042-dwcmshc
++            enum:
++              - sophgo,sg2042-dwcmshc
++              - sophgo,sg2044-dwcmshc
  
-   reg:
-     maxItems: 1
+     then:
+       properties:
 -- 
 2.49.0
 
