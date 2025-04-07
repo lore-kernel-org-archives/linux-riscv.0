@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A411CC36002
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 02:05:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5539FC3600C
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 02:10:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J9LbDvZJnDYO5CyxIxj0U1KS35fUavHyF9l7PqdjI2s=; b=JXrUugp5YSNmMe
-	6wT2qBevJaP0Mrv3fEMm+oAyPmroJe9rZvDq4XPdnOHCzSI0fFGRGBFrekCf5058r8YEn0s9wU3W9
-	2SBM8z1If2nk2Ax6JQjG6Z2zPZjaGrwxRNJyxkdi0ZMDKWFR/RdLCdVGhmM1SwS3iQHpvMZMOHUIK
-	P77XHAYe11L9XkPjjdSX0FNSc/xeNiYWjvnvgytsUEx6dT6Tv2j470WsgSGahndFse6RIjtNkY1D0
-	D281TobqOm9aAyVxe55wresjFEpoXlzeQPqwo++curvD8jmV6EOQweGSaPYjgceLxG+XMNdVpkeyQ
-	7lI31PG8OUsq8OlJuocg==;
+	List-Owner; bh=hC0p5SxF7XZFGh0Yzahvg2kGYurDRw/Qb7ht57hb6zY=; b=h1ISvt0p0QP7vq
+	fRuCp7bHRKI/vZ7Br3z6bjS9G8yAP+6cn9pwCCiaaP+UDKeyUEP5I6W6K9LjVC5O9pgaebR38/Inn
+	fMc0WZ/071BeueKyQwYyidposcx3eBri9v8t73mNg1Cd838q/G8HBpN2fpKojNYYoJVayiCTgeahy
+	/lUCWFa2kw6QFwkkQRutxqysvrytjJSihbAAqOgLqfKGZnz95JR6JNljUnDFcFFN+ei9BEFc/5a6N
+	abEhBGVdFp0OKiOPtPKA1RaCkIsOsAsPaI3S9IdP33xYxqSg/kHO2DCmuB3zz8B3Q/PVKE9u+0+PJ
+	0rJzOjDNT4ogOoN7wILg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1brg-0000000G9v3-3rlh;
-	Mon, 07 Apr 2025 02:05:32 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1u1bvu-0000000GAdZ-3V6p;
+	Mon, 07 Apr 2025 02:09:55 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1bre-0000000G9uN-1m2z
+	id 1u1bvs-0000000GAcz-1G8E
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 02:05:31 +0000
+	Mon, 07 Apr 2025 02:09:53 +0000
 Received: from localhost (unknown [116.232.27.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 87F92340CBB;
-	Mon, 07 Apr 2025 02:05:27 +0000 (UTC)
-Date: Mon, 7 Apr 2025 02:05:17 +0000
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 406253430A7;
+	Mon, 07 Apr 2025 02:09:50 +0000 (UTC)
+Date: Mon, 7 Apr 2025 02:09:45 +0000
 From: Yixun Lan <dlan@gentoo.org>
 To: Inochi Amaoto <inochiama@gmail.com>
 Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
@@ -59,17 +59,17 @@ Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
 	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
 	linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-mmc@vger.kernel.org, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 5/9] dt-bindings: hwmon: Add Sophgo SG2044 external
- hardware monitor support
-Message-ID: <20250407020517-GYA13159@gentoo>
+Subject: Re: [PATCH 9/9] riscv: dts: sophgo: Add initial device tree of
+ Sophgo SRD3-10
+Message-ID: <20250407020945-GYA13182@gentoo>
 References: <20250407010616.749833-1-inochiama@gmail.com>
- <20250407010616.749833-6-inochiama@gmail.com>
+ <20250407010616.749833-10-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250407010616.749833-6-inochiama@gmail.com>
+In-Reply-To: <20250407010616.749833-10-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_190530_493760_63B6E6AC 
-X-CRM114-Status: GOOD (  17.05  )
+X-CRM114-CacheID: sfid-20250406_190952_388403_48080543 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,49 +86,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi:
 
 On 09:06 Mon 07 Apr     , Inochi Amaoto wrote:
-> The MCU device on SG2044 exposes the same interface as SG2042, which is
-> already supported by the kernel.
+> Sophgo SG2044 SRD3-10 board bases on Sophgo SG2044 SoC.
+> This board includes 5 uart ports, 5 pcie x8 slots, 1 1G Ethernet port,
+> 1 microSD slot.
 > 
-> Add compatible string for monitor device of SG2044.
+> Add initial device tree of this board with uart support.
 > 
 > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 > ---
->  .../devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml  | 6 +++++-
->  1 file changed, 5 insertions(+), 1 deletion(-)
+>  arch/riscv/boot/dts/sophgo/Makefile           |    1 +
+>  arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi   | 3002 +++++++++++++++++
+>  arch/riscv/boot/dts/sophgo/sg2044-reset.h     |  128 +
+>  .../boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |   32 +
+>  arch/riscv/boot/dts/sophgo/sg2044.dtsi        |   86 +
+>  5 files changed, 3249 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-reset.h
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+>  create mode 100644 arch/riscv/boot/dts/sophgo/sg2044.dtsi
 > 
-> diff --git a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> index f0667ac41d75..b76805d39427 100644
-> --- a/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> +++ b/Documentation/devicetree/bindings/hwmon/sophgo,sg2042-hwmon-mcu.yaml
-> @@ -11,7 +11,11 @@ maintainers:
->  
->  properties:
->    compatible:
-> -    const: sophgo,sg2042-hwmon-mcu
-> +    oneOf:
-> +      - items:
-> +          - const: sophgo,sg2044-hwmon-mcu
-> +          - const: sophgo,sg2042-hwmon-mcu
-> +      - const: sophgo,sg2042-hwmon-mcu
-
-the compatible added here but not used in dts (or driver), e.g 9/9 patch
-I'd personally prefer to add it when actually being used
-(so it can be validated in the real use cases..)
-
-another concern is whether better to just use 'enum'? (maybe not)
-but I got your idea to fallback to compatible of sophgo,sg2042-hwmon-mcu..
-
-same with mmc, i2c..
-
->  
->    reg:
->      maxItems: 1
-> -- 
-> 2.49.0
-> 
+..
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2044-reset.h b/arch/riscv/boot/dts/sophgo/sg2044-reset.h
+> new file mode 100644
+> index 000000000000..94ed1e3777c3
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/sg2044-reset.h
+> @@ -0,0 +1,128 @@
+> +/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
+> +/*
+> + * Copyright (C) 2025 Inochi Amaoto <inochiama@outlook.com>
+you might want to use your gmail suffix? IIRC your outlook account
+isn't preferable? besides, it's better cosistent with your signed-off
 
 -- 
 Yixun Lan (dlan)
