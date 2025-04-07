@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20C5C3600C
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 01:07:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5D98C36002
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 01:07:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oRFh8nNAMC+W4sm5Ftei49WiGB12bNCRObA12qlOfl4=; b=aYbY+aF6Ho7fan
-	RV90M8De9eeA+xKfR4+6bTCRywyEfVWJ2NbfX2po1mHg4pvGMWCWKR2rMoOTiFngZerCtCd2vUq10
-	hUvycYd75FCaoZ6f0NC/zxUEUoU64QwJ4oAwPU25sYjX5hLTexo8cq3ZhM97LokfNbPXVaDV7dgsW
-	84jTA7+1qBZ2omB8fU4FoZbVXBEaNMaXa35Vsfxr5593zTq6WRjz7hLPORr5mB2cTfc2qOuezco7B
-	WQ4nn7+L0aBUkHWrJFiPoLjfVDeXnOo4WOeI12u8Ly/aT2cF9tPF1brwS4sKMQUyLFrGhTfQXeeVB
-	jjGBoET3/qQ5REEl+Tdg==;
+	List-Owner; bh=YSbYfB3B7NxNcRWhp5cdqEOWwx6JP/x1bvGilcuhhTw=; b=yn+NUXrsPsndpm
+	w0qTtzkaRFiE84e+qtD4+/smgT8FYa0+QI0MEE8HXYi4HrFolS4I3+sGKhbZPyiJmwBIIbLa6RZv+
+	rh91iFLRvdpviauynTpOSGY67FYSaskaNLx06UeHnTu1TELaNZ7bM6fZd7NfJIlIVmid0nuYDkGu/
+	BvU4BXXsG6tzPTLPM/RT91OfPP04awtGzxBrQCBjcW3ZIZIMcPrG2jjifOYxsNNRQSttzd0bkgQNj
+	19dzbPlqJqni/8ev6zGyHnRbC3ibsBGsm9OBglM/SIt38SNRQsTI3Pr9iT+xD55BU5+/N7VwUrkps
+	PESu2rIoQwiRiRQh8VgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ax3-0000000G5GJ-3RA7;
-	Mon, 07 Apr 2025 01:07:02 +0000
-Received: from mail-qt1-x82a.google.com ([2607:f8b0:4864:20::82a])
+	id 1u1ax9-0000000G5IA-2oZ4;
+	Mon, 07 Apr 2025 01:07:07 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1ax0-0000000G5FT-404z
+	id 1u1ax6-0000000G5Go-2yYB
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 01:07:00 +0000
-Received: by mail-qt1-x82a.google.com with SMTP id d75a77b69052e-4775ce8a4b0so72292631cf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 06 Apr 2025 18:06:58 -0700 (PDT)
+	Mon, 07 Apr 2025 01:07:05 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5b2472969so388522285a.1
+        for <linux-riscv@lists.infradead.org>; Sun, 06 Apr 2025 18:07:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1743988018; x=1744592818; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1743988021; x=1744592821; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zFs5RauZ5QOy8Ab3T4kUtd0LneBhBgJkwOZmpV0EdcU=;
-        b=DbuLfbkrKOjPS++J5gYaes0X3HSnzzcEZZ0PIhAvzxmQVHDXrCex9dEU0HvF3Sabse
-         g0ZeEnAairlFH+JLSSGXhKUbz5IBIe6dTGxmHYw36VSZzcittnER190ShzS+qotr1n/U
-         yUhU998s+SMFBUzI7K8dQX3gyKj9CtpB6Q4BCZ2ybT/vmO6TWmQZibZzpDsiEY8doEZj
-         w65WAF3UWl1do8CnJUM7a5xHVRJewEERVZMIu7Igcl72c1CZIg4OjRSsa/cnOAQe3SFz
-         /LnDOROKmCs9+XDTAldCCzY/oieNAIvJGVWWd4/V3yBIrkvDAx7ailh/n98A3uK03kCV
-         HswQ==
+        bh=siqPQU+FyAku8vhhn3ZUC1oR8uSZvTqCHGJlE8+8NrQ=;
+        b=HZRJ/HrOqCEHsFLWqZet8wA7PImN6GFAAxRDfhIxF9qtiQz67nEbXSdnY+fZgwv+Fi
+         9S9W8XQ8QS+58sjNSSdWOSagl/kb+k8tWYuOgBV81B0zwGupnuoKM4KFN3PvJDm08ckm
+         Pd0xfOUwsaD/3t7gdD04HRV1kKIqwK2hKSvHwx8dshMfsMmclqlg6tMEnsAn2972nofK
+         q6CjRWda0Y0RLs+V8P1Jk6FHXpeJL6rXcdiz8HwsQzfMWyRAqXS5gPumP7ucUOxHEXHN
+         xAc8E1h6OGmsmhPdVpzd25KxFhGmsTScv3a5pX6DwiDxECCDKx2fl6b80rV3H1pXkFyP
+         drcQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1743988018; x=1744592818;
+        d=1e100.net; s=20230601; t=1743988021; x=1744592821;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zFs5RauZ5QOy8Ab3T4kUtd0LneBhBgJkwOZmpV0EdcU=;
-        b=bdv0z3884WKiBKwab/Fi62gfOCIP+upMO9C/NAVi47zZuyeo3Gd7Dlz1At3kPOejNp
-         NxYWFL7NXrET2XB1d2HJTUVbDqnBeDhN81MESAac/8grKfTVTOa/hfjTqNQqDoVi/uiS
-         ztO41Vvnwn0UW6vKN/aTwsHwq4ia+4K5syPExVWjuUxSkMvI79oRyRdjY4+C7NbedoL4
-         TE0XHjlQeOTsiAJL48B9I7/c9qVhmmGSZTXqlFNiFzhcgF7yutghqj5dvnaRdHHwkDeQ
-         c8GzR7u61PFD/Q3zRSQXmGWUEHUVP5IAJgP62ZVZD51lctoLw/6A6uu/16SvuxxDdejU
-         F+fA==
-X-Forwarded-Encrypted: i=1; AJvYcCV2+rYdKtBdPEA/mIhlflwBXJSjPp1SByxG65kjxqpB/Slo80eUOnLb0GIszxn7nFAnFpDYOsvQJq1wjw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwTYwzEYCpT9IGxEEcEvH9mrc9nv89AYKguiDUtpzTVJRe5l/yt
-	djhBt+mFT7o4dEPgdwBvfaO83sTWatPD9zS/0zR2/0RsHkUvyqar
-X-Gm-Gg: ASbGnctzIQr7UHkxmPXV/snj4GlhMCwGcd61DQAqWpD9rJw7XtLdAn2OYBNLBoM05j4
-	Da0I0k2Snus0/gFHHkwaVYXYpcILfdifvOG65x1iJSmMZsRoILYvHfbhxcWnSS4uSDcPGQc6xW2
-	qtisOpkEdrCUc930uZW7z6LI58a5SxL+6vrDjcM9kDfJHzu7KOXjVeAwpQBoj/+xSpv7ZFB06xk
-	xEY0UvqYVdUXzx4XkJLjabcGljU3QAVoa31q2XbE5xFvsQsRYyTk6XUYNNJrkJZsqHfH+LnvEsq
-	+dV1ykbfuSApl0nyrSLI
-X-Google-Smtp-Source: AGHT+IGThLD0f1Wc+dVeoU1jl4PtajVlgXRPCMJv4ypnlzRq3f4lx9CHT6fpIIMYrngbXMnRUpODkA==
-X-Received: by 2002:a05:622a:48f:b0:476:add4:d2c0 with SMTP id d75a77b69052e-479249a7edcmr176008051cf.35.1743988017797;
-        Sun, 06 Apr 2025 18:06:57 -0700 (PDT)
+        bh=siqPQU+FyAku8vhhn3ZUC1oR8uSZvTqCHGJlE8+8NrQ=;
+        b=fmBdF4VOvo3ByxoFuNW1xYeabeY6GBjaniT1oQ0NOQNwvaxImhiKerNqua5uIYn6RX
+         UExgvvKtem/GlvFJs1BhFbSsLiH79/4lEPCMSQsVTYS52s3oh0i+XU9Z/zy3o5JgVBk5
+         75l3Ss9Rnr2WTVrUfwdj3tybyIL/MUdEVZzmmg88XVC4wXPMdANMrvQ2Yug9qZtZ8Umi
+         OQPdqI/pBao7HCtMtwdeVt9i3q266Vo/ESUT1ME5MfGYKCN6fVNdN2EqgGqKcqFwKMFP
+         /bwBOcJxzQIs6K3NUP6pHgOtt2lWw+e0zRH+SgxisABbSACAZVcNNbp9w7qDrjcFzgPh
+         reVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWccUKtnnepX+aIm7rKiAYTFv0am5SaRO1ebsXc9S1TfYflafPSvizF48mxMgcVJmJKLlH1h2wOSMGz9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIG/5NYRiHMHhC4gVOJiwooL2OCgglksxe79Y7QnmlQbbrM57t
+	N4pbyrQdc5GRPPbEKBQXdFE5nManrUYDw09JjP9VzA7B1TXs+uw9
+X-Gm-Gg: ASbGncuJ9GkBagYqEn87zzbfaF6c4xEhoa309jogAt4GLRF++8bSzZq6lk9mlWSorE6
+	nipxe6cnZOp6WUgNAor9jh6VJzpiWpyh64vNRIMQH1PGM2yRAsj2hshn31t4ZHJmYtajxeTPdza
+	s+hBmdtocIyTxiRRCXlsKy14anUjQFvIy9BhmYt3NgxRtj9e9JO8LZAoNWrh+pN0Lp7ftDzhAns
+	H0DIiNL216WS9hd9JRuEhzAusu4qAIJJIib3xgfLst51r57LEebtFvBGe56zlmNs5vLBFVis8Sq
+	FYyB9gMazYcT1R2QmUg5
+X-Google-Smtp-Source: AGHT+IHOF406ZAY4FtFhD2l8xlyDvh5PHaA+xtI7orTdCQHDTm8ZGVImUr8k5ecrmbJiiqwwrdv5HQ==
+X-Received: by 2002:a05:620a:280a:b0:7c5:a5cc:bcb9 with SMTP id af79cd13be357-7c77dddd878mr1080915485a.56.1743988021428;
+        Sun, 06 Apr 2025 18:07:01 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4791b1266aesm53295311cf.64.2025.04.06.18.06.56
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c76e96cf01sm528160285a.55.2025.04.06.18.07.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 06 Apr 2025 18:06:56 -0700 (PDT)
+        Sun, 06 Apr 2025 18:07:01 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jean Delvare <jdelvare@suse.com>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -100,16 +100,16 @@ Cc: linux-hwmon@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 1/9] dt-bindings: timer: Add Sophgo SG2044 ACLINT timer
-Date: Mon,  7 Apr 2025 09:06:06 +0800
-Message-ID: <20250407010616.749833-2-inochiama@gmail.com>
+Subject: [PATCH 2/9] dt-bindings: interrupt-controller: Add Sophgo SG2044 CLINT mswi
+Date: Mon,  7 Apr 2025 09:06:07 +0800
+Message-ID: <20250407010616.749833-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250407010616.749833-1-inochiama@gmail.com>
 References: <20250407010616.749833-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250406_180659_019211_AD05EEDE 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20250406_180704_781935_2F8ACEE0 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -127,24 +127,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like SG2042, SG2044 implements an enhanced ACLINT, so add necessary
+As SG2044 also implements an enhanced ACLINT as SG204, add necessary
 compatible string for SG2044 SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 ---
- .../devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml      | 1 +
+ .../bindings/interrupt-controller/thead,c900-aclint-mswi.yaml    | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-index 2e92bcdeb423..4ed30efe4052 100644
---- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-+++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+index 065f2544b63b..d6fb08a54167 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
 @@ -14,6 +14,7 @@ properties:
      items:
        - enum:
-           - sophgo,sg2042-aclint-mtimer
-+          - sophgo,sg2044-aclint-mtimer
-       - const: thead,c900-aclint-mtimer
+           - sophgo,sg2042-aclint-mswi
++          - sophgo,sg2044-aclint-mswi
+       - const: thead,c900-aclint-mswi
  
    reg:
 -- 
