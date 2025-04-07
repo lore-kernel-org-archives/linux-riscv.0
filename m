@@ -4,116 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F51C36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 08:03:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C10AC36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 08:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6I//uwiJzbJDZayff88izfrrlhSmuRPSBO39HCc8vvY=; b=C+nuyXt2aDBO46
-	gsMUF/+fZK1N5OR3v9+phfaE83QNolKPmCyWgwnyOdQuoteyJtnDo/QYz9Jt+79Gh8PgE1AykiTmx
-	0/GR3sgzQpxVXjT/SN+x6GwY+qdBr2uaF4ioZlnGf0cWbV/b7yZVB0wqJPPj0K93W/ULMhETCDM3d
-	tAN1vsGwrtZkEvFjamp1bLLfZ17ezi+gkrbyTln4e4P7CdWCHEevyaV8pzd9myFMQFGzX9jPzBYYd
-	MEVY2tpfxQkG/k32A4jJo1kBeUcUvqhLOYrKQTLNgn+MRkvwqBucYbEv2bSxfrDoJCcX9lhTwdTzj
-	dGqxXDP2J+LPkBqRsAlQ==;
+	List-Owner; bh=ZpED+5OogGXssZqR+Mcy3Z+ibwq/IYcy9PEd4bRovBc=; b=twHz9lU6EgML7t
+	tYA7JIN+oxz9L6uRfR+8/z5Bp1GftClM6+vj/TU8JJHNwC/qxbbTz9n2XDopLi0WUiTsPGTPiDnA7
+	Hn37pZ4wAZLW97OH+8x3097C16dHHHz5Mvv59/HQpTkjYnpmKydGa7xPAizHMRAycyUWO0P+xImWw
+	P5J40sldShtue4VKSttubIBvoNKLHxrkilFxyEA/p2EPDaMuKKT0ufT8mzMWjoQcYxay1v1vcAYUM
+	/U6ESGSLafH9ze3Qaw4FPQcpyjtsP94zEPbhZS/LjdpKoCZQRKGy6vT5IeSclIuzwTHN7u4t13uMJ
+	FkGlngRC19W6YDPjCnAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hS6-0000000Gv6B-1ZXH;
-	Mon, 07 Apr 2025 08:03:30 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1u1hcT-0000000Gwwa-1TtF;
+	Mon, 07 Apr 2025 08:14:13 +0000
+Received: from mail-vk1-f175.google.com ([209.85.221.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hJ3-0000000Gse6-4Bux
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 07:54:11 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3913b539aabso2258882f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 00:54:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744012448; x=1744617248; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hWxLTEfGg4dc1Gy9lnOUuyFlka68Uiuevn5CcOM/QrM=;
-        b=15591xss0W4vPp9rWXJlwb549YiO44XRnNjULcFpNXrV0M0L3nEQ/SDBfAqCw+ksjr
-         u2oCl19amU3bFNu+YmK/zNW7CI6GiiA4AindoUtqEDCU56uH4fq+/uskiqyFKSCpbsu5
-         AjsWPx2N5vJ3pvPLhDMSBB/RFUymnRbuOeifTYiaAkGAVTaddONZhmW1Ifb6tcEHQY6J
-         BknXnLUodcQc6fR+33lOdNSFmB8GlIdZk4MJZrl7Ffa0xTOZO5w8Ii1hLtPIXCeKJqLM
-         dZSwpBCERBK6bFJbFGNeuxEngEMVdHP8H8e8qOEybUVGanGe2qATAaCsko7Po+UNrI2r
-         hDvw==
+	id 1u1hUp-0000000Gvf5-3PeY;
+	Mon, 07 Apr 2025 08:06:21 +0000
+Received: by mail-vk1-f175.google.com with SMTP id 71dfb90a1353d-523de5611a3so1808877e0c.1;
+        Mon, 07 Apr 2025 01:06:18 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744012448; x=1744617248;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hWxLTEfGg4dc1Gy9lnOUuyFlka68Uiuevn5CcOM/QrM=;
-        b=ZmggktcHm+Bix7yKZM4J0H3jsQXRCb4MnHCIv2CWdC6DRz00NAarzVIHYohxK3VTfw
-         0y04VABSbL5GwyZZvroUzWK1QHhmI6Jvn656nAj6XeTaV4z3J5n38SZRaDiyI9AgENTs
-         lmT49R3+11jAg6vdPom1TJRJEELZP0Ear4ebuSZNHAZm8KZY4TWmXFTueGPBlSkY79li
-         bkK5bdM5rV/GdsESukTu6ZBAWJDOReaKZ/W7yu15DgcE2BCARwehkRg8I51gCSWasdkp
-         vZ8W2HCe7EYIolMscVcDwk2crNXE1EMAK3/b0Wtzlycp1NTwlv7ql1mqY1WoyU0pgRJ/
-         FVVw==
-X-Forwarded-Encrypted: i=1; AJvYcCX9NruTd4l3f4FTQKknLGXATGGwzv4NqSN5vZs+nSSccRrq9cdyJrTElMZAq/sW6z8TZ1SbWTJm3GR2TQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMuWpWW8v01/gEyAjai1gVAPOxMwuYPHihCOmAz3y83giGWWT4
-	hmjAu9DXAGZgOVW40xTJjP/GK42FkJbQZYkypD5k+DTALf/YVtRYZvaoTR93YUE=
-X-Gm-Gg: ASbGncv94GCrCMyGaq81N32Ab0+JzbFpwZ2cgQJMDI2dQK0dlhvQemswyIyTxKWLDIB
-	dVgCAat2DZdmVRE3QXGEqvZB4p7tz4i4XENoMDS02mzzmvaU2rAq3MjOlmQr/izuynnHueeuwtE
-	0SNa7XLNGwJxf4XkXKk4+Gz3IZb3IPSUrPwNBv79yE8vjp5oIXIDD5E+NuPErWlIOOoJcJXu6DS
-	06qyXpmMVapy3FsQNZrmDYqZbfuEUZOubzp7MnwK2Qd9ElPI9xMvfirLlhGxBmoQ0PVaeoERJT3
-	7FXyMtvgxXfCNmdmarhyQ7OKeonT9G7BG19uP5W0XzJv
-X-Google-Smtp-Source: AGHT+IHuTVRTtHbtmx6FjkvlzIbJVnydF8KMECgaQSarUJ94LjdvsgdrKIpoRqGzKFTua17ynl8uDg==
-X-Received: by 2002:a5d:5983:0:b0:399:6dc0:f15b with SMTP id ffacd0b85a97d-39cba93cd69mr8684049f8f.48.1744012448217;
-        Mon, 07 Apr 2025 00:54:08 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:8c64:734d:705a:39a7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c301a9bcfsm11494514f8f.33.2025.04.07.00.54.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 00:54:07 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Nobuhiro Iwamatsu <nobuhiro1.iwamatsu@toshiba.co.jp>,
-	Shubhrajyoti Datta <shubhrajyoti.datta@amd.com>,
-	Srinivas Neeli <srinivas.neeli@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Manikandan Muralidharan <manikandan.m@microchip.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
-	Sander Vanheule <sander@svanheule.net>,
-	Bert Vermeulen <bert@biot.com>,
-	linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-renesas-soc@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH] dt-bindings: gpio: Correct indentation and style in DTS example
-Date: Mon,  7 Apr 2025 09:54:05 +0200
-Message-ID: <174401244312.28249.6012698269615129555.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
-References: <20250324125326.82270-1-krzysztof.kozlowski@linaro.org>
+        d=1e100.net; s=20230601; t=1744013177; x=1744617977;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=em0yD0kIpDtyZFKdGXKgNdHuMfrDjAXLZIWfYU3VNv0=;
+        b=slp7KPyMfSOPGg93zcSuTtaL3cyTFaEiilNp93X9wn9xSxFojx0ybw3AZ8bUqQVFqV
+         lX54eOhNgwRyl5ly5htUVRgPTGcJ18l9ZRjMk15K28ZItoIXWxZYCyCt7lymMHxRzaOo
+         EblDXnukOBAuoEpnhXuCXoWYSczLV0F45ZbauHUq7cDPArY9xouwUT39TWcVZeRxmHBJ
+         KGVocCDIy2KzWmBRA5WGVdjvFC6rXHtAb1USx+TdkTyccExZiiEapBFHWpRZyE/rBOgx
+         ZsvnXoZvACLjFca3feDMIq7NQd0u/BjZLON5Nl8TrA1SShLlk1nhikeGQDfbj/kOONpq
+         jwSg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4AJRa4x4WREWCEKpLRWiqu8LLILLxWP6T2Im58j7D3tZjKQzWxIM+Lb7TLlTXuv6C4rQDmSz11tZqJkSi51s=@lists.infradead.org, AJvYcCW+jjbtCghQ47LJiW1Kw3lJGIj6iEtl2z/Se5AHRSfgN8EJ/+na50Wd66OYWnoNjkmWT0o56hXMFwDsbNv7cZvs@lists.infradead.org, AJvYcCWP/WEIC9vuDGfMtI/rVg5cDgCHixN8da26wHCkAEPQO6t46Cq0jm/gTDsjxvVIw9Z1ERj9YBd+JhaCgkg=@lists.infradead.org, AJvYcCX404Kq9BwND+HMyfQF9lqjxeVc//j8n3Yrrj9uruNw7HQLNaZKFy5KmXmZBP7mGTVx49xYw0EO9OY=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3shT3pCUTAulHMx8H04qt6upVW65zdZgEOeTe41nfafyxmAI2
+	fKrDJmBx0rRqXa0rusvPJJUiApQNE1bTeRfGnpzsHvWf/ZxzBGi2z9zDl+tx
+X-Gm-Gg: ASbGncu3ZGZbtsIM1cAUbetc0EnfYj1FAY9e4iKxvLrVhHIFRHs9ZuMi2JmO7i0VOv6
+	JoXYH+14SdLg2jsoLxrXQt/4k+87lXwbWgqyYPdhytY7Hvu3Q5NRTSIotqxpLsehcJYuD15Zgv8
+	o5efg5gcrl0TwsmOB+3AODhKIZEFXMTzQvrGcdfga+oBgSlkln1mAIgYSk4IW/xl17AHsfCLNZ6
+	GW+kyON1SfGVK/XL9d7BVU90Va1Q8qRNdOgRch1toSx6X0TebfSNRvMbsNnEupAzv5xn0qFP4X8
+	EmbP1G+92BDfnBtTf0BwswPk44XJeKHChQjuElgDeJr3Uknp5580xOCbHbHWd2dvohEXN2f/HZb
+	/9tP3pmY=
+X-Google-Smtp-Source: AGHT+IHQ+MYl5RRJTujY4oYX2pqJBFucZEPAxztRZsOKcEJits9/HLTYm00mNvzDiTYFp+0w9ImMAQ==
+X-Received: by 2002:a05:6122:2217:b0:520:420a:a07a with SMTP id 71dfb90a1353d-5276455eeddmr7822992e0c.8.1744013176947;
+        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
+Received: from mail-ua1-f53.google.com (mail-ua1-f53.google.com. [209.85.222.53])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-52767d8f9f8sm1303026e0c.37.2025.04.07.01.06.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-86cce5dac90so1702787241.0;
+        Mon, 07 Apr 2025 01:06:16 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVIi6f9oSmZrdne1woPlGE0JyJaxaV6VcuFhDl5GhNL2taN0XR2LAq2YaOvxYbzIPa0Cd6OFeClCIPeZTuxZd4=@lists.infradead.org, AJvYcCWtbSGX0eKzXetFLunlb3uOx8vFxkB7wvpiRN/QcHn4Sj6Pt0dRXZKnGbL+1AhFh0PGLTq5GQU6w0D0uBU=@lists.infradead.org, AJvYcCX+Q+J8WPIUCEOvMKnjw2VbBzgygbxfWTSt3vYedSsyRIYNEcgISSpdhQSyZRKCowP9cB/1jRn/3tw=@lists.infradead.org, AJvYcCXKMlboZ0SfK3t2KaG3pO/Qml+MxpllDVRQko2XFl+u/Nz88kIIS6f1wOclgF23pxexAQGawpyLlqC6h/h3Ia25@lists.infradead.org
+X-Received: by 2002:a05:6102:1622:b0:4c3:221:8f47 with SMTP id
+ ada2fe7eead31-4c8553d0fafmr8533368137.13.1744013176401; Mon, 07 Apr 2025
+ 01:06:16 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250218175735.19882-1-linmag7@gmail.com> <20250218175735.19882-2-linmag7@gmail.com>
+ <4209b9816551367f8e5670cc5a08e139f0f2c215.camel@physik.fu-berlin.de>
+In-Reply-To: <4209b9816551367f8e5670cc5a08e139f0f2c215.camel@physik.fu-berlin.de>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 7 Apr 2025 10:06:03 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWLVw8aUY8aCowgOz+puxjrDqcbUXUAoVXGi8=FpTHwrA@mail.gmail.com>
+X-Gm-Features: ATxdqUEtUaFZruSQ19joR0gbmVyVokHgxasQdxoPHK2-UPmtdbKL5noyYxpgMcc
+Message-ID: <CAMuHMdWLVw8aUY8aCowgOz+puxjrDqcbUXUAoVXGi8=FpTHwrA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/1] mm: pgtable: fix pte_swp_exclusive
+To: John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>
+Cc: Magnus Lindholm <linmag7@gmail.com>, richard.henderson@linaro.org, mattst88@gmail.com, 
+	ink@unseen.parts, kees@kernel.org, arnd@arndb.de, 
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, chris@zankel.net, 
+	dinguyen@kernel.org, jcmvbkbc@gmail.com, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org, 
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org, 
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org, 
+	loongarch@lists.linux.dev, monstr@monstr.eu, sparclinux@vger.kernel.org, 
+	x86@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_005410_040547_111E9B2C 
-X-CRM114-Status: UNSURE (   9.35  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_010619_852610_8AAD8DAD 
+X-CRM114-Status: GOOD (  25.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,28 +104,70 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Hi Adrian,
 
+On Sat, 5 Apr 2025 at 19:22, John Paul Adrian Glaubitz
+<glaubitz@physik.fu-berlin.de> wrote:
+> On Tue, 2025-02-18 at 18:55 +0100, Magnus Lindholm wrote:
+> > Make pte_swp_exclusive return bool instead of int. This will better reflect
+> > how pte_swp_exclusive is actually used in the code. This fixes swap/swapoff
+> > problems on Alpha due pte_swp_exclusive not returning correct values when
+> > _PAGE_SWP_EXCLUSIVE bit resides in upper 32-bits of PTE (like on alpha).
+>
+> Minor nitpick:
+>
+> "when _PAGE_SWP_EXCLUSIVE" => "when the _PAGE_SWP_EXCLUSIVE"
+>
+> >
+> > Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
 
-On Mon, 24 Mar 2025 13:53:26 +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.  While re-indenting, drop
-> unused labels.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> [...]
+> > --- a/arch/alpha/include/asm/pgtable.h
+> > +++ b/arch/alpha/include/asm/pgtable.h
+> > @@ -334,7 +334,7 @@ extern inline pte_t mk_swap_pte(unsigned long type, unsigned long offset)
+> >  #define __pte_to_swp_entry(pte)      ((swp_entry_t) { pte_val(pte) })
+> >  #define __swp_entry_to_pte(x)        ((pte_t) { (x).val })
+> >
+> > -static inline int pte_swp_exclusive(pte_t pte)
+> > +static inline bool pte_swp_exclusive(pte_t pte)
+> >  {
+> >       return pte_val(pte) & _PAGE_SWP_EXCLUSIVE;
+> >  }
 
-Applied, thanks!
+> > --- a/arch/xtensa/include/asm/pgtable.h
+> > +++ b/arch/xtensa/include/asm/pgtable.h
+> > @@ -355,7 +355,7 @@ ptep_set_wrprotect(struct mm_struct *mm, unsigned long addr, pte_t *ptep)
+> >  #define __pte_to_swp_entry(pte)      ((swp_entry_t) { pte_val(pte) })
+> >  #define __swp_entry_to_pte(x)        ((pte_t) { (x).val })
+> >
+> > -static inline int pte_swp_exclusive(pte_t pte)
+> > +static inline bool pte_swp_exclusive(pte_t pte)
+> >  {
+> >       return pte_val(pte) & _PAGE_SWP_EXCLUSIVE;
+> >  }
+>
+> I'm not so sure about this implicit cast from unsigned long to bool though.
+>
+> Is this verified to work correctly on all architectures? I wonder why this
 
-[1/1] dt-bindings: gpio: Correct indentation and style in DTS example
-      commit: f4271a891dca46ecf6813273ed63e502862f45da
+Should work fine: any non-zero value is mapped to one.
 
-Best regards,
+> bug was not caught earlier on alpha on the other hand.
+
+On Alpha, "pte_val(pte) & _PAGE_SWP_EXCLUSIVE" is either
+_PAGE_SWP_EXCLUSIVE == 0x8000000000UL or zero.  Due to the return
+type being int, the return value was truncated, and the function always
+returned zero.
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
