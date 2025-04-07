@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C29DC3601A
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 10:50:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1F87C369A3
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 10:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OSgfYncrNYEHYx2qV4TyDEc+0PBQA2byhKU7Cj0i8F0=; b=uRVGBrluFPzxVC
-	rd39lSPDHNhbRAYX3NcWnSGkztx4AiR+l9vKutSaIUfvS40r1TmJBY7pGwL5Nm9/harRUDQvfJ3d7
-	qT5JYghP8EAX+Y9xEs+ADMViBiczfuaHGfNKzM6vuJiro0752JB/QBZaDdYd+ha1hUNy8miZtawXh
-	+63W8YHtpL1X/QAIaNiSRc4vLlpeeMVny4ULMxYsj57X1LjdLd/NHYneFYbzyWDD9T42SWCQVrPFQ
-	HxZLAVrvf9+XCB+c07+r5ML6OqnL+3ejAdMADQC3g8ilK5drmb1xstCF3o1OYXboRxS/R9fEPvGnJ
-	KyzbE9wPq67KfiMxww/w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=0F6LzTBugnB9Fo3dfABAUODttWebgmfXmcrcapaBRnE=; b=Gxi2d1oLKIqOsT
+	S1oNdnXMjQimrN1LElMGZRGGwb77yc3U6CdR6aYRWNfVyJ+J7RDHuj0f8pzWN+lgJmEqrr+P30Zc7
+	Iqq5xSmS4Hogcq4OYpAslg0o2f/IoRyelzmlwYSzKl0xkGlK3C1uCCafDPu+VEYBxb+bFIO1a1ZOB
+	migkmD6S/bbQdyV+BbWsANUwEhh3vm7juupEblFWsV+Cf4TtWpFweE7TkcG9T6DEPF+6KEVdUMrWX
+	G0OZwmmJCrxWs29juXqQ4NoG7G0SFYFMDnuV6bTiokiDfZHU6tuhYNZjQt0JvURMbpWLzR94p1Oec
+	vInCmXofCQ7K7IYAo5fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1k3q-0000000HQ4x-0AD5;
-	Mon, 07 Apr 2025 10:50:38 +0000
+	id 1u1k3s-0000000HQ6q-1Nny;
+	Mon, 07 Apr 2025 10:50:40 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1k3k-0000000HQ0m-3Zte
+	id 1u1k3p-0000000HQ39-16tx
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 10:50:36 +0000
+	Mon, 07 Apr 2025 10:50:38 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 537AneRr001489
+	by Atcsqr.andestech.com with ESMTPS id 537AnmL2001639
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 7 Apr 2025 18:49:40 +0800 (+08)
+	Mon, 7 Apr 2025 18:49:48 +0800 (+08)
 	(envelope-from ben717@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Mon, 7 Apr 2025
- 18:49:40 +0800
+ 18:49:48 +0800
 From: Ben Zong-You Xie <ben717@andestech.com>
 To: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>
@@ -44,18 +44,21 @@ CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
         <tim609@andestech.com>, "Ben
  Zong-You Xie" <ben717@andestech.com>
-Subject: [PATCH 0/9] add Voyager board support
-Date: Mon, 7 Apr 2025 18:49:28 +0800
-Message-ID: <20250407104937.315783-1-ben717@andestech.com>
+Subject: [PATCH 6/9] dt-bindings: cache: ax45mp-cache: allow variable cache-sets for Andes L2 cache
+Date: Mon, 7 Apr 2025 18:49:34 +0800
+Message-ID: <20250407104937.315783-7-ben717@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250407104937.315783-1-ben717@andestech.com>
+References: <20250407104937.315783-1-ben717@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 537AneRr001489
+X-MAIL: Atcsqr.andestech.com 537AnmL2001639
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_035033_211755_3374AF07 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250407_035037_629917_738B1FA2 
+X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,50 +70,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIFZveWFnZXIgaXMgYSA5LjbigJ0geCA5LjbigJ0gTWljcm8gQVRYIGZvcm0gZmFjdG9yIGRl
-dmVsb3BtZW50IGJvYXJkIGluY2x1ZGluZwpBbmRlcyBRaUxhaSBTb0MuIFRoaXMgcGF0Y2ggc2Vy
-aWVzIGFkZHMgbWluaW1hbCBkZXZpY2UgdHJlZSBmaWxlcyBmb3IgdGhlIFFpTGFpClNvQyBhbmQg
-dGhlIFZveWFnZXIgYm9hcmQgWzFdLgoKTm93IG9ubHkgc3VwcG9ydCBiYXNpYyB1YXJ0IGRyaXZl
-cnMgdG8gYm9vdCB1cCBpbnRvIGEgYmFzaWMgY29uc29sZS4gT3RoZXIKZmVhdHVyZXMgd2lsbCBi
-ZSBhZGRlZCBsYXRlci4KClsxXSBodHRwczovL3d3dy5hbmRlc3RlY2guY29tL2VuL3Byb2R1Y3Rz
-LXNvbHV0aW9ucy9hbmRlc2hhcGUtcGxhdGZvcm1zL3FpbGFpLWNoaXAvCgpCZW4gWm9uZy1Zb3Ug
-WGllICg5KToKICByaXNjdjogYWRkIEFuZGVzIFNvQyBmYW1pbHkgS2NvbmZpZyBzdXBwb3J0CiAg
-ZHQtYmluZGluZ3M6IHJpc2N2OiBhZGQgQW5kZXMgUWlMYWkgU29DIGFuZCB0aGUgVm95YWdlciBi
-b2FyZCBiaW5kaW5ncwogIGR0LWJpbmRpbmdzOiBpbnRlcnJ1cHQtY29udHJvbGxlcjogYWRkIEFu
-ZGVzIFFpTGFpIFBMSUMKICBkdC1iaW5kaW5nczogaW50ZXJydXB0LWNvbnRyb2xsZXI6IGFkZCBB
-bmRlcyBtYWNoaW5lLWxldmVsIHNvZnR3YXJlCiAgICBpbnRlcnJ1cHQgY29udHJvbGxlcgogIGR0
-LWJpbmRpbmdzOiB0aW1lcjogYWRkIEFuZGVzIG1hY2hpbmUgdGltZXIKICBkdC1iaW5kaW5nczog
-Y2FjaGU6IGF4NDVtcC1jYWNoZTogYWxsb3cgdmFyaWFibGUgY2FjaGUtc2V0cyBmb3IgQW5kZXMK
-ICAgIEwyIGNhY2hlCiAgcmlzY3Y6IGR0czogYW5kZXM6IGFkZCBRaUxhaSBTb0MgZGV2aWNlIHRy
-ZWUKICByaXNjdjogZHRzOiBhbmRlczogYWRkIFZveWFnZXIgYm9hcmQgZGV2aWNlIHRyZWUKICBy
-aXNjdjogZGVmY29uZmlnOiBlbmFibGUgQW5kZXMgU29DCgogLi4uL2NhY2hlL2FuZGVzdGVjaCxh
-eDQ1bXAtY2FjaGUueWFtbCAgICAgICAgIHwgICAyICstCiAuLi4vYW5kZXN0ZWNoLHBsaWNzdy55
-YW1sICAgICAgICAgICAgICAgICAgICAgfCAgNDggKysrKysKIC4uLi9zaWZpdmUscGxpYy0xLjAu
-MC55YW1sICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5n
-cy9yaXNjdi9hbmRlcy55YW1sICAgICAgfCAgMjUgKysrCiAuLi4vYmluZGluZ3MvdGltZXIvYW5k
-ZXN0ZWNoLHBsbXQwLnlhbWwgICAgICAgfCAgNDIgKysrKwogTUFJTlRBSU5FUlMgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHwgICA4ICsKIGFyY2gvcmlzY3YvS2NvbmZpZy5lcnJh
-dGEgICAgICAgICAgICAgICAgICAgICB8ICAgMiArLQogYXJjaC9yaXNjdi9LY29uZmlnLnNvY3Mg
-ICAgICAgICAgICAgICAgICAgICAgIHwgICA5ICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvTWFrZWZp
-bGUgICAgICAgICAgICAgICAgICB8ICAgMSArCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL01h
-a2VmaWxlICAgICAgICAgICAgfCAgIDIgKwogYXJjaC9yaXNjdi9ib290L2R0cy9hbmRlcy9xaWxh
-aS12b3lhZ2VyLmR0cyAgIHwgIDE5ICsrCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL3FpbGFp
-LmR0c2kgICAgICAgICAgfCAxOTQgKysrKysrKysrKysrKysrKysrCiBhcmNoL3Jpc2N2L2NvbmZp
-Z3MvZGVmY29uZmlnICAgICAgICAgICAgICAgICAgfCAgIDEgKwogMTMgZmlsZXMgY2hhbmdlZCwg
-MzUyIGluc2VydGlvbnMoKyksIDIgZGVsZXRpb25zKC0pCiBjcmVhdGUgbW9kZSAxMDA2NDQgRG9j
-dW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL2ludGVycnVwdC1jb250cm9sbGVyL2FuZGVz
-dGVjaCxwbGljc3cueWFtbAogY3JlYXRlIG1vZGUgMTAwNjQ0IERvY3VtZW50YXRpb24vZGV2aWNl
-dHJlZS9iaW5kaW5ncy9yaXNjdi9hbmRlcy55YW1sCiBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1l
-bnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3RpbWVyL2FuZGVzdGVjaCxwbG10MC55YW1sCiBj
-cmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbmRlcy9NYWtlZmlsZQogY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvYW5kZXMvcWlsYWktdm95YWdlci5k
-dHMKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL3FpbGFpLmR0
-c2kKCi0tIAoyLjM0LjEKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+The current device tree binding for the Andes AX45MP L2 cache enforces
+a fixed number of cache-sets (1024). However, there are 2048 cache-sets in
+the QiLai SoC. This change allows both 1024 and 2048 as valid values for
+"cache-sets".
+
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ .../devicetree/bindings/cache/andestech,ax45mp-cache.yaml       | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+index d2cbe49f4e15..798aa71dc4ec 100644
+--- a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -44,7 +44,7 @@ properties:
+     const: 2
+ 
+   cache-sets:
+-    const: 1024
++    enum: [1024, 2048]
+ 
+   cache-size:
+     enum: [131072, 262144, 524288, 1048576, 2097152]
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
