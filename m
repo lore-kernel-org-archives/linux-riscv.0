@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8526C369A2
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:24:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F84C3601E
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:27:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/DzYxAqjOc9oYfh313Gujtz3rsv+SRFZ5y8FR7I1L/g=; b=n8sjHMaOOTU6Qb
-	BvYYepSCOI/22VFJE6VcFJPakKznpbrn4B5O8XiymCXSvKslhv+0+QDbjAB7lKNe2ztUBP+gE7Fmu
-	ML4DNcXRaTCqovAhkGVkegLqkUg27U01JMsSniA/NjRBn2KA0BEyqwYv6hgBVLUBFMhMTMoce5q0y
-	m0t0Y9stIZhPdDQ1IvCgUx//hLQtluUaunHSIvBc0uNqklKSrZ0vItertDswNQGrFPMGpU5xvATyb
-	ODORnqEz/dMU0f3WgwuWw96QliZ314N8rTGElHRHeCtXrWdnpnW7/jdQ9Y0CLXA0VEkR8eC+SBRt2
-	ZHeIU4HbzUhTFJeMOmkw==;
+	List-Owner; bh=361VLIYIZFBG85bP6+nnONbAx38YCRZNeUG2N2fYKS8=; b=bg04uw7yoTmGxx
+	JE+uzzUZXB/t9IC9eswJYzP1rgk7Zt3ToqMum/f0PCxGzxfv3vp92SdK1sceZT/x+/yC7ZMGZBso1
+	bT/2G1OMvIHeJpKaL6DZNFnvXmvK53TqQZiKoPp5EtRbGKLS8Bn/HqSYTELQoXDuRSBqvvRuVWQCs
+	rfjFPHDdv/Cb8zkqDaesBYWn2rxHp4jWIC+42eaQflLj7RHDp4X4Fh8nQD8V5kGrLQwmbN3qRTFWO
+	P0/Yx7BKKrv+CKm47NXZvLiwSZWoeP9PDAow6p8hK0oY1na33kIZS6iF8LObDHOEYu3n6u+/7c+nU
+	LphkgHURQ1Lr+nfIztSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mSC-00000000UST-0l6E;
-	Mon, 07 Apr 2025 13:23:56 +0000
+	id 1u1mVg-00000000Vdv-0SV6;
+	Mon, 07 Apr 2025 13:27:32 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mR3-00000000U9S-0F1s;
-	Mon, 07 Apr 2025 13:22:46 +0000
+	id 1u1mU9-00000000VDh-1K1m;
+	Mon, 07 Apr 2025 13:25:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1F037442F5;
-	Mon,  7 Apr 2025 13:22:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62FCFC4CEDD;
-	Mon,  7 Apr 2025 13:22:40 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4F62E4515C;
+	Mon,  7 Apr 2025 13:25:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F935C4CEDD;
+	Mon,  7 Apr 2025 13:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744032164;
-	bh=jQI55o6gDq6Ihy8UgZ0aKohlSxN7HHUG5gb5QI2QUiQ=;
+	s=k20201202; t=1744032356;
+	bh=b1zRwSwMdCchEFyuh6cDIP7vGCbroduKVm2a2qoCE4s=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=XTl/s9Pned0E+A720LhQLzbDpBCBrEN1RqNlogeq/jQRWknu1x7fdRRwpHHmG/yQs
-	 8QSml85zXlo1DNF2+uDZHI/I9GASi3+RkWFi30VmRi4GiI4Y4SGympAdXQJd+89188
-	 GR42DXT1JxbAsmEVWMq2IT7LZ+iOqIwVT7/RccS+E7k/nWX/9Vb2FSEotXnQI42uFj
-	 Rs+I5EBtYgQshajW/epixhGi/6UTK2aDZlvGml8W0KeLIiHS4+q9DqulHu1XeaHPkc
-	 lYuz95BqL0mIufgjmrtIU/euubFEZcoyKf6yWI4londUvWobksHoe0LnQ7Tq2tVZ3h
-	 jjRAGEADnivvg==
-Message-ID: <ac9fd6b3-2184-4d75-83e5-6caee4f3758d@kernel.org>
-Date: Mon, 7 Apr 2025 15:22:38 +0200
+	b=r6BY655SIUdGNY2K2nBTnUI9+KZLQKVx/Szfkf7ER5Oc8ZKUdZ6hsl9pYXQudX1nN
+	 skbTV03Fc/Q0xRptf2SC7xvkz0LGi/TG0r0CdrBm70peHfhllmdZoCe9IwBPlyID36
+	 7D3oOYDFyfhbC46hzc6/G4FoyKSfW9S7v4KjSgCOf5/uWofI9ywAI3PfLQ8HK7C5t4
+	 FLzsEL9Pf4S90HWjAcooP2j2UNnvyPk7VvutSLy9Rcxse5nvGUfC+ZY3lfoR/+mn8Q
+	 5lx75hkllLI7TmgPDDmsSZ5tChw+QjZQDCaSkoE5WsXIWlZH6sS7asf2a3z0jMDehn
+	 IzWmfjKstYUhw==
+Message-ID: <abac53a6-cba7-4962-9f34-ab2eac9e6e3d@kernel.org>
+Date: Mon, 7 Apr 2025 15:25:50 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] dt-bindings: usb: add SpacemiT K1 DWC3 glue
+Subject: Re: [PATCH 4/7] phy: spacemit: support K1 USB2.0 PHY controller
 To: Ze Huang <huangze@whut.edu.cn>, Vinod Koul <vkoul@kernel.org>,
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -60,7 +60,7 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
 References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
- <20250407-b4-k1-usb3-v3-2-v1-3-bf0bcc41c9ba@whut.edu.cn>
+ <20250407-b4-k1-usb3-v3-2-v1-4-bf0bcc41c9ba@whut.edu.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,10 +106,11 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-3-bf0bcc41c9ba@whut.edu.cn>
+In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-4-bf0bcc41c9ba@whut.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_062245_142824_5D0518A7 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250407_062557_397591_5385D72C 
+X-CRM114-Status: UNSURE (   6.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,106 +128,21 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 07/04/2025 14:38, Ze Huang wrote:
-> Add support for SpacemiT DWC3 glue driver, which manages interrupt,
-> reset and clock resource.
-> 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
-> ---
->  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 78 ++++++++++++++++++++++
->  1 file changed, 78 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+> +static const struct of_device_id spacemit_usb2phy_dt_match[] = {
+> +	{ .compatible = "spacemit,k1-usb2-phy", },
+> +	{ /* sentinal */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
+> +
+> +static struct platform_driver spacemit_usb2_phy_driver = {
+> +	.probe	= spacemit_usb2phy_probe,
+> +	.driver = {
+> +		.name   = "spacemit-usb2-phy",
+> +		.owner  = THIS_MODULE,
 
-Combining 3 subsystems into one patchset is a poor idea.
 
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..40ce3fd1330d5f371ec69155c237e10a65a9d8f4
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-> @@ -0,0 +1,78 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller Glue
-> +
-> +maintainers:
-> +  - Ze Huang <huangze@whut.edu.cn>
-> +
-> +properties:
-> +  compatible:
-> +    const: spacemit,k1-dwc3
-> +
-> +  ranges:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interconnects:
-
-Missing maxItems
-
-> +    description:
-> +      On SpacemiT K1, USB performs DMA through bus other than parent DT node.
-> +      The 'interconnects' property explicitly describes this path, ensuring
-> +      correct address translation.
-> +
-> +  interconnect-names:
-> +    const: dma-mem
-> +
-> +  # optional
-
-Drop, Don't repeat constraints in free form text.
-
-> +  vbus-supply:
-> +    description: A phandle to the regulator supplying the VBUS voltage.
-> +
-> +patternProperties:
-> +  '^usb@':
-> +    $ref: snps,dwc3.yaml#
-
-No, rather fold child into the parent.
-
-> +
-> +additionalProperties: false
-
-This goes after required:, always.
-
-> +
-> +required:
-> +  - compatible
-> +  - ranges
-> +  - clocks
-> +  - resets
-> +  - interrupts
-> +  - interconnects
-> +  - interconnect-names
-> +
-> +examples:
-> +  - |
-> +    usb@c0a00000 {
-> +        compatible = "spacemit,k1-dwc3";
-> +        clocks = <&syscon_apmu 16>;
-> +        interrupts = <149>;
-> +        interconnects = <&dram_range0>;
-> +        interconnect-names = "dma-mem";
-> +        ranges = <0x0 0xc0a00000 0x10000>;
-> +        resets = <&syscon_apmu 8>;
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        status = "disabled";
-
-Nope, drop.
-
+Take recent drivers and use them as base. There is no such 'owner' since
+10 years.
 
 
 Best regards,
