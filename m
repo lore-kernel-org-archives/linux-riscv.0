@@ -4,64 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6257BC36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 21:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DF81C36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 23:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=p1NUWaroaxECMCqw4zwtUC0VKE+al/+wkMuA1kODgmk=; b=K4eFYhlvB4Vd1k
-	7nH8Ye+I4/LA6x8LznYGo8pfZk1CYUyM6rTB9qudpl7FqNZ/eu8yw2NyUbFqBdGE78gIuc63AeN/+
-	c2N8QLLlKTBG+T2KF5WIYumR9H5yTtJF6mjcriWErjha26wG/y5LMSYoRWtOY6ohurubjrGHxrGxp
-	8NORyjdvbXVVSuMl/KQ8Z6oukZ/HmxXmuVucwtXqmgU0H+o/57aTtJDOTY3WDZUH85qMAncPRMxiG
-	8sbAgJUIJ7kvdxj+C0s9gQqGEEUGdyU6/VlJkHGWyJkUOuV4KbqjlJCuLimb+OoRQU1dYy/qRT8i5
-	BEiy4wqB7t52+jF5Ar6A==;
+	List-Owner; bh=4K8YsLwUCzntTM1S4LlaKNuulqekVk1A2x4KdPZHEI0=; b=wW9VSXeIJoqvcC
+	zLzOCkT9Imh0jDxkEmSf3HdOFK3rMOkG+ifC8q/VrKngK9h6HO5NgWpsow2BJrsRajSPZv+VFYrAM
+	oH9XoZ1PLZ3IdIIwEPfSHYbgyCwBh5HZPFSrgLm63sIViObDOBAhOzaPq85Ho4e/fxLcGfrpTj0Co
+	qpRGQGSVsPARRDe6S5S/rvbqZE4ot8EqE7SEVanBI4QsKzpNyWxJfG6uHRAiy2ibnJY3mP7g+cK2K
+	UMRkiZ8NbV/6TYCVjc7fe334jfQXEf26AyPpWKS0r0UczdVfLNHCctAGROabjVPpT47w7potqTahg
+	flxp2bY/KGkSJyMkUSwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1uL8-000000028GS-3M6I;
-	Mon, 07 Apr 2025 21:49:10 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1u1vx2-00000002IrF-0GgM;
+	Mon, 07 Apr 2025 23:32:24 +0000
+Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1tl7-000000021v2-2YRp
+	id 1u1vwz-00000002Iqs-3wnr
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 21:11:58 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744060314;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=33eB0XJEihdFu7uaA2YoXjeNopOx78bqYoFb1asG3U8=;
-	b=cfMm1r2u0L0heM73VpvfdQrU+Usb2myH5nL4Okwu4tuwo+4degqzJF/PHHZsba4cZ/S/aW
-	GANlBdwhVxaMTly6gHdDAinHR+Di0rvEAqdSRX9l376eHOoXasHFkF3AG3qx7pLvYiRZS5
-	K8CVyo5aJGdA/e9vHEpkyQFbXxD5JELVV3EjhyRihHWedPuqIW5xDj2NoRpatCuE7iUEm1
-	NjeJbxtJsOyFM/1FomkBajhRzJ30YC1qlFWB6HbCRJ6d04jM1Cb3V4V4AnFYVSvD+XM1tR
-	VfQyZKkK5eWJv8/Z30SAkGxC/iNtMdVfJbFiOtvpvV3Db4swKpEdRIb1/Xg24Q==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744060314;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=33eB0XJEihdFu7uaA2YoXjeNopOx78bqYoFb1asG3U8=;
-	b=cNDOwg1H6N3TNeBQw8FgWHEXokZ9o7ZglMD2kL5kjeaBsoRk8PiTYKJMDv66bUB0ODLLYa
-	IJWaRs8AQoGAWAAQ==
-To: Maxim Kochetkov <fido_max@inbox.ru>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, peterz@infradead.org, elver@google.com,
- namcao@linutronix.de, samuel.holland@sifive.com,
- daniel.lezcano@linaro.org, apatel@ventanamicro.com
-Subject: Re: [PATCH 1/1] time/sched_clock: move sched_clock_register() out
- of .init section
-In-Reply-To: <f57e8a74-4124-457c-b5c9-d193505ba093@inbox.ru>
-References: <20250404050540.13507-1-fido_max@inbox.ru> <8734ekwkqk.ffs@tglx>
- <f57e8a74-4124-457c-b5c9-d193505ba093@inbox.ru>
-Date: Mon, 07 Apr 2025 23:11:54 +0200
-Message-ID: <87wmbvvfqd.ffs@tglx>
+	Mon, 07 Apr 2025 23:32:23 +0000
+Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6eaf1b6ce9aso56133736d6.2
+        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 16:32:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744068741; x=1744673541; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=jJIvZC6BOhqiO/IQEbyhQ90MLD58EsSNP3rWCk4udso=;
+        b=A8fotwoGstyZE7GM1UMN1rW6aRcCn/MhI2LF7sAb7ti+4Pq62lND9nPoiuXHhoU40f
+         S+k12t6DPlWE3BRYpiNEApRSAmPW3zHwOY8pzTn1DNqDGaFm4X2ob9K7SqYm6ftH61yi
+         456zYUk2COa1hEkmDbcnkEyMFaBH92mVZKmgzlNql/PqfMTUqIE6mxio2SBr+CNuP2sV
+         egm7q59A/w3PW4aAl+5XSO1JlH+9l6q6gejHFbdSs2jxL9m7L0rcMewVPcakp0hjtPrc
+         9SOFxAv2llLA7kSOo36s/1EUMllyupVF7oh1gshAbv8jTOqAZUYtxq5GC9pRdCu4KgER
+         nCQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744068741; x=1744673541;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=jJIvZC6BOhqiO/IQEbyhQ90MLD58EsSNP3rWCk4udso=;
+        b=LnoZL9Tk8n+eW8zSbtm5EYcCNNQL6umd5Y11Ef0/3Am22dUbQS3dAU0Il2fLw/+uPs
+         rehrO90hLcN4lPQRXTD/PhL4xB4WcqflmKiUcNbPLxosCEoRVsyzyYy2Xy+UZftjTU3z
+         /D1qdOkEjZOU/6tPZ8JoUwre60dD7krnx1WqNzUIFJH8/Kkm3oEqY5QlZBqdkQm04740
+         PdRupe+QfV3Jz+afiICbHPuALyOiVA/zDquV9fmEUySVD0r1RkLE9VctDHdf+cukUeQ7
+         LdTOCrerDPXMy7gcoN5JpV3yX2m687e/F5/dJsBYt2YjP+SKBSjuCSY0PJ1bK3x5d0R7
+         pUwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVZa0c37ZouWcuwB1Bis5LVisjXBc5BpNg3FQx03C9JiwlVFOsDjG77oQVSjRekh7V++dtkY4aaZBcf6w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+eHT5q8d3iAw4/4P/54uHoqJ6zi5K0AqDLVSiuuw+rAF7m9XY
+	2McF+cd1Y/gWSwgHVe784a0SHexB4UhQwY5qvlqBx+gq8ASnKz8F
+X-Gm-Gg: ASbGncsZa84PgbuirjsUBjsPnfptnCIqLRAWjUWlxi0uOq+7xhtCuZiYYeGyBsLbDsE
+	wqcg07qJKxnPYP7nnp/Hc+jEZE18IkkgWV7zrYXA+1ILY4fDC4INC8Swgih5JWPRBO739U7UuyZ
+	0IrT072yn6fmsgfarR1C4N+GLjT44HF0OvIJLfxWevaUiSS4dY0Lif3pIhjqoj6ckTg/yygW51B
+	wNF23kJB4H91rGBKZUP+xZNDfsFuBpObi4EFGnmYUNzqwq7pQy4xsmaspM2Vhohj581mLAhbwKA
+	flon8uJmMUHnGxsFzTZ8
+X-Google-Smtp-Source: AGHT+IEKkMIItDnAtEbc/6DeDUtD3EXh0WmABN9nky7dyvGG/jJvA+lzzO9SpmOhIoNbdRJ6S7A1Kw==
+X-Received: by 2002:a05:6214:762:b0:6e8:e828:820d with SMTP id 6a1803df08f44-6f0b74bfde0mr179951146d6.36.1744068740691;
+        Mon, 07 Apr 2025 16:32:20 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6ef0f00e821sm65227956d6.34.2025.04.07.16.32.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 07 Apr 2025 16:32:20 -0700 (PDT)
+Date: Tue, 8 Apr 2025 07:31:44 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Rob Herring <robh@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	ghost <2990955050@qq.com>, Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
+	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>, linux-hwmon@vger.kernel.org, 
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 7/9] dt-bindings: i2c: dw: Add Sophgo SG2044 SoC I2C
+ controller
+Message-ID: <eltevzydjle25nyte5xn5mwxssi26awl4l4sgrz3v7h7m7vgur@tajtirx3up3x>
+References: <20250407010616.749833-1-inochiama@gmail.com>
+ <20250407010616.749833-8-inochiama@gmail.com>
+ <20250407140232.GA2165777-robh@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250407140232.GA2165777-robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_141157_788374_8A0EEFE6 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20250407_163221_979270_16C65127 
+X-CRM114-Status: GOOD (  18.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,60 +111,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 07 2025 at 10:25, Maxim Kochetkov wrote:
-> 07.04.2025 09:26, Thomas Gleixner wrote:
->> On Fri, Apr 04 2025 at 08:05, Maxim Kochetkov wrote:
->>> The sched_clock_register() is widely used by clocksource timer
->>> drivers. The __init prefix forces them to be initialized using
->>> macro TIMER_OF_DECLARE with __init prefixed function.
->> 
->> No, it does not. It requires that they are built in, not more.
->
-> Thank you for review.
->
-> Let me explain some more. I'm trying to solve similar problem, as 
-> described at 
-> https://patchwork.kernel.org/project/linux-arm-kernel/patch/20240312192519.1602493-1-samuel.holland@sifive.com/#25759271
->
-> I have both PLIC and clocksource module configured as Y (not m) in 
-> Kconfig. So both of them are included in kernel Image binary. But I 
-> still unable to probe clocksource device because it depends of PLIC irq.
-> And PLIC probes much later than TIMER_OF_DECLARE part of the clocksource 
-> driver.
+On Mon, Apr 07, 2025 at 09:02:32AM -0500, Rob Herring wrote:
+> On Mon, Apr 07, 2025 at 09:06:12AM +0800, Inochi Amaoto wrote:
+> > Add compatible string for Sophgo SG2044 SoC I2C controller which can be
+> > used specifically for the SG2044 SoC.
+> > 
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  .../devicetree/bindings/i2c/snps,designware-i2c.yaml          | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> > index bc5d0fb5abfe..677b39865af0 100644
+> > --- a/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> > +++ b/Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml
+> > @@ -38,6 +38,10 @@ properties:
+> >            - const: snps,designware-i2c
+> >        - description: Baikal-T1 SoC System I2C controller
+> >          const: baikal,bt1-sys-i2c
+> > +      - description: Sophgo SoCs I2C controller
+> > +        items:
+> > +          - const: sophgo,sg2044-i2c
+> > +          - const: snps,designware-i2c
+> 
+> This is not a great pattern we've started. T-HEAD, Ocelot, and this 
+> should all be combined into 1 enum. The description here is not that 
+> useful.
+> 
 
-Which is not a problem as all built-in drivers probe _before_ the init
-section is discarded.
+I agree and am fine to do this.
 
-> I tried to convert clocksource driver to regular platform device and
-> it works fine except warning:
->
-> WARNING: modpost: vmlinux: section mismatch in reference: 
-> dw_apb_timer_probe+0x136 (section: .text.unlikely) -> 
-> sched_clock_register (section: .init.text)
-
-Of course. The warning is because you invoke sched_clock_register()
-from dw_apb_timer_probe(), which is regular text. See
-
-drivers/clocksource/ingenic-ost.c
-drivers/clocksource/timer-cadence-ttc.c
-
-how to implement a builtin platform driver, which does not suffer from
-that problem despite invoking sched_clock_register() from their init
-functions.
-
-> Dropping __init from sched_clock_register() helps to solve this issue.
-
-It solves it at the wrong point for a builtin platform driver
-
-> Anyway, this patch opens opportunity to compile clocksource drivers as 
-> modules and probe them much later.
-
-That's an orthogonal issue and needs to be discussed seperately from the
-problem at hand.
-
-Thanks,
-
-        tglx
+Regard,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
