@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225C0C3601A
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 08:56:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7C19C3601A
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 09:40:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aodPu78aeCXY3v7FxqZ/rKzbd7Di+2QTql19vvI8huY=; b=ybxHSEapLsWggL
-	TEumnno75KTWyFdgLSLracLHU95tCW+NjJUyJq0PHQXlL4IIBjgv4n77KSsXQMrOnrE9qj/qStqJG
-	108zMesceqcgxbV/BNkwRU26CetAD0Du+eETwO2b7Xn1xFp4Nxpkvw1KM1CHRz3Vb3XG5KmTDjvuV
-	CcGSZmEVBMJh8N2Ck7H4weAPD3s/h4i4SMEK73BNUmTPmHarlP+PZZfhTMkd4RUPI360lP99Y6/LD
-	UJD3L6wZgXOUF6edahfHSN6sZA+m2RNVxnDeRR9fq6fhveyLnsg++ovgNlK2ZJ53sNBf1obYTuT2L
-	tOZb9q454j2cKnQ5kYcw==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EycBF09AC40xDPF7s5yNXrB1vn64XEFRCbelNw7rASY=; b=kgF7HNbH7WdhKyGGRAgzS4F7xs
+	dMzD1mg3DZ2DhIOmT/P5N06wbaUrKPsJhT9Mcj59iHDqOZ2+xY6MDcPAao7CZ6/iL2/6erAI1Nvj1
+	JKhwfIUy4eR4xGX3ZcctTFnhu4GLyOGfuaYa8xPMB2wfEAPDYYVC+UyKBMVS6IM09vul33g9RahDL
+	/Is7cSYjHuV2I1yNc8XSV+5wJrVEKipKLz8uZr/EuOkLVK/IE6aUVnYebSp7sph8fAlscnfoKV32M
+	MOQiruP787WuNwVYfy+0qDni6qrLV1Dm5hjH57I9ec5dHYv3qxVXGxPfEZgKJw+rOK9m/sVuEI/Sa
+	w4/lw86Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1iHJ-0000000H64K-2mf8;
-	Mon, 07 Apr 2025 08:56:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u1ixh-0000000HDu7-3vdk;
+	Mon, 07 Apr 2025 09:40:13 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1i4S-0000000H3R8-1wJH
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 07 Apr 2025 08:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=bOlZydid21RU+uyMBcWhy/2nhySl1EJG9vjMGVT/sz4=; b=rcWTlSY8d6z1FCYrusYecUdWzW
-	llrQYAIhKEfbnRwg6zEk7lNs2fZa4PBy4fqZa5bvs291y4tPU4DdKgyB4wr36o693jI+LqvvT/OSA
-	SH7e8SyAsRCM0ETaUR/Lkj94ly68UWt9e1yy+RmK4utMNppnfdg4siboNKnP2o+SYkDpdeYxpY/l/
-	3MvPO7hGwXqzUkTbHF+Bd1mzrNbm9651rEkS/dHcEruJg3VaufE0UVe1R39TiW9uYna2kw3J12tdG
-	M9wJqnJaW8brKGtzzPqiQJZjFePeyPuTKEp8+TIgwchuwQzDigxIIaXVM/FWPrIvZeAyAfwoX65IJ
-	oPe6IfZw==;
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1i4P-00000007tTR-0b4f
+	id 1u1iw4-0000000HDYY-0ma1
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 08:43:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C0D7C44201;
-	Mon,  7 Apr 2025 08:42:46 +0000 (UTC)
-Message-ID: <e760a42c-1147-4fe8-9c65-6c4919f15fff@ghiti.fr>
-Date: Mon, 7 Apr 2025 10:42:41 +0200
+	Mon, 07 Apr 2025 09:38:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D277E5C5A02;
+	Mon,  7 Apr 2025 09:36:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B23C4CEDD;
+	Mon,  7 Apr 2025 09:38:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744018710;
+	bh=6w3eFSHcGfr21TV3uewsU0b1m9Ul2CRPKvz+z6S4aBg=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=s9R4+8vZCq6IlmhaWl2Jy5wcRcJzMrxa2CdIvPMkG4H6ckvCj9a6pjxNzeGtcsk1u
+	 KSQXBY7lsEhi+aJA/Kd4qs5+Ii99z7jkRfyhSJNXtsOGNdn0NWPPmOTx2BgsF1OaBv
+	 pWceKRJPm0VGpIR1figoCYaMDBtXHetoCjzKVL2Grl4EuKpUpJ0Mw1+6Dp4d9PJCnE
+	 wfXTo8LJ6CA/UAg1wDmiMj51Vpq6dmUyPxlR2jIlmcNYfccBHFN1b9bTHmgXgw6AJz
+	 +cMTAmdHkr+bFlocUSMgBoYkoSUSc46t6vFHgzDEIgI3MXlz6vf4oPhkkPmbUrtR16
+	 dkdeqG1mCKT6Q==
+Date: Mon, 7 Apr 2025 11:38:27 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, ghost <2990955050@qq.com>, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/2] pwm: sophgo: add driver for SG2044
+Message-ID: <jnvlo3su4xzsvzte2s3noosycxae5uxhi3vusefpgq462ymqst@jgta6xxmcbtd>
+References: <20250407072056.8629-1-looong.bin@gmail.com>
+ <20250407072056.8629-3-looong.bin@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] scripts: Do not strip .rela.dyn section
-To: Alexandre Ghiti <alexghiti@rivosinc.com>,
- Masahiro Yamada <masahiroy@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- Nathan Chancellor <nathan@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>,
- Charlie Jenkins <charlie@rivosinc.com>, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-kbuild@vger.kernel.org
-References: <20250403134200.385077-1-alexghiti@rivosinc.com>
- <CAMj1kXGzrn6i20LvUBnz_mGi946=GCogNHHUL=mNsv513qYv7A@mail.gmail.com>
- <2874fc20-9135-4b13-b825-43fb350ce552@ghiti.fr>
- <CAK7LNAT5sDhh1v3U2xUuVnrbhNXp3SJ_ngxSqAgwmZL0E2QGpA@mail.gmail.com>
- <CAHVXubgZ+Dwx70vU03R9MZ7BjkzbdR21y-Ort6pBngFmFYs-uw@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAHVXubgZ+Dwx70vU03R9MZ7BjkzbdR21y-Ort6pBngFmFYs-uw@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduleeljeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeeuffefvdelteelteejhfejhedujeetteevtddvvddthfeiteffledvffeggfeiieenucffohhmrghinhepihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduvddprhgtphhtthhopegrlhgvgihghhhithhisehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehmrghsrghhihhrohihsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrhgus
- geskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepsghjohhrnhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnihgtohhlrghssehfjhgrshhlvgdrvghu
-X-GND-Sasl: alex@ghiti.fr
+In-Reply-To: <20250407072056.8629-3-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_094305_316602_FF230EAB 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250407_023832_343397_FF3BFAFA 
+X-CRM114-Status: GOOD (  35.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,61 +72,322 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============1129772702247954619=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDA3LzA0LzIwMjUgMTA6MTUsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiBIaSBNYXNhaGly
-bywKPgo+IE9uIEZyaSwgQXByIDQsIDIwMjUgYXQgNToyNeKAr1BNIE1hc2FoaXJvIFlhbWFkYSA8
-bWFzYWhpcm95QGtlcm5lbC5vcmc+IHdyb3RlOgo+PiBPbiBGcmksIEFwciA0LCAyMDI1IGF0IDEy
-OjQ14oCvQU0gQWxleGFuZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPj4+IEhpIEFy
-ZCwKPj4+Cj4+PiBPbiAwMy8wNC8yMDI1IDE3OjExLCBBcmQgQmllc2hldXZlbCB3cm90ZToKPj4+
-PiBPbiBUaHUsIDMgQXByIDIwMjUgYXQgMTY6NDIsIEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRp
-QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4+Pj4+IHJpc2N2IHVzZXMgdGhlIC5yZWxhLmR5biBzZWN0
-aW9uIHRvIHJlbG9jYXRlIHRoZSBrZXJuZWwgYXQgcnVudGltZSBidXQKPj4+Pj4gdGhhdCBzZWN0
-aW9uIGlzIHN0cmlwcGVkIGZyb20gdm1saW51eC4gVGhhdCBwcmV2ZW50cyBrZXhlYyB0bwo+Pj4+
-PiBzdWNjZXNzZnVsbHkgbG9hZCB2bWxpbnV4IHNpbmNlIGl0IGRvZXMgbm90IGNvbnRhaW4gdGhl
-IHJlbG9jYXRpb25zIGluZm8KPj4+Pj4gbmVlZGVkLgo+Pj4+Pgo+Pj4+IE1heWJlIGV4cGxhaW4g
-dGhhdCAucmVsYS5keW4gY29udGFpbnMgcnVudGltZSByZWxvY2F0aW9ucywgd2hpY2ggYXJlCj4+
-Pj4gb25seSBlbWl0dGVkIGlmIHRoZXkgYXJlIGFjdHVhbGx5IG5lZWRlZCAtIGFzIG9wcG9zZWQg
-dG8gdGhlIHN0YXRpYwo+Pj4+IHJlbG9jYXRpb25zIHRoYXQgYXJlIG5vdCBlbWl0dGVkIGFzIFNI
-Rl9BTExPQyBzZWN0aW9ucywgYW5kIGFyZSBub3QKPj4+PiBjb25zaWRlcmVkIHRvIGJlIHBhcnQg
-b2YgdGhlIHJ1bnRpbWUgaW1hZ2UgaW4gdGhlIGZpcnN0IHBsYWNlLgo+Pj4KPj4+IE9rIEknbGwg
-ZG8uCj4+Pgo+Pj4KPj4+PiBJdAo+Pj4+IHdvdWxkIGJlIG5pY2UgaWYgd2UgY291bGQgdXNlIC0t
-cmVtb3ZlLXJlbG9jYXRpb25zPSBoZXJlLCB3aGljaCBvbmx5Cj4+Pj4gcmVtb3ZlcyBzdGF0aWMg
-cmVsb2NhdGlvbnMsIGJ1dCB1bmZvcnR1bmF0ZWx5LCBsbHZtLW9iamNvcHkgZG9lcyBub3QKPj4+
-PiBzdXBwb3J0IHRoaXMuCj4+Pj4KPj4+PiBBbHNvLCBJIHdvbmRlciBpZiB0aGlzIHNob3VsZCBh
-cHBseSB0byBhbGwgb2YgLnJlbC5keW4sIC5yZWxhLmR5biBhbmQKPj4+PiAucmVsci5keW4sIGFz
-IHRoZXkgYWxsIGNhcnJ5IHJ1bnRpbWUgcmVsb2NhdGlvbnMuCj4+Pgo+Pj4gT2ssIEknbGwgYWRk
-IHRoZW0gdG8gdGhlIG5leHQgdmVyc2lvbi4KPj4+Cj4+Pgo+Pj4+IEZpbmFsbHksIEknZCBiZSBj
-dXJpb3VzIHRvIGtub3cgd2h5IFJJU0MtViByZWxpZXMgb24gLS1lbWl0LXJlbG9jcyBpbgo+Pj4+
-IHRoZSBmaXJzdCBwbGFjZT8gSXMgdGhlIHJlbG9jcyBjaGVjayByZWFsbHkgbmVlZGVkPyBJZiBu
-b3QsIGl0IHdvdWxkCj4+Pj4gYmUgYSBuaWNlIG9wcG9ydHVuaXR5IHRvIGdldCByaWQgb2YgTWFr
-ZWZpbGUucG9zdGxpbmsgZW50aXJlbHkuCj4+Pgo+Pj4gU28gSSBoYWQgdG8gY2hlY2sgYW5kIGl0
-IGhhcHBlbnMgdGhhdCB0aGlzIHdhcyBhbiBpc3N1ZSB3aXRoIHRoZQo+Pj4gdG9vbGNoYWluLCBJ
-IHNob3VsZCBjaGVjayBpZiB0aGF0IHN0aWxsIGhhcHBlbnMgd2l0aCBuZXdlciBvbmVzLgo+Pj4K
-Pj4+IGNvbW1pdCA1NTlkMWU0NWExNmRjZjE1NDJlNDMwZWEzZGNlOWFiNjI1YmU5OGQwCj4+PiBB
-dXRob3I6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNvbT4KPj4+IERhdGU6
-ICAgV2VkIE1hciAyOSAwNjo1MzoyOSAyMDIzICswMjAwCj4+Pgo+Pj4gICAgICAgcmlzY3Y6IFVz
-ZSAtLWVtaXQtcmVsb2NzIGluIG9yZGVyIHRvIG1vdmUgLnJlbGEuZHluIGluIGluaXQKPj4KPj4K
-Pj4KPj4gU28sCj4+Cj4+IEZpeGVzOiA1NTlkMWU0NWExNmQgKCJyaXNjdjogVXNlIC0tZW1pdC1y
-ZWxvY3MgaW4gb3JkZXIgdG8gbW92ZQo+PiAucmVsYS5keW4gaW4gaW5pdCIpCj4+Cj4+IElzIHRo
-aXMgdGhlIGNvcnJlY3QgdGFnPwo+IFRoaXMgaXMgdGhlIGluaXRpYWwgY3VscHJpdCB5ZXMsIGJ1
-dCBpZiB3ZSB1c2UgdGhpcyB0YWcsIHRoZSBmaXggd29uJ3QKPiBhcHBseS4gU28gSSBkZWNpZGVk
-IHRvIHBpY2sgQXJkJ3MgcGF0Y2ggc28gdGhhdCB0aGlzIGZpeCBjYW4gYmUgZWFzaWx5Cj4gYmFj
-a3BvcnRlZCB0byA2LjE0LCBhbmQgSSdsbCBjb21lIHVwIHdpdGggYSBuZXcgdmVyc2lvbiBmb3Ig
-cHJldmlvdXMKPiByZWxlYXNlcy4gSXMgdGhhdCBvayB3aXRoIHlvdT8KCgpBbmQgSSBoYXZlIGp1
-c3QgbG9va2VkIGF0IDYuMTUtcmMxIGFuZCBub3RpY2VkIHRoYXQgdGhlIHJlbG9jYXRpb24gCnN0
-cmlwcGluZyB3YXMgbW92ZWQgdG8gTWFrZWZpbGUudm1saW51eCwgc28gdGhpcyBmaXggd29uJ3Qg
-YXBwbHkgdG8gNi4xNCAKbmVpdGhlci4KCkknbGwgdGhlbiB1c2UgdGhlIGluaXRpYWwgY3VscHJp
-dCwgd2hpY2ggaXMgRml4ZXM6IDU1OWQxZTQ1YTE2ZCAoInJpc2N2OiAKVXNlIC0tZW1pdC1yZWxv
-Y3MgaW4gb3JkZXIgdG8gbW92ZS5yZWxhLmR5biBpbiBpbml0IikuCgpTb3JyeSBmb3IgdGhlIG5v
-aXNlLAoKQWxleAoKCj4KPiBUaGFua3MsCj4KPiBBbGV4Cj4KPj4KPj4KPj4KPj4KPj4gLS0KPj4g
-QmVzdCBSZWdhcmRzCj4+IE1hc2FoaXJvIFlhbWFkYQo+IF9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3Jn
-L21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YKCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNj
-dkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4v
-bGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============1129772702247954619==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pdievs2tczsk2og6"
+Content-Disposition: inline
+
+
+--pdievs2tczsk2og6
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH 2/2] pwm: sophgo: add driver for SG2044
+MIME-Version: 1.0
+
+On Mon, Apr 07, 2025 at 03:20:39PM +0800, Longbin Li wrote:
+> From: ghost <2990955050@qq.com>
+
+Huh, is that a real name?
+
+> Add PWM controller for SG2044.
+>=20
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  drivers/pwm/pwm-sophgo-sg2042.c | 162 +++++++++++++++++++++++++++-----
+>  1 file changed, 138 insertions(+), 24 deletions(-)
+>=20
+> diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2=
+042.c
+> index ff4639d849ce..c62e8c758d87 100644
+> --- a/drivers/pwm/pwm-sophgo-sg2042.c
+> +++ b/drivers/pwm/pwm-sophgo-sg2042.c
+
+The Limitations paragraph needs updating. E.g. SG2044 seems to support
+polarity while SG2042 doesn't.
+
+> @@ -26,20 +26,22 @@
+>  #include <linux/pwm.h>
+>  #include <linux/reset.h>
+>=20
+> -/*
+> - * Offset RegisterName
+> - * 0x0000 HLPERIOD0
+> - * 0x0004 PERIOD0
+> - * 0x0008 HLPERIOD1
+> - * 0x000C PERIOD1
+> - * 0x0010 HLPERIOD2
+> - * 0x0014 PERIOD2
+> - * 0x0018 HLPERIOD3
+> - * 0x001C PERIOD3
+> - * Four groups and every group is composed of HLPERIOD & PERIOD
+> - */
+> -#define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
+> -#define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
+> +#define REG_HLPERIOD		0x0
+> +#define REG_PERIOD		0x4
+> +#define REG_GROUP		0x8
+
+REG_GROUP belongs to a different category than REG_PERIOD. So please use
+a different schema to name it (or drop it, see below).
+
+> +#define REG_POLARITY		0x40
+> +
+> +#define REG_PWMSTART		0x44
+> +#define REG_PWMUPDATE		0x4C
+> +#define REG_SHIFTCOUNT		0x80
+> +#define REG_SHIFTSTART		0x90
+
+REG_SHIFTCOUNT and REG_SHIFTSTART are unused.
+
+> +#define REG_PWM_OE		0xD0
+
+Actually I liked the old prefix better. E.g. "REG_POLARITY" looks more
+generic that it actually is.
+
+> +
+> +#define PWM_REG_NUM		0x80
+
+This is unused?
+
+> +
+> +#define PWM_POLARITY_MASK(n) BIT(n)
+> +#define PWM_HLPERIOD(chan) ((chan) * REG_GROUP + REG_HLPERIOD)
+> +#define PWM_PERIOD(chan) ((chan) * REG_GROUP + REG_PERIOD)
+
+((chan) * 8 + 0) is IMHO better. I guess this is subjective because at
+least the *8 is repeated several times, but the advantage of not using a
+define for 8 (and 0 and 4) is that by looking at
+
+	#define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
+
+you immediatly see the offsets of the HLPERIOD register, while for
+
+	#define PWM_HLPERIOD(chan) ((chan) * REG_GROUP + REG_HLPERIOD)
+
+you have to lookup two additional symbols.
+
+Also PWM is a prefix that is too generic.
+
+>  #define SG2042_PWM_CHANNELNUM	4
+>=20
+> @@ -51,6 +53,12 @@
+>  struct sg2042_pwm_ddata {
+>  	void __iomem *base;
+>  	unsigned long clk_rate_hz;
+> +	struct mutex lock;
+
+What does this lock protect? Note that there is a chip lock that is held
+when .apply() is called, to serialize apply calls for a single chip. I
+guess this can and should be dropped.
+
+> +};
+> +
+> +struct sg2042_chip_data {
+> +	const struct pwm_ops ops;
+> +	bool atomic;
+>  };
+>=20
+>  /*
+> @@ -62,8 +70,8 @@ static void pwm_sg2042_config(struct sg2042_pwm_ddata *=
+ddata, unsigned int chan,
+>  {
+>  	void __iomem *base =3D ddata->base;
+>=20
+> -	writel(period_ticks, base + SG2042_PWM_PERIOD(chan));
+> -	writel(hlperiod_ticks, base + SG2042_PWM_HLPERIOD(chan));
+> +	writel(period_ticks, base + PWM_PERIOD(chan));
+> +	writel(hlperiod_ticks, base + PWM_HLPERIOD(chan));
+
+The register renaming adds really quite some noise that is actually
+unrelated to this patch. If you really think the register defines need
+renaming, do that in a separate patch (and justify it well).
+
+>  }
+>=20
+>  static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pw=
+m,
+> @@ -104,8 +112,8 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip=
+, struct pwm_device *pwm,
+>  	u32 hlperiod_ticks;
+>  	u32 period_ticks;
+>=20
+> -	period_ticks =3D readl(ddata->base + SG2042_PWM_PERIOD(chan));
+> -	hlperiod_ticks =3D readl(ddata->base + SG2042_PWM_HLPERIOD(chan));
+> +	period_ticks =3D readl(ddata->base + PWM_PERIOD(chan));
+> +	hlperiod_ticks =3D readl(ddata->base + PWM_HLPERIOD(chan));
+>=20
+>  	if (!period_ticks) {
+>  		state->enabled =3D false;
+> @@ -123,13 +131,112 @@ static int pwm_sg2042_get_state(struct pwm_chip *c=
+hip, struct pwm_device *pwm,
+>  	return 0;
+>  }
+>=20
+> -static const struct pwm_ops pwm_sg2042_ops =3D {
+> -	.apply =3D pwm_sg2042_apply,
+> -	.get_state =3D pwm_sg2042_get_state,
+> +static void pwm_sg2044_config(struct sg2042_pwm_ddata *ddata, struct pwm=
+_device *pwm, bool enabled)
+> +{
+> +	u32 pwm_value;
+> +
+> +	pwm_value =3D readl(ddata->base + REG_PWMSTART);
+> +
+> +	if (enabled)
+> +		writel(pwm_value | BIT(pwm->hwpwm), ddata->base + REG_PWMSTART);
+> +	else
+> +		writel(pwm_value & ~BIT(pwm->hwpwm), ddata->base + REG_PWMSTART);
+> +}
+> +
+> +static void pwm_sg2044_set_outputenable(struct sg2042_pwm_ddata *ddata, =
+struct pwm_device *pwm,
+> +					bool enabled)
+> +{
+> +	u32 pwm_value;
+> +
+> +	pwm_value =3D readl(ddata->base + REG_PWM_OE);
+> +
+> +	if (enabled)
+> +		writel(pwm_value | BIT(pwm->hwpwm), ddata->base + REG_PWM_OE);
+> +	else
+> +		writel(pwm_value & ~BIT(pwm->hwpwm), ddata->base + REG_PWM_OE);
+> +}
+> +
+> +static int pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, struc=
+t pwm_device *pwm,
+> +				   const struct pwm_state *state)
+> +{
+> +	enum pwm_polarity polarity;
+> +	u32 pwm_value;
+> +
+> +	pwm_value =3D readl(ddata->base + REG_POLARITY);
+> +
+> +	polarity =3D state->polarity;
+> +
+> +	if (polarity =3D=3D PWM_POLARITY_NORMAL)
+> +		pwm_value &=3D ~BIT(pwm->hwpwm);
+> +	else
+> +		pwm_value |=3D BIT(pwm->hwpwm);
+> +
+> +	writel(pwm_value, ddata->base + REG_POLARITY);
+
+I like this idiom better than the one used in
+pwm_sg2044_set_outputenable() and pwm_sg2044_config(). However drop the
+local variable polarity.
+
+> +	return 0;
+> +}
+> +
+> +static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pw=
+m,
+> +			    const struct pwm_state *state)
+> +{
+> +	struct sg2042_pwm_ddata *ddata =3D pwmchip_get_drvdata(chip);
+> +	u32 hlperiod_ticks;
+> +	u32 period_ticks;
+> +
+> +	if (!state->enabled) {
+> +		pwm_sg2044_config(ddata, pwm, false);
+> +		return 0;
+> +	}
+> +
+> +	pwm_sg2044_set_polarity(ddata, pwm, state);
+> +
+> +	/*
+> +	 * Duration of High level (duty_cycle) =3D HLPERIOD x Period_of_input_c=
+lk
+> +	 * Duration of One Cycle (period) =3D PERIOD x Period_of_input_clk
+> +	 */
+> +	period_ticks =3D min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->per=
+iod,
+> +					       NSEC_PER_SEC), U32_MAX);
+> +	hlperiod_ticks =3D min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->d=
+uty_cycle,
+> +						 NSEC_PER_SEC), U32_MAX);
+
+This is the same calculation as for sg2042. I think I'd put that in a
+function that is used by both variants.
+
+> +	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=3D%u, HLPERIOD=3D%u\n",
+> +		pwm->hwpwm, period_ticks, hlperiod_ticks);
+
+Now that there are more register values, please add them all to the
+debug output.
+
+> +	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
+> +
+> +	guard(mutex)(&ddata->lock);
+> +
+> +	/*
+> +	 * re-enable PWMSTART to refresh the register period
+> +	 */
+> +	pwm_sg2044_config(ddata, pwm, false);
+
+pwm_sg2044_config() is conceptually different to pwm_sg2042_config().
+This is irritating, so please find a better name.
+
+> +	pwm_sg2044_set_outputenable(ddata, pwm, true);
+> +	pwm_sg2044_config(ddata, pwm, true);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct sg2042_chip_data sg2042_chip_data =3D {
+> +	.ops =3D {
+> +		.apply =3D pwm_sg2042_apply,
+> +		.get_state =3D pwm_sg2042_get_state,
+> +	},
+> +	.atomic =3D true,
+> +};
+> +
+> +static const struct sg2042_chip_data sg2044_chip_data =3D {
+> +	.ops =3D {
+> +		.apply =3D pwm_sg2044_apply,
+> +		.get_state =3D pwm_sg2042_get_state,
+> +	},
+> +	.atomic =3D false,
+
+If you drop the mutex don't forget to drop this one, too.
+
+>  };
+
+Best regards
+Uwe
+
+--pdievs2tczsk2og6
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfznREACgkQj4D7WH0S
+/k5IGQgAuKXpR7T10Khnr9B2l20fU/CYqEoy5dSxjYN0+CoYrIAQuN06iXb2kGk7
+L62b9E0X9INBEJZClH5a6BpNVCOhkcDc+rs2XYL7Aq8248jVS74ybVoZByyRqi/b
+B5sKVoGbh+cHPJjmtVxzvUr83hedydWfqNt43tUfjhjsa5zUPmk+zUvsZ6qh2Jzw
+wH9jLYMmMH13kGrEo0szGFqM3DLI6UldaTIUBueFnZjHHxxct5cxFUwdLWGNoUvK
+xwmykjwSxOKLWqT0kQuot0gG9bxZFsd6O3s0Y9SADPcaUMYckc0uptjWaaQNifr5
+miGS4qqA5OBH+ZCZlche16tmPnzvxw==
+=xehm
+-----END PGP SIGNATURE-----
+
+--pdievs2tczsk2og6--
+
+
+--===============1129772702247954619==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1129772702247954619==--
+
