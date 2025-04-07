@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1887DC369A6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E9FDC369A3
 	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 15:12:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,28 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/YIMt3kItkVsZNpPwS4sJ41MCvQv2gDeX9zSZ5JjMpg=; b=BV/naKag+GK3xK
-	9j9OUNgRbsw01iSdp3PvxcouX5L+toDJEeAbnJIdoJTOR1HocdyY8UEL1WcUrv0XYDSIKPuEJt3kf
-	broCc7JF0cNWMQVnnlJoO3zm0eLqLIC2dJF2+puUNtzt1iYBP54j21/Q4ekUGPlhQq8nXAwcs1Kb3
-	Hns6HYp0neJ86ZaX+yXJkRB9pt0Q6Tb/NHjoWfgvpjIXoy4ksACtgk2/6CHZHZcO7xbmHGdb6MTXu
-	WY/Dwltf/YhPbXmEtceYjGWbi6lgtN2VGjGSpOQrn3/zRvoVDhG+F+EIYPoaxcYjP7G5k1CX7GBFp
-	zsx6ds249E9CrNeCbq5A==;
+	List-Owner; bh=ZIhoj0Kx1pP+u1WH+/dzvefBS9POmHQzzihezaFyNoM=; b=NqeGa71D9RwosX
+	qPQ4gQWO0lKR5Pa9rgZ67BP+nKMQQwmqNoSpdnBdq1liPFhKZQEaXDawAEiMYIDLoG+pTvQAlIuYX
+	VTrjogmjdvdM5/wTUWr2laYa41i8Acb7MYA9e4MpN+6JbFCSZVoyrDF3Dw8+so/Wu8Zdl95YhKUAf
+	V86+xIDXCqqhpfv9cBDMWbVPzg1plzfb8nLOWZbo8Hjk14Z/1jOlqNhKDm1Xka75fts7utGiFBJbE
+	rDC4ob8y5QBwSUVV5YCD4Pkq3I1QEvj/hdtgkNAkkyVlIQPaAmpzXFcJc7KacQl7Cb1qdbehomoa+
+	wgcv/0po+OLo1AxNYg5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1o9L-00000000tiD-2VSm;
-	Mon, 07 Apr 2025 15:12:35 +0000
+	id 1u1o9M-00000000tid-1qle;
+	Mon, 07 Apr 2025 15:12:36 +0000
 Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1llW-00000000JLc-16g5;
-	Mon, 07 Apr 2025 12:39:51 +0000
+	id 1u1lld-00000000JO8-1hv5;
+	Mon, 07 Apr 2025 12:39:58 +0000
 Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [27.18.106.237])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 10ef566ea;
-	Mon, 7 Apr 2025 20:39:41 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 10ef566ef;
+	Mon, 7 Apr 2025 20:39:48 +0800 (GMT+08:00)
 From: Ze Huang <huangze@whut.edu.cn>
-Date: Mon, 07 Apr 2025 20:38:47 +0800
-Subject: [PATCH 2/7] dt-bindings: phy: spacemit: add K1 PCIe/USB3 combo PHY
+Date: Mon, 07 Apr 2025 20:38:48 +0800
+Subject: [PATCH 3/7] dt-bindings: usb: add SpacemiT K1 DWC3 glue
 MIME-Version: 1.0
-Message-Id: <20250407-b4-k1-usb3-v3-2-v1-2-bf0bcc41c9ba@whut.edu.cn>
+Message-Id: <20250407-b4-k1-usb3-v3-2-v1-3-bf0bcc41c9ba@whut.edu.cn>
 References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
 In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
 To: Vinod Koul <vkoul@kernel.org>, 
@@ -51,25 +51,25 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744029565; l=1859;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744029565; l=2481;
  i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=aQ1UuXr0QokrlXqm1mkiZkV7xA2Eksfk8+Uzf96R36c=;
- b=iMysvMhswOHuOw6sKRzqorGENfr+yTpZptaidrXYdi4w2snquFxjPfw6h6dM82qFxBLQizPTZ
- NbnC3H8zupuBJID1VwH0D5gukeZERLrOc3xRJXuKBGdTkg6G+dddYbS
+ bh=Ur2UYtwusU/2jhypNHuXu4S43HheHrAbZbGlidbsqbw=;
+ b=T7LLTfJr2rsbvI8oM55Upyk0Uwva1Xpbcb+1KdT75dXJ1H793CI1zzouVqa3+uuqOpRVchxkI
+ 83BOogxo8ubD3QYxoS1b1+rZpFw+qHlsjYKJJEngIl2p0QxuefQWXfU
 X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
  pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDGkgfVklPGUJOTx1JHkodT1YeHw5VEwETFhoSFy
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCHk1LVkxMGkwYQksdSRhJQlYeHw5VEwETFhoSFy
 	QUDg9ZV1kYEgtZQVlJTFVKQ1VKS01VSUhMWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
 	tLWQY+
-X-HM-Tid: 0a961043805603a1kunm10ef566ea
+X-HM-Tid: 0a9610439daa03a1kunm10ef566ef
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PxA6Dzo*NjJMD0wKKBVNGjhM
-	GRUaCi5VSlVKTE9PS0lCTkNDSk9OVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VKS01VSUhMWVdZCAFZQUhOS043Bg++
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ngg6Fio5OTJLA0wiKBYKGjIL
+	FRUwFC1VSlVKTE9PS0lCTkJOTUNNVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VKS01VSUhMWVdZCAFZQU9KSk03Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_053950_483266_5ABAC2B8 
-X-CRM114-Status: UNSURE (   7.35  )
+X-CRM114-CacheID: sfid-20250407_053957_617765_2D38F839 
+X-CRM114-Status: UNSURE (   9.05  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -87,74 +87,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce support for SpacemiT K1 PCIe/USB3 combo PHY controller.
-
-PCIe portA and USB3 controller share this phy, only one of them can work
-at any given application scenario.
+Add support for SpacemiT DWC3 glue driver, which manages interrupt,
+reset and clock resource.
 
 Signed-off-by: Ze Huang <huangze@whut.edu.cn>
 ---
- .../bindings/phy/spacemit,k1-combphy.yaml          | 53 ++++++++++++++++++++++
- 1 file changed, 53 insertions(+)
+ .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 78 ++++++++++++++++++++++
+ 1 file changed, 78 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/spacemit,k1-combphy.yaml b/Documentation/devicetree/bindings/phy/spacemit,k1-combphy.yaml
+diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..450157b65410b27129603ea1f3523776a1b0a75e
+index 0000000000000000000000000000000000000000..40ce3fd1330d5f371ec69155c237e10a65a9d8f4
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/spacemit,k1-combphy.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+@@ -0,0 +1,78 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/phy/spacemit,k1-combphy.yaml#
++$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: Spacemit K1 PCIe/USB3 PHY
++title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller Glue
 +
 +maintainers:
 +  - Ze Huang <huangze@whut.edu.cn>
 +
-+description:
-+  Combo PHY on SpacemiT K1 SoC.PCIe port A and USB3 controller share this
-+  phy, only one of PCIe port A and USB3 port can work at any given application
-+  scenario.
-+
 +properties:
 +  compatible:
-+    const: spacemit,k1-combphy
++    const: spacemit,k1-dwc3
 +
-+  reg:
-+    maxItems: 2
++  ranges:
++    maxItems: 1
 +
-+  reg-names:
-+    items:
-+      - const: phy_ctrl
-+      - const: phy_sel
++  clocks:
++    maxItems: 1
 +
 +  resets:
 +    maxItems: 1
 +
-+  "#phy-cells":
-+    const: 1
++  interrupts:
++    maxItems: 1
 +
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - resets
-+  - "#phy-cells"
++  interconnects:
++    description:
++      On SpacemiT K1, USB performs DMA through bus other than parent DT node.
++      The 'interconnects' property explicitly describes this path, ensuring
++      correct address translation.
++
++  interconnect-names:
++    const: dma-mem
++
++  # optional
++  vbus-supply:
++    description: A phandle to the regulator supplying the VBUS voltage.
++
++patternProperties:
++  '^usb@':
++    $ref: snps,dwc3.yaml#
 +
 +additionalProperties: false
 +
++required:
++  - compatible
++  - ranges
++  - clocks
++  - resets
++  - interrupts
++  - interconnects
++  - interconnect-names
++
 +examples:
 +  - |
-+    phy@c0b10000 {
-+        compatible = "spacemit,k1-combphy";
-+        reg = <0xc0b10000 0x800>,
-+              <0xd4282910 0x400>;
-+        reg-names = "phy_ctrl", "phy_sel";
-+        resets = <&syscon_apmu 19>;
-+        #phy-cells = <1>;
++    usb@c0a00000 {
++        compatible = "spacemit,k1-dwc3";
++        clocks = <&syscon_apmu 16>;
++        interrupts = <149>;
++        interconnects = <&dram_range0>;
++        interconnect-names = "dma-mem";
++        ranges = <0x0 0xc0a00000 0x10000>;
++        resets = <&syscon_apmu 8>;
++        #address-cells = <1>;
++        #size-cells = <1>;
++        status = "disabled";
++
++        usb@0 {
++            compatible = "snps,dwc3";
++            reg = <0x0 0x0 0x0 0x10000>;
++            interrupt-parent = <&plic>;
++            interrupts = <125>;
++            phys = <&usb_phy2>, <&usb_phy3 2>;
++            phy-names = "usb2-phy", "usb3-phy";
++        };
 +    };
 
 -- 
