@@ -4,48 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F84C3601E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:27:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31BECC369A2
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:28:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=361VLIYIZFBG85bP6+nnONbAx38YCRZNeUG2N2fYKS8=; b=bg04uw7yoTmGxx
-	JE+uzzUZXB/t9IC9eswJYzP1rgk7Zt3ToqMum/f0PCxGzxfv3vp92SdK1sceZT/x+/yC7ZMGZBso1
-	bT/2G1OMvIHeJpKaL6DZNFnvXmvK53TqQZiKoPp5EtRbGKLS8Bn/HqSYTELQoXDuRSBqvvRuVWQCs
-	rfjFPHDdv/Cb8zkqDaesBYWn2rxHp4jWIC+42eaQflLj7RHDp4X4Fh8nQD8V5kGrLQwmbN3qRTFWO
-	P0/Yx7BKKrv+CKm47NXZvLiwSZWoeP9PDAow6p8hK0oY1na33kIZS6iF8LObDHOEYu3n6u+/7c+nU
-	LphkgHURQ1Lr+nfIztSg==;
+	List-Owner; bh=DY5hoEhWDv4zSv5ZCXcz3FmaWaj1G6FHvarJjiDPHgs=; b=MS1TUO7YFmc6q3
+	g4MiaCls7WLkfG9DLfg4LsSzV/X3m40JqAUVYmqoCsMqzdL+L6SnSXV7J3W8ETnHD2498SCgmWwYN
+	urIzIYozvjNIvIyxKaS2/Gdet4X5RvdmC2zXPK2v10gH+MpsLfSbG/NqpqORDNuvdqfAv29bj5qx6
+	dJxebkul601vA1d0CzsSzQ6v+Ksv8zKAMKzKDvWqZO6itTSTEMhGnGeYujHeVWgESYPyJjAN3OTGa
+	f8WzXVF4JmgDXlKdm7JiQpTt1dQQNEwlcJzjdZLl5NHST8adRfre72Nzm3IzyCmX9DssgRJLPjgWd
+	Hsl2ck7VD19/RUS6wL7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mVg-00000000Vdv-0SV6;
-	Mon, 07 Apr 2025 13:27:32 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u1mWk-00000000W0b-0GQ3;
+	Mon, 07 Apr 2025 13:28:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1mU9-00000000VDh-1K1m;
-	Mon, 07 Apr 2025 13:25:58 +0000
+	id 1u1mWh-00000000VzA-3a2B;
+	Mon, 07 Apr 2025 13:28:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4F62E4515C;
-	Mon,  7 Apr 2025 13:25:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F935C4CEDD;
-	Mon,  7 Apr 2025 13:25:52 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4954743B50;
+	Mon,  7 Apr 2025 13:28:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F211C4CEDD;
+	Mon,  7 Apr 2025 13:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744032356;
-	bh=b1zRwSwMdCchEFyuh6cDIP7vGCbroduKVm2a2qoCE4s=;
+	s=k20201202; t=1744032514;
+	bh=HB0twLKuHWo/5qu+5ldxdN6AsWcl950kES1LxUYdfsg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r6BY655SIUdGNY2K2nBTnUI9+KZLQKVx/Szfkf7ER5Oc8ZKUdZ6hsl9pYXQudX1nN
-	 skbTV03Fc/Q0xRptf2SC7xvkz0LGi/TG0r0CdrBm70peHfhllmdZoCe9IwBPlyID36
-	 7D3oOYDFyfhbC46hzc6/G4FoyKSfW9S7v4KjSgCOf5/uWofI9ywAI3PfLQ8HK7C5t4
-	 FLzsEL9Pf4S90HWjAcooP2j2UNnvyPk7VvutSLy9Rcxse5nvGUfC+ZY3lfoR/+mn8Q
-	 5lx75hkllLI7TmgPDDmsSZ5tChw+QjZQDCaSkoE5WsXIWlZH6sS7asf2a3z0jMDehn
-	 IzWmfjKstYUhw==
-Message-ID: <abac53a6-cba7-4962-9f34-ab2eac9e6e3d@kernel.org>
-Date: Mon, 7 Apr 2025 15:25:50 +0200
+	b=HZr2BP5TMyT8C182KOfF0EY/qMgwUmDvDJuMpbUAr63dXGazwawrg9sb4+SlTBr1y
+	 gFBQluLa+ZGmR9QsV/z+KJwXUFWEYZCShIQEx0hbBKMRJy0kgztEfcHFo91ZUgrYA5
+	 NJL6SwE26kjqMnFyvvJxk2nmCGjG4MQvOPm8+jyWRZ1t77AoXGsnHbVEuCcRAkY/G8
+	 +FG/W6DP71sYwCXdRFgOQI5aOPUHhNWMQcJlQR0pXoX84a09CRXDW3tHqE8Zem/kNQ
+	 /QOr4+5niJu5sTEN88WZiRwXQ9MNxhHbJ5gWMnGGvIkI5ZBbeOHf37ELxILnkCntUd
+	 d8zIlAy6g6bOw==
+Message-ID: <74770bec-eeda-4823-b494-bea177fe26b0@kernel.org>
+Date: Mon, 7 Apr 2025 15:28:28 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] phy: spacemit: support K1 USB2.0 PHY controller
+Subject: Re: [PATCH 5/7] phy: spacemit: add USB3 support for K1 PCIe/USB3
+ combo PHY
 To: Ze Huang <huangze@whut.edu.cn>, Vinod Koul <vkoul@kernel.org>,
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -60,7 +61,7 @@ Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
 References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
- <20250407-b4-k1-usb3-v3-2-v1-4-bf0bcc41c9ba@whut.edu.cn>
+ <20250407-b4-k1-usb3-v3-2-v1-5-bf0bcc41c9ba@whut.edu.cn>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,11 +107,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-4-bf0bcc41c9ba@whut.edu.cn>
+In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-5-bf0bcc41c9ba@whut.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_062557_397591_5385D72C 
-X-CRM114-Status: UNSURE (   6.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_062835_932978_99F88034 
+X-CRM114-Status: GOOD (  15.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,22 +128,46 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 07/04/2025 14:38, Ze Huang wrote:
-> +static const struct of_device_id spacemit_usb2phy_dt_match[] = {
-> +	{ .compatible = "spacemit,k1-usb2-phy", },
-> +	{ /* sentinal */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, spacemit_usb2phy_dt_match);
+> Add support for USB 3.0 mode on the K1 PCIe/USB3 combo PHY. Currently,
+> only USB mode is supported; PCIe support is not included in this change.
+> 
+> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+> ---
+>  drivers/phy/spacemit/Kconfig          |   8 ++
+>  drivers/phy/spacemit/Makefile         |   1 +
+>  drivers/phy/spacemit/phy-k1-combphy.c | 229 ++++++++++++++++++++++++++++++++++
+>  3 files changed, 238 insertions(+)
+> 
+> diff --git a/drivers/phy/spacemit/Kconfig b/drivers/phy/spacemit/Kconfig
+> index f0c2a33f53cc810e71c6140ae957aa68a2b6ff0c..12749aba756329cf64fb9199055ba484fe05f3ab 100644
+> --- a/drivers/phy/spacemit/Kconfig
+> +++ b/drivers/phy/spacemit/Kconfig
+> @@ -10,3 +10,11 @@ config PHY_SPACEMIT_K1_USB2
+>  	help
+>  	  Enable this to support K1 USB 2.0 PHY driver. This driver takes care of
+>  	  enabling and clock setup and will be used by K1 udc/ehci/otg driver.
 > +
-> +static struct platform_driver spacemit_usb2_phy_driver = {
-> +	.probe	= spacemit_usb2phy_probe,
-> +	.driver = {
-> +		.name   = "spacemit-usb2-phy",
-> +		.owner  = THIS_MODULE,
+> +config PHY_SPACEMIT_K1_COMBPHY
+> +	tristate "SpacemiT K1 PCIe/USB3 combo PHY support"
+> +	depends on OF
+> +	select GENERIC_PHY
+> +	default ARCH_SPACEMIT && USB_DWC3_SPACEMIT
+> +	help
+> +	  USB3/PCIe Combo PHY Support for SpacemiT K1 SoC
+
+Missing depends on ARCH_SPACEMIT || COMPILE_TEST
+
+...
 
 
-Take recent drivers and use them as base. There is no such 'owner' since
-10 years.
-
+> +	priv->phy = devm_phy_create(dev, NULL, &spacemit_combphy_ops);
+> +	if (IS_ERR(priv->phy))
+> +		return dev_err_probe(dev, PTR_ERR(priv->phy),
+> +				     "failed to create combphy\n");
+> +
+> +	dev_set_drvdata(dev, priv);
+> +	phy_set_drvdata(priv->phy, priv);
+Both make no sense. Look what this function does.
 
 Best regards,
 Krzysztof
