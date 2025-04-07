@@ -4,49 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF45DC36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8522BC369A2
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
 	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QLIxia6ZehQdYkjwngDqt5JI22GdqVJdTSl1IWmrzdA=; b=idn2zrPBD+RED5
-	dXgCWU59ntufqcHxdtfaIw3zhMadYSfmctsAhoMAAwY0MrgpNfUtBKgCGvCD/NVFywViBiQw+L9tu
-	RB+r2plwVT/1GfmZEycoTso3mA0fuVlCgQGIVjFCffDr2jgofI/zHCxlTZWOui3JovFFYoqhJR7tz
-	6Wc9ja3wycmsDTgxT5fYUIqji5tUZhY5mtH9buljjQv+w3TurLXfy/sL2QURpDj6EBE/qt9iPdG8b
-	6S4NapZp6hxqtj/0zPytH67yakg6z+JEVb3Mit7v+e3dbC/9uYbEYivvLbjN1mvNsArdNmo41g5Hf
-	D8QZhhgw91SHmAoHsDpg==;
+	List-Owner; bh=8DRutCz1cPWCCCkdxlagTGKEwtJQg+fWwaX5SPsB1jc=; b=otnyNER3KK6Pne
+	APGoKMMg6G6OiPq/CX1LQpkrC9v5vj91d3FrZGWDL9wGxUjAfTiYf+8Vcmmx7LAP7+eD+18CTNGg7
+	P//H1yLNEiGEiUqbTmMshUf6NBgXVilDNWiQijq5eMizpH6idNMZBxnKWBcniza2E87v/W/Bu8d64
+	jnW2135P5y8/sn5oFu/2g3h1Hbq1eTLF25C71UN+PFi7ucnu0yHKwFV/89EnGBc58nQIfuVSAaqTv
+	bNNZpQ38ySmKt7gS50e+g2KCtsKVJRDspRH4wmAlIibfaE81zxl/tE00cBEDkCW8Ytu/DyNy3Gv8D
+	X/RKPBaHSgruWKAfQA8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pKK-00000001BAo-2bvW;
-	Mon, 07 Apr 2025 16:28:00 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u1pKO-00000001BI9-0pHn;
+	Mon, 07 Apr 2025 16:28:04 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1nV5-00000000k5i-21o8
+	id 1u1nVc-00000000k8p-0PLe
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 07 Apr 2025 14:31:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=q6tTSWcm2DXYoa05+QfeLQWnQ/k6Gldr6KJyW63Pyas=; b=aSDT3rxRq8aLA2FA7UAMTEXPMX
+	568ZzkhNoQzl5GN7E8aG3ZV6fOJTJVYVPElcuF1BgpVvg3ekt2CSuFhwSpAZuP3qRdctmlLb/UO/N
+	Uo8VGizHuforvYDdG1UEzQpqnCDyHhS/frVknUITpU8/u1ViwAOPlg78ELvh3+pL8sHUhBZ2Fovoq
+	wugnr4AfzFwBLj42i7LTIgX8MsNRO91bWHzFewWI1FdWD8ru84cG/+Da6Bdd+EdMU0dAxPa7TeCLR
+	zwoaMTcGDoItanloeh9vVzSYIK+omTOLXoPWlFLyKERY6y2sIQCeb+PlseodnRDv9KJwWbWrYiof5
+	rfRw2pIA==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u1nVY-00000007zAt-3rug
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 14:31:00 +0000
+	Mon, 07 Apr 2025 14:31:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3E4DA44133;
-	Mon,  7 Apr 2025 14:30:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20FFFC4CEDD;
-	Mon,  7 Apr 2025 14:30:54 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id F0D9D49EC5;
+	Mon,  7 Apr 2025 14:31:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0A8FC4CEDD;
+	Mon,  7 Apr 2025 14:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744036258;
-	bh=h4WeB3JR5XOOKfjJ1Wb1pS/jsomI9GdGY4EGispxTJc=;
+	s=k20201202; t=1744036285;
+	bh=zmG+WoiwkUCuBe9DZidtoGv6whGm/dOIb2tKqTnPHCo=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=T+49vi1o6ayghjPS6kDvXpy0WVsKGfGkRI456Fq5kp/tlgjOhzpc10jQjzFGUGjej
-	 bb0K52Mund/e5TIkMPsX8jc12JEhoHWvMTRzpAjJQbfHZAyyM4pxlbJZAFn8Czva48
-	 FOjWIKMOyg+AANEOJOR/Z1JeI5Tl73nMpR5DJtC9ik/yIvnB5I+vPWfmUzH8+vj5ff
-	 zT+jc45H18X0btcWINNL4r1qNv+sV2EoTxDbQ8dZa8DodW/Ek/ThIL6RgOqaIVaeBQ
-	 Rc7VAB0nB7F3PLj+rHLeAeJJh5C9i2LMObbNz0FWmZVHRljBU5WR8jHtttrLM4E4Cc
-	 RTyxiYEFItSqw==
-Message-ID: <71e2a14f-be36-4ec9-92a4-ec9301e925e8@kernel.org>
-Date: Mon, 7 Apr 2025 16:30:53 +0200
+	b=ZszCh9tAu6wD27hvttJjNDFtg9psZ/tTYx8jBK+4cw369xBNIyk7GfcxBux1+2UZj
+	 RtszRrzBxnD1iZXymhmCHCWnfCxOfZOSAPDHEFJAQl/GqeQyuntbBt065pLPMSjGf8
+	 Nx/9Jlqxt3QA8HI8tCusKkAyRJDU7HLA3EC7L124d83aXlwC8Wcu8J3IA2cqsAdVpg
+	 T7pGCv38OoJFzv7OhjkJh+dHrzDOv2MptqYfgqmkB9oMcRi3jJbFt1gF9FiDe1e3Tv
+	 VgiT80PMv60Z08ZphcnddEkjr1dAHXPubigJQBWQTBZKY3UdkgSSO1HYcSHZbIiEr0
+	 KJuQMZu3IxAag==
+Message-ID: <45ec17f3-37e8-4af8-8bb3-463e3f26e112@kernel.org>
+Date: Mon, 7 Apr 2025 16:31:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] riscv: dts: andes: add QiLai SoC device tree
+Subject: Re: [PATCH 8/9] riscv: dts: andes: add Voyager board device tree
 To: Ben Zong-You Xie <ben717@andestech.com>, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
@@ -54,7 +69,7 @@ Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
  tglx@linutronix.de, daniel.lezcano@linaro.org,
  prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com
 References: <20250407104937.315783-1-ben717@andestech.com>
- <20250407104937.315783-8-ben717@andestech.com>
+ <20250407104937.315783-9-ben717@andestech.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,11 +115,10 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250407104937.315783-8-ben717@andestech.com>
+In-Reply-To: <20250407104937.315783-9-ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_073059_565571_A149DC4E 
-X-CRM114-Status: UNSURE (   5.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250407_153129_410507_BE52F7C0 
+X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,77 +136,45 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 07/04/2025 12:49, Ben Zong-You Xie wrote:
-> +/dts-v1/;
-> +
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +/ {
-> +	#address-cells = <2>;
-> +	#size-cells = <2>;
-> +
-> +	aliases {
-> +		serial0 = &uart0;
+> Introduce the device tree support for Voyager development board.
+> 
+> Currently only support booting into console with only uart,
+> other features will be added later.
+> 
+> Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+> ---
+>  arch/riscv/boot/dts/Makefile                |  1 +
+>  arch/riscv/boot/dts/andes/Makefile          |  2 ++
+>  arch/riscv/boot/dts/andes/qilai-voyager.dts | 19 +++++++++++++++++++
+>  3 files changed, 22 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/andes/Makefile
+>  create mode 100644 arch/riscv/boot/dts/andes/qilai-voyager.dts
+> 
+> diff --git a/arch/riscv/boot/dts/Makefile b/arch/riscv/boot/dts/Makefile
+> index 64a898da9aee..3b99e91efa25 100644
+> --- a/arch/riscv/boot/dts/Makefile
+> +++ b/arch/riscv/boot/dts/Makefile
+> @@ -1,5 +1,6 @@
+>  # SPDX-License-Identifier: GPL-2.0
+>  subdir-y += allwinner
+> +subdir-y += andes
+>  subdir-y += canaan
+>  subdir-y += microchip
+>  subdir-y += renesas
+> diff --git a/arch/riscv/boot/dts/andes/Makefile b/arch/riscv/boot/dts/andes/Makefile
+> new file mode 100644
+> index 000000000000..c833e041c220
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/andes/Makefile
+> @@ -0,0 +1,2 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +dtb-$(CONFIG_ARCH_ANDES) += qilai-voyager.dtb
+> \ No newline at end of file
 
-This belongs to the board.
+You have patch warnings.
 
-> +	};
-> +
-> +	cpus {
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +		timebase-frequency = <62500000>;
-> +
-> +		cpu0: cpu@0 {
-> +			compatible = "andestech,ax45mp", "riscv";
-> +			device_type = "cpu";
-> +			status = "okay";
-
-Drop. See DTS coding style.
-
-
-...
-
-> +
-> +	memory@400000000 {
-> +		device_type = "memory";
-> +		reg = <0x4 0x00000000 0x4 0x00000000>;
-
-This belongs to the board usually. Are you sure your SoC has physically
-fixed memory?
-
-> +	};
-> +
-> +	soc {
-> +		#address-cells = <2>;
-> +		#size-cells = <2>;
-> +		compatible = "simple-bus";
-> +		ranges;
-> +
-> +		plic: interrupt-controller@2000000 {
-> +			compatible = "andestech,qilai-plic", "andestech,nceplic100";
-> +			#address-cells = <0>;
-> +			#interrupt-cells = <2>;
-> +			interrupt-controller;
-> +			reg = <0x0 0x2000000 0x0 0x2000000>;
-> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
-> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
-> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
-> +					      <&cpu3_intc 11>, <&cpu3_intc 9>;
-> +			riscv,ndev = <71>;
-> +		};
-> +
-> +		plic_sw: interrupt-controller@400000 {
-> +			compatible = "andestech,qilai-plicsw", "andestech,plicsw";
-> +			reg = <0x0 0x400000 0x0 0x400000>;
-> +			interrupts-extended = <&cpu0_intc 3>,
-> +					      <&cpu1_intc 3>,
-> +					      <&cpu2_intc 3>,
-> +					      <&cpu3_intc 3>;
-> +		};
-> +
-> +		plmt: timer@100000 {
-
-Order the nodes, see DTS coding style.
+> diff --git a/arch/riscv/boot/dts/andes/qilai-voyager.dts b/arch/riscv/boot/dts/andes/qilai-voyager.dts
+> new file mode 100644
 
 
 Best regards,
