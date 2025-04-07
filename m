@@ -4,100 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37E02C3601E
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:03:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50992C3601E
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 13:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/0TsHaJoYOFrXz7c24v6EACOxLCa7SUSlsscd/wYPww=; b=b99dfEEnaSicU0
-	gi6gQ8/+32qhTAmbP1kDpwG5gfa6FsTO9pQkbb2IM0EFFcVFuxXuLEp0MQ0NxenhpwdP2FLQ3CoqA
-	torZ6kLJCifTRgwbXAYj1uSKCI272a9JXGguVFQ09T+QDZ8nv+31OnhTQJ0hDebX3lZ/ngBan/RHY
-	7MAwBOKlFwtSKCzqIRG3Y0WknVApnVE9+lN0GCUbxhqnzoomXNAq6jixOi8WKvGSr2N1Gpkfp9GJn
-	dPMROLYAjzH+OfwR4+pI8zSYq3elqMACPfws62F8w73stJmgtq3itHZbE4gXVrlh/BpJJvhfZdNzB
-	StfSpNiETsA87H/68gXw==;
+	List-Owner; bh=gkXSFv/kFO8TwcwK4gp0WKT3gpyGxt/H5MSBn/w4qbY=; b=liXRYmSdjRmCso
+	ppwnoMP8BVrgsODVqSOEAOVvYcYqi357o9uxiiKAHb3G4gABtdQR4Ck8nUJcyak3xbsVXW7+pRZG4
+	hZ0waehmbylQbvr7XLT/78xY88rlY8ZnaedRcAbLeewa0eZMRYRwsYQ7v0RH9TUae2Fg3Jk95SBWS
+	IVvc+YlOmPUE9Xm3Q2hDACD5zYtg1kiRQYIRpT7BERQ162+Vmnp/mDJWg3CKo7MGDwq6OFbQEPOiP
+	MBC0H7OLia2dMJZVpCvZ4fSTWd9iTKTncTiW5/oG35oODFLmiXrMa2T/g9cOjMrb9l3D6ywTJhEbx
+	jmyMutuSCOI0eLAfMXWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1m7t-00000000Oiy-1NMZ;
-	Mon, 07 Apr 2025 13:02:57 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1u1mNR-00000000TBR-3B8I;
+	Mon, 07 Apr 2025 13:19:01 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1llC-00000000JFa-1GvY
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 12:39:31 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-22409077c06so51499415ad.1
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 05:39:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744029569; x=1744634369; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jqcszFjiY+Y27P7zL5H3ARQuOUut/C9C9Lyd9JHvtz8=;
-        b=flxmV1uubkMhGbSimMktejaYHluuNwvLoZNy2cXnTh6VpzFwBMOEZLyV1DIskLBAfR
-         I1USSGdxSJkevqGpIJirDQnSHk3Lwl9ExEO88uOkJ3l1Vu0XmjqK60Rt0wC68w+DwVz2
-         L7+oGcF9+WSXgHd0sjOfCwCVc3SrAU8rxp1K0cuh+Eecj70ITZdIqVmnGe4RYo5uEJzQ
-         HFRUEisqhUccYjFlFZqDbvAZ1ituJcw2DYEYSk0yrvAl9bPDiMCIwEPAL0VbmYK/zEpV
-         iERvy/0JMADpazMlLCizAl+q234QPjyXGjjs1auK0jUibXcww0Qvv5vpsSJKgQyr08Fe
-         BrpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744029569; x=1744634369;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jqcszFjiY+Y27P7zL5H3ARQuOUut/C9C9Lyd9JHvtz8=;
-        b=KM2hbaEo0zePEeFNcq0Ox/S9NMz9tCfS9lH0ANbO0UwgtgPu/SgRxcPPWCcfNrY8KT
-         3hI2tQlpWDN/+JEYrT/61LTul/376RZVo25UDadiX8ZRcWXThQE/pmtvdcrFJewdFxxI
-         O7VxS3D6yRA9pJFKA08/bN/EqsLCsxmuVg/hGe1N8rXUHXSfX3AE55s1C6p09mbkFcKB
-         EMSQaldGJEUMnCEY9KNniLcpGxLvCHy+3UuHxaaCwESB6iEKLaeuiFQN79O8mrr/7G3e
-         wzWMk8/ixgXaLEbyaH0eK6qULxGjY3FxO3mkeacGMHaJQrmdNB7syk02lw5HzL2QwLsD
-         T53Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX7Ew4IUz1k4ZFcMHuL29Fql+7OK5sQAoVBQD2PkgOdtQFU+pp7MH213rbyvBaTnbpGmGT2V8BrckraPw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTrumlHWwPg5vF9lW1g4gFn3SZNLUuOV6rGz53FQjzmRy4q3Va
-	05v08fbmMsdH+caHwCfhNeJOMpKW8eZE7DtV0H1hkUGblMmKX4Oh
-X-Gm-Gg: ASbGncuOUpaXX4fl4S5dcb5VIr+9HnGrLzLt06K0rs23PBXDO482QeyNOomfhZf1CxN
-	O6dClDV2Q0ji6yeeR3oFnsHNl8fAyMRykG8T7XO1LOerg6jWzXs62OskMF7wo1Rz4J9ahU24ELB
-	vIzLF4ceGSJiHOdQB/KhLqfUr+Wd2KvOfPB7Qqdw5I1xapVqQ7c4iYTIiMgW7DmfSlmUQz1aanN
-	W+57q5wjydqoozICFuAME8aZIlcCCgoaXcXR9e2lna+/ribe4IoUP64gCYsrHOb98gX4YDaTQUi
-	B+eu0Y+T3gULVG4D49FrrNcnjwspJfp2WdbgRw3GvfOXvnD13/vRo4g030lyc151q8WGdjbETWX
-	5Gdcrdn2wrfIa4WkTTUGZAudj1L1q4o3NoyP0WrlrUIuItIQn62Sx
-X-Google-Smtp-Source: AGHT+IFEVGUSoYS1JmDqtU019RQE7MA11l/maqzFklmFLnc6Zt4IppcP3qxlg0IP1WUL3SYihQNhrw==
-X-Received: by 2002:a17:902:e541:b0:224:24d5:f20a with SMTP id d9443c01a7336-22a8a8d3173mr178795425ad.48.1744029569090;
-        Mon, 07 Apr 2025 05:39:29 -0700 (PDT)
-Received: from DESKTOP-NBGHJ1C.flets-east.jp (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22978777259sm79456365ad.251.2025.04.07.05.39.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 05:39:28 -0700 (PDT)
-From: Ryo Takakura <ryotkkr98@gmail.com>
-To: lkp@intel.com
-Cc: alex@ghiti.fr,
-	aou@eecs.berkeley.edu,
-	bigeasy@linutronix.de,
-	conor.dooley@microchip.com,
-	gregkh@linuxfoundation.org,
-	jirislaby@kernel.org,
-	john.ogness@linutronix.de,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-serial@vger.kernel.org,
-	oe-kbuild-all@lists.linux.dev,
-	palmer@dabbelt.com,
-	paul.walmsley@sifive.com,
-	pmladek@suse.com,
-	ryotkkr98@gmail.com,
-	samuel.holland@sifive.com,
-	u.kleine-koenig@baylibre.com
-Subject: Re: [PATCH v2] serial: sifive: Switch to nbcon console
-Date: Mon,  7 Apr 2025 21:39:20 +0900
-Message-Id: <20250407123920.14443-1-ryotkkr98@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <202504060816.EWk91sJS-lkp@intel.com>
-References: <202504060816.EWk91sJS-lkp@intel.com>
+	id 1u1mNO-00000000T95-1fcd;
+	Mon, 07 Apr 2025 13:18:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 5BF3149BAC;
+	Mon,  7 Apr 2025 13:18:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73452C4CEDD;
+	Mon,  7 Apr 2025 13:18:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744031937;
+	bh=v1NRki44ZNsg11HwuI5lbdH0wmJphUEXdqHPrVHt4dw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BzfSUKFVEpf0b9QkyCwYgoqYngi01GfaCOmSO7DOi5Ik36vH6qRv7isKR9eWSdXb+
+	 cBo+ifa02XLZ4OjgqVo+GwClE3157DdGsWBq/QjH22e9seMOLo/xU3kNaj3h3rvXe0
+	 npHsD2YUE8VSizzc/Pu63CbZ6Vvl6VhhihD5JmVL+ULVqF1ZsIY0iTuvLH4GuRm0gY
+	 J18IchOfnFU1109RueLHMAb7SnVT8NwTsfbALQQRgHy6Ad0G2XehMnP4JyU5LnvBkT
+	 GHRHJFRVpUM49HIi16FO9YNq9sxWQQw1G5/GMw11NMbayBpgJndcsoJYynwNuVkrrP
+	 JEwGs1AEWZTbg==
+Message-ID: <02157e96-9524-4590-9ca6-e4390176d74e@kernel.org>
+Date: Mon, 7 Apr 2025 15:18:51 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/7] dt-bindings: phy: spacemit: add K1 USB2 PHY
+To: Ze Huang <huangze@whut.edu.cn>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org
+References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
+ <20250407-b4-k1-usb3-v3-2-v1-1-bf0bcc41c9ba@whut.edu.cn>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-1-bf0bcc41c9ba@whut.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_053930_342243_5F92D199 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250407_061858_478312_96F127EE 
+X-CRM114-Status: UNSURE (   4.82  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,70 +127,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 6 Apr 2025 08:48:12 +0800, kernel test robot wrote:
->kernel test robot noticed the following build warnings:
->
->[auto build test WARNING on tty/tty-testing]
->[also build test WARNING on tty/tty-next tty/tty-linus linus/master v6.14 next-20250404]
->[If your patch is applied to the wrong git tree, kindly drop us a note.
->And when submitting patch, we suggest to use '--base' as documented in
->https://git-scm.com/docs/git-format-patch#_base_tree_information]
->
->url:    https://github.com/intel-lab-lkp/linux/commits/Ryo-Takakura/serial-sifive-Switch-to-nbcon-console/20250405-230051
->base:   https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git tty-testing
->patch link:    https://lore.kernel.org/r/20250405145915.493173-1-ryotkkr98%40gmail.com
->patch subject: [PATCH v2] serial: sifive: Switch to nbcon console
->config: arm-randconfig-002-20250406 (https://download.01.org/0day-ci/archive/20250406/202504060816.EWk91sJS-lkp@intel.com/config)
->compiler: arm-linux-gnueabi-gcc (GCC) 7.5.0
->reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250406/202504060816.EWk91sJS-lkp@intel.com/reproduce)
->
->If you fix the issue in a separate patch/commit (i.e. not just a new version of
->the same patch/commit), kindly add following tags
->| Reported-by: kernel test robot <lkp@intel.com>
->| Closes: https://lore.kernel.org/oe-kbuild-all/202504060816.EWk91sJS-lkp@intel.com/
->
->All warnings (new ones prefixed by >>):
->
->>> drivers/tty/serial/sifive.c:155: warning: Function parameter or struct member 'console_line_ended' not described in 'sifive_serial_port'
+On 07/04/2025 14:38, Ze Huang wrote:
+> +
+> +properties:
+> +  compatible:
+> +    const: spacemit,k1-usb2-phy
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  "#phy-cells":
+> +    const: 0
+> +
+No supplies? No resets? Are you sure hardware does not use them?
 
-Thank you for reporting.
-I overlooked this... I'll add a description for it.
-
-Sincerely,
-Ryo Takakura
-
->vim +155 drivers/tty/serial/sifive.c
->
->45c054d0815b15 Paul Walmsley 2019-04-12  131  
->45c054d0815b15 Paul Walmsley 2019-04-12  132  /*
->45c054d0815b15 Paul Walmsley 2019-04-12  133   *
->45c054d0815b15 Paul Walmsley 2019-04-12  134   */
->45c054d0815b15 Paul Walmsley 2019-04-12  135  
->45c054d0815b15 Paul Walmsley 2019-04-12  136  /**
->180bb243de730c Lee Jones     2020-11-04  137   * struct sifive_serial_port - driver-specific data extension to struct uart_port
->45c054d0815b15 Paul Walmsley 2019-04-12  138   * @port: struct uart_port embedded in this struct
->45c054d0815b15 Paul Walmsley 2019-04-12  139   * @dev: struct device *
->45c054d0815b15 Paul Walmsley 2019-04-12  140   * @ier: shadowed copy of the interrupt enable register
->45c054d0815b15 Paul Walmsley 2019-04-12  141   * @baud_rate: UART serial line rate (e.g., 115200 baud)
->180bb243de730c Lee Jones     2020-11-04  142   * @clk: reference to this device's clock
->45c054d0815b15 Paul Walmsley 2019-04-12  143   * @clk_notifier: clock rate change notifier for upstream clock changes
->45c054d0815b15 Paul Walmsley 2019-04-12  144   *
->45c054d0815b15 Paul Walmsley 2019-04-12  145   * Configuration data specific to this SiFive UART.
->45c054d0815b15 Paul Walmsley 2019-04-12  146   */
->45c054d0815b15 Paul Walmsley 2019-04-12  147  struct sifive_serial_port {
->45c054d0815b15 Paul Walmsley 2019-04-12  148  	struct uart_port	port;
->45c054d0815b15 Paul Walmsley 2019-04-12  149  	struct device		*dev;
->45c054d0815b15 Paul Walmsley 2019-04-12  150  	unsigned char		ier;
->45c054d0815b15 Paul Walmsley 2019-04-12  151  	unsigned long		baud_rate;
->45c054d0815b15 Paul Walmsley 2019-04-12  152  	struct clk		*clk;
->45c054d0815b15 Paul Walmsley 2019-04-12  153  	struct notifier_block	clk_notifier;
->328ee9dbff3941 Ryo Takakura  2025-04-05  154  	bool			console_line_ended;
->45c054d0815b15 Paul Walmsley 2019-04-12 @155  };
->45c054d0815b15 Paul Walmsley 2019-04-12  156  
->
->-- 
->0-DAY CI Kernel Test Service
->https://github.com/intel/lkp-tests/wiki
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
