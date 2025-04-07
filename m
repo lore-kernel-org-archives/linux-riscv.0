@@ -4,53 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76D27C36010
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:27:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF45DC36010
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 16:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=71uLwaFwgVkS6IaiW/dXWaJgl7ny6KRiJZyST83oz44=; b=mOagcDmR7Ca5Gg
-	s8D7zz+jhYgl9IMBFU3D6bMxd4kmlrAiQ4xfsa1JRexi3F5rv894ljZdSxLJ4Fh/MYSxTbew/WkoF
-	Hy91HV9MCTcTW+8uECXSxjlqtRigRvOmlehx8fvnWeLFlHzauL8Q0aQm89yg9qJ8QZeo9pBujuL5q
-	4q1MUBOYauVKWt2Q5sklngs1T++FfY8fU+kqFa83Yx5VR0pb9h1dn2PmnKganwp2WhHEtRUObi0/0
-	ThAxVQ38J8MdAbLt6MHJYEkfyb/oTAyIf4s1p5K0Nmhv5y24pU1DtOa+/URt27r+S9wUpfigE2vOv
-	XlG/MAdw3e+S6EnPUGmA==;
+	List-Owner; bh=QLIxia6ZehQdYkjwngDqt5JI22GdqVJdTSl1IWmrzdA=; b=idn2zrPBD+RED5
+	dXgCWU59ntufqcHxdtfaIw3zhMadYSfmctsAhoMAAwY0MrgpNfUtBKgCGvCD/NVFywViBiQw+L9tu
+	RB+r2plwVT/1GfmZEycoTso3mA0fuVlCgQGIVjFCffDr2jgofI/zHCxlTZWOui3JovFFYoqhJR7tz
+	6Wc9ja3wycmsDTgxT5fYUIqji5tUZhY5mtH9buljjQv+w3TurLXfy/sL2QURpDj6EBE/qt9iPdG8b
+	6S4NapZp6hxqtj/0zPytH67yakg6z+JEVb3Mit7v+e3dbC/9uYbEYivvLbjN1mvNsArdNmo41g5Hf
+	D8QZhhgw91SHmAoHsDpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1pJz-00000001Ae9-0imD;
-	Mon, 07 Apr 2025 16:27:39 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u1pKK-00000001BAo-2bvW;
+	Mon, 07 Apr 2025 16:28:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1lt3-00000000LaL-0wMw
+	id 1u1nV5-00000000k5i-21o8
 	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 12:47:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 2996543160;
-	Mon,  7 Apr 2025 12:47:31 +0000 (UTC)
-Message-ID: <4b2a6bf1-3642-431b-bb74-3aeae79d17d3@ghiti.fr>
-Date: Mon, 7 Apr 2025 14:47:31 +0200
+	Mon, 07 Apr 2025 14:31:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3E4DA44133;
+	Mon,  7 Apr 2025 14:30:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20FFFC4CEDD;
+	Mon,  7 Apr 2025 14:30:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744036258;
+	bh=h4WeB3JR5XOOKfjJ1Wb1pS/jsomI9GdGY4EGispxTJc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=T+49vi1o6ayghjPS6kDvXpy0WVsKGfGkRI456Fq5kp/tlgjOhzpc10jQjzFGUGjej
+	 bb0K52Mund/e5TIkMPsX8jc12JEhoHWvMTRzpAjJQbfHZAyyM4pxlbJZAFn8Czva48
+	 FOjWIKMOyg+AANEOJOR/Z1JeI5Tl73nMpR5DJtC9ik/yIvnB5I+vPWfmUzH8+vj5ff
+	 zT+jc45H18X0btcWINNL4r1qNv+sV2EoTxDbQ8dZa8DodW/Ek/ThIL6RgOqaIVaeBQ
+	 Rc7VAB0nB7F3PLj+rHLeAeJJh5C9i2LMObbNz0FWmZVHRljBU5WR8jHtttrLM4E4Cc
+	 RTyxiYEFItSqw==
+Message-ID: <71e2a14f-be36-4ec9-92a4-ec9301e925e8@kernel.org>
+Date: Mon, 7 Apr 2025 16:30:53 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] RISC-V: Kconfig: Fix help text of CMDLINE_EXTEND
+Subject: Re: [PATCH 7/9] riscv: dts: andes: add QiLai SoC device tree
+To: Ben Zong-You Xie <ben717@andestech.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ tglx@linutronix.de, daniel.lezcano@linaro.org,
+ prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com
+References: <20250407104937.315783-1-ben717@andestech.com>
+ <20250407104937.315783-8-ben717@andestech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-To: Yeking@Red54.com, linux-riscv@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Nick Kossifidis <mick@ics.forth.gr>, Debbie Maliotaki
- <dmaliotaki@gmail.com>, linux-kernel@vger.kernel.org
-References: <tencent_A93C7FB46BFD20054AD2FEF4645913FF550A@qq.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <tencent_A93C7FB46BFD20054AD2FEF4645913FF550A@qq.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddtvdefucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeeuieegveegudffiedvveejhfejiefhgefhkeejtdeufedufeehhfeufeduleehieenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeisgemvdefgeekmeduvgduheemvdgrgeehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeekpdhrtghpthhtohepjggvkhhinhhgseftvgguheegrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehpr
- ghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepmhhitghksehitghsrdhfohhrthhhrdhgrhdprhgtphhtthhopegumhgrlhhiohhtrghkihesghhmrghilhdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250407104937.315783-8-ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_054737_408337_F0B48E96 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250407_073059_565571_A149DC4E 
+X-CRM114-Status: UNSURE (   5.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,37 +116,89 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgWElFIFpoaWJhbmcsCgpPbiAyOC8wMy8yMDI1IDExOjE0LCBZZWtpbmdAUmVkNTQuY29tIHdy
-b3RlOgo+IEZyb206IOiwouiHtOmCpiAoWElFIFpoaWJhbmcpIDxZZWtpbmdAUmVkNTQuY29tPgo+
-Cj4gSXQgaXMgdGhlIGJ1aWx0LWluIGNvbW1hbmQgbGluZSBhcHBlbmRlZCB0byB0aGUgYm9vdGxv
-YWRlciBjb21tYW5kIGxpbmUsCj4gbm90IHRoZSBib290bG9hZGVyIGNvbW1hbmQgbGluZSBhcHBl
-bmRlZCB0byB0aGUgYnVpbHQtaW4gY29tbWFuZCBsaW5lLgo+Cj4gRml4ZXM6IDNhZWQ4YzQzMjY3
-ZSAoIlJJU0MtVjogVXBkYXRlIEtjb25maWcgdG8gYmV0dGVyIGhhbmRsZSBDTURMSU5FIikKPiBT
-aWduZWQtb2ZmLWJ5OiDosKLoh7TpgqYgKFhJRSBaaGliYW5nKSA8WWVraW5nQFJlZDU0LmNvbT4K
-PiAtLS0KPiAgIGFyY2gvcmlzY3YvS2NvbmZpZyB8IDQgKystLQo+ICAgMSBmaWxlIGNoYW5nZWQs
-IDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L0tjb25maWcgYi9hcmNoL3Jpc2N2L0tjb25maWcKPiBpbmRleCA1NGVkMmE4Y2Q3YWYuLjRj
-ZDE4ZDBkMDdiMyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L0tjb25maWcKPiArKysgYi9hcmNo
-L3Jpc2N2L0tjb25maWcKPiBAQCAtMTE0NCw4ICsxMTQ0LDggQEAgY29uZmlnIENNRExJTkVfRkFM
-TEJBQ0sKPiAgIGNvbmZpZyBDTURMSU5FX0VYVEVORAo+ICAgCWJvb2wgIkV4dGVuZCBib290bG9h
-ZGVyIGtlcm5lbCBhcmd1bWVudHMiCj4gICAJaGVscAo+IC0JICBUaGUgY29tbWFuZC1saW5lIGFy
-Z3VtZW50cyBwcm92aWRlZCBkdXJpbmcgYm9vdCB3aWxsIGJlCj4gLQkgIGFwcGVuZGVkIHRvIHRo
-ZSBidWlsdC1pbiBjb21tYW5kIGxpbmUuIFRoaXMgaXMgdXNlZnVsIGluCj4gKwkgIFRoZSBidWls
-dC1pbiBjb21tYW5kIGxpbmUgd2lsbCBiZSBhcHBlbmRlZCB0byB0aGUgY29tbWFuZC0KPiArCSAg
-bGluZSBhcmd1bWVudHMgcHJvdmlkZWQgZHVyaW5nIGJvb3QuIFRoaXMgaXMgdXNlZnVsIGluCj4g
-ICAJICBjYXNlcyB3aGVyZSB0aGUgcHJvdmlkZWQgYXJndW1lbnRzIGFyZSBpbnN1ZmZpY2llbnQg
-YW5kCj4gICAJICB5b3UgZG9uJ3Qgd2FudCB0byBvciBjYW5ub3QgbW9kaWZ5IHRoZW0uCj4gICAK
-CgpJdCBzZWVtcyB0aGF0IHlvdSdyZSBjb3JyZWN0IAooaHR0cHM6Ly9lbGl4aXIuYm9vdGxpbi5j
-b20vbGludXgvdjYuMTQtcmM2L3NvdXJjZS9kcml2ZXJzL29mL2ZkdC5jI0wxMDY1KS4KCkkgbm90
-aWNlZCB0aGF0IGFsbCB0aGUgYXJjaGl0ZWN0dXJlcyB0aGF0IGRlZmluZSB0aGlzIGNvbmZpZyBo
-YXZlIHRoZSAKc2FtZSB0ZXh0LCBzbyBJIGd1ZXNzIHRoZSBiZWhhdmlvciBjaGFuZ2VkIGF0IHNv
-bWUgcG9pbnQuCgpJIHdvdWxkIHN1Z2dlc3QgdG8gZml4IGFsbCB0aGUgYXJjaGl0ZWN0dXJlcyBh
-bmQgZmluZCB3aGljaCBjb21taXQgCmNoYW5nZWQgdGhpcyBiZWhhdmlvci4KClRoYW5rcywKCkFs
-ZXgKCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On 07/04/2025 12:49, Ben Zong-You Xie wrote:
+> +/dts-v1/;
+> +
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +/ {
+> +	#address-cells = <2>;
+> +	#size-cells = <2>;
+> +
+> +	aliases {
+> +		serial0 = &uart0;
+
+This belongs to the board.
+
+> +	};
+> +
+> +	cpus {
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +		timebase-frequency = <62500000>;
+> +
+> +		cpu0: cpu@0 {
+> +			compatible = "andestech,ax45mp", "riscv";
+> +			device_type = "cpu";
+> +			status = "okay";
+
+Drop. See DTS coding style.
+
+
+...
+
+> +
+> +	memory@400000000 {
+> +		device_type = "memory";
+> +		reg = <0x4 0x00000000 0x4 0x00000000>;
+
+This belongs to the board usually. Are you sure your SoC has physically
+fixed memory?
+
+> +	};
+> +
+> +	soc {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		compatible = "simple-bus";
+> +		ranges;
+> +
+> +		plic: interrupt-controller@2000000 {
+> +			compatible = "andestech,qilai-plic", "andestech,nceplic100";
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			interrupt-controller;
+> +			reg = <0x0 0x2000000 0x0 0x2000000>;
+> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
+> +					      <&cpu1_intc 11>, <&cpu1_intc 9>,
+> +					      <&cpu2_intc 11>, <&cpu2_intc 9>,
+> +					      <&cpu3_intc 11>, <&cpu3_intc 9>;
+> +			riscv,ndev = <71>;
+> +		};
+> +
+> +		plic_sw: interrupt-controller@400000 {
+> +			compatible = "andestech,qilai-plicsw", "andestech,plicsw";
+> +			reg = <0x0 0x400000 0x0 0x400000>;
+> +			interrupts-extended = <&cpu0_intc 3>,
+> +					      <&cpu1_intc 3>,
+> +					      <&cpu2_intc 3>,
+> +					      <&cpu3_intc 3>;
+> +		};
+> +
+> +		plmt: timer@100000 {
+
+Order the nodes, see DTS coding style.
+
+
+Best regards,
+Krzysztof
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
