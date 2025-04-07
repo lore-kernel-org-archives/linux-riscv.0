@@ -4,98 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F10E0C369A1
-	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 07:47:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A439C3601A
+	for <linux-riscv@archiver.kernel.org>; Mon,  7 Apr 2025 07:52:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4tNIe9qBLqjUOu/LUQ80GSC9xyAXA5b5wkErv4KhVLA=; b=CcqvB8EC8Luzo8
-	G9xdpuVO8Hn4HdjndZJzomf2CZrxmjlemVtCRm9PWKf08pYqwwRdOSL+YEi1AntCarZanujrh+Q9U
-	b35psdWMsubQpnXSy6BKtd78Qu06M5o2G9ORY88yT4e8JzHnRjNaPqP2lDyRDhODAh0xjXwUNtv6s
-	+CjJchmrk+hKNyWQillvqKsGncdiv2yojPT+qsv/IIH1/9C7gSYiPHafdoM8htKxV9YQjEGvUv6rG
-	O/wBB7CwfjrAfGnGuCKD+K0ikIOPFZr3TIBZ5TF7r0g6uXS7rbTqB6zibrqcC9kbKXlEcOyLCfROP
-	wlXiiNm7JXi/T88RWSiQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xBxVZnRuk3gW8eo27AN6/SNrF25i+eL95XCYzEZyMA0=; b=cL1UdVAE2NPMBBoIGe0MwAN9Sr
+	vDCaC8yLOp9IXsDHiFJgH0MYxSjmtb5dhqHVxTPURLcCjhv0CdWPaUpg51vrt+3TpRfneLO4BDJEv
+	EPSobTKHfSDakHz2ZhYLZBVRjrfLg2DuERi1SsVO5o2S6q87kYWQRvu136vIZEH/wyabClBt3nXdH
+	YAg7NfPhaV52dyciWJXn4pAzagfgif3p9LewKgZHTikyJKtEIY45ab6ReS6aFT+Izqc0t32BvhPUE
+	bm1qB1sHrlmA0V0Nme1PhfZ+BQTt5uQScRjTiBEUETB9w2URJn14CQ0bQLdoNF4lGnqtPMfLfxvi4
+	2j1SrkZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1hCW-0000000GqPe-3m39;
-	Mon, 07 Apr 2025 07:47:24 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1u1hHi-0000000Grxd-20FQ;
+	Mon, 07 Apr 2025 07:52:46 +0000
+Received: from send35.i.mail.ru ([89.221.237.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u1go3-0000000Gjqb-2SWP
-	for linux-riscv@lists.infradead.org;
-	Mon, 07 Apr 2025 07:22:08 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7399838db7fso3387145b3a.0
-        for <linux-riscv@lists.infradead.org>; Mon, 07 Apr 2025 00:22:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744010527; x=1744615327; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=GtPLSSpf2N4lxDacHDhTtYSx49Qgr/ixS+pBrLkhkxk=;
-        b=FEwx3awb35SlK5jrNayOjZ9L/+bK+RDQTFb+sVdulXnYwPoirV6p9mPeXbJGZIsl3o
-         aH+819gVFFlKoIgdJeaaWwoO5qGCWRCailAF1pT875cPuW/0WLl9t/U6AyCNFQiD09MO
-         o3Jf5mrDPp9CCLhL//fC2Jwu5psYi2ow0vC2ul54ZnM5uGOP0rVz7MECYpc5D9AnIvQn
-         l9/PwSllPKYizm4jqChziIxerHvavpK736lzSYde80gyhaveEiyrlotJ2l3sWWUMC3sW
-         Qj7JYdLzVRWgDQGSj70gQLfqAkiebXiUIWXXN3DIUYv2m12i6Psixc+AY3rpfqwxjN03
-         ae/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744010527; x=1744615327;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GtPLSSpf2N4lxDacHDhTtYSx49Qgr/ixS+pBrLkhkxk=;
-        b=WIHaJZTNhS8CBCTbrudkT+o4JXggH+VwkDcQsPd3uGjGnJbBywgOWWRqCNMEp1qMlj
-         IMWWDkmEVFewz7YAWmiwqI+TOt+a/g/O32DCWrS6WqlynbyKIGd/C0IesU9P2GDuzHM5
-         yqQrZ+qMn01Sp8O05/5XVfdkG4sIiGyQz63/T9RRj939f6YyrRM0WuHyWnyTLkSfZ/tH
-         7UxZSOzsnvW8+0vYAf5aKKApleRbCGjtT7uoQCrAthNaXddGjp4CK6xgaJTFcbLxXvCz
-         Y64VP1wNWPAt4zWZ8tMd2hETnWl0XxxqLUlAyQaBpUgYW4GeK8qMlEGL4y+HyIRvaqIk
-         wvjA==
-X-Forwarded-Encrypted: i=1; AJvYcCWtshEaPYh7XPunk3c3BmNHqx2v4Jb6zi0S+pf6c+bOX8u8O2qyEu17ZoTBEsoV+65Qq8t6Qd1CBoxLFQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzlmiXD5dhs0PSdtMu2qs1m51qkRHvoHVcxnE9pWEQsfA0Dstjp
-	/8KGN/cQhObWdr5UYv9DKvfiKwZ0h4PzIIq8IlgZwrBmDfPLSv05
-X-Gm-Gg: ASbGnctrD+r2KHvua4oYY5yWzwPlyoCH08uQpFsCZpZproaOt+seU8a9dcP5+wM/x2b
-	LWvd1hBV4Fl/B+nijvyrvKwIWh2U2sJdt5RC2wlPRya5vFsrROh/KcLNr7VARez50/cXusL9rRM
-	+mUCkySyFVDhsnhmIESjszom0neFxba4CHwyAEjVWcLMiXCY6yNdjCtXfw79DAig4V8/ISIfsM9
-	G60lD/axoOETw9AtWR1Z8zBk3abUh9llik1cfZuE2VrLhyH3prM4WVxkZnXq8D/spJn2nn2NRDw
-	qWJfboywdVNIrms4r29aNrQ5a1/8EA==
-X-Google-Smtp-Source: AGHT+IG6YjWDOoFfhOGabKSmYQA7ynJLnSYcujy3BxyjgzRY/wLB59ZJTu6yaZ1zWezt6WLB+UnmOQ==
-X-Received: by 2002:a05:6a00:ac4:b0:728:f21b:ce4c with SMTP id d2e1a72fcca58-739e5952278mr16715502b3a.5.1744010526532;
-        Mon, 07 Apr 2025 00:22:06 -0700 (PDT)
-Received: from cu.. ([199.182.234.55])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-739d97ee60dsm7787598b3a.40.2025.04.07.00.22.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 07 Apr 2025 00:22:05 -0700 (PDT)
-From: Longbin Li <looong.bin@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: ghost <2990955050@qq.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 2/2] pwm: sophgo: add driver for SG2044
-Date: Mon,  7 Apr 2025 15:20:39 +0800
-Message-ID: <20250407072056.8629-3-looong.bin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250407072056.8629-1-looong.bin@gmail.com>
-References: <20250407072056.8629-1-looong.bin@gmail.com>
+	id 1u1grZ-0000000GlC8-1Kms;
+	Mon, 07 Apr 2025 07:25:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=inbox.ru;
+	s=mail4; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References
+	:To:Subject:MIME-Version:Date:Message-ID:From:Sender:Reply-To:To:Cc:
+	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
+	List-Archive:X-Cloud-Ids:Disposition-Notification-To;
+	bh=k6FsebLrg7ctDUE6wppDzVYatcO3TME3ex+VU2y2SJg=; t=1744010740; x=1744100740; 
+	b=RKKbQXkQH7G9TzlKzj7Z/75WLCIbX7IIlx3q4juqjMGpHin3Ml6CYM2DcNbNIfmkvHBWQ82wGw+
+	KhH0CSzTDM6v7KfN00biEliiof3dM8Ykl6bnbJArmS8vID2DYPKPc0qDT0FUojmewO5vs2S1+qGRF
+	ALu1ntMm3kxWCXrKdXIBJKbf81HYiUI6NZzbeRg4PB7R6dywLxbLxBXB++2Yg9+WNb5RnpQSbHme2
+	TRTgUU/MhHuEkCFsX3H1y7jptsUOuLBhC/1yCX5jCiGyp90W8fI67LCA2seUz4f8Vz+a5FP74juYl
+	w8Lb1xNs7/UxMpolL0NZfZbhegUg66T95P1Q==;
+Received: by exim-smtp-895bd549-2zq5x with esmtpa (envelope-from <fido_max@inbox.ru>)
+	id 1u1grP-000000004YM-2RmK; Mon, 07 Apr 2025 10:25:36 +0300
+Message-ID: <f57e8a74-4124-457c-b5c9-d193505ba093@inbox.ru>
+Date: Mon, 7 Apr 2025 10:25:32 +0300
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] time/sched_clock: move sched_clock_register() out of
+ .init section
+To: Thomas Gleixner <tglx@linutronix.de>, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, peterz@infradead.org, elver@google.com,
+ namcao@linutronix.de, samuel.holland@sifive.com, daniel.lezcano@linaro.org,
+ apatel@ventanamicro.com
+References: <20250404050540.13507-1-fido_max@inbox.ru> <8734ekwkqk.ffs@tglx>
+Content-Language: en-US
+From: Maxim Kochetkov <fido_max@inbox.ru>
+In-Reply-To: <8734ekwkqk.ffs@tglx>
+Authentication-Results: exim-smtp-895bd549-2zq5x; auth=pass smtp.auth=fido_max@inbox.ru smtp.mailfrom=fido_max@inbox.ru
+X-Mailru-Src: smtp
+X-4EC0790: 10
+X-7564579A: 78E4E2B564C1792B
+X-77F55803: 4F1203BC0FB41BD9D636D1752D35745ABEA41E1096584FC65AC47060FE4698F5182A05F53808504055E70B2624D29F4A3DE06ABAFEAF670507A7D4AB3B778E9F48986B5E6468EC384E897E529B7F4697
+X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE72E4E5201E1C2E308EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F79006371D5B197C6EC5B4BE8638F802B75D45FF914D58D5BE9E6BC1A93B80C6DEB9DEE97C6FB206A91F05B2C025A3674B67DD5A2E070BE324C7D3C428A6C4467C1B0D09BB0A4F435E46E6718B35066C979671628AA50765F7900637A596F99EC23ACBE8389733CBF5DBD5E913377AFFFEAFD269176DF2183F8FC7C0C26CFBAC0749D213D2E47CDBA5A96583BD4B6F7A4D31EC0BC014FD901B82EE079FA2833FD35BB23D27C277FBC8AE2E8B1F8789D36234D406A471835C12D1D977C4224003CC8364762BB6847A3DEAEFB0F43C7A68FF6260569E8FC8737B5C2249D082881546D93491E827F84554CEF50127C277FBC8AE2E8BF1175FABE1C0F9B6AAAE862A0553A39223F8577A6DFFEA7CE31A2885C41F97C443847C11F186F3C59DAA53EE0834AAEE
+X-C1DE0DAB: 0D63561A33F958A538EAF4A272C10B4F5002B1117B3ED6968F973DFBFD076981AD0703CEB2EF9A27823CB91A9FED034534781492E4B8EEADD0953842B444AAC3BDAD6C7F3747799A
+X-C8649E89: 1C3962B70DF3F0ADBF74143AD284FC7177DD89D51EBB7742424CF958EAFF5D571004E42C50DC4CA955A7F0CF078B5EC49A30900B95165D3474B2583E513159845E51CE5AC2E01B9AD104CE80A7A6E911836DA156F4083C3EA7495C8E6A64FB6B1D7E09C32AA3244C55A9727374D5D39377DD89D51EBB77426BE7A47F26C8637AEA455F16B58544A21E304C330D73BD2357ADA2CBCE38F05762A0BE504FE5E636F1E3461735CEBA253FCF178C6DD14203
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+ObcCpyrx6l7KImUglyhkEat/+ysWwi0gdhEs0JGjl6ggRWTy1haxBpVdbIX1nthFXMZebaIdHP2ghjoIc/363UZI6Kf1ptIMVS2bpaGes9W5uUxxY0MEu7A=
+X-Mailru-Sender: 689FA8AB762F7393FE9E42A757851DB6EBF9A7E99EE885915BBD2BAF715B64A64E4050EF2BCA4E6C90DE4A6105A3658D481B2AED7BCCC0A49AE3A01A4DD0D55C6C99E19F044156F45FEEDEB644C299C0ED14614B50AE0675
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_002207_636078_9CFBBBAF 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250407_002545_711662_0CF7E3BE 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,251 +80,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: ghost <2990955050@qq.com>
+07.04.2025 09:26, Thomas Gleixner wrote:
+> On Fri, Apr 04 2025 at 08:05, Maxim Kochetkov wrote:
+>> The sched_clock_register() is widely used by clocksource timer
+>> drivers. The __init prefix forces them to be initialized using
+>> macro TIMER_OF_DECLARE with __init prefixed function.
+> 
+> No, it does not. It requires that they are built in, not more.
 
-Add PWM controller for SG2044.
+Thank you for review.
 
-Signed-off-by: Longbin Li <looong.bin@gmail.com>
----
- drivers/pwm/pwm-sophgo-sg2042.c | 162 +++++++++++++++++++++++++++-----
- 1 file changed, 138 insertions(+), 24 deletions(-)
+Let me explain some more. I'm trying to solve similar problem, as 
+described at 
+https://patchwork.kernel.org/project/linux-arm-kernel/patch/20240312192519.1602493-1-samuel.holland@sifive.com/#25759271
 
-diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
-index ff4639d849ce..c62e8c758d87 100644
---- a/drivers/pwm/pwm-sophgo-sg2042.c
-+++ b/drivers/pwm/pwm-sophgo-sg2042.c
-@@ -26,20 +26,22 @@
- #include <linux/pwm.h>
- #include <linux/reset.h>
+I have both PLIC and clocksource module configured as Y (not m) in 
+Kconfig. So both of them are included in kernel Image binary. But I 
+still unable to probe clocksource device because it depends of PLIC irq.
+And PLIC probes much later than TIMER_OF_DECLARE part of the clocksource 
+driver. I tried to convert clocksource driver to regular platform device 
+and it works fine except warning:
 
--/*
-- * Offset RegisterName
-- * 0x0000 HLPERIOD0
-- * 0x0004 PERIOD0
-- * 0x0008 HLPERIOD1
-- * 0x000C PERIOD1
-- * 0x0010 HLPERIOD2
-- * 0x0014 PERIOD2
-- * 0x0018 HLPERIOD3
-- * 0x001C PERIOD3
-- * Four groups and every group is composed of HLPERIOD & PERIOD
-- */
--#define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
--#define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
-+#define REG_HLPERIOD		0x0
-+#define REG_PERIOD		0x4
-+#define REG_GROUP		0x8
-+#define REG_POLARITY		0x40
-+
-+#define REG_PWMSTART		0x44
-+#define REG_PWMUPDATE		0x4C
-+#define REG_SHIFTCOUNT		0x80
-+#define REG_SHIFTSTART		0x90
-+#define REG_PWM_OE		0xD0
-+
-+#define PWM_REG_NUM		0x80
-+
-+#define PWM_POLARITY_MASK(n) BIT(n)
-+#define PWM_HLPERIOD(chan) ((chan) * REG_GROUP + REG_HLPERIOD)
-+#define PWM_PERIOD(chan) ((chan) * REG_GROUP + REG_PERIOD)
+WARNING: modpost: vmlinux: section mismatch in reference: 
+dw_apb_timer_probe+0x136 (section: .text.unlikely) -> 
+sched_clock_register (section: .init.text)
 
- #define SG2042_PWM_CHANNELNUM	4
+Dropping __init from sched_clock_register() helps to solve this issue.
 
-@@ -51,6 +53,12 @@
- struct sg2042_pwm_ddata {
- 	void __iomem *base;
- 	unsigned long clk_rate_hz;
-+	struct mutex lock;
-+};
-+
-+struct sg2042_chip_data {
-+	const struct pwm_ops ops;
-+	bool atomic;
- };
+Is there any real point to keep __init in sched_clock_register()? I see 
+no issues to call this function at any time later after kernel boot.
 
- /*
-@@ -62,8 +70,8 @@ static void pwm_sg2042_config(struct sg2042_pwm_ddata *ddata, unsigned int chan,
- {
- 	void __iomem *base = ddata->base;
+Is there better way to solve this issue?
 
--	writel(period_ticks, base + SG2042_PWM_PERIOD(chan));
--	writel(hlperiod_ticks, base + SG2042_PWM_HLPERIOD(chan));
-+	writel(period_ticks, base + PWM_PERIOD(chan));
-+	writel(hlperiod_ticks, base + PWM_HLPERIOD(chan));
- }
+>> So lets drop __init prefix to allow platform device drivers to use
+>> sched_clock_register().
+> 
+> s/So let's//
+> 
+> "So let's" means nothing.
+> 
+> Also this has nothing to do with platform device drivers. It's all about
+> modules and nothing else.
 
- static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-@@ -104,8 +112,8 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	u32 hlperiod_ticks;
- 	u32 period_ticks;
+Anyway, this patch opens opportunity to compile clocksource drivers as 
+modules and probe them much later.
 
--	period_ticks = readl(ddata->base + SG2042_PWM_PERIOD(chan));
--	hlperiod_ticks = readl(ddata->base + SG2042_PWM_HLPERIOD(chan));
-+	period_ticks = readl(ddata->base + PWM_PERIOD(chan));
-+	hlperiod_ticks = readl(ddata->base + PWM_HLPERIOD(chan));
-
- 	if (!period_ticks) {
- 		state->enabled = false;
-@@ -123,13 +131,112 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return 0;
- }
-
--static const struct pwm_ops pwm_sg2042_ops = {
--	.apply = pwm_sg2042_apply,
--	.get_state = pwm_sg2042_get_state,
-+static void pwm_sg2044_config(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm, bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + REG_PWMSTART);
-+
-+	if (enabled)
-+		writel(pwm_value | BIT(pwm->hwpwm), ddata->base + REG_PWMSTART);
-+	else
-+		writel(pwm_value & ~BIT(pwm->hwpwm), ddata->base + REG_PWMSTART);
-+}
-+
-+static void pwm_sg2044_set_outputenable(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+					bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + REG_PWM_OE);
-+
-+	if (enabled)
-+		writel(pwm_value | BIT(pwm->hwpwm), ddata->base + REG_PWM_OE);
-+	else
-+		writel(pwm_value & ~BIT(pwm->hwpwm), ddata->base + REG_PWM_OE);
-+}
-+
-+static int pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				   const struct pwm_state *state)
-+{
-+	enum pwm_polarity polarity;
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + REG_POLARITY);
-+
-+	polarity = state->polarity;
-+
-+	if (polarity == PWM_POLARITY_NORMAL)
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+	else
-+		pwm_value |= BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + REG_POLARITY);
-+
-+	return 0;
-+}
-+
-+static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
-+	u32 hlperiod_ticks;
-+	u32 period_ticks;
-+
-+	if (!state->enabled) {
-+		pwm_sg2044_config(ddata, pwm, false);
-+		return 0;
-+	}
-+
-+	pwm_sg2044_set_polarity(ddata, pwm, state);
-+
-+	/*
-+	 * Duration of High level (duty_cycle) = HLPERIOD x Period_of_input_clk
-+	 * Duration of One Cycle (period) = PERIOD x Period_of_input_clk
-+	 */
-+	period_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period,
-+					       NSEC_PER_SEC), U32_MAX);
-+	hlperiod_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle,
-+						 NSEC_PER_SEC), U32_MAX);
-+
-+	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=%u, HLPERIOD=%u\n",
-+		pwm->hwpwm, period_ticks, hlperiod_ticks);
-+
-+	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
-+
-+	guard(mutex)(&ddata->lock);
-+
-+	/*
-+	 * re-enable PWMSTART to refresh the register period
-+	 */
-+	pwm_sg2044_config(ddata, pwm, false);
-+	pwm_sg2044_set_outputenable(ddata, pwm, true);
-+	pwm_sg2044_config(ddata, pwm, true);
-+
-+	return 0;
-+}
-+
-+static const struct sg2042_chip_data sg2042_chip_data = {
-+	.ops = {
-+		.apply = pwm_sg2042_apply,
-+		.get_state = pwm_sg2042_get_state,
-+	},
-+	.atomic = true,
-+};
-+
-+static const struct sg2042_chip_data sg2044_chip_data = {
-+	.ops = {
-+		.apply = pwm_sg2044_apply,
-+		.get_state = pwm_sg2042_get_state,
-+	},
-+	.atomic = false,
- };
-
- static const struct of_device_id sg2042_pwm_ids[] = {
--	{ .compatible = "sophgo,sg2042-pwm" },
-+	{ .compatible = "sophgo,sg2042-pwm",
-+	  .data = &sg2042_chip_data },
-+	{ .compatible = "sophgo,sg2044-pwm",
-+	  .data = &sg2044_chip_data },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
-@@ -137,17 +244,24 @@ MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
- static int pwm_sg2042_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	const struct sg2042_chip_data *chip_data;
- 	struct sg2042_pwm_ddata *ddata;
- 	struct reset_control *rst;
- 	struct pwm_chip *chip;
- 	struct clk *clk;
- 	int ret;
-
-+	chip_data = device_get_match_data(dev);
-+	if (!chip_data)
-+		return -ENODEV;
-+
- 	chip = devm_pwmchip_alloc(dev, SG2042_PWM_CHANNELNUM, sizeof(*ddata));
- 	if (IS_ERR(chip))
- 		return PTR_ERR(chip);
- 	ddata = pwmchip_get_drvdata(chip);
-
-+	mutex_init(&ddata->lock);
-+
- 	ddata->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ddata->base))
- 		return PTR_ERR(ddata->base);
-@@ -170,8 +284,8 @@ static int pwm_sg2042_probe(struct platform_device *pdev)
- 	if (IS_ERR(rst))
- 		return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset\n");
-
--	chip->ops = &pwm_sg2042_ops;
--	chip->atomic = true;
-+	chip->ops = &chip_data->ops;
-+	chip->atomic = chip_data->atomic;
-
- 	ret = devm_pwmchip_add(dev, chip);
- 	if (ret < 0)
---
-2.48.1
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
