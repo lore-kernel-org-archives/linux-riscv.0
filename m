@@ -4,194 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE62C369A6
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 18:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73E64C36010
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 19:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VOPOzR8u+5jiJDnNz+RntZF2TMsrx88X/biIZHiGfog=; b=DWMlMIEr/OSw66
-	TLMO6geFO2wyFOh2t/+nf6Moxk+zd9wBg2a2Ap2Mr9BFvCw9g1ID7WKe/BMOp81oqb/QUmEJLy2+8
-	cU513F6wnEWyPjsMgTgabh0MytKaJSbL6rGNzxiMocGEnBm+5UbAQ9pGQ0wr/bqbYzDHwWNLG73c1
-	V06gN8Jzm1iAqkBBF4u/AvY7FXwcL8AAA+SqWtpHAMF5pcfhKWVPGCkYW8I6wvlIDa+grFWoTiZGu
-	u5a9gl0CdKCOuqA1fEm8/eHo/ToWLYosG0f8MGO+maLLhutMx/1pgWub8gCSk8pssHxZHFvVKB/SV
-	iUuGSvI37n3sVjW/6P9w==;
+	List-Owner; bh=rd5Qt0iXtBdVndJtVG9N3UHv7flrUIMr8oLO1Cl8CAY=; b=sM5KIVC2cEf+fA
+	fLvlVUoOkK0AB7pX/D2Fxv8EnchmhpSW+joSAnnzMW/OmQSw31KuXXVQFfo1Uerla+DZCs8+AV5Vu
+	CpnvU1XCO/lBVbDsu+PvBAsZyDqzRLBqHd6Uwtp7ZrnfwRy6GnnKlOPW1oPeVNzkmo8hjoVRsDnxo
+	v3cuXNHYZJT2j6EhnMm87WuIv8X4OFfsxkvzwnuHK73wzYGLLaAsMvssHtZ9Y407lX27yhTUuBbJS
+	6ZB8rZS09Hl2O+rwwaSXSHf9+ynQytj3olTfIRAtxXjF81LD7STLg9BZ+f3kV0bZ23YG8rm2qQyGb
+	M5d3dWGL/Dg01UZCix2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2E8s-00000005AnP-04LD;
-	Tue, 08 Apr 2025 18:57:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2El2-00000005Fbn-3qDW;
+	Tue, 08 Apr 2025 19:37:16 +0000
+Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CgS-00000004y6B-04GS;
-	Tue, 08 Apr 2025 17:24:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=+khpEJOPXtsV9nyj1OYsnGNYTGbZDVg/JxrXC/Gdxno=; b=iEdFMxCgNINkXLKoDq+xSlI5wN
-	31hJsQslpNpCGMH8v5RsLFG6sdnVI6N0mf5tAlsTOaoH+tbPNFF+qqHiG6M/2egzqRsmhqPkoTSYm
-	7/6KQL9GvxWmXBC4fPlavTJiU1D6jqJ4k8/uHuNwwKotcoKPqW83kZixMw9HthOzLHcKJJMziQZK2
-	6583ZVW54v014Kj36XHDH/eLDefyfnfmvrpILw8N0NewdopxMteVEhqYEWqZbOEIMg6I2j3nCtWNc
-	RF02vm2nppNVkjzxChunI2vVCs8goKGAJg0K3w0UOaHhtW4qDcIc6lYC2V3aTgPN0KdQM84aibzhq
-	RqiYfsKw==;
-Received: from mail-bn8nam04on2060f.outbound.protection.outlook.com ([2a01:111:f403:2408::60f] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2CgP-00000008M6z-0y7r;
-	Tue, 08 Apr 2025 17:24:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o8q6NzVeBqOoa6ba5bDETo2/mZl0Y5l4jb7Is2rYCL6NXbMdeiDRfy9aT7eVMJ0edGR4JP5UrxciI51U+sCxZdfJ/3wPwN/M5VSzG8kDsP1L8ZRzpfh0CFFJiYJHVWGBrsd3WMGdfy4i9VzK7r7jZAE3FuXrM2vEumWMgsdrM/NWvSJx8iZcgRmGmh78m68UuXNH8P2KktDSGQ6bGwQvCB9mgNFZPPHc0gQ/a9ZBaFS672fUraEOsI+xc5e7n63wxs1zT+YZU55hpPcJaDqwDH61b13THwzDB1mN1QiafsXHGXjQ/+lR5NyfuZidhdCsyZ+6QK+XwMT1Zup8M0dqhQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+khpEJOPXtsV9nyj1OYsnGNYTGbZDVg/JxrXC/Gdxno=;
- b=o/KbMvSC44A/3YfpgoutT+RngOeDI2KCEDPhoqujIRS0TMxw6cG/gylGBpJo3V3wFuN08cheqBZ1By8nqjeiYQCfRU2dws1nozXOPqxtMMUuWJOWceKD4ANR1uIdLTusni/nPBVWlMEisigEkRy0qPV91B8RdcnvnaqostLjDaQgKwxZwkehN3BjWGVYIO8obMCyFsqVUAQNJJ3LE+o7XMwV0xLWDWvAX3yP+vpcEHUM5xF9kdUt49896eWzahGyjJo2yKPD4zqZTyoSn/pkswCXeRS7mgdz/K0ZhTRROPoZ8D5EN81vSbTm4IOtSbzoHYFtd6Wt5oWDq+ye1DK2EA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+khpEJOPXtsV9nyj1OYsnGNYTGbZDVg/JxrXC/Gdxno=;
- b=MOewCa5l4IHoi75/yp/GJf+nDdPP2GKaZaxiqw1DKPl0mmhFiGWitjsnORfw31z7smdbXRY1FTxVr8By0S8wqJiOHtffb+1cZw61y3QBb7+nTuaPEWYY6W5QQYd7uRQ4/zz9R9RsPqMFBiN7OGDvBoOGoKmHDIozR9UyOotqdm0Lf/rsrwqWPJk6hkemUJZJksoV7nyvxXK76GGCurN5zbwsufyk8tdsUkL4sXMBJFqsWtCurygkBE9dQA1ddgMXSCUlHv2jEg6tgvCI37sDreTcVIs6rst3kHgXvVlBEIYrxImwfo0YsAZYt6OzC4itCPTUWv3Mgu0fxKS8ZpwnCg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CY3PR12MB9579.namprd12.prod.outlook.com (2603:10b6:930:10a::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8606.34; Tue, 8 Apr
- 2025 17:24:12 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%4]) with mapi id 15.20.8606.028; Tue, 8 Apr 2025
- 17:24:12 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	David Woodhouse <dwmw2@infradead.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>
-Cc: Alejandro Jimenez <alejandro.j.jimenez@oracle.com>,
-	Bagas Sanjaya <bagasdotme@gmail.com>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Joerg Roedel <jroedel@suse.de>,
-	Nicolin Chen <nicolinc@nvidia.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	patches@lists.linux.dev,
-	David Rientjes <rientjes@google.com>,
-	Mostafa Saleh <smostafa@google.com>,
-	Matthew Wilcox <willy@infradead.org>
-Subject: [PATCH v4 18/23] iommu/riscv: Update to use iommu_alloc_pages_node_lg2()
-Date: Tue,  8 Apr 2025 13:54:06 -0300
-Message-ID: <18-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
-In-Reply-To: <0-v4-c8663abbb606+3f7-iommu_pages_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: BN8PR03CA0029.namprd03.prod.outlook.com
- (2603:10b6:408:94::42) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	id 1u2El0-00000005FbO-0lZO
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Apr 2025 19:37:15 +0000
+Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-86135d11760so221295339f.2
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 12:37:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744141033; x=1744745833; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8ihyuAzlM82lJGBS3f8gR0AvjEGvhK/UKSLKfGaRe3Q=;
+        b=rjzuLSzOz2WCHnZae9yNmEXdm8ViwT36agzBIhN4TfGSXeKieb/3iZwVyW8H0cMNBh
+         UmUGseupqrtPzdg60fEW/oKxDgQrQ4i81KjwI1x4LFFgzs6j9DUw8BVTZb10S1YvI9A3
+         DB3+iMvbaAlXriibBO7BzjM55VKG4Na0e1ZXMpTC8PsjmoIIdBtZpO80qUTA7sImq/dM
+         JIJV0a8KCwbAc+ry8lOWmaygTexz3D3hr983LU+6ZLlw6zV3/TRyUjnbIbc+elJis3fs
+         HqXewan5I+vGEt1/fs+xDTit+qSsvyWftgiV6sG4S8rQGthukrCkb1i3B019Id2yRZ9j
+         tWDg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744141033; x=1744745833;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8ihyuAzlM82lJGBS3f8gR0AvjEGvhK/UKSLKfGaRe3Q=;
+        b=Dk8rd/G82rHJYWvYknrPjXrl9FviB69uvHqS745vlaGHUbM6KCf8uBW2b1COJOS7s1
+         yr8p9qvykryaGckPegF+Yevt0uhw+rtNv8VpAauIuuTPiiCjrz3j+Rsy5NsH4U6izCJG
+         4EGtCbCQohP4hEj9FJOPK6R36uEzDWOKW2zlgvt0Fqg4LEWOxgOJ94uOf7snOKBMe/m1
+         X6Nke4USK5OK6nSyKFOKO/l5WMk5lvFfGpgrF8dz2L0pSt20UfppT3ZfsnuUvKX4fCYL
+         JHi+1DXRp4bB4HECl7osgHZAUNjncM3aGuT1xNiEF8aUntYMmBEwIB4GiuNdPXA9sRyY
+         erbw==
+X-Gm-Message-State: AOJu0YwdRpbbIjJaGJjwEe3zwfV4ZOx20GJm7ZczTNU1lx06NVP3crMg
+	57CvFbwKwM3rVqAhgS8Ci+iLZ7SZTb3L8jajCaVGV1aROKWcXtAgVEGOaGr89W4=
+X-Gm-Gg: ASbGncsd9zpG+w4cO2QxWBOfuaGQRlV9CP4t85jO1VNKYEm/tqFe//moqbeaw+uC/eJ
+	LkBkLEQzQy5q5atyeYQXwt1oAUssIScmVsCq3iYnr9VwCDmNZ1cjaW4WensfYF1V/KtaylGiixw
+	IArSgUQPfnyEB2P5/Wb6T0fvlI1NAj44dM6C7mn8h24SfMrOeh0MD95b4NQMcGSPhih/7D8Bxcp
+	7jNi0LFuLDpEYg9V9yQpuamsrWGyWJMHTD45QSG59U3Vm4O+MwnZ4KPs68TBt7aFZw30qdGglv8
+	g6XwXXA6U/HhfYFOiz4GVxBS8GRPCAf9TqIzS/HT1iJaPWwrZ7gCBquPef6O2BcGJOV9nLwqzde
+	kcUWsEnG0f5Di5zT/Z4s=
+X-Google-Smtp-Source: AGHT+IFV+oKnS5Z7XqBCLwJ9/iD/goXUd07nqMhjbhu1QnyS5iUMcUADUnd2WNgGghXi0kGlBzlckg==
+X-Received: by 2002:a05:6602:4804:b0:85b:41cc:f710 with SMTP id ca18e2360f4ac-8616129c13dmr79765839f.12.1744141033044;
+        Tue, 08 Apr 2025 12:37:13 -0700 (PDT)
+Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f4f44e3aa0sm653506173.126.2025.04.08.12.37.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Apr 2025 12:37:12 -0700 (PDT)
+Message-ID: <cdf5d151-7ffb-416f-9032-930ffd230d8c@riscstar.com>
+Date: Tue, 8 Apr 2025 14:37:11 -0500
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CY3PR12MB9579:EE_
-X-MS-Office365-Filtering-Correlation-Id: fc0e6c3f-f85f-4912-f83d-08dd76c22dab
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2q6SK4xofIu4APGqyirFzl/c8jxq0ZjQ3bY88ng6Rn7AuTnInsz+hbJVnMVY?=
- =?us-ascii?Q?OxC2M77bUyoyW1YTSpsWp/1jSJES+yXerdZQlrB4qtkV4SOX5r6vNXGsgm3R?=
- =?us-ascii?Q?ns9ZG44kIBdGIikeUL5BdkXRzvmWvutmIXMAumYHyq/RNF7BpsyCAw1ysRTw?=
- =?us-ascii?Q?900UMemplkRLv8haj1BzZ+ren8MOQvHOQ2U76ZeVrFC5cAz+BzQc0Fj8D0nQ?=
- =?us-ascii?Q?2sWlXeWEd0Ji0lDAZhBJhS4j8Qfz0Tkc8rU23ZFjme+8KIBgfHKEb+i1CU6C?=
- =?us-ascii?Q?jGgx91bqU0aoswKv17qFbXCFZmX8pdl4D2pNN0u/FiRBDAKJzT8HS5QlRM8r?=
- =?us-ascii?Q?U1yfr1nCc2JSjb5xXArMO1zSJQ4+2WhAxSRW2dtXI2oahbRWz5F1euKnKg2y?=
- =?us-ascii?Q?hYx+WYeSyqOGanzFPRy7e41M3pLiqBNdIl1clMhgIBdxZDDD+R2cgnB2aZo8?=
- =?us-ascii?Q?YHqir6mLPzmN3826fC++EMk2hcGv1ajo2VRn3DtW9pEdGe9WmZw3FOrUQyjW?=
- =?us-ascii?Q?EuX+BV7555nDcTxMO6BneiIGxktpDrozifMpCQ8UrYWrJXX177ApS6fyo+a7?=
- =?us-ascii?Q?JIh6kzmcbXdI84+M0UHvQHots5YMbZI0M8KHfeTlJmhKzmcuqrsqkqBK6ey5?=
- =?us-ascii?Q?BUgPlCruH3bDT1onnpJ4hE0P3GWja6DfxPw7rQi5aIZpORRVfKeM8XdXkdQ/?=
- =?us-ascii?Q?SAgGG3sKNy0/EU5ZviugYR1ZhUgIeXMqSaibKv/KngP4yvdfGoTFSvxs8eov?=
- =?us-ascii?Q?b8/rtIBKr/OohryCiDQhwzIgS31ODHzGjSLd3HFH90ypFsSZcrYQzfX0QynM?=
- =?us-ascii?Q?aHO4G1TEM166GpqqIXr31tOwAYKPcJUcKj7O1w4mT146/OJ3/SPKxLujWTts?=
- =?us-ascii?Q?AwCWI5vhmjVrNL5Mylb7hRKieT03RAPdrRJpRKTvuJ9wjYv4o4YM8Fu09gvP?=
- =?us-ascii?Q?u1zUjtFa4V91GcIsndq6WSIQRoJHJuiFfzhmDMLhXtb7elWQIDAlp++RpSoT?=
- =?us-ascii?Q?SBXjPUuj6mG2DE2qxtUcYX1sKj2+/Nhha8jmTjSlAP6jrQ5KDeYv/IzNT3gN?=
- =?us-ascii?Q?OPh1Sj2wPeOweKLtBVnGuAVOcwFfa1t6cbXxkM+kUyNaXkJzhSYQ6dVSA2ez?=
- =?us-ascii?Q?DM/Yy9z20FjdYj+Pz3vSGvBgCE9s8mYW3NYdotxuR4NWd+MYmse8DGzev+v/?=
- =?us-ascii?Q?MriXxLOpGDNKT93rIRpwiGn6iQyihK4e27r/sKqtO2jPnCoZ5//7Ex0cofb4?=
- =?us-ascii?Q?HbeXsZo7GsFDkcy0Y0ZqwvyxFse+0rS9sdD5xpiHI/ndVjN+073ACLRhOIDJ?=
- =?us-ascii?Q?lFPutwkY3957pfEHdqF2M0+iaGbhqBeE2izJX0iIlnqCBSWU82L3C1pqo9is?=
- =?us-ascii?Q?dOLl+kNVG9XHOnt3vMcm0bpSPQFdCJI6jEomnWFM+hkpZoH0V9dmPKq58YB9?=
- =?us-ascii?Q?alyVxnwg6cSpDXJYOo3zQyUkYNSNNkVtL1xERQpRgZ+UI0HzJSb8yA=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?1BobYXvJn70Qh5Cjl6MJ3VaDon0GbhrmpJKr51iabk26t8yvYJ33d/9F34qI?=
- =?us-ascii?Q?6eqozIQGdYv/H9SRi58IsOjLv3doRHJpm+apPrgTfr3WvUZf7RMFIF8M0lVd?=
- =?us-ascii?Q?d3lu5EMFq4GBrwEx3h1DKss9RRQrMg3Y90ZJqSemftRuG3k92hwd6zYIXQ9G?=
- =?us-ascii?Q?B2qic1s8gRyOEa8mZggf136G5BwHDRPAOq+Sa7UPHxyutuqd357cyzeHUJAa?=
- =?us-ascii?Q?MhA4TUy8c5OP5cFzqVBLm3SUt5VnvtYZ2WaFCmg8yE64CY0OZCInKjqFqi+U?=
- =?us-ascii?Q?KasAZ3vmTbG4ZyJzj8JVmOgXaUlKT18KYD0qW9I6msdB41S+JiCCmgPAjhEO?=
- =?us-ascii?Q?75uAN5GL89ABljUbQ+Uqie854qOU1q4CMpUpcnNjHUJ5+p5ruj+0yxYsfVHz?=
- =?us-ascii?Q?GvQBG0fs00xw9NNH9CP4gwsFy0J9KBYtMaY8eZAsma6+QtenuSKoXgtttjLb?=
- =?us-ascii?Q?24ndSYrBrBgzIklKRPvqzIj5AXBaY7uY1v9Rd5ibhH9/NXQSj7qENqIiDw8O?=
- =?us-ascii?Q?ESwHABnjS7ePsHskD5meNgna67HXymYCZgF1stEd94ZpvQFoVypsvUHF4RJo?=
- =?us-ascii?Q?QY5gO+9QWRzHbRVr1ttqpJXtG1vzlnt1CY7bKJJufJzop4m9c6PJrqQJXZ0y?=
- =?us-ascii?Q?V7MzkbgySnwfg7loArBCjBkTUXwJt+0xF2DT+GjIp9P/dqTW3wXzMAKs+5Zn?=
- =?us-ascii?Q?VEnoJdCi2ZRAeim4H7n5GRY4sjihkvIEftfMMKDGhw8K1KommgJNJyMBAjQU?=
- =?us-ascii?Q?c1XNGfwOP3V9ISZFQGBpvwM3ImW3zTmeC4jaedMplwNPv3hxWgbtTqDsnhKJ?=
- =?us-ascii?Q?SExqOaA+bxTitZvHqBCipG2HeeauzmlL7LQdjXSSeI0CbEPZ/jJU0hmVj+iQ?=
- =?us-ascii?Q?3/OZpwP8Nb96Hyqr9vc6LyNafF9igsVp/6VV9DBqz+AXvxg1l10vPcWL4mHM?=
- =?us-ascii?Q?0Fs6XW8XLGhN4P7T8+GYZBB8CFyHQCQ4qoXrmnknBOh4ADDvFCljFI6asqew?=
- =?us-ascii?Q?MHvIA1+nltZMyOPHwsB8kDJ9vWtjqn/MukV/uKUagRB99KbKyL+LbhHL/sZS?=
- =?us-ascii?Q?3RIVgI1vwn7pj1Z5KDgQprrujTKXK7QrFlRMlJHOOdQvVuKF7RtCWsGipHOT?=
- =?us-ascii?Q?362c4X6WCR04E1kxKF427WwTKVJLKuUlSu22kuvsTlHsH7nKxwztuFhfoaax?=
- =?us-ascii?Q?pIw6/69Zq8sTtymFe1xDIzITsTxq1pdzfvEaRvrVzzzJdbW2MMdVnPt//rK4?=
- =?us-ascii?Q?o+5WgRvlCTk22NX+yMs8l7t8LSeNnZQ1POr1/YCv1OrK/YKTEIA+TEtsvUGW?=
- =?us-ascii?Q?iXy4yqtp1rsX8BKhyJnaQqRvsJm949VnLxAVdU+CrLz+SEKKUWNidMyCK03m?=
- =?us-ascii?Q?8mQ0RTkul4mexs2j9VJ2fG8gt+LftkHgepwj3eJ2tdJ7fyGl9QsfHqaqiglW?=
- =?us-ascii?Q?8bsAg7ES1DCASgeqd27zEKj5RfE1ztj/+AwfVA1PuwvmWYzj7bjrFDxv2TKS?=
- =?us-ascii?Q?7fuxrSoowxaiNKbeqUCaVXr/sbJxtZMw0qOMXRf81R2B3iAqJGxM94ubY7Mg?=
- =?us-ascii?Q?j7sgz7z+0C0YYltMI/Lbr2gRj0vAUzT6Yne1EFCI?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fc0e6c3f-f85f-4912-f83d-08dd76c22dab
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Apr 2025 17:24:11.9985
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: at3CBa+6N/U+GFweHWK5+Uo/I3Pt+9lYoB8IEV1ZzY03luPxiMStdVos+evIylNy
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY3PR12MB9579
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 0/6] Add clock controller support for SpacemiT K1
+To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
+ <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Haylen Chu <heylenay@outlook.com>,
+ Yixun Lan <dlan@gentoo.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
+ Chen Wang <unicornxdotw@foxmail.com>, Jisheng Zhang <jszhang@kernel.org>,
+ Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+References: <20250401172434.6774-1-heylenay@4d2.org>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250401172434.6774-1-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_182421_352349_FF3607F1 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250408_123714_434112_7D315BAA 
+X-CRM114-Status: GOOD (  33.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -203,74 +103,220 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-One part of RISCV already has a computed size, however the queue
-allocation must be aligned to 4k. The other objects are 4k by spec.
+On 4/1/25 12:24 PM, Haylen Chu wrote:
+> The clock tree of SpacemiT K1 is managed by several independent
+> multifunction devices, some of them are
+> 
+> - Application Power Manage Unit, APMU
+> - Main Power Manage Unit, MPMU
+> - APB Bus Clock Unit, APBC
+> - APB Spare, APBS
+> 
+> These four devices provide hardware bits for three purposes: power
+> management, reset signals and clocks. Not every device is capable of all
+> the three functionalities,
+> 
+> - APMU, MPMU: power, reset, clock
+> - APBC: clock, reset
+> - APBS: clock (PLL clocks)
+> 
+> This series adds support for clock hardwares in these four regions,
+> which covers most peripherals except DDR and the realtime processor.
+> 
+> Tested on BananaPi-F3 board. With some out-of-tree drivers, I've
+> successfully brought up I2C, RTC, MMC and ethernet controllers. A clock
+> tree dump could be obtained here[1].
+> 
+> [1]: https://gist.github.com/heylenayy/73df0b6b075615a944990507112cfc5b
 
-Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/riscv/iommu.c | 15 ++++++++-------
- 1 file changed, 8 insertions(+), 7 deletions(-)
+Thanks for your persistence on this.  I've added my Reviewed-by on
+4 of 6 of your patches, and what remains are fairly small things to
+address.
 
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index 2750f2e6e01a2b..8835c82f118db4 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -65,13 +65,14 @@ static int riscv_iommu_devres_pages_match(struct device *dev, void *res, void *p
- 	return devres->addr == target->addr;
- }
- 
--static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu, int order)
-+static void *riscv_iommu_get_pages(struct riscv_iommu_device *iommu,
-+				   unsigned int size)
- {
- 	struct riscv_iommu_devres *devres;
- 	void *addr;
- 
--	addr = iommu_alloc_pages_node(dev_to_node(iommu->dev),
--				      GFP_KERNEL_ACCOUNT, order);
-+	addr = iommu_alloc_pages_node_sz(dev_to_node(iommu->dev),
-+					 GFP_KERNEL_ACCOUNT, size);
- 	if (unlikely(!addr))
- 		return NULL;
- 
-@@ -161,9 +162,9 @@ static int riscv_iommu_queue_alloc(struct riscv_iommu_device *iommu,
- 	} else {
- 		do {
- 			const size_t queue_size = entry_size << (logsz + 1);
--			const int order = get_order(queue_size);
- 
--			queue->base = riscv_iommu_get_pages(iommu, order);
-+			queue->base = riscv_iommu_get_pages(
-+				iommu, max(queue_size, SZ_4K));
- 			queue->phys = __pa(queue->base);
- 		} while (!queue->base && logsz-- > 0);
- 	}
-@@ -618,7 +619,7 @@ static struct riscv_iommu_dc *riscv_iommu_get_dc(struct riscv_iommu_device *iomm
- 				break;
- 			}
- 
--			ptr = riscv_iommu_get_pages(iommu, 0);
-+			ptr = riscv_iommu_get_pages(iommu, SZ_4K);
- 			if (!ptr)
- 				return NULL;
- 
-@@ -698,7 +699,7 @@ static int riscv_iommu_iodir_alloc(struct riscv_iommu_device *iommu)
- 	}
- 
- 	if (!iommu->ddt_root) {
--		iommu->ddt_root = riscv_iommu_get_pages(iommu, 0);
-+		iommu->ddt_root = riscv_iommu_get_pages(iommu, SZ_4K);
- 		iommu->ddt_phys = __pa(iommu->ddt_root);
- 	}
- 
--- 
-2.43.0
+					-Alex
+
+> Changed from v5
+> - Correct "Spacemit" to "SpacemiT" in commit messages and code
+> - Always use space instead of TAB in comments for consistency
+> - dt-bindings
+>    - Rename binding header to "spacemit,k1-syscon.h"
+>    - apply review tags
+> - driver code
+>    - remove "default" properties from Kconfig
+>    - misc style and naming improvements
+>    - make ccu_read() directly return the read value, drop ccu_poll() and
+>      reorder the arguments to ccu_{read,update} macros
+>    - drop ccu_common.reg_swcr2
+>    - clock tree for K1
+>      - define PLL3 with the correct offset of SWCR3 register
+>      - synchronize PLL configuration entries with the vendor kernel
+>      - reformat clocks definitions
+>      - explain why PLLs require the MPMU syscon to function
+>      - log a message when failing to register a clock
+>      - simplify clock registration with ARRAY_SIZE()
+>    - ddn
+>      - correctly handle masks which doesn't start from BIT(0) when
+>        calculating the best rate
+>      - improve precision of frequency calculation
+>      - derive _{den,num}_shift from corresponding masks with __ffs()
+>    - mix
+>      - match the full mask of gate in ccu_gate_is_enabled()
+>      - add a note about "frequency change" bit and simplify FC-triggering
+>        logic
+>      - drop unnecessary local variables and initialization from clock
+>        operations
+>      - round to the closest rate in ccu_mix_calc_best_rate()
+>      - change names of all mix subtypes to follow the order of mux ->
+>        factor/div -> gate -> fc
+>      - drop unused _flags argument from CCU_GATE_FACTOR_DEFINE()
+>    - pll
+>      - ensure PLLs are initialized to a known state
+>      - drop extra check in ccu_pll_enable()
+>      - round to the closest rate in ccu_pll_round_rate()
+> - TWSI8 support
+>    - Split cleanly from the main driver commit
+> - devicetree
+>    - drop extra "*-cells" and "ranges" properties
+> - Enable SpacemiT K1 CCU in RISC-V defconfig
+> - Link to v5: https://lore.kernel.org/all/20250306175750.22480-2-heylenay@4d2.org/
+> 
+> Changed from v4
+> - bindings:
+>    - Drop CLK_*_NUM macros from binding headers
+>    - Rename spacemit,k1-ccu.yaml to spacemit,k1-pll.yaml, change to
+>      describe only the PLL in APBS region
+>    - k1-syscon.yaml
+>      - drop spacemit,k1-syscon-apbs, it should be the PLL device
+>      - drop child nodes
+>      - describe the syscons as clock, reset and power-domain controllers
+>      - drop "syscon" from the compatible list, as these syscons aren't
+>        compatible with the generic one
+> - driver:
+>    - misc style fixes and naming improvements
+>    - drop unused fields from data structures
+>    - drop unused clock types: CCU_DDN_GATE
+>    - ddn type:
+>      - improve the comments
+>      - dynamically calculate appropriate rates
+>      - hardcode the x2 factor
+>    - mix type
+>      - drop val_{disable,enable} for gate subtype
+>      - drop unncessary polling when enabling a gate
+>      - encode subtypes directly in struct ccu_mix
+>      - generate clock names from identifiers of the data structure
+>      - rename CCU_DIV2_FC_MUX_GATE_DEFINE to CCU_DIV_SPLIT_FC_MUX_GATE
+>    - pll type:
+>      - correctly claim the parent clock
+>      - make rate tables const
+>      - drop SWCR2-related fields
+>      - combine fields of registers as a whole instead of working with
+>        each field
+>    - clock tree for k1:
+>      - removed duplicated offsets
+>      - drop the placeholder 1:1 factor, pll1_d7_351p8
+>      - workaround the quirk of TWSI8 clocks
+>      - fix the definition of ripc_clk, wdt_bus_clk, dpu_bit_clk and
+>        timers_*_clk
+>      - drop structure spacemit_ccu_priv and spacemit_ccu_data
+>      - rework clock registration
+>      - split the PCIe clocks correctly (there're three distinct clocks
+>        for each PCIe port)
+> - devicetree:
+>    - adapt the new binding
+> - Link to v4: https://lore.kernel.org/all/20250103215636.19967-2-heylenay@4d2.org/
+> 
+> Changed from v3
+> - spacemit,k1-ccu binding
+>    - allow spacemit,mpmu property only for controllers requiring it
+>      (spacemit,k1-ccu-apbs)
+> - spacemit,k1-syscon binding
+>    - drop unnecessary *-cells properties
+>    - drop unrelated nodes in the example
+> - driver
+>    - remove unnecessary divisions during rate calucalation in ccu_ddn.c
+>    - use independent clk_ops for different ddn/mix variants, drop
+>      reg_type field in struct ccu_common
+>    - make the register containing frequency change bit a sperate field in
+>      ccu_common
+>    - unify DIV_MFC_MUX_GATE and DIV_FC_MUX_GATE
+>    - implement a correct determine_rate() for mix type
+>    - avoid reparenting in set_rate() for mix type
+>    - fix build failure when SPACEMIT_CCU and SPACEMIT_CCU_K1 are
+>      configured differently
+> - use "osc" instead of "osc_32k" in clock input names
+> - misc style fixes
+> - Link to v3: https://lore.kernel.org/all/20241126143125.9980-2-heylenay@4d2.org/
+> 
+> Changed from v2
+> - dt-binding fixes
+>    - drop clocks marked as deprecated by the vendor (CLK_JPF_4KAFBC and
+>      CLK_JPF_2KAFBC)
+>    - add binding of missing bus clocks
+>    - change input clocks to use frequency-aware and more precise names
+>    - mark input clocks and their names as required
+>    - move the example to the (parent) syscon node and complete it
+>    - misc style fixes
+> - misc improvements in code
+> - drop unnecessary spinlock in the driver
+> - implement missing bus clocks
+> - Link to v2: https://lore.kernel.org/all/SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+> 
+> Changed from v1
+> - add SoC prefix (k1)
+> - relicense dt-binding header
+> - misc fixes and style improvements for dt-binding
+> - document spacemit,k1-syscon
+> - implement all APBS, MPMU, APBC and APMU clocks
+> - code cleanup
+> - Link to v1: https://lore.kernel.org/all/SEYPR01MB4221B3178F5233EAB5149E41D7902@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+> 
+> Haylen Chu (6):
+>    dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+>    dt-bindings: clock: spacemit: Add spacemit,k1-pll
+>    clk: spacemit: Add clock support for SpacemiT K1 SoC
+>    clk: spacemit: k1: Add TWSI8 bus and function clocks
+>    riscv: dts: spacemit: Add clock tree for SpacemiT K1
+>    riscv: defconfig: enable clock controller unit support for SpacemiT K1
+> 
+>   .../bindings/clock/spacemit,k1-pll.yaml       |   50 +
+>   .../soc/spacemit/spacemit,k1-syscon.yaml      |   80 +
+>   arch/riscv/boot/dts/spacemit/k1.dtsi          |   75 +
+>   arch/riscv/configs/defconfig                  |    2 +
+>   drivers/clk/Kconfig                           |    1 +
+>   drivers/clk/Makefile                          |    1 +
+>   drivers/clk/spacemit/Kconfig                  |   18 +
+>   drivers/clk/spacemit/Makefile                 |    5 +
+>   drivers/clk/spacemit/apbc_clks                |  100 ++
+>   drivers/clk/spacemit/ccu-k1.c                 | 1321 +++++++++++++++++
+>   drivers/clk/spacemit/ccu_common.h             |   48 +
+>   drivers/clk/spacemit/ccu_ddn.c                |   83 ++
+>   drivers/clk/spacemit/ccu_ddn.h                |   47 +
+>   drivers/clk/spacemit/ccu_mix.c                |  268 ++++
+>   drivers/clk/spacemit/ccu_mix.h                |  218 +++
+>   drivers/clk/spacemit/ccu_pll.c                |  157 ++
+>   drivers/clk/spacemit/ccu_pll.h                |   86 ++
+>   .../dt-bindings/clock/spacemit,k1-syscon.h    |  247 +++
+>   18 files changed, 2807 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+>   create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+>   create mode 100644 drivers/clk/spacemit/Kconfig
+>   create mode 100644 drivers/clk/spacemit/Makefile
+>   create mode 100644 drivers/clk/spacemit/apbc_clks
+>   create mode 100644 drivers/clk/spacemit/ccu-k1.c
+>   create mode 100644 drivers/clk/spacemit/ccu_common.h
+>   create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+>   create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+>   create mode 100644 drivers/clk/spacemit/ccu_mix.c
+>   create mode 100644 drivers/clk/spacemit/ccu_mix.h
+>   create mode 100644 drivers/clk/spacemit/ccu_pll.c
+>   create mode 100644 drivers/clk/spacemit/ccu_pll.h
+>   create mode 100644 include/dt-bindings/clock/spacemit,k1-syscon.h
+> 
 
 
 _______________________________________________
