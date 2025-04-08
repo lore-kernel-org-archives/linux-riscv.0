@@ -4,92 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A117CC3600C
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 13:15:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB6DC3600C
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 13:31:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jX58NlEeJW9p8vrfJP8Sav9N7ZPCqpgtCSMf7Tj8bfk=; b=w8CBemIXPb0wP3
-	9MHXzhW7OcvjE1IEBydWJHy6ayKcbKxavoze8bc4ve1Drt7Flx2GSVnPDysGBYqRAyLNUswGnwquw
-	zJ9J5xYKYzZttrzUYfj203khEuTqjbJL8SyhA3ZJyqNdx2fLk/5kH/wLppJWYE8w0nKtmGecQiilY
-	WV4i0tTqojWAFFljKq7e0VRfgMuYOMXogcOVTml6IYsuScpN4vvdzmlWEKRyld6DhlDkQUKNv6JQW
-	AGDroD/xmr7NgnCUh7NrUNsOpXWyf59akxAxfXzCMhglgF/L92G+pKM4Ye9wvrLLV3RDH/cxlVgjp
-	+EVi7vJANsxZ3AaGeSKA==;
+	List-Owner; bh=IuFxx44xFtIGytIBMEDKp4Tyx+OwUBy9bM7jCTit2qo=; b=r5LBO3E2DzsT6l
+	yGgbOozIpfm996ofNa3L6mzgmKercxMD01xqt1pyD8PSEhqtBOt1m3Vjdw6Xg2KZW8fHSMjl+rsZM
+	WB7IBUgalaW8UmbMia3bRfxXqH31d45v+qMo7QFiTUHoVqcWfKNT6fuUzTDnCjrHVG0tP4j5kdSuX
+	F1snTnkRoMXbEVu2/GriD5fENL3VfF5hGe9hrvt/TcaLf1/36VLsHK9zJobd172PifPpLRg6nE9YK
+	6tirXKec9oW6byjDR9gZeJCz/l8EjJamPGpPx628fhd3rafzbomfDIIrJdY58S687QwL1P497Ehqq
+	zCr7V/UblbHSxRFpABNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28nl-000000049Gk-15fs;
-	Tue, 08 Apr 2025 13:15:41 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1u293O-00000004DSl-0iHX;
+	Tue, 08 Apr 2025 13:31:50 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u283M-00000003z8g-3oby
+	id 1u28Kf-000000041P7-0kjw
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Apr 2025 12:27:46 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-703cd93820fso50897347b3.2
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 05:27:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744115264; x=1744720064; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gB1seewdxiTr2VW07A3+uDKCe37V8ksv4C8EdOhGRy0=;
-        b=kvJUiyAH7zkjEt8L+DcBCaYXflkIo9VYl5c2RZC6FzMl98zL8DmMSjossyewrYp9bS
-         U9wlMw6bUqhaY3pL0FhK5DaA0H979zw4xiXabL0SZ/OAhMZn/0BVS1eeMGmuy2hBLOPQ
-         RLLLPeskwGy1ySz2AtRK2nixugK9PYqdX1z0zu4rhLKXBGHbsJmCrhdmnBKN/h3Z2PgN
-         iOLYNXAlJ88V5aWJ2O+1g4FKd5oeyzAW2YD5yQUK8JABfJHxWJ8pyKeeZClqGBgwL7FE
-         u8IrTIqG4BKbUQ797axndBL+kkRrv4V4BiIsVQLfSo5Ilzjjf5J4vTqPHzCLoPvdHCwo
-         oH6g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744115264; x=1744720064;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gB1seewdxiTr2VW07A3+uDKCe37V8ksv4C8EdOhGRy0=;
-        b=Pg4TNO3DNscEy6qR4TQCdnIx4HjpHmH7AVND6L8uqP30Db/0DcF1DPTd/sSKIGG1tz
-         +sHW7ERS8KJ3KUCxzV8iFwoJBg+hRKORKXFy6mFcmFdXKY7S2UpuyDZNsm6lQOYKP3fq
-         U7NbLa4mAI0o8itcuK94TssOEEhHOs3QI7VP3EB9MPXP9RcNxJcpPFsjA14tGAwToPhf
-         DKrzlXqNHJF66jEcVUF0CjTZQc9ltMLuZr00oabN+1Ahw/1aAZ10lRwmU0MbygngFEjq
-         r2BNkswO8MnxDyZz5Durb7Q1ZPd+FaOSKi0g2zzsBGzP+ntXPWhaZ8aTnKFUH8aFmHMW
-         Fl4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWKf5Z3nVxT+KDSZyCEcz7Aq9ZGxjw9du17BFuei81hLP7mtXR0sCTqEXmB6c/sTJbJXLNHRpsy6xUixg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFQdscir39df3WDZ5x3Xt5cK0++zHGIwNpSFlWv8Q9nQI9w1BZ
-	UoXzcVSfTrZsiwrNpAkDPy23qIsgAOcMLRF1Mmq7hAvNgm4PWtngBYF0iinTuqY+PtdwGlEQafy
-	QdZ2EcekVyiBzqc+HcthFl0pn2VNnNkreca8J4Q==
-X-Gm-Gg: ASbGncuHYto8qTeELnpL3ZIHieieecz0W7M34H6l5DnDT1Aoeuvu3QkatDrUjdhbglH
-	f/xqkYDdp3TxK8mGZ3dbH7qxuHBK0OioIln29Pzkw5nDKp56P/oUwYmsRwQoOf9wZhcwIg+s51F
-	92z7Yn2elNQOw+ZspJSlAPGd8W0YE=
-X-Google-Smtp-Source: AGHT+IHPTBP1/MTjSrc/I/MptAtnciiKhGr+WPv5BjoVAvGTZrpvXVXjRqBEPOIQ+IqwWxaW3A1IyTTYeV/ni7FYYsI=
-X-Received: by 2002:a05:690c:4b06:b0:6f9:af1f:53a4 with SMTP id
- 00721157ae682-703e16636afmr292316087b3.32.1744115263719; Tue, 08 Apr 2025
- 05:27:43 -0700 (PDT)
+	Tue, 08 Apr 2025 12:45:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E2F944340A;
+	Tue,  8 Apr 2025 12:45:25 +0000 (UTC)
+Message-ID: <4f6a0c65-7c3a-4457-8b0b-cd39f40931c8@ghiti.fr>
+Date: Tue, 8 Apr 2025 14:45:25 +0200
 MIME-Version: 1.0
-References: <20250303143629.400583-1-m.wilczynski@samsung.com>
- <CGME20250303143637eucas1p1a3abdea520ab88688de1263a5f07bba0@eucas1p1.samsung.com>
- <20250303143629.400583-5-m.wilczynski@samsung.com> <de50dd55e1285726e8d5ebae73877486.sboyd@kernel.org>
- <4c035603-4c11-4e71-8ef3-b857a81bf5ef@samsung.com> <aacd03a071dce7b340d7170eae59d662d58f23b1.camel@pengutronix.de>
- <e90a0c77-61a0-49db-86ba-bac253f8ec53@samsung.com> <38d9650fc11a674c8b689d6bab937acf@kernel.org>
- <CAPDyKFqsJaTrF0tBSY-TjpqdVt5=6aPQHYfnDebtphfRZSU=-Q@mail.gmail.com>
- <ef17e5d1-b364-41e1-ab8b-86140cbe69b2@samsung.com> <21983f8d-681d-4fed-ae44-42eee44c7f14@samsung.com>
-In-Reply-To: <21983f8d-681d-4fed-ae44-42eee44c7f14@samsung.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 8 Apr 2025 14:27:07 +0200
-X-Gm-Features: ATxdqUHjCmHHXOL_8iuBi_mjDxdVOZW28WwVm4E83fRcaHrvrprcU7GgL8K7Wwo
-Message-ID: <CAPDyKFofVfrK04OVmJ2aX_0uMV0b+f8dCpoezpA9LJbnSOf-9Q@mail.gmail.com>
-Subject: Re: [PATCH v1 4/4] clk: thead: Add GPU clock gate control with CLKGEN
- reset support
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, alex@ghiti.fr, 
-	aou@eecs.berkeley.edu, conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org, 
-	jszhang@kernel.org, krzk+dt@kernel.org, m.szyprowski@samsung.com, 
-	mturquette@baylibre.com, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	robh@kernel.org, wefu@redhat.com, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 24/28] arch/riscv: compile vdso with landing pad
+Content-Language: en-US
+To: Deepak Gupta <debug@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Christian Brauner <brauner@kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
+ rick.p.edgecombe@intel.com, Zong Li <zong.li@sifive.com>
+References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
+ <20250314-v5_user_cfi_series-v12-24-e51202b53138@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250314-v5_user_cfi_series-v12-24-e51202b53138@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdefuddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeetgffgkeefteduhefgjeekjeelieejtdekvefhfffhudetkeejhfeuhefgtdekteenucffohhmrghinhepghhnuhdrphhrohhpvghrthihpdgsohhothhlihhnrdgtohhmpdhflhhushhhpghitggrtghhvgdrshgspdhgvghttghpuhdrshgspdhrthgpshhighhrvghtuhhrnhdrshgspdhshihspghhfihprhhosggvrdhssgenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtt
+ hhopeegledprhgtphhtthhopeguvggsuhhgsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehmihhnghhosehrvgguhhgrthdrtghomhdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegurghvvgdrhhgrnhhsvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhhprgesiiihthhorhdrtghomhdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_052744_951434_852E5338 
-X-CRM114-Status: GOOD (  37.30  )
+X-CRM114-CacheID: sfid-20250408_054537_369895_32C117F3 
+X-CRM114-Status: GOOD (  24.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +82,248 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wy4uLl0KCj4gPj4+Cj4gPj4+IEl0IGxvb2tzIGxpa2UgdGhlIFNvQyBnbHVlIG1ha2VzIHRoZSBp
-bnRlcmFjdGlvbnMgYmV0d2VlbiB0aGUgY2xrIGFuZAo+ID4+PiByZXNldCBmcmFtZXdvcmtzIGNv
-bXBsaWNhdGVkIGJlY2F1c2UgR1BVIGNsa3MgZG9uJ3Qgd29yayBpZiBhIHJlc2V0IGlzCj4gPj4+
-IGFzc2VydGVkLiBZb3UncmUgdHJ5aW5nIHRvIGZpbmQgYSBwbGFjZSB0byBjb29yZGluYXRlIHRo
-ZSBjbGsgYW5kIHJlc2V0Lgo+ID4+PiBBbSBJIHJpZ2h0Pwo+ID4+Pgo+ID4+PiBJJ2QgYWR2aXNl
-IG1hbmFnaW5nIHRoZSBjbGtzIGFuZCByZXNldHMgaW4gYSBnZW5lcmljIHBvd2VyIGRvbWFpbiB0
-aGF0Cj4gPj4+IGlzIGF0dGFjaGVkIHRvIHRoZSBHUFUgZGV2aWNlLiBJbiB0aGF0IHBvd2VyIGRv
-bWFpbiwgY29vcmRpbmF0ZSB0aGUgY2xrCj4gPj4+IGFuZCByZXNldCBzZXF1ZW5jaW5nIHNvIHRo
-YXQgdGhlIHJlc2V0IGlzIGRlYXNzZXJ0ZWQgYmVmb3JlIHRoZSBjbGtzIGFyZQo+ID4+PiBlbmFi
-bGVkIChvciB3aGF0ZXZlciB0aGUgYWN0dWFsIHJlcXVpcmVtZW50IGlzKS4gSWYgdGhlIEdQVSBk
-cml2ZXIKPiA+Pj4gX211c3RfIGhhdmUgYSBjbGsgYW5kIHJlc2V0IHBvaW50ZXIgdG8gdXNlLCBp
-bXBsZW1lbnQgb25lIHRoYXQgZWl0aGVyCj4gPj4+IGRvZXMgbm90aGluZyBvciBmbGFnIHRvIHRo
-ZSBHUFUgZHJpdmVyIHRoYXQgdGhlIHBvd2VyIGRvbWFpbiBpcyBtYW5hZ2luZwo+ID4+PiBhbGwg
-dGhpcyBmb3IgaXQgc28gaXQgc2hvdWxkIGp1c3QgdXNlIHJ1bnRpbWUgUE0gYW5kIHN5c3RlbSBQ
-TSBob29rcyB0bwo+ID4+PiB0dXJuIG9uIHRoZSBjbGtzIGFuZCB0YWtlIHRoZSBHUFUgb3V0IG9m
-IHJlc2V0Lgo+ID4+Pgo+ID4+PiBGcm9tIHdoYXQgSSBjYW4gdGVsbCwgdGhlIEdQVSBkcml2ZXIg
-bWFpbnRhaW5lciBkb2Vzbid0IHdhbnQgdG8gdGhpbmsKPiA+Pj4gYWJvdXQgdGhlIHdyYXBwZXIg
-dGhhdCBsaWtlbHkgZ290IHBsYWNlZCBhcm91bmQgdGhlIGhhcmR3YXJlIGJsb2NrCj4gPj4+IHNo
-aXBwZWQgYnkgSU1HLiBUaGlzIHdyYXBwZXIgaXMgdGhlIFNvQyBnbHVlIHRoYXQgbmVlZHMgdG8g
-Z28gaW50byBhCj4gPj4+IGdlbmVyaWMgcG93ZXIgZG9tYWluIHNvIHRoYXQgdGhlIGRpZmZlcmVu
-dCBQTSByZXNvdXJjZXMsIHJlc2V0LCBjbGssCj4gPj4+IGV0Yy4gY2FuIGJlIGNvb3JkaW5hdGVk
-IGJhc2VkIG9uIHRoZSBHUFUgZGV2aWNlJ3MgcG93ZXIgc3RhdGUuIEl0J3MKPiA+Pj4gZWl0aGVy
-IHRoYXQsIG9yIGdvIHRoZSBkd2MzIHJvdXRlIGFuZCBoYXZlIFNvQyBnbHVlIHBsYXRmb3JtIGRy
-aXZlcnMKPiA+Pj4gdGhhdCBtYW5hZ2UgdGhpcyBzdHVmZiBhbmQgY3JlYXRlIGEgY2hpbGQgZGV2
-aWNlIHRvIHJlcHJlc2VudCB0aGUgaGFyZAo+ID4+PiBtYWNybyBzaGlwcGVkIGJ5IHRoZSB2ZW5k
-b3IgbGlrZSBTeW5vcHN5cy9JbWFnaW5hdGlvbi4gRG9pbmcgdGhlIHBhcmVudAo+ID4+PiBkZXZp
-Y2UgZGVzaWduIGlzbid0IGFzIGZsZXhpYmxlIGFzIFBNIGRvbWFpbnMgYmVjYXVzZSB5b3UgY2Fu
-IG9ubHkgaGF2ZQo+ID4+PiBvbmUgcGFyZW50IGRldmljZSBhbmQgdGhlIGNoaWxkIGRldmljZSBz
-dGF0ZSBjYW4gYmUgaWdub3JlZCB2cy4gbWFueSBQTQo+ID4+PiBkb21haW5zIGF0dGFjaGVkIGlu
-IGEgZ3JhcGggdG8gYSBkZXZpY2UgdGhhdCBhcmUgbW9yZSBkaXJlY3RseQo+ID4+PiBpbmZsdWVu
-Y2VkIGJ5IHRoZSBkZXZpY2UgdXNpbmcgcnVudGltZSBQTS4KPiA+Pj4KPiA+Pj4gTWF5YmUgeW91
-J2xsIGJlIGhlYXJ0ZW5lZCB0byBrbm93IHRoaXMgcHJvYmxlbSBpc24ndCB1bmlxdWUgYW5kIGhh
-cwo+ID4+PiBleGlzdGVkIGZvciBkZWNhZGVzIDopIEkgZG9uJ3Qga25vdyB3aGF0IHN0YXRlIHRo
-ZSBncmFwaGljcyBkcml2ZXIgaXMgaW4KPiA+Pj4gYnV0IHRoZXknbGwgbGlrZWx5IGJlIGludGVy
-ZXN0ZWQgaW4gc29sdmluZyB0aGlzIHByb2JsZW0gaW4gYSB3YXkgdGhhdAo+ID4+PiBkb2Vzbid0
-ICJwb2xsdXRlIiB0aGVpciBkcml2ZXIgd2l0aCBTb0Mgc3BlY2lmaWMgZGV0YWlscy4gSXQncyBh
-bGwgYQo+ID4+PiBxdWVzdGlvbiBvZiB3aGVyZSB5b3UgcHV0IHRoZSBjb2RlLiBUaGUgcmVzZXQg
-ZnJhbWV3b3JrIHdhbnRzIHRvIGZvY3VzCj4gPj4+IG9uIHJlc2V0cywgdGhlIGNsayBmcmFtZXdv
-cmsgd2FudHMgdG8gZm9jdXMgb24gY2xrcywgYW5kIHRoZSBncmFwaGljcwo+ID4+PiBkcml2ZXIg
-d2FudHMgdG8gZm9jdXMgb24gZ3JhcGhpY3MuIEJUVywgd2Ugd2VudCB0aHJvdWdoIGEgc2ltaWxh
-cgo+ID4+PiBkaXNjdXNzaW9uIHdpdGggcmVndWxhdG9ycyBhbmQgY2xrcyB5ZWFycyBhZ28gYW5k
-IGVuZGVkIHVwIGhhbmRsaW5nIHRoYXQKPiA+Pj4gd2l0aCBPUFBzIGFuZCBwb3dlciBkb21haW5z
-Lgo+ID4+Cj4gPj4gUmlnaHQsIHBvd2VyLWRvbWFpbiBwcm92aWRlcnMgYXJlIG1vc3RseSBpbXBs
-ZW1lbnRpbmcgU29DIHNwZWNpZmljIGNvZGUuCj4gPj4KPiA+PiBJbiBzb21lIGNhc2VzLCBwb3dl
-ci1kb21haW4gcHJvdmlkZXJzIGFsc28gaGFuZGxlIHBlciBkZXZpY2UgU29DCj4gPj4gc3BlY2lm
-aWMgY29uc3RyYWludHMvc2VxdWVuY2VzLCB3aGljaCBzZWVtcyB3aGF0IHlvdSBhcmUgZGlzY3Vz
-c2luZwo+ID4+IGhlcmUuIEZvciB0aGF0LCBnZW5wZCBoYXMgYSBjb3VwbGUgb2YgY2FsbGJhY2tz
-IHRoYXQgY291bGQgYmUKPiA+PiBpbnRlcmVzdGluZyB0byBoYXZlIGEgbG9vayBhdCwgc3VjaCBh
-czoKPiA+Pgo+ID4+IGdlbnBkLT5hdHRhY2h8ZGV0YWNoX2RldigpIC0gZm9yIHByb2JlL3JlbW92
-ZQo+ID4+IGdlbnBkLmRldl9vcHMtPnN0YXJ0fHN0b3AoKSAtIGZvciBydW50aW1lL3N5c3RlbSBQ
-TQo+ID4+Cj4gPj4gVGhhdCBzYWlkLCBtYXliZSBqdXN0IHVzaW5nIHRoZSByZWd1bGFyIGdlbnBk
-LT5wb3dlcl9vbnxvZmYoKSBjYWxsYmFjawo+ID4+IGlzIHN1ZmZpY2llbnQgaGVyZSwgZGVwZW5k
-aW5nIG9uIGhvdyB5b3UgZGVjaWRlIHRvIG1vZGVsIHRoaW5ncy4KPiA+Cj4gPgo+ID4gVGhhbmtz
-IFN0ZXBoZW4sIFVsZiAhCj4gPgo+ID4gU28gdGhlIHdheSBmb3J3YXJkIEkgc2VlOgo+ID4KPiA+
-IDEpIFRoZSByZXNldCBkcml2ZXIgY2FuIGJlIG1lcmdlZCBhcy1pcywgaWYgUGhpbGlwcCBpcyBm
-aW5lIHdpdGggdGhpcwo+ID4gY29kZSBbMl0uCj4gPiAyKSBJIHdpbGwgY29vayB1cCB0aGUgdXBk
-YXRlIHRvIHRoZSB0aGVhZCBwb3dlci1kb21haW4gZHJpdmVyIHdoaWNoIHdpbGwKPiA+IGhhbmRs
-ZSByZXNldCBhbmQgY2xvY2sgbWFuYWdlbWVudC4KPgo+IEhpIFVsZiwKPiBJJ20gd29ya2luZyBv
-biB0aGUgc2VyaWVzIHJpZ2h0IG5vdyBhbmQgSSB3YW50ZWQgdG8gYXNrIHlvdSBob3cgeW91Cj4g
-cHJlZmVyIHZlcnNpb25pbmcgdG8gYmUgaGFuZGxlZC4gV291bGQgeW91IGxpa2UgbWUgdG8gc2Vu
-ZCBhIHNlcmllcyBhcyBhCj4gdjEsIG9yIHRyZWF0IGlzIGFzIGEgY29udGludWF0aW9uIG9mIHRo
-aXMgc2VyaWVzIFsxXSBhbmQgc2VuZCBhcyBhIHY5Lgo+IFdvdWxkIGxpa2UgdG8gYXZvaWQgYW55
-IGNvbmZ1c2lvbi4KCkkgd291bGQgc3VnZ2VzdCBzdGFydGluZyBvdmVyIHdpdGggdjEsIGJ1dCBk
-b24ndCBmb3JnZXQgdG8gcmVmZXIgdG8Kc29tZSBvZiB0aGUgcHJldmlvdXMgYXR0ZW1wdHMvZGlz
-Y3Vzc2lvbiBpbiB0aGUgY292ZXItbGV0dGVyLiAgQXQKbGVhc3QgSSB3b3VsZCBiZSBmaW5lIGJ5
-IHRoaXMuCgo+Cj4gVGhhbmtzLAo+IE1pY2hhxYIKPgo+IFsxXSAtIGh0dHBzOi8vbG9yZS5rZXJu
-ZWwub3JnL2FsbC8yMDI1MDMxMTE3MTkwMC4xNTQ5OTE2LTEtbS53aWxjenluc2tpQHNhbXN1bmcu
-Y29tLwo+CgpbLi4uXQoKS2luZCByZWdhcmRzClVmZmUKCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+On 14/03/2025 22:39, Deepak Gupta wrote:
+> From: Jim Shu <jim.shu@sifive.com>
+>
+> user mode tasks compiled with zicfilp may call indirectly into vdso (like
+> hwprobe indirect calls). Add landing pad compile support in vdso. vdso
+> with landing pad in it will be nop for tasks which have not enabled
+> landing pad.
+> This patch allows to run user mode tasks with cfi eanbled and do no harm.
+>
+> Future work can be done on this to do below
+>   - labeled landing pad on vdso functions (whenever labeling support shows
+>     up in gnu-toolchain)
+>   - emit shadow stack instructions only in vdso compiled objects as part of
+>     kernel compile.
+>
+> Signed-off-by: Jim Shu <jim.shu@sifive.com>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   arch/riscv/Makefile                   |  5 +++-
+>   arch/riscv/include/asm/assembler.h    | 44 +++++++++++++++++++++++++++++++++++
+>   arch/riscv/kernel/vdso/Makefile       | 12 ++++++++++
+>   arch/riscv/kernel/vdso/flush_icache.S |  4 ++++
+>   arch/riscv/kernel/vdso/getcpu.S       |  4 ++++
+>   arch/riscv/kernel/vdso/rt_sigreturn.S |  4 ++++
+>   arch/riscv/kernel/vdso/sys_hwprobe.S  |  4 ++++
+>   7 files changed, 76 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+> index 13fbc0f94238..eca94246cda6 100644
+> --- a/arch/riscv/Makefile
+> +++ b/arch/riscv/Makefile
+> @@ -88,9 +88,12 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
+>   # Check if the toolchain supports Zabha
+>   riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
+>   
+> +KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+> +export KBUILD_BASE_ISA
+> +
+>   # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+>   # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+> -KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
+> +KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
+>   
+>   KBUILD_AFLAGS += -march=$(riscv-march-y)
+>   
+> diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+> index 44b1457d3e95..a058ea5e9c58 100644
+> --- a/arch/riscv/include/asm/assembler.h
+> +++ b/arch/riscv/include/asm/assembler.h
+> @@ -80,3 +80,47 @@
+>   	.endm
+>   
+>   #endif	/* __ASM_ASSEMBLER_H */
+> +
+> +#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
+> +.macro vdso_lpad
+> +lpad 0
+> +.endm
+> +#else
+> +.macro vdso_lpad
+> +.endm
+> +#endif
+> +
+> +/*
+> + * This macro emits a program property note section identifying
+> + * architecture features which require special handling, mainly for
+> + * use in assembly files included in the VDSO.
+> + */
+> +#define NT_GNU_PROPERTY_TYPE_0  5
+> +#define GNU_PROPERTY_RISCV_FEATURE_1_AND 0xc0000000
+> +
+> +#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP      (1U << 0)
+> +#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFISS      (1U << 1)
+> +
+> +#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
+> +#define GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT \
+> +	(GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP)
+> +#endif
+> +
+> +#ifdef GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
+> +.macro emit_riscv_feature_1_and, feat = GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
+> +	.pushsection .note.gnu.property, "a"
+> +	.p2align        3
+> +	.word           4
+> +	.word           16
+> +	.word           NT_GNU_PROPERTY_TYPE_0
+> +	.asciz          "GNU"
+> +	.word           GNU_PROPERTY_RISCV_FEATURE_1_AND
+> +	.word           4
+> +	.word           \feat
+> +	.word           0
+> +	.popsection
+> +.endm
+> +#else
+> +.macro emit_riscv_feature_1_and, feat = 0
+> +.endm
+> +#endif
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+> index 9a1b555e8733..daa10c2b0dd1 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -13,12 +13,18 @@ vdso-syms += flush_icache
+>   vdso-syms += hwprobe
+>   vdso-syms += sys_hwprobe
+>   
+> +ifdef CONFIG_RISCV_USER_CFI
+> +LPAD_MARCH = _zicfilp
+> +endif
+> +
+>   # Files to link into the vdso
+>   obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
+>   
+>   ccflags-y := -fno-stack-protector
+>   ccflags-y += -DDISABLE_BRANCH_PROFILING
+>   ccflags-y += -fno-builtin
+> +ccflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
+> +asflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
+>   
+>   ifneq ($(c-gettimeofday-y),)
+>     CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+> @@ -40,6 +46,12 @@ endif
+>   CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+>   CFLAGS_REMOVE_hwprobe.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+>   
+> +# Disable profiling and instrumentation for VDSO code
+> +GCOV_PROFILE := n
+> +KCOV_INSTRUMENT := n
+> +KASAN_SANITIZE := n
+> +UBSAN_SANITIZE := n
+
+
+So I looked into this and it seems it is not needed. All the profilers 
+above only add their corresponding "clags" if the object 
+"is-kernel-object" 
+(https://elixir.bootlin.com/linux/v6.14-rc6/source/scripts/Makefile.lib#L147) 
+which is not the case for hwprobe.c since it is not added to obj-y.
+
+
+> +
+>   # Force dependency
+>   $(obj)/vdso.o: $(obj)/vdso.so
+>   
+> diff --git a/arch/riscv/kernel/vdso/flush_icache.S b/arch/riscv/kernel/vdso/flush_icache.S
+> index 8f884227e8bc..e4c56970905e 100644
+> --- a/arch/riscv/kernel/vdso/flush_icache.S
+> +++ b/arch/riscv/kernel/vdso/flush_icache.S
+> @@ -5,11 +5,13 @@
+>   
+>   #include <linux/linkage.h>
+>   #include <asm/unistd.h>
+> +#include <asm/assembler.h>
+>   
+>   	.text
+>   /* int __vdso_flush_icache(void *start, void *end, unsigned long flags); */
+>   SYM_FUNC_START(__vdso_flush_icache)
+>   	.cfi_startproc
+> +	vdso_lpad
+>   #ifdef CONFIG_SMP
+>   	li a7, __NR_riscv_flush_icache
+>   	ecall
+> @@ -20,3 +22,5 @@ SYM_FUNC_START(__vdso_flush_icache)
+>   	ret
+>   	.cfi_endproc
+>   SYM_FUNC_END(__vdso_flush_icache)
+> +
+> +emit_riscv_feature_1_and
+> diff --git a/arch/riscv/kernel/vdso/getcpu.S b/arch/riscv/kernel/vdso/getcpu.S
+> index 9c1bd531907f..5c1ecc4e1465 100644
+> --- a/arch/riscv/kernel/vdso/getcpu.S
+> +++ b/arch/riscv/kernel/vdso/getcpu.S
+> @@ -5,14 +5,18 @@
+>   
+>   #include <linux/linkage.h>
+>   #include <asm/unistd.h>
+> +#include <asm/assembler.h>
+>   
+>   	.text
+>   /* int __vdso_getcpu(unsigned *cpu, unsigned *node, void *unused); */
+>   SYM_FUNC_START(__vdso_getcpu)
+>   	.cfi_startproc
+> +	vdso_lpad
+>   	/* For now, just do the syscall. */
+>   	li a7, __NR_getcpu
+>   	ecall
+>   	ret
+>   	.cfi_endproc
+>   SYM_FUNC_END(__vdso_getcpu)
+> +
+> +emit_riscv_feature_1_and
+> diff --git a/arch/riscv/kernel/vdso/rt_sigreturn.S b/arch/riscv/kernel/vdso/rt_sigreturn.S
+> index 3dc022aa8931..e82987dc3739 100644
+> --- a/arch/riscv/kernel/vdso/rt_sigreturn.S
+> +++ b/arch/riscv/kernel/vdso/rt_sigreturn.S
+> @@ -5,12 +5,16 @@
+>   
+>   #include <linux/linkage.h>
+>   #include <asm/unistd.h>
+> +#include <asm/assembler.h>
+>   
+>   	.text
+>   SYM_FUNC_START(__vdso_rt_sigreturn)
+>   	.cfi_startproc
+>   	.cfi_signal_frame
+> +	vdso_lpad
+>   	li a7, __NR_rt_sigreturn
+>   	ecall
+>   	.cfi_endproc
+>   SYM_FUNC_END(__vdso_rt_sigreturn)
+> +
+> +emit_riscv_feature_1_and
+> diff --git a/arch/riscv/kernel/vdso/sys_hwprobe.S b/arch/riscv/kernel/vdso/sys_hwprobe.S
+> index 77e57f830521..f1694451a60c 100644
+> --- a/arch/riscv/kernel/vdso/sys_hwprobe.S
+> +++ b/arch/riscv/kernel/vdso/sys_hwprobe.S
+> @@ -3,13 +3,17 @@
+>   
+>   #include <linux/linkage.h>
+>   #include <asm/unistd.h>
+> +#include <asm/assembler.h>
+>   
+>   .text
+>   SYM_FUNC_START(riscv_hwprobe)
+>   	.cfi_startproc
+> +	vdso_lpad
+>   	li a7, __NR_riscv_hwprobe
+>   	ecall
+>   	ret
+>   
+>   	.cfi_endproc
+>   SYM_FUNC_END(riscv_hwprobe)
+> +
+> +emit_riscv_feature_1_and
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
