@@ -4,83 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E6F2C36010
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 22:32:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E31EBC36010
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 22:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ULw6Rh0wb5Lst7kptgpvw2zipoyB6MgNXhfk6fO83yI=; b=j7sKqS53A/1Zig
-	RrGlG6fcZwQZO98nW7Zdy4juNQPQI9QfNrzVSHb3sPTBEphVMvLYFqCYtj9qUzOdHi29aDA+SC+yT
-	TGXGiWic7i5t+1AUaHy40REFa61ZM8X79H9gjqleGVeOORCradH+Z20c5K9xB1aJQ6ltB/apJRhNh
-	aNq9+frzcKcR867U1UWoQ4IPiQN7C/NO+aqPZYQlw6NLKGr9o031wdCiBgXxNJR2+hsQcdkOZLoV6
-	1tyq4hRX7UDwUrAUyNpz9+gvjeuPcU13VdIlm8OF3DYlWUoW17AfB9Zy2n9JiNqx1+4jAU+Qvwu0h
-	QJq2PZVSTYIS3Hdvfwhg==;
+	List-Owner; bh=2cOyXdxaCm7uzvDsWtUl+FYSlRBXmDs1eFlCpFc6ohc=; b=jHG3HOFl18LAue
+	0/KaGTbqFHbl1pwBEw2bqQfFQvapCy1e8TvdyWYCS50FuqH0JGuwiSsjfjRrGCTotPbU/txFLwYOS
+	EWeVhpHTmUickBivVzgV3YRjhBsU3kdiFISfUno4guWPwC2yESc64QSG9ToNKKJeii7o+lX4LnAOo
+	3y5lMB09ygSDaUqjznWD0bAS6DZxUCJ2i0+5Dhi3iugDbQQsLK5MS3tK0Yg7dZj09W5ra7ZUj8PWm
+	j6R+gggmvoGCsqwIj16f+iVroMMXkq2O9Z1I1pAcfnFH2e3mESkY0dExX8oIWl43l4fWI6/Zd3GoW
+	1A0ukZSEqp+EgHgpPFqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HUb-00000005adT-3RtA;
-	Tue, 08 Apr 2025 22:32:29 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2HUL-00000005aWy-0Hqb
+	id 1u2HYK-00000005bDW-0x17;
+	Tue, 08 Apr 2025 22:36:20 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2HYG-00000005bD5-2miF
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Apr 2025 22:32:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744151533; x=1775687533;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=b0bXRgqQnmm2cNRFGm8SjalL6upzrz3+tOd/LgkS0gI=;
-  b=FbqJqj7eEf0Qf7e5dxqL7YzeP+QxngUqRZwtXv6RYYI9eivlHfzvy5WF
-   5WvHlEgbbBU1V4kiKB845qS0rpW5VSTMvMtvnYxsJsC7WdnJMm+vs88A6
-   KaDJ7Uwg4U5d909KtWjRCJO4Jn2+n9timoPcEsuaRW0SqJ20B52GR/d8v
-   WuO12nqHESnj7jtDf+HMw8G/h+nVccOIFA+szEEyTxSjG5/reA/7k8Xc8
-   a66EOztY4WcYGCZZ2QdnSEot9/Fw3iSPPxSGh4X3UGrO46I2CGF4Oi0+4
-   n6FUFDpgyVjx1i+B6mBXwLjtYYkrR1dQzQGuvBdD+oopkrDdwuFo6/D8a
-   Q==;
-X-CSE-ConnectionGUID: An/xtiuGSB2DQtEyLxIVzQ==
-X-CSE-MsgGUID: EoLKOxfVROm6cI2zYa79Tg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="68085748"
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="68085748"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 15:32:09 -0700
-X-CSE-ConnectionGUID: aP+z0NrzTryiGi6q0VfaUw==
-X-CSE-MsgGUID: 6AYdNThmRlmvePPfHRrbKw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
-   d="scan'208";a="128935856"
-Received: from lkp-server01.sh.intel.com (HELO b207828170a5) ([10.239.97.150])
-  by orviesa007.jf.intel.com with ESMTP; 08 Apr 2025 15:32:04 -0700
-Received: from kbuild by b207828170a5 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u2HU9-000827-1C;
-	Tue, 08 Apr 2025 22:32:01 +0000
-Date: Wed, 9 Apr 2025 06:31:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Andy Chiu <andybnac@gmail.com>, linux-riscv@lists.infradead.org,
-	alexghiti@rivosinc.com, palmer@dabbelt.com
-Cc: oe-kbuild-all@lists.linux.dev, Andy Chiu <andybnac@gmail.com>,
-	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
-	Mark Rutland <mark.rutland@arm.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Alexandre Ghiti <alex@ghiti.fr>, bjorn@rivosinc.com,
-	puranjay12@gmail.com, paul.walmsley@sifive.com,
-	greentime.hu@sifive.com, nick.hu@sifive.com, nylon.chen@sifive.com,
-	eric.lin@sifive.com, vicent.chen@sifive.com, zong.li@sifive.com,
-	yongxuan.wang@sifive.com, samuel.holland@sifive.com,
-	olivia.chu@sifive.com, c2232430@gmail.com
-Subject: Re: [PATCH v4 04/12] kernel: ftrace: export ftrace_sync_ipi
-Message-ID: <202504090657.5fiH4UIS-lkp@intel.com>
-References: <20250407180838.42877-4-andybnac@gmail.com>
+	Tue, 08 Apr 2025 22:36:19 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 0DEF672C8CC;
+	Wed,  9 Apr 2025 01:36:12 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 0053E7CCB3A; Wed,  9 Apr 2025 01:36:11 +0300 (IDT)
+Date: Wed, 9 Apr 2025 01:36:11 +0300
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Arnd Bergmann <arnd@arndb.de>, strace-devel@lists.strace.io,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 2/6] syscall.h: add syscall_set_arguments()
+Message-ID: <20250408223611.GA26876@strace.io>
+References: <20250303111910.GA24170@strace.io>
+ <20250303112009.GC24170@strace.io>
+ <20250408213131.GA2872426@ax162>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250407180838.42877-4-andybnac@gmail.com>
+In-Reply-To: <20250408213131.GA2872426@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_153213_172986_EB1AF8C3 
-X-CRM114-Status: GOOD (  10.95  )
+X-CRM114-CacheID: sfid-20250408_153617_031735_FDDF7BA6 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +67,102 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Hi Nathan,
 
-kernel test robot noticed the following build warnings:
+On Tue, Apr 08, 2025 at 02:31:31PM -0700, Nathan Chancellor wrote:
+> Hi Dmitry,
+> 
+> [dropping majority of folks since this seems irrelevant to them]
+> 
+> On Mon, Mar 03, 2025 at 01:20:09PM +0200, Dmitry V. Levin wrote:
+> > This function is going to be needed on all HAVE_ARCH_TRACEHOOK
+> > architectures to implement PTRACE_SET_SYSCALL_INFO API.
+> > 
+> > This partially reverts commit 7962c2eddbfe ("arch: remove unused
+> > function syscall_set_arguments()") by reusing some of old
+> > syscall_set_arguments() implementations.
+> > 
+> > Signed-off-by: Dmitry V. Levin <ldv@strace.io>
+> > Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> > Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> > Acked-by: Helge Deller <deller@gmx.de> # parisc
+> > Reviewed-by: Maciej W. Rozycki <macro@orcam.me.uk> # mips
+> ...
+> > diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> > index 121fff429dce..8d389ba995c8 100644
+> > --- a/arch/riscv/include/asm/syscall.h
+> > +++ b/arch/riscv/include/asm/syscall.h
+> > @@ -66,6 +66,15 @@ static inline void syscall_get_arguments(struct task_struct *task,
+> >  	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
+> >  }
+> >  
+> > +static inline void syscall_set_arguments(struct task_struct *task,
+> > +					 struct pt_regs *regs,
+> > +					 const unsigned long *args)
+> > +{
+> > +	regs->orig_a0 = args[0];
+> > +	args++;
+> > +	memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> > +}
+> 
+> This upsets the compiletime fortify checks, as I see a warning after
+> syscall_set_arguments() starts being used in kernel/ptrace.c later in
+> the series.
+> 
+>   $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- allmodconfig kernel/ptrace.o
+>   In file included from include/linux/string.h:392,
+>                    from include/linux/bitmap.h:13,
+>                    from include/linux/cpumask.h:12,
+>                    from arch/riscv/include/asm/processor.h:55,
+>                    from include/linux/sched.h:13,
+>                    from kernel/ptrace.c:13:
+>   In function 'fortify_memcpy_chk',
+>       inlined from 'syscall_set_arguments.isra' at arch/riscv/include/asm/syscall.h:82:2:
+>   include/linux/fortify-string.h:571:25: error: call to '__write_overflow_field' declared with attribute warning: detected write beyond size of field (1st parameter); maybe use struct_group()? [-Werror=attribute-warning]
+>     571 |                         __write_overflow_field(p_size_field, size);
+>         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   cc1: all warnings being treated as errors
 
-[auto build test WARNING on linus/master]
-[also build test WARNING on v6.15-rc1 next-20250408]
-[cannot apply to trace/for-next]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+I certainly tested the series on riscv64, but somehow I haven't seen this
+compiler diagnostics before.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Andy-Chiu/riscv-ftrace-factor-out-code-defined-by-WITH_ARG/20250408-025114
-base:   linus/master
-patch link:    https://lore.kernel.org/r/20250407180838.42877-4-andybnac%40gmail.com
-patch subject: [PATCH v4 04/12] kernel: ftrace: export ftrace_sync_ipi
-config: xtensa-randconfig-001-20250409 (https://download.01.org/0day-ci/archive/20250409/202504090657.5fiH4UIS-lkp@intel.com/config)
-compiler: xtensa-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250409/202504090657.5fiH4UIS-lkp@intel.com/reproduce)
+> The compiler knows the size of the destination and the size to be copied
+> so it knows there will be an (intentional) overwrite here.
+> struct_group() would normally work but I think this structure already
+> has a struct_group() around some of the members that would be needed. I
+> build tested eliminating the memcpy() altogether, which would appear to
+> work, but I am not sure if there is a better solution, hence just the
+> report.
+> 
+> Cheers,
+> Nathan
+> 
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index a5281cdf2b10..70ec19dc8506 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -78,8 +78,11 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>                                          const unsigned long *args)
+>  {
+>         regs->orig_a0 = args[0];
+> -       args++;
+> -       memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> +       regs->a1 = args[1];
+> +       regs->a2 = args[2];
+> +       regs->a3 = args[3];
+> +       regs->a4 = args[4];
+> +       regs->a5 = args[5];
+>  }
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504090657.5fiH4UIS-lkp@intel.com/
+I don't mind eliminating the memcpy() altogether, but
+I'd like to note that syscall_set_arguments() is an exact mirror
+of syscall_get_arguments(), so if the intentional overwrite in
+syscall_set_arguments() is not acceptable, then the intentional
+overread in syscall_get_arguments() shouldn't be acceptable either.
 
-All warnings (new ones prefixed by >>):
-
->> kernel/trace/ftrace.c:191:6: warning: no previous prototype for 'ftrace_sync_ipi' [-Wmissing-prototypes]
-     191 | void ftrace_sync_ipi(void *data)
-         |      ^~~~~~~~~~~~~~~
-
-
-vim +/ftrace_sync_ipi +191 kernel/trace/ftrace.c
-
-   190	
- > 191	void ftrace_sync_ipi(void *data)
-   192	{
-   193		/* Probably not needed, but do it anyway */
-   194		smp_rmb();
-   195	}
-   196	
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+ldv
 
 _______________________________________________
 linux-riscv mailing list
