@@ -4,135 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8119CC369A5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B5E2C369A6
 	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 18:27:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xSjrgY21721QDhV34RfFr38gAhS5pCM4TAskLELd3FM=; b=nbk/5uYhViHSk/
-	LZjTdKzJcnj8RLqMqLdGlOmupLqHfCVhyj5B8jJbUfLtVP7CLrqczr6dudBsQJFaJ0WReIKOyAyeU
-	AbbLMS2eb5+btatwQ5tmVugXdy5MakOOIS/nr8GgBnpzJ7Q/V/pVAvabJ+kHc5lwokMSVsJDHK9z5
-	xaMl/T6aWfMT1CKfgyA53QFYbH5yuw+Mdw/1GdJTaPRd7oH345tJ6iNK/Za0IRoVsqjBYLey9PG0m
-	vZvfzvAdZ2sJhJdOcQg9BV0V1WKYmKuixUf64Rq93rW+UA298wfniFnovBM+y1xKXqFu07G5Ld2oG
-	oUXvnz4uGdACgz3fQugw==;
+	List-Owner; bh=bmcSlWjFawFmzNRs2OH5ruUyY/E3DFkOpDu9gEtEric=; b=Ev5vsRLn9pHawo
+	KvldNoGkR058+9ZPAXGC//7TnCH4hxnaNpTbuc0ImtBc+0IoDcCDPLD8iQstc9KMnbWgszrfgJGpH
+	m8pRi67Otd5Y8CAp9V8bITcxuOBGOdf4b0taurS+8HRNTwIJo+o2ObfA/kN806tgzjbZCDiNdYOIT
+	yzpyHzb/OObQIdDy74O0PRpS+jKhkIvAd5nhID5ta/IjOH8qv/i2XgtiYePZf59W7hfzUKD+k1yZJ
+	AGkln5CtaytjVRVEYtfKis5hRQydH0su9JqNzrmOapuixpKFG0TgXAtn3nBLHAaBKdMfBghG8d3Ug
+	R+VP2HXh23Ow7WNwYX9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Dfp-000000056lw-0SaJ;
+	id 1u2Dfp-000000056ma-3EOQ;
 	Tue, 08 Apr 2025 18:27:49 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2CDm-00000004sRU-3CUK;
-	Tue, 08 Apr 2025 16:54:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1744131287; x=1775667287;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=C287iv3eHy79w9UxvCRDpeM64RhD3G9TV81JyzlSMXs=;
-  b=eCUKA4TUjAQmMESOGtNZaTWOGcrv4eaTDSwFxqgOCPkSasFvHcIccPqe
-   OCh8iNAPvNtQPjZb8VcVynaUoKfqQVVmPU1Yz+gltt9JCypr5bc2mRKcF
-   MxKbgHaXoFNDbiEq+paaIjjWHYItm++5mjrtoSlY2BzjQv8yeBlbZ2sC/
-   EvlqRfCpfubnDVQcfMAN9fDAGz7qJhHZU4q5CvKwgDSxL3XStfuEcDaYL
-   y19sqhzaRmPiXiXkGnmYKOmWHl9ulzkcmqEhH8Or/Pqh1Tw9mLke6EE2o
-   gQTqDQuzFgaYMHrNdOMnkPdWof/er8YO8yJOb1Ra2AU4cuuYfw1VMhVHr
-   g==;
-X-CSE-ConnectionGUID: 0zFYHKwKRZGpTNi4eIw12g==
-X-CSE-MsgGUID: rRY9PyMaSbybWop1kfYlrA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45465971"
-X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
-   d="scan'208";a="45465971"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 09:54:46 -0700
-X-CSE-ConnectionGUID: +/qjbYu/SrKkWwBlcraWog==
-X-CSE-MsgGUID: zp1PqoycS1aF3v1GJ550SA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,198,1739865600"; 
-   d="scan'208";a="128328574"
-Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.124.220.83]) ([10.124.220.83])
-  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 09:54:44 -0700
-Message-ID: <9247436d-ae01-4eb8-bd5d-370b2fb2eebc@intel.com>
-Date: Tue, 8 Apr 2025 09:54:42 -0700
+	id 1u2CH2-00000004tDH-2j7m
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Apr 2025 16:58:12 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43ea40a6e98so50665525e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 09:58:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1744131487; x=1744736287; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8uGIqPGo3/RzZiaVHiqgzYEtP/BWLkkvzIhLsqEr0Mg=;
+        b=Vbd9Wr5jY6yUfYJuqm9CfPiGbWjEoOul4IGO7RiruHtR9jwtVi3rN1azeClFpzgYZ9
+         tEgEfT1SCPRwa5DqSBQyObNiSDTTUpl+VAC8hhNlQz+R5yxaPybxN5IEEz4yHKzpPCTZ
+         aS//GVzFeOlEqOJvYAtFwux2bXmuPQCt56EsGnVdTjNmXn7BB7gL19nqGpQGEQsXI9Gt
+         vZHSwDk4Oti7jS1HdjycEYC3vEWkws0z4ALNxt8LUobRk2DOg6QtFqhBoDpLDXyeTZeP
+         d74lx9nsVqnkWjB3OvJezDNjUF6jX4HAk+k5y3lBRIHD1XlDSyP1X/cfU8J7ufdpYEN2
+         4Pmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744131487; x=1744736287;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8uGIqPGo3/RzZiaVHiqgzYEtP/BWLkkvzIhLsqEr0Mg=;
+        b=bCu+zGzIqkOQmwyC2I3/VtD443jFQCeuZwVHtOz684eDmdDyYe83WxJRS7Pxq8Ns+a
+         EwGYtTmzatHHdNFIjJMRVvb8dAbTkQxONBbZxOS7JnSXFMZSraCxb/a9nV9CGqOxC6zx
+         i/R6B+JAcLM4q798uv80yF7NdEzCp9noLlSgDTymHlKg/wumjqddbBCMDRLmIRXp9h4V
+         HJLLA8iLZ19eoWj2/l7A1GlQvd8nYLI+3CAjnTdHFpN+CIHo4fsluc+AaplV+7sL83zR
+         CKRQKsprU7AezO9O7f8rsIlHuS1OOeZJNTNsurjPEV86ExRUE1EFwZ0TlezCtZk578+x
+         hEwg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDe8rftXkObZkJWXWreQJ9mlfPjpRdrRHZgWODWCvCu/zLqaDO94HGAhr3in3504lWUizW9uSND+w0Zw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznkyvGGV5vRS2xBt09cqYR2BnMlgHa3z8YQgZiqU8F3Fxm/SsZ
+	td4werOCkq1T7CIGbVXD/YVvdfwjSTy9ODl3mtC/THD6MMUntrC13cRtMtxsKlQ=
+X-Gm-Gg: ASbGncv99yWDOPzWROY8dH5ZZA3QHtKstiGc4sdUAKDM3hDYMe8+WO3jxZchDnGv0yL
+	F258Swkn084U4Pm4osvzr+TDzuPgq0nrpvUy8xXiTjLbVos2WsKUEoTFJhrMhMweeyD/V5m49cd
+	c/XS9ad6A3adcp127YqxYLKYKHBNv5JjE7R8CiFmOHHD2dBg6HW8A7e26oHzqEv6pr9BzF4DQop
+	eiPYPcP3ALLzEQg7fnW4mfhiQM1/sYp3EGnmsKgtXPLx6cFelmmFtkX36l7nNcz7iI5WExY33cu
+	Db+n7yWSGvZQLHEBqW1CegHireWyNHPo550lsoEB4PFW
+X-Google-Smtp-Source: AGHT+IFGsRSNGsLurl8DoyFapSJyV7TtJ4uGe3SGSEX3BrkLYJ/yVCM++z6f1tjo7zrernLeUKYo4Q==
+X-Received: by 2002:a5d:5f4e:0:b0:390:f9d0:5df with SMTP id ffacd0b85a97d-39d6fd3647fmr10095287f8f.52.1744131486678;
+        Tue, 08 Apr 2025 09:58:06 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:2adf:eaae:f6ea:1a73])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39c301a6a60sm15141709f8f.29.2025.04.08.09.58.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 09:58:06 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Yixun Lan <dlan@gentoo.org>
+Cc: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Alex Elder <elder@riscstar.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v4] gpiolib: support parsing gpio three-cell interrupts scheme
+Date: Tue,  8 Apr 2025 18:58:05 +0200
+Message-ID: <174413148280.131421.6673320812296091453.b4-ty@linaro.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250408-04-gpio-irq-threecell-v4-1-fd170d5e2d2b@gentoo.org>
+References: <20250408-04-gpio-irq-threecell-v4-1-fd170d5e2d2b@gentoo.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
-To: Matthew Wilcox <willy@infradead.org>
-Cc: Kevin Brodsky <kevin.brodsky@arm.com>, linux-mm@kvack.org,
- linux-kernel@vger.kernel.org, Albert Ou <aou@eecs.berkeley.edu>,
- Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Qi Zheng
- <zhengqi.arch@bytedance.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, x86@kernel.org
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
- <20250408095222.860601-3-kevin.brodsky@arm.com>
- <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
- <Z_VQxyqkU8DV7QGy@casper.infradead.org>
-From: Dave Hansen <dave.hansen@intel.com>
-Content-Language: en-US
-Autocrypt: addr=dave.hansen@intel.com; keydata=
- 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
-In-Reply-To: <Z_VQxyqkU8DV7QGy@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_095446_817148_9E4D79E7 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250408_095808_950680_8F92AF56 
+X-CRM114-Status: UNSURE (   8.39  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,28 +107,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/8/25 09:37, Matthew Wilcox wrote:
-> On Tue, Apr 08, 2025 at 08:22:47AM -0700, Dave Hansen wrote:
->> Are there any tests for folio_test_pgtable() at free_page() time? If we
->> had that, it would make it less likely that another free_page() user
->> could sneak in without calling the destructor.
-> It's hidden, but yes:
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+
+
+On Tue, 08 Apr 2025 23:11:20 +0800, Yixun Lan wrote:
+> gpio irq which using three-cell scheme should always call
+> instance_match() function to find the correct irqdomain.
 > 
-> static inline bool page_expected_state(struct page *page,
->                                         unsigned long check_flags)
-> {
->         if (unlikely(atomic_read(&page->_mapcount) != -1))
->                 return false;
+> The select() function will be called with !DOMAIN_BUS_ANY,
+> so for specific gpio irq driver, it need to set bus token
+> explicitly, something like:
+>   irq_domain_update_bus_token(girq->domain, DOMAIN_BUS_WIRED);
 > 
-> PageTable uses page_type which aliases with mapcount, so this check
-> covers "PageTable is still set when the last refcount to it is put".
+> [...]
 
-Huh, so shouldn't we have ended up in bad_page() for these, other than:
+Applied, thanks!
 
-        pagetable_dtor(virt_to_ptdesc(pmd));
-        free_page((unsigned long)pmd);
+[1/1] gpiolib: support parsing gpio three-cell interrupts scheme
+      https://git.kernel.org/brgl/linux/c/27986833e8e675b6c17654d13623590a46f9033e
 
-?
+Best regards,
+-- 
+Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
 _______________________________________________
 linux-riscv mailing list
