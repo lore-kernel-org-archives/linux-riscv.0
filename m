@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FB6DC3600C
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 13:31:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B770C3600C
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 13:33:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IuFxx44xFtIGytIBMEDKp4Tyx+OwUBy9bM7jCTit2qo=; b=r5LBO3E2DzsT6l
-	yGgbOozIpfm996ofNa3L6mzgmKercxMD01xqt1pyD8PSEhqtBOt1m3Vjdw6Xg2KZW8fHSMjl+rsZM
-	WB7IBUgalaW8UmbMia3bRfxXqH31d45v+qMo7QFiTUHoVqcWfKNT6fuUzTDnCjrHVG0tP4j5kdSuX
-	F1snTnkRoMXbEVu2/GriD5fENL3VfF5hGe9hrvt/TcaLf1/36VLsHK9zJobd172PifPpLRg6nE9YK
-	6tirXKec9oW6byjDR9gZeJCz/l8EjJamPGpPx628fhd3rafzbomfDIIrJdY58S687QwL1P497Ehqq
-	zCr7V/UblbHSxRFpABNA==;
+	List-Owner; bh=rPNXISsiRq1aoy4zBtPzpGrh8rLuW+yEWp3h79GJxX0=; b=rXqhY4YvC1s1mw
+	iq2pF6+/G9u8EtAOmp/9RSITCuOd28yFc7dOeBU8zophsjz/f3uRUxCk2SM6yYPX3bjRCkTTX+v1F
+	/GH+tP1yp7BvuXTLSLSXSz0iMEDWMXk53zBOC8ss8IyC2dqjhMds+P5ouN0sOOC5zIyMcgjTgGF3k
+	rMi/d+RY5tIgAUq2r8awLLmzb9Pczw93aiNY744Ku0VFhXBeZPd8CbwbV1OrY9ED7itS6w98l6+yp
+	+mcOU7DTmBv6h0iDuKt9Qb3whu3N+UB/LWowBruhvS+NkId/+emR3piPVJCZ5tTBhQSuNEqRPSx+r
+	D4sIKQvJ1OHQ6BLNky1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u293O-00000004DSl-0iHX;
-	Tue, 08 Apr 2025 13:31:50 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1u2959-00000004DpV-3Y4F;
+	Tue, 08 Apr 2025 13:33:39 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u28Kf-000000041P7-0kjw
+	id 1u28bj-000000044HJ-258p
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Apr 2025 12:45:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id E2F944340A;
-	Tue,  8 Apr 2025 12:45:25 +0000 (UTC)
-Message-ID: <4f6a0c65-7c3a-4457-8b0b-cd39f40931c8@ghiti.fr>
-Date: Tue, 8 Apr 2025 14:45:25 +0200
+	Tue, 08 Apr 2025 13:03:16 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43d0618746bso40196905e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 06:03:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1744117393; x=1744722193; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yariCUXscgT6CSzi8mecIIs82gQSGVlzPNHiSOA5TSA=;
+        b=VcHqw63Fb7NpT1F/NQK1F61LkafajY1Mg4arAyQYW+VWOJz6+ndcfyOMGxOgmcNEIZ
+         t6IRwTIItQixFvNrY0F1C8jRkSiWQxIyY9LnlfNHlHABnAjEF6Z5gJRrxq+ppyDBiWff
+         BbbCkzO08z+JwR73qa+o6LVhgxG7wEOTxvnKHnpgpGX8tTQAzPXKnU45YgsFy4YKIOyV
+         HfQ/0guQ62UPe21/KNdEWgvt5XYbRKJk6zYA7uabzW2LhaXubXviHp7ooZft2BgteJRz
+         JUvemIClyOY71QExwrSwvvQULSdYYzVExNKKYlioZP2o+uNTkWENMjBWWtGPTrIXi3/v
+         aWXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744117393; x=1744722193;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yariCUXscgT6CSzi8mecIIs82gQSGVlzPNHiSOA5TSA=;
+        b=C/HW0KKAeKzpYNwcchnS+js0RIJ6d+3Mn/rMhDdPDw20Mablt0dlKib6FIfWpNiXFb
+         vHIr9ObQx+6mhdW4PLxiCRxfUxmVWN8z/2M7Vn37+xrEWMG+FLL0J9kfDDhRhwrruapz
+         GTT1nR/gyth9uRJVg8s8B+L/+RZ7vzdoyGPe/ATrgJxRrlWGiUQ3o9yoWtpK7rxIoQMC
+         tLb7ClAYWQ0dZARL4x5m+BAo6llvcpnmSPHFAr4Taz3I8TTQZx3XIPIYszpyphrHDU5d
+         F6PG5S69Q3HCLL2nTIsdYMNKhg5Ra1thS9K5UbRzvZD393KQjI6NYNEqsUypiuTViKwD
+         0H+A==
+X-Gm-Message-State: AOJu0Yx3cJrzWKiwwzHw2nC+HkMpLE8WbmOPRC1qMdDmsou4TxATzfdh
+	INuaVeTzjJTxikRXcjuR9UQyxff+bsm5NHtiLyjSMjr/NmWSESjSu70Pgin7hmE=
+X-Gm-Gg: ASbGnctHqW+0XdrIwEyVQRJNjLFdmxPNnqazbrVRJ3yT34aCFj8a8A/9FC0f6Oz0Uzz
+	3pBM/3q6rE0iCYH0EkH8lRIeXy6LWOXthGXBPSJUKvR+kUvcR95MBpPuhoCryRp/psQABAre+Gx
+	Mloi7h8Mm4sjEyhEDepymwxsi5/B43ddUFoN2qmlCvyNsJJr4K39UL7FVnZBSufV8L9oeNkhnK7
+	M/CmksGJqlDqtLR9Z4wt/G6Fc7tLBxdY7RnZxogwCIdGVHdSwZokBPVrpr94+35wuD3m7JCO8+0
+	ob/fSFLOvmknLF+HE3CogiM5MtZE6JKZ
+X-Google-Smtp-Source: AGHT+IF2Vv0rmz/WwZXEsLPeSJxbfCLrHKkL9DK4fFs4t2QUhn6W9THc1pNDbAlCQHOWVpb2Kmxavg==
+X-Received: by 2002:a05:600c:c8a:b0:43c:f597:d584 with SMTP id 5b1f17b1804b1-43ecfa0704amr151411075e9.29.1744117391094;
+        Tue, 08 Apr 2025 06:03:11 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::31af])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ec16ba978sm164456275e9.23.2025.04.08.06.03.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 08 Apr 2025 06:03:10 -0700 (PDT)
+Date: Tue, 8 Apr 2025 15:03:09 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	charlie@rivosinc.com, cleger@rivosinc.com, alex@ghiti.fr, 
+	Anup Patel <apatel@ventanamicro.com>, corbet@lwn.net
+Subject: Re: [PATCH v3 7/8] riscv: Add parameter for skipping access speed
+ tests
+Message-ID: <20250408-f3b5934a901bd24c1c800c8d@orel>
+References: <20250304120014.143628-10-ajones@ventanamicro.com>
+ <20250304120014.143628-17-ajones@ventanamicro.com>
+ <CAMuHMdWVMP0MYCLFq+b7H_uz-2omdFiDDUZq0t_gw0L9rrJtkQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 24/28] arch/riscv: compile vdso with landing pad
-Content-Language: en-US
-To: Deepak Gupta <debug@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
- Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
- <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Christian Brauner <brauner@kernel.org>, Peter Zijlstra
- <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>,
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
- Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-mm@kvack.org, linux-riscv@lists.infradead.org,
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
- rick.p.edgecombe@intel.com, Zong Li <zong.li@sifive.com>
-References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
- <20250314-v5_user_cfi_series-v12-24-e51202b53138@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250314-v5_user_cfi_series-v12-24-e51202b53138@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdefuddvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeetgffgkeefteduhefgjeekjeelieejtdekvefhfffhudetkeejhfeuhefgtdekteenucffohhmrghinhepghhnuhdrphhrohhpvghrthihpdgsohhothhlihhnrdgtohhmpdhflhhushhhpghitggrtghhvgdrshgspdhgvghttghpuhdrshgspdhrthgpshhighhrvghtuhhrnhdrshgspdhshihspghhfihprhhosggvrdhssgenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegsudgurgemudeitgegmehfrgefkeemjeeigedvngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtt
- hhopeegledprhgtphhtthhopeguvggsuhhgsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehmihhnghhosehrvgguhhgrthdrtghomhdprhgtphhtthhopegsphesrghlihgvnhekrdguvgdprhgtphhtthhopegurghvvgdrhhgrnhhsvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhhprgesiiihthhorhdrtghomhdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhg
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <CAMuHMdWVMP0MYCLFq+b7H_uz-2omdFiDDUZq0t_gw0L9rrJtkQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_054537_369895_32C117F3 
-X-CRM114-Status: GOOD (  24.42  )
+X-CRM114-CacheID: sfid-20250408_060315_536317_32919A25 
+X-CRM114-Status: GOOD (  30.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,246 +96,91 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Apr 08, 2025 at 02:25:12PM +0200, Geert Uytterhoeven wrote:
+> Hi Andrew,
+> 
+> On Tue, 4 Mar 2025 at 13:02, Andrew Jones <ajones@ventanamicro.com> wrote:
+> > Allow skipping scalar and vector unaligned access speed tests. This
+> > is useful for testing alternative code paths and to skip the tests in
+> > environments where they run too slowly. All CPUs must have the same
+> > unaligned access speed.
+> >
+> > The code movement is because we now need the scalar cpu hotplug
+> > callback to always run, so we need to bring it and its supporting
+> > functions out of CONFIG_RISCV_PROBE_UNALIGNED_ACCESS.
+> >
+> > Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> 
+> > --- a/arch/riscv/kernel/unaligned_access_speed.c
+> > +++ b/arch/riscv/kernel/unaligned_access_speed.c
+> 
+> >  static int __init check_unaligned_access_all_cpus(void)
+> >  {
+> >         int cpu;
+> >
+> > -       if (!check_unaligned_access_emulated_all_cpus())
+> > +       if (unaligned_scalar_speed_param == RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN &&
+> > +           !check_unaligned_access_emulated_all_cpus()) {
+> >                 check_unaligned_access_speed_all_cpus();
+> > -
+> > -       if (!has_vector()) {
+> > +       } else {
+> > +               pr_info("scalar unaligned access speed set to '%s' by command line\n",
+> > +                       speed_str[unaligned_scalar_speed_param]);
+> >                 for_each_online_cpu(cpu)
+> > -                       per_cpu(vector_misaligned_access, cpu) = RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
+> > -       } else if (!check_vector_unaligned_access_emulated_all_cpus() &&
+> > -                  IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
+> > +                       per_cpu(misaligned_access_speed, cpu) = unaligned_scalar_speed_param;
+> > +       }
+> > +
+> > +       if (!has_vector())
+> > +               unaligned_vector_speed_param = RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
+> > +
+> > +       if (unaligned_vector_speed_param == RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN &&
+> > +           !check_vector_unaligned_access_emulated_all_cpus() &&
+> > +           IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
+> >                 kthread_run(vec_check_unaligned_access_speed_all_cpus,
+> >                             NULL, "vec_check_unaligned_access_speed_all_cpus");
+> > +       } else {
+> > +               pr_info("vector unaligned access speed set to '%s' by command line\n",
+> > +                       speed_str[unaligned_vector_speed_param]);
+> 
+> On SiPEED MAiXBiT, unaligned_scalar_speed_param is zero, and it prints:
+> 
+>     scalar unaligned access speed set to '(null)' by command line
 
-On 14/03/2025 22:39, Deepak Gupta wrote:
-> From: Jim Shu <jim.shu@sifive.com>
->
-> user mode tasks compiled with zicfilp may call indirectly into vdso (like
-> hwprobe indirect calls). Add landing pad compile support in vdso. vdso
-> with landing pad in it will be nop for tasks which have not enabled
-> landing pad.
-> This patch allows to run user mode tasks with cfi eanbled and do no harm.
->
-> Future work can be done on this to do below
->   - labeled landing pad on vdso functions (whenever labeling support shows
->     up in gnu-toolchain)
->   - emit shadow stack instructions only in vdso compiled objects as part of
->     kernel compile.
->
-> Signed-off-by: Jim Shu <jim.shu@sifive.com>
-> Reviewed-by: Zong Li <zong.li@sifive.com>
-> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-> ---
->   arch/riscv/Makefile                   |  5 +++-
->   arch/riscv/include/asm/assembler.h    | 44 +++++++++++++++++++++++++++++++++++
->   arch/riscv/kernel/vdso/Makefile       | 12 ++++++++++
->   arch/riscv/kernel/vdso/flush_icache.S |  4 ++++
->   arch/riscv/kernel/vdso/getcpu.S       |  4 ++++
->   arch/riscv/kernel/vdso/rt_sigreturn.S |  4 ++++
->   arch/riscv/kernel/vdso/sys_hwprobe.S  |  4 ++++
->   7 files changed, 76 insertions(+), 1 deletion(-)
->
-> diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-> index 13fbc0f94238..eca94246cda6 100644
-> --- a/arch/riscv/Makefile
-> +++ b/arch/riscv/Makefile
-> @@ -88,9 +88,12 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
->   # Check if the toolchain supports Zabha
->   riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
->   
-> +KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-> +export KBUILD_BASE_ISA
-> +
->   # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
->   # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
-> -KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
-> +KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
->   
->   KBUILD_AFLAGS += -march=$(riscv-march-y)
->   
-> diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
-> index 44b1457d3e95..a058ea5e9c58 100644
-> --- a/arch/riscv/include/asm/assembler.h
-> +++ b/arch/riscv/include/asm/assembler.h
-> @@ -80,3 +80,47 @@
->   	.endm
->   
->   #endif	/* __ASM_ASSEMBLER_H */
-> +
-> +#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
-> +.macro vdso_lpad
-> +lpad 0
-> +.endm
-> +#else
-> +.macro vdso_lpad
-> +.endm
-> +#endif
-> +
-> +/*
-> + * This macro emits a program property note section identifying
-> + * architecture features which require special handling, mainly for
-> + * use in assembly files included in the VDSO.
-> + */
-> +#define NT_GNU_PROPERTY_TYPE_0  5
-> +#define GNU_PROPERTY_RISCV_FEATURE_1_AND 0xc0000000
-> +
-> +#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP      (1U << 0)
-> +#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFISS      (1U << 1)
-> +
-> +#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
-> +#define GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT \
-> +	(GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP)
-> +#endif
-> +
-> +#ifdef GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
-> +.macro emit_riscv_feature_1_and, feat = GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
-> +	.pushsection .note.gnu.property, "a"
-> +	.p2align        3
-> +	.word           4
-> +	.word           16
-> +	.word           NT_GNU_PROPERTY_TYPE_0
-> +	.asciz          "GNU"
-> +	.word           GNU_PROPERTY_RISCV_FEATURE_1_AND
-> +	.word           4
-> +	.word           \feat
-> +	.word           0
-> +	.popsection
-> +.endm
-> +#else
-> +.macro emit_riscv_feature_1_and, feat = 0
-> +.endm
-> +#endif
-> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
-> index 9a1b555e8733..daa10c2b0dd1 100644
-> --- a/arch/riscv/kernel/vdso/Makefile
-> +++ b/arch/riscv/kernel/vdso/Makefile
-> @@ -13,12 +13,18 @@ vdso-syms += flush_icache
->   vdso-syms += hwprobe
->   vdso-syms += sys_hwprobe
->   
-> +ifdef CONFIG_RISCV_USER_CFI
-> +LPAD_MARCH = _zicfilp
-> +endif
-> +
->   # Files to link into the vdso
->   obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
->   
->   ccflags-y := -fno-stack-protector
->   ccflags-y += -DDISABLE_BRANCH_PROFILING
->   ccflags-y += -fno-builtin
-> +ccflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
-> +asflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
->   
->   ifneq ($(c-gettimeofday-y),)
->     CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
-> @@ -40,6 +46,12 @@ endif
->   CFLAGS_REMOVE_vgettimeofday.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
->   CFLAGS_REMOVE_hwprobe.o = $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
->   
-> +# Disable profiling and instrumentation for VDSO code
-> +GCOV_PROFILE := n
-> +KCOV_INSTRUMENT := n
-> +KASAN_SANITIZE := n
-> +UBSAN_SANITIZE := n
+Thanks, Geert. I think unaligned_scalar_speed_param is likely 1 in this
+case and we should be printing 'emulated', but I neglected to add that
+string to speed_str[].
 
+I'll fix this too.
 
-So I looked into this and it seems it is not needed. All the profilers 
-above only add their corresponding "clags" if the object 
-"is-kernel-object" 
-(https://elixir.bootlin.com/linux/v6.14-rc6/source/scripts/Makefile.lib#L147) 
-which is not the case for hwprobe.c since it is not added to obj-y.
+Thanks,
+drew
 
-
-> +
->   # Force dependency
->   $(obj)/vdso.o: $(obj)/vdso.so
->   
-> diff --git a/arch/riscv/kernel/vdso/flush_icache.S b/arch/riscv/kernel/vdso/flush_icache.S
-> index 8f884227e8bc..e4c56970905e 100644
-> --- a/arch/riscv/kernel/vdso/flush_icache.S
-> +++ b/arch/riscv/kernel/vdso/flush_icache.S
-> @@ -5,11 +5,13 @@
->   
->   #include <linux/linkage.h>
->   #include <asm/unistd.h>
-> +#include <asm/assembler.h>
->   
->   	.text
->   /* int __vdso_flush_icache(void *start, void *end, unsigned long flags); */
->   SYM_FUNC_START(__vdso_flush_icache)
->   	.cfi_startproc
-> +	vdso_lpad
->   #ifdef CONFIG_SMP
->   	li a7, __NR_riscv_flush_icache
->   	ecall
-> @@ -20,3 +22,5 @@ SYM_FUNC_START(__vdso_flush_icache)
->   	ret
->   	.cfi_endproc
->   SYM_FUNC_END(__vdso_flush_icache)
-> +
-> +emit_riscv_feature_1_and
-> diff --git a/arch/riscv/kernel/vdso/getcpu.S b/arch/riscv/kernel/vdso/getcpu.S
-> index 9c1bd531907f..5c1ecc4e1465 100644
-> --- a/arch/riscv/kernel/vdso/getcpu.S
-> +++ b/arch/riscv/kernel/vdso/getcpu.S
-> @@ -5,14 +5,18 @@
->   
->   #include <linux/linkage.h>
->   #include <asm/unistd.h>
-> +#include <asm/assembler.h>
->   
->   	.text
->   /* int __vdso_getcpu(unsigned *cpu, unsigned *node, void *unused); */
->   SYM_FUNC_START(__vdso_getcpu)
->   	.cfi_startproc
-> +	vdso_lpad
->   	/* For now, just do the syscall. */
->   	li a7, __NR_getcpu
->   	ecall
->   	ret
->   	.cfi_endproc
->   SYM_FUNC_END(__vdso_getcpu)
-> +
-> +emit_riscv_feature_1_and
-> diff --git a/arch/riscv/kernel/vdso/rt_sigreturn.S b/arch/riscv/kernel/vdso/rt_sigreturn.S
-> index 3dc022aa8931..e82987dc3739 100644
-> --- a/arch/riscv/kernel/vdso/rt_sigreturn.S
-> +++ b/arch/riscv/kernel/vdso/rt_sigreturn.S
-> @@ -5,12 +5,16 @@
->   
->   #include <linux/linkage.h>
->   #include <asm/unistd.h>
-> +#include <asm/assembler.h>
->   
->   	.text
->   SYM_FUNC_START(__vdso_rt_sigreturn)
->   	.cfi_startproc
->   	.cfi_signal_frame
-> +	vdso_lpad
->   	li a7, __NR_rt_sigreturn
->   	ecall
->   	.cfi_endproc
->   SYM_FUNC_END(__vdso_rt_sigreturn)
-> +
-> +emit_riscv_feature_1_and
-> diff --git a/arch/riscv/kernel/vdso/sys_hwprobe.S b/arch/riscv/kernel/vdso/sys_hwprobe.S
-> index 77e57f830521..f1694451a60c 100644
-> --- a/arch/riscv/kernel/vdso/sys_hwprobe.S
-> +++ b/arch/riscv/kernel/vdso/sys_hwprobe.S
-> @@ -3,13 +3,17 @@
->   
->   #include <linux/linkage.h>
->   #include <asm/unistd.h>
-> +#include <asm/assembler.h>
->   
->   .text
->   SYM_FUNC_START(riscv_hwprobe)
->   	.cfi_startproc
-> +	vdso_lpad
->   	li a7, __NR_riscv_hwprobe
->   	ecall
->   	ret
->   
->   	.cfi_endproc
->   SYM_FUNC_END(riscv_hwprobe)
-> +
-> +emit_riscv_feature_1_and
->
+> 
+> 
+> > +               for_each_online_cpu(cpu)
+> > +                       per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
+> >         }
+> >
+> 
+> Gr{oetje,eeting}s,
+> 
+>                         Geert
+> 
+> -- 
+> Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+> 
+> In personal conversations with technical people, I call myself a hacker. But
+> when I'm talking to journalists I just say "programmer" or something like that.
+>                                 -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
