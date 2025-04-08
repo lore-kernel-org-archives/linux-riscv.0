@@ -4,96 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6D2FC36010
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 19:37:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65547C369A5
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 21:31:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9CKF7OuKLRjEn1fATQLHIaYP+1MUHEs116mi/dxgN7Q=; b=y5tFvdn2Ezy+at
-	31G+zQQJuK0itxWqO9ONR4zQ9Qd4IGthhDpRJdtYUpUvhsVd5AqxT0sA+AAvBEUrSrOzflwoPHl26
-	h4raiS4259qC0H16JQmVTiENvGCwVu4EYEY3kdoQ4rYWEQNS/j9Ws7rlVn90w56eUtGC5aDr7zyBh
-	kqONJXARnXfAxz5i7V8VL2HaVKoEru5beMIWDwmD55aKAD33HlISa5c0gLbzyub8c1MEPtAVDwWyO
-	DHiAcT98FNY0jadERSNyI9qfuRKjremjD+y+9kgfjuwLpcbDxZP7bmVF7D7Q8kTLZtmkiuHG/00M+
-	3+p9y65f2Qdvfh6dr79Q==;
+	List-Owner; bh=P7sddDqoTX5rXfFrXFuKCAGImKZUurbAeJciJ/+XWlc=; b=hMozrCfgmMofVU
+	mwqWpNOZidi8ea3p7gmmkZ/CrOZUKXbotX2gLLJdA+7kYIff2ZyurMSttzqKMZGopJySn+8pPDeyx
+	Q6wAc10SeOJp351Xzi39iL9wZ8mRvXl/UvGxNiHloVIjiez4/pEaNFio4MRMiaUGpQEFv2YNZ3yhp
+	Q9e7YOMfvE+AY9JpfcEoSNMllpKq8e1cQkG35igbpcyqWnG5Q4yqmR9rD6fD95tPBEM5GPcmUkIf/
+	6SVpwXxQ07a19tfYGXWGJemjKFe40019JCZhN6wkfeKMX1KXIyVWrNgH9aEXsApJGBoqWvVFfDjF9
+	9txUF+ULNUqcBorjvjJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ElQ-00000005FoU-2ooC;
-	Tue, 08 Apr 2025 19:37:40 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1u2GXi-00000005S2q-1C2f;
+	Tue, 08 Apr 2025 21:31:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ElO-00000005FmT-1eum
+	id 1u2GXg-00000005S2E-0ujw
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Apr 2025 19:37:39 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3d4496a34cdso20014685ab.1
-        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 12:37:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744141057; x=1744745857; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=7RqTCyVarb3HOJMAA+PoO2FMbP6+BrxJ4VIEUqNGh+4=;
-        b=uWonhGAe1IIjBId4MGfCNTGJaZxMXcYFNz81SR39cTDveKTegPb07yHI/gL5gtYVHE
-         lg+cbP7LPL74id3k74XIEe06cJd7fPynYZK8IWv4zD7aSdy+uZoc/ufKUs7pMLdxZAK2
-         WHf2nxoNsNGQRCLFP9/7ZrWmvEZx2zG+efPRyd69zJOSfs4iaDS8a/ZLpYo2UBOL8SUJ
-         iaRX7U7E4+jb/yso5EJLwctXLnIVFjdUotWp4hsRsj/QN//mDK70vwBxC6UYFfn5Otef
-         1keGLZqRDWlFCHeKxOHh1/UJbLuE0H+6bSy2OceUzsC3cD9uIM4c7iubccAE0TZcmnDU
-         vveA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744141057; x=1744745857;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7RqTCyVarb3HOJMAA+PoO2FMbP6+BrxJ4VIEUqNGh+4=;
-        b=sQM5q0WJ6Sq74C44YcAE1Lq6KdzEtiPb5xMYhUFiRNCEjDdPN6oybuqRBqw9ywWnlW
-         9t4PdtxmqYILg1pVRRvmtFY4hjdL9wQohuAJHONA4tmEeDQWKi1/grRDJbqlIJunJLnj
-         3AFPepoucVf8T20+BCdvhmfBk/88rX9cnXrwV0tZvuJ4yB2bHV7q7VD6HWlR5O+hUClX
-         I57IrJE4gfmW5f6iUHeRurftOJFZOlTeBxKbEzO413YT4uFH1ifsdH68BQGiFRm6fImK
-         xWn2zMMA7Emyg1wKI0QP49L7jc4CsoAKHGpI9Ye7xvp+Uz2Js702U9I9ZoX+n9ysdoqZ
-         nVWQ==
-X-Gm-Message-State: AOJu0Yyi+YV6AcHwlXpP40IRsX66Garsf2/gquBJfbjJdu3vOGcDkojx
-	45naQQm2w0mT7x6cIQkmmWB8QZC/88TGlQc3wLb/0Ya4qXHsTzCoSBhKNO3zajU=
-X-Gm-Gg: ASbGncsbZfKDT6Jbxn5hZc65LMum2gmE5D1w1T8PNlQo9RRJ4u1w+CvTY59XRisZR4B
-	dcNvBT06Wr9hbzZR2z2xGHk5IKNw41mvMlUZO66eBsA0BE4kD7YZ7N/USEcZkV5f70pZFGd1L2v
-	9/+AFSCyGRLpLwD4FWXbIt6Ra/+N5WO0TIQVhFtA43P1D9qPQddrCE6t+SSt3K7Xz5T3H3QXuq6
-	YSOIlEz0PfK9w1dKIAHg3KRfPkdDb2F5LjOFaPDlG7vp0Hc1D/WJ7E2HmOjt/PBs3tgM6S2Ohz+
-	y7j5KjrK69AcPXgHqeSeIB9M9ekGgMeXSbVpx3qVHruhktP9TV9fptUwdDcUtR5EMgtX+ATXwaW
-	bZoj6IAaP
-X-Google-Smtp-Source: AGHT+IG7rW/jA34zO9YwR/Uhv4tZyavVt40Io0eZXrFxdcpUtJcFv8zQCXnlCLGlof0n9kin5siP+g==
-X-Received: by 2002:a05:6e02:2587:b0:3d5:be65:34ac with SMTP id e9e14a558f8ab-3d776c807acmr2719605ab.2.1744141057452;
-        Tue, 08 Apr 2025 12:37:37 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3d703c0665esm5904485ab.50.2025.04.08.12.37.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 08 Apr 2025 12:37:36 -0700 (PDT)
-Message-ID: <e2c5c2c2-61a8-458d-8e95-521c5ea752f9@riscstar.com>
-Date: Tue, 8 Apr 2025 14:37:35 -0500
+	Tue, 08 Apr 2025 21:31:37 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D79B64A212;
+	Tue,  8 Apr 2025 21:31:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C870AC4CEE5;
+	Tue,  8 Apr 2025 21:31:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744147895;
+	bh=i2/vDRlfpffmboNAdB2RhvhuQdFfbEnJ2xP4l9EWlSM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=G1dMFUgGdq/9nZWq7JNPoKm9uhI5lljtTBhOBN00mZDn87cNF1hV4Fx0r8xcmPtWl
+	 lb7G7wNwXCqp9ir9jAL6yv2tIjAZpXcHmug2HLMs2OqOdd0ZUu3XTt1c963H5KQRlN
+	 O6kuizVdKHQj5RnqjHuZaXnzv+uiQ0l5mKg4WRQ281Ega4WYXMZlO4Qrr2RJsUGyBf
+	 4wJGT3JzOA17jz0s8na0eJXrj2TW75RWaOk84jinKtkyxqd5ZyE0FIRyfaVkszetJy
+	 2vipdhZQ3qRNaJT3Hzfv8RoFkJCS6EFZI/+ZHGQiRf+fBfGW7q3UgmSvEVDwUEIB7Z
+	 +hVN5oA2SKW7w==
+Date: Tue, 8 Apr 2025 14:31:31 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: "Dmitry V. Levin" <ldv@strace.io>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Arnd Bergmann <arnd@arndb.de>, strace-devel@lists.strace.io,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 2/6] syscall.h: add syscall_set_arguments()
+Message-ID: <20250408213131.GA2872426@ax162>
+References: <20250303111910.GA24170@strace.io>
+ <20250303112009.GC24170@strace.io>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 6/6] riscv: defconfig: enable clock controller unit
- support for SpacemiT K1
-To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
- <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Haylen Chu <heylenay@outlook.com>,
- Yixun Lan <dlan@gentoo.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
- Chen Wang <unicornxdotw@foxmail.com>, Jisheng Zhang <jszhang@kernel.org>,
- Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-References: <20250401172434.6774-1-heylenay@4d2.org>
- <20250401172434.6774-7-heylenay@4d2.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250401172434.6774-7-heylenay@4d2.org>
+Content-Disposition: inline
+In-Reply-To: <20250303112009.GC24170@strace.io>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_123738_447041_B49F3990 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250408_143136_293626_AD21579D 
+X-CRM114-Status: GOOD (  19.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +71,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/1/25 12:24 PM, Haylen Chu wrote:
-> Clock controller unit, or CCU, generates various clocks frequency for
-> peripherals integrated in SpacemiT K1 SoC and is essential for normal
-> operation. Let's enable it in defconfig.
+Hi Dmitry,
+
+[dropping majority of folks since this seems irrelevant to them]
+
+On Mon, Mar 03, 2025 at 01:20:09PM +0200, Dmitry V. Levin wrote:
+> This function is going to be needed on all HAVE_ARCH_TRACEHOOK
+> architectures to implement PTRACE_SET_SYSCALL_INFO API.
 > 
-> Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> ---
->   arch/riscv/configs/defconfig | 2 ++
->   1 file changed, 2 insertions(+)
+> This partially reverts commit 7962c2eddbfe ("arch: remove unused
+> function syscall_set_arguments()") by reusing some of old
+> syscall_set_arguments() implementations.
 > 
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 0f7dcbe3c45b..011788d16d93 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -252,6 +252,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
->   CONFIG_CLK_SOPHGO_SG2042_PLL=y
->   CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
->   CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
-> +CONFIG_SPACEMIT_CCU=y
-> +CONFIG_SPACEMIT_K1_CCU=y
+> Signed-off-by: Dmitry V. Levin <ldv@strace.io>
+> Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> Acked-by: Helge Deller <deller@gmx.de> # parisc
+> Reviewed-by: Maciej W. Rozycki <macro@orcam.me.uk> # mips
+...
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 121fff429dce..8d389ba995c8 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -66,6 +66,15 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
+>  }
+>  
+> +static inline void syscall_set_arguments(struct task_struct *task,
+> +					 struct pt_regs *regs,
+> +					 const unsigned long *args)
+> +{
+> +	regs->orig_a0 = args[0];
+> +	args++;
+> +	memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> +}
 
-Maybe these could be specified with default values that
-are based on the value of CONFIG_ARCH_SPACEMIT instead of
-forcing them to be defined here?
+This upsets the compiletime fortify checks, as I see a warning after
+syscall_set_arguments() starts being used in kernel/ptrace.c later in
+the series.
 
-					-Alex
+  $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- allmodconfig kernel/ptrace.o
+  In file included from include/linux/string.h:392,
+                   from include/linux/bitmap.h:13,
+                   from include/linux/cpumask.h:12,
+                   from arch/riscv/include/asm/processor.h:55,
+                   from include/linux/sched.h:13,
+                   from kernel/ptrace.c:13:
+  In function 'fortify_memcpy_chk',
+      inlined from 'syscall_set_arguments.isra' at arch/riscv/include/asm/syscall.h:82:2:
+  include/linux/fortify-string.h:571:25: error: call to '__write_overflow_field' declared with attribute warning: detected write beyond size of field (1st parameter); maybe use struct_group()? [-Werror=attribute-warning]
+    571 |                         __write_overflow_field(p_size_field, size);
+        |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cc1: all warnings being treated as errors
 
->   CONFIG_SUN8I_DE2_CCU=m
->   CONFIG_SUN50I_IOMMU=y
->   CONFIG_RPMSG_CHAR=y
+The compiler knows the size of the destination and the size to be copied
+so it knows there will be an (intentional) overwrite here.
+struct_group() would normally work but I think this structure already
+has a struct_group() around some of the members that would be needed. I
+build tested eliminating the memcpy() altogether, which would appear to
+work, but I am not sure if there is a better solution, hence just the
+report.
 
+Cheers,
+Nathan
+
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index a5281cdf2b10..70ec19dc8506 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -78,8 +78,11 @@ static inline void syscall_set_arguments(struct task_struct *task,
+                                         const unsigned long *args)
+ {
+        regs->orig_a0 = args[0];
+-       args++;
+-       memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
++       regs->a1 = args[1];
++       regs->a2 = args[2];
++       regs->a3 = args[3];
++       regs->a4 = args[4];
++       regs->a5 = args[5];
+ }
+
+ static inline int syscall_get_arch(struct task_struct *task)
 
 _______________________________________________
 linux-riscv mailing list
