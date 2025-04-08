@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2129BC3600C
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 10:47:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C1BC3600C
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 11:10:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=t7XEfpOXXpJ32Bz6Yj3TqggGt/s81D3CzlQLTMnvX1g=; b=Dn25L7DoT+X83E
-	TxoSexj18Sh0DMibFo8heT2ZCQU+EtjxZEmg7D8gR7S61eb7XRRkYrtiPqJGNATsKGl0LOfYa0xsP
-	kmDg+Gs39UbrRuylq+fr8ipKPqNUHDEd1vv8MP/0qYKIOxS61tij5rq8UsOKSXzsPmu5zHH95HerP
-	686Wqug5NrEgP9fB8BataL0OUBBbbW3aIIVBPQrE3eWppphgyXzJTL28YUQ/cFivDHcOcimIixrpD
-	GepdIUaOSDWSy8Yko89N8hwrbpf/B4yJf/saqkp4DqaCirqS/ZBtghcKmjAchTTl2N5D11d51LMkR
-	6WcmzIZw5NuuvB3QhxcQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xq9/vJJnDuTldnMOmVZiwO3fRlaWGGHJteEy6eVLN6g=; b=oHH/juoQbfjQWV
+	g0WPf7ZhYhRXxQP3xLb6jG+isuYmVSrac0CjvjD1rN+vIJA2U0TF/MItjG6OcDAsrNePbDvEEBIMS
+	BvTcWmiZnwJyYxV9ffSQTtxaOmud+y0+0YvoO9THnB4+l8qMZZOHFCWtaw/Rop/cqyojB5btiAF8w
+	1G4eoboLPe2PHhH0G6K79WUc22uzcjwvGbHAHSNOj1AFpfc9SKtMQiBF8zncVx0aTrVL00szhTprY
+	aHDn5DEx97gMq6LcWckbjLqapt1Tkg3Kqmkzj8mGaf3UWle8TiT0BIlkB5ShfJSrHJKEXBmb2Sfxx
+	EwtQcpoqfQryKno55Uuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u26U0-00000003jBX-2rUa;
-	Tue, 08 Apr 2025 10:47:08 +0000
-Received: from smtpbguseast1.qq.com ([54.204.34.129])
+	id 1u26qv-00000003oDR-3Kq7;
+	Tue, 08 Apr 2025 11:10:49 +0000
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u25h5-00000003XQh-1fo3
+	id 1u26Md-00000003hgP-0H7m
 	for linux-riscv@lists.infradead.org;
-	Tue, 08 Apr 2025 09:56:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1744106143;
-	bh=1cOOugdxNH1dzSDvBT4rMQJc05Z5J3Plmk57TSIQEWs=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=FbUqm+j/MqT2HTAg00BaINPTvFBHfqoGhrFAVjDm1NcDt3+NNI8U9Fgb9HQtCHtl0
-	 oX47BFo+Q8wvgn6PUup57/Zd3GYqeoxDSG2UnykR47dNmsg3/QTHsSCsi2DhawRlFR
-	 wZzRqe54SlyJsNpH3OXMRkJTSo8rkI8VdBFXJfzc=
-X-QQ-mid: bizesmtpip4t1744106098t470dd0
-X-QQ-Originating-IP: 07VJtzU6r30JTPiI7i71igbsBf5K/zZgEQV+ByQe3qs=
-Received: from localhost.localdomain ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 08 Apr 2025 17:54:56 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 4550505304190636974
-EX-QQ-RecipientCnt: 15
-From: WangYuli <wangyuli@uniontech.com>
-To: paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: wangyuli@uniontech.com,
-	chenhuacai@kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	vincent.chen@sifive.com,
-	palmerdabbelt@google.com,
-	samuel.holland@sifive.com,
-	zhanjun@uniontech.com,
-	niecheng1@uniontech.com,
-	guanwentao@uniontech.com,
-	Huacai Chen <chenhuacai@loongson.cn>
-Subject: [PATCH v3] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Date: Tue,  8 Apr 2025 17:54:54 +0800
-Message-ID: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
-X-Mailer: git-send-email 2.49.0
+	Tue, 08 Apr 2025 10:39:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 1670043280;
+	Tue,  8 Apr 2025 10:39:16 +0000 (UTC)
+Message-ID: <2c0a0c3a-368c-44cb-9d4b-245f5b3dada1@ghiti.fr>
+Date: Tue, 8 Apr 2025 12:39:16 +0200
 MIME-Version: 1.0
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: M3ziZXKDk+iO8oWYNGzpEDtFmV3FhdqdbPO8mXitgtcwePtUA4MUK9U0
-	r9lxYzW4S7H6zwj/SZftN7zZdup7YL5/qPESwxqc8RMSDaQp/fjAC5uEtEO7k+AJTMWYVCd
-	iHKR82SCQ3GWN8hAByX3VOsXGUO4uFX7ccTg6WLSBqWFT5oo7RvSMXua3z4fBci6hepdHI+
-	E/fzfE7nQkYbrLla/5cWs9TkeqsnXPzI6HAvKWzKVynLXIoNRNWzr02EQFVjo6muYTN+wi9
-	gvvi8H9ASCN8lPTTZsbw01nhspcbs2iRv+yw5WSwilPdZ2WvNySatqUGd2DzKtMXaTXBy5+
-	crryBHbsSiNFcAGjpGuT6bpcjq68NNLp/ldKSfPbRa04qWjcszrNU8QpEu1GCIyPD4U2KCi
-	b0Y5ytD8FxNVx9R5+acKw7KiR862wmaOiSXEYS/aroZVV3Fv4WRL0vLB34by/U2lhre68DJ
-	gulAAMTm6s9mGig2wuhSLYHYcJ79sUNoNDhBXgX7wNmqMLz5Y0w9Cox3uAjwIYoGtxMehM7
-	2KQYs0sKwztkI2JUjF/dcDvbcx5oa6EdOtJzQCH5wPBjAJYF/ijqzV6Lj/dqsVRjbF0Rz+C
-	8Tk3KFLUj98Xn0hHL2oN0Z3T4eHVzm+jzB3BZLKgfhcMMJ5/ASxnZO+nTQT4mxU2fB9yldJ
-	aAX0zh6XTxlP+BxF2OVEOpABi6Wl6G4ws1FHRUzwa4o3nxM7Ssh+I14wBlRlL3X23BX2FlH
-	7xWKfpAB9K/GJ/Df/N29+2ZuJ1oNLfgnUObsId+QIBYCrkXZXS29IDM31lLZkXKQPMo3svC
-	zOm38Gw5+0+buvnltk4YV0N+QgP4TPDBbCEte4Da+bHhhVZAld4SU7lryRNfgsNQ+DqDuQ8
-	ZUQ9+GyLvBN1bEwZpImJjas3cBuwPKu1MPC9CVa4iJ9bY99EynwMTJMvKMgu9PU99O5C58T
-	q8xroabFz8MKkuNEhc5F9RxDia9WqyyXymWTtNPnEkEP9aSfzetsFDeNVk6D84rzJGcQBKz
-	Jxagr/wxfv5yJnc9osAH6aJMkQO+gp7nD+Q87Vvw==
-X-QQ-XMRINFO: OWPUhxQsoeAVDbp3OJHYyFg=
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v12 06/28] riscv/mm : ensure PROT_WRITE leads to VM_READ |
+ VM_WRITE
+Content-Language: en-US
+To: Deepak Gupta <debug@rivosinc.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Andrew Morton <akpm@linux-foundation.org>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, Vlastimil Babka
+ <vbabka@suse.cz>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+ Christian Brauner <brauner@kernel.org>, Peter Zijlstra
+ <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>,
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com,
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com,
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com,
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org,
+ rick.p.edgecombe@intel.com, Zong Li <zong.li@sifive.com>
+References: <20250314-v5_user_cfi_series-v12-0-e51202b53138@rivosinc.com>
+ <20250314-v5_user_cfi_series-v12-6-e51202b53138@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250314-v5_user_cfi_series-v12-6-e51202b53138@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtddvkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeehsgegieemkeeludekmegtledujeemjeekjedvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeehsgegieemkeeludekmegtledujeemjeekjedvpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeehsgegieemkeeludekmegtledujeemjeekjedvngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeegledprhgtphhtthhopeguvggsuhhgsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehmihhnghhosehrvgguhhgrthdrtghomhdprhgtphhtthhopegsp
+ hesrghlihgvnhekrdguvgdprhgtphhtthhopegurghvvgdrhhgrnhhsvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepgiekieeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephhhprgesiiihthhorhdrtghomhdprhgtphhtthhopegrkhhpmheslhhinhhugidqfhhouhhnuggrthhiohhnrdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_025636_270035_088FEB4A 
-X-CRM114-Status: UNSURE (   8.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250408_033931_276003_B8AC5589 
+X-CRM114-Status: GOOD (  24.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,86 +83,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
-symbol using inline assembly.
 
-There's a potential issue where the compiler might inline
-arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
-symbol multiple times, leading to fail to link vmlinux.o.
+On 14/03/2025 22:39, Deepak Gupta wrote:
+> `arch_calc_vm_prot_bits` is implemented on risc-v to return VM_READ |
+> VM_WRITE if PROT_WRITE is specified. Similarly `riscv_sys_mmap` is
+> updated to convert all incoming PROT_WRITE to (PROT_WRITE | PROT_READ).
+> This is to make sure that any existing apps using PROT_WRITE still work.
+>
+> Earlier `protection_map[VM_WRITE]` used to pick read-write PTE encodings.
+> Now `protection_map[VM_WRITE]` will always pick PAGE_SHADOWSTACK PTE
+> encodings for shadow stack. Above changes ensure that existing apps
+> continue to work because underneath kernel will be picking
+> `protection_map[VM_WRITE|VM_READ]` PTE encodings.
+>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>   arch/riscv/include/asm/mman.h    | 25 +++++++++++++++++++++++++
+>   arch/riscv/include/asm/pgtable.h |  1 +
+>   arch/riscv/kernel/sys_riscv.c    | 10 ++++++++++
+>   arch/riscv/mm/init.c             |  2 +-
+>   4 files changed, 37 insertions(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/mman.h b/arch/riscv/include/asm/mman.h
+> new file mode 100644
+> index 000000000000..392c9c2d2e78
+> --- /dev/null
+> +++ b/arch/riscv/include/asm/mman.h
+> @@ -0,0 +1,25 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +#ifndef __ASM_MMAN_H__
+> +#define __ASM_MMAN_H__
+> +
+> +#include <linux/compiler.h>
+> +#include <linux/types.h>
+> +#include <uapi/asm/mman.h>
+> +
+> +static inline unsigned long arch_calc_vm_prot_bits(unsigned long prot,
+> +						   unsigned long pkey __always_unused)
+> +{
+> +	unsigned long ret = 0;
+> +
+> +	/*
+> +	 * If PROT_WRITE was specified, force it to VM_READ | VM_WRITE.
+> +	 * Only VM_WRITE means shadow stack.
+> +	 */
+> +	if (prot & PROT_WRITE)
+> +		ret = (VM_READ | VM_WRITE);
+> +	return ret;
+> +}
+> +
+> +#define arch_calc_vm_prot_bits(prot, pkey) arch_calc_vm_prot_bits(prot, pkey)
+> +
+> +#endif /* ! __ASM_MMAN_H__ */
+> diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+> index 050fdc49b5ad..8c528cd7347a 100644
+> --- a/arch/riscv/include/asm/pgtable.h
+> +++ b/arch/riscv/include/asm/pgtable.h
+> @@ -178,6 +178,7 @@ extern struct pt_alloc_ops pt_ops __meminitdata;
+>   #define PAGE_READ_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ | _PAGE_EXEC)
+>   #define PAGE_WRITE_EXEC		__pgprot(_PAGE_BASE | _PAGE_READ |	\
+>   					 _PAGE_EXEC | _PAGE_WRITE)
+> +#define PAGE_SHADOWSTACK       __pgprot(_PAGE_BASE | _PAGE_WRITE)
+>   
+>   #define PAGE_COPY		PAGE_READ
+>   #define PAGE_COPY_EXEC		PAGE_READ_EXEC
+> diff --git a/arch/riscv/kernel/sys_riscv.c b/arch/riscv/kernel/sys_riscv.c
+> index d77afe05578f..43a448bf254b 100644
+> --- a/arch/riscv/kernel/sys_riscv.c
+> +++ b/arch/riscv/kernel/sys_riscv.c
+> @@ -7,6 +7,7 @@
+>   
+>   #include <linux/syscalls.h>
+>   #include <asm/cacheflush.h>
+> +#include <asm-generic/mman-common.h>
+>   
+>   static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>   			   unsigned long prot, unsigned long flags,
+> @@ -16,6 +17,15 @@ static long riscv_sys_mmap(unsigned long addr, unsigned long len,
+>   	if (unlikely(offset & (~PAGE_MASK >> page_shift_offset)))
+>   		return -EINVAL;
+>   
+> +	/*
+> +	 * If PROT_WRITE is specified then extend that to PROT_READ
+> +	 * protection_map[VM_WRITE] is now going to select shadow stack encodings.
+> +	 * So specifying PROT_WRITE actually should select protection_map [VM_WRITE | VM_READ]
+> +	 * If user wants to create shadow stack then they should use `map_shadow_stack` syscall.
+> +	 */
+> +	if (unlikely((prot & PROT_WRITE) && !(prot & PROT_READ)))
+> +		prot |= PROT_READ;
+> +
+>   	return ksys_mmap_pgoff(addr, len, prot, flags, fd,
+>   			       offset >> (PAGE_SHIFT - page_shift_offset));
+>   }
+> diff --git a/arch/riscv/mm/init.c b/arch/riscv/mm/init.c
+> index 15b2eda4c364..9d6661638d0b 100644
+> --- a/arch/riscv/mm/init.c
+> +++ b/arch/riscv/mm/init.c
+> @@ -342,7 +342,7 @@ pgd_t early_pg_dir[PTRS_PER_PGD] __initdata __aligned(PAGE_SIZE);
+>   static const pgprot_t protection_map[16] = {
+>   	[VM_NONE]					= PAGE_NONE,
+>   	[VM_READ]					= PAGE_READ,
+> -	[VM_WRITE]					= PAGE_COPY,
+> +	[VM_WRITE]					= PAGE_SHADOWSTACK,
+>   	[VM_WRITE | VM_READ]				= PAGE_COPY,
+>   	[VM_EXEC]					= PAGE_EXEC,
+>   	[VM_EXEC | VM_READ]				= PAGE_READ_EXEC,
+>
 
-This isn't merely a potential compilation problem. The intent here
-is to determine the global symbol address of kgdb_compiled_break,
-and if this function is inlined multiple times, it would logically
-be a grave error.
-
-Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
-Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
-Signed-off-by: WangYuli <wangyuli@uniontech.com>
----
-Changelog:
- *v1->v2:
-    1. Add the missing __ASSEMBLY__ check and substitute
-".option rvc/norvc" with ".option push/pop".
-  v2->v3:
-    1. Remove "extern".
-    2. Restore the inadvertently deleted .option norvc to prevent
-a change in semantics.
----
- arch/riscv/include/asm/kgdb.h | 9 +--------
- arch/riscv/kernel/kgdb.c      | 9 +++++++++
- 2 files changed, 10 insertions(+), 8 deletions(-)
-
-diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-index 46677daf708b..cc11c4544cff 100644
---- a/arch/riscv/include/asm/kgdb.h
-+++ b/arch/riscv/include/asm/kgdb.h
-@@ -19,16 +19,9 @@
- 
- #ifndef	__ASSEMBLY__
- 
-+void arch_kgdb_breakpoint(void);
- extern unsigned long kgdb_compiled_break;
- 
--static inline void arch_kgdb_breakpoint(void)
--{
--	asm(".global kgdb_compiled_break\n"
--	    ".option norvc\n"
--	    "kgdb_compiled_break: ebreak\n"
--	    ".option rvc\n");
--}
--
- #endif /* !__ASSEMBLY__ */
- 
- #define DBG_REG_ZERO "zero"
-diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-index 2e0266ae6bd7..7f2d3d956167 100644
---- a/arch/riscv/kernel/kgdb.c
-+++ b/arch/riscv/kernel/kgdb.c
-@@ -254,6 +254,15 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
- 	regs->epc = pc;
- }
- 
-+noinline void arch_kgdb_breakpoint(void)
-+{
-+	asm(".global kgdb_compiled_break\n"
-+	    ".option push\n"
-+	    ".option norvc\n"
-+	    "kgdb_compiled_break: ebreak\n"
-+	    ".option pop\n");
-+}
-+
- void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
- 				char *remcom_out_buffer)
- {
--- 
-2.49.0
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 
 
 _______________________________________________
