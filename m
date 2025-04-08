@@ -4,97 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEA5BC3600C
-	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 06:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3614C369A4
+	for <linux-riscv@archiver.kernel.org>; Tue,  8 Apr 2025 07:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MmetkmYqJXDMg2pH1NdyjZmJoV/zlHCtM7pR6LmzxgY=; b=RiiDXwiZxed3bQ
-	B0uIebipoOXQixqZ8WnesbLEju/JoaeV4cDdk1139OzOKSxB1bXbKChP4MQWiQNhoOeEqnBkYNPkq
-	GFXbR7lodBkwVk9VHMkvAaTBC7FGPets9etEcCU2apWsJxq7uERiR4isQSuKDeiEY28OWyzUgrlpy
-	ST3UC51tHhpBG9rEEAR8p61fPCOkKE5hlx7oXlJH/Z24uuj3hHLtKvuM+ajtdNJ3QnjVoppmwk1vz
-	aRpUCRQOafOQ+est0svzOVcRim5Qbrcm8c7U1OAEuXoN85/oh5VperqITHMbCJtQwbDlFFzQqeJA/
-	NThf0cjbWjTVTlyNKnBA==;
+	List-Owner; bh=ftRpLZP+w0v9dBeD2P4xYJy6BqhAXniItQ7Yptu4sFk=; b=zWxDiHaayFD2CU
+	kGFvXhtMO4H6upp4ARYdYflIgT8TJDik3lqLnCZdzu5LfD26rfMWlh7dvA2DhzJ/yp8ylUegXbvxW
+	rbKQmTZzchzK6ZTRHROaa37wD6GcwnsW+Ef1BB46/mI0PqTCY2sRU47DnEvWJGkM7Mt/E3AzXXZem
+	myZ3xsEEI4DuyAz5sX0zJQPzYgPccjNNlCOR74C52dPFS0q5QOW8QC36XIaeWEgKtMvgkGDOaCNnt
+	b+mSNailiFWVckodFXgQ2eX6ZpCWMoqKzUG6oVI9qxYFcg7CX9gckdA5fp6zHewGgsawJWompyyie
+	F/q4XO2NEddCgN88U4Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22KA-00000002tRH-1uVc;
-	Tue, 08 Apr 2025 06:20:42 +0000
-Received: from pegase1.c-s.fr ([93.17.236.30])
-	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u22K7-00000002tQO-08rH;
-	Tue, 08 Apr 2025 06:20:40 +0000
-Received: from localhost (mailhub3.si.c-s.fr [192.168.12.233])
-	by localhost (Postfix) with ESMTP id 4ZWw9P60QFz9vkm;
-	Tue,  8 Apr 2025 07:48:25 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase1.c-s.fr ([192.168.12.234])
-	by localhost (pegase1.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id 42ojJD_HJEii; Tue,  8 Apr 2025 07:48:25 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase1.c-s.fr (Postfix) with ESMTP id 4ZWw9N2JlBz9vkp;
-	Tue,  8 Apr 2025 07:48:24 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 369B28B76C;
-	Tue,  8 Apr 2025 07:48:24 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id aUNb9W1lbxmx; Tue,  8 Apr 2025 07:48:24 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id DC9078B767;
-	Tue,  8 Apr 2025 07:48:21 +0200 (CEST)
-Message-ID: <ff31c2ff-55be-452e-b94a-6a84c4583258@csgroup.eu>
-Date: Tue, 8 Apr 2025 07:48:22 +0200
+	id 1u23RQ-000000034ja-0puC;
+	Tue, 08 Apr 2025 07:32:16 +0000
+Received: from mail-ua1-f51.google.com ([209.85.222.51])
+	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u23JT-0000000330r-3rrq
+	for linux-riscv@lists.infradead.org;
+	Tue, 08 Apr 2025 07:24:09 +0000
+Received: by mail-ua1-f51.google.com with SMTP id a1e0cc1a2514c-86d42f08219so2189444241.0
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 00:24:03 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744097041; x=1744701841;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=710dm2DYp+gy41dXZbNWGaKY57T4AIMJf61TXzyo8AQ=;
+        b=wVsZnInr0rPpi/CHS3GBc22eUY2WBmEvWfcezLRkvpGbqhQfgDjlRCeqHtUO76jqxG
+         kzJ9zmOUeFVI1AeXit1Lg3zdG17VXpX52p2FU0wxJG2f0TSmzMabqKlkVhYEVIczFTXn
+         h3pvBOGcb3Im/2C0TzCTGTwdm03MfQde7XxspjyNoTLLLNq/IXv0eH1dSO8R40x9k7tI
+         Zc+Tb0HpLoHbDb7olccBVa1XRPpp5/0zLEhoCZAyC5tC9EgSb9SXysRAS8KKoM/KuAEE
+         9XlpMetICmmqQTQyWvi7No9a2PgYseiSLOgqxJJ/ULRRRb7z8nkqDvdKG7UwFNV3WzMm
+         Y4yA==
+X-Forwarded-Encrypted: i=1; AJvYcCXJJzhWi4fr3fYBDuk8KAY5m/GVSWd/MzQoEYfvzi74zi1MAIJurBHglAc+J7ZBFB6qWEfLy644+KbyXg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1Vnjsfg2y2tkVk1tk2XFK3/PSQiJ/FwJK/tRGxZCcbIsT3/zC
+	lmC5F01fUS5XaYifUja0TK5NNXJmn3JyupKgJRiC/DIDvmXcfPdwmuS8Xqgg
+X-Gm-Gg: ASbGncsALZ8WH5RBckVGlyt38NobqtgRqQpiVWBpE9SY55SYYl7nir6MTv8yhzMRU/4
+	81FxwEeIE13pUVJEQE2jnCoeBIfD/UdYVXmthQFo1EBYIBS7MWEN+nwkUeDa7FbUOQEfqxGOjbO
+	Eo9jwhZCH4viNnkASamlJS/mb3jzD6Qasvs7b/S4hdGWXW6AI7k/RmVM1Q563cK9ffauFyB1MFF
+	40RIhICX4X0E27uu3sfOd51sBBzGGQzlO1ReFqhNGAssC/0e6omswJAftYbMl+uMJUNy4IQSxET
+	RNj7IKpS4tyLvTVA3DntumdiMduw7yXxFbbTtSsUr6FvB6Omut34YH9/N3zMXQaOguRkTP599Kt
+	JiQmt+Qc=
+X-Google-Smtp-Source: AGHT+IEDNdUySA/tvD/x4CNyE+xSrrKR9LGitO0ENB2dUmFMrcW0TIqxoeBKoWAXneLySfxX2Od0JQ==
+X-Received: by 2002:a05:6102:3e91:b0:4c1:8c7d:44ce with SMTP id ada2fe7eead31-4c855387587mr12106581137.1.1744097041032;
+        Tue, 08 Apr 2025 00:24:01 -0700 (PDT)
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com. [209.85.222.43])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c9b4598b07sm263725137.28.2025.04.08.00.24.00
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 08 Apr 2025 00:24:00 -0700 (PDT)
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-86d42f08219so2189424241.0
+        for <linux-riscv@lists.infradead.org>; Tue, 08 Apr 2025 00:24:00 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXc8feRpKA7loNFb6r2LI3c5QmK2er1idoSPfYeE7QloHUPl5x8dqA6Vv1vrO+l9EfHwOm4VSer4NLCxA==@lists.infradead.org
+X-Received: by 2002:a05:6102:38c8:b0:4bb:c490:7d6c with SMTP id
+ ada2fe7eead31-4c8553ba032mr12630312137.9.1744097040243; Tue, 08 Apr 2025
+ 00:24:00 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/13] arch, mm: set max_mapnr when allocating memory
- map for FLATMEM
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-To: Mike Rapoport <rppt@kernel.org>, Andrew Morton <akpm@linux-foundation.org>
-Cc: Alexander Gordeev <agordeev@linux.ibm.com>,
- Andreas Larsson <andreas@gaisler.com>, Andy Lutomirski <luto@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- Borislav Petkov <bp@alien8.de>, Brian Cain <bcain@kernel.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Guo Ren
- <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
- Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Jiaxun Yang <jiaxun.yang@flygoat.com>,
- Johannes Berg <johannes@sipsolutions.net>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Madhavan Srinivasan <maddy@linux.ibm.com>, Mark Brown <broonie@kernel.org>,
- Matt Turner <mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>,
- Palmer Dabbelt <palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>,
- Richard Weinberger <richard@nod.at>, Russell King <linux@armlinux.org.uk>,
- Stafford Horne <shorne@gmail.com>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
- Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>,
- linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-snps-arc@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org,
- loongarch@lists.linux.dev, linux-m68k@lists.linux-m68k.org,
- linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-um@lists.infradead.org, linux-arch@vger.kernel.org,
- linux-mm@kvack.org, x86@kernel.org
-References: <20250313135003.836600-1-rppt@kernel.org>
- <20250313135003.836600-10-rppt@kernel.org>
- <4b9627f2-65ff-4baf-931f-4e23b5732e6b@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <4b9627f2-65ff-4baf-931f-4e23b5732e6b@csgroup.eu>
+References: <20250326-04-gpio-irq-threecell-v3-0-aab006ab0e00@gentoo.org>
+In-Reply-To: <20250326-04-gpio-irq-threecell-v3-0-aab006ab0e00@gentoo.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 8 Apr 2025 09:23:47 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdX8ES618Hr+6xq-p11S573HcFKdRrz8sUc685yDa=cDGA@mail.gmail.com>
+X-Gm-Features: ATxdqUGYGVzv3sgPFJoJZKKUaDCZ3SrbEz5zs3DshQWEXWWo_KwIHTOtR51_N8M
+Message-ID: <CAMuHMdX8ES618Hr+6xq-p11S573HcFKdRrz8sUc685yDa=cDGA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/2] gpio: irq: support describing three-cell interrupts
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, 
+	Thomas Gleixner <tglx@linutronix.de>, Alex Elder <elder@riscstar.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, linux-kernel@vger.kernel.org, 
+	linux-gpio@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev, 
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250407_232039_225630_C33F7E58 
-X-CRM114-Status: GOOD (  12.72  )
+X-CRM114-CacheID: sfid-20250408_002403_958364_1E2EFC4C 
+X-CRM114-Status: GOOD (  26.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,27 +94,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWlrZSwKCkxlIDE0LzAzLzIwMjUgw6AgMTA6MjUsIENocmlzdG9waGUgTGVyb3kgYSDDqWNy
-aXTCoDoKPiAKPiAKPiBMZSAxMy8wMy8yMDI1IMOgIDE0OjQ5LCBNaWtlIFJhcG9wb3J0IGEgw6lj
-cml0wqA6Cj4+IEZyb206ICJNaWtlIFJhcG9wb3J0IChNaWNyb3NvZnQpIiA8cnBwdEBrZXJuZWwu
-b3JnPgo+Pgo+PiBtYXhfbWFwbnIgaXMgZXNzZW50aWFsbHkgdGhlIHNpemUgb2YgdGhlIG1lbW9y
-eSBtYXAgZm9yIHN5c3RlbXMgdGhhdCB1c2UKPj4gRkxBVE1FTS4gVGhlcmUgaXMgbm8gcmVhc29u
-IHRvIGNhbGN1bGF0ZSBpdCBpbiBlYWNoIGFuZCBldmVyeSAKPj4gYXJjaGl0ZWN0dXJlCj4+IHdo
-ZW4gaXQncyBhbnl3YXkgY2FsY3VsYXRlZCBpbiBhbGxvY19ub2RlX21lbV9tYXAoKS4KPj4KPj4g
-RHJvcCBzZXR0aW5nIG9mIG1heF9tYXBuciBmcm9tIGFyY2hpdGVjdHVyZSBjb2RlIGFuZCBzZXQg
-aXQgb25jZSBpbgo+PiBhbGxvY19ub2RlX21lbV9tYXAoKS4KPiAKPiBBcyBmYXIgYXMgSSBjYW4g
-c2VlIGFsbG9jX25vZGVfbWVtX21hcCgpIGlzIGNhbGxlZCBxdWl0ZSBsYXRlLgo+IAo+IEkgZmVh
-ciB0aGF0IGl0IHdpbGwgcmVncmVzcyBjb21taXQgZGFhOWFkYTIwOTNlICgicG93ZXJwYy9tbTog
-Rml4IGJvb3QgCj4gY3Jhc2ggd2l0aCBGTEFUTUVNIikKPiAKPiBDYW4geW91IGNoZWNrID8KCkkg
-c2VlIHRoaXMgcGF0Y2ggaXMgbm93IG1lcmdlZCBpbnRvIG1haW5saW5lICh2Ni4xNS1yYzEpLiBI
-YXZlIHlvdSBiZWVuIAphYmxlIHRvIGNoZWNrIGFuZC9vciBhbmFseXNlIHdoZXRoZXIgaXQgZG9l
-c24ndCByZWdyZXNzIHRoZSBmaXggaW4gCmNvbW1pdCBkYWE5YWRhMjA5M2UgKCJwb3dlcnBjL21t
-OiBGaXggYm9vdCBjcmFzaCB3aXRoIEZMQVRNRU0iKSA/CgpUaGFua3MKQ2hyaXN0b3BoZQoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+CC devicetree
+
+The first patch was already applied as commit 0a02e1f4a54ace74
+("irqdomain: Support three-cell scheme interrupts") in irqchip/irq/core.
+
+On Tue, 25 Mar 2025 at 23:08, Yixun Lan <dlan@gentoo.org> wrote:
+> In this patch [1], the GPIO controller add support for describing
+> hardware with a three-cell scheme:
+>
+>     gpios = <&gpio instance offset flags>;
+>
+> It also result describing interrupts in three-cell as this in DT:
+>
+>     node {
+>             interrupt-parent = <&gpio>;
+>             interrupts = <instance hwirq irqflag>;
+>     }
+>
+> This series try to extend describing interrupts with three-cell scheme.
+>
+> The first patch will add capability for parsing irq number and flag
+> from last two cells which eventually will support the three-cells
+> interrupt, the second patch support finding irqdomain according to
+> interrupt instance index.
+>
+> Link: https://lore.kernel.org/all/20250225-gpio-ranges-fourcell-v3-0-860382ba4713@linaro.org [1]
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> ---
+> Changes in v3:
+> - explicitly introduce *_twothreecell() to support 3 cell interrupt
+> - Link to v2: https://lore.kernel.org/r/20250302-04-gpio-irq-threecell-v2-0-34f13ad37ea4@gentoo.org
+>
+> Changes in v2:
+> - introduce generic irq_domain_translate_cells(), other inline cells function
+> - hide the OF-specific things into gpiolib-of.c|h
+> - Link to v1: https://lore.kernel.org/r/20250227-04-gpio-irq-threecell-v1-0-4ae4d91baadc@gentoo.org
+>
+> ---
+> Yixun Lan (2):
+>       irqdomain: support three-cell scheme interrupts
+>       gpiolib: support parsing gpio three-cell interrupts scheme
+>
+>  drivers/gpio/gpiolib-of.c |  8 +++++++
+>  drivers/gpio/gpiolib-of.h |  6 +++++
+>  drivers/gpio/gpiolib.c    | 22 +++++++++++++++----
+>  include/linux/irqdomain.h | 20 ++++++++---------
+>  kernel/irq/irqdomain.c    | 56 +++++++++++++++++++++++++++++++++++++++++++++++
+>  5 files changed, 98 insertions(+), 14 deletions(-)
+> ---
+> base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+> change-id: 20250227-04-gpio-irq-threecell-66e1e073c806
+> prerequisite-change-id: 20250217-gpio-ranges-fourcell-85888ad219da:v3
+> prerequisite-patch-id: 9d4c8b05cc56d25bfb93f3b06420ba6e93340d31
+> prerequisite-patch-id: 7949035abd05ec02a9426bb17819d9108e66e0d7
+>
+> Best regards,
+> --
+> Yixun Lan
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
