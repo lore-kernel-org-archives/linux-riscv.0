@@ -4,72 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5D4DC369A4
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 15:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8912C369A4
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 15:39:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z0YbibAYeF5quz5SwwSIgzWjz1s7nyD3cnyPFhUdNA4=; b=RQ+2duYOhkoQlP
-	6ompWcS41hzEy/X0Vx/gKM8ozmK/r4p/Xy6NbCT9cymE3apsx58ofRyZa90i3AQcZc66FVbpUWyZk
-	bxrvZT3mErnryg0KdpXZ8YA3z39PoNAqG+UfUxzBnWYg1xXvZnMBlILU1bdbyv7DA35q4TKp76dCJ
-	fr1CHjcVeAq7hs6Z1Yp/b6DSfk58ZSwIgufiIQD8gFXxh9Xn+2nYbfiz9GpiElhEH3T8TyonRb1qa
-	yhoUBon8g+apmk96bGiXoiMb6mAXmq1n0EIoMEtDl708w+UwyCweOpaNLJOxUvFPqVlGZ1lze1fGn
-	YbImlxuS/8OkRZHKhRWQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6CQ5tvyKikM5EntaF3o3HthqK5KkAu9PKUY6sQsw3fU=; b=NPOlhOvTDPBZEG
+	YJBxK4PEUf3uP3i4Z3QPCFCDCOskqHuHfoxsWHysn7UfP3Y4D4z3Dv7dvRjF4t8LFo7uVwmElbWYe
+	n640nzW1y3Dq4OgqPOjTsrGhs9AWjgRZQcX+aOEh1G3iPjkcTy+f+j/fR2uqUMNhmQmlasoJjK6ok
+	QhFqKJmD1Xt4IPlEh76TgMBjygsfVtuOcijLjhX+S6FJEGSaLQtza4rthTSjkps3EjWxXhuW2h1y5
+	bdnf5OWUpax96pM+ODcP7+oQyEMgw+O1EGrR6jLsr7IJnEAd6LmhgOAV8PPdW1YrK+xO6HueIi3qz
+	AULGl2n5BzAIFFvK+MAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2X3F-00000007c34-3xt8;
-	Wed, 09 Apr 2025 15:09:17 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Wkq-00000007XcC-0nWd;
-	Wed, 09 Apr 2025 14:50:17 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 52F3115A1;
-	Wed,  9 Apr 2025 07:50:13 -0700 (PDT)
-Received: from [10.57.67.254] (unknown [10.57.67.254])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 58A653F59E;
-	Wed,  9 Apr 2025 07:50:07 -0700 (PDT)
-Message-ID: <99771f33-8ad8-4ba5-9cf0-f504588d99a0@arm.com>
-Date: Wed, 9 Apr 2025 16:50:04 +0200
+	id 1u2XWK-00000007iuj-3OMR;
+	Wed, 09 Apr 2025 15:39:20 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2XTx-00000007iN5-2YSY
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Apr 2025 15:36:54 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39d83782ef6so602205f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 08:36:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1744213012; x=1744817812; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=qfUM5mGHhpw8hKZuwlrvDlDzAMvYd8UqjjsU88J1W0w=;
+        b=alLNr4ym12pliDRDl9fhkhuIhWpBAbHHMSiQDnG5LDP21ZVnyXOHXQ+WPFA0IK9cf+
+         LQTqjGRjCRIM1TXrqghObqy35+VA4uI2y+xmp2XrxLcnLb0stf/lqhJh4/yCsiigFdNV
+         JkypTnA8dTQ5ly0u/qcSDKisBTx164vyxQeks4gMVUDfgS7GWbKtc8o8S7qqPRJpMgH9
+         VnQ/CbWycfQaJeyUDU6e2KIFWdPL5GWRBARcxwplTK2YJ6thBWvV3tKS8ohRfYqmY1k8
+         jVqN+0gDHC8XOOTaxV8WTOVb0bm1InzQdQQT1VXaVBU9ceWP+xfn92949/Fl3KR3GX3c
+         nwKQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744213012; x=1744817812;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qfUM5mGHhpw8hKZuwlrvDlDzAMvYd8UqjjsU88J1W0w=;
+        b=VcwBM70Z2Ro9rqbJisyKClXux4Wp5w5/K3aPZxYmlLaaXZ6QiXuVceP2FSutqblh2T
+         v2Mue9/D0bMNauu9eWoKS0vBlbrqVewVRXBBxbGK9uVU2+eWRCifwZlMxqy5RLS+iU6Z
+         PM9gO1Ia2ZJwHkV6vIoc6XXR43/BrO4sRy7q3rAYzCH7DRW1tvx466unMCQkKhJXrstQ
+         YVbnSGyTCd5zRE69KBupjNm//yqnqVuI/SR22Z5KnXDQBJHVlZVqa8wFZguwMs3ncksP
+         t1z9mUAglEUKnjooAnJVq+GR2VwiX0jJ1nfsOkRgo7gCUmM2HYVM21Hap3uy4o53nLH8
+         zMwg==
+X-Gm-Message-State: AOJu0YxTblI8z4hQeOsT9DUqONJl00RtW7clFI4CD942bUPW4J4520Nn
+	vNqLjIt5fUgY5W+Wos+NvTZ6MYXSb6MXiXeD0bKSBC4lyMJBoGRDKkbTaCpnHfAy5KBXqwd6btM
+	u
+X-Gm-Gg: ASbGncuxy9sJTFRZk+gpP0+5QluitkGHQhrIfSRqvM2y01Jg8BruoFhJvLpkA/SeRZ6
+	pSlrr0GqlNfkaKDWDMw6mrI2ahmlw3khir+bwH5ZWozwNYz7t0W1qt8e25q5jDagHtkihbnyxml
+	DHmBMqLZRM0EPznYNHCY6lPyIxZmhzjIMVFk4V0iMiKNb9aoFOfWvjOpXZKNN6LQraPeIcEJ1h2
+	MCzMWKP/ndCsw81xO1FRdq4PTaBPNZ14Er96UxA/yCkqDVJpkaDYrzbfSwXp5P+nZ+klQle5ZBv
+	EccOSv6K3qeUHwgRXSA1GQfg/GZ2
+X-Google-Smtp-Source: AGHT+IEHd1ox11xPN2snB8m+aQ/4eSxd2QCdR3SX0Uzkhj5FFWGu2zYPXfDx9gyBtnXRt+W19GbChA==
+X-Received: by 2002:a5d:64cd:0:b0:390:e9ee:f27a with SMTP id ffacd0b85a97d-39d88010b83mr2806725f8f.28.1744213011831;
+        Wed, 09 Apr 2025 08:36:51 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::31af])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d893f0cfdsm1961634f8f.76.2025.04.09.08.36.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 08:36:51 -0700 (PDT)
+From: Andrew Jones <ajones@ventanamicro.com>
+To: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	cleger@rivosinc.com,
+	alexghiti@rivosinc.com,
+	geert@linux-m68k.org
+Subject: [PATCH] riscv: Fix unaligned access info messages
+Date: Wed,  9 Apr 2025 17:36:51 +0200
+Message-ID: <20250409153650.84433-2-ajones@ventanamicro.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/12] x86: pgtable: Always use pte_free_kernel()
-To: Matthew Wilcox <willy@infradead.org>, Dave Hansen <dave.hansen@intel.com>
-Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
- Albert Ou <aou@eecs.berkeley.edu>, Andreas Larsson <andreas@gaisler.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>,
- Geert Uytterhoeven <geert@linux-m68k.org>,
- Linus Walleij <linus.walleij@linaro.org>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Mark Rutland <mark.rutland@arm.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Mike Rapoport (IBM)" <rppt@kernel.org>, Palmer Dabbelt
- <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Peter Zijlstra <peterz@infradead.org>, Qi Zheng
- <zhengqi.arch@bytedance.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Will Deacon <will@kernel.org>, Yang Shi <yang@os.amperecomputing.com>,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-csky@vger.kernel.org, linux-m68k@lists.linux-m68k.org,
- linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- sparclinux@vger.kernel.org, x86@kernel.org
-References: <20250408095222.860601-1-kevin.brodsky@arm.com>
- <20250408095222.860601-3-kevin.brodsky@arm.com>
- <409d2019-a409-4e97-a16f-6b345b0f5a38@intel.com>
- <Z_VQxyqkU8DV7QGy@casper.infradead.org>
- <9247436d-ae01-4eb8-bd5d-370b2fb2eebc@intel.com>
- <Z_VfeFgrj23Oa0fX@casper.infradead.org>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <Z_VfeFgrj23Oa0fX@casper.infradead.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_075016_277095_B5E29DCC 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250409_083653_656632_424B6EBF 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,43 +99,77 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 08/04/2025 19:40, Matthew Wilcox wrote:
-> On Tue, Apr 08, 2025 at 09:54:42AM -0700, Dave Hansen wrote:
->> On 4/8/25 09:37, Matthew Wilcox wrote:
->>> On Tue, Apr 08, 2025 at 08:22:47AM -0700, Dave Hansen wrote:
->>>> Are there any tests for folio_test_pgtable() at free_page() time? If we
->>>> had that, it would make it less likely that another free_page() user
->>>> could sneak in without calling the destructor.
->>> It's hidden, but yes:
->>>
->>> static inline bool page_expected_state(struct page *page,
->>>                                         unsigned long check_flags)
->>> {
->>>         if (unlikely(atomic_read(&page->_mapcount) != -1))
->>>                 return false;
->>>
->>> PageTable uses page_type which aliases with mapcount, so this check
->>> covers "PageTable is still set when the last refcount to it is put".
->> Huh, so shouldn't we have ended up in bad_page() for these, other than:
->>
->>         pagetable_dtor(virt_to_ptdesc(pmd));
->>         free_page((unsigned long)pmd);
-> I think at this point in Kevin's series, we don't call the ctor for
-> these pages, so we never set PageTable() on them. I could be wrong;
+Ensure we only print messages about command line parameters when
+the parameters are actually in use. Also complain about the use
+of the vector parameter when vector support isn't available.
 
-Correct, that's why I added this patch early in the series (the next
-patch adds the ctor call in pte_alloc_one_kernel()).
+Fixes: aecb09e091dc ("riscv: Add parameter for skipping access speed tests")
+Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+Closes: https://lore.kernel.org/all/CAMuHMdVEp2_ho51gkpLLJG2HimqZ1gZ0fa=JA4uNNZjFFqaPMg@mail.gmail.com/
+Closes: https://lore.kernel.org/all/CAMuHMdWVMP0MYCLFq+b7H_uz-2omdFiDDUZq0t_gw0L9rrJtkQ@mail.gmail.com/
+Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+---
+ arch/riscv/kernel/unaligned_access_speed.c | 35 +++++++++++++---------
+ 1 file changed, 21 insertions(+), 14 deletions(-)
 
-The BUG() in v1 was indeed triggered by a page_expected_state() check [1].
+diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
+index 585d2dcf2dab..b8ba13819d05 100644
+--- a/arch/riscv/kernel/unaligned_access_speed.c
++++ b/arch/riscv/kernel/unaligned_access_speed.c
+@@ -439,29 +439,36 @@ static int __init check_unaligned_access_all_cpus(void)
+ {
+ 	int cpu;
+ 
+-	if (unaligned_scalar_speed_param == RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN &&
+-	    !check_unaligned_access_emulated_all_cpus()) {
+-		check_unaligned_access_speed_all_cpus();
+-	} else {
+-		pr_info("scalar unaligned access speed set to '%s' by command line\n",
+-			speed_str[unaligned_scalar_speed_param]);
++	if (unaligned_scalar_speed_param != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN) {
++		pr_info("scalar unaligned access speed set to '%s' (%lu) by command line\n",
++			speed_str[unaligned_scalar_speed_param], unaligned_scalar_speed_param);
+ 		for_each_online_cpu(cpu)
+ 			per_cpu(misaligned_access_speed, cpu) = unaligned_scalar_speed_param;
++	} else if (!check_unaligned_access_emulated_all_cpus()) {
++		check_unaligned_access_speed_all_cpus();
++	}
++
++	if (unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN) {
++		if (!has_vector() &&
++		    unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED) {
++			pr_warn("vector support is not available, ignoring unaligned_vector_speed=%s\n",
++				speed_str[unaligned_vector_speed_param]);
++		} else {
++			pr_info("vector unaligned access speed set to '%s' (%lu) by command line\n",
++				speed_str[unaligned_vector_speed_param], unaligned_vector_speed_param);
++		}
+ 	}
+ 
+ 	if (!has_vector())
+ 		unaligned_vector_speed_param = RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
+ 
+-	if (unaligned_vector_speed_param == RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN &&
+-	    !check_vector_unaligned_access_emulated_all_cpus() &&
+-	    IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
+-		kthread_run(vec_check_unaligned_access_speed_all_cpus,
+-			    NULL, "vec_check_unaligned_access_speed_all_cpus");
+-	} else {
+-		pr_info("vector unaligned access speed set to '%s' by command line\n",
+-			speed_str[unaligned_vector_speed_param]);
++	if (unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN) {
+ 		for_each_online_cpu(cpu)
+ 			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
++	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
++		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
++		kthread_run(vec_check_unaligned_access_speed_all_cpus,
++			    NULL, "vec_check_unaligned_access_speed_all_cpus");
+ 	}
+ 
+ 	/*
+-- 
+2.48.1
 
-> as Kevin says, this is all very twisty and confusing with exceptions and
-> exceptions to exceptions.  This series should reduce the confusion.
-
-I hope so!
-
-- Kevin
-
-[1] https://lore.kernel.org/oe-lkp/202503211612.e11bd73f-lkp@intel.com/
 
 _______________________________________________
 linux-riscv mailing list
