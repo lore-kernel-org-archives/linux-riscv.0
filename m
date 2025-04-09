@@ -4,100 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE630C369AA
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9390BC369A5
 	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 21:54:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LG3slYx6eIb6mSZEGcawHjFcIRNEM2L5xjTR1TYQYdY=; b=XOd+BWoSP09Ynw
-	yuYgjeKcIVY8o+K8waPNzVvTQLfH5/CGP7HYiFWkNv49CYGDBxpZfYFYekSR7DUgeHCU4LhuvycPF
-	efaJDuNUCX8kFWcduMVWAlMnIbGz4I7aAO6IL0Tz+Qd0KeVmMX6HiwvfUuB0ftQn0UykP0OMOp/cu
-	PPOR9eZr0l69n0KbU+nx/LokQMDL4Q7rZeJpE3/RhVjVUEIzggGJMFt7nOsNmrrTXW22Pxh/VPTtU
-	as6cqIdULR5hAP3M76pucJlUD+ei6uoEn9VF82r8rB6NWDkrbl0U5iCb3An87UX9taFYHKY3Ahve5
-	3Dkc8e+mXY4Oa7fBm6Vw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ZcgNVhjt14cM5RXnRrfq7Xs3YzPsQIaNXvANJ/fKxrs=; b=WAN5SWrw5KvDyL
+	zf+z2H1k9X0EFBvHI1nCnyY+bJ3kB8+u8DjbTMoY/9hByB/J6854K3nwLbOzoR6GPD08OlxF6yja2
+	Bwgl8SMbnCTfFJJje3jWMm/6eR7DT2M/y9vxaVf7lrtJ6LNXn0n99UtNRmKygx7Am1rbrSyJ5r+eJ
+	eMuqbPuIAdvMDMLoG26OFe4hg6dwMLtuDH+KNmO8HLngP5KabBU1K9SEP7xIjL9cLIraoQCrx+JM4
+	lv4eZZM6Jrdn7sTuQQEruos3GH44MUjeFMEWYuojZw3JD4Cuokzf3jFCoMfRGKcqerV2vud4lMEq4
+	bvNTMQzidFvpsnxttZVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2dNY-00000008dru-41dz;
-	Wed, 09 Apr 2025 21:54:40 +0000
-Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
+	id 1u2dNZ-00000008dsJ-2RAE;
+	Wed, 09 Apr 2025 21:54:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2cnz-00000008YdH-2Ejh
+	id 1u2cun-00000008Zpb-30Ks
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 21:17:56 +0000
-Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-85ea482e3adso40882939f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 14:17:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744233474; x=1744838274; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eoPF+bCrpMBavT+34w02cPZ0ktfHw7A1w/wlErW18/c=;
-        b=cMZm3rSykKqIy9fv2z9sytLiiZIBG58Hz/iw2ika8okT+H66KgDl3S5/FmgNRYonDW
-         gO95xx0LZcIKCdVForrcjUfJfDjaRE52kNdrhAu7Oth8idgV6bm1omZ3KRVUQTf5Nh30
-         tFgufzTWLWE9teWVw81vr3aThyLOmjJo3/P0XpRROIdE2oTv28SEXuu4nS43izvF5iKf
-         RkvBsYkJO5w7+DelG+cFSQ0cI67OlunOoxaBQR3XuwWPe1dkTwoENqu69ZnjViVXS9eB
-         7aLINBw+zi250FJEvVKRDrbgNdigBeA4JEhvaKfm77AHM7fqbRA5i5Q2kQnVDWB6Uy1q
-         IhIA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744233474; x=1744838274;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eoPF+bCrpMBavT+34w02cPZ0ktfHw7A1w/wlErW18/c=;
-        b=BiRwdUK5fCFi7fmkVC2ynccZnZ1Yps316XoZwNV+hg1G2vWdhUT8rNYYdddXjKzCk7
-         vHMApb659NU50dk0omNBjUBden68Vwns+r4evOCN9PSqVBxb2FrcmxWtAWQY1JmLZSVc
-         PzlGFzrzhro5q4ABC4zJOKMyX6SEPqc01XTzpo4pLI4VIzODhhx+mhNgJGJXdl9RkbMm
-         SdARn+IsHmF4YxYSqMezobxt4+ybRlyMfEi9TGz0WTnn8z+e9+7+PCjasMZ0Belb9Knx
-         33lYIn5yrmgl36vlllROk2/AgVVg5pCogsXRnjRjPgn8w+Fj+R8Eh+wnY1TOtaYWam+O
-         yetQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVmO2RM8FlnwQsIVIkJUAOY66ggiO3H3mBvLiz3PFJLvUv4rYGORwSci5dEBmmwdbIASUrjDQbWfpHz9w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwflPZVLUMHUD1wPHsPiq2WrVYmCH08MNmNx+OVfDW4DO9NHh1L
-	/g+CBELbaHbLLcIs50N2TW4JTLngWxoFGCUM1Mosw64MpjYN5Kru4LOuwBTQvCw=
-X-Gm-Gg: ASbGncvxG6Xa3+Ga9OJ5it441sb1H0LQueLUYAHaxGAsVXMEPYiWjYsqXToOpU3Z48o
-	w0Xv6fPYUMEFfgpBRYtzgakt3B2oB21sWY5e06aA+BlTv4YX7OVehqc67QQ66aZA5ibrDe4aLYb
-	CJSCkntKbyKekBnAkdtT1G2dr5768ZuoYnTbrjaZ3pUXE1qIduAIoLdUgZPCtAaktKFaP7AxVPf
-	KTDOePTtkScb08+9saxFMs5kAzAEUFZwsQNI28/wJoqGGtxU3Ol3O0ydo18kTlUSWcF1zlpHfx8
-	wS4hxzyiIVlq8jk8vWK6BCiOstNiZXYmoTEUzmBxjVFBccXZuGQ6BIFu4pR8Z2oSM71B1yPEyVg
-	pjd3Pv/J2ec/CZw==
-X-Google-Smtp-Source: AGHT+IE2EFUaAUGzZqdq2RH+minAxPrbtolq6/W/NBIYcCuS8He5fK97oLjQC2cX1JOUkUtoZzh2cA==
-X-Received: by 2002:a05:6602:6e8e:b0:85e:16e9:5e8d with SMTP id ca18e2360f4ac-8616f206ec2mr29618639f.7.1744233474607;
-        Wed, 09 Apr 2025 14:17:54 -0700 (PDT)
-Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f505cf8e91sm420735173.6.2025.04.09.14.17.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 14:17:54 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mturquette@baylibre.com,
-	sboyd@kernel.org
-Cc: p.zabel@pengutronix.de,
-	dlan@gentoo.org,
-	heylenay@4d2.org,
-	guodong@riscstar.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 7/7] riscv: dts: spacemit: add reset support for the K1 SoC
-Date: Wed,  9 Apr 2025 16:17:40 -0500
-Message-ID: <20250409211741.1171584-8-elder@riscstar.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250409211741.1171584-1-elder@riscstar.com>
-References: <20250409211741.1171584-1-elder@riscstar.com>
+	Wed, 09 Apr 2025 21:24:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5273A61136;
+	Wed,  9 Apr 2025 21:24:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F099CC4CEE2;
+	Wed,  9 Apr 2025 21:24:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744233896;
+	bh=5qHiUhKixS8KNeg+C5xmkTlGkTCWShJsH/7OmzpcWYU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=Jd+lIambl5W1EFHS/OCJxCyg8MT02pPmU1fan+2Xftbb6496qsiHPvkN2i73c9n/u
+	 YKANI2l4wwsH7CC4rjZukNHeCOgdDh5IXZkr79iCpJ4k8bW/3SeIKZEUklNhmW5xeS
+	 BWZSbWlEzp5hf7tvQqzkz5Z+RD0L8QPllpzTuvut6valBChHQmjXEuYJ2YWgPzHIX/
+	 ef1osAIqVYzGkERwCewV0FfjfSZgZSPrB6I5RTeP/3811iVf9NLBLzmSj4iCJUe1Ji
+	 FCl16I6PUa5yTnkTI9ZcViveXdya/RZfE+9gMOgKluBSPiEMzmXcOF8VjfesUJU+oP
+	 OAd1bFCDjsgCQ==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Wed, 09 Apr 2025 14:24:46 -0700
+Subject: [PATCH] riscv: Avoid fortify warning in syscall_get_arguments()
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_141755_569043_20163CF5 
-X-CRM114-Status: UNSURE (   9.15  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJ3l9mcC/x3NQQrDIBBA0asE1x0wwVDsVUoJoqMdSLXMGNsQc
+ vdKl2/z/6EEmVDUbTgUYyOhkjvGy6D80+WEQKFbTXqatdEWmMQ3cK1QgFi4Utzh4zhTTiC7eLe
+ uS8K6OE7bC3MVGK3Xxs7BYLiq3n0zRvr+n/fHef4AAFy66YMAAAA=
+X-Change-ID: 20250409-riscv-avoid-fortify-warning-syscall_get_arguments-19c0495d4ed7
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>
+Cc: "Dmitry V. Levin" <ldv@strace.io>, Kees Cook <kees@kernel.org>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3289; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=5qHiUhKixS8KNeg+C5xmkTlGkTCWShJsH/7OmzpcWYU=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDOnfni4r6WU4uXx2S0zfuZ47v+JOm9fsXT6z4db8A8ZdF
+ 6NuzZ8V3VHKwiDGxSArpshS/Vj1uKHhnLOMN05NgpnDygQyhIGLUwAmsqCFkaEnROBWb+up6gtF
+ j/ImJ3hk/7n34HH2jhfJOy8e6H0373gHI8O1whzVRRyaT39sErr5YN//gvDTaYyJvlP71itxT6+
+ NescOAA==
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,52 +82,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define syscon nodes for the RCPU, RCPU2, and APBC2 SpacemiT CCUS, which
-currently support resets but not clocks in the SpacemiT K1.
+When building with CONFIG_FORTIFY_SOURCE=y and W=1, there is a warning
+because of the memcpy() in syscall_get_arguments():
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
+  In file included from include/linux/string.h:392,
+                   from include/linux/bitmap.h:13,
+                   from include/linux/cpumask.h:12,
+                   from arch/riscv/include/asm/processor.h:55,
+                   from include/linux/sched.h:13,
+                   from kernel/ptrace.c:13:
+  In function 'fortify_memcpy_chk',
+      inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
+  include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
+    580 |                         __read_overflow2_field(q_size_field, size);
+        |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cc1: all warnings being treated as errors
+
+The fortified memcpy() routine enforces that the source is not overread
+and the destination is not overwritten if the size of either field and
+the size of the copy are known at compile time. The memcpy() in
+syscall_get_arguments() intentionally overreads from a1 to a5 in
+'struct pt_regs' but this is bigger than the size of a1.
+
+Normally, this could be solved by wrapping a1 through a5 with
+struct_group() but there was already a struct_group() applied to these
+members in commit bba547810c66 ("riscv: tracing: Fix
+__write_overflow_field in ftrace_partial_regs()").
+
+Just avoid memcpy() altogether and write the copying of args from regs
+manually, which clears up the warning at the expense of three extra
+lines of code.
+
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+I omitted a Fixes tag because I think this has always been an overread
+if I understand correctly but it is only the addition of the checks from
+commit f68f2ff91512 ("fortify: Detect struct member overflows in
+memcpy() at compile-time") that it becomes a noticeable issue.
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 584f0dbc60f5b..491ab891788b8 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -346,6 +346,18 @@ soc {
- 		dma-noncoherent;
- 		ranges;
+This came out of a discussion from the addition of
+syscall_set_arguments(), where the same logic causes a more noticeable
+fortify warning because it happens without W=1, as it is an overwrite:
+https://lore.kernel.org/20250408213131.GA2872426@ax162/
+---
+ arch/riscv/include/asm/syscall.h | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 121fff429dce66b31fe79b691b8edd816c8019e9..eceabf59ae482aa1832b09371ddb3ba8cd65f91d 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -62,8 +62,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
+ 					 unsigned long *args)
+ {
+ 	args[0] = regs->orig_a0;
+-	args++;
+-	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
++	args[1] = regs->a1;
++	args[2] = regs->a2;
++	args[3] = regs->a3;
++	args[4] = regs->a4;
++	args[5] = regs->a5;
+ }
  
-+		syscon_rcpu: system-controller@c0880000 {
-+			compatible = "spacemit,k1-syscon-rcpu";
-+			reg = <0x0 0xc0880000 0x0 0x2048>;
-+			#reset-cells = <1>;
-+		};
-+
-+		syscon_rcpu2: system-controller@c0888000 {
-+			compatible = "spacemit,k1-syscon-rcpu2";
-+			reg = <0x0 0xc0888000 0x0 0x28>;
-+			#reset-cells = <1>;
-+		};
-+
- 		syscon_apbc: system-control@d4015000 {
- 			compatible = "spacemit,k1-syscon-apbc";
- 			reg = <0x0 0xd4015000 0x0 0x1000>;
-@@ -514,6 +526,12 @@ clint: timer@e4000000 {
- 					      <&cpu7_intc 3>, <&cpu7_intc 7>;
- 		};
- 
-+		syscon_apbc2: system-controller@f0610000 {
-+			compatible = "spacemit,k1-syscon-apbc2";
-+			reg = <0x0 0xf0610000 0x0 0x20>;
-+			#reset-cells = <1>;
-+		};
-+
- 		sec_uart1: serial@f0612000 {
- 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
- 			reg = <0x0 0xf0612000 0x0 0x100>;
+ static inline int syscall_get_arch(struct task_struct *task)
+
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250409-riscv-avoid-fortify-warning-syscall_get_arguments-19c0495d4ed7
+
+Best regards,
 -- 
-2.45.2
+Nathan Chancellor <nathan@kernel.org>
 
 
 _______________________________________________
