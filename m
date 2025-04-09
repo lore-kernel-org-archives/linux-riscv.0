@@ -4,95 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FB8C36002
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 06:27:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A35C8C36002
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 06:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=idKZlCFXBpU4mm+xJbbAgSPYBmSnI+b9P8OheXjOOS8=; b=FOC1IiTlbkqJ2k
-	wl4a9TGjbxsXNgS9c12FrB09vZ1+WJ8Ak8ZUSS4XYczQl5uYCtoGBjqGQU5PX1fhtnBX/Y5WTjFNw
-	ji8XR9s+KQhahGueHB+3ElZ06qii+Q08OZ8dTGhEDhwU8mVX7mcSu2zEMseHAv/h+rOrL00rc8bQF
-	O8LfxcM4xd5Zi9BmAWLxd2Pmu7ZU6+JjtvHCwVfboc6d/jkDZ2N5JskL5ZmdJwUyfoe0sP90+DG3T
-	Pnhk9DedJhHqUGdVkUBn5Ywd7K43im/jhcv5EJP6dRZPZjKR3Jgc338KDKDi478REV0z7wIvZAQSj
-	tWo4JAIWoQ/FKxuQHNdA==;
+	List-Owner; bh=zahFDvN3Ozbk4TH83R0xuNePso3+qBZ7PQ/zI0Q1TdQ=; b=GGo9Y5rY4EqWC4
+	KSmbLhasfcmjf+7cQV7H4Xyu+J3DeVTvzEuoyVfxRtVndutimjrlo8DkfizQpMCimXQA/74GHpCcS
+	J6qdUG7o7BF+ORgkiIfmfhrIARnA0psVYINI3zxUGgQm5RnMrBJ4G0FlDPOIeaiHOrQz/TZL4I5E6
+	TB5Eqk5VMpmivHL8AZONLDVWxSmlBM1NeJTx0kMfcg/2U/lsi6JRCe4ALX+nNeJ6PWlAqN5oWfLEM
+	Y2XKN6xWGu1XoszyIpZDWU1QJWBbJqUwtGzPCU8rcuoLfU3DrFwekjsqGKcAoHgbIDYAhMVLGQfSR
+	sWhTpwM2WRo8PkcknUZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Otl-00000006HCQ-24mk;
-	Wed, 09 Apr 2025 06:26:57 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Oti-00000006HBe-24xc;
-	Wed, 09 Apr 2025 06:26:55 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-736b350a22cso5704405b3a.1;
-        Tue, 08 Apr 2025 23:26:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744180013; x=1744784813; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/3Z4Xarq1tuQBhaaqWTW8nAq+1+kB87I8bwIR1VHPJQ=;
-        b=M71kFi48BT1MgB70QlXrMkwPGs9WrnhMHnCy9bBjjbsYl+G1sqV94OR19eGo16aWeL
-         qO7hGZi/43MlVJDkGM7zLmotGZqmkuaX9vfASvsrZ/avzzvVgZE1+kjVuIPDgwo9mpQn
-         OH308anA4b1pwyK6IJk7oyZHvjD13u/EDx4+fr6pQMZfow81ikd0hKaKsH6VmpuBCPg3
-         2h7EtKEuzVI/MKU/b5ucd4xPNK+pY+9LU9epgM4hiXDUDXSXbVJDFeX/vM7GPWrzeu9a
-         PKrm+CNsl9yG5WYHUNvv8llYTaURDWE6e62zO6gwENN/8jdAOwaIyuOH46hisd/KpThq
-         tt5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744180013; x=1744784813;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=/3Z4Xarq1tuQBhaaqWTW8nAq+1+kB87I8bwIR1VHPJQ=;
-        b=kNlSTwWeONW8TZmUM5vX10kr0vprBeJcmJRL/P8mtneXdjMJACKIEMGULO+rLRzrkK
-         O6QLD+gQ2NmJQa+ca1OhlRBgPEzdDG3Hqa/1GaxyHnwVXuEq9ED5R0TyAgaTl6mWF2UW
-         2wgEF5u8K50Jt6TFtEc/VOH7alvN5h1/uzLbb5X45jG9UNL3YP2D2L81Ag0401t26QLP
-         1QKCVF7h1VQPh/ylNh95oGtk0OZ42oNASDSqfpRrigxshwmZcKsNTg80YgrHC+cEKZgj
-         PzFg2e+zJfCMJG7Qwqnljd5X5HXpjAQxu71x9vORTLgfsIcXCEwJ6PnsfscOHDd5j47H
-         6crw==
-X-Forwarded-Encrypted: i=1; AJvYcCWP+7M+UvOvAFjYloerjn9YIZSP/r6x5kIcW2d55AP7VycT0eeRAcwWs39A9obJiYtb/H0WRQo1lUgh6WA=@lists.infradead.org, AJvYcCWQ95PD5OH1Kke6deQOSmbPcH+Vob4fS36XtWDCORQndT7AzF4gSMXDZRgxUy0iDViyoklNMM3RnMnvB7b5LpTE@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHeumaDf1OMeYVeHlDmS53qa/I+GUFJYwh4sBf9bsh/CtPkkzz
-	EUZDRjD3nTJYY/zNrkpBn8TwD2XwIqyYZVtJnp5Z3jR92CyO1i5L
-X-Gm-Gg: ASbGncubKWo59r1jSjWpxH52QxuccZokT66Lxbmod4CH2E3+FS2MI/cADTAuKjlDylb
-	2QVGziZ/di0LzkKq1JLJKsHoLG89s/bja1FERxlISDTCPYKdf3yWr4xOfl/fWcH9jluZSKSes3Z
-	DimNs9TsMOfRoYWAWDHMHGSK+dw2Z7zKNBb3im8LzpQ+xWLjJO4k20lH5Qc17OdTkM9JmLDHaQ1
-	FYqEcH7CJuADyxAhjha7zFMtZ/oiXS6aNLjBAVzbIsxonj7BjEZrJ6t+ouBcptzgbi4992szSys
-	Wepl9azFwcuhKSGw2KE1R0mkPgSQBVLc6o/jsytutOQ1aKxmwkm1H9P8yDpprg6qRH3zEtDqaJy
-	ObO5YtCwphv8iQRLHe7YnB7Q=
-X-Google-Smtp-Source: AGHT+IGrx+0fnZn+0LBw/cUv76G2E7ObwLXuSnUaIiBaCUhSms2DnAP0T+H1BXT4eMhmnrXlDWCCAw==
-X-Received: by 2002:a05:6a00:2e0f:b0:736:6ecd:8e32 with SMTP id d2e1a72fcca58-73bae551295mr2257466b3a.21.1744180013348;
-        Tue, 08 Apr 2025 23:26:53 -0700 (PDT)
-Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e4f768sm489551b3a.142.2025.04.08.23.26.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 08 Apr 2025 23:26:52 -0700 (PDT)
-Date: Wed, 09 Apr 2025 15:26:45 +0900 (JST)
-Message-Id: <20250409.152645.2045309190127414357.fujita.tomonori@gmail.com>
-To: aliceryhl@google.com
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
- hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- tmgross@umich.edu
-Subject: Re: [PATCH v4 4/4] rust: Add warn_on macro
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <CAH5fLgiDx5CQQMv=k=ejFYGM=ey1-dgQ44s1Ej1k2+mL7vnZaA@mail.gmail.com>
-References: <20250305110814.272792-1-fujita.tomonori@gmail.com>
-	<20250305110814.272792-5-fujita.tomonori@gmail.com>
-	<CAH5fLgiDx5CQQMv=k=ejFYGM=ey1-dgQ44s1Ej1k2+mL7vnZaA@mail.gmail.com>
-Mime-Version: 1.0
+	id 1u2PEq-00000006K6j-1paP;
+	Wed, 09 Apr 2025 06:48:44 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u2P6j-00000006Iid-2DqP
+	for linux-riscv@lists.infradead.org;
+	Wed, 09 Apr 2025 06:40:25 +0000
+Received: from mua.local.altlinux.org (mua.local.altlinux.org [192.168.1.14])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 319C872C8CC;
+	Wed,  9 Apr 2025 09:40:18 +0300 (MSK)
+Received: by mua.local.altlinux.org (Postfix, from userid 508)
+	id 0B9697CCB3A; Wed,  9 Apr 2025 09:40:18 +0300 (IDT)
+Date: Wed, 9 Apr 2025 09:40:18 +0300
+From: "Dmitry V. Levin" <ldv@strace.io>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Arnd Bergmann <arnd@arndb.de>, strace-devel@lists.strace.io,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 2/6] syscall.h: add syscall_set_arguments()
+Message-ID: <20250409064017.GA30836@strace.io>
+References: <20250303111910.GA24170@strace.io>
+ <20250303112009.GC24170@strace.io>
+ <20250408213131.GA2872426@ax162>
+ <20250408223611.GA26876@strace.io>
+ <20250409003803.GA2876360@ax162>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250409003803.GA2876360@ax162>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_232654_553241_B623EDA0 
-X-CRM114-Status: GOOD (  17.54  )
+X-CRM114-CacheID: sfid-20250408_234022_430650_258F56E4 
+X-CRM114-Status: GOOD (  30.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,85 +64,138 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCA4IEFwciAyMDI1IDE1OjU1OjM4ICswMjAwDQpBbGljZSBSeWhsIDxhbGljZXJ5aGxA
-Z29vZ2xlLmNvbT4gd3JvdGU6DQoNCj4gT24gV2VkLCBNYXIgNSwgMjAyNSBhdCAxMjoxMOKAr1BN
-IEZVSklUQSBUb21vbm9yaQ0KPiA8ZnVqaXRhLnRvbW9ub3JpQGdtYWlsLmNvbT4gd3JvdGU6DQo+
-Pg0KPj4gQWRkIHdhcm5fb24gbWFjcm8sIHVzZXMgdGhlIEJVRy9XQVJOIGZlYXR1cmUgKGxpYi9i
-dWcuYykgdmlhIGFzc2VtYmx5DQo+PiBmb3IgeDg2XzY0L2FybTY0L3Jpc2N2Lg0KPj4NCj4+IFRo
-ZSBjdXJyZW50IFJ1c3QgY29kZSBzaW1wbHkgd3JhcHMgQlVHKCkgbWFjcm8gYnV0IGRvZXNuJ3Qg
-cHJvdmlkZSB0aGUNCj4+IHByb3BlciBkZWJ1ZyBpbmZvcm1hdGlvbi4gVGhlIEJVRy9XQVJOIGZl
-YXR1cmUgY2FuIG9ubHkgYmUgdXNlZCBmcm9tDQo+PiBhc3NlbWJseS4NCj4+DQo+PiBUaGlzIHVz
-ZXMgdGhlIGFzc2VtYmx5IGNvZGUgZXhwb3J0ZWQgYnkgdGhlIEMgc2lkZSB2aWEgQVJDSF9XQVJO
-X0FTTQ0KPj4gbWFjcm8uIFRvIGF2b2lkIGR1cGxpY2F0aW5nIHRoZSBhc3NlbWJseSBjb2RlLCB0
-aGlzIGFwcHJvYWNoIGZvbGxvd3MNCj4+IHRoZSBzYW1lIHN0cmF0ZWd5IGFzIHRoZSBzdGF0aWMg
-YnJhbmNoIGNvZGU6IGl0IGdlbmVyYXRlcyB0aGUgYXNzZW1ibHkNCj4+IGNvZGUgZm9yIFJ1c3Qg
-dXNpbmcgdGhlIEMgcHJlcHJvY2Vzc29yIGF0IGNvbXBpbGUgdGltZS4NCj4+DQo+PiBTaW1pbGFy
-bHksIEFSQ0hfV0FSTl9SRUFDSEFCTEUgaXMgYWxzbyB1c2VkIGF0IGNvbXBpbGUgdGltZSB0bw0K
-Pj4gZ2VuZXJhdGUgdGhlIGFzc2VtYmx5IGNvZGU7IG9ianRvb2wncyByZWFjaGFibGUgYW5vdGF0
-aW9uIGNvZGUuIEl0J3MNCj4+IHVzZWQgZm9yIG9ubHkgYXJjaGl0ZWN0dXJlcyB0aGF0IHVzZSBv
-Ymp0b29sLg0KPj4NCj4+IEZvciBub3csIExvb25nYXJjaCBqdXN0IHVzZXMgYSB3cmFwcGVyIGZv
-ciBXQVJOIG1hY3JvLg0KPj4NCj4+IFVNTCBkb2Vzbid0IHVzZSB0aGUgYXNzZW1ibHkgQlVHL1dB
-Uk4gZmVhdHVyZTsganVzdCB3cmFwcGluZyBnZW5lcmljDQo+PiBCVUcvV0FSTiBmdW5jdGlvbnMg
-aW1wbGVtZW50ZWQgaW4gQyB3b3Jrcy4NCj4+DQo+PiBTaWduZWQtb2ZmLWJ5OiBGVUpJVEEgVG9t
-b25vcmkgPGZ1aml0YS50b21vbm9yaUBnbWFpbC5jb20+DQo+IA0KPiBPdmVyYWxsIGxvb2tzIHJl
-YXNvbmFibGUuIEEgZmV3IG5pdHMgYmVsb3c6DQoNClRoYW5rcyENCg0KPj4gKyNbbWFjcm9fZXhw
-b3J0XQ0KPj4gKyNbZG9jKGhpZGRlbildDQo+PiArI1tjZmcoYWxsKENPTkZJR19CVUcsIG5vdChD
-T05GSUdfVU1MKSwgbm90KENPTkZJR19MT09OR0FSQ0gpKSldDQo+PiArI1tjZmcoQ09ORklHX0RF
-QlVHX0JVR1ZFUkJPU0UpXQ0KPj4gK21hY3JvX3J1bGVzISB3YXJuX2ZsYWdzIHsNCj4+ICsgICAg
-KCRmbGFnczpleHByKSA9PiB7DQo+PiArICAgICAgICBjb25zdCBGTEFHUzogdTMyID0gJGNyYXRl
-OjpiaW5kaW5nczo6QlVHRkxBR19XQVJOSU5HIHwgJGZsYWdzOw0KPj4gKyAgICAgICAgY29uc3Qg
-X0ZJTEU6ICZbdThdID0gZmlsZSEoKS5hc19ieXRlcygpOw0KPj4gKyAgICAgICAgLy8gUGx1cyBv
-bmUgZm9yIG51bGwtdGVybWluYXRvci4NCj4+ICsgICAgICAgIHN0YXRpYyBGSUxFOiBbdTg7IF9G
-SUxFLmxlbigpICsgMV0gPSB7DQo+PiArICAgICAgICAgICAgbGV0IG11dCBieXRlcyA9IFswOyBf
-RklMRS5sZW4oKSArIDFdOw0KPj4gKyAgICAgICAgICAgIGxldCBtdXQgaSA9IDA7DQo+PiArICAg
-ICAgICAgICAgd2hpbGUgaSA8IF9GSUxFLmxlbigpIHsNCj4+ICsgICAgICAgICAgICAgICAgYnl0
-ZXNbaV0gPSBfRklMRVtpXTsNCj4+ICsgICAgICAgICAgICAgICAgaSArPSAxOw0KPj4gKyAgICAg
-ICAgICAgIH0NCj4+ICsgICAgICAgICAgICBieXRlcw0KPj4gKyAgICAgICAgfTsNCj4+ICsgICAg
-ICAgIC8vIFNBRkVUWTogSnVzdCBhbiBGRkkgY2FsbC4NCj4+ICsgICAgICAgIHVuc2FmZSB7DQo+
-PiArICAgICAgICAgICAgJGNyYXRlOjphc20hKGNvbmNhdCEoDQo+PiArICAgICAgICAgICAgICAg
-ICIvKiB7c2l6ZX0gKi8iLA0KPj4gKyAgICAgICAgICAgICAgICBpbmNsdWRlIShjb25jYXQhKGVu
-diEoIk9CSlRSRUUiKSwgIi9ydXN0L2tlcm5lbC9nZW5lcmF0ZWRfYXJjaF93YXJuX2FzbS5ycyIp
-KSwNCj4+ICsgICAgICAgICAgICAgICAgaW5jbHVkZSEoY29uY2F0IShlbnYhKCJPQkpUUkVFIiks
-ICIvcnVzdC9rZXJuZWwvZ2VuZXJhdGVkX2FyY2hfcmVhY2hhYmxlX2FzbS5ycyIpKSk7DQo+PiAr
-ICAgICAgICAgICAgZmlsZSA9IHN5bSBGSUxFLA0KPj4gKyAgICAgICAgICAgIGxpbmUgPSBjb25z
-dCBsaW5lISgpLA0KPj4gKyAgICAgICAgICAgIGZsYWdzID0gY29uc3QgRkxBR1MsDQo+PiArICAg
-ICAgICAgICAgc2l6ZSA9IGNvbnN0IDo6Y29yZTo6bWVtOjpzaXplX29mOjo8JGNyYXRlOjpiaW5k
-aW5nczo6YnVnX2VudHJ5PigpLA0KPiANCj4gVGhlIGluZGVudGF0aW9uIGhlcmUgaXMgb2RkLiBT
-aG91bGRuJ3QgdGhlIGFyZ3VtZW50cyBiZSBpbmRlbnRlZCBvbmUgbW9yZT8NCg0KWWVhaCwgZml4
-ZWQuDQoNCg0KPj4gKyNbbWFjcm9fZXhwb3J0XQ0KPj4gKyNbZG9jKGhpZGRlbildDQo+PiArI1tj
-ZmcoYWxsKENPTkZJR19CVUcsIG5vdChDT05GSUdfVU1MKSwgbm90KENPTkZJR19MT09OR0FSQ0gp
-KSldDQo+PiArI1tjZmcobm90KENPTkZJR19ERUJVR19CVUdWRVJCT1NFKSldDQo+PiArbWFjcm9f
-cnVsZXMhIHdhcm5fZmxhZ3Mgew0KPj4gKyAgICAoJGZsYWdzOmV4cHIpID0+IHsNCj4+ICsgICAg
-ICAgIGNvbnN0IEZMQUdTOiB1MzIgPSAkY3JhdGU6OmJpbmRpbmdzOjpCVUdGTEFHX1dBUk5JTkcg
-fCAkZmxhZ3M7DQo+PiArICAgICAgICAvLyBTQUZFVFk6IEp1c3QgYW4gRkZJIGNhbGwuDQo+PiAr
-ICAgICAgICB1bnNhZmUgew0KPj4gKyAgICAgICAgICAgICRjcmF0ZTo6YXNtISgNCj4+ICsgICAg
-ICAgICAgICBjb25jYXQhKA0KPj4gKyAgICAgICAgICAgICAgICAiLyoge3NpemV9ICovIiwNCj4+
-ICsgICAgICAgICAgICAgICAgaW5jbHVkZSEoY29uY2F0IShlbnYhKCJPQkpUUkVFIiksICIvcnVz
-dC9rZXJuZWwvZ2VuZXJhdGVkX2FyY2hfd2Fybl9hc20ucnMiKSksDQo+PiArICAgICAgICAgICAg
-ICAgIGluY2x1ZGUhKGNvbmNhdCEoZW52ISgiT0JKVFJFRSIpLCAiL3J1c3Qva2VybmVsL2dlbmVy
-YXRlZF9hcmNoX3JlYWNoYWJsZV9hc20ucnMiKSkpOw0KPj4gKyAgICAgICAgICAgIGZsYWdzID0g
-Y29uc3QgRkxBR1MsDQo+PiArICAgICAgICAgICAgc2l6ZSA9IGNvbnN0IDo6Y29yZTo6bWVtOjpz
-aXplX29mOjo8JGNyYXRlOjpiaW5kaW5nczo6YnVnX2VudHJ5PigpLA0KPiANCj4gU2FtZSB0aGlu
-ZyBoZXJlLg0KDQpGaXhlZC4NCg0KPj4gKyAgICAgICAgICAgICk7DQo+PiArICAgICAgICB9DQo+
-PiArICAgIH0NCj4+ICt9DQo+PiArDQo+PiArI1ttYWNyb19leHBvcnRdDQo+PiArI1tkb2MoaGlk
-ZGVuKV0NCj4+ICsjW2NmZyhhbGwoQ09ORklHX0JVRywgQ09ORklHX1VNTCkpXQ0KPj4gK21hY3Jv
-X3J1bGVzISB3YXJuX2ZsYWdzIHsNCj4+ICsgICAgKCRmbGFnczpleHByKSA9PiB7DQo+PiArICAg
-ICAgICAvLyBTQUZFVFk6IEp1c3QgYW4gRkZJIGNhbGwuDQo+PiArICAgICAgICB1bnNhZmUgew0K
-Pj4gKyAgICAgICAgICAgICRjcmF0ZTo6YmluZGluZ3M6Ondhcm5fc2xvd3BhdGhfZm10KA0KPj4g
-KyAgICAgICAgICAgICAgICAkY3JhdGU6OmNfc3RyISg6OmNvcmU6OmZpbGUhKCkpLmFzX3B0cigp
-IGFzICpjb25zdCA6OmNvcmU6OmZmaTo6Y191Y2hhciwNCj4+ICsgICAgICAgICAgICAgICAgbGlu
-ZSEoKSBhcyBpMzIsDQo+PiArICAgICAgICAgICAgICAgICRmbGFncyBhcyB1MzIsDQo+PiArICAg
-ICAgICAgICAgICAgIDo6Y29yZTo6cHRyOjpudWxsKCkgYXMgKmNvbnN0IDo6Y29yZTo6ZmZpOjpj
-X3VjaGFyLA0KPiANCj4gV2h5IHVuc2lnbmVkIGNoYXI/IEkgdGhpbmsgdGhpcyBzaG91bGQgYmUg
-OjprZXJuZWw6OmZmaTo6Y19jaGFyIHRvDQo+IHV0aWxpemUgdGhlIGN1c3RvbSBpbnRlZ2VyIHR5
-cGUgZGVmaW5pdGlvbnMgaW4ga2VybmVsIHJhdGhlciB0aGFuIHRoZQ0KPiBmYXVsdHkgb25lcyBp
-biBjb3JlLg0KPiANCj4gKE1heWJlICRjcmF0ZSByYXRoZXIgdGhhbiBrZXJuZWwpDQoNCk9vcHMs
-IHJlcGxhY2VkIHRoZW0gd2l0aCAkY3JhdGU6OmZmaTo6Y19jaGFyDQoNCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Apr 08, 2025 at 05:38:03PM -0700, Nathan Chancellor wrote:
+> On Wed, Apr 09, 2025 at 01:36:11AM +0300, Dmitry V. Levin wrote:
+> > On Tue, Apr 08, 2025 at 02:31:31PM -0700, Nathan Chancellor wrote:
+> > > On Mon, Mar 03, 2025 at 01:20:09PM +0200, Dmitry V. Levin wrote:
+> > > > +static inline void syscall_set_arguments(struct task_struct *task,
+> > > > +					 struct pt_regs *regs,
+> > > > +					 const unsigned long *args)
+> > > > +{
+> > > > +	regs->orig_a0 = args[0];
+> > > > +	args++;
+> > > > +	memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> > > > +}
+> > > 
+> > > This upsets the compiletime fortify checks, as I see a warning after
+> > > syscall_set_arguments() starts being used in kernel/ptrace.c later in
+> > > the series.
+> > > 
+> > >   $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- allmodconfig kernel/ptrace.o
+> > >   In file included from include/linux/string.h:392,
+> > >                    from include/linux/bitmap.h:13,
+> > >                    from include/linux/cpumask.h:12,
+> > >                    from arch/riscv/include/asm/processor.h:55,
+> > >                    from include/linux/sched.h:13,
+> > >                    from kernel/ptrace.c:13:
+> > >   In function 'fortify_memcpy_chk',
+> > >       inlined from 'syscall_set_arguments.isra' at arch/riscv/include/asm/syscall.h:82:2:
+> > >   include/linux/fortify-string.h:571:25: error: call to '__write_overflow_field' declared with attribute warning: detected write beyond size of field (1st parameter); maybe use struct_group()? [-Werror=attribute-warning]
+> > >     571 |                         __write_overflow_field(p_size_field, size);
+> > >         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> > >   cc1: all warnings being treated as errors
+> > 
+> > I certainly tested the series on riscv64, but somehow I haven't seen this
+> > compiler diagnostics before.
+> 
+> Maybe CONFIG_FORTIFY_SOURCE was not enabled? This comes from the
+> kernel's fortified memcpy checking function, fortify_memcpy_chk(), not
+> necessarily the compiler itself.
+> 
+> > > diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> > > index a5281cdf2b10..70ec19dc8506 100644
+> > > --- a/arch/riscv/include/asm/syscall.h
+> > > +++ b/arch/riscv/include/asm/syscall.h
+> > > @@ -78,8 +78,11 @@ static inline void syscall_set_arguments(struct task_struct *task,
+> > >                                          const unsigned long *args)
+> > >  {
+> > >         regs->orig_a0 = args[0];
+> > > -       args++;
+> > > -       memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> > > +       regs->a1 = args[1];
+> > > +       regs->a2 = args[2];
+> > > +       regs->a3 = args[3];
+> > > +       regs->a4 = args[4];
+> > > +       regs->a5 = args[5];
+> > >  }
+> > 
+> > I don't mind eliminating the memcpy() altogether, but
+> > I'd like to note that syscall_set_arguments() is an exact mirror
+> > of syscall_get_arguments(), so if the intentional overwrite in
+> > syscall_set_arguments() is not acceptable, then the intentional
+> > overread in syscall_get_arguments() shouldn't be acceptable either.
+> 
+> Yes, I noticed the symmetry too but I was only looking at it from the
+> overwrite perspective, not the overread one. That reminded me to double
+> check what fortify_memcpy_chk() actually checks for and I remembered
+> that the overread version of this warning is hidden under W=1 (I guess
+> because it happens more frequently).
+> 
+>   $ make -skj"$(nproc)" ARCH=riscv CROSS_COMPILE=riscv64-linux- W=1 allmodconfig kernel/ptrace.o
+>   In file included from include/linux/string.h:392,
+>                    from include/linux/bitmap.h:13,
+>                    from include/linux/cpumask.h:12,
+>                    from arch/riscv/include/asm/processor.h:55,
+>                    from include/linux/sched.h:13,
+>                    from kernel/ptrace.c:13:
+>   In function 'fortify_memcpy_chk',
+>       inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:73:2:
+>   include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
+>     580 |                         __read_overflow2_field(q_size_field, size);
+>         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>   cc1: all warnings being treated as errors
+> 
+> So memcpy() should indeed be eliminated from both, which obviously
+> clears up the warnings.
+> 
+> Cheers,
+> Nathan
+> 
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index a5281cdf2b10..34313387f977 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -69,8 +69,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>  					 unsigned long *args)
+>  {
+>  	args[0] = regs->orig_a0;
+> -	args++;
+> -	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
+> +	args[1] = regs->a1;
+> +	args[2] = regs->a2;
+> +	args[3] = regs->a3;
+> +	args[4] = regs->a4;
+> +	args[5] = regs->a5;
+>  }
+>  
+>  static inline void syscall_set_arguments(struct task_struct *task,
+> @@ -78,8 +81,11 @@ static inline void syscall_set_arguments(struct task_struct *task,
+>  					 const unsigned long *args)
+>  {
+>  	regs->orig_a0 = args[0];
+> -	args++;
+> -	memcpy(&regs->a1, args, 5 * sizeof(regs->a1));
+> +	regs->a1 = args[1];
+> +	regs->a2 = args[2];
+> +	regs->a3 = args[3];
+> +	regs->a4 = args[4];
+> +	regs->a5 = args[5];
+>  }
+>  
+>  static inline int syscall_get_arch(struct task_struct *task)
+
+Looks good, thanks.  How do we proceed from this point?
+
+
+-- 
+ldv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
