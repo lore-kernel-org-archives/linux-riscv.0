@@ -4,48 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B92C36002
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 08:32:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B2B3C369A1
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 09:18:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=XDYW/lmAqp7deM+02gr7YbtmMJ0I0bSv5icBr9IXTLs=; b=ZTMbNVq725DUGI
-	AfX0ewrNj9bDZPEangqyAFbm63bfE8ME3hqV58HquiMfiYl1/3AJoG2HMUlpd74j2gbmSA17BOHPL
-	A31f6f+tc53ylzhEtQwfB6PjEgIjSUytX6SUu6d74hUOCDLmndzeNhN4HgUBfm6ewggwmzozMJXpG
-	IkAsLT1NwqYooZXwCF/X0WBcI0Z1bm6L4yPSdlvG6247f5VM+coTZrEBKNoo0b8tpx066xAVOF0YV
-	sd5vPfnyS8to1ILwKvsmI9qz0ao0Q/anQ4DjtytqFSHC4dlSrKsplZ16MEK1SwhAtOrF9Yx4Ead7a
-	YI2iAy33o5bZ7RH6kcxg==;
+	List-Owner; bh=x6o4qCXYCq8mDWXyTqWqeoIBXe+PBj6iZT7eMnhpfoI=; b=KpE2Biz2xuakfI
+	v0Oxy8f+Lg6k49KXdplFS05qKkHbQiUbNBKS3mKm+H/71NRTvAo876WOZ4U/S6qXywTsslZw9nJj5
+	CVTX7LRCFdTXpM1bGbXBy3SWIufq6+uvRN51z2mwIWMcKWiWXuNMilT2nSNuY7uNX2sJI5jw9P1P3
+	kSd2CLXLr9q3wBuowjb9uuXqk3LPBYVj+EsVupEicpOPJdgzVKbty4XOqC3Gtlxj1eA77dEC2n2gz
+	OONKtQQP9Dm8zmj7f1ADxLHjWguUHt03i0dUqhBpIlypP9pz2NQwruxmoHyv63DY7BiqsihJFCHEm
+	TTmvnxcaLc5+kJ6coD4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Qqw-00000006amE-1moj;
-	Wed, 09 Apr 2025 08:32:10 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
+	id 1u2RZp-00000006gPQ-1ADC;
+	Wed, 09 Apr 2025 09:18:33 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2Qqs-00000006ajo-42Ao
+	id 1u2RZm-00000006gOr-2DcO
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 08:32:09 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D826A43158;
-	Wed,  9 Apr 2025 08:32:03 +0000 (UTC)
-Message-ID: <745d5aaa-e527-487c-a62c-212ad6ef2cc9@ghiti.fr>
-Date: Wed, 9 Apr 2025 10:32:02 +0200
+	Wed, 09 Apr 2025 09:18:31 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744190298; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=noaV+5Df7rQy8pCXBcixf29FwbUky43S4/ZSdvz6tjX0An1kW0dbpUW+Hm4dzlD1T+MvD/NahFZZBeWQjlRMDF9fHVpDLRggTfuG5+XVK3QGXxBNcHnKIC7vjaNNA+6rgOhSWDCIqZ484SrUM9DItiVjJtTw52C3bvZVwIDxjnU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1744190298; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=QBe9+uH6ODWa9iTcZwQDOb5iAmFt+z8pNalKVqBUYEk=; 
+	b=YBqdjpsLfDAFVWjnL1A2GbS87D+d+HlmjHL0QGUIqDatEtQhonsJnwMe5AR5jLbeoI6HaJWC8mV1G+uuYWnMtgCqvBpoL7BIIp9nj3kuu4LGOWDL60O6TQ/MTJCQlgrKKej1NGfsGyAgku1ITW56WVg9dfuIDgMI4t/DYLZX9eQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744190298;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=QBe9+uH6ODWa9iTcZwQDOb5iAmFt+z8pNalKVqBUYEk=;
+	b=Bhbga7i8hGzD+nSQq80LKELsH1eX8cZ5OproLFqKtbjHp4knUmOwnnmoncWms+2/
+	FEB3/GQvzHSxr26Y3Ps/P7KA/LMp0nLfs1QEwskVSYDuCrpJUVf5vKmErJv5Tzsca4U
+	poDVoe6nRxR8BS/8WRnMh2R8E1K4shxwS4fUJwmNpc2bwQzTmW2s5caCAUqkzzYHaVs
+	UXN5T7AVejbu9GEtK1FhVG0kvZYVyr/wZLrEesdskjXq5x14Gn/HYr7gUV7uDVf1ikj
+	eqPQs82Bfcq6dfD0XOBa2qohgmK8bDgaROe/4nooV9Z1y/8IrrInncej/RwTXUVWgAc
+	BXyIDJvj5g==
+Received: by mx.zohomail.com with SMTPS id 1744190296788595.8894788219615;
+	Wed, 9 Apr 2025 02:18:16 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>
+Cc: devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [PATCH 1/2] dt-bindings: riscv: starfive: add Orange Pi RV board compatible
+Date: Wed,  9 Apr 2025 17:18:00 +0800
+Message-ID: <20250409091801.855083-1-uwu@icenowy.me>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [GIT PULL] RISC-V Fixes for 6.15-rc2
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdehhedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfvhffutgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepvdelveekvdfhgeelieejhfetgeduteekhfeuheffjeduiefgtdfgtdeltdeftddunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmpdhtshdrnhgvthenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeeiudeileemjedtledumegugehfkeemjegttgegnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeeiudeileemjedtledumegugehfkeemjegttgegpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeeiudeileemjedtledumegugehfkeemjegttgegngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdri
- hhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_013207_126361_832FC460 
-X-CRM114-Status: UNSURE (   5.28  )
+X-CRM114-CacheID: sfid-20250409_021830_615892_9A0C1354 
+X-CRM114-Status: UNSURE (   6.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -58,35 +83,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCAwYWYyZjZiZTFiNDI4MTM4NWI2MThj
-Yjg2YWQ5NDZlZGVkMDg5YWM4OgoKIMKgIExpbnV4IDYuMTUtcmMxICgyMDI1LTA0LTA2IDEzOjEx
-OjMzIC0wNzAwKQoKYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6CgogwqAg
-Z2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FsZXhnaGl0aS9s
-aW51eCAKdGFncy9yaXNjdi1maXhlcy02LjE1LXJjMgoKZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2Vz
-IHVwIHRvIDcwZmMwM2NkNzYzMTFhMDZjOGM4NGRlYjcwYjJlMTY4Mzc0OTc3NzQ6CgogwqAgRG9j
-dW1lbnRhdGlvbjogcmlzY3Y6IEZpeCB0eXBvIE1JTVBMSUQgLT4gTUlNUElEICgyMDI1LTA0LTA3
-IDA4OjIxOjE5IAorMDAwMCkKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KcmlzY3YgZml4ZXMgZm9yIDYuMTUtcmMyCgoqIENv
-cnJlY3QgdHlwb3MgaW4gdGhlIGRvY3VtZW50YXRpb24KKiBQcmV2ZW50IG1vZHVsZSBpbnNlcnRp
-b24gZmFpbHVyZXMgYnkgdXNpbmcga3ZtYWxsb2MgdG8gYWxsb2NhdGUgdGhlIApyZWxvY2F0aW9u
-IGhhc2h0YWJsZQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLQoKQWxsIHRoZSBwYXRjaGVzIGhhdmUgYmVlbiB0ZXN0ZWQgb24g
-b3VyIGdpdGh1YiBDSSBhbmQgbm8gcmVncmVzc2lvbnMgCndlcmUgZm91bmQgYWdhaW5zdCA2LjE1
-LXJjMSAKKGh0dHBzOi8vZ2l0aHViLmNvbS9saW51eC1yaXNjdi9saW51eC9wdWxsLzI0MC9jaGVj
-a3Mgd2hvc2UgcmVzdWx0cyBjYW4gCmJlIHNlZW4gaGVyZSAKaHR0cHM6Ly9tYXphcmluZW4udGFp
-bDFjNjIzLnRzLm5ldC9yaXNjdi1saW51eC9saW51eC1hbGwvYnVpbGQvcmlzY3YtZml4ZXMtNi4x
-NS1yYzIpLiAKCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tCgpOYW0gQ2FvICgxKToKIMKgwqDCoMKgwqAgRG9jdW1lbnRhdGlv
-bjogcmlzY3Y6IEZpeCB0eXBvIE1JTVBMSUQgLT4gTUlNUElECgpXaWxsIFBpZXJjZSAoMSk6CiDC
-oMKgwqDCoMKgIHJpc2N2OiBVc2Uga3ZtYWxsb2NfYXJyYXkgb24gcmVsb2NhdGlvbl9oYXNodGFi
-bGUKCiDCoERvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCB8IDIgKy0KIMKgYXJj
-aC9yaXNjdi9rZXJuZWwvbW9kdWxlLmPCoMKgwqDCoMKgwqDCoMKgwqDCoCB8IDkgKysrKystLS0t
-CiDCoDIgZmlsZXMgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCA1IGRlbGV0aW9ucygtKQoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Orange Pi RV is a newly released JH7110 board by Xunlong.
+
+Add a compatible string to the starfive platform DT binding.
+
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+---
+ Documentation/devicetree/bindings/riscv/starfive.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/riscv/starfive.yaml b/Documentation/devicetree/bindings/riscv/starfive.yaml
+index 7ef85174353de..dd5cd51e38797 100644
+--- a/Documentation/devicetree/bindings/riscv/starfive.yaml
++++ b/Documentation/devicetree/bindings/riscv/starfive.yaml
+@@ -31,6 +31,7 @@ properties:
+               - pine64,star64
+               - starfive,visionfive-2-v1.2a
+               - starfive,visionfive-2-v1.3b
++              - xunlong,orangepi-rv
+           - const: starfive,jh7110
+ 
+ additionalProperties: true
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
