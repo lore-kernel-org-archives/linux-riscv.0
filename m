@@ -4,105 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C7D7C369A2
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 01:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D056C36010
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 02:23:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=rmzSbPdLa/4avVreiyucZtT0RYWX5OypSpQqK3rFzm4=; b=IB8zuwX8KmjuWc
-	B02Dk3IAQXmB3aglzXuADbSGsboDnHIVCEIp4+jPL1X1XmtRNQiYEYPxcHoABfV1YU53mZe4ioV72
-	1TNjA8iahsBHEslS9SDGe/Ah9qQYES2utZhS2Q5EcwL8n8SRM4Q1ozbKZmnmG1NzBdZKNqpiv1mGq
-	n/mRDDA1aNS2wsrk6d/qiuSjukftjayXfmWEu06X7RIE7b/4sVj3G5366stUA4Bu/f6hAKLZJQzNQ
-	ON144I78Sdy0fum9G33W0yni+nHO7MyIMPpvrs8ffUnsq2N8v7W/GxLIsUV6JzO4zOrNqYuhMXMqB
-	ckcraJHpbHpgdzjiUXhw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xMP7dzsJI6ZbxuFxUoAmrpzEOwDP6El4gL89Yc3hCmg=; b=TXrLV2XoTiYlmn
+	nrFVelASyEHBuFAx6wIiV+g5XB+zFNbVyatkhKD10khNQGVLH2gb+4aCR4YMC2tgYaeJ7bQr2V5pl
+	XtHbEXTo0Rk4i50/nJKf4AuvsyA4bSiG/M+XdC6hzdBYaGwoOODng4J/UTA2//YG4cmNOqCOWThw6
+	YlMrTmdu9g7QqmglGJoFlwGyvX+NuPZmr1tkGhWEgR6pixaSptibCpaqgNMPH5aPvvlnVvD9ITN9S
+	0tPeA0ZUX8AfTBOhqgJed6SmGFs8R1tx3moDCOspaoi94vreDkluaXZZ6rInbwhgWfKdQJsyV4X1P
+	fYlIoY5DbQDpCAx2PYig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2KaV-00000005sjh-15wu;
-	Wed, 09 Apr 2025 01:50:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u2L6S-00000005uqc-3dWg;
+	Wed, 09 Apr 2025 02:23:48 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2KTy-00000005rmZ-1Q7a
+	id 1u2L6Q-00000005upy-06ow
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 01:44:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744163041;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LhiIhuo/fjhkoyOs0BBqrbek6FZF30QwERtnCpHBTlw=;
-	b=iY7YWQVCSQlINsEzM6MIX1mVfRCG4ULV/zgr+ShrSQTGHwkeXIdUsyQBbhFlCC818ahJXL
-	sb0HL15q4uMiiT1b6Vt1PcDOHZAiVAJ8iWnjH5bGIA9B21/nQsFQV4mdQs4kjMdos1+Z34
-	jM8uzUJ4iq1GoaabESuMd2t8cz9Ff1Y=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-173-bshH0SpeOH-i_bIS38j1zQ-1; Tue,
- 08 Apr 2025 21:41:57 -0400
-X-MC-Unique: bshH0SpeOH-i_bIS38j1zQ-1
-X-Mimecast-MFC-AGG-ID: bshH0SpeOH-i_bIS38j1zQ_1744162914
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 077561956080;
-	Wed,  9 Apr 2025 01:41:52 +0000 (UTC)
-Received: from starship.lan (unknown [10.22.65.191])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8497F180174E;
-	Wed,  9 Apr 2025 01:41:45 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	kvm-riscv@lists.infradead.org,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Waiman Long <longman@redhat.com>,
-	x86@kernel.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Anup Patel <anup@brainfault.org>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Will Deacon <will@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	linux-riscv@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
+	Wed, 09 Apr 2025 02:23:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1744165426; x=1775701426;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=MFPau5lifW8jMHZfdSw/2NIo4U/nm4MojtGTr6OejvA=;
+  b=XPF93DdTUeAYV3I2q9bIDjnWR2d4sZ64IlMjmvVEuHH7j14pPCZf76Gk
+   8vIVqiRAghkDRt7fIDG7h4mreqrLHf9V176jUD6qzYhW+MbeMFnKYei7x
+   2hW1X81HQSUGUiCVO04MsLj4OSolPORnCttMBNXxWAh3viz9Wq85WaMoq
+   rGVy7PKJSqcXTgeoz4rW52Yx+0ahh3Guq5LkQqN8Id6XZWkQC4ouCgSAs
+   49doi1hqFCW/pf1yYOfHHDFgriRM9IWSOTWncJYj+cCw8lGK9KRDYwvzb
+   cyvyQDmq2tHIdpDV2FiwimEY8RlDUqUPIUsxmpa07c2g9LfTWHQqo3HO9
+   Q==;
+X-CSE-ConnectionGUID: ftnWwBFORjGT/aSMlg4jqw==
+X-CSE-MsgGUID: /2WllDhaTGyEDjYdVriAvQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11397"; a="45784196"
+X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
+   d="scan'208";a="45784196"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Apr 2025 19:23:43 -0700
+X-CSE-ConnectionGUID: Ppnwobg6RqKNtrFV7mD+Qw==
+X-CSE-MsgGUID: Stmnr3IERtGTLHBlnrrVNg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,199,1739865600"; 
+   d="scan'208";a="165675265"
+Received: from haibo-optiplex-7090.sh.intel.com ([10.239.153.94])
+  by orviesa001.jf.intel.com with ESMTP; 08 Apr 2025 19:23:39 -0700
+From: Haibo Xu <haibo1.xu@intel.com>
+To: 
+Cc: xiaobo55x@gmail.com,
+	Haibo Xu <haibo1.xu@intel.com>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Ingo Molnar <mingo@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Sean Christopherson <seanjc@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH v2 1/4] locking/mutex: implement mutex_trylock_nested
-Date: Tue,  8 Apr 2025 21:41:33 -0400
-Message-Id: <20250409014136.2816971-2-mlevitsk@redhat.com>
-In-Reply-To: <20250409014136.2816971-1-mlevitsk@redhat.com>
-References: <20250409014136.2816971-1-mlevitsk@redhat.com>
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH] perf symbols: Ignore mapping symbols on riscv
+Date: Wed,  9 Apr 2025 10:51:56 +0800
+Message-ID: <20250409025202.201046-1-haibo1.xu@intel.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250408_184402_581524_6BD044AE 
-X-CRM114-Status: GOOD (  12.77  )
+X-CRM114-CacheID: sfid-20250408_192346_074835_EFE5A910 
+X-CRM114-Status: UNSURE (   8.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,78 +101,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Allow to specify the lockdep subclass in mutex_trylock
-instead of hardcoding it to 0.
+RISCV ELF use mapping symbols with special names $x, $d to
+identify regions of RISCV code or code with different ISAs[1].
+These symbols don't identify functions, so will confuse the
+perf output.
 
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+The patch filters out these symbols at load time, similar to
+"4886f2ca perf symbols: Ignore mapping symbols on aarch64".
+
+[1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/
+    master/riscv-elf.adoc#mapping-symbol
+
+Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
 ---
- include/linux/mutex.h  |  8 ++++++++
- kernel/locking/mutex.c | 14 +++++++++++---
- 2 files changed, 19 insertions(+), 3 deletions(-)
+ tools/perf/util/symbol-elf.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/include/linux/mutex.h b/include/linux/mutex.h
-index 2143d05116be..ea568d6c4c68 100644
---- a/include/linux/mutex.h
-+++ b/include/linux/mutex.h
-@@ -193,7 +193,15 @@ extern void mutex_lock_io(struct mutex *lock);
-  *
-  * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
-  */
+diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+index fbf6d0f73af9..55b1409b0593 100644
+--- a/tools/perf/util/symbol-elf.c
++++ b/tools/perf/util/symbol-elf.c
+@@ -1733,6 +1733,12 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
+ 				continue;
+ 		}
+ 
++		/* Reject RISCV ELF "mapping symbols" */
++		if (ehdr.e_machine == EM_RISCV) {
++			if (elf_name[0] == '$' && strchr("dx", elf_name[1]))
++				continue;
++		}
 +
-+#ifdef CONFIG_DEBUG_LOCK_ALLOC
-+extern int mutex_trylock_nested(struct mutex *lock, unsigned int subclass);
-+#define mutex_trylock(lock) mutex_trylock_nested(lock, 0)
-+#else
- extern int mutex_trylock(struct mutex *lock);
-+#define mutex_trylock_nested(lock, subclass) mutex_trylock(lock)
-+#endif
-+
- extern void mutex_unlock(struct mutex *lock);
- 
- extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
-diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
-index 555e2b3a665a..5e3078865f2b 100644
---- a/kernel/locking/mutex.c
-+++ b/kernel/locking/mutex.c
-@@ -1062,6 +1062,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
- 
- #endif
- 
-+#ifndef CONFIG_DEBUG_LOCK_ALLOC
- /**
-  * mutex_trylock - try to acquire the mutex, without waiting
-  * @lock: the mutex to be acquired
-@@ -1077,18 +1078,25 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-  * mutex must be released by the same task that acquired it.
-  */
- int __sched mutex_trylock(struct mutex *lock)
-+{
-+	MUTEX_WARN_ON(lock->magic != lock);
-+	return __mutex_trylock(lock);
-+}
-+EXPORT_SYMBOL(mutex_trylock);
-+#else
-+int __sched mutex_trylock_nested(struct mutex *lock, unsigned int subclass)
- {
- 	bool locked;
- 
- 	MUTEX_WARN_ON(lock->magic != lock);
--
- 	locked = __mutex_trylock(lock);
- 	if (locked)
--		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
-+		mutex_acquire(&lock->dep_map, subclass, 1, _RET_IP_);
- 
- 	return locked;
- }
--EXPORT_SYMBOL(mutex_trylock);
-+EXPORT_SYMBOL(mutex_trylock_nested);
-+#endif
- 
- #ifndef CONFIG_DEBUG_LOCK_ALLOC
- int __sched
+ 		if (runtime_ss->opdsec && sym.st_shndx == runtime_ss->opdidx) {
+ 			u32 offset = sym.st_value - syms_ss->opdshdr.sh_addr;
+ 			u64 *opd = opddata->d_buf + offset;
 -- 
-2.26.3
+2.43.0
 
 
 _______________________________________________
