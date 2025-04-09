@@ -4,83 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15FFC36002
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 10:47:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F21E0C36002
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 10:48:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=29o6dfQI8OiG1IdR00yekfIa+Q6trGKOATmhELOOpak=; b=DXPtc1rcbYtRtC
-	qHuwGZNgNjxyP2dHOJuNl/xaWnUZ17+rWtdw81lNv5wEG+0a2mvHOOeYGk4l4vBWH9y3X3Eo3x20o
-	KzuezT2q9QFqiWOgwa43BJrsgVg2eYSLdzJZHe9F5sQVuPqAvHINRjQacPof8HHt2QK6qZ/jcLogz
-	EnECvdIOYVudRNrzN9b7rUe1XYLUgDADSVBt+D2sALPiPYbB7QyxTcffKxWb95liBSDsZC9UhFYR9
-	clxa7caXkiwuGK5K7QvCpkZ9gIaEPI7VaKo93dtU6JCgKv+2/PgFzHnOHiCUz4gE1h4DCxeWzigiP
-	Q95yqKQUViDkt1nvBVvA==;
+	List-Owner; bh=kqeoBLxfNjwn0iFLtCUL7PKK9s3nYqxEH+jYnr06GYM=; b=WKIBrhJnWycZp3
+	xhLCuFJj9A0NX+9G3NXYqPcSN1XgQeHAQQJqoLjzoISWmxEhCgKbwxQFN2z3RoE5gYZXfgUffWbC7
+	IPCRFsG0BqCa4Y44NH5i+RF34vbWzL+A8zu6LhIsKVVxXDJWtpvQszHRRYjV+IdDWriJJ+0CpTIFs
+	O1lNSsCYqF7LwJyL/CMttqF6EdBgoxhmEVKn7FyKsZeEL/hOEgn+QP63a5O/eA9T/Cyes718ievnn
+	Yp3F9hN3xq0HxR877Rj96jxE/Jh6DHz0o3HErXk8K1lVlr+aAunUOpZlCU+XuUvGg7NL+lC9uKfWc
+	AzPWSVhTlRDDfCSQrxog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2SxW-00000006tCN-2fwG;
-	Wed, 09 Apr 2025 10:47:06 +0000
-Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
+	id 1u2Syu-00000006tU5-1BGn;
+	Wed, 09 Apr 2025 10:48:32 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2SxU-00000006tBR-2oEo
+	id 1u2Syr-00000006tTF-33Lg
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 10:47:06 +0000
-Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-6fee63b9139so5885387b3.1
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 03:47:04 -0700 (PDT)
+	Wed, 09 Apr 2025 10:48:30 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3914a5def6bso3939469f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 03:48:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1744195623; x=1744800423; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ug1/Rx9R3a7L/ACPQ03wXzk3pC2LRXFr7H0a//DFfV4=;
-        b=R69ExXPgursGxRT/0wjK8D2D9XwoFY1WPND1LOsKl2pGva0jtSoWoqH1CfBfeQQVsv
-         513GvXevV/aAXnR6s298PCGjkjrvyFHmvOuK9UvqPMWNo0LJ9GLe6m1AnAkRL+znDzeq
-         X2ttItCS+OSjyyU24KdSmoBmtvy2VjlDUqRv9nPNDQqWJ5E5YGyvObQZ8GqfaBd2yBsn
-         IJUJfEbIFx73uSdia/leqdzZNp0oaVHUH2Ph8M0HGj7q5dRkJEvQ15WS40wlVocpWP8s
-         bEC1fIhm6sk6649uEhYPViK19NIiB9qfxGWqUnAHKlrnTZP4s71Yce/BpTLyYTso5k4w
-         FeCg==
+        d=ventanamicro.com; s=google; t=1744195708; x=1744800508; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zB6DOhsNP54p+LWQrH/LyPAGXFe/doVAQelM4hY0fbY=;
+        b=CQH3yORR0idnsD159akl4913Shbs2FkKDS8WUb4GCdoE9BLS1ewBzo444ghxkFup0V
+         Wlg25DHxgHAXGcX+mtBtNU8WTHR0BQvRbHqSjdP0tAO6lCocEyXIF1RLSnv7dd+OGNTy
+         j+sQpGarOVM73R0XCAPxC2L+NVdjX/3kcl5FK9oUOrAotHR7LpgjD88PEUeLPeZphlEt
+         tCCH+5qntUKRJn/5cTaaT3uy+CAqK8jyoC0hkIojvWBY6mvwUkt/lBGrSIkf7MjEwRbE
+         wZNLXLCTQs/kRgUAn1oTdT1PhJsEQbMHe90an7dHsYfjIN4eZp7pCM+5U/fsAZan9cCy
+         IBSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744195623; x=1744800423;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ug1/Rx9R3a7L/ACPQ03wXzk3pC2LRXFr7H0a//DFfV4=;
-        b=ujEa3GETwOnU4Qd6jo/TwX0MmfgmF2FqUUy7bZlU7xExlfYwsYQ/IaU/U6Dc4r/8Dz
-         EPubZKDc+4KJKxqAjqnu+uah8M0xW4ajsRbfppRLptWM8cS/tvRjqsMnYWEUIE4JcpD5
-         sylPfn25o9IfC6YJAnSLn+pIJvNOeYZW+oTvufsc7BBozvrXTWVlo9GQWbm+sVSV9ipI
-         fK6gn8/FGFd1bVLIC9DPndql8jbotDSzV9yZ6D7KINWJSkEqi5iJmNqcY8w1Dyu+p3Es
-         GBqqOzuFlpnrk2KuC5RdNM9LM+dUTqc6/kfP7z4uUVONMMsGTgtBEp8yS15h8ME0k78n
-         8n+g==
-X-Forwarded-Encrypted: i=1; AJvYcCUR/2x7TZ6dXpvjlOshq73YjXK12N09htVMOH2oNXPsSOvqve29sac55ZdmJN/qNycUPxjw10aXkyb+pQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZ3ZgQdnfeBf23dX01JPUDNkAGwAEYgJBbVhB4UBqLxSsYhfw4
-	1kr41eN2MF4ZfowL+/rcw6iTBxbA2M2hpMkaVVO52TQjcveGmRJvrZIcjDPDN1e4WL7N+pbH48G
-	H6Tb2nz6npjDQCfXlMyKY5u5UhQ/u/5EXsGCnmA==
-X-Gm-Gg: ASbGncsK2su5TPb4cUTyhbsXnxYgjeoDrJPbYVaOMAFSqdIWnFK9uvbX4L6lep8AXdQ
-	EvYPIlCirQvBiKsRW8uQHttUFkXJN7N5cK5rkVNsxodwsOe+egkqTptIXXq9+tdbya+i755WMEX
-	59qxfTm3gbJLjK9/ZXwLtXKgo=
-X-Google-Smtp-Source: AGHT+IGLd51JNY7rKV6DKAjjcFIJNQXnQmEroecayzdKgQX36GYPDaf36afd9Jqfjo6bT//7LWckn6OcAbTZ+MentbY=
-X-Received: by 2002:a05:690c:b92:b0:6fe:bf32:a427 with SMTP id
- 00721157ae682-70538d993f8mr41204337b3.0.1744195623423; Wed, 09 Apr 2025
- 03:47:03 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1744195708; x=1744800508;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zB6DOhsNP54p+LWQrH/LyPAGXFe/doVAQelM4hY0fbY=;
+        b=I9SauTdOSCTxfyi3vt5HIS9h69G3+dSWBzQ/kPc24yb7huBFIF2/r6YzwgXeNsJ/mu
+         TWpiWyzO8O2Ry8ZfeD5d9RBSXaqC4JY9dA5BCBra/cr/Kngtim0lLxezBEABQTsogEIf
+         b7lN4eF32YJzr15O2MI0wj2E0BWQ59rg4n0nv0fx9zunNyfDXd77NY7Z9bhRY3ujH5AV
+         Iv282BMPWpW/qa61PZyaf5DmFFJnPBQN+x6SDbbUfvjx9RRnGzhNXC6wR8avXbXbcRU6
+         id/eHtufZ1EujJw3o3iOw7Irp+iOSK0kC1Roi0n+XxvH9YT8hOl6fIl2cbblx5tW2aX+
+         TIyA==
+X-Forwarded-Encrypted: i=1; AJvYcCXD0OLxi1xb2Hm8NbXSHHEvqbECldnQUPXNbEKekS3Q28jzHhfFzC+RanToNfXSzvKbJ23xcEaJQ7L8GQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIJog3iv2AczaadNFrRaR6cyDAQTpfVgxiXlv7VzvYrukA7186
+	q4YyumshkS8GTRRePhK6AaoJNGBIljrw4GPuyttOzuchUtDjnDANNL4s+yTkcDWDnuPXZhJ3c+P
+	5
+X-Gm-Gg: ASbGncsZVRMagGXsfi1nlcCwAkwmi6KcQoPcFyBaYRuLuoil4ZEsax72FnHPFfgpY7n
+	D82ia7NU7g30OORyX1Uf09mQejzYhtZtp59+WMcAG+ivUgeov1MitX/5J9rSpfeiAI0X1RwBy6g
+	h9VuOKwwQwRiEFgkDqqt1ziiVT14wV84pdR9Wv664QTy8cb5Xnu0zUbjcLugeLfo9+9YRsiMAS1
+	vG5ciSKQjnowI9A8lS1J/QUj9Pa9S+RM/8R1pDagURyHoe0d++tETl7Jlx+P6ZNlsEvGF22g/OO
+	4od/0Xg9/O4bUCfjgHsURL5kH2wW
+X-Google-Smtp-Source: AGHT+IGYvUOkSdoe9+ZVfiFebJdaAtnsamOW1nCOk2I6rvSJl8ZT6oEiqCQdu/VJ4IJELPU1LDC7wQ==
+X-Received: by 2002:a05:6000:1849:b0:391:31f2:b998 with SMTP id ffacd0b85a97d-39d88522729mr1855776f8f.6.1744195707253;
+        Wed, 09 Apr 2025 03:48:27 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::31af])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d893f0a80sm1289556f8f.68.2025.04.09.03.48.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 09 Apr 2025 03:48:26 -0700 (PDT)
+Date: Wed, 9 Apr 2025 12:48:25 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Samuel Holland <samuel.holland@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, Albert Ou <aou@eecs.berkeley.edu>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org, charlie@rivosinc.com
+Subject: Re: [PATCH] riscv: module: Optimize PLT/GOT entry counting
+Message-ID: <20250409-c5cdd1190c498e9b594cf7d7@orel>
+References: <20250409024519.454828-1-samuel.holland@sifive.com>
 MIME-Version: 1.0
-References: <CGME20250409093031eucas1p1ee277da31b7de9a16f6b7345df6a89ab@eucas1p1.samsung.com>
- <20250409093025.2917087-1-m.wilczynski@samsung.com> <20250409093025.2917087-3-m.wilczynski@samsung.com>
-In-Reply-To: <20250409093025.2917087-3-m.wilczynski@samsung.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 9 Apr 2025 12:46:26 +0200
-X-Gm-Features: ATxdqUGnjrckU6XxZcEHMsxQfLuVOyOu_RZdVP-4RZ3RcySv_EDwyCFMIW9CLPg
-Message-ID: <CAPDyKFoyfu2n_JfUy7PRZf1gMEZ3KKAdykjnWhS0L+wkYhbEmA@mail.gmail.com>
-Subject: Re: [PATCH v1 2/2] pmdomain: thead: Add GPU-specific clock and reset
- handling for TH1520
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com, 
-	guoren@kernel.org, wefu@redhat.com, p.zabel@pengutronix.de, 
-	m.szyprowski@samsung.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-pm@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250409024519.454828-1-samuel.holland@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_034704_712354_BED090C8 
-X-CRM114-Status: GOOD (  32.48  )
+X-CRM114-CacheID: sfid-20250409_034829_766425_D4D4F909 
+X-CRM114-Status: GOOD (  32.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,204 +99,156 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 9 Apr 2025 at 11:30, Michal Wilczynski <m.wilczynski@samsung.com> wrote:
->
-> Extend the TH1520 power domain driver to manage GPU related clocks and
-> resets via generic PM domain start/stop callbacks.
->
-> The TH1520 GPU requires a special sequence to correctly initialize:
-> - Enable the GPU clocks
-> - Deassert the GPU clkgen reset
-> - Delay for a few cycles to satisfy hardware requirements
-> - Deassert the GPU core reset
->
-> This sequence is SoC-specific and needs to be abstracted away from the
-> Imagination GPU driver, which expects a standard single reset line.
-> Following discussions with kernel maintainers, this logic is placed
-> inside a PM domain instead of polluting the clock or reset frameworks,
-> or the GPU driver itself [1].
->
-> Managing this inside a generic power domain allows better coordination
-> of clocks, resets, and power state, and aligns with the direction of
-> treating PM domains as SoC-specific "power management drivers".
->
-> [1] - https://lore.kernel.org/all/CAPDyKFqsJaTrF0tBSY-TjpqdVt5=6aPQHYfnDebtphfRZSU=-Q@mail.gmail.com/
->
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+On Tue, Apr 08, 2025 at 07:45:16PM -0700, Samuel Holland wrote:
+> perf reports that 99.63% of the cycles from `modprobe amdgpu` are spent
+> inside module_frob_arch_sections(). This is because amdgpu.ko contains
+> about 300000 relocations in its .rela.text section, and the algorithm in
+> count_max_entries() takes quadratic time.
+> 
+> Apply two optimizations from the arm64 code, which together reduce the
+> total execution time by 99.57%. First, sort the relocations so duplicate
+> entries are adjacent. Second, reduce the number of relocations that must
+> be sorted by filtering to only relocations that need PLT/GOT entries, as
+> done in commit d4e0340919fb ("arm64/module: Optimize module load time by
+> optimizing PLT counting").
+> 
+> Unlike the arm64 code, here the filtering and sorting is done in a
+> scratch buffer, because the HI20 relocation search optimization in
+> apply_relocate_add() depends on the original order of the relocations.
+> 
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
 > ---
->  drivers/pmdomain/thead/th1520-pm-domains.c | 119 +++++++++++++++++++++
->  1 file changed, 119 insertions(+)
->
-> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
-> index f702e20306f4..aa85c3954c39 100644
-> --- a/drivers/pmdomain/thead/th1520-pm-domains.c
-> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
-> @@ -5,17 +5,29 @@
->   * Author: Michal Wilczynski <m.wilczynski@samsung.com>
->   */
->
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
->  #include <linux/firmware/thead/thead,th1520-aon.h>
->  #include <linux/slab.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
-> +#include <linux/reset.h>
->
->  #include <dt-bindings/power/thead,th1520-power.h>
->
-> +#define TH1520_GPU_RESET_IDX 0
-> +#define TH1520_GPU_CLKGEN_RESET_IDX 1
-> +
->  struct th1520_power_domain {
->         struct th1520_aon_chan *aon_chan;
->         struct generic_pm_domain genpd;
->         u32 rsrc;
-> +
-> +       struct clk_bulk_data *clks;
-> +       int num_clks;
-> +       struct reset_control_bulk_data *resets;
-> +       int num_resets;
-> +
->  };
->
->  struct th1520_power_info {
-> @@ -61,6 +73,99 @@ static int th1520_pd_power_off(struct generic_pm_domain *domain)
->         return th1520_aon_power_update(pd->aon_chan, pd->rsrc, false);
->  }
->
-> +static int th1520_gpu_init_clocks(struct device *dev,
-> +                                 struct th1520_power_domain *pd)
-> +{
-> +       static const char *const clk_names[] = { "gpu-core", "gpu-sys" };
-> +       int i, ret;
-> +
-> +       pd->num_clks = ARRAY_SIZE(clk_names);
-> +       pd->clks = devm_kcalloc(dev, pd->num_clks, sizeof(*pd->clks), GFP_KERNEL);
-> +       if (!pd->clks)
-> +               return -ENOMEM;
-> +
-> +       for (i = 0; i < pd->num_clks; i++)
-> +               pd->clks[i].id = clk_names[i];
-> +
-> +       ret = devm_clk_bulk_get(dev, pd->num_clks, pd->clks);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "Failed to get GPU clocks\n");
-> +
-> +       return 0;
-> +}
-> +
-> +static int th1520_gpu_init_resets(struct device *dev,
-> +                                 struct th1520_power_domain *pd)
-> +{
-> +       static const char *const reset_names[] = { "gpu", "gpu-clkgen" };
-> +       int i, ret;
-> +
-> +       pd->num_resets = ARRAY_SIZE(reset_names);
-> +       pd->resets = devm_kcalloc(dev, pd->num_resets, sizeof(*pd->resets),
-> +                                 GFP_KERNEL);
-> +       if (!pd->resets)
-> +               return -ENOMEM;
-> +
-> +       for (i = 0; i < pd->num_resets; i++)
-> +               pd->resets[i].id = reset_names[i];
-> +
-> +       ret = devm_reset_control_bulk_get_exclusive(dev, pd->num_resets,
-> +                                                   pd->resets);
-> +       if (ret)
-> +               return dev_err_probe(dev, ret, "Failed to get GPU resets\n");
-> +
-> +       return 0;
-> +}
-> +
-> +static int th1520_gpu_domain_start(struct device *dev)
-> +{
-> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
-> +       int ret;
-> +
-> +       ret = clk_bulk_prepare_enable(pd->num_clks, pd->clks);
-> +       if (ret)
-> +               return ret;
-> +
-> +       ret = reset_control_deassert(pd->resets[TH1520_GPU_CLKGEN_RESET_IDX].rstc);
-> +       if (ret)
-> +               goto err_disable_clks;
-> +
-> +       /*
-> +        * According to the hardware manual, a delay of at least 32 clock
-> +        * cycles is required between de-asserting the clkgen reset and
-> +        * de-asserting the GPU reset. Assuming a worst-case scenario with
-> +        * a very high GPU clock frequency, a delay of 1 microsecond is
-> +        * sufficient to ensure this requirement is met across all
-> +        * feasible GPU clock speeds.
-> +        */
-> +       udelay(1);
-> +
-> +       ret = reset_control_deassert(pd->resets[TH1520_GPU_RESET_IDX].rstc);
-> +       if (ret)
-> +               goto err_assert_clkgen;
-> +
-> +       return 0;
-> +
-> +err_assert_clkgen:
-> +       reset_control_assert(pd->resets[TH1520_GPU_CLKGEN_RESET_IDX].rstc);
-> +err_disable_clks:
-> +       clk_bulk_disable_unprepare(pd->num_clks, pd->clks);
-> +       return ret;
-> +}
-> +
-> +static int th1520_gpu_domain_stop(struct device *dev)
-> +{
-> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
-> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
-> +
-> +       reset_control_assert(pd->resets[TH1520_GPU_RESET_IDX].rstc);
-> +       reset_control_assert(pd->resets[TH1520_GPU_CLKGEN_RESET_IDX].rstc);
-> +       clk_bulk_disable_unprepare(pd->num_clks, pd->clks);
-> +
-> +       return 0;
-> +}
-> +
->  static struct generic_pm_domain *th1520_pd_xlate(const struct of_phandle_args *spec,
->                                                  void *data)
+> 
+>  arch/riscv/kernel/module-sections.c | 66 +++++++++++++++++++++++++----
+>  1 file changed, 57 insertions(+), 9 deletions(-)
+> 
+> diff --git a/arch/riscv/kernel/module-sections.c b/arch/riscv/kernel/module-sections.c
+> index e264e59e596e..91d4f0fbd0af 100644
+> --- a/arch/riscv/kernel/module-sections.c
+> +++ b/arch/riscv/kernel/module-sections.c
+> @@ -9,6 +9,7 @@
+>  #include <linux/kernel.h>
+>  #include <linux/module.h>
+>  #include <linux/moduleloader.h>
+> +#include <linux/sort.h>
+>  
+>  unsigned long module_emit_got_entry(struct module *mod, unsigned long val)
 >  {
-> @@ -99,6 +204,20 @@ th1520_add_pm_domain(struct device *dev, const struct th1520_power_info *pi)
->         pd->genpd.power_off = th1520_pd_power_off;
->         pd->genpd.name = pi->name;
+> @@ -55,19 +56,27 @@ unsigned long module_emit_plt_entry(struct module *mod, unsigned long val)
+>  	return (unsigned long)&plt[i];
+>  }
+>  
+> -static int is_rela_equal(const Elf_Rela *x, const Elf_Rela *y)
+> +#define cmp_3way(a, b)	((a) < (b) ? -1 : (a) > (b))
+> +
+> +static int cmp_rela(const void *a, const void *b)
+>  {
+> -	return x->r_info == y->r_info && x->r_addend == y->r_addend;
+> +	const Elf_Rela *x = a, *y = b;
+> +	int i;
+> +
+> +	/* sort by type, symbol index and addend */
+> +	i = cmp_3way(x->r_info, y->r_info);
+> +	if (i == 0)
+> +		i = cmp_3way(x->r_addend, y->r_addend);
+> +	return i;
+>  }
+>  
+>  static bool duplicate_rela(const Elf_Rela *rela, int idx)
+>  {
+> -	int i;
+> -	for (i = 0; i < idx; i++) {
+> -		if (is_rela_equal(&rela[i], &rela[idx]))
+> -			return true;
+> -	}
+> -	return false;
+> +	/*
+> +	 * Entries are sorted by type, symbol index and addend. That means
+> +	 * that, if a duplicate entry exists, it must be in the preceding slot.
+> +	 */
+> +	return idx > 0 && cmp_rela(rela + idx, rela + idx - 1) == 0;
+>  }
+>  
+>  static void count_max_entries(Elf_Rela *relas, int num,
+> @@ -87,11 +96,33 @@ static void count_max_entries(Elf_Rela *relas, int num,
+>  	}
+>  }
+>  
+> +static bool rela_needs_plt_got(const Elf_Rela *rela)
+> +{
+> +	unsigned int type = ELF_R_TYPE(rela->r_info);
+> +
+> +	return type == R_RISCV_CALL_PLT || type == R_RISCV_GOT_HI20;
+
+I see these two are sufficient to support count_max_entries(), but Charlie
+also added support for R_RISCV_PLT32. I don't know enough about relocation
+types to know if we need to consider that one here and in
+count_max_entries(), so I'm just pointing it out in case it was
+overlooked.
+
+> +}
+> +
+> +/* Copy PLT and GOT relas to the scratch array. */
+> +static unsigned int partition_plt_got_relas(const Elf_Rela *relas, Elf_Rela *scratch,
+> +					    unsigned int num_rela)
+> +{
+> +	int j = 0;
+> +
+> +	for (int i = 0; i < num_rela; i++)
+> +		if (rela_needs_plt_got(&relas[i]))
+> +			scratch[j++] = relas[i];
+> +
+> +	return j;
+> +}
+> +
+>  int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+>  			      char *secstrings, struct module *mod)
+>  {
+>  	unsigned int num_plts = 0;
+>  	unsigned int num_gots = 0;
+> +	Elf_Rela *scratch = NULL;
+> +	size_t scratch_size = 0;
+>  	int i;
+>  
+>  	/*
+> @@ -132,9 +163,26 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
+>  		if (!(dst_sec->sh_flags & SHF_EXECINSTR))
+>  			continue;
+>  
+> -		count_max_entries(relas, num_rela, &num_plts, &num_gots);
+> +		/*
+> +		 * apply_relocate_add() relies on HI20 and LO12 relocation pairs being
+> +		 * close together, so sort a copy of the section to avoid interfering.
+> +		 */
+> +		if (sechdrs[i].sh_size > scratch_size) {
+> +			scratch_size = sechdrs[i].sh_size;
+> +			scratch = kvrealloc(scratch, scratch_size, GFP_KERNEL);
+> +			if (!scratch)
+> +				return -ENOMEM;
+> +		}
+> +
+> +		/* sort relocations requiring a PLT or GOT entry so duplicates are adjacent */
+> +		num_rela = partition_plt_got_relas(relas, scratch, num_rela);
+> +		sort(scratch, num_rela, sizeof(Elf_Rela), cmp_rela, NULL);
+> +		count_max_entries(scratch, num_rela, &num_plts, &num_gots);
+>  	}
+>  
+> +	if (scratch)
+> +		kvfree(scratch);
+> +
+>  	mod->arch.plt.shdr->sh_type = SHT_NOBITS;
+>  	mod->arch.plt.shdr->sh_flags = SHF_EXECINSTR | SHF_ALLOC;
+>  	mod->arch.plt.shdr->sh_addralign = L1_CACHE_BYTES;
+> -- 
+> 2.47.0
 >
-> +       /* there are special callbacks for the GPU */
-> +       if (pi == &th1520_pd_ranges[TH1520_GPU_PD]) {
-> +               ret = th1520_gpu_init_clocks(dev, pd);
 
-Assuming both the clocks and the reset are really resources that
-belong to the GPU, I would suggest to use two callbacks for the genpd
-in question to implement the get/put of the clocks and reset from
-there.
+Besides my question above,
 
-pd->genpd->attach_dev
-pd->genpd->detach_dev
+Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
 
-> +               if (ret)
-> +                       return ERR_PTR(ret);
-> +
-> +               ret = th1520_gpu_init_resets(dev, pd);
-> +               if (ret)
-> +                       return ERR_PTR(ret);
-> +
-> +               pd->genpd.dev_ops.start = th1520_gpu_domain_start;
-> +               pd->genpd.dev_ops.stop = th1520_gpu_domain_stop;
-> +       }
-> +
->         ret = pm_genpd_init(&pd->genpd, NULL, true);
->         if (ret)
->                 return ERR_PTR(ret);
-> --
-> 2.34.1
->
-
-Kind regards
-Uffe
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
