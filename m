@@ -4,87 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D7E5C36002
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 19:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 429EBC36002
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 19:11:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=0b/vwqgKGjiktnwe1ff6uetgvmmZQInbgZzLikrzGJQ=; b=sKvP1uswIgIQUC
-	VE7v4sPT/zTbkjmlecYISCNa0v9kPN+HQzIx4Ee13TebU4FEWiL8XY/lANixq3TpJirdJ9akjEL06
-	N/doraAgWx2CmY9zrfLdcWVWqdfr7gaI0zlCw7JMsf5b1oiWvXdVS5dE8NbcJYgctT7wClxWNxha8
-	jW2XULjfScpK0moYDOultLeeF4b5uxP5t8ow6GaeLr3xMXPAim5LCkrGVOVWbw6rVOyzEQrfnpBZw
-	439dXJm00IXY5F4WUQYo3hbP0oqszqUhf7RhOiMWF5zxrffoScC33FHBJEcI6fIprKyC73T1zF4nY
-	Tsz2Fnu51xq7bmaTrsnw==;
+	List-Owner; bh=QbRFbUF88Iyc/o30lj91DOtogJOWS9ybmM2fFIY1oEQ=; b=2FDqfA7+WkNXwi
+	h99M4m9ZHG0Jdx/fPOgFyi2LhmwTSPf4kWiho6HZpKwc96C+z+e6QmnSSzw424ZxkayLI+3dH9FWk
+	esC0o3g3wZUSUO4Ga2mRGnRqHU/UWuCFKxa8TBkUwyLU+unfL4idHtJb/ggoLDE4+DW1FYpXCNWBB
+	Vvyj4LoS/1ryi2wYOxAFhxr4F03O/2vpQpcpgfpJM/V0Tb/3GEHZxO60aPYZ8X5+3VDRK0iD2VRkW
+	Lu3pw8cYn4QkNbSiskyi42bLLi8lKr6VZ/GntkUUx3GZxThRVilZwCSA0EI7yucBKfjKjSD6JHnHu
+	RYi+D2pgX6XdM/fADE4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2alQ-00000008GkG-1Sva;
-	Wed, 09 Apr 2025 19:07:08 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1u2apf-00000008HHr-2Mk5;
+	Wed, 09 Apr 2025 19:11:31 +0000
+Received: from send266.i.mail.ru ([95.163.59.105])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2alO-00000008Gje-32cb
+	id 1u2apb-00000008HGM-1Sys
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 19:07:07 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0c18e84eso293895e9.3
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 12:07:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1744225625; x=1744830425; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BDpH5Cg2hroK2o4IDN554HJ3Fr5FbZsmDQ5bD2HXl6Y=;
-        b=U6+1E6ogVAGMeRwqqXQmxXW9fpV9WHNjK2+/YYDiBK67YWvEdzBXzbxOXiHBmB7aEU
-         qUR7FhAdmRQYg74DWyBwm9vG82UIEd3/dVD+efB/yZFCw0+1gMdwPARl5K9VamvIJyT3
-         hqmhQG75BrIhOp6uqIUEevbuwdAD7ayOoHTzEAI87pOjWVfBHON8I4z1owWCw2shxpuT
-         r4Zr2OfhJdNRI10R2sakxt1A1S9pFuQX8qxvDM3ePcSej9FeBWn2tuT1S47Ftv4rKBFY
-         VR7mRlV+d3Kf0QLEUd9kZHeFrRqtkcBvarxQBfm4YOcKLhZVZqM/Zfv3hi0JJfg9gg8v
-         lTNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744225625; x=1744830425;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BDpH5Cg2hroK2o4IDN554HJ3Fr5FbZsmDQ5bD2HXl6Y=;
-        b=FUfl42d1dZkvrn2qwbr07aZcFSZJsBnGpafjgtXmHgQ4ibPGNAyXML1EcyrFUvumD0
-         Oc7vsWwuITtiDuNFQY1X5zr6Ih3v5kGuFqHqIIjIvdzUqxDU2vNqngUm7Q0qHk3eDkFh
-         kNOKPDYVUto+PIovy8adlAh6YoHrwJOT5zpO0BJcRGy18BLmE690tivJnDChmteHUeol
-         USjmTlxDVZNt4thL8oou3ni5bzUvNgwrdVwXXlVXdQn0xHTh2bLfzB5aQlr3TuJzPVnD
-         nrjF6K6lnQohZxBCsrtMA1p1chhTeD6ijFZmTHkvolGbefattHUIBrVkp5H9Bkqu65FF
-         SpLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWccl6SFCZY4KRwhlKNFNxJarzFUrXwXMJGskVKoFYljELFbZyMRFngl0G5HBA8rHF/QmRITrfiaU4GkA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzUP2gZ1ndqss+iwxnunETBYNYdNbQ52MibruAo23RZLirg9OA
-	tq3n4CEKFMExk+f9Kj9+NAM2eT0YZJ0FJzcw8NDWSphzh+2hiSVhJXb7z5sF1Qg=
-X-Gm-Gg: ASbGncupsO6+l/5PC1beK0Kn+WqDVdEe514SsY5/cfEpoUw+PBdd4EeDiJJ/mKQ5ABL
-	rzExtadwCLYrrbKJFmVyhLjj32GOd7vGcuvYRzXSZNrOwct2fTSSV5xcOuSB0qCC9fyVv0k+xe+
-	3uVGX9IBJuoDpfQVAaz0QPqPIbMjlE1suhmHGaZd2KUgFzBUeWMSO2WfmcFw9k8qNh4qHnEXsL8
-	vb31v5IDeFdHEqA0EuF5A3O6DRX9tz5xtSHvUbknLmybWZ9HAIO97q3h5J5CQGiZ6MtOK9+2/59
-	MtOtNKI4xETw1frP6vuBQjnkHiE5MKFiMr2Exgl3GeZWgkgQOsgRTz4ZA9hjIUGrwjbaJQ==
-X-Google-Smtp-Source: AGHT+IGk1b2UhjU3Mst8QhR0QOkZwD6JG8okUMrRHSg9d1x+fnRHwWKeJm3fk035+4iF+CJXDmapXQ==
-X-Received: by 2002:a5d:5847:0:b0:391:4674:b136 with SMTP id ffacd0b85a97d-39d87ac2fdamr3386517f8f.29.1744225624948;
-        Wed, 09 Apr 2025 12:07:04 -0700 (PDT)
-Received: from localhost (cst2-173-28.cust.vodafone.cz. [31.30.173.28])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43f205ecac8sm28928715e9.4.2025.04.09.12.07.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 12:07:04 -0700 (PDT)
-Date: Wed, 9 Apr 2025 21:07:03 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
-	linux-riscv@lists.infradead.org, Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>, 
-	Pritesh Patel <pritesh.patel@einfochips.com>, Darshan Prajapati <darshan.prajapati@einfochips.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] riscv: module: Optimize PLT/GOT entry counting
-Message-ID: <20250409-aa536deeef59c7a2862d906f@orel>
-References: <20250409171526.862481-1-samuel.holland@sifive.com>
- <20250409171526.862481-3-samuel.holland@sifive.com>
+	Wed, 09 Apr 2025 19:11:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=inbox.ru;
+	s=mail4; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References
+	:Cc:To:Subject:MIME-Version:Date:Message-ID:From:Sender:Reply-To:To:Cc:
+	Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Id:List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:
+	List-Archive:X-Cloud-Ids:Disposition-Notification-To;
+	bh=84UBC03hNCb13+HyRaHqv/Gf1Qk28Q4O2obKNbI4KFY=; t=1744225884; x=1744315884; 
+	b=RGX6tG2SEkYFob5LbkToUwNwpAr8bqX9mfhuGjDn1rmi8pmFLI94mH5GAIrTm+kY/g8kVUA0R7p
+	/kb1vvr8wG7nCWJ4GjEsDmOmXQO5WvKmeE7XkWqn/rG1IG2lF17wOPH7L1AGwgpDHhlxPCrJDloeK
+	qG+jgCHFXzFusD6CPVzZwuYEI8O474VIJ0IgefXEg33XjOm7qycbpWrWncnLouoRVfO2g/wJVUmnG
+	wfECHn4hADy4pqHks+m1RNrnk2zSK8DxAShncsr9FtyaE51vNWek6aRU9zNLThOPfTDE19n3Gz9Bi
+	0K4TwyYoRPJB8z4Lyc+zPMeCe/f02HnThLlw==;
+Received: by exim-smtp-85ff495cfc-pbccc with esmtpa (envelope-from <fido_max@inbox.ru>)
+	id 1u2apT-000000002uu-1LK8; Wed, 09 Apr 2025 22:11:20 +0300
+Message-ID: <c11d39bb-cdb8-45f0-95cd-283e7cc6aff4@inbox.ru>
+Date: Wed, 9 Apr 2025 22:11:16 +0300
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250409171526.862481-3-samuel.holland@sifive.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] riscv: module: Fix out-of-bounds relocation access
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-riscv@lists.infradead.org
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Amma Lee <lixiaoyun@binary-semi.com>,
+ Charlie Jenkins <charlie@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
+ <cleger@rivosinc.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ Luis Chamberlain <mcgrof@kernel.org>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ linux-kernel@vger.kernel.org
+References: <20250409171526.862481-1-samuel.holland@sifive.com>
+Content-Language: en-US
+From: Maxim Kochetkov <fido_max@inbox.ru>
+In-Reply-To: <20250409171526.862481-1-samuel.holland@sifive.com>
+Authentication-Results: exim-smtp-85ff495cfc-pbccc; auth=pass smtp.auth=fido_max@inbox.ru smtp.mailfrom=fido_max@inbox.ru
+X-Mailru-Src: smtp
+X-4EC0790: 10
+X-7564579A: EEAE043A70213CC8
+X-77F55803: 4F1203BC0FB41BD96AB534CA17E18E8F0A3910F3FACDD3ABE247BFD61724D6D6182A05F5380850404C228DA9ACA6FE27F559D9661971D0633DE06ABAFEAF6705B516B0159FFEB1245581499C14029E4892B1A6A82314B74A
+X-7FA49CB5: FF5795518A3D127A4AD6D5ED66289B5278DA827A17800CE7D9C4478D0B876341EA1F7E6F0F101C67BD4B6F7A4D31EC0BCC500DACC3FED6E28638F802B75D45FF8AA50765F79006373768BF035B57E5168638F802B75D45FF914D58D5BE9E6BC1A93B80C6DEB9DEE97C6FB206A91F05B2C264463944ADC3AF2E070BE324C7D3C4737E40CF06D14244BB0A4F435E46E6718B35066C979671628AA50765F79006370BDD70ABAC747F53389733CBF5DBD5E913377AFFFEAFD269176DF2183F8FC7C04A3B2F4BA56A4D558941B15DA834481FCF19DD082D7633A0EF3E4896CB9E6436389733CBF5DBD5E9D5E8D9A59859A8B605A8BD9291DE3CBBCC7F00164DA146DA6F5DAA56C3B73B237318B6A418E8EAB86D1867E19FE14079C09775C1D3CA48CF3D321E7403792E342EB15956EA79C166A417C69337E82CC275ECD9A6C639B01B78DA827A17800CE7588D3C263EAE74EA731C566533BA786AA5CC5B56E945C8DA
+X-C1DE0DAB: 0D63561A33F958A5D2C5362076D858755002B1117B3ED696EC201ACD4C4FE43D957033528158102E823CB91A9FED034534781492E4B8EEAD2B25D9E4C92BC8ACBDAD6C7F3747799A
+X-C8649E89: 1C3962B70DF3F0ADBF74143AD284FC7177DD89D51EBB7742424CF958EAFF5D571004E42C50DC4CA955A7F0CF078B5EC49A30900B95165D34A08F09726D78E07B05CE5DE609FFDC6A1A883DA2B18F73D5BC77801A7008F6053FCBC04C6AF4AC4E1D7E09C32AA3244CEF0E5157C137FD2077DD89D51EBB77427457E7BBCDCF6C79EA455F16B58544A239EFC82C7514BDDC5DA084F8E80FEBD3498BCAF62EB65D490083D0702184784583DB18EBE73F7D69
+X-D57D3AED: 3ZO7eAau8CL7WIMRKs4sN3D3tLDjz0dLbV79QFUyzQ2Ujvy7cMT6pYYqY16iZVKkSc3dCLJ7zSJH7+u4VD18S7Vl4ZUrpaVfd2+vE6kuoey4m4VkSEu53w8ahmwBjZKM/YPHZyZHvz5uv+WouB9+ObcCpyrx6l7KImUglyhkEat/+ysWwi0gdhEs0JGjl6ggRWTy1haxBpVdbIX1nthFXMZebaIdHP2ghjoIc/363UZI6Kf1ptIMVS2bpaGes9W5t2eaDMAwOw4=
+X-Mailru-Sender: 689FA8AB762F7393FE9E42A757851DB6139DF3AADA6965A8B4E9B47FDAE4E847BBFB7C714878DA8290DE4A6105A3658D481B2AED7BCCC0A49AE3A01A4DD0D55C6C99E19F044156F45FEEDEB644C299C0ED14614B50AE0675
+X-Mras: Ok
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_120706_763877_5EE28A24 
-X-CRM114-Status: GOOD (  33.27  )
+X-CRM114-CacheID: sfid-20250409_121127_718590_D1B91BC8 
+X-CRM114-Status: UNSURE (   4.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,195 +90,19 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 10:14:51AM -0700, Samuel Holland wrote:
-> perf reports that 99.63% of the cycles from `modprobe amdgpu` are spent
-> inside module_frob_arch_sections(). This is because amdgpu.ko contains
-> about 300000 relocations in its .rela.text section, and the algorithm in
-> count_max_entries() takes quadratic time.
-> 
-> Apply two optimizations from the arm64 code, which together reduce the
-> total execution time by 99.58%. First, sort the relocations so duplicate
-> entries are adjacent. Second, reduce the number of relocations that must
-> be sorted by filtering to only relocations that need PLT/GOT entries, as
-> done in commit d4e0340919fb ("arm64/module: Optimize module load time by
-> optimizing PLT counting").
-> 
-> Unlike the arm64 code, here the filtering and sorting is done in a
-> scratch buffer, because the HI20 relocation search optimization in
-> apply_relocate_add() depends on the original order of the relocations.
-> This allows accumulating PLT/GOT relocations across sections so sorting
-> and counting is only done once per module.
-> 
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> ---
-> 
-> Changes in v2:
->  - Include R_RISCV_PLT32 relocations when computing the PLT size
->  - Accumulate PLT/GOT relocations across relocation sections
-> 
->  arch/riscv/kernel/module-sections.c | 81 +++++++++++++++++++++++------
->  1 file changed, 65 insertions(+), 16 deletions(-)
-> 
-> diff --git a/arch/riscv/kernel/module-sections.c b/arch/riscv/kernel/module-sections.c
-> index 91d0b355ceef..75551ac6504c 100644
-> --- a/arch/riscv/kernel/module-sections.c
-> +++ b/arch/riscv/kernel/module-sections.c
-> @@ -9,6 +9,7 @@
->  #include <linux/kernel.h>
->  #include <linux/module.h>
->  #include <linux/moduleloader.h>
-> +#include <linux/sort.h>
->  
->  unsigned long module_emit_got_entry(struct module *mod, unsigned long val)
->  {
-> @@ -55,44 +56,70 @@ unsigned long module_emit_plt_entry(struct module *mod, unsigned long val)
->  	return (unsigned long)&plt[i];
->  }
->  
-> -static int is_rela_equal(const Elf_Rela *x, const Elf_Rela *y)
-> +#define cmp_3way(a, b)	((a) < (b) ? -1 : (a) > (b))
-> +
-> +static int cmp_rela(const void *a, const void *b)
->  {
-> -	return x->r_info == y->r_info && x->r_addend == y->r_addend;
-> +	const Elf_Rela *x = a, *y = b;
-> +	int i;
-> +
-> +	/* sort by type, symbol index and addend */
-> +	i = cmp_3way(x->r_info, y->r_info);
-> +	if (i == 0)
-> +		i = cmp_3way(x->r_addend, y->r_addend);
-> +	return i;
->  }
->  
->  static bool duplicate_rela(const Elf_Rela *rela, int idx)
->  {
-> -	int i;
-> -	for (i = 0; i < idx; i++) {
-> -		if (is_rela_equal(&rela[i], &rela[idx]))
-> -			return true;
-> -	}
-> -	return false;
-> +	/*
-> +	 * Entries are sorted by type, symbol index and addend. That means
-> +	 * that, if a duplicate entry exists, it must be in the preceding slot.
-> +	 */
-> +	return idx > 0 && cmp_rela(rela + idx, rela + idx - 1) == 0;
->  }
->  
-> -static void count_max_entries(Elf_Rela *relas, int num,
-> +static void count_max_entries(const Elf_Rela *relas, size_t num,
->  			      unsigned int *plts, unsigned int *gots)
->  {
-> -	for (int i = 0; i < num; i++) {
-> +	for (size_t i = 0; i < num; i++) {
-> +		if (duplicate_rela(relas, i))
-> +			continue;
-> +
->  		switch (ELF_R_TYPE(relas[i].r_info)) {
->  		case R_RISCV_CALL_PLT:
->  		case R_RISCV_PLT32:
-> -			if (!duplicate_rela(relas, i))
-> -				(*plts)++;
-> +			(*plts)++;
->  			break;
->  		case R_RISCV_GOT_HI20:
-> -			if (!duplicate_rela(relas, i))
-> -				(*gots)++;
-> +			(*gots)++;
->  			break;
-> +		default:
-> +			unreachable();
->  		}
->  	}
->  }
->  
-> +static bool rela_needs_plt_got_entry(const Elf_Rela *rela)
-> +{
-> +	switch (ELF_R_TYPE(rela->r_info)) {
-> +	case R_RISCV_CALL_PLT:
-> +	case R_RISCV_GOT_HI20:
-> +	case R_RISCV_PLT32:
-> +		return true;
-> +	default:
-> +		return false;
-> +	}
-> +}
-> +
->  int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  			      char *secstrings, struct module *mod)
->  {
-> +	size_t num_scratch_relas = 0;
->  	unsigned int num_plts = 0;
->  	unsigned int num_gots = 0;
-> +	Elf_Rela *scratch = NULL;
-> +	size_t scratch_size = 0;
->  	int i;
->  
->  	/*
-> @@ -122,9 +149,10 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  
->  	/* Calculate the maxinum number of entries */
->  	for (i = 0; i < ehdr->e_shnum; i++) {
-> +		size_t num_relas = sechdrs[i].sh_size / sizeof(Elf_Rela);
->  		Elf_Rela *relas = (void *)ehdr + sechdrs[i].sh_offset;
-> -		int num_rela = sechdrs[i].sh_size / sizeof(Elf_Rela);
->  		Elf_Shdr *dst_sec = sechdrs + sechdrs[i].sh_info;
-> +		size_t scratch_size_needed;
->  
->  		if (sechdrs[i].sh_type != SHT_RELA)
->  			continue;
-> @@ -133,7 +161,28 @@ int module_frob_arch_sections(Elf_Ehdr *ehdr, Elf_Shdr *sechdrs,
->  		if (!(dst_sec->sh_flags & SHF_EXECINSTR))
->  			continue;
->  
-> -		count_max_entries(relas, num_rela, &num_plts, &num_gots);
-> +		/*
-> +		 * apply_relocate_add() relies on HI20 and LO12 relocation pairs being
-> +		 * close together, so sort a copy of the section to avoid interfering.
-> +		 */
-> +		scratch_size_needed = (num_scratch_relas + num_relas) * sizeof(*scratch);
-> +		if (scratch_size_needed > scratch_size) {
-> +			scratch_size = scratch_size_needed;
-
-Maybe not worth it, but when i is less than ehdr->e_shnum - 1 (we still
-have more sections to look at) we could use scratch_size_needed * 2, or
-something, in order to hopefully reduce the number of times kvrealloc()
-is called.
-
-> +			scratch = kvrealloc(scratch, scratch_size, GFP_KERNEL);
-> +			if (!scratch)
-> +				return -ENOMEM;
-> +		}
-> +
-> +		for (size_t j = 0; j < num_relas; j++)
-> +			if (rela_needs_plt_got_entry(&relas[j]))
-> +				scratch[num_scratch_relas++] = relas[j];
-> +	}
-> +
-> +	if (scratch) {
-> +		/* sort the accumulated PLT/GOT relocations so duplicates are adjacent */
-> +		sort(scratch, num_scratch_relas, sizeof(*scratch), cmp_rela, NULL);
-> +		count_max_entries(scratch, num_scratch_relas, &num_plts, &num_gots);
-> +		kvfree(scratch);
->  	}
->  
->  	mod->arch.plt.shdr->sh_type = SHT_NOBITS;
-> -- 
-> 2.47.0
->
-
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-Thanks,
-drew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MDkuMDQuMjAyNSAyMDoxNCwgU2FtdWVsIEhvbGxhbmQg0L/QuNGI0LXRgjoKPiBUaGUgY3VycmVu
+dCBjb2RlIGFsbG93cyByZWxbal0gdG8gYWNjZXNzIG9uZSBlbGVtZW50IHBhc3QgdGhlIGVuZCBv
+ZiB0aGUKPiByZWxvY2F0aW9uIHNlY3Rpb24uIFNpbXBsaWZ5IHRvIG51bV9yZWxvY2F0aW9ucyB3
+aGljaCBpcyBlcXVpdmFsZW50IHRvCj4gdGhlIGV4aXN0aW5nIHNpemUgZXhwcmVzc2lvbi4KPiAK
+PiBGaXhlczogMDgwYzQzMjRmYTVlICgicmlzY3Y6IG9wdGltaXplIEVMRiByZWxvY2F0aW9uIGZ1
+bmN0aW9uIGluIHJpc2N2IikKPiBTaWduZWQtb2ZmLWJ5OiBTYW11ZWwgSG9sbGFuZCA8c2FtdWVs
+LmhvbGxhbmRAc2lmaXZlLmNvbT4KClJldmlld2VkLWJ5OiBNYXhpbSBLb2NoZXRrb3YgPGZpZG9f
+bWF4QGluYm94LnJ1PgoKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
+ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2Cg==
