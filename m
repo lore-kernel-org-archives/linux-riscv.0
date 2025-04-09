@@ -4,75 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2746EC36002
-	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 09:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE46CC36002
+	for <linux-riscv@archiver.kernel.org>; Wed,  9 Apr 2025 09:31:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:MIME-Version:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=COBqz5OMu06GvDWam6oyQN8j/TYKj4cIpKmT5Fv3Dbo=; b=YjxElNOk0qrfvx
-	1feyvPmCVut1RyB+NcYjxWjlxF8W8cWBX06zwAB09Ho+ykXBNK38QQ2tzd5pmx2Wu6ZszXgGG4aVr
-	NjlFK+9SEwDVy50B6c5iVeXCWIBsGta/mybfg02di5I3QxwciGKuyBG0iCOpy+S5Sd1NnRKqhASMu
-	O7lpx+/oQjv+ttsrMpKGoWE3wjuvbAjcrda3kIbxTQKtcpRmTtowzS2+RAbyuBeIs7jGmJIZki58V
-	LUy/2FtBki0gg7OVdkfOdlLUiUEFN2krMsTJrSEVBTJgZtcnahh1xyMYsIPHFavQ87bERD35lz5Bq
-	17qZ9+vrVo0Cd0sk2wcA==;
+	List-Owner; bh=VwttQrk/dYSUQdcIWXwwAyT+CkzZis7C8v56LL1b5kQ=; b=SSGR5TQYGlQ2dK
+	coX6PL15r6umyDVEgujtubs8RBsbIhoruU20EOKj/jmVDJ7+6nAgJonSWt9FwVbup9x51zVGLdB8g
+	OTcEenaiS06zGi+BHCDudpSTTVTbjT+6ZqGGiIfoBeAff5CE+wOuNc5twJW4HqqBLpAxAfd0Ewhld
+	mU15FSEK7Xgt6MyKR+pIu2pwJ+lTDcMtFp4TQK8abtt/hHk5TWui0ESF5r3565vX3Z2m0QCzjIWop
+	nBhlq+IjOYnPjCW6AWReQYg2pD5lFSD3MW1XsnYlhD//8OLp6Cv1gXY3DClgkGZzXgZucUwwVaCxP
+	6HGtHsO6xWp/QhGPjYxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2RZt-00000006gRY-3jNG;
-	Wed, 09 Apr 2025 09:18:37 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1u2Rld-00000006iDF-0DCF;
+	Wed, 09 Apr 2025 09:30:45 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2RZq-00000006gPk-2YAI
+	id 1u2RlU-00000006iAz-2eJG
 	for linux-riscv@lists.infradead.org;
-	Wed, 09 Apr 2025 09:18:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1744190306; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=S7upKIOYjF/0byUSM97pC9pIwWTRz3EC16Sbz7/VpY+SlGlP/TKpNxUkOSJb7cDkKcPzw/r1I31Gje2NXmKr6C9z/cUG5ee1Sf0BfcbNVhZZ7cfBxvDq/lajdEUr6Ggl5H4iOuAsFwyd5I/NEHsT1lmGpaEJ7fTqYqBPi1pjXic=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1744190306; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=KwHCepAXG5Am7WCb6/BmtfPU10GewLqbpuq+dp90/YU=; 
-	b=SW6SO7nJKS6UZN/KeVBrwC9vqRi3TLT9M5K67cicyM5/P5MIbCQilywKed9KUQzwhQRD5Q1yRMX4P615ChCnBbciZq2CZYk3ovufVqYTwL1lvVHcM/UlEtENk0C8uY6+Gy9Dur8ENbt/pH2g95vtIIm6sq5o3yvjyXWHcVGN0QE=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744190306;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=KwHCepAXG5Am7WCb6/BmtfPU10GewLqbpuq+dp90/YU=;
-	b=hLE2NkMjspTEcAjl+TFG3q4SN+NokZdZTQ11WdQFT3YzVVD1DqiD0gWZb8RUPR4P
-	JnFPUdLlzmwrJsjadg2J27hnmBEWwG73j61Gu18dVcwvUnUJlserU8+m/UPK5MfAulW
-	mcKZhxdM3VTR0HywD1dUDMuz8+FJIRMHCYl0/Jd9mPhVr4lkd2PRc3VR131+CNn9AQQ
-	FdVnEu8S/As/EkTmqNLsbWu4dL2MDzvbCSrnwITvcJUF/ON2OoGTlve3UFj/TuUZhEn
-	XT1xgjsV9Z3k3jbi1cb2ze2FMjTgsITJ0uWH9m4JFX3uRGT8cA99RInJtBzpLcXW8p0
-	yscXTRt2Vw==
-Received: by mx.zohomail.com with SMTPS id 1744190304414130.91962773873797;
-	Wed, 9 Apr 2025 02:18:24 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Michael Zhu <michael.zhu@starfivetech.com>,
-	Drew Fustini <drew@beagleboard.org>
-Cc: devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [PATCH 2/2] riscv: dts: starfive: add DT for Orange Pi RV
-Date: Wed,  9 Apr 2025 17:18:01 +0800
-Message-ID: <20250409091801.855083-2-uwu@icenowy.me>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250409091801.855083-1-uwu@icenowy.me>
-References: <20250409091801.855083-1-uwu@icenowy.me>
+	Wed, 09 Apr 2025 09:30:38 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250409093032euoutp01552434616770953823f13aaa86a9e044~0nICwFx-u0513005130euoutp01b
+	for <linux-riscv@lists.infradead.org>; Wed,  9 Apr 2025 09:30:32 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250409093032euoutp01552434616770953823f13aaa86a9e044~0nICwFx-u0513005130euoutp01b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1744191032;
+	bh=84CX4mPXzhvt6jZ4xCM8idWzEtVXSfS2MtWhIx9Nzwo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Bnkei+oOUdKNoH4sf7uyHS5UDX8gUv6gxzUIGBW3XFJqL7U1xzfgTEfB5JPedI58m
+	 SHASIwzAO8BhToaqNFhssstWYYyaKQkoz9ANRmPSocnXaSkaWorBmgPoYfrqL66oym
+	 OrcpgM8TJle6QaeH9tk8LtuY1C1q7djqwM4s/QZQ=
+Received: from eusmges3new.samsung.com (unknown [203.254.199.245]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250409093031eucas1p2961ba97b62454ce4bb51d6663bcd5428~0nICglOsS0998709987eucas1p2W;
+	Wed,  9 Apr 2025 09:30:31 +0000 (GMT)
+Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
+	eusmges3new.samsung.com (EUCPMTA) with SMTP id 48.4A.20397.73E36F76; Wed,  9
+	Apr 2025 10:30:31 +0100 (BST)
+Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf~0nIByCFsf1023010230eucas1p2R;
+	Wed,  9 Apr 2025 09:30:31 +0000 (GMT)
+Received: from eusmgms1.samsung.com (unknown [182.198.249.179]) by
+	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250409093031eusmtrp1c091b027f744040d7f056718b50f2a0b~0nIBxXYi_1346513465eusmtrp10;
+	Wed,  9 Apr 2025 09:30:31 +0000 (GMT)
+X-AuditID: cbfec7f5-e59c770000004fad-ef-67f63e3727a4
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms1.samsung.com (EUCPMTA) with SMTP id C4.35.19920.73E36F76; Wed,  9
+	Apr 2025 10:30:31 +0100 (BST)
+Received: from AMDC4942.home (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250409093030eusmtip2d8cd87a82f5916eb2fc3e94379087b87~0nIBHVz3h2948829488eusmtip2F;
+	Wed,  9 Apr 2025 09:30:30 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+To: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, drew@pdp7.com,
+	guoren@kernel.org, wefu@redhat.com, ulf.hansson@linaro.org,
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com
+Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-pm@vger.kernel.org, Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v1 1/2] dt-bindings: firmware: thead,th1520: Add clocks and
+ resets
+Date: Wed,  9 Apr 2025 11:30:24 +0200
+Message-Id: <20250409093025.2917087-2-m.wilczynski@samsung.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250409093025.2917087-1-m.wilczynski@samsung.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrFKsWRmVeSWpSXmKPExsWy7djPc7rmdt/SDaZ3mlus2XuOyeLepS1M
+	Fi/2NrJYvJx1j83i8q45bBafe48wWmz73MJmsfbIXXaL9V/nM1ncvXeCxeL/nh3sFsfXhlu0
+	7J/C4sDrsWlVJ5vHnWt72Dw2L6n3aFl7jMmj/6+Bx/t9V9k8+rasYvT4vEkugCOKyyYlNSez
+	LLVI3y6BK+PU2W72ggUiFbM+XWVvYDzE38XIwSEhYCJx9YFHFyMXh5DACkaJ3vn7WbsYOYGc
+	L4wSbRv4IRKfGSV2zGtmA0mANHz73M4OkVjOKLHk9TQo5w2jxOPFi9lBqtgEjCQeLJ/PCpIQ
+	EdjLKNF56gMziMMs0M0osXbbDVaQ5cICIRJPPvKCNLAIqEqcWXMWbAWvgL3EpVkTWCDWyUvs
+	P3iWGcTmFHCQONRzgh2iRlDi5MwnYDXMQDXNW2eDzZcQ+MIhMWHZNyaIZheJeZPuskLYwhKv
+	jm9hh7BlJE5P7oFakC/xYOsnZgi7RmJnz3Eo21rizrlfbCB3MgtoSqzfpQ8RdpTofL2JFRJ2
+	fBI33gpCnMAnMWnbdGaIMK9ER5sQRLWaxNSeXril51ZsgzrMQ2LDt5esExgVZyF5ZhaSZ2Yh
+	7F3AyLyKUTy1tDg3PbXYOC+1XK84Mbe4NC9dLzk/dxMjMHmd/nf86w7GFa8+6h1iZOJgPMQo
+	wcGsJML7duKXdCHelMTKqtSi/Pii0pzU4kOM0hwsSuK8i/a3pgsJpCeWpGanphakFsFkmTg4
+	pRqYJL5PlVP4cv2imNf5YObiyza+sTxsxi3CZ/wk1fcJrUlZXXdvrlqrfaRdLGdLQMuz2JS+
+	l83e8edf1V7vtrLptDnMxtfGfj/DaPqzjTPiGmr9C1XudRjVFqxnPhI3obHs1v0febrzpgmf
+	kbi4pDpeO8vBMtjsJWf9O745/Iu9PNpkmP8rZ/zKTGd0MLp9uzH6hKVBruPdpdskpssKRK54
+	p9y6dseNypmGhx9/m9ZcN8er8Pcv26f6RyzF1nJtf1Q7dc8m5xTnwrlCezU3f1edq9Pf+Nt1
+	4s2lqrM25jMLqv4JnybW8OprgqRn9OpjXud0f3/59OYyZ9H9n+2hvx5Pie68dJiRr2XLYoZY
+	08dKLMUZiYZazEXFiQBQW9lezQMAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrNIsWRmVeSWpSXmKPExsVy+t/xe7rmdt/SDRZcYbNYs/cck8W9S1uY
+	LF7sbWSxeDnrHpvF5V1z2Cw+9x5htNj2uYXNYu2Ru+wW67/OZ7K4e+8Ei8X/PTvYLY6vDbdo
+	2T+FxYHXY9OqTjaPO9f2sHlsXlLv0bL2GJNH/18Dj/f7rrJ59G1ZxejxeZNcAEeUnk1RfmlJ
+	qkJGfnGJrVK0oYWRnqGlhZ6RiaWeobF5rJWRqZK+nU1Kak5mWWqRvl2CXsaps93sBQtEKmZ9
+	usrewHiIv4uRk0NCwETi2+d29i5GLg4hgaWMEief/2WGSMhIXOt+yQJhC0v8udbFBlH0ilHi
+	yLOljCAJNgEjiQfL57OC2CICJxkl7r6qAyliFuhnlJj68QpYQlggSOLChSNgU1kEVCXOrDnL
+	BmLzCthLXJo1AWqDvMT+g2fBajgFHCQO9ZxgB7GFQGrerGGCqBeUODnzCVg9M1B989bZzBMY
+	BWYhSc1CklrAyLSKUSS1tDg3PbfYUK84Mbe4NC9dLzk/dxMjMNa2Hfu5eQfjvFcf9Q4xMnEw
+	HmKU4GBWEuF9O/FLuhBvSmJlVWpRfnxRaU5q8SFGU6C7JzJLiSbnA6M9ryTe0MzA1NDEzNLA
+	1NLMWEmc1+3y+TQhgfTEktTs1NSC1CKYPiYOTqkGJi+V5I18Wgbr9x7VnnjP76C24QaFa99T
+	Rebdz+fKa3XQW7jd76vGM8XeLSX66zcfil7smzzzw7+lX3fMll1RPftlj+xXmZiwDccaVmWw
+	TJ27SFd1143Ppx7fqintKHjLK+M8IfQZw63+DS/Levjn8sdfv3eedy+rZolP658bhXnbIjU+
+	5tvclHcrFdWWMvsgd8s/+qUXb2HJyhnsm1ZFiFzdYnHa9503n9yGUsPbK3ovimyWOGRvlNQd
+	afVBevnGyTc+L5seor2je7FAcPqxmbOvHcxjXXX6xaKsHJtlRhc0slWqLaWv12jI7+zwqXwQ
+	O02Iz3CHro5frun+TJE76QlHrNcvKP7//bDb2YqG70osxRmJhlrMRcWJAPkESq8+AwAA
+X-CMS-MailID: 20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf
+X-Msg-Generator: CA
+X-RootMTR: 20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf
+References: <20250409093025.2917087-1-m.wilczynski@samsung.com>
+	<CGME20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_021834_703309_3E92A5DD 
-X-CRM114-Status: GOOD (  13.08  )
+X-CRM114-CacheID: sfid-20250409_023037_246199_1F95C01F 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,118 +133,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Orange Pi RV is a newly released SBC with JH7110 SoC, single GbE port
-(connected to JH7110 GMAC0 via a YT8531 PHY), 4 USB ports (via a VL805
-PCIe USB controller connected to JH7110 PCIE0), a M.2 M-key slot
-(connected to JH7110 PCIE1), a HDMI video output, a 3.5mm audio output
-and a microSD slot.
+Prepare for handling GPU clock and reset sequencing through a generic
+power domain by adding clock and reset properties to the TH1520 AON
+firmware bindings.
 
-Onboard peripherals contain a SPI NOR (which contains the U-Boot
-firmware) and an Ampak AP6256 SDIO Wi-Fi module.
+The T-HEAD TH1520 GPU requires coordinated management of two clocks
+(core and sys) and two resets (GPU and GPU CLKGEN). Due to SoC-specific
+requirements, the CLKGEN reset must be carefully managed alongside clock
+enables to ensure proper GPU operation, as discussed on the mailing list
+[1].
 
-As the schematics isn't available yet, the SDIO Wi-Fi is left disabled
-yet.
+Since the coordination is now handled through a power domain, only the
+programmable clocks (core and sys) are exposed. The GPU MEM clock is
+ignored, as it is not controllable on the TH1520 SoC.
 
-Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+This approach follows upstream maintainers' recommendations [1] to
+avoid SoC-specific details leaking into the GPU driver or clock/reset
+frameworks directly.
+
+[1] - https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@kernel.org/
+
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- arch/riscv/boot/dts/starfive/Makefile         |  1 +
- .../boot/dts/starfive/jh7110-orangepi-rv.dts  | 73 +++++++++++++++++++
- 2 files changed, 74 insertions(+)
- create mode 100644 arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
+ .../bindings/firmware/thead,th1520-aon.yaml   | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
-index b3bb12f78e7d5..24f1a44828350 100644
---- a/arch/riscv/boot/dts/starfive/Makefile
-+++ b/arch/riscv/boot/dts/starfive/Makefile
-@@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+index bbc183200400..8075874bcd6b 100644
+--- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
++++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+@@ -25,6 +25,16 @@ properties:
+   compatible:
+     const: thead,th1520-aon
  
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
-+dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-orangepi-rv.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
- dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
-new file mode 100644
-index 0000000000000..bde01f117e0b2
---- /dev/null
-+++ b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
-@@ -0,0 +1,73 @@
-+// SPDX-License-Identifier: GPL-2.0 OR MIT
-+/*
-+ * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
-+ */
++  clocks:
++    items:
++      - description: GPU core clock
++      - description: GPU sys clock
 +
-+/dts-v1/;
-+#include "jh7110-common.dtsi"
-+#include <dt-bindings/leds/common.h>
++  clock-names:
++    items:
++      - const: gpu-core
++      - const: gpu-sys
 +
-+/ {
-+	model = "Xunlong Orange Pi RV";
-+	compatible = "xunlong,orangepi-rv", "starfive,jh7110";
+   mboxes:
+     maxItems: 1
+ 
+@@ -32,13 +42,27 @@ properties:
+     items:
+       - const: aon
+ 
++  resets:
++    items:
++      - description: GPU reset
++      - description: GPU CLKGEN reset
 +
-+	leds {
-+		compatible = "gpio-leds";
++  reset-names:
++    items:
++      - const: gpu
++      - const: gpu-clkgen
 +
-+		led-ack {
-+			gpios = <&aongpio 3 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_HEARTBEAT;
-+			linux,default-trigger = "heartbeat";
-+			label = "ack";
-+		};
-+	};
-+};
-+
-+&gmac0 {
-+	starfive,tx-use-rgmii-clk;
-+	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
-+	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	/* TODO: Ampak AP6256 Wi-Fi module attached here */
-+	status = "disabled";
-+};
-+
-+&mmc1 {
-+	/delete-property/ cd-gpios;
-+	broken-cd;
-+};
-+
-+&pcie0 {
-+	status = "okay";
-+};
-+
-+&pcie1 {
-+	status = "okay";
-+};
-+
-+&phy0 {
-+	motorcomm,tx-clk-adj-enabled;
-+	motorcomm,tx-clk-10-inverted;
-+	motorcomm,tx-clk-100-inverted;
-+	motorcomm,tx-clk-1000-inverted;
-+	motorcomm,rx-clk-drv-microamp = <3970>;
-+	motorcomm,rx-data-drv-microamp = <2910>;
-+	rx-internal-delay-ps = <1500>;
-+	tx-internal-delay-ps = <1500>;
-+};
-+
-+&pwmdac {
-+	status = "okay";
-+};
-+
-+&spi0 {
-+	status = "okay";
-+};
+   "#power-domain-cells":
+     const: 1
+ 
+ required:
+   - compatible
++  - clocks
++  - clock-names
+   - mboxes
+   - mbox-names
++  - resets
++  - reset-names
+   - "#power-domain-cells"
+ 
+ additionalProperties: false
+@@ -47,7 +71,11 @@ examples:
+   - |
+     aon: aon {
+         compatible = "thead,th1520-aon";
++        clocks = <&clk_vo 0>, <&clk_vo 1>;
++        clock-names = "gpu-core", "gpu-sys";
+         mboxes = <&mbox_910t 1>;
+         mbox-names = "aon";
++        resets = <&rst 0>, <&rst 1>;
++        reset-names = "gpu", "gpu-clkgen";
+         #power-domain-cells = <1>;
+     };
 -- 
-2.49.0
+2.34.1
 
 
 _______________________________________________
