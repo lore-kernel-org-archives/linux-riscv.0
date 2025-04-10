@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE65DC369A6
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 11:41:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69A56C3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 12:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VWXpZ6xly9dX6TKZyvMWbUxL48r8hz2l5Wgmfx5qryw=; b=a/9qHoXLATWSC5
-	aK1uMkKU6jIAx3xX6ym+0EHlxv8zQuvuFj866FpAON5QVFV2kFE0vrdWMgGXdTlP7011cO1XdYlQC
-	xkVMVwmN+TKrWWNTQaWU8IxqVdfDmVx3acgJUVBvh0CZlHeCH2gTcm5Zx2NWs16KMNcUqAcMem7Ma
-	b7BAlDuWhceElUBOQTV9XjzhJcILg8A5a3ijsMD7Lm3UBL/naUuzr6gpV+4xCUqBr16cSzZwfok5L
-	uAUnDuHBRImkbJ6m7DYjvgM8hnzrUfnxJgFDkDuz/RH3EzUIi3xugPq9EzZau9SbBKsbmXXRXTngb
-	eX0S0rTKo+Ql5V+7ZKpA==;
+	List-Owner; bh=424IvHmOu+o+gYX2t39Sg+aj8BuMt6XRfR+jxz3v01s=; b=VrkFb1OxPbpd1+
+	M9c0NvMz9rQ3nIDUqgcLu0zXHGC7eXHnkbrYKIlj8krgmyZbsnIAnbK9RxbW2j/vpwrlfREMKzeh7
+	13ZOsgN6N4OP1lRyQDK59eTMH/ZUuLdCIFT4+HT73zUr6LHX4aLSvuHaRIDdbM0E0mon5T5yeBZHU
+	JX6j1vvuHTcNjilHHWKqRzn/Wkde5wOLFQZEQjNdPXuvLR6OFMG3ugroJ6ezLwaBeForE2zXrOHXL
+	BxZkhr7AEoSzdga54dTyHrfJ4XSTXEzzmY2ilmHmt1gLXXZffvh+qgpyichvhkpTjLSyD36wI9sPF
+	yf2lBUf4qBYNc+K8FQrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2qHi-0000000AKtO-13xt;
-	Thu, 10 Apr 2025 11:41:30 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1u2r5V-0000000AVYS-11Dl;
+	Thu, 10 Apr 2025 12:32:57 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2q6O-0000000AIsN-0iOq
+	id 1u2r2a-0000000AV38-2aZ2
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 11:29:49 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43690d4605dso5673055e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 04:29:47 -0700 (PDT)
+	Thu, 10 Apr 2025 12:29:57 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e8be1bdb7bso1225289a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 05:29:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1744284586; x=1744889386; darn=lists.infradead.org;
+        d=suse.com; s=google; t=1744288195; x=1744892995; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=inreEjGkP2FB86SvKqikRoCXcnYDIYzGtWDBTQYF/sA=;
-        b=E/pYSkZi/7Dy+Omn4uRfGWYGhMAaMMILsbGVaAGgtl9xjrF7Q3Q9n1Zo3fNnILB66K
-         0M/LLoKhLgAeaXyOmh+x34bmlwgDNO5lw/9qKyWiDVRUBc/h5sXY/0fAXPAb/RsMzu0A
-         07j+SL24PwVIVAPKY3GDA96V6EKMbZfpctfXG+/GTv3jEp2L+eqZog3zFAH+rVhkgxM3
-         OmP23QK5TYQuU032I74/zDaYVOtY5c878ttXZla6LHsm/ogOPPU8zst1c2IaKT8mXjTu
-         v0FQ3+ma2y3mKGnh1yMWGZbhtUTcmcv0jlLEpJsiHxvyv3Oes+GU+0MCKlM2FKi9P9qJ
-         jMCQ==
+        bh=W58zftoxA/h0euOQhznKhUitEEsPpASpF27ovwB6sRg=;
+        b=Oz1Rdz+bGL77nzktCcOLF0yz8kv52jvtNjenSbNcXqN3eNb3BeeD6gokNLEeVbk12N
+         VnDc/IZ4/ozsTC0PQyfFGOSax1TCWMeyS6ATRrES5/ecR8eBE217j6NQxvHWpQT2MnGQ
+         J44lOwbWKY7PnPlQZKzcgjd02Be+j0e1wBXzsbNJliWnc/Wr6nI16Ay14/HKxvHI0KxZ
+         /FUMTe1H9lBk6FY8fzuQX0tGY38376zk17xOREPyhGnBqrMsx4mxca0qeS5LLVZWopQG
+         eba/5H5jcYfOu8aIsKck1CYz/S5yC+b1A7fCg7joVlZpX0lEiecIT4+SXGG9Vp3jIefc
+         7lRg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744284586; x=1744889386;
+        d=1e100.net; s=20230601; t=1744288195; x=1744892995;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=inreEjGkP2FB86SvKqikRoCXcnYDIYzGtWDBTQYF/sA=;
-        b=oouWgZdanjxOdKGC6T4smVvivPnfpWF7VtwWEk6rXWAZpuDeLrBjtVidp3CLw2QVzG
-         nwH4aadG5C/iCMTOEPRWFxWML0SqXrEv00HXs3NOPo+vjQc64Xe4vWQt0JhvSaaPgVpT
-         sqjn+HWpm9vL/ZgfP03wky+6lQ5Ewm7NujnLEm0dRb/ke+ZOtr+Qavk5kCvAvn4hboMF
-         4ycIfYmWwgalqKjeVTuGx/oqoi9UAvtiVAPD350IwlidYI1KoAWmETGoH3m5XRszWENK
-         n4GD874p2Y23BGi1oyIMT7Y+Hi6HDHIEnTFkZeLCDxlbr9FXfrzGzkuoqJJpLPBRJbUl
-         TGvg==
-X-Forwarded-Encrypted: i=1; AJvYcCW6spFtU0HAynKEaWMD9J1TWyA9/uRHA5UcXV0jwwoTParKac2NUaJn53VCkSVcrzqdz/5+GwOizQ805g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxC2d94eFKiM2wrviNLjz59yzhDKs6NfUCa6z4sppjQygT1hDKV
-	E4TJyJCfZmsGw475ugu/1LNqOhjJ/P6J0u2S5BUYhv5nzOki55mLUL3/ZOB3yck=
-X-Gm-Gg: ASbGncsDswzCpHd5K7173NlIPM2d8eEbPaRlERfT0UN+60CVOgRrrdKyUtmokAfVoeX
-	NxwLOIoHf5X9nrJ1cXq2TQJaVdieHUN/1tSrLEQmsfhoObX3w0hb0J0KGd+uBQ4IAq15gieBI+J
-	Isp/OsaH6fa7Kbbiu+S4aAzr0Eq7rfH8/TRvgLsm66zRwohjXbcbOFtOgaXS07lxMcHnfQUJ/Z5
-	IOp/mw1x6/w2jVoQC2zlcBGmuc00f+ir8rsk4ZheFlNYQRYPBJamMwHItpPbkURIflp7iBNhvYn
-	QvzgcElosZNLSmXc1+dZooGExkJXspWJWuvg54CDxG4=
-X-Google-Smtp-Source: AGHT+IGiu0OWEfT2fJWCoTEv1DArNTgNn8X+CE9Dq1sIudD9zQeKyE4/MK4CcE//ivPh7Bmvd/5jzw==
-X-Received: by 2002:a05:6000:1863:b0:39c:30d8:f104 with SMTP id ffacd0b85a97d-39d8f36c5femr2027739f8f.6.1744284585872;
-        Thu, 10 Apr 2025 04:29:45 -0700 (PDT)
+        bh=W58zftoxA/h0euOQhznKhUitEEsPpASpF27ovwB6sRg=;
+        b=TXWAReUAFCQ1jMRo56WjMIgnTiQbMXgT9c9WpijgJc/4J8OnpxmQA0BhTnzzngrSbP
+         7G5gm8LQJh6yW9Mx6zoqjKg7XLyB+Ak5Fvg/Do/b72RV+x8RUzwCm58DgWfepchPqjfF
+         A4Ie1Vi/y5s6XE0fz8Tg/PQTC6ILc9E/mIHPDoPEGSd0KvlWzkrfdDQq8Gnlt/wFrbH3
+         Am8yxsSpO80CEoI0835ZzB/lNux2nfBF+XNBwRgAuJXnt7ARhEkIhEMF6V2w7TpD4E/T
+         xzJyKPMxjBvQybiVqW1NCR6ia9Rr3PVeo1PjLISZOAbTB7MheeSctk0py3rawA4US7YM
+         LXwA==
+X-Forwarded-Encrypted: i=1; AJvYcCXBqvMaxaIh9aaZryFeIU6WSSqzGxs3XVtxKasHmKPbDi3tTcII3LEYHfLR2/0eEvq3T0v2RKiT0IgiVA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1em7yrU1aekl2IDEQeNRZOrAC7Zpc1kDX8I6vt3OMFBI9bk+h
+	FbZgXb8tLVihe9O/n3Gb3kz7Bd1zKHaCuQE0n8YvlO4724jfYIPiUhhEO6lzsMA=
+X-Gm-Gg: ASbGncv+85jTm39U1LOVXKmv7egNGC6BUD93AAmn9otO7UibWxWaz/+np16nfHYVkZI
+	jGmrEkFhK75shjuA8bX2KBKA3p0O0XwC9BIRx8LYPFqUl4jf4JSNNCHxXSIoPjvWWO8bUTnTW+z
+	MruXypKOnTLMEDlYjbV50P54FC59P0zf0yn7UJ2qqj01QVyzBdlfQjpO09CkOrFM8MDIXBveiOS
+	Abc9iv54TbEb+oghQkBr1F0mUv3PDMfqaIRZowkBT0pqIhJrMDALTIJRw27YDKM/fgioe6URITU
+	ByfRDCIbPf1WL0Adyio5iBgMDfgBvq51jvvRPCauTwk=
+X-Google-Smtp-Source: AGHT+IGkRcCdesVQfmGut/2T1Nf41hQW3Xy07xSRue+c6AyThON1gDnGuZ55vBm3LGdN2t2bjeOkNg==
+X-Received: by 2002:a05:6402:5194:b0:5e5:4807:5441 with SMTP id 4fb4d7f45d1cf-5f329337b8cmr2248387a12.30.1744288194931;
+        Thu, 10 Apr 2025 05:29:54 -0700 (PDT)
 Received: from pathway.suse.cz ([176.114.240.130])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39d893f0b09sm4616409f8f.63.2025.04.10.04.29.44
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5f2fbd17646sm2295348a12.56.2025.04.10.05.29.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 04:29:45 -0700 (PDT)
-Date: Thu, 10 Apr 2025 13:29:43 +0200
+        Thu, 10 Apr 2025 05:29:54 -0700 (PDT)
+Date: Thu, 10 Apr 2025 14:29:33 +0200
 From: Petr Mladek <pmladek@suse.com>
 To: Ryo Takakura <ryotkkr98@gmail.com>
 Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, bigeasy@linutronix.de,
@@ -75,18 +75,16 @@ Cc: alex@ghiti.fr, aou@eecs.berkeley.edu, bigeasy@linutronix.de,
 	jirislaby@kernel.org, john.ogness@linutronix.de, palmer@dabbelt.com,
 	paul.walmsley@sifive.com, samuel.holland@sifive.com,
 	u.kleine-koenig@baylibre.com, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH v2] serial: sifive: lock port in startup()/shutdown()
- callbacks
-Message-ID: <Z_erp2nLRKzLXuwF@pathway.suse.cz>
-References: <20250405145354.492947-1-ryotkkr98@gmail.com>
+	linux-riscv@lists.infradead.org, linux-serial@vger.kernel.org
+Subject: Re: [PATCH v2] serial: sifive: Switch to nbcon console
+Message-ID: <Z_e5rWcJKUh7eozw@pathway.suse.cz>
+References: <20250405145915.493173-1-ryotkkr98@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250405145354.492947-1-ryotkkr98@gmail.com>
+In-Reply-To: <20250405145915.493173-1-ryotkkr98@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_042948_207682_2DB40E75 
-X-CRM114-Status: GOOD (  10.28  )
+X-CRM114-CacheID: sfid-20250410_052956_653412_140712FE 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,24 +101,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat 2025-04-05 23:53:54, Ryo Takakura wrote:
-> startup()/shutdown() callbacks access SIFIVE_SERIAL_IE_OFFS.
-> The register is also accessed from write() callback.
+On Sat 2025-04-05 23:59:15, Ryo Takakura wrote:
+> Add the necessary callbacks(write_atomic, write_thread, device_lock
+> and device_unlock) and CON_NBCON flag to switch the sifive console
+> driver to perform as nbcon console.
 > 
-> If console were printing and startup()/shutdown() callback
-> gets called, its access to the register could be overwritten.
+> Both ->write_atomic() and ->write_thread() will check for console
+> ownership whenever they are accessing registers.
 > 
-> Add port->lock to startup()/shutdown() callbacks to make sure
-> their access to SIFIVE_SERIAL_IE_OFFS is synchronized against
-> write() callback.
+> The ->device_lock()/unlock() will provide the additional serilization
+> necessary for ->write_thread() which is called from dedicated printing
+> thread.
 > 
-> Fixes: 45c054d0815b ("tty: serial: add driver for the SiFive UART")
 > Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
-> Cc: stable@vger.kernel.org
+> Reviewed-by: John Ogness <john.ogness@linutronix.de>
 
 I do not have the hardware around so I could not test it.
-But the change make sense. It fixes a real race.
-And the code looks reasonable:
+But the code looks good. With the added comment (reported
+by the robot):
 
 Reviewed-by: Petr Mladek <pmladek@suse.com>
 
