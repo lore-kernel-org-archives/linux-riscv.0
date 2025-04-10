@@ -4,52 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180D3C3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 13:20:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE9AC3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 13:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tFIh1IXDp2lC+Qm4qUT0q4oy5lN8ZpsO7ta7YtjTLQI=; b=iEOsYJkt/uNyYJ
-	UYtr0JD9F6lptZQHzOQm4iKJ2Mf5oq1PmwHQkzYNpkhIkoHeaXmF9eTTeK3nNvtKca5WIlZuW8Kee
-	XrxniblfLjY9EO3kvTLOJejmyzH7t+WYDOIeppzbZWR9KqhuaA9qIBSQ9KojrVoCSoZ+qgYaAX0VA
-	VHqcF6fjaSrbgmNmgnK4ErA1FHRM0fRNGDJiqPOm57vEbrXlqwsVpLGsxeIvZQBesVBz6XC17PQKp
-	U/kPfmGRabFCFfs2vBbU+YxeJ1swRnJJmh4caMiz6MP0i3PrkVbe40kp8nbJzL5ITony6h/iEJnSH
-	nRFg18Y+VK0tPl01BGPg==;
+	List-Owner; bh=+KOIl0KnLZL/QOwsrnB9rgND/vpZU8EjhjNj7YNapIE=; b=kRl97BM+JMiwZM
+	J2F+MmgcBca3c02Pxyq43S5O2qWiW1NqCMMvwhN5rTP5BncCUFGLu4slRFZxgYdmrRrqA/IFvZOKj
+	GEc9pNytppQzz6nZeamzWF9O8oW8AFY6e2EkQw+SVPN//bee1N+ouRy9BIc2zdVagpe7WVYpRIjWN
+	aOOSxpQ6kTSY0H4E3C3EyAUm8b0o/9McXD3dbBXSma3PmkG5fECMKAI5e01fmrasi/Os5Eoz/aB11
+	Z+GWMLj/3D4xBM9j+/t5G7E9TIkjUzywhX99pnM1vthzAPB5BRmo8KELE4TWqeOwyDje27KOpryrA
+	D+rb0HEYAA5EIUqk3/JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rpX-0000000Adov-1AAJ;
-	Thu, 10 Apr 2025 13:20:31 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1u2sH8-0000000AjbU-1bzE;
+	Thu, 10 Apr 2025 13:49:02 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rpU-0000000Adnr-0XQJ
+	id 1u2sBC-0000000AiLU-2ht0
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 13:20:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 02EE120481;
-	Thu, 10 Apr 2025 13:20:20 +0000 (UTC)
-Message-ID: <c546c4c6-a4a0-431e-9299-5477bedf6280@ghiti.fr>
-Date: Thu, 10 Apr 2025 15:20:20 +0200
+	Thu, 10 Apr 2025 13:42:56 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 372934431A;
+	Thu, 10 Apr 2025 13:42:46 +0000 (UTC)
+Message-ID: <ccc97669-a4dc-459f-a26f-1fdad8b4a334@ghiti.fr>
+Date: Thu, 10 Apr 2025 15:42:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: Fix unaligned access info messages
-To: Andrew Jones <ajones@ventanamicro.com>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, cleger@rivosinc.com,
- alexghiti@rivosinc.com, geert@linux-m68k.org
-References: <20250409153650.84433-2-ajones@ventanamicro.com>
+Subject: Re: [PATCH v3] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
 Content-Language: en-US
+To: WangYuli <wangyuli@uniontech.com>, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu
+Cc: chenhuacai@kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
+ palmerdabbelt@google.com, samuel.holland@sifive.com, zhanjun@uniontech.com,
+ niecheng1@uniontech.com, guanwentao@uniontech.com,
+ Huacai Chen <chenhuacai@loongson.cn>
+References: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250409153650.84433-2-ajones@ventanamicro.com>
+In-Reply-To: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeltdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepkedprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdro
- hhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepghgvvghrtheslhhinhhugidqmheikehkrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeltdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudegpdhrtghpthhtohepfigrnhhghihulhhisehunhhiohhnthgvtghhrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpt
+ hhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegthhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehvihhntggvnhhtrdgthhgvnhesshhifhhivhgvrdgtohhm
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_062028_320359_51419802 
-X-CRM114-Status: GOOD (  16.35  )
+X-CRM114-CacheID: sfid-20250410_064254_824741_B73E0DD7 
+X-CRM114-Status: GOOD (  18.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,92 +69,98 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Drew,
+Hi WangYuli,
 
-On 09/04/2025 17:36, Andrew Jones wrote:
-> Ensure we only print messages about command line parameters when
-> the parameters are actually in use. Also complain about the use
-> of the vector parameter when vector support isn't available.
+On 08/04/2025 11:54, WangYuli wrote:
+> The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
+> symbol using inline assembly.
 >
-> Fixes: aecb09e091dc ("riscv: Add parameter for skipping access speed tests")
-> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Closes: https://lore.kernel.org/all/CAMuHMdVEp2_ho51gkpLLJG2HimqZ1gZ0fa=JA4uNNZjFFqaPMg@mail.gmail.com/
-> Closes: https://lore.kernel.org/all/CAMuHMdWVMP0MYCLFq+b7H_uz-2omdFiDDUZq0t_gw0L9rrJtkQ@mail.gmail.com/
-> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
+> There's a potential issue where the compiler might inline
+> arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
+
+
+You forgot to replace kgdb_breakinst into kgdb_compiled_break.
+
+
+> symbol multiple times, leading to fail to link vmlinux.o.
+>
+> This isn't merely a potential compilation problem. The intent here
+> is to determine the global symbol address of kgdb_compiled_break,
+> and if this function is inlined multiple times, it would logically
+> be a grave error.
+>
+> Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
+> Fixes: fe89bd2be866 ("riscv: Add KGDB support")
+> Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
+> Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
+> Signed-off-by: WangYuli <wangyuli@uniontech.com>
 > ---
->   arch/riscv/kernel/unaligned_access_speed.c | 35 +++++++++++++---------
->   1 file changed, 21 insertions(+), 14 deletions(-)
+> Changelog:
+>   *v1->v2:
+>      1. Add the missing __ASSEMBLY__ check and substitute
+> ".option rvc/norvc" with ".option push/pop".
+>    v2->v3:
+>      1. Remove "extern".
+>      2. Restore the inadvertently deleted .option norvc to prevent
+> a change in semantics.
+> ---
+>   arch/riscv/include/asm/kgdb.h | 9 +--------
+>   arch/riscv/kernel/kgdb.c      | 9 +++++++++
+>   2 files changed, 10 insertions(+), 8 deletions(-)
 >
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index 585d2dcf2dab..b8ba13819d05 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -439,29 +439,36 @@ static int __init check_unaligned_access_all_cpus(void)
->   {
->   	int cpu;
+> diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
+> index 46677daf708b..cc11c4544cff 100644
+> --- a/arch/riscv/include/asm/kgdb.h
+> +++ b/arch/riscv/include/asm/kgdb.h
+> @@ -19,16 +19,9 @@
 >   
-> -	if (unaligned_scalar_speed_param == RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN &&
-> -	    !check_unaligned_access_emulated_all_cpus()) {
-> -		check_unaligned_access_speed_all_cpus();
-> -	} else {
-> -		pr_info("scalar unaligned access speed set to '%s' by command line\n",
-> -			speed_str[unaligned_scalar_speed_param]);
-> +	if (unaligned_scalar_speed_param != RISCV_HWPROBE_MISALIGNED_SCALAR_UNKNOWN) {
-> +		pr_info("scalar unaligned access speed set to '%s' (%lu) by command line\n",
-> +			speed_str[unaligned_scalar_speed_param], unaligned_scalar_speed_param);
->   		for_each_online_cpu(cpu)
->   			per_cpu(misaligned_access_speed, cpu) = unaligned_scalar_speed_param;
-> +	} else if (!check_unaligned_access_emulated_all_cpus()) {
-> +		check_unaligned_access_speed_all_cpus();
-> +	}
-> +
-> +	if (unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN) {
-> +		if (!has_vector() &&
-> +		    unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED) {
-> +			pr_warn("vector support is not available, ignoring unaligned_vector_speed=%s\n",
-> +				speed_str[unaligned_vector_speed_param]);
-> +		} else {
-> +			pr_info("vector unaligned access speed set to '%s' (%lu) by command line\n",
-> +				speed_str[unaligned_vector_speed_param], unaligned_vector_speed_param);
-> +		}
->   	}
+>   #ifndef	__ASSEMBLY__
 >   
->   	if (!has_vector())
->   		unaligned_vector_speed_param = RISCV_HWPROBE_MISALIGNED_VECTOR_UNSUPPORTED;
+> +void arch_kgdb_breakpoint(void);
+>   extern unsigned long kgdb_compiled_break;
 >   
-> -	if (unaligned_vector_speed_param == RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN &&
-> -	    !check_vector_unaligned_access_emulated_all_cpus() &&
-> -	    IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
-> -		kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> -			    NULL, "vec_check_unaligned_access_speed_all_cpus");
-> -	} else {
-> -		pr_info("vector unaligned access speed set to '%s' by command line\n",
-> -			speed_str[unaligned_vector_speed_param]);
-> +	if (unaligned_vector_speed_param != RISCV_HWPROBE_MISALIGNED_VECTOR_UNKNOWN) {
->   		for_each_online_cpu(cpu)
->   			per_cpu(vector_misaligned_access, cpu) = unaligned_vector_speed_param;
-> +	} else if (!check_vector_unaligned_access_emulated_all_cpus() &&
-> +		   IS_ENABLED(CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS)) {
-> +		kthread_run(vec_check_unaligned_access_speed_all_cpus,
-> +			    NULL, "vec_check_unaligned_access_speed_all_cpus");
->   	}
+> -static inline void arch_kgdb_breakpoint(void)
+> -{
+> -	asm(".global kgdb_compiled_break\n"
+> -	    ".option norvc\n"
+> -	    "kgdb_compiled_break: ebreak\n"
+> -	    ".option rvc\n");
+> -}
+> -
+>   #endif /* !__ASSEMBLY__ */
 >   
->   	/*
+>   #define DBG_REG_ZERO "zero"
+> diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
+> index 2e0266ae6bd7..7f2d3d956167 100644
+> --- a/arch/riscv/kernel/kgdb.c
+> +++ b/arch/riscv/kernel/kgdb.c
+> @@ -254,6 +254,15 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
+>   	regs->epc = pc;
+>   }
+>   
+> +noinline void arch_kgdb_breakpoint(void)
+> +{
+> +	asm(".global kgdb_compiled_break\n"
+> +	    ".option push\n"
+> +	    ".option norvc\n"
+> +	    "kgdb_compiled_break: ebreak\n"
+> +	    ".option pop\n");
+> +}
 
 
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-I'll wait for Geert feedback before picking it.
+You are fixing 2 things here, you need to split this patch into 2. And 
+as noted by Palmer, we actually don't need norvc here, so you can remove 
+it instead.
 
 Thanks,
 
-alex
+Alex
 
 
-
-
+> +
+>   void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
+>   				char *remcom_out_buffer)
+>   {
 
 _______________________________________________
 linux-riscv mailing list
