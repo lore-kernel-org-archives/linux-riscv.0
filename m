@@ -4,99 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D72CCC3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 03:48:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42497C369A4
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 03:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8xeDarZOouwWDrldJ6EiZLW2QVgsN8ZtHFLzGSo/ivY=; b=KTE3bCz58l+LZP
-	8elE8IEQ8FOvzRs4KRViUtz+ZS6Cp16ny5sHcfO+N+FdVia+MsROdbGPrByGBGSyvsTbbWVznKn43
-	0HZypMeeS8DaTIGmhI8XQ+kqhcOgGmb33x5nw258XzMd9sIIn+eSP70LNuO+OUJgJ/Gk+hbbb5aJQ
-	U9P9ir1UmTiPtjQqpYsnTFM5WHdKjrfyHmtIxjFpDsEJoEuA5H975csBT7OquWzNhhT0DfSdEvbDP
-	DuidW3d5i9x1EJckvpnzcWkBxZYfrH9eF6pNAnx1BNNoivWmsDyF85lze+KFiZOCsbwnhWpMSHck6
-	H6E7a3tTrr47mYLlCn3Q==;
+	List-Owner; bh=dHXoWODmE9dXXyix3se+113cI/EPg0gIfY2HCy5ajgs=; b=B5Ey3abMl004b3
+	WgO4RhEDK5oBZhLEFZokgp5jeWPXgPXNQ14NC4mMB3DbSWkm77QLfLheNiyWPtSfFqizgolL4Y1q5
+	QIuLHWm+gf75jcQVGSRgBToqbDnv4yh6BiNjoZjmTMqz07UUNr9/Zr/rpmO4DuTyiNOjzq2ClmvWg
+	dSNF40TfcLOflxnUJqMwe3sO93nScDN/25CSCwch9OKAQmKfdFzK9zYef8ouSjlUYVGgh8brVsUmR
+	6i/eJAUV9hJbW2it1CMHXTHSrFUIH5Wq6az5TVo65ljlerFp+cMeIjeah84ZnbDyfyjBTutHpX4Vl
+	EXlrE0zFbdLS95bMCbFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2itK-000000098rv-48Rk;
-	Thu, 10 Apr 2025 03:47:51 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1u2j18-000000099m8-1N2x;
+	Thu, 10 Apr 2025 03:55:54 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2itI-000000098rX-1KUT
+	id 1u2j15-000000099le-0hqd
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 03:47:49 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c59e7039eeso58093585a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 20:47:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744256867; x=1744861667; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nl2Sw4bxxEHiJQNxloPaBGado/8eDTdeu7twZOJULCU=;
-        b=L7wAKiIu/fNcZ70VA3b31VQiPadJ4tL2cw/g+FpMae8AFw0H0wmfiO+BsCy+LTmxfh
-         QKQOq2TF0nptTTSzvUfq0v4ZI0nED5zU+NayuWN+bN4JzUs7x6cSU4TIC5NnLJiG13xQ
-         hHgbgaBRRNzpJbORDzn1OGhM7oBRUi3HqTm3nTZjwf/5u+uIJ8OMNMp/URjK3fDzDpt+
-         2YqtW410FRvMBtFLSPDmG8U/W4qCMZXQu+9IKWrW2iFejgeNV2V9pitPalh6Ww899/Pj
-         uw/MvLxOSypNczhViJRROcfO3vZ5mNBb9sSYV5W/eeLLkXzbYDCaEFEIoHuIBeO/AMNd
-         uAAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744256867; x=1744861667;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nl2Sw4bxxEHiJQNxloPaBGado/8eDTdeu7twZOJULCU=;
-        b=Z1l64AvdyecKYqxCJeNN9Z+C99Vt3lC4KIfoica/bLDjyDCnyLwFCrjrHnkOJsnE20
-         eb7eIrn6Uzmy9lkrGRhuQ+FmgLwv0EkVcGdRT25vkc41VDQ6QH7HGN6kH4AXSbN5+dY+
-         0uLUkRCScwlBbCzPP2HnBkNYMYcULu0ZvyDhPBqH4WpEF8rMmAWRxHgnxdXxmr+nZ3rE
-         g2pvJxxiVr8rmoJULZL5IcKUU5dvz1Ck5vevdUtdpDdBYfFNxZBROiQZfFndYte0q5bh
-         s/9Ir8Se1XbOhe5l5PUhCG1jkEIfStlgQ12bMc8d/b/TdRKKN8NNpP5V8m7s0IMEdRzF
-         27Rg==
-X-Forwarded-Encrypted: i=1; AJvYcCUa1cTRO5sW9IHK4fhYQ1pDRSjdTTAYmJCg8LFD7/HoFIEyVKlQYwJXVkkX8CfFP/LtIl+XROSj7NKGhQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCT3wURzPc2ufAq+WC2ZY8vXULaJo04QNdooiaTGGOhalre3/p
-	K+dxsXs1hegDpT5bf0BUgEPx2f3D7j14tbI6US3IutJQWnlo9CV7
-X-Gm-Gg: ASbGnctGFV1ons7NgwLDxRwF56XowKiZDjDHUNCmFuNH7PWe87NeUEiSJOvNkKl/7YW
-	u/T8/muh5wOrJwxv6KTWYIyqReqCZOiOkB+sXBD5iOY0RT6K87J3K4/StLbh4kwBXjnTGROZO/h
-	HaJlcTKtkeGVpQNtvbI9IVpCJvJdAJ6LojbC5O86wg4mzBD/TxuKuSHyFAdLPKP7pfBZdvoOMI2
-	MhZ1eZmhMzCCaa4SBm2vcDxZKfsxbdA0G4qOQ6WiP1dUnlIp7Ax38NHShZ/xj35BAaZjbZ9TTbp
-	GLZjlGJV7UqYSMgz
-X-Google-Smtp-Source: AGHT+IHFC2Rk9C/yn6FcOPV21K6GfuBdCrrACTPvQR733CaBYV/6ZYW0J+2NXRDP1n9a2LO4HgQDkg==
-X-Received: by 2002:a05:620a:2943:b0:7c7:a555:4a11 with SMTP id af79cd13be357-7c7a76c22dcmr202020785a.44.1744256867149;
-        Wed, 09 Apr 2025 20:47:47 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c7a8942eecsm27221785a.17.2025.04.09.20.47.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 20:47:46 -0700 (PDT)
-Date: Thu, 10 Apr 2025 11:47:07 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Haylen Chu <heylenay@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
-	Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+	Thu, 10 Apr 2025 03:55:52 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id DA9E012FB450;
+	Wed, 09 Apr 2025 20:55:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1744257347; bh=wgjhY07JmOy0jeSsmsRiIIIvXV7/C2jnGirbmw6AC1E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=3Kmi5CVo1pMM+cd4RUcdTA6+WpKsl0sw2hNQlSCy90nobFIE+EdyvMqIz6qIt4xQO
+	 YoTjiReLhoHljyR09alsRvWxb3TgOf4P/s+S6Ef6zg+tJR2RPvBN/Wq/tNrkPxodRu
+	 fGHlGf3Txa2lMG5UVTaHvjQ3SBfD0+GutoUrhAb0T3TOoBsWxsGCk5M+VfrLj3q5/Y
+	 1bESY89v/TcRJWPKoLO0vUgMn6QFYoLPuI/67VwCe4xKkYz2HPNF9ze+tOnf79ReCi
+	 Uly9/mPaTH9gtaDoq8W5R/q39GH0o7imlIF+ryVhMi71V1tHOZJRjekhXdbMI5MggS
+	 t+rIQ0CFtVNRQ==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id jhOuNXDkq9mH; Wed,  9 Apr 2025 20:55:44 -0700 (PDT)
+Received: from ketchup (unknown [183.217.80.181])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 315EE12FB430;
+	Wed, 09 Apr 2025 20:55:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1744257343; bh=wgjhY07JmOy0jeSsmsRiIIIvXV7/C2jnGirbmw6AC1E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bFhdk/0+xneP8C6zaGA5j01SWTc7DIUXqS/VuSlQUu4ehDqhS3QvyZhq5ptAYjPdH
+	 cX0I/pts2QfuFIBRyNb/HBBp/fP58CyMASAWv9UdQlZLVRGCy3zG7yL82crz3yqirn
+	 q2zHi9dKvljxJUHDx2c7nzjTCNdziqtptMJFnSPMRHfDjdfBxDdvOnTp9u6/8x/FsZ
+	 1lIKbBYHkS6WWrf/JQTjcWHOCQaQ+V8rX1IEqtake5D7QlKb+ax32R0QXVFISjyWqZ
+	 ZvlHkA8f1CP0Oivlu9ZLF0voR6TbDuB3c+2+3Of4aN4luSGCOdOghiUAVNusVArIUj
+	 PgAJv0BcxQbcw==
+Date: Thu, 10 Apr 2025 03:55:35 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
 Subject: Re: [PATCH v6 3/6] clk: spacemit: Add clock support for SpacemiT K1
  SoC
-Message-ID: <f7cun6vh6lv7q2qdgba4a55wjv3v2pldl22xnrqxnurj3jlyk7@mvafnye3wv7m>
+Message-ID: <Z_dBN6b8LfeMq1gz@ketchup>
 References: <20250401172434.6774-1-heylenay@4d2.org>
  <20250401172434.6774-4-heylenay@4d2.org>
- <8fe0aaaa-b8e9-45dd-b792-c32be49cca1a@riscstar.com>
- <20250410003756-GYA19359@gentoo>
- <dm4lwnplwcxj3t3qx3a3bdxtziowjfoqdy4vrd3ahmzkhejrov@fa5rujatatew>
- <z27ri5eue43ti6b2te2cbxiow66mtgbnyudoo5cs4quabgbx5r@uipzoxvfoysi>
- <a8e5adca-8eff-4bbb-a7fa-ce4489b63fa5@riscstar.com>
- <sl752im2sn5sz6yzc23ctprh3rwryuhgtggsaauxixn3b267ag@6sf5fahu6b5i>
- <20250410015549-GYA19471@gentoo>
+ <20250410005522-GYB19359@gentoo>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250410015549-GYA19471@gentoo>
+In-Reply-To: <20250410005522-GYB19359@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_204748_400009_E177A75C 
-X-CRM114-Status: GOOD (  35.58  )
+X-CRM114-CacheID: sfid-20250409_205551_548842_1CD83056 
+X-CRM114-Status: GOOD (  27.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,70 +104,97 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 01:55:49AM +0000, Yixun Lan wrote:
-> Hi Inochi,
-> 
-> On 09:20 Thu 10 Apr     , Inochi Amaoto wrote:
-> > On Wed, Apr 09, 2025 at 08:10:53PM -0500, Alex Elder wrote:
-> > > On 4/9/25 7:57 PM, Inochi Amaoto wrote:
-> > > > > > > > diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
-> > > > > > > > new file mode 100644
-> > > > > > > > index 000000000000..4c4df845b3cb
-> > > > > > > > --- /dev/null
-> > > > > > > > +++ b/drivers/clk/spacemit/Kconfig
-> > > > > > > > @@ -0,0 +1,18 @@
-> > > > > > > > +# SPDX-License-Identifier: GPL-2.0-only
-> > > > > > > > +
-> > > > > > > > +config SPACEMIT_CCU
-> > > > > > > > +	tristate "Clock support for SpacemiT SoCs"
-> > > > > > > I don't know the answer to this, but...  Should this be a Boolean
-> > > > > > > rather than tristate?  Can a SpacemiT K1 SoC function without the
-> > > > > > > clock driver built in to the kernel?
-> > > > > > > 
-> > > > > > I agree to make it a Boolean, we've already made pinctrl driver Boolean
-> > > > > > and pinctrl depend on clk, besides, the SoC is unlikely functional
-> > > > > > without clock built in as it's such critical..
-> > > > > > 
-> > > > > I disagree. The kernel is only for spacemit only, and the pinctrl
-> > > > Sorry for a mistake, this first "only" should be "not".
-> > > 
-> > > This is a general problem.  You can't make a bootable
-> > > SpacemiT kernel unless you define this as built-in (at
-> > > least, that's what Yixun is saying). 
+On Thu, Apr 10, 2025 at 12:55:22AM +0000, Yixun Lan wrote:
+> On 17:24 Tue 01 Apr     , Haylen Chu wrote:
+> > The clock tree of K1 SoC contains three main types of clock hardware
+> > (PLL/DDN/MIX) and has control registers split into several multifunction
+> > devices: APBS (PLLs), MPMU, APBC and APMU.
 > > 
-> > Why not putting the module in the initramfs? I have tested
-> > this in quite a lot of boards (Allwinner, rockchip, sophgo,
-> > starfive and etc.), all of them work well.
+> > All register operations are done through regmap to ensure atomiciy
+> > between concurrent operations of clock driver and reset,
+> > power-domain driver that will be introduced in the future.
 > > 
-> it works, but not optimal, why delay clk initialzation at modules load stage?
-> IMO, it brings more overhead for using initramfs..
-> 
-> but there is always tradeoff and bikeshedding..
-> 
-> > > But we'd really rather *only* build it in to the kernel
-> > > for SpacemiT builds. You clearly want to minimize what
-> > > must be built in, but what if this is indeed required?
-> > > What goes in defconfig?
-> > > 
+> > Signed-off-by: Haylen Chu <heylenay@4d2.org>
+> > ---
+> >  drivers/clk/Kconfig               |    1 +
+> >  drivers/clk/Makefile              |    1 +
+> >  drivers/clk/spacemit/Kconfig      |   18 +
+> >  drivers/clk/spacemit/Makefile     |    5 +
+> >  drivers/clk/spacemit/apbc_clks    |  100 +++
+> >  drivers/clk/spacemit/ccu-k1.c     | 1316 +++++++++++++++++++++++++++++
+> >  drivers/clk/spacemit/ccu_common.h |   48 ++
+> >  drivers/clk/spacemit/ccu_ddn.c    |   83 ++
+> >  drivers/clk/spacemit/ccu_ddn.h    |   47 ++
+> >  drivers/clk/spacemit/ccu_mix.c    |  268 ++++++
+> >  drivers/clk/spacemit/ccu_mix.h    |  218 +++++
+> >  drivers/clk/spacemit/ccu_pll.c    |  157 ++++
+> >  drivers/clk/spacemit/ccu_pll.h    |   86 ++
+> >  13 files changed, 2348 insertions(+)
+> >  create mode 100644 drivers/clk/spacemit/Kconfig
+> >  create mode 100644 drivers/clk/spacemit/Makefile
+> >  create mode 100644 drivers/clk/spacemit/apbc_clks
+> >  create mode 100644 drivers/clk/spacemit/ccu-k1.c
+> >  create mode 100644 drivers/clk/spacemit/ccu_common.h
+> >  create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+> >  create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+> >  create mode 100644 drivers/clk/spacemit/ccu_mix.c
+> >  create mode 100644 drivers/clk/spacemit/ccu_mix.h
+> >  create mode 100644 drivers/clk/spacemit/ccu_pll.c
+> >  create mode 100644 drivers/clk/spacemit/ccu_pll.h
 > > 
-> > As defconfig is more like for a minimum example system. It
-> > is OK to put a y in the defconfig. But for a custom system,
-> > you do give a choice for the builder to remove your module
-> > in non spacemit system.
-> 
-> I get your meaning here to remove/disable at run time stage, while
-> we do provide compile time option, if don't want spacemit system
-> just disable CONFIG_ARCH_SPACEMIT I mentioned, clk/pinctrl will be gone
-> 
 
-I think this is not suitable for the most generic case, Especially
-for distribution kernel. They prefer to set almost everything as
-module, and load necessary module in initramfs, but the thing is as
-you said, it is a tradeoff. So I will wait and see whether there
-is any new voice for it.
+...
 
-Regards,
-Inochi
+> > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> > new file mode 100644
+> > index 000000000000..cd95c4f9c127
+> > --- /dev/null
+> > +++ b/drivers/clk/spacemit/ccu-k1.c
+> > @@ -0,0 +1,1316 @@
+
+...
+
+> > +/* APBC clocks start */
+> > +static const struct clk_parent_data uart_clk_parents[] = {
+> > +	CCU_PARENT_HW(pll1_m3d128_57p6),
+> > +	CCU_PARENT_HW(slow_uart1_14p74),
+> > +	CCU_PARENT_HW(slow_uart2_48),
+> > +};
+> > +CCU_MUX_GATE_DEFINE(uart0_clk, uart_clk_parents, APBC_UART1_CLK_RST, 4, 3,
+> > +		    BIT(1), CLK_IS_CRITICAL);
+> I'd request adding an explict documents for why need CLK_IS_CRITICAL flag
+> (there are more place, I won't add comments)
+> 
+> Can you check this one? I think it's probably not necessary here,
+> I can understand your concern of afraid of serial console breakage once clk
+> driver merged, since we already enabled uart driver and using a dummy clk.. 
+> 
+> I think we probably could handle this carefully, sending an incrimental
+> patch of uart to enable clk along with clk merged..
+
+Yes, I've seen Alex's series on adding bus clocks to UART nodes and
+could then depend on the series and add the correct UART clocks in
+devicetree, then CLK_IS_CRITICAL to uart0_clk and uart0_bus_clk could go
+away.
+
+For other places applying CLK_IS_CRITICAL: it should be unnecessary for
+cpu_c1_hi_clk, which is only a possible parent of CPU cluster 1's clock.
+cci550_clk, cpu_c0_{core,ace,tcm}_clk and cpu_c1_{core,ace}_clk are
+clocks for CPU cores. I think there's no good way to describe the
+dependency in devicetree for now as we're lacking of a proper CPUfreq
+driver, so I'd like to keep them as is (and may add a comment).
+
+If there's a better way to handle these CPU clocks, I'd like to remove
+the CLK_IS_CRITICAL flag as well.
+
+> [...]
+> -- 
+> Yixun Lan (dlan)
+> Gentoo Linux Developer
+> GPG Key ID AABEFD55
+
+Thanks,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
