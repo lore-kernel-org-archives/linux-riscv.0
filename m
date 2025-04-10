@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61C41C3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 16:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A491C3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 17:53:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NJIf9WGlY6cCtfi2XKl+c83RokNtQIrxuhEtWv1UMwQ=; b=1fTJeqHFL3Gk7R
-	AaFa6zM+A4vTyJlqLeNQORfNq5IU4aMuSnQUJoZXt/GSy2cQTQGj1dvRWwlYf6BSwG0ojP6v4JjZD
-	Qu/9jVEyhz5aSP4GVkwzTGeLxPx1YIS4tLADZi4cv8dS/R5zs9j3X9Ql+SnByR8Qi81DHmenXS+b4
-	UZk4StUeU5b6hivVylNygnKFD1b7NiRaNguhaiRwn1uG372FKSkQZJUIA3dN5cyT6m2/46+3e0vcH
-	V1wGfT8SJbLe6OJg+/ADPEtlpA8YoGK5u2aT9E/qicO7bNuICkEqjTfvAgmgIfxT8DlFK6rwIEGX3
-	L5Go66igIXFSEmeaFPMA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Rp5ky7l5Ysvaw9QglbYJJ1u9lotfvovGP7VYe4D9Xq8=; b=IjhEJNkgTr8cP2
+	IPWcZ+JKPcQ7/mHbo9sNxUUDPO116gLQL1Ndz68Va+PsMTdPjp3k2wO1LoJVnOAL+FhmNXzPHTYxx
+	V0E2UiYujNeH3KCfMaoQPivGlQ+lwxh8+K4de/viLJfWxex1Nrg9Gkgs1mFLH7pTzVzMc9zBEOp1y
+	ye9acWcF/078vSDbdC8ztHwt1cEZXbuZBlIj9xGlzYCT474KeaJj06q62E3MtSmpuVC7TwdjeX0h4
+	xvAxzA857T/0xCI8aQ0VtrczIwDZs+RgR6jIYJ39aPiJgJ2S4fnBS4sDIjyxu6DkFuw2qefd/w0xd
+	kFcK/8GPk0Q8knnihrfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ugj-0000000BA7T-42pF;
-	Thu, 10 Apr 2025 16:23:37 +0000
-Received: from naesa05.arrow.com ([216.150.161.26])
+	id 1u2w5H-0000000BS61-2s6y;
+	Thu, 10 Apr 2025 17:53:03 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2tmQ-0000000B0RB-1cbM
+	id 1u2vBA-0000000BHI3-13AS
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 15:25:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=einfochips.com; i=@einfochips.com; l=2930; q=dns/txt;
-  s=NAESA-Selector1; t=1744298727; x=1775834727;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=wTMglkbKtKlUQaNdqRRsMnBsbEkE93BSbw4z93ZZKIk=;
-  b=QrAymc7868vsCtuV7jI0chY21a7XlWJdDieKTNUBAJ5jEZJn6V/Bx6C+
-   XDUSIno6Y8aYhdzB8M96RwTnuGPwb728GQoAuaDsgq9N8kPByPxLKcgiC
-   63b9tOe2i/qVK3dRTMEfspzIxjkdNOXSIR87BwZ58HPwh7rSQnUpAoX8V
-   5+uoHsDsQt3QscwrTlCFqk+NkeaWZdjGxkkgJT3+d8sUaoQPPA+npP1Y/
-   86+ILXVG+bVONajjOV+rh8XR/1G+YGJ34ao+koTLe3M2jvEGVqzttlIXq
-   EsK81U2/qBY5bVpAluoRG5xt2fE7PU21xmOFlcvvcjnEPIbg5wXrqcp4u
-   A==;
-X-CSE-ConnectionGUID: abq/A8neRh2C4UhefWauLQ==
-X-CSE-MsgGUID: E/VmQqY5T6m1wLlA9INYtA==
-X-IronPort-AV: E=Sophos;i="6.15,202,1739862000"; 
-   d="scan'208";a="22515069"
-Received: from unknown (HELO eicahmirelay01.einfochips.com) ([10.100.49.50])
-  by naesa05out.arrow.com with ESMTP; 10 Apr 2025 09:25:21 -0600
-Received: from AHMCPU1888.ap.corp.arrow.com ([172.25.5.100]) by eicahmirelay01.einfochips.com with Microsoft SMTPSVC(10.0.14393.4169);
-	 Thu, 10 Apr 2025 20:55:19 +0530
-From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-To: Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Thu, 10 Apr 2025 16:55:06 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 4E37B25DC2;
+	Thu, 10 Apr 2025 18:54:59 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id AYPDpyDU1__h; Thu, 10 Apr 2025 18:54:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1744304098; bh=6ILYwxPk1uunko0MaW2WhQjFVnHa2NU28ADIkv7zU0I=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Yo8ar9evgyQErWgB1u5lLqMaQwD2Tvr49FX66uZuDCTl8NPdVDfVFghZ4W9R6Gaxm
+	 Mz8mOJ0fGzWLWCUY0rhuPrixJ/IrZKiluPQB2r8KYQGfrYo1YJ68jTB+42CH+QqzR5
+	 wL9VTnl1vk+oIEavqYHofGrzOerTvx699vl53+cHVL4KxLG+5QFds2oDzwlVbfbhgV
+	 X+sSce8U4eEU7g0rugNQjHKUJ7eE5xg6N5FPXz8OFAsjly+tCL9Wuca8uD/jK9bTA0
+	 cMRYSw+X+jr4d3UZMHOdQNkBTF+GHaiTzy8HTUuzI6GYBzdUOcd5sLvYbX32itR7TF
+	 1sFQCOSmXIc2A==
+Date: Thu, 10 Apr 2025 16:54:42 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Icenowy Zheng <uwu@icenowy.me>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Aradhya Bhatia <a-bhatia1@ti.com>,
-	rafal@milecki.pl,
-	Anup Patel <anup@brainfault.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Michael Zhu <michael.zhu@starfivetech.com>,
+	Drew Fustini <drew@beagleboard.org>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 00/10] Basic device tree support for ESWIN EIC7700 RISC-V SoC
-Date: Thu, 10 Apr 2025 20:55:09 +0530
-Message-Id: <20250410152519.1358964-1-pinkesh.vaghela@einfochips.com>
-X-Mailer: git-send-email 2.25.1
+Subject: Re: [PATCH 2/2] riscv: dts: starfive: add DT for Orange Pi RV
+Message-ID: <Z_f30vAuATR1DCWk@pie>
+References: <20250409091801.855083-1-uwu@icenowy.me>
+ <20250409091801.855083-2-uwu@icenowy.me>
 MIME-Version: 1.0
-X-OriginalArrivalTime: 10 Apr 2025 15:25:19.0568 (UTC) FILETIME=[C4DD4500:01DBAA2C]
+Content-Disposition: inline
+In-Reply-To: <20250409091801.855083-2-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_082526_492186_08BA6588 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20250410_095504_848668_AA3158B5 
+X-CRM114-Status: GOOD (  19.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,77 +80,144 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
-P550 CPU cluster and the first development board that uses it, the
-SiFive HiFive Premier P550.
+On Wed, Apr 09, 2025 at 05:18:01PM +0800, Icenowy Zheng wrote:
+> Orange Pi RV is a newly released SBC with JH7110 SoC, single GbE port
+> (connected to JH7110 GMAC0 via a YT8531 PHY), 4 USB ports (via a VL805
+> PCIe USB controller connected to JH7110 PCIE0), a M.2 M-key slot
+> (connected to JH7110 PCIE1), a HDMI video output, a 3.5mm audio output
+> and a microSD slot.
+> 
+> Onboard peripherals contain a SPI NOR (which contains the U-Boot
+> firmware) and an Ampak AP6256 SDIO Wi-Fi module.
+> 
+> As the schematics isn't available yet, the SDIO Wi-Fi is left disabled
+> yet.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  arch/riscv/boot/dts/starfive/Makefile         |  1 +
+>  .../boot/dts/starfive/jh7110-orangepi-rv.dts  | 73 +++++++++++++++++++
+>  2 files changed, 74 insertions(+)
+>  create mode 100644 arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
+> 
+> diff --git a/arch/riscv/boot/dts/starfive/Makefile b/arch/riscv/boot/dts/starfive/Makefile
+> index b3bb12f78e7d5..24f1a44828350 100644
+> --- a/arch/riscv/boot/dts/starfive/Makefile
+> +++ b/arch/riscv/boot/dts/starfive/Makefile
+> @@ -10,6 +10,7 @@ dtb-$(CONFIG_ARCH_STARFIVE) += jh7100-starfive-visionfive-v1.dtb
+>  
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-deepcomputing-fml13v01.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-milkv-mars.dtb
+> +dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-orangepi-rv.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-pine64-star64.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.2a.dtb
+>  dtb-$(CONFIG_ARCH_STARFIVE) += jh7110-starfive-visionfive-2-v1.3b.dtb
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
+> new file mode 100644
+> index 0000000000000..bde01f117e0b2
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-orangepi-rv.dts
+> @@ -0,0 +1,73 @@
+> +// SPDX-License-Identifier: GPL-2.0 OR MIT
+> +/*
+> + * Copyright (C) 2025 Icenowy Zheng <uwu@icenowy.me>
+> + */
+> +
+> +/dts-v1/;
+> +#include "jh7110-common.dtsi"
+> +#include <dt-bindings/leds/common.h>
+> +
+> +/ {
+> +	model = "Xunlong Orange Pi RV";
+> +	compatible = "xunlong,orangepi-rv", "starfive,jh7110";
+> +
+> +	leds {
+> +		compatible = "gpio-leds";
+> +
+> +		led-ack {
+> +			gpios = <&aongpio 3 GPIO_ACTIVE_HIGH>;
+> +			color = <LED_COLOR_ID_GREEN>;
+> +			function = LED_FUNCTION_HEARTBEAT;
+> +			linux,default-trigger = "heartbeat";
+> +			label = "ack";
 
-This patch series adds initial device tree and also adds ESWIN
-architecture support.
+Should we sort the properties in alphabet order? i.e. color, function,
+gpios, label then linux,default-trigger. See dts-coding-style.rst,
 
-Boot-tested using intiramfs with Linux 6.15.0-rc1 on HiFive Premier
-P550 board using U-Boot 2024.01 and OpenSBI 1.4.
+> The following order of properties in device nodes is preferred:
+>
+> 1. "compatible"
+> 2. "reg"
+> 3. "ranges"
+> 4. Standard/common properties (defined by common bindings, e.g. without
+> vendor-prefixes)
+> 5. Vendor-specific properties
+> 6. "status" (if applicable)
+> 7. Child nodes, where each node is preceded with a blank line
 
-Changes in v3:
-- Rebased the patches to kernel 6.15.0-rc1
-- Added "Reviewed-by" tag of "Rob Herring" for Patch 4
-- Updated MAINTAINERS file
-  - Add GIT tree URL
-- Updated DTSI file
-  - Added "dma-noncoherent" property to soc node
-  - Updated GPIO node labels in DTSI file
-- Link to v2: https://lore.kernel.org/lkml/20250320105449.2094192-1-pinkesh.vaghela@einfochips.com/
+> +		};
+> +	};
+> +};
+> +
+> +&gmac0 {
+> +	starfive,tx-use-rgmii-clk;
+> +	assigned-clocks = <&aoncrg JH7110_AONCLK_GMAC0_TX>;
+> +	assigned-clock-parents = <&aoncrg JH7110_AONCLK_GMAC0_RMII_RTX>;
+> +	status = "okay";
 
-Changes in v2:
-- Added "Acked-by" tag of "Conor Dooley" for Patches 1, 2, 3, 7 and 8
-- Added "Reviewed-by" tag of "Matthias Brugger" for Patch 4
-- Updated MAINTAINERS file
-  - Add the path for the eswin binding file
-- Updated sifive,ccache0.yaml
-  - Add restrictions for "cache-size" property based on the
-    compatible string
-- Link to v1: https://lore.kernel.org/lkml/20250311073432.4068512-1-pinkesh.vaghela@einfochips.com/
+Vendor property starfive,tx-use-rgmii-clk should go after the common
+ones.
 
-Darshan Prajapati (3):
-  dt-bindings: riscv: Add SiFive P550 CPU compatible
-  dt-bindings: interrupt-controller: Add ESWIN EIC7700 PLIC
-  dt-bindings: timer: Add ESWIN EIC7700 CLINT
+> +};
+> +
+> +&i2c0 {
+> +	status = "okay";
+> +};
+> +
+> +&mmc0 {
+> +	/* TODO: Ampak AP6256 Wi-Fi module attached here */
+> +	status = "disabled";
+> +};
+> +
+> +&mmc1 {
+> +	/delete-property/ cd-gpios;
+> +	broken-cd;
+> +};
+> +
+> +&pcie0 {
+> +	status = "okay";
+> +};
+> +
+> +&pcie1 {
+> +	status = "okay";
+> +};
+> +
+> +&phy0 {
+> +	motorcomm,tx-clk-adj-enabled;
+> +	motorcomm,tx-clk-10-inverted;
+> +	motorcomm,tx-clk-100-inverted;
+> +	motorcomm,tx-clk-1000-inverted;
+> +	motorcomm,rx-clk-drv-microamp = <3970>;
+> +	motorcomm,rx-data-drv-microamp = <2910>;
+> +	rx-internal-delay-ps = <1500>;
+> +	tx-internal-delay-ps = <1500>;
+> +};
 
-Min Lin (2):
-  riscv: dts: add initial support for EIC7700 SoC
-  riscv: dts: eswin: add HiFive Premier P550 board device tree
+Ditto, move the vendor properties below the common ones.
 
-Pinkesh Vaghela (2):
-  riscv: Add Kconfig option for ESWIN platforms
-  cache: sifive_ccache: Add ESWIN EIC7700 support
+> +&pwmdac {
+> +	status = "okay";
+> +};
+> +
+> +&spi0 {
+> +	status = "okay";
+> +};
+> -- 
+> 2.49.0
+> 
 
-Pritesh Patel (3):
-  dt-bindings: vendor-prefixes: add eswin
-  dt-bindings: riscv: Add SiFive HiFive Premier P550 board
-  dt-bindings: cache: sifive,ccache0: Add ESWIN EIC7700 SoC
-    compatibility
-
- .../bindings/cache/sifive,ccache0.yaml        |  44 ++-
- .../sifive,plic-1.0.0.yaml                    |   1 +
- .../devicetree/bindings/riscv/cpus.yaml       |   1 +
- .../devicetree/bindings/riscv/eswin.yaml      |  29 ++
- .../bindings/timer/sifive,clint.yaml          |   1 +
- .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
- MAINTAINERS                                   |   9 +
- arch/riscv/Kconfig.socs                       |   6 +
- arch/riscv/boot/dts/Makefile                  |   1 +
- arch/riscv/boot/dts/eswin/Makefile            |   2 +
- .../dts/eswin/eic7700-hifive-premier-p550.dts |  29 ++
- arch/riscv/boot/dts/eswin/eic7700.dtsi        | 345 ++++++++++++++++++
- drivers/cache/sifive_ccache.c                 |   2 +
- 13 files changed, 469 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
- create mode 100644 arch/riscv/boot/dts/eswin/Makefile
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
- create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
-
--- 
-2.25.1
-
+Best regards,
+Yao Zi
 
 _______________________________________________
 linux-riscv mailing list
