@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F34BC3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:38:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE490C369A2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+WRMTm5n9vjpjLY+cA0wBOTzvcLny4cuYR6T6NDo8kQ=; b=mV5hzRABnXMKQw
-	l8rQGXzjSkjY/5XBeNPrSL4Mnk1+/xsF/MNDLZ+plSh6GaK8qFpSeJQFEpm6X3knpF4en0U3gfk4T
-	GDNBXyqE6jjnPFKw/ks0zbo6wf6Ult+FY4w+EjsferhzHH/mEH3EMsYWQ3DBD9zauo0xnRvfTR8AP
-	YG+SvFzYE288IZgKpvNCdtxUyUf+ricRvTnTSdNLuEkbQmXe+o3Qs1rci9KBQYbPMv02vA4EIZ6sX
-	TLO0LOiQC0qm5rOTTTKr7926SRpTtGn0D0dhxxXGSKiKN2erznaJi1F1UitQYP+/e2vnUly2HhbXP
-	dUaQqLciWsgWFeQDIa3A==;
+	List-Owner; bh=UDvke3uPEAQf1rtbvJs2p0QGWGOo1WCfkTk6mSJIkPo=; b=Me2wSEUS3/xFAU
+	aImIPApQSTdMMvIc7PG0Ws+pBUJGjzsa8AfGEOGgwPVHYYyX3O5SHzF+bBzlxZRsmPXzG/ARLcXKQ
+	eEwaxbwEFVwgQ/19COQt18PLvYpLwtT5xUGatenHFC0RWNRk/YI6kTBGkHrcidDlFE0ct73kiooTp
+	wuvP/c72jY2dVjvon+eEwbhQ3K7shboAW1GseisBlrrepdtW18nfFe0lw0/MM0ChIMKe1UTWdaQ7M
+	hpmiLawWtbHHiFzy+52S6xrfoG4+P1tw7OZQBik7Qy73EwF/3KkCbx46AS23J7CTvW+wo3nYpzyZu
+	zBXPTdTvUzbbQ263IOXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mUS-00000009ala-0HFo;
-	Thu, 10 Apr 2025 07:38:24 +0000
-Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
+	id 1u2mUR-00000009al4-1f19;
+	Thu, 10 Apr 2025 07:38:23 +0000
+Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lye-00000009TAo-0UyG
+	id 1u2lyc-00000009TAF-38rF
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 07:05:33 +0000
-Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-3fa0eb29cebso925579b6e.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 00:05:31 -0700 (PDT)
+	Thu, 10 Apr 2025 07:05:32 +0000
+Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3f6ab1b8fc1so249867b6e.0
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 00:05:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1744268731; x=1744873531; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1744268729; x=1744873529; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Vvw7nYWiLBIqfTSpurYIsb0A2VRmihRadD2HqJzvOMM=;
-        b=cMkztjUw+mCF0myNDEJmJZmGeE6hw3RY5hy0PCOSBXWxVqwBj8Bl5MjNiFZdYhI4Ya
-         O8FBuHUUufXcHWFtdHie6RvHYSg9kd6KXn6AklefMxpRQNZUf+2NdayAhD/n3ZJmLRFr
-         QCJ5DxT6wc/K2+uHENr+nNKJUMvXL/MCWiwsFXnazl8704z2F4V+VxQqAYsSLpQiGNcc
-         MuHQm1WcpgYE7K1HX1XPCWs2H2pol6vLcMQYuxbmcjvjwfBrqDOYVLpvATQTe5X8Zc5n
-         FhRszGiSokIrU8xtGuAU9dRGXN1oGlPGqsTOOOMrHbUYNJVF568SXl0pZr+GeH/+9b45
-         D89g==
+        bh=qfj1lD5IvxBlvbEuJ/tOL+PNehQx5cdOKt7waVQamBc=;
+        b=Y/PRJCksebcnSpD+ZpjIqya5LX3U3SBxIbgKvzkA1XwB8/S+qH9tzGwW8mSTTCxhg1
+         LVuKnT+vIiqxz3t29QIUVG7IKI4gkABsKLo9ZdiFsdCZdO1w2MnLPNJKEeFkmMtTNImV
+         P4vPxG6GS6PHEAS75AUiMcfNkZzyeHw1Iazbvqt0EPkfol1hzTZengURLPaFMsTngnGQ
+         3Ao4TVrfo1R2BsQjTKlG/6OxQ97YdgAT1W3e80Q0KC2envrUrHc0K4U7JwQkd8Ia1uhC
+         sUKmm2zSokpy7Waw+kMIF7StsGTcYtBV6EvrknzLZGLtjsxyPaip+K/ER8UBEbro5wgD
+         DDQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744268731; x=1744873531;
+        d=1e100.net; s=20230601; t=1744268729; x=1744873529;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Vvw7nYWiLBIqfTSpurYIsb0A2VRmihRadD2HqJzvOMM=;
-        b=vZEzTm8m8U6QgtHOIGUwnYCSse+gKWyHIXKiphuB0241Dla2RhsxD1+beR6G9QFcPw
-         FEpznKgq8kguMkhwZcjZBwP/NfgWzpFSWnanadflR1ln26/kGzbIq5X/44sAYM+ThNKB
-         LJB8F5Vf2Yf7ePJk5X32H+psnjn9rb8PATy3izh91xn1zhGi7JPQoXLsKx1BXXPxANtU
-         7UMF4AayFWTCWE9DoI64K6pyszjj+frhMcJuh6u3IMPsg4HDKQ6nUsjApgHVH7gpD6m6
-         q0Nx3x3rOHSs2eA3VZe2V0ji+S9IsDNuMmPPNd8vFACWTMtKwDde3PnGJTjzHcwVeCLN
-         dcMg==
-X-Gm-Message-State: AOJu0YybJeBQs/qa4sFX4qxbeut255xJIQuT3uGgl4JIlS1CSfvcfhkq
-	+26y3+hO7tvTrLGfumjRR7Dj4Wj4MbetPXCjvo0gyqpBBQ2G+3bohF2s3h0Huw==
-X-Gm-Gg: ASbGncvTJT1LTt4Gle+OWTLK6zBzXXWtRKbJriDmQDfNDXbXFWytZHxAREQ9gw7nsQG
-	3TFi1tLlD3cESPrEEpJMjdqFFzM2Fng1hD+BEeWPfIUijnqLTJh6mLCWb7tAomIJrmcg++k15AM
-	m7aH1MFC1itOoH4hXeAY0xpM8qM2Qp9ofpRyi+PFbeQFGbJxkdQh/dEJy2toTglETjXMp9uNVpT
-	iAud4uzDqzYt47yz1dy560fFfap21lTCI+Ft47w7JRxmRiczIrcVabq9ZhynQE0ObZBYhAUOffE
-	TfbYCDopaQ9+FPKpVoIXfJk82eP33GHMC/7FuC4tIJ6lcqPfodf9RPeSFbTM7K/OTaZ6Qw==
-X-Google-Smtp-Source: AGHT+IF/4Hhe3gfMVMHnBMPKqqrqs5V8qr1hvivIjhC40n+SJ1Uz45EXIUL/JoOL6so0taxy89Y6cQ==
-X-Received: by 2002:a05:6808:11c1:b0:3f9:aeb6:6e92 with SMTP id 5614622812f47-4007bfe2744mr915328b6e.9.1744268730964;
-        Thu, 10 Apr 2025 00:05:30 -0700 (PDT)
+        bh=qfj1lD5IvxBlvbEuJ/tOL+PNehQx5cdOKt7waVQamBc=;
+        b=SaCBXL4JXhCL7H5XlCKVEOXoQvZFk1C4TOyc7yzU471x/D1+WyJIhZlFhnjoFnpvDK
+         ylf/uPTg5RVI6H86ee/WwVJ8YOKsppiYChOBD90arvNKSJjJDi0Z4SR6Y09H9WP1Wdy7
+         rwCp1ySM+HtSW1JAxuHjlGhuF2Vmz8gag4yHobLvaDslNoGM0nHhjGOka9dCFXVMMmyF
+         OR3HjCvJeH1hqyR4U/0cMBnZwN+a1Y6FQ895WoQdZJecMu16C1LiZpfbSQobSFoyNkrO
+         9vIGTPxFN2ZkLSe5TeZYhkSKDkCZJDndVqJZFHI7Brv7+VyMxJaNyvoCqG6IS0kL8k/B
+         uAaQ==
+X-Gm-Message-State: AOJu0YyNz/maoCWGioDzHXs5dfVxp5C5khs1u8C013OMHdJ/IBG2HlV0
+	eamWkzkpHivmvjEG0ou7P/46lNkgFk9zPHrvwEpB6D5TGgOn5vDeO5C1O8crnA==
+X-Gm-Gg: ASbGncueyTlhF2YR4XAnnILiWBIgEGpXIZ1ba+WZfmMBWPh1IyNrw6J0ZNElQ7bX4ch
+	CRMYEZfvXhgdnPFxYnCX3k9RYikwd8iIktYzWNJ1mAvPMO03eJlbRnazwPlXwdGjbI1+eiqsfSu
+	IFNMcr5zhzR93fhS2APl0cmVQlHnZv3uCK7YIWk28cYZt/e5I0JmqPi7HvDJkoJVMrqY0qesXeh
+	V76vTVqlm0ZqPpopO6J3UzV+yNKt4lHhxC57/Djtm5I4qRdxRj84A8+vVLNESKc7pQ8ojM1aqfg
+	rUdJbN7XCSP2Y9/zAhgOnV/tdVseI7KagMcjWcxqEacdb0Gp/0EiKocAPMw=
+X-Google-Smtp-Source: AGHT+IEq3/uj00FVp1Xbt3y1cXdeUi85YNR7lcgCj8wlN2GuL4uWrvH1Xd+HddZZQveM1t1bjtbp3Q==
+X-Received: by 2002:a05:6808:318b:b0:3f9:3de3:c8de with SMTP id 5614622812f47-4007cc7dbacmr654153b6e.12.1744268729571;
+        Thu, 10 Apr 2025 00:05:29 -0700 (PDT)
 Received: from aus-ird.tenstorrent.com ([38.104.49.66])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-40076282ce8sm461369b6e.9.2025.04.10.00.05.29
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40076282ce8sm461369b6e.9.2025.04.10.00.05.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 00:05:30 -0700 (PDT)
+        Thu, 10 Apr 2025 00:05:28 -0700 (PDT)
 From: Cyril Bur <cyrilbur@tenstorrent.com>
 To: palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
@@ -77,17 +77,18 @@ To: palmer@dabbelt.com,
 	alex@ghiti.fr
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	jszhang@kernel.org
-Subject: [PATCH v6 2/5] riscv: implement user_access_begin() and families
-Date: Thu, 10 Apr 2025 07:05:23 +0000
-Message-Id: <20250410070526.3160847-3-cyrilbur@tenstorrent.com>
+	jszhang@kernel.org,
+	syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+Subject: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
+Date: Thu, 10 Apr 2025 07:05:22 +0000
+Message-Id: <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
 References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_000532_157002_DFDE7F9A 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250410_000530_789875_E363905E 
+X-CRM114-Status: GOOD (  17.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,117 +105,143 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Jisheng Zhang <jszhang@kernel.org>
+From: Ben Dooks <ben.dooks@codethink.co.uk>
 
-Currently, when a function like strncpy_from_user() is called,
-the userspace access protection is disabled and enabled
-for every word read.
+When threads/tasks are switched we need to ensure the old execution's
+SR_SUM state is saved and the new thread has the old SR_SUM state
+restored.
 
-By implementing user_access_begin() and families, the protection
-is disabled at the beginning of the copy and enabled at the end.
+The issue was seen under heavy load especially with the syz-stress tool
+running, with crashes as follows in schedule_tail:
 
-The __inttype macro is borrowed from x86 implementation.
+Unable to handle kernel access to user memory without uaccess routines
+at virtual address 000000002749f0d0
+Oops [#1]
+Modules linked in:
+CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
+5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
+Hardware name: riscv-virtio,qemu (DT)
+epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+ ra : task_pid_vnr include/linux/sched.h:1421 [inline]
+ ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
+epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
+ gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
+ t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
+ s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
+ a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
+ a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
+ s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
+ s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
+ s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
+ s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
+ t5 : ffffffc4043cafba t6 : 0000000000040000
+status: 0000000000000120 badaddr: 000000002749f0d0 cause:
+000000000000000f
+Call Trace:
+[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+[<ffffffe000005570>] ret_from_exception+0x0/0x14
+Dumping ftrace buffer:
+   (ftrace buffer empty)
+---[ end trace b5f8f9231dc87dda ]---
 
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+The issue comes from the put_user() in schedule_tail
+(kernel/sched/core.c) doing the following:
+
+asmlinkage __visible void schedule_tail(struct task_struct *prev)
+{
+...
+        if (current->set_child_tid)
+                put_user(task_pid_vnr(current), current->set_child_tid);
+...
+}
+
+the put_user() macro causes the code sequence to come out as follows:
+
+1:	__enable_user_access()
+2:	reg = task_pid_vnr(current);
+3:	*current->set_child_tid = reg;
+4:	__disable_user_access()
+
+The problem is that we may have a sleeping function as argument which
+could clear SR_SUM causing the panic above. This was fixed by
+evaluating the argument of the put_user() macro outside the user-enabled
+section in commit 285a76bb2cf5 ("riscv: evaluate put_user() arg before
+enabling user access")"
+
+In order for riscv to take advantage of unsafe_get/put_XXX() macros and
+to avoid the same issue we had with put_user() and sleeping functions we
+must ensure code flow can go through switch_to() from within a region of
+code with SR_SUM enabled and come back with SR_SUM still enabled. This
+patch addresses the problem allowing future work to enable full use of
+unsafe_get/put_XXX() macros without needing to take a CSR bit flip cost
+on every access. Make switch_to() save and restore SR_SUM.
+
+Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
 Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
 ---
- arch/riscv/include/asm/uaccess.h | 76 ++++++++++++++++++++++++++++++++
- 1 file changed, 76 insertions(+)
+ arch/riscv/include/asm/processor.h | 1 +
+ arch/riscv/kernel/asm-offsets.c    | 5 +++++
+ arch/riscv/kernel/entry.S          | 8 ++++++++
+ 3 files changed, 14 insertions(+)
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index fee56b0c8058..c9a461467bf4 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -61,6 +61,19 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
- #define __disable_user_access()							\
- 	__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
+diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+index 5f56eb9d114a..58fd11c89fe9 100644
+--- a/arch/riscv/include/asm/processor.h
++++ b/arch/riscv/include/asm/processor.h
+@@ -103,6 +103,7 @@ struct thread_struct {
+ 	struct __riscv_d_ext_state fstate;
+ 	unsigned long bad_cause;
+ 	unsigned long envcfg;
++	unsigned long status;
+ 	u32 riscv_v_flags;
+ 	u32 vstate_ctrl;
+ 	struct __riscv_v_ext_state vstate;
+diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+index 16490755304e..969c65b1fe41 100644
+--- a/arch/riscv/kernel/asm-offsets.c
++++ b/arch/riscv/kernel/asm-offsets.c
+@@ -34,6 +34,7 @@ void asm_offsets(void)
+ 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
+ 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+ 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
++	OFFSET(TASK_THREAD_STATUS, task_struct, thread.status);
  
-+/*
-+ * This is the smallest unsigned integer type that can fit a value
-+ * (up to 'long long')
-+ */
-+#define __inttype(x) __typeof__(		\
-+	__typefits(x, char,			\
-+	  __typefits(x, short,			\
-+	    __typefits(x, int,			\
-+	      __typefits(x, long, 0ULL)))))
-+
-+#define __typefits(x, type, not) \
-+	__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
-+
- /*
-  * The exception table consists of pairs of addresses: the first is the
-  * address of an instruction that is allowed to fault, and the second is
-@@ -368,6 +381,69 @@ do {									\
- 		goto err_label;						\
- } while (0)
+ 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+ 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+@@ -346,6 +347,10 @@ void asm_offsets(void)
+ 		  offsetof(struct task_struct, thread.s[11])
+ 		- offsetof(struct task_struct, thread.ra)
+ 	);
++	DEFINE(TASK_THREAD_STATUS_RA,
++		  offsetof(struct task_struct, thread.status)
++		- offsetof(struct task_struct, thread.ra)
++	);
  
-+static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
-+{
-+	if (unlikely(!access_ok(ptr, len)))
-+		return 0;
-+	__enable_user_access();
-+	return 1;
-+}
-+#define user_access_begin user_access_begin
-+#define user_access_end __disable_user_access
+ 	DEFINE(TASK_THREAD_F0_F0,
+ 		  offsetof(struct task_struct, thread.fstate.f[0])
+diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+index 33a5a9f2a0d4..00bd0de9faa2 100644
+--- a/arch/riscv/kernel/entry.S
++++ b/arch/riscv/kernel/entry.S
+@@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
+ 	REG_S s9,  TASK_THREAD_S9_RA(a3)
+ 	REG_S s10, TASK_THREAD_S10_RA(a3)
+ 	REG_S s11, TASK_THREAD_S11_RA(a3)
 +
-+static inline unsigned long user_access_save(void) { return 0UL; }
-+static inline void user_access_restore(unsigned long enabled) { }
++	/* save the user space access flag */
++	li    s0, SR_SUM
++	csrr  s1, CSR_STATUS
++	REG_S s1, TASK_THREAD_STATUS_RA(a3)
 +
-+/*
-+ * We want the unsafe accessors to always be inlined and use
-+ * the error labels - thus the macro games.
-+ */
-+#define unsafe_put_user(x, ptr, label)	do {				\
-+	long __err = 0;							\
-+	__put_user_nocheck(x, (ptr), __err);				\
-+	if (__err)							\
-+		goto label;						\
-+} while (0)
-+
-+#define unsafe_get_user(x, ptr, label)	do {				\
-+	long __err = 0;							\
-+	__inttype(*(ptr)) __gu_val;					\
-+	__get_user_nocheck(__gu_val, (ptr), __err);			\
-+	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-+	if (__err)							\
-+		goto label;						\
-+} while (0)
-+
-+#define unsafe_copy_loop(dst, src, len, type, op, label)		\
-+	while (len >= sizeof(type)) {					\
-+		op(*(type *)(src), (type __user *)(dst), label);	\
-+		dst += sizeof(type);					\
-+		src += sizeof(type);					\
-+		len -= sizeof(type);					\
-+	}
-+
-+#define unsafe_copy_to_user(_dst, _src, _len, label)			\
-+do {									\
-+	char __user *__ucu_dst = (_dst);				\
-+	const char *__ucu_src = (_src);					\
-+	size_t __ucu_len = (_len);					\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, unsafe_put_user, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, unsafe_put_user, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, unsafe_put_user, label);	\
-+	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, unsafe_put_user, label);	\
-+} while (0)
-+
-+#define unsafe_copy_from_user(_dst, _src, _len, label)			\
-+do {									\
-+	char *__ucu_dst = (_dst);					\
-+	const char __user *__ucu_src = (_src);				\
-+	size_t __ucu_len = (_len);					\
-+	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u64, unsafe_get_user, label);	\
-+	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u32, unsafe_get_user, label);	\
-+	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u16, unsafe_get_user, label);	\
-+	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u8, unsafe_get_user, label);	\
-+} while (0)
-+
- #else /* CONFIG_MMU */
- #include <asm-generic/uaccess.h>
- #endif /* CONFIG_MMU */
+ 	/* Save the kernel shadow call stack pointer */
+ 	scs_save_current
+ 	/* Restore context from next->thread */
++	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
++	csrs  CSR_STATUS, s0
+ 	REG_L ra,  TASK_THREAD_RA_RA(a4)
+ 	REG_L sp,  TASK_THREAD_SP_RA(a4)
+ 	REG_L s0,  TASK_THREAD_S0_RA(a4)
 -- 
 2.34.1
 
