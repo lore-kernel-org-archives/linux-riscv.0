@@ -4,90 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 013E7C3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:34:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6940CC3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aRQEfipBACdGjQOsxIa10yD/OnqyAqXZUQXOZJ+vgxM=; b=BKRdXkigXXHoou
-	mY/nOQzB2i3xYMPm/9K1SPVgYPwaqgxh03XgKpPuVtEKaLuL31FTEAkozoKSDQ5MsojP7Oxn+MVNW
-	+p9PR3YMLxiSFqrb+foUKBWunVoTHd60LW3b/a37PoVz07SVhR78Pfw+Jr7BPQiRurKxD3sSKUZ20
-	8IdHnrYatHdb33fb/DedU4YXf4XCooADBQFZnk1gDfMB8ikCT2iUKM5LbTTqGtwdTnMgFoiSLVzla
-	2E3rJrF0D5rYT3lJP1NaIZaNNDRNU4huD3M4RLjwYQ4OjBiQZLMx172ZtQPnsmupIBPOVw07dc8O0
-	rQhYQ1Y/eDHtjKvb8E5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=V3QiXZK3dg2lDdqhkSVI8CvusS0vB5fAvtJr3UatccQ=; b=nEUJWXtKUF+Vcg
+	9HOLuGMoIpZ3tclCj0bvJfW/7YQogFxtM8VeZV10fQ0w9cs/FLKF6ZVcpOuJWrWXUbstBhA/CnAVr
+	TE0/CR1pCjWl4GDTAkpxnSHsIDM4XVALIMmPjPAZ8vE08dpQF+bluVwfAb+pkMC6DIKDaS2dgYNxL
+	wQI/WwFVL7D32kc9YTgwrnopt2un9G41bEsa1AL2RESEdzPzQ4/xHQOf3g/ZkC6BZaDES2nVD4w2R
+	SRNlRoqDfUFT8R55KRdE5lZGuXyXweDMjTh98U/hyPcYhtDfVNNDjUYm50tSlSMPeRWouj2SfIBog
+	OS5LPpMADOVOuDUYqW/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mQX-00000009Zn5-3qJ6;
-	Thu, 10 Apr 2025 07:34:21 +0000
-Received: from bayard.4d2.org ([155.254.16.17])
+	id 1u2mUQ-00000009akl-3DZZ;
+	Thu, 10 Apr 2025 07:38:22 +0000
+Received: from mail-ot1-x32c.google.com ([2607:f8b0:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2loS-00000009RLW-0dBG
+	id 1u2lyb-00000009T9x-33rQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 06:55:02 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 912A512FB450;
-	Wed, 09 Apr 2025 23:54:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744268097; bh=HUIAPAT3dmn4Ct98CAcjc3KkRq+veQyAM3y3S2Ak8oU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JDggdZkfysJ4KqXSWbIEkiLPCmktGskkGl7l/QyxPtA1NCS1LYpQZ7EHy8ZpqqMJg
-	 KB3oXt8QgUlsMyO3eg0BtIiKtVY4/5UNI186q+tIo2/MN5F4bPGqR8RP53VHOHxOcL
-	 Tn8+iq1DJf0n8RYD63nht/VXy8s0FzqC46z/87OW+DIBSzDxYxI3bEftClgprLSdBE
-	 aKDA1GA12USoqgW2UNNnYwATSFtJYH/Fax8PTk235vdYnsaGXpDWgCj6cERliY8IiI
-	 VNnZYSLWffm3IxNH5XJBhf9bT7WacrZkG9dAWIhSnJD5ZUZfBL6gGJFJ5h1GRtS7Hy
-	 LtfkYJGC7YccA==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id TEo3DGS71jgD; Wed,  9 Apr 2025 23:54:56 -0700 (PDT)
-Received: from ketchup (unknown [183.217.80.181])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 2E9B612FB430;
-	Wed, 09 Apr 2025 23:54:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744268095; bh=HUIAPAT3dmn4Ct98CAcjc3KkRq+veQyAM3y3S2Ak8oU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cQpxRFnVGP23jB7Rb3sQeMaDbkAFOWS2SGdzYhpRp135JZfnv06xy0F8Xu3w2eUBI
-	 vLy/EgMMWKz3WkvabeFiIjsOAL5u0KtBh97wS2nQSrgn7UONXjk79XgWn3g6+FblzA
-	 9PWVYsq2AyikV27CC7wid+Vp+Azo2PU5MckNkUDtlGa8qtVG1omES5EEYHMXsl3nFX
-	 H3ZNtGLw9gh27+elenDkmMdnG2CS0XwoJKwdKMxDwb4WIxJHD9w40FvTYTgF6jHdx6
-	 CVms+8lvuhrwngOiUT0wz5unMu+wGbH/IIX6M+hTCLVi59rQDFI2V1RxZwk4lhnhPZ
-	 zHKF2BjmKBa3Q==
-Date: Thu, 10 Apr 2025 06:54:47 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Alex Elder <elder@riscstar.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
-	Chen Wang <unicornxdotw@foxmail.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-Subject: Re: [PATCH v6 3/6] clk: spacemit: Add clock support for SpacemiT K1
- SoC
-Message-ID: <Z_drN1MM-Fi7pM4Q@ketchup>
-References: <20250401172434.6774-1-heylenay@4d2.org>
- <20250401172434.6774-4-heylenay@4d2.org>
- <8fe0aaaa-b8e9-45dd-b792-c32be49cca1a@riscstar.com>
+	Thu, 10 Apr 2025 07:05:31 +0000
+Received: by mail-ot1-x32c.google.com with SMTP id 46e09a7af769-72c019869eeso158368a34.1
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 00:05:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=tenstorrent.com; s=google; t=1744268728; x=1744873528; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=r4B+r76KGyj9PQoVMZG+CNBPOS4MHHbIZygRDgwNdE0=;
+        b=DOXC6r5VPZij88nLu5rYXZr8uxmOSNMGM8/MdmT/VCP7l82Qm4W6EVS0R+dLte8M/e
+         XdiAcz4+A7x2R8K2gzi455ivaneQGqcZNr8qJNj+MWh8yAvE3xQ/h//IYl2dbd4cqth/
+         V0YvKJEW3ArwN2S16tSwABJP73rFO6FuonfHEvx+fi0nbgrNLu3QAwH/56sT506bhnuH
+         0INZ2+1OmSDHl2nQ5WWuGSL4mGOKurZ7KDktx8UGmfuk1Vaf0ncXINi5SNJhH+N89Ike
+         DPLizN6ElZnOXb6aXJ0a9Il2IqvVae3QcLUPHWMBAwPyMH0l+yEPPMQEO0KjA1i/vUp/
+         a1AA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744268728; x=1744873528;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=r4B+r76KGyj9PQoVMZG+CNBPOS4MHHbIZygRDgwNdE0=;
+        b=h7n64XKDTG5PnLrDwZRzBYKtzF44PEvXiBTYGBVcYAJaDRCFd0m6AOdXkDYyuWimry
+         nAhcvkPj9ZfN9+7g6aUKNJDOW0jp5LdltAo/JN88YjQi+3kMtubh9p/d5eUy8qEwlI+l
+         ZqU0ZwkQVObtmhzoModWuxkmPZAkQGc/3nl4m7fpAiHw2qr5I4hcfWR4OEPK0b0SPnA0
+         BqhZGpv3QIx3FIZ5or9L6f+8YoQ6KOLpqslaiOhRcbFoqUu5HGmq3H6YZ67JpR044ZkK
+         XDw4ApGMEUnAVFkP/Etus01h65EEoBIQEkVzspl7iC/qYM/N158BrTERxgTj5XeMaWAX
+         xbJQ==
+X-Gm-Message-State: AOJu0Yw9Vmpdoa5CCl+dW5Guqn45s2yirDToThoFBCW9C70uD4iSIKIm
+	JWpxhII90yOzpBQy0uTx90vFuVqhn5DAlv7BNWAo8FNCosFaJ9E81gVyYfkvrw==
+X-Gm-Gg: ASbGncupScT1YAkau8yGSSxeuL1EGTtArTvQDv+THxgX1GuH3Sz8PVcQ9HS+pSXaHGy
+	6ySCwvMaKfbkdIcYMoFdQi1oaVGM6drYj/m0jUGDkrIKJokaw6clzKEhpJKWxGy1RQPK0Sz9eBl
+	CiYdcjp4950lKNo8Zsuo0lszv7p4+1fwiensHMdpICSh6th7ixCPnQaaSNxze5I61/G3akU2ylL
+	sFIbc2wX2FREnuXmyxZB6A3/cAzskWYkv8VW6Hsla2BDqwZTAZZiU6R3V6RTBXnaFOel4s++8cP
+	QTl0l37GOkPXprKe+CXQV7I5vr+7r29ETi22lBAUS49R8o64kcPyTO8lhto=
+X-Google-Smtp-Source: AGHT+IE0G4eyDdJwnFSAO15PM4AGl0rNOflCYe5zhewyGprP1/yMke440QYr7XRmFAHXObEZEqUpLQ==
+X-Received: by 2002:a05:6808:170f:b0:3f8:acb4:8d8e with SMTP id 5614622812f47-4007bd5fb16mr847250b6e.39.1744268728298;
+        Thu, 10 Apr 2025 00:05:28 -0700 (PDT)
+Received: from aus-ird.tenstorrent.com ([38.104.49.66])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40076282ce8sm461369b6e.9.2025.04.10.00.05.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 00:05:27 -0700 (PDT)
+From: Cyril Bur <cyrilbur@tenstorrent.com>
+To: palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	paul.walmsley@sifive.com,
+	charlie@rivosinc.com,
+	jrtc27@jrtc27.com,
+	ben.dooks@codethink.co.uk,
+	alex@ghiti.fr
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jszhang@kernel.org
+Subject: [PATCH v6 0/5] riscv: uaccess: optimisations
+Date: Thu, 10 Apr 2025 07:05:21 +0000
+Message-Id: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <8fe0aaaa-b8e9-45dd-b792-c32be49cca1a@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_235500_593951_7831706B 
-X-CRM114-Status: GOOD (  67.48  )
+X-CRM114-CacheID: sfid-20250410_000529_880509_57A13EB1 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,368 +101,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 08, 2025 at 02:37:23PM -0500, Alex Elder wrote:
-> On 4/1/25 12:24 PM, Haylen Chu wrote:
-> > The clock tree of K1 SoC contains three main types of clock hardware
-> > (PLL/DDN/MIX) and has control registers split into several multifunction
-> > devices: APBS (PLLs), MPMU, APBC and APMU.
-> > 
-> > All register operations are done through regmap to ensure atomiciy
-> > between concurrent operations of clock driver and reset,
-> > power-domain driver that will be introduced in the future.
-> > 
-> > Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> 
-> I have a few more comments here but I think this is getting very
-> close to ready.  You addressed pretty much everything I mentioned.
-> 
-> > ---
-> >   drivers/clk/Kconfig               |    1 +
-> >   drivers/clk/Makefile              |    1 +
-> >   drivers/clk/spacemit/Kconfig      |   18 +
-> >   drivers/clk/spacemit/Makefile     |    5 +
-> >   drivers/clk/spacemit/apbc_clks    |  100 +++
-> >   drivers/clk/spacemit/ccu-k1.c     | 1316 +++++++++++++++++++++++++++++
-> >   drivers/clk/spacemit/ccu_common.h |   48 ++
-> >   drivers/clk/spacemit/ccu_ddn.c    |   83 ++
-> >   drivers/clk/spacemit/ccu_ddn.h    |   47 ++
-> >   drivers/clk/spacemit/ccu_mix.c    |  268 ++++++
-> >   drivers/clk/spacemit/ccu_mix.h    |  218 +++++
-> >   drivers/clk/spacemit/ccu_pll.c    |  157 ++++
-> >   drivers/clk/spacemit/ccu_pll.h    |   86 ++
-> >   13 files changed, 2348 insertions(+)
-> >   create mode 100644 drivers/clk/spacemit/Kconfig
-> >   create mode 100644 drivers/clk/spacemit/Makefile
-> >   create mode 100644 drivers/clk/spacemit/apbc_clks
-> >   create mode 100644 drivers/clk/spacemit/ccu-k1.c
-> >   create mode 100644 drivers/clk/spacemit/ccu_common.h
-> >   create mode 100644 drivers/clk/spacemit/ccu_ddn.c
-> >   create mode 100644 drivers/clk/spacemit/ccu_ddn.h
-> >   create mode 100644 drivers/clk/spacemit/ccu_mix.c
-> >   create mode 100644 drivers/clk/spacemit/ccu_mix.h
-> >   create mode 100644 drivers/clk/spacemit/ccu_pll.c
-> >   create mode 100644 drivers/clk/spacemit/ccu_pll.h
-> > 
+This series tries to optimize riscv uaccess by allowing the use of
+user_access_begin() and user_access_end() which permits grouping user accesses
+and avoiding the CSR write penalty for each access.
 
-...
+The error path can also be optimised using asm goto which patches 3 and 4
+achieve. This will speed up jumping to labels by avoiding the need of an
+intermediary error type variable within the uaccess macros
 
-> > diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
-> > new file mode 100644
-> > index 000000000000..4c4df845b3cb
-> > --- /dev/null
-> > +++ b/drivers/clk/spacemit/Kconfig
-> > @@ -0,0 +1,18 @@
-> > +# SPDX-License-Identifier: GPL-2.0-only
-> > +
-> > +config SPACEMIT_CCU
-> > +	tristate "Clock support for SpacemiT SoCs"
-> 
-> I don't know the answer to this, but...  Should this be a Boolean
-> rather than tristate?  Can a SpacemiT K1 SoC function without the
-> clock driver built in to the kernel?
-> 
+I did read the discussion this series generated. It isn't clear to me
+which direction to take the patches, if any.
 
-As mentioned in the other reply, modules in initramfs are a solution.
-I'd like to give the user rights to shrink their kernel image, thus
-prefer to keep our driver buildable as a module.
+V2:
+I've taken on this series as there isn't any response from Jisheng. No
+significant changes other than build fixes.
+- Fixes build breakage in patch 3 to do with not having used 'goto' keyword.
+- Fixes build breakage in patch 4 on 32bit not having declared __ptr in the
+  macro.
 
-> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > +	select MFD_SYSCON
-> > +	help
-> > +	  Say Y to enable clock controller unit support for SpacemiT SoCs.
-> > +
-> > +if SPACEMIT_CCU
-> > +
-> > +config SPACEMIT_K1_CCU
-> > +	tristate "Support for SpacemiT K1 SoC"
-> 
-> If you decide SPACEMIT_CCU needs to be Boolean, this one should
-> be Boolean too.
-> 
-> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > +	help
-> > +	  Support for clock controller unit in SpacemiT K1 SoC.
-> > +
-> > +endif
+V3:
+Significant commit message rewrites.
+ - Corrected the justification for patch 2
+ - Better explained/justified patches 3 and 4
+Minor code changes for legibility and more comments
 
-...
+V4:
+Fixed checkpatch errors
+Added a unsafe_copy_from_user()
+Added patch from Ben Dooks to save SR_SUM bit on switch
 
-> > --- /dev/null
-> > +++ b/drivers/clk/spacemit/apbc_clks
-> 
-> This entire file seems to be an accidental addition.
+V5:
+Fixed mistakes in adding unsafe_copy_from_user()
+ - Sorry about the noise
 
-Definitely. I'll remove it in v7.
+V6:
+Reworded patch 1 commit message
+Patch 1 no longer clears SR_SUM, just saves/restores
 
-> > @@ -0,0 +1,100 @@
-> > +		[CLK_UART0]		= &uart0_clk.common.hw,
-> > +		[CLK_UART2]		= &uart2_clk.common.hw,
-> > +		[CLK_UART3]		= &uart3_clk.common.hw,
-> > +		[CLK_UART4]		= &uart4_clk.common.hw,
-> > +		[CLK_UART5]		= &uart5_clk.common.hw,
-> > +		[CLK_UART6]		= &uart6_clk.common.hw,
-> 
-> . . .
-> 
-> > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> > new file mode 100644
-> > index 000000000000..cd95c4f9c127
-> > --- /dev/null
-> > +++ b/drivers/clk/spacemit/ccu-k1.c
-> > @@ -0,0 +1,1316 @@
+Ben Dooks (1):
+  riscv: save the SR_SUM status over switches
 
-...
+Jisheng Zhang (4):
+  riscv: implement user_access_begin() and families
+  riscv: uaccess: use input constraints for ptr of __put_user()
+  riscv: uaccess: use 'asm goto' for put_user()
+  riscv: uaccess: use 'asm_goto_output' for get_user()
 
-> > +/* APBS clocks start, APBS region contains and only contains all PLL clocks */
-> > +
-> > +/* Frequency of pll{1,2} must not be updated at runtime */
-> > +static const struct ccu_pll_rate_tbl pll1_rate_tbl[] = {
-> > +	CCU_PLL_RATE(2457600000UL, 0x0050dd64, 0x330ccccd),
-> > +};
-> > +
-> > +static const struct ccu_pll_rate_tbl pll2_rate_tbl[] = {
-> 
-> You have added new rates to this PLL table.  But you still
-> say above that the rate for PLL2 cannot be updated at runtime.
-> It's slightly confusing.
+ arch/riscv/include/asm/processor.h |   1 +
+ arch/riscv/include/asm/uaccess.h   | 218 ++++++++++++++++++++++-------
+ arch/riscv/kernel/asm-offsets.c    |   5 +
+ arch/riscv/kernel/entry.S          |   8 ++
+ 4 files changed, 179 insertions(+), 53 deletions(-)
 
-As now we have a codepath to adjust PLLs running at unknown rates
-to a known state, the extra entries don't really matter. So it could be
-removed.
+-- 
+2.34.1
 
-PLL1 and PLL2 are both required to run at fixed frequencies to provide
-the exact clock frequency for the peripherals. Technically the frequency
-could be alternated as long as the PLL is disabled before changing the
-rate. So I'd like to correct the comment as well,
-
-  /*
-   * PLL{1,2} must run at fixed frequencies to provide clocks in correct
-   * rates for peripherals.
-   */
-
-> (By the way, I am pretty sure I've stopped seeing the WARN()
-> call.  I'm sorry I haven't gotten back to you with more
-> details on that.  I'll try that when I'm done with this
-> review.)
-
-It's nice to hear that my fixes work.
-
-> > +	CCU_PLL_RATE(2457600000UL, 0x0050dd64, 0x330ccccd),
-> > +	CCU_PLL_RATE(2800000000UL, 0x0050dd66, 0x3a155555),
-> > +	CCU_PLL_RATE(3000000000UL, 0x0050dd66, 0x3fe00000),
-> > +	CCU_PLL_RATE(3200000000UL, 0x0050dd67, 0x43eaaaab),
-> > +};
-> > +
-> > +static const struct ccu_pll_rate_tbl pll3_rate_tbl[] = {
-> 
-> You added more rates to this table too.  You should call attention
-> to things like that, when things have changed between versions of
-> your patches.  (If you did, I missed it.)
-
-I've mentioned it in the cover letter :)
-
-> - synchronize PLL configuration entries with the vendor kernel
-
-> 
-> > +	CCU_PLL_RATE(1600000000UL, 0x0050cd61, 0x43eaaaab),
-> > +	CCU_PLL_RATE(1800000000UL, 0x0050cd61, 0x4b000000),
-> > +	CCU_PLL_RATE(2000000000UL, 0x0050dd62, 0x2aeaaaab),
-> > +	CCU_PLL_RATE(2457600000UL, 0x0050dd64, 0x330ccccd),
-> > +	CCU_PLL_RATE(3000000000UL, 0x0050dd66, 0x3fe00000),
-> > +	CCU_PLL_RATE(3200000000UL, 0x0050dd67, 0x43eaaaab),
-> > +};
-> > +
-> > +CCU_PLL_DEFINE(pll1, pll1_rate_tbl, APBS_PLL1_SWCR1, APBS_PLL1_SWCR3, MPMU_POSR,
-> > +	       POSR_PLL1_LOCK, CLK_SET_RATE_GATE);
-> > +CCU_PLL_DEFINE(pll2, pll2_rate_tbl, APBS_PLL2_SWCR1, APBS_PLL2_SWCR3, MPMU_POSR,
-> > +	       POSR_PLL2_LOCK, CLK_SET_RATE_GATE);
-> > +CCU_PLL_DEFINE(pll3, pll3_rate_tbl, APBS_PLL3_SWCR1, APBS_PLL3_SWCR3, MPMU_POSR,
-> > +	       POSR_PLL3_LOCK, CLK_SET_RATE_GATE);
-> > +
-> 
-> I suspect Yixun would like you to have lines like the next one be
-> 84 characters wide--slighly wider than the 80 column limit.
-> 
-> I'm not going to ask you to change it (but he might).
-
-Okay, I'm willing to take the style changes in v7 anyway.
-
-...
-
-> > +
-> > +struct spacemit_ccu_data {
-> > +	struct clk_hw **hws;
-> > +	size_t num;
-> > +};
-> 
-> The above structure type ought to be defined nearer to top
-> of the source file.  (I move it in my reset series, but I
-> won't have to if you do.)  I make another suggestion about
-> this type below.
-
-I thought it helps to have the definition near the place where the first
-time it's used. But if you consider it's better to place definitions of
-all datatypes at first, I'm willing to follow.
-
-...
-
-> > +static const struct spacemit_ccu_data k1_ccu_apmu_data = {
-> > +	.hws	= k1_ccu_apmu_hws,
-> > +	.num	= ARRAY_SIZE(k1_ccu_apmu_hws),
-> > +};
-> > +
-> > +static int spacemit_ccu_register(struct device *dev,
-> > +				 struct regmap *regmap, struct regmap *lock_regmap,
-> 
-> Since you're splitting the arguments across 3 lines, I'd
-> just put each one on its own line.  (Personal preference.)
-
-This looks better to me as well. Will take it.
-
-> > +				 const struct spacemit_ccu_data *data)
-> > +{
-> > +	struct clk_hw_onecell_data *clk_data;
-> > +	int i, ret;
-> > +
-> > +	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
-> > +				GFP_KERNEL);
-> > +	if (!clk_data)
-> > +		return -ENOMEM;
-> > +
-> > +	for (i = 0; i < data->num; i++) {
-> > +		struct clk_hw *hw = data->hws[i];
-> > +		struct ccu_common *common;
-> > +		const char *name;
-> > +
-> > +		if (!hw) {
-> > +			clk_data->hws[i] = ERR_PTR(-ENOENT);
-> > +			continue;
-> > +		}
-> > +
-> > +		name = hw->init->name;
-> > +
-> > +		common = hw_to_ccu_common(hw);
-> > +		common->regmap		= regmap;
-> > +		common->lock_regmap	= lock_regmap;
-> > +
-> > +		ret = devm_clk_hw_register(dev, hw);
-> > +		if (ret) {
-> > +			dev_err(dev, "Cannot register clock %d - %s\n",
-> > +				i, name);
-> > +			return ret;
-> > +		}
-> > +
-> > +		clk_data->hws[i] = hw;
-> > +	}
-> > +
-> > +	clk_data->num = data->num;
-> > +
-> > +	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
-> > +	if (ret)
-> > +		dev_err(dev, "failed to add clock hardware provider (%d)\n", ret);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> > +static int k1_ccu_probe(struct platform_device *pdev)
-> > +{
-> > +	struct regmap *base_regmap, *lock_regmap = NULL;
-> > +	struct device *dev = &pdev->dev;
-> > +	int ret;
-> > +
-> > +	base_regmap = device_node_to_regmap(dev->of_node);
-> > +	if (IS_ERR(base_regmap))
-> > +		return dev_err_probe(dev, PTR_ERR(base_regmap),
-> > +				     "failed to get regmap\n");
-> > +
-> > +	/*
-> > +	 * The lock status of PLLs locate in MPMU region, while PLLs themselves
-> > +	 * are in APBS region. Reference to MPMU syscon is required to check PLL
-> > +	 * status.
-> > +	 */
-> 
-> I have two comments on this next section (handling the
-> lock being in a different area of memory).
-> 
-> First, now that you're defining a spacemit_ccu_data structure
-> type, you could add a field to that type with an identifier (an
-> enumerated type, one per CCU).
-> 
-> Then the following test could check that field rather than
-> the compatible string. This isn't much different in practice,
-> but it would allow future code to make other decisions based
-> on the identifier--long after initialization.
-
-I'd like to put off the change until we really need to make such
-decisions, afaik we don't in current version of clock and reset driver.
-
-> Second, why does it matter what region the memory is in (whether
-> it's MPMU or something else)?  I think it would be better to
-> specify that as a "lock-region" or maybe "regmap-lock" property.
-> It's value is a simple phandle, and you're just looking up the
-> regmap from it.
-
-Actually it does somehow matter, offsets of registers representing the
-lock status of PLLs are hardcoded, thus I don't think a generic name is
-very useful. And we've already had comments in both dt-bindings and
-driver to make purpose of the property clear.
-
-> If you think this is a good idea you'd need to get input and
-> approval from the DT maintainers.
-> 
-> > +	if (of_device_is_compatible(dev->of_node, "spacemit,k1-pll")) {
-> > +		struct device_node *mpmu = of_parse_phandle(dev->of_node,
-> > +							    "spacemit,mpmu", 0);
-> > +		if (!mpmu)
-> > +			return dev_err_probe(dev, -ENODEV,
-> > +					     "Cannot parse MPMU region\n");
-> > +
-> > +		lock_regmap = device_node_to_regmap(mpmu);
-> > +		of_node_put(mpmu);
-> > +
-> > +		if (IS_ERR(lock_regmap))
-> > +			return dev_err_probe(dev, PTR_ERR(lock_regmap),
-> > +					     "failed to get lock regmap\n");
-> > +	}
-> > +
-> > +	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap,
-> > +				    of_device_get_match_data(dev));
-> > +	if (ret)
-> > +		return dev_err_probe(dev, ret, "failed to register clocks\n");
-> > +
-> > +	return 0;
-> > +}
-> 
-> . . .
-> 
-> > diff --git a/drivers/clk/spacemit/ccu_pll.c b/drivers/clk/spacemit/ccu_pll.c
-> > new file mode 100644
-> > index 000000000000..971c489c261a
-> > --- /dev/null
-> > +++ b/drivers/clk/spacemit/ccu_pll.c
-> 
-> . . .
-> 
-> > +static int ccu_pll_init(struct clk_hw *hw)
-> > +{
-> > +	struct ccu_pll *pll = hw_to_ccu_pll(hw);
-> > +
-> > +	if (ccu_pll_lookup_matched_entry(pll))
-> > +		return 0;
-> > +
-> > +	ccu_pll_disable(hw);
-> > +	ccu_pll_update_param(pll, &pll->config.rate_tbl[0]);
-> > +
-> 
-> Looks like you now ensure the rate is set to one of those
-> in the table if it isn't already.  Nice work.
-> 
-> 					-Alex
-
-And thank you for your patient review and hints.
-
-Regards,
-Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
