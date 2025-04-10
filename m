@@ -4,84 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A39AC3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491EAC369A2
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 18:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=RGLiE/oNTYOXq/wjexVQmitwCMiZlWsi574FPhbSf1g=; b=bqBBdKa+3rkI24TcUGezyLT/4r
-	XTRAaB2tv5fkSphuFWqta4QlLJfsf+3Cbygui1fG8aH+la3JhXlo/O9u9COxvVuXj4l4bw/Ole7xf
-	5cj5k6uT32ULqR0aqLcGJPf7xqS3IIxn8e+rdu136FMocs2MNA6ugdbINDPSd5uvpbXEbaJoHv8L3
-	DdKLlAI/MuWvP+IVkpI8DlRFUJeMriA9/E2O1A7TBirl+7MWszTlbqqaw/JpM5sWyfLsfgTuV+Svh
-	orKNEuDk+2FFFyVPbPSzU1sbc7H2qzxEWrp2hcviGZ1coWxHOieF/G5FB8hiT5ZY5nPiF6tU2ebyM
-	m5F2A7DQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
+	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=e8Acb89f0b1stgU5bxzAs5tn97HyQn3PbspgXc8K8l8=; b=bpnt6KNEaaP2L3PKjn5n0cKTdk
+	tHVexjCJ6GLENsz9Xt3Dxo0cu4LslOh1e87lsZ8SEUPTGik5hrBwa/bWqdY1P9nq7lN3vSx8ikzdg
+	KUy2CROnnSm97jKvvyGkdHT4M5nYtshgCz4unc0yInxNfmqWPzZSyjxZ/C2wUiK+xosAPhjdZKhNC
+	gHzfQRKuBCc8EciyG5ISzZOQ5c+NIDFCQpRG0HN5nkBL5u/4jtsRMLb12S96QoeSG1h4yfl25rxf+
+	+YIMP3TVsOjMuO+K2VXJhWawKo9o14H/Wg954kNaRjmsw/l6kYvsHNTkYy0aDRB+ydFNfu51GSACn
+	G3yAibxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2wgI-0000000BWLz-2f8C;
-	Thu, 10 Apr 2025 18:31:18 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1u2wgL-0000000BWOZ-3Wqk;
+	Thu, 10 Apr 2025 18:31:21 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2vf4-0000000BMsx-2SsC
+	id 1u2vlw-0000000BOMw-3zBH
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 17:25:59 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-af579e46b5dso929475a12.3
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 10:25:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1744305957; x=1744910757; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ig/FhwGwD1jLitbxX81FyIbAc6VmuE4TZHPbRttZ3+g=;
-        b=CB2ItAoGvISmNaiqDpeWvKJqs2bIfvLCcs+KqD01/QvqwZ4bkZFlKwWdz5xhRyy2FU
-         f2NLzcA1iZLBwcttB0ANe8vaENGbkNN+Vfb9Pk8Gb1mibmQ4ibqXMC+kQ0+wrizftXCt
-         cE74EUnCFrvpUWQN9otIEeXvFg2HQ+KwJFdjRm071Baoh/coPfv0AqM6hVBD0jPu4wfH
-         TS+/oTfvn1zuXqm6RW0G/c2QK3J28Z5VaC55FvuszmbCbkHJK9jb+z2kI3IqqwHv66IE
-         0yeoY0wk3B6ZaRfHlIKOxggabj/8NDrlxyJYzB+3wQ+RWV2EYsY1TjBJtD3b6A22RYvy
-         dChQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744305957; x=1744910757;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ig/FhwGwD1jLitbxX81FyIbAc6VmuE4TZHPbRttZ3+g=;
-        b=MszkpA0P7/C2GGMjBKH8J4qDnmFA9bSY8q6tQiYk0QyOBzU4K+suWV4Lqogcwc6fNz
-         4D43Yft3jl4tA1+B59/FEKxTeO2NUnZezh7wKfGQ4ESkY86+6efxnlcXBZZXqOfhNv99
-         mZUo/RTkueASR+R79Qn1uQRpwMwOwTcAMYOd32jareHThQ1qxVEl5wDnqGM+oqo2dUpA
-         +Cl1fgyQ99zvGiLZhSryl9IFMG5HU3o1+eF/8P9iajloufcQ8fMfuCQci5gu9y7ScfaZ
-         DqhNJ+0x1ajR+6rS1/6/YpMkVCVqMkZtEkkLg3WCsn6hZZBbNhRqKLtMwACP+KiW6JFS
-         vdSQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWugXK4vfbxa/TKyKWPy4Ed5bpidjXhE2WVUw01Nfo2+GdjD/YenyRLoynFv9c3DB/V0qBKUqm3ZaUxDA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwiSkFsITuOAnL/OIh8J4BrwR2DPivHo1U6LeIoctqsCOIe0Tz1
-	IBFItq5IoHoH0lfo35ZV9wNqI+L4T9kCwyN0YBysJDb+1qwL5FuSXrIW4f8AlAY=
-X-Gm-Gg: ASbGncvb/ukpKKN7wbLXfH3m2XZqJOjdCAkYrY5/oYX+fuQ5x47S9VFsgzx0cMwMain
-	vGHmQpGz1+eLItwBWvBPLs34GU3T1SSc4J5z8U5m3kRmQuLTdLF9Dt5jjr7AVWdLScsW325mN3z
-	dLssXwmr/gW71rwfRdUGEG02U/lhBmeLkvTrcFRH9arW2OczVo7dn0IIbQAe5y2tO/aaz7KToCV
-	I/r2ZXimB+eAPgz0hXi6dqxufegC+qrZ/zUDpL6WAx52bqVwF416BrVw60fBDuwF7QUmkJ7dWTB
-	aO9hAE8YvJ8NHUNeY/eM1hFgcqYq8+rEAg==
-X-Google-Smtp-Source: AGHT+IGsEtG4l/fsVtmjE6fIGvxm9O7zGTf6ZWhcCE4riLaK3/QbFCyU24k3i6IpZbiWZewa23zmSg==
-X-Received: by 2002:a17:90b:270b:b0:2ee:d7d3:3019 with SMTP id 98e67ed59e1d1-307e5972f0fmr6092903a91.12.1744305957335;
-        Thu, 10 Apr 2025 10:25:57 -0700 (PDT)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd17191esm4373489a91.39.2025.04.10.10.25.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 10:25:56 -0700 (PDT)
-Date: Thu, 10 Apr 2025 10:25:56 -0700 (PDT)
-X-Google-Original-Date: Thu, 10 Apr 2025 10:25:52 PDT (-0700)
-Subject: Re: [PATCH] riscv: Avoid fortify warning in syscall_get_arguments()
-In-Reply-To: <20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org>
-CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alex@ghiti.fr,
-  Charlie Jenkins <charlie@rivosinc.com>, ldv@strace.io, kees@kernel.org, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, nathan@kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: nathan@kernel.org
-Message-ID: <mhng-cf999eb1-59c4-4784-8c01-44b1e2482a50@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	Thu, 10 Apr 2025 17:33:06 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 944F5448E8;
+	Thu, 10 Apr 2025 17:33:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AFC9C4CEDD;
+	Thu, 10 Apr 2025 17:33:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744306384;
+	bh=Y7kaBRozCsMbFusVuFPGbhdRqxY/IwyGERi2Cpyjy+E=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=gB3mdwnb/f2tuig7xOXyhs8FXmebKsRDkbV5vmyPbrq7bodTd7fyC02Jkox6MJzDq
+	 nIyc7enROsgGGG4PGKrR2UC6hFAoxLedlFHlbV7qly6euNvdXcpAQHSBZ4FjkkXWpt
+	 MAY9wIRlv1qQsRz2A7s+Qp6OHjZsDAAM1VLPF2+b7DyOTAEq8oWO5eppeQgthzwijk
+	 4nJOKM0/chnZGJgUqZxvkNn12/erv3PMqZ+cHDLTp8lDWgrE3aFR9HcAbSJYNZ9bpW
+	 n8OVU0yFaE9UhuvSbLAfHegmBhZR7NVmpRtu9GMUZplgPzsW6xG7dAYxW3ZQ8H83dd
+	 ZYZuUgeDEgj9w==
+Date: Thu, 10 Apr 2025 12:33:03 -0500
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Anup Patel <anup@brainfault.org>, 
+ Yu Chien Peter Lin <peterlin@andestech.com>, devicetree@vger.kernel.org, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Kanak Shilledar <kanakshilledar@gmail.com>, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Pritesh Patel <pritesh.patel@einfochips.com>, 
+ linux-riscv@lists.infradead.org, 
+ Darshan Prajapati <darshan.prajapati@einfochips.com>, 
+ Charlie Jenkins <charlie@rivosinc.com>, Heiko Stuebner <heiko@sntech.de>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Thomas Gleixner <tglx@linutronix.de>, 
+ Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Albert Ou <aou@eecs.berkeley.edu>, 
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+ Aradhya Bhatia <a-bhatia1@ti.com>, Yangyu Chen <cyy@cyyself.name>, 
+ rafal@milecki.pl, Conor Dooley <conor@kernel.org>, 
+ Min Lin <linmin@eswincomputing.com>, linux-kernel@vger.kernel.org
+To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+In-Reply-To: <20250410152519.1358964-4-pinkesh.vaghela@einfochips.com>
+References: <20250410152519.1358964-1-pinkesh.vaghela@einfochips.com>
+ <20250410152519.1358964-4-pinkesh.vaghela@einfochips.com>
+Message-Id: <174430638306.431792.13578234809737502743.robh@kernel.org>
+Subject: Re: [PATCH v3 03/10] dt-bindings: vendor-prefixes: add eswin
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_102558_626410_02B4291A 
-X-CRM114-Status: GOOD (  32.63  )
+X-CRM114-CacheID: sfid-20250410_103305_033034_8A6004AF 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,94 +85,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 09 Apr 2025 14:24:46 PDT (-0700), nathan@kernel.org wrote:
-> When building with CONFIG_FORTIFY_SOURCE=y and W=1, there is a warning
-> because of the memcpy() in syscall_get_arguments():
->
->   In file included from include/linux/string.h:392,
->                    from include/linux/bitmap.h:13,
->                    from include/linux/cpumask.h:12,
->                    from arch/riscv/include/asm/processor.h:55,
->                    from include/linux/sched.h:13,
->                    from kernel/ptrace.c:13:
->   In function 'fortify_memcpy_chk',
->       inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
->   include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
->     580 |                         __read_overflow2_field(q_size_field, size);
->         |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
->   cc1: all warnings being treated as errors
->
-> The fortified memcpy() routine enforces that the source is not overread
-> and the destination is not overwritten if the size of either field and
-> the size of the copy are known at compile time. The memcpy() in
-> syscall_get_arguments() intentionally overreads from a1 to a5 in
-> 'struct pt_regs' but this is bigger than the size of a1.
->
-> Normally, this could be solved by wrapping a1 through a5 with
-> struct_group() but there was already a struct_group() applied to these
-> members in commit bba547810c66 ("riscv: tracing: Fix
-> __write_overflow_field in ftrace_partial_regs()").
->
-> Just avoid memcpy() altogether and write the copying of args from regs
-> manually, which clears up the warning at the expense of three extra
-> lines of code.
 
-You could still memcpy, but you'd need some sort of
-
-    memcpy(args, &regs->aregs + sizeof(args[0]), 5 * sizeof(args[0]));
-
-(or however you index a struct group).  I think it's saner to just do it 
-with the manual copies, though, as I'd have to look up what this code 
-does every time I run into it.
-
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+On Thu, 10 Apr 2025 20:55:12 +0530, Pinkesh Vaghela wrote:
+> From: Pritesh Patel <pritesh.patel@einfochips.com>
+> 
+> Add new vendor string to dt bindings.
+> This new vendor string is used by
+> - ESWIN EIC770X SoC
+> - HiFive Premier P550 board which uses EIC7700 SoC.
+> 
+> Link: https://www.eswin.com/en/
+> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
+> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
 > ---
-> I omitted a Fixes tag because I think this has always been an overread
-> if I understand correctly but it is only the addition of the checks from
-> commit f68f2ff91512 ("fortify: Detect struct member overflows in
-> memcpy() at compile-time") that it becomes a noticeable issue.
+>  Documentation/devicetree/bindings/vendor-prefixes.yaml | 2 ++
+>  1 file changed, 2 insertions(+)
+> 
 
-I'm going to add the Fixes.  It's a suprious warning (there's no actual 
-crash from the overread), but even spurious warnings are a headache for 
-peolpe trying to build stuff.
+My bot found errors running 'make dt_binding_check' on your patch:
 
-> This came out of a discussion from the addition of
-> syscall_set_arguments(), where the same logic causes a more noticeable
-> fortify warning because it happens without W=1, as it is an overwrite:
-> https://lore.kernel.org/20250408213131.GA2872426@ax162/
-> ---
->  arch/riscv/include/asm/syscall.h | 7 +++++--
->  1 file changed, 5 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-> index 121fff429dce66b31fe79b691b8edd816c8019e9..eceabf59ae482aa1832b09371ddb3ba8cd65f91d 100644
-> --- a/arch/riscv/include/asm/syscall.h
-> +++ b/arch/riscv/include/asm/syscall.h
-> @@ -62,8 +62,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
->  					 unsigned long *args)
->  {
->  	args[0] = regs->orig_a0;
-> -	args++;
-> -	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
-> +	args[1] = regs->a1;
-> +	args[2] = regs->a2;
-> +	args[3] = regs->a3;
-> +	args[4] = regs->a4;
-> +	args[5] = regs->a5;
->  }
->
->  static inline int syscall_get_arch(struct task_struct *task)
->
-> ---
-> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-> change-id: 20250409-riscv-avoid-fortify-warning-syscall_get_arguments-19c0495d4ed7
->
-> Best regards,
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/interrupt-controller/econet,en751221-intc.example.dtb: interrupt-controller@1fb40000 (econet,en751221-intc): 'econet,shadow-interrupts' does not match any of the regexes: '^#.*', '^(at25|bm|devbus|dmacap|dsa|exynos|fsi[ab]|gpio-fan|gpio-key|gpio|gpmc|hdmi|i2c-gpio),.*', '^(keypad|m25p|max8952|max8997|max8998|mpmc),.*', '^(pciclass|pinctrl-single|#pinctrl-single|PowerPC),.*', '^(pl022|pxa-mmc|rcar_sound|rotary-encoder|s5m8767|sdhci),.*', '^(simple-audio-card|st-plgpio|st-spics|ts),.*', '^100ask,.*', '^70mai,.*', '^8dev,.*', '^GEFanuc,.*', '^IBM,.*', '^ORCL,.*', '^SUNW,.*', '^[a-zA-Z0-9#_][a-zA-Z0-9+\\-._@]{0,63}$', '^[a-zA-Z0-9+\\-._]*@[0-9a-zA-Z,]*$', '^abb,.*', '^abilis,.*', '^abracon,.*', '^abt,.*', '^acbel,.*', '^acelink,.*', '^acer,.*', '^acme,.*', '^actions,.*', '^active-semi,.*', '^ad,.*', '^adafruit,.*', '^adapteva,.*', '^adaptrum,.*', '^adh,.*', '^adi,.*', '^adieng,.*', '^admatec,.*', '^advantech,.*', '^a
+ eroflexgaisler,.*', '^aesop,.*', '^airoha,.*', '^al,.*', '^alcatel,.*', '^aldec,.*', '^alfa-network,.*', '^allegro,.*', '^allegromicro,.*', '^alliedvision,.*', '^allo,.*', '^allwinner,.*', '^alphascale,.*', '^alps,.*', '^alt,.*', '^altr,.*', '^amarula,.*', '^amazon,.*', '^amcc,.*', '^amd,.*', '^amediatech,.*', '^amlogic,.*', '^ampere,.*', '^amphenol,.*', '^ampire,.*', '^ams,.*', '^amstaos,.*', '^analogix,.*', '^anbernic,.*', '^andestech,.*', '^anvo,.*', '^aosong,.*', '^apm,.*', '^apple,.*', '^aptina,.*', '^arasan,.*', '^archermind,.*', '^arcom,.*', '^arctic,.*', '^arcx,.*', '^ariaboard,.*', '^aries,.*', '^arm,.*', '^armadeus,.*', '^armsom,.*', '^arrow,.*', '^artesyn,.*', '^asahi-kasei,.*', '^asc,.*', '^asix,.*', '^aspeed,.*', '^asrock,.*', '^asteralabs,.*', '^asus,.*', '^atheros,.*', '^atlas,.*', '^atmel,.*', '^auo,.*', '^auvidea,.*', '^avago,.*', '^avia,.*', '^avic,.*', '^avnet,.*', '^awinic,.*', '^axentia,.*', '^axis,.*', '^azoteq,.*', '^azw,.*', '^baikal,.*', '^bananapi,.*', '^be
+ acon,.*', '^beagle,.*', '^belling,.*', '^bhf,.*', '^bigtreetech,.*', '^bitmain,.*', '^blaize,.*', '^blutek,.*', '^boe,.*', '^bosch,.*', '^boundary,.*', '^brcm,.*', '^broadmobi,.*', '^bsh,.*', '^bticino,.*', '^buffalo,.*', '^bur,.*', '^bytedance,.*', '^calamp,.*', '^calao,.*', '^calaosystems,.*', '^calxeda,.*', '^cameo,.*', '^canaan,.*', '^caninos,.*', '^capella,.*', '^cascoda,.*', '^catalyst,.*', '^cavium,.*', '^cct,.*', '^cdns,.*', '^cdtech,.*', '^cellwise,.*', '^ceva,.*', '^chargebyte,.*', '^checkpoint,.*', '^chefree,.*', '^chipidea,.*', '^chipone,.*', '^chipspark,.*', '^chongzhou,.*', '^chrontel,.*', '^chrp,.*', '^chunghwa,.*', '^chuwi,.*', '^ciaa,.*', '^cirrus,.*', '^cisco,.*', '^clockwork,.*', '^cloos,.*', '^cloudengines,.*', '^cnm,.*', '^cnxt,.*', '^colorfly,.*', '^compulab,.*', '^comvetia,.*', '^congatec,.*', '^coolpi,.*', '^coreriver,.*', '^corpro,.*', '^cortina,.*', '^cosmic,.*', '^crane,.*', '^creative,.*', '^crystalfontz,.*', '^csky,.*', '^csot,.*', '^csq,.*', '^ctera,.*'
+ , '^ctu,.*', '^cubietech,.*', '^cudy,.*', '^cui,.*', '^cypress,.*', '^cyx,.*', '^cznic,.*', '^dallas,.*', '^dataimage,.*', '^davicom,.*', '^deepcomputing,.*', '^dell,.*', '^delta,.*', '^densitron,.*', '^denx,.*', '^devantech,.*', '^dfi,.*', '^dfrobot,.*', '^dh,.*', '^difrnce,.*', '^digi,.*', '^digilent,.*', '^dimonoff,.*', '^diodes,.*', '^dioo,.*', '^dlc,.*', '^dlg,.*', '^dlink,.*', '^dmo,.*', '^domintech,.*', '^dongwoon,.*', '^dptechnics,.*', '^dragino,.*', '^dream,.*', '^ds,.*', '^dserve,.*', '^dynaimage,.*', '^ea,.*', '^ebang,.*', '^ebbg,.*', '^ebs-systart,.*', '^ebv,.*', '^eckelmann,.*', '^edgeble,.*', '^edimax,.*', '^edt,.*', '^ees,.*', '^eeti,.*', '^einfochips,.*', '^eink,.*', '^elan,.*', '^element14,.*', '^elgin,.*', '^elida,.*', '^elimo,.*', '^elpida,.*', '^embedfire,.*', '^embest,.*', '^emcraft,.*', '^emlid,.*', '^emmicro,.*', '^empire-electronix,.*', '^emtrion,.*', '^enclustra,.*', '^endless,.*', '^ene,.*', '^energymicro,.*', '^engicam,.*', '^engleder,.*', '^epcos,.*', '^e
+ pfl,.*', '^epson,.*', '^esp,.*', '^est,.*', '^eswin,.*', '^ettus,.*', '^eukrea,.*', '^everest,.*', '^everspin,.*', '^evervision,.*', '^exar,.*', '^excito,.*', '^exegin,.*', '^ezchip,.*', '^facebook,.*', '^fairchild,.*', '^fairphone,.*', '^faraday,.*', '^fascontek,.*', '^fastrax,.*', '^fcs,.*', '^feixin,.*', '^feiyang,.*', '^fii,.*', '^firefly,.*', '^focaltech,.*', '^forlinx,.*', '^freebox,.*', '^freecom,.*', '^frida,.*', '^friendlyarm,.*', '^fsl,.*', '^fujitsu,.*', '^fxtec,.*', '^galaxycore,.*', '^gameforce,.*', '^gardena,.*', '^gateway,.*', '^gateworks,.*', '^gcw,.*', '^ge,.*', '^geekbuying,.*', '^gef,.*', '^gehc,.*', '^gemei,.*', '^gemtek,.*', '^genesys,.*', '^genexis,.*', '^geniatech,.*', '^giantec,.*', '^giantplus,.*', '^glinet,.*', '^globalscale,.*', '^globaltop,.*', '^gmt,.*', '^gocontroll,.*', '^goldelico,.*', '^goodix,.*', '^google,.*', '^goramo,.*', '^gplus,.*', '^grinn,.*', '^grmn,.*', '^gumstix,.*', '^gw,.*', '^hannstar,.*', '^haochuangyi,.*', '^haoyu,.*', '^hardkernel,.*
+ ', '^hechuang,.*', '^hideep,.*', '^himax,.*', '^hirschmann,.*', '^hisi,.*', '^hisilicon,.*', '^hit,.*', '^hitex,.*', '^holt,.*', '^holtek,.*', '^honestar,.*', '^honeywell,.*', '^hoperf,.*', '^hoperun,.*', '^hp,.*', '^hpe,.*', '^hsg,.*', '^htc,.*', '^huawei,.*', '^hugsun,.*', '^hwacom,.*', '^hxt,.*', '^hycon,.*', '^hydis,.*', '^hynitron,.*', '^hynix,.*', '^hyundai,.*', '^i2se,.*', '^ibm,.*', '^icplus,.*', '^idt,.*', '^iei,.*', '^ifi,.*', '^ilitek,.*', '^imagis,.*', '^img,.*', '^imi,.*', '^inanbo,.*', '^incircuit,.*', '^indiedroid,.*', '^inet-tek,.*', '^infineon,.*', '^inforce,.*', '^ingenic,.*', '^ingrasys,.*', '^injoinic,.*', '^innocomm,.*', '^innolux,.*', '^inside-secure,.*', '^insignal,.*', '^inspur,.*', '^intel,.*', '^intercontrol,.*', '^invensense,.*', '^inventec,.*', '^inversepath,.*', '^iom,.*', '^irondevice,.*', '^isee,.*', '^isil,.*', '^issi,.*', '^ite,.*', '^itead,.*', '^itian,.*', '^ivo,.*', '^iwave,.*', '^jadard,.*', '^jasonic,.*', '^jdi,.*', '^jedec,.*', '^jenson,.*', '^
+ jesurun,.*', '^jethome,.*', '^jianda,.*', '^jide,.*', '^joz,.*', '^kam,.*', '^karo,.*', '^keithkoep,.*', '^keymile,.*', '^khadas,.*', '^kiebackpeter,.*', '^kinetic,.*', '^kingdisplay,.*', '^kingnovel,.*', '^kionix,.*', '^kobo,.*', '^kobol,.*', '^koe,.*', '^kontron,.*', '^kosagi,.*', '^kvg,.*', '^kyo,.*', '^lacie,.*', '^laird,.*', '^lamobo,.*', '^lantiq,.*', '^lattice,.*', '^lckfb,.*', '^lctech,.*', '^leadtek,.*', '^leez,.*', '^lego,.*', '^lemaker,.*', '^lenovo,.*', '^lg,.*', '^lgphilips,.*', '^libretech,.*', '^licheepi,.*', '^linaro,.*', '^lincolntech,.*', '^lineartechnology,.*', '^linksprite,.*', '^linksys,.*', '^linutronix,.*', '^linux,.*', '^linx,.*', '^liteon,.*', '^litex,.*', '^lltc,.*', '^logicpd,.*', '^logictechno,.*', '^longcheer,.*', '^lontium,.*', '^loongmasses,.*', '^loongson,.*', '^lsi,.*', '^lunzn,.*', '^luxul,.*', '^lwn,.*', '^lxa,.*', '^m5stack,.*', '^macnica,.*', '^mantix,.*', '^mapleboard,.*', '^marantec,.*', '^marvell,.*', '^maxbotix,.*', '^maxim,.*', '^maxlinear,.
+ *', '^mbvl,.*', '^mcube,.*', '^meas,.*', '^mecer,.*', '^mediatek,.*', '^megachips,.*', '^mele,.*', '^melexis,.*', '^melfas,.*', '^mellanox,.*', '^memsensing,.*', '^memsic,.*', '^menlo,.*', '^mentor,.*', '^meraki,.*', '^merrii,.*', '^methode,.*', '^micrel,.*', '^microchip,.*', '^microcrystal,.*', '^micron,.*', '^microsoft,.*', '^microsys,.*', '^microtips,.*', '^mikroe,.*', '^mikrotik,.*', '^milkv,.*', '^miniand,.*', '^minix,.*', '^mips,.*', '^miramems,.*', '^mitsubishi,.*', '^mitsumi,.*', '^mixel,.*', '^miyoo,.*', '^mntre,.*', '^mobileye,.*', '^modtronix,.*', '^moortec,.*', '^mosaixtech,.*', '^motorcomm,.*', '^motorola,.*', '^moxa,.*', '^mpl,.*', '^mps,.*', '^mqmaker,.*', '^mrvl,.*', '^mscc,.*', '^msi,.*', '^mstar,.*', '^mti,.*', '^multi-inno,.*', '^mundoreader,.*', '^murata,.*', '^mxic,.*', '^mxicy,.*', '^myir,.*', '^national,.*', '^neardi,.*', '^nec,.*', '^neofidelity,.*', '^neonode,.*', '^netcube,.*', '^netgear,.*', '^netlogic,.*', '^netron-dy,.*', '^netronix,.*', '^netxeon,.*', '
+ ^neweast,.*', '^newhaven,.*', '^newvision,.*', '^nexbox,.*', '^nextthing,.*', '^ni,.*', '^nintendo,.*', '^nlt,.*', '^nokia,.*', '^nordic,.*', '^nothing,.*', '^novatek,.*', '^novtech,.*', '^numonyx,.*', '^nutsboard,.*', '^nuvoton,.*', '^nvd,.*', '^nvidia,.*', '^nxp,.*', '^oceanic,.*', '^ocs,.*', '^oct,.*', '^okaya,.*', '^oki,.*', '^olimex,.*', '^olpc,.*', '^oneplus,.*', '^onie,.*', '^onion,.*', '^onnn,.*', '^ontat,.*', '^opalkelly,.*', '^openailab,.*', '^opencores,.*', '^openembed,.*', '^openpandora,.*', '^openrisc,.*', '^openwrt,.*', '^option,.*', '^oranth,.*', '^orisetech,.*', '^ortustech,.*', '^osddisplays,.*', '^osmc,.*', '^ouya,.*', '^overkiz,.*', '^ovti,.*', '^oxsemi,.*', '^ozzmaker,.*', '^panasonic,.*', '^parade,.*', '^parallax,.*', '^pda,.*', '^pericom,.*', '^pervasive,.*', '^phicomm,.*', '^phytec,.*', '^picochip,.*', '^pine64,.*', '^pineriver,.*', '^pixcir,.*', '^plantower,.*', '^plathome,.*', '^plda,.*', '^plx,.*', '^ply,.*', '^pni,.*', '^pocketbook,.*', '^polaroid,.*', '^p
+ olyhex,.*', '^portwell,.*', '^poslab,.*', '^pov,.*', '^powertip,.*', '^powervr,.*', '^powkiddy,.*', '^pri,.*', '^primeview,.*', '^primux,.*', '^probox2,.*', '^prt,.*', '^pulsedlight,.*', '^purism,.*', '^puya,.*', '^qca,.*', '^qcom,.*', '^qemu,.*', '^qi,.*', '^qiaodian,.*', '^qihua,.*', '^qishenglong,.*', '^qnap,.*', '^quanta,.*', '^radxa,.*', '^raidsonic,.*', '^ralink,.*', '^ramtron,.*', '^raspberrypi,.*', '^raydium,.*', '^rda,.*', '^realtek,.*', '^relfor,.*', '^remarkable,.*', '^renesas,.*', '^rervision,.*', '^revotics,.*', '^rex,.*', '^richtek,.*', '^ricoh,.*', '^rikomagic,.*', '^riot,.*', '^riscv,.*', '^rockchip,.*', '^rocktech,.*', '^rohm,.*', '^ronbo,.*', '^roofull,.*', '^roseapplepi,.*', '^rve,.*', '^saef,.*', '^samsung,.*', '^samtec,.*', '^sancloud,.*', '^sandisk,.*', '^satoz,.*', '^sbs,.*', '^schindler,.*', '^schneider,.*', '^sciosense,.*', '^seagate,.*', '^seeed,.*', '^seirobotics,.*', '^semtech,.*', '^senseair,.*', '^sensirion,.*', '^sensortek,.*', '^sercomm,.*', '^sff,.*'
+ , '^sgd,.*', '^sgmicro,.*', '^sgx,.*', '^sharp,.*', '^shift,.*', '^shimafuji,.*', '^shineworld,.*', '^shiratech,.*', '^si-en,.*', '^si-linux,.*', '^siemens,.*', '^sifive,.*', '^siflower,.*', '^sigma,.*', '^sii,.*', '^sil,.*', '^silabs,.*', '^silan,.*', '^silead,.*', '^silergy,.*', '^silex-insight,.*', '^siliconfile,.*', '^siliconmitus,.*', '^silvaco,.*', '^simtek,.*', '^sinlinx,.*', '^sinovoip,.*', '^sinowealth,.*', '^sipeed,.*', '^sirf,.*', '^sis,.*', '^sitronix,.*', '^skov,.*', '^skyworks,.*', '^smartlabs,.*', '^smartrg,.*', '^smi,.*', '^smsc,.*', '^snps,.*', '^sochip,.*', '^socionext,.*', '^solidrun,.*', '^solomon,.*', '^sony,.*', '^sophgo,.*', '^sourceparts,.*', '^spacemit,.*', '^spansion,.*', '^sparkfun,.*', '^spinalhdl,.*', '^sprd,.*', '^square,.*', '^ssi,.*', '^sst,.*', '^sstar,.*', '^st,.*', '^st-ericsson,.*', '^starfive,.*', '^starry,.*', '^startek,.*', '^starterkit,.*', '^ste,.*', '^stericsson,.*', '^storlink,.*', '^storm,.*', '^storopack,.*', '^summit,.*', '^sunchip,.*', 
+ '^sundance,.*', '^sunplus,.*', '^supermicro,.*', '^swir,.*', '^syna,.*', '^synology,.*', '^synopsys,.*', '^tbs,.*', '^tbs-biometrics,.*', '^tcg,.*', '^tcl,.*', '^tcs,.*', '^tdo,.*', '^team-source-display,.*', '^technexion,.*', '^technologic,.*', '^techstar,.*', '^techwell,.*', '^teejet,.*', '^teltonika,.*', '^tempo,.*', '^terasic,.*', '^tesla,.*', '^test,.*', '^tfc,.*', '^thead,.*', '^thine,.*', '^thingyjp,.*', '^thundercomm,.*', '^thwc,.*', '^ti,.*', '^tianma,.*', '^tlm,.*', '^tmt,.*', '^topeet,.*', '^topic,.*', '^topland,.*', '^toppoly,.*', '^topwise,.*', '^toradex,.*', '^toshiba,.*', '^toumaz,.*', '^tpk,.*', '^tplink,.*', '^tpo,.*', '^tq,.*', '^transpeed,.*', '^traverse,.*', '^tronfy,.*', '^tronsmart,.*', '^truly,.*', '^tsd,.*', '^turing,.*', '^tyan,.*', '^tyhx,.*', '^u-blox,.*', '^u-boot,.*', '^ubnt,.*', '^ucrobotics,.*', '^udoo,.*', '^ufispace,.*', '^ugoos,.*', '^uni-t,.*', '^uniwest,.*', '^upisemi,.*', '^urt,.*', '^usi,.*', '^usr,.*', '^utoo,.*', '^v3,.*', '^vaisala,.*', '^vam
+ rs,.*', '^variscite,.*', '^vdl,.*', '^vertexcom,.*', '^via,.*', '^vialab,.*', '^vicor,.*', '^videostrong,.*', '^virtio,.*', '^virtual,.*', '^vishay,.*', '^visionox,.*', '^vitesse,.*', '^vivante,.*', '^vivax,.*', '^vocore,.*', '^voipac,.*', '^voltafield,.*', '^vot,.*', '^vscom,.*', '^vxt,.*', '^wacom,.*', '^wanchanglong,.*', '^wand,.*', '^waveshare,.*', '^wd,.*', '^we,.*', '^welltech,.*', '^wetek,.*', '^wexler,.*', '^whwave,.*', '^wi2wi,.*', '^widora,.*', '^wiligear,.*', '^willsemi,.*', '^winbond,.*', '^wingtech,.*', '^winlink,.*', '^winstar,.*', '^wirelesstag,.*', '^wits,.*', '^wlf,.*', '^wm,.*', '^wobo,.*', '^wolfvision,.*', '^x-powers,.*', '^xen,.*', '^xes,.*', '^xiaomi,.*', '^xillybus,.*', '^xingbangda,.*', '^xinpeng,.*', '^xiphera,.*', '^xlnx,.*', '^xnano,.*', '^xunlong,.*', '^xylon,.*', '^yadro,.*', '^yamaha,.*', '^yes-optoelectronics,.*', '^yic,.*', '^yiming,.*', '^ylm,.*', '^yna,.*', '^yones-toptech,.*', '^ys,.*', '^ysoft,.*', '^yuridenki,.*', '^yuzukihd,.*', '^zarlink,.*', '
+ ^zealz,.*', '^zeitec,.*', '^zidoo,.*', '^zii,.*', '^zinitix,.*', '^zkmagic,.*', '^zte,.*', '^zyxel,.*', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/vendor-prefixes.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250410152519.1358964-4-pinkesh.vaghela@einfochips.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
 _______________________________________________
 linux-riscv mailing list
