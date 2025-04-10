@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE490C369A2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:38:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A52C369AA
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 07:38:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UDvke3uPEAQf1rtbvJs2p0QGWGOo1WCfkTk6mSJIkPo=; b=Me2wSEUS3/xFAU
-	aImIPApQSTdMMvIc7PG0Ws+pBUJGjzsa8AfGEOGgwPVHYYyX3O5SHzF+bBzlxZRsmPXzG/ARLcXKQ
-	eEwaxbwEFVwgQ/19COQt18PLvYpLwtT5xUGatenHFC0RWNRk/YI6kTBGkHrcidDlFE0ct73kiooTp
-	wuvP/c72jY2dVjvon+eEwbhQ3K7shboAW1GseisBlrrepdtW18nfFe0lw0/MM0ChIMKe1UTWdaQ7M
-	hpmiLawWtbHHiFzy+52S6xrfoG4+P1tw7OZQBik7Qy73EwF/3KkCbx46AS23J7CTvW+wo3nYpzyZu
-	zBXPTdTvUzbbQ263IOXw==;
+	List-Owner; bh=6t0/V6mMYEILSXK1ctPKLebrJwflqHnsgplgtkAgTYc=; b=1e6D7smsXokoWz
+	9n/mlse0/TC3nWWURAyAnhcrvaXX9GsSheHhaSj7qm093s+k31eT6FHpo73Zv+cmJz8zkyrbQlsi7
+	+rGE+QMYnKv2vTqwrWLr89p+w+q0hkxfAb6YdrqK+ef/jOBm0ImUE3H7/YCdnND0FLIVD1Tl0e/jZ
+	JlspXokQjndBs5/wjA572uX+GU6sfxGhaWVTdKyK8BjnzHcSNuHB+tBDJH0kn0YqckhnZTgmpxgO8
+	POjyu7Z3IWh2+OrmNbefThl8pgIytN+g0H/rnBDb+7hf6T3yZ5Dmy3yPcCR/0NQEzveg6dJgoouBx
+	78NrfDE5kjsm9QAkl+VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2mUR-00000009al4-1f19;
-	Thu, 10 Apr 2025 07:38:23 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1u2mUT-00000009an8-2Rhw;
+	Thu, 10 Apr 2025 07:38:25 +0000
+Received: from mail-oi1-x232.google.com ([2607:f8b0:4864:20::232])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2lyc-00000009TAF-38rF
+	id 1u2lyg-00000009TBu-3Xl8
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 07:05:32 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3f6ab1b8fc1so249867b6e.0
-        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 00:05:30 -0700 (PDT)
+	Thu, 10 Apr 2025 07:05:36 +0000
+Received: by mail-oi1-x232.google.com with SMTP id 5614622812f47-3fec2899574so317450b6e.2
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 00:05:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=tenstorrent.com; s=google; t=1744268729; x=1744873529; darn=lists.infradead.org;
+        d=tenstorrent.com; s=google; t=1744268734; x=1744873534; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=qfj1lD5IvxBlvbEuJ/tOL+PNehQx5cdOKt7waVQamBc=;
-        b=Y/PRJCksebcnSpD+ZpjIqya5LX3U3SBxIbgKvzkA1XwB8/S+qH9tzGwW8mSTTCxhg1
-         LVuKnT+vIiqxz3t29QIUVG7IKI4gkABsKLo9ZdiFsdCZdO1w2MnLPNJKEeFkmMtTNImV
-         P4vPxG6GS6PHEAS75AUiMcfNkZzyeHw1Iazbvqt0EPkfol1hzTZengURLPaFMsTngnGQ
-         3Ao4TVrfo1R2BsQjTKlG/6OxQ97YdgAT1W3e80Q0KC2envrUrHc0K4U7JwQkd8Ia1uhC
-         sUKmm2zSokpy7Waw+kMIF7StsGTcYtBV6EvrknzLZGLtjsxyPaip+K/ER8UBEbro5wgD
-         DDQA==
+        bh=DpC/LMch4vBncOIb4H+uNBUj+A3evJlilB0f5X4S7k8=;
+        b=O2t7h+rStKrGnjw61ID767AOZIBOnXZwZMna2HTEq2a1+n6khPnKcHfIZfF8uRFQbN
+         IwlBEh//TcIK6dh8flR7Ef4dZdxZfOmQXiaJEi9wK9w1NJHa/0zlZHje48vXfMKG83JF
+         dqWnSaXqMxFmSMO7Jqeb9gznIb4JM/QqNM5/VA+0b/mHXHIZNFDybVKSlSrG33f5+dgu
+         yBonLheCFA60rY+OiNmQQeGiZDOEYrKxaCTGAsB1nVtfg5BO+p9zkib9gT7af5eeDhA+
+         xnOs7X9YAcZZV6JuOga3Imn4x/aY/or/lY5WcO1rupp4aIiUo62ha4wKO7+iVa0ONyiu
+         fe0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744268729; x=1744873529;
+        d=1e100.net; s=20230601; t=1744268734; x=1744873534;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qfj1lD5IvxBlvbEuJ/tOL+PNehQx5cdOKt7waVQamBc=;
-        b=SaCBXL4JXhCL7H5XlCKVEOXoQvZFk1C4TOyc7yzU471x/D1+WyJIhZlFhnjoFnpvDK
-         ylf/uPTg5RVI6H86ee/WwVJ8YOKsppiYChOBD90arvNKSJjJDi0Z4SR6Y09H9WP1Wdy7
-         rwCp1ySM+HtSW1JAxuHjlGhuF2Vmz8gag4yHobLvaDslNoGM0nHhjGOka9dCFXVMMmyF
-         OR3HjCvJeH1hqyR4U/0cMBnZwN+a1Y6FQ895WoQdZJecMu16C1LiZpfbSQobSFoyNkrO
-         9vIGTPxFN2ZkLSe5TeZYhkSKDkCZJDndVqJZFHI7Brv7+VyMxJaNyvoCqG6IS0kL8k/B
-         uAaQ==
-X-Gm-Message-State: AOJu0YyNz/maoCWGioDzHXs5dfVxp5C5khs1u8C013OMHdJ/IBG2HlV0
-	eamWkzkpHivmvjEG0ou7P/46lNkgFk9zPHrvwEpB6D5TGgOn5vDeO5C1O8crnA==
-X-Gm-Gg: ASbGncueyTlhF2YR4XAnnILiWBIgEGpXIZ1ba+WZfmMBWPh1IyNrw6J0ZNElQ7bX4ch
-	CRMYEZfvXhgdnPFxYnCX3k9RYikwd8iIktYzWNJ1mAvPMO03eJlbRnazwPlXwdGjbI1+eiqsfSu
-	IFNMcr5zhzR93fhS2APl0cmVQlHnZv3uCK7YIWk28cYZt/e5I0JmqPi7HvDJkoJVMrqY0qesXeh
-	V76vTVqlm0ZqPpopO6J3UzV+yNKt4lHhxC57/Djtm5I4qRdxRj84A8+vVLNESKc7pQ8ojM1aqfg
-	rUdJbN7XCSP2Y9/zAhgOnV/tdVseI7KagMcjWcxqEacdb0Gp/0EiKocAPMw=
-X-Google-Smtp-Source: AGHT+IEq3/uj00FVp1Xbt3y1cXdeUi85YNR7lcgCj8wlN2GuL4uWrvH1Xd+HddZZQveM1t1bjtbp3Q==
-X-Received: by 2002:a05:6808:318b:b0:3f9:3de3:c8de with SMTP id 5614622812f47-4007cc7dbacmr654153b6e.12.1744268729571;
-        Thu, 10 Apr 2025 00:05:29 -0700 (PDT)
+        bh=DpC/LMch4vBncOIb4H+uNBUj+A3evJlilB0f5X4S7k8=;
+        b=CFfmWqbq1z7gGv68dYwjqCVZWS9k9uJzIeP9vQvdWbOa0XVY6XImSH/0mhcH1BWkT1
+         QHpYkmQT2qmccsquj1jNDobHVKbgJ6RXMVCMAH4M24tJHsMoAdc74R9GKRoZju9fyctA
+         ousl4K/FGWQtLmRmHGLisqcFZlR7AqOucP7WNXfodXpOHiC2rooP3bubRCiKf7zS+vBG
+         nsV+obltkMfWEnAaaydGZpEccKwJpB2xeC1ziZnu9ZsAKnT5pVuZzVoPf4XHdFEzvOlz
+         wtalo6WoIKCly9rkxfrC7Q9QMJroaFvHiCn+eaNE2ihTcwiqaxf92JseNi5XzDeF+ceG
+         cneA==
+X-Gm-Message-State: AOJu0Yx5R8WlBU/NW5h/KHLHkBG8r5pHEr5fd2oKdiSCFILL64yPrlSV
+	3Q2j/YIoYM9QWOxqEGZa8M2DLAxipwqUWuy7obcIyUkrCWvS8lR2mq3GQTmNqg==
+X-Gm-Gg: ASbGncs9Ac7M/SzOmXLGVmwc0Zh3KL0QUgb3njxiCRFMpx2DzFP8B7fr8QcTcq8DE6P
+	fOe6WCy+Q9thNkoYwWY3vogobWDcwQhyGEeuvZOTvX6eEzhcq2Y89iQ1eBuRqi9/wUrA7FJN39Q
+	Vh7GE0M8TGfQPOdcCj9Es7TjmrHXF0RY7L8UMm0T4Veg2ic8MwcJ76wP4ukZp6Z0ENnc/K2ntOW
+	0EOxbsVSc1Um7Txj31I82Tohy4ab2LhGh5QVKQsPN5YlTz8QLDhuj/YFhHfB+IJa8oljJPFd+0N
+	06u+2WHGkyZlcmTwAF+HQ9OfgXFhanhTLKp/EPdaTK4MIm8WpKtWP8T/UFs=
+X-Google-Smtp-Source: AGHT+IE+XtNq4lkOGfL5MMqTmIpDIasL7LqvEU62Fpm528DyNXHH0ktFXep74oD9/woVq59pGry6bA==
+X-Received: by 2002:a05:6808:14c2:b0:3fa:7328:b9a8 with SMTP id 5614622812f47-4007bcda67dmr907210b6e.18.1744268733620;
+        Thu, 10 Apr 2025 00:05:33 -0700 (PDT)
 Received: from aus-ird.tenstorrent.com ([38.104.49.66])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-40076282ce8sm461369b6e.9.2025.04.10.00.05.28
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40076282ce8sm461369b6e.9.2025.04.10.00.05.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 00:05:28 -0700 (PDT)
+        Thu, 10 Apr 2025 00:05:33 -0700 (PDT)
 From: Cyril Bur <cyrilbur@tenstorrent.com>
 To: palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
@@ -77,18 +77,17 @@ To: palmer@dabbelt.com,
 	alex@ghiti.fr
 Cc: linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	jszhang@kernel.org,
-	syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Subject: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
-Date: Thu, 10 Apr 2025 07:05:22 +0000
-Message-Id: <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
+	jszhang@kernel.org
+Subject: [PATCH v6 4/5] riscv: uaccess: use 'asm goto' for put_user()
+Date: Thu, 10 Apr 2025 07:05:25 +0000
+Message-Id: <20250410070526.3160847-5-cyrilbur@tenstorrent.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
 References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_000530_789875_E363905E 
-X-CRM114-Status: GOOD (  17.65  )
+X-CRM114-CacheID: sfid-20250410_000534_883309_A56A23C3 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,143 +104,164 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Ben Dooks <ben.dooks@codethink.co.uk>
+From: Jisheng Zhang <jszhang@kernel.org>
 
-When threads/tasks are switched we need to ensure the old execution's
-SR_SUM state is saved and the new thread has the old SR_SUM state
-restored.
+With 'asm goto' we don't need to test the error etc, the exception just
+jumps to the error handling directly.
 
-The issue was seen under heavy load especially with the syz-stress tool
-running, with crashes as follows in schedule_tail:
+Because there are no output clobbers which could trigger gcc bugs [1]
+the use of asm_goto_output() macro is not necessary here. Not using
+asm_goto_output() is desirable as the generated output asm will be
+cleaner.
 
-Unable to handle kernel access to user memory without uaccess routines
-at virtual address 000000002749f0d0
-Oops [#1]
-Modules linked in:
-CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
-5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
-Hardware name: riscv-virtio,qemu (DT)
-epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
- ra : task_pid_vnr include/linux/sched.h:1421 [inline]
- ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
-epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
- gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
- t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
- s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
- a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
- a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
- s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
- s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
- s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
- s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
- t5 : ffffffc4043cafba t6 : 0000000000040000
-status: 0000000000000120 badaddr: 000000002749f0d0 cause:
-000000000000000f
-Call Trace:
-[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
-[<ffffffe000005570>] ret_from_exception+0x0/0x14
-Dumping ftrace buffer:
-   (ftrace buffer empty)
----[ end trace b5f8f9231dc87dda ]---
+Use of the volatile keyword is redundant as per gcc 14.2.0 manual section
+6.48.2.7 Goto Labels:
+> Also note that an asm goto statement is always implicitly considered
+  volatile.
 
-The issue comes from the put_user() in schedule_tail
-(kernel/sched/core.c) doing the following:
+Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=113921 # 1
 
-asmlinkage __visible void schedule_tail(struct task_struct *prev)
-{
-...
-        if (current->set_child_tid)
-                put_user(task_pid_vnr(current), current->set_child_tid);
-...
-}
-
-the put_user() macro causes the code sequence to come out as follows:
-
-1:	__enable_user_access()
-2:	reg = task_pid_vnr(current);
-3:	*current->set_child_tid = reg;
-4:	__disable_user_access()
-
-The problem is that we may have a sleeping function as argument which
-could clear SR_SUM causing the panic above. This was fixed by
-evaluating the argument of the put_user() macro outside the user-enabled
-section in commit 285a76bb2cf5 ("riscv: evaluate put_user() arg before
-enabling user access")"
-
-In order for riscv to take advantage of unsafe_get/put_XXX() macros and
-to avoid the same issue we had with put_user() and sleeping functions we
-must ensure code flow can go through switch_to() from within a region of
-code with SR_SUM enabled and come back with SR_SUM still enabled. This
-patch addresses the problem allowing future work to enable full use of
-unsafe_get/put_XXX() macros without needing to take a CSR bit flip cost
-on every access. Make switch_to() save and restore SR_SUM.
-
-Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+[Cyril Bur: Rewritten commit message]
 Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
 ---
- arch/riscv/include/asm/processor.h | 1 +
- arch/riscv/kernel/asm-offsets.c    | 5 +++++
- arch/riscv/kernel/entry.S          | 8 ++++++++
- 3 files changed, 14 insertions(+)
+ arch/riscv/include/asm/uaccess.h | 71 +++++++++++++++-----------------
+ 1 file changed, 33 insertions(+), 38 deletions(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a..58fd11c89fe9 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -103,6 +103,7 @@ struct thread_struct {
- 	struct __riscv_d_ext_state fstate;
- 	unsigned long bad_cause;
- 	unsigned long envcfg;
-+	unsigned long status;
- 	u32 riscv_v_flags;
- 	u32 vstate_ctrl;
- 	struct __riscv_v_ext_state vstate;
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 16490755304e..969c65b1fe41 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -34,6 +34,7 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
-+	OFFSET(TASK_THREAD_STATUS, task_struct, thread.status);
+diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
+index da36057847f0..719c9179a751 100644
+--- a/arch/riscv/include/asm/uaccess.h
++++ b/arch/riscv/include/asm/uaccess.h
+@@ -214,61 +214,66 @@ do {								\
+ 		((x) = (__force __typeof__(x))0, -EFAULT);	\
+ })
  
- 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-@@ -346,6 +347,10 @@ void asm_offsets(void)
- 		  offsetof(struct task_struct, thread.s[11])
- 		- offsetof(struct task_struct, thread.ra)
- 	);
-+	DEFINE(TASK_THREAD_STATUS_RA,
-+		  offsetof(struct task_struct, thread.status)
-+		- offsetof(struct task_struct, thread.ra)
-+	);
+-#define __put_user_asm(insn, x, ptr, err)			\
++#define __put_user_asm(insn, x, ptr, label)			\
+ do {								\
+ 	__typeof__(*(ptr)) __x = x;				\
+-	__asm__ __volatile__ (					\
++	asm goto(						\
+ 		"1:\n"						\
+-		"	" insn " %z1, %2\n"			\
+-		"2:\n"						\
+-		_ASM_EXTABLE_UACCESS_ERR(1b, 2b, %0)		\
+-		: "+r" (err)					\
+-		: "rJ" (__x), "m"(*(ptr)));			\
++		"	" insn " %z0, %1\n"			\
++		_ASM_EXTABLE(1b, %l2)				\
++		: : "rJ" (__x), "m"(*(ptr)) : : label);		\
+ } while (0)
  
- 	DEFINE(TASK_THREAD_F0_F0,
- 		  offsetof(struct task_struct, thread.fstate.f[0])
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 33a5a9f2a0d4..00bd0de9faa2 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
- 	REG_S s9,  TASK_THREAD_S9_RA(a3)
- 	REG_S s10, TASK_THREAD_S10_RA(a3)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
+ #ifdef CONFIG_64BIT
+-#define __put_user_8(x, ptr, err) \
+-	__put_user_asm("sd", x, ptr, err)
++#define __put_user_8(x, ptr, label) \
++	__put_user_asm("sd", x, ptr, label)
+ #else /* !CONFIG_64BIT */
+-#define __put_user_8(x, ptr, err)				\
++#define __put_user_8(x, ptr, label)				\
+ do {								\
+ 	u32 __user *__ptr = (u32 __user *)(ptr);		\
+ 	u64 __x = (__typeof__((x)-(x)))(x);			\
+-	__asm__ __volatile__ (					\
++	asm goto(						\
+ 		"1:\n"						\
+-		"	sw %z1, %3\n"				\
++		"	sw %z0, %2\n"				\
+ 		"2:\n"						\
+-		"	sw %z2, %4\n"				\
+-		"3:\n"						\
+-		_ASM_EXTABLE_UACCESS_ERR(1b, 3b, %0)		\
+-		_ASM_EXTABLE_UACCESS_ERR(2b, 3b, %0)		\
+-		: "+r" (err)					\
+-		: "rJ" (__x), "rJ" (__x >> 32),			\
++		"	sw %z1, %3\n"				\
++		_ASM_EXTABLE(1b, %l4)				\
++		_ASM_EXTABLE(2b, %l4)				\
++		: : "rJ" (__x), "rJ" (__x >> 32),		\
+ 			"m" (__ptr[__LSW]),			\
+-			"m" (__ptr[__MSW]));			\
++			"m" (__ptr[__MSW]) : : label);		\
+ } while (0)
+ #endif /* CONFIG_64BIT */
+ 
+-#define __put_user_nocheck(x, __gu_ptr, __pu_err)					\
++#define __put_user_nocheck(x, __gu_ptr, label)			\
+ do {								\
+ 	switch (sizeof(*__gu_ptr)) {				\
+ 	case 1:							\
+-		__put_user_asm("sb", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sb", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 2:							\
+-		__put_user_asm("sh", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sh", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 4:							\
+-		__put_user_asm("sw", (x), __gu_ptr, __pu_err);	\
++		__put_user_asm("sw", (x), __gu_ptr, label);	\
+ 		break;						\
+ 	case 8:							\
+-		__put_user_8((x), __gu_ptr, __pu_err);	\
++		__put_user_8((x), __gu_ptr, label);		\
+ 		break;						\
+ 	default:						\
+ 		BUILD_BUG();					\
+ 	}							\
+ } while (0)
+ 
++#define __put_user_error(x, ptr, err)				\
++do {								\
++	__label__ err_label;					\
++	__put_user_nocheck(x, ptr, err_label);			\
++	break;							\
++err_label:							\
++	(err) = -EFAULT;					\
++} while (0)
 +
-+	/* save the user space access flag */
-+	li    s0, SR_SUM
-+	csrr  s1, CSR_STATUS
-+	REG_S s1, TASK_THREAD_STATUS_RA(a3)
-+
- 	/* Save the kernel shadow call stack pointer */
- 	scs_save_current
- 	/* Restore context from next->thread */
-+	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
-+	csrs  CSR_STATUS, s0
- 	REG_L ra,  TASK_THREAD_RA_RA(a4)
- 	REG_L sp,  TASK_THREAD_SP_RA(a4)
- 	REG_L s0,  TASK_THREAD_S0_RA(a4)
+ /**
+  * __put_user: - Write a simple value into user space, with less checking.
+  * @x:   Value to copy to user space.
+@@ -299,7 +304,7 @@ do {								\
+ 	__chk_user_ptr(__gu_ptr);				\
+ 								\
+ 	__enable_user_access();					\
+-	__put_user_nocheck(__val, __gu_ptr, __pu_err);		\
++	__put_user_error(__val, __gu_ptr, __pu_err);		\
+ 	__disable_user_access();				\
+ 								\
+ 	__pu_err;						\
+@@ -373,13 +378,7 @@ do {									\
+ } while (0)
+ 
+ #define __put_kernel_nofault(dst, src, type, err_label)			\
+-do {									\
+-	long __kr_err = 0;						\
+-									\
+-	__put_user_nocheck(*((type *)(src)), (type *)(dst), __kr_err);	\
+-	if (unlikely(__kr_err))						\
+-		goto err_label;						\
+-} while (0)
++	__put_user_nocheck(*((type *)(src)), (type *)(dst), err_label)
+ 
+ static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
+ {
+@@ -398,12 +397,8 @@ static inline void user_access_restore(unsigned long enabled) { }
+  * We want the unsafe accessors to always be inlined and use
+  * the error labels - thus the macro games.
+  */
+-#define unsafe_put_user(x, ptr, label)	do {				\
+-	long __err = 0;							\
+-	__put_user_nocheck(x, (ptr), __err);				\
+-	if (__err)							\
+-		goto label;						\
+-} while (0)
++#define unsafe_put_user(x, ptr, label)					\
++	__put_user_nocheck(x, (ptr), label)
+ 
+ #define unsafe_get_user(x, ptr, label)	do {				\
+ 	long __err = 0;							\
 -- 
 2.34.1
 
