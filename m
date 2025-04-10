@@ -4,109 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF222C369A6
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 12:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA447C369A6
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 12:44:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
-	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aX+zqDx/XpInhcXNXc7EziwT6ROETTedCXcVlktxarI=; b=m9dXtCYVdpuAk3
-	/lBqhydKf0if6H6y8gDWN8q7rCqWq8jPvNKP2jdX0ktQaEU5/6tHLa3I+piscyhtEGXGBvz236HlY
-	pWAJihn5MpD9WEIxDOpuJ7liDMMt0pS8Y0uqXGckQn1Y1D1/vTsfk87MPY/u5srY1sHH9mf9Ge7Yg
-	7i4sUEkfyYwNAKrMN41OP+g3HeKx/JdZ22KWJrD2Wz2GNQOPcx4K4vvRhkaW53LhaCcctEQEeYNuK
-	+64kttO1jkaf+FQGM72CZV1XGxPqDfibh00rpxCE4p3CmJ0/hTxOy51Zl6rk5GkkVby/KH0aS54W+
-	M6ljKNR02ejLQOrnNRJQ==;
+	List-Owner; bh=sIEY0kjPOuQGK/dR/qa3o7eeoXA7T+5e36ZHRpNXXhI=; b=W4POIg0F+l0vE7
+	cnwg4WhXVoL76jYtkWJXfWvjuKmu50HLQ8SF+W20HJ+RMKnACcCo8LAU/MpXPuMGBepE60ioombnI
+	o0i792UF6zWVd79qE153p3mXmOP5VVvrSC24gNdDhAtdUKSDv8IovD62/BLpzpU3palLaLOfg9jVE
+	m0Ms3/Rjun/czko8YhjvBnyCNjQCVezvIyZ5wv4DHF//8dVP4Y0XpgHnAEMsLHeghPWt/dfSNtZSX
+	i2n11NuHP24wNEACu7K8T/4kDwLlUfnLT89UbDkNQPMtHfdrN20/aEzCe4UID5ucNrNbJ8GRWtkui
+	5HCq6TTXdz6yBLPPaM2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2rFJ-0000000AXhE-0cKg;
-	Thu, 10 Apr 2025 12:43:05 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u2rH4-0000000AY2a-1xvH;
+	Thu, 10 Apr 2025 12:44:54 +0000
+Received: from mail-yw1-x112d.google.com ([2607:f8b0:4864:20::112d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2r6w-0000000AW3M-3VUR;
-	Thu, 10 Apr 2025 12:34:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=; b=nK0DnfDDUiA3Tb7q1byWfz8RVW
-	TFUZopMk9Jp57KtvPZPxMaiMvKzOtBJB7bLMQ9kKyDk/hHLu+I4JEv1xPq116oEUNnTc5OyjAFvAv
-	uG1S2z6VCaatnHGZvKbyAaWVT6pAZ9pJuvannmI4H48IbjkfdIXrrxgWeee/0zQ7/YRNmEAQ+8LGb
-	s1WvVnjteY3Ba3bVEqmKvCxwjVpYOHLxOMjXvi4EiNjrW195PexqacFi4kiojai7ydHc5aIgOxIvU
-	T9waxj/Vqjk6U4/5OPE/mVbPab98hX7g60Fda6H9il+NtAnHhYuIaPKE+AW2mJROPeiBikv1qvH4M
-	cUdGVNIw==;
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u2r6t-00000008obo-1HXA;
-	Thu, 10 Apr 2025 12:34:25 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7398d65476eso568074b3a.1;
-        Thu, 10 Apr 2025 05:34:21 -0700 (PDT)
+	id 1u2r7N-0000000AW81-1Jk0
+	for linux-riscv@lists.infradead.org;
+	Thu, 10 Apr 2025 12:34:54 +0000
+Received: by mail-yw1-x112d.google.com with SMTP id 00721157ae682-6fed0620395so7922687b3.3
+        for <linux-riscv@lists.infradead.org>; Thu, 10 Apr 2025 05:34:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744288460; x=1744893260; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=;
-        b=haWJjeUQKcg1OZViQWOfPSFaBa6A++zV4pAltRPN3fb4aO46zMHp77VtVoYEmRNnw7
-         2aYGd6EE6pnnPe/PdV5qi2J7TqA94K+C9U+AUBZIRO8SeZHmFop4FA6MR2flPkjZ2ype
-         mkv1JLN0le3q9yqZ70dKDRgLp68vyQpIkeT2/SpyoxC9Ih6mQN+6tIpiNe0Bgz4MOdXm
-         MQ2zRD92g/FzMKIrkom16TLVrUmXEjjjqwUaw1eEYZItcG28oI2gt48aYsoKEJM2Xbve
-         xWSvbwmYV3L7IplbkRj/Q9lz+QmNAp364G+dAV9KnVR1rUQirkSgoJbJ51uYuxRNYCWt
-         ywsw==
+        d=linaro.org; s=google; t=1744288492; x=1744893292; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=rqOD9OxXJmvSDblyShGiywTB8bqKw04tVNsGe+lxyzo=;
+        b=GWCK/aRiCf2Z9MUciz7F05OJ/C6LHX7iK1EsRCr3lo+rNjzXDPQv7Bd75TTjNqg16q
+         7uh8wVsw2654fHM5rQlDxQ0AKS+YCzukAuz37CTvrev7K4UUVqxgV84AdKMxuTsppfCv
+         ySMq6WZ5m7wJPnlGcWnN4xXTcKidF8VVM8BsucCBMXReBObKvn2IHNR4qGqsvmJfXtuN
+         xCPfMcR/9ssXOLAUmb8mNscmnVvgLcgktdfrIgmqKLvSCl6IqVSwkIGkXg33HK3pLZEc
+         lm394doQdcj913/7g2YjIsBrUimyA7USLyYy+rD+vK30ANKFCR24YquKaHquE1WjT/GA
+         Oo5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744288460; x=1744893260;
-        h=content-transfer-encoding:mime-version:references:in-reply-to:from
-         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=CYYB8xWXXp3NrY8EvpLd9vo2DOULWKf7nlbTH+Fs28E=;
-        b=vmmdUaDr0kPJMnL9JQq6NjS50H+dAepQa75vZh6Z+k2fA7Con9O4rQPFnuH6gEfAhQ
-         783pUzZts5blAic2qPlHAqpceM2XxUHGgePezfsuPUGPsHhn/DCzNA71oFzOdoA2TwM6
-         rRTueygBBUa4iCAM5VWu/uEBhgSNV9Iqcf1CpR42K9ah5YivUpQVVY4HPW/wbNmHpiyq
-         VSgQRllkSLqVOMZO+cjVs+4V9J5uR3WBNNCSq62gYwPtaSOWWvIERtSGSyD0r9p2AMXX
-         Xun2U4uzpH1MQCu1SBFI53FYFEQ9xuZ//L8TM2IItT8k42foeVxyjL5uaaGN8yJqnVCJ
-         E1Ug==
-X-Forwarded-Encrypted: i=1; AJvYcCW6QcO9xKTGH7wS2yUDwEZ6F30pxwN2ko9ioeQIfYbPEKPHbHGJcgCh1pVvso4rHgBVkCesaPbx2tGgbPdkfazI@lists.infradead.org, AJvYcCXMEVIKYJ3YDeWpMYm143jOhphXWVBnK3h2GN0Ymm02V0s8F6OwCFtpUPPrAz9T0V6D08uFnU4xf4mTWsE=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwezGZ5CPHiu5QnjAFhrEfiGPDLPHu/mDV7/sevOzj/AfwxnwHy
-	U9rQN8nHjwWp5cM1lv2+2JGgrludAN48xyKFrGu4lrjgbbsjtTQN
-X-Gm-Gg: ASbGncsiwGA/oPkPfmwswHGqz/zOFUE+PwNymKXisFihB4A7UFdZzfDutDHZgLfDjiB
-	i6thYEWPyMlKTKZEey8AYfNVvTR6lXht5pU9AUtz+5yhO5XXCQGdYVWZHbOeFIq70ZqZav/mpWq
-	U3bcJ9nnLyFfNpP7nH1oM2jMxIgZsKuBMHnjMZkVaKj9pcfzAcjllY2pnnbUXIjGAXuHHN+dhas
-	vzLcrKmxXCDyOd2CeIErmNsREDAWnyJOyGiqfcVaw1uWIsTz7Ll4OOFNi3raKKxkJO/U/dvMO1V
-	1ci0sU4JFL4oovc3pmeVcxI6/Ht4CM3kgCUrVfDnhPq41JGaZLdOR1hcpHOm/NLGfvhbJDPj6Nw
-	8nunW4gd/fTsVt+5YCiD9Glg=
-X-Google-Smtp-Source: AGHT+IGl2utS2unvYHRMdT2RP9ueZqQhdCzDP3jwZyYMjQoG9MrpSlL23CvVNg2kZbwezJItYp/l0w==
-X-Received: by 2002:a05:6a00:1487:b0:732:1ce5:4a4c with SMTP id d2e1a72fcca58-73bbf869048mr3236065b3a.1.1744288459852;
-        Thu, 10 Apr 2025 05:34:19 -0700 (PDT)
-Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e69ae9sm3206479b3a.173.2025.04.10.05.34.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 10 Apr 2025 05:34:19 -0700 (PDT)
-Date: Thu, 10 Apr 2025 21:34:02 +0900 (JST)
-Message-Id: <20250410.213402.1373597003035091247.fujita.tomonori@gmail.com>
-To: aliceryhl@google.com
-Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
- rust-for-linux@vger.kernel.org, x86@kernel.org,
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
- bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
- hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
- chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
- hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
- alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
- bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
- tmgross@umich.edu
-Subject: Re: [PATCH v5 4/4] rust: Add warn_on macro
-From: FUJITA Tomonori <fujita.tomonori@gmail.com>
-In-Reply-To: <Z_d1xAAptnfzqg1l@google.com>
-References: <20250409065802.136971-1-fujita.tomonori@gmail.com>
-	<20250409065802.136971-5-fujita.tomonori@gmail.com>
-	<Z_d1xAAptnfzqg1l@google.com>
-Mime-Version: 1.0
+        d=1e100.net; s=20230601; t=1744288492; x=1744893292;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rqOD9OxXJmvSDblyShGiywTB8bqKw04tVNsGe+lxyzo=;
+        b=NaxQ87htb96rY1fxTSSOPjinuGe47eXzqHcOj/uebUY11fDFgGsWdDCPTE09+phOXz
+         DbVlQAnEERCL312wLB5VEAbF3SIpscz8pJ9//xDp/A5uhydDOOHE9DLsP83Vq7MFEeJP
+         WYtRmY1sFCSLpzTlz8vyJZzcrDhj2yrDfQZe/VyN/EsxkpnFBqlMzav/o1UjYSbE/EZ9
+         rSxHIjNTixN34+RT+0yEBd2MyfOA/E9ROxx7oZJVQ1jhYt/uX+aSqF4fbICElQCcTTXY
+         opFokE6FV2rLhhVYP6kkjaARluXdx45/wGHKzvCbkjTMc+mlfhAwJlXDAFol7gADUKDf
+         tFVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXKIA+0wNzCOTdNAik5N9ZrLvNQDj8pVJ/C5ErhXrsqHQ6ZDOUPcwX3MbbhmpqVQUKEtqyJEh0S3IKD4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YykfR+P3d8EqOhNSPFn2WV7LYQSYiTC405Pv+T63Y2s7jubEeO5
+	YVDMNf0kLA6uFy298GX3P2noOklYJ4izAPs28/LoqG4njygL7FuqUV3FwIN5llGiASO9Iagsc7a
+	7LH05jb55X2kLBobZW6064B/wH7YfK3BSpF/NCA==
+X-Gm-Gg: ASbGncuUvXHBNIyWG9P4N/DkVDCi+L/HJf3sKOE5PStZtARzc72I7AuiOfHEAATuzqj
+	gLagDLNNO02QkD8JPFnV5aZ2pqj2Co4LW6NXiR9xzfXfMNOHiwsSrRD7RgOOI3YYtAwvjbRz2sD
+	ytvfd5849wKEyNhgawvHmI1tt1qVhNcyF6YA==
+X-Google-Smtp-Source: AGHT+IE96uvkSKWw6YPtFVcby7pWdKNYA2UEmsGaoJPHRvl5S/OcYn8T2l4wlOx/RbleIvNqeqZYcO8OmfDh5/zO70A=
+X-Received: by 2002:a05:690c:3582:b0:702:4eb0:4a60 with SMTP id
+ 00721157ae682-7054c7d0e89mr28286317b3.33.1744288492295; Thu, 10 Apr 2025
+ 05:34:52 -0700 (PDT)
+MIME-Version: 1.0
+References: <CGME20250409093031eucas1p2222e9dc4d354e9b66b7183922c0fb3cf@eucas1p2.samsung.com>
+ <20250409093025.2917087-1-m.wilczynski@samsung.com> <20250409093025.2917087-2-m.wilczynski@samsung.com>
+ <CAPDyKFpoSwKAmiWyvNt1fVyu6=NU1oVOmQLVuzX_bG=-5KrM2Q@mail.gmail.com> <75f97336-6cb5-47fc-ac88-5fe7842e2838@samsung.com>
+In-Reply-To: <75f97336-6cb5-47fc-ac88-5fe7842e2838@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 10 Apr 2025 14:34:14 +0200
+X-Gm-Features: ATxdqUFgmaVfbL47_mXJup4YjWo6ZMMfedtXYPTwprySI8RzBXkwm9C8hCD80Tk
+Message-ID: <CAPDyKFq=BF5f2i_Sr1cmVqtVAMgr=0FqsksL7RHZLKn++y0uwg@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] dt-bindings: firmware: thead,th1520: Add clocks
+ and resets
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Stephen Boyd <sboyd@kernel.org>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, drew@pdp7.com, guoren@kernel.org, wefu@redhat.com, 
+	p.zabel@pengutronix.de, m.szyprowski@samsung.com, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-pm@vger.kernel.org, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_133423_487984_FBC2DE5D 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250410_053453_360920_4F47FE74 
+X-CRM114-Status: GOOD (  38.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,52 +100,122 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 10 Apr 2025 07:39:48 +0000
-Alice Ryhl <aliceryhl@google.com> wrote:
+On Thu, 10 Apr 2025 at 12:42, Michal Wilczynski
+<m.wilczynski@samsung.com> wrote:
+>
+>
+>
+> On 4/9/25 12:41, Ulf Hansson wrote:
+> > On Wed, 9 Apr 2025 at 11:30, Michal Wilczynski <m.wilczynski@samsung.com> wrote:
+> >>
+> >> Prepare for handling GPU clock and reset sequencing through a generic
+> >> power domain by adding clock and reset properties to the TH1520 AON
+> >> firmware bindings.
+> >>
+> >> The T-HEAD TH1520 GPU requires coordinated management of two clocks
+> >> (core and sys) and two resets (GPU and GPU CLKGEN). Due to SoC-specific
+> >> requirements, the CLKGEN reset must be carefully managed alongside clock
+> >> enables to ensure proper GPU operation, as discussed on the mailing list
+> >> [1].
+> >>
+> >> Since the coordination is now handled through a power domain, only the
+> >> programmable clocks (core and sys) are exposed. The GPU MEM clock is
+> >> ignored, as it is not controllable on the TH1520 SoC.
+> >>
+> >> This approach follows upstream maintainers' recommendations [1] to
+> >> avoid SoC-specific details leaking into the GPU driver or clock/reset
+> >> frameworks directly.
+> >>
+> >> [1] - https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@kernel.org/
+> >>
+> >> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> >> ---
+> >>  .../bindings/firmware/thead,th1520-aon.yaml   | 28 +++++++++++++++++++
+> >>  1 file changed, 28 insertions(+)
+> >>
+> >> diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> >> index bbc183200400..8075874bcd6b 100644
+> >> --- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> >> +++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+> >> @@ -25,6 +25,16 @@ properties:
+> >>    compatible:
+> >>      const: thead,th1520-aon
+> >>
+> >> +  clocks:
+> >> +    items:
+> >> +      - description: GPU core clock
+> >> +      - description: GPU sys clock
+> >> +
+> >> +  clock-names:
+> >> +    items:
+> >> +      - const: gpu-core
+> >> +      - const: gpu-sys
+> >
+> > These clocks don't look like they belong to the power-domain node, but
+> > rather the GPU's node.
+> >
+> > Or is this in fact the correct description of the HW?
+>
+> Hi,
+> Thank you for your input. Based on my understanding of Stephen
+> presentation the power-domain layer could act as a middleware layer
+> (like ACPI) that could own resources. That being said it was also stated
+> that the proposed approach should work with already existing device
+> trees, which implies that the DT should remain as is.
+>
+> So I could get the resources using attach_dev and detach_dev, but there
+> are two problems with that:
+>
+> 1) The GPU driver will try to manage clocks/reset on it's own using those functions
+>    if I provide non-stub working clocks and reset:
+> static const struct dev_pm_ops pvr_pm_ops = {
+>         RUNTIME_PM_OPS(pvr_power_device_suspend, pvr_power_device_resume,
+>                        pvr_power_device_idle)
+> };
+>
+> So obviously I should invent a way to tell the drm/imagination driver to
+> NOT manage. One obvious way to do this is to introduce new flag to genpd.flags
+> called let's say GENPD_FLAG_EXCLUSIVE_CONTROL, which would tell the consumer
+> driver that the power management is being done only done from the PM
+> middleware driver.
 
->> diff --git a/rust/kernel/bug.rs b/rust/kernel/bug.rs
->> new file mode 100644
->> index 000000000000..761f0c49ae04
->> --- /dev/null
->> +++ b/rust/kernel/bug.rs
->> @@ -0,0 +1,114 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +
->> +// Copyright (C) 2024, 2025 FUJITA Tomonori <fujita.tomonori@gmail.com>
->> +
->> +//! Support for BUG and WARN functionality.
->> +//!
->> +//! C header: [`include/asm-generic/bug.h`](srctree/include/asm-generic/bug.h)
->> +
->> +#[macro_export]
->> +#[doc(hidden)]
->> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML), not(CONFIG_LOONGARCH), not(CONFIG_ARM)))]
->> +#[cfg(CONFIG_DEBUG_BUGVERBOSE)]
->> +macro_rules! warn_flags {
->> +    ($flags:expr) => {
->> +        const FLAGS: u32 = $crate::bindings::BUGFLAG_WARNING | $flags;
->> +        const _FILE: &[u8] = file!().as_bytes();
->> +        // Plus one for null-terminator.
->> +        static FILE: [u8; _FILE.len() + 1] = {
->> +            let mut bytes = [0; _FILE.len() + 1];
->> +            let mut i = 0;
->> +            while i < _FILE.len() {
->> +                bytes[i] = _FILE[i];
->> +                i += 1;
->> +            }
->> +            bytes
->> +        };
->> +        // SAFETY: Just an FFI call.
-> 
-> Safety comments could be improved. This being an FFI call is not the
-> reason why it's okay. Furthermore, it's not an FFI call.
-> 
-> Otherwise, this series LGTM.
+Something along those lines. Although, I think the below twist to the
+approach would be better.
 
-SAFETY: It's always safe to embed metadata such as the source file
-name, line number, and flags into the .bug_table ELF section.
+Some flag (maybe just a bool) should be set dynamically when the
+->attach_dev() callback is invoked and it should be a per device flag,
+not a per genpd flag. In this way, the genpd provider driver can make
+runtime decisions, perhaps even based on some DT compatible string for
+the device being attached to it, whether it should manage PM resources
+or not.
 
-Looks good?
+Additionally, we need a new genpd helper function that allows the
+consumer driver to check if the PM resources are managed from the PM
+domain level (genpd) or not.
+
+If it sounds complicated, just let me know I can try to help put the
+pieces together.
+
+>
+> 2) The GPU node doesn't want to own the gpu-clkgen reset. In fact nobody
+>    seems to want to own it, even though theoretically it should be owned by
+>    the clk_vo as this would describe the hardware best (it's resetting the
+>    GPU clocks). But then it would be trickier to get it from the PM driver,
+>    making the code more complex and harder to understand. Nonetheless I
+>    think it would work.
+
+I guess it doesn't really matter to me. Perhaps model it as a reset
+and make the GPU be the consumer of it?
+
+>
+> If this sounds good to you I will work on the code.
+
+Sure, let's give this a try - I am here to help review and guide the best I can.
+
+[...]
+
+Kind regards
+Uffe
 
 _______________________________________________
 linux-riscv mailing list
