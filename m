@@ -4,55 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AE9AC3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 13:49:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C456C3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 14:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Mime-Version:References:In-Reply-To:
+	From:Subject:Cc:To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+KOIl0KnLZL/QOwsrnB9rgND/vpZU8EjhjNj7YNapIE=; b=kRl97BM+JMiwZM
-	J2F+MmgcBca3c02Pxyq43S5O2qWiW1NqCMMvwhN5rTP5BncCUFGLu4slRFZxgYdmrRrqA/IFvZOKj
-	GEc9pNytppQzz6nZeamzWF9O8oW8AFY6e2EkQw+SVPN//bee1N+ouRy9BIc2zdVagpe7WVYpRIjWN
-	aOOSxpQ6kTSY0H4E3C3EyAUm8b0o/9McXD3dbBXSma3PmkG5fECMKAI5e01fmrasi/Os5Eoz/aB11
-	Z+GWMLj/3D4xBM9j+/t5G7E9TIkjUzywhX99pnM1vthzAPB5BRmo8KELE4TWqeOwyDje27KOpryrA
-	D+rb0HEYAA5EIUqk3/JQ==;
+	List-Owner; bh=ktFNe3L8hdQeKy9vsN60lyu2/vlHFV2JYbcMA0Eog/E=; b=q8W89Da0sysBMf
+	3oHNC4Jr6xvvAYCGDsXZiXrGSpRQGeScbq0pA0CgAXu5UJbR8x7x9zJgXM1w2B+d3oL7bbZfOFpxW
+	BPGmERrvM2iTUbxCVkd/9sADi9ypw3a4Qf1iNVJuuneSEIbI86WueAox3u0X0/+fg8eQFzrnqHSGt
+	VpwWfp4xpANUaejejaABQCtBBBIWmSW5soON6+zLZvhTiSNOebwvhOU0FH1BLcFMAk/gVP8uzIqjX
+	hGr56YvbqZbaBzhl0OEmlmMead8juDlKFBpShQsQMABNJu75/A3WRQ+pGp9ayNJ5d7jN0tTRp7Tke
+	YZ39c98Hqk075p2Th7zA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2sH8-0000000AjbU-1bzE;
-	Thu, 10 Apr 2025 13:49:02 +0000
-Received: from relay5-d.mail.gandi.net ([217.70.183.197])
+	id 1u2sUj-0000000AloO-30rj;
+	Thu, 10 Apr 2025 14:03:05 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2sBC-0000000AiLU-2ht0
-	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 13:42:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 372934431A;
-	Thu, 10 Apr 2025 13:42:46 +0000 (UTC)
-Message-ID: <ccc97669-a4dc-459f-a26f-1fdad8b4a334@ghiti.fr>
-Date: Thu, 10 Apr 2025 15:42:46 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Content-Language: en-US
-To: WangYuli <wangyuli@uniontech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: chenhuacai@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
- palmerdabbelt@google.com, samuel.holland@sifive.com, zhanjun@uniontech.com,
- niecheng1@uniontech.com, guanwentao@uniontech.com,
- Huacai Chen <chenhuacai@loongson.cn>
-References: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvtdeltdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemledvfedvmegtfegrkeemugegsgegmedusggusggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudegpdhrtghpthhtohepfigrnhhghihulhhisehunhhiohhnthgvtghhrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpt
- hhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegthhgvnhhhuhgrtggriheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehvihhntggvnhhtrdgthhgvnhesshhifhhivhgvrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+	id 1u2sTc-0000000AlcD-1NZN;
+	Thu, 10 Apr 2025 14:01:57 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-736c1138ae5so793509b3a.3;
+        Thu, 10 Apr 2025 07:01:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744293715; x=1744898515; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cWAOaB8U3KFCIOrhTxD2O2vP23GerEEFQhxVmQdK6Js=;
+        b=GxwWI30mDq660hUkMs+vHEfilmDY67WsbRpnqN1j0jQV+ZTzP/xCHyd2MTFFtzhwvV
+         mxBheoe8dSfDz0GUu1Rif9GJZnzwI4bxkx2rgB1kVSnOCgz4gV8rTsdQ2W817eoSav5P
+         2DUJELpABVpLJ29govkLjzjLiGdRdLB8gntKq+8mSegQLdjpYFDxKchd6YpgihcYySi7
+         TWNsAtBPi19zebmEWmrMba+6utjjOKSUSQlm3XiLdRDucvBePGC4VHOu6g9F6W2cDZIw
+         DO/nbJNbmW425fMdGkbmx1Xt8crBooeA8ltCAFrPjBuHonyjG8ptoBE8HHJ7AX//+EZY
+         jBqA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744293715; x=1744898515;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=cWAOaB8U3KFCIOrhTxD2O2vP23GerEEFQhxVmQdK6Js=;
+        b=jq7YodOSwkFf59IWtpci+EnT5eE7RauQeCoeKKSfSdi2pfoiA2zZCikeE/IY79CKth
+         2QSIx3N1PyVoVUY6YsVyZaODAzz1/iEhG8VKMR/SbmTAgZodGdriv64KnGPM3lpv9IdE
+         cyAoOsXZMWCdLflUHt7FDv4Jc9DdP4kqSJATZCq+3w4t0MBzcA+pEu6RpjDw7ej7v6A+
+         E3XnLzyAEqzz/33jH5Ao23vZZkd2jJpSo0Q7sQUGtaoDB2RsMXbFKSlesqTqzhTxjtaG
+         r3xmOih8NEdHt17R/rbPglWtKoJJjRERj0en3fXr/n5w3ap9N+XXJDFcv5EjSmyUWbxX
+         yINg==
+X-Forwarded-Encrypted: i=1; AJvYcCWfJT1d6t8FcwAv9AACOhP9ovgvMBnhNHmkg4ZvSEfXIh4Y0+jlH1FTo0Xctlmkj0rhkyKOuAo9cNpu8RQPY9Wc@lists.infradead.org, AJvYcCWfLx+yz8czx48vpR1JhLDy4ojJfcZS3g22qdpY1oyk0UAOf/vAwwt2oj5oZ6Mwr/8VrmcDUzvUxxXZHH4=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8r6fFo7SKwJtApWq92jodss+jpiFS5DPtFXbSreVo0YuxSjF4
+	YH+MlraifxLXaZvVw6AnRHwVj89ryJ0/v1d+MaAmHHz6h0ArWwaz
+X-Gm-Gg: ASbGncuHT69KC6VBcaX4HUsJV2b4McW71ozGncHMU5RkluM2gCflFOehvFQ8Vqvkv+k
+	9CDEbmnc3Goz7fdesca7+JulerH2Xh7l/Oct/vd2KHyU+2iZAy4JmESC0NDyKqoYj5HL/Lu9fnt
+	L4X5QsFEaYCdjk0eoxYtNSmJcmb7PESp9BR9X3Vjd4CjLHYoERq0vv+jx1/8dCauxQZTAyXG6l4
+	D/Axuv4nDihZrIU1re8ryuQ1oK1sB5qV2wGBC/kHEPB0TgZxc6hLbg+59NphG8mFNywVMUYnk0O
+	/+BQqqiyTzDmXJm2A2hKxvMOwNMVmLtW452Gfhxx/CeaSCxRXdJfHryrXfkG2yB+7ptpGhaISku
+	1ielCcqaEx2K+TIcKqIigMQw=
+X-Google-Smtp-Source: AGHT+IHBTE6t3tMPyBmMiDGR0D6P+It1/bo69iX0No3GsbY7YKBIFvGuQ1V6G4gotfqVUWbx+i87Xg==
+X-Received: by 2002:a05:6a00:8c9:b0:736:a973:748 with SMTP id d2e1a72fcca58-73bbf01e262mr3359584b3a.22.1744293714003;
+        Thu, 10 Apr 2025 07:01:54 -0700 (PDT)
+Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73bb1e3824asm3362820b3a.103.2025.04.10.07.01.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 10 Apr 2025 07:01:53 -0700 (PDT)
+Date: Thu, 10 Apr 2025 23:01:38 +0900 (JST)
+Message-Id: <20250410.230138.20974725432146108.fujita.tomonori@gmail.com>
+To: gregkh@linuxfoundation.org
+Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
+ hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
+ hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
+ alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
+ aliceryhl@google.com, tmgross@umich.edu
+Subject: Re: [PATCH v5 4/4] rust: Add warn_on macro
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <2025040954-prenatal-enamel-373f@gregkh>
+References: <20250409065802.136971-1-fujita.tomonori@gmail.com>
+	<20250409065802.136971-5-fujita.tomonori@gmail.com>
+	<2025040954-prenatal-enamel-373f@gregkh>
+Mime-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_064254_824741_B73E0DD7 
-X-CRM114-Status: GOOD (  18.20  )
+X-CRM114-CacheID: sfid-20250410_070156_371628_E107BF47 
+X-CRM114-Status: GOOD (  17.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,103 +104,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi WangYuli,
+On Wed, 9 Apr 2025 09:38:53 +0200
+Greg KH <gregkh@linuxfoundation.org> wrote:
 
-On 08/04/2025 11:54, WangYuli wrote:
-> The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
-> symbol using inline assembly.
->
-> There's a potential issue where the compiler might inline
-> arch_kgdb_breakpoint(), which would then define the kgdb_breakinst
+> On Wed, Apr 09, 2025 at 03:58:01PM +0900, FUJITA Tomonori wrote:
+>> Add warn_on macro, uses the BUG/WARN feature (lib/bug.c) via assembly
+>> for x86_64/arm64/riscv.
+>> 
+>> The current Rust code simply wraps BUG() macro but doesn't provide the
+>> proper debug information. The BUG/WARN feature can only be used from
+>> assembly.
+>> 
+>> This uses the assembly code exported by the C side via ARCH_WARN_ASM
+>> macro. To avoid duplicating the assembly code, this approach follows
+>> the same strategy as the static branch code: it generates the assembly
+>> code for Rust using the C preprocessor at compile time.
+>> 
+>> Similarly, ARCH_WARN_REACHABLE is also used at compile time to
+>> generate the assembly code; objtool's reachable anotation code. It's
+>> used for only architectures that use objtool.
+>> 
+>> For now, Loongarch and arm32 just use a wrapper for WARN macro.
+>> 
+>> UML doesn't use the assembly BUG/WARN feature; just wrapping generic
+>> BUG/WARN functions implemented in C works.
+>> 
+>> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
+> 
+> I don't object to this change, but I would STRONGLY recommend never
+> using this in any driver if at all possible.  Only use this if the
+> system is in such a state that the only way out is to reboot the kernel,
+> which is what both WARN() and BUG() will do.
 
+Totally agree.
 
-You forgot to replace kgdb_breakinst into kgdb_compiled_break.
+As stated in the commit log, BUG() is already used in multiple
+locations within the Rust abstractions.
 
-
-> symbol multiple times, leading to fail to link vmlinux.o.
->
-> This isn't merely a potential compilation problem. The intent here
-> is to determine the global symbol address of kgdb_compiled_break,
-> and if this function is inlined multiple times, it would logically
-> be a grave error.
->
-> Link: https://lore.kernel.org/all/4b4187c1-77e5-44b7-885f-d6826723dd9a@sifive.com/
-> Fixes: fe89bd2be866 ("riscv: Add KGDB support")
-> Co-developed-by: Huacai Chen <chenhuacai@loongson.cn>
-> Signed-off-by: Huacai Chen <chenhuacai@loongson.cn>
-> Signed-off-by: WangYuli <wangyuli@uniontech.com>
-> ---
-> Changelog:
->   *v1->v2:
->      1. Add the missing __ASSEMBLY__ check and substitute
-> ".option rvc/norvc" with ".option push/pop".
->    v2->v3:
->      1. Remove "extern".
->      2. Restore the inadvertently deleted .option norvc to prevent
-> a change in semantics.
-> ---
->   arch/riscv/include/asm/kgdb.h | 9 +--------
->   arch/riscv/kernel/kgdb.c      | 9 +++++++++
->   2 files changed, 10 insertions(+), 8 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/kgdb.h b/arch/riscv/include/asm/kgdb.h
-> index 46677daf708b..cc11c4544cff 100644
-> --- a/arch/riscv/include/asm/kgdb.h
-> +++ b/arch/riscv/include/asm/kgdb.h
-> @@ -19,16 +19,9 @@
->   
->   #ifndef	__ASSEMBLY__
->   
-> +void arch_kgdb_breakpoint(void);
->   extern unsigned long kgdb_compiled_break;
->   
-> -static inline void arch_kgdb_breakpoint(void)
-> -{
-> -	asm(".global kgdb_compiled_break\n"
-> -	    ".option norvc\n"
-> -	    "kgdb_compiled_break: ebreak\n"
-> -	    ".option rvc\n");
-> -}
-> -
->   #endif /* !__ASSEMBLY__ */
->   
->   #define DBG_REG_ZERO "zero"
-> diff --git a/arch/riscv/kernel/kgdb.c b/arch/riscv/kernel/kgdb.c
-> index 2e0266ae6bd7..7f2d3d956167 100644
-> --- a/arch/riscv/kernel/kgdb.c
-> +++ b/arch/riscv/kernel/kgdb.c
-> @@ -254,6 +254,15 @@ void kgdb_arch_set_pc(struct pt_regs *regs, unsigned long pc)
->   	regs->epc = pc;
->   }
->   
-> +noinline void arch_kgdb_breakpoint(void)
-> +{
-> +	asm(".global kgdb_compiled_break\n"
-> +	    ".option push\n"
-> +	    ".option norvc\n"
-> +	    "kgdb_compiled_break: ebreak\n"
-> +	    ".option pop\n");
-> +}
-
-
-You are fixing 2 things here, you need to split this patch into 2. And 
-as noted by Palmer, we actually don't need norvc here, so you can remove 
-it instead.
-
-Thanks,
-
-Alex
-
-
-> +
->   void kgdb_arch_handle_qxfer_pkt(char *remcom_in_buffer,
->   				char *remcom_out_buffer)
->   {
+I'm not trying to introduce BUG() or WARN() as new features. This
+patchset aims to improve the information provided by BUG() and WARN().
 
 _______________________________________________
 linux-riscv mailing list
