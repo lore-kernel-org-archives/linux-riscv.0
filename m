@@ -4,97 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53D38C369A2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D77BCC369A8
 	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 01:44:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jXCrdcF/OdzF/IfBb8yEWJJGLjnB47EhQ5FpNLPG1ys=; b=3U4tTx+/61KnCb
-	nQUDuv+ZxYg8pA5q97fXD5DHDwXiNA4zNctx8+mj4is/yFHGxcn5RjPTxa6CxMRNXQod7JfV4ihez
-	243xHf0ja3THw082iY07+Z4pRfpce6TSs5klSIZqwG5uTaDg+GGQo8x6LnxkFVXRyRI/RRB3edfqZ
-	8KBDAV0Uh80xHfwucXAuCjqtcsxnH4boRrTKGItJs8urcLxLzbOh4kseRh/0IAR0hvk2mMk2URSVI
-	LkEyO4DU4nm7Wj0AFR+7xYAHTXqOtOPfTqJa+qFmik8wJBL+mjpXl2VOUE6wjN2ScC4CmkIlUw1am
-	CbykKM1tFkUuhJgZ3IXQ==;
+	List-Owner; bh=raEEzapwAZW3wGRDpNT7PmTgpcSRKy4roQgFFP8BqYY=; b=GygiPYg97CP9y+
+	K1xCU2lCoQcg8q7mBD+LImss6FuSbCF3HoBn8h3RfFMiaopn6LrBK4pk1uyPqjPwLPsrt+UTblMev
+	ywDSc37RXU4qcoVn866NnBbMOR6W8ZF9b1lP1sz6dFPZKDVTPWoX58PN8GeQtD8hcuX8OyBFofbCh
+	zu0VA8FayGpyRwmcc4uOXja37CDg6l9TOPegbd8rkRk3H+ZHj5E2FLs6EMWHKXPaB6WoNGnSbDVsX
+	REI5PvKDN++RBmSiyPmObCK0v+DcbOnY0sgOfLwu4iqc7SIIJXC0jEx2Z4mfH0qMgTQjd2LgQ8H0P
+	hBRyLBLPwXISe0fKtP3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gy6-00000008y7C-35CC;
-	Thu, 10 Apr 2025 01:44:38 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1u2gy7-00000008y7v-3HQ3;
+	Thu, 10 Apr 2025 01:44:39 +0000
+Received: from mail-oi1-x231.google.com ([2607:f8b0:4864:20::231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2gpp-00000008x8r-1thF
+	id 1u2gxq-00000008y2y-1kOr
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 01:36:06 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c592764e54so42777485a.3
-        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 18:36:05 -0700 (PDT)
+	Thu, 10 Apr 2025 01:44:24 +0000
+Received: by mail-oi1-x231.google.com with SMTP id 5614622812f47-3f8d2f8d890so165922b6e.0
+        for <linux-riscv@lists.infradead.org>; Wed, 09 Apr 2025 18:44:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744248964; x=1744853764; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Mn77HHPqYcQPNS+D6QKMYch27BNofJCne2UJ+gPfHFk=;
-        b=NFeqxuhwisFUY3DWi6gOnXUds4krQS3Q2NyciOIcGUGbm2FI2xueOq61pO0Vt4zk3+
-         TH7t4iN15qDXbX75XgBbiLFOAakcy1FMJ6oO0PTDKzZOsgJWg/L/tzyHnha86+2YcBse
-         W1wkulCBpBZTCNDU3aTeEc9Gxjw74dvmnRqDUwQft7frMD/+C7nHfZ3ZTlwk0ib65Vl1
-         Y9neYtEJR4NHSkPwiV92NUH1LYqecCfoz1itgGsaTX6G680o8j1yOF+IkPbKqr1XkUtm
-         JlZDvXJBZiJ0VIgmfeI+ZcbdXuKowpStjcEh7NDB93+uDrnnjbSzpfIyuwlCjcnMoBEV
-         AQlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744248964; x=1744853764;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1744249457; x=1744854257; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Mn77HHPqYcQPNS+D6QKMYch27BNofJCne2UJ+gPfHFk=;
-        b=vDKSjgum7NLGMcpCrJWXzYgbIYT9E+9G4zPHVaBPPgnOX/xrHMU70YrDx9yw5onIrC
-         EuJm1+jgUS8Cq7bnf4fBs/L68Y22uNR2VlHGcVPTbrO7brAzKdqVX6f6Ng/WwWYNsIs9
-         rh7fB6a1wIBLDqGXfteeI+dkIpuv4BSwzGTvYHZyT2eKQE4K5/oO3PVdiWKk9AGueWCI
-         Hy4aE2w8I1P+YcW4mH46+5oXL0RjBx+Rnx2aY5qPEUS8hgAOqBUVve3S4q26TVxWKpJj
-         hPDkUMmNW9gJXkR1V/zepTj2I/Dh122lBuFSS/AZbhs706d2xf6uJF0ZoGMEVrb5oOI9
-         9wVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWOCF3vRPBHfYuU2/WUg91IvKNIQRahwxupmERsRNGBYwPEgTowt+QmterHY6H+iRQX7j9HHH/+zZtiVw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YztpgjAZCdQ8YnSFNV+A8MPAzz8+3MBZEFOT3sXPwwqotHCekLJ
-	4ALv8x53/1LSrBleMAqAkI+2hDgsjFO6mGorz69NpD1zXkHB/uuS
-X-Gm-Gg: ASbGncvgMNK9ZDzRr7ZxVDS0W+I4DOiPdolmYB94cgWrvnH9LnIaEBfqwtsNfU4koGp
-	pyE/A7o7x1+HCArOwFH/3KYT1nWZzZJHmrI3gyzX1s8JagnmkW2Smm8fRN+PsdN50yo7UgivR7r
-	MHcmQdKRqbDHrulnuyt32SwsA+uaTvTjA0I+ffQP82f/11mrW0i8Fw5DVIKrRxO22qnyfh34K9G
-	cvaXi6+uDWvDz/pEfgLmHc9LjQVx37Rb1Zcs8R/MrM60xFoFTXrjzpTDL9RdX4siJDpeUY5aZ3s
-	YQurzSmWxfIKSdBM7yCYAv9UiPY=
-X-Google-Smtp-Source: AGHT+IEcWmffQfvCuChtXQXpnroPXYRrhJX1q2n+tT6bZYpbzl+MegNQoZB3XFLgQsUM9dwmK7XvZA==
-X-Received: by 2002:a05:620a:3941:b0:7c5:5a51:d2d1 with SMTP id af79cd13be357-7c7a81c7994mr96263385a.55.1744248964263;
-        Wed, 09 Apr 2025 18:36:04 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c7a8969e5bsm13726985a.53.2025.04.09.18.36.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 09 Apr 2025 18:36:03 -0700 (PDT)
-Date: Thu, 10 Apr 2025 09:35:25 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Haylen Chu <heylenay@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
-	Inochi Amaoto <inochiama@outlook.com>, Chen Wang <unicornxdotw@foxmail.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-Subject: Re: [PATCH v6 3/6] clk: spacemit: Add clock support for SpacemiT K1
- SoC
-Message-ID: <mnkjxqswewyr7agadnv7rprckqafpryotmmi64ckmocwily2yy@mzjwc2qp2wdd>
-References: <20250401172434.6774-1-heylenay@4d2.org>
- <20250401172434.6774-4-heylenay@4d2.org>
- <8fe0aaaa-b8e9-45dd-b792-c32be49cca1a@riscstar.com>
- <20250410003756-GYA19359@gentoo>
- <dm4lwnplwcxj3t3qx3a3bdxtziowjfoqdy4vrd3ahmzkhejrov@fa5rujatatew>
- <z27ri5eue43ti6b2te2cbxiow66mtgbnyudoo5cs4quabgbx5r@uipzoxvfoysi>
- <20250410011611-GYC19359@gentoo>
+        bh=Q+1nWiIvalqOLc+OzrZ4hQkFF2O+RDbE0Xdy0fdgijw=;
+        b=YlKETgZIRpoSEZgbm4sFQPvuf8znVJVxDiLG6aNfV6bcEtHX/GwtDkqIx/OQ/AyJAG
+         L+vBBf8CyBWqqKrzvtFZGWj0lkWPY1PU0wk5mZhTmpKhfgAl03q61fGhiav8BSIgID2A
+         B2EVnEOUTNCpi7WtzA14Wk+m6AiIBiOGgwSypw8Sw3tZ/kbLomKiwaUA9ZWDB+mL/1pV
+         2Atd+jwGnUEmVwr4SJvx3PBQ6h/JPCJPAMFv0lMYOb3EDvXJzmI364NQ4uK5oAHeU6/Q
+         ENHqRhxHKEfqAxQ79jfgwThJM3fkzav77cHwU9B7PoipEYFYc0+W4xVXPJLLRBlVNfWe
+         ZIAQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744249457; x=1744854257;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Q+1nWiIvalqOLc+OzrZ4hQkFF2O+RDbE0Xdy0fdgijw=;
+        b=A+EUNCw1g8UyEn4QwK4DuoWBM530HZVpOSgB7OI56kQtBZnvk2VFfUXHjTugRoynDR
+         jAt5tmdaSqaTtHZOVb7lexDauVJLNhes0RViV/uqDENjgGiKrwMGZlIJKEqMu3GWhTbc
+         5nKAHdHK+UnYQTeH2GjeMWKNN4nZcBsuSK9mXIpIJSnicqS1gnASz2Z55bkbjj2jSt8E
+         tdwVRyuJkYhd5hrL1nrP5HDihISXDQk1JZIylhSZbunXT41XfPj9okHZ/BU1HMT3tZPL
+         WbXV10OsNrm0xq9jnl6tMqJSR1fXJVF9OYEF6clcKFsZhx2Md0iI/VO69xUdD8xwOgU+
+         DAyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVg/Z0a/QwZy+EA/dx84HlYamIETkGfpvhnPRhUO8aVGsSqzuQ5Jj7kDvPIJPRcqk85JAtdxK8Y7HVC0Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAmyPZwGBc3mDLAVV6MhsrEMtdDksfCtXNDz1jP6ZTGTw4MXb8
+	f2Qnd+JxAr6Swfmi8ju2Q6ht4oRK7PW3X5gXMi91Uoo2S92G9e4eOltaSh6Rv2KMkhYcV14nx6D
+	sWr8G0h4vEfcbkBYMUNwqwRikyaSfAvMDIKll/g==
+X-Gm-Gg: ASbGncs5NkLS3wlRnZOoVJVSSBNSv1jGIi57uykrFVk/cZVmZNQvLercASN4aUPlWYZ
+	vBiuWzN2loOJx8EY4UaYVPboqhhZVekxGFL/YQIKHrt4gjCaAUd6ecdT0yXe7EMPzUiq/gyQNME
+	OhWOcjonDLvtPpVeORAgiFHecn
+X-Google-Smtp-Source: AGHT+IGNzT6YERRpl5RF3Rqka/0w0Bo7Th787trVcXRWJQZv5hSFMWN4GRbzZu0V4wR3Az2O5tH9+vEnJF2O7a2AKOs=
+X-Received: by 2002:a05:6808:2293:b0:3f7:e8de:bb10 with SMTP id
+ 5614622812f47-4007bce8aa1mr782025b6e.23.1744249457587; Wed, 09 Apr 2025
+ 18:44:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250410011611-GYC19359@gentoo>
+References: <20250409193004.643839-1-bjorn@kernel.org> <20250409193004.643839-3-bjorn@kernel.org>
+In-Reply-To: <20250409193004.643839-3-bjorn@kernel.org>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Thu, 10 Apr 2025 09:44:05 +0800
+X-Gm-Features: ATxdqUH3Rff00v72uayFtK7Jr6GPLI3JNkxmWrl2SZR5256FCPXjTz6GEQV-Tik
+Message-ID: <CAEEQ3wmb37Y6gOn0cC53DMJgQopcD4pf38c83AexFv+Pj7Er3w@mail.gmail.com>
+Subject: Re: [External] [PATCH v3 2/2] riscv: kexec_file: Support loading
+ Image binary file
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Song Shuai <songshuaishuai@tinylab.org>, 
+	linux-riscv@lists.infradead.org, Nick Kossifidis <mick@ics.forth.gr>, 
+	linux-kernel@vger.kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_183605_494682_39A3A513 
-X-CRM114-Status: GOOD (  35.07  )
+X-CRM114-CacheID: sfid-20250409_184422_812610_896C6F6B 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +92,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 01:16:11AM +0000, Yixun Lan wrote:
-> Hi Inochi,
-> 
-> On 08:57 Thu 10 Apr     , Inochi Amaoto wrote:
-> > On Thu, Apr 10, 2025 at 08:54:51AM +0800, Inochi Amaoto wrote:
-> > > On Thu, Apr 10, 2025 at 12:37:56AM +0000, Yixun Lan wrote:
-> > > > On 14:37 Tue 08 Apr     , Alex Elder wrote:
-> > > > > On 4/1/25 12:24 PM, Haylen Chu wrote:
-> > > > > > The clock tree of K1 SoC contains three main types of clock hardware
-> > > > > > (PLL/DDN/MIX) and has control registers split into several multifunction
-> > > > > > devices: APBS (PLLs), MPMU, APBC and APMU.
-> > > > > > 
-> > > > > > All register operations are done through regmap to ensure atomiciy
-> > > > > > between concurrent operations of clock driver and reset,
-> > > > > > power-domain driver that will be introduced in the future.
-> > > > > > 
-> > > > > > Signed-off-by: Haylen Chu <heylenay@4d2.org>
-> > > > > 
-> > > > > I have a few more comments here but I think this is getting very
-> > > > > close to ready.  You addressed pretty much everything I mentioned.
-> > > > > 
-> > > > > > ---
-> > > > > >   drivers/clk/Kconfig               |    1 +
-> > > > > >   drivers/clk/Makefile              |    1 +
-> > > > > >   drivers/clk/spacemit/Kconfig      |   18 +
-> > > > > >   drivers/clk/spacemit/Makefile     |    5 +
-> > > > > >   drivers/clk/spacemit/apbc_clks    |  100 +++
-> > > > > >   drivers/clk/spacemit/ccu-k1.c     | 1316 +++++++++++++++++++++++++++++
-> > > > > >   drivers/clk/spacemit/ccu_common.h |   48 ++
-> > > > > >   drivers/clk/spacemit/ccu_ddn.c    |   83 ++
-> > > > > >   drivers/clk/spacemit/ccu_ddn.h    |   47 ++
-> > > > > >   drivers/clk/spacemit/ccu_mix.c    |  268 ++++++
-> > > > > >   drivers/clk/spacemit/ccu_mix.h    |  218 +++++
-> > > > > >   drivers/clk/spacemit/ccu_pll.c    |  157 ++++
-> > > > > >   drivers/clk/spacemit/ccu_pll.h    |   86 ++
-> > > > > >   13 files changed, 2348 insertions(+)
-> > > > > >   create mode 100644 drivers/clk/spacemit/Kconfig
-> > > > > >   create mode 100644 drivers/clk/spacemit/Makefile
-> > > > > >   create mode 100644 drivers/clk/spacemit/apbc_clks
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu-k1.c
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_common.h
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_ddn.c
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_ddn.h
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_mix.c
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_mix.h
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_pll.c
-> > > > > >   create mode 100644 drivers/clk/spacemit/ccu_pll.h
-> > > > > > 
-> > > > > > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
-> > > > > > index 713573b6c86c..19c1ed280fd7 100644
-> > > > > > --- a/drivers/clk/Kconfig
-> > > > > > +++ b/drivers/clk/Kconfig
-> > > > > > @@ -517,6 +517,7 @@ source "drivers/clk/samsung/Kconfig"
-> > > > > >   source "drivers/clk/sifive/Kconfig"
-> > > > > >   source "drivers/clk/socfpga/Kconfig"
-> > > > > >   source "drivers/clk/sophgo/Kconfig"
-> > > > > > +source "drivers/clk/spacemit/Kconfig"
-> > > > > >   source "drivers/clk/sprd/Kconfig"
-> > > > > >   source "drivers/clk/starfive/Kconfig"
-> > > > > >   source "drivers/clk/sunxi/Kconfig"
-> > > > > > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
-> > > > > > index bf4bd45adc3a..42867cd37c33 100644
-> > > > > > --- a/drivers/clk/Makefile
-> > > > > > +++ b/drivers/clk/Makefile
-> > > > > > @@ -145,6 +145,7 @@ obj-$(CONFIG_COMMON_CLK_SAMSUNG)	+= samsung/
-> > > > > >   obj-$(CONFIG_CLK_SIFIVE)		+= sifive/
-> > > > > >   obj-y					+= socfpga/
-> > > > > >   obj-y					+= sophgo/
-> > > > > > +obj-y					+= spacemit/
-> > > > > >   obj-$(CONFIG_PLAT_SPEAR)		+= spear/
-> > > > > >   obj-y					+= sprd/
-> > > > > >   obj-$(CONFIG_ARCH_STI)			+= st/
-> > > > > > diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
-> > > > > > new file mode 100644
-> > > > > > index 000000000000..4c4df845b3cb
-> > > > > > --- /dev/null
-> > > > > > +++ b/drivers/clk/spacemit/Kconfig
-> > > > > > @@ -0,0 +1,18 @@
-> > > > > > +# SPDX-License-Identifier: GPL-2.0-only
-> > > > > > +
-> > > > > > +config SPACEMIT_CCU
-> > > > > > +	tristate "Clock support for SpacemiT SoCs"
-> > > > > 
-> > > > > I don't know the answer to this, but...  Should this be a Boolean
-> > > > > rather than tristate?  Can a SpacemiT K1 SoC function without the
-> > > > > clock driver built in to the kernel?
-> > > > > 
-> > > > I agree to make it a Boolean, we've already made pinctrl driver Boolean
-> > > > and pinctrl depend on clk, besides, the SoC is unlikely functional
-> > > > without clock built in as it's such critical..
-> > > > 
-> > > 
-> > > I disagree. The kernel is only for spacemit only, and the pinctrl
-> > 
-> > Sorry for a mistake, this first "only" should be "not".
-> > 
-> > > should also be a module. It is the builder's right to decide whether
-> > > the driver is builtin or a module. In this view, you should always
-> > > allow the driver to be built as a module if possible.
-> > > 
-> No, we've already made pinctrl as Boolean (still depend on ARCH_SPACEMIT)
-> if people don't want this feature, he/she can disable CONFIG_ARCH_SPACEMIT
-> 
-> https://github.com/torvalds/linux/blob/master/drivers/pinctrl/spacemit/Kconfig#L7
-
-I have a question for this. Does the minimum system can boot without
-pinctrl (I mean purge the pinctrl node in dts and use uart only)? If
-so, why you treat it a must? In some cases, probe fail without pinctrl
-driver is a expected behavior. And if the pin config can be optional,
-it will be better to fix the driver and the pinctrl framework, but
-not to just convert the module as built-in. It is a waste of space.
-
-Regards,
-Inochi
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQmrDtnJuLAoKT24gVGh1LCBBcHIgMTAsIDIwMjUgYXQgMzozMeKAr0FNIEJqw7ZybiBUw7Zw
+ZWwgPGJqb3JuQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gRnJvbTogU29uZyBTaHVhaSA8c29uZ3No
+dWFpc2h1YWlAdGlueWxhYi5vcmc+Cj4KPiBUaGlzIHBhdGNoIGNyZWF0ZXMgaW1hZ2Vfa2V4ZWNf
+b3BzIHRvIGxvYWQgSW1hZ2UgYmluYXJ5IGZpbGUKPiBmb3Iga2V4ZWNfZmlsZV9sb2FkKCkgc3lz
+Y2FsbC4KPgo+IFNpZ25lZC1vZmYtYnk6IFNvbmcgU2h1YWkgPHNvbmdzaHVhaXNodWFpQHRpbnls
+YWIub3JnPgo+IFNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNv
+bT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pbWFnZS5oICAgICAgICAgfCAgMiAr
+Cj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va2V4ZWMuaCAgICAgICAgIHwgIDEgKwo+ICBhcmNo
+L3Jpc2N2L2tlcm5lbC9NYWtlZmlsZSAgICAgICAgICAgICB8ICAyICstCj4gIGFyY2gvcmlzY3Yv
+a2VybmVsL2tleGVjX2ltYWdlLmMgICAgICAgIHwgOTYgKysrKysrKysrKysrKysrKysrKysrKysr
+KysKPiAgYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGluZV9rZXhlY19maWxlLmMgfCAgMSArCj4gIDUg
+ZmlsZXMgY2hhbmdlZCwgMTAxIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKPiAgY3JlYXRl
+IG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL2tleGVjX2ltYWdlLmMKPgo+IGRpZmYgLS1n
+aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2ltYWdlLmgKPiBpbmRleCBlMGIzMTlhZjM2ODEuLjg5MjdhNmVhMTEyNyAxMDA2NDQKPiAt
+LS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2ltYWdlLmgKPiArKysgYi9hcmNoL3Jpc2N2L2lu
+Y2x1ZGUvYXNtL2ltYWdlLmgKPiBAQCAtMzAsNiArMzAsOCBAQAo+ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIFJJU0NWX0hFQURFUl9WRVJTSU9OX01JTk9SKQo+Cj4gICNpZm5kZWYgX19B
+U1NFTUJMWV9fCj4gKyNkZWZpbmUgcmlzY3ZfaW1hZ2VfZmxhZ19maWVsZChmbGFncywgZmllbGQp
+XAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAoKChmbGFncykgPj4gZmllbGQjI19T
+SElGVCkgJiBmaWVsZCMjX01BU0spCj4gIC8qKgo+ICAgKiBzdHJ1Y3QgcmlzY3ZfaW1hZ2VfaGVh
+ZGVyIC0gcmlzY3Yga2VybmVsIGltYWdlIGhlYWRlcgo+ICAgKiBAY29kZTA6ICAgICAgICAgICAg
+IEV4ZWN1dGFibGUgY29kZQo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tl
+eGVjLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiBpbmRleCA1MTg4MjVmZTQx
+NjAuLmI5ZWU4MzQ2Y2M4YyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tl
+eGVjLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2tleGVjLmgKPiBAQCAtNTYsNiAr
+NTYsNyBAQCBleHRlcm4gcmlzY3Zfa2V4ZWNfbWV0aG9kIHJpc2N2X2tleGVjX25vcmVsb2NhdGU7
+Cj4KPiAgI2lmZGVmIENPTkZJR19LRVhFQ19GSUxFCj4gIGV4dGVybiBjb25zdCBzdHJ1Y3Qga2V4
+ZWNfZmlsZV9vcHMgZWxmX2tleGVjX29wczsKPiArZXh0ZXJuIGNvbnN0IHN0cnVjdCBrZXhlY19m
+aWxlX29wcyBpbWFnZV9rZXhlY19vcHM7Cj4KPiAgc3RydWN0IHB1cmdhdG9yeV9pbmZvOwo+ICBp
+bnQgYXJjaF9rZXhlY19hcHBseV9yZWxvY2F0aW9uc19hZGQoc3RydWN0IHB1cmdhdG9yeV9pbmZv
+ICpwaSwKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvTWFrZWZpbGUgYi9hcmNoL3Jp
+c2N2L2tlcm5lbC9NYWtlZmlsZQo+IGluZGV4IGQ1NjMwNWM4ZTYzMS4uMGVhZDI5ODI2NDE5IDEw
+MDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL01ha2VmaWxlCj4gKysrIGIvYXJjaC9yaXNj
+di9rZXJuZWwvTWFrZWZpbGUKPiBAQCAtMTA3LDcgKzEwNyw3IEBAIG9iai0kKENPTkZJR19IT1RQ
+TFVHX0NQVSkgICArPSBjcHUtaG90cGx1Zy5vCj4gIG9iai0kKENPTkZJR19QQVJBVklSVCkgICAg
+ICAgICArPSBwYXJhdmlydC5vCj4gIG9iai0kKENPTkZJR19LR0RCKSAgICAgICAgICAgICArPSBr
+Z2RiLm8KPiAgb2JqLSQoQ09ORklHX0tFWEVDX0NPUkUpICAgICAgICs9IGtleGVjX3JlbG9jYXRl
+Lm8gY3Jhc2hfc2F2ZV9yZWdzLm8gbWFjaGluZV9rZXhlYy5vCj4gLW9iai0kKENPTkZJR19LRVhF
+Q19GSUxFKSAgICAgICArPSBrZXhlY19lbGYubyBtYWNoaW5lX2tleGVjX2ZpbGUubwo+ICtvYmot
+JChDT05GSUdfS0VYRUNfRklMRSkgICAgICAgKz0ga2V4ZWNfZWxmLm8ga2V4ZWNfaW1hZ2UubyBt
+YWNoaW5lX2tleGVjX2ZpbGUubwo+ICBvYmotJChDT05GSUdfQ1JBU0hfRFVNUCkgICAgICAgKz0g
+Y3Jhc2hfZHVtcC5vCj4gIG9iai0kKENPTkZJR19WTUNPUkVfSU5GTykgICAgICArPSB2bWNvcmVf
+aW5mby5vCj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwva2V4ZWNfaW1hZ2UuYyBi
+L2FyY2gvcmlzY3Yva2VybmVsL2tleGVjX2ltYWdlLmMKPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+
+IGluZGV4IDAwMDAwMDAwMDAwMC4uMjZhODE3NzRhNzhhCj4gLS0tIC9kZXYvbnVsbAo+ICsrKyBi
+L2FyY2gvcmlzY3Yva2VybmVsL2tleGVjX2ltYWdlLmMKPiBAQCAtMCwwICsxLDk2IEBACj4gKy8v
+IFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wCj4gKy8qCj4gKyAqIFJJU0MtViBLZXhl
+YyBpbWFnZSBsb2FkZXIKPiArICoKPiArICovCj4gKwo+ICsjZGVmaW5lIHByX2ZtdChmbXQpICAg
+ICJrZXhlY19maWxlKEltYWdlKTogIiBmbXQKPiArCj4gKyNpbmNsdWRlIDxsaW51eC9lcnIuaD4K
+PiArI2luY2x1ZGUgPGxpbnV4L2Vycm5vLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9rZXJuZWwuaD4K
+PiArI2luY2x1ZGUgPGxpbnV4L2tleGVjLmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9wZS5oPgo+ICsj
+aW5jbHVkZSA8bGludXgvc3RyaW5nLmg+Cj4gKyNpbmNsdWRlIDxhc20vYnl0ZW9yZGVyLmg+Cj4g
+KyNpbmNsdWRlIDxhc20vaW1hZ2UuaD4KPiArCj4gK3N0YXRpYyBpbnQgaW1hZ2VfcHJvYmUoY29u
+c3QgY2hhciAqa2VybmVsX2J1ZiwgdW5zaWduZWQgbG9uZyBrZXJuZWxfbGVuKQo+ICt7Cj4gKyAg
+ICAgICBjb25zdCBzdHJ1Y3QgcmlzY3ZfaW1hZ2VfaGVhZGVyICpoID0gKGNvbnN0IHN0cnVjdCBy
+aXNjdl9pbWFnZV9oZWFkZXIgKilrZXJuZWxfYnVmOwo+ICsKPiArICAgICAgIGlmICghaCB8fCBr
+ZXJuZWxfbGVuIDwgc2l6ZW9mKCpoKSkKPiArICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7
+Cj4gKwo+ICsgICAgICAgLyogQWNjb3JkaW5nIHRvIERvY3VtZW50YXRpb24vcmlzY3YvYm9vdC1p
+bWFnZS1oZWFkZXIucnN0LAo+ICsgICAgICAgICogdXNlICJtYWdpYzIiIGZpZWxkIHRvIGNoZWNr
+IHdoZW4gdmVyc2lvbiA+PSAwLjIuCj4gKyAgICAgICAgKi8KPiArCj4gKyAgICAgICBpZiAoaC0+
+dmVyc2lvbiA+PSBSSVNDVl9IRUFERVJfVkVSU0lPTiAmJgo+ICsgICAgICAgICAgIG1lbWNtcCgm
+aC0+bWFnaWMyLCBSSVNDVl9JTUFHRV9NQUdJQzIsIHNpemVvZihoLT5tYWdpYzIpKSkKPiArICAg
+ICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7Cj4gKwo+ICsgICAgICAgcmV0dXJuIDA7Cj4gK30K
+PiArCj4gK3N0YXRpYyB2b2lkICppbWFnZV9sb2FkKHN0cnVjdCBraW1hZ2UgKmltYWdlLAo+ICsg
+ICAgICAgICAgICAgICAgICAgICAgIGNoYXIgKmtlcm5lbCwgdW5zaWduZWQgbG9uZyBrZXJuZWxf
+bGVuLAo+ICsgICAgICAgICAgICAgICAgICAgICAgIGNoYXIgKmluaXRyZCwgdW5zaWduZWQgbG9u
+ZyBpbml0cmRfbGVuLAo+ICsgICAgICAgICAgICAgICAgICAgICAgIGNoYXIgKmNtZGxpbmUsIHVu
+c2lnbmVkIGxvbmcgY21kbGluZV9sZW4pCj4gK3sKPiArICAgICAgIHN0cnVjdCByaXNjdl9pbWFn
+ZV9oZWFkZXIgKmg7Cj4gKyAgICAgICB1NjQgZmxhZ3M7Cj4gKyAgICAgICBib29sIGJlX2ltYWdl
+LCBiZV9rZXJuZWw7Cj4gKyAgICAgICBzdHJ1Y3Qga2V4ZWNfYnVmIGtidWY7Cj4gKyAgICAgICBp
+bnQgcmV0Owo+ICsKPiArICAgICAgIC8qIENoZWNrIEltYWdlIGhlYWRlciAqLwo+ICsgICAgICAg
+aCA9IChzdHJ1Y3QgcmlzY3ZfaW1hZ2VfaGVhZGVyICopa2VybmVsOwo+ICsgICAgICAgaWYgKCFo
+LT5pbWFnZV9zaXplKSB7Cj4gKyAgICAgICAgICAgICAgIHJldCA9IC1FSU5WQUw7Cj4gKyAgICAg
+ICAgICAgICAgIGdvdG8gb3V0Owo+ICsgICAgICAgfQo+ICsKPiArICAgICAgIC8qIENoZWNrIGVu
+ZGlhbm5lc3MgKi8KPiArICAgICAgIGZsYWdzID0gbGU2NF90b19jcHUoaC0+ZmxhZ3MpOwo+ICsg
+ICAgICAgYmVfaW1hZ2UgPSByaXNjdl9pbWFnZV9mbGFnX2ZpZWxkKGZsYWdzLCBSSVNDVl9JTUFH
+RV9GTEFHX0JFKTsKPiArICAgICAgIGJlX2tlcm5lbCA9IElTX0VOQUJMRUQoQ09ORklHX0NQVV9C
+SUdfRU5ESUFOKTsKPiArICAgICAgIGlmIChiZV9pbWFnZSAhPSBiZV9rZXJuZWwpIHsKPiArICAg
+ICAgICAgICAgICAgcmV0ID0gLUVJTlZBTDsKPiArICAgICAgICAgICAgICAgZ290byBvdXQ7Cj4g
+KyAgICAgICB9Cj4gKwo+ICsgICAgICAgLyogTG9hZCB0aGUga2VybmVsIGltYWdlICovCj4gKyAg
+ICAgICBrYnVmLmltYWdlID0gaW1hZ2U7Cj4gKyAgICAgICBrYnVmLmJ1Zl9taW4gPSAwOwo+ICsg
+ICAgICAga2J1Zi5idWZfbWF4ID0gVUxPTkdfTUFYOwo+ICsgICAgICAga2J1Zi50b3BfZG93biA9
+IGZhbHNlOwo+ICsKPiArICAgICAgIGtidWYuYnVmZmVyID0ga2VybmVsOwo+ICsgICAgICAga2J1
+Zi5idWZzeiA9IGtlcm5lbF9sZW47Cj4gKyAgICAgICBrYnVmLm1lbSA9IEtFWEVDX0JVRl9NRU1f
+VU5LTk9XTjsKPiArICAgICAgIGtidWYubWVtc3ogPSBsZTY0X3RvX2NwdShoLT5pbWFnZV9zaXpl
+KTsKPiArICAgICAgIGtidWYuYnVmX2FsaWduID0gbGU2NF90b19jcHUoaC0+dGV4dF9vZmZzZXQp
+OwoKSXQgaXMgbmVjZXNzYXJ5IHRvIGVuc3VyZSB0aGF0IHRoZSBrZXJuZWwgZW50cnkgaXMgYWxp
+Z25lZCB0bwpQTURfU0laRTsgb3RoZXJ3aXNlLCBCVUdfT04oKSBpbiBzZXR1cF92bSgpIHdpbGwg
+YmUgdHJpZ2dlcmVkLgoKCj4gKwo+ICsgICAgICAgcmV0ID0ga2V4ZWNfYWRkX2J1ZmZlcigma2J1
+Zik7Cj4gKyAgICAgICBpZiAocmV0KSB7Cj4gKyAgICAgICAgICAgICAgIHByX2VycigiRXJyb3Ig
+YWRkIGtlcm5lbCBpbWFnZSByZXQ9JWRcbiIsIHJldCk7Cj4gKyAgICAgICAgICAgICAgIGdvdG8g
+b3V0Owo+ICsgICAgICAgfQo+ICsKPiArICAgICAgIGltYWdlLT5zdGFydCA9IGtidWYubWVtOwo+
+ICsKPiArICAgICAgIHByX2luZm8oIkxvYWRlZCBrZXJuZWwgYXQgMHglbHggYnVmc3o9MHglbHgg
+bWVtc3o9MHglbHhcbiIsCj4gKyAgICAgICAgICAgICAgIGtidWYubWVtLCBrYnVmLmJ1ZnN6LCBr
+YnVmLm1lbXN6KTsKPiArCj4gKyAgICAgICByZXQgPSBsb2FkX2V4dHJhX3NlZ21lbnRzKGltYWdl
+LCBrYnVmLm1lbSwga2J1Zi5tZW1zeiwKPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgaW5pdHJkLCBpbml0cmRfbGVuLCBjbWRsaW5lLCBjbWRsaW5lX2xlbik7Cj4gKwo+ICtvdXQ6
+Cj4gKyAgICAgICByZXR1cm4gcmV0ID8gRVJSX1BUUihyZXQpIDogTlVMTDsKPiArfQo+ICsKPiAr
+Y29uc3Qgc3RydWN0IGtleGVjX2ZpbGVfb3BzIGltYWdlX2tleGVjX29wcyA9IHsKPiArICAgICAg
+IC5wcm9iZSA9IGltYWdlX3Byb2JlLAo+ICsgICAgICAgLmxvYWQgPSBpbWFnZV9sb2FkLAo+ICt9
+Owo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjX2ZpbGUuYyBi
+L2FyY2gvcmlzY3Yva2VybmVsL21hY2hpbmVfa2V4ZWNfZmlsZS5jCj4gaW5kZXggOTliZDVhNWY0
+MjM0Li5lMzYxMDRhZjJlMjQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvbWFjaGlu
+ZV9rZXhlY19maWxlLmMKPiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9tYWNoaW5lX2tleGVjX2Zp
+bGUuYwo+IEBAIC0xOCw2ICsxOCw3IEBACj4KPiAgY29uc3Qgc3RydWN0IGtleGVjX2ZpbGVfb3Bz
+ICogY29uc3Qga2V4ZWNfZmlsZV9sb2FkZXJzW10gPSB7Cj4gICAgICAgICAmZWxmX2tleGVjX29w
+cywKPiArICAgICAgICZpbWFnZV9rZXhlY19vcHMsCj4gICAgICAgICBOVUxMCj4gIH07Cj4KPiAt
+LQo+IDIuNDUuMgo+Cj4KClRoYW5rcywKWXVuaHVpCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
