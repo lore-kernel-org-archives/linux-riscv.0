@@ -4,66 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 867ABC369A2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 20:05:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9659CC369A9
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 20:13:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=nGnKTZLHqjD/A6/ezb+wrSZDjjQU924WslAehe5azsg=; b=tiMBJmkpd0VNdZ
-	mdjrZcsRQlRusU5MnNJI1kGKxKF4Fa62QKlJ7JiQw+648cU6goUZ/yXym7AQYMujzWM/UZnbY6Xw7
-	2fJvEyKobkFKdfW039nzuiozxvTU8JR8dYKsmaQRpSrHjioGINmoNjvyzUwjgIsg+EbaelNlSDzQr
-	QqZVzF//kzL4ZfKhhCBoHJCxjVPeqc07LdB2OtnY6rJ9TSSlu0CnpqKurnkiFxuggojPmlA4LtjNp
-	mkx4ZHRo/sRMGc++s7PC3QWjxDESQzFy5Q3fxSdcbovj+vdSVzSjvqeg2ESnBit+3n7x8auITKFbS
-	1z5EiC3kLvf1q65YKSkw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=54GlRoWHrvya696cmj/h+jWkHtdSnmSAsFnTZudONZs=; b=dISmzhtp15JX27
+	6N+8qqGn1yXqIvviuKsui9SN/V+ykSQBKuZ3zEFBgJgQPV4IlFm6yukDP60DC4ohoVEM+gb9k8H4M
+	Uj+pU5yRKA2WgPoluu5/dghlsSBOAmhxg/8dIE1Z2Wbd5yP8lKImrR3fCwTmnmg/YoXU0bou45yUb
+	C/lyhHjzXMOiVmwrcNrHzP9reWMJdM4v6VOr07DTbHC3y38mapFER7m/ZhfQUJC+fY62dTK51bApQ
+	rv3W2roW4gzZySmt/vz22WN6W8mOpfR0LrxVAl/EgzlJoEO7nqgR2pbyOrzM5G0sv0VgcPqt7PR26
+	JlfRP5DQjC+tgqH7w7Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2y99-0000000BjhP-3k6f;
-	Thu, 10 Apr 2025 20:05:11 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u2yHG-0000000BlAE-1HnR;
+	Thu, 10 Apr 2025 20:13:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2y97-0000000BjgO-2rQl
+	id 1u2yHF-0000000Bl9w-1MoN
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 20:05:11 +0000
+	Thu, 10 Apr 2025 20:13:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 720B05C55F2;
-	Thu, 10 Apr 2025 20:02:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0B75C4CEDD;
-	Thu, 10 Apr 2025 20:05:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 3880C614AE;
+	Thu, 10 Apr 2025 20:13:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2701BC4CEDD;
+	Thu, 10 Apr 2025 20:13:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744315508;
-	bh=xB7QH4zV/fAt4x4V8OQZt+unZinWPyFzE/DZ9S08CzE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=mHDg6yklmXjpIP2lBpFmq7w1JPCrJyco893jnpEneeUkLfsH9yXBrLuOHirArcy1m
-	 umbu8TTKoIFMjoNULXKYLxvn3dlcAZLVc9LVZ/Q25ZXwKRX6jl1L9WDGFaX4e3gKxq
-	 EvlaoZyriJASeInMqsZTdklfccraC1o73hMUYnrb5YQ0r/Z6tQVdogbVVHRSDg6IN5
-	 FPSMgUQM++VE0xJwH1fjY9p5BCCRxfMYKPYROSkYtKGqleIaD4NXoB63WpQWO54PUr
-	 XsO6gli/s4rWyblrdq5Vzx2SGgGKxk3BAcOhw6smqhqzHu0k/KASMwv49HJmTG9AUF
-	 giLEECzZQIrJA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Andy Chiu <andybnac@gmail.com>, linux-riscv@lists.infradead.org,
- alexghiti@rivosinc.com, palmer@dabbelt.com, Steven Rostedt
- <rostedt@goodmis.org>
-Cc: Andy Chiu <andy.chiu@sifive.com>, Evgenii Shatokhin
- <e.shatokhin@yadro.com>, Nathan Chancellor <nathan@kernel.org>,
- =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, Palmer Dabbelt
- <palmer@rivosinc.com>, Puranjay
- Mohan <puranjay@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org,  Alexandre Ghiti <alex@ghiti.fr>,
- paul.walmsley@sifive.com, samuel.holland@sifive.com
-Subject: Re: [PATCH v4 01/12] riscv: ftrace: support fastcc in Clang for
- WITH_ARGS
-In-Reply-To: <20250407180838.42877-1-andybnac@gmail.com>
-References: <20250407180838.42877-1-andybnac@gmail.com>
-Date: Thu, 10 Apr 2025 22:05:04 +0200
-Message-ID: <871ptz940f.fsf@all.your.base.are.belong.to.us>
+	s=k20201202; t=1744316012;
+	bh=xEhwAu3xgUU6Amb1UWoZGEieAQxg5xwmELZOlHI/s3A=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ewfTJCvYanYdjM+nFu+OJtK3cQ8yKjegiqAu+GsVEPtTWWU5729dsgTcpL64TQRLm
+	 jKE20+Yote16/j4bzaNMWZa2m0FpZibSrweiW31f59MHRXpZto0QoKWLbnMQ0Gh6Jk
+	 Q1Fa90HuV9FL7T/VcaMLIMLotv8mxOcTJoH7gKyHL3QZobGXaAgBL5MHH+nzNPPU0+
+	 /OImbeR9rj3pEDnpZD34oNa3eRBjfm7WASFGp+MAj2m6dyNJ24+yfecufCiHZLieN1
+	 L5FLaXoJDL7l/lCRe1bq9g2sFU5ZTmd3YRfgFIqwmmahnO25qSQy1F5YSGGWDcZt3S
+	 0r2QOGuyTpwLg==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Samuel Holland <samuel.holland@sifive.com>
+Cc: devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 1/2] dt-bindings: Remove obsolete cpu-topology.txt
+Date: Thu, 10 Apr 2025 15:13:22 -0500
+Message-ID: <20250410201325.962203-1-robh@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_130509_776171_8859F33D 
-X-CRM114-Status: UNSURE (   6.11  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +69,584 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-KFRyaW1taW5nIHRoZSBDYzotbGlzdCBhIGJpdCkKCkhpIEFuZHkhCgpBbmR5IENoaXUgPGFuZHli
-bmFjQGdtYWlsLmNvbT4gd3JpdGVzOgoKPiBGcm9tOiBBbmR5IENoaXUgPGFuZHkuY2hpdUBzaWZp
-dmUuY29tPgouLi4KCihPaCwgaWYgeW91IHNlbmQgYW5vdGhlciByZXZpc2lvbiwgcGxlYXNlIGFk
-ZCBhIGNvdmVyLCBzbyBpdCdzIGVhc2llciB0bwpjb21tZW50IGFyb3VuZCB0aGUgZnVsbCBzZXJp
-ZXMuKQoKVGhhbmtzIGEgbG90IGZvciBkb2luZyB0aGUgbGlvbiBwYXJ0IG9mIHRoaXMgc2VyaWVz
-LCBBbmR5ISBXaXRoIHRoaXMgaW4KcGxhY2UsICpmaW5hbGx5KiBzdG9wIG1hY2hpbmUgd2F5IG9m
-IHRleHQgcGF0Y2hpbmcgaXMgcGFzdCB1cywgYW5kIHdlCmNhbiBtb3ZlIFJJU0MtViBvdXQgZnJv
-bSB0aGUgMjB0aCBjZW50dXJ5LiA7LSkKCkkgYXBwbGllZCB5b3VyIHNlcmllcywgYW5kIFN0ZXZl
-bidzIHNlcmllcyBbMV0gdG8gWzJdLCBhbmQgcmFuIHRoYXQgb24KUUVNVSAocmlzY3Y2NCwgflJW
-QTIzKSwgYW5kIG9uIE1pbGstViBKdXBpdGVyIChTcGFjZW1pdCBLMSkgd2l0aDoKICogQ09ORklH
-X0ZUUkFDRV9TVEFSVFVQX1RFU1QKICogZnRyYWNlIGtzZWxmdGVzdAoKTm8gdmlzaWJsZSByZWdy
-ZXNzaW9ucywgYW5kIG5vdyB0aGUgZnRyYWNlIGtzZWxmdGVzdCBjYW4gYWN0dWFsbHkKY29tcGxl
-dGUhIEZvciB0aGUgc2VyaWVzOgoKVGVzdGVkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZv
-c2luYy5jb20+CgpbMV0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDA5MTUxNTQ5
-Ljc4ODA2ODkxMUBnb29kbWlzLm9yZy8KWzJdIGNvbW1pdCAzYjA3MTA4YWRhODEgKCJNZXJnZSB0
-YWcgJ2xpbnV4X2tzZWxmdGVzdC1maXhlcy02LjE1LXJjMicgb2YgZ2l0Oi8vZ2l0Lmtlcm5lbC5v
-cmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3NodWFoL2xpbnV4LWtzZWxmdGVzdCIpCgoKQmrD
-tnJuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The cpu topology binding is now covered by the dtschema cpu-map.yaml
+schema with all the relevant descriptions moved to it.
+
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../devicetree/bindings/cpu/cpu-topology.txt  | 553 ------------------
+ 1 file changed, 553 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
+
+diff --git a/Documentation/devicetree/bindings/cpu/cpu-topology.txt b/Documentation/devicetree/bindings/cpu/cpu-topology.txt
+deleted file mode 100644
+index 9bd530a35d14..000000000000
+--- a/Documentation/devicetree/bindings/cpu/cpu-topology.txt
++++ /dev/null
+@@ -1,553 +0,0 @@
+-===========================================
+-CPU topology binding description
+-===========================================
+-
+-===========================================
+-1 - Introduction
+-===========================================
+-
+-In a SMP system, the hierarchy of CPUs is defined through three entities that
+-are used to describe the layout of physical CPUs in the system:
+-
+-- socket
+-- cluster
+-- core
+-- thread
+-
+-The bottom hierarchy level sits at core or thread level depending on whether
+-symmetric multi-threading (SMT) is supported or not.
+-
+-For instance in a system where CPUs support SMT, "cpu" nodes represent all
+-threads existing in the system and map to the hierarchy level "thread" above.
+-In systems where SMT is not supported "cpu" nodes represent all cores present
+-in the system and map to the hierarchy level "core" above.
+-
+-CPU topology bindings allow one to associate cpu nodes with hierarchical groups
+-corresponding to the system hierarchy; syntactically they are defined as device
+-tree nodes.
+-
+-Currently, only ARM/RISC-V intend to use this cpu topology binding but it may be
+-used for any other architecture as well.
+-
+-The cpu nodes, as per bindings defined in [4], represent the devices that
+-correspond to physical CPUs and are to be mapped to the hierarchy levels.
+-
+-A topology description containing phandles to cpu nodes that are not compliant
+-with bindings standardized in [4] is therefore considered invalid.
+-
+-===========================================
+-2 - cpu-map node
+-===========================================
+-
+-The ARM/RISC-V CPU topology is defined within the cpu-map node, which is a direct
+-child of the cpus node and provides a container where the actual topology
+-nodes are listed.
+-
+-- cpu-map node
+-
+-	Usage: Optional - On SMP systems provide CPUs topology to the OS.
+-			  Uniprocessor systems do not require a topology
+-			  description and therefore should not define a
+-			  cpu-map node.
+-
+-	Description: The cpu-map node is just a container node where its
+-		     subnodes describe the CPU topology.
+-
+-	Node name must be "cpu-map".
+-
+-	The cpu-map node's parent node must be the cpus node.
+-
+-	The cpu-map node's child nodes can be:
+-
+-	- one or more cluster nodes or
+-	- one or more socket nodes in a multi-socket system
+-
+-	Any other configuration is considered invalid.
+-
+-The cpu-map node can only contain 4 types of child nodes:
+-
+-- socket node
+-- cluster node
+-- core node
+-- thread node
+-
+-whose bindings are described in paragraph 3.
+-
+-The nodes describing the CPU topology (socket/cluster/core/thread) can
+-only be defined within the cpu-map node and every core/thread in the
+-system must be defined within the topology.  Any other configuration is
+-invalid and therefore must be ignored.
+-
+-===========================================
+-2.1 - cpu-map child nodes naming convention
+-===========================================
+-
+-cpu-map child nodes must follow a naming convention where the node name
+-must be "socketN", "clusterN", "coreN", "threadN" depending on the node type
+-(ie socket/cluster/core/thread) (where N = {0, 1, ...} is the node number; nodes
+-which are siblings within a single common parent node must be given a unique and
+-sequential N value, starting from 0).
+-cpu-map child nodes which do not share a common parent node can have the same
+-name (ie same number N as other cpu-map child nodes at different device tree
+-levels) since name uniqueness will be guaranteed by the device tree hierarchy.
+-
+-===========================================
+-3 - socket/cluster/core/thread node bindings
+-===========================================
+-
+-Bindings for socket/cluster/cpu/thread nodes are defined as follows:
+-
+-- socket node
+-
+-	 Description: must be declared within a cpu-map node, one node
+-		      per physical socket in the system. A system can
+-		      contain single or multiple physical socket.
+-		      The association of sockets and NUMA nodes is beyond
+-		      the scope of this bindings, please refer [2] for
+-		      NUMA bindings.
+-
+-	This node is optional for a single socket system.
+-
+-	The socket node name must be "socketN" as described in 2.1 above.
+-	A socket node can not be a leaf node.
+-
+-	A socket node's child nodes must be one or more cluster nodes.
+-
+-	Any other configuration is considered invalid.
+-
+-- cluster node
+-
+-	 Description: must be declared within a cpu-map node, one node
+-		      per cluster. A system can contain several layers of
+-		      clustering within a single physical socket and cluster
+-		      nodes can be contained in parent cluster nodes.
+-
+-	The cluster node name must be "clusterN" as described in 2.1 above.
+-	A cluster node can not be a leaf node.
+-
+-	A cluster node's child nodes must be:
+-
+-	- one or more cluster nodes; or
+-	- one or more core nodes
+-
+-	Any other configuration is considered invalid.
+-
+-- core node
+-
+-	Description: must be declared in a cluster node, one node per core in
+-		     the cluster. If the system does not support SMT, core
+-		     nodes are leaf nodes, otherwise they become containers of
+-		     thread nodes.
+-
+-	The core node name must be "coreN" as described in 2.1 above.
+-
+-	A core node must be a leaf node if SMT is not supported.
+-
+-	Properties for core nodes that are leaf nodes:
+-
+-	- cpu
+-		Usage: required
+-		Value type: <phandle>
+-		Definition: a phandle to the cpu node that corresponds to the
+-			    core node.
+-
+-	If a core node is not a leaf node (CPUs supporting SMT) a core node's
+-	child nodes can be:
+-
+-	- one or more thread nodes
+-
+-	Any other configuration is considered invalid.
+-
+-- thread node
+-
+-	Description: must be declared in a core node, one node per thread
+-		     in the core if the system supports SMT. Thread nodes are
+-		     always leaf nodes in the device tree.
+-
+-	The thread node name must be "threadN" as described in 2.1 above.
+-
+-	A thread node must be a leaf node.
+-
+-	A thread node must contain the following property:
+-
+-	- cpu
+-		Usage: required
+-		Value type: <phandle>
+-		Definition: a phandle to the cpu node that corresponds to
+-			    the thread node.
+-
+-===========================================
+-4 - Example dts
+-===========================================
+-
+-Example 1 (ARM 64-bit, 16-cpu system, two clusters of clusters in a single
+-physical socket):
+-
+-cpus {
+-	#size-cells = <0>;
+-	#address-cells = <2>;
+-
+-	cpu-map {
+-		socket0 {
+-			cluster0 {
+-				cluster0 {
+-					core0 {
+-						thread0 {
+-							cpu = <&CPU0>;
+-						};
+-						thread1 {
+-							cpu = <&CPU1>;
+-						};
+-					};
+-
+-					core1 {
+-						thread0 {
+-							cpu = <&CPU2>;
+-						};
+-						thread1 {
+-							cpu = <&CPU3>;
+-						};
+-					};
+-				};
+-
+-				cluster1 {
+-					core0 {
+-						thread0 {
+-							cpu = <&CPU4>;
+-						};
+-						thread1 {
+-							cpu = <&CPU5>;
+-						};
+-					};
+-
+-					core1 {
+-						thread0 {
+-							cpu = <&CPU6>;
+-						};
+-						thread1 {
+-							cpu = <&CPU7>;
+-						};
+-					};
+-				};
+-			};
+-
+-			cluster1 {
+-				cluster0 {
+-					core0 {
+-						thread0 {
+-							cpu = <&CPU8>;
+-						};
+-						thread1 {
+-							cpu = <&CPU9>;
+-						};
+-					};
+-					core1 {
+-						thread0 {
+-							cpu = <&CPU10>;
+-						};
+-						thread1 {
+-							cpu = <&CPU11>;
+-						};
+-					};
+-				};
+-
+-				cluster1 {
+-					core0 {
+-						thread0 {
+-							cpu = <&CPU12>;
+-						};
+-						thread1 {
+-							cpu = <&CPU13>;
+-						};
+-					};
+-					core1 {
+-						thread0 {
+-							cpu = <&CPU14>;
+-						};
+-						thread1 {
+-							cpu = <&CPU15>;
+-						};
+-					};
+-				};
+-			};
+-		};
+-	};
+-
+-	CPU0: cpu@0 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x0>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU1: cpu@1 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x1>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU2: cpu@100 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x100>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU3: cpu@101 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x101>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU4: cpu@10000 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x10000>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU5: cpu@10001 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x10001>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU6: cpu@10100 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x10100>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU7: cpu@10101 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x0 0x10101>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU8: cpu@100000000 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x0>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU9: cpu@100000001 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x1>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU10: cpu@100000100 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x100>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU11: cpu@100000101 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x101>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU12: cpu@100010000 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x10000>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU13: cpu@100010001 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x10001>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU14: cpu@100010100 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x10100>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-
+-	CPU15: cpu@100010101 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a57";
+-		reg = <0x1 0x10101>;
+-		enable-method = "spin-table";
+-		cpu-release-addr = <0 0x20000000>;
+-	};
+-};
+-
+-Example 2 (ARM 32-bit, dual-cluster, 8-cpu system, no SMT):
+-
+-cpus {
+-	#size-cells = <0>;
+-	#address-cells = <1>;
+-
+-	cpu-map {
+-		cluster0 {
+-			core0 {
+-				cpu = <&CPU0>;
+-			};
+-			core1 {
+-				cpu = <&CPU1>;
+-			};
+-			core2 {
+-				cpu = <&CPU2>;
+-			};
+-			core3 {
+-				cpu = <&CPU3>;
+-			};
+-		};
+-
+-		cluster1 {
+-			core0 {
+-				cpu = <&CPU4>;
+-			};
+-			core1 {
+-				cpu = <&CPU5>;
+-			};
+-			core2 {
+-				cpu = <&CPU6>;
+-			};
+-			core3 {
+-				cpu = <&CPU7>;
+-			};
+-		};
+-	};
+-
+-	CPU0: cpu@0 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a15";
+-		reg = <0x0>;
+-	};
+-
+-	CPU1: cpu@1 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a15";
+-		reg = <0x1>;
+-	};
+-
+-	CPU2: cpu@2 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a15";
+-		reg = <0x2>;
+-	};
+-
+-	CPU3: cpu@3 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a15";
+-		reg = <0x3>;
+-	};
+-
+-	CPU4: cpu@100 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a7";
+-		reg = <0x100>;
+-	};
+-
+-	CPU5: cpu@101 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a7";
+-		reg = <0x101>;
+-	};
+-
+-	CPU6: cpu@102 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a7";
+-		reg = <0x102>;
+-	};
+-
+-	CPU7: cpu@103 {
+-		device_type = "cpu";
+-		compatible = "arm,cortex-a7";
+-		reg = <0x103>;
+-	};
+-};
+-
+-Example 3: HiFive Unleashed (RISC-V 64 bit, 4 core system)
+-
+-{
+-	#address-cells = <2>;
+-	#size-cells = <2>;
+-	compatible = "sifive,fu540g", "sifive,fu500";
+-	model = "sifive,hifive-unleashed-a00";
+-
+-	...
+-	cpus {
+-		#address-cells = <1>;
+-		#size-cells = <0>;
+-		cpu-map {
+-			socket0 {
+-				cluster0 {
+-					core0 {
+-						cpu = <&CPU1>;
+-					};
+-					core1 {
+-						cpu = <&CPU2>;
+-					};
+-					core2 {
+-						cpu0 = <&CPU2>;
+-					};
+-					core3 {
+-						cpu0 = <&CPU3>;
+-					};
+-				};
+-			};
+-		};
+-
+-		CPU1: cpu@1 {
+-			device_type = "cpu";
+-			compatible = "sifive,rocket0", "riscv";
+-			reg = <0x1>;
+-		}
+-
+-		CPU2: cpu@2 {
+-			device_type = "cpu";
+-			compatible = "sifive,rocket0", "riscv";
+-			reg = <0x2>;
+-		}
+-		CPU3: cpu@3 {
+-			device_type = "cpu";
+-			compatible = "sifive,rocket0", "riscv";
+-			reg = <0x3>;
+-		}
+-		CPU4: cpu@4 {
+-			device_type = "cpu";
+-			compatible = "sifive,rocket0", "riscv";
+-			reg = <0x4>;
+-		}
+-	}
+-};
+-===============================================================================
+-[1] ARM Linux kernel documentation
+-    Documentation/devicetree/bindings/arm/cpus.yaml
+-[2] Devicetree NUMA binding description
+-    Documentation/devicetree/bindings/numa.txt
+-[3] RISC-V Linux kernel documentation
+-    Documentation/devicetree/bindings/riscv/cpus.yaml
+-[4] https://www.devicetree.org/specifications/
+-- 
+2.47.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
