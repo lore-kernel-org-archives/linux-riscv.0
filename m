@@ -4,97 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3069C369A2
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 04:07:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E752C3601E
+	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 04:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5m13KUmvZ+lQJ4nk/IfrFn8Phse1Z6pDPnQaTdpwTcc=; b=o8oKKQIp9M2ebD
-	kndcCTJE8J+bU/KJKBECBDtyg0gwu49G3xqQr0+Jiat5w5yCza8Bb7c0ubwhBgfAJMudr6llK3KBD
-	8y8HEh+hPZWqDtfO5txr+U389boD/cH6A52n2BDrXanj3OG05mjSFDZ+3p7tF5+/pcaycR4jwirOL
-	asaeMPVpttCkIVRsHytisjRqV6QNfEwGosWsTyhGkDV3eaFnG/QP9MlD4UA22iAmeTWfEm2OmsQBd
-	T8jMWJgee/ljzmLNdZmfQGvOgpaI/Pliq0xR6YRYjcjRVUX5hjFqstST+7onLDzwm6ITtaT6lqWph
-	oSzvx+yQyEF3KSQKMi/w==;
+	List-Owner; bh=UJHzFQS1YoB2iUoj/AH2UCj3zfkiTiv0esL/aoaq4v4=; b=saAr7cWBf3hwb+
+	69C4V5vRDOwDyb6uE5+ppTcswFe21PDIV8gmltO4qAloHagzHuotVKHlCbhfSIuNyYT9w69vkMAxt
+	sKMCPXCQtjDtqOFaxl/tZOuU2cAx458zd5v4aGwemM7qxPTsDNDYn2YLYFh1OmSToE5/EH+8kkBb+
+	Df84CxjnIOkDZkhKzpKOIcFajnyhBlXP38jlTWXfUMyOKgtfQVGZbyLuj9TyXMmI0RVwfG7ws+sYo
+	T60U8w/0NKGLglGWuRd+jbf0skDsjEis+/WyU46Z8yzb9ZR9ZdVrCljBC4Nyoagvv0qTr9FjLNCSW
+	Kv93Zt2pV/6ImGV+9GRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2jCf-00000009Atg-3AB6;
-	Thu, 10 Apr 2025 04:07:49 +0000
+	id 1u2jE3-00000009B4g-1xXK;
+	Thu, 10 Apr 2025 04:09:15 +0000
 Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2jCc-00000009AtD-2wzP
+	id 1u2jE0-00000009B41-2uhe
 	for linux-riscv@lists.infradead.org;
-	Thu, 10 Apr 2025 04:07:48 +0000
+	Thu, 10 Apr 2025 04:09:13 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 99EB112FB451;
-	Wed, 09 Apr 2025 21:07:45 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTP id 1FFB512FB451;
+	Wed, 09 Apr 2025 21:09:12 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744258065; bh=6X8CIRzu/7C0i9tpkQQDyN8gtCt7xELDMOU+oJyN9yA=;
+	t=1744258152; bh=6FmV8bhSqaSEa6plfveepL1iT4YnlQ4z1nGKZbWPdJg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ODE8xmaZpaM2vx6KXzglfkYZGQRpncMebes4iBfHIZ1+NKkbesT1cbYtSEgfSc0mb
-	 IAS7beaF22YkL1GlWX1DgEil7138L1fhsZe/2nJC1+p1KCrMp5/5ArIbo0UhZbsdOX
-	 8M6BNtRJ8uE1djCeQLJF5KPngnoMHABCzl2UzR9XrlxKnilPbdVOEHcfD2L6yHb1h9
-	 2NCXGgi4TH9ABBPURtS+vBvJPLBYlEHJ8kZUb8wHwdGIMfdmCQGXfCNfGqGAcNj/GA
-	 YzSiR3r1TZrOGCxvsNCEDkvDgMsuQyUOhF+LN3iVxh4ZFQCgzOtCy4e0tVEsIyQOIW
-	 PXmqqg9GbhutQ==
+	b=zojyFwc7TEpeZrWEgNWBaJeCxFP6ZzTp2Q5+gzKBKwVKTkFEXZJv13sZO5r64mSRE
+	 eHYXMxjDRWhTf99nTgZ+I4NktzNMeFMOuLzDKVUYEHOpDE3j7if/MEdPGsfJ81R05U
+	 lPtlR1OuYe8OuI0U5piWYfW5khcDnD+1YmOEi/esHepfPTNNVDHjRd4Qhm8x4Jn5KS
+	 LbQB6C8KEwfXJE7rvFlx2US3ihmaW0GqY2qWEUzNep7s11hq55NPzErbnFWmkQBCkz
+	 inD54HEhtQiA2NELs8TXkwIN5okmIexy6lck2V5Z+ANXRBXBsvhbKcf7G/LUVzAtHA
+	 fnUnZVw/8PaMw==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id jfdSQCvaCpS6; Wed,  9 Apr 2025 21:07:43 -0700 (PDT)
+ with ESMTP id k_uxOYlqyssR; Wed,  9 Apr 2025 21:09:10 -0700 (PDT)
 Received: from ketchup (unknown [183.217.80.181])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 7D41112FB430;
-	Wed, 09 Apr 2025 21:07:38 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTPSA id EFDEB12FB430;
+	Wed, 09 Apr 2025 21:09:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744258063; bh=6X8CIRzu/7C0i9tpkQQDyN8gtCt7xELDMOU+oJyN9yA=;
+	t=1744258150; bh=6FmV8bhSqaSEa6plfveepL1iT4YnlQ4z1nGKZbWPdJg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=IT1yWtxBWJHexa920HMgFACR6jjj/Rfv9SnqyVrWjx4HCeEg9SeC0plLOjUmWrxXs
-	 1CgJRdqM7Icyj+s5A/Wd+rYX/6NPrRyqRHY96aez2BrpUZfOCshuYR0sUSWUs1srXg
-	 yKgUw148SUaNi/IPnangfzT4ml21TYXWA1a1oJTcLCmacP6xIlriRECZN9oI6dyZaM
-	 heSSOm1Cfr3N2usxnrFFZuIfaOn6iq69QdvCVbD8e2CnPdtIwcqgPo2DarmiA14FUx
-	 8qzhtlc48s+xNxLC5Yx4q8tBYziW53OnEN9IBXCtidId+N6YeZDIelp1I5SCNImWlB
-	 sS06RCtmkI7og==
-Date: Thu, 10 Apr 2025 04:07:35 +0000
+	b=sWkxP/PEEFnaHVLza+A29CN8dI2HCLiXZBcrDGa4DzL4VLDAPRo9Qoer8Pv5Eg/8E
+	 5JlRZIXlirPGARdKCNVh7g/mx4MidLb9T6xn18mDed9/xFrTLwevz4Z+DO4juR50cz
+	 eXQVgj9v5ukB6NiNgWBnBy7EwM/ZhOBB5/xs5I460KI39LZEQ6yprIBxLC4+J5fPYY
+	 G50FxwRfVJJsoPeP3ZQ+TQVMiCdoMbiDv+CwALfYLSxb3lS+WjzELlQbvecqUPWFoF
+	 IKS2+LgZiws+9Gge1R90UXzY7mZTjLFGu2IvZFNRHxPkEC3ja4NB8Yg8VOuVkzEw96
+	 UAQrVyO2a+3pQ==
+Date: Thu, 10 Apr 2025 04:09:02 +0000
 From: Haylen Chu <heylenay@4d2.org>
-To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Alex Elder <elder@riscstar.com>,
+To: Alex Elder <elder@riscstar.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Haylen Chu <heylenay@outlook.com>,
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
 	spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
 	Chen Wang <unicornxdotw@foxmail.com>,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
-Subject: Re: [PATCH v6 3/6] clk: spacemit: Add clock support for SpacemiT K1
- SoC
-Message-ID: <Z_dEB4tfWO9KiErA@ketchup>
+Subject: Re: [PATCH v6 4/6] clk: spacemit: k1: Add TWSI8 bus and function
+ clocks
+Message-ID: <Z_dEXjck56Q_M6r3@ketchup>
 References: <20250401172434.6774-1-heylenay@4d2.org>
- <20250401172434.6774-4-heylenay@4d2.org>
- <8fe0aaaa-b8e9-45dd-b792-c32be49cca1a@riscstar.com>
- <20250410003756-GYA19359@gentoo>
- <dm4lwnplwcxj3t3qx3a3bdxtziowjfoqdy4vrd3ahmzkhejrov@fa5rujatatew>
- <z27ri5eue43ti6b2te2cbxiow66mtgbnyudoo5cs4quabgbx5r@uipzoxvfoysi>
- <a8e5adca-8eff-4bbb-a7fa-ce4489b63fa5@riscstar.com>
- <sl752im2sn5sz6yzc23ctprh3rwryuhgtggsaauxixn3b267ag@6sf5fahu6b5i>
- <20250410015549-GYA19471@gentoo>
+ <20250401172434.6774-5-heylenay@4d2.org>
+ <89385654-11bc-4cf0-b94e-15bf841ac215@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250410015549-GYA19471@gentoo>
+In-Reply-To: <89385654-11bc-4cf0-b94e-15bf841ac215@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250409_210746_801545_D4D0CA4C 
-X-CRM114-Status: GOOD (  37.29  )
+X-CRM114-CacheID: sfid-20250409_210912_770258_9EB9BF43 
+X-CRM114-Status: GOOD (  25.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,83 +104,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 01:55:49AM +0000, Yixun Lan wrote:
-> Hi Inochi,
-> 
-> On 09:20 Thu 10 Apr     , Inochi Amaoto wrote:
-> > On Wed, Apr 09, 2025 at 08:10:53PM -0500, Alex Elder wrote:
-> > > On 4/9/25 7:57 PM, Inochi Amaoto wrote:
-> > > > > > > > diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
-> > > > > > > > new file mode 100644
-> > > > > > > > index 000000000000..4c4df845b3cb
-> > > > > > > > --- /dev/null
-> > > > > > > > +++ b/drivers/clk/spacemit/Kconfig
-> > > > > > > > @@ -0,0 +1,18 @@
-> > > > > > > > +# SPDX-License-Identifier: GPL-2.0-only
-> > > > > > > > +
-> > > > > > > > +config SPACEMIT_CCU
-> > > > > > > > +	tristate "Clock support for SpacemiT SoCs"
-> > > > > > > I don't know the answer to this, but...  Should this be a Boolean
-> > > > > > > rather than tristate?  Can a SpacemiT K1 SoC function without the
-> > > > > > > clock driver built in to the kernel?
-> > > > > > > 
-> > > > > > I agree to make it a Boolean, we've already made pinctrl driver Boolean
-> > > > > > and pinctrl depend on clk, besides, the SoC is unlikely functional
-> > > > > > without clock built in as it's such critical..
-> > > > > > 
-> > > > > I disagree. The kernel is only for spacemit only, and the pinctrl
-> > > > Sorry for a mistake, this first "only" should be "not".
-> > > 
-> > > This is a general problem.  You can't make a bootable
-> > > SpacemiT kernel unless you define this as built-in (at
-> > > least, that's what Yixun is saying). 
+On Tue, Apr 08, 2025 at 02:37:29PM -0500, Alex Elder wrote:
+> On 4/1/25 12:24 PM, Haylen Chu wrote:
+> > The control register for TWSI8 clocks, APBC_TWSI8_CLK_RST, contains mux
+> > selection bits, reset assertion bit and enable bits for function and bus
+> > clocks. It has a quirk that reading always results in zero.
 > > 
-> > Why not putting the module in the initramfs? I have tested
-> > this in quite a lot of boards (Allwinner, rockchip, sophgo,
-> > starfive and etc.), all of them work well.
-
-This is also my original consideration.
-
-> it works, but not optimal, why delay clk initialzation at modules load stage?
-> IMO, it brings more overhead for using initramfs..
-
-For distribution maintainers and users, keeping stuff buildable as
-modules shrinks the sizeof kernel image, which I'd like to see. Thus I
-won't make the entry boolean.
-
-> but there is always tradeoff and bikeshedding..
-> 
-> > > But we'd really rather *only* build it in to the kernel
-> > > for SpacemiT builds. You clearly want to minimize what
-> > > must be built in, but what if this is indeed required?
-> > > What goes in defconfig?
-> > > 
+> > As a workaround, let's hardcode the mux value as zero to select
+> > pll1_d78_31p5 as parent and treat twsi8_clk as a gate, whose enable mask
+> > is combined from the real bus and function clocks to avoid the
+> > write-only register being shared between two clk_hws, in which case
+> > updates of one clk_hw zero the other's bits.
 > > 
-> > As defconfig is more like for a minimum example system. It
-> > is OK to put a y in the defconfig. But for a custom system,
-> > you do give a choice for the builder to remove your module
-> > in non spacemit system.
+> > With a 1:1 factor serving as placeholder for the bus clock, the I2C-8
+> > controller could be brought up, which is essential for boards attaching
+> > power-management chips to it.
+> > 
+> > Signed-off-by: Haylen Chu <heylenay@4d2.org>
 > 
-> I get your meaning here to remove/disable at run time stage, while
-> we do provide compile time option, if don't want spacemit system
-> just disable CONFIG_ARCH_SPACEMIT I mentioned, clk/pinctrl will be gone
+> Now that I understand why, I'm glad you put this into a separate
+> patch.  However I think you should make a note in the code to
+> indicate there's something different about this one clock.
+> People can then go back (with "git blame") to see the explanation
+> above.
 > 
-> anyway, I'm open for this, make it tristate do provide more choices,
-> and it's probably better leave users to decide..
-> 
-> Ok, I'm fine with leave clk as tristate with proper default deconfig,
-> but if people want to pursue more to make more driver(pinctrl) modulized
-> feel free to test and send patches, I just won't put efforts myself.
-> 
-> thanks
-> 
-> -- 
-> Yixun Lan (dlan)
-> Gentoo Linux Developer
-> GPG Key ID AABEFD55
+> Please consider adding such a comment in your next version.
 
-Thanks,
+Sure I'm willing to.
+
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+
+Best regards,
 Haylen Chu
+
+> > ---
+> >   drivers/clk/spacemit/ccu-k1.c | 5 +++++
+> >   1 file changed, 5 insertions(+)
+> > 
+> > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> > index cd95c4f9c127..5804c2f85407 100644
+> > --- a/drivers/clk/spacemit/ccu-k1.c
+> > +++ b/drivers/clk/spacemit/ccu-k1.c
+> > @@ -397,6 +397,8 @@ CCU_MUX_GATE_DEFINE(twsi6_clk, twsi_parents, APBC_TWSI6_CLK_RST, 4, 3, BIT(1),
+> >   		    0);
+> >   CCU_MUX_GATE_DEFINE(twsi7_clk, twsi_parents, APBC_TWSI7_CLK_RST, 4, 3, BIT(1),
+> >   		    0);
+> > +CCU_GATE_DEFINE(twsi8_clk, CCU_PARENT_HW(pll1_d78_31p5), APBC_TWSI8_CLK_RST,
+> > +		BIT(1) | BIT(0), 0);
+> >   static const struct clk_parent_data timer_parents[] = {
+> >   	CCU_PARENT_HW(pll1_d192_12p8),
+> > @@ -528,6 +530,7 @@ CCU_GATE_DEFINE(twsi6_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI6_CLK_RST,
+> >   		BIT(0), 0);
+> >   CCU_GATE_DEFINE(twsi7_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI7_CLK_RST,
+> >   		BIT(0), 0);
+> > +CCU_FACTOR_DEFINE(twsi8_bus_clk, CCU_PARENT_HW(apb_clk), 1, 1);
+> >   CCU_GATE_DEFINE(timers1_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TIMERS1_CLK_RST,
+> >   		BIT(0), 0);
+> > @@ -1059,6 +1062,7 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
+> >   	[CLK_TWSI5]		= &twsi5_clk.common.hw,
+> >   	[CLK_TWSI6]		= &twsi6_clk.common.hw,
+> >   	[CLK_TWSI7]		= &twsi7_clk.common.hw,
+> > +	[CLK_TWSI8]		= &twsi8_clk.common.hw,
+> >   	[CLK_TIMERS1]		= &timers1_clk.common.hw,
+> >   	[CLK_TIMERS2]		= &timers2_clk.common.hw,
+> >   	[CLK_AIB]		= &aib_clk.common.hw,
+> > @@ -1110,6 +1114,7 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
+> >   	[CLK_TWSI5_BUS]		= &twsi5_bus_clk.common.hw,
+> >   	[CLK_TWSI6_BUS]		= &twsi6_bus_clk.common.hw,
+> >   	[CLK_TWSI7_BUS]		= &twsi7_bus_clk.common.hw,
+> > +	[CLK_TWSI8_BUS]		= &twsi8_bus_clk.common.hw,
+> >   	[CLK_TIMERS1_BUS]	= &timers1_bus_clk.common.hw,
+> >   	[CLK_TIMERS2_BUS]	= &timers2_bus_clk.common.hw,
+> >   	[CLK_AIB_BUS]		= &aib_bus_clk.common.hw,
+> 
 
 _______________________________________________
 linux-riscv mailing list
