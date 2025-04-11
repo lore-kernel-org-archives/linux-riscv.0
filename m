@@ -4,55 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370EAC36010
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 11:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D327C36010
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 11:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eVp85/Ax0E8Riw0A3YWu/gMhg1n2LMSCvAPOpj46dFg=; b=Inxj853j9K7fe9
-	0oqvwFA3LyyPdfQ/cJeJrRrE5paIka9lX2bVdNF8oXiVQF0EDkb4vtQphOMifNUklHbD2dQft6qU6
-	+r3TByK4IdIpDiK6y/p7LGP/EP4A7ouHJfaKMWUZEBI+T8qyFRl2RzU6O+/d2GEDfFQu49K3gxOIJ
-	+dyf04VI6HRYjdWm8K+Hdvmw9zSiCslPfVwO7gA17KKtK9A+WwfbR1b+QriKQW5o6ywvVqjSPM1US
-	UaUDYfsFrhdEQSlixH9PpTpttdhb0fUqivFW9H63lWLHqj5LuvDjylXeTaD0o6HlmszUNgL3dSaf9
-	ix0AskLSdQaf8EApGE3w==;
+	List-Owner; bh=QBN+zFvKfshdVc2FELBb4J8UDQChIFzW44QYTPtpjA8=; b=bE/cXzRoIcaeQI
+	u2aEDm3zvtLy0leFHVKEX+jNQ3kOzl9McEo4Cd/f0534fyRkJA4zABmMByB1InA/hWGQNHYh5Mw4o
+	TZ6dpqpNEJEtMRUmgPbe3Mtj5ErIVkKDa2YJgsXvbGS8zmz9rk2r0JNRW4YEvs03ebnnQeFJv7PRn
+	k+RXkSkJUzvaoQddXXMlIYynKeRWDlPo3uqYUOZAAFnkuUmHoy09YeW6bGpqKGO2E+tjgR4KbRlDX
+	GxRru+nC8pFAUCeSuSf92Og2LP1HXi9w8iI8BShHowvYhVT6dWJ1k98Jf6LMBj/kJrzr7B4LYFqNA
+	QPTnxxCzidvuS39yOeIw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3CPf-0000000DV0Z-4B4A;
-	Fri, 11 Apr 2025 11:19:12 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u3Ca1-0000000DZ9V-3jGb;
+	Fri, 11 Apr 2025 11:29:53 +0000
+Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Bci-0000000DOg2-1bpK
+	id 1u3CS5-0000000DXEZ-3IUm
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 10:28:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 5A86844195;
-	Fri, 11 Apr 2025 10:28:32 +0000 (UTC)
-Message-ID: <bbdfe17e-a58a-4a14-9e74-8794b08fdda6@ghiti.fr>
-Date: Fri, 11 Apr 2025 12:28:31 +0200
+	Fri, 11 Apr 2025 11:21:43 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9A5BA442BD;
+	Fri, 11 Apr 2025 11:21:36 +0000 (UTC)
+Message-ID: <fb65fc45-b1f1-47ef-b700-e90c6ef84957@ghiti.fr>
+Date: Fri, 11 Apr 2025 13:21:35 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH fixes] riscv: Properly export reserved regions in
- /proc/iomem
+Subject: Re: [PATCH v2 1/3] riscv: module: Fix out-of-bounds relocation access
 Content-Language: en-US
-To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Nick Kossifidis <mick@ics.forth.gr>,
- linux-riscv@lists.infradead.org
-Cc: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
- linux-kernel@vger.kernel.org
-References: <20250409182129.634415-1-bjorn@kernel.org>
+To: Samuel Holland <samuel.holland@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+Cc: Andrew Jones <ajones@ventanamicro.com>,
+ Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>,
+ Pritesh Patel <pritesh.patel@einfochips.com>,
+ Darshan Prajapati <darshan.prajapati@einfochips.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Amma Lee <lixiaoyun@binary-semi.com>,
+ Charlie Jenkins <charlie@rivosinc.com>, =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?=
+ <cleger@rivosinc.com>, Jinjie Ruan <ruanjinjie@huawei.com>,
+ Luis Chamberlain <mcgrof@kernel.org>, Maxim Kochetkov <fido_max@inbox.ru>,
+ "Mike Rapoport (IBM)" <rppt@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, linux-kernel@vger.kernel.org
+References: <20250409171526.862481-1-samuel.holland@sifive.com>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250409182129.634415-1-bjorn@kernel.org>
+In-Reply-To: <20250409171526.862481-1-samuel.holland@sifive.com>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvudduheejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedtgeeuhffhveeujeetveevieekleekvdffudefleevgefgieekkefggefhtddtveenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvuddrvdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeejpdhrtghpthhtohepsghjohhrnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtohepmhhitghksehitghsrdhfohhrthhhrdhgrhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepsghjohhrnhesrhhivhhoshhin
- hgtrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvudduieekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvuddrvdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedujedprhgtphhtthhopehsrghmuhgvlhdrhhholhhlrghnugesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrjhhonhgvshesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrtghpthhtohepphhinhhkvghshhdrvhgrghhhvghlrgesvghinhhfohgthhhiphhsrdgto
+ hhmpdhrtghpthhtohepphhrihhtvghshhdrphgrthgvlhesvghinhhfohgthhhiphhsrdgtohhmpdhrtghpthhtohepuggrrhhshhgrnhdrphhrrghjrghprghtihesvghinhhfohgthhhiphhsrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuh
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_032836_575927_9317478A 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20250411_042141_978343_BC8124DB 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,81 +69,51 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQmpvcm4sCgpPbiAwOS8wNC8yMDI1IDIwOjIxLCBCasO2cm4gVMO2cGVsIHdyb3RlOgo+IEZy
-b206IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPgo+IFRoZSAvcHJvYy9pb21l
-bSByZXByZXNlbnRzIHRoZSBrZXJuZWwncyBtZW1vcnkgbWFwLiBSZWdpb25zIG1hcmtlZAo+IHdp
-dGggIlJlc2VydmVkIiB0ZWxscyB0aGUgdXNlciB0aGF0IHRoZSByYW5nZSBzaG91bGQgbm90IGJl
-IHRhbXBlcmVkCj4gd2l0aC4gS2V4ZWMtdG9vbHMsIHdoZW4gdXNpbmcgdGhlIG9sZGVyIGtleGVj
-X2xvYWQgc3lzY2FsbCByZWxpZXMgb24KPiB0aGUgIlJlc2VydmVkIiByZWdpb25zIHRvIGJ1aWxk
-IHRoZSBtZW1vcnkgc2VnbWVudHMsIHRoYXQgd2lsbCBiZSB0aGUKPiB0YXJnZXQgb2YgdGhlIG5l
-dyBrZXhlYydkIGtlcm5lbC4KPgo+IFRoZSBSSVNDLVYgcG9ydCB0cmllcyB0byBleHBvc2UgYWxs
-IHJlc2VydmVkIHJlZ2lvbnMgdG8gdXNlcmxhbmQsIGJ1dAo+IHNvbWUgcmVnaW9ucyB3ZXJlIG5v
-dCBwcm9wZXJseSBleHBvc2VkOiBSZWdpb25zIHRoYXQgcmVzaWRlZCBpbiBib3RoCj4gdGhlICJy
-ZWd1bGFyIiBhbmQgcmVzZXJ2ZWQgbWVtb3J5IGJsb2NrLCBlLmcuIHRoZSBFRkkgTWVtb3J5IE1h
-cC4gQQo+IG1pc3NpbmcgZW50cnkgY291bGQgcmVzdWx0IGluIHJlc2VydmVkIG1lbW9yeSBiZWlu
-ZyBvdmVyd3JpdHRlbi4KPgo+IEl0IHR1cm5zIG91dCwgdGhhdCBhcm02NCwgYW5kIGxvb25nYXJj
-aCBoYWQgYSBzaW1pbGFyIGlzc3VlIGEgd2hpbGUKPiBiYWNrOgo+Cj4gICAgY29tbWl0IGQ5MTY4
-MGU2ODdmNCAoImFybTY0OiBGaXggL3Byb2MvaW9tZW0gZm9yIHJlc2VydmVkIGJ1dCBub3QgbWVt
-b3J5IHJlZ2lvbnMiKQo+ICAgIGNvbW1pdCA1MGQ3YmEzNmI5MTYgKCJhcm02NDogZXhwb3J0IG1l
-bWJsb2NrX3Jlc2VydmUoKWQgcmVnaW9ucyB2aWEgL3Byb2MvaW9tZW0iKQo+Cj4gU2ltaWxhciB0
-byB0aGUgb3RoZXIgcG9ydHMsIHJlc29sdmUgdGhlIGlzc3VlIGJ5IHNwbGl0dGluZyB0aGUgcmVn
-aW9ucwo+IGluIGFuIGFyY2ggaW5pdGNhbGwsIHNpbmNlIHdlIG5lZWQgYSB3b3JraW5nIGFsbG9j
-YXRvci4KPgo+IEZpeGVzOiBmZmUwZTUyNjEyNjggKCJSSVNDLVY6IEltcHJvdmUgaW5pdF9yZXNv
-dXJjZXMoKSIpCj4gU2lnbmVkLW9mZi1ieTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMu
-Y29tPgo+IC0tLQo+ICAgYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYyB8IDM2ICsrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrLQo+ICAgMSBmaWxlIGNoYW5nZWQsIDM1IGluc2VydGlv
-bnMoKyksIDEgZGVsZXRpb24oLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9z
-ZXR1cC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvc2V0dXAuYwo+IGluZGV4IGMxNzQ1NDRlZWZjOC4u
-ZjdjOWExY2FhODNlIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva2VybmVsL3NldHVwLmMKPiAr
-KysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9zZXR1cC5jCj4gQEAgLTY2LDYgKzY2LDkgQEAgc3RhdGlj
-IHN0cnVjdCByZXNvdXJjZSBic3NfcmVzID0geyAubmFtZSA9ICJLZXJuZWwgYnNzIiwgfTsKPiAg
-IHN0YXRpYyBzdHJ1Y3QgcmVzb3VyY2UgZWxmY29yZWhkcl9yZXMgPSB7IC5uYW1lID0gIkVMRiBD
-b3JlIGhkciIsIH07Cj4gICAjZW5kaWYKPiAgIAo+ICtzdGF0aWMgaW50IG51bV9zdGFuZGFyZF9y
-ZXNvdXJjZXM7Cj4gK3N0YXRpYyBzdHJ1Y3QgcmVzb3VyY2UgKnN0YW5kYXJkX3Jlc291cmNlczsK
-PiArCj4gICBzdGF0aWMgaW50IF9faW5pdCBhZGRfcmVzb3VyY2Uoc3RydWN0IHJlc291cmNlICpw
-YXJlbnQsCj4gICAJCQkJc3RydWN0IHJlc291cmNlICpyZXMpCj4gICB7Cj4gQEAgLTEzOSw3ICsx
-NDIsNyBAQCBzdGF0aWMgdm9pZCBfX2luaXQgaW5pdF9yZXNvdXJjZXModm9pZCkKPiAgIAlzdHJ1
-Y3QgcmVzb3VyY2UgKnJlcyA9IE5VTEw7Cj4gICAJc3RydWN0IHJlc291cmNlICptZW1fcmVzID0g
-TlVMTDsKPiAgIAlzaXplX3QgbWVtX3Jlc19zeiA9IDA7Cj4gLQlpbnQgbnVtX3Jlc291cmNlcyA9
-IDAsIHJlc19pZHggPSAwOwo+ICsJaW50IG51bV9yZXNvdXJjZXMgPSAwLCByZXNfaWR4ID0gMCwg
-bm9uX3Jlc3ZfcmVzID0gMDsKPiAgIAlpbnQgcmV0ID0gMDsKPiAgIAo+ICAgCS8qICsgMSBhcyBt
-ZW1ibG9ja19hbGxvYygpIG1pZ2h0IGluY3JlYXNlIG1lbWJsb2NrLnJlc2VydmVkLmNudCAqLwo+
-IEBAIC0xOTMsNiArMTk2LDcgQEAgc3RhdGljIHZvaWQgX19pbml0IGluaXRfcmVzb3VyY2VzKHZv
-aWQpCj4gICAJLyogQWRkIC9tZW1vcnkgcmVnaW9ucyB0byB0aGUgcmVzb3VyY2UgdHJlZSAqLwo+
-ICAgCWZvcl9lYWNoX21lbV9yZWdpb24ocmVnaW9uKSB7Cj4gICAJCXJlcyA9ICZtZW1fcmVzW3Jl
-c19pZHgtLV07Cj4gKwkJbm9uX3Jlc3ZfcmVzKys7Cj4gICAKPiAgIAkJaWYgKHVubGlrZWx5KG1l
-bWJsb2NrX2lzX25vbWFwKHJlZ2lvbikpKSB7Cj4gICAJCQlyZXMtPm5hbWUgPSAiUmVzZXJ2ZWQi
-Owo+IEBAIC0yMTAsNiArMjE0LDkgQEAgc3RhdGljIHZvaWQgX19pbml0IGluaXRfcmVzb3VyY2Vz
-KHZvaWQpCj4gICAJCQlnb3RvIGVycm9yOwo+ICAgCX0KPiAgIAo+ICsJbnVtX3N0YW5kYXJkX3Jl
-c291cmNlcyA9IG5vbl9yZXN2X3JlczsKPiArCXN0YW5kYXJkX3Jlc291cmNlcyA9ICZtZW1fcmVz
-W3Jlc19pZHggKyAxXTsKPiArCj4gICAJLyogQ2xlYW4tdXAgYW55IHVudXNlZCBwcmUtYWxsb2Nh
-dGVkIHJlc291cmNlcyAqLwo+ICAgCWlmIChyZXNfaWR4ID49IDApCj4gICAJCW1lbWJsb2NrX2Zy
-ZWUobWVtX3JlcywgKHJlc19pZHggKyAxKSAqIHNpemVvZigqbWVtX3JlcykpOwo+IEBAIC0yMjEs
-NiArMjI4LDMzIEBAIHN0YXRpYyB2b2lkIF9faW5pdCBpbml0X3Jlc291cmNlcyh2b2lkKQo+ICAg
-CW1lbWJsb2NrX2ZyZWUobWVtX3JlcywgbWVtX3Jlc19zeik7Cj4gICB9Cj4gICAKPiArc3RhdGlj
-IGludCBfX2luaXQgcmVzZXJ2ZV9tZW1ibG9ja19yZXNlcnZlZF9yZWdpb25zKHZvaWQpCj4gK3sK
-PiArCXU2NCBpLCBqOwo+ICsKPiArCWZvciAoaSA9IDA7IGkgPCBudW1fc3RhbmRhcmRfcmVzb3Vy
-Y2VzOyBpKyspIHsKPiArCQlzdHJ1Y3QgcmVzb3VyY2UgKm1lbSA9ICZzdGFuZGFyZF9yZXNvdXJj
-ZXNbaV07Cj4gKwkJcGh5c19hZGRyX3Qgcl9zdGFydCwgcl9lbmQsIG1lbV9zaXplID0gcmVzb3Vy
-Y2Vfc2l6ZShtZW0pOwo+ICsKPiArCQlpZiAoIW1lbWJsb2NrX2lzX3JlZ2lvbl9yZXNlcnZlZCht
-ZW0tPnN0YXJ0LCBtZW1fc2l6ZSkpCj4gKwkJCWNvbnRpbnVlOwo+ICsKPiArCQlmb3JfZWFjaF9y
-ZXNlcnZlZF9tZW1fcmFuZ2UoaiwgJnJfc3RhcnQsICZyX2VuZCkgewo+ICsJCQlyZXNvdXJjZV9z
-aXplX3Qgc3RhcnQsIGVuZDsKPiArCj4gKwkJCXN0YXJ0ID0gbWF4KFBGTl9QSFlTKFBGTl9ET1dO
-KHJfc3RhcnQpKSwgbWVtLT5zdGFydCk7Cj4gKwkJCWVuZCA9IG1pbihQRk5fUEhZUyhQRk5fVVAo
-cl9lbmQpKSAtIDEsIG1lbS0+ZW5kKTsKPiArCj4gKwkJCWlmIChzdGFydCA+IG1lbS0+ZW5kIHx8
-IGVuZCA8IG1lbS0+c3RhcnQpCj4gKwkJCQljb250aW51ZTsKPiArCj4gKwkJCXJlc2VydmVfcmVn
-aW9uX3dpdGhfc3BsaXQobWVtLCBzdGFydCwgZW5kLCAiUmVzZXJ2ZWQiKTsKPiArCQl9Cj4gKwl9
-Cj4gKwo+ICsJcmV0dXJuIDA7Cj4gK30KPiArYXJjaF9pbml0Y2FsbChyZXNlcnZlX21lbWJsb2Nr
-X3Jlc2VydmVkX3JlZ2lvbnMpOwo+ICAgCj4gICBzdGF0aWMgdm9pZCBfX2luaXQgcGFyc2VfZHRi
-KHZvaWQpCj4gICB7Cj4KPiBiYXNlLWNvbW1pdDogYTI0NTg4MjQ1Nzc2ZGFmYzIyNzI0M2EwMWJm
-YmViOGE1OWJhZmJhOQoKClJldmlld2VkLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUBy
-aXZvc2luYy5jb20+CgpJdCB3aWxsIGJlIG1lcmdlZCB3aXRoIG90aGVyIGZpeGVzIGluIHRoZSBu
-ZXh0IHJjLWlzaCEKClRoYW5rcywKCkFsZXgKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Samuel,
+
+On 09/04/2025 19:14, Samuel Holland wrote:
+> The current code allows rel[j] to access one element past the end of the
+> relocation section. Simplify to num_relocations which is equivalent to
+> the existing size expression.
+>
+> Fixes: 080c4324fa5e ("riscv: optimize ELF relocation function in riscv")
+> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+> ---
+>
+> Changes in v2:
+>   - New patch for v2
+>
+>   arch/riscv/kernel/module.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/kernel/module.c b/arch/riscv/kernel/module.c
+> index 47d0ebeec93c..060f576cc988 100644
+> --- a/arch/riscv/kernel/module.c
+> +++ b/arch/riscv/kernel/module.c
+> @@ -859,7 +859,7 @@ int apply_relocate_add(Elf_Shdr *sechdrs, const char *strtab,
+>   				}
+>   
+>   				j++;
+> -				if (j > sechdrs[relsec].sh_size / sizeof(*rel))
+> +				if (j == num_relocations)
+>   					j = 0;
+>   
+>   			} while (j_idx != j);
+
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+Thanks,
+
+Alex
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
