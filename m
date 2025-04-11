@@ -4,96 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770C9C369A2
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 07:28:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C58C4C369A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 07:30:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tLUjItyIDVp4C4Ooz3WboKOSAAbZVXkBhuxM5BImJMk=; b=JTGZrQDDsh2FPd
-	NSIS6cf8wPKIEa8Xc1Kx6yFzA1zi50X5u/lWngPm9w/lXOKOmLj0//l26t8ejZIICa0hyJvuP7Ss/
-	GFyLXzwR743NkwmuCVfokwOzePuwye8yNnUOpU2yDHayi+CwW8GnLSAJ5zdlje6oOmCIeE8CPyirP
-	w7Beh9yE5HFODKx7DNtc17LXFJf+zRbvzHQGW4Ppog7R0sF7ZuhjS9jielfoozRM9I4Y8P4gtqWnn
-	blsGtktA258PeiVMUwRJBcDKmOgTB1lJBQSJeXyjy2n4aF43PfrdZUDggnfBA39UGXf5OnOG8zDDe
-	luAiWMWbjBT6gQD2F/KQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=UiOoYq/4/QkQ8pf01b4pahb1csBLPBWB8oEoWbYBocY=; b=poR8ekyQWrmC+q
+	QDa8EUQcccTpxuIM9ZXzLI3EX55wp4czoSd8bS5VSpGT5lxqkOMRoRwQxYQ4udzWpuO4XcqHEZ8me
+	8BjCwJ4bEbJT1P0n/5FZio8Hl9D/v+KjWy5/IRtSmhh4iifXnz0fON2FP7dYZYLEG1aLHBNnNc7GL
+	FqzNwQZsCY7b4Dfbx6L0C5b1F053D9332E+yuIWuWE+O/qKV8GYJ1L6RWfdSqqqbnwTWN1PZmWc6U
+	Q70i6w4oBFagAvVwCf35k2qJCkP0n2SbBZ70kikkgG2TklNuJJK4i0zkJUbqFZYuhWfCGt0VTLv7M
+	RyPCaXdZFMCRBcwq+FFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38o8-0000000CrQ0-2nnP;
-	Fri, 11 Apr 2025 07:28:12 +0000
-Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
+	id 1u38qa-0000000CsKL-36GQ;
+	Fri, 11 Apr 2025 07:30:44 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37BY-0000000CaOA-2LFY;
-	Fri, 11 Apr 2025 05:44:20 +0000
-Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53AMLidX010582;
-	Fri, 11 Apr 2025 05:44:07 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=RRgLMuW9FBdfsLDbO
-	418TaZTwPRgtX9fnAGKx+FMhHo=; b=cpzi7jHnFwlI5AGEiIGn1MZSZ1Z00RIvP
-	gsU+nUo4gbYl2tppaWXB6VpJYbrx8nFGmRxIJ5R5OsxMNxhqShlFQVEdrlkjkcPh
-	d/hP8+hfnQGGjcaUQoDR9/EUN4/z8vfLCdUbSqMqrhzmzVaqc829PS3OwXaM19BE
-	X4WpP6aScb+rhA1R6LCW07mcAGjvmN+lGO0mjWPrn8cgjzH8/EzLkEut0TuuNjVN
-	N82HD9V4WjQbnzc0ZU+DOOxkDJWU2xu1Upypz4D6GMcN65lIYB0NWxBmZXPIvd8E
-	Cw6lcun+NnjXn0xZEje2a6DAHUCUn61Cpkd1NpmDHVNVK573qPH+A==
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45xfdqkxwt-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 05:44:07 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53B1qKSq017447;
-	Fri, 11 Apr 2025 05:44:05 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 45uh2m1cvh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 11 Apr 2025 05:44:05 +0000
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53B5i4vw30015838
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 11 Apr 2025 05:44:04 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id EE42520040;
-	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 2528D20049;
-	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
-Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
-Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 81C9760AC7;
-	Fri, 11 Apr 2025 15:43:57 +1000 (AEST)
-From: Andrew Donnellan <ajd@linux.ibm.com>
-To: linuxppc-dev@lists.ozlabs.org
-Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
-        christophe.leroy@csgroup.eu
-Subject: [PATCH v14 09/11] powerpc: mm: Implement *_user_accessible_page() for ptes
-Date: Fri, 11 Apr 2025 15:43:52 +1000
-Message-ID: <20250411054354.511145-10-ajd@linux.ibm.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250411054354.511145-1-ajd@linux.ibm.com>
-References: <20250411054354.511145-1-ajd@linux.ibm.com>
+	id 1u38my-0000000Cr8N-3qWi
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Apr 2025 07:27:02 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-3018e2d042bso1178502a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Apr 2025 00:27:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1744356419; x=1744961219; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=vGU0BWR52BomYHqM8E+XMcmBlKB/OaTdF3+KtqlI85g=;
+        b=MCTiM6QwTXzCQYD796WfvCQc9djsV9cRZjgAXx/DZinnday+IJypmroVLoEy47+fg8
+         wWmVHi4pwicWXicYcJ+tZdHSrYPuv7qkvF4HcrpIq0NRGj74kTEiv4zamDvkTWsGtNbi
+         pElY7CZpfcm3oEzOS7hRgbRNd2G0CT0NJhBNh4YoddOU2Ht4V9awcNPsJfBdA1lqzK2l
+         v6PM9NKkR+pMOxPpLEhFLJKU9jOSlM7hr6EMpEhCujAAW84SowCBsrMK9Pefj2m3flT1
+         Ys7rRe8Qbuwm9RUlLZxXKMFTV30BTC3zEZwq/OhrWKJzlMhBHA+BhTqfzGgHUW98FN5a
+         6mpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744356419; x=1744961219;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=vGU0BWR52BomYHqM8E+XMcmBlKB/OaTdF3+KtqlI85g=;
+        b=uIu97Eb6yQGuGPw3xuPGcvzj7wnsiXVoYPPd1P+XrA0BnN1rwGsg2f6YSfLt+//uua
+         OzHRNvMXDkrvdjflVOvqhRaITuAUTevBFWbOJyfafzSBsGVI8ZVStZyP+gMXkAiV9/mb
+         /jIeP17aP7Aab5gQ9fspKnihLD+CpZjv6EqUcXQDCNj4HErgbyQ1GiH8CIveIxTPF57F
+         YMiBS3qGOrh+3fyinIRfdpBh5kDLV6KicFMe2AGv5+4ouhXkDUWG+wMlegdYpYdaBujD
+         n6Q/w1blPE6n1j2PWkngq4qIN0m3pSdEuSG3Bm1yysta6jhU10AEZBv/Ny/ju5dGEHv/
+         wmQw==
+X-Gm-Message-State: AOJu0Ywwk/BM/RDMh94GFCNrACRobzNcYvjbZH3IGwTS77LP/1jLOL1y
+	BNQQFbYz30sWLqlNHwJnERxdXPN3TFoCx5VN++dzhUzTB6YiuwMpyy9dpZOEuxA=
+X-Gm-Gg: ASbGncvYj3oZTGQ7gmF3XC69RfyzNbsy2YhuUo4diELwTzCXL5fB9e5p1SjRfnQGwuR
+	M3M+yuhv+CMxy1pqneoqy8AKFQt5molSE90Lnnc2mzbEBEfk3PJbdHdlQnFWhXPaiXC8wMYXYMR
+	eJdvTHbMG/JN3XGCGk1i/tAKQvGDJIZwm1VWrofIvQ2Xq0mhzsjMk/IACC6DKvmcsolAFcYVehG
+	GvlXnbi6MRcR5JFIwY7QvmrKYCwQeWlkOkTSZXT+7BYjoNB9qYZkt+5/HwCbRHhOMQfRmCRtNlP
+	/t5zDuIz0D+TJC6kH0P6rZ/bjFG9nnT7SQ2zL6XA4wkAcAwIAwAeDo1VrhdPca9S20fj5Evcfmi
+	BGgDqFs81vnCA
+X-Google-Smtp-Source: AGHT+IGHWHeQo2R6RInraQwLZWCl25okBDKhcWO3jXSiWRFgrc31SRGIvaMkKaqaxywnFToViY39+w==
+X-Received: by 2002:a17:90b:2246:b0:2fa:228d:5af2 with SMTP id 98e67ed59e1d1-3082367cc9amr3204474a91.15.1744356419636;
+        Fri, 11 Apr 2025 00:26:59 -0700 (PDT)
+Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7b654adsm42523585ad.1.2025.04.11.00.26.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Apr 2025 00:26:59 -0700 (PDT)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	charlie@rivosinc.com,
+	jesse@rivosinc.com,
+	evan@rivosinc.com,
+	nylon.chen@sifive.com,
+	cleger@rivosinc.com,
+	zhangchunyan@iscas.ac.cn,
+	samuel.holland@sifive.com,
+	zong.li@sifive.com
+Subject: [PATCH 0/2] riscv: misaligned: Add ZCB handling and fix sleeping function
+Date: Fri, 11 Apr 2025 15:38:48 +0800
+Message-Id: <20250411073850.3699180-1-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-GUID: 8yWxrfJXEc3Tb8NWcx8LNkIxPXBoO1vS
-X-Proofpoint-ORIG-GUID: 8yWxrfJXEc3Tb8NWcx8LNkIxPXBoO1vS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-04-11_01,2025-04-10_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
- mlxscore=0 priorityscore=1501 adultscore=0 phishscore=0 mlxlogscore=597
- impostorscore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2504110038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_224416_599226_44C1126F 
-X-CRM114-Status: GOOD (  16.70  )
+X-CRM114-CacheID: sfid-20250411_002700_966160_D2C79ADE 
+X-CRM114-Status: UNSURE (   5.07  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,122 +107,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Rohan McLure <rmclure@linux.ibm.com>
+1. Adds support for ZCB compressed instructions (C.LHU, C.LH, C.SH).
 
-Page table checking depends on architectures providing an
-implementation of p{te,md,ud}_user_accessible_page. With
-refactorisations made on powerpc/mm, the pte_access_permitted() and
-similar methods verify whether a userland page is accessible with the
-required permissions.
+2. Fixes a bug where copy_from/to_user() calls in non-sleepable contexts
+triggered attempts to sleep.
 
-Since page table checking is the only user of
-p{te,md,ud}_user_accessible_page(), implement these for all platforms,
-using some of the same preliminary checks taken by pte_access_permitted()
-on that platform.
+Signed-off-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Nylon Chen nylon.chen@sifive.com
 
-Since commit 8e9bd41e4ce1 ("powerpc/nohash: Replace pte_user() by pte_read()")
-pte_user() is no longer required to be present on all platforms as it
-may be equivalent to or implied by pte_read(). Hence implementations of
-pte_user_accessible_page() are specialised.
+Nylon Chen (2):
+  riscv: misaligned: Add handling for ZCB instructions
+  riscv: misaligned: fix sleeping function called during misaligned
+    access handling
 
-Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
-Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
-[ajd: rebase and fix commit message]
-Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
----
- arch/powerpc/include/asm/book3s/32/pgtable.h |  5 +++++
- arch/powerpc/include/asm/book3s/64/pgtable.h | 17 +++++++++++++++++
- arch/powerpc/include/asm/nohash/pgtable.h    |  5 +++++
- arch/powerpc/include/asm/pgtable.h           |  8 ++++++++
- 4 files changed, 35 insertions(+)
+ arch/riscv/kernel/traps_misaligned.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
-index 42c3af90d1f0..a2305d850fc9 100644
---- a/arch/powerpc/include/asm/book3s/32/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
-@@ -437,6 +437,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
- 
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && !is_kernel_addr(addr);
-+}
-+
- /* Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-  *
-diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
-index 6d98e6f08d4d..754d4d525f0e 100644
---- a/arch/powerpc/include/asm/book3s/64/pgtable.h
-+++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
-@@ -540,6 +540,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return arch_pte_access_permitted(pte_val(pte), write, 0);
- }
- 
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && pte_user(pte);
-+}
-+
- /*
-  * Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-@@ -1431,5 +1436,17 @@ static inline bool is_pte_rw_upgrade(unsigned long old_val, unsigned long new_va
- 	return false;
- }
- 
-+#define pmd_user_accessible_page pmd_user_accessible_page
-+static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
-+{
-+	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
-+}
-+
-+#define pud_user_accessible_page pud_user_accessible_page
-+static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
-+{
-+	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
-+}
-+
- #endif /* __ASSEMBLY__ */
- #endif /* _ASM_POWERPC_BOOK3S_64_PGTABLE_H_ */
-diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
-index 8d1f0b7062eb..1c3dfe2d6cc1 100644
---- a/arch/powerpc/include/asm/nohash/pgtable.h
-+++ b/arch/powerpc/include/asm/nohash/pgtable.h
-@@ -243,6 +243,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
- 	return true;
- }
- 
-+static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
-+{
-+	return pte_present(pte) && !is_kernel_addr(addr);
-+}
-+
- /* Conversion functions: convert a page and protection to a page entry,
-  * and a page entry and page directory to the page they refer to.
-  *
-diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
-index bb43e4f46367..3cae32c74fed 100644
---- a/arch/powerpc/include/asm/pgtable.h
-+++ b/arch/powerpc/include/asm/pgtable.h
-@@ -224,6 +224,14 @@ static inline int pud_pfn(pud_t pud)
- }
- #endif
- 
-+#ifndef pmd_user_accessible_page
-+#define pmd_user_accessible_page(pmd, addr)	false
-+#endif
-+
-+#ifndef pud_user_accessible_page
-+#define pud_user_accessible_page(pud, addr)	false
-+#endif
-+
- #endif /* __ASSEMBLY__ */
- 
- #endif /* _ASM_POWERPC_PGTABLE_H */
 -- 
-2.49.0
+2.34.1
 
 
 _______________________________________________
