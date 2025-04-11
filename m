@@ -4,48 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 437CAC369A2
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 23:32:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50CA7C369A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 23:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=sCWiWkJL76NQR5f0WX6MSFQSw4sZ4VWIP8a3qEIftI0=; b=GbRuFjuoxwm/2b
-	7qGwTvLMDKI39WTeCLAIkx6HNvFJjJCl3w+BnfM7sxMrSMLhrwkr10E7rM+fpMEz0g6TO9ptA89Ya
-	G3d0GKweQdG8Yo6Qj+S9eSICQfOuY5xRkY1QSdkYtFYH87Lj+2AIqovUoxmWuyDFnjnHHST7DPhs+
-	G6mOa6LNRGrSie23G2CY5xGnE6rKTzCjUoeHS5wTX96Eremcgr9Jc1m4cns73OaS9JtBDeuR+765k
-	4Il8c16mZTpeC6caoNyQ/0pOU8OvJpkMZHvStfvKXD3U7+tMtquoam6kECSLKfELtUJP84/V45aeT
-	7yMKqSXLb5YE9ZvgkGmg==;
+	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
+	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Y1hVPasK8xol766UKKRWxzKo/ThZmhpcPdV4gHcpq60=; b=ogTS1UiN/nBEYW
+	olDUXwptNgt0BRrDnFfoOGI2fDzX4Qkt3lmodFaA5xbcKQA6zM7CXIUa20kxRSUz4n/5vU8QOP2vK
+	HGkIEMCwOtMU8uv0+BzNlu2e8wrRdGR8m1HuT0j+XF5roHS5Hx/owBLi/+nTx+SuAUeiLc0zB6045
+	RpkDdtyT1CSL6Ey9ME9vqiTr1Ppn7yzBrsmGcEYUsZacOLVBw+45obCcVC34asEauQvflwrTCegYo
+	OeyLQqQLPsl6sgt7hIdRmQ/lBJVRmz8k4L72alnvp/yLQ0sy1BfQKw7ViT6obJ+pU7HeoWCecuIra
+	l0uVLnlaeC/M9Ye2xk2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Nr6-0000000F5Av-1Zdp;
-	Fri, 11 Apr 2025 23:32:16 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1u3NrB-0000000F5EC-0YHH;
+	Fri, 11 Apr 2025 23:32:21 +0000
+Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3Nr3-0000000F58n-2BEu
+	id 1u3Nr8-0000000F5D8-3lMg
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 23:32:15 +0000
+	Fri, 11 Apr 2025 23:32:20 +0000
 Received: from [127.0.0.1] (unknown [116.232.27.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 8D81A343217;
-	Fri, 11 Apr 2025 23:32:05 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 3ADAA3432D5;
+	Fri, 11 Apr 2025 23:32:11 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH v8 0/5] riscv: spacemit: add gpio support for K1 SoC
-Date: Sat, 12 Apr 2025 07:31:27 +0800
-Message-Id: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
+Date: Sat, 12 Apr 2025 07:31:28 +0800
+Subject: [PATCH v8 1/5] dt-bindings: gpio: spacemit: add support for K1 SoC
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAE+m+WcC/2XPTU7DMBAF4KtUXmPkGU8cuyvugVj4Z5JaqE1JQ
- gSqcnfcVECiLJ+l783zTQzcZx7E8XATPU95yN2lBPt0EPHkLy3LnEoWqJCURSuVlu8g22vupIH
- QOGyc0hhFAdeem/y1lL2+PXLPH5+lc3w8iuAHlrE7n/N4PCjfYGMCQyC0oG0VDNgYrPHJkeHES
- VnnoxX3rlMexq7/XnZOsJQtk5yi9aQJpJJG1ciBOXpWLy1fxq577vp26ZnwzwKC21gsFi0RNQk
- RYtpZvbJYbay+2zqEOhBBMriz9GsrVQ5vbPmBJEMQXRUVONrZ6t8i1BtbLZuN5qi5DqbeWbOyq
- DfWFJsCMvnE3EDc2XptzcaWFTIwWRfJG+XCxs7z/AMW/D4GWQIAAA==
-X-Change-ID: 20240828-03-k1-gpio-61bf92f9032c
+Message-Id: <20250412-03-k1-gpio-v8-1-1c6862d272ec@gentoo.org>
+References: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
+In-Reply-To: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
 To: Bartosz Golaszewski <brgl@bgdev.pl>, 
  Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -53,26 +48,26 @@ To: Bartosz Golaszewski <brgl@bgdev.pl>,
  Paul Walmsley <paul.walmsley@sifive.com>, 
  Palmer Dabbelt <palmer@dabbelt.com>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5118; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=tTzOu/qOPiuxlaKSmt+fjkB9ogmKirxMdHhZ/YuH0pk=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBn+aZh6GBQ+daLPl1arSZPkAkS5q/c/IZy64T2A
- csCo2UBb8GJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ/mmYV8UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3458; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=M9VXnk1CtK2r3QgagZZvS//FUcoVPscUp1KyuaHsl90=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBn+aZkuqS6HejCQ9s7lpPFM94hIZRBADOGbP1fd
+ dTXSQnpvyaJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ/mmZF8UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277UMqD/42g06a10nxi1PbS2
- mfucplIsWBrNBpuDrbZ2R3BekO32v0lVDQnx//klWFjxUK1WtB4keHZZISsdfWEOOzQOEZwKXPg
- zZwOnbhqZzCKcUiHvVm2z076CP6KDy7zvM3NT5us6l185hqobBLoie9vKWyt9NpqclmUvNOdLcK
- D7q18Pc9NBTZsMkutVniqsL8q4IDpJL4KPbmp3X1N7e6uX8Mk2ZmK85Zh92mXM8inQ+uYQURKre
- 8USh2IbeD424G2hpoNcPq++GBIkTZJsOYQFGAvdrI78UFPVDzPcqooPITtArQBoVjPHYxMk2oiZ
- BhdPT8h2tqHTztVcA9hUNFM2l48xypu/2RpLhMM7pfO4bHy1z/JSqMgihQmAOmloMAE9akMuN66
- McLoHXV97qn7/pMA/QTCv0KpRn7TExiMZiWUESsDawoeJCMbLtIyDzyrzLRK2eASpZz1cfLyzSN
- u+bPBNZ5yoDAUpaS17lqIiUMBJeMSqCf6kiOtPDQ5j5wVuX0QH6BLa71QdB04TUHI7pyqZKJykQ
- f5G8Kw+3I1p4UKdaf+DK2Ff6il+/yU8WaSsoYbUpZzT4csOI36095CVx0lTTn/TOCkHrrHd3QE3
- 3vPfnbAKipgnsdTJeItVMYZcH7jn7wxjGkwDf4fD7N4NcPjSz+8rZ1xDoiiS+ZQMiQkg==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277U9LEACeSmRmAW1yFr/t/g
+ /stpNYRHicl0EL6RKphFEz3m5a5aEXNsHdspxfUo/ZokcKcmHcxHM6xzrh2Az7GFLdlvy69cx0F
+ hHshG4ZryTi+JtvdD6NYMFxXR2rJ8BLylWnFE50ylFtW4xJ2A81nhRBX71vu/3dMhrWWH2TQx/q
+ 3l+F6IYlBMn+Fa9kohAa1AmnRLWqStcmwC2T1MRmU4iGmCb11Ed85okOxg1Qx0GAOOEN9+1/Ni0
+ dir5e3m/fmYmtSvgzpWFFsIY5ZOhvHhRQlbwfSt0RJQrPsPJNV9YCGSY6hHb5Jji0KbUxKuUJOF
+ FkulPr88eAZx+sjdCU1Ul+9Px04NFcSoVQzrvmWpZDjIsNmupXdhMkBYk4kuXW460GShAP2xIAM
+ Z3ZCI8oVZLY9io95eX1NNO6mRnY0LkjBN+Tf6Iy/x20WK6rmuhXPGZGWEnTw+G9UIVFjqaPyeP7
+ kFCT9EQb74j9J1WZCgCRp+FdmsgppAejnM0/R9rMz1r9A8u0NP4QlPDo8oQ7+NH/TNaR70feFYj
+ QLK5uaPFZ9aPNzqNfGH5SxAIGRU9yqkAEq8q3gW8egQGhurA7jkNo5c+5THvqkOZjTbFLW02qmE
+ q48V1dxfqB61Pv/B2U5c2el7JpQJ6/t/x7d4f54iIvIP6ia2IAVFH0n7XeQbxQEzQEYQ==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_163213_600571_87A6D59A 
-X-CRM114-Status: GOOD (  14.91  )
+X-CRM114-CacheID: sfid-20250411_163218_989680_E583FF37 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,116 +85,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gpio controller of K1 support basic GPIO functions,
-which capable of enabling as input, output. It can also be used
-as GPIO interrupt which able to detect rising edge, falling edge,
-or both. There are four GPIO ports, each consisting of 32 pins and
-has indepedent register sets, while still sharing IRQ line and clocks.
-The GPIO controller request the two clock sources from APBC block.
+The GPIO controller of K1 support basic functions as input/output,
+all pins can be used as interrupt which route to one IRQ line,
+trigger type can be select between rising edge, falling edge, or both.
+There are four GPIO banks, each consisting of 32 pins.
 
-Due to first three GPIO ports has interleave register settings, some
-resources (IRQ, clock) are shared by all pins.
-
-The GPIO docs of K1 SoC can be found here, chapter 16.4 GPIO [1]
-
-This patch series has been tested on Bananapi-F3 board,
-with following GPIO cases passed:
- 1) gpio input
- 2) gpio output - set to high, low
- 3) gpio interrupt - rising trigger, falling trigger, both edge trigger
-
-This version should resolve DT related concern in V4, and register each bank as
-indepedent gpio chip in driver, no more sub children gpio DT node needed.
-
-Please notice in this version, the reset property is added, but optional.
-as I see no need to activate it in driver, instead I suspect it may
-break cases if bootloader did some prerequisite settings, so I'm leaving
-it for future implementation if really necessary.
-
-The DT part (patches 4, 5) has no clock property populated which result
-some DT warnings, I will fix it and re-spin the DT part once clock driver merged,
-so it's included here for completeness only, please ignore these warnings.
-
-Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf [1]
-Link: https://lore.kernel.org/all/20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org [2]
-Link: https://lore.kernel.org/all/20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org/ [3]
-Link: https://lore.kernel.org/all/20250218-gpio-ranges-fourcell-v1-0-b1f3db6c8036@linaro.org [4]
-Link: https://lore.kernel.org/all/20250225-gpio-ranges-fourcell-v3-0-860382ba4713@linaro.org [5]
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
-Changes in v8:
-- rebased to v6.15-rc1
-- adjust dt-binding/code to request clocks
-- add reset property
-- call irq_domain_update_bus_token() to support threecells interrupt mode
-- use devm_platform_ioremap_resource(), so drop "struct resource"
-- fix Kconfig
-  - select GPIO_GENERIC as calling bgpio_init()
-  - change to tristate, make it possible to build as module
-- adjust defconfig to enable gpio 
-- Link to v7: https://lore.kernel.org/r/20250226-03-k1-gpio-v7-0-be489c4a609b@gentoo.org
-
-Changes in v7:
-- dt-binding: fix 80 column, drop unneeded dependencies
-- tested with patch v3 of "gpiolib: of: Handle threecell gpios" [5]
-- collect review tags
-- Link to v6: https://lore.kernel.org/r/20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org
-
-Changes in v6:
-- rebase to threecell gpio patch which proposed by LinusW at [4], 
-  drop unneeded *xlate(), *add_pin_range() function
-- add SPACEMIT prefix to macro
-- adjust register comments
-- drop 'index' member, instead calculate from offset
-- add IRQCHIP_SKIP_SET_WAKE as gpio doesn't support irq wake up
-- drop #ifdef CONFIG_OF_GPIO
-- move interrupt mask disabling/enabling into irq_*mask()
-- Link to v5: https://lore.kernel.org/r/20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org
-
-Changes in v5:
-- export add_pin_range() from gpio core, support to add custom version
-- change to 3 gpio cells, model to <bank number>, <bank offset>, <gpio flag>
-- fold children DT nodes into parent
-- Link to v4: https://lore.kernel.org/r/20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org
-
-Changes in v4:
-- gpio: re-construct gpio as four independent ports, also leverage gpio mmio API
-- gpio interrupt: convert to generic gpio irqchip
-- Link to v3: https://lore.kernel.org/r/20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org
-
-Changes in v3:
-- dt: drop ranges, interrupt-names property
-- Link to v2: https://lore.kernel.org/r/20241219-03-k1-gpio-v2-0-28444fd221cd@gentoo.org
-
-Changes in v2:
-- address dt-bindings comments, simplify example
-- rebase to 6.13-rc3 
-- Link to v1: https://lore.kernel.org/r/20240904-03-k1-gpio-v1-0-6072ebeecae0@gentoo.org
-
+hi Rob, I've kept your Review tag in this version, but want to
+mention some changes here:
+ - new clock property is added
+ - add reset preperty, but make it optional
 ---
-Yixun Lan (5):
-      dt-bindings: gpio: spacemit: add support for K1 SoC
-      gpio: spacemit: add support for K1 SoC
-      riscv: defconfig: spacemit: enable gpio support for K1 SoC
-      riscv: dts: spacemit: add gpio support for K1 SoC
-      riscv: dts: spacemit: add gpio LED for system heartbeat
+ .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml | 96 ++++++++++++++++++++++
+ 1 file changed, 96 insertions(+)
 
- .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml |  96 +++++++
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  11 +
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |   3 +
- arch/riscv/boot/dts/spacemit/k1.dtsi               |  15 ++
- arch/riscv/configs/defconfig                       |   1 +
- drivers/gpio/Kconfig                               |   9 +
- drivers/gpio/Makefile                              |   1 +
- drivers/gpio/gpio-spacemit-k1.c                    | 293 +++++++++++++++++++++
- 8 files changed, 429 insertions(+)
----
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-change-id: 20240828-03-k1-gpio-61bf92f9032c
+diff --git a/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..ec0232e72c71221444972f0d3e0f391be05e4ef6
+--- /dev/null
++++ b/Documentation/devicetree/bindings/gpio/spacemit,k1-gpio.yaml
+@@ -0,0 +1,96 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/gpio/spacemit,k1-gpio.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 GPIO controller
++
++maintainers:
++  - Yixun Lan <dlan@gentoo.org>
++
++description:
++  The controller's registers are organized as sets of eight 32-bit
++  registers with each set of port controlling 32 pins.  A single
++  interrupt line is shared for all of the pins by the controller.
++
++properties:
++  $nodename:
++    pattern: "^gpio@[0-9a-f]+$"
++
++  compatible:
++    const: spacemit,k1-gpio
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    items:
++      - description: GPIO Core Clock
++      - description: GPIO Bus Clock
++
++  clock-names:
++    items:
++      - const: core
++      - const: bus
++
++  resets:
++    maxItems: 1
++
++  gpio-controller: true
++
++  "#gpio-cells":
++    const: 3
++    description:
++      The first two cells are the GPIO bank index and offset inside the bank,
++      the third cell should specify GPIO flag.
++
++  gpio-ranges: true
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 3
++    description:
++      The first two cells are the GPIO bank index and offset inside the bank,
++      the third cell should specify interrupt flag. The controller does not
++      support level interrupts, so flags of IRQ_TYPE_LEVEL_HIGH,
++      IRQ_TYPE_LEVEL_LOW should not be used.
++      Refer <dt-bindings/interrupt-controller/irq.h> for valid flags.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - gpio-controller
++  - "#gpio-cells"
++  - interrupts
++  - interrupt-controller
++  - "#interrupt-cells"
++  - gpio-ranges
++
++additionalProperties: false
++
++examples:
++  - |
++    gpio@d4019000 {
++      compatible = "spacemit,k1-gpio";
++      reg = <0xd4019000 0x800>;
++      clocks =<&ccu 9>, <&ccu 61>;
++      clock-names = "core", "bus";
++      gpio-controller;
++      #gpio-cells = <3>;
++      interrupts = <58>;
++      interrupt-controller;
++      interrupt-parent = <&plic>;
++      #interrupt-cells = <3>;
++      gpio-ranges = <&pinctrl 0 0 0 32>,
++                    <&pinctrl 1 0 32 32>,
++                    <&pinctrl 2 0 64 32>,
++                    <&pinctrl 3 0 96 32>;
++    };
++...
 
-Best regards,
 -- 
-Yixun Lan
+2.49.0
 
 
 _______________________________________________
