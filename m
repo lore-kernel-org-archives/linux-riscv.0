@@ -4,89 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D340C36010
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 07:37:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07DD9C36010
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 07:41:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RT+yJ4d/8i7t/krAOCFphdHpu8aslXB2cy3zg3o85hg=; b=4wmn7ugQAuT6gc
-	tcNbEwnyUtj8K1KaWl0u/0vpgaCZhjN4uq1xJkdjp0SB+oyCZEGGApZwkfrt8n4M2ku6XFJOaUvw2
-	SGWgMWnRIsuB7O7y/rKfKnrWMadBWBBi3rSOqOfOjsU2361/7vkWnBVJpNnLeDklI7Ad8aJAW4JzQ
-	g82cg0OuZFXyKgr93cQLxnbj9ByEsJlgKfe810mcQSBt+ICMCUeaxGh8JD7uo/2azbcDcA6ejLuPB
-	1gcdZZGWP8SBvmtfv4BYtKKcd06m+ks7E1KWenQoO1Io3KAwIioPlHMssEdxTaf+avocaARpU3fPq
-	aHRNZ5xfnmsBDPvmmP3Q==;
+	List-Owner; bh=OVd3XSGldKA0Upd6g/RE1J2j71uUg7EcGmgZaihzCLE=; b=abRouGNVNHqTS3
+	5uCjiTLkel/tNYGGzrOM/5PHEUYOUQuOLnmI250PRv0DPSDvZQ5IuixCHFSYvYriTXizMRJWY/SFy
+	7uza0NdMwMhOho4VSe6VqISk6TqTZcoVBPQ8hS++S9Q7iztVmeb4qhtVYgfBtpVlaOYc+22Y/jD7x
+	00bIWiVFQPjmCWPPqshAutTSt8lALBw+oSqL1QaFBZJJiohg7yXUSC73M3C8/F1V7GKYc/Ej/Stji
+	Bv82ur8UW/IDt8jHwGvPBzxs4FHvFDdMIWbIHCHyelnY7lS5mNKl2cwjyWveHSbEg2OWYAgrHkKnm
+	9sM1APX+r3WvGO58NCXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38wh-0000000Ctkq-35tI;
-	Fri, 11 Apr 2025 07:37:03 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1u391N-0000000CuYo-1cZ8;
+	Fri, 11 Apr 2025 07:41:53 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38we-0000000CtkS-2gum
+	id 1u38xv-0000000CtzT-1Dph
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 11 Apr 2025 07:38:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=; b=cK9Dt+zGcSR1GZmrnmA1jm2uJC
+	Fylb/DCa7qwowwJQYafUCJ8w+gmgL4ASHQMNmNDu7b89/Y3WufPW1GPLLzepVgrcSYe6IDM8SNi8j
+	KsTT+4DFLnheomD5rFGSwVBP/1SWd3K2TUw+JJKWh23v8xBDEWTMAqO/0oyyQYv11IyeMKjC9FJXD
+	Hxckp2F/xK42bG2funG4ReVBt8As3oexmTkV0qQkgHNyxJv2M63KSNaQCgQHeUoILGD37IMSAuCMI
+	SpdON4gEe2zWutet1bpVmwBXVBvU6T/ViNFhCq3HML7zMouh1yaQiATRyQnXs5K+63cwar+Q/WfA1
+	/vYKW5XQ==;
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u38xs-00000008xvs-1ARQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 07:37:02 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-22438c356c8so19402435ad.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Apr 2025 00:36:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1744357019; x=1744961819; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=gUyg6ML9LhixzC9L8kPFXh5mzqTZMszHME6+Lb2OjTs=;
-        b=uqqogEbidmyrfxfS0/XKrwuHhHbEdgyqDlEF1PlSp9YFUNQVxNnxKytMtNsT3uQpKl
-         6R2QVTK3GJ5Ob8YkMe5WUs2hTxkLRLwM4Dx+zhg3iNIKEL7a5f4pB5Sf5sXusSpSwLRW
-         t+JeNw52gUzk+XIH3FJZGW0C7zFhHEyVM23kKeZ3g7B0EiV8czezHb0b5K1xG3YBfajJ
-         Z8aC5UK575vh8OWeyjy3sLYzMrVnLDwDKzerMZKil97EQkfKPdtSrm9w7oiNoGQyZzNL
-         bbYGB+14fJpWq4McW++JgZDJC53pjR+WGicSx7IDNbYpnWhVJMErUN/nixQerHynjtWq
-         6/OA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744357019; x=1744961819;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=gUyg6ML9LhixzC9L8kPFXh5mzqTZMszHME6+Lb2OjTs=;
-        b=ReIJ2IYYoCRmW/G1ILPexhpldbBrfdP/E+nlkSXvCajMIYkOxFjC2zXFRctjHwxswB
-         XJt58+ucs4WuqY6nnjfNy8y+aiL2hAi4ifZ5LXENCXdJomxmQkwDYNsgXBhB1syw/9IB
-         oKtq06moebrfaDzb52yur6Q+c/7AH78mX3V7ZUS5heml1t/e7CzvxZCNK+ljWmXGe9LK
-         xkCIYuPTrBMFSWNrSqlCDGecdQsm/VJCpE38dzvPKwz7v3/ckij9E9zrF8x54VxybUU8
-         i/lSogvS80rpJXcLL7uZXBqmBsyu8dMb8Ve84UJGCoR0EW/thLuNOjvUWVdinVXu8M+5
-         dCwA==
-X-Gm-Message-State: AOJu0YxqktDCPA1ji1BNiYmkq/iEeHistDKn9bScyUIQMKnfa8FYFw/3
-	fwptYM2WQ0JRbc89dVc042sCUfbIz2C+KhgcsgeGcN5aNnYlhITGF5AlPMJU6lo=
-X-Gm-Gg: ASbGncuPRjlP/CQKdetzGjGpeV/LnEFPvIL+fQIK4jtOKz8R76FlsUnVX3wmuhS3sb8
-	x+hFaoo5njB1By8kkQd+Er43nDX2pfCy7eGNv66b6isPkgke2MsaFjmI1vWEwZIf1FyCP42pSTj
-	TsoyQOAyRbB10AiNrTHEZZDYA0WAxgYeTbkMBX/L9amxai0H+auuxV+/UYdaLmHw8dkyF06KIwT
-	PckA3kGKeUg3V2P+ZcZdcltZ6d0dx7t3qBoTlxJZ9wOn6HVxrJPk5+AUQ+Ol63o/D73UZUsrol9
-	8Ae+Hi+CgR0QFVcOnFUxhjeBjNLd0e2uC6IewEKa36aRIxYVzFs313m43JRzjufezEeqiI/lzgG
-	LMKH2c7PFJQ==
-X-Google-Smtp-Source: AGHT+IEd40nfp4iwGxv5MLZynxdnkq4ombov6BmiQiZEKqPac8tr3ttbIGoc6Dd0qawCy4dcOKZdGg==
-X-Received: by 2002:a17:903:3c6c:b0:215:b75f:a1cb with SMTP id d9443c01a7336-22bea4a3453mr25307265ad.9.1744357019038;
-        Fri, 11 Apr 2025 00:36:59 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22ac7b62b96sm43068365ad.13.2025.04.11.00.36.51
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 11 Apr 2025 00:36:58 -0700 (PDT)
-Message-ID: <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
-Date: Fri, 11 Apr 2025 09:36:47 +0200
+	Fri, 11 Apr 2025 07:38:18 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1744357093;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=;
+	b=c/2Rsani1hT35Cqnzj8xOZOp+r/nolml77r99gNnEpLZ0SyKe0/nOuUh7dFunwFACqN/ED
+	SloBqJ64a5fRS2aiA+Rl5fbGECwBjjSw9N4trekQ1bbwPbRk3KYbjXBSSCjIhyb6H4oKa2
+	jcT4nNMzygupToztoRUF71xNVlYaXGq8cvgmaygrZtEKF+A71es7jmif1JLA9cPyRgkwBL
+	vgjwwYnR6eKsYyzrhvxZu49h8KAIF53k9lSoQTIPrIBuhU//KFu0dwfDDk3IsM4JMpAFfJ
+	dvHRURq8Anp4Dc/TPoc5EUs/fQkY0zomUhHRUII1hELILDcXyaBEX9Xp21Ewpw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1744357093;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=;
+	b=E0Iqet4pSAXE+UC0ayzROuYKmudwTofI3E/a0x2/uNMHJmtL6NNolfKDJE0W+Aq5yjHulF
+	TSxBUWrAjdfRCcDg==
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: john.ogness@linutronix.de,
+	Nam Cao <namcao@linutronix.de>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 18/22] riscv: mm: Add page fault trace points
+Date: Fri, 11 Apr 2025 09:37:34 +0200
+Message-Id: <8fcf3f2a72c9491b206b34d133801634c8286fd8.1744355018.git.namcao@linutronix.de>
+In-Reply-To: <cover.1744355018.git.namcao@linutronix.de>
+References: <cover.1744355018.git.namcao@linutronix.de>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv: misaligned: fix sleeping function called
- during misaligned access handling
-To: Nylon Chen <nylon.chen@sifive.com>, linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- charlie@rivosinc.com, jesse@rivosinc.com, evan@rivosinc.com,
- zhangchunyan@iscas.ac.cn, samuel.holland@sifive.com, zong.li@sifive.com
-References: <20250411073850.3699180-1-nylon.chen@sifive.com>
- <20250411073850.3699180-3-nylon.chen@sifive.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250411073850.3699180-3-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_003700_946828_1EE6D781 
-X-CRM114-Status: GOOD (  14.89  )
+X-CRM114-CacheID: sfid-20250411_083816_533708_15AA0FDC 
+X-CRM114-Status: UNSURE (   7.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,57 +96,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTnlsb24sCgpJIGFscmVhZHkgaGF2ZSBhIHBlbmRpbmcgZml4IGZvciB0aGF0IGJ1ZyB3aGlj
-aCBpcyB0byByZWVuYWJsZQppbnRlcnJ1cHRzIHdoaWxlIGhhbmRsaW5nIG1pc2FsaWduZWQgZmF1
-bHRzLiBQbGVhc2Ugc2VlOgpodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI1
-MDMxNzE3MDYyNS4xMTQyODcwLTEyLWNsZWdlckByaXZvc2luYy5jb20vCgpUaGFua3MsCgpDbMOp
-bWVudAoKT24gMTEvMDQvMjAyNSAwOTozOCwgTnlsb24gQ2hlbiB3cm90ZToKPiBVc2UgY29weV9m
-cm9tX3VzZXJfbm9mYXVsdCgpIGFuZCBjb3B5X3RvX3VzZXJfbm9mYXVsdCgpIGluc3RlYWQgb2YK
-PiBjb3B5X2Zyb20vdG9fdXNlciBmdW5jdGlvbnMgaW4gdGhlIG1pc2FsaWduZWQgYWNjZXNzIHRy
-YXAgaGFuZGxlcnMuCj4gCj4gVGhlIGZvbGxvd2luZyBidWcgcmVwb3J0IHdhcyBmb3VuZCB3aGVu
-IGV4ZWN1dGluZyBtaXNhbGlnbmVkIG1lbW9yeQo+IGFjY2Vzc2VzOgo+IAo+IEJVRzogc2xlZXBp
-bmcgZnVuY3Rpb24gY2FsbGVkIGZyb20gaW52YWxpZCBjb250ZXh0IGF0IC4vaW5jbHVkZS9saW51
-eC91YWNjZXNzLmg6MTYyCj4gaW5fYXRvbWljKCk6IDAsIGlycXNfZGlzYWJsZWQoKTogMSwgbm9u
-X2Jsb2NrOiAwLCBwaWQ6IDExNSwgbmFtZTogdHdvCj4gcHJlZW1wdF9jb3VudDogMCwgZXhwZWN0
-ZWQ6IDAKPiBDUFU6IDAgVUlEOiAwIFBJRDogMTE1IENvbW06IHR3byBOb3QgdGFpbnRlZCA2LjE0
-LjAtcmM1ICMyNAo+IEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiBDYWxs
-IFRyYWNlOgo+ICBbPGZmZmZmZmZmODAwMTYwZWE+XSBkdW1wX2JhY2t0cmFjZSsweDFjLzB4MjQK
-PiAgWzxmZmZmZmZmZjgwMDAyMzA0Pl0gc2hvd19zdGFjaysweDI4LzB4MzQKPiAgWzxmZmZmZmZm
-ZjgwMDEwZmFlPl0gZHVtcF9zdGFja19sdmwrMHg0YS8weDY4Cj4gIFs8ZmZmZmZmZmY4MDAxMGZl
-MD5dIGR1bXBfc3RhY2srMHgxNC8weDFjCj4gIFs8ZmZmZmZmZmY4MDA0ZTQ0ZT5dIF9fbWlnaHRf
-cmVzY2hlZCsweGZhLzB4MTA0Cj4gIFs8ZmZmZmZmZmY4MDA0ZTQ5Nj5dIF9fbWlnaHRfc2xlZXAr
-MHgzZS8weDYyCj4gIFs8ZmZmZmZmZmY4MDE5NjNjND5dIF9fbWlnaHRfZmF1bHQrMHgxYy8weDI0
-Cj4gIFs8ZmZmZmZmZmY4MDQyNTM1Mj5dIF9jb3B5X2Zyb21fdXNlcisweDI4LzB4YWEKPiAgWzxm
-ZmZmZmZmZjgwMDAyOTZjPl0gaGFuZGxlX21pc2FsaWduZWRfc3RvcmUrMHgyMDQvMHgyNTQKPiAg
-WzxmZmZmZmZmZjgwOWVhZTgyPl0gZG9fdHJhcF9zdG9yZV9taXNhbGlnbmVkKzB4MjQvMHhlZQo+
-ICBbPGZmZmZmZmZmODA5ZjRmMWE+XSBoYW5kbGVfZXhjZXB0aW9uKzB4MTQ2LzB4MTUyCj4gCj4g
-Rml4ZXM6IGI2ODZlY2RlYWNmNiAoInJpc2N2OiBtaXNhbGlnbmVkOiBSZXN0cmljdCB1c2VyIGFj
-Y2VzcyB0byBrZXJuZWwgbWVtb3J5IikKPiBGaXhlczogNDQxMzgxNTA2YmE3ICgicmlzY3Y6IG1p
-c2FsaWduZWQ6IHJlbW92ZSBDT05GSUdfUklTQ1ZfTV9NT0RFIHNwZWNpZmljIGNvZGUiKQo+IAo+
-IFNpZ25lZC1vZmYtYnk6IFpvbmcgTGkgPHpvbmcubGlAc2lmaXZlLmNvbT4KPiBTaWduZWQtb2Zm
-LWJ5OiBOeWxvbiBDaGVuIDxueWxvbi5jaGVuQHNpZml2ZS5jb20+Cj4gLS0tCj4gIGFyY2gvcmlz
-Y3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYyB8IDQgKystLQo+ICAxIGZpbGUgY2hhbmdlZCwg
-MiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+IAo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19t
-aXNhbGlnbmVkLmMKPiBpbmRleCBkNzI3NWRmYjZiN2UuLjU2M2Y3M2Y4OGZhOCAxMDA2NDQKPiAt
-LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKPiArKysgYi9hcmNoL3Jp
-c2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKPiBAQCAtNDU1LDcgKzQ1NSw3IEBAIHN0YXRp
-YyBpbnQgaGFuZGxlX3NjYWxhcl9taXNhbGlnbmVkX2xvYWQoc3RydWN0IHB0X3JlZ3MgKnJlZ3Mp
-Cj4gIAo+ICAJdmFsLmRhdGFfdTY0ID0gMDsKPiAgCWlmICh1c2VyX21vZGUocmVncykpIHsKPiAt
-CQlpZiAoY29weV9mcm9tX3VzZXIoJnZhbCwgKHU4IF9fdXNlciAqKWFkZHIsIGxlbikpCj4gKwkJ
-aWYgKGNvcHlfZnJvbV91c2VyX25vZmF1bHQoJnZhbCwgKHU4IF9fdXNlciAqKWFkZHIsIGxlbikp
-Cj4gIAkJCXJldHVybiAtMTsKPiAgCX0gZWxzZSB7Cj4gIAkJbWVtY3B5KCZ2YWwsICh1OCAqKWFk
-ZHIsIGxlbik7Cj4gQEAgLTU1Niw3ICs1NTYsNyBAQCBzdGF0aWMgaW50IGhhbmRsZV9zY2FsYXJf
-bWlzYWxpZ25lZF9zdG9yZShzdHJ1Y3QgcHRfcmVncyAqcmVncykKPiAgCQlyZXR1cm4gLUVPUE5P
-VFNVUFA7Cj4gIAo+ICAJaWYgKHVzZXJfbW9kZShyZWdzKSkgewo+IC0JCWlmIChjb3B5X3RvX3Vz
-ZXIoKHU4IF9fdXNlciAqKWFkZHIsICZ2YWwsIGxlbikpCj4gKwkJaWYgKGNvcHlfdG9fdXNlcl9u
-b2ZhdWx0KCh1OCBfX3VzZXIgKilhZGRyLCAmdmFsLCBsZW4pKQo+ICAJCQlyZXR1cm4gLTE7Cj4g
-IAl9IGVsc2Ugewo+ICAJCW1lbWNweSgodTggKilhZGRyLCAmdmFsLCBsZW4pOwoKCl9fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
-bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
-YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Add page fault trace points, which are useful to implement RV monitor that
+watches page faults.
+
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: linux-riscv@lists.infradead.org
+---
+ arch/riscv/mm/fault.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
+index 0194324a0c50..04ed6f8acae4 100644
+--- a/arch/riscv/mm/fault.c
++++ b/arch/riscv/mm/fault.c
+@@ -20,6 +20,9 @@
+ #include <asm/ptrace.h>
+ #include <asm/tlbflush.h>
+ 
++#define CREATE_TRACE_POINTS
++#include <trace/events/exceptions.h>
++
+ #include "../kernel/head.h"
+ 
+ static void show_pte(unsigned long addr)
+@@ -291,6 +294,11 @@ void handle_page_fault(struct pt_regs *regs)
+ 	if (kprobe_page_fault(regs, cause))
+ 		return;
+ 
++	if (user_mode(regs))
++		trace_page_fault_user(addr, regs, cause);
++	else
++		trace_page_fault_kernel(addr, regs, cause);
++
+ 	/*
+ 	 * Fault-in kernel-space virtual memory on-demand.
+ 	 * The 'reference' page table is init_mm.pgd.
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
