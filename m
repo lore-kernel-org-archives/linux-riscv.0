@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E788C3601E
-	for <linux-riscv@archiver.kernel.org>; Thu, 10 Apr 2025 20:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F42CC3601E
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 00:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mQz7ltk78Pngplf/O9MiwVPKYJTvloMNVOxtYgIkBUI=; b=jCxOZ8L3clkNfX
-	AppVcs/XLVBkpKBKnvleCi+3W46pHdfCC0Nk+7xxz+rCQMKcHFYu/cXqS3+17+HP9DWNjmffxzFFb
-	4KjyiSxQtYBrZttso/k6BJ5wzI5pNE3rPRf4D/tK+yTdoi1jIGbcxndDMc8WijJkmdnTLDqWChPDu
-	Xfbf/wiemV9zDMoUo+qJzS5aNSxxWybNVzCtv3msiHIagRxZdcpw9MLU+o3hG0iaN2OAJNrK8Egvz
-	05bOG9qDJL66RfvnVaiqoiK0UpW9JkKa3fpU0OhuO5OE299OxArRZ5kgWaYGGhtFq7Du6Ls4jaEwo
-	vGs98C6oYST2bGzl/gbA==;
+	List-Owner; bh=Wdl2txP1hJjEjIZtsIUPu+1vUwII1KwIfofhzwC2VLI=; b=qrhRRdYULS+edY
+	ouk3mMIaxq9EvTiAtFjnyBGcWHTowE47KiUk6gDfVel1OFiFNkQG7DqNW2K3fMrGJ0FyJDhpd8e95
+	Vw0hJxHOfyg2DXvvvyIZhV8LDXTHiAp1GCF0fhl8FH6oealwGyAZNsuy1TNiBFYeLt1i5046P6ja9
+	+TB7vM3nFD4TFQpTZ1Of7d6NlhgReLrA9GkNnGHalbx6oqCicy1WlWcIIcel/GHjxuWc2JYg+U0Vd
+	5j5C22mREtIo+eBXqkwxYv23KnT27shVb0masy7DGFwbShqbUqG6whTOUh0fmgd7GZv0iGekwFlqt
+	nWNKM0HG9imbircxvAsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2yts-0000000BqUI-030l;
-	Thu, 10 Apr 2025 20:53:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u32gC-0000000CB04-0UBo;
+	Fri, 11 Apr 2025 00:55:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u2ytq-0000000BqTO-0k7M;
-	Thu, 10 Apr 2025 20:53:26 +0000
+	id 1u32eZ-0000000CAn5-3YEH
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Apr 2025 00:53:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B62BE68452;
-	Thu, 10 Apr 2025 20:53:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9B6DC4CEE9;
-	Thu, 10 Apr 2025 20:53:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id CBFB144F4D;
+	Fri, 11 Apr 2025 00:53:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0E2DC4CEDD;
+	Fri, 11 Apr 2025 00:53:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744318404;
-	bh=BALhi4UrMbOHA37ho5uqHpYpjwN+INMK6vrW7q6TxLY=;
+	s=k20201202; t=1744332833;
+	bh=ohHhBlLmK53yYy+NEi9vJNeM2BRaT/ofomSIVkO2Q2c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=T8Vyz6cfJb/zRX/vLBSm8X+PPVyWrHbSmVVfybfeJ25+JlQOaUtD0X9QKcHfOSUY4
-	 ejqEG36LkwZ0X1thU8D3+5KGySCJJ8OoPMp5rz7kuVNnZVIjl0HZbO5h3FvCpOLbuo
-	 ZjsGQNqEj8XqjX9icWiqTZlPyy5NOVoomW6aFXTar7Tv49ayJuvgef0UU6SNq1S2vI
-	 rKphEYb/zcsM2gzUVXGW1EwI9a+su8oreolWTPBWzhlDtBWeO11xFdmAGfP3Ivtz8L
-	 GgiKk8Bg3NmuHJSLAcD5HYi7qNOKhMbI1juoCitot4icgIVzohwjBbgLmW1f/kglbS
-	 +p8eQKJSg+/Bg==
-Date: Thu, 10 Apr 2025 15:53:23 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ze Huang <huangze@whut.edu.cn>
-Cc: Conor Dooley <conor+dt@kernel.org>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-usb@vger.kernel.org, Vinod Koul <vkoul@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, Yixun Lan <dlan@gentoo.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, spacemit@lists.linux.dev,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	b=AeCz7UVLSJznuAvAEcPJTNJ68f2jtaYwcpI5JoTkxv3uZW70TNCRQQrZoxZEJMp1x
+	 4rJPiU0j3LePmjZb3oGB1LeLzBZXTxJhYkcQkyce+D/HasrYsn6nf3wwJIF2kGaZAB
+	 11aqnxU6LIlYZFyXs/Z9CJ1Drtl1Q3lv8BnaQGwydd9Mihom7t2b8rbO8hd5YAKSPh
+	 BkU2+8av0gCM/7cHF8qnZBuuTAoks46Ru/lxuQ6HFPvbrwgLzncm7Q64wwlXz1OKrU
+	 Vd4akma9pUWj3hytPvIzPQ83dATKNx/fB91qAC7iBauonDN82qPQk+j6b7p7siR2JM
+	 Z3G62zyIPGgpQ==
+Date: Thu, 10 Apr 2025 17:53:51 -0700
+From: Namhyung Kim <namhyung@kernel.org>
+To: Haibo Xu <haibo1.xu@intel.com>
+Cc: xiaobo55x@gmail.com, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	Palmer Dabbelt <palmer@dabbelt.com>
-Subject: Re: [PATCH 1/7] dt-bindings: phy: spacemit: add K1 USB2 PHY
-Message-ID: <174431840229.1041655.15249977458763916963.robh@kernel.org>
-References: <20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn>
- <20250407-b4-k1-usb3-v3-2-v1-1-bf0bcc41c9ba@whut.edu.cn>
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Stephen Brennan <stephen.s.brennan@oracle.com>,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH] perf symbols: Ignore mapping symbols on riscv
+Message-ID: <Z_hoH0fu_NnEUUfe@google.com>
+References: <20250409025202.201046-1-haibo1.xu@intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250407-b4-k1-usb3-v3-2-v1-1-bf0bcc41c9ba@whut.edu.cn>
+In-Reply-To: <20250409025202.201046-1-haibo1.xu@intel.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250410_175355_911903_28DCC92F 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,18 +84,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hello,
 
-On Mon, 07 Apr 2025 20:38:46 +0800, Ze Huang wrote:
-> Add support for USB2 PHY found on SpacemiT K1 SoC.
+On Wed, Apr 09, 2025 at 10:51:56AM +0800, Haibo Xu wrote:
+> RISCV ELF use mapping symbols with special names $x, $d to
+> identify regions of RISCV code or code with different ISAs[1].
+> These symbols don't identify functions, so will confuse the
+> perf output.
 > 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+> The patch filters out these symbols at load time, similar to
+> "4886f2ca perf symbols: Ignore mapping symbols on aarch64".
+> 
+> [1] https://github.com/riscv-non-isa/riscv-elf-psabi-doc/blob/
+>     master/riscv-elf.adoc#mapping-symbol
+> 
+> Signed-off-by: Haibo Xu <haibo1.xu@intel.com>
+
+Acked-by: Namhyung Kim <namhyung@kernel.org>
+
+Thanks,
+Namhyung
+
+
 > ---
->  .../devicetree/bindings/phy/spacemit,usb2-phy.yaml | 40 ++++++++++++++++++++++
->  1 file changed, 40 insertions(+)
+>  tools/perf/util/symbol-elf.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
+> diff --git a/tools/perf/util/symbol-elf.c b/tools/perf/util/symbol-elf.c
+> index fbf6d0f73af9..55b1409b0593 100644
+> --- a/tools/perf/util/symbol-elf.c
+> +++ b/tools/perf/util/symbol-elf.c
+> @@ -1733,6 +1733,12 @@ dso__load_sym_internal(struct dso *dso, struct map *map, struct symsrc *syms_ss,
+>  				continue;
+>  		}
+>  
+> +		/* Reject RISCV ELF "mapping symbols" */
+> +		if (ehdr.e_machine == EM_RISCV) {
+> +			if (elf_name[0] == '$' && strchr("dx", elf_name[1]))
+> +				continue;
+> +		}
+> +
+>  		if (runtime_ss->opdsec && sym.st_shndx == runtime_ss->opdidx) {
+>  			u32 offset = sym.st_value - syms_ss->opdshdr.sh_addr;
+>  			u64 *opd = opddata->d_buf + offset;
+> -- 
+> 2.43.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
