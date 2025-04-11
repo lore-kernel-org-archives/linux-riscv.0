@@ -4,80 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EF3FC36010
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 08:43:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15968C369A9
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 08:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Mp5iy4hr9d8CjAzasehD9C9rK3V05+Z03ivSe7NnNU4=; b=ykxYWrG4JnAoqw
-	MDWHwhZUptLIaAkOcPqjuXvVmW6KMt5ADTpe5j396wH1YAvinbK18rYKZak4JeYiqLpyrdaMx60UJ
-	klexaiYCHA5fsVAtfyNaSJqlTIs6G4uG1Ozvlbfgpxrp52lTi88TGArMRGeuWbfqoNyMe7BV4rzAB
-	95kDpB3UEa1cMWyLUl/A55tbljVA5KgLFF3HWLL/7o1B8pAcls4AvCm5Jip00NuKIoduZXX+Bz5PV
-	M+XnkXQaIgb0g0s//B/xgJRC8S7vJ3+20oxTPRxMWTea754BILvrMVS4qpLXQ3cPXqD9RuFVUx8hO
-	+fof34KXBGU7QoqsSB5Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=ZtL2pVgVqSgh3ermvqDlp3URwDwQ+WYuNKqIVFqTRPM=; b=GsBcppyhxB3fQY
+	AoRvRYVXm6Bv7WSFygLYiJH/720QZeiaMPjFxmnvgzEIMX5MZLq99GwrWoUB2N5WbX1hfG1Fj0Cga
+	jUDtXTCw0kUYXUeXDRAwrjDoj8MOir1Bm2lvzvI8tVOL3MRiTs1Kbia1GilAtScV/Yy/SLSUda2fu
+	IWNlTyiOIU0SBpxFM+G+OG+lMZ8UucXvUEikvYtuHfhzoUaJz1vS02wQhxhe08lQ0CJKZNmw2/GIG
+	dLT2cuQoh7iBeQ/vK8UHYLAhqXE7NSkkOGVst87Cj07KVnNoLlzguM3Q16GVeJpfjOGAQ6lw+gO7a
+	/SIgGtGhpB2PIbfgrA1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39yq-0000000D41V-0AZl;
-	Fri, 11 Apr 2025 08:43:20 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1u3A0v-0000000D4rB-3oga;
+	Fri, 11 Apr 2025 08:45:29 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u38xk-0000000Ctvb-0Wex;
-	Fri, 11 Apr 2025 07:38:09 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1744357085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=R4mghS5tZhqJKd9HaDFwH96FOpAhGsQjnHoB2PQgndc=;
-	b=PmDg3Rk2LanAt/sc5+VI6Y1wMMxeszfLDTq/xIt6pJo2K1GrbC7EvL9yr00gzFLkxA1yfg
-	z5vOMeRQ3eozU7Htc85w7PC/Bj5yH/r42NKxDuW4yX2TuzbmAQE5zK0Fuc6K9MIc/QJ2cF
-	RB6Xlk7TnEV16pUkw0MRd56eEmTviC1ZuwWKOP4Bi4omCD4g/oao/8nimqwUtyBetP0HGR
-	ppuU+UAjNhhqggVUKcoM6XZv3B2xlay8CJcGjVFhE2wJiXFDgAe6HybtodScMt7gdrNIfh
-	beiCLbHcnbBCyBXEJXRadA1qAm34Jmc+VOO6bObFLQdnzCfXtyHADGoo/E8MZw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1744357085;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=R4mghS5tZhqJKd9HaDFwH96FOpAhGsQjnHoB2PQgndc=;
-	b=8GmeuNaVOm5ubVMs1csyaTy3r2uaKXsNrQ+SkeXQsZ1QNYhXfYkr8IqwC7QawP3ZHGqg6x
-	CrD0bzVBgGrRMjAA==
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: john.ogness@linutronix.de,
-	Nam Cao <namcao@linutronix.de>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Waiman Long <longman@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Borislav Petkov <bp@alien8.de>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	x86@kernel.org,
-	"H . Peter Anvin" <hpa@zytor.com>,
-	Andy Lutomirski <luto@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 00/22] RV: Linear temporal logic monitors for RT application
-Date: Fri, 11 Apr 2025 09:37:16 +0200
-Message-Id: <cover.1744355018.git.namcao@linutronix.de>
+	id 1u39rG-0000000D2NR-0sUn
+	for linux-riscv@lists.infradead.org;
+	Fri, 11 Apr 2025 08:35:32 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C7F3743155;
+	Fri, 11 Apr 2025 08:35:22 +0000 (UTC)
+Message-ID: <22a2c734-b446-4b1e-a2bc-a0080656fe29@ghiti.fr>
+Date: Fri, 11 Apr 2025 10:35:21 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: misaligned: fix sleeping function called
+ during misaligned access handling
+Content-Language: en-US
+To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
+ Nylon Chen <nylon.chen@sifive.com>, linux-kernel@vger.kernel.org
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, charlie@rivosinc.com,
+ jesse@rivosinc.com, evan@rivosinc.com, zhangchunyan@iscas.ac.cn,
+ samuel.holland@sifive.com, zong.li@sifive.com
+References: <20250411073850.3699180-1-nylon.chen@sifive.com>
+ <20250411073850.3699180-3-nylon.chen@sifive.com>
+ <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvuddufeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeduffeugedvtdegleeuhfeuteetueegfeefkefhheffvdduhfegvdehuddukeffgeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddurddvhegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheptghlvghgvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehnhihlohhnrdgthhgvnhesshhifhhivhgvrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdpr
+ hgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_003808_453100_16F7E228 
-X-CRM114-Status: GOOD (  19.89  )
+X-CRM114-CacheID: sfid-20250411_013530_400290_65E343E2 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,218 +66,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Real-time applications may have design flaws causing them to have
-unexpected latency. For example, the applications may raise page faults, or
-may be blocked trying to take a mutex without priority inheritance.
-
-However, while attempting to implement DA monitors for these real-time
-rules, deterministic automaton is found to be inappropriate as the
-specification language. The automaton is complicated, hard to understand,
-and error-prone.
-
-For these cases, linear temporal logic is found to be more suitable. The
-LTL is more concise and intuitive.
-
-This series adds support for LTL RV monitor, and use it to implement two
-monitors for reporting problems with real-time tasks.
-
-Patch 1-7 do some cleanups to RV.
-
-Patch 8-12 prepare the RV code for the integration of LTL monitors.
-
-Patch 13 adds support for LTL monitors.
-
-Patch 14 adds the container monitor "rtapp". This encapsulates the
-sub-monitors for real-time.
-
-Patch 15-18 prepares the pagefault tracepoints, so that patch 19 can add
-the monitor which watches real-time tasks doing page faults.
-
-Patch 20 adds the "sleep" monitor: it detects potential undesirable latency
-with real-time threads.
-
-Patch 21 adds documentation on the new monitors.
-
-Patch 22 allows the number of per-task monitors to be configurable, so that
-the two new monitors can be enabled simultaneously.
-
-v1->v2 https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.de/
-  - Integrate the LTL scripts into the existing dot2k tool, taking
-    advantage of the existing monitor generation scripts.
-  - Switch the struct ltl_monitor to use bitmap instead of an array, to
-    optimize memory usage.
-  - Correct the generated code to be non-deterministic state machine,
-    instead of deterministic state machine
-  - Put common code for all LTL monitors into a single file
-    (include/rv/ltl_monitor.h), reducing code duplication
-  - Change the LTL monitors to make user of container. Add a bug fix to
-    container while at it.
-  - Make the number of per-task monitor configurable
-
-Cc: Petr Mladek <pmladek@suse.com>
-Cc: John Ogness <john.ogness@linutronix.de>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: Boqun Feng <boqun.feng@gmail.com>
-Cc: Waiman Long <longman@redhat.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Borislav Petkov <bp@alien8.de>
-Cc: Dave Hansen <dave.hansen@linux.intel.com>
-Cc: x86@kernel.org
-Cc: H. Peter Anvin <hpa@zytor.com>
-Cc: Andy Lutomirski <luto@kernel.org>
-Cc: Peter Zijlstra <peterz@infradead.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org
-
-Nam Cao (22):
-  rv: Fix out-of-bound memory access in rv_is_container_monitor()
-  rv: Add #undef TRACE_INCLUDE_FILE
-  rv: Let the reactors take care of buffers
-  verification/dot2k: Make it possible to invoke dot2k without
-    installation
-  verification/dot2k: Make a separate dot2k_templates/Kconfig_container
-  verification/dot2k: Remove __buff_to_string()
-  verification/dot2k: Replace is_container() hack with subparsers
-  rv: rename CONFIG_DA_MON_EVENTS to CONFIG_RV_MON_EVENTS
-  verification/dot2k: Prepare the frontend for LTL inclusion
-  Documentation/rv: Prepare monitor synthesis document for LTL inclusion
-  verification/rvgen: Prepare the templates for LTL inclusion
-  verification/rvgen: Restructure the classes to prepare for LTL
-    inclusion
-  rv: Add support for LTL monitors
-  rv: Add rtapp container monitor
-  x86/tracing: Remove redundant trace_pagefault_key
-  x86/tracing: Move page fault trace points to generic
-  arm64: mm: Add page fault trace points
-  riscv: mm: Add page fault trace points
-  rv: Add rtapp_pagefault monitor
-  rv: Add rtapp_sleep monitor
-  rv: Add documentation for rtapp monitor
-  rv: Allow to configure the number of per-task monitor
-
- .../trace/rv/da_monitor_synthesis.rst         | 147 -----
- Documentation/trace/rv/index.rst              |   3 +-
- .../trace/rv/linear_temporal_logic.rst        |  97 +++
- Documentation/trace/rv/monitor_rtapp.rst      | 105 ++++
- Documentation/trace/rv/monitor_synthesis.rst  | 256 ++++++++
- arch/arm64/mm/fault.c                         |   8 +
- arch/riscv/mm/fault.c                         |   8 +
- arch/x86/include/asm/trace/common.h           |  12 -
- arch/x86/include/asm/trace/irq_vectors.h      |   1 -
- arch/x86/kernel/Makefile                      |   1 -
- arch/x86/kernel/tracepoint.c                  |  21 -
- arch/x86/mm/fault.c                           |   5 +-
- include/linux/panic.h                         |   3 +
- include/linux/printk.h                        |   5 +
- include/linux/rv.h                            |  67 ++-
- include/linux/sched.h                         |   8 +-
- include/rv/da_monitor.h                       |  45 +-
- include/rv/ltl_monitor.h                      | 184 ++++++
- .../trace/events}/exceptions.h                |  27 +-
- kernel/fork.c                                 |   5 +-
- kernel/panic.c                                |  17 +-
- kernel/printk/internal.h                      |   1 -
- kernel/trace/rv/Kconfig                       |  27 +-
- kernel/trace/rv/Makefile                      |   3 +
- kernel/trace/rv/monitors/pagefault/Kconfig    |  11 +
- .../trace/rv/monitors/pagefault/pagefault.c   |  83 +++
- .../trace/rv/monitors/pagefault/pagefault.h   |  57 ++
- .../rv/monitors/pagefault/pagefault_trace.h   |  14 +
- kernel/trace/rv/monitors/rtapp/Kconfig        |   6 +
- kernel/trace/rv/monitors/rtapp/rtapp.c        |  34 ++
- kernel/trace/rv/monitors/rtapp/rtapp.h        |   3 +
- kernel/trace/rv/monitors/sleep/Kconfig        |  13 +
- kernel/trace/rv/monitors/sleep/sleep.c        | 217 +++++++
- kernel/trace/rv/monitors/sleep/sleep.h        | 293 ++++++++++
- kernel/trace/rv/monitors/sleep/sleep_trace.h  |  14 +
- kernel/trace/rv/reactor_panic.c               |   8 +-
- kernel/trace/rv/reactor_printk.c              |   8 +-
- kernel/trace/rv/rv.c                          |  17 +-
- kernel/trace/rv/rv_reactors.c                 |   2 +-
- kernel/trace/rv/rv_trace.h                    |  52 +-
- tools/verification/dot2/Makefile              |  26 -
- tools/verification/dot2/dot2k                 |  53 --
- tools/verification/models/rtapp/pagefault.ltl |   1 +
- tools/verification/models/rtapp/sleep.ltl     |  15 +
- tools/verification/rvgen/.gitignore           |   3 +
- tools/verification/rvgen/Makefile             |  30 +
- tools/verification/rvgen/__main__.py          |  67 +++
- tools/verification/{dot2 => rvgen}/dot2c      |   2 +-
- .../{dot2 => rvgen/rvgen}/automata.py         |   0
- tools/verification/rvgen/rvgen/container.py   |  22 +
- .../{dot2 => rvgen/rvgen}/dot2c.py            |   2 +-
- tools/verification/rvgen/rvgen/dot2k.py       | 129 ++++
- .../dot2k.py => rvgen/rvgen/generator.py}     | 233 ++------
- tools/verification/rvgen/rvgen/ltl2ba.py      | 552 ++++++++++++++++++
- tools/verification/rvgen/rvgen/ltl2k.py       | 242 ++++++++
- .../templates}/Kconfig                        |   0
- .../rvgen/templates/container/Kconfig         |   5 +
- .../templates/container/main.c}               |   0
- .../templates/container/main.h}               |   0
- .../templates/dot2k}/main.c                   |   0
- .../templates/dot2k}/trace.h                  |   0
- .../verification/rvgen/templates/ltl2k/main.c | 102 ++++
- .../rvgen/templates/ltl2k/trace.h             |  14 +
- 63 files changed, 2857 insertions(+), 529 deletions(-)
- delete mode 100644 Documentation/trace/rv/da_monitor_synthesis.rst
- create mode 100644 Documentation/trace/rv/linear_temporal_logic.rst
- create mode 100644 Documentation/trace/rv/monitor_rtapp.rst
- create mode 100644 Documentation/trace/rv/monitor_synthesis.rst
- delete mode 100644 arch/x86/include/asm/trace/common.h
- delete mode 100644 arch/x86/kernel/tracepoint.c
- create mode 100644 include/rv/ltl_monitor.h
- rename {arch/x86/include/asm/trace => include/trace/events}/exceptions.h (55%)
- create mode 100644 kernel/trace/rv/monitors/pagefault/Kconfig
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.c
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.h
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault_trace.h
- create mode 100644 kernel/trace/rv/monitors/rtapp/Kconfig
- create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.c
- create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.h
- create mode 100644 kernel/trace/rv/monitors/sleep/Kconfig
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep.c
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep.h
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep_trace.h
- delete mode 100644 tools/verification/dot2/Makefile
- delete mode 100644 tools/verification/dot2/dot2k
- create mode 100644 tools/verification/models/rtapp/pagefault.ltl
- create mode 100644 tools/verification/models/rtapp/sleep.ltl
- create mode 100644 tools/verification/rvgen/.gitignore
- create mode 100644 tools/verification/rvgen/Makefile
- create mode 100644 tools/verification/rvgen/__main__.py
- rename tools/verification/{dot2 => rvgen}/dot2c (97%)
- rename tools/verification/{dot2 => rvgen/rvgen}/automata.py (100%)
- create mode 100644 tools/verification/rvgen/rvgen/container.py
- rename tools/verification/{dot2 => rvgen/rvgen}/dot2c.py (99%)
- create mode 100644 tools/verification/rvgen/rvgen/dot2k.py
- rename tools/verification/{dot2/dot2k.py => rvgen/rvgen/generator.py} (56%)
- create mode 100644 tools/verification/rvgen/rvgen/ltl2ba.py
- create mode 100644 tools/verification/rvgen/rvgen/ltl2k.py
- rename tools/verification/{dot2/dot2k_templates => rvgen/templates}/Kconfig (100%)
- create mode 100644 tools/verification/rvgen/templates/container/Kconfig
- rename tools/verification/{dot2/dot2k_templates/main_container.c => rvgen/templates/container/main.c} (100%)
- rename tools/verification/{dot2/dot2k_templates/main_container.h => rvgen/templates/container/main.h} (100%)
- rename tools/verification/{dot2/dot2k_templates => rvgen/templates/dot2k}/main.c (100%)
- rename tools/verification/{dot2/dot2k_templates => rvgen/templates/dot2k}/trace.h (100%)
- create mode 100644 tools/verification/rvgen/templates/ltl2k/main.c
- create mode 100644 tools/verification/rvgen/templates/ltl2k/trace.h
-
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2zDqW1lbnQsCgpPbiAxMS8wNC8yMDI1IDA5OjM2LCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
+Cj4gSGkgTnlsb24sCj4KPiBJIGFscmVhZHkgaGF2ZSBhIHBlbmRpbmcgZml4IGZvciB0aGF0IGJ1
+ZyB3aGljaCBpcyB0byByZWVuYWJsZQo+IGludGVycnVwdHMgd2hpbGUgaGFuZGxpbmcgbWlzYWxp
+Z25lZCBmYXVsdHMuIFBsZWFzZSBzZWU6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
+cmlzY3YvMjAyNTAzMTcxNzA2MjUuMTE0Mjg3MC0xMi1jbGVnZXJAcml2b3NpbmMuY29tLwoKCkNh
+biB5b3UgZXh0cmFjdCB0aGlzIGZpeCBmcm9tIHRoZSBzZXJpZXMgc28gdGhhdCBpdCBjYW4gYmUg
+bWVyZ2VkIGluIDYuMTU/CgpUaGFua3MsCgpBbGV4CgoKPgo+IFRoYW5rcywKPgo+IENsw6ltZW50
+Cj4KPiBPbiAxMS8wNC8yMDI1IDA5OjM4LCBOeWxvbiBDaGVuIHdyb3RlOgo+PiBVc2UgY29weV9m
+cm9tX3VzZXJfbm9mYXVsdCgpIGFuZCBjb3B5X3RvX3VzZXJfbm9mYXVsdCgpIGluc3RlYWQgb2YK
+Pj4gY29weV9mcm9tL3RvX3VzZXIgZnVuY3Rpb25zIGluIHRoZSBtaXNhbGlnbmVkIGFjY2VzcyB0
+cmFwIGhhbmRsZXJzLgo+Pgo+PiBUaGUgZm9sbG93aW5nIGJ1ZyByZXBvcnQgd2FzIGZvdW5kIHdo
+ZW4gZXhlY3V0aW5nIG1pc2FsaWduZWQgbWVtb3J5Cj4+IGFjY2Vzc2VzOgo+Pgo+PiBCVUc6IHNs
+ZWVwaW5nIGZ1bmN0aW9uIGNhbGxlZCBmcm9tIGludmFsaWQgY29udGV4dCBhdCAuL2luY2x1ZGUv
+bGludXgvdWFjY2Vzcy5oOjE2Mgo+PiBpbl9hdG9taWMoKTogMCwgaXJxc19kaXNhYmxlZCgpOiAx
+LCBub25fYmxvY2s6IDAsIHBpZDogMTE1LCBuYW1lOiB0d28KPj4gcHJlZW1wdF9jb3VudDogMCwg
+ZXhwZWN0ZWQ6IDAKPj4gQ1BVOiAwIFVJRDogMCBQSUQ6IDExNSBDb21tOiB0d28gTm90IHRhaW50
+ZWQgNi4xNC4wLXJjNSAjMjQKPj4gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERU
+KQo+PiBDYWxsIFRyYWNlOgo+PiAgIFs8ZmZmZmZmZmY4MDAxNjBlYT5dIGR1bXBfYmFja3RyYWNl
+KzB4MWMvMHgyNAo+PiAgIFs8ZmZmZmZmZmY4MDAwMjMwND5dIHNob3dfc3RhY2srMHgyOC8weDM0
+Cj4+ICAgWzxmZmZmZmZmZjgwMDEwZmFlPl0gZHVtcF9zdGFja19sdmwrMHg0YS8weDY4Cj4+ICAg
+WzxmZmZmZmZmZjgwMDEwZmUwPl0gZHVtcF9zdGFjaysweDE0LzB4MWMKPj4gICBbPGZmZmZmZmZm
+ODAwNGU0NGU+XSBfX21pZ2h0X3Jlc2NoZWQrMHhmYS8weDEwNAo+PiAgIFs8ZmZmZmZmZmY4MDA0
+ZTQ5Nj5dIF9fbWlnaHRfc2xlZXArMHgzZS8weDYyCj4+ICAgWzxmZmZmZmZmZjgwMTk2M2M0Pl0g
+X19taWdodF9mYXVsdCsweDFjLzB4MjQKPj4gICBbPGZmZmZmZmZmODA0MjUzNTI+XSBfY29weV9m
+cm9tX3VzZXIrMHgyOC8weGFhCj4+ICAgWzxmZmZmZmZmZjgwMDAyOTZjPl0gaGFuZGxlX21pc2Fs
+aWduZWRfc3RvcmUrMHgyMDQvMHgyNTQKPj4gICBbPGZmZmZmZmZmODA5ZWFlODI+XSBkb190cmFw
+X3N0b3JlX21pc2FsaWduZWQrMHgyNC8weGVlCj4+ICAgWzxmZmZmZmZmZjgwOWY0ZjFhPl0gaGFu
+ZGxlX2V4Y2VwdGlvbisweDE0Ni8weDE1Mgo+Pgo+PiBGaXhlczogYjY4NmVjZGVhY2Y2ICgicmlz
+Y3Y6IG1pc2FsaWduZWQ6IFJlc3RyaWN0IHVzZXIgYWNjZXNzIHRvIGtlcm5lbCBtZW1vcnkiKQo+
+PiBGaXhlczogNDQxMzgxNTA2YmE3ICgicmlzY3Y6IG1pc2FsaWduZWQ6IHJlbW92ZSBDT05GSUdf
+UklTQ1ZfTV9NT0RFIHNwZWNpZmljIGNvZGUiKQo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBab25nIExp
+IDx6b25nLmxpQHNpZml2ZS5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IE55bG9uIENoZW4gPG55bG9u
+LmNoZW5Ac2lmaXZlLmNvbT4KPj4gLS0tCj4+ICAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlz
+YWxpZ25lZC5jIHwgNCArKy0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwg
+MiBkZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBz
+X21pc2FsaWduZWQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwo+PiBp
+bmRleCBkNzI3NWRmYjZiN2UuLjU2M2Y3M2Y4OGZhOCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNj
+di9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Ry
+YXBzX21pc2FsaWduZWQuYwo+PiBAQCAtNDU1LDcgKzQ1NSw3IEBAIHN0YXRpYyBpbnQgaGFuZGxl
+X3NjYWxhcl9taXNhbGlnbmVkX2xvYWQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+ICAgCj4+ICAg
+CXZhbC5kYXRhX3U2NCA9IDA7Cj4+ICAgCWlmICh1c2VyX21vZGUocmVncykpIHsKPj4gLQkJaWYg
+KGNvcHlfZnJvbV91c2VyKCZ2YWwsICh1OCBfX3VzZXIgKilhZGRyLCBsZW4pKQo+PiArCQlpZiAo
+Y29weV9mcm9tX3VzZXJfbm9mYXVsdCgmdmFsLCAodTggX191c2VyICopYWRkciwgbGVuKSkKPj4g
+ICAJCQlyZXR1cm4gLTE7Cj4+ICAgCX0gZWxzZSB7Cj4+ICAgCQltZW1jcHkoJnZhbCwgKHU4ICop
+YWRkciwgbGVuKTsKPj4gQEAgLTU1Niw3ICs1NTYsNyBAQCBzdGF0aWMgaW50IGhhbmRsZV9zY2Fs
+YXJfbWlzYWxpZ25lZF9zdG9yZShzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gICAJCXJldHVybiAt
+RU9QTk9UU1VQUDsKPj4gICAKPj4gICAJaWYgKHVzZXJfbW9kZShyZWdzKSkgewo+PiAtCQlpZiAo
+Y29weV90b191c2VyKCh1OCBfX3VzZXIgKilhZGRyLCAmdmFsLCBsZW4pKQo+PiArCQlpZiAoY29w
+eV90b191c2VyX25vZmF1bHQoKHU4IF9fdXNlciAqKWFkZHIsICZ2YWwsIGxlbikpCj4+ICAgCQkJ
+cmV0dXJuIC0xOwo+PiAgIAl9IGVsc2Ugewo+PiAgIAkJbWVtY3B5KCh1OCAqKWFkZHIsICZ2YWws
+IGxlbik7Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Xwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
+ZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
+LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
