@@ -4,73 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E258AC369A6
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 01:30:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A573EC3601E
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 02:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RMXVIAWoSU1SZGPMfEMqcpMzumutQC13Ou4jesGNk6w=; b=yPd445Hp+Hf4yA
-	BxrZoWjPgl+wCHvivBh+v5JmUsWhWk22f+cVLEtBIkHjtMiFn4t7h3N4WSEl9qiv1D39T38y2z0FE
-	rn8Q8YRAA7VRjPs6j13gs/ixosDUl4X/SCgiQJZlrjVsjhPUHLIlFKmcOFkf+a2WrEJA9RgMYVihF
-	4hO9Z5i2Giub83C3cr91FCJpwicspV/9YA/2nyvMNBGszaCY8bDWX1C4pk9BV0YM87Hx87733YLPU
-	HJUp0jwzR+fEmZHGwpVDlDjJB8IAr/qwkLJOW7YIz4ejrjCDENaBmT2rs6djKGA41tUXXpV1UkOeb
-	xEi3wpe4K94GTh5ZACWQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=SaBsUk/jeLmW0hbEEcbz9a/myYFaHzWnU3N0Z9/ftiU=; b=ovEBe94qjtqqR+
+	U+k0EoSgseLBeKsuP8XxqEaRXM8mKnh1ZjPCIOfh/YJt9DvhzodU+xWJRVnHNc+bdwjmr7RxsWITn
+	5Qw18kwcIOqMlDeyid4XwfBK8Ay2htWfC0LK4p6m7EGu07QedSzBKNDQzw6zhfOerOIZauqhlMS12
+	kYBAPN2IAsSReGd0eI4RkNmG5eoXoHOM12PaYGZ4f1H6yatTfIiH+QsxryrP5KFLoX3PGBOTMbcY6
+	rMwlQEIaTFwuP/Btjukciw82ySVCUJHpQyUIhijSaK88/XAgE3l7ZqhYxzr+0jnmYUDRB+tQaYyUj
+	LzM6zjzTPleBOokaXn5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u33DR-0000000CFPr-1BpG;
-	Fri, 11 Apr 2025 01:29:57 +0000
-Received: from sender4-op-o12.zoho.com ([136.143.188.12])
+	id 1u34FL-0000000CK9j-0D3W;
+	Fri, 11 Apr 2025 02:35:59 +0000
+Received: from smtpbgsg1.qq.com ([54.254.200.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u33DO-0000000CFPP-1kMU
+	id 1u34FG-0000000CK7c-38sV
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 01:29:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1744334986; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=DcoYYlo/TpIntFbIXs6JO5gEd9tpCgTfSSe7TkBXqkiYxhwdYZ46HcJa8XXkTw2//ak7mCi58OvT1gPt00EY5rJCCbGge/NVT3I2fc44jKInbNENxuKDC13RIxA28DP90sXA8VikvMhE9fJc312/TnaNnSrT04PTto+7jiEYj7k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1744334986; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=GlMkW2v14p4FyqOTgR6k6cTeh7ov1bybA9ctoSXXWmE=; 
-	b=mFQRTJ8KCY9gU3nYH6TzOn1rOM0A0SvzctCCfe5jdFyIeWo9va2vFEJb7UQBWqnKk4wsnsMGAhL5rKbo+agV3qDybZyxn/grMnQ84G/GdiUdtGUOczpi+G6h6XO0MiGJ5nCg3CIen0I3sr9+th4o0/sev88jqZ1/2sri0S9SkcM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744334986;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=GlMkW2v14p4FyqOTgR6k6cTeh7ov1bybA9ctoSXXWmE=;
-	b=LuPAeHBBfYeBnP/1icxI277vmNIIDS6T47NQsr60/mFPfe4BwfxeVt4Z6wqQJpwn
-	hm/XMe2z8csXSEidiq6yQzs1HQGtDUpE+Yq58DQW2ZHvt3aw+BZK6tuUEebxnQ96gxT
-	ooo7IyM/TYQRo818I/WOgeBTS7nopGOmQHhj3lGaBwS7r6qGHLBmKylH+w3VetyEMpC
-	dBAlzZKjNjjsOTvohq+YIfdMsnfHVtx64wNHaogj88idHccmdyfwzz5xqzFo1FDuwC6
-	v3JiGv5XyUwXtKGakVPQyzflm5n9dc9w5crVJIR/YWewCIoR8ipWjOw8ecsWAFHyLiB
-	ilRBoMuSlA==
-Received: by mx.zohomail.com with SMTPS id 1744334984374548.2768904052069;
-	Thu, 10 Apr 2025 18:29:44 -0700 (PDT)
-Message-ID: <8fbd6ffdd053760b6d0980173c7f8af6c09963ba.camel@icenowy.me>
-Subject: Re: [PATCH 2/2] riscv: dts: starfive: add DT for Orange Pi RV
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Emil
- Renner Berthing <kernel@esmil.dk>, Jisheng Zhang <jszhang@kernel.org>,
- Michael Zhu <michael.zhu@starfivetech.com>, Drew Fustini
- <drew@beagleboard.org>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Fri, 11 Apr 2025 09:29:38 +0800
-In-Reply-To: <Z_f30vAuATR1DCWk@pie>
-References: <20250409091801.855083-1-uwu@icenowy.me>
-	 <20250409091801.855083-2-uwu@icenowy.me> <Z_f30vAuATR1DCWk@pie>
-Organization: Anthon Open-Source Community
-User-Agent: Evolution 3.44.4 
+	Fri, 11 Apr 2025 02:35:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1744338866;
+	bh=lOEueMjEzcQH+7FTLLQIxv5mkIyaFq/uP1KvEW094o8=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=T51oKA9v3cKxJouRx/J1OTjy3lODYL9E+eMIBgdy/vB0+Edp/GvCZ/TCXyCUTk4ub
+	 3VfRLph3nNLlxViv+hvEUwP2QYDAPGtyz53TbQ7SKSRCaXOvfiYk8bxM5MFIA3c2XU
+	 zpwFbiC7FNvzCWNwbWSYFNMgG1e32GRI3m32C5WQ=
+X-QQ-mid: bizesmtpip2t1744338855t90627c
+X-QQ-Originating-IP: VREOsRjt7J4ccSVoy0EUwQUzXam43CY8I2m/vm0gMqE=
+Received: from localhost.localdomain ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Fri, 11 Apr 2025 10:34:12 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 1101699977250414760
+EX-QQ-RecipientCnt: 17
+From: Liu Runrun <liurunrun@uniontech.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	liurunrun@uniontech.com,
+	mingo@kernel.org,
+	ryan.roberts@arm.com,
+	catalin.marinas@arm.com,
+	akpm@linux-foundation.org,
+	kirill.shutemov@linux.intel.com,
+	arnd@arndb.de
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	wangyuli@uniontech.com,
+	zhanjun@uniontech.com,
+	niecheng1@uniontech.com
+Subject: [PATCH] RISC-V: Fix PCI I/O port addressing for MMU-less configurations
+Date: Fri, 11 Apr 2025 10:34:08 +0800
+Message-Id: <20250411023408.185150-1-liurunrun@uniontech.com>
+X-Mailer: git-send-email 2.20.1
 MIME-Version: 1.0
-X-ZohoMailClient: External
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:uniontech.com:qybglogicsvrgz:qybglogicsvrgz8a-0
+X-QQ-XMAILINFO: NbaNCZAwxYkC8tz94DCqbTpaeh94MQnqpC3mPq1ebrq+DdWnJfrq9WlZ
+	vOrgaYvRO8LT5nnQSg/+77xKWgjWK3rD1Vk6/KvO7mjZ0KLPWYxmThR7fUUMVvJ07zRybCj
+	UViYu6iwOUjedgSLhCJZIRDpMKpcSpqH/t4UPjGG3HyzN+GhkSc3amwdmLYhvyvZkke/Yv7
+	6zpKoGtIYpIcd6WQYgwuiXerRa9v+DRLEZ3gzPnzi2NyNYQfJ+v6XNuI/SEqsjhe4RPW+vx
+	nvf0TBttg21VhrOB9n1v4gzkSJp2yZgbTiepUUKCX7mN7B7+Jredb0bhYgUbRvHrabUTW3G
+	qwEWQpS2Cqq9svdIDwIEcKk/OgtSoC0j9B5QrxCJ1Gdub3e4eon6EfaaYVpxFS6q7xXV6X3
+	JosoQ5atIsqcTyQP7OGgy0utN8HKQlDNypW3RdjxXtbILln3uxgWTdEwGiwtedkzwrBvq/X
+	qOkFQ2rbv3crtfaRJktVudRbLhig6TWEBIKqYYdf0mjXujRwPLhBjbR6i5q3M/ryyL3n98S
+	e3NAKVKreQ2MWXEQc583xImaKOFVrEkCTcUPj4Hvlth/tyxeZ1kCyLGOXCazrsXIdayIjMU
+	XKUgzii6dUGghMDCAkpExb/nTW9MvH3d3KiPPg2azPo03cRzUf94jjj9dtx8qoiYpNzb3CJ
+	yMTMNxfGoL0iKyP+n8Yn9RvmurLq+uGB/6Okk+JunNnELOnnGA53rXr0mH6OoYaPh2Gz6CH
+	J+akQoK2Vz2iiRNUV+4pPmHMhim0Xo+yCY0jI61WQGxcrlvPmQt6i2J2O2Q46LVbSPCwpeC
+	Xec1I64hYJsPXs/fw2UabrklF3Sfnl24CYrL3WOJRmTccpycYGc5tA3GtTn99CRE9EL14ji
+	f+fs/M/fUO6tTP9hVTn43PZxIzBriHFER4+FgTBE/Y489O5RdwkWxV1z4taQy0luN7JdyaE
+	cw+NxcmLIgG8pEsbUf5qmuv9VL+2/DEBJe9N/YcPqcBZeFhc5rmdLYd3S
+X-QQ-XMRINFO: MSVp+SPm3vtS1Vd6Y4Mggwc=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250410_182954_497509_E5DEFE2F 
-X-CRM114-Status: GOOD (  22.02  )
+X-CRM114-CacheID: sfid-20250410_193555_172675_AEB57E0D 
+X-CRM114-Status: UNSURE (   9.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +100,116 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-5ZyoIDIwMjUtMDQtMTDmmJ/mnJ/lm5vnmoQgMTY6NTQgKzAwMDDvvIxZYW8gWmnlhpnpgZPvvJoK
-PiBPbiBXZWQsIEFwciAwOSwgMjAyNSBhdCAwNToxODowMVBNICswODAwLCBJY2Vub3d5IFpoZW5n
-IHdyb3RlOgo+ID4gT3JhbmdlIFBpIFJWIGlzIGEgbmV3bHkgcmVsZWFzZWQgU0JDIHdpdGggSkg3
-MTEwIFNvQywgc2luZ2xlIEdiRQo+ID4gcG9ydAo+ID4gKGNvbm5lY3RlZCB0byBKSDcxMTAgR01B
-QzAgdmlhIGEgWVQ4NTMxIFBIWSksIDQgVVNCIHBvcnRzICh2aWEgYQo+ID4gVkw4MDUKPiA+IFBD
-SWUgVVNCIGNvbnRyb2xsZXIgY29ubmVjdGVkIHRvIEpINzExMCBQQ0lFMCksIGEgTS4yIE0ta2V5
-IHNsb3QKPiA+IChjb25uZWN0ZWQgdG8gSkg3MTEwIFBDSUUxKSwgYSBIRE1JIHZpZGVvIG91dHB1
-dCwgYSAzLjVtbSBhdWRpbwo+ID4gb3V0cHV0Cj4gPiBhbmQgYSBtaWNyb1NEIHNsb3QuCj4gPiAK
-PiA+IE9uYm9hcmQgcGVyaXBoZXJhbHMgY29udGFpbiBhIFNQSSBOT1IgKHdoaWNoIGNvbnRhaW5z
-IHRoZSBVLUJvb3QKPiA+IGZpcm13YXJlKSBhbmQgYW4gQW1wYWsgQVA2MjU2IFNESU8gV2ktRmkg
-bW9kdWxlLgo+ID4gCj4gPiBBcyB0aGUgc2NoZW1hdGljcyBpc24ndCBhdmFpbGFibGUgeWV0LCB0
-aGUgU0RJTyBXaS1GaSBpcyBsZWZ0Cj4gPiBkaXNhYmxlZAo+ID4geWV0Lgo+ID4gCj4gPiBTaWdu
-ZWQtb2ZmLWJ5OiBJY2Vub3d5IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4KPiA+IC0tLQo+ID4gwqBh
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL01ha2VmaWxlwqDCoMKgwqDCoMKgwqDCoCB8wqAg
-MSArCj4gPiDCoC4uLi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3JhbmdlcGktcnYuZHRzwqAg
-fCA3Mwo+ID4gKysrKysrKysrKysrKysrKysrKwo+ID4gwqAyIGZpbGVzIGNoYW5nZWQsIDc0IGlu
-c2VydGlvbnMoKykKPiA+IMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMv
-c3RhcmZpdmUvamg3MTEwLW9yYW5nZXBpLQo+ID4gcnYuZHRzCj4gPiAKPiA+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL01ha2VmaWxlCj4gPiBiL2FyY2gvcmlzY3Yv
-Ym9vdC9kdHMvc3RhcmZpdmUvTWFrZWZpbGUKPiA+IGluZGV4IGIzYmIxMmY3OGU3ZDUuLjI0ZjFh
-NDQ4MjgzNTAgMTAwNjQ0Cj4gPiAtLS0gYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL01h
-a2VmaWxlCj4gPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL01ha2VmaWxlCj4g
-PiBAQCAtMTAsNiArMTAsNyBAQCBkdGItJChDT05GSUdfQVJDSF9TVEFSRklWRSkgKz0gamg3MTAw
-LXN0YXJmaXZlLQo+ID4gdmlzaW9uZml2ZS12MS5kdGIKPiA+IMKgCj4gPiDCoGR0Yi0kKENPTkZJ
-R19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtZGVlcGNvbXB1dGluZy1mbWwxM3YwMS5kdGIKPiA+
-IMKgZHRiLSQoQ09ORklHX0FSQ0hfU1RBUkZJVkUpICs9IGpoNzExMC1taWxrdi1tYXJzLmR0Ygo+
-ID4gK2R0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtb3JhbmdlcGktcnYuZHRi
-Cj4gPiDCoGR0Yi0kKENPTkZJR19BUkNIX1NUQVJGSVZFKSArPSBqaDcxMTAtcGluZTY0LXN0YXI2
-NC5kdGIKPiA+IMKgZHRiLSQoQ09ORklHX0FSQ0hfU1RBUkZJVkUpICs9IGpoNzExMC1zdGFyZml2
-ZS12aXNpb25maXZlLTItCj4gPiB2MS4yYS5kdGIKPiA+IMKgZHRiLSQoQ09ORklHX0FSQ0hfU1RB
-UkZJVkUpICs9IGpoNzExMC1zdGFyZml2ZS12aXNpb25maXZlLTItCj4gPiB2MS4zYi5kdGIKPiA+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3N0YXJmaXZlL2poNzExMC1vcmFuZ2Vw
-aS1ydi5kdHMKPiA+IGIvYXJjaC9yaXNjdi9ib290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3Jhbmdl
-cGktcnYuZHRzCj4gPiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+ID4gaW5kZXggMDAwMDAwMDAwMDAw
-MC4uYmRlMDFmMTE3ZTBiMgo+ID4gLS0tIC9kZXYvbnVsbAo+ID4gKysrIGIvYXJjaC9yaXNjdi9i
-b290L2R0cy9zdGFyZml2ZS9qaDcxMTAtb3JhbmdlcGktcnYuZHRzCj4gPiBAQCAtMCwwICsxLDcz
-IEBACj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IEdQTC0yLjAgT1IgTUlUCj4gPiAr
-LyoKPiA+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjUgSWNlbm93eSBaaGVuZyA8dXd1QGljZW5vd3ku
-bWU+Cj4gPiArICovCj4gPiArCj4gPiArL2R0cy12MS87Cj4gPiArI2luY2x1ZGUgImpoNzExMC1j
-b21tb24uZHRzaSIKPiA+ICsjaW5jbHVkZSA8ZHQtYmluZGluZ3MvbGVkcy9jb21tb24uaD4KPiA+
-ICsKPiA+ICsvIHsKPiA+ICvCoMKgwqDCoMKgwqDCoG1vZGVsID0gIlh1bmxvbmcgT3JhbmdlIFBp
-IFJWIjsKPiA+ICvCoMKgwqDCoMKgwqDCoGNvbXBhdGlibGUgPSAieHVubG9uZyxvcmFuZ2VwaS1y
-diIsICJzdGFyZml2ZSxqaDcxMTAiOwo+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoMKgbGVkcyB7Cj4g
-PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgY29tcGF0aWJsZSA9ICJncGlvLWxlZHMi
-Owo+ID4gKwo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoGxlZC1hY2sgewo+ID4g
-K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBncGlvcyA9IDwm
-YW9uZ3BpbyAzIEdQSU9fQUNUSVZFX0hJR0g+Owo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBjb2xvciA9IDxMRURfQ09MT1JfSURfR1JFRU4+Owo+ID4g
-K8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmdW5jdGlvbiA9
-IExFRF9GVU5DVElPTl9IRUFSVEJFQVQ7Cj4gPiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoGxpbnV4LGRlZmF1bHQtdHJpZ2dlciA9ICJoZWFydGJlYXQiOwo+
-ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBsYWJlbCA9
-ICJhY2siOwo+IAo+IFNob3VsZCB3ZSBzb3J0IHRoZSBwcm9wZXJ0aWVzIGluIGFscGhhYmV0IG9y
-ZGVyPyBpLmUuIGNvbG9yLAo+IGZ1bmN0aW9uLAo+IGdwaW9zLCBsYWJlbCB0aGVuIGxpbnV4LGRl
-ZmF1bHQtdHJpZ2dlci4gU2VlIGR0cy1jb2Rpbmctc3R5bGUucnN0LAoKV2VsbCBpbiBjYXNlIG9m
-IEdQSU8gTEVELCBJIHRoaW5rIGdwaW9zIGlzIHNvbWV0aGluZyBsaWtlIHJlZz8gQWx0aG91Z2gK
-dGhpcyBpcyBvbmx5IG15IHBlcnNvbmFsIGZlZWwsIGFuZCBsYWJlbCByZWFsbHkgbmVlZHMgdG8g
-YmUgcmVvcmRlcmVkCnRoZW4uCgo+IAo+ID4gVGhlIGZvbGxvd2luZyBvcmRlciBvZiBwcm9wZXJ0
-aWVzIGluIGRldmljZSBub2RlcyBpcyBwcmVmZXJyZWQ6Cj4gPiAKPiA+IDEuICJjb21wYXRpYmxl
-Igo+ID4gMi4gInJlZyIKPiA+IDMuICJyYW5nZXMiCj4gPiA0LiBTdGFuZGFyZC9jb21tb24gcHJv
-cGVydGllcyAoZGVmaW5lZCBieSBjb21tb24gYmluZGluZ3MsIGUuZy4KPiA+IHdpdGhvdXQKPiA+
-IHZlbmRvci1wcmVmaXhlcykKPiA+IDUuIFZlbmRvci1zcGVjaWZpYyBwcm9wZXJ0aWVzCj4gPiA2
-LiAic3RhdHVzIiAoaWYgYXBwbGljYWJsZSkKPiA+IDcuIENoaWxkIG5vZGVzLCB3aGVyZSBlYWNo
-IG5vZGUgaXMgcHJlY2VkZWQgd2l0aCBhIGJsYW5rIGxpbmUKPiAKPiA+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqB9Owo+ID4gK8KgwqDCoMKgwqDCoMKgfTsKPiA+ICt9Owo+ID4gKwo+
-ID4gKyZnbWFjMCB7Cj4gPiArwqDCoMKgwqDCoMKgwqBzdGFyZml2ZSx0eC11c2UtcmdtaWktY2xr
-Owo+ID4gK8KgwqDCoMKgwqDCoMKgYXNzaWduZWQtY2xvY2tzID0gPCZhb25jcmcgSkg3MTEwX0FP
-TkNMS19HTUFDMF9UWD47Cj4gPiArwqDCoMKgwqDCoMKgwqBhc3NpZ25lZC1jbG9jay1wYXJlbnRz
-ID0gPCZhb25jcmcKPiA+IEpINzExMF9BT05DTEtfR01BQzBfUk1JSV9SVFg+Owo+ID4gK8KgwqDC
-oMKgwqDCoMKgc3RhdHVzID0gIm9rYXkiOwo+IAo+IFZlbmRvciBwcm9wZXJ0eSBzdGFyZml2ZSx0
-eC11c2UtcmdtaWktY2xrIHNob3VsZCBnbyBhZnRlciB0aGUgY29tbW9uCj4gb25lcy4KCk9rYXks
-IEkgd2lsbCBmaXggdGhpcyAoYW5kIHRoZSBvbmUgYmVsb3cpIGluIG5leHQgcmV2aXNpb24uCgpU
-aGFua3MsCkljZW5vd3kKCj4gCj4gPiArfTsKPiA+ICsKPiA+ICsmaTJjMCB7Cj4gPiArwqDCoMKg
-wqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4gPiArfTsKPiA+ICsKPiA+ICsmbW1jMCB7Cj4gPiAr
-wqDCoMKgwqDCoMKgwqAvKiBUT0RPOiBBbXBhayBBUDYyNTYgV2ktRmkgbW9kdWxlIGF0dGFjaGVk
-IGhlcmUgKi8KPiA+ICvCoMKgwqDCoMKgwqDCoHN0YXR1cyA9ICJkaXNhYmxlZCI7Cj4gPiArfTsK
-PiA+ICsKPiA+ICsmbW1jMSB7Cj4gPiArwqDCoMKgwqDCoMKgwqAvZGVsZXRlLXByb3BlcnR5LyBj
-ZC1ncGlvczsKPiA+ICvCoMKgwqDCoMKgwqDCoGJyb2tlbi1jZDsKPiA+ICt9Owo+ID4gKwo+ID4g
-KyZwY2llMCB7Cj4gPiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4gPiArfTsKPiA+
-ICsKPiA+ICsmcGNpZTEgewo+ID4gK8KgwqDCoMKgwqDCoMKgc3RhdHVzID0gIm9rYXkiOwo+ID4g
-K307Cj4gPiArCj4gPiArJnBoeTAgewo+ID4gK8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHR4LWNs
-ay1hZGotZW5hYmxlZDsKPiA+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSx0eC1jbGstMTAtaW52
-ZXJ0ZWQ7Cj4gPiArwqDCoMKgwqDCoMKgwqBtb3RvcmNvbW0sdHgtY2xrLTEwMC1pbnZlcnRlZDsK
-PiA+ICvCoMKgwqDCoMKgwqDCoG1vdG9yY29tbSx0eC1jbGstMTAwMC1pbnZlcnRlZDsKPiA+ICvC
-oMKgwqDCoMKgwqDCoG1vdG9yY29tbSxyeC1jbGstZHJ2LW1pY3JvYW1wID0gPDM5NzA+Owo+ID4g
-K8KgwqDCoMKgwqDCoMKgbW90b3Jjb21tLHJ4LWRhdGEtZHJ2LW1pY3JvYW1wID0gPDI5MTA+Owo+
-ID4gK8KgwqDCoMKgwqDCoMKgcngtaW50ZXJuYWwtZGVsYXktcHMgPSA8MTUwMD47Cj4gPiArwqDC
-oMKgwqDCoMKgwqB0eC1pbnRlcm5hbC1kZWxheS1wcyA9IDwxNTAwPjsKPiA+ICt9Owo+IAo+IERp
-dHRvLCBtb3ZlIHRoZSB2ZW5kb3IgcHJvcGVydGllcyBiZWxvdyB0aGUgY29tbW9uIG9uZXMuCj4g
-Cj4gPiArJnB3bWRhYyB7Cj4gPiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7Cj4gPiAr
-fTsKPiA+ICsKPiA+ICsmc3BpMCB7Cj4gPiArwqDCoMKgwqDCoMKgwqBzdGF0dXMgPSAib2theSI7
-Cj4gPiArfTsKPiA+IC0tIAo+ID4gMi40OS4wCj4gPiAKPiAKPiBCZXN0IHJlZ2FyZHMsCj4gWWFv
-IFppCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+This patch addresses the PCI I/O port address handling in RISC-V's
+port-mapped I/O emulation routines when the MMU is not enabled.
+The changes ensure that:
+1. For non-MMU systems, the PCI I/O port addresses are properly
+   calculated in marcos inX and outX when PCI_IOBASE is not
+   defined, this avoids the null pointer calculating warning
+   from the compiler.
+2. In asm-generic/io.h, function ioport_map(), casting PCI_IOPORT
+   to type "long" firstly makes it could compute with variable addr
+   directly, which avoids the null pointer calculating warning when
+   PCI_IOPORT is a null pointer in some case.
+
+The original implementation used `PCI_IOBASE + (addr)` for MMU-enabled
+systems, but failed to handle non-MMU cases correctly. This change adds
+conditional compilation guards (#ifdef CONFIG_MMU) to differentiate
+between MMU and non-MMU environments, providing consistent behavior
+for both scenarios.
+
+Fixes: 9cc205e3c17d ("RISC-V: Make port I/O string accessors actually work")
+Reported-by: WangYuli <wangyuli@uniontech.com>
+Signed-off-by: Liu Runrun <liurunrun@uniontech.com>
+---
+ arch/riscv/include/asm/io.h | 22 +++++++++++++++++++++-
+ include/asm-generic/io.h    |  3 ++-
+ 2 files changed, 23 insertions(+), 2 deletions(-)
+
+diff --git a/arch/riscv/include/asm/io.h b/arch/riscv/include/asm/io.h
+index a0e51840b9db..d5181bb02c98 100644
+--- a/arch/riscv/include/asm/io.h
++++ b/arch/riscv/include/asm/io.h
+@@ -101,9 +101,15 @@ __io_reads_ins(reads, u32, l, __io_br(), __io_ar(addr))
+ __io_reads_ins(ins,  u8, b, __io_pbr(), __io_par(addr))
+ __io_reads_ins(ins, u16, w, __io_pbr(), __io_par(addr))
+ __io_reads_ins(ins, u32, l, __io_pbr(), __io_par(addr))
++#ifdef CONFIG_MMU
+ #define insb(addr, buffer, count) __insb(PCI_IOBASE + (addr), buffer, count)
+ #define insw(addr, buffer, count) __insw(PCI_IOBASE + (addr), buffer, count)
+ #define insl(addr, buffer, count) __insl(PCI_IOBASE + (addr), buffer, count)
++#else
++#define insb(addr, buffer, count) __insb((void __iomem *)(long)addr, buffer, count)
++#define insw(addr, buffer, count) __insw((void __iomem *)(long)addr, buffer, count)
++#define insl(addr, buffer, count) __insl((void __iomem *)(long)addr, buffer, count)
++#endif /* CONFIG_MMU */
+ 
+ __io_writes_outs(writes,  u8, b, __io_bw(), __io_aw())
+ __io_writes_outs(writes, u16, w, __io_bw(), __io_aw())
+@@ -115,23 +121,37 @@ __io_writes_outs(writes, u32, l, __io_bw(), __io_aw())
+ __io_writes_outs(outs,  u8, b, __io_pbw(), __io_paw())
+ __io_writes_outs(outs, u16, w, __io_pbw(), __io_paw())
+ __io_writes_outs(outs, u32, l, __io_pbw(), __io_paw())
++#ifdef CONFIG_MMU
+ #define outsb(addr, buffer, count) __outsb(PCI_IOBASE + (addr), buffer, count)
+ #define outsw(addr, buffer, count) __outsw(PCI_IOBASE + (addr), buffer, count)
+ #define outsl(addr, buffer, count) __outsl(PCI_IOBASE + (addr), buffer, count)
++#else
++#define outsb(addr, buffer, count) __outsb((void __iomem *)(long)addr, buffer, count)
++#define outsw(addr, buffer, count) __outsw((void __iomem *)(long)addr, buffer, count)
++#define outsl(addr, buffer, count) __outsl((void __iomem *)(long)addr, buffer, count)
++#endif /* CONFIG_MMU */
+ 
+ #ifdef CONFIG_64BIT
+ __io_reads_ins(reads, u64, q, __io_br(), __io_ar(addr))
+ #define readsq(addr, buffer, count) __readsq(addr, buffer, count)
+ 
+ __io_reads_ins(ins, u64, q, __io_pbr(), __io_par(addr))
++#ifdef CONFIG_MMU
+ #define insq(addr, buffer, count) __insq(PCI_IOBASE + (addr), buffer, count)
++#else
++#define insq(addr, buffer, count) __insq((void __iomem *)(long)addr, buffer, count)
++#endif /* CONFIG_MMU */
+ 
+ __io_writes_outs(writes, u64, q, __io_bw(), __io_aw())
+ #define writesq(addr, buffer, count) __writesq(addr, buffer, count)
+ 
+ __io_writes_outs(outs, u64, q, __io_pbr(), __io_paw())
++#ifdef CONFIG_MMU
+ #define outsq(addr, buffer, count) __outsq(PCI_IOBASE + (addr), buffer, count)
+-#endif
++#else
++#define outsq(addr, buffer, count) __outsq((void __iomem *)(long)addr, buffer, count)
++#endif /* CONFIG_MMU */
++#endif /* CONFIG_64BIT */
+ 
+ #include <asm-generic/io.h>
+ 
+diff --git a/include/asm-generic/io.h b/include/asm-generic/io.h
+index 11abad6c87e1..c0409188bb5e 100644
+--- a/include/asm-generic/io.h
++++ b/include/asm-generic/io.h
+@@ -1172,7 +1172,8 @@ static inline void __iomem *ioremap_np(phys_addr_t offset, size_t size)
+ static inline void __iomem *ioport_map(unsigned long port, unsigned int nr)
+ {
+ 	port &= IO_SPACE_LIMIT;
+-	return (port > MMIO_UPPER_LIMIT) ? NULL : PCI_IOBASE + port;
++	return (port > MMIO_UPPER_LIMIT) ?
++				NULL : (void __iomem *)((unsigned long)PCI_IOBASE + port);
+ }
+ #define ARCH_HAS_GENERIC_IOPORT_MAP
+ #endif
+-- 
+2.49.0
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
