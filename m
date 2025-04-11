@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 388CCC36010
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 08:04:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23F47C369A8
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 08:05:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vx0KUImfkFetE9JQA+DvNKyn6jHIqPL442pP+6DWvlw=; b=TtLw6gtx8QLA5e
-	NktO/B0pkuBIE8dmFVshVyg0CQ2VHLDGFypoTJKNIvnqe5E9FUDTT26PYbJ+LDx29pqNGc9eY4JiM
-	4opirPxitsNq4eWdbzrKC+wnMWgNKTR2Apy15YuXOKe9T++oddgXWCy5bt2UXaltTq9g00g8+Cx3V
-	dtFUHROnyEFMb0me3aMwf+6APUkD/gVUGAJzI34/jq5ZawmHF46FteIny5qcvM+4gfF1MSst+SLRM
-	lJ7eDauG6C3rp0uPI8pwQB7Qtc9gseK33gSG9T+oykd5zxn9yIIAtMNPhX3XACyazYWo9ZLOpWi5v
-	YIxFB0AbF56XhgZNrtRA==;
+	List-Owner; bh=TJnWsIY6y1NsOC73M2tSi78VogxOe/c09gW3iLCNsFs=; b=zqusgoIC5Gg4Uu
+	P4qrKkb+qmXeRsVHL9/klNG/DpgathPCc7EyV5fhoJDj0BPSygC0PpVR35gIidUyTGkCibZQdOl/S
+	EzHcEPk44+sCswIKT1CmeOPI1xzx4zX8GtfwxO9aUHTaISE7lRECs27H8szlJqCBDw2wBdyWvn7M2
+	EzBzvFHGeT4ktT7YAE8ETTBF87eko4f0YeXlKSDXt9xxkOrnN26ENg1b5/ioZJaV21S17o10edgBH
+	vz6yOr2fUl8yAN4hIE64F6vysw5FG7eP4CHNKuiERCxYZvAEeL+sP23qOMojHITVAm379Exd/0rBA
+	sUwJx+M/hIVr7vH0t41A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39NT-0000000Cy0w-1xMf;
-	Fri, 11 Apr 2025 08:04:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u39Np-0000000Cy7E-0G3f;
+	Fri, 11 Apr 2025 08:05:05 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39NR-0000000Cy0T-3rvI
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 11 Apr 2025 08:04:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=eL6mQhh76fyOvITqDMOePPOrdn2eCivxVT00/39k9KQ=; b=gcpT9qZsUI4rDRv2HYYpfiqgdc
-	yvmQjh1BuJNhY6q0cejnMRPBZlm2/Pgb0PBwPKb1Rr3jg3oD2CDWVU2WlZIilByDQ+MWe2J7BlXQX
-	+oqH/OQJZMEVlNefFV3cFTRyEDkTEflBK0mGBxn12Ymq563EMhVFp9S2QFKKChtmIfqRzJ4cYu63s
-	pdo52iLFvsqWvEcQ0buj9lsc2GSWoNmhAk5blrmdPotnqEqNx8vp9kiq3qaH7fZkPVzcgrZfw/mat
-	ihDX9zA3UUo4gjuFlpB50zRkVBFZN1M9QbkzSLj6ecDDgXLY3JE365Co7kcFw5XOqx5De2kWkwI8X
-	i8osK5Sw==;
-Received: from mail-ua1-x92e.google.com ([2607:f8b0:4864:20::92e])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u39NO-00000008yV6-1yV4
+	id 1u39Nm-0000000Cy63-2Z7m
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 08:04:40 +0000
-Received: by mail-ua1-x92e.google.com with SMTP id a1e0cc1a2514c-86dde90e7a3so698779241.1
-        for <linux-riscv@lists.infradead.org>; Fri, 11 Apr 2025 01:04:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1744358675; x=1744963475; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=eL6mQhh76fyOvITqDMOePPOrdn2eCivxVT00/39k9KQ=;
-        b=GzX3MstJLEFjGByySS2KU/XzUxy7Dw5QR/DuOBafmkxp+Lk+L6x1DeydoDT3TjsB05
-         lxNAhhmzQM/9yJLTP2UnqC3oSihhSCdgMHrzrn7O/+sSm0IJnayCYJtGSMR3d4DnJJG6
-         LL0QMn4x/ad90hRs+4HYZIUICvvBTRG6aqR9YEboj98n3fOq92k+nRRTjc5MLIa4wASF
-         8WDNI+77Jn+y5ZgN9mh7a14uu8fXYu04pQXqKD0A/J+FqDEbEhXVexM5LU32W8MP6W9d
-         t1G6S2JzA6IWXZFr4hP5xMSaY1OTpWR1EqGzBn5RAThmtD3LSNZ7GWBb+VkyusMyiZbl
-         RdWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744358675; x=1744963475;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=eL6mQhh76fyOvITqDMOePPOrdn2eCivxVT00/39k9KQ=;
-        b=ogIyINVItzCXnazC+69tKQ/YNix1NvXuOzh2Y54iWWyZdySznuy7FPaAjMAIKrK72q
-         npAzw/Xy3AMKo1ERN86Yi2sAn7rlW1XKZ58MoH5mJV9wM4i0gsYopnqqlxJkpD1XWubb
-         jK1MNmkboDglh7MHVbXdSoEw49jAcgD/UYRO7wIivonT2Z635etS+j0q3mqjpWSOC2An
-         ct5Fz2mqglGgsuJY+/bI767WJsngyWrtYJcU5vZNURT+GRVghqZdkXk2Xp87dp/gA/oI
-         /9XNrp+vGPkbTfqDug6FwJ7eEgZ7b5svyuzXVMWEbXZax2sCQ7z8BoszIr22IRlPN6DT
-         0jQw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVRUlzcxpVVZRxW269BVfGdDId1Z3NcieFovkj4T0IgtmML602VxECNm5kcrklLK/DGkmeavy4PqMiHw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUvPMyPwI4lBwkDJVg5VsVE+AoIyWqeyyEs+mXKDZYzzV9+OOw
-	wypWGJeOGx8MLKI03v2p4hQB85XHimRGoAgjuLd4CffONDVTalLix6kR5dofMZe1X1aS8kquEXg
-	H6cClU3eMq6sEkfVeZultG+gTiOmwu/YW3XXopw==
-X-Gm-Gg: ASbGncsalxO9LqxpK8vn8jLIOryhW649ALHbEZG6a86gBZwu6R22o3hnfbKMs6r/EwN
-	HcNSpikSy+aplHKeADPePW5lEiHaqPi91hdliR8tbH1k6IdOZOWPGpYDDvgQmDHnNnALZDtUQid
-	lUY35XKdqOvP6bDpwp+ycXDnbZ8twtUSRDv2jLjOls4mWW4yApYGW3+r1HdF77GdDOqmU=
-X-Google-Smtp-Source: AGHT+IFS+vDPSsUy3KBR+YuGEKwg0Uf3ZoAvbd0MVCMxEojLhJBnmjz9Np5nkTvKpK/n9aULedLJ1qS+Z07+mWcOA8o=
-X-Received: by 2002:a05:6102:5487:b0:4ba:9923:fa57 with SMTP id
- ada2fe7eead31-4c9e4f1f22amr855491137.15.1744358675331; Fri, 11 Apr 2025
- 01:04:35 -0700 (PDT)
+	Fri, 11 Apr 2025 08:05:04 +0000
+Date: Fri, 11 Apr 2025 10:04:59 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1744358699;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=acahTmX/Ax/Xqa2f81n9R3vfnkbghOQZSuqUtDgmDeM=;
+	b=vn4ssqD5JVEiAj/kpeH5e0vHVyEUEGiE7CU9zpBifLFAgaz8fIAq/Rcrtkko0HIVY48woe
+	nArX6fn3jfNP/ZaIq+wlktW0KmJcCmYESJNZryoJtZ4lOS8Z0Ec06fsu5RbG5lxypBWr9i
+	ZP9cgKaQYJT8aDbtZHshjRpIirBMSINoviM602kahPTR+nF9uNOeautxlIg4PJBnT3yqtk
+	MOYaZdfuXocNfACPJEySkRVYZYZaNz6YY4/RvgikVGqFFKaBEyg8R9swpUZXGawT7CKp2d
+	1Quk8T1XWpuP57fTryJGK0GL3QpyfyR5OT51Xq6H282YFbmpzN2+IYRi6Hcrqg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1744358699;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=acahTmX/Ax/Xqa2f81n9R3vfnkbghOQZSuqUtDgmDeM=;
+	b=ugY7xUUZqt2Uu5n/DsIYlO/QK28i7E0Wv0P6u+AYKwbrXKRVEEmoB5JIw3qdikao3pKbo9
+	DVSp/qUHQ84BA3BQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Xi Ruoyao <xry111@xry111.site>
+Cc: "Jason A. Donenfeld" <Jason@zx2c4.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: vDSO: Wire up getrandom() vDSO implementation
+Message-ID: <20250411095103-2aad099a-e4a1-4efb-8374-dd27bf05b668@linutronix.de>
+References: <20250411024600.16045-1-xry111@xry111.site>
 MIME-Version: 1.0
-References: <20250411073850.3699180-1-nylon.chen@sifive.com>
- <20250411073850.3699180-3-nylon.chen@sifive.com> <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
-In-Reply-To: <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
-From: Nylon Chen <nylon.chen@sifive.com>
-Date: Fri, 11 Apr 2025 16:04:23 +0800
-X-Gm-Features: ATxdqUGn2A6qXgf2-HkGrf1A-Gq8MHEb_wirNKnK1k9VoLh8b2bfH0MqDkKbStk
-Message-ID: <CAHh=Yk9RrUDi+73QAYgjBhMOzKKznq9NGwRCo_GkbYZwi4cuuQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] riscv: misaligned: fix sleeping function called
- during misaligned access handling
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, charlie@rivosinc.com, jesse@rivosinc.com, evan@rivosinc.com, 
-	zhangchunyan@iscas.ac.cn, samuel.holland@sifive.com, zong.li@sifive.com
+Content-Disposition: inline
+In-Reply-To: <20250411024600.16045-1-xry111@xry111.site>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_090438_699334_A981A3CB 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20250411_010502_932454_37AB514B 
+X-CRM114-Status: GOOD (  19.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,66 +72,170 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpUaGFua3MgZm9yIHlvdXIgaW5mb3JtYXRpb24KCkkgd2lsbCB0ZXN0IHlv
-dXIgcGF0Y2ggYXMgd2VsbCwgYW5kIGlmIG5vIG90aGVyIGlzc3VlcyBhcmlzZSwKSSdsbCByZW1v
-dmUgdGhpcyBjaGFuZ2UgZnJvbSB0aGUgcGF0Y2hzZXQgaW4gdGhlIG5leHQgdmVyc2lvbgoKVGhh
-bmtzCgpOeWxvbgpDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+IOaWvCAyMDI1
-5bm0NOaciDEx5pelIOmAseS6lCDkuIvljYgzOjM35a+r6YGT77yaCj4KPiBIaSBOeWxvbiwKPgo+
-IEkgYWxyZWFkeSBoYXZlIGEgcGVuZGluZyBmaXggZm9yIHRoYXQgYnVnIHdoaWNoIGlzIHRvIHJl
-ZW5hYmxlCj4gaW50ZXJydXB0cyB3aGlsZSBoYW5kbGluZyBtaXNhbGlnbmVkIGZhdWx0cy4gUGxl
-YXNlIHNlZToKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI1MDMxNzE3
-MDYyNS4xMTQyODcwLTEyLWNsZWdlckByaXZvc2luYy5jb20vCj4KPiBUaGFua3MsCj4KPiBDbMOp
-bWVudAo+Cj4gT24gMTEvMDQvMjAyNSAwOTozOCwgTnlsb24gQ2hlbiB3cm90ZToKPiA+IFVzZSBj
-b3B5X2Zyb21fdXNlcl9ub2ZhdWx0KCkgYW5kIGNvcHlfdG9fdXNlcl9ub2ZhdWx0KCkgaW5zdGVh
-ZCBvZgo+ID4gY29weV9mcm9tL3RvX3VzZXIgZnVuY3Rpb25zIGluIHRoZSBtaXNhbGlnbmVkIGFj
-Y2VzcyB0cmFwIGhhbmRsZXJzLgo+ID4KPiA+IFRoZSBmb2xsb3dpbmcgYnVnIHJlcG9ydCB3YXMg
-Zm91bmQgd2hlbiBleGVjdXRpbmcgbWlzYWxpZ25lZCBtZW1vcnkKPiA+IGFjY2Vzc2VzOgo+ID4K
-PiA+IEJVRzogc2xlZXBpbmcgZnVuY3Rpb24gY2FsbGVkIGZyb20gaW52YWxpZCBjb250ZXh0IGF0
-IC4vaW5jbHVkZS9saW51eC91YWNjZXNzLmg6MTYyCj4gPiBpbl9hdG9taWMoKTogMCwgaXJxc19k
-aXNhYmxlZCgpOiAxLCBub25fYmxvY2s6IDAsIHBpZDogMTE1LCBuYW1lOiB0d28KPiA+IHByZWVt
-cHRfY291bnQ6IDAsIGV4cGVjdGVkOiAwCj4gPiBDUFU6IDAgVUlEOiAwIFBJRDogMTE1IENvbW06
-IHR3byBOb3QgdGFpbnRlZCA2LjE0LjAtcmM1ICMyNAo+ID4gSGFyZHdhcmUgbmFtZTogcmlzY3Yt
-dmlydGlvLHFlbXUgKERUKQo+ID4gQ2FsbCBUcmFjZToKPiA+ICBbPGZmZmZmZmZmODAwMTYwZWE+
-XSBkdW1wX2JhY2t0cmFjZSsweDFjLzB4MjQKPiA+ICBbPGZmZmZmZmZmODAwMDIzMDQ+XSBzaG93
-X3N0YWNrKzB4MjgvMHgzNAo+ID4gIFs8ZmZmZmZmZmY4MDAxMGZhZT5dIGR1bXBfc3RhY2tfbHZs
-KzB4NGEvMHg2OAo+ID4gIFs8ZmZmZmZmZmY4MDAxMGZlMD5dIGR1bXBfc3RhY2srMHgxNC8weDFj
-Cj4gPiAgWzxmZmZmZmZmZjgwMDRlNDRlPl0gX19taWdodF9yZXNjaGVkKzB4ZmEvMHgxMDQKPiA+
-ICBbPGZmZmZmZmZmODAwNGU0OTY+XSBfX21pZ2h0X3NsZWVwKzB4M2UvMHg2Mgo+ID4gIFs8ZmZm
-ZmZmZmY4MDE5NjNjND5dIF9fbWlnaHRfZmF1bHQrMHgxYy8weDI0Cj4gPiAgWzxmZmZmZmZmZjgw
-NDI1MzUyPl0gX2NvcHlfZnJvbV91c2VyKzB4MjgvMHhhYQo+ID4gIFs8ZmZmZmZmZmY4MDAwMjk2
-Yz5dIGhhbmRsZV9taXNhbGlnbmVkX3N0b3JlKzB4MjA0LzB4MjU0Cj4gPiAgWzxmZmZmZmZmZjgw
-OWVhZTgyPl0gZG9fdHJhcF9zdG9yZV9taXNhbGlnbmVkKzB4MjQvMHhlZQo+ID4gIFs8ZmZmZmZm
-ZmY4MDlmNGYxYT5dIGhhbmRsZV9leGNlcHRpb24rMHgxNDYvMHgxNTIKPiA+Cj4gPiBGaXhlczog
-YjY4NmVjZGVhY2Y2ICgicmlzY3Y6IG1pc2FsaWduZWQ6IFJlc3RyaWN0IHVzZXIgYWNjZXNzIHRv
-IGtlcm5lbCBtZW1vcnkiKQo+ID4gRml4ZXM6IDQ0MTM4MTUwNmJhNyAoInJpc2N2OiBtaXNhbGln
-bmVkOiByZW1vdmUgQ09ORklHX1JJU0NWX01fTU9ERSBzcGVjaWZpYyBjb2RlIikKPiA+Cj4gPiBT
-aWduZWQtb2ZmLWJ5OiBab25nIExpIDx6b25nLmxpQHNpZml2ZS5jb20+Cj4gPiBTaWduZWQtb2Zm
-LWJ5OiBOeWxvbiBDaGVuIDxueWxvbi5jaGVuQHNpZml2ZS5jb20+Cj4gPiAtLS0KPiA+ICBhcmNo
-L3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgfCA0ICsrLS0KPiA+ICAxIGZpbGUgY2hh
-bmdlZCwgMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC90cmFwc19taXNhbGlnbmVkLmMKPiA+IGluZGV4IGQ3Mjc1ZGZiNmI3ZS4uNTYzZjczZjg4ZmE4
-IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jCj4g
-PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKPiA+IEBAIC00NTUs
-NyArNDU1LDcgQEAgc3RhdGljIGludCBoYW5kbGVfc2NhbGFyX21pc2FsaWduZWRfbG9hZChzdHJ1
-Y3QgcHRfcmVncyAqcmVncykKPiA+Cj4gPiAgICAgICB2YWwuZGF0YV91NjQgPSAwOwo+ID4gICAg
-ICAgaWYgKHVzZXJfbW9kZShyZWdzKSkgewo+ID4gLSAgICAgICAgICAgICBpZiAoY29weV9mcm9t
-X3VzZXIoJnZhbCwgKHU4IF9fdXNlciAqKWFkZHIsIGxlbikpCj4gPiArICAgICAgICAgICAgIGlm
-IChjb3B5X2Zyb21fdXNlcl9ub2ZhdWx0KCZ2YWwsICh1OCBfX3VzZXIgKilhZGRyLCBsZW4pKQo+
-ID4gICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtMTsKPiA+ICAgICAgIH0gZWxzZSB7Cj4g
-PiAgICAgICAgICAgICAgIG1lbWNweSgmdmFsLCAodTggKilhZGRyLCBsZW4pOwo+ID4gQEAgLTU1
-Niw3ICs1NTYsNyBAQCBzdGF0aWMgaW50IGhhbmRsZV9zY2FsYXJfbWlzYWxpZ25lZF9zdG9yZShz
-dHJ1Y3QgcHRfcmVncyAqcmVncykKPiA+ICAgICAgICAgICAgICAgcmV0dXJuIC1FT1BOT1RTVVBQ
-Owo+ID4KPiA+ICAgICAgIGlmICh1c2VyX21vZGUocmVncykpIHsKPiA+IC0gICAgICAgICAgICAg
-aWYgKGNvcHlfdG9fdXNlcigodTggX191c2VyICopYWRkciwgJnZhbCwgbGVuKSkKPiA+ICsgICAg
-ICAgICAgICAgaWYgKGNvcHlfdG9fdXNlcl9ub2ZhdWx0KCh1OCBfX3VzZXIgKilhZGRyLCAmdmFs
-LCBsZW4pKQo+ID4gICAgICAgICAgICAgICAgICAgICAgIHJldHVybiAtMTsKPiA+ICAgICAgIH0g
-ZWxzZSB7Cj4gPiAgICAgICAgICAgICAgIG1lbWNweSgodTggKilhZGRyLCAmdmFsLCBsZW4pOwo+
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Apr 11, 2025 at 10:46:00AM +0800, Xi Ruoyao wrote:
+> Hook up the generic vDSO implementation to the generic vDSO getrandom
+> implementation by providing the required __arch_chacha20_blocks_nostack
+> and getrandom_syscall implementations. Also wire up the selftests.
+> 
+> The benchmark result:
+> 
+> 	vdso: 25000000 times in 2.466341333 seconds
+> 	libc: 25000000 times in 41.447720005 seconds
+> 	syscall: 25000000 times in 41.043926672 seconds
+> 
+> 	vdso: 25000000 x 256 times in 162.286219353 seconds
+> 	libc: 25000000 x 256 times in 2953.855018685 seconds
+> 	syscall: 25000000 x 256 times in 2796.268546000 seconds
+> 
+> Signed-off-by: Xi Ruoyao <xry111@xry111.site>
+> ---
+> 
+> [v1]->v2:
+> - Fix the commit message.
+> - Only build the vDSO getrandom code if CONFIG_VDSO_GETRANDOM, to
+>   unbreak RV32 build.
+> - Likewise, only enable the selftest if __riscv_xlen == 64.
+> 
+> [v1]: https://lore.kernel.org/all/20250224122541.65045-1-xry111@xry111.site/
+> 
+>  arch/riscv/Kconfig                            |   1 +
+>  arch/riscv/include/asm/vdso/getrandom.h       |  30 +++
+>  arch/riscv/kernel/vdso/Makefile               |  12 +
+>  arch/riscv/kernel/vdso/getrandom.c            |  10 +
+>  arch/riscv/kernel/vdso/vdso.lds.S             |   1 +
+>  arch/riscv/kernel/vdso/vgetrandom-chacha.S    | 244 ++++++++++++++++++
+>  .../selftests/vDSO/vgetrandom-chacha.S        |   2 +
+>  7 files changed, 300 insertions(+)
+>  create mode 100644 arch/riscv/include/asm/vdso/getrandom.h
+>  create mode 100644 arch/riscv/kernel/vdso/getrandom.c
+>  create mode 100644 arch/riscv/kernel/vdso/vgetrandom-chacha.S
+
+<snip>
+
+> diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+> index 8e86965a8aae..abc69cda0445 100644
+> --- a/arch/riscv/kernel/vdso/vdso.lds.S
+> +++ b/arch/riscv/kernel/vdso/vdso.lds.S
+> @@ -80,6 +80,7 @@ VERSION
+>  #ifndef COMPAT_VDSO
+>  		__vdso_riscv_hwprobe;
+>  #endif
+> +		__vdso_getrandom;
+
+For consistency this could be gated behind CONFIG_VDSO_GETRANDOM.
+
+>  	local: *;
+>  	};
+>  }
+> diff --git a/arch/riscv/kernel/vdso/vgetrandom-chacha.S b/arch/riscv/kernel/vdso/vgetrandom-chacha.S
+> new file mode 100644
+> index 000000000000..d793cadc78a6
+> --- /dev/null
+> +++ b/arch/riscv/kernel/vdso/vgetrandom-chacha.S
+> @@ -0,0 +1,244 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (C) 2025 Xi Ruoyao <xry111@xry111.site>. All Rights Reserved.
+> + *
+> + * Based on arch/loongarch/vdso/vgetrandom-chacha.S.
+> + */
+> +
+> +#include <asm/asm.h>
+> +#include <linux/linkage.h>
+> +
+> +.text
+> +
+> +.macro	ROTRI	rd rs imm
+> +	slliw	t0, \rs, 32 - \imm
+> +	srliw	\rd, \rs, \imm
+> +	or	\rd, \rd, t0
+> +.endm
+> +
+> +.macro	OP_4REG	op d0 d1 d2 d3 s0 s1 s2 s3
+> +	\op	\d0, \d0, \s0
+> +	\op	\d1, \d1, \s1
+> +	\op	\d2, \d2, \s2
+> +	\op	\d3, \d3, \s3
+> +.endm
+> +
+> +/*
+> + *	a0: output bytes
+> + * 	a1: 32-byte key input
+> + *	a2: 8-byte counter input/output
+> + *	a3: number of 64-byte blocks to write to output
+> + */
+> +SYM_FUNC_START(__arch_chacha20_blocks_nostack)
+> +
+> +#define output		a0
+> +#define key		a1
+> +#define counter		a2
+> +#define nblocks		a3
+> +#define i		a4
+> +#define state0		s0
+> +#define state1		s1
+> +#define state2		s2
+> +#define state3		s3
+> +#define state4		s4
+> +#define state5		s5
+> +#define state6		s6
+> +#define state7		s7
+> +#define state8		s8
+> +#define state9		s9
+> +#define state10		s10
+> +#define state11		s11
+> +#define state12		a5
+> +#define state13		a6
+> +#define state14		a7
+> +#define state15		t1
+> +#define cnt		t2
+> +#define copy0		t3
+> +#define copy1		t4
+> +#define copy2		t5
+> +#define copy3		t6
+> +
+> +/* Packs to be used with OP_4REG */
+> +#define line0		state0, state1, state2, state3
+> +#define line1		state4, state5, state6, state7
+> +#define line2		state8, state9, state10, state11
+> +#define line3		state12, state13, state14, state15
+> +
+> +#define line1_perm	state5, state6, state7, state4
+> +#define line2_perm	state10, state11, state8, state9
+> +#define line3_perm	state15, state12, state13, state14
+> +
+> +#define copy		copy0, copy1, copy2, copy3
+> +
+> +#define _16		16, 16, 16, 16
+> +#define _20		20, 20, 20, 20
+> +#define _24		24, 24, 24, 24
+> +#define _25		25, 25, 25, 25
+> +
+> +	addi		sp, sp, -12*SZREG
+> +	REG_S		s0,         (sp)
+> +	REG_S		s1,    SZREG(sp)
+> +	REG_S		s2,  2*SZREG(sp)
+> +	REG_S		s3,  3*SZREG(sp)
+> +	REG_S		s4,  4*SZREG(sp)
+> +	REG_S		s5,  5*SZREG(sp)
+> +	REG_S		s6,  6*SZREG(sp)
+> +	REG_S		s7,  7*SZREG(sp)
+> +	REG_S		s8,  8*SZREG(sp)
+> +	REG_S		s9,  9*SZREG(sp)
+> +	REG_S		s10, 10*SZREG(sp)
+> +	REG_S		s11, 11*SZREG(sp)
+
+This should have the same comment as the loongarch implementation that it is
+fine to store to the stack here. Contrary to the general claim of the
+documentation for __arch_chacha20_blocks_nostack() in include/linux/getrandom.h.
+
+<snip>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
