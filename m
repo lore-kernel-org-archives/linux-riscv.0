@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28E30C369A8
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 06:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770C9C369A2
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 07:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ROpMHFMZxPZJaaNM/AyhRSo4BksvBfa10WpLNGywNLQ=; b=cUFzc3yArBBM4k
-	hlKKg5lawD/YoofKMjo2jThfgdsP+2Fa9Ogqq0a+qWwmIs3q7Oz321HaiART8RDLVL7m2PoBiFnqq
-	h/M5mmHhwjHdEkXQfWFpl8iAvvg9cqCtLdOxcCedvUHlV+A1B8FEGsd35jGt+ntpNHwmWLIIctW72
-	pJnaMh3SqHo4Pudh71D2YbgSFC8bzmM99wn8MoJCJ4JcH9uNiQm4djXJmmbxJjx20lOlNqCJ79Hbd
-	G4rbaq6H5CkxT3DB8lGfIwqqyAQAplloNAdxOXR7gO0wbtHoNHT0bsw98XTc3iQ9bLI9kmGgXoXL/
-	h8Z451ajE+2btpIkKmAg==;
+	List-Owner; bh=tLUjItyIDVp4C4Ooz3WboKOSAAbZVXkBhuxM5BImJMk=; b=JTGZrQDDsh2FPd
+	NSIS6cf8wPKIEa8Xc1Kx6yFzA1zi50X5u/lWngPm9w/lXOKOmLj0//l26t8ejZIICa0hyJvuP7Ss/
+	GFyLXzwR743NkwmuCVfokwOzePuwye8yNnUOpU2yDHayi+CwW8GnLSAJ5zdlje6oOmCIeE8CPyirP
+	w7Beh9yE5HFODKx7DNtc17LXFJf+zRbvzHQGW4Ppog7R0sF7ZuhjS9jielfoozRM9I4Y8P4gtqWnn
+	blsGtktA258PeiVMUwRJBcDKmOgTB1lJBQSJeXyjy2n4aF43PfrdZUDggnfBA39UGXf5OnOG8zDDe
+	luAiWMWbjBT6gQD2F/KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u388L-0000000Cllp-188M;
-	Fri, 11 Apr 2025 06:45:01 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u38o8-0000000CrQ0-2nnP;
+	Fri, 11 Apr 2025 07:28:12 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u37lj-0000000Ci01-36ry
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 11 Apr 2025 06:21:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=rVT8LKbU3fSlAY+4wTZXMe+j9MMekeeXuA3OF9rjvUs=; b=IxTafeylEcAtpq7Qr7FDZMoTjZ
-	haPWC5hviw+UeRXu+Bl0r2lNaX4QG4EJPOTKYwwte1A07gRzasXMAeEKW0z8137gmlwXKJ7P1n7WX
-	0VGYQESSF/ShOPbrzaTEshst3HNIy27kfSygKfoleliwQPwnSIzolVSw1LFwbVkMyAkmDoKdPY86s
-	1lmzch0qX8o4kx7fXLs+Or+mrqqg57l1tHrwtSgNbFq2KN012ofbPFTi31a+WtCuZlxxpiJHyL7f2
-	PRbi8hsNbpsWWPoAwD09blE2NtrHcscsedmQSI3CZYXIcEMq+lGI37TVjRGNVa9KFkMCE1Z8logyg
-	2gvkLcUw==;
-Received: from relay1-d.mail.gandi.net ([217.70.183.193])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u37lg-00000008vtn-1IuT
-	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 06:21:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 261264435A;
-	Fri, 11 Apr 2025 06:21:26 +0000 (UTC)
-Message-ID: <23693e7f-4fff-40f3-a437-e06d827278a5@ghiti.fr>
-Date: Fri, 11 Apr 2025 08:21:25 +0200
+	id 1u37BY-0000000CaOA-2LFY;
+	Fri, 11 Apr 2025 05:44:20 +0000
+Received: from pps.filterd (m0356517.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53AMLidX010582;
+	Fri, 11 Apr 2025 05:44:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=pp1; bh=RRgLMuW9FBdfsLDbO
+	418TaZTwPRgtX9fnAGKx+FMhHo=; b=cpzi7jHnFwlI5AGEiIGn1MZSZ1Z00RIvP
+	gsU+nUo4gbYl2tppaWXB6VpJYbrx8nFGmRxIJ5R5OsxMNxhqShlFQVEdrlkjkcPh
+	d/hP8+hfnQGGjcaUQoDR9/EUN4/z8vfLCdUbSqMqrhzmzVaqc829PS3OwXaM19BE
+	X4WpP6aScb+rhA1R6LCW07mcAGjvmN+lGO0mjWPrn8cgjzH8/EzLkEut0TuuNjVN
+	N82HD9V4WjQbnzc0ZU+DOOxkDJWU2xu1Upypz4D6GMcN65lIYB0NWxBmZXPIvd8E
+	Cw6lcun+NnjXn0xZEje2a6DAHUCUn61Cpkd1NpmDHVNVK573qPH+A==
+Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 45xfdqkxwt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:07 +0000 (GMT)
+Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53B1qKSq017447;
+	Fri, 11 Apr 2025 05:44:05 GMT
+Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
+	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 45uh2m1cvh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 11 Apr 2025 05:44:05 +0000
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53B5i4vw30015838
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 11 Apr 2025 05:44:04 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id EE42520040;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 2528D20049;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 11 Apr 2025 05:44:03 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id 81C9760AC7;
+	Fri, 11 Apr 2025 15:43:57 +1000 (AEST)
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: linuxppc-dev@lists.ozlabs.org
+Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+        christophe.leroy@csgroup.eu
+Subject: [PATCH v14 09/11] powerpc: mm: Implement *_user_accessible_page() for ptes
+Date: Fri, 11 Apr 2025 15:43:52 +1000
+Message-ID: <20250411054354.511145-10-ajd@linux.ibm.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250411054354.511145-1-ajd@linux.ibm.com>
+References: <20250411054354.511145-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-Content-Language: en-US
-To: WangYuli <wangyuli@uniontech.com>, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu
-Cc: chenhuacai@kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
- palmerdabbelt@google.com, samuel.holland@sifive.com, zhanjun@uniontech.com,
- niecheng1@uniontech.com, guanwentao@uniontech.com,
- Huacai Chen <chenhuacai@loongson.cn>
-References: <C5DCACA951B6211D+20250408095454.67390-1-wangyuli@uniontech.com>
- <ccc97669-a4dc-459f-a26f-1fdad8b4a334@ghiti.fr>
- <3A22DFCBC7B91F71+320f58c6-0fc6-4dc4-9fb0-ab0d55be697a@uniontech.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <3A22DFCBC7B91F71+320f58c6-0fc6-4dc4-9fb0-ab0d55be697a@uniontech.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvuddutdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepudelfedrfeefrdehjedrudelleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeduleefrdeffedrheejrdduleelpdhhvghloheplgduledvrdduieekrddvuddrvdehngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedugedprhgtphhtthhopeifrghnghihuhhlihesuhhnihhonhhtvggthhdrtghomhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhvghnhhhurggtrghisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvs
- ehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvhhinhgtvghnthdrtghhvghnsehsihhfihhvvgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+X-TM-AS-GCONF: 00
+X-Proofpoint-GUID: 8yWxrfJXEc3Tb8NWcx8LNkIxPXBoO1vS
+X-Proofpoint-ORIG-GUID: 8yWxrfJXEc3Tb8NWcx8LNkIxPXBoO1vS
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-11_01,2025-04-10_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ mlxscore=0 priorityscore=1501 adultscore=0 phishscore=0 mlxlogscore=597
+ impostorscore=0 bulkscore=0 clxscore=1015 lowpriorityscore=0 spamscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504110038
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_072136_902770_4CDA6551 
-X-CRM114-Status: GOOD (  16.68  )
+X-CRM114-CacheID: sfid-20250410_224416_599226_44C1126F 
+X-CRM114-Status: GOOD (  16.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,63 +105,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi WangYuli,
+From: Rohan McLure <rmclure@linux.ibm.com>
 
-On 10/04/2025 16:28, WangYuli wrote:
-> Hi Alex
->
-> On 2025/4/10 21:42, Alexandre Ghiti wrote:
->> Hi WangYuli,
->>
->>
->> You forgot to replace kgdb_breakinst into kgdb_compiled_break.
->
-> OK, I'll fix it.
->
-> Thanks,
->
->>
->> You are fixing 2 things here, you need to split this patch into 2. 
-> OK,
->> And as noted by Palmer, we actually don't need norvc here, so you can 
->> remove it instead.
->
-> I have some questions regarding this.
->
-> If .option norvc is unnecessary, what is the significance of .option 
-> push/.option pop?
->
-> Should they also be removed as well?
+Page table checking depends on architectures providing an
+implementation of p{te,md,ud}_user_accessible_page. With
+refactorisations made on powerpc/mm, the pte_access_permitted() and
+similar methods verify whether a userland page is accessible with the
+required permissions.
 
+Since page table checking is the only user of
+p{te,md,ud}_user_accessible_page(), implement these for all platforms,
+using some of the same preliminary checks taken by pte_access_permitted()
+on that platform.
 
-Yes, you can remove them.
+Since commit 8e9bd41e4ce1 ("powerpc/nohash: Replace pte_user() by pte_read()")
+pte_user() is no longer required to be present on all platforms as it
+may be equivalent to or implied by pte_read(). Hence implementations of
+pte_user_accessible_page() are specialised.
 
+Signed-off-by: Rohan McLure <rmclure@linux.ibm.com>
+Reviewed-by: Pasha Tatashin <pasha.tatashin@soleen.com>
+[ajd: rebase and fix commit message]
+Signed-off-by: Andrew Donnellan <ajd@linux.ibm.com>
+---
+ arch/powerpc/include/asm/book3s/32/pgtable.h |  5 +++++
+ arch/powerpc/include/asm/book3s/64/pgtable.h | 17 +++++++++++++++++
+ arch/powerpc/include/asm/nohash/pgtable.h    |  5 +++++
+ arch/powerpc/include/asm/pgtable.h           |  8 ++++++++
+ 4 files changed, 35 insertions(+)
 
->
-> However, will this still function properly when the RISC-V C extension 
-> is active?
-
-
-.option norvc is used to prevent the assembler from using compressed 
-instructions, but it's generally used when we need to ensure the size of 
-the instructions that are used, which is not the case here as noted by 
-Palmer since we only care about the address. So yes it will work fine 
-with C enabled :)
-
-
->
->
-> Thanks,
->
-
-Thanks for the changes!
-
-Alex
+diff --git a/arch/powerpc/include/asm/book3s/32/pgtable.h b/arch/powerpc/include/asm/book3s/32/pgtable.h
+index 42c3af90d1f0..a2305d850fc9 100644
+--- a/arch/powerpc/include/asm/book3s/32/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/32/pgtable.h
+@@ -437,6 +437,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return true;
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && !is_kernel_addr(addr);
++}
++
+ /* Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+  *
+diff --git a/arch/powerpc/include/asm/book3s/64/pgtable.h b/arch/powerpc/include/asm/book3s/64/pgtable.h
+index 6d98e6f08d4d..754d4d525f0e 100644
+--- a/arch/powerpc/include/asm/book3s/64/pgtable.h
++++ b/arch/powerpc/include/asm/book3s/64/pgtable.h
+@@ -540,6 +540,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return arch_pte_access_permitted(pte_val(pte), write, 0);
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && pte_user(pte);
++}
++
+ /*
+  * Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+@@ -1431,5 +1436,17 @@ static inline bool is_pte_rw_upgrade(unsigned long old_val, unsigned long new_va
+ 	return false;
+ }
+ 
++#define pmd_user_accessible_page pmd_user_accessible_page
++static inline bool pmd_user_accessible_page(pmd_t pmd, unsigned long addr)
++{
++	return pmd_leaf(pmd) && pte_user_accessible_page(pmd_pte(pmd), addr);
++}
++
++#define pud_user_accessible_page pud_user_accessible_page
++static inline bool pud_user_accessible_page(pud_t pud, unsigned long addr)
++{
++	return pud_leaf(pud) && pte_user_accessible_page(pud_pte(pud), addr);
++}
++
+ #endif /* __ASSEMBLY__ */
+ #endif /* _ASM_POWERPC_BOOK3S_64_PGTABLE_H_ */
+diff --git a/arch/powerpc/include/asm/nohash/pgtable.h b/arch/powerpc/include/asm/nohash/pgtable.h
+index 8d1f0b7062eb..1c3dfe2d6cc1 100644
+--- a/arch/powerpc/include/asm/nohash/pgtable.h
++++ b/arch/powerpc/include/asm/nohash/pgtable.h
+@@ -243,6 +243,11 @@ static inline bool pte_access_permitted(pte_t pte, bool write)
+ 	return true;
+ }
+ 
++static inline bool pte_user_accessible_page(pte_t pte, unsigned long addr)
++{
++	return pte_present(pte) && !is_kernel_addr(addr);
++}
++
+ /* Conversion functions: convert a page and protection to a page entry,
+  * and a page entry and page directory to the page they refer to.
+  *
+diff --git a/arch/powerpc/include/asm/pgtable.h b/arch/powerpc/include/asm/pgtable.h
+index bb43e4f46367..3cae32c74fed 100644
+--- a/arch/powerpc/include/asm/pgtable.h
++++ b/arch/powerpc/include/asm/pgtable.h
+@@ -224,6 +224,14 @@ static inline int pud_pfn(pud_t pud)
+ }
+ #endif
+ 
++#ifndef pmd_user_accessible_page
++#define pmd_user_accessible_page(pmd, addr)	false
++#endif
++
++#ifndef pud_user_accessible_page
++#define pud_user_accessible_page(pud, addr)	false
++#endif
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _ASM_POWERPC_PGTABLE_H */
+-- 
+2.49.0
 
 
 _______________________________________________
