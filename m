@@ -4,57 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15968C369A9
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 08:45:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 675D6C36010
+	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 09:13:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZtL2pVgVqSgh3ermvqDlp3URwDwQ+WYuNKqIVFqTRPM=; b=GsBcppyhxB3fQY
-	AoRvRYVXm6Bv7WSFygLYiJH/720QZeiaMPjFxmnvgzEIMX5MZLq99GwrWoUB2N5WbX1hfG1Fj0Cga
-	jUDtXTCw0kUYXUeXDRAwrjDoj8MOir1Bm2lvzvI8tVOL3MRiTs1Kbia1GilAtScV/Yy/SLSUda2fu
-	IWNlTyiOIU0SBpxFM+G+OG+lMZ8UucXvUEikvYtuHfhzoUaJz1vS02wQhxhe08lQ0CJKZNmw2/GIG
-	dLT2cuQoh7iBeQ/vK8UHYLAhqXE7NSkkOGVst87Cj07KVnNoLlzguM3Q16GVeJpfjOGAQ6lw+gO7a
-	/SIgGtGhpB2PIbfgrA1A==;
+	List-Owner; bh=B3/X3kU6PVNdKWlLXEDBbOWymBpAXmafyY73FOYGKDg=; b=GhzgA4X7NuSyhb
+	zkCrvu3KR87InTngf+ZW0P+N5EcAfPcDGZpDdhCvNk/wXqEHTIFHRkZUoNbBxLu4Yizz8RcbhRd77
+	zyQlDH8E4scrQEmA8/mMwtAT+x0qrwHsB9ECahFtoHUtGyI9AGAmd2Zfjd7+DAmGT5fzQMLyYYL6V
+	JFe9cxppOwmwF1DDjyGGhC0M4KR5AfG9FOoghLfahAYF9FZE8lfGdpyUdDmOVCiDOSKDB+Ly3e+2S
+	AQUkfd1LilvIYplzRc2WDd17u9tRxysy+2QeqYOO4hXlpG5UbiWdxrT+KOkgpH5UaptNbMPy/o1tf
+	q6gAOZpkHS40Z7NHg2gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3A0v-0000000D4rB-3oga;
-	Fri, 11 Apr 2025 08:45:29 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u3ASD-0000000D9e3-3TB6;
+	Fri, 11 Apr 2025 09:13:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u39rG-0000000D2NR-0sUn
-	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 08:35:32 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id C7F3743155;
-	Fri, 11 Apr 2025 08:35:22 +0000 (UTC)
-Message-ID: <22a2c734-b446-4b1e-a2bc-a0080656fe29@ghiti.fr>
-Date: Fri, 11 Apr 2025 10:35:21 +0200
+	id 1u3AOj-0000000D8ux-3MjO;
+	Fri, 11 Apr 2025 09:10:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A4F75439A1;
+	Fri, 11 Apr 2025 09:10:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED85FC4CEE2;
+	Fri, 11 Apr 2025 09:10:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744362605;
+	bh=8Zf1l8FhhOvmDcUrwydoQzHxR+9Hs6zytjuZjgAOCFo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NpaUQ7D7fXnA5CFSGpmPhrBob5/1s31V2Xekejj1hAORbvFeQbeIf8k7X2YJa4p4+
+	 BiTxwRcHep9f5AZNUoEb0/k1GrbpavmRGU5KhbJgEXGSXTge/P/F3u/kkd4oKPTHFf
+	 61EeLOenMgRZdkUnnNjVnao6HH9jNc6eScn7ZrfBcKgNdFi4Aou6YKVLHJ3eJhgm2Y
+	 fEXDXXKA5tCoVYbZhtnSv6RWHciOO3GYEduGiKLpBDdznMarlfpaXG3uE79VVJcqFA
+	 U6CATX8gDE7XYNOJRzrNfygVtr9kGiU1vi5fZAGt0HzNkMHc4ovCN6KV5Ij2WF+80C
+	 Zed1ahSEbtH5w==
+Date: Fri, 11 Apr 2025 11:10:00 +0200
+From: Ingo Molnar <mingo@kernel.org>
+To: Andrew Donnellan <ajd@linux.ibm.com>
+Cc: linuxppc-dev@lists.ozlabs.org, x86@kernel.org, linux-mm@kvack.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me,
+	christophe.leroy@csgroup.eu
+Subject: Re: [PATCH v14 00/11] Support page table check on PowerPC
+Message-ID: <Z_jcaCdMFENW8KSG@gmail.com>
+References: <20250411054354.511145-1-ajd@linux.ibm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv: misaligned: fix sleeping function called
- during misaligned access handling
-Content-Language: en-US
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Nylon Chen <nylon.chen@sifive.com>, linux-kernel@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, charlie@rivosinc.com,
- jesse@rivosinc.com, evan@rivosinc.com, zhangchunyan@iscas.ac.cn,
- samuel.holland@sifive.com, zong.li@sifive.com
-References: <20250411073850.3699180-1-nylon.chen@sifive.com>
- <20250411073850.3699180-3-nylon.chen@sifive.com>
- <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <992e3135-0c55-403c-9f71-d76c59cec75b@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvuddufeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeduffeugedvtdegleeuhfeuteetueegfeefkefhheffvdduhfegvdehuddukeffgeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppeduleefrdeffedrheejrdduleelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepudelfedrfeefrdehjedrudelledphhgvlhhopegludelvddrudeikedrvddurddvhegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheptghlvghgvghrsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehnhihlohhnrdgthhgvnhesshhifhhivhgvrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdpr
- hgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20250411054354.511145-1-ajd@linux.ibm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_013530_400290_65E343E2 
-X-CRM114-Status: GOOD (  15.57  )
+X-CRM114-CacheID: sfid-20250411_021005_865634_6E4AEC0C 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,64 +70,35 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpPbiAxMS8wNC8yMDI1IDA5OjM2LCBDbMOpbWVudCBMw6lnZXIgd3JvdGU6
-Cj4gSGkgTnlsb24sCj4KPiBJIGFscmVhZHkgaGF2ZSBhIHBlbmRpbmcgZml4IGZvciB0aGF0IGJ1
-ZyB3aGljaCBpcyB0byByZWVuYWJsZQo+IGludGVycnVwdHMgd2hpbGUgaGFuZGxpbmcgbWlzYWxp
-Z25lZCBmYXVsdHMuIFBsZWFzZSBzZWU6Cj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
-cmlzY3YvMjAyNTAzMTcxNzA2MjUuMTE0Mjg3MC0xMi1jbGVnZXJAcml2b3NpbmMuY29tLwoKCkNh
-biB5b3UgZXh0cmFjdCB0aGlzIGZpeCBmcm9tIHRoZSBzZXJpZXMgc28gdGhhdCBpdCBjYW4gYmUg
-bWVyZ2VkIGluIDYuMTU/CgpUaGFua3MsCgpBbGV4CgoKPgo+IFRoYW5rcywKPgo+IENsw6ltZW50
-Cj4KPiBPbiAxMS8wNC8yMDI1IDA5OjM4LCBOeWxvbiBDaGVuIHdyb3RlOgo+PiBVc2UgY29weV9m
-cm9tX3VzZXJfbm9mYXVsdCgpIGFuZCBjb3B5X3RvX3VzZXJfbm9mYXVsdCgpIGluc3RlYWQgb2YK
-Pj4gY29weV9mcm9tL3RvX3VzZXIgZnVuY3Rpb25zIGluIHRoZSBtaXNhbGlnbmVkIGFjY2VzcyB0
-cmFwIGhhbmRsZXJzLgo+Pgo+PiBUaGUgZm9sbG93aW5nIGJ1ZyByZXBvcnQgd2FzIGZvdW5kIHdo
-ZW4gZXhlY3V0aW5nIG1pc2FsaWduZWQgbWVtb3J5Cj4+IGFjY2Vzc2VzOgo+Pgo+PiBCVUc6IHNs
-ZWVwaW5nIGZ1bmN0aW9uIGNhbGxlZCBmcm9tIGludmFsaWQgY29udGV4dCBhdCAuL2luY2x1ZGUv
-bGludXgvdWFjY2Vzcy5oOjE2Mgo+PiBpbl9hdG9taWMoKTogMCwgaXJxc19kaXNhYmxlZCgpOiAx
-LCBub25fYmxvY2s6IDAsIHBpZDogMTE1LCBuYW1lOiB0d28KPj4gcHJlZW1wdF9jb3VudDogMCwg
-ZXhwZWN0ZWQ6IDAKPj4gQ1BVOiAwIFVJRDogMCBQSUQ6IDExNSBDb21tOiB0d28gTm90IHRhaW50
-ZWQgNi4xNC4wLXJjNSAjMjQKPj4gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERU
-KQo+PiBDYWxsIFRyYWNlOgo+PiAgIFs8ZmZmZmZmZmY4MDAxNjBlYT5dIGR1bXBfYmFja3RyYWNl
-KzB4MWMvMHgyNAo+PiAgIFs8ZmZmZmZmZmY4MDAwMjMwND5dIHNob3dfc3RhY2srMHgyOC8weDM0
-Cj4+ICAgWzxmZmZmZmZmZjgwMDEwZmFlPl0gZHVtcF9zdGFja19sdmwrMHg0YS8weDY4Cj4+ICAg
-WzxmZmZmZmZmZjgwMDEwZmUwPl0gZHVtcF9zdGFjaysweDE0LzB4MWMKPj4gICBbPGZmZmZmZmZm
-ODAwNGU0NGU+XSBfX21pZ2h0X3Jlc2NoZWQrMHhmYS8weDEwNAo+PiAgIFs8ZmZmZmZmZmY4MDA0
-ZTQ5Nj5dIF9fbWlnaHRfc2xlZXArMHgzZS8weDYyCj4+ICAgWzxmZmZmZmZmZjgwMTk2M2M0Pl0g
-X19taWdodF9mYXVsdCsweDFjLzB4MjQKPj4gICBbPGZmZmZmZmZmODA0MjUzNTI+XSBfY29weV9m
-cm9tX3VzZXIrMHgyOC8weGFhCj4+ICAgWzxmZmZmZmZmZjgwMDAyOTZjPl0gaGFuZGxlX21pc2Fs
-aWduZWRfc3RvcmUrMHgyMDQvMHgyNTQKPj4gICBbPGZmZmZmZmZmODA5ZWFlODI+XSBkb190cmFw
-X3N0b3JlX21pc2FsaWduZWQrMHgyNC8weGVlCj4+ICAgWzxmZmZmZmZmZjgwOWY0ZjFhPl0gaGFu
-ZGxlX2V4Y2VwdGlvbisweDE0Ni8weDE1Mgo+Pgo+PiBGaXhlczogYjY4NmVjZGVhY2Y2ICgicmlz
-Y3Y6IG1pc2FsaWduZWQ6IFJlc3RyaWN0IHVzZXIgYWNjZXNzIHRvIGtlcm5lbCBtZW1vcnkiKQo+
-PiBGaXhlczogNDQxMzgxNTA2YmE3ICgicmlzY3Y6IG1pc2FsaWduZWQ6IHJlbW92ZSBDT05GSUdf
-UklTQ1ZfTV9NT0RFIHNwZWNpZmljIGNvZGUiKQo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBab25nIExp
-IDx6b25nLmxpQHNpZml2ZS5jb20+Cj4+IFNpZ25lZC1vZmYtYnk6IE55bG9uIENoZW4gPG55bG9u
-LmNoZW5Ac2lmaXZlLmNvbT4KPj4gLS0tCj4+ICAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlz
-YWxpZ25lZC5jIHwgNCArKy0tCj4+ICAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwg
-MiBkZWxldGlvbnMoLSkKPj4KPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBz
-X21pc2FsaWduZWQuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3RyYXBzX21pc2FsaWduZWQuYwo+PiBp
-bmRleCBkNzI3NWRmYjZiN2UuLjU2M2Y3M2Y4OGZhOCAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNj
-di9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL3Ry
-YXBzX21pc2FsaWduZWQuYwo+PiBAQCAtNDU1LDcgKzQ1NSw3IEBAIHN0YXRpYyBpbnQgaGFuZGxl
-X3NjYWxhcl9taXNhbGlnbmVkX2xvYWQoc3RydWN0IHB0X3JlZ3MgKnJlZ3MpCj4+ICAgCj4+ICAg
-CXZhbC5kYXRhX3U2NCA9IDA7Cj4+ICAgCWlmICh1c2VyX21vZGUocmVncykpIHsKPj4gLQkJaWYg
-KGNvcHlfZnJvbV91c2VyKCZ2YWwsICh1OCBfX3VzZXIgKilhZGRyLCBsZW4pKQo+PiArCQlpZiAo
-Y29weV9mcm9tX3VzZXJfbm9mYXVsdCgmdmFsLCAodTggX191c2VyICopYWRkciwgbGVuKSkKPj4g
-ICAJCQlyZXR1cm4gLTE7Cj4+ICAgCX0gZWxzZSB7Cj4+ICAgCQltZW1jcHkoJnZhbCwgKHU4ICop
-YWRkciwgbGVuKTsKPj4gQEAgLTU1Niw3ICs1NTYsNyBAQCBzdGF0aWMgaW50IGhhbmRsZV9zY2Fs
-YXJfbWlzYWxpZ25lZF9zdG9yZShzdHJ1Y3QgcHRfcmVncyAqcmVncykKPj4gICAJCXJldHVybiAt
-RU9QTk9UU1VQUDsKPj4gICAKPj4gICAJaWYgKHVzZXJfbW9kZShyZWdzKSkgewo+PiAtCQlpZiAo
-Y29weV90b191c2VyKCh1OCBfX3VzZXIgKilhZGRyLCAmdmFsLCBsZW4pKQo+PiArCQlpZiAoY29w
-eV90b191c2VyX25vZmF1bHQoKHU4IF9fdXNlciAqKWFkZHIsICZ2YWwsIGxlbikpCj4+ICAgCQkJ
-cmV0dXJuIC0xOwo+PiAgIAl9IGVsc2Ugewo+PiAgIAkJbWVtY3B5KCh1OCAqKWFkZHIsICZ2YWws
-IGxlbik7Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-Xwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+* Andrew Donnellan <ajd@linux.ibm.com> wrote:
+
+> Support page table check on all PowerPC platforms. This works by
+> serialising assignments, reassignments and clears of page table
+> entries at each level in order to ensure that anonymous mappings
+> have at most one writable consumer, and likewise that file-backed
+> mappings are not simultaneously also anonymous mappings.
+> 
+> In order to support this infrastructure, a number of stubs must be
+> defined for all powerpc platforms. Additionally, separate set_pte_at()
+> and set_pte_at_unchecked(), to allow for internal, uninstrumented mappings.
+
+>  arch/x86/include/asm/pgtable.h               | 22 +++----
+
+For all the x86 <asm/pgtable.h> function parameter extensions changes:
+
+  Acked-by: Ingo Molnar <mingo@kernel.org>
+
+Thanks,
+
+	Ingo
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
