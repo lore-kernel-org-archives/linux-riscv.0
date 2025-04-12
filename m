@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 252C7C369A2
-	for <linux-riscv@archiver.kernel.org>; Fri, 11 Apr 2025 23:32:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0735C369A2
+	for <linux-riscv@archiver.kernel.org>; Sat, 12 Apr 2025 00:19:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:In-Reply-To:References:Message-Id:
-	MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0s2jYKY+P1/18elxew0/4bm9MaNbIVIzithGSodswE=; b=eP+1V9M1/jeVQ3
-	/WjWBR/pyh1imW4+SGuIxfPmuqtc4mu4a4lsEBX7ap57zZBR1Jr/UA9kXpZKpN9ds9PuDGS7G8l/g
-	mgptf2ktYZJijcNTZhWm9HxfLNZs/3n7e8tpzpXYaqqKP+RE0Gw8TNJR5uFw69kayIRAQsD/TH+Qr
-	Pl0wXYvwLrI3RAVi45tjIs4acZyfVvI723dPdQnyMG+CnlwGzTfghUtYL5ud0VGoSiJ9xSz7g4M9H
-	BFwYZwvYgAqlHmDYTCS8fusHZcIG2OSlqK6k2pq0K3D7fcnDs8evg/QgUlz07gqffN7qCOjUkXz62
-	yuBz3irFyb9AkGpsYANg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=rQA0GM9VI3CNjvfWZhj74VW8r1prJdxQd89pS22RVIM=; b=wi9w/X6dTYEePw
+	IFc0P0PmObOIXq4EuysLG8tOVJYngYldM8yneQDNCCEOSwggM+YrO4MiWdRdzmuGXcvD9PVRTbGuq
+	KI18nAPeDAOD+rMv4xggj1VFVBzT1750wnEi8mX5XW2ySTsK/bUB87ZaVi7z+SXN8hE202yUvHx8I
+	3uO773MCfqqUhyyJ1A3YqdzOkXvSjVdf4MoplbSICpZN7mKaXMi/5HpPVyp5jSB69VGQX6NTMgogc
+	U2jBbzJ+hKvNf8SyxXjblclxfOyz+uTpyYOGsyL2WeMniiREXZIjvKuTXwBpU+/rEhN9jLCY7ZisQ
+	12gajAYf8WIXWoaKm5kg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3NrV-0000000F5QU-40X6;
-	Fri, 11 Apr 2025 23:32:41 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1u3Oaf-0000000FA00-2LyE;
+	Sat, 12 Apr 2025 00:19:21 +0000
+Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u3NrT-0000000F5OV-0Njl
+	id 1u3Oac-0000000F9yd-3Vc9
 	for linux-riscv@lists.infradead.org;
-	Fri, 11 Apr 2025 23:32:40 +0000
-Received: from [127.0.0.1] (unknown [116.232.27.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 34AE73432D5;
-	Fri, 11 Apr 2025 23:32:31 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Sat, 12 Apr 2025 07:31:31 +0800
-Subject: [PATCH v8 4/5] riscv: dts: spacemit: add gpio support for K1 SoC
+	Sat, 12 Apr 2025 00:19:20 +0000
+Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b00e3c87713so2224965a12.2
+        for <linux-riscv@lists.infradead.org>; Fri, 11 Apr 2025 17:19:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1744417157; x=1745021957; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Pl4Ao+sGi12Y8GuDBgcGJjc/F643etgfiqYpC5NF9Bs=;
+        b=d/j2ILb5y2GZO+GpmXt4chTctZsmUwyM4JKZatpiRjcd9PrlUkE19x+9+RQLVwCwRO
+         InY2+UHwm6jrZ6r41PikzizSRRDJhOtiYj8/CYR4prik47hBIQutKtTha4Rdb99UtC26
+         QeJoBsPzvMtNqem4bsZ9GWJHHa65NN8ejQBfV8EqKSr7YfKhil5SCfDqgZ3eKArQpt8m
+         IC/9HawVW1S8FJgdsQhaWw2aA5t0Ntl8YsA2f4Mq8QG0WOL2s3ytf62Y0L0nvg6UkfYM
+         Zi+4ECy9OivhNFtE/4Yucy6gs1s2uixEGeFYGIoCeBNxDbCsz0kY2mwncWT+aK2Jo/Qc
+         UpnQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744417158; x=1745021958;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Pl4Ao+sGi12Y8GuDBgcGJjc/F643etgfiqYpC5NF9Bs=;
+        b=LTKNl+Vcno9Z7gguNFL5TBgpl4PkNW2vIvZMRAAjoeGHcLpv94qCbqnbwu9DuV1CFy
+         jnjyEvF51l+HANqIE8/Ef2YDIhd+1Pdla+H1vPDvTsJnVHNEexrxugWu32xMu3tdo69U
+         CCKX9KtCi33tnJ5JPBR1hGU5B1q+/9aMPjfcBHkGBLm6uLqllNHu/l0Ai7imRX5R8IA0
+         I+Hj+UfBP5z3/y/tCkSGu70mKW4WyRRhyXXrPBJB9/Asjr1bCILofMvYvo1kf0BR42bF
+         HwxELctOfFjxcLAKUCAvLqqqrCCtR9fB1bgSbgQdKqKuwgno5LV02CeE6Cp6YI0glMYd
+         vyqw==
+X-Forwarded-Encrypted: i=1; AJvYcCXlb3DgzUURFrk890q6bRnWCVA6592UzUod/revL6OH3OAVrYj8po6jF532D8iavIDQsNfU330rLbNR2w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJkt7JaGDyDVAcA62CX0Okl67BSsfvaQW+PG8saL52fkIQy1kD
+	P7xSi2SdDOXk3sFMPNg79lzDFnFzA6jV8psGQVnJ7u/l5O7+7zSr
+X-Gm-Gg: ASbGncvhIpIRPWuBI2SZMRENzdoiS3Hb4OqlB6wnotQ4Ukv6qNxywzETGqjKFISuHDu
+	difraXR2SACRI6X1/eQAR5eyP+oU+KmoOtv56ENqszOcn1J1qwCeYy1leVeQuQJg/AWBR3Thznq
+	Brf2qqWrouG2kEOhkm5+/3vCM7v2CHwfjJpQ3rONwIJcTjB9bj20CYE0jGLx8crWv+ARsG8fWq8
+	bmj2OqVFjTgMUfqUi8IYBSUbACQ/RyTxLEcaR8fQY2aeroQyOzaL3sCiGQzJtWD/gi7x5RIPp/q
+	Jx90F3JsaGDvwpG2ZqR3IzQ+4HLD0uL6sRoIMNEkbtJdwdpzVy3xiv0RqvhagV/Iw6oBtPI04nF
+	ctk/ZgMEM/XoPwfr/y3oHFmcBWC/8KpyGHBdpng==
+X-Google-Smtp-Source: AGHT+IHxZRgFKr/eoGrqndx0eEnSsquSVnD+KeF8iKFQdtKjOmi7NLYyrW1oWrufBCw9OJAiRQqcNg==
+X-Received: by 2002:a05:6a21:789d:b0:1f5:6c94:2cc9 with SMTP id adf61e73a8af0-201797c3a64mr6674058637.22.1744417157441;
+        Fri, 11 Apr 2025 17:19:17 -0700 (PDT)
+Received: from DESKTOP-NBGHJ1C.flets-east.jp (p12284229-ipxg45101marunouchi.tokyo.ocn.ne.jp. [60.39.60.229])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a0cf3604sm5520285a12.25.2025.04.11.17.19.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 11 Apr 2025 17:19:17 -0700 (PDT)
+From: Ryo Takakura <ryotkkr98@gmail.com>
+To: alex@ghiti.fr,
+	aou@eecs.berkeley.edu,
+	bigeasy@linutronix.de,
+	conor.dooley@microchip.com,
+	gregkh@linuxfoundation.org,
+	jirislaby@kernel.org,
+	john.ogness@linutronix.de,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	pmladek@suse.com,
+	samuel.holland@sifive.com,
+	u.kleine-koenig@baylibre.com
+Cc: linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-serial@vger.kernel.org,
+	stable@vger.kernel.org,
+	Ryo Takakura <ryotkkr98@gmail.com>
+Subject: [PATCH v3] serial: sifive: lock port in startup()/shutdown() callbacks
+Date: Sat, 12 Apr 2025 09:18:47 +0900
+Message-Id: <20250412001847.183221-1-ryotkkr98@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-Id: <20250412-03-k1-gpio-v8-4-1c6862d272ec@gentoo.org>
-References: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
-In-Reply-To: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>, 
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1793; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=YrlYG0PuIhX+fM4QE2J+VecM1LCm6wkTyVul/SahGUw=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBn+aZuc6Btsz8hWNLUclrAWt/vtKUFU9gDludtq
- lprgt5hbNeJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCZ/mmbl8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277dTSD/4tMEKx7GOf1vg9zz
- 3MwpLQbUebhEVKxHuCpia83gNOTyNRUqHgnkSIfo6KrRMvIac1rcdd6e0kH36ivp33chnXeULhq
- g2yM2bybYNAlKBUegggSwITZSQ7O/I2mP1Bj8nlJzF66TvxEwrYN3pSeDNr9TX2HGPp9QV0CmbF
- /Mj4y302f7CGzDkup4CKL2CPZpigk9GZ/An4pcAUBT6u+XDSREQNHNKpnGyoVaK0MoCtPQgBC4k
- XfpLWKv4m7Ffl+fcB5derFJEEtCUhgtAYpJ+5qa9qUuwI9RFwwCiMP5xbW0wit7YMTpUIz6FX6C
- 6WKSUI2+yWtFhYWtwITSq+dlLYDB6OFvVTUF1/fwEPQM2cC62UcmUtTxLzrFpFuSYf4Vz6BWzzA
- 13Y4R+jJph+fZi3NRBvrFZ9AnQdkMTD9f9F7G0fj8y8djyhFy9xzI8K0kWX69PJ42u3DNYsKtlG
- 6iDaVBwAJvQfZxEpM/+deZ0YsOS1Wdo9iux3b8TlBKimtkZvhr477YESXo0MbIoJqq0ds8oYKye
- EYYMfZjyF/san6oPnnPRMYioYmva9dkR+SgabXG+kHqra1QXrgFGe9lyWX85epGZViqg88S3bMI
- 8ESy3j/hdsgO6V5TCB3RWt7KGMt3Qs57QlYlYqQYAIoI+1BcOai8G0kWK5rC7jrEYvwg==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250411_163239_166968_9FBA5AA6 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20250411_171918_875151_A33C71E9 
+X-CRM114-Status: UNSURE (   8.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,64 +106,72 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Populate the GPIO node in the device tree for SpacemiT K1 SoC.
-Each of 32 pins will act as one bank and map pins to pinctrl controller.
+startup()/shutdown() callbacks access SIFIVE_SERIAL_IE_OFFS.
+The register is also accessed from write() callback.
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
+If console were printing and startup()/shutdown() callback
+gets called, its access to the register could be overwritten.
+
+Add port->lock to startup()/shutdown() callbacks to make sure
+their access to SIFIVE_SERIAL_IE_OFFS is synchronized against
+write() callback.
+
+Fixes: 45c054d0815b ("tty: serial: add driver for the SiFive UART")
+Signed-off-by: Ryo Takakura <ryotkkr98@gmail.com>
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Cc: stable@vger.kernel.org
 ---
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi |  3 +++
- arch/riscv/boot/dts/spacemit/k1.dtsi         | 15 +++++++++++++++
- 2 files changed, 18 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-index a8eac5517f8578d60cb45214589ccb45ac376b9a..283663647a86ff137917ced8bfe79a129c86342a 100644
---- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
-@@ -7,6 +7,9 @@
- 
- #define K1_PADCONF(pin, func) (((pin) << 16) | (func))
- 
-+/* Map GPIO pin to each bank's <index, offset> */
-+#define K1_GPIO(x)	(x / 32) (x % 32)
-+
- &pinctrl {
- 	uart0_2_cfg: uart0-2-cfg {
- 		uart0-2-pins {
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index c670ebf8fa12917aa6493fcd89fdd1409529538b..ff86a02c25f2e0818a48ed56c75e911d8612f6d1 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -404,6 +404,21 @@ uart9: serial@d4017800 {
- 			status = "disabled";
- 		};
- 
-+		gpio: gpio@d4019000 {
-+			compatible = "spacemit,k1-gpio";
-+			reg = <0x0 0xd4019000 0x0 0x100>;
-+			gpio-controller;
-+			#gpio-cells = <3>;
-+			interrupts = <58>;
-+			interrupt-parent = <&plic>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			gpio-ranges = <&pinctrl 0 0 0 32>,
-+				      <&pinctrl 1 0 32 32>,
-+				      <&pinctrl 2 0 64 32>,
-+				      <&pinctrl 3 0 96 32>;
-+		};
-+
- 		pinctrl: pinctrl@d401e000 {
- 			compatible = "spacemit,k1-pinctrl";
- 			reg = <0x0 0xd401e000 0x0 0x400>;
+Changes since v1:
+https://lore.kernel.org/all/20250405043833.397020-1-ryotkkr98@gmail.com/
 
+- It was sent as part of series but resent as a single patch.
+
+Changes since v2:
+https://lore.kernel.org/linux-serial/20250405145354.492947-1-ryotkkr98@gmail.com/
+
+- Add Reviewed-by by Petr. Thanks Petr for the review!
+
+---
+ drivers/tty/serial/sifive.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/tty/serial/sifive.c b/drivers/tty/serial/sifive.c
+index 5904a2d4c..054a8e630 100644
+--- a/drivers/tty/serial/sifive.c
++++ b/drivers/tty/serial/sifive.c
+@@ -563,8 +563,11 @@ static void sifive_serial_break_ctl(struct uart_port *port, int break_state)
+ static int sifive_serial_startup(struct uart_port *port)
+ {
+ 	struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
++	unsigned long flags;
+ 
++	uart_port_lock_irqsave(&ssp->port, &flags);
+ 	__ssp_enable_rxwm(ssp);
++	uart_port_unlock_irqrestore(&ssp->port, flags);
+ 
+ 	return 0;
+ }
+@@ -572,9 +575,12 @@ static int sifive_serial_startup(struct uart_port *port)
+ static void sifive_serial_shutdown(struct uart_port *port)
+ {
+ 	struct sifive_serial_port *ssp = port_to_sifive_serial_port(port);
++	unsigned long flags;
+ 
++	uart_port_lock_irqsave(&ssp->port, &flags);
+ 	__ssp_disable_rxwm(ssp);
+ 	__ssp_disable_txwm(ssp);
++	uart_port_unlock_irqrestore(&ssp->port, flags);
+ }
+ 
+ /**
 -- 
-2.49.0
+2.34.1
 
 
 _______________________________________________
