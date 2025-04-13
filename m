@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B31FEC3601E
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Apr 2025 22:36:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8364C369AE
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Apr 2025 22:36:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m7DbTukQT8bwCQeIAeoLteUTd99YKbXaybAqkv/l0t0=; b=FBA2dAtg4uUE6T
-	5UYK4gAuprLecSG9pS04cC9zoha7infUj6V7jH7q9Dpc5W8idyKmdikeAhXHnGxr4xi8PM1gJO9Wn
-	qADpc3W7dqRhNAQwKHUtqY37IwRIMx9Mx2y0rbBXymMzon8lgIzugnwJOBjaAwzx0YzNpVOgmoI6c
-	xBGPUPGS4FT3iB2MbxHWnqPRpfyt79/4iBz4hwQmrZ01NqpgshHaIRnQYuyHWbnTjrRmWtyPk6mQQ
-	Iyz5u8JdWDT9O9bGGE1M0ljIDdwRCM2A32Gw7PnG97wOCxWZhGigQw+HMLbNlon4urhlNsNP75Bho
-	lmWTx/h2wECWBnxgcLow==;
+	List-Owner; bh=FxZ/wGO7NMbr4vdtZO3LmtIZwT7YjSFWkoGBCp8mSRY=; b=FpU6IOz9Ii8SQ8
+	eApYUEXg/5L3KXXNrfBTOi/tUEsvrQyfYvCMlMfnN5A/pAAsP+wlpGpxLMJGGoN1RUeROFyacpuPV
+	WhiGTGWcV19+2oCtDLvbCL0LzNdP5laKUMcSRRdrNolwWm/crJgpWuTZcZYHciee1yOMdEO0MZGj0
+	GHrpnT5SyUSz5ThHC9eb8HiPV8t7nm2aUvaeQFCfQ3K3A6Kg9jZOWP8CjBdM+YtkBQhAUBfWS4kJT
+	0soyTtLm/nFnYkeTAWVGQ0F7ozh0DRx/vtXEF5fRCap2IUXvetQQeXE5yvKBPk4JuzuwFWzGIh+Tk
+	LQSzNeaUPXtUKmfT87vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45w8-00000000GQv-2k4q;
-	Sun, 13 Apr 2025 22:36:24 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1u45wE-00000000GWU-1Of8;
+	Sun, 13 Apr 2025 22:36:30 +0000
+Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45w6-00000000GNX-0T5e
+	id 1u45wA-00000000GS3-2J3q
 	for linux-riscv@lists.infradead.org;
-	Sun, 13 Apr 2025 22:36:23 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6ecf0e07947so36033916d6.0
-        for <linux-riscv@lists.infradead.org>; Sun, 13 Apr 2025 15:36:21 -0700 (PDT)
+	Sun, 13 Apr 2025 22:36:28 +0000
+Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-4769f3e19a9so22901161cf.0
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Apr 2025 15:36:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744583781; x=1745188581; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744583785; x=1745188585; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ujvrsKKJBm/oWRSDuVcF1H3tb7POrXpYuyY0zyS12hg=;
-        b=nRL7E0NF2jjELckn4moBxeNziPpos7/sWonaQEe/sB8bXxcqgbHu+LLjJeyP/lHosj
-         F/sS6kd/z3/etMJBq/lappRhuNX3bpr0gnZdHQlCnUutqPswdfrDPobpgpSLJ1ElgJpL
-         x3z/wpW1vFtRc4CidKy9sSpQ8eqPUGyYkkGWPzcmqCQBek6eCjxfDE5ub20BdyHc8tD1
-         Es+41KYOcHbN7Okc/suGlZTWV0Riscf57gRmswMGs8xijOE7jFiCKaI9RpgLwYqT/EUJ
-         IvSwksatpOY32aCXGlZqXg+YI8gm//qnGI3rfm1r9ooe4qEtNwCjg7kZbvPY/8TCokSw
-         u9JA==
+        bh=84jrS2Vw7jVrjHDF+SlQR/wEuQqQnM5aorLFVUfMeKk=;
+        b=KoWEXg/1IgEJVHcHViczKW0mWOPg4yKYlraMMXbZqnx33h4RksmPSkh/pPI/iRsW6C
+         7p+di2b+QYUaqLirWyfUf8l1tzpH+Q5F9fbdfxcnzh/VwOXKmwwVuX0dcFmImp7JFpRh
+         G/Lw8DvOkyH8eFQkSX+HxrOpyWG4Yo8ijdCrsAi5WQdkkgOdXRXlOWG029Ocg5BxF9XO
+         9mr+qzjncak7FHymXQ/LC5H2Ixp8VDbDm8BkR/tizpvPtZd0kpMAmWww+jex75UfdR0X
+         QphKKxfKZYbpesscdjDfHffabtZsJbaytxpjsZlbx6gZZ5Ie9sDU8Ivk1ezJbu2z0PyL
+         aa3Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744583781; x=1745188581;
+        d=1e100.net; s=20230601; t=1744583785; x=1745188585;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=ujvrsKKJBm/oWRSDuVcF1H3tb7POrXpYuyY0zyS12hg=;
-        b=VseHr2Nm1xGsmLRDZjNxN8QkaG9T8b93O561CXWcmPWBMPS438OLl7uwpHrEq8vjLz
-         08c4JbcfqDet6eXZcKP5cO2/jzhe9l1pmr89m2Pe89+iNwqzJh7JrZ4ncMRMauuSMHVY
-         OQSvX/krvKRTD+YDVyL6Wf1vPyf/LskomMxa/fQDmXrRXTA600uSdlmdjeKSwSqnL9Rx
-         sNSuWbWYK3xLmQwDOm3hNZU3Si0NKR0Ai6QaWwHjBgxh3KW3xCPQcZHYxk9G/CMq1CNH
-         mOr2TL05FATLB3SJd4/TX5H6RTdV3kGOYq7jzijB7Q+7xVxtdfC2hxu5FQtv/kyttcYr
-         HBKA==
-X-Forwarded-Encrypted: i=1; AJvYcCUJN6z5LFOYo8g+QEiKmD2Akxt/inOAlygDxYmL///wM3c9OAqZDypaAhdc4Pe8wzFdyA3OwxUIsDBTJA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXDd7jzIf5etUDqnT78Yokk+cihpp59WrkusGosg/4uyo+o7Vb
-	eKRE8UjbrFCwyHnKiUnrUXsfPZHqFLeQ6h8JmCd+Mhd9iQU2ctXL
-X-Gm-Gg: ASbGncv05A8Bgku5TMfMyeEZF/EqypoVR5393ceh0nLuKGKSHC5h2BVP1xkcvsMuG6a
-	ftaG6ug562EtRDsfq+GbPQbzvr2rKYvkjuagpsUj6e/GrdsUPSxt2xIgDBL154ri16XtP3ZH2Br
-	1uiz16bT1zaMKuEKJAML0KEBxFZWm1nYSUkXD3igh1jWqHgqwUQm8h+buZaXV3u3atqWQ5WHuw2
-	cIAPnUFx0k+9RGNNMiq43cQgOvrCJyfZ4Wh5KbD3hcUMzT2/1Wuq3DfA6TcBXE1qpeRhgyy6m8U
-	G1/GoLFr9znDZ5vt
-X-Google-Smtp-Source: AGHT+IG/MwghfEhc97YvFHZWLozw9xlagqWPjSNN/9ACmR9MjI4Awfl/moCJE8mwkkuxdSflay6C9w==
-X-Received: by 2002:ad4:5aea:0:b0:6ed:18cd:956d with SMTP id 6a1803df08f44-6f2230c7614mr156245706d6.22.1744583780708;
-        Sun, 13 Apr 2025 15:36:20 -0700 (PDT)
+        bh=84jrS2Vw7jVrjHDF+SlQR/wEuQqQnM5aorLFVUfMeKk=;
+        b=j1tBLYUirsI7QLlOVq2cxLYt1StFrfzvRUug6DbnFEJWm+1S8cteYimbmRHYjVkMT3
+         oALajBFQURAl8eOBXfFzS+1Rwe8kv8gGRTJHaPPnAemwQzs6aWM60u6RslTLHwQN6R7E
+         UhieOlCIhZAqvVXGe+MflSB12K1rVt4HLfsgijZvnV98sUuwQteKdD3HmoXcEaVM9KCc
+         QiHt4BHu68zimNQUAzuvWXsvWRs+W9A1/Ra+mIpf6zUOAXaJOdevQAau6TzIPI0qVPrG
+         f9Y6RacFzBRtpneTkMO8p1TVlM68325LVaqLFt1yzTIE7fqrpHzr9AGR6dkuqytwc5Ln
+         eeOA==
+X-Forwarded-Encrypted: i=1; AJvYcCXNNbBAENHeidWhYsbeSoY8QGGnF3oU8n/hjUZnyGv7jE8h3qBwcO/2BfyF74NMWHXn9DyAN7gFuSFrJg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YznAJyVNzhWzmMOnaxqnLMaZtKhqYay6w3EBNddMeH5+OI9T4ca
+	JmtJm1thucxIfUIvwsW6cZGxF1VGeLbVJ1IHq5/3EAoJMA0/PIYr
+X-Gm-Gg: ASbGncuH3NlgcbcCi+rTlTBxu5rC9oXu6lV03mhQ5tZmaWaxZxJtNELhDzobHz0g5kp
+	bcflZFrGVjaWdgSlFYoFk2TNQYO6qYSXDDVVVnRvzRXh+i5loFKWAGG2sHgM+Aav2RRpuO3CJ0H
+	JEpXot0plmbzJqSjpa9s/ic9gixvhdqAgIJYdiLlKWfUtCBecSsl4xYMlZEpGUzONXp0hO/IrPw
+	u4JGprb1STL+H3RibKwAf+bqUL7/ez7Xybuz80LyX/9MsolN/CKYPIVkP5zRKeDJuh8tFd1kQM2
+	o8EYRHgsUf9Cymj5
+X-Google-Smtp-Source: AGHT+IHKdxXaUYjzVdUeH8leIt93gSI1T3+1fHuMlf+hIg5Dh4rNHn4VDdDd1rrgkldSlRopi4CpJw==
+X-Received: by 2002:a05:622a:1a95:b0:477:704a:a580 with SMTP id d75a77b69052e-47977559fe7mr162939671cf.13.1744583784784;
+        Sun, 13 Apr 2025 15:36:24 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f0dea10755sm71031576d6.112.2025.04.13.15.36.19
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4796edc54d9sm62479051cf.80.2025.04.13.15.36.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 15:36:20 -0700 (PDT)
+        Sun, 13 Apr 2025 15:36:24 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jean Delvare <jdelvare@suse.com>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -99,17 +99,16 @@ Cc: linux-hwmon@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 09/10] dt-bindings: riscv: sophgo: Add SG2044 compatible string
-Date: Mon, 14 Apr 2025 06:35:03 +0800
-Message-ID: <20250413223507.46480-10-inochiama@gmail.com>
+Subject: [PATCH v2 10/10] riscv: dts: sophgo: Add initial device tree of Sophgo SRD3-10
+Date: Mon, 14 Apr 2025 06:35:04 +0800
+Message-ID: <20250413223507.46480-11-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250413223507.46480-1-inochiama@gmail.com>
 References: <20250413223507.46480-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_153622_157432_B1279EAD 
-X-CRM114-Status: UNSURE (   8.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250413_153626_724880_19FA4504 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,31 +125,3306 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for the Sophgo SG2044 SoC and the SRD3-10
-board.
+Sophgo SG2044 SRD3-10 board bases on Sophgo SG2044 SoC.
+This board includes 5 uart ports, 5 pcie x8 slots, 1 1G Ethernet port,
+1 microSD slot.
+
+Add initial device tree of this board with uart support.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- Documentation/devicetree/bindings/riscv/sophgo.yaml | 4 ++++
- 1 file changed, 4 insertions(+)
+ arch/riscv/boot/dts/sophgo/Makefile           |    1 +
+ arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi   | 3002 +++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2044-reset.h     |  128 +
+ .../boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |   32 +
+ arch/riscv/boot/dts/sophgo/sg2044.dtsi        |   86 +
+ 5 files changed, 3249 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-reset.h
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+ create mode 100644 arch/riscv/boot/dts/sophgo/sg2044.dtsi
 
-diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-index a14cb10ff3f0..b4c4d7a7d7ad 100644
---- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
-+++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-@@ -35,6 +35,10 @@ properties:
-           - enum:
-               - milkv,pioneer
-           - const: sophgo,sg2042
-+      - items:
-+          - enum:
-+              - sophgo,srd3-10
-+          - const: sophgo,sg2044
- 
- additionalProperties: true
- 
+diff --git a/arch/riscv/boot/dts/sophgo/Makefile b/arch/riscv/boot/dts/sophgo/Makefile
+index 47d4243a8f35..85966306801e 100644
+--- a/arch/riscv/boot/dts/sophgo/Makefile
++++ b/arch/riscv/boot/dts/sophgo/Makefile
+@@ -3,3 +3,4 @@ dtb-$(CONFIG_ARCH_SOPHGO) += cv1800b-milkv-duo.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += cv1812h-huashan-pi.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2002-licheerv-nano-b.dtb
+ dtb-$(CONFIG_ARCH_SOPHGO) += sg2042-milkv-pioneer.dtb
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2044-sophgo-srd3-10.dtb
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+new file mode 100644
+index 000000000000..2a4267078ce6
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2044-cpus.dtsi
+@@ -0,0 +1,3002 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <50000000>;
++
++		cpu0: cpu@0 {
++			compatible = "thead,c920", "riscv";
++			reg = <0>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache0>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu0_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu1: cpu@1 {
++			compatible = "thead,c920", "riscv";
++			reg = <1>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache0>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu1_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu2: cpu@2 {
++			compatible = "thead,c920", "riscv";
++			reg = <2>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache0>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu2_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu3: cpu@3 {
++			compatible = "thead,c920", "riscv";
++			reg = <3>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache0>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu3_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu4: cpu@4 {
++			compatible = "thead,c920", "riscv";
++			reg = <4>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache1>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu4_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu5: cpu@5 {
++			compatible = "thead,c920", "riscv";
++			reg = <5>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache1>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu5_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu6: cpu@6 {
++			compatible = "thead,c920", "riscv";
++			reg = <6>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache1>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu6_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu7: cpu@7 {
++			compatible = "thead,c920", "riscv";
++			reg = <7>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache1>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu7_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu8: cpu@8 {
++			compatible = "thead,c920", "riscv";
++			reg = <8>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache2>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu8_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu9: cpu@9 {
++			compatible = "thead,c920", "riscv";
++			reg = <9>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache2>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu9_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu10: cpu@10 {
++			compatible = "thead,c920", "riscv";
++			reg = <10>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache2>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu10_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu11: cpu@11 {
++			compatible = "thead,c920", "riscv";
++			reg = <11>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache2>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu11_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu12: cpu@12 {
++			compatible = "thead,c920", "riscv";
++			reg = <12>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache3>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu12_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu13: cpu@13 {
++			compatible = "thead,c920", "riscv";
++			reg = <13>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache3>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu13_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu14: cpu@14 {
++			compatible = "thead,c920", "riscv";
++			reg = <14>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache3>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu14_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu15: cpu@15 {
++			compatible = "thead,c920", "riscv";
++			reg = <15>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache3>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu15_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu16: cpu@16 {
++			compatible = "thead,c920", "riscv";
++			reg = <16>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache4>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu16_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu17: cpu@17 {
++			compatible = "thead,c920", "riscv";
++			reg = <17>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache4>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu17_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu18: cpu@18 {
++			compatible = "thead,c920", "riscv";
++			reg = <18>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache4>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu18_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu19: cpu@19 {
++			compatible = "thead,c920", "riscv";
++			reg = <19>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache4>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu19_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu20: cpu@20 {
++			compatible = "thead,c920", "riscv";
++			reg = <20>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache5>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu20_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu21: cpu@21 {
++			compatible = "thead,c920", "riscv";
++			reg = <21>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache5>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu21_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu22: cpu@22 {
++			compatible = "thead,c920", "riscv";
++			reg = <22>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache5>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu22_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu23: cpu@23 {
++			compatible = "thead,c920", "riscv";
++			reg = <23>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache5>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu23_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu24: cpu@24 {
++			compatible = "thead,c920", "riscv";
++			reg = <24>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache6>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu24_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu25: cpu@25 {
++			compatible = "thead,c920", "riscv";
++			reg = <25>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache6>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu25_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu26: cpu@26 {
++			compatible = "thead,c920", "riscv";
++			reg = <26>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache6>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu26_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu27: cpu@27 {
++			compatible = "thead,c920", "riscv";
++			reg = <27>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache6>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu27_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu28: cpu@28 {
++			compatible = "thead,c920", "riscv";
++			reg = <28>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache7>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu28_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu29: cpu@29 {
++			compatible = "thead,c920", "riscv";
++			reg = <29>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache7>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu29_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu30: cpu@30 {
++			compatible = "thead,c920", "riscv";
++			reg = <30>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache7>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu30_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu31: cpu@31 {
++			compatible = "thead,c920", "riscv";
++			reg = <31>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache7>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu31_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu32: cpu@32 {
++			compatible = "thead,c920", "riscv";
++			reg = <32>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache8>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu32_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu33: cpu@33 {
++			compatible = "thead,c920", "riscv";
++			reg = <33>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache8>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu33_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu34: cpu@34 {
++			compatible = "thead,c920", "riscv";
++			reg = <34>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache8>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu34_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu35: cpu@35 {
++			compatible = "thead,c920", "riscv";
++			reg = <35>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache8>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu35_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu36: cpu@36 {
++			compatible = "thead,c920", "riscv";
++			reg = <36>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache9>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu36_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu37: cpu@37 {
++			compatible = "thead,c920", "riscv";
++			reg = <37>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache9>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu37_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu38: cpu@38 {
++			compatible = "thead,c920", "riscv";
++			reg = <38>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache9>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu38_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu39: cpu@39 {
++			compatible = "thead,c920", "riscv";
++			reg = <39>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache9>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu39_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu40: cpu@40 {
++			compatible = "thead,c920", "riscv";
++			reg = <40>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache10>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu40_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu41: cpu@41 {
++			compatible = "thead,c920", "riscv";
++			reg = <41>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache10>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu41_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu42: cpu@42 {
++			compatible = "thead,c920", "riscv";
++			reg = <42>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache10>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu42_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu43: cpu@43 {
++			compatible = "thead,c920", "riscv";
++			reg = <43>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache10>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu43_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu44: cpu@44 {
++			compatible = "thead,c920", "riscv";
++			reg = <44>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache11>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu44_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu45: cpu@45 {
++			compatible = "thead,c920", "riscv";
++			reg = <45>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache11>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu45_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu46: cpu@46 {
++			compatible = "thead,c920", "riscv";
++			reg = <46>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache11>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu46_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu47: cpu@47 {
++			compatible = "thead,c920", "riscv";
++			reg = <47>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache11>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu47_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu48: cpu@48 {
++			compatible = "thead,c920", "riscv";
++			reg = <48>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache12>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu48_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu49: cpu@49 {
++			compatible = "thead,c920", "riscv";
++			reg = <49>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache12>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu49_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu50: cpu@50 {
++			compatible = "thead,c920", "riscv";
++			reg = <50>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache12>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu50_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu51: cpu@51 {
++			compatible = "thead,c920", "riscv";
++			reg = <51>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache12>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu51_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu52: cpu@52 {
++			compatible = "thead,c920", "riscv";
++			reg = <52>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache13>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu52_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu53: cpu@53 {
++			compatible = "thead,c920", "riscv";
++			reg = <53>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache13>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu53_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu54: cpu@54 {
++			compatible = "thead,c920", "riscv";
++			reg = <54>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache13>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu54_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu55: cpu@55 {
++			compatible = "thead,c920", "riscv";
++			reg = <55>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache13>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu55_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu56: cpu@56 {
++			compatible = "thead,c920", "riscv";
++			reg = <56>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache14>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu56_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu57: cpu@57 {
++			compatible = "thead,c920", "riscv";
++			reg = <57>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache14>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu57_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu58: cpu@58 {
++			compatible = "thead,c920", "riscv";
++			reg = <58>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache14>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu58_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu59: cpu@59 {
++			compatible = "thead,c920", "riscv";
++			reg = <59>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache14>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu59_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu60: cpu@60 {
++			compatible = "thead,c920", "riscv";
++			reg = <60>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache15>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu60_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu61: cpu@61 {
++			compatible = "thead,c920", "riscv";
++			reg = <61>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache15>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu61_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu62: cpu@62 {
++			compatible = "thead,c920", "riscv";
++			reg = <62>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache15>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu62_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu63: cpu@63 {
++			compatible = "thead,c920", "riscv";
++			reg = <63>;
++			i-cache-block-size = <64>;
++			i-cache-size = <65536>;
++			i-cache-sets = <512>;
++			d-cache-block-size = <64>;
++			d-cache-size = <65536>;
++			d-cache-sets = <512>;
++			device_type = "cpu";
++			mmu-type = "riscv,sv48";
++			next-level-cache = <&l2_cache15>;
++			riscv,isa = "rv64imafdcv";
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "v", "sscofpmf", "sstc",
++					       "svinval", "svnapot", "svpbmt",
++					       "zawrs", "zba", "zbb", "zbc",
++					       "zbs", "zca", "zcb", "zcd",
++					       "zfa", "zfbfmin", "zfh", "zfhmin",
++					       "zicbom", "zicbop", "zicboz",
++					       "zicntr", "zicond","zicsr", "zifencei",
++					       "zihintntl", "zihintpause", "zihpm",
++					       "zvfbfmin", "zvfbfwma", "zvfh",
++					       "zvfhmin";
++			riscv,cbom-block-size = <64>;
++			riscv,cboz-block-size = <64>;
++
++			cpu63_intc: interrupt-controller {
++				compatible = "riscv,cpu-intc";
++				interrupt-controller;
++				#interrupt-cells = <1>;
++			};
++		};
++
++		cpu-map {
++			socket0 {
++				cluster0 {
++					core0 {
++						cpu = <&cpu0>;
++					};
++
++					core1 {
++						cpu = <&cpu1>;
++					};
++
++					core2 {
++						cpu = <&cpu2>;
++					};
++
++					core3 {
++						cpu = <&cpu3>;
++					};
++				};
++
++				cluster1 {
++					core0 {
++						cpu = <&cpu4>;
++					};
++
++					core1 {
++						cpu = <&cpu5>;
++					};
++
++					core2 {
++						cpu = <&cpu6>;
++					};
++
++					core3 {
++						cpu = <&cpu7>;
++					};
++				};
++
++				cluster2 {
++					core0 {
++						cpu = <&cpu8>;
++					};
++
++					core1 {
++						cpu = <&cpu9>;
++					};
++
++					core2 {
++						cpu = <&cpu10>;
++					};
++
++					core3 {
++						cpu = <&cpu11>;
++					};
++				};
++
++				cluster3 {
++					core0 {
++						cpu = <&cpu12>;
++					};
++
++					core1 {
++						cpu = <&cpu13>;
++					};
++
++					core2 {
++						cpu = <&cpu14>;
++					};
++
++					core3 {
++						cpu = <&cpu15>;
++					};
++				};
++
++				cluster4 {
++					core0 {
++						cpu = <&cpu16>;
++					};
++
++					core1 {
++						cpu = <&cpu17>;
++					};
++
++					core2 {
++						cpu = <&cpu18>;
++					};
++
++					core3 {
++						cpu = <&cpu19>;
++					};
++				};
++
++				cluster5 {
++					core0 {
++						cpu = <&cpu20>;
++					};
++
++					core1 {
++						cpu = <&cpu21>;
++					};
++
++					core2 {
++						cpu = <&cpu22>;
++					};
++
++					core3 {
++						cpu = <&cpu23>;
++					};
++				};
++
++				cluster6 {
++					core0 {
++						cpu = <&cpu24>;
++					};
++
++					core1 {
++						cpu = <&cpu25>;
++					};
++
++					core2 {
++						cpu = <&cpu26>;
++					};
++
++					core3 {
++						cpu = <&cpu27>;
++					};
++				};
++
++				cluster7 {
++					core0 {
++						cpu = <&cpu28>;
++					};
++
++					core1 {
++						cpu = <&cpu29>;
++					};
++
++					core2 {
++						cpu = <&cpu30>;
++					};
++
++					core3 {
++						cpu = <&cpu31>;
++					};
++				};
++
++				cluster8 {
++					core0 {
++						cpu = <&cpu32>;
++					};
++
++					core1 {
++						cpu = <&cpu33>;
++					};
++
++					core2 {
++						cpu = <&cpu34>;
++					};
++
++					core3 {
++						cpu = <&cpu35>;
++					};
++				};
++
++				cluster9 {
++					core0 {
++						cpu = <&cpu36>;
++					};
++
++					core1 {
++						cpu = <&cpu37>;
++					};
++
++					core2 {
++						cpu = <&cpu38>;
++					};
++
++					core3 {
++						cpu = <&cpu39>;
++					};
++				};
++
++				cluster10 {
++					core0 {
++						cpu = <&cpu40>;
++					};
++
++					core1 {
++						cpu = <&cpu41>;
++					};
++
++					core2 {
++						cpu = <&cpu42>;
++					};
++
++					core3 {
++						cpu = <&cpu43>;
++					};
++				};
++
++				cluster11 {
++					core0 {
++						cpu = <&cpu44>;
++					};
++
++					core1 {
++						cpu = <&cpu45>;
++					};
++
++					core2 {
++						cpu = <&cpu46>;
++					};
++
++					core3 {
++						cpu = <&cpu47>;
++					};
++				};
++
++				cluster12 {
++					core0 {
++						cpu = <&cpu48>;
++					};
++
++					core1 {
++						cpu = <&cpu49>;
++					};
++
++					core2 {
++						cpu = <&cpu50>;
++					};
++
++					core3 {
++						cpu = <&cpu51>;
++					};
++				};
++
++				cluster13 {
++					core0 {
++						cpu = <&cpu52>;
++					};
++
++					core1 {
++						cpu = <&cpu53>;
++					};
++
++					core2 {
++						cpu = <&cpu54>;
++					};
++
++					core3 {
++						cpu = <&cpu55>;
++					};
++				};
++
++				cluster14 {
++					core0 {
++						cpu = <&cpu56>;
++					};
++
++					core1 {
++						cpu = <&cpu57>;
++					};
++
++					core2 {
++						cpu = <&cpu58>;
++					};
++
++					core3 {
++						cpu = <&cpu59>;
++					};
++				};
++
++				cluster15 {
++					core0 {
++						cpu = <&cpu60>;
++					};
++
++					core1 {
++						cpu = <&cpu61>;
++					};
++
++					core2 {
++						cpu = <&cpu62>;
++					};
++
++					core3 {
++						cpu = <&cpu63>;
++					};
++				};
++			};
++		};
++
++		l2_cache0: cache-controller-0 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache1: cache-controller-1 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache2: cache-controller-2 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache3: cache-controller-3 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache4: cache-controller-4 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache5: cache-controller-5 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache6: cache-controller-6 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache7: cache-controller-7 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache8: cache-controller-8 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache9: cache-controller-9 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache10: cache-controller-10 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache11: cache-controller-11 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache12: cache-controller-12 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache13: cache-controller-13 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache14: cache-controller-14 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l2_cache15: cache-controller-15 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <2>;
++			cache-size = <2097152>;
++			cache-sets = <2048>;
++			cache-unified;
++			next-level-cache = <&l3_cache>;
++		};
++
++		l3_cache: cache-controller-16 {
++			compatible = "cache";
++			cache-block-size = <64>;
++			cache-level = <3>;
++			cache-size = <67108864>;
++			cache-sets = <4096>;
++			cache-unified;
++		};
++	};
++
++	soc {
++		intc: interrupt-controller@6d40000000 {
++			compatible = "sophgo,sg2044-plic", "thead,c900-plic";
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			reg = <0x6d 0x40000000 0x0 0x4000000>;
++			interrupt-controller;
++			interrupts-extended =
++				<&cpu0_intc 11>, <&cpu0_intc 9>,
++				<&cpu1_intc 11>, <&cpu1_intc 9>,
++				<&cpu2_intc 11>, <&cpu2_intc 9>,
++				<&cpu3_intc 11>, <&cpu3_intc 9>,
++				<&cpu4_intc 11>, <&cpu4_intc 9>,
++				<&cpu5_intc 11>, <&cpu5_intc 9>,
++				<&cpu6_intc 11>, <&cpu6_intc 9>,
++				<&cpu7_intc 11>, <&cpu7_intc 9>,
++				<&cpu8_intc 11>, <&cpu8_intc 9>,
++				<&cpu9_intc 11>, <&cpu9_intc 9>,
++				<&cpu10_intc 11>, <&cpu10_intc 9>,
++				<&cpu11_intc 11>, <&cpu11_intc 9>,
++				<&cpu12_intc 11>, <&cpu12_intc 9>,
++				<&cpu13_intc 11>, <&cpu13_intc 9>,
++				<&cpu14_intc 11>, <&cpu14_intc 9>,
++				<&cpu15_intc 11>, <&cpu15_intc 9>,
++				<&cpu16_intc 11>, <&cpu16_intc 9>,
++				<&cpu17_intc 11>, <&cpu17_intc 9>,
++				<&cpu18_intc 11>, <&cpu18_intc 9>,
++				<&cpu19_intc 11>, <&cpu19_intc 9>,
++				<&cpu20_intc 11>, <&cpu20_intc 9>,
++				<&cpu21_intc 11>, <&cpu21_intc 9>,
++				<&cpu22_intc 11>, <&cpu22_intc 9>,
++				<&cpu23_intc 11>, <&cpu23_intc 9>,
++				<&cpu24_intc 11>, <&cpu24_intc 9>,
++				<&cpu25_intc 11>, <&cpu25_intc 9>,
++				<&cpu26_intc 11>, <&cpu26_intc 9>,
++				<&cpu27_intc 11>, <&cpu27_intc 9>,
++				<&cpu28_intc 11>, <&cpu28_intc 9>,
++				<&cpu29_intc 11>, <&cpu29_intc 9>,
++				<&cpu30_intc 11>, <&cpu30_intc 9>,
++				<&cpu31_intc 11>, <&cpu31_intc 9>,
++				<&cpu32_intc 11>, <&cpu32_intc 9>,
++				<&cpu33_intc 11>, <&cpu33_intc 9>,
++				<&cpu34_intc 11>, <&cpu34_intc 9>,
++				<&cpu35_intc 11>, <&cpu35_intc 9>,
++				<&cpu36_intc 11>, <&cpu36_intc 9>,
++				<&cpu37_intc 11>, <&cpu37_intc 9>,
++				<&cpu38_intc 11>, <&cpu38_intc 9>,
++				<&cpu39_intc 11>, <&cpu39_intc 9>,
++				<&cpu40_intc 11>, <&cpu40_intc 9>,
++				<&cpu41_intc 11>, <&cpu41_intc 9>,
++				<&cpu42_intc 11>, <&cpu42_intc 9>,
++				<&cpu43_intc 11>, <&cpu43_intc 9>,
++				<&cpu44_intc 11>, <&cpu44_intc 9>,
++				<&cpu45_intc 11>, <&cpu45_intc 9>,
++				<&cpu46_intc 11>, <&cpu46_intc 9>,
++				<&cpu47_intc 11>, <&cpu47_intc 9>,
++				<&cpu48_intc 11>, <&cpu48_intc 9>,
++				<&cpu49_intc 11>, <&cpu49_intc 9>,
++				<&cpu50_intc 11>, <&cpu50_intc 9>,
++				<&cpu51_intc 11>, <&cpu51_intc 9>,
++				<&cpu52_intc 11>, <&cpu52_intc 9>,
++				<&cpu53_intc 11>, <&cpu53_intc 9>,
++				<&cpu54_intc 11>, <&cpu54_intc 9>,
++				<&cpu55_intc 11>, <&cpu55_intc 9>,
++				<&cpu56_intc 11>, <&cpu56_intc 9>,
++				<&cpu57_intc 11>, <&cpu57_intc 9>,
++				<&cpu58_intc 11>, <&cpu58_intc 9>,
++				<&cpu59_intc 11>, <&cpu59_intc 9>,
++				<&cpu60_intc 11>, <&cpu60_intc 9>,
++				<&cpu61_intc 11>, <&cpu61_intc 9>,
++				<&cpu62_intc 11>, <&cpu62_intc 9>,
++				<&cpu63_intc 11>, <&cpu63_intc 9>;
++			riscv,ndev = <863>;
++		};
++
++		aclint_mswi: interrupt-controller@6d44000000 {
++			compatible = "sophgo,sg2044-aclint-mswi", "thead,c900-aclint-mswi";
++			reg = <0x6d 0x44000000 0x0 0x4000>;
++			interrupts-extended = <&cpu0_intc 3>,
++					      <&cpu1_intc 3>,
++					      <&cpu2_intc 3>,
++					      <&cpu3_intc 3>,
++					      <&cpu4_intc 3>,
++					      <&cpu5_intc 3>,
++					      <&cpu6_intc 3>,
++					      <&cpu7_intc 3>,
++					      <&cpu8_intc 3>,
++					      <&cpu9_intc 3>,
++					      <&cpu10_intc 3>,
++					      <&cpu11_intc 3>,
++					      <&cpu12_intc 3>,
++					      <&cpu13_intc 3>,
++					      <&cpu14_intc 3>,
++					      <&cpu15_intc 3>,
++					      <&cpu16_intc 3>,
++					      <&cpu17_intc 3>,
++					      <&cpu18_intc 3>,
++					      <&cpu19_intc 3>,
++					      <&cpu20_intc 3>,
++					      <&cpu21_intc 3>,
++					      <&cpu22_intc 3>,
++					      <&cpu23_intc 3>,
++					      <&cpu24_intc 3>,
++					      <&cpu25_intc 3>,
++					      <&cpu26_intc 3>,
++					      <&cpu27_intc 3>,
++					      <&cpu28_intc 3>,
++					      <&cpu29_intc 3>,
++					      <&cpu30_intc 3>,
++					      <&cpu31_intc 3>,
++					      <&cpu32_intc 3>,
++					      <&cpu33_intc 3>,
++					      <&cpu34_intc 3>,
++					      <&cpu35_intc 3>,
++					      <&cpu36_intc 3>,
++					      <&cpu37_intc 3>,
++					      <&cpu38_intc 3>,
++					      <&cpu39_intc 3>,
++					      <&cpu40_intc 3>,
++					      <&cpu41_intc 3>,
++					      <&cpu42_intc 3>,
++					      <&cpu43_intc 3>,
++					      <&cpu44_intc 3>,
++					      <&cpu45_intc 3>,
++					      <&cpu46_intc 3>,
++					      <&cpu47_intc 3>,
++					      <&cpu48_intc 3>,
++					      <&cpu49_intc 3>,
++					      <&cpu50_intc 3>,
++					      <&cpu51_intc 3>,
++					      <&cpu52_intc 3>,
++					      <&cpu53_intc 3>,
++					      <&cpu54_intc 3>,
++					      <&cpu55_intc 3>,
++					      <&cpu56_intc 3>,
++					      <&cpu57_intc 3>,
++					      <&cpu58_intc 3>,
++					      <&cpu59_intc 3>,
++					      <&cpu60_intc 3>,
++					      <&cpu61_intc 3>,
++					      <&cpu62_intc 3>,
++					      <&cpu63_intc 3>;
++		};
++
++		aclint_mtimer: timer@6d44004000 {
++			compatible = "sophgo,sg2044-aclint-mtimer", "thead,c900-aclint-mtimer";
++			reg = <0x6d 0x44004000 0x0 0x8000>;
++			reg-names = "mtimecmp";
++			interrupts-extended = <&cpu0_intc 7>,
++					      <&cpu1_intc 7>,
++					      <&cpu2_intc 7>,
++					      <&cpu3_intc 7>,
++					      <&cpu4_intc 7>,
++					      <&cpu5_intc 7>,
++					      <&cpu6_intc 7>,
++					      <&cpu7_intc 7>,
++					      <&cpu8_intc 7>,
++					      <&cpu9_intc 7>,
++					      <&cpu10_intc 7>,
++					      <&cpu11_intc 7>,
++					      <&cpu12_intc 7>,
++					      <&cpu13_intc 7>,
++					      <&cpu14_intc 7>,
++					      <&cpu15_intc 7>,
++					      <&cpu16_intc 7>,
++					      <&cpu17_intc 7>,
++					      <&cpu18_intc 7>,
++					      <&cpu19_intc 7>,
++					      <&cpu20_intc 7>,
++					      <&cpu21_intc 7>,
++					      <&cpu22_intc 7>,
++					      <&cpu23_intc 7>,
++					      <&cpu24_intc 7>,
++					      <&cpu25_intc 7>,
++					      <&cpu26_intc 7>,
++					      <&cpu27_intc 7>,
++					      <&cpu28_intc 7>,
++					      <&cpu29_intc 7>,
++					      <&cpu30_intc 7>,
++					      <&cpu31_intc 7>,
++					      <&cpu32_intc 7>,
++					      <&cpu33_intc 7>,
++					      <&cpu34_intc 7>,
++					      <&cpu35_intc 7>,
++					      <&cpu36_intc 7>,
++					      <&cpu37_intc 7>,
++					      <&cpu38_intc 7>,
++					      <&cpu39_intc 7>,
++					      <&cpu40_intc 7>,
++					      <&cpu41_intc 7>,
++					      <&cpu42_intc 7>,
++					      <&cpu43_intc 7>,
++					      <&cpu44_intc 7>,
++					      <&cpu45_intc 7>,
++					      <&cpu46_intc 7>,
++					      <&cpu47_intc 7>,
++					      <&cpu48_intc 7>,
++					      <&cpu49_intc 7>,
++					      <&cpu50_intc 7>,
++					      <&cpu51_intc 7>,
++					      <&cpu52_intc 7>,
++					      <&cpu53_intc 7>,
++					      <&cpu54_intc 7>,
++					      <&cpu55_intc 7>,
++					      <&cpu56_intc 7>,
++					      <&cpu57_intc 7>,
++					      <&cpu58_intc 7>,
++					      <&cpu59_intc 7>,
++					      <&cpu60_intc 7>,
++					      <&cpu61_intc 7>,
++					      <&cpu62_intc 7>,
++					      <&cpu63_intc 7>;
++		};
++
++		aclint_sswi: interrupt-controller@6d4400c000 {
++			compatible = "sophgo,sg2044-aclint-sswi", "thead,c900-aclint-sswi";
++			reg = <0x6d 0x4400c000 0x0 0x1000>;
++			#interrupt-cells = <0>;
++			interrupt-controller;
++			interrupts-extended = <&cpu0_intc 1>,
++					      <&cpu1_intc 1>,
++					      <&cpu2_intc 1>,
++					      <&cpu3_intc 1>,
++					      <&cpu4_intc 1>,
++					      <&cpu5_intc 1>,
++					      <&cpu6_intc 1>,
++					      <&cpu7_intc 1>,
++					      <&cpu8_intc 1>,
++					      <&cpu9_intc 1>,
++					      <&cpu10_intc 1>,
++					      <&cpu11_intc 1>,
++					      <&cpu12_intc 1>,
++					      <&cpu13_intc 1>,
++					      <&cpu14_intc 1>,
++					      <&cpu15_intc 1>,
++					      <&cpu16_intc 1>,
++					      <&cpu17_intc 1>,
++					      <&cpu18_intc 1>,
++					      <&cpu19_intc 1>,
++					      <&cpu20_intc 1>,
++					      <&cpu21_intc 1>,
++					      <&cpu22_intc 1>,
++					      <&cpu23_intc 1>,
++					      <&cpu24_intc 1>,
++					      <&cpu25_intc 1>,
++					      <&cpu26_intc 1>,
++					      <&cpu27_intc 1>,
++					      <&cpu28_intc 1>,
++					      <&cpu29_intc 1>,
++					      <&cpu30_intc 1>,
++					      <&cpu31_intc 1>,
++					      <&cpu32_intc 1>,
++					      <&cpu33_intc 1>,
++					      <&cpu34_intc 1>,
++					      <&cpu35_intc 1>,
++					      <&cpu36_intc 1>,
++					      <&cpu37_intc 1>,
++					      <&cpu38_intc 1>,
++					      <&cpu39_intc 1>,
++					      <&cpu40_intc 1>,
++					      <&cpu41_intc 1>,
++					      <&cpu42_intc 1>,
++					      <&cpu43_intc 1>,
++					      <&cpu44_intc 1>,
++					      <&cpu45_intc 1>,
++					      <&cpu46_intc 1>,
++					      <&cpu47_intc 1>,
++					      <&cpu48_intc 1>,
++					      <&cpu49_intc 1>,
++					      <&cpu50_intc 1>,
++					      <&cpu51_intc 1>,
++					      <&cpu52_intc 1>,
++					      <&cpu53_intc 1>,
++					      <&cpu54_intc 1>,
++					      <&cpu55_intc 1>,
++					      <&cpu56_intc 1>,
++					      <&cpu57_intc 1>,
++					      <&cpu58_intc 1>,
++					      <&cpu59_intc 1>,
++					      <&cpu60_intc 1>,
++					      <&cpu61_intc 1>,
++					      <&cpu62_intc 1>,
++					      <&cpu63_intc 1>;
++		};
++	};
++};
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044-reset.h b/arch/riscv/boot/dts/sophgo/sg2044-reset.h
+new file mode 100644
+index 000000000000..3a7bbfdb4bae
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2044-reset.h
+@@ -0,0 +1,128 @@
++/* SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause */
++/*
++ * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++#ifndef _SG2044_RESET_H
++#define _SG2044_RESET_H
++
++#define RST_AP_SYS			0
++#define RST_AP_SYS_CORE0		1
++#define RST_AP_SYS_CORE1		2
++#define RST_AP_SYS_CORE2		3
++#define RST_AP_SYS_CORE3		4
++#define RST_AP_PIC			5
++#define RST_AP_TDT			6
++#define RST_RP_PIC_TDT			7
++#define RST_HSDMA			8
++#define RST_SYSDMA			9
++#define RST_EFUSE0			10
++#define RST_EFUSE1			11
++#define RST_RTC				12
++#define RST_TIMER			13
++#define RST_WDT				14
++#define RST_AHB_ROM0			15
++#define RST_AHB_ROM1			16
++#define RST_I2C0			17
++#define RST_I2C1			18
++#define RST_I2C2			19
++#define RST_I2C3			20
++#define RST_GPIO0			21
++#define RST_GPIO1			22
++#define RST_GPIO2			23
++#define RST_PWM				24
++#define RST_AXI_SRAM0			25
++#define RST_AXI_SRAM1			26
++#define RST_SPIFMC0			27
++#define RST_SPIFMC1			28
++#define RST_MAILBOX			29
++#define RST_ETH0			30
++#define RST_EMMC			31
++#define RST_SD				32
++#define RST_UART0			33
++#define RST_UART1			34
++#define RST_UART2			35
++#define RST_UART3			36
++#define RST_SPI0			37
++#define RST_SPI1			38
++#define RST_MTLI			39
++#define RST_DBG_I2C			40
++#define RST_C2C0			41
++#define RST_C2C1			42
++#define RST_C2C2			43
++#define RST_C2C3			44
++#define RST_CXP				45
++#define RST_DDR0			46
++#define RST_DDR1			47
++#define RST_DDR2			48
++#define RST_DDR3			49
++#define RST_DDR4			50
++#define RST_DDR5			51
++#define RST_DDR6			52
++#define RST_DDR7			53
++#define RST_DDR8			54
++#define RST_DDR9			55
++#define RST_DDR10			56
++#define RST_DDR11			57
++#define RST_DDR12			58
++#define RST_DDR13			59
++#define RST_DDR14			60
++#define RST_DDR15			61
++#define RST_BAR				62
++#define RST_K2K				63
++#define RST_CC_SYS_X1Y1			64
++#define RST_CC_SYS_X1Y2			65
++#define RST_CC_SYS_X1Y3			66
++#define RST_CC_SYS_X1Y4			67
++#define RST_CC_SYS_X0Y1			68
++#define RST_CC_SYS_X0Y2			69
++#define RST_CC_SYS_X0Y3			70
++#define RST_CC_SYS_X0Y4			71
++#define RST_SC_X1Y1			80
++#define RST_SC_X1Y2			81
++#define RST_SC_X1Y3			82
++#define RST_SC_X1Y4			83
++#define RST_SC_X0Y1			84
++#define RST_SC_X0Y2			85
++#define RST_SC_X0Y3			86
++#define RST_SC_X0Y4			87
++#define RST_RP_CLUSTER_X1Y1_S0		160
++#define RST_RP_CLUSTER_X1Y1_S1		161
++#define RST_RP_CLUSTER_X1Y2_S0		162
++#define RST_RP_CLUSTER_X1Y2_S1		163
++#define RST_RP_CLUSTER_X1Y3_S0		164
++#define RST_RP_CLUSTER_X1Y3_S1		165
++#define RST_RP_CLUSTER_X1Y4_S0		166
++#define RST_RP_CLUSTER_X1Y4_S1		167
++#define RST_RP_CLUSTER_X0Y1_W0		168
++#define RST_RP_CLUSTER_X0Y1_W1		169
++#define RST_RP_CLUSTER_X0Y2_W0		170
++#define RST_RP_CLUSTER_X0Y2_W1		171
++#define RST_RP_CLUSTER_X0Y3_W0		172
++#define RST_RP_CLUSTER_X0Y3_W1		173
++#define RST_RP_CLUSTER_X0Y4_W0		174
++#define RST_RP_CLUSTER_X0Y4_W1		175
++#define RST_TPSYS_X1Y1			180
++#define RST_TPSYS_X1Y2			181
++#define RST_TPSYS_X1Y3			182
++#define RST_TPSYS_X1Y4			183
++#define RST_TPSYS_X0Y1			184
++#define RST_TPSYS_X0Y2			185
++#define RST_TPSYS_X0Y3			186
++#define RST_TPSYS_X0Y4			187
++#define RST_SPACC			188
++#define RST_PKA				189
++#define RST_SE_TRNG			190
++#define RST_SE_DBG			191
++#define RST_SE_FAB_FW			192
++#define RST_SE_CTRL			193
++#define RST_MAILBOX0			194
++#define RST_MAILBOX1			195
++#define RST_MAILBOX2			196
++#define RST_MAILBOX3			197
++#define RST_INTC0			198
++#define RST_INTC1			199
++#define RST_INTC2			200
++#define RST_INTC3			201
++
++#endif /* _DT_BINDINGS_SG2044_RESET_H */
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+new file mode 100644
+index 000000000000..54cdf4239d5f
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+@@ -0,0 +1,32 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++/dts-v1/;
++
++#include "sg2044.dtsi"
++
++/ {
++	model = "Sophgo SG2044 SRD3-10";
++	compatible = "sophgo,srd3-10", "sophgo,sg2044";
++
++	aliases {
++		serial0 = &uart0;
++		serial1 = &uart1;
++		serial2 = &uart2;
++		serial3 = &uart3;
++	};
++
++	chosen {
++		stdout-path = "serial1:115200n8";
++	};
++};
++
++&osc {
++	clock-frequency = <25000000>;
++};
++
++&uart1 {
++	status = "okay";
++};
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+new file mode 100644
+index 000000000000..d67e45f77d6e
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+@@ -0,0 +1,86 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
++ */
++
++#include <dt-bindings/interrupt-controller/irq.h>
++
++#include "sg2044-cpus.dtsi"
++#include "sg2044-reset.h"
++
++/ {
++	compatible = "sophgo,sg2044";
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x00000000 0x80000000 0x00000010 0x00000000>;
++	};
++
++	osc: oscillator {
++		compatible = "fixed-clock";
++		clock-output-names = "osc";
++		#clock-cells = <0>;
++	};
++
++	soc {
++		compatible = "simple-bus";
++		#address-cells = <2>;
++		#size-cells = <2>;
++		ranges;
++
++		uart0: serial@7030000000 {
++			compatible = "sophgo,sg2044-uart", "snps,dw-apb-uart";
++			reg = <0x70 0x30000000 0x0 0x1000>;
++			clock-frequency = <500000000>;
++			interrupt-parent = <&intc>;
++			interrupts = <41 IRQ_TYPE_LEVEL_HIGH>;
++			reg-shift = <2>;
++			reg-io-width = <4>;
++			resets = <&rst RST_UART0>;
++			status = "disabled";
++		};
++
++		uart1: serial@7030001000 {
++			compatible = "sophgo,sg2044-uart", "snps,dw-apb-uart";
++			reg = <0x70 0x30001000 0x0 0x1000>;
++			clock-frequency = <500000000>;
++			interrupt-parent = <&intc>;
++			interrupts = <42 IRQ_TYPE_LEVEL_HIGH>;
++			reg-shift = <2>;
++			reg-io-width = <4>;
++			resets = <&rst RST_UART1>;
++			status = "disabled";
++		};
++
++		uart2: serial@7030002000 {
++			compatible = "sophgo,sg2044-uart", "snps,dw-apb-uart";
++			reg = <0x70 0x30002000 0x0 0x1000>;
++			clock-frequency = <500000000>;
++			interrupt-parent = <&intc>;
++			interrupts = <43 IRQ_TYPE_LEVEL_HIGH>;
++			reg-shift = <2>;
++			reg-io-width = <4>;
++			resets = <&rst RST_UART2>;
++			status = "disabled";
++		};
++
++		uart3: serial@7030003000 {
++			compatible = "sophgo,sg2044-uart", "snps,dw-apb-uart";
++			reg = <0x70 0x30003000 0x0 0x1000>;
++			clock-frequency = <500000000>;
++			interrupt-parent = <&intc>;
++			interrupts = <44 IRQ_TYPE_LEVEL_HIGH>;
++			reg-shift = <2>;
++			reg-io-width = <4>;
++			resets = <&rst RST_UART3>;
++			status = "disabled";
++		};
++
++		rst: reset-controller@7050003000 {
++			compatible = "sophgo,sg2044-reset",
++				     "sophgo,sg2042-reset";
++			reg = <0x70 0x50003000 0x0 0x1000>;
++			#reset-cells = <1>;
++		};
++	};
++};
 -- 
 2.49.0
 
