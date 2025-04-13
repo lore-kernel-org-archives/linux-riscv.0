@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4279AC3601E
-	for <linux-riscv@archiver.kernel.org>; Sun, 13 Apr 2025 22:36:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53796C369B2
+	for <linux-riscv@archiver.kernel.org>; Sun, 13 Apr 2025 22:36:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u3RFaKYhs92MvOxFynA0RwW+qxKvwhJgn/oVn5cpzBg=; b=Y3xukVbjQUwoY8
-	1O6VCHd6lnEfAbpxCBDRK8JOvzsuVqeiRUfzfEURHqkPzAinMf2uLlPWVA7xTSpFa73lM3rBtwz2d
-	70a6rrrNsGlA4rls6UTWhxvCZmxXZSoY37YnOvlaTmdkiq0O0G0tdf2UivZEiva/A052DoxFrfotW
-	nFPowAK0RZafrJzIMsJXWUJaSG7JkiAtBS2bA8jy1qyauPYQpJsN92twqmuFJTEjSp9pxJhWXD2IJ
-	6uACfSbS3U1aro3GE+XYl6EwWWB/rpjdLNaE+guRwp4vGWTVQPs6ZGlXcEh+AoaVfaIXnVRyk8nKX
-	dYFdr789U/yXfOh6cMqw==;
+	List-Owner; bh=MX3724AKt7P0mfUTBbHA4I7Sbayuvy03W4wBv9JHWIc=; b=3dBPE8v+mAJPWo
+	M19aiiAWxHpDiH1gEWrTZVAebryeqpB2ABRjJp3d8XafFapZQaCiphlPZG4m0P1kXkSLrS9OzlTz6
+	/+Er3oUD1bSKJhhqVQcM1aD1WcS/qVcYxFKMABHeWn7ZX0mmp8NG1gSIAASLAFVHHf2NLFyMM10OA
+	Agwg5BsmlkBlt/Lilc07LFtrdD3FJ9l6quasU8OBStvbXFBnZ4+6rXvPumNACgdu6sPgEIDFW1dOS
+	12Sx3UNsxYQZ3N84hrz+jGB72ayruaweWZiIJGBNugySX8qzfv8pqPnS8Pp7TKG3PCANBR2AqzsDe
+	4vIpo5lHyXrVWk/I/J4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45vk-00000000G5i-3igb;
-	Sun, 13 Apr 2025 22:36:00 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1u45vn-00000000G75-2v6O;
+	Sun, 13 Apr 2025 22:36:03 +0000
+Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u45vi-00000000G4G-157N
+	id 1u45vl-00000000G5n-3KW2
 	for linux-riscv@lists.infradead.org;
-	Sun, 13 Apr 2025 22:35:59 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6f0ad74483fso40754626d6.1
-        for <linux-riscv@lists.infradead.org>; Sun, 13 Apr 2025 15:35:57 -0700 (PDT)
+	Sun, 13 Apr 2025 22:36:03 +0000
+Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-47690a4ec97so37100311cf.2
+        for <linux-riscv@lists.infradead.org>; Sun, 13 Apr 2025 15:36:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744583757; x=1745188557; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1744583760; x=1745188560; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=43CgDCBjHo6ngYeTK6tuHPUS/Q9xbMOQmyIqAS15iLM=;
-        b=EZIjx9Tdp+TkCiZrEdwPMvuzAQgO1k6ZsTzzpzWukLyKYiTISpIyZ8UE80/XI12aOW
-         Xn35tMHMeDi+Mv/K+tQIestRyAwMWUr0c7wGzP75g/ptXtNIaJ7ZkVFJ9ZjoCac+15XU
-         BoV7DJq0Jg/ctLISwWOxBsRebzi3l0zR1L/X/3NwWkwOTw01lQznvipUaMVX9Ypz2I1o
-         gKuFHPMqJY96V5Nhk1JjZ+dB3BsgbuFoQYRGnFa/jG5kAGsLWDM3vbUV2rut+DzP9nLf
-         YbI247dwut4GTNPgeJydennq1Y0kabE5SGOD8/5JwfJWdhzEzvMTKXG5TAeBQ3LG+CzT
-         9X2A==
+        bh=fMOUZ6qRg9W4PB6CSqOFfx7Fn9U9SQfI0wC9q+7apzY=;
+        b=CmrpPmpQ9nE95VLb6ONxtL+SmyopJ6HWF444kYNkucJ06oqf0eJs5DJY4b1Et/9xRv
+         ICLm6ibNLOGxu+oREAm9GfO5oTFFlLWS/HIzfaAY0Ed6okIfbyy4umFV1B90nhACvLWW
+         LBQZBJnjlGb/h/Nr0ULts9Oyx/Lkuw8YtKvxGjsUOwU4bpApTxgg6++iAlJ8VJznSCz+
+         a2Q1Yz5BWcUcBxLyssv9/VpOmEaS76nCWxJpLxfwd26V2KfSals9Uvv22lR6Lnt0gsme
+         zQ4OMWeJigxwnRhC+jgoqm1lrgnP0CT31Ud7sHjU6fF6XbGNBODml0Y9m6QCvensV7t2
+         KrnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744583757; x=1745188557;
+        d=1e100.net; s=20230601; t=1744583760; x=1745188560;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=43CgDCBjHo6ngYeTK6tuHPUS/Q9xbMOQmyIqAS15iLM=;
-        b=Xg5ztch5zqah32/b1lNJWJ2AqKpA1KXQIS0Q7TDibB6FQb3QdU/z/816QOdj8MzBUm
-         QFb15xOtD0eMWdbaJtcIGu5jtyu87GcPBZswqFgGfwFdIoWFRmTe1JfK6lg8GbquTljp
-         qZMt3cDvBVQfvKsT4xuLYORE7D3BzmA70Qx6rP+cVFxt6r3mXnMwuxxvKwtfhwtbi5Oc
-         YUOuGJGLfZp3dbscD8tQZYC3VORyLOyKYBEsbdYywaCZQNzXTrFFfPJ1YjmpxGYmXXCx
-         +fiWwHCf3b/v0SJQXMsMzGQnc5E+GFrATXi8F+jDDj0TpOuNcEm3H5ZreEQPoaOks7Ov
-         rSDg==
-X-Forwarded-Encrypted: i=1; AJvYcCWKneQx9GCeTZIGzbaxK1x2OBaUgdpSRfTvAZQwFq6LXJH2n0yi1Gmp2bm8dlU1G7yog+/v8shFUP4QHg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJlqA21G73GKIRfDlLQKHjCEk6HouhT1RBmHUdODsouhYE8LGH
-	sAHf+1zD7OdDY6O87qt0AcbEnmhteXi1RgZsLQ9DCXBsEzQA1LK9
-X-Gm-Gg: ASbGncsPCNfe2Yko6ei1KTAXAFrqruOEnsCK9s7OTupPA4DU3o76nkLDpr0l+gIntEm
-	xbw1U1PZheosde/RM8lK21001/iWOcbICOV0BxGuvMS9C3E71+wUtT5hyffBY7EqdMEpWguXCQm
-	rhQ2ZYHIfYsySrE8k1d2c70q1JSbV5Bjmhg9mxbGE/+WPnFK+nOfxNQIhuLyp+cGqvrbshQm1Vg
-	rdnYSBl7A2zAVKgY027BuDS1pyhh7HcYg2TYejiqS5XiGJkYpF7OZ4rky11W1aciIU4oMDa0Op/
-	Ztl+ek6RzWjsXk9E
-X-Google-Smtp-Source: AGHT+IHgIwU8EKIYK2PDbSSxKKuKXD1TI7k5AoqJe5OL7pKcbt7fRbaJ6CDShheZnqef2sBXIGHehw==
-X-Received: by 2002:a05:6214:1ccb:b0:6ed:15ce:e33e with SMTP id 6a1803df08f44-6f230dc388bmr178446836d6.27.1744583756982;
-        Sun, 13 Apr 2025 15:35:56 -0700 (PDT)
+        bh=fMOUZ6qRg9W4PB6CSqOFfx7Fn9U9SQfI0wC9q+7apzY=;
+        b=IfViNyPxsG3dSiCBTB6ZOC0eNKx48mK/ctbJ4duXRqEqUBvQ9Fnjm36rWhEQA1PCbb
+         4ptFALEyqlT7fLzaShnHAgrPX7YHFqSyIRB30p1Zt9JwJieicSWuHdQJs1TI9rdj66E/
+         dgzNLgzyKx49/8wVahVc2CwBz5/MLI+KAvUSlLfNmdVvClZbyvlO2SeI3wdYkjB0faye
+         RjoetEy3LVPb71ybvkbKxMwmF8IIP5K6kH04x7rLzqhqzr8BCsD1TDh91TQ+OHymBnDn
+         V1EO3xfCnuiHCJZk6NcGkoxqMSu4AJ5TiENb/bAB+e0b99ZKkxum7xQ2WBesgOykHa3H
+         ZyKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWwK9lK4NAgk5MVLw6QPwbtKKCz15s5btuLXmNZFuZc1P86jYg0kBW6QeScuC8oB0gquHw2IZgTAD9i+Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDhuORizXiy7WnlGpVuXjmuI8XVHsMbIq93mMTsdBeTzdGy+qX
+	45chBJtWyEoU4FENIySYThVZJVyx7QDZNP3E3N9u2E9aQffRksrj
+X-Gm-Gg: ASbGncsh4/tEFTKHOn9hM65oVMjJxnTOAOeCdIO6X2egBCXxZyxPikihnsgzJEQE0Q5
+	nSVEYgbRFXPcrIxPA90F+YavE0ghX3zIFSRPujs75bpDjpFK2MA8jOpbGoOPwo1KZBe0Uag4aal
+	iXmvnBi0o2W+Y3IGCUmwZWvmXWFvfxWQWG6C5SyZl6M/9xoLL95fcxoQ0ir+mkCManVvnSwOwDA
+	Tzm0q8PHY/UbvIbOOi/zN3KqptVBrskDhqoPWeNpIXkSAH7EVEwiAfbi/8or6aAhQrihAjF80ts
+	yrlSvKhw73gdMCFr
+X-Google-Smtp-Source: AGHT+IF93rzEVWRRKOIxWAcvcau023Tgxa4/7nUy/JnIgvkSrZ8RcL6P1YK7x8N162WFUx0/ZurzFA==
+X-Received: by 2002:a05:622a:2d2:b0:476:8f41:7b8a with SMTP id d75a77b69052e-47977551e2dmr154754621cf.15.1744583760520;
+        Sun, 13 Apr 2025 15:36:00 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f0dea07f3esm70937336d6.76.2025.04.13.15.35.55
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4796eb0b581sm62137321cf.10.2025.04.13.15.35.59
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 13 Apr 2025 15:35:56 -0700 (PDT)
+        Sun, 13 Apr 2025 15:36:00 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Jean Delvare <jdelvare@suse.com>,
 	Guenter Roeck <linux@roeck-us.net>,
@@ -99,16 +99,16 @@ Cc: linux-hwmon@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 02/10] dt-bindings: timer: Add Sophgo SG2044 ACLINT timer
-Date: Mon, 14 Apr 2025 06:34:56 +0800
-Message-ID: <20250413223507.46480-3-inochiama@gmail.com>
+Subject: [PATCH v2 03/10] dt-bindings: interrupt-controller: Add Sophgo SG2044 CLINT mswi
+Date: Mon, 14 Apr 2025 06:34:57 +0800
+Message-ID: <20250413223507.46480-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250413223507.46480-1-inochiama@gmail.com>
 References: <20250413223507.46480-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250413_153558_299878_EF76602C 
-X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-CacheID: sfid-20250413_153601_832706_B524B2F1 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -126,25 +126,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like SG2042, SG2044 implements an enhanced ACLINT, so add necessary
+As SG2044 also implements an enhanced ACLINT as SG2042, add necessary
 compatible string for SG2044 SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- .../devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml      | 1 +
+ .../bindings/interrupt-controller/thead,c900-aclint-mswi.yaml    | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-index 2e92bcdeb423..4ed30efe4052 100644
---- a/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
-+++ b/Documentation/devicetree/bindings/timer/thead,c900-aclint-mtimer.yaml
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
+index 065f2544b63b..d6fb08a54167 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/thead,c900-aclint-mswi.yaml
 @@ -14,6 +14,7 @@ properties:
      items:
        - enum:
-           - sophgo,sg2042-aclint-mtimer
-+          - sophgo,sg2044-aclint-mtimer
-       - const: thead,c900-aclint-mtimer
+           - sophgo,sg2042-aclint-mswi
++          - sophgo,sg2044-aclint-mswi
+       - const: thead,c900-aclint-mswi
  
    reg:
 -- 
