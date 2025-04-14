@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57D6EC369B4
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 18:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82E3BC369A2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 18:17:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J3ikg8w1zwKyGhWNBg1CqBhsAfpTEncWgVlRUFqgvSA=; b=hb71Hm9JCUvL0c
-	jYOkOpji+jclOu9ikGOUCJkfN5Y5Jusn5RuS1Y/mcwuqdPWLiEjFVfBTG7yq2e/VT7Xb6ZWxZ3iPE
-	Ru8T5dHYq4ea3MIXoI18cKqXAT4wrZGTgsJkN16yYM27Co1xucwQDpjcGxiGWSaABARh3oDeryXS8
-	H6PjxdUoFxocBShwfGKLGvt/s/waMXQHjgcddtE3JcHxoyRaz0dHQJIkPACgRd488R+usyrjrYDrn
-	aZZtX9ioZUNTmwt0YLh8cCyRvuUfKbhk2Q+mNJJKF0/au+SHgpqJlCUkqACERe6n6QNmnxIZrikgN
-	mfV5luYtv6STWijBzGeQ==;
+	List-Owner; bh=HgR21r4FVH7sWZ2obns8rr5W1GnjXhe181M0jX9d4+0=; b=WkYGWFUtehuXi0
+	KWt3+0sYCNfh5CFTNxNL/GEyhJ3gHTB3wVLf8zmmmwNbOUySiQIpYJi+Df9HhJT5bmxDu8W2pBnyb
+	ldU2G636gJd1R9WjAGGbkr/2asVg0eoAcaEf6Lw5w/vSOxFduI4bTNMdrKJGdnpgiv1KfAdfiALAL
+	JiZqrXD3a1lW8ZEXR4XXigAkOWpV5xb6THkLzW488N0KDOciwqwqGkq45/VmBUC5D+NdX8vdjpWFq
+	odZD186fpZtIl0KXB/L8QnIKAX1OfK51nccg4i5BsoSKT9J5oSk3mPMcORAJPASssyPD8YQ3Rl7KG
+	2oWUgGNzICzz7ib6WHqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OLH-000000034BI-1v23;
-	Mon, 14 Apr 2025 18:15:35 +0000
-Received: from mail-io1-xd2b.google.com ([2607:f8b0:4864:20::d2b])
+	id 1u4ON7-000000034ao-1fw6;
+	Mon, 14 Apr 2025 18:17:29 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4OIL-000000033YA-135V
+	id 1u4OIN-000000033Yw-0nTa
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Apr 2025 18:12:34 +0000
-Received: by mail-io1-xd2b.google.com with SMTP id ca18e2360f4ac-85e751cffbeso361125339f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Apr 2025 11:12:32 -0700 (PDT)
+	Mon, 14 Apr 2025 18:12:36 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-85de3e8d0adso82683439f.1
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Apr 2025 11:12:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744654352; x=1745259152; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744654354; x=1745259154; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=W++7Ey3dQSUtlzRbYLNczC2fDf4DSp323YSWaoMgCKM=;
-        b=T15ib5CQiZV3twI12YBjLk+CLp+CF9jUjVG7t1RMFbjaag1HK8eofuaOaMu5oNgOo+
-         bB6UVQrUMi3JHKM0w5Qy6xw/052MXA9lK144oyBb1tyo8gDwvdny67jRI+qXLFH2bh+7
-         sCZ+XHxG3CoXuno7MeHZ+Jyif3Y33R8EqFiUs3cEFNvL3f7dnKbWSZ3E9B1YimrdOxLu
-         M2tEEVb42VdvHmB6FxxYos/g1Qs9j6jodVxXgMyx/TFHqmsdJyVZfN3qQWZme32xxJgD
-         gcN97YDwuO6IJXokq3/5r6K5SUsNBo82xUOdVxb5FeyiMdzZrhadFOI7UTuqWd80O7vH
-         wEOA==
+        bh=uo0iy7MAQ4hbf5+c4Te/phX/shJ7ZZ2Na/tgJWtoOGQ=;
+        b=miaNbFst6kco+Exk/jEfiDRmB8d0z6+nSfqeeKvlCnpJCcdxKQvayQzqQQLkWliRAt
+         1jZ/ve9BConYnh+cMd5OZ2CfhSZ2Yc1vNZMF4UOC+w84af4P7QR3HHHD5uIzkZ0zs1Am
+         M991cALymBA6dl/+vbKJ3u4JBGDexRapLoVXuEJIKYMAkyChvnraowpdPJLal6YkIGPw
+         1m6D7Ynz/2x8x7T3zYDAcZ1E6F8NweEyo/KfZz5ng5rZP1+6j9BeI1YAsBbLTweC8iv2
+         kOLg1kUysA5JvwFn2cNvWPJRr1qifN36zB/Uh7jDyezvbrrSqsfkrKFUQPEaQoOQxK7u
+         JYvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744654352; x=1745259152;
+        d=1e100.net; s=20230601; t=1744654354; x=1745259154;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=W++7Ey3dQSUtlzRbYLNczC2fDf4DSp323YSWaoMgCKM=;
-        b=ZUt0+0XAcavFhkF5Vw0GKqDsnPJGyzGKwPwvN2ntiuQ76qguw+QnqdfIOu1vhmXfOC
-         JBpUlAVsnOGOaH9vj6DnFlILg3/96OzagDPQZsVzYYEpdonniR43ITeOxoSAmhLHvWTV
-         deCDz9fTQKjsj52bJlTLkD7sYSfSLD0+t6aO445+7QXUntRkpVbaf+9JhFIeAv8Us8ep
-         CLF7DfFWh7Jg6mSfuAajcffZKGjMWSVSa6t4FBHlsEtE2h3a4CSxq3SRImPd94HSILZ8
-         whozNqSPa1BVl/6Cy46UlW2LuaghUMDLIhIh91c4TSogiN8Sax/nWXVbOmtJboSUJuqv
-         5vJg==
-X-Gm-Message-State: AOJu0YzJk4sDwWDcwDbXSuAJNWrHYxTpK/TY9JnG+WEhcZir3qCzIRDy
-	iskzVTT8+zMw7iPSZUyTWzgo4JBxPuLwq+6M0yMtDFu5DT2TKXxFmDcyHg0AmQE=
-X-Gm-Gg: ASbGnctG/3iYwvP2rVT2p80gxzi7odgPzwrTgg376JnIQYI1Nm+T+/L9MC+t4PGfwZR
-	17HR28hjXufCkQRUDklxNOrrxoFDzQS9dCVifAhVc2YzMaJmh0uv6Hr7HgUDQiJnwUj+QMCKiVQ
-	qTZ4eTqvz/CRPJr4EJhrMJZxEum4YmGpZprmSy9jjUgKd3LLmW2lJxpfVQ3PNkImKkGSlJL7trq
-	kbclGovFAKe8SwVfC2CCtIb+0qB+TNql0xvxZ0YkMc96gKlTKmzFbGhun9winZTGHJZ6uX/1bz2
-	VxJsTix95K0htAwGquEi7flDhsxexZQOhGlta32+o+jFkfOVlqX68S53uPA4ZMjnTZFjyuXVXtT
-	543XP
-X-Google-Smtp-Source: AGHT+IE/wgwkbNsHlK2gyNx1GJkEELkMB3G+2KIj9Z8NP9udlt6BR88zVmXF8+R9i96TFdJe49eIEA==
-X-Received: by 2002:a05:6602:728f:b0:85d:a1c4:ee03 with SMTP id ca18e2360f4ac-8617cbbbb51mr1548100739f.7.1744654351717;
-        Mon, 14 Apr 2025 11:12:31 -0700 (PDT)
+        bh=uo0iy7MAQ4hbf5+c4Te/phX/shJ7ZZ2Na/tgJWtoOGQ=;
+        b=QP38h4fEI1Zt+PzlOiN2eMOB83M+dyalEmqaXQGPIX6GUJQUMYJ93vv9VFjgS90x9t
+         4DxAlPdCmyLs5azEHQY7+rg3zqvNsIirO8sZoxEjxUhj7PHjJFTOoiHkh21ELl4eQbpx
+         fSZSmhJhktKVYEdGfgllXBSXNUxw0YQubJ2wpX66ZFYmbCc2mB96QyGKZzJAU/D2+mzR
+         5WW35NpJc4swrqdNXAnHpe9hKMxKb9NhhCrgMgkg9kajVz+5sJCwep5lV3iN7NN4ruFi
+         YaErfjrBvUNluzTNdQ3c4J4hmf/+LFsR8aSGUmyiDIO/VAp3n3Y+97cBdTS5VtsRM6Ya
+         aDRQ==
+X-Gm-Message-State: AOJu0YyHAb1SNMwIDlBi1/S/sDy5J40gpRHYjxZ9I1RTawhSP/UovW8t
+	t/Z9GSdXZfV3CzGsnDX0Sqn3kEJVx8YZ5FFgAX038EPCQCIkWBDTDjuOgih4l8U=
+X-Gm-Gg: ASbGnctKWxSuymnRe50AfSr5XnynkzRVYUeJW2iFZJffO5AWlc09A/8jvv6ytFx1YC4
+	HvoNKx2lblph1vyKzBumpVhhdHh7AmcrEl3q9NgW1fTHTa/rUVu5iqyMnY35//ofdC4mypbF2vF
+	5w7z6G6rDWZp/8T5p4Z1U2SKPidSzPdhefW9Si3EgD1eCe1xdoyGq8oAFviQ0b53EDBQScdn2Y4
+	P3mtjkfnJjBmnPZeD+v4g5tKR1LJLRb3tniAdQ1Gt4vIoAcJRyx+qwrI9hIxqP1E8/NeMTqP+td
+	0xWNiPHu8T26NXz4VuVD00PrBaa/Q72TeFnF/mhDPn1v+5GwyTM44HbQ+YnBqqI0jicsVp6QeZ7
+	WRBqD
+X-Google-Smtp-Source: AGHT+IEPulg8UQUye+ERWDwcR54kMX3JF3oXHebpwxdb/gMTX99uIyKUf+GhSeeH3MJ9K8PzDd2i+A==
+X-Received: by 2002:a05:6602:3890:b0:85b:3e32:9afb with SMTP id ca18e2360f4ac-8617cc00bbamr1642828239f.14.1744654353950;
+        Mon, 14 Apr 2025 11:12:33 -0700 (PDT)
 Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86165428af3sm219588339f.15.2025.04.14.11.12.30
+        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-86165428af3sm219588339f.15.2025.04.14.11.12.32
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 14 Apr 2025 11:12:31 -0700 (PDT)
-Message-ID: <b557a075-a184-4234-9793-ca1d13eac9df@riscstar.com>
-Date: Mon, 14 Apr 2025 13:12:29 -0500
+        Mon, 14 Apr 2025 11:12:33 -0700 (PDT)
+Message-ID: <eadb0ac9-f46b-4525-a198-0c6c289084f3@riscstar.com>
+Date: Mon, 14 Apr 2025 13:12:32 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/6] clk: spacemit: Add clock support for SpacemiT K1
- SoC
+Subject: Re: [PATCH v7 6/6] riscv: defconfig: spacemit: enable clock
+ controller driver for SpacemiT K1
 To: Haylen Chu <heylenay@4d2.org>, Michael Turquette
  <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -87,13 +87,13 @@ Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
  Chen Wang <unicornxdotw@foxmail.com>, Jisheng Zhang <jszhang@kernel.org>,
  Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
 References: <20250412074423.38517-2-heylenay@4d2.org>
- <20250412074423.38517-5-heylenay@4d2.org>
+ <20250412074423.38517-8-heylenay@4d2.org>
 Content-Language: en-US
 From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250412074423.38517-5-heylenay@4d2.org>
+In-Reply-To: <20250412074423.38517-8-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_111233_434188_26FE0F9F 
-X-CRM114-Status: GOOD (  11.27  )
+X-CRM114-CacheID: sfid-20250414_111235_235280_48D6B0D6 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +111,39 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 4/12/25 2:44 AM, Haylen Chu wrote:
-> The clock tree of K1 SoC contains three main types of clock hardware
-> (PLL/DDN/MIX) and has control registers split into several multifunction
-> devices: APBS (PLLs), MPMU, APBC and APMU.
-> 
-> All register operations are done through regmap to ensure atomiciy
-
-s/atomiciy/atomicity/
-
-I think Yixun can tweak that for you.
-
-> between concurrent operations of clock driver and reset,
-> power-domain driver that will be introduced in the future.
+> Clock controller unit, or CCU, generates various clocks frequency for
+> peripherals integrated in SpacemiT K1 SoC and is essential for normal
+> operation. Let's enable it as built-in driver in defconfig.
 > 
 > Signed-off-by: Haylen Chu <heylenay@4d2.org>
 
-This looks good to me!
+I know Inochi wanted this to be "m", but you can see that
+SOPHGO sets it to "y".  Meanwhile SIFIVE uses a default
+value for its CLK_SIFIVE and CLK_SIFIVE_PRCI config options.
+
+I'm not going to solve this, so I'll just say this looks good.
 
 Reviewed-by: Alex Elder <elder@riscstar.com>
 
+
 > ---
->   drivers/clk/Kconfig               |    1 +
->   drivers/clk/Makefile              |    1 +
->   drivers/clk/spacemit/Kconfig      |   18 +
->   drivers/clk/spacemit/Makefile     |    5 +
->   drivers/clk/spacemit/ccu-k1.c     | 1154 +++++++++++++++++++++++++++++
->   drivers/clk/spacemit/ccu_common.h |   48 ++
->   drivers/clk/spacemit/ccu_ddn.c    |   83 +++
->   drivers/clk/spacemit/ccu_ddn.h    |   47 ++
->   drivers/clk/spacemit/ccu_mix.c    |  268 +++++++
->   drivers/clk/spacemit/ccu_mix.h    |  218 ++++++
->   drivers/clk/spacemit/ccu_pll.c    |  157 ++++
->   drivers/clk/spacemit/ccu_pll.h    |   86 +++
->   12 files changed, 2086 insertions(+)
->   create mode 100644 drivers/clk/spacemit/Kconfig
->   create mode 100644 drivers/clk/spacemit/Makefile
->   create mode 100644 drivers/clk/spacemit/ccu-k1.c
->   create mode 100644 drivers/clk/spacemit/ccu_common.h
->   create mode 100644 drivers/clk/spacemit/ccu_ddn.c
->   create mode 100644 drivers/clk/spacemit/ccu_ddn.h
->   create mode 100644 drivers/clk/spacemit/ccu_mix.c
->   create mode 100644 drivers/clk/spacemit/ccu_mix.h
->   create mode 100644 drivers/clk/spacemit/ccu_pll.c
->   create mode 100644 drivers/clk/spacemit/ccu_pll.h
-. . .
+>   arch/riscv/configs/defconfig | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+> index 3c8e16d71e17..4888529df1d8 100644
+> --- a/arch/riscv/configs/defconfig
+> +++ b/arch/riscv/configs/defconfig
+> @@ -250,6 +250,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
+>   CONFIG_CLK_SOPHGO_SG2042_PLL=y
+>   CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
+>   CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
+> +CONFIG_SPACEMIT_CCU=y
+> +CONFIG_SPACEMIT_K1_CCU=y
+>   CONFIG_SUN8I_DE2_CCU=m
+>   CONFIG_SUN50I_IOMMU=y
+>   CONFIG_RPMSG_CHAR=y
+
 
 _______________________________________________
 linux-riscv mailing list
