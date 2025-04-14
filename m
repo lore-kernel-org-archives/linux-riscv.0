@@ -4,134 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC50CC369A2
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 19:11:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6968EC369B9
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 19:21:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
-	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:List-Owner; bh=+JtwCzXE3CGde9yWrz6JFLrJ83gHOynT38El2kCBHbs=; b=T8
-	BQMGp7n2LzVE/AdJSXsk8Z1P1VNe61/jiPJLGJHwhu2+lBbsA4b545Vw+jLWjS6D+IJjuUOzgtiRD
-	G2G81gwi8Cv3Bo50VGSm0Kxu/pRU+cAnuqvs2rMkv4AiDEscOy97O9zOkO9rA2oRIAx9WrxN6NOQ2
-	tqFWdSUqm/SvKkP4erz/Hb0bO2vNDyX/qGiQOUY/3jH9dGWPm95ufMpu8kXOvH3VGZVPG3x/lSxVR
-	/y/jmIMMN4brolQl/X+dEwtsc510+8bgEulJjVRjwuffyqbjqXCOVOly/NtCwAgYtCjBxLfTWbhNM
-	cV7k+tJ0O1x4stRB30IGNYO7ZrMBVwRA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=RdkZM9zB4IqH6ehIFSkzyfRChVoayF18Dy9Msos524k=; b=Fs2z4in7aAdUZ5
+	y7myDmPDanJ0rHXKdVQ8evTYaw3oL+UwgqDKrPMbH5pnxzvOLW+DYm1pk2599JF8Gp0iTox6t80ED
+	JXGUUxjBDdnC0eGAm+tLu8st2Ri7W+6Xul2BBKf169hSPjnQD2hxld2J10rtqLmSsniRYaaX4oJ/L
+	v5txtggqRYBBk18gJ3U8FuYr6Xlo1ce0Z1JF1bGwn+7OLDRjYOaNbnF3aoIztaMD5+5V7MPDS24fd
+	DhESqxGOSeQrdIIC0+h1b3JmKiZRzhe99uQS26KLWuhjjjmY1iHSqG4pV2D4QIS5BsJnxzP9WulJm
+	hlbs41beJ/GAOORddr9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4PDA-00000003Erl-3bMj;
-	Mon, 14 Apr 2025 19:11:16 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
+	id 1u4PN0-00000003JVw-18Uk;
+	Mon, 14 Apr 2025 19:21:26 +0000
+Received: from mail-il1-x12a.google.com ([2607:f8b0:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Ovn-00000003Anb-2F1D
+	id 1u4PJ4-00000003HlS-2qun
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Apr 2025 18:53:22 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250414185314euoutp02ee3c344b005f920f548bc7cdc9527d98~2RBxoohp42120921209euoutp025
-	for <linux-riscv@lists.infradead.org>; Mon, 14 Apr 2025 18:53:14 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250414185314euoutp02ee3c344b005f920f548bc7cdc9527d98~2RBxoohp42120921209euoutp025
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1744656794;
-	bh=79N7YNqv9Q66PnnxS3ThNfEZmd8804r38ebjHmA2ETY=;
-	h=From:Subject:Date:To:Cc:References:From;
-	b=Idjva7+Nn4Weil9B2UJGQrGs/9r58U6WiPcViHfieAhgc43k+GdyZDAV/PNAyR2Q0
-	 knHqY2olN1eeyM7lGjo6X/3uH/q/oyklZjg0IDgm/7CQTZmLIGZT4VmNMdu2ufQ76T
-	 bvOLrfzAs+HZZWeac95wPZjIILEm7maFv7Fl2/is=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTP id
-	20250414185313eucas1p1883acb9c583cdb21212456eaeb16d4ce~2RBxJkejU3185731857eucas1p1s;
-	Mon, 14 Apr 2025 18:53:13 +0000 (GMT)
-Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id AD.8E.20821.9995DF76; Mon, 14
-	Apr 2025 19:53:13 +0100 (BST)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250414185313eucas1p1c4d13c657f3a3c3e47810955db645ca2~2RBwbyutx3185731857eucas1p1r;
-	Mon, 14 Apr 2025 18:53:13 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250414185313eusmtrp105ea9ceb1fee2bedf389b05a4f395cba~2RBwbBi4B0705407054eusmtrp1e;
-	Mon, 14 Apr 2025 18:53:13 +0000 (GMT)
-X-AuditID: cbfec7f2-b11c470000005155-76-67fd5999daeb
-Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 03.64.19654.8995DF76; Mon, 14
-	Apr 2025 19:53:13 +0100 (BST)
-Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
-	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250414185311eusmtip2570ca62f1c430e3b0a5aeb600ccb1f91~2RBvQeDvV2214922149eusmtip2t;
-	Mon, 14 Apr 2025 18:53:11 +0000 (GMT)
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-Subject: [PATCH v2 0/4] Add GPU clock/reset management for TH1520 in genpd
-Date: Mon, 14 Apr 2025 20:52:54 +0200
-Message-Id: <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
+	Mon, 14 Apr 2025 19:17:24 +0000
+Received: by mail-il1-x12a.google.com with SMTP id e9e14a558f8ab-3cfce97a3d9so14862475ab.2
+        for <linux-riscv@lists.infradead.org>; Mon, 14 Apr 2025 12:17:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1744658241; x=1745263041; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=NOnX2shAz2EreIKfS+XNRjetpp9PVDTaCPEwF/lvRS8=;
+        b=sA73XYeSGuCJ5r80skeLj7Lj4PIJuYjk/wSatnurxnf7sTT6v1QHlNkOeJOwPRyZZF
+         iq+7No5Dq5iqqOS9qQ3yJuQap6hz45v2KUPOgt9hxT+qUM/AeGFGEexfeNon9x+d+m8I
+         I2rChtD/sT8R3udj97q+Kq+hXRNng1x7tdFu4W5ivHuvMj7Lt+EfwmRh98tAK2H5jc8u
+         gLdNa1OnUn7V9+t3yzZ2jM8VFeSjXdhuPbLChPkROGNwp9Q8ljTtnWcRESYzzvrRDuYl
+         k3EiT70hTztWKZBBrjKFMzedAAWXnjKnIckkFIa4XHnRhUatlpgEBTsIIcpK2p0gZZJY
+         pBYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744658241; x=1745263041;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=NOnX2shAz2EreIKfS+XNRjetpp9PVDTaCPEwF/lvRS8=;
+        b=vNYfv+YuZVXfdWvB/IpioPrnDjI27PV4zgsaRqFsrJjvPNo/+Ft/td/lx3A8R+oBC5
+         7ND2nWZGGlxFlPL6rxTVI1tyeKUZghRbJ71vMAOoGLkZGGnt3ldjtjgeZcjUIEXktCqF
+         OLr2fEBTpMhMpUaJHcj0IWueaX+3X+y1OvAU9f+SExLqQSYtTriPonxGWiSehn63Asy0
+         ijM15FZGePXGc32qwUwgoBBgXK6LZnfxvSKMhyHSlpLl2RVuA+EjnRWLF6aGnheIdE+x
+         COVo7oUoxdKCAf/PmvEru/WtKTWMzW+YxtMu6OlNQtlKfNXf+BSx24chTmQYusPrqolk
+         a0BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUopDb/4NMA8cH/grmXGM/IVSflwZbySkv3B/EtxEXGC33ggyY82Tr6/ZdPZgLtGq4gf99Tf6WrSR9C4A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyitipmvfajl64QZgawe5GIg2cb7Hwo5MWocpRY3SkjBhi1Dr/8
+	KSJWh3kwKQDRfx6G88eknOCNufjWiU/HGUVwXwm1tPvEwzLMMVlCTB9lz0T1B7k=
+X-Gm-Gg: ASbGncuaOJClT2td5xIwA3TbZehMcV6ukv0x9LI5ocPnNxjb0Vrm4wnJb+E9IPz0tiE
+	6tZCP6WP8soetQd5Sqh0twwd2pWxnNYi1jIqJhpWehsKqLD6lUzO4f0j0HOuJs+hK/FtKAE6jeL
+	JXcAePeKFv+zZULGj3lo3LyquFBohVVcdVmSAQxowp+mMY0Dxq5ucBeqpvvrXUcYToCO8DluG3z
+	o+rktXJtDe+bXUz0ezqHV/+BfoCbfyHCD5Uil/CI56O4ks/iRugseTeaEQ2Uqq1cu3wFthlKHQI
+	CMTZEfYD9/+gEc9YO3xhfBfiIoFs0mfm0Udvy42vrzX5irCVbObCuhVhVJYC/qEZwOSoT1T4e/L
+	8NWr/u8Edc51fIg==
+X-Google-Smtp-Source: AGHT+IF+wewcSr2YJ4blAeH5OccXBibu/mClWnQWAdm112vnTse7zLtH44BvxSZA8DZrAtcKFRUvag==
+X-Received: by 2002:a05:6e02:2145:b0:3d5:890b:d9df with SMTP id e9e14a558f8ab-3d7ec266fd2mr117489655ab.15.1744658241457;
+        Mon, 14 Apr 2025 12:17:21 -0700 (PDT)
+Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f505e026d1sm2715662173.94.2025.04.14.12.17.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 14 Apr 2025 12:17:21 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org
+Cc: p.zabel@pengutronix.de,
+	dlan@gentoo.org,
+	heylenay@4d2.org,
+	guodong@riscstar.com,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	spacemit@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/7] clk: spacemit: add K1 reset support
+Date: Mon, 14 Apr 2025 14:17:07 -0500
+Message-ID: <20250414191715.2264758-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAIZZ/WcC/x3MQQqAIBBA0avErBPUDKurRIjZaLOxGCGC6O5Jy
-	7f4/4GCTFhgah5gvKjQkSt020DYfU4oaKsGLXUvjTLCn+yUcfFgVzBvlJPo125UdlDWhwA1PBk
-	j3f90Xt73Aywd1PpkAAAA
-X-Change-ID: 20250414-apr_14_for_sending-5b3917817acc
-To: "Rafael J. Wysocki" <rafael@kernel.org>,  Danilo Krummrich
-	<dakr@kernel.org>, Pavel Machek <pavel@kernel.org>,  Drew Fustini
-	<drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei <wefu@redhat.com>, Rob
-	Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor
-	Dooley <conor+dt@kernel.org>,  Michal Wilczynski <m.wilczynski@samsung.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,  Philipp Zabel
-	<p.zabel@pengutronix.de>,  Frank Binns <frank.binns@imgtec.com>, Matt Coster
-	<matt.coster@imgtec.com>,  Maarten Lankhorst
-	<maarten.lankhorst@linux.intel.com>,  Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>,  m.szyprowski@samsung.com
-Cc: linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
-X-Mailer: b4 0.15-dev
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Se0xTVxzOuff23tKs5FLYPII4VoMbLtKygDuKcXMQvWEjQbdlssSMDu+K
-	4+VaYeBmeKwyHpWHPMZzxc4JljEUSkdrgaXpqAxsiSKwBBAnpo7HGA9FwcdWLtv87/t93/c7
-	3/lODh8XlZLe/KNJx1lFkixBTAoIQ89Dx/aq6Mdy6aOnEnRlWIuhHzrtGJqu+ItEGqudh8av
-	6TE0eG+ORD/eGaDQ3c4sAv1RPU6i66ZaEi2etgJkWFSRqNk6RqGWexoMnZ1vJ9C5DhNAOXnn
-	eWhs/AqBcucycVS3VI6jp+YOCtX82U0h/UwJD9maP0Cq7jLizY1M5/16gjFWj1GM2tgPmFZd
-	HsmMDplJ5tveA8zNAhvGtJ3LYFTNPRhT9FjKzHXdIJlCvQ4wbX1fMIutm6PcPxTsPsImHE1l
-	FZI9MYK4bH02deyST1pBxR0qE2S/kA/4fEgHw77pyHwg4IvoRgAdFdcwblgCsGn5AckNiwAu
-	3Tbi+cBtbeNUxV3gwiK6AcD6yy9zphwMztSXEi6BpF+DEw0angt70hHwof63NZ6g/WFLyQLl
-	ihbS++GwJsxFC2kP2Fs1uWbB6RfhT7O1uOtMSF8E0Fw5h3HBIbBsuRK4BC96lQdzs3vWXDhd
-	B6DF8BXBuZ6Hq6UmglsvF8CvpwzrQjjsWp3lcdgTTtn0FIc3wb5S9bonGU60L6z3/BIa1bZ1
-	HApH7Suk69o4HQBbTBKO3gsnH90iuId0hyOzHlwDd3jG8A3O0UKYmyPi3Fthufr0f6H2RgNW
-	DMTVz/SvfqZ/9f9Z9QDXgQ1sijJRziqDktjPA5WyRGVKkjwwNjmxFfzzb/ue2BY6QN3UfKAF
-	YHxgAZCPi72EgrAVuUh4RJZ+glUkf6RISWCVFuDDJ8QbhNruU3IRLZcdZ+NZ9hir+FfF+G7e
-	mdgn0shuprL1FdA7tLlEnVG4w1ns1+2YOdgfOimR/iwN1lUcAtbLu94YzXLXha+ejKn15enf
-	WVpuetcR4nfhdb+FmsG6yrrD+5QFsbqgeP/9qpzvHKnKLfGpYMJtqLAm7JZz50Hc28Pc88sD
-	avrV9I03tW7DLc/FjoQ0iN+O20GNFQdcyOqfP3k19a33nsTuEVTd9ogc3HniQHCGbxF2WLsv
-	yDBwyNfutTf9omXXx/cDRmK+/938qR1E+Qxsq/W8NNxY9qszNRdFoy79pvDo4aAYK7nkNG4x
-	561EvG9yRlyVqNoD8xMmo9I+uxHaU5N5Puv6eG3bbk3u9jRTb9NL/lq4XCQmlHGyoG24Qin7
-	G+hP89EmBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprJKsWRmVeSWpSXmKPExsVy+t/xe7ozI/+mG7THW5y4vojJYs3ec0wW
-	r6d9YLOYf+Qcq8W9S1uYLK58fc9mse7pBXaLF3sbWSxezrrHZnF51xw2i8+9Rxgttn1uYbNY
-	e+Quu8X6r/OZLBZ+3MpisWTHLkaLts5lrBZ3751gseh438BsMffLVGaL/3t2sFvMfref3WLL
-	m4msFsfXhlu07J/C4iDpsffbAhaPnbPusnv07DzD6LFpVSebx51re9g85p0M9LjffZzJY/OS
-	eo+WtceYPPr/Gni833eVzaNvyypGj82nqz0+b5IL4IvSsynKLy1JVcjILy6xVYo2tDDSM7S0
-	0DMysdQzNDaPtTIyVdK3s0lJzcksSy3St0vQy2ja0sResFG6onvaU/YGxiaxLkZODgkBE4nW
-	aS8Yuxi5OIQEljJKfO86wQaRkJG41v2SBcIWlvhzrYsNoqiFSeJO+yuwBJuAkcSD5fNZQWxh
-	AS+Jn1tugsVZBFQl1k/8xN7FyMHBK+AucX2+M0iYV0BQ4uTMJywgYWYBTYn1u/RBwswC8hLb
-	385hBhkvIbCBUeLXhz5GiL2mElO+zwA7TkSgiU3i2/bPYEcwC8xjlPg0bwLUdaISvyfvYpnA
-	KDgLyZJZCEtmIVmygJF5FaNIamlxbnpusZFecWJucWleul5yfu4mRmAa2Xbs55YdjCtffdQ7
-	xMjEwXiIUYKDWUmEl8v5V7oQb0piZVVqUX58UWlOavEhRlOgPycyS4km5wMTWV5JvKGZgamh
-	iZmlgamlmbGSOC/blfNpQgLpiSWp2ampBalFMH1MHJxSDUyLJZT+X7lgeumn274/epuUvLuS
-	jgg9FXllH/hyfZ2eBGeZaOCVf5Z2sw5YcYqsYp+4dX/leaOJz0+dfn5jsiyTZtbMPQlugreU
-	i1/yHpo1Z8ZnueQnrmdWRmi9iOtwTTvof+2o4cZpNm80/vlv/Do1+1nZ0ouzSpyPLazewZDQ
-	KN2e+NAhW1yFq1R5Wsztd6nH76xuOPLszcK1mz/vVn7bVsARvbRHq0GzPjxXeuX2qdOC3Vcp
-	V+6QUTpRKOK3+frFPjYm76xqw5S+lxGvby7sDL4Xv9yg7f1T/e8q976/3vBWbv3X83NYjUPW
-	OckesXdnf+57YOWMDbzLf/5+vejEC4O7DmuW2728fWDr0xWWa5RYijMSDbWYi4oTAT6JRkes
-	AwAA
-X-CMS-MailID: 20250414185313eucas1p1c4d13c657f3a3c3e47810955db645ca2
-X-Msg-Generator: CA
-X-RootMTR: 20250414185313eucas1p1c4d13c657f3a3c3e47810955db645ca2
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250414185313eucas1p1c4d13c657f3a3c3e47810955db645ca2
-References: <CGME20250414185313eucas1p1c4d13c657f3a3c3e47810955db645ca2@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_115320_162596_9416232D 
-X-CRM114-Status: GOOD (  16.30  )
+X-CRM114-CacheID: sfid-20250414_121722_925897_A00112C2 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,81 +110,73 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This small patch series adds clock and reset management for the GPU in
-the T-HEAD TH1520 SoC through the generic power domain (genpd)
-framework.
+This series adds reset controller support for the SpacemiT K1 SoC.
 
-The TH1520 GPU requires a special sequence involving multiple clocks and
-resets to safely bring it up. Coordinating this sequence properly is
-necessary for correct GPU operation. Following discussions on the
-mailing list with kernel maintainers [1], the recommended approach is to
-model this complexity inside a power domain driver, keeping SoC specific
-details out of the GPU driver, clock framework, and reset framework.
+As before, this version is built upon the clock controller driver that
+Haylen Chu has out for review (currently at v7):
+  https://lore.kernel.org/lkml/20250412074423.38517-2-heylenay@4d2.org/
 
-This series consists of four patches:
-- Patch 1 introduces a new dev_pm_info flag to allow device drivers
-  to detect when platform PM domains manage clocks or resets
-- Patch 2 updates the AON firmware bindings to describe the GPU clkgen
-  reset
-- Patch 3 extends the TH1520 PM domain driver to handle GPU-specific
-  clock and reset sequencing at runtime, using genpd start/stop and
-  attach/detach callbacks
-- Patch 4 updates the Imagination DRM driver to skip direct clock
-  management when platform PM ownership is detected
+All of these patches are available here:
+  https://github.com/riscstar/linux/tree/outgoing/reset-v4
 
-This approach aligns with recent efforts to treat PM domains as
-SoC-specific power management drivers, as presented at OSSEU 2024 [2].
+Between version 3 and version 4:
+  - Now based on Haylen Chu's v7 clock code, built on v6.15-rc2.
+  - Added Krzysztof's Reviewed-by on the first patch.
 
-This patchset continues the work started in bigger series [3] by moving
-the GPU initialization sequence for the TH1520 SoC into a generic PM
-domain driver, specifically handling clock and reset management as part
-of GPU bring-up.
+Here is version 2 of this series.
+  https://lore.kernel.org/lkml/20250409211741.1171584-1-elder@riscstar.com/
 
-v2:
+Between version 2 and version 3 there was no feedback, however:
+  - Haylen posted v6 of the clock series, and it included some changes
+    that affected the logic in this reset code.
+  - I was informed that defining CCU nodes without any clocks led to
+    warnings about "clocks" being a required property when running
+    "make dtbs_check".  For that reason, I made clock properties
+    optional for reset-only CCU nodes.
+  - This code is now based on v6.15-rc1, which includes a few commits
+    that were listed as dependencies previously.
 
-Extended the series by adding two new commits:
- - introduced a new platform_resources_managed flag in dev_pm_info along
-   with helper functions, allowing drivers to detect when clocks and resets
-   are managed by the platform
- - updated the DRM Imagination driver to skip claiming clocks when
-   platform_resources_managed is set
+Here is version 2 of this series.
+  https://lore.kernel.org/lkml/20250328210233.1077035-1-elder@riscstar.com/
 
-Split the original bindings update:
- - the AON firmware bindings now only add the GPU clkgen reset (the GPU
-   core reset remains handled by the GPU node)
+Between version 1 and version 2:
+  - Added Rob's Reviewed-by tag on the first patch
+  - Renamed the of_match_data data type (and one or two other symbols) to
+    use "spacemit" rather than "k1".
+  - Replaced the abbreviated "rst" or "RST" in names of newly-defined
+    sympols with "reset" or "RESET" respectively.
+  - Eliminated rcdev_to_controller(), which was only used once.
+  - Changed a function that unsafely did a read/modify/write of a register
+    to use regmap_update_bits() instead as suggested by Haylen.
+  - Eliminated a null check for a pointer known to be non-null.
+  - Reordered the assignment of reset controller device fields.
+  - Added a "sentinel" comment as requested by Yixun.
+  - Updated to be based on Linux v6.14 final.
 
-Reworked the TH1520 PM domain driver to:
- - acquire GPU clocks and reset dynamically using attach_dev/detach_dev
-   callbacks
- - handle clkgen reset internally, while GPU core reset is obtained from
-   the consumer device node
- - added a check to enforce that only a single device can be attached to
-   the GPU PM domain
+Here is the first version of this series.
+  https://lore.kernel.org/lkml/20250321151831.623575-1-elder@riscstar.com/
 
-[1] - https://lore.kernel.org/all/CAPDyKFqsJaTrF0tBSY-TjpqdVt5=6aPQHYfnDebtphfRZSU=-Q@mail.gmail.com/
-[2] - https://osseu2024.sched.com/event/1ej38/the-case-for-an-soc-power-management-driver-stephen-boyd-google
-[3] - https://lore.kernel.org/all/20250219140239.1378758-1-m.wilczynski@samsung.com/
+					-Alex
 
----
-Michal Wilczynski (4):
-      PM: device: Introduce platform_resources_managed flag
-      dt-bindings: firmware: thead,th1520: Add resets for GPU clkgen
-      pmdomain: thead: Add GPU-specific clock and reset handling for TH1520
-      drm/imagination: Skip clocks if platform PM manages resources
+Alex Elder (7):
+  dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
+  clk: spacemit: rename spacemit_ccu_data fields
+  clk: spacemit: add reset controller support
+  clk: spacemit: define existing syscon resets
+  clk: spacemit: make clocks optional
+  clk: spacemit: define new syscons with only resets
+  riscv: dts: spacemit: add reset support for the K1 SoC
 
- .../bindings/firmware/thead,th1520-aon.yaml        |  11 ++
- drivers/gpu/drm/imagination/pvr_device.c           |  14 +-
- drivers/pmdomain/thead/th1520-pm-domains.c         | 199 +++++++++++++++++++++
- include/linux/device.h                             |  11 ++
- include/linux/pm.h                                 |   1 +
- 5 files changed, 232 insertions(+), 4 deletions(-)
----
-base-commit: 7c89da246c1268c8dbfc1c7f1edc55aabce45b43
-change-id: 20250414-apr_14_for_sending-5b3917817acc
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +-
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 +
+ drivers/clk/spacemit/ccu-k1.c                 | 330 +++++++++++++++++-
+ .../dt-bindings/clock/spacemit,k1-syscon.h    | 128 +++++++
+ 4 files changed, 482 insertions(+), 23 deletions(-)
 
-Best regards,
+
+base-commit: 846ce0a9d3e86830a3c6253c3b62104b369d6a95
 -- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+2.45.2
 
 
 _______________________________________________
