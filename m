@@ -4,71 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 730D2C3601E
-	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 07:33:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88DCCC369B2
+	for <linux-riscv@archiver.kernel.org>; Mon, 14 Apr 2025 08:04:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dxZzcIkqoF65Nn98BubN0+WBwcp+42MBiqyOOGAORSk=; b=xZGkDu6cjEvGdL
-	WYvnJ/7oWCqk6sTKaIZSwpV37Zr0cBaMhy6NFHI6ZIYF41KWmDs9f26dxUctUUrbyJE28lrTDsb/5
-	z0MGJyZRTy5isB9sfCz4HJel7X4j/Mxo601uM5G/gGgJ4LSpg8Yrvn+2i5/sks5ibUsKpGEvrUPU2
-	+oL6v3yY+bLy0N6fK+bpqXUrxiU0VJVHhxJe3oQIQoXe86q07H2YCEfLFTxmxE285Qga2M574WmNJ
-	T43CR5uQOz810cLQptIl1UCcBtvV0eH8T/KbwjzStX9X7AKpRndn6Q+EGcEjK0gAdQ8JgJvSGNYXF
-	dL1ZGrCFWU7TCD+OCNaQ==;
+	List-Owner; bh=GUvFVyaEuksXcxbkniRpx+S/7z5/r9kcA3GXQoioqu0=; b=KBystijP2QItOW
+	CSHVjqBbsPQx3HCmV1jV9iD+yOaNBkGhh43X2QAujHKkECHzLP/dDWuf9nyarTyz0scnYHtmVyDVO
+	lXMyImKrXqUtELSq7uaOEMpxFJWN5kA8koACsNEHiifr+2iP81R0hxt7OwANSdAwAEBY8pjutIu5e
+	SedkqtTUETdqqsGANK7hfV2qnaos+5pQOg7H+fb9Wh74NOVyiaWqkq5+DlgYZmuFtiOYY8QNxpqdP
+	ZhdBixufsnqx1P4FLdyTIxlmrbeNCtTegRyXmy/2Ba/XQUh0Gqt9l5cOXmSU7wtRj+RgFL9HSgJ2e
+	ong4s7IicVrqV9Vonzdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EJn-00000000wL9-1lSw;
-	Mon, 14 Apr 2025 07:33:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u4Eo7-000000011MW-1pVm;
+	Mon, 14 Apr 2025 08:04:43 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4EJl-00000000wKV-0ak7
+	id 1u4EnN-000000011F6-06zM
 	for linux-riscv@lists.infradead.org;
-	Mon, 14 Apr 2025 07:33:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 17D53A488F5;
-	Mon, 14 Apr 2025 07:27:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AADA5C4CEE2;
-	Mon, 14 Apr 2025 07:33:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744616000;
-	bh=kTal2JJIjvbhqqeb2aXNLhvO1P71bn/m7n+c3fSUmFg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uVPlimpUDYBt4gJJhPFhhpA2n3VetxCb4i63xcd2AuKq+ciPthWfhwmv2mQodGvTe
-	 pQf+LBQ/Ib/LsVsJ8oTXtIL6PZIbbn0FURfbYgNmXaI6RTpTzjGuW/kq9ZtnEg/acg
-	 r/rHOLuiOewVFKRPdMzRbCcc1l19mqZCdm3YcSuf83U/zxI2cQDKirzWHh9cZkeXT6
-	 kDOlN83CmMrdzm5WGiUlKlxXCaR6BzlOEtgmvgAmAq96NzXl6itExfdSV9tDaR/sIA
-	 Z0f6BzFjPKqZR5jmas63v2PubPQvbbrR0N7GiCg4yisSwZQnucP71USp2YLhCEuakN
-	 G9LZrP27Ev/ow==
-Date: Mon, 14 Apr 2025 09:33:15 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Andi Shyti <andi.shyti@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>, linux-hwmon@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, 
-	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 08/10] dt-bindings: i2c: dw: Add Sophgo SG2044 SoC I2C
- controller
-Message-ID: <20250414-muscular-steady-perch-cb44e3@shite>
-References: <20250413223507.46480-1-inochiama@gmail.com>
- <20250413223507.46480-9-inochiama@gmail.com>
+	Mon, 14 Apr 2025 08:03:58 +0000
+Received: from localhost (unknown [116.232.27.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 7AD2B343029;
+	Mon, 14 Apr 2025 08:03:54 +0000 (UTC)
+Date: Mon, 14 Apr 2025 08:03:44 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Guodong Xu <guodong@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+	drew@pdp7.com, inochiama@gmail.com, geert+renesas@glider.be,
+	heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com,
+	unicorn_wang@outlook.com, duje.mihanovic@skole.hr,
+	elder@riscstar.com, linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH 7/9] riscv: dts: spacemit: Add PWM14 backlight support
+ for BPI-F3
+Message-ID: <20250414080344-GYA28186@gentoo>
+References: <20250411131423.3802611-1-guodong@riscstar.com>
+ <20250411131423.3802611-8-guodong@riscstar.com>
+ <5lfnxricxm2k3fuf6nfvjd6cbkmsjkx7inoi52uy5uwwvld7sq@abn4i62tdics>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250413223507.46480-9-inochiama@gmail.com>
+In-Reply-To: <5lfnxricxm2k3fuf6nfvjd6cbkmsjkx7inoi52uy5uwwvld7sq@abn4i62tdics>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_003321_240985_D4B815B9 
-X-CRM114-Status: UNSURE (   8.22  )
+X-CRM114-CacheID: sfid-20250414_010357_085116_177207E1 
+X-CRM114-Status: UNSURE (   8.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,24 +70,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 06:35:02AM GMT, Inochi Amaoto wrote:
-> Add compatible string for Sophgo SG2044 SoC I2C controller which can be
-> used specifically for the SG2044 SoC.
-> 
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->  Documentation/devicetree/bindings/i2c/snps,designware-i2c.yaml | 1 +
+Hi Uwe,
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+On 07:58 Mon 14 Apr     , Uwe Kleine-K=F6nig wrote:
+> Hello,
+> =
 
-Best regards,
-Krzysztof
+> On Fri, Apr 11, 2025 at 09:14:21PM +0800, Guodong Xu wrote:
+> > +&pwm14 {
+> > +	pinctrl-names =3D "default";
+> > +	pinctrl-0 =3D <&pwm14_1_cfg>;
+> > +	status =3D "disabled";
+> > +};
+> =
 
+> I wonder if the pinctrl properties can better be added to the SoC's
+> .dtsi file. (Only applies if this is a canonical choice, i.e. there is
+> no other possible output configuration.)
+> =
+
+I'd agree it's a good idea and should follow, but unfortunately in the
+practical case, all pwm able to route to at least two different pins..
+
+https://developer.spacemit.com/documentation?token=3DYiJZwXA2Ri4nJikV9E1cp6=
+nqnMh
+see section: 4.5 Multi-Function I/O Pin Assignments
+
+-- =
+
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
