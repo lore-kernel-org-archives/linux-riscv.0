@@ -4,95 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 414C4C369B2
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 02:04:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3063FC369B4
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 02:32:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IX/Gn0S9r9FStkaeob5otjB3GN1PlTKF3DWcm0J8m7E=; b=0Lmz5o5DDYskJm
-	6r26Kb7KW2amdK4Ol8qWKn7PUldkeC8eFvMnf9kkkFkOe8cdRzLe8rx1Po/GBsW2FRU3xHmhmC3YQ
-	HQQ1qSpiRpym00FNQ1PwyQXGkrv0eeeJzx1qYrVKZWoSP9EM49QoRXH3UQ0VYJkzJQJGmAS453SnT
-	Z/Gz+eTI+2w/pNVT2o9C8Y74KDRs9/lob04blXXUCShD3YivRYQS4mX+ayeFyeYm/L+x3cmAHicff
-	KV2jHvauHGnltF+aFRsauxyK2KQadDvXzq7CKxfEay4z85iZC46IsxycpMXwBa5BQJIxcQV2/fqyh
-	x3NVmxC4O9BgMHDa8l7A==;
+	List-Owner; bh=PrGmnoy5zmswWk2mf7bj87Py0FMPRD31vF//0i19Kdw=; b=cRc9BR0jyjV9L0
+	3AGQsunFFjJcXGPQmIMklEOyTwtJvxTlAkIlQkJTqlNZO73M4N/6ih6sVx3Sd8ImmkDZmWO+y/jUQ
+	zjPUpesAluI+oluBy1I+Top5S0Yr8rohi1TOhdCALPw6hh9qrQS4BJSlpDiFgFD5tnH+qzpxVDFqr
+	veEwtOVmWJMD+kQ8fCm1F79fmHN2279TkW8fFII9g1nhcAoVhyBMA2L7SHCze4nncIDZtTarymufA
+	A/5vxeA/2XbT2i+dY06FeQGWJIfHJesEqjbdE79ZV0gpeNJrNo1FZCTd3q9V3CBQ+aT1pVhuPXa00
+	eO85it2PaR64oVZCX8kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4VfA-00000004AS6-0US9;
-	Tue, 15 Apr 2025 02:04:36 +0000
-Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
+	id 1u4W6N-00000004CIt-2rqh;
+	Tue, 15 Apr 2025 02:32:43 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Vf7-00000004ARd-2YUG
+	id 1u4W6L-00000004CI6-0lr3
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Apr 2025 02:04:35 +0000
-Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-7fd581c2bf4so4299371a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 14 Apr 2025 19:04:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1744682672; x=1745287472; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=vVKNwOsV5XMrSrMJnf19rxwG/iaJAJwZinmx64BUP7k=;
-        b=LffS5plqBWRfBeg7YW6T0yZgewo+KrSduqiXYqEjuhuQrEFIPDVqvM0UXZLJLADekQ
-         Y+3SH0A/SpH96pxZ5k7fpI+Sd3RqmLoKvDc/myOaiy/FANFiyirsyVf8PMe0OcsLa1O7
-         oZDr27jQsgPoycAW78ujkFrhOGEkqmOHx73LQxhClKdihSXeOzeb66Y3Coi97zEuXLcn
-         Wn6iZU3ls/fbq9p5MBEs4rYvY/qlICU1wm3ieMRcDt7AkJNCPUt9BzaWyPVLOPvdwsm1
-         j7f824sJsxWUsN+NDCWI7D0zWLG3HIcIvmoRci1Yza2Fh7ygV9VHgL6bn0mEYmAv/T8t
-         JYPA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744682672; x=1745287472;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vVKNwOsV5XMrSrMJnf19rxwG/iaJAJwZinmx64BUP7k=;
-        b=lQ8ZyDVq6eGoOOinGTBiq4qgblPRp5p2qi0KsjN6naa1Iyqn5F4yfW6zZgcqrqPnoW
-         C8KjrTy+GQoWkgVwTdhUrJtRo1oJDvp9ljkICKWxIUv9yaR+jVZ53ohz5zFpS9HjBs/E
-         ovaeYcGKfkTVAVEMmEHlNIfKApaiX5l3XF503RMgaDYdeFGZUhSOB4NpOwqRz0yAUeXi
-         /NPW/e+7s9coWL1VINoeXDQzJxGhBSfHA2IECcX6o3reBjM4KEPXdCksNZde4IkLToX/
-         FX8h/+yYNGOOYSvMAI5sCW+/YFt10nCfrzJpH30aJwRPvnuHxD4P2tv8C7UrcYHuSf+g
-         fpWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUZx6AGrivL16Vi0IUF2c7smMVG21mC40o4flMhb3aJkApk5Dtr4djrW3iUQqP/iH4gwVd0P6W8LYivvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTXy5tZK19IDgFuJsseCc/w/gBvDv7jWhqydHdi05UHiFEDzKD
-	z2zNtPoaWzgaqMplU0xRPD7nVPC9lG5csCmSdEC+0RcHLlsu4mY1C3wl774NbNY=
-X-Gm-Gg: ASbGncsFUHVl3IzCkqq4M6o+sSN9OsziRRKO37/W88k0ut1WiYUu2Nd4r3CQqufo3eD
-	P1kjwtqJfip9c2YtbGhblAljI1iGRsWc56HdMhH9nmemr3nqcxzUKkllL3BaB4SIBPSJWzPQMN9
-	cgxuYpSj/eEPZAYIJfj+Ovg8qcNT7jlDZn1H6gr8e35FLOIDEbPlP2E1bR97GzVP2CHJr53eoEe
-	Q5sE/u/2LTLK7dqmQ0PLUB0mLZSH1QeEs0zVSbcu9xVFpjp9vfoRuwYmE3gmowRgJ4ltrv6oOiI
-	xDcrLLv84a9NOSDLX29fZGoxM0P65jTlk+Z8YlBue/d7DNA=
-X-Google-Smtp-Source: AGHT+IEGINtwuIIvAG2vOyy+05/hzxGzcyCN3rLg9V0W9dc2TsjoIN0MbhxjBGLcyWirEoR5Ps2qpQ==
-X-Received: by 2002:a17:90a:d64d:b0:2f9:c144:9d13 with SMTP id 98e67ed59e1d1-308237b9f43mr17682243a91.24.1744682672433;
-        Mon, 14 Apr 2025 19:04:32 -0700 (PDT)
-Received: from x1 (97-120-122-6.ptld.qwest.net. [97.120.122.6])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-306dd12b4d5sm13372486a91.25.2025.04.14.19.04.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 14 Apr 2025 19:04:31 -0700 (PDT)
-Date: Mon, 14 Apr 2025 19:04:29 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, ulf.hansson@linaro.org, jszhang@kernel.org,
-	p.zabel@pengutronix.de, m.szyprowski@samsung.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v5 19/21] riscv: dts: thead: Introduce power domain nodes
- with aon firmware
-Message-ID: <Z/2+rbhsaBP0DQop@x1>
-References: <20250219140239.1378758-1-m.wilczynski@samsung.com>
- <CGME20250219140315eucas1p10f08d297580edd114f4c487c1fbffa8d@eucas1p1.samsung.com>
- <20250219140239.1378758-20-m.wilczynski@samsung.com>
+	Tue, 15 Apr 2025 02:32:42 +0000
+Received: from localhost (unknown [116.232.27.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 8CC5E34309F;
+	Tue, 15 Apr 2025 02:32:38 +0000 (UTC)
+Date: Tue, 15 Apr 2025 02:32:34 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>
+Subject: Re: [PATCH v8 0/5] riscv: spacemit: add gpio support for K1 SoC
+Message-ID: <20250415023234-GYA29961@gentoo>
+References: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250219140239.1378758-20-m.wilczynski@samsung.com>
+In-Reply-To: <20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_190433_915452_F8E4BCE9 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250414_193241_262022_A4149839 
+X-CRM114-Status: GOOD (  29.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,59 +63,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Alex Elder <elder@riscstar.com>, linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Feb 19, 2025 at 03:02:37PM +0100, Michal Wilczynski wrote:
-> The DRM Imagination GPU requires a power-domain driver. In the T-HEAD
-> TH1520 SoC implements power management capabilities through the E902
-> core, which can be communicated with through the mailbox, using firmware
-> protocol.
+Hi Bartosz,
+  I think this version is good to go, if you agree,
+can you take patch [1,2 / 5] through gpio tree?
+
+Hi Palmer,
+  I believe the change to riscv's defconfig file should
+ go via riscv tree?
+
+ thanks
+
+On 07:31 Sat 12 Apr     , Yixun Lan wrote:
+> The gpio controller of K1 support basic GPIO functions,
+> which capable of enabling as input, output. It can also be used
+> as GPIO interrupt which able to detect rising edge, falling edge,
+> or both. There are four GPIO ports, each consisting of 32 pins and
+> has indepedent register sets, while still sharing IRQ line and clocks.
+> The GPIO controller request the two clock sources from APBC block.
 > 
-> Add AON node, which servers as a power-domain controller.
+> Due to first three GPIO ports has interleave register settings, some
+> resources (IRQ, clock) are shared by all pins.
 > 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+> The GPIO docs of K1 SoC can be found here, chapter 16.4 GPIO [1]
+> 
+> This patch series has been tested on Bananapi-F3 board,
+> with following GPIO cases passed:
+>  1) gpio input
+>  2) gpio output - set to high, low
+>  3) gpio interrupt - rising trigger, falling trigger, both edge trigger
+> 
+> This version should resolve DT related concern in V4, and register each bank as
+> indepedent gpio chip in driver, no more sub children gpio DT node needed.
+> 
+> Please notice in this version, the reset property is added, but optional.
+> as I see no need to activate it in driver, instead I suspect it may
+> break cases if bootloader did some prerequisite settings, so I'm leaving
+> it for future implementation if really necessary.
+> 
+> The DT part (patches 4, 5) has no clock property populated which result
+> some DT warnings, I will fix it and re-spin the DT part once clock driver merged,
+> so it's included here for completeness only, please ignore these warnings.
+> 
+> Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf [1]
+> Link: https://lore.kernel.org/all/20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org [2]
+> Link: https://lore.kernel.org/all/20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org/ [3]
+> Link: https://lore.kernel.org/all/20250218-gpio-ranges-fourcell-v1-0-b1f3db6c8036@linaro.org [4]
+> Link: https://lore.kernel.org/all/20250225-gpio-ranges-fourcell-v3-0-860382ba4713@linaro.org [5]
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
 > ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 8 ++++++++
->  1 file changed, 8 insertions(+)
+> Changes in v8:
+> - rebased to v6.15-rc1
+> - adjust dt-binding/code to request clocks
+> - add reset property
+> - call irq_domain_update_bus_token() to support threecells interrupt mode
+> - use devm_platform_ioremap_resource(), so drop "struct resource"
+> - fix Kconfig
+>   - select GPIO_GENERIC as calling bgpio_init()
+>   - change to tristate, make it possible to build as module
+> - adjust defconfig to enable gpio 
+> - Link to v7: https://lore.kernel.org/r/20250226-03-k1-gpio-v7-0-be489c4a609b@gentoo.org
 > 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index 197df1f32b25..474f31576a1b 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -6,6 +6,7 @@
->  
->  #include <dt-bindings/interrupt-controller/irq.h>
->  #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-> +#include <dt-bindings/power/thead,th1520-power.h>
->  
->  / {
->  	compatible = "thead,th1520";
-> @@ -229,6 +230,13 @@ stmmac_axi_config: stmmac-axi-config {
->  		snps,blen = <0 0 64 32 0 0 0>;
->  	};
->  
-> +	aon: aon {
-> +		compatible = "thead,th1520-aon";
-> +		mboxes = <&mbox_910t 1>;
-> +		mbox-names = "aon";
-> +		#power-domain-cells = <1>;
-> +	};
-> +
->  	soc {
->  		compatible = "simple-bus";
->  		interrupt-parent = <&plic>;
+> Changes in v7:
+> - dt-binding: fix 80 column, drop unneeded dependencies
+> - tested with patch v3 of "gpiolib: of: Handle threecell gpios" [5]
+> - collect review tags
+> - Link to v6: https://lore.kernel.org/r/20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org
+> 
+> Changes in v6:
+> - rebase to threecell gpio patch which proposed by LinusW at [4], 
+>   drop unneeded *xlate(), *add_pin_range() function
+> - add SPACEMIT prefix to macro
+> - adjust register comments
+> - drop 'index' member, instead calculate from offset
+> - add IRQCHIP_SKIP_SET_WAKE as gpio doesn't support irq wake up
+> - drop #ifdef CONFIG_OF_GPIO
+> - move interrupt mask disabling/enabling into irq_*mask()
+> - Link to v5: https://lore.kernel.org/r/20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org
+> 
+> Changes in v5:
+> - export add_pin_range() from gpio core, support to add custom version
+> - change to 3 gpio cells, model to <bank number>, <bank offset>, <gpio flag>
+> - fold children DT nodes into parent
+> - Link to v4: https://lore.kernel.org/r/20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org
+> 
+> Changes in v4:
+> - gpio: re-construct gpio as four independent ports, also leverage gpio mmio API
+> - gpio interrupt: convert to generic gpio irqchip
+> - Link to v3: https://lore.kernel.org/r/20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org
+> 
+> Changes in v3:
+> - dt: drop ranges, interrupt-names property
+> - Link to v2: https://lore.kernel.org/r/20241219-03-k1-gpio-v2-0-28444fd221cd@gentoo.org
+> 
+> Changes in v2:
+> - address dt-bindings comments, simplify example
+> - rebase to 6.13-rc3 
+> - Link to v1: https://lore.kernel.org/r/20240904-03-k1-gpio-v1-0-6072ebeecae0@gentoo.org
+> 
+> ---
+> Yixun Lan (5):
+>       dt-bindings: gpio: spacemit: add support for K1 SoC
+>       gpio: spacemit: add support for K1 SoC
+>       riscv: defconfig: spacemit: enable gpio support for K1 SoC
+>       riscv: dts: spacemit: add gpio support for K1 SoC
+>       riscv: dts: spacemit: add gpio LED for system heartbeat
+> 
+>  .../devicetree/bindings/gpio/spacemit,k1-gpio.yaml |  96 +++++++
+>  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts    |  11 +
+>  arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi       |   3 +
+>  arch/riscv/boot/dts/spacemit/k1.dtsi               |  15 ++
+>  arch/riscv/configs/defconfig                       |   1 +
+>  drivers/gpio/Kconfig                               |   9 +
+>  drivers/gpio/Makefile                              |   1 +
+>  drivers/gpio/gpio-spacemit-k1.c                    | 293 +++++++++++++++++++++
+>  8 files changed, 429 insertions(+)
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20240828-03-k1-gpio-61bf92f9032c
+> 
+> Best regards,
 > -- 
-> 2.34.1
+> Yixun Lan
 > 
 
-Reviewed-by: Drew Fustini <drew@pdp7.com>
-
-I tested this on top of 6.15-rc1 and found no issues.
-
--Drew
+-- 
+Yixun Lan (dlan)
+Gentoo Linux Developer
+GPG Key ID AABEFD55
 
 _______________________________________________
 linux-riscv mailing list
