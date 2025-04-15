@@ -4,81 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18C69C369AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 04:18:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1499AC369AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 05:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4osO4bxCfrJzhenrNAYIfnvouhEvUGCYcVWrEx2b7uM=; b=WJyFWQIEUHO05y
-	VsCcCV+z2m8qwVLFeUpCXORLYtubvymCTGT/LGwanry7gN6yrSZltYQFT+jVurQjPlbhkc1KrwiFH
-	P+AC/B0i9qX0M7F+LxKZG8fLVWP8Hh9WnR0vMFJwebboWov8j/MuttD+BsshrTp/QOpEWaLruS/JD
-	UnRFifApJ3A45rJzs67cd2B7p2qEnstNE4mug1f/up7Xdp4ng4wFVrI8sLJrMc0moMiGj1+SEE0NW
-	oUW5z6KUJwwhKeBtIJPIbpUKq5iJXy0RPBizRoiZyggE03SU2JxrA8iNczKXJWh02VipsxmUoizK3
-	YTFSllgF8PkwK4kDETgg==;
+	List-Owner; bh=rnBM2zKKo4T/3C2CjI+oP38ggoU2oP0POu2TPSd4epA=; b=Zimms60yOsV+L7
+	vXzDodWQL9cfvmK9Lzd63mcPOmEaUUBWpfqVtj/qeEN5OlG8V8FrbaBO84EB4FXpojidy1Bsh9ffE
+	ac5xC3V/NLxZV4jkG6zSdEbigxtZlk6dhrICRG/8KAEIUCjR33uzUyMvd6PKqEreTogFZVyuCDnx/
+	KXZhAsyOTbGI/pVP/7+9bYNgQwjUbX6Gda1sOFlXmKeYHFFpF7bPthK0RggpVDwR/znPhxBQ6gQ5V
+	b0bpJlZflnV/+FsL7fn8RUVb3ojLPepeajmy8aESEhfq1yKXmFiTGg52hnt/dxgEIVVn1+XsT6jnA
+	hL3P0uTGhfCU3bxwCCow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Xko-00000004QMA-3fVC;
-	Tue, 15 Apr 2025 04:18:34 +0000
-Received: from bayard.4d2.org ([155.254.16.17])
+	id 1u4ZFa-00000004bfN-00Y7;
+	Tue, 15 Apr 2025 05:54:26 +0000
+Received: from relay5-d.mail.gandi.net ([217.70.183.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4Xkl-00000004QLO-0sGH
+	id 1u4ZFK-00000004bbn-224W
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Apr 2025 04:18:33 +0000
-Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 3C72912FB450;
-	Mon, 14 Apr 2025 21:18:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744690708; bh=TDeHh2JSFt6MEQZxnJI2IRXRZvejReOK447qRDNW6iM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=wjs57W1tjaXVmsESwCjIK8NREbtHC/9TrdkRIbwE4mH79A8bdAsVzli1zBNdXkyE5
-	 Ta4R7pWX3tLHk7QRaTkJNhLGx0Qt/FXWROpk/R8LhIK4q4QNkl6ry9khuvbDv6Kcjf
-	 uzBUxghvQx458VKMexNT1JmO4UPbskk1V6r/xrWZ3sOKgEm/8JD/6b4IvawIgHJgpf
-	 NgqWvGlhSRBG4QrOtTA3N6JDrnJ08Ktdevx8lXAAmtRWf9//d+8Y3w0P+ow2G5kXWd
-	 o15WDmOXHsAmt4Wn/amsVxJutdtdnl32FYrwlvfm4G//tZnsWg7eZibXC/rhStL1mH
-	 C1WF1c+vsMt4g==
-X-Virus-Scanned: amavisd-new at 4d2.org
-Received: from bayard.4d2.org ([127.0.0.1])
- by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id g7BIZzpgvdqr; Mon, 14 Apr 2025 21:18:23 -0700 (PDT)
-Received: from ketchup (unknown [183.217.81.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 7475512FB435;
-	Mon, 14 Apr 2025 21:18:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744690703; bh=TDeHh2JSFt6MEQZxnJI2IRXRZvejReOK447qRDNW6iM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=myfhKdLaoMsUau7EDgnyILiXRboxXeqVE6R3kjSTbGRL3L8TRaga3togeTnOtrySp
-	 YcZqRmwST0ku7jtqnrjGVW+VnvnUz+3t8fHXPypkxTIs/pFDakD0g0UG8YuvGMbw2J
-	 AxsSBxTTA7eERGNKB3zlxBTNq7g1G/xLt4yWsvwtBIFE3w1gl2J0TzY5ky1HSntTNn
-	 uHTRpSQamGepVW2zKtbaGV8X8BDPlkPa4hrwhHjT0cgVGMD+Pha6vS+tJG7VxTkX8+
-	 9BgiNdmTV8Wxmrwwn7X4Rs7+HorIyI61doDKOEuEoOOwl+WqO1AZJpxow1qiXfk2RY
-	 hEe2BfmlTiYVg==
-Date: Tue, 15 Apr 2025 04:18:16 +0000
-From: Haylen Chu <heylenay@4d2.org>
-To: Alex Elder <elder@riscstar.com>, mturquette@baylibre.com,
-	sboyd@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org
-Cc: p.zabel@pengutronix.de, dlan@gentoo.org, guodong@riscstar.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	spacemit@lists.linux.dev, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 2/7] clk: spacemit: rename spacemit_ccu_data fields
-Message-ID: <Z_3eCDmh_vnkpcFC@ketchup>
-References: <20250414191715.2264758-1-elder@riscstar.com>
- <20250414191715.2264758-3-elder@riscstar.com>
+	Tue, 15 Apr 2025 05:54:12 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9B43B43A3B;
+	Tue, 15 Apr 2025 05:54:05 +0000 (UTC)
+Message-ID: <4a0dc950-cda6-4bb4-a4e9-460bc56b5bb1@ghiti.fr>
+Date: Tue, 15 Apr 2025 07:54:04 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250414191715.2264758-3-elder@riscstar.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] riscv: Avoid fortify warning in syscall_get_arguments()
+To: Nathan Chancellor <nathan@kernel.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Charlie Jenkins <charlie@rivosinc.com>
+Cc: "Dmitry V. Levin" <ldv@strace.io>, Kees Cook <kees@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvddvieejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemsgefgegtmeefjedvugemrggsrggtmegstgdtkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemsgefgegtmeefjedvugemrggsrggtmegstgdtkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemsgefgegtmeefjedvugemrggsrggtmegstgdtkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehnrghthhgrnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrl
+ hhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghouhesvggvtghsrdgsvghrkhgvlhgvhidrvgguuhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomhdprhgtphhtthhopehlughvsehsthhrrggtvgdrihhopdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250414_211831_602903_5B61D33F 
-X-CRM114-Status: GOOD (  18.36  )
+X-CRM114-CacheID: sfid-20250414_225410_657860_E58B72D2 
+X-CRM114-Status: GOOD (  27.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,112 +63,95 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 02:17:09PM -0500, Alex Elder wrote:
-> Add "clk_" to the names of the fields in the spacemit_ccu_data structure
-> type.  This prepares it for the addition of two similar fields dedicated
-> to resets.
-> 
-> Signed-off-by: Alex Elder <elder@riscstar.com>
+Hi Nathan,
 
-Reviewed-by: Haylen Chu <heylenay@4d2.org>
-
+On 09/04/2025 23:24, Nathan Chancellor wrote:
+> When building with CONFIG_FORTIFY_SOURCE=y and W=1, there is a warning
+> because of the memcpy() in syscall_get_arguments():
+>
+>    In file included from include/linux/string.h:392,
+>                     from include/linux/bitmap.h:13,
+>                     from include/linux/cpumask.h:12,
+>                     from arch/riscv/include/asm/processor.h:55,
+>                     from include/linux/sched.h:13,
+>                     from kernel/ptrace.c:13:
+>    In function 'fortify_memcpy_chk',
+>        inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
+>    include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
+>      580 |                         __read_overflow2_field(q_size_field, size);
+>          |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    cc1: all warnings being treated as errors
+>
+> The fortified memcpy() routine enforces that the source is not overread
+> and the destination is not overwritten if the size of either field and
+> the size of the copy are known at compile time. The memcpy() in
+> syscall_get_arguments() intentionally overreads from a1 to a5 in
+> 'struct pt_regs' but this is bigger than the size of a1.
+>
+> Normally, this could be solved by wrapping a1 through a5 with
+> struct_group() but there was already a struct_group() applied to these
+> members in commit bba547810c66 ("riscv: tracing: Fix
+> __write_overflow_field in ftrace_partial_regs()").
+>
+> Just avoid memcpy() altogether and write the copying of args from regs
+> manually, which clears up the warning at the expense of three extra
+> lines of code.
+>
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 > ---
->  drivers/clk/spacemit/ccu-k1.c | 28 ++++++++++++++--------------
->  1 file changed, 14 insertions(+), 14 deletions(-)
-> 
-> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index a55957806db31..4db91c1b1d280 100644
-> --- a/drivers/clk/spacemit/ccu-k1.c
-> +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -130,8 +130,8 @@
->  #define APMU_EMAC1_CLK_RES_CTRL		0x3ec
->  
->  struct spacemit_ccu_data {
-> -	struct clk_hw **hws;
-> -	size_t num;
-> +	struct clk_hw **clk_hws;
-> +	size_t clk_num;
->  };
->  
->  /* APBS clocks start, APBS region contains and only contains all PLL clocks */
-> @@ -819,8 +819,8 @@ static struct clk_hw *k1_ccu_pll_hws[] = {
->  };
->  
->  static const struct spacemit_ccu_data k1_ccu_pll_data = {
-> -	.hws	= k1_ccu_pll_hws,
-> -	.num	= ARRAY_SIZE(k1_ccu_pll_hws),
-> +	.clk_hws	= k1_ccu_pll_hws,
-> +	.clk_num	= ARRAY_SIZE(k1_ccu_pll_hws),
->  };
->  
->  static struct clk_hw *k1_ccu_mpmu_hws[] = {
-> @@ -860,8 +860,8 @@ static struct clk_hw *k1_ccu_mpmu_hws[] = {
->  };
->  
->  static const struct spacemit_ccu_data k1_ccu_mpmu_data = {
-> -	.hws	= k1_ccu_mpmu_hws,
-> -	.num	= ARRAY_SIZE(k1_ccu_mpmu_hws),
-> +	.clk_hws	= k1_ccu_mpmu_hws,
-> +	.clk_num	= ARRAY_SIZE(k1_ccu_mpmu_hws),
->  };
->  
->  static struct clk_hw *k1_ccu_apbc_hws[] = {
-> @@ -968,8 +968,8 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
->  };
->  
->  static const struct spacemit_ccu_data k1_ccu_apbc_data = {
-> -	.hws	= k1_ccu_apbc_hws,
-> -	.num	= ARRAY_SIZE(k1_ccu_apbc_hws),
-> +	.clk_hws	= k1_ccu_apbc_hws,
-> +	.clk_num	= ARRAY_SIZE(k1_ccu_apbc_hws),
->  };
->  
->  static struct clk_hw *k1_ccu_apmu_hws[] = {
-> @@ -1038,8 +1038,8 @@ static struct clk_hw *k1_ccu_apmu_hws[] = {
->  };
->  
->  static const struct spacemit_ccu_data k1_ccu_apmu_data = {
-> -	.hws	= k1_ccu_apmu_hws,
-> -	.num	= ARRAY_SIZE(k1_ccu_apmu_hws),
-> +	.clk_hws	= k1_ccu_apmu_hws,
-> +	.clk_num	= ARRAY_SIZE(k1_ccu_apmu_hws),
->  };
->  
->  static int spacemit_ccu_register(struct device *dev,
-> @@ -1050,13 +1050,13 @@ static int spacemit_ccu_register(struct device *dev,
->  	struct clk_hw_onecell_data *clk_data;
->  	int i, ret;
->  
-> -	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
-> +	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->clk_num),
->  				GFP_KERNEL);
->  	if (!clk_data)
->  		return -ENOMEM;
->  
-> -	for (i = 0; i < data->num; i++) {
-> -		struct clk_hw *hw = data->hws[i];
-> +	for (i = 0; i < data->clk_num; i++) {
-> +		struct clk_hw *hw = data->clk_hws[i];
->  		struct ccu_common *common;
->  		const char *name;
->  
-> @@ -1081,7 +1081,7 @@ static int spacemit_ccu_register(struct device *dev,
->  		clk_data->hws[i] = hw;
->  	}
->  
-> -	clk_data->num = data->num;
-> +	clk_data->num = data->clk_num;
->  
->  	ret = devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, clk_data);
->  	if (ret)
-> -- 
-> 2.45.2
-> 
+> I omitted a Fixes tag because I think this has always been an overread
+> if I understand correctly but it is only the addition of the checks from
+> commit f68f2ff91512 ("fortify: Detect struct member overflows in
+> memcpy() at compile-time") that it becomes a noticeable issue.
+>
+> This came out of a discussion from the addition of
+> syscall_set_arguments(), where the same logic causes a more noticeable
+> fortify warning because it happens without W=1, as it is an overwrite:
+> https://lore.kernel.org/20250408213131.GA2872426@ax162/
+> ---
+>   arch/riscv/include/asm/syscall.h | 7 +++++--
+>   1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+> index 121fff429dce66b31fe79b691b8edd816c8019e9..eceabf59ae482aa1832b09371ddb3ba8cd65f91d 100644
+> --- a/arch/riscv/include/asm/syscall.h
+> +++ b/arch/riscv/include/asm/syscall.h
+> @@ -62,8 +62,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
+>   					 unsigned long *args)
+>   {
+>   	args[0] = regs->orig_a0;
+> -	args++;
+> -	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
+> +	args[1] = regs->a1;
+> +	args[2] = regs->a2;
+> +	args[3] = regs->a3;
+> +	args[4] = regs->a4;
+> +	args[5] = regs->a5;
+>   }
+>   
+>   static inline int syscall_get_arch(struct task_struct *task)
+>
+> ---
+> base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+> change-id: 20250409-riscv-avoid-fortify-warning-syscall_get_arguments-19c0495d4ed7
+>
+> Best regards,
+
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+
+IIUC, Andrew took this patch, if that changes, please let me know and 
+I'll merge it through the riscv tree.
+
+Thanks,
+
+Alex
+
+
 
 _______________________________________________
 linux-riscv mailing list
