@@ -4,63 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DCC0C369AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 14:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00866C369AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 14:26:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9d91+EF4jgBmRllOyk75E8tWlHQWMft5FxSFBTnRr9I=; b=1C01wosGZjvmQg
-	3V/ChcUzXuZqcD4g/JpMKU8KRbpfhI1btnICJQYkxgnVbg7FBz3bLi3/eQXhau1GUEF9SqIWoO1LF
-	87LXA0bUhzNrphq718MDcl6uKmszMNGF2woYraaS5L+8zPHEaP32FBKGtN+hEGhXwH6ziPJZjVmB6
-	Vb0mO7QbVJvYaYXkVbKJJ23U/vLriexhRTbB9d4X83MQe9VxOnCAAtNwJINsbQXzJWkUEcgNc6kEn
-	unfB7wSJTIeRGUPJG+Cd5xevHc2xzyHQXGfEnj7RmRyy/bpj8CV1caKcqDktFBafjFcZfBc//nPOH
-	kckB3nhGqcQVFbzxXAJA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0PjwzE5Qj9xQN5yYnnymqS6m/RapQlv1NrU6eE4nl9w=; b=xhZIp0RNcfGxTN
+	JZiih6MO9g1FNwXaKIC4sttbI1K3/gRTxC1ScYiQWJlEetMuoCqroOduvUWwYpwWrSzIeNWwc2KUy
+	on6/a8ZO3WKOJfWBws+yEsdRsmyfgiKEoORh9in7VKqFSIWiSK7wxfN70mZv5uSmRKJ3XuXsh+hA/
+	KlmgsBYV4qQQiCZzm0Eywq1J9TpLQmGA4PxplXYy2q/jp0mpONfkNAAGPNasjBretEARGoRHblGJU
+	6bJhc5ON3C0UVyF3hNwXIyNc1SbZwHRSZMQDUEugQuGUVpIoV2oNOOXSIKlluMZcSpKmB6p5Pi4j9
+	ZmL4EX5cLVDs7UPai7Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hCY-000000064tv-1g5Z;
-	Tue, 15 Apr 2025 14:23:50 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u4hEY-0000000659E-2k3U;
+	Tue, 15 Apr 2025 14:25:54 +0000
+Received: from sender4-pp-o94.zoho.com ([136.143.188.94])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4hCV-000000064tY-2bmH
+	id 1u4hEV-0000000658f-3PiJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Apr 2025 14:23:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE27C5C587D;
-	Tue, 15 Apr 2025 14:21:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C28F8C4CEDD;
-	Tue, 15 Apr 2025 14:23:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744727026;
-	bh=aNmL0+H984WKGRSWMsb/StuKFDQU1an6R5Y3td+dyM4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GSji8SUddah2ECmiHhsDW1Z1tVfoNWfzNIZHgFUiVNVbvbTk9Q0Uayjc7cFFOEnQt
-	 VGMG6qo8IqXiBe4+0sM4ZrHOtLhJDsrsjR4i3PJXUc4SK0O3XGHm1AiI5dJ3KVIqcR
-	 L/14URvPdtJQGO48pz40qtb5a1EQIzJr7tb5q9wSW73vffvrDTB54ExE+tFGwUCLhZ
-	 PaL3e4cXLbrXTHychiMS+7/UeJHQgZMoOfaAa/JsBBRcpOElHdUWuY5IQqWEidCIMa
-	 EmdhJMJ+BCHekhbEUcIckjiTrfU9XcTgBMJanSRD57jKbkQCoruxZoEK1axd1ovLc8
-	 71i0fLMHP4g8g==
-Date: Tue, 15 Apr 2025 07:23:42 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	"Dmitry V. Levin" <ldv@strace.io>, Kees Cook <kees@kernel.org>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: Avoid fortify warning in syscall_get_arguments()
-Message-ID: <20250415142342.GA995325@ax162>
-References: <20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org>
- <4a0dc950-cda6-4bb4-a4e9-460bc56b5bb1@ghiti.fr>
+	Tue, 15 Apr 2025 14:25:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1744727148; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bydLmRRKEgFdMpE9ZXf5afrMy8QOIFAFzerOaELbS9WE9CKPfKJR6XgVsxDPiRFnOlSbxYE+bDdmQ/aBKJoCJ83Gx7CTqay3mYl2ssVQ8Tb5z8uZEpfa7RXGQbeZJR08qYdnvoEhLZ9bzU4oUcACgcfgz9Viewi9216A5wCoEEQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1744727148; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=dBl9h9+5RK06EkJFUF07v61OdZMhQy05YJJrnV+R6g4=; 
+	b=cGWXUGM11o7fNAplMA71PbhTq/rFGpPfnZRx3MHfY0WfRlrYuBp9UOS8JIop4iQyU8QEumbZPYzzkFh1lI6UP7x716+GZt3DgDQB5PCzVzsI2p9CUj7NJ40D+8RMuLavIo1wDD123PHqiCH2yw/WZA7IgVOip9KthFTGlVtLL3k=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1744727148;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Feedback-ID:Reply-To;
+	bh=dBl9h9+5RK06EkJFUF07v61OdZMhQy05YJJrnV+R6g4=;
+	b=L1tc2PCeM8Guv6lGwFWWs4D4DNsxdvdHvo4mGewV961rG65AElx+0LON7w2/PvvP
+	S7CY2Zhq9X1DXtRsqI0uy94dUbCZKt8qBxLmW4BFvhq5RA9fApmPGaIUhj1jViiE9xC
+	afgWZRHJJdu+pp7hJvweixPIFKOmgT9NCssk+8ZY=
+Received: by mx.zohomail.com with SMTPS id 1744727145609468.14311435062166;
+	Tue, 15 Apr 2025 07:25:45 -0700 (PDT)
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: [PATCH v6 0/3] riscv: canaan: Add support for K230-Canmv clock
+Date: Tue, 15 Apr 2025 22:25:10 +0800
+Message-Id: <20250415-b4-k230-clk-v6-0-7fd89f427250@zohomail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <4a0dc950-cda6-4bb4-a4e9-460bc56b5bb1@ghiti.fr>
+X-B4-Tracking: v=1; b=H4sIAEZs/mcC/3XQwU7DMAwG4FeZeqYosZM62Yn3QBxS22EVbIV2T
+ MC0dyfbQKys9FRH+uzf3lejDp2O1XKxrwbddWPXb0rR3CwqXqXNo9adlLoCA86CaerW1U+Apub
+ npzqCz4hZpWGoingZNHfvp273D+d60Ne30nR7fqzaNGrN/XrdbZcLo5piIBNCAhBCCVZjE0QJH
+ bEwqY8u07l12vKqZFkuRCUhO4JsypezOMMiQpwbwdZr6SSJhKtjglU3bvvh47TeDk8RvjehySY
+ 7rMtPayl6G4IS3X32q36duufbkvYYoDBvLMA1a3Mm7xNHzjzPwOA1wwaYogXnCabsGHznLsJaN
+ +WucMsmcmpadCH9M9XSNfMp+oTOhybaman2YirEKbeFA9gULWkwKjMcfng5lQlTDkdOLZoEnDz
+ Mcf/L8e/JfOHkgpRrQEDF+Z0RzDUzGsWEyN6F8Gfq4XD4Amd6EjwDAwAA
+X-Change-ID: 20241206-b4-k230-clk-925f33fed6c2
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Xukai Wang <kingxukai@zohomail.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Samuel Holland <samuel.holland@sifive.com>, 
+ Troy Mitchell <TroyMitchell988@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+Feedback-ID: rr08011227b09006c05aa75b0c9d736a030000f32b64051d3c08b79d3d38c5eb0114e090c9b45f90ed8ade69:zu080112276da9e4a4986656beec2ce86b0000a801a177cc17b2a86ff2b82aee5bc645428b306935a070549c:rf0801122c54f699f0d34be074e7a9255400004462049d7b670f236f193908597ec4048b2ce1f986f7da2dd336bb2a69a1:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_072347_751710_AF72A3AB 
-X-CRM114-Status: GOOD (  35.55  )
+X-CRM114-CacheID: sfid-20250415_072551_927008_2B5D9E9B 
+X-CRM114-Status: GOOD (  11.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,92 +94,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Apr 15, 2025 at 07:54:04AM +0200, Alexandre Ghiti wrote:
-> Hi Nathan,
-> 
-> On 09/04/2025 23:24, Nathan Chancellor wrote:
-> > When building with CONFIG_FORTIFY_SOURCE=y and W=1, there is a warning
-> > because of the memcpy() in syscall_get_arguments():
-> > 
-> >    In file included from include/linux/string.h:392,
-> >                     from include/linux/bitmap.h:13,
-> >                     from include/linux/cpumask.h:12,
-> >                     from arch/riscv/include/asm/processor.h:55,
-> >                     from include/linux/sched.h:13,
-> >                     from kernel/ptrace.c:13:
-> >    In function 'fortify_memcpy_chk',
-> >        inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
-> >    include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
-> >      580 |                         __read_overflow2_field(q_size_field, size);
-> >          |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> >    cc1: all warnings being treated as errors
-> > 
-> > The fortified memcpy() routine enforces that the source is not overread
-> > and the destination is not overwritten if the size of either field and
-> > the size of the copy are known at compile time. The memcpy() in
-> > syscall_get_arguments() intentionally overreads from a1 to a5 in
-> > 'struct pt_regs' but this is bigger than the size of a1.
-> > 
-> > Normally, this could be solved by wrapping a1 through a5 with
-> > struct_group() but there was already a struct_group() applied to these
-> > members in commit bba547810c66 ("riscv: tracing: Fix
-> > __write_overflow_field in ftrace_partial_regs()").
-> > 
-> > Just avoid memcpy() altogether and write the copying of args from regs
-> > manually, which clears up the warning at the expense of three extra
-> > lines of code.
-> > 
-> > Signed-off-by: Nathan Chancellor <nathan@kernel.org>
-> > ---
-> > I omitted a Fixes tag because I think this has always been an overread
-> > if I understand correctly but it is only the addition of the checks from
-> > commit f68f2ff91512 ("fortify: Detect struct member overflows in
-> > memcpy() at compile-time") that it becomes a noticeable issue.
-> > 
-> > This came out of a discussion from the addition of
-> > syscall_set_arguments(), where the same logic causes a more noticeable
-> > fortify warning because it happens without W=1, as it is an overwrite:
-> > https://lore.kernel.org/20250408213131.GA2872426@ax162/
-> > ---
-> >   arch/riscv/include/asm/syscall.h | 7 +++++--
-> >   1 file changed, 5 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-> > index 121fff429dce66b31fe79b691b8edd816c8019e9..eceabf59ae482aa1832b09371ddb3ba8cd65f91d 100644
-> > --- a/arch/riscv/include/asm/syscall.h
-> > +++ b/arch/riscv/include/asm/syscall.h
-> > @@ -62,8 +62,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
-> >   					 unsigned long *args)
-> >   {
-> >   	args[0] = regs->orig_a0;
-> > -	args++;
-> > -	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
-> > +	args[1] = regs->a1;
-> > +	args[2] = regs->a2;
-> > +	args[3] = regs->a3;
-> > +	args[4] = regs->a4;
-> > +	args[5] = regs->a5;
-> >   }
-> >   static inline int syscall_get_arch(struct task_struct *task)
-> > 
-> > ---
-> > base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-> > change-id: 20250409-riscv-avoid-fortify-warning-syscall_get_arguments-19c0495d4ed7
-> > 
-> > Best regards,
-> 
-> Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-> 
-> IIUC, Andrew took this patch, if that changes, please let me know and I'll
-> merge it through the riscv tree.
+This patch series adds clock controller support for the Canaan Kendryte
+K230 SoC. The K230 SoC includes an external 24MHz OSC and 4 internal
+PLLs, with the controller managing these sources and their derived clocks.
 
-Thanks, I had Andrew drop it so that it could go via the riscv tree so
-please pick it up when you can.
+The clock tree and hardware-specific definition can be found in the
+vendor's DTS [1],
+and this series is based on the K230 initial series [2].
 
-https://lore.kernel.org/20250411211833.E3DD1C4CEE2@smtp.kernel.org/
+Link: https://github.com/ruyisdk/linux-xuantie-kernel/blob/linux-6.6.36/arch/riscv/boot/dts/canaan/k230_clock_provider.dtsi [1]
+Link: https://lore.kernel.org/linux-clk/tencent_F76EB8D731C521C18D5D7C4F8229DAA58E08@qq.com/ [2]
 
-Cheers,
-Nathan
+Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+
+---
+Changes in v6:
+- Remove some redundant comments in struct declaration.
+- Replace the Vendor's code source link with a new one.
+- Link to v5: https://lore.kernel.org/r/20250320-b4-k230-clk-v5-0-0e9d089c5488@zohomail.com
+
+Changes in v5:
+- Fix incorrect base-commit and add prerequisite-patch-id.
+- Replace dummy apb_clk with real ones for UARTs.
+- Add IDs of UARTs clock and DMA clocks in the binding header.
+- Replace k230_clk_cfgs[] array with corresponding named variables.
+- Remove some redundant checks in clk_ops.
+- Drop the unnecessary parenthesis and type casts.
+- Modify return value handling in probe path to avoid redundant print.
+- Link to v4: https://lore.kernel.org/r/20250217-b4-k230-clk-v4-0-5a95a3458691@zohomail.com
+
+Changes in v4:
+- Remove redundant onecell_get callback and add_provider function
+for pll_divs.
+- Modify the base-commit in cover letter.
+- Link to v3: https://lore.kernel.org/r/20250203-b4-k230-clk-v3-0-362c79124572@zohomail.com
+
+Changes in v3:
+- Reorder the defination and declaration in drivers code.
+- Reorder the properties in dts node.
+- Replace global variable `k230_sysclk` with dynamic memory allocation.
+- Rename the macro K230_NUM_CLKS to K230_CLK_NUM.
+- Use dev_err_probe for error handling.
+- Remove unused includes.
+- Link to v2: https://lore.kernel.org/r/20250108-b4-k230-clk-v2-0-27b30a2ca52d@zohomail.com
+
+Changes in v2:
+- Add items and description.
+- Rename k230-clk.h to canaan,k230-clk.h
+- Link to v1: https://lore.kernel.org/r/20241229-b4-k230-clk-v1-0-221a917e80ed@zohomail.com
+
+---
+Xukai Wang (3):
+      dt-bindings: clock: Add bindings for Canaan K230 clock controller
+      clk: canaan: Add clock driver for Canaan K230
+      riscv: dts: canaan: Add clock definition for K230
+
+ .../devicetree/bindings/clock/canaan,k230-clk.yaml |   43 +
+ arch/riscv/boot/dts/canaan/k230.dtsi               |   25 +-
+ drivers/clk/Kconfig                                |    6 +
+ drivers/clk/Makefile                               |    1 +
+ drivers/clk/clk-k230.c                             | 1710 ++++++++++++++++++++
+ include/dt-bindings/clock/canaan,k230-clk.h        |   69 +
+ 6 files changed, 1846 insertions(+), 8 deletions(-)
+---
+base-commit: 0eea987088a22d73d81e968de7347cdc7e594f72
+change-id: 20241206-b4-k230-clk-925f33fed6c2
+prerequisite-patch-id: deda3c472f0000ffd40cddd7cf6d3b5e2d7da7dc
+
+Best regards,
+-- 
+Xukai Wang <kingxukai@zohomail.com>
+
 
 _______________________________________________
 linux-riscv mailing list
