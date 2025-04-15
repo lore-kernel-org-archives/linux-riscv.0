@@ -4,96 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E74C369AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 18:58:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 573F4C369AB
+	for <linux-riscv@archiver.kernel.org>; Tue, 15 Apr 2025 19:39:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BgmAdNzUu5HTpbfa/lJOGcpN1BU+AnpqTaS9azujnDc=; b=RZOhxQ5RHCLO1v
-	P/1YrP1O10QXN/SpFyS3YCWAkGdnO5DufELMKQkon8rjQ+98ovnsX3xIEVV8EaxiDSJGk7A75o4C6
-	yI3kuVLcb+n97E4UicH9YOxmKQh7AIwu2h8LGrcODRsLTfPVXxXSD7F1aF8hWHDBha5ZBaJmQhVOl
-	ncSVmwREUXhQBdDlka66ywdrTKLlVLHSOUhuJNOhl+16+vfZoUh9pIPDB6SIZd2GYTQZhj927SP0F
-	he4U0pParxRZsuDfO+mbADIwVeR0tWWvO7Fzl05DelWi8+6vOJYQHQuMxV5wE9LsIeUu6BMND56kC
-	HjB30oKxCF0eyFKJlCRA==;
+	List-Owner; bh=sr9NW9gMqKZh4SO5IQuG+g6CPUtouIDwVkC8L4123W8=; b=FJGRwetdi4t04N
+	1wgT9yNGhpiVUniREHEunzd4apethdfBTkn25FkuogmL/ppJori+vZdDYJbGmMxvJGFwfs4tTClSv
+	gWh2PIdPZUcfku8wUy4Mo8ZauO30YUwVdHrwe1Agf5sFFu1kbblwaGPRFdSKS+UKJhBvQ+EWEHROJ
+	5c3PZh2OngpLv1ssHIkLxSAT9oFgwocw5PAp8Z8sRWpvg17n2407EWDo58WEYDynb/ZeaAZsDKOs2
+	AjM064v4kdJ23d64BVXlJtTq02gM15NI2h9gRyrLBwRi8PeGwUet1BnLsCEcwSSqV+gXdkHqi2Uj5
+	a3Hd9GJ7nQom/qcJ6Rmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4lUe-00000006nWX-2YPa;
-	Tue, 15 Apr 2025 18:58:48 +0000
-Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	id 1u4m7r-00000006uwC-2Sd3;
+	Tue, 15 Apr 2025 19:39:19 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u4lKP-00000006lar-3UxC
+	id 1u4m7S-00000006upC-3ciE
 	for linux-riscv@lists.infradead.org;
-	Tue, 15 Apr 2025 18:48:15 +0000
-Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-7369ce5d323so4747387b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 15 Apr 2025 11:48:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1744742892; x=1745347692; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=glUhvdbg6jDxSzyhesIM3rd1JyjGcrsNSGuSqUFVHug=;
-        b=EP923AOmXs+mkcHM8lt7R+3G4HaZFnoRnFSMSl35B+12C2dT3qp3pXzftUGa04XUqH
-         wYmftWkAQixAHFUodW52KuiEib7SEUcLCdUXlysGV+FY/oa3bmTN2CnisTwE6l5EPzD+
-         zk+CBvmYMnVXqCsxBSo+67CZj21+4zfqTw80gvlI2nUs5qeGsIXsamG1yTX57i5yiHzf
-         kuhNK+3y0z36DCaP7A1J/aLpuBk4ynKALdKOoec4l08bPftT1gJqcXrnozZNEcFw9l3i
-         G9UVwYkWSfvi1Di0K0ZM/YLvNNh6BD22fGeKyOfbDbFpD88472A5NVZXvENCW/10iQRU
-         0I5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744742892; x=1745347692;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=glUhvdbg6jDxSzyhesIM3rd1JyjGcrsNSGuSqUFVHug=;
-        b=YfzbUcoHQA+Zn0zYl0I4kZ4QbgVbRvL0qeCT4mH9mj+kCVxrDeJu9LimwWSO1+aZLO
-         unH6ETbUCs4DJSX2RH1fsqoWTu/eaWiPi6/eiCsxmSCqwws3cgf/TzLfGLAaQ8GTIaU5
-         7Kcb7AIXE+U+dLYU7ZVxMWaBmMru255IkWKXc8Gc/2lQCBpghv+hcExeFhGaQosfJqf8
-         464wi+5cmNTI2hKubgRZ4KR3g+hLTqDHOEgYkIOJd8UPEHUtGXP/9dkb5vbnyhdoksGf
-         15NjdX+p/uXUSShlf/YxuqeJWU4dEa7y5El5EehFQY98v4UJVgMHXNokimGwWeIK+Xqp
-         XTgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXrPFQ6yvcQ58MgJtIzwr17teOIv3ORIXSjiGFvVzdbilX/tCdrS/OWqj5bDo8ysmiwz/pyMiotdlJ/4Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGbjLczpwxrNEw6VnonBSUmBh86VPDNjhl6Ik4fzGw7HTug6o+
-	YC6bomK5br+L5bRwDmXEypFND8kO6BYSa3+eO3xlECSXJOG2o723EDkYsPEz5j0=
-X-Gm-Gg: ASbGncuDr4ZQiq7XKRiyvRyeSm7epnM7hZfg6obD8s7hd/uuFbI50pct2hwiMhfFYdp
-	l7VO09ts9BAAvjZIt+zGQ+Vzl1zmsgLXhQ1ZPrEnTQsPr7iPLxaUlRj3cp7Ry5Y23T85QFc+cbP
-	j1ICDJbMjv8I7N5/DXnphduBbLruhvbvmQC6N7DaOBdgvtkK3Y63C/x5Pph9Gg47Ql8McQj1Z2v
-	yNS1E9pZKixkVA8HHjUyJ9ECcTt7+NFNgs2NYptYA/49wz7LHGQP1I8MefF3J7g6OrTCnseOQtD
-	bcJxZ0S5qaMdI5vPsuZbbhS1anLMAqwEkYkPeNBdgLctv8M=
-X-Google-Smtp-Source: AGHT+IFU1A6IgDtbE+ayph1nkrk/Xkmje9tzi2mXCLVIUeRmrboHqr3jd6su6fZeet5H41nBKRVWlQ==
-X-Received: by 2002:a05:6a00:a26:b0:736:3979:369e with SMTP id d2e1a72fcca58-73c1f8f742emr628913b3a.9.1744742891991;
-        Tue, 15 Apr 2025 11:48:11 -0700 (PDT)
-Received: from x1 (97-120-122-6.ptld.qwest.net. [97.120.122.6])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b02a2d3a4ddsm9578290a12.49.2025.04.15.11.48.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 15 Apr 2025 11:48:10 -0700 (PDT)
-Date: Tue, 15 Apr 2025 11:48:08 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org,
-	wefu@redhat.com, jassisinghbrar@gmail.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, frank.binns@imgtec.com,
-	matt.coster@imgtec.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-	simona@ffwll.ch, ulf.hansson@linaro.org, jszhang@kernel.org,
-	p.zabel@pengutronix.de, m.szyprowski@samsung.com,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v5 19/21] riscv: dts: thead: Introduce power domain nodes
- with aon firmware
-Message-ID: <Z/6p6MQDS8ZlQv5r@x1>
-References: <20250219140239.1378758-1-m.wilczynski@samsung.com>
- <CGME20250219140315eucas1p10f08d297580edd114f4c487c1fbffa8d@eucas1p1.samsung.com>
- <20250219140239.1378758-20-m.wilczynski@samsung.com>
- <Z/2+rbhsaBP0DQop@x1>
+	Tue, 15 Apr 2025 19:38:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BD67CA4A5E0;
+	Tue, 15 Apr 2025 19:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 996C0C4CEF1;
+	Tue, 15 Apr 2025 19:38:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744745933;
+	bh=+X8PZp7ZJAtaPIiDYEIFalIVsT/0lgcDfgcWZzUFk0s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=QwXmHwmr9n+SApeHzUas+OtoRZJMrhoeh0R81kyW0D+KMv7H0dYo6A0zVAIE14s6l
+	 9OioSxFrNEzCZqkR/ZPwAP8Mt7QfkHTwZXdB9+TeUcGUXgwRDHGnHg0CyH6VskKTM8
+	 bCDj7haedPkBA+8xnkLnjIfr0vcYnTTdaBRXNz6RbgCJFX2bVULWtPtwJmkIVdEGxn
+	 BxaHnstuq1TeVO5g3PiMSCbHCzIfMgZmxH7n4wX3SZ6F9kBOA7Kh6yk5l23wyzruAy
+	 6M/5t2SIRmRgrcIU7QC0aIODXbZZEbfY75ctd2n+299mrucX5kX9JVaJdIoGd+c1be
+	 wHoAGPF3Wu57g==
+Date: Tue, 15 Apr 2025 14:38:51 -0500
+From: Rob Herring <robh@kernel.org>
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] pinctrl: spacemit: add clock support for K1 SoC
+Message-ID: <20250415193851.GA846160-robh@kernel.org>
+References: <20250412-02-k1-pinctrl-clk-v1-0-e39734419a2d@gentoo.org>
+ <20250412-02-k1-pinctrl-clk-v1-2-e39734419a2d@gentoo.org>
+ <20250412182737.GA1425287-robh@kernel.org>
+ <20250412223431-GYA25375@gentoo>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <Z/2+rbhsaBP0DQop@x1>
+In-Reply-To: <20250412223431-GYA25375@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250415_114814_139101_7512126C 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20250415_123855_034715_4983BF21 
+X-CRM114-Status: GOOD (  30.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,64 +78,84 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, Apr 14, 2025 at 07:04:29PM -0700, Drew Fustini wrote:
-> On Wed, Feb 19, 2025 at 03:02:37PM +0100, Michal Wilczynski wrote:
-> > The DRM Imagination GPU requires a power-domain driver. In the T-HEAD
-> > TH1520 SoC implements power management capabilities through the E902
-> > core, which can be communicated with through the mailbox, using firmware
-> > protocol.
-> > 
-> > Add AON node, which servers as a power-domain controller.
-> > 
-> > Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> > ---
-> >  arch/riscv/boot/dts/thead/th1520.dtsi | 8 ++++++++
-> >  1 file changed, 8 insertions(+)
-> > 
-> > diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > index 197df1f32b25..474f31576a1b 100644
-> > --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> > +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> > @@ -6,6 +6,7 @@
-> >  
-> >  #include <dt-bindings/interrupt-controller/irq.h>
-> >  #include <dt-bindings/clock/thead,th1520-clk-ap.h>
-> > +#include <dt-bindings/power/thead,th1520-power.h>
-> >  
-> >  / {
-> >  	compatible = "thead,th1520";
-> > @@ -229,6 +230,13 @@ stmmac_axi_config: stmmac-axi-config {
-> >  		snps,blen = <0 0 64 32 0 0 0>;
-> >  	};
-> >  
-> > +	aon: aon {
-> > +		compatible = "thead,th1520-aon";
-> > +		mboxes = <&mbox_910t 1>;
-> > +		mbox-names = "aon";
-> > +		#power-domain-cells = <1>;
-> > +	};
-> > +
-> >  	soc {
-> >  		compatible = "simple-bus";
-> >  		interrupt-parent = <&plic>;
-> > -- 
-> > 2.34.1
-> > 
+On Sat, Apr 12, 2025 at 10:34:31PM +0000, Yixun Lan wrote:
+> Hi Rob,
 > 
-> Reviewed-by: Drew Fustini <drew@pdp7.com>
+> On 13:27 Sat 12 Apr     , Rob Herring wrote:
+> > On Sat, Apr 12, 2025 at 02:58:11PM +0800, Yixun Lan wrote:
+> > > For SpacemiT K1 SoC's pinctrl, explicitly acquiring clocks in
+> > > the driver instead of relying on bootloader or default hardware
+> > > settings to enable it.
+> > > 
+> > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > > ---
+> > >  drivers/pinctrl/spacemit/pinctrl-k1.c | 10 ++++++++++
+> > >  1 file changed, 10 insertions(+)
+> > > 
+> > > diff --git a/drivers/pinctrl/spacemit/pinctrl-k1.c b/drivers/pinctrl/spacemit/pinctrl-k1.c
+> > > index 67e867b04a02ea1887d93aedfdea5bda037f88b1..3805fb09c1bc3b8cf2ccfc22dd25367292b397b9 100644
+> > > --- a/drivers/pinctrl/spacemit/pinctrl-k1.c
+> > > +++ b/drivers/pinctrl/spacemit/pinctrl-k1.c
+> > > @@ -2,6 +2,7 @@
+> > >  /* Copyright (c) 2024 Yixun Lan <dlan@gentoo.org> */
+> > >  
+> > >  #include <linux/bits.h>
+> > > +#include <linux/clk.h>
+> > >  #include <linux/cleanup.h>
+> > >  #include <linux/io.h>
+> > >  #include <linux/of.h>
+> > > @@ -721,6 +722,7 @@ static int spacemit_pinctrl_probe(struct platform_device *pdev)
+> > >  {
+> > >  	struct device *dev = &pdev->dev;
+> > >  	struct spacemit_pinctrl *pctrl;
+> > > +	struct clk *func_clk, *bus_clk;
+> > >  	const struct spacemit_pinctrl_data *pctrl_data;
+> > >  	int ret;
+> > >  
+> > > @@ -739,6 +741,14 @@ static int spacemit_pinctrl_probe(struct platform_device *pdev)
+> > >  	if (IS_ERR(pctrl->regs))
+> > >  		return PTR_ERR(pctrl->regs);
+> > >  
+> > > +	func_clk = devm_clk_get_optional_enabled(dev, "func");
+> > > +	if (IS_ERR(func_clk))
+> > > +		return dev_err_probe(dev, PTR_ERR(func_clk), "failed to get func clock\n");
+> > > +
+> > > +	bus_clk = devm_clk_get_optional_enabled(dev, "bus");
+> > > +	if (IS_ERR(bus_clk))
+> > > +		return dev_err_probe(dev, PTR_ERR(bus_clk), "failed to get bus clock\n");
+> > 
+> > Do you really need these to be optional? Yes, it maintains 
+> >
+> Yes, the motivation here to make it optional is maintaining the 
+> compatibility, to not break the case of using old dtb with new kernel,
+> since the serial console device (uart0) is activated now [1]
 > 
-> I tested this on top of 6.15-rc1 and found no issues.
+> IIUC, from the DT perspective, it's mandatory to keep this compatibility?
+
+It's up to the platform. It's only mandatory to understand you are 
+breaking compatibility when you do.
+
 > 
-> -Drew
+> In dt-binding of patch [1/2], the clocks/clock-names has been described as 
+> required property, so it's sort of mandatory from DT's view.
+> 
+> One lesson I learned is that the pinctrl dt node shouldn't be activated
+> untill all prerequisite dependencies meet.. it's ok to push the driver,
+> but should postpone the DT part..
+> 
+> > compatibility, but if this platform isn't stable, then do you really 
+> > need that?
+> > 
+> I don't get what's your meaning of "isn't stable" here, the fact won't
+> change for K1 SoC: the pinctrl controller requires two clocks
 
-I've applied to thead-dt-for-next:
-https://github.com/pdp7/linux/commit/2bae46e3de2a64fe3a619d61b16da0c01b8df2a1
+You required 1 clock and now you require 2. That's not stable. 
+Generally, early on with platforms, their DT is not complete enough to 
+maintain compatibility. There's also likely not many users or h/w 
+availability for compatibility to be an issue. So requiring the DT to be 
+in-sync with the kernel is not a problem.
 
-Michal - are there any other dts patches that I should consider for 6.16
-PR?  I would probably send to Arnd around 6.15-rc3 or 6.15-rc4.
-
-Thanks,
-Drew
+Rob
 
 _______________________________________________
 linux-riscv mailing list
