@@ -4,47 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F46AC369BA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 18:06:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40896C369C7
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 18:42:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=YHN0tYRvnSXTD7cN3T+q6WKH61sm91f4gcDGXoNRx9E=; b=EZ69A+FI90lcbF
-	cLzBlrxtvAIlSU8xp91Rs8fh8bc0Fod8wayVaIQAQPRR1eNQIijn9PsyBon+g2Pr+nPyyE+M9dL63
-	nvxBv5paRQ0aCyBfGqwNCiLC+YXexdLqmqZN22tMEsRt4SVYUIeI8U+5+p1/UTCYRzx7rj19ldFIu
-	VyvGQSl5Yet6Jf0dp6sDY1dtWlDm/THps9M2CZWCpRwywnGzeGa3nCOWtk7stnvikEjSyKvc2uT2b
-	63lCyfTr944H9A3LhzPiUs7ETinxP102hAXKoKpTVitEdriDJ0Bb5YhcTBGJeIrnWfuAAeMdajGtS
-	72NgU6knmBbVx31o+UEA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=JB/9FBdFUqe0AJUgPSpqiz1v9Tf+BSlaOQ0sgwAkiV4=; b=2xfgyuG7SpDYcx
+	hs9SPbBNU6AhgGkImc20hZqEkE1EiNnKOqJcYXGdFe9wauOLIV++ZD/LT6JyChG6aOlD8Cviyh9Hm
+	UW0wSsiIzCU6mp1M39UN+BN8GMOtuPgwrbXINjxZ3CM/rdW977vi+NqpoyFMsWUpFwMagP/DRdc8M
+	Z07SHZXLx1FDOdMEGL7N4oX0SJCPR9YYXfAcu72LjJiF0nLmfw7Ld4FfNi4zfD/RVxjpTUXN/lYlh
+	UznsnBS29LkWGWaa6cFLBHM/9IA6w46U/hd0VSdFP+eMGh6fZ7VpAlXnF9IpJ6xzH/7ikocQ/IUiB
+	nWd3SSzFEELtW3mu8l3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u579q-0000000AVeU-25NC;
-	Wed, 16 Apr 2025 18:06:46 +0000
-Received: from relay3-d.mail.gandi.net ([217.70.183.195])
+	id 1u57iT-0000000Ab0Z-3Do4;
+	Wed, 16 Apr 2025 18:42:33 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u577l-0000000AV2H-2k5c
+	id 1u57hr-0000000AaqU-10hL
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 18:04:39 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE621FCE5;
-	Wed, 16 Apr 2025 18:04:34 +0000 (UTC)
-Message-ID: <9581dba8-c69d-435a-b099-83130867b79e@ghiti.fr>
-Date: Wed, 16 Apr 2025 20:04:34 +0200
+	Wed, 16 Apr 2025 18:41:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 423E4A49CB3;
+	Wed, 16 Apr 2025 18:36:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C335C4CEE4;
+	Wed, 16 Apr 2025 18:41:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1744828914;
+	bh=KjNmswcxf38A5M9atBcosAwVob6w/vmfpdVCx1CNLhA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=CEzkulatPzCTh53O7EgEnmFXf4HqRWwoiJ+OJyuVRfpftSRrNml7Bi7Ta8DDXebTK
+	 hK0O7OPQ3hjTYNE3Fzi81/bBOExqVpqALaDCShDWDSmBr/Cy3rHfsj8yRO1rRWj5Q0
+	 qY9FIQ3kDO7OrelD29lEG5xoywwsa1FXqy1Alda2crSRC1PJHJifGQiAQ2Ywc9HlV6
+	 N02J/NnpgwXszPK8bCsQxxF+5rAO5RbbFIzYsCJgZLt/QqnKSszyCaCUmbsBpbAf66
+	 blJ0vvFK9PMvs/JhDm56YZkbdcevmWna+xX3dEQpPxh/vjztUuSJ/Z47a7i/rFxV57
+	 qzwvr+0UOF4Qw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D393822D59;
+	Wed, 16 Apr 2025 18:42:33 +0000 (UTC)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Palmer Dabbelt <palmer@dabbelt.com>,
- "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [GIT PULL] RISC-V Fixes for 6.15-rc3
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdejtdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfvhffutgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveevveelleeggeehjeeitdefgeegtefftdekkeetvdfggffhfeegkeehgeekieegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Subject: Re: [PATCH v4 0/2] riscv: Rework the arch_kgdb_breakpoint()
+ implementation
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <174482895224.3460781.16808742382382868644.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Apr 2025 18:42:32 +0000
+References: <D5A83DF3A06E1DF9+20250411072905.55134-1-wangyuli@uniontech.com>
+In-Reply-To: <D5A83DF3A06E1DF9+20250411072905.55134-1-wangyuli@uniontech.com>
+To: WangYuli <wangyuli@uniontech.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ chenhuacai@kernel.org, linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
+ palmerdabbelt@google.com, samuel.holland@sifive.com, zhanjun@uniontech.com,
+ niecheng1@uniontech.com, guanwentao@uniontech.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_110437_820665_E2BA3B2B 
-X-CRM114-Status: UNSURE (   4.09  )
+X-CRM114-CacheID: sfid-20250416_114155_341411_EED47A73 
+X-CRM114-Status: UNSURE (   7.17  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -57,43 +74,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCA3MGZjMDNjZDc2MzExYTA2YzhjODRk
-ZWI3MGIyZTE2ODM3NDk3Nzc0OgoKIMKgIERvY3VtZW50YXRpb246IHJpc2N2OiBGaXggdHlwbyBN
-SU1QTElEIC0+IE1JTVBJRCAoMjAyNS0wNC0wNyAwODoyMToxOSAKKzAwMDApCgphcmUgYXZhaWxh
-YmxlIGluIHRoZSBHaXQgcmVwb3NpdG9yeSBhdDoKCiDCoCBnaXQ6Ly9naXQua2VybmVsLm9yZy9w
-dWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYWxleGdoaXRpL2xpbnV4IAp0YWdzL3Jpc2N2LWZpeGVz
-LTYuMTUtcmMzCgpmb3IgeW91IHRvIGZldGNoIGNoYW5nZXMgdXAgdG8gMTQxMzcwOGY5OTBjYjdk
-MDI1YWZmZDcwNmJhOWMyM2UyYmZjMWEyNzoKCiDCoCByaXNjdjogQXZvaWQgZm9ydGlmeSB3YXJu
-aW5nIGluIHN5c2NhbGxfZ2V0X2FyZ3VtZW50cygpICgyMDI1LTA0LTE2IAoxMTowOTozOCArMDAw
-MCkKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0KcmlzY3YgZml4ZXMgZm9yIDYuMTUtcmMzCgotIEEgY291cGxlIG9mIGZpeGVz
-IHJlZ2FyZGluZyBtb2R1bGUgcmVsb2NhdGlvbnMKLSBGaXggYSBidWlsZCBlcnJvciBieSBpbXBs
-ZW1lbnRpbmcgbWlzc2luZyBhbHRlcm5hdGl2ZSBtYWNyb3MKLSBBbm90aGVyIGZpeCBmb3Iga2V4
-ZWMgYnkgZml4aW5nIC9wcm9jL2lvbWVtCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkFuZHJldyBKb25lcyAoMik6CiDCoMKg
-wqDCoMKgIHJpc2N2OiBGaXggdW5hbGlnbmVkIGFjY2VzcyBpbmZvIG1lc3NhZ2VzCiDCoMKgwqDC
-oMKgIHJpc2N2OiBQcm92aWRlIGFsbCBhbHRlcm5hdGl2ZSBtYWNyb3MgYWxsIHRoZSB0aW1lCgpC
-asO2cm4gVMO2cGVsICgxKToKIMKgwqDCoMKgwqAgcmlzY3Y6IFByb3Blcmx5IGV4cG9ydCByZXNl
-cnZlZCByZWdpb25zIGluIC9wcm9jL2lvbWVtCgpOYXRoYW4gQ2hhbmNlbGxvciAoMSk6CiDCoMKg
-wqDCoMKgIHJpc2N2OiBBdm9pZCBmb3J0aWZ5IHdhcm5pbmcgaW4gc3lzY2FsbF9nZXRfYXJndW1l
-bnRzKCkKClNhbXVlbCBIb2xsYW5kICgyKToKIMKgwqDCoMKgwqAgcmlzY3Y6IG1vZHVsZTogRml4
-IG91dC1vZi1ib3VuZHMgcmVsb2NhdGlvbiBhY2Nlc3MKIMKgwqDCoMKgwqAgcmlzY3Y6IG1vZHVs
-ZTogQWxsb2NhdGUgUExUIGVudHJpZXMgZm9yIFJfUklTQ1ZfUExUMzIKCiDCoGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmggfCAxOSArKysrKysrLS0tLS0tLS0tLS0t
-CiDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3lzY2FsbC5owqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCB8wqAgNyArKysrKy0tCiDCoGFyY2gvcmlzY3Yva2VybmVsL21vZHVsZS1zZWN0aW9ucy5jwqDC
-oMKgwqDCoMKgwqDCoCB8IDEzICsrKysrKystLS0tLS0KIMKgYXJjaC9yaXNjdi9rZXJuZWwvbW9k
-dWxlLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCiDCoGFyY2gv
-cmlzY3Yva2VybmVsL3NldHVwLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-fCAzNiAKKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKystCiDCoGFyY2gvcmlzY3Yv
-a2VybmVsL3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQuY8KgIHwgMzUgCisrKysrKysrKysrKysrKysr
-KysrKy0tLS0tLS0tLS0tLS0tCiDCoDYgZmlsZXMgY2hhbmdlZCwgNzYgaW5zZXJ0aW9ucygrKSwg
-MzYgZGVsZXRpb25zKC0pCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+Hello:
+
+This series was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@rivosinc.com>:
+
+On Fri, 11 Apr 2025 15:29:04 +0800 you wrote:
+> 1. The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
+>    symbol using inline assembly.
+> 
+>    There's a potential issue where the compiler might inline
+>    arch_kgdb_breakpoint(), which would then define the kgdb_compiled_break
+>    symbol multiple times, leading to fail to link vmlinux.o.
+> 
+> [...]
+
+Here is the summary with links:
+  - [v4,1/2] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
+    https://git.kernel.org/riscv/c/3af4bec9c1db
+  - [v4,2/2] riscv: KGDB: Remove ".option norvc/.option rvc" for kgdb_compiled_break
+    https://git.kernel.org/riscv/c/550c2aa787d1
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
