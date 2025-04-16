@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55DA4C369BD
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 15:10:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C4EFC369C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 15:10:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SWzJekrrBtgs5eHLiUQNzysQRsis0MKYD3pdGVDVs+0=; b=FDU9VZFSl4vijR
-	LxtV0GLX8NuNoRRf0XfqFHJS/tVIZmzyo0y43XtsmV7K2wBN/H3AnoW8Z9O5XmuwiXWpDSRL8JQ3i
-	ZTAQ89qFwagGv7pvksB526MwVObYiZ7bLYLM2U3MvINuC3928SjL17b2AEltidc2GnFTH0KQYcEj7
-	a1xpmcdWZKHKbduODkj4ZtlLRkbPtAdnUzEDOuHuOtA6qPg0J6eRXEIcX2kWrnp0XXbm2uQHavYlI
-	RxcoOfvJhdql31BykYtoPGQ8h14IXSZmZSm6UcXTpKYwayhyRw8mfYZF19lTJO/UToT6clgBwQKqv
-	m5gIXvQ5OhEsvEK9Hpqw==;
+	List-Owner; bh=1jjGvzkCVQBTW+1EvkBknYAjfMc4NQ8hbov4XHmbo1M=; b=pXGy7TAr4Ks8Ae
+	mTCnfD1AOmnWidYrDS8oUNat+ekVZSUYbSoSeC3hYwiu2/nT26ZLqS99btu/ikPCNdGESpgZLAwcY
+	RmFOHSV+ABKfRq4uSMOmlIphUbtxLhbvkoZgEH63BoF2ILaLy7ZMA8ZkEa77/1iN8fQfbmQL26mwu
+	hCKDLGQJKRe9rECQdDXVvHKT2xQMS2iArZVC68wiHP4gi51kXc6BPF/UewUVKab9ERkZDODLF+Av0
+	7vZ7iDkWZucsNeEQKfmkujigmZ0F6TBsgZ1ewT6wsBGmWlHr6YN9v02GS5Ha9YKTrCTR2VEl/Y7Nr
+	YFLZ9b0vcZ0zxIuVLe8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54Or-0000000A0uQ-21eT;
-	Wed, 16 Apr 2025 15:10:05 +0000
+	id 1u54Os-0000000A0us-0Se3;
+	Wed, 16 Apr 2025 15:10:06 +0000
 Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u53Dz-00000009kOE-49H2
+	id 1u53E5-00000009kQ5-2aJL
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 13:54:49 +0000
+	Wed, 16 Apr 2025 13:54:55 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 16ADC12FB452;
-	Wed, 16 Apr 2025 06:54:47 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTP id E68DB12FB450;
+	Wed, 16 Apr 2025 06:54:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744811687; bh=l2Ew2QaIDw/j/7Ld2pHbLd9snohEK2xnD23UVoTkGf4=;
+	t=1744811693; bh=cDKUc2qr4xy2aliQgEkwRBtZ1Kb2bgQimbu1j0KwCEU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Jnjecutk7IbbAlg86CJkB7SMwQsvq7qanMRrw7mk2yF8SkU4v9+Kz5dJZ6mlIncBg
-	 7vUh7jwYGRC9r9XleQ/i98kVvqn0r1//YMaEn/uBU+SAo3/JAsIi7+jDvYmKey/4rq
-	 5y+ucpVYmbEigGnxdqBjFpuNCrYvuWf4xCKlIEEWmFFrMUehakP8pkB7E1IB+Mw4jc
-	 7HIAjR5/t2U0Wl+J17ug4VTLU8ZmJf5L0vWwZ1yrXPt6gsYUfpTbPo9V1t4QM+RdIe
-	 FRz3UO3TJss4wQ6LVuyoVp9yIsEo0ttbthMaLolhNjthj43HXvCBAD3CTYud7RB3un
-	 ZlQubfecvCHyg==
+	b=1f2FbHyedv1LxNbEscPXYOKxmEUzp+P9fVOn1ar4X3F8Vyf2j30/9K1ucuccF0rzh
+	 blS89fA0tVl+gDb0gAhF3G/C64FD9SkpMabIKpV8vOt/zXgP7Xm+64nAHMXm37l5Ss
+	 qBnGX7LQgyZNMNAUb+KzV5V5Z2vimmGRdiYOYcBhmlNRhY6QT9sCZPi2QUJbBBQbvh
+	 zxmg3eHbU3m79dlF4DPTLZMNklaI6DmAoQhQLqaXnv7qbWOSAOCUp84pNM9jKO93fo
+	 sfaU6hhIFtQIL7P8cEoMHzcSaKcF3tGh8iipXtAsmbgEMJ54jeFj6XpsgWnxFSOf/3
+	 G9c4E6Eqa5W7Q==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
  header.d=4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id Ia2x2Q0G3J52; Wed, 16 Apr 2025 06:54:45 -0700 (PDT)
+ with ESMTP id 9Gr--WM_oGMm; Wed, 16 Apr 2025 06:54:51 -0700 (PDT)
 Received: from localhost.localdomain (unknown [183.217.80.190])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 4AB0912FB450;
-	Wed, 16 Apr 2025 06:54:40 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 5EB7F12FB435;
+	Wed, 16 Apr 2025 06:54:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744811685; bh=l2Ew2QaIDw/j/7Ld2pHbLd9snohEK2xnD23UVoTkGf4=;
+	t=1744811691; bh=cDKUc2qr4xy2aliQgEkwRBtZ1Kb2bgQimbu1j0KwCEU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=adj2gyPjwKJnEZaMbSNILOgrFARTQB1ixgsPnbYDGYWoVc1wYH/5F4NsFGuhXvEnH
-	 uPhG9+p0DGHASTqDeMllUCcI7jMpeHvoTuv9kNTA6y58LV+eLW8qSGsRpmORaSPoo/
-	 83eviOXhSem/gzYHuqAu/XKXJV8V5nW00hqR3ilPLKsVyZhyDmZPXStyDGNDN9Fz7a
-	 1MB0Yl6BN1SqahwXHKXwS4nY7mDrxQK8taXXDgNP4KX0wIBZUU76xP2x/Rxi+5KgYP
-	 ynNcb4WLFplGI/elx6NfEk/IUDccV/OqZj+hedqwcINk7h76AdJ01f7Zi+QUVU7g/P
-	 MVyCuytqA1o0A==
+	b=GA4W0h1cMddHFj1ML5LOIBXpOSH4kWwboRpf/NvRm0BTWH77v8OmUSvg30W9tMt0Z
+	 kZbNOPgxCw6VNWCvP4U+Kq/RNuCzu35uvUo256V1iDpspnfupP84t8Bp5VmQ9gXa4v
+	 oplbZPNk5rjzchwDmR3CKZmysdccg5L8qvWd1GtU4qfQq+/H6qpHMT/VFHiu/Lhi93
+	 kAYiStQpizJT1YZuk6vu7yP/ERfFv0Qov7VciIRGZGrMO07bZ96BPwvz3IrqogrM5Q
+	 R7XM8RmW4nPsqeS3TGElT3kXiCWEs2IINu4BSltK8fJXMHhwDu+wGWbRXsowaY+gQS
+	 ITUF2bOI8ajhA==
 From: Haylen Chu <heylenay@4d2.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -84,16 +84,16 @@ Cc: linux-riscv@lists.infradead.org,
 	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
 	Haylen Chu <heylenay@4d2.org>,
 	Alex Elder <elder@riscstar.com>
-Subject: [PATCH v8 5/6] riscv: dts: spacemit: Add clock tree for SpacemiT K1
-Date: Wed, 16 Apr 2025 13:54:05 +0000
-Message-ID: <20250416135406.16284-6-heylenay@4d2.org>
+Subject: [PATCH v8 6/6] riscv: defconfig: spacemit: enable clock controller driver for SpacemiT K1
+Date: Wed, 16 Apr 2025 13:54:06 +0000
+Message-ID: <20250416135406.16284-7-heylenay@4d2.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250416135406.16284-1-heylenay@4d2.org>
 References: <20250416135406.16284-1-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_065448_077680_9FACA2B4 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20250416_065453_674074_B9DCCC68 
+X-CRM114-Status: UNSURE (   8.41  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,123 +111,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Describe the PLL and system controllers that're capable of generating
-clock signals in the devicetree.
+Clock controller unit, or CCU, generates various clocks frequency for
+peripherals integrated in SpacemiT K1 SoC and is essential for normal
+operation. Let's enable it as built-in driver in defconfig.
 
 Signed-off-by: Haylen Chu <heylenay@4d2.org>
 Reviewed-by: Alex Elder <elder@riscstar.com>
 Reviewed-by: Yixun Lan <dlan@gentoo.org>
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 75 ++++++++++++++++++++++++++++
- 1 file changed, 75 insertions(+)
+ arch/riscv/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index c670ebf8fa12..584f0dbc60f5 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -3,6 +3,8 @@
-  * Copyright (C) 2024 Yangyu Chen <cyy@cyyself.name>
-  */
- 
-+#include <dt-bindings/clock/spacemit,k1-syscon.h>
-+
- /dts-v1/;
- / {
- 	#address-cells = <2>;
-@@ -306,6 +308,36 @@ cluster1_l2_cache: l2-cache1 {
- 		};
- 	};
- 
-+	clocks {
-+		vctcxo_1m: clock-1m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <1000000>;
-+			clock-output-names = "vctcxo_1m";
-+			#clock-cells = <0>;
-+		};
-+
-+		vctcxo_24m: clock-24m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <24000000>;
-+			clock-output-names = "vctcxo_24m";
-+			#clock-cells = <0>;
-+		};
-+
-+		vctcxo_3m: clock-3m {
-+			compatible = "fixed-clock";
-+			clock-frequency = <3000000>;
-+			clock-output-names = "vctcxo_3m";
-+			#clock-cells = <0>;
-+		};
-+
-+		osc_32k: clock-32k {
-+			compatible = "fixed-clock";
-+			clock-frequency = <32000>;
-+			clock-output-names = "osc_32k";
-+			#clock-cells = <0>;
-+		};
-+	};
-+
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
-@@ -314,6 +346,17 @@ soc {
- 		dma-noncoherent;
- 		ranges;
- 
-+		syscon_apbc: system-control@d4015000 {
-+			compatible = "spacemit,k1-syscon-apbc";
-+			reg = <0x0 0xd4015000 0x0 0x1000>;
-+			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
-+				 <&vctcxo_24m>;
-+			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
-+				      "vctcxo_24m";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
- 		uart0: serial@d4017000 {
- 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
- 			reg = <0x0 0xd4017000 0x0 0x100>;
-@@ -409,6 +452,38 @@ pinctrl: pinctrl@d401e000 {
- 			reg = <0x0 0xd401e000 0x0 0x400>;
- 		};
- 
-+		syscon_mpmu: system-controller@d4050000 {
-+			compatible = "spacemit,k1-syscon-mpmu";
-+			reg = <0x0 0xd4050000 0x0 0x209c>;
-+			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
-+				 <&vctcxo_24m>;
-+			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
-+				      "vctcxo_24m";
-+			#clock-cells = <1>;
-+			#power-domain-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
-+		pll: system-control@d4090000 {
-+			compatible = "spacemit,k1-pll";
-+			reg = <0x0 0xd4090000 0x0 0x1000>;
-+			clocks = <&vctcxo_24m>;
-+			spacemit,mpmu = <&syscon_mpmu>;
-+			#clock-cells = <1>;
-+		};
-+
-+		syscon_apmu: system-control@d4282800 {
-+			compatible = "spacemit,k1-syscon-apmu";
-+			reg = <0x0 0xd4282800 0x0 0x400>;
-+			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
-+				 <&vctcxo_24m>;
-+			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
-+				      "vctcxo_24m";
-+			#clock-cells = <1>;
-+			#power-domain-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+
- 		plic: interrupt-controller@e0000000 {
- 			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
- 			reg = <0x0 0xe0000000 0x0 0x4000000>;
+diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
+index 3c8e16d71e17..4888529df1d8 100644
+--- a/arch/riscv/configs/defconfig
++++ b/arch/riscv/configs/defconfig
+@@ -250,6 +250,8 @@ CONFIG_CLK_SOPHGO_CV1800=y
+ CONFIG_CLK_SOPHGO_SG2042_PLL=y
+ CONFIG_CLK_SOPHGO_SG2042_CLKGEN=y
+ CONFIG_CLK_SOPHGO_SG2042_RPGATE=y
++CONFIG_SPACEMIT_CCU=y
++CONFIG_SPACEMIT_K1_CCU=y
+ CONFIG_SUN8I_DE2_CCU=m
+ CONFIG_SUN50I_IOMMU=y
+ CONFIG_RPMSG_CHAR=y
 -- 
 2.49.0
 
