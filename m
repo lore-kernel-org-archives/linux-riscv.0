@@ -4,154 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A82AC369BA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 17:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F46AC369BA
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 18:06:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G41+dx+eovUkIf60NNLHPm5I7CYG1E/zcp2EBg2gpx8=; b=ovZA3q9uVgMAQP
-	m3wRY5OK9Q004fN5K9Fx6Qk1FCMLMPuMFYiGruKqNLQruXV3eGD8O+zHR6mgHjQaLXrtfXSVxV0aL
-	44STVt83So7Mw7DROKoUcU1ZyvpZOjdfQ1MRm3C3Jno6oDE3n2o30rHDlpaQTt438ncKk6YzNJKXJ
-	GNMDoYoivUec/8X+5xVFNYzEaT+8lZ/ugNBLyn++xyfgkMqE5v3XC4uA7vO8cI1NqLx74SP7TNzV1
-	t768UwJQYBn5sRVTWhyxo3vnkqOuX39AElepbjMRPsUxtp1t4xjw0N4UDQMpCY2RlMf7ZuOOb2oFu
-	bizfOfxyBBFSS4tuwiVg==;
+	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YHN0tYRvnSXTD7cN3T+q6WKH61sm91f4gcDGXoNRx9E=; b=EZ69A+FI90lcbF
+	cLzBlrxtvAIlSU8xp91Rs8fh8bc0Fod8wayVaIQAQPRR1eNQIijn9PsyBon+g2Pr+nPyyE+M9dL63
+	nvxBv5paRQ0aCyBfGqwNCiLC+YXexdLqmqZN22tMEsRt4SVYUIeI8U+5+p1/UTCYRzx7rj19ldFIu
+	VyvGQSl5Yet6Jf0dp6sDY1dtWlDm/THps9M2CZWCpRwywnGzeGa3nCOWtk7stnvikEjSyKvc2uT2b
+	63lCyfTr944H9A3LhzPiUs7ETinxP102hAXKoKpTVitEdriDJ0Bb5YhcTBGJeIrnWfuAAeMdajGtS
+	72NgU6knmBbVx31o+UEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56t1-0000000AStd-0sae;
-	Wed, 16 Apr 2025 17:49:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u579q-0000000AVeU-25NC;
+	Wed, 16 Apr 2025 18:06:46 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56rq-0000000ASdv-2j2B
+	id 1u577l-0000000AV2H-2k5c
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 17:48:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1744825688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
-	b=gz1aXodnoCFG1a/IQlXzd/7G7GH7ZKuiZSEfF0XHWctz/Z1DT8rlLoumCN6So40stGjqdR
-	UMlYuzPlzgep8/5qaH5wn62FtZ8+kaUes4dA7XgjTnqIa9TvUBKKLjoOk5my2SzxtI7kxU
-	wMtIgsx9WFXCUEZEE3UTtXdRs+mDBbc=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-592-Sav5nK4YPTqlWQQokcoSLg-1; Wed, 16 Apr 2025 13:48:07 -0400
-X-MC-Unique: Sav5nK4YPTqlWQQokcoSLg-1
-X-Mimecast-MFC-AGG-ID: Sav5nK4YPTqlWQQokcoSLg_1744825686
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-39135d31ca4so584185f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 16 Apr 2025 10:48:07 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744825686; x=1745430486;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
-        b=S3Q7cIWLZdRXAYOnM0Wo5KBuD5NS3Zbn3YoskSADapLA9UjUnRhfxE+kLJOGI9S4T8
-         xwb4curGh8KCCGVtHP1afWKvRC4Qo2cDUVvF0BC+ihxFQrZUAj/2k8Yg3NCjnRl6tw4p
-         W07GmgdswVnt0u4o2pEeNz5ITGj+N/dICeXwJ/QE4dD5gb1o8uY6qeCOnrdiM4U8ke4h
-         EMUpyq1b5u5cY5Y1wE4xGm5HAInahg4H8yY6pmvbAgq6tnD1owirNodJB0yVFkWmFiaD
-         6TTZRNzyNUz7UAp3g8y8pmBZ/jJGUIb63Lzz7F7FWEKltCSUn2JPzqiurdcAeWwNeNjo
-         m6vA==
-X-Forwarded-Encrypted: i=1; AJvYcCV7kpxkOiSYEuHlrO2xjisfrK6e3Xn28d1YSAOLE0vqNSfdGj64wcE98VK2ClSl96Mtlz9oUIn7r1R9qQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw9n56UtpF60OuR9qv5cHBi8JqlnFyp5ZXsFzseHclfZTi6rquZ
-	/3l6YYVh68QCXYsPpFGVm5FxrQNz9XKwXzHcNlCRKv0Ccvgfzzmec21SoKotTbuH5ISxWhoVLf6
-	06PF7YW+/5PCjXDOzX6ez7ULrU+661r0VkoPsegogtWjnYIbm4+BEkXk2q18m1GMfMA==
-X-Gm-Gg: ASbGncs6wJHtWFApJMAeEAvH0x7EJieoDFUosV5bQCIrOPl52sRjRyNY2QcIMva3RSK
-	zQvAZ6t/9EDjWE2JnWPnDn8eL5wJzFjW4AbDlvb7IVrf47kCJzhsPT5g+1HSy4Z6Af/ufoCcvuz
-	2KQ1LCQS7euURSNbBFEciwqBuUVdfiTxCWoMIDSYH/25505soKi6qMXJtZ0w077+RyJ2t/O0lGm
-	LcG3JdppghG86M2ILpTT2j/m/XnbW4XmxNZHg7A8fBWYdIjTYJx330fq8czI0hweKkkgIO6moqc
-	EuXXOtG/OT/SUkZ4
-X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313578f8f.7.1744825685984;
-        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHd/Q9xU1Lv4kZ9t/WwJIPpluDO/OcIMcKulh4/sk/gvKDXTcl2daOqoE90IlBaQsWY9I2m/g==
-X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313534f8f.7.1744825685524;
-        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
-Received: from [192.168.10.48] ([176.206.109.83])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39eae9640e3sm18034375f8f.12.2025.04.16.10.48.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 16 Apr 2025 10:48:04 -0700 (PDT)
-Message-ID: <60b7607b-8ada-447d-9dcb-034d93b9abe8@redhat.com>
-Date: Wed, 16 Apr 2025 19:48:00 +0200
+	Wed, 16 Apr 2025 18:04:39 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE621FCE5;
+	Wed, 16 Apr 2025 18:04:34 +0000 (UTC)
+Message-ID: <9581dba8-c69d-435a-b099-83130867b79e@ghiti.fr>
+Date: Wed, 16 Apr 2025 20:04:34 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/4] KVM: x86: move sev_lock/unlock_vcpus_for_migration
- to kvm_main.c
-To: Peter Zijlstra <peterz@infradead.org>,
- Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- kvm-riscv@lists.infradead.org, Oliver Upton <oliver.upton@linux.dev>,
- Dave Hansen <dave.hansen@linux.intel.com>,
- Jing Zhang <jingzhangos@google.com>, Waiman Long <longman@redhat.com>,
- x86@kernel.org, Kunkun Jiang <jiangkunkun@huawei.com>,
- Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
- Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
- linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
- Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
- Keisuke Nishimura <keisuke.nishimura@inria.fr>,
- Sebastian Ott <sebott@redhat.com>, Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>,
- Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
- Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
- Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
- Joey Gouly <joey.gouly@arm.com>, Ingo Molnar <mingo@redhat.com>,
- Andre Przywara <andre.przywara@arm.com>, Thomas Gleixner
- <tglx@linutronix.de>, Sean Christopherson <seanjc@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>,
- Bjorn Helgaas <bhelgaas@google.com>
-References: <20250409014136.2816971-1-mlevitsk@redhat.com>
- <20250409014136.2816971-3-mlevitsk@redhat.com>
- <20250410081640.GX9833@noisy.programming.kicks-ass.net>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Autocrypt: addr=pbonzini@redhat.com; keydata=
- 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
-In-Reply-To: <20250410081640.GX9833@noisy.programming.kicks-ass.net>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rSsiRQm86tfNU1Ep_29xq3VGiQVwmADZ_lIG8qCHWoA_1744825686
-X-Mimecast-Originator: redhat.com
 Content-Language: en-US
+To: Palmer Dabbelt <palmer@dabbelt.com>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [GIT PULL] RISC-V Fixes for 6.15-rc3
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvvdejtdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfvhffutgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepveevveelleeggeehjeeitdefgeegtefftdekkeetvdfggffhfeegkeehgeekieegnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmehfvgekrgemgegulegsmegrfeehgeemgehfjehfngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_104810_765755_A56B5AC3 
-X-CRM114-Status: GOOD (  28.92  )
+X-CRM114-CacheID: sfid-20250416_110437_820665_E2BA3B2B 
+X-CRM114-Status: UNSURE (   4.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -163,181 +57,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/10/25 10:16, Peter Zijlstra wrote:
-> On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
->> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
->> index 69782df3617f..71c0d8c35b4b 100644
->> --- a/virt/kvm/kvm_main.c
->> +++ b/virt/kvm/kvm_main.c
->> @@ -1368,6 +1368,77 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
->>   	return 0;
->>   }
->>   
->> +
->> +/*
->> + * Lock all VM vCPUs.
->> + * Can be used nested (to lock vCPUS of two VMs for example)
->> + */
->> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role)
->> +{
->> +	struct kvm_vcpu *vcpu;
->> +	unsigned long i, j;
->> +
->> +	lockdep_assert_held(&kvm->lock);
->> +
->> +	kvm_for_each_vcpu(i, vcpu, kvm) {
->> +
->> +		if (trylock && !mutex_trylock_nested(&vcpu->mutex, role))
->> +			goto out_unlock;
->> +		else if (!trylock && mutex_lock_killable_nested(&vcpu->mutex, role))
->> +			goto out_unlock;
->> +
->> +#ifdef CONFIG_PROVE_LOCKING
->> +		if (!i)
->> +			/*
->> +			 * Reset the role to one that avoids colliding with
->> +			 * the role used for the first vcpu mutex.
->> +			 */
->> +			role = MAX_LOCK_DEPTH - 1;
->> +		else
->> +			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
->> +#endif
->> +	}
-> 
-> This code is all sorts of terrible.
-> 
-> Per the lockdep_assert_held() above, you serialize all these locks by
-> holding that lock, this means you can be using the _nest_lock()
-> annotation.
-> 
-> Also, the original code didn't have this trylock nonsense, and the
-> Changelog doesn't mention this -- in fact the Changelog claims no
-> change, which is patently false.
-> 
-> Anyway, please write like:
-> 
-> 	kvm_for_each_vcpu(i, vcpu, kvm) {
-> 		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
-> 			goto unlock;
-> 	}
-> 
-> 	return 0;
-> 
-> unlock:
-> 
-> 	kvm_for_each_vcpu(j, vcpu, kvm) {
-> 		if (j == i)
-> 			break;
-> 
-> 		mutex_unlock(&vcpu->mutex);
-> 	}
-> 	return -EINTR;
-> 
-> And yes, you'll have to add mutex_lock_killable_nest_lock(), but that
-> should be trivial.
-
-If I understand correctly, that would be actually
-_mutex_lock_killable_nest_lock() plus a wrapper macro.  But yes,
-that is easy so it sounds good.
-
-For the ARM case, which is the actual buggy one (it was complaining
-about too high a depth) it still needs mutex_trylock_nest_lock();
-the nest_lock is needed to avoid bumping the depth on every
-mutex_trylock().
-
-It should be something like
-diff --git a/include/linux/mutex.h b/include/linux/mutex.h
-index 2143d05116be..328f573cab6d 100644
---- a/include/linux/mutex.h
-+++ b/include/linux/mutex.h
-@@ -174,6 +174,12 @@ do {									\
-  	_mutex_lock_nest_lock(lock, &(nest_lock)->dep_map);		\
-  } while (0)
-  
-+#define mutex_trylock_nest_lock(lock, nest_lock)			\
-+do {									\
-+	typecheck(struct lockdep_map *, &(nest_lock)->dep_map);		\
-+	_mutex_trylock_nest_lock(lock, &(nest_lock)->dep_map);		\
-+} while (0)
-+
-  #else
-  extern void mutex_lock(struct mutex *lock);
-  extern int __must_check mutex_lock_interruptible(struct mutex *lock);
-@@ -185,6 +191,7 @@ extern void mutex_lock_io(struct mutex *lock);
-  # define mutex_lock_killable_nested(lock, subclass) mutex_lock_killable(lock)
-  # define mutex_lock_nest_lock(lock, nest_lock) mutex_lock(lock)
-  # define mutex_lock_io_nested(lock, subclass) mutex_lock_io(lock)
-+# define mutex_trylock_nest_lock(lock, nest_lock) mutex_trylock(lock)
-  #endif
-  
-  /*
-@@ -193,9 +200,14 @@ extern void mutex_lock_io(struct mutex *lock);
-   *
-   * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
-   */
--extern int mutex_trylock(struct mutex *lock);
-+extern int _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
-  extern void mutex_unlock(struct mutex *lock);
-  
-+static inline int mutex_trylock(struct mutex *lock)
-+{
-+	return _mutex_trylock_nest_lock(lock, NULL);
-+}
-+
-  extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
-  
-  DEFINE_GUARD(mutex, struct mutex *, mutex_lock(_T), mutex_unlock(_T))
-diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
-index 555e2b3a665a..d5d1e79495fc 100644
---- a/kernel/locking/mutex.c
-+++ b/kernel/locking/mutex.c
-@@ -1063,8 +1063,10 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-  #endif
-  
-  /**
-- * mutex_trylock - try to acquire the mutex, without waiting
-+ * _mutex_trylock_nest_lock - try to acquire the mutex, without waiting
-   * @lock: the mutex to be acquired
-+ * @nest_lock: if not NULL, a mutex that is always taken whenever multiple
-+ *   instances of @lock are
-   *
-   * Try to acquire the mutex atomically. Returns 1 if the mutex
-   * has been acquired successfully, and 0 on contention.
-@@ -1076,7 +1078,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-   * This function must not be used in interrupt context. The
-   * mutex must be released by the same task that acquired it.
-   */
--int __sched mutex_trylock(struct mutex *lock)
-+int __sched _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock)
-  {
-  	bool locked;
-  
-@@ -1084,11 +1086,11 @@ int __sched mutex_trylock(struct mutex *lock)
-  
-  	locked = __mutex_trylock(lock);
-  	if (locked)
--		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
-+		mutex_acquire_nest(&lock->dep_map, 0, 1, nest_lock, _RET_IP_);
-  
-  	return locked;
-  }
--EXPORT_SYMBOL(mutex_trylock);
-+EXPORT_SYMBOL(_mutex_trylock_nest_lock);
-  
-  #ifndef CONFIG_DEBUG_LOCK_ALLOC
-  int __sched
-
-Does that seem sane?
-
-Paolo
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCA3MGZjMDNjZDc2MzExYTA2YzhjODRk
+ZWI3MGIyZTE2ODM3NDk3Nzc0OgoKIMKgIERvY3VtZW50YXRpb246IHJpc2N2OiBGaXggdHlwbyBN
+SU1QTElEIC0+IE1JTVBJRCAoMjAyNS0wNC0wNyAwODoyMToxOSAKKzAwMDApCgphcmUgYXZhaWxh
+YmxlIGluIHRoZSBHaXQgcmVwb3NpdG9yeSBhdDoKCiDCoCBnaXQ6Ly9naXQua2VybmVsLm9yZy9w
+dWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYWxleGdoaXRpL2xpbnV4IAp0YWdzL3Jpc2N2LWZpeGVz
+LTYuMTUtcmMzCgpmb3IgeW91IHRvIGZldGNoIGNoYW5nZXMgdXAgdG8gMTQxMzcwOGY5OTBjYjdk
+MDI1YWZmZDcwNmJhOWMyM2UyYmZjMWEyNzoKCiDCoCByaXNjdjogQXZvaWQgZm9ydGlmeSB3YXJu
+aW5nIGluIHN5c2NhbGxfZ2V0X2FyZ3VtZW50cygpICgyMDI1LTA0LTE2IAoxMTowOTozOCArMDAw
+MCkKCi0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0KcmlzY3YgZml4ZXMgZm9yIDYuMTUtcmMzCgotIEEgY291cGxlIG9mIGZpeGVz
+IHJlZ2FyZGluZyBtb2R1bGUgcmVsb2NhdGlvbnMKLSBGaXggYSBidWlsZCBlcnJvciBieSBpbXBs
+ZW1lbnRpbmcgbWlzc2luZyBhbHRlcm5hdGl2ZSBtYWNyb3MKLSBBbm90aGVyIGZpeCBmb3Iga2V4
+ZWMgYnkgZml4aW5nIC9wcm9jL2lvbWVtCgotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tCkFuZHJldyBKb25lcyAoMik6CiDCoMKg
+wqDCoMKgIHJpc2N2OiBGaXggdW5hbGlnbmVkIGFjY2VzcyBpbmZvIG1lc3NhZ2VzCiDCoMKgwqDC
+oMKgIHJpc2N2OiBQcm92aWRlIGFsbCBhbHRlcm5hdGl2ZSBtYWNyb3MgYWxsIHRoZSB0aW1lCgpC
+asO2cm4gVMO2cGVsICgxKToKIMKgwqDCoMKgwqAgcmlzY3Y6IFByb3Blcmx5IGV4cG9ydCByZXNl
+cnZlZCByZWdpb25zIGluIC9wcm9jL2lvbWVtCgpOYXRoYW4gQ2hhbmNlbGxvciAoMSk6CiDCoMKg
+wqDCoMKgIHJpc2N2OiBBdm9pZCBmb3J0aWZ5IHdhcm5pbmcgaW4gc3lzY2FsbF9nZXRfYXJndW1l
+bnRzKCkKClNhbXVlbCBIb2xsYW5kICgyKToKIMKgwqDCoMKgwqAgcmlzY3Y6IG1vZHVsZTogRml4
+IG91dC1vZi1ib3VuZHMgcmVsb2NhdGlvbiBhY2Nlc3MKIMKgwqDCoMKgwqAgcmlzY3Y6IG1vZHVs
+ZTogQWxsb2NhdGUgUExUIGVudHJpZXMgZm9yIFJfUklTQ1ZfUExUMzIKCiDCoGFyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vYWx0ZXJuYXRpdmUtbWFjcm9zLmggfCAxOSArKysrKysrLS0tLS0tLS0tLS0t
+CiDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc3lzY2FsbC5owqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oCB8wqAgNyArKysrKy0tCiDCoGFyY2gvcmlzY3Yva2VybmVsL21vZHVsZS1zZWN0aW9ucy5jwqDC
+oMKgwqDCoMKgwqDCoCB8IDEzICsrKysrKystLS0tLS0KIMKgYXJjaC9yaXNjdi9rZXJuZWwvbW9k
+dWxlLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAyICstCiDCoGFyY2gv
+cmlzY3Yva2VybmVsL3NldHVwLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+fCAzNiAKKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKystCiDCoGFyY2gvcmlzY3Yv
+a2VybmVsL3VuYWxpZ25lZF9hY2Nlc3Nfc3BlZWQuY8KgIHwgMzUgCisrKysrKysrKysrKysrKysr
+KysrKy0tLS0tLS0tLS0tLS0tCiDCoDYgZmlsZXMgY2hhbmdlZCwgNzYgaW5zZXJ0aW9ucygrKSwg
+MzYgZGVsZXRpb25zKC0pCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
