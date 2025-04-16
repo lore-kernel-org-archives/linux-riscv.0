@@ -4,73 +4,220 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FF6AC369BD
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 15:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC69DC369BA
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 17:26:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	MIME-Version:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C6w65OGGVXvJO1moGul2J0rZhK9IpnH64cKaORFZi4Y=; b=uETXP7i/K8z1sOqc/nz9Fx5b44
-	QSo1hnW8QruEKW8buCs9W9zOeFPNIOVb/H13cS5cwwWDZjK1m2f+lLVhM/tQvPcVHb/3ZxOjGL4vc
-	oTva+DrMQfIVBRY/3dz5pHj6/HCoWpS/fObjBVlA+UCIEzpRVg+TBtcgw5xA/UmNx89Zc5G0AK1ln
-	FU3OeGH3oaPBAbWJQbgWDiVWha/qzxH7D4a1A7d9TXuDqna3RGPbXI4VbOC7qN7Qu0tJM7pe1fZtA
-	aJw1sb9lQwSGJ8bQnc0ZvJ49U7TWF3asz/+L8Wz6LnJFZQa4yoSQTTghchD3qKzTm/NUgHu0govkz
-	PU16pYOA==;
+	bh=j81Y9ZEEv8xru/JVPcFUNxJyrTht6qbYdFGMhxryYcQ=; b=yUuYBjsP7rKLi4iK+I54ZeyEfm
+	SYv90MxsEPd69xrrndPdAg120oMUzRsI6x37tZCDGf2C9JzzIVaJduNqKpkK9hqhvnmQbZCVgDJxS
+	V5vdcwAFG4STc1OfMc0aWlYHSrHm/JG+e/wbJQId0uAmmacoQGkIIVCxC6+Z7ifLdI+rXwx6squXa
+	xeZttbsGQrU/w3nApXZBPY+kqJmsehg7isE/XV6KC4Gir8NLbZuI6eiEldjtGjJgH9xwgBqyTIlb4
+	qtdpadfQ+ILGWmZkGitfHLI4irw+NrPILFkk284c+n4NfAzETdSSs3KUhp3px1RNDiULubFlqiAIA
+	BCY5BLBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54l3-0000000A5fH-3vxf;
-	Wed, 16 Apr 2025 15:33:01 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u56WI-0000000APT2-3N8z;
+	Wed, 16 Apr 2025 17:25:54 +0000
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54Bc-00000009ya9-0CLK
+	id 1u561e-0000000AKen-1tjj
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 14:56:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AEC65A4A0D7;
-	Wed, 16 Apr 2025 14:50:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23CDAC4CEE2;
-	Wed, 16 Apr 2025 14:56:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744815382;
-	bh=YgDN44xj67UxlkGlXq/z4BMLc1kLJK45drEaqMMTO8w=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oN++NVpNhHYAZSEooP4+g77Qm4SP7b7H6zm/n6fwLi56f0PdK07SvLGmtuq0ExnQQ
-	 As5qC6nXvV/vYxKxVc3cpmD/djdYE9R1Wk/R2hc/R4jjshOxsTKKaHjFGIJMD3ApDu
-	 C8V/D9Z/VwmG+QNTvDhJEvt+cIHp31kaYmuON349pMuuGuSIFct1v925eY0G4LyVxz
-	 P7Lv5PeKZznsEX0CLYOLxq54s6pJimYGsU82/S9WEI89ZCQuIyNJ2ZIxgGttyzq6XB
-	 gNd2dTGxboZxUrK2OG8XDjq04HNXatCdHpt6iC0CWX/LX4gm6bihIFhDdpZJ26xVOg
-	 33cUK6i1KxNPg==
-Date: Wed, 16 Apr 2025 16:56:19 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: Yixun Lan <dlan@gentoo.org>, Guodong Xu <guodong@riscstar.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Conor Dooley <conor@kernel.org>, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, drew@pdp7.com, 
-	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org, tglx@linutronix.de, 
-	hal.feng@starfivetech.com, unicorn_wang@outlook.com, duje.mihanovic@skole.hr, 
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/9] dt-bindings: pwm: marvell,pxa: add optional property
- resets
-Message-ID: <bnrfclqrbzqzg43b2yjypsolvvukpppa7lxceoocfm6ww6kjes@gkuoeygu5vwz>
-References: <20250411131423.3802611-1-guodong@riscstar.com>
- <20250411131423.3802611-2-guodong@riscstar.com>
- <20250411-confider-spinster-35f23040d188@spud>
- <89b6142bacecd4a7742341b88dc1e28c4454527a.camel@pengutronix.de>
- <CAH1PCMZnJDcYKJR35WirQT95hte0NWvGBe4fjDuyZEgagvunAA@mail.gmail.com>
- <20250415101249-GYA30674@gentoo>
- <0bbd2842-72bc-47a7-832a-fc8833163e32@riscstar.com>
- <20250415122807-GYA30943@gentoo>
- <hogqotzzpzcow2xjrwh34qcuiu7ooc2qnvlhuvexzvqkrcsfop@mhz26t5vu35p>
- <3dfc300f-081c-4824-97c3-842f72d2a7d3@riscstar.com>
+	Wed, 16 Apr 2025 16:54:16 +0000
+Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53G5YQBs010904;
+	Wed, 16 Apr 2025 17:53:36 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=dk201812; bh=49BH7xOs4LVPR15l2kb5S20/s
+	V6Wk5mgmoSRz7WpJ7s=; b=ghEDRtDI2FeVioetzkQpw1XWhMUYdIPda2xuBlTnd
+	ZRecAZya5u7/yHFle5nlrV0tvyICqFtRbu6IPW1hnEI39OuynKWtqVmXg9O/kM26
+	jIy+RVLWFFTBu7sfM9xKqnSkk2FpD+TZlGlUmGjr+k9PkXpUpZaoGzXrWgYkJQuz
+	wRi0EZcEDVvuJz9aqshe8doSrDa4PMJOqvZchnqE9jB+ajXJeZEGWkhwAQMrIZ9J
+	gIJaG8x/0r6kVxNAM3eFiTsjbEFaI+i7Tjyalch52Rol520s16QWUQtqiCcW2JmI
+	9TEZ8IfDtkLoUbXquUxgGc2svWu/UyyIACVcWXydr6z5A==
+Received: from cwxp265cu008.outbound.protection.outlook.com (mail-ukwestazlp17010007.outbound.protection.outlook.com [40.93.68.7])
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 461y2mgmtm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 16 Apr 2025 17:53:35 +0100 (BST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xqB9r9aM5kdKAyP/J6M+Xfz5wedbw1yhP7oCrgTnNLuWsVgvR1XXRftyIcdnSKCNhmET2KqtoMZ6lG5V8TQHV93tXr7no+v0u2VDKZgRxRNm+yEnOIKIFL+tSZ6NN5+3IGk3yzOLXsFWYcsw+TRVBB2RiNlVTKfer420VfiQdfwIfh9myHxg8cP6C1FdmWGINkzITIqTTZpVAScnpRd1HnruqKQqAj/3zuEeYV7ElT/IVQkLOQvt0VOuAGMmhrMc037PhyOEyEkhmv207NqJzXe1XGMJ5w8U5W8Br5jAaa4gV0nS9GrxBVUBHeYvHjOkHoZGDHRBrh1nSkf0+ejzXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=49BH7xOs4LVPR15l2kb5S20/sV6Wk5mgmoSRz7WpJ7s=;
+ b=c/YUg1ausbvFxgyVPO0sB1JWHa9yjz03pBKO/mW695XwK4ihtgOhZ3jNTUmqE3870duuQ9gXW056lQDT/PFLuO0+yS3OLASnsAXDyW9AyXSnH7UNr1KoXpRzfDVwgCv4CLOkvfcWHVu7NyI+qg4ejZ8bItiyueCgqaDgUCpaA/9+JOEvEU3B2Es4rBlrkyhf7VVm4KltRmxJB2PFmRGbgMo8whfgxl61pxnHlXxa6FubFFIeQS5hiE/q2eRnx7cakJiU+IensXm+DpuSAD/GxVElGJQiiaDRT3L4AUK7XpNioHXbGGsT2bT7s/vu3dnE9Q5A+7CnRJ7llxkmnjLttw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=imgtec.com; dmarc=pass action=none header.from=imgtec.com;
+ dkim=pass header.d=imgtec.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=IMGTecCRM.onmicrosoft.com; s=selector2-IMGTecCRM-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=49BH7xOs4LVPR15l2kb5S20/sV6Wk5mgmoSRz7WpJ7s=;
+ b=cVJQGm8zF0lxnOS8LXCudui7gP01t2FnD3wbWWpOcTpSx2qM62YmE/XNGs8nk23mQxsRoj0hm46lIsdFx3VqZLwFSgjrl0U4Nrb0a6rDkvfoBFrmOBrlzQQRL8WgDP1HEI6cGdMiPRn733aSrXJ0oxR5u8DU8clQkId4LGw/iyc=
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:e7::8) by
+ CWLP265MB6321.GBRP265.PROD.OUTLOOK.COM (2603:10a6:400:1e7::10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8655.20; Wed, 16 Apr 2025 16:53:31 +0000
+Received: from CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15]) by CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+ ([fe80::8e9d:6b2f:9881:1e15%3]) with mapi id 15.20.8655.018; Wed, 16 Apr 2025
+ 16:53:31 +0000
+From: Matt Coster <Matt.Coster@imgtec.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+CC: Frank Binns <Frank.Binns@imgtec.com>,
+        "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>,
+        "m.szyprowski@samsung.com"
+	<m.szyprowski@samsung.com>,
+        "linux-clk@vger.kernel.org"
+	<linux-clk@vger.kernel.org>,
+        "conor+dt@kernel.org" <conor+dt@kernel.org>,
+        "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+        "mripard@kernel.org" <mripard@kernel.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "tzimmermann@suse.de" <tzimmermann@suse.de>,
+        "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+        "airlied@gmail.com" <airlied@gmail.com>,
+        "simona@ffwll.ch" <simona@ffwll.ch>,
+        "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+        "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+        "ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+        "linux-pm@vger.kernel.org"
+	<linux-pm@vger.kernel.org>,
+        "jszhang@kernel.org" <jszhang@kernel.org>,
+        "palmer@dabbelt.com" <palmer@dabbelt.com>,
+        "guoren@kernel.org"
+	<guoren@kernel.org>,
+        "maarten.lankhorst@linux.intel.com"
+	<maarten.lankhorst@linux.intel.com>,
+        "wefu@redhat.com" <wefu@redhat.com>,
+        "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+        "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+        "drew@pdp7.com"
+	<drew@pdp7.com>, "robh@kernel.org" <robh@kernel.org>,
+        "sboyd@kernel.org"
+	<sboyd@kernel.org>,
+        "mturquette@baylibre.com" <mturquette@baylibre.com>,
+        "krzk+dt@kernel.org" <krzk+dt@kernel.org>
+Subject: Re: [PATCH v5 13/21] drm/imagination: Add reset controller support
+ for GPU initialization
+Thread-Topic: [PATCH v5 13/21] drm/imagination: Add reset controller support
+ for GPU initialization
+Thread-Index: AQHbrvAVnfhhX9uovES9h5ibMx9gpQ==
+Date: Wed, 16 Apr 2025 16:53:31 +0000
+Message-ID: <c74db6a7-146b-4937-974d-2110b587f662@imgtec.com>
+References: <20250219140239.1378758-1-m.wilczynski@samsung.com>
+ <CGME20250219140306eucas1p19ba425ddb1e499ef1014b1665be9de8e@eucas1p1.samsung.com>
+ <20250219140239.1378758-14-m.wilczynski@samsung.com>
+ <60914de9-f507-4099-be53-ea1fc282c537@samsung.com>
+In-Reply-To: <60914de9-f507-4099-be53-ea1fc282c537@samsung.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: CWXP265MB3397:EE_|CWLP265MB6321:EE_
+x-ms-office365-filtering-correlation-id: 5a8bcd83-aef0-4940-8ca8-08dd7d0737fc
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|38070700018|4053099003;
+x-microsoft-antispam-message-info: =?utf-8?B?OVVLeDMxVHVuU3dPVjdpeGxNdnNCd29yZ3pHQXh6OUxNTndjaDhvM1NLWk5z?=
+ =?utf-8?B?Rzh3ZU85VUdCNDJ4NWNBQ0toM2xpNi81amJsZkFUNmJPa08rTVlzeFh6cFgw?=
+ =?utf-8?B?SHpxSXd0em4xK3ExZ29HbndPUHMvT1RSY1ovZWs1ZCtVdDFPa3B5TzFjOU9F?=
+ =?utf-8?B?QTNGR0g3d3UvNjNsc29NV0VtWG9TeUhxMnJJMHd4MmhwMGlwNkJ1MDgrMEt5?=
+ =?utf-8?B?YWx4TVRpNFpzaURINGpLSFVqUkxqL3RyQmJMbU9hNlZhUGZwUlMwM0ZPTWw3?=
+ =?utf-8?B?WkdxdFNtZXJRNkI2dUxleTB0RHpJMzNQc29lOU9iRWZuTU43Z3FNZ1U3U1Vm?=
+ =?utf-8?B?VjZKb2x3a2tMZ1hPbm1pakMvWU45L1BHUEJRbTlIajJzdnlaeVZhMHdaRmFy?=
+ =?utf-8?B?YzBJNVNwanl4NFFqQmZnQU5DaHJvd3QvV1p1RDYxSS9SajNjWldUNmNuVmlX?=
+ =?utf-8?B?VkhldmxhenEzZ3NwMmRyRU5zYVdQVUMzNytBSnNObFpqQzlVak1tcXFzN0Y3?=
+ =?utf-8?B?RmhlQmdDaTA2L3RERFRPS1RWL2NMVHJMbVorRlhBb2FJR3dqaDB3SVpoWkR2?=
+ =?utf-8?B?MHJ6cXZMeWp1aEFGaHdkOHFHb1IvZGI0QTV1M2crdWpiVStyU3l3UVZVa0Ur?=
+ =?utf-8?B?djdTYnlEVWlPWENUTitBWVhqYlpZMkJCUUNycnhiWEtobWVkRlR0TVI3N3pN?=
+ =?utf-8?B?OHRzQTJVQmoyUG95NWdETmFSTW9TeXM4YkpvV1AvQ3RndkQ4bkQzWGpTbzFM?=
+ =?utf-8?B?NGU1NUJWV0p0a0E4bmh3VG9ORU5mUUJsNFkwRm40Ky9QVVRCSkx5WkJmVEdm?=
+ =?utf-8?B?SWZGZzFUcFFPWmcyRzVMaUVKK1NCZmN3eE5aa2IvbFpScjVITlRvb1kvbFJp?=
+ =?utf-8?B?RVQ4MFZOVkc5RXpwbHU4akd5QmRiZ0JtQmFSWE5lRmRQdi9WemtpbTR6UTdY?=
+ =?utf-8?B?SjNHL2UzWVlEQmc2WXNEeHdYNFpuTzNjT3RaUi9mYWtKMGhTVDc4SW5INkRM?=
+ =?utf-8?B?Q0V2V2dWdnc4UFMwRDNsUVFkQnVsVm1yKzNYUFErc205M0p0U2FHcjlGNEN4?=
+ =?utf-8?B?SHNyT005TGFxblI2RC9VNFVqWSs1Ny83ekZGMFNQUXJEcEs4eWhzYnd1V3pY?=
+ =?utf-8?B?SEtNT05ub0tNaTQzYUM0TWh2WDFuRDcxWUJINno5d2lzRXlPSDFlNnlBdzJy?=
+ =?utf-8?B?NU5EN21Hd25nVDVPelUvWnR1bGJMNFk5Qy9LMDlWS3JqQis5VGZWazlrQWlH?=
+ =?utf-8?B?TWYvREM0UGs2bnYyclJHNFhPM1dJbXhLeXdRWXViZkhXNE0zamEyeTVwOUlJ?=
+ =?utf-8?B?OGlvU0RzQjdhWFhtOXFzdGJ0UGtrUHhSYWVFaWdNcGlMZEVnRGhsLzZ2Q3pT?=
+ =?utf-8?B?N1ZGblovUmJVVjA2WW5oUkZLUEVxcDNZL3dQTVhPNTdCaGh1QkVoS3NYdGVE?=
+ =?utf-8?B?RVRiYlZVanpWL0tLR1ZjS1BQNmwvSHlqNHZvNitVMFBVVlFSRWh1bVNRVWEx?=
+ =?utf-8?B?bG82eVNTTG1MODA2RkFZSmdObDR4WS9JNGp2T0VsRjVqcW9JOXE4c1laalpr?=
+ =?utf-8?B?b1hrWG90ekdIVC9sVU9rNXcyWDNrVVJoUFg0bUFFTnMyVGFzdjV4dlZMQ1RO?=
+ =?utf-8?B?YUptbXc2Y09UMUcvL1kzNWpFNS9zTCtwUFo0eHVmNlNLeXJyd3BsaEIyQWlJ?=
+ =?utf-8?B?T042SHZWMldRZUlUc1A1a0cvWkp0TytTZWJKZVhwSmpON2Z3anNTL3hLTm15?=
+ =?utf-8?B?RmozaWVyKy9CQkYwaHIzSEgxWXRaQnBaSGJTZTFwNnlLemVXY2pBV29TVldz?=
+ =?utf-8?B?aXArK0labUE3SmtHaXhtdTNIdFZqUzhFWVZBNGZKejM3UllwM0F3ZGdvdkMx?=
+ =?utf-8?B?ZmU2WDl5TFVVL0FzczFGL0V4QjAyZ2pCZTBmNTJYYXIzUytNeGZUVUl2SVhE?=
+ =?utf-8?B?VG9FZUpZdExIRm13aTBGS0JFQkV1dlZnNGgwYUZpemdlWk10KzY2SVFPZlFv?=
+ =?utf-8?Q?4GnpHom2pKX4+IWTOzlpz9ZRaD/OF4=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(38070700018)(4053099003);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?TWhkTzN0WHdDTTg5YlpSVVNiOVNvMWlWSGVUQmUzaHBURUlUZGFVMVYzOFFq?=
+ =?utf-8?B?WFRoVVQyZGRoQ2xEV0REdVh4cmpwUnpPQ2ZxVGhDUytEVnZkRDNMNWI5bFB2?=
+ =?utf-8?B?OEZpQ2tpOVBhOFVQZFhMcDBma2R1UzQrYlZjWFlvTGk1Z2RxNTYyTkZMQUxi?=
+ =?utf-8?B?U1RUT01CZ0dHMFNVUnFSOVFsVFFXMWcrYmFPaG1qMkMwQ2N1Mm9UdGJTYVlX?=
+ =?utf-8?B?R2tITGVYTXZMYVU5bnF0NEZadWFFQzRCZ1RVZ3ZVSHMxMFZwdE05RkN4YzlZ?=
+ =?utf-8?B?UVIvQm5aUzB4Q3k3TjZ3R0dNUENXU0laZDVnMzM1dXFuMCtFUmdZZ3NXUEND?=
+ =?utf-8?B?czFoM2FBSDhBeUt6MHkvVDJiY1Uya2JuOWZvV2dEYlNUZmkxUm9SVVE5RkJW?=
+ =?utf-8?B?bXI4WG56M1pwWlJ2eGg4MTc3aUwvSW00QWZBZHhEcHhQLytCcm54eWpxam9I?=
+ =?utf-8?B?bUpFU0UzK1hwL3QveXR3S0Y1djNOejRHVm5ibHFGVlRvQXVESm94clJiZ2R4?=
+ =?utf-8?B?L3A3MUJnM01qOENRdmUrbzdYUTVJSlBOZGpqSms0QzRhLzJjekxlYlNqZUJK?=
+ =?utf-8?B?a3pWKzlMMnNMeFgzOHpwdlJER2ZtbWhaS2ZueUpJRFZLeTgrbkdXVXBGUnVJ?=
+ =?utf-8?B?ZmkxUm9tblhGSjJMMmRadVo2OEUvSnE2QVJYRy93bzRvVkhlSUtoN1c4dTBZ?=
+ =?utf-8?B?Zk1Ob3lUeWdxK2NoR1BKQWxxRnhjMGhxbXFNVksrQUxLUmUvQkwxbitqblls?=
+ =?utf-8?B?cHFUcGRtVi9OKyswVnF2QnNScmU5eVRpbE1UaHJJbWgrUzdKL2VUdkJnSTVY?=
+ =?utf-8?B?SEtWUmsxcEw1bXZXeHRNbHVibi8wdnNWbWw4ZHV2azRYYVdRWWo2MkpzTytq?=
+ =?utf-8?B?R2tPLzVPNVlPeS9Cc0VTSTVWUzk4cWpBZXhDUEFnUkEzY3UxeWFrZTZwVHJZ?=
+ =?utf-8?B?bnlub2hBQ3pKQ2xzM3RBYU9UWEI1M01KN0tIbVZIdkI5Q0dvdEtRSzZ3Vm5S?=
+ =?utf-8?B?QzVDaUVaSEF0UDdqZWpmeUYxN0RMZjIxSklxSVdqM2gvYmFybGgzdEFFTi9r?=
+ =?utf-8?B?Rmo0V1VLQlA4MjlURTF1RkNsaXNlZzlKMFVCckhkT2txNlJBejVMM3JQbU5P?=
+ =?utf-8?B?NDZDcHloNWtiOXlDWHQ2eTlHQnF1ejdGVUFmaXBoUWR0bUZtUUxQMmlHSHZ1?=
+ =?utf-8?B?d1RsMDFuUHdFRFJUMldLQVlPWnpVYWpCWGdtdXVpamoxeXZZNjFDTXgzaWhU?=
+ =?utf-8?B?SzMzdWVhRHpqelZHVkRGbHBRUnVvVitNNHZZMWp0bUhFSGZNWmhJQnJMRlg5?=
+ =?utf-8?B?Y1pRYVIrY3BhQU1RdlI3TzRRZ0NVMzZsSmhOaXFHcG9URWlPbXdRV3ZIeElX?=
+ =?utf-8?B?NmhFUFR5QmRXN2hKTThhT0pRRWJ6MCtXNWpPV05PNVl0RzdiUldwMmJ3VTdn?=
+ =?utf-8?B?cmx6ZHNDV0dYUjlVS2pzSnFKZkU2Y3dIUnlpaUtIMzBpZ2hHTGE0c2tKMVNG?=
+ =?utf-8?B?VVFGU3ZmMnpISkFBSU5Kb2xkVkRkVmZYRXIvTWtwY3B5NXV3NDBUS2N3TXF5?=
+ =?utf-8?B?NXhrVldWUVhnM0JiNzRTMjZFblhOOWdqK0o5MDFNendsN0tWeWlCSk1vRThM?=
+ =?utf-8?B?aGJQOWFQNitpMEVwWVZiWDFXVy9USlZoWmhBYVo5ZnFVRnFwUXpvdDZuODNW?=
+ =?utf-8?B?WXpDN0dQajBiTGQyajBjK0RuSnRvYmcyMnhrUlVBSENOY0hOWkVSVTRWeHZa?=
+ =?utf-8?B?MG8wWDdQbjhPSGpISS9GYnRKQWlSZGxJZXh6WGV3N2JxcEZOWWdDanhyS3lB?=
+ =?utf-8?B?ZmxNcUhpcWhsbEZtU2ZObE9waFQ1WVczSjdZSGlMcjk4YnVVZW50Skhrc1di?=
+ =?utf-8?B?NGxEb2htdmRWS3NoR0htUmN1RHJ0MmlYakdDQWpSYVZUUFV0VC9KT0E1eDNw?=
+ =?utf-8?B?c0JDWk1UM3czUUdxOTArZ0JFYTRtWEJ3Mk9sL2NuSHgzYkNtMUt3Z2cwR2M4?=
+ =?utf-8?B?SEpOQ01rYmZSc2dBNW5Eb1dkQ1dOVW1BclluMHZTanEyOUcwZzRHSTFkbzFt?=
+ =?utf-8?B?NWpJSFdKRXNJMDJlSWJ2d0Z1UmpFR3dVUmxYTHdpNFB1Z1VqM1oxeGswVnBZ?=
+ =?utf-8?B?WnlKQUJ5S2hnOUlWSlAvT0NIck9hR3RtUVJPaWZETDY1RnVKWTdkS0RPVDUz?=
+ =?utf-8?B?OXc9PQ==?=
 MIME-Version: 1.0
-In-Reply-To: <3dfc300f-081c-4824-97c3-842f72d2a7d3@riscstar.com>
+X-OriginatorOrg: imgtec.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: CWXP265MB3397.GBRP265.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5a8bcd83-aef0-4940-8ca8-08dd7d0737fc
+X-MS-Exchange-CrossTenant-originalarrivaltime: 16 Apr 2025 16:53:31.3518
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0d5fd8bb-e8c2-4e0a-8dd5-2c264f7140fe
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: dCJlh8BsQNgI5xUDAMaCGFEYLS8AVJu+UcbnsnMKw4uIOeTjw/UVr3j2Aicj4HfFxnavqyKGnJh9aYaetBTN7g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CWLP265MB6321
+X-Authority-Analysis: v=2.4 cv=LbU86ifi c=1 sm=1 tr=0 ts=67ffe090 cx=c_pps a=NemD1F2luIWN0MFc5Cn7GA==:117 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19 a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=XR8D0OoHHMoA:10
+ a=NgoYpvdbvlAA:10 a=hD80L64hAAAA:8 a=r_1tXGB3AAAA:8 a=HeIl7KPV_oWCO7BD_oYA:9 a=QEXdDO2ut3YA:10 a=yvwrtV5x0iyCBtp8CqIA:9 a=FfaGCDsud1wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: mKPNdfxSzvEJDvha3RZYXcfW6bZOWSx3
+X-Proofpoint-ORIG-GUID: mKPNdfxSzvEJDvha3RZYXcfW6bZOWSx3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_075624_212470_01233458 
-X-CRM114-Status: GOOD (  19.61  )
+X-CRM114-CacheID: sfid-20250416_095414_788047_55671EED 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +229,120 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0403378455913172071=="
+Content-Type: multipart/mixed; boundary="===============3792686170615391749=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+--===============3792686170615391749==
+Content-Language: en-US
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------3bbxVraumoGi2fJRQ3W4IyqC"
 
---===============0403378455913172071==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="nvbqpn6aaa4mvleg"
-Content-Disposition: inline
+--------------3bbxVraumoGi2fJRQ3W4IyqC
+Content-Type: multipart/mixed; boundary="------------LpNi1Hs9Dq38QRgXf0Ws2hpK";
+ protected-headers="v1"
+From: Matt Coster <matt.coster@imgtec.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: frank.binns@imgtec.com, p.zabel@pengutronix.de, m.szyprowski@samsung.com,
+ linux-clk@vger.kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
+ mripard@kernel.org, linux-kernel@vger.kernel.org, tzimmermann@suse.de,
+ linux-riscv@lists.infradead.org, airlied@gmail.com, simona@ffwll.ch,
+ aou@eecs.berkeley.edu, dri-devel@lists.freedesktop.org,
+ ulf.hansson@linaro.org, linux-pm@vger.kernel.org, jszhang@kernel.org,
+ palmer@dabbelt.com, guoren@kernel.org, maarten.lankhorst@linux.intel.com,
+ wefu@redhat.com, paul.walmsley@sifive.com, jassisinghbrar@gmail.com,
+ drew@pdp7.com, robh@kernel.org, sboyd@kernel.org, mturquette@baylibre.com,
+ krzk+dt@kernel.org
+Message-ID: <c74db6a7-146b-4937-974d-2110b587f662@imgtec.com>
+Subject: Re: [PATCH v5 13/21] drm/imagination: Add reset controller support
+ for GPU initialization
+References: <20250219140239.1378758-1-m.wilczynski@samsung.com>
+ <CGME20250219140306eucas1p19ba425ddb1e499ef1014b1665be9de8e@eucas1p1.samsung.com>
+ <20250219140239.1378758-14-m.wilczynski@samsung.com>
+ <60914de9-f507-4099-be53-ea1fc282c537@samsung.com>
+In-Reply-To: <60914de9-f507-4099-be53-ea1fc282c537@samsung.com>
 
-
---nvbqpn6aaa4mvleg
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
+--------------LpNi1Hs9Dq38QRgXf0Ws2hpK
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/9] dt-bindings: pwm: marvell,pxa: add optional property
- resets
-MIME-Version: 1.0
 
-Hello Alex,
-
-On Wed, Apr 16, 2025 at 06:33:42AM -0500, Alex Elder wrote:
-> On 4/16/25 12:18 AM, Uwe Kleine-K=F6nig wrote:
-> > Hello,
-> >=20
-> > On Tue, Apr 15, 2025 at 12:28:07PM +0000, Yixun Lan wrote:
-> > > maybe there are cases that users don't want to issue a reset..
-> > > so, want to make it optional.. I can think one example that,
-> > > display controller is up and working from bootloader to linux,
-> > > reset it will got a flicker picture..
-> >=20
-> > Agreed. You can just deassert the reset at probe time. That shouldn't
-> > interfere with a PWM that is already producing an output.
+On 16/04/2025 15:25, Michal Wilczynski wrote:
+> On 2/19/25 15:02, Michal Wilczynski wrote:
+>> All IMG Rogue GPUs include a reset line that participates in the
+>> power-up sequence. On some SoCs (e.g., T-Head TH1520 and Banana Pi
+>> BPI-F3), this reset line is exposed and must be driven explicitly to
+>> ensure proper initialization.  On others, such as the currently
+>> supported TI SoC, the reset logic is handled in hardware or firmware
+>> without exposing the line directly. In platforms where the reset line =
+is
+>> externally accessible, if it is not driven correctly, the GPU may rema=
+in
+>> in an undefined state, leading to instability or performance issues.
+>>
+>> This commit adds a dedicated reset controller to the drm/imagination
+>> driver.  By managing the reset line (where applicable) as part of norm=
+al
+>> GPU bring-up, the driver ensures reliable initialization across
+>> platforms regardless of whether the reset is controlled externally or
+>> handled internally.
+>>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  drivers/gpu/drm/imagination/pvr_device.c | 21 +++++++++++++++++++++
+>>  drivers/gpu/drm/imagination/pvr_device.h |  9 +++++++++
+>>  drivers/gpu/drm/imagination/pvr_power.c  | 22 +++++++++++++++++++++-
+>>  3 files changed, 51 insertions(+), 1 deletion(-)
+>>
 >=20
-> I think you're saying reset can be a required property, to be
-> harmlessly deasserted at probe time?  Yixun was suggesting it
-> should not be required, because it might already be deasserted.
+> Hi Matt,
 >=20
-> Anyway, I don't feel strongly either way.  Maybe the DTS
-> maintainers can recommend what to do.
+> This commit, along with the corresponding change in the DT bindings,
+> doesn=E2=80=99t appear to conflict with the work you're doing for Rogue=
+ series
+> enablement.
 
-IMHO you shouldn't have to modify the dts if you want to initialize a
-display in the bootloader and than boot flicker-free into Linux.
+Agreed, it still applies cleanly on top of drm-misc-next after we landed
+the BXS series.
 
-If the only thing you do with the reset is
-devm_reset_control_get_optional_shared_deasserted() (or a variant of
-it), everything should work just fine.
+>=20
+> Would you prefer if I re-send them as a mini-series so you can consider=
 
-I'm not a DTS maintainer, but still have my opinion and recommend that.
-:-)
+> picking them up for the next kernel release?
 
-Best regards
-Uwe
+That would be ideal, thank you!
 
---nvbqpn6aaa4mvleg
-Content-Type: application/pgp-signature; name="signature.asc"
+Cheers,
+Matt
+
+>=20
+> Regards,
+> Micha=C5=82
+
+
+--=20
+Matt Coster
+E: matt.coster@imgtec.com
+
+--------------LpNi1Hs9Dq38QRgXf0Ws2hpK--
+
+--------------3bbxVraumoGi2fJRQ3W4IyqC
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmf/xREACgkQj4D7WH0S
-/k79QwgAumneJJTU70ctlA9cRnIOTKxwGWl3IxHMtKIMx/Knwy5qCFoGmtBgK5HO
-9UflSaqdQ1pXi7MF5fIY7k8PvgkO9T/sVjAnyhdygEKUqiebkepSX6TCWcd4tJwb
-71HCVPYmc7+YlDiYYgOsHrhBISHSugf4d1RyJ4PNs3Ad4IckmilMC0Wd0x2e45uG
-CEn3JntNTBm1l+ddSW1Vrv3fdZkjJMjjUb2gRC34JFwYVhQF2JUMsE8zW8v6SO0h
-d1Yfh03EEStFFH1HBZfIqOocV13snt9t+SeyaZaHTtnAPXER+97gr1cfoqBZG+kC
-y9eC+Ru1+1AS6Szu5MBpVwSrtD8fyQ==
-=myXU
+wnsEABYIACMWIQS4qDmoJvwmKhjY+nN5vBnz2d5qsAUCZ//giwUDAAAAAAAKCRB5vBnz2d5qsJQX
+AQCIH3DDZLfQgm47Y2OoZWbKPy9xpV7MMB8qQEzDe0wnrQEAu7V4VWYaezrbJWvCy/FNmr7GJ4ru
+JSNTbJfgJozbtgg=
+=cpD4
 -----END PGP SIGNATURE-----
 
---nvbqpn6aaa4mvleg--
+--------------3bbxVraumoGi2fJRQ3W4IyqC--
 
 
---===============0403378455913172071==
+--===============3792686170615391749==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -165,5 +353,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============0403378455913172071==--
+--===============3792686170615391749==--
 
