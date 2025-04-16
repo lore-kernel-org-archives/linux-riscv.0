@@ -4,77 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9F9C369BA
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 17:29:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A82AC369BA
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 17:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1Bgj+eJBgB7ctogDAc3FmJFYyEJPjcJragfFLHFS9EI=; b=0OJWyVQCHAppHOCBqoRoU7tuIP
-	btnay9WRPhMdjSea5fN2lg+b4CUvbPVOn1SAKg4X5twIjWdQNTi2D2QWU/2dJrD8n1vMlLL5Hy4re
-	8XZmrRkfgSWnpFYVGTc3ZaFdsH0xOaexgTRpM09dJ5CM7TJnri0w7PlSODiIzO2hZSnJbFiXIHCdL
-	njrftHXuhkOHqcALdeq30rwrzUrwGo7N3FM+m4dsEDTQu3f5JZCcqId25X2KSvdSzY25//NWxeUC3
-	ScfiwN0WjUBnsF0b0PnZoboQ6EvC/C5a/1/+t08YDDj8Dt3gQN0CUEAKJy6xsCYhPXGHT4dEpCqO7
-	mc/SOPUQ==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=G41+dx+eovUkIf60NNLHPm5I7CYG1E/zcp2EBg2gpx8=; b=ovZA3q9uVgMAQP
+	m3wRY5OK9Q004fN5K9Fx6Qk1FCMLMPuMFYiGruKqNLQruXV3eGD8O+zHR6mgHjQaLXrtfXSVxV0aL
+	44STVt83So7Mw7DROKoUcU1ZyvpZOjdfQ1MRm3C3Jno6oDE3n2o30rHDlpaQTt438ncKk6YzNJKXJ
+	GNMDoYoivUec/8X+5xVFNYzEaT+8lZ/ugNBLyn++xyfgkMqE5v3XC4uA7vO8cI1NqLx74SP7TNzV1
+	t768UwJQYBn5sRVTWhyxo3vnkqOuX39AElepbjMRPsUxtp1t4xjw0N4UDQMpCY2RlMf7ZuOOb2oFu
+	bizfOfxyBBFSS4tuwiVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56Zx-0000000AQ61-0uii;
-	Wed, 16 Apr 2025 17:29:41 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u56t1-0000000AStd-0sae;
+	Wed, 16 Apr 2025 17:49:23 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u56H2-0000000AMwY-3X82
+	id 1u56rq-0000000ASdv-2j2B
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 17:10:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 349EA49F73;
-	Wed, 16 Apr 2025 17:10:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0FCAC4CEE9;
-	Wed, 16 Apr 2025 17:10:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744823408;
-	bh=GPxndeQcjZergwFORB/Rw0fwEw6OdehK/PoVumpiwhs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mM4S1zuQEMQqhg2E5490EGSvOLlPkmXfO2/a8rsiW5raOTdT+AwSP80ZxxgBfjFB7
-	 ICdW04snQBopqh9TxyLVT4jadJgjt6ZtaqQXIh0ltP3FEe1cSnqE0C7HOu92UbDbmj
-	 RPMcHm/Pq7mYU8EUndI6VL1iQOwW1ppCgmIa6aK8UF7S2VoXOIe1rkyYPvpOCGneMg
-	 qhhmwGDAxM7P7Lu8JqI9TgwmZqZXWnOM4X2iGbG4VsTRFFdfUGneP0TVe+MtviiiTx
-	 LK8o3F7FzDZKaW7dmM9iwfKqLE8tS4dE+90kDIOecLPdiWibowhbWrqwmXtecC3upw
-	 pM+Lq5HNfBYIg==
-Date: Wed, 16 Apr 2025 18:10:01 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	m.szyprowski@samsung.com, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v2 2/4] dt-bindings: firmware: thead,th1520: Add resets
- for GPU clkgen
-Message-ID: <20250416-bootlace-fossil-08a975327973@spud>
-References: <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
- <CGME20250414185315eucas1p1fae2d6250bfd30b12bb084e197c02948@eucas1p1.samsung.com>
- <20250414-apr_14_for_sending-v2-2-70c5af2af96c@samsung.com>
- <20250415-tycoon-naming-20ba5a55c469@spud>
- <fe445d04-b488-4f11-a14d-9dfda07e3e88@samsung.com>
+	Wed, 16 Apr 2025 17:48:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1744825688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
+	b=gz1aXodnoCFG1a/IQlXzd/7G7GH7ZKuiZSEfF0XHWctz/Z1DT8rlLoumCN6So40stGjqdR
+	UMlYuzPlzgep8/5qaH5wn62FtZ8+kaUes4dA7XgjTnqIa9TvUBKKLjoOk5my2SzxtI7kxU
+	wMtIgsx9WFXCUEZEE3UTtXdRs+mDBbc=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-592-Sav5nK4YPTqlWQQokcoSLg-1; Wed, 16 Apr 2025 13:48:07 -0400
+X-MC-Unique: Sav5nK4YPTqlWQQokcoSLg-1
+X-Mimecast-MFC-AGG-ID: Sav5nK4YPTqlWQQokcoSLg_1744825686
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-39135d31ca4so584185f8f.1
+        for <linux-riscv@lists.infradead.org>; Wed, 16 Apr 2025 10:48:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1744825686; x=1745430486;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/YUAN4imupbHgjWn5VTBZKruYuHjhfh3kj8IKp3Z0dY=;
+        b=S3Q7cIWLZdRXAYOnM0Wo5KBuD5NS3Zbn3YoskSADapLA9UjUnRhfxE+kLJOGI9S4T8
+         xwb4curGh8KCCGVtHP1afWKvRC4Qo2cDUVvF0BC+ihxFQrZUAj/2k8Yg3NCjnRl6tw4p
+         W07GmgdswVnt0u4o2pEeNz5ITGj+N/dICeXwJ/QE4dD5gb1o8uY6qeCOnrdiM4U8ke4h
+         EMUpyq1b5u5cY5Y1wE4xGm5HAInahg4H8yY6pmvbAgq6tnD1owirNodJB0yVFkWmFiaD
+         6TTZRNzyNUz7UAp3g8y8pmBZ/jJGUIb63Lzz7F7FWEKltCSUn2JPzqiurdcAeWwNeNjo
+         m6vA==
+X-Forwarded-Encrypted: i=1; AJvYcCV7kpxkOiSYEuHlrO2xjisfrK6e3Xn28d1YSAOLE0vqNSfdGj64wcE98VK2ClSl96Mtlz9oUIn7r1R9qQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw9n56UtpF60OuR9qv5cHBi8JqlnFyp5ZXsFzseHclfZTi6rquZ
+	/3l6YYVh68QCXYsPpFGVm5FxrQNz9XKwXzHcNlCRKv0Ccvgfzzmec21SoKotTbuH5ISxWhoVLf6
+	06PF7YW+/5PCjXDOzX6ez7ULrU+661r0VkoPsegogtWjnYIbm4+BEkXk2q18m1GMfMA==
+X-Gm-Gg: ASbGncs6wJHtWFApJMAeEAvH0x7EJieoDFUosV5bQCIrOPl52sRjRyNY2QcIMva3RSK
+	zQvAZ6t/9EDjWE2JnWPnDn8eL5wJzFjW4AbDlvb7IVrf47kCJzhsPT5g+1HSy4Z6Af/ufoCcvuz
+	2KQ1LCQS7euURSNbBFEciwqBuUVdfiTxCWoMIDSYH/25505soKi6qMXJtZ0w077+RyJ2t/O0lGm
+	LcG3JdppghG86M2ILpTT2j/m/XnbW4XmxNZHg7A8fBWYdIjTYJx330fq8czI0hweKkkgIO6moqc
+	EuXXOtG/OT/SUkZ4
+X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313578f8f.7.1744825685984;
+        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHd/Q9xU1Lv4kZ9t/WwJIPpluDO/OcIMcKulh4/sk/gvKDXTcl2daOqoE90IlBaQsWY9I2m/g==
+X-Received: by 2002:a5d:598d:0:b0:39c:266b:feec with SMTP id ffacd0b85a97d-39ee904afe3mr313534f8f.7.1744825685524;
+        Wed, 16 Apr 2025 10:48:05 -0700 (PDT)
+Received: from [192.168.10.48] ([176.206.109.83])
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-39eae9640e3sm18034375f8f.12.2025.04.16.10.48.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 16 Apr 2025 10:48:04 -0700 (PDT)
+Message-ID: <60b7607b-8ada-447d-9dcb-034d93b9abe8@redhat.com>
+Date: Wed, 16 Apr 2025 19:48:00 +0200
 MIME-Version: 1.0
-In-Reply-To: <fe445d04-b488-4f11-a14d-9dfda07e3e88@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/4] KVM: x86: move sev_lock/unlock_vcpus_for_migration
+ to kvm_main.c
+To: Peter Zijlstra <peterz@infradead.org>,
+ Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org, Alexander Potapenko <glider@google.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
+ kvm-riscv@lists.infradead.org, Oliver Upton <oliver.upton@linux.dev>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Jing Zhang <jingzhangos@google.com>, Waiman Long <longman@redhat.com>,
+ x86@kernel.org, Kunkun Jiang <jiangkunkun@huawei.com>,
+ Boqun Feng <boqun.feng@gmail.com>, Anup Patel <anup@brainfault.org>,
+ Albert Ou <aou@eecs.berkeley.edu>, kvmarm@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Zenghui Yu <yuzenghui@huawei.com>,
+ Borislav Petkov <bp@alien8.de>, Alexandre Ghiti <alex@ghiti.fr>,
+ Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+ Sebastian Ott <sebott@redhat.com>, Atish Patra <atishp@atishpatra.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>,
+ Randy Dunlap <rdunlap@infradead.org>, Will Deacon <will@kernel.org>,
+ Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org,
+ Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ Joey Gouly <joey.gouly@arm.com>, Ingo Molnar <mingo@redhat.com>,
+ Andre Przywara <andre.przywara@arm.com>, Thomas Gleixner
+ <tglx@linutronix.de>, Sean Christopherson <seanjc@google.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ Bjorn Helgaas <bhelgaas@google.com>
+References: <20250409014136.2816971-1-mlevitsk@redhat.com>
+ <20250409014136.2816971-3-mlevitsk@redhat.com>
+ <20250410081640.GX9833@noisy.programming.kicks-ass.net>
+From: Paolo Bonzini <pbonzini@redhat.com>
+Autocrypt: addr=pbonzini@redhat.com; keydata=
+ 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
+In-Reply-To: <20250410081640.GX9833@noisy.programming.kicks-ass.net>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rSsiRQm86tfNU1Ep_29xq3VGiQVwmADZ_lIG8qCHWoA_1744825686
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_101008_932169_01C49FF2 
-X-CRM114-Status: GOOD (  28.00  )
+X-CRM114-CacheID: sfid-20250416_104810_765755_A56B5AC3 
+X-CRM114-Status: GOOD (  28.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,131 +163,181 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9034928697644428396=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On 4/10/25 10:16, Peter Zijlstra wrote:
+> On Tue, Apr 08, 2025 at 09:41:34PM -0400, Maxim Levitsky wrote:
+>> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+>> index 69782df3617f..71c0d8c35b4b 100644
+>> --- a/virt/kvm/kvm_main.c
+>> +++ b/virt/kvm/kvm_main.c
+>> @@ -1368,6 +1368,77 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+>>   	return 0;
+>>   }
+>>   
+>> +
+>> +/*
+>> + * Lock all VM vCPUs.
+>> + * Can be used nested (to lock vCPUS of two VMs for example)
+>> + */
+>> +int kvm_lock_all_vcpus_nested(struct kvm *kvm, bool trylock, unsigned int role)
+>> +{
+>> +	struct kvm_vcpu *vcpu;
+>> +	unsigned long i, j;
+>> +
+>> +	lockdep_assert_held(&kvm->lock);
+>> +
+>> +	kvm_for_each_vcpu(i, vcpu, kvm) {
+>> +
+>> +		if (trylock && !mutex_trylock_nested(&vcpu->mutex, role))
+>> +			goto out_unlock;
+>> +		else if (!trylock && mutex_lock_killable_nested(&vcpu->mutex, role))
+>> +			goto out_unlock;
+>> +
+>> +#ifdef CONFIG_PROVE_LOCKING
+>> +		if (!i)
+>> +			/*
+>> +			 * Reset the role to one that avoids colliding with
+>> +			 * the role used for the first vcpu mutex.
+>> +			 */
+>> +			role = MAX_LOCK_DEPTH - 1;
+>> +		else
+>> +			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
+>> +#endif
+>> +	}
+> 
+> This code is all sorts of terrible.
+> 
+> Per the lockdep_assert_held() above, you serialize all these locks by
+> holding that lock, this means you can be using the _nest_lock()
+> annotation.
+> 
+> Also, the original code didn't have this trylock nonsense, and the
+> Changelog doesn't mention this -- in fact the Changelog claims no
+> change, which is patently false.
+> 
+> Anyway, please write like:
+> 
+> 	kvm_for_each_vcpu(i, vcpu, kvm) {
+> 		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
+> 			goto unlock;
+> 	}
+> 
+> 	return 0;
+> 
+> unlock:
+> 
+> 	kvm_for_each_vcpu(j, vcpu, kvm) {
+> 		if (j == i)
+> 			break;
+> 
+> 		mutex_unlock(&vcpu->mutex);
+> 	}
+> 	return -EINTR;
+> 
+> And yes, you'll have to add mutex_lock_killable_nest_lock(), but that
+> should be trivial.
 
---===============9034928697644428396==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="tCmZpeXQvPDx/gRW"
-Content-Disposition: inline
+If I understand correctly, that would be actually
+_mutex_lock_killable_nest_lock() plus a wrapper macro.  But yes,
+that is easy so it sounds good.
 
+For the ARM case, which is the actual buggy one (it was complaining
+about too high a depth) it still needs mutex_trylock_nest_lock();
+the nest_lock is needed to avoid bumping the depth on every
+mutex_trylock().
 
---tCmZpeXQvPDx/gRW
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+It should be something like
+diff --git a/include/linux/mutex.h b/include/linux/mutex.h
+index 2143d05116be..328f573cab6d 100644
+--- a/include/linux/mutex.h
++++ b/include/linux/mutex.h
+@@ -174,6 +174,12 @@ do {									\
+  	_mutex_lock_nest_lock(lock, &(nest_lock)->dep_map);		\
+  } while (0)
+  
++#define mutex_trylock_nest_lock(lock, nest_lock)			\
++do {									\
++	typecheck(struct lockdep_map *, &(nest_lock)->dep_map);		\
++	_mutex_trylock_nest_lock(lock, &(nest_lock)->dep_map);		\
++} while (0)
++
+  #else
+  extern void mutex_lock(struct mutex *lock);
+  extern int __must_check mutex_lock_interruptible(struct mutex *lock);
+@@ -185,6 +191,7 @@ extern void mutex_lock_io(struct mutex *lock);
+  # define mutex_lock_killable_nested(lock, subclass) mutex_lock_killable(lock)
+  # define mutex_lock_nest_lock(lock, nest_lock) mutex_lock(lock)
+  # define mutex_lock_io_nested(lock, subclass) mutex_lock_io(lock)
++# define mutex_trylock_nest_lock(lock, nest_lock) mutex_trylock(lock)
+  #endif
+  
+  /*
+@@ -193,9 +200,14 @@ extern void mutex_lock_io(struct mutex *lock);
+   *
+   * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
+   */
+-extern int mutex_trylock(struct mutex *lock);
++extern int _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
+  extern void mutex_unlock(struct mutex *lock);
+  
++static inline int mutex_trylock(struct mutex *lock)
++{
++	return _mutex_trylock_nest_lock(lock, NULL);
++}
++
+  extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
+  
+  DEFINE_GUARD(mutex, struct mutex *, mutex_lock(_T), mutex_unlock(_T))
+diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
+index 555e2b3a665a..d5d1e79495fc 100644
+--- a/kernel/locking/mutex.c
++++ b/kernel/locking/mutex.c
+@@ -1063,8 +1063,10 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
+  #endif
+  
+  /**
+- * mutex_trylock - try to acquire the mutex, without waiting
++ * _mutex_trylock_nest_lock - try to acquire the mutex, without waiting
+   * @lock: the mutex to be acquired
++ * @nest_lock: if not NULL, a mutex that is always taken whenever multiple
++ *   instances of @lock are
+   *
+   * Try to acquire the mutex atomically. Returns 1 if the mutex
+   * has been acquired successfully, and 0 on contention.
+@@ -1076,7 +1078,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
+   * This function must not be used in interrupt context. The
+   * mutex must be released by the same task that acquired it.
+   */
+-int __sched mutex_trylock(struct mutex *lock)
++int __sched _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock)
+  {
+  	bool locked;
+  
+@@ -1084,11 +1086,11 @@ int __sched mutex_trylock(struct mutex *lock)
+  
+  	locked = __mutex_trylock(lock);
+  	if (locked)
+-		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
++		mutex_acquire_nest(&lock->dep_map, 0, 1, nest_lock, _RET_IP_);
+  
+  	return locked;
+  }
+-EXPORT_SYMBOL(mutex_trylock);
++EXPORT_SYMBOL(_mutex_trylock_nest_lock);
+  
+  #ifndef CONFIG_DEBUG_LOCK_ALLOC
+  int __sched
 
-On Wed, Apr 16, 2025 at 01:40:15PM +0200, Michal Wilczynski wrote:
->=20
->=20
-> On 4/15/25 18:38, Conor Dooley wrote:
-> > On Mon, Apr 14, 2025 at 08:52:56PM +0200, Michal Wilczynski wrote:
-> >> Extend the TH1520 AON firmware bindings to describe the GPU clkgen res=
-et
-> >> line, required for proper GPU clock and reset sequencing.
-> >>
-> >> The T-HEAD TH1520 GPU requires coordinated management of two clocks
-> >> (core and sys) and two resets (GPU core reset and GPU clkgen
-> >> reset).  Only the clkgen reset is exposed at the AON level, to support
-> >> SoC-specific initialization handled through a generic PM domain. The G=
-PU
-> >> core reset remains described in the GPU device node, as from the GPU
-> >> driver's perspective, there is only a single reset line [1].
-> >>
-> >> This follows upstream maintainers' recommendations [2] to abstract
-> >> SoC specific details into the PM domain layer rather than exposing them
-> >> to drivers directly.
-> >>
-> >> [1] - https://lore.kernel.org/all/816db99d-7088-4c1a-af03-b9a825ac09dc=
-@imgtec.com/
-> >> [2] - https://lore.kernel.org/all/38d9650fc11a674c8b689d6bab937acf@ker=
-nel.org/
-> >>
-> >> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> >> ---
-> >>  .../devicetree/bindings/firmware/thead,th1520-aon.yaml        | 11 ++=
-+++++++++
-> >>  1 file changed, 11 insertions(+)
-> >>
-> >> diff --git a/Documentation/devicetree/bindings/firmware/thead,th1520-a=
-on.yaml b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> >> index bbc183200400de7aadbb21fea21911f6f4227b09..6ea3029c222df9ba6ea7d4=
-23b92ba248cfb02cc0 100644
-> >> --- a/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> >> +++ b/Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
-> >> @@ -32,6 +32,13 @@ properties:
-> >>      items:
-> >>        - const: aon
-> >> =20
-> >> +  resets:
-> >> +    maxItems: 1
-> >> +
-> >> +  reset-names:
-> >> +    items:
-> >> +      - const: gpu-clkgen
-> >> +
-> >>    "#power-domain-cells":
-> >>      const: 1
-> >> =20
-> >> @@ -39,6 +46,8 @@ required:
-> >>    - compatible
-> >>    - mboxes
-> >>    - mbox-names
-> >> +  - resets
-> >> +  - reset-names
-> >=20
-> > Given these are new required properties, have you made sure in the
-> > driver that their absence will not cause problems with older
-> > devicetrees? I took a brief look at the driver, and it _looked_ like you
-> > were failing if they were not there? It was a brief look though, tbf.
->=20
-> Hi Conor,
->=20
-> Good point =E2=80=94 but in this case, the devicetrees compatible with the
-> driver haven=E2=80=99t been merged upstream yet. In fact, the TH1520 PM d=
-omains
-> driver currently doesn=E2=80=99t even compile against mainline, since the
-> required commit [1] didn=E2=80=99t make it into 6.15.
->=20
-> That said, Drew has queued the DT changes for the next release [2], and
-> you=E2=80=99ve queued [1], so assuming this series lands in 6.16, there w=
-on=E2=80=99t be
-> any older devicetrees to support. As a result, I haven=E2=80=99t added a
-> fallback path in the driver for missing properties.
->=20
-> If, however this series doesn=E2=80=99t make it in for 6.16, then yes =E2=
-=80=94 we=E2=80=99d
-> need to revisit the driver and add a failure safe path for cases where
-> these properties aren=E2=80=99t present.
+Does that seem sane?
 
-Can you point this reason out in the commit message please?
+Paolo
 
---tCmZpeXQvPDx/gRW
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ//kaQAKCRB4tDGHoIJi
-0tq6AP49djHUQH5jaiCOowqiJpYaVCgG0kyxv19IckXOxtg97wEA6PYTFj/uiYGX
-nT4CK+hS2GP7lCkMqKeI3oidnhm9Uw8=
-=D2g7
------END PGP SIGNATURE-----
-
---tCmZpeXQvPDx/gRW--
-
-
---===============9034928697644428396==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9034928697644428396==--
-
