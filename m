@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082A9C369C2
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 15:10:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAB3C369BD
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 15:10:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PddbT13/8vdUyOLzA/+IogbkH8Cl0Dql0gNmWlnZzA8=; b=KdcoR9j9Il7i+f
-	8pjfm3+jvBQmAitnwVAOfk7/ltw9B/jnS5IY/EShlNUO+KSYaCTuxkB+E1aFxn8VEZxRXljxBPkYO
-	SbGX5VMIgwkUA/5pv6LNLuJIeyKCnRnZT67dwIAyEgy54ADibh1bJbY+RqjS+ln/Iiqy8C+gqlmie
-	gi6ek14mn5Bez9Z4MDVwoZ236GTooVSh9gbFxTgRFidA9hBhRDXZypQw8P4KW7hc32IyxBMlkn6K9
-	mMCQ1uY8EI5490FHTj1VPDpuUSD6fHZpuAfyC4RBxeXkrH4iNnQjPKiyvHxAJJHsdMylhzaxLeLYh
-	NJwOrxKdySyiVaK+M30g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6XEFVxCMKfL3XOY2wAnqZR4vzDIXJS6BRjawwm7wk9E=; b=wLl6Q6ErA00qfw
+	I5oHrp120Jm+ihPnBt/RLH/+JoTtduyzxqkYKqS0ZkaiNRc1S8mIeF582GCHmlnAOVWQH4733ppnm
+	pGpb/o2H62nsotZbuETDW5XE1C+E5xTnBRg5tD3lhSqfElds3md6aUJ6y624VWZqhG9JQB8ccimGD
+	QLyqUyLKcye75zE2ayyaQE2q8j+Y8jSctFxAM/nCSBfc48+MlPtINv/6D875bb/vSxMO37/P95mgn
+	tr+ioibsg2L6T7V4G+IWJXT8CXqyhou/hgGjzua1pfM9LhY8eKYl88IhfdUN3NTRxV3pvpzD29amf
+	yXhBQ9RpPwFd5eMXYBbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u54Oq-0000000A0tU-3W06;
-	Wed, 16 Apr 2025 15:10:04 +0000
+	id 1u54Oo-0000000A0sU-1SP0;
+	Wed, 16 Apr 2025 15:10:02 +0000
 Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u53Du-00000009kLk-017H
+	id 1u53Db-00000009kFU-1MsS
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 13:54:43 +0000
+	Wed, 16 Apr 2025 13:54:25 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 4E17D12FB451;
-	Wed, 16 Apr 2025 06:54:41 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTP id 1C30612FB451;
+	Wed, 16 Apr 2025 06:54:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744811681; bh=0TfnuVk3JuNdSQRmPF3HgxD+Ku/B4FyBYJxSffFdeEg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=y8v12LoFkJ6OWeVxlzD6jlGrpjI0n4dP9xxbFoikVZLY+VK/QP14ZHMyY4eTco3HD
-	 jTeMcqmI9wUjk4bQ6AoJAz+8woLMCDFZOmR1zNX/qQwFvDq0bw78WgfWwE7EIBJ6qE
-	 lG+jq9y5jJ2nh9ujqwKx3zS6D/TO2QL1QcbdKQuA+rs4h+OyRvPaQMbNyWmdT8kyl0
-	 Qzi9D+RhYzUZmWWOYjxxCgaZtRs2vF2t1ptrupzSbg+lOoj+9KDeBcpisYg4Bn5IvE
-	 FA8zS4c6Ug+Z2DsBcTockIz57FKGGqBnz8JhCNYOLBZfqDEZcHwT3IVAueulOwD09+
-	 1aCqyU7VCTwmg==
+	t=1744811659; bh=ikZc0S6Ji5WDP+4yCX3q5Iw7rwZW7XfF57f1wqcATiA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GIv80+VsiaGYzLm+e0xwLAvuq9mfkvEc/JixcXTezKR5ip+u02XknReK3zI6zCYSB
+	 0agdalI9fAGs0elqO0ACb9aI8ri4LBkDC+DH+ATxvNuFbClNYD8p3bw4J4UxMhWLSo
+	 v+0YwyIdiNkWeg9R6j7F8DRtYPIS6IH54vLnomwiNluvYIST3W+byUHG9kvsjXvGRr
+	 9LR4kMUjN2geQ5UtIlI0TTr3ZSSBr1LYy8JrYeMMNw+9/qE0KHSxX8xiJQTaCTu089
+	 /4bjyZ7gQi9UUUBd+v2KWwfg/6diq1miokgNTgApjqCpkYO18uZVCdhp8RKAbjzvbS
+	 +c8Zp32AcJ8nw==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Authentication-Results: bayard.4d2.org (amavisd-new); dkim=pass (2048-bit key)
  header.d=4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id P4MgbncuCctj; Wed, 16 Apr 2025 06:54:39 -0700 (PDT)
+ with ESMTP id uShAVOU_9Oua; Wed, 16 Apr 2025 06:54:16 -0700 (PDT)
 Received: from localhost.localdomain (unknown [183.217.80.190])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id B3AFA12FB435;
-	Wed, 16 Apr 2025 06:54:34 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 7A80A12FB435;
+	Wed, 16 Apr 2025 06:54:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1744811679; bh=0TfnuVk3JuNdSQRmPF3HgxD+Ku/B4FyBYJxSffFdeEg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PGDPcXwqBuVtWpWOn/qAj0fyGN8YgXTVL3k8LP7Yi+tIOUdmS2hG+sZItP2mx3BM9
-	 e7Wa/6dThFtMcImxoe/ImX2yWPq4oMBZGUw7O8gk0/LIQdGpHObP22ZqBni9/5U5cZ
-	 hURMAeLW5rGdzveBTv0XOse+4lWWEiDK/unbnIUEPYrY7boFUpNxdbaYFO7emjzeq/
-	 5xSZPXGANeVaUxMMDnqEDmiMjhG9VJ/2jIxfjo0CoT7I7siIhB35Zvzn1IUuFC49fc
-	 q5Rt/AXP8pEuUPnLbEBaHd/D6YErA8myJwTlQmjmtWOIL1DcSlmEh5BXzR0pBx0lmH
-	 +qT0jqo+Sc+tg==
+	t=1744811656; bh=ikZc0S6Ji5WDP+4yCX3q5Iw7rwZW7XfF57f1wqcATiA=;
+	h=From:To:Cc:Subject:Date:From;
+	b=xONstfJmYMQqjubJBeLENaMQrUBMEgRiZ01slA8Um91RlwfwOyD6oBo2qKMlcDPH2
+	 ZyH7e/t1oxLQ4//FDjOc9gzDPhd/Vk7gq9qV2MbqgJByzoziKYoyyO6/LUNXbX1Nx/
+	 PFd0Pf248u8XVQVv+AW6fkuxHZJAcymOOyC12Uj1U29KgdMpo4vxMAn1TiqivGi+yR
+	 Q2cishB/44S9Hr5bLM1nGeKTDWbUh28qCjgnlm5BA+otscvfIC2Gixggi4sOCO+N8f
+	 MQXgQJ8MkF717MYeypz2zAch/mKYG+KBbdGOMp44iDzD0AZM06dTBeQmh76E1nfdT0
+	 ypF7IdKV2BZOw==
 From: Haylen Chu <heylenay@4d2.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -82,18 +82,15 @@ Cc: linux-riscv@lists.infradead.org,
 	Chen Wang <unicornxdotw@foxmail.com>,
 	Jisheng Zhang <jszhang@kernel.org>,
 	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
-	Haylen Chu <heylenay@4d2.org>,
-	Alex Elder <elder@riscstar.com>
-Subject: [PATCH v8 4/6] clk: spacemit: k1: Add TWSI8 bus and function clocks
-Date: Wed, 16 Apr 2025 13:54:04 +0000
-Message-ID: <20250416135406.16284-5-heylenay@4d2.org>
+	Haylen Chu <heylenay@4d2.org>
+Subject: [PATCH v8 0/6] Add clock controller support for SpacemiT K1
+Date: Wed, 16 Apr 2025 13:54:00 +0000
+Message-ID: <20250416135406.16284-1-heylenay@4d2.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250416135406.16284-1-heylenay@4d2.org>
-References: <20250416135406.16284-1-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_065442_080266_5333CAA4 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20250416_065423_697741_FD479E50 
+X-CRM114-Status: GOOD (  25.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,69 +107,235 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The control register for TWSI8 clocks, APBC_TWSI8_CLK_RST, contains mux
-selection bits, reset assertion bit and enable bits for function and bus
-clocks. It has a quirk that reading always results in zero.
+The clock tree of SpacemiT K1 is managed by several independent
+multifunction devices, some of them are
 
-As a workaround, let's hardcode the mux value as zero to select
-pll1_d78_31p5 as parent and treat twsi8_clk as a gate, whose enable mask
-is combined from the real bus and function clocks to avoid the
-write-only register being shared between two clk_hws, in which case
-updates of one clk_hw zero the other's bits.
+- Application Power Manage Unit, APMU
+- Main Power Manage Unit, MPMU
+- APB Bus Clock Unit, APBC
+- APB Spare, APBS
 
-With a 1:1 factor serving as placeholder for the bus clock, the I2C-8
-controller could be brought up, which is essential for boards attaching
-power-management chips to it.
+These four devices provide hardware bits for three purposes: power
+management, reset signals and clocks. Not every device is capable of all
+the three functionalities,
 
-Signed-off-by: Haylen Chu <heylenay@4d2.org>
-Reviewed-by: Alex Elder <elder@riscstar.com>
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
----
- drivers/clk/spacemit/ccu-k1.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+- APMU, MPMU: power, reset, clock
+- APBC: clock, reset
+- APBS: clock (PLL clocks)
 
-diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-index 8a0dd8146dbd..cdde37a05235 100644
---- a/drivers/clk/spacemit/ccu-k1.c
-+++ b/drivers/clk/spacemit/ccu-k1.c
-@@ -328,6 +328,12 @@ CCU_MUX_GATE_DEFINE(twsi4_clk, twsi_parents, APBC_TWSI4_CLK_RST, 4, 3, BIT(1), 0
- CCU_MUX_GATE_DEFINE(twsi5_clk, twsi_parents, APBC_TWSI5_CLK_RST, 4, 3, BIT(1), 0);
- CCU_MUX_GATE_DEFINE(twsi6_clk, twsi_parents, APBC_TWSI6_CLK_RST, 4, 3, BIT(1), 0);
- CCU_MUX_GATE_DEFINE(twsi7_clk, twsi_parents, APBC_TWSI7_CLK_RST, 4, 3, BIT(1), 0);
-+/*
-+ * APBC_TWSI8_CLK_RST has a quirk that reading always results in zero.
-+ * Combine functional and bus bits together as a gate to avoid sharing the
-+ * write-only register between different clock hardwares.
-+ */
-+CCU_GATE_DEFINE(twsi8_clk, CCU_PARENT_HW(pll1_d78_31p5), APBC_TWSI8_CLK_RST, BIT(1) | BIT(0), 0);
- 
- static const struct clk_parent_data timer_parents[] = {
- 	CCU_PARENT_HW(pll1_d192_12p8),
-@@ -412,6 +418,8 @@ CCU_GATE_DEFINE(twsi4_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI4_CLK_RST, BIT(0
- CCU_GATE_DEFINE(twsi5_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI5_CLK_RST, BIT(0), 0);
- CCU_GATE_DEFINE(twsi6_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI6_CLK_RST, BIT(0), 0);
- CCU_GATE_DEFINE(twsi7_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TWSI7_CLK_RST, BIT(0), 0);
-+/* Placeholder to workaround quirk of the register */
-+CCU_FACTOR_DEFINE(twsi8_bus_clk, CCU_PARENT_HW(apb_clk), 1, 1);
- 
- CCU_GATE_DEFINE(timers1_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TIMERS1_CLK_RST, BIT(0), 0);
- CCU_GATE_DEFINE(timers2_bus_clk, CCU_PARENT_HW(apb_clk), APBC_TIMERS2_CLK_RST, BIT(0), 0);
-@@ -896,6 +904,7 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_TWSI5]		= &twsi5_clk.common.hw,
- 	[CLK_TWSI6]		= &twsi6_clk.common.hw,
- 	[CLK_TWSI7]		= &twsi7_clk.common.hw,
-+	[CLK_TWSI8]		= &twsi8_clk.common.hw,
- 	[CLK_TIMERS1]		= &timers1_clk.common.hw,
- 	[CLK_TIMERS2]		= &timers2_clk.common.hw,
- 	[CLK_AIB]		= &aib_clk.common.hw,
-@@ -947,6 +956,7 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
- 	[CLK_TWSI5_BUS]		= &twsi5_bus_clk.common.hw,
- 	[CLK_TWSI6_BUS]		= &twsi6_bus_clk.common.hw,
- 	[CLK_TWSI7_BUS]		= &twsi7_bus_clk.common.hw,
-+	[CLK_TWSI8_BUS]		= &twsi8_bus_clk.common.hw,
- 	[CLK_TIMERS1_BUS]	= &timers1_bus_clk.common.hw,
- 	[CLK_TIMERS2_BUS]	= &timers2_bus_clk.common.hw,
- 	[CLK_AIB_BUS]		= &aib_bus_clk.common.hw,
+This series adds support for clock hardwares in these four regions,
+which covers most peripherals except DDR and the realtime processor.
+
+Tested on BananaPi-F3 board. With some out-of-tree drivers, I've
+successfully brought up I2C, RTC, MMC and ethernet controllers. A dump
+of clock tree could be obtained here[1].
+
+Alex, Inochi and Yixun, although the third commit (driver commit) is
+changed to fix COMPILE_TEST errors on S390, I still keep your r-b tags
+since the changes are small. Hope it's okay for you.
+
+[1]: https://gist.github.com/heylenayy/da516a47c26591eaf44d7d0ba7fc57c4
+
+Changed from v7
+- Collect reviewed-by tags
+- Fix typo in commit message of the driver commit
+- Derive masks from MSB/LSB of the field and avoid __ffs() in ddn clock
+  definition to fix COMPILE_TEST errors on S390
+- Link to v7: https://lore.kernel.org/all/20250412074423.38517-2-heylenay@4d2.org/
+
+Changed from v6
+- Update copyright date
+- Collect reviewed-by tags
+- k1-pll binding
+  - replace tabs with space in binding header
+- driver
+  - remove the file accidentally added in v6
+  - remove undesired rates from PLL2 configuration entries
+  - update comment for PLL{1,2} rates
+  - misc style changes
+  - remove CLK_IS_CRITICAL from uart0 clocks and cpu_c1_hi_clk
+- TWSI8 support
+  - Add a comment to describe the quirk
+- defconfig change
+  - improve the commit message
+- Link to v6: https://lore.kernel.org/all/20250401172434.6774-1-heylenay@4d2.org/
+
+Changed from v5
+- Correct "Spacemit" to "SpacemiT" in commit messages and code
+- Always use space instead of TAB in comments for consistency
+- dt-bindings
+  - Rename binding header to "spacemit,k1-syscon.h"
+  - apply review tags
+- driver code
+  - remove "default" properties from Kconfig
+  - misc style and naming improvements
+  - make ccu_read() directly return the read value, drop ccu_poll() and
+    reorder the arguments to ccu_{read,update} macros
+  - drop ccu_common.reg_swcr2
+  - clock tree for K1
+    - define PLL3 with the correct offset of SWCR3 register
+    - synchronize PLL configuration entries with the vendor kernel
+    - reformat clocks definitions
+    - explain why PLLs require the MPMU syscon to function
+    - log a message when failing to register a clock
+    - simplify clock registration with ARRAY_SIZE()
+  - ddn
+    - correctly handle masks which doesn't start from BIT(0) when
+      calculating the best rate
+    - improve precision of frequency calculation
+    - derive _{den,num}_shift from corresponding masks with __ffs()
+  - mix
+    - match the full mask of gate in ccu_gate_is_enabled()
+    - add a note about "frequency change" bit and simplify FC-triggering
+      logic
+    - drop unnecessary local variables and initialization from clock
+      operations
+    - round to the closest rate in ccu_mix_calc_best_rate()
+    - change names of all mix subtypes to follow the order of mux ->
+      factor/div -> gate -> fc
+    - drop unused _flags argument from CCU_GATE_FACTOR_DEFINE()
+  - pll
+    - ensure PLLs are initialized to a known state
+    - drop extra check in ccu_pll_enable()
+    - round to the closest rate in ccu_pll_round_rate()
+- TWSI8 support
+  - Split cleanly from the main driver commit
+- devicetree
+  - drop extra "*-cells" and "ranges" properties
+- Enable SpacemiT K1 CCU in RISC-V defconfig
+- Link to v5: https://lore.kernel.org/all/20250306175750.22480-2-heylenay@4d2.org/
+
+Changed from v4
+- bindings:
+  - Drop CLK_*_NUM macros from binding headers
+  - Rename spacemit,k1-ccu.yaml to spacemit,k1-pll.yaml, change to
+    describe only the PLL in APBS region
+  - k1-syscon.yaml
+    - drop spacemit,k1-syscon-apbs, it should be the PLL device
+    - drop child nodes
+    - describe the syscons as clock, reset and power-domain controllers
+    - drop "syscon" from the compatible list, as these syscons aren't
+      compatible with the generic one
+- driver:
+  - misc style fixes and naming improvements
+  - drop unused fields from data structures
+  - drop unused clock types: CCU_DDN_GATE
+  - ddn type:
+    - improve the comments
+    - dynamically calculate appropriate rates
+    - hardcode the x2 factor
+  - mix type
+    - drop val_{disable,enable} for gate subtype
+    - drop unncessary polling when enabling a gate
+    - encode subtypes directly in struct ccu_mix
+    - generate clock names from identifiers of the data structure
+    - rename CCU_DIV2_FC_MUX_GATE_DEFINE to CCU_DIV_SPLIT_FC_MUX_GATE
+  - pll type:
+    - correctly claim the parent clock
+    - make rate tables const
+    - drop SWCR2-related fields
+    - combine fields of registers as a whole instead of working with
+      each field
+  - clock tree for k1:
+    - removed duplicated offsets
+    - drop the placeholder 1:1 factor, pll1_d7_351p8
+    - workaround the quirk of TWSI8 clocks
+    - fix the definition of ripc_clk, wdt_bus_clk, dpu_bit_clk and
+      timers_*_clk
+    - drop structure spacemit_ccu_priv and spacemit_ccu_data
+    - rework clock registration
+    - split the PCIe clocks correctly (there're three distinct clocks
+      for each PCIe port)
+- devicetree:
+  - adapt the new binding
+- Link to v4: https://lore.kernel.org/all/20250103215636.19967-2-heylenay@4d2.org/
+
+Changed from v3
+- spacemit,k1-ccu binding
+  - allow spacemit,mpmu property only for controllers requiring it
+    (spacemit,k1-ccu-apbs)
+- spacemit,k1-syscon binding
+  - drop unnecessary *-cells properties
+  - drop unrelated nodes in the example
+- driver
+  - remove unnecessary divisions during rate calucalation in ccu_ddn.c
+  - use independent clk_ops for different ddn/mix variants, drop
+    reg_type field in struct ccu_common
+  - make the register containing frequency change bit a sperate field in
+    ccu_common
+  - unify DIV_MFC_MUX_GATE and DIV_FC_MUX_GATE
+  - implement a correct determine_rate() for mix type
+  - avoid reparenting in set_rate() for mix type
+  - fix build failure when SPACEMIT_CCU and SPACEMIT_CCU_K1 are
+    configured differently
+- use "osc" instead of "osc_32k" in clock input names
+- misc style fixes
+- Link to v3: https://lore.kernel.org/all/20241126143125.9980-2-heylenay@4d2.org/
+
+Changed from v2
+- dt-binding fixes
+  - drop clocks marked as deprecated by the vendor (CLK_JPF_4KAFBC and
+    CLK_JPF_2KAFBC)
+  - add binding of missing bus clocks
+  - change input clocks to use frequency-aware and more precise names
+  - mark input clocks and their names as required
+  - move the example to the (parent) syscon node and complete it
+  - misc style fixes
+- misc improvements in code
+- drop unnecessary spinlock in the driver
+- implement missing bus clocks
+- Link to v2: https://lore.kernel.org/all/SEYPR01MB4221829A2CD4D4C1704BABD7D7602@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+
+Changed from v1
+- add SoC prefix (k1)
+- relicense dt-binding header
+- misc fixes and style improvements for dt-binding
+- document spacemit,k1-syscon
+- implement all APBS, MPMU, APBC and APMU clocks
+- code cleanup
+- Link to v1: https://lore.kernel.org/all/SEYPR01MB4221B3178F5233EAB5149E41D7902@SEYPR01MB4221.apcprd01.prod.exchangelabs.com/
+
+Haylen Chu (6):
+  dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+  dt-bindings: clock: spacemit: Add spacemit,k1-pll
+  clk: spacemit: Add clock support for SpacemiT K1 SoC
+  clk: spacemit: k1: Add TWSI8 bus and function clocks
+  riscv: dts: spacemit: Add clock tree for SpacemiT K1
+  riscv: defconfig: spacemit: enable clock controller driver for
+    SpacemiT K1
+
+ .../bindings/clock/spacemit,k1-pll.yaml       |   50 +
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |   80 ++
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |   75 ++
+ arch/riscv/configs/defconfig                  |    2 +
+ drivers/clk/Kconfig                           |    1 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/spacemit/Kconfig                  |   18 +
+ drivers/clk/spacemit/Makefile                 |    5 +
+ drivers/clk/spacemit/ccu-k1.c                 | 1164 +++++++++++++++++
+ drivers/clk/spacemit/ccu_common.h             |   48 +
+ drivers/clk/spacemit/ccu_ddn.c                |   83 ++
+ drivers/clk/spacemit/ccu_ddn.h                |   48 +
+ drivers/clk/spacemit/ccu_mix.c                |  268 ++++
+ drivers/clk/spacemit/ccu_mix.h                |  218 +++
+ drivers/clk/spacemit/ccu_pll.c                |  157 +++
+ drivers/clk/spacemit/ccu_pll.h                |   86 ++
+ .../dt-bindings/clock/spacemit,k1-syscon.h    |  247 ++++
+ 17 files changed, 2551 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/clock/spacemit,k1-pll.yaml
+ create mode 100644 Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
+ create mode 100644 drivers/clk/spacemit/Kconfig
+ create mode 100644 drivers/clk/spacemit/Makefile
+ create mode 100644 drivers/clk/spacemit/ccu-k1.c
+ create mode 100644 drivers/clk/spacemit/ccu_common.h
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.c
+ create mode 100644 drivers/clk/spacemit/ccu_ddn.h
+ create mode 100644 drivers/clk/spacemit/ccu_mix.c
+ create mode 100644 drivers/clk/spacemit/ccu_mix.h
+ create mode 100644 drivers/clk/spacemit/ccu_pll.c
+ create mode 100644 drivers/clk/spacemit/ccu_pll.h
+ create mode 100644 include/dt-bindings/clock/spacemit,k1-syscon.h
+
 -- 
 2.49.0
 
