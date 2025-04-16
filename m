@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40896C369C7
-	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 18:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D59DC369C5
+	for <linux-riscv@archiver.kernel.org>; Wed, 16 Apr 2025 18:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JB/9FBdFUqe0AJUgPSpqiz1v9Tf+BSlaOQ0sgwAkiV4=; b=2xfgyuG7SpDYcx
-	hs9SPbBNU6AhgGkImc20hZqEkE1EiNnKOqJcYXGdFe9wauOLIV++ZD/LT6JyChG6aOlD8Cviyh9Hm
-	UW0wSsiIzCU6mp1M39UN+BN8GMOtuPgwrbXINjxZ3CM/rdW977vi+NqpoyFMsWUpFwMagP/DRdc8M
-	Z07SHZXLx1FDOdMEGL7N4oX0SJCPR9YYXfAcu72LjJiF0nLmfw7Ld4FfNi4zfD/RVxjpTUXN/lYlh
-	UznsnBS29LkWGWaa6cFLBHM/9IA6w46U/hd0VSdFP+eMGh6fZ7VpAlXnF9IpJ6xzH/7ikocQ/IUiB
-	nWd3SSzFEELtW3mu8l3A==;
+	List-Owner; bh=EaAWHbw1bQTScsg3eleoc920Qp8yUSfS0JuEi68C+pM=; b=gOO/TFXQdlCn0p
+	LYx1TS6LRANV4HaZ25BgC2NHwMHBS3bNembv964+loRKihSi8LgnYfrpg4b80XFlyLgv7W1OFWv1x
+	w47QaubhFB+O4qH2L/F5ZPH0ZuJmxhwmcjcrnHcxjEMFPxUhPd2By94KnHRuwXToVhvGgAIrUtu+g
+	8gNm2StyftQwAk0o+bFYiCNPUPX+BKhJkxSoqOnWkgEJgrYSQidBXq16/OVc8OJQJZu8gp70eehgR
+	/k4X3JPlGR6sXx0rcrkrpLXc5URHemE0OJAmEUK4a7Fk1sKnkxlH2YQE7JXxxuxhlDVPUuMuRrgr0
+	BeSBoen9z0Rk169pXsgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57iT-0000000Ab0Z-3Do4;
-	Wed, 16 Apr 2025 18:42:33 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u57iV-0000000Ab1z-2fDj;
+	Wed, 16 Apr 2025 18:42:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u57hr-0000000AaqU-10hL
+	id 1u57hv-0000000Aasb-3AXT
 	for linux-riscv@lists.infradead.org;
-	Wed, 16 Apr 2025 18:41:56 +0000
+	Wed, 16 Apr 2025 18:41:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 423E4A49CB3;
-	Wed, 16 Apr 2025 18:36:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C335C4CEE4;
-	Wed, 16 Apr 2025 18:41:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D80476842A;
+	Wed, 16 Apr 2025 18:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0D66C4CEE4;
+	Wed, 16 Apr 2025 18:41:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744828914;
-	bh=KjNmswcxf38A5M9atBcosAwVob6w/vmfpdVCx1CNLhA=;
+	s=k20201202; t=1744828918;
+	bh=FxlsQdF/tRWe6WvKosJu3QY6wulI3m6lFJkvkMeuo1g=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=CEzkulatPzCTh53O7EgEnmFXf4HqRWwoiJ+OJyuVRfpftSRrNml7Bi7Ta8DDXebTK
-	 hK0O7OPQ3hjTYNE3Fzi81/bBOExqVpqALaDCShDWDSmBr/Cy3rHfsj8yRO1rRWj5Q0
-	 qY9FIQ3kDO7OrelD29lEG5xoywwsa1FXqy1Alda2crSRC1PJHJifGQiAQ2Ywc9HlV6
-	 N02J/NnpgwXszPK8bCsQxxF+5rAO5RbbFIzYsCJgZLt/QqnKSszyCaCUmbsBpbAf66
-	 blJ0vvFK9PMvs/JhDm56YZkbdcevmWna+xX3dEQpPxh/vjztUuSJ/Z47a7i/rFxV57
-	 qzwvr+0UOF4Qw==
+	b=EI/F5TvpkwUo8nFCWGEi1iyM6SWUV8+4dzQSQCM8roO57ONkJnzkNSZkU3uT9oj4M
+	 ofPPmwgxDsbpPmts+Ty+dV12kfBi3frHHv1gfUhEf1AE9z/hh2WoxuGtdhJe8wKl+0
+	 v3FYeg2xFUdCe/ickF6LvRn+dFRlIoMLNo8BJ7KL8Idjc2aiRPSHJQIoya31pm2K+O
+	 2qiXhXeSfVYIwjzQtK9FQr0odyH2KsfEegD8lZybHbnqvvN3mMi6zcT88cxaqwIguz
+	 w5hTnkqnHzVok/EdXAEGlqrLheTXQCm9jxc8gwHi5IL46wbZWerq4/5+Wa+96WLluA
+	 feJdqMjpTk66g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70D393822D59;
-	Wed, 16 Apr 2025 18:42:33 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAE153822D59;
+	Wed, 16 Apr 2025 18:42:37 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 0/2] riscv: Rework the arch_kgdb_breakpoint()
- implementation
+Subject: Re: [PATCH] riscv: Fix unaligned access info messages
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174482895224.3460781.16808742382382868644.git-patchwork-notify@kernel.org>
-Date: Wed, 16 Apr 2025 18:42:32 +0000
-References: <D5A83DF3A06E1DF9+20250411072905.55134-1-wangyuli@uniontech.com>
-In-Reply-To: <D5A83DF3A06E1DF9+20250411072905.55134-1-wangyuli@uniontech.com>
-To: WangYuli <wangyuli@uniontech.com>
-Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- chenhuacai@kernel.org, linux-kernel@vger.kernel.org, vincent.chen@sifive.com,
- palmerdabbelt@google.com, samuel.holland@sifive.com, zhanjun@uniontech.com,
- niecheng1@uniontech.com, guanwentao@uniontech.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250416_114155_341411_EED47A73 
-X-CRM114-Status: UNSURE (   7.17  )
-X-CRM114-Notice: Please train this message.
+Message-Id: <174482895651.3460781.10451440487742168881.git-patchwork-notify@kernel.org>
+Date: Wed, 16 Apr 2025 18:42:36 +0000
+References: <20250409153650.84433-2-ajones@ventanamicro.com>
+In-Reply-To: <20250409153650.84433-2-ajones@ventanamicro.com>
+To: Andrew Jones <ajones@ventanamicro.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, cleger@rivosinc.com,
+ alexghiti@rivosinc.com, geert@linux-m68k.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,24 +74,25 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+This patch was applied to riscv/linux.git (fixes)
+by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Fri, 11 Apr 2025 15:29:04 +0800 you wrote:
-> 1. The arch_kgdb_breakpoint() function defines the kgdb_compiled_break
->    symbol using inline assembly.
+On Wed,  9 Apr 2025 17:36:51 +0200 you wrote:
+> Ensure we only print messages about command line parameters when
+> the parameters are actually in use. Also complain about the use
+> of the vector parameter when vector support isn't available.
 > 
->    There's a potential issue where the compiler might inline
->    arch_kgdb_breakpoint(), which would then define the kgdb_compiled_break
->    symbol multiple times, leading to fail to link vmlinux.o.
+> Fixes: aecb09e091dc ("riscv: Add parameter for skipping access speed tests")
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Closes: https://lore.kernel.org/all/CAMuHMdVEp2_ho51gkpLLJG2HimqZ1gZ0fa=JA4uNNZjFFqaPMg@mail.gmail.com/
+> Closes: https://lore.kernel.org/all/CAMuHMdWVMP0MYCLFq+b7H_uz-2omdFiDDUZq0t_gw0L9rrJtkQ@mail.gmail.com/
+> Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,1/2] riscv: KGDB: Do not inline arch_kgdb_breakpoint()
-    https://git.kernel.org/riscv/c/3af4bec9c1db
-  - [v4,2/2] riscv: KGDB: Remove ".option norvc/.option rvc" for kgdb_compiled_break
-    https://git.kernel.org/riscv/c/550c2aa787d1
+  - riscv: Fix unaligned access info messages
+    https://git.kernel.org/riscv/c/441016056010
 
 You are awesome, thank you!
 -- 
