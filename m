@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9610C369CA
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Apr 2025 19:43:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD1DC369D0
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Apr 2025 19:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+3h48LYepiD3vBEd7PdXuu8pX1DXyLXPv7QCyRFlVj0=; b=z0P7TNEm6FkN+v
-	r319pV9Nxkm0r6mCcvhChNNNzKuYSttEa89d5tdnailgprVuUPwDozh2y2E3s2kp10vACog9tQRg4
-	qK5zht9DpukFvswxwZJrhzPAV2w9TXgpEHmy5q13gU081TjeAsDswHzlvpSA9SrMkPciaVeQLTwf+
-	kvRqtZinRejFDkso1FOQ4EDSIrbNlhxVJ9DBprBEftz9RnAT1o+ty2y0IBuitzMFiJkOCZXErtNs6
-	rF6um9u5HaxuWxh5JrsWa6+I4+DfVEs+3x8n9F2zKIbdnHucBCEJQSGsKWDOmEjCpBra+d4vr+ErO
-	8RBaS7JY1pOVI6RiyTQA==;
+	List-Owner; bh=TD6ahrNXmlY7yq/yfWdWa/vdgnMEt1iZVvzjLdJIRgw=; b=ic++Bl8fTS3mpY
+	GuNnxPoZLacPhSURTYulzM+pHDaBjypl+uf7AF58bDDMKM7GCRvaayfmXZjw74Gc432ZtR1EMgJ/N
+	KhSIBIAKGdrM/fhuTTYSRdg2rIVKsUUuh+yZKCrWjc8dxnIem7CoYYr6qdxQHuBFVLPpeYHBLtqPA
+	3GXIfnfFk4xdyMS182b/kQfFgGtIP+L/YgbJn+eDdVCeyg6iLNPvB+aqtv9AAs3aJomDJYRbQngMb
+	Bq138N4Eo6OTJqtPAMStrDSBnmbsubdhiyQ33eKIkdpNDqENtUoH25IFGr9KN42lkzyMGciKmE2JK
+	/vMT0sKvpDazeoHHDFlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5V97-0000000ECnE-0HRN;
-	Thu, 17 Apr 2025 19:43:37 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u5V98-0000000ECnr-1Lxx;
+	Thu, 17 Apr 2025 19:43:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Tx8-0000000E2If-3QFr;
-	Thu, 17 Apr 2025 18:27:12 +0000
+	id 1u5TxC-0000000E2L2-3Uxw;
+	Thu, 17 Apr 2025 18:27:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=QLvmdUOpIt3qputYjrPPCWLqkyP+trIqVdJfTraaI+Y=; b=OwZQX43YYFgU5Ua0pXt1YnLrwc
+	PxUFXaCt+X6xD7QTcbnMNngg9n2AJyfqzF/EH4z1O6Xw1IddY1P8pEJDoAa5sEdFFx6xCmfnp6GMc
+	ixza8V8PlZRht+o1OxM6O6XMCBTYgFm1nGFjvJkywYTliBxAKSYgdX13HMSsKoxl0oZPWtXE7tbsm
+	xA3/of0VEyJyECFw9h7YODKqG93Ke3x1+llC04YWQILM7yifHAS7S7D/BUwtVRwHvIca3/k/IsPVg
+	gpxFyulNUO6pMvEyi5XjweTDGNZECiHSyeLS3mHll1+iRGxEY5hNaNCrzF2RIKEWgTV3GNwXZHveo
+	//ymY7PQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u5Tx9-0000000AMIP-3CAX;
+	Thu, 17 Apr 2025 18:27:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 640C94A239;
-	Thu, 17 Apr 2025 18:27:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4C6EC4CEEC;
-	Thu, 17 Apr 2025 18:27:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AF4ABA4A456;
+	Thu, 17 Apr 2025 18:21:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8307C4CEEC;
+	Thu, 17 Apr 2025 18:27:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744914430;
-	bh=502owMjVm+hoOhMR1Hf0JVEnqbSzLpYcfIVzN4dcz4I=;
+	s=k20201202; t=1744914427;
+	bh=nXbV1Uvq4c8RL4YhRp/ivGFjNzOtTa70IujwafR6+UE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XAMyrHeHfLzRwrbxfetwQRDA3HiqUq0/dEEsCTS0UxPPaEbIG5tJmbg3rAGVg2Tk/
-	 FWgRyd7u4oJs/J9r/MSQDgrCniZyAAjfv07x8Q433tbtXM/cj02e8z9ogeT8hV3q3k
-	 ltrMfiL0NqXOsLJSCktIBNSFeapon/0xKWEuD3gknlKZk/QqP8tIAQ9/aoOZLyKT+w
-	 wEHiJRhrRc4OPQUjdEv6x14RMWAq8a1PQmaEc495s7C1yDMMD/HY9o9jkx28ppdzyF
-	 5g8gRBVnj0K+a02wOI8Fe01UgGzGW+BWFfJ0rfAaj1KSLahA7+5wtmYqemxVSM60AF
-	 fngOflAxzYM2A==
+	b=toxBea61JWC5/trBUl49NvCsVkVAmNhju3B87UReIfBHz8VnRyE/LuVybLVF2k/nY
+	 ozG0hZ8OBwzDL6uS4Zi1cnO2Mrn+mq1gQ/r8Oq+czYCLjfyTD/V03RB7fCo5SP71wf
+	 zlxk4RJm3o05FtCFrRaAKTzpr6oWDwo/e21dJwjhdxrVVorZg+xwqsKTLym49Olhvz
+	 SwdxWMKOu8BP6ibmjf8JnzW3kYR8b7Naf0ZpIJmNV9xQkNMUjmcXpx+iFVvnhelZFG
+	 WffphaS/N+aHynjqKlRMXoA+AQi8OOH4tWYJ2rqeMi/Rw6uFqtGdZWOBgLIHH2X50p
+	 7wDfzUig2kHFw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -55,16 +69,16 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH 05/15] crypto: mips - remove CRYPTO dependency of library functions
-Date: Thu, 17 Apr 2025 11:26:13 -0700
-Message-ID: <20250417182623.67808-6-ebiggers@kernel.org>
+Subject: [PATCH 02/15] crypto: arm64 - drop redundant dependencies on ARM64
+Date: Thu, 17 Apr 2025 11:26:10 -0700
+Message-ID: <20250417182623.67808-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250417182623.67808-1-ebiggers@kernel.org>
 References: <20250417182623.67808-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_112710_897174_7D7C7B7C 
-X-CRM114-Status: UNSURE (   8.99  )
+X-CRM114-CacheID: sfid-20250417_192712_045311_6FA4D2E5 
+X-CRM114-Status: UNSURE (   9.76  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,102 +98,44 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Continue disentangling the crypto library functions from the generic
-crypto infrastructure by removing the unnecessary CRYPTO dependency of
-CRYPTO_CHACHA_MIPS and CRYPTO_POLY1305_MIPS.  To do this, make
-arch/mips/crypto/Kconfig be sourced regardless of CRYPTO, and explicitly
-list the CRYPTO dependency in the symbols that do need it.
+arch/arm64/crypto/Kconfig is sourced only when CONFIG_ARM64=y, so there
+is no need for the symbols defined inside it to depend on ARM64.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/mips/Kconfig        | 2 ++
- arch/mips/crypto/Kconfig | 8 ++++----
- crypto/Kconfig           | 3 ---
- 3 files changed, 6 insertions(+), 7 deletions(-)
+ arch/arm64/crypto/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/mips/Kconfig b/arch/mips/Kconfig
-index fc0772c1bad4..9e0cf394a46b 100644
---- a/arch/mips/Kconfig
-+++ b/arch/mips/Kconfig
-@@ -3136,8 +3136,10 @@ endif # CPU_SUPPORTS_CPUFREQ && MIPS_EXTERNAL_TIMER
+diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
+index 7c2f63f2e307..704d0b7e1d13 100644
+--- a/arch/arm64/crypto/Kconfig
++++ b/arch/arm64/crypto/Kconfig
+@@ -135,11 +135,11 @@ config CRYPTO_AES_ARM64
  
- source "drivers/cpuidle/Kconfig"
+ 	  Architecture: arm64
  
- endmenu
- 
-+source "arch/mips/crypto/Kconfig"
-+
- source "arch/mips/kvm/Kconfig"
- 
- source "arch/mips/vdso/Kconfig"
-diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
-index 8283664a1f24..beb7b20cf3e8 100644
---- a/arch/mips/crypto/Kconfig
-+++ b/arch/mips/crypto/Kconfig
-@@ -7,41 +7,41 @@ config CRYPTO_POLY1305_MIPS
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	default CRYPTO_LIB_POLY1305_INTERNAL
- 
- config CRYPTO_MD5_OCTEON
- 	tristate "Digests: MD5 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
-+	depends on CRYPTO && CPU_CAVIUM_OCTEON
- 	select CRYPTO_MD5
- 	select CRYPTO_HASH
+ config CRYPTO_AES_ARM64_CE
+ 	tristate "Ciphers: AES (ARMv8 Crypto Extensions)"
+-	depends on ARM64 && KERNEL_MODE_NEON
++	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_LIB_AES
  	help
- 	  MD5 message digest algorithm (RFC1321)
+ 	  Block ciphers: AES cipher algorithms (FIPS-197)
  
- 	  Architecture: mips OCTEON using crypto instructions, when available
+@@ -252,11 +252,11 @@ config CRYPTO_SM4_ARM64_NEON_BLK
+ 	  Architecture: arm64 using:
+ 	  - NEON (Advanced SIMD) extensions
  
- config CRYPTO_SHA1_OCTEON
- 	tristate "Hash functions: SHA-1 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
-+	depends on CRYPTO && CPU_CAVIUM_OCTEON
- 	select CRYPTO_SHA1
- 	select CRYPTO_HASH
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: mips OCTEON
- 
- config CRYPTO_SHA256_OCTEON
- 	tristate "Hash functions: SHA-224 and SHA-256 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
-+	depends on CRYPTO && CPU_CAVIUM_OCTEON
- 	select CRYPTO_SHA256
- 	select CRYPTO_HASH
- 	help
- 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
- 
- 	  Architecture: mips OCTEON using crypto instructions, when available
- 
- config CRYPTO_SHA512_OCTEON
- 	tristate "Hash functions: SHA-384 and SHA-512 (OCTEON)"
--	depends on CPU_CAVIUM_OCTEON
-+	depends on CRYPTO && CPU_CAVIUM_OCTEON
- 	select CRYPTO_SHA512
- 	select CRYPTO_HASH
- 	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
- 
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index de71e9c9f2ad..cfa426bea0c6 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -1424,13 +1424,10 @@ endmenu
- 
- config CRYPTO_HASH_INFO
- 	bool
- 
- if !KMSAN # avoid false positives from assembly
--if MIPS
--source "arch/mips/crypto/Kconfig"
--endif
- if PPC
- source "arch/powerpc/crypto/Kconfig"
- endif
- if RISCV
- source "arch/riscv/crypto/Kconfig"
+ config CRYPTO_AES_ARM64_CE_CCM
+ 	tristate "AEAD cipher: AES in CCM mode (ARMv8 Crypto Extensions)"
+-	depends on ARM64 && KERNEL_MODE_NEON
++	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_AES_ARM64_CE
+ 	select CRYPTO_AES_ARM64_CE_BLK
+ 	select CRYPTO_AEAD
+ 	select CRYPTO_LIB_AES
 -- 
 2.49.0
 
