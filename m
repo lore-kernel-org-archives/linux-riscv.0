@@ -4,88 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64293C369CF
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Apr 2025 17:51:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8281FC369C9
+	for <linux-riscv@archiver.kernel.org>; Thu, 17 Apr 2025 18:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
-	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wX77xRKAxy9YF68wtOE8ZgcWfVNNs4tcJd2BXTchPxE=; b=WouL25OHVS1CHf
-	b02D3qKzAcu7qFb6LuxHG28EH1P6+vtkVk5y8gli3hcVhYLli2JnzlHiO3bTUJfMXS1pRnmey9vJu
-	DsvK2Jzecyr3iZQj3mZwaoY0ElKcK07ZP+BW2HMFOCdORmbxDmJI6VLp8OYLsfj4Z43VQggYU87io
-	O0ZZ07Vj/AFq2kuFM3qEz1FwQgIWkpwqgSFAzcZpoCaQz3n3T82nfcmdpkpxqGTktZV7rlZaufFpl
-	Di9IYRRNP/3Tbf7Pn9pZtu1XpAx5sNlTEXIPR2pM93PsgcHX8zL2xMgSsA9acSA7+fLETx9j5yIoR
-	kkkV0D9ctJxELChHDRQQ==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ttQKdmxKj4Ge/+5w2P7XyqcZWfdYW50/hJaahycMzaY=; b=2Jq5VDmu2hLBIL
+	ov0zGWuNua0VA6Ocs+sEh/1lVK2Y/HoPCr8bYWu+J7FeK0ALdF9bXMS79WXQVxMH7FG6Skt6A1K+r
+	n60IJwBTY0TYfkXqrsqm6tt+dcQg5uakuEIqRy3vUX0yd4fWMUbu4vDciirWgwZ69Be59XH6vUFgA
+	cF6RiDrnSs3H984rJRVTky6RNDoi9AZUTM7A6um/8LEyxdaYiMF02Un2hqMTBOEWBf7VeYBwLdLnJ
+	xtn1LHmPhlr09vRQOZkWTo186buG2JNcIK/facDY/gigobHJO6wK1oWTd1Gb5JXAcgBjY0T4Zi6tw
+	sR2EN+43xUsDUbIbzIrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TOj-0000000DvCL-3pbQ;
-	Thu, 17 Apr 2025 17:51:37 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1u5U1C-0000000E3Jv-3D6S;
+	Thu, 17 Apr 2025 18:31:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5Sqs-0000000Do82-1fnW;
-	Thu, 17 Apr 2025 17:16:41 +0000
+	id 1u5Tx4-0000000E2GF-2CTR;
+	Thu, 17 Apr 2025 18:27:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 652E74A52F;
-	Thu, 17 Apr 2025 17:16:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 37A41C4AF18;
-	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id C3C9149E43;
+	Thu, 17 Apr 2025 18:27:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 241E8C4CEEC;
+	Thu, 17 Apr 2025 18:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744910197;
-	bh=KCV1iT8WMRH+l5LBGG+rXSmP2tVeZLWG6EnkHpY31/A=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=NCpR/Ca4drOZO/oB/h5cd0gecR61NjHWVfGlKtC354DYmLj/h0zKIozoB+tHYcI9s
-	 ACmhKqN4hqdPSefK/9gHVfYGOAvzXE4E0XegZh4FYoUYKqOrf3nRbjcZ32SvYTzrN+
-	 HESbSb7KdwuKmm6cjRMoj/KJQj8C4ixJvDVdEKfSvZQzMjjGANOzVuyo72AhexLsqx
-	 HOq23Z036bOiKuPbUOG6JeFhbmmIoXSnJVFoxNp/SmPkTjcpur8HPz34dCCk0V1eL/
-	 i+Y+rsTB7UQLeVIJ59rI/mi77IH36m0DlJhki+nGATV5iSKxbgHjg4Q6bltkv1Z43P
-	 kJlnQ5n9T2kfQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2C107C369CF;
-	Thu, 17 Apr 2025 17:16:37 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.linaro.org@kernel.org>
-Date: Thu, 17 Apr 2025 22:46:31 +0530
-Subject: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
+	s=k20201202; t=1744914425;
+	bh=eYlw8AhwDiKSQwbJxBZMP6nL7U7/odFuPU2SW3GNcIs=;
+	h=From:To:Cc:Subject:Date:From;
+	b=OIGe0C4HhyE/SwSQmKx2rHmtBTJv+C//vsUPyHQ9nBNZ7SM70FI5kAjNOXx0SiPAT
+	 oAV2RDvW3y7SexpSfNzDbW3E0WnI97wnBu7vd0ixGUtDVT++ajf0iwHpYPkfRoPvP9
+	 dT4SFF4LmjWuyS23J7I28QPr2BOEobjN9OeNUvVqomFKSjPZoUnpDk/aJjRQhRsRIa
+	 2jmz2BHEDWHCJM4wvqlkIeqwkGTdW4f9UXQwxbXtBHS8en8Ihmr+5OuGxO4m0tt2DT
+	 hAvSXPNfuhibOtdvN7de1S4/+B2pChejRWcf0/OP2SYlBqQ90ckVcnffrq7XEP05h7
+	 kOgQb7+Go6l8A==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH 00/15] Finish disentangling ChaCha, Poly1305, and BLAKE2s from CRYPTO
+Date: Thu, 17 Apr 2025 11:26:08 -0700
+Message-ID: <20250417182623.67808-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-Message-Id: <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
-References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
-In-Reply-To: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
-To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6894;
- i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=F8rjzuhgErigDd+67mYFhyxszrxpDL8l0bnIc6Ml+ng=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoATdxsG341Wf5dBlOsI8tJmdXDVYFgFqoRpofL
- CEHKYEUUJmJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaAE3cQAKCRBVnxHm/pHO
- 9ZrfB/42ORiF/Z6dza/s1zud3oUewjLIhKQXIvAaBQGTZ596+MFN4a6uCB2TjBxdHj+d5oY3FQa
- Qrgl7Kxh18wo27x0w998SmXalgBL6rpA1kWD748rFI8JITVoGofp3h6v/ltYvEZdoNWUiZ7NqtS
- u5RibOHN1cvIGFcDKOx0DlYs37iTjr6+oV3WRYOm/K/Ts20aqGdnOVQMepiai4J4T0XEejbSg/C
- Ox3WiPW79vr8Uh6fv4Hvt2nx4gPGGFhfDpO38jMTbubnHYJw8o0bmgGpbjK4+hxBrxeRIW6w6pc
- 2MT0Q149ejvN8avjAc0arW8Ue/QDOODzKESk7WYbwcQF4kKq
-X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@linaro.org/default with auth_id=185
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_101638_551107_AD947F3D 
-X-CRM114-Status: GOOD (  27.09  )
+X-CRM114-CacheID: sfid-20250417_112706_585331_713CD3CC 
+X-CRM114-Status: UNSURE (   8.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,226 +75,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: manivannan.sadhasivam@linaro.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+This series removes the unnecessary dependency of the ChaCha, Poly1305,
+and BLAKE2s library functions on the generic crypto infrastructure, i.e.
+CONFIG_CRYPTO.  To do this, it moves arch/*/crypto/Kconfig from a
+submenu of crypto/Kconfig to a submenu of arch/*/Kconfig, then re-adds
+the CRYPTO dependency to the symbols that actually need it.
 
-The PCIe link can go down under circumstances such as the device firmware
-crash, link instability, etc... When that happens, the PCIe slot needs to
-be reset to make it operational again. Currently, the driver is not
-handling the link down event, due to which the users have to restart the
-machine to make PCIe link operational again. So fix it by detecting the
-link down event and resetting the slot.
+Patches 14-15 then simplify the ChaCha and Poly1305 symbols by removing
+the unneeded "internal" symbols.
 
-Since the Qcom PCIe controllers report the link down event through the
-'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-bit in PARF_INT_ALL_MASK register.
+Note that Curve25519 is still entangled.  Later patches will fix that.
 
-Then in the case of the event, call pci_host_handle_link_down() API
-in the handler to let the PCI core handle the link down condition.
+Eric Biggers (15):
+  crypto: arm - remove CRYPTO dependency of library functions
+  crypto: arm64 - drop redundant dependencies on ARM64
+  crypto: arm64 - remove CRYPTO dependency of library functions
+  crypto: loongarch - source arch/loongarch/crypto/Kconfig without
+    CRYPTO
+  crypto: mips - remove CRYPTO dependency of library functions
+  crypto: powerpc - drop redundant dependencies on PPC
+  crypto: powerpc - remove CRYPTO dependency of library functions
+  crypto: riscv - remove CRYPTO dependency of library functions
+  crypto: s390 - drop redundant dependencies on S390
+  crypto: s390 - remove CRYPTO dependency of library functions
+  crypto: sparc - source arch/sparc/crypto/Kconfig without CRYPTO
+  crypto: x86 - drop redundant dependencies on X86
+  crypto: x86 - remove CRYPTO dependency of library functions
+  crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
+  crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
 
-The API will internally call, 'pci_host_bridge::reset_slot()' callback to
-reset the slot in a platform specific way. So implement the callback to
-reset the slot by first resetting the PCIe core, followed by reinitializing
-the resources and then finally starting the link again.
+ arch/arm/Kconfig            |  2 ++
+ arch/arm/crypto/Kconfig     | 28 ++++++++-------
+ arch/arm64/Kconfig          |  3 +-
+ arch/arm64/crypto/Kconfig   | 45 ++++++++++++-----------
+ arch/loongarch/Kconfig      |  1 +
+ arch/mips/Kconfig           |  2 ++
+ arch/mips/crypto/Kconfig    | 12 +++----
+ arch/powerpc/Kconfig        |  2 ++
+ arch/powerpc/crypto/Kconfig | 22 ++++++------
+ arch/riscv/Kconfig          |  2 ++
+ arch/riscv/crypto/Kconfig   | 14 ++++----
+ arch/s390/Kconfig           |  4 +++
+ arch/s390/crypto/Kconfig    | 21 ++++++-----
+ arch/sparc/Kconfig          |  2 ++
+ arch/sparc/crypto/Kconfig   | 14 ++++----
+ arch/x86/Kconfig            |  4 +++
+ arch/x86/crypto/Kconfig     | 72 ++++++++++++++++++-------------------
+ crypto/Kconfig              | 34 ++----------------
+ lib/crypto/Kconfig          | 32 ++++++-----------
+ 19 files changed, 149 insertions(+), 167 deletions(-)
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/pci/controller/dwc/Kconfig     |  1 +
- drivers/pci/controller/dwc/pcie-qcom.c | 90 +++++++++++++++++++++++++++++++++-
- 2 files changed, 89 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -296,6 +296,7 @@ config PCIE_QCOM
- 	select PCIE_DW_HOST
- 	select CRC8
- 	select PCIE_QCOM_COMMON
-+	select PCI_HOST_COMMON
- 	help
- 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
- 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index dc98ae63362db0422384b1879a2b9a7dc564d091..6b18a2775e7fcde1d634b3f58327ecc7d028e4ec 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -34,6 +34,7 @@
- #include <linux/units.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- #include "pcie-qcom-common.h"
- 
-@@ -55,6 +56,7 @@
- #define PARF_INT_ALL_STATUS			0x224
- #define PARF_INT_ALL_CLEAR			0x228
- #define PARF_INT_ALL_MASK			0x22c
-+#define PARF_STATUS				0x230
- #define PARF_SID_OFFSET				0x234
- #define PARF_BDF_TRANSLATE_CFG			0x24c
- #define PARF_DBI_BASE_ADDR_V2			0x350
-@@ -130,8 +132,11 @@
- 
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define SW_CLEAR_FLUSH_MODE			BIT(10)
-+#define FLUSH_MODE				BIT(11)
- 
- /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
-+#define PARF_INT_ALL_LINK_DOWN			BIT(1)
- #define PARF_INT_ALL_LINK_UP			BIT(13)
- #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
- 
-@@ -145,6 +150,9 @@
- /* PARF_BDF_TO_SID_CFG fields */
- #define BDF_TO_SID_BYPASS			BIT(0)
- 
-+/* PARF_STATUS fields */
-+#define FLUSH_COMPLETED				BIT(8)
-+
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
- 
-@@ -169,6 +177,7 @@
- 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
- 
- #define PERST_DELAY_US				1000
-+#define FLUSH_TIMEOUT_US			100
- 
- #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
- 
-@@ -274,11 +283,14 @@ struct qcom_pcie {
- 	struct icc_path *icc_cpu;
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
-+	int global_irq;
- 	bool suspended;
- 	bool use_pm_opp;
- };
- 
- #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev);
- 
- static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
- {
-@@ -1263,6 +1275,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 			goto err_assert_reset;
- 	}
- 
-+	pp->bridge->reset_slot = qcom_pcie_reset_slot;
-+
- 	return 0;
- 
- err_assert_reset:
-@@ -1300,6 +1314,73 @@ static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
- 	.post_init	= qcom_pcie_host_post_init,
- };
- 
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+	struct device *dev = pcie->pci->dev;
-+	u32 val;
-+	int ret;
-+
-+	/* Wait for the pending transactions to be completed */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-+					 val & FLUSH_COMPLETED, 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush completion failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	/* Clear the FLUSH_MODE to allow the core to be reset */
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val |= SW_CLEAR_FLUSH_MODE;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+
-+	/* Wait for the FLUSH_MODE to clear */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-+					 !(val & FLUSH_MODE), 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	qcom_pcie_host_deinit(pp);
-+
-+	ret = qcom_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed\n");
-+		return ret;
-+	}
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret)
-+		goto err_host_deinit;
-+
-+	/*
-+	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-+	 * non-sticky.
-+	 */
-+	if (pcie->global_irq)
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+	qcom_pcie_start_link(pci);
-+	dw_pcie_wait_for_link(pci);
-+
-+	dev_dbg(dev, "Slot reset completed\n");
-+
-+	return 0;
-+
-+err_host_deinit:
-+	qcom_pcie_host_deinit(pp);
-+
-+	return ret;
-+}
-+
- /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
- static const struct qcom_pcie_ops ops_2_1_0 = {
- 	.get_resources = qcom_pcie_get_resources_2_1_0,
-@@ -1571,6 +1652,9 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 		pci_unlock_rescan_remove();
- 
- 		qcom_pcie_icc_opp_update(pcie);
-+	} else if (FIELD_GET(PARF_INT_ALL_LINK_DOWN, status)) {
-+		dev_dbg(dev, "Received Link down event\n");
-+		pci_host_handle_link_down(pp->bridge);
- 	} else {
- 		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
- 			      status);
-@@ -1732,8 +1816,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 			goto err_host_deinit;
- 		}
- 
--		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
--			       pcie->parf + PARF_INT_ALL_MASK);
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+		pcie->global_irq = irq;
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
-
+base-commit: da4cb617bc7d827946cbb368034940b379a1de90
 -- 
-2.43.0
-
+2.49.0
 
 
 _______________________________________________
