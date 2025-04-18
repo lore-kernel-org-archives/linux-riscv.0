@@ -4,43 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 310DAC369CF
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Apr 2025 13:21:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7A1DC369AB
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Apr 2025 13:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=0ZIWs0zoltkKCOLiLMIpb/+mO3/mqbvpo8m0WJsLVDo=; b=RPpoWS3QN+dcLR
-	09TKF3RcLKsfWaggfOrdEJeMCh2K+ZY3gSow1wzvKHgT323zUqf9LMRC1YTpU+xFL97n6Ft+YSPzs
-	AsAz4Sr+t9498DANLYxdIOQlcCG61kt9RkiWDwBScuuyoydjXSHXAXLqHUsQXl70ar3NlSEQvcxqY
-	18yxTlraJFBZeJVYzLEj7Vi0fcYoTpWkFG9JnYA6HlPSM6QYsNeGP49Tp7LsY0HnLVK0Rv45+ed04
-	Rq9aojMQK9X1L7XVsY+bWPepATmHmVxidmbb5zxgZMxN6Hv+dbjklsCufDqPCsDYEOEQQtSBCHzfo
-	i01cYOyNcsCesZM3Wikw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=22R5vH94EEeVwidOw+6QElDX97I0Ys0Bdy7IUKJCIDE=; b=ACXzcVgjhF5vV/
+	aU6PNUcwIxAU15LIOvEy9YA75nWKoavzsCUbwLt46X4Mz5s8xgPLJKC4JOycT0511DDNPlpGGwQEq
+	1pwBAypSh0sfFMvv9a8ojYZSOoC8F7JBccU6yidRFkril3ea6d1upRbVOqa7boYsnml1sQizhH6qu
+	N6EWR2TFZzSE/DtNFXwHm0+T+MQm3kUl1yJSUA1MBkNCCJQ7wCmklTnTv2aMN1MpeiGNr0Yjuptir
+	bdoChH1FeBRvuUpc16aZEiiR5tE8q8gZ4EH8MWnsLN+OSZB/Yq6Tj+Jp8VaHusK1qniUioxjcK92H
+	To2D0EW7a909FrvP9peg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5leR-0000000GCXY-2aJy;
-	Fri, 18 Apr 2025 13:21:03 +0000
+	id 1u5lec-0000000GCfR-2Pwi;
+	Fri, 18 Apr 2025 13:21:14 +0000
 Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5leN-0000000GCSD-1kSe;
-	Fri, 18 Apr 2025 13:21:00 +0000
+	id 1u5leZ-0000000GCbF-0lBX;
+	Fri, 18 Apr 2025 13:21:12 +0000
 Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-3-entmail-virt135.gy.ntes [27.18.99.221])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 125ec8780;
-	Fri, 18 Apr 2025 21:20:42 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 125ec878c;
+	Fri, 18 Apr 2025 21:21:03 +0800 (GMT+08:00)
 From: Ze Huang <huangze@whut.edu.cn>
-Subject: [PATCH v2 0/4] Add USB2.0 PHY and USB3.0 PHY support for SpacemiT
- K1
-Date: Fri, 18 Apr 2025 21:19:49 +0800
-Message-Id: <20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn>
+Date: Fri, 18 Apr 2025 21:19:53 +0800
+Subject: [PATCH v2 4/4] phy: spacemit: add USB3 support for K1 PCIe/USB3
+ combo PHY
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAHVRAmgC/3WO3Y6CQAyFX4XM9ZbQscNfjPE9Nl4MUGWyAtoiW
- WJ8d0fd2738Tvqd07tRlsBq6uRuhJegYRoj2K/EtL0fTwyhi2xsZl1GWEBD8INw02YDl36FxcK
- xQSYsqcqoMtG7CB/D77vz+/Bh4estVs+f0DReGdppGMJcJ0ueogNp8eUOrOrfo3Wy/dvMceMoi
- 1e5LQkQel7PPPp1T51NJznt/hMJKyzQpdbmVLgyqnzuWPYStNXZSxpf2JnD4/EETSN5IwYBAAA
- =
-X-Change-ID: 20250417-b4-k1-usb3-phy-v2-fb1e41849049
+Message-Id: <20250418-b4-k1-usb3-phy-v2-v2-4-b69e02da84eb@whut.edu.cn>
+References: <20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn>
+In-Reply-To: <20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn>
 To: Vinod Koul <vkoul@kernel.org>, 
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -48,29 +44,27 @@ To: Vinod Koul <vkoul@kernel.org>,
  Philipp Zabel <p.zabel@pengutronix.de>
 Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>, 
- Junzhong Pan <junzhong.pan@spacemit.com>
+ linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1744982442; l=2916;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1744982442; l=8732;
  i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=Hb/aiNAu0w7LHL/2ZZsWq3IRTJh3NmFxda3Izyu8pb0=;
- b=NXT0rPNES/7G050TaJYJZTD9dEqbLiK6Za+goYuUk3ogIETwWyzTrxTFQcuPXVSP9jUluMk1Y
- zStiKMijLIdD13FNm6XF1h7He1fOzVNo5MQGZbdgUJ/Tyd0nyYKb1Lc
+ bh=D3lMowTCmBQgmDedVETXxSZd+5kyo7+v+a+kj2y35rs=;
+ b=N0Euq8c4iQgLpwAQsWdBVg5CWhy7oS2xb5D3pD8ckTe1BhDou2TIFpzsQh37qCyxkKBpAuypm
+ ajiVb2h2MfSASYMiSmFB4dTW89/ShoxuEK0VZ8rt0t0gJQsFwdHuHL3
 X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
  pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZQklNVkhPGUkYGh8YHkIfS1YeHw5VEwETFhoSFy
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaS0oeVh5MTkgaTxhPGUwaHlYeHw5VEwETFhoSFy
 	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVJSUpZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0tVSktLVUtZBg
 	++
-X-HM-Tid: 0a96490f023e03a1kunm125ec8780
+X-HM-Tid: 0a96490f56f903a1kunm125ec878c
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pjo6Cyo4TTJPOAkQERQQEQE9
-	MzMwCghVSlVKTE9PQkNJT09MTk5DVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VCQlVJSUpZV1kIAVlBT05OSTcG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NDI6LQw5SzIDDgkCLwkQEUkT
+	Lz0aCjNVSlVKTE9PQkNJT01DQk9JVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VCQlVJSUpZV1kIAVlBSktKSks3Bg++
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_062059_704820_605AEF31 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_062111_472292_0B014E69 
+X-CRM114-Status: GOOD (  21.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,70 +81,300 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces support for the USB2.0 PHY and PCIe/USB3.0
-Combo PHY on the SpacemiT K1 SoC. The implementation has been tested on the
-Milk-V Jupiter and BananaPi-f3.
-
-K1 includes three USB ports as follows[1]:
-- A USB2.0 OTG Port
-- A USB2.0 Host Only Port
-- A USB3.0 Port with a USB2.0 DRD interface
-
-USB3.0 PHY for USB3.0 Port is shared with PCIe port A, meaning that only one of
-these interfaces (PCIe or USB3.0) can be active at a given time.
-
-Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb#part5 [1]
+Add support for USB 3.0 mode on the K1 PCIe/USB3 combo PHY. Currently,
+only USB mode is supported; PCIe support is not included in this change.
 
 Signed-off-by: Ze Huang <huangze@whut.edu.cn>
 ---
-Changes in v2:
-- combphy dt-bindings:
-  - fix reg-names
-  - describe reg
-  - describe #phy-cells argument
-- drop stale ".owner" in driver struct
-- add support for usb lfps_thres in combphy
-- fix Kconfig depends on
-- Link to v1: https://lore.kernel.org/all/20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn
+ drivers/phy/spacemit/Kconfig          |   8 ++
+ drivers/phy/spacemit/Makefile         |   1 +
+ drivers/phy/spacemit/phy-k1-combphy.c | 251 ++++++++++++++++++++++++++++++++++
+ 3 files changed, 260 insertions(+)
 
----
-Ze Huang (4):
-      dt-bindings: phy: spacemit: add K1 USB2 PHY
-      dt-bindings: phy: spacemit: add K1 PCIe/USB3 combo PHY
-      phy: spacemit: support K1 USB2.0 PHY controller
-      phy: spacemit: add USB3 support for K1 PCIe/USB3 combo PHY
+diff --git a/drivers/phy/spacemit/Kconfig b/drivers/phy/spacemit/Kconfig
+index 0136aee2e8a2f5f484da136b26f80130794b992c..ccc6bf9ea49f4988a27f79a4dcd024b18cbd78b0 100644
+--- a/drivers/phy/spacemit/Kconfig
++++ b/drivers/phy/spacemit/Kconfig
+@@ -11,3 +11,11 @@ config PHY_SPACEMIT_K1_USB2
+ 	help
+ 	  Enable this to support K1 USB 2.0 PHY driver. This driver takes care of
+ 	  enabling and clock setup and will be used by K1 udc/ehci/otg/xhci driver.
++
++config PHY_SPACEMIT_K1_COMBPHY
++	tristate "SpacemiT K1 PCIe/USB3 combo PHY support"
++	depends on (ARCH_SPACEMIT || COMPILE_TEST) && OF
++	depends on COMMON_CLK
++	select GENERIC_PHY
++	help
++	  USB3/PCIe Combo PHY Support for SpacemiT K1 SoC
+diff --git a/drivers/phy/spacemit/Makefile b/drivers/phy/spacemit/Makefile
+index fec0b425a948541b39b814caef0b05e1e002d92f..1fd0c65f2c5cd10ea2f70e43e62c70588d1ffae9 100644
+--- a/drivers/phy/spacemit/Makefile
++++ b/drivers/phy/spacemit/Makefile
+@@ -1,2 +1,3 @@
+ # SPDX-License-Identifier: GPL-2.0-only
++obj-$(CONFIG_PHY_SPACEMIT_K1_COMBPHY)	+= phy-k1-combphy.o
+ obj-$(CONFIG_PHY_SPACEMIT_K1_USB2)		+= phy-k1-usb2.o
+diff --git a/drivers/phy/spacemit/phy-k1-combphy.c b/drivers/phy/spacemit/phy-k1-combphy.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..a291b7a78fae2f4072b74c1d2cc65847ed821bec
+--- /dev/null
++++ b/drivers/phy/spacemit/phy-k1-combphy.c
+@@ -0,0 +1,251 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * SpacemiT K1 PCIE/USB3 PHY driver
++ *
++ * Copyright (C) 2025 SpacemiT (Hangzhou) Technology Co. Ltd
++ * Copyright (C) 2025 Ze Huang <huangze@whut.edu.cn>
++ */
++
++#include <dt-bindings/phy/phy.h>
++#include <linux/clk.h>
++#include <linux/iopoll.h>
++#include <linux/phy/phy.h>
++#include <linux/platform_device.h>
++#include <linux/reset.h>
++#include <linux/usb/of.h>
++
++#define COMBPHY_USB_REG1		0x68
++#define  COMBPHY_USB_REG1_VAL		0x00
++#define COMBPHY_USB_REG2		0x48
++#define  COMBPHY_USB_REG2_VAL		0x603a2276
++#define COMBPHY_USB_REG3		0x08
++#define  COMBPHY_USB_REG3_VAL		0x97c
++#define COMBPHY_USB_REG4		0x18
++#define  COMBPHY_USB_REG4_VAL		0x00
++#define  COMBPHY_USB_TERM_SHORT_MASK	0x3000
++#define  COMBPHY_USB_TERM_SHORT_VAL	0x3000
++#define COMBPHY_USB_PLL_REG		0x08
++#define  COMBPHY_USB_PLL_MASK		0x01
++#define  COMBPHY_USB_PLL_VAL		0x01
++#define COMBPHY_USB_LFPS_REG		0x58
++#define  COMBPHY_USB_LFPS_MASK		0x700
++#define  COMBPHY_USB_LFPS_THRES_DEFAULT	0x03
++
++#define COMBPHY_MODE_SEL	BIT(3)
++#define COMBPHY_WAIT_TIMEOUT	1000
++
++struct spacemit_combphy_priv {
++	struct device *dev;
++	struct phy *phy;
++	struct reset_control *phy_rst;
++	void __iomem *phy_ctrl;
++	void __iomem *phy_sel;
++	bool rx_always_on;
++	u8 lfps_threshold;
++	u8 type;
++};
++
++static void spacemit_reg_update(void __iomem *reg, u32 offset, u32 mask, u32 val)
++{
++	u32 tmp;
++
++	tmp = readl(reg + offset);
++	tmp = (tmp & ~(mask)) | val;
++	writel(tmp, reg + offset);
++}
++
++static int spacemit_combphy_wait_ready(struct spacemit_combphy_priv *priv,
++				       u32 offset, u32 mask, u32 val)
++{
++	u32 reg_val;
++	int ret = 0;
++
++	ret = read_poll_timeout(readl, reg_val, (reg_val & mask) == val,
++				1000, COMBPHY_WAIT_TIMEOUT * 1000, false,
++				priv->phy_ctrl + offset);
++
++	return ret;
++}
++
++static int spacemit_combphy_set_mode(struct spacemit_combphy_priv *priv)
++{
++	int ret = 0;
++
++	switch (priv->type) {
++	case PHY_TYPE_USB3:
++		spacemit_reg_update(priv->phy_sel, 0, 0, COMBPHY_MODE_SEL);
++		break;
++	default:
++		dev_err(priv->dev, "PHY type %x not supported\n", priv->type);
++		ret = -EINVAL;
++		break;
++	}
++
++	return ret;
++}
++
++static int spacemit_combphy_init_usb(struct spacemit_combphy_priv *priv)
++{
++	void __iomem *base = priv->phy_ctrl;
++	int ret;
++
++	writel(COMBPHY_USB_REG1_VAL, base + COMBPHY_USB_REG1);
++	writel(COMBPHY_USB_REG2_VAL, base + COMBPHY_USB_REG2);
++	writel(COMBPHY_USB_REG3_VAL, base + COMBPHY_USB_REG3);
++	writel(COMBPHY_USB_REG4_VAL, base + COMBPHY_USB_REG4);
++
++	ret = spacemit_combphy_wait_ready(priv, COMBPHY_USB_PLL_REG,
++					  COMBPHY_USB_PLL_MASK,
++					  COMBPHY_USB_PLL_VAL);
++
++	dev_dbg(priv->dev, "USB3 PHY init lfps threshold %d\n", priv->lfps_threshold);
++	spacemit_reg_update(base, COMBPHY_USB_LFPS_REG,
++			    COMBPHY_USB_LFPS_MASK,
++			    (priv->lfps_threshold << 8));
++
++	if (priv->rx_always_on)
++		spacemit_reg_update(base, COMBPHY_USB_REG4,
++				    COMBPHY_USB_TERM_SHORT_MASK,
++				    COMBPHY_USB_TERM_SHORT_VAL);
++
++	if (ret)
++		dev_err(priv->dev, "USB3 PHY init timeout!\n");
++
++	return ret;
++}
++
++static int spacemit_combphy_init(struct phy *phy)
++{
++	struct spacemit_combphy_priv *priv = phy_get_drvdata(phy);
++	int ret;
++
++	ret = spacemit_combphy_set_mode(priv);
++	if (ret) {
++		dev_err(priv->dev, "failed to set mode for PHY type %x\n",
++			priv->type);
++		goto out;
++	}
++
++	ret = reset_control_deassert(priv->phy_rst);
++	if (ret) {
++		dev_err(priv->dev, "failed to deassert rst\n");
++		goto err_rst;
++	}
++
++	switch (priv->type) {
++	case PHY_TYPE_USB3:
++		ret = spacemit_combphy_init_usb(priv);
++		break;
++	default:
++		dev_err(priv->dev, "PHY type %x not supported\n", priv->type);
++		ret = -EINVAL;
++		break;
++	}
++
++	if (ret)
++		goto err_rst;
++
++	return 0;
++
++err_rst:
++	reset_control_assert(priv->phy_rst);
++out:
++	return ret;
++}
++
++static int spacemit_combphy_exit(struct phy *phy)
++{
++	struct spacemit_combphy_priv *priv = phy_get_drvdata(phy);
++
++	reset_control_assert(priv->phy_rst);
++
++	return 0;
++}
++
++static struct phy *spacemit_combphy_xlate(struct device *dev,
++					  const struct of_phandle_args *args)
++{
++	struct spacemit_combphy_priv *priv = dev_get_drvdata(dev);
++
++	if (args->args_count != 1) {
++		dev_err(dev, "invalid number of arguments\n");
++		return ERR_PTR(-EINVAL);
++	}
++
++	if (priv->type != PHY_NONE && priv->type != args->args[0])
++		dev_warn(dev, "PHY type %d is selected to override %d\n",
++			 args->args[0], priv->type);
++
++	priv->type = args->args[0];
++
++	if (args->args_count > 1)
++		dev_dbg(dev, "combo phy idx: %d selected",  args->args[1]);
++
++	return priv->phy;
++}
++
++static const struct phy_ops spacemit_combphy_ops = {
++	.init = spacemit_combphy_init,
++	.exit = spacemit_combphy_exit,
++	.owner = THIS_MODULE,
++};
++
++static int spacemit_combphy_probe(struct platform_device *pdev)
++{
++	struct spacemit_combphy_priv *priv;
++	struct phy_provider *phy_provider;
++	struct device *dev = &pdev->dev;
++
++	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
++	if (!priv)
++		return -ENOMEM;
++
++	priv->phy_ctrl = devm_platform_ioremap_resource_byname(pdev, "ctrl");
++	if (IS_ERR(priv->phy_ctrl))
++		return PTR_ERR(priv->phy_ctrl);
++
++	priv->phy_sel = devm_platform_ioremap_resource_byname(pdev, "sel");
++	if (IS_ERR(priv->phy_sel))
++		return PTR_ERR(priv->phy_sel);
++
++	priv->lfps_threshold = COMBPHY_USB_LFPS_THRES_DEFAULT;
++	device_property_read_u8(&pdev->dev, "spacemit,lfps-threshold", &priv->lfps_threshold);
++
++	priv->rx_always_on = device_property_read_bool(&pdev->dev, "spacemit,rx-always-on");
++	priv->type = PHY_NONE;
++	priv->dev = dev;
++
++	priv->phy_rst = devm_reset_control_get(dev, NULL);
++	if (IS_ERR(priv->phy_rst))
++		return dev_err_probe(dev, PTR_ERR(priv->phy_rst),
++				     "failed to get phy reset\n");
++
++	priv->phy = devm_phy_create(dev, NULL, &spacemit_combphy_ops);
++	if (IS_ERR(priv->phy))
++		return dev_err_probe(dev, PTR_ERR(priv->phy),
++				     "failed to create combphy\n");
++
++	dev_set_drvdata(dev, priv);
++	phy_set_drvdata(priv->phy, priv);
++	phy_provider = devm_of_phy_provider_register(dev, spacemit_combphy_xlate);
++
++	return PTR_ERR_OR_ZERO(phy_provider);
++}
++
++static const struct of_device_id spacemit_combphy_of_match[] = {
++	{ .compatible = "spacemit,k1-combphy", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, spacemit_combphy_of_match);
++
++static struct platform_driver spacemit_combphy_driver = {
++	.probe	= spacemit_combphy_probe,
++	.driver = {
++		.name = "spacemit-k1-combphy",
++		.of_match_table = spacemit_combphy_of_match,
++	},
++};
++module_platform_driver(spacemit_combphy_driver);
++
++MODULE_DESCRIPTION("Spacemit PCIE/USB3.0 COMBO PHY driver");
++MODULE_LICENSE("GPL");
 
- .../bindings/phy/spacemit,k1-combphy.yaml          |  72 ++++++
- .../devicetree/bindings/phy/spacemit,usb2-phy.yaml |  40 ++++
- drivers/phy/Kconfig                                |   1 +
- drivers/phy/Makefile                               |   1 +
- drivers/phy/spacemit/Kconfig                       |  21 ++
- drivers/phy/spacemit/Makefile                      |   3 +
- drivers/phy/spacemit/phy-k1-combphy.c              | 251 +++++++++++++++++++++
- drivers/phy/spacemit/phy-k1-usb2.c                 | 131 +++++++++++
- 8 files changed, 520 insertions(+)
----
-base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
-change-id: 20250417-b4-k1-usb3-phy-v2-fb1e41849049
-prerequisite-message-id: <20250416135406.16284-1-heylenay@4d2.org>
-prerequisite-patch-id: 19b7f061557b184b9565e10ccfc0aab5754dfa73
-prerequisite-patch-id: a56183c8b71a141ca6f5d401b67a5456f40d4a9c
-prerequisite-patch-id: a4a3c44d4c3e44f5209bff2b2bd0b49cd5a9eebe
-prerequisite-patch-id: 471fe02daa5297e85e9cee8dfef873375a348e9f
-prerequisite-patch-id: 717bc3d50f0924f7697312cb78280b15a029ce2c
-prerequisite-patch-id: 585a2a9ce37a5e2a036f7351ff8ff4ed859bbe3e
-prerequisite-message-id: <20250414191715.2264758-1-elder@riscstar.com>
-prerequisite-patch-id: a7769b6451bfd80d5e5366013753c5fc870b2255
-prerequisite-patch-id: 8a8d0eefd0b4423d87f3c093b451a0fa60622ec4
-prerequisite-patch-id: 30f92f93e5b3577bde61424303f21c709a715ec5
-prerequisite-patch-id: d774b8281b5c6a822445365ee94925e1ab6c7a93
-prerequisite-patch-id: 54a4f5d065eb9f212fd99efec6e7e06abbb9bad8
-prerequisite-patch-id: db30b8a180a5f04f499d851384d4a7f95ccb00b3
-prerequisite-patch-id: 5f53f8bf16fb067628092daebc4831293261aa01
-
-Best regards,
 -- 
-Ze Huang <huangze@whut.edu.cn>
+2.49.0
 
 
 _______________________________________________
