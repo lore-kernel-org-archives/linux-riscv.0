@@ -4,97 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 378C9C369C2
-	for <linux-riscv@archiver.kernel.org>; Fri, 18 Apr 2025 02:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A7ADC369CB
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Apr 2025 02:42:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pYi+5iWxux8TuLlNyMvEZjeabF6841ZGdWK0G/MuQIM=; b=onZYJllFdm1qnz
-	ibMBSzFBl46Xxq0WkWviScaM3CWPreBm2LxTKF1nLwJPeGp/YBkKvNulGQbnCYIS6kb9C1l89Dw2j
-	Pz29/iTdo9xXYP9rirk108H5fho8sgblRAtaI+RMQ5hmyqZMw2ai7u4/0D67l9j7rWjzROqloIZMz
-	baV81gnYL9Bp8B1GM6h8SCu330bj+QPcG3M9G/Aqg+U6lyhceaBtkVF5SvhtMMgjlg8qJpIUhoxsM
-	Xx3LFSeph/C6P2Wh6PYgWvlCulb6Uh5R8W70kyku7m/NewJpHLVhfZK/bDIhNU9xwNYLhLKptmKvk
-	BScKymIbHtFuBqMZ8Qzg==;
+	List-Owner; bh=B8NpxuShQQduoVXX7/pmUa9dMY3zhf0cJY4rBPhUu80=; b=JgT8Z4i9eRmbha
+	v4J9vW0bIq5hJ5f0dxU7HyeIYl613EFYXE1+8yFPLul4mvIl7Z0OmUD7WqY/VmDUGSemNs64M3E+u
+	WoNnerRUHZPWGOBKAZdzvCNm9ng5p2AH1/gdcqxHLZANUun85MGDszgVfCSh43z11x2ikyfU+IWrH
+	QSjGGGsCtCV0nnOEA/ciSYmAIpY/X6GRXF4bhXOAWNrb0EO7XgICdtx+npRK/kcPdyVOH7sOgxwnh
+	iy0Rt5mGCb8+eitbk/I0pCdIJ/8h8WRR2udVqnwnaopHIB8COXH+jZRUOgrtOWek0jo6NjiQxCY/E
+	nDj6wInJEv4BX9zo2yiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5bV3-0000000EsIZ-1zGH;
-	Fri, 18 Apr 2025 02:30:41 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1u5bg2-0000000EtMB-3ces;
+	Fri, 18 Apr 2025 02:42:02 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5bV1-0000000EsHa-1yZE
+	id 1u5bfz-0000000EtLH-0Jq3
 	for linux-riscv@lists.infradead.org;
-	Fri, 18 Apr 2025 02:30:40 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22c33677183so18190715ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 17 Apr 2025 19:30:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1744943438; x=1745548238; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zhyHi9uQpRULTwQZULLja3qU3XsixSmtudhV3coPhWg=;
-        b=Sj+rMepzmDblYPY5RVLoDge1VdncYPNaFZj3HTrHy//deb7yIrPj9XuUyJ37B/YU7d
-         YWy5kn6bNwwRjeTGpwxtG1giTfYeTmr4t2ddF7A6Jpr1ZO5QmERbJDfzeJhP4mUFgskA
-         Y4bH4p6rFkVBF8zhx7kje0/ExatYDYVjIIRU6tu7xgy3flDTt7Rc+605RZGAaPqLgRCi
-         S3CBRfLk2Vl5SBsH8/AszUzF6eAy/E1/WySmdfJ3uP0QnYj5Smi786V7UZCt8fxugoGX
-         Q5ot5IpnqzhJfu+jhTec3MbQnqrieF13mVSnDsQFiz08BPh9yjyNIHDnzT2RA8tmVQfV
-         cc3g==
+	Fri, 18 Apr 2025 02:42:00 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53HClTVb001959
+	for <linux-riscv@lists.infradead.org>; Fri, 18 Apr 2025 02:41:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	Wabn3SPWgE4ngsitdU1yaao9FABzWG1dUldwByH4HuY=; b=YHl7eiwCH21wZOHY
+	ce7d9dvQ28FNFgISxfXZVYtthfOzb6jrR6zDJVPg7epcWdZsSGzGAGpdCv2NQgjd
+	cXBX2uIVsMNXdAFawSgZNDwPQBLJcMFfQvsQ5Aadw5/TebtR9W5PcpK4EmCe1HW2
+	L1s8RPlOymK4h9sQNk8qelh/KAtnAFUNROjbpX2rdsNQnavax+E8iZLMDDLGmnNU
+	jwJqxTvXf8wNTtn5nj/JrEht9iiF3tJ9Co3dPgwS58MKumyvTH9yPRCm8Cyu2x9h
+	RbAJv2S95E/xxh7zSVvKMfF/vfJUu0zDkdO1stoIWsqT9GWWYrTHjH4WbZLjaY4s
+	bt4VpQ==
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ydvjh1p4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-riscv@lists.infradead.org>; Fri, 18 Apr 2025 02:41:56 +0000 (GMT)
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-224191d9228so18529685ad.3
+        for <linux-riscv@lists.infradead.org>; Thu, 17 Apr 2025 19:41:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1744943438; x=1745548238;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zhyHi9uQpRULTwQZULLja3qU3XsixSmtudhV3coPhWg=;
-        b=jD6PkJsWmPFNCT8IOCs4nRRVWbMyyZw1hrfqbR8R0Uc7MbyEZKR67a+4SF61cG0EzO
-         2QcPZ8WF27NYmHCsKXycp+9pTuRt5CuJ2LuhJhj6ZABm0hTUrO6wCKbgwB2y54HA4biQ
-         9QzIZYaQTjWqaSoebraF1a7lx0Vt8JHzZ5oft3i17FzrLY6awP6clZF+TjcBNmRyD0Np
-         i7siQ1ysELGtIkcOj9ET/8k7xt5DdypHKVdI2KmK2a+pCfelHqagp3AWHc4THzbLZmtt
-         DWaNXMRNH//k3DTm8ET9ktiNiI+DzeVViC1MRLT2P+Nr1ENdRbOsoY5jWh60I4AjVV8W
-         c2EQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXWEOpWlwcBKwRGpk4YYarEWkLgXjf384a2dbyH+vmKB8ouRTIpjgLj4nm2q0P7B9C0HUyRQnTfe7xjlA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXOxuIZGZyqGpmazHNqOdrQ8SLatE7BNxjKqaRFs6iT+quNYoG
-	AF321Awe+x3IRr0RtMDp0vt57JcIlnyntI+ILoppVcyzz8YbjhLx
-X-Gm-Gg: ASbGncti+kFTjbC3e5bVzdSnEieYZOwZ/NiNv9xNxFhWTch3Eui3HqL1fKerLBYkEdF
-	SZuuUJ5XZzW8jcR4/+PbqoH52/trf4k8BwdEMY9/5fYAG3aYrlo8deZZl33yuiQ5W2KaBpx+34F
-	prOfrVD8kwwzzUQ7sqmJ9nZ/IU3tyFlzoMnNTkGD8FAx+VVkbla8ra84wxRQeSLt9SPN/u0V8K+
-	ETJdN0oGPvK5lR1qPlM2J7z4RGV1UiV6ZTjiidJpQ5g/F8xGvXghm5Z2GoYPaErS/bvz4WQ+ids
-	3MCWwc/8mn2C/PAleXuB5QXIuDuzcwp+ivQ=
-X-Google-Smtp-Source: AGHT+IHo/o4KQhGB66PuErDoqro0sabaeHOL40TB7KoY2oAF3V05eK3U8JRd5gLiVCzL4LU7JUlRpw==
-X-Received: by 2002:a17:903:41c7:b0:215:b1a3:4701 with SMTP id d9443c01a7336-22c5359b5damr16046695ad.13.1744943438447;
-        Thu, 17 Apr 2025 19:30:38 -0700 (PDT)
-Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3087df0c14esm182185a91.19.2025.04.17.19.30.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 17 Apr 2025 19:30:37 -0700 (PDT)
-From: Longbin Li <looong.bin@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Longbin Li <looong.bin@gmail.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 3/3] pwm: sophgo: add driver for SG2044
-Date: Fri, 18 Apr 2025 10:29:46 +0800
-Message-ID: <20250418022948.22853-4-looong.bin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250418022948.22853-1-looong.bin@gmail.com>
-References: <20250418022948.22853-1-looong.bin@gmail.com>
+        d=1e100.net; s=20230601; t=1744944116; x=1745548916;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to
+         :content-language:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wabn3SPWgE4ngsitdU1yaao9FABzWG1dUldwByH4HuY=;
+        b=kIMt7rZZedADtSxxO5hsUjhqRFvT1/G/iUtq23i/1ZO8L8dSbjJq/VjykiYrA7xepf
+         BWIYM7ShzE0/nu/nljSf/WCE/4kLzqZCNxMFW52j1pjJFYRVxW4OkpK7briEYFHh78VP
+         tOSPwoI7tfeEdjJsfIO5kLYvbWZ5idIIRrZzHiN7yH8LZ8v5irPZPDbefuxUrO8vdCwP
+         2iZALfmOghmbQT+de/d5WbljYhpbOsAY/UVm+WR8/+cbREUox64/9dlBWYgB1RvRD/Zj
+         W9pSTJGwHon2HBqf/bIVcrlUTdwNiDxIZHjJAEg1Nf7W8iI+yKtxoJ8wrATnDQgVE9Xb
+         P2xg==
+X-Forwarded-Encrypted: i=1; AJvYcCXvsZjxSv45LR80kuD7oXbW9xVFB45i04jfdYfqB+60KMZLEEXKqK8GrFEKzMNFttuKwgxsCaTOMnLp2w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyqNaDSthlStfoMlki5HfQW4tK1M8psdA70tH1K2NNA+0Qpa1no
+	f0PHC1GzkGfdy59moYhBD2Z2LVFTSQoXqZy8GR254Ip4IQ0hBs6suI/boBTFgfx+mHOio5pd0DG
+	vF+eltXzs2gHIGiAeIq/LuSMmN9rZQCD9ponlPrSsZ2S+4/C4Pebos4b5ARMPxbF8zzI=
+X-Gm-Gg: ASbGncsltWdGMwPcqA+84NQfyqaOAGiT/jrtDmsKlOp5kWPH+RR1MZtlt0O7MpqsVjy
+	qs9DQwgYfA9Vf1RMIpzmd4UCYdxBJ14vV41x0rQP+x9wFuNMlzh9lAQ6m2b2FNEix+5ej3Z1jCz
+	josr9Ou3+7VC9x3qV9+1gWiOq1S4KZMu3RrJ86HAshFUP3lmGjakEKAECTqSJg7pbhukNCjRavX
+	8gfY2f4rBli4N4uoVA4zFJdmqx02/xHxpkd5yeABMgPZ8g6iIf6RSWQtw8JQccSYASKllQKbxwv
+	ppsssvNf9SWijPXx/fIL9oopHRtoydotnO8Z3ft7Rg==
+X-Received: by 2002:a17:902:dac2:b0:220:e9ef:ec98 with SMTP id d9443c01a7336-22c53583621mr16504635ad.19.1744944115966;
+        Thu, 17 Apr 2025 19:41:55 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGZ1R80IP+m/UVpZGFU/SviBU6cKnJSLKE56EDWqKuSdN6jJEjDxSr+gHIv7/6CwD3TJmzaEQ==
+X-Received: by 2002:a17:902:dac2:b0:220:e9ef:ec98 with SMTP id d9443c01a7336-22c53583621mr16504395ad.19.1744944115516;
+        Thu, 17 Apr 2025 19:41:55 -0700 (PDT)
+Received: from [10.92.199.136] ([202.46.23.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50bf3ff0sm7690775ad.74.2025.04.17.19.41.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 17 Apr 2025 19:41:55 -0700 (PDT)
+Message-ID: <f32b2ece-f7ed-45ab-2867-9d276b88cf62@oss.qualcomm.com>
+Date: Fri, 18 Apr 2025 08:11:47 +0530
 MIME-Version: 1.0
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.15.1
+Subject: Re: [PATCH v3 5/5] PCI: qcom: Add support for resetting the slot due
+ to link down event
+Content-Language: en-US
+To: manivannan.sadhasivam@linaro.org,
+        Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+        Oliver O'Halloran <oohall@gmail.com>,
+        Bjorn Helgaas <bhelgaas@google.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        =?UTF-8?Q?Krzysztof_Wilczy=c5=84ski?= <kw@linux.com>,
+        Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+        Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+        Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+        Marc Zyngier <maz@kernel.org>,
+        Conor Dooley <conor.dooley@microchip.com>,
+        Daire McNamara <daire.mcnamara@microchip.com>
+Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
+        linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+References: <20250417-pcie-reset-slot-v3-0-59a10811c962@linaro.org>
+ <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <20250417-pcie-reset-slot-v3-5-59a10811c962@linaro.org>
+X-Authority-Analysis: v=2.4 cv=ZIrXmW7b c=1 sm=1 tr=0 ts=6801bbf4 cx=c_pps a=IZJwPbhc+fLeJZngyXXI0A==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17 a=HZEN96OWHqwnsOiu:21 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=KKAkSRfTAAAA:8 a=h0UufrOjtTHVMtGttLUA:9 a=QEXdDO2ut3YA:10
+ a=uG9DUKGECoFWVXl0Dc02:22 a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-GUID: KCSIF6Ugp-tozr3a6Pep_BTzpHKnxSa5
+X-Proofpoint-ORIG-GUID: KCSIF6Ugp-tozr3a6Pep_BTzpHKnxSa5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-18_01,2025-04-17_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 adultscore=0 suspectscore=0
+ clxscore=1011 priorityscore=1501 bulkscore=0 phishscore=0 mlxlogscore=999
+ spamscore=0 impostorscore=0 malwarescore=0 mlxscore=0 lowpriorityscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504180018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_193039_510270_4D66B72B 
-X-CRM114-Status: GOOD (  17.30  )
+X-CRM114-CacheID: sfid-20250417_194159_150013_AF1F1C3F 
+X-CRM114-Status: GOOD (  38.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,157 +131,231 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PWM controller for SG2044 on base of SG2042.
 
-Signed-off-by: Longbin Li <looong.bin@gmail.com>
----
- drivers/pwm/pwm-sophgo-sg2042.c | 89 ++++++++++++++++++++++++++++++++-
- 1 file changed, 87 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
-index 23a83843ba53..26147ec596c9 100644
---- a/drivers/pwm/pwm-sophgo-sg2042.c
-+++ b/drivers/pwm/pwm-sophgo-sg2042.c
-@@ -13,6 +13,9 @@
-  *   the running period.
-  * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
-  *   be stopped and the output is pulled to high.
-+ * - SG2044 support polarity while SG2042 does not. When PWMSTART is
-+ *   false, POLARITY being NORMAL will make output being low,
-+ *   POLARITY being INVERSED will make output being high.
-  * See the datasheet [1] for more details.
-  * [1]:https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
-  */
-@@ -26,6 +29,10 @@
- #include <linux/pwm.h>
- #include <linux/reset.h>
+On 4/17/2025 10:46 PM, Manivannan Sadhasivam via B4 Relay wrote:
+> From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> 
+> The PCIe link can go down under circumstances such as the device firmware
+> crash, link instability, etc... When that happens, the PCIe slot needs to
+> be reset to make it operational again. Currently, the driver is not
+> handling the link down event, due to which the users have to restart the
+> machine to make PCIe link operational again. So fix it by detecting the
+> link down event and resetting the slot.
+> 
+> Since the Qcom PCIe controllers report the link down event through the
+> 'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
+> bit in PARF_INT_ALL_MASK register.
+> 
+> Then in the case of the event, call pci_host_handle_link_down() API
+> in the handler to let the PCI core handle the link down condition.
+> 
+> The API will internally call, 'pci_host_bridge::reset_slot()' callback to
+> reset the slot in a platform specific way. So implement the callback to
+> reset the slot by first resetting the PCIe core, followed by reinitializing
+> the resources and then finally starting the link again.
+> 
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> ---
+>   drivers/pci/controller/dwc/Kconfig     |  1 +
+>   drivers/pci/controller/dwc/pcie-qcom.c | 90 +++++++++++++++++++++++++++++++++-
+>   2 files changed, 89 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+> index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
+> --- a/drivers/pci/controller/dwc/Kconfig
+> +++ b/drivers/pci/controller/dwc/Kconfig
+> @@ -296,6 +296,7 @@ config PCIE_QCOM
+>   	select PCIE_DW_HOST
+>   	select CRC8
+>   	select PCIE_QCOM_COMMON
+> +	select PCI_HOST_COMMON
+>   	help
+>   	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
+>   	  PCIe controller uses the DesignWare core plus Qualcomm-specific
+> diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
+> index dc98ae63362db0422384b1879a2b9a7dc564d091..6b18a2775e7fcde1d634b3f58327ecc7d028e4ec 100644
+> --- a/drivers/pci/controller/dwc/pcie-qcom.c
+> +++ b/drivers/pci/controller/dwc/pcie-qcom.c
+> @@ -34,6 +34,7 @@
+>   #include <linux/units.h>
+>   
+>   #include "../../pci.h"
+> +#include "../pci-host-common.h"
+>   #include "pcie-designware.h"
+>   #include "pcie-qcom-common.h"
+>   
+> @@ -55,6 +56,7 @@
+>   #define PARF_INT_ALL_STATUS			0x224
+>   #define PARF_INT_ALL_CLEAR			0x228
+>   #define PARF_INT_ALL_MASK			0x22c
+> +#define PARF_STATUS				0x230
+>   #define PARF_SID_OFFSET				0x234
+>   #define PARF_BDF_TRANSLATE_CFG			0x24c
+>   #define PARF_DBI_BASE_ADDR_V2			0x350
+> @@ -130,8 +132,11 @@
+>   
+>   /* PARF_LTSSM register fields */
+>   #define LTSSM_EN				BIT(8)
+> +#define SW_CLEAR_FLUSH_MODE			BIT(10)
+> +#define FLUSH_MODE				BIT(11)
+>   
+>   /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
+> +#define PARF_INT_ALL_LINK_DOWN			BIT(1)
+>   #define PARF_INT_ALL_LINK_UP			BIT(13)
+>   #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
+>   
+> @@ -145,6 +150,9 @@
+>   /* PARF_BDF_TO_SID_CFG fields */
+>   #define BDF_TO_SID_BYPASS			BIT(0)
+>   
+> +/* PARF_STATUS fields */
+> +#define FLUSH_COMPLETED				BIT(8)
+> +
+>   /* ELBI_SYS_CTRL register fields */
+>   #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
+>   
+> @@ -169,6 +177,7 @@
+>   						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
+>   
+>   #define PERST_DELAY_US				1000
+> +#define FLUSH_TIMEOUT_US			100
+>   
+>   #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
+>   
+> @@ -274,11 +283,14 @@ struct qcom_pcie {
+>   	struct icc_path *icc_cpu;
+>   	const struct qcom_pcie_cfg *cfg;
+>   	struct dentry *debugfs;
+> +	int global_irq;
+>   	bool suspended;
+>   	bool use_pm_opp;
+>   };
+>   
+>   #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
+> +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
+> +				  struct pci_dev *pdev);
+>   
+>   static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
+>   {
+> @@ -1263,6 +1275,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
+>   			goto err_assert_reset;
+>   	}
+>   
+> +	pp->bridge->reset_slot = qcom_pcie_reset_slot;
+> +
+>   	return 0;
+>   
+>   err_assert_reset:
+> @@ -1300,6 +1314,73 @@ static const struct dw_pcie_host_ops qcom_pcie_dw_ops = {
+>   	.post_init	= qcom_pcie_host_post_init,
+>   };
+>   
+> +static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
+> +				  struct pci_dev *pdev)
+> +{
+> +	struct pci_bus *bus = bridge->bus;
+> +	struct dw_pcie_rp *pp = bus->sysdata;
+> +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> +	struct qcom_pcie *pcie = to_qcom_pcie(pci);
+> +	struct device *dev = pcie->pci->dev;
+> +	u32 val;
+> +	int ret;
+> +
+> +	/* Wait for the pending transactions to be completed */
+> +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
+> +					 val & FLUSH_COMPLETED, 10,
+> +					 FLUSH_TIMEOUT_US);
+> +	if (ret) {
+> +		dev_err(dev, "Flush completion failed: %d\n", ret);
+> +		goto err_host_deinit;
+> +	}
+> +
+> +	/* Clear the FLUSH_MODE to allow the core to be reset */
+> +	val = readl(pcie->parf + PARF_LTSSM);
+> +	val |= SW_CLEAR_FLUSH_MODE;
+> +	writel(val, pcie->parf + PARF_LTSSM);
+> +
+> +	/* Wait for the FLUSH_MODE to clear */
+> +	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
+> +					 !(val & FLUSH_MODE), 10,
+> +					 FLUSH_TIMEOUT_US);
+> +	if (ret) {
+> +		dev_err(dev, "Flush mode clear failed: %d\n", ret);
+> +		goto err_host_deinit;
+> +	}
+> +
+> +	qcom_pcie_host_deinit(pp);
+> +
+> +	ret = qcom_pcie_host_init(pp);
+> +	if (ret) {
+> +		dev_err(dev, "Host init failed\n");
+> +		return ret;
+> +	}
+> +
+> +	ret = dw_pcie_setup_rc(pp);
+> +	if (ret)
+> +		goto err_host_deinit;
+> +
+> +	/*
+> +	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
+> +	 * non-sticky.
+> +	 */
+> +	if (pcie->global_irq)
+> +		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
+> +			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
+do we need to enable linkup again here, since all the devices are
+enumerated previously, the linkup irq will do a rescan again which is
+not needed. Instead of linkup we update icc & opp bandwidths after
+dw_pcie_wait_for_link() in the below.
 
-+#define SG2044_REG_POLARITY		0x40
-+#define SG2044_REG_PWMSTART		0x44
-+#define SG2044_REG_PWM_OE		0xD0
-+
- #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
- #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
-
-@@ -72,8 +79,8 @@ static void pwm_set_dutycycle(struct pwm_chip *chip, struct pwm_device *pwm,
- 	period_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period, NSEC_PER_SEC), U32_MAX);
- 	hlperiod_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle, NSEC_PER_SEC), U32_MAX);
-
--	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=%u, HLPERIOD=%u\n",
--		pwm->hwpwm, period_ticks, hlperiod_ticks);
-+	dev_dbg(pwmchip_parent(chip), "chan[%u]: ENABLE=%u, PERIOD=%u, HLPERIOD=%u, POLARITY=%u\n",
-+		pwm->hwpwm, state->enabled, period_ticks, hlperiod_ticks, state->polarity);
-
- 	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
- }
-@@ -123,6 +130,74 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return 0;
- }
-
-+static void pwm_sg2044_set_start(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				 bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_REG_PWMSTART);
-+
-+	if (enabled)
-+		pwm_value |= BIT(pwm->hwpwm);
-+	else
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_REG_PWMSTART);
-+}
-+
-+static void pwm_sg2044_set_outputdir(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				     bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_REG_PWM_OE);
-+
-+	if (enabled)
-+		pwm_value |= BIT(pwm->hwpwm);
-+	else
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_REG_PWM_OE);
-+}
-+
-+static void pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				    const struct pwm_state *state)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_REG_POLARITY);
-+
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+	else
-+		pwm_value |= BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_REG_POLARITY);
-+}
-+
-+static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
-+
-+	pwm_sg2044_set_polarity(ddata, pwm, state);
-+
-+	pwm_set_dutycycle(chip, pwm, state);
-+
-+	/*
-+	 * re-enable PWMSTART to refresh the register period
-+	 */
-+	pwm_sg2044_set_start(ddata, pwm, false);
-+
-+	if (!state->enabled)
-+		return 0;
-+
-+	pwm_sg2044_set_outputdir(ddata, pwm, true);
-+	pwm_sg2044_set_start(ddata, pwm, true);
-+
-+	return 0;
-+}
-+
- static const struct sg2042_chip_data sg2042_chip_data = {
- 	.ops = {
- 		.apply = pwm_sg2042_apply,
-@@ -130,9 +205,18 @@ static const struct sg2042_chip_data sg2042_chip_data = {
- 	}
- };
-
-+static const struct sg2042_chip_data sg2044_chip_data = {
-+	.ops = {
-+		.apply = pwm_sg2044_apply,
-+		.get_state = pwm_sg2042_get_state,
-+	}
-+};
-+
- static const struct of_device_id sg2042_pwm_ids[] = {
- 	{ .compatible = "sophgo,sg2042-pwm",
- 	  .data = &sg2042_chip_data },
-+	{ .compatible = "sophgo,sg2044-pwm",
-+	  .data = &sg2044_chip_data },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
-@@ -198,5 +282,6 @@ static struct platform_driver pwm_sg2042_driver = {
- module_platform_driver(pwm_sg2042_driver);
-
- MODULE_AUTHOR("Chen Wang");
-+MODULE_AUTHOR("Longbin Li <looong.bin@gmail.com>");
- MODULE_DESCRIPTION("Sophgo SG2042 PWM driver");
- MODULE_LICENSE("GPL");
---
-2.49.0
+- Krishna Chaitanya.
+> +
+> +	qcom_pcie_start_link(pci);
+> +	dw_pcie_wait_for_link(pci);
+> +
+> +	dev_dbg(dev, "Slot reset completed\n");
+> +
+> +	return 0;
+> +
+> +err_host_deinit:
+> +	qcom_pcie_host_deinit(pp);
+> +
+> +	return ret;
+> +}
+> +
+>   /* Qcom IP rev.: 2.1.0	Synopsys IP rev.: 4.01a */
+>   static const struct qcom_pcie_ops ops_2_1_0 = {
+>   	.get_resources = qcom_pcie_get_resources_2_1_0,
+> @@ -1571,6 +1652,9 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
+>   		pci_unlock_rescan_remove();
+>   
+>   		qcom_pcie_icc_opp_update(pcie);
+> +	} else if (FIELD_GET(PARF_INT_ALL_LINK_DOWN, status)) {
+> +		dev_dbg(dev, "Received Link down event\n");
+> +		pci_host_handle_link_down(pp->bridge);
+>   	} else {
+>   		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
+>   			      status);
+> @@ -1732,8 +1816,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
+>   			goto err_host_deinit;
+>   		}
+>   
+> -		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
+> -			       pcie->parf + PARF_INT_ALL_MASK);
+> +		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
+> +			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
+> +
+> +		pcie->global_irq = irq;
+>   	}
+>   
+>   	qcom_pcie_icc_opp_update(pcie);
+> 
 
 _______________________________________________
 linux-riscv mailing list
