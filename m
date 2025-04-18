@@ -4,81 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CD1DC369D0
-	for <linux-riscv@archiver.kernel.org>; Thu, 17 Apr 2025 19:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11E97C369C2
+	for <linux-riscv@archiver.kernel.org>; Fri, 18 Apr 2025 00:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TD6ahrNXmlY7yq/yfWdWa/vdgnMEt1iZVvzjLdJIRgw=; b=ic++Bl8fTS3mpY
-	GuNnxPoZLacPhSURTYulzM+pHDaBjypl+uf7AF58bDDMKM7GCRvaayfmXZjw74Gc432ZtR1EMgJ/N
-	KhSIBIAKGdrM/fhuTTYSRdg2rIVKsUUuh+yZKCrWjc8dxnIem7CoYYr6qdxQHuBFVLPpeYHBLtqPA
-	3GXIfnfFk4xdyMS182b/kQfFgGtIP+L/YgbJn+eDdVCeyg6iLNPvB+aqtv9AAs3aJomDJYRbQngMb
-	Bq138N4Eo6OTJqtPAMStrDSBnmbsubdhiyQ33eKIkdpNDqENtUoH25IFGr9KN42lkzyMGciKmE2JK
-	/vMT0sKvpDazeoHHDFlw==;
+	List-Owner; bh=reQ+1IRVXGeYld0tKNHiSgOZ3xLC7Q3TI7D4VBKjmWQ=; b=y68hwj9EqC0m7y
+	FZkrTRJ/4kJInkPMPfpCPZi7LPUhAoEFVCnMyZ2f/zf0d6n8LYFCD3AR9gmSKnRkn3Y9TyBaysc8U
+	f4fuGtMTirlq+9dwPJU3gHpysSdFhuQZJJELQzWyYPAT7ZO8PeVTcsMb8fBhNG+AoAs+NcYiKV1vb
+	jVnYp0p+MkB37ZRB74TaBRJc9bvKCyQQ99TBZbBghfkMLBYBInHAap0GkZm22KX/JrEZuIlNliJGh
+	F7fXH3mkHBksmDJKLk9yjlhLEBMH9jC2bUktJvZ/PoWLG+Q5z3qWHisAdOA7jyvgXFTTQbmFNtS+J
+	qIuPdrZN9vcvqELsVw+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5V98-0000000ECnr-1Lxx;
-	Thu, 17 Apr 2025 19:43:38 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u5ZVL-0000000EfmE-0BKY;
+	Fri, 18 Apr 2025 00:22:51 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5TxC-0000000E2L2-3Uxw;
-	Thu, 17 Apr 2025 18:27:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=QLvmdUOpIt3qputYjrPPCWLqkyP+trIqVdJfTraaI+Y=; b=OwZQX43YYFgU5Ua0pXt1YnLrwc
-	PxUFXaCt+X6xD7QTcbnMNngg9n2AJyfqzF/EH4z1O6Xw1IddY1P8pEJDoAa5sEdFFx6xCmfnp6GMc
-	ixza8V8PlZRht+o1OxM6O6XMCBTYgFm1nGFjvJkywYTliBxAKSYgdX13HMSsKoxl0oZPWtXE7tbsm
-	xA3/of0VEyJyECFw9h7YODKqG93Ke3x1+llC04YWQILM7yifHAS7S7D/BUwtVRwHvIca3/k/IsPVg
-	gpxFyulNUO6pMvEyi5XjweTDGNZECiHSyeLS3mHll1+iRGxEY5hNaNCrzF2RIKEWgTV3GNwXZHveo
-	//ymY7PQ==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u5Tx9-0000000AMIP-3CAX;
-	Thu, 17 Apr 2025 18:27:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id AF4ABA4A456;
-	Thu, 17 Apr 2025 18:21:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8307C4CEEC;
-	Thu, 17 Apr 2025 18:27:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1744914427;
-	bh=nXbV1Uvq4c8RL4YhRp/ivGFjNzOtTa70IujwafR6+UE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=toxBea61JWC5/trBUl49NvCsVkVAmNhju3B87UReIfBHz8VnRyE/LuVybLVF2k/nY
-	 ozG0hZ8OBwzDL6uS4Zi1cnO2Mrn+mq1gQ/r8Oq+czYCLjfyTD/V03RB7fCo5SP71wf
-	 zlxk4RJm3o05FtCFrRaAKTzpr6oWDwo/e21dJwjhdxrVVorZg+xwqsKTLym49Olhvz
-	 SwdxWMKOu8BP6ibmjf8JnzW3kYR8b7Naf0ZpIJmNV9xQkNMUjmcXpx+iFVvnhelZFG
-	 WffphaS/N+aHynjqKlRMXoA+AQi8OOH4tWYJ2rqeMi/Rw6uFqtGdZWOBgLIHH2X50p
-	 7wDfzUig2kHFw==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
+	id 1u5ZVF-0000000EflJ-1rhm
+	for linux-riscv@lists.infradead.org;
+	Fri, 18 Apr 2025 00:22:49 +0000
+Received: from localhost.localdomain (unknown [116.232.27.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 624F7342FE7;
+	Fri, 18 Apr 2025 00:22:37 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Haylen Chu <heylenay@4d2.org>
+Cc: Yixun Lan <dlan@gentoo.org>,
 	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	x86@kernel.org,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH 02/15] crypto: arm64 - drop redundant dependencies on ARM64
-Date: Thu, 17 Apr 2025 11:26:10 -0700
-Message-ID: <20250417182623.67808-3-ebiggers@kernel.org>
+	linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>
+Subject: Re: (subset) [PATCH v8 0/6] Add clock controller support for SpacemiT K1
+Date: Fri, 18 Apr 2025 08:22:03 +0800
+Message-ID: <174484549885.160158.3249067849153986093.b4-ty@gentoo.org>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250417182623.67808-1-ebiggers@kernel.org>
-References: <20250417182623.67808-1-ebiggers@kernel.org>
+In-Reply-To: <20250416135406.16284-1-heylenay@4d2.org>
+References: <20250416135406.16284-1-heylenay@4d2.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250417_192712_045311_6FA4D2E5 
-X-CRM114-Status: UNSURE (   9.76  )
+X-CRM114-CacheID: sfid-20250417_172245_501444_8B24F000 
+X-CRM114-Status: UNSURE (   6.29  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,48 +83,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
 
-arch/arm64/crypto/Kconfig is sourced only when CONFIG_ARM64=y, so there
-is no need for the symbols defined inside it to depend on ARM64.
+On Wed, 16 Apr 2025 13:54:00 +0000, Haylen Chu wrote:
+> The clock tree of SpacemiT K1 is managed by several independent
+> multifunction devices, some of them are
+> 
+> - Application Power Manage Unit, APMU
+> - Main Power Manage Unit, MPMU
+> - APB Bus Clock Unit, APBC
+> - APB Spare, APBS
+> 
+> [...]
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
----
- arch/arm64/crypto/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Applied, thanks!
 
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 7c2f63f2e307..704d0b7e1d13 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -135,11 +135,11 @@ config CRYPTO_AES_ARM64
- 
- 	  Architecture: arm64
- 
- config CRYPTO_AES_ARM64_CE
- 	tristate "Ciphers: AES (ARMv8 Crypto Extensions)"
--	depends on ARM64 && KERNEL_MODE_NEON
-+	depends on KERNEL_MODE_NEON
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_LIB_AES
- 	help
- 	  Block ciphers: AES cipher algorithms (FIPS-197)
- 
-@@ -252,11 +252,11 @@ config CRYPTO_SM4_ARM64_NEON_BLK
- 	  Architecture: arm64 using:
- 	  - NEON (Advanced SIMD) extensions
- 
- config CRYPTO_AES_ARM64_CE_CCM
- 	tristate "AEAD cipher: AES in CCM mode (ARMv8 Crypto Extensions)"
--	depends on ARM64 && KERNEL_MODE_NEON
-+	depends on KERNEL_MODE_NEON
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_AES_ARM64_CE
- 	select CRYPTO_AES_ARM64_CE_BLK
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
+[1/6] dt-bindings: soc: spacemit: Add spacemit,k1-syscon
+      https://github.com/spacemit-com/linux/commit/61e312a001a394a93998c353af859841ddf50d5d
+[2/6] dt-bindings: clock: spacemit: Add spacemit,k1-pll
+      https://github.com/spacemit-com/linux/commit/8090804045066ab8cd92737c8e2adfb46f166c0f
+[3/6] clk: spacemit: Add clock support for SpacemiT K1 SoC
+      https://github.com/spacemit-com/linux/commit/1b72c59db0add8e47fa116b21f78ed0b09a264f3
+[4/6] clk: spacemit: k1: Add TWSI8 bus and function clocks
+      https://github.com/spacemit-com/linux/commit/49625c6e4d90a9221127c49a11eb8c95732bb690
+
+Best regards,
 -- 
-2.49.0
+Yixun Lan
 
 
 _______________________________________________
