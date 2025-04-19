@@ -4,115 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE16AC369C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 10:40:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB57C369BD
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 10:42:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:Subject:
+	From:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Op+IG6Y/BsdzoHMWZY4ZP5vpr/tYng9rcEtE2bwm/w4=; b=ePS4DZSlUlYyej
-	B2u7iK3bZ4982fh8XPKmYx4qUS6WLw57ti9EuuyBSgP/ebUsTGIxqWTF/XgaMUA02Mu5DVn3yPBri
-	YhMIMISlvpjF+C2YnJsp1ec8cUy+bGULv4OIg/oG4/P02yxeWGvC14QNUyrpZCSh1/5F2WaPwIw+o
-	YoYbMHU54TAGOKPKFW3Jva4tmIS6T47Z5P3RsgCg9sOlETIZHuQv8okjOXgGc39HW+XpuDNY0vn3z
-	KTvY+40LVIl9ZbkyABF0SV8fdNXQZoTaz0nJLmJFGZTaCfVqH8Z+OPFuRQQPhRnAt6/Xc0DNsoy1e
-	j8mEN6aqbebfvgeF921A==;
+	List-Owner; bh=OIMDRr4z7Ud/t2zkDGsYFnQN/vknzbvB4Frb+YYXQEA=; b=1ajs3asWajQib9
+	muD5c/N3xVcz7RxLGGbniUYcnRfbl1teTX5b7YQOzuiivtg6GoJXOPtrTApgYmC9kTDYm/JgnxPIf
+	rpzz8jF4m4EfnaqShQRW1TTJVWRjR180OhPk+5BoioKzmqua2M7b24ujCBoCGWEZZiW0RaM7vDz7W
+	3o/rClrtZxL7ic+ZNZWDqhA22cxlP2y3XiN47/AsuD+ILjR8vyFtbCZZSiETvCeJFhnYRt4Y7McSa
+	D4RTXzY19mqFR+GO1HFOwtW8QeLs6XUH4BW2KkDjZWf3SWcAHOWaFbAB0OdP+xiPlew6PXspu2nVh
+	Z7Y2CfvkRzIdyEIeGs7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u65cJ-00000001BAf-4BXZ;
-	Sat, 19 Apr 2025 10:40:12 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1u65ed-00000001BY2-06ss;
+	Sat, 19 Apr 2025 10:42:35 +0000
+Received: from sender4-pp-o92.zoho.com ([136.143.188.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u65cG-00000001B97-3jOr
+	id 1u65ea-00000001BXT-3NxF
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Apr 2025 10:40:10 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-af28bc68846so2200456a12.1
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Apr 2025 03:40:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745059208; x=1745664008; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zZZUE7lDwTEz2N4r/fX75wAzeLWxw2u+R07S3BlIwfA=;
-        b=lF8YbG0UYTkfwsEuEPe7nBvVnpNL8lknF1F1GKz1/IJQA9ar4bvC0wed492q2OBBlE
-         tCmrkUo85hRef8KXQ5Cbv0e5rHb976Z2yLizuj5w2zM3X2fjZo9kohVay3/bznzFp3BH
-         xXdifIaAFDcDiOH1wNMfI0Ztknc0BcELDwOCn981aqOV7TPEShYuwPsC4vPIGc8H6ddD
-         5W+rOOZ//ysY43A+DZspLUZ3+xikJzBMuyAknGd0qyiLNmvERT+7MSOv1pDEr+k9xFgG
-         zRg8u+bT77B/TGfNZAxZmPnN1hoovs883hiaLu8uXx429/AZY0O6HYMyPPAx4gmuJtHN
-         qn/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745059208; x=1745664008;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zZZUE7lDwTEz2N4r/fX75wAzeLWxw2u+R07S3BlIwfA=;
-        b=lx5c9UGZLmmy6SVPdU3Lc9mbnqGwv6VNHvUi5v1MyL7+1NMtC4HKPc61bl1pJYKty4
-         3EAt1DYGn/9LCpy4hhPppwZz0BrK/Q9gEnM2OU/Zwi6WLg96OcUnbyMXXHbWrNredYnC
-         ddWsZYWb2XV/qH0dstVp7oV/bNO1dyaeIB+X7LzU0neEUVjCmuhSuWCMh7fBBuNcvgWH
-         9nlLvgxnPenDb9Dv4UheobTpULyW/tycqP6skcuLlZysTPOGIEJuMi6a6hfsjfLLAmZD
-         Wi3IZj9Ghehd3Bt/pBlidFhA31gQBpRoP9lKHI+X0xYg5wke4owOp8AU3zl9W0VcNkOE
-         AVkg==
-X-Forwarded-Encrypted: i=1; AJvYcCWQFdZs+3eFu3BogNVckJqTduupD7fimRYFSnYRPXvmncGzdbrgM8PA5j1W5ykI5DkegJwc2oEINoJUxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyx6SkSKMw/zhlinwBw7x29k7kQAHxETndwoGz7luAS131L3z7Y
-	D21maZX/nvpJ+amNWBR76FlrsPOqYPw8QgsjFd+cbJNfaTgRszAVImVRTzMK5w==
-X-Gm-Gg: ASbGncsIC+Pp0gwVulSPEGG2D9AJwA5DJE+vZLSpOvPPw6Gx7ntfvgl2t3ByzRDh+LD
-	qi+buSx//lkb8UU1wwnHwuf3qst6/uK8U7QxgjZ2rE/qLKkIwZEEbCrwzB9Qo1OURnj7+yVyKSp
-	TYaByMJVdGHrUKBCj4d9KH096a7opibFV8GtUCgyb1Vwneo/UjCcj8tDU8OsJjoMYQvYcXWVXmw
-	DuwjnFU3H4yzTVSKldnIQhUUvMoz3g3pWUW9itmiADjKpRkHTcprcXl4l50wDArPcsdoC8F9vrV
-	jqPb4H2EMCsLKxiausv8QHQq/cm8foKaAhcKntTkf+YfUTEM4qBf+mejfFnG57ET
-X-Google-Smtp-Source: AGHT+IG48rfT7dO1+AZbhGTz/iIYddl71I2wayyAJZkp73FfKaGBUzoje28Z41u2PE9+dTi/GMGgcg==
-X-Received: by 2002:a17:90b:57e6:b0:2ff:5016:7fd2 with SMTP id 98e67ed59e1d1-3087bbbfcb1mr8635818a91.24.1745059207952;
-        Sat, 19 Apr 2025 03:40:07 -0700 (PDT)
-Received: from thinkpad.. ([36.255.17.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50ed23e3sm30785155ad.194.2025.04.19.03.39.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 03:40:07 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Jim Quinlan <jim2101024@gmail.com>,
-	Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Srikanth Thokala <srikanth.thokala@intel.com>,
-	Daire McNamara <daire.mcnamara@microchip.com>,
-	Marek Vasut <marek.vasut+renesas@gmail.com>,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Greentime Hu <greentime.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Bharat Kumar Gogada <bharat.kumar.gogada@amd.com>,
-	Michal Simek <michal.simek@amd.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Tom Joseph <tjoseph@cadence.com>,
-	Ahmad Zainie <wan.ahmad.zainie.wan.mohamad@intel.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Subject: Re: [PATCH 1/2] dt-bindings: PCI: Correct indentation and style in DTS example
-Date: Sat, 19 Apr 2025 16:09:44 +0530
-Message-ID: <174505916020.32700.15920085651288867306.b4-ty@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
-References: <20250324125202.81986-1-krzysztof.kozlowski@linaro.org>
+	Sat, 19 Apr 2025 10:42:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745059349; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=h9mrUJYrhVtw6E80ST+ApxGHKEOAvt/PU/P23CxjpsLBid/PIvF3pH0mKlWlAZ0NXmq2qkRPcf2EkPjHcnkIWWTFtup7rKI6ErK0n+FVmZ3/+Hxxto27OOViQklyxE7RQM1yxgz0siLzwNs3ss6DVE4ld/46H5y4u9HPRWZ3hQw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745059349; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ZW4Zx1rg58mj53Fyo/IoJowIgF4TvufpVxdMkh9W8ZI=; 
+	b=mr4eiO7e7BlbwvzdxbS+3+j82Crd28pUPrDvAN9m2FVWC4oGOdly145tQbHqxXAFnXFJh6ssyaOlUKlH3jv+HVwo2Ph4b2lAyEdl04mbPouHHlYd4QHFIb/qZhY5dWHK+Pkk3XQgaYl8qvxjUcL6ipyIg0primPfVU5qeTB3jtk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=zohomail.com;
+	spf=pass  smtp.mailfrom=kingxukai@zohomail.com;
+	dmarc=pass header.from=<kingxukai@zohomail.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745059349;
+	s=zm2022; d=zohomail.com; i=kingxukai@zohomail.com;
+	h=Message-ID:Date:Date:MIME-Version:From:From:Subject:Subject:To:To:Cc:Cc:References:In-Reply-To:Content-Type:Content-Transfer-Encoding:Feedback-ID:Message-Id:Reply-To;
+	bh=ZW4Zx1rg58mj53Fyo/IoJowIgF4TvufpVxdMkh9W8ZI=;
+	b=KU3NMCtFwXhwcOcUZxM2nOKTR7pVN6td7M0tHAzrjNJkxu/8b5ykxLeIprSi3C7K
+	xXAipQWDWg/VS43JolJ/Ne561OIRLGLtDRsN+7JiN67QZadtkFxbvmMb8dr20IQdg2/
+	w586MP8/74jLHj4AMM+I5i/a16IZ+vcI93YgItOo=
+Received: by mx.zohomail.com with SMTPS id 1745059341926458.9710550639943;
+	Sat, 19 Apr 2025 03:42:21 -0700 (PDT)
+Message-ID: <6dd81688-6f08-431a-af90-a1df2bc4d80f@zohomail.com>
+Date: Sat, 19 Apr 2025 18:42:07 +0800
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Xukai Wang <kingxukai@zohomail.com>
+Subject: Re: [PATCH v6 2/3] clk: canaan: Add clock driver for Canaan K230
+To: Troy Mitchell <troymitchell988@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Conor Dooley <conor@kernel.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Samuel Holland <samuel.holland@sifive.com>
+References: <20250415-b4-k230-clk-v6-0-7fd89f427250@zohomail.com>
+ <20250415-b4-k230-clk-v6-2-7fd89f427250@zohomail.com>
+ <aAJGCDmqNoSWrwXw@troy-wujie14-pro>
+Content-Language: en-US
+In-Reply-To: <aAJGCDmqNoSWrwXw@troy-wujie14-pro>
+Feedback-ID: rr0801122783e34f079b36205d1e49e5f300004b7a3787c294245c229f1e3f79e6134a9573226a7967fb6eb3:zu08011227c4aba18b305b1a1f9d9990550000fbfcf4f5c48ed9ccc257a0733feb2e759701299094fe1f7236:rf0801122cb562e7522647b241f3b510110000ebd95758f7f333b009798f079914a3ccfd85737a05bb2da6fedc9b0b1158:ZohoMail
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_034008_935001_A1AFC6C8 
-X-CRM114-Status: UNSURE (   8.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250419_034232_930897_DF55CDA2 
+X-CRM114-Status: GOOD (  33.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,26 +89,649 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 24 Mar 2025 13:52:01 +0100, Krzysztof Kozlowski wrote:
-> DTS example in the bindings should be indented with 2- or 4-spaces and
-> aligned with opening '- |', so correct any differences like 3-spaces or
-> mixtures 2- and 4-spaces in one binding.
-> 
-> No functional changes here, but saves some comments during reviews of
-> new patches built on existing code.
-> 
-> [...]
+On 2025/4/18 20:31, Troy Mitchell wrote:
+> On Tue, Apr 15, 2025 at 10:25:12PM +0800, Xukai Wang wrote:
+>> This patch provides basic support for the K230 clock, which does not
+>> cover all clocks.
+>>
+>> The clock tree of the K230 SoC consists of OSC24M, PLLs and sysclk.
+>>
+>> Co-developed-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Troy Mitchell <TroyMitchell988@gmail.com>
+>> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
+>> ---
+>>  drivers/clk/Kconfig    |    6 +
+>>  drivers/clk/Makefile   |    1 +
+>>  drivers/clk/clk-k230.c | 1710 ++++++++++++++++++++++++++++++++++++++++++++++++
+>>  3 files changed, 1717 insertions(+)
+>>
+>> diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+>> index 299bc678ed1b9fcd9110bb8c5937a1bd1ea60e23..1817b8883af9a3d00ac7af2cb88496274b591001 100644
+>> --- a/drivers/clk/Kconfig
+>> +++ b/drivers/clk/Kconfig
+>> @@ -464,6 +464,12 @@ config COMMON_CLK_K210
+>>  	help
+>>  	  Support for the Canaan Kendryte K210 RISC-V SoC clocks.
+>>  
+>> +config COMMON_CLK_K230
+>> +	bool "Clock driver for the Canaan Kendryte K230 SoC"
+>> +	depends on ARCH_CANAAN || COMPILE_TEST
+>> +        help
+>> +          Support for the Canaan Kendryte K230 RISC-V SoC clocks.
+>> +
+>>  config COMMON_CLK_SP7021
+>>  	tristate "Clock driver for Sunplus SP7021 SoC"
+>>  	depends on SOC_SP7021 || COMPILE_TEST
+>> diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+>> index fb8878a5d7d93da6bec487460cdf63f1f764a431..5df50b1e14c701ed38397bfb257db26e8dd278b8 100644
+>> --- a/drivers/clk/Makefile
+>> +++ b/drivers/clk/Makefile
+>> @@ -51,6 +51,7 @@ obj-$(CONFIG_MACH_ASPEED_G6)		+= clk-ast2600.o
+>>  obj-$(CONFIG_ARCH_HIGHBANK)		+= clk-highbank.o
+>>  obj-$(CONFIG_CLK_HSDK)			+= clk-hsdk-pll.o
+>>  obj-$(CONFIG_COMMON_CLK_K210)		+= clk-k210.o
+>> +obj-$(CONFIG_COMMON_CLK_K230)		+= clk-k230.o
+>>  obj-$(CONFIG_LMK04832)			+= clk-lmk04832.o
+>>  obj-$(CONFIG_COMMON_CLK_LAN966X)	+= clk-lan966x.o
+>>  obj-$(CONFIG_COMMON_CLK_LOCHNAGAR)	+= clk-lochnagar.o
+>> diff --git a/drivers/clk/clk-k230.c b/drivers/clk/clk-k230.c
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..84a4a2a293e5f278d21510d73888aee4ff9351df
+>> --- /dev/null
+>> +++ b/drivers/clk/clk-k230.c
+>> @@ -0,0 +1,1710 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Kendryte Canaan K230 Clock Drivers
+>> + *
+>> + * Author: Xukai Wang <kingxukai@zohomail.com>
+>> + * Author: Troy Mitchell <troymitchell988@gmail.com>
+>> + */
+>> +
+>> +#include <linux/clk.h>
+>> +#include <linux/clkdev.h>
+>> +#include <linux/clk-provider.h>
+>> +#include <linux/iopoll.h>
+>> +#include <linux/mod_devicetable.h>
+>> +#include <linux/platform_device.h>
+>> +#include <linux/spinlock.h>
+>> +#include <dt-bindings/clock/canaan,k230-clk.h>
+>> +
+>> +/* PLL control register bits. */
+>> +#define K230_PLL_BYPASS_ENABLE				BIT(19)
+>> +#define K230_PLL_GATE_ENABLE				BIT(2)
+>> +#define K230_PLL_GATE_WRITE_ENABLE			BIT(18)
+>> +#define K230_PLL_OD_SHIFT				24
+>> +#define K230_PLL_OD_MASK				0xF
+>> +#define K230_PLL_R_SHIFT				16
+>> +#define K230_PLL_R_MASK					0x3F
+>> +#define K230_PLL_F_SHIFT				0
+>> +#define K230_PLL_F_MASK					0x1FFFF
+>> +#define K230_PLL0_OFFSET_BASE				0x00
+>> +#define K230_PLL1_OFFSET_BASE				0x10
+>> +#define K230_PLL2_OFFSET_BASE				0x20
+>> +#define K230_PLL3_OFFSET_BASE				0x30
+>> +#define K230_PLL_DIV_REG_OFFSET				0x00
+>> +#define K230_PLL_BYPASS_REG_OFFSET			0x04
+>> +#define K230_PLL_GATE_REG_OFFSET			0x08
+>> +#define K230_PLL_LOCK_REG_OFFSET			0x0C
+> why we call it `K230_PLL_LOCK_REG_OFFSET`?
+> I noticed that the datasheet refers to it as PLL0_STAT,
+> with the description PLL0 status.
+> Would it be better to keep the original name for consistency?
+>
+> Only bit 0 is the lock bit, and I'll talk more about that later.
 
-Applied, thanks!
+The reason I named the macro K230_PLL_LOCK_REG_OFFSET rather than
+PLL0_STAT from the datasheet is because in this particular clock driver,
+I only need to use the lock bit (bit 0) and not the other bits of the
+register.
 
-[1/2] dt-bindings: PCI: Correct indentation and style in DTS example
-      commit: 37b52f92334c522d41c44ee4446e2a74cd830419
-[2/2] dt-bindings: PCI: sifive,fu740-pcie: Fix include placement in DTS example
-      commit: b3274b553aac4daddad998f426995b2388c8abb3
+In Linux, there isn't a common header for K230 that defines macros for
+these specific bits yet, and since this register is only used within the
+context of this driver, I decided to name it K230_PLL0_LOCK_REG to be
+more specific to the functionality being used here.
 
-Best regards,
--- 
-Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+This way, the name reflects the exact purpose in this driver, and it
+avoids confusion with the other bits that are not relevant for this
+particular case.
+
+>> +
+>> +/* PLL lock register bits.  */
+>> +#define K230_PLL_STATUS_MASK				BIT(0)
+> this bit is pll0_lock
+> ```
+> PLL 0 current lock status.
+> 0x0: PLL not in lock state;
+> 0x1: PLL in lock state.
+> ```
+> how about we call it `K230_PLL_LOCK_STATUS_MASK`
+Seems more appropriate.
+>> +
+>> +/* K230 CLK registers offset */
+>> +#define K230_CLK_AUDIO_CLKDIV_OFFSET			0x34
+>> +#define K230_CLK_PDM_CLKDIV_OFFSET			0x40
+>> +#define K230_CLK_CODEC_ADC_MCLKDIV_OFFSET		0x38
+>> +#define K230_CLK_CODEC_DAC_MCLKDIV_OFFSET		0x3c
+>> +
+>> +/* K230 CLK OPS. */
+> unuseful comment
+OK.
+>> +#define K230_CLK_OPS_GATE				\
+>> +	.enable		= k230_clk_enable,		\
+>> +	.disable	= k230_clk_disable,		\
+>> +	.is_enabled	= k230_clk_is_enabled
+>> +
+>> +#define K230_CLK_OPS_RATE				\
+>> +	.set_rate	= k230_clk_set_rate,		\
+>> +	.round_rate	= k230_clk_round_rate,		\
+>> +	.recalc_rate	= k230_clk_get_rate
+>> +
+>> +#define K230_CLK_OPS_MUX				\
+>> +	.set_parent	= k230_clk_set_parent,		\
+>> +	.get_parent	= k230_clk_get_parent,		\
+>> +	.determine_rate	= clk_hw_determine_rate_no_reparent
+>> +
+>> +#define K230_CLK_OPS_ID_NONE				0
+>> +#define K230_CLK_OPS_ID_GATE_ONLY			1
+>> +#define K230_CLK_OPS_ID_RATE_ONLY			2
+>> +#define K230_CLK_OPS_ID_RATE_GATE			3
+>> +#define K230_CLK_OPS_ID_MUX_ONLY			4
+>> +#define K230_CLK_OPS_ID_MUX_GATE			5
+>> +#define K230_CLK_OPS_ID_MUX_RATE			6
+>> +#define K230_CLK_OPS_ID_ALL				7
+>> +#define K230_CLK_OPS_ID_NUM				8
+>> +
+>> +/* K230 CLK MACROS */
+> unuseful comment
+OK.
+>> +#define K230_CLK_MAX_PARENT_NUM				6
+> ...
+>
+>> +
+>> +struct k230_clk_rate_cfg {
+>> +	/* rate reg */
+>> +	u32 rate_reg_off;
+>> +	void __iomem *rate_reg;
+>> +	/* rate info*/
+>> +	u32 rate_write_enable_bit;
+>> +	enum k230_clk_div_type method;
+>> +	/* rate mul */
+>> +	u32 rate_mul_min;
+>> +	u32 rate_mul_max;
+>> +	u32 rate_mul_shift;
+>> +	u32 rate_mul_mask;
+>> +	/* rate div */
+>> +	u32 rate_div_min;
+>> +	u32 rate_div_max;
+>> +	u32 rate_div_shift;
+>> +	u32 rate_div_mask;
+>> +};
+> unuseful comments in this structure
+>
+>> +
+>> +struct k230_clk_rate_cfg_c {
+>> +	/* rate_c reg */
+>> +	u32 rate_reg_off_c;
+>> +	void __iomem *rate_reg_c;
+>> +
+>> +	/* rate_c info */
+>> +	u32 rate_write_enable_bit_c;
+>> +
+>> +	/* rate mul-changable */
+>> +	u32 rate_mul_min_c;
+>> +	u32 rate_mul_max_c;
+>> +	u32 rate_mul_shift_c;
+>> +	u32 rate_mul_mask_c;
+>> +};
+> unuseful comments in this structure
+>
+>> +
+>> +struct k230_clk_gate_cfg {
+>> +	/* gate reg */
+>> +	u32 gate_reg_off;
+>> +	void __iomem *gate_reg;
+> unuseful comment
+>
+>> +
+>> +	/* gate info*/
+>> +	u32 gate_bit_enable;
+>> +	bool gate_bit_reverse;
+>> +};
+>> +
+>> +struct k230_clk_mux_cfg {
+>> +	/* mux reg */
+>> +	u32 mux_reg_off;
+> unuseful comment
+>
+>> +	void __iomem *mux_reg;
+>> +
+>> +	/* mux info */
+>> +	u32 mux_reg_shift;
+>> +	u32 mux_reg_mask;
+>> +};
+>> +
+>> +enum k230_clk_parent_type {
+>> +	K230_OSC24M,
+>> +	K230_PLL,
+>> +	K230_PLL_DIV,
+>> +	K230_CLK_COMPOSITE,
+>> +};
+>> +
+>> +struct k230_clk_cfg;
+>> +
+>> +struct k230_clk_parent {
+>> +	enum k230_clk_parent_type type;
+>> +	union {
+>> +		struct k230_pll_cfg	*pll_cfg;
+>> +		struct k230_pll_div_cfg	*pll_div_cfg;
+>> +		struct k230_clk_cfg	*clk_cfg;
+>> +	};
+>> +};
+>> +
+>> +struct k230_clk_cfg {
+>> +	/* attr */
+>> +	const char *name;
+> unuseful comment
+>
+>> +
+>> +	/* 0-read & write; 1-read only */
+>> +	bool read_only;
+> unuseful comment
+>
+>> +	int num_parent;
+>> +	struct k230_clk_parent parent[K230_CLK_MAX_PARENT_NUM];
+>> +	struct k230_clk *clk;
+>> +	int flags;
+>> +
+>> +	/* cfgs */
+> unuseful comment
+>
+>> +	struct k230_clk_rate_cfg	*rate_cfg;
+>> +	struct k230_clk_rate_cfg_c	*rate_cfg_c;
+>> +	struct k230_clk_gate_cfg	*gate_cfg;
+>> +	struct k230_clk_mux_cfg		*mux_cfg;
+>> +};
+>>
+> ...
+>
+>> +static struct k230_clk_cfg k230_shrm_pdma_axi = {
+>> +		.name = "shrm_pdma_axi",
+>> +		.read_only = false,
+>> +		.flags = 0,
+>> +		.num_parent = 1,
+>> +		.parent[0] = {
+>> +			.type = K230_CLK_COMPOSITE,
+>> +			.clk_cfg = &k230_shrm_axi_src,
+>> +		},
+>> +		.rate_cfg = NULL,
+>> +		.rate_cfg_c = NULL,
+>> +		.gate_cfg = &k230_shrm_pdma_axi_gate,
+>> +		.mux_cfg = NULL,
+>> +};
+> Consider defining a macro to generate those structures?
+Yes, I'll define a macro to generate that next version.
+> ...
+>
+>> +static int k230_pll_prepare(struct clk_hw *hw)
+>> +{
+>> +	struct k230_pll *pll = to_k230_pll(hw);
+>> +	u32 reg;
+>> +
+>> +	/* wait for PLL lock until it reaches lock status */
+>> +	return readl_poll_timeout(pll->lock, reg,
+>> +				  (reg & K230_PLL_STATUS_MASK) == K230_PLL_STATUS_MASK,
+> (reg & K230_PLL_STATUS_MASK),
+OK.
+>> +				  400, 0);
+>> +}
+>> +
+>> +static bool k230_pll_hw_is_enabled(struct k230_pll *pll)
+>> +{
+>> +	return (readl(pll->gate) & K230_PLL_GATE_ENABLE) == K230_PLL_GATE_ENABLE;
+> return !!(readl(pll->gate) & K230_PLL_GATE_ENABLE);
+OK.
+>> +}
+>> +
+>> +static void k230_pll_enable_hw(void __iomem *regs, struct k230_pll *pll)
+>> +{
+>> +	u32 reg;
+>> +
+>> +	if (k230_pll_hw_is_enabled(pll))
+>> +		return;
+>> +
+>> +	/* Set PLL factors */
+>> +	reg = readl(pll->gate);
+>> +	reg |= (K230_PLL_GATE_ENABLE | K230_PLL_GATE_WRITE_ENABLE);
+> reg |= K230_PLL_GATE_ENABLE | K230_PLL_GATE_WRITE_ENABLE;
+OK.
+>
+>> +	writel(reg, pll->gate);
+>> +}
+>> +
+>> +static int k230_pll_enable(struct clk_hw *hw)
+>> +{
+>> +	struct k230_pll *pll = to_k230_pll(hw);
+>> +	struct k230_sysclk *ksc = pll->ksc;
+>> +
+>> +	guard(spinlock)(&ksc->pll_lock);
+>> +	k230_pll_enable_hw(ksc->regs, pll);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static void k230_pll_disable(struct clk_hw *hw)
+>> +{
+>> +	struct k230_pll *pll = to_k230_pll(hw);
+>> +	struct k230_sysclk *ksc = pll->ksc;
+>> +	u32 reg;
+>> +
+>> +	guard(spinlock)(&ksc->pll_lock);
+> blank line here
+OK.
+>
+>> +	reg = readl(pll->gate);
+>> +	reg &= ~(K230_PLL_GATE_ENABLE);
+>> +	reg |= (K230_PLL_GATE_WRITE_ENABLE);
+>> +	writel(reg, pll->gate);
+>> +}
+>> +
+>> +static int k230_pll_is_enabled(struct clk_hw *hw)
+> inline here
+It's one of the implementation of callback function in clk_ops, which
+doesn't need the inline tag.
+>> +{
+>> +	return k230_pll_hw_is_enabled(to_k230_pll(hw));
+>> +}
+>> +
+>> +static int k230_pll_init(struct clk_hw *hw)
+>> +{
+>> +	if (k230_pll_is_enabled(hw))
+>> +		return clk_prepare_enable(hw->clk);
+>> +
+>> +	return 0;
+>> +}
+>> +
+> ...
+>> +	if (gate_cfg->gate_bit_reverse)
+>> +		reg |= BIT(gate_cfg->gate_bit_enable);
+>> +	else
+>> +		reg &= ~BIT(gate_cfg->gate_bit_enable);
+>> +
+> drop blank line
+OK.
+>> +	writel(reg, gate_cfg->gate_reg);
+>> +}
+>> +
+>> +	/* Check gate bit condition based on configuration and then set ret */
+>> +	if (gate_cfg->gate_bit_reverse)
+>> +		return (BIT(gate_cfg->gate_bit_enable) & reg) ? 1 : 0;
+>> +	else
+> drop else
+OK.
+>> +	reg = (mux_cfg->mux_reg_mask & index) << mux_cfg->mux_reg_shift;
+>> +	writeb(reg, mux_cfg->mux_reg);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static u8 k230_clk_get_parent(struct clk_hw *hw)
+>> +{
+>> +	struct k230_clk *clk = to_k230_clk(hw);
+>> +	struct k230_sysclk *ksc = clk->ksc;
+>> +	struct k230_clk_cfg *cfg = k230_clk_cfgs[clk->id];
+>> +	struct k230_clk_mux_cfg *mux_cfg = cfg->mux_cfg;
+>> +	u8 reg;
+>> +
+>> +	guard(spinlock)(&ksc->clk_lock);
+>> +	reg = readb(mux_cfg->mux_reg);
+>> +
+>> +	return reg;
+> return readb(mux_cfg->mux_reg);
+OK, it can be merged into one line.
+>> +}
+>> +
+>> +static unsigned long k230_clk_get_rate(struct clk_hw *hw,
+>> +				       unsigned long parent_rate)
+>> +{
+>> +	struct k230_clk *clk = to_k230_clk(hw);
+>> +	struct k230_sysclk *ksc = clk->ksc;
+>> +	struct k230_clk_cfg *cfg = k230_clk_cfgs[clk->id];
+>> +	struct k230_clk_rate_cfg *rate_cfg = cfg->rate_cfg;
+>> +	struct k230_clk_rate_cfg_c *rate_cfg_c = cfg->rate_cfg_c;
+>> +	u32 mul, div;
+>> +
+>> +	if (!rate_cfg) /* no divider, return parents' clk */
+> wrong comment style
+Apologies for my fault to ignore this comment here.
+>> +		return parent_rate;
+>> +
+>> +	guard(spinlock)(&ksc->clk_lock);
+> blank line here
+OK.
+>> +	switch (rate_cfg->method) {
+>>
+>> +	/* mul and div can be changeable. */
+>> +	case K230_MUL_DIV:
+>> +		if (rate_cfg->rate_reg_off == K230_CLK_CODEC_ADC_MCLKDIV_OFFSET ||
+>> +		    rate_cfg->rate_reg_off == K230_CLK_CODEC_DAC_MCLKDIV_OFFSET) {
+>> +			for (u32 j = 0; j < 9; j++) {
+>> +				if (0 == (rate - codec_clk[j])) {
+> if (rate - codec_clk[j] == 0)
+>
+>> +					*div = codec_div[j][0];
+>> +					*mul = codec_div[j][1];
+>> +				}
+>> +			}
+>> +		} else if (rate_cfg->rate_reg_off == K230_CLK_AUDIO_CLKDIV_OFFSET ||
+>> +			   rate_cfg->rate_reg_off == K230_CLK_PDM_CLKDIV_OFFSET) {
+>> +			for (u32 j = 0; j < 20; j++) {
+>> +				if (0 == (rate - pdm_clk[j])) {
+> if (rate - pdm_clk[j] == 0)
+OK, I'll change the order.
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static long k230_clk_round_rate(struct clk_hw *hw, unsigned long rate, unsigned long *parent_rate)
+>> +{
+>> +	struct k230_clk *clk = to_k230_clk(hw);
+>> +	struct k230_sysclk *ksc = clk->ksc;
+>> +	struct k230_clk_cfg *cfg = k230_clk_cfgs[clk->id];
+>> +	struct k230_clk_rate_cfg *rate_cfg = cfg->rate_cfg;
+>> +	u32 div = 0, mul = 0;
+>> +
+>> +	if (k230_clk_find_approximate(clk,
+>> +				      rate_cfg->rate_mul_min, rate_cfg->rate_mul_max,
+>> +				      rate_cfg->rate_div_min, rate_cfg->rate_div_max,
+>> +				      rate_cfg->method, rate, *parent_rate, &div, &mul)) {
+>> +		return 0;
+>> +	}
+> removing the curly braces
+OK.
+>> +
+>> +	return mul_u64_u32_div(*parent_rate, mul, div);
+>> +}
+>> +
+>> +static int k230_clk_set_rate(struct clk_hw *hw, unsigned long rate,
+>> +			     unsigned long parent_rate)
+>> +{
+>> +	struct k230_clk *clk = to_k230_clk(hw);
+>> +	struct k230_sysclk *ksc = clk->ksc;
+>> +	struct k230_clk_cfg *cfg = k230_clk_cfgs[clk->id];
+>> +	struct k230_clk_rate_cfg *rate_cfg = cfg->rate_cfg;
+>> +	struct k230_clk_rate_cfg_c *rate_cfg_c = cfg->rate_cfg_c;
+>> +	u32 div = 0, mul = 0, reg = 0, reg_c;
+>> +
+>> +	if (rate > parent_rate || rate == 0 || parent_rate == 0) {
+>> +		dev_err(&ksc->pdev->dev, "rate or parent_rate error\n");
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	if (cfg->read_only) {
+>> +		dev_err(&ksc->pdev->dev, "This clk rate is read only\n");
+>> +		return -EPERM;
+>> +	}
+>> +
+>> +	if (k230_clk_find_approximate(clk,
+>> +				      rate_cfg->rate_mul_min, rate_cfg->rate_mul_max,
+>> +				      rate_cfg->rate_div_min, rate_cfg->rate_div_max,
+>> +				      rate_cfg->method, rate, parent_rate, &div, &mul)) {
+>> +		return -EINVAL;
+>> +	}
+>> +
+>> +	guard(spinlock)(&ksc->clk_lock);
+> blank line here
+>
+> put `reg = readl(rate_cfg->rate_reg);` here
+Yes, it should be merged into one line.
+>> +	if (!rate_cfg_c) {
+>> +		reg = readl(rate_cfg->rate_reg);
+>> +		reg &= ~((rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift));
+>> +
+>> +		if (rate_cfg->method == K230_DIV) {
+>> +			reg &= ~((rate_cfg->rate_mul_mask) << (rate_cfg->rate_mul_shift));
+>> +			reg |= ((div - 1) & rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift);
+>> +		} else if (rate_cfg->method == K230_MUL) {
+>> +			reg |= ((mul - 1) & rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift);
+>> +		} else {
+>> +			reg |= (mul & rate_cfg->rate_mul_mask) << (rate_cfg->rate_mul_shift);
+>> +			reg |= (div & rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift);
+>> +		}
+>> +		reg |= BIT(rate_cfg->rate_write_enable_bit);
+>> +	} else {
+>> +		reg = readl(rate_cfg->rate_reg);
+>> +		reg_c = readl(rate_cfg_c->rate_reg_c);
+>> +		reg &= ~((rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift));
+>> +		reg_c &= ~((rate_cfg_c->rate_mul_mask_c) << (rate_cfg_c->rate_mul_shift_c));
+>> +		reg_c |= BIT(rate_cfg_c->rate_write_enable_bit_c);
+>> +
+>> +		reg_c |= (mul & rate_cfg_c->rate_mul_mask_c) << (rate_cfg_c->rate_mul_shift_c);
+>> +		reg |= (div & rate_cfg->rate_div_mask) << (rate_cfg->rate_div_shift);
+> This is a bit confusing. Please read and operate one at a time.
+> It's better to read reg_c as the second one,
+> so it can be merged with the write operation to maintain the R/M/W principle.
+OK, I'll modify it.
+>> +
+>> +		writel(reg_c, rate_cfg_c->rate_reg_c);
+>> +	}
+>> +	writel(reg, rate_cfg->rate_reg);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static const struct clk_ops k230_clk_ops_arr[K230_CLK_OPS_ID_NUM] = {
+>> +	[K230_CLK_OPS_ID_NONE] = {
+>> +		/* Sentinel */
+>> +	},
+>> +	[K230_CLK_OPS_ID_GATE_ONLY] = {
+>> +		K230_CLK_OPS_GATE,
+>> +	},
+>> +	[K230_CLK_OPS_ID_RATE_ONLY] = {
+>> +		K230_CLK_OPS_RATE,
+>> +	},
+>> +	[K230_CLK_OPS_ID_RATE_GATE] = {
+>> +		K230_CLK_OPS_RATE,
+>> +		K230_CLK_OPS_GATE,
+>> +	},
+>> +	[K230_CLK_OPS_ID_MUX_ONLY] = {
+>> +		K230_CLK_OPS_MUX,
+>> +	},
+>> +	[K230_CLK_OPS_ID_MUX_GATE] = {
+>> +		K230_CLK_OPS_MUX,
+>> +		K230_CLK_OPS_GATE,
+>> +	},
+>> +	[K230_CLK_OPS_ID_MUX_RATE] = {
+>> +		K230_CLK_OPS_MUX,
+>> +		K230_CLK_OPS_RATE,
+>> +	},
+>> +	[K230_CLK_OPS_ID_ALL] = {
+>> +		K230_CLK_OPS_MUX,
+>> +		K230_CLK_OPS_RATE,
+>> +		K230_CLK_OPS_GATE,
+>> +	},
+>> +};
+>> +
+>> +static int k230_register_clk(struct platform_device *pdev,
+>> +			     struct k230_sysclk *ksc,
+>> +			     int id,
+>> +			     const struct clk_parent_data *parent_data,
+>> +			     u8 num_parents,
+>> +			     unsigned long flags)
+>> +{
+>> +	struct k230_clk *clk = &ksc->clks[id];
+>> +	struct k230_clk_cfg *cfg = k230_clk_cfgs[id];
+>> +	struct k230_clk_gate_cfg *gate_cfg = cfg->gate_cfg;
+>> +	struct k230_clk_rate_cfg *rate_cfg = cfg->rate_cfg;
+>> +	struct k230_clk_mux_cfg *mux_cfg = cfg->mux_cfg;
+>> +	struct k230_clk_rate_cfg_c *rate_cfg_c = cfg->rate_cfg_c;
+>> +	struct clk_init_data init = {};
+>> +	int clk_id = 0;
+>> +	int ret;
+>> +
+>> +	if (rate_cfg) {
+>> +		rate_cfg->rate_reg = ksc->regs + rate_cfg->rate_reg_off;
+>> +		clk_id += K230_CLK_OPS_ID_RATE_ONLY;
+>> +	}
+>> +
+>> +	if (mux_cfg) {
+>> +		mux_cfg->mux_reg = ksc->regs + mux_cfg->mux_reg_off;
+>> +		clk_id += K230_CLK_OPS_ID_MUX_ONLY;
+>> +
+>> +		/* mux clock doesn't match the case that num_parents less than 2 */
+>> +		if (num_parents < 2)
+>> +			return -EINVAL;
+>> +	}
+>> +
+>> +	if (gate_cfg) {
+>> +		gate_cfg->gate_reg = ksc->regs + gate_cfg->gate_reg_off;
+>> +		clk_id += K230_CLK_OPS_ID_GATE_ONLY;
+>> +	}
+>> +
+>> +	if (rate_cfg_c)
+>> +		rate_cfg_c->rate_reg_c = ksc->regs + rate_cfg_c->rate_reg_off_c;
+>> +
+>> +	init.name = k230_clk_cfgs[id]->name;
+>> +	init.flags = flags;
+>> +	init.parent_data = parent_data;
+>> +	init.num_parents = num_parents;
+>> +	init.ops = &k230_clk_ops_arr[clk_id];
+>> +
+>> +	clk->id = id;
+>> +	clk->ksc = ksc;
+>> +	clk->hw.init = &init;
+>> +
+>> +	ret = devm_clk_hw_register(&pdev->dev, &clk->hw);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	k230_clk_cfgs[id]->clk = clk;
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int k230_register_mux_clk(struct platform_device *pdev,
+> consider adding inline here?
+Yeah, it's appropriate to add a inline here.
+>> +	return k230_register_clk(pdev, ksc, id, &parent_data, 1, flags);
+>> +}
+>> +
+>> +static int k230_register_clk_child(struct platform_device *pdev,
+>> +				   struct k230_sysclk *ksc,
+>> +				   int id,
+>> +				   struct clk_hw *parent_hw)
+>> +{
+>> +	const struct clk_parent_data parent_data = {
+>> +		.hw = parent_hw,
+>> +	};
+> blank line here
+>
+>           - Troy
+>
+>> +	return k230_register_clk(pdev, ksc, id, &parent_data, 1, 0);
+>> +}
+OK.
 
 _______________________________________________
 linux-riscv mailing list
