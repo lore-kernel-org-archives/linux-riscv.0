@@ -4,43 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB1DAC369CF
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAC2C369AB
 	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 03:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AqCV395shrdpDNQ6G+K83MrF/wqDT9T+E6n6A8mhNJM=; b=XGpOz75q39lJgw
-	fAgia8y41r7AW0lu/d1O6bldIuggsDnEEemB0YaR/ple5u8Wdm+t0HL7coulebaVFPjTQJwTKgFnr
-	UoHTCpdy1Cgug7UWXfWKdwnKy+Nf/s06bYRNYs9A9rnwgxofjtJZ0lMTpHzWWkf91SI0bQKQucUe5
-	xqZW6U2lxsBoGILqrjBciA2X10OgVoKHdZ0ZMzshL6yYQ+o6OHCn6jW3/LDJps1cVyYRFUKqpvp4D
-	FjkoMPyRKx7AzEpR5OvQnnqVnEAuucIgzxFb6+t9pr+iAw0KEt0uJ/GT3itJ1pZEWW8BA66yCnY4v
-	KTp7ntFHSvgpVLaRb0YA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=z1NgNoWeaCFlLDv3HMnDyMdEU9lh8XhsnRbZQh7beQk=; b=xFwt02GdGQLcBz
+	lev552ZVgr5c0RxP9sa8znTATOBi9CUGJiDGvHQd/XLq9NfvbWLsN7cDItTm6mdGxtki9wohIeo2u
+	BLgsHjgxDgY6N5kxL4xtXTUgUFagXzb2JFt3hbQbf/RLPdaFxS2i52V5rLPYFi/j8WiyT9JZeX/TE
+	jve3y9dtKxGz4KPglZRUTRn2E+BcpWYEf/Uiw7TOIXdZw3G6SFvuvd37priwLr/moegO8loR5Ukvs
+	TiTiqPNGakiav6LnyUbtGQ/bdM3Kws7aBjPeOq84dIIek7Jju5Q/h7ATYNg7gfzrTKD9hNUNXD8ri
+	6YAi2A12nTYHDAdjAGMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ywt-00000000mDz-0uLE;
-	Sat, 19 Apr 2025 03:32:59 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u5ywq-00000000mD4-2oxY;
+	Sat, 19 Apr 2025 03:32:56 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5ywr-00000000mD7-1DWe
+	id 1u5ywn-00000000mCk-2vdS
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Apr 2025 03:32:58 +0000
+	Sat, 19 Apr 2025 03:32:55 +0000
 Received: from [127.0.0.1] (unknown [116.232.27.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id BD7FD343003;
-	Sat, 19 Apr 2025 03:32:51 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 6FD19342FFE;
+	Sat, 19 Apr 2025 03:32:46 +0000 (UTC)
 From: Yixun Lan <dlan@gentoo.org>
-Date: Sat, 19 Apr 2025 11:32:30 +0800
-Subject: [PATCH 1/2] riscv: dts: spacemit: Acquire clocks for pinctrl
+Subject: [PATCH 0/2] riscv: dts: spacemit: Add clocks to pinctrl and UART
+Date: Sat, 19 Apr 2025 11:32:29 +0800
+Message-Id: <20250419-05-dts-clock-v1-0-1cce5d59aba2@gentoo.org>
 MIME-Version: 1.0
-Message-Id: <20250419-05-dts-clock-v1-1-1cce5d59aba2@gentoo.org>
-References: <20250419-05-dts-clock-v1-0-1cce5d59aba2@gentoo.org>
-In-Reply-To: <20250419-05-dts-clock-v1-0-1cce5d59aba2@gentoo.org>
+X-B4-Tracking: v=1; b=H4sIAE4ZA2gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDE0NLXQNT3ZSSYt3knPzkbF0DI7OktOREc9NU0yQloJaCotS0zAqwcdG
+ xtbUA00Pqnl4AAAA=
+X-Change-ID: 20250419-05-dts-clock-026bfca75e5b
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -51,26 +53,26 @@ Cc: Alex Elder <elder@riscstar.com>, Haylen Chu <heylenay@4d2.org>,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
  Yixun Lan <dlan@gentoo.org>
 X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=809; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=1lyIFLBt62MDSyjlKUp7yZb6HXkiKK19zM19Y3kS9H4=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoAxlXK3lMEs/5J8RMMiYgvTqcW3mtjFu3h4ZoQ
- 86T0ew+cyiJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAMZV18UgAAAAAAuAChp
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1020; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=BRF5fK7Un10wZTyZfTXIVd9zabiIA3JZA0TuwSgl7v0=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoAxlURMkpdvlUF29l1uf4AJYDU30V5PsV4KVww
+ i6zxWd3AIOJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAMZVF8UgAAAAAAuAChp
  c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277UQREACSNZDSsNl+LRlFTb
- UtR9eYCCQMVV0I4iMo9KDdPFvOnYfWgpfrP96bdR3uupMlozMUkqC62gPwGlPQf41dRhp4ommNY
- ZGDJyvTmaVZIG7sPl97v85vFvV2tEpEUTMWcvSPz2uJBXPpBbZ5GM5f6SBAeDQRjXEHGja3nLzt
- Y0FkkyPJluscwDOn5iJcYTG88AnIGAgUbrEG82ORvZ83MUW5p4j5TgNzWuPBSxR46f37ubP/KLC
- EW/fqMv+P9ywDYeGLRGNsttDX1PzC+hjJEROqBvDXe5jfoq7zv3jFbQOUF70qvT6+GBRw9zSx0B
- yhhap/fwp2k3bnj78AbUcgIXcCwHIUbRNYiDUiKy2g8GIe5MSbJ7/5LRbhEifNAqHDjN3/xIklW
- xseXpWhExw/KKm1B+ii/r8X5lJqEsZXKwEUTsjz9jg/IOIZVNqwQbMIXDGXnwN5fuHWxYFxCI4h
- SM1KNf/UtzNuwHvltloaDoyK6HWAnqv3AmPstgLs07tyDJiCy0/IaW+XvdTsykhYOZQVsYjAWZe
- OZ8kBx63xPd3GO9KkiDYl782tLlG8MiD2Ebf0d/zO024ROmPoZOBJreGrrEVIGFyZmPDyIAXyIz
- HJNJ8HDOZF4xow7qO6ZN89xzzUN2gmujPq4XUrLHMOHhOkIIsEt0RKgvhV1WhObtfUnw==
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277a63D/0boFdPgWrGpZ98JT
+ qL0/qzJXF0bNOXh5MepNrUxH9zyciee8/3B78OZDmfuL+JKsRIpjCMjqrnzWarj8cKoppu+Q++q
+ TEwoBavC0+8CfIKKLcU7NC70gwg3fEBXJot188WdhWlORBsj+zOkXuDBWRTtK0pO65vCjbLND2F
+ oxmEiUE+sjSK9N7sIOu27fclOzRvMnTzDGLG3QcHW9UruGkuyydnp+e0bR/av+1ePIjEu9ENsFO
+ LltyeMvyKhbTdOU2Cu8Iy62JAunsEAP5tEeWM3Oiq2yV09dNj2YJKGcFsoftJMd+0F/8SZGUWvp
+ rMdWT01MfmWRJzdMQCQUaJmvUtXH/mlF3EGItJUL7XXdnodi1n8brmuA9qD53Tee+qvt48PvlbI
+ F/WBLReiKyDZ2+qi8Ma0KkH7dueJIgVz4cXRRVzF1UUMi/9unytB4EKjjUoSjyMkU/IAfZ9tbw4
+ LmGL32qrRFx48LD2vDBV6KDLfkB/0rdeiX2B6YoLZyZtXW5gSGwhBC1REv1ofXWiUTYN6wQrU/t
+ Qm02SVjzZTXoSywutIBOPwb5IEWI0DpvckPfdmsBxmUL8KwHQ15KGt70V5Mne7Rew7OQiotBBxy
+ EyWr0CCUKBv6wr7W0j5J7UfQJIMkb7k10jF3VbkZFxw5mJF67XUwGtzHFnvrO9C4Q99Q==
 X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
  fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_203257_355044_CBDE4900 
-X-CRM114-Status: UNSURE (   6.47  )
+X-CRM114-CacheID: sfid-20250418_203253_767338_994ACB47 
+X-CRM114-Status: UNSURE (   6.01  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,30 +90,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pinctrl of K1 SoC need two clocks, so explicitly acquire them.
+Populate clock property for pinctrl and UART controller.
 
+The pinctrl's clock dt-binding patch is still waiting to be merged[1].
+
+The UART's dt-binding and driver code has already been accepted[2],
+so we now are only sending the DT part patch.
+
+These two patches are abased on SpacemiT SoC tree's for-next branch[3]
+
+Link: https://lore.kernel.org/r/20250416-02-k1-pinctrl-clk-v2-0-2b5fcbd4183c@gentoo.org [1]
+Link: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git/log/?h=tty-next [2]
+Link: https://github.com/spacemit-com/linux/tree/for-next [3]
 Signed-off-by: Yixun Lan <dlan@gentoo.org>
 ---
- arch/riscv/boot/dts/spacemit/k1.dtsi | 3 +++
- 1 file changed, 3 insertions(+)
+Yixun Lan (2):
+      riscv: dts: spacemit: Acquire clocks for pinctrl
+      riscv: dts: spacemit: Acquire clocks for UART
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 584f0dbc60f5b0d078c7127cc4021ad6022cb182..153fd1160182b42fe1a2f7f042c9c1da90f63b0c 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -450,6 +450,9 @@ uart9: serial@d4017800 {
- 		pinctrl: pinctrl@d401e000 {
- 			compatible = "spacemit,k1-pinctrl";
- 			reg = <0x0 0xd401e000 0x0 0x400>;
-+			clocks = <&syscon_apbc CLK_AIB>,
-+				 <&syscon_apbc CLK_AIB_BUS>;
-+			clock-names = "func", "bus";
- 		};
- 
- 		syscon_mpmu: system-controller@d4050000 {
+ arch/riscv/boot/dts/spacemit/k1.dtsi | 39 +++++++++++++++++++++++++++---------
+ 1 file changed, 30 insertions(+), 9 deletions(-)
+---
+base-commit: 279d51ad9f6dc0c667f6f141a669b2c921277d1a
+change-id: 20250419-05-dts-clock-026bfca75e5b
 
+Best regards,
 -- 
-2.49.0
+Yixun Lan
 
 
 _______________________________________________
