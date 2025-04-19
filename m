@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C2D9C369C9
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 11:14:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C443C369CA
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 17:10:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=WFnTUjVPtyCMi4ugksuHTvruBvNlQzOBRVy9xzl2+Yw=; b=SudSFHn94gZy19
-	uxl3F6kAa8/6eIYwlVGoTZ3GCb/S3xXyAGiSxeOS5viTuQ9irhRgShXH604GsYVnynz8twBnyiQKv
-	Z+zozvwK1BXrlngsR2t5tDIqDeEP996WKiC4TxMKeLP92l920/Mlrv6uljSb91kZ+Xb6Kb619Olfj
-	+b5EfQc5jWutR1+DI8EwFwDPnQci5DXuXd1QsJPfvuUMRkKdrKxL6B7V+g0XH12s05mL4s8oDQIjN
-	97oD0+1hw9P8QEnYidvyXlU8vD74a9vChZFmiat1uqoB71LdSvziA8uUfDlm14pXPj1DVWPJHFwct
-	kEe+JTxFqIOK5bfCsPJA==;
+	List-Owner; bh=wB62cJsCM/REAygrPs2oiWrhQ1N/fIJNH4jeZBqEM4g=; b=bc+rm8w0cug6aO
+	Z3I0QyekAPbuta62APmOgVqIFpjUVI9pz/AFDq9wGVaCudm6X9aSTwmnjvZzP0RLarHsSa431/Sfb
+	Jjglhf7nk3q4IXeTl1buT7XRUYDm9MPYyc/HuwO996qXORkfevUQTkwK2AbZXOPCFfXOtXrYkfpvk
+	SbJ8Gqr2eUibI7UwnHv+ddVOHCtX6k+6UQNQ6Jjd8hIK4Uvc9wN5SYlj5ITFcgaTk7L0QABWaB5p8
+	6syT0lvNx9WySaC8FKcBCJB5FVoD/RMkYqXTtHTEffTxv59TUqC2uyndGy0erNGP89dM13O5OkMDK
+	LBSoSlEwypDcgTUIGVNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u669L-00000001E2x-21sv;
-	Sat, 19 Apr 2025 11:14:19 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u6Bi6-00000001arC-0cNj;
+	Sat, 19 Apr 2025 17:10:34 +0000
+Received: from sender4-op-o16.zoho.com ([136.143.188.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u669I-00000001E2F-1iC9
+	id 1u6Bi2-00000001aql-0Ed1
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Apr 2025 11:14:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 54FD7A45F9A;
-	Sat, 19 Apr 2025 11:08:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89A0BC4CEE7;
-	Sat, 19 Apr 2025 11:14:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745061254;
-	bh=segElHCdNM8ilr7pmILb8lXK5VF5TR88ipNEBHcLsPc=;
-	h=From:To:Cc:Subject:Date:From;
-	b=p9I0MntSvW1uw/BeLSdDhPqUwYf/vaDyPZqOKL059Qh5TfLQcpVcr2zt5g6fsMogc
-	 XPenoURL2fS3Z9oR5E6KDASQK4Sse4ycp5B42jRvE5uoUQ4pt66oBJMHV8xaqcggm1
-	 jJgz6rsV6wlwGiuyfIXrcBgFc1F2jNclGv+A6XPAho4e5x8E93gvnh7O9ww2v17m3C
-	 /zwWd6fjDfemXZoX/bET96HrOSIXfKPSGNitTUoLL46Z9fiAGgFGaYbblnUTMf7emb
-	 6vxwVrHy6PJwcfqSCg4UuKjPI3dEjadY+h735liz2Q3Ii0bix/0dKTAh77pnDd/tPq
-	 cWqForpJxz2Ow==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	Guo Ren <guoren@kernel.org>,
-	Samuel Holland <samuel.holland@sifive.com>
-Cc: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	linux-kernel@vger.kernel.org,
-	linux-trace-kernel@vger.kernel.org
-Subject: [PATCH fixes v2 1/2] riscv: Replace function-like macro by static inline function
-Date: Sat, 19 Apr 2025 13:13:59 +0200
-Message-ID: <20250419111402.1660267-1-bjorn@kernel.org>
-X-Mailer: git-send-email 2.45.2
+	Sat, 19 Apr 2025 17:10:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745082620; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=kUPtjhyulj4lKNZSr5Q506nPr9Rhwq7BjADHGzZk6aGdlfuF0hQhyDy3kmqP65sKUMmiNlMlCSeCNx7cGlXnSuxeQdx8nEnx8TUTGJl2HjuYdl6YqOqcD6u1boF35DwZ7dQVuaLlpJsgRUywBBNIj2CX8ME1LX6BcANYYnebhcw=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745082620; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=zc6hW+RokbtJ0HkiqvbdqKYh3HQtrMeP7KANf84SHQU=; 
+	b=DYOPJQgPAPgdubZGMf+TVfjRYjlp3smGoeUOiTPOoNkin0Sb94UIJnCTTiNbpp2lTzmzhMPZ3ZhEylRvr6KJiX+9LyXEeFZsE3S3fxGDgF00dHVCgyzKdgUK0QpKTzhtUq3Xiel435HdOJNX8YcVI0SAADxURLKaWEtbb2dfyPA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745082620;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Subject:Subject:Date:Date:Message-Id:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:To:Cc:Cc:Reply-To;
+	bh=zc6hW+RokbtJ0HkiqvbdqKYh3HQtrMeP7KANf84SHQU=;
+	b=E9E+SLpWImkk9kyjBZ1vaTepXEWMnulIwzrUi0fqLjZbcqni5rOxVuJiDe5+hTW7
+	aK8C/+dfGrK4x86Gbbq4XPWNRjvctpehJZb3NPHJOJW7qNEz86IdpRxKs9wbwU0J7FE
+	CGm52atno1IotD7UZ3O0vriwGUDn0tD4SPL7xPCs=
+Received: by mx.zohomail.com with SMTPS id 1745082617967477.42022053116546;
+	Sat, 19 Apr 2025 10:10:17 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Subject: [PATCH v2 0/2] reset: canaan: add Kendryte K230 reset support
+Date: Sun, 20 Apr 2025 01:09:43 +0800
+Message-Id: <20250420-k230-reset-v2-0-f1b4a016e438@pigmoral.tech>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIANjYA2gC/1XMQQ7CIBCF4as0sxYzUKrFlfcwXShM7aRaDGCja
+ bi7tDuX/0vet0CkwBThVC0QaObIfiqhdhXY4TrdSbArDQpVgxq1GFWNIlCkJGpl2qM99EiugXJ
+ 4Ber5s2GXrvTAMfnw3exZruvKaDTqj5mlQOHQOiulaQ3dzv6dHt6Pe+uf0OWcf1S31ZSmAAAA
+X-Change-ID: 20250404-k230-reset-32987c6f0ed5
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745082602; l=1733;
+ i=junhui.liu@pigmoral.tech; s=20250223; h=from:subject:message-id;
+ bh=FScS832+VFdZStqXHlWridVxQQzyABZcH6GmzQcbCaA=;
+ b=ntVwPG4tNYZHH4Spqv0J8dovVCQpHAe6gzM+PcyDRQMdVcz7dFr1zaHI000Z7hcmCKFs59mNq
+ QjQdVUUgCr6AtZhupq0pmKpeP3w0owPe5h/zG0bUbr+aMRJBDJ4/1id
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=ZRZkOjG47iI+To+oAo2R4KIpMwtz8r0TffJ5/nO2tcg=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_041416_515610_014E505C 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250419_101030_577518_54FA4F5F 
+X-CRM114-Status: UNSURE (   8.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +85,56 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQmrDtnJuIFTDtnBlbCA8Ympvcm5Acml2b3NpbmMuY29tPgoKVGhlIGZsdXNoX2ljYWNo
-ZV9yYW5nZSgpIGZ1bmN0aW9uIGlzIGltcGxlbWVudGVkIGFzIGEgImZ1bmN0aW9uLWxpa2UKbWFj
-cm8gd2l0aCB1bnVzZWQgcGFyYW1ldGVycyIsIHdoaWNoIGNhbiByZXN1bHQgaW4gInVudXNlZCB2
-YXJpYWJsZXMiCndhcm5pbmdzLgoKUmVwbGFjZSB0aGUgbWFjcm8gd2l0aCBhIHN0YXRpYyBpbmxp
-bmUgZnVuY3Rpb24sIGFzIGFkdmlzZWQgYnkKRG9jdW1lbnRhdGlvbi9wcm9jZXNzL2NvZGluZy1z
-dHlsZS5yc3QuCgpGaXhlczogMDhmMDUxZWRhMzNiICgiUklTQy1WOiBGbHVzaCBJJCB3aGVuIG1h
-a2luZyBhIGRpcnR5IHBhZ2UgZXhlY3V0YWJsZSIpClNpZ25lZC1vZmYtYnk6IEJqw7ZybiBUw7Zw
-ZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hl
-Zmx1c2guaCB8IDE1ICsrKysrKysrKystLS0tLQogMSBmaWxlIGNoYW5nZWQsIDEwIGluc2VydGlv
-bnMoKyksIDUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9jYWNoZWZsdXNoLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2NhY2hlZmx1c2guaAppbmRl
-eCA4ZGU3M2Y5MWJmYTMuLmI1OWZmZWI2NjhkNiAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9jYWNoZWZsdXNoLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jYWNoZWZs
-dXNoLmgKQEAgLTM0LDExICszNCw2IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBmbHVzaF9kY2FjaGVf
-cGFnZShzdHJ1Y3QgcGFnZSAqcGFnZSkKIAlmbHVzaF9kY2FjaGVfZm9saW8ocGFnZV9mb2xpbyhw
-YWdlKSk7CiB9CiAKLS8qCi0gKiBSSVNDLVYgZG9lc24ndCBoYXZlIGFuIGluc3RydWN0aW9uIHRv
-IGZsdXNoIHBhcnRzIG9mIHRoZSBpbnN0cnVjdGlvbiBjYWNoZSwKLSAqIHNvIGluc3RlYWQgd2Ug
-anVzdCBmbHVzaCB0aGUgd2hvbGUgdGhpbmcuCi0gKi8KLSNkZWZpbmUgZmx1c2hfaWNhY2hlX3Jh
-bmdlKHN0YXJ0LCBlbmQpIGZsdXNoX2ljYWNoZV9hbGwoKQogI2RlZmluZSBmbHVzaF9pY2FjaGVf
-dXNlcl9wYWdlKHZtYSwgcGcsIGFkZHIsIGxlbikJXAogZG8gewkJCQkJCQlcCiAJaWYgKHZtYS0+
-dm1fZmxhZ3MgJiBWTV9FWEVDKQkJCVwKQEAgLTc4LDYgKzczLDE2IEBAIHZvaWQgZmx1c2hfaWNh
-Y2hlX21tKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLCBib29sIGxvY2FsKTsKIAogI2VuZGlmIC8qIENP
-TkZJR19TTVAgKi8KIAorLyoKKyAqIFJJU0MtViBkb2Vzbid0IGhhdmUgYW4gaW5zdHJ1Y3Rpb24g
-dG8gZmx1c2ggcGFydHMgb2YgdGhlIGluc3RydWN0aW9uIGNhY2hlLAorICogc28gaW5zdGVhZCB3
-ZSBqdXN0IGZsdXNoIHRoZSB3aG9sZSB0aGluZy4KKyAqLworI2RlZmluZSBmbHVzaF9pY2FjaGVf
-cmFuZ2UgZmx1c2hfaWNhY2hlX3JhbmdlCitzdGF0aWMgaW5saW5lIHZvaWQgZmx1c2hfaWNhY2hl
-X3JhbmdlKHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kKQoreworCWZsdXNo
-X2ljYWNoZV9hbGwoKTsKK30KKwogZXh0ZXJuIHVuc2lnbmVkIGludCByaXNjdl9jYm9tX2Jsb2Nr
-X3NpemU7CiBleHRlcm4gdW5zaWduZWQgaW50IHJpc2N2X2Nib3pfYmxvY2tfc2l6ZTsKIHZvaWQg
-cmlzY3ZfaW5pdF9jYm9fYmxvY2tzaXplcyh2b2lkKTsKCmJhc2UtY29tbWl0OiA4NTYwNjk3YjIz
-ZGMyZjQwNWNiNDYzYWYyYjE3MjU2YTk4ODgxMjlkCi0tIAoyLjQ1LjIKCgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This patch series add reset controller support for the Canaan Kendryte
+K230 SoC.
+
+Tested on CanMV-K230-V1.1 board. Some of the HW_DONE and SW_DONE reset
+type was tested by reseting the submodule and checking the reset
+register value[1]. The CPU reset type was tested by a temporary rproc
+driver[2][3].
+
+link: https://gist.github.com/pigmoral/cc45de673775575750ac7fe49d4456a2 [1]
+link: https://github.com/pigmoral/linux/tree/k230/rproc-cpu0 [2]
+link: https://github.com/pigmoral/linux/tree/k230/rproc-cpu1 [3]
+
+---
+Changes in v2:
+- Turn to_k230_rst from macro to inline function
+- Use guard to replace spin_lock_irqsave and spin_unlock_irqrestore
+- Remove assert and deassert operations for self-clearing reset types,
+  only reserve the reset operation
+- Add delay to accommodate the reset time
+- Remove blank line inside read-modify-write operations
+- Remove redundant default case in enum switch
+- Update copyright dates and my email address
+- Link to v1: https://lore.kernel.org/r/20240924-k230-reset-v1-0-d0cdc11989eb@outlook.com
+
+---
+Junhui Liu (2):
+      dt-bindings: reset: add support for canaan,k230-rst
+      reset: canaan: add reset driver for Kendryte K230
+
+ .../devicetree/bindings/reset/canaan,k230-rst.yaml |  39 +++
+ drivers/reset/Kconfig                              |   9 +
+ drivers/reset/Makefile                             |   1 +
+ drivers/reset/reset-k230.c                         | 355 +++++++++++++++++++++
+ include/dt-bindings/reset/canaan,k230-rst.h        |  90 ++++++
+ 5 files changed, 494 insertions(+)
+---
+base-commit: 8560697b23dc2f405cb463af2b17256a9888129d
+change-id: 20250404-k230-reset-32987c6f0ed5
+
+Best regards,
+-- 
+Junhui Liu <junhui.liu@pigmoral.tech>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
