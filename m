@@ -4,90 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40236C369BD
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 07:36:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFB9AC369BD
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 09:43:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aDuh0NMOK1zKXYceyVRVOpCT3zFO8BWPR+pY2pHo148=; b=BQYVGlqFMtp2BR
-	WOlt/CLLmkM7C5DWr1hvfoVY1MQh04Nl5O/Varw9ldhJoiUHTI+X/6yQEO7ZZfaUFF72xuOsykK1w
-	WJdmd6I0mc1etDIwys0RsEf4URdnE0NpTQdQxfGSoOk/N4BzgbAPvTvwvqsCzCo4KPAIrY23Tdg3z
-	tcY78xxY2R8UYAYFb5Ub3x2wKp5OeOTtvxcAJgJEghmpbrkLB/iZ92ey1hAXNXsrVT13r5SCil9FK
-	xewxedIdqvSF2SGanrth27MOoLcoqox323FvRqj6qytePUGh7o/f/BcYFZjwhNYQhTwUrOSBe0Ckr
-	pChR1aAllV4BH0pqv53g==;
+	List-Owner; bh=RGHwJKUBCaApdUHwsvFTdrvC9jb0ZKA5/2kaOv0r+As=; b=h7IKWc9B26WKDU
+	bIjHWZadssEQBGuLnEB4HXkKpDhtpVknzKZNUIt1HmhJZ+32Z/UW+KxjMrkXFrr/Fpr/nZ3XXKtz4
+	+SZ58qgKJKg8+5A619wdxdxvN4bQDf30KRLYCaYCsOVOcrVoEnBK86SxzfwKeEYqZWBDDYlsCaBan
+	qJzTnIoj8cvQgKmrjba7JHeWzGYb4/UV78A3fNgDYv2+li3d8klzrb6rfaHFfKM7qCr8eyJMGoN5e
+	xXwLp2LSUcYdC77Np6Ux9F/1LOwlM83rgpKMIOtvAcZ7ROsDpemqgUH0PDJnMNjRbxb6xD334aBN9
+	252M6KjzvjWWwWNSzswg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u62kH-00000000zLA-1hQC;
-	Sat, 19 Apr 2025 07:36:13 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1u64jA-000000016Tg-1bds;
+	Sat, 19 Apr 2025 09:43:12 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u62kF-00000000zKP-0d7B
+	id 1u64j6-000000016T2-2auV
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Apr 2025 07:36:12 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22c3407a87aso39105715ad.3
-        for <linux-riscv@lists.infradead.org>; Sat, 19 Apr 2025 00:36:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745048170; x=1745652970; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VbNMv8EcDVNc7S53ITN7O5grQN0Xg+vZe4s9ox5YAkY=;
-        b=fGlTzxPyRFLankF1mgaMH6xVpRtdz2plNEvFAPfe7Y8zpr/MgKnMZCLm0mXtm3JIcO
-         UdZOTZu9gAHIEgOz9WmOQMUjgf/OFE3tHIOJYtOKXtD5KN7spsuMK5g0IvcEnJuivvRH
-         w+kL7kPV9n5QPNyRyoCZgpgsuHBJ3ygs+i4bBMMsuCVmGaDTVg+p0xY6N1tMr1GzB6hs
-         iiKDfLLxWtZKKRI+ixBis47P8XKqy9jF4spsOWd2yAqpHCMrjhoGGS1c4awV1YMiXllx
-         gMDOEklAMPpiSJ7ZzJfc/EDEuUgsRdR/gG1Ajczm4hFDGGPxG7kFktnhOnfCGFF2eJLo
-         bJcg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745048170; x=1745652970;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VbNMv8EcDVNc7S53ITN7O5grQN0Xg+vZe4s9ox5YAkY=;
-        b=lCYAAFma6uSFXb3C3fNFhQrJq2hoHnqYtCRp2A8yJ1/SXSuPG1kb0+TSMiiUL6O1nQ
-         HRCOs1KzGnSG41wlOiLAkMEe43p2sBuypWIsAWeTCIJjGJMqAxrd3vOAJnC5sVbcyxsU
-         3+ePzXtScFBTJa4rqpFAyZE7etbKsIB1vAyxNaf84ZvaQcpL25NQrq5+pm7hvxczL8AJ
-         MQFFedZ1ozo96GzN4xVnu+Ad1YAsJv4kaz4YdyAyavVB589oNuCG8U0cn3CLyVNA59Wx
-         S/jHJk9w9qpsDhg02BwCXdFjFGzMTKDQ3NESHKvzDuhAwZ6TmPHJMjiww6Om1V9EY6GH
-         FREw==
-X-Forwarded-Encrypted: i=1; AJvYcCWNT/n933txuqIqgEMnEgy01sA5DjJ7JbdxJVod36FDq10bO7klB+IaMqcW568yJpgDQmj12IPtTFhwQQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAdRk5I/WIvkaqFPJ2od4Q9AwKYY7eT3eXR9/C2voKqRo8wNaD
-	SDryMLlpKbzIypyMxj6XI/41hUJupx/mw5v2vC3Yn+BPlvOFb3PY
-X-Gm-Gg: ASbGncsuM/98naME4PAyd1zK2KusCCjVIBZJ/HqFa7hxQvhWm7guKwrbtvlaw7rSymG
-	SwY07TRBeICXVsynNfn/j9dI+dbAaI/SPKUVhTK3DWBAsM7mpRUCwQtXQXyVG93Fn+S1iQtT1PV
-	J3rNeWZgJPPHDnz2qu264VQgONshwFqAcBg053PloRJF6bhPOq2wgSRAJaVIxUJXwNaK+t1qHQh
-	gsFNgG7PFRhW5T41e/XXehjbvin1zOBADOZRMT9jhttM8t3Q2XXOk+C5Cc4XtiFLfx9vhVduWVx
-	SxtNlH59FNNjT62+amCX/GX6Exim32maAntXYxAmLg==
-X-Google-Smtp-Source: AGHT+IE8gk3khKs6q2QV88hzoLFK8V9guTrvMWRFQ6JyDLTYcHlv4zmRal3/vUFMXM/1CNJJOpJ0+w==
-X-Received: by 2002:a17:902:e549:b0:224:376:7a21 with SMTP id d9443c01a7336-22c536076f3mr77627655ad.42.1745048169844;
-        Sat, 19 Apr 2025 00:36:09 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-22c50ed0f7asm27997115ad.169.2025.04.19.00.36.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 19 Apr 2025 00:36:09 -0700 (PDT)
-Date: Sat, 19 Apr 2025 15:36:05 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>
-Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v2 3/3] pwm: sophgo: add driver for SG2044
-Message-ID: <pat3f5nc57uo6p7vwmlrky6ezxhtn3qldmx3falmc4hv5beyyj@r2jfmuxtx5pi>
-References: <20250418022948.22853-1-looong.bin@gmail.com>
- <20250418022948.22853-4-looong.bin@gmail.com>
- <MA0P287MB2262E14F6F9758646320F7CBFEBE2@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+	Sat, 19 Apr 2025 09:43:10 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 509B812FB42D;
+	Sat, 19 Apr 2025 02:43:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1745055784; bh=TOBj/1ChDvQnz19HxGfDD7N1HbsUAezNiKIuArHitj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bNiPjR1WKT0/qO+GEwYV3ti6DJ49pPMOi+jbfO3N4GODOi6p9j7inA8FOc4vLpH0j
+	 dASyRqNb9Ps//zuysI/icCS/35r1suh21OW8Dyvi8U21b3KGu1skl21hqr4nujNhPS
+	 fK9kkNKbisx1GGZYD8p4g7ufqTrBNPrBtKILL4eq7aALULnaYuBWd+BO0x+S2h2jez
+	 rtx7zRUEblW9Qo3MFEJWNC343Bx4N7zSpd+K5ngRlq4ZRV2f8iuKnD6hmFl25XlTwZ
+	 PpufaHD2LZCRWQ+IeSezOZCOTVJxXre1ccd4tqIENSw4w+pgSMXBeWSOltGEziruhb
+	 b5TXUlIq0VYXQ==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 0FlYzok8K45B; Sat, 19 Apr 2025 02:42:58 -0700 (PDT)
+Received: from ketchup (unknown [183.217.80.191])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 45D7A12FB42F;
+	Sat, 19 Apr 2025 02:42:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1745055778; bh=TOBj/1ChDvQnz19HxGfDD7N1HbsUAezNiKIuArHitj0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=wr5TvnpUG18QOtD4HGV0Oi94la5waO52Jiofd6Nl/C7t150TDDWF6P9nogJSy4wwj
+	 QO0Vc3/weoQtsh5XMDhY4DECXbfbUA+1utkqvvQDj/xIjvytH7eVGMIA5ULw8bHZ9D
+	 5O36SRf6xhB+L2cBZmyEscMyH4QVLxuQyD/fmiUYr+x5l8Hy26AE9rq7c93CKU902Q
+	 5MjNu38Nw76QU2Wffp/kIgzp6yDLwAbpEE0RVOrkOiq3D1AViAx2VqFwkPKhZJtY7y
+	 KxSnacvzI3AEoySjQZZYh/o50y+d5G/kQ1Wksix/r4ixg2HdLakYBjozgfRqCVuCGv
+	 R9ImEj7ciEC8A==
+Date: Sat, 19 Apr 2025 09:42:49 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Yixun Lan <dlan@gentoo.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: Alex Elder <elder@riscstar.com>, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 0/2] riscv: dts: spacemit: Add clocks to pinctrl and UART
+Message-ID: <aANwGZCIpMcd47IB@ketchup>
+References: <20250419-05-dts-clock-v1-0-1cce5d59aba2@gentoo.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <MA0P287MB2262E14F6F9758646320F7CBFEBE2@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+In-Reply-To: <20250419-05-dts-clock-v1-0-1cce5d59aba2@gentoo.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250419_003611_207174_5CAC8905 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20250419_024308_970142_FD23ECE4 
+X-CRM114-Status: GOOD (  14.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,53 +95,46 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 19, 2025 at 09:24:23AM +0800, Chen Wang wrote:
+On Sat, Apr 19, 2025 at 11:32:29AM +0800, Yixun Lan wrote:
+> Populate clock property for pinctrl and UART controller.
 > 
-> On 2025/4/18 10:29, Longbin Li wrote:
-> > Add PWM controller for SG2044 on base of SG2042.
-> > 
-> > Signed-off-by: Longbin Li <looong.bin@gmail.com>
-> > ---
-> >   drivers/pwm/pwm-sophgo-sg2042.c | 89 ++++++++++++++++++++++++++++++++-
-> >   1 file changed, 87 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
-> > index 23a83843ba53..26147ec596c9 100644
-> > --- a/drivers/pwm/pwm-sophgo-sg2042.c
-> > +++ b/drivers/pwm/pwm-sophgo-sg2042.c
-> > @@ -13,6 +13,9 @@
-> >    *   the running period.
-> >    * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
-> >    *   be stopped and the output is pulled to high.
-> > + * - SG2044 support polarity while SG2042 does not. When PWMSTART is
-> > + *   false, POLARITY being NORMAL will make output being low,
-> > + *   POLARITY being INVERSED will make output being high.
-> >    * See the datasheet [1] for more details.
-> >    * [1]:https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
-> >    */
-> > @@ -26,6 +29,10 @@
-> >   #include <linux/pwm.h>
-> >   #include <linux/reset.h>
-> > 
-> > +#define SG2044_REG_POLARITY		0x40
-> > +#define SG2044_REG_PWMSTART		0x44
-> > +#define SG2044_REG_PWM_OE		0xD0
+> The pinctrl's clock dt-binding patch is still waiting to be merged[1].
 > 
-> SG2044_REG_xxx, the prefix looks inconsistent with
-> SG2042_PWM_HLPERIOD/SG2042_PWM_PERIOD. Can it be unified?
+> The UART's dt-binding and driver code has already been accepted[2],
+> so we now are only sending the DT part patch.
 > 
-> The others look fine.
+> These two patches are abased on SpacemiT SoC tree's for-next branch[3]
 > 
-> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> 
-> [......]
-> 
-> 
+> Link: https://lore.kernel.org/r/20250416-02-k1-pinctrl-clk-v2-0-2b5fcbd4183c@gentoo.org [1]
+> Link: https://git.kernel.org/pub/scm/linux/kernel/git/gregkh/tty.git/log/?h=tty-next [2]
+> Link: https://github.com/spacemit-com/linux/tree/for-next [3]
+> Signed-off-by: Yixun Lan <dlan@gentoo.org>
 
-I will rename it to unify, thanks.
+Generally this looks good to me, but I realized that splitting the
+commit that introduces clock controllers and the one that correctly
+fills clock properties for various peripherals may cause bisectable
+issues, i.e. the UART won't function with only the clock controller
+introduced and no clk_ignore_unused specified on commandline.
 
-Best regards,
-Longbin Li
+If this isn't really a problem, for the whole series,
+
+Reviewed-by: Haylen Chu <heylenay@4d2.org>
+
+> ---
+> Yixun Lan (2):
+>       riscv: dts: spacemit: Acquire clocks for pinctrl
+>       riscv: dts: spacemit: Acquire clocks for UART
+> 
+>  arch/riscv/boot/dts/spacemit/k1.dtsi | 39 +++++++++++++++++++++++++++---------
+>  1 file changed, 30 insertions(+), 9 deletions(-)
+> ---
+> base-commit: 279d51ad9f6dc0c667f6f141a669b2c921277d1a
+> change-id: 20250419-05-dts-clock-026bfca75e5b
+> 
+> Best regards,
+> -- 
+> Yixun Lan
+> 
 
 _______________________________________________
 linux-riscv mailing list
