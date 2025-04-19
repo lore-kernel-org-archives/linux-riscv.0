@@ -4,91 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D03FC369AB
-	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 01:02:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7B9C369AB
+	for <linux-riscv@archiver.kernel.org>; Sat, 19 Apr 2025 01:13:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VfrVbFCnlGyq+FIH/a/dD/7ux430s2ep9/OIUV2ucrQ=; b=wPbI7YtGurUoVN
-	XVKmFDBqQbV5hp/5ojX1VXfMCg7HHmMY4C36NH8Mnfqz+ZhgkNlNIsDPriwwMN/VnLFDFfMIS6m/4
-	4Mqho55LhQTA++PQ2BZQ/WDLoXwFOo/o4jWCSbqKy2weaSsdmUYqN53J+Yru1AEMpV89QMrQ/WCBn
-	PNEztM1cZTpMT4QrwNm/O6uTChwQYG9pVzA5BeYEyHgWq2DuGSw6MPtuaaWx1zKXPwzp8hHH5rkt2
-	UMCHCxf9o4NmytiBW0bNvvn0+p9W7j3t9qRFyljenR+yVJV5WzBGM12tILng8HlsIQNvReBQntqHi
-	teHqAt+jGUqTauykHa9g==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v19UaZJVJqT/AogpAthHuN4S8onDCw+DnQ171m7BEEQ=; b=jlOw66bWqmo9Sx2PP7uZILZf5T
+	5d4mzuWwv5BjIBM17XrlwBX3EeR04mOdpEBqlLwn0i6fYUaFTyYgGqO8QqJG2aNoNU8pKi2HFs85Y
+	M6o9TyRIecIb8oPhkxxRabIfOHQafZkSTtpmd3hqlvs1tW6OIVizL99zFYV6h9Wsl1Tdgb1qt0dd2
+	h5FslpvPJ5uTZwKDsoBjZcdMFKYtYj+/hv+QI8W2h7L6CXqIqkr+FegadYlYxF1VgQN95SNce7HCP
+	2hEMI8DXx3TsLDKlmJa792rDm/puroHfSMJz/ElK/REYhTyLNP/fEHB/ZfHaFRD5MivRaWfX/3pAZ
+	ZPcQ807Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5wak-00000000dA3-1YnC;
-	Sat, 19 Apr 2025 01:01:58 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1u5wmB-00000000e2G-3JLk;
+	Sat, 19 Apr 2025 01:13:47 +0000
+Received: from mail-southindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d408::1] helo=MA0PR01CU012.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u5wai-00000000d9f-0s8w
+	id 1u5wm9-00000000e1p-3R12
 	for linux-riscv@lists.infradead.org;
-	Sat, 19 Apr 2025 01:01:57 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-7376dd56f60so1748171b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 18 Apr 2025 18:01:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745024515; x=1745629315; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ujUghSXI3lvU/j4kBychDVllaVMcrvSdA1dMJsQgYzU=;
-        b=QRpSxm4EzO2GjSFX8o3W9dqzcIIEP8kDmj3rT75V+q/FpvsalnyWIgXF/YzixnOD90
-         1sk7t4jCD67PCUdQoTcuyKsY2D7ejIoZaqDgxBL0z3PCrV8PvJaF06/Gj0HieYta7YvU
-         LEmdeB8TKCklHeQe87HsJwLbYU6O+8qMY1Ev+YAJPErBVAPqDK0T4aF4UoUvXqqCKptE
-         KoqzGeMan45D8m0v7S/7BSNAmeC1u08GVtRkwYrcTEC3Vn31tw475to5T7us2WgN4myM
-         IfJz0STpkMP2cndAcBXBdaUyhtH/lU5q9V7WTc99KRVU10UmpDtye/ZYvkS++9ttxvkY
-         AXzA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745024515; x=1745629315;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ujUghSXI3lvU/j4kBychDVllaVMcrvSdA1dMJsQgYzU=;
-        b=XpjqY0EjmqS2HDVkHXUbIhC1Wo1t5M5fWSFv8Zv13LrwMW7tH/lttEfxMtH+36KaRq
-         Kv+8mnFlZMQ4LpUpAbfh6vb9xRtuJBptV2rL8fd+F7oX8RS0pvj7hverOcJCZjChMfPp
-         R41NChlrVR3R1qrmVlALbBOAOI820/xrzkBT0yhR0Szeprrel/tLtCFvj0gZ4k6Ci8I0
-         9BRvQhywztiCpL1heZDjpcI6LrWyGxvctGwqQsXWu6cK1DYR3mD6zJ0ex+LaP+IsUOEj
-         uDby5+mFbkPW0V90mUr2EkKQrvkSTMj/z/hw8j/ByUmlHkvR6y0Vi2Ez+06aXWtISgZw
-         zTYw==
-X-Forwarded-Encrypted: i=1; AJvYcCUAY/vMF/G4Qy+k//baK6DQ2bgjd4gQtXNC/62pS2L3LnlOHjccoAvVeYgqs350Zi4Hwjo7zxv3DjtX1A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYFsJmL7FITnaEMQH7vaoTrn+O/vfV2CIA4iQQ8i+asYANpysJ
-	wvhxzn8eb6OnBUF5h61Yc0hAfHB3rfRQUt+s9Eo8dmm9/P2Kt4IK
-X-Gm-Gg: ASbGnctj07/dnP79D34y5W3BYw35DMG8u8UHAchiuQzL9Qob5suA2/uvb+6tA1Y5SSw
-	rsAxST3wV9kBZia1gYHBGU7AHgTlF9ClwmSKjWnbhWOToZ2RWtiGtKfT+bZzA0u6UrRb5pXVeWy
-	jiVyQGgo/KxGXjXaG2iJQoM1FYWByp50843fNCH/1sxW65fLNzLai0HQ8ua61wL745HZzo9i3ux
-	WRdWYNy9fu7mkxmUYD4NySZO3vdIkSamZuYkJC2Y5nbrulid4yToKKx94ZYJqNYxoiOgAaFA167
-	KsSLIZTNN8Ybai9wBGpAL5cFtO6WKODnMGvK5CuniA==
-X-Google-Smtp-Source: AGHT+IGQtEfItXobFcuGDvqDRwlUvs2hCkTSpl7TA3j+71VHIPX2W4+6Y8A6gmR3Z+xQLeYoCXICrA==
-X-Received: by 2002:a05:6a00:4acc:b0:736:b9f5:47c6 with SMTP id d2e1a72fcca58-73dc1566938mr5879716b3a.16.1745024515391;
-        Fri, 18 Apr 2025 18:01:55 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-73dbf8e3d4asm2248487b3a.70.2025.04.18.18.01.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 18 Apr 2025 18:01:54 -0700 (PDT)
-Date: Sat, 19 Apr 2025 09:01:52 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: ALOK TIWARI <alok.a.tiwari@oracle.com>
-Cc: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [External] : [PATCH v2 3/3] pwm: sophgo: add driver for SG2044
-Message-ID: <telzh74wfpenbhtpnkd74hfoqt3fens35xvftgng3agvaj3xoa@geocy2uc5nfs>
+	Sat, 19 Apr 2025 01:13:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=i9oGrScYJKUX88VE+67nfv11dqlfgy4UxPycoV9Z0ei/dzSXCEiDcuDhBQPT6m4NlKB+vSGcHCOHhz3cBiTiyj7FMMtpmbEGCb9vRM5SpVYZl0BgkxYFdVQF/wSgVQ76eTl8LTVMqmwBA9Gf3qdSUjfTNJPsBHwdYlK4IM0R8QrdI10uUGX1qa/zS2w8ycNAAfFplc53tahLrwqKdyFl1e21G50ug4RqlmERLULxv2cWCzM7ewcBK5K/RS7/g4aqSRCkHKKeiKzo7qwypdsSDr6ph/gtych+HwYzZI+eesAe1zPZL6VkVa5OMA06BNvcMX3CzRxIOXFEflCKiQKeug==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6RjYxmDXk+a1tCjaHKNET6TWW4L3IM5aayNkGl1IF1A=;
+ b=p9+UpNSt+wSOhTFZdEsFMzKyf2teFltjG0LVIAZEt3jeaxkXS2sjq/TYkcLGBt++Ua+znRzs+KLJv0gT4XcM9CG6ZiVVfKfMA+ApLFbqDVracJjX6dSWAm6+1tfEIRCvOcAslFz5FAiRRW994wkoxG5qPC4Z6c1Hdkhli5wDp/RayYM1MSoLfPEQZQFDWwDTzlN6Jdp/pxFRwMbCO0ji3Y4pTdjYuSAT04Uc2mOLbmJiTGh1l6WPtIsMsUfqn2g+yRAQ7msa/RQKZY2Hj9Oa2sMbUVHun93QxM2B2PS6mfWaicaX+Y26DP3R9Ogv+WRDEXwLZFz5j1L6sc2X/DEqAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6RjYxmDXk+a1tCjaHKNET6TWW4L3IM5aayNkGl1IF1A=;
+ b=DDN7kzsquM676sXkEjWAEEucNIXekny2BmoJd3zBMfTCANlYi4je0qbbOdZyWBRacYIxRQjv9S57p1zf3BW5Gjg/fAS0kGELP4K9u9pdQ7iq0yYwJt0q+xUy3+oh3BhAbHXOV2SyfpNUeXHxpZzoSOb7tnTjcX0Pfy2TJe9yb/9Cm1mNjctnCRbXNQ8pecqAo/Q9YRYrOz/nupyuuAQjn+B5QIu5Cu/JhJAntn0AutUSeqhGEU64wQLQXlyQ30odBF3s0a0Wv0zXPxna1O398m9ItSKJh8b3qc4p+py7T9IgivDJdyJKM+StUdFnRryHDUXUK+55P3Vdw9jOE/vTfg==
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
+ by PN1P287MB3593.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:255::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.31; Sat, 19 Apr
+ 2025 01:13:15 +0000
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4%5]) with mapi id 15.20.8655.025; Sat, 19 Apr 2025
+ 01:13:15 +0000
+Message-ID: <MA0P287MB2262745872348EACA7E3DDEFFEBE2@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+Date: Sat, 19 Apr 2025 09:13:11 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: sophgo: add pwm controller for
+ SG2044
+To: Longbin Li <looong.bin@gmail.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+ <ukleinek@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
 References: <20250418022948.22853-1-looong.bin@gmail.com>
- <20250418022948.22853-4-looong.bin@gmail.com>
- <a0d63c0d-7f17-459a-9ba1-6532a986c8db@oracle.com>
+ <20250418022948.22853-2-looong.bin@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250418022948.22853-2-looong.bin@gmail.com>
+X-ClientProxiedBy: SG2PR02CA0075.apcprd02.prod.outlook.com
+ (2603:1096:4:90::15) To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:100::6)
+X-Microsoft-Original-Message-ID: <b6b460f8-03a8-440a-9b99-609a6a42e786@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <a0d63c0d-7f17-459a-9ba1-6532a986c8db@oracle.com>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|PN1P287MB3593:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74365edb-c9cb-4390-1460-08dd7edf5c6c
+X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|461199028|19110799003|8060799006|15080799006|7092599003|6090799003|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bFduTG8vSFpVUHYyR3owRnZGbHNiaG5PUkpJL1RqUVpXZWlybjVEZjQ3b21q?=
+ =?utf-8?B?dTV0aVZwYjRLbEE3VHZyYXUvdXJaRDJNdU44TEFsZHFTQ0Uva3JHRG4wdmhi?=
+ =?utf-8?B?d1VFcVpiNG95aW01b0JpZDkyK3RjTFNqZGNtK3ErdUVBeGxWUmNXcTBoQ2w1?=
+ =?utf-8?B?N0pvaHMwT0dZNXNDbDNJbUJWWWJzVmpvNU9ZSHJIZ0NJakEvTnhiNDJZeWts?=
+ =?utf-8?B?KzZkVE5ubExUdzFIbnYyUzJyZmMyTVB6WVJuK0k4RzhSNXRvMnhCRUl6eFlK?=
+ =?utf-8?B?WU83d0ZzTmVNc2RYUC9xV1RnRWEwdWxtVEpKdldlRmxSSXJ4TkREYURzWlAr?=
+ =?utf-8?B?UWFyeG5iYWcvaWYxYXRLb0JnUUd2WGU2QnVIVm8rbUJUNjkvd2JIQ1loNUVm?=
+ =?utf-8?B?VWMzTnRzWHQ0UU16UG53cnNNaGZvN0FBQjliaEJadmlGVGpzQnZnZDE2a0dy?=
+ =?utf-8?B?ZVkxUWZiemhEbERqYzJ1allITi9RV3BUcG1xZnFabE42YkZRdnlVbjdaUmpJ?=
+ =?utf-8?B?R3BkcEVkRUZ6WHBmdFhpU0hQaXBORnNPT2F5WmhhNGIzOUZyVEMwcHhzQ1pV?=
+ =?utf-8?B?ZGhlL1pyT09wV0J3ZzF3c2ZCb3R4d0dHTGttSHhLK3lqQWpoeFR0L3g0QVZl?=
+ =?utf-8?B?ZTZEM1JwWWxSNXMzV2F5SEdPRlVCN3BYRlhuRFMrRnBsaHl3U3haNXlRQ3JQ?=
+ =?utf-8?B?eWxpWVE5bExsMkFjcEErUUQzd3orZ1FtYVZ4RURjQzZnV0JqUGlsRXZkYXpw?=
+ =?utf-8?B?TFlSMCt4Q3VRaEh2WEt1WVZva1hNcmNQcEFvVG9JcUtwb20xZkl5aFZjTkg3?=
+ =?utf-8?B?K05NVlNpb3lKSzdTM04zOTZkM2FqSXFrNzlYSTlaWjdSRGF6SEVYZHN5QUFC?=
+ =?utf-8?B?aS9NeldOem4rb1dxMFNVUUNUQlVzWjFlZVN1RUZITWRmOUFJN1ViT3k0WmVR?=
+ =?utf-8?B?b0EvbFU4YzN2NWhlamtMeVRXb1hhNGdPUC9DUWhVanRsVVYxZWFHdjVCSGY1?=
+ =?utf-8?B?TGFSODFINFNUbjJZdDBsYXNlRXgyWXN4cVhISHg1SFJlaHhpeWFsQ1VrTFRs?=
+ =?utf-8?B?K2FHazlIZm5oL21GbHpjOXFtUUVUNnF2VEhYQkxPd3pPT0JwTXdlS0pkSzlE?=
+ =?utf-8?B?dzFkUUdxWVhMYWdlaXgrUG9pSVYrSHZJU05KeHVEMGdJbTBEV1c4TllyZUYw?=
+ =?utf-8?B?ZnFmbFdrWHpHZGV2TkRJTlg4WXdoVEJLMHB3ZG1ZSW9ManU4YjdibWdoWDhO?=
+ =?utf-8?B?YmhHT1dCRFJ3eUg0c1dpUnFqLythdnRJY1lDSTV4bFd0OTZidjczMkw3RFhy?=
+ =?utf-8?B?MTV2aXVtTDUxWkRVRjNBejhHSFNjbXhzSWkvUHViOVZvckdaUHE2VEkzTGM4?=
+ =?utf-8?B?QzU3c0I2SzBUd2NicXZnc3RGYk9hY2xqRjlsT0ZFeXNKaHpPc29CL0RNSHZX?=
+ =?utf-8?B?V3BvZUszbFl1dmhzQnN2SmcyMDVpU1BOUEZSSVkwQ3NwUXozeEQ4ZEhndkhI?=
+ =?utf-8?B?MEJHWFg3cUJDRERleFVIQWZPVTA4R1oranhmMld2RkJZYnBTVm8yOXA5cDBh?=
+ =?utf-8?B?akZUQT09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bjA3dHNabDFhNVJDeVJHSGd4VENhYWY2dThuTHR1OUtzWENiWGVTRnc4TERW?=
+ =?utf-8?B?V3FNL3d2M050UjhoTjNjcHhaTVM4L3NkRHdNVG8ydTdIalhYbzhWaU45VlE0?=
+ =?utf-8?B?MXNSVGF3Q3hQQ015QTJrRWVtK1dpc3ZyYXhRamlaUTNMTDhwYkk3di80SGw1?=
+ =?utf-8?B?YjBMaTFTWlNOM0oySXlrUmNNUHBkR01CbkVHNWt3MnBoUTlTaGZDRUc0RjUx?=
+ =?utf-8?B?RjBZb2o4ZDFYZW0zdnpXZDRDUENHV1YvYWZidW5OMkxwSVY1Z1RoNjlVMHk1?=
+ =?utf-8?B?NWpiY0duck56Y0tYWkFWbm9qbFUvcm9XYVJRNnJDdVY2aUcwd1NGL2Q5a2dL?=
+ =?utf-8?B?NDdac05nd3hmekRmVUlEVkg4OGt2bEJsT2RONEMzRmZ5cUwzdTBYUXN3VmtF?=
+ =?utf-8?B?eHE0eDlYMWJhTTB3K3c1dmxGcmhiWDg1U1k2RmgvWVJBSFVJeWg2dGl2ZHJ4?=
+ =?utf-8?B?NUNOM2RZUDB4Z09XOW5BbU9LYUZuWTRNTVVSdXplUG94b2dXTy9Ia0VBbFRy?=
+ =?utf-8?B?Y3FKU3lub1d5QytoeERtSStQSG51TW9qaWVZU2NVUUJMVVc4ZFd0WXkzM0hX?=
+ =?utf-8?B?eE9mRldlWjFuQWZxUXd5NDlVTm1GYzhEWEdYMEVrZWxOSTVzWm9PQnFDRlZs?=
+ =?utf-8?B?TjlBUWcybEFNUXV0ZnVDQVdsWm84eFFJQUp5MWFHOWJlSEdHaHFNdzU1eVls?=
+ =?utf-8?B?dHdFbXVHQU1mM3d5YWRMZ3BpNy9HOUtjNzVRajRRMTlqNDN1d21FU1JqUGdo?=
+ =?utf-8?B?UzRPdGV3ejJkRGQyOG84eTl2TTJ0YVZOYjlmVlZLcHpLTElnWC9PaVNCZWFW?=
+ =?utf-8?B?cGxDbEdyVG50c0tSRmY3VTRyOExPb3krMmJjK2lFOWdSemJWeTIwY3lqYzE3?=
+ =?utf-8?B?YzNPa3ZGeE1WcW1jZURWRVE1UTBXdjc5My9YL3cyVmxTdVE5dEc0Snh0RFgw?=
+ =?utf-8?B?WHI3Mk95NzZDVUxUM2ZvQUcyRThNS3NkNk1ScHAzSFgxaXZETmo4MEt1NGtQ?=
+ =?utf-8?B?WVVibFFWRFp0cU1tNnp4Uy8rb1RjcGx2SEZIcENKZjJUbFBwS1FYeUk5OFMx?=
+ =?utf-8?B?R29VTGxFaWxmdTF1bHpTRjg3NHhRQWk2RmJLRUlueTF4S3dDTGdac3NMUnNX?=
+ =?utf-8?B?VDZtclhBWDhNNVU1dWg5R0ZtR1M2akN2VVdWWmlONlZ5c1RYMFRkODdWQmNO?=
+ =?utf-8?B?bFk0Ykp4UTQ5S0l0MlFGS3RHTDBzM216NHE3RGZsaTFtbW5rS1pod2srdUFI?=
+ =?utf-8?B?YVByUVJoSWhrSnRTSGVZbnFUYktZUWtzWko4WmpnVS8yTG9tQVBldytmYjc0?=
+ =?utf-8?B?aDVLWmJ6RUkvMG1RdmZ6NmxIMjQyeUtCbjJvT2JDRjBtTjVXUTEyYkR1aDcz?=
+ =?utf-8?B?VXRwdUdhWWFqdW0zaG9LeXpJK29NbnEvamhkenhyS2puNkFycSt6a2J4L01F?=
+ =?utf-8?B?bkxtZzhrcDZVZGlPalo0Nll0MkluakRHNjlVZTZYZ0NjVDNFYVJMU1RMNUsx?=
+ =?utf-8?B?TTVTT1ZReExsZmpFLy8yY0lJQm0zUndMQW81V201b3lXSHVGdjlDS2pYb1Ez?=
+ =?utf-8?B?bFh1emE4cWQ5aTFkVVVRaDB3Zm5UWnQ3MW4yc0lKRVNZYThSak05a3ZTalVo?=
+ =?utf-8?B?ZjhEc3JnNzB5S0xtV01LZ2R5ZGNyMFBKSjAzOExyZTVtcGhaZ3dQdUx0aWVj?=
+ =?utf-8?B?QVhBR1lzMXVqQmZ3T0FpQ1Y3b1EraWpNLzhERnFFenhRL2N3bjUzWDN2djNF?=
+ =?utf-8?Q?w3TmFGZq9x2KNyTncz90p4r3SZLg6dKb8KmiQqO?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74365edb-c9cb-4390-1460-08dd7edf5c6c
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 19 Apr 2025 01:13:15.2374
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN1P287MB3593
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250418_180156_262674_6F909355 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250418_181345_853590_3BF71013 
+X-CRM114-Status: GOOD (  10.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +161,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Apr 18, 2025 at 08:41:04PM +0530, ALOK TIWARI wrote:
-> 
-> 
-> On 18-04-2025 07:59, Longbin Li wrote:
-> > +#define SG2044_REG_POLARITY		0x40
-> > +#define SG2044_REG_PWMSTART		0x44
-> > +#define SG2044_REG_PWM_OE		0xD0
-> > +
-> 
-> please use lowercase 0xd0
->
 
-I will correct it, thanks.
- 
-> >   #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
-> >   #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
-> 
-> Thanks,
-> Alok
-> 
+On 2025/4/18 10:29, Longbin Li wrote:
+> Add compatible string for PWM controller on SG2044.
+>
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>   Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml | 4 +++-
+>   1 file changed, 3 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> index bbb6326d47d7..e0e91aa237ec 100644
+> --- a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> +++ b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+> @@ -17,7 +17,9 @@ allOf:
+>
+>   properties:
+>     compatible:
+> -    const: sophgo,sg2042-pwm
+> +    enum:
+> +      - sophgo,sg2042-pwm
+> +      - sophgo,sg2044-pwm
+>
+>     reg:
+>       maxItems: 1
+> --
+> 2.49.0
+
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+
+Thanks,
+
+Chen
+
+
 
 _______________________________________________
 linux-riscv mailing list
