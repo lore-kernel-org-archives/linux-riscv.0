@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30E70C369C2
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Apr 2025 07:04:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68B56C369D1
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Apr 2025 07:04:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=mOK5CaaNYeib8c7XhTDJ8gcbvrzPdKcAa+UkGC9z+FM=; b=dzPBeT6zxlDn0O
-	fzoF+Y8IQCcmw7JfkkIPqnGCiVPcsofWYr0j3I6uNqiCmU1QIDtO2h2AFkDgglA+SRxtf7z8+4Alm
-	KXDKhRm8wyWPVmKoTFjS4BsmJ4RGM+7XtWwpFrRI6BT2NYINwvU6fQ91DTNFAZv7YLi1KTLsMNBB1
-	AeaX+HfBMmZCbBm3jvNO4JPirfJ6ZFQhLhdWqt+9hBcL9lsodWSTlnf3LfXUAt88RjPB6J8aQDuaE
-	It1jM0sMKXNCTYGVZSwYZa3QhcpT3uhKSPvMOdIyIqlLlXSXdt9TxAzuQ4blf/cx0rAvXGLjcfZ6O
-	6TZ/CVoe13FWnVTWdwKw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=mqNL4WN+6ySlAzfXB81GbPdw0quUV3KV9E80ufk659w=; b=YNVVuLVdENKrQs
+	lSj50kL3uW1bjm2zVVJv74ytdL4LKNpVP4tUDPGPLH3H4En4h0Zg64zWvcWW3rwIEniCUCbRKK5ny
+	zXRuLAybKGcD23/vt14BhziXGDosEOtJPwaJQmnkpNUy3wQ978hVkgCNgKifOJ3VZjH3WjGlrfXQg
+	oGJROFXwXIrIR4EgJxOvpMQkplNeMpgFy3jr72ripkFJ3MU25WmxIHOFxtpMMghk5gV0TeLqpBIZN
+	+TLE/FHtDTyduRU3w2e1/MEF1Oiuf6BlyNC1YpPVXdBHu2ZEkq0pD8HJ4QdCn1lGOrzST71gug0M8
+	5C/q5vGJC9ug5HmrNfPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Oj5-00000002IAd-2KAs;
-	Sun, 20 Apr 2025 07:04:27 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1u6OjL-00000002IEW-0WJ8;
+	Sun, 20 Apr 2025 07:04:43 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Oj1-00000002IAE-3Jb5
+	id 1u6OjI-00000002IDP-1XzW
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Apr 2025 07:04:25 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-736dd9c4b40so3649161b3a.0
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Apr 2025 00:04:22 -0700 (PDT)
+	Sun, 20 Apr 2025 07:04:41 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-7399a2dc13fso4048873b3a.2
+        for <linux-riscv@lists.infradead.org>; Sun, 20 Apr 2025 00:04:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745132662; x=1745737462; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=aLrawCtHSQaSge3rP8I64g0W6VpqwKb/nSX+gldLJv4=;
-        b=acVkfFpD6E94QRC67Cb+damwZYfj9IuXcogP7bD3pIvgpkJDyCeeBNflDRrJho8+2p
-         1VKEk8P9XNBfuny6W4fHL7mO/Y9ipOCs1PQ9gun85W8lZ+8ySsxvbtCqw0yQW2mhyv/o
-         aCRouaUrqJKKyK4zNwryfh3BacNVl8WaNN3/5V/k4yMqFHuHLvcJlwnnvLLHLj4OGUKs
-         E/kOoHkh7Sud7UcpmHoB3QdbmxdVoxHyWrR7OjHxpsa2KleGLRKl11vFfhEiSItk9A6M
-         C/CJvAlTfUc4J7gOdCZaR5OqHBzF+i5aSfY1tNNscuXvmYutfgvcmwodyaIrQlAC1Qrr
-         QEUw==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745132679; x=1745737479; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rEr4zoqSDPSh3q/NPZGQ8bjJudfKjj9SBhXWOyMRmJg=;
+        b=KCATg4uNJoPjVFf+Oq/RXG+8tMS2uNah0oCVjJQzRuV3/XOyc23w6zbDiNOzyN40+a
+         qJYuWDT/DdHpb0w2r/Fw+uCPyfe1d10N5hcrd6hADYcIl02c7PTHeMTd3DuC8xqa6Gxm
+         01b6NtHBPTzvgPQNqIVWefqf8cEy8z6TEEtLJLEcXrNTTD0osTZdUcrcFb/5hNE4ETt/
+         jdyCBuXhmD/RK7sjURIVhf2Ceon0BmFX2dhp0vVy57rLzB6l6NP6rsnKIMvTNL/xI/Be
+         PhlyiVLJz473VefFCA11hrfMjoVXVtUSqfVdutzqGSQjR0SIwvpk8LNwCeLW4EUmWt/N
+         SBPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745132662; x=1745737462;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aLrawCtHSQaSge3rP8I64g0W6VpqwKb/nSX+gldLJv4=;
-        b=ifzgw5w/dbFBU805fY+1ZEUFYYnoyPKE5T75tTP3tjy4mvKpJmZ29RMpBP2YhcvwZy
-         p6E7M852ynxKw6xOsog/RBIh3tWnXda+yE7CtVDiqhoznTe3DvnXxzcGsOCBmfZoIvnI
-         a2VfYmtMUhwpX0JWEkOZy8o9r2n7qH7qC4ZsIZQHwJZHi8jSNci6pgUye0nl3kG9Lcc2
-         dw67xxkEUy8vCa7GWoX05heYEqUaFP+gpcz9IZZ/Ts+4sVjVBiEfVrDeHankeCJzRmIu
-         ky0aGZE1A3aEGjpu9WFR3ZyZzbtTkl7iSXfqqaPw4qmBpFM1rtTXjw8oodg1fpUdgEEI
-         SzUw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4SKInnq/ZIrZ2QZpE4YfN45lb5WQa1Hsm/aWy2o/ifuOz5ufcLvgUkQ7DQNDdntYSuvXE7JbmvCvaPA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/FLCVy/jcfiiijjSi/dLmNs0kaqwMA8uTQuB6fAWIzDZjOhY5
-	XJBtqxJWSUhPS8+GyCUXZcQ5mvYW2ndJkQ/rRxVbDZ4hcdsqHKEEHIxvxGNeEjA=
-X-Gm-Gg: ASbGncvMkjman06gZ+9sb/K47SWiCAv4w0SY/JIxexm5KjXfLXmuKYz6iy5RO6juYug
-	HjPrgvMREE3pa13le0JH7nC/YS6KADNCtu6xK3mj92dr5mFczCP1KehAuSYIX4UqNXWA407A7U4
-	5+zGJx60NYWaS8sizoyVpr4dyowvZ0sMVfwUSi98lmZnEaUUMSCj92xkuMRCx0kVp/D0N4iMPYz
-	TZOT0SKaVEJMLx/2/ec1P7RX1ixbpuy/7CEWOCRsfEaqTgUpAbPebRP34iK33oOwp5dCGab8c86
-	4Edet6uLGvsti0rt+WENDL8qrUMg3Q==
-X-Google-Smtp-Source: AGHT+IGsw49Y1EZHbpB/CU2efSGqgI49mepGyjPNnwH7IpvujjQyW84NHrrsk0hDbuCp/nEw8aQw0Q==
-X-Received: by 2002:a05:6a20:d705:b0:1f3:1ba1:266a with SMTP id adf61e73a8af0-203cc4ae6ddmr10558452637.0.1745132662405;
-        Sun, 20 Apr 2025 00:04:22 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1745132679; x=1745737479;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rEr4zoqSDPSh3q/NPZGQ8bjJudfKjj9SBhXWOyMRmJg=;
+        b=xO35kXW+pP/QLnMUz/J4MNGbwPGppr+4R+b4Db9q6DdEpRL/CghR/5jhzbNxSLx/Ud
+         iX42LzpE6p9qwJsJOXnhJkqX7ILw/KWWMztMbnlLbzp5SJkIo6vKFMEAT5Dmbf97byhE
+         EZlEmUqwTebQq+PVC7sEJDqKku9AveCJ6U0br6VZ2ftSqEDxD61wKUDlvG9FI55EKcFm
+         YKah/dNwUvBjaikmj/T1OkSvRJpSul1TQFQ19MdB1oCAHEqceMHvC6WUgbNH7a8Due/E
+         JUmwiELxhcIHoBee4ob7nbp5q8h18A/lqg8OKbjaETsNKZb01WaWCTiLeQ4bmg3K2Gzh
+         kR9g==
+X-Forwarded-Encrypted: i=1; AJvYcCUtBxXKg2N68fEtbu+TRhqlfcHvPsVdOS80rHB/IOyDAHDjXFxzmi/o/FYI/wNUkO/G6ybdQbdlu7pVuA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaotZBufF0SEeW+c5D3bOYUmH7f+oTf6zk9GiJVqXpRyIfuaII
+	t0Df16GyVtOJzi/j+VcrH/qdcYojSrbigXv9hCQF384B+wjsAO8Y8eY15yTEBB0=
+X-Gm-Gg: ASbGncupYwPR+jFRkEnQibqUuyw/xEJ+5WnyJ8WAKKOCJPRQQwlLzv6+lPfS2Dzw4Ff
+	92CGgk6qV2+LSEoBNs0rCPqrQjaL/VHF0dlqcltWTqABDlSxtsiwrJV92wX08uDWe2mLb+xj5HV
+	C5gFZUoDRszw/0rdMJmL52CZZ0uc6ec2iTctkzTRDzce414yZ+sNoMR+v6ha0GSjV5OVXuNxH5F
+	HlcTbHO2+oRJF2mGsQCPzyR+3D8QRxfWLgnIEI9MUku/nZAT3dmPx9s2azB6U9Js8eozzAYt1NS
+	Ib8WAxveBqxv7z6heAYwo/Yt0OQVAg==
+X-Google-Smtp-Source: AGHT+IGtYXVmqBAFmbk7LXbpDxQMyWUw0KBDYgsDqkcEnZhWP8dgPJ0odqZrRswxh/DPQhqrHeH9wA==
+X-Received: by 2002:a05:6a20:9f46:b0:1f5:9d5d:bcdd with SMTP id adf61e73a8af0-203cbc056f1mr13712467637.1.1745132679468;
+        Sun, 20 Apr 2025 00:04:39 -0700 (PDT)
 Received: from localhost.localdomain ([2a11:3:200::40b3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b0db12743afsm3742626a12.16.2025.04.20.00.04.08
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b0db12743afsm3742626a12.16.2025.04.20.00.04.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Apr 2025 00:04:21 -0700 (PDT)
+        Sun, 20 Apr 2025 00:04:39 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
 To: ukleinek@kernel.org,
 	robh@kernel.org,
@@ -93,14 +94,16 @@ Cc: elder@riscstar.com,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev,
 	guodong@riscstar.com
-Subject: [PATCH v2 0/6] pwm: Update PWM_PXA driver for SpacemiT K1
-Date: Sun, 20 Apr 2025 15:02:45 +0800
-Message-ID: <20250420070251.378950-1-guodong@riscstar.com>
+Subject: [PATCH v2 1/6] dt-bindings: pwm: marvell,pxa-pwm: Add SpacemiT K1 PWM support
+Date: Sun, 20 Apr 2025 15:02:46 +0800
+Message-ID: <20250420070251.378950-2-guodong@riscstar.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250420070251.378950-1-guodong@riscstar.com>
+References: <20250420070251.378950-1-guodong@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_000424_096235_D7F7BB7E 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250420_000440_407008_953F6765 
+X-CRM114-Status: GOOD (  12.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,62 +120,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patchset adds support for the SpacemiT K1 SoC in the PWM_PXA driver
-and updates related device tree bindings. The changes enable PWM
-functionality on the K1 platform through driver enhancements,
-configuration updates, and device tree additions.
+The SpacemiT K1 SoC reuses the Marvell PXA910-compatible PWM controller
+with one notable difference: the addition of a resets property. To make
+the device tree pass schema validation (make dtbs_check W=3), this patch
+updates the binding to accept spacemit,k1-pwm as a compatible string, when
+used in conjunction with the fallback marvell,pxa910-pwm.
 
-Functionality has been verified on the Banana Pi BPI-F3 board using PWM14,
-configured as a pwm-backlight. Per community feedback, the actual
-pwm-backlight node is not included in this patchset but can be found in
-patch 7 of the v1 series.
+Support for the optional resets property is also added, as it is required
+by the K1 integration but was not present in the original Marvell bindings.
 
-This patchset is based on the following dependencies:
-1. Clock controller driver, posted by Heylen Chu (v8), with
-   most of it has been accepted:
-https://lore.kernel.org/all/20250416135406.16284-1-heylenay@4d2.org/
-2. Reset controller driver, posted by Alex Elder (v5):
-https://lore.kernel.org/all/20250418145401.2603648-1-elder@riscstar.com/
+Since the PWM reset line may be deasserted during the early bootloader
+stage, making the resets property optional avoids potential
+double-deassertion, which could otherwise cause flickering on displays
+that use PWM for backlight control.
 
-Major differences between v2 and v1:
- - Dropped the addition of spacemit,k1-pwm as a compatible string in the
-   PWM_PXA driver; instead, it now falls back to marvell,pxa910-pwm.
- - Removed pinctrl settings for all PWM nodes (pwm0-pwm14); only the
-   pwm14_1 configuration is included in this version.
- - Changed PWM_PXA from built-in to a loadable module (=m) in the
-   riscv defconfig.
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+v2: Accept spacemit,k1-pwm as a compatible string, when used in conjunction
+    with the fallback marvell,pxa910-pwm
 
-V2 consists of the following patches:
-Patch 1: Add spacemit,k1-pwm compatible string (with fallback to
-           marvell,pxa910-pwm) and support optional resets property.
-Patch 2: Add reset controller support to the PWM_PXA driver.
-Patch 3: Add device tree nodes for all 20 PWM instances on K1.
-Patch 4: Add pinctrl settings for PWM14.
-Patch 5: Add ARCH_SPACEMIT dependency to the PWM_PXA Kconfig entry.
-Patch 6: Enable PWM and PWM_PXA in riscv defconfig for SpacemiT K1.
+.../bindings/pwm/marvell,pxa-pwm.yaml           | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
-Best regards,
-Guodong Xu
-
-v1:
-https://lore.kernel.org/all/20250411131423.3802611-1-guodong@riscstar.com/
-
-Guodong Xu (6):
-  dt-bindings: pwm: marvell,pxa-pwm: Add SpacemiT K1 PWM support
-  pwm: pxa: add optional reset control
-  riscv: dts: spacemit: add PWM support for K1 SoC
-  riscv: dts: spacemit: add pwm14_1 pinctrl setting
-  pwm: Kconfig: add depends on ARCH_SPACEMIT to PWM_PXA
-  riscv: defconfig: Enable PWM support for SpacemiT K1 SoC
-
- .../bindings/pwm/marvell,pxa-pwm.yaml         |  17 +-
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi  |   7 +
- arch/riscv/boot/dts/spacemit/k1.dtsi          | 180 ++++++++++++++++++
- arch/riscv/configs/defconfig                  |   2 +
- drivers/pwm/Kconfig                           |   2 +-
- drivers/pwm/pwm-pxa.c                         |  14 +-
- 6 files changed, 212 insertions(+), 10 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml b/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
+index 9ee1946dc2e1..0d97333c7fee 100644
+--- a/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/marvell,pxa-pwm.yaml
+@@ -14,11 +14,15 @@ allOf:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - marvell,pxa250-pwm
+-      - marvell,pxa270-pwm
+-      - marvell,pxa168-pwm
+-      - marvell,pxa910-pwm
++    oneOf:
++      - enum:
++          - marvell,pxa250-pwm
++          - marvell,pxa270-pwm
++          - marvell,pxa168-pwm
++          - marvell,pxa910-pwm
++      - items:
++          - const: spacemit,k1-pwm
++          - const: marvell,pxa910-pwm
+ 
+   reg:
+     # Length should be 0x10
+@@ -31,6 +35,9 @@ properties:
+   clocks:
+     maxItems: 1
+ 
++  resets:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
 -- 
 2.43.0
 
