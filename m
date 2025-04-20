@@ -4,106 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9F44C369C2
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Apr 2025 07:06:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DC06C369C2
+	for <linux-riscv@archiver.kernel.org>; Sun, 20 Apr 2025 12:10:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ae8zLBpN7M/nGlm/fnQ/i6CZbT1AVoo5N6S2NmDKeiA=; b=1T0LqwM920zkHH
-	DJFmMyjEtJOvYVw6boLhh720gwsqXVzp+lxTM1cks8rfbxw3aM7HPPvfRuR7ryomPLRic75aUkNR7
-	bdbrhKTaBRj2ZVGO0+ljjN5GefcJu7kx1XtWEoPc9tu2c5Gnj9F+4Ga4vYWJcnG4dP1O1VhGPE7QN
-	drXNNk/CmNjb7dpd2OJDtqZkkKl9rqntZMzysD57qO8/TUddYkf/W3H7J7Y8PIggtG3KF7LRh7T0Z
-	Q30Dy/uyIT3E6oEe2at/bCr8afGEJZxaCoJOFAmakhqxub83HXUWYcIjwJuQT757JbyPNmqG7IKSD
-	jlDEHcuAa++UJf6LSSUw==;
+	List-Owner; bh=GLQjmVOSqMeadLLPMT9Jvzq/OH+uvCcUbZxv6tIg0dk=; b=RtobMO/Z3w+PPq
+	M1SlakHF1yxgXP/JL+7OHxPxRnoKLUU+ge6FviyjA/4P7nwqjVxPVESnMcckjcl+v1FxLO3EaNpaN
+	diQy0NCPQxndqIVGYPguhEKcUzQCztNHvdRgleTeGFNRFzifvOiIj01NL4Hxlwd78uCDHk+ft8ah3
+	tZxfvd1O7wnrtSYmYiXoKUwKEo6kuf4q3e0az6XLuMLrPLNsuBPjUZtThf+hrl4pPhCoDT9QU8/Vw
+	jNAUbqddw+P/qx+4mD5YxAZPJ3w6qFkgmj1G4U4TH9bJgLMpwKxDBN5z4wv5xw0fLKnG2oDw40F30
+	GeNKaK5K3MTdKt4/T38A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Oko-00000002IoB-1NiY;
-	Sun, 20 Apr 2025 07:06:14 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1u6TUh-00000002WXh-3kbj;
+	Sun, 20 Apr 2025 12:09:55 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6Okl-00000002Imi-3cn9
+	id 1u6TUe-00000002WVr-3eJf
 	for linux-riscv@lists.infradead.org;
-	Sun, 20 Apr 2025 07:06:13 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-736ab1c43c4so3112256b3a.1
-        for <linux-riscv@lists.infradead.org>; Sun, 20 Apr 2025 00:06:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745132771; x=1745737571; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3fcZq8o5SROXi3wQjym5oYgJNhmITCc4NsmF81Zj+a8=;
-        b=cguWo0iNjq1YePrm/gx4DYXyFVygo35T6ragRZTaRXbgGsEkVz012I+XAlAuGEhgqg
-         wU9v2LiBoBYlIJNEEScaBrZsf8E/Rt5zalD9anjYOZElbLkjRlSbfNtL3Jc9LZ4nOyRE
-         DiiWssdncV1PFUPkF3ekWi1lH020BwI4vZ77TW5kPt6P35oI/KVUUpMa39ZJe9JkvlSc
-         cg9UxtbgFjLXebXZl6QZXc2B8Ud3e9v9gVc4Ib0xxItnfA9i84UWAd0VyLel44JysOzP
-         laO7kI4PAxA7wU9/mg63pY2PeBdnC3HVe7bYTVw0DfAKpLyA9z2HwJYRQU4H5cCxLrKM
-         C8xQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745132771; x=1745737571;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3fcZq8o5SROXi3wQjym5oYgJNhmITCc4NsmF81Zj+a8=;
-        b=HA12DhdryJWK2K4P24InXs+jcs+aJfu8iScvjnXw3d7xQwFUrnbS6iacoNF7lBmjTs
-         hsj/vxlnUq9EUBd2Qblc0zJMFbf+OCuQoJ4MhHMguA9Fo+faTk2uCyEmb5LYNuTatEFr
-         xBOfHvvkSOHE4pp2xA0VK3aVG8viSk+Izv9nh38uG+VSAsu4pgpBk+vBRFtBxNv1n0zw
-         HR2tjThVj11TKNxkm0YmXnVIericj3Nbm8RpmGJ2lXNx0c4yURyxcjlrAuYkDuqgJv1W
-         622LOkelXeDm1cbfqBaTJCcd7wHX3ttY4g7f48qNEQYLn+jx52fr50xaozPekXJCDS6a
-         6xRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXR9WfraLXYdow6z95/BHljXPa+geVKaQuYN6WOiuCAzPGMlgUVm63JnZeViPS7drQ0PcTX0qFurKdnOA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyxvNaMpvQIqVppMnXT7haMgQ8Iv4UHY3hATuuYyx/FXmtu/Ml
-	3S+dWQgzXcDo8LI+wKedjq++oAetkpjM3YqU7UXXsyxyDGGBv6gJ6LmjqimWf4A=
-X-Gm-Gg: ASbGncv/WOxdS1UmWXcK64Wub7qT8cJBPL3YPrQBmXv39yXjKA3S3o3YojOjoNcbdDp
-	YNh6ZT+MnQ2VVwlwUvV0hxPOAwWSfXajSLFphCJwkobnoFNmG3E9iy0pc1Adj1K7+1AiVQMNL2h
-	a6sOtNxEZwDclJC4CeSBLZTRw8ASukuSlu0rk8dlvmrfzc1Ze2MpmuqmyKxXbavyRj+WBSf+N5S
-	plLGYjNovInOxNRsl7hkQtfpWH+KGC9oqRTdNtohXifYQrUw6c0cNgJehBztEze9EpXhpJCOtiI
-	y25uAHbJuco9eEpFWw9Kb9yF/ARxVqr3E/YNgoev
-X-Google-Smtp-Source: AGHT+IEE+OeQFiCCtU8Ee9YBkXu2dzO/ybh/igItlS4KQN0WO89uCSH/pwRn+/1oKh3T6c5poKcuYg==
-X-Received: by 2002:a05:6a00:1305:b0:736:42a8:a742 with SMTP id d2e1a72fcca58-73dc14ccd73mr10174885b3a.11.1745132771298;
-        Sun, 20 Apr 2025 00:06:11 -0700 (PDT)
-Received: from localhost.localdomain ([2a11:3:200::40b3])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b0db12743afsm3742626a12.16.2025.04.20.00.05.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 20 Apr 2025 00:06:10 -0700 (PDT)
-From: Guodong Xu <guodong@riscstar.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	dlan@gentoo.org,
-	p.zabel@pengutronix.de,
-	drew@pdp7.com,
-	inochiama@gmail.com,
-	geert+renesas@glider.be,
-	heylenay@4d2.org,
-	tglx@linutronix.de,
-	hal.feng@starfivetech.com,
-	unicorn_wang@outlook.com,
-	duje.mihanovic@skole.hr
-Cc: elder@riscstar.com,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev,
-	guodong@riscstar.com
-Subject: [PATCH v2 6/6] riscv: defconfig: Enable PWM support for SpacemiT K1 SoC
-Date: Sun, 20 Apr 2025 15:02:51 +0800
-Message-ID: <20250420070251.378950-7-guodong@riscstar.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250420070251.378950-1-guodong@riscstar.com>
-References: <20250420070251.378950-1-guodong@riscstar.com>
+	Sun, 20 Apr 2025 12:09:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745150993; x=1776686993;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NFlaEuLIw0Zajlp8jpqXN2CskXo/XnjXuoyqH9AEvhw=;
+  b=bJPLZBDs0VykoZvJVmaAUHhQRSM3vYXSb7oH3N8DUz+K+PnZZZwqJQQE
+   kpLE5B8gqEYgo3nvcgJt3TivLvy4rXEyMeOFrfnXNCiRrDwr4Vt4xjGrB
+   wKg24F+B0DrI79xHlFi4qP/s4EF/w6YzxkEuDkNm+QCKLI3u9zQL8Mjrw
+   8ND9tdMQMdQUhzCn96zGtxsaLu07z7Hqlo2nTg9RrpZk1w1n1XiBSR1iK
+   NCWDneqEcZ02EyAhGt1tSeppwZPy0QOyMgud479zF72YMAOS5VrQmMmRV
+   574aX1jW+EaIjinFhKNyZw62yAKscXWsRVLgLEEURG6d9Y5ctQEvwQsvh
+   A==;
+X-CSE-ConnectionGUID: jNCTknj7QEe1Chkiyv6Pvg==
+X-CSE-MsgGUID: DVcomn28Qx2wK3KHr7XFTA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11408"; a="72095989"
+X-IronPort-AV: E=Sophos;i="6.15,225,1739865600"; 
+   d="scan'208";a="72095989"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 20 Apr 2025 05:09:45 -0700
+X-CSE-ConnectionGUID: QUR9/X0LQLKchS+BDV4HsQ==
+X-CSE-MsgGUID: SUTGsSbdSOu5YWkRvUIDYA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,225,1739865600"; 
+   d="scan'208";a="135582954"
+Received: from lkp-server01.sh.intel.com (HELO 61e10e65ea0f) ([10.239.97.150])
+  by fmviesa003.fm.intel.com with ESMTP; 20 Apr 2025 05:09:39 -0700
+Received: from kbuild by 61e10e65ea0f with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u6TUP-0004cL-0v;
+	Sun, 20 Apr 2025 12:09:37 +0000
+Date: Sun, 20 Apr 2025 20:09:13 +0800
+From: kernel test robot <lkp@intel.com>
+To: Guodong Xu <guodong@riscstar.com>, ukleinek@kernel.org, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com,
+	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org,
+	tglx@linutronix.de, hal.feng@starfivetech.com,
+	unicorn_wang@outlook.com, duje.mihanovic@skole.hr
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev, elder@riscstar.com,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, guodong@riscstar.com
+Subject: Re: [PATCH v2 3/6] riscv: dts: spacemit: add PWM support for K1 SoC
+Message-ID: <202504201920.P8LBocr2-lkp@intel.com>
+References: <20250420070251.378950-4-guodong@riscstar.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250420070251.378950-4-guodong@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250420_000611_899913_D36B9782 
-X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-CacheID: sfid-20250420_050952_920423_28C0403F 
+X-CRM114-Status: UNSURE (   9.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -121,32 +97,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Enable CONFIG_PWM and CONFIG_PWM_PXA in the defconfig
-to support the PWM controller used on the SpacemiT K1 SoC.
+Hi Guodong,
 
-Signed-off-by: Guodong Xu <guodong@riscstar.com>
----
-v2: Changed PWM_PXA from built-in to a loadable module (=m)
+kernel test robot noticed the following build errors:
 
-arch/riscv/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+[auto build test ERROR on spacemit/for-next]
+[also build test ERROR on spacemit/fixes robh/for-next linus/master v6.15-rc2 next-20250417]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index 4888529df1d8..8a8b77a0ac5a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -259,6 +259,8 @@ CONFIG_RPMSG_CTRL=y
- CONFIG_RPMSG_VIRTIO=y
- CONFIG_PM_DEVFREQ=y
- CONFIG_IIO=y
-+CONFIG_PWM=y
-+CONFIG_PWM_PXA=m
- CONFIG_THEAD_C900_ACLINT_SSWI=y
- CONFIG_PHY_SUN4I_USB=m
- CONFIG_PHY_STARFIVE_JH7110_DPHY_RX=m
+url:    https://github.com/intel-lab-lkp/linux/commits/Guodong-Xu/dt-bindings-pwm-marvell-pxa-pwm-Add-SpacemiT-K1-PWM-support/20250420-150635
+base:   https://github.com/spacemit-com/linux for-next
+patch link:    https://lore.kernel.org/r/20250420070251.378950-4-guodong%40riscstar.com
+patch subject: [PATCH v2 3/6] riscv: dts: spacemit: add PWM support for K1 SoC
+config: riscv-randconfig-001-20250420 (https://download.01.org/0day-ci/archive/20250420/202504201920.P8LBocr2-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250420/202504201920.P8LBocr2-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504201920.P8LBocr2-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> Error: arch/riscv/boot/dts/spacemit/k1.dtsi:532.27-28 syntax error
+   FATAL ERROR: Unable to parse input tree
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
