@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 315CDC369C2
-	for <linux-riscv@archiver.kernel.org>; Sun, 20 Apr 2025 21:44:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8100C369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 06:04:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/+gyNa7wDOCwOwR1Kx2cr5WNgw1vK4OLSBBZBlH7izs=; b=S0cghIsRGAOf8W
-	6+OpK35C/6/aAlhE5lxCncpUyjzZS0Lj3TScUljTO9zt/CMC/j+gb7umrwt5tow2IeooV+GtX3+ux
-	fmbPweKjJOLK06IU18C7mD7qb6WSa55R9ejJ53Qr5jg/ZcbNe3mi0TuqIra2AWgT358kzFtWNVDA3
-	LRRNhJtI7HBwl+1huG7NCdmbQjpjUYAqPaqT5Ao6EY5MjZf5cBNB0hfbl5g0wr5cFakZQDTx9Lgip
-	x+5UmMpMDQElLsJWpS1jiZdHnFP0m4SMqJMgGArQ7XrC1n88zvO3dY1t1799+o6dXokOHH4S9/hrg
-	TzNos/oLwTcY3HQF7ARw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oxio0XQIvyN0kdI4FALXswOk+T/XCARMnomooxQcpCE=; b=mzawpR/MkH3APIRDR2xC3thfIz
+	8ybjwW62CZfFyFHkGxa/S3U1EfH5U+hn8yEXMvas+i0knON1M4r51oa9rNi4DlsrNEcuyumA4aB+H
+	4AfTTzFnFiWL/6KNQ+sIY4vwIKW9o0Ucx7rSSj9xa2CalnugvtIBMLakYW7oDh+c3cp0baQjpw/X8
+	JDJ79jf2dOYOQvEY0IGmwsrfl9iG40xn/D7qGTKVU91wx/rNmM3SCQ6hsMYAPpWUo1ueeZ7eArCt7
+	Ksy+0BDrnXg42ZBzM+/NnBIvQzONW4PJznKIb4/0RuW4PPVL8ubFy136lJnYLeHa7OjrFCv1CrkBf
+	OiLqtHag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6cSi-000000035Rv-2Crv;
-	Sun, 20 Apr 2025 21:44:28 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u6kGg-00000003fbZ-2TVA;
+	Mon, 21 Apr 2025 06:04:34 +0000
+Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6cQn-000000035JR-3B7l;
-	Sun, 20 Apr 2025 21:42:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E51BA61127;
-	Sun, 20 Apr 2025 21:42:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E842BC4CEE2;
-	Sun, 20 Apr 2025 21:42:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745185348;
-	bh=o3lK09+otg6DgvlTkRd0uEq2A+YS26/sGwIIKbHBcag=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=V14kX5gVKJQ4TKr1kjqcj4uB/vdwkcoBtAzqAd6oYHr/0UFPi5Xb4XNt2bgobpadx
-	 fHLW4TYVRN58fg+nvS5iX8RxLw4WD2uHHLtRHXM8Fdzq0zf/m9Jea3Dw9SN4//RZic
-	 ATxeSy8c398InEkzqu0EoYWWLNR9+5n7gOY+jzhg+foAWNabfgvGsLuAiv1wAU1p5q
-	 gEJO9Hc83boZUsPd9mdUX74gegIaxXpsyScNdEd5NPpa5d0+pAveQwe+GXHrNRv35O
-	 JZfCuQ5QtXX/qaeCAd7eOiMQFvnuGssZ557aDkUuMoDftndQ6sqUI8SdS8WUi74F4v
-	 27V1otuThl43w==
-Date: Sun, 20 Apr 2025 14:42:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arch@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: Re: [PATCH v2 05/13] crypto: arm - move library functions to
- arch/arm/lib/crypto/
-Message-ID: <20250420214226.GA14633@sol.localdomain>
-References: <20250420192609.295075-1-ebiggers@kernel.org>
- <20250420192609.295075-6-ebiggers@kernel.org>
+	id 1u6kGd-00000003fZN-1wyp
+	for linux-riscv@lists.infradead.org;
+	Mon, 21 Apr 2025 06:04:33 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C660B4435C;
+	Mon, 21 Apr 2025 06:04:21 +0000 (UTC)
+Message-ID: <75e07bb8-e9e2-428f-85d7-5c5b9dc7b1c5@ghiti.fr>
+Date: Mon, 21 Apr 2025 08:04:21 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250420192609.295075-6-ebiggers@kernel.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3] scripts: Do not strip .rela.dyn section
+Content-Language: en-US
+To: Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+ Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor
+ <nathan@kernel.org>, Nicolas Schier <nicolas@fjasle.eu>,
+ Ard Biesheuvel <ardb@kernel.org>, Charlie Jenkins <charlie@rivosinc.com>,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kbuild@vger.kernel.org
+References: <20250408072851.90275-1-alexghiti@rivosinc.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250408072851.90275-1-alexghiti@rivosinc.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgedttdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephfehgfdvteejiefgvdevkefgudehkeekhefgkedvtdeugedtvefffeejheektdfgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemudhfheejmegvudgtugemudekugdtmegttddvkeenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemudhfheejmegvudgtugemudekugdtmegttddvkedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemudhfheejmegvudgtugemudekugdtmegttddvkegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgto
+ hhmpdhrtghpthhtohepsghjohhrnhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepmhgrshgrhhhirhhohieskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnihgtohhlrghssehfjhgrshhlvgdrvghupdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250420_230431_641739_5B5947A2 
+X-CRM114-Status: GOOD (  17.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,50 +65,39 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 20, 2025 at 12:26:01PM -0700, Eric Biggers wrote:
-> diff --git a/arch/arm/lib/crypto/Makefile b/arch/arm/lib/crypto/Makefile
-> new file mode 100644
-> index 0000000000000..dbdf376e25336
-> --- /dev/null
-> +++ b/arch/arm/lib/crypto/Makefile
-> @@ -0,0 +1,24 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +obj-$(CONFIG_CRYPTO_BLAKE2S_ARM) += libblake2s-arm.o
-> +libblake2s-arm-y:= blake2s-core.o blake2s-glue.o
-> +
-> +obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
-> +chacha-neon-y := chacha-scalar-core.o chacha-glue.o
-> +chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
-> +
-> +obj-$(CONFIG_CRYPTO_POLY1305_ARM) += poly1305-arm.o
-> +poly1305-arm-y := poly1305-core.o poly1305-glue.o
-> +
-> +quiet_cmd_perl = PERL    $@
-> +      cmd_perl = $(PERL) $(<) > $(@)
-> +
-> +$(obj)/%-core.S: $(src)/%-armv4.pl
-> +	$(call cmd,perl)
-> +
-> +clean-files += poly1305-core.S
-> +
-> +# massage the perlasm code a bit so we only get the NEON routine if we need it
-> +poly1305-aflags-$(CONFIG_CPU_V7) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=5
-> +poly1305-aflags-$(CONFIG_KERNEL_MODE_NEON) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=7
-> +AFLAGS_poly1305-core.o += $(poly1305-aflags-y) $(aflags-thumb2-y)
-
-As noticed by kernel test robot
-(https://lore.kernel.org/oe-kbuild-all/202504210545.llc4JaKQ-lkp@intel.com), I
-forgot to include the following line here:
-
-    aflags-thumb2-$(CONFIG_THUMB2_KERNEL) := -U__thumb2__ -D__thumb2__=1
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWFzYWhpcm8sCgpPbiAwOC8wNC8yMDI1IDA5OjI4LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6
+Cj4gVGhlIC5yZWxhLmR5biBzZWN0aW9uIGNvbnRhaW5zIHJ1bnRpbWUgcmVsb2NhdGlvbnMgYW5k
+IGlzIG9ubHkgZW1pdHRlZAo+IGZvciBhIHJlbG9jYXRhYmxlIGtlcm5lbC4KPgo+IHJpc2N2IHVz
+ZXMgdGhpcyBzZWN0aW9uIHRvIHJlbG9jYXRlIHRoZSBrZXJuZWwgYXQgcnVudGltZSBidXQgdGhh
+dCBzZWN0aW9uCj4gaXMgc3RyaXBwZWQgZnJvbSB2bWxpbnV4LiBUaGF0IHByZXZlbnRzIGtleGVj
+IHRvIHN1Y2Nlc3NmdWxseSBsb2FkIHZtbGludXgKPiBzaW5jZSBpdCBkb2VzIG5vdCBjb250YWlu
+IHRoZSByZWxvY2F0aW9ucyBpbmZvIG5lZWRlZC4KPgo+IEZpeGVzOiA1NTlkMWU0NWExNmQgKCJy
+aXNjdjogVXNlIC0tZW1pdC1yZWxvY3MgaW4gb3JkZXIgdG8gbW92ZSAucmVsYS5keW4gaW4gaW5p
+dCIpCj4gVGVzdGVkLWJ5OiBCasO2cm4gVMO2cGVsIDxiam9ybkByaXZvc2luYy5jb20+Cj4gUmV2
+aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJqb3JuQHJpdm9zaW5jLmNvbT4KPiBBY2tlZC1ieTog
+QXJkIEJpZXNoZXV2ZWwgPGFyZGJAa2VybmVsLm9yZz4KPiBTaWduZWQtb2ZmLWJ5OiBBbGV4YW5k
+cmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4KPiBDaGFuZ2VzIGluIHYz
+Ogo+IC0gUmViYXNlIG9uIHRvcCBvZiA2LjE1LXJjMQo+IC0gQ2hhbmdlIHRoZSBmaXhlcyB0YWcK
+Pgo+IENoYW5nZXMgaW4gdjI6Cj4gLSBDaGFuZ2Vsb2cgbW9kaWZpY2F0aW9uIChBcmQpCj4gLSBS
+ZW1vdmUgQVJDSF9XQU5UU19SRUxBX0RZTiAoQXJkKQo+Cj4gICBzY3JpcHRzL01ha2VmaWxlLnZt
+bGludXggfCAyICstCj4gICAxIGZpbGUgY2hhbmdlZCwgMSBpbnNlcnRpb24oKyksIDEgZGVsZXRp
+b24oLSkKPgo+IGRpZmYgLS1naXQgYS9zY3JpcHRzL01ha2VmaWxlLnZtbGludXggYi9zY3JpcHRz
+L01ha2VmaWxlLnZtbGludXgKPiBpbmRleCBiMGE2Y2Q1YjgxOGMuLjg1ZDYwZDk4NjQwMSAxMDA2
+NDQKPiAtLS0gYS9zY3JpcHRzL01ha2VmaWxlLnZtbGludXgKPiArKysgYi9zY3JpcHRzL01ha2Vm
+aWxlLnZtbGludXgKPiBAQCAtMTMsNyArMTMsNyBAQCBpZmRlZiBDT05GSUdfQVJDSF9WTUxJTlVY
+X05FRURTX1JFTE9DUwo+ICAgdm1saW51eC1maW5hbCA6PSB2bWxpbnV4LnVuc3RyaXBwZWQKPiAg
+IAo+ICAgcXVpZXRfY21kX3N0cmlwX3JlbG9jcyA9IFJTVFJJUCAgJEAKPiAtICAgICAgY21kX3N0
+cmlwX3JlbG9jcyA9ICQoT0JKQ09QWSkgLS1yZW1vdmUtc2VjdGlvbj0nLnJlbConICQ8ICRACj4g
+KyAgICAgIGNtZF9zdHJpcF9yZWxvY3MgPSAkKE9CSkNPUFkpIC0tcmVtb3ZlLXNlY3Rpb249Jy5y
+ZWwqJyAtLXJlbW92ZS1zZWN0aW9uPSEnLnJlbCouZHluJyAkPCAkQAo+ICAgCj4gICB2bWxpbnV4
+OiAkKHZtbGludXgtZmluYWwpIEZPUkNFCj4gICAJJChjYWxsIGlmX2NoYW5nZWQsc3RyaXBfcmVs
+b2NzKQoKCkRvIHlvdSB0aGluayB5b3UgY2FuIG1lcmdlIHRoYXQgaW4gdGhlIG5leHQgcmM/IElm
+IG5vdCwgSSBjYW4gbWVyZ2UgaXQgCmlmIHlvdSBhZGQgeW91ciBBQiA6KQoKVGhhbmtzLAoKQWxl
+eAoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
