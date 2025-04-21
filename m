@@ -4,54 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2CD29C369AB
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 13:50:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78591C369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eZ3yiM2VVF+xnD8eeayxG7Tf38eTUJrZ98y5kbJwjN4=; b=ySZoYKbMquLdTX
-	MPSubKuXKFx1lRFFzWdEOByHpVbdA4S1Qbb0U/wuTxvT8BOZhlYBJEFGLfopZNSnOMhRUw4ILwFay
-	dhbRnbZ1oBsl50tisC8LWKz3SDSlelQANWpZVMm6H5tetW8HSUCq4ZJhb1lIR0Zh8LeQ+NKMAQ4hm
-	UHodmr1dNkXbqDwMV99i1rjgYMcZ0uVVIODdkS6x2HkwtNIH/vmw2Wyr+ZoS2j2X20rkrVTVIq/Ot
-	9V6P6N6UF1v5I76X0r3zrFK9vzQITKImNuX/sjICdAyDDJpyhIp7AqIO38n+QfzJYed1FcAf44uII
-	F2YaiiigDxuff0M3lC6g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Bzg7CO8pRn2sWzPk91B5NlffjERspcFJKn4miZeuz98=; b=ZqBtE8hq9jyBkP
+	YHrEBJbbBoDuuV++YmVa1JY55tjAh5CYYRng4ohPvOXZIPat0FR9Iivrc7yT9wziRcGIUGPziryOL
+	1OfKaZom/1j377m1vh9wIwJe0xczGrr+EiEvxrszrOEvun01W/CGVg38WkUJdUVsn+uGj+rpn0D97
+	/u8Fc6YPlGfjGL2Yj1XnXeUikuMUjmRf/YT3AsXwHD7wIAx1GJS27iCD6u35TdW90d5mWcUMRb2Is
+	fsfzILLLBSn04QCEG59ZkR3FArKqPwZ7ZIp4z6KwRqpyoZ31DZHX/7guB2gBUOSeNwiIZY/2c0hn6
+	2zL9l+wJqK7EK0OaEgoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rXX-00000004Ng0-3rn8;
-	Mon, 21 Apr 2025 13:50:27 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u6rvF-00000004QUH-2JV1;
+	Mon, 21 Apr 2025 14:14:57 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rRx-00000004MbI-0hoW
+	id 1u6rvC-00000004QTo-2gQ1
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 13:44:42 +0000
-Received: from localhost (unknown [116.232.18.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 1CCB6342FB1;
-	Mon, 21 Apr 2025 13:42:35 +0000 (UTC)
-Date: Mon, 21 Apr 2025 13:42:18 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Alex Elder <elder@riscstar.com>
-Cc: mturquette@baylibre.com, sboyd@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, p.zabel@pengutronix.de,
-	heylenay@4d2.org, guodong@riscstar.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, spacemit@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 0/7] clk: spacemit: add K1 reset support
-Message-ID: <20250421134218-GYA42923@gentoo>
-References: <20250418145401.2603648-1-elder@riscstar.com>
+	Mon, 21 Apr 2025 14:14:56 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so41582885e9.3
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:14:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745244892; x=1745849692; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=iId3OO4iPPoDitEFGGflVRfgetsV2ygJtDXi0T0AxTY=;
+        b=Z+BWnyPpcPvxNm6cbHj1+iX/qH90v8Opskhvxs2wjjAeGUdnbvYNEw8RDq/2lOrzN0
+         4Ey88zGvIu8mOZq2ycW4hUVEVE4RKeX1Zk8Lhyh4HjsOOzneHH+9+1mZ/l5P0WDVNhQn
+         bQtP0JbeFYb2e7PHGu8mL0zZQYhK+rISFejQHZXyoXW88XOZLm4GbxctIVsLyxBDyZWi
+         Feyvwgdlt4sqFjwv7maT4aMV9njxHk7a6R+1Y2Aj0AyxWA5k7qz78z7G39SuUFJ8QUj7
+         FTF6T2JPTBeTnav9YPrmcFShz4yJqvxdpAojG1jJlw8aIGFZsbE81ATMSLvzh6CV0qrD
+         j/ew==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745244892; x=1745849692;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iId3OO4iPPoDitEFGGflVRfgetsV2ygJtDXi0T0AxTY=;
+        b=fydsXG5UVAK/ykZOyjdg4BIEE6Rsjbk6jV714YnlTL3DIPhRuflS3ztkub/iEb0WiD
+         V+tZrc008a6kZ6AbJRZk5T0Sb49WtMJBjobf7ooT5UM9Ljl9sk+rPWz/egDvVA3K58Id
+         Wkq3DyY6/JWYjUy0PaeutO5CygOOr17UcMC30LMTLnxaGpJ5eZq4wnxEFfqYvyi+DHVY
+         2ynq2Tx14FPOQ/Wcf5bptYKqE9Pbiiq7zt65tYHMqxEXQ6g/Ujy6T4Y1oxzfI3hs0xnt
+         u8BtcRbZh+LcUG5QC3f6wlg/rMTeM5AwCSRdMvJwrhGrlG0a+yfApb/yPKjRoNb2AGM8
+         LKnA==
+X-Forwarded-Encrypted: i=1; AJvYcCUynU0HghgAlNPA01/6PyJZ7THXVZ0acwRrh7i/xzPf3Ph/EV7eeSUwhvblE1l2KXpiZNOOcShq/vFg8g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmEFJhSMfYGQHJnmiJ3XEFpM6/Rk8MqwBWCzQrmi7GcfK1x/Fi
+	WYHIBTsyKw6Zu8+OzyKgOsVRQ/bmVwVIbtwkWPakNtIgOK9NyJGkP9/FEjXAXAM=
+X-Gm-Gg: ASbGnculHc0JAcOo6ErGFUCmqyTlWrvEJ6OmvgcgSxGP3O6A2lMuLJPdzv/WZagxHTE
+	vXVI8+4WxV6g453J0tTiZ7y44TBZYkL4CxvavQeth2C/60GJlRh4cTPcraCu3NFmqVzD5e+WgKF
+	Pd010CZRXZ5ipm+9bBiU69ELiIUnyvFYiQdyuh6Bt+HJQoBm1rI9+/mr3vN6fK7ei/CIT+f/QAE
+	BTSNaGYpj18yySodblonA8TZB+8CFe027B8ZcMmIuwf8LDxh3zDYbnq7+gmvJfEm7+czTCBjXti
+	CFzNOXc/3Xb6vWmaR7Q6eYPFKkEjDVqc1luCydYv0WsTvCXP393V4HzpVJvpDNfi/Ygqktesq1K
+	ybauNbQss
+X-Google-Smtp-Source: AGHT+IG7GDN4v2GYmvAvZdURoHs4uth6LMLhvKJsf8zWUpG9THKVhntnk/wGfEVNyfGlNchCxTCbDw==
+X-Received: by 2002:a05:600c:4ecc:b0:43c:f969:13c0 with SMTP id 5b1f17b1804b1-4406ac17729mr92801105e9.29.1745244892524;
+        Mon, 21 Apr 2025 07:14:52 -0700 (PDT)
+Received: from localhost.localdomain (176-147-145-44.abo.bbox.fr. [176.147.145.44])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4403605892fsm116767405e9.2.2025.04.21.07.14.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 21 Apr 2025 07:14:51 -0700 (PDT)
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+To: Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-doc@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH] riscv: hwprobe: export Zabha extension
+Date: Mon, 21 Apr 2025 16:14:13 +0200
+Message-Id: <20250421141413.394444-1-alexghiti@rivosinc.com>
+X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250418145401.2603648-1-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_064441_232422_1EBB013C 
-X-CRM114-Status: GOOD (  28.64  )
+X-CRM114-CacheID: sfid-20250421_071454_944635_870CBC7C 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,102 +101,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Alex,
-  I'm good with this version, but would wait a few more days for
-people to comment before taking them..
+Export Zabha through the hwprobe syscall.
 
-Hi Philipp,
-  Since these reset patches [3, 4, 6] are sitting on top of clk driver,
-I'd assume you're ok with taking them through clk tree? I'd plan to queue
-them for 6.16.. if yes, would you be able to give an ACK? I'd appreciate!
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ Documentation/arch/riscv/hwprobe.rst  | 4 ++++
+ arch/riscv/include/uapi/asm/hwprobe.h | 1 +
+ arch/riscv/kernel/sys_hwprobe.c       | 1 +
+ 3 files changed, 6 insertions(+)
 
-
-
-for the patch series, I'll give my rb
-Reviewed-by: Yixun Lan <dlan@gentoo.org>
-
-On 09:53 Fri 18 Apr     , Alex Elder wrote:
-> This series adds reset controller support for the SpacemiT K1 SoC.
-> 
-> Most of the the clock controller driver that Haylen Chu had out for
-> review has been accepted (at v8).  So this time this series is
-> based on the "for-next" branch in the SpacemiT repository:
->   https://github.com/spacemit-com/linux/tree/for-next
-> 
-> All of these patches are available here:
->   https://github.com/riscstar/linux/tree/outgoing/reset-v5
-> 
-> Between version 4 and version 5:
->   - Added Haylen's Reviewed-by on the second patch.
->   - Added Philipp's Reviewed-by on the third patch.
->   - In patch 4, added a const qualifier to some structures, and removed
->     parentheses surrounding integer constants, as suggested by Philipp
->   - Now based on the SpacemiT for-next branch
-> 
-> Here is version 4 of this series.
->   https://lore.kernel.org/lkml/20250414191715.2264758-1-elder@riscstar.com/
-> 
-> Between version 3 and version 4:
->   - Now based on Haylen Chu's v7 clock code, built on v6.15-rc2.
->   - Added Krzysztof's Reviewed-by on the first patch.
-> 
-> Here is version 3 of this series.
->   https://lore.kernel.org/lkml/20250409211741.1171584-1-elder@riscstar.com/
-> 
-> Between version 2 and version 3 there was no feedback, however:
->   - Haylen posted v6 of the clock series, and it included some changes
->     that affected the logic in this reset code.
->   - I was informed that defining CCU nodes without any clocks led to
->     warnings about "clocks" being a required property when running
->     "make dtbs_check".  For that reason, I made clock properties
->     optional for reset-only CCU nodes.
->   - This code is now based on v6.15-rc1, which includes a few commits
->     that were listed as dependencies previously.
-> 
-> Here is version 2 of this series.
->   https://lore.kernel.org/lkml/20250328210233.1077035-1-elder@riscstar.com/
-> 
-> Between version 1 and version 2:
->   - Added Rob's Reviewed-by tag on the first patch
->   - Renamed the of_match_data data type (and one or two other symbols) to
->     use "spacemit" rather than "k1".
->   - Replaced the abbreviated "rst" or "RST" in names of newly-defined
->     sympols with "reset" or "RESET" respectively.
->   - Eliminated rcdev_to_controller(), which was only used once.
->   - Changed a function that unsafely did a read/modify/write of a register
->     to use regmap_update_bits() instead as suggested by Haylen.
->   - Eliminated a null check for a pointer known to be non-null.
->   - Reordered the assignment of reset controller device fields.
->   - Added a "sentinel" comment as requested by Yixun.
->   - Updated to be based on Linux v6.14 final.
-> 
-> Here is the first version of this series.
->   https://lore.kernel.org/lkml/20250321151831.623575-1-elder@riscstar.com/
-> *** BLURB HERE ***
-> 
-> Alex Elder (7):
->   dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
->   clk: spacemit: rename spacemit_ccu_data fields
->   clk: spacemit: add reset controller support
->   clk: spacemit: define existing syscon resets
->   clk: spacemit: make clocks optional
->   clk: spacemit: define new syscons with only resets
->   riscv: dts: spacemit: add reset support for the K1 SoC
-> 
->  .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +-
->  arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 +
->  drivers/clk/spacemit/ccu-k1.c                 | 330 +++++++++++++++++-
->  .../dt-bindings/clock/spacemit,k1-syscon.h    | 128 +++++++
->  4 files changed, 482 insertions(+), 23 deletions(-)
-> 
-> 
-> base-commit: 279d51ad9f6dc0c667f6f141a669b2c921277d1a
-> -- 
-> 2.45.2
-> 
-
+diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
+index f60bf5991755..a4998ad2dfe0 100644
+--- a/Documentation/arch/riscv/hwprobe.rst
++++ b/Documentation/arch/riscv/hwprobe.rst
+@@ -271,6 +271,10 @@ The following keys are defined:
+   * :c:macro:`RISCV_HWPROBE_EXT_ZICBOM`: The Zicbom extension is supported, as
+        ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
+ 
++  * :c:macro:`RISCV_HWPROBE_EXT_ZABHA`: The Zabha extension is supported as
++       ratified in commit 49f49c842ff9 ("Update to Rafified state") of
++       riscv-zabha.
++
+ * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
+      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
+      mistakenly classified as a bitmask rather than a value.
+diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
+index 3c2fce939673..fca15f2bf6f3 100644
+--- a/arch/riscv/include/uapi/asm/hwprobe.h
++++ b/arch/riscv/include/uapi/asm/hwprobe.h
+@@ -81,6 +81,7 @@ struct riscv_hwprobe {
+ #define		RISCV_HWPROBE_EXT_ZICBOM	(1ULL << 55)
+ #define		RISCV_HWPROBE_EXT_ZAAMO		(1ULL << 56)
+ #define		RISCV_HWPROBE_EXT_ZALRSC	(1ULL << 57)
++#define		RISCV_HWPROBE_EXT_ZABHA		(1ULL << 58)
+ #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+ #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+ #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
+index 249aec8594a9..ed3123396a96 100644
+--- a/arch/riscv/kernel/sys_hwprobe.c
++++ b/arch/riscv/kernel/sys_hwprobe.c
+@@ -96,6 +96,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
+ 		 * presence in the hart_isa bitmap, are made.
+ 		 */
+ 		EXT_KEY(ZAAMO);
++		EXT_KEY(ZABHA);
+ 		EXT_KEY(ZACAS);
+ 		EXT_KEY(ZALRSC);
+ 		EXT_KEY(ZAWRS);
 -- 
-Yixun Lan (dlan)
+2.39.2
+
 
 _______________________________________________
 linux-riscv mailing list
