@@ -4,88 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0176BC369AB
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:27:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1425C369C2
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=f0QhhGEqh+Vp6IKufM59OS52FKK6LyQYa1NxMh/OMpU=; b=HdN0JazWf8NW06
-	o2hlDLjwX14+YjDzWSN1yrruY/ig42bCnGwFxCcUfhjsH0qgd4GRFooCMNXI9D5XD+zQzVJRL5GVr
-	+qtp+179H1S24otwHVf/iamjXWxDXSghEpYqMCF038W+8Xqcr+Kjt4w5otH0fmvYQ5bK2wA3coSyA
-	o79G4CSwyBKgf5VPrXHcCUS2fBUV0ssxqjw8I+ePTq6U2qh8ko/O0AT8hPuXC6CA8LYo9XFzovpDw
-	wrftSNJTXPR/eys6dmVLeOT+y4ElGnyuc7n36pCmUVi17xCw79KMDNQTw5fd3g1tKcHlcz8l8SR24
-	wXZsUBarEMZIAU6iF9ZA==;
+	List-Owner; bh=pFU2NVb7aCOrTwaQG//Z6fqX73OM6VHcwPJ/sr6bDDo=; b=L7GTeoZa+zzH/w
+	i+YqrYD7ZHeIPLHjzqKxn6vhI8xNkMkQF77pEZVCecTmAHkLUSXO+P8PR75SUTe41K8uuCLdvjPHj
+	nVaT9Ny7XECsD8SJA7oDG5J1d7F8AG53qCm00hLbqD6D5g+hUlR7xVLz6uAYqVXKoi1sE0IVbxTJ6
+	ABm4YFl+MPQZIOE2sGbkIPl6Uzn/z/ua68rOE4sbIEGVBOXPlXqFhAHG+H9/1s3O6XbWLjV8K70Nd
+	D/Opn/WLjpwa/yvnrUnYktlssNaqGIW4iwvBqS/QGBhLP/poTyAWRJ5lGFT/VgAaeNgUuV0QSuUdU
+	4+atAxAVZu6cuRvY2dEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s7Q-00000004SFt-2UH0;
-	Mon, 21 Apr 2025 14:27:32 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1u6s8O-00000004SUl-3OGl;
+	Mon, 21 Apr 2025 14:28:32 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s7N-00000004SEk-0hkq
+	id 1u6s8M-00000004SU8-0y7f
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 14:27:30 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso2477212f8f.2
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:27:28 -0700 (PDT)
+	Mon, 21 Apr 2025 14:28:31 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0782d787so29475175e9.0
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:28:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245647; x=1745850447; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245709; x=1745850509; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=zM2xTA3Ijm3UBkqygOS2aJTpcgU5eK9eWAc69Lekkw4=;
-        b=K698AnrVrEJl5x2Ukk6jTRewaeVU8lVJtC49g9tCuMdYjOXHF7A76DgNjNsSmpst0+
-         CoS7PjkJbY2DWDwSuS/+TOEgCh0sDfmnxN9E5ldnY600yW4SPAJ4SrO3eVGcwsHqco/x
-         BM1YOCXDzmyrCqaluR6TCRfjPhMXxpBBZEW6z3+NWyE2wJfDOE01CImcNz/ZMh6Ci/gb
-         gAnBmJR6ZB/AmqyAaR1s0tZkuteRQfNM3guEKdpECkDX9MW+OYFYo3IA8IgiW9XmWFUr
-         dw7fcjHKkcDsWdVMfIQevku8dOW0Rz45nxshS+l2qY21OqaxM0nf6rIa3JAmqjTNTzyc
-         4Z1w==
+        bh=fgXsecntwfRSGjrcDXCs8qD6E3/9J+RIf148wqrIpWA=;
+        b=HH3A5DlEVf3k3nz5Rsqu34m5hVepjHhDoW60oeK7b7TZ1dQSOsKXfCjX9AVtvGmynH
+         aJqXFtBbczGGJMg6TXTIO/QCwOJ8a3r//2GXhzdw2pQdAkPYjBzbu/6UZo0LN3l7sehU
+         3o1go7konkQSrrIsSwwwR1WfpcQLjKRtbclQ2JLFG3wVSkCH6HjXNpo4kl5FOAhPbA3c
+         xF3s+Q7tZg3w7GYRtPwVsYl7zno5X0NiwVNI1kFQttPutHYeN7BoBVWuEka+3pE+/5KS
+         Lb8j500nsoFTSGHrq29vvtBj0VuxqL6KFgiGj1Y19ZXOlucQpkLZsguRjc1Krb8Lf4+T
+         cvjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745245647; x=1745850447;
+        d=1e100.net; s=20230601; t=1745245709; x=1745850509;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=zM2xTA3Ijm3UBkqygOS2aJTpcgU5eK9eWAc69Lekkw4=;
-        b=qDp3qRWBwKd8LHmqvQrOhirYesv3ql2XlqJvhFPpPwXnzjcQQuFR+to/PUBLLE6994
-         vsnVce+8uSpvGP2IJuBpA782K2Zd9ZWvQlWUepk5aBIRRxakxav6CXaXkAWHEFDdQ1fL
-         GQo/kkK91K6II6snxBN8M8MxgofFEkC+pmzwlcOjB2uGaEwu9akZAVUY0fo3H4zAvZ/5
-         HDt2bOXuS9B5HnYr135VD0v0NRed0z0uMShEARiX2gRl6VUR9x8ZqpPfc+V1NR2cBGpn
-         3GPh2Q5mf5udkRhsVjwQcyI8ZNyfReXdIlHj1p8nToqIeU/2w5PfKAC1Q0iUiD1yzpTL
-         +vKw==
-X-Forwarded-Encrypted: i=1; AJvYcCWpMYpqJ7uhnq8qfHmAeOjABLFEG5oC3tiGEJXu+5miBsawzKNUjDqPDclcuC+/lmvBrExXXbjzh/HN0g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0IrXsQ5lAS350bvJ54SwznkjwTBWgGaiX0Yh8MNN8ItCfq60f
-	JPy550ptshLRyqAq16g4iw6BRCWNqajRV8w8Ffq1vvnHQ0WBojDl/bh67rmRLSo=
-X-Gm-Gg: ASbGncv3gD1JqGKZ/DpGdUpHKbiPbspj81yNmBeSESONr60J+6Y5gGvrjIR6ErLdjg8
-	Un5U5+wxsj75hGCRLTslb6OKTOVZOL55QEAe2Uz+/+hIKN13Cd6pc+7ScBkOwnxQ8eajWo02qmZ
-	j0rY0j8rNg5RLMPLZ5Yyz29BG+0w1XCdLWVxX0G4Yf4YRYSDHnqgiPmy+Ii/R7GK+7qnSDHaOXs
-	xmFgkzCfyiu7F5R+V4N+H4aabCsyuWk5SR7vIm+A/3yEoQf2pt4UR77rIVx5ZAYroUHyklgLe8l
-	0YmKFmsDoYyNAnJQqd7NYD3k0aWccgUdR8zLm6i9LqYTXsvDgGp5Kr/FNRo=
-X-Google-Smtp-Source: AGHT+IFtp6uDvT40Wf+eeybtMtOJKhVDujKLqASqoA/CInEEp1l3aj2FR72x/bhE1vGyIsJOBUURFA==
-X-Received: by 2002:a05:6000:706:b0:39c:1257:dbab with SMTP id ffacd0b85a97d-39efbaf26f0mr7662645f8f.59.1745245647104;
-        Mon, 21 Apr 2025 07:27:27 -0700 (PDT)
+        bh=fgXsecntwfRSGjrcDXCs8qD6E3/9J+RIf148wqrIpWA=;
+        b=ZSpujNChgNVXyg7g0F9V6/Pcnzx0orXIuV3jkJT0St9GGL16VQS4x+bFV0suR/gzCL
+         4jlkCPNcBb6CU25c7/Xwh5CGSOAaKv6KMwT7P115lSbew59o3/87cVSkn1O1YjdpyGQ5
+         9gwnqkcP71GF7QSVEPN3Q6VCYGuBDbY6/mV8+XoQKP60hyzXOS4LS3doLg/s6L6JoFxK
+         9UHqNFgThR9jqJFzSkItj26miQlJ9kll0UJaWbxWEHTj8QiwFVl6DLWzfggb8NZla5QJ
+         0AdBcbdAgBmTuc270TZXeBY69vpKodR6I9LZSM9BLSq9tmZscKAu8nci9MQvnT25vCCO
+         hgRA==
+X-Forwarded-Encrypted: i=1; AJvYcCVgKrqeTQWQ+IyREKBJKYokzN04eJHhEW3GVbVEURNtWNd6g/xmukHK7tD89NnlsaoFdbzGqLFZFhTfcA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcSRCXVc1uJxs9tv00g++GEC+PbM11cb9fD0krqEFqFD9NL2ID
+	wCr4RFk2a6xMsO1C1lk2/clCmoqemuSn9XQukYg1UBtzp3/l2jdPg5y53m6wJqo=
+X-Gm-Gg: ASbGncv+XEwoO30E6ey+EYw3KKoj2FkM1KjE7yIvOjq/2EGM1UC1gCUMn2x38teHJ9y
+	rvnabmWIqudDz/4uU/efRiFr7eOwsbH8gTz74WHXw8qFmVMg+6mJ+w7OruhSEWan82QfC7hFX3C
+	0uKJuFyd9A4I+vjYLlfrgnlzCX/bWZBAteiUYnKsLiu8ljoqHLZHyWpdMzNgLck1DBqoEBeYV3c
+	tNqUb8+n+6ksBdxGg5dL85pwjaheYmx5bDhL/Aei4YCTF4C9lodh1IVe9s72QW70/x3KP8M7fOW
+	fPoaTT1GawePO+4IT2qgvqaan7dkz9UWdSr3IRi5V7VlZJIUQwZE/Zpo3LE=
+X-Google-Smtp-Source: AGHT+IF004bhFEXPI3CCJKmdwXsLTAbZYWv5EdIm3QZ5L16mdpCbU2yQOcrSdZib/PGDekiXc//UtA==
+X-Received: by 2002:a05:600c:8411:b0:43d:83a:417d with SMTP id 5b1f17b1804b1-4406ab944edmr112676395e9.12.1745245708719;
+        Mon, 21 Apr 2025 07:28:28 -0700 (PDT)
 Received: from localhost.localdomain ([2001:861:3382:ef90:cd58:9e76:e88c:5cd])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-39efa5a2300sm11840020f8f.101.2025.04.21.07.27.26
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5a9e1bsm141981795e9.8.2025.04.21.07.28.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 07:27:26 -0700 (PDT)
+        Mon, 21 Apr 2025 07:28:28 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Guo Ren <guoren@kernel.org>
-Subject: [PATCH v3 2/4] riscv: Add support for Zicbop
-Date: Mon, 21 Apr 2025 16:24:39 +0200
-Message-Id: <20250421142441.395849-3-alexghiti@rivosinc.com>
+Cc: Guo Ren <guoren@linux.alibaba.com>,
+	Guo Ren <guoren@kernel.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 3/4] riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
+Date: Mon, 21 Apr 2025 16:24:40 +0200
+Message-Id: <20250421142441.395849-4-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250421142441.395849-1-alexghiti@rivosinc.com>
 References: <20250421142441.395849-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_072729_209044_B5CFA6AB 
-X-CRM114-Status: GOOD (  21.88  )
+X-CRM114-CacheID: sfid-20250421_072830_269937_B9F26509 
+X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,221 +104,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Zicbop introduces cache blocks prefetching instructions, add the
-necessary support for the kernel to use it in the coming commits.
+From: Guo Ren <guoren@linux.alibaba.com>
 
-Co-developed-by: Guo Ren <guoren@kernel.org>
+Enable Linux prefetch and prefetchw primitives using Zicbop.
+
+Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
+Link: https://lore.kernel.org/r/20231231082955.16516-3-guoren@kernel.org
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/Kconfig                  | 15 +++++++++++++++
- arch/riscv/include/asm/barrier.h    |  5 -----
- arch/riscv/include/asm/cacheflush.h |  1 +
- arch/riscv/include/asm/hwcap.h      |  1 +
- arch/riscv/include/asm/insn-def.h   |  6 ++++++
- arch/riscv/include/asm/processor.h  |  1 -
- arch/riscv/kernel/cpufeature.c      | 21 +++++++++++++++++++++
- arch/riscv/mm/cacheflush.c          | 14 +++++++++++---
- 8 files changed, 55 insertions(+), 9 deletions(-)
+ arch/riscv/include/asm/processor.h | 24 ++++++++++++++++++++++++
+ 1 file changed, 24 insertions(+)
 
-diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
-index bbec87b79309..28765ce563de 100644
---- a/arch/riscv/Kconfig
-+++ b/arch/riscv/Kconfig
-@@ -842,6 +842,21 @@ config RISCV_ISA_ZICBOZ
- 
- 	   If you don't know what to do here, say Y.
- 
-+config RISCV_ISA_ZICBOP
-+	bool "Zicbop extension support for cache block prefetch"
-+	depends on MMU
-+	depends on RISCV_ALTERNATIVE
-+	default y
-+	help
-+	  Adds support to dynamically detect the presence of the ZICBOP
-+	  extension (Cache Block Prefetch Operations) and enable its
-+	  usage.
-+
-+	  The Zicbop extension can be used to prefetch cache blocks for
-+	  read/write fetch.
-+
-+	  If you don't know what to do here, say Y.
-+
- config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
- 	def_bool y
- 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
-diff --git a/arch/riscv/include/asm/barrier.h b/arch/riscv/include/asm/barrier.h
-index e1d9bf1deca6..b8c5726d86ac 100644
---- a/arch/riscv/include/asm/barrier.h
-+++ b/arch/riscv/include/asm/barrier.h
-@@ -14,11 +14,6 @@
- #include <asm/cmpxchg.h>
- #include <asm/fence.h>
- 
--#define nop()		__asm__ __volatile__ ("nop")
--#define __nops(n)	".rept	" #n "\nnop\n.endr\n"
--#define nops(n)		__asm__ __volatile__ (__nops(n))
--
--
- /* These barriers need to enforce ordering on both devices or memory. */
- #define __mb()		RISCV_FENCE(iorw, iorw)
- #define __rmb()		RISCV_FENCE(ir, ir)
-diff --git a/arch/riscv/include/asm/cacheflush.h b/arch/riscv/include/asm/cacheflush.h
-index 8de73f91bfa3..effa02c2e682 100644
---- a/arch/riscv/include/asm/cacheflush.h
-+++ b/arch/riscv/include/asm/cacheflush.h
-@@ -80,6 +80,7 @@ void flush_icache_mm(struct mm_struct *mm, bool local);
- 
- extern unsigned int riscv_cbom_block_size;
- extern unsigned int riscv_cboz_block_size;
-+extern unsigned int riscv_cbop_block_size;
- void riscv_init_cbo_blocksizes(void);
- 
- #ifdef CONFIG_RISCV_DMA_NONCOHERENT
-diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
-index e3cbf203cdde..affd63e11b0a 100644
---- a/arch/riscv/include/asm/hwcap.h
-+++ b/arch/riscv/include/asm/hwcap.h
-@@ -105,6 +105,7 @@
- #define RISCV_ISA_EXT_ZVFBFWMA		96
- #define RISCV_ISA_EXT_ZAAMO		97
- #define RISCV_ISA_EXT_ZALRSC		98
-+#define RISCV_ISA_EXT_ZICBOP		99
- 
- #define RISCV_ISA_EXT_XLINUXENVCFG	127
- 
-diff --git a/arch/riscv/include/asm/insn-def.h b/arch/riscv/include/asm/insn-def.h
-index 02c92c1657d2..d5adbaec1d01 100644
---- a/arch/riscv/include/asm/insn-def.h
-+++ b/arch/riscv/include/asm/insn-def.h
-@@ -263,4 +263,10 @@
- 
- #define RISCV_INSN_NOP4	_AC(0x00000013, U)
- 
-+#ifndef __ASSEMBLY__
-+#define nop()           __asm__ __volatile__ ("nop")
-+#define __nops(n)       ".rept  " #n "\nnop\n.endr\n"
-+#define nops(n)         __asm__ __volatile__ (__nops(n))
-+#endif
-+
- #endif /* __ASM_INSN_DEF_H */
 diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 5f56eb9d114a..09d4c963399a 100644
+index 09d4c963399a..39dfab495a4c 100644
 --- a/arch/riscv/include/asm/processor.h
 +++ b/arch/riscv/include/asm/processor.h
-@@ -52,7 +52,6 @@
- #endif
+@@ -13,6 +13,9 @@
+ #include <vdso/processor.h>
  
- #ifndef __ASSEMBLY__
--#include <linux/cpumask.h>
+ #include <asm/ptrace.h>
++#include <asm/insn-def.h>
++#include <asm/alternative-macros.h>
++#include <asm/hwcap.h>
  
- struct task_struct;
- struct pt_regs;
-diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
-index 2054f6c4b0ae..743d53415572 100644
---- a/arch/riscv/kernel/cpufeature.c
-+++ b/arch/riscv/kernel/cpufeature.c
-@@ -32,6 +32,7 @@
- #define NUM_ALPHA_EXTS ('z' - 'a' + 1)
+ #define arch_get_mmap_end(addr, len, flags)			\
+ ({								\
+@@ -135,6 +138,27 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
+ #define KSTK_EIP(tsk)		(task_pt_regs(tsk)->epc)
+ #define KSTK_ESP(tsk)		(task_pt_regs(tsk)->sp)
  
- static bool any_cpu_has_zicboz;
-+static bool any_cpu_has_zicbop;
- static bool any_cpu_has_zicbom;
- 
- unsigned long elf_hwcap __read_mostly;
-@@ -119,6 +120,21 @@ static int riscv_ext_zicboz_validate(const struct riscv_isa_ext_data *data,
- 	return 0;
- }
- 
-+static int riscv_ext_zicbop_validate(const struct riscv_isa_ext_data *data,
-+				     const unsigned long *isa_bitmap)
++#define PREFETCH_ASM(x)							\
++	ALTERNATIVE(__nops(1), PREFETCH_R(x, 0), 0,			\
++		    RISCV_ISA_EXT_ZICBOP, CONFIG_RISCV_ISA_ZICBOP)
++
++#define PREFETCHW_ASM(x)						\
++	ALTERNATIVE(__nops(1), PREFETCH_W(x, 0), 0,			\
++		    RISCV_ISA_EXT_ZICBOP, CONFIG_RISCV_ISA_ZICBOP)
++
++#ifdef CONFIG_RISCV_ISA_ZICBOP
++#define ARCH_HAS_PREFETCH
++static inline void prefetch(const void *x)
 +{
-+	if (!riscv_cbop_block_size) {
-+		pr_err("Zicbop detected in ISA string, disabling as no cbop-block-size found\n");
-+		return -EINVAL;
-+	}
-+	if (!is_power_of_2(riscv_cbop_block_size)) {
-+		pr_err("Zicbop disabled as cbop-block-size present, but is not a power-of-2\n");
-+		return -EINVAL;
-+	}
-+	any_cpu_has_zicbop = true;
-+	return 0;
++	__asm__ __volatile__(PREFETCH_ASM(%0) : : "r" (x) : "memory");
 +}
 +
- static int riscv_ext_f_validate(const struct riscv_isa_ext_data *data,
- 				const unsigned long *isa_bitmap)
- {
-@@ -442,6 +458,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(v, RISCV_ISA_EXT_v, riscv_v_exts, riscv_ext_vector_float_validate),
- 	__RISCV_ISA_EXT_DATA(h, RISCV_ISA_EXT_h),
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicbom, RISCV_ISA_EXT_ZICBOM, riscv_xlinuxenvcfg_exts, riscv_ext_zicbom_validate),
-+	__RISCV_ISA_EXT_DATA_VALIDATE(zicbop, RISCV_ISA_EXT_ZICBOP, riscv_ext_zicbop_validate),
- 	__RISCV_ISA_EXT_SUPERSET_VALIDATE(zicboz, RISCV_ISA_EXT_ZICBOZ, riscv_xlinuxenvcfg_exts, riscv_ext_zicboz_validate),
- 	__RISCV_ISA_EXT_DATA(ziccrse, RISCV_ISA_EXT_ZICCRSE),
- 	__RISCV_ISA_EXT_DATA(zicntr, RISCV_ISA_EXT_ZICNTR),
-@@ -1112,6 +1129,10 @@ void __init riscv_user_isa_enable(void)
- 		current->thread.envcfg |= ENVCFG_CBCFE;
- 	else if (any_cpu_has_zicbom)
- 		pr_warn("Zicbom disabled as it is unavailable on some harts\n");
-+
-+	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_ZICBOP) &&
-+	    any_cpu_has_zicbop)
-+		pr_warn("Zicbop disabled as it is unavailable on some harts\n");
- }
++#define ARCH_HAS_PREFETCHW
++static inline void prefetchw(const void *x)
++{
++	__asm__ __volatile__(PREFETCHW_ASM(%0) : : "r" (x) : "memory");
++}
++#endif /* CONFIG_RISCV_ISA_ZICBOP */
  
- #ifdef CONFIG_RISCV_ALTERNATIVE
-diff --git a/arch/riscv/mm/cacheflush.c b/arch/riscv/mm/cacheflush.c
-index b81672729887..6265052ef8b6 100644
---- a/arch/riscv/mm/cacheflush.c
-+++ b/arch/riscv/mm/cacheflush.c
-@@ -101,6 +101,9 @@ EXPORT_SYMBOL_GPL(riscv_cbom_block_size);
- unsigned int riscv_cboz_block_size;
- EXPORT_SYMBOL_GPL(riscv_cboz_block_size);
- 
-+unsigned int riscv_cbop_block_size;
-+EXPORT_SYMBOL_GPL(riscv_cbop_block_size);
-+
- static void __init cbo_get_block_size(struct device_node *node,
- 				      const char *name, u32 *block_size,
- 				      unsigned long *first_hartid)
-@@ -125,8 +128,8 @@ static void __init cbo_get_block_size(struct device_node *node,
- 
- void __init riscv_init_cbo_blocksizes(void)
- {
--	unsigned long cbom_hartid, cboz_hartid;
--	u32 cbom_block_size = 0, cboz_block_size = 0;
-+	unsigned long cbom_hartid, cboz_hartid, cbop_hartid;
-+	u32 cbom_block_size = 0, cboz_block_size = 0, cbop_block_size = 0;
- 	struct device_node *node;
- 	struct acpi_table_header *rhct;
- 	acpi_status status;
-@@ -138,13 +141,15 @@ void __init riscv_init_cbo_blocksizes(void)
- 					   &cbom_block_size, &cbom_hartid);
- 			cbo_get_block_size(node, "riscv,cboz-block-size",
- 					   &cboz_block_size, &cboz_hartid);
-+			cbo_get_block_size(node, "riscv,cbop-block-size",
-+					   &cbop_block_size, &cbop_hartid);
- 		}
- 	} else {
- 		status = acpi_get_table(ACPI_SIG_RHCT, 0, &rhct);
- 		if (ACPI_FAILURE(status))
- 			return;
- 
--		acpi_get_cbo_block_size(rhct, &cbom_block_size, &cboz_block_size, NULL);
-+		acpi_get_cbo_block_size(rhct, &cbom_block_size, &cboz_block_size, &cbop_block_size);
- 		acpi_put_table((struct acpi_table_header *)rhct);
- 	}
- 
-@@ -153,6 +158,9 @@ void __init riscv_init_cbo_blocksizes(void)
- 
- 	if (cboz_block_size)
- 		riscv_cboz_block_size = cboz_block_size;
-+
-+	if (cbop_block_size)
-+		riscv_cbop_block_size = cbop_block_size;
- }
- 
- #ifdef CONFIG_SMP
+ /* Do necessary setup to start up a newly executed thread. */
+ extern void start_thread(struct pt_regs *regs,
 -- 
 2.39.2
 
