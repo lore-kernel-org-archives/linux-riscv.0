@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1425C369C2
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:28:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC51C369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:29:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pFU2NVb7aCOrTwaQG//Z6fqX73OM6VHcwPJ/sr6bDDo=; b=L7GTeoZa+zzH/w
-	i+YqrYD7ZHeIPLHjzqKxn6vhI8xNkMkQF77pEZVCecTmAHkLUSXO+P8PR75SUTe41K8uuCLdvjPHj
-	nVaT9Ny7XECsD8SJA7oDG5J1d7F8AG53qCm00hLbqD6D5g+hUlR7xVLz6uAYqVXKoi1sE0IVbxTJ6
-	ABm4YFl+MPQZIOE2sGbkIPl6Uzn/z/ua68rOE4sbIEGVBOXPlXqFhAHG+H9/1s3O6XbWLjV8K70Nd
-	D/Opn/WLjpwa/yvnrUnYktlssNaqGIW4iwvBqS/QGBhLP/poTyAWRJ5lGFT/VgAaeNgUuV0QSuUdU
-	4+atAxAVZu6cuRvY2dEw==;
+	List-Owner; bh=Jgs9XOyuB+P6936Pjfs+cmjMJmeppR+jVYuOUQIA8Qo=; b=iG2m74FKoYHZU7
+	KyxiBx9V1nekGq6K0TfdO6ixk4a0fxleLHBgXK3HrFVyzhmFXdEQaUsPphLxtEnvM8SNrqp3Jflxn
+	0FBAabGmNwuHeoh8XVbVCZg/ERIDctJhd4DNFWITs+szWZkdvgrYy7yrVuaj0d8s0heH/z27DeApB
+	Ubwt3k2DEaB+zliA34sbzASFhnPdxOUIR4LkaQVqUFgkSBjPf9Qm1KEzO/sBZjyLatIY/jhqlzyyA
+	CaWyefAo3O1tHFdwRfvRFeDzsu/WaNcCz5OrEh4dkrVoGpFJ5B4BOE7YsmLMmHTwmtkiznHF7rTI9
+	KsQCBkLana00hpH9PlQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s8O-00000004SUl-3OGl;
-	Mon, 21 Apr 2025 14:28:32 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1u6s9T-00000004Sgt-29NO;
+	Mon, 21 Apr 2025 14:29:39 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s8M-00000004SU8-0y7f
+	id 1u6s9Q-00000004SgD-3lC9
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 14:28:31 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43d0782d787so29475175e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:28:30 -0700 (PDT)
+	Mon, 21 Apr 2025 14:29:38 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso34259675e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:29:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245709; x=1745850509; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245775; x=1745850575; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fgXsecntwfRSGjrcDXCs8qD6E3/9J+RIf148wqrIpWA=;
-        b=HH3A5DlEVf3k3nz5Rsqu34m5hVepjHhDoW60oeK7b7TZ1dQSOsKXfCjX9AVtvGmynH
-         aJqXFtBbczGGJMg6TXTIO/QCwOJ8a3r//2GXhzdw2pQdAkPYjBzbu/6UZo0LN3l7sehU
-         3o1go7konkQSrrIsSwwwR1WfpcQLjKRtbclQ2JLFG3wVSkCH6HjXNpo4kl5FOAhPbA3c
-         xF3s+Q7tZg3w7GYRtPwVsYl7zno5X0NiwVNI1kFQttPutHYeN7BoBVWuEka+3pE+/5KS
-         Lb8j500nsoFTSGHrq29vvtBj0VuxqL6KFgiGj1Y19ZXOlucQpkLZsguRjc1Krb8Lf4+T
-         cvjQ==
+        bh=7PqG7/ov+XLPSS/BI8rl8Yyu60TugcPqJyKJ5mLINmc=;
+        b=Frj6ukWYhs26muNDST79qJR5DDEW06WlC2rhVM8DAzj+6TMgA2p/WngPadY8/zfams
+         ohomcx+0478wGYXJsVH1x5MAy8MS3eZFozkbuVl8DoBcW/cxndyZZ1/5X+rUebvGm2sb
+         XJWf6jwuEtvs4ZRYswCBjV3Ud44mcFyKDHXwE0eLXe7wbg4TkcyUUkiF2wDY9j2c3Bc1
+         Oz8PtNUSYUbT8w1WwP7l/4EZ+UyaeRCHfipyrRizFedBDxA8Nj6n0NduKRaLBH+3Xyq+
+         jUMtirR0AnHTA8aItlYRQswDfYhtVfg0NTorQJ7DWQ50zY95g+ZWmpvXiyoajYNr0uhG
+         IAfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745245709; x=1745850509;
+        d=1e100.net; s=20230601; t=1745245775; x=1745850575;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fgXsecntwfRSGjrcDXCs8qD6E3/9J+RIf148wqrIpWA=;
-        b=ZSpujNChgNVXyg7g0F9V6/Pcnzx0orXIuV3jkJT0St9GGL16VQS4x+bFV0suR/gzCL
-         4jlkCPNcBb6CU25c7/Xwh5CGSOAaKv6KMwT7P115lSbew59o3/87cVSkn1O1YjdpyGQ5
-         9gwnqkcP71GF7QSVEPN3Q6VCYGuBDbY6/mV8+XoQKP60hyzXOS4LS3doLg/s6L6JoFxK
-         9UHqNFgThR9jqJFzSkItj26miQlJ9kll0UJaWbxWEHTj8QiwFVl6DLWzfggb8NZla5QJ
-         0AdBcbdAgBmTuc270TZXeBY69vpKodR6I9LZSM9BLSq9tmZscKAu8nci9MQvnT25vCCO
-         hgRA==
-X-Forwarded-Encrypted: i=1; AJvYcCVgKrqeTQWQ+IyREKBJKYokzN04eJHhEW3GVbVEURNtWNd6g/xmukHK7tD89NnlsaoFdbzGqLFZFhTfcA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwcSRCXVc1uJxs9tv00g++GEC+PbM11cb9fD0krqEFqFD9NL2ID
-	wCr4RFk2a6xMsO1C1lk2/clCmoqemuSn9XQukYg1UBtzp3/l2jdPg5y53m6wJqo=
-X-Gm-Gg: ASbGncv+XEwoO30E6ey+EYw3KKoj2FkM1KjE7yIvOjq/2EGM1UC1gCUMn2x38teHJ9y
-	rvnabmWIqudDz/4uU/efRiFr7eOwsbH8gTz74WHXw8qFmVMg+6mJ+w7OruhSEWan82QfC7hFX3C
-	0uKJuFyd9A4I+vjYLlfrgnlzCX/bWZBAteiUYnKsLiu8ljoqHLZHyWpdMzNgLck1DBqoEBeYV3c
-	tNqUb8+n+6ksBdxGg5dL85pwjaheYmx5bDhL/Aei4YCTF4C9lodh1IVe9s72QW70/x3KP8M7fOW
-	fPoaTT1GawePO+4IT2qgvqaan7dkz9UWdSr3IRi5V7VlZJIUQwZE/Zpo3LE=
-X-Google-Smtp-Source: AGHT+IF004bhFEXPI3CCJKmdwXsLTAbZYWv5EdIm3QZ5L16mdpCbU2yQOcrSdZib/PGDekiXc//UtA==
-X-Received: by 2002:a05:600c:8411:b0:43d:83a:417d with SMTP id 5b1f17b1804b1-4406ab944edmr112676395e9.12.1745245708719;
-        Mon, 21 Apr 2025 07:28:28 -0700 (PDT)
+        bh=7PqG7/ov+XLPSS/BI8rl8Yyu60TugcPqJyKJ5mLINmc=;
+        b=Q2cXFjKKU/uN+nZKZ7C9uKRjaeOrCvw7xDaI7hv/T+ND/L7MTw8+4f+wwV6s5i8O8k
+         G4VEioCtD8WcIxUJtENg7MSffdUJap15d4CpmQ6yUJDrZeeebc/vGoj4+9sv45kfYcKZ
+         P+zimwv8NJLnEKIeeh47LtfDP3vFJhGSVjk25OR4BYfvF42i0idxKLIBdRUGTO+QGFGA
+         fookX7pIKCXuOCL6KcpVqJpSVnK6/JY6R5slJ3RyJVrukX6aRc7+gPagAMm6ymODB6Ug
+         W94XmyFKsAJpR0wI/Rde4YMiB77mjiDMqYRrazzYAqkfAiVWpKwuBqCslbXENmPfjaGZ
+         iTyA==
+X-Forwarded-Encrypted: i=1; AJvYcCUaxhcxrcieUgXfIbcXMDotBZbOaEqxoYMAlbKZwJWRmB2e2jjSiYbAmNuPz5oaehCcBCxibUKJTtxgDw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4FaUOMhevdNvi77itQA+kV1CIM6nIG2e2gjG24tpWATOFvPBm
+	4d2kwemEJmD5kmDC5JopXm9EJEVjWwgjAZ+Ga1WQoMn9W0I66F+MbQY0p7J/wIk=
+X-Gm-Gg: ASbGncsC+APoStu5KTleGrYPFI5udwPSyFpSFGspXBQZp/kNFAOriKVGrpAMPyXDgYw
+	3lfKeRIbN2Mb4uXOoQqVOmrMqOdiRLAEgtpXCozK4BIXS2ZPHAcENytQRRd/KdxLfSH+oH1ZtDZ
+	rtipdwicGookHaSw+4YNRHkrDaJDlH8aTN41G8YlclshaUngKbyKjsAlQ6DUa1pB8txSP4Jyqki
+	PTF+68BwnbxU8WEhLuvLNJncipR60cl0zl8qvbf75knw87c6ZMZSfTuthKMuhFvFRP2w7I9tQf2
+	VRtuG509ExVqiRigWaztu14YMduXVA68AWyjhx0377iP9j5ClVkwEn3J+/Q=
+X-Google-Smtp-Source: AGHT+IFtaZI4HL07N6roaGJageZKu+pJvFMTwymIjfPu+o3nCKfh2t3UeftOSZHfxlA79jnfnWiZmg==
+X-Received: by 2002:a05:600c:3b9b:b0:43c:e478:889 with SMTP id 5b1f17b1804b1-4406aa8984fmr117511685e9.0.1745245775271;
+        Mon, 21 Apr 2025 07:29:35 -0700 (PDT)
 Received: from localhost.localdomain ([2001:861:3382:ef90:cd58:9e76:e88c:5cd])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5a9e1bsm141981795e9.8.2025.04.21.07.28.27
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5bbc13sm135524665e9.17.2025.04.21.07.29.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 07:28:28 -0700 (PDT)
+        Mon, 21 Apr 2025 07:29:34 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -77,17 +77,16 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 Cc: Guo Ren <guoren@linux.alibaba.com>,
 	Guo Ren <guoren@kernel.org>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v3 3/4] riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
-Date: Mon, 21 Apr 2025 16:24:40 +0200
-Message-Id: <20250421142441.395849-4-alexghiti@rivosinc.com>
+Subject: [PATCH v3 4/4] riscv: xchg: Prefetch the destination word for sc.w
+Date: Mon, 21 Apr 2025 16:24:41 +0200
+Message-Id: <20250421142441.395849-5-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250421142441.395849-1-alexghiti@rivosinc.com>
 References: <20250421142441.395849-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_072830_269937_B9F26509 
-X-CRM114-Status: UNSURE (   9.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250421_072936_936794_6EF41357 
+X-CRM114-Status: GOOD (  12.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,58 +105,53 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Guo Ren <guoren@linux.alibaba.com>
 
-Enable Linux prefetch and prefetchw primitives using Zicbop.
+The cost of changing a cacheline from shared to exclusive state can be
+significant, especially when this is triggered by an exclusive store,
+since it may result in having to retry the transaction.
+
+This patch makes use of prefetch.w to prefetch cachelines for write
+prior to lr/sc loops when using the xchg_small atomic routine.
+
+This patch is inspired by commit 0ea366f5e1b6 ("arm64: atomics:
+prefetch the destination word for write prior to stxr").
 
 Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
 Signed-off-by: Guo Ren <guoren@kernel.org>
-Link: https://lore.kernel.org/r/20231231082955.16516-3-guoren@kernel.org
+Link: https://lore.kernel.org/r/20231231082955.16516-4-guoren@kernel.org
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 ---
- arch/riscv/include/asm/processor.h | 24 ++++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ arch/riscv/include/asm/cmpxchg.h | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 09d4c963399a..39dfab495a4c 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -13,6 +13,9 @@
- #include <vdso/processor.h>
+diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
+index 2ec119eb147b..0b749e710216 100644
+--- a/arch/riscv/include/asm/cmpxchg.h
++++ b/arch/riscv/include/asm/cmpxchg.h
+@@ -13,6 +13,7 @@
+ #include <asm/hwcap.h>
+ #include <asm/insn-def.h>
+ #include <asm/cpufeature-macros.h>
++#include <asm/processor.h>
  
- #include <asm/ptrace.h>
-+#include <asm/insn-def.h>
-+#include <asm/alternative-macros.h>
-+#include <asm/hwcap.h>
- 
- #define arch_get_mmap_end(addr, len, flags)			\
- ({								\
-@@ -135,6 +138,27 @@ static inline void arch_thread_struct_whitelist(unsigned long *offset,
- #define KSTK_EIP(tsk)		(task_pt_regs(tsk)->epc)
- #define KSTK_ESP(tsk)		(task_pt_regs(tsk)->sp)
- 
-+#define PREFETCH_ASM(x)							\
-+	ALTERNATIVE(__nops(1), PREFETCH_R(x, 0), 0,			\
-+		    RISCV_ISA_EXT_ZICBOP, CONFIG_RISCV_ISA_ZICBOP)
-+
-+#define PREFETCHW_ASM(x)						\
-+	ALTERNATIVE(__nops(1), PREFETCH_W(x, 0), 0,			\
-+		    RISCV_ISA_EXT_ZICBOP, CONFIG_RISCV_ISA_ZICBOP)
-+
-+#ifdef CONFIG_RISCV_ISA_ZICBOP
-+#define ARCH_HAS_PREFETCH
-+static inline void prefetch(const void *x)
-+{
-+	__asm__ __volatile__(PREFETCH_ASM(%0) : : "r" (x) : "memory");
-+}
-+
-+#define ARCH_HAS_PREFETCHW
-+static inline void prefetchw(const void *x)
-+{
-+	__asm__ __volatile__(PREFETCHW_ASM(%0) : : "r" (x) : "memory");
-+}
-+#endif /* CONFIG_RISCV_ISA_ZICBOP */
- 
- /* Do necessary setup to start up a newly executed thread. */
- extern void start_thread(struct pt_regs *regs,
+ #define __arch_xchg_masked(sc_sfx, swap_sfx, prepend, sc_append,		\
+ 			   swap_append, r, p, n)				\
+@@ -37,6 +38,7 @@
+ 										\
+ 		__asm__ __volatile__ (						\
+ 		       prepend							\
++		       PREFETCHW_ASM(%5)					\
+ 		       "0:	lr.w %0, %2\n"					\
+ 		       "	and  %1, %0, %z4\n"				\
+ 		       "	or   %1, %1, %z3\n"				\
+@@ -44,7 +46,7 @@
+ 		       "	bnez %1, 0b\n"					\
+ 		       sc_append						\
+ 		       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
+-		       : "rJ" (__newx), "rJ" (~__mask)				\
++		       : "rJ" (__newx), "rJ" (~__mask), "rJ" (__ptr32b)		\
+ 		       : "memory");						\
+ 										\
+ 		r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
 -- 
 2.39.2
 
