@@ -4,156 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C461FC369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 10:47:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A254AC369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 12:21:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SJgJ66l9XU72HvwdAPQ3hsjJ3zVZ1yT8E0+49hFDvJk=; b=iz1uecqF/fJ2eK5OWrUKXLMuMp
-	NnEecA3TCU6DShCG0yyXLFalvRUH/3uezCR2i93Ux99Q7jxTOACfXTpoJFBbCjJOBjIJs+TfthQx1
-	0Tgxjg5cxHPdzfHgM19AHzv9m5wjRjV3uqESRpbFq0ZGUA0ZHQv7tfXkgDWHoVKuB+p+jStSXEQSy
-	UmLSvb6A4nJCoNvFGq1z4GYP5FPpsp7KvSULFUD5oe2O/nLthdxcV56jsuT2dCY2ZheMSIBTfpvGJ
-	dqTfXoRxcl+WfXhzCHtiyac7EbgeOcLVFsLvS7p7qEP7zTfn1mHiJI8V7JxtGcxNZfPzVmY9glCGn
-	Lo9TRGiw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=qQfS9Jo8Q6Q1qfG9AAJkMtIWZrX/BjA3Ft9ggOqSxlY=; b=SKeC4exPzUBJAV
+	kxfrUxKg0q+84039iSqz7I8Zt48r+iMAcjUV32Jy5Jo0Mlm+4DD+Qyapoji9f3AbxOpWlSDY3YlLn
+	NOAAp5BpUTC2cX+9FrgYmrm9sv1sfkekkwKzaESekPgyREFxkxPkLT+4GfTKMBWwJ8WxfJd5hzdtY
+	iWg44daWaf8acGVMXngGv7PQf3/AeZ+q2AC/Uqkbb9n8Z9o2PjbVPADQC08rg9HqwrzXs6d0akRUX
+	WNbWslQ8wgCdqwy5DiR54u009oShXsNFEwt9qJwe4ZZKJPrSitvy+pdce+WFVvDUj6brgpNigQwxa
+	/p3+ibDCG/c9IMcXaFOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ogm-000000047eR-44t4;
-	Mon, 21 Apr 2025 10:47:48 +0000
-Received: from mail-southindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d408::1] helo=MA0PR01CU012.outbound.protection.outlook.com)
+	id 1u6q8o-00000004G0m-194s;
+	Mon, 21 Apr 2025 12:20:50 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6ogi-000000047cm-3S7m
+	id 1u6q8Z-00000004Fzo-1nOl
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 10:47:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eimp4t3R868K/qs3rfh28HkvAj3ckJiBMs0NhCa+RN5s1tR96YKflRxfF/9D9UrrHFGUlsNBAI/QkKp0hVcerj9/yxWmBoIzPBle0Y1Ek2W7gNdtZFAGf3O0xEQldb3tk/EhXqgjimVk0jenl/MALoVmMIRAcJP3BCs4DxfCdjUg2fl8ck9HpzRSy7OZMc2Dl2wzQwrIYGtshuj7BWp84LYPBnw8XVG1zh5v2ZfpmCTcsR2QwUdFXdwwesbTqn87ognXY+Q/UGR5ILmk5qVICpPQ5MHldu5LOV57VdsBAH/VhHG4mHa7y5HjJuRrGIkyU4n/PoAROWslKgjnG6bFAA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Q1ZJ0e466dlV2K3/r+tkxL9WDn3GALswAKZf/3fmOeY=;
- b=RQmRZ3Q/vZqBBFIeyMEnj4rdOnWYlXxHSUhxZAwa3gnA2VZC7mFSKFDllEZvc/+jx5HIFeN+cAPazZ7B6LfmzZlRpzUTiXjpjnYF56uGkNV6wjAXd46mN9SLTxgRpuMsNx7AGKtNjzIVP5JQnAhq7DfspDsCbHebIgv2NlgoeSyLanhAKKkjR5701KFrah2bV7BiqZAdfXBAWZxg3goxOwSiDDf/buJdHjdwujb9cEpuKTqOe/io2KJ536aUumvblYWphZKnk6f3emJJHHe7HJMm4EDr0zLzXDSCU9J/ocg0jDkI5+ugJKrSNu/2S9I5nfuzBSr5abiFvkPFmW2/BA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Q1ZJ0e466dlV2K3/r+tkxL9WDn3GALswAKZf/3fmOeY=;
- b=S7jl4xIA7np1yCdAG1xwRZBqis52Oj5HTX4kYjezaFinGUzNHNscriDYDqsIe3o99+lI0NQMj8EnKkr7pBBytO/xZfcAw2cQPRYGNIgelBFTdxkvvB9ScubNZ6uM9X/FnxRfe4YTuEuG/zKGN4BO+yXfNRwXaZYe3n2siID1a5sladxXDV4GC533a5UiBGYyFACaPBTTS7+LjgmS2ur2SVCZaUIGp+q+9h5N4jmIzZCSk9h0OJbStmAE/QZBM6yBSWvrtYSrkGyfjPIZRHdw57hlT2ZSTEHO4W/N3xjztzutJE/BkyzXNGyefog3FqZ2mqd6QM+mOCevI3XykofHAw==
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
- by PN3PPF4A4AF0FC7.INDP287.PROD.OUTLOOK.COM (2603:1096:c04:1::a4) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.34; Mon, 21 Apr
- 2025 10:47:25 +0000
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4%5]) with mapi id 15.20.8655.033; Mon, 21 Apr 2025
- 10:47:25 +0000
-Message-ID: <MA0P287MB22621E1EC7F030E093C05084FEB82@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
-Date: Mon, 21 Apr 2025 18:47:19 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/3] dt-bindings: clock: Add bindings for Canaan K230
- clock controller
-To: Xukai Wang <kingxukai@zohomail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Conor Dooley <conor@kernel.org>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Samuel Holland <samuel.holland@sifive.com>,
- Troy Mitchell <TroyMitchell988@gmail.com>,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250415-b4-k230-clk-v6-0-7fd89f427250@zohomail.com>
- <20250415-b4-k230-clk-v6-1-7fd89f427250@zohomail.com>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250415-b4-k230-clk-v6-1-7fd89f427250@zohomail.com>
-X-ClientProxiedBy: SG2PR02CA0095.apcprd02.prod.outlook.com
- (2603:1096:4:90::35) To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:100::6)
-X-Microsoft-Original-Message-ID: <86c1b906-b4d1-4c12-9b26-2db1835aa212@outlook.com>
+	Mon, 21 Apr 2025 12:20:37 +0000
+Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
+	by Atcsqr.andestech.com with ESMTPS id 53LCJT2d045671
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK);
+	Mon, 21 Apr 2025 20:19:29 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.11) by ATCPCS34.andestech.com
+ (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 21 Apr
+ 2025 20:19:29 +0800
+Date: Mon, 21 Apr 2025 20:19:29 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: Rob Herring <robh@kernel.org>
+CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <paul.walmsley@sifive.com>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <tim609@andestech.com>
+Subject: Re: [PATCH 4/9] dt-bindings: interrupt-controller: add Andes
+ machine-level software interrupt controller
+Message-ID: <aAY30QwzG6/7RWhE@atctrx.andestech.com>
+References: <20250407104937.315783-1-ben717@andestech.com>
+ <20250407104937.315783-5-ben717@andestech.com>
+ <20250407141708.GA2250717-robh@kernel.org>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|PN3PPF4A4AF0FC7:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b066396-df39-4883-180a-08dd80c1e6ea
-X-Microsoft-Antispam: BCL:0;ARA:14566002|5072599009|6090799003|8060799006|15080799006|7092599003|19110799003|461199028|4302099013|10035399004|3412199025|440099028|1602099012;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?M0VnOW1iZEFmQmFNTldPeVREU20wN0V6L0gvY0x6VHl1SXZFdXJsczh3QzQ4?=
- =?utf-8?B?bDBGVjVqOUpDY3ZWYmZqMi8wWmVGMkloUkVHNUpuRURxS2pSRDJTTHNJa1JM?=
- =?utf-8?B?ZEtpallsc253czZVOXNGYWxSTGhvUHlEUU9TS0I1WHM3VFZtY2R5RWlpUGlB?=
- =?utf-8?B?QUZ0NWFNSWpHVlQyTFIzUzRncDMwekNwdVhrZDV6VHkwZkM3SGQra3lTNytU?=
- =?utf-8?B?Z01sUHh1MHRHdjkxMHVseWlWbnNvOEY5a1V2Y0lySVdXMzg0dmM2YlVQckN1?=
- =?utf-8?B?VkdlQWZNbWZobkRjWE5VMWNKSzc0SnNTb1gzenhsNFZCR1dndncvaUpLOU9t?=
- =?utf-8?B?Q3JaeGRQdGJOc0NVVTk2aHFxVVN4cHBWeGdSYW9wZW9OUmxTSnNTTHFBQ3lh?=
- =?utf-8?B?NTFVRHBCSGlCaS9teWY3cFNFMDhZeUlSNHp2STh3NUEzWjgzb1VJMGo3bzVL?=
- =?utf-8?B?eWhRSTNiUEFXdnQrbXNkbEMvMjgrekRxNjN5QzVRU0dlRWFacThOMnp2dnVS?=
- =?utf-8?B?aGZMOXFrcHI3dUcyNkZ1QnduN2JRQUtKU1dkK1FLODFUNjFYK0JrY3ErdnVm?=
- =?utf-8?B?dk1melp6ZG1ZbEZuNGRZamNJV0szVDFQaEVjdVRmMXBRSUU3RkNLNmMvaHp1?=
- =?utf-8?B?RFQvamMxS001M2pGQmlhSWt5R1Q4WUVNd1ovUHo1eWw2MnMvZkRXRWxEMVFh?=
- =?utf-8?B?SWxBaXk1UnhkYmNEOVdiZm1FQXJtOVhJQ3NIeTViNllzdURNTld3alhMYVM2?=
- =?utf-8?B?dHQzRDh2dy9kTHZQTDlZRUpJSHNUN0ZYMkdVWjRVTkJDcEhSNUUvTkpUdVg2?=
- =?utf-8?B?c3NtZ2lkZDA4eEw2TDRWZlppWEQxNGg4eldaTjlGV1JEQktvNjdDWFZDMWRr?=
- =?utf-8?B?d1dyQ05FTlBqQW9FN29kclp5cm5HazdGRDBsdDh0K0J1ajIrb25ab3JvUmti?=
- =?utf-8?B?bXp3RnlBMFRidzRwUUFUaXpHcFZvU2wzNjRTcVV3cWNqZVVLY2dHaDZGWEZR?=
- =?utf-8?B?Z25WRHpIOHZJcXYzZ0syR0dlNEoybTVsWm91cENtZlFOb2EzanJxOUlXK0JE?=
- =?utf-8?B?cFhDZjVlYjdPbEZNNG84bTMyQUZjNGpSbGRNUzh0ekIyK2pReEk4Z3JRNUFh?=
- =?utf-8?B?QVBLTHE4aXJHKzFQRkdRT1htZGdXcVZISGpOV04vRDJHMCt1NjdtajcyMHhK?=
- =?utf-8?B?b3lhQllQMndNZU1pS3QxWVJrUGVySHR4MGdBeHlVS2FKU2dsTXlJd1hVa1RE?=
- =?utf-8?B?ckJOc2NLTGQzcFYrOThoMVJ2R2FsVThiT01YejR1MkpyYlp6WDBTb3RBWlNG?=
- =?utf-8?B?WXZ1bUZZaGUraWxjSVoxZHpWUkdPb2l4VHBmYXlzcWZBOWlnei9IRTJBa09k?=
- =?utf-8?B?TEZNTmZqSjExNEthb25XazBJV3RGVHkvdTRqN2NoeDNCYnhvR2FIMmpVN2tU?=
- =?utf-8?B?NGFSUDBUZVdvL2xydWhTSHltaER2NG9sY3NhcVovRlNNMklUbG5UdGtwcmpM?=
- =?utf-8?B?OEdDaXV6dGxKZlpZRmZmM1RocjZNcGVYaFJvSUQveEdlZWVhclFRZ3VIaDFh?=
- =?utf-8?B?Q0lZcThueWxhNmdDNlpVTUw1SHdXL3RCRWZGakZDQkQwdlI4QWRqYVE1bldV?=
- =?utf-8?B?Z0tXdE1lMU1RODRReW9WcmhlSlBPbVJTVlhDZVVTRGRsRnpLQ2VRTVdUYk5N?=
- =?utf-8?Q?jUuCug2AKgEguFwPpEoT?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QU5sODNURm40bTlmdnhpeHNjTXQvMkFhNDdnRGZmcWVRQzFRTnJCV2xUd08y?=
- =?utf-8?B?VVRlQWw0S2VEeTZ4dmVINDJ2b1FjVjZ2V05WRFdTSUpjczhRYnZkRWZHcUJL?=
- =?utf-8?B?K3lMTndrRWxSTk5FVDRlNmE1d0dHRk5FT0w0eHBzYTc5UStUVncyRDE1VW54?=
- =?utf-8?B?V0RQeTIxZ0w2UW42NHZnV3UwVFlWSE1NSVVhbUVMRDdjMUNwYzZvOThSNkor?=
- =?utf-8?B?NWw5UGdPVWRVZWhWK0h1R2R5UGhSLzhUSFpzc1ZaL0ZmbmxNLzNoOFRDSjNj?=
- =?utf-8?B?OE9iVk8wcEtISUUwM0RKcVpEcGlXVENUQTR1WkludlgzclJ5WCtxTWl2YW12?=
- =?utf-8?B?aXNsQWJtY3JIVUgvOVdlbGlJVm5OWldubWIxK1FsMEdHdTJkZW5aY1FYVTA3?=
- =?utf-8?B?WnBKSFF3cVZtc2VHRE1RYjlIRU5QZGUydHZmaUMxTEcrK2pXaFkxTW03enNB?=
- =?utf-8?B?V2dXR3AvK0JzdE9lbDEzSnAweGJESGRLVjdMb0UrdE5hZjlhM0FFVlFrVmg4?=
- =?utf-8?B?YUJqZ3FUblpFWTBHUDVveEhicE1lTll3ZG44YlVCTWk1UTFPWGxndVo1Vm9o?=
- =?utf-8?B?b2RoTUpPQ1R1Q0FFdVB4Z2s2ek9tdjhjbHV5clNmWGVwbDIxck8yNWNXOEhk?=
- =?utf-8?B?b3FQQjhXbzJxOGNxblNodU12aS9BR3JTMHJSaC9JWlFuNGlPa2xzbG1rQkg0?=
- =?utf-8?B?enRtaXJONitBeHVxTWxmTXE5ekkzUVMzblpoOW1zL3Z6TVNxYm1mdTV2NnVC?=
- =?utf-8?B?cEd1U25zMUs4bVphUVdNcHJvQVZNb1Mvem5qc0tyVmpqWXgzR0h6SlIvbU1S?=
- =?utf-8?B?UVdSRUNKM1V5bmg5NWFxQ3ROOHQ4OVdlT1Rvb004R1RiVExWMEc4UnF6M3ZK?=
- =?utf-8?B?cVkyQTVDcU1tS01XOGYwQnFGTyt5Q0dNSHdoRkFXS21YVE5qRGU3dDBFUkd6?=
- =?utf-8?B?R0srMU1hbDNwOXk0TStHQUlBODZncWh2dFphUXM1c043ZWJxVEk4bW94MTk1?=
- =?utf-8?B?enJHZitpcVF4Wnp2cWJpMk81U1RJbjhpU2llMHFydG9icXJRV3RsSmppcXpm?=
- =?utf-8?B?MHVVTmJhNmxmZ2N4M2o4K1plUE15em1pcEZ1T09yaU1KMkQxWk9mUzBJZDlS?=
- =?utf-8?B?UlVYRWdqSlNBd2tEaEdUaTRtNzcrb3JhMkFaSEFqUHhaL2ZjWSsvSFpZMlNq?=
- =?utf-8?B?QmhySDVRMkZTSXQ4M0RBVUdlQ0NkUTV5NnF3UkgvR21JODVRYmdSZlk3eHZl?=
- =?utf-8?B?SWdLajMrY0hBQWp4UmFJbkJiZnlpaGZYVXF0b0tIRlRwcUF6NGplcWIyQml0?=
- =?utf-8?B?ZHYwV2FjMTBiSWxWVWRoc1VTVHZOdmsvdVRVT2kyejNtMnVRL2w1MnBhbHNO?=
- =?utf-8?B?VHI1amZDU1BZYkFXSmZIUkp3KytldWxtSTg1RkoxcnJNOWRTNXBKRForNWw1?=
- =?utf-8?B?Z01EeVhrdVdxT1R1dGZveUJWU28xU3NZREJkcitmVHdmTE5jQmpwU0gwbkg3?=
- =?utf-8?B?dzRsOGpoVDd6b3BQcUJYWlY0NWw3NUQyTDhxcndhYmp1SDRnRWRYbDBqd0pj?=
- =?utf-8?B?ZVpEd1RieVV5TWZhTkxqN2QxWHY0NUZMcVdoeTdUendpWW1qTGpaZm5kaHZs?=
- =?utf-8?B?MEdFd05CWlJ4OHNpTlUxSnZjeEJuRVVNaFVhWjN1UEhNZ0FYblNiYzJlMHkz?=
- =?utf-8?B?STdTNmVwWlR4dUZQOElLVWpPa3lLOXh1aU5UbVYyNXE0VjUzVHV4SFBGb29T?=
- =?utf-8?Q?09qt7IrHle62Rg+KQKUa+dd44R6aMnvuEsq/jMi?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b066396-df39-4883-180a-08dd80c1e6ea
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 21 Apr 2025 10:47:25.1435
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3PPF4A4AF0FC7
+Content-Disposition: inline
+In-Reply-To: <20250407141708.GA2250717-robh@kernel.org>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-Originating-IP: [10.0.15.11]
+X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
+ ATCPCS34.andestech.com (10.0.1.134)
+X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 53LCJT2d045671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_034744_870337_143B4584 
-X-CRM114-Status: GOOD (  15.81  )
+X-CRM114-CacheID: sfid-20250421_052035_781624_4702DD58 
+X-CRM114-Status: GOOD (  22.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,164 +75,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 2025/4/15 22:25, Xukai Wang wrote:
-> This patch adds the Device Tree binding for the clock controller
-> on Canaan k230. The binding defines the new clocks available and
-> the required properties to configure them correctly.
+On Mon, Apr 07, 2025 at 09:17:08AM -0500, Rob Herring wrote:
+> [EXTERNAL MAIL]
+> 
+> On Mon, Apr 07, 2025 at 06:49:32PM +0800, Ben Zong-You Xie wrote:
+> > Add the DT binding documentation for Andes machine-level software
+> > interrupt controller.
+> >
+> > In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
+> > second time with all interrupt sources tied to zero as the software
+> > interrupt controller (PLICSW). PLICSW can generate machine-level software
+> > interrupts through programming its registers.
+> >
+> > Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+> > ---
+> >  .../andestech,plicsw.yaml                     | 48 +++++++++++++++++++
+> >  MAINTAINERS                                   |  1 +
+> >  2 files changed, 49 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+> > new file mode 100644
+> > index 000000000000..5432fcfd95ed
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+> > @@ -0,0 +1,48 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/interrupt-controller/andestech,plicsw.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Andes machine-level software interrupt controller
+> > +
+> > +description:
+> > +  In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
+> > +  second time with all interrupt sources tied to zero as the software interrupt
+> > +  controller (PLIC_SW). PLIC_SW can generate machine-level software interrupts
+> > +  through programming its registers.
+> > +
+> > +maintainers:
+> > +  - Ben Zong-You Xie <ben717@andestech.com>
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - enum:
+> > +          - andestech,qilai-plicsw
+> > +      - const: andestech,plicsw
+> 
+> Drop the fallback. If you have another implementation that's compatible,
+> then andestech,qilai-plicsw will be the fallback.
 >
-> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> Signed-off-by: Xukai Wang <kingxukai@zohomail.com>
-> ---
->   .../devicetree/bindings/clock/canaan,k230-clk.yaml | 43 ++++++++++++++
->   include/dt-bindings/clock/canaan,k230-clk.h        | 69 ++++++++++++++++++++++
->   2 files changed, 112 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..d7220fa30e4699a68fa5279c04abc63c1905fa4a
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/canaan,k230-clk.yaml
-> @@ -0,0 +1,43 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/canaan,k230-clk.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Canaan Kendryte K230 Clock
-> +
-> +maintainers:
-> +  - Xukai Wang <kingxukai@zohomail.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: canaan,k230-clk
-> +
-> +  reg:
-> +    items:
-> +      - description: PLL control registers.
-> +      - description: Sysclk control registers.
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  '#clock-cells':
-> +    const: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - '#clock-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    clock-controller@91102000 {
-> +        compatible = "canaan,k230-clk";
-> +        reg = <0x91102000 0x1000>,
 
-Note that when actually writing DTS, the PLL-related register range is 
-not so large (0x1000). Otherwise, the BOOT-related registers may be 
-overwritten.
+Hi Rob,
 
+Maybe this is a stupid question, but I don't understand the reason for
+dropping the fallback. I follow the same logic in commit 1267d9831171
+(dt-bindings: interrupt-controller: sifive,plic: Document Renesas RZ/Five
+SoC). Thus, I think if there is a new SoC also equipped with Andes
+PLIC-SW (NCEPLIC100-SW), the SoC vendor can simply add a new compatible
+string under the enum.
 
-> +              <0x91100000 0x1000>;
-> +        clocks = <&osc24m>;
-> +        #clock-cells = <1>;
-> +    };
-> diff --git a/include/dt-bindings/clock/canaan,k230-clk.h b/include/dt-bindings/clock/canaan,k230-clk.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..41edb13ea04bffaa1ddd1d1af87ae3406b688332
-> --- /dev/null
-> +++ b/include/dt-bindings/clock/canaan,k230-clk.h
-> @@ -0,0 +1,69 @@
-> +/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-> +/*
-> + * Kendryte Canaan K230 Clock Drivers
-> + *
-> + * Author: Xukai Wang <kingxukai@zohomail.com>
-> + */
-> +
-> +#ifndef CLOCK_K230_CLK_H
-> +#define CLOCK_K230_CLK_H
-> +
-> +/* Kendryte K230 SoC clock identifiers (arbitrary values). */
-> +#define K230_CPU0_SRC			0
-> +#define K230_CPU0_ACLK			1
-> +#define K230_CPU0_PLIC			2
-> +#define K230_CPU0_NOC_DDRCP4		3
-> +#define K230_CPU0_PCLK			4
-> +#define K230_PMU_PCLK			5
-> +#define K230_HS_HCLK_HIGH_SRC		6
-> +#define K230_HS_HCLK_HIGH_GATE		7
-> +#define K230_HS_HCLK_SRC		8
-> +#define K230_HS_SD0_HS_AHB_GAT		9
-> +#define K230_HS_SD1_HS_AHB_GAT		10
-> +#define K230_HS_SSI1_HS_AHB_GA		11
-> +#define K230_HS_SSI2_HS_AHB_GA		12
-> +#define K230_HS_USB0_HS_AHB_GA		13
-> +#define K230_HS_USB1_HS_AHB_GA		14
-> +#define K230_HS_SSI0_AXI15		15
-> +#define K230_HS_SSI1			16
-> +#define K230_HS_SSI2			17
-> +#define K230_HS_QSPI_AXI_SRC		18
-> +#define K230_HS_SSI1_ACLK_GATE		19
-> +#define K230_HS_SSI2_ACLK_GATE		20
-> +#define K230_HS_SD_CARD_SRC		21
-> +#define K230_HS_SD0_CARD_TX		22
-> +#define K230_HS_SD1_CARD_TX		23
-> +#define K230_HS_SD_AXI_SRC		24
-> +#define K230_HS_SD0_AXI_GATE		25
-> +#define K230_HS_SD1_AXI_GATE		26
-> +#define K230_HS_SD0_BASE_GATE		27
-> +#define K230_HS_SD1_BASE_GATE		28
-> +#define K230_HS_OSPI_SRC		29
-> +#define K230_HS_USB_REF_50M		30
-> +#define K230_HS_SD_TIMER_SRC		31
-> +#define K230_HS_SD0_TIMER_GATE		32
-> +#define K230_HS_SD1_TIMER_GATE		33
-> +#define K230_HS_USB0_REFERENCE		34
-> +#define K230_HS_USB1_REFERENCE		35
-> +#define K230_LS_APB_SRC			36
-> +#define K230_LS_UART0_APB		37
-> +#define K230_LS_UART1_APB		38
-> +#define K230_LS_UART2_APB		39
-> +#define K230_LS_UART3_APB		40
-> +#define K230_LS_UART4_APB		41
-> +#define K230_LS_I2C0_APB		42
-> +#define K230_LS_I2C1_APB		43
-> +#define K230_LS_I2C2_APB		44
-> +#define K230_LS_I2C3_APB		45
-> +#define K230_LS_GPIO_APB		46
-> +#define K230_LS_PWM_APB			47
-> +#define K230_LS_UART0			48
-> +#define K230_LS_UART1			49
-> +#define K230_LS_UART2			50
-> +#define K230_LS_UART3			51
-> +#define K230_LS_UART4			52
-> +#define K230_SHRM_AXI_SRC		53
-> +#define K230_SHRM_SDMA_AXI_GATE		54
-> +#define K230_SHRM_PDMA_AXI_GATE		55
-> +
-
-It seems that some clks are missing, such as the timer-related clocks. 
-Please try to fill them in. There is no need to submit another patch for 
-this.
+Also, I will rename andestech,plisw to andestech,nceplic100-sw if the
+fallback string is not dropped.
 
 Thanks,
+Ben
 
-Chen
-
-> +#endif /* CLOCK_K230_CLK_H */
->
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  interrupts-extended:
+> > +    minItems: 1
+> > +    maxItems: 15872
+> > +
+> > +additionalProperties: false
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - interrupts-extended
+> > +
+> > +examples:
+> > +  - |
+> > +    interrupt-controller@400000 {
+> > +      compatible = "andestech,qilai-plicsw", "andestech,plicsw";
+> > +      reg = <0x400000 0x400000>;
+> > +      interrupts-extended = <&cpu0intc 3>,
+> > +                            <&cpu1intc 3>,
+> > +                            <&cpu2intc 3>,
+> > +                            <&cpu3intc 3>;
+> > +    };
+> > diff --git a/MAINTAINERS b/MAINTAINERS
+> > index a0ccac1cca29..645d7137cb07 100644
+> > --- a/MAINTAINERS
+> > +++ b/MAINTAINERS
+> > @@ -20728,6 +20728,7 @@ F:    include/linux/irqchip/riscv-imsic.h
+> >  RISC-V ANDES SoC Support
+> >  M:   Ben Zong-You Xie <ben717@andestech.com>
+> >  S:   Maintained
+> > +F:   Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+> >  F:   Documentation/devicetree/bindings/riscv/andes.yaml
+> >
+> >  RISC-V ARCHITECTURE
+> > --
+> > 2.34.1
+> >
 
 _______________________________________________
 linux-riscv mailing list
