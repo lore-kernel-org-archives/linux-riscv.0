@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC51C369AB
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E528C369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 15:23:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jgs9XOyuB+P6936Pjfs+cmjMJmeppR+jVYuOUQIA8Qo=; b=iG2m74FKoYHZU7
-	KyxiBx9V1nekGq6K0TfdO6ixk4a0fxleLHBgXK3HrFVyzhmFXdEQaUsPphLxtEnvM8SNrqp3Jflxn
-	0FBAabGmNwuHeoh8XVbVCZg/ERIDctJhd4DNFWITs+szWZkdvgrYy7yrVuaj0d8s0heH/z27DeApB
-	Ubwt3k2DEaB+zliA34sbzASFhnPdxOUIR4LkaQVqUFgkSBjPf9Qm1KEzO/sBZjyLatIY/jhqlzyyA
-	CaWyefAo3O1tHFdwRfvRFeDzsu/WaNcCz5OrEh4dkrVoGpFJ5B4BOE7YsmLMmHTwmtkiznHF7rTI9
-	KsQCBkLana00hpH9PlQQ==;
+	List-Owner; bh=NvFK2BkITykBx06wTKtvLW4lQ1rPIUx3EmWeoZv5R/A=; b=uxzJN50aPxDNcZ
+	Qr0dDQPa67A4ffmrNIORtUy4ZfhpcoROfeu3n6zWrCkgM8Un3rYRT2LIgX0YgpF+/gHfdKFxaG4uf
+	DOqJhQZ/hxyxpXvH4T33KZxCvYt36KL/plmZ0JDtdZasN7KKbH4YQ9aNiRpFuYia67MCbLakc3QXB
+	Zo5kQpSR0pvEajmMvM50Z6t8D2ZC8E9QV/oUMVJRVAnU4QlQU+cIw9H1rloAxLO0bnHfBAwGk8oDn
+	qLkHEBEEAEBkYhHZ7Bu8T8Tbf/rDMNI+f44+/6eZdYVVA+zsEZLNdxs5ta5FyL0F6xDwFcUxgSd52
+	yBkNeDN/oZ35+LdmPpFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s9T-00000004Sgt-29NO;
-	Mon, 21 Apr 2025 14:29:39 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1u6szp-00000004a84-25fW;
+	Mon, 21 Apr 2025 15:23:45 +0000
+Received: from mgamail.intel.com ([192.198.163.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6s9Q-00000004SgD-3lC9
+	id 1u6szm-00000004a7a-0zxq
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 14:29:38 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cfebc343dso34259675e9.2
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:29:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245775; x=1745850575; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7PqG7/ov+XLPSS/BI8rl8Yyu60TugcPqJyKJ5mLINmc=;
-        b=Frj6ukWYhs26muNDST79qJR5DDEW06WlC2rhVM8DAzj+6TMgA2p/WngPadY8/zfams
-         ohomcx+0478wGYXJsVH1x5MAy8MS3eZFozkbuVl8DoBcW/cxndyZZ1/5X+rUebvGm2sb
-         XJWf6jwuEtvs4ZRYswCBjV3Ud44mcFyKDHXwE0eLXe7wbg4TkcyUUkiF2wDY9j2c3Bc1
-         Oz8PtNUSYUbT8w1WwP7l/4EZ+UyaeRCHfipyrRizFedBDxA8Nj6n0NduKRaLBH+3Xyq+
-         jUMtirR0AnHTA8aItlYRQswDfYhtVfg0NTorQJ7DWQ50zY95g+ZWmpvXiyoajYNr0uhG
-         IAfA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745245775; x=1745850575;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=7PqG7/ov+XLPSS/BI8rl8Yyu60TugcPqJyKJ5mLINmc=;
-        b=Q2cXFjKKU/uN+nZKZ7C9uKRjaeOrCvw7xDaI7hv/T+ND/L7MTw8+4f+wwV6s5i8O8k
-         G4VEioCtD8WcIxUJtENg7MSffdUJap15d4CpmQ6yUJDrZeeebc/vGoj4+9sv45kfYcKZ
-         P+zimwv8NJLnEKIeeh47LtfDP3vFJhGSVjk25OR4BYfvF42i0idxKLIBdRUGTO+QGFGA
-         fookX7pIKCXuOCL6KcpVqJpSVnK6/JY6R5slJ3RyJVrukX6aRc7+gPagAMm6ymODB6Ug
-         W94XmyFKsAJpR0wI/Rde4YMiB77mjiDMqYRrazzYAqkfAiVWpKwuBqCslbXENmPfjaGZ
-         iTyA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaxhcxrcieUgXfIbcXMDotBZbOaEqxoYMAlbKZwJWRmB2e2jjSiYbAmNuPz5oaehCcBCxibUKJTtxgDw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz4FaUOMhevdNvi77itQA+kV1CIM6nIG2e2gjG24tpWATOFvPBm
-	4d2kwemEJmD5kmDC5JopXm9EJEVjWwgjAZ+Ga1WQoMn9W0I66F+MbQY0p7J/wIk=
-X-Gm-Gg: ASbGncsC+APoStu5KTleGrYPFI5udwPSyFpSFGspXBQZp/kNFAOriKVGrpAMPyXDgYw
-	3lfKeRIbN2Mb4uXOoQqVOmrMqOdiRLAEgtpXCozK4BIXS2ZPHAcENytQRRd/KdxLfSH+oH1ZtDZ
-	rtipdwicGookHaSw+4YNRHkrDaJDlH8aTN41G8YlclshaUngKbyKjsAlQ6DUa1pB8txSP4Jyqki
-	PTF+68BwnbxU8WEhLuvLNJncipR60cl0zl8qvbf75knw87c6ZMZSfTuthKMuhFvFRP2w7I9tQf2
-	VRtuG509ExVqiRigWaztu14YMduXVA68AWyjhx0377iP9j5ClVkwEn3J+/Q=
-X-Google-Smtp-Source: AGHT+IFtaZI4HL07N6roaGJageZKu+pJvFMTwymIjfPu+o3nCKfh2t3UeftOSZHfxlA79jnfnWiZmg==
-X-Received: by 2002:a05:600c:3b9b:b0:43c:e478:889 with SMTP id 5b1f17b1804b1-4406aa8984fmr117511685e9.0.1745245775271;
-        Mon, 21 Apr 2025 07:29:35 -0700 (PDT)
-Received: from localhost.localdomain ([2001:861:3382:ef90:cd58:9e76:e88c:5cd])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d5bbc13sm135524665e9.17.2025.04.21.07.29.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 07:29:34 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Mon, 21 Apr 2025 15:23:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745249022; x=1776785022;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=vJPOq/jtYR3O8m4x/saV7Lfzl0TMxKs1hSTnn1MH0/Q=;
+  b=Jwhn61oaupwEm0PwOqAOtgzVyd94Z+JjTPdtc5FS0WlBDiWQvh7Nsa2o
+   IqXRh7to2dZejrahxPR5TZsvPKWqxAPrYT5gZWgiZxwxnwhYZ+zXXtAB2
+   nwVKf0bVS1QmeFAj7pCJ9tbituu0oQYTRHd2zVpyj7MONXSdPRHlP32DD
+   /ib2/mIEIzrpc0IhOMtV3Zp/woP45GM8yohpNwRBIkZ6nUu/R+s1VPAMN
+   k2YxwAnLJf0nSWMocmrqUeksDbo8cqLalzfDUclf4k6nA0kodlu2WtXUD
+   KcXz4EJbsJuZCqrnfeEfvJrMlBdhycVu2NldUgQw35nCSHHfCunJX+cgW
+   g==;
+X-CSE-ConnectionGUID: wvMkeSU7QMqCF0wsh5IBvg==
+X-CSE-MsgGUID: nGCKhgioTV6MowCkTx5y1w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11410"; a="46018339"
+X-IronPort-AV: E=Sophos;i="6.15,228,1739865600"; 
+   d="scan'208";a="46018339"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 21 Apr 2025 08:23:39 -0700
+X-CSE-ConnectionGUID: qYxPlAo5T1q0ooVmsIMlWQ==
+X-CSE-MsgGUID: Spq369kLR+qDitQqo2fORA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,228,1739865600"; 
+   d="scan'208";a="136707842"
+Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
+  by orviesa004.jf.intel.com with ESMTP; 21 Apr 2025 08:23:35 -0700
+Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u6szd-0000Bh-0Y;
+	Mon, 21 Apr 2025 15:23:33 +0000
+Date: Mon, 21 Apr 2025 23:23:12 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nylon Chen <nylon.chen@sifive.com>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Guo Ren <guoren@linux.alibaba.com>,
-	Guo Ren <guoren@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v3 4/4] riscv: xchg: Prefetch the destination word for sc.w
-Date: Mon, 21 Apr 2025 16:24:41 +0200
-Message-Id: <20250421142441.395849-5-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250421142441.395849-1-alexghiti@rivosinc.com>
-References: <20250421142441.395849-1-alexghiti@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v11 4/5] pwm: sifive: Fix rounding issues in apply and
+ get_state functions
+Message-ID: <202504212351.Aa9tPMsO-lkp@intel.com>
+References: <20250421095521.1500427-5-nylon.chen@sifive.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250421095521.1500427-5-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_072936_936794_6EF41357 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250421_082342_326932_11132394 
+X-CRM114-Status: UNSURE (   9.57  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,58 +99,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Guo Ren <guoren@linux.alibaba.com>
+Hi Nylon,
 
-The cost of changing a cacheline from shared to exclusive state can be
-significant, especially when this is triggered by an exclusive store,
-since it may result in having to retry the transaction.
+kernel test robot noticed the following build errors:
 
-This patch makes use of prefetch.w to prefetch cachelines for write
-prior to lr/sc loops when using the xchg_small atomic routine.
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.15-rc3 next-20250417]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-This patch is inspired by commit 0ea366f5e1b6 ("arm64: atomics:
-prefetch the destination word for write prior to stxr").
+url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-dts-sifive-unleashed-unmatched-Remove-PWM-controlled-LED-s-active-low-properties/20250421-174716
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250421095521.1500427-5-nylon.chen%40sifive.com
+patch subject: [PATCH v11 4/5] pwm: sifive: Fix rounding issues in apply and get_state functions
+config: i386-buildonly-randconfig-003-20250421 (https://download.01.org/0day-ci/archive/20250421/202504212351.Aa9tPMsO-lkp@intel.com/config)
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250421/202504212351.Aa9tPMsO-lkp@intel.com/reproduce)
 
-Signed-off-by: Guo Ren <guoren@linux.alibaba.com>
-Signed-off-by: Guo Ren <guoren@kernel.org>
-Link: https://lore.kernel.org/r/20231231082955.16516-4-guoren@kernel.org
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/cmpxchg.h | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504212351.Aa9tPMsO-lkp@intel.com/
 
-diff --git a/arch/riscv/include/asm/cmpxchg.h b/arch/riscv/include/asm/cmpxchg.h
-index 2ec119eb147b..0b749e710216 100644
---- a/arch/riscv/include/asm/cmpxchg.h
-+++ b/arch/riscv/include/asm/cmpxchg.h
-@@ -13,6 +13,7 @@
- #include <asm/hwcap.h>
- #include <asm/insn-def.h>
- #include <asm/cpufeature-macros.h>
-+#include <asm/processor.h>
- 
- #define __arch_xchg_masked(sc_sfx, swap_sfx, prepend, sc_append,		\
- 			   swap_append, r, p, n)				\
-@@ -37,6 +38,7 @@
- 										\
- 		__asm__ __volatile__ (						\
- 		       prepend							\
-+		       PREFETCHW_ASM(%5)					\
- 		       "0:	lr.w %0, %2\n"					\
- 		       "	and  %1, %0, %z4\n"				\
- 		       "	or   %1, %1, %z3\n"				\
-@@ -44,7 +46,7 @@
- 		       "	bnez %1, 0b\n"					\
- 		       sc_append						\
- 		       : "=&r" (__retx), "=&r" (__rc), "+A" (*(__ptr32b))	\
--		       : "rJ" (__newx), "rJ" (~__mask)				\
-+		       : "rJ" (__newx), "rJ" (~__mask), "rJ" (__ptr32b)		\
- 		       : "memory");						\
- 										\
- 		r = (__typeof__(*(p)))((__retx & __mask) >> __s);		\
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+WARNING: modpost: missing MODULE_DESCRIPTION() in lib/ucs2_string.o
+>> ERROR: modpost: "__udivdi3" [drivers/pwm/pwm-sifive.ko] undefined!
+
 -- 
-2.39.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
