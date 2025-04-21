@@ -4,106 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B95C369D7
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 16:44:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05DACC369AB
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 16:44:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5NTWVsv35IRjQtBGpkPGRQWBq0oa6PzocPvTkx/3MZ8=; b=eOiFCaQF03me9s
-	VDgH6v68ryiaJWEQ2bgcuOLkb3/msDLNxAscZQLenTr5KC+C3SSqND1nHOY20kb37f5E93YLSipBM
-	DIL0g7NPXDXxBbtBdFXUfFhgQc3Gvg1q7PTkBORxa6GaCN79WqxD/OYYZn8I8o3eGpXJmAjD8nPv+
-	/LPmowXDHZM7oEeEQGrEm8WnaCjfrO8kVMOOBWqGWv1z/JuUkA6UR8YcC7HC4Mq0VfULPh/fKVvSR
-	tVP62foCGgatcqlPsCgTPSefHhfG7GtNP8BJeNDhA5t+DrSH0+IGGUjZQRrPga3QCKq3yoBmGfy6U
-	wxJTB10tFc+JudrC3ztQ==;
+	List-Owner; bh=KFB1WeMxq06SbIEpAg+AsqGrZIDobmvTu3c+N1ROnA0=; b=WIPQ5fyqFx6VmL
+	PAgGgp71ZQJ8LFEQp3OufS94KBkMy/Xr8k3fGVSA69ttGHgyeck32i414QIZNB0EyUAZ0WF4ZTO5m
+	6g8Ocjn/WF59OYasnh/WxQX22xIsHTwCR3TA5m/VUq82f9bYHsbP3P/NPLgG8aG/AXbDx56QvZ2pD
+	ucomfzdYqhUaq6yzdPF1gjroYm98Qv9niu79NPh7BAR+M+GpKr77V/PsyrpZFrxmNuT2oSuc+V3Hq
+	pu7/BQXRoOp6krljXG7eMPdY3LxfWOlp93Kpk7gU9WJ9+OyF7Y4ehi6vIVu1+uHMwYgNfJXP0GkPo
+	0DzNHHiL92L9NvmkV1+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uG5-00000004kaZ-2dmG;
-	Mon, 21 Apr 2025 16:44:37 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1u6uG7-00000004kec-2Mhe;
+	Mon, 21 Apr 2025 16:44:39 +0000
+Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6uEM-00000004jr1-3vFx;
-	Mon, 21 Apr 2025 16:42:52 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4774ce422easo46287861cf.1;
-        Mon, 21 Apr 2025 09:42:50 -0700 (PDT)
+	id 1u6uEO-00000004jsh-3Gxo;
+	Mon, 21 Apr 2025 16:42:54 +0000
+Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7c554d7dc2aso676085885a.3;
+        Mon, 21 Apr 2025 09:42:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745253770; x=1745858570; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745253772; x=1745858572; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:feedback-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=2VlZJudXEGF9wwtFZHglR/nFrBqPJ1rxXkCL1SoJv3Q=;
-        b=aG5o8IHFyo0J3krw6utcbv4Xl7g924iwme5ydVnogjBI7NqSk2+3+OIoScEyvsdmJA
-         lexSD4O7B9AoDznzyNWCg5Y0wAU398Qmz1Z4UQBcT/iNKvB1UlHszNS8sHTuUd3ggD0e
-         Va2HJsUFP4wfchFkSykikq4Sg0qxsHD0nbCgs3L2KEb5DLX4az2BXrIz6DbPJQw6kdKn
-         K3aG+pvXd5nTJUlzLs7pKayClmGJZwO9RPfI7BmOI7ajQ99W1DRSjDh1H6zVoaeCFOXT
-         +fT8nB+0KRQ6ZtiBFH4bIJNpGWNGQeTa8yR2gk3v9QIbgy9hyNq2BmHF0Cfvmk+hbTlV
-         ZbqA==
+        bh=y7J/QCauCF+ekh62R8O3hTayTSjtfwBqCWuSp+W3eCE=;
+        b=d/WcnhfvgrEMqj8jQFE80twdlr3wGzukhZcxINK7pJKhAZgaFr7NsDzQcaHtvCgRvs
+         YDjWeafr/6gMS7W/Rlj9ELYHBcMmuaVPw56KfVKx5Ywygl7fWoQqn9gnsOjBE7Mroecy
+         WD1Psw5OOSVS9hlw9dZBlERmAgTGIYfesy9pE0z7YQT60SD8eRAWt3BHdMPqTOOY1DHN
+         VVYrs2KSV3C+e1RdBZdkJuMdKZ4AE7z+Tf/t/RjpUCOwmpsdCAxBw+TOXPuDlhLJKX42
+         /dda8tGvALzNEg7RwjY6AuS8IA5iam8ZsUeAMDSOLLZ8z9+qwm8mJ5SwJL/B1CfbbQ2E
+         /0BA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745253770; x=1745858570;
+        d=1e100.net; s=20230601; t=1745253772; x=1745858572;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:feedback-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=2VlZJudXEGF9wwtFZHglR/nFrBqPJ1rxXkCL1SoJv3Q=;
-        b=AY96huNj0ss3+SvPD9HvuVtQ+FkVwL0o7kyXF71q/goRb1pb8tduVkmy0WNTgJz1ZB
-         Br4duPlXu7sfROlRU6buxkOr7jn0CY5lsg51VNHgoUWk+aKoxgnfHJZITcyen1JodapN
-         bhqNu3RpBndeZ8iprM8dhZcS4IQN8cmkq2ak8SmgDifRwOTDj8ku611sJCazgPUGMJtP
-         NwBBPCFUCTZ6iGoFmjNAG3n6UcVB/Szksgdh6RY1nEKMUr7S1xJddyxkOCHKXCT4JrsU
-         8idro68KQTIeaGBCDWWCCP4zrTJso0b9turJYAVJg5F3s3he7YAyRtPodBNyhM1zpgC1
-         mDXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWi8tUewhL90Efj8AYeOwqbQkfMULUfMvvo1UQ/qKAjLGi8bPik5Inwn0Q+1LuKB/x+zCPkutDaYh0IetM=@lists.infradead.org, AJvYcCXOpsbq2wtnj9ZMtnTSG8vrnQGi+FaWCv9+6HChGB5z5BbMqFEYImQsXaTx3zhPf3WA93q+wp+Sv95iBNdfCWgW@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywz5IzRERcfb2LEhitSqFpapdIqEABnUisrY20IXgzLRFwwSTEN
-	SXzs9Wx8ELvw9yUXsnVDwgMMBuLYE/Ut5EVuE2bvTuFvuIcISTuN
-X-Gm-Gg: ASbGncsq+V4g52L/f7cmIlqvQxIDKovz+hMgQ0iWVB/qrJnNEFMj/3FT6h3LkZ7aEMD
-	0vY8YkOqAjvnhL2UC3mRR42OQeks5oTgVKJQAowjhBFVXwVv+M24wTKZQdu4NdE82gvr3WhLp48
-	Zjs9BtP+e5ctsVUadYVcREM1AUUHnxlR8bn7iCjxM3h3Fs/JQM4zpNJ+cOfUpbCSMdo+0lVEpdE
-	RXL7ag+iVMNOU3gjuXbnSlUBeAzV4VOLZHshcmgyBMV0umJ4dGL294JUrW+PSIDYLdD2dQtPf1m
-	IuqzHmvdI+9en4zMr2usXWXFKI1NwW+ZhjGmJjYZt1ge5g0hifNauCG4QS3QdmrCbbfbRnbct7v
-	JN659UNwIPMkA1hEzm51WIv3Zei1ko7U=
-X-Google-Smtp-Source: AGHT+IEN/+2ucAXXUnW1f6rXrX/g7EkvZqGoWwgIAIA5mzDQJuNmlBEYdiMbCJulRTpViKP4snNoaQ==
-X-Received: by 2002:ac8:5711:0:b0:476:b82b:ac91 with SMTP id d75a77b69052e-47aec4dc98emr253937731cf.49.1745253770012;
-        Mon, 21 Apr 2025 09:42:50 -0700 (PDT)
+        bh=y7J/QCauCF+ekh62R8O3hTayTSjtfwBqCWuSp+W3eCE=;
+        b=VL+fy8y4lE0aeUYs0KDzwNQhxBfWVlidcNaMfkVKVJDz1Ewsba7B/hENN/RvpyzgOi
+         Wht6s8BIRvtWC05DKvJ0jGgLltdFQL+rLcDWHXVE93t4VUkOzZmauLdp1QxMlWONgDg8
+         2y0muuqe6j/2NvSknzSwXae3VCbWkbC0by+KATODdFXUVyqOOJ3w9v0kc+PPl9GVCYgQ
+         rVB4GJhgXm25GcnD5etN0RgxqQB7Ce5sr2qHclS0r6mvJbP4aUDToSdZb81CkWo6nMQ/
+         zHfsJUpH/fa2q43tf7Ssctg3yAdevTzHJKBEE9+RolWJbEuumGHISx6AN9vdRvf9e43V
+         zWOQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUUfEYmYnL6rTzoHH0dVLIFjEolHPyJtYC2ja4kHWlJzwBOPWBvhEvx/3kPCy6VRWOVkDv7G+gQ2gkFEYU2ulPS@lists.infradead.org, AJvYcCUt0blqNnbwn/1Jso7Ils3qQbEiyosnZK1tH39t8wAdeMgEUg+FDjPh4O01th1ZZrFyW8azOLTmlji5zEM=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzm8LysHGnb1MAHhM8IvMHQesU4t38WoG5uFKjc2asLSdmRkala
+	qsg02OGF2EIbfkIMdBvcNiUIHaWiqipRf+PXTn90uRzNeBEr3kzF
+X-Gm-Gg: ASbGncvNHrpDto7y0D+3zGBC3REJun5evqihs8AjqX9l5Cm4cGqZQOTX2EZ3v+glqha
+	4nLiJ5WkYk0doGEXUyCtNSx1AE/8zDXVP/ewsLhZMUs4Hz8TR4jyAzvmta3DCoA2OeXVaq9XaM1
+	3ocAMHJsD/mb56E80kMA4vGz8bBLypoydYyKTQfW9ReF21H7x56v+N/Inlx0Ju/sarKGl+TNQCT
+	HKyZFIhWjIcI0j0rJA63RO/yaifN0AgGiTnkjERkd1ycUTdrmQg77idUuK0Y39FDu6aML9M7Ihy
+	yEfdUWirBsk9WBJIgjAtDKUnSRSyBQc+JvzCPnkhOwpf9QnNpHvmDDQ5v/kPumBoceNrKMgq7E5
+	NZltOEme1bS4ubZIjSsMWetBQAvsLYOM=
+X-Google-Smtp-Source: AGHT+IFWHlknhRROCkvBpQ8Q36YIj9Rb2ZsU6LE10UMoxHGLwXqI9DzNdOi8lYW43nWn0hX9NQ4kOA==
+X-Received: by 2002:a05:620a:244e:b0:7c7:9a1d:ecde with SMTP id af79cd13be357-7c927f59245mr2010007185a.8.1745253771686;
+        Mon, 21 Apr 2025 09:42:51 -0700 (PDT)
 Received: from fauth-a2-smtp.messagingengine.com (fauth-a2-smtp.messagingengine.com. [103.168.172.201])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-47ae9c16df4sm43990201cf.1.2025.04.21.09.42.48
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c925b69579sm437688485a.91.2025.04.21.09.42.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 09:42:49 -0700 (PDT)
+        Mon, 21 Apr 2025 09:42:51 -0700 (PDT)
 Received: from phl-compute-04.internal (phl-compute-04.phl.internal [10.202.2.44])
-	by mailfauth.phl.internal (Postfix) with ESMTP id AEE4D1200043;
-	Mon, 21 Apr 2025 12:42:48 -0400 (EDT)
+	by mailfauth.phl.internal (Postfix) with ESMTP id 611A91200043;
+	Mon, 21 Apr 2025 12:42:50 -0400 (EDT)
 Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-04.internal (MEProxy); Mon, 21 Apr 2025 12:42:48 -0400
-X-ME-Sender: <xms:iHUGaBQnaONjosg5BDTHdCb0t-ZWZ9nb0UA8PHXnLKz9UTD_z5LjuA>
-    <xme:iHUGaKy32gwgj8hME1pMpz2wTPtsxmEQbC_nRAiSKsaxQaZW_VvrwBT7CVSyCT2wK
-    QsvFTiGK-l439PSwQ>
-X-ME-Received: <xmr:iHUGaG0UFWxSEmP1-S2dqwFZd5zojqz3UvQpA0IzaaxuRAXkvV-7ClsYpNq7>
+  by phl-compute-04.internal (MEProxy); Mon, 21 Apr 2025 12:42:50 -0400
+X-ME-Sender: <xms:inUGaORcpaPcEuzQr1IyQAVcjj9Go0x4hu8y1bco-clVjpSwZ2UhlA>
+    <xme:inUGaDyBA-HhS_aqTivL3Kl85ciy7cq4WqQY8ASCTwR_E6RgDXNFdYbK3K3QTagTH
+    bX-hSBThTORB_tX4Q>
+X-ME-Received: <xmr:inUGaL1GSheIkJNyy3EdecfpYJeUI-hREdZ1759cC6EZ3Rj6s-7VsSxKsFHK>
 X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgedufeeiucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
     pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredt
-    tdenucfhrhhomhepuehoqhhunhcuhfgvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrih
-    hlrdgtohhmqeenucggtffrrghtthgvrhhnpeegleejiedthedvheeggfejveefjeejkefg
-    veffieeujefhueeigfegueehgeeggfenucevlhhushhtvghrufhiiigvpedvnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpegsohhquhhnodhmvghsmhhtphgruhhthhhpvghrshhonhgr
-    lhhithihqdeiledvgeehtdeigedqudejjeekheehhedvqdgsohhquhhnrdhfvghngheppe
-    hgmhgrihhlrdgtohhmsehfihigmhgvrdhnrghmvgdpnhgspghrtghpthhtohepheeipdhm
-    ohguvgepshhmthhpohhuthdprhgtphhtthhopehruhhsthdqfhhorhdqlhhinhhugiesvh
-    hgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehrtghusehvghgvrhdrkhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrtghhsehvghgvrhdrkhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtoheplhhlvhhmsehlihhsthhsrdhlihhnuhigrdguvghvpd
-    hrtghpthhtoheplhhkmhhmsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohep
-    ohhjvggurgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghlvgigrdhgrgihnhhorh
-    esghhmrghilhdrtghomhdprhgtphhtthhopegsohhquhhnrdhfvghnghesghhmrghilhdr
-    tghomh
-X-ME-Proxy: <xmx:iHUGaJAMs5SEPj35XBlo70J-L1Of3KmNt9i3ZvHXyL9LoiqCbHxjBA>
-    <xmx:iHUGaKh9id5rZfAP_HKxKnUE5WxA_3DauTyTBRjWKO9ry0NeMaLIEA>
-    <xmx:iHUGaNoMNk_KnkBIvxrSmFuI13NXyukOVKesqLapWL_CD-TCJvoTTg>
-    <xmx:iHUGaFjmJKGFPyCxn--MUnUHvEECVYYlKMiyG_SSEFMhsCmzom-8Ww>
-    <xmx:iHUGaFTweXWFn1pbi8JDL6KVeJ5CQ1FQgfsm5Adm1_VW3TLWgk85kHNG>
+    gvnhhtshculddquddttddmnegoufhushhpvggtthffohhmrghinhculdegledmnecujfgu
+    rhephffvvefufffkofgjfhgggfestdekredtredttdenucfhrhhomhepuehoqhhunhcuhf
+    gvnhhguceosghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhmqeenucggtffrrghtthgv
+    rhhnpedutedvgfetleeiffeihfetgfeiheetueefhedukedvveejuddvheeujeehuefgte
+    enucffohhmrghinheptghrrghtvghsrdhiohdpiihulhhiphgthhgrthdrtghomhdpghhi
+    thhhuhgsrdgtohhmpdhkrghnghhrvghjohhsrdgtohhmpdhgihhthhhusgdrihhonecuve
+    hluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepsghoqhhunhdo
+    mhgvshhmthhprghuthhhphgvrhhsohhnrghlihhthidqieelvdeghedtieegqddujeejke
+    ehheehvddqsghoqhhunhdrfhgvnhhgpeepghhmrghilhdrtghomhesfhhigihmvgdrnhgr
+    mhgvpdhnsggprhgtphhtthhopeehiedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoh
+    eprhhushhtqdhfohhrqdhlihhnuhigsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghp
+    thhtoheprhgtuhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuh
+    igqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhn
+    uhigqdgrrhgthhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehllhhvmh
+    eslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlkhhmmheslhhishhtshdr
+    lhhinhhugidruggvvhdprhgtphhtthhopehojhgvuggrsehkvghrnhgvlhdrohhrghdprh
+    gtphhtthhopegrlhgvgidrghgrhihnohhrsehgmhgrihhlrdgtohhmpdhrtghpthhtohep
+    sghoqhhunhdrfhgvnhhgsehgmhgrihhlrdgtohhm
+X-ME-Proxy: <xmx:inUGaKBYTQeenGxlzbt2ma5_91wNhJDIt_UbwBWxJm8S4ROY16FMkA>
+    <xmx:inUGaHhAUkmxbrsRTMNt54EVKhJW5yO31O3ZeEBkf2M54aGJW_ElHw>
+    <xmx:inUGaGrfdx0hap9-PpevYoMDkyfdeX4VaTG98iOLgtdrhB90FZ7zNQ>
+    <xmx:inUGaKjtGJOo8CvZ1JukKvtiSG4GhHC6B1HTWEjncKK6zDbsDaTrEQ>
+    <xmx:inUGaGTtstbys_X4xJOZJD0urvnv9_OCUFxinNyzUBKQshtJyw40Fixu>
 Feedback-ID: iad51458e:Fastmail
 Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 21 Apr 2025 12:42:47 -0400 (EDT)
+ 21 Apr 2025 12:42:49 -0400 (EDT)
 From: Boqun Feng <boqun.feng@gmail.com>
 To: rust-for-linux@vger.kernel.org,
 	rcu@vger.kernel.org,
@@ -147,16 +149,16 @@ Cc: Miguel Ojeda <ojeda@kernel.org>,	Alex Gaynor <alex.gaynor@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,	Albert Ou <aou@eecs.berkeley.edu>,
 	linux-riscv@lists.infradead.org
-Subject: [RFC v3 11/12] rust: sync: Add memory barriers
-Date: Mon, 21 Apr 2025 09:42:20 -0700
-Message-ID: <20250421164221.1121805-12-boqun.feng@gmail.com>
+Subject: [RFC v3 12/12] rust: sync: rcu: Add RCU protected pointer
+Date: Mon, 21 Apr 2025 09:42:21 -0700
+Message-ID: <20250421164221.1121805-13-boqun.feng@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250421164221.1121805-1-boqun.feng@gmail.com>
 References: <20250421164221.1121805-1-boqun.feng@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_094250_975561_DDA905C8 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20250421_094252_832027_B2EC58B2 
+X-CRM114-Status: GOOD (  25.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,143 +175,347 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Memory barriers are building blocks for concurrent code, hence provide
-a minimal set of them.
+RCU protected pointers are an atomic pointer that can be loaded and
+dereferenced by mulitple RCU readers, but only one updater/writer can
+change the value (following a read-copy-update pattern usually).
 
-The compiler barrier, barrier(), is implemented in inline asm instead of
-using core::sync::atomic::compiler_fence() because memory models are
-different: kernel's atomics are implemented in inline asm therefore the
-compiler barrier should be implemented in inline asm as well.
+This is useful in the case where data is read-mostly. The rationale of
+this patch is to provide a proof of concept on how RCU should be exposed
+to the Rust world, and it also serves as an example for atomic usage.
 
+Similar mechanisms like ArcSwap [1] are already widely used.
+
+Provide a `Rcu<P>` type with an atomic pointer implementation. `P` has
+to be a `ForeignOwnable`, which means the ownership of a object can be
+represented by a pointer-size value.
+
+`Rcu::dereference()` requires a RCU Guard, which means dereferencing is
+only valid under RCU read lock protection.
+
+`Rcu::read_copy_update()` is the operation for updaters, it requries a
+`Pin<&mut Self>` for exclusive accesses, since RCU updaters are normally
+exclusive with each other.
+
+A lot of RCU functionalities including asynchronously free (call_rcu()
+and kfree_rcu()) are still missing, and will be the future work.
+
+Also, we still need language changes like field projection [2] to
+provide better ergonomic.
+
+Acknowledgment: this work is based on a lot of productive discussions
+and hard work from others, these are the ones I can remember (sorry if I
+forgot your contribution):
+
+* Wedson started the work on RCU field projection and Benno followed it
+  up and had been working on it as a more general language feature.
+  Also, Gary's field-projection repo [3] has been used as an example for
+  related discussions.
+
+* During Kangrejos 2023 [4], Gary, Benno and Alice provided a lot of
+  feedbacks on the talk from Paul and me: "If you want to use RCU in
+  Rust for Linux kernel..."
+
+* During a recent discussion among Benno, Paul and me, Benno suggested
+  using `Pin<&mut>` to guarantee the exclusive access on updater
+  operations.
+
+Link: https://crates.io/crates/arc-swap [1]
+Link: https://rust-lang.zulipchat.com/#narrow/channel/213817-t-lang/topic/Field.20Projections/near/474648059 [2]
+Link: https://github.com/nbdd0121/field-projection [3]
+Link: https://kangrejos.com/2023 [4]
 Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
 ---
- rust/helpers/barrier.c      | 18 ++++++++++
- rust/helpers/helpers.c      |  1 +
- rust/kernel/sync.rs         |  1 +
- rust/kernel/sync/barrier.rs | 67 +++++++++++++++++++++++++++++++++++++
- 4 files changed, 87 insertions(+)
- create mode 100644 rust/helpers/barrier.c
- create mode 100644 rust/kernel/sync/barrier.rs
+ rust/kernel/sync/rcu.rs | 275 +++++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 274 insertions(+), 1 deletion(-)
 
-diff --git a/rust/helpers/barrier.c b/rust/helpers/barrier.c
-new file mode 100644
-index 000000000000..cdf28ce8e511
---- /dev/null
-+++ b/rust/helpers/barrier.c
-@@ -0,0 +1,18 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <asm/barrier.h>
-+
-+void rust_helper_smp_mb(void)
-+{
-+	smp_mb();
-+}
-+
-+void rust_helper_smp_wmb(void)
-+{
-+	smp_wmb();
-+}
-+
-+void rust_helper_smp_rmb(void)
-+{
-+	smp_rmb();
-+}
-diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
-index b20ee7cef74d..1183150ebdc6 100644
---- a/rust/helpers/helpers.c
-+++ b/rust/helpers/helpers.c
-@@ -8,6 +8,7 @@
-  */
+diff --git a/rust/kernel/sync/rcu.rs b/rust/kernel/sync/rcu.rs
+index b51d9150ffe2..201c09cb60db 100644
+--- a/rust/kernel/sync/rcu.rs
++++ b/rust/kernel/sync/rcu.rs
+@@ -4,7 +4,12 @@
+ //!
+ //! C header: [`include/linux/rcupdate.h`](srctree/include/linux/rcupdate.h)
  
- #include "atomic.c"
-+#include "barrier.c"
- #include "blk.c"
- #include "bug.c"
- #include "build_assert.c"
-diff --git a/rust/kernel/sync.rs b/rust/kernel/sync.rs
-index b620027e0641..c7c0e552bafe 100644
---- a/rust/kernel/sync.rs
-+++ b/rust/kernel/sync.rs
-@@ -11,6 +11,7 @@
+-use crate::{bindings, types::NotThreadSafe};
++use crate::bindings;
++use crate::{
++    sync::atomic::{Atomic, Relaxed, Release},
++    types::{ForeignOwnable, NotThreadSafe},
++};
++use core::{marker::PhantomData, pin::Pin, ptr::NonNull};
  
- mod arc;
- pub mod atomic;
-+pub mod barrier;
- mod condvar;
- pub mod lock;
- mod locked_by;
-diff --git a/rust/kernel/sync/barrier.rs b/rust/kernel/sync/barrier.rs
-new file mode 100644
-index 000000000000..277aa09747bf
---- /dev/null
-+++ b/rust/kernel/sync/barrier.rs
-@@ -0,0 +1,67 @@
-+// SPDX-License-Identifier: GPL-2.0
+ /// Evidence that the RCU read side lock is held on the current thread/CPU.
+ ///
+@@ -45,3 +50,271 @@ fn drop(&mut self) {
+ pub fn read_lock() -> Guard {
+     Guard::new()
+ }
 +
-+//! Memory barriers.
-+//!
-+//! These primitives have the same semantics as their C counterparts: and the precise definitions of
-+//! semantics can be found at [`LKMM`].
-+//!
-+//! [`LKMM`]: srctree/tools/memory-mode/
-+
-+/// A compiler barrier.
++/// An RCU protected pointer, the pointed object is protected by RCU.
 +///
-+/// An explicic compiler barrier function that prevents the compiler from moving the memory
-+/// accesses either side of it to the other side.
-+pub fn barrier() {
-+    // By default, Rust inline asms are treated as being able to access any memory or flags, hence
-+    // it suffices as a compiler barrier.
-+    //
-+    // SAFETY: An empty asm block should be safe.
-+    unsafe {
-+        core::arch::asm!("");
++/// # Invariants
++///
++/// Either the pointer is null, or it points to a return value of [`P::into_foreign`] and the atomic
++/// variable exclusively owns the pointer.
++pub struct Rcu<P: ForeignOwnable>(Atomic<*mut crate::ffi::c_void>, PhantomData<P>);
++
++/// A pointer that has been unpublished, but hasn't waited for a grace period yet.
++///
++/// The pointed object may still have an existing RCU reader. Therefore a grace period is needed to
++/// free the object.
++///
++/// # Invariants
++///
++/// The pointer has to be a return value of [`P::into_foreign`] and [`Self`] exclusively owns the
++/// pointer.
++pub struct RcuOld<P: ForeignOwnable>(NonNull<crate::ffi::c_void>, PhantomData<P>);
++
++impl<P: ForeignOwnable> Drop for RcuOld<P> {
++    fn drop(&mut self) {
++        // SAFETY: As long as called in a sleepable context, which should be checked by klint,
++        // `synchronize_rcu()` is safe to call.
++        unsafe {
++            bindings::synchronize_rcu();
++        }
++
++        // SAFETY: `self.0` is a return value of `P::into_foreign()`, so it's safe to call
++        // `from_foreign()` on it. Plus, the above `synchronize_rcu()` guarantees no existing
++        // `ForeignOwnable::borrow()` anymore.
++        let p: P = unsafe { P::from_foreign(self.0.as_ptr()) };
++        drop(p);
 +    }
 +}
 +
-+/// A full memory barrier.
-+///
-+/// A barrier function that prevents both the compiler and the CPU from moving the memory accesses
-+/// either side of it to the other side.
-+pub fn smp_mb() {
-+    if cfg!(CONFIG_SMP) {
-+        // SAFETY: `smp_mb()` is safe to call.
-+        unsafe {
-+            bindings::smp_mb();
++impl<P: ForeignOwnable> Rcu<P> {
++    /// Creates a new RCU pointer.
++    pub fn new(p: P) -> Self {
++        // INVARIANTS: The return value of `p.into_foreign()` is directly stored in the atomic
++        // variable.
++        Self(Atomic::new(p.into_foreign()), PhantomData)
++    }
++
++    /// Creates a null RCU pointer.
++    pub const fn null() -> Self {
++        Self(Atomic::new(core::ptr::null_mut()), PhantomData)
++    }
++
++    /// Dereferences the protected object.
++    ///
++    /// Returns `Some(b)`, where `b` is a reference-like borrowed type, if the pointer is not null,
++    /// otherwise returns `None`.
++    ///
++    /// # Examples
++    ///
++    /// ```rust
++    /// # use kernel::alloc::{flags, KBox};
++    /// use kernel::sync::rcu::{self, Rcu};
++    ///
++    /// let x = Rcu::new(KBox::new(100i32, flags::GFP_KERNEL)?);
++    ///
++    /// let g = rcu::read_lock();
++    /// // Read in under RCU read lock protection.
++    /// let v = x.dereference(&g);
++    ///
++    /// assert_eq!(v, Some(&100i32));
++    ///
++    /// # Ok::<(), Error>(())
++    /// ```
++    ///
++    /// Note the borrowed access can outlive the reference of the [`Rcu<P>`], this is because as
++    /// long as the RCU read lock is held, the pointed object should remain valid.
++    ///
++    /// In the following case, the main thread is responsible for the ownership of `shared`, i.e. it
++    /// will drop it eventually, and a work item can temporarily access the `shared` via `cloned`,
++    /// but the use of the dereferenced object doesn't depend on `cloned`'s existence.
++    ///
++    /// ```rust
++    /// # use kernel::alloc::{flags, KBox};
++    /// # use kernel::workqueue::system;
++    /// # use kernel::sync::{Arc, atomic::{Atomic, Acquire, Release}};
++    /// use kernel::sync::rcu::{self, Rcu};
++    ///
++    /// struct Config {
++    ///     a: i32,
++    ///     b: i32,
++    ///     c: i32,
++    /// }
++    ///
++    /// let config = KBox::new(Config { a: 1, b: 2, c: 3 }, flags::GFP_KERNEL)?;
++    ///
++    /// let shared = Arc::new(Rcu::new(config), flags::GFP_KERNEL)?;
++    /// let cloned = shared.clone();
++    ///
++    /// // Use atomic to simulate a special refcounting.
++    /// static FLAG: Atomic<i32> = Atomic::new(0);
++    ///
++    /// system().try_spawn(flags::GFP_KERNEL, move || {
++    ///     let g = rcu::read_lock();
++    ///     let v = cloned.dereference(&g).unwrap();
++    ///     drop(cloned); // release reference to `shared`.
++    ///     FLAG.store(1, Release);
++    ///
++    ///     // but still need to access `v`.
++    ///     assert_eq!(v.a, 1);
++    ///     drop(g);
++    /// });
++    ///
++    /// // Wait until `cloned` dropped.
++    /// while FLAG.load(Acquire) == 0 {
++    ///     // SAFETY: Sleep should be safe.
++    ///     unsafe { kernel::bindings::schedule(); }
++    /// }
++    ///
++    /// drop(shared);
++    ///
++    /// # Ok::<(), Error>(())
++    /// ```
++    pub fn dereference<'rcu>(&self, _rcu_guard: &'rcu Guard) -> Option<P::Borrowed<'rcu>> {
++        // Ordering: Address dependency pairs with the `store(Release)` in read_copy_update().
++        let ptr = self.0.load(Relaxed);
++
++        if !ptr.is_null() {
++            // SAFETY:
++            // - Since `ptr` is not null, so it has to be a return value of `P::into_foreign()`.
++            // - The returned `Borrowed<'rcu>` cannot outlive the RCU Guar, this guarantees the
++            //   return value will only be used under RCU read lock, and the RCU read lock prevents
++            //   the pass of a grace period that the drop of `RcuOld` or `Rcu` is waiting for,
++            //   therefore no `from_foreign()` will be called for `ptr` as long as `Borrowed` exists.
++            //
++            //      CPU 0                                       CPU 1
++            //      =====                                       =====
++            //      { `x` is a reference to Rcu<Box<i32>> }
++            //      let g = rcu::read_lock();
++            //
++            //      if let Some(b) = x.dereference(&g) {
++            //      // drop(g); cannot be done, since `b` is still alive.
++            //
++            //                                              if let Some(old) = x.replace(...) {
++            //                                                  // `x` is null now.
++            //          println!("{}", b);
++            //      }
++            //                                                  drop(old):
++            //                                                    synchronize_rcu();
++            //      drop(g);
++            //                                                    // a grace period passed.
++            //                                                    // No `Borrowed` exists now.
++            //                                                    from_foreign(...);
++            //                                              }
++            Some(unsafe { P::borrow(ptr) })
++        } else {
++            None
 +        }
-+    } else {
-+        barrier();
++    }
++
++    /// Read, copy and update the pointer with new value.
++    ///
++    /// Returns `None` if the pointer's old value is null, otherwise returns `Some(old)`, where old
++    /// is a [`RcuOld`] which can be used to free the old object eventually.
++    ///
++    /// The `Pin<&mut Self>` is needed because this function needs the exclusive access to
++    /// [`Rcu<P>`], otherwise two `read_copy_update()`s may get the same old object and double free.
++    /// Using `Pin<&mut Self>` provides the exclusive access that C side requires with the type
++    /// system checking.
++    ///
++    /// Also this has to be `Pin` because a `&mut Self` may allow users to `swap()` safely, that
++    /// will break the atomicity. A [`Rcu<P>`] should be structurally pinned in the struct that
++    /// contains it.
++    ///
++    /// Note that `Pin<&mut Self>` cannot assume noalias here because [`Atomic<T>`] is a
++    /// [`Opaque<T>`] which has the same effect on aliasing rules as [`UnsafePinned`].
++    ///
++    /// [`UnsafePinned`]: https://rust-lang.github.io/rfcs/3467-unsafe-pinned.html
++    pub fn read_copy_update<F>(self: Pin<&mut Self>, f: F) -> Option<RcuOld<P>>
++    where
++        F: FnOnce(Option<P::Borrowed<'_>>) -> Option<P>,
++    {
++        // step 1: READ.
++        // Ordering: Address dependency pairs with the `store(Release)` in read_copy_update().
++        let old_ptr = NonNull::new(self.0.load(Relaxed));
++
++        let old = old_ptr.map(|nonnull| {
++            // SAFETY: Per type invariants `old_ptr` has to be a value return by a previous
++            // `into_foreign()`, and the exclusive reference `self` guarantees that `from_foreign()`
++            // has not been called.
++            unsafe { P::borrow(nonnull.as_ptr()) }
++        });
++
++        // step 2: COPY, or more generally, initializing `new` based on `old`.
++        let new = f(old);
++
++        // step 3: UPDATE.
++        if let Some(new) = new {
++            let new_ptr = new.into_foreign();
++            // Ordering: Pairs with the address dependency in `dereference()` and
++            // `read_copy_update()`.
++            // INVARIANTS: `new.into_foreign()` is directly store into the atomic variable.
++            self.0.store(new_ptr, Release);
++        } else {
++            // Ordering: Setting to a null pointer doesn't need to be Release.
++            // INVARIANTS: The atomic variable is set to be null.
++            self.0.store(core::ptr::null_mut(), Relaxed);
++        }
++
++        // INVARIANTS: The exclusive reference guarantess that the ownership of a previous
++        // `into_foreign()` transferred to the `RcuOld`.
++        Some(RcuOld(old_ptr?, PhantomData))
++    }
++
++    /// Replaces the pointer with new value.
++    ///
++    /// Returns `None` if the pointer's old value is null, otherwise returns `Some(old)`, where old
++    /// is a [`RcuOld`] which can be used to free the old object eventually.
++    ///
++    /// # Examples
++    ///
++    /// ```rust
++    /// use core::pin::pin;
++    /// # use kernel::alloc::{flags, KBox};
++    /// use kernel::sync::rcu::{self, Rcu};
++    ///
++    /// let mut x = pin!(Rcu::new(KBox::new(100i32, flags::GFP_KERNEL)?));
++    /// let q = KBox::new(101i32, flags::GFP_KERNEL)?;
++    ///
++    /// // Read in under RCU read lock protection.
++    /// let g = rcu::read_lock();
++    /// let v = x.dereference(&g);
++    ///
++    /// // Replace with a new object.
++    /// let old = x.as_mut().replace(q);
++    ///
++    /// assert!(old.is_some());
++    ///
++    /// // `v` should still read the old value.
++    /// assert_eq!(v, Some(&100i32));
++    ///
++    /// // New readers should get the new value.
++    /// assert_eq!(x.dereference(&g), Some(&101i32));
++    ///
++    /// drop(g);
++    ///
++    /// // Can free the object outside the read-side critical section.
++    /// drop(old);
++    /// # Ok::<(), Error>(())
++    /// ```
++    pub fn replace(self: Pin<&mut Self>, new: P) -> Option<RcuOld<P>> {
++        self.read_copy_update(|_| Some(new))
 +    }
 +}
 +
-+/// A write-write memory barrier.
-+///
-+/// A barrier function that prevents both the compiler and the CPU from moving the memory write
-+/// accesses either side of it to the other side.
-+pub fn smp_wmb() {
-+    if cfg!(CONFIG_SMP) {
-+        // SAFETY: `smp_wmb()` is safe to call.
-+        unsafe {
-+            bindings::smp_wmb();
-+        }
-+    } else {
-+        barrier();
-+    }
-+}
++impl<P: ForeignOwnable> Drop for Rcu<P> {
++    fn drop(&mut self) {
++        let ptr = *self.0.get_mut();
++        if !ptr.is_null() {
++            // SAFETY: As long as called in a sleepable context, which should be checked by klint,
++            // `synchronize_rcu()` is safe to call.
++            unsafe {
++                bindings::synchronize_rcu();
++            }
 +
-+/// A read-read memory barrier.
-+///
-+/// A barrier function that prevents both the compiler and the CPU from moving the memory read
-+/// accesses either side of it to the other side.
-+pub fn smp_rmb() {
-+    if cfg!(CONFIG_SMP) {
-+        // SAFETY: `smp_rmb()` is safe to call.
-+        unsafe {
-+            bindings::smp_rmb();
++            // SAFETY: `self.0` is a return value of `P::into_foreign()`, so it's safe to call
++            // `from_foreign()` on it. Plus, the above `synchronize_rcu()` guarantees no existing
++            // `ForeignOwnable::borrow()` anymore.
++            drop(unsafe { P::from_foreign(ptr) });
 +        }
-+    } else {
-+        barrier();
 +    }
 +}
 -- 
