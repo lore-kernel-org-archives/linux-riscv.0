@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78591C369AB
-	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:15:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BF52C369C2
+	for <linux-riscv@archiver.kernel.org>; Mon, 21 Apr 2025 14:26:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Bzg7CO8pRn2sWzPk91B5NlffjERspcFJKn4miZeuz98=; b=ZqBtE8hq9jyBkP
-	YHrEBJbbBoDuuV++YmVa1JY55tjAh5CYYRng4ohPvOXZIPat0FR9Iivrc7yT9wziRcGIUGPziryOL
-	1OfKaZom/1j377m1vh9wIwJe0xczGrr+EiEvxrszrOEvun01W/CGVg38WkUJdUVsn+uGj+rpn0D97
-	/u8Fc6YPlGfjGL2Yj1XnXeUikuMUjmRf/YT3AsXwHD7wIAx1GJS27iCD6u35TdW90d5mWcUMRb2Is
-	fsfzILLLBSn04QCEG59ZkR3FArKqPwZ7ZIp4z6KwRqpyoZ31DZHX/7guB2gBUOSeNwiIZY/2c0hn6
-	2zL9l+wJqK7EK0OaEgoA==;
+	List-Owner; bh=3pPB7Oe1hjIcNLE9s/x/kpU01UXC+xdssqK/m+MW/jk=; b=SFzqC52k3L120c
+	T2yvo+HCss2Q8+8GphTftOwi7LudHSMyGK8TRzobqheFkDHaT3HAPFCWAKIhiYI8GXuZZRFYCaash
+	gVqTHkZ4TUpEJb77f7LGW/TZmcg0eRG5nlkgHDsGh83Q08jPqvSdd1r90IeHkIPtSdZRdvX+VWG95
+	rB0l+Ezt0jLSXTehT+VWQf6zMxP1hmj+TNChDPjB302chQfAulzw0ADTWxKvQvVWEYk2C4JevsgCO
+	niQxRrPHNLTkAADaalCcM2UFBTypgmscCLIEZtSOawZSaW+zN3BOdv0/I66iqIjGzXAE2BU/RnvZ8
+	7yMgwL00BDzOf2ZMmsWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rvF-00000004QUH-2JV1;
-	Mon, 21 Apr 2025 14:14:57 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1u6s67-00000004Rsw-1Ffc;
+	Mon, 21 Apr 2025 14:26:11 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u6rvC-00000004QTo-2gQ1
+	id 1u6s5N-00000004Rh5-3GrJ
 	for linux-riscv@lists.infradead.org;
-	Mon, 21 Apr 2025 14:14:56 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so41582885e9.3
-        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:14:53 -0700 (PDT)
+	Mon, 21 Apr 2025 14:25:27 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cfe63c592so47673165e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 21 Apr 2025 07:25:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745244892; x=1745849692; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745245524; x=1745850324; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=iId3OO4iPPoDitEFGGflVRfgetsV2ygJtDXi0T0AxTY=;
-        b=Z+BWnyPpcPvxNm6cbHj1+iX/qH90v8Opskhvxs2wjjAeGUdnbvYNEw8RDq/2lOrzN0
-         4Ey88zGvIu8mOZq2ycW4hUVEVE4RKeX1Zk8Lhyh4HjsOOzneHH+9+1mZ/l5P0WDVNhQn
-         bQtP0JbeFYb2e7PHGu8mL0zZQYhK+rISFejQHZXyoXW88XOZLm4GbxctIVsLyxBDyZWi
-         Feyvwgdlt4sqFjwv7maT4aMV9njxHk7a6R+1Y2Aj0AyxWA5k7qz78z7G39SuUFJ8QUj7
-         FTF6T2JPTBeTnav9YPrmcFShz4yJqvxdpAojG1jJlw8aIGFZsbE81ATMSLvzh6CV0qrD
-         j/ew==
+        bh=toKO1sbJD3mjCZojiPpBgF8TUiCeKbxXOR8aMRMuFBs=;
+        b=UiEG205KpJTj2kBnPt528t8ajT8DXGqKDqPERTcVmMhFB4gsO8VvmmU1M9JWB6sCJ3
+         FeD0QYDi8HbDrxPzBo1gZmAIs0/CEkbjshMoHfPQ9BBbebwB5raOiqno/pQulA1LmEUf
+         HhjGRtnLDC9dB1qOOb/fPMy48dUkJLZaa49pDpZMedkgOAIDjBZiWKqf+T0pZuv8poUn
+         cfneZsYo2FjOkWbZ/K5CevOGP6+7vTNVDHYPbJQcfTVor9zSY92xDsV0CP6Slsl5HiYk
+         ZykeAJcwqLQee20y8W+hYx3BcJlU+zDI/AuOE7ziUMPKQbHoE+c6kRoR/SVN6UvHg2XI
+         sAMA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745244892; x=1745849692;
+        d=1e100.net; s=20230601; t=1745245524; x=1745850324;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=iId3OO4iPPoDitEFGGflVRfgetsV2ygJtDXi0T0AxTY=;
-        b=fydsXG5UVAK/ykZOyjdg4BIEE6Rsjbk6jV714YnlTL3DIPhRuflS3ztkub/iEb0WiD
-         V+tZrc008a6kZ6AbJRZk5T0Sb49WtMJBjobf7ooT5UM9Ljl9sk+rPWz/egDvVA3K58Id
-         Wkq3DyY6/JWYjUy0PaeutO5CygOOr17UcMC30LMTLnxaGpJ5eZq4wnxEFfqYvyi+DHVY
-         2ynq2Tx14FPOQ/Wcf5bptYKqE9Pbiiq7zt65tYHMqxEXQ6g/Ujy6T4Y1oxzfI3hs0xnt
-         u8BtcRbZh+LcUG5QC3f6wlg/rMTeM5AwCSRdMvJwrhGrlG0a+yfApb/yPKjRoNb2AGM8
-         LKnA==
-X-Forwarded-Encrypted: i=1; AJvYcCUynU0HghgAlNPA01/6PyJZ7THXVZ0acwRrh7i/xzPf3Ph/EV7eeSUwhvblE1l2KXpiZNOOcShq/vFg8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmEFJhSMfYGQHJnmiJ3XEFpM6/Rk8MqwBWCzQrmi7GcfK1x/Fi
-	WYHIBTsyKw6Zu8+OzyKgOsVRQ/bmVwVIbtwkWPakNtIgOK9NyJGkP9/FEjXAXAM=
-X-Gm-Gg: ASbGnculHc0JAcOo6ErGFUCmqyTlWrvEJ6OmvgcgSxGP3O6A2lMuLJPdzv/WZagxHTE
-	vXVI8+4WxV6g453J0tTiZ7y44TBZYkL4CxvavQeth2C/60GJlRh4cTPcraCu3NFmqVzD5e+WgKF
-	Pd010CZRXZ5ipm+9bBiU69ELiIUnyvFYiQdyuh6Bt+HJQoBm1rI9+/mr3vN6fK7ei/CIT+f/QAE
-	BTSNaGYpj18yySodblonA8TZB+8CFe027B8ZcMmIuwf8LDxh3zDYbnq7+gmvJfEm7+czTCBjXti
-	CFzNOXc/3Xb6vWmaR7Q6eYPFKkEjDVqc1luCydYv0WsTvCXP393V4HzpVJvpDNfi/Ygqktesq1K
-	ybauNbQss
-X-Google-Smtp-Source: AGHT+IG7GDN4v2GYmvAvZdURoHs4uth6LMLhvKJsf8zWUpG9THKVhntnk/wGfEVNyfGlNchCxTCbDw==
-X-Received: by 2002:a05:600c:4ecc:b0:43c:f969:13c0 with SMTP id 5b1f17b1804b1-4406ac17729mr92801105e9.29.1745244892524;
-        Mon, 21 Apr 2025 07:14:52 -0700 (PDT)
-Received: from localhost.localdomain (176-147-145-44.abo.bbox.fr. [176.147.145.44])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4403605892fsm116767405e9.2.2025.04.21.07.14.51
+        bh=toKO1sbJD3mjCZojiPpBgF8TUiCeKbxXOR8aMRMuFBs=;
+        b=T/f80G9gS4V3ChcqDehjQ5dxAdjYnCSaChTKT7hFJD2DBbpIbrw9jwJ3vRTHwC0Sy2
+         RGAIUAu6FuVi4NRkW25genKuYSarYw89fXTFO1UE93EQKOqLcIerHi9N04SxV9jDlGVM
+         x1FBuCTx/F/C4bVUw27qv3n96Y2GKNSEvZV/aRtaLlyYFKBWGkngqniPc/qMVKiumcDD
+         2ow0ApyJy1ZP7h9q9hpQA87RsWTxwvDSP3Uf368NolJCZ6AeyE/778/eEghTYsqxMMpo
+         44c3ol2wpllk1Te30Skvi1fyc5lXwtaNca6Rd7hdv08MOEc5m2l3fCPegoGAoBFm7rhO
+         etbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWjoulxQjFw5qJFyDYRb1fQICT5AkB47es7Bx1BoTNc23O1yvjcylmHvolHmwrf7JiCxHk/GNq8ElehTg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzeabcenaxlO8CD5bexGw0XgXF4vjnhQGWElZWyGA4HQ0FdxXVd
+	bNIsxQJlptPebaG7LxcPkpx6M1dH4EqwxRXSEPcIidMDl9ug4WCIs3oFHIyjuLA=
+X-Gm-Gg: ASbGncsoW4OqzaMXuMriwhecgTYkYh0PbfpwoyA1hwNZgwcJ4klmAZJhOAyR7/8qJ0E
+	C/t9HrGLQt6c+RLmZbiqDb18NR/73ts2MdLen3dp08BDsK3FAIqk7iNWG6blCZrluOiAoKHvXQL
+	f7jgQFjYvjW0VCHgvtnHBa4rfKMwglrVCI7dtOridsThC+iTC7n/mK9wUVkTAU7k1ty1LLcFAVM
+	ueXHXcnlEkb+cFLxVKiHmkPE2OToaTVqnT0Yjoc0FpIr06SM5WEgwbTA1oHK/IEgMPqeMfGuoK6
+	Ii8i6ZoAGVoWNk/rRT0g7DvccIeMBEepzojiIHihpc6HIMx7sMvs3DN3rCc=
+X-Google-Smtp-Source: AGHT+IEQLqqHojl3Rtaz5jkvsm1plxH9LhG+i0zNjFhjUyPMpSA/8M2QR3ivKWaD+zb2wwThWQLuwg==
+X-Received: by 2002:a05:600c:3d86:b0:43c:f6b0:e807 with SMTP id 5b1f17b1804b1-4406ac176dbmr116056225e9.31.1745245524159;
+        Mon, 21 Apr 2025 07:25:24 -0700 (PDT)
+Received: from localhost.localdomain ([2001:861:3382:ef90:cd58:9e76:e88c:5cd])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4406d6dfed6sm135615795e9.35.2025.04.21.07.25.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 21 Apr 2025 07:14:51 -0700 (PDT)
+        Mon, 21 Apr 2025 07:25:23 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Jonathan Corbet <corbet@lwn.net>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-doc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH] riscv: hwprobe: export Zabha extension
-Date: Mon, 21 Apr 2025 16:14:13 +0200
-Message-Id: <20250421141413.394444-1-alexghiti@rivosinc.com>
+Subject: [PATCH v3 0/4] riscv: Add Zicbop & prefetchw support
+Date: Mon, 21 Apr 2025 16:24:37 +0200
+Message-Id: <20250421142441.395849-1-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_071454_944635_870CBC7C 
-X-CRM114-Status: GOOD (  10.50  )
+X-CRM114-CacheID: sfid-20250421_072525_817245_473F18D2 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,54 +98,49 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Export Zabha through the hwprobe syscall.
+I found this lost series developed by Guo so here is a respin with the
+comments on v2 applied.
 
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- Documentation/arch/riscv/hwprobe.rst  | 4 ++++
- arch/riscv/include/uapi/asm/hwprobe.h | 1 +
- arch/riscv/kernel/sys_hwprobe.c       | 1 +
- 3 files changed, 6 insertions(+)
+This patch series adds Zicbop support and then enables the Linux
+prefetch features.
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index f60bf5991755..a4998ad2dfe0 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -271,6 +271,10 @@ The following keys are defined:
-   * :c:macro:`RISCV_HWPROBE_EXT_ZICBOM`: The Zicbom extension is supported, as
-        ratified in commit 3dd606f ("Create cmobase-v1.0.pdf") of riscv-CMOs.
- 
-+  * :c:macro:`RISCV_HWPROBE_EXT_ZABHA`: The Zabha extension is supported as
-+       ratified in commit 49f49c842ff9 ("Update to Rafified state") of
-+       riscv-zabha.
-+
- * :c:macro:`RISCV_HWPROBE_KEY_CPUPERF_0`: Deprecated.  Returns similar values to
-      :c:macro:`RISCV_HWPROBE_KEY_MISALIGNED_SCALAR_PERF`, but the key was
-      mistakenly classified as a bitmask rather than a value.
-diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/uapi/asm/hwprobe.h
-index 3c2fce939673..fca15f2bf6f3 100644
---- a/arch/riscv/include/uapi/asm/hwprobe.h
-+++ b/arch/riscv/include/uapi/asm/hwprobe.h
-@@ -81,6 +81,7 @@ struct riscv_hwprobe {
- #define		RISCV_HWPROBE_EXT_ZICBOM	(1ULL << 55)
- #define		RISCV_HWPROBE_EXT_ZAAMO		(1ULL << 56)
- #define		RISCV_HWPROBE_EXT_ZALRSC	(1ULL << 57)
-+#define		RISCV_HWPROBE_EXT_ZABHA		(1ULL << 58)
- #define RISCV_HWPROBE_KEY_CPUPERF_0	5
- #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
- #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
-diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-index 249aec8594a9..ed3123396a96 100644
---- a/arch/riscv/kernel/sys_hwprobe.c
-+++ b/arch/riscv/kernel/sys_hwprobe.c
-@@ -96,6 +96,7 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pair,
- 		 * presence in the hart_isa bitmap, are made.
- 		 */
- 		EXT_KEY(ZAAMO);
-+		EXT_KEY(ZABHA);
- 		EXT_KEY(ZACAS);
- 		EXT_KEY(ZALRSC);
- 		EXT_KEY(ZAWRS);
+Changelog:
+V3:
+ - Fix typo (Drew)
+ - Split first patch (Drew)
+ - Ensure that the bits [0:4] of the prefetch insns are zeroed
+ - Move PREFETCHW_ASM out of ifdef (Guo)
+ - Remove CBO_ prefix for prefetching insn
+ - Add prefetch (Drew)
+
+V2: https://lore.kernel.org/linux-riscv/20231231082955.16516-1-guoren@kernel.org/
+ - Separate from the qspinlock series
+ - Optimize coding convention with last review advice
+ - Add DEFINE_INSN_S type in insn-def.h
+ - Add CBO_PREFETCH_I/R/W
+
+V1:
+https://lore.kernel.org/linux-riscv/20230910082911.3378782-4-guoren@kernel.org/
+
+Alexandre Ghiti (2):
+  riscv: Introduce Zicbop instructions
+  riscv: Add support for Zicbop
+
+Guo Ren (2):
+  riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
+  riscv: xchg: Prefetch the destination word for sc.w
+
+ arch/riscv/Kconfig                  | 15 +++++++
+ arch/riscv/include/asm/barrier.h    |  5 ---
+ arch/riscv/include/asm/cacheflush.h |  1 +
+ arch/riscv/include/asm/cmpxchg.h    |  4 +-
+ arch/riscv/include/asm/hwcap.h      |  1 +
+ arch/riscv/include/asm/insn-def.h   | 66 +++++++++++++++++++++++++++++
+ arch/riscv/include/asm/processor.h  | 25 ++++++++++-
+ arch/riscv/kernel/cpufeature.c      | 21 +++++++++
+ arch/riscv/mm/cacheflush.c          | 14 ++++--
+ 9 files changed, 142 insertions(+), 10 deletions(-)
+
 -- 
 2.39.2
 
