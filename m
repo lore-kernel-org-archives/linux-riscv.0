@@ -4,75 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 928BDC369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B00CC369C2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 23:01:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wDgp2sWezASFdRVfbQdjgr4QynIJccW+JxkBanesOjk=; b=wcYh9RFu0N/fWy
-	y4UWU4h9CZddmQDZaKTiSWKUk0+afkrfR2xeStxe29pjQnhQAhQgaEz0S6o1UhTTTVejkX90ryvTP
-	i+X5nkUcUhYIsFzRTVKlHakq7ZNEWUsRVEXKuRHi7/ALEevjpx7bydz7NnDgdvCxbV+1Pgyej0xpI
-	H1aAPd1q74paG537aPzN9uY7284xjK2dVyjmC4Rc0sniAGXrcoARkyneGJGgk02wPbOROmk6gqfmz
-	Q7Z4/vDbDi9h9dxFfMStgIZmCBoD+f1/r4Ta+93SDdkopnDiuKNtfcrtQfcKfGtLW4a8Nt5vRSgby
-	F1Yw9u0/RBjfwX6A2GgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lIu6G3DzUJvA62s+Ku1dU1fbuT/GPUJcOoJVhcDPqAQ=; b=0/TBJpHSdbVdgHaZg+6jTtuz42
+	EOPe5WVD1C23FSY19Jlgbsd6b3Y1e2XzxPzcgC28OGNpxoM1N0tGuq0/Meo2OKaXzLDOQhRll7x7p
+	tgSaN+x4Rh5iO5XwfhbM7tiDwTwnh/X/h1Qw7+wYKiM3Dvdmfemg58CCHBGZKOzuOGxMPrjJw+X7g
+	xPvf64Ey8TyHtLA/Pu5BjWXsZoOcJuaqvGHWZkZ+m63N6VjrVQIlBjFrvBgyg9Eku89TMkJD3riHu
+	TXRETSFxWRi3DDnQ+pcH45FNzPosEWbDPJ04NUG0xpfgQn3jcia267DrVU0nt7sm82NTs01iY1wgN
+	ebT1QGOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JaS-00000008LYl-3ejk;
-	Tue, 22 Apr 2025 19:47:20 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1u7McY-00000008mJ2-15H7;
+	Tue, 22 Apr 2025 23:01:42 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GOx-00000007tH6-08H9
+	id 1u7McV-00000008mHR-3C0z
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 16:23:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1745338985; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=l7RBL5dVb8HBMLUxUZAfdwWNOiWIZFX6hxH7K+OpqGMU0ojfrp7QxthO5bFZHCzQtMGK4wemVQ1Q1kHpNr35FTF47HDPXJHZKkpxld5ubD9+O/Max0H8/qeTIegSHkmWmFCrcu+/uNGZsvM1viGELSdmgzDteIeEWRJDjWu9m/g=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1745338985; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=oxHShFZoB1co/k8aRZUUY8gMBqcVpylC9Atz3SqUKJ0=; 
-	b=TrUOMio45VqTWvjXV18oMc74ZcPvEP4KHQj/zRYp6lcZT2MtRess8KgL+6HiKmZ1tYEoJPMgfJWEN5z02cljGO2AdCKQQLPcI1woVwH8jY+nJubvjsXB4m5wQS0bHixzeRq8egXoN8lkX4E7C44fJZk0NyZOChM3hqsvajQhmfQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=icenowy.me;
-	spf=pass  smtp.mailfrom=uwu@icenowy.me;
-	dmarc=pass header.from=<uwu@icenowy.me>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745338985;
-	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=oxHShFZoB1co/k8aRZUUY8gMBqcVpylC9Atz3SqUKJ0=;
-	b=FsGf9IXdc8jVnzaCziUCBh6ZO0qPA+dq8oUagX/4L+UJumOk/3YG7bT+NlARsqo8
-	WGbnRbxtxl09nQcKxdjPR2X4kdbmesNYzT0gJP8OvlF7wQpp9CRwjJSaIHvz0kqQLKD
-	WeB5rHiuZIxE1rXDDAh3h+Miq81Ss2aqnx2GwYzyVL0cKytt3oueyvySg24tODET+Y9
-	hFnpwHt2ZUu4tQkRZmxY5ajPWDbG8eM65Tt0wgLcTozS6YqkBnAwWhzB/2iZM2LbxTO
-	s6lyEnGTa+jHXjOR7uXh63bXPTPm6qGaK6CQs52wLKdGloznxSYzOoGzLINtEY2TkNt
-	OjzxlKxFjg==
-Received: by mx.zohomail.com with SMTPS id 1745338982905319.5056985029113;
-	Tue, 22 Apr 2025 09:23:02 -0700 (PDT)
-From: Icenowy Zheng <uwu@icenowy.me>
-To: Emil Renner Berthing <kernel@esmil.dk>,
-	Jianlong Huang <jianlong.huang@starfivetech.com>,
-	Hal Feng <hal.feng@starfivetech.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Icenowy Zheng <uwu@icenowy.me>
-Subject: [RFC PATCH 0/3] pinctrl: starfive: jh7110: support force inputs
-Date: Wed, 23 Apr 2025 00:22:47 +0800
-Message-ID: <20250422162250.436169-1-uwu@icenowy.me>
-X-Mailer: git-send-email 2.49.0
+	Tue, 22 Apr 2025 23:01:41 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22da3b26532so2025105ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Apr 2025 16:01:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745362898; x=1745967698; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=03XFu9N3hAU4jRC+zblJ23eZKtdC8h3stTe75d5AHr4=;
+        b=JkFlrMAlJYlabMAWB4oFqRtyYTaAFheqb72l3gznNtglOXn+g00sx264f5HfMBU9ry
+         tDf/q1VQgBnZ4aIgJgEdEfzspA6hPZDphsaqu8JIz+E6hrccj0lEPQ8fvteePvarCbZl
+         VAxRrrhPlgSB/z/7zwH93GgAT9Ejm0KpWAA0xQHy/yT3raNwf93/2bYR3gWyl3w6KBCe
+         y9VI8HQiEKJsHg4VMVW0dSDVWRpaN0v7sI19rwUoY/IwS+4Jc51NUFLRwdpiNnRRk6FZ
+         +TT5PeZDnIht6tIWkWeL8T1PvENXYzCFwPQGDEy9LXS10+Cxcc3AfPl5R3VANK8WXH6U
+         MeOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745362898; x=1745967698;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=03XFu9N3hAU4jRC+zblJ23eZKtdC8h3stTe75d5AHr4=;
+        b=L51fNVnKpkvXiPGGZEPTlRGWwPEM+dlUbZ4rS0nlIUjJiBK+uw2wXXTIuUOiB1LYCj
+         bGLhwdeD46ozqqlLnTRCM5EbPHWrUThDx4HFgakjLw4yFWiMPZvLyGGF/5MLt5Ni0sFk
+         j4BOGtSpvzfVr+4b3+P/kuidNDo6xbc/woyh0AdML9qrKrPVKWO5pWswjLDuHCMo6NP9
+         OeEYUy21bhYknmYftGi/nOW13UQR33Mt9C6UvHabRhOaZ6LbmxGmaXfSgGEea/l3NEpA
+         V8Hv1uxOlzw82SSXCXaHC2uqy4Ef6vPOiOZbKbEonYoktOIZfHxTRJe0koaFlIHuOn/w
+         Uf3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUq+dUE95xCPF/0k7mIYetHZ8tET/Nj2kaP8Ost0uNIwTALMi1UUlleOYCJQN5f4DmVEjWIIb29ZJjaDA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhlJIILpTgONGcCIJjDcYoajoMvQE2r4KhWFmXBaiv0XIKVdhj
+	fikI9KVG/8bwR+oADQMO2nifEbds1T40gUVEH6WNfflX2V/bqQWJ1T9uSIoubk0=
+X-Gm-Gg: ASbGnctXuXABq7zAYhX2V8lgNAjmqyxgFYm7QI6NRmGwYDKqNjXl7Ct3n5lNlyT+Wni
+	hhzg9Z7is/OimT9sdQdxnXDgr2+9W2gcb92SorwgS8oqRzH92N39RRSD5msR4jw9s1KG3lDitdV
+	RWZmHZ+kHcOwCjV3y0+73LC3EOMSKd0+Y/vKGbIPAe8iUNwYIHg9knRrNKiMsMuyD9WhFa6gO7r
+	mHC9fT628BjRqPVReIj4W+X7UtdzwAh3YRFnWlUO0bdKGk4LF5L4BlOsXOa4I/Cr44jBkI30hOG
+	C8LRUfFoNd9uKwgVONMRfU32KQy85krINkTv5IrL2LRS4oqqsLmpwqbUmPxT8g==
+X-Google-Smtp-Source: AGHT+IFmp0XY5/uqqLjTkalynqeWNPyv25+6s5DBGYVR7jtj5aNKhX7IgazopW4LZJGmdcspBRQs6g==
+X-Received: by 2002:a17:903:40cb:b0:227:e82b:b585 with SMTP id d9443c01a7336-22c53583228mr211623395ad.20.1745362898437;
+        Tue, 22 Apr 2025 16:01:38 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eceb74sm90656115ad.166.2025.04.22.16.01.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 22 Apr 2025 16:01:37 -0700 (PDT)
+Date: Tue, 22 Apr 2025 16:01:35 -0700
+From: Deepak Gupta <debug@rivosinc.com>
+To: Cyril Bur <cyrilbur@tenstorrent.com>
+Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
+	charlie@rivosinc.com, jrtc27@jrtc27.com, ben.dooks@codethink.co.uk,
+	alex@ghiti.fr, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, jszhang@kernel.org,
+	syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+Subject: Re: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
+Message-ID: <aAgfz69K7wSkKsyJ@debug.ba.rivosinc.com>
+References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
+ <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Disposition: inline
+In-Reply-To: <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_092315_140768_9E0A9C0D 
-X-CRM114-Status: UNSURE (   9.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_160139_802900_CF8BC468 
+X-CRM114-Status: GOOD (  18.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,41 +96,162 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The input signals inside the JH7110 SoC (to be routed by the pin
-controller) could be routed to GPIOs and internal fixed low/high levels.
-As the total GPIO count of JH7110 is not very high, it's sometime
-feasible to omit some hardwiring outside the SoC and do them in the pin
-controller. One such example is the USB overcurrent_n signal, which
-defaults to low at SoC reset, needs to be high for the USB controller to
-correctly work (the _n means low indicates overcurrent situation) and
-gets omitted on the Pine64 Star64 board.
+On Thu, Apr 10, 2025 at 07:05:22AM +0000, Cyril Bur wrote:
+>From: Ben Dooks <ben.dooks@codethink.co.uk>
+>
+>When threads/tasks are switched we need to ensure the old execution's
+>SR_SUM state is saved and the new thread has the old SR_SUM state
+>restored.
+>
+>The issue was seen under heavy load especially with the syz-stress tool
+>running, with crashes as follows in schedule_tail:
+>
+>Unable to handle kernel access to user memory without uaccess routines
+>at virtual address 000000002749f0d0
+>Oops [#1]
+>Modules linked in:
+>CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
+>5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
+>Hardware name: riscv-virtio,qemu (DT)
+>epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+> ra : task_pid_vnr include/linux/sched.h:1421 [inline]
+> ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
+>epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
+> gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
+> t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
+> s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
+> a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
+> a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
+> s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
+> s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
+> s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
+> s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
+> t5 : ffffffc4043cafba t6 : 0000000000040000
+>status: 0000000000000120 badaddr: 000000002749f0d0 cause:
+>000000000000000f
+>Call Trace:
+>[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
+>[<ffffffe000005570>] ret_from_exception+0x0/0x14
+>Dumping ftrace buffer:
+>   (ftrace buffer empty)
+>---[ end trace b5f8f9231dc87dda ]---
+>
+>The issue comes from the put_user() in schedule_tail
+>(kernel/sched/core.c) doing the following:
+>
+>asmlinkage __visible void schedule_tail(struct task_struct *prev)
+>{
+>...
+>        if (current->set_child_tid)
+>                put_user(task_pid_vnr(current), current->set_child_tid);
+>...
+>}
+>
+>the put_user() macro causes the code sequence to come out as follows:
+>
+>1:	__enable_user_access()
+>2:	reg = task_pid_vnr(current);
+>3:	*current->set_child_tid = reg;
+>4:	__disable_user_access()
+>
+>The problem is that we may have a sleeping function as argument which
+>could clear SR_SUM causing the panic above. This was fixed by
+>evaluating the argument of the put_user() macro outside the user-enabled
+>section in commit 285a76bb2cf5 ("riscv: evaluate put_user() arg before
+>enabling user access")"
+>
+>In order for riscv to take advantage of unsafe_get/put_XXX() macros and
+>to avoid the same issue we had with put_user() and sleeping functions we
+>must ensure code flow can go through switch_to() from within a region of
+>code with SR_SUM enabled and come back with SR_SUM still enabled. This
+>patch addresses the problem allowing future work to enable full use of
+>unsafe_get/put_XXX() macros without needing to take a CSR bit flip cost
+>on every access. Make switch_to() save and restore SR_SUM.
+>
+>Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+>Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
+>Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
+>---
+> arch/riscv/include/asm/processor.h | 1 +
+> arch/riscv/kernel/asm-offsets.c    | 5 +++++
+> arch/riscv/kernel/entry.S          | 8 ++++++++
+> 3 files changed, 14 insertions(+)
+>
+>diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
+>index 5f56eb9d114a..58fd11c89fe9 100644
+>--- a/arch/riscv/include/asm/processor.h
+>+++ b/arch/riscv/include/asm/processor.h
+>@@ -103,6 +103,7 @@ struct thread_struct {
+> 	struct __riscv_d_ext_state fstate;
+> 	unsigned long bad_cause;
+> 	unsigned long envcfg;
+>+	unsigned long status;
+> 	u32 riscv_v_flags;
+> 	u32 vstate_ctrl;
+> 	struct __riscv_v_ext_state vstate;
+>diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
+>index 16490755304e..969c65b1fe41 100644
+>--- a/arch/riscv/kernel/asm-offsets.c
+>+++ b/arch/riscv/kernel/asm-offsets.c
+>@@ -34,6 +34,7 @@ void asm_offsets(void)
+> 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
+> 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
+> 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
+>+	OFFSET(TASK_THREAD_STATUS, task_struct, thread.status);
+>
+> 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
+> 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
+>@@ -346,6 +347,10 @@ void asm_offsets(void)
+> 		  offsetof(struct task_struct, thread.s[11])
+> 		- offsetof(struct task_struct, thread.ra)
+> 	);
+>+	DEFINE(TASK_THREAD_STATUS_RA,
+>+		  offsetof(struct task_struct, thread.status)
+>+		- offsetof(struct task_struct, thread.ra)
+>+	);
+>
+> 	DEFINE(TASK_THREAD_F0_F0,
+> 		  offsetof(struct task_struct, thread.fstate.f[0])
+>diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+>index 33a5a9f2a0d4..00bd0de9faa2 100644
+>--- a/arch/riscv/kernel/entry.S
+>+++ b/arch/riscv/kernel/entry.S
+>@@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
+> 	REG_S s9,  TASK_THREAD_S9_RA(a3)
+> 	REG_S s10, TASK_THREAD_S10_RA(a3)
+> 	REG_S s11, TASK_THREAD_S11_RA(a3)
+>+
+>+	/* save the user space access flag */
+>+	li    s0, SR_SUM
+>+	csrr  s1, CSR_STATUS
+>+	REG_S s1, TASK_THREAD_STATUS_RA(a3)
+>+
+> 	/* Save the kernel shadow call stack pointer */
+> 	scs_save_current
+> 	/* Restore context from next->thread */
+>+	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
+>+	csrs  CSR_STATUS, s0
+> 	REG_L ra,  TASK_THREAD_RA_RA(a4)
+> 	REG_L sp,  TASK_THREAD_SP_RA(a4)
+> 	REG_L s0,  TASK_THREAD_S0_RA(a4)
 
-Add the support for hardwiring GPI signals inside the JH7110 pin
-controllers, via two new DT properties. The patchset is tagged RFC
-because I personally feel the DT binding a little dirty and not
-scalable, but the currently specially-encoded pinmux property makes me
-feeling dirty too, and especially dirty if adding virtual pins to mean
-internal low/high (and these virtual pins should be sharable among
-multiple signals, which seems to be not so desirable for pinconfs).
+Reviewed-by: Deepak Gupta <debug@rivosinc.com>
 
-Icenowy Zheng (3):
-  dt-bindings: pinctrl: jh7110-sys: add force inputs
-  pinctrl: starfive: jh7110: support forcing inputs to low/high
-  riscv: dts: starfive: jh7110-pine64-star64: force no USB overcurrent
+Note to alex ghiti,
 
- .../pinctrl/starfive,jh7110-sys-pinctrl.yaml  | 10 +++++
- .../dts/starfive/jh7110-pine64-star64.dts     |  2 +
- .../starfive/pinctrl-starfive-jh7110.c        | 43 +++++++++++++++++++
- 3 files changed, 55 insertions(+)
+If this goes in before cfi changes, I might have to re-work some of the
+changes with respect to zicfilp handling. zicfilp introduces `elp` state
+in `sstatus`.
 
--- 
-2.49.0
-
+>-- 
+>2.34.1
+>
+>
 
 _______________________________________________
 linux-riscv mailing list
