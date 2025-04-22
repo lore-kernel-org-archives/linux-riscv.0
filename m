@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8CD7C369AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 02:43:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 482F8C369D6
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 02:43:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KHiluYPUwWWhXnILLeJp5kGE1e70qSHqCDqR5tzrRkA=; b=MbCIlmE3EcQ1Ry
-	sIKYJ0dHFXjDsmwd7FOdlPw7V0tTUfZuuSfkHOj3jOoBVUoI6WlTLFDAyyFpiTdY7C8U6/tBW7kaM
-	YORYjBuMLTUtgJiFOzmaRj5jQjrziVwdDrwQGEyrTUe6uucVOT21fFxYzm2S5gAGuDXCJS1H3vvMX
-	FzXj4qogh2DkgkU0vMXYOlp57977fV8loQOqlbSDFxRCU4qdivwPlIZilfvJaBSTGYK229CQwrqBd
-	tUD5gRNJG4gowNwhvuvPrlo8i3JPLfpEmh83ZIgGaCQKbBylGIw2TNb1e7XzqnWt38OSGgZXWGeD/
-	AD/KFGEd9JnJr5k/0nXA==;
+	List-Owner; bh=hL5v2H1wUtviVkjtP2KZFJ1X/cSMxuCwzwoU6dKcecg=; b=dzPV4iPrC5E7dr
+	DLAf+YDSP9nf8fxvz2fkr56haa42raCj3OiAQCh6hUspiFje4uUkNaY6Z5gzksLqPmc81UcBLmFg4
+	I2k/L4+4J6vnKZJWIejtF4mscR60jZ+HgZVNf5heUshypu05d0gJdwIB0q9cw/SaxBedcJDNVwlUw
+	22PXlbeSiFTHAJNYiSlcIS1rb52Qwt1ATmxB63MqByW3vBpDOPlUDUsa171jd8Vk5hPdGVU6ilwCK
+	/XLbIwiuzuo4eWSimsldrLKP9zR837+gyBi4z7cHkIejoDCwWYGxS2eO9+8Y9+QT3xOiXQ4iA0EsK
+	QzDBnUh67R3AA+ydeDYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73bd-00000005fkv-2HJq;
-	Tue, 22 Apr 2025 02:43:29 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u73bc-00000005fkW-40iL;
+	Tue, 22 Apr 2025 02:43:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73Dz-00000005Zv6-2eCG
+	id 1u73Dt-00000005ZsD-2CeD
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 02:19:06 +0000
+	Tue, 22 Apr 2025 02:18:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CEE32A4BF4F;
-	Tue, 22 Apr 2025 02:13:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80522C4CEEC;
-	Tue, 22 Apr 2025 02:19:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id BB99FA4BF4B;
+	Tue, 22 Apr 2025 02:13:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A8A0C4CEE4;
+	Tue, 22 Apr 2025 02:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745288342;
-	bh=E2UZawLOB60I+5y5go5f2JrYmVaLg3aKhdQdhvtcUbk=;
+	s=k20201202; t=1745288336;
+	bh=S54uJCGVVcNRF4SVztCd2+ZnQpRSE0JDXKatsL4OMKM=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qhEOifXx76BUUHN2PxJAwDbXaBuerk3jMJ0O6UjN8fZy6wOfEdQogEbTIZxrj/mGG
-	 55SBLruHZXmAqas+un12v9TVxcZStZbZv0CuGiqgjWh1I/LUDQLGx0/Z4Io/4drPWU
-	 JbqVRa1QrRRbQCyVoQnuhMgGydgTvNmC2Dssa5GFc5lLxDNCkDcVsd/cMy1D/9LrWm
-	 urz7ipf8kGNqYnUyYDXvnFFK22qEfYixEMDa68qMQqF1ufbuIEAaNsrZ5EWnb3JhDg
-	 o4JsHfgAUBm71kFPwiopqzZg3ralMugAPdIrhaSUGd/SWcKxsWlxUxCtXLcd5f1Ld3
-	 EPZ720ZyBroMQ==
+	b=tXmXpuf5VQWwxaYGYzXWFbcdMtBKhcd+0u9jGT8/b7mqKgPdrwiGpPCMiOLlOs8ci
+	 dSZMFNVOabd7BCMsE/v2Bm4kYyIgCVLeheg9z3Qy07QQbFIVq8bNXrvACkPR5FkJHv
+	 ZjvglmVGJst7zvZswD2Q8xAsgRLGJ+L94mIuoKhMl2bkPiomKZF6Wv5A0fPalEMdp3
+	 H00A4/lBq9u7JfmNKlWyHHo0H037mWc8bHog8ZLlLber0LMpC3E/s/NBBrwEI/KNYt
+	 jen/oUjO69j60qXWoyvJ5CzXhsY2vGUQ9Sy47wJDXtwUqKhgKs4TM0ebtyt1Ck9Hci
+	 GclHTtLI8zxfA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
@@ -53,18 +53,18 @@ Cc: Nathan Chancellor <nathan@kernel.org>,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 5.10 3/3] riscv: Avoid fortify warning in syscall_get_arguments()
-Date: Mon, 21 Apr 2025 22:18:56 -0400
-Message-Id: <20250422021856.1942063-3-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 5.15 6/6] riscv: Avoid fortify warning in syscall_get_arguments()
+Date: Mon, 21 Apr 2025 22:18:46 -0400
+Message-Id: <20250422021846.1941972-6-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250422021856.1942063-1-sashal@kernel.org>
-References: <20250422021856.1942063-1-sashal@kernel.org>
+In-Reply-To: <20250422021846.1941972-1-sashal@kernel.org>
+References: <20250422021846.1941972-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.10.236
+X-stable-base: Linux 5.15.180
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_191903_810850_A0D2E507 
+X-CRM114-CacheID: sfid-20250421_191857_699865_C81818BF 
 X-CRM114-Status: GOOD (  13.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -128,7 +128,7 @@ Signed-off-by: Sasha Levin <sashal@kernel.org>
  1 file changed, 5 insertions(+), 2 deletions(-)
 
 diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
-index 49350c8bd7b09..9fa0729bc6696 100644
+index 34fbb3ea21d5b..932ec2500b8ae 100644
 --- a/arch/riscv/include/asm/syscall.h
 +++ b/arch/riscv/include/asm/syscall.h
 @@ -60,8 +60,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
