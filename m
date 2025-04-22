@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29536C369D9
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589FCC3ABA2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TH0uRh2qJrRemi8dgwF8c/KDOVPQrzO66tQzYOXI1NU=; b=xXPwljCNTG6OJR
-	3r0r2s1/ausWC5rLk33k7E/UpG3Z6AZtGSX8Dqc0s3G4augpsi3hGtMCLgsg11luJj/Ru97/PFAfp
-	d54yufEYQ8YwtCfesbMbdxil1NqW4zUAcGnPMHmq3rIIICZnQp29cwm1RsdZvARyLazk6/bchouF0
-	kS54dWQV+GhZ1LU07MU+eAnm/YBnFB7/YbzONl1h3ufRw37hDwvtUwg88mhWwakrPKAiGpFIIMZRJ
-	hQ417l9lhrCgTdDqVP3+FsLDGGKzkxxP2PLEs3xTofQO0xEbISVOBYAAM/D8ByvUamghFiAIuW2MO
-	c0bGc+JhqbGZ/bS9+ZGQ==;
+	List-Owner; bh=jQ5dKo2D+xJL4V0M97YxEfZefMk0ltT2mEzuQh2Muto=; b=ZVfH/TyFUlN/YX
+	L/Tv2kd373thfTvaSoi5ZuF82QFnwVyWxmENaMPm9jt49nu684IpK05eNiJwY37KccsqKm44EuPdo
+	ZYzl93VjizkSBjqZz5KCXzgA5KnxiFtC+ZDsZzUfcmOY+oAgVKaFkhHCDALXw0PKAqMaF5PpTIJtN
+	FHaLI0Tmd7oq91zDGX2m5KGC7Pbgo3YivHfkIQBRiwsnrIknUBFxDanRkKX2c4UxAmPp4xCAdUoaF
+	obirqMT43CSuSCv2H4PYOJVPg0L5lMAy9WbNxvAucNhBWkHnngScSkAZhDal/pommO52hU/VtMQ4t
+	WIm3Eoyn+2QR3KFKMxfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8f-000000085hd-21Zm;
-	Tue, 22 Apr 2025 18:14:33 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7I8j-000000085mm-2BCj;
+	Tue, 22 Apr 2025 18:14:37 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXk-00000007iM9-3aP2;
-	Tue, 22 Apr 2025 15:28:16 +0000
+	id 1u7FXk-00000007iM5-29Lf;
+	Tue, 22 Apr 2025 15:28:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 28C3E61569;
-	Tue, 22 Apr 2025 15:27:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A75A0C4AF0B;
+	by dfw.source.kernel.org (Postfix) with ESMTP id C48365C5C9A;
+	Tue, 22 Apr 2025 15:25:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32E98C4CEE9;
 	Tue, 22 Apr 2025 15:28:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335696;
-	bh=u0xVqTwc+LVSbVkgBLveEACfwQ18fyzLMscrd3BGCZk=;
+	s=k20201202; t=1745335695;
+	bh=Wsz8KfnWpKz3RjYagwsQwuMx7mcDuZ3DmLJCHCvCnLk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=qdC0W0eL6Uj1hGs8hRkxL94JtjuD44QBTP/Am8HtLUFQMxNY0qy64fWDcMMur6RGx
-	 3aCYvzdhFOBp2e5glCXLasXgVtTZynY/hY0w7T2kUkW8SSm1ni0o2u3/VebmnJlH2m
-	 XHVfD+il9gwPYWAoJf2OApKCUX36JzNuT5hgiFvHlkrq+182eHzjXkHm5K3uBeq4px
-	 sMbyWsRQ5XPLiLXsAhbke8IFeGSAVjqooYKSX4+TJrsCgRZzMRcamWnVEqc2hJnfai
-	 vq9Elw6OEjQ636Eodl4WzFMkTcgfNzcOwC9nrVctgrMZ1mBFFZ/iz3chOnYtmROXIR
-	 uwFJTHlErgtsA==
+	b=uBsUn+1uknnAtCvGxigHZ4JZToY6+Gy1ixr68PQvV2N71BUQl87w4yMZvlkmjCwZ0
+	 RiCZCN4vIV2n0ynKuXxTLvrHQVn87JR/9LqXwv5UnpKrmGxngl4unZebkUVwATB/sE
+	 IaMI4ynGGpFpbI3ZRnoRy8dF2K06NBvFqAB9SziK+JLDHzV8/1oz0c8BZdihd951Qw
+	 c5+HPn83XoB+DEMH5jnPKhtWdxpTkVxm/BPC9ZhGUEnLGxZ5UomAOSh+VAoTMwUtNK
+	 4tXgPPEpd0lYeetuHeVpKT/bTaC5YXBvG+nlQRTRr/c8aoQJpGfdjm9w+zNTOpb2JF
+	 xGv23N6geYPRQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -52,15 +52,18 @@ Cc: linux-arch@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>
-Subject: [PATCH v3 03/13] crypto: s390 - drop redundant dependencies on S390
-Date: Tue, 22 Apr 2025 08:27:06 -0700
-Message-ID: <20250422152716.5923-4-ebiggers@kernel.org>
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v3 02/13] crypto: powerpc - drop redundant dependencies on PPC
+Date: Tue, 22 Apr 2025 08:27:05 -0700
+Message-ID: <20250422152716.5923-3-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_082816_594691_712EE1C2 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,128 +82,70 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-arch/s390/crypto/Kconfig is sourced only when CONFIG_S390=y, so there is
-no need for the symbols defined inside it to depend on S390.
+arch/powerpc/crypto/Kconfig is sourced only when CONFIG_PPC=y, so there
+is no need for the symbols defined inside it to depend on PPC.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/s390/crypto/Kconfig | 10 ----------
- 1 file changed, 10 deletions(-)
+ arch/powerpc/crypto/Kconfig | 8 +++-----
+ 1 file changed, 3 insertions(+), 5 deletions(-)
 
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index 055b08f259ab2..e88d9cd256ef5 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -2,77 +2,70 @@
+diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
+index cbcf76953d835..8bcc690134644 100644
+--- a/arch/powerpc/crypto/Kconfig
++++ b/arch/powerpc/crypto/Kconfig
+@@ -15,48 +15,46 @@ config CRYPTO_CURVE25519_PPC64
+ 	  Architecture: PowerPC64
+ 	  - Little-endian
  
- menu "Accelerated Cryptographic Algorithms for CPU (s390)"
- 
- config CRYPTO_SHA512_S390
- 	tristate "Hash functions: SHA-384 and SHA-512"
--	depends on S390
+ config CRYPTO_MD5_PPC
+ 	tristate "Digests: MD5"
+-	depends on PPC
  	select CRYPTO_HASH
  	help
- 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+ 	  MD5 message digest algorithm (RFC1321)
  
- 	  Architecture: s390
+ 	  Architecture: powerpc
  
- 	  It is available as of z10.
- 
- config CRYPTO_SHA1_S390
+ config CRYPTO_SHA1_PPC
  	tristate "Hash functions: SHA-1"
--	depends on S390
- 	select CRYPTO_HASH
+-	depends on PPC
  	help
  	  SHA-1 secure hash algorithm (FIPS 180)
  
- 	  Architecture: s390
+ 	  Architecture: powerpc
  
- 	  It is available as of z990.
+ config CRYPTO_SHA1_PPC_SPE
+ 	tristate "Hash functions: SHA-1 (SPE)"
+-	depends on PPC && SPE
++	depends on SPE
+ 	help
+ 	  SHA-1 secure hash algorithm (FIPS 180)
  
- config CRYPTO_SHA256_S390
- 	tristate "Hash functions: SHA-224 and SHA-256"
--	depends on S390
+ 	  Architecture: powerpc using
+ 	  - SPE (Signal Processing Engine) extensions
+ 
+ config CRYPTO_SHA256_PPC_SPE
+ 	tristate "Hash functions: SHA-224 and SHA-256 (SPE)"
+-	depends on PPC && SPE
++	depends on SPE
+ 	select CRYPTO_SHA256
  	select CRYPTO_HASH
  	help
  	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
  
- 	  Architecture: s390
+ 	  Architecture: powerpc using
+ 	  - SPE (Signal Processing Engine) extensions
  
- 	  It is available as of z9.
- 
- config CRYPTO_SHA3_256_S390
- 	tristate "Hash functions: SHA3-224 and SHA3-256"
--	depends on S390
- 	select CRYPTO_HASH
- 	help
- 	  SHA3-224 and SHA3-256 secure hash algorithms (FIPS 202)
- 
- 	  Architecture: s390
- 
- 	  It is available as of z14.
- 
- config CRYPTO_SHA3_512_S390
- 	tristate "Hash functions: SHA3-384 and SHA3-512"
--	depends on S390
- 	select CRYPTO_HASH
- 	help
- 	  SHA3-384 and SHA3-512 secure hash algorithms (FIPS 202)
- 
- 	  Architecture: s390
- 
- 	  It is available as of z14.
- 
- config CRYPTO_GHASH_S390
- 	tristate "Hash functions: GHASH"
--	depends on S390
- 	select CRYPTO_HASH
- 	help
- 	  GCM GHASH hash function (NIST SP800-38D)
- 
- 	  Architecture: s390
- 
- 	  It is available as of z196.
- 
- config CRYPTO_AES_S390
- 	tristate "Ciphers: AES, modes: ECB, CBC, CTR, XTS, GCM"
--	depends on S390
- 	select CRYPTO_ALGAPI
+ config CRYPTO_AES_PPC_SPE
+ 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS (SPE)"
+-	depends on PPC && SPE
++	depends on SPE
  	select CRYPTO_SKCIPHER
  	help
- 	  Block cipher: AES cipher algorithms (FIPS 197)
- 	  AEAD cipher: AES with GCM
-@@ -90,11 +83,10 @@ config CRYPTO_AES_S390
- 	  key sizes and XTS mode is hardware accelerated for 256 and
- 	  512 bit keys.
- 
- config CRYPTO_DES_S390
- 	tristate "Ciphers: DES and Triple DES EDE, modes: ECB, CBC, CTR"
--	depends on S390
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_LIB_DES
- 	help
- 	  Block ciphers: DES (FIPS 46-2) cipher algorithm
-@@ -107,18 +99,16 @@ config CRYPTO_DES_S390
- 	  As of z990 the ECB and CBC mode are hardware accelerated.
- 	  As of z196 the CTR mode is hardware accelerated.
- 
- config CRYPTO_CHACHA_S390
- 	tristate
--	depends on S390
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	default CRYPTO_LIB_CHACHA_INTERNAL
- 
- config CRYPTO_HMAC_S390
- 	tristate "Keyed-hash message authentication code: HMAC"
--	depends on S390
- 	select CRYPTO_HASH
- 	help
- 	  s390 specific HMAC hardware support for SHA224, SHA256, SHA384 and
- 	  SHA512.
+ 	  Block ciphers: AES cipher algorithms (FIPS-197)
+ 	  Length-preserving ciphers: AES with ECB, CBC, CTR, and XTS modes
  
 -- 
 2.49.0
