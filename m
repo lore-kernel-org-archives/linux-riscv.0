@@ -4,79 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6F1FC369D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E159C369C2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DwcXM7bhL6zxpNXq/hhhRDMTYOwfit5u2q3526fYi9Q=; b=MpD0L6bmgSbWHT
-	3k0gFXnjBQJQEBduf+Ab8KyvWU9WaFUaf2XF5AHauqQdFbKUXdPPFGrrKY4oaD2c9nRIE4gfmUoI1
-	svaV4AxQYfhFEdUrMYfbUm+Ok2qfO0qn9L4ScnAd1FvYww3Qu9q0OhMMuMOrkH7T+2ao3Dw3u1X9Y
-	7KLn6iJlsHmmULeTbss2hIY1mQWmDvXqgiLvCRGdqS9nufKwIbQTsLgzGCKJIIGPkeStI6sKTWKGd
-	tWQAnWmvHeU35fabwtRb6V736p+TG1MwfuZmdpUhB97oQkqkNgIp85p4OfkEu0maphorGtxuY++yB
-	AlDhnHLnc0yQ2sMxLBqA==;
+	List-Owner; bh=8/4f4pcIO0mOdqDK4XXJszvLWMYOEvbNAq6IM++pK1s=; b=EdLj+5TfJ/vQO1
+	hxLXZBxOcmRMSOyMEe5+HyXsKkL32ObbhT19B1rnhZ1y5zlFwNqe55YSZmdlnqsXwfOeQ9a57U9D3
+	udlKJngYQ8DoUSCKfcmcWNRzY4H7c6C54hxQvHHo0whqk+UZ9PR2a/00ggD8dxElxv+aWBNCmUFBk
+	nPn8HsQrASht8PVTsEw9mrmgyYhan2wmqEKgf56FOd8zeMqY+h/KnyQdjeAB+LX/aPiEM1+uPPmPF
+	nGlOgTCLt1hxMWQuoKKL07mLjVljEo/2dqbfXn/+dUq0zGU+4vTu9bzWlJtJDoii6XsLb4rtLBuK3
+	IeuOziJQ3TRvbCqtS/5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I9Q-0000000874T-2aaD;
-	Tue, 22 Apr 2025 18:15:20 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7JaV-00000008LaU-1VXO;
+	Tue, 22 Apr 2025 19:47:23 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXw-00000007iUP-1hmX;
-	Tue, 22 Apr 2025 15:28:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=v2h6CGIV3eXPb+GQ366+kepEHRJUTtr1olat+pN344g=; b=mkQMDhgVZoNj1psorLeClXEilv
-	M2vGe5CJVpGLxTqSbHv184GypeJSAdab+JY5h9Bw1WbQhpBa6HTYWi2675lglWv62WC2xs3EkCK7k
-	noC7ylAgWbgQsIYfNAaaAn/n0EGZjw+wY4ek7nCQSnhU/cYhxAChyf4R2dlZyFlz7bHo8xT/YKOg5
-	MsaPlPpWnKjO5fDnsxWRL2BDmmdcUW2HsMtxCGc+q1a4tuYHG9MYPNajuN8iFbaLPCS+5y+bsGbke
-	UuEJNdcMfgWp24TkRof50d9csdMSzA5IuKejov8W+WPFMRPyMQAxDLuLzJXzQAvwzwc53yz4mIOSj
-	GxgIwglA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7FXr-0000000BFXy-35wN;
-	Tue, 22 Apr 2025 15:28:27 +0000
+	id 1u7GOz-00000007tIe-2Sne;
+	Tue, 22 Apr 2025 16:23:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 010F5A4BD0D;
-	Tue, 22 Apr 2025 15:22:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E94AC4AF09;
-	Tue, 22 Apr 2025 15:28:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CC35A60010;
+	Tue, 22 Apr 2025 16:22:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53DB1C4CEEB;
+	Tue, 22 Apr 2025 16:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335700;
-	bh=ZcB01eEG0PyKlIVeDwX/bqMc2RbGUn9yHA+iRHbv2w8=;
+	s=k20201202; t=1745338996;
+	bh=J+/882wCEYMbD3sKVezVzqnpiAMGLCSuGHfUftjgEJA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=flnVTBjrcSMGzaCSWAF3ye5NXVmpU/6srA7TV+v4bkaqFY2GYm1FaDCcYPH7hh8Um
-	 XOIMTiGX3wi1BxxUC+c8+YmYtI6H5wQwbfPtQ5z2d4dmVdVPn/MKv8ne5oWoWd4gQU
-	 uSobcfZD1j7EFl/LlBhh0gx2CmGiYh/+zFmssMJuB1uoahPQP7aVDXtiZLak68wFdh
-	 JJSl145uTsHT5mYqm8OVfUHIZ21q9UAQpINtNNXrcCiYAFOWl6j6kFTiHue6WK4wa2
-	 aProW4NNfjxsq6wAtS69b9mBF3mo2oVeqU8K7o5PqEU+5ShZrm9LNhZnL3/bUZ6jGc
-	 6UajEdWW1lTBQ==
-From: Eric Biggers <ebiggers@kernel.org>
-To: linux-crypto@vger.kernel.org
-Cc: linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	x86@kernel.org,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 13/13] crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
-Date: Tue, 22 Apr 2025 08:27:16 -0700
-Message-ID: <20250422152716.5923-14-ebiggers@kernel.org>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
-References: <20250422152716.5923-1-ebiggers@kernel.org>
+	b=eP1H4hr8GSDMTgh4HlL5gMq/uKIsQbKxaHXu3TzZDxOgSsXSgUeW2cv+3sPRHXin+
+	 kzqpRMEYJSfcjKr9geuKoEg2G4aCy+bJYOgVAEvfa2VsdVCLE+8pTXXRRB7UEQ8bnT
+	 WODy5zcxYvRk9WMcpb+7mmWguxHQ1+MX1W/pFMKgZ0E67HmliBNuoihIkEwAcq2Vao
+	 HqvqRi9xh9KKSTF6v+k4Ext4hHtTj++XNklkGZSXBfmWG45jmDvI26KrZ0D2+3D1yq
+	 Fm+mIQdx/PybXmo+YZe/onz6v4hrc8k/GfNaOcDLDCr9xCRiF4YaF9ZQS/ArD0+XIl
+	 aQIK98amEl37w==
+From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
+To: Simon Horman <horms@kernel.org>,
+	Simon Horman <horms@verge.net.au>,
+	Nick Kossifidis <mick@ics.forth.gr>,
+	Song Shuai <songshuaishuai@tinylab.org>,
+	Li Zhengyu <lizhengyu3@huawei.com>,
+	kexec@lists.infradead.org
+Cc: Dave Young <dyoung@redhat.com>,
+	Yixun Lan <yixun.lan@gmail.com>,
+	Xianting Tian <xianting.tian@linux.alibaba.com>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 2/4] RISC-V: Enable kexec_file_load syscall
+Date: Tue, 22 Apr 2025 18:22:58 +0200
+Message-ID: <20250422162304.169431-3-bjorn@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250422162304.169431-1-bjorn@kernel.org>
+References: <20250422162304.169431-1-bjorn@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_162824_112333_CA3DAD5B 
-X-CRM114-Status: GOOD (  12.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,149 +75,133 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
+From: Li Zhengyu <lizhengyu3@huawei.com>
 
-Now that the architecture-optimized Poly1305 kconfig symbols are defined
-regardless of CRYPTO, there is no need for CRYPTO_LIB_POLY1305 to select
-CRYPTO.  So, remove that.  This makes the indirection through the
-CRYPTO_LIB_POLY1305_INTERNAL symbol unnecessary, so get rid of that and
-just use CRYPTO_LIB_POLY1305 directly.  Finally, make the fallback to
-the generic implementation use a default value instead of a select; this
-makes it consistent with how the arch-optimized code gets enabled and
-also with how CRYPTO_LIB_BLAKE2S_GENERIC gets enabled.
+Create prepare_kexec_file_options() function to prepare the options
+to kexec_file_load syscall, and it would be used in elf_riscv_load()
+or the future image_riscv_load().
 
-Signed-off-by: Eric Biggers <ebiggers@google.com>
+The patch comes from the RISC-V Linux kernel_file_load support[1],
+So its author should be Li Zhengyu.
+
+[1]: https://lore.kernel.org/all/20220408100914.150110-1-lizhengyu3@huawei.com/
+
+Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
 ---
- arch/arm/lib/crypto/Kconfig     |  2 +-
- arch/arm64/lib/crypto/Kconfig   |  2 +-
- arch/mips/lib/crypto/Kconfig    |  2 +-
- arch/powerpc/lib/crypto/Kconfig |  2 +-
- arch/x86/lib/crypto/Kconfig     |  2 +-
- crypto/Kconfig                  |  2 +-
- lib/crypto/Kconfig              | 16 +++++-----------
- 7 files changed, 11 insertions(+), 17 deletions(-)
+ kexec/arch/riscv/kexec-elf-riscv.c |  5 ++--
+ kexec/arch/riscv/kexec-riscv.c     | 39 ++++++++++++++++++++++++++++++
+ kexec/arch/riscv/kexec-riscv.h     |  1 +
+ kexec/kexec-syscall.h              |  3 +++
+ 4 files changed, 45 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
-index 5d10bd13fc8df..e8444fd0aae30 100644
---- a/arch/arm/lib/crypto/Kconfig
-+++ b/arch/arm/lib/crypto/Kconfig
-@@ -18,7 +18,7 @@ config CRYPTO_CHACHA20_NEON
- 	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+diff --git a/kexec/arch/riscv/kexec-elf-riscv.c b/kexec/arch/riscv/kexec-elf-riscv.c
+index f3c011c4c1dc..2b9f66d782af 100644
+--- a/kexec/arch/riscv/kexec-elf-riscv.c
++++ b/kexec/arch/riscv/kexec-elf-riscv.c
+@@ -112,6 +112,7 @@ void elf_riscv_usage(void)
+ {
+ }
  
- config CRYPTO_POLY1305_ARM
- 	tristate
--	default CRYPTO_LIB_POLY1305_INTERNAL
-+	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/arch/arm64/lib/crypto/Kconfig b/arch/arm64/lib/crypto/Kconfig
-index 2a8ff7cfc08d3..0b903ef524d85 100644
---- a/arch/arm64/lib/crypto/Kconfig
-+++ b/arch/arm64/lib/crypto/Kconfig
-@@ -8,7 +8,7 @@ config CRYPTO_CHACHA20_NEON
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++
+ int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
+ 		   struct kexec_info *info)
+ {
+@@ -127,9 +128,7 @@ int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
+ 	int ret = 0;
  
- config CRYPTO_POLY1305_NEON
- 	tristate
- 	depends on KERNEL_MODE_NEON
--	default CRYPTO_LIB_POLY1305_INTERNAL
-+	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
-index 454354e30d76c..0670a170c1be0 100644
---- a/arch/mips/lib/crypto/Kconfig
-+++ b/arch/mips/lib/crypto/Kconfig
-@@ -6,7 +6,7 @@ config CRYPTO_CHACHA_MIPS
- 	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	if (info->file_mode) {
+-		fprintf(stderr, "kexec_file not supported on this "
+-				"architecture\n");
+-		return -EINVAL;
++		return prepare_kexec_file_options(info);
+ 	}
  
- config CRYPTO_POLY1305_MIPS
- 	tristate
--	default CRYPTO_LIB_POLY1305_INTERNAL
-+	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/arch/powerpc/lib/crypto/Kconfig b/arch/powerpc/lib/crypto/Kconfig
-index 6627d28cd24e0..bf6d0ab22c27d 100644
---- a/arch/powerpc/lib/crypto/Kconfig
-+++ b/arch/powerpc/lib/crypto/Kconfig
-@@ -8,8 +8,8 @@ config CRYPTO_CHACHA20_P10
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	/* Parse the ELF file */
+diff --git a/kexec/arch/riscv/kexec-riscv.c b/kexec/arch/riscv/kexec-riscv.c
+index 38d9a394aadd..bbc25c5cba41 100644
+--- a/kexec/arch/riscv/kexec-riscv.c
++++ b/kexec/arch/riscv/kexec-riscv.c
+@@ -17,6 +17,12 @@
+ #include "kexec-riscv.h"
+ #include "iomem.h"
+ #include <stdbool.h>
++#include <sys/types.h>
++#include <sys/stat.h>
++#include <fcntl.h>
++#ifndef _O_BINARY
++#define _O_BINARY 0
++#endif
  
- config CRYPTO_POLY1305_P10
- 	tristate
- 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
--	default CRYPTO_LIB_POLY1305_INTERNAL
-+	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	select CRYPTO_LIB_POLY1305_GENERIC
-diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
-index e44403d9677f5..546fe2afe0b51 100644
---- a/arch/x86/lib/crypto/Kconfig
-+++ b/arch/x86/lib/crypto/Kconfig
-@@ -20,7 +20,7 @@ config CRYPTO_CHACHA20_X86_64
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ const struct arch_map_entry arches[] = {
+ 	{ "riscv32", KEXEC_ARCH_RISCV },
+@@ -141,6 +147,39 @@ void arch_usage(void)
+ 	printf(riscv_opts_usage);
+ }
  
- config CRYPTO_POLY1305_X86_64
- 	tristate
- 	depends on 64BIT
--	default CRYPTO_LIB_POLY1305_INTERNAL
-+	default CRYPTO_LIB_POLY1305
- 	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/crypto/Kconfig b/crypto/Kconfig
-index 832af6363951f..9878286d1d683 100644
---- a/crypto/Kconfig
-+++ b/crypto/Kconfig
-@@ -954,12 +954,12 @@ config CRYPTO_POLYVAL
- 	  cryptographic hash function.
++int prepare_kexec_file_options(struct kexec_info *info)
++{
++	int fd;
++	ssize_t result;
++	struct stat stats;
++
++	if (arch_options.cmdline) {
++		info->command_line = (char *)arch_options.cmdline;
++		info->command_line_len = strlen(info->command_line) + 1;
++	}
++
++	if (!arch_options.initrd_path) {
++		info->initrd_fd = -1;
++		return 0;
++	}
++
++	fd = open(arch_options.initrd_path, O_RDONLY | _O_BINARY);
++	if (fd < 0) {
++		fprintf(stderr, "Cannot open `%s': %s\n", arch_options.initrd_path,
++				strerror(errno));
++		return -EINVAL;
++	}
++	result = fstat(fd, &stats);
++	if (result < 0) {
++		close(fd);
++		fprintf(stderr, "Cannot stat: %s: %s\n", arch_options.initrd_path,
++				strerror(errno));
++		return -EINVAL;
++	}
++	info->initrd_fd = fd;
++	return 0;
++}
++
+ int arch_process_options(int argc, char **argv)
+ {
+ 	static const struct option options[] = {
+diff --git a/kexec/arch/riscv/kexec-riscv.h b/kexec/arch/riscv/kexec-riscv.h
+index c4323a65dacf..f136c7eab561 100644
+--- a/kexec/arch/riscv/kexec-riscv.h
++++ b/kexec/arch/riscv/kexec-riscv.h
+@@ -23,6 +23,7 @@ extern struct memory_range elfcorehdr_mem;
+ int load_elfcorehdr(struct kexec_info *info);
  
- config CRYPTO_POLY1305
- 	tristate "Poly1305"
- 	select CRYPTO_HASH
-+	select CRYPTO_LIB_POLY1305
- 	select CRYPTO_LIB_POLY1305_GENERIC
--	select CRYPTO_LIB_POLY1305_INTERNAL
- 	help
- 	  Poly1305 authenticator algorithm (RFC7539)
+ /* kexec-riscv.c */
++int prepare_kexec_file_options(struct kexec_info *info);
+ int load_extra_segments(struct kexec_info *info, uint64_t kernel_base,
+ 			uint64_t kernel_size, uint64_t max_addr);
  
- 	  Poly1305 is an authenticator algorithm designed by Daniel J. Bernstein.
- 	  It is used for the ChaCha20-Poly1305 AEAD, specified in RFC7539 for use
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index c6ab724c1dbd9..af2368799579f 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -112,25 +112,19 @@ config CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	  accelerated implementation of the Poly1305 library interface,
- 	  either builtin or as a module.
+diff --git a/kexec/kexec-syscall.h b/kexec/kexec-syscall.h
+index 89591ad17e7d..9b1757877a85 100644
+--- a/kexec/kexec-syscall.h
++++ b/kexec/kexec-syscall.h
+@@ -80,6 +80,9 @@
+ #ifdef __hppa__
+ #define __NR_kexec_file_load	355
+ #endif
++#if defined(__riscv__) || defined(__riscv)
++#define __NR_kexec_file_load	294
++#endif
  
- config CRYPTO_LIB_POLY1305_GENERIC
- 	tristate
-+	default CRYPTO_LIB_POLY1305 if !CRYPTO_ARCH_HAVE_LIB_POLY1305
- 	help
--	  This symbol can be depended upon by arch implementations of the
--	  Poly1305 library interface that require the generic code as a
--	  fallback, e.g., for SIMD implementations. If no arch specific
--	  implementation is enabled, this implementation serves the users
--	  of CRYPTO_LIB_POLY1305.
--
--config CRYPTO_LIB_POLY1305_INTERNAL
--	tristate
--	select CRYPTO_LIB_POLY1305_GENERIC if CRYPTO_ARCH_HAVE_LIB_POLY1305=n
-+	  This symbol can be selected by arch implementations of the Poly1305
-+	  library interface that require the generic code as a fallback, e.g.,
-+	  for SIMD implementations. If no arch specific implementation is
-+	  enabled, this implementation serves the users of CRYPTO_LIB_POLY1305.
- 
- config CRYPTO_LIB_POLY1305
- 	tristate
--	select CRYPTO
--	select CRYPTO_LIB_POLY1305_INTERNAL
- 	help
- 	  Enable the Poly1305 library interface. This interface may be fulfilled
- 	  by either the generic implementation or an arch-specific one, if one
- 	  is available and enabled.
- 
+ #ifndef __NR_kexec_file_load
+ /* system call not available for the arch */
 -- 
-2.49.0
+2.48.1
 
 
 _______________________________________________
