@@ -4,54 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32FE7C369D3
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 11:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6AA3C369C2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 11:13:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RElLwtRtdLHlqJLcaArdaT4IcbL+gZJC0NPEazE+BrU=; b=BTgTTslMnCo3SO
-	h2ZRxwYSsFXQjrqzESDby7CGUNVJa840mzyRoyHTHxx6km6p2m/W5g4ljdjJgUpwQedubsV9QDyIU
-	mAFvzwUDnahiaIHHT/T6RqSFReFfcwtP1F2HOHOtwRH5BQw5ANcZr9ChJB5H/51Oq8IxPMtKR34I+
-	O6TT+3lSmpau32EB5kZR9Rt08+NVHCcG4595bmWCadaAqrAvCws0J02TKusknKXjsin6WOBGJwJh6
-	XmycpMnh+JagMKPEAnyJX6JMr3iE9GLGXnjJfDKA1YoL+3AhnX6Y+eLR+nRb+KFjNEjXilxkQ0B5X
-	SpU4zehrdNTRuf4krhug==;
+	List-Owner; bh=FJdbyILvIk+APyjSGncHNrzEAPC8SRhmicn64C6KttY=; b=1D7X5C7D9FVgTR
+	0gBTjl8ccnab2oZ6mvy3iH44RI7KYAuMayaMpdUiDdEG+Rr3YhWn9qOUkyKLDKYInp2qwR9cjPMn+
+	WLdlXyP/QuYnB/38kZyopV2xATJyq9W8nuU+dF7JvpkIMfca4lvqmaga0VuX+cX3dbO+bbE6KzfYm
+	fZssEcTRddYJVyB8Lw4aG/CNFR1GGBg0D1fzKih6z0ehl4kSo7vpq/MSeHRbNG0sLjXx6GJUOXVWR
+	Rosg9Q0FuewKDgHaDR9mLcAs6YhIm0zkChqLNwAD1dLtoLOj3H+ajY7F4hQkt1gHOfol41jDaDMA7
+	1SJPDNWNuvrTP5WAdkrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7BVE-00000006tDs-0Mzl;
-	Tue, 22 Apr 2025 11:09:24 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1u7BYv-00000006tqT-2z1l;
+	Tue, 22 Apr 2025 11:13:13 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Aq3-00000006kX6-3lyU
-	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 10:26:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 859C2433EB;
-	Tue, 22 Apr 2025 10:26:47 +0000 (UTC)
-Message-ID: <48151446-1ffd-484a-ac21-511b14fa1511@ghiti.fr>
-Date: Tue, 22 Apr 2025 12:26:46 +0200
+	id 1u7B49-00000006oHw-2rTu;
+	Tue, 22 Apr 2025 10:41:26 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53MA3xUA026063;
+	Tue, 22 Apr 2025 10:41:22 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=ro8c0oezTvm8771KKaPZnVmA3AEU40
+	jiYFOCFR9Jw/c=; b=GFIYQD3jNyV4b1ZIRFmL2QjAYDr4nWfOAo3Evk9/1z7zUw
+	i15krz6qP9UFEzaHuv5mkDLKYDpfsVhqBAMaQeieDZBeHJLF9KYEQJph1V1MUccT
+	eo8GGlJUxUGUSq77LDGRA9Yq7H1EP/Oe0PxjdugE7nTLqVyeDULRQQnB0yGxuIjC
+	AWMUpTFBsI5c3Kad9kOO12WT5GavL7G5d/aVFt+zPtYgmvs55rJwKljPoJErZv0i
+	1duIwLCevCnhkp6dqtAwYy+y/DmWvI4Ywr9xrwUmYUQamY7OG7S/OhekEf6q0FLv
+	uIKHKR0Jmkoecy6pwQNqH4IPvjE/q44ZSK4TctUA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46691hg5qd-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 22 Apr 2025 10:41:22 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53M7FejH015374;
+	Tue, 22 Apr 2025 10:41:20 GMT
+Received: from smtprelay04.fra02v.mail.ibm.com ([9.218.2.228])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 464qnkjbfc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 22 Apr 2025 10:41:20 +0000
+Received: from smtpav07.fra02v.mail.ibm.com (smtpav07.fra02v.mail.ibm.com [10.20.54.106])
+	by smtprelay04.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53MAfITR34407024
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 22 Apr 2025 10:41:18 GMT
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id C44E320043;
+	Tue, 22 Apr 2025 10:41:18 +0000 (GMT)
+Received: from smtpav07.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 4E75A20040;
+	Tue, 22 Apr 2025 10:41:18 +0000 (GMT)
+Received: from osiris (unknown [9.87.146.239])
+	by smtpav07.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Tue, 22 Apr 2025 10:41:18 +0000 (GMT)
+Date: Tue, 22 Apr 2025 12:41:16 +0200
+From: Heiko Carstens <hca@linux.ibm.com>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        x86@kernel.org, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+        Ard Biesheuvel <ardb@kernel.org>
+Subject: Re: [PATCH v2 03/13] crypto: s390 - drop redundant dependencies on
+ S390
+Message-ID: <20250422104116.24507A7b-hca@linux.ibm.com>
+References: <20250420192609.295075-1-ebiggers@kernel.org>
+ <20250420192609.295075-4-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/5] riscv: implement user_access_begin() and families
-Content-Language: en-US
-To: Cyril Bur <cyrilbur@tenstorrent.com>, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
- jrtc27@jrtc27.com, ben.dooks@codethink.co.uk
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org
-References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
- <20250410070526.3160847-3-cyrilbur@tenstorrent.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250410070526.3160847-3-cyrilbur@tenstorrent.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefgeelucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopegthihrihhlsghurhesthgvnhhsthhorhhrvghnthdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvu
- ghupdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepjhhrthgtvdejsehjrhhttgdvjedrtghomhdprhgtphhtthhopegsvghnrdguohhokhhssegtohguvghthhhinhhkrdgtohdruhhkpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20250420192609.295075-4-ebiggers@kernel.org>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=V7h90fni c=1 sm=1 tr=0 ts=68077252 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=1XWaLZrsAAAA:8 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=i5JU4SdIdlksGHhJ9uQA:9
+ a=CjuIK1q_8ugA:10
+X-Proofpoint-ORIG-GUID: XSQVzYNRWO4K8dSJKrHUF-rfa72ff6Wp
+X-Proofpoint-GUID: XSQVzYNRWO4K8dSJKrHUF-rfa72ff6Wp
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1095,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-04-22_05,2025-04-21_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ suspectscore=0 clxscore=1015 mlxlogscore=535 bulkscore=0 phishscore=0
+ lowpriorityscore=0 impostorscore=0 mlxscore=0 malwarescore=0 adultscore=0
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2504220079
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_032652_071218_BBE6110D 
-X-CRM114-Status: GOOD (  21.39  )
+X-CRM114-CacheID: sfid-20250422_034125_724664_2EC51389 
+X-CRM114-Status: GOOD (  13.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -63,131 +107,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2025 09:05, Cyril Bur wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
->
-> Currently, when a function like strncpy_from_user() is called,
-> the userspace access protection is disabled and enabled
-> for every word read.
->
-> By implementing user_access_begin() and families, the protection
-> is disabled at the beginning of the copy and enabled at the end.
->
-> The __inttype macro is borrowed from x86 implementation.
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
+On Sun, Apr 20, 2025 at 12:25:59PM -0700, Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
+> 
+> arch/s390/crypto/Kconfig is sourced only when CONFIG_S390=y, so there is
+> no need for the symbols defined inside it to depend on S390.
+> 
+> Acked-by: Ard Biesheuvel <ardb@kernel.org>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
 > ---
->   arch/riscv/include/asm/uaccess.h | 76 ++++++++++++++++++++++++++++++++
->   1 file changed, 76 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index fee56b0c8058..c9a461467bf4 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -61,6 +61,19 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
->   #define __disable_user_access()							\
->   	__asm__ __volatile__ ("csrc sstatus, %0" : : "r" (SR_SUM) : "memory")
->   
-> +/*
-> + * This is the smallest unsigned integer type that can fit a value
-> + * (up to 'long long')
-> + */
-> +#define __inttype(x) __typeof__(		\
-> +	__typefits(x, char,			\
-> +	  __typefits(x, short,			\
-> +	    __typefits(x, int,			\
-> +	      __typefits(x, long, 0ULL)))))
-> +
-> +#define __typefits(x, type, not) \
-> +	__builtin_choose_expr(sizeof(x) <= sizeof(type), (unsigned type)0, not)
-> +
->   /*
->    * The exception table consists of pairs of addresses: the first is the
->    * address of an instruction that is allowed to fault, and the second is
-> @@ -368,6 +381,69 @@ do {									\
->   		goto err_label;						\
->   } while (0)
->   
-> +static __must_check __always_inline bool user_access_begin(const void __user *ptr, size_t len)
-> +{
-> +	if (unlikely(!access_ok(ptr, len)))
-> +		return 0;
-> +	__enable_user_access();
-> +	return 1;
-> +}
-> +#define user_access_begin user_access_begin
-> +#define user_access_end __disable_user_access
-> +
-> +static inline unsigned long user_access_save(void) { return 0UL; }
-> +static inline void user_access_restore(unsigned long enabled) { }
-> +
-> +/*
-> + * We want the unsafe accessors to always be inlined and use
-> + * the error labels - thus the macro games.
-> + */
-> +#define unsafe_put_user(x, ptr, label)	do {				\
-> +	long __err = 0;							\
-> +	__put_user_nocheck(x, (ptr), __err);				\
-> +	if (__err)							\
-> +		goto label;						\
-> +} while (0)
-> +
-> +#define unsafe_get_user(x, ptr, label)	do {				\
-> +	long __err = 0;							\
-> +	__inttype(*(ptr)) __gu_val;					\
-> +	__get_user_nocheck(__gu_val, (ptr), __err);			\
-> +	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-> +	if (__err)							\
-> +		goto label;						\
-> +} while (0)
-> +
-> +#define unsafe_copy_loop(dst, src, len, type, op, label)		\
-> +	while (len >= sizeof(type)) {					\
-> +		op(*(type *)(src), (type __user *)(dst), label);	\
-> +		dst += sizeof(type);					\
-> +		src += sizeof(type);					\
-> +		len -= sizeof(type);					\
-> +	}
-> +
-> +#define unsafe_copy_to_user(_dst, _src, _len, label)			\
-> +do {									\
-> +	char __user *__ucu_dst = (_dst);				\
-> +	const char *__ucu_src = (_src);					\
-> +	size_t __ucu_len = (_len);					\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, unsafe_put_user, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, unsafe_put_user, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, unsafe_put_user, label);	\
-> +	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, unsafe_put_user, label);	\
-> +} while (0)
-> +
-> +#define unsafe_copy_from_user(_dst, _src, _len, label)			\
-> +do {									\
-> +	char *__ucu_dst = (_dst);					\
-> +	const char __user *__ucu_src = (_src);				\
-> +	size_t __ucu_len = (_len);					\
-> +	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u64, unsafe_get_user, label);	\
-> +	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u32, unsafe_get_user, label);	\
-> +	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u16, unsafe_get_user, label);	\
-> +	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u8, unsafe_get_user, label);	\
-> +} while (0)
-> +
->   #else /* CONFIG_MMU */
->   #include <asm-generic/uaccess.h>
->   #endif /* CONFIG_MMU */
+>  arch/s390/crypto/Kconfig | 10 ----------
+>  1 file changed, 10 deletions(-)
 
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
+Acked-by: Heiko Carstens <hca@linux.ibm.com>
 
 _______________________________________________
 linux-riscv mailing list
