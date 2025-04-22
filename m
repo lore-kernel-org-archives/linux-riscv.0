@@ -4,57 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E93A7C369D7
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8719DC369D1
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Ut02/m+5DSJQDEjCn4SVV1+5Y9UbuJCT02jQxv/QkAg=; b=2lBNkCGRt6zMKi
-	H1C9JdBj3fiSoDOh7MngTxzdTwdTggOmYcrj0KxQp78Q/r25R63uCcdJOQ40q9UfrELXaJPT/KNLE
-	SGof5XCwEuWVaSXBQiBn6qf2tz7DrVifb1CB7p0k/Zqllp/rohqZ0tYmI5l/ZwLtNdFALSahzTu7L
-	XlRMI5ZrWVjM+R/2AV31fEnSBYjfdofW/EX0BlEE4CFlSfSYnREbelb9L6BM+TTpWLyBh1KnlOkF3
-	Bxyxq26HR4iXBitzTEDqeCyaf+o796Uc7BXO0AmoXcIbojgGLdR8YOj8hRzJqTv+sF7gBtdhkGbgf
-	4j3kQx/XQXqslq2lqZ2w==;
+	List-Owner; bh=GfVllxOOW6zqzz/FqkcKW+EV1eTuVqXcJiMLHfEh8os=; b=O7/JLMoE9/4uH9
+	RguyiVHgwML/x6g2QbAzyCYl0f/bvGDYHgkkIobq5tXPte69fMEbojSFyRE/wai9vfARaHmh1gHyi
+	TOknzLl8Tc/0f+oRDSn23f0rc31dLP88iERehPXb9qWvgJDD2thWh4GKu73/dhD4Mv/CwlfbMFYhp
+	ojcpiJJFXhzcoME4Z3thsHjAXTgPmowZruQRReWxQIuzR1ccdoWMwO12ixLEHQxgOjRi6Rdzjf9wj
+	874pJKoJsV92S7JW7IvP/V3iA4f+fGTG3r7qRIMqpzyXLZZAw/a5FfeclUHcN/wNEvry2t+Buq+Og
+	Ip2KT8YOouQegAwmX6hg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I99-000000086aN-1oZq;
-	Tue, 22 Apr 2025 18:15:03 +0000
+	id 1u7I9H-000000086p1-3F87;
+	Tue, 22 Apr 2025 18:15:11 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXt-00000007iSi-2OFr;
-	Tue, 22 Apr 2025 15:28:25 +0000
+	id 1u7FXu-00000007iTK-3uQo;
+	Tue, 22 Apr 2025 15:28:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=N4/iVPOekibSVcXx6xn/2OFGRib3PJkM5gI51BVRk2c=; b=BeFbh2zJaDns+cxt+4+uw91s1u
-	M8wou82hvISxg1Tepb2y8e56KdZCRtgSOm43bEZ/+PdMrbt9/ZnyV8dH2TM7tf75DRR87x+dDsN8O
-	31kFwH+ElQGxkSvdFq4y0tvofN5oGaeqGPF26BKhjuMh0rQDd+3PCPwY1fEHb3oy7k8PXL62Gy84E
-	01Sh21ueldSnbyI+5W2SoVc7xnWOB+EBolBBJkUR9LOgVXOXRiu2F5Uz0AP1jzBOsIPdczgv2uSnL
-	bebeRdasY+PlRLGf+Ih6m6kA8WV8f0Ye0fxcZY1mu+mdruhmYcP7YpFVanEYFKsG8XAhKmsZvEL4E
-	BNkU3eOQ==;
+	bh=zQxMmCyT6QrUbBXtfldPTKUwBm5Hh3s7e1FL/m5wJo4=; b=WfuZEL083KMRgbc66/KWMPL0r4
+	gSpgL/5ACWWYkCtWt7QzpuT26usA8byi8/gm+YCx8XSt+88xPvdKBHRfXHRVuyzXujfi6OoEImaUe
+	DYCR1BdHTT/L66DEccPfXWRbDqTPhcu03+LXxZMsw/izr7ZE6y1MFlHFT9P8PSiqgrDjqwLG9yTdV
+	MKkcO3mNRrdok3y2OSfIQvdw0p1zDYynVbrvOWiymPDOfDfT4VW/IUcPAVPiE0uh30G+VVyRdDogP
+	pWirQlx1ZXg67ftM7do0ZxPoyioYpaazNDM9vi/wYaPEwA2gGM8xsypq2jS4KDjM8UGWS9hf5Z1qG
+	8tAQQBYA==;
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7FXo-0000000BFWW-2khx;
-	Tue, 22 Apr 2025 15:28:24 +0000
+	id 1u7FXp-0000000BFWc-2t6n;
+	Tue, 22 Apr 2025 15:28:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 12CD94A952;
-	Tue, 22 Apr 2025 15:28:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1F90DC4CEF2;
-	Tue, 22 Apr 2025 15:28:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E86394A94C;
+	Tue, 22 Apr 2025 15:28:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0297C4CEEC;
+	Tue, 22 Apr 2025 15:28:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335697;
-	bh=qwubLRmYWTY89E3AJnlutYUREOIU1w2leDnXcCjVCNY=;
+	s=k20201202; t=1745335700;
+	bh=/KmscafjzVVui9ZfhF2V3SnpWNzO/mZrkUglchVeyKA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o1LyDYSbr3xXzcTK7cUP6vBUaQU0bYdQdf8XFaS5jGfJvul+5CF6fBlnz/W0GEbp/
-	 PJ9fcIScb+4yn5sV8LHDxWYhzCrstzFS/mtR8hm3+Zqx6Fy2tw1XaKsQgqfZypZvzO
-	 GiQ1HON3RTHW1JwN6IaJpWmVCHFwiQLn5BFiJBJjlAhuxWFZlgAnTvHinn0MHsyfBU
-	 q0OD2lo2r+ZIkYLsaKX0eGlY8YlI+PJszhxJOq0HUshnoVH6IF3jE9PdGdJVAVk+x4
-	 YynfesOqur8aWXcpRQp1Mmz/tNma/AGsCb6TVRkDL7LMfgANrRDdd7FiL/fcWpU7dJ
-	 U3O284Fy7Arrw==
+	b=TuNjZ/SJrEzQtsB5ZEn+Yk2JTaA2nrQbL/H1czw0XJaW8aTEfRMfEWhAxoPC1Ta53
+	 lhvGkQgr5r2iGqLIT1t/I40hBfAjG3jEximHUObEJemAtwyB9JaWUj2STMJG7vAKSd
+	 jD8oyoPjpImTzR4sCm7icQMcg1YCa2D63b9Dv6AIfTmeF9iwTobfCvrXgQQgY8/h+6
+	 0bE3bYb+vQTvq2CQnMwq50TMtXNObtXXyDZ0RL0MildTJVYCrwCBi8cdV1zHKjtmUE
+	 DFCpeD8EAO1jExvckOxytr7efqi9TiKmOMdMuDRVOUT3DoW8p628+E6qMLvOJ8DNiM
+	 iG3CBdLj+sZTA==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -67,16 +67,16 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 06/13] crypto: arm64 - move library functions to arch/arm64/lib/crypto/
-Date: Tue, 22 Apr 2025 08:27:09 -0700
-Message-ID: <20250422152716.5923-7-ebiggers@kernel.org>
+Subject: [PATCH v3 12/13] crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
+Date: Tue, 22 Apr 2025 08:27:15 -0700
+Message-ID: <20250422152716.5923-13-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_162821_203251_74BF7F1E 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20250422_162822_179458_B668953A 
+X-CRM114-Status: GOOD (  13.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,199 +95,194 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-Continue disentangling the crypto library functions from the generic
-crypto infrastructure by moving the arm64 ChaCha and Poly1305 library
-functions into a new directory arch/arm64/lib/crypto/ that does not
-depend on CRYPTO.  This mirrors the distinction between crypto/ and
-lib/crypto/.
+Now that the architecture-optimized ChaCha kconfig symbols are defined
+regardless of CRYPTO, there is no need for CRYPTO_LIB_CHACHA to select
+CRYPTO.  So, remove that.  This makes the indirection through the
+CRYPTO_LIB_CHACHA_INTERNAL symbol unnecessary, so get rid of that and
+just use CRYPTO_LIB_CHACHA directly.  Finally, make the fallback to the
+generic implementation use a default value instead of a select; this
+makes it consistent with how the arch-optimized code gets enabled and
+also with how CRYPTO_LIB_BLAKE2S_GENERIC gets enabled.
 
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm64/crypto/Kconfig                      | 13 -------------
- arch/arm64/crypto/Makefile                     |  9 +--------
- arch/arm64/lib/Makefile                        |  3 +++
- arch/arm64/lib/crypto/.gitignore               |  2 ++
- arch/arm64/lib/crypto/Kconfig                  | 14 ++++++++++++++
- arch/arm64/lib/crypto/Makefile                 | 16 ++++++++++++++++
- arch/arm64/{ => lib}/crypto/chacha-neon-core.S |  0
- arch/arm64/{ => lib}/crypto/chacha-neon-glue.c |  0
- arch/arm64/{ => lib}/crypto/poly1305-armv8.pl  |  0
- arch/arm64/{ => lib}/crypto/poly1305-glue.c    |  0
- lib/crypto/Kconfig                             |  3 +++
- 11 files changed, 39 insertions(+), 21 deletions(-)
- create mode 100644 arch/arm64/lib/crypto/.gitignore
- create mode 100644 arch/arm64/lib/crypto/Kconfig
- create mode 100644 arch/arm64/lib/crypto/Makefile
- rename arch/arm64/{ => lib}/crypto/chacha-neon-core.S (100%)
- rename arch/arm64/{ => lib}/crypto/chacha-neon-glue.c (100%)
- rename arch/arm64/{ => lib}/crypto/poly1305-armv8.pl (100%)
- rename arch/arm64/{ => lib}/crypto/poly1305-glue.c (100%)
+ arch/arm/lib/crypto/Kconfig     |  2 +-
+ arch/arm64/lib/crypto/Kconfig   |  2 +-
+ arch/mips/lib/crypto/Kconfig    |  2 +-
+ arch/powerpc/lib/crypto/Kconfig |  2 +-
+ arch/riscv/lib/crypto/Kconfig   |  2 +-
+ arch/s390/lib/crypto/Kconfig    |  2 +-
+ arch/x86/lib/crypto/Kconfig     |  2 +-
+ crypto/Kconfig                  |  2 +-
+ lib/crypto/Kconfig              | 16 +++++-----------
+ 9 files changed, 13 insertions(+), 19 deletions(-)
 
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 704d0b7e1d137..55a7d87a67690 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -23,16 +23,10 @@ config CRYPTO_NHPOLY1305_NEON
- 	  NHPoly1305 hash function (Adiantum)
+diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
+index 181f138d563b6..5d10bd13fc8df 100644
+--- a/arch/arm/lib/crypto/Kconfig
++++ b/arch/arm/lib/crypto/Kconfig
+@@ -13,11 +13,11 @@ config CRYPTO_BLAKE2S_ARM
+ 	  There is no NEON implementation of BLAKE2s, since NEON doesn't
+ 	  really help with it.
  
- 	  Architecture: arm64 using:
- 	  - NEON (Advanced SIMD) extensions
- 
--config CRYPTO_POLY1305_NEON
--	tristate
--	depends on KERNEL_MODE_NEON
--	select CRYPTO_ARCH_HAVE_LIB_POLY1305
--	default CRYPTO_LIB_POLY1305_INTERNAL
--
- config CRYPTO_SHA1_ARM64_CE
- 	tristate "Hash functions: SHA-1 (ARMv8 Crypto Extensions)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_HASH
- 	select CRYPTO_SHA1
-@@ -178,17 +172,10 @@ config CRYPTO_AES_ARM64_NEON_BLK
- 	    and IEEE 1619)
- 
- 	  Architecture: arm64 using:
- 	  - NEON (Advanced SIMD) extensions
- 
--config CRYPTO_CHACHA20_NEON
--	tristate
--	depends on KERNEL_MODE_NEON
--	select CRYPTO_LIB_CHACHA_GENERIC
--	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ config CRYPTO_CHACHA20_NEON
+ 	tristate
 -	default CRYPTO_LIB_CHACHA_INTERNAL
--
- config CRYPTO_AES_ARM64_BS
- 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XCTR/XTS modes (bit-sliced NEON)"
- 	depends on KERNEL_MODE_NEON
- 	select CRYPTO_SKCIPHER
- 	select CRYPTO_AES_ARM64_NEON_BLK
-diff --git a/arch/arm64/crypto/Makefile b/arch/arm64/crypto/Makefile
-index e7139c4768ce4..089ae3ddde810 100644
---- a/arch/arm64/crypto/Makefile
-+++ b/arch/arm64/crypto/Makefile
-@@ -60,17 +60,10 @@ obj-$(CONFIG_CRYPTO_SHA256_ARM64) += sha256-arm64.o
- sha256-arm64-y := sha256-glue.o sha256-core.o
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
  
- obj-$(CONFIG_CRYPTO_SHA512_ARM64) += sha512-arm64.o
- sha512-arm64-y := sha512-glue.o sha512-core.o
- 
--obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
--chacha-neon-y := chacha-neon-core.o chacha-neon-glue.o
--
--obj-$(CONFIG_CRYPTO_POLY1305_NEON) += poly1305-neon.o
--poly1305-neon-y := poly1305-core.o poly1305-glue.o
--AFLAGS_poly1305-core.o += -Dpoly1305_init=poly1305_init_arm64
--
- obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
- nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
- 
- obj-$(CONFIG_CRYPTO_AES_ARM64) += aes-arm64.o
- aes-arm64-y := aes-cipher-core.o aes-cipher-glue.o
-@@ -85,6 +78,6 @@ $(obj)/%-core.S: $(src)/%-armv8.pl
- 	$(call cmd,perlasm)
- 
- $(obj)/sha256-core.S: $(src)/sha512-armv8.pl
- 	$(call cmd,perlasm)
- 
--clean-files += poly1305-core.S sha256-core.S sha512-core.S
-+clean-files += sha256-core.S sha512-core.S
-diff --git a/arch/arm64/lib/Makefile b/arch/arm64/lib/Makefile
-index 4d49dff721a84..25be7825f28d8 100644
---- a/arch/arm64/lib/Makefile
-+++ b/arch/arm64/lib/Makefile
-@@ -1,6 +1,9 @@
- # SPDX-License-Identifier: GPL-2.0
-+
-+obj-y += crypto/
-+
- lib-y		:= clear_user.o delay.o copy_from_user.o		\
- 		   copy_to_user.o copy_page.o				\
- 		   clear_page.o csum.o insn.o memchr.o memcpy.o		\
- 		   memset.o memcmp.o strcmp.o strncmp.o strlen.o	\
- 		   strnlen.o strchr.o strrchr.o tishift.o
-diff --git a/arch/arm64/lib/crypto/.gitignore b/arch/arm64/lib/crypto/.gitignore
-new file mode 100644
-index 0000000000000..0d47d4f21c6de
---- /dev/null
-+++ b/arch/arm64/lib/crypto/.gitignore
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+poly1305-core.S
+ config CRYPTO_POLY1305_ARM
+ 	tristate
+ 	default CRYPTO_LIB_POLY1305_INTERNAL
 diff --git a/arch/arm64/lib/crypto/Kconfig b/arch/arm64/lib/crypto/Kconfig
-new file mode 100644
-index 0000000000000..169311547efe3
---- /dev/null
+index 169311547efe3..2a8ff7cfc08d3 100644
+--- a/arch/arm64/lib/crypto/Kconfig
 +++ b/arch/arm64/lib/crypto/Kconfig
-@@ -0,0 +1,14 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+config CRYPTO_CHACHA20_NEON
-+	tristate
-+	depends on KERNEL_MODE_NEON
-+	default CRYPTO_LIB_CHACHA_INTERNAL
-+	select CRYPTO_LIB_CHACHA_GENERIC
-+	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-+
-+config CRYPTO_POLY1305_NEON
-+	tristate
-+	depends on KERNEL_MODE_NEON
-+	default CRYPTO_LIB_POLY1305_INTERNAL
-+	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-diff --git a/arch/arm64/lib/crypto/Makefile b/arch/arm64/lib/crypto/Makefile
-new file mode 100644
-index 0000000000000..ac624c3effdaf
---- /dev/null
-+++ b/arch/arm64/lib/crypto/Makefile
-@@ -0,0 +1,16 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+
-+obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
-+chacha-neon-y := chacha-neon-core.o chacha-neon-glue.o
-+
-+obj-$(CONFIG_CRYPTO_POLY1305_NEON) += poly1305-neon.o
-+poly1305-neon-y := poly1305-core.o poly1305-glue.o
-+AFLAGS_poly1305-core.o += -Dpoly1305_init=poly1305_init_arm64
-+
-+quiet_cmd_perlasm = PERLASM $@
-+      cmd_perlasm = $(PERL) $(<) void $(@)
-+
-+$(obj)/%-core.S: $(src)/%-armv8.pl
-+	$(call cmd,perlasm)
-+
-+clean-files += poly1305-core.S
-diff --git a/arch/arm64/crypto/chacha-neon-core.S b/arch/arm64/lib/crypto/chacha-neon-core.S
-similarity index 100%
-rename from arch/arm64/crypto/chacha-neon-core.S
-rename to arch/arm64/lib/crypto/chacha-neon-core.S
-diff --git a/arch/arm64/crypto/chacha-neon-glue.c b/arch/arm64/lib/crypto/chacha-neon-glue.c
-similarity index 100%
-rename from arch/arm64/crypto/chacha-neon-glue.c
-rename to arch/arm64/lib/crypto/chacha-neon-glue.c
-diff --git a/arch/arm64/crypto/poly1305-armv8.pl b/arch/arm64/lib/crypto/poly1305-armv8.pl
-similarity index 100%
-rename from arch/arm64/crypto/poly1305-armv8.pl
-rename to arch/arm64/lib/crypto/poly1305-armv8.pl
-diff --git a/arch/arm64/crypto/poly1305-glue.c b/arch/arm64/lib/crypto/poly1305-glue.c
-similarity index 100%
-rename from arch/arm64/crypto/poly1305-glue.c
-rename to arch/arm64/lib/crypto/poly1305-glue.c
+@@ -1,11 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CRYPTO_CHACHA20_NEON
+ 	tristate
+ 	depends on KERNEL_MODE_NEON
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_NEON
+ 	tristate
+diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
+index 5b82ba753c55c..454354e30d76c 100644
+--- a/arch/mips/lib/crypto/Kconfig
++++ b/arch/mips/lib/crypto/Kconfig
+@@ -1,11 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CRYPTO_CHACHA_MIPS
+ 	tristate
+ 	depends on CPU_MIPS32_R2
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_MIPS
+ 	tristate
+ 	default CRYPTO_LIB_POLY1305_INTERNAL
+diff --git a/arch/powerpc/lib/crypto/Kconfig b/arch/powerpc/lib/crypto/Kconfig
+index 3f52610e45eb4..6627d28cd24e0 100644
+--- a/arch/powerpc/lib/crypto/Kconfig
++++ b/arch/powerpc/lib/crypto/Kconfig
+@@ -1,11 +1,11 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CRYPTO_CHACHA20_P10
+ 	tristate
+ 	depends on PPC64 && CPU_LITTLE_ENDIAN && VSX
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_P10
+ 	tristate
+diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
+index 46ce2a7ac1f2c..bc7a43f33eb3a 100644
+--- a/arch/riscv/lib/crypto/Kconfig
++++ b/arch/riscv/lib/crypto/Kconfig
+@@ -1,8 +1,8 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CRYPTO_CHACHA_RISCV64
+ 	tristate
+ 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+diff --git a/arch/s390/lib/crypto/Kconfig b/arch/s390/lib/crypto/Kconfig
+index b79fd91af9fe1..069b355fe51aa 100644
+--- a/arch/s390/lib/crypto/Kconfig
++++ b/arch/s390/lib/crypto/Kconfig
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0-only
+ 
+ config CRYPTO_CHACHA_S390
+ 	tristate
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+diff --git a/arch/x86/lib/crypto/Kconfig b/arch/x86/lib/crypto/Kconfig
+index f83aa51dd9129..e44403d9677f5 100644
+--- a/arch/x86/lib/crypto/Kconfig
++++ b/arch/x86/lib/crypto/Kconfig
+@@ -13,11 +13,11 @@ config CRYPTO_BLAKE2S_X86
+ 	  - AVX-512 (Advanced Vector Extensions-512)
+ 
+ config CRYPTO_CHACHA20_X86_64
+ 	tristate
+ 	depends on 64BIT
+-	default CRYPTO_LIB_CHACHA_INTERNAL
++	default CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+ 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 
+ config CRYPTO_POLY1305_X86_64
+ 	tristate
+diff --git a/crypto/Kconfig b/crypto/Kconfig
+index 9322e42e562de..832af6363951f 100644
+--- a/crypto/Kconfig
++++ b/crypto/Kconfig
+@@ -632,12 +632,12 @@ config CRYPTO_ARC4
+ 	  WEP, but it should not be for other purposes because of the
+ 	  weakness of the algorithm.
+ 
+ config CRYPTO_CHACHA20
+ 	tristate "ChaCha"
++	select CRYPTO_LIB_CHACHA
+ 	select CRYPTO_LIB_CHACHA_GENERIC
+-	select CRYPTO_LIB_CHACHA_INTERNAL
+ 	select CRYPTO_SKCIPHER
+ 	help
+ 	  The ChaCha20, XChaCha20, and XChaCha12 stream cipher algorithms
+ 
+ 	  ChaCha20 is a 256-bit high-speed stream cipher designed by Daniel J.
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 59135009e4f02..7395234d654b7 100644
+index f321fe1a8681b..c6ab724c1dbd9 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -157,8 +157,11 @@ config CRYPTO_LIB_SM3
+@@ -48,26 +48,20 @@ config CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	  accelerated implementation of the ChaCha library interface,
+ 	  either builtin or as a module.
  
- if !KMSAN # avoid false positives from assembly
- if ARM
- source "arch/arm/lib/crypto/Kconfig"
- endif
-+if ARM64
-+source "arch/arm64/lib/crypto/Kconfig"
-+endif
- endif
+ config CRYPTO_LIB_CHACHA_GENERIC
+ 	tristate
++	default CRYPTO_LIB_CHACHA if !CRYPTO_ARCH_HAVE_LIB_CHACHA
+ 	select CRYPTO_LIB_UTILS
+ 	help
+-	  This symbol can be depended upon by arch implementations of the
+-	  ChaCha library interface that require the generic code as a
+-	  fallback, e.g., for SIMD implementations. If no arch specific
+-	  implementation is enabled, this implementation serves the users
+-	  of CRYPTO_LIB_CHACHA.
+-
+-config CRYPTO_LIB_CHACHA_INTERNAL
+-	tristate
+-	select CRYPTO_LIB_CHACHA_GENERIC if CRYPTO_ARCH_HAVE_LIB_CHACHA=n
++	  This symbol can be selected by arch implementations of the ChaCha
++	  library interface that require the generic code as a fallback, e.g.,
++	  for SIMD implementations. If no arch specific implementation is
++	  enabled, this implementation serves the users of CRYPTO_LIB_CHACHA.
  
- endmenu
+ config CRYPTO_LIB_CHACHA
+ 	tristate
+-	select CRYPTO
+-	select CRYPTO_LIB_CHACHA_INTERNAL
+ 	help
+ 	  Enable the ChaCha library interface. This interface may be fulfilled
+ 	  by either the generic implementation or an arch-specific one, if one
+ 	  is available and enabled.
+ 
 -- 
 2.49.0
 
