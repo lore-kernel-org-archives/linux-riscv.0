@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E159C369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE51CC369D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8/4f4pcIO0mOdqDK4XXJszvLWMYOEvbNAq6IM++pK1s=; b=EdLj+5TfJ/vQO1
-	hxLXZBxOcmRMSOyMEe5+HyXsKkL32ObbhT19B1rnhZ1y5zlFwNqe55YSZmdlnqsXwfOeQ9a57U9D3
-	udlKJngYQ8DoUSCKfcmcWNRzY4H7c6C54hxQvHHo0whqk+UZ9PR2a/00ggD8dxElxv+aWBNCmUFBk
-	nPn8HsQrASht8PVTsEw9mrmgyYhan2wmqEKgf56FOd8zeMqY+h/KnyQdjeAB+LX/aPiEM1+uPPmPF
-	nGlOgTCLt1hxMWQuoKKL07mLjVljEo/2dqbfXn/+dUq0zGU+4vTu9bzWlJtJDoii6XsLb4rtLBuK3
-	IeuOziJQ3TRvbCqtS/5g==;
+	List-Owner; bh=hhpBcS/Ie56Orz+vJs/kIju+F/JLbstdvLP2p7uHQXw=; b=2V4vvUUwTC0+VJ
+	RKlGF5sbT1W89VpCchIiul5kaGDvcpiSyH4wyWjUjC39xvedC+IaYuSdemrV40NsumlsUe9jafrp8
+	MDrvPxCrSIgHf+3lC7JSyZ9L+FE2+wv9zQPXaeyRZ970YvHG/VaVITHaUrqGc0FqOuhJX7ofHUUBD
+	Jdq60oDerv1NUw+2pqHQLeYsuZtFkLGYPUNOnjaix9wrUnOsgo8e0DCRfrsYhtPaEIF/uqOnv4HvQ
+	bIRPW/vxfSF9711VgW4sW4nByF1pYXXWg8niUa0M3ssHniqzarQdN7KGUfvNXrcA0DDfmUgPPprLA
+	7RlTXN0G3ZSgqH9yUxlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JaV-00000008LaU-1VXO;
-	Tue, 22 Apr 2025 19:47:23 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7JaW-00000008Lbo-2SSN;
+	Tue, 22 Apr 2025 19:47:24 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GOz-00000007tIe-2Sne;
-	Tue, 22 Apr 2025 16:23:17 +0000
+	id 1u7GP1-00000007tKB-3WG4;
+	Tue, 22 Apr 2025 16:23:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC35A60010;
-	Tue, 22 Apr 2025 16:22:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53DB1C4CEEB;
-	Tue, 22 Apr 2025 16:23:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D407B4A970;
+	Tue, 22 Apr 2025 16:23:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159DDC4CEE9;
+	Tue, 22 Apr 2025 16:23:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745338996;
-	bh=J+/882wCEYMbD3sKVezVzqnpiAMGLCSuGHfUftjgEJA=;
+	s=k20201202; t=1745338999;
+	bh=rxxDHQ1wb5bvg62uJ/jOWGJvIOxuUqpGkujeEYY5rGc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eP1H4hr8GSDMTgh4HlL5gMq/uKIsQbKxaHXu3TzZDxOgSsXSgUeW2cv+3sPRHXin+
-	 kzqpRMEYJSfcjKr9geuKoEg2G4aCy+bJYOgVAEvfa2VsdVCLE+8pTXXRRB7UEQ8bnT
-	 WODy5zcxYvRk9WMcpb+7mmWguxHQ1+MX1W/pFMKgZ0E67HmliBNuoihIkEwAcq2Vao
-	 HqvqRi9xh9KKSTF6v+k4Ext4hHtTj++XNklkGZSXBfmWG45jmDvI26KrZ0D2+3D1yq
-	 Fm+mIQdx/PybXmo+YZe/onz6v4hrc8k/GfNaOcDLDCr9xCRiF4YaF9ZQS/ArD0+XIl
-	 aQIK98amEl37w==
+	b=moor2JYNHNrLOCswJQ+pu0qvjnAxaCc3ica0nbGpN2gIllfguyzivRLi1qexp0ga2
+	 m7F59/RkhdB7BIHc1ByThS+xUFDthsraqJyjMHFnWIJlxp4cW0Qsfz0mE1tasTqBqj
+	 LJPSCJGrtRg+NHVieImzgRaX9W95SsQLoXebOXPFEFxOGMlPp7IkRmgmBXcVhe0Gpk
+	 R92nNl31stk/yTxdAkRZFkHqYUmoWE/SLkGKecrD/jCaHximUNHPuNJ0ihvNjEV1oc
+	 VBN+LCFnnBX4itr6YyRhNDEFp6kR3WbGS62TYcVGBH7As74B5pZW2dMcuWa2YZHHBq
+	 SwLwwXLXKneUQ==
 From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
 To: Simon Horman <horms@kernel.org>,
 	Simon Horman <horms@verge.net.au>,
@@ -52,13 +52,16 @@ Cc: Dave Young <dyoung@redhat.com>,
 	Yixun Lan <yixun.lan@gmail.com>,
 	Xianting Tian <xianting.tian@linux.alibaba.com>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 2/4] RISC-V: Enable kexec_file_load syscall
-Date: Tue, 22 Apr 2025 18:22:58 +0200
-Message-ID: <20250422162304.169431-3-bjorn@kernel.org>
+Subject: [PATCH v2 3/4] RISC-V: Separate elf_riscv_find_pbase out
+Date: Tue, 22 Apr 2025 18:22:59 +0200
+Message-ID: <20250422162304.169431-4-bjorn@kernel.org>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250422162304.169431-1-bjorn@kernel.org>
 References: <20250422162304.169431-1-bjorn@kernel.org>
 MIME-Version: 1.0
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_092319_923637_5F9C1E54 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,131 +78,207 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Li Zhengyu <lizhengyu3@huawei.com>
+From: Song Shuai <songshuaishuai@tinylab.org>
 
-Create prepare_kexec_file_options() function to prepare the options
-to kexec_file_load syscall, and it would be used in elf_riscv_load()
-or the future image_riscv_load().
+The is the preparative patch for RISC-V kexec Image file support.
 
-The patch comes from the RISC-V Linux kernel_file_load support[1],
-So its author should be Li Zhengyu.
-
-[1]: https://lore.kernel.org/all/20220408100914.150110-1-lizhengyu3@huawei.com/
+Separate the elf_riscv_find_pbase() function out to
+allow kernel_load syscall load Image binary file.
 
 Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
 ---
- kexec/arch/riscv/kexec-elf-riscv.c |  5 ++--
- kexec/arch/riscv/kexec-riscv.c     | 39 ++++++++++++++++++++++++++++++
- kexec/arch/riscv/kexec-riscv.h     |  1 +
- kexec/kexec-syscall.h              |  3 +++
- 4 files changed, 45 insertions(+), 3 deletions(-)
+ kexec/arch/riscv/kexec-elf-riscv.c | 72 +-----------------------------
+ kexec/arch/riscv/kexec-riscv.c     | 55 +++++++++++++++++++++++
+ kexec/arch/riscv/kexec-riscv.h     | 13 ++++++
+ 3 files changed, 69 insertions(+), 71 deletions(-)
 
 diff --git a/kexec/arch/riscv/kexec-elf-riscv.c b/kexec/arch/riscv/kexec-elf-riscv.c
-index f3c011c4c1dc..2b9f66d782af 100644
+index 2b9f66d782af..434873cf9f08 100644
 --- a/kexec/arch/riscv/kexec-elf-riscv.c
 +++ b/kexec/arch/riscv/kexec-elf-riscv.c
-@@ -112,6 +112,7 @@ void elf_riscv_usage(void)
- {
- }
+@@ -12,76 +12,6 @@
+ #include "kexec-syscall.h"	/* For KEXEC_ON_CRASH */
+ #include "kexec-riscv.h"
  
-+
- int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
- 		   struct kexec_info *info)
- {
-@@ -127,9 +128,7 @@ int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
- 	int ret = 0;
+-
+-/*********\
+-* HELPERS *
+-\*********/
+-
+-/*
+- * Go through the available physical memory regions and
+- * find one that can hold an image of the specified size.
+- * Note: This is called after get_memory_ranges so
+- * info->memory_range[] should be populated. Also note that
+- * memory ranges are sorted, so we'll return the first region
+- * that's big enough for holding the image.
+- */
+-static int elf_riscv_find_pbase(struct kexec_info *info, off_t *addr,
+-				off_t size)
+-{
+-	int i = 0;
+-	off_t start = 0;
+-	off_t end = 0;
+-	int ret = 0;
+-
+-	/*
+-	 * If this image is for a crash kernel, use the region
+-	 * the primary kernel has already reserved for us.
+-	 */
+-	if (info->kexec_flags & KEXEC_ON_CRASH) {
+-		ret = get_crash_kernel_load_range((uint64_t *) &start,
+-						  (uint64_t *) &end);
+-		if (!ret) {
+-			/*
+-			 * Kernel should be aligned to the nearest
+-			 * hugepage (2MB for RV64, 4MB for RV32).
+-			 */
+-#if __riscv_xlen == 64
+-			start = _ALIGN_UP(start, 0x200000);
+-#else
+-			start = _ALIGN_UP(start, 0x400000);
+-#endif
+-			if (end > start && ((end - start) >= size)) {
+-				*addr = start;
+-				return 0;
+-			}
+-
+-			return -EFBIG;
+-		} else
+-			return ENOCRASHKERNEL;
+-	}
+-
+-	for (i = 0; i < info->memory_ranges; i++) {
+-		if (info->memory_range[i].type != RANGE_RAM)
+-			continue;
+-
+-		start = info->memory_range[i].start;
+-		end = info->memory_range[i].end;
+-
+-#if __riscv_xlen == 64
+-		start = _ALIGN_UP(start, 0x200000);
+-#else
+-		start = _ALIGN_UP(start, 0x400000);
+-#endif
+-
+-		if (end > start && ((end - start) >= size)) {
+-			*addr = start;
+-			return 0;
+-		}
+-	}
+-
+-	return -EFBIG;
+-}
+-
+ /**************\
+ * ENTRY POINTS *
+ \**************/
+@@ -182,7 +112,7 @@ int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
+ 		  kernel_size / 1024, old_base_addr, old_start_addr);
  
- 	if (info->file_mode) {
--		fprintf(stderr, "kexec_file not supported on this "
--				"architecture\n");
--		return -EINVAL;
-+		return prepare_kexec_file_options(info);
- 	}
- 
- 	/* Parse the ELF file */
+ 	/* Get a continuous physical region that can hold the kernel */
+-	ret = elf_riscv_find_pbase(info, &new_base_addr, kernel_size);
++	ret = riscv_find_pbase(info, &new_base_addr, kernel_size, KERNEL_ALIGN);
+ 	if (ret < 0) {
+ 		fprintf(stderr, "Could not find a memory region for the "
+ 				"provided ELF image\n");
 diff --git a/kexec/arch/riscv/kexec-riscv.c b/kexec/arch/riscv/kexec-riscv.c
-index 38d9a394aadd..bbc25c5cba41 100644
+index bbc25c5cba41..631659301749 100644
 --- a/kexec/arch/riscv/kexec-riscv.c
 +++ b/kexec/arch/riscv/kexec-riscv.c
-@@ -17,6 +17,12 @@
- #include "kexec-riscv.h"
- #include "iomem.h"
- #include <stdbool.h>
-+#include <sys/types.h>
-+#include <sys/stat.h>
-+#include <fcntl.h>
-+#ifndef _O_BINARY
-+#define _O_BINARY 0
-+#endif
+@@ -50,6 +50,61 @@ static struct fdt_image provided_fdt = {0};
+ * COMMON HELPERS *
+ \****************/
  
- const struct arch_map_entry arches[] = {
- 	{ "riscv32", KEXEC_ARCH_RISCV },
-@@ -141,6 +147,39 @@ void arch_usage(void)
- 	printf(riscv_opts_usage);
- }
- 
-+int prepare_kexec_file_options(struct kexec_info *info)
++/*
++ * Go through the available physical memory regions and
++ * find one that can hold an image of the specified size
++ * and start address should be aligned up with `align`.
++ * Note: This is called after get_memory_ranges so
++ * info->memory_range[] should be populated. Also note that
++ * memory ranges are sorted, so we'll return the first region
++ * that's big enough for holding the image.
++ */
++int riscv_find_pbase(struct kexec_info *info, off_t *addr,
++				off_t size, off_t align)
 +{
-+	int fd;
-+	ssize_t result;
-+	struct stat stats;
++	int i = 0;
++	off_t start = 0;
++	off_t end = 0;
++	int ret = 0;
 +
-+	if (arch_options.cmdline) {
-+		info->command_line = (char *)arch_options.cmdline;
-+		info->command_line_len = strlen(info->command_line) + 1;
++	/*
++	 * If this image is for a crash kernel, use the region
++	 * the primary kernel has already reserved for us.
++	 */
++	if (info->kexec_flags & KEXEC_ON_CRASH) {
++		ret = get_crash_kernel_load_range((uint64_t *) &start,
++						  (uint64_t *) &end);
++		if (!ret) {
++			start = _ALIGN_UP(start, align);
++
++			if (end > start && ((end - start) >= size)) {
++				*addr = start;
++				return 0;
++			}
++
++			return -EFBIG;
++		} else
++			return ENOCRASHKERNEL;
 +	}
 +
-+	if (!arch_options.initrd_path) {
-+		info->initrd_fd = -1;
-+		return 0;
++	for (i = 0; i < info->memory_ranges; i++) {
++		if (info->memory_range[i].type != RANGE_RAM)
++			continue;
++
++		start = info->memory_range[i].start;
++		end = info->memory_range[i].end;
++
++		start = _ALIGN_UP(start, align);
++
++		if (end > start && ((end - start) >= size)) {
++			*addr = start;
++			return 0;
++		}
 +	}
 +
-+	fd = open(arch_options.initrd_path, O_RDONLY | _O_BINARY);
-+	if (fd < 0) {
-+		fprintf(stderr, "Cannot open `%s': %s\n", arch_options.initrd_path,
-+				strerror(errno));
-+		return -EINVAL;
-+	}
-+	result = fstat(fd, &stats);
-+	if (result < 0) {
-+		close(fd);
-+		fprintf(stderr, "Cannot stat: %s: %s\n", arch_options.initrd_path,
-+				strerror(errno));
-+		return -EINVAL;
-+	}
-+	info->initrd_fd = fd;
-+	return 0;
++	return -EFBIG;
 +}
 +
- int arch_process_options(int argc, char **argv)
+ int load_extra_segments(struct kexec_info *info, uint64_t kernel_base,
+ 			uint64_t kernel_size, uint64_t max_addr)
  {
- 	static const struct option options[] = {
 diff --git a/kexec/arch/riscv/kexec-riscv.h b/kexec/arch/riscv/kexec-riscv.h
-index c4323a65dacf..f136c7eab561 100644
+index f136c7eab561..618099291117 100644
 --- a/kexec/arch/riscv/kexec-riscv.h
 +++ b/kexec/arch/riscv/kexec-riscv.h
-@@ -23,6 +23,7 @@ extern struct memory_range elfcorehdr_mem;
- int load_elfcorehdr(struct kexec_info *info);
+@@ -4,6 +4,17 @@
+  *              Nick Kossifidis <mick@ics.forth.gr>
+  */
  
- /* kexec-riscv.c */
-+int prepare_kexec_file_options(struct kexec_info *info);
++/*
++ * Kernel should be aligned to the nearest
++ * hugepage (2MB for RV64, 4MB for RV32).
++ */
++
++#if __riscv_xlen == 64
++#define KERNEL_ALIGN 0x200000
++#else
++#define KERNEL_ALIGN 0x400000
++#endif
++
+ struct fdt_image {
+ 	char	*buf;
+ 	off_t	size;
+@@ -26,6 +37,8 @@ int load_elfcorehdr(struct kexec_info *info);
+ int prepare_kexec_file_options(struct kexec_info *info);
  int load_extra_segments(struct kexec_info *info, uint64_t kernel_base,
  			uint64_t kernel_size, uint64_t max_addr);
++int riscv_find_pbase(struct kexec_info *info, off_t *addr,
++				off_t size, off_t align);
  
-diff --git a/kexec/kexec-syscall.h b/kexec/kexec-syscall.h
-index 89591ad17e7d..9b1757877a85 100644
---- a/kexec/kexec-syscall.h
-+++ b/kexec/kexec-syscall.h
-@@ -80,6 +80,9 @@
- #ifdef __hppa__
- #define __NR_kexec_file_load	355
- #endif
-+#if defined(__riscv__) || defined(__riscv)
-+#define __NR_kexec_file_load	294
-+#endif
- 
- #ifndef __NR_kexec_file_load
- /* system call not available for the arch */
+ int elf_riscv_probe(const char *buf, off_t len);
+ void elf_riscv_usage(void);
 -- 
 2.48.1
 
