@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EEB6C369AB
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 02:37:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A375BC369D6
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 02:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=cyFWpyV9Q9PQ7Lvpc/pmxJ7UmUnMBFftzhc1+4pMOec=; b=ly5uUe6cPv1iGe
-	wUlwJOX2NwKispfu6TvoRdyYeCMWS4egcczJ/yAlMW/27MGqSwV6X6bddiQkFUHfpDe1vtVS8Rn+u
-	cR03kI8Nvm08pSj5ydkPLsbGDOECcTH6Rwpb4uFJr76bosEFNvJJpxAJrxh10REg7Uv+dpLNhkMcA
-	7hs6UqFd1+Cdn/opOSirv53RuDZsyqYsBjpvpDzWD8nSKu6ELf/xX0aXoP/DyTDUc6oCtPEigDkKU
-	ZqWyiKZLghZeTFuklBuskLg9+Tx/fUf7vGCIVDNfRW2QIKQvU/uducXye5nCtFhmAFntFMgBDTmz/
-	qOTRLsVAGu1TIfhG10bw==;
+	List-Owner; bh=541OxPoSpGuiO3r8M+ZtN7aKDrz3GQXiBpAK11a2kx4=; b=bu7IcR+BiwKf48
+	GpD/l55SrXOcVBlajpXV6pFr14pFNgYGsJLPpWAclhxQn5UR+O8ZIP4S60KO+yT0HBXKvBxdIc7XN
+	Ee+xBhjKww8xCqHYoCWx+TZNNPd8VrBklIXjr+yMWtlMmDjEd7SKAvRNSzXw3t5ahBP/f29gYeQs/
+	2JDQ8RhALMTrWsvURyMab5rlOtpknW1oJKVfgmjqSf9wb5d/OPaaeygArkqQQRNVWFr1NpempluIo
+	dmR0WKepgNcfaQeneHyj3/Df/hT5SUja7gigcAcGTffHecpEBKAl0I9/CU/WvXbH/8eeiqyG2bf3Y
+	dWKxgN5WX8xdmVwO66sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73W5-00000005eX3-01ey;
+	id 1u73W5-00000005eXJ-2S6w;
 	Tue, 22 Apr 2025 02:37:45 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u73DA-00000005ZdN-0sIA
+	id 1u73DN-00000005Zgj-1emG
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 02:18:13 +0000
+	Tue, 22 Apr 2025 02:18:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6D2B5A4BF3F;
-	Tue, 22 Apr 2025 02:12:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18836C4CEF0;
-	Tue, 22 Apr 2025 02:18:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id A1202A4BF3E;
+	Tue, 22 Apr 2025 02:12:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C7B0C4CEE4;
+	Tue, 22 Apr 2025 02:18:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745288291;
-	bh=k0CvyBXD/JneYEp1nm10fppRGqN6XZUKVHkWxBtVi+4=;
+	s=k20201202; t=1745288304;
+	bh=q/f9f0tVSdoiT/mcDWBVx7/ZzrlTcfC7wdM9rl9lXuA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=gdkXt4D2Wl69OEjEZbqSVXbg98frxoLAExzYa/1Tiweezym1xXSw+I6tQ+UC8GhQ0
-	 SEEpsjrm4/iHoDjacL46DfDH9VIpWOnRI5VF+IkDvExtNbQQm/SYK82vF1MGBrABoD
-	 ZGG4UizgVPXsJTGnVbJQxB+a+DP4bsXECAXvHrOfkRULKcCP5Ae988ruOohB0NShxh
-	 0BRHmejJ5eCEQ7cnjY8SZsKaUoYoNc8EVRKBELiX2NY2l7gL6ERSBVsQyF6aWSkWiz
-	 8dRsh2AgCEHre1O5jjQN2P1oK60RpFcZUV6egYoUF/+zDpzQlIKUEErvEN46+yjH1E
-	 aZF10kMmzovRg==
+	b=C8yHbPgsgH6FBrrHVJjEg4CVn5+WhywK9C5hGxuFlsV+pMOBTCJJGpJCFA0ihGQFt
+	 SBYWoOVlIH1Giay3nf+1JKO0kkh7jWE6VYVvN4SeCcZQfYvNSwAQwr/gRXAcMRxbLG
+	 c5ZBTD3e/rUbtBEE4GiWKq3imsXLmXZAqc+Aix+WBvch09qEzMSHL0iVY5THiowgNs
+	 hrDV0wRojsbda22uo3UQFuD52GQKL9R/NJjKKS3b2fTcbKbQ7v64sFxHjcaCSm0REE
+	 gciVrZRgR7nlSUFYDdcxBm/FxJM0H+ZMKis3PO0665G4ZXaJwc8Ov07vbvZ6wNZbLQ
+	 0ieymdQuMiRlQ==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Andrew Jones <ajones@ventanamicro.com>,
-	kernel test robot <lkp@intel.com>,
+Cc: Nathan Chancellor <nathan@kernel.org>,
 	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	"Dmitry V . Levin" <ldv@strace.io>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.6 06/15] riscv: Provide all alternative macros all the time
-Date: Mon, 21 Apr 2025 22:17:50 -0400
-Message-Id: <20250422021759.1941570-6-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 14/15] riscv: Avoid fortify warning in syscall_get_arguments()
+Date: Mon, 21 Apr 2025 22:17:58 -0400
+Message-Id: <20250422021759.1941570-14-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250422021759.1941570-1-sashal@kernel.org>
 References: <20250422021759.1941570-1-sashal@kernel.org>
@@ -64,9 +64,8 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.6.87
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250421_191812_312639_6C1CD2B9 
-X-CRM114-Status: UNSURE (   8.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250421_191825_557137_14351C50 
+X-CRM114-Status: GOOD (  13.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +82,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andrew Jones <ajones@ventanamicro.com>
+From: Nathan Chancellor <nathan@kernel.org>
 
-[ Upstream commit fb53a9aa5f5b8bf302f3260a7f1f5a24345ce62a ]
+[ Upstream commit 1413708f990cb7d025affd706ba9c23e2bfc1a27 ]
 
-We need to provide all six forms of the alternative macros
-(ALTERNATIVE, ALTERNATIVE_2, _ALTERNATIVE_CFG, _ALTERNATIVE_CFG_2,
-__ALTERNATIVE_CFG, __ALTERNATIVE_CFG_2) for all four cases derived
-from the two ifdefs (RISCV_ALTERNATIVE, __ASSEMBLY__) in order to
-ensure all configs can compile. Define this missing ones and ensure
-all are defined to consume all parameters passed.
+When building with CONFIG_FORTIFY_SOURCE=y and W=1, there is a warning
+because of the memcpy() in syscall_get_arguments():
 
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202504130710.3IKz6Ibs-lkp@intel.com/
-Signed-off-by: Andrew Jones <ajones@ventanamicro.com>
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+  In file included from include/linux/string.h:392,
+                   from include/linux/bitmap.h:13,
+                   from include/linux/cpumask.h:12,
+                   from arch/riscv/include/asm/processor.h:55,
+                   from include/linux/sched.h:13,
+                   from kernel/ptrace.c:13:
+  In function 'fortify_memcpy_chk',
+      inlined from 'syscall_get_arguments.isra' at arch/riscv/include/asm/syscall.h:66:2:
+  include/linux/fortify-string.h:580:25: error: call to '__read_overflow2_field' declared with attribute warning: detected read beyond size of field (2nd parameter); maybe use struct_group()? [-Werror=attribute-warning]
+    580 |                         __read_overflow2_field(q_size_field, size);
+        |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  cc1: all warnings being treated as errors
+
+The fortified memcpy() routine enforces that the source is not overread
+and the destination is not overwritten if the size of either field and
+the size of the copy are known at compile time. The memcpy() in
+syscall_get_arguments() intentionally overreads from a1 to a5 in
+'struct pt_regs' but this is bigger than the size of a1.
+
+Normally, this could be solved by wrapping a1 through a5 with
+struct_group() but there was already a struct_group() applied to these
+members in commit bba547810c66 ("riscv: tracing: Fix
+__write_overflow_field in ftrace_partial_regs()").
+
+Just avoid memcpy() altogether and write the copying of args from regs
+manually, which clears up the warning at the expense of three extra
+lines of code.
+
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Link: https://lore.kernel.org/r/20250414120947.135173-2-ajones@ventanamicro.com
+Reviewed-by: Dmitry V. Levin <ldv@strace.io>
+Link: https://lore.kernel.org/r/20250409-riscv-avoid-fortify-warning-syscall_get_arguments-v1-1-7853436d4755@kernel.org
 Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- arch/riscv/include/asm/alternative-macros.h | 19 +++++++------------
- 1 file changed, 7 insertions(+), 12 deletions(-)
+ arch/riscv/include/asm/syscall.h | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-diff --git a/arch/riscv/include/asm/alternative-macros.h b/arch/riscv/include/asm/alternative-macros.h
-index 721ec275ce57e..231d777d936c2 100644
---- a/arch/riscv/include/asm/alternative-macros.h
-+++ b/arch/riscv/include/asm/alternative-macros.h
-@@ -115,24 +115,19 @@
- 	\old_c
- .endm
+diff --git a/arch/riscv/include/asm/syscall.h b/arch/riscv/include/asm/syscall.h
+index 121fff429dce6..eceabf59ae482 100644
+--- a/arch/riscv/include/asm/syscall.h
++++ b/arch/riscv/include/asm/syscall.h
+@@ -62,8 +62,11 @@ static inline void syscall_get_arguments(struct task_struct *task,
+ 					 unsigned long *args)
+ {
+ 	args[0] = regs->orig_a0;
+-	args++;
+-	memcpy(args, &regs->a1, 5 * sizeof(args[0]));
++	args[1] = regs->a1;
++	args[2] = regs->a2;
++	args[3] = regs->a3;
++	args[4] = regs->a4;
++	args[5] = regs->a5;
+ }
  
--#define _ALTERNATIVE_CFG(old_c, ...)	\
--	ALTERNATIVE_CFG old_c
--
--#define _ALTERNATIVE_CFG_2(old_c, ...)	\
--	ALTERNATIVE_CFG old_c
-+#define __ALTERNATIVE_CFG(old_c, ...)		ALTERNATIVE_CFG old_c
-+#define __ALTERNATIVE_CFG_2(old_c, ...)		ALTERNATIVE_CFG old_c
- 
- #else /* !__ASSEMBLY__ */
- 
--#define __ALTERNATIVE_CFG(old_c)	\
--	old_c "\n"
-+#define __ALTERNATIVE_CFG(old_c, ...)		old_c "\n"
-+#define __ALTERNATIVE_CFG_2(old_c, ...)		old_c "\n"
- 
--#define _ALTERNATIVE_CFG(old_c, ...)	\
--	__ALTERNATIVE_CFG(old_c)
-+#endif /* __ASSEMBLY__ */
- 
--#define _ALTERNATIVE_CFG_2(old_c, ...)	\
--	__ALTERNATIVE_CFG(old_c)
-+#define _ALTERNATIVE_CFG(old_c, ...)		__ALTERNATIVE_CFG(old_c)
-+#define _ALTERNATIVE_CFG_2(old_c, ...)		__ALTERNATIVE_CFG_2(old_c)
- 
--#endif /* __ASSEMBLY__ */
- #endif /* CONFIG_RISCV_ALTERNATIVE */
- 
- /*
+ static inline int syscall_get_arch(struct task_struct *task)
 -- 
 2.39.5
 
