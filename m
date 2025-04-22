@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 589FCC3ABA2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69D7C369DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jQ5dKo2D+xJL4V0M97YxEfZefMk0ltT2mEzuQh2Muto=; b=ZVfH/TyFUlN/YX
-	L/Tv2kd373thfTvaSoi5ZuF82QFnwVyWxmENaMPm9jt49nu684IpK05eNiJwY37KccsqKm44EuPdo
-	ZYzl93VjizkSBjqZz5KCXzgA5KnxiFtC+ZDsZzUfcmOY+oAgVKaFkhHCDALXw0PKAqMaF5PpTIJtN
-	FHaLI0Tmd7oq91zDGX2m5KGC7Pbgo3YivHfkIQBRiwsnrIknUBFxDanRkKX2c4UxAmPp4xCAdUoaF
-	obirqMT43CSuSCv2H4PYOJVPg0L5lMAy9WbNxvAucNhBWkHnngScSkAZhDal/pommO52hU/VtMQ4t
-	WIm3Eoyn+2QR3KFKMxfQ==;
+	List-Owner; bh=TyF7syq/nLM3n4w7lZfblI2pUJ1btKbBIuStcx9VWq4=; b=lDEMDRRVJMBOQr
+	LJ6V/1bJgvpouH/DFqQnYwlJ2aMitHEjO7e/5hNRhfO1Gp10SP4GqKr9KuWr9V/IT3FZZboIPObM6
+	pZtJbDLfcvZjkPRUpEBPZpoxCBWxqmPTtL/C4e09N4+5EB29i6f19EYHxBXeK0s/FFAaEw9/9OGdx
+	TXrg7cYWHUUA6Tz9uoSY+nC7EmYwnE67733pIdghzkddgYWBBABgDVSKPcBPeVOztD0rDxtsGeoXY
+	+ljUn0aU7V6HtCwMiQVoqnby3pbOL9/mHHNO14YPcaqDQ8GwWorzMKF69OQSQ0Bq9POwBZyEiuGOM
+	ZqryexUdpKDdJqBEuZsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8j-000000085mm-2BCj;
-	Tue, 22 Apr 2025 18:14:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u7I8g-000000085iD-0Q8U;
+	Tue, 22 Apr 2025 18:14:34 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXk-00000007iM5-29Lf;
-	Tue, 22 Apr 2025 15:28:18 +0000
+	id 1u7FXj-00000007iLe-3LVw;
+	Tue, 22 Apr 2025 15:28:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C48365C5C9A;
-	Tue, 22 Apr 2025 15:25:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32E98C4CEE9;
-	Tue, 22 Apr 2025 15:28:15 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A905B4A93C;
+	Tue, 22 Apr 2025 15:28:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4BB9C4CEEE;
+	Tue, 22 Apr 2025 15:28:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1745335695;
-	bh=Wsz8KfnWpKz3RjYagwsQwuMx7mcDuZ3DmLJCHCvCnLk=;
+	bh=ySujzJwEjUZrj9er8XlrWX/11KoXjZIlZ2vhV5/jq10=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uBsUn+1uknnAtCvGxigHZ4JZToY6+Gy1ixr68PQvV2N71BUQl87w4yMZvlkmjCwZ0
-	 RiCZCN4vIV2n0ynKuXxTLvrHQVn87JR/9LqXwv5UnpKrmGxngl4unZebkUVwATB/sE
-	 IaMI4ynGGpFpbI3ZRnoRy8dF2K06NBvFqAB9SziK+JLDHzV8/1oz0c8BZdihd951Qw
-	 c5+HPn83XoB+DEMH5jnPKhtWdxpTkVxm/BPC9ZhGUEnLGxZ5UomAOSh+VAoTMwUtNK
-	 4tXgPPEpd0lYeetuHeVpKT/bTaC5YXBvG+nlQRTRr/c8aoQJpGfdjm9w+zNTOpb2JF
-	 xGv23N6geYPRQ==
+	b=XEW0GEqxgTqLHaerzxUJU4xk3fj9xEqoO/EYKRS1Eft5CyaVT/Z1GFjj0U6ny1qYe
+	 0aY/9Lrp4vdGIxKmiYNDft+Gp77LjbpWI2nbZ14A0PFu2mglRgt7zVdf2RwCSoSIhK
+	 JoOYh9HORvTvGhtCLsAYk6bqotdZa7eMI64E/J2Jpzu2A4wcXQyMgFJq1tAcssT/D+
+	 NPeWN6JPQ23t4tWsJH+v6OJhUYX5L+LBGlY0vbNLN+J+QMAL44zORAGF3hLgPPi5nP
+	 UIZnBUvU8VRMrtYpcPHuUBZHYq19UFdT4KvlUGWex0ssq62MNSTsTp3AHmn6krvh74
+	 LWnvtzdV9RGQw==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -53,17 +53,16 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 02/13] crypto: powerpc - drop redundant dependencies on PPC
-Date: Tue, 22 Apr 2025 08:27:05 -0700
-Message-ID: <20250422152716.5923-3-ebiggers@kernel.org>
+Subject: [PATCH v3 01/13] crypto: arm64 - drop redundant dependencies on ARM64
+Date: Tue, 22 Apr 2025 08:27:04 -0700
+Message-ID: <20250422152716.5923-2-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082816_594691_712EE1C2 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250422_082815_848530_FF21B726 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,71 +81,45 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-arch/powerpc/crypto/Kconfig is sourced only when CONFIG_PPC=y, so there
-is no need for the symbols defined inside it to depend on PPC.
+arch/arm64/crypto/Kconfig is sourced only when CONFIG_ARM64=y, so there
+is no need for the symbols defined inside it to depend on ARM64.
 
 Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/powerpc/crypto/Kconfig | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ arch/arm64/crypto/Kconfig | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/arch/powerpc/crypto/Kconfig b/arch/powerpc/crypto/Kconfig
-index cbcf76953d835..8bcc690134644 100644
---- a/arch/powerpc/crypto/Kconfig
-+++ b/arch/powerpc/crypto/Kconfig
-@@ -15,48 +15,46 @@ config CRYPTO_CURVE25519_PPC64
- 	  Architecture: PowerPC64
- 	  - Little-endian
+diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
+index 7c2f63f2e3072..704d0b7e1d137 100644
+--- a/arch/arm64/crypto/Kconfig
++++ b/arch/arm64/crypto/Kconfig
+@@ -135,11 +135,11 @@ config CRYPTO_AES_ARM64
  
- config CRYPTO_MD5_PPC
- 	tristate "Digests: MD5"
--	depends on PPC
- 	select CRYPTO_HASH
- 	help
- 	  MD5 message digest algorithm (RFC1321)
+ 	  Architecture: arm64
  
- 	  Architecture: powerpc
- 
- config CRYPTO_SHA1_PPC
- 	tristate "Hash functions: SHA-1"
--	depends on PPC
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: powerpc
- 
- config CRYPTO_SHA1_PPC_SPE
- 	tristate "Hash functions: SHA-1 (SPE)"
--	depends on PPC && SPE
-+	depends on SPE
- 	help
- 	  SHA-1 secure hash algorithm (FIPS 180)
- 
- 	  Architecture: powerpc using
- 	  - SPE (Signal Processing Engine) extensions
- 
- config CRYPTO_SHA256_PPC_SPE
- 	tristate "Hash functions: SHA-224 and SHA-256 (SPE)"
--	depends on PPC && SPE
-+	depends on SPE
- 	select CRYPTO_SHA256
- 	select CRYPTO_HASH
- 	help
- 	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
- 
- 	  Architecture: powerpc using
- 	  - SPE (Signal Processing Engine) extensions
- 
- config CRYPTO_AES_PPC_SPE
- 	tristate "Ciphers: AES, modes: ECB/CBC/CTR/XTS (SPE)"
--	depends on PPC && SPE
-+	depends on SPE
- 	select CRYPTO_SKCIPHER
+ config CRYPTO_AES_ARM64_CE
+ 	tristate "Ciphers: AES (ARMv8 Crypto Extensions)"
+-	depends on ARM64 && KERNEL_MODE_NEON
++	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_LIB_AES
  	help
  	  Block ciphers: AES cipher algorithms (FIPS-197)
- 	  Length-preserving ciphers: AES with ECB, CBC, CTR, and XTS modes
  
+@@ -252,11 +252,11 @@ config CRYPTO_SM4_ARM64_NEON_BLK
+ 	  Architecture: arm64 using:
+ 	  - NEON (Advanced SIMD) extensions
+ 
+ config CRYPTO_AES_ARM64_CE_CCM
+ 	tristate "AEAD cipher: AES in CCM mode (ARMv8 Crypto Extensions)"
+-	depends on ARM64 && KERNEL_MODE_NEON
++	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_ALGAPI
+ 	select CRYPTO_AES_ARM64_CE
+ 	select CRYPTO_AES_ARM64_CE_BLK
+ 	select CRYPTO_AEAD
+ 	select CRYPTO_LIB_AES
 -- 
 2.49.0
 
