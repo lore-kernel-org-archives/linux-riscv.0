@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A0BFC369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 15:11:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77151C369D9
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 15:12:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=80nzmzUNm8sDA6k5vYKN9e1g4M6gOstmbHxR/vFSzPU=; b=HUQlw5COWCYIQH
-	c3ywhmTvskNMuOv9VMR740Hdha2FPob7FUO1tRrmNYDyeWrs1R9bpAvLTkGDDIJ8FGXTPQXYR0CFd
-	81ei9GWjWE12T86pr03ISzk4z9YmU2dpWdXsXo3Pvx4cEW0tO6BqY7lJM3TYXoydVlUFVbquTYldJ
-	e821gIZekyCwobkomdDSHrE1Wc9aFtLNQjSjsgOCJYtSqemaXV0pyNrqTnQ5fzdipg7A7GCp2JSR8
-	sr41JZFX1pGUTc19f798HkUHsIDBzkVLIfMvnyxGVHEDJJPe70VE2ThXu9fF5oMO3uwVdtS0zWgxS
-	W8T6RM4RvAxQvqYfIn7w==;
+	List-Owner; bh=gRrjESURa6Il/4Kx9Pq5/l7hvveJmVJ5QPNtQklvWhk=; b=G5MLWoJU00VuiY
+	oL5W1CBMxHZzqd1MsSLCPAZUPHdDdV2rZUatuRhbZPHh8elvn04fCjbzEZ+jjaFfSDFCRPuzBFMLV
+	LGlN45LcGGIWyn5407UP+Dxkiusi8MVhDH6aDyWq5NhkBHG+MrMDApzqfho8bPpkjE+AIPgD+8+v3
+	Bt9+++PINmfHOYEuKJlcQYZfYWlCCaPEGWy+i5lPrxilhcBekkmQX2oVLYcH5WKV5k9AykuvaunD8
+	XnCKcZCC1qs69VVRdxM6or/tQsGF7O9CWNqsT95CIwdD6M/2q0L8IBr1Ud4VKqQAmicoZLE8RoSuR
+	CkRKu2SMJJFU6f9cL/QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FHp-00000007ecN-2ZF8;
-	Tue, 22 Apr 2025 15:11:49 +0000
+	id 1u7FHq-00000007ecg-19y2;
+	Tue, 22 Apr 2025 15:11:50 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7E4h-00000007Ni1-06Ji;
-	Tue, 22 Apr 2025 13:54:12 +0000
+	id 1u7E7C-00000007OKC-1MhC
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Apr 2025 13:56:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 46F165C4988;
-	Tue, 22 Apr 2025 13:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112D6C4CEE9;
-	Tue, 22 Apr 2025 13:54:07 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id A610D5C546B;
+	Tue, 22 Apr 2025 13:54:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AD3DC4CEE9;
+	Tue, 22 Apr 2025 13:56:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745330050;
-	bh=6Wzq1iekPqXgmnP7Gba156hgO+tNrROaqfH6jIM9C+Q=;
+	s=k20201202; t=1745330205;
+	bh=xJlyGlnTsnJ9Pp7pikKgN/l45mZmZ7KWpkphwcDOGAg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=oHgFR2Z2QdQVkG89FDiYTSejqFFaZootQW1RLTlN4VTS9BT6mUz4xIEB+cE98i+oi
-	 7Z1k1H85b+uCtX4fxh99lyZ6+OCosJHgM3Bu2VgoxxT6UwJJnVuve/a0LX4xG1OOe8
-	 ApiHlU+IMBXLC+OA+WptKVc50ivzFAtMV/odKkrDVrrjnNflpzhnSE5UI5Obuz5rVt
-	 tJyzYEisW+ZUB0GZpz3y5iuRUsQwOvlJn2yr7No/v2ymlz9pSstsc+mXQBWM+Gu74n
-	 1kk6YPy+PNDA0e+R6DJOYvUWWv1XbjRynHTUvxi/NBh+8bZnV9dIC6CBNesZFRCHAz
-	 SbtPPt7cEoKhQ==
-Date: Tue, 22 Apr 2025 14:54:05 +0100
-From: Simon Horman <horms@kernel.org>
-To: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-Cc: Nick Kossifidis <mick@ics.forth.gr>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	Li Zhengyu <lizhengyu3@huawei.com>, kexec@lists.infradead.org,
-	Dave Young <dyoung@redhat.com>, Yixun Lan <yixun.lan@gmail.com>,
-	Xianting Tian <xianting.tian@linux.alibaba.com>,
-	linux-riscv@lists.infradead.org,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>
-Subject: Re: [PATCH 1/4] RISC-V: Add support for riscv kexec/kdump on
- kexec-tools
-Message-ID: <20250422135405.GA2948814@horms.kernel.org>
-References: <20250409201428.648717-1-bjorn@kernel.org>
- <20250409201428.648717-2-bjorn@kernel.org>
- <20250422104825.GT2789685@horms.kernel.org>
- <87bjso5ri7.fsf@all.your.base.are.belong.to.us>
+	b=hOY6AT4FzIEvYYR7UyvgUUKmT4OuKcvmUXY4a5Jflwq0C6Fz0QjXK9fwBMa9SX54/
+	 elyvEwDp4LzXbwZ2/7NfaaTOqeSsTcyOgaEwMUksHz4Mwyq2YRUuNFkuGL1muHICuV
+	 gatW/CcEUndSrrSuZUc6fak3b5uSPGcQoB7mkSmbiVkrBrIkJM4EMlssZZlcAPJQtX
+	 K2TaZr/h+HItpsX1YYAj8jfaBqPJsnclgXiW3C5ZJZ1Wbi6EqRfRpAYbujNzGWORfZ
+	 DePaJd8KWWDRVZhJJi2wHU5EjG/c9EOQPmL03mS8iSCI26A+sMYuKwqkT1zqtwgmo9
+	 48qGzMM6r57dg==
+Date: Tue, 22 Apr 2025 08:56:43 -0500
+From: Rob Herring <robh@kernel.org>
+To: Longbin Li <looong.bin@gmail.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: pwm: sophgo: add pwm controller for
+ SG2044
+Message-ID: <20250422135643.GA1132004-robh@kernel.org>
+References: <20250418022948.22853-1-looong.bin@gmail.com>
+ <20250418022948.22853-2-looong.bin@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <87bjso5ri7.fsf@all.your.base.are.belong.to.us>
+In-Reply-To: <20250418022948.22853-2-looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_065411_133709_621B1B1A 
-X-CRM114-Status: GOOD (  14.45  )
+X-CRM114-CacheID: sfid-20250422_065646_417339_BC556692 
+X-CRM114-Status: GOOD (  10.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,25 +78,26 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBcHIgMjIsIDIwMjUgYXQgMDI6MDc6MjhQTSArMDIwMCwgQmrDtnJuIFTDtnBlbCB3
-cm90ZToKPiBTaW1vbiEKPiAKPiBTaW1vbiBIb3JtYW4gPGhvcm1zQGtlcm5lbC5vcmc+IHdyaXRl
-czoKPiAKPiA+IFRoYW5rcyBCasO2cm4sCj4gPgo+ID4gT3ZlcmFsbCBJIGFtIGhhcHB5IHdpdGgg
-dGhpcyBwYXRjaHNldC4gQnV0IHRoZXJlIGFyZSBhIGZldyBtaW5vciBwb2ludHMKPiA+IEknZCBs
-aWtlIGFkZHJlc3NlZCwgd2hpY2ggcmVsYXRlIHN0cmljdGx5IHRvIGJ1aWxkIGNvdmVyYWdlIGFu
-ZCB0aGUgQ0kuCj4gPiBJIGNhbiBoYW5kbGUgdGhlc2UgbXlzZWxmIGlmIHlvdSBwcmVmZXIuCj4g
-Cj4gSXQncyByZWFsbHkgdXAgdG8geW91ISBXaGF0IGRvIHlvdSBwcmVmZXI/IEkgY2FuIHNwaW4g
-YSB2MiBpZiB0aGF0J3MKPiBlYXNpZXIgZm9yIHlvdSAoYW5kIHRoZW4gSSdsbCB0cnkgdG8gYWRk
-cmVzcyBhbGwgdGhlIHRoaW5ncyB5b3UgcG9pbnRlZAo+IG91dCBiZWxvdykhCgpIaSBCasO2cm4s
-CgpBIHYyIHdvdWxkIGJlIHBlcmZlY3QgZm9yIG1lLgoKSWYgeW91IGFyZSBzbyBpbmNsaW5lZCBh
-bmQgeW91IHB1c2ggdGhlIHBhdGNoZXMgdG8gYSBHaXRodWIgcmVwbwp0aGVuIHRoZSB3b3JrZmxv
-dyBzaG91bGQgcnVuLiBJdCBpcyB3aGF0IHBpY2tlZCB1cCB0aGUgbWlub3IgcHJvYmxlbXMKSSd2
-ZSBoaWdobGlnaHRlZC4KCkJ1dCBpbiBhbnkgY2FzZSwgbGV0J3Mgc3RpY2sgdG8gdGhlIGVtYWls
-IGJhc2VkIHdvcmtmbG93CmZvciBwYXRjaCBzdWJtaXNzaW9ucyAoZm9yIG5vdykuCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWls
-aW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5m
-cmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Fri, Apr 18, 2025 at 10:29:44AM +0800, Longbin Li wrote:
+> Add compatible string for PWM controller on SG2044.
+
+That is clear from reading the diff. What would be useful is details on 
+how the h/w is different from SG2042 (and hence not compatible with it).
+
+> 
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
+
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
