@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A69D7C369DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FBC3C369DE
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=TyF7syq/nLM3n4w7lZfblI2pUJ1btKbBIuStcx9VWq4=; b=lDEMDRRVJMBOQr
-	LJ6V/1bJgvpouH/DFqQnYwlJ2aMitHEjO7e/5hNRhfO1Gp10SP4GqKr9KuWr9V/IT3FZZboIPObM6
-	pZtJbDLfcvZjkPRUpEBPZpoxCBWxqmPTtL/C4e09N4+5EB29i6f19EYHxBXeK0s/FFAaEw9/9OGdx
-	TXrg7cYWHUUA6Tz9uoSY+nC7EmYwnE67733pIdghzkddgYWBBABgDVSKPcBPeVOztD0rDxtsGeoXY
-	+ljUn0aU7V6HtCwMiQVoqnby3pbOL9/mHHNO14YPcaqDQ8GwWorzMKF69OQSQ0Bq9POwBZyEiuGOM
-	ZqryexUdpKDdJqBEuZsw==;
+	List-Owner; bh=ftJfE7m9zpNnFquYBIcov3GnA9rpc0CK/CIMJJli2JA=; b=lFSoTdD/b9Wcp4
+	zyeLzt5U+L/ccwNqosltTsQRhAfgjhuSf8IY+I8SICSfvNYKBLeCj7Eequ40SnrccT8UXWltXVbsJ
+	KiJRQ1uvDdVZV1rSs6Ir0+tC0VCGwTFEKyyPhPQXtRPAf9oRYmfQO10sbKpMBe3i3t9wOxAc1WgSA
+	wBcGi/RUW3ruNyy75C7gqE+3wcn1ESxNhJnieAA4W8f3IlIilYkkyuc7xmLrtZSeFVcfkAwqb7QCk
+	l3+vwcHcvxF6eMDOCOiZwii7EkX4fRHquul+N/7RDZQyud6L6iJCPWuz/tqMlng5PfkCSEESjQq1s
+	F2y8g2Zj1j0/cJm956RA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8g-000000085iD-0Q8U;
-	Tue, 22 Apr 2025 18:14:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u7I8m-000000085rF-2nlS;
+	Tue, 22 Apr 2025 18:14:40 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXj-00000007iLe-3LVw;
-	Tue, 22 Apr 2025 15:28:17 +0000
+	id 1u7FXl-00000007iN6-1Wy6;
+	Tue, 22 Apr 2025 15:28:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A905B4A93C;
-	Tue, 22 Apr 2025 15:28:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4BB9C4CEEE;
-	Tue, 22 Apr 2025 15:28:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AA964A945;
+	Tue, 22 Apr 2025 15:28:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E431C4CEF1;
+	Tue, 22 Apr 2025 15:28:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335695;
-	bh=ySujzJwEjUZrj9er8XlrWX/11KoXjZIlZ2vhV5/jq10=;
+	s=k20201202; t=1745335697;
+	bh=GjEjmwkiG40mBHNNY0hpzCSCY6h3KNGoqBSt3c2rFfU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=XEW0GEqxgTqLHaerzxUJU4xk3fj9xEqoO/EYKRS1Eft5CyaVT/Z1GFjj0U6ny1qYe
-	 0aY/9Lrp4vdGIxKmiYNDft+Gp77LjbpWI2nbZ14A0PFu2mglRgt7zVdf2RwCSoSIhK
-	 JoOYh9HORvTvGhtCLsAYk6bqotdZa7eMI64E/J2Jpzu2A4wcXQyMgFJq1tAcssT/D+
-	 NPeWN6JPQ23t4tWsJH+v6OJhUYX5L+LBGlY0vbNLN+J+QMAL44zORAGF3hLgPPi5nP
-	 UIZnBUvU8VRMrtYpcPHuUBZHYq19UFdT4KvlUGWex0ssq62MNSTsTp3AHmn6krvh74
-	 LWnvtzdV9RGQw==
+	b=TL6mg/ZtSZDHi1heG+3zuy63dj9dKawGkDD8bzeicE5MrTZUS9Pd8eZqYL6d16oTs
+	 9jryUk406G/+oIa32v8sNWwe0ZGdD4IFD+C7asmF0lMhcV53mOHf2Hj3DZ710BCDQS
+	 l8VBbD19T9V8eYW+VfGc3EqqAB1fhV9F3hdcdAWbX/UO2Fglba/2lN6xpzm3ZY2kAm
+	 ZCX/m7txQlh4yfz7Dbg0OJaxvNF6iJ25xzc5Trg+lUe47EcpSOuVBLlehC6BqmY1Hp
+	 mrXcvhsTVQ9amJxnZjui+0emD4MYMwIaD2zpEN4IOpPNfpUY3nbpPo2lk+ugPRoLg8
+	 f/AsWM/F3qkUQ==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -53,16 +53,16 @@ Cc: linux-arch@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Ard Biesheuvel <ardb@kernel.org>
-Subject: [PATCH v3 01/13] crypto: arm64 - drop redundant dependencies on ARM64
-Date: Tue, 22 Apr 2025 08:27:04 -0700
-Message-ID: <20250422152716.5923-2-ebiggers@kernel.org>
+Subject: [PATCH v3 05/13] crypto: arm - move library functions to arch/arm/lib/crypto/
+Date: Tue, 22 Apr 2025 08:27:08 -0700
+Message-ID: <20250422152716.5923-6-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082815_848530_FF21B726 
-X-CRM114-Status: GOOD (  10.37  )
+X-CRM114-CacheID: sfid-20250422_082817_454960_80872C06 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,45 +81,290 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Eric Biggers <ebiggers@google.com>
 
-arch/arm64/crypto/Kconfig is sourced only when CONFIG_ARM64=y, so there
-is no need for the symbols defined inside it to depend on ARM64.
+Continue disentangling the crypto library functions from the generic
+crypto infrastructure by moving the arm BLAKE2s, ChaCha, and Poly1305
+library functions into a new directory arch/arm/lib/crypto/ that does
+not depend on CRYPTO.  This mirrors the distinction between crypto/ and
+lib/crypto/.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/arm64/crypto/Kconfig | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ MAINTAINERS                                   |  1 +
+ arch/arm/crypto/Kconfig                       | 23 ----------------
+ arch/arm/crypto/Makefile                      | 14 +---------
+ arch/arm/lib/Makefile                         |  2 ++
+ arch/arm/lib/crypto/.gitignore                |  2 ++
+ arch/arm/lib/crypto/Kconfig                   | 24 +++++++++++++++++
+ arch/arm/lib/crypto/Makefile                  | 26 +++++++++++++++++++
+ arch/arm/{ => lib}/crypto/blake2s-core.S      |  0
+ arch/arm/{ => lib}/crypto/blake2s-glue.c      |  0
+ arch/arm/{ => lib}/crypto/chacha-glue.c       |  0
+ arch/arm/{ => lib}/crypto/chacha-neon-core.S  |  0
+ .../arm/{ => lib}/crypto/chacha-scalar-core.S |  0
+ arch/arm/{ => lib}/crypto/poly1305-armv4.pl   |  0
+ arch/arm/{ => lib}/crypto/poly1305-glue.c     |  0
+ lib/crypto/Kconfig                            |  6 +++++
+ 15 files changed, 62 insertions(+), 36 deletions(-)
+ create mode 100644 arch/arm/lib/crypto/.gitignore
+ create mode 100644 arch/arm/lib/crypto/Kconfig
+ create mode 100644 arch/arm/lib/crypto/Makefile
+ rename arch/arm/{ => lib}/crypto/blake2s-core.S (100%)
+ rename arch/arm/{ => lib}/crypto/blake2s-glue.c (100%)
+ rename arch/arm/{ => lib}/crypto/chacha-glue.c (100%)
+ rename arch/arm/{ => lib}/crypto/chacha-neon-core.S (100%)
+ rename arch/arm/{ => lib}/crypto/chacha-scalar-core.S (100%)
+ rename arch/arm/{ => lib}/crypto/poly1305-armv4.pl (100%)
+ rename arch/arm/{ => lib}/crypto/poly1305-glue.c (100%)
 
-diff --git a/arch/arm64/crypto/Kconfig b/arch/arm64/crypto/Kconfig
-index 7c2f63f2e3072..704d0b7e1d137 100644
---- a/arch/arm64/crypto/Kconfig
-+++ b/arch/arm64/crypto/Kconfig
-@@ -135,11 +135,11 @@ config CRYPTO_AES_ARM64
+diff --git a/MAINTAINERS b/MAINTAINERS
+index a2604c13f11b4..d0d1968e323aa 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -6286,10 +6286,11 @@ S:	Maintained
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git
+ T:	git git://git.kernel.org/pub/scm/linux/kernel/git/herbert/crypto-2.6.git
+ F:	Documentation/crypto/
+ F:	Documentation/devicetree/bindings/crypto/
+ F:	arch/*/crypto/
++F:	arch/*/lib/crypto/
+ F:	crypto/
+ F:	drivers/crypto/
+ F:	include/crypto/
+ F:	include/linux/crypto*
+ F:	lib/crypto/
+diff --git a/arch/arm/crypto/Kconfig b/arch/arm/crypto/Kconfig
+index 3530e7c80793a..1f889d6bab77d 100644
+--- a/arch/arm/crypto/Kconfig
++++ b/arch/arm/crypto/Kconfig
+@@ -44,28 +44,10 @@ config CRYPTO_NHPOLY1305_NEON
+ 	  NHPoly1305 hash function (Adiantum)
  
- 	  Architecture: arm64
- 
- config CRYPTO_AES_ARM64_CE
- 	tristate "Ciphers: AES (ARMv8 Crypto Extensions)"
--	depends on ARM64 && KERNEL_MODE_NEON
-+	depends on KERNEL_MODE_NEON
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_LIB_AES
- 	help
- 	  Block ciphers: AES cipher algorithms (FIPS-197)
- 
-@@ -252,11 +252,11 @@ config CRYPTO_SM4_ARM64_NEON_BLK
- 	  Architecture: arm64 using:
+ 	  Architecture: arm using:
  	  - NEON (Advanced SIMD) extensions
  
- config CRYPTO_AES_ARM64_CE_CCM
- 	tristate "AEAD cipher: AES in CCM mode (ARMv8 Crypto Extensions)"
--	depends on ARM64 && KERNEL_MODE_NEON
-+	depends on KERNEL_MODE_NEON
- 	select CRYPTO_ALGAPI
- 	select CRYPTO_AES_ARM64_CE
- 	select CRYPTO_AES_ARM64_CE_BLK
- 	select CRYPTO_AEAD
- 	select CRYPTO_LIB_AES
+-config CRYPTO_POLY1305_ARM
+-	tristate
+-	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+-	default CRYPTO_LIB_POLY1305_INTERNAL
+-
+-config CRYPTO_BLAKE2S_ARM
+-	bool "Hash functions: BLAKE2s"
+-	select CRYPTO_ARCH_HAVE_LIB_BLAKE2S
+-	help
+-	  BLAKE2s cryptographic hash function (RFC 7693)
+-
+-	  Architecture: arm
+-
+-	  This is faster than the generic implementations of BLAKE2s and
+-	  BLAKE2b, but slower than the NEON implementation of BLAKE2b.
+-	  There is no NEON implementation of BLAKE2s, since NEON doesn't
+-	  really help with it.
+-
+ config CRYPTO_BLAKE2B_NEON
+ 	tristate "Hash functions: BLAKE2b (NEON)"
+ 	depends on KERNEL_MODE_NEON
+ 	select CRYPTO_BLAKE2B
+ 	help
+@@ -204,12 +186,7 @@ config CRYPTO_AES_ARM_CE
+ 	     and IEEE 1619)
+ 
+ 	  Architecture: arm using:
+ 	  - ARMv8 Crypto Extensions
+ 
+-config CRYPTO_CHACHA20_NEON
+-	tristate
+-	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+-	default CRYPTO_LIB_CHACHA_INTERNAL
+-
+ endmenu
+ 
+diff --git a/arch/arm/crypto/Makefile b/arch/arm/crypto/Makefile
+index 3d0e23ff9e746..ecabe6603e080 100644
+--- a/arch/arm/crypto/Makefile
++++ b/arch/arm/crypto/Makefile
+@@ -7,14 +7,11 @@ obj-$(CONFIG_CRYPTO_AES_ARM) += aes-arm.o
+ obj-$(CONFIG_CRYPTO_AES_ARM_BS) += aes-arm-bs.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM) += sha1-arm.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM_NEON) += sha1-arm-neon.o
+ obj-$(CONFIG_CRYPTO_SHA256_ARM) += sha256-arm.o
+ obj-$(CONFIG_CRYPTO_SHA512_ARM) += sha512-arm.o
+-obj-$(CONFIG_CRYPTO_BLAKE2S_ARM) += libblake2s-arm.o
+ obj-$(CONFIG_CRYPTO_BLAKE2B_NEON) += blake2b-neon.o
+-obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
+-obj-$(CONFIG_CRYPTO_POLY1305_ARM) += poly1305-arm.o
+ obj-$(CONFIG_CRYPTO_NHPOLY1305_NEON) += nhpoly1305-neon.o
+ obj-$(CONFIG_CRYPTO_CURVE25519_NEON) += curve25519-neon.o
+ 
+ obj-$(CONFIG_CRYPTO_AES_ARM_CE) += aes-arm-ce.o
+ obj-$(CONFIG_CRYPTO_SHA1_ARM_CE) += sha1-arm-ce.o
+@@ -27,34 +24,25 @@ sha1-arm-y	:= sha1-armv4-large.o sha1_glue.o
+ sha1-arm-neon-y	:= sha1-armv7-neon.o sha1_neon_glue.o
+ sha256-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha256_neon_glue.o
+ sha256-arm-y	:= sha256-core.o sha256_glue.o $(sha256-arm-neon-y)
+ sha512-arm-neon-$(CONFIG_KERNEL_MODE_NEON) := sha512-neon-glue.o
+ sha512-arm-y	:= sha512-core.o sha512-glue.o $(sha512-arm-neon-y)
+-libblake2s-arm-y:= blake2s-core.o blake2s-glue.o
+ blake2b-neon-y  := blake2b-neon-core.o blake2b-neon-glue.o
+ sha1-arm-ce-y	:= sha1-ce-core.o sha1-ce-glue.o
+ sha2-arm-ce-y	:= sha2-ce-core.o sha2-ce-glue.o
+ aes-arm-ce-y	:= aes-ce-core.o aes-ce-glue.o
+ ghash-arm-ce-y	:= ghash-ce-core.o ghash-ce-glue.o
+-chacha-neon-y := chacha-scalar-core.o chacha-glue.o
+-chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
+-poly1305-arm-y := poly1305-core.o poly1305-glue.o
+ nhpoly1305-neon-y := nh-neon-core.o nhpoly1305-neon-glue.o
+ curve25519-neon-y := curve25519-core.o curve25519-glue.o
+ 
+ quiet_cmd_perl = PERL    $@
+       cmd_perl = $(PERL) $(<) > $(@)
+ 
+ $(obj)/%-core.S: $(src)/%-armv4.pl
+ 	$(call cmd,perl)
+ 
+-clean-files += poly1305-core.S sha256-core.S sha512-core.S
++clean-files += sha256-core.S sha512-core.S
+ 
+ aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
+ 
+ AFLAGS_sha256-core.o += $(aflags-thumb2-y)
+ AFLAGS_sha512-core.o += $(aflags-thumb2-y)
+-
+-# massage the perlasm code a bit so we only get the NEON routine if we need it
+-poly1305-aflags-$(CONFIG_CPU_V7) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=5
+-poly1305-aflags-$(CONFIG_KERNEL_MODE_NEON) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=7
+-AFLAGS_poly1305-core.o += $(poly1305-aflags-y) $(aflags-thumb2-y)
+diff --git a/arch/arm/lib/Makefile b/arch/arm/lib/Makefile
+index 007874320937d..39ffabd3cf2a2 100644
+--- a/arch/arm/lib/Makefile
++++ b/arch/arm/lib/Makefile
+@@ -3,10 +3,12 @@
+ # linux/arch/arm/lib/Makefile
+ #
+ # Copyright (C) 1995-2000 Russell King
+ #
+ 
++obj-y += crypto/
++
+ lib-y		:= changebit.o csumipv6.o csumpartial.o               \
+ 		   csumpartialcopy.o csumpartialcopyuser.o clearbit.o \
+ 		   delay.o delay-loop.o findbit.o memchr.o memcpy.o   \
+ 		   memmove.o memset.o setbit.o                        \
+ 		   strchr.o strrchr.o                                 \
+diff --git a/arch/arm/lib/crypto/.gitignore b/arch/arm/lib/crypto/.gitignore
+new file mode 100644
+index 0000000000000..0d47d4f21c6de
+--- /dev/null
++++ b/arch/arm/lib/crypto/.gitignore
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++poly1305-core.S
+diff --git a/arch/arm/lib/crypto/Kconfig b/arch/arm/lib/crypto/Kconfig
+new file mode 100644
+index 0000000000000..181f138d563b6
+--- /dev/null
++++ b/arch/arm/lib/crypto/Kconfig
+@@ -0,0 +1,24 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++config CRYPTO_BLAKE2S_ARM
++	bool "Hash functions: BLAKE2s"
++	select CRYPTO_ARCH_HAVE_LIB_BLAKE2S
++	help
++	  BLAKE2s cryptographic hash function (RFC 7693)
++
++	  Architecture: arm
++
++	  This is faster than the generic implementations of BLAKE2s and
++	  BLAKE2b, but slower than the NEON implementation of BLAKE2b.
++	  There is no NEON implementation of BLAKE2s, since NEON doesn't
++	  really help with it.
++
++config CRYPTO_CHACHA20_NEON
++	tristate
++	default CRYPTO_LIB_CHACHA_INTERNAL
++	select CRYPTO_ARCH_HAVE_LIB_CHACHA
++
++config CRYPTO_POLY1305_ARM
++	tristate
++	default CRYPTO_LIB_POLY1305_INTERNAL
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/arch/arm/lib/crypto/Makefile b/arch/arm/lib/crypto/Makefile
+new file mode 100644
+index 0000000000000..4c042a4c77ed6
+--- /dev/null
++++ b/arch/arm/lib/crypto/Makefile
+@@ -0,0 +1,26 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_CRYPTO_BLAKE2S_ARM) += libblake2s-arm.o
++libblake2s-arm-y := blake2s-core.o blake2s-glue.o
++
++obj-$(CONFIG_CRYPTO_CHACHA20_NEON) += chacha-neon.o
++chacha-neon-y := chacha-scalar-core.o chacha-glue.o
++chacha-neon-$(CONFIG_KERNEL_MODE_NEON) += chacha-neon-core.o
++
++obj-$(CONFIG_CRYPTO_POLY1305_ARM) += poly1305-arm.o
++poly1305-arm-y := poly1305-core.o poly1305-glue.o
++
++quiet_cmd_perl = PERL    $@
++      cmd_perl = $(PERL) $(<) > $(@)
++
++$(obj)/%-core.S: $(src)/%-armv4.pl
++	$(call cmd,perl)
++
++clean-files += poly1305-core.S
++
++aflags-thumb2-$(CONFIG_THUMB2_KERNEL)  := -U__thumb2__ -D__thumb2__=1
++
++# massage the perlasm code a bit so we only get the NEON routine if we need it
++poly1305-aflags-$(CONFIG_CPU_V7) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=5
++poly1305-aflags-$(CONFIG_KERNEL_MODE_NEON) := -U__LINUX_ARM_ARCH__ -D__LINUX_ARM_ARCH__=7
++AFLAGS_poly1305-core.o += $(poly1305-aflags-y) $(aflags-thumb2-y)
+diff --git a/arch/arm/crypto/blake2s-core.S b/arch/arm/lib/crypto/blake2s-core.S
+similarity index 100%
+rename from arch/arm/crypto/blake2s-core.S
+rename to arch/arm/lib/crypto/blake2s-core.S
+diff --git a/arch/arm/crypto/blake2s-glue.c b/arch/arm/lib/crypto/blake2s-glue.c
+similarity index 100%
+rename from arch/arm/crypto/blake2s-glue.c
+rename to arch/arm/lib/crypto/blake2s-glue.c
+diff --git a/arch/arm/crypto/chacha-glue.c b/arch/arm/lib/crypto/chacha-glue.c
+similarity index 100%
+rename from arch/arm/crypto/chacha-glue.c
+rename to arch/arm/lib/crypto/chacha-glue.c
+diff --git a/arch/arm/crypto/chacha-neon-core.S b/arch/arm/lib/crypto/chacha-neon-core.S
+similarity index 100%
+rename from arch/arm/crypto/chacha-neon-core.S
+rename to arch/arm/lib/crypto/chacha-neon-core.S
+diff --git a/arch/arm/crypto/chacha-scalar-core.S b/arch/arm/lib/crypto/chacha-scalar-core.S
+similarity index 100%
+rename from arch/arm/crypto/chacha-scalar-core.S
+rename to arch/arm/lib/crypto/chacha-scalar-core.S
+diff --git a/arch/arm/crypto/poly1305-armv4.pl b/arch/arm/lib/crypto/poly1305-armv4.pl
+similarity index 100%
+rename from arch/arm/crypto/poly1305-armv4.pl
+rename to arch/arm/lib/crypto/poly1305-armv4.pl
+diff --git a/arch/arm/crypto/poly1305-glue.c b/arch/arm/lib/crypto/poly1305-glue.c
+similarity index 100%
+rename from arch/arm/crypto/poly1305-glue.c
+rename to arch/arm/lib/crypto/poly1305-glue.c
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index 2c6ab80e0cdc4..59135009e4f02 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -153,6 +153,12 @@ config CRYPTO_LIB_SHA256
+ 	tristate
+ 
+ config CRYPTO_LIB_SM3
+ 	tristate
+ 
++if !KMSAN # avoid false positives from assembly
++if ARM
++source "arch/arm/lib/crypto/Kconfig"
++endif
++endif
++
+ endmenu
 -- 
 2.49.0
 
