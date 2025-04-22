@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20B91C369C2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37522C369D7
 	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 09:47:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=x5uBqadZ1/dNd5FA6RfLl4zXSsTPpTucWbiPswwkVN8=; b=FtekVhnCw30oh4
-	rA+t1/PRcjW0KpUsW3LiSzxfIJXo15GNNTmxVOldWc7PzrUCNNXnX7QR5ceZoBi4i5XTvqeNxlU6x
-	AnemisX1Vz2hlYY9LcfGBjNZsBwfxkHSKEcRA40hPWJtYExgtD0EVJmfgPwIf6yzXH38675OKr2b3
-	QUhe8Yjhb3Ltfmsy1ON7/6lAOYUXRbfK+e+VGsIYDOhXxMJzBYIen8SyBLJH26mXcxZzeebCBfXst
-	56I1VUpV+TlawJUa/otg4dyciXpdg2g5FhkO7e9s7WCLumot6bAI2ZseMhYSKKZtWlrtgNQhCfEH5
-	PUDTXdh8t110xfmeb7+g==;
+	List-Owner; bh=3G69vOLWCRc5L4cuKKoDHhv0lp2W6JceNyecTLRz7ys=; b=aC21IUFMJUTufx
+	TM5bqU3ZMmk6QMDrFAVIVUFY9I//75mvqETiO8BhL1CB8kvg6PB0DgffdxC/IyQfv+bLSlqeaI+A7
+	P+EIUPp0fSmGVMF3GCex30cESGEs3IvSQZcCmbQkdLw2mfszfGj4Vnz8rwcg26DjcFafkTgcIQKHK
+	KLWbAD/vsWDoMkrBG1i1byHcUgXg7MzGWgkORadNxjLM81pbOEQw1FWYi4kgOCxv/mPY2gm7+lsyd
+	2aUmM61rEwtNtJ82zRhSSLrTiGeNTU59mGeh9pYDB0vdJAICabhtxardDMaMNzRDZTkZllldxZFbe
+	vYD7WZpxNxiCl5TYyxqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7AEJ-00000006cAN-1Hj7;
+	id 1u7AEJ-00000006cAv-46eA;
 	Tue, 22 Apr 2025 09:47:51 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u79Cw-00000006OdI-1FQG
+	id 1u79D2-00000006OfL-05bD
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 08:42:23 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-736b98acaadso4524264b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Apr 2025 01:42:21 -0700 (PDT)
+	Tue, 22 Apr 2025 08:42:29 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-225477548e1so47021145ad.0
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Apr 2025 01:42:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1745311341; x=1745916141; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1745311347; x=1745916147; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+kd2q5FNIM78jM5HghPwsl1jyBcissy+tuMihRdmdhE=;
-        b=YAZlCki8Ia1AFqjm9k6AEMWJYvxTijF2dxvqVv7eB1VebnTOwgkoQX8NFiynBcDhBz
-         BN9Y1mavbv3lAK9K3Yov0KdQOyMIkl4Lz2gtFLSh3MTai3q9XVDwNSqyHr7A1FhM0npE
-         3MxSkXHqRX+OLeI1CSd7T9EEg7DSRreZs3Ad4ABTaes8PEztPo5vp3XEDIxphGLx/MTZ
-         EOtXE5BVHvWR0QZEzSQjSkfpIx39Y2lFtLCwXOjEAsw6RiZNUPHfflti4yZDeFcmM1Cr
-         h7TIf6+ueqefjsH8Wipc/mLeFV+5OIJZUv1OeAX+ZSQCiqZjOaaVIuaPO6EJA86JOIAd
-         YTOw==
+        bh=89q5KIPhl5BwNYn6HnfG+6c7PCM/cs0DxATEzoR1SG4=;
+        b=MD4D+tLGF3Uj5iwJNgfShA82CAret3V8CP0YEgPxCwDhcejA7Tr0CLAss4N/6R75UD
+         qsmSIRaop2tlkoshCT9xDgUfzgLMJBp3CdXJCQM5/SEXnBIfaA8Xt62IuH/alzNFbVtH
+         HJc1ckqPO8xOoU6Ahx020y2es5Le9mGQ/D1OMtzH8bHh85QvVutOCs/B+eJrn0YKuMtt
+         A2D85cVcQLG+5zXATOAwGcZrgasw5A8HH+qdW6F+iAOiqWIatb6ktA8bdQr0NWDpBVKV
+         yL8cnDp7HNHVVxGNVaTaivvLEYT6uX63Me7R/wunZQ4BP4TuvwCaiiNKit8/R1GvC32a
+         +4EQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745311341; x=1745916141;
+        d=1e100.net; s=20230601; t=1745311347; x=1745916147;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+kd2q5FNIM78jM5HghPwsl1jyBcissy+tuMihRdmdhE=;
-        b=eRaWkm9PZvUhh0ceB3p/2DTfyBzP4uoelsTmtsTHv/PYUk5bu6mxv35lfpr6t0J0SJ
-         QDU1cAqL3h+Du9SJo34KdHU7CvLV2zzzHi9pY1De6LLl6Vn4W1WmEKaZpneQYJ1Z9oaj
-         a99Wtg7VVORN5fyWkD/MRL86dEJPkm38oJxZOsHKoCYk96RDrMPqUmP1sWVbe9ejT0Q7
-         bHtiK9IPgKON134V4YYbvq/TkPE+unPfdS0zEAbcxnaRp2gNnopqMIzmqECjrZeKSatC
-         uOuNnRB9joJjaPv45BLm+8stSjPMJjeAQdeO9yQEXUXWhFpJ4b5gsxitsppXKeKtOmoY
-         U9eA==
-X-Gm-Message-State: AOJu0YyLXhxqILafIKUiR40Z4SzzP2he1zw2SQCOXkXENZDAueuXIhK2
-	YVIxK1XLfMJ0W0zfSqvTOzaMuu6tNua1+Qe7ZTM2agZ8f8gB5elfbqy/OtHgr3Y=
-X-Gm-Gg: ASbGncsG3PkeKmFZERe4Oguhx2MqfOXSP6p+Z2n7XuCM19EbAdB2bbsEFIvQSH/xTj/
-	HKxCdT9IunUs1H86LC0vI9wwb9Or0tv/UAN4tjP4i62B0G0zo4aK1lvntO7MG7xh+Y2WLpQtGh/
-	6m6vFGO/S8a6hgTJd5PHVJa7FWPCnnednrhMjNgMsG5/WtiXS9+pMA6rEpteq2+DjSdVffo6few
-	/odXJf2LKED2djv427dt5rxSgLq1DuPe4Y7g+Ab1+aucI9c7CSIm3qPaIbDHmuqpL+a8IiFfHfV
-	y1YiFM2xbsNvTkXYd9lE202CasEWvc7T2b4bvQ7kjrNs8+BbvdB1hTcSfCpN8h/Oz4Ihcp1PChr
-	5nQ==
-X-Google-Smtp-Source: AGHT+IFXZZ39jj72YYhr/K/5oJ3Ngnd4eF5Q61F34OsaTVnM0ysvTXVv8micdw2peLTPVFWC++GWNQ==
-X-Received: by 2002:a05:6a20:9f07:b0:1ee:e96a:d9ed with SMTP id adf61e73a8af0-203cbc251cbmr24313065637.7.1745311341488;
-        Tue, 22 Apr 2025 01:42:21 -0700 (PDT)
+        bh=89q5KIPhl5BwNYn6HnfG+6c7PCM/cs0DxATEzoR1SG4=;
+        b=n2Qm9wO0iQ0lwiJngY3kwQWn3NuPipc/VxgDoWyB/Ib+Gwfoacvzai/4AWBgT5fOx9
+         blISiV8DNLSmyfD3RGUWqbNZM3zSP3HCsFstkGaYNgBncrq1hJFJsiJKp7WjqIyj/VUY
+         8jPtAlrq23Rja4KSm/+Ejrg/NwGFz4jj/DxoKh/kzVM4QiNvYLcfF5LyEnwvQxW0/mXv
+         zrvW8WWI5w0IWFwqGh3OdHM8YYEISqr84l+/85yF21aNXiooefkyuTqmW3BSMuh9h+eu
+         HPyTnKAMuFhP7dbCX8hoOi6UKE8oAe4dm9bvHcDBFXOX2UpAwo8fLro/vz40ufTL9MkI
+         IhVA==
+X-Gm-Message-State: AOJu0Yytb2ZMpGR8ejS0R6DXxSOnsM9u1DRM/LEgOYpi+A6r7cs7qj8j
+	l8XklQF8Y4d/7xL+bpDsQtX9AIGUFmgpJeNL9TdZGMsZ1trMGcFApSvbnPWffMg=
+X-Gm-Gg: ASbGnctUHDHpDbHCNmwLmgR7RybG867helEeNSi4s3yjbeUeADYtGGiYAZY9cYufUe6
+	n3qP9XuguF1wLDbpXkH+89OzZ2yKMIxgeKVBB9Ua8kamzr/LX3U9xj/hbTNP2qtyoBXPHnN5+ai
+	+TWI8IHrnSizYYS169E8/HSpfEvrflSORy0Ykfk/THR4d9GcEFskRTMw4aZjgLJ0zucB8uTMD50
+	QUYYAAyuOxer1hPQbaBv+y4RNpXE0cmZf10QBF0LviK/CV2sUXfTJ+Dwee/WXLiRY78IlyMgVPy
+	p10HDPs+VIR78NoZJcw4AYiE8iGjbI4S6fjUDDpa1oWuKBRRXZX4EjatVhfFeHll91lFDyyvDQR
+	1ZQ==
+X-Google-Smtp-Source: AGHT+IG6i6LASvzQIRsj01arYQDJviqBEn/oP/EmdDE8D+TJPVgUwa41kw2BKL7zCVHOsNc3CK8D2g==
+X-Received: by 2002:a17:902:cf07:b0:220:f140:f7be with SMTP id d9443c01a7336-22c53601243mr243185875ad.41.1745311347173;
+        Tue, 22 Apr 2025 01:42:27 -0700 (PDT)
 Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf90d7f7sm8038343b3a.82.2025.04.22.01.42.18
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf90d7f7sm8038343b3a.82.2025.04.22.01.42.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 01:42:21 -0700 (PDT)
+        Tue, 22 Apr 2025 01:42:26 -0700 (PDT)
 From: Nylon Chen <nylon.chen@sifive.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -83,16 +83,16 @@ Cc: linux-riscv@lists.infradead.org,
 	linux-pwm@vger.kernel.org,
 	Nylon Chen <nylon.chen@sifive.com>,
 	Zong Li <zong.li@sifive.com>
-Subject: [PATCH v12 4/5] pwm: sifive: Fix rounding issues in apply and get_state functions
-Date: Tue, 22 Apr 2025 16:53:11 +0800
-Message-Id: <20250422085312.812877-5-nylon.chen@sifive.com>
+Subject: [PATCH v12 5/5] pwm: sifive: clarify inverted compare logic in comments
+Date: Tue, 22 Apr 2025 16:53:12 +0800
+Message-Id: <20250422085312.812877-6-nylon.chen@sifive.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250422085312.812877-1-nylon.chen@sifive.com>
 References: <20250422085312.812877-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_014222_363982_93DFCA90 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250422_014228_189276_6AF14954 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,47 +109,71 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Fix PWM apply and get_state rounding to ensure consistency between
-setting and reading values
-
-This fixes the reported errors:
-pwm-sifive 10021000.pwm: .apply is supposed to round down
-duty_cycle (requested: 360/504000, applied: 361/504124)
-pwm-sifive 10021000.pwm: .apply is supposed to round down
-period (requested: 504000, applied: 504124)
+The reference manual says "pwms >= pwmcmpX -> HIGH", but in Figure 29 pwmcmpXcenter
+is forced to 0 via an XOR, so hardware actually outputs HIGH when pwms < pwmcmpX.
+Thus pwmcmp holds the off-period count, and the driver must invert it
+to expose a normal active-high interface.
 
 Co-developed-by: Zong Li <zong.li@sifive.com>
 Signed-off-by: Zong Li <zong.li@sifive.com>
 Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
 ---
- drivers/pwm/pwm-sifive.c | 7 ++++---
- 1 file changed, 4 insertions(+), 3 deletions(-)
+ drivers/pwm/pwm-sifive.c | 24 +++++++++++++++++++++++-
+ 1 file changed, 23 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-index 6259f8500f71..065d6d2b84bc 100644
+index 065d6d2b84bc..a1f13801bca4 100644
 --- a/drivers/pwm/pwm-sifive.c
 +++ b/drivers/pwm/pwm-sifive.c
-@@ -122,8 +122,8 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 		state->enabled = false;
+@@ -4,11 +4,28 @@
+  * For SiFive's PWM IP block documentation please refer Chapter 14 of
+  * Reference Manual : https://static.dev.sifive.com/FU540-C000-v1.0.pdf
+  *
++ * PWM output inversion: According to the SiFive Reference manual
++ * the output of each comparator is high whenever the value of pwms is
++ * greater than or equal to the corresponding pwmcmpX[Reference Manual].
++ *
++ * Figure 29 in the same manual shows that the pwmcmpXcenter bit is
++ * hard-tied to 0 (XNOR), which effectively inverts the comparison so that
++ * the output goes HIGH when  `pwms < pwmcmpX`.
++ *
++ * In other words, each pwmcmp register actually defines the **inactive**
++ * (low) period of the pulse, not the active time exactly opposite to what
++ * the documentation text implies.
++ *
++ * To compensate, this driver always **inverts** the duty value when reading
++ * or writing pwmcmp registers , so that users interact with a conventional
++ * **active-high** PWM interface.
++ *
++ *
+  * Limitations:
+  * - When changing both duty cycle and period, we cannot prevent in
+  *   software that the output might produce a period with mixed
+  *   settings (new period length and old duty cycle).
+- * - The hardware cannot generate a 100% duty cycle.
++ * - The hardware cannot generate a 0% duty cycle.
+  * - The hardware generates only inverted output.
+  */
+ #include <linux/clk.h>
+@@ -113,6 +130,10 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	u32 duty, val, inactive;
  
- 	state->period = ddata->real_period;
--	state->duty_cycle =
--		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
-+	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty * ddata->real_period,
-+					     (1U << PWM_SIFIVE_CMPWIDTH));
- 	state->polarity = PWM_POLARITY_NORMAL;
+ 	inactive = readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
++	/*
++	 * PWM hardware uses 'inactive' counts in pwmcmp, so invert to get actual duty.
++	 * Here, 'inactive' is the low time and we compute duty as max_count - inactive.
++	 */
+ 	duty = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - inactive;
  
- 	return 0;
-@@ -157,7 +157,8 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	 * consecutively
- 	 */
- 	num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
--	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
-+	frac = num;
-+	do_div(frac, state->period;
+ 	state->enabled = duty > 0;
+@@ -161,6 +182,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	do_div(frac, state->period;
  	/* The hardware cannot generate a 0% duty cycle */
  	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
++	/* pwmcmp register must be loaded with the inactive(invert the duty) */
  	inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
+ 
+ 	mutex_lock(&ddata->lock);
 -- 
 2.34.1
 
