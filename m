@@ -4,55 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 882D1C369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 13:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDD7DC369C2
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 13:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KRXAOJ6CvmCy0o7k+kWXsVo+RtO9pE158V/aVF8qGTU=; b=ZHjZ3qSpb+0sX3
-	umXsVxDD9+0SZGfgTKonWnS17F6/qEIND6YGqVrHDVU3Ezfs47wZWFKpf4Cw3NLxwfpmOwMQ1vBEA
-	oIZBypiZiK5tXC1JP6se9oP/1/j7HZXYGGnU1UDs3t5SmbH+MHYFvZdqu/YvUDgy+waCELdPORSaF
-	UWN/Y8vFv6bYKfqh2Kz1pDZwNMVFLojbOfrOQ8p3m4If5BLN1BBmMQyx2lLQzhlDeOZR90E5bYtwg
-	1uTCmNqHX/z9iu14HNu2ghwb9z5e7HuBG5j2xbWYqK9FnwZmHbgNjuMiL/InmlqFqRi98SySE0ICH
-	KO2cmIeBeZARiKmmesYQ==;
+	List-Owner; bh=kkxkcD//YzNF2BBFSX+7metMOZS5E1VFiKnvKQ8dcAo=; b=RVB4e5tahgh04R
+	D67oqMXok/z6lSizpyPFk0oYjt2BZenjlL7rYUsFkQLSrMxa3IpjfmHEEtRS0n5OMiYL0nw1oiyEo
+	Oo5FDsGqxX0vb7sGwJ2eqLO3cwgUXmnNEkL183nBJ8mZhU0lybWEqcqCJ5M5fQ77P9LXUmNsJae1g
+	tbBX4NH/QTqB4P3DR38b6ouceOfex5I4UVPCuQMxE9W6UrAVYjaFO7EJ47HlmSl0j89+/AlrQoom7
+	4OeVot83o4OBi4yc2D/F+ttEgOUGPNIgtTbjXi7OftOu5ikfsLYb5vJj1WkZgtwsRF8oTPifnbekr
+	KbQIe86omjVDXd7A04TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7DVv-00000007GUP-2NGH;
-	Tue, 22 Apr 2025 13:18:15 +0000
-Received: from relay4-d.mail.gandi.net ([2001:4b98:dc4:8::224])
+	id 1u7DWz-00000007Gnx-1ihi;
+	Tue, 22 Apr 2025 13:19:21 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7CbF-0000000751K-23Eu
+	id 1u7Ci8-0000000769r-0DIg
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 12:19:43 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D5CDA43B53;
-	Tue, 22 Apr 2025 12:19:37 +0000 (UTC)
-Message-ID: <8c6e4773-796b-47a2-97c4-e4504801ba48@ghiti.fr>
-Date: Tue, 22 Apr 2025 14:19:37 +0200
+	Tue, 22 Apr 2025 12:26:49 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-736c1138ae5so4467441b3a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 22 Apr 2025 05:26:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745324807; x=1745929607; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=9WpxPhhtI0tv8acTJTkX27lGaWBDufWmxeLB5TCpcOY=;
+        b=IXOtrdooIjDjemYeET5pFt66BiaP8ApSG+ZDUZqu3zhUugN/ySxtcH6JO6SjVyIjix
+         ZHJ7FddhVZsI9x/uP6QsgORqRvLUMqtOzWOId/XD3SjC/JBepoLUc9TQRWJlIoIzmFJ+
+         1QujJVmN50SD9DyTsefsZKl8BscqxSVgmBxHBp78aIa9AZMGCPgjPQcn/3RxCAMxhXCL
+         jWx85SxP8YP1jBNjTOfb/ADIJvagmQOtKpZvvIvSxZ3qDKSFaf+HH9ki3ig2BrO9amD5
+         prt25D4cQCQrD+cD0q98ezNAyDen+b4kydgVHyTPgUz9CcKbNGyeEYuniBtXqfdWNbmY
+         wlMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745324807; x=1745929607;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9WpxPhhtI0tv8acTJTkX27lGaWBDufWmxeLB5TCpcOY=;
+        b=HGKVSxhKX4B/Ewphoizk9LYmxIL7rMQjtRNvhZfxdsCseWtM2pEF0QP3PelXxA3IB5
+         Evv/LG9Do0bYL7SfHImQjj2ibpvp5My4lB6IWbRovbIXrHbgip9iLtCXyr96+pHPlzpj
+         GDhy6pRzmkm3PVpv+AN3n8/+K7WD+fuEsnn897u5MFEyJL6fowGJ5qPvb6g7xEoN48JC
+         86v3BQ7bHLwJQOTA5ZXheN8W0IWNAyojXYvlgQX2+u+5XD/lrk91307Hq3KlwM1KaZjg
+         tqNOoXvJ1aPjG1mRFPitR5LO1MiH5fUuColLFn3qLztrqX/vzjpVEMWRZnMIYExDOKOl
+         Yl9A==
+X-Forwarded-Encrypted: i=1; AJvYcCUJ+fK+GomiFVgCybLhZ+KvArM2PQzSqAU2DzSq2bpdakDARW+5gUHrC7xpPL6Tx7Je+4xhOoKGcw0ILQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAoDIJQwwqgDmM4WkpZkZvBVJZYXTqxMkJGgkPhoaGcEsZZaiR
+	ZojLAQ+FWRzpqU3uBtv+WtWyBScha8YSgWsf0URZyCOhD5QBW2QAEnzktJELSCw=
+X-Gm-Gg: ASbGncuhdbeJIGa9rwYTuEKST+SbINovtNF7/XnWJ9X/Lpf5NBbdWwihuQnl1bg4Z7U
+	rZvYBY/IGGxy00P6s8w2wgB3qBO0MQj5ckmB8gJ1ZxlBLmG4mIXCIj0O/Ys2+vbcHeqIdS6b0vx
+	sFcEYwRzF+mJkSJSxaJVmDh3tb38P1OkE4qmSqWUEIwbfkbqQDctFvmJOI80DWB7vV23/xsQLyW
+	PmO7x7Qvn+cTxv2JLtaH9fVf74Fot6Qpb4UDwAJUp66xp3pg1ik3gIAl7ayYJkptFRasFjJMDzR
+	g0MQSEFA9kKsV/IpHM+fq9qJ9xdsWVK+HMsacJ2oKFXAbd/mujvYsANNLMkTw4+6WjWcbiIu1YA
+	Lhx+Li7ST3A==
+X-Google-Smtp-Source: AGHT+IE0G/bhySn5dFs4NG10U9hH5GrpSnoHbsOXXW2kvsx0u/k+6aJGLwWHt3Ba28Q1C2PZqy1syQ==
+X-Received: by 2002:a05:6a20:12cd:b0:1f5:92ac:d6b7 with SMTP id adf61e73a8af0-203cbc05557mr22264643637.4.1745324807191;
+        Tue, 22 Apr 2025 05:26:47 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73dbf8beb00sm8735522b3a.14.2025.04.22.05.26.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 22 Apr 2025 05:26:46 -0700 (PDT)
+Message-ID: <4b950430-6f12-4b4d-a516-e09a38b83ff0@rivosinc.com>
+Date: Tue, 22 Apr 2025 14:26:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/5] riscv: uaccess: use 'asm_goto_output' for
- get_user()
+Subject: Re: [PATCH] riscv: hwprobe: export Zabha extension
+To: Alexandre Ghiti <alexghiti@rivosinc.com>, Jonathan Corbet
+ <corbet@lwn.net>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>,
+ linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250421141413.394444-1-alexghiti@rivosinc.com>
 Content-Language: en-US
-To: Cyril Bur <cyrilbur@tenstorrent.com>, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
- jrtc27@jrtc27.com, ben.dooks@codethink.co.uk
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- jszhang@kernel.org
-References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
- <20250410070526.3160847-6-cyrilbur@tenstorrent.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250410070526.3160847-6-cyrilbur@tenstorrent.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeefjedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeetvdffkedvjeefkeegfefgteffleeltefggfdvheekfffhfeeghfeffffhtdelvdenucffohhmrghinhepghhnuhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmeelfhgsvgemvddtvgefmedvfhgtfeemkeguudelngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedutddprhgtphhtthhopegthihrihhlsghurhesthgvnhhsthhorhhrvghnthdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhus
- egvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepjhhrthgtvdejsehjrhhttgdvjedrtghomhdprhgtphhtthhopegsvghnrdguohhokhhssegtohguvghthhhinhhkrdgtohdruhhkpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <20250421141413.394444-1-alexghiti@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_051941_670864_B380656B 
-X-CRM114-Status: GOOD (  15.84  )
+X-CRM114-CacheID: sfid-20250422_052648_350061_BB2EBAD4 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,216 +97,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 10/04/2025 09:05, Cyril Bur wrote:
-> From: Jisheng Zhang <jszhang@kernel.org>
->
-> With 'asm goto' we don't need to test the error etc, the exception just
-> jumps to the error handling directly.
->
-> Unlike put_user(), get_user() must work around GCC bugs [1] when using
-> output clobbers in an asm goto statement.
->
-> Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=113921 # 1
->
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
-> [Cyril Bur: Rewritten commit message]
-> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
-> ---
->   arch/riscv/include/asm/uaccess.h | 95 +++++++++++++++++++++++---------
->   1 file changed, 68 insertions(+), 27 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-> index 719c9179a751..87d01168f80a 100644
-> --- a/arch/riscv/include/asm/uaccess.h
-> +++ b/arch/riscv/include/asm/uaccess.h
-> @@ -96,27 +96,58 @@ static inline unsigned long __untagged_addr_remote(struct mm_struct *mm, unsigne
->    * call.
->    */
->   
-> -#define __get_user_asm(insn, x, ptr, err)			\
-> +#ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-> +#define __get_user_asm(insn, x, ptr, label)			\
-> +	asm_goto_output(					\
-> +		"1:\n"						\
-> +		"	" insn " %0, %1\n"			\
-> +		_ASM_EXTABLE_UACCESS_ERR(1b, %l2, %0)		\
-> +		: "=&r" (x)					\
-> +		: "m" (*(ptr)) : : label)
-> +#else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
-> +#define __get_user_asm(insn, x, ptr, label)			\
->   do {								\
-> -	__typeof__(x) __x;					\
-> +	long __gua_err = 0;					\
->   	__asm__ __volatile__ (					\
->   		"1:\n"						\
->   		"	" insn " %1, %2\n"			\
->   		"2:\n"						\
->   		_ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 2b, %0, %1)	\
-> -		: "+r" (err), "=&r" (__x)			\
-> +		: "+r" (__gua_err), "=&r" (x)			\
->   		: "m" (*(ptr)));				\
-> -	(x) = __x;						\
-> +	if (__gua_err)						\
-> +		goto label;					\
->   } while (0)
-> +#endif /* CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
->   
->   #ifdef CONFIG_64BIT
-> -#define __get_user_8(x, ptr, err) \
-> -	__get_user_asm("ld", x, ptr, err)
-> +#define __get_user_8(x, ptr, label) \
-> +	__get_user_asm("ld", x, ptr, label)
->   #else /* !CONFIG_64BIT */
-> -#define __get_user_8(x, ptr, err)				\
-> +
-> +#ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
-> +#define __get_user_8(x, ptr, label)				\
-> +	u32 __user *__ptr = (u32 __user *)(ptr);		\
-> +	u32 __lo, __hi;						\
-> +	asm_goto_output(					\
-> +		"1:\n"						\
-> +		"	lw %0, %2\n"				\
-> +		"2:\n"						\
-> +		"	lw %1, %3\n"				\
-> +		_ASM_EXTABLE_UACCESS_ERR(1b, %l4, %0)		\
-> +		_ASM_EXTABLE_UACCESS_ERR(2b, %l4, %0)		\
-> +		: "=&r" (__lo), "=r" (__hi)			\
-> +		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW])	\
-> +		: : label);                                     \
-> +	(x) = (__typeof__(x))((__typeof__((x) - (x)))(		\
-> +		(((u64)__hi << 32) | __lo)));			\
-> +
-> +#else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
-> +#define __get_user_8(x, ptr, label)				\
->   do {								\
->   	u32 __user *__ptr = (u32 __user *)(ptr);		\
->   	u32 __lo, __hi;						\
-> +	long __gu8_err = 0;					\
->   	__asm__ __volatile__ (					\
->   		"1:\n"						\
->   		"	lw %1, %3\n"				\
-> @@ -125,35 +156,51 @@ do {								\
->   		"3:\n"						\
->   		_ASM_EXTABLE_UACCESS_ERR_ZERO(1b, 3b, %0, %1)	\
->   		_ASM_EXTABLE_UACCESS_ERR_ZERO(2b, 3b, %0, %1)	\
-> -		: "+r" (err), "=&r" (__lo), "=r" (__hi)		\
-> +		: "+r" (__gu8_err), "=&r" (__lo), "=r" (__hi)	\
->   		: "m" (__ptr[__LSW]), "m" (__ptr[__MSW]));	\
-> -	if (err)						\
-> +	if (__gu8_err) {					\
->   		__hi = 0;					\
-> -	(x) = (__typeof__(x))((__typeof__((x)-(x)))(		\
-> +		goto label;					\
-> +	}							\
-> +	(x) = (__typeof__(x))((__typeof__((x) - (x)))(		\
->   		(((u64)__hi << 32) | __lo)));			\
->   } while (0)
-> +#endif /* CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
-> +
->   #endif /* CONFIG_64BIT */
->   
-> -#define __get_user_nocheck(x, __gu_ptr, __gu_err)		\
-> +#define __get_user_nocheck(x, __gu_ptr, label)			\
->   do {								\
->   	switch (sizeof(*__gu_ptr)) {				\
->   	case 1:							\
-> -		__get_user_asm("lb", (x), __gu_ptr, __gu_err);	\
-> +		__get_user_asm("lb", (x), __gu_ptr, label);	\
->   		break;						\
->   	case 2:							\
-> -		__get_user_asm("lh", (x), __gu_ptr, __gu_err);	\
-> +		__get_user_asm("lh", (x), __gu_ptr, label);	\
->   		break;						\
->   	case 4:							\
-> -		__get_user_asm("lw", (x), __gu_ptr, __gu_err);	\
-> +		__get_user_asm("lw", (x), __gu_ptr, label);	\
->   		break;						\
->   	case 8:							\
-> -		__get_user_8((x), __gu_ptr, __gu_err);	\
-> +		__get_user_8((x), __gu_ptr, label);		\
->   		break;						\
->   	default:						\
->   		BUILD_BUG();					\
->   	}							\
->   } while (0)
->   
-> +#define __get_user_error(x, ptr, err)					\
-> +do {									\
-> +	__label__ __gu_failed;						\
-> +									\
-> +	__get_user_nocheck(x, ptr, __gu_failed);			\
-> +		err = 0;						\
-> +		break;							\
-> +__gu_failed:								\
-> +		x = 0;							\
-> +		err = -EFAULT;						\
-> +} while (0)
-> +
->   /**
->    * __get_user: - Get a simple variable from user space, with less checking.
->    * @x:   Variable to store result.
-> @@ -178,13 +225,16 @@ do {								\
->   ({								\
->   	const __typeof__(*(ptr)) __user *__gu_ptr = untagged_addr(ptr); \
->   	long __gu_err = 0;					\
-> +	__typeof__(x) __gu_val;					\
->   								\
->   	__chk_user_ptr(__gu_ptr);				\
->   								\
->   	__enable_user_access();					\
-> -	__get_user_nocheck(x, __gu_ptr, __gu_err);		\
-> +	__get_user_error(__gu_val, __gu_ptr, __gu_err);		\
->   	__disable_user_access();				\
->   								\
-> +	(x) = __gu_val;						\
-> +								\
->   	__gu_err;						\
->   })
->   
-> @@ -369,13 +419,7 @@ unsigned long __must_check clear_user(void __user *to, unsigned long n)
->   }
->   
->   #define __get_kernel_nofault(dst, src, type, err_label)			\
-> -do {									\
-> -	long __kr_err = 0;						\
-> -									\
-> -	__get_user_nocheck(*((type *)(dst)), (type *)(src), __kr_err);	\
-> -	if (unlikely(__kr_err))						\
-> -		goto err_label;						\
-> -} while (0)
-> +	__get_user_nocheck(*((type *)(dst)), (type *)(src), err_label)
->   
->   #define __put_kernel_nofault(dst, src, type, err_label)			\
->   	__put_user_nocheck(*((type *)(src)), (type *)(dst), err_label)
-> @@ -401,12 +445,9 @@ static inline void user_access_restore(unsigned long enabled) { }
->   	__put_user_nocheck(x, (ptr), label)
->   
->   #define unsafe_get_user(x, ptr, label)	do {				\
-> -	long __err = 0;							\
->   	__inttype(*(ptr)) __gu_val;					\
-> -	__get_user_nocheck(__gu_val, (ptr), __err);			\
-> +	__get_user_nocheck(__gu_val, (ptr), label);			\
->   	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
-> -	if (__err)							\
-> -		goto label;						\
->   } while (0)
->   
->   #define unsafe_copy_loop(dst, src, len, type, op, label)		\
-
-
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-Thanks,
-
-Alex
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMS8wNC8yMDI1IDE2OjE0LCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gRXhwb3J0IFph
+YmhhIHRocm91Z2ggdGhlIGh3cHJvYmUgc3lzY2FsbC4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBBbGV4
+YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4gLS0tCj4gIERvY3VtZW50YXRp
+b24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCAgfCA0ICsrKysKPiAgYXJjaC9yaXNjdi9pbmNsdWRl
+L3VhcGkvYXNtL2h3cHJvYmUuaCB8IDEgKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9i
+ZS5jICAgICAgIHwgMSArCj4gIDMgZmlsZXMgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspCj4gCj4g
+ZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdCBiL0RvY3Vt
+ZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAo+IGluZGV4IGY2MGJmNTk5MTc1NS4uYTQ5
+OThhZDJkZmUwIDEwMDY0NAo+IC0tLSBhL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2Jl
+LnJzdAo+ICsrKyBiL0RvY3VtZW50YXRpb24vYXJjaC9yaXNjdi9od3Byb2JlLnJzdAo+IEBAIC0y
+NzEsNiArMjcxLDEwIEBAIFRoZSBmb2xsb3dpbmcga2V5cyBhcmUgZGVmaW5lZDoKPiAgICAqIDpj
+Om1hY3JvOmBSSVNDVl9IV1BST0JFX0VYVF9aSUNCT01gOiBUaGUgWmljYm9tIGV4dGVuc2lvbiBp
+cyBzdXBwb3J0ZWQsIGFzCj4gICAgICAgICByYXRpZmllZCBpbiBjb21taXQgM2RkNjA2ZiAoIkNy
+ZWF0ZSBjbW9iYXNlLXYxLjAucGRmIikgb2YgcmlzY3YtQ01Pcy4KPiAgCj4gKyAgKiA6YzptYWNy
+bzpgUklTQ1ZfSFdQUk9CRV9FWFRfWkFCSEFgOiBUaGUgWmFiaGEgZXh0ZW5zaW9uIGlzIHN1cHBv
+cnRlZCBhcwo+ICsgICAgICAgcmF0aWZpZWQgaW4gY29tbWl0IDQ5ZjQ5Yzg0MmZmOSAoIlVwZGF0
+ZSB0byBSYWZpZmllZCBzdGF0ZSIpIG9mCj4gKyAgICAgICByaXNjdi16YWJoYS4KPiArCj4gICog
+OmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfS0VZX0NQVVBFUkZfMGA6IERlcHJlY2F0ZWQuICBSZXR1
+cm5zIHNpbWlsYXIgdmFsdWVzIHRvCj4gICAgICAgOmM6bWFjcm86YFJJU0NWX0hXUFJPQkVfS0VZ
+X01JU0FMSUdORURfU0NBTEFSX1BFUkZgLCBidXQgdGhlIGtleSB3YXMKPiAgICAgICBtaXN0YWtl
+bmx5IGNsYXNzaWZpZWQgYXMgYSBiaXRtYXNrIHJhdGhlciB0aGFuIGEgdmFsdWUuCj4gZGlmZiAt
+LWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmggYi9hcmNoL3Jpc2N2
+L2luY2x1ZGUvdWFwaS9hc20vaHdwcm9iZS5oCj4gaW5kZXggM2MyZmNlOTM5NjczLi5mY2ExNWYy
+YmY2ZjMgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL3VhcGkvYXNtL2h3cHJvYmUu
+aAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS91YXBpL2FzbS9od3Byb2JlLmgKPiBAQCAtODEs
+NiArODEsNyBAQCBzdHJ1Y3QgcmlzY3ZfaHdwcm9iZSB7Cj4gICNkZWZpbmUJCVJJU0NWX0hXUFJP
+QkVfRVhUX1pJQ0JPTQkoMVVMTCA8PCA1NSkKPiAgI2RlZmluZQkJUklTQ1ZfSFdQUk9CRV9FWFRf
+WkFBTU8JCSgxVUxMIDw8IDU2KQo+ICAjZGVmaW5lCQlSSVNDVl9IV1BST0JFX0VYVF9aQUxSU0MJ
+KDFVTEwgPDwgNTcpCj4gKyNkZWZpbmUJCVJJU0NWX0hXUFJPQkVfRVhUX1pBQkhBCQkoMVVMTCA8
+PCA1OCkKPiAgI2RlZmluZSBSSVNDVl9IV1BST0JFX0tFWV9DUFVQRVJGXzAJNQo+ICAjZGVmaW5l
+CQlSSVNDVl9IV1BST0JFX01JU0FMSUdORURfVU5LTk9XTgkoMCA8PCAwKQo+ICAjZGVmaW5lCQlS
+SVNDVl9IV1BST0JFX01JU0FMSUdORURfRU1VTEFURUQJKDEgPDwgMCkKPiBkaWZmIC0tZ2l0IGEv
+YXJjaC9yaXNjdi9rZXJuZWwvc3lzX2h3cHJvYmUuYyBiL2FyY2gvcmlzY3Yva2VybmVsL3N5c19o
+d3Byb2JlLmMKPiBpbmRleCAyNDlhZWM4NTk0YTkuLmVkMzEyMzM5NmE5NiAxMDA2NDQKPiAtLS0g
+YS9hcmNoL3Jpc2N2L2tlcm5lbC9zeXNfaHdwcm9iZS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJu
+ZWwvc3lzX2h3cHJvYmUuYwo+IEBAIC05Niw2ICs5Niw3IEBAIHN0YXRpYyB2b2lkIGh3cHJvYmVf
+aXNhX2V4dDAoc3RydWN0IHJpc2N2X2h3cHJvYmUgKnBhaXIsCj4gIAkJICogcHJlc2VuY2UgaW4g
+dGhlIGhhcnRfaXNhIGJpdG1hcCwgYXJlIG1hZGUuCj4gIAkJICovCj4gIAkJRVhUX0tFWShaQUFN
+Tyk7Cj4gKwkJRVhUX0tFWShaQUJIQSk7Cj4gIAkJRVhUX0tFWShaQUNBUyk7Cj4gIAkJRVhUX0tF
+WShaQUxSU0MpOwo+ICAJCUVYVF9LRVkoWkFXUlMpOwoKSGkgQWxleCwKCkxvb2tzIGdvb2QgdG8g
+bWUsCgpSZXZpZXdlZC1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgoK
+VGhhbmtzLAoKQ2zDqW1lbnQKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
+cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2Cg==
