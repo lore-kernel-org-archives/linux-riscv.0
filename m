@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6FDC369D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6013C369C2
 	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 19:47:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gs0BgkOxufW/CuzWQG/NGQZ+zaAbDWtgtP4YlqzVZQg=; b=KO7ji1yr6VwqHS
-	JYUnJ8W5dhWxOAAs16oOi9XElUqbUDUGBrt1S0X8WPz1XjZ1awlt1Q6+9mWvZbg2YXcdswjFoyNdZ
-	Auf2m8pJUlMtp/+p73GNZxBZlCsec1iRPJ8kmW+Ju3FP/qZ+yqQEqqKp14VECDEUa7Tcdkjh2krVV
-	UZZwFAzHqWE0gACdLsahqQYjio5e20VFUVA1R1SaPZv5JRaIFeo0aZdG2WHcYLdc8Fx+qCBYUtg0i
-	HD0XI+VmwSfFE4KV4+SMdxG6A7z+LRxQyKv66wqIA3Gk6KTMIUyA8ZrgbW5/t/ou36bgOAg4RqbVa
-	Pn0eUsMFRLObzhkZtbGA==;
+	List-Owner; bh=tk/r0iJk4KTBg3CU7+7ETXrXLM2f42dyjtdd4iu8vb0=; b=wPxAOwlndRst/m
+	cuUuqx3Nunqf7wGpODDbjPTAb7phN/wVro+RMYU2xuBKE24ePVv8XSfO+bg7rqI/wN0CSpMH2ZCwh
+	m8Qbt/c//2qxjHxOcmXxOm3LySrmFHfd6OlUuSh+Mj8yD48j3FUedg9HSIE3flcb9UwP2qbNwqJz4
+	6YUlNUgDlSOXpKi6bElk0uYsgJAaPjlOh68ADBZO8O6k7FcIJcGUmmCrazZUqVInw+baDBfGssHxU
+	DS1ByMsAB4Q1Rz5yPPEhVWOxIeKuo8utwXFdFgslj55wyweZALk422++KMd0jKX7KM+/tNns9pFNF
+	zIqz2JNea9u6EHySw7Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7JaX-00000008LdI-2n00;
-	Tue, 22 Apr 2025 19:47:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u7JaY-00000008Ldy-1up4;
+	Tue, 22 Apr 2025 19:47:26 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7GP4-00000007tKt-372M;
-	Tue, 22 Apr 2025 16:23:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0CB8561567;
-	Tue, 22 Apr 2025 16:23:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A22F7C4CEEE;
-	Tue, 22 Apr 2025 16:23:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745339001;
-	bh=LSbWEpO496jBcYmmf8qHEKw1KX6lsrhT7fcTWBmi6Kw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hNR4A8AkZpZSGvtt303sXbD5yyu5wc1IoL1GtMBa0MoudMs8pEMqAJyD9p2mberVP
-	 N9gYNJgfjVm8f2YoteV6cblO3tRPChuGYM6Jc9ImZnWwCeq3vOLaxjy2c+la5y9FFQ
-	 9GgNNhEFeQInv7TRJM0AFBmlJa5rmxSaE5OGWY5y/FT6greb5bL/SijtCG2GUUTS/4
-	 Dfv/AYmfhzWMVF0pFsOBr8tRxwjBLdqamUMY2QSqpmIeQ8zqWoVRCr3MrraoawET38
-	 VJBvjkOn/2HESCvfMe66KgjpwzNz6i9JXWUu2caj08KqcwhluiN1Q8P19eHH/T/jaA
-	 k67mbk25LmnJQ==
-From: =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>
-To: Simon Horman <horms@kernel.org>,
-	Simon Horman <horms@verge.net.au>,
-	Nick Kossifidis <mick@ics.forth.gr>,
-	Song Shuai <songshuaishuai@tinylab.org>,
-	Li Zhengyu <lizhengyu3@huawei.com>,
-	kexec@lists.infradead.org
-Cc: Dave Young <dyoung@redhat.com>,
-	Yixun Lan <yixun.lan@gmail.com>,
-	Xianting Tian <xianting.tian@linux.alibaba.com>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 4/4] RISC-V: Support loading Image binary file
-Date: Tue, 22 Apr 2025 18:23:00 +0200
-Message-ID: <20250422162304.169431-5-bjorn@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250422162304.169431-1-bjorn@kernel.org>
-References: <20250422162304.169431-1-bjorn@kernel.org>
+	id 1u7GP6-00000007tLC-3qsZ
+	for linux-riscv@lists.infradead.org;
+	Tue, 22 Apr 2025 16:23:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745338999; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=J2saA4O84j+l4Ecqc9rmzPDzZZcpuaCpfGlscOsbakms1sdzshEoppAmtXSEOuqR4QAGMTW/6xI5RYKHgSOzkX5p2JBAPbGizFjZnjxnzGt5tEZqkLlz20P8a1aeMCtPDZA+uWXAilnyNiF46MwgGa1Vu8RJIiwvMO1/nyv/Ftg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745338999; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Z/q9P4yNkvEyR/a62wervKTvXtaUyeMzkuxzKhSQS9k=; 
+	b=ltqV//qb+UXQpwgFXTF1LFiEUMT3alV9EDN/86ftR/tH8A32igQEghdZ5bpJbC1cbJpM34bcRilXix2Yw7K0bpXxgdzr+zXjC75DXCQBlfgtdk7egpCE7KQ3Mhglh6IyKUz/WxujrikUi+FB+uon+DGOmXthbix3kY8FUKITVtU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=icenowy.me;
+	spf=pass  smtp.mailfrom=uwu@icenowy.me;
+	dmarc=pass header.from=<uwu@icenowy.me>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745338999;
+	s=zmail2; d=icenowy.me; i=uwu@icenowy.me;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=Z/q9P4yNkvEyR/a62wervKTvXtaUyeMzkuxzKhSQS9k=;
+	b=YcygCLAb5Zj9lEJaRc+SqZ0OMjomD8C5gD0HzUhxTaIY8tXoSnbU0BpmoQeBNfmn
+	9VHQC/I2um7lSFm4Zywln0RzhVsDOyBv0thUc5mZP2aZ5iQIsoG4XNTnEb3PmjTaJsb
+	o92xN8tRhd7XxbEvYcvbZtrXMsDl3ehMeotT5+9FpdsGTCU++KFkzCjT+QuyV5S5Dox
+	+emc2Ed9JWEUJPVLjZuJhjQalo3Ga1ATqaN3fj3FapBvSwtxl5UHKw04T+CqEluo8lt
+	WLe+02QuCHOhEqEi4P1yDofP2n8fsoOZt/WO3UH3D2dSyZWCREoRqJyi69WqvZawdO0
+	6rfOYnCX5A==
+Received: by mx.zohomail.com with SMTPS id 17453389979451012.0408814583301;
+	Tue, 22 Apr 2025 09:23:17 -0700 (PDT)
+From: Icenowy Zheng <uwu@icenowy.me>
+To: Emil Renner Berthing <kernel@esmil.dk>,
+	Jianlong Huang <jianlong.huang@starfivetech.com>,
+	Hal Feng <hal.feng@starfivetech.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Icenowy Zheng <uwu@icenowy.me>
+Subject: [RFC PATCH 2/3] pinctrl: starfive: jh7110: support forcing inputs to low/high
+Date: Wed, 23 Apr 2025 00:22:49 +0800
+Message-ID: <20250422162250.436169-3-uwu@icenowy.me>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250422162250.436169-1-uwu@icenowy.me>
+References: <20250422162250.436169-1-uwu@icenowy.me>
 MIME-Version: 1.0
+X-ZohoMailClient: External
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250422_092325_017401_1F31FA22 
+X-CRM114-Status: GOOD (  12.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,275 +90,81 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Song Shuai <songshuaishuai@tinylab.org>
+The internal input signals inside JH7110 SoC (output of the pin
+controller) could be routed to fixed low/high level instead of external
+GPIOs.
 
-Add image-riscv file_type to probe/load Image file type,
+Support this feature in the pinctrl driver, which is quite useful for
+some peripherals (e.g. USB) because of the low GPIO count of JH7110.
 
-As for kexec_load, find the pbase aligned text_offset from image header
-and prepare segments for this syscall.
-
-for kexec_file_load, setup the related options and let kernel part to
-deal with the Image.
-
-Signed-off-by: Song Shuai <songshuaishuai@tinylab.org>
+Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 ---
- kexec/arch/riscv/Makefile            |  2 +
- kexec/arch/riscv/image-header.h      | 88 ++++++++++++++++++++++++++
- kexec/arch/riscv/kexec-image-riscv.c | 95 ++++++++++++++++++++++++++++
- kexec/arch/riscv/kexec-riscv.c       |  1 +
- kexec/arch/riscv/kexec-riscv.h       |  7 ++
- 5 files changed, 193 insertions(+)
- create mode 100644 kexec/arch/riscv/image-header.h
- create mode 100644 kexec/arch/riscv/kexec-image-riscv.c
+ .../starfive/pinctrl-starfive-jh7110.c        | 43 +++++++++++++++++++
+ 1 file changed, 43 insertions(+)
 
-diff --git a/kexec/arch/riscv/Makefile b/kexec/arch/riscv/Makefile
-index 9937fbb5724f..18a997b0785c 100644
---- a/kexec/arch/riscv/Makefile
-+++ b/kexec/arch/riscv/Makefile
-@@ -3,6 +3,7 @@
- #
- riscv_KEXEC_SRCS = kexec/arch/riscv/crashdump-riscv.c
- riscv_KEXEC_SRCS += kexec/arch/riscv/kexec-elf-riscv.c
-+riscv_KEXEC_SRCS += kexec/arch/riscv/kexec-image-riscv.c
- riscv_KEXEC_SRCS += kexec/arch/riscv/kexec-riscv.c
+diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+index 1d0d6c224c104..5652f9bb658a2 100644
+--- a/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
++++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7110.c
+@@ -837,6 +837,41 @@ static void jh7110_disable_clock(void *data)
+ 	clk_disable_unprepare(data);
+ }
  
- riscv_DT_OPS += kexec/dt-ops.c
-@@ -14,6 +15,7 @@ riscv_ARCH_REUSE_INITRD =
- riscv_CPPFLAGS += -I $(srcdir)/kexec/
- 
- dist += $(riscv_KEXEC_SRCS)				\
-+	kexec/arch/riscv/image-header.h			\
- 	kexec/arch/riscv/include/arch/options.h		\
- 	kexec/arch/riscv/iomem.h			\
- 	kexec/arch/riscv/kexec-riscv.h			\
-diff --git a/kexec/arch/riscv/image-header.h b/kexec/arch/riscv/image-header.h
-new file mode 100644
-index 000000000000..a6775462358e
---- /dev/null
-+++ b/kexec/arch/riscv/image-header.h
-@@ -0,0 +1,88 @@
-+/*
-+ * RISCV64 binary image header.
-+ * token from arm64/image-header.h
-+ */
-+
-+#if !defined(__RISCV_IMAGE_HEADER_H)
-+#define __RISCV_IMAGE_HEADER_H
-+
-+#include <endian.h>
-+#include <stdint.h>
-+
-+/**
-+ * struct riscv_image_header - riscv kernel image header.
-+ *
-+ **/
-+struct riscv_image_header {
-+        uint32_t code0;
-+        uint32_t code1;
-+        uint64_t text_offset;
-+        uint64_t image_size;
-+        uint64_t flags;
-+        uint32_t version;
-+        uint32_t res1;
-+        uint64_t res2;
-+        uint64_t magic;
-+        uint32_t magic2;
-+        uint32_t res3;
-+};
-+
-+#define RISCV_IMAGE_MAGIC       0x5643534952
-+#define RISCV_IMAGE_MAGIC2      0x05435352
-+
-+#define RISCV_HEADER_VERSION_MAJOR 0
-+#define RISCV_HEADER_VERSION_MINOR 2
-+
-+#define RISCV_HEADER_VERSION (RISCV_HEADER_VERSION_MAJOR << 16 | \
-+		                              RISCV_HEADER_VERSION_MINOR)
-+
-+
-+static const uint64_t riscv_image_flag_be = (1UL << 0);
-+
-+/**
-+ * riscv_header_check_magic - Helper to check the riscv image header.
-+ *
-+ * Returns non-zero if header is OK.
-+ */
-+
-+static inline int riscv_header_check_magic(const struct riscv_image_header *h)
++static int jh7110_force_input_pins(struct jh7110_pinctrl *sfp,
++				   const char *property, u32 forced_input)
 +{
-+	if (!h)
-+		return 0;
++	int i, nforce;
++	int ret;
++	u32 pin, val;
++	unsigned int offset, shift;
++	struct device *dev = sfp->dev;
++	const struct jh7110_pinctrl_soc_info *info = sfp->info;
 +
-+	return (h->version >= RISCV_HEADER_VERSION && h->magic2 == RISCV_IMAGE_MAGIC2);
-+}
++	nforce = of_property_count_u32_elems(dev->of_node, property);
 +
-+/**
-+ * riscv_header_check_endiannes - Helper to check the riscv image header.
-+ *
-+ * Returns non-zero if the image was built as big endian.
-+ */
++	if (nforce > 0) {
++		for (i = 0; i < nforce; i++) {
++			ret = of_property_read_u32_index(dev->of_node, property,
++							 i, &pin);
++			if (ret)
++				return ret;
 +
-+static inline int riscv_header_check_endiannes(const struct riscv_image_header *h)
-+{
-+	if (!h)
-+		return 0;
++			offset = 4 * (pin / 4);
++			shift  = 8 * (pin % 4);
 +
-+	return (le64toh(h->flags) & riscv_image_flag_be) >> 0;
-+}
++			val = readl_relaxed(sfp->base +
++					    info->gpi_reg_base + offset);
++			val &= info->gpi_mask << shift;
++			val |= (forced_input & info->gpi_mask) << shift;
 +
-+
-+
-+static inline uint64_t riscv_header_text_offset(const struct riscv_image_header *h)
-+{
-+	if (!h)
-+		return 0;
-+
-+	return le64toh(h->text_offset);
-+}
-+
-+static inline uint64_t riscv_header_image_size(const struct riscv_image_header *h)
-+{
-+	if (!h)
-+		return 0;
-+
-+	return le64toh(h->image_size);
-+}
-+
-+#endif
-diff --git a/kexec/arch/riscv/kexec-image-riscv.c b/kexec/arch/riscv/kexec-image-riscv.c
-new file mode 100644
-index 000000000000..6ae7e579fd16
---- /dev/null
-+++ b/kexec/arch/riscv/kexec-image-riscv.c
-@@ -0,0 +1,95 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * RISC-V kexec binary image support.
-+ *
-+ * Author: Song Shuai <songhshuaishuai@tinylab.org>
-+ */
-+
-+#define _GNU_SOURCE
-+
-+#include <errno.h>
-+#include <fcntl.h>
-+#include <limits.h>
-+#include "image-header.h"
-+#include "kexec.h"
-+#include "kexec-riscv.h"
-+#include "kexec-syscall.h"
-+#include "arch/options.h"
-+
-+int image_riscv_probe(const char *kernel_buf, off_t kernel_size)
-+{
-+	const struct riscv_image_header *h;
-+
-+	if (kernel_size < sizeof(struct riscv_image_header)) {
-+		dbgprintf("%s: No riscv image header.\n", __func__);
-+		return -1;
-+	}
-+
-+	h = (const struct riscv_image_header *)(kernel_buf);
-+
-+	if (!riscv_header_check_magic(h)) {
-+		dbgprintf("%s: Bad riscv image header.\n", __func__);
-+		return -1;
++			writel_relaxed(val, sfp->base +
++					    info->gpi_reg_base + offset);
++		}
 +	}
 +
 +	return 0;
 +}
 +
-+int image_riscv_load(int argc, char **argv, const char *kernel_buf,
-+	off_t kernel_size, struct kexec_info *info)
-+{
-+	const struct riscv_image_header *h;
-+	unsigned long text_offset, image_size;
-+	off_t new_base_addr = 0;
-+
-+	int ret;
-+
-+	if (info->file_mode) {
-+		return prepare_kexec_file_options(info);
-+	}
-+
-+	h = (const struct riscv_image_header *)(kernel_buf);
-+
-+	/* Check header */
-+	if (!h->image_size){
-+		dbgprintf("Kernel image size is NULL\n");
-+		ret = EFAILED;
-+		goto exit;
-+	}
-+
-+	if(riscv_header_check_endiannes(h)){
-+		dbgprintf("Kernel image was built as big endian\n");
-+		ret = EFAILED;
-+		goto exit;
-+	}
-+
-+	text_offset = riscv_header_text_offset(h);
-+	image_size = riscv_header_image_size(h);
-+
-+	/* Setup the entry and segments */
-+
-+	ret = riscv_find_pbase(info, &new_base_addr, image_size, text_offset);
-+	if (ret < 0) {
-+		fprintf(stderr, "Could not find a memory region for the "
-+				"provided Image\n");
-+		goto exit;
-+	}
-+
-+	info->entry = (void *) new_base_addr;
-+	dbgprintf("Entry point for the Image: 0x%lX\n", new_base_addr);
-+
-+	add_segment(info, kernel_buf, kernel_size, new_base_addr, image_size);
-+
-+	ret = load_extra_segments(info, text_offset, image_size, ULONG_MAX);
-+exit:
-+        if (ret)
-+                fprintf(stderr, "kexec: load failed.\n");
-+        return ret;
-+}
-+
-+void image_riscv_usage(void)
-+{
-+	printf(
-+"     An RISC-V binary image, uncompressed, little endian.\n"
-+"     Typically an Image file.\n\n");
-+}
-diff --git a/kexec/arch/riscv/kexec-riscv.c b/kexec/arch/riscv/kexec-riscv.c
-index 631659301749..f34b46831160 100644
---- a/kexec/arch/riscv/kexec-riscv.c
-+++ b/kexec/arch/riscv/kexec-riscv.c
-@@ -33,6 +33,7 @@ const struct arch_map_entry arches[] = {
+ int jh7110_pinctrl_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -964,6 +999,14 @@ int jh7110_pinctrl_probe(struct platform_device *pdev)
  
- struct file_type file_type[] = {
- 	{"elf-riscv", elf_riscv_probe, elf_riscv_load, elf_riscv_usage},
-+	{"image-riscv", image_riscv_probe, image_riscv_load, image_riscv_usage},
- };
- int file_types = sizeof(file_type) / sizeof(file_type[0]);
+ 	dev_info(dev, "StarFive GPIO chip registered %d GPIOs\n", sfp->gc.ngpio);
  
-diff --git a/kexec/arch/riscv/kexec-riscv.h b/kexec/arch/riscv/kexec-riscv.h
-index 618099291117..cfb03779a022 100644
---- a/kexec/arch/riscv/kexec-riscv.h
-+++ b/kexec/arch/riscv/kexec-riscv.h
-@@ -40,7 +40,14 @@ int load_extra_segments(struct kexec_info *info, uint64_t kernel_base,
- int riscv_find_pbase(struct kexec_info *info, off_t *addr,
- 				off_t size, off_t align);
- 
-+/* kexec-elf-riscv.c */
- int elf_riscv_probe(const char *buf, off_t len);
- void elf_riscv_usage(void);
- int elf_riscv_load(int argc, char **argv, const char *buf, off_t len,
- 		   struct kexec_info *info);
++	ret = jh7110_force_input_pins(sfp, "starfive,force-low-inputs", 0);
++	if (ret)
++		return ret;
 +
-+/* kexec-image-riscv.c */
-+int image_riscv_probe(const char *buf, off_t len);
-+void image_riscv_usage(void);
-+int image_riscv_load(int argc, char **argv, const char *buf, off_t len,
-+		   struct kexec_info *info);
++	ret = jh7110_force_input_pins(sfp, "starfive,force-high-inputs", 1);
++	if (ret)
++		return ret;
++
+ 	return pinctrl_enable(sfp->pctl);
+ }
+ EXPORT_SYMBOL_GPL(jh7110_pinctrl_probe);
 -- 
-2.48.1
+2.49.0
 
 
 _______________________________________________
