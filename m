@@ -4,43 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A630C369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C051C369D7
+	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 18:15:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=v73VcUqi82CrbfpZ6JjoFL2e+bEzQGhCLGNCqX0W2HU=; b=wzC1bPSGOdNjOU
-	UpTDxSAbAPLdmQ7rj3ACA4m+GWL4XPWPkz+BUJUf3THCwqvBBk9tmqgapiPAQ6rAT80wdHPcchC27
-	4v+VO7ClqX/mCbNabn0jZGdwyrZYlFHiq7yolCFCkmdJk8wh0mUMSYXMTgWWjVsY/Ka2vsuf4JlIN
-	WkimFzc5W8QsX+6nahS9pgxx/Qt0agCrz66aRpxmS+6OQTE/jKlly7oWmy+Y4ydwqiwDTH9QDjZ6y
-	A0qLHeQwtFZjZaQijkXH7tWdy+tNFhe8MH1lDVF7/iDD6umV0gne7+zqUACcyomIthiTdmdxgqJ4O
-	u3X6J9F6j9LUbgQ8ataw==;
+	List-Owner; bh=sSf3zi5d37r3UOF/FMz/pauLevYJSQIYygrVqCA9twE=; b=G+LK8MaOv+QWci
+	UBs8kssUUw2dDA1y3f74eScWdCzDlLpYHwC8s8wol2x9e5dmEdAit/Sc2pfTMTxVNCEIEbKhhNdjN
+	ZtBMf+aea5nVp5BMdHYD+9Stg8NzHYUUaHqwnKiPlmGgT2nvnbfwU7G6Fz+k8aMuXe4sPfj5u5YUb
+	cmp9Ljz5HXEJI0Et0lAA7kibyS/gfR09ggPuJARYsPrOvU3jqc6y/3jSx4EWKej2c4vMPUddWbxU5
+	dgeUjdcZqjNZM77SlS2DOStmg+NG1TVO3rwcWyQE/Xw/aH6BQPgyGncg2LBqgxGaE19mciFJsLy+g
+	twQiSLm1DAqCAtaygmzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7I8x-000000086C1-1w6g;
-	Tue, 22 Apr 2025 18:14:51 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u7I97-000000086Us-23pZ;
+	Tue, 22 Apr 2025 18:15:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7FXo-00000007iPz-0hbe;
-	Tue, 22 Apr 2025 15:28:21 +0000
+	id 1u7FXt-00000007iSm-2O1f;
+	Tue, 22 Apr 2025 15:28:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=ZL3xL18OqBepeI2rMRy6I/9dIf6929xtLwXTLCkttl8=; b=eJPD97AbKpNrmSQzmX34BO2dRj
+	eJoN0H4CZq3NbSLTTL0KtVBhngB69oX81eDr0jNaHpYT3MhxIAtoNo/4TMk7Wn6YCtJXhyuFdohp5
+	gcTZZJlU5g9PPEc7Bbt3DnaFpbFSUKa+n2Z4+ODZ3ZkDFiDAu9bEmEXOublpBaa0iL/XJZSy+RpvS
+	gcWTdIOtKun9ZRvIAyQlzbrfQA9OdDHQ+NGYYv9VqCFfyBmhhOePoZEEaVyLKmauORnSYiOAaQqPA
+	itwCaoZXfu5+BBTHz+82WtoqJlGKnM+Hs78pRslycZLlPdaeADVbcZE42nONDciNEvJ9qlUqFMBoZ
+	XuHtuFYQ==;
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7FXp-0000000BFWX-0enn;
+	Tue, 22 Apr 2025 15:28:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 96E135C5CBC;
-	Tue, 22 Apr 2025 15:26:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04868C4CEF0;
-	Tue, 22 Apr 2025 15:28:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 862564A95A;
+	Tue, 22 Apr 2025 15:28:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 901F7C4CEF0;
+	Tue, 22 Apr 2025 15:28:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745335699;
-	bh=ki6Sn/ee5qgO3vhh3ZkrojeEv770iQQrw7Ukhfk4zI8=;
+	s=k20201202; t=1745335697;
+	bh=qN/B6X2mvQN94BK3RyJeOZTVFWohKhnnWgVazqat/cI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cKwMSXyShmoHoJUgBOV9El8W3aUBH6B0Lz2ReK5Ym+/HXRopKgkn01mXIoaJjRjWO
-	 Rmyc7OlIJeA+Jq8fnsi9olY+0Z6qJ33MBan8XAwwZU15EexRsxco6jYkVAJpbmWUdw
-	 k0W+pKj3tOJd9n0K/kF93dD+ZqWixWfdWR2iEC2blBH7niDgSzB+Eab1g9SkEPXWPK
-	 miq+8VeFRIDQ9eKZZ6SRyjXnnrGZwZBPk4rcz3Zml+i3s+36nIv/RasGxrNX1GI9of
-	 Wo4JYKUEfdCTsdGvzQWPi78zsaclbLaPDuWsc2OgCOInv7zjSeKx10axodSTGDrhSh
-	 yIGZqaS1xAWdQ==
+	b=qCNc0DKFbLWtkplqTtT13CfwTQE6PaHVBBB82/X3fpAVVgtphrM7DaoQyH455ZtOA
+	 3od7qCZHN+hjsgHwHoLLaoYUvUy0n4ZLD8MXqabiEQnfE8b0eEYnokQm4XP7Z6lAec
+	 EXcafR4+DRXVWUUo+U3YX0MI9revROjD3N+FINWhLx2ySRUQS+CtMP5XWtT7z1Bse+
+	 sWKjSYAtxfBtHbgvbh8/qo8Ii1gZwC22fBFUmufECRvIgkgizSl0vTv5e3ZptSKsYc
+	 BMjVjUSfg43cgoox7tDqaWuq1v9tK+qmeq9iIGiYy9qynq949O7WRuHB2Su5l2kxzE
+	 OsTl37h8/3eAg==
 From: Eric Biggers <ebiggers@kernel.org>
 To: linux-crypto@vger.kernel.org
 Cc: linux-arch@vger.kernel.org,
@@ -52,18 +66,17 @@ Cc: linux-arch@vger.kernel.org,
 	linux-s390@vger.kernel.org,
 	x86@kernel.org,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>
-Subject: [PATCH v3 10/13] crypto: s390 - move library functions to arch/s390/lib/crypto/
-Date: Tue, 22 Apr 2025 08:27:13 -0700
-Message-ID: <20250422152716.5923-11-ebiggers@kernel.org>
+	Ard Biesheuvel <ardb@kernel.org>
+Subject: [PATCH v3 07/13] crypto: mips - move library functions to arch/mips/lib/crypto/
+Date: Tue, 22 Apr 2025 08:27:10 -0700
+Message-ID: <20250422152716.5923-8-ebiggers@kernel.org>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
 References: <20250422152716.5923-1-ebiggers@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_082820_287458_69FF9CD5 
-X-CRM114-Status: GOOD (  16.33  )
+X-CRM114-CacheID: sfid-20250422_162821_551748_C2550CEF 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,130 +96,188 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 From: Eric Biggers <ebiggers@google.com>
 
 Continue disentangling the crypto library functions from the generic
-crypto infrastructure by moving the s390 ChaCha library functions into a
-new directory arch/s390/lib/crypto/ that does not depend on CRYPTO.
-This mirrors the distinction between crypto/ and lib/crypto/.
+crypto infrastructure by moving the mips ChaCha and Poly1305 library
+functions into a new directory arch/mips/lib/crypto/ that does not
+depend on CRYPTO.  This mirrors the distinction between crypto/ and
+lib/crypto/.
 
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 ---
- arch/s390/crypto/Kconfig                 | 6 ------
- arch/s390/crypto/Makefile                | 3 ---
- arch/s390/lib/Makefile                   | 1 +
- arch/s390/lib/crypto/Kconfig             | 7 +++++++
- arch/s390/lib/crypto/Makefile            | 4 ++++
- arch/s390/{ => lib}/crypto/chacha-glue.c | 0
- arch/s390/{ => lib}/crypto/chacha-s390.S | 0
- arch/s390/{ => lib}/crypto/chacha-s390.h | 0
- lib/crypto/Kconfig                       | 3 +++
- 9 files changed, 15 insertions(+), 9 deletions(-)
- create mode 100644 arch/s390/lib/crypto/Kconfig
- create mode 100644 arch/s390/lib/crypto/Makefile
- rename arch/s390/{ => lib}/crypto/chacha-glue.c (100%)
- rename arch/s390/{ => lib}/crypto/chacha-s390.S (100%)
- rename arch/s390/{ => lib}/crypto/chacha-s390.h (100%)
+ arch/mips/crypto/Kconfig                    | 11 -----------
+ arch/mips/crypto/Makefile                   | 17 -----------------
+ arch/mips/lib/Makefile                      |  2 ++
+ arch/mips/lib/crypto/.gitignore             |  2 ++
+ arch/mips/lib/crypto/Kconfig                | 12 ++++++++++++
+ arch/mips/lib/crypto/Makefile               | 19 +++++++++++++++++++
+ arch/mips/{ => lib}/crypto/chacha-core.S    |  0
+ arch/mips/{ => lib}/crypto/chacha-glue.c    |  0
+ arch/mips/{ => lib}/crypto/poly1305-glue.c  |  0
+ arch/mips/{ => lib}/crypto/poly1305-mips.pl |  0
+ lib/crypto/Kconfig                          |  3 +++
+ 11 files changed, 38 insertions(+), 28 deletions(-)
+ create mode 100644 arch/mips/lib/crypto/.gitignore
+ create mode 100644 arch/mips/lib/crypto/Kconfig
+ create mode 100644 arch/mips/lib/crypto/Makefile
+ rename arch/mips/{ => lib}/crypto/chacha-core.S (100%)
+ rename arch/mips/{ => lib}/crypto/chacha-glue.c (100%)
+ rename arch/mips/{ => lib}/crypto/poly1305-glue.c (100%)
+ rename arch/mips/{ => lib}/crypto/poly1305-mips.pl (100%)
 
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index e88d9cd256ef5..a2bfd6eef0ca3 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -97,16 +97,10 @@ config CRYPTO_DES_S390
- 	  Architecture: s390
+diff --git a/arch/mips/crypto/Kconfig b/arch/mips/crypto/Kconfig
+index 8283664a1f24b..9db1fd6d9f0e0 100644
+--- a/arch/mips/crypto/Kconfig
++++ b/arch/mips/crypto/Kconfig
+@@ -1,14 +1,9 @@
+ # SPDX-License-Identifier: GPL-2.0
  
- 	  As of z990 the ECB and CBC mode are hardware accelerated.
- 	  As of z196 the CTR mode is hardware accelerated.
+ menu "Accelerated Cryptographic Algorithms for CPU (mips)"
  
--config CRYPTO_CHACHA_S390
+-config CRYPTO_POLY1305_MIPS
 -	tristate
--	select CRYPTO_LIB_CHACHA_GENERIC
+-	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+-	default CRYPTO_LIB_POLY1305_INTERNAL
+-
+ config CRYPTO_MD5_OCTEON
+ 	tristate "Digests: MD5 (OCTEON)"
+ 	depends on CPU_CAVIUM_OCTEON
+ 	select CRYPTO_MD5
+ 	select CRYPTO_HASH
+@@ -45,12 +40,6 @@ config CRYPTO_SHA512_OCTEON
+ 	help
+ 	  SHA-384 and SHA-512 secure hash algorithms (FIPS 180)
+ 
+ 	  Architecture: mips OCTEON using crypto instructions, when available
+ 
+-config CRYPTO_CHACHA_MIPS
+-	tristate
+-	depends on CPU_MIPS32_R2
 -	select CRYPTO_ARCH_HAVE_LIB_CHACHA
 -	default CRYPTO_LIB_CHACHA_INTERNAL
 -
- config CRYPTO_HMAC_S390
- 	tristate "Keyed-hash message authentication code: HMAC"
- 	select CRYPTO_HASH
- 	help
- 	  s390 specific HMAC hardware support for SHA224, SHA256, SHA384 and
-diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
-index 14dafadbcbed4..e3853774e1a3a 100644
---- a/arch/s390/crypto/Makefile
-+++ b/arch/s390/crypto/Makefile
-@@ -9,12 +9,9 @@ obj-$(CONFIG_CRYPTO_SHA512_S390) += sha512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_256_S390) += sha3_256_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_512_S390) += sha3_512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_DES_S390) += des_s390.o
- obj-$(CONFIG_CRYPTO_AES_S390) += aes_s390.o
- obj-$(CONFIG_CRYPTO_PAES_S390) += paes_s390.o
--obj-$(CONFIG_CRYPTO_CHACHA_S390) += chacha_s390.o
- obj-$(CONFIG_S390_PRNG) += prng.o
- obj-$(CONFIG_CRYPTO_GHASH_S390) += ghash_s390.o
- obj-$(CONFIG_CRYPTO_HMAC_S390) += hmac_s390.o
- obj-y += arch_random.o
--
--chacha_s390-y := chacha-glue.o chacha-s390.o
-diff --git a/arch/s390/lib/Makefile b/arch/s390/lib/Makefile
-index 14bbfe50033c7..fce4edbe8a078 100644
---- a/arch/s390/lib/Makefile
-+++ b/arch/s390/lib/Makefile
-@@ -1,10 +1,11 @@
+ endmenu
+diff --git a/arch/mips/crypto/Makefile b/arch/mips/crypto/Makefile
+index fddc882814123..5adb631a69c18 100644
+--- a/arch/mips/crypto/Makefile
++++ b/arch/mips/crypto/Makefile
+@@ -1,22 +1,5 @@
  # SPDX-License-Identifier: GPL-2.0
  #
- # Makefile for s390-specific library files..
+ # Makefile for MIPS crypto files..
  #
  
-+obj-y += crypto/
- lib-y += delay.o string.o uaccess.o find.o spinlock.o tishift.o
- lib-y += csum-partial.o
- obj-y += mem.o xor.o
- lib-$(CONFIG_KPROBES) += probes.o
- lib-$(CONFIG_UPROBES) += probes.o
-diff --git a/arch/s390/lib/crypto/Kconfig b/arch/s390/lib/crypto/Kconfig
+-obj-$(CONFIG_CRYPTO_CHACHA_MIPS) += chacha-mips.o
+-chacha-mips-y := chacha-core.o chacha-glue.o
+-AFLAGS_chacha-core.o += -O2 # needed to fill branch delay slots
+-
+-obj-$(CONFIG_CRYPTO_POLY1305_MIPS) += poly1305-mips.o
+-poly1305-mips-y := poly1305-core.o poly1305-glue.o
+-
+-perlasm-flavour-$(CONFIG_32BIT) := o32
+-perlasm-flavour-$(CONFIG_64BIT) := 64
+-
+-quiet_cmd_perlasm = PERLASM $@
+-      cmd_perlasm = $(PERL) $(<) $(perlasm-flavour-y) $(@)
+-
+-$(obj)/poly1305-core.S: $(src)/poly1305-mips.pl FORCE
+-	$(call if_changed,perlasm)
+-
+-targets += poly1305-core.S
+diff --git a/arch/mips/lib/Makefile b/arch/mips/lib/Makefile
+index 9c024e6d5e54c..9d75845ef78e1 100644
+--- a/arch/mips/lib/Makefile
++++ b/arch/mips/lib/Makefile
+@@ -1,10 +1,12 @@
+ # SPDX-License-Identifier: GPL-2.0
+ #
+ # Makefile for MIPS-specific library files..
+ #
+ 
++obj-y	+= crypto/
++
+ lib-y	+= bitops.o csum_partial.o delay.o memcpy.o memset.o \
+ 	   mips-atomic.o strncpy_user.o \
+ 	   strnlen_user.o uncached.o
+ 
+ obj-y			+= iomap_copy.o
+diff --git a/arch/mips/lib/crypto/.gitignore b/arch/mips/lib/crypto/.gitignore
 new file mode 100644
-index 0000000000000..b79fd91af9fe1
+index 0000000000000..0d47d4f21c6de
 --- /dev/null
-+++ b/arch/s390/lib/crypto/Kconfig
-@@ -0,0 +1,7 @@
++++ b/arch/mips/lib/crypto/.gitignore
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0-only
++poly1305-core.S
+diff --git a/arch/mips/lib/crypto/Kconfig b/arch/mips/lib/crypto/Kconfig
+new file mode 100644
+index 0000000000000..5b82ba753c55c
+--- /dev/null
++++ b/arch/mips/lib/crypto/Kconfig
+@@ -0,0 +1,12 @@
 +# SPDX-License-Identifier: GPL-2.0-only
 +
-+config CRYPTO_CHACHA_S390
++config CRYPTO_CHACHA_MIPS
 +	tristate
++	depends on CPU_MIPS32_R2
 +	default CRYPTO_LIB_CHACHA_INTERNAL
-+	select CRYPTO_LIB_CHACHA_GENERIC
 +	select CRYPTO_ARCH_HAVE_LIB_CHACHA
-diff --git a/arch/s390/lib/crypto/Makefile b/arch/s390/lib/crypto/Makefile
++
++config CRYPTO_POLY1305_MIPS
++	tristate
++	default CRYPTO_LIB_POLY1305_INTERNAL
++	select CRYPTO_ARCH_HAVE_LIB_POLY1305
+diff --git a/arch/mips/lib/crypto/Makefile b/arch/mips/lib/crypto/Makefile
 new file mode 100644
-index 0000000000000..06c2cf77178ef
+index 0000000000000..804488c7adedc
 --- /dev/null
-+++ b/arch/s390/lib/crypto/Makefile
-@@ -0,0 +1,4 @@
++++ b/arch/mips/lib/crypto/Makefile
+@@ -0,0 +1,19 @@
 +# SPDX-License-Identifier: GPL-2.0-only
 +
-+obj-$(CONFIG_CRYPTO_CHACHA_S390) += chacha_s390.o
-+chacha_s390-y := chacha-glue.o chacha-s390.o
-diff --git a/arch/s390/crypto/chacha-glue.c b/arch/s390/lib/crypto/chacha-glue.c
++obj-$(CONFIG_CRYPTO_CHACHA_MIPS) += chacha-mips.o
++chacha-mips-y := chacha-core.o chacha-glue.o
++AFLAGS_chacha-core.o += -O2 # needed to fill branch delay slots
++
++obj-$(CONFIG_CRYPTO_POLY1305_MIPS) += poly1305-mips.o
++poly1305-mips-y := poly1305-core.o poly1305-glue.o
++
++perlasm-flavour-$(CONFIG_32BIT) := o32
++perlasm-flavour-$(CONFIG_64BIT) := 64
++
++quiet_cmd_perlasm = PERLASM $@
++      cmd_perlasm = $(PERL) $(<) $(perlasm-flavour-y) $(@)
++
++$(obj)/poly1305-core.S: $(src)/poly1305-mips.pl FORCE
++	$(call if_changed,perlasm)
++
++targets += poly1305-core.S
+diff --git a/arch/mips/crypto/chacha-core.S b/arch/mips/lib/crypto/chacha-core.S
 similarity index 100%
-rename from arch/s390/crypto/chacha-glue.c
-rename to arch/s390/lib/crypto/chacha-glue.c
-diff --git a/arch/s390/crypto/chacha-s390.S b/arch/s390/lib/crypto/chacha-s390.S
+rename from arch/mips/crypto/chacha-core.S
+rename to arch/mips/lib/crypto/chacha-core.S
+diff --git a/arch/mips/crypto/chacha-glue.c b/arch/mips/lib/crypto/chacha-glue.c
 similarity index 100%
-rename from arch/s390/crypto/chacha-s390.S
-rename to arch/s390/lib/crypto/chacha-s390.S
-diff --git a/arch/s390/crypto/chacha-s390.h b/arch/s390/lib/crypto/chacha-s390.h
+rename from arch/mips/crypto/chacha-glue.c
+rename to arch/mips/lib/crypto/chacha-glue.c
+diff --git a/arch/mips/crypto/poly1305-glue.c b/arch/mips/lib/crypto/poly1305-glue.c
 similarity index 100%
-rename from arch/s390/crypto/chacha-s390.h
-rename to arch/s390/lib/crypto/chacha-s390.h
+rename from arch/mips/crypto/poly1305-glue.c
+rename to arch/mips/lib/crypto/poly1305-glue.c
+diff --git a/arch/mips/crypto/poly1305-mips.pl b/arch/mips/lib/crypto/poly1305-mips.pl
+similarity index 100%
+rename from arch/mips/crypto/poly1305-mips.pl
+rename to arch/mips/lib/crypto/poly1305-mips.pl
 diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 0b06c25eb38a5..db19a7acc2fbf 100644
+index 7395234d654b7..c5c01bc3569d5 100644
 --- a/lib/crypto/Kconfig
 +++ b/lib/crypto/Kconfig
-@@ -169,8 +169,11 @@ if PPC
- source "arch/powerpc/lib/crypto/Kconfig"
+@@ -160,8 +160,11 @@ if ARM
+ source "arch/arm/lib/crypto/Kconfig"
  endif
- if RISCV
- source "arch/riscv/lib/crypto/Kconfig"
+ if ARM64
+ source "arch/arm64/lib/crypto/Kconfig"
  endif
-+if S390
-+source "arch/s390/lib/crypto/Kconfig"
++if MIPS
++source "arch/mips/lib/crypto/Kconfig"
 +endif
  endif
  
