@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06836C369D5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 04:09:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4247DC369CB
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 05:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EGWj+pMS5UG6I0DUced3UILCeSg0q/d6+iRaHoJJsfQ=; b=OZsI4lqQe7CZ0a
-	ax+eFnqAKgjlq0nMmkbgFdWV/FPF4c8+o8C8mv8YwcUp20g/CVc4Br1iSLwm+uW1L7hNYHZOXyQSM
-	S6VKpYbr/ffchjWgg+72RIzWnCjJSfwPDdkMtpwCTIbK7RU/AuEYxC3EusU1mPbUd7OCpocQ4pCRj
-	ndKu/FH+khKhF+XriWo55XCmaWop1IpCdgJ8WABPuWR9JrIzhCUjgRJt9HyzuBVg8Qd2kINoS31Py
-	WLWfqL3Nf7wSUvr1XChYqTxZjET57Pg7eGOz2Q6Ya7WzZ0MksIMV5dhV5FcZCaxrYQ2clf4+7XnOE
-	wce3sI9W7ThdDzdZdseQ==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=RmUmDWT5/WRD05V1it7mQCzZA1liwLq328QlH/M5Kyo=; b=1ORkEy28dssvdM
+	nrdzv9myqVYD63kpzG6YD/vt5zowsIPWMfMIfBFn82/i0p2+qXVhFdDKyfYABs4xboXFi76uHIzNP
+	l4ky/JV9pjk5z7a0wU4CvrjRVq7YQ2rExCC9Uqdm9hsmhXXkwHMkNbj5cX6QzueiEII8AXd44UVgE
+	DnJDnwm/FaZ7s6mPueBTJjEhOIXG4XIoV7KCFC0UZR/Z5vAtyZW8wcRyo7+mwLukmRS+53iTiWHtz
+	JoweDZoBTFXPgVGgyePlJnqagEgDJEPcPg5BrjDevV4RIs+Ez72q9i6UPiR6HSyY6E4VdrGh2sKtT
+	H87bvEqJzLcMcvIYpyGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7RQj-00000009AQp-3Z3b;
-	Wed, 23 Apr 2025 04:09:49 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1u7Scw-00000009EtR-0MGz;
+	Wed, 23 Apr 2025 05:26:30 +0000
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7RQe-00000009AQB-4BCJ
+	id 1u7Sct-00000009Esj-1ZFd
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Apr 2025 04:09:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1745381385; x=1776917385;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=KISXD0ltBB9Z0bhlbMH9MxL/r8xahZ8DX/KFQwdLNi4=;
-  b=YAHotNKn2abv+LhZ1NRIk2+IXb/SMUUEGnG+7DqSz2PSE57UWt7hv2AW
-   pX8qn4QlEEj8DZrClItFXlMvvPB4ibKINx632YGKvPEr3xNnk5mLKfpQH
-   PnnORTF182DLSNsc+1S+q35h84pxXDckeNcqRzIOK5YatHjGhG5BgeR/z
-   fJB8do723m4XTDUZKXpZ1bAsynPLo+TajO7cz4JmLzsYmB1QkgOeriD14
-   rZ0Dj7JTW8LEI77iU5CvtKvDDVXmUF/HiODy+JUjYfotj5lAaPw+Rf8D0
-   5Nvd8/IMEn4RTzdG6sAtPia35hVMVjot4/cAFNUehBbSKYH6LUV0TWggd
-   Q==;
-X-CSE-ConnectionGUID: ryggbT1xS0ewFRmQWvQ37w==
-X-CSE-MsgGUID: 7LBEd3iORuOcJAV2orp8oA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11411"; a="72342469"
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="72342469"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2025 21:09:44 -0700
-X-CSE-ConnectionGUID: veazpDj7QZmxOlZWUAIC5Q==
-X-CSE-MsgGUID: BGgUw+7bSPiwYlKCWUgOXg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
-   d="scan'208";a="133076123"
-Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
-  by fmviesa009.fm.intel.com with ESMTP; 22 Apr 2025 21:09:40 -0700
-Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1u7RQY-0001aF-0q;
-	Wed, 23 Apr 2025 04:09:38 +0000
-Date: Wed, 23 Apr 2025 12:08:40 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nylon Chen <nylon.chen@sifive.com>, Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>
-Subject: Re: [PATCH v12 4/5] pwm: sifive: Fix rounding issues in apply and
- get_state functions
-Message-ID: <202504231136.Cr4O6Zg5-lkp@intel.com>
-References: <20250422085312.812877-5-nylon.chen@sifive.com>
+	Wed, 23 Apr 2025 05:26:29 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745385976; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=j4T1Ed4R3k73KdamnHsMmZBsui+ZsxIU0PSccow0xZM0eu7Dy4xb6O7wADSX8FI30nDHGCRV2XxJ1Uhkdp16TSyGLmQ0q/AdrV0cmRIYhnFJ9gRsqTqQE3KLGHfHA1XKUA+QSADPlw2gNdgvdtAugDAtUISlnhKc3QGy67o//G8=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745385976; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=hGYoMoYLu8GyrYod3MxWMAE0ztSXKwl0WzJYu/+s57g=; 
+	b=Vs/uDy9QYkaGMQlMXWZOqEkcJ0QDD4+gjCOan11DXouG0Rix4ZvrjHO2/4D2ARF/ueZ15WTMRoJxXHUemSGoOGYihAyUjkRhXbkTDvvOQnrGwkN04APySYhbqeICTNrofsK4Rc5qIpn3Km5da1bCMRX8omCNVqW1nhfX8L+kOaA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745385976;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=hGYoMoYLu8GyrYod3MxWMAE0ztSXKwl0WzJYu/+s57g=;
+	b=bt6qR3qbnNiKIZqBr6dQ+D8yb4g0XCObFe6Bk5UnFixxfM5euX9NAMhVvhy5xatR
+	NAHF2MvefKOgOyDxFAXbt8Uu22jF42Rk96HVRqxl1n/F4NjH/L3tDu4pL6CI+NjKaFd
+	AZazMXncniJsSOx+xRcLYUqLGyTvlUCPY211IEeI=
+Received: by mx.zohomail.com with SMTPS id 1745385974137770.0188727737329;
+	Tue, 22 Apr 2025 22:26:14 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250422085312.812877-5-nylon.chen@sifive.com>
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Chen Wang" <unicorn_wang@outlook.com>, 
+	"Philipp Zabel" <p.zabel@pengutronix.de>, "Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>
+In-Reply-To: <MA0P287MB22620E425A4AC72E5C32D325FEBA2@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+Cc: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, 
+	<linux-riscv@lists.infradead.org>, 
+	"Conor Dooley" <conor.dooley@microchip.com>
+Subject: Re: [PATCH v2 1/2] dt-bindings: reset: add support for canaan,k230-rst
+Message-ID: <1838db49cac2e508.c9188a72125bc5d9.d099f51ccc5d9fb5@Jude-Air.local>
+Date: Wed, 23 Apr 2025 05:26:05 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_210945_089110_CC6B2386 
-X-CRM114-Status: GOOD (  22.94  )
+X-CRM114-CacheID: sfid-20250422_222627_816905_D6280B85 
+X-CRM114-Status: GOOD (  11.69  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,280 +75,83 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nylon,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on linus/master v6.15-rc3 next-20250422]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-dts-sifive-unleashed-unmatched-Remove-PWM-controlled-LED-s-active-low-properties/20250422-165644
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250422085312.812877-5-nylon.chen%40sifive.com
-patch subject: [PATCH v12 4/5] pwm: sifive: Fix rounding issues in apply and get_state functions
-config: arm-randconfig-004-20250423 (https://download.01.org/0day-ci/archive/20250423/202504231136.Cr4O6Zg5-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250423/202504231136.Cr4O6Zg5-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202504231136.Cr4O6Zg5-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/pwm/pwm-sifive.c:161:2: error: unterminated function-like macro invocation
-     161 |         do_div(frac, state->period;
-         |         ^
-   include/asm-generic/div64.h:180:10: note: macro 'do_div' defined here
-     180 | # define do_div(n,base) ({                              \
-         |          ^
->> drivers/pwm/pwm-sifive.c:351:26: error: expected '}'
-     351 | MODULE_LICENSE("GPL v2");
-         |                          ^
-   drivers/pwm/pwm-sifive.c:134:1: note: to match this '{'
-     134 | {
-         | ^
-   2 errors generated.
-
-
-vim +161 drivers/pwm/pwm-sifive.c
-
-   131	
-   132	static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-   133				    const struct pwm_state *state)
-   134	{
-   135		struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
-   136		struct pwm_state cur_state;
-   137		unsigned int duty_cycle;
-   138		unsigned long long num;
-   139		bool enabled;
-   140		int ret = 0;
-   141		u32 frac, inactive;
-   142	
-   143		if (state->polarity != PWM_POLARITY_NORMAL)
-   144			return -EINVAL;
-   145	
-   146		cur_state = pwm->state;
-   147		enabled = cur_state.enabled;
-   148	
-   149		duty_cycle = state->duty_cycle;
-   150		if (!state->enabled)
-   151			duty_cycle = 0;
-   152	
-   153		/*
-   154		 * The problem of output producing mixed setting as mentioned at top,
-   155		 * occurs here. To minimize the window for this problem, we are
-   156		 * calculating the register values first and then writing them
-   157		 * consecutively
-   158		 */
-   159		num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
-   160		frac = num;
- > 161		do_div(frac, state->period;
-   162		/* The hardware cannot generate a 0% duty cycle */
-   163		frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-   164		inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
-   165	
-   166		mutex_lock(&ddata->lock);
-   167		if (state->period != ddata->approx_period) {
-   168			/*
-   169			 * Don't let a 2nd user change the period underneath the 1st user.
-   170			 * However if ddate->approx_period == 0 this is the first time we set
-   171			 * any period, so let whoever gets here first set the period so other
-   172			 * users who agree on the period won't fail.
-   173			 */
-   174			if (ddata->user_count != 1 && ddata->approx_period) {
-   175				mutex_unlock(&ddata->lock);
-   176				return -EBUSY;
-   177			}
-   178			ddata->approx_period = state->period;
-   179			pwm_sifive_update_clock(ddata, clk_get_rate(ddata->clk));
-   180		}
-   181		mutex_unlock(&ddata->lock);
-   182	
-   183		/*
-   184		 * If the PWM is enabled the clk is already on. So only enable it
-   185		 * conditionally to have it on exactly once afterwards independent of
-   186		 * the PWM state.
-   187		 */
-   188		if (!enabled) {
-   189			ret = clk_enable(ddata->clk);
-   190			if (ret) {
-   191				dev_err(pwmchip_parent(chip), "Enable clk failed\n");
-   192				return ret;
-   193			}
-   194		}
-   195	
-   196		writel(inactive, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-   197	
-   198		if (!state->enabled)
-   199			clk_disable(ddata->clk);
-   200	
-   201		return 0;
-   202	}
-   203	
-   204	static const struct pwm_ops pwm_sifive_ops = {
-   205		.request = pwm_sifive_request,
-   206		.free = pwm_sifive_free,
-   207		.get_state = pwm_sifive_get_state,
-   208		.apply = pwm_sifive_apply,
-   209	};
-   210	
-   211	static int pwm_sifive_clock_notifier(struct notifier_block *nb,
-   212					     unsigned long event, void *data)
-   213	{
-   214		struct clk_notifier_data *ndata = data;
-   215		struct pwm_sifive_ddata *ddata =
-   216			container_of(nb, struct pwm_sifive_ddata, notifier);
-   217	
-   218		if (event == POST_RATE_CHANGE) {
-   219			mutex_lock(&ddata->lock);
-   220			pwm_sifive_update_clock(ddata, ndata->new_rate);
-   221			mutex_unlock(&ddata->lock);
-   222		}
-   223	
-   224		return NOTIFY_OK;
-   225	}
-   226	
-   227	static int pwm_sifive_probe(struct platform_device *pdev)
-   228	{
-   229		struct device *dev = &pdev->dev;
-   230		struct pwm_sifive_ddata *ddata;
-   231		struct pwm_chip *chip;
-   232		int ret;
-   233		u32 val;
-   234		unsigned int enabled_pwms = 0, enabled_clks = 1;
-   235	
-   236		chip = devm_pwmchip_alloc(dev, 4, sizeof(*ddata));
-   237		if (IS_ERR(chip))
-   238			return PTR_ERR(chip);
-   239	
-   240		ddata = pwm_sifive_chip_to_ddata(chip);
-   241		ddata->parent = dev;
-   242		mutex_init(&ddata->lock);
-   243		chip->ops = &pwm_sifive_ops;
-   244	
-   245		ddata->regs = devm_platform_ioremap_resource(pdev, 0);
-   246		if (IS_ERR(ddata->regs))
-   247			return PTR_ERR(ddata->regs);
-   248	
-   249		ddata->clk = devm_clk_get_prepared(dev, NULL);
-   250		if (IS_ERR(ddata->clk))
-   251			return dev_err_probe(dev, PTR_ERR(ddata->clk),
-   252					     "Unable to find controller clock\n");
-   253	
-   254		ret = clk_enable(ddata->clk);
-   255		if (ret) {
-   256			dev_err(dev, "failed to enable clock for pwm: %d\n", ret);
-   257			return ret;
-   258		}
-   259	
-   260		val = readl(ddata->regs + PWM_SIFIVE_PWMCFG);
-   261		if (val & PWM_SIFIVE_PWMCFG_EN_ALWAYS) {
-   262			unsigned int i;
-   263	
-   264			for (i = 0; i < chip->npwm; ++i) {
-   265				val = readl(ddata->regs + PWM_SIFIVE_PWMCMP(i));
-   266				if (val > 0)
-   267					++enabled_pwms;
-   268			}
-   269		}
-   270	
-   271		/* The clk should be on once for each running PWM. */
-   272		if (enabled_pwms) {
-   273			while (enabled_clks < enabled_pwms) {
-   274				/* This is not expected to fail as the clk is already on */
-   275				ret = clk_enable(ddata->clk);
-   276				if (unlikely(ret)) {
-   277					dev_err_probe(dev, ret, "Failed to enable clk\n");
-   278					goto disable_clk;
-   279				}
-   280				++enabled_clks;
-   281			}
-   282		} else {
-   283			clk_disable(ddata->clk);
-   284			enabled_clks = 0;
-   285		}
-   286	
-   287		/* Watch for changes to underlying clock frequency */
-   288		ddata->notifier.notifier_call = pwm_sifive_clock_notifier;
-   289		ret = clk_notifier_register(ddata->clk, &ddata->notifier);
-   290		if (ret) {
-   291			dev_err(dev, "failed to register clock notifier: %d\n", ret);
-   292			goto disable_clk;
-   293		}
-   294	
-   295		ret = pwmchip_add(chip);
-   296		if (ret < 0) {
-   297			dev_err(dev, "cannot register PWM: %d\n", ret);
-   298			goto unregister_clk;
-   299		}
-   300	
-   301		platform_set_drvdata(pdev, chip);
-   302		dev_dbg(dev, "SiFive PWM chip registered %d PWMs\n", chip->npwm);
-   303	
-   304		return 0;
-   305	
-   306	unregister_clk:
-   307		clk_notifier_unregister(ddata->clk, &ddata->notifier);
-   308	disable_clk:
-   309		while (enabled_clks) {
-   310			clk_disable(ddata->clk);
-   311			--enabled_clks;
-   312		}
-   313	
-   314		return ret;
-   315	}
-   316	
-   317	static void pwm_sifive_remove(struct platform_device *dev)
-   318	{
-   319		struct pwm_chip *chip = platform_get_drvdata(dev);
-   320		struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
-   321		struct pwm_device *pwm;
-   322		int ch;
-   323	
-   324		pwmchip_remove(chip);
-   325		clk_notifier_unregister(ddata->clk, &ddata->notifier);
-   326	
-   327		for (ch = 0; ch < chip->npwm; ch++) {
-   328			pwm = &chip->pwms[ch];
-   329			if (pwm->state.enabled)
-   330				clk_disable(ddata->clk);
-   331		}
-   332	}
-   333	
-   334	static const struct of_device_id pwm_sifive_of_match[] = {
-   335		{ .compatible = "sifive,pwm0" },
-   336		{},
-   337	};
-   338	MODULE_DEVICE_TABLE(of, pwm_sifive_of_match);
-   339	
-   340	static struct platform_driver pwm_sifive_driver = {
-   341		.probe = pwm_sifive_probe,
-   342		.remove = pwm_sifive_remove,
-   343		.driver = {
-   344			.name = "pwm-sifive",
-   345			.of_match_table = pwm_sifive_of_match,
-   346		},
-   347	};
-   348	module_platform_driver(pwm_sifive_driver);
-   349	
-   350	MODULE_DESCRIPTION("SiFive PWM driver");
- > 351	MODULE_LICENSE("GPL v2");
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgQ2hlbiwKClRoYW5rcyBmb3IgeW91ciByZXZpZXcuCgpPbiAyMy8wNC8yMDI1IDEwOjIxLCBD
+aGVuIFdhbmcgd3JvdGU6Cj4gaGnvvIxKdW5odWnvvIwKPiAKPiBPbiAyMDI1LzQvMjAgMTowOSwg
+SnVuaHVpIExpdSB3cm90ZToKPj4gSW50cm9kdWNlcyBhIHJlc2V0IGNvbnRyb2xsZXIgZHJpdmVy
+IGZvciB0aGUgS2VuZHJ5dGUgSzIzMCBTb0MsCj4+IHJlc3Bvc2libGUgZm9yIG1hbmFnaW5nIHRo
+ZSByZXNldCBmdW5jdGlvbmFsaXR5IG9mIHRoZSBDUFVzIGFuZAo+PiB2YXJpb3VzIHN1Yi1tb2R1
+bGVzLgo+Pgo+PiBTaWduZWQtb2ZmLWJ5OiBKdW5odWkgTGl1IDxqdW5odWkubGl1QHBpZ21vcmFs
+LnRlY2g+Cj4+IFJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xleUBtaWNyb2No
+aXAuY29tPgo+PiAtLS0KPj4gICAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9yZXNldC9jYW5hYW4s
+azIzMC1yc3QueWFtbCB8IDM5ICsrKysrKysrKysKPj4gICBpbmNsdWRlL2R0LWJpbmRpbmdzL3Jl
+c2V0L2NhbmFhbixrMjMwLXJzdC5oICAgICAgICB8IDkwICsrKysrKysrKysrKysrKysrKysrKysK
+Pj4gICAyIGZpbGVzIGNoYW5nZWQsIDEyOSBpbnNlcnRpb25zKCspCj4+Cj4+IGRpZmYgLS1naXQg
+YS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmVzZXQvY2FuYWFuLGsyMzAtcnN0
+LnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvcmVzZXQvY2FuYWFuLGsy
+MzAtcnN0LnlhbWwKPj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMC4uZDM1MmQwZTEyZDgxMDZhMjMyYmI1ZTZkN2Ux
+Mzg2OTdkMjEwNjkzNwo+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2
+aWNldHJlZS9iaW5kaW5ncy9yZXNldC9jYW5hYW4sazIzMC1yc3QueWFtbAo+PiBAQCAtMCwwICsx
+LDM5IEBACj4+ICsjIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMC1vbmx5IE9SIEJT
+RC0yLUNsYXVzZSkKPiAKPiBUaGUgY29weXJpZ2h0IHN0YXRlbWVudCBpbiB5YW1sIGFuZCBoZWFk
+ZXIgZmlsZXMgc2hvdWxkIGJlIGNvbnNpc3RlbnQuCj4gCj4gT3RocmVzIExHVE0uCj4gCj4gUmV2
+aWV3ZWQtYnk6IENoZW4gV2FuZyA8dW5pY29ybl93YW5nQG91dGxvb2suY29tPgo+IAo+IFRoYW5r
+cywKPiAKPiBDaGVuCj4gCj4gWy4uLi4uLl0KPj4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvZHQtYmlu
+ZGluZ3MvcmVzZXQvY2FuYWFuLGsyMzAtcnN0LmggYi9pbmNsdWRlL2R0LWJpbmRpbmdzL3Jlc2V0
+L2NhbmFhbixrMjMwLXJzdC5oCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLjUzZTNmZDgxNzcwNzFhZWY4OTgz
+YzYzMTcwNmQ2N2FjODZhYjY0NWIKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9pbmNsdWRlL2R0
+LWJpbmRpbmdzL3Jlc2V0L2NhbmFhbixrMjMwLXJzdC5oCj4+IEBAIC0wLDAgKzEsOTAgQEAKPj4g
+Ky8qIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkgKi8KPiAKPiBIZXJlLgo+
+IAoKSSB3aWxsIHVwZGF0ZSBpdCB0byAoR1BMLTIuMC1vbmx5IE9SIEJTRC0yLUNsYXVzZSkgaW4g
+bmV4dCB2ZXJzaW9uLgoKPiBbLi4uLl0KPiAKPiAKPj4gKy8qCj4+ICsgKiBDb3B5cmlnaHQgKEMp
+IDIwMjMtMjAyNCBDYW5hYW4gQnJpZ2h0IFNpZ2h0IENvLiwgTHRkCj4+ICsgKiBDb3B5cmlnaHQg
+KEMpIDIwMjQtMjAyNSBKdW5odWkgTGl1IDxqdW5odWkubGl1QHBpZ21vcmFsLnRlY2g+Cj4+ICsg
+Ki8KPj4gKyNpZm5kZWYgX0RUX0JJTkRJTkdTX0NBTkFBTl9LMjMwX1JTVF9IXwo+PiArI2RlZmlu
+ZSBfRFRfQklORElOR1NfQ0FOQUFOX0syMzBfUlNUX0hfCj4+ICsKPj4gKyNkZWZpbmUgUlNUX0NQ
+VTAJCTAKPj4gKyNkZWZpbmUgUlNUX0NQVTEJCTEKPj4gKyNkZWZpbmUgUlNUX0NQVTBfRkxVU0gJ
+CTIKPj4gKyNkZWZpbmUgUlNUX0NQVTFfRkxVU0gJCTMKPj4gKyNkZWZpbmUgUlNUX0FJCQkJNAo+
+PiArI2RlZmluZSBSU1RfVlBVCQkJNQo+PiArI2RlZmluZSBSU1RfSFMJCQk2Cj4+ICsjZGVmaW5l
+IFJTVF9IU19BSEIJCTcKPj4gKyNkZWZpbmUgUlNUX1NESU8wCQk4Cj4+ICsjZGVmaW5lIFJTVF9T
+RElPMQkJOQo+PiArI2RlZmluZSBSU1RfU0RJT19BWEkJCTEwCj4+ICsjZGVmaW5lIFJTVF9VU0Iw
+CQkxMQo+PiArI2RlZmluZSBSU1RfVVNCMQkJMTIKPj4gKyNkZWZpbmUgUlNUX1VTQjBfQUhCCQkx
+Mwo+PiArI2RlZmluZSBSU1RfVVNCMV9BSEIJCTE0Cj4+ICsjZGVmaW5lIFJTVF9TUEkwCQkxNQo+
+PiArI2RlZmluZSBSU1RfU1BJMQkJMTYKPj4gKyNkZWZpbmUgUlNUX1NQSTIJCTE3Cj4+ICsjZGVm
+aW5lIFJTVF9TRUMJCQkxOAo+PiArI2RlZmluZSBSU1RfUERNQQkJMTkKPj4gKyNkZWZpbmUgUlNU
+X1NETUEJCTIwCj4+ICsjZGVmaW5lIFJTVF9ERUNPTVBSRVNTCQkyMQo+PiArI2RlZmluZSBSU1Rf
+U1JBTQkJMjIKPj4gKyNkZWZpbmUgUlNUX1NIUk1fQVhJTQkJMjMKPj4gKyNkZWZpbmUgUlNUX1NI
+Uk1fQVhJUwkJMjQKPj4gKyNkZWZpbmUgUlNUX05PTkFJMkQJCTI1Cj4+ICsjZGVmaW5lIFJTVF9N
+Q1RMCQkyNgo+PiArI2RlZmluZSBSU1RfSVNQCQkJMjcKPj4gKyNkZWZpbmUgUlNUX0lTUF9EVwkJ
+MjgKPj4gKyNkZWZpbmUgUlNUX0RQVQkJCTI5Cj4+ICsjZGVmaW5lIFJTVF9ESVNQCQkzMAo+PiAr
+I2RlZmluZSBSU1RfR1BVCQkJMzEKPj4gKyNkZWZpbmUgUlNUX0FVRElPCQkzMgo+PiArI2RlZmlu
+ZSBSU1RfVElNRVIwCQkzMwo+PiArI2RlZmluZSBSU1RfVElNRVIxCQkzNAo+PiArI2RlZmluZSBS
+U1RfVElNRVIyCQkzNQo+PiArI2RlZmluZSBSU1RfVElNRVIzCQkzNgo+PiArI2RlZmluZSBSU1Rf
+VElNRVI0CQkzNwo+PiArI2RlZmluZSBSU1RfVElNRVI1CQkzOAo+PiArI2RlZmluZSBSU1RfVElN
+RVJfQVBCCQkzOQo+PiArI2RlZmluZSBSU1RfSERJCQkJNDAKPj4gKyNkZWZpbmUgUlNUX1dEVDAJ
+CTQxCj4+ICsjZGVmaW5lIFJTVF9XRFQxCQk0Mgo+PiArI2RlZmluZSBSU1RfV0RUMF9BUEIJCTQz
+Cj4+ICsjZGVmaW5lIFJTVF9XRFQxX0FQQgkJNDQKPj4gKyNkZWZpbmUgUlNUX1RTX0FQQgkJNDUK
+Pj4gKyNkZWZpbmUgUlNUX01BSUxCT1gJCTQ2Cj4+ICsjZGVmaW5lIFJTVF9TVEMJCQk0Nwo+PiAr
+I2RlZmluZSBSU1RfUE1VCQkJNDgKPj4gKyNkZWZpbmUgUlNUX0xTX0FQQgkJNDkKPj4gKyNkZWZp
+bmUgUlNUX1VBUlQwCQk1MAo+PiArI2RlZmluZSBSU1RfVUFSVDEJCTUxCj4+ICsjZGVmaW5lIFJT
+VF9VQVJUMgkJNTIKPj4gKyNkZWZpbmUgUlNUX1VBUlQzCQk1Mwo+PiArI2RlZmluZSBSU1RfVUFS
+VDQJCTU0Cj4+ICsjZGVmaW5lIFJTVF9JMkMwCQk1NQo+PiArI2RlZmluZSBSU1RfSTJDMQkJNTYK
+Pj4gKyNkZWZpbmUgUlNUX0kyQzIJCTU3Cj4+ICsjZGVmaW5lIFJTVF9JMkMzCQk1OAo+PiArI2Rl
+ZmluZSBSU1RfSTJDNAkJNTkKPj4gKyNkZWZpbmUgUlNUX0pBTUxJTkswX0FQQgk2MAo+PiArI2Rl
+ZmluZSBSU1RfSkFNTElOSzFfQVBCCTYxCj4+ICsjZGVmaW5lIFJTVF9KQU1MSU5LMl9BUEIJNjIK
+Pj4gKyNkZWZpbmUgUlNUX0pBTUxJTkszX0FQQgk2Mwo+PiArI2RlZmluZSBSU1RfQ09ERUNfQVBC
+CQk2NAo+PiArI2RlZmluZSBSU1RfR1BJT19EQgkJNjUKPj4gKyNkZWZpbmUgUlNUX0dQSU9fQVBC
+CQk2Ngo+PiArI2RlZmluZSBSU1RfQURDCQkJNjcKPj4gKyNkZWZpbmUgUlNUX0FEQ19BUEIJCTY4
+Cj4+ICsjZGVmaW5lIFJTVF9QV01fQVBCCQk2OQo+PiArI2RlZmluZSBSU1RfU0hSTV9BUEIJCTcw
+Cj4+ICsjZGVmaW5lIFJTVF9DU0kwCQk3MQo+PiArI2RlZmluZSBSU1RfQ1NJMQkJNzIKPj4gKyNk
+ZWZpbmUgUlNUX0NTSTIJCTczCj4+ICsjZGVmaW5lIFJTVF9DU0lfRFBIWQkJNzQKPj4gKyNkZWZp
+bmUgUlNUX0lTUF9BSEIJCTc1Cj4+ICsjZGVmaW5lIFJTVF9NMAkJCTc2Cj4+ICsjZGVmaW5lIFJT
+VF9NMQkJCTc3Cj4+ICsjZGVmaW5lIFJTVF9NMgkJCTc4Cj4+ICsjZGVmaW5lIFJTVF9TUEkyQVhJ
+CQk3OQo+PiArCj4+ICsjZW5kaWYKPj4KCi0tIApCZXN0IHJlZ2FyZHMsCkp1bmh1aSBMaXUKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
