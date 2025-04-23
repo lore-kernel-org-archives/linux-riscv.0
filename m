@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46989C369CB
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 09:57:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9288C369D3
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 09:59:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iP3fBsB2HKPYB1baWSU5pkxgLooih7V5D6qeaGUcvvE=; b=RIpc6PowU/xmnb
-	t7+kZDkw/H8DokzSuPvejf8efG4zz1N8UrtbafTEnPH3olU1TgVe7799Z0QD95DRuqlZTblr1uRJV
-	Oq2riZLk/lTfW4wqavhL1IZbcVXauU7Ee43z4tvb5ZqktYGeaXQT91j7/5HFDDkHb2CZ0kd/8rM2K
-	Gv56I3g6zgtMPrSZrNiG1cHx/BNYBBhzS5aJFJDiK9r8wUeiR7Ph+VXUD9b143X/M2C37oFssMx4A
-	sR7yfSgHNynVd1jOfdHMD2YNH6sMjI+h8ICc/S9wsNbLydB/8cNOLJ7Shv7D1uC6L3EKvfindZ33Y
-	5tvdKwSWUigW7XGAFr9A==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=BMrYiwKBfWylE6A0WhEm+xmhQahNVr+/CFUnUf1NMBQ=; b=hUeWjluzg/iGAN
+	qlwkQIGYzg3ZRS4WTRvqdrqj8R4Tyyh2qNEkZUmqLLOrrpn8jcVGzI/2dfZ6hw8VYvneOvSX+Vx/V
+	l8/JUzKlSGpsgCZNH3G+Oe2EGu7UQWgy4XciPQKiw+sW37YaDCVpmsNWSs0VD7sUfHFNX4VIkeeMg
+	lrJxRTy2WagBfcZYGzIasI9hHH+KbXX+ofdtOAS/wJDUJhHV+zgtQjAyQvmnppLAhAtf53pZmyso0
+	BqL+w46CTh1Y9zZp/9C/MckOQ3VefJSqmbA121M9UWBNB4PGpIIXFofuA3QZaCLv961aPDGdwwYk9
+	XbC9S+j9Bhe4HTVE+ZGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7WrG-0000000A5G6-3b7Z;
-	Wed, 23 Apr 2025 09:57:34 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1u7WtF-0000000A5WK-0T76;
+	Wed, 23 Apr 2025 09:59:37 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Vr4-00000009pbV-1VL5
+	id 1u7VrC-00000009pdo-0BzU
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Apr 2025 08:53:19 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b041afe0ee1so5647688a12.1
-        for <linux-riscv@lists.infradead.org>; Wed, 23 Apr 2025 01:53:17 -0700 (PDT)
+	Wed, 23 Apr 2025 08:53:27 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-af28bc68846so5237553a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Apr 2025 01:53:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1745398397; x=1746003197; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=JjebrSqhRy+XNyTElbHFiq0P7Ym7xRzEEhcpacCtDZc=;
-        b=J9+C0u2S7NxodOZxxItFHXqS6hYbWJOJ0Z1rDTpOnAB+STf6ugnSoSnSksGfipt+/4
-         KoCj1DW/Rx1yOEyjNb46154ZtYSfx2FXbRDF08ZIpYiwQ7TcJ4+sEZNEAx2dLmzIEjEB
-         udnUB+NL7luInDWw+NFLPsbLS7bmTdsS2Ndaotzlde5t6CCyyygWSNWtmIcguwX4pVRe
-         EOWaSN+S00sQvfnwdBbwJkypk598fxLLwzoAWsvISEARDMJQx9rNGvXzwqBjEEiqsod+
-         8ZYBSSBSNZejfQwNSB/EeSQcHkVxP0mnIMyux9exNHFy7RaDDh+/dMBNljY0qvo4QCT7
-         oe7Q==
+        d=sifive.com; s=google; t=1745398405; x=1746003205; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dTYlTOXj1U7VnsAmcUnx1eYdk5rL5ZGZ7LNT8Q6B11E=;
+        b=hVZOjTEkY3XD8Do5kjxOTnBKQj0QW5DrzYdHnntf7oZlqf37tYAiPohlpHVFkx1h5D
+         wqode2xzOhQ4+8/XBUywdwoGXpc8MOMI2SqYIGy0qmOrBJwRda+Y5OBRFwulwOB7KGq4
+         Alzeddwh5l26RjG2U3eM0Uoc1o8+/PoBKr+02mxIfCV0Uqo29hFrVkBVrDeUA2M/EZlq
+         puXVRwJyK1a33pWkC1e4ZBnlvYD+yZSRurUC4Z5pHCn0Awb3fB1mFP5NYz5H6C3f9Pch
+         ECDmtHOVCFqUH4BFBpQzPE21wWcJEZwkzRa+DIqyTyMcAkVRq59BSDU3S6OE1EIGkGwM
+         4oVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745398397; x=1746003197;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=JjebrSqhRy+XNyTElbHFiq0P7Ym7xRzEEhcpacCtDZc=;
-        b=wMBIFJChM9wFOy9mlSPIsy39tQ0Koj2JxgqctfiOWf6A4Um8uW5RpCx8MzD8FuaesB
-         pSGPrQi3+PcgsNDvNuaa8q3XXCpWofScAEG3NdGUpc9U1RDCt2MuHOp0oBH94UK2FmfX
-         PscuwVfqQbwK69fpRt2cxeHy+v4wT6nFCa4pbWwtxnjws+LnlrfGd4EXkWEXKqZB6+oP
-         0qguQA6XQxAN1WFWHpAksCzE/hqQsQTnVAGsL8+SR9sJyMcoSW0y49VpNlWXx0AN82o6
-         rBa+XhAiSWyP/k0lD6piNJRBtoMlDJFMiHPGLJacTO9XUZRQnw30ZrtMZZXHzhwNv3mc
-         IiXw==
-X-Gm-Message-State: AOJu0YzppwHf4d9brpW170lQ5xoSReC01oJmzlfd+cmBOLRYYa8ahPMZ
-	ItEEBe/VFn9SRcNXJg72xVXC5JXalE8kDnJa1h3+JV+HUTj94PClQmaPh5CJ9kw=
-X-Gm-Gg: ASbGncs2q2VZQ64tWEo516LraUo5wbSMaN33U6sAjLo+0U2A40MbBWpc8D5XMDbIbQU
-	utcwwCIgpstQgGfnAM1b255Zc7OaqvD6OzeOy+UFqTji+nnSGbN6rYf7umkvJo7mLfnO4mqd9sQ
-	sTfBrIiavYgdVwtY+o2j2iiq70Y7u14e58w4kOLTK73rauVC5z2YE4/jGXpe1suNWwFiH56qcxe
-	SjfUbjtyoPsxzvXHbaKRtGEboFnLzljqT94Ns0cGCgZWhOFwoAP/72Z8a2IsNNRa7FcVWuHRqn3
-	vy6T+5nOEzQsV3jArN5rK1XB2j6wEjOSXeK5/RzayrXF3blB0c7/1ruX1GfB8eDLWOptKNKaZdw
-	gzw==
-X-Google-Smtp-Source: AGHT+IE/xgNsfxLOOIy9HFiTH79KuPX/M8jQhMYXEVtLbecTAoeikygJMa2gCllgel3Hj8t3lvLqwQ==
-X-Received: by 2002:a17:90b:2751:b0:301:98fc:9b5a with SMTP id 98e67ed59e1d1-3087bb4150cmr24558428a91.6.1745398396823;
-        Wed, 23 Apr 2025 01:53:16 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1745398405; x=1746003205;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dTYlTOXj1U7VnsAmcUnx1eYdk5rL5ZGZ7LNT8Q6B11E=;
+        b=CfY4EC+A+Kfr+OxWTYmHhR1fe+Ph+wAnBep3OIJ1BnExR4jcauDjI7HoTH580CWl01
+         FstgiMsGxK2kRQ18IxTzs7gwHPCZgk3nhmPMMXcnFjCt3118aLyyfcrR4Q4EEv77WXkt
+         Cr08Hs7BSJVIycbLkQOB5PO1wx57fJBuLx9OdW1HfUH0Rzt0KKJ6ZpnL6LtSmefev9Io
+         wm+CzOFGq2k+UCyQ7iKPOpOPWtNoKX4vyRFLXTuPK0qB1pRkOdjWuKNkDTioqdrwLOXq
+         /kFuEE8bphMUWZK+Nz3qgp6k2hC3Zcr7QY4ntH2T71rMxSLJdanpioi7xtSmQO+RmglR
+         vxfg==
+X-Gm-Message-State: AOJu0Yw5tQ83QvfZbOQMF4HzOiunADln9pjJldmfKEbnYGXoNV+ZVfUv
+	wBSOogRVQFD7qZpW2rG8FYBqBGBA/OSb9mi3HfkN+MGNKQVoSqnwWZFx0dGn+Zw=
+X-Gm-Gg: ASbGncv9xUl7RRIR87LCUxScgsBOjYNrvuP94S4Za24SuuxdMhio2pKS30QIFpQnSzd
+	w7/JsgraAjHM838mp5cIcRI91UhmEeeKnE1Y5Pe64HrNB6RnTpDsyhwPEv75QaEnMHDSS/sa8Mz
+	y0nEDdT9ub3PAs8lGeaV5gsAZRTWrIpKecDQrs5looneoJ+TCYlu/YcUYglArKDa89YGG9dL3+8
+	q2UXexJ8xqU76QAx5wtaxq2BsVQww0hiKOH0hZrAFVWcfhIFJm7++en/ujzm1ZSSWP823qfV/qr
+	yq3Amq5/SCUhfRdnCmV2kqn2nG6+HlwDQbpovjzLb/qi5HKwsqFvuK1jFvLs/dwwir6AoY2zgEE
+	FZhilpiS2HUmw
+X-Google-Smtp-Source: AGHT+IHsne6SwuPfQCy1RW0kcEWQ/ZXryn74BlHfS0I+6JQfEYDqbMrgCVn3H2qm22jhwAVayF6+Dg==
+X-Received: by 2002:a17:90b:568b:b0:2fe:a545:4c85 with SMTP id 98e67ed59e1d1-3087bbbfca6mr26166817a91.27.1745398404883;
+        Wed, 23 Apr 2025 01:53:24 -0700 (PDT)
 Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309dfa5f880sm1047611a91.38.2025.04.23.01.53.14
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309dfa5f880sm1047611a91.38.2025.04.23.01.53.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 23 Apr 2025 01:53:16 -0700 (PDT)
+        Wed, 23 Apr 2025 01:53:24 -0700 (PDT)
 From: Nylon Chen <nylon.chen@sifive.com>
 To: Conor Dooley <conor@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -80,15 +81,19 @@ Cc: linux-riscv@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-pwm@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>
-Subject: [PATCH v13 0/5] Change PWM-controlled LED pin active mode and algorithm
-Date: Wed, 23 Apr 2025 17:04:41 +0800
-Message-Id: <20250423090446.294846-1-nylon.chen@sifive.com>
+	Nylon Chen <nylon.chen@sifive.com>,
+	Zong Li <zong.li@sifive.com>,
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH v13 2/5] pwm: sifive: change the PWM algorithm
+Date: Wed, 23 Apr 2025 17:04:43 +0800
+Message-Id: <20250423090446.294846-3-nylon.chen@sifive.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250423090446.294846-1-nylon.chen@sifive.com>
+References: <20250423090446.294846-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_015318_407864_DF5F6C71 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250423_015326_091933_35A9B7EC 
+X-CRM114-Status: GOOD (  11.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,97 +110,80 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-According to the circuit diagram of User LEDs - RGB described in the
-manual hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
+The `frac` variable represents the pulse inactive time, and the result
+of this algorithm is the pulse active time. Therefore, we must reverse the result.
 
-The behavior of PWM is acitve-high.
+The reference is SiFive FU740-C000 Manual[0]
 
-According to the descriptionof PWM for pwmcmp in SiFive FU740-C000 Manual[2].
+Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf [0]
 
-The pwm algorithm is (PW) pulse active time  = (D) duty * (T) period.
-The `frac` variable is pulse "inactive" time so we need to invert it.
+Co-developed-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Zong Li <zong.li@sifive.com>
+Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+---
+ drivers/pwm/pwm-sifive.c | 16 +++++++++-------
+ 1 file changed, 9 insertions(+), 7 deletions(-)
 
-So this patchset removes active-low in DTS and adds reverse logic to the driver.
-
-Links:
-- [0]: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf
-- [1]: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf
-- [2]: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf
-
-Updated patches: 1
-New patches: 0
-Unchanged patches: 4
-
-Changed in v13:
- - Fix syntax error: Added missing closing parenthesis in do_div()
-   function call.
-
-Changed in v12:
- - Replace division with do_div() to fix __udivdi3 modpost error.
-
-Changed in v11:
- - Fix rounding consistency in apply() and get_state()
- - Add code comments to help clarify Reference Manual errors.
-
-Changed in v10:
- - Add 'inactive' variable in apply() to match pwm_sifive_get_state()
-   style
- - Update comment about hardware limitation - it cannot generate 0% duty
-   cycle rather than 100% duty cycle
-
-Changed in v9:
- - Fix commit message to adhere to 75 columns rule.
- - Update commit message's subject.
- - Add a variable for inactive logic.
-
-Changed in v8:
- - Fix Signed-off-by and Co-developed-by typo.
-
-Changed in v7:
- - Remove active-low strings from hifive-unleashed-a00.dts file.
-
-Changed in v6:
- - Separate the idempotent test bug fixes into a new patch.
- - Move the reversing the duty before the line checking
-   state->enabled.
- - Fix the algorithm and change it to take the minimum value first and
-   then reverse it.
-
-Changed in v5:
- - Add the updates to the PWM algorithm based on version 2 back in.
- - Replace div64_ul with DIV_ROUND_UP_ULL to correct the error in the
-   period value of the idempotent test in pwm_apply_state_debug.
-
-Changed in v4:
- - Remove previous updates to the PWM algorithm.
-
-Changed in v3:
- - Convert the reference link to standard link.
- - Move the inverted function before taking the minimum value.
- - Change polarity check condition(high and low).
- - Pick the biggest period length possible that is not bigger than the
-   requested period.
-
-Changed in v2:
- - Convert the reference link to standard link.
- - Fix typo: s/sifive unmatched:/sifive: unmatched:/.
- - Remove active-low from hifive-unleashed-a00.dts.
- - Include this reference link in the dts and pwm commit messages.
-
-Nylon Chen (5):
-  riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's
-    active-low properties
-  pwm: sifive: change the PWM algorithm
-  pwm: sifive: Fix the error in the idempotent test within the
-    pwm_apply_state_debug function
-  pwm: sifive: Fix rounding issues in apply and get_state functions
-  pwm: sifive: clarify inverted compare logic in comments
-
- .../boot/dts/sifive/hifive-unleashed-a00.dts  | 12 ++---
- .../boot/dts/sifive/hifive-unmatched-a00.dts  | 12 ++---
- drivers/pwm/pwm-sifive.c                      | 49 ++++++++++++++-----
- 3 files changed, 45 insertions(+), 28 deletions(-)
-
+diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
+index d5b647e6be78..bb9146267bc5 100644
+--- a/drivers/pwm/pwm-sifive.c
++++ b/drivers/pwm/pwm-sifive.c
+@@ -110,9 +110,10 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 				struct pwm_state *state)
+ {
+ 	struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
+-	u32 duty, val;
++	u32 duty, val, inactive;
+ 
+-	duty = readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
++	inactive = readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
++	duty = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - inactive;
+ 
+ 	state->enabled = duty > 0;
+ 
+@@ -123,7 +124,7 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	state->period = ddata->real_period;
+ 	state->duty_cycle =
+ 		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
+-	state->polarity = PWM_POLARITY_INVERSED;
++	state->polarity = PWM_POLARITY_NORMAL;
+ 
+ 	return 0;
+ }
+@@ -137,9 +138,9 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	unsigned long long num;
+ 	bool enabled;
+ 	int ret = 0;
+-	u32 frac;
++	u32 frac, inactive;
+ 
+-	if (state->polarity != PWM_POLARITY_INVERSED)
++	if (state->polarity != PWM_POLARITY_NORMAL)
+ 		return -EINVAL;
+ 
+ 	cur_state = pwm->state;
+@@ -157,8 +158,9 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	 */
+ 	num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
+ 	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
+-	/* The hardware cannot generate a 100% duty cycle */
++	/* The hardware cannot generate a 0% duty cycle */
+ 	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
++	inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
+ 
+ 	mutex_lock(&ddata->lock);
+ 	if (state->period != ddata->approx_period) {
+@@ -190,7 +192,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		}
+ 	}
+ 
+-	writel(frac, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
++	writel(inactive, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
+ 
+ 	if (!state->enabled)
+ 		clk_disable(ddata->clk);
 -- 
 2.34.1
 
