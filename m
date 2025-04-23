@@ -4,150 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 980C1C369CB
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 03:21:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06836C369D5
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 04:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJFfl9y8DUhWxg52mOlAHZWphiuPMCUUPhzSir1yStc=; b=zTI4wbrucKTym5mn15o2U2vNH0
-	tKjjM0y8lisMq8zf+RGI4u4CLX6ypLSLl2ntVURiL8/8PdT2XAMugbBhEb+jCMg7kdKnIwWZmoUba
-	7PmkLiuExvFsKC62DZ3MjBUzTQDk+gUVr7DUgTgUKxrRNy+BtEdJE2sb1kNRsy4e6dQD/LtR4vzOU
-	j7pu4ZyMxbNJQWF9S5V5hCUuQ2GKl9Ln094H7aY1D9vlipbp5juwT2D4dJXFVCSgCoA7woO67fPGz
-	+av2acN3ktLCB6KZX7jiXJGlSvhHV9eXURigSmSVepqrTfE4xIMYUX1n2Piof77hqn1VdwDKBSAVj
-	Qh9E+6uA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=EGWj+pMS5UG6I0DUced3UILCeSg0q/d6+iRaHoJJsfQ=; b=OZsI4lqQe7CZ0a
+	ax+eFnqAKgjlq0nMmkbgFdWV/FPF4c8+o8C8mv8YwcUp20g/CVc4Br1iSLwm+uW1L7hNYHZOXyQSM
+	S6VKpYbr/ffchjWgg+72RIzWnCjJSfwPDdkMtpwCTIbK7RU/AuEYxC3EusU1mPbUd7OCpocQ4pCRj
+	ndKu/FH+khKhF+XriWo55XCmaWop1IpCdgJ8WABPuWR9JrIzhCUjgRJt9HyzuBVg8Qd2kINoS31Py
+	WLWfqL3Nf7wSUvr1XChYqTxZjET57Pg7eGOz2Q6Ya7WzZ0MksIMV5dhV5FcZCaxrYQ2clf4+7XnOE
+	wce3sI9W7ThdDzdZdseQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Qfx-000000097N9-3gRh;
-	Wed, 23 Apr 2025 03:21:29 +0000
-Received: from mail-southindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d408::1] helo=MA0PR01CU012.outbound.protection.outlook.com)
+	id 1u7RQj-00000009AQp-3Z3b;
+	Wed, 23 Apr 2025 04:09:49 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Qfv-000000097MM-1sE6
+	id 1u7RQe-00000009AQB-4BCJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Apr 2025 03:21:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uakGeaVqPzOA6TUPnemzb18Gifksw2JHtXlAdhF98nHVs4vZNVtuTlHAoJjf/owgrC42YyYIiGdnRM8M8k5QDf8aEplltmWSkCKHP/tRI2m87teGFv0LJaUsa5NXQJvqAxoxMuW/cqCzIgc8eMdYUdIjAtT3ppz0LYhCs0/DzWKAP6xXWiOzbWXsoN5aHWa2I0JEIWkjH81Nfl5n2hPI5KASgpbKZNitOAZ/y40HZcQkjGs3KJ54wn62Vdscb6ZRLfmCRoPA0C8LJ8pp2cw0Lzfsb7wrc915BO9zPSfSJEBdGba8MfUnaBKWb+pqGWr7EQ56UKZwIakmjjzRF6kQHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EiLi5PSW3Z9hS5TJxLGYFCNxRFw+jxD1LBDeyIYOYN8=;
- b=IKF21fgQVDBGU9k5M+x3hhSoWlp21jnQOkq0z95Su7W2CgWnYL+SV+bsnKSq0Ow+gI2p5iEOQdUjZlevN59PbWbP8TgSqIayN9q83JmiCSgy+d9F/iPQUAVI44Knq+xwWsuBtMW4KluW5vUCGXWL6r9mw3s89QkfqZE0ErdCCIFW8WvMjvF9WcBNavd7jX5+bS4QCMed7mmJM0krpQrAk3O8mOUfAjK2kYttcymdTY/uFte+EV34ifPOGOvRLRBB0X4TTDwQiy/BLmK8gQeCDN1tX4hYaCT3aM9Bre4pmuYhCp/xeBP0iGAaekmZC3pIT8o8l4Uyg110bM6f3QCMtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EiLi5PSW3Z9hS5TJxLGYFCNxRFw+jxD1LBDeyIYOYN8=;
- b=OAkX91X3ciG4XDOesBUBENqU7XBAZ8iVChveo/rots4f7bs31ZLUAcVrNGJ3ql5Aau9uYflUTp2TVXlYILW94MO2VOed59f82nO82UK5zSh43AieIboBqM3uZHX+QH+u6DWJeLz7avT7RwdwowbUex38wMBqSUxmJSOfOBXXej+8KRJmDTTxVtJzk/lgArvmOj3Qd5diVA4evlW6cvy9D8fzRvNN+e4CW6wj2wQ/M80KVWAA60Me9mMjLfSmdbOnr3ekv19v77IOyfOzW6UxK3r57O4dwpva5dV7ovld9EwyW1E5XskKzuJpsKOPDg8nVBXUm1HR9vVH4XDf+314sg==
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
- by MA0P287MB1449.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:fd::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.36; Wed, 23 Apr
- 2025 03:21:13 +0000
-Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- ([fe80::ca81:3600:b1e4:fcf4%5]) with mapi id 15.20.8678.021; Wed, 23 Apr 2025
- 03:21:13 +0000
-Message-ID: <MA0P287MB226271093B2CC475E80784DFFEBA2@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
-Date: Wed, 23 Apr 2025 11:21:09 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] reset: canaan: add reset driver for Kendryte K230
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20250420-k230-reset-v2-0-f1b4a016e438@pigmoral.tech>
- <20250420-k230-reset-v2-2-f1b4a016e438@pigmoral.tech>
-From: Chen Wang <unicorn_wang@outlook.com>
-In-Reply-To: <20250420-k230-reset-v2-2-f1b4a016e438@pigmoral.tech>
-X-ClientProxiedBy: SG2PR03CA0114.apcprd03.prod.outlook.com
- (2603:1096:4:91::18) To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:100::6)
-X-Microsoft-Original-Message-ID: <8ac714fa-2518-4a44-9135-6211bd4bf493@outlook.com>
+	Wed, 23 Apr 2025 04:09:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1745381385; x=1776917385;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=KISXD0ltBB9Z0bhlbMH9MxL/r8xahZ8DX/KFQwdLNi4=;
+  b=YAHotNKn2abv+LhZ1NRIk2+IXb/SMUUEGnG+7DqSz2PSE57UWt7hv2AW
+   pX8qn4QlEEj8DZrClItFXlMvvPB4ibKINx632YGKvPEr3xNnk5mLKfpQH
+   PnnORTF182DLSNsc+1S+q35h84pxXDckeNcqRzIOK5YatHjGhG5BgeR/z
+   fJB8do723m4XTDUZKXpZ1bAsynPLo+TajO7cz4JmLzsYmB1QkgOeriD14
+   rZ0Dj7JTW8LEI77iU5CvtKvDDVXmUF/HiODy+JUjYfotj5lAaPw+Rf8D0
+   5Nvd8/IMEn4RTzdG6sAtPia35hVMVjot4/cAFNUehBbSKYH6LUV0TWggd
+   Q==;
+X-CSE-ConnectionGUID: ryggbT1xS0ewFRmQWvQ37w==
+X-CSE-MsgGUID: 7LBEd3iORuOcJAV2orp8oA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11411"; a="72342469"
+X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
+   d="scan'208";a="72342469"
+Received: from fmviesa009.fm.intel.com ([10.60.135.149])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 22 Apr 2025 21:09:44 -0700
+X-CSE-ConnectionGUID: veazpDj7QZmxOlZWUAIC5Q==
+X-CSE-MsgGUID: BGgUw+7bSPiwYlKCWUgOXg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,233,1739865600"; 
+   d="scan'208";a="133076123"
+Received: from lkp-server01.sh.intel.com (HELO 050dd05385d1) ([10.239.97.150])
+  by fmviesa009.fm.intel.com with ESMTP; 22 Apr 2025 21:09:40 -0700
+Received: from kbuild by 050dd05385d1 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1u7RQY-0001aF-0q;
+	Wed, 23 Apr 2025 04:09:38 +0000
+Date: Wed, 23 Apr 2025 12:08:40 +0800
+From: kernel test robot <lkp@intel.com>
+To: Nylon Chen <nylon.chen@sifive.com>, Conor Dooley <conor@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	Nylon Chen <nylon.chen@sifive.com>, Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v12 4/5] pwm: sifive: Fix rounding issues in apply and
+ get_state functions
+Message-ID: <202504231136.Cr4O6Zg5-lkp@intel.com>
+References: <20250422085312.812877-5-nylon.chen@sifive.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|MA0P287MB1449:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69b70eea-9b89-469c-49cd-08dd8215e699
-X-Microsoft-Antispam: BCL:0;ARA:14566002|461199028|19110799003|6090799003|5072599009|8060799006|7092599003|15080799006|1602099012|10035399004|440099028|4302099013|3412199025|12071999003|12091999003|21061999003;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZCtkeElUa0dZSmhsNzNIN2FXVFFOcjdDa3grSUZYb3JVd3gwTTdMQjZhNVZV?=
- =?utf-8?B?ZFU3R0pvVWQzb3lyRXpmWHloUUtaRnZSd0FSSkNoRnpQRjZPSmJEaDFVK1Mr?=
- =?utf-8?B?MXVSZnJXKzdZMldOOVJvcUVxbHo3djRvNktXc1Q2SlBFVFVRM0NvYVQ4cFhy?=
- =?utf-8?B?K1ZlZzFrdDAyRExPMm82eUtpZG5XUnVlWVBPK3MzRGszN1ZsVFY2Ymhjbk5S?=
- =?utf-8?B?VGM4MFJzQnB3c0ZLTmxHdmpEeE9PSkRwU1oyTk1BWVJGcjhaQVl4RzZCUC9G?=
- =?utf-8?B?L0xIZERNaXRlVlIza1JrblR0T0xsQnRDNU5vSHlvTHhRSFNRckV4bEVrUzNy?=
- =?utf-8?B?TFg3Zit1enJCWWpTZGg4WEliUlA3YmpBcFhFS21nU0NQRDJmSnowNFFHL2FB?=
- =?utf-8?B?YUVnTkZmZ3d2SzRMQVkrKzNQazYrVTh5NDY1M2U0Qko0aDlYOXlRUDE0WDdL?=
- =?utf-8?B?b1JUcjRHRXo4TEdPS25hUDFvb3BHRkh6eDExY3MxcVY3UW9LY05aUXgyeE40?=
- =?utf-8?B?NllmdElLdXdPYTlza3ZMY2pkTmxKZmtNVXpKU0VRbnhrekdWRHEvSVpXbnNI?=
- =?utf-8?B?c253WHlWdnNkUGdGbG45b1E0ZjVOM21pN0g1OHJ6eXl4L1YxN0ZxZEVZNDJa?=
- =?utf-8?B?OEl1RVh2WE1HMWRYZ01ML3NrOVFaZDV2aUYyalZYK2U5eklWdlREY2FFZWFi?=
- =?utf-8?B?MWZnQ2tFb2svZTZJVGN6V3dIYk0zOU95R3REUHVCT3ZjdXVxR29tUXJRRGpl?=
- =?utf-8?B?SjlaQTN4dWlCN0ZCVlVLdHZRR3NHcTNNdjU1UjhDYTZXQUhDdzVBalBmVmlu?=
- =?utf-8?B?Q1J6K0VpWFUrR21QcGt1TE5XamJMSDRJUUFPZVpjVStLbDgzYzFIZ1hTOGtH?=
- =?utf-8?B?clVnUnVrUlc1bUNPckJxcUlRT2RteU42Ymx6RVBITXB4Z2tqbGRzcFRrVW9o?=
- =?utf-8?B?dDBnNHJXUzlyNkdubGxITlRraHZybEpKWDB0UXZPTWkvL3B1MXJYZCtvQk92?=
- =?utf-8?B?QWxrNCtraEtETkp2YjRVWHBoS05kWU9qb25pZllOWnZpamkxc05kL1JzVjNj?=
- =?utf-8?B?OVRNUG03ZUNCZ2x6S0lneWZSVUdoNXVtNXBZY283TGp6VEI1VlY5ZkQvSzhh?=
- =?utf-8?B?RTRNZnpzb3ZCdjRJKzVUM3ZoTWc1SHZsWUViRDRQQXZjeFNYS3lrQ3JpU2hr?=
- =?utf-8?B?ZG5GcHR3RWp0QmV6Yko1M1BEa0NFdE9MbjhDY1czampobmYrWlhyRGE4d0R1?=
- =?utf-8?B?ak1aT01vQWdET0YyOHlXTjhETmJITXZTTitQMnZSSk9RRDNmK2VRV3JrVnJa?=
- =?utf-8?B?MFg0cDQ2NWNxNElFdW43bXVBSmpqUGFTNU1KdW9zVkNoUkZnelp3NFQ1WGhw?=
- =?utf-8?B?ZjdSbElBeitsU1NoOU9BWHZ2aUpZMzlVSzdDUlJmU2N5aVV6UnRTVnpVcjg4?=
- =?utf-8?B?RDNsL0tYODUzdDFJZXNOVVp5cHBmZnovLy9WQ3ROcXZNRExzdUVHNXA0UFNm?=
- =?utf-8?B?QjQwL3pIcXpQcEpTZGZ3UERsU1ZodFhKMW44bnhDK3VkNnJFTmkvUnF6SzJD?=
- =?utf-8?B?ZWRUWHNxQVJzRGhPUU1BSEJrcytpMXRrd09DZHMyMjJRWVI1TllXRUYrc24w?=
- =?utf-8?B?Q2oxWkRMWWFPeGxSV3FXUytjakgrR00xL2hhWlh2Y2RBaDNwU1NJckgzVTk3?=
- =?utf-8?B?akNpcXJtS0xQN1hyK0FmbU94bzRGRHU1bVY3bkZQOVovUWFwcVlnUUJXRUlH?=
- =?utf-8?B?M1k3OHN2QldsazZMS0pjeVVPSExJNkNXUlBLems4NWdjQUtLWnN3R0NZVnFZ?=
- =?utf-8?Q?hfGm81tSA6N4N78Rr/fC2vTWMmMcNxGPLgmV8=3D?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L1JLU3lzMnA3Qmg2RzlhcjdXVlVwdG9QR1dkYTh6alhPT1V2RldnNTlqR3dw?=
- =?utf-8?B?bUpGRWJ5ZURhUEpObzVzYk1qUTFCKzliMlYvMTUvTnRJZUNmajJ2dGNWNTIy?=
- =?utf-8?B?RERybkRMV2JpWm9mZ2d4eTJFMHdSZE5CM1ZFUlNCWSt5S1JKRXFBYXM5SVJl?=
- =?utf-8?B?bG4rOUJ4UjVnQUQvYlhIamgxeHBuaS9VcnBXZ3pPd09hZDM4czhBdlNncjRS?=
- =?utf-8?B?eU1UL01LOGRPSlhwYnpWZExTMEc0cVp5RlNqWkNUYnlMTjZzb1kvKzBma1VW?=
- =?utf-8?B?QXE3MnhlNDA0WjJIb01uK1RHU1VsWURYMG9Hb01qQm5aV05rNVZJdlMwQmhi?=
- =?utf-8?B?eUhqWGlTTytNSHIvV2tSa2U0TFFlSU9YWmpwLzdiM0JzVDhiQUpreDk0MlJo?=
- =?utf-8?B?bmZVZEYwS1cyNHBUSWRBVVlIcnBiVkdESk83Wk85a1hWSkJMZ1lXNjA2NnRo?=
- =?utf-8?B?QmVLTGErNVNlTGFpQ0pXS0RwbmgvMkx5OW5lTzJGTFo4NElHUUV2Tkw0aGtn?=
- =?utf-8?B?QVNKaDF3QmsxUE9NQjZIUmdEOVZPbURROHEvc0c4WGoyNzdXbzQvTE9ERUsy?=
- =?utf-8?B?Ym95K3pUYVhxWU5lOVdlU3ExV25RZDJxd2JGWG5IRXA2YWJ4RDJpMkp5VVB2?=
- =?utf-8?B?YXdJaUgwdFIvdVcwUlQvZ2syaDR6MEhJNzF2WXVReWtFdzhYejIvUTkybVhP?=
- =?utf-8?B?OTZxQzhUdHA1ZE1XeXRVOEU4elBMS2NSQ3ltem5KWjVzOVByN2RYYW4vNXJp?=
- =?utf-8?B?RXFGSnQ4VHZjWDNnNktvbkpJQTlwcTUvRXFhYUY5bFFrRS9KMHB2bE9yS1Jl?=
- =?utf-8?B?cUJxSUJRQ1BSakFvMDhNUVBTNzQzVi9pYm9TVlRQQWhsT2VnNWJRUTUzS2dN?=
- =?utf-8?B?YURMWVhUMjJtWHNIc3lnT21NRVB1aC9USThuZXZqKzZ6SmxxOGsyZkxMekh4?=
- =?utf-8?B?VWxVZ2RPWmpLR1lSUExGSjM4b1paTzByVXVkTEVIRWFIZ3Q1L0EwMWhkWG1J?=
- =?utf-8?B?alZkUmV5SzBvS3ZBQkVhdVpiM1lKSXI5TlRVamRpWXBjTTNTY0t4cjg3Z1ZR?=
- =?utf-8?B?c3BmZytTdER4eHEzQms5KzZyanVGVnJnanc1NE0xRmU3R0NYaGcyV0l2bFA3?=
- =?utf-8?B?Y2VnRzZVQnd6NEQxY1NZTlM0YWlzZlg4U09hWGlwR21qQWFSZ1dZS1ArVjlL?=
- =?utf-8?B?RS91WU5JSHBKNHJnMWxQSkprZ2FVTzJLT0FFVEdiTnNreHZEdjJoVTd4RTdt?=
- =?utf-8?B?TFpESmVCYk9STTI1Qk9vOVlDRVpmSk9Rdllvak5qRXl3aE1VQmx3dVBrbll5?=
- =?utf-8?B?ck12eVRhQTVxY2hPZ3pzOWFLK0hERk91czRsNUF4Y1lsOTg2alMzaW1UMDZW?=
- =?utf-8?B?NllZL1o5bWZFYldYSEgzem1HS0pjeDd3ME9OQjlIM1B1NU9RSThINm5kVHRl?=
- =?utf-8?B?VUVwYVhJK2lOZE5yalFOdXZkMjNNL0ZNYmJWd3c5NXh4SjB6SWdXcEFoTDhR?=
- =?utf-8?B?QzRUYXhWUmUza1J3MHl0VmdXNzhKT0NHKzFENmhTZm9vM2luNHBRaS8yc2Yr?=
- =?utf-8?B?WWh2bUZCVnRTdGFZZ1JlY0lPYjBwZE1nWTFYQ0dsWXRLcVNGU1VCajRKcmh5?=
- =?utf-8?B?Rm5iY2duQ1JiSnZtQzVXTUMxRkZ6MHBJWC9tT0FxeC9WZG15SHIyUEh0Tmdo?=
- =?utf-8?B?Z1AwZUMzY1cwWlh6akVjbFc0cGYwaFd5NzlJc05HQ1lGTk9ERmhhY283QjIy?=
- =?utf-8?Q?MIyx7iu1f2IYD3EgeOEVyLFPaJfh3efBxLGQqnZ?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69b70eea-9b89-469c-49cd-08dd8215e699
-X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Apr 2025 03:21:13.4245
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MA0P287MB1449
+Content-Disposition: inline
+In-Reply-To: <20250422085312.812877-5-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_202127_486369_41793D00 
-X-CRM114-Status: GOOD (  27.81  )
+X-CRM114-CacheID: sfid-20250422_210945_089110_CC6B2386 
+X-CRM114-Status: GOOD (  22.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,150 +93,278 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi, Junhui,
+Hi Nylon,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on linus/master v6.15-rc3 next-20250422]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Nylon-Chen/riscv-dts-sifive-unleashed-unmatched-Remove-PWM-controlled-LED-s-active-low-properties/20250422-165644
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250422085312.812877-5-nylon.chen%40sifive.com
+patch subject: [PATCH v12 4/5] pwm: sifive: Fix rounding issues in apply and get_state functions
+config: arm-randconfig-004-20250423 (https://download.01.org/0day-ci/archive/20250423/202504231136.Cr4O6Zg5-lkp@intel.com/config)
+compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250423/202504231136.Cr4O6Zg5-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202504231136.Cr4O6Zg5-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/pwm/pwm-sifive.c:161:2: error: unterminated function-like macro invocation
+     161 |         do_div(frac, state->period;
+         |         ^
+   include/asm-generic/div64.h:180:10: note: macro 'do_div' defined here
+     180 | # define do_div(n,base) ({                              \
+         |          ^
+>> drivers/pwm/pwm-sifive.c:351:26: error: expected '}'
+     351 | MODULE_LICENSE("GPL v2");
+         |                          ^
+   drivers/pwm/pwm-sifive.c:134:1: note: to match this '{'
+     134 | {
+         | ^
+   2 errors generated.
 
 
-On 2025/4/20 1:09, Junhui Liu wrote:
-> Add support for the resets on Canaan Kendryte K230 SoC. The driver
-> support CPU0, CPU1, L2 cache flush, hardware auto clear and software
-> clear resets.
->
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->
-> ---
-> The reset management module in the K230 SoC also provides reset time
-> control registers. For RST_TYPE_CPU0, RST_TYPE_CPU1 and RST_TYPE_SW_DONE,
-> the time period when reset is applyed/removed but the clock is stopped
-> can be set up to 15*0.25 = 3.75 us. For some RST_TYPE_HW_DONE cases, the
-> time period can be set up to 255*0.25 = 63.75 us. For RST_TYPE_FLUSH,
-> the reset bit will automatically cleared by hardware when flush done.
->
-> Although the current reset driver does not support configuration of
-> reset time registers, delay has been added to the assert, deassert and
-> reset functions to accommodate the longest reset time.
->
-> Besides, although some reset types have done bits, the reference manual
-> does not explicitly indicate whether the hardware removes reset or the
-> clock stop time period has passed when done bits toggle. Therefore, I
-> think it is a safer way to keep delay for reset types with done bits.
->
-> link: https://kendryte-download.canaan-creative.com/developer/k230/HDK/K230%E7%A1%AC%E4%BB%B6%E6%96%87%E6%A1%A3/K230_Technical_Reference_Manual_V0.3.1_20241118.pdf
-Regards these notes, please move it to the beginning of source code, see 
-example: drivers/pwm/pwm-sophgo-sg2042.c
-> ---
->   drivers/reset/Kconfig      |   9 ++
->   drivers/reset/Makefile     |   1 +
->   drivers/reset/reset-k230.c | 355 +++++++++++++++++++++++++++++++++++++++++++++
->   3 files changed, 365 insertions(+)
->
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 99f6f9784e6865faddf8621ccfca095778c4dc47..248138ffba3bfbf859c74ba1aed7ba2f72819f7a 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -140,6 +140,15 @@ config RESET_K210
->   	  Say Y if you want to control reset signals provided by this
->   	  controller.
->   
-> +config RESET_K230
-> +	tristate "Reset controller driver for Canaan Kendryte K230 SoC"
-> +	depends on ARCH_CANAAN || COMPILE_TEST
-> +	depends on OF
-> +	help
-> +	  Support for the Canaan Kendryte K230 RISC-V SoC reset controller.
-> +	  Say Y if you want to control reset signals provided by this
-> +	  controller.
-> +
->   config RESET_LANTIQ
->   	bool "Lantiq XWAY Reset Driver" if COMPILE_TEST
->   	default SOC_TYPE_XWAY
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 31f9904d13f9c3a107fc1ee1ec9f9baba016d101..13fe94531bea1eb91268b1804e1321b167815a4b 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_RESET_IMX7) += reset-imx7.o
->   obj-$(CONFIG_RESET_IMX8MP_AUDIOMIX) += reset-imx8mp-audiomix.o
->   obj-$(CONFIG_RESET_INTEL_GW) += reset-intel-gw.o
->   obj-$(CONFIG_RESET_K210) += reset-k210.o
-> +obj-$(CONFIG_RESET_K230) += reset-k230.o
->   obj-$(CONFIG_RESET_LANTIQ) += reset-lantiq.o
->   obj-$(CONFIG_RESET_LPC18XX) += reset-lpc18xx.o
->   obj-$(CONFIG_RESET_MCHP_SPARX5) += reset-microchip-sparx5.o
-> diff --git a/drivers/reset/reset-k230.c b/drivers/reset/reset-k230.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..492d2274893675b0ff1967426c8fa9e75aed1791
-> --- /dev/null
-> +++ b/drivers/reset/reset-k230.c
-> @@ -0,0 +1,355 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2016-2017 Linaro Ltd.
-Linaro? Are you sure?
-> + * Copyright (C) 2022-2024 Canaan Bright Sight Co., Ltd
-> + * Copyright (C) 2024-2025 Junhui Liu <junhui.liu@pigmoral.tech>
-> + */
-> +
-> +#include <linux/cleanup.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/spinlock.h>
-> +
-> +#include <dt-bindings/reset/canaan,k230-rst.h>
-> +
-> +/**
-> + * enum k230_rst_type - K230 reset types
-> + * @RST_TYPE_CPU0: Reset type for CPU0
-> + *	Automatically clears, has write enable and done bit, active high
-> + * @RST_TYPE_CPU1: Reset type for CPU1
-> + *	Manually clears, has write enable and done bit, active high
-> + * @RST_TYPE_FLUSH: Reset type for CPU L2 cache flush
-> + *	Automatically clears, has write enable, no done bit, active high
-> + * @RST_TYPE_HW_DONE: Reset type for hardware auto clear
-> + *	Automatically clears, no write enable, has done bit, active high
-> + * @RST_TYPE_SW_DONE: Reset type for software manual clear
-> + *	Manually clears, no write enable and done bit,
-> + *	active high if ID is RST_SPI2AXI, otherwise active low
-> + */
-> +enum k230_rst_type {
-> +	RST_TYPE_CPU0,
-> +	RST_TYPE_CPU1,
-> +	RST_TYPE_FLUSH,
-> +	RST_TYPE_HW_DONE,
-> +	RST_TYPE_SW_DONE,
-> +};
-> +
-> +struct k230_rst_map {
-> +	u32			offset;
-> +	enum k230_rst_type	type;
-> +	u32			done;
-> +	u32			reset;
-> +};
-> +
-> +struct k230_rst {
-> +	struct reset_controller_dev	rcdev;
-> +	struct device			*dev;
+vim +161 drivers/pwm/pwm-sifive.c
 
-Why don't usercdev.dev to store the dev, so we can save a pointer.
+   131	
+   132	static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+   133				    const struct pwm_state *state)
+   134	{
+   135		struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
+   136		struct pwm_state cur_state;
+   137		unsigned int duty_cycle;
+   138		unsigned long long num;
+   139		bool enabled;
+   140		int ret = 0;
+   141		u32 frac, inactive;
+   142	
+   143		if (state->polarity != PWM_POLARITY_NORMAL)
+   144			return -EINVAL;
+   145	
+   146		cur_state = pwm->state;
+   147		enabled = cur_state.enabled;
+   148	
+   149		duty_cycle = state->duty_cycle;
+   150		if (!state->enabled)
+   151			duty_cycle = 0;
+   152	
+   153		/*
+   154		 * The problem of output producing mixed setting as mentioned at top,
+   155		 * occurs here. To minimize the window for this problem, we are
+   156		 * calculating the register values first and then writing them
+   157		 * consecutively
+   158		 */
+   159		num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
+   160		frac = num;
+ > 161		do_div(frac, state->period;
+   162		/* The hardware cannot generate a 0% duty cycle */
+   163		frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
+   164		inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
+   165	
+   166		mutex_lock(&ddata->lock);
+   167		if (state->period != ddata->approx_period) {
+   168			/*
+   169			 * Don't let a 2nd user change the period underneath the 1st user.
+   170			 * However if ddate->approx_period == 0 this is the first time we set
+   171			 * any period, so let whoever gets here first set the period so other
+   172			 * users who agree on the period won't fail.
+   173			 */
+   174			if (ddata->user_count != 1 && ddata->approx_period) {
+   175				mutex_unlock(&ddata->lock);
+   176				return -EBUSY;
+   177			}
+   178			ddata->approx_period = state->period;
+   179			pwm_sifive_update_clock(ddata, clk_get_rate(ddata->clk));
+   180		}
+   181		mutex_unlock(&ddata->lock);
+   182	
+   183		/*
+   184		 * If the PWM is enabled the clk is already on. So only enable it
+   185		 * conditionally to have it on exactly once afterwards independent of
+   186		 * the PWM state.
+   187		 */
+   188		if (!enabled) {
+   189			ret = clk_enable(ddata->clk);
+   190			if (ret) {
+   191				dev_err(pwmchip_parent(chip), "Enable clk failed\n");
+   192				return ret;
+   193			}
+   194		}
+   195	
+   196		writel(inactive, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
+   197	
+   198		if (!state->enabled)
+   199			clk_disable(ddata->clk);
+   200	
+   201		return 0;
+   202	}
+   203	
+   204	static const struct pwm_ops pwm_sifive_ops = {
+   205		.request = pwm_sifive_request,
+   206		.free = pwm_sifive_free,
+   207		.get_state = pwm_sifive_get_state,
+   208		.apply = pwm_sifive_apply,
+   209	};
+   210	
+   211	static int pwm_sifive_clock_notifier(struct notifier_block *nb,
+   212					     unsigned long event, void *data)
+   213	{
+   214		struct clk_notifier_data *ndata = data;
+   215		struct pwm_sifive_ddata *ddata =
+   216			container_of(nb, struct pwm_sifive_ddata, notifier);
+   217	
+   218		if (event == POST_RATE_CHANGE) {
+   219			mutex_lock(&ddata->lock);
+   220			pwm_sifive_update_clock(ddata, ndata->new_rate);
+   221			mutex_unlock(&ddata->lock);
+   222		}
+   223	
+   224		return NOTIFY_OK;
+   225	}
+   226	
+   227	static int pwm_sifive_probe(struct platform_device *pdev)
+   228	{
+   229		struct device *dev = &pdev->dev;
+   230		struct pwm_sifive_ddata *ddata;
+   231		struct pwm_chip *chip;
+   232		int ret;
+   233		u32 val;
+   234		unsigned int enabled_pwms = 0, enabled_clks = 1;
+   235	
+   236		chip = devm_pwmchip_alloc(dev, 4, sizeof(*ddata));
+   237		if (IS_ERR(chip))
+   238			return PTR_ERR(chip);
+   239	
+   240		ddata = pwm_sifive_chip_to_ddata(chip);
+   241		ddata->parent = dev;
+   242		mutex_init(&ddata->lock);
+   243		chip->ops = &pwm_sifive_ops;
+   244	
+   245		ddata->regs = devm_platform_ioremap_resource(pdev, 0);
+   246		if (IS_ERR(ddata->regs))
+   247			return PTR_ERR(ddata->regs);
+   248	
+   249		ddata->clk = devm_clk_get_prepared(dev, NULL);
+   250		if (IS_ERR(ddata->clk))
+   251			return dev_err_probe(dev, PTR_ERR(ddata->clk),
+   252					     "Unable to find controller clock\n");
+   253	
+   254		ret = clk_enable(ddata->clk);
+   255		if (ret) {
+   256			dev_err(dev, "failed to enable clock for pwm: %d\n", ret);
+   257			return ret;
+   258		}
+   259	
+   260		val = readl(ddata->regs + PWM_SIFIVE_PWMCFG);
+   261		if (val & PWM_SIFIVE_PWMCFG_EN_ALWAYS) {
+   262			unsigned int i;
+   263	
+   264			for (i = 0; i < chip->npwm; ++i) {
+   265				val = readl(ddata->regs + PWM_SIFIVE_PWMCMP(i));
+   266				if (val > 0)
+   267					++enabled_pwms;
+   268			}
+   269		}
+   270	
+   271		/* The clk should be on once for each running PWM. */
+   272		if (enabled_pwms) {
+   273			while (enabled_clks < enabled_pwms) {
+   274				/* This is not expected to fail as the clk is already on */
+   275				ret = clk_enable(ddata->clk);
+   276				if (unlikely(ret)) {
+   277					dev_err_probe(dev, ret, "Failed to enable clk\n");
+   278					goto disable_clk;
+   279				}
+   280				++enabled_clks;
+   281			}
+   282		} else {
+   283			clk_disable(ddata->clk);
+   284			enabled_clks = 0;
+   285		}
+   286	
+   287		/* Watch for changes to underlying clock frequency */
+   288		ddata->notifier.notifier_call = pwm_sifive_clock_notifier;
+   289		ret = clk_notifier_register(ddata->clk, &ddata->notifier);
+   290		if (ret) {
+   291			dev_err(dev, "failed to register clock notifier: %d\n", ret);
+   292			goto disable_clk;
+   293		}
+   294	
+   295		ret = pwmchip_add(chip);
+   296		if (ret < 0) {
+   297			dev_err(dev, "cannot register PWM: %d\n", ret);
+   298			goto unregister_clk;
+   299		}
+   300	
+   301		platform_set_drvdata(pdev, chip);
+   302		dev_dbg(dev, "SiFive PWM chip registered %d PWMs\n", chip->npwm);
+   303	
+   304		return 0;
+   305	
+   306	unregister_clk:
+   307		clk_notifier_unregister(ddata->clk, &ddata->notifier);
+   308	disable_clk:
+   309		while (enabled_clks) {
+   310			clk_disable(ddata->clk);
+   311			--enabled_clks;
+   312		}
+   313	
+   314		return ret;
+   315	}
+   316	
+   317	static void pwm_sifive_remove(struct platform_device *dev)
+   318	{
+   319		struct pwm_chip *chip = platform_get_drvdata(dev);
+   320		struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
+   321		struct pwm_device *pwm;
+   322		int ch;
+   323	
+   324		pwmchip_remove(chip);
+   325		clk_notifier_unregister(ddata->clk, &ddata->notifier);
+   326	
+   327		for (ch = 0; ch < chip->npwm; ch++) {
+   328			pwm = &chip->pwms[ch];
+   329			if (pwm->state.enabled)
+   330				clk_disable(ddata->clk);
+   331		}
+   332	}
+   333	
+   334	static const struct of_device_id pwm_sifive_of_match[] = {
+   335		{ .compatible = "sifive,pwm0" },
+   336		{},
+   337	};
+   338	MODULE_DEVICE_TABLE(of, pwm_sifive_of_match);
+   339	
+   340	static struct platform_driver pwm_sifive_driver = {
+   341		.probe = pwm_sifive_probe,
+   342		.remove = pwm_sifive_remove,
+   343		.driver = {
+   344			.name = "pwm-sifive",
+   345			.of_match_table = pwm_sifive_of_match,
+   346		},
+   347	};
+   348	module_platform_driver(pwm_sifive_driver);
+   349	
+   350	MODULE_DESCRIPTION("SiFive PWM driver");
+ > 351	MODULE_LICENSE("GPL v2");
 
-> +	void __iomem			*base;
-> +	spinlock_t			lock;
-> +};
-
-[......]
-
-Thanks,
-
-Chen
-
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
