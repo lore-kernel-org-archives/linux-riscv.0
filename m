@@ -4,58 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8EF1C369D5
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 12:05:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 358A2C369D8
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 13:51:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=584YZOyvha3M4rqIicndtyRnQxwyHFejO3s6s2BcOHA=; b=gUJ0KeyvWb4HOk
-	aqXzz9w7B32qbBv8YxLO9u64+g6vEh8vZ+nfEcvkI+dyPT/TBttXpo1XEoqZXetUrsEh0CzQiJ1dS
-	vgofAcWug5QGd6GCLg/+UNqymd8//e1lT1KOqvVH3tioJJSPE2Yw51yMOda6jLgE4H89ZcbTBrpRM
-	OPqRWeEFdbbajMC59bhAMg1FfJQXDttG51fNN43JmYGp6SGki06OcmWmgUSYc3zaVE9CPGQRBzC6P
-	fNutUMpXJCHXZcOZO8anjTL14bYpX3byb4vyBzxLQLohmxpkPpd5XcjTWI2nZEeetMVnSHz0CLHn4
-	UbRfKnBnyDcgWEZakYPg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cFgk5mK32NGoJrwcubG6y4Knm0ZCriRnewvcHk3hQcg=; b=c7hhWNA+/kM5Wn
+	4dsN250GLX+0aj1eTtzax8H2BcAG1QyIXk/GgydxfcuoFfCxsU0svGrmucvT1Gcrc6u0AxCXMUFz/
+	SK7ZBtmODtIARYX/36iNaZzGNQMBp5VjyO+K/GG3l5GUEd8UERylvfY9Zvi3VO7GWn7bRR+m3EetB
+	NsO7X9ut/aZKOPrtq8KwixySvS1IbNL8cdEDF5xupG6PusDkh2z+l/ptqsqLw2+OeaZAMY1Nnnw9L
+	rcvcDUpcUgz8hGj4NGQHh4KL/m6lzDwbddR70GriTEQiP6Jucy+p7jI2Zzo+V2VyzG1GBoPL3zMFh
+	qdYaUc47FgYNOPVv6fDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Yqb-0000000AQN1-1fqC;
-	Wed, 23 Apr 2025 12:05:01 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1u7aVz-0000000AfgD-1SFO;
+	Wed, 23 Apr 2025 13:51:51 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XyF-0000000AGBG-1K6K
+	id 1u7YxY-0000000ARS1-0hsm
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Apr 2025 11:08:53 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 7B00943892;
-	Wed, 23 Apr 2025 11:08:43 +0000 (UTC)
-Message-ID: <66a5aba9-2a32-4ef9-a839-a389b975757d@ghiti.fr>
-Date: Wed, 23 Apr 2025 13:08:42 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/2] riscv: introduce asm/swab.h
+	Wed, 23 Apr 2025 12:12:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nddUa0d14xAzGFXmS/wQNdQqLYO/alLKBpdV10bLYI8nQUK7qaGYE/aedjse9zVyNld8Si6z+KSJbV5LgDgzxmgA/Gp6SP+xq2+1vFP85Ms2JGA5If2MKAoWfx/QntAZJ6QxZynWaUzfowiU/i2bNSBnKFVyfvEutzo6t57RnYWNKXgvl10bB4RsltVyYi3F39EUnCRx7OPFxwSn+tSDD0K+O95fzH3Gg3inT5tS1UGmhdrqfSLjxGP7k/hPaDcurrsLZxRcSc0Cvxk+gheTUql1aMxB4utDTvkXn6NKhzm4Ludjjb7yYmkHJzZgVY9FjewP+CLeHe/nGTqictu2IA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=+Kf4adpV+Zy5zabkSi7na2J8Hkrn8G520yK27INw74M=;
+ b=kKFFP+WK6gljt22t6WtHvuxsFGW9IYb+xzM2y1iFw3KNNqOQcPStfdypl6caTI6L81M/+50sEcjPIZh2v/68cLOuRg1Ow6aVEFt+uLk/0zcxk7jCxQFyxdGZRxGbLrxMaD05/CeGs/rXvc8GvSl+U50fBiV/dB+F8n63Om3cdSWGO/odwWXLJ2URS++D3Xo/dBxtdWOgalfPX1LLMJHBtEbpfUMOjbfIoDPhyh9oHCNJLKfY2UYbImtv5woFfMC7TSmYW0IxY3JpQK/+QxZYDjaI0wFH4HyMRAoXYSUz/G4jnx9tuz11pl/L+xYhRKgSPdUlgRyPBB+/9fU7NiSZYA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=htecgroup.com; dmarc=pass action=none
+ header.from=htecgroup.com; dkim=pass header.d=htecgroup.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=htecgroup.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=+Kf4adpV+Zy5zabkSi7na2J8Hkrn8G520yK27INw74M=;
+ b=i/lJMD9V7iH9Au/Yd+tR7vgDAWp7GewAzheu/P57bpspVeapUPqMNcZP+1DPv0YX8x754/TugvDqQeuTRjiwT/5KhCz/cUknRm+KQ3AQjNcb4Kt/0GcRkfDat816dYd+zTbHKURl6K6Tbk9dTEXi908dlrewH7rKirndFATSdrf2UKGtirJGS1hmvWOfyJ6YLnwnBJkUdfd1z8MwBd+s5kIzq9tv2KYrhj6jugUAvq2XKX5g1Mn+Xhdx5a5hAF1ua0a5pMwN7+sboIvMK72t2Xy2KwzjCPqYvwuRKGsq3drTiJYLoZ+JGc/yxTjGYfN//EkVsq3trTt8ExsfHqqKNw==
+Received: from DU0PR09MB6196.eurprd09.prod.outlook.com (2603:10a6:10:47f::9)
+ by PAVPR09MB6605.eurprd09.prod.outlook.com (2603:10a6:102:32b::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8655.35; Wed, 23 Apr
+ 2025 12:12:02 +0000
+Received: from DU0PR09MB6196.eurprd09.prod.outlook.com
+ ([fe80::a9c6:101d:ef46:7f95]) by DU0PR09MB6196.eurprd09.prod.outlook.com
+ ([fe80::a9c6:101d:ef46:7f95%6]) with mapi id 15.20.8655.033; Wed, 23 Apr 2025
+ 12:12:02 +0000
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+CC: Djordje Todorovic <djordje.todorovic@htecgroup.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Conor Dooley <conor@kernel.org>, Aleksandar Rikalo
+	<arikalo@gmail.com>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Daniel Lezcano
+	<daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>
+Subject: [PATCH v3 0/2] Use GCR.U timer device as clocksource
+Thread-Topic: [PATCH v3 0/2] Use GCR.U timer device as clocksource
+Thread-Index: AQHbtEe4AW+VZsPs8EGs7hseKDfKbA==
+Date: Wed, 23 Apr 2025 12:12:02 +0000
+Message-ID: <DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com>
+Accept-Language: en-US
 Content-Language: en-US
-To: Ignacio Encinas <ignacio@iencinas.com>, Arnd Bergmann <arnd@arndb.de>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- Shuah Khan <skhan@linuxfoundation.org>,
- Zhihang Shao <zhihang.shao.iscas@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Linux-Arch <linux-arch@vger.kernel.org>
-References: <20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com>
- <20250403-riscv-swab-v3-2-3bf705d80e33@iencinas.com>
- <c6efcdca-5739-42b6-8cb4-f4d8cc85b6af@app.fastmail.com>
- <b3f8e641-9690-4792-974c-c895d2e4531a@iencinas.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <b3f8e641-9690-4792-974c-c895d2e4531a@iencinas.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvgeeigeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeejkeeugfdthefhveelffdvgeetgeelteeijeekheehfeevtdduvdfgteevgfehffenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemtgeludgrmegtkeehvgemtgduuddtmeekuggvvdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemtgeludgrmegtkeehvgemtgduuddtmeekuggvvddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemtgeludgrmegtkeehvgemtgduuddtmeekuggvvdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtohepihhgnhgrtghiohesihgvnhgtihhnrghsrdgtohhmpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtp
- hhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhdqmhgvnhhtvggvsheslhhishhtshdrlhhinhhugidruggvvh
-X-GND-Sasl: alex@ghiti.fr
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_Enabled=True;MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_SiteId=9f85665b-7efd-4776-9dfe-b6bfda2565ee;MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_SetDate=2025-04-23T12:12:01.593Z;MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_Name=HTEC
+ Public;MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_ContentBits=0;MSIP_Label_d2ca9b47-09e3-4fe9-a702-e3ebef7456d4_Method=Privileged;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=htecgroup.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DU0PR09MB6196:EE_|PAVPR09MB6605:EE_
+x-ms-office365-filtering-correlation-id: 2fe77388-62e2-415a-49ef-08dd82600e22
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?kI5n+qr4Md8hnzsG9xYjJuqjfLp2MwUIHRUjRC/FxTkYov3nBmM5im7MiZ?=
+ =?iso-8859-1?Q?QO3T4GgYOSl1jRxbThsdEq9QbFiUbAXjFEX2Wc1YftBl9mccc+1hBKnpmC?=
+ =?iso-8859-1?Q?fUcdyVVKt8KJ3Qs9Ge6y38SfRD89ctUImPowF+WUy2/YcLQeq0JLWlUpJz?=
+ =?iso-8859-1?Q?oYWIoKILfJKYJ/8xfzrdoOYdnU+jBit5CpDEE1kyDshrRt/05bZWZQ8p89?=
+ =?iso-8859-1?Q?f/sULfNognUPuk7CM7b38EE+rH6d6lTtvVml0n9evBhqlVmd1vZlVOmXLi?=
+ =?iso-8859-1?Q?LWKGRS7YzQPUHAdJyX9EZ6sZuVzGqhZ4GhGdzxpa5dDR4M1mR3cfeasHM1?=
+ =?iso-8859-1?Q?tSjExOxQC923FzxWzhZzvN7MCAsiAVjABSxNxERLjlr1k2lBQd6uizPcPz?=
+ =?iso-8859-1?Q?IMnFdc/VYnShocH1n7GiBqGyJYexBUXKAgP0GUQ5wLy1QU0/vZd521lc07?=
+ =?iso-8859-1?Q?ija4gnQLGWBp+RvwWrmBdyntg+LZDuB14RCruQoP0Vu6jJlF1BNCEECQIx?=
+ =?iso-8859-1?Q?2mquxakvd8pA89qo/M2bFMn2tJgcSfBhXGeZE6USWDSnyJLGwWNRfZ4UGx?=
+ =?iso-8859-1?Q?GZrSGdoOx4fxY4hAeD1HvGKiCGyuvf2itiNsNowzX+H90M44Sua+xOUaeu?=
+ =?iso-8859-1?Q?QRY4QWj125ED5HXDg4231YvXxTRh5wjfwsBI4tao6/vKSs3GxDLBI1pHQ5?=
+ =?iso-8859-1?Q?TtDD9W1u8Qzj8j61PtdrBHnS2P0/tPKv57MUaKSkr5dN19K2cShMPnQPUa?=
+ =?iso-8859-1?Q?mQhHIYKJ1euXraFTTT6/hmZGa0cB2dPiDaBYepZ5xZvOmKBhL2Fm1VdXrk?=
+ =?iso-8859-1?Q?7vT5xXtaHX0hw2fCiVOkxPoX9BXG3bO6kbhOrZUd66KP8H/Hl7423Hq8U6?=
+ =?iso-8859-1?Q?UhKcPXq6aI+8vjRxj8k7ymVgVUB9jT7Rn6WrNecGmzykqwqwORiye15KlJ?=
+ =?iso-8859-1?Q?YdYJOoP0ZoyWcnueSLt+iafJsrLBk/cFUBYsYjqvosKvJoK+rlh6Af0C1g?=
+ =?iso-8859-1?Q?bvCBYDO7pbUjURVLMH7Xn4s909UXlySocP//62ZacTtqtpJrXe/NfZscAe?=
+ =?iso-8859-1?Q?vVjiQx1Wi7rILDOZEPeguBJe0Uthp+qbiMTFm6cPuBlPppb2cnJBt3LSuv?=
+ =?iso-8859-1?Q?LP/Xf+6sheFmIbuMx7nmfQAaypIQIAuca5+uf3sDJlpSsW5tjZJDcw+ZuN?=
+ =?iso-8859-1?Q?ysBYHItRI+AWKceTHIEkEjtfu/WMasj+No2CxzTBia419RTxZewDkRH2Ds?=
+ =?iso-8859-1?Q?70PMmAB9XPqVzDz9RCZzLoWlv2yaGcHm7yLIQbCSefIn5SOOZOOO7SXjY8?=
+ =?iso-8859-1?Q?Bt1L/k1GtL9qwGPJ69sOHH3P/IEri5j9ySWE8fE32Xo+unKsEF2tXmYeiI?=
+ =?iso-8859-1?Q?+QEVgzJ2pufOn4nDXlf9y47jGlfYbpxrEhMFA+2J4Tj2EyC6RoO6/wNUmA?=
+ =?iso-8859-1?Q?1DxTUU1GfvEJ2nPAOe52MTipsY6BtzJ9ljr7IuCdWgjUhwqPw14GETEfg/?=
+ =?iso-8859-1?Q?nF3zlwHWoSjmgmrMl4ejTbTuBZpPAnMIM69X71Bxk+e0owCgdGbwPxb3W1?=
+ =?iso-8859-1?Q?4avbHMs=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR09MB6196.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(38070700018);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?qBBZAToTmeB/rf5X3M1lh1G+th6+Az1JqnlNJRJEsMn6A3KAHLNHmQFHAV?=
+ =?iso-8859-1?Q?isXqEWlxfdfY+i8Y7lupnk3DN4fLPUXazWwd94a4VMN6esm3YaKSDPV9H2?=
+ =?iso-8859-1?Q?nuE26j63cfIH77aj43sRjO2m6klVJxAwgJ3QD6SxpqcxfhGoqI3X01EOCy?=
+ =?iso-8859-1?Q?hSqOSZZSjdlXEA57rPqe9YmutzhTiPEaXdgSXK4IavTn4qZYocUL0GYFcB?=
+ =?iso-8859-1?Q?s155ivNBkBUT+me/ohvr3O9Hqvmq0xOcN5stP6XDvTGFIhCqRPuaqByxIq?=
+ =?iso-8859-1?Q?qvgVFLZ/x3SVtOQYkRgQNw/c310tJBX4tv+ZVs3gnzlY7/UrLRKPLhHJMi?=
+ =?iso-8859-1?Q?Be0PEoIJeS2c5JnzAndDdtrj+CwEjG5caWX6qzkSJh+YwtMy0Q8aB2Y4o9?=
+ =?iso-8859-1?Q?CvQ0Rs/L71pBMg70fokk1p46Dazp/SPDCwtVjToCCffJZMFfZwIKmary19?=
+ =?iso-8859-1?Q?pXt5MjEYExM8Qw7M368oKAXp3YLsqYSyESsogjef+vm2P8NC+OWq+skZc+?=
+ =?iso-8859-1?Q?DTRb2jCfXH3odjTAikb1uog0IHPFBS4bhGtYbCpW98KHH9YErqHyQAw0GZ?=
+ =?iso-8859-1?Q?WFcRkVkDHOT7zebAH/s9begBRDNMy9E1TDvRUBhXzG0QZQkdsvHl9Y83ap?=
+ =?iso-8859-1?Q?kiOGWTfF8FfT4sVzo84e3tkcWbDmwR81Etl1RakohanSD3vIuU+bNMASw8?=
+ =?iso-8859-1?Q?6lnBMe0ovRg4gtL+Eujlxo9U1uFVNDIXoj5RHwcoiAJYSOp6qNBSZcik0Z?=
+ =?iso-8859-1?Q?Ed/MpNFzA7y6XCZtEDyFVkJTSFH5QwS/HDVlRV7HlMBR9G2DYaXVyua6pf?=
+ =?iso-8859-1?Q?YT+8wX86QmYB3kJ5rNFlVD+ONTiHfL5OwrCcZd/fN9r+aM3hrHw8G58JUL?=
+ =?iso-8859-1?Q?yDdbbwQTaCIK25Lz1sMipbVIRXiYKyaKYN08GlC2AAAse3PS46BeRRrdmB?=
+ =?iso-8859-1?Q?0Opfj12bXptw8k2y0Mjv+xMmvLE2v81AHhaQ+2qBD4XXR29+vPnYJue+4C?=
+ =?iso-8859-1?Q?BodybtBRdyejJ9gbG074qYRF5N4gDoHEqSrkC2F3PQ39Pi3mfWwmggHvHW?=
+ =?iso-8859-1?Q?Kbk2vPm77rXUCQZKEls/KCjmeYFD+4ou9pGTr52X+eBzdj/Lng5vbUBix6?=
+ =?iso-8859-1?Q?8fQQFmV4HrSjFpUrnyU6RJSlFizWTCj75U5cOeqvf/R0GDanlQdiipT0OU?=
+ =?iso-8859-1?Q?YCxFlqaivxZ5NG7NeDWEuK+NLT7AYzeew2pc0T1FN2r7rnYI4N4AmhiXAt?=
+ =?iso-8859-1?Q?s+JFkZaUCzwJ7+DrUStdz4b8GrD4zZEF8EjLIObGnzfi4NNuy22kPZGsDl?=
+ =?iso-8859-1?Q?EqQbcMW3OC9WcqujQZODcf3f9DZLp98jehZMKO3iI9a7NrEAvZccSBebf/?=
+ =?iso-8859-1?Q?nT75ftZi77xjxWubBzATXNlPdsmkZOwriU77xNwlmb1VFovC38UUGWh9Dt?=
+ =?iso-8859-1?Q?l8OJTEZ5AmeXXfkKHcWFkAP0v7vEGX6zZo8tNgFiILinJb00d4Ek+6MHVX?=
+ =?iso-8859-1?Q?yuja9XfE/m0Kfoh+dcomb5YClhAwX0wwKuWxVsStzKYCUtwvkHUKWYZkNM?=
+ =?iso-8859-1?Q?fea2A23fMVYZGJSlrL/iRxci2EdApkGhG1G4maa6LOE8M4E8tyKqIGYgog?=
+ =?iso-8859-1?Q?u87IyYgWlQmzX6S6206GJqwYGs8xkN+FhS6Lg/aYMr26vSDmSiM786Fw?=
+ =?iso-8859-1?Q?=3D=3D?=
+MIME-Version: 1.0
+X-OriginatorOrg: htecgroup.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR09MB6196.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2fe77388-62e2-415a-49ef-08dd82600e22
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Apr 2025 12:12:02.1772
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9f85665b-7efd-4776-9dfe-b6bfda2565ee
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: ufwP9O9Q9GcOhstgjrmfzRWmx4wFvlwYthB4IFHtKFo1qR7ouW3vkzDnnBRdOP9rCB1Zms4xZZAERD8vVXyUhB8WT5Phkt6fdM7Oebw1hvE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR09MB6605
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_040851_549006_43C8285E 
-X-CRM114-Status: GOOD (  20.71  )
+X-CRM114-CacheID: sfid-20250423_051212_238944_14E797AD 
+X-CRM114-Status: UNSURE (   7.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,110 +165,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ignacio,
+HTEC Public
 
-On 04/04/2025 19:35, Ignacio Encinas wrote:
->
-> On 4/4/25 7:58, Arnd Bergmann wrote:
->> On Thu, Apr 3, 2025, at 22:34, Ignacio Encinas wrote:
->>> +#define ARCH_SWAB(size) \
->>> +static __always_inline unsigned long __arch_swab##size(__u##size value) \
->>> +{									\
->>> +	unsigned long x = value;					\
->>> +									\
->>> +	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)) {            \
->>> +		asm volatile (".option push\n"				\
->>> +			      ".option arch,+zbb\n"			\
->>> +			      "rev8 %0, %1\n"				\
->>> +			      ".option pop\n"				\
->>> +			      : "=r" (x) : "r" (x));			\
->>> +		return x >> (BITS_PER_LONG - size);			\
->>> +	}                                                               \
->>> +	return  ___constant_swab##size(value);				\
->>> +}
-> Hello Arnd!
->
->> I think the fallback should really just use the __builtin_bswap
->> helpers instead of the ___constant_swab variants. The output
->> would be the same, but you can skip patch 1/2.
-> I tried, but that change causes build errors:
->
-> ```
-> undefined reference to `__bswapsi2'
->
-> [...]
->
-> undefined reference to `__bswapdi2
-> ```
->
-> I tried working around those, but couldn't find a good solution. I'm a
-> bit out of my depth here, but I "summarized" everything here [1]. Let me
-> know if I'm missing something.
->
-> [1] https://lore.kernel.org/linux-riscv/b3b59747-0484-4042-bdc4-c067688e3bfe@iencinas.com/
-
-Note that I only encountered those issues in the purgatory.
-
-So to me we have 3 solutions:
-
-- either implementing both __bswapsi2 and __bswapdi2
-
-- or linking against libgcc
-
-- or merging patch 1.
-
-Given the explanation in commit d67703a8a69e ("arm64: kill off the 
-libgcc dependency"), I would not use libgcc.
-
-The less intrusive solution (for us riscv) is merging patch 1.
-
-But please let me know if I missed another solution or if I'm wrong.
-
-Thanks,
-
-Alex
+This series adds bindings for the GCR.U timer device and corresponding
+driver support. Accessing the memory mapped mtime register in the GCR.U
+region should be faster than trapping to M mode each time the timer
+needs to be read.
 
 
->
->> I would also suggest dumbing down the macro a bit so you can
->> still find the definition with 'git grep __arch_swab64'. Ideally
->> just put the function body into a macro but leave the three
->> separate inline function definitions.
-> Good point, thanks for bringing it up. Just to be sure, is this what you
-> had in mind? (Give or take formatting + naming of variables)
->
-> #define arch_swab(size, value) 						\
-> ({                      						\
-> 	unsigned long x = value;					\
-> 									\
-> 	if (riscv_has_extension_likely(RISCV_ISA_EXT_ZBB)) {            \
-> 		asm volatile (".option push\n"				\
-> 			      ".option arch,+zbb\n"			\
-> 			      "rev8 %0, %1\n"				\
-> 			      ".option pop\n"				\
-> 			      : "=r" (x) : "r" (x));			\
-> 		x = x >> (BITS_PER_LONG - size);			\
-> 	} else {                                                        \
-> 		x = ___constant_swab##size(value);                      \
-> 	}								\
-> 	x;								\
-> })
->
-> static __always_inline unsigned long __arch_swab64(__u64 value) {
-> 	return arch_swab(64, value);
-> }
->
-> Thanks!
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Aleksa Paunovic (2):
+  dt-bindings: timer: mti,gcru
+  Allow for riscv-clock to pick up mmio address.
+
+ .../devicetree/bindings/timer/mti,gcru.yaml   | 47 +++++++++++++++
+ arch/riscv/include/asm/timex.h                | 59 ++++++++++++-------
+ drivers/clocksource/Kconfig                   | 12 ++++
+ drivers/clocksource/timer-riscv.c             | 32 ++++++++++
+ 4 files changed, 130 insertions(+), 20 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/timer/mti,gcru.yaml
+
+--
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
