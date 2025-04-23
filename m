@@ -4,65 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79DBEC369CB
-	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 10:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7129C369D7
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 11:57:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y6ngl1+0ADvtoLmF7oRz05TKCweto37x1Npb99xqn6A=; b=TiSXT3ShMAsiJ4
-	GDNt0YDuzMFIJ7HroEfQYkThOit0ngYy/i0I+zlNmGPasJ4GLXOdo0Nv/SNMarYp/8Fq4/taQMSWz
-	N8nvkeakcQljY1RRqOvAUxL8ZS2a30coxH8mKIbjEU3i2Z7qvS/GApRRHXO7dHb3FoDSNPMakgrJP
-	tupcBz7sOPG3rKEWVymgCrrWxz7V/UimGLX0xgHjINAQDv1R8VYtEG7eKfvM7zhWq1tqj2GCK0CLb
-	g6ccF9BlMzDd4snfboms3YeArkm3FO6obRegWJrqSvbPwkgGGxEBBwibD6C3nSfpWsCVQnu4kL6sL
-	pXZD6wJXNRUjgFpi3CtQ==;
+	List-Owner; bh=lOYOamrAoJL8GRHDAATOEKdfj1YYpHQlh+5FpJ1sOYY=; b=RS66zXXAT2Hod3
+	DrqPC6JjLm+6sdegnGQ6z6iPH6kMt2O2VfuAyCeaPEGeEmGJWCLRMU3i8ZKjlb8xwyMHEJb3sL7RB
+	mrFE4Wtg/W9XhrQg5y+iYHB/PdCUogfFRFCdZ9RLpc8U9ev7+oBCw6ahJvdtB/t5Do7SkN0DM5/FP
+	XFvWp1g4LYVpSNYl+bnMvVteHaJZoDNpcmoEP93nEFkA4t7y0iWuNo0bMpYTzsph+er4Q6gkcnr0k
+	Qhc5AWzggV4zXzXg1qgH23on9dU+xLi+18pbTUWyTMabYNHT4Hl9H6eszcIA3FhVIdW8MU6iQt22d
+	jMcdMGbt5shnh3WQODKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7XXj-0000000AD22-0nDE;
-	Wed, 23 Apr 2025 10:41:27 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1u7Yir-0000000AP9I-377g;
+	Wed, 23 Apr 2025 11:57:01 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7Wdy-0000000A1yG-446d
+	id 1u7XlM-0000000AEtH-2Gxv
 	for linux-riscv@lists.infradead.org;
-	Wed, 23 Apr 2025 09:43:52 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u7Wde-0002qo-Gv; Wed, 23 Apr 2025 11:43:30 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u7Wdd-001h9v-2B;
-	Wed, 23 Apr 2025 11:43:29 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1u7Wdd-000TPY-1v;
-	Wed, 23 Apr 2025 11:43:29 +0200
-Message-ID: <15c2be97e1b58e7be182299d27e17996b47e8414.camel@pengutronix.de>
-Subject: Re: [PATCH v2 2/2] reset: canaan: add reset driver for Kendryte K230
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Junhui Liu <junhui.liu@pigmoral.tech>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski
-	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Date: Wed, 23 Apr 2025 11:43:29 +0200
-In-Reply-To: <20250420-k230-reset-v2-2-f1b4a016e438@pigmoral.tech>
-References: <20250420-k230-reset-v2-0-f1b4a016e438@pigmoral.tech>
-	 <20250420-k230-reset-v2-2-f1b4a016e438@pigmoral.tech>
-User-Agent: Evolution 3.46.4-2 
+	Wed, 23 Apr 2025 10:55:33 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5498d2a8b89so5994017e87.1
+        for <linux-riscv@lists.infradead.org>; Wed, 23 Apr 2025 03:55:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745405730; x=1746010530; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=izklXv4BZeIiwFrKYnOhuYZikqixEWPdKCdY/Q0QGIw=;
+        b=ecRBu5YlKusVsJp/JMnXF6Yldcax08DVpROscikv1VUnEFI2mxPAufEyFKbR3L79Fa
+         U4i03IQglvV8BxUdumnTu6WySpXheedDs8kqM3KOY0CGEPBG6koN6IzXQMyhV0ZCfbs/
+         cmq4aQSKlecFYmsKxnhb4otc+pOHteYpb+8cSofqVZUiuyJVXhsU0dyc8N/HXCdW0ccI
+         VWqFmogtxwbl37VA79OleVfiMrfER4gCimj6zEOSnSMrIVdIiy/6ZsN7mfqhl2n6Ao0G
+         UZLOEykqUpIql/rtmnHYnuBSKBz2vrCsem86ONnHQQamdcCXTmPKvnIrYcaJZtBocpL5
+         liwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745405730; x=1746010530;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=izklXv4BZeIiwFrKYnOhuYZikqixEWPdKCdY/Q0QGIw=;
+        b=RImL7Jkx4jj5yVuZe6m0QX9fjOnZOpfw9Bxd3Iz+GR2VjxdRXrInZTPtKAyNHANOKn
+         DO9EqaZKuJxbVgPBi8o9ER0DmpM4pYEe+o7IVloGVXLlXuQ3gMF9M8RQsFLpzQW+xCfB
+         wesHi3/GGD7Yp5Vnhm/yrx4cnavovRI3xsLB0EqWDo4r0zqnul/rTqOO+poVEpI45LEx
+         Y4SFBQPhOCzc42T8nG8+6uBxeCs6sCmL3nCsAaQhIkXi3NZPrDFiRFl5aWIWh1AYxEqB
+         KpPkI3/WjTdx6U8gJMCIBbnEJqX+dMMbMaWBjthqajyfsZ1GEo+XVRxVz/YMGkrT/A+2
+         VGEw==
+X-Forwarded-Encrypted: i=1; AJvYcCWTk4VfWp8mqNssbIaTvA8jqIfZ0MlHmw3yE8G1wIukEX3mv6lymxDlLNuMrwzwICwtNS4Sr2bydaNnRw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRvaRlKsIKZwwrwuRG1+mzRDJnUU5t+CA44Xung4JRHNlQZiJ4
+	G0z/cofSReu1D/v4Nug5A0/Vl/nhfTTfDUogMZp53O2ymplSC7HarDYQ83TS13x5OayWVhPqdMc
+	nMG97GMoDpZwef8gDPh94Gi9ska99hJ7hZroCtw==
+X-Gm-Gg: ASbGncuKqMKXzL+8JLeKyGOUwVcTCGMZszDj1hYTSg6NNJyLPD028p/lY3Edwuts/dM
+	AJmoJGDGYlQN40h7dIu1kJa/xu1eh2JVCIhW7W9JB9jV8t4J5f0N3QR/lNfrF74A/UyGINe9oMm
+	r64QpHUyYvisjqlT0W3NW60g==
+X-Google-Smtp-Source: AGHT+IH+wCC5kClOVa4KPQf9TkYFzC5VIZsHRFGsDXyoHjryg0sqITG6UMuWyQQrZUY+WCXhYGb106JflCU2vKSyjt8=
+X-Received: by 2002:a05:6512:2315:b0:54a:cbfb:b62e with SMTP id
+ 2adb3069b0e04-54d6e657553mr6996509e87.35.1745405730442; Wed, 23 Apr 2025
+ 03:55:30 -0700 (PDT)
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+References: <20250422162250.436169-1-uwu@icenowy.me> <20250422162250.436169-2-uwu@icenowy.me>
+ <CACRpkdbGwPyQgVL18iMvUTAvh4XTjo6g3mGT4e_b2aNAjr2obg@mail.gmail.com> <B4C8B369-E345-4133-A106-7C5E71513329@icenowy.me>
+In-Reply-To: <B4C8B369-E345-4133-A106-7C5E71513329@icenowy.me>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 23 Apr 2025 12:55:19 +0200
+X-Gm-Features: ATxdqUFXqKFRF-URPzhUFDAqkzV6vbnyL8yKyfMNTaK_xdGbJBDYNfkObBbEMA0
+Message-ID: <CACRpkdYgkDpC1iJ-KaZj2GZ3A3_V=3-KQef_nCRhMDrUK=FHXg@mail.gmail.com>
+Subject: Re: [RFC PATCH 1/3] dt-bindings: pinctrl: jh7110-sys: add force inputs
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250423_024351_163678_E5DC10CF 
-X-CRM114-Status: GOOD (  33.33  )
+X-CRM114-CacheID: sfid-20250423_035532_604433_D76A6B3F 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,200 +93,41 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On So, 2025-04-20 at 01:09 +0800, Junhui Liu wrote:
-> Add support for the resets on Canaan Kendryte K230 SoC. The driver
-> support CPU0, CPU1, L2 cache flush, hardware auto clear and software
-> clear resets.
-> 
-> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
-> 
-> ---
-> The reset management module in the K230 SoC also provides reset time
-> control registers. For RST_TYPE_CPU0, RST_TYPE_CPU1 and RST_TYPE_SW_DONE,
-> the time period when reset is applyed/removed but the clock is stopped
-> can be set up to 15*0.25 = 3.75 us. For some RST_TYPE_HW_DONE cases, the
-> time period can be set up to 255*0.25 = 63.75 us. For RST_TYPE_FLUSH,
-> the reset bit will automatically cleared by hardware when flush done.
-> 
-> Although the current reset driver does not support configuration of
-> reset time registers, delay has been added to the assert, deassert and
-> reset functions to accommodate the longest reset time.
-> 
-> Besides, although some reset types have done bits, the reference manual
-> does not explicitly indicate whether the hardware removes reset or the
-> clock stop time period has passed when done bits toggle. Therefore, I
-> think it is a safer way to keep delay for reset types with done bits.
-> 
-> link: https://kendryte-download.canaan-creative.com/developer/k230/HDK/K230%E7%A1%AC%E4%BB%B6%E6%96%87%E6%A1%A3/K230_Technical_Reference_Manual_V0.3.1_20241118.pdf
-> ---
->  drivers/reset/Kconfig      |   9 ++
->  drivers/reset/Makefile     |   1 +
->  drivers/reset/reset-k230.c | 355 +++++++++++++++++++++++++++++++++++++++++++++
->  3 files changed, 365 insertions(+)
-> 
-> diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
-> index 99f6f9784e6865faddf8621ccfca095778c4dc47..248138ffba3bfbf859c74ba1aed7ba2f72819f7a 100644
-> --- a/drivers/reset/Kconfig
-> +++ b/drivers/reset/Kconfig
-> @@ -140,6 +140,15 @@ config RESET_K210
->  	  Say Y if you want to control reset signals provided by this
->  	  controller.
->  
-> +config RESET_K230
-> +	tristate "Reset controller driver for Canaan Kendryte K230 SoC"
-> +	depends on ARCH_CANAAN || COMPILE_TEST
-> +	depends on OF
-> +	help
-> +	  Support for the Canaan Kendryte K230 RISC-V SoC reset controller.
-> +	  Say Y if you want to control reset signals provided by this
-> +	  controller.
-> +
->  config RESET_LANTIQ
->  	bool "Lantiq XWAY Reset Driver" if COMPILE_TEST
->  	default SOC_TYPE_XWAY
-> diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
-> index 31f9904d13f9c3a107fc1ee1ec9f9baba016d101..13fe94531bea1eb91268b1804e1321b167815a4b 100644
-> --- a/drivers/reset/Makefile
-> +++ b/drivers/reset/Makefile
-> @@ -20,6 +20,7 @@ obj-$(CONFIG_RESET_IMX7) += reset-imx7.o
->  obj-$(CONFIG_RESET_IMX8MP_AUDIOMIX) += reset-imx8mp-audiomix.o
->  obj-$(CONFIG_RESET_INTEL_GW) += reset-intel-gw.o
->  obj-$(CONFIG_RESET_K210) += reset-k210.o
-> +obj-$(CONFIG_RESET_K230) += reset-k230.o
->  obj-$(CONFIG_RESET_LANTIQ) += reset-lantiq.o
->  obj-$(CONFIG_RESET_LPC18XX) += reset-lpc18xx.o
->  obj-$(CONFIG_RESET_MCHP_SPARX5) += reset-microchip-sparx5.o
-> diff --git a/drivers/reset/reset-k230.c b/drivers/reset/reset-k230.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..492d2274893675b0ff1967426c8fa9e75aed1791
-> --- /dev/null
-> +++ b/drivers/reset/reset-k230.c
-> @@ -0,0 +1,355 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright (C) 2016-2017 Linaro Ltd.
-> + * Copyright (C) 2022-2024 Canaan Bright Sight Co., Ltd
-> + * Copyright (C) 2024-2025 Junhui Liu <junhui.liu@pigmoral.tech>
-> + */
-> +
-> +#include <linux/cleanup.h>
-> +#include <linux/delay.h>
-> +#include <linux/io.h>
-> +#include <linux/iopoll.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset-controller.h>
-> +#include <linux/spinlock.h>
-> +
-> +#include <dt-bindings/reset/canaan,k230-rst.h>
-> +
-> +/**
-> + * enum k230_rst_type - K230 reset types
-> + * @RST_TYPE_CPU0: Reset type for CPU0
-> + *	Automatically clears, has write enable and done bit, active high
-> + * @RST_TYPE_CPU1: Reset type for CPU1
-> + *	Manually clears, has write enable and done bit, active high
-> + * @RST_TYPE_FLUSH: Reset type for CPU L2 cache flush
-> + *	Automatically clears, has write enable, no done bit, active high
-> + * @RST_TYPE_HW_DONE: Reset type for hardware auto clear
-> + *	Automatically clears, no write enable, has done bit, active high
-> + * @RST_TYPE_SW_DONE: Reset type for software manual clear
-> + *	Manually clears, no write enable and done bit,
-> + *	active high if ID is RST_SPI2AXI, otherwise active low
-> + */
-> +enum k230_rst_type {
-> +	RST_TYPE_CPU0,
-> +	RST_TYPE_CPU1,
-> +	RST_TYPE_FLUSH,
-> +	RST_TYPE_HW_DONE,
-> +	RST_TYPE_SW_DONE,
-> +};
-> +
-> +struct k230_rst_map {
-> +	u32			offset;
-> +	enum k230_rst_type	type;
-> +	u32			done;
-> +	u32			reset;
-> +};
-> +
-> +struct k230_rst {
-> +	struct reset_controller_dev	rcdev;
-> +	struct device			*dev;
-> +	void __iomem			*base;
-> +	spinlock_t			lock;
-
-Add a comment, this locks register read-modify-write.
-
-> +};
-> +
-> +static const struct k230_rst_map k230_resets[] = {
-> +	[RST_CPU0]		= { 0x4,  RST_TYPE_CPU0,    BIT(12), BIT(0) },
-> +	[RST_CPU1]		= { 0xc,  RST_TYPE_CPU1,    BIT(12), BIT(0) },
-> +	[RST_CPU0_FLUSH]	= { 0x4,  RST_TYPE_FLUSH,   0,       BIT(4) },
-> +	[RST_CPU1_FLUSH]	= { 0xc,  RST_TYPE_FLUSH,   0,       BIT(4) },
-> +	[RST_AI]		= { 0x14, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
-> +	[RST_VPU]		= { 0x1c, RST_TYPE_HW_DONE, BIT(31), BIT(0) },
-> +	[RST_HS]		= { 0x2c, RST_TYPE_HW_DONE, BIT(4),  BIT(0) },
-> +	[RST_HS_AHB]		= { 0x2c, RST_TYPE_HW_DONE, BIT(5),  BIT(1) },
-
-The TRM calls these HISYS. Is this shortened to HS on purpose?
-
-[...]
-
-> +static int k230_rst_reset(struct reset_controller_dev *rcdev, unsigned long id)
-> +{
-> +	struct k230_rst *rstc = to_k230_rst(rcdev);
-> +	const struct k230_rst_map *rmap = &k230_resets[id];
-> +	u32 reg;
-> +	int ret = 0;
-> +
-> +	switch (rmap->type) {
-> +	case RST_TYPE_CPU0:
-> +		k230_rst_clear_done(rstc, id, true);
-> +		k230_rst_update(rstc, id, true, true, false);
-> +		ret = k230_rst_wait_and_clear_done(rstc, id, true);
-> +
-> +		/*
-> +		 * The time period when reset is applied and removed but the
-> +		 * clock is stopped for RST_TYPE_CPU0 can be set up to 7.5us.
-> +		 * Delay 10us to ensure proper reset timing.
-> +		 */
-> +		udelay(10);
-> +
-> +		break;
-> +	case RST_TYPE_FLUSH:
-> +		k230_rst_update(rstc, id, true, true, false);
-> +
-> +		/* Wait flush request bit auto cleared by hardware */
-> +		ret = readl_poll_timeout(rstc->base + rmap->offset, reg,
-> +					!(reg & rmap->reset), 10, 1000);
-> +		if (ret)
-> +			dev_err(rstc->dev, "Wait for flush done timeout\n");
-> +
-> +		break;
-> +	case RST_TYPE_HW_DONE:
-> +		k230_rst_clear_done(rstc, id, false);
-> +		k230_rst_update(rstc, id, true, false, false);
-> +		ret = k230_rst_wait_and_clear_done(rstc, id, false);
-> +
-> +		/*
-> +		 * The time period when reset is applied and removed but the
-> +		 * clock is stopped for RST_TYPE_HW_DONE can be set up to
-> +		 * 127.5us. Delay 200us to ensure proper reset timing.
-> +		 */
-> +		udelay(200);
-
-Consider using usleep_range(), or fsleep().
-
-regards
-Philipp
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBBcHIgMjMsIDIwMjUgYXQgMTE6NDHigK9BTSBJY2Vub3d5IFpoZW5nIDx1d3VAaWNl
+bm93eS5tZT4gd3JvdGU6Cj4g5LqOIDIwMjXlubQ05pyIMjPml6UgR01UKzA4OjAwIDE3OjA5OjQy
+77yMTGludXMgV2FsbGVpaiA8bGludXMud2FsbGVpakBsaW5hcm8ub3JnPiDlhpnpgZPvvJoKPiA+
+SGkgSWNlbm93eSwKPiA+Cj4gPnRoYW5rcyBmb3IgeW91ciBwYXRjaCEKPiA+Cj4gPk9uIFR1ZSwg
+QXByIDIyLCAyMDI1IGF0IDY6MjPigK9QTSBJY2Vub3d5IFpoZW5nIDx1d3VAaWNlbm93eS5tZT4g
+d3JvdGU6Cj4gPgo+ID4+ICsgIHN0YXJmaXZlLGZvcmNlLWxvdy1pbnB1dHM6Cj4gPj4gKyAgICBk
+ZXNjcmlwdGlvbjoKPiA+PiArICAgICAgVGhlIGxpc3Qgb2YgaW5wdXQgc2lnbmFscyBmb3JjZWQg
+dG8gYmUgbG93IGluc2lkZSB0aGUgU29DIGl0c2VsZi4KPiA+PiArICAgICRyZWY6IC9zY2hlbWFz
+L3R5cGVzLnlhbWwjL2RlZmluaXRpb25zL3VpbnQzMi1hcnJheQo+ID4KPiA+SSBkb24ndCBzZWUg
+d2h5IHlvdSBuZWVkIHRoaXMgaGFjay4KPgo+IFVuZm9ydHVuYXRlbHkgdGhlc2UgcHJvcGVydGll
+cyBhcmUgbm90IGZvciBwaW5zLCBidXQgaW50ZXJuYWwgc2lnbmFscyB0aGF0IGlzbid0Cj4gYm91
+bmQgdG8gZXh0ZXJuYWwgcGlucy4KCldlIGRvbid0IHJlYWxseSBjYXJlIGlmIHBpbnMgYXJlIGV4
+dGVybmFsIG9yIG5vdCwgd2UgYXJlIGFuIG9wZXJhdGluZyBzeXN0ZW0Kbm90IGEgcGhpbG9zb3Bo
+eSBkZXBhcnRtZW50IDspCgpZb3UgY2FsY3VsYXRlIHRoZSBvZmZzZXQgYW5kIHNoaWZ0IGxpa2Ug
+dGhpcyBhbmQgd3JpdGUgaW50byBhIGJhc2Urb2Zmc2V0OgoKKyAgICAgICAgICAgICAgICAgICAg
+ICAgb2Zmc2V0ID0gNCAqIChwaW4gLyA0KTsKKyAgICAgICAgICAgICAgICAgICAgICAgc2hpZnQg
+ID0gOCAqIChwaW4gJSA0KTsKKworICAgICAgICAgICAgICAgICAgICAgICB2YWwgPSByZWFkbF9y
+ZWxheGVkKHNmcC0+YmFzZSArCisgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgaW5mby0+Z3BpX3JlZ19iYXNlICsgb2Zmc2V0KTsKCkNvbXBhcmUgdG8gamg3MTEwX3Bp
+bl9kYmdfc2hvdygpOgoKICAgICAgICAgICAgICAgdW5zaWduZWQgaW50IG9mZnNldCA9IDQgKiAo
+cGluIC8gNCk7CiAgICAgICAgICAgICAgICB1bnNpZ25lZCBpbnQgc2hpZnQgID0gOCAqIChwaW4g
+JSA0KTsKICAgICAgICAgICAgICAgIHUzMiBkb3V0ID0gcmVhZGxfcmVsYXhlZChzZnAtPmJhc2Ug
+KwppbmZvLT5kb3V0X3JlZ19iYXNlICsgb2Zmc2V0KTsKICAgICAgICAgICAgICAgIHUzMiBkb2Vu
+ID0gcmVhZGxfcmVsYXhlZChzZnAtPmJhc2UgKwppbmZvLT5kb2VuX3JlZ19iYXNlICsgb2Zmc2V0
+KTsKClNvIGNsZWFybHkgdGhlIGVudGl0aWVzIHRoYXQgeW91IGFmZmVjdCBhcmUgaW4gdGhlIHNh
+bWUgbnVtYmVyc3BhY2UsCmFuZCB0aGF0IGlzIGFsbCB3ZSBjYXJlIGFib3V0LiBUaGV5IGFyZSBu
+b3QgZW51bWVyYXRlZCBpbiBhbnkgd2F5Cm9ydGhvZ29uYWwgdG8gYW55IG90aGVyIHBpbnMgQUZB
+SUNULgoKQm90aCBwaW4gY29udHJvbCBhbmQgR1BJTyBoYW5kbGUgY2hpcC1pbnRlcm5hbCBsaW5l
+cyB0aGF0IGFyZSBub3QKcm91dGVkIG91dHNpZGUgc29tZXRpbWVzLCB0aGF0J3MgZmluZS4gSnVz
+dCBkZWFsIHdpdGggdGhlbSBhcyBhbnkgb3RoZXIKInBpbnMiLgoKWW91cnMsCkxpbnVzIFdhbGxl
+aWoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
+LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
+Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
