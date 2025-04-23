@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B00CC369C2
-	for <linux-riscv@archiver.kernel.org>; Tue, 22 Apr 2025 23:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C067C369C2
+	for <linux-riscv@archiver.kernel.org>; Wed, 23 Apr 2025 00:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lIu6G3DzUJvA62s+Ku1dU1fbuT/GPUJcOoJVhcDPqAQ=; b=0/TBJpHSdbVdgHaZg+6jTtuz42
-	EOPe5WVD1C23FSY19Jlgbsd6b3Y1e2XzxPzcgC28OGNpxoM1N0tGuq0/Meo2OKaXzLDOQhRll7x7p
-	tgSaN+x4Rh5iO5XwfhbM7tiDwTwnh/X/h1Qw7+wYKiM3Dvdmfemg58CCHBGZKOzuOGxMPrjJw+X7g
-	xPvf64Ey8TyHtLA/Pu5BjWXsZoOcJuaqvGHWZkZ+m63N6VjrVQIlBjFrvBgyg9Eku89TMkJD3riHu
-	TXRETSFxWRi3DDnQ+pcH45FNzPosEWbDPJ04NUG0xpfgQn3jcia267DrVU0nt7sm82NTs01iY1wgN
-	ebT1QGOQ==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=+xmXwmpPYtWA++ZAROjAprkVBSY1jfwzPPcSW1efOWo=; b=CpZPzddKX42d3T
+	/3PKeYyx+0kAawoPoc0t1mQPkHCFaod2LpYZf5eNUAVe0LiWQPFrj2yW5Y/BLDqJcjn/27EAQrfwx
+	PecrIVlY7u62hxYdLa1G0kH+mU7HcP8gcP6Kzg9UibvQxDO/Hs3R13xPjcXlnXPfHTFgMuPyDeFYW
+	gzj0R/AJRhk7v2dQQlIPioBGUshhgKg18OuDjZGrJl8EQCtwWwEaISw2AV4S3TfZwmvFWGEc+Elow
+	lU6/xjkZp+tDIr9r9GevxuxjMUNJ1DZbp3Xgn15NQ5zX5PAvDQOUQBhhbEpcQGaDoN+mFeSxXdZwX
+	1qFsucFdTyBg4ATp8GzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7McY-00000008mJ2-15H7;
-	Tue, 22 Apr 2025 23:01:42 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1u7Na0-00000008r5X-2zco;
+	Wed, 23 Apr 2025 00:03:08 +0000
+Received: from out-189.mta1.migadu.com ([95.215.58.189])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7McV-00000008mHR-3C0z
+	id 1u7NZx-00000008r46-0zhJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 22 Apr 2025 23:01:41 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22da3b26532so2025105ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 22 Apr 2025 16:01:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745362898; x=1745967698; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=03XFu9N3hAU4jRC+zblJ23eZKtdC8h3stTe75d5AHr4=;
-        b=JkFlrMAlJYlabMAWB4oFqRtyYTaAFheqb72l3gznNtglOXn+g00sx264f5HfMBU9ry
-         tDf/q1VQgBnZ4aIgJgEdEfzspA6hPZDphsaqu8JIz+E6hrccj0lEPQ8fvteePvarCbZl
-         VAxRrrhPlgSB/z/7zwH93GgAT9Ejm0KpWAA0xQHy/yT3raNwf93/2bYR3gWyl3w6KBCe
-         y9VI8HQiEKJsHg4VMVW0dSDVWRpaN0v7sI19rwUoY/IwS+4Jc51NUFLRwdpiNnRRk6FZ
-         +TT5PeZDnIht6tIWkWeL8T1PvENXYzCFwPQGDEy9LXS10+Cxcc3AfPl5R3VANK8WXH6U
-         MeOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745362898; x=1745967698;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=03XFu9N3hAU4jRC+zblJ23eZKtdC8h3stTe75d5AHr4=;
-        b=L51fNVnKpkvXiPGGZEPTlRGWwPEM+dlUbZ4rS0nlIUjJiBK+uw2wXXTIuUOiB1LYCj
-         bGLhwdeD46ozqqlLnTRCM5EbPHWrUThDx4HFgakjLw4yFWiMPZvLyGGF/5MLt5Ni0sFk
-         j4BOGtSpvzfVr+4b3+P/kuidNDo6xbc/woyh0AdML9qrKrPVKWO5pWswjLDuHCMo6NP9
-         OeEYUy21bhYknmYftGi/nOW13UQR33Mt9C6UvHabRhOaZ6LbmxGmaXfSgGEea/l3NEpA
-         V8Hv1uxOlzw82SSXCXaHC2uqy4Ef6vPOiOZbKbEonYoktOIZfHxTRJe0koaFlIHuOn/w
-         Uf3Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUq+dUE95xCPF/0k7mIYetHZ8tET/Nj2kaP8Ost0uNIwTALMi1UUlleOYCJQN5f4DmVEjWIIb29ZJjaDA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhlJIILpTgONGcCIJjDcYoajoMvQE2r4KhWFmXBaiv0XIKVdhj
-	fikI9KVG/8bwR+oADQMO2nifEbds1T40gUVEH6WNfflX2V/bqQWJ1T9uSIoubk0=
-X-Gm-Gg: ASbGnctXuXABq7zAYhX2V8lgNAjmqyxgFYm7QI6NRmGwYDKqNjXl7Ct3n5lNlyT+Wni
-	hhzg9Z7is/OimT9sdQdxnXDgr2+9W2gcb92SorwgS8oqRzH92N39RRSD5msR4jw9s1KG3lDitdV
-	RWZmHZ+kHcOwCjV3y0+73LC3EOMSKd0+Y/vKGbIPAe8iUNwYIHg9knRrNKiMsMuyD9WhFa6gO7r
-	mHC9fT628BjRqPVReIj4W+X7UtdzwAh3YRFnWlUO0bdKGk4LF5L4BlOsXOa4I/Cr44jBkI30hOG
-	C8LRUfFoNd9uKwgVONMRfU32KQy85krINkTv5IrL2LRS4oqqsLmpwqbUmPxT8g==
-X-Google-Smtp-Source: AGHT+IFmp0XY5/uqqLjTkalynqeWNPyv25+6s5DBGYVR7jtj5aNKhX7IgazopW4LZJGmdcspBRQs6g==
-X-Received: by 2002:a17:903:40cb:b0:227:e82b:b585 with SMTP id d9443c01a7336-22c53583228mr211623395ad.20.1745362898437;
-        Tue, 22 Apr 2025 16:01:38 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22c50eceb74sm90656115ad.166.2025.04.22.16.01.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 22 Apr 2025 16:01:37 -0700 (PDT)
-Date: Tue, 22 Apr 2025 16:01:35 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Cyril Bur <cyrilbur@tenstorrent.com>
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
-	charlie@rivosinc.com, jrtc27@jrtc27.com, ben.dooks@codethink.co.uk,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, jszhang@kernel.org,
-	syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Subject: Re: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
-Message-ID: <aAgfz69K7wSkKsyJ@debug.ba.rivosinc.com>
-References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
- <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
+	Wed, 23 Apr 2025 00:03:07 +0000
+Message-ID: <42e1d440-24a0-4bdb-b21f-fedf8b7be4fe@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1745366573;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WZGPFf3wMnSbU09hVmCJjsXY+G6x3DIKE+UVsiEcfVo=;
+	b=VhzsM7SfNxZBX8mRw1/QEzjMwF2pH593aPmDUeBsHCgaieFXrT8VRFFfIFY3prO034W1jt
+	+bTJq+wjNisRfusKlmRzBCJP9HI2Txq8P/OmG2NCMR2VbCR5tIP+SSMbok6Kn2a6giMEZY
+	1zMY3nOiwGnbm9AccKkxUE1U9Y6IROA=
+Date: Tue, 22 Apr 2025 17:02:44 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
+Subject: Re: [PATCH v5 11/21] RISC-V: perf: Restructure the SBI PMU code
+To: Will Deacon <will@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Mark Rutland <mark.rutland@arm.com>,
+ Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, weilin.wang@intel.com,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Conor Dooley <conor@kernel.org>, devicetree@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+References: <20250327-counter_delegation-v5-0-1ee538468d1b@rivosinc.com>
+ <20250327-counter_delegation-v5-11-1ee538468d1b@rivosinc.com>
+ <20250404134937.GA29394@willie-the-truck>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <20250404134937.GA29394@willie-the-truck>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250422_160139_802900_CF8BC468 
-X-CRM114-Status: GOOD (  18.71  )
+X-CRM114-CacheID: sfid-20250422_170305_420601_17271DE1 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,164 +80,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 07:05:22AM +0000, Cyril Bur wrote:
->From: Ben Dooks <ben.dooks@codethink.co.uk>
->
->When threads/tasks are switched we need to ensure the old execution's
->SR_SUM state is saved and the new thread has the old SR_SUM state
->restored.
->
->The issue was seen under heavy load especially with the syz-stress tool
->running, with crashes as follows in schedule_tail:
->
->Unable to handle kernel access to user memory without uaccess routines
->at virtual address 000000002749f0d0
->Oops [#1]
->Modules linked in:
->CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
->5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
->Hardware name: riscv-virtio,qemu (DT)
->epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
-> ra : task_pid_vnr include/linux/sched.h:1421 [inline]
-> ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
->epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
-> gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
-> t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
-> s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
-> a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
-> a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
-> s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
-> s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
-> s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
-> s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
-> t5 : ffffffc4043cafba t6 : 0000000000040000
->status: 0000000000000120 badaddr: 000000002749f0d0 cause:
->000000000000000f
->Call Trace:
->[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
->[<ffffffe000005570>] ret_from_exception+0x0/0x14
->Dumping ftrace buffer:
->   (ftrace buffer empty)
->---[ end trace b5f8f9231dc87dda ]---
->
->The issue comes from the put_user() in schedule_tail
->(kernel/sched/core.c) doing the following:
->
->asmlinkage __visible void schedule_tail(struct task_struct *prev)
->{
->...
->        if (current->set_child_tid)
->                put_user(task_pid_vnr(current), current->set_child_tid);
->...
->}
->
->the put_user() macro causes the code sequence to come out as follows:
->
->1:	__enable_user_access()
->2:	reg = task_pid_vnr(current);
->3:	*current->set_child_tid = reg;
->4:	__disable_user_access()
->
->The problem is that we may have a sleeping function as argument which
->could clear SR_SUM causing the panic above. This was fixed by
->evaluating the argument of the put_user() macro outside the user-enabled
->section in commit 285a76bb2cf5 ("riscv: evaluate put_user() arg before
->enabling user access")"
->
->In order for riscv to take advantage of unsafe_get/put_XXX() macros and
->to avoid the same issue we had with put_user() and sleeping functions we
->must ensure code flow can go through switch_to() from within a region of
->code with SR_SUM enabled and come back with SR_SUM still enabled. This
->patch addresses the problem allowing future work to enable full use of
->unsafe_get/put_XXX() macros without needing to take a CSR bit flip cost
->on every access. Make switch_to() save and restore SR_SUM.
->
->Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
->Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
->Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
->---
-> arch/riscv/include/asm/processor.h | 1 +
-> arch/riscv/kernel/asm-offsets.c    | 5 +++++
-> arch/riscv/kernel/entry.S          | 8 ++++++++
-> 3 files changed, 14 insertions(+)
->
->diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
->index 5f56eb9d114a..58fd11c89fe9 100644
->--- a/arch/riscv/include/asm/processor.h
->+++ b/arch/riscv/include/asm/processor.h
->@@ -103,6 +103,7 @@ struct thread_struct {
-> 	struct __riscv_d_ext_state fstate;
-> 	unsigned long bad_cause;
-> 	unsigned long envcfg;
->+	unsigned long status;
-> 	u32 riscv_v_flags;
-> 	u32 vstate_ctrl;
-> 	struct __riscv_v_ext_state vstate;
->diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
->index 16490755304e..969c65b1fe41 100644
->--- a/arch/riscv/kernel/asm-offsets.c
->+++ b/arch/riscv/kernel/asm-offsets.c
->@@ -34,6 +34,7 @@ void asm_offsets(void)
-> 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
-> 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
-> 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
->+	OFFSET(TASK_THREAD_STATUS, task_struct, thread.status);
->
-> 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
-> 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
->@@ -346,6 +347,10 @@ void asm_offsets(void)
-> 		  offsetof(struct task_struct, thread.s[11])
-> 		- offsetof(struct task_struct, thread.ra)
-> 	);
->+	DEFINE(TASK_THREAD_STATUS_RA,
->+		  offsetof(struct task_struct, thread.status)
->+		- offsetof(struct task_struct, thread.ra)
->+	);
->
-> 	DEFINE(TASK_THREAD_F0_F0,
-> 		  offsetof(struct task_struct, thread.fstate.f[0])
->diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
->index 33a5a9f2a0d4..00bd0de9faa2 100644
->--- a/arch/riscv/kernel/entry.S
->+++ b/arch/riscv/kernel/entry.S
->@@ -397,9 +397,17 @@ SYM_FUNC_START(__switch_to)
-> 	REG_S s9,  TASK_THREAD_S9_RA(a3)
-> 	REG_S s10, TASK_THREAD_S10_RA(a3)
-> 	REG_S s11, TASK_THREAD_S11_RA(a3)
->+
->+	/* save the user space access flag */
->+	li    s0, SR_SUM
->+	csrr  s1, CSR_STATUS
->+	REG_S s1, TASK_THREAD_STATUS_RA(a3)
->+
-> 	/* Save the kernel shadow call stack pointer */
-> 	scs_save_current
-> 	/* Restore context from next->thread */
->+	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
->+	csrs  CSR_STATUS, s0
-> 	REG_L ra,  TASK_THREAD_RA_RA(a4)
-> 	REG_L sp,  TASK_THREAD_SP_RA(a4)
-> 	REG_L s0,  TASK_THREAD_S0_RA(a4)
-
-Reviewed-by: Deepak Gupta <debug@rivosinc.com>
-
-Note to alex ghiti,
-
-If this goes in before cfi changes, I might have to re-work some of the
-changes with respect to zicfilp handling. zicfilp introduces `elp` state
-in `sstatus`.
-
->-- 
->2.34.1
->
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNC80LzI1IDY6NDkgQU0sIFdpbGwgRGVhY29uIHdyb3RlOgo+IE9uIFRodSwgTWFyIDI3LCAy
+MDI1IGF0IDEyOjM1OjUyUE0gLTA3MDAsIEF0aXNoIFBhdHJhIHdyb3RlOgo+PiBXaXRoIFNzY2Nm
+Zy9TbWNkZWxlZywgd2Ugbm8gbG9uZ2VyIG5lZWQgU0JJIFBNVSBleHRlbnNpb24gdG8gcHJvZ3Jh
+bS8KPj4gYWNjZXNzIGhwbWNvdW50ZXIvZXZlbnRzLiBIb3dldmVyLCB3ZSBkbyBuZWVkIGl0IGZv
+ciBmaXJtd2FyZSBjb3VudGVycy4KPj4gUmVuYW1lIHRoZSBkcml2ZXIgYW5kIGl0cyByZWxhdGVk
+IGNvZGUgdG8gcmVwcmVzZW50IGdlbmVyaWMgbmFtZQo+PiB0aGF0IHdpbGwgaGFuZGxlIGJvdGgg
+c2JpIGFuZCBJU0EgbWVjaGFuaXNtIGZvciBocG1jb3VudGVyIHJlbGF0ZWQKPj4gb3BlcmF0aW9u
+cy4gVGFrZSB0aGlzIG9wcG9ydHVuaXR5IHRvIHVwZGF0ZSB0aGUgS2NvbmZpZyBuYW1lcyB0bwo+
+PiBtYXRjaCB0aGUgbmV3IGRyaXZlciBuYW1lIGNsb3NlbHkuCj4+Cj4+IE5vIGZ1bmN0aW9uYWwg
+Y2hhbmdlIGludGVuZGVkLgo+Pgo+PiBSZXZpZXdlZC1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVn
+ZXJAcml2b3NpbmMuY29tPgo+PiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJp
+dm9zaW5jLmNvbT4KPj4gLS0tCj4+ICAgTUFJTlRBSU5FUlMgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICB8ICAgNCArLQo+PiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3Zt
+X3ZjcHVfcG11LmggICAgICAgICAgICAgfCAgIDQgKy0KPj4gICBhcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2t2bV92Y3B1X3NiaS5oICAgICAgICAgICAgIHwgICAyICstCj4+ICAgYXJjaC9yaXNjdi9r
+dm0vTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNCArLQo+PiAgIGFyY2gv
+cmlzY3Yva3ZtL3ZjcHVfc2JpLmMgICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KPj4g
+ICBkcml2ZXJzL3BlcmYvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDE2
+ICstCj4+ICAgZHJpdmVycy9wZXJmL01ha2VmaWxlICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICB8ICAgNCArLQo+PiAgIGRyaXZlcnMvcGVyZi97cmlzY3ZfcG11LmMgPT4gcmlzY3ZfcG11X2Nv
+bW1vbi5jfSAgfCAgIDAKPj4gICBkcml2ZXJzL3BlcmYve3Jpc2N2X3BtdV9zYmkuYyA9PiByaXNj
+dl9wbXVfZGV2LmN9IHwgMjE0ICsrKysrKysrKysrKystLS0tLS0tLS0KPiAKPiBJJ20gc3RpbGwg
+YWdhaW5zdCB0aGlzIHJlbmFtaW5nIGNodXJuLiBJdCBzdWNrcyBmb3IgYmFja3BvcnRpbmcgYW5k
+Cj4geW91J3JlIGFsc28gY2hhbmdpbmcgdGhlIG5hbWUgb2YgdGhlIGRyaXZlciwgd2hpY2ggY291
+bGQgYmUgdXNlZCBieQo+IHNjcmlwdHMgaW4gdXNlcnNwYWNlIChlLmcuIG1vZHVsZSBsaXN0aW5n
+cywgdWRldiBydWxlcywgY21kbGluZSBvcHRpb25zKQo+IAoKCk9rLiBJIHdpbGwgcmV2ZXJ0IHRo
+ZSBmaWxlIGFuZCBkcml2ZXIgbmFtZSBjaGFuZ2UuIEkgaG9wZSBjb25maWcgCnJlbmFtaW5nIGFu
+ZCBjb2RlIHJlZmFjdG9yaW5nIHRvIHNlcGFyYXRlIGNvdW50ZXIgZGVsZWdhdGlvbiAoaHcgbWV0
+aG9kKSAKdnMgU0JJIGNhbGxzIChmaXJtd2FyZSBhc3Npc3RlZCBtZXRob2QpIGFyZSBva2F5ID8K
+Cgo+IFdpbGwKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
+bnV4LXJpc2N2CgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
