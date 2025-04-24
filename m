@@ -4,75 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D087BC369D7
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 10:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920B1C369AB
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 10:56:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:MIME-Version:Message-Id:Date:Subject
-	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=N5WN42+tNhx+n0NkayNoRMtINXwTexr52Mvb5quqeBU=; b=jS/Z4B4UbwtYTX
-	Wpwh89mbjl1ijEX/KSlewChKu0K8Sxx6nRE7V4ljtG8ODJrEHK1QMWGoWJoD4qziWJ2JVFc6g4wi+
-	EvO8GSwJfL30bs1XAN2Ap+ZDnSObFUaqIKwfF2rphldMzPcyMBcW4LCOnGU4oX62nHv4zmDkb2psM
-	a0lJRmpXe2ylfbTLS9mX3QcaEN70DVuseNp63Xn+ar5h94Yqcd4CrQrX69uLzcqrwEUWwcoHNA6ER
-	dLkRQyCi4ByHXvuPXpj9ChGQ93gpdDkw+BSXNRkbtOqzTfPw3XT0rSLu9JPIXYe+qBMER03HQWJmf
-	O17NgEnYoecAFc3yMmvw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	MIME-Version:Date:References:In-Reply-To:Subject:Cc:To:From:Message-ID:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kg50Pm+BWRenaLPtT2inbkCrL4371lzy6UZ4xH4u4/8=; b=f+hesRxcFY6wzoEw8hD2LRzj3+
+	spWwLayhcAEa14rLoNzz8OilfJQMeYlsHp9hts+3xOkandR7gcB6E0mO4I+hXXUxwNk02dghppEme
+	2/YFv/M7yVU15Z/F/N1M/hIPg5XzjEyVCT0bbMZpqdDKPFn5VYuCvwEXsdY+UzSc1qOZTOz5UB6bt
+	H52EJyYFJfDc4w05A2jzqUSzVFcGibrHqD1clkntEiaFuyxRL/V7WOYWiQALNt3lEUW7PmVnkB6GC
+	vcww3vsOzV83bqfgLl/bcNDe4O4LCU+WQNxxOCt6D3JLJ4v0uEqSj+iGCsRUWBTcY7795pMaNW9pm
+	bNdZvCXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7u19-0000000DiWi-2QkJ;
-	Thu, 24 Apr 2025 10:41:19 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u7uG2-0000000DlwT-288F;
+	Thu, 24 Apr 2025 10:56:42 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7t5G-0000000DXoB-3CZ9
+	id 1u7tSE-0000000Dbhl-2vTZ
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 24 Apr 2025 10:05:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Date:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=c5AFW0Sl5/PIEX/fz2VgnHx4IggLIWYC9XsMAjjZFis=; b=rOLd1h4KWlN93R1xRMGpzIObne
+	Klm5kDKVWotkY3k0rOqgRw2nquNsWe/hFNxrDM9i1d8pDwNFcuPnTHW4e/I5ABItNZnJP3HraQ8K/
+	jvnEbqk0r6A9lzb9IlcNu/cuuj9lv/px0M5p4kbEdHlv5qEtXRTKoNbaoMAfGf1qNdLEf1QhggWpw
+	60kwJGZIWPnWiawNOXbZcf1lfqfbxRcf2s4YD+JoBHcvpOYI6f0nItxHoWLc4U5CF/9CyhmRSxEoh
+	0pm03canCmrvPDGXVMMI8T2+7Vp9863Nfr7CkgBs5XmgaVh7dSuHw1PyTWrr4KN+mehquZwknudqo
+	6YQ6ganw==;
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7tSB-0000000Biha-3N5z
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Apr 2025 09:41:32 +0000
-Received: from [127.0.0.1] (unknown [116.232.18.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id B7F49341C25;
-	Thu, 24 Apr 2025 09:41:23 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH v9 0/3] riscv: spacemit: add gpio support for K1 SoC
-Date: Thu, 24 Apr 2025 17:40:48 +0800
-Message-Id: <20250424-03-k1-gpio-v9-0-eaece8cc5a86@gentoo.org>
+	Thu, 24 Apr 2025 10:05:13 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43cebe06e9eso5203555e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 03:05:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745489110; x=1746093910; darn=lists.infradead.org;
+        h=mime-version:date:user-agent:references:organization:in-reply-to
+         :subject:cc:to:from:message-id:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=c5AFW0Sl5/PIEX/fz2VgnHx4IggLIWYC9XsMAjjZFis=;
+        b=Ge/gB1M7qbHehafDyn9cgycjT7SZ5Gg6GDXYC1x/GFBQlZ8axxNnv5lACq2SpFSfX4
+         mEc3d779jxJsppcDm9Ig2jsD3KXrKOLo95U6/Zp2UGJEXYgZTBP6u2VAEIXkD+NN0LeS
+         FBMUZplfXunO91dOT0FdbJ1Lh8GE9JN8PH9jKXOs5p9Z+fRrceNAy7JwfIq8xhRR+rBC
+         J0A/yHATso72/4KfmNpQ7aoSwo2GCg8iutmDE9pyDrG0EShgCsO2a/w3UXI+rcgGCUyk
+         Ax3Jvpc83RFueZKqwPKNqL7Tahoe+Vwrpd8vHNGmKzJKBtCcOV+fc3pe13dqErLXhpbd
+         0hlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745489110; x=1746093910;
+        h=mime-version:date:user-agent:references:organization:in-reply-to
+         :subject:cc:to:from:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=c5AFW0Sl5/PIEX/fz2VgnHx4IggLIWYC9XsMAjjZFis=;
+        b=k4atCip4KCySjpAYVXqk67YQzPtZquZ0rlgU9hjASIKiJLytekSXKJOf/UGlIhqte5
+         f7y9Xvoi/2DTiotb6WrdMawfhUbm15GyoXm+mJ75QpKn55gAKhHtq1sHGp/wn+0dKcuC
+         yK47wc3Vsm0bYbQLVPZvO9gq8wXcnYTBoSZ6YxT1BNxeQrEPhjlxchd380yNB3VEGqUk
+         mnMEIpSa5+Q+3yY0U1Mb3enszn2d1kovefwX5Y9lwQOHk/KLgTMSreXyGYYTOjdsf2GS
+         g/oFEGn2M15YRgbIIRbCHKw00av3sQNvOluuE6Ws/oResIqXKyGiCrYvIkNEax3zjEAj
+         oW6A==
+X-Forwarded-Encrypted: i=1; AJvYcCWy7pIkzVL0Hi2C7IWvw5m1DkhCj6fyCWc5HinODzekMf1I/X5tMMczTUfY0Zdn5u8PsKeoxR6RHn+Sig==@lists.infradead.org
+X-Gm-Message-State: AOJu0YytbGaOs05B7VpISJULrYKd6wxsbS2mJRdtuOYquV+HD8cPBejs
+	MGFQ805TbUVkZ7ivaet8McqvVYaXfPdUsSA4rTWXlKps8tSxwtOg
+X-Gm-Gg: ASbGncuxo0Q4zDgXUlMw7eoUgwKO7uVSqL1TbRTEqj9hVSG2Ky7mWRsVALTTDjIjFI9
+	NrrSTTPS6WX1CWNxiYdXjL14kJYDSDUG7LyeqdLEFE34XgPjtAbHKmwG64wvL5nDGzfKwvIKNET
+	npOD04wdaJck/s+POL6PSSxlWucw70+ueqOUGtU8EUVyLMCx7isbpRI0XaDf06GCt4O5ySFE68M
+	FzTI9m1qD9GO5Vt574vbbHsf9z/FTFOF+xiw70brexMJ9YgpQGX8261Dzjg/MgYbkXHWPwhwC4s
+	VLPI9OTfsqcQ3zFVqpE+gVZR0fVGitv3dkhFXzllqSGB
+X-Google-Smtp-Source: AGHT+IFyhtL9Ef7Md+k5uRJ2uRcIXFYfZUHtQ6CdgOkpuVG7jZDLW9qm2lmSxi2HeBkY7L0FMNMN5g==
+X-Received: by 2002:a05:600c:1913:b0:43b:d0fe:b8ac with SMTP id 5b1f17b1804b1-4409bdaac04mr20233865e9.30.1745489109241;
+        Thu, 24 Apr 2025 03:05:09 -0700 (PDT)
+Received: from localhost ([37.72.3.43])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4409d29bf8fsm14517845e9.1.2025.04.24.03.05.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 03:05:08 -0700 (PDT)
+Message-ID: <680a0cd4.050a0220.296475.3867@mx.google.com>
+X-Google-Original-Message-ID: <87ecxhg9in.fsf@>
+From: =?utf-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>
+To: Deepak Gupta <debug@rivosinc.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,  Ingo Molnar <mingo@redhat.com>,
+  Borislav Petkov <bp@alien8.de>,  Dave Hansen
+ <dave.hansen@linux.intel.com>,  x86@kernel.org,  "H. Peter Anvin"
+ <hpa@zytor.com>,  Andrew Morton <akpm@linux-foundation.org>,  "Liam R.
+ Howlett" <Liam.Howlett@oracle.com>,  Vlastimil Babka <vbabka@suse.cz>,
+  Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,  Paul Walmsley
+ <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,  Albert
+ Ou <aou@eecs.berkeley.edu>,  Conor Dooley <conor@kernel.org>,  Rob Herring
+ <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,  Arnd
+ Bergmann <arnd@arndb.de>,  Christian Brauner <brauner@kernel.org>,  Peter
+ Zijlstra <peterz@infradead.org>,  Oleg Nesterov <oleg@redhat.com>,  Eric
+ Biederman <ebiederm@xmission.com>,  Kees Cook <kees@kernel.org>,  Jonathan
+ Corbet <corbet@lwn.net>,  Shuah Khan <shuah@kernel.org>,  Jann Horn
+ <jannh@google.com>,  Conor Dooley <conor+dt@kernel.org>,  Miguel Ojeda
+ <ojeda@kernel.org>,  Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+ <boqun.feng@gmail.com>,  Gary Guo <gary@garyguo.net>,  =?utf-8?Q?Bj=C3=B6?=
+ =?utf-8?Q?rn?= Roy Baron
+ <bjorn3_gh@protonmail.com>,  Benno Lossin <benno.lossin@proton.me>,
+  Andreas Hindborg <a.hindborg@kernel.org>,  Alice Ryhl
+ <aliceryhl@google.com>,  Trevor Gross <tmgross@umich.edu>,
+  linux-kernel@vger.kernel.org,  linux-fsdevel@vger.kernel.org,
+  linux-mm@kvack.org,  linux-riscv@lists.infradead.org,
+  devicetree@vger.kernel.org,  linux-arch@vger.kernel.org,
+  linux-doc@vger.kernel.org,  linux-kselftest@vger.kernel.org,
+  alistair.francis@wdc.com,  richard.henderson@linaro.org,
+  jim.shu@sifive.com,  andybnac@gmail.com,  kito.cheng@sifive.com,
+  charlie@rivosinc.com,  atishp@rivosinc.com,  evan@rivosinc.com,
+  cleger@rivosinc.com,  alexghiti@rivosinc.com,  samitolvanen@google.com,
+  broonie@kernel.org,  rick.p.edgecombe@intel.com,
+  rust-for-linux@vger.kernel.org,  Zong Li <zong.li@sifive.com>
+Subject: Re: [PATCH v13 20/28] riscv/hwprobe: zicfilp / zicfiss enumeration
+ in hwprobe
+In-Reply-To: <20250424-v5_user_cfi_series-v13-20-971437de586a@rivosinc.com>
+	(Deepak Gupta's message of "Thu, 24 Apr 2025 00:20:35 -0700")
+Organization: Linux Private Site
+References: <20250424-v5_user_cfi_series-v13-0-971437de586a@rivosinc.com>
+	<20250424-v5_user_cfi_series-v13-20-971437de586a@rivosinc.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Thu, 24 Apr 2025 12:05:04 +0200
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIACEHCmgC/2XSy27DIBAF0F+JWJeKGePBZNX/qLrgMSSoapzar
- tUqyr+XOGpj5OUgncvlcREjD5lHsd9dxMBzHnN/KoN92olwdKcDyxzLLFChVh12UjXyHeThnHt
- J4JPFZFWDQRRwHjjl7yXs9e0+D/z5VTKn+6LwbmQZ+o+PPO13aGxswUWbKAYViEyiBBockfUYL
- AIaE8GJW9Yxj1M//Cw9Z1jClkpW6XWlGaSSpAyyZw6O1cuBT1PfP/fDYcmZ8d8Cgq0sFoud1jp
- FRAhxY5uVxbayzc0a743XGiLhxuo/26qycWXLCaQmDcG2QYHVG9s+LIKpbLt0poZDw8aT2VhaW
- WwqS8VGj6xdZE4QNtasLVW2tJCedWeDdqSs39juYcttVbZ8IgmBOsKI5aXqfa/X6y+C/TkdlQI
- AAA==
-X-Change-ID: 20240828-03-k1-gpio-61bf92f9032c
-To: Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4903; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=19tL4jN41z9FQI4XEWC1T0aTF7LcGwsN47y3eQ/Ipt8=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoCgc2ipfCvflkv7IgzKm2TGKqrcIQE852JrMGz
- XONCyCYo6+JApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaAoHNl8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277VsID/9oBNZQAUHgvMsCPG
- Cx92IzG1YBqV3eqH307VhjshCnq2QZELYTeEHZEq2vdmuPYaCfaBobhFSyathnO8oY/UlNyFW3f
- ilBcqOpNHU/O+jlb7sjyh8sDs6q2nBhJWa7xlj04QDWf/4tdWiaHyDDqN3kvf5UuoBw2mU/fFRu
- uMqMG6vf46eUhClRxjHXt5CT/2mrsEDgjhJk2R8nULeUHLK8ItTDtO8XeLsgZ1Mrjv2a9Jj+IWC
- 426c2oDIGEn+jHlb835Y4HOKYKQS9ICWe5OwQAj5BKFuajFQ3Reb7es2SS/QI+E8AIZ9wLKTqA1
- Mc/7dj9Y4BjZH2Vq3uPY6y2Q0j9/QQqE3Wgz8e6eLuOB4xVR49/zV27T4eY/5cWJVPeSkydsCgs
- sbPRP4Q+b1dlg5HWXJ2PorIO3Pe4JOrjTztb75iLE1UsnJRQaPRmz4CR6B25PbxU5RhkmqC3/r5
- L1DZG4JYAYNDh6pQ86abV2q/5176Pb3Gn+kl80zP3hHq9rj1oKSPuS0nFhwOcqVUmg8Td0au6ir
- eTEcz53prLxG9gkeMHwnMLSgdSe5pyA2rMV+zP/GXsSX7UxOUBDKlAv1K2RoUJUtILphUC7Fmtk
- 0aYgUz/sg2I/C3vqF+Ji6VjoZFfejPLAtrA0D4Qs+pFCYrjTqiQ1ucVUuVN5dSvNY5wQ==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_024130_830449_28E660DC 
-X-CRM114-Status: GOOD (  13.66  )
+X-CRM114-CacheID: sfid-20250424_110511_964840_9A6F0DB0 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,123 +141,103 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Yixun Lan <dlan@gentoo.org>, Alex Elder <elder@riscstar.com>, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Inochi Amaoto <inochiama@outlook.com>, Jisheng Zhang <jszhang@kernel.org>, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5332117631002431919=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gpio controller of K1 support basic GPIO functions,
-which capable of enabling as input, output. It can also be used
-as GPIO interrupt which able to detect rising edge, falling edge,
-or both. There are four GPIO ports, each consisting of 32 pins and
-has indepedent register sets, while still sharing IRQ line and clocks.
-The GPIO controller request the two clock sources from APBC block.
+--===============5332117631002431919==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
 
-Due to first three GPIO ports has interleave register settings, some
-resources (IRQ, clock) are shared by all pins.
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The GPIO docs of K1 SoC can be found here, chapter 16.4 GPIO [1]
+On dj., d=E2=80=99abr. 24 2025, Deepak Gupta wrote:
 
-This patch series has been tested on Bananapi-F3 board,
-with following GPIO cases passed:
- 1) gpio input
- 2) gpio output - set to high, low
- 3) gpio interrupt - rising trigger, falling trigger, both edge trigger
+Hello,
 
-This version should resolve DT related concern in V4, and register each bank as
-indepedent gpio chip in driver, no more sub children gpio DT node needed.
+> Adding enumeration of zicfilp and zicfiss extensions in hwprobe syscall.
+>
+> Reviewed-by: Zong Li <zong.li@sifive.com>
+> Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+> ---
+>  arch/riscv/include/uapi/asm/hwprobe.h | 2 ++
+>  arch/riscv/kernel/sys_hwprobe.c       | 2 ++
+>  2 files changed, 4 insertions(+)
+>
+> diff --git a/arch/riscv/include/uapi/asm/hwprobe.h b/arch/riscv/include/u=
+api/asm/hwprobe.h
+> index c3c1cc951cb9..c1b537b50158 100644
+> --- a/arch/riscv/include/uapi/asm/hwprobe.h
+> +++ b/arch/riscv/include/uapi/asm/hwprobe.h
+> @@ -73,6 +73,8 @@ struct riscv_hwprobe {
+>  #define		RISCV_HWPROBE_EXT_ZCMOP		(1ULL << 47)
+>  #define		RISCV_HWPROBE_EXT_ZAWRS		(1ULL << 48)
+>  #define		RISCV_HWPROBE_EXT_SUPM		(1ULL << 49)
+> +#define		RISCV_HWPROBE_EXT_ZICFILP	(1ULL << 50)
+> +#define		RISCV_HWPROBE_EXT_ZICFISS	(1ULL << 51)
 
-Please notice in this version, the reset property is added, but optional.
-as I see no need to activate it in driver, instead I suspect it may
-break cases if bootloader did some prerequisite settings, so I'm leaving
-it for future implementation if really necessary.
+Notice that, as it stands in Linux v6.15-rc, this will conflict with the
+values for Zicntr and Zihpm. See 4458b8f68dc7 ("riscv: hwprobe: export
+Zicntr and Zihpm extensions"). I'd say that you should update these
+values.
 
-Add clock property and rebase patch on top of SpacemiT's k1/dt-for-next branch
+>  #define RISCV_HWPROBE_KEY_CPUPERF_0	5
+>  #define		RISCV_HWPROBE_MISALIGNED_UNKNOWN	(0 << 0)
+>  #define		RISCV_HWPROBE_MISALIGNED_EMULATED	(1 << 0)
+> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwpr=
+obe.c
+> index bcd3b816306c..d802ff707913 100644
+> --- a/arch/riscv/kernel/sys_hwprobe.c
+> +++ b/arch/riscv/kernel/sys_hwprobe.c
+> @@ -108,6 +108,8 @@ static void hwprobe_isa_ext0(struct riscv_hwprobe *pa=
+ir,
+>  		EXT_KEY(ZCB);
+>  		EXT_KEY(ZCMOP);
+>  		EXT_KEY(ZICBOZ);
+> +		EXT_KEY(ZICFILP);
+> +		EXT_KEY(ZICFISS);
+>  		EXT_KEY(ZICOND);
+>  		EXT_KEY(ZIHINTNTL);
+>  		EXT_KEY(ZIHINTPAUSE);
 
-Link: https://developer.spacemit.com/documentation?token=Rn9Kw3iFHirAMgkIpTAcV2Arnkf [1]
-Link: https://lore.kernel.org/all/20240730-k1-01-basic-dt-v5-0-98263aae83be@gentoo.org [2]
-Link: https://lore.kernel.org/all/20241016-02-k1-pinctrl-v5-0-03d395222e4f@gentoo.org/ [3]
-Link: https://lore.kernel.org/all/20250218-gpio-ranges-fourcell-v1-0-b1f3db6c8036@linaro.org [4]
-Link: https://lore.kernel.org/all/20250225-gpio-ranges-fourcell-v3-0-860382ba4713@linaro.org [5]
-Link: https://lore.kernel.org/all/2174489329731.7849.17910336598453828998.b4-ty@bgdev.pl [6]
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
-Changes in v9:
-- drop patch 1,2 from v8 which already merged by gpio tree [6]
-- add clock property to gpio node
-- Link to v8: https://lore.kernel.org/r/20250412-03-k1-gpio-v8-0-1c6862d272ec@gentoo.org
+Greetings,
+Miquel
 
-Changes in v8:
-- rebased to v6.15-rc1
-- adjust dt-binding/code to request clocks
-- add reset property
-- call irq_domain_update_bus_token() to support threecells interrupt mode
-- use devm_platform_ioremap_resource(), so drop "struct resource"
-- fix Kconfig
-  - select GPIO_GENERIC as calling bgpio_init()
-  - change to tristate, make it possible to build as module
-- adjust defconfig to enable gpio 
-- Link to v7: https://lore.kernel.org/r/20250226-03-k1-gpio-v7-0-be489c4a609b@gentoo.org
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Changes in v7:
-- dt-binding: fix 80 column, drop unneeded dependencies
-- tested with patch v3 of "gpiolib: of: Handle threecell gpios" [5]
-- collect review tags
-- Link to v6: https://lore.kernel.org/r/20250223-03-k1-gpio-v6-0-db2e4adeef1c@gentoo.org
+-----BEGIN PGP SIGNATURE-----
 
-Changes in v6:
-- rebase to threecell gpio patch which proposed by LinusW at [4], 
-  drop unneeded *xlate(), *add_pin_range() function
-- add SPACEMIT prefix to macro
-- adjust register comments
-- drop 'index' member, instead calculate from offset
-- add IRQCHIP_SKIP_SET_WAKE as gpio doesn't support irq wake up
-- drop #ifdef CONFIG_OF_GPIO
-- move interrupt mask disabling/enabling into irq_*mask()
-- Link to v5: https://lore.kernel.org/r/20250217-03-k1-gpio-v5-0-2863ec3e7b67@gentoo.org
+iQJJBAEBCgAzFiEEG6U8esk9yirP39qXlr6Mb9idZWUFAmgKDNAVHG1pa2lzYWJh
+dGVAZ21haWwuY29tAAoJEJa+jG/YnWVlMe8P/3GWvWsJksgXvOwVEdZk24vFu0lQ
+heUgo5llXNYRxNaU0iBfZ3qVuWR1WIoDsFnd6EzvAM4/miQK/jOfgb4/xOXls+Ah
+qzj0dMvXuLWIRfEom5PhWxW9Tevfl90Pk/TkkzvmaA0t4D/eEvKOsFEFpLFFnP+t
+/fCiUbrVg7ahnA0Z9vBA7oLJt9NNks7FOSFH3ZmiJLI82sTMOnQKxGe+GHy0bUc+
+0pwUt3aeugR6ZciXnDq4Gfj5m8zBxHgCpGnSNk9eQTtrXXPHcrRBDHAIFESssje8
+TaZzLO4+jKovhY6jicjetbtiLYyldXkOz01R49CcxwVlAD5fxgNYpcHu3jnjx+Hw
+wSHeMcyjabQHhBop019M9OAFIBQPIKS1B6y570G+M+t19H22083cwGIdLqIYAOfv
+3Gml165o3Sl0NPVV/SnNaW/0mxlZq4Y9wXHbnNEJ1JMJlbNYJJeKPvvcPGD9xsgb
+iqT5gFNPh4w6OWM34Pb25D6Q1PNlKy8BX9DPgaRlKyRNNutuqJg5x7PK6LN7t4gR
+gjrvXyVDQ2rWt1JnR6lq87uVLvuwRC6YEZJIOZ59k4bWzhwvl23a93wACN0PJyKg
+yUcHgDHSscAYTxSkOSAWX6Kkh7pg9aiZ3hHYyeI4wKuot02nuZzZZ1/iigfX0X8x
+PAoq2NET1dRPiyaZ
+=JubY
+-----END PGP SIGNATURE-----
+--=-=-=--
 
-Changes in v5:
-- export add_pin_range() from gpio core, support to add custom version
-- change to 3 gpio cells, model to <bank number>, <bank offset>, <gpio flag>
-- fold children DT nodes into parent
-- Link to v4: https://lore.kernel.org/r/20250121-03-k1-gpio-v4-0-4641c95c0194@gentoo.org
 
-Changes in v4:
-- gpio: re-construct gpio as four independent ports, also leverage gpio mmio API
-- gpio interrupt: convert to generic gpio irqchip
-- Link to v3: https://lore.kernel.org/r/20241225-03-k1-gpio-v3-0-27bb7b441d62@gentoo.org
-
-Changes in v3:
-- dt: drop ranges, interrupt-names property
-- Link to v2: https://lore.kernel.org/r/20241219-03-k1-gpio-v2-0-28444fd221cd@gentoo.org
-
-Changes in v2:
-- address dt-bindings comments, simplify example
-- rebase to 6.13-rc3 
-- Link to v1: https://lore.kernel.org/r/20240904-03-k1-gpio-v1-0-6072ebeecae0@gentoo.org
-
----
-Yixun Lan (3):
-      riscv: defconfig: spacemit: enable gpio support for K1 SoC
-      riscv: dts: spacemit: add gpio support for K1 SoC
-      riscv: dts: spacemit: add gpio LED for system heartbeat
-
- arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 11 +++++++++++
- arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi    |  3 +++
- arch/riscv/boot/dts/spacemit/k1.dtsi            | 18 ++++++++++++++++++
- arch/riscv/configs/defconfig                    |  1 +
- 4 files changed, 33 insertions(+)
----
-base-commit: 279d51ad9f6dc0c667f6f141a669b2c921277d1a
-change-id: 20240828-03-k1-gpio-61bf92f9032c
-
-Best regards,
--- 
-Yixun Lan
-
+--===============5332117631002431919==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5332117631002431919==--
+
