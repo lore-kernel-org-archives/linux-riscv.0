@@ -4,80 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32685C369D5
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 16:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1A39C369C2
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 16:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pqv0yvgPWwUZGXvTe7N7Zuomk0lB0R6dim4yEVnAdbY=; b=1CwVhYah3xfTPW
-	/vzrA+uYKgGE8v5uks4Cf97sxh7P4eGPc2ykRDSK81caiObO/99EFZFr0Z8xlvnEOEI6see3I975G
-	1S76wKOJegfDoUb3KxaTHLgrQZ69WNvvvA8sD+2q1JIwLsZqUXjr5ax5pDT9NU6erPBDFcwFFKV+1
-	FHS4XquJ/6zovwApRAOR1vDIcB+3zW7AAUMRmNToJpuerL7omsipo7XuMxorG6GAFEmtmF41tU8Wx
-	gtrismTHLquaKwMEkNL7rfy3i9ODJ/tSywY6n/sMD3h9qATV7po7ORtwen9ubFBpoPB1FUjPNowmi
-	Js1yOkXwoRrmqyhs1rdg==;
+	List-Owner; bh=CUmJKN6Sc0X4DpqqPLf4ssM0cpZsWc75aLZZS0ys5Rg=; b=GW53u6AlmFnsQ5
+	HfKTzglpb8Rxi3OE19IyBWuv0L/7reinsNCnn2JQMGJ6Q7ewbvkD4T8r0J76NjUbfc9VgA/rTZCX8
+	Wr7lt/eTp7J9/YuOIJuScwNEr1rYz4pxUH/ENx9PBZt4UuPBFJgSQf2R70x4p3OSomE3RnjgP4105
+	MVN21puMN8geOBN+DdGmbD4IGp6/7MbfuqpiJ5SnU6UCI8hrhZENmzKb93GjfB1ixiN8v+5Z22B2G
+	RTTmg/1O0WCENK3ucOk66ZH03FDjfrd9vTooywzHdjMqiQZwYx2OdQr73XbuPLXMKZdsZ6UTQBpM7
+	S5a2H8VMH39paejJwp/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zjk-0000000EnkX-26Rf;
-	Thu, 24 Apr 2025 16:47:44 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1u7znZ-0000000EoSY-0oxK;
+	Thu, 24 Apr 2025 16:51:41 +0000
+Received: from mail-yw1-x112e.google.com ([2607:f8b0:4864:20::112e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7zaF-0000000EmMh-0PRR
+	id 1u7znV-0000000EoS5-3DmQ
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Apr 2025 16:37:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1B0DDA4CFF1
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 16:32:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFAADC4CEEE
-	for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 16:37:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745512673;
-	bh=Z5Mejh+oE5Ke6erKkFueD4BD0r8tI1KZOEe1fs6TDZs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=AB78RJvUAT+czyJewthUei0e/xLR+rnlqpcWxBpMQG+q73WLOE/UJsPX67ELkeA3m
-	 IIEc3gntDS6ObyolLFWmbaY0GbFJRPRQlp72jx5f+227U8ChKwOPRX5oM/YegAnDVM
-	 uemGsjIK73BSJK2h9IRYm8hrfILWdIHGOy4G8y9LW1dwqTp1d53AiAin6nPExgFrN6
-	 TzSlppfh8Ig/k7Nj278lULiQ0qcTWc1w6EpK9DVdi+zDxfAr9JAybP+1Q4qN49yrKl
-	 9p2WGmv+q6eDOEHILvTjoUhlwuZkqXYPxN1NwbF3WCzDpa+1p5KA/+qF18dC4IlGxL
-	 y5bblvD3mWMZA==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-54b0d638e86so1450664e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 09:37:53 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCX9pxBXoHQTG1lF0DL2Vf6HsaxZrOZfO8w5vK4JWw68eQeDojNxQahxmr02CM8fsZOEt0wh+IexIPWzTQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVfYgYEiDx4G3StcdzbrwdlmjDDv6UoOhP4sxfDtT07m5si9nj
-	jqtCI4ZxhFbPA/56/oIPJVv6AEqjWavVQfUp8/fqY2MSWdcg9K7uqmSAbfDwRRVNvLBQ5Qnn/5w
-	23V5+DCV8e4Ph9CYsYj38r2jXVIA=
-X-Google-Smtp-Source: AGHT+IEeDmPYQCfPVgY5Ydme7GUd1G2XmW0StrBFinM9VM0MCOMuZoT/OILlCHPstOmP5SeFd3CRSQP5ANHTq4w5LiQ=
-X-Received: by 2002:a05:6512:1107:b0:549:8db6:9366 with SMTP id
- 2adb3069b0e04-54e7c3fcbf1mr1320656e87.28.1745512672053; Thu, 24 Apr 2025
- 09:37:52 -0700 (PDT)
+	Thu, 24 Apr 2025 16:51:39 +0000
+Received: by mail-yw1-x112e.google.com with SMTP id 00721157ae682-702599fa7c5so19241887b3.1
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 09:51:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745513496; x=1746118296; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rhOPT0e1r3Giz9fOG9P4UwNB4Pxq9ccasHzycgLN8t4=;
+        b=E1sapOr1GLaNVDTqe9a5byV3wOhLQLAJcLWr8kNT5L8EzPpdb6HwE0CX7G0UM3EJjN
+         do6K/cXEMq5AqlljhXg9rYyiKIHIXMOvmCl43MgtNzuDLdn7FScHoKvs6rm+ivpnR5UZ
+         IgsFXCvfPr5KfBCJH63LDcXiE1a4QG/a6Xz7JORcMUFRVGoEltcgG80DbJLPi8u85Ie7
+         0aEshkDKKFp8oQ7ZA+zPzFOrWyRhi8/KQCOiLppoCoK6Mt08m3TxPmHaj5i7RCpeQnsH
+         myfEJY/p476JR2m4oPz6jzq7p9wTBlXBAdoeVRSYf71FaX83DoYWWppu2H3UXxpZDtxr
+         VIVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745513496; x=1746118296;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rhOPT0e1r3Giz9fOG9P4UwNB4Pxq9ccasHzycgLN8t4=;
+        b=Y8g3FFCOiPtm69zr3HGIs7uVuUVZwatPCXxQNW4RFZzlIQgpn5vsN+doj0lGQq08eV
+         y2EWHJFeclHrYiVhpsUktvbZbn8CwiKLoemcTLgIUew15W2p0xAxn8WMWT6fm8iJ0dZz
+         m0wFl7+fXhjnwauVVXhkSJX2UOcvMPqBQojbSRGqjiyKXQ5dwm51YDoK+auUDASFGP5m
+         7c0LmdjQHc8sH021s/FHdPaCdkq6U0gtw6oj8FdMC2JG6qTuAAp5xC7j7KR2jhf2J1gX
+         eXQc2kJG+CDpr1CPt4BdXgLTVCHwmNWxOUnyH1WCoUBQMcYHNkCk837w46mOC9FiTuUi
+         uaoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUYTzaeUwJhj0yE/6G8Z/L0NxRWiEVPwdkeIp0ugkA9mklTwH5F2DatbrfyJwldI5Aoqu6LMysAcWU0YQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywb8sjvJItCkyEE3ZdIQGMQUnfualMd54oMKUOrE7/4MojFvbPp
+	qsgs0CzjtBezWab0ZaBYp9FrWAHeR7L08SM3TF/z84YIvbpaUJktAAT82gAbkQNdx7z36aoxG3p
+	uoJrnXDhxrGQUEZfiQlEY9flFWqT9QGIxftpgZg==
+X-Gm-Gg: ASbGnctGcZchUW1W8m8tug71DUkulTNks5AUoMKSGoxp5ZbUXvpBaKk35cvSvA6WTlz
+	Ms88oW1W26IknbakI0FLXjerzVTrugu3S+xkdGMTgG1ujhCnmwcoQIe1L2I1LiaFVA3oHXW41C8
+	e4D2ZqCED9+Q/G/TSS32p8v7s=
+X-Google-Smtp-Source: AGHT+IEEs5xpXrn/Gy6ZKVAC++BN0ySj3Ol6R2Q7H49jw3nb/AVQ/nGqoQkOth8cQwpLnS19kr0sXiN3reDfdCQJutw=
+X-Received: by 2002:a05:690c:112:b0:6fd:33a1:f4b with SMTP id
+ 00721157ae682-708418756dcmr40063507b3.4.1745513496489; Thu, 24 Apr 2025
+ 09:51:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250424080950.289864-1-vkuznets@redhat.com> <20250424080950.289864-2-vkuznets@redhat.com>
-In-Reply-To: <20250424080950.289864-2-vkuznets@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 24 Apr 2025 18:37:39 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHqmOiNX_DH+8uSsTROzR+hgvZ5DyE=3wVE7-dQ+2BW=Q@mail.gmail.com>
-X-Gm-Features: ATxdqUHhiPMKVw_j3AGCvu_wJ4JwfoyH2ecF1fk3MjUiBOsPPk_MmQ6HO-CIRLo
-Message-ID: <CAMj1kXHqmOiNX_DH+8uSsTROzR+hgvZ5DyE=3wVE7-dQ+2BW=Q@mail.gmail.com>
-Subject: Re: [PATCH 1/2] efi/libstub: zboot specific mechanism for embedding
- SBAT section
-To: Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, 
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>, 
-	Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi <bluca@debian.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Eric Snowberg <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <CGME20250414185314eucas1p1ae57b937773a2ed4ce8d52d5598eb028@eucas1p1.samsung.com>
+ <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
+ <20250414-apr_14_for_sending-v2-1-70c5af2af96c@samsung.com>
+ <CAJZ5v0irRq8_p35vf41_ZgomW0X=KZN+0HqwU2K9PvPRm8iZQA@mail.gmail.com>
+ <b9c4182d-38c2-4173-a35a-0e1773c8f2ed@samsung.com> <CAJZ5v0gE0anjW_mDSwNXY8xoZ_0=bDDxiSbUq1GP7-NycDojrQ@mail.gmail.com>
+ <cbf20469-02ab-403a-8db7-2b66e9936b4f@samsung.com>
+In-Reply-To: <cbf20469-02ab-403a-8db7-2b66e9936b4f@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 24 Apr 2025 18:51:00 +0200
+X-Gm-Features: ATxdqUENtu5F1LST4-s_k9n76eHWAuQ6u_ynqkGko5ZMfaiEw5aNABhT-1bG-Qs
+Message-ID: <CAPDyKFqND2JrH8nLUzAqwWgHkwia6M9XOJoY6AqxtR0t120JUA@mail.gmail.com>
+Subject: Re: [PATCH v2 1/4] PM: device: Introduce platform_resources_managed flag
+To: Michal Wilczynski <m.wilczynski@samsung.com>, Stephen Boyd <sboyd@kernel.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Pavel Machek <pavel@kernel.org>, 
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
+	Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	m.szyprowski@samsung.com, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_093755_273408_31770559 
-X-CRM114-Status: GOOD (  34.47  )
+X-CRM114-CacheID: sfid-20250424_095137_812634_77682283 
+X-CRM114-Status: GOOD (  50.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,218 +102,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Vitaly,
-
-On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->
-> SBAT is a mechanism which improves SecureBoot revocations of UEFI binaries
-> by introducing a generation-based technique. Compromised or vulnerable UEFI
-> binaries can be prevented from booting by bumping the minimal required
-> generation for the specific component in the bootloader. More information
-> on the SBAT can be obtained here:
->
-> https://github.com/rhboot/shim/blob/main/SBAT.md
->
-> Upstream Linux kernel does not currently participate in any way in SBAT as
-> there's no existing policy in how SBAT generation number should be
-> defined. Keep the status quo and provide a mechanism for distro vendors and
-> anyone else who signs their kernel for SecureBoot to include their own SBAT
-> data. This leaves the decision on the policy to the vendor. Basically, each
-> distro implementing SecureBoot today, will have an option to inject their
-> own SBAT data during kernel build and before it gets signed by their
-> SecureBoot CA. Different distro do not need to agree on the common SBAT
-> component names or generation numbers as each distro ships its own 'shim'
-> with their own 'vendor_cert'/'vendor_db'
->
-> Implement support for embedding SBAT data for architectures using
-> zboot (arm64, loongarch, riscv). Build '.sbat' section along with libstub
-> so it can be reused by x86 implementation later.
->
-> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
-> ---
->  drivers/firmware/efi/Kconfig                | 25 +++++++++++++++++++++
->  drivers/firmware/efi/libstub/Makefile       |  7 ++++++
->  drivers/firmware/efi/libstub/Makefile.zboot |  3 ++-
->  drivers/firmware/efi/libstub/sbat.S         |  7 ++++++
->  drivers/firmware/efi/libstub/zboot-header.S | 14 ++++++++++++
->  drivers/firmware/efi/libstub/zboot.lds      | 17 ++++++++++++++
->  6 files changed, 72 insertions(+), 1 deletion(-)
->  create mode 100644 drivers/firmware/efi/libstub/sbat.S
->
-> diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-> index 5fe61b9ab5f9..2edb0167ba49 100644
-> --- a/drivers/firmware/efi/Kconfig
-> +++ b/drivers/firmware/efi/Kconfig
-> @@ -281,6 +281,31 @@ config EFI_EMBEDDED_FIRMWARE
->         bool
->         select CRYPTO_LIB_SHA256
->
-> +config EFI_SBAT
-> +       bool "Embed SBAT section in the kernel"
-> +       depends on EFI_ZBOOT
-> +       help
-> +         SBAT section provides a way to improve SecureBoot revocations of UEFI
-> +         binaries by introducing a generation-based mechanism. With SBAT, older
-> +         UEFI binaries can be prevented from booting by bumping the minimal
-> +         required generation for the specific component in the bootloader.
-> +
-> +         Note: SBAT information is distribution specific, i.e. the owner of the
-> +         signing SecureBoot certificate must define the SBAT policy. Linux
-> +         kernel upstream does not define SBAT components and their generations.
-> +
-> +         See https://github.com/rhboot/shim/blob/main/SBAT.md for the additional
-> +         details.
-> +
-> +         If unsure, say N.
-> +
-> +config EFI_SBAT_FILE
-> +       string "Embedded SBAT section file path"
-> +       depends on EFI_SBAT
-> +       help
-> +         Specify a file with SBAT data which is going to be embedded as '.sbat'
-> +         section into the kernel.
-> +
-
-Can we simplify this? CONFIG_EFI_SBAT makes no sense if
-CONFIG_EFI_SBAT_FILE is left empty. If you really need both symbols,
-set EFI_SBAT automatically based on whether EFI_SBAT_FILE is
-non-empty.
-
->  endmenu
->
->  config UEFI_CPER
-> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> index d23a1b9fed75..5113cbdadf9a 100644
-> --- a/drivers/firmware/efi/libstub/Makefile
-> +++ b/drivers/firmware/efi/libstub/Makefile
-> @@ -105,6 +105,13 @@ lib-$(CONFIG_UNACCEPTED_MEMORY) += unaccepted_memory.o bitmap.o find.o
->  extra-y                                := $(lib-y)
->  lib-y                          := $(patsubst %.o,%.stub.o,$(lib-y))
->
-> +extra-$(CONFIG_EFI_SBAT)       += sbat.o
-> +$(obj)/sbat.o: $(obj)/sbat.bin
-> +targets += sbat.bin
-> +filechk_sbat.bin = cat $(or $(real-prereqs), /dev/null)
-> +$(obj)/sbat.bin: $(CONFIG_EFI_SBAT_FILE) FORCE
-> +       $(call filechk,sbat.bin)
-> +
-
-Please get rid of all of this, and move the .incbin into zboot-header.S
-
-
->  # Even when -mbranch-protection=none is set, Clang will generate a
->  # .note.gnu.property for code-less object files (like lib/ctype.c),
->  # so work around this by explicitly removing the unwanted section.
-> diff --git a/drivers/firmware/efi/libstub/Makefile.zboot b/drivers/firmware/efi/libstub/Makefile.zboot
-> index 48842b5c106b..3d2d0b326f7c 100644
-> --- a/drivers/firmware/efi/libstub/Makefile.zboot
-> +++ b/drivers/firmware/efi/libstub/Makefile.zboot
-> @@ -44,7 +44,8 @@ AFLAGS_zboot-header.o += -DMACHINE_TYPE=IMAGE_FILE_MACHINE_$(EFI_ZBOOT_MACH_TYPE
->  $(obj)/zboot-header.o: $(srctree)/drivers/firmware/efi/libstub/zboot-header.S FORCE
->         $(call if_changed_rule,as_o_S)
->
-> -ZBOOT_DEPS := $(obj)/zboot-header.o $(objtree)/drivers/firmware/efi/libstub/lib.a
-> +ZBOOT_DEPS := $(obj)/zboot-header.o $(objtree)/drivers/firmware/efi/libstub/lib.a \
-> +          $(if $(CONFIG_EFI_SBAT),$(objtree)/drivers/firmware/efi/libstub/sbat.o)
->
-
-Drop this too
-
->  LDFLAGS_vmlinuz.efi.elf := -T $(srctree)/drivers/firmware/efi/libstub/zboot.lds
->  $(obj)/vmlinuz.efi.elf: $(obj)/vmlinuz.o $(ZBOOT_DEPS) FORCE
-> diff --git a/drivers/firmware/efi/libstub/sbat.S b/drivers/firmware/efi/libstub/sbat.S
-> new file mode 100644
-> index 000000000000..4e99a1bac794
-> --- /dev/null
-> +++ b/drivers/firmware/efi/libstub/sbat.S
-> @@ -0,0 +1,7 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Embed SBAT data in the kernel.
-> + */
-> +       .pushsection ".sbat","a",@progbits
-> +       .incbin "drivers/firmware/efi/libstub/sbat.bin"
-> +       .popsection
-> diff --git a/drivers/firmware/efi/libstub/zboot-header.S b/drivers/firmware/efi/libstub/zboot-header.S
-> index fb676ded47fa..f2df24504fc5 100644
-> --- a/drivers/firmware/efi/libstub/zboot-header.S
-> +++ b/drivers/firmware/efi/libstub/zboot-header.S
-> @@ -135,6 +135,20 @@ __efistub_efi_zboot_header:
->                         IMAGE_SCN_MEM_READ | \
->                         IMAGE_SCN_MEM_WRITE
->
-> +#ifdef CONFIG_EFI_SBAT
-> +       .ascii          ".sbat\0\0\0"
-> +       .long           __sbat_size
-> +       .long           _edata - .Ldoshdr
-> +       .long           __sbat_size
-> +       .long           _edata - .Ldoshdr
-> +
-> +       .long           0, 0
-> +       .short          0, 0
-> +       .long           IMAGE_SCN_CNT_INITIALIZED_DATA | \
-> +                       IMAGE_SCN_MEM_READ | \
-> +                       IMAGE_SCN_MEM_DISCARDABLE
-
-You can put the pushsection/popsection right here.
-
-> +#endif
-> +
->         .set            .Lsection_count, (. - .Lsection_table) / 40
->
->  #ifdef PE_DLL_CHAR_EX
-> diff --git a/drivers/firmware/efi/libstub/zboot.lds b/drivers/firmware/efi/libstub/zboot.lds
-> index 9ecc57ff5b45..2cd5015c70ce 100644
-> --- a/drivers/firmware/efi/libstub/zboot.lds
-> +++ b/drivers/firmware/efi/libstub/zboot.lds
-> @@ -31,10 +31,24 @@ SECTIONS
->
->         .data : ALIGN(4096) {
->                 *(.data* .init.data*)
-> +#ifndef CONFIG_EFI_SBAT
->                 _edata = ALIGN(512);
-> +#else
-> +               /* Avoid gap between '.data' and '.sbat' */
-> +               _edata = ALIGN(4096);
-> +#endif
-
-Just use 4096 in all cases.
-
->                 . = _edata;
->         }
->
-> +#ifdef CONFIG_EFI_SBAT
-> +        .sbat : ALIGN(4096) {
-> +               _sbat = . ;
-> +               *(.sbat)
-> +               _esbat = ALIGN(512);
-> +               . = _esbat;
-> +       }
-> +#endif
-> +
->         .bss : {
->                 *(.bss* .init.bss*)
->                 _end = ALIGN(512);
-> @@ -52,3 +66,6 @@ PROVIDE(__efistub__gzdata_size =
->
->  PROVIDE(__data_rawsize = ABSOLUTE(_edata - _etext));
->  PROVIDE(__data_size = ABSOLUTE(_end - _etext));
-> +#ifdef CONFIG_EFI_SBAT
-> +PROVIDE(__sbat_size = ABSOLUTE(_esbat - _sbat));
-> +#endif
-
-This can be unconditional - it is only evaluated when a reference to it exists.
-
-> --
-> 2.49.0
->
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+KyBTdGVwaGVuCgpPbiBUaHUsIDE3IEFwciAyMDI1IGF0IDE4OjE5LCBNaWNoYWwgV2lsY3p5bnNr
+aQo8bS53aWxjenluc2tpQHNhbXN1bmcuY29tPiB3cm90ZToKPgo+Cj4KPiBPbiA0LzE2LzI1IDE2
+OjQ4LCBSYWZhZWwgSi4gV3lzb2NraSB3cm90ZToKPiA+IE9uIFdlZCwgQXByIDE2LCAyMDI1IGF0
+IDM6MzLigK9QTSBNaWNoYWwgV2lsY3p5bnNraQo+ID4gPG0ud2lsY3p5bnNraUBzYW1zdW5nLmNv
+bT4gd3JvdGU6Cj4gPj4KPiA+PiBPbiA0LzE1LzI1IDE4OjQyLCBSYWZhZWwgSi4gV3lzb2NraSB3
+cm90ZToKPiA+Pj4gT24gTW9uLCBBcHIgMTQsIDIwMjUgYXQgODo1M+KAr1BNIE1pY2hhbCBXaWxj
+enluc2tpCj4gPj4+IDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+IHdyb3RlOgo+ID4+Pj4KPiA+
+Pj4+IEludHJvZHVjZSBhIG5ldyBkZXZfcG1faW5mbyBmbGFnIC0gcGxhdGZvcm1fcmVzb3VyY2Vz
+X21hbmFnZWQsIHRvCj4gPj4+PiBpbmRpY2F0ZSB3aGV0aGVyIHBsYXRmb3JtIFBNIHJlc291cmNl
+cyBzdWNoIGFzIGNsb2NrcyBvciByZXNldHMgYXJlCj4gPj4+PiBtYW5hZ2VkIGV4dGVybmFsbHkg
+KGUuZy4gYnkgYSBnZW5lcmljIHBvd2VyIGRvbWFpbiBkcml2ZXIpIGluc3RlYWQgb2YKPiA+Pj4+
+IGRpcmVjdGx5IGJ5IHRoZSBjb25zdW1lciBkZXZpY2UgZHJpdmVyLgo+ID4+Pgo+ID4+PiBJIHRo
+aW5rIHRoYXQgdGhpcyBpcyBnZW5wZC1zcGVjaWZpYyBhbmQgc28gSSBkb24ndCB0aGluayBpdCBi
+ZWxvbmdzIGluCj4gPj4+IHN0cnVjdCBkZXZfcG1faW5mby4KPiA+Pj4KPiA+Pj4gVGhlcmUgaXMg
+ZGV2LT5wb3dlci5zdWJzeXNfZGF0YS0+ZG9tYWluX2RhdGEsIHdoeSBub3QgdXNlIGl0IGZvciB0
+aGlzPwo+ID4+Cj4gPj4gSGkgUmFmYWVsLAo+ID4+Cj4gPj4gVGhhbmtzIGZvciB0aGUgZmVlZGJh
+Y2suCj4gPj4KPiA+PiBZb3UncmUgcmlnaHQg4oCUIHRoaXMgYmVoYXZpb3IgaXMgc3BlY2lmaWMg
+dG8gZ2VucGQsIHNvIGVtYmVkZGluZyB0aGUgZmxhZwo+ID4+IGRpcmVjdGx5IGluIHN0cnVjdCBk
+ZXZfcG1faW5mbyBtYXkgbm90IGJlIHRoZSBiZXN0IGNob2ljZS4gVXNpbmcKPiA+PiBkZXYtPnBv
+d2VyLnN1YnN5c19kYXRhLT5kb21haW5fZGF0YSBtYWtlcyBtb3JlIHNlbnNlIGFuZCBhdm9pZHMg
+YmxvYXRpbmcKPiA+PiB0aGUgY29yZSBQTSBzdHJ1Y3R1cmUuCj4gPj4KPiA+Pj4KPiA+Pj4gQWxz
+bywgaXQgc2hvdWxkIGJlIGRvY3VtZW50ZWQgd2F5IG1vcmUgY29tcHJlaGVuc2l2ZWx5IElNVi4K
+PiA+Pj4KPiA+Pj4gV2hvIGlzIHN1cHBvc2VkIHRvIHNldCBpdCBhbmQgd2hlbj8gIFdoYXQgZG9l
+cyBpdCBtZWFuIHdoZW4gaXQgaXMgc2V0Pwo+ID4+Cj4gPj4gVG8gY2xhcmlmeSB0aGUgaW50ZW5k
+ZWQgdXNhZ2UsIEkgd291bGQgcHJvcG9zZSBhZGRpbmcgdGhlIGZvbGxvd2luZwo+ID4+IGV4cGxh
+bmF0aW9uIHRvIHRoZSBjb21taXQgbWVzc2FnZToKPiA+Pgo+ID4+ICJUaGlzIGZsYWcgaXMgaW50
+ZW5kZWQgdG8gYmUgc2V0IGJ5IGEgZ2VuZXJpYyBQTSBkb21haW4gZHJpdmVyIChlLmcuLAo+ID4+
+IGZyb20gd2l0aGluIGl0cyBhdHRhY2hfZGV2IGNhbGxiYWNrKSB0byBpbmRpY2F0ZSB0aGF0IGl0
+IHdpbGwgbWFuYWdlCj4gPj4gcGxhdGZvcm0gc3BlY2lmaWMgcnVudGltZSBwb3dlciBtYW5hZ2Vt
+ZW50IHJlc291cmNlcyDigJQgc3VjaCBhcyBjbG9ja3MKPiA+PiBhbmQgcmVzZXRzIOKAlCBvbiBi
+ZWhhbGYgb2YgdGhlIGNvbnN1bWVyIGRldmljZS4gVGhpcyBpbXBsaWVzIGEgZGVsZWdhdGlvbgo+
+ID4+IG9mIHJ1bnRpbWUgUE0gY29udHJvbCB0byB0aGUgUE0gZG9tYWluLCB0eXBpY2FsbHkgaW1w
+bGVtZW50ZWQgdGhyb3VnaAo+ID4+IGl0cyBzdGFydCBhbmQgc3RvcCBjYWxsYmFja3MuCj4gPj4K
+PiA+PiBXaGVuIHRoaXMgZmxhZyBpcyBzZXQsIHRoZSBjb25zdW1lciBkcml2ZXIgKGUuZy4sIGRy
+bS9pbWFnaW5hdGlvbikgY2FuCj4gPj4gY2hlY2sgaXQgYW5kIHNraXAgbWFuYWdpbmcgc3VjaCBy
+ZXNvdXJjZXMgaW4gaXRzIHJ1bnRpbWUgUE0gY2FsbGJhY2tzCj4gPj4gKHJ1bnRpbWVfc3VzcGVu
+ZCwgcnVudGltZV9yZXN1bWUpLCBhdm9pZGluZyBjb25mbGljdHMgb3IgcmVkdW5kYW50Cj4gPj4g
+b3BlcmF0aW9ucy4iCj4gPgo+ID4gVGhpcyBzb3VuZHMgZ29vZCBhbmQgSSB3b3VsZCBhbHNvIHB1
+dCBpdCBpbnRvIGEgY29kZSBjb21tZW50IHNvbWV3aGVyZS4KPiA+Cj4gPiBJIGd1ZXNzIHlvdSds
+bCBuZWVkIGhlbHBlcnMgZm9yIHNldHRpbmcgYW5kIHRlc3RpbmcgdGhpcyBmbGFnLCBzbwo+ID4g
+dGhlaXIga2VybmVsZG9jIGNvbW1lbnRzIGNhbiBiZSB1c2VkIGZvciB0aGF0Lgo+ID4KPiA+PiBU
+aGlzIGNvdWxkIGFsc28gYmUgaW5jbHVkZWQgYXMgYSBjb2RlIGNvbW1lbnQgbmVhciB0aGUgZmxh
+ZyBkZWZpbml0aW9uCj4gPj4gaWYgeW91IHRoaW5rIHRoYXTigJlzIGFwcHJvcHJpYXRlLgo+ID4+
+Cj4gPj4gQWxzbywgYXMgZGlzY3Vzc2VkIGVhcmxpZXIgd2l0aCBNYXhpbWUgYW5kIE1hdHQgWzFd
+LCB0aGlzIGlzIG5vdCBhYm91dAo+ID4+IGZ1bGwgInJlc291cmNlIG93bmVyc2hpcCwiIGJ1dCBt
+b3JlIGFib3V0IGRlbGVnYXRpbmcgcnVudGltZSBjb250cm9sIG9mCj4gPj4gUE0gcmVzb3VyY2Vz
+IGxpa2UgY2xvY2tzL3Jlc2V0cyB0byB0aGUgZ2VucGQuIFRoYXQgbnVhbmNlIG1heSBiZSB3b3J0
+aAo+ID4+IHJlZmxlY3RpbmcgaW4gdGhlIGZsYWcgbmFtZSBhcyB3ZWxsLCBJIHdvdWxkIHJlbmFt
+ZSBpdCB0byBsZXQncyBzYXkKPiA+PiAncnVudGltZV9wbV9wbGF0Zm9ybV9yZXNfZGVsZWdhdGVk
+Jywgb3IgbW9yZSBjb25jaXNlCj4gPj4gJ3J1bnRpbWVfcG1fZGVsZWdhdGVkJy4KPiA+Cj4gPiBP
+ciBqdXN0ICJycG1fZGVsZWdhdGVkIiBJIHN1cHBvc2UuCj4gPgo+ID4gQnV0IGlmIHRoZSBnZW5w
+ZCBkcml2ZXIgaXMgZ29pbmcgdG8gc2V0IHRoYXQgZmxhZywgaXQgd2lsbCByYXRoZXIgbWVhbgo+
+ID4gdGhhdCB0aGlzIGRyaXZlciB3aWxsIG5vdyBjb250cm9sIHRoZSByZXNvdXJjZXMgaW4gcXVl
+c3Rpb24sIHNvIHRoZQo+ID4gZHJpdmVyIHNob3VsZCBub3QgYXR0ZW1wdCB0byBtYW5pcHVsYXRl
+IHRoZW0gZGlyZWN0bHkuICBJcyBteQo+ID4gdW5kZXJzdGFuZGluZyBjb3JyZWN0Pwo+Cj4gWWVz
+LCB5b3VyIHVuZGVyc3RhbmRpbmcgaXMgY29ycmVjdCDigJQgd2l0aCBvbmUgbWlub3IgY2xhcmlm
+aWNhdGlvbi4KPgo+IFdoZW4gdGhlIGdlbnBkIGRyaXZlciBzZXRzIHRoZSBmbGFnLCBpdCBpbmRp
+Y2F0ZXMgdGhhdCBpdCB3aWxsIHRha2Ugb3Zlcgo+IGNvbnRyb2wgb2YgdGhlIHJlbGV2YW50IFBN
+IHJlc291cmNlcyBpbiB0aGUgY29udGV4dCBvZiBydW50aW1lIFBNLCBpLmUuLAo+IHZpYSBpdHMg
+c3RhcnQoKSBhbmQgc3RvcCgpIGNhbGxiYWNrcy4gQXMgYSByZXN1bHQsIHRoZSBkZXZpY2UgZHJp
+dmVyCj4gc2hvdWxkIG5vdCBtYW5pcHVsYXRlIHRob3NlIHJlc291cmNlcyBmcm9tIHdpdGhpbiBp
+dHMgUlVOVElNRV9QTV9PUFMKPiAoZS5nLiwgcnVudGltZV9zdXNwZW5kLCBydW50aW1lX3Jlc3Vt
+ZSkgdG8gYXZvaWQgY29uZmxpY3RzLgo+Cj4gSG93ZXZlciwgb3V0c2lkZSBvZiB0aGUgcnVudGlt
+ZSBQTSBjYWxsYmFja3MsIHRoZSBjb25zdW1lciBkZXZpY2UgZHJpdmVyCj4gbWF5IHN0aWxsIGFj
+Y2VzcyBvciB1c2UgdGhvc2UgcmVzb3VyY2VzIGlmIG5lZWRlZCBlLmcgZm9yIGRldmZyZXEuCj4K
+PiA+Cj4gPiBBc3N1bWluZyB0aGF0IGl0IGlzIGNvcnJlY3QsIGhvdyBpcyB0aGUgZGV2aWNlIGRy
+aXZlciBnb2luZyB0byBrbm93Cj4gPiB3aGljaCByZXNvdXJjZXMgaW4gcGFydGljdWxhciBhcmUg
+bm93IGNvbnRyb2xsZWQgYnkgdGhlIGdlbnBkIGRyaXZlcj8KPgo+IEdvb2QgcXVlc3Rpb24g4oCU
+IHRvIGFsbG93IGZpbmVyLWdyYWluZWQgY29udHJvbCwgd2UgY291bGQgcmVwbGFjZSB0aGUKPiBj
+dXJyZW50IHNpbmdsZSBib29sZWFuIGZsYWcgd2l0aCBhIHUzMiBiaXRtYXNrIGZpZWxkLiBFYWNo
+IGJpdCB3b3VsZAo+IGNvcnJlc3BvbmQgdG8gYSBzcGVjaWZpYyBjYXRlZ29yeSBvZiBwbGF0Zm9y
+bSBtYW5hZ2VkIHJlc291cmNlcy4gRm9yCj4gZXhhbXBsZToKPgo+ICNkZWZpbmUgUlBNX1RBS0VP
+VkVSX0NMSyAgICAgICAgQklUKDApCj4gI2RlZmluZSBSUE1fVEFLRU9WRVJfUkVTRVQgICAgICBC
+SVQoMSkKPgo+IFRoaXMgd291bGQgYWxsb3cgYSBQTSBkb21haW4gZHJpdmVyIHRvIHNlbGVjdGl2
+ZWx5IGRlY2xhcmUgd2hpY2gKPiByZXNvdXJjZXMgaXQgaXMgdGFraW5nIG92ZXIgYW5kIGxldCB0
+aGUgY29uc3VtZXIgZHJpdmVyIHF1ZXJ5IG9ubHkgdGhlCj4gcmVsZXZhbnQgcGFydHMuCgpBc3N1
+bWluZyB3ZSBhcmUgdGFyZ2V0aW5nIGRldmljZSBzcGVjaWZpYyByZXNvdXJjZXMgZm9yIHJ1bnRp
+bWUgUE07CndoeSB3b3VsZCB3ZSB3YW50IHRoZSBkcml2ZXIgdG8gYmUgcmVzcG9uc2libGUgZm9y
+IHNvbWUgcmVzb3VyY2VzIGFuZAp0aGUgZ2VucGQgcHJvdmlkZXIgZm9yIHNvbWUgb3RoZXJzPyBJ
+IHdvdWxkIGFzc3VtZSB3ZSB3YW50IHRvIGhhbmRsZQphbGwgdGhlc2UgUlBNLXJlc291cmNlcyBm
+cm9tIHRoZSBnZW5wZCBwcm92aWRlciwgaWYvd2hlbiBwb3NzaWJsZSwKcmlnaHQ/CgpUaGUgdHJp
+Y2t5IHBhcnQgdGhvdWdoIChtYXliZSBTdGVwaGVuIGhhZCBzb21lIGlkZWFzIGluIGhpcyB0YWxr
+IFthXQphdCBPU1MpLCBpcyB0byB0ZWFjaCB0aGUgZ2VucGQgcHJvdmlkZXIgYWJvdXQgd2hhdCBy
+ZXNvdXJjZXMgaXQgc2hvdWxkCmhhbmRsZS4gSW4gcHJpbmNpcGxlIHRoZSBnZW5wZCBwcm92aWRl
+ciB3aWxsIG5lZWQgc29tZSBraW5kIG9mIGRldmljZQpzcGVjaWZpYyBrbm93bGVkZ2UsIHBlcmhh
+cHMgYmFzZWQgb24gdGhlIGRldmljZSdzIGNvbXBhdGlibGUtc3RyaW5nCmFuZCBkZXNjcmlwdGlv
+biBpbiBEVC4KCk15IHBvaW50IGlzLCB1c2luZyBhIGJpdG1hc2sgZG9lc24ndCBzY2FsZSBhcyBp
+dCB3b3VsZCBlbmQgdXAgaGF2aW5nCm9uZSBiaXQgZm9yIGVhY2ggY2xvY2sgKGEgZGV2aWNlIG1h
+eSBoYXZlIG11bHRpcGxlIGNsb2NrcyksIHJlZ3VsYXRvciwKcGluY3RybCwgcGh5LCBldGMuIElu
+IHByaW5jaXBsZSwgcmVmbGVjdGluZyB0aGUgZGVzY3JpcHRpb24gaW4gRFQuCgo+Cj4gPgo+ID4g
+QWxzbyAicnBtX3Rha2VvdmVyIiBtYXkgYmUgYSBiZXR0ZXIgbmFtZSBmb3IgdGhlIGZsYWcgaW4g
+dGhhdCBjYXNlLgo+Cj4gU291bmRzIGdvb2QsIGJpdG1hc2sgY291bGQgYWxzbyBiZSBuYW1lZCBs
+aWtlIHRoYXQKPgo+ID4KPiA+PiBbMV0gLSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvYTMx
+NDIyNTktMWM3Mi00NWI5LWIxNDgtNWU1ZTZiZWY4N2Y5QHNhbXN1bmcuY29tLwo+ID4+Cj4gPj4+
+Cj4gPj4+PiBUaGlzIGZsYWcgZW5hYmxlcyBkZXZpY2UgZHJpdmVycyB0byBjb29wZXJhdGUgd2l0
+aCBTb0Mtc3BlY2lmaWMgUE0KPiA+Pj4+IGRvbWFpbnMgYnkgY29uZGl0aW9uYWxseSBza2lwcGlu
+ZyBtYW5hZ2VtZW50IG9mIGNsb2NrcyBhbmQgcmVzZXRzIHdoZW4KPiA+Pj4+IHRoZSBwbGF0Zm9y
+bSBvd25zIHRoZW0uCj4gPj4+Pgo+ID4+Pj4gVGhpcyBpZGVhIHdhcyBkaXNjdXNzZWQgb24gdGhl
+IG1haWxpbmcgbGlzdCBbMV0uCj4gPj4+Pgo+ID4+Pj4gWzFdIC0gaHR0cHM6Ly9sb3JlLmtlcm5l
+bC5vcmcvYWxsL0NBUER5S0ZxPUJGNWYyaV9TcjFjbVZxdFZBTWdyPTBGcXNrc0w3UkhaTEtuKyt5
+MHV3Z0BtYWlsLmdtYWlsLmNvbS8KPiA+Pj4+Cj4gPj4+PiBTaWduZWQtb2ZmLWJ5OiBNaWNoYWwg
+V2lsY3p5bnNraSA8bS53aWxjenluc2tpQHNhbXN1bmcuY29tPgo+ID4+Pj4gLS0tCj4gPj4+PiAg
+aW5jbHVkZS9saW51eC9kZXZpY2UuaCB8IDExICsrKysrKysrKysrCj4gPj4+PiAgaW5jbHVkZS9s
+aW51eC9wbS5oICAgICB8ICAxICsKPiA+Pj4+ICAyIGZpbGVzIGNoYW5nZWQsIDEyIGluc2VydGlv
+bnMoKykKPiA+Pj4+Cj4gPj4+PiBkaWZmIC0tZ2l0IGEvaW5jbHVkZS9saW51eC9kZXZpY2UuaCBi
+L2luY2x1ZGUvbGludXgvZGV2aWNlLmgKPiA+Pj4+IGluZGV4IDc5ZTQ5ZmU0OTRiN2M0YzcwZDkw
+Mjg4NmRiNjNjNGNmZTViNGRlNGYuLjNlN2EzNmRkODc0Y2ZiNmI5OGUyNDUxYzdhODc2OTg5YWE5
+ZjE5MTMgMTAwNjQ0Cj4gPj4+PiAtLS0gYS9pbmNsdWRlL2xpbnV4L2RldmljZS5oCj4gPj4+PiAr
+KysgYi9pbmNsdWRlL2xpbnV4L2RldmljZS5oCj4gPj4+PiBAQCAtODgxLDYgKzg4MSwxNyBAQCBz
+dGF0aWMgaW5saW5lIGJvb2wgZGV2aWNlX2FzeW5jX3N1c3BlbmRfZW5hYmxlZChzdHJ1Y3QgZGV2
+aWNlICpkZXYpCj4gPj4+PiAgICAgICAgIHJldHVybiAhIWRldi0+cG93ZXIuYXN5bmNfc3VzcGVu
+ZDsKPiA+Pj4+ICB9Cj4gPj4+Pgo+ID4+Pj4gK3N0YXRpYyBpbmxpbmUgYm9vbCBkZXZpY2VfcGxh
+dGZvcm1fcmVzb3VyY2VzX3BtX21hbmFnZWQoc3RydWN0IGRldmljZSAqZGV2KQo+ID4+Pgo+ID4+
+PiBDb3VsZCB0aGlzIGZ1bmN0aW9uIG5hbWUgYmUgc2hvcnRlcj8KPiA+Pgo+ID4+IE1heWJlOgo+
+ID4+Cj4gPj4gc3RhdGljIGlubGluZSBib29sIGRldl9pc19ydW50aW1lX3BtX2RlbGVnYXRlZChz
+dHJ1Y3QgZGV2aWNlICpkZXYpOwo+ID4+IHN0YXRpYyBpbmxpbmUgdm9pZCBkZXZfc2V0X3J1bnRp
+bWVfcG1fZGVsZWdhdGVkKHN0cnVjdCBkZXZpY2UgKmRldiwgYm9vbCB2YWwpOwo+ID4KPiA+IFdo
+YXQgYWJvdXQKPiA+Cj4gPiBkZXZfcG1fZ2VucGRfcnBtX2RlbGVnYXRlZCgpCj4gPiBkZXZfcG1f
+Z2VucGRfc2V0X3JwbV9kZWxlZ2F0ZWQoKQo+ID4KPiA+IHJlc3BlY3RpdmVseSAob3IgYW5hbG9n
+b3VzbHkgd2l0aCB0aGUgInRha2VvdmVyIiB2YXJpYW50KT8KPgo+IFJpZ2h0IHNvdW5kcyBnb29k
+LCBzbyBpZiB5b3UgYWxzbyBsaWtlIGEgYml0bWFzayBpZGVhIHRoZXkgY291bGQgbG9vawo+IGxp
+a2UgdGhpczoKPgo+IHN0YXRpYyBpbmxpbmUgYm9vbCBkZXZfcG1fZ2VucGRfcnBtX3Rha2VvdmVy
+KHN0cnVjdCBkZXZpY2UgKmRldiwgdTMyIGZsYWdzKTsKPiBzdGF0aWMgaW5saW5lIHZvaWQgZGV2
+X3BtX2dlbnBkX3NldF9ycG1fdGFrZW92ZXIoc3RydWN0IGRldmljZSAqZGV2LCB1MzIgZmxhZ3Mp
+OwoKVGhlc2UgbmFtZXMgc291bmQgZmluZSB0byBtZS4gQWx0aG91Z2gsIGFzIHN0YXRlZCwgSSBh
+bSBub3Qgc3VyZSBob3cKdXNlZnVsIHRoZSAnZmxhZ3MnIHdvdWxkIHJlYWxseSBiZS4KCj4KPiBS
+ZWdhcmRzLAo+IE1pY2hhxYIKPgo+ID4KClthXSAtIGh0dHBzOi8vb3NzZXUyMDI0LnNjaGVkLmNv
+bS9ldmVudC8xZWozOC90aGUtY2FzZS1mb3ItYW4tc29jLXBvd2VyLW1hbmFnZW1lbnQtZHJpdmVy
+LXN0ZXBoZW4tYm95ZC1nb29nbGUKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5p
+bmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8v
+bGludXgtcmlzY3YK
