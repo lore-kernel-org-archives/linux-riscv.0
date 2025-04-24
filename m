@@ -4,60 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F724C369D8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FDEC369AB
 	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 09:22:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wHbgDtbZj38PB+nmphea5PXEbEql61QwBWjqd30iTlY=; b=UeDeExtIf/KLL9UpFJHvpvKMgf
-	CT3NdPt4wygrKulJtInBK4rbIFG9oXV9Y+LPXa2Af/VPdzRVApeQJFrskyjLyl7ROa9QGZMPGrd5S
-	YpRiTQ39zKHCoEf0FBUDzeyo+UEPDJwVv6XuyYD9EqCjZ+jOG67D6r6FkZ1WfMuInhI9rV43+oa01
-	iBrFFKj+ntNYgD+BPAwwmS1ABadwyJrNZ/I4EsXDRIe953SwJkdM4K27za3N3iq7D4fB2B1vgSk6P
-	TZkMKqYVqWxZ/RIUoMbKfR9XALuw3sBzRV5P5VLOmdoOhm3EPMLmwduswtXvsH7uFBfShZckUS84F
-	vOMw1SkA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=pK9oYoJpHq90UX/7iaDFyK1uLV/FPXxRTQXyMIZNDrs=; b=RUGUp6MuTCl+li
+	/a16LOFyUmmN7D+93JvGA11efzzuoQ74WBnmsWby58ewiyGIZkQXAYjslWDNbHVSlzHFU/neyVyoT
+	ImQLs/3AFDtycyTDxqqOi55Df03PyTreWWREvfz5fAuqjlwiiJbf6kTqcEKvF1aNhIlcR71HPtSYD
+	9U6T/yPS9oIbyznO89Zj0RR7qFTPw9XK8NK7riSk2SDJUFzcLCgvuZdffC3QDPlOT5uAf3B0W0BPo
+	NOQDP3j+EAzVjIU8AUR2mqmSvl7menZqpBuiGfYD+b4Ka5iHLA+G8hsUAWHFKOkZ3SExyWNXWBJDO
+	oE6IE+18WD8vSu1vEsaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7smj-0000000DTxu-0Tkm;
-	Thu, 24 Apr 2025 09:22:21 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1u7smh-0000000DTx6-2v0P;
+	Thu, 24 Apr 2025 09:22:19 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7rnI-0000000DJ6q-00gN
+	id 1u7rgl-0000000DIGy-43oC
+	for linux-riscv@bombadil.infradead.org;
+	Thu, 24 Apr 2025 08:12:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=; b=KnHYtMhAbUuzY8dxqkQuBAnme1
+	in5dCJ7VKybveAEiE13CSX4fCnsPw8+XWf3syjubaFuW+fheaM50rwatZ2U8SNZFVzDpD0JwBcatT
+	hc9sAMX7/JZX9nw3qG6z2xj4JuYOTPgHbwA8Hev95ZpXmPJhQepPINjcP0Az85/KonAXkrhuTHtz5
+	rZ3Zfb4HJAgfsiKb55bY62gqS+F6uP2RbM4lJlaSpE+1NIKqYC48cJDa2KQ2p1NgBMWRDbySm1Oju
+	lxYYE98au7sMQManKJJYj1WaBnWz3oy/L9RXx+EfgQmg12GTPkaogjak6lfZjCCgfOuvMlCslnd6M
+	8DcRxpZg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u7rgi-0000000BbX8-2Xp7
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Apr 2025 08:18:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6CDBB68454;
-	Thu, 24 Apr 2025 08:18:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43241C4CEEA;
-	Thu, 24 Apr 2025 08:18:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745482730;
-	bh=luBO6reS1AIHdLD0ocQc2V2sYxCZNmU96oc6vvsTJUc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QTBJb7/sOtgibfbZQZRPmB3NDzGuw8WXFuKDiYfD9jo9Tfl1ZSBHPmhHPrqPDbTsi
-	 PqHif8L8cHGYTe8i0k8oHy+9uqiBj85SewJiQ4iGUtwfYZjyZd1tNMsd4bN3MDeI7e
-	 /SLvoq1G4PZmF38YakZaiBvQ9p1SJePpeM0w30Kqbr+NCJoYj+0/E9wlUbYt37+qNU
-	 A3Q3oyisKdK3emcymdrL5r4xLHUSYwn0bOWZDKBHJi1kJVfkos9N8MlFNPNRGtv+xK
-	 HsjFxwezNty60QqB1PXzwj43UxVrbtToJYEG5xxN47QII5bt2SyzZx44/6CeXdgBQM
-	 3ZSjc2+P4yDXA==
-Date: Thu, 24 Apr 2025 10:18:47 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, inochiama@gmail.com, 
-	geert+renesas@glider.be, heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com, 
-	unicorn_wang@outlook.com, duje.mihanovic@skole.hr, elder@riscstar.com, 
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v2 3/6] riscv: dts: spacemit: add PWM support for K1 SoC
-Message-ID: <kftfye2zn2ogyvuv7diuyrv5qkp43csbpkcqfcms2xp5lsuubm@z2kocdzkb7qk>
-References: <20250420070251.378950-1-guodong@riscstar.com>
- <20250420070251.378950-4-guodong@riscstar.com>
+	Thu, 24 Apr 2025 08:12:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745482322;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=;
+	b=Nlq74Jkcjsx+/BBIFTTjBNJVK/SwTnozTYzfMl8qKYlmi7q0MI4KLNyXqTEqUGrAbOkjNx
+	73X24n5K45tpljJjidW009VM2oKDaK5iPoSHy76zDs8mHUd1jVaFSO9q8+6eDG9eS2Pmui
+	tuvaxCjzAGIOrqDy+nmwc+9ss6uAiXw=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745482323;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=;
+	b=OLLmzO8/agikFx1T1jvpfwz8TBbhvyEtrHMC2oy+vo2SdPfrYcX0QGYuXxAS5SsCr3aCkK
+	Spk7QC9G2oPhcO5p1gpG0u1+MJtiKUMMV9LwJ2mM+Ie0OVXratYG1e69K0B4XV89JYbko3
+	zvF4Pgzab0Zdz7VHF2P63I37cESXk/w=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-404-kVvFzdLzNvuPIu-z6mnAIg-1; Thu,
+ 24 Apr 2025 04:10:15 -0400
+X-MC-Unique: kVvFzdLzNvuPIu-z6mnAIg-1
+X-Mimecast-MFC-AGG-ID: kVvFzdLzNvuPIu-z6mnAIg_1745482212
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id ED54C1800264;
+	Thu, 24 Apr 2025 08:10:10 +0000 (UTC)
+Received: from fedora.redhat.com (unknown [10.45.224.198])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E142F30001A2;
+	Thu, 24 Apr 2025 08:09:52 +0000 (UTC)
+From: Vitaly Kuznetsov <vkuznets@redhat.com>
+To: x86@kernel.org,
+	linux-efi@vger.kernel.org
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Peter Jones <pjones@redhat.com>,
+	Daniel Berrange <berrange@redhat.com>,
+	Emanuele Giuseppe Esposito <eesposit@redhat.com>,
+	Gerd Hoffmann <kraxel@redhat.com>,
+	Greg KH <gregkh@linuxfoundation.org>,
+	Luca Boccassi <bluca@debian.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Matthew Garrett <mjg59@srcf.ucam.org>,
+	James Bottomley <James.Bottomley@hansenpartnership.com>,
+	Eric Snowberg <eric.snowberg@oracle.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 0/2] efi: Add a mechanism for embedding SBAT section
+Date: Thu, 24 Apr 2025 12:09:48 +0400
+Message-ID: <20250424080950.289864-1-vkuznets@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <20250420070251.378950-4-guodong@riscstar.com>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250424_091204_835606_65FA69F5 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,83 +120,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1285335817438281022=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Changes since RFC:
+(https://lore.kernel.org/linux-efi/20250305101744.1706803-1-vkuznets@redhat.com/)
 
---===============1285335817438281022==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="rfmkfp7kn4uz32vk"
-Content-Disposition: inline
+- Implement SBAT embedding for zboot. (Smoke tested on aarch64 only,
+ apologies if I missed some important differences on other arches!)
+ It would've been possible to implement SBAT embedding for !zboot case 
+ too I think but this looks like an unnecessary complication: 
+ SecureBoot signing is likely to be done by distro vendors only and these
+ will likely want zboot enabled anyway.
+  
+- x86: Thanks to Ard, CRC32 is now gone (see commit 9c54baab4401 ("x86/boot:
+ Drop CRC-32 checksum and the build tool that generates it")) and thus
+ SBAT can be placed to the very end of the binary, this simplifies things
+ a bit.
 
+SBAT is a mechanism which improves SecureBoot revocations of UEFI binaries
+by introducing a generation-based technique. Compromised or vulnerable UEFI
+binaries can be prevented from booting by bumping the minimal required
+generation for the specific component in the bootloader. More information
+on the SBAT can be obtained here:
 
---rfmkfp7kn4uz32vk
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: Re: [PATCH v2 3/6] riscv: dts: spacemit: add PWM support for K1 SoC
-MIME-Version: 1.0
+https://github.com/rhboot/shim/blob/main/SBAT.md
 
-Hello,
+Currently, shim checks .sbat data for itself in self-test and for second
+stage bootloaders (grub, sd-boot, UKIs with sd-stub, ...) but kernel
+revocations require cycling signing keys or adding kernel hashes to shim's
+internal dbx. Adding .sbat to kernel and enforcing it on kernel loading
+will allow to do the same tracking and revocation distros are already
+doing with a simplified mechanism, and without having to keep lists of
+kernels outside of the git repos.
 
-On Sun, Apr 20, 2025 at 03:02:48PM +0800, Guodong Xu wrote:
-> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> index c0cc4b99c935..e7dba623e877 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-> @@ -556,5 +556,185 @@ sec_uart1: serial@f0612000 {
->  			reg-io-width = <4>;
->  			status = "reserved"; /* for TEE usage */
->  		};
-> +
-> +		pwm0: pwm@d401a000 {
-> +			compatible = "spacemit,k1-pwm", "marvell,pxa910-pwm";
-> +			reg = <0x0 0xd401a000 0x0 0x10>;
-> +			#pwm-cells = <1>;
+Previously, an attempt was made to add ".sbat" section to the linux kernel:
 
-I want to make all pwms use #pwm-cells = <3> in the long run. Can you
-please use that for the new binding? (Of course this needs adaption in
-the binding doc, the code should already be prepared for that.)
+https://lwn.net/Articles/938422/
 
-> +			clocks = <&syscon_apbc CLK_PWM0>;
-> +			resets = <&syscon_apbc RESET_PWM0>;
-> +			status = "disabled";
-> +		};
+The approach was rejected mainly because currently there's no policy on how
+to update SBAT generation number when a new vulnerability is discovered. In
+particular, it is unclear what to do with stable kernels which may or may
+not backport certain patches making it impossible to describe the current
+state with a simple number.
 
-The error that the build bot reports happens (I think) because CLK_PWM0
-isn't known.
+This series suggests a different approach: instead of defining SBAT
+information, provide a mechanism for downstream kernel builders (distros)
+to include their own SBAT data. This leaves the decision on the policy to
+the distro vendors. Basically, each distro implementing SecureBoot today,
+will have an option to inject their own SBAT data during kernel build and
+before it gets signed by their SecureBoot CA. Different distro do not need
+to agree on the common SBAT component names or generation numbers as each
+distro ships its own 'shim' with their own 'vendor_cert'/'vendor_db'. Linux
+upstream will never, ever need to care about the data unless they choose in
+the future to participate in that way.
 
-Best regards
-Uwe
+Vitaly Kuznetsov (2):
+  efi/libstub: zboot specific mechanism for embedding SBAT section
+  x86/efi: Implement support for embedding SBAT data for x86
 
---rfmkfp7kn4uz32vk
-Content-Type: application/pgp-signature; name="signature.asc"
+ arch/x86/boot/Makefile                      |  2 +-
+ arch/x86/boot/compressed/Makefile           |  2 ++
+ arch/x86/boot/compressed/vmlinux.lds.S      | 13 +++++++++++
+ arch/x86/boot/header.S                      | 13 +++++++++++
+ drivers/firmware/efi/Kconfig                | 25 +++++++++++++++++++++
+ drivers/firmware/efi/libstub/Makefile       |  7 ++++++
+ drivers/firmware/efi/libstub/Makefile.zboot |  3 ++-
+ drivers/firmware/efi/libstub/sbat.S         |  7 ++++++
+ drivers/firmware/efi/libstub/zboot-header.S | 14 ++++++++++++
+ drivers/firmware/efi/libstub/zboot.lds      | 17 ++++++++++++++
+ 10 files changed, 101 insertions(+), 2 deletions(-)
+ create mode 100644 drivers/firmware/efi/libstub/sbat.S
 
------BEGIN PGP SIGNATURE-----
+-- 
+2.49.0
 
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmgJ8+QACgkQj4D7WH0S
-/k6SQQf9F+et5yXHz1s66Oocx6PAunCNSR5NsrxqTGCCJsG7A5Xj5ihj4O5WEUCh
-g1KnQp9haUQ+FUcC6sjHIcs3Mh2V31LduY6wsvyw9etzsVoFtQx6NwojEH+fLNOC
-15oZnNgyhsYlrRS7uY0DHuhPikTq2DezMV5I+3LwvFkcwzTcn6d7D0WOR3PP35OV
-gVJM6w9bTiftCEH7lmCm//w26e2WI1csVZINIcYDe7PY5rnEkuvOcXeqyy+5YNnO
-yjjmRrqptnX7/M5Yk3oekuPEJ/hTPAhIjKlsC8E7QIy5iTWmj6IFzC2Zy5mDAgrn
-ii3bv4Z4tHAYiVyefKztz66LwfcOWg==
-=PFuz
------END PGP SIGNATURE-----
-
---rfmkfp7kn4uz32vk--
-
-
---===============1285335817438281022==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1285335817438281022==--
-
