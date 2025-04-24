@@ -4,111 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10FDEC369AB
-	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 09:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DBABC369AB
+	for <linux-riscv@archiver.kernel.org>; Thu, 24 Apr 2025 09:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=pK9oYoJpHq90UX/7iaDFyK1uLV/FPXxRTQXyMIZNDrs=; b=RUGUp6MuTCl+li
-	/a16LOFyUmmN7D+93JvGA11efzzuoQ74WBnmsWby58ewiyGIZkQXAYjslWDNbHVSlzHFU/neyVyoT
-	ImQLs/3AFDtycyTDxqqOi55Df03PyTreWWREvfz5fAuqjlwiiJbf6kTqcEKvF1aNhIlcR71HPtSYD
-	9U6T/yPS9oIbyznO89Zj0RR7qFTPw9XK8NK7riSk2SDJUFzcLCgvuZdffC3QDPlOT5uAf3B0W0BPo
-	NOQDP3j+EAzVjIU8AUR2mqmSvl7menZqpBuiGfYD+b4Ka5iHLA+G8hsUAWHFKOkZ3SExyWNXWBJDO
-	oE6IE+18WD8vSu1vEsaw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=XeW8+TUrWHCGaMghs8QC67QFneRsl9EsUU2hKqKM5K8=; b=p6YBNf2GJQYKyy
+	G8HSUE5ITEEoUAHyegiO+ciTe7B/cXlxy42iMoJ36EHNGc1Y8/x3UW2YfqGYW9ENi8aWSo+UJJYSu
+	epzn85CvVWF8Ipj0IRJt9cOKVPjeYXe9BPkj06IlBX59j3g8qIP/qt5pQjRoeudmOvaxEQfwCTa0b
+	Gsb65TwYBUm1bhfipg2iAeGVbuWTdBu7NCESrF7YiY1AD+69OMIscf/9g2o+AUJOSchMczGzDF7/Q
+	nTrpSjY1YYZO0kiila2sIxMI7IZcDS62viUVFPr0dNjCyoZLz2U5AKsjkYRPsUjBedNnJ55LxUJw9
+	B27WKNRsVZowWniO6/wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7smh-0000000DTx6-2v0P;
-	Thu, 24 Apr 2025 09:22:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u7t1D-0000000DWgd-3lfz;
+	Thu, 24 Apr 2025 09:37:19 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u7rgl-0000000DIGy-43oC
-	for linux-riscv@bombadil.infradead.org;
-	Thu, 24 Apr 2025 08:12:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=; b=KnHYtMhAbUuzY8dxqkQuBAnme1
-	in5dCJ7VKybveAEiE13CSX4fCnsPw8+XWf3syjubaFuW+fheaM50rwatZ2U8SNZFVzDpD0JwBcatT
-	hc9sAMX7/JZX9nw3qG6z2xj4JuYOTPgHbwA8Hev95ZpXmPJhQepPINjcP0Az85/KonAXkrhuTHtz5
-	rZ3Zfb4HJAgfsiKb55bY62gqS+F6uP2RbM4lJlaSpE+1NIKqYC48cJDa2KQ2p1NgBMWRDbySm1Oju
-	lxYYE98au7sMQManKJJYj1WaBnWz3oy/L9RXx+EfgQmg12GTPkaogjak6lfZjCCgfOuvMlCslnd6M
-	8DcRxpZg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u7rgi-0000000BbX8-2Xp7
+	id 1u7qte-0000000D8D0-0Ehv
 	for linux-riscv@lists.infradead.org;
-	Thu, 24 Apr 2025 08:12:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745482322;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=;
-	b=Nlq74Jkcjsx+/BBIFTTjBNJVK/SwTnozTYzfMl8qKYlmi7q0MI4KLNyXqTEqUGrAbOkjNx
-	73X24n5K45tpljJjidW009VM2oKDaK5iPoSHy76zDs8mHUd1jVaFSO9q8+6eDG9eS2Pmui
-	tuvaxCjzAGIOrqDy+nmwc+9ss6uAiXw=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745482323;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=PZaDOlwgs+a0eg3mppTrQoff4ytVBOHdk4tnOUhy/gU=;
-	b=OLLmzO8/agikFx1T1jvpfwz8TBbhvyEtrHMC2oy+vo2SdPfrYcX0QGYuXxAS5SsCr3aCkK
-	Spk7QC9G2oPhcO5p1gpG0u1+MJtiKUMMV9LwJ2mM+Ie0OVXratYG1e69K0B4XV89JYbko3
-	zvF4Pgzab0Zdz7VHF2P63I37cESXk/w=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-404-kVvFzdLzNvuPIu-z6mnAIg-1; Thu,
- 24 Apr 2025 04:10:15 -0400
-X-MC-Unique: kVvFzdLzNvuPIu-z6mnAIg-1
-X-Mimecast-MFC-AGG-ID: kVvFzdLzNvuPIu-z6mnAIg_1745482212
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id ED54C1800264;
-	Thu, 24 Apr 2025 08:10:10 +0000 (UTC)
-Received: from fedora.redhat.com (unknown [10.45.224.198])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E142F30001A2;
-	Thu, 24 Apr 2025 08:09:52 +0000 (UTC)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: x86@kernel.org,
-	linux-efi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Peter Jones <pjones@redhat.com>,
-	Daniel Berrange <berrange@redhat.com>,
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>,
-	Gerd Hoffmann <kraxel@redhat.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Luca Boccassi <bluca@debian.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Matthew Garrett <mjg59@srcf.ucam.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Eric Snowberg <eric.snowberg@oracle.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/2] efi: Add a mechanism for embedding SBAT section
-Date: Thu, 24 Apr 2025 12:09:48 +0400
-Message-ID: <20250424080950.289864-1-vkuznets@redhat.com>
+	Thu, 24 Apr 2025 07:21:23 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-223f4c06e9fso6224315ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 00:21:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745479281; x=1746084081; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=puoahas2OCQQdRJkSX5kN4b6Bd2MCUgo7wt+1uTIqSI=;
+        b=MVT7XtfMTpeogMxeXtkC/KlsbvWpPrwTpA6G2q3v0J4/uhn8k863d5g3GvJXRn+uEV
+         PJvP3neKGPgaYidGBQl5qEICLdDGf2mIe7Et3mD7OZmR+IeZdSihO22JMeNOhr02pvbC
+         XcVPz8CiBBPKK1HSSS3YTmh8IpVQZVe6jYz8N92xFFJHaCtaiYJtDRbR9kGiC3xG2Oip
+         BX93Ko/zyjo3o3z4S11SgAcFbpB+6a+79rL602jOp/JWK5PjSsrzVFmtvPsAKij63HQp
+         FIbnygRrnMquSuAA4B4Djg2emGxvjBapGKPCGY7nbpU3upRV3sCmRUsq2G+LqBVVhmWN
+         6o/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745479281; x=1746084081;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=puoahas2OCQQdRJkSX5kN4b6Bd2MCUgo7wt+1uTIqSI=;
+        b=sjMtPd21N2uF2Tx5dXPxopqjLDMhwioi5rZLVaWO5dvTZFjiatXpSTqiYVagqx7mDF
+         ow8ZsOYzFyEw2+JBUprOiMgXptGYmzzcM/+wOlHLl9N3qug4buOq3sjFHk0gIqRGV50P
+         7fXS/i0XO6W1UkjzV8d9rqvQmPDj1AQdImSg/gILhpT2fIwVK2bPywPSmwz4Mukc3Ohp
+         IloiSluTs/rV1HDU4KLYfAd1yl5wWc4RixtkHCbxfayoRvTaM/d43S4wBtl4dEGLvusX
+         JYZam1Z6MOfZorIqLAfyaXt0+/mCUWBqbcsnIyNdySxZ/eZf5Q1rrAb1Pc4bHjQtbXQK
+         8r4A==
+X-Forwarded-Encrypted: i=1; AJvYcCWGHoTFklNuMlLxjUh9fcY36Y0SVtGAHypw4q9QGNuVMwPt91sSDgXWW/Z8CSpuGih50FOfdUNOsTBQZw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxUUGnPzyRatx2YCDgYLBJ/HrzFAdkFRPFXCj2vBi3z5OEm80/g
+	yBl+m60GViJ6qeMrsfl7HYl+hkbRi8aCpoG/3HdBXACR1eRSAyumzLya2UgNMyk=
+X-Gm-Gg: ASbGncsEO4JgCMEJOKJ6F8g1/Y1hzPuRT/H2/t0yaJJpyHZlBP7/n7y+i7jgO6cnFr6
+	GAexcaPxPIJdvMUnuZ3QC2TMFehsDdUU87pG03dMOj+B2OgZSQHF5GX0FzfN48+7IW0RTcRcIJs
+	rPri8AXZ5XTIkujlPawRALhKfdA+/pnK6DBAwxCEvxfxXadT1CVXoCMc8gVJtKLOaYmWAYwOLOT
+	MoDnXVzZ8e8ZNM+2DSwYDlLRTLKMoxbkiynHJRXD88zfpNtlmJ+2H9st51jySRM87tLM18JN4Y0
+	ZN2tRAp/Jwb6BLxbPL3jauZgh5L0YAlLEbsnH/kMDjW7mmc1eTw=
+X-Google-Smtp-Source: AGHT+IGB31thuufoxJYlKx2OJ9+59LtpnF6oD6iN+AzfxNeqUgzSARE3kzGHVOeHGGHAiVK6EGT83Q==
+X-Received: by 2002:a17:902:c94c:b0:215:a56f:1e50 with SMTP id d9443c01a7336-22db47e5457mr21504655ad.8.1745479281373;
+        Thu, 24 Apr 2025 00:21:21 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22db52163d6sm6240765ad.214.2025.04.24.00.21.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 24 Apr 2025 00:21:20 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Thu, 24 Apr 2025 00:20:33 -0700
+Subject: [PATCH v13 18/28] riscv/kernel: update __show_regs to print shadow
+ stack register
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Message-Id: <20250424-v5_user_cfi_series-v13-18-971437de586a@rivosinc.com>
+References: <20250424-v5_user_cfi_series-v13-0-971437de586a@rivosinc.com>
+In-Reply-To: <20250424-v5_user_cfi_series-v13-0-971437de586a@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <benno.lossin@proton.me>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_091204_835606_65FA69F5 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250424_002122_111070_CA38078E 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,77 +128,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes since RFC:
-(https://lore.kernel.org/linux-efi/20250305101744.1706803-1-vkuznets@redhat.com/)
+Updating __show_regs to print captured shadow stack pointer as well.
+On tasks where shadow stack is disabled, it'll simply print 0.
 
-- Implement SBAT embedding for zboot. (Smoke tested on aarch64 only,
- apologies if I missed some important differences on other arches!)
- It would've been possible to implement SBAT embedding for !zboot case 
- too I think but this looks like an unnecessary complication: 
- SecureBoot signing is likely to be done by distro vendors only and these
- will likely want zboot enabled anyway.
-  
-- x86: Thanks to Ard, CRC32 is now gone (see commit 9c54baab4401 ("x86/boot:
- Drop CRC-32 checksum and the build tool that generates it")) and thus
- SBAT can be placed to the very end of the binary, this simplifies things
- a bit.
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/kernel/process.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-SBAT is a mechanism which improves SecureBoot revocations of UEFI binaries
-by introducing a generation-based technique. Compromised or vulnerable UEFI
-binaries can be prevented from booting by bumping the minimal required
-generation for the specific component in the bootloader. More information
-on the SBAT can be obtained here:
-
-https://github.com/rhboot/shim/blob/main/SBAT.md
-
-Currently, shim checks .sbat data for itself in self-test and for second
-stage bootloaders (grub, sd-boot, UKIs with sd-stub, ...) but kernel
-revocations require cycling signing keys or adding kernel hashes to shim's
-internal dbx. Adding .sbat to kernel and enforcing it on kernel loading
-will allow to do the same tracking and revocation distros are already
-doing with a simplified mechanism, and without having to keep lists of
-kernels outside of the git repos.
-
-Previously, an attempt was made to add ".sbat" section to the linux kernel:
-
-https://lwn.net/Articles/938422/
-
-The approach was rejected mainly because currently there's no policy on how
-to update SBAT generation number when a new vulnerability is discovered. In
-particular, it is unclear what to do with stable kernels which may or may
-not backport certain patches making it impossible to describe the current
-state with a simple number.
-
-This series suggests a different approach: instead of defining SBAT
-information, provide a mechanism for downstream kernel builders (distros)
-to include their own SBAT data. This leaves the decision on the policy to
-the distro vendors. Basically, each distro implementing SecureBoot today,
-will have an option to inject their own SBAT data during kernel build and
-before it gets signed by their SecureBoot CA. Different distro do not need
-to agree on the common SBAT component names or generation numbers as each
-distro ships its own 'shim' with their own 'vendor_cert'/'vendor_db'. Linux
-upstream will never, ever need to care about the data unless they choose in
-the future to participate in that way.
-
-Vitaly Kuznetsov (2):
-  efi/libstub: zboot specific mechanism for embedding SBAT section
-  x86/efi: Implement support for embedding SBAT data for x86
-
- arch/x86/boot/Makefile                      |  2 +-
- arch/x86/boot/compressed/Makefile           |  2 ++
- arch/x86/boot/compressed/vmlinux.lds.S      | 13 +++++++++++
- arch/x86/boot/header.S                      | 13 +++++++++++
- drivers/firmware/efi/Kconfig                | 25 +++++++++++++++++++++
- drivers/firmware/efi/libstub/Makefile       |  7 ++++++
- drivers/firmware/efi/libstub/Makefile.zboot |  3 ++-
- drivers/firmware/efi/libstub/sbat.S         |  7 ++++++
- drivers/firmware/efi/libstub/zboot-header.S | 14 ++++++++++++
- drivers/firmware/efi/libstub/zboot.lds      | 17 ++++++++++++++
- 10 files changed, 101 insertions(+), 2 deletions(-)
- create mode 100644 drivers/firmware/efi/libstub/sbat.S
+diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+index 4587201dd81d..6bb53ce72ed5 100644
+--- a/arch/riscv/kernel/process.c
++++ b/arch/riscv/kernel/process.c
+@@ -90,8 +90,8 @@ void __show_regs(struct pt_regs *regs)
+ 		regs->s8, regs->s9, regs->s10);
+ 	pr_cont(" s11: " REG_FMT " t3 : " REG_FMT " t4 : " REG_FMT "\n",
+ 		regs->s11, regs->t3, regs->t4);
+-	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT "\n",
+-		regs->t5, regs->t6);
++	pr_cont(" t5 : " REG_FMT " t6 : " REG_FMT " ssp : " REG_FMT "\n",
++		regs->t5, regs->t6, get_active_shstk(current));
+ 
+ 	pr_cont("status: " REG_FMT " badaddr: " REG_FMT " cause: " REG_FMT "\n",
+ 		regs->status, regs->badaddr, regs->cause);
 
 -- 
-2.49.0
+2.43.0
 
 
 _______________________________________________
