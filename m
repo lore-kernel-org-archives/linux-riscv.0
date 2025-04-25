@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D4B6C369D3
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 07:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F61DC369D3
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 07:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FztnyBHGC5fkrbtMbPjg38Fxa7YrJlGkRj+X85DJv2U=; b=VEbEAKUK6MuL5b++x32K4qOvnR
-	iWqnIcH93B/MrRuLbAAkm1Miib0LPzjzzavLVJFrVOxxqRXug7GzN5FwQ9R3eetlUD4dxRTnCSd6D
-	kiNmQqFwp49Lrsur3GtN0M+Ywa9PuDbnpxGtTj0BarmwokA4cd7tdFAiusQCi1i563EkrsiGir3yw
-	NM26570AlqDKUsoN/23ZH8kuiQSSZkmCvkjeZb97EX5NDzgWiLlizKZdv/f+RkZpYo8JlkZCWgftn
-	YyiVvgR2dWNhwFat+MYWjpbbxIhQ4vfQzrjNx5ZT+DvZz54O1E047SytBmpE6IKUezwnG4BdBIcFw
-	gOLKV5pA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=GE66ebz7B2c01js4nlW7lwDD8RwQyaQkl4us/O5cpc0=; b=moijETqBMJ7T54
+	YXX7zZojPKw8mwihRvnSf+Qt34crheUki73QjidadJtJ9P+eWdtgvaS3eYLpySCFqZOuL2XI7hbxZ
+	wg5qbvItn/79LfX5V6hMQ3P2/7MrTmuExDDiYJPruD3C+nR7oTvq0vUsA9wXWAn8Tgj+iyKP3Q3r9
+	CT3dfqHxP1tQnqDlT9tfz8phIToVk5TmYExgRINNiCSrSZa7A/bPeMH+XaMh1jH3535wrVVZKuLdB
+	o0+/Ok+ScWdgtWiMao7kv8QwD0m50gmbZGaHsZHdzz/WphHxzZcGxVuXK8XXDMEiylZxzag2/5eMq
+	gic45CIPeEwSQ6ZoIVvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8DEg-0000000G9Gj-0TSU;
-	Fri, 25 Apr 2025 07:12:34 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u8DSJ-0000000GBOG-2IXV;
+	Fri, 25 Apr 2025 07:26:39 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8DBX-0000000G8ny-1ax9
+	id 1u8DSG-0000000GBNG-2RxW
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 07:09:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 460B16845F;
-	Fri, 25 Apr 2025 07:08:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B205AC4CEE4;
-	Fri, 25 Apr 2025 07:09:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745564958;
-	bh=XRJaobu20wNxHoup9s4R3YDQJkYv5i9HIMk9O25Dr6k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WfgEML463b0+bWtPIloy53Rqep5I1ojunbyxFP+bzc9GS2sAG8LRFar6fOcW3siuO
-	 IgP7K5EsZ6MZphcoA07kXQzRZG8ouQRTz9x1UlLLGL9Dy8KrEWrGdfsV01I8QjXWlm
-	 FErYl8AxCDHubZU1yT+tw3NHF9OveIHBZkpmYiIKVxsQkAMDqoU0BPZW/fLePr3Dpb
-	 JH+SnSZAIbQ3bSNGeGpOwudvdgH6b8FmITLdvJKt7L88ybptMF2UYs3N/bRXnEZ2n8
-	 e8pBVM32tAJLS1iedQXy1EGxWOOJtqFV/4Zhla839fffv+QnMDOjaIDiRjAtkYN1uG
-	 +KO9/gzMUiDZA==
-Date: Fri, 25 Apr 2025 09:09:15 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Michal Wilczynski <m.wilczynski@samsung.com>, 
-	Stephen Boyd <sboyd@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Danilo Krummrich <dakr@kernel.org>, Pavel Machek <pavel@kernel.org>, Drew Fustini <drew@pdp7.com>, 
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
-	Matt Coster <matt.coster@imgtec.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, m.szyprowski@samsung.com, linux-kernel@vger.kernel.org, 
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v2 1/4] PM: device: Introduce platform_resources_managed
- flag
-Message-ID: <20250425-lumpy-marmot-of-popularity-cdbbcd@houat>
-References: <CGME20250414185314eucas1p1ae57b937773a2ed4ce8d52d5598eb028@eucas1p1.samsung.com>
- <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
- <20250414-apr_14_for_sending-v2-1-70c5af2af96c@samsung.com>
- <CAJZ5v0irRq8_p35vf41_ZgomW0X=KZN+0HqwU2K9PvPRm8iZQA@mail.gmail.com>
- <b9c4182d-38c2-4173-a35a-0e1773c8f2ed@samsung.com>
- <CAJZ5v0gE0anjW_mDSwNXY8xoZ_0=bDDxiSbUq1GP7-NycDojrQ@mail.gmail.com>
- <cbf20469-02ab-403a-8db7-2b66e9936b4f@samsung.com>
- <CAPDyKFqND2JrH8nLUzAqwWgHkwia6M9XOJoY6AqxtR0t120JUA@mail.gmail.com>
+	Fri, 25 Apr 2025 07:26:38 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43edecbfb94so17594005e9.1
+        for <linux-riscv@lists.infradead.org>; Fri, 25 Apr 2025 00:26:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1745565995; x=1746170795; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=8rOWai1sdUbgwofhh5Gm/RhS+Xf+8kuHnQc4bFrAWfA=;
+        b=OX4sXbMuFYTmCrfPAOalYL1h2Qj5o8c2MJM0CMB2WNRq2u1+tdObqUHU0H3OB6v+C0
+         RwFhNN1qAkl2YU3r7kJwTWSL+4Ar2zL5a/v7jyHx6x+v1u28AoWGoIprS6J1jERW614M
+         xYT0rPqSOxS0wvR3t8xeuF4++weHA9RiN840QqyBAdwYice4jJPMhFKlOMLrM7MU90+n
+         Q3sRhhpFgx2QY+Q4bcHVjeyRDZWuBYwKxAGeN/CMm8aDY2Z+e5YhN6QCUYllMdzKHxNw
+         COreDrWjpja+eCuYpOM1SfNRSRkqN53RyFWnGYxZWqcQmepfiu3QJyKj7TYyeYCl4AvH
+         X0fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745565995; x=1746170795;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8rOWai1sdUbgwofhh5Gm/RhS+Xf+8kuHnQc4bFrAWfA=;
+        b=jbZtkBwWewZLa40Z7EFNWYYTuOMpTH5QAE5Ud7rOM8prl9FKCP+yZOFMBow1C8WVg7
+         Y/4vEJeSn4RMwpEPLZoKtcAgfepXv5qilJB3cS+cwRRRjR7Hua0SsRvLNHZTKbOur573
+         logwUU//R5rcJb29Ekth6cCxURCJ38LQes+INbh/ICRv9oF55qWeUJ+QFwW0adZHlrn0
+         5X31pzajYl5XTxLX+V7bTfog/TzEvz7NtfgzAavXfrqL2lfvYHljrL7THSQ/tKtddBdV
+         xXjjTDNsuBk8MbN2TRoPN+A2ZQPuY9Vouye5NTDZsQv2vNRqGshgLW7ZhZwsnLkGS1ZO
+         a6Bg==
+X-Forwarded-Encrypted: i=1; AJvYcCV7r7pwblXCOC6iE8nSFdbBRUWuvn9qd/hEgSJ7HqJ7mDwnDUqRGEXTk+FHHLjWgmFYiKkmmE8RUblP5Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyjAc9FxjqHG8+sL53EjQhApEP4eoKvih2Ut1Sx15RS20i0+Th6
+	4QzHNT/CHoD4qXvRCwta4A6E8ZwJpahkNdLUhVjhMOLOL43u8bwa0tfvwlCi1cQ=
+X-Gm-Gg: ASbGncvjvrAyWUjNqtjvoXw06VMFcI2J3K4IA6vdz/5uULP3rosVzN+Nf8duWhpEZJE
+	dXLV9eGSoS+eNW4o5U2LccUNMwcM2seUcUp1tmdxRiGW3rs+AasGZe7OYgm7j5LOuIyHXNAR6h6
+	zaOpKyDKFSkCpkwIj5aMmZ333cgJMkNcmrwfIKYiE+2tpO/QS1p1ZaL8rEtx5hjNUFOGq8Bva/u
+	TGoWjKpeOZ1gCJEWgMfGp8OprKonM1FV78ePcs2a7MDuDvFum5jbzdclxgChvId78TDQ1PrZjsg
+	tDrps7u4sk4KfpPtk2ag+yGuKjQf
+X-Google-Smtp-Source: AGHT+IHyL/iAGxsNCgxot5kbeyyZgpCwkYAozWtkwnyndNThNfSseLduEbxfeuXjaZvP1Jxj6O0QvQ==
+X-Received: by 2002:a05:600c:34ca:b0:43e:a7c9:8d2b with SMTP id 5b1f17b1804b1-440a66aaf1bmr8945465e9.24.1745565994713;
+        Fri, 25 Apr 2025 00:26:34 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200::f716])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4409d2aab65sm46521075e9.17.2025.04.25.00.26.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 25 Apr 2025 00:26:34 -0700 (PDT)
+Date: Fri, 25 Apr 2025 09:26:33 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, kvm@vger.kernel.org, 
+	kvm-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/3] riscv: Strengthen duplicate and inconsistent
+ definition of RV_X()
+Message-ID: <20250425-93c9f462a1980ebd7bbc515d@orel>
+References: <20250422082545.450453-1-alexghiti@rivosinc.com>
+ <20250422082545.450453-3-alexghiti@rivosinc.com>
+ <20250424-f322adab22126ae97dd7c5b4@orel>
 MIME-Version: 1.0
-In-Reply-To: <CAPDyKFqND2JrH8nLUzAqwWgHkwia6M9XOJoY6AqxtR0t120JUA@mail.gmail.com>
+Content-Disposition: inline
+In-Reply-To: <20250424-f322adab22126ae97dd7c5b4@orel>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250425_002636_623145_D92D61BD 
+X-CRM114-Status: GOOD (  15.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,195 +98,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1378149325545305275=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, Apr 24, 2025 at 10:45:46AM +0200, Andrew Jones wrote:
+> On Tue, Apr 22, 2025 at 10:25:44AM +0200, Alexandre Ghiti wrote:
+> > RV_X() macro is defined in two different ways which is error prone.
+> > 
+> > So harmonize its first definition and add another macro RV_X_mask() for
+> > the second one.
+> > 
+> > Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+> > ---
+> >  arch/riscv/include/asm/insn.h        | 39 ++++++++++++++--------------
+> >  arch/riscv/kernel/elf_kexec.c        |  1 -
+> >  arch/riscv/kernel/traps_misaligned.c |  1 -
+> >  arch/riscv/kvm/vcpu_insn.c           |  1 -
+> >  4 files changed, 20 insertions(+), 22 deletions(-)
+> > 
+> > diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+> > index 2a589a58b291..4063ca35be9b 100644
+> > --- a/arch/riscv/include/asm/insn.h
+> > +++ b/arch/riscv/include/asm/insn.h
+> > @@ -288,43 +288,44 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+> >  
+> >  #define RV_IMM_SIGN(x) (-(((x) >> 31) & 1))
+> >  #define RVC_IMM_SIGN(x) (-(((x) >> 12) & 1))
+> > -#define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
+> > -#define RVC_X(X, s, mask) RV_X(X, s, mask)
+> > +#define RV_X(X, s, n) (((X) >> (s)) & ((1 << (n)) - 1))
+> 
+> Assuming n is arbitrary then we should be using BIT_ULL.
+>
 
---===============1378149325545305275==
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="vw35xu6fptfqmd4m"
-Content-Disposition: inline
+Eh, scratch this. We know n has to be 31 or less since these macros are
+for instruction encodings.
 
-
---vw35xu6fptfqmd4m
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v2 1/4] PM: device: Introduce platform_resources_managed
- flag
-MIME-Version: 1.0
-
-Hi,
-
-On Thu, Apr 24, 2025 at 06:51:00PM +0200, Ulf Hansson wrote:
-> On Thu, 17 Apr 2025 at 18:19, Michal Wilczynski
-> <m.wilczynski@samsung.com> wrote:
-> > On 4/16/25 16:48, Rafael J. Wysocki wrote:
-> > > On Wed, Apr 16, 2025 at 3:32=E2=80=AFPM Michal Wilczynski
-> > > <m.wilczynski@samsung.com> wrote:
-> > >>
-> > >> On 4/15/25 18:42, Rafael J. Wysocki wrote:
-> > >>> On Mon, Apr 14, 2025 at 8:53=E2=80=AFPM Michal Wilczynski
-> > >>> <m.wilczynski@samsung.com> wrote:
-> > >>>>
-> > >>>> Introduce a new dev_pm_info flag - platform_resources_managed, to
-> > >>>> indicate whether platform PM resources such as clocks or resets are
-> > >>>> managed externally (e.g. by a generic power domain driver) instead=
- of
-> > >>>> directly by the consumer device driver.
-> > >>>
-> > >>> I think that this is genpd-specific and so I don't think it belongs=
- in
-> > >>> struct dev_pm_info.
-> > >>>
-> > >>> There is dev->power.subsys_data->domain_data, why not use it for th=
-is?
-> > >>
-> > >> Hi Rafael,
-> > >>
-> > >> Thanks for the feedback.
-> > >>
-> > >> You're right =E2=80=94 this behavior is specific to genpd, so embedd=
-ing the flag
-> > >> directly in struct dev_pm_info may not be the best choice. Using
-> > >> dev->power.subsys_data->domain_data makes more sense and avoids bloa=
-ting
-> > >> the core PM structure.
-> > >>
-> > >>>
-> > >>> Also, it should be documented way more comprehensively IMV.
-> > >>>
-> > >>> Who is supposed to set it and when?  What does it mean when it is s=
-et?
-> > >>
-> > >> To clarify the intended usage, I would propose adding the following
-> > >> explanation to the commit message:
-> > >>
-> > >> "This flag is intended to be set by a generic PM domain driver (e.g.,
-> > >> from within its attach_dev callback) to indicate that it will manage
-> > >> platform specific runtime power management resources =E2=80=94 such =
-as clocks
-> > >> and resets =E2=80=94 on behalf of the consumer device. This implies =
-a delegation
-> > >> of runtime PM control to the PM domain, typically implemented through
-> > >> its start and stop callbacks.
-> > >>
-> > >> When this flag is set, the consumer driver (e.g., drm/imagination) c=
-an
-> > >> check it and skip managing such resources in its runtime PM callbacks
-> > >> (runtime_suspend, runtime_resume), avoiding conflicts or redundant
-> > >> operations."
-> > >
-> > > This sounds good and I would also put it into a code comment somewher=
-e.
-> > >
-> > > I guess you'll need helpers for setting and testing this flag, so
-> > > their kerneldoc comments can be used for that.
-> > >
-> > >> This could also be included as a code comment near the flag definiti=
-on
-> > >> if you think that=E2=80=99s appropriate.
-> > >>
-> > >> Also, as discussed earlier with Maxime and Matt [1], this is not abo=
-ut
-> > >> full "resource ownership," but more about delegating runtime control=
- of
-> > >> PM resources like clocks/resets to the genpd. That nuance may be wor=
-th
-> > >> reflecting in the flag name as well, I would rename it to let's say
-> > >> 'runtime_pm_platform_res_delegated', or more concise
-> > >> 'runtime_pm_delegated'.
-> > >
-> > > Or just "rpm_delegated" I suppose.
-> > >
-> > > But if the genpd driver is going to set that flag, it will rather mean
-> > > that this driver will now control the resources in question, so the
-> > > driver should not attempt to manipulate them directly.  Is my
-> > > understanding correct?
-> >
-> > Yes, your understanding is correct =E2=80=94 with one minor clarificati=
-on.
-> >
-> > When the genpd driver sets the flag, it indicates that it will take over
-> > control of the relevant PM resources in the context of runtime PM, i.e.,
-> > via its start() and stop() callbacks. As a result, the device driver
-> > should not manipulate those resources from within its RUNTIME_PM_OPS
-> > (e.g., runtime_suspend, runtime_resume) to avoid conflicts.
-> >
-> > However, outside of the runtime PM callbacks, the consumer device driver
-> > may still access or use those resources if needed e.g for devfreq.
-> >
-> > >
-> > > Assuming that it is correct, how is the device driver going to know
-> > > which resources in particular are now controlled by the genpd driver?
-> >
-> > Good question =E2=80=94 to allow finer-grained control, we could replac=
-e the
-> > current single boolean flag with a u32 bitmask field. Each bit would
-> > correspond to a specific category of platform managed resources. For
-> > example:
-> >
-> > #define RPM_TAKEOVER_CLK        BIT(0)
-> > #define RPM_TAKEOVER_RESET      BIT(1)
-> >
-> > This would allow a PM domain driver to selectively declare which
-> > resources it is taking over and let the consumer driver query only the
-> > relevant parts.
->=20
-> Assuming we are targeting device specific resources for runtime PM;
-> why would we want the driver to be responsible for some resources and
-> the genpd provider for some others? I would assume we want to handle
-> all these RPM-resources from the genpd provider, if/when possible,
-> right?
->=20
-> The tricky part though (maybe Stephen had some ideas in his talk [a]
-> at OSS), is to teach the genpd provider about what resources it should
-> handle. In principle the genpd provider will need some kind of device
-> specific knowledge, perhaps based on the device's compatible-string
-> and description in DT.
->=20
-> My point is, using a bitmask doesn't scale as it would end up having
-> one bit for each clock (a device may have multiple clocks), regulator,
-> pinctrl, phy, etc. In principle, reflecting the description in DT.
-
-My understanding is that it's to address a situation where a "generic"
-driver interacts with some platform specific code. I think it's tied to
-the discussion with the imagination GPU driver handling his clocks, and
-the platform genpd clocks overlapping a bit.
-
-But then, my question is: does it matter? clocks are refcounted, and
-resets are as well iirc, so why do we need a transition at all? Can't we
-just let the platform genpd code take a reference on the clock, the GPU
-driver take one as well, and it's all good, right?
-
-Maxime
-
---vw35xu6fptfqmd4m
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaAs1GwAKCRAnX84Zoj2+
-do8sAX9FbcAEu04m80R/QWM9SUbClB57KbU/Zbb/SrxS41bJSYzLDFQbballhRWa
-UWhmg2YBfRcskqou4btHfDm4ChKCQ7giQfUQ0IOm9WRVcNZTCKQJvrz64wvKsA7C
-NKJ4T4yLqA==
-=loki
------END PGP SIGNATURE-----
-
---vw35xu6fptfqmd4m--
-
-
---===============1378149325545305275==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks,
+drew
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1378149325545305275==--
-
