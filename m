@@ -4,80 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A51C369AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 02:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99253C369D1
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 02:28:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Xgnzc03nujy8haubGUsY1ne5f0sGFurRN17ybc29kLQ=; b=Qff+f2w/mdiTkc
-	8aLJRSfUH8w9AlmC8W8BoHESk3T1XWZE5liahq+53CENHbdLtz0Jx64zDj3vs1nuA+C8JV22hXRhv
-	oQ9WTX2ZERsUe8oDGpwgtG3iEQDqvGavshAWYJJKzrY793CQQpnSrC3JdxUvmeVcrWb360ksEvc94
-	KCDwe9LaD/2VzYpPNqSvpWa4LAhTBehiqlo+qqfU8ZJ5ip1hRmThk8or2lnIxDbC0dqsxrsMIREUH
-	f/camPodXLqMyJXBtW0SEelLTYlFv6kJurhHHmKFM57/DXrHuPoa0+l/gukuk6IimRgaCP6Zw9j/V
-	rUK5/Qln3z6lPuJJu/ug==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=bzlRX0vMG2JBwNH4X/XIrAOCAhPeTDx4IY/maJZzVvc=; b=zHxtZMDk9cpczz
+	KzZAqwutoyUii2DshzoVDJFCJnkkCUZYreOWr5sUQJr3JeZyF9u9E/y0I9nEPEDYS1nBrXU7R4J1X
+	oc5IZNlXO05G6YLdM4TtlbC8lzAMB4HEBKrO4/0tsBVF6G8HFKx1g1JvtBBshsFoWPnVwNpwPo3UQ
+	MJlSLl+bVKJIPOm6aH2lQ29rjPV0u9+Z2obqQdLcjAPRaq9TPAP9QXXEpugF770pys8oIogpZhUb0
+	VCrjl1MnyUBiXHP854sc5JBtje3L9rZdoJ7VahOyzOHMSliER9Kgx275O9ODZEfOj0dpSXj8t/pXq
+	9U9c2OLJrgDpGipef/NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u88nr-0000000Fmap-1pVR;
-	Fri, 25 Apr 2025 02:28:35 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1u88ny-0000000Fmc8-457K;
+	Fri, 25 Apr 2025 02:28:42 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u88no-0000000FmaQ-3q2z
+	id 1u88nx-0000000Fmba-1bLQ
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 02:28:34 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-30332dfc820so2054527a91.2
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 19:28:32 -0700 (PDT)
+	Fri, 25 Apr 2025 02:28:42 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3054ef26da3so1455311a91.3
+        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 19:28:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745548112; x=1746152912; darn=lists.infradead.org;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gWs7czVv33WD5QwKCbEc0JN2+JAvd6m2fpFPVxVDwgA=;
-        b=ZN7jrwN0atXced+98zcKZVkw2mH52Z8bViedGq77nlvITT8OBj/Xx7ETNkBxg+PASL
-         REFPpgM2RdniJwZgnoYfaI8gq16dzrewU1Wc7N20byplfjq478yKWVTgp1sGC2PnZr0W
-         Wgw99ZZclWV34sfTRaj8SAdc5Gy6mvSebsLYMUp9c4EoGfMvq51cFL3bdA08MZWvkVRJ
-         BmZlENxPzIf3wrNt63XOVOUxv6SIA8zwMhPHwX/vKrv+VcQV1v6L07TZC7rlJCHbqGGl
-         wLbYCnu9CV+a9zMmKRJL4nCCzRm5JJ2GoGKhthYTvMJ6V7ilA01OpTsRJpGYcJUuRhvt
-         U5OQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745548112; x=1746152912;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20230601; t=1745548120; x=1746152920; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=gWs7czVv33WD5QwKCbEc0JN2+JAvd6m2fpFPVxVDwgA=;
-        b=HakyHvC8JrcSlGC+Gs1xOMS9G0sX5DrVOfdRjGV6TukkntaxgehbpO9IhEjbCxxese
-         ZuMAj4iiZuClguijg7saxNFcrNSyJYQeUa/7Pi83T5sbEvipWZ3vrSyWow+oADu8E1U2
-         Epc68zAo/8Scx/uoyluVNR+auU9KWN90OZWObg8BLYUSjGMFbMSp7DBIUP97Bq0cou6s
-         D8v350ZPpn01IgrrAm/oNLbjNK/4Ar9BhFL45JiTJ89ETNftDWHHJJJoXyt2Q3nhRBf2
-         sYrHwRdMoyc9ctardEUA7OUW2HufTLpeYuvEnXOYE7MBkB5h6RNwUP8hiXFe7DoQYaKc
-         1+Jw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIn9ZIRIehSle1lio3iGi8bnW58qJQYxTe3FDGNPykgT8lCeZYI3w+vXQ2h+IN6v1yxjGyjIoKBd9T6w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhAKh4lr+fVU2wh58z8cLNHY7i2n6qAt7wqFVPljH9eehPI1M/
-	1KAfdzmat8VtLJVqK0pb4PuDfiD2riCfxWSWPfDbj1l4O/i4uEkxgEhTmS4URUZQDg==
-X-Gm-Gg: ASbGncvCLiEKIjvjqHW4OL1vqW4wZUepMjjsEZuuMpE12tRRng9y9yEjxqcGv7BAPXd
-	E6IqwlIpLGJXTOF4QHzzpBE/SihSG8V2YOQDH4sduskWru4Cso58XmFraw2k91p2brUQOrMwyhJ
-	OL6hFYAuB6GifCaYwlG/EWz/GYm/QG7buFWm3cb+/jAtuXfELGCFf8WD+xcmH7yTCNfL2Y4Ky+1
-	50eBOxRl5GbA2A0tNw89WVTKTfF1W2e0mZROkHhjLorI1NMowOejrh8/mYCws3qZJnd9Gq6Kozz
-	WlPUM2L7KgEdyJXAE0f6qwoSOck9YrPNUpTUH944BU84lku8f+UNbp0P
-X-Google-Smtp-Source: AGHT+IGXRHecCFcL64rpDvSNx0T+kbwJIyVpg8y/+sbcGf/XoI8mdp3d7daOKwWfUyt8OoeRaQFhdg==
-X-Received: by 2002:a17:90b:4e87:b0:301:1c11:aa74 with SMTP id 98e67ed59e1d1-309f7e7027fmr1187414a91.28.1745548110992;
-        Thu, 24 Apr 2025 19:28:30 -0700 (PDT)
+        bh=Hvb/VP20MUGNozLWEP39Ab8rauqcNP3o7sMaDncZOMw=;
+        b=jXyKS/Vpe+xXwp9OHPj8KQlgDjRyf3pwRl9DRthZOeq7RiTvbOYY+dSWq8LQSAqTYW
+         ZRQjR/juS9/0eCeUSDeXE5S34u4Xcge2ebV1vhUgeK5BxLnDQCpr+Qg/OavQ6+dz6l0i
+         WriD0XK3X6NQmNqKFfCL3x0/g/J7E7HZBzzLNDQc//FUwRE9pYBAqNmzxkPGFmHuiSzV
+         Ops31wi2Fe3khPor0r/AiDhAntQwlvsjjzka1goG5cxnMqTQwrqbvcW8cHzZWq9p3S4N
+         PD0FWBoffPyRnPX2of98uz9uLbl4aA/XNr3tyftxvkj5wP/FJ89mQaCZt+/HTVRe++Jw
+         YJrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745548120; x=1746152920;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Hvb/VP20MUGNozLWEP39Ab8rauqcNP3o7sMaDncZOMw=;
+        b=kEQpgvIsplqFcTbd6k0IgRGZQ3SCv9Wm+Wc5uzDetfcgWstYplRV/+6vl34fqfZiV5
+         J84gvxT60MyUA9gurjpmAc+tWqUHT6Hmxr1lfcJpnXyww6b1pZ4MRjXCs3/yqLsr/XpO
+         c5oSlIz1jKR5gsILIGI/g8H2BeO3fPs3ZAjBFw22EPLLuE6NDIJmg2vFoZo12eEPmsEj
+         a8TJSrjn2KUeWo6ITu4iTd6T7n8uXd0mjRyXPl6LTEAvNCErDwSw2+1LEMaThwngkuRK
+         rGhqvowHnucjO7v31R1zDersvSZwgdg20OrUoxm6x452jN48QR+mfgY6nTX3ycjW5L7j
+         sI7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW7Oszl0H8E8wQWKFJZUshadTLOnbO+9sMBkub6tAAyZdjMz3g+cRWpYUnWEb8o8fnR1vy7tGIjHlXz4g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoQk278nape8n79xqcouXxNHOfKvx/zTezwC5udGb6vR8GdWFy
+	m22UQabWtP+3OS8AOnh3TuC5dmwc1RPGgB8+2GbpB0uAAEImwCih
+X-Gm-Gg: ASbGnct+kz+1KnTDu0VoFThVU3Lx+nNBk+SOtYisz5fdoJVSQd6ojdljH3Xa54rd6KP
+	IlrMxWszgli3xgNmYC+YUryZ0emNGiP/kF+NpCehz4TP3suFwGZ9Qy8/wHwiP4nsKdYonxjBdH5
+	cvbmDN7vnH+WZimjc5SJzcSY/goRyJUhmpZyGe8CeGEwpDb/idpA36mT/Y3tbyIK7ARPk/MnAhT
+	Q8s4jVGnG2z9ZuPYwnYt65Y4d2cPlJOB3qRfKJw75IzC/ir6Zn2B9XwSueRdxdrXlkLjLKdB8gk
+	WWyM89x4q2qxfumJZJLD8IOTCRVLtpXYpsbai7+qIbsAjQ==
+X-Google-Smtp-Source: AGHT+IHYIaj7CJzLMY6PM8+BoRfshbDXB+G3kScEAt6QCPkf34bKcjCrpt7zX/Lk2ha4MMHwrFVrbw==
+X-Received: by 2002:a17:90b:254b:b0:305:5f25:fcf8 with SMTP id 98e67ed59e1d1-309f8d8cd5bmr637136a91.5.1745548120083;
+        Thu, 24 Apr 2025 19:28:40 -0700 (PDT)
 Received: from [127.0.0.1] ([223.80.110.9])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f782d4a9sm365455a91.30.2025.04.24.19.28.22
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309f782d4a9sm365455a91.30.2025.04.24.19.28.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 24 Apr 2025 19:28:30 -0700 (PDT)
+        Thu, 24 Apr 2025 19:28:39 -0700 (PDT)
 From: Zixian Zeng <sycamoremoon376@gmail.com>
-Subject: [PATCH v6 0/3] Add basic SPI support for SOPHGO SG2042 SoC
-Date: Fri, 25 Apr 2025 10:28:11 +0800
-Message-Id: <20250425-sfg-spi-v6-0-2dbe7bb46013@gmail.com>
+Date: Fri, 25 Apr 2025 10:28:12 +0800
+Subject: [PATCH v6 1/3] spi: dt-bindings: snps,dw-apb-ssi: Merge duplicate
+ compatible entry
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIADzzCmgC/3XOQW7DIBCF4atErEsFM2BDVrlHlcWABwepiSMTW
- Y0i370kGyJXXb4R3y8eovCcuYj97iFmXnLJ06WO7mMn4okuI8s81C1AgVUATpY0ynLNkjEBcST
- lKYj6+jpzyj+v0tex7lMut2m+v8KLfl7/NhYttQzeeeLBG6/1YTxT/v6M01k8Gwv846A6F0ICD
- M4OircOm0ONzaFUkjvXGehRmwBbZ5ozqm/OVIeKYv0kaUa7dfbNATRnq4t96qw15A2pd7eu6y8
- oCkCYfgEAAA==
-X-Change-ID: 20250228-sfg-spi-e3f2aeca09ab
+Message-Id: <20250425-sfg-spi-v6-1-2dbe7bb46013@gmail.com>
+References: <20250425-sfg-spi-v6-0-2dbe7bb46013@gmail.com>
+In-Reply-To: <20250425-sfg-spi-v6-0-2dbe7bb46013@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
  Paul Walmsley <paul.walmsley@sifive.com>, 
@@ -94,16 +92,17 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  Zixian Zeng <sycamoremoon376@gmail.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745548101; l=2302;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745548101; l=2218;
  i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
- bh=8wmermrE5M1bwblIgtOTe7sR30SfNY0obp+bchFCYvQ=;
- b=7QwgjA4uNKIVGLxb1ctjXPQAAYavFTWZ6Y6YdPmSoLAuI9YIU1Ytgaum4LNiHoUPTHn47KJ97
- rmaiwgO+wpHANGbzaIIIZcQtR+VK1L9NU75DipCTetUZKEuV4xbdVo8
+ bh=pY3vTEVbaS9arUU2DTwNLKkGCYTqxU1iZeoetYpIdvY=;
+ b=JwqDiWAI4yDpO2RC2mJtTDqGMhWrFmg1Fq+7NA1CRh44u3baP6c6Qz8vK0YBRavQ9e6hAKevq
+ DLeQoa/Qd4KDxhmlyFIAq1jZxFt9fyLvx+tgQQIRF9k/tRj8wZbc6Ku
 X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
  pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_192832_976560_A45E421F 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250424_192841_428480_D5AAC40A 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,64 +119,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implemented basic SPI support for SG2042 SoC[1] using
-the upstreamed Synopsys DW-SPI IP.
+Microsemi Ocelot/Jaguar2, Renesas RZ/N1 and T-HEAD TH1520
+SoC-specific compatibles, which eventually fallback to the
+generic DW ssi compatible, it's better to combine them in single entry
 
-The way of testing can be found here [2].
-
+Suggested-by: Rob Herring <robh@kernel.org>
 Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
-Changes in v6:
-- patch 1: Apply Krzysztof's tag.
-- patch 2: Adjust enum to alphabetical order.
-- Link to v5: https://lore.kernel.org/r/20250422-sfg-spi-v5-0-c7f6554a94a0@gmail.com
+ .../devicetree/bindings/spi/snps,dw-apb-ssi.yaml       | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
 
-Changes in v5:
-- patch 1: New patch merges all vendors fall back to snps,dw-apb-ssi into one entry
-- Link to v4: https://lore.kernel.org/r/20250407-sfg-spi-v4-0-30ac949a1e35@gmail.com
+diff --git a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+index bccd00a1ddd0ad92b437eed5b525a6ea1963db57..a43d2fb9942d85b1482a52782c0a97cd5c6edd99 100644
+--- a/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
++++ b/Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml
+@@ -56,19 +56,17 @@ properties:
+         enum:
+           - snps,dw-apb-ssi
+           - snps,dwc-ssi-1.01a
+-      - description: Microsemi Ocelot/Jaguar2 SoC SPI Controller
+-        items:
+-          - enum:
+-              - mscc,ocelot-spi
+-              - mscc,jaguar2-spi
+-          - const: snps,dw-apb-ssi
+       - description: Microchip Sparx5 SoC SPI Controller
+         const: microchip,sparx5-spi
+       - description: Amazon Alpine SPI Controller
+         const: amazon,alpine-dw-apb-ssi
+-      - description: Renesas RZ/N1 SPI Controller
++      - description: Vendor controllers which use snps,dw-apb-ssi as fallback
+         items:
+-          - const: renesas,rzn1-spi
++          - enum:
++              - mscc,ocelot-spi
++              - mscc,jaguar2-spi
++              - renesas,rzn1-spi
++              - thead,th1520-spi
+           - const: snps,dw-apb-ssi
+       - description: Intel Keem Bay SPI Controller
+         const: intel,keembay-ssi
+@@ -88,10 +86,6 @@ properties:
+               - renesas,r9a06g032-spi # RZ/N1D
+               - renesas,r9a06g033-spi # RZ/N1S
+           - const: renesas,rzn1-spi   # RZ/N1
+-      - description: T-HEAD TH1520 SoC SPI Controller
+-        items:
+-          - const: thead,th1520-spi
+-          - const: snps,dw-apb-ssi
+ 
+   reg:
+     minItems: 1
 
-Changes in v4:
-- Adjust the order of spi nodes.
-- Place the binding after Renesas.
-- Fix the description issues of patches.
-- Link to v3: https://lore.kernel.org/r/20250313-sfg-spi-v3-0-e686427314b2@gmail.com
-
-Changes in v3:
-- Remove the spi status on sg2042-milkv-pioneer board.
-- Remove clock GATE_CLK_SYSDMA_AXI from spi. [3]
-- Create dt-binding of compatible property.
-- Replace the general compatible property with SoC-specific in dts.
-- Link to v2: https://lore.kernel.org/r/20250228-sfg-spi-v2-1-8bbf23b85d0e@gmail.com
-
-Changes in v2:
-- Rebase v1 to sophgo/master(github.com/sophgo/linux.git).
-- Order properties in device node.
-- Remove unevaluated properties `clock-frequency`.
-- Set default status to disable.
-- Link to v1: https://lore.kernel.org/r/20250228-sfg-spi-v1-1-b989aed94911@gmail.com
-
-Link: https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/SPI.rst [1]
-Link:
-https://lore.kernel.org/all/CAKyUbwXqg13Ho7QHw8vV2W6OcObphwhQ8HUrZMDNBxrVxLmdug@mail.gmail.com/
-[2]
-Link: https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/clock.rst#clock-tree [3]
-
----
-Zixian Zeng (3):
-      spi: dt-bindings: snps,dw-apb-ssi: Merge duplicate compatible entry
-      spi: dt-bindings: snps,dw-apb-ssi: Add compatible for SOPHGO SG2042 SoC
-      riscv: sophgo: dts: Add spi controller for SG2042
-
- .../devicetree/bindings/spi/snps,dw-apb-ssi.yaml   | 19 ++++++----------
- arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 26 ++++++++++++++++++++++
- 2 files changed, 33 insertions(+), 12 deletions(-)
----
-base-commit: 8ffd015db85fea3e15a77027fda6c02ced4d2444
-change-id: 20250228-sfg-spi-e3f2aeca09ab
-
-Best regards,
 -- 
-Zixian Zeng <sycamoremoon376@gmail.com>
+2.49.0
 
 
 _______________________________________________
