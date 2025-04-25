@@ -4,52 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16371C369AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 00:04:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32134C369AB
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 00:23:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tWuRynqWavdwOJ0PZQrCrmVIekzEVjFiW6N7nYwH6tY=; b=XDK1GZymn6BadI
-	/XtlWudE7sX7e3FfWkLHdqzXBw/ah5c70kVHEPKdb+i7pLl5E/KV7t0gkmIiqjbDZGAJZK3glBP+y
-	Pa1nfaRS357rSJN/QC9TTvkA0R0cpWJq064op/skZSpsbR531LK6h6t+fXc4p0pQMfY31L527+VBd
-	CO2TEPg4ApaVS2x/HaIB91jcBiCShmXyG2OBQNDryiYImEmpkKj82wWOtDLffREywHGhlaLJpSNWn
-	qYmiYuP4lKIBsWVDPk7k+73BuS+MTT7ohGmmkoHT/ZeJ3PxuPx8YuqdC1Yuus3sxK36jMIe+kmpA6
-	0Oo/vd+N4xCo0dCDQTlw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=J02sWVBhToQP7qRsG0bP7vH4jGt+FggYoHoCaE6I+Tg=; b=J6iFQoQjFSVR7U
+	ZdzIsacLW22OYEcRQZlp3RWh87l1VtkU79fE2iUt5kIBC5tGC4Fq84Z7h7y69+OJGG5yeUr5lAhFa
+	W3fx+bAzJujOD44X557uBUerjxP9mwV11abvJ2bfQkWpGE92BCpQLOx688Pc6Uh2lqviu/btSq0A7
+	VOhmZ7JGGGak6/LWOVeaM/v2Wd7vQ6V+Wlvtm8hd3aPw+4pMcG0/sTKn66LMSzwenha13hMl8vksa
+	8zQ1Re/9fDZkap3cr6a424PWbIM3Ee00IG1ZQtJt2lrN6vqqZ4bRk66PGAr4zZFnBRIWO6xH6xBGw
+	aLl+Hnygr+NF5CCteZCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u86YO-0000000FaRJ-4AUZ;
-	Fri, 25 Apr 2025 00:04:28 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1u86qw-0000000Fc4m-0B5N;
+	Fri, 25 Apr 2025 00:23:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u86YN-0000000FaQ0-12Ai
+	id 1u86qs-0000000Fc48-313B
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 00:04:28 +0000
-Received: from localhost (unknown [116.232.18.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 6E804340C43;
-	Fri, 25 Apr 2025 00:04:17 +0000 (UTC)
-Date: Fri, 25 Apr 2025 00:04:06 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Conor Dooley <conor@kernel.org>
-Subject: Re: [PATCH v9 1/3] riscv: defconfig: spacemit: enable gpio support
- for K1 SoC
-Message-ID: <20250425000406-GYA49092@gentoo>
-References: <20250424-03-k1-gpio-v9-0-eaece8cc5a86@gentoo.org>
- <20250424-03-k1-gpio-v9-1-eaece8cc5a86@gentoo.org>
- <20250424-untried-refueling-50c5902d63c9@spud>
+	Fri, 25 Apr 2025 00:23:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4FC9EA4BAC4;
+	Fri, 25 Apr 2025 00:18:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADC6CC4CEE3;
+	Fri, 25 Apr 2025 00:23:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745540612;
+	bh=UEkSo+BagKkIVRMMe9pgkrGMxtdYLmVfK4/QgaOoRvc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=pUarwgPxg10MK0UdQ+n5BCmMishwDRNdqKKtmZeSwy6yosN15zyV66BLSRDZi5A3c
+	 yVKMHZZzjcPoaTAJlS3aJBbN3RbJtDAlMxvqvthKXy3RD4ayvHKrha1/fo9OcfQHxq
+	 y7p3Ui7hk/Mm4qo9Aui0h5LGGGoYcAD3AX1BjZjgVC+bWmpXfVuc+PIbBPy645vLsk
+	 +KV3W7aTXxXHLe9iZPp+6GvbYbRheGZDd2kiLKlCP9S8dqK9184eXrNyta7wElhwM4
+	 FTPshbqWhVU5pc0It3lqahAGYR/TDUNf7wxEMMQkU0TwwNjZvcrEDK4Pblvz2ty7Yo
+	 WclNOcBljsHiQ==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Thu, 24 Apr 2025 17:23:22 -0700
+Subject: [PATCH] riscv: crypto - Use SYM_FUNC_START for functions only
+ called directly
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250424-untried-refueling-50c5902d63c9@spud>
+Message-Id: <20250424-riscv-crypto-fix-cfi-build-v1-1-2d7516737379@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAPnVCmgC/x3M0QpAQBBA0V/RPJtai8SvyIMds0wJzSKSf7d5P
+ HW7DwRW4QBN8oDyKUHWJSJLE6CpX0ZGGaLBGluawhaoEuhE0nvbV/RyIXlBd8g8YF1WlSfnXW5
+ 6iINNOQb/vO3e9wM6U9lmbAAAAA==
+X-Change-ID: 20250424-riscv-crypto-fix-cfi-build-9577fcbfb30a
+To: Herbert Xu <herbert@gondor.apana.org.au>
+Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4387; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=UEkSo+BagKkIVRMMe9pgkrGMxtdYLmVfK4/QgaOoRvc=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDBlc15gdXliefvD94bbcI7N/HPy2dd+jWCa5aMaq2Ts9a
+ s1lVgb/7ChlYRDjYpAVU2Spfqx63NBwzlnGG6cmwcxhZQIZwsDFKQATsT3MyPCbPehTSr3+2ZsP
+ Dqa6ymWJap1UdSs98Nj92LItsl/2GDsy/JXjmSl+buulJcuLYzcv6JwlNPsIf8TCyuOJttM9u2w
+ 2GjECAA==
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_170427_312889_8D8DC944 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250424_172334_885324_F8F71E0A 
+X-CRM114-Status: GOOD (  10.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,33 +79,117 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alex Elder <elder@riscstar.com>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, Jesse Taube <mr.bossman075@gmail.com>, Yangyu Chen <cyy@cyyself.name>, Meng Zhang <zhangmeng.kevin@linux.spacemit.com>, Palmer Dabbelt <palmer@dabbelt.com>, Jisheng Zhang <jszhang@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Inochi Amaoto <inochiama@outlook.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, spacemit@lists.linux.dev, linux-riscv@lists.infradead.org
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Conor,
+After some recent changes to the RISC-V crypto code that turned some
+indirect function calls into direct ones, builds with CONFIG_CFI_CLANG
+fail with:
 
-On 16:22 Thu 24 Apr     , Conor Dooley wrote:
-> On Thu, Apr 24, 2025 at 05:40:49PM +0800, Yixun Lan wrote:
-> > Enable GPIO support, in order to activate follow-up GPIO LED,
-> > and ethernet reset pin.
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> 
-> Do you want me to grab this patch, or do you have a defconfig branch to
-> put it on?
-> 
-Yes, I'd appreciate if you willing to pick it, to avoid potential conflicts?
-(I currently do not maintain defconfig branch)
+  ld.lld: error: undefined symbol: __kcfi_typeid_sm3_transform_zvksh_zvkb
+  >>> referenced by arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.o:(.text+0x2) in archive vmlinux.a
 
-BTW, we might have few more in this cycle, e.g. - clock, reset
+  ld.lld: error: undefined symbol: __kcfi_typeid_sha512_transform_zvknhb_zvkb
+  >>> referenced by arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.o:(.text+0x2) in archive vmlinux.a
 
-Thanks
+  ld.lld: error: undefined symbol: __kcfi_typeid_sha256_transform_zvknha_or_zvknhb_zvkb
+  >>> referenced by arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.o:(.text+0x2) in archive vmlinux.a
 
+As these functions are no longer indirectly called (i.e., have their
+address taken), the compiler will not emit __kcfi_typeid symbols for
+them but SYM_TYPED_FUNC_START expects these to exist at link time.
+
+Switch the definitions of these functions to use SYM_FUNC_START, as they
+no longer need kCFI type information since they are only called
+directly.
+
+Fixes: 1523eaed0ac5 ("crypto: riscv/sm3 - Use API partial block handling")
+Fixes: 561aab1104d8 ("crypto: riscv/sha512 - Use API partial block handling")
+Fixes: e6c5597badf2 ("crypto: riscv/sha256 - Use API partial block handling")
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S | 4 ++--
+ arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S           | 4 ++--
+ arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S               | 4 ++--
+ 3 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S b/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+index 8ebcc17de4dc..f1f5779e4732 100644
+--- a/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
++++ b/arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S
+@@ -43,7 +43,7 @@
+ // - RISC-V Vector SHA-2 Secure Hash extension ('Zvknha' or 'Zvknhb')
+ // - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
+ 
+-#include <linux/cfi_types.h>
++#include <linux/linkage.h>
+ 
+ .text
+ .option arch, +zvknha, +zvkb
+@@ -108,7 +108,7 @@
+ 
+ // void sha256_transform_zvknha_or_zvknhb_zvkb(u32 state[8], const u8 *data,
+ //					       int num_blocks);
+-SYM_TYPED_FUNC_START(sha256_transform_zvknha_or_zvknhb_zvkb)
++SYM_FUNC_START(sha256_transform_zvknha_or_zvknhb_zvkb)
+ 
+ 	// Load the round constants into K0-K15.
+ 	vsetivli	zero, 4, e32, m1, ta, ma
+diff --git a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S b/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
+index 3a9ae210f915..89f4a10d12dd 100644
+--- a/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
++++ b/arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S
+@@ -43,7 +43,7 @@
+ // - RISC-V Vector SHA-2 Secure Hash extension ('Zvknhb')
+ // - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
+ 
+-#include <linux/cfi_types.h>
++#include <linux/linkage.h>
+ 
+ .text
+ .option arch, +zvknhb, +zvkb
+@@ -95,7 +95,7 @@
+ 
+ // void sha512_transform_zvknhb_zvkb(u64 state[8], const u8 *data,
+ //				     int num_blocks);
+-SYM_TYPED_FUNC_START(sha512_transform_zvknhb_zvkb)
++SYM_FUNC_START(sha512_transform_zvknhb_zvkb)
+ 
+ 	// Setup mask for the vmerge to replace the first word (idx==0) in
+ 	// message scheduling.  There are 4 words, so an 8-bit mask suffices.
+diff --git a/arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S b/arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S
+index a2b65d961c04..4fe754846f65 100644
+--- a/arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S
++++ b/arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S
+@@ -43,7 +43,7 @@
+ // - RISC-V Vector SM3 Secure Hash extension ('Zvksh')
+ // - RISC-V Vector Cryptography Bit-manipulation extension ('Zvkb')
+ 
+-#include <linux/cfi_types.h>
++#include <linux/linkage.h>
+ 
+ .text
+ .option arch, +zvksh, +zvkb
+@@ -81,7 +81,7 @@
+ .endm
+ 
+ // void sm3_transform_zvksh_zvkb(u32 state[8], const u8 *data, int num_blocks);
+-SYM_TYPED_FUNC_START(sm3_transform_zvksh_zvkb)
++SYM_FUNC_START(sm3_transform_zvksh_zvkb)
+ 
+ 	// Load the state and endian-swap each 32-bit word.
+ 	vsetivli	zero, 8, e32, m2, ta, ma
+
+---
+base-commit: 63dc06cd12f980e304158888485a26ae2be7f371
+change-id: 20250424-riscv-crypto-fix-cfi-build-9577fcbfb30a
+
+Best regards,
 -- 
-Yixun Lan (dlan)
+Nathan Chancellor <nathan@kernel.org>
+
 
 _______________________________________________
 linux-riscv mailing list
