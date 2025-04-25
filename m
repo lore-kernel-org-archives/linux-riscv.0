@@ -4,90 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F34EC369C2
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 17:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0951AC369D7
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 17:49:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a/6e6c/1tU9/SZVBauF2Y4AHio3d7lY56F3zknLB14w=; b=EaieD3JwwlJuVJ
-	Ru4v0V9tsAs8qMAvbIQqWQn5TQjeWzCmyah4Uga0vIpHL0Lu2DllIhGzQ0Y3L7UQC25AFk1VeoCyv
-	3yoYa2r0C3ws9qsEUA6mQ3cfYRm+tLN2QMDoEGNgvxfej7KTRGWo5caCddsiXmOCKkIJCRTlmrJKx
-	YQLqsfnqfBPNIZvDw2CDV1BjZoSKzmzAdBxtJLFXwwk0/RoLE0mJFDh8PE/xEPK3oHVXIFQFonvZ1
-	Ir0vLsNlV1V3sxkDhgIJMASMWrjslmBQOhEQSX0tLnR8SSargoCyjTq4PAvgs6rH+GXWTWxCpiRF6
-	qp/7hVIv4CK9uI244t/A==;
+	List-Owner; bh=t8czNPb2Df0pDLoYgHZC0rFCRWGyfTPh0au9r+thT+A=; b=mzEA+Vu9dza3cj
+	sQ+lE3rKtBkclqxdLQS0KibvODQ7c9d1jUJCy9Z7D4Dl4hHnNYSl3VDjjTPolCK8IfbH9L6fRYt7j
+	wM8KGGCfhDbMLImsjInheshOOU2qYosq8zP9FLy5SqVL+KJI2weSVj3wkEOaKEGcRjlfyev+FEEtp
+	V0/EsjLAQ+U6QiuYjhYtYcAlbGeROEmAppCQxAG0tELCPIkdbM7AKHn4rVBBpAg3BopZDsHVjTVP3
+	p3kT5mXNFHJ40veezPGns2U+u4fIuWpHv+PZ38r4LcBLQtb3dNEFsyKFYDucaD5plNaWFYal1e0uD
+	Rv1QgfhEdAncXSsbgECw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8MWA-00000000Knx-42l2;
-	Fri, 25 Apr 2025 17:07:14 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1u8NAX-00000000RwI-2cyu;
+	Fri, 25 Apr 2025 17:48:57 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8LXr-0000000094T-2dJC
-	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 16:04:56 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39ee6260fc7so160532f8f.1
-        for <linux-riscv@lists.infradead.org>; Fri, 25 Apr 2025 09:04:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1745597093; x=1746201893; darn=lists.infradead.org;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vVmQISaVL5Cg2XsgzQXK0sbbtQNmhL4LdWnCYGEZ450=;
-        b=aNQUoPByqf4Iil7Asp2i6RgF0H6/daoJhum9/JWVIFPxTsMw0PaMx4IVpDeeWTv21J
-         3k3T2qJESrqvDJ0HFzlYIjkYMdtysKIW23PTyOI+l2jwBnAoPGoedO8rLs9p0ni9HD4o
-         DWEpXPIgPCSXcgLWI+t4iDAWEBCcxf/hWufFSXI7JuQWFXzS2HYNuUdc3nx9FB274nBf
-         57XdbaNou3BMaOgDY9SgabybHldwr3eiv0V6bh8SP/8rSkttjBIyS6EA4DaqQyMvNgxz
-         juaSE7R9yklhcSNWQy+zWSMl3aCTqh/Mb6UlNA99urcu67eZlF5Do8X8v0sk0Rm+/kKG
-         arRQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745597093; x=1746201893;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=vVmQISaVL5Cg2XsgzQXK0sbbtQNmhL4LdWnCYGEZ450=;
-        b=nvnV1RHn0BZPobrmgddU9WW2lr5nDQ2QBwW2+nl69CxgdyuNtiaOJS8Lu+dXpHfe8e
-         o5y9qt8EuwS6gMVw6cGAtZcu9VRlbDa6Rlu4m6Ggfn0ZTKF2zaMKXQOCP1pi0jnrDmX2
-         IIhKnI0BQKGZioQff0MVc5mCG9T/P+WI0t/slCqYMC4wE/+DDQicOXT7S5IFKA1rvAOn
-         o02PmgEXi+PzmViN+on7T1iF6BM0gpn0OGKaNMQf5UlXGl4eUYyz7/AiOplY1nMz7VR0
-         QqbP/JsLLJurPuldy0Qk+UDD5+Yv52Wv8p1QueOA9v768W76VhuIKi3xkUzh7WBn09xi
-         yRXw==
-X-Forwarded-Encrypted: i=1; AJvYcCXTVwAYO3/Uloke8Igx5i2VAxSIVzp3MFCBcoIQLpVvpGNlbu8YVZd/lB8z0GgSbU5rIiK2FfH7XU46LA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpOrB4LoxU6YsdjlM1vR5sI2cMCp68tk2xI5RAMEfbRkARgj0U
-	/YnevLFzDhlLiyMFUMqVCYhBqhUGwrSELwWCIDU07uWcwZUGGue03D44NHkOhCo=
-X-Gm-Gg: ASbGncuJHq9lZNImpGzMpPlCuXIdNuM6pyPGHgO4Dv5gAHIgKxdOaPZoDqw0CT+Ue5L
-	4UQ1GaL7GhQqUOtPZ8rEbAIDq4EL/sR/EBXEfbmbYqDSLa7Od/Nq4O9HHwTV+cuvNbKMu7CJMkX
-	EcWCd3QW3qjvdaxbneccrYm2xZSDJCEjVYdkeZLtEYuCV4ta4ROQyZf9mNIapDsNzeWkD76VhoB
-	DmK8rqtiMLFfo3cXuaPx8/uz9gYcN4n8Xr10KfGZ3lar/WirC7ddl0xhQP0lNRASTyy2PeTEZ9a
-	giqI8OupISXrvvP7JdJyY0qj/XK3/Ubjg/ul8CH+EJ9JSmv/
-X-Google-Smtp-Source: AGHT+IFygwyNuR6Mluia/w4Oq01jCNKf5/yVIETD2X/Y28L1PTlwfkhtOAURq+PQcMZWcGjTeDYsfw==
-X-Received: by 2002:a05:6000:2211:b0:3a0:1d90:f7c1 with SMTP id ffacd0b85a97d-3a074d90429mr834424f8f.0.1745597093416;
-        Fri, 25 Apr 2025 09:04:53 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:84a3:2b0a:bdb8:ce08])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e46981sm2731522f8f.66.2025.04.25.09.04.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 25 Apr 2025 09:04:53 -0700 (PDT)
-Mime-Version: 1.0
-Date: Fri, 25 Apr 2025 18:04:52 +0200
-Message-Id: <D9FUIXQ1FIHS.2BLRCEWLXZL45@ventanamicro.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-Subject: Re: [PATCH 4/5] KVM: RISC-V: reset VCPU state when becoming
- runnable
-Cc: <kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Anup
- Patel" <anup@brainfault.org>, "Atish Patra" <atishp@atishpatra.org>, "Paul
- Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Mayuresh Chitale" <mchitale@ventanamicro.com>
-To: "Andrew Jones" <ajones@ventanamicro.com>
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
- <20250403112522.1566629-7-rkrcmar@ventanamicro.com>
- <20250425-2bc11e21ecef7269702c424e@orel>
-In-Reply-To: <20250425-2bc11e21ecef7269702c424e@orel>
+	id 1u8M2K-00000000F3y-0iJX;
+	Fri, 25 Apr 2025 16:36:25 +0000
+Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53PAfbvU023963;
+	Fri, 25 Apr 2025 16:35:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pp1; bh=ejJgdqEPZKllX4jx/pva9umANCVtEB
+	T18p/3RAmx1Es=; b=EqpOZv1gbGFg4t85FrLlOnzYnqCpeD+gFp/4utrY95VCIZ
+	h75Yza2MfYXQuYTjxvakxgUr08T+r3Mnj+hSHfUHEI/TJH3S6SnAHpVSsBLQaa7h
+	JG0KhJpULlDgMiyQa50wwMo8ILPeXLFm4r9+r14ubKLH8tp+Olnoy4Y6olLQampi
+	bKI2mW6zxE3Zp4T3ddLMXjQEVPJPpJUVXKRXqHsN/ACkP1gFKFnVXc9RUmaBnLmt
+	9V0KJGIT6dCYsYT11ODN9q+MH3F7P9nNOSGqwRSGOpiw3BvM9GoSszha/eq3ZnWj
+	BZdXBLYvjmEVLPiofDOoumk+2leUg7DxcnneeHug==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4688ushned-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 16:35:29 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53PG93Q2000973;
+	Fri, 25 Apr 2025 16:35:29 GMT
+Received: from smtprelay06.fra02v.mail.ibm.com ([9.218.2.230])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 466jfy650a-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 25 Apr 2025 16:35:28 +0000
+Received: from smtpav03.fra02v.mail.ibm.com (smtpav03.fra02v.mail.ibm.com [10.20.54.102])
+	by smtprelay06.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53PGZQqW21430558
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 25 Apr 2025 16:35:27 GMT
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DB01720040;
+	Fri, 25 Apr 2025 16:35:26 +0000 (GMT)
+Received: from smtpav03.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DDF662004B;
+	Fri, 25 Apr 2025 16:35:23 +0000 (GMT)
+Received: from li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com (unknown [9.111.73.111])
+	by smtpav03.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Fri, 25 Apr 2025 16:35:23 +0000 (GMT)
+Date: Fri, 25 Apr 2025 18:35:22 +0200
+From: Alexander Gordeev <agordeev@linux.ibm.com>
+To: Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: linux-mm@kvack.org, linux-kernel@vger.kernel.org,
+        Albert Ou <aou@eecs.berkeley.edu>,
+        Andreas Larsson <andreas@gaisler.com>,
+        Andrew Morton <akpm@linux-foundation.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Dave Hansen <dave.hansen@linux.intel.com>,
+        "David S. Miller" <davem@davemloft.net>,
+        Geert Uytterhoeven <geert@linux-m68k.org>,
+        Linus Walleij <linus.walleij@linaro.org>,
+        Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Matthew Wilcox <willy@infradead.org>,
+        Michael Ellerman <mpe@ellerman.id.au>,
+        "Mike Rapoport (IBM)" <rppt@kernel.org>,
+        Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley <paul.walmsley@sifive.com>,
+        Peter Zijlstra <peterz@infradead.org>,
+        Qi Zheng <zhengqi.arch@bytedance.com>,
+        Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>,
+        Yang Shi <yang@os.amperecomputing.com>, linux-arch@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+        linux-m68k@lists.linux-m68k.org, linux-openrisc@vger.kernel.org,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linuxppc-dev@lists.ozlabs.org, sparclinux@vger.kernel.org,
+        x86@kernel.org
+Subject: Re: [PATCH v2 03/12] mm: Call ctor/dtor for kernel PTEs
+Message-ID: <aAu5ylJPs+Oa9iQ3@li-008a6a4c-3549-11b2-a85c-c5cc2836eea2.ibm.com>
+References: <20250408095222.860601-1-kevin.brodsky@arm.com>
+ <20250408095222.860601-4-kevin.brodsky@arm.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250408095222.860601-4-kevin.brodsky@arm.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=dbeA3WXe c=1 sm=1 tr=0 ts=680bb9d1 cx=c_pps a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17 a=kj9zAlcOel0A:10 a=XR8D0OoHHMoA:10 a=VwQbUJbxAAAA:8 a=7CQSdrXTAAAA:8 a=VnNF1IyMAAAA:8 a=o1rnUynpLg_ZTY15UzkA:9
+ a=CjuIK1q_8ugA:10 a=a-qgeE7W1pNrGK8U0ZQC:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDI1MDExNCBTYWx0ZWRfXxfQmH6A1i1kR F0Qrpt5yak4qbEYdxPP6AWpDu4jDULgX7mdTdovae8J2DMeHPJ2D4u8gmGvG8XhP8zbhnJDUi7+ oK3yajHXRE48UbY0683PBqDQHITbNZwqnJVe1YdfWQGR3ID2SwUhxCrN+9vFaZQScLGRA9ZWojV
+ RSarM6Bq4x1756TbKQ7JAqAplyDxMSMxtJfJY+CwQCIcyeMNJ2FfwH1U67EFPMKvl1DQURmevds Pee9V6Nxdjtm224E6UAw6q6vWv3bAGwXIbvyodOLAwWqUT1Dyb1+HxugPtHlhMT5cZoObV010KU 7+GC4doRznHR8qOWZytOu/IeBX++vqFmWURUnIQCQ3D26e15+uLRNAAoyxIDX5DeSwFGcgLYsiH
+ z/1Pnm5AjA0kyrP1dqxLeXwdbYN0HQt8yyFmLroqBHwiHMLU8gJ5MxgaxSjoCKoy5BK9psby
+X-Proofpoint-ORIG-GUID: MwNYdyucMFQMOg7jYooYi3IwxTZPVWry
+X-Proofpoint-GUID: MwNYdyucMFQMOg7jYooYi3IwxTZPVWry
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-25_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 malwarescore=0
+ suspectscore=0 priorityscore=1501 impostorscore=0 spamscore=0 mlxscore=0
+ lowpriorityscore=0 bulkscore=0 adultscore=0 mlxlogscore=999 clxscore=1011
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504250114
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250425_090455_668203_5A9A881A 
-X-CRM114-Status: GOOD (  30.16  )
+X-CRM114-CacheID: sfid-20250425_093624_329723_EFA39D50 
+X-CRM114-Status: GOOD (  36.96  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,83 +128,140 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjAyNS0wNC0yNVQxNToyNjowOCswMjowMCwgQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1p
-Y3JvLmNvbT46Cj4gT24gVGh1LCBBcHIgMDMsIDIwMjUgYXQgMDE6MjU6MjNQTSArMDIwMCwgUmFk
-aW0gS3LEjW3DocWZIHdyb3RlOgo+PiBCZXdhcmUsIHRoaXMgcGF0Y2ggaXMgImJyZWFraW5nIiB0
-aGUgdXNlcnNwYWNlIGludGVyZmFjZSwgYmVjYXVzZSBpdAo+PiBmaXhlcyBhIEtWTS9RRU1VIGJ1
-ZyB3aGVyZSB0aGUgYm9vdCBWQ1BVIGlzIG5vdCBiZWluZyByZXNldCBieSBLVk0uCj4+IAo+PiBU
-aGUgVkNQVSByZXNldCBwYXRocyBhcmUgaW5jb25zaXN0ZW50IHJpZ2h0IG5vdy4gIEtWTSByZXNl
-dHMgVkNQVXMgdGhhdAo+PiBhcmUgYnJvdWdodCB1cCBieSBLVk0tYWNjZWxlcmF0ZWQgU0JJIGNh
-bGxzLCBidXQgZG9lcyBub3RoaW5nIGZvciBWQ1BVcwo+PiBicm91Z2h0IHVwIHRocm91Z2ggaW9j
-dGxzLgo+Cj4gSSBndWVzcyB3ZSBjdXJyZW50bHkgZXhwZWN0IHVzZXJzcGFjZSB0byBtYWtlIGEg
-c2VyaWVzIG9mIHNldC1vbmUtcmVnCj4gaW9jdGxzIGluIG9yZGVyIHRvIHByZXBhcmUgKCJyZXNl
-dCIpIG5ld2x5IGNyZWF0ZWQgdmNwdXMsCgpVc2Vyc3BhY2Ugc2hvdWxkIGN1cnJlbnRseSBnZXQt
-b25lLXJlZyBhIGZyZXNobHkgcmVzZXQgVkNQVSB0byBrbm93IHdoYXQKS1ZNIFNCSSBkZWNpZGVz
-IGlzIHRoZSBjb3JyZWN0IHJlc2V0LiAgVXNlcnNwYWNlIHNob3VsZG4ndCBzZXQtb25lLXJlZwph
-bnl0aGluZyBvdGhlciB0aGFuIHdoYXQgS1ZNIGRlY2lkZXMsIGhlbmNlIHdlIGNhbiBjdXJyZW50
-bHkganVzdCBsZXQKS1ZNIGRvIGl0LgoKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgYW5kIEkgZ3Vlc3MKPiB0aGUgcHJvYmxlbSBpcyB0
-aGF0IEtWTSBpc24ndCBjYXB0dXJpbmcgdGhlIHJlc3VsdGluZyBjb25maWd1cmF0aW9uCj4gaW4g
-b3JkZXIgdG8gcmVwbGF5IGl0IHdoZW4gU0JJIEhTTSByZXNldCBpcyBpbnZva2VkIGJ5IHRoZSBn
-dWVzdC4KClRoYXQgY2FuIGFsc28gYmUgYSBzb2x1dGlvbiwgYnV0IGl0J3Mgbm90IHBvc3NpYmxl
-IHRvIGNhcHR1cmUgdGhlCmRlc2lyZWQgcmVzZXQgc3RhdGUgd2l0aCBjdXJyZW50IElPQ1RMcywg
-YmVjYXVzZSB0aGUgZmlyc3QgcnVuIG9mIGEgVkNQVQpjYW4ganVzdCBhcyB3ZWxsIGJlIGEgcmVz
-dW1lIGZyb20gYSBtaWQtZXhlY3V0aW9uLgoKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBCdXQsCj4gaW5zdGVhZCBvZiBj
-YXB0dXJlLXJlcGxheSB3ZSBjb3VsZCBqdXN0IGV4aXQgdG8gdXNlcnNwYWNlIG9uIGFuIFNCSQo+
-IEhTTSByZXNldCBjYWxsIGFuZCBsZXQgdXNlcnNwYWNlIHJlcGVhdCB3aGF0IGl0IGRpZCBhdCB2
-Y3B1LWNyZWF0ZQo+IHRpbWUuCgpSaWdodCwgSSBsaWtlIHRoZSBpZGVhLiAgKEl0IGRvZXNuJ3Qg
-Zml4IGN1cnJlbnQgdXNlcnNwYWNlcywgdGhvdWdoLikKCj4+IFdlIG5lZWQgdG8gcGVyZm9ybSBh
-IEtWTSByZXNldCBldmVuIHdoZW4gdGhlIFZDUFUgaXMgc3RhcnRlZCB0aHJvdWdoIGFuCj4+IGlv
-Y3RsLiAgVGhpcyBwYXRjaCBpcyBvbmUgb2YgdGhlIHdheXMgd2UgY2FuIGFjaGlldmUgaXQuCj4+
-IAo+PiBBc3N1bWUgdGhhdCB1c2Vyc3BhY2UgaGFzIG5vIGJ1c2luZXNzIHNldHRpbmcgdGhlIHBv
-c3QtcmVzZXQgc3RhdGUuCj4+IEtWTSBpcyBkZS1mYWN0byB0aGUgU0JJIGltcGxlbWVudGF0aW9u
-LCBhcyB0aGUgU0JJIEhTTSBhY2NlbGVyYXRpb24KPj4gY2Fubm90IGJlIGRpc2FibGVkIGFuZCB1
-c2Vyc3BhY2UgY2Fubm90IGNvbnRyb2wgdGhlIHJlc2V0IHN0YXRlLCBzbyBLVk0KPj4gc2hvdWxk
-IGJlIGluIGZ1bGwgY29udHJvbCBvZiB0aGUgcG9zdC1yZXNldCBzdGF0ZS4KPj4gCj4+IERvIG5v
-dCByZXNldCB0aGUgcGMgYW5kIGExIHJlZ2lzdGVycywgYmVjYXVzZSBTQkkgcmVzZXQgaXMgZXhw
-ZWN0ZWQgdG8KPj4gcHJvdmlkZSB0aGVtIGFuZCBLVk0gaGFzIG5vIGlkZWEgd2hhdCB0aGVzZSBy
-ZWdpc3RlcnMgc2hvdWxkIGJlIC0tIG9ubHkKPj4gdGhlIHVzZXJzcGFjZSBrbm93cyB3aGVyZSBp
-dCBwdXQgdGhlIGRhdGEuCj4KPiBzL3VzZXJzcGFjZS9ndWVzdC8KCkJvdGggYXJlIGNvcnJlY3Qu
-Li4gIEkgc2hvdWxkIGhhdmUgbWFkZSB0aGUgY29udGV4dCBjbGVhcmVyIGhlcmUuCkkgbWVhbnQg
-dGhlIGluaXRpYWwgaGFydCBib290LCB3aGVyZSB1c2Vyc3BhY2UgbG9hZHMgY29kZS9kdCBhbmQg
-c2V0cwpwYy9hMSB0byB0aGVtLgoKPj4gQW4gaW1wb3J0YW50IGNvbnNpZGVyYXRpb24gaXMgcmVz
-dW1lLiAgVXNlcnNwYWNlIG1pZ2h0IHdhbnQgdG8gc3RhcnQKPj4gd2l0aCBub24tcmVzZXQgc3Rh
-dGUuICBDaGVjayByYW5fYXRsZWFzdF9vbmNlIHRvIGFsbG93IHRoaXMsIGJlY2F1c2UKPj4gS1ZN
-LVNCSSBIU00gY3JlYXRlcyBzb21lIFZDUFVzIGFzIFNUT1BQRUQuCj4+IAo+PiBUaGUgZHJhd2Jh
-Y2sgaXMgdGhhdCB1c2Vyc3BhY2UgY2FuIHN0aWxsIHN0YXJ0IHRoZSBib290IFZDUFUgd2l0aCBh
-bgo+PiBpbmNvcnJlY3QgcmVzZXQgc3RhdGUsIGJlY2F1c2UgdGhlcmUgaXMgbm8gd2F5IHRvIGRp
-c3Rpbmd1aXNoIGEgZnJlc2hseQo+PiByZXNldCBuZXcgVkNQVSBvbiB0aGUgS1ZNIHNpZGUgKHVz
-ZXJzcGFjZSBtaWdodCBzZXQgc29tZSB2YWx1ZXMgYnkKPj4gbWlzdGFrZSkgZnJvbSBhIHJlc3Rv
-cmVkIFZDUFUgKHVzZXJzcGFjZSBtdXN0IHNldCBhbGwgdmFsdWVzKS4KPgo+IElmIHRoZXJlJ3Mg
-YSBjb3JyZWN0IHZzLiBpbmNvcnJlY3QgcmVzZXQgc3RhdGUgdGhhdCBLVk0gbmVlZHMgdG8gZW5m
-b3JjZSwKPiB0aGVuIHdlJ2xsIG5lZWQgYSBkaWZmZXJlbnQgQVBJIHRoYW4ganVzdCBhIGJ1bmNo
-IG9mIHNldC1vbmUtcmVnIGNhbGxzLAo+IG9yIHNldC9nZXQtb25lLXJlZyBzaG91bGQgYmUgV0FS
-TCBmb3IgdXNlcnBhY2UuCgpJbmNvcnJlY3QgbWlnaHQgaGF2ZSBiZWVuIHRvbyBzdHJvbmcgd29y
-ZC4uLiB3aGlsZSB0aGUgU0JJIHJlc2V0IHN0YXRlCmlzIHRlY2huaWNhbGx5IFVOU1BFQ0lGSUVE
-LCBJIHRoaW5rIGl0J3MganVzdCBhc2tpbmcgZm9yIGJ1Z3MgaWYgdGhlCmhhcnRzIGhhdmUgZGlm
-ZmVyZW50IGluaXRpYWwgc3RhdGVzIGJhc2VkIG9uIHRoZWlyIHJlc2V0IG1ldGhvZC4KCj4gICAg
-c2V0L2dldC1vbmUtcmVnIHNob3VsZCBiZSBXQVJMIGZvciB1c2VycGFjZS4KCldBQUFBISA6KQoK
-Pj4gVGhlIGFkdmFudGFnZSBvZiB0aGlzIHNvbHV0aW9uIGlzIHRoYXQgaXQgZml4ZXMgY3VycmVu
-dCBRRU1VIGFuZCBtYWtlcwo+PiBzb21lIHNlbnNlIHdpdGggdGhlIGFzc3VtcHRpb24gdGhhdCBL
-Vk0gaW1wbGVtZW50cyBTQkkgSFNNLgo+PiBJIGRvIG5vdCBsaWtlIGl0IHRvbyBtdWNoLCBzbyBJ
-J2QgYmUgaW4gZmF2b3Igb2YgYSBkaWZmZXJlbnQgc29sdXRpb24gaWYKPj4gd2UgY2FuIHN0aWxs
-IGFmZm9yZCB0byBkcm9wIHN1cHBvcnQgZm9yIGN1cnJlbnQgdXNlcnNwYWNlcy4KPj4gCj4+IEZv
-ciBhIGNsZWFuZXIgc29sdXRpb24sIHdlIHNob3VsZCBhZGQgaW50ZXJmYWNlcyB0byBwZXJmb3Jt
-IHRoZSBLVk0tU0JJCj4+IHJlc2V0IHJlcXVlc3Qgb24gdXNlcnNwYWNlIGRlbWFuZC4KPgo+IFRo
-YXQncyB3aGF0IHRoZSBjaGFuZ2UgdG8ga3ZtX2FyY2hfdmNwdV9pb2N0bF9zZXRfbXBzdGF0ZSgp
-IGluIHRoaXMKPiBwYXRjaCBpcyBwcm92aWRpbmcsIHJpZ2h0PwoKSXQgZG9lcy4gIFdpdGggY29u
-ZGl0aW9ucyB0byBiZSBhcyBjb21wYXRpYmxlIGFzIHBvc3NpYmxlLgoKPj4gSSB0aGluayBpdCB3
-b3VsZCBhbHNvIGJlIG11Y2ggYmV0dGVyCj4+IGlmIHVzZXJzcGFjZSB3YXMgaW4gY29udHJvbCBv
-ZiB0aGUgcG9zdC1yZXNldCBzdGF0ZS4KPgo+IEFncmVlZC4gQ2FuIHdlIGp1c3QgZXhpdCB0byB1
-c2Vyc3BhY2Ugb24gU0JJIEhTTSByZXNldD8KClllcy4gIChJdCBuZWVkcyBhbiB1c2Vyc3BhY2Ug
-dG9nZ2xlIGlmIHdlIGNhcmUgYWJvdXQKYmFja3dhcmQtY29tcGF0aWJsaXR5LCB0aG91Z2guKQoK
-SG93IG11Y2ggZG8gd2Ugd2FudCB0byBmaXgvYnJlYWsgY3VycmVudCB1c2Vyc3BhY2VzPwoKVGhh
-bmtzLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGlu
-dXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0
-cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, Apr 08, 2025 at 10:52:13AM +0100, Kevin Brodsky wrote:
+> Since [1], constructors/destructors are expected to be called for
+> all page table pages, at all levels and for both user and kernel
+> pgtables. There is however one glaring exception: kernel PTEs are
+> managed via separate helpers (pte_alloc_kernel/pte_free_kernel),
+> which do not call the [cd]tor, at least not in the generic
+> implementation.
+> 
+> The most obvious reason for this anomaly is that init_mm is
+> special-cased not to use split page table locks. As a result calling
+> ptlock_init() for PTEs associated with init_mm would be wasteful,
+> potentially resulting in dynamic memory allocation. However, pgtable
+> [cd]tors perform other actions - currently related to
+> accounting/statistics, and potentially more functionally significant
+> in the future.
+> 
+> Now that pagetable_pte_ctor() is passed the associated mm, we can
+> make it skip the call to ptlock_init() for init_mm; this allows us
+> to call the ctor from pte_alloc_one_kernel() too. This is matched by
+> a call to the pgtable destructor in pte_free_kernel(); no
+> special-casing is needed on that path, as ptlock_free() is already
+> called unconditionally. (ptlock_free() is a no-op unless a ptlock
+> was allocated for the given PTP.)
+> 
+> This patch ensures that all architectures that rely on
+> <asm-generic/pgalloc.h> call the [cd]tor for kernel PTEs.
+> pte_free_kernel() cannot be overridden so changing the generic
+> implementation is sufficient. pte_alloc_one_kernel() can be
+> overridden using __HAVE_ARCH_PTE_ALLOC_ONE_KERNEL, and a few
+> architectures implement it by calling the page allocator directly.
+> We amend those so that they call the generic
+> __pte_alloc_one_kernel() instead, if possible, ensuring that the
+> ctor is called.
+> 
+> A few architectures do not use <asm-generic/pgalloc.h>; those will
+> be taken care of separately.
+> 
+> [1] https://lore.kernel.org/linux-mm/20250103184415.2744423-1-kevin.brodsky@arm.com/
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>  arch/csky/include/asm/pgalloc.h | 2 +-
+>  arch/microblaze/mm/pgtable.c    | 2 +-
+>  arch/openrisc/mm/ioremap.c      | 2 +-
+>  include/asm-generic/pgalloc.h   | 7 ++++++-
+>  include/linux/mm.h              | 2 +-
+>  5 files changed, 10 insertions(+), 5 deletions(-)
+> 
+> diff --git a/arch/csky/include/asm/pgalloc.h b/arch/csky/include/asm/pgalloc.h
+> index 11055c574968..9ed2b15ffd94 100644
+> --- a/arch/csky/include/asm/pgalloc.h
+> +++ b/arch/csky/include/asm/pgalloc.h
+> @@ -29,7 +29,7 @@ static inline pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  	pte_t *pte;
+>  	unsigned long i;
+>  
+> -	pte = (pte_t *) __get_free_page(GFP_KERNEL);
+> +	pte = __pte_alloc_one_kernel(mm);
+>  	if (!pte)
+>  		return NULL;
+>  
+> diff --git a/arch/microblaze/mm/pgtable.c b/arch/microblaze/mm/pgtable.c
+> index 9f73265aad4e..e96dd1b7aba4 100644
+> --- a/arch/microblaze/mm/pgtable.c
+> +++ b/arch/microblaze/mm/pgtable.c
+> @@ -245,7 +245,7 @@ unsigned long iopa(unsigned long addr)
+>  __ref pte_t *pte_alloc_one_kernel(struct mm_struct *mm)
+>  {
+>  	if (mem_init_done)
+> -		return (pte_t *)__get_free_page(GFP_KERNEL | __GFP_ZERO);
+> +		return __pte_alloc_one_kernel(mm);
+>  	else
+>  		return memblock_alloc_try_nid(PAGE_SIZE, PAGE_SIZE,
+>  					      MEMBLOCK_LOW_LIMIT,
+> diff --git a/arch/openrisc/mm/ioremap.c b/arch/openrisc/mm/ioremap.c
+> index 8e63e86251ca..3b352f97fecb 100644
+> --- a/arch/openrisc/mm/ioremap.c
+> +++ b/arch/openrisc/mm/ioremap.c
+> @@ -36,7 +36,7 @@ pte_t __ref *pte_alloc_one_kernel(struct mm_struct *mm)
+>  	pte_t *pte;
+>  
+>  	if (likely(mem_init_done)) {
+> -		pte = (pte_t *)get_zeroed_page(GFP_KERNEL);
+> +		pte = __pte_alloc_one_kernel(mm);
+>  	} else {
+>  		pte = memblock_alloc_or_panic(PAGE_SIZE, PAGE_SIZE);
+>  	}
+> diff --git a/include/asm-generic/pgalloc.h b/include/asm-generic/pgalloc.h
+> index e164ca66f0f6..3c8ec3bfea44 100644
+> --- a/include/asm-generic/pgalloc.h
+> +++ b/include/asm-generic/pgalloc.h
+> @@ -23,6 +23,11 @@ static inline pte_t *__pte_alloc_one_kernel_noprof(struct mm_struct *mm)
+>  
+>  	if (!ptdesc)
+>  		return NULL;
+> +	if (!pagetable_pte_ctor(mm, ptdesc)) {
+> +		pagetable_free(ptdesc);
+> +		return NULL;
+> +	}
+> +
+>  	return ptdesc_address(ptdesc);
+>  }
+>  #define __pte_alloc_one_kernel(...)	alloc_hooks(__pte_alloc_one_kernel_noprof(__VA_ARGS__))
+> @@ -48,7 +53,7 @@ static inline pte_t *pte_alloc_one_kernel_noprof(struct mm_struct *mm)
+>   */
+>  static inline void pte_free_kernel(struct mm_struct *mm, pte_t *pte)
+>  {
+> -	pagetable_free(virt_to_ptdesc(pte));
+> +	pagetable_dtor_free(virt_to_ptdesc(pte));
+>  }
+>  
+>  /**
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index f9b793cce2c1..3f48e449574a 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -3103,7 +3103,7 @@ static inline void pagetable_dtor_free(struct ptdesc *ptdesc)
+>  static inline bool pagetable_pte_ctor(struct mm_struct *mm,
+>  				      struct ptdesc *ptdesc)
+>  {
+> -	if (!ptlock_init(ptdesc))
+> +	if (mm != &init_mm && !ptlock_init(ptdesc))
+>  		return false;
+>  	__pagetable_ctor(ptdesc);
+>  	return true;
+
+Reviewed-by: Alexander Gordeev <agordeev@linux.ibm.com> # s390
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
