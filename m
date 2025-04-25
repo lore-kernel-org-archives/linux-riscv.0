@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FCCC369D1
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 06:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D4B6C369D3
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 07:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JGVON/HT0W64gdXnUIn040NfA8wWFmA8an21GJzVKH4=; b=uXUEgwCxpwNQRX
-	8fjjuGt210872TnWc7W4yoVYKvsKk6JOeZI4iQtgPu09TPA9TusOcc0jirZ2XasGMbFlhIAInY9Ls
-	hxFeyHx7w7JT7SXynIIU2CpWe0V+eHi3UCXl3aSmjc/mWktyd5Uj2kqQd17Z7rn8zQKAMQiuBMyls
-	vzPnndaXjtxqOg78gNu8B/WUF1j7+qeZPi2GM5ndn5GNKMbM6r8LXAYG1ekIT+iVaN/YFXR+xZpHE
-	NUnk0Gy3fMIOfolYfmHeNEt5OnihtA01BGIBLJuLjTuLGPbbUzGuIeGb6mf80+iFRwSpwun+VukvF
-	QiOa++5S6b6a+35+yp1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FztnyBHGC5fkrbtMbPjg38Fxa7YrJlGkRj+X85DJv2U=; b=VEbEAKUK6MuL5b++x32K4qOvnR
+	iWqnIcH93B/MrRuLbAAkm1Miib0LPzjzzavLVJFrVOxxqRXug7GzN5FwQ9R3eetlUD4dxRTnCSd6D
+	kiNmQqFwp49Lrsur3GtN0M+Ywa9PuDbnpxGtTj0BarmwokA4cd7tdFAiusQCi1i563EkrsiGir3yw
+	NM26570AlqDKUsoN/23ZH8kuiQSSZkmCvkjeZb97EX5NDzgWiLlizKZdv/f+RkZpYo8JlkZCWgftn
+	YyiVvgR2dWNhwFat+MYWjpbbxIhQ4vfQzrjNx5ZT+DvZz54O1E047SytBmpE6IKUezwnG4BdBIcFw
+	gOLKV5pA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8C9e-0000000G2PT-1AuZ;
-	Fri, 25 Apr 2025 06:03:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1u8DEg-0000000G9Gj-0TSU;
+	Fri, 25 Apr 2025 07:12:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8C9c-0000000G2OC-1AXt
+	id 1u8DBX-0000000G8ny-1ax9
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 06:03:17 +0000
+	Fri, 25 Apr 2025 07:09:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4EE3BA4C18B
-	for <linux-riscv@lists.infradead.org>; Fri, 25 Apr 2025 05:57:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9F32C4CEF0
-	for <linux-riscv@lists.infradead.org>; Fri, 25 Apr 2025 06:03:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 460B16845F;
+	Fri, 25 Apr 2025 07:08:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B205AC4CEE4;
+	Fri, 25 Apr 2025 07:09:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745560993;
-	bh=r2J3cA0pT063PLl5H5eka1gbLIoeNfJZ+/mYvUer88c=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=eNoIwbbQXtmKJZKSBEyK6bgiV6kR7LcWkB1XhOyFeZPA6VArt9oUv/yudm2ll4BXI
-	 G59n4vPjK0oHtKUwxJ8J9CCrol0zYupCvQvsJBQx9XE4bwl6Y+uI4/bYiTVSIIIeOD
-	 5d/tUIOAGpmoSySuBr4HrGWOWdKKHwn00MvMIqqg+HLhnfJYufBiDZPfaw4Xy+xowZ
-	 5AcFJVJj/Cap+tshCzyzIbYEzZVkqMmGUtrxdLH98SCyM6GO19HhbIw0+xTR9DI0jn
-	 m6k+vzPLEqCP/rDqRE0EsNES71ITXaHeKsrEoQOeAcB/o/4DhS3VCHGQjg3UisDyQm
-	 EAP9NgohDBWMA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5498d2a8b89so1891018e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 24 Apr 2025 23:03:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXqxG85GCAsbDWrzJli8CvYnz6btqGemAIkdA1yZSGCQp8fmr6a53DwPznkAI5Fot9CN3WOI+DHHMEzJw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzrm6lGzLw2ndjjT63mXQIhy2z7pFLZzu++jL1unMhi59RG0Pse
-	OCrF+3D8w3Fa+q9azlAgsz1MbP5VgL7nZF2L8lMEnkmqqwLsd35Pe+RX1Cvbokt2hrdhiT5z/wr
-	w7WqYZ+83L1E0tbacnM/xxsDkxNo=
-X-Google-Smtp-Source: AGHT+IHfS7m8/8+x2yqbY6VlV+NeRy4z8bEaciZ5/rwX/b/fR5bSbHp5zQJge7TAdo8tls7a26m5C652OdNNo2aXZXg=
-X-Received: by 2002:a05:6512:3e0d:b0:545:532:fd2f with SMTP id
- 2adb3069b0e04-54e8cbc3a5amr275937e87.12.1745560991943; Thu, 24 Apr 2025
- 23:03:11 -0700 (PDT)
+	s=k20201202; t=1745564958;
+	bh=XRJaobu20wNxHoup9s4R3YDQJkYv5i9HIMk9O25Dr6k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WfgEML463b0+bWtPIloy53Rqep5I1ojunbyxFP+bzc9GS2sAG8LRFar6fOcW3siuO
+	 IgP7K5EsZ6MZphcoA07kXQzRZG8ouQRTz9x1UlLLGL9Dy8KrEWrGdfsV01I8QjXWlm
+	 FErYl8AxCDHubZU1yT+tw3NHF9OveIHBZkpmYiIKVxsQkAMDqoU0BPZW/fLePr3Dpb
+	 JH+SnSZAIbQ3bSNGeGpOwudvdgH6b8FmITLdvJKt7L88ybptMF2UYs3N/bRXnEZ2n8
+	 e8pBVM32tAJLS1iedQXy1EGxWOOJtqFV/4Zhla839fffv+QnMDOjaIDiRjAtkYN1uG
+	 +KO9/gzMUiDZA==
+Date: Fri, 25 Apr 2025 09:09:15 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Michal Wilczynski <m.wilczynski@samsung.com>, 
+	Stephen Boyd <sboyd@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>, 
+	Danilo Krummrich <dakr@kernel.org>, Pavel Machek <pavel@kernel.org>, Drew Fustini <drew@pdp7.com>, 
+	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
+	Matt Coster <matt.coster@imgtec.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, m.szyprowski@samsung.com, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 1/4] PM: device: Introduce platform_resources_managed
+ flag
+Message-ID: <20250425-lumpy-marmot-of-popularity-cdbbcd@houat>
+References: <CGME20250414185314eucas1p1ae57b937773a2ed4ce8d52d5598eb028@eucas1p1.samsung.com>
+ <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
+ <20250414-apr_14_for_sending-v2-1-70c5af2af96c@samsung.com>
+ <CAJZ5v0irRq8_p35vf41_ZgomW0X=KZN+0HqwU2K9PvPRm8iZQA@mail.gmail.com>
+ <b9c4182d-38c2-4173-a35a-0e1773c8f2ed@samsung.com>
+ <CAJZ5v0gE0anjW_mDSwNXY8xoZ_0=bDDxiSbUq1GP7-NycDojrQ@mail.gmail.com>
+ <cbf20469-02ab-403a-8db7-2b66e9936b4f@samsung.com>
+ <CAPDyKFqND2JrH8nLUzAqwWgHkwia6M9XOJoY6AqxtR0t120JUA@mail.gmail.com>
 MIME-Version: 1.0
-References: <20250424080950.289864-1-vkuznets@redhat.com> <20250424080950.289864-3-vkuznets@redhat.com>
-In-Reply-To: <20250424080950.289864-3-vkuznets@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 25 Apr 2025 08:03:00 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com>
-X-Gm-Features: ATxdqUGmOMQ0p_VMa0ytPtH193rO9yNiX2zUnIcrUmTzChL3SqzbuU3Y3IXs0TY
-Message-ID: <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] x86/efi: Implement support for embedding SBAT data
- for x86
-To: Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, 
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>, 
-	Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi <bluca@debian.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Eric Snowberg <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_230316_599099_B542F292 
-X-CRM114-Status: GOOD (  27.23  )
+In-Reply-To: <CAPDyKFqND2JrH8nLUzAqwWgHkwia6M9XOJoY6AqxtR0t120JUA@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,143 +80,195 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1378149325545305275=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->
-> Similar to zboot architectures, implement support for embedding SBAT data
-> for x86. Put '.sbat' section to the very end of the binary.
->
-> Note, the obsolete CRC-32 checksum (see commit 9c54baab4401 ("x86/boot:
-> Drop CRC-32 checksum and the build tool that generates it")) is gone and
-> while it would've been possible to reserve the last 4 bytes in '.sbat'
-> section too (like it's done today in '.data'), it seems to be a pointless
-> exercise: SBAT makes zero sense without a signature on the EFI binary so
-> '.sbat' won't be at the very end of the file anyway. Any tool which uses
-> the last 4 bytes of the file as a checksum is broken with signed EFI
-> binaries already.
->
-> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
-> ---
->  arch/x86/boot/Makefile                 |  2 +-
->  arch/x86/boot/compressed/Makefile      |  2 ++
->  arch/x86/boot/compressed/vmlinux.lds.S | 13 +++++++++++++
->  arch/x86/boot/header.S                 | 13 +++++++++++++
->  drivers/firmware/efi/Kconfig           |  2 +-
->  5 files changed, 30 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
-> index 81f55da81967..5f7b52f0e7f5 100644
-> --- a/arch/x86/boot/Makefile
-> +++ b/arch/x86/boot/Makefile
-> @@ -71,7 +71,7 @@ $(obj)/vmlinux.bin: $(obj)/compressed/vmlinux FORCE
->
->  SETUP_OBJS = $(addprefix $(obj)/,$(setup-y))
->
-> -sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|z_.*\)$$/\#define ZO_\2 0x\1/p'
-> +sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|_e\?sbat\|z_.*\)$$/\#define ZO_\2 0x\1/p'
->
->  quiet_cmd_zoffset = ZOFFSET $@
->        cmd_zoffset = $(NM) $< | sed -n $(sed-zoffset) > $@
-> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-> index fdbce022db55..b9b80eccdc02 100644
-> --- a/arch/x86/boot/compressed/Makefile
-> +++ b/arch/x86/boot/compressed/Makefile
-> @@ -107,6 +107,8 @@ vmlinux-objs-$(CONFIG_UNACCEPTED_MEMORY) += $(obj)/mem.o
->  vmlinux-objs-$(CONFIG_EFI) += $(obj)/efi.o
->  vmlinux-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
->
-> +vmlinux-objs-$(CONFIG_EFI_SBAT) += $(objtree)/drivers/firmware/efi/libstub/sbat.o
-> +
 
-Please drop this, and put the .incbin directly into header.S
-
->  $(obj)/vmlinux: $(vmlinux-objs-y) $(vmlinux-libs-y) FORCE
->         $(call if_changed,ld)
->
-> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-> index 3b2bc61c9408..d0a27905de90 100644
-> --- a/arch/x86/boot/compressed/vmlinux.lds.S
-> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
-> @@ -49,9 +49,22 @@ SECTIONS
->                 *(.data.*)
->
->                 /* Add 4 bytes of extra space for the obsolete CRC-32 checksum */
-> +#ifndef CONFIG_EFI_SBAT
->                 . = ALIGN(. + 4, 0x200);
-> +#else
-> +               /* Avoid gap between '.data' and '.sbat' */
-> +               . = ALIGN(. + 4, 0x1000);
-> +#endif
->                 _edata = . ;
->         }
-> +#ifdef CONFIG_EFI_SBAT
-> +       .sbat : ALIGN(0x1000) {
-> +               _sbat = . ;
-> +               *(.sbat)
-> +               _esbat = ALIGN(0x200);
-> +               . = _esbat;
-> +       }
-> +#endif
->         . = ALIGN(L1_CACHE_BYTES);
->         .bss : {
->                 _bss = . ;
-
-This looks a bit odd - see below
-
-> diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
-> index b5c79f43359b..ab851490ef74 100644
-> --- a/arch/x86/boot/header.S
-> +++ b/arch/x86/boot/header.S
-> @@ -207,6 +207,19 @@ pecompat_fstart:
->                 IMAGE_SCN_MEM_READ              | \
->                 IMAGE_SCN_MEM_WRITE             # Characteristics
->
-> +#ifdef CONFIG_EFI_SBAT
-> +       .ascii ".sbat\0\0\0"
-> +       .long   ZO__esbat - ZO__sbat            # VirtualSize
-> +       .long   setup_size + ZO__sbat           # VirtualAddress
-> +       .long   ZO__esbat - ZO__sbat            # SizeOfRawData
-> +       .long   setup_size + ZO__sbat           # PointerToRawData
-> +
-> +       .long   0, 0, 0
-> +       .long   IMAGE_SCN_CNT_INITIALIZED_DATA  | \
-> +               IMAGE_SCN_MEM_READ              | \
-> +               IMAGE_SCN_MEM_DISCARDABLE       # Characteristics
-> +#endif
-> +
-
-This puts the .sbat section at the very end of the file. However, the
-virtual size of .data is 'ZO__end - ZO__data' not 'ZO__edata -
-ZO__data', and so the .sbat section will overlap with .bss in the
-memory view of the image.
+--===============1378149325545305275==
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="vw35xu6fptfqmd4m"
+Content-Disposition: inline
 
 
->         .set    section_count, (. - section_table) / 40
->  #endif /* CONFIG_EFI_STUB */
->
-> diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-> index 2edb0167ba49..5022a378fec1 100644
-> --- a/drivers/firmware/efi/Kconfig
-> +++ b/drivers/firmware/efi/Kconfig
-> @@ -283,7 +283,7 @@ config EFI_EMBEDDED_FIRMWARE
->
->  config EFI_SBAT
->         bool "Embed SBAT section in the kernel"
-> -       depends on EFI_ZBOOT
-> +       depends on EFI_ZBOOT || (EFI_STUB && X86)
->         help
->           SBAT section provides a way to improve SecureBoot revocations of UEFI
->           binaries by introducing a generation-based mechanism. With SBAT, older
-> --
-> 2.49.0
->
->
+--vw35xu6fptfqmd4m
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v2 1/4] PM: device: Introduce platform_resources_managed
+ flag
+MIME-Version: 1.0
+
+Hi,
+
+On Thu, Apr 24, 2025 at 06:51:00PM +0200, Ulf Hansson wrote:
+> On Thu, 17 Apr 2025 at 18:19, Michal Wilczynski
+> <m.wilczynski@samsung.com> wrote:
+> > On 4/16/25 16:48, Rafael J. Wysocki wrote:
+> > > On Wed, Apr 16, 2025 at 3:32=E2=80=AFPM Michal Wilczynski
+> > > <m.wilczynski@samsung.com> wrote:
+> > >>
+> > >> On 4/15/25 18:42, Rafael J. Wysocki wrote:
+> > >>> On Mon, Apr 14, 2025 at 8:53=E2=80=AFPM Michal Wilczynski
+> > >>> <m.wilczynski@samsung.com> wrote:
+> > >>>>
+> > >>>> Introduce a new dev_pm_info flag - platform_resources_managed, to
+> > >>>> indicate whether platform PM resources such as clocks or resets are
+> > >>>> managed externally (e.g. by a generic power domain driver) instead=
+ of
+> > >>>> directly by the consumer device driver.
+> > >>>
+> > >>> I think that this is genpd-specific and so I don't think it belongs=
+ in
+> > >>> struct dev_pm_info.
+> > >>>
+> > >>> There is dev->power.subsys_data->domain_data, why not use it for th=
+is?
+> > >>
+> > >> Hi Rafael,
+> > >>
+> > >> Thanks for the feedback.
+> > >>
+> > >> You're right =E2=80=94 this behavior is specific to genpd, so embedd=
+ing the flag
+> > >> directly in struct dev_pm_info may not be the best choice. Using
+> > >> dev->power.subsys_data->domain_data makes more sense and avoids bloa=
+ting
+> > >> the core PM structure.
+> > >>
+> > >>>
+> > >>> Also, it should be documented way more comprehensively IMV.
+> > >>>
+> > >>> Who is supposed to set it and when?  What does it mean when it is s=
+et?
+> > >>
+> > >> To clarify the intended usage, I would propose adding the following
+> > >> explanation to the commit message:
+> > >>
+> > >> "This flag is intended to be set by a generic PM domain driver (e.g.,
+> > >> from within its attach_dev callback) to indicate that it will manage
+> > >> platform specific runtime power management resources =E2=80=94 such =
+as clocks
+> > >> and resets =E2=80=94 on behalf of the consumer device. This implies =
+a delegation
+> > >> of runtime PM control to the PM domain, typically implemented through
+> > >> its start and stop callbacks.
+> > >>
+> > >> When this flag is set, the consumer driver (e.g., drm/imagination) c=
+an
+> > >> check it and skip managing such resources in its runtime PM callbacks
+> > >> (runtime_suspend, runtime_resume), avoiding conflicts or redundant
+> > >> operations."
+> > >
+> > > This sounds good and I would also put it into a code comment somewher=
+e.
+> > >
+> > > I guess you'll need helpers for setting and testing this flag, so
+> > > their kerneldoc comments can be used for that.
+> > >
+> > >> This could also be included as a code comment near the flag definiti=
+on
+> > >> if you think that=E2=80=99s appropriate.
+> > >>
+> > >> Also, as discussed earlier with Maxime and Matt [1], this is not abo=
+ut
+> > >> full "resource ownership," but more about delegating runtime control=
+ of
+> > >> PM resources like clocks/resets to the genpd. That nuance may be wor=
+th
+> > >> reflecting in the flag name as well, I would rename it to let's say
+> > >> 'runtime_pm_platform_res_delegated', or more concise
+> > >> 'runtime_pm_delegated'.
+> > >
+> > > Or just "rpm_delegated" I suppose.
+> > >
+> > > But if the genpd driver is going to set that flag, it will rather mean
+> > > that this driver will now control the resources in question, so the
+> > > driver should not attempt to manipulate them directly.  Is my
+> > > understanding correct?
+> >
+> > Yes, your understanding is correct =E2=80=94 with one minor clarificati=
+on.
+> >
+> > When the genpd driver sets the flag, it indicates that it will take over
+> > control of the relevant PM resources in the context of runtime PM, i.e.,
+> > via its start() and stop() callbacks. As a result, the device driver
+> > should not manipulate those resources from within its RUNTIME_PM_OPS
+> > (e.g., runtime_suspend, runtime_resume) to avoid conflicts.
+> >
+> > However, outside of the runtime PM callbacks, the consumer device driver
+> > may still access or use those resources if needed e.g for devfreq.
+> >
+> > >
+> > > Assuming that it is correct, how is the device driver going to know
+> > > which resources in particular are now controlled by the genpd driver?
+> >
+> > Good question =E2=80=94 to allow finer-grained control, we could replac=
+e the
+> > current single boolean flag with a u32 bitmask field. Each bit would
+> > correspond to a specific category of platform managed resources. For
+> > example:
+> >
+> > #define RPM_TAKEOVER_CLK        BIT(0)
+> > #define RPM_TAKEOVER_RESET      BIT(1)
+> >
+> > This would allow a PM domain driver to selectively declare which
+> > resources it is taking over and let the consumer driver query only the
+> > relevant parts.
+>=20
+> Assuming we are targeting device specific resources for runtime PM;
+> why would we want the driver to be responsible for some resources and
+> the genpd provider for some others? I would assume we want to handle
+> all these RPM-resources from the genpd provider, if/when possible,
+> right?
+>=20
+> The tricky part though (maybe Stephen had some ideas in his talk [a]
+> at OSS), is to teach the genpd provider about what resources it should
+> handle. In principle the genpd provider will need some kind of device
+> specific knowledge, perhaps based on the device's compatible-string
+> and description in DT.
+>=20
+> My point is, using a bitmask doesn't scale as it would end up having
+> one bit for each clock (a device may have multiple clocks), regulator,
+> pinctrl, phy, etc. In principle, reflecting the description in DT.
+
+My understanding is that it's to address a situation where a "generic"
+driver interacts with some platform specific code. I think it's tied to
+the discussion with the imagination GPU driver handling his clocks, and
+the platform genpd clocks overlapping a bit.
+
+But then, my question is: does it matter? clocks are refcounted, and
+resets are as well iirc, so why do we need a transition at all? Can't we
+just let the platform genpd code take a reference on the clock, the GPU
+driver take one as well, and it's all good, right?
+
+Maxime
+
+--vw35xu6fptfqmd4m
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaAs1GwAKCRAnX84Zoj2+
+do8sAX9FbcAEu04m80R/QWM9SUbClB57KbU/Zbb/SrxS41bJSYzLDFQbballhRWa
+UWhmg2YBfRcskqou4btHfDm4ChKCQ7giQfUQ0IOm9WRVcNZTCKQJvrz64wvKsA7C
+NKJ4T4yLqA==
+=loki
+-----END PGP SIGNATURE-----
+
+--vw35xu6fptfqmd4m--
+
+
+--===============1378149325545305275==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1378149325545305275==--
+
