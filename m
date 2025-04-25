@@ -4,61 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 435E3C369AB
-	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 02:49:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE5CC369D1
+	for <linux-riscv@archiver.kernel.org>; Fri, 25 Apr 2025 05:59:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hZfdvieG66/ead1whVKzD/4hnW5/JB74m51VX7IcZX4=; b=KEhfvRVrz+4yuw
-	e7lIIgeSHlA3ctAfvoQT7txKylurZkF2oQIgiDvGkchWMADBjLReNwfCc9H1Aig6HFJZZqHy9s2WB
-	DuBiCzCGunxe3tElYXMH59iDnAW9t+3aFY0BrwRMM7aafOHS8GuTkhEWwJOm7wwLGVs5v6Lj3W+l/
-	0clOpLbQzLH0EsyF6WvX4ds6maDsX54Jm6dcIJc5CfETq7u74m2wpDU/FK++LniZnBo+AamCJZsmH
-	h/Zx6+/qL6Md1XLNFE5yv2LpGt9Y28sxIlvmED4UNyHD6Ep6S2MyxRZDlOciBSz9Oxm7VFEasdile
-	+I1lTjbI5fbE5e8fTtIA==;
+	List-Owner; bh=nSFa39AdbY2y8AWOoQANmDe4Nhf6kH/1I1hBoPUlR1I=; b=q82lUGNUREt4Jy
+	M0DjsuKqHKIi82ZJtrmmZ+npVkL9g2EnMH3PcgsXvwF55F73WJxdtw4AlgQaxI0Jikw6nGpQJmJIR
+	9fuitS72PE7DWq7Nb4aD0qmoia0qcMTHwjiUeQGXuksp7KctOMYFxBdYaaNw6uBG1klt+SaGYExLK
+	gIDZ7QqAZcTm9rfLD3huhBk2vRuXm/cBLdzk3/k/0h0B6aFOJlGWhFVQtkhqdtUWt96qRFc9eZ9zp
+	uXHfr8FhAevtGzFkMysfu85OVTI5yO4HVnc6n+qBQcCHzbxzXlWSC/GEc7gMu7vS3IeT56Y4uwtTH
+	XgD+jLzdbP6xKvfKupvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u898K-0000000Forj-2qrZ;
-	Fri, 25 Apr 2025 02:49:44 +0000
-Received: from [144.6.53.87] (helo=abb.hmeau.com)
+	id 1u8C5v-0000000G1q2-1z6s;
+	Fri, 25 Apr 2025 05:59:27 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u897g-0000000FomR-08cq
+	id 1u8C5s-0000000G1pW-48xW
 	for linux-riscv@lists.infradead.org;
-	Fri, 25 Apr 2025 02:49:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=cnV8pteBUZTuj+uhOfEOc824fXoOdF+CLlRvwwfF0wI=; b=ANccXNGdGcg2JeipvXlhXmq2p1
-	kOhXe1gyb33uDHyNvPxiIN9ZmFF1oQmf7i9p8dT6Usdeqsxia/QmihmTYdiCK2oRCRCExSKgvIt6P
-	IiK9JUiK0T91CqTXL5/W1Z89FX5nMz3a9BC/c3pTpOkoCbP73bO1bbSteqoOUojhrn+1wFeEvagDH
-	ELlsKqjlhgpYvzc0q5y3FigvrvR1oqsWq3Ip0iJp0yBU8Km5u4acHS5mdjb0XUSVqmxH2p0MNfz5h
-	0nZ1hY8DfbgtyAbIS3gvjfGePHljQIRNQY927YkhFzF07YTqix8Y70UrX/bmbQ9LDZPs3kM4eDXpy
-	+Y0LY7UQ==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u897M-000rbH-26;
-	Fri, 25 Apr 2025 10:48:45 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Fri, 25 Apr 2025 10:48:44 +0800
-Date: Fri, 25 Apr 2025 10:48:44 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH] riscv: crypto - Use SYM_FUNC_START for functions only
- called directly
-Message-ID: <aAr4DFlbPiNKpBmp@gondor.apana.org.au>
-References: <20250424-riscv-crypto-fix-cfi-build-v1-1-2d7516737379@kernel.org>
+	Fri, 25 Apr 2025 05:59:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id CCE4AA4BC95;
+	Fri, 25 Apr 2025 05:53:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2388C4CEE4;
+	Fri, 25 Apr 2025 05:59:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745560763;
+	bh=GLp1ktjFa7K3wjwfc/rJPiarptC1W+shUho7laLH4QA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XEB75zzOCleMN1u4qU3hI0/g19GzAUy2M4ejlMLMuvN3pDW3JLiLvdbOFayRSHEKq
+	 VQLk2z04wzXPeZGTEt+Bf56fI1AC9cmfAeSmNkOOc/zoP1/QykCMMNSF6XcjXOAcCJ
+	 yxTUAnYy1w4lEx0KA7CS0uRYVFRetp5ytT3t/hpZ6W6ddjFQ5XwPNxVUphz5eBlWR8
+	 iTAubyJLavL2lK132zU0OUS8KhXcl04eCWwtKnKK31lAvEZk90id4BvI7xjDIFYWz4
+	 z367m6L8C0kf6TeQAuhh5OU/RWrzRJKk7c7TwomYxT00sdb3YhwYau/arEN+TgFbzp
+	 /HFETG4ueoMGQ==
+Date: Fri, 25 Apr 2025 07:59:20 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Zixian Zeng <sycamoremoon376@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Chen Wang <unicorn_wang@outlook.com>, 
+	Inochi Amaoto <inochiama@outlook.com>, Alexandre Ghiti <alex@ghiti.fr>, Mark Brown <broonie@kernel.org>, 
+	Inochi Amaoto <inochiama@gmail.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	Magnus Damm <magnus.damm@gmail.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org, sophgo@lists.linux.dev, 
+	chao.wei@sophgo.com, xiaoguang.xing@sophgo.com, dlan@gentoo.org, 
+	linux-renesas-soc@vger.kernel.org
+Subject: Re: [PATCH v6 2/3] spi: dt-bindings: snps,dw-apb-ssi: Add compatible
+ for SOPHGO SG2042 SoC
+Message-ID: <20250425-prudent-ara-of-chivalry-bfffb5@kuoka>
+References: <20250425-sfg-spi-v6-0-2dbe7bb46013@gmail.com>
+ <20250425-sfg-spi-v6-2-2dbe7bb46013@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250424-riscv-crypto-fix-cfi-build-v1-1-2d7516737379@kernel.org>
+In-Reply-To: <20250425-sfg-spi-v6-2-2dbe7bb46013@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250424_194904_072707_6F27B825 
-X-CRM114-Status: GOOD (  12.79  )
+X-CRM114-CacheID: sfid-20250424_225925_089674_BA248E0A 
+X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,43 +83,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 24, 2025 at 05:23:22PM -0700, Nathan Chancellor wrote:
-> After some recent changes to the RISC-V crypto code that turned some
-> indirect function calls into direct ones, builds with CONFIG_CFI_CLANG
-> fail with:
+On Fri, Apr 25, 2025 at 10:28:13AM GMT, Zixian Zeng wrote:
+> Sophgo SG2042 ships an SPI controller [1] compatible with the Synopsys
+> DW-SPI IP. Add SoC-specific compatible string and use the generic one
+> as fallback.
 > 
->   ld.lld: error: undefined symbol: __kcfi_typeid_sm3_transform_zvksh_zvkb
->   >>> referenced by arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.o:(.text+0x2) in archive vmlinux.a
+> Link: https://github.com/sophgo/sophgo-doc/blob/main/SG2042/TRM/source/SPI.rst [1]
 > 
->   ld.lld: error: undefined symbol: __kcfi_typeid_sha512_transform_zvknhb_zvkb
->   >>> referenced by arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.o:(.text+0x2) in archive vmlinux.a
-> 
->   ld.lld: error: undefined symbol: __kcfi_typeid_sha256_transform_zvknha_or_zvknhb_zvkb
->   >>> referenced by arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.o:(.text+0x2) in archive vmlinux.a
-> 
-> As these functions are no longer indirectly called (i.e., have their
-> address taken), the compiler will not emit __kcfi_typeid symbols for
-> them but SYM_TYPED_FUNC_START expects these to exist at link time.
-> 
-> Switch the definitions of these functions to use SYM_FUNC_START, as they
-> no longer need kCFI type information since they are only called
-> directly.
-> 
-> Fixes: 1523eaed0ac5 ("crypto: riscv/sm3 - Use API partial block handling")
-> Fixes: 561aab1104d8 ("crypto: riscv/sha512 - Use API partial block handling")
-> Fixes: e6c5597badf2 ("crypto: riscv/sha256 - Use API partial block handling")
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
 > ---
->  arch/riscv/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S | 4 ++--
->  arch/riscv/crypto/sha512-riscv64-zvknhb-zvkb.S           | 4 ++--
->  arch/riscv/crypto/sm3-riscv64-zvksh-zvkb.S               | 4 ++--
->  3 files changed, 6 insertions(+), 6 deletions(-)
+>  Documentation/devicetree/bindings/spi/snps,dw-apb-ssi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Patch applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Best regards,
+Krzysztof
+
 
 _______________________________________________
 linux-riscv mailing list
