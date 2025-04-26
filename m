@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0308C369CB
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Apr 2025 11:24:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9666C369D5
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Apr 2025 14:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9J654m64CnMrIPjbvjzn9e5WfSTPlk50Gsk9zALUWX0=; b=bi3ts33EXwMqsD
-	6UcH4zbier8I+Nv+DYEXhW+eWIeVSJerhcz28o1ANgthe+M0AQ5ZcQFWu8QAcxFoRw+9FKxa7TVTC
-	hclB2qxbcDHjHmGK98fELksxaV3a0rwWMrkPczjcr4rQDn13fIp2siLczx/Ri9X+DQ6G6WxA7wwbL
-	gjhQfhcevUzGlfolpG8KNoQF2qjiTRRgxvnJXxLqBrmLSaa849TmrgmQFPfb9+6xFLGVNFCLcXRVG
-	2Q0FS9TqJ2M3HFq0KcHkAoGKuq0qG6h+Z9a2rmWyx+P+duCoJHy16LZCNQRlinjDo+P4z1k0nOcf7
-	FzpYJBv4Ndmr04h2vs5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=+XACp6X7UbpWbFHRAKRRB/1zoFQEFPp8bcFgpAvinOo=; b=1aO6iq8F1bQGiG
+	7SjOf/0siDDRtz18m6ccqIAsFjer0fHJg2hd/XBrAV2doPRniGMS/I9epV8tLWgNiozVr2L36XVH8
+	unhJFopgVEZT6L71eZ1REIRePvCNfHvPd6OhcAGsgv/zqE8qeDvaLpReaWPYWXRRCJiozv+gNdRtI
+	nRiveDkU1AcK2l9N2FFwoRSut8tmVmK91dbYH0BmmUZ+xSYYoXcD9lc0IHz93rn/JAdUE4U1asaQ9
+	KXJt0jvJsNyxP0Cq/97Rj8FjN9e7LskTjbsdRLxMNhT/GVRJsJ1iq/gegthOSoA+58LeQWpjfvDQL
+	zaN3j6aj/lFfs2Iy9Glw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ddn-00000001vOx-21uk;
-	Sat, 26 Apr 2025 11:24:15 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1u8gLt-000000029EP-17K9;
+	Sat, 26 Apr 2025 14:17:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ddk-00000001vOT-3DNd
+	id 1u8gKK-0000000298p-3AeD
 	for linux-riscv@lists.infradead.org;
-	Sat, 26 Apr 2025 11:24:13 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c0e135e953so371658785a.2
-        for <linux-riscv@lists.infradead.org>; Sat, 26 Apr 2025 04:24:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745666651; x=1746271451; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pqnzJpyxKOv8D4bjtcYPnfE8mIr/LA4bSJZ1glU6cV8=;
-        b=RlHTEi4RQgx1mYqJmspb01BUrdc8+bOVNBRzHEAf5eRkcZiXLTOwSo9FvK0VmdBre2
-         gp0cLhh6uyIQUQl4iNWJon9jUh6nxfYz9CrZymFUUCVbT2nCAKYc2jiLMtMFaVc9kcBJ
-         gNrKV1Q+8hDj6tNGE+dkGFjtKCITa0Ez9OqTtEzeuGwkyD/SZMfdyXJzrq+7gfeUtXEC
-         IB8M+pS00WSEnq7lLllmEmEMkwvMPPa2O+6bOv1ih+leS8ZlSSyWpwhueqr8PrBEpMQN
-         r5AjIobtGZZVB7RO47EcZVyJageIcf1/j5KmkiIkhNSM25i24+jEPnuaRJH8M0O2KhUp
-         nN5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745666651; x=1746271451;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=pqnzJpyxKOv8D4bjtcYPnfE8mIr/LA4bSJZ1glU6cV8=;
-        b=SA77ouByglGVJ9gMOLf3dvU5K8gnq71AE5AFJLp8Kh1pJvaRI7kPC8gd51ZDJxGlZG
-         uI5c/0j17PP3yvCZlgdP6p01DgTfTTvisuZyfsC7qjIOq5+WtJEr4raAD8C4gaJM59HU
-         qIBxKedSnH07ZM8tHLY5Y4CZpf8d1Lsz11o0zytGt4XBAVlOp5KVMUCeShBQKS8QRHw0
-         6F5w4uqNtpXVnklwmO0Qg/viv6OJgE83+uvhPCrckRkrZf7M/bJ1sQuweR4v/VHBoZe/
-         Pe9KSVQ8jUc8gMU/vVEGwGqEWlT8c5npvh+C3fN8DPfKY7ci9Y1UmQqN/2/VhvuNUGYT
-         pfHw==
-X-Forwarded-Encrypted: i=1; AJvYcCWJY7QC/AczkxISs/rkXu/fET1Q78MVsbDjVWRq/YYYE9YYQZVweNgwu0EdQRjJkWLbsBJJx00X0xcJ9A==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7RONyuLCEbOPJOOYyY/VGGqteXDOaJyr+vPDhRvh81srZ0Ohf
-	GCOyqzXHvPz0Ff/VfufqfRrH4WfPa0e9CFfzDZJW9jRd3zSdLCQ2
-X-Gm-Gg: ASbGncv1QDe3DU3MdZmhiD+oWkIFALjq0qT+KBMUJFzAtFdMdoMW8Bb6YGFjtnQUaxs
-	NfdpUfTyfvm22ufrgKZEppEuDLGZqHnDwZxI9mAlwGksPN9dyjFiELghZlN/UgiH2aThKJNJRPH
-	usRha+aQjWhZOhXCTB4F5J6HbjHHaRm3Gx7guDfFCP5NMbPb902fR6nFyGNVSVu/HEWLCkPv8my
-	pIEssCvJ0bOmi+71UlY3avDA3A8J5tCccg1k4PnN/GW9qPGf1Snd+5GAaQMogj1j5VuejcoyK3h
-	6haWlkyuvjUcv+SQ
-X-Google-Smtp-Source: AGHT+IHTJyjJW4zRKKH13NlfTIwZIg4GsuvT7hEkrKwp+YV3SS8iaJApxOfdun7TkRMs5S8LELbrRQ==
-X-Received: by 2002:a05:620a:460a:b0:7c5:562d:cd01 with SMTP id af79cd13be357-7c9606f9a48mr802679585a.16.1745666651286;
-        Sat, 26 Apr 2025 04:24:11 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c958c91a10sm337284985a.22.2025.04.26.04.24.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 26 Apr 2025 04:24:10 -0700 (PDT)
-Date: Sat, 26 Apr 2025 19:23:58 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Chen Wang <unicorn_wang@outlook.com>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>, Jean Delvare <jdelvare@suse.com>, 
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Andi Shyti <andi.shyti@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Samuel Holland <samuel.holland@sifive.com>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Jarkko Nikula <jarkko.nikula@linux.intel.com>, 
-	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>
-Subject: Re: [PATCH v2 00/10] riscv: sophgo: Introduce SG2044 SRD3-10 board
- support
-Message-ID: <2feyvebloqdcxxzmywe6azmwnz7zqulh2lixhw53ciw2ldisch@n2q3duucrp2r>
-References: <20250413223507.46480-1-inochiama@gmail.com>
- <MA0P287MB22626253965E96829B7371A1FE872@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+	Sat, 26 Apr 2025 14:16:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7B4B7A4D387;
+	Sat, 26 Apr 2025 14:10:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B38E3C4CEE2;
+	Sat, 26 Apr 2025 14:16:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745676977;
+	bh=N1YWiN0vUP+4GgolL3DpxN1tliOksTTr9DRMbL1qvM0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=FMz1trMCj79iKTZy3+andh8lEk3lSz0Bxpuibpsq0nEw3s33ZWizckYBinIheg2Ox
+	 Nex9FKhCEHcK8wtdOhb2g2oVekKixg+kUzID5KijKYihOoWehrnw5sZanGhr7CqbDo
+	 g7/Lgdi35rt5lkHy2FGR1XVq+B8BN7+b9jbaw/O5+Lrm2p+wSb0J/rQmVmWAer4jIH
+	 ehgAAiOFqPWq0N6EPH+gkfhtxbcyJPYqqFswgJulVzEWioYqSgOEOd+9L88ZK3WxFi
+	 V3HCx6cKHu+6SaFjUwzhyR0FYVlygkudoEnOjJHRoHg0Y14LfreEOB1Kn5vCiMHgR3
+	 bUBZFZMlHTlKA==
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jeff Xu <jeffxu@chromium.org>
+Subject: [PATCH] riscv: enable mseal sysmap for RV64
+Date: Sat, 26 Apr 2025 21:59:54 +0800
+Message-ID: <20250426135954.5614-1-jszhang@kernel.org>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <MA0P287MB22626253965E96829B7371A1FE872@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_042412_875652_B05A8069 
-X-CRM114-Status: GOOD (  10.58  )
+X-CRM114-CacheID: sfid-20250426_071620_857205_4C57D303 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,20 +75,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 03:36:41PM +0800, Chen Wang wrote:
-> Hi, Inochi,
-> 
-> Will you apply this patchset on sophgo/for-next? I see there are changes
-> just about dts/bindings.
-> 
-> Chen
-> 
+Provide support for CONFIG_MSEAL_SYSTEM_MAPPINGS for RV64, covering the
+vdso, vvar.
 
-I can only take 2, 3, 4, 9, 10 for now. The left I think they
-should be take by the subsystem maintainers.
+Passed sysmap_is_sealed and mseal_test self tests.
+Passed booting a buildroot rootfs image and a cli debian rootfs image.
 
-Regards,
-Inochi
+Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+Cc: Jeff Xu <jeffxu@chromium.org>
+---
+ arch/riscv/Kconfig       | 1 +
+ arch/riscv/kernel/vdso.c | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index bbec87b79309..3cb0b05eef62 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -70,6 +70,7 @@ config RISCV
+ 	# LLD >= 14: https://github.com/llvm/llvm-project/issues/50505
+ 	select ARCH_SUPPORTS_LTO_CLANG if LLD_VERSION >= 140000
+ 	select ARCH_SUPPORTS_LTO_CLANG_THIN if LLD_VERSION >= 140000
++	select ARCH_SUPPORTS_MSEAL_SYSTEM_MAPPINGS if 64BIT && MMU
+ 	select ARCH_SUPPORTS_PAGE_TABLE_CHECK if MMU
+ 	select ARCH_SUPPORTS_PER_VMA_LOCK if MMU
+ 	select ARCH_SUPPORTS_RT
+diff --git a/arch/riscv/kernel/vdso.c b/arch/riscv/kernel/vdso.c
+index cc2895d1fbc2..3a8e038b10a2 100644
+--- a/arch/riscv/kernel/vdso.c
++++ b/arch/riscv/kernel/vdso.c
+@@ -136,7 +136,7 @@ static int __setup_additional_pages(struct mm_struct *mm,
+ 
+ 	ret =
+ 	   _install_special_mapping(mm, vdso_base, vdso_text_len,
+-		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC),
++		(VM_READ | VM_EXEC | VM_MAYREAD | VM_MAYWRITE | VM_MAYEXEC | VM_SEALED_SYSMAP),
+ 		vdso_info->cm);
+ 
+ 	if (IS_ERR(ret))
+-- 
+2.47.2
+
 
 _______________________________________________
 linux-riscv mailing list
