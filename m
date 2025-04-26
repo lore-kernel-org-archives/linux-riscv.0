@@ -4,79 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DA60C369CB
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Apr 2025 14:54:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082F1C369CB
+	for <linux-riscv@archiver.kernel.org>; Sat, 26 Apr 2025 14:56:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5w42H4NSeU5rjjfJBWpZSWdnsNgyGmxFwwomONuW738=; b=jVGNm4uy5InElR
-	DCxQxSrYIuh7QFk90VfCF0bcFwbY0WO8EouEXJDc7BNijV0kFZynAbJ/dwwmDNcKzlrMn50aiemEM
-	OuAkyzxyICQA1XjBBRscDV9FPgs2qHZKCdeiVv0/xyVUP8E5xdcObHFlxl5aOlSCgtkkeJHmhMSqj
-	9T2FG3hqswrkXXrVJ8TwLxZGzGc3JOnvv3R26bVgdAVpjaiBw1DexuoSrseCAX3zloCG6jSDUFp40
-	lwQsKANpre7pnisN//8fCwNEQPKIXm9TC88U2EhtMyRhsa38eWgzldtzytT6pOK9Lc0Kd2vzG2/Mg
-	9A3vkie1hMiBesboZeFw==;
+	List-Owner; bh=Ftgz2JzRjQw9m9wU0zEqOqGneA3/vcrjIj0SCUHsERg=; b=XfC407pN6Td0b5
+	KYM/26nZdCtZoXF7BqZu9HgAUYU1/BzRKp/DHFNPBz8dEUe7Vj2gyCKty6bLiIb6qnx3sAIBV7brl
+	OqyFnAMB+kZ2IielbjdThWhibhCLjL6MNZWeDaKAqPlbMoZPsVfXPXwttaMFVQK5d5EmDpVGVS+4M
+	ggbeN0rO4MWyxpK7u37Hpf8mJL7c8jo/kow+1EOD7MmjYA2LANdI4UlsGHkGLU0cxMbfcLwHW11vM
+	svb2W0n4Nfz6ledvaXjpQX0obc5SSfIghyTMOZttO+QqsMkUmiB54mpiLD/9HVHkGxxVWJLFZemEk
+	/TIw7Mt/DzD15Ba9zRdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8gvM-00000002BKf-414c;
-	Sat, 26 Apr 2025 14:54:36 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u8gxR-00000002BZX-2gvR;
+	Sat, 26 Apr 2025 14:56:45 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8gvK-00000002BJz-2E2q
+	id 1u8gxO-00000002BZ3-3ywF
 	for linux-riscv@lists.infradead.org;
-	Sat, 26 Apr 2025 14:54:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id DE0475C5787;
-	Sat, 26 Apr 2025 14:52:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79621C4CEE2;
-	Sat, 26 Apr 2025 14:54:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745679272;
-	bh=jr3XRJfORT4XwYRsSfCCGcYkWr9+PGGChSVSgni5WAM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QshoRKIMj7lXu+pq5SP5kVW/YAWsq8+LODBex/ZUGL31ib3dtUavavNoYyj3Mu/bl
-	 vqtoJt+lHLzsaGDvF5x0ndA+Mrb/AKxwu9Tlz/+mxXnEajx1tVIRgdlp/7fjL2/PaC
-	 mn1g4fcsrHO/R6JBq3y2BsanLzlLutGRmrsfE0VJXneDPucIuQOC8dW8ulNWiJUYy0
-	 zvuLWq3eagjRiV5lvsR+CvGUcxcIVSnJVCL0f6rViV6H0/JyGu6LUvpQKypbXqMMFh
-	 6F9WEobmhWC46oJlK+AigeksFTCzBk6omScCeTiUXZYtPzPC2zPmRXEeznZZhyzBiY
-	 JnLuGXHQHJVgg==
-Date: Sat, 26 Apr 2025 22:38:03 +0800
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-Cc: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Min Lin <linmin@eswincomputing.com>,
-	Pritesh Patel <pritesh.patel@einfochips.com>,
-	Yangyu Chen <cyy@cyyself.name>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	Yu Chien Peter Lin <peterlin@andestech.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Kanak Shilledar <kanakshilledar@gmail.com>,
-	Darshan Prajapati <darshan.prajapati@einfochips.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia <a-bhatia1@ti.com>,
-	rafal@milecki.pl, Anup Patel <anup@brainfault.org>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/10] dt-bindings: riscv: Add SiFive HiFive Premier
- P550 board
-Message-ID: <aAzvy7ZJqPv6jW3p@xhacker>
-References: <20250410152519.1358964-1-pinkesh.vaghela@einfochips.com>
- <20250410152519.1358964-5-pinkesh.vaghela@einfochips.com>
+	Sat, 26 Apr 2025 14:56:44 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iencinas.com;
+	s=key1; t=1745679398;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=T3D2Wq7EVGu9ukjexMYuq8e+jDjRLdPow92yjOGXrYg=;
+	b=X6B2J3t5QVaUwP7jK9sXf5HGgOifbaWiOZg7lIwgwDBLFPRYVgRamqlr5U8nc3JXmLJDg9
+	pvIfOWv387GbCj1rEYzJQhlCqtjAxKhV5yg6gW4rJ6Ez6ct8uUf0QNF5l9vlKVVsJnV5ou
+	k17pnrDQs0cGuZ6dj80CFkBYSYvnqZpUM6fi+oKfAlbm3786HwXtb416wIhHOY9ggXETjv
+	e3owhLIaP/k11iVwMF3+smUv77RheHhryHr9iQfJxHP/Qb+KShLMthcsdrpXD8bNBVij2M
+	qm683yde833B5QC6WMFFbHFVoGEWsi8dO2mxzONqA7hZLVu8ZEuIRq0C891UDg==
+From: Ignacio Encinas <ignacio@iencinas.com>
+Date: Sat, 26 Apr 2025 16:56:18 +0200
+Subject: [PATCH v4 1/2] include/uapi/linux/swab.h: move default
+ implementation for swab macros into asm-generic
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250410152519.1358964-5-pinkesh.vaghela@einfochips.com>
+Message-Id: <20250426-riscv-swab-v4-1-64201404a68c@iencinas.com>
+References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+In-Reply-To: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
+ Arnd Bergmann <arnd@arndb.de>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev, 
+ skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>, 
+ =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, 
+ linux-arch@vger.kernel.org, Ignacio Encinas <ignacio@iencinas.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250426_075434_652140_42C487B6 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20250426_075643_509931_FAF035B4 
+X-CRM114-Status: UNSURE (   9.79  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,90 +77,115 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Apr 10, 2025 at 08:55:13PM +0530, Pinkesh Vaghela wrote:
-> From: Pritesh Patel <pritesh.patel@einfochips.com>
-> 
-> Add DT binding documentation for the ESWIN EIC7700 SoC and
-> HiFive Premier P550 Board
-> 
-> Signed-off-by: Pritesh Patel <pritesh.patel@einfochips.com>
-> Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> Signed-off-by: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> Reviewed-by: Matthias Brugger <matthias.bgg@kernel.org>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../devicetree/bindings/riscv/eswin.yaml      | 29 +++++++++++++++++++
->  MAINTAINERS                                   |  7 +++++
->  2 files changed, 36 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/riscv/eswin.yaml b/Documentation/devicetree/bindings/riscv/eswin.yaml
-> new file mode 100644
-> index 000000000000..c603c45eef22
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/riscv/eswin.yaml
-> @@ -0,0 +1,29 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/riscv/eswin.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: ESWIN SoC-based boards
-> +
-> +maintainers:
-> +  - Min Lin <linmin@eswincomputing.com>
-> +  - Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> +  - Pritesh Patel <pritesh.patel@einfochips.com>
-> +
-> +description:
-> +  ESWIN SoC-based boards
-> +
-> +properties:
-> +  $nodename:
-> +    const: '/'
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - sifive,hifive-premier-p550
-> +          - const: eswin,eic7700
-> +
-> +additionalProperties: true
-> +
-> +...
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index bfcdf2bced61..f90c940f286c 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -8768,6 +8768,13 @@ L:	linux-can@vger.kernel.org
->  S:	Maintained
->  F:	drivers/net/can/usb/esd_usb.c
->  
-> +ESWIN DEVICETREES
-> +M:	Min Lin <linmin@eswincomputing.com>
+Move the default byteswap implementation into asm-generic so that it can
+be included from arch code.
 
-IMHO, this series isn's sent by this email, and I didn't find any
-Min's commit history in the Linus tree, and even didn't find any
-discussions or code reviews in the mailist, so is it suitable to add
-to maintainers? I think maintainers doesn't work like this flow.
+This is required by RISC-V in order to have a fallback implementation
+without duplicating it.
 
-> +M:	Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
-> +M:	Pritesh Patel <pritesh.patel@einfochips.com>
-> +S:	Maintained
-> +F:	Documentation/devicetree/bindings/riscv/eswin.yaml
-> +
->  ET131X NETWORK DRIVER
->  M:	Mark Einon <mark.einon@gmail.com>
->  S:	Odd Fixes
-> -- 
-> 2.25.1
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
+Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+---
+ include/uapi/asm-generic/swab.h | 33 +++++++++++++++++++++++++++++++++
+ include/uapi/linux/swab.h       | 33 +--------------------------------
+ 2 files changed, 34 insertions(+), 32 deletions(-)
+
+diff --git a/include/uapi/asm-generic/swab.h b/include/uapi/asm-generic/swab.h
+index f2da4e4fd4d1..232e81661dc5 100644
+--- a/include/uapi/asm-generic/swab.h
++++ b/include/uapi/asm-generic/swab.h
+@@ -3,6 +3,7 @@
+ #define _ASM_GENERIC_SWAB_H
+ 
+ #include <asm/bitsperlong.h>
++#include <linux/types.h>
+ 
+ /*
+  * 32 bit architectures typically (but not always) want to
+@@ -16,4 +17,36 @@
+ #endif
+ #endif
+ 
++/*
++ * casts are necessary for constants, because we never know how for sure
++ * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
++ */
++#define ___constant_swab16(x) ((__u16)(				\
++	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
++	(((__u16)(x) & (__u16)0xff00U) >> 8)))
++
++#define ___constant_swab32(x) ((__u32)(				\
++	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
++	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
++	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
++	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
++
++#define ___constant_swab64(x) ((__u64)(				\
++	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
++	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
++	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
++	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
++	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
++	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
++	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
++	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
++
++#define ___constant_swahw32(x) ((__u32)(			\
++	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
++	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
++
++#define ___constant_swahb32(x) ((__u32)(			\
++	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
++	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
++
+ #endif /* _ASM_GENERIC_SWAB_H */
+diff --git a/include/uapi/linux/swab.h b/include/uapi/linux/swab.h
+index 01717181339e..ca808c492996 100644
+--- a/include/uapi/linux/swab.h
++++ b/include/uapi/linux/swab.h
+@@ -6,38 +6,7 @@
+ #include <linux/stddef.h>
+ #include <asm/bitsperlong.h>
+ #include <asm/swab.h>
+-
+-/*
+- * casts are necessary for constants, because we never know how for sure
+- * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
+- */
+-#define ___constant_swab16(x) ((__u16)(				\
+-	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
+-	(((__u16)(x) & (__u16)0xff00U) >> 8)))
+-
+-#define ___constant_swab32(x) ((__u32)(				\
+-	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
+-	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
+-	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
+-	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
+-
+-#define ___constant_swab64(x) ((__u64)(				\
+-	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
+-	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
+-	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
+-	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
+-	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
+-	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
+-	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
+-	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
+-
+-#define ___constant_swahw32(x) ((__u32)(			\
+-	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
+-	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
+-
+-#define ___constant_swahb32(x) ((__u32)(			\
+-	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
+-	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
++#include <asm-generic/swab.h>
+ 
+ /*
+  * Implement the following as inlines, but define the interface using
+
+-- 
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
