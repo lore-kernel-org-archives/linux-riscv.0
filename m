@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BFB0C369D1
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Apr 2025 13:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E2C4C369D1
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Apr 2025 13:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JtSufu0kPfSZpjhzjojqnOtq0WVrXHKeAJ7eyFQNN0o=; b=WNladlv6AeZgxL
-	T3i46iAfyGcZIFVVuQhoUGWmHqGaAxkY0BQlJeSuLvkaAF3OPRiyhjND2Mrgq7hlx+NSmrlZiowd7
-	SrzYjfKNpIzTte/z84AHycFEuQMTdYc/TSsdpeNF9dpG0iQ2yoDbA4SvkXer8QobPKjrhugEwqt6j
-	tZcZ6PwmpGu3GGkR+HFlwVcoK6Xi8kyBkMKCJ7xmzmcq7CvrA0uK9qi4A0EGmVngfE9ARSvtdq3GU
-	4hdw2MTkE2k2CWmAYHrZkZZUf2/+l7H3MOLSHOTR6hBbtZrLyPI2dREVLfwZzUTjufBs2fC3pfY7O
-	4H56hLyHtcbKu/rgdItA==;
+	List-Owner; bh=qkH7ndvnVRJlm4DFTR7SiAfmjTK5QHR0OVxmHBr/FaU=; b=o/NdDZGM8pCMJl
+	JswAj2631h80FhM7WtZ3gfkNacPxX5KIPWdFtzdbOaS9bIb2mxz9xyOdQpPo38DaYSe8j0x/nCqxL
+	XEH1KtNHmCcUCtnIamZx5Iu+0G2Nt2odvMyGYEtImA6U/xm0bntzDtzJI9m96BTd2hije0leAm4sD
+	bDA6deJQxiclQrMfNPNP06IUCuWCY5wKoIX/Wl4aEAtEUa7gQwDgqRDTcEXITIMjWDbT9kvZG4/rv
+	sjhReb8XWjzXseUeqtm1iPLsG1VQdVdlTeBFRZXaXYB31zVnZ9qpRgICgN+r2X5AjFtIKHE3ORoev
+	GJstpUyQkPnqkp+Laxkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u91fi-00000003ZWV-3AhP;
-	Sun, 27 Apr 2025 13:03:50 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u91p8-00000003aLd-2afr;
+	Sun, 27 Apr 2025 13:13:34 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u91Yj-00000003YQi-09qM;
-	Sun, 27 Apr 2025 12:56:38 +0000
+	id 1u91nC-00000003aDb-41y6;
+	Sun, 27 Apr 2025 13:11:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id CFCA544F7A;
-	Sun, 27 Apr 2025 12:56:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BD42C4CEE3;
-	Sun, 27 Apr 2025 12:56:36 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 078886116F;
+	Sun, 27 Apr 2025 13:11:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8414C4CEE3;
+	Sun, 27 Apr 2025 13:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745758596;
-	bh=AgqV1hMsSjVwY25pYZciWVxf7VAWpBvP9JfqHyR35EI=;
+	s=k20201202; t=1745759493;
+	bh=hIg9xiL1wTkWBQvd+WTVpN2UA7enXw1novSCVk6FraQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qV/qYJttnMqF/e8OqPLChbglT+OXe0BUI3C3XJkFZdTZhhNyHpOmlW5bb+1pxLyao
-	 gwGGLC+l03/YlzGd5+J56KHsYr0ohKSxDi747S0hGoCacZJ2qaaZmYUqJ2US3FnkyK
-	 Tu/o38Ex6SQrwWRr+GMMtqdU70l2SZNmFzlAG7PYaH28iELmPY1EI0osYVw1sYYhyG
-	 uGzqeuOneXyF0+JHSk9mnATjjGPRJIaqEHig6iKUkyyMDrwIc+ilmnaGMs99Mvxqgv
-	 8h/Ac2RS79Wo+V7nYuNH9MBFb5lhQYMARyeMIsV0ibobHTJbQn5pg36EgAkKZDDFP6
-	 PxMIuzZeFmMsQ==
-Date: Sun, 27 Apr 2025 05:56:41 -0700
+	b=Js5eBBxoHlcS56/LWyr45u7eRowNxoCYA6Md7I33bPaPRQLs3baLIHPlyTp0csghf
+	 mNCXTEbu1yNMtMOT7JTf854tXYRVvArrq3HZEnVUBQlFqylkwky2LSYaFxEK8/Kw5X
+	 Z/AcD9AseJYp4rgJMRwQ8XY9rmHzUm+sI/ac4vuLvW0OU9Ii9N2xfO9Puzy+QkAVof
+	 Nyn3ibUt23OszHmj1FWPHbibu4rE+VmW/6hBdidH2RcSqJWI7TquPP9TueEjIP/oSw
+	 /d5OvCZ/JlLLJjOP3DLWAlgxyVxgFiRpBDxeOK061Pq27N2K0t8Z0HoPDa2VNsTeb+
+	 FuI4gqQiU6ppA==
+Date: Sun, 27 Apr 2025 06:11:38 -0700
 From: Eric Biggers <ebiggers@kernel.org>
 To: Herbert Xu <herbert@gondor.apana.org.au>
 Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
@@ -53,16 +53,14 @@ Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
 	"Jason A . Donenfeld " <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
 Subject: Re: [v2 PATCH 00/13] Architecture-optimized SHA-256 library API
-Message-ID: <20250427125641.GB1161@quark>
+Message-ID: <20250427131138.GC1161@quark>
 References: <cover.1745734678.git.herbert@gondor.apana.org.au>
  <20250427123514.GA1161@quark>
  <aA4mAlozk3RvxvTe@gondor.apana.org.au>
+ <20250427125641.GB1161@quark>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aA4mAlozk3RvxvTe@gondor.apana.org.au>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_055637_100358_635530DA 
-X-CRM114-Status: GOOD (  15.63  )
+In-Reply-To: <20250427125641.GB1161@quark>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +77,45 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 08:41:38PM +0800, Herbert Xu wrote:
-> On Sun, Apr 27, 2025 at 05:35:14AM -0700, Eric Biggers wrote:
-> >
-> > Well, barely a day and you've already ruined my patch series.  Now instead of a
-> > clean design where the crypto_shash API is built on top of the normal library
-> > API (sha256_update() etc.), there's now a special low-level API
-> > "sha256_choose_blocks()" just for shash that it's built on top of instead, for
-> > no good reason.  You're also still pushing your broken BLOCK_HASH_UPDATE_BLOCKS
-> > macro that doesn't work with size_t, and putting my name on your broken code
-> > that uses it.
+On Sun, Apr 27, 2025 at 05:56:43AM -0700, Eric Biggers wrote:
+> On Sun, Apr 27, 2025 at 08:41:38PM +0800, Herbert Xu wrote:
+> > On Sun, Apr 27, 2025 at 05:35:14AM -0700, Eric Biggers wrote:
+> > >
+> > > Well, barely a day and you've already ruined my patch series.  Now instead of a
+> > > clean design where the crypto_shash API is built on top of the normal library
+> > > API (sha256_update() etc.), there's now a special low-level API
+> > > "sha256_choose_blocks()" just for shash that it's built on top of instead, for
+> > > no good reason.  You're also still pushing your broken BLOCK_HASH_UPDATE_BLOCKS
+> > > macro that doesn't work with size_t, and putting my name on your broken code
+> > > that uses it.
+> > 
+> > Your design is unacceptable because you're forcing the partial block
+> > handling on shash where it's not needed,
 > 
-> Your design is unacceptable because you're forcing the partial block
-> handling on shash where it's not needed,
+> Excuse me?  It's the other way around.  In my version the partial block handling
+> is only in the library, not shash.  In your version you've forced it into the
+> shash layer, even though the library does it already.  I understand that you've
+> added support for partial block handling to crypto/shash.c and you want to feel
+> like your work is useful, but in this case it's not, since the libray has to
+> handle arbitrary-length inputs anyway.
+> 
+> > just as you're forcing the hardirq support on everything.
+> 
+> If you want crypto_shash to warn on hardirq usage you should just put a
+> WARN_ON(in_hardirq()) in crypto_shash_*(), which will actually achieve that.
+> Not add a shash-specific non-hardirq-safe low-level API to the library that can
+> silently corrupt random tasks' SIMD registers on production systems.
 
-Excuse me?  It's the other way around.  In my version the partial block handling
-is only in the library, not shash.  In your version you've forced it into the
-shash layer, even though the library does it already.  I understand that you've
-added support for partial block handling to crypto/shash.c and you want to feel
-like your work is useful, but in this case it's not, since the libray has to
-handle arbitrary-length inputs anyway.
+By the way, as I mentioned in my cover letter:
 
-> just as you're forcing the hardirq support on everything.
+    For now the SHA-256 library is well-covered by the crypto_shash
+    self-tests, but I plan to add a test for the library directly later.
 
-If you want crypto_shash to warn on hardirq usage you should just put a
-WARN_ON(in_hardirq()) in crypto_shash_*(), which will actually achieve that.
-Not add a shash-specific non-hardirq-safe low-level API to the library that can
-silently corrupt random tasks' SIMD registers on production systems.
+But due to your gratuitous changes where crypto_shash is no longer built on top
+of the normal SHA-256 library API, that's no longer the case.
+
+So while I do still plan to add a SHA-256 library test anyway, I don't see the
+reason for not also making crypto_shash just do the right thing.
 
 - Eric
 
