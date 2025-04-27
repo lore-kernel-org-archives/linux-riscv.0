@@ -4,46 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD5C7C369CB
-	for <linux-riscv@archiver.kernel.org>; Sat, 26 Apr 2025 18:05:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 699C8C369D8
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Apr 2025 00:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wJjqLBoiEqR01dLF6VgyUiMDMqkfGLWifEiEbgwa85M=; b=Gi44ymBCQmSvmF
-	EJfm7cuZufb8KtT9Jyh8kb5oRFOc4ml2pWFt5g/RxiBxRkZN3uNoA4CCTwWpYwZJ+dqDRfni4O6aY
-	CcfYOz/RCHuDcw+l7IClVMJY69h53cEsOPCdebwBVGUC6VeLXepyku1YoD9XAHD8G8l+90xrgxFXR
-	oC0ah2S+yq6jii8YpKdoZ+MjsaO4PE0cbhaHFeQ8aNfYp04PeICauJeH+CJuPpx2KuXxo6nnXr8Hy
-	qT+OXojwaZv435beNqrP1xGhcVGs9sKhF/Sf1Gm4K80Yjsh23EyE+OFY6cw9xK6d81YacQBkO8Cwf
-	sqH9q5GNZ/KJiCEU5p7w==;
+	List-Owner; bh=dXGw+wUKkFCMjEfH0SEC2Ajl4+QeRHSwBo8SvRYJMRM=; b=PWS39+9ZAYpRiG
+	Rpgodp6apc3VkZA6XpafPxEaoPGYrJo2wLz5xd0rZ0sn2H4fElxNn4J1fal/XyBVsYtlJUyixlDtk
+	5ikdUo6qGfy9ghRX15monWCht465XpT2csmz4DPkxcWiLBnHqJ6Qh+j17GB+0WjwixbFsQgJ03dHg
+	7ov+l6mXTG4WzxBmA9akc1GK267HNTSUV9/DjGJ1bGRCiCijwnNiEikv5TXroNDli3qK+b6iGUmHs
+	tGV0k3EgUIRX4qmXspxqvGQ5Nw1ty2/uYiyWIv/w74Wg7vPRcSExP4720ZlyXbMO7rqeWpZXbv6Ui
+	I/kTh3m9yKmqddT6yMZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8ju5-00000002NTB-364L;
-	Sat, 26 Apr 2025 18:05:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1u8plW-00000002esz-0O4g;
+	Sun, 27 Apr 2025 00:21:02 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u8jsB-00000002NJG-1ynD;
-	Sat, 26 Apr 2025 18:03:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 13AE16115D;
-	Sat, 26 Apr 2025 18:03:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C994C4CEE2;
-	Sat, 26 Apr 2025 18:03:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745690608;
-	bh=thPYajZSkuIUqKSQ0PKrjdP700DcSK2zwAu2Gky2T80=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nAIxHEC/RBFXC7YAAr3+tsr8rzEcee3Oga1vMPOVdLEclJGRGGYsap6d40ssYdREa
-	 631y8iWvrWajenPInP5JKnMuJ2fzsFVn4xbQ/K+cHhgPVnyuchNRRoD0ozvKffZkS3
-	 MqUsr8paPOUnFmn+B8HDI8yKlJGh1TXUf3fq6tuJ1SIjPZir6nq73386jFGlYKnBTI
-	 uo2ZHr9L3pkwpshwb0rthNh+eao6mVOKjQYtoSDUrpgKEgzJXu+h6VzFzy4Z/K4auE
-	 MgMeah9RtM9RNppv7fmQMq0y8aXytAvAE0U5aitXE09LbzHtDgGADWAkJrVYOWn55s
-	 dQXkKhP5hQ5yw==
-Date: Sat, 26 Apr 2025 11:03:26 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
+	id 1u8pjb-00000002ei7-0Aiq;
+	Sun, 27 Apr 2025 00:19:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=qIc1CnqWjP+VDV+/eTU2C9hwQs+hAGsJroIHvnLDXc0=; b=LsUBruIGAs9uLBJRTk9h6fgdB0
+	2xisb0QqkU5+qP/eEYOH3uvK2DCnuZkERHnCECKmdbX85eZlMfmPqVki9sSxjYrxdWFAhjUUMsUD3
+	P2JtdRMdBzT9y1/R7BdqzGhm5+HW6Qeftz51Y5755VFfohf8/0ee7AMDCj9lJUk5Fsi5cY7ScWSiM
+	wAarhpfnk8TKu4CA4qEF5xdYMq88s0cnneBOdtKkePk/L0Ss41Ue/EHUkeraGj4GuqVbngWnxOuPy
+	zGJVAmP3Tblrt5KCk9xwxPfx3IMbexqk44KkQviPivswZwKydYQtt5WMVkj4AP4WS2Vj5Wn0x9m7M
+	CuGifb1w==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u8pjU-001IyU-22;
+	Sun, 27 Apr 2025 08:18:57 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 08:18:56 +0800
+Date: Sun, 27 Apr 2025 08:18:56 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
 Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
 	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
@@ -52,12 +54,16 @@ Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Jason@zx2c4.com, torvalds@linux-foundation.org
 Subject: Re: [PATCH 11/13] crypto: x86/sha256 - implement library instead of
  shash
-Message-ID: <20250426180326.GA1184@sol.localdomain>
+Message-ID: <aA138IKjqyZeQLgB@gondor.apana.org.au>
 References: <20250426065041.1551914-12-ebiggers@kernel.org>
  <aAy6g3nblKtRj1l3@gondor.apana.org.au>
+ <20250426180326.GA1184@sol.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aAy6g3nblKtRj1l3@gondor.apana.org.au>
+In-Reply-To: <20250426180326.GA1184@sol.localdomain>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250426_171903_081624_A40BAE25 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,38 +80,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Apr 26, 2025 at 06:50:43PM +0800, Herbert Xu wrote:
-> Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > +void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
-> > +                       const u8 *data, size_t nblocks)
-> > +{
-> > +       if (static_branch_likely(&have_sha256_x86) && crypto_simd_usable()) {
-> > +               kernel_fpu_begin();
-> > +               static_call(sha256_blocks_x86)(state, data, nblocks);
-> > +               kernel_fpu_end();
-> > +       } else {
-> > +               sha256_blocks_generic(state, data, nblocks);
-> > +       }
-> 
-> Why did you restore the SIMD fallback path? Please provide a real
-> use-case for doing SHA2 in a hardirq or I'll just remove it again.
+On Sat, Apr 26, 2025 at 11:03:26AM -0700, Eric Biggers wrote:
+>
+> The SHA-256 library functions currently work in any context, and this patch
+> series preserves that behavior.  Changing that would be a separate change.
 
-The SHA-256 library functions currently work in any context, and this patch
-series preserves that behavior.  Changing that would be a separate change.
+I've already removed the SIMD fallback path and your patch is
+adding it back.
 
-But also as I've explained before, for the library API the performance benefit
-of removing the crypto_simd_usable() doesn't seem to be worth the footgun that
-would be introduced.  Your position is, effectively, that if someone calls one
-of the sha256*() functions from a hardirq, we should sometimes corrupt a random
-task's FPU registers.  That's a really bad bug that is very difficult to
-root-cause.  My position is that we should make it just work as expected.
+> But also as I've explained before, for the library API the performance benefit
+> of removing the crypto_simd_usable() doesn't seem to be worth the footgun that
+> would be introduced.  Your position is, effectively, that if someone calls one
+> of the sha256*() functions from a hardirq, we should sometimes corrupt a random
+> task's FPU registers.  That's a really bad bug that is very difficult to
+> root-cause.  My position is that we should make it just work as expected.
 
-Yes, no one *should* be doing SHA-256 in a hardirq.  But I don't think that
-means we should corrupt a random task's FPU registers if someone doesn't follow
-best practices, when we can easily make the API just work as expected.
+kernel_fpu_begin already does a WARN_ON when called in hardirq
+context and it can't safely use the FPU, there is no silent
+corruption.
 
-- Eric
+In fact if anything your patch is making the problem worse by
+making a hardirq stochastically slow with no visible warnings
+at all.
+
+> Yes, no one *should* be doing SHA-256 in a hardirq.  But I don't think that
+> means we should corrupt a random task's FPU registers if someone doesn't follow
+> best practices, when we can easily make the API just work as expected.
+
+If you really want to support this, do it in the FPU layer, not here.
+
+Thanks,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
