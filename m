@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C9DC369D3
-	for <linux-riscv@archiver.kernel.org>; Sun, 27 Apr 2025 14:09:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED87AC369D1
+	for <linux-riscv@archiver.kernel.org>; Sun, 27 Apr 2025 14:27:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+27QRLAq/iwUdN63j8JNUJBFwD3zbkFP813laeLEVco=; b=CeOnlphCysVbQl
-	jBGuNGTxZOpu2ZIXz4IEKr7sAcqPZh5od/6+U4H5IvSZQIKEvCPa9GwMETorypS0Btu0OXlBQjl3H
-	MYV5jEyivTgHjB3W9DP7hxuASwP7y3CLI/2CXds0paC8mFC7NxYeURycGxQAItiWlko4JcGeIbWh+
-	mPzbJ8NroifNjOr5uwL3AJPVAZTAF+xgEGRo0L36vAhXjB1ZaHez/0JGxGIK4rvhUjwB/DHhfiJFE
-	u+kpFTTeck+8wDDXC11+FJLZ++QcCNuiFT6PB6doYG3OWF1XXeW7fUlJjw8XB0co8Lz7W6hWfRa7Y
-	6IPyGqWFRUI4WIp/LlxA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Cn0TwZ1znCsvs/j+I3ucJxOO91klBIXrSDFeYfMMJp0=; b=oHx7NKk2WQaRgF
+	YghPhHO1vbDtQTvks8nc30yADznXRkI7yI/xVi/qDpwLXkgOdngrU8WLInGHy93jmITu9uRyFMwor
+	lADJNjBkANSVL2gdqdugBDI/ospMxtBqFBI2qlotMdfaXV9EwyciP47vRDMhrfCsBeS24mKRmerk0
+	9Vtm1G3gneeHVPRyC0s88M7UwWYF1jh//mUP4GW0RmB4YEbRNfZFMerVdkYuDOarH0kHQp1GLWIhs
+	/g3oO+9UYEHeeMMH8o+kYrUJXY5fitvqdHSlpI9dND06rsaKJEOJ4eBhcEib2CgFic0fXepYzdmuq
+	9c9qhQp9AFqKQNAyDXBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92gy-00000003dgp-0yyy;
-	Sun, 27 Apr 2025 14:09:12 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u92yR-00000003f1K-1pqt;
+	Sun, 27 Apr 2025 14:27:15 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u92f1-00000003dVG-1P6O;
-	Sun, 27 Apr 2025 14:07:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=bjaQCYAZZv7TZCyYcpymHM3x4tGRpcCplG+gYWSYS9Y=; b=Y5RhSc5/FybI7zmz9SHjUsOJyt
-	6y13MP9+31En+C9RdXh+jvvPfmcEs8+ugf/lrbM+EuMyfHqK2AbcS8TSq6nIW/o0J5hLQbnKW2dwO
-	5PDPeGJ0dMiB+I1jO7FLhSzAAUHoGPP0xtZH8fUgS54mB21PslHj4y/wIynDPQmglvHJFPSzYGQUS
-	e6SLa2lor/mFtkN8PODNuoz4j9cgiiqr6ML354CiGk2KNJSUINJ8HzdvV/YfmSH+b2/2lTMTZ+f9n
-	8+V6BnpZAT4ZOKXfyim5oaRqg6ehnl6jo5JsXrJNniEO3jfXP0RfbAfbnaxToW16RVxQ/wE8t43b+
-	zz+/7N0Q==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u92ev-001PEG-1R;
-	Sun, 27 Apr 2025 22:07:06 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Sun, 27 Apr 2025 22:07:05 +0800
-Date: Sun, 27 Apr 2025 22:07:05 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
-	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld " <Jason@zx2c4.com>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [v2 PATCH 00/13] Architecture-optimized SHA-256 library API
-Message-ID: <aA46Cfr7p6dMXwvU@gondor.apana.org.au>
-References: <cover.1745734678.git.herbert@gondor.apana.org.au>
- <20250427123514.GA1161@quark>
- <aA4mAlozk3RvxvTe@gondor.apana.org.au>
- <20250427125641.GB1161@quark>
- <20250427131138.GC1161@quark>
+	id 1u92wU-00000003eh5-1uxG;
+	Sun, 27 Apr 2025 14:25:15 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30bfed67e08so41393871fa.2;
+        Sun, 27 Apr 2025 07:25:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1745763912; x=1746368712; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=l+/h+HUw5Fa9i+auYLXdmFTVTqLMJ8IF6VQixN6G/8c=;
+        b=jsYcWkkbCZEwiUHeA9vUCMZr0NlcnJE4huDeSR4mShYIQk57G3Iy+3vUL4TJlInGzm
+         a0VCbmoxouiv2tg3Gr4TAFJ3cgPecipywTvrzIx1O6bHJjfhNusAHJSEmwGxUG6QP6+R
+         R5WuAu2B6GM5jkACnA8PbuxD46MiBzHx+3Fr/T5SP0NetPOq3MkJI13nRVfc7HOQko7Z
+         RY722rlwmH4Usruy1vL7PSNCPQUEjY0Um81eiDA+dbSIqF0EVpvjdF1T55C9QN6a5qLR
+         G7aj0mv2UdyMBWdsn4iNZq4X98Fwf/BN1hQmhBD3D10G6mtYkiWH7EaHNyn8CuDogWe4
+         qXqQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745763912; x=1746368712;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l+/h+HUw5Fa9i+auYLXdmFTVTqLMJ8IF6VQixN6G/8c=;
+        b=Yek1o99HWfMtnspTeg5Db76MpCpc/vdmfa7sHEFs42O7W3ugHZeTtYVfYmRzERodnD
+         JvSX6iQLGIpda70zwnm7WuAVVgI0uZqtLfV2/MuMDani1i0oKYIH2onvxv4seXJBqYEq
+         y8t2PghT7oqQvSzHNb8ZbG1xFvTk3+wG6d1wu1PrzoNepjmGvh7QZZSuhOdsIsIevH8h
+         ax+x0UcRM5gVfMxCdxS3lzRwrgee6reNIgjZa25Ha2vEdK92K6jmO3/5P6Pg/oM4iEEK
+         Boq5mXZUZF9+qBlY7XkzP5Ghlk6U7ktSN23cGK4InQPkkUeed40yVj+EX+D4Qu27k7RG
+         Z+Rw==
+X-Forwarded-Encrypted: i=1; AJvYcCUrSEbevPQibGaapoaVVyD9KzSmawJNjRfr+0tsHw8MbK0J9Mq294w6hcGO2n+t/Wf9eytjP7V4hpe1XnU=@lists.infradead.org, AJvYcCWyGEat7yu2r2zgYmjFe/9GjN/mifcohUL62MrXyItd9Xe2wqC5xXbZItWB3uJBG1LVOTwBBiY1du3vRa3kh7/3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxssJEHw3ogvjPgAstrWu2g/5JDoP11iVDP9k+BWnV+vclk4HQR
+	9+Up5ncWo5xEaVLI+QrKT5ELKEGmBBGqviJ6YsNWCQ091Fqc9ak=
+X-Gm-Gg: ASbGnctmdUYEO75z+qOG6jdt1R1SQkqjDXt98yhJk851rvLWTic13OymfZmvD58W1cq
+	4NMFjmBqLoTjPHEVXDyw4aEjiYcbd/6vQGHxWzaWSGN8lPWlQe045fKKycXDREIRjVR2Qr3jUdO
+	fJJrOQYx/XXdvY15spbYEF7oBAeqYve+AVozDtyJKeSJojJsy0FuivGNaIzEPJwxEFYhx+FWqxI
+	GI1JYT5HqDIjLB8Ek0gTK29mjPM5K5Z2W1qy/p9iAKkgO1OMR+h5+dadEXirtSpy6H62y+nfJZh
+	T7upx8S4w4cZpJQXtBcC23XY6ewOoAkeYVTmYxRVOdS6yswwfUjd427t
+X-Google-Smtp-Source: AGHT+IEZEKc9Vnf/efSmBJgLhw4tTfU2F09GmxdHClCejQ/XhLFf9brnK906waqbWQ74zPb6LP0ysg==
+X-Received: by 2002:a05:651c:158c:b0:30b:cd68:b68d with SMTP id 38308e7fff4ca-319dc02035cmr14537211fa.10.1745763911951;
+        Sun, 27 Apr 2025 07:25:11 -0700 (PDT)
+Received: from localhost.localdomain ([178.176.177.108])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-317cfb482b1sm17659191fa.29.2025.04.27.07.25.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 27 Apr 2025 07:25:11 -0700 (PDT)
+From: Aleksandr Shubin <privatesub2@gmail.com>
+To: linux-kernel@vger.kernel.org
+Cc: Aleksandr Shubin <privatesub2@gmail.com>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Cheo Fusi <fusibrandon13@gmail.com>,
+	linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v12 0/3] Add support for Allwinner PWM on D1/T113s/R329 SoCs
+Date: Sun, 27 Apr 2025 17:24:52 +0300
+Message-Id: <20250427142500.151925-1-privatesub2@gmail.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250427131138.GC1161@quark>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_070711_372838_811B7E21 
-X-CRM114-Status: GOOD (  12.22  )
+X-CRM114-CacheID: sfid-20250427_072514_496425_E8C9FF8E 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,30 +111,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, Apr 27, 2025 at 06:11:38AM -0700, Eric Biggers wrote:
->
-> By the way, as I mentioned in my cover letter:
-> 
->     For now the SHA-256 library is well-covered by the crypto_shash
->     self-tests, but I plan to add a test for the library directly later.
-> 
-> But due to your gratuitous changes where crypto_shash is no longer built on top
-> of the normal SHA-256 library API, that's no longer the case.
-> 
-> So while I do still plan to add a SHA-256 library test anyway, I don't see the
-> reason for not also making crypto_shash just do the right thing.
+v2:
+ - fix dt-bindings
+ - fix a remark in the driver
 
-OK at least this objection makes sense.
+v3:
+ - fix dt-bindings
+ - fix sunxi-d1s-t113.dtsi
 
-I'll add an additional sha256 shash implementation that wraps
-around the lib/sha256 interface so we don't lose that testing
-coverage.
+v4:
+ - fix a remark in the driver
 
-Cheers,
+v5:
+ - dropped unused varibale in the driver
+ - fix dt-bindings
+
+v6:
+ - add apb0 clock
+
+v7:
+ - fix a remark in the driver
+ - add maintainer
+
+v8:
+ - fix compile driver for 6.8-rc
+
+v9:
+ - fix a remark in the driver
+ - fix dt-bindings
+ - rename apb0 -> apb
+
+v10:
+ - fix a remark in the driver
+ - fix compile driver for 6.12-rc2
+
+v11:
+ - fix a remark in the driver
+ - fix compile driver for 6.14.0-rc2
+
+v12:
+ - fix a remark in the driver
+ - fix a remark in the dt-bindings
+ - check driver build on 6.15.0-rc3
+
+Aleksandr Shubin (3):
+  dt-bindings: pwm: Add binding for Allwinner D1/T113-S3/R329 PWM
+    controller
+  pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM support
+  riscv: dts: allwinner: d1: Add pwm node
+
+ .../bindings/pwm/allwinner,sun20i-pwm.yaml    |  84 ++++
+ .../boot/dts/allwinner/sunxi-d1s-t113.dtsi    |  12 +
+ drivers/pwm/Kconfig                           |  10 +
+ drivers/pwm/Makefile                          |   1 +
+ drivers/pwm/pwm-sun20i.c                      | 379 ++++++++++++++++++
+ 5 files changed, 486 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
+ create mode 100644 drivers/pwm/pwm-sun20i.c
+
 -- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+2.25.1
+
 
 _______________________________________________
 linux-riscv mailing list
