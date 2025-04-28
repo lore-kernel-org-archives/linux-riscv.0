@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C4BC369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 12:22:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33685C369DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 12:58:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=TtQ25o3k4YvNEe0V49sjAON4L/jamXwHmvzlJ9wXaBY=; b=vfKUDRkU9qckoe
-	XWbuPYI7CPVaq3QxpucHYYLWoxAerSsOz7cyDWMXwL2dddiGzCGyuYqhdI4pyill7KnTw+nADLJZV
-	78671AZLn1VKHKfd4UY9VCU8MO9wvUyWtbpUCNb0puCwMwS7L/YKAfBMboDk2V3WuHOQhYTdQxN+y
-	dhwfJ34Qv2x2RwN6XDcj6FyVzBqgZke9RxGAcsvH2DYoRiYXsaDFERl5v/kYb0pZ25imhtT4vzbVC
-	y8ke8249EzRVpCxSdshCVcRbk3omg0xZE17jSe3qHc644reXQV149Man0csqVIsvAl1BdtDBYQixT
-	2xxALf2XDdhb68yTVYRw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=dSt9I7+iTJ7mLkH+aneAj8a4MW26Dd5oDRZJ3cAxMns=; b=tvBjIOiZAb4W4V
+	/OyOCIstC1nGNxKXiU5SsyVlV0xLWHE2yfmRbBsUw5zJcCHBDIGObRFdw3kSnn/75S3YBWHMLvpMw
+	910Hesx0bo9Q3BDKsHABrXuxVdNAyKEbC097VnFfUVYby7i9EiPXPoxWhqrhunNoNUfJ883rY6r8k
+	HfkrLHAaoJ80Y0iUqEQCN+rNiCS0S61BU+DOFS++g6v7ou0Cfc+cy1aFM5yaruvXtQ55cqyTraFM5
+	fOrOkb+LxERQckmqH5ON+JWaeyTsiyTjwsJbPRVgOg40devbcJ0ikmqgJKjdfJCq9EgdsPfkugYB/
+	iv4xBR0TVWj2Yz2kr6Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9NUe-000000069vO-31Xy;
-	Mon, 28 Apr 2025 12:21:52 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u9O3i-00000006IKo-1lAt;
+	Mon, 28 Apr 2025 12:58:06 +0000
+Received: from mail-io1-xd35.google.com ([2607:f8b0:4864:20::d35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9N2u-000000062s4-3Omx;
-	Mon, 28 Apr 2025 11:53:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8T1VCs93WeCfIwMLTXrgNJ1jyLMDpCR3K8Uym9nsnV4=; b=F9HnbTnW/poPgQVr/cZWd+pwSz
-	2p1UYqYxeKKqwA8eoU4d9x1FUmWqDFUKj4m1rUYjb/NZ9L/ay2spOHSOBLPXjjOkgGBjoE2P9jaY0
-	SO6fLRcrPnA4AqqV6iTh6DthFMKWQ5y+2BNRYeq6kcb0mNigo2TQnP1X+8q2t4Cf/E71Dp+6Lc2iG
-	rTQFgMhEtDcoE4KDOvGEy2T8moHCtm+9KViSFwmLwa/1cvp4ub/24zEUUuztEGO5LleSISGHI99Tf
-	g1Z9Vys8EoAA69OOsZwOKwArWjMhPqhm7YMnEeA5etXfn6zfP8eJ1HnmeULhjUSmQB4vIUfCLIheP
-	SY6L1ryw==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9N2q-001bJS-2Z;
-	Mon, 28 Apr 2025 19:53:09 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 19:53:08 +0800
-Date: Mon, 28 Apr 2025 19:53:08 +0800
-From: Herbert Xu <herbert@gondor.apana.org.au>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	x86@kernel.org, Jason@zx2c4.com, ardb@kernel.org
-Subject: Re: [PATCH v3 00/13] Finish disentangling ChaCha, Poly1305, and
- BLAKE2s from CRYPTO
-Message-ID: <aA9sJKUjfhRPMWSo@gondor.apana.org.au>
+	id 1u9NPC-000000068iy-0xbl
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Apr 2025 12:16:15 +0000
+Received: by mail-io1-xd35.google.com with SMTP id ca18e2360f4ac-8616b7ad03bso70924439f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 05:16:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1745842573; x=1746447373; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HbdzURfIe01IodktyrOcLGPasTtcLPNt+DtRHrYSImE=;
+        b=uJ4dSUUAWfUgWN3F9AlACiQtxd381ivRmz+juqYfhBOVzeilWp08Ria/7//UTuP5cw
+         4fN+Nu1r0J505dueNfzyzlTZZ7h4N9zYihx4iGT8nDWrn57+PAzHKfhdt3EU8xkUqL/C
+         5onRPbyRJPnLWo7oU0sJQcD/dFxyVXGnt3xhXZ9uOyPW9dNVI8JvASU7W+cglWHVTs+r
+         FE20FACM1GtQNsRzIedUYiO7iY52YnD6fvKw2qv8kMqWx7QuL6z/51czh48HGETuQlTx
+         eVYaTSE9roXoTqXWRe2HrX+kKWBsH+HRxhT/qgyaN+iaUGXtQxnWZ4hh0mo3rtptHsI9
+         V3lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745842573; x=1746447373;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HbdzURfIe01IodktyrOcLGPasTtcLPNt+DtRHrYSImE=;
+        b=JU0ZJ8WqGkxK2CZsRGlJBC93ssSOE67qgb7O+dDaBOwyAp6SEZKd1ij2lgdn8x3IVQ
+         BINnJVfwpXeDWY6dfaMT6hXqm5c+qZuXYnmGITPWZSat7TeZdvNM8ha7kfE91RZdbT47
+         XN0oaXTXv23LBXH/FIcxMc7jEQ2Tbtk4GDHj5tyhYevWThBGNwTOxYgTzO6j5kg+4CqD
+         P7P/NxPXgLR2+iXhiTK33jVNdhrLezS+ZnzYY4qGIeHwLcAvlYduVTWHiZhE5kyuS2UR
+         Pl/BrXvTUEpOs6pJUW009lZN4Uw+vTJ3hmLpy9ibxjDzoDdAnTXCIlmPZuBqHK+30Pmr
+         /+1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWdjUoQB563CM3u7ZPnymQrjVdOUMQ/J4Gsxfm4fDSNpYoZJ87KxV5EWaAYw3XOXIBWNiGwFQKP1pFcKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxguFtyEFk4ShZ8IHpwsi7Ba7TAUOvs33YFhDJlRrq835O/rziZ
+	3ahfOkhbS8Q2p7R7WnKrUK7HaQXtimVpkra/b144fVmL2CTQuTNPvO6fBq45enOII5WU+N5wUF1
+	8SNIhj0v4tuKVzK6f1jACIAOkr3BjZ5oXBphyZw==
+X-Gm-Gg: ASbGncsHPo1LDas7RKxDrcF9SqdU5ECb7Vd8BSHuo6t8dscjJiVnO2orra0XEtA/+G5
+	MaVcOOt51s4WVS83vu3pfOK893dNoPZIrwEc/sAfHCbPjY2o/UZsunkT7ScfpUPrlcGogTavCTt
+	4IeldPxa8ZpsxGUNO7U6Bzv9c=
+X-Google-Smtp-Source: AGHT+IH30MgBLDTH7B/5QQiWBxHuAJfBVt1kiE+nVZHxrCP+VMW3c4Wsg77jCNIG2Tzc9EpgjUiZyK4TjBMZxF0UzPA=
+X-Received: by 2002:a05:6e02:b41:b0:3d0:4e57:bbda with SMTP id
+ e9e14a558f8ab-3d942d1e920mr82667775ab.1.1745842572729; Mon, 28 Apr 2025
+ 05:16:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
-X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
+References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com> <20250403112522.1566629-6-rkrcmar@ventanamicro.com>
+In-Reply-To: <20250403112522.1566629-6-rkrcmar@ventanamicro.com>
+From: Anup Patel <anup@brainfault.org>
+Date: Mon, 28 Apr 2025 17:46:01 +0530
+X-Gm-Features: ATxdqUG-YIOYdPVFijv2uK03zGD7xJfJ15d_Z7nI7b9Y_YLSf8SYUAspqNJ5PIA
+Message-ID: <CAAhSdy1RSpVCUzD+Aqbhh7aiQPmC2zdvuQfuOsmYNJrF3HxCsA@mail.gmail.com>
+Subject: Re: [PATCH 3/5] KVM: RISC-V: remove unnecessary SBI reset state
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	Mayuresh Chitale <mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_045313_142934_C73AA299 
-X-CRM114-Status: GOOD (  17.85  )
+X-CRM114-CacheID: sfid-20250428_051614_548065_05E4AA55 
+X-CRM114-Status: GOOD (  26.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,185 +93,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Eric Biggers <ebiggers@kernel.org> wrote:
-> This series removes the unnecessary dependency of the ChaCha, Poly1305,
-> and BLAKE2s library functions on the generic crypto infrastructure, i.e.
-> CONFIG_CRYPTO.  To do this, it moves the architecture-optimized
-> implementations of these functions into new directories
-> arch/*/lib/crypto/ which do not depend on CRYPTO.  This mirrors the
-> existing distinction between crypto/ and lib/crypto/.
-> 
-> The last two patches remove the selection of CRYPTO by CRYPTO_LIB_CHACHA
-> and CRYPTO_LIB_POLY1305, and they remove the corresponding *_INTERNAL
-> symbols which were needed only because of the entanglement with CRYPTO.
-> 
-> Note that Curve25519 is still entangled.  Later patches will fix that.
-> 
-> Changed in v3:
->   - Fixed build error on arm with CONFIG_CPU_THUMBONLY=y.
->   - Small whitespace and commit message fixes.
->   - Added Acked-by's.
-> 
-> Changed in v2:
->   - Introduced new directories arch/*/lib/crypto/ instead of keeping
->     the library functions in arch/*/crypto/.
-> 
-> Eric Biggers (13):
->  crypto: arm64 - drop redundant dependencies on ARM64
->  crypto: powerpc - drop redundant dependencies on PPC
->  crypto: s390 - drop redundant dependencies on S390
->  crypto: x86 - drop redundant dependencies on X86
->  crypto: arm - move library functions to arch/arm/lib/crypto/
->  crypto: arm64 - move library functions to arch/arm64/lib/crypto/
->  crypto: mips - move library functions to arch/mips/lib/crypto/
->  crypto: powerpc - move library functions to arch/powerpc/lib/crypto/
->  crypto: riscv - move library functions to arch/riscv/lib/crypto/
->  crypto: s390 - move library functions to arch/s390/lib/crypto/
->  crypto: x86 - move library functions to arch/x86/lib/crypto/
->  crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
->  crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
-> 
-> MAINTAINERS                                   |  1 +
-> arch/arm/crypto/Kconfig                       | 23 -----
-> arch/arm/crypto/Makefile                      | 14 +--
-> arch/arm/lib/Makefile                         |  2 +
-> arch/arm/lib/crypto/.gitignore                |  2 +
-> arch/arm/lib/crypto/Kconfig                   | 24 ++++++
-> arch/arm/lib/crypto/Makefile                  | 26 ++++++
-> arch/arm/{ => lib}/crypto/blake2s-core.S      |  0
-> arch/arm/{ => lib}/crypto/blake2s-glue.c      |  0
-> arch/arm/{ => lib}/crypto/chacha-glue.c       |  0
-> arch/arm/{ => lib}/crypto/chacha-neon-core.S  |  0
-> .../arm/{ => lib}/crypto/chacha-scalar-core.S |  0
-> arch/arm/{ => lib}/crypto/poly1305-armv4.pl   |  0
-> arch/arm/{ => lib}/crypto/poly1305-glue.c     |  0
-> arch/arm64/crypto/Kconfig                     | 17 +---
-> arch/arm64/crypto/Makefile                    |  9 +-
-> arch/arm64/lib/Makefile                       |  3 +
-> arch/arm64/lib/crypto/.gitignore              |  2 +
-> arch/arm64/lib/crypto/Kconfig                 | 14 +++
-> arch/arm64/lib/crypto/Makefile                | 16 ++++
-> .../arm64/{ => lib}/crypto/chacha-neon-core.S |  0
-> .../arm64/{ => lib}/crypto/chacha-neon-glue.c |  0
-> arch/arm64/{ => lib}/crypto/poly1305-armv8.pl |  0
-> arch/arm64/{ => lib}/crypto/poly1305-glue.c   |  0
-> arch/mips/crypto/Kconfig                      | 11 ---
-> arch/mips/crypto/Makefile                     | 17 ----
-> arch/mips/lib/Makefile                        |  2 +
-> arch/mips/lib/crypto/.gitignore               |  2 +
-> arch/mips/lib/crypto/Kconfig                  | 12 +++
-> arch/mips/lib/crypto/Makefile                 | 19 ++++
-> arch/mips/{ => lib}/crypto/chacha-core.S      |  0
-> arch/mips/{ => lib}/crypto/chacha-glue.c      |  0
-> arch/mips/{ => lib}/crypto/poly1305-glue.c    |  0
-> arch/mips/{ => lib}/crypto/poly1305-mips.pl   |  0
-> arch/powerpc/crypto/Kconfig                   | 22 +----
-> arch/powerpc/crypto/Makefile                  |  4 -
-> arch/powerpc/lib/Makefile                     |  2 +
-> arch/powerpc/lib/crypto/Kconfig               | 15 ++++
-> arch/powerpc/lib/crypto/Makefile              |  7 ++
-> .../{ => lib}/crypto/chacha-p10-glue.c        |  0
-> .../{ => lib}/crypto/chacha-p10le-8x.S        |  0
-> .../{ => lib}/crypto/poly1305-p10-glue.c      |  0
-> .../{ => lib}/crypto/poly1305-p10le_64.S      |  0
-> arch/riscv/crypto/Kconfig                     |  7 --
-> arch/riscv/crypto/Makefile                    |  3 -
-> arch/riscv/lib/Makefile                       |  1 +
-> arch/riscv/lib/crypto/Kconfig                 |  8 ++
-> arch/riscv/lib/crypto/Makefile                |  4 +
-> .../{ => lib}/crypto/chacha-riscv64-glue.c    |  0
-> .../{ => lib}/crypto/chacha-riscv64-zvkb.S    |  0
-> arch/s390/crypto/Kconfig                      | 16 ----
-> arch/s390/crypto/Makefile                     |  3 -
-> arch/s390/lib/Makefile                        |  1 +
-> arch/s390/lib/crypto/Kconfig                  |  7 ++
-> arch/s390/lib/crypto/Makefile                 |  4 +
-> arch/s390/{ => lib}/crypto/chacha-glue.c      |  0
-> arch/s390/{ => lib}/crypto/chacha-s390.S      |  0
-> arch/s390/{ => lib}/crypto/chacha-s390.h      |  0
-> arch/x86/crypto/Kconfig                       | 86 +++++++------------
-> arch/x86/crypto/Makefile                      | 15 ----
-> arch/x86/lib/Makefile                         |  2 +
-> arch/x86/lib/crypto/.gitignore                |  2 +
-> arch/x86/lib/crypto/Kconfig                   | 26 ++++++
-> arch/x86/lib/crypto/Makefile                  | 17 ++++
-> arch/x86/{ => lib}/crypto/blake2s-core.S      |  0
-> arch/x86/{ => lib}/crypto/blake2s-glue.c      |  0
-> .../x86/{ => lib}/crypto/chacha-avx2-x86_64.S |  0
-> .../{ => lib}/crypto/chacha-avx512vl-x86_64.S |  0
-> .../{ => lib}/crypto/chacha-ssse3-x86_64.S    |  0
-> arch/x86/{ => lib}/crypto/chacha_glue.c       |  0
-> .../crypto/poly1305-x86_64-cryptogams.pl      |  0
-> arch/x86/{ => lib}/crypto/poly1305_glue.c     |  0
-> crypto/Kconfig                                |  4 +-
-> lib/crypto/Kconfig                            | 56 +++++++-----
-> 74 files changed, 294 insertions(+), 234 deletions(-)
-> create mode 100644 arch/arm/lib/crypto/.gitignore
-> create mode 100644 arch/arm/lib/crypto/Kconfig
-> create mode 100644 arch/arm/lib/crypto/Makefile
-> rename arch/arm/{ => lib}/crypto/blake2s-core.S (100%)
-> rename arch/arm/{ => lib}/crypto/blake2s-glue.c (100%)
-> rename arch/arm/{ => lib}/crypto/chacha-glue.c (100%)
-> rename arch/arm/{ => lib}/crypto/chacha-neon-core.S (100%)
-> rename arch/arm/{ => lib}/crypto/chacha-scalar-core.S (100%)
-> rename arch/arm/{ => lib}/crypto/poly1305-armv4.pl (100%)
-> rename arch/arm/{ => lib}/crypto/poly1305-glue.c (100%)
-> create mode 100644 arch/arm64/lib/crypto/.gitignore
-> create mode 100644 arch/arm64/lib/crypto/Kconfig
-> create mode 100644 arch/arm64/lib/crypto/Makefile
-> rename arch/arm64/{ => lib}/crypto/chacha-neon-core.S (100%)
-> rename arch/arm64/{ => lib}/crypto/chacha-neon-glue.c (100%)
-> rename arch/arm64/{ => lib}/crypto/poly1305-armv8.pl (100%)
-> rename arch/arm64/{ => lib}/crypto/poly1305-glue.c (100%)
-> create mode 100644 arch/mips/lib/crypto/.gitignore
-> create mode 100644 arch/mips/lib/crypto/Kconfig
-> create mode 100644 arch/mips/lib/crypto/Makefile
-> rename arch/mips/{ => lib}/crypto/chacha-core.S (100%)
-> rename arch/mips/{ => lib}/crypto/chacha-glue.c (100%)
-> rename arch/mips/{ => lib}/crypto/poly1305-glue.c (100%)
-> rename arch/mips/{ => lib}/crypto/poly1305-mips.pl (100%)
-> create mode 100644 arch/powerpc/lib/crypto/Kconfig
-> create mode 100644 arch/powerpc/lib/crypto/Makefile
-> rename arch/powerpc/{ => lib}/crypto/chacha-p10-glue.c (100%)
-> rename arch/powerpc/{ => lib}/crypto/chacha-p10le-8x.S (100%)
-> rename arch/powerpc/{ => lib}/crypto/poly1305-p10-glue.c (100%)
-> rename arch/powerpc/{ => lib}/crypto/poly1305-p10le_64.S (100%)
-> create mode 100644 arch/riscv/lib/crypto/Kconfig
-> create mode 100644 arch/riscv/lib/crypto/Makefile
-> rename arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c (100%)
-> rename arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S (100%)
-> create mode 100644 arch/s390/lib/crypto/Kconfig
-> create mode 100644 arch/s390/lib/crypto/Makefile
-> rename arch/s390/{ => lib}/crypto/chacha-glue.c (100%)
-> rename arch/s390/{ => lib}/crypto/chacha-s390.S (100%)
-> rename arch/s390/{ => lib}/crypto/chacha-s390.h (100%)
-> create mode 100644 arch/x86/lib/crypto/.gitignore
-> create mode 100644 arch/x86/lib/crypto/Kconfig
-> create mode 100644 arch/x86/lib/crypto/Makefile
-> rename arch/x86/{ => lib}/crypto/blake2s-core.S (100%)
-> rename arch/x86/{ => lib}/crypto/blake2s-glue.c (100%)
-> rename arch/x86/{ => lib}/crypto/chacha-avx2-x86_64.S (100%)
-> rename arch/x86/{ => lib}/crypto/chacha-avx512vl-x86_64.S (100%)
-> rename arch/x86/{ => lib}/crypto/chacha-ssse3-x86_64.S (100%)
-> rename arch/x86/{ => lib}/crypto/chacha_glue.c (100%)
-> rename arch/x86/{ => lib}/crypto/poly1305-x86_64-cryptogams.pl (100%)
-> rename arch/x86/{ => lib}/crypto/poly1305_glue.c (100%)
-> 
-> 
-> base-commit: bb9c648b334be581a791c7669abaa594e4b5ebb7
-
-All applied.  Thanks.
--- 
-Email: Herbert Xu <herbert@gondor.apana.org.au>
-Home Page: http://gondor.apana.org.au/~herbert/
-PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMywgMjAyNSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFy
+QHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gVGhlIFNCSSByZXNldCBzdGF0ZSBoYXMgb25s
+eSB0d28gdmFyaWFibGVzIC0tIHBjIGFuZCBhMS4KPiBUaGUgcmVzdCBpcyBrbm93biwgc28ga2Vl
+cCBvbmx5IHRoZSBuZWNlc3NhcnkgaW5mb3JtYXRpb24uCj4KPiBUaGUgcmVzZXQgc3RydWN0dXJl
+cyBtYWtlIHNlbnNlIGlmIHdlIHdhbnQgdXNlcnNwYWNlIHRvIGNvbnRyb2wgdGhlCj4gcmVzZXQg
+c3RhdGUgKHdoaWNoIHdlIGRvKSwgYnV0IEknZCBzdGlsbCByZW1vdmUgdGhlbSBub3cgYW5kIHJl
+aW50cm9kdWNlCj4gd2l0aCB0aGUgdXNlcnNwYWNlIGludGVyZmFjZSBsYXRlciAtLSB3ZSBjb3Vs
+ZCBwcm9iYWJseSBoYXZlIGp1c3QgYQo+IHNpbmdsZSByZXNldCBzdGF0ZSBwZXIgVk0sIGluc3Rl
+YWQgb2YgYSByZXNldCBzdGF0ZSBmb3IgZWFjaCBWQ1BVLgoKVGhlIFNCSSBzcGVjIGRvZXMgbm90
+IGRlZmluZSB0aGUgcmVzZXQgc3RhdGUgb2YgQ1BVcy4gVGhlIFNCSQppbXBsZW1lbnRhdGlvbnMg
+KGFrYSBLVk0gUklTQy1WIG9yIE9wZW5TQkkpIG9yIHBsYXRmb3JtCmZpcm13YXJlcyBhcmUgZnJl
+ZSB0byBjbGVhciBhZGRpdGlvbmFsIHJlZ2lzdGVycyBhcyBwYXJ0IHN5c3RlbQpyZXNldCBvciBD
+UFUuCgpBcyBwYXJ0IG9mIHJlc2V0dGluZyB0aGUgVkNQVSwgdGhlIGluLWtlcm5lbCBLVk0gY2xl
+YXJzIGFsbAp0aGUgcmVnaXN0ZXJzLgoKVGhlIHNldHRpbmcgb2YgUEMsIEEwLCBhbmQgQTEgaXMg
+b25seSBhbiBlbnRyeSBjb25kaXRpb24gZGVmaW5lZApmb3IgQ1BVcyBicm91Z2h0LXVwIHVzaW5n
+IFNCSSBIU00gc3RhcnQgb3IgU0JJIFN5c3RlbSBzdXNwZW5kLgoKV2Ugc2hvdWxkIG5vdCBnbyBh
+aGVhZCB3aXRoIHRoaXMgcGF0Y2guCgpSZWdhcmRzLApBbnVwCgo+Cj4gU2lnbmVkLW9mZi1ieTog
+UmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+Cj4gLS0tCj4gIGFyY2gv
+cmlzY3YvaW5jbHVkZS9hc20va3ZtX2FpYS5oICB8ICAzIC0tCj4gIGFyY2gvcmlzY3YvaW5jbHVk
+ZS9hc20va3ZtX2hvc3QuaCB8IDEyICsrKystLS0KPiAgYXJjaC9yaXNjdi9rdm0vYWlhX2Rldmlj
+ZS5jICAgICAgIHwgIDQgKy0tCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHUuYyAgICAgICAgICAgICB8
+IDU4ICsrKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0KPiAgYXJjaC9yaXNjdi9rdm0vdmNw
+dV9zYmkuYyAgICAgICAgIHwgIDkgKysrLS0KPiAgNSBmaWxlcyBjaGFuZ2VkLCA0NCBpbnNlcnRp
+b25zKCspLCA0MiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1
+ZGUvYXNtL2t2bV9haWEuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2FpYS5oCj4gaW5k
+ZXggMWYzN2I2MDBjYTQ3Li4zYjY0M2I5ZWZjMDcgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9p
+bmNsdWRlL2FzbS9rdm1fYWlhLmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9h
+aWEuaAo+IEBAIC02Myw5ICs2Myw2IEBAIHN0cnVjdCBrdm1fdmNwdV9haWEgewo+ICAgICAgICAg
+LyogQ1BVIEFJQSBDU1IgY29udGV4dCBvZiBHdWVzdCBWQ1BVICovCj4gICAgICAgICBzdHJ1Y3Qg
+a3ZtX3ZjcHVfYWlhX2NzciBndWVzdF9jc3I7Cj4KPiAtICAgICAgIC8qIENQVSBBSUEgQ1NSIGNv
+bnRleHQgdXBvbiBHdWVzdCBWQ1BVIHJlc2V0ICovCj4gLSAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVf
+YWlhX2NzciBndWVzdF9yZXNldF9jc3I7Cj4gLQo+ICAgICAgICAgLyogR3Vlc3QgcGh5c2ljYWwg
+YWRkcmVzcyBvZiBJTVNJQyBmb3IgdGhpcyBWQ1BVICovCj4gICAgICAgICBncGFfdCAgICAgICAg
+ICAgaW1zaWNfYWRkcjsKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2
+bV9ob3N0LmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgKPiBpbmRleCAwZTlj
+MmZhYjYzNzguLjBjOGM5YzA1YWY5MSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
+YXNtL2t2bV9ob3N0LmgKPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV9ob3N0LmgK
+PiBAQCAtMTkzLDYgKzE5MywxMiBAQCBzdHJ1Y3Qga3ZtX3ZjcHVfc21zdGF0ZWVuX2NzciB7Cj4g
+ICAgICAgICB1bnNpZ25lZCBsb25nIHNzdGF0ZWVuMDsKPiAgfTsKPgo+ICtzdHJ1Y3Qga3ZtX3Zj
+cHVfcmVzZXRfc3RhdGUgewo+ICsgICAgICAgc3BpbmxvY2tfdCBsb2NrOwo+ICsgICAgICAgdW5z
+aWduZWQgbG9uZyBwYzsKPiArICAgICAgIHVuc2lnbmVkIGxvbmcgYTE7Cj4gK307Cj4gKwo+ICBz
+dHJ1Y3Qga3ZtX3ZjcHVfYXJjaCB7Cj4gICAgICAgICAvKiBWQ1BVIHJhbiBhdCBsZWFzdCBvbmNl
+ICovCj4gICAgICAgICBib29sIHJhbl9hdGxlYXN0X29uY2U7Cj4gQEAgLTIyNywxMiArMjMzLDgg
+QEAgc3RydWN0IGt2bV92Y3B1X2FyY2ggewo+ICAgICAgICAgLyogQ1BVIFNtc3RhdGVlbiBDU1Ig
+Y29udGV4dCBvZiBHdWVzdCBWQ1BVICovCj4gICAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVfc21zdGF0
+ZWVuX2NzciBzbXN0YXRlZW5fY3NyOwo+Cj4gLSAgICAgICAvKiBDUFUgY29udGV4dCB1cG9uIEd1
+ZXN0IFZDUFUgcmVzZXQgKi8KPiAtICAgICAgIHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgZ3Vlc3Rf
+cmVzZXRfY29udGV4dDsKPiAtICAgICAgIHNwaW5sb2NrX3QgcmVzZXRfY250eF9sb2NrOwo+ICsg
+ICAgICAgc3RydWN0IGt2bV92Y3B1X3Jlc2V0X3N0YXRlIHJlc2V0X3N0YXRlOwo+Cj4gLSAgICAg
+ICAvKiBDUFUgQ1NSIGNvbnRleHQgdXBvbiBHdWVzdCBWQ1BVIHJlc2V0ICovCj4gLSAgICAgICBz
+dHJ1Y3Qga3ZtX3ZjcHVfY3NyIGd1ZXN0X3Jlc2V0X2NzcjsKPgo+ICAgICAgICAgLyoKPiAgICAg
+ICAgICAqIFZDUFUgaW50ZXJydXB0cwo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS9haWFf
+ZGV2aWNlLmMgYi9hcmNoL3Jpc2N2L2t2bS9haWFfZGV2aWNlLmMKPiBpbmRleCAzOWNkMjZhZjVh
+NjkuLjQzZTQ3MmZmM2UxYSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS9haWFfZGV2aWNl
+LmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS9haWFfZGV2aWNlLmMKPiBAQCAtNTI2LDEyICs1MjYs
+MTAgQEAgaW50IGt2bV9yaXNjdl92Y3B1X2FpYV91cGRhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
+KQo+ICB2b2lkIGt2bV9yaXNjdl92Y3B1X2FpYV9yZXNldChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUp
+Cj4gIHsKPiAgICAgICAgIHN0cnVjdCBrdm1fdmNwdV9haWFfY3NyICpjc3IgPSAmdmNwdS0+YXJj
+aC5haWFfY29udGV4dC5ndWVzdF9jc3I7Cj4gLSAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVfYWlhX2Nz
+ciAqcmVzZXRfY3NyID0KPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZ2Y3B1LT5h
+cmNoLmFpYV9jb250ZXh0Lmd1ZXN0X3Jlc2V0X2NzcjsKPgo+ICAgICAgICAgaWYgKCFrdm1fcmlz
+Y3ZfYWlhX2F2YWlsYWJsZSgpKQo+ICAgICAgICAgICAgICAgICByZXR1cm47Cj4gLSAgICAgICBt
+ZW1jcHkoY3NyLCByZXNldF9jc3IsIHNpemVvZigqY3NyKSk7Cj4gKyAgICAgICBtZW1zZXQoY3Ny
+LCAwLCBzaXplb2YoKmNzcikpOwo+Cj4gICAgICAgICAvKiBQcm9jZWVkIG9ubHkgaWYgQUlBIHdh
+cyBpbml0aWFsaXplZCBzdWNjZXNzZnVsbHkgKi8KPiAgICAgICAgIGlmICgha3ZtX3Jpc2N2X2Fp
+YV9pbml0aWFsaXplZCh2Y3B1LT5rdm0pKQo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92
+Y3B1LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBpbmRleCAyZmI3NTI4OGVjZmUuLmI4NDg1
+YzFjMWNlNCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiArKysgYi9hcmNo
+L3Jpc2N2L2t2bS92Y3B1LmMKPiBAQCAtNTEsMTMgKzUxLDQwIEBAIGNvbnN0IHN0cnVjdCBrdm1f
+c3RhdHNfaGVhZGVyIGt2bV92Y3B1X3N0YXRzX2hlYWRlciA9IHsKPiAgICAgICAgICAgICAgICAg
+ICAgICAgIHNpemVvZihrdm1fdmNwdV9zdGF0c19kZXNjKSwKPiAgfTsKPgo+IC1zdGF0aWMgdm9p
+ZCBrdm1fcmlzY3ZfcmVzZXRfdmNwdShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gK3N0YXRpYyB2
+b2lkIGt2bV9yaXNjdl92Y3B1X2NvbnRleHRfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+
+ICB7Cj4gICAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVfY3NyICpjc3IgPSAmdmNwdS0+YXJjaC5ndWVz
+dF9jc3I7Cj4gLSAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVfY3NyICpyZXNldF9jc3IgPSAmdmNwdS0+
+YXJjaC5ndWVzdF9yZXNldF9jc3I7Cj4gICAgICAgICBzdHJ1Y3Qga3ZtX2NwdV9jb250ZXh0ICpj
+bnR4ID0gJnZjcHUtPmFyY2guZ3Vlc3RfY29udGV4dDsKPiAtICAgICAgIHN0cnVjdCBrdm1fY3B1
+X2NvbnRleHQgKnJlc2V0X2NudHggPSAmdmNwdS0+YXJjaC5ndWVzdF9yZXNldF9jb250ZXh0Owo+
+ICsgICAgICAgc3RydWN0IGt2bV92Y3B1X3Jlc2V0X3N0YXRlICpyZXNldF9zdGF0ZSA9ICZ2Y3B1
+LT5hcmNoLnJlc2V0X3N0YXRlOwo+ICAgICAgICAgdm9pZCAqdmVjdG9yX2RhdGFwID0gY250eC0+
+dmVjdG9yLmRhdGFwOwo+ICsKPiArICAgICAgIG1lbXNldChjbnR4LCAwLCBzaXplb2YoKmNudHgp
+KTsKPiArICAgICAgIG1lbXNldChjc3IsIDAsIHNpemVvZigqY3NyKSk7Cj4gKwo+ICsgICAgICAg
+LyogUmVzdG9yZSBkYXRhcCBhcyBpdCdzIG5vdCBhIHBhcnQgb2YgdGhlIGd1ZXN0IGNvbnRleHQu
+ICovCj4gKyAgICAgICBjbnR4LT52ZWN0b3IuZGF0YXAgPSB2ZWN0b3JfZGF0YXA7Cj4gKwo+ICsg
+ICAgICAgLyogTG9hZCBTQkkgcmVzZXQgdmFsdWVzICovCj4gKyAgICAgICBjbnR4LT5hMCA9IHZj
+cHUtPnZjcHVfaWQ7Cj4gKwo+ICsgICAgICAgc3Bpbl9sb2NrKCZyZXNldF9zdGF0ZS0+bG9jayk7
+Cj4gKyAgICAgICBjbnR4LT5zZXBjID0gcmVzZXRfc3RhdGUtPnBjOwo+ICsgICAgICAgY250eC0+
+YTEgPSByZXNldF9zdGF0ZS0+YTE7Cj4gKyAgICAgICBzcGluX3VubG9jaygmcmVzZXRfc3RhdGUt
+PmxvY2spOwo+ICsKPiArICAgICAgIC8qIFNldHVwIHJlc2V0IHN0YXRlIG9mIHNoYWRvdyBTU1RB
+VFVTIGFuZCBIU1RBVFVTIENTUnMgKi8KPiArICAgICAgIGNudHgtPnNzdGF0dXMgPSBTUl9TUFAg
+fCBTUl9TUElFOwo+ICsKPiArICAgICAgIGNudHgtPmhzdGF0dXMgfD0gSFNUQVRVU19WVFc7Cj4g
+KyAgICAgICBjbnR4LT5oc3RhdHVzIHw9IEhTVEFUVVNfU1BWUDsKPiArICAgICAgIGNudHgtPmhz
+dGF0dXMgfD0gSFNUQVRVU19TUFY7Cj4gKwo+ICsgICAgICAgLyogQnkgZGVmYXVsdCwgbWFrZSBD
+WSwgVE0sIGFuZCBJUiBjb3VudGVycyBhY2Nlc3NpYmxlIGluIFZVIG1vZGUgKi8KPiArICAgICAg
+IGNzci0+c2NvdW50ZXJlbiA9IDB4NzsKPiArfQo+ICsKPiArc3RhdGljIHZvaWQga3ZtX3Jpc2N2
+X3Jlc2V0X3ZjcHUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ICt7Cj4gICAgICAgICBib29sIGxv
+YWRlZDsKPgo+ICAgICAgICAgLyoqCj4gQEAgLTcyLDE2ICs5OSwxMCBAQCBzdGF0aWMgdm9pZCBr
+dm1fcmlzY3ZfcmVzZXRfdmNwdShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4KPiAgICAgICAgIHZj
+cHUtPmFyY2gubGFzdF9leGl0X2NwdSA9IC0xOwo+Cj4gLSAgICAgICBtZW1jcHkoY3NyLCByZXNl
+dF9jc3IsIHNpemVvZigqY3NyKSk7Cj4gLQo+IC0gICAgICAgc3Bpbl9sb2NrKCZ2Y3B1LT5hcmNo
+LnJlc2V0X2NudHhfbG9jayk7Cj4gLSAgICAgICBtZW1jcHkoY250eCwgcmVzZXRfY250eCwgc2l6
+ZW9mKCpjbnR4KSk7Cj4gLSAgICAgICBzcGluX3VubG9jaygmdmNwdS0+YXJjaC5yZXNldF9jbnR4
+X2xvY2spOwo+ICsgICAgICAga3ZtX3Jpc2N2X3ZjcHVfY29udGV4dF9yZXNldCh2Y3B1KTsKPgo+
+ICAgICAgICAga3ZtX3Jpc2N2X3ZjcHVfZnBfcmVzZXQodmNwdSk7Cj4KPiAtICAgICAgIC8qIFJl
+c3RvcmUgZGF0YXAgYXMgaXQncyBub3QgYSBwYXJ0IG9mIHRoZSBndWVzdCBjb250ZXh0LiAqLwo+
+IC0gICAgICAgY250eC0+dmVjdG9yLmRhdGFwID0gdmVjdG9yX2RhdGFwOwo+ICAgICAgICAga3Zt
+X3Jpc2N2X3ZjcHVfdmVjdG9yX3Jlc2V0KHZjcHUpOwo+Cj4gICAgICAgICBrdm1fcmlzY3ZfdmNw
+dV90aW1lcl9yZXNldCh2Y3B1KTsKPiBAQCAtMTEzLDggKzEzNCw2IEBAIGludCBrdm1fYXJjaF92
+Y3B1X3ByZWNyZWF0ZShzdHJ1Y3Qga3ZtICprdm0sIHVuc2lnbmVkIGludCBpZCkKPiAgaW50IGt2
+bV9hcmNoX3ZjcHVfY3JlYXRlKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgewo+ICAgICAgICAg
+aW50IHJjOwo+IC0gICAgICAgc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY250eDsKPiAtICAgICAg
+IHN0cnVjdCBrdm1fdmNwdV9jc3IgKnJlc2V0X2NzciA9ICZ2Y3B1LT5hcmNoLmd1ZXN0X3Jlc2V0
+X2NzcjsKPgo+ICAgICAgICAgc3Bpbl9sb2NrX2luaXQoJnZjcHUtPmFyY2gubXBfc3RhdGVfbG9j
+ayk7Cj4KPiBAQCAtMTM0LDI0ICsxNTMsMTEgQEAgaW50IGt2bV9hcmNoX3ZjcHVfY3JlYXRlKHN0
+cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgICAgICAgIC8qIFNldHVwIFZDUFUgaGZlbmNlIHF1ZXVl
+ICovCj4gICAgICAgICBzcGluX2xvY2tfaW5pdCgmdmNwdS0+YXJjaC5oZmVuY2VfbG9jayk7Cj4K
+PiAtICAgICAgIC8qIFNldHVwIHJlc2V0IHN0YXRlIG9mIHNoYWRvdyBTU1RBVFVTIGFuZCBIU1RB
+VFVTIENTUnMgKi8KPiAtICAgICAgIHNwaW5fbG9ja19pbml0KCZ2Y3B1LT5hcmNoLnJlc2V0X2Nu
+dHhfbG9jayk7Cj4gLQo+IC0gICAgICAgc3Bpbl9sb2NrKCZ2Y3B1LT5hcmNoLnJlc2V0X2NudHhf
+bG9jayk7Cj4gLSAgICAgICBjbnR4ID0gJnZjcHUtPmFyY2guZ3Vlc3RfcmVzZXRfY29udGV4dDsK
+PiAtICAgICAgIGNudHgtPnNzdGF0dXMgPSBTUl9TUFAgfCBTUl9TUElFOwo+IC0gICAgICAgY250
+eC0+aHN0YXR1cyA9IDA7Cj4gLSAgICAgICBjbnR4LT5oc3RhdHVzIHw9IEhTVEFUVVNfVlRXOwo+
+IC0gICAgICAgY250eC0+aHN0YXR1cyB8PSBIU1RBVFVTX1NQVlA7Cj4gLSAgICAgICBjbnR4LT5o
+c3RhdHVzIHw9IEhTVEFUVVNfU1BWOwo+IC0gICAgICAgc3Bpbl91bmxvY2soJnZjcHUtPmFyY2gu
+cmVzZXRfY250eF9sb2NrKTsKPiArICAgICAgIHNwaW5fbG9ja19pbml0KCZ2Y3B1LT5hcmNoLnJl
+c2V0X3N0YXRlLmxvY2spOwo+Cj4gICAgICAgICBpZiAoa3ZtX3Jpc2N2X3ZjcHVfYWxsb2NfdmVj
+dG9yX2NvbnRleHQodmNwdSkpCj4gICAgICAgICAgICAgICAgIHJldHVybiAtRU5PTUVNOwo+Cj4g
+LSAgICAgICAvKiBCeSBkZWZhdWx0LCBtYWtlIENZLCBUTSwgYW5kIElSIGNvdW50ZXJzIGFjY2Vz
+c2libGUgaW4gVlUgbW9kZSAqLwo+IC0gICAgICAgcmVzZXRfY3NyLT5zY291bnRlcmVuID0gMHg3
+Owo+IC0KPiAgICAgICAgIC8qIFNldHVwIFZDUFUgdGltZXIgKi8KPiAgICAgICAgIGt2bV9yaXNj
+dl92Y3B1X3RpbWVyX2luaXQodmNwdSk7Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0v
+dmNwdV9zYmkuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMKPiBpbmRleCBmNTgzNjhmN2Rm
+MWQuLjNkNzk1NWUwNWNjMyAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5j
+Cj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYwo+IEBAIC0xNTksMTEgKzE1OSwxMCBA
+QCB2b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9zeXN0ZW1fcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2
+Y3B1LAo+ICB2b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9yZXF1ZXN0X3Jlc2V0KHN0cnVjdCBrdm1f
+dmNwdSAqdmNwdSwKPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bnNp
+Z25lZCBsb25nIHBjLCB1bnNpZ25lZCBsb25nIGExKQo+ICB7Cj4gLSAgICAgICBzcGluX2xvY2so
+JnZjcHUtPmFyY2gucmVzZXRfY250eF9sb2NrKTsKPiAtICAgICAgIHZjcHUtPmFyY2guZ3Vlc3Rf
+cmVzZXRfY29udGV4dC5zZXBjID0gcGM7Cj4gLSAgICAgICB2Y3B1LT5hcmNoLmd1ZXN0X3Jlc2V0
+X2NvbnRleHQuYTAgPSB2Y3B1LT52Y3B1X2lkOwo+IC0gICAgICAgdmNwdS0+YXJjaC5ndWVzdF9y
+ZXNldF9jb250ZXh0LmExID0gYTE7Cj4gLSAgICAgICBzcGluX3VubG9jaygmdmNwdS0+YXJjaC5y
+ZXNldF9jbnR4X2xvY2spOwo+ICsgICAgICAgc3Bpbl9sb2NrKCZ2Y3B1LT5hcmNoLnJlc2V0X3N0
+YXRlLmxvY2spOwo+ICsgICAgICAgdmNwdS0+YXJjaC5yZXNldF9zdGF0ZS5wYyA9IHBjOwo+ICsg
+ICAgICAgdmNwdS0+YXJjaC5yZXNldF9zdGF0ZS5hMSA9IGExOwo+ICsgICAgICAgc3Bpbl91bmxv
+Y2soJnZjcHUtPmFyY2gucmVzZXRfc3RhdGUubG9jayk7Cj4KPiAgICAgICAgIGt2bV9tYWtlX3Jl
+cXVlc3QoS1ZNX1JFUV9WQ1BVX1JFU0VULCB2Y3B1KTsKPiAgfQo+IC0tCj4gMi40OC4xCj4KCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
