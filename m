@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D481BC369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 16:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2C08C369DC
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 16:58:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BUWnmmpn0/PI/gDkVprM0GTzZZv2wmf8I1t3O8Or0Cw=; b=My7vCnwj3baSftM87OzDwo6qt8
-	qPhmJoSIWMBTn82ZYWJEP/8XuioH26FX/ScF2M7IUeQADQLLD0IX0wtX1aywNWCRBhCUW6wt1AEn4
-	xzrfo+6YpWZtKQ4IXETVcfpl7IldOw/q+EfnKvKhvJahyxToQkY1HpVXiejHKzB+VWdVl7b49Rvz8
-	42mPuxqVqMY22SmC5JER/KBhAJmiT5ZOQl13COLlKs6OJLgnKU7LzPgPrNLdUDTSL26WB1NAvRWCn
-	3Z3vHx0lda0cE0bjsV0E8A0D9i2izFRMVPk9KntOYqHysDkS3UTStBcyu+Z9xVqwk6dWa4XTDuBjB
-	nyE1ccRQ==;
+	bh=AVsi5jkghjQY2zDpKnbn6IboOwhX08EwoeVWEMJ5va8=; b=uACtGodrPd4m89syKwEpVY0kXM
+	5WXhATN4sF2Xo5ib3ZEiV9pfc9IkyhhXmQlG8nVYonhW21J0n84E/2h0F9X0LkMOp5nli94tz7STK
+	yPFK+7r6kot7XVxTe6PxQCmdgsFHVyXz3m/Vvs19+oWFZiPUwPcLHSbj6EzF3eQcjlAhBvc1yMzX6
+	bkui9INEoPcyeB6mIvmYMtIbjIbrLZaQHMv18LBcou8IP509tiULEF3sr/v+Q4xia10NiYqYop6Ht
+	eYjtwjrVpo0fs3HMrmlfloBrgybByOufg6AMkbN7Nf94oYS3m7LkPFNb8vN43KrNaTpZ3ZDHn/C8z
+	Pu3XpljQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rnk-000000070Cm-06e1;
-	Mon, 28 Apr 2025 16:57:52 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1u9Rnk-000000070D0-4BuW;
+	Mon, 28 Apr 2025 16:57:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Rj0-00000006zTX-2BGQ
+	id 1u9Rli-00000006zrl-22g0
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 16:52:59 +0000
+	Mon, 28 Apr 2025 16:55:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 14D0B44025;
-	Mon, 28 Apr 2025 16:52:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10D93C4CEEC;
-	Mon, 28 Apr 2025 16:52:54 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id DDDE06116F;
+	Mon, 28 Apr 2025 16:55:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7453C4CEE4;
+	Mon, 28 Apr 2025 16:55:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745859178;
-	bh=pI6hRChqlANd3TecWcb41Oh8OAvvjaVSWeKsY3yEuzs=;
+	s=k20201202; t=1745859345;
+	bh=rdzo+bpXDJs0ypWV1LWmkb04e+4rQxP1v+N7g7Jw86Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Jngz/xE3VRgYdOP5FFPjdrAXuTFs/nLzMIEAHSlf322k0q7gncsf/GGojuYzDsp5S
-	 BNJDlrsOhHxhjProwexPa5h0Pt+usdtysKtHnR8UPoSQWEkIyQAAHIXG0F/26NVrz1
-	 J0fC6ZZGSLMFYY5hdBiLr8FkGQGr22UeZWnUcU1vk0Uykg7edAzLCZGaYicG0+j3v/
-	 z9HO3ILHQsCYwEQ4afHLJZJMSGU/ZBX0J7PGlBScxow/RpaVxaKL067VApRfw6WsAV
-	 s3T0Cja8HL88ix+611GRh3TcSwFngRWelycA2BEURj4xdgMZnDsfaOD/AahJJqR/FP
-	 ZzSSOG6bchqBQ==
-Date: Mon, 28 Apr 2025 17:52:52 +0100
+	b=KkVkT3YcpNZPQH1CXcgtvOqB7kfmqTmHQKSJmJBtdyFDJXTSQ+9O6i30thaWFY6ua
+	 TIGFIFM0yRZ7j6mpXNy60R4qddQFo41FFxN2E/MgEomDSslXRhqDXOHc6HYX77ihPn
+	 xMYOOV7UDGIjVdxqZt61hPkIvA/vyk1c5dq/D5pbY/KbfoUjFOoikmzj0ctcmpLViv
+	 vVEB+bG26jeFRxtKwHHuuRpNrz0xsa8ITsSqFOsypxM//yw2bcefZEmWz0zcuW2SiY
+	 z1E39u/C9IJ88mArbHTwlpPOyxr+S5PPjiRDn6Llfis6bpM7epmqdkCFi12J1xQO69
+	 Y704H6whlT4Nw==
+Date: Mon, 28 Apr 2025 17:55:40 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Junhui Liu <junhui.liu@pigmoral.tech>
 Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
@@ -56,15 +56,13 @@ Cc: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: mailbox: add Sophgo CV18XX series SoC
-Message-ID: <20250428-glade-unripe-4cdb4913ede4@spud>
+Subject: Re: [PATCH v3 2/3] riscv: dts: add mailbox for Sophgo CV18XX series
+ SoC
+Message-ID: <20250428-water-sermon-eefdfa511f8d@spud>
 References: <20250428-cv18xx-mbox-v3-0-ed18dfd836d1@pigmoral.tech>
- <20250428-cv18xx-mbox-v3-1-ed18dfd836d1@pigmoral.tech>
+ <20250428-cv18xx-mbox-v3-2-ed18dfd836d1@pigmoral.tech>
 MIME-Version: 1.0
-In-Reply-To: <20250428-cv18xx-mbox-v3-1-ed18dfd836d1@pigmoral.tech>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_095258_600550_87E03B9D 
-X-CRM114-Status: GOOD (  19.29  )
+In-Reply-To: <20250428-cv18xx-mbox-v3-2-ed18dfd836d1@pigmoral.tech>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,136 +74,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3414887695521373782=="
+Content-Type: multipart/mixed; boundary="===============5234812085652207781=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============3414887695521373782==
+--===============5234812085652207781==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="808Y5OGEYRt8756B"
+	protocol="application/pgp-signature"; boundary="xA+yzJlbbZrKnJ4A"
 Content-Disposition: inline
 
 
---808Y5OGEYRt8756B
+--xA+yzJlbbZrKnJ4A
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Apr 28, 2025 at 08:39:44PM +0800, Junhui Liu wrote:
+On Mon, Apr 28, 2025 at 08:39:45PM +0800, Junhui Liu wrote:
 > From: Yuntao Dai <d1581209858@live.com>
 >=20
-> Introduce the mailbox module for CV18XX series SoC, which is responsible
-> for interchanging messages between asymmetric processors.
+> Add mailbox node for Sophgo CV18XX series SoC.
 >=20
 > Signed-off-by: Yuntao Dai <d1581209858@live.com>
 > Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 > ---
->  .../bindings/mailbox/sophgo,cv1800b-mailbox.yaml   | 57 ++++++++++++++++=
-++++++
->  1 file changed, 57 insertions(+)
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi | 7 +++++++
+>  1 file changed, 7 insertions(+)
 >=20
-> diff --git a/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mai=
-lbox.yaml b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbo=
-x.yaml
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..5815dc02189c973d681f5b4ff=
-22a9fb7536802b9
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.ya=
-ml
-> @@ -0,0 +1,57 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/sophgo,cv1800b-mailbox.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Sophgo CV1800/SG2000 mailbox controller
-> +
-> +maintainers:
-> +  - Yuntao Dai <d1581209858@live.com>
-> +  - Junhui Liu <junhui.liu@pigmoral.tech>
-> +
-> +description: |
-> +  Mailboxes integrated in Sophgo CV1800/SG2000 SoCs have 8 channels, each
-> +  shipping an 8-byte FIFO. Any processor can write to an arbitrary chann=
-el
-> +  and raise interrupts to receivers. Sending messages to itself is also
-> +  supported.
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts=
+/sophgo/cv18xx.dtsi
+> index c18822ec849f353bc296965d2d600a3df314cff6..f7277288f03c024039054bdc4=
+176fc95c2c8be52 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -55,6 +55,13 @@ soc {
+>  		dma-noncoherent;
+>  		ranges;
+> =20
+> +		mailbox: mailbox@1900000 {
+> +			compatible =3D "sophgo,cv1800b-mailbox";
+> +			reg =3D <0x01900000 0x1000>;
+> +			interrupts =3D <101 IRQ_TYPE_LEVEL_HIGH>;
+> +			#mbox-cells =3D <2>;
+> +		};
 
-> +  Sophgo CV1800/SG2000 SoCs include the following processors, numbered a=
-s:
-> +  <0> Cortex-A53 (Only available on CV181X/SG200X)
-> +  <1> C906B
-> +  <2> C906L
-> +  <3> 8051
-
-I think this section should be moved to the mbox-cells property, since it
-is describing how to use the mboxes property.
+No user added here, is there another series in the works that adds a
+user of the mailbox?
 
 > +
-> +properties:
-> +  compatible:
-> +    const: sophgo,cv1800b-mailbox
-
-Remind me, why only a cv1800b compatible when you also mention sg2000?
-Rebranding of the same SoC, or something like that?
-
-Cheers,
-Conor.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  "#mbox-cells":
-> +    const: 2
-> +    description:
-> +      The first cell indicates the channel index (0-7), the second cell
-> +      indicates the target processor ID (0-3) to which messages are sent.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - "#mbox-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    mailbox@1900000 {
-> +        compatible =3D "sophgo,cv1800b-mailbox";
-> +        reg =3D <0x01900000 0x1000>;
-> +        interrupts =3D <101 IRQ_TYPE_LEVEL_HIGH>;
-> +        #mbox-cells =3D <2>;
-> +    };
+>  		clk: clock-controller@3002000 {
+>  			reg =3D <0x03002000 0x1000>;
+>  			clocks =3D <&osc>;
 >=20
 > --=20
 > 2.49.0
 >=20
 
---808Y5OGEYRt8756B
+--xA+yzJlbbZrKnJ4A
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaA+yZAAKCRB4tDGHoIJi
-0t1lAP9V2g2LIIJRAKEvyHiOiSZqBssxSKYR38pDHKDgwVNB8QD/WW5d+UskSt4X
-aQBF7jtO3m4hOntZ5PTi7OrEe6twXwc=
-=XbeY
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaA+zDAAKCRB4tDGHoIJi
+0jKSAPoDM25pLrGWkg9bkq2pYg0aNYGJ2RznmDX5+prlXe7rCAD/ULesrOMr+1Fd
+IAlLCzjsDtLy0SL/qyrXAINikYX6sgM=
+=ZurY
 -----END PGP SIGNATURE-----
 
---808Y5OGEYRt8756B--
+--xA+yzJlbbZrKnJ4A--
 
 
---===============3414887695521373782==
+--===============5234812085652207781==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -216,5 +155,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============3414887695521373782==--
+--===============5234812085652207781==--
 
