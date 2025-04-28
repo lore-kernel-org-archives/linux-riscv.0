@@ -4,65 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73017C369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 15:28:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 140CDC369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 16:21:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:References:
-	In-Reply-To:To:Cc:From:MIME-Version:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=6r7lMxnLUH1uvWFNhULq0439ri6t2cHt+BKGeOzl4M0=; b=NJZI73t9+7a3lYXulvGOo5yE5a
-	KnyZqJ/hOYt8PG2h0NMR6S8OmtFBlsnNlzeJYjvXZy+Hik8Gx+t9jotOnE/KlOnlQiiS6w+b/QqsW
-	XskAiq6qqnU/v50PNaaR0b7sOkogIK7XgBt081wYa+xUs89DUBRyMg3ZXhPXT9m+6OPNu3neQCKY7
-	w/3Eu81Ahu1tAtygvVoBhb4CizsxUkPYi+h1bwdqWULmedbMLdnX0y2rCbekbo8yWS+JT+4n6Lfeb
-	/nzrgG8NWUC/qB5wLi4pkasil/4OnFzMpUfRb6qJlCL+BAP2IWjRpRBvqrdd0gQhXr8NtPeUNB2j6
-	IctprCrg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=xt24tR2+qiIrMXVvSZfYsurkjWkBTdwAAlcJQp6nwdw=; b=s5Qru5yc+pvrk6
+	IU87crgNogmWH2ideCAxXBTRpOxQ2wwYINbfyALtWB5jybBlW1kt8FUBMSBncZcrG4MkrskFcDIUw
+	shR6f5X2s2rBKwjpgdqzZIi26EVXCW7PsZnak17LyxKP88REMajQKjfyI5B75cTMv6oXsHml0wzxC
+	8GLKbHfY85H+DKtuYvwQ8/T41OOsWfzNl0jiE9YwUuf8o20LIdseAiCGGLZ3z/Nsk7+JVfHniveVk
+	Z6XH7lSZL7akkmPds6p6HNYdDP3ucJijNF+NcoehQz3qoec8sI0I/nu8pNEt54YC4e8hI91+kQNkt
+	SV6NxNYxlG/t+xrq8MvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QOt-00000006lfC-2KeX;
-	Mon, 28 Apr 2025 15:28:07 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1u9REi-00000006u6V-3WjJ;
+	Mon, 28 Apr 2025 16:21:40 +0000
+Received: from mail-yb1-xb30.google.com ([2607:f8b0:4864:20::b30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9QO8-00000006lX6-0eHd
+	id 1u9REg-00000006u4z-0syE
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 15:27:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4B6C45C3A77;
-	Mon, 28 Apr 2025 15:25:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6917C4CEEE;
-	Mon, 28 Apr 2025 15:27:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745854039;
-	bh=xe+PC4Ilgkqhp0Kq/uE50DZsnYhsTMuf5xemFibbnIs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=ODFSBNglrrH69kLsEZ4zqQ6PmWjGUrG2PziyFNd4uoF9tOTKcZStJ+KI7qdh2tGye
-	 h4i8rcd77w1BBkGNH7cAmosi/GWDb+BCn+nV2hFj5BzmIOg/JvTuSG4EtXCnQpVQAs
-	 ib7xKLiWucIsM190d7dmJYcVfV05UiXz6v0dfsGl/Wo+bl38y5brvby+VnVzIoH1nW
-	 pUmWOKDGA9xu1fx/hlhON/8UKowByzAZ5rsdT/Gb0mW0JVCitrt/7da4Rr/zlWovQb
-	 w76u9kzpa4u8PB1d32X8L297AXQqSs7C/a7gIF74SY7o5VZmoWMROXZ+5xrYskq53K
-	 CLCTrwFzu2Rfw==
-Date: Mon, 28 Apr 2025 10:27:17 -0500
+	Mon, 28 Apr 2025 16:21:39 +0000
+Received: by mail-yb1-xb30.google.com with SMTP id 3f1490d57ef6-e7329792c6eso1600731276.1
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 09:21:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1745857297; x=1746462097; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=WOhasKd6micKEiWT/MKXPBW1f7I1/Q2+vdBpOz089cI=;
+        b=APwiAcayq3A1cZjMhu8ZVuYmL3ygKXZ2Jol+NlDmW2HfKISiIx6/v1B2/fCEEdx8vR
+         s+6vY3IcNkbGzclgGORbSlgKpZv+Ry0F83LUTatYs6be3cfLWFQtuf+cgERFS/7OoGGV
+         7Ggph6vT8x9cXLDKAA2l82f9mBwQO2xJXlnKtXFsORNjhTeqP3pATN/5uAT7KgfyEV8V
+         azEtSPhgKbm8e4V1x9WB7ZaoNzzLjdacrsjhvIgvytjTxwNE0uy+OTl+3EXHSr5CRV//
+         COS4FNCab/Nq+ih45R0u6QVhM0u0vnMiq/A9R1B488mkXIMevFiCJXlZIQbFRFK0qzmy
+         7j+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745857297; x=1746462097;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=WOhasKd6micKEiWT/MKXPBW1f7I1/Q2+vdBpOz089cI=;
+        b=au6YBEANZVhyDg8HnuoDMVeYC48nMp9IGHAED1wdhkvH/yGWbKg+zCZd0yBoJj4/vW
+         ihTCr4rt5a3RrUHyzjZ5YaJdi3X/BugvNqXk1Vslepm28WlagrD5bqWZmGiRHI8U6pyy
+         PiP5O/FQ9OZ9ZBvUlA8jvrDjqAkLmwozsRyJQWvnTsSOe53wItz7FtfE9wHiDUvk3uWF
+         duaW5lnK8G7Tnr8gGW5leNEq/7WfL7Hh92lytRMKX0ZLzAhxwJwr1vVzbc5L8WwD3ul4
+         NzDj6JjKRQBwCoCh/+cV5jHuTCCNiszqpbphXVe7hEFo64eLlt6AxprVSTiKMrcqFqlh
+         de7A==
+X-Forwarded-Encrypted: i=1; AJvYcCXTxV7zfsFpOPpdy/E1jOhOiMKWusMenRhUukt6NoE1shljCyVSQExs2sL138NWg/0ggHui1G4LKHigIA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzw+7bN90jr4K8GlK2GsvhvD/rcn8cMoJmruAdQbVP0mSTI20If
+	zfJ6g5IlE6m11jUVIiB6mJWqKWC0S5voxc/7rhKoN3452zRzBkRanGKh6DKfqC1Cl8vJoTMDZH9
+	phnl70J0P2ZmgoezFYsAj4Ys1ROgQ/D+rJ2DkGw==
+X-Gm-Gg: ASbGnctQpi5C8XWzd2wH5zacMaMi4uKrY0XGZr80UpyPKjz0ZOv2E4ozrXZ9u+Tngg2
+	XiCj2gavORj8oT3U31BuCv6WmhV/xRJ4zXnIwCcm5IqDjkHBqtFZmrmgTE0pQocmyQJRc5vzwPH
+	n29/p8yvw5eFPxnmyGzYJi+ss=
+X-Google-Smtp-Source: AGHT+IF2+lLJogWYmJ9CklQNKtsYDG7mA++udTlmO/sYgtKfw1zcHF/zNyAnw+6seYbb5sOJx4PEl6rhupOOr/4EHRU=
+X-Received: by 2002:a05:6902:15c1:b0:e6d:f0a6:4cd7 with SMTP id
+ 3f1490d57ef6-e7322febd09mr12474369276.0.1745857297087; Mon, 28 Apr 2025
+ 09:21:37 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: devicetree@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- spacemit@lists.linux.dev, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-usb@vger.kernel.org, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, 
- Conor Dooley <conor+dt@kernel.org>
-To: Ze Huang <huangze@whut.edu.cn>
-In-Reply-To: <20250428-b4-k1-dwc3-v2-v1-1-7cb061abd619@whut.edu.cn>
-References: <20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn>
- <20250428-b4-k1-dwc3-v2-v1-1-7cb061abd619@whut.edu.cn>
-Message-Id: <174585403717.1072738.12141605070029196613.robh@kernel.org>
-Subject: Re: [PATCH 1/2] dt-bindings: usb: dwc3: add support for SpacemiT
- K1
+References: <20250413223507.46480-1-inochiama@gmail.com> <20250413223507.46480-8-inochiama@gmail.com>
+In-Reply-To: <20250413223507.46480-8-inochiama@gmail.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 28 Apr 2025 18:21:01 +0200
+X-Gm-Features: ATxdqUHo5zpHgBeVnQwujIcWP56iQkcuhTXqhu8H3yGRlHLlrSHxM1LpwpFg6CU
+Message-ID: <CAPDyKFrM32TVAHzSoMvmO_ZW2Ax=RQmH_7KqSGgqXTOc20UnLA@mail.gmail.com>
+Subject: Re: [PATCH v2 07/10] dt-bindings: mmc: sdhci-of-dwcmhsc: Add Sophgo
+ SG2044 support
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Andi Shyti <andi.shyti@kernel.org>, 
+	Thomas Gleixner <tglx@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Samuel Holland <samuel.holland@sifive.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, 
+	Jarkko Nikula <jarkko.nikula@linux.intel.com>, Jisheng Zhang <jszhang@kernel.org>, 
+	Chao Wei <chao.wei@sophgo.com>, linux-hwmon@vger.kernel.org, 
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org, linux-i2c@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_082720_235676_DAB30924 
-X-CRM114-Status: GOOD (  11.33  )
+X-CRM114-CacheID: sfid-20250428_092138_251213_CBF45F62 
+X-CRM114-Status: GOOD (  13.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,45 +106,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Mon, 14 Apr 2025 at 00:36, Inochi Amaoto <inochiama@gmail.com> wrote:
+>
+> The sdhci IP of SG2044 is similar to it of SG2042. They
+> share the same clock and controller configuration.
+>
+> Add compatible string for SG2044.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 
-On Mon, 28 Apr 2025 15:38:11 +0800, Ze Huang wrote:
-> Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-> in
-> the SpacemiT K1 SoC. The controller is based on the Synopsys DesignWare
-> Core USB 3 (DWC3) IP, supporting both Host and Device modes for USB 3.0
-> and USB 2.0 standards.
-> 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+Applied for next, thanks!
+
+Kind regards
+Uffe
+
+
 > ---
->  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 95 ++++++++++++++++++++++
->  1 file changed, 95 insertions(+)
-> 
-
-My bot found errors running 'make dt_binding_check' on your patch:
-
-yamllint warnings/errors:
-
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.example.dtb: usb@c0a00000 (spacemit,k1-dwc3): Unevaluated properties are not allowed ('interconnect-names', 'interconnects' were unexpected)
-	from schema $id: http://devicetree.org/schemas/usb/snps,dwc3.yaml#
-
-doc reference errors (make refcheckdocs):
-
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250428-b4-k1-dwc3-v2-v1-1-7cb061abd619@whut.edu.cn
-
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
-
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
-
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
-
+>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+>
+> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> index e6e604072d3c..5fb347167004 100644
+> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> @@ -19,6 +19,9 @@ properties:
+>                - rockchip,rk3562-dwcmshc
+>                - rockchip,rk3576-dwcmshc
+>            - const: rockchip,rk3588-dwcmshc
+> +      - items:
+> +          - const: sophgo,sg2044-dwcmshc
+> +          - const: sophgo,sg2042-dwcmshc
+>        - enum:
+>            - rockchip,rk3568-dwcmshc
+>            - rockchip,rk3588-dwcmshc
+> --
+> 2.49.0
+>
 
 _______________________________________________
 linux-riscv mailing list
