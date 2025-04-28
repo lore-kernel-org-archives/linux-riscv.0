@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A49C369DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 18:01:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D12C369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 18:31:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
-	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KrRlH+fPlgXxmLCmxGU7B5Bs8DhlazO24MdrvtlT6d4=; b=fB30YuESqC+JGk
-	m1gfkUvzMRQlBaKeGN2Yi7Q4Pijb9YR68Xh2k1q5LYzPd/9257ifM2f+vBEL/sHUnQXBkd9WwOFlR
-	rDoIpeNq4kmrgAmfwDR877Etw9bm2zP50JviCfvksPxt3ai2T2GFEtsBa7UJ9ee7vVQ5DRDpJ8+OY
-	wEGjXfRb3xlUECDVYRaZnLMqhHuJOytzJkqbdFOWXZ7/Me41p64Ewp3l6gq5tyuqG5QxCtQV4o/ze
-	ykQCA5zblFgOZ8hV3ZMtXGFR4Jw2a4O0UrjmTdmeU7fh7h3qOlMZJvDP3syJmqB7uB7g26ZfvkP03
-	k2KXY0Mr8ARZuymVyi3g==;
+	List-Owner; bh=srHyVTSoPcI1LtkZsJFD5Lv4+vrEvWFMtmY+U0bSVck=; b=pbLVT6I+ixQlBQ
+	8msHfVk0vBDjf5kxHLhiF8zW7EfxsDGH5mj0UM3ONKkzbtxW6IeCnjqD+mINCuT6OGEr95V4shM91
+	rauAu5ODdtIhzFfLN4GP19Msd8+Nm/+gQZxMXy9qm4xyD69QYi7cUfk6BVconVxrnxl3rENxNZCO7
+	YL3kysTLfi8T13qgS7Q51VZjqH5nwl04HZaiNUmqWQgZGtfwmjxF+n/s+QmDrmz7Z7GAxDc4Omze2
+	bDxGCeun23WNiBSgxA4QzbFxvA/CbyT3QirCMX7Z8kUrn9+1R3l6uh0+r+yNjV2w8rLySaqsOKd7E
+	AxeK8e7Pv/dTkMXrTIaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Smp-000000079rK-317t;
-	Mon, 28 Apr 2025 18:00:59 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1u9TFy-00000007EeG-4B2U;
+	Mon, 28 Apr 2025 18:31:06 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Smn-000000079qR-1Eqn
-	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 18:00:58 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-39d94327297so623423f8f.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 11:00:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1745863256; x=1746468056; darn=lists.infradead.org;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mZwXwtzXWmeQYckV0YYno1wNCKBMqM9oV5/JyBASh3g=;
-        b=OmipBDJlB9udCxMhmglIz9Vr2w507SOZBXobXXvWiF5GtbbV/rLGlkrOjXfi8Ic00h
-         CAcnA6I06/tor0vkY7DNohd40SOEvft50oLeiIDEgBsHOtigtAU9oSYIavkOZsUqsJPI
-         6+TZ+66YczyMLZsdXHz0J1PHnK9KAJJX9O89cMZyyjMgS3Ef4u3mM4ZEYuxjyyJVGXtT
-         xRbOyOpZIvxjREFR/Wop7JkTErlOu886/NOqf6faGkcDs78DRR7q+MvM6tVqwAWSIeTh
-         n8+3hBuqe8sBET+0ug7ICyFFW+G5NHiEaRWqtVULE65A2IFr3RRCpWNwri8X5SZPi3Qp
-         emkg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745863256; x=1746468056;
-        h=in-reply-to:references:to:cc:subject:from:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=mZwXwtzXWmeQYckV0YYno1wNCKBMqM9oV5/JyBASh3g=;
-        b=dIg11NnS2nyF2IRVWWQ4PDoTq2984SBht3evbhS0v3ebnDK+UWVxjbzHNOq4R3mM1a
-         28i7QMYbnLkOJVmh4gNT3EwWy+sXsmRYkMGhzHHtJSToosJqk+G7RflfCedMGE3WkYBL
-         IFJ29gYESZGC8rgSH6NkFShEfX6UrW+U64SkRhNShV1+SGYakeiY+SOImUqeuOZl+SyS
-         EM0bl0Fg+EXPsHhy6TjzClEDxQdAmh6fA/rNRQX+TIsXfMawE4LP37r1camT6TVlV1XN
-         zmTx0ZrIfmZbvbDiiDWwtiflBSPXay74vipHzckHbST8BwuH0izQHbcokZpcelhMOlkc
-         0u4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWDz6iEFY0UVpa93KFcLhp9qQj5CPoZx261rFNYSAIBZe+5Fe4dBIIJPZjQYIngBKRhYshmmZLdg9YKGw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw0e2cEdXpBH2qiMcLUuKH1jc2++GxwWUcUU8bhAVVfenMKRt6n
-	eVELE0SroptVSNmLADaklnM0E85qpNu0LfHux+PExaA519esSwAnZqBYKj9dhHI=
-X-Gm-Gg: ASbGncsyG7EG1Hipoilspj1ahblXa34Nr+UEq8IpLt2kvcD+vq+oKEySvZlcI6nmysk
-	U8CMgbh3cjO6JDSHqyFicJzuaM+FpOfX2d/ZEcRxgR3wI3d6Lt4Pdg6XA967akndeK/RyZBeu60
-	HB5UYmAqmnUJNdad0jkcg5NMl8Z3uDhWoVwU6NoJjk3UgvHDcHKuQYPiXLIKEg9DDyMio6D70PU
-	dhvhp0fOGQJ4m5W733xzXWDYePPQF3hlgrFt+AEoPlI4rMTolqkDT+mlonle+wAT4agBkVZ6MNI
-	CpspV5V+LCRR5H1J19nzZ+3aaJ4XqvXho51ntmlzvOemmiE=
-X-Google-Smtp-Source: AGHT+IEoLn0qfVLaHBdPIxVZ7lJCgR2On0y4jpuci39/L3rmNtHaRZ20QzdrYfwyAYvWF7jRY9MHSQ==
-X-Received: by 2002:a05:6000:1886:b0:3a0:86f3:451f with SMTP id ffacd0b85a97d-3a08a3438camr79148f8f.12.1745863255647;
-        Mon, 28 Apr 2025 11:00:55 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:785:f3a7:1fbb:6b76])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073cbdb78sm11569680f8f.41.2025.04.28.11.00.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 11:00:55 -0700 (PDT)
-Mime-Version: 1.0
-Date: Mon, 28 Apr 2025 20:00:54 +0200
-Message-Id: <D9IGVF0OY4WJ.1O1BX0M2LWUVM@ventanamicro.com>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-Subject: Re: [PATCH 3/5] KVM: RISC-V: remove unnecessary SBI reset state
-Cc: <kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Atish
- Patra" <atishp@atishpatra.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Andrew Jones"
- <ajones@ventanamicro.com>, "Mayuresh Chitale" <mchitale@ventanamicro.com>
-To: "Anup Patel" <anup@brainfault.org>
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
- <20250403112522.1566629-6-rkrcmar@ventanamicro.com>
- <CAAhSdy1RSpVCUzD+Aqbhh7aiQPmC2zdvuQfuOsmYNJrF3HxCsA@mail.gmail.com>
-In-Reply-To: <CAAhSdy1RSpVCUzD+Aqbhh7aiQPmC2zdvuQfuOsmYNJrF3HxCsA@mail.gmail.com>
+	id 1u9Rrp-000000070uu-3izK;
+	Mon, 28 Apr 2025 17:02:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B45F44AAB0;
+	Mon, 28 Apr 2025 17:02:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51142C4CEE4;
+	Mon, 28 Apr 2025 17:02:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745859725;
+	bh=nXzVAsBZCcgzdRMgpyZqkLVLDfQ1jazwy8tBAdc6LUA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=fhWU0v5rvclI0LyXWoFJWCc8BBqZDSK9XM7bRtugjwHxkC9RmCMCl2vCKuOh436Ey
+	 Ig/QtscHPvoggKplKY8rsRsfkwt0OwdOq34ZqZDAbiEv8E5P01FA/mfMJ72ATs6yi5
+	 xtI4vlMR9BO7Dk/EK/p0TqckPPgaRp0M4L70oTI7kuhAq08xKo8Ct0naj+YkYryNq7
+	 blhBW4oQl/I7gEJaoQUPcdRlQut7zku3n/Ndeo5F4OSGVa3pMFbqtC6wAXO56chZBJ
+	 HuVy4LX5Sijc6DMVip1M6D8+vuscZaaisIZodo+tI3jQpBF1IChO5AMAywdJvSVo6A
+	 y5G4kI3kbrXAg==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-crypto@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v4 12/13] crypto: sha256 - remove sha256_base.h
+Date: Mon, 28 Apr 2025 10:00:37 -0700
+Message-ID: <20250428170040.423825-13-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250428170040.423825-1-ebiggers@kernel.org>
+References: <20250428170040.423825-1-ebiggers@kernel.org>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_110057_332611_D9DAE49F 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250428_100205_973401_9A18CB5F 
+X-CRM114-Status: GOOD (  10.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +76,215 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjAyNS0wNC0yOFQxNzo0NjowMSswNTozMCwgQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9y
-Zz46Cj4gT24gVGh1LCBBcHIgMywgMjAyNSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxy
-a3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Pgo+PiBUaGUgU0JJIHJlc2V0IHN0YXRl
-IGhhcyBvbmx5IHR3byB2YXJpYWJsZXMgLS0gcGMgYW5kIGExLgo+PiBUaGUgcmVzdCBpcyBrbm93
-biwgc28ga2VlcCBvbmx5IHRoZSBuZWNlc3NhcnkgaW5mb3JtYXRpb24uCj4+Cj4+IFRoZSByZXNl
-dCBzdHJ1Y3R1cmVzIG1ha2Ugc2Vuc2UgaWYgd2Ugd2FudCB1c2Vyc3BhY2UgdG8gY29udHJvbCB0
-aGUKPj4gcmVzZXQgc3RhdGUgKHdoaWNoIHdlIGRvKSwgYnV0IEknZCBzdGlsbCByZW1vdmUgdGhl
-bSBub3cgYW5kIHJlaW50cm9kdWNlCj4+IHdpdGggdGhlIHVzZXJzcGFjZSBpbnRlcmZhY2UgbGF0
-ZXIgLS0gd2UgY291bGQgcHJvYmFibHkgaGF2ZSBqdXN0IGEKPj4gc2luZ2xlIHJlc2V0IHN0YXRl
-IHBlciBWTSwgaW5zdGVhZCBvZiBhIHJlc2V0IHN0YXRlIGZvciBlYWNoIFZDUFUuCj4KPiBUaGUg
-U0JJIHNwZWMgZG9lcyBub3QgZGVmaW5lIHRoZSByZXNldCBzdGF0ZSBvZiBDUFVzLiBUaGUgU0JJ
-Cj4gaW1wbGVtZW50YXRpb25zIChha2EgS1ZNIFJJU0MtViBvciBPcGVuU0JJKSBvciBwbGF0Zm9y
-bQo+IGZpcm13YXJlcyBhcmUgZnJlZSB0byBjbGVhciBhZGRpdGlvbmFsIHJlZ2lzdGVycyBhcyBw
-YXJ0IHN5c3RlbQo+IHJlc2V0IG9yIENQVS4KPgo+IEFzIHBhcnQgb2YgcmVzZXR0aW5nIHRoZSBW
-Q1BVLCB0aGUgaW4ta2VybmVsIEtWTSBjbGVhcnMgYWxsCj4gdGhlIHJlZ2lzdGVycy4KClllcywg
-YnV0IGluc3RlYWQgb2YgZG9pbmcgYSBzaW1wbGUgbWVtc2V0KDApLCBLVk0gY2FycmllcnMgYXJv
-dW5kIGEgbG90Cm9mIGRhdGEgd2l0aCBtaW5pbWFsIGluZm9ybWF0aW9uIHZhbHVlLiAgUmVzZXQg
-aXMgbm90IHJlYWxseSBhIGZhc3QKcGF0aCwgc28gSSB0aGluayBpdCB3b3VsZCBiZSBnb29kIHRv
-IGhhdmUgdGhlIGNvZGUgdGhlcmUgYXMgc2ltcGxlIGFzCnBvc3NpYmxlLgoKPiBUaGUgc2V0dGlu
-ZyBvZiBQQywgQTAsIGFuZCBBMSBpcyBvbmx5IGFuIGVudHJ5IGNvbmRpdGlvbiBkZWZpbmVkCj4g
-Zm9yIENQVXMgYnJvdWdodC11cCB1c2luZyBTQkkgSFNNIHN0YXJ0IG9yIFNCSSBTeXN0ZW0gc3Vz
-cGVuZC4KClRoYXQgaXMgd2h5IHRoaXMgcGF0Y2ggaGFzIHRvIGFkZCBrdm1fdmNwdV9yZXNldF9z
-dGF0ZSwgdG8gcmVtZW1iZXIgdGhlCnN0YXRlIG9mIHBjIGFuZCBhMS4gIChhMCBpcyBoYXJ0IGlk
-IGFuZCBjYW4gYmUgZmlndXJlZCBvdXQuKQoKPiBXZSBzaG91bGQgbm90IGdvIGFoZWFkIHdpdGgg
-dGhpcyBwYXRjaC4KClRoaXMgcGF0Y2ggb25seSBkb2VzIHJlZmFjdG9yaW5nLiAgRG8geW91IHRo
-aW5rIHRoZSBjdXJyZW50IHJlc2V0CnN0cnVjdHVyZXMgYXJlIGJldHRlcj8KClRoYW5rcy4KCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Eric Biggers <ebiggers@google.com>
+
+sha256_base.h is no longer used, so remove it.
+
+Signed-off-by: Eric Biggers <ebiggers@google.com>
+---
+ include/crypto/sha256_base.h | 183 -----------------------------------
+ 1 file changed, 183 deletions(-)
+ delete mode 100644 include/crypto/sha256_base.h
+
+diff --git a/include/crypto/sha256_base.h b/include/crypto/sha256_base.h
+deleted file mode 100644
+index 6878fb9c26c04..0000000000000
+--- a/include/crypto/sha256_base.h
++++ /dev/null
+@@ -1,183 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-only */
+-/*
+- * sha256_base.h - core logic for SHA-256 implementations
+- *
+- * Copyright (C) 2015 Linaro Ltd <ard.biesheuvel@linaro.org>
+- */
+-
+-#ifndef _CRYPTO_SHA256_BASE_H
+-#define _CRYPTO_SHA256_BASE_H
+-
+-#include <crypto/internal/hash.h>
+-#include <crypto/internal/sha2.h>
+-#include <linux/math.h>
+-#include <linux/string.h>
+-#include <linux/types.h>
+-#include <linux/unaligned.h>
+-
+-typedef void (sha256_block_fn)(struct crypto_sha256_state *sst, u8 const *src,
+-			       int blocks);
+-
+-static inline int sha224_base_init(struct shash_desc *desc)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	sha224_init(sctx);
+-	return 0;
+-}
+-
+-static inline int sha256_base_init(struct shash_desc *desc)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	sha256_init(sctx);
+-	return 0;
+-}
+-
+-static inline int lib_sha256_base_do_update(struct sha256_state *sctx,
+-					    const u8 *data,
+-					    unsigned int len,
+-					    sha256_block_fn *block_fn)
+-{
+-	unsigned int partial = sctx->count % SHA256_BLOCK_SIZE;
+-	struct crypto_sha256_state *state = (void *)sctx;
+-
+-	sctx->count += len;
+-
+-	if (unlikely((partial + len) >= SHA256_BLOCK_SIZE)) {
+-		int blocks;
+-
+-		if (partial) {
+-			int p = SHA256_BLOCK_SIZE - partial;
+-
+-			memcpy(sctx->buf + partial, data, p);
+-			data += p;
+-			len -= p;
+-
+-			block_fn(state, sctx->buf, 1);
+-		}
+-
+-		blocks = len / SHA256_BLOCK_SIZE;
+-		len %= SHA256_BLOCK_SIZE;
+-
+-		if (blocks) {
+-			block_fn(state, data, blocks);
+-			data += blocks * SHA256_BLOCK_SIZE;
+-		}
+-		partial = 0;
+-	}
+-	if (len)
+-		memcpy(sctx->buf + partial, data, len);
+-
+-	return 0;
+-}
+-
+-static inline int lib_sha256_base_do_update_blocks(
+-	struct crypto_sha256_state *sctx, const u8 *data, unsigned int len,
+-	sha256_block_fn *block_fn)
+-{
+-	unsigned int remain = len - round_down(len, SHA256_BLOCK_SIZE);
+-
+-	sctx->count += len - remain;
+-	block_fn(sctx, data, len / SHA256_BLOCK_SIZE);
+-	return remain;
+-}
+-
+-static inline int sha256_base_do_update_blocks(
+-	struct shash_desc *desc, const u8 *data, unsigned int len,
+-	sha256_block_fn *block_fn)
+-{
+-	return lib_sha256_base_do_update_blocks(shash_desc_ctx(desc), data,
+-						len, block_fn);
+-}
+-
+-static inline int lib_sha256_base_do_finup(struct crypto_sha256_state *sctx,
+-					   const u8 *src, unsigned int len,
+-					   sha256_block_fn *block_fn)
+-{
+-	unsigned int bit_offset = SHA256_BLOCK_SIZE / 8 - 1;
+-	union {
+-		__be64 b64[SHA256_BLOCK_SIZE / 4];
+-		u8 u8[SHA256_BLOCK_SIZE * 2];
+-	} block = {};
+-
+-	if (len >= bit_offset * 8)
+-		bit_offset += SHA256_BLOCK_SIZE / 8;
+-	memcpy(&block, src, len);
+-	block.u8[len] = 0x80;
+-	sctx->count += len;
+-	block.b64[bit_offset] = cpu_to_be64(sctx->count << 3);
+-	block_fn(sctx, block.u8, (bit_offset + 1) * 8 / SHA256_BLOCK_SIZE);
+-	memzero_explicit(&block, sizeof(block));
+-
+-	return 0;
+-}
+-
+-static inline int sha256_base_do_finup(struct shash_desc *desc,
+-				       const u8 *src, unsigned int len,
+-				       sha256_block_fn *block_fn)
+-{
+-	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	if (len >= SHA256_BLOCK_SIZE) {
+-		int remain;
+-
+-		remain = lib_sha256_base_do_update_blocks(sctx, src, len,
+-							  block_fn);
+-		src += len - remain;
+-		len = remain;
+-	}
+-	return lib_sha256_base_do_finup(sctx, src, len, block_fn);
+-}
+-
+-static inline int lib_sha256_base_do_finalize(struct sha256_state *sctx,
+-					      sha256_block_fn *block_fn)
+-{
+-	unsigned int partial = sctx->count % SHA256_BLOCK_SIZE;
+-	struct crypto_sha256_state *state = (void *)sctx;
+-
+-	sctx->count -= partial;
+-	return lib_sha256_base_do_finup(state, sctx->buf, partial, block_fn);
+-}
+-
+-static inline int sha256_base_do_finalize(struct shash_desc *desc,
+-					  sha256_block_fn *block_fn)
+-{
+-	struct sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	return lib_sha256_base_do_finalize(sctx, block_fn);
+-}
+-
+-static inline int __sha256_base_finish(u32 state[SHA256_DIGEST_SIZE / 4],
+-				       u8 *out, unsigned int digest_size)
+-{
+-	__be32 *digest = (__be32 *)out;
+-	int i;
+-
+-	for (i = 0; digest_size > 0; i++, digest_size -= sizeof(__be32))
+-		put_unaligned_be32(state[i], digest++);
+-	return 0;
+-}
+-
+-static inline void lib_sha256_base_finish(struct sha256_state *sctx, u8 *out,
+-					  unsigned int digest_size)
+-{
+-	__sha256_base_finish(sctx->state, out, digest_size);
+-	memzero_explicit(sctx, sizeof(*sctx));
+-}
+-
+-static inline int sha256_base_finish(struct shash_desc *desc, u8 *out)
+-{
+-	unsigned int digest_size = crypto_shash_digestsize(desc->tfm);
+-	struct crypto_sha256_state *sctx = shash_desc_ctx(desc);
+-
+-	return __sha256_base_finish(sctx->state, out, digest_size);
+-}
+-
+-static inline void sha256_transform_blocks(struct crypto_sha256_state *sst,
+-					   const u8 *input, int blocks)
+-{
+-	sha256_blocks_generic(sst->state, input, blocks);
+-}
+-
+-#endif /* _CRYPTO_SHA256_BASE_H */
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
