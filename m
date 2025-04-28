@@ -4,87 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F79BC369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 14:18:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93F6C369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 15:16:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6En1bN5ZuVyxXc3Ubetp8SyZtGfzvDLF3WZ7n6qopXc=; b=eo8VE+h0XxhLZm
-	bQlY6s03rF1lHC02RoQwhEL7U3lNSuzk+n6pxHAKO5yGHW8m5l7ZLRNo2B6T+Jl/E2g+qXXTvuqJZ
-	Ge8jIKw0ksEh5XjUu7BsNkepvo1meASECFVMSOlnYrnDviZwX3SnGLG4Djh/Oo4NUCuiaJa89YnO8
-	KdwB0U6gYZLmNQtnLWhB4gSUZpfdQ8E2kf8zpM6UNeKJc6nGmrAuCi699m9dNHemSZk+FNLx+sRSX
-	3Toj/i7o/xuaAkW1LPytqwHnGtg5IoFJWwdO6BuX2G5CC2fNdqCcuSUEnawweG2y4NcbXAFxqCyxI
-	09um0h/+NjoxLta7LFWA==;
+	List-Owner; bh=9IODVSJ5x9I4DjzmwLBS5Iji7UMVIktofjiLn8wOM74=; b=I6bcupN8iHFo8T
+	YQStcfryDRAs85/pxTpyWUXiF5ZLMGyo5UsEbUHtP8oNLb4tw7drJWmZL4nGqsyP97w553UyAJZVo
+	OUxkBczPa19+hoqlibLUMLFk92KzKbkxBvjoGN+lYmNd81wlOV/73u+6yGtboVEiW9SwMNbowrEIu
+	mrBv3Rid1hbfXszuFDpyul/Z4ZayF7Sut8lR/IDvXYIdImlzvPUnWPd1R3R6TRBhOOW8TH1jmh2dn
+	FQPSrahHyBnBOBS53AEG0TB8Rs0q70WYyaLMs9XjfWDvY/K65IzcGexZL1c8s4mW3J/PUUpNIeJbY
+	fxxkxcCxQnhVCGdofQ5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PJS-00000006caD-0fk9;
-	Mon, 28 Apr 2025 14:18:26 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1u9QDc-00000006jaI-0GI2;
+	Mon, 28 Apr 2025 15:16:28 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PJP-00000006cZq-3TaP
+	id 1u9QDa-00000006ja7-2HyV
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 14:18:25 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54298ec925bso6342204e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 07:18:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1745849902; x=1746454702; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nXVvurz23J2+L5kt96WXTroBQ39jU0y6cCqiWeSQLFk=;
-        b=YIA048gKy7kTM/AbDpuEaBnDhcnrtRZVwyNxJT9vf3/8sf0CGQeE8XHOLvXhXuOvAk
-         z/GDOTOAPKnLtaFHR47SER8bXdLHgo9tMLKSmoJl5HbbE6L2+YoEaEOx7ZmIKszQtcE/
-         AQ2j5UzAsu6Ftc7lhCNvyJ4sQyGbmeOB6YDcttyC9KSVRKKiMoSEAUk6Ps+nAz5JmxWU
-         4KgNxFJAWxC56axMaF4LO2fHEScq/YnGCsPKqm2R+gBJwE+DhNfHW9nDDR44OQ7NY8JC
-         XnzwVpb08VjdYQ+rssjC6HJY+XzOLlzKSY41u217rE6GqyZKFit6a0ispCIpM/c+Bxbo
-         63aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745849902; x=1746454702;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nXVvurz23J2+L5kt96WXTroBQ39jU0y6cCqiWeSQLFk=;
-        b=ZQogXxHait74ZaiC0y4XDZHW67tgBvVKLPoNId9xK5/BS9didkKBwg7uqZ6XfM3xSq
-         2lGYE7hUJC15mAYq9n4/UA7bcX8Eg6J5etbEweoh7ndFy12Li5FWDSbTiTmAtaJosfkW
-         PMWrc26ViPKBzshZWgDCIUqvZQYll1dGHBZUtCZKEJWWMRBQz1pGIDohiIG1mKmCjQDN
-         GkBOaMsF3fTKJzMLfm2LFGXb6gijJm5hPLQZ2FGLHkSozfqE2b9F4G9dIzP3B6hCV87E
-         O73VmIg/R8d7tHF+vtV02hDCBrFI0BZZnWe5u8Jb2Dxfl6/de8yAnqKverxiDv395IAT
-         PhWQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW9hNMAz2fL8VSXZA+x4eZtwXCtGWwh0eTHgZZp7ZDwFHmvMarGXgd/mI9zKdnrbGS694HWcPxe/1BQsg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyedXCc7YpBzvkp2ND8GXOOyjf3ZHw5ZGsfK+OR2YC49KBeCg8
-	qPL9VvM2pon3Kjvdm8ZfPZ0B3IAf/yFumc1XY5jaF4H0DoWYu5hXFL76fec7A17Df9f/p+gESQi
-	kX13lztRWlUPwdqa9JASYMQvk/ZQgCkvTmAoRLA==
-X-Gm-Gg: ASbGncuUROZRY0LGz5A1YXhJRPfS3rnkgsBrAVIIEuTnFOtAGxjEhRiPp8s5ToVQlYY
-	Z6PG4v6KwpqZh8oK7KgoepknOgdJkD12J79e0iIXmu5bbBNsU7srJxYG4JdH6KjbvVqKWBxTlPC
-	TbFrdkiftL8eUfn6JS1jeUpQ==
-X-Google-Smtp-Source: AGHT+IGvhJeqWQVl7wUSjEu9Tai7VZXnkdRdnljHuHSmsEW0zEOC9vXIPg78pJyadRV6QxI6VqKiX008Vk2HwfUHtNE=
-X-Received: by 2002:a05:6512:108f:b0:549:6cac:6717 with SMTP id
- 2adb3069b0e04-54e8cc0cb31mr3406763e87.53.1745849901807; Mon, 28 Apr 2025
- 07:18:21 -0700 (PDT)
+	Mon, 28 Apr 2025 15:16:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AB9906135E
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 15:15:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 533BBC4CEF0
+	for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 15:16:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745853384;
+	bh=fkZcg4Wkqkc+9VzWMv4uHceYiUz18/bJxftEEFimOr8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=mo5Tc46wW/za8v/Lv55sM1x/J+/NtKXmaq6CSnXSw/gbmkhHkAbRv7d65lzfyePoT
+	 qeDfm0u2+4HYtI2czU8a2apJ+YgNNzi1newfndnBCFWxbfN+2rWR02NHzaHj/KTv76
+	 CUhXpc2utnIQTwfzXiBRtKoQ0hnVld86tWj0E1sF2YkZwfOe/PprTugE9anYNfp8vN
+	 KW+vEQ0Iwdjz4NqaANWDzqp7rQwMI8aLYrvHU1atbWd5O+xLqjutFWqFHpMqGLAKyA
+	 je/rBJGGndb21+diVTAL5i3tW5KeNjatFpQ1ggz+5QO0N7zd6loKpjhvonJJq9KbaM
+	 my5S+kg/yIxtg==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5499614d3d2so5223083e87.3
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 08:16:24 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWYwdtiXTgXTYn1LECPCD4yk5lDKaxy8SFdBUhSJi3T1KoLdr5/b82DYC4ORXpv8ljNfftEKEXpU7Q21A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHsAS+fjNuBaqjcJ0QopVQP9dIAl+I0M3qSX++WsiCBhh4/K5x
+	7AYzwd0Juder8pAh8MXcL6XNUPu0fYMooZ6zkyHxn+kt8LhbODZR5HcSTHX4MvkBE/IWThymxPN
+	2A44fJfphU/bJ5WAO1gBNOlXBdrA=
+X-Google-Smtp-Source: AGHT+IEWDLFwiagcp4lT9DXCrJ61WxVz9C+o7TVDD2U3wDJfCR07I5LYa26NoSnDHD2AN0k0/AQc+0u6RvpqQ41CUAM=
+X-Received: by 2002:a19:3841:0:b0:54e:9c8d:bdc3 with SMTP id
+ 2adb3069b0e04-54e9c8dc020mr299017e87.49.1745853382644; Mon, 28 Apr 2025
+ 08:16:22 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250424062017.652969-1-uwu@icenowy.me> <20250424062017.652969-2-uwu@icenowy.me>
- <CACRpkdaX0hTJSsZN6YNXASY3noZw=JsOSXzFBbxKegJ6A+2usA@mail.gmail.com>
- <7e62e720ccc51fb5c7d023adae3eab35aecf0bba.camel@icenowy.me>
- <CACRpkdY0DXxDixZVhnRuKvSVbKQ6pSfLMiT2hf9818sbNG-4hg@mail.gmail.com> <0606c146d97ff98ff1412b98f49e6da0071801d1.camel@icenowy.me>
-In-Reply-To: <0606c146d97ff98ff1412b98f49e6da0071801d1.camel@icenowy.me>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Mon, 28 Apr 2025 16:18:10 +0200
-X-Gm-Features: ATxdqUFE5Aj3lBDc4lYvvht68VXq-83pWEXQcwlO7tgbNAkueD3gpN4Y7TmGwKM
-Message-ID: <CACRpkdbPhKwjb0dkOom6HyzTrhPWvMPhX5M=nyxw1HBHNJa0fQ@mail.gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: pinctrl: starfive,jh7110: add
- PAD_INTERNAL_* virtual pins
-To: Icenowy Zheng <uwu@icenowy.me>
-Cc: Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_071823_866678_2894566F 
-X-CRM114-Status: GOOD (  15.07  )
+References: <20250424080950.289864-1-vkuznets@redhat.com> <20250424080950.289864-3-vkuznets@redhat.com>
+ <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com> <87ldrka6w6.fsf@redhat.com>
+In-Reply-To: <87ldrka6w6.fsf@redhat.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 28 Apr 2025 17:16:10 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXE0WcenLEB+60=+oc+aKfbqZkwYZf-TrOyDY=ShXQ2pYw@mail.gmail.com>
+X-Gm-Features: ATxdqUGE3Ny_H_HoWht4i8zmh5BM3VhhWJ0XtYTcEme2sEbRbvRZLlgvoP_p6pY
+Message-ID: <CAMj1kXE0WcenLEB+60=+oc+aKfbqZkwYZf-TrOyDY=ShXQ2pYw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] x86/efi: Implement support for embedding SBAT data
+ for x86
+To: Vitaly Kuznetsov <vkuznets@redhat.com>
+Cc: x86@kernel.org, linux-efi@vger.kernel.org, 
+	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Peter Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, 
+	Emanuele Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>, 
+	Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi <bluca@debian.org>, 
+	Peter Zijlstra <peterz@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>, 
+	James Bottomley <James.Bottomley@hansenpartnership.com>, 
+	Eric Snowberg <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,35 +87,151 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMjQsIDIwMjUgYXQgMjoyNuKAr1BNIEljZW5vd3kgWmhlbmcgPHV3dUBpY2Vu
-b3d5Lm1lPiB3cm90ZToKW01lXQo+ID4gSSBndWVzcyB3aGF0IHJ1YnMgbWUgdGhlIHdyb25nIHdh
-eSBpcyB3aHkgdGhlIGV4dGVybmFsIHVzZXJzCj4gPiAoZGV2aWNlcywgZGV2aWNlIGRyaXZlcnMg
-b3IgZXZlbiBwaW4gaG9ncykgY2Fubm90IHRyaWdnZXIgdGhlIGNoYWluCj4gPiBvZgo+ID4gZXZl
-bnRzIGxlYWRpbmcgdG8gdGhpcyBjb25maWd1cmF0aW9uLCBpbnN0ZWFkIG9mIGRpZmZlcmVudCAi
-bWFnaWMiCj4gPiBjb25maWd1cmF0aW9ucyB0aGF0IGFyZSBqdXN0IHNldCB1cCBpbiB0aGUgcGlu
-IGNvbnRyb2xsZXIgaXRzZWxmLgo+Cj4gV2VsbCBJIGFtIGp1c3QgZXh0ZW5kaW5nIHdoYXQncyBh
-bHJlYWR5IGluIHVzZS4uLgo+Cj4gQ3VycmVudGx5IGl0J3MgYWxyZWFkeSBzdXBwb3J0ZWQgdG8g
-cm91dGUgR1BJT3MgdG8gR1BJIHNpZ25hbHMsIEkgYWRkZWQKPiB0aGUgc3VwcG9ydCB0byByb3V0
-ZSBmaXhlZCBsZXZlbCBzb3VyY2VzIHRvIHRoZW0sIGluIGEgc2ltaWxhciB3YXkuCj4KPiBJZiBh
-bnkgZXh0ZXJuYWwgdXNlcnMgZXZlciBoYXZlIHRoZSBuZWVkIG9mIGJhbmdpbmcgdGhlIGludGVy
-bmFsCj4gc2lnbmFscyBpbnN0ZWFkIG9mIHR5aW5nIGl0IGZpeGVkbHksIG1heWJlIHN3aXRjaGlu
-ZyBiZXR3ZWVuIGRpZmZlcmVudAo+IHBpbmN0cmwgY29uZmlndXJhdGlvbiBzZXRzIGlzIGVub3Vn
-aD8gKEJlY2F1c2UgdGhpcyBraW5kIG9mIG9wZXJhdGlvbgo+IGNvdWxkIG5ldmVyIGJlIGFzIGhp
-Z2ggc3BlZWQgZW5vdWdoIGFzIHJlYWwgaGFyZHdhcmUgcGlucykKCldoYXQgSSBhbSB0aGlua2lu
-ZyBpcyB0aGF0IG9uZSBvZiB0aGUgZm9sbG93aW5nIG11c3QgYmUgdHJ1ZToKCjEuIFRoZSBpbnRl
-cm5hbCBwYWRzIGFyZSBhbHdheXMgc2V0IHVwIHRoZSBzYW1lIHdheSBmb3IgdGhpcyBTb0MKICBp
-biB3aGljaCBjYXNlIHRoZXkgc2hvdWxkIGJlIGp1c3QgaGFyZGNvZGVkIGluc3RlYWQsIG9yIGF0
-CiAgbGVhc3QganVzdCBpbXBsaWVkIGZyb20gdGhlIGNvbXBhdGlibGUgc3RyaW5nIG9mIHRoZSBw
-aW4gY29udHJvbGxlci4KCjIuIFRoZSBpbnRlcm5hbCBwYWRzIGFyZSByb3V0ZWQgZGlmZmVyZW50
-bHkgZGVwZW5kaW5nIG9uIGRpZmZlcmVudAogIHVzZSBjYXNlcywgaW4gd2hpY2ggY2FzZSB0aGV5
-IG5lZWQgdG8gYmUgc2V0IHVwIG9yIGltcGxpZWQKICBmcm9tIGNvbmZpZ3VyYXRpb24gaW4gb3Ro
-ZXIgRFQgbm9kZXMgZGVzY3JpYmluZyB0aGlzIHVzZS4KCkkgZ3Vlc3MgdGhpcyBiaW5kaW5nIGlm
-IGZvciAoMik/CgpZb3VycywKTGludXMgV2FsbGVpagoKX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJp
-c2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1h
-bi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Mon, 28 Apr 2025 at 12:59, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
+>
+> Ard Biesheuvel <ardb@kernel.org> writes:
+>
+> > On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
+> >>
+> >> Similar to zboot architectures, implement support for embedding SBAT data
+> >> for x86. Put '.sbat' section to the very end of the binary.
+> >>
+> >> Note, the obsolete CRC-32 checksum (see commit 9c54baab4401 ("x86/boot:
+> >> Drop CRC-32 checksum and the build tool that generates it")) is gone and
+> >> while it would've been possible to reserve the last 4 bytes in '.sbat'
+> >> section too (like it's done today in '.data'), it seems to be a pointless
+> >> exercise: SBAT makes zero sense without a signature on the EFI binary so
+> >> '.sbat' won't be at the very end of the file anyway. Any tool which uses
+> >> the last 4 bytes of the file as a checksum is broken with signed EFI
+> >> binaries already.
+> >>
+> >> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
+> >> ---
+> >>  arch/x86/boot/Makefile                 |  2 +-
+> >>  arch/x86/boot/compressed/Makefile      |  2 ++
+> >>  arch/x86/boot/compressed/vmlinux.lds.S | 13 +++++++++++++
+> >>  arch/x86/boot/header.S                 | 13 +++++++++++++
+> >>  drivers/firmware/efi/Kconfig           |  2 +-
+> >>  5 files changed, 30 insertions(+), 2 deletions(-)
+> >>
+> >> diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
+> >> index 81f55da81967..5f7b52f0e7f5 100644
+> >> --- a/arch/x86/boot/Makefile
+> >> +++ b/arch/x86/boot/Makefile
+> >> @@ -71,7 +71,7 @@ $(obj)/vmlinux.bin: $(obj)/compressed/vmlinux FORCE
+> >>
+> >>  SETUP_OBJS = $(addprefix $(obj)/,$(setup-y))
+> >>
+> >> -sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|z_.*\)$$/\#define ZO_\2 0x\1/p'
+> >> +sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|_e\?sbat\|z_.*\)$$/\#define ZO_\2 0x\1/p'
+> >>
+> >>  quiet_cmd_zoffset = ZOFFSET $@
+> >>        cmd_zoffset = $(NM) $< | sed -n $(sed-zoffset) > $@
+> >> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
+> >> index fdbce022db55..b9b80eccdc02 100644
+> >> --- a/arch/x86/boot/compressed/Makefile
+> >> +++ b/arch/x86/boot/compressed/Makefile
+> >> @@ -107,6 +107,8 @@ vmlinux-objs-$(CONFIG_UNACCEPTED_MEMORY) += $(obj)/mem.o
+> >>  vmlinux-objs-$(CONFIG_EFI) += $(obj)/efi.o
+> >>  vmlinux-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+> >>
+> >> +vmlinux-objs-$(CONFIG_EFI_SBAT) += $(objtree)/drivers/firmware/efi/libstub/sbat.o
+> >> +
+> >
+> > Please drop this, and put the .incbin directly into header.S
+> >
+>
+> Sure, but as I also commented on zboot patch, we need a logic to track
+> possible sbat data changes and rebuild when needed. 'sbat.o' was
+> convenient because we can have this tracking logic in one place (zboot)
+> and make will do the rest. If we are to drop 'sbat.o', we will need the
+> tracking logic both in zboot and x86.
+>
+
+Same question: why isn't if sufficient to add
+
+ifneq ($(CONFIG_EFI_SBAT_FILE),)
+$(obj)/header.o: $(CONFIG_EFI_SBAT_FILE)
+endif
+
+to arch/x86/boot/Makefile?
+
+
+> >>  $(obj)/vmlinux: $(vmlinux-objs-y) $(vmlinux-libs-y) FORCE
+> >>         $(call if_changed,ld)
+> >>
+> >> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
+> >> index 3b2bc61c9408..d0a27905de90 100644
+> >> --- a/arch/x86/boot/compressed/vmlinux.lds.S
+> >> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
+> >> @@ -49,9 +49,22 @@ SECTIONS
+> >>                 *(.data.*)
+> >>
+> >>                 /* Add 4 bytes of extra space for the obsolete CRC-32 checksum */
+> >> +#ifndef CONFIG_EFI_SBAT
+> >>                 . = ALIGN(. + 4, 0x200);
+> >> +#else
+> >> +               /* Avoid gap between '.data' and '.sbat' */
+> >> +               . = ALIGN(. + 4, 0x1000);
+> >> +#endif
+> >>                 _edata = . ;
+> >>         }
+> >> +#ifdef CONFIG_EFI_SBAT
+> >> +       .sbat : ALIGN(0x1000) {
+> >> +               _sbat = . ;
+> >> +               *(.sbat)
+> >> +               _esbat = ALIGN(0x200);
+> >> +               . = _esbat;
+> >> +       }
+> >> +#endif
+> >>         . = ALIGN(L1_CACHE_BYTES);
+> >>         .bss : {
+> >>                 _bss = . ;
+> >
+> > This looks a bit odd - see below
+> >
+> >> diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
+> >> index b5c79f43359b..ab851490ef74 100644
+> >> --- a/arch/x86/boot/header.S
+> >> +++ b/arch/x86/boot/header.S
+> >> @@ -207,6 +207,19 @@ pecompat_fstart:
+> >>                 IMAGE_SCN_MEM_READ              | \
+> >>                 IMAGE_SCN_MEM_WRITE             # Characteristics
+> >>
+> >> +#ifdef CONFIG_EFI_SBAT
+> >> +       .ascii ".sbat\0\0\0"
+> >> +       .long   ZO__esbat - ZO__sbat            # VirtualSize
+> >> +       .long   setup_size + ZO__sbat           # VirtualAddress
+> >> +       .long   ZO__esbat - ZO__sbat            # SizeOfRawData
+> >> +       .long   setup_size + ZO__sbat           # PointerToRawData
+> >> +
+> >> +       .long   0, 0, 0
+> >> +       .long   IMAGE_SCN_CNT_INITIALIZED_DATA  | \
+> >> +               IMAGE_SCN_MEM_READ              | \
+> >> +               IMAGE_SCN_MEM_DISCARDABLE       # Characteristics
+> >> +#endif
+> >> +
+> >
+> > This puts the .sbat section at the very end of the file. However, the
+> > virtual size of .data is 'ZO__end - ZO__data' not 'ZO__edata -
+> > ZO__data', and so the .sbat section will overlap with .bss in the
+> > memory view of the image.
+>
+> Missed that, will fix, thanks! A stupid question though: does this
+> matter in practice for SBAT? I don't think anyone needs SBAT data after
+> kernel starts booting so we can consider it 'discarded'. BSS data can
+> then do whatever it wants.
+>
+
+It violates the PE/COFF spec, and some PE loaders and signing tools
+are very pedantic about the layout.
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
