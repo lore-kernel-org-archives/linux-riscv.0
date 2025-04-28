@@ -4,105 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BBFFC369D3
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 11:04:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C4BC369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 12:22:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gq1PmwzG2raXiark0/bFtYN1qeztYDQGaZti7UJcm98=; b=rjb46AZhtX4kJh
-	k4iUkE2EOGdQsVcZLl9TVAhfnZu/IKh2qJOyApKKFAQLC6U24VOUzi4EMynEihgRXq+GXRO5dwvsx
-	D+qeh4OG42+NtSihYDtwsCBv7XOiSPWhWUbYkXcfim6ucUaPDBkfrOxoL8m7iBesRtF3q5DIRBF2K
-	tb8Gt1JKfgh0CGi/0AIrdCMmyHXX9Yqh3/QgxOHdWlpbGTrdHJZvp93abaGDQuEZB0wNcarz3GCAX
-	352HQ3uaBxchE+LJPxc4JxrFjP7tItJy7P04vN/pyl8HNGlwekYQI0Gk8qAWGO6MS2x0R25748sYi
-	VKpZIMpxxzTKzXXWLkEA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=TtQ25o3k4YvNEe0V49sjAON4L/jamXwHmvzlJ9wXaBY=; b=vfKUDRkU9qckoe
+	XWbuPYI7CPVaq3QxpucHYYLWoxAerSsOz7cyDWMXwL2dddiGzCGyuYqhdI4pyill7KnTw+nADLJZV
+	78671AZLn1VKHKfd4UY9VCU8MO9wvUyWtbpUCNb0puCwMwS7L/YKAfBMboDk2V3WuHOQhYTdQxN+y
+	dhwfJ34Qv2x2RwN6XDcj6FyVzBqgZke9RxGAcsvH2DYoRiYXsaDFERl5v/kYb0pZ25imhtT4vzbVC
+	y8ke8249EzRVpCxSdshCVcRbk3omg0xZE17jSe3qHc644reXQV149Man0csqVIsvAl1BdtDBYQixT
+	2xxALf2XDdhb68yTVYRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9MHr-00000005sgD-2ENl;
-	Mon, 28 Apr 2025 11:04:35 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u9NUe-000000069vO-31Xy;
+	Mon, 28 Apr 2025 12:21:52 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9MDB-00000005rzP-025D
-	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 10:59:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745837982;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Z1S1GQtMqLXYO4RQQUYg3g09QNCmMVEz/isjWKDgecM=;
-	b=cwbR9m2Lu8Bg/38NlWOh7Wu7OiGORJdyBS5MC3BtyQEPaOsoeWS34obmNZNlhXoobqwGhg
-	DQQ8px+UYZAQht7efuKV0vQkw2m0qZSQluEBCEPDra5r6TL5l4lUye2XuvVowGy1tgV47e
-	FrrFanEUba7RK2yB8wBTImtTnEH1kVU=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-135-sgsqBTVgOLmgyURwQ5c9vA-1; Mon, 28 Apr 2025 06:59:40 -0400
-X-MC-Unique: sgsqBTVgOLmgyURwQ5c9vA-1
-X-Mimecast-MFC-AGG-ID: sgsqBTVgOLmgyURwQ5c9vA_1745837980
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43947a0919aso32955465e9.0
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 03:59:40 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745837979; x=1746442779;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Z1S1GQtMqLXYO4RQQUYg3g09QNCmMVEz/isjWKDgecM=;
-        b=kPCoxTO2MV+nE9HKh8zKh2cNC9bSn7C1cWTyYmPKWpnkeRSdi2OjihWGq3oGuWT8ig
-         d5tgKx5O3vYMfG2uFuvat4nvEnPzl5/WIoWpa/cS3I/bSPBUAf92kXnJZHwEqaA9Ke8i
-         NONtf6pGFrWxcU+E8fj9QEpmxt3NdREkkPjNEIJxIa76yx26Rz8+UPrO6SGQWqST8LTO
-         AaZRuhuaLhdjOMFQ9ETzuWCqvhBpe0wnpYWjJDuHBOEA6bc4F70zBFtF/9fEpS94ZOXS
-         MMQ5Nq0L9Yj0pHLht8nKwPQv6hf04tRLLpu9A1fFuka7pwcBr0TViuQXE3nCVqWbMTR2
-         i58A==
-X-Forwarded-Encrypted: i=1; AJvYcCUhRawWT7cbCqei6tm/CJMq/aPXSv37bBZVY08p5XXQudRmWfxs4/5MJUV7tgUWLdzV2/DYmy1SgsQjEA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2OXOx0A1yvbJNhWR3lBPbSZtEBXJGh+WcZnEuHKsKJL4mqIOC
-	rfVuOJ5XHTcJ8vzwRSM2W6oDXEl29HvrE54hDvoKP5A4WuC7H8tqyiLJak2Alt5aEJBH1qS4r1s
-	OwjQP2uG1XhgsIJdWm8ERbMFp6HvJ8+tvbh+1IlT7pyVW1c0SpsknGyd9Fb6EXxGqmg==
-X-Gm-Gg: ASbGnctg0Gi9gVbk809HHapLalKQ9y2PDMuOb8QbVO6xzNI/3y7n97BBF6B78RBO4hJ
-	FENuixY0F9/+i9KVXWhTGc+etYOxvUNGUF2mv5bQC7aSd/vzd6JQdza1c4UjXT+c2445GDub6TX
-	ms4XDdFIYcf9Tqb+/Wh5LW2uJFSWrsebv8vIFo8+OlnlX5kxQAzkStbfktOb2A3OmkGaucLTFNR
-	H+KmtnVsN19tp0xftrM8N30So2KJnsQZlFD7yoWMmZhmqoZ9J6v3tCRfxajw9blkGHwTbHT3YDG
-	jK+zUkU=
-X-Received: by 2002:a05:600c:138c:b0:43d:23fe:e8a6 with SMTP id 5b1f17b1804b1-440ab76a962mr68871425e9.5.1745837979455;
-        Mon, 28 Apr 2025 03:59:39 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF3yhCzFV9b07iIXPnMiZwoDz9SPGqteJaLn0qdABKCE9uf+MOeasr/lE8Q+wKF9OZr7Up4LQ==
-X-Received: by 2002:a05:600c:138c:b0:43d:23fe:e8a6 with SMTP id 5b1f17b1804b1-440ab76a962mr68871015e9.5.1745837978978;
-        Mon, 28 Apr 2025 03:59:38 -0700 (PDT)
-Received: from fedora (g3.ign.cz. [91.219.240.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4408c8b0ea0sm102888495e9.2.2025.04.28.03.59.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 03:59:38 -0700 (PDT)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Peter
- Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, Emanuele
- Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann
- <kraxel@redhat.com>, Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi
- <bluca@debian.org>, Peter Zijlstra <peterz@infradead.org>, Matthew Garrett
- <mjg59@srcf.ucam.org>, James Bottomley
- <James.Bottomley@hansenpartnership.com>, Eric Snowberg
- <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] x86/efi: Implement support for embedding SBAT data
- for x86
-In-Reply-To: <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com>
-References: <20250424080950.289864-1-vkuznets@redhat.com>
- <20250424080950.289864-3-vkuznets@redhat.com>
- <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com>
-Date: Mon, 28 Apr 2025 12:59:37 +0200
-Message-ID: <87ldrka6w6.fsf@redhat.com>
+	id 1u9N2u-000000062s4-3Omx;
+	Mon, 28 Apr 2025 11:53:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=8T1VCs93WeCfIwMLTXrgNJ1jyLMDpCR3K8Uym9nsnV4=; b=F9HnbTnW/poPgQVr/cZWd+pwSz
+	2p1UYqYxeKKqwA8eoU4d9x1FUmWqDFUKj4m1rUYjb/NZ9L/ay2spOHSOBLPXjjOkgGBjoE2P9jaY0
+	SO6fLRcrPnA4AqqV6iTh6DthFMKWQ5y+2BNRYeq6kcb0mNigo2TQnP1X+8q2t4Cf/E71Dp+6Lc2iG
+	rTQFgMhEtDcoE4KDOvGEy2T8moHCtm+9KViSFwmLwa/1cvp4ub/24zEUUuztEGO5LleSISGHI99Tf
+	g1Z9Vys8EoAA69OOsZwOKwArWjMhPqhm7YMnEeA5etXfn6zfP8eJ1HnmeULhjUSmQB4vIUfCLIheP
+	SY6L1ryw==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9N2q-001bJS-2Z;
+	Mon, 28 Apr 2025 19:53:09 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 19:53:08 +0800
+Date: Mon, 28 Apr 2025 19:53:08 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Jason@zx2c4.com, ardb@kernel.org
+Subject: Re: [PATCH v3 00/13] Finish disentangling ChaCha, Poly1305, and
+ BLAKE2s from CRYPTO
+Message-ID: <aA9sJKUjfhRPMWSo@gondor.apana.org.au>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Q07Lgn-HMeZVMv5AQbYqxMfDPRoPTfE29yUifZJ3QK0_1745837980
-X-Mimecast-Originator: redhat.com
+Content-Disposition: inline
+In-Reply-To: <20250422152716.5923-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_035945_128963_32DBB8F5 
-X-CRM114-Status: GOOD (  26.64  )
+X-CRM114-CacheID: sfid-20250428_045313_142934_C73AA299 
+X-CRM114-Status: GOOD (  17.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,156 +77,178 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ard Biesheuvel <ardb@kernel.org> writes:
+Eric Biggers <ebiggers@kernel.org> wrote:
+> This series removes the unnecessary dependency of the ChaCha, Poly1305,
+> and BLAKE2s library functions on the generic crypto infrastructure, i.e.
+> CONFIG_CRYPTO.  To do this, it moves the architecture-optimized
+> implementations of these functions into new directories
+> arch/*/lib/crypto/ which do not depend on CRYPTO.  This mirrors the
+> existing distinction between crypto/ and lib/crypto/.
+> 
+> The last two patches remove the selection of CRYPTO by CRYPTO_LIB_CHACHA
+> and CRYPTO_LIB_POLY1305, and they remove the corresponding *_INTERNAL
+> symbols which were needed only because of the entanglement with CRYPTO.
+> 
+> Note that Curve25519 is still entangled.  Later patches will fix that.
+> 
+> Changed in v3:
+>   - Fixed build error on arm with CONFIG_CPU_THUMBONLY=y.
+>   - Small whitespace and commit message fixes.
+>   - Added Acked-by's.
+> 
+> Changed in v2:
+>   - Introduced new directories arch/*/lib/crypto/ instead of keeping
+>     the library functions in arch/*/crypto/.
+> 
+> Eric Biggers (13):
+>  crypto: arm64 - drop redundant dependencies on ARM64
+>  crypto: powerpc - drop redundant dependencies on PPC
+>  crypto: s390 - drop redundant dependencies on S390
+>  crypto: x86 - drop redundant dependencies on X86
+>  crypto: arm - move library functions to arch/arm/lib/crypto/
+>  crypto: arm64 - move library functions to arch/arm64/lib/crypto/
+>  crypto: mips - move library functions to arch/mips/lib/crypto/
+>  crypto: powerpc - move library functions to arch/powerpc/lib/crypto/
+>  crypto: riscv - move library functions to arch/riscv/lib/crypto/
+>  crypto: s390 - move library functions to arch/s390/lib/crypto/
+>  crypto: x86 - move library functions to arch/x86/lib/crypto/
+>  crypto: lib/chacha - remove INTERNAL symbol and selection of CRYPTO
+>  crypto: lib/poly1305 - remove INTERNAL symbol and selection of CRYPTO
+> 
+> MAINTAINERS                                   |  1 +
+> arch/arm/crypto/Kconfig                       | 23 -----
+> arch/arm/crypto/Makefile                      | 14 +--
+> arch/arm/lib/Makefile                         |  2 +
+> arch/arm/lib/crypto/.gitignore                |  2 +
+> arch/arm/lib/crypto/Kconfig                   | 24 ++++++
+> arch/arm/lib/crypto/Makefile                  | 26 ++++++
+> arch/arm/{ => lib}/crypto/blake2s-core.S      |  0
+> arch/arm/{ => lib}/crypto/blake2s-glue.c      |  0
+> arch/arm/{ => lib}/crypto/chacha-glue.c       |  0
+> arch/arm/{ => lib}/crypto/chacha-neon-core.S  |  0
+> .../arm/{ => lib}/crypto/chacha-scalar-core.S |  0
+> arch/arm/{ => lib}/crypto/poly1305-armv4.pl   |  0
+> arch/arm/{ => lib}/crypto/poly1305-glue.c     |  0
+> arch/arm64/crypto/Kconfig                     | 17 +---
+> arch/arm64/crypto/Makefile                    |  9 +-
+> arch/arm64/lib/Makefile                       |  3 +
+> arch/arm64/lib/crypto/.gitignore              |  2 +
+> arch/arm64/lib/crypto/Kconfig                 | 14 +++
+> arch/arm64/lib/crypto/Makefile                | 16 ++++
+> .../arm64/{ => lib}/crypto/chacha-neon-core.S |  0
+> .../arm64/{ => lib}/crypto/chacha-neon-glue.c |  0
+> arch/arm64/{ => lib}/crypto/poly1305-armv8.pl |  0
+> arch/arm64/{ => lib}/crypto/poly1305-glue.c   |  0
+> arch/mips/crypto/Kconfig                      | 11 ---
+> arch/mips/crypto/Makefile                     | 17 ----
+> arch/mips/lib/Makefile                        |  2 +
+> arch/mips/lib/crypto/.gitignore               |  2 +
+> arch/mips/lib/crypto/Kconfig                  | 12 +++
+> arch/mips/lib/crypto/Makefile                 | 19 ++++
+> arch/mips/{ => lib}/crypto/chacha-core.S      |  0
+> arch/mips/{ => lib}/crypto/chacha-glue.c      |  0
+> arch/mips/{ => lib}/crypto/poly1305-glue.c    |  0
+> arch/mips/{ => lib}/crypto/poly1305-mips.pl   |  0
+> arch/powerpc/crypto/Kconfig                   | 22 +----
+> arch/powerpc/crypto/Makefile                  |  4 -
+> arch/powerpc/lib/Makefile                     |  2 +
+> arch/powerpc/lib/crypto/Kconfig               | 15 ++++
+> arch/powerpc/lib/crypto/Makefile              |  7 ++
+> .../{ => lib}/crypto/chacha-p10-glue.c        |  0
+> .../{ => lib}/crypto/chacha-p10le-8x.S        |  0
+> .../{ => lib}/crypto/poly1305-p10-glue.c      |  0
+> .../{ => lib}/crypto/poly1305-p10le_64.S      |  0
+> arch/riscv/crypto/Kconfig                     |  7 --
+> arch/riscv/crypto/Makefile                    |  3 -
+> arch/riscv/lib/Makefile                       |  1 +
+> arch/riscv/lib/crypto/Kconfig                 |  8 ++
+> arch/riscv/lib/crypto/Makefile                |  4 +
+> .../{ => lib}/crypto/chacha-riscv64-glue.c    |  0
+> .../{ => lib}/crypto/chacha-riscv64-zvkb.S    |  0
+> arch/s390/crypto/Kconfig                      | 16 ----
+> arch/s390/crypto/Makefile                     |  3 -
+> arch/s390/lib/Makefile                        |  1 +
+> arch/s390/lib/crypto/Kconfig                  |  7 ++
+> arch/s390/lib/crypto/Makefile                 |  4 +
+> arch/s390/{ => lib}/crypto/chacha-glue.c      |  0
+> arch/s390/{ => lib}/crypto/chacha-s390.S      |  0
+> arch/s390/{ => lib}/crypto/chacha-s390.h      |  0
+> arch/x86/crypto/Kconfig                       | 86 +++++++------------
+> arch/x86/crypto/Makefile                      | 15 ----
+> arch/x86/lib/Makefile                         |  2 +
+> arch/x86/lib/crypto/.gitignore                |  2 +
+> arch/x86/lib/crypto/Kconfig                   | 26 ++++++
+> arch/x86/lib/crypto/Makefile                  | 17 ++++
+> arch/x86/{ => lib}/crypto/blake2s-core.S      |  0
+> arch/x86/{ => lib}/crypto/blake2s-glue.c      |  0
+> .../x86/{ => lib}/crypto/chacha-avx2-x86_64.S |  0
+> .../{ => lib}/crypto/chacha-avx512vl-x86_64.S |  0
+> .../{ => lib}/crypto/chacha-ssse3-x86_64.S    |  0
+> arch/x86/{ => lib}/crypto/chacha_glue.c       |  0
+> .../crypto/poly1305-x86_64-cryptogams.pl      |  0
+> arch/x86/{ => lib}/crypto/poly1305_glue.c     |  0
+> crypto/Kconfig                                |  4 +-
+> lib/crypto/Kconfig                            | 56 +++++++-----
+> 74 files changed, 294 insertions(+), 234 deletions(-)
+> create mode 100644 arch/arm/lib/crypto/.gitignore
+> create mode 100644 arch/arm/lib/crypto/Kconfig
+> create mode 100644 arch/arm/lib/crypto/Makefile
+> rename arch/arm/{ => lib}/crypto/blake2s-core.S (100%)
+> rename arch/arm/{ => lib}/crypto/blake2s-glue.c (100%)
+> rename arch/arm/{ => lib}/crypto/chacha-glue.c (100%)
+> rename arch/arm/{ => lib}/crypto/chacha-neon-core.S (100%)
+> rename arch/arm/{ => lib}/crypto/chacha-scalar-core.S (100%)
+> rename arch/arm/{ => lib}/crypto/poly1305-armv4.pl (100%)
+> rename arch/arm/{ => lib}/crypto/poly1305-glue.c (100%)
+> create mode 100644 arch/arm64/lib/crypto/.gitignore
+> create mode 100644 arch/arm64/lib/crypto/Kconfig
+> create mode 100644 arch/arm64/lib/crypto/Makefile
+> rename arch/arm64/{ => lib}/crypto/chacha-neon-core.S (100%)
+> rename arch/arm64/{ => lib}/crypto/chacha-neon-glue.c (100%)
+> rename arch/arm64/{ => lib}/crypto/poly1305-armv8.pl (100%)
+> rename arch/arm64/{ => lib}/crypto/poly1305-glue.c (100%)
+> create mode 100644 arch/mips/lib/crypto/.gitignore
+> create mode 100644 arch/mips/lib/crypto/Kconfig
+> create mode 100644 arch/mips/lib/crypto/Makefile
+> rename arch/mips/{ => lib}/crypto/chacha-core.S (100%)
+> rename arch/mips/{ => lib}/crypto/chacha-glue.c (100%)
+> rename arch/mips/{ => lib}/crypto/poly1305-glue.c (100%)
+> rename arch/mips/{ => lib}/crypto/poly1305-mips.pl (100%)
+> create mode 100644 arch/powerpc/lib/crypto/Kconfig
+> create mode 100644 arch/powerpc/lib/crypto/Makefile
+> rename arch/powerpc/{ => lib}/crypto/chacha-p10-glue.c (100%)
+> rename arch/powerpc/{ => lib}/crypto/chacha-p10le-8x.S (100%)
+> rename arch/powerpc/{ => lib}/crypto/poly1305-p10-glue.c (100%)
+> rename arch/powerpc/{ => lib}/crypto/poly1305-p10le_64.S (100%)
+> create mode 100644 arch/riscv/lib/crypto/Kconfig
+> create mode 100644 arch/riscv/lib/crypto/Makefile
+> rename arch/riscv/{ => lib}/crypto/chacha-riscv64-glue.c (100%)
+> rename arch/riscv/{ => lib}/crypto/chacha-riscv64-zvkb.S (100%)
+> create mode 100644 arch/s390/lib/crypto/Kconfig
+> create mode 100644 arch/s390/lib/crypto/Makefile
+> rename arch/s390/{ => lib}/crypto/chacha-glue.c (100%)
+> rename arch/s390/{ => lib}/crypto/chacha-s390.S (100%)
+> rename arch/s390/{ => lib}/crypto/chacha-s390.h (100%)
+> create mode 100644 arch/x86/lib/crypto/.gitignore
+> create mode 100644 arch/x86/lib/crypto/Kconfig
+> create mode 100644 arch/x86/lib/crypto/Makefile
+> rename arch/x86/{ => lib}/crypto/blake2s-core.S (100%)
+> rename arch/x86/{ => lib}/crypto/blake2s-glue.c (100%)
+> rename arch/x86/{ => lib}/crypto/chacha-avx2-x86_64.S (100%)
+> rename arch/x86/{ => lib}/crypto/chacha-avx512vl-x86_64.S (100%)
+> rename arch/x86/{ => lib}/crypto/chacha-ssse3-x86_64.S (100%)
+> rename arch/x86/{ => lib}/crypto/chacha_glue.c (100%)
+> rename arch/x86/{ => lib}/crypto/poly1305-x86_64-cryptogams.pl (100%)
+> rename arch/x86/{ => lib}/crypto/poly1305_glue.c (100%)
+> 
+> 
+> base-commit: bb9c648b334be581a791c7669abaa594e4b5ebb7
 
-> On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->>
->> Similar to zboot architectures, implement support for embedding SBAT data
->> for x86. Put '.sbat' section to the very end of the binary.
->>
->> Note, the obsolete CRC-32 checksum (see commit 9c54baab4401 ("x86/boot:
->> Drop CRC-32 checksum and the build tool that generates it")) is gone and
->> while it would've been possible to reserve the last 4 bytes in '.sbat'
->> section too (like it's done today in '.data'), it seems to be a pointless
->> exercise: SBAT makes zero sense without a signature on the EFI binary so
->> '.sbat' won't be at the very end of the file anyway. Any tool which uses
->> the last 4 bytes of the file as a checksum is broken with signed EFI
->> binaries already.
->>
->> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
->> ---
->>  arch/x86/boot/Makefile                 |  2 +-
->>  arch/x86/boot/compressed/Makefile      |  2 ++
->>  arch/x86/boot/compressed/vmlinux.lds.S | 13 +++++++++++++
->>  arch/x86/boot/header.S                 | 13 +++++++++++++
->>  drivers/firmware/efi/Kconfig           |  2 +-
->>  5 files changed, 30 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
->> index 81f55da81967..5f7b52f0e7f5 100644
->> --- a/arch/x86/boot/Makefile
->> +++ b/arch/x86/boot/Makefile
->> @@ -71,7 +71,7 @@ $(obj)/vmlinux.bin: $(obj)/compressed/vmlinux FORCE
->>
->>  SETUP_OBJS = $(addprefix $(obj)/,$(setup-y))
->>
->> -sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|z_.*\)$$/\#define ZO_\2 0x\1/p'
->> +sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|_e\?sbat\|z_.*\)$$/\#define ZO_\2 0x\1/p'
->>
->>  quiet_cmd_zoffset = ZOFFSET $@
->>        cmd_zoffset = $(NM) $< | sed -n $(sed-zoffset) > $@
->> diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
->> index fdbce022db55..b9b80eccdc02 100644
->> --- a/arch/x86/boot/compressed/Makefile
->> +++ b/arch/x86/boot/compressed/Makefile
->> @@ -107,6 +107,8 @@ vmlinux-objs-$(CONFIG_UNACCEPTED_MEMORY) += $(obj)/mem.o
->>  vmlinux-objs-$(CONFIG_EFI) += $(obj)/efi.o
->>  vmlinux-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
->>
->> +vmlinux-objs-$(CONFIG_EFI_SBAT) += $(objtree)/drivers/firmware/efi/libstub/sbat.o
->> +
->
-> Please drop this, and put the .incbin directly into header.S
->
-
-Sure, but as I also commented on zboot patch, we need a logic to track
-possible sbat data changes and rebuild when needed. 'sbat.o' was
-convenient because we can have this tracking logic in one place (zboot)
-and make will do the rest. If we are to drop 'sbat.o', we will need the
-tracking logic both in zboot and x86.
-
->>  $(obj)/vmlinux: $(vmlinux-objs-y) $(vmlinux-libs-y) FORCE
->>         $(call if_changed,ld)
->>
->> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
->> index 3b2bc61c9408..d0a27905de90 100644
->> --- a/arch/x86/boot/compressed/vmlinux.lds.S
->> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
->> @@ -49,9 +49,22 @@ SECTIONS
->>                 *(.data.*)
->>
->>                 /* Add 4 bytes of extra space for the obsolete CRC-32 checksum */
->> +#ifndef CONFIG_EFI_SBAT
->>                 . = ALIGN(. + 4, 0x200);
->> +#else
->> +               /* Avoid gap between '.data' and '.sbat' */
->> +               . = ALIGN(. + 4, 0x1000);
->> +#endif
->>                 _edata = . ;
->>         }
->> +#ifdef CONFIG_EFI_SBAT
->> +       .sbat : ALIGN(0x1000) {
->> +               _sbat = . ;
->> +               *(.sbat)
->> +               _esbat = ALIGN(0x200);
->> +               . = _esbat;
->> +       }
->> +#endif
->>         . = ALIGN(L1_CACHE_BYTES);
->>         .bss : {
->>                 _bss = . ;
->
-> This looks a bit odd - see below
->
->> diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
->> index b5c79f43359b..ab851490ef74 100644
->> --- a/arch/x86/boot/header.S
->> +++ b/arch/x86/boot/header.S
->> @@ -207,6 +207,19 @@ pecompat_fstart:
->>                 IMAGE_SCN_MEM_READ              | \
->>                 IMAGE_SCN_MEM_WRITE             # Characteristics
->>
->> +#ifdef CONFIG_EFI_SBAT
->> +       .ascii ".sbat\0\0\0"
->> +       .long   ZO__esbat - ZO__sbat            # VirtualSize
->> +       .long   setup_size + ZO__sbat           # VirtualAddress
->> +       .long   ZO__esbat - ZO__sbat            # SizeOfRawData
->> +       .long   setup_size + ZO__sbat           # PointerToRawData
->> +
->> +       .long   0, 0, 0
->> +       .long   IMAGE_SCN_CNT_INITIALIZED_DATA  | \
->> +               IMAGE_SCN_MEM_READ              | \
->> +               IMAGE_SCN_MEM_DISCARDABLE       # Characteristics
->> +#endif
->> +
->
-> This puts the .sbat section at the very end of the file. However, the
-> virtual size of .data is 'ZO__end - ZO__data' not 'ZO__edata -
-> ZO__data', and so the .sbat section will overlap with .bss in the
-> memory view of the image.
-
-Missed that, will fix, thanks! A stupid question though: does this
-matter in practice for SBAT? I don't think anyone needs SBAT data after
-kernel starts booting so we can consider it 'discarded'. BSS data can
-then do whatever it wants.
-
->
->
->>         .set    section_count, (. - section_table) / 40
->>  #endif /* CONFIG_EFI_STUB */
->>
->> diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
->> index 2edb0167ba49..5022a378fec1 100644
->> --- a/drivers/firmware/efi/Kconfig
->> +++ b/drivers/firmware/efi/Kconfig
->> @@ -283,7 +283,7 @@ config EFI_EMBEDDED_FIRMWARE
->>
->>  config EFI_SBAT
->>         bool "Embed SBAT section in the kernel"
->> -       depends on EFI_ZBOOT
->> +       depends on EFI_ZBOOT || (EFI_STUB && X86)
->>         help
->>           SBAT section provides a way to improve SecureBoot revocations of UEFI
->>           binaries by introducing a generation-based mechanism. With SBAT, older
->> --
->> 2.49.0
->>
->>
->
-
+All applied.  Thanks.
 -- 
-Vitaly
-
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
