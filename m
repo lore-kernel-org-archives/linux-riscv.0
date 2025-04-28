@@ -4,81 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 402E6C369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 17:31:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D0AC369D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 17:47:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HUhwcpSBfqlyqJKSbOeJy7b0TCXNqr1R1p5aVqkzYYE=; b=20oJl4DdwfrsTW
-	wD9d3IPjU3UFAbzrDJ7C0kU2ZsXSDH+yha6sKCx/UQfvTq0PrWRn3R9zj7brAk9US7+R7XC/seimR
-	iIFnopakR+gqoOGhQWhfOUudJOylVWPF0W+UZXYmk4EotTbJzgvH7t9i6ywn7VkAZr452RzIotT8b
-	MqT29Wn64c5Mu+Qiy2pknyHGa5SG0PXbF4LQ3mLHXwuLBfRXfO+r3kUEM3f2nhF6GW1nwPvMIwEK4
-	GaERGG8YzFAGshnmPfFhagMKRYRevwjjniSnlF9uspuo6leEG4sMgDxmGp3vXqyhzeVvtz52yYagM
-	2lebNRxPZHL32kfrHsHw==;
+	List-Owner; bh=2JFsz/H8Rrr5rTD0QZ03cJDmdySzj8H1XLfVpmnYUCY=; b=sXycVJAkhv2Ju9
+	XWaL48qyJj+AbnN4uO1POytQpY7vkplUumYtUFgBPMkgD7XHv2Uw7UuYPAPEfAg5M47ZXyT1tvaq1
+	inf2hXP9w2etIDDFhUbdkAWm9g4U3/KiKByzUFIeZ4fRKebvRxUw/Yh43/NfR7QapxhGHLSpc9+U4
+	ZmNR4J+nqP9pCKiM2vIJjQVsukxmr3gOSjadWtRLg+opgt9IT+U2hIEo32VclIIjKmCTPItaqGLm3
+	ZprvjM3G5fV5XowLvJDy0Ub26CXsfXYsxZmIllOx++4THC/r15+v5TVeLHqli9DG3mn4NhfU8cTha
+	lxRFLMX7LeXbRQ+LtE6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9SJs-000000076ED-2xuY;
-	Mon, 28 Apr 2025 17:31:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1u9SZI-000000078Ht-40Hc;
+	Mon, 28 Apr 2025 17:47:00 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Pt4-00000006h9I-3y7M
+	id 1u9SY8-000000078Bb-1jdD
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 28 Apr 2025 17:45:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=v/CANhKWFmJawB0p8jQ/NyjybjgGkYzY/3LSqUuDHX0=; b=NquvwAO2O0i3XjtXNQ8IfbpevV
+	A8AQhDFa7SLTNPhjAet4F2Aze830zy77vitXFmXiupwyiq4/tyg9FSeXfJPL8f3i2EzTLuO4700VY
+	rqwZ9HJszyO0XuYRG4cSkXrvbE55MOAvbJjEd4k+Ef7GZujt+MRtTx1T9sqAJx5nbUDBD5ED3AJw8
+	qKnUm5vOngKwjAPBg+gLIDLKFY5E3Zbdsess9tRRNMB6/TkS2mrUAAB1ULs6zADkg3Qlv7NPW8Za5
+	t/K6PssRbwxcKMnZz8vNrbmEHgdt+bKOAvmZkXJmztvs4hak5l+oheBNwwT4p/D+a+xRrKDhFC63z
+	VDOoiGOw==;
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9SY5-0000000Cw9f-1v5j
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 14:55:16 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C5F25C2762
-	for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 14:52:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D49A4C4CEF3
-	for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 14:55:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1745852111;
-	bh=9Jq7uWikQpL0uRpCQ1qFYLXIjMg8lm3oJ+erYCU9968=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jAap7skyAlGFiLpb57TXN+/kIeoRpTftjYS3enOzBlGUOyAt1bmzrv7dFty08GEuz
-	 98CPuc5dQJbNLjwOU89n73GBxAaWj8v3aBG5+0uRaFKtgDe/be3+CxCdRmBGc/IIgR
-	 ZjnZKAYzh2f3AfLzo5jW+VZ2+ShjKHeIcDfUx17J8RGvXoQIA+9TbHjTfrPrB33m3r
-	 eeUPfduU9Ge+HPKmoqwuTd/g29AK48pr0KkTGZ16h+fO8UV6XGD/CQogPBrhElgNcm
-	 hPIKbZqDzvuz5MQnhZMhClVxOrtQ3T66P/aOuU2zZAoJbM1Rpq6ZpQ7dk2nGN3ud8q
-	 0Vo6s+n04Fqig==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-549b116321aso5992852e87.3
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 07:55:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWcTmwtnnso/6xc8e5OMeAdkHTzKvHYJNMUhU8MZEpJ+T+yQ8IOiG6cdNL/+sSIN5N/dEfu8OvqjHI2hA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywi/9mg7p0GvtnnEVbcEDnzL/z1N8Q+LWKWLdgW7tELaBqrl7AJ
-	p3bWn0ydcMGPRMKLWjAedHZknMKbA4XSCN8H0F34WqZD7E/yai98X+OVhgx60ZjusN5TzrJqNLE
-	6xNKZHVTaXoe1n6TB2UufcbqKiT0=
-X-Google-Smtp-Source: AGHT+IE7E128Zkj3xoJnEZVs+V1aV5QAmc6QTNjYjWzAyc+K0lgjhcOYXIXGCrzLG1sgZUsRpuGu3jJ/McaAmNF+/3U=
-X-Received: by 2002:a05:6512:130c:b0:549:8cc8:efed with SMTP id
- 2adb3069b0e04-54e900113cemr2442912e87.48.1745852110119; Mon, 28 Apr 2025
- 07:55:10 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250424080950.289864-1-vkuznets@redhat.com> <20250424080950.289864-2-vkuznets@redhat.com>
- <CAMj1kXHqmOiNX_DH+8uSsTROzR+hgvZ5DyE=3wVE7-dQ+2BW=Q@mail.gmail.com> <87o6wga74s.fsf@redhat.com>
-In-Reply-To: <87o6wga74s.fsf@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 28 Apr 2025 16:54:59 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEFXCjHXrAS2Xe_3xVvkkV6QYsuxcOmLEk-A2KNHUJ7ZA@mail.gmail.com>
-X-Gm-Features: ATxdqUFymFSwi64yQhO8AHjWP8hjRlF2jJwWQ1HlRXbUcVyIkRCEXSZB9saruI0
-Message-ID: <CAMj1kXEFXCjHXrAS2Xe_3xVvkkV6QYsuxcOmLEk-A2KNHUJ7ZA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] efi/libstub: zboot specific mechanism for embedding
- SBAT section
-To: Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, 
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>, 
-	Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi <bluca@debian.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Eric Snowberg <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+	Mon, 28 Apr 2025 17:45:47 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43cfe99f2a7so6677825e9.2
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 10:45:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1745862342; x=1746467142; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v/CANhKWFmJawB0p8jQ/NyjybjgGkYzY/3LSqUuDHX0=;
+        b=ZOE9Vjm/94eqnlUKf1piYxvjOkImGw/iG2vNmPv6d/AFDEVpum9qDVv+Xb+3eloSnp
+         Zr9vD65PD9VbGtMoTBkUFVTW0VPm1zAUqSGTulz9nDcymHdlTVJkTOVLgrESkTNF9MZ/
+         MNJeOlLhf80aUAY3ff3EIkWIr4/jnEj4zncCDhZPLGe6OJRlhy4jproaG816zr7j0rw8
+         O4dI+NHZ247d0h9KJfL/Xqqv2xAS7N+MFFEMHAYMtTNeOG1Ujb0hOaGFsK6+qRumlvCB
+         ECaPgXOPj+Hz/hjarxPmGru+pB60/RLI2I+LfNgQFgTs+NIT7kUpnGkV2MX63tlIQBgb
+         z41w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745862342; x=1746467142;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=v/CANhKWFmJawB0p8jQ/NyjybjgGkYzY/3LSqUuDHX0=;
+        b=HNbjLkFdBlGBi4+lpayWMrREmBwwypk+zineEUhSZFE/zKNT1r7gtdSaDobKgTdLQE
+         wYeK/gH/OP3JccxehsZxqpYsadvxLQl6MagQgwtV6Yn3n0/gHqdWjkwpbec0L1gWK1A9
+         CvJEEQEpIBV1oMNCzI4FPmVgx5688zOlF0rhEIWOjjnSOBx8TflhIhSdis/6fpaNZFHF
+         QVvaLKghhOeSe/J/V/bwaEw+Io/uDzHPxTOhH8O5QNl6v4LXaTwVYXUmUHegNCja7qjd
+         ilvyEOPpFKbePUWXesKoiujDGYlpEYw5xrM3M4oZ7MBoJ7IXfloUWcgrN7QMBEeA6bkf
+         hD2g==
+X-Forwarded-Encrypted: i=1; AJvYcCVLGaN5NBlg4yIgTTCXgjH80L6IVBtfIRQjdIIqL+M5ZgSXTZwoIE2KYI9rAAhG9E1kFl6y8V/1X8+prQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAS2c7wnkdrUckpcSuiIJua8puMQWUCPFdwJny9n3xHC3QjSDB
+	S8XDw58rThuWI4zr5lhL9C3+uTlapjp7qUvUX0BqTc82Q8boEGrZs9UAHRhouz8=
+X-Gm-Gg: ASbGnctwk1E7s+MfshqRmwHSYylj8ZEHAfF5gAmgRUmuZAWgSyYv7RPPEubSHUqplhE
+	E4NOjV081ASsQRM8gGu8Mc88Yxqxiljl0ajgLjaSJdIRPLKY9BCOaJL1oMfw+QvmiQdwrh7Mnas
+	0mR7JEea5zHe5TeN4MH665LVic80wq+yTg9rSD5xz3bVlumkIlgTujJKqAH7D3BkHn+hlTDiPSH
+	ROPaIPslTWPQL64cWAJ/V6Tmg9PF1Z1bAuujAOBoCMOcgwfptqYFmj7LyLCgPzkB7YSCz3uzPeO
+	9KbdHtkbUvotxrflYmt6ZxlideerjWkF/LPZr39hnNA2ymE=
+X-Google-Smtp-Source: AGHT+IEvyyRwv+siNkS/+KKa7cPTZaQ24k7dR1L6NM8zAaZ/ZacC5UiUMQME2xFD4O4sKzfsTBeP0Q==
+X-Received: by 2002:a05:600c:3b82:b0:439:9fde:da76 with SMTP id 5b1f17b1804b1-440a634912dmr44268285e9.0.1745862342603;
+        Mon, 28 Apr 2025 10:45:42 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:785:f3a7:1fbb:6b76])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a073e46a54sm11977490f8f.67.2025.04.28.10.45.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 28 Apr 2025 10:45:42 -0700 (PDT)
+Mime-Version: 1.0
+Date: Mon, 28 Apr 2025 19:45:41 +0200
+Message-Id: <D9IGJR9DGFAM.1PVHVOOTVRFZW@ventanamicro.com>
+Subject: Re: [PATCH 4/5] KVM: RISC-V: reset VCPU state when becoming
+ runnable
+Cc: <kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Atish
+ Patra" <atishp@atishpatra.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Andrew Jones"
+ <ajones@ventanamicro.com>, "Mayuresh Chitale" <mchitale@ventanamicro.com>
+To: "Anup Patel" <anup@brainfault.org>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
+ <20250403112522.1566629-7-rkrcmar@ventanamicro.com>
+ <CAAhSdy0e3HVN6pX-hcX2N+kpwsupsCf6BqrYq=bvtwtFOuEVhA@mail.gmail.com>
+In-Reply-To: <CAAhSdy0e3HVN6pX-hcX2N+kpwsupsCf6BqrYq=bvtwtFOuEVhA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_075515_066791_1CB9A56D 
-X-CRM114-Status: GOOD (  40.17  )
+X-CRM114-CacheID: sfid-20250428_184545_630732_EA621E20 
+X-CRM114-Status: GOOD (  13.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,147 +114,34 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 28 Apr 2025 at 12:54, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->
-> Ard Biesheuvel <ardb@kernel.org> writes:
->
-> > Hi Vitaly,
-> >
->
-> Ard, thanks for the review!
->
-> > On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
-> >>
-> >> SBAT is a mechanism which improves SecureBoot revocations of UEFI binaries
-> >> by introducing a generation-based technique. Compromised or vulnerable UEFI
-> >> binaries can be prevented from booting by bumping the minimal required
-> >> generation for the specific component in the bootloader. More information
-> >> on the SBAT can be obtained here:
-> >>
-> >> https://github.com/rhboot/shim/blob/main/SBAT.md
-> >>
-> >> Upstream Linux kernel does not currently participate in any way in SBAT as
-> >> there's no existing policy in how SBAT generation number should be
-> >> defined. Keep the status quo and provide a mechanism for distro vendors and
-> >> anyone else who signs their kernel for SecureBoot to include their own SBAT
-> >> data. This leaves the decision on the policy to the vendor. Basically, each
-> >> distro implementing SecureBoot today, will have an option to inject their
-> >> own SBAT data during kernel build and before it gets signed by their
-> >> SecureBoot CA. Different distro do not need to agree on the common SBAT
-> >> component names or generation numbers as each distro ships its own 'shim'
-> >> with their own 'vendor_cert'/'vendor_db'
-> >>
-> >> Implement support for embedding SBAT data for architectures using
-> >> zboot (arm64, loongarch, riscv). Build '.sbat' section along with libstub
-> >> so it can be reused by x86 implementation later.
-> >>
-> >> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
-> >> ---
-> >>  drivers/firmware/efi/Kconfig                | 25 +++++++++++++++++++++
-> >>  drivers/firmware/efi/libstub/Makefile       |  7 ++++++
-> >>  drivers/firmware/efi/libstub/Makefile.zboot |  3 ++-
-> >>  drivers/firmware/efi/libstub/sbat.S         |  7 ++++++
-> >>  drivers/firmware/efi/libstub/zboot-header.S | 14 ++++++++++++
-> >>  drivers/firmware/efi/libstub/zboot.lds      | 17 ++++++++++++++
-> >>  6 files changed, 72 insertions(+), 1 deletion(-)
-> >>  create mode 100644 drivers/firmware/efi/libstub/sbat.S
-> >>
-> >> diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-> >> index 5fe61b9ab5f9..2edb0167ba49 100644
-> >> --- a/drivers/firmware/efi/Kconfig
-> >> +++ b/drivers/firmware/efi/Kconfig
-> >> @@ -281,6 +281,31 @@ config EFI_EMBEDDED_FIRMWARE
-> >>         bool
-> >>         select CRYPTO_LIB_SHA256
-> >>
-> >> +config EFI_SBAT
-> >> +       bool "Embed SBAT section in the kernel"
-> >> +       depends on EFI_ZBOOT
-> >> +       help
-> >> +         SBAT section provides a way to improve SecureBoot revocations of UEFI
-> >> +         binaries by introducing a generation-based mechanism. With SBAT, older
-> >> +         UEFI binaries can be prevented from booting by bumping the minimal
-> >> +         required generation for the specific component in the bootloader.
-> >> +
-> >> +         Note: SBAT information is distribution specific, i.e. the owner of the
-> >> +         signing SecureBoot certificate must define the SBAT policy. Linux
-> >> +         kernel upstream does not define SBAT components and their generations.
-> >> +
-> >> +         See https://github.com/rhboot/shim/blob/main/SBAT.md for the additional
-> >> +         details.
-> >> +
-> >> +         If unsure, say N.
-> >> +
-> >> +config EFI_SBAT_FILE
-> >> +       string "Embedded SBAT section file path"
-> >> +       depends on EFI_SBAT
-> >> +       help
-> >> +         Specify a file with SBAT data which is going to be embedded as '.sbat'
-> >> +         section into the kernel.
-> >> +
-> >
-> > Can we simplify this? CONFIG_EFI_SBAT makes no sense if
-> > CONFIG_EFI_SBAT_FILE is left empty. If you really need both symbols,
-> > set EFI_SBAT automatically based on whether EFI_SBAT_FILE is
-> > non-empty.
->
-> Sure, but FWIW, I modelled this after MODULE_SIG/MODULE_SIG_KEY and
-> BOOT_CONFIG_EMBED/BOOT_CONFIG_EMBED_FILE where the selection is also
-> 2-step -- do you think EFI_SBAT/EFI_SBAT_FILE case is different?
->
-
-Regardless of the other cases,it at the very least should be a
-config-time error for EFI_SBAT to be y when EFI_SBAT_FILE is empty. We
-shouldn't have to deal with CONFIG_ options being in an inconsistent
-state, that's Kconfig's job.
-
-> >
-> >>  endmenu
-> >>
-> >>  config UEFI_CPER
-> >> diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-> >> index d23a1b9fed75..5113cbdadf9a 100644
-> >> --- a/drivers/firmware/efi/libstub/Makefile
-> >> +++ b/drivers/firmware/efi/libstub/Makefile
-> >> @@ -105,6 +105,13 @@ lib-$(CONFIG_UNACCEPTED_MEMORY) += unaccepted_memory.o bitmap.o find.o
-> >>  extra-y                                := $(lib-y)
-> >>  lib-y                          := $(patsubst %.o,%.stub.o,$(lib-y))
-> >>
-> >> +extra-$(CONFIG_EFI_SBAT)       += sbat.o
-> >> +$(obj)/sbat.o: $(obj)/sbat.bin
-> >> +targets += sbat.bin
-> >> +filechk_sbat.bin = cat $(or $(real-prereqs), /dev/null)
-> >> +$(obj)/sbat.bin: $(CONFIG_EFI_SBAT_FILE) FORCE
-> >> +       $(call filechk,sbat.bin)
-> >> +
-> >
-> > Please get rid of all of this, and move the .incbin into
-> > zboot-header.S
->
-> The main prupose of this logic is to track possible sbat data
-> changes. E.g. if the file with SBAT data has changed, then we need to
-> rebuild the kernel binary. If we just use a raw 'incbin' somewhere and
-> don't add a specific Makefile dependency, then the logic will be lost.
->
-
-So why isn't it sufficient to make zboot-header.o depend on
-$(CONFIG_EFI_SBAT_FILE)?
-
-> I think I can drop the dedicated 'sbat.S' and use zboot-header.S but I'd
-> like to keep at least the 'filechk' part: we compare what's in
-> EFI_SBAT_FILE with 'sbat.bin' copy and, if things have changed, rebuild.
->
-
-The filechk is just a copy, and the /dev/null hack should be removed
-too. So please find another way to track the dependency, and drop all
-of this.
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MjAyNS0wNC0yOFQxNzo1MjoyNSswNTozMCwgQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9y
+Zz46Cj4gT24gVGh1LCBBcHIgMywgMjAyNSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxy
+a3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+PiBGb3IgYSBjbGVhbmVyIHNvbHV0aW9u
+LCB3ZSBzaG91bGQgYWRkIGludGVyZmFjZXMgdG8gcGVyZm9ybSB0aGUgS1ZNLVNCSQo+PiByZXNl
+dCByZXF1ZXN0IG9uIHVzZXJzcGFjZSBkZW1hbmQuICBJIHRoaW5rIGl0IHdvdWxkIGFsc28gYmUg
+bXVjaCBiZXR0ZXIKPj4gaWYgdXNlcnNwYWNlIHdhcyBpbiBjb250cm9sIG9mIHRoZSBwb3N0LXJl
+c2V0IHN0YXRlLgo+Cj4gQXBhcnQgZnJvbSBicmVha2luZyBLVk0gdXNlci1zcGFjZSwgdGhpcyBw
+YXRjaCBpcyBpbmNvcnJlY3QgYW5kCj4gZG9lcyBub3QgYWxpZ24gd2l0aCB0aGU6Cj4gMSkgU0JJ
+IHNwZWMKPiAyKSBPUyBib290IHByb3RvY29sLgo+Cj4gVGhlIFNCSSBzcGVjIG9ubHkgZGVmaW5l
+cyB0aGUgZW50cnkgc3RhdGUgb2YgY2VydGFpbiBDUFUgcmVnaXN0ZXJzCj4gKG5hbWVseSwgUEMs
+IEEwLCBhbmQgQTEpIHdoZW4gQ1BVIGVudGVycyBTLW1vZGU6Cj4gMSkgVXBvbiBTQkkgSFNNIHN0
+YXJ0IGNhbGwgZnJvbSBzb21lIG90aGVyIENQVQo+IDIpIFVwb24gcmVzdW1pbmcgZnJvbSBub24t
+cmV0ZW50aXZlIFNCSSBIU00gc3VzcGVuZCBvcgo+ICAgICBTQkkgc3lzdGVtIHN1c3BlbmQKPgo+
+IFRoZSBTLW1vZGUgZW50cnkgc3RhdGUgb2YgdGhlIGJvb3QgQ1BVIGlzIGRlZmluZWQgYnkgdGhl
+Cj4gT1MgYm9vdCBwcm90b2NvbCBhbmQgbm90IGJ5IHRoZSBTQkkgc3BlYy4gRHVlIHRvIHRoaXMs
+IHJlYXNvbgo+IEtWTSBSSVNDLVYgZXhwZWN0cyB1c2VyLXNwYWNlIHRvIHNldCB1cCB0aGUgUy1t
+b2RlIGVudHJ5Cj4gc3RhdGUgb2YgdGhlIGJvb3QgQ1BVIHVwb24gc3lzdGVtIHJlc2V0LgoKV2Ug
+Y2FuIGhhbmRsZSB0aGUgaW5pdGlhbCBzdGF0ZSBjb25zaXN0ZW5jeSBpbiBvdGhlciBwYXRjaGVz
+LgpXaGF0IG5lZWRzIGFkZHJlc3NpbmcgaXMgYSB3YXkgdG8gdHJpZ2dlciB0aGUgS1ZNIHJlc2V0
+IGZyb20gdXNlcnNwYWNlLApldmVuIGlmIG9ubHkgdG8gY2xlYXIgdGhlIGludGVybmFsIEtWTSBz
+dGF0ZS4KCkkgdGhpbmsgbXBfc3RhdGUgaXMgY3VycmVudGx5IHRoZSBiZXN0IHNpZ25hbGl6YXRp
+b24gdGhhdCBLVk0gc2hvdWxkCnJlc2V0LCBzbyBJIGFkZGVkIGl0IHRoZXJlLgoKV2hhdCB3b3Vs
+ZCBiZSB5b3VyIHByZWZlcnJlZCBpbnRlcmZhY2UgZm9yIHRoYXQ/CgpUaGFua3MuCgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
