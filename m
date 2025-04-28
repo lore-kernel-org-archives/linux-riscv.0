@@ -4,55 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AD8EC369DC
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 14:16:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75ADDC369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 14:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h5XDR6HZ5OPqcuqAyDCr7ak8d6yU/4X+FcB6U3HwE9g=; b=sn5lj0IGkeWAzO
-	DFnhnhwQ9YNvz4ORa028aRH7rdMjSdFi8WgeqnY25YX/mlIolGlhdrCgce4RpG10r2zp6sCCc4PQd
-	TbrBEsAMo+gaDReTRgPkWfOL1+PP5laCCDIbVYVver99lqzjvfrQIaetLxtN5M5GS6Pi2nLKGlEP1
-	n8uJ9zpjI/tq6RJ4MGGr0SnXjKrHp5RfmPDh+kyBBzazVLIkUAi+sz84rtCfpn9cVSpE7UdVDkDt2
-	ZUytm2PUQSvjl7JrQ15zbtvPo8WF71xBfqLK1Lzds2wzU/0Qg0jnqLsBkHxEcJCF/b7YXiETR4dea
-	WWMH0Hx9/w8IscC3Z4VA==;
+	List-Owner; bh=4T0lirIe+LGsPxOzJgsl2FflnVMIJaMyaIGbuoPJsoc=; b=YRxW+cpXhPL3Lt
+	f1hqRo/kjX7MFNfmhxq8UDykpEmHkbJIFZDCmTzzzC9ZKEjZk8VICM0pfm0CtXuQs1IoVblSU06Yz
+	eX04kdWBpxAxsb3ymc1oUJJIAa8fKDZxKiLEOGoyxZcPMFTjuwbCSRLhcfsbZ6ivpUUNj2abG7zYf
+	umWhG9w+c/iUrAq/0BpbY74X2W4P0tHEbvA/NeGNjoFNvQJW6v+pov7s4Ls60FqBD/rnfR34g66Lk
+	CI9oIyGSWCtoX30HQjW1wbi3LTdHIMfUb48Yv8aPH65zs+eQJmWEnX8j+S7r1mR5BbCxjmxs6/Q25
+	GWJ0/PPuKl/msWh5eGTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9PHC-00000006b8u-3wVw;
-	Mon, 28 Apr 2025 14:16:06 +0000
+	id 1u9PHB-00000006b7U-30JH;
+	Mon, 28 Apr 2025 14:16:05 +0000
 Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9NnT-00000006ENP-1Myw
+	id 1u9Nn2-00000006EFu-42l3
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 12:41:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1745844062; cv=none; 
+	Mon, 28 Apr 2025 12:40:54 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745844037; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=GBoldrKMDj733oTqKS1hlyAFbtitZ71eQATg7zXl0YQR6nWzSz6nUVY7Oc7fAbLQ3AUSAWyTN+hfJ4CpHtrgklryzd3g3hFc1KFsx9OgjcWie1q5yQvWwzWChpE8hW01WR++hXDppZYagaKBpGroF4whA1ZcVkl+z3eVWMxshFw=
+	b=ZjM0TOUpNTykAB6wBsRGLN2vQF4yfdVWZFejune0aN3IL77cTaTBsJanG/i+laETEck45ko6AqSfn/6kzB+EgliXcZMJIlNLyWeCqoD7O1fgTOxQlo8aA9zSfDhMppa5WTev+Mlw682Da4VOC8XKvL+fxWegOGOvBneROABjP1w=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1745844062; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=LwU7gex0UJ1teZN3gOvMhmes4l80hzx46Q/azM5ECmU=; 
-	b=JUO4jq7fxeGTgG0TKjZBkZ48wluN09bk0yrvNF+JGTtrOoFM8pMKI+vtefcYBCak5NglR/6L6DCIw1xjBGKVJnc2DC2tVmFETFKv3+QA6m3IcqHD8BV2GeRS71CpiqZSo5Apo3BtpkySdiTyWFQYrHyTuyLsZLoQxSk4dHiWlIk=
+	t=1745844037; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Vz+mwteOFVjUBYLK3kyTIENC2iJR9nyaEx8k9A7nLhQ=; 
+	b=CUmaoaRwSYXmneuzXX5KcMWjNKjHVT9Ajce7zG8MA1fhysQTTeH+g1W0t88xaPKomtpv4tgJSwtSw3ljrlFt1tRrpqEBdgZOoOccpIWwP6at2tag/67pCDaXNEtWe3oJiCSVx8UcOGupcNgGJljjap/g77NNVlX+lliktckQw8M=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=pigmoral.tech;
 	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
 	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745844062;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745844037;
 	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=LwU7gex0UJ1teZN3gOvMhmes4l80hzx46Q/azM5ECmU=;
-	b=gRdawnH3IE+hCz4MGBTQyNUNJo6Dyr4Msd6em7uVxiE7ymAjdQFn+enqCdue7rzM
-	P9XWrSQS0DCtATEXdSUFVuZScXasBR8GQW+NW/rFcIxhUYH0Gs6cdJiadVHmMCewTuh
-	vH08JiiDJYsc7kxq6qI2l0uEnpox63tJQPdsOxNg=
-Received: by mx.zohomail.com with SMTPS id 1745844060503793.2308254516073;
-	Mon, 28 Apr 2025 05:41:00 -0700 (PDT)
+	bh=Vz+mwteOFVjUBYLK3kyTIENC2iJR9nyaEx8k9A7nLhQ=;
+	b=SnHOqb+/DAiMhJz32Q8ynPBqAgC8lEYIAhe1+3qobi0h+UHHF9s8jddSfLHW9S4Q
+	DxVfb/vVBfwFY+Qrb3vPGyBuTM2kbPxzATaOTm1HH/bxM0k7z6/GHzR5XZZGBwRjv9d
+	LBVihE7weVkug/C1NMHwKX+msHYah1VkNc/2wkBU=
+Received: by mx.zohomail.com with SMTPS id 1745844036201935.8658413655802;
+	Mon, 28 Apr 2025 05:40:36 -0700 (PDT)
 From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Mon, 28 Apr 2025 20:39:46 +0800
-Subject: [PATCH v3 3/3] mailbox: sophgo: add mailbox driver for CV18XX
- series SoC
+Date: Mon, 28 Apr 2025 20:39:44 +0800
+Subject: [PATCH v3 1/3] dt-bindings: mailbox: add Sophgo CV18XX series SoC
 MIME-Version: 1.0
-Message-Id: <20250428-cv18xx-mbox-v3-3-ed18dfd836d1@pigmoral.tech>
+Message-Id: <20250428-cv18xx-mbox-v3-1-ed18dfd836d1@pigmoral.tech>
 References: <20250428-cv18xx-mbox-v3-0-ed18dfd836d1@pigmoral.tech>
 In-Reply-To: <20250428-cv18xx-mbox-v3-0-ed18dfd836d1@pigmoral.tech>
 To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
@@ -66,17 +65,17 @@ To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
 Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
  sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745844011; l=7910;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1745844011; l=2280;
  i=junhui.liu@pigmoral.tech; s=20250223; h=from:subject:message-id;
- bh=o0p8ArrjYHxyP4B5Ea9j/zn/GdF+46F7w3mD/fqktCE=;
- b=y994W+NuJFZSeBspou7uhkitqRO/46cOQ1dy4UF86upyTZHJUVwopDx2cJstDbGw3Ky6zOsVN
- OskilfI3wTWA7lheV/qZTbqgunF8wpqcCyVM30vZ/12vTp3Yh8mhxQD
+ bh=GsQbGKXKdavpmDUrRnVbgYgEwew9+AxTW4ckB/Jl3mU=;
+ b=3n01u+mVvRti/CmYdllpkIIVaqbqsVAwzv9s/Od2O5EfPdjFXThao1F5VKh4qAZuxNiDwkNh2
+ IphQg6T3f0oAc/qhqMoDYercpFB4jx4RlYRu32tu3etkwO5Gr4Vx9wI
 X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
  pk=ZRZkOjG47iI+To+oAo2R4KIpMwtz8r0TffJ5/nO2tcg=
 X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_054119_430333_0898DABC 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20250428_054053_071655_8C2D82B2 
+X-CRM114-Status: GOOD (  10.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,275 +94,78 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 From: Yuntao Dai <d1581209858@live.com>
 
-Add mailbox controller driver for CV18XX SoCs, which provides 8 channels
-and each channel has an 8-byte FIFO.
+Introduce the mailbox module for CV18XX series SoC, which is responsible
+for interchanging messages between asymmetric processors.
 
 Signed-off-by: Yuntao Dai <d1581209858@live.com>
 Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
 ---
- drivers/mailbox/Kconfig          |  10 ++
- drivers/mailbox/Makefile         |   2 +
- drivers/mailbox/cv1800-mailbox.c | 218 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 230 insertions(+)
+ .../bindings/mailbox/sophgo,cv1800b-mailbox.yaml   | 57 ++++++++++++++++++++++
+ 1 file changed, 57 insertions(+)
 
-diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-index ed52db272f4d059ff60d608f40e3845411bc63f7..fd3f28d705bc00166028c372d3398f2e225aa8a7 100644
---- a/drivers/mailbox/Kconfig
-+++ b/drivers/mailbox/Kconfig
-@@ -36,6 +36,16 @@ config ARM_MHU_V3
- 	  that provides different means of transports: supported extensions
- 	  will be discovered and possibly managed at probe-time.
- 
-+config CV1800_MBOX
-+	tristate "cv1800 mailbox"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  Mailbox driver implementation for Sophgo CV18XX SoCs. This driver
-+	  can be used to send message between different processors in SoC. Any
-+	  processer can write data in a channel, and set co-responding register
-+	  to raise interrupt to notice another processor, and it is allowed to
-+	  send data to itself.
-+
- config EXYNOS_MBOX
- 	tristate "Exynos Mailbox"
- 	depends on ARCH_EXYNOS || COMPILE_TEST
-diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-index 9a1542b55539c673af874c5c37fbb3d438fd05d3..13a3448b327115add5ebb8c4f116e68dedd755cb 100644
---- a/drivers/mailbox/Makefile
-+++ b/drivers/mailbox/Makefile
-@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
- 
- obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
- 
-+obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
-+
- obj-$(CONFIG_EXYNOS_MBOX)	+= exynos-mailbox.o
- 
- obj-$(CONFIG_IMX_MBOX)	+= imx-mailbox.o
-diff --git a/drivers/mailbox/cv1800-mailbox.c b/drivers/mailbox/cv1800-mailbox.c
+diff --git a/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..339c155fb98ddf4155a84d5208c595043fc7a7ce
+index 0000000000000000000000000000000000000000..5815dc02189c973d681f5b4ff22a9fb7536802b9
 --- /dev/null
-+++ b/drivers/mailbox/cv1800-mailbox.c
-@@ -0,0 +1,218 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2024 Sophgo Technology Inc.
-+ * Copyright (C) 2024 Yuntao Dai <d1581209858@live.com>
-+ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
++++ b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml
+@@ -0,0 +1,57 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/sophgo,cv1800b-mailbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+#include <linux/bits.h>
-+#include <linux/device.h>
-+#include <linux/err.h>
-+#include <linux/interrupt.h>
-+#include <linux/io.h>
-+#include <linux/kfifo.h>
-+#include <linux/mailbox_client.h>
-+#include <linux/mailbox_controller.h>
-+#include <linux/module.h>
-+#include <linux/platform_device.h>
-+#include <linux/slab.h>
++title: Sophgo CV1800/SG2000 mailbox controller
 +
-+#define RECV_CPU		1
++maintainers:
++  - Yuntao Dai <d1581209858@live.com>
++  - Junhui Liu <junhui.liu@pigmoral.tech>
 +
-+#define MAILBOX_MAX_CHAN	8
++description: |
++  Mailboxes integrated in Sophgo CV1800/SG2000 SoCs have 8 channels, each
++  shipping an 8-byte FIFO. Any processor can write to an arbitrary channel
++  and raise interrupts to receivers. Sending messages to itself is also
++  supported.
++  Sophgo CV1800/SG2000 SoCs include the following processors, numbered as:
++  <0> Cortex-A53 (Only available on CV181X/SG200X)
++  <1> C906B
++  <2> C906L
++  <3> 8051
 +
-+#define MBOX_EN_REG(cpu)	(cpu << 2)
-+#define MBOX_DONE_REG(cpu)	((cpu << 2) + 2)
-+#define MBOX_SET_CLR_REG(cpu)	(0x10 + (cpu << 4))
-+#define MBOX_SET_INT_REG(cpu)	(0x18 + (cpu << 4))
-+#define MBOX_SET_REG		0x60
++properties:
++  compatible:
++    const: sophgo,cv1800b-mailbox
 +
-+#define MAILBOX_CONTEXT_OFFSET	0x0400
-+#define MAILBOX_CONTEXT_SIZE	0x0040
++  reg:
++    maxItems: 1
 +
-+#define MBOX_CONTEXT_BASE_INDEX(base, index) \
-+	((u64 *)(base + MAILBOX_CONTEXT_OFFSET) + index)
++  interrupts:
++    maxItems: 1
 +
-+/**
-+ * struct cv1800_mbox_chan_priv - cv1800 mailbox channel private data
-+ * @idx: index of channel
-+ * @cpu: send to which processor
-+ */
-+struct cv1800_mbox_chan_priv {
-+	int idx;
-+	int cpu;
-+};
++  "#mbox-cells":
++    const: 2
++    description:
++      The first cell indicates the channel index (0-7), the second cell
++      indicates the target processor ID (0-3) to which messages are sent.
 +
-+struct cv1800_mbox {
-+	struct mbox_controller mbox;
-+	struct cv1800_mbox_chan_priv priv[MAILBOX_MAX_CHAN];
-+	struct mbox_chan chans[MAILBOX_MAX_CHAN];
-+	u64 __iomem *content[MAILBOX_MAX_CHAN];
-+	void __iomem *mbox_base;
-+	int recvid;
-+};
++required:
++  - compatible
++  - reg
++  - interrupts
++  - "#mbox-cells"
 +
-+static irqreturn_t cv1800_mbox_isr(int irq, void *dev_id)
-+{
-+	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
-+	size_t i;
-+	int ret = IRQ_NONE;
++additionalProperties: false
 +
-+	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
-+		if (mbox->content[i] && mbox->chans[i].cl) {
-+			mbox_chan_received_data(&mbox->chans[i],
-+						(void *)mbox->content[i]);
-+			mbox->content[i] = NULL;
-+			ret = IRQ_HANDLED;
-+		}
-+	}
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+	return ret;
-+}
-+
-+static irqreturn_t cv1800_mbox_irq(int irq, void *dev_id)
-+{
-+	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
-+	u8 set, valid;
-+	size_t i;
-+	int ret = IRQ_NONE;
-+
-+	set = readb(mbox->mbox_base + MBOX_SET_INT_REG(RECV_CPU));
-+
-+	if (!set)
-+		return ret;
-+
-+	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
-+		valid = set & BIT(i);
-+		if (valid) {
-+			mbox->content[i] =
-+				MBOX_CONTEXT_BASE_INDEX(mbox->mbox_base, i);
-+			writeb(valid,
-+			       mbox->mbox_base + MBOX_SET_CLR_REG(RECV_CPU));
-+			writeb(~valid, mbox->mbox_base + MBOX_EN_REG(RECV_CPU));
-+			ret = IRQ_WAKE_THREAD;
-+		}
-+	}
-+
-+	return ret;
-+}
-+
-+static int cv1800_mbox_send_data(struct mbox_chan *chan, void *data)
-+{
-+	struct cv1800_mbox_chan_priv *priv =
-+		(struct cv1800_mbox_chan_priv *)chan->con_priv;
-+	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
-+	int idx = priv->idx;
-+	int cpu = priv->cpu;
-+	u8 en, valid;
-+
-+	memcpy_toio(MBOX_CONTEXT_BASE_INDEX(mbox->mbox_base, idx),
-+		    data, 8);
-+
-+	valid = BIT(idx);
-+	writeb(valid, mbox->mbox_base + MBOX_SET_CLR_REG(cpu));
-+	en = readb(mbox->mbox_base + MBOX_EN_REG(cpu));
-+	writeb(en | valid, mbox->mbox_base + MBOX_EN_REG(cpu));
-+	writeb(valid, mbox->mbox_base + MBOX_SET_REG);
-+
-+	return 0;
-+}
-+
-+static bool cv1800_last_tx_done(struct mbox_chan *chan)
-+{
-+	struct cv1800_mbox_chan_priv *priv =
-+		(struct cv1800_mbox_chan_priv *)chan->con_priv;
-+	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
-+	u8 en;
-+
-+	en = readb(mbox->mbox_base + MBOX_EN_REG(priv->cpu));
-+
-+	return !(en & BIT(priv->idx));
-+}
-+
-+static const struct mbox_chan_ops cv1800_mbox_chan_ops = {
-+	.send_data = cv1800_mbox_send_data,
-+	.last_tx_done = cv1800_last_tx_done,
-+};
-+
-+static struct mbox_chan *cv1800_mbox_xlate(struct mbox_controller *mbox,
-+					   const struct of_phandle_args *spec)
-+{
-+	struct cv1800_mbox_chan_priv *priv;
-+
-+	int idx = spec->args[0];
-+	int cpu = spec->args[1];
-+
-+	if (idx >= mbox->num_chans)
-+		return ERR_PTR(-EINVAL);
-+
-+	priv = mbox->chans[idx].con_priv;
-+	priv->cpu = cpu;
-+
-+	return &mbox->chans[idx];
-+}
-+
-+static const struct of_device_id cv1800_mbox_of_match[] = {
-+	{ .compatible = "sophgo,cv1800b-mailbox", },
-+	{},
-+};
-+MODULE_DEVICE_TABLE(of, cv1800_mbox_of_match);
-+
-+static int cv1800_mbox_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct cv1800_mbox *mb;
-+	int irq, idx, err;
-+
-+	mb = devm_kzalloc(dev, sizeof(*mb), GFP_KERNEL);
-+	if (!mb)
-+		return -ENOMEM;
-+
-+	mb->mbox_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(mb->mbox_base))
-+		return dev_err_probe(dev, PTR_ERR(mb->mbox_base),
-+				     "Failed to map resource\n");
-+
-+	mb->mbox.dev = dev;
-+	mb->mbox.chans = mb->chans;
-+	mb->mbox.txdone_poll = true;
-+	mb->mbox.ops = &cv1800_mbox_chan_ops;
-+	mb->mbox.num_chans = MAILBOX_MAX_CHAN;
-+	mb->mbox.of_xlate = cv1800_mbox_xlate;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq < 0)
-+		return irq;
-+
-+	err = devm_request_threaded_irq(dev, irq, cv1800_mbox_irq,
-+					cv1800_mbox_isr, IRQF_ONESHOT,
-+					dev_name(&pdev->dev), mb);
-+	if (err < 0)
-+		return dev_err_probe(dev, err, "Failed to register irq\n");
-+
-+	for (idx = 0; idx < MAILBOX_MAX_CHAN; idx++) {
-+		mb->priv[idx].idx = idx;
-+		mb->mbox.chans[idx].con_priv = &mb->priv[idx];
-+	}
-+
-+	platform_set_drvdata(pdev, mb);
-+
-+	err = devm_mbox_controller_register(dev, &mb->mbox);
-+	if (err)
-+		return dev_err_probe(dev, err, "Failed to register mailbox\n");
-+
-+	return 0;
-+}
-+
-+static struct platform_driver cv1800_mbox_driver = {
-+	.driver = {
-+		.name = "cv1800-mbox",
-+		.of_match_table = cv1800_mbox_of_match,
-+	},
-+	.probe	= cv1800_mbox_probe,
-+};
-+
-+module_platform_driver(cv1800_mbox_driver);
-+
-+MODULE_DESCRIPTION("cv1800 mailbox driver");
-+MODULE_LICENSE("GPL");
++    mailbox@1900000 {
++        compatible = "sophgo,cv1800b-mailbox";
++        reg = <0x01900000 0x1000>;
++        interrupts = <101 IRQ_TYPE_LEVEL_HIGH>;
++        #mbox-cells = <2>;
++    };
 
 -- 
 2.49.0
