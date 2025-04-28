@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92686C369D5
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 21:54:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D406C369D5
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 22:36:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=K3EtYyjf4gdK8U1ALU9JtsKtV1HrvZ6nEjneljQazYI=; b=U2mUZeQ19mRWGT
-	H01zMQx+6Z8tasvbgHSGAEDLdrt9lX1fK7nnlrdxZz4OGZrgevwGA+UHtCGojQnWOLEztY6CTH8/h
-	r0TQNZHWEpQxgeOKtrEgiD281/OGK5Mk5qUA1Iwu2fsQcmMnNtAi2gC+Ou4HZ8u3eHuFegHn3sNiB
-	I6Iw9KHTAVyA1A+Un0+Da+Ysx/HCS/V1SxPz22zwgYKBAao2HHtxza0kp72KPzkKuh1UjmW3I35Bw
-	I7bsQ7ZO/stvHdy1kz5DfbFih38vwelLcscp+t287mJ7U+eBY+P+Bejpay5UcZjbpW1wAXpIAWx9U
-	h8tFk4mrHol8P4F327qg==;
+	List-Owner; bh=0gG0jkYIXVz2Hi6Vvf9qGJjlfVVpljwtsDgCAIz26IA=; b=BrWHIYnDuUiNYE
+	pg3LF6ZxF6hnle9WLvoQknxvGmrpsE4j8e/CDxrALTpJwp9fwP02ArgMqWDpXugKC1aURM+Vm7wgw
+	Cr8GkaVibkyH6Ty6xeElddnrt64aG2wWidU41Kt00df7vds4L2ePMk6Hn9XDWNe5MPnZN4SAvtXX7
+	s7XSJA3LPSAR+yIW3JCFC716WREzMCs/01agLFJ4hibKBlP2ZJnQI/IirfomjOV5HnrFp5nFJ9oaF
+	A4JYQ4qCJ33biKVizRl50IJrZTIUKpXNBPWy8KLkxdZ7/pbU9rWl86ittEIqVFDz9KKD1THVCU54Y
+	ckHAsvCh+pFX9rztAYRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9WR5-00000007fh0-1l19;
-	Mon, 28 Apr 2025 21:54:47 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1u9X4t-00000007jN9-0CNf;
+	Mon, 28 Apr 2025 22:35:55 +0000
+Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9WR2-00000007fgO-2bLY
-	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 21:54:46 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-736c277331eso6027506b3a.1
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 14:54:43 -0700 (PDT)
+	id 1u9X4q-00000007jMT-3Dxc;
+	Mon, 28 Apr 2025 22:35:53 +0000
+Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-476a1acf61eso52577931cf.1;
+        Mon, 28 Apr 2025 15:35:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1745877283; x=1746482083; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1745879751; x=1746484551; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7PrFUrYVebeKySS/v6ZqS0K5DEgZAx8oNo9TFzTB1i0=;
-        b=rK3kz/vw6tmPlciF6D0aI6yDkXRm9YJt3D+1TGDEhh3JaRCXgfE8Kea7GcXwJxRqL8
-         cMX75W9P14E+fLqwyeGGIIxzB5uAsYLJVTEvg5l4WYhQVFxs30Q7vu6BDlAlajp606za
-         zoxDF/5Wf6wrWrXUX4I9tRWqFr7LmWLA/RzvUPmAc1NP/rhVAWrS75QJy4HVRzD8nZhf
-         x8enSLONJl551UT6vn1IgLZcoraE/JfN2yi2MFif3PD0CAflvQ/a9Qwq/mP3x2YenGsp
-         SYR+VHXNiJFZuCMVtrerKLM2xTOuY8JmWfwNwOQFV1PFeMtCLZkctqy4dcWSWQU/fd2N
-         yFyg==
+        bh=X/kdZu5lZfOsUl8WyU/NEfAG1LYXxMtniBa4sTIJjM8=;
+        b=VKuZP3AWR8B9oXmyeR5BYoJDtDb+PraMmlJ+mxx4IJ64VcarJnx3v969WTYzDvipoB
+         InIozjW9axXIDSwa+kWpfg9/hMm2OS5S9ZeeuXsYeEUKxUCivUscXx7B3Yblze+ksoI0
+         FiEZA2Qtk3u3/mQ8odND4ZAcxrQ83V8JFGPYL6OKxZjgaAd79l/nuPUINePpzHL1r1HL
+         HNtJOGkfU+NovI+TE1IaC4kNuKizp6+1xXjopqneZl9bhGfYWjFMu3nCfLxDHgqmDxmX
+         mwmztg/CsJ9lcg7ZfvtpUpi3Mgivofh8DHRYDtiKnJngMlE/GflIyo+YmGN3XhyvMPSU
+         dnwg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745877283; x=1746482083;
+        d=1e100.net; s=20230601; t=1745879751; x=1746484551;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7PrFUrYVebeKySS/v6ZqS0K5DEgZAx8oNo9TFzTB1i0=;
-        b=FlSdrO6jBElL311D91kgFEPEUoCcWRF6uNT3GSw043X8Eh1pMsWJj+JgYEZEm3m48B
-         4VBxIYnTXgtUaG12geG4P7fhExJbR2NBlfkBgn3GNoS062RLKqmTplnmL2MvMj+iaoM/
-         uEJlVpLTxjXdL+wP1BtZuhJF88/aO/MYTYVdyVdaTb9hkemtG4QWZMwVDorblGXJZvmK
-         l5vau04XJAzzU5Rwdw9jMRhnAib8CAg4hCelszmPjO78bj76gYDCYS/J685isrDWHPdi
-         TKv24hjZiel6lbaNTHTD56mEfSr3j4nopXVNF1nJdqvh43470+CBfe76bxfE+aTBp+7g
-         EsiA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgspv6m/d2CktCPjL30pk5DstL3ywgXDi5+NmPAM2nc1fICafz7JyJStqKFFhjDRU3iapCWQ/QN5im0Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLZkoXHmt4IViEUJertGixvHlI2w8hd+7ODyZC4cbzXdLYYeOS
-	3aBZVP1IfUZKoybDuT4+xsJ+QNoxHjlxbig4cduxjixVIEQQJJBtnSeH1P20pyw=
-X-Gm-Gg: ASbGncseehOaLMT9vr2rhmu1my32wHWNBE8n97GcqwjJC/8jR+d6aA8hMwTmvQ5UR8W
-	BonUr9G/ca72Ok0TBs8Ib3KRnM0WZnlr6wtr9siGmj0Yc/8f02WSGfZFTKuizHocp1mToL0yN+4
-	ScUkwCL9DwA9v87FhUGUvNs3gr4tS8TJ5KPuC+ufNO7bns9aJXHe/YHKlrL4jmK7B7Op0eWjgBD
-	6yolbixA/T4GqetV4Q41Z6bD4VLZZxikVBHh+F5APueb2CqJS6AaKlHzn9bn2uHJfrRnHmyYdix
-	vpwr2xFDQnAxwJwm/3rcHS0lovSbxca3ll4f
-X-Google-Smtp-Source: AGHT+IGWT3F9rzHKTZtgpify0Emfhlu0qposGjyGuLHhHiqFNXMP110/wH5dDuLcBSTkm/pZT1KRBQ==
-X-Received: by 2002:a05:6a20:9f44:b0:1fe:61a4:7210 with SMTP id adf61e73a8af0-2094f0854e6mr1162679637.2.1745877283395;
-        Mon, 28 Apr 2025 14:54:43 -0700 (PDT)
-Received: from ghost ([2601:647:6700:64d0:5842:f05a:498b:82d0])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b15faded547sm7735083a12.69.2025.04.28.14.54.41
+        bh=X/kdZu5lZfOsUl8WyU/NEfAG1LYXxMtniBa4sTIJjM8=;
+        b=i7FS3vcrxsklXwA6IpU2StTlsgw6H5qm0lXXhufr+DjOoN8wa1UIMaOf9KyoTckd0+
+         T4MEqdbtY5TXrz35dUjOoXR4SK5ZKUEfBFdC6NvPrRqpKDgrvA+CgvC2Syw2/s3cHMkm
+         zSE1oAQvBOhMeUAmQQqkizhYdoM7EUOB62DyvokwZyrifK/CcXUYF+OrVuHqHBg95vKK
+         897+rJXdA9KxIXJDKfzBUTrEyxI1IP5MVN+cMcy5VVA6aXThi7vzdudbVSxkVHPr7M7/
+         v9xg3OFhMY/EDJM+7KHPCbQm3epM3ckljWiJwpHzBR/L9umIdhNylqQPm08XdJlxU4FI
+         xsPg==
+X-Forwarded-Encrypted: i=1; AJvYcCV9Nl8xCWzSr4s3hYy3/upHUt2SCqbMZdSrnRJt43DDJQL8KP6QLb1ytrTRhJbj/xPzP3jJIdkn1416myU=@lists.infradead.org, AJvYcCXU6CUcRunjWPzp/CT64Xh+4R4QoV3+3I12Qy+lkzXP46pY72i+vctHa0L51CgVn39X8JniZN0AYBIYObaBKiOg@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+wTBq53QHufH+Rcp47WRHP1ztIIMHCkxWU4RV8cpP5+85JjHJ
+	o9Br8yJAEMcUNUwMGhVoCyzEqo0clCxXv0S2VWsOrNdBqIB0qVb4
+X-Gm-Gg: ASbGncteUi7syNZBhg5QoVVH9metcnWAdHEWtC1UePQja4orhReD0brTUO1boa1eG5R
+	8/hdiFlybO4s28VSZ8OHkU/DfB/yu69ogHSIXJl5GyUr4nLmqPae1KYFkw6AUbALb0fzvNeDWr1
+	EzBoAFjTe3tWEFCDHZPqT3VUpYHGNZkZwaxixUIe0QqxddDyDE5Kg8BBZ0zUjS3OXqIAH5/33im
+	794R5UQx049dRPu26p7IKXpW86fa3lQO3sChCNMwTR5XSf57hPYdONF2AS3HCrUxcqpC69JmQ3h
+	yP8LhX2z7MFVpSYV
+X-Google-Smtp-Source: AGHT+IES8nRDFDh7fd98mGNj9hoSaWm8gTLVtNkYmiW/3xaJ8gUBVINczQj4gDLHG/EkZEFrUlpH2w==
+X-Received: by 2002:a05:622a:1f17:b0:477:6e8e:138e with SMTP id d75a77b69052e-4886ff51bafmr17662271cf.2.1745879751334;
+        Mon, 28 Apr 2025 15:35:51 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47e9efda2c0sm73859921cf.20.2025.04.28.15.35.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 28 Apr 2025 14:54:42 -0700 (PDT)
-Date: Mon, 28 Apr 2025 14:54:40 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: Thomas Gleixner <tglx@linutronix.de>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Arnd Bergmann <arnd@arndb.de>, Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, loongarch@lists.linux.dev
-Subject: Re: [PATCH v6 0/4] entry: Move ret_from_fork() to C and inline
- syscall_exit_to_user_mode()
-Message-ID: <aA_5IGGvXqB7v_EA@ghost>
-References: <20250320-riscv_optimize_entry-v6-0-63e187e26041@rivosinc.com>
- <87frj613kz.ffs@tglx>
+        Mon, 28 Apr 2025 15:35:50 -0700 (PDT)
+Date: Tue, 29 Apr 2025 06:35:36 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	sophgo@lists.linux.dev, soc@lists.linux.dev
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
+	Chao Wei <chao.wei@sophgo.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v5 1/7] riscv: dts: sophgo: cv18xx: Move RiscV-specific
+ part into SoCs' .dtsi files
+Message-ID: <6wlgfvc3rkhv4s3ou67fjl6j4a26vocqck5727cg6muxlz2erj@kivndcjcqc7m>
+References: <20250316185640.3750873-1-alexander.sverdlin@gmail.com>
+ <20250316185640.3750873-2-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <87frj613kz.ffs@tglx>
+In-Reply-To: <20250316185640.3750873-2-alexander.sverdlin@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_145444_926144_F39A508A 
-X-CRM114-Status: GOOD (  16.56  )
+X-CRM114-CacheID: sfid-20250428_153552_807963_331EFA68 
+X-CRM114-Status: GOOD (  17.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,34 +106,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 21, 2025 at 10:22:36PM +0100, Thomas Gleixner wrote:
-> On Thu, Mar 20 2025 at 10:29, Charlie Jenkins wrote:
-> > Similar to commit 221a164035fd ("entry: Move
-> > syscall_enter_from_user_mode() to header file"), move
-> > syscall_exit_to_user_mode() to the header file as well.
-> >
-> > Testing was done with the byte-unixbench [1] syscall benchmark (which
-> > calls getpid) and QEMU. On riscv I measured a 7.09246% improvement, on
-> > x86 a 2.98843% improvement, on loongarch a 6.07954% improvement, and on
-> > s390 a 11.1328% improvement.
-> >
-> > The Intel bot also reported "kernel test robot noticed a 1.9%
-> > improvement of stress-ng.seek.ops_per_sec" [2]
-> >
-> > Since this is on QEMU, I know these numbers are not perfect, but they
-> > show a trend of general improvement across all architectures that use
-> > the generic entry code.
+On Sun, Mar 16, 2025 at 07:56:31PM +0100, Alexander Sverdlin wrote:
+> Make the peripheral device tree re-usable on ARM64 platform by moving CPU
+> core and interrupt controllers' parts into new cv18xx-cpu.dtsi and
+> cv18xx-intc.dtsi.
 > 
-> This looks sane now. I've bookmarked it as post-merge window material.
-
-Has this been applied somewhere?
-
-- Charlie
-
+> Add SOC_PERIPHERAL_IRQ() macro which explicitly maps peripheral nubering
+> into "plic" interrupt-controller numbering.
 > 
-> Thanks,
+> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+> ---
+> Changelog:
+> v5:
+> v4:
+> - cleanups dropped
+> - cv18xx-cpu-intc.dtsi instead of cv18xx-cpu.dtsi+cv18xx-intc.dtsi
+> v3:
+> - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
+> were moved into cv18xx-intc.dtsi to reduce code duplication;
+> v2:
+> - instead of carving out peripherals' part, carve out ARCH-specifics (CPU
+> core, interrupt controllers) and spread them among 3 SoC .dtsi files which
+> included cv18xx.dtsi;
+> - define a label for the "soc" node and use it in the newly introduced DTs;
 > 
->         tglx
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi       |  5 +
+>  arch/riscv/boot/dts/sophgo/cv1812h.dtsi       |  5 +
+>  arch/riscv/boot/dts/sophgo/cv181x.dtsi        |  2 +-
+>  .../boot/dts/sophgo/cv18xx-cpu-intc.dtsi      | 54 +++++++++++
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi        | 91 +++++--------------
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi        |  5 +
+>  6 files changed, 93 insertions(+), 69 deletions(-)
+>  create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-cpu-intc.dtsi
+> 
+
+It is a hard time for now to do some change across the cv18xx 
+series, and it has become a mess. Due to the fact, I think it
+is time to do some work like split some device (clk, pinctrl,
+plic, intc) from cv18xx.dtsi to avoid override, and make room
+for arm64 device.
+
+Since this change contains some change similar to this patch. 
+Would you mind me to take content of this patch, and add you
+as the a co-author?
+
+Regards,
+Inochi
+
 
 _______________________________________________
 linux-riscv mailing list
