@@ -4,71 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4075EC369D9
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 05:43:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F85FC369D9
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 06:46:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:References
 	:In-Reply-To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eh24y1m38uUQJtGfmAVXtrw58zobeBdM13hjlZDs87U=; b=vW3bzf9GCt5WRB
-	94Y+2+vxdAJ4/Ap0CAWnLB+qVX7yWiQ0jDUf6fWGGOxcMW6OgK2ueD9YeQT6KC509gXZ883UMK5TI
-	Y/qsizDIXljQWLu1W9vTa7edVN0OoGuJOYjJMIjlu2ErfBeRZa5Tg8sNKZqf9tfWm8ns9V8uPdTPr
-	B8vJnhBxPzAHv82PLfQFaXkSinMMKrTDVqhMLeYClwfK7JKDDOLfD/N1/BLLN2NJwgoogYa1mePRk
-	pG+fcnWLMCTxdaY6ZUiif7Qskv4IM/IvLRhL0kPsRJwE2j+K1pdZkWrAxomcqz2URnvtLmTLORv6l
-	5qphB2JT8l1I/icLdQuw==;
+	List-Owner; bh=zHNg2CF/ChpdsQT3Jy+6lujZSpS4IEUqpQRLoMfLR0k=; b=s+uO+2gq2FP0w4
+	ABkd6wBGvlajQT9f/Qs/hGQ/QjoauTYPq44dz1uoYiaReEtC/eZ+xgfX606qrYNJ4da8o0oBjQCgX
+	1EkHgX+zLLnLnDbfHHphyYNfWRLtHr78M6dM7rJ5O6sROEAos5TJgUgYhzIWyIZlUSoiBDXBMqm3y
+	5+wVV0zDK3i5I0V6dARXv0iHBSbnXxVrbg3chqo5SbqD+xtesqjMM3LFFxillSD00oPOWSpL9ZBTZ
+	GjmZ65BSJNauWHYqkp7vfbc1bqc57dozkpoOXb53sLTXqe1wCc6gA6ZXmzBTzJd7DCm9ncXe8j9x9
+	rZhtzq1/gDhkTAhn4SLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9HH3-00000004rAf-4B8R;
-	Mon, 28 Apr 2025 05:43:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Gs2-00000004hYg-1QQ5;
-	Mon, 28 Apr 2025 05:17:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Subject:From:References:
-	In-Reply-To:Message-Id:Date:Sender:Reply-To:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=c8FPEHIXG9k6DVHh4+6lNaAaIuRZXXjhhcXmQ3FuS9Q=; b=msFNpEkYVVOFsip6Rx0pf0Na4y
-	TETgPpzMmcQ60UEQMyEFhPiHaYQPJmRfD7WNoQuBEWQIn/xM22tHqHrGlHsrWkdOiZuh7qzYIc8hg
-	zQUH0sRK3r7w173AcWT41bqKzRC3boqIACkWHBjPF/dUlh9zbrNTZ3eAWJz1sYYoAldYF88EcnJ1I
-	6L0RB8BlkNuJKm4qGFkNucUlqGz8Sv20C/Rd4F2acteNHWx8AVYwUEwupSc0eN2AMJGG8fV9XDYfa
-	Pj4ofWCZ/X+sE4lJ/3oL2EuoDDnVzZVDkxzF+CGocPRuYFWt+LusteU6QqcVLFH/PZsEudgOm3bQP
-	GAo6QmMQ==;
+	id 1u9IFb-000000058cI-1cE2;
+	Mon, 28 Apr 2025 06:45:59 +0000
 Received: from abb.hmeau.com ([144.6.53.87])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9Gry-0000000CY4y-1ZVM;
-	Mon, 28 Apr 2025 05:17:33 +0000
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9Grw-00000004hTX-1odK;
+	Mon, 28 Apr 2025 05:17:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
 	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
 	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
 	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=c8FPEHIXG9k6DVHh4+6lNaAaIuRZXXjhhcXmQ3FuS9Q=; b=Pk4OTOuEdkZ/qcTT89gZHfdYzA
-	avHOr/g/oxEz97dXmotREdMjKNv2OqOtu4HgsPFG3OXryuefiDGI6EIaHoj5qPZnJSdPVQKmU9bTp
-	zOmwd68cFkTsJARDx83NzeEm8YecKILJ5zA5JhLfnqF/X+6AI4o2EE5AJiPvxnjZ9JNVrUpQp8Ozr
-	uWJU38ZTk3P5MFr/ZUIx765WhVyO5UCu28hXLKihJiGRDyse5z2kkHjEGlIQzIZePjHI4n6Dj5vt5
-	HeniEen7vjSIA9t/yc7qMJWZDVU2FLSHv89Osvlm1GxeVX9eu0NuWe5EmJBh9qbwCBhkRJ5ElO0+0
-	e90H84qA==;
+	bh=tAp+Yq2oPYdQjefDhIqTpmvZxjMW/FXB4OTXZxlKT5Q=; b=VirMdEldr5yxZgBao5sMAQbiO3
+	+Rpi9mN0jhAqTSP5VzAjtpyFnEYx+p8tuSU4Lm0FgE8vUsAwF2eNxb7dOFDcbLQUFjuBVmCeKC7Ht
+	3ylIkCysveNgVWl1D9uiI9UiqedqGvUZ91mIPdRjNKGVN66k+zhVbCqk2S7QZ/t0jm/D5H7QQCAQH
+	D2uefr3GZaxgPCOvZCdIrS8TISrD45riYcJQsknvRW3gsk8m9+zUN15dHOLWpbIkBUqjBWbGPRUeI
+	14BEvOCo7YLsbN130ta3eEgdPNMmd49ThLP6RdpXACt2NX8ONY/N1HsPywAJ9Mr0KrKVdJvxZADF3
+	17LTxDRg==;
 Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
 	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9Gro-001WSm-1l;
-	Mon, 28 Apr 2025 13:17:21 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:20 +0800
-Date: Mon, 28 Apr 2025 13:17:20 +0800
-Message-Id: <e6d99a167172cb00db6c336a7a5397cd75b4fa2f.1745816372.git.herbert@gondor.apana.org.au>
+	id 1u9Grt-001WTO-1C;
+	Mon, 28 Apr 2025 13:17:26 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:25 +0800
+Date: Mon, 28 Apr 2025 13:17:25 +0800
+Message-Id: <22250663cc30d815728d838d7bcc712ceba8bedf.1745816372.git.herbert@gondor.apana.org.au>
 In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
 References: <cover.1745816372.git.herbert@gondor.apana.org.au>
 From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v3 PATCH 08/13] crypto: s390/sha256 - implement library instead of
+Subject: [v3 PATCH 10/13] crypto: sparc/sha256 - implement library instead of
  shash
 To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
 Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_061730_952465_6BEB31B6 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250427_221728_754546_6B151EB5 
+X-CRM114-Status: GOOD (  20.82  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,275 +84,268 @@ crypto_shash, but individual architectures no longer need to handle it.
 Signed-off-by: Eric Biggers <ebiggers@google.com>
 Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
 ---
- arch/s390/configs/debug_defconfig |   1 -
- arch/s390/configs/defconfig       |   1 -
- arch/s390/crypto/Kconfig          |  10 ---
- arch/s390/crypto/Makefile         |   1 -
- arch/s390/crypto/sha256_s390.c    | 144 ------------------------------
- arch/s390/lib/crypto/Kconfig      |   6 ++
- arch/s390/lib/crypto/Makefile     |   2 +
- arch/s390/lib/crypto/sha256.c     |  47 ++++++++++
- 8 files changed, 55 insertions(+), 157 deletions(-)
- delete mode 100644 arch/s390/crypto/sha256_s390.c
- create mode 100644 arch/s390/lib/crypto/sha256.c
+ arch/sparc/crypto/Kconfig                |  10 --
+ arch/sparc/crypto/Makefile               |   2 -
+ arch/sparc/crypto/sha256_glue.c          | 128 -----------------------
+ arch/sparc/lib/Makefile                  |   1 +
+ arch/sparc/lib/crypto/Kconfig            |   8 ++
+ arch/sparc/lib/crypto/Makefile           |   4 +
+ arch/sparc/lib/crypto/sha256.c           |  64 ++++++++++++
+ arch/sparc/{ => lib}/crypto/sha256_asm.S |   2 +-
+ lib/crypto/Kconfig                       |   3 +
+ 9 files changed, 81 insertions(+), 141 deletions(-)
+ delete mode 100644 arch/sparc/crypto/sha256_glue.c
+ create mode 100644 arch/sparc/lib/crypto/Kconfig
+ create mode 100644 arch/sparc/lib/crypto/Makefile
+ create mode 100644 arch/sparc/lib/crypto/sha256.c
+ rename arch/sparc/{ => lib}/crypto/sha256_asm.S (96%)
 
-diff --git a/arch/s390/configs/debug_defconfig b/arch/s390/configs/debug_defconfig
-index 6f2c9ce1b154..de69faa4d94f 100644
---- a/arch/s390/configs/debug_defconfig
-+++ b/arch/s390/configs/debug_defconfig
-@@ -795,7 +795,6 @@ CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
--CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
-diff --git a/arch/s390/configs/defconfig b/arch/s390/configs/defconfig
-index f18a7d97ac21..f12679448e97 100644
---- a/arch/s390/configs/defconfig
-+++ b/arch/s390/configs/defconfig
-@@ -782,7 +782,6 @@ CONFIG_CRYPTO_USER_API_RNG=m
- CONFIG_CRYPTO_USER_API_AEAD=m
- CONFIG_CRYPTO_SHA512_S390=m
- CONFIG_CRYPTO_SHA1_S390=m
--CONFIG_CRYPTO_SHA256_S390=m
- CONFIG_CRYPTO_SHA3_256_S390=m
- CONFIG_CRYPTO_SHA3_512_S390=m
- CONFIG_CRYPTO_GHASH_S390=m
-diff --git a/arch/s390/crypto/Kconfig b/arch/s390/crypto/Kconfig
-index a2bfd6eef0ca..e2c27588b21a 100644
---- a/arch/s390/crypto/Kconfig
-+++ b/arch/s390/crypto/Kconfig
-@@ -22,16 +22,6 @@ config CRYPTO_SHA1_S390
+diff --git a/arch/sparc/crypto/Kconfig b/arch/sparc/crypto/Kconfig
+index e858597de89d..a6ba319c42dc 100644
+--- a/arch/sparc/crypto/Kconfig
++++ b/arch/sparc/crypto/Kconfig
+@@ -36,16 +36,6 @@ config CRYPTO_SHA1_SPARC64
  
- 	  It is available as of z990.
+ 	  Architecture: sparc64
  
--config CRYPTO_SHA256_S390
+-config CRYPTO_SHA256_SPARC64
 -	tristate "Hash functions: SHA-224 and SHA-256"
+-	depends on SPARC64
+-	select CRYPTO_SHA256
 -	select CRYPTO_HASH
 -	help
 -	  SHA-224 and SHA-256 secure hash algorithms (FIPS 180)
 -
--	  Architecture: s390
+-	  Architecture: sparc64 using crypto instructions, when available
 -
--	  It is available as of z9.
--
- config CRYPTO_SHA3_256_S390
- 	tristate "Hash functions: SHA3-224 and SHA3-256"
- 	select CRYPTO_HASH
-diff --git a/arch/s390/crypto/Makefile b/arch/s390/crypto/Makefile
-index e3853774e1a3..21757d86cd49 100644
---- a/arch/s390/crypto/Makefile
-+++ b/arch/s390/crypto/Makefile
+ config CRYPTO_SHA512_SPARC64
+ 	tristate "Hash functions: SHA-384 and SHA-512"
+ 	depends on SPARC64
+diff --git a/arch/sparc/crypto/Makefile b/arch/sparc/crypto/Makefile
+index a2d7fca40cb4..701c39edb0d7 100644
+--- a/arch/sparc/crypto/Makefile
++++ b/arch/sparc/crypto/Makefile
 @@ -4,7 +4,6 @@
  #
  
- obj-$(CONFIG_CRYPTO_SHA1_S390) += sha1_s390.o sha_common.o
--obj-$(CONFIG_CRYPTO_SHA256_S390) += sha256_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA512_S390) += sha512_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_256_S390) += sha3_256_s390.o sha_common.o
- obj-$(CONFIG_CRYPTO_SHA3_512_S390) += sha3_512_s390.o sha_common.o
-diff --git a/arch/s390/crypto/sha256_s390.c b/arch/s390/crypto/sha256_s390.c
+ obj-$(CONFIG_CRYPTO_SHA1_SPARC64) += sha1-sparc64.o
+-obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
+ obj-$(CONFIG_CRYPTO_SHA512_SPARC64) += sha512-sparc64.o
+ obj-$(CONFIG_CRYPTO_MD5_SPARC64) += md5-sparc64.o
+ 
+@@ -13,7 +12,6 @@ obj-$(CONFIG_CRYPTO_DES_SPARC64) += des-sparc64.o
+ obj-$(CONFIG_CRYPTO_CAMELLIA_SPARC64) += camellia-sparc64.o
+ 
+ sha1-sparc64-y := sha1_asm.o sha1_glue.o
+-sha256-sparc64-y := sha256_asm.o sha256_glue.o
+ sha512-sparc64-y := sha512_asm.o sha512_glue.o
+ md5-sparc64-y := md5_asm.o md5_glue.o
+ 
+diff --git a/arch/sparc/crypto/sha256_glue.c b/arch/sparc/crypto/sha256_glue.c
 deleted file mode 100644
-index e6876c49414d..000000000000
---- a/arch/s390/crypto/sha256_s390.c
+index 25008603a986..000000000000
+--- a/arch/sparc/crypto/sha256_glue.c
 +++ /dev/null
-@@ -1,144 +0,0 @@
--// SPDX-License-Identifier: GPL-2.0+
--/*
-- * Cryptographic API.
+@@ -1,128 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-only
+-/* Glue code for SHA256 hashing optimized for sparc64 crypto opcodes.
 - *
-- * s390 implementation of the SHA256 and SHA224 Secure Hash Algorithm.
+- * This is based largely upon crypto/sha256_generic.c
 - *
-- * s390 Version:
-- *   Copyright IBM Corp. 2005, 2011
-- *   Author(s): Jan Glauber (jang@de.ibm.com)
+- * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
+- * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
+- * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
+- * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
 - */
--#include <asm/cpacf.h>
+-
+-#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
+-
+-#include <asm/elf.h>
+-#include <asm/opcodes.h>
+-#include <asm/pstate.h>
 -#include <crypto/internal/hash.h>
 -#include <crypto/sha2.h>
--#include <linux/cpufeature.h>
+-#include <crypto/sha256_base.h>
 -#include <linux/kernel.h>
 -#include <linux/module.h>
--#include <linux/string.h>
 -
--#include "sha.h"
+-asmlinkage void sha256_sparc64_transform(u32 *digest, const char *data,
+-					 unsigned int rounds);
 -
--static int s390_sha256_init(struct shash_desc *desc)
+-static void sha256_block(struct crypto_sha256_state *sctx, const u8 *src,
+-			 int blocks)
 -{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA256_H0;
--	sctx->state[1] = SHA256_H1;
--	sctx->state[2] = SHA256_H2;
--	sctx->state[3] = SHA256_H3;
--	sctx->state[4] = SHA256_H4;
--	sctx->state[5] = SHA256_H5;
--	sctx->state[6] = SHA256_H6;
--	sctx->state[7] = SHA256_H7;
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA_256;
--
--	return 0;
+-	sha256_sparc64_transform(sctx->state, src, blocks);
 -}
 -
--static int sha256_export(struct shash_desc *desc, void *out)
+-static int sha256_sparc64_update(struct shash_desc *desc, const u8 *data,
+-				 unsigned int len)
 -{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	struct crypto_sha256_state *octx = out;
--
--	octx->count = sctx->count;
--	memcpy(octx->state, sctx->state, sizeof(octx->state));
--	return 0;
+-	return sha256_base_do_update_blocks(desc, data, len, sha256_block);
 -}
 -
--static int sha256_import(struct shash_desc *desc, const void *in)
+-static int sha256_sparc64_finup(struct shash_desc *desc, const u8 *src,
+-				unsigned int len, u8 *out)
 -{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--	const struct crypto_sha256_state *ictx = in;
--
--	sctx->count = ictx->count;
--	memcpy(sctx->state, ictx->state, sizeof(ictx->state));
--	sctx->func = CPACF_KIMD_SHA_256;
--	return 0;
+-	sha256_base_do_finup(desc, src, len, sha256_block);
+-	return sha256_base_finish(desc, out);
 -}
 -
 -static struct shash_alg sha256_alg = {
 -	.digestsize	=	SHA256_DIGEST_SIZE,
--	.init		=	s390_sha256_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	sha256_export,
--	.import		=	sha256_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	sizeof(struct crypto_sha256_state),
+-	.init		=	sha256_base_init,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
 -	.base		=	{
 -		.cra_name	=	"sha256",
--		.cra_driver_name=	"sha256-s390",
--		.cra_priority	=	300,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_driver_name=	"sha256-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
 -		.cra_blocksize	=	SHA256_BLOCK_SIZE,
 -		.cra_module	=	THIS_MODULE,
 -	}
 -};
 -
--static int s390_sha224_init(struct shash_desc *desc)
--{
--	struct s390_sha_ctx *sctx = shash_desc_ctx(desc);
--
--	sctx->state[0] = SHA224_H0;
--	sctx->state[1] = SHA224_H1;
--	sctx->state[2] = SHA224_H2;
--	sctx->state[3] = SHA224_H3;
--	sctx->state[4] = SHA224_H4;
--	sctx->state[5] = SHA224_H5;
--	sctx->state[6] = SHA224_H6;
--	sctx->state[7] = SHA224_H7;
--	sctx->count = 0;
--	sctx->func = CPACF_KIMD_SHA_256;
--
--	return 0;
--}
--
 -static struct shash_alg sha224_alg = {
 -	.digestsize	=	SHA224_DIGEST_SIZE,
--	.init		=	s390_sha224_init,
--	.update		=	s390_sha_update_blocks,
--	.finup		=	s390_sha_finup,
--	.export		=	sha256_export,
--	.import		=	sha256_import,
--	.descsize	=	S390_SHA_CTX_SIZE,
--	.statesize	=	sizeof(struct crypto_sha256_state),
+-	.init		=	sha224_base_init,
+-	.update		=	sha256_sparc64_update,
+-	.finup		=	sha256_sparc64_finup,
+-	.descsize	=	sizeof(struct crypto_sha256_state),
 -	.base		=	{
 -		.cra_name	=	"sha224",
--		.cra_driver_name=	"sha224-s390",
--		.cra_priority	=	300,
--		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY,
+-		.cra_driver_name=	"sha224-sparc64",
+-		.cra_priority	=	SPARC_CR_OPCODE_PRIORITY,
+-		.cra_flags	=	CRYPTO_AHASH_ALG_BLOCK_ONLY |
+-					CRYPTO_AHASH_ALG_FINUP_MAX,
 -		.cra_blocksize	=	SHA224_BLOCK_SIZE,
 -		.cra_module	=	THIS_MODULE,
 -	}
 -};
 -
--static int __init sha256_s390_init(void)
+-static bool __init sparc64_has_sha256_opcode(void)
 -{
--	int ret;
+-	unsigned long cfr;
 -
--	if (!cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
--		return -ENODEV;
--	ret = crypto_register_shash(&sha256_alg);
--	if (ret < 0)
--		goto out;
--	ret = crypto_register_shash(&sha224_alg);
--	if (ret < 0)
--		crypto_unregister_shash(&sha256_alg);
--out:
--	return ret;
+-	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
+-		return false;
+-
+-	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
+-	if (!(cfr & CFR_SHA256))
+-		return false;
+-
+-	return true;
 -}
 -
--static void __exit sha256_s390_fini(void)
+-static int __init sha256_sparc64_mod_init(void)
+-{
+-	if (sparc64_has_sha256_opcode()) {
+-		int ret = crypto_register_shash(&sha224_alg);
+-		if (ret < 0)
+-			return ret;
+-
+-		ret = crypto_register_shash(&sha256_alg);
+-		if (ret < 0) {
+-			crypto_unregister_shash(&sha224_alg);
+-			return ret;
+-		}
+-
+-		pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
+-		return 0;
+-	}
+-	pr_info("sparc64 sha256 opcode not available.\n");
+-	return -ENODEV;
+-}
+-
+-static void __exit sha256_sparc64_mod_fini(void)
 -{
 -	crypto_unregister_shash(&sha224_alg);
 -	crypto_unregister_shash(&sha256_alg);
 -}
 -
--module_cpu_feature_match(S390_CPU_FEATURE_MSA, sha256_s390_init);
--module_exit(sha256_s390_fini);
+-module_init(sha256_sparc64_mod_init);
+-module_exit(sha256_sparc64_mod_fini);
 -
--MODULE_ALIAS_CRYPTO("sha256");
--MODULE_ALIAS_CRYPTO("sha224");
 -MODULE_LICENSE("GPL");
--MODULE_DESCRIPTION("SHA256 and SHA224 Secure Hash Algorithm");
-diff --git a/arch/s390/lib/crypto/Kconfig b/arch/s390/lib/crypto/Kconfig
-index 069b355fe51a..e3f855ef4393 100644
---- a/arch/s390/lib/crypto/Kconfig
-+++ b/arch/s390/lib/crypto/Kconfig
-@@ -5,3 +5,9 @@ config CRYPTO_CHACHA_S390
- 	default CRYPTO_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
+-MODULE_DESCRIPTION("SHA-224 and SHA-256 Secure Hash Algorithm, sparc64 sha256 opcode accelerated");
+-
+-MODULE_ALIAS_CRYPTO("sha224");
+-MODULE_ALIAS_CRYPTO("sha256");
+-
+-#include "crop_devid.c"
+diff --git a/arch/sparc/lib/Makefile b/arch/sparc/lib/Makefile
+index 5724d0f356eb..98887dc295a1 100644
+--- a/arch/sparc/lib/Makefile
++++ b/arch/sparc/lib/Makefile
+@@ -4,6 +4,7 @@
+ 
+ asflags-y := -ansi -DST_DIV0=0x02
+ 
++obj-y                 += crypto/
+ lib-$(CONFIG_SPARC32) += ashrdi3.o
+ lib-$(CONFIG_SPARC32) += memcpy.o memset.o
+ lib-y                 += strlen.o
+diff --git a/arch/sparc/lib/crypto/Kconfig b/arch/sparc/lib/crypto/Kconfig
+new file mode 100644
+index 000000000000..e5c3e4d3dba6
+--- /dev/null
++++ b/arch/sparc/lib/crypto/Kconfig
+@@ -0,0 +1,8 @@
++# SPDX-License-Identifier: GPL-2.0-only
 +
-+config CRYPTO_SHA256_S390
++config CRYPTO_SHA256_SPARC64
 +	tristate
++	depends on SPARC64
 +	default CRYPTO_LIB_SHA256
 +	select CRYPTO_ARCH_HAVE_LIB_SHA256
 +	select CRYPTO_LIB_SHA256_GENERIC
-diff --git a/arch/s390/lib/crypto/Makefile b/arch/s390/lib/crypto/Makefile
-index 06c2cf77178e..920197967f46 100644
---- a/arch/s390/lib/crypto/Makefile
-+++ b/arch/s390/lib/crypto/Makefile
-@@ -2,3 +2,5 @@
- 
- obj-$(CONFIG_CRYPTO_CHACHA_S390) += chacha_s390.o
- chacha_s390-y := chacha-glue.o chacha-s390.o
-+
-+obj-$(CONFIG_CRYPTO_SHA256_S390) += sha256.o
-diff --git a/arch/s390/lib/crypto/sha256.c b/arch/s390/lib/crypto/sha256.c
+diff --git a/arch/sparc/lib/crypto/Makefile b/arch/sparc/lib/crypto/Makefile
 new file mode 100644
-index 000000000000..fcfa2706a7f9
+index 000000000000..75ee244ad6f7
 --- /dev/null
-+++ b/arch/s390/lib/crypto/sha256.c
-@@ -0,0 +1,47 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
++++ b/arch/sparc/lib/crypto/Makefile
+@@ -0,0 +1,4 @@
++# SPDX-License-Identifier: GPL-2.0-only
++
++obj-$(CONFIG_CRYPTO_SHA256_SPARC64) += sha256-sparc64.o
++sha256-sparc64-y := sha256.o sha256_asm.o
+diff --git a/arch/sparc/lib/crypto/sha256.c b/arch/sparc/lib/crypto/sha256.c
+new file mode 100644
+index 000000000000..b4fc475dcc40
+--- /dev/null
++++ b/arch/sparc/lib/crypto/sha256.c
+@@ -0,0 +1,64 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * SHA-256 optimized using the CP Assist for Cryptographic Functions (CPACF)
++ * SHA-256 accelerated using the sparc64 sha256 opcodes
 + *
-+ * Copyright 2025 Google LLC
++ * Copyright (c) Jean-Luc Cooke <jlcooke@certainkey.com>
++ * Copyright (c) Andrew McDonald <andrew@mcdonald.org.uk>
++ * Copyright (c) 2002 James Morris <jmorris@intercode.com.au>
++ * SHA224 Support Copyright 2007 Intel Corporation <jonathan.lynch@intel.com>
 + */
-+#include <asm/cpacf.h>
++
++#define pr_fmt(fmt)	KBUILD_MODNAME ": " fmt
++
++#include <asm/elf.h>
++#include <asm/opcodes.h>
++#include <asm/pstate.h>
 +#include <crypto/internal/sha2.h>
-+#include <linux/cpufeature.h>
 +#include <linux/kernel.h>
 +#include <linux/module.h>
 +
-+static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_cpacf_sha256);
++static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_sha256_opcodes);
++
++asmlinkage void sha256_sparc64_transform(u32 state[SHA256_STATE_WORDS],
++					 const u8 *data, size_t nblocks);
 +
 +void sha256_blocks_arch(u32 state[SHA256_STATE_WORDS],
 +			const u8 *data, size_t nblocks)
 +{
-+	if (static_branch_likely(&have_cpacf_sha256))
-+		cpacf_kimd(CPACF_KIMD_SHA_256, state, data,
-+			   nblocks * SHA256_BLOCK_SIZE);
++	if (static_branch_likely(&have_sha256_opcodes))
++		sha256_sparc64_transform(state, data, nblocks);
 +	else
 +		sha256_blocks_generic(state, data, nblocks);
 +}
@@ -374,26 +353,64 @@ index 000000000000..fcfa2706a7f9
 +
 +bool sha256_is_arch_optimized(void)
 +{
-+	return static_key_enabled(&have_cpacf_sha256);
++	return static_key_enabled(&have_sha256_opcodes);
 +}
 +EXPORT_SYMBOL_GPL(sha256_is_arch_optimized);
 +
-+static int __init sha256_s390_mod_init(void)
++static int __init sha256_sparc64_mod_init(void)
 +{
-+	if (cpu_have_feature(S390_CPU_FEATURE_MSA) &&
-+	    cpacf_query_func(CPACF_KIMD, CPACF_KIMD_SHA_256))
-+		static_branch_enable(&have_cpacf_sha256);
++	unsigned long cfr;
++
++	if (!(sparc64_elf_hwcap & HWCAP_SPARC_CRYPTO))
++		return 0;
++
++	__asm__ __volatile__("rd %%asr26, %0" : "=r" (cfr));
++	if (!(cfr & CFR_SHA256))
++		return 0;
++
++	static_branch_enable(&have_sha256_opcodes);
++	pr_info("Using sparc64 sha256 opcode optimized SHA-256/SHA-224 implementation\n");
 +	return 0;
 +}
-+arch_initcall(sha256_s390_mod_init);
++arch_initcall(sha256_sparc64_mod_init);
 +
-+static void __exit sha256_s390_mod_exit(void)
++static void __exit sha256_sparc64_mod_exit(void)
 +{
 +}
-+module_exit(sha256_s390_mod_exit);
++module_exit(sha256_sparc64_mod_exit);
 +
 +MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("SHA-256 using the CP Assist for Cryptographic Functions (CPACF)");
++MODULE_DESCRIPTION("SHA-256 accelerated using the sparc64 sha256 opcodes");
+diff --git a/arch/sparc/crypto/sha256_asm.S b/arch/sparc/lib/crypto/sha256_asm.S
+similarity index 96%
+rename from arch/sparc/crypto/sha256_asm.S
+rename to arch/sparc/lib/crypto/sha256_asm.S
+index 8ce88611e98a..ddcdd3daf31e 100644
+--- a/arch/sparc/crypto/sha256_asm.S
++++ b/arch/sparc/lib/crypto/sha256_asm.S
+@@ -4,7 +4,7 @@
+ #include <asm/visasm.h>
+ 
+ ENTRY(sha256_sparc64_transform)
+-	/* %o0 = digest, %o1 = data, %o2 = rounds */
++	/* %o0 = state, %o1 = data, %o2 = nblocks */
+ 	VISEntryHalf
+ 	ld	[%o0 + 0x00], %f0
+ 	ld	[%o0 + 0x04], %f1
+diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
+index ad0a4705682c..1ec1466108cc 100644
+--- a/lib/crypto/Kconfig
++++ b/lib/crypto/Kconfig
+@@ -189,6 +189,9 @@ endif
+ if S390
+ source "arch/s390/lib/crypto/Kconfig"
+ endif
++if SPARC
++source "arch/sparc/lib/crypto/Kconfig"
++endif
+ if X86
+ source "arch/x86/lib/crypto/Kconfig"
+ endif
 -- 
 2.39.5
 
