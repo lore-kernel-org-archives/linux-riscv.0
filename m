@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E353C36005
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 06:51:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27A1FC36005
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 07:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QcQ7NnRgFSzvQam2z7RFmdcGdQ0F8rSDMm8i5tefApI=; b=Lp3aU0pljR4LAm
-	fCSugi95JfbpAiCvAyey6h1vXIITcRTLuncd6/5yipWmNSfymPSTkGXOq0AK7FQ0RPeCroftN6Evq
-	GZAOvEmIT0r4cSk5ulGi0HD8dy22qI0RWw5sNBBUdgGTN2wLzt7HXVDeWFw7YNHDW6p2LU8EKkzXy
-	EQ1k9NeE/VeoTOA4Rdum+7mIdSaHmJp4R8y250yIFWwIxg2tiDYS26i3CSUgDUEGwHBGiStA8wVry
-	JgPDvtnxPYiw+2Vz2SgYw8W8+iXikpW8yFWYTZ0rpkJGbOXIdnPjpiGyNYVVZwFyK7Zyqu27w+zTk
-	+DpD4AYO9i+NDPH3jW9g==;
+	List-Owner; bh=1kXF9PbMbticclpOripiRfzx9h0qYnpLQkxtgtD6Ock=; b=4yGKpZaq8wjKh8
+	RJ9uVyrNiNHmBtCBn3H2WivHEbeGiiu6yrkGQF2MzPWxp4FyTGl6HrsLax97bAw+bcy/qdiWU+VfJ
+	b+/G/AgH2NJ2h0R1cJHVhe2jhtaHGp30NZCEH5c2AAaljYKFfuCUxBX4yQTpvR+SclPuZZANswSc8
+	whmXABoU6VfJCvGbqY6tWne0MSeUl6f+5/r4QRmqsj79YIkGK9ajJWTnLrgLyDhqdBUMcc3VDogyp
+	Nn/0tKhQOjipA5RF6gWEQExno65Vs8eQVEc+wUiLyWbvU8DeyV2Bj0xX6XhGRzTVHCyVvOjmQ/6rf
+	hcFVvgf4nQ7IdibQIiRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IKl-000000059UP-3w0u;
-	Mon, 28 Apr 2025 06:51:19 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1u9IqB-00000005EgS-2htB;
+	Mon, 28 Apr 2025 07:23:47 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IKi-000000059SN-1j7J
+	id 1u9InL-00000005E1i-2bht
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 06:51:17 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so7200944a12.1
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Apr 2025 23:51:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745823074; x=1746427874; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=olp7njR9Ybm79qV02JWYfEZZNtFSE8MfHDfoR2yiSUc=;
-        b=v7klof2N3nxnu1YaPq/8wFlXuul5XXQyOPRMu3ZbmcJl/DZV5MiRX80eDTmX7twjhM
-         LRmo8gOHC7cSCzIljdNnBDrYz0Y7Tz01Zl9pm/hhK2BsWetLfUPeqFigg+IhihTRGyft
-         nLeGbe0AK91Z3ETqJ+NHJTJwJ7y0PSgtjboG7JyJup/1XbtIvGmBQSTkWp3r3i+WPtx6
-         ARv0HYn9C6bWxPGpooue2nGfDDZT0eKEf9pBc9wzy2NXcEj1OaEht01OIwfeHiPdUVnU
-         zDVv3u5CZfVoT1KA8+Tj67sya9QYn9bJ2YN3eVrUbhDpMpVe2LDZRwM5W2GFXOc5+Ib0
-         62SQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745823074; x=1746427874;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=olp7njR9Ybm79qV02JWYfEZZNtFSE8MfHDfoR2yiSUc=;
-        b=GqY27PGlQvQYjEUzN9F9wCOEazJvF5goAze4E/+BzvheVZ5XcB6fJtMABCOEMCrw18
-         5rluILJE+aknnVcnWI67RFf2VrTf/6cE9ZlrZC+QDIPCzuQc3+85MR/kKfYcy7l+US2t
-         TDaA5MgS84jDpfTrRJeCDSYm1TbYccVriGykBOqkN93Fbu0G/P0i0u6fvnCbQXM1QCSh
-         a+eA92CFtQm/RwbPFA4BYraHGpkvSV6pnKXrXpjtMwPu0n0qVIyRCgR0nC7v+F2z1JpG
-         OjVspoCinJdcpeHFaqM6EToKMqGIBNL9g4P/guOgrGwWZHT1LNjmWXboEen/NoLHait1
-         09tg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyS0tfKWoq3In69yZJHy05ONAefeCRieVEByrnzRES+xgFPcOHAf7US4L/o4qlD/63j3jj+hlM3IQLbw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxRGmAK9L5hU9RKQxq3+3beOBLIdbi8AzgwPtBaH2IsIBTda18V
-	7e5lJHvk9qm1HuSeXV1WwiUbWyX8+aAGY82twAZpBKdgXtYi9UNieTyF+FYF7C64wQg9K9mM4wY
-	lK94izSn7u49O3BzZVbTY4dsP+NSB542JnkWDjA==
-X-Gm-Gg: ASbGncubdRKLYIkM4dV+OgLFtnS4SZtAHJH+go8JtSUVQga3RHYEcMcTbKDaJhUImTu
-	vOa4mBIBesyeNHsEKr3DxjbR6u9TAbZg1TMDdm+9FhqAF7DtjSbzcjzWLI3xAUgSdE+dyO7XPcq
-	g8w5fG/JGWVmBcUMgV/zDyY9o=
-X-Google-Smtp-Source: AGHT+IEtEaxs9n/fqGJEuZ8Xotr69RVdjbKFMaVctCQmuSvnkMpXaGIdiMr0ZU582rbQFSZfQks/8XyJ+CzfPm0I+P0=
-X-Received: by 2002:a17:907:1b0b:b0:ac7:4d45:f13e with SMTP id
- a640c23a62f3a-ace710a0eacmr947603266b.13.1745823074048; Sun, 27 Apr 2025
- 23:51:14 -0700 (PDT)
+	Mon, 28 Apr 2025 07:20:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2E76F44732;
+	Mon, 28 Apr 2025 07:20:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FE7BC4CEE4;
+	Mon, 28 Apr 2025 07:20:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745824851;
+	bh=5tPn82Z4K4C3F6jERk27M/8ekeMYd4Wx2QdTkLSm6RU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=iEEvrYUwjp5iD+Fwc8MWJgYhGQRqUuE9fE+OTTYmEvR6lmLht2I+gnmBlAN9+ZWDo
+	 oejuqWMM4LZLxEfzZ06PO+Hc0+jhsD0XxXffO/s5ofPgBkkzGoY0MCO/7YENkyWVcD
+	 k35jZGWBRIgpA/53uaolNXyMfakImTsgEE+56sWE/FeMucH7ii6bjvZLEcvrtXV8kH
+	 rIxucaj2U0WIS2SOYNrtY8TPKZ55/E0x/8OeEuoB3yU3on1KT59kc09plYHP2uy5hD
+	 hSA21tKdd7XQ6U67JnwRgpgNX9xst/5/U8DRcbnxmOeC/Tv/9ZboLx+FWN3FgQCzqX
+	 SaicGIYWeHBlQ==
+Date: Mon, 28 Apr 2025 09:20:48 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: pinctrl: starfive,jh7110: add
+ PAD_INTERNAL_* virtual pins
+Message-ID: <20250428-smiling-azure-sunfish-7c1c25@kuoka>
+References: <20250424062017.652969-1-uwu@icenowy.me>
+ <20250424062017.652969-2-uwu@icenowy.me>
 MIME-Version: 1.0
-References: <20250420070251.378950-1-guodong@riscstar.com> <20250420070251.378950-3-guodong@riscstar.com>
- <mzfiyc2me2smqrrmiymzkzxvsyjmst6ggy7scq4wxz2yfj2ef5@np3h3k467mbl>
-In-Reply-To: <mzfiyc2me2smqrrmiymzkzxvsyjmst6ggy7scq4wxz2yfj2ef5@np3h3k467mbl>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Mon, 28 Apr 2025 14:50:52 +0800
-X-Gm-Features: ATxdqUER8JSTuuOTantCFeixTZRLC93zvf7G5uIviwPU2QmuQNBr7asOpX-Fl3I
-Message-ID: <CAH1PCMZ4hqYo9SLCnzHYp_EiQKs5nhgW3XpxwqLEk4eX8=vWPw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/6] pwm: pxa: add optional reset control
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, 
-	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org, 
-	tglx@linutronix.de, hal.feng@starfivetech.com, unicorn_wang@outlook.com, 
-	duje.mihanovic@skole.hr, elder@riscstar.com, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Content-Disposition: inline
+In-Reply-To: <20250424062017.652969-2-uwu@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_235116_714447_32B4AB65 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250428_002051_683539_FD245878 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,38 +72,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMjQsIDIwMjUgYXQgMzozMOKAr1BNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xl
-aW5la0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gT24gU3VuLCBBcHIgMjAsIDIw
-MjUgYXQgMDM6MDI6NDdQTSArMDgwMCwgR3VvZG9uZyBYdSB3cm90ZToKPiA+IEBAIC00OSwxMCAr
-NTAsMTAgQEAgTU9EVUxFX0RFVklDRV9UQUJMRShwbGF0Zm9ybSwgcHdtX2lkX3RhYmxlKTsKPiA+
-ICAjZGVmaW5lIFBXTURDUl9GRCAgICAoMSA8PCAxMCkKPiA+Cj4gPiAgc3RydWN0IHB4YV9wd21f
-Y2hpcCB7Cj4gPiAtICAgICBzdHJ1Y3QgZGV2aWNlICAgKmRldjsKPiA+IC0KPiA+IC0gICAgIHN0
-cnVjdCBjbGsgICAgICAqY2xrOwo+ID4gLSAgICAgdm9pZCBfX2lvbWVtICAgICptbWlvX2Jhc2U7
-Cj4gPiArICAgICBzdHJ1Y3QgZGV2aWNlICAgICAgICAgICAqZGV2Owo+ID4gKyAgICAgc3RydWN0
-IGNsayAgICAgICAgICAgICAgKmNsazsKPiA+ICsgICAgIHZvaWQgX19pb21lbSAgICAgICAgICAg
-ICptbWlvX2Jhc2U7Cj4gPiArICAgICBzdHJ1Y3QgcmVzZXRfY29udHJvbCAgICAqcmVzZXQ7Cj4K
-PiBDaGFuZ2VzIGxpa2UgdGhlc2UgYXJlIHRoZSByZWFzb24gSSBwcmVmZXIgdG8gbm90IGFsaWdu
-IHRoZSBtZW1iZXIKPiBuYW1lcy4gTHVja2lseSByZXNldCBpcyBhIHdyaXRlIG9ubHkgdmFyaWFi
-bGUgYW5kIHlvdSBjYW4ganVzdCBkcm9wIHRoaXMKPiBodW5rIGlmIHlvdSB1c2UgYSBsb2NhbCB2
-YXJpYWJsZSBmb3IgaXQgaW4gcHdtX3Byb2JlKCkgYmVsb3cuCj4KClRoYW5rcyBVd2UgZm9yIHRo
-ZSBzdWdnZXN0aW9uLCBJIGFncmVlLgpJIHdpbGwgdXBkYXRlIGl0IGluIHYzIGJ5IGRyb3BwaW5n
-IHRoaXMgaHVuayBhbmQgdXNpbmcgYSBsb2NhbCB2YXJpYWJsZSBmb3IKcmVzZXQgaW4gcHdtX3By
-b2JlKCkgYXMgeW91IHJlY29tbWVuZGVkLgoKQlIsCkd1b2RvbmcKCj4gPiAgfTsKPiA+Cj4gPiAg
-c3RhdGljIGlubGluZSBzdHJ1Y3QgcHhhX3B3bV9jaGlwICp0b19weGFfcHdtX2NoaXAoc3RydWN0
-IHB3bV9jaGlwICpjaGlwKQo+ID4gQEAgLTE3OSw2ICsxODAsMTEgQEAgc3RhdGljIGludCBwd21f
-cHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+ICAgICAgIGlmIChJU19FUlIo
-cGMtPmNsaykpCj4gPiAgICAgICAgICAgICAgIHJldHVybiBQVFJfRVJSKHBjLT5jbGspOwo+ID4K
-PiA+ICsgICAgIHBjLT5yZXNldCA9IGRldm1fcmVzZXRfY29udHJvbF9nZXRfb3B0aW9uYWxfZXhj
-bHVzaXZlX2RlYXNzZXJ0ZWQoCj4gPiArICAgICAgICAgICAgICAgICAgICAgJnBkZXYtPmRldiwg
-TlVMTCk7Cj4gPiArICAgICBpZiAoSVNfRVJSKHBjLT5yZXNldCkpCj4gPiArICAgICAgICAgICAg
-IHJldHVybiBQVFJfRVJSKHBjLT5yZXNldCk7Cj4gPiArCj4gPiAgICAgICBjaGlwLT5vcHMgPSAm
-cHhhX3B3bV9vcHM7Cj4gPgo+ID4gICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHX09GKSkKPgo+
-IEJlc3QgcmVnYXJkcwo+IFV3ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
-ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
-aW51eC1yaXNjdgo=
+On Thu, Apr 24, 2025 at 02:20:15PM GMT, Icenowy Zheng wrote:
+> The JH7110 SoC could support internal GPI signals to be routed to not
+> external GPIO but internal low/high levels.
+> 
+> Add two macros, PAD_INTERNAL_LOW and PAD_INTERNAL_HIGH, as two virtual
+> "pads" to represent internal GPI sources with fixed low/high levels.
+> 
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
+> ---
+>  include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h b/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+> index 3865f01396395..3cca874b2bef7 100644
+> --- a/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+> +++ b/include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+> @@ -126,6 +126,10 @@
+>  #define	PAD_GMAC0_TXEN		18
+>  #define	PAD_GMAC0_TXC		19
+>  
+> +/* virtual pins for forcing GPI */
+> +#define PAD_INTERNAL_LOW	254
+> +#define PAD_INTERNAL_HIGH	255
+
+Why this cannot be 20 and 21? These are not values for registers, but
+abstract numbers.
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
