@@ -4,97 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2411C369D8
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 01:36:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3877C36005
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 05:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HKDhghACVqMriqqPhiIdiPC4JKJRflt3JXKHPqKjGcw=; b=K2eGz5pTCIvcLN
-	tg0pKSgvcaOlaK/GHxuqAhQ9Ra6NhVHTpiHNFrv4id6FnpAMviV41AhfvvXhBTE3Nl8tqGQDHpwD3
-	4eua0TePqThEd/x4netN16Tg45VizUFPigFGDD3cTwCHYA0s7u4OVTqe5/qQwmZB+cEQ3sXqC+BMD
-	kvjKSF74FaxBhnk7UE28LiqQiX4TQQFWzXWkGvVne14IS3qxpv089tv7V8IYsrIdnby3WshOEVM9w
-	hhfT9hNEGRHJS9qwRKEtzqiVOa6lhJ8O38ibHVm3243Ff4hKURCYYpnM0qdxJgICH9LLuZ7wgR2jL
-	D4cSMQaC4lQz0e6W53mg==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:Message-Id
+	:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fQCyMP/CoaGxgUu5Axcgrd1hMhiPttLrk5W30cE/p1o=; b=BbSA8o+Emxls+A
+	le1g9Zm/ugaBKA9v+iE1XXMBtVBNQqEBK/j9PMXV3k+pDeA5PaIv/z4adVVeeh7Eck94OkJFbn4Y4
+	0a0KtUs8/9EpN6eSrpIddJcGNgjbBSSHCJleZvxxPpWuHlYzfzMYTi7vvUY/iCJKZWieH1rHifoZ+
+	YnsQKs6MgVZpf4aTCfT+GD9Q2fD/JUUVrJUeCJJsff08W8lNVdeGvDBAjmcvPNPMbc+PO0zhKTOcX
+	Iy65FhpMwOPGoZvSb12qKjszDFSL+ZCZKp4Gh2Ra60DffcwF3H4ThmwdKWV7QaZDYo8aLdo/kOand
+	wvA4SLNH51SF+HLHTpow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9DPl-00000004HfL-2WNd;
-	Mon, 28 Apr 2025 01:36:09 +0000
-Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
+	id 1u9Gtc-00000004iUI-484t;
+	Mon, 28 Apr 2025 05:19:12 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9DPj-00000004HeC-0W2M
-	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 01:36:08 +0000
-Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-30820167b47so4076108a91.0
-        for <linux-riscv@lists.infradead.org>; Sun, 27 Apr 2025 18:36:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745804166; x=1746408966; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=O1XOo3Vbbk6OtPs69iC9nG392lpAw1JpBjWZCyN3iG8=;
-        b=AeO8+JY+ByIDnvvTezIqfQcAbeUzwoUwz8F7Y7mq4ZZmnC9h+rxSH4z4e2BN5LCAVA
-         77gyH5MvHf8qA3QtRtQK57vYyEo6ofymHvndVFrpVvwpuIgad8v330EiLBjuCQsga56T
-         uPUxJ0taRu1r2zk/p16I3GCWVArzrH52v49WSlOblj1DxyKjDVtJW3MiLP4mKl3RNQ5s
-         9jxqv5HesBgI4fG0l39sAKC126fnQiGjM2NZObrDFcmXCuADF5CZvr+dzOC9z4F4DjVV
-         Jlo79YPcdc8wfgvzLdo/jKUbbaiUxPbLn7wOVjq/iv4SxjiG5Hphw2Dn8F12L2eBGxsG
-         afkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745804166; x=1746408966;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=O1XOo3Vbbk6OtPs69iC9nG392lpAw1JpBjWZCyN3iG8=;
-        b=C6latBg3kZsSIh/MF1hVMDxn4dRcQPIU2VR0AzFZXLZ73xff49tFHujLE3UbonCDXJ
-         0pAjXws765HN75AClu2LWdPc2t753DZp8J1GshktT9R5Uw2tzcKV3hOwrlmPexkBIfA0
-         FSJI8UIpUC5dGBw/O1FoNXQu0NLONssS2mF4XGRJoE/nPZ7xOVyhTbSnm+SjI3S9SPa4
-         4OJe9b8Dmis0WfPP9OP87MIciEC3VjTLd/f0ypCsBj7XWA2UAtr7uut6wWedqSiHmYBn
-         +h0RxFCcF5PfMW/D9mRWiT/xLWgZLYbxe/EK4AlQuDK8db252Zc6xbIXyZ5cYyNBn8+K
-         YquQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWGKosLiIMS5O/wLz9no/VJUjxSUhw1kup+g6kwus8AgDZPHvIxse5JPciwNMHzxfQ1uaDWxq62BYjirw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy/GpDlFSCnrTfL/cy0WxQ4le4eKFwGjLhH9qlSw99Puh3drylL
-	O3c3IOGmOKo7jsYkT4HN6JoUryD3Z7dyN42W1XBec99dzYx8ocqj0s8bWlT2
-X-Gm-Gg: ASbGncvrB/ocFCaebz4tjLCowQHr/p/lo6Yak2wptZgTw6n8RQVSn7SQeHa5l8oghvw
-	UG1Xcs7DnUvv2DIkyizdNN8XR+/dBlIBxhrvHtDV7PH+rX+z5GnCCX54oWlTQl7Mn7tU/X0lWY6
-	tlwWUx9+3wDHgH99HqELdznvPTKKU/zl/ek4yX/iNYgtblr69ZlK5ehckVG9OuUBhVJ1e3+PoT/
-	7jn+imY+1ix1gMSYCM81HL0HrSEzRA5ZgRW7nERenw1nJPiwaJ36pDendx+F368e9bJfN76QBpk
-	fILMo4Q6J06A
-X-Google-Smtp-Source: AGHT+IHnQ1vU6MU1r9JMw0k7Ecc6KjPOryGisSgNWZ3r5gCwX8c7GY+Ct6trsj1ZnBJ9DZNBVx8LLQ==
-X-Received: by 2002:a17:90b:268c:b0:309:f46e:a67c with SMTP id 98e67ed59e1d1-309f8a0769dmr14912717a91.11.1745804166022;
-        Sun, 27 Apr 2025 18:36:06 -0700 (PDT)
-Received: from cu.. ([2001:da8:7001:11::460])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-309ef03bb26sm8508671a91.6.2025.04.27.18.36.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 27 Apr 2025 18:36:05 -0700 (PDT)
-From: Longbin Li <looong.bin@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: Longbin Li <looong.bin@gmail.com>,
-	linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v4 3/3] pwm: sophgo: add driver for SG2044
-Date: Mon, 28 Apr 2025 09:34:50 +0800
-Message-ID: <20250428013501.6354-4-looong.bin@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250428013501.6354-1-looong.bin@gmail.com>
-References: <20250428013501.6354-1-looong.bin@gmail.com>
-MIME-Version: 1.0
+	id 1u9Grb-00000004hFd-2isR;
+	Mon, 28 Apr 2025 05:17:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=Cc:To:Subject:From:Message-Id:Date:Sender:Reply-To:MIME-Version
+	:Content-Type:Content-Transfer-Encoding:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=3QfXck7figLBsN819bPQ+gjhRFmt4SOZZdO62kUezjI=; b=aCGp0YGq2kSGyen47T9KZP5wO0
+	HzdEc/8MpuZk97GSJb2QCFZM9Xa/Pcr/kaSfZ4qth7f7fJJD6EoUZomeuKDFUwKlBA0u5jJUfJAvI
+	2/d5tl/k0LOfMjnBtrBvnxeA/t+lG6PB+3lxV2Ta8jFePQo9/egOuWFsP2pIgzZ38arFTHHHwYkPt
+	eMz36Fyj6T6N+Gb9dUsLtk1jgyMy6ujHeywHOFxrhGMIXId8TOfH+ImEL687DIRzxmEF9DcYEmW7d
+	Iy2fcgrsUHvqbQBjlIykTdXvtd+8UmTWORF7XiS9xVOyeKqA/epXOjUjZx1PHbuULG38pUMRApSUD
+	ZgeTS8Ow==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9GrW-001WR0-0K;
+	Mon, 28 Apr 2025 13:17:03 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:02 +0800
+Date: Mon, 28 Apr 2025 13:17:02 +0800
+Message-Id: <cover.1745816372.git.herbert@gondor.apana.org.au>
+From: Herbert Xu <herbert@gondor.apana.org.au>
+Subject: [v3 PATCH 00/13] Architecture-optimized SHA-256 library API
+To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_183607_160256_6DFED5AA 
-X-CRM114-Status: GOOD (  17.26  )
+X-CRM114-CacheID: sfid-20250427_221708_103646_9ABE8D25 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,158 +63,201 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PWM controller for SG2044 on base of SG2042.
+Changes in v3:
+- Add shash sha256-lib/sha224-lib to provide test coverage for libsha256.
 
-Signed-off-by: Longbin Li <looong.bin@gmail.com>
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
----
- drivers/pwm/pwm-sophgo-sg2042.c | 89 ++++++++++++++++++++++++++++++++-
- 1 file changed, 87 insertions(+), 2 deletions(-)
+This is based on
 
-diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
-index 23a83843ba53..5bb92c910540 100644
---- a/drivers/pwm/pwm-sophgo-sg2042.c
-+++ b/drivers/pwm/pwm-sophgo-sg2042.c
-@@ -13,6 +13,9 @@
-  *   the running period.
-  * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
-  *   be stopped and the output is pulled to high.
-+ * - SG2044 support polarity while SG2042 does not. When PWMSTART is
-+ *   false, POLARITY being NORMAL will make output being low,
-+ *   POLARITY being INVERSED will make output being high.
-  * See the datasheet [1] for more details.
-  * [1]:https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
-  */
-@@ -26,6 +29,10 @@
- #include <linux/pwm.h>
- #include <linux/reset.h>
+	https://patchwork.kernel.org/project/linux-crypto/list/?series=957558
 
-+#define SG2044_PWM_POLARITY		0x40
-+#define SG2044_PWM_PWMSTART		0x44
-+#define SG2044_PWM_OE			0xd0
-+
- #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
- #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
+Original description:
 
-@@ -72,8 +79,8 @@ static void pwm_set_dutycycle(struct pwm_chip *chip, struct pwm_device *pwm,
- 	period_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period, NSEC_PER_SEC), U32_MAX);
- 	hlperiod_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle, NSEC_PER_SEC), U32_MAX);
+Following the example of several other algorithms (e.g. CRC32, ChaCha,
+Poly1305, BLAKE2s), this series refactors the kernel's existing
+architecture-optimized SHA-256 code to be available via the library API,
+instead of just via the crypto_shash API as it was before.  It also
+reimplements the SHA-256 crypto_shash API on top of the library API.
 
--	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=%u, HLPERIOD=%u\n",
--		pwm->hwpwm, period_ticks, hlperiod_ticks);
-+	dev_dbg(pwmchip_parent(chip), "chan[%u]: ENABLE=%u, PERIOD=%u, HLPERIOD=%u, POLARITY=%u\n",
-+		pwm->hwpwm, state->enabled, period_ticks, hlperiod_ticks, state->polarity);
+This makes it possible to use the SHA-256 library in
+performance-critical cases.  The new design is also much simpler, with a
+negative diffstat of over 1200 lines.  Finally, this also fixes the
+longstanding issue where the arch-optimized SHA-256 was disabled by
+default, so people often forgot to enable it.
 
- 	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
- }
-@@ -123,6 +130,74 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return 0;
- }
+For now the SHA-256 library is well-covered by the crypto_shash
+self-tests, but I plan to add a test for the library directly later.
+I've fully tested this series on arm, arm64, riscv, and x86.  On mips,
+powerpc, s390, and sparc I've only been able to partially test it, since
+QEMU does not support the SHA-256 instructions on those platforms.  If
+anyone with access to a mips, powerpc, s390, or sparc system that has
+SHA-256 instructions can verify that the crypto self-tests still pass,
+that would be appreciated.  But I don't expect any issues, especially
+since the new code is more straightforward than the old code.
 
-+static void pwm_sg2044_set_start(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				 bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_PWM_PWMSTART);
-+
-+	if (enabled)
-+		pwm_value |= BIT(pwm->hwpwm);
-+	else
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_PWM_PWMSTART);
-+}
-+
-+static void pwm_sg2044_set_outputdir(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				     bool enabled)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_PWM_OE);
-+
-+	if (enabled)
-+		pwm_value |= BIT(pwm->hwpwm);
-+	else
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_PWM_OE);
-+}
-+
-+static void pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				    const struct pwm_state *state)
-+{
-+	u32 pwm_value;
-+
-+	pwm_value = readl(ddata->base + SG2044_PWM_POLARITY);
-+
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		pwm_value &= ~BIT(pwm->hwpwm);
-+	else
-+		pwm_value |= BIT(pwm->hwpwm);
-+
-+	writel(pwm_value, ddata->base + SG2044_PWM_POLARITY);
-+}
-+
-+static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
-+
-+	pwm_sg2044_set_polarity(ddata, pwm, state);
-+
-+	pwm_set_dutycycle(chip, pwm, state);
-+
-+	/*
-+	 * re-enable PWMSTART to refresh the register period
-+	 */
-+	pwm_sg2044_set_start(ddata, pwm, false);
-+
-+	if (!state->enabled)
-+		return 0;
-+
-+	pwm_sg2044_set_outputdir(ddata, pwm, true);
-+	pwm_sg2044_set_start(ddata, pwm, true);
-+
-+	return 0;
-+}
-+
- static const struct sg2042_chip_data sg2042_chip_data = {
- 	.ops = {
- 		.apply = pwm_sg2042_apply,
-@@ -130,9 +205,18 @@ static const struct sg2042_chip_data sg2042_chip_data = {
- 	}
- };
+Eric Biggers (13):
+  crypto: sha256 - support arch-optimized lib and expose through shash
+  crypto: arm/sha256 - implement library instead of shash
+  crypto: arm64/sha256 - remove obsolete chunking logic
+  crypto: arm64/sha256 - implement library instead of shash
+  crypto: mips/sha256 - implement library instead of shash
+  crypto: powerpc/sha256 - implement library instead of shash
+  crypto: riscv/sha256 - implement library instead of shash
+  crypto: s390/sha256 - implement library instead of shash
+  crypto: sparc - move opcodes.h into asm directory
+  crypto: sparc/sha256 - implement library instead of shash
+  crypto: x86/sha256 - implement library instead of shash
+  crypto: sha256 - remove sha256_base.h
+  crypto: lib/sha256 - improve function prototypes
 
-+static const struct sg2042_chip_data sg2044_chip_data = {
-+	.ops = {
-+		.apply = pwm_sg2044_apply,
-+		.get_state = pwm_sg2042_get_state,
-+	}
-+};
-+
- static const struct of_device_id sg2042_pwm_ids[] = {
- 	{ .compatible = "sophgo,sg2042-pwm",
- 	  .data = &sg2042_chip_data },
-+	{ .compatible = "sophgo,sg2044-pwm",
-+	  .data = &sg2044_chip_data },
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
-@@ -198,5 +282,6 @@ static struct platform_driver pwm_sg2042_driver = {
- module_platform_driver(pwm_sg2042_driver);
+ arch/arm/configs/exynos_defconfig             |   1 -
+ arch/arm/configs/milbeaut_m10v_defconfig      |   1 -
+ arch/arm/configs/multi_v7_defconfig           |   1 -
+ arch/arm/configs/omap2plus_defconfig          |   1 -
+ arch/arm/configs/pxa_defconfig                |   1 -
+ arch/arm/crypto/Kconfig                       |  21 -
+ arch/arm/crypto/Makefile                      |   8 +-
+ arch/arm/crypto/sha2-ce-glue.c                |  87 ----
+ arch/arm/crypto/sha256_glue.c                 | 107 -----
+ arch/arm/crypto/sha256_glue.h                 |   9 -
+ arch/arm/crypto/sha256_neon_glue.c            |  75 ---
+ arch/arm/lib/crypto/.gitignore                |   1 +
+ arch/arm/lib/crypto/Kconfig                   |   7 +
+ arch/arm/lib/crypto/Makefile                  |   8 +-
+ arch/arm/{ => lib}/crypto/sha256-armv4.pl     |  20 +-
+ .../sha2-ce-core.S => lib/crypto/sha256-ce.S} |  10 +-
+ arch/arm/lib/crypto/sha256.c                  |  64 +++
+ arch/arm64/configs/defconfig                  |   1 -
+ arch/arm64/crypto/Kconfig                     |  19 -
+ arch/arm64/crypto/Makefile                    |  13 +-
+ arch/arm64/crypto/sha2-ce-glue.c              | 138 ------
+ arch/arm64/crypto/sha256-glue.c               | 171 -------
+ arch/arm64/crypto/sha512-glue.c               |   6 +-
+ arch/arm64/lib/crypto/.gitignore              |   1 +
+ arch/arm64/lib/crypto/Kconfig                 |   6 +
+ arch/arm64/lib/crypto/Makefile                |   9 +-
+ .../crypto/sha2-armv8.pl}                     |   2 +-
+ .../sha2-ce-core.S => lib/crypto/sha256-ce.S} |  36 +-
+ arch/arm64/lib/crypto/sha256.c                |  75 +++
+ arch/mips/cavium-octeon/Kconfig               |   6 +
+ .../mips/cavium-octeon/crypto/octeon-sha256.c | 139 ++----
+ arch/mips/configs/cavium_octeon_defconfig     |   1 -
+ arch/mips/crypto/Kconfig                      |  10 -
+ arch/powerpc/crypto/Kconfig                   |  11 -
+ arch/powerpc/crypto/Makefile                  |   2 -
+ arch/powerpc/crypto/sha256-spe-glue.c         | 128 ------
+ arch/powerpc/lib/crypto/Kconfig               |   6 +
+ arch/powerpc/lib/crypto/Makefile              |   3 +
+ .../powerpc/{ => lib}/crypto/sha256-spe-asm.S |   0
+ arch/powerpc/lib/crypto/sha256.c              |  70 +++
+ arch/riscv/crypto/Kconfig                     |  11 -
+ arch/riscv/crypto/Makefile                    |   3 -
+ arch/riscv/crypto/sha256-riscv64-glue.c       | 125 -----
+ arch/riscv/lib/crypto/Kconfig                 |   8 +
+ arch/riscv/lib/crypto/Makefile                |   3 +
+ .../sha256-riscv64-zvknha_or_zvknhb-zvkb.S    |   4 +-
+ arch/riscv/lib/crypto/sha256.c                |  67 +++
+ arch/s390/configs/debug_defconfig             |   1 -
+ arch/s390/configs/defconfig                   |   1 -
+ arch/s390/crypto/Kconfig                      |  10 -
+ arch/s390/crypto/Makefile                     |   1 -
+ arch/s390/crypto/sha256_s390.c                | 144 ------
+ arch/s390/lib/crypto/Kconfig                  |   6 +
+ arch/s390/lib/crypto/Makefile                 |   2 +
+ arch/s390/lib/crypto/sha256.c                 |  47 ++
+ arch/sparc/crypto/Kconfig                     |  10 -
+ arch/sparc/crypto/Makefile                    |   2 -
+ arch/sparc/crypto/aes_asm.S                   |   3 +-
+ arch/sparc/crypto/aes_glue.c                  |   3 +-
+ arch/sparc/crypto/camellia_asm.S              |   3 +-
+ arch/sparc/crypto/camellia_glue.c             |   3 +-
+ arch/sparc/crypto/des_asm.S                   |   3 +-
+ arch/sparc/crypto/des_glue.c                  |   3 +-
+ arch/sparc/crypto/md5_asm.S                   |   3 +-
+ arch/sparc/crypto/md5_glue.c                  |   3 +-
+ arch/sparc/crypto/sha1_asm.S                  |   3 +-
+ arch/sparc/crypto/sha1_glue.c                 |   3 +-
+ arch/sparc/crypto/sha256_glue.c               | 129 ------
+ arch/sparc/crypto/sha512_asm.S                |   3 +-
+ arch/sparc/crypto/sha512_glue.c               |   3 +-
+ arch/sparc/{crypto => include/asm}/opcodes.h  |   6 +-
+ arch/sparc/lib/Makefile                       |   1 +
+ arch/sparc/lib/crc32c_asm.S                   |   3 +-
+ arch/sparc/lib/crypto/Kconfig                 |   8 +
+ arch/sparc/lib/crypto/Makefile                |   4 +
+ arch/sparc/lib/crypto/sha256.c                |  64 +++
+ arch/sparc/{ => lib}/crypto/sha256_asm.S      |   5 +-
+ arch/x86/crypto/Kconfig                       |  14 -
+ arch/x86/crypto/Makefile                      |   3 -
+ arch/x86/crypto/sha256_ssse3_glue.c           | 432 ------------------
+ arch/x86/lib/crypto/Kconfig                   |   8 +
+ arch/x86/lib/crypto/Makefile                  |   3 +
+ arch/x86/{ => lib}/crypto/sha256-avx-asm.S    |  12 +-
+ arch/x86/{ => lib}/crypto/sha256-avx2-asm.S   |  12 +-
+ .../crypto/sha256-ni-asm.S}                   |  36 +-
+ arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S  |  14 +-
+ arch/x86/lib/crypto/sha256.c                  |  80 ++++
+ arch/x86/purgatory/Makefile                   |   3 -
+ arch/x86/purgatory/sha256.c                   |  15 +
+ crypto/Kconfig                                |   1 +
+ crypto/Makefile                               |   3 +-
+ crypto/sha256.c                               | 289 ++++++++++++
+ crypto/sha256_generic.c                       | 102 -----
+ include/crypto/internal/sha2.h                |  75 +++
+ include/crypto/sha2.h                         |  37 +-
+ include/crypto/sha256_base.h                  | 148 ------
+ lib/crypto/Kconfig                            |  30 ++
+ lib/crypto/Makefile                           |   1 +
+ lib/crypto/sha256-generic.c                   | 139 ++++++
+ lib/crypto/sha256.c                           | 150 ++----
+ 100 files changed, 1268 insertions(+), 2315 deletions(-)
+ delete mode 100644 arch/arm/crypto/sha2-ce-glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.c
+ delete mode 100644 arch/arm/crypto/sha256_glue.h
+ delete mode 100644 arch/arm/crypto/sha256_neon_glue.c
+ rename arch/arm/{ => lib}/crypto/sha256-armv4.pl (97%)
+ rename arch/arm/{crypto/sha2-ce-core.S => lib/crypto/sha256-ce.S} (91%)
+ create mode 100644 arch/arm/lib/crypto/sha256.c
+ delete mode 100644 arch/arm64/crypto/sha2-ce-glue.c
+ delete mode 100644 arch/arm64/crypto/sha256-glue.c
+ rename arch/arm64/{crypto/sha512-armv8.pl => lib/crypto/sha2-armv8.pl} (99%)
+ rename arch/arm64/{crypto/sha2-ce-core.S => lib/crypto/sha256-ce.S} (80%)
+ create mode 100644 arch/arm64/lib/crypto/sha256.c
+ delete mode 100644 arch/powerpc/crypto/sha256-spe-glue.c
+ rename arch/powerpc/{ => lib}/crypto/sha256-spe-asm.S (100%)
+ create mode 100644 arch/powerpc/lib/crypto/sha256.c
+ delete mode 100644 arch/riscv/crypto/sha256-riscv64-glue.c
+ rename arch/riscv/{ => lib}/crypto/sha256-riscv64-zvknha_or_zvknhb-zvkb.S (98%)
+ create mode 100644 arch/riscv/lib/crypto/sha256.c
+ delete mode 100644 arch/s390/crypto/sha256_s390.c
+ create mode 100644 arch/s390/lib/crypto/sha256.c
+ delete mode 100644 arch/sparc/crypto/sha256_glue.c
+ rename arch/sparc/{crypto => include/asm}/opcodes.h (96%)
+ create mode 100644 arch/sparc/lib/crypto/Kconfig
+ create mode 100644 arch/sparc/lib/crypto/Makefile
+ create mode 100644 arch/sparc/lib/crypto/sha256.c
+ rename arch/sparc/{ => lib}/crypto/sha256_asm.S (95%)
+ delete mode 100644 arch/x86/crypto/sha256_ssse3_glue.c
+ rename arch/x86/{ => lib}/crypto/sha256-avx-asm.S (98%)
+ rename arch/x86/{ => lib}/crypto/sha256-avx2-asm.S (98%)
+ rename arch/x86/{crypto/sha256_ni_asm.S => lib/crypto/sha256-ni-asm.S} (85%)
+ rename arch/x86/{ => lib}/crypto/sha256-ssse3-asm.S (98%)
+ create mode 100644 arch/x86/lib/crypto/sha256.c
+ create mode 100644 arch/x86/purgatory/sha256.c
+ create mode 100644 crypto/sha256.c
+ delete mode 100644 crypto/sha256_generic.c
+ create mode 100644 include/crypto/internal/sha2.h
+ delete mode 100644 include/crypto/sha256_base.h
+ create mode 100644 lib/crypto/sha256-generic.c
 
- MODULE_AUTHOR("Chen Wang");
-+MODULE_AUTHOR("Longbin Li <looong.bin@gmail.com>");
- MODULE_DESCRIPTION("Sophgo SG2042 PWM driver");
- MODULE_LICENSE("GPL");
---
-2.49.0
+-- 
+2.39.5
+
 
 _______________________________________________
 linux-riscv mailing list
