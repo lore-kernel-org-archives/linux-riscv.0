@@ -4,68 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E878C369D3
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 07:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54622C36005
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 08:11:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mzat8YPD0AvjwkCp4+POCyRlK2u06CbpUal9WCvcuxA=; b=whdldddO0zKery
-	zwXxIcrcyydxHe+gcrMSW8l+ZtJFc1G9r5Vu+ktQmomokFEosr/O60tvlG73z1MhAWE2VLiWHXGaI
-	B2G47Pce18sdGxmm7eTb25nVbqLDbX6HSg2TTQnwfR8JfLirriqezIAznfWjsYED0KZuhNL67iN6y
-	NF/tQVMI8pGRtGQSk+nbbJCKIvx+CWMtIWMdzrw5sjYc8HgxlRM6Lu8mRZjsEh63o0zKFYny4PY42
-	uN8RhlyJ6wPLfrTT/bAJpHeVbDg8hekhWx+gHA9Yu+8Ob62FneelTkN+OQJAYxfvMwipbZ+DtJf/p
-	acaxbdfdm9ThgWJxkwqw==;
+	List-Owner; bh=NcbwdBAOrHyCwpQ8dEfpD9RANqIbxbekTyx1bKkWn6A=; b=ePk0K3OVlQ3f4t
+	4LophXZVS3G6V8GEB5e8btWKmdma73qQC3sau2oFtwzJPECR5t99JvrfBHlYLJ+84h8kCdVgRlyLk
+	liePZdTmW4DPN4QDArKQy88cNeXd6BANXlAX2QZRJw0/jIUQy2Rq9SGlPDuO7zKmMwyB/x66czV3f
+	x6SnawlUzE0LP+QYKxXVv1cwZAgg2dWYVncfJhzgqnIqCzBXCsFoEYtXsBVqpZB30Ri098d9VdChX
+	ysTfS+5aqjryuDZ8MIl7Xva+lNagbWMqyML6QNS7W/8GQ+KyY2l062DEsb8ce8smrM//LFCEiyFdG
+	zLP2jypxDu91z6SrTAkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9JHM-00000005Jds-1BBR;
-	Mon, 28 Apr 2025 07:51:52 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1u9Jai-00000005Mjo-2Nr0;
+	Mon, 28 Apr 2025 08:11:52 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9J4S-00000005Gm0-3gnh
+	id 1u9JNu-00000005Kwe-0BpZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 28 Apr 2025 07:38:35 +0000
-Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-4-entmail-virt151.gy.ntes [27.18.99.221])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 135f5a5ad;
-	Mon, 28 Apr 2025 15:38:23 +0800 (GMT+08:00)
-From: Ze Huang <huangze@whut.edu.cn>
-Date: Mon, 28 Apr 2025 15:38:11 +0800
-Subject: [PATCH 1/2] dt-bindings: usb: dwc3: add support for SpacemiT K1
+	Mon, 28 Apr 2025 07:58:39 +0000
+Received: from [198.18.0.1] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [27.18.99.221])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 1360754e8;
+	Mon, 28 Apr 2025 15:58:30 +0800 (GMT+08:00)
+Message-ID: <a3478dff-ae04-4d3a-ac51-2efc994cda19@whut.edu.cn>
+Date: Mon, 28 Apr 2025 15:58:30 +0800
 MIME-Version: 1.0
-Message-Id: <20250428-b4-k1-dwc3-v2-v1-1-7cb061abd619@whut.edu.cn>
-References: <20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn>
-In-Reply-To: <20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] riscv: dts: spacemit: add usb3.0 support for K1
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
  Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1745825898; l=3090;
- i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=CoIzsEZMyr39KazbVfZyOeCYt7jqNxYasrhcXgzRiw4=;
- b=VafuAbLYli3pLw7uTELkEWZhH9nZF4oxDPYqog6wNcJ/qkjnoib83skFt6u+36RbW6MV0XFTZ
- t2c4+FrBmEEBkbMc/VRWy173JhQl4W2c2DjlpU14exHyIU01l36kPzX
-X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
- pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20250428-b4-k1-dwc3-v2-v1-0-7cb061abd619@whut.edu.cn>
+ <20250428-b4-k1-dwc3-v2-v1-2-7cb061abd619@whut.edu.cn>
+Content-Language: en-US
+From: Ze Huang <huangze@whut.edu.cn>
+In-Reply-To: <20250428-b4-k1-dwc3-v2-v1-2-7cb061abd619@whut.edu.cn>
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTE9PVkpNTElIQ04ZHUgfQ1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVJSUpZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE5VSktLVUpCS0
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHU9NVh9MH0JDGR0YTE8ZQ1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVJSUpZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE9VSktLVUpCS0
 	tZBg++
-X-HM-Tid: 0a967b55360e03a1kunm135f5a5ad
+X-HM-Tid: 0a967b679ee503a1kunm1360754e8
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NzI6ASo*DjIBFTU0HyIvAUJL
-	MjgaCxpVSlVKTE9OQ0lOQktCT0NPVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VCQlVJSUpZV1kIAVlBT05JTzcG
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Oj46ATo6VjJCFTRLKTM*DA0p
+	OBEwCjlVSlVKTE9OQ0lMSkpOTU9LVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VCQlVJSUpZV1kIAVlBSkJKQzcG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_003833_127142_AD80DF59 
-X-CRM114-Status: GOOD (  11.11  )
+X-CRM114-CacheID: sfid-20250428_005838_292006_FDD9074A 
+X-CRM114-Status: UNSURE (   6.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,126 +73,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-in
-the SpacemiT K1 SoC. The controller is based on the Synopsys DesignWare
-Core USB 3 (DWC3) IP, supporting both Host and Device modes for USB 3.0
-and USB 2.0 standards.
+Hi all,
 
-Signed-off-by: Ze Huang <huangze@whut.edu.cn>
----
- .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 95 ++++++++++++++++++++++
- 1 file changed, 95 insertions(+)
+I found some mistakes in the patch
 
-diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5aece388900fa5bda9acb19add658310064bef8f
---- /dev/null
-+++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
-@@ -0,0 +1,95 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
-+
-+maintainers:
-+  - Ze Huang <huangze@whut.edu.cn>
-+
-+description: |
-+  The SpacemiT K1 embeds a DWC3 USB IP Core which supports both Host and Device
-+  functions for USB 3.0 and USB 2.0 standards.
-+
-+  Key features:
-+  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
-+  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
-+  - Internal DMA controller and flexible endpoint FIFO sizing
-+
-+  Communication Interface:
-+  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
-+  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
-+
-+  The common content of the node is defined in snps,dwc3.yaml.
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - spacemit,k1-dwc3
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - spacemit,k1-dwc3
-+      - const: snps,dwc3
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    maxItems: 1
-+
-+  clock-names:
-+    const: bus_early
-+
-+  resets:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interconnects:
-+    maxItems: 1
-+    description:
-+      On SpacemiT K1, USB performs DMA through bus other than parent DT node.
-+      The 'interconnects' property explicitly describes this path, ensuring
-+      correct address translation.
-+
-+  interconnect-names:
-+    const: dma-mem
-+
-+  vbus-supply:
-+    description: A phandle to the regulator supplying the VBUS voltage.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - interrupts
-+  - interconnects
-+  - interconnect-names
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    usb@c0a00000 {
-+        compatible = "spacemit,k1-dwc3", "snps,dwc3";
-+        reg = <0xc0a00000 0x10000>;
-+        clocks = <&syscon_apmu 16>;
-+        clock-names = "bus_early";
-+        resets = <&syscon_apmu 8>;
-+        interrupt-parent = <&plic>;
-+        interrupts = <125>;
-+        interconnects = <&dram_range0>;
-+        interconnect-names = "dma-mem";
-+    };
 
--- 
-2.49.0
+I will correct them in next version.
+Sorry for the confusion and thanks for your review!
+
+
+On 4/28/25 3:38 PM, Ze Huang wrote:
+> Add USB 3.0 support for the SpacemiT K1 SoC, including the
+> following components:
+...
+> +
+> +		usbphy0: phy@c0940000 {
+> +			compatible = "spacemit,usb2-phy";
+
+compatible = "spacemit,k1-usb2-phy ";
+
+> +			reg = <0x0 0xc0940000 0x0 0x200>;
+> +			clocks = <&syscon_apmu CLK_USB_AXI>;
+> +			status = "disabled";
+> +		};
+> +
+> +		usbphy1: phy@c09c0000 {
+> +			compatible = "spacemit,usb2-phy";
+
+compatible = "spacemit,k1-usb2-phy ";
+
+> +			reg = <0x0 0xc09c0000 0x0 0x200>;
+> +			clocks = <&syscon_apmu CLK_USB_P1>;
+> +			status = "disabled";
+> +		};
+> +
+> +		usbphy2: phy@0xc0a30000 {
+
+usbphy2: phy@c0a30000 {
 
 
 _______________________________________________
