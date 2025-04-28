@@ -4,56 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66E79C36005
-	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 06:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E353C36005
+	for <linux-riscv@archiver.kernel.org>; Mon, 28 Apr 2025 06:51:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:From:References
-	:In-Reply-To:Message-Id:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=jYVEPZ3sTGd0ssPWj0NaB0gOaf6Ot9rKWVNTpKcd4pY=; b=fqKLU6xkcb0xGy
-	9p8z8G9SdN44ghmIQ4ut/qEnyWAAGB3IMcBjjEvOerQV8Sr4VpltqzuZtjLz69zSAnp05bK6AKHRl
-	fPpzXrwsuvvDJbmyG8lspF6m3+Zlu9LWu0lNa28tTSylV7wIVgCCL2SFXIwlSOrwazWcURZHTPAs9
-	AJSg+FZG/NfUVr1UW1x9H9ycMYzyMAQnmXmL+4RjmuptuuRlkCpzNAq0Ph5LxYeU60g7pTSvgS1if
-	QwXwKzbRH3rqcsuISq/y8du8mPVGzw6N7G5qHFGHgrSvOK7icTHEoUUQRlxej4bf7b5cIKYVfNiXX
-	/QOliFCAlM2sU+LCDKDg==;
+	List-Owner; bh=QcQ7NnRgFSzvQam2z7RFmdcGdQ0F8rSDMm8i5tefApI=; b=Lp3aU0pljR4LAm
+	fCSugi95JfbpAiCvAyey6h1vXIITcRTLuncd6/5yipWmNSfymPSTkGXOq0AK7FQ0RPeCroftN6Evq
+	GZAOvEmIT0r4cSk5ulGi0HD8dy22qI0RWw5sNBBUdgGTN2wLzt7HXVDeWFw7YNHDW6p2LU8EKkzXy
+	EQ1k9NeE/VeoTOA4Rdum+7mIdSaHmJp4R8y250yIFWwIxg2tiDYS26i3CSUgDUEGwHBGiStA8wVry
+	JgPDvtnxPYiw+2Vz2SgYw8W8+iXikpW8yFWYTZ0rpkJGbOXIdnPjpiGyNYVVZwFyK7Zyqu27w+zTk
+	+DpD4AYO9i+NDPH3jW9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9IFb-000000058ci-41w0;
-	Mon, 28 Apr 2025 06:45:59 +0000
-Received: from abb.hmeau.com ([144.6.53.87])
+	id 1u9IKl-000000059UP-3w0u;
+	Mon, 28 Apr 2025 06:51:19 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Gs3-00000004hYo-1Mem;
-	Mon, 28 Apr 2025 05:17:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
-	s=formenos; h=Cc:To:Subject:From:References:In-Reply-To:Message-Id:Date:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=GB9/DZlVKQ+qX1C/pXbez0MkOkRiHenUXD6OWOuCEZs=; b=CVAR2Ix3IfhZQmpfOpkslfwtId
-	Hlx7GZhAXeDLd38FBrIcfXPECpLUEFQes2kYLfGw36skzAGoBU/HwsB+kw5lEV46hoFiABvWRp1YY
-	tIZvMun+xGqBsNvA53UxfPhPKi83+pWsISxJ1T8YnbiVOsCBh8/0AokycWgZy8BD/3/Az6gp/rLnG
-	GCI6x0zgmUWVZeZpSWuYSy7Ibvh+DaRPvp5QRZi+5JwBmrZ9j0JUcpzfDWU1eZtT142silVTEiDcK
-	Zmd+4T/ITi0Xd3Eso3737704RQM9K4xdXm9ZMzIpVdz45evkjIfv5r3ewihD74Y5i42P/J2W+ggEt
-	IFdqSL5w==;
-Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
-	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
-	id 1u9Gs0-001WUX-0r;
-	Mon, 28 Apr 2025 13:17:33 +0800
-Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 28 Apr 2025 13:17:32 +0800
-Date: Mon, 28 Apr 2025 13:17:32 +0800
-Message-Id: <f97814714c68dcf60028a2927d541b2e8c81c3bf.1745816372.git.herbert@gondor.apana.org.au>
-In-Reply-To: <cover.1745816372.git.herbert@gondor.apana.org.au>
-References: <cover.1745816372.git.herbert@gondor.apana.org.au>
-From: Herbert Xu <herbert@gondor.apana.org.au>
-Subject: [v3 PATCH 13/13] crypto: lib/sha256 - improve function prototypes
-To: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld " <Jason@zx2c4.com>, Linus Torvalds <torvalds@linux-foundation.org>
+	id 1u9IKi-000000059SN-1j7J
+	for linux-riscv@lists.infradead.org;
+	Mon, 28 Apr 2025 06:51:17 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e8be1c6ff8so7200944a12.1
+        for <linux-riscv@lists.infradead.org>; Sun, 27 Apr 2025 23:51:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745823074; x=1746427874; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=olp7njR9Ybm79qV02JWYfEZZNtFSE8MfHDfoR2yiSUc=;
+        b=v7klof2N3nxnu1YaPq/8wFlXuul5XXQyOPRMu3ZbmcJl/DZV5MiRX80eDTmX7twjhM
+         LRmo8gOHC7cSCzIljdNnBDrYz0Y7Tz01Zl9pm/hhK2BsWetLfUPeqFigg+IhihTRGyft
+         nLeGbe0AK91Z3ETqJ+NHJTJwJ7y0PSgtjboG7JyJup/1XbtIvGmBQSTkWp3r3i+WPtx6
+         ARv0HYn9C6bWxPGpooue2nGfDDZT0eKEf9pBc9wzy2NXcEj1OaEht01OIwfeHiPdUVnU
+         zDVv3u5CZfVoT1KA8+Tj67sya9QYn9bJ2YN3eVrUbhDpMpVe2LDZRwM5W2GFXOc5+Ib0
+         62SQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745823074; x=1746427874;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=olp7njR9Ybm79qV02JWYfEZZNtFSE8MfHDfoR2yiSUc=;
+        b=GqY27PGlQvQYjEUzN9F9wCOEazJvF5goAze4E/+BzvheVZ5XcB6fJtMABCOEMCrw18
+         5rluILJE+aknnVcnWI67RFf2VrTf/6cE9ZlrZC+QDIPCzuQc3+85MR/kKfYcy7l+US2t
+         TDaA5MgS84jDpfTrRJeCDSYm1TbYccVriGykBOqkN93Fbu0G/P0i0u6fvnCbQXM1QCSh
+         a+eA92CFtQm/RwbPFA4BYraHGpkvSV6pnKXrXpjtMwPu0n0qVIyRCgR0nC7v+F2z1JpG
+         OjVspoCinJdcpeHFaqM6EToKMqGIBNL9g4P/guOgrGwWZHT1LNjmWXboEen/NoLHait1
+         09tg==
+X-Forwarded-Encrypted: i=1; AJvYcCUyS0tfKWoq3In69yZJHy05ONAefeCRieVEByrnzRES+xgFPcOHAf7US4L/o4qlD/63j3jj+hlM3IQLbw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxRGmAK9L5hU9RKQxq3+3beOBLIdbi8AzgwPtBaH2IsIBTda18V
+	7e5lJHvk9qm1HuSeXV1WwiUbWyX8+aAGY82twAZpBKdgXtYi9UNieTyF+FYF7C64wQg9K9mM4wY
+	lK94izSn7u49O3BzZVbTY4dsP+NSB542JnkWDjA==
+X-Gm-Gg: ASbGncubdRKLYIkM4dV+OgLFtnS4SZtAHJH+go8JtSUVQga3RHYEcMcTbKDaJhUImTu
+	vOa4mBIBesyeNHsEKr3DxjbR6u9TAbZg1TMDdm+9FhqAF7DtjSbzcjzWLI3xAUgSdE+dyO7XPcq
+	g8w5fG/JGWVmBcUMgV/zDyY9o=
+X-Google-Smtp-Source: AGHT+IEtEaxs9n/fqGJEuZ8Xotr69RVdjbKFMaVctCQmuSvnkMpXaGIdiMr0ZU582rbQFSZfQks/8XyJ+CzfPm0I+P0=
+X-Received: by 2002:a17:907:1b0b:b0:ac7:4d45:f13e with SMTP id
+ a640c23a62f3a-ace710a0eacmr947603266b.13.1745823074048; Sun, 27 Apr 2025
+ 23:51:14 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250420070251.378950-1-guodong@riscstar.com> <20250420070251.378950-3-guodong@riscstar.com>
+ <mzfiyc2me2smqrrmiymzkzxvsyjmst6ggy7scq4wxz2yfj2ef5@np3h3k467mbl>
+In-Reply-To: <mzfiyc2me2smqrrmiymzkzxvsyjmst6ggy7scq4wxz2yfj2ef5@np3h3k467mbl>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Mon, 28 Apr 2025 14:50:52 +0800
+X-Gm-Features: ATxdqUER8JSTuuOTantCFeixTZRLC93zvf7G5uIviwPU2QmuQNBr7asOpX-Fl3I
+Message-ID: <CAH1PCMZ4hqYo9SLCnzHYp_EiQKs5nhgW3XpxwqLEk4eX8=vWPw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/6] pwm: pxa: add optional reset control
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, 
+	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org, 
+	tglx@linutronix.de, hal.feng@starfivetech.com, unicorn_wang@outlook.com, 
+	duje.mihanovic@skole.hr, elder@riscstar.com, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250427_221735_365400_F1E05833 
-X-CRM114-Status: GOOD (  11.02  )
+X-CRM114-CacheID: sfid-20250427_235116_714447_32B4AB65 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,115 +96,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Eric Biggers <ebiggers@google.com>
-
-Follow best practices by changing the length parameters to size_t and
-explicitly specifying the length of the output digest arrays.
-
-Signed-off-by: Eric Biggers <ebiggers@google.com>
-Signed-off-by: Herbert Xu <herbert@gondor.apana.org.au>
----
- include/crypto/internal/sha2.h |  2 +-
- include/crypto/sha2.h          |  8 ++++----
- lib/crypto/sha256.c            | 12 ++++++------
- 3 files changed, 11 insertions(+), 11 deletions(-)
-
-diff --git a/include/crypto/internal/sha2.h b/include/crypto/internal/sha2.h
-index 09f622c2ae7d..421872a93a83 100644
---- a/include/crypto/internal/sha2.h
-+++ b/include/crypto/internal/sha2.h
-@@ -46,7 +46,7 @@ static inline void sha256_choose_blocks(
- 
- static __always_inline void sha256_finup(
- 	struct crypto_sha256_state *sctx, const u8 *src, unsigned int len,
--	u8 *out, size_t digest_size, bool force_generic,
-+	u8 out[SHA256_DIGEST_SIZE], size_t digest_size, bool force_generic,
- 	bool force_simd)
- {
- 	unsigned int bit_offset = SHA256_BLOCK_SIZE / 8 - 1;
-diff --git a/include/crypto/sha2.h b/include/crypto/sha2.h
-index a27e2bf1842d..4912572578dc 100644
---- a/include/crypto/sha2.h
-+++ b/include/crypto/sha2.h
-@@ -105,9 +105,9 @@ static inline void sha256_init(struct sha256_state *sctx)
- {
- 	sha256_block_init(&sctx->ctx);
- }
--void sha256_update(struct sha256_state *sctx, const u8 *data, unsigned int len);
--void sha256_final(struct sha256_state *sctx, u8 *out);
--void sha256(const u8 *data, unsigned int len, u8 *out);
-+void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len);
-+void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE]);
-+void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE]);
- 
- static inline void sha224_block_init(struct crypto_sha256_state *sctx)
- {
-@@ -127,6 +127,6 @@ static inline void sha224_init(struct sha256_state *sctx)
- 	sha224_block_init(&sctx->ctx);
- }
- /* Simply use sha256_update as it is equivalent to sha224_update. */
--void sha224_final(struct sha256_state *sctx, u8 *out);
-+void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE]);
- 
- #endif /* _CRYPTO_SHA2_H */
-diff --git a/lib/crypto/sha256.c b/lib/crypto/sha256.c
-index d2bd9fdb8571..107d2bdea682 100644
---- a/lib/crypto/sha256.c
-+++ b/lib/crypto/sha256.c
-@@ -33,7 +33,7 @@ static inline void sha256_blocks(u32 state[SHA256_STATE_WORDS], const u8 *data,
- 			     sha256_force_generic(), false);
- }
- 
--void sha256_update(struct sha256_state *sctx, const u8 *data, unsigned int len)
-+void sha256_update(struct sha256_state *sctx, const u8 *data, size_t len)
- {
- 	size_t partial = sctx->count % SHA256_BLOCK_SIZE;
- 
-@@ -43,8 +43,8 @@ void sha256_update(struct sha256_state *sctx, const u8 *data, unsigned int len)
- }
- EXPORT_SYMBOL(sha256_update);
- 
--static void __sha256_final(struct sha256_state *sctx, u8 *out,
--			   size_t digest_size)
-+static void __sha256_final(struct sha256_state *sctx,
-+			   u8 out[SHA256_DIGEST_SIZE], size_t digest_size)
- {
- 	unsigned int len = sctx->count % SHA256_BLOCK_SIZE;
- 
-@@ -54,19 +54,19 @@ static void __sha256_final(struct sha256_state *sctx, u8 *out,
- 	memzero_explicit(sctx, sizeof(*sctx));
- }
- 
--void sha256_final(struct sha256_state *sctx, u8 *out)
-+void sha256_final(struct sha256_state *sctx, u8 out[SHA256_DIGEST_SIZE])
- {
- 	__sha256_final(sctx, out, SHA256_DIGEST_SIZE);
- }
- EXPORT_SYMBOL(sha256_final);
- 
--void sha224_final(struct sha256_state *sctx, u8 *out)
-+void sha224_final(struct sha256_state *sctx, u8 out[SHA224_DIGEST_SIZE])
- {
- 	__sha256_final(sctx, out, SHA224_DIGEST_SIZE);
- }
- EXPORT_SYMBOL(sha224_final);
- 
--void sha256(const u8 *data, unsigned int len, u8 *out)
-+void sha256(const u8 *data, size_t len, u8 out[SHA256_DIGEST_SIZE])
- {
- 	struct sha256_state sctx;
- 
--- 
-2.39.5
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMjQsIDIwMjUgYXQgMzozMOKAr1BNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xl
+aW5la0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gT24gU3VuLCBBcHIgMjAsIDIw
+MjUgYXQgMDM6MDI6NDdQTSArMDgwMCwgR3VvZG9uZyBYdSB3cm90ZToKPiA+IEBAIC00OSwxMCAr
+NTAsMTAgQEAgTU9EVUxFX0RFVklDRV9UQUJMRShwbGF0Zm9ybSwgcHdtX2lkX3RhYmxlKTsKPiA+
+ICAjZGVmaW5lIFBXTURDUl9GRCAgICAoMSA8PCAxMCkKPiA+Cj4gPiAgc3RydWN0IHB4YV9wd21f
+Y2hpcCB7Cj4gPiAtICAgICBzdHJ1Y3QgZGV2aWNlICAgKmRldjsKPiA+IC0KPiA+IC0gICAgIHN0
+cnVjdCBjbGsgICAgICAqY2xrOwo+ID4gLSAgICAgdm9pZCBfX2lvbWVtICAgICptbWlvX2Jhc2U7
+Cj4gPiArICAgICBzdHJ1Y3QgZGV2aWNlICAgICAgICAgICAqZGV2Owo+ID4gKyAgICAgc3RydWN0
+IGNsayAgICAgICAgICAgICAgKmNsazsKPiA+ICsgICAgIHZvaWQgX19pb21lbSAgICAgICAgICAg
+ICptbWlvX2Jhc2U7Cj4gPiArICAgICBzdHJ1Y3QgcmVzZXRfY29udHJvbCAgICAqcmVzZXQ7Cj4K
+PiBDaGFuZ2VzIGxpa2UgdGhlc2UgYXJlIHRoZSByZWFzb24gSSBwcmVmZXIgdG8gbm90IGFsaWdu
+IHRoZSBtZW1iZXIKPiBuYW1lcy4gTHVja2lseSByZXNldCBpcyBhIHdyaXRlIG9ubHkgdmFyaWFi
+bGUgYW5kIHlvdSBjYW4ganVzdCBkcm9wIHRoaXMKPiBodW5rIGlmIHlvdSB1c2UgYSBsb2NhbCB2
+YXJpYWJsZSBmb3IgaXQgaW4gcHdtX3Byb2JlKCkgYmVsb3cuCj4KClRoYW5rcyBVd2UgZm9yIHRo
+ZSBzdWdnZXN0aW9uLCBJIGFncmVlLgpJIHdpbGwgdXBkYXRlIGl0IGluIHYzIGJ5IGRyb3BwaW5n
+IHRoaXMgaHVuayBhbmQgdXNpbmcgYSBsb2NhbCB2YXJpYWJsZSBmb3IKcmVzZXQgaW4gcHdtX3By
+b2JlKCkgYXMgeW91IHJlY29tbWVuZGVkLgoKQlIsCkd1b2RvbmcKCj4gPiAgfTsKPiA+Cj4gPiAg
+c3RhdGljIGlubGluZSBzdHJ1Y3QgcHhhX3B3bV9jaGlwICp0b19weGFfcHdtX2NoaXAoc3RydWN0
+IHB3bV9jaGlwICpjaGlwKQo+ID4gQEAgLTE3OSw2ICsxODAsMTEgQEAgc3RhdGljIGludCBwd21f
+cHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPiA+ICAgICAgIGlmIChJU19FUlIo
+cGMtPmNsaykpCj4gPiAgICAgICAgICAgICAgIHJldHVybiBQVFJfRVJSKHBjLT5jbGspOwo+ID4K
+PiA+ICsgICAgIHBjLT5yZXNldCA9IGRldm1fcmVzZXRfY29udHJvbF9nZXRfb3B0aW9uYWxfZXhj
+bHVzaXZlX2RlYXNzZXJ0ZWQoCj4gPiArICAgICAgICAgICAgICAgICAgICAgJnBkZXYtPmRldiwg
+TlVMTCk7Cj4gPiArICAgICBpZiAoSVNfRVJSKHBjLT5yZXNldCkpCj4gPiArICAgICAgICAgICAg
+IHJldHVybiBQVFJfRVJSKHBjLT5yZXNldCk7Cj4gPiArCj4gPiAgICAgICBjaGlwLT5vcHMgPSAm
+cHhhX3B3bV9vcHM7Cj4gPgo+ID4gICAgICAgaWYgKElTX0VOQUJMRUQoQ09ORklHX09GKSkKPgo+
+IEJlc3QgcmVnYXJkcwo+IFV3ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmlu
+ZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9s
+aW51eC1yaXNjdgo=
