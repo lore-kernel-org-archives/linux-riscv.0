@@ -4,93 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E90E5C369DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 21:47:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1281C3ABA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 22:29:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hQnTmCUIc0l+xgSYK0zlqcnmK4rrZmhMPKhDiBDaSO0=; b=f5zIF3u/TtPP6m
-	Fe01l2JHpP3XSfyHjNk4aySklEIsPULGJRyE1QVpDJrqQ2nfIldl4OnIUHeQCFz0EIdB4ZhNccTC9
-	PKaWcCilZLIaxotQ2/AZOEfTNMjcOTYSocLMgEvGnEe8dztZNNQsx5O+pODk65SUhfH7ZThCPds0D
-	lF+pBT87aZ1qTjifJkLWZjb67JMPp33raqVOD8rkCQgFRls3aVvI9LytiIr5QtRL/W8iEHRqOTCKp
-	IC+6qj6y8KVTurdcZJLu3ED6Vy2jBKtOLCH3QUl2EahnTVMcdq2z38O79sDHqlP759MPhuI1+ZzSJ
-	Tg8JcraIjNU7mCiGPcRw==;
+	List-Owner; bh=AwzLGvTHH8+04l3noojy6fwNS7BrJ33fMNXFEMmm/N8=; b=RaPn+pdfMt0dQZ
+	J6dIqeV2dC6DFhjw8EqgcWKILComtXW0V4AcjGmOQmY0XqgR8o3Mh2WRl3ga+i2e8mr5aAgcxRE9Q
+	bfugK+rLPz+YNxaX3AnPEWK6PTYHqSyQ/VP1itWdrYZmbbMN46EIbY1b5fQrH79v/7B/V04fLd/Jx
+	iGB9N07Id6ZGx/b5a+j9LUh5SsUV8LGVSsFDNvPo3An5pErZ8sKLWcaTHyEFwZwaeeBTjYPLCEFN+
+	ZyzoPOY/yM97DqNpi32ZTV2l83TELMX+JHTGUKOHwM5JJa/F2+84XOjfa1tp4Bs0Pj3k9kV0OkK62
+	ppErTaCSz2ua1C3JlLig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9sn5-0000000Atfr-1wYA;
-	Tue, 29 Apr 2025 21:46:59 +0000
-Received: from mail-io1-xd2a.google.com ([2607:f8b0:4864:20::d2a])
+	id 1u9tSZ-0000000AywU-0C93;
+	Tue, 29 Apr 2025 22:29:51 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9sku-0000000AtO7-02Xr
+	id 1u9tSW-0000000Ayw0-2cha
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 21:44:45 +0000
-Received: by mail-io1-xd2a.google.com with SMTP id ca18e2360f4ac-8616987c261so224578039f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 14:44:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745963082; x=1746567882; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4jR6+8yIAI0O5mZLd2KMAqTdJoRJKX7IRlTHsSNPOZQ=;
-        b=jHz/Kv84LUesddLxqmPaprjoG2ChfV0MqCKfebOJQGWwLMcn5WjU29m9G0yDkUZ0JI
-         keEWfi2xfBteThm0vop4lFTy4CjeIzimT2iP7Z31GO+Fwo9Q2wlAZ9C+ZrA4WAFQtTnI
-         bon06RcsQvVBSbyOeOVX5QUy7UfSqjM2fUKN6oCKBR7yRc1bYGjrf24hIaizplFhV43j
-         e4mjM90iqOdMsPU/3sUDFjWsKZzz3pJs2pz2Iz9sLUdJb5p3nyxwbZtAcz2vTfCQnFRm
-         XfN59qCEsa0fAGyGePVHDkSXTt+QwRKXXbDavPxGq7iHZnVt449DAPaq10AxfGZji9DQ
-         juAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745963082; x=1746567882;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4jR6+8yIAI0O5mZLd2KMAqTdJoRJKX7IRlTHsSNPOZQ=;
-        b=sQSpw846KhD4OarR76uyEjDBoh2Fnu2tyCKjEMAG371A5JaK1q+vfgUXKipzVi4Y3k
-         ShxKu80sXR4kZdYBTXes6D2oVhoCtnD7Pzk1EkzsVxGEnMIhT3aViQtoOOuOhPSkLYUa
-         Hn3bySbB+sRtrc5GWR4c6LvD11IQ8pGBTeP0Xh1TN9ipYic2ipSAOJvsIjt8RESb4p3E
-         gTdPRv16oUwB++aIzmpZv0cmApvbQUPczukaPU8GuVSe4mtMW6z3wGEBMBuTI0DUBw/x
-         0PTOGRINzvITxsGctrnMGEH2/w+A3m0caHr7kp92KdyFN9wqyldSeY8nOPrBUKmfc9bX
-         Ztbg==
-X-Forwarded-Encrypted: i=1; AJvYcCV4hW8dwueSokG0V0NHMcgdZtun4BwEjJqhCqLOt9CYUi8JDkzy0zKy5kzH2JPfYvO0khbJniLimEim7w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytOMKcsaBCjC8tI40+g+ndy2iIJr10So4RZUsuJc0N4aCAw1AC
-	lIT+CWCZ3CgOeWf5bqCnkhvGWuMgEn89+YJ7FcmR2uu/RAhpahIGStGu+D1Tnp0=
-X-Gm-Gg: ASbGncv5dclsToQ6DmrqE3NgMOY6giADd8VUWp6azSK8kOQGpk/TomPW5mCMCBhU4uj
-	ryYKH2K7m0bpLH6mU4pP5SfZIJK50ZVT3+ZKfXIkgeiNWtdvU6PN9QBs91m9EditRa14yVgeJ70
-	+JPkKoi+SDVyeXy946gR5bjg6Gt/UVBK9osWBRs0aIkVwYxyD7kWWAoPK9pHwK5SICHtO9yi/U/
-	nknfSnV25V1S16vtdg8LZIjp2Yx2G3x9G5c6DwQuoWtsSHJiZEko049qgG0iU6iYFBC7OlSX5vv
-	qsKbfIcRs4F5ZCOCBo+kqE5IeUbsAsIcxRxh3D2n5Z77K6nmvBHQ0xBCQyUePnFWcwG/aHmFXiu
-	2mKWF
-X-Google-Smtp-Source: AGHT+IHC804e4Eix/ozoxmgLuYyu4h8EDtpYTI9mJ8DxF3AanIg+BgD1P4qKeHonfHu4YLobsYIF/Q==
-X-Received: by 2002:a05:6602:400d:b0:85b:577b:37c9 with SMTP id ca18e2360f4ac-86495f0f44emr144632039f.12.1745963082607;
-        Tue, 29 Apr 2025 14:44:42 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-8648c1df315sm42698539f.45.2025.04.29.14.44.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 29 Apr 2025 14:44:42 -0700 (PDT)
-Message-ID: <8b345c2e-876a-4528-b8f5-fe97abd11cb4@riscstar.com>
-Date: Tue, 29 Apr 2025 16:44:40 -0500
+	Tue, 29 Apr 2025 22:29:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 244DEA4C2DB;
+	Tue, 29 Apr 2025 22:24:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D573C4CEE3;
+	Tue, 29 Apr 2025 22:29:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745965787;
+	bh=krVN7fbLDEgUpA3CZRaPnPrQx/YtEFqbO33A+c1lnE0=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=gOHSLfvdCibmwpEa/qnvyBi3DOHj6LwLBNnR5umgTyIpzr6ishK7lzagEG4u/X0A6
+	 Gu7XUIaaTz0hulUcTeerC9q13qE0vQ8TX6Hd0ERoBgVtZoNPDCkOJTxYm4ILBWcZrU
+	 aLma7kuKv09FpEJ8g67GOph8JOFjgufewWx/u0QH4Db4ZXvVzKBhJhsSkjnWbvKSRl
+	 S1QnVz2rQGLBqz8b3VsepNJj6DwXoLFEr+L6tTH+uXurmZ7q+51ih6cjN9U3pG7/LU
+	 dSaevH9O3KiPPOjUXfbrCJ3bawtVYXN0Q4mEeAmOMphYetKJ1JNR+GQyM6zx5ak3uk
+	 UEl/1ZupSCyag==
+Message-ID: <9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 0/7] clk: spacemit: add K1 reset support
-To: Stephen Boyd <sboyd@kernel.org>, Yixun Lan <dlan@gentoo.org>
-Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, p.zabel@pengutronix.de, heylenay@4d2.org,
- guodong@riscstar.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, spacemit@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250418145401.2603648-1-elder@riscstar.com>
- <20250421134218-GYA42923@gentoo>
- <95c672f35d6e5e1ac91feaa5628cf4fe@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <95c672f35d6e5e1ac91feaa5628cf4fe@kernel.org>
+In-Reply-To: <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
+References: <20250403094425.876981-1-m.wilczynski@samsung.com> <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com> <20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1> <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
+Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock controller
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+To: Drew Fustini <drew@pdp7.com>, Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Tue, 29 Apr 2025 15:29:45 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_144444_313166_A0F03B14 
-X-CRM114-Status: UNSURE (   9.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_152948_797987_670609FF 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +66,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 4/29/25 3:57 PM, Stephen Boyd wrote:
-> Quoting Yixun Lan (2025-04-21 06:42:18)
->> Hi Alex,
->>    I'm good with this version, but would wait a few more days for
->> people to comment before taking them..
->>
->> Hi Philipp,
->>    Since these reset patches [3, 4, 6] are sitting on top of clk driver,
->> I'd assume you're ok with taking them through clk tree? I'd plan to queue
->> them for 6.16.. if yes, would you be able to give an ACK? I'd appreciate!
->>
+Quoting Michal Wilczynski (2025-04-07 08:30:43)
+> On 4/5/25 01:16, Drew Fustini wrote:
+> >> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> index 527336417765..d4cba0713cab 100644
+> >> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+> >> @@ -489,6 +489,13 @@ clk: clock-controller@ffef010000 {
+> >>                      #clock-cells = <1>;
+> >>              };
+> >>  
+> >> +            clk_vo: clock-controller@ffef528050 {
+> >> +                    compatible = "thead,th1520-clk-vo";
+> >> +                    reg = <0xff 0xef528050 0x0 0xfb0>;
+> > 
+> > Thanks for your patch. It is great to have more of the clocks supported
+> > upstream.
+> > 
+> > The TH1520 System User Manual shows 0xFF_EF52_8000 for VO_SUBSYS on page
+> > 205. Is there a reason you decided to use 0xFF_EF52_8050 as the base?
+> > 
+> > I see on page 213 that the first register for VO_SUBSYS starts with
+> > VOSYS_CLK_GATE at offset 0x50. I figure you did this to have the
+> > CCU_GATE macros use offset of 0x0 instead 0x50.
+> > 
+> > I kind of think the reg property using the actual base address
+> > (0xFF_EF52_8000) makes more sense as that's a closer match to the tables
+> > in the manual. But I don't have a strong preference if you think think
+> > using 0xef528050 makes the CCU_GATE macros easier to read.
 > 
-> No. Please put the reset driver in drivers/reset to get proper review
-> from reset maintainers. Use the auxiliary bus to do that when the device
-> is both a clk and reset controller.
+> Thank you for your comment.
+> 
+> This was discussed some time ago. The main issue was that the address
+> space was fragmented between clocks and resets. Initially, I proposed
+> using syscon as a way to abstract this, but the idea wasn't particularly
+> well received.
+> 
+> So at the start of the 0xFF_EF52_8000 there is a reset register GPU_RST_CFG
+> I need for resetting the GPU.
+> 
+> For reference, here's the earlier discussion: [1]
+> 
+> [1] - https://lore.kernel.org/all/1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org/
+> 
 
-OK.  I'll send v6 that implements things this way.  Thanks.	-Alex
+In that email I said you should have one node
+clock-controller@ffef528000. Why did 0x50 get added to the address?
 
 _______________________________________________
 linux-riscv mailing list
