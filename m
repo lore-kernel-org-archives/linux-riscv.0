@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A64C3ABA5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B55FC369DC
 	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,72 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7XD/lLXk2QeVnFCe5QKTUcW+hvjF2iAQF+/3ObeHZVc=; b=r0gvk4EA1r1/iU
-	JY2NIGSkxWPr5CzeFmHSZQLWN7YrYqOuUVKCZaNjaFoFhYnpScj2gEsCACXhK4+TT53/qjvtktzym
-	oXzwqBO5Cslq3n9Mumtb/FK+ATfiAbWTxCHQddqoKxCBnxRHgGcBHGFK25kQsnVBMd9BO++rHrprl
-	VqkZyPElvi9BWMMacUS+dpATFocUGnjLQpdIlFQkvjqM3qupyOaoCtQmTYNxCFY4Jhl/7r6Cyt/3j
-	OLoj11ZfBaQ2zLZxEh/pMLPt4MnP0pg9AblN6uybmbjY1zHXuOjy0D4KCseoTjIzCNfn1k00t/ZI6
-	QsdhI6ExkWAzVjRhcp5g==;
+	List-Owner; bh=8cyXyywqpZd3/Pyy/7rLxNsUhCkxDk/iBzldCXDjKs0=; b=lmukoEPUSyr/gp
+	OZpRQsTHQpPcmQSDF6wiFN1I/YTsn1/suDfaXs812St0vweM6GUydL8U18emkZrgnIBGBUKQ2iC6d
+	3J2WU3fwQGdHFvLx4/xSl+5W7XvHK7ZcGv/mh71js5+dAntgbtheTpLPQRbM6MAXxVt9bfHN81/u1
+	1b3ujmmU2iCGr0jk+ibIQCIZbBHPOgQoQIYF80RQIRy50bEzwZeuBJQxXLwlaicBPi5eX28nrF20K
+	lVKtfIeUgZZNTuX5MuVWhq27zYQdXoyJBFuiWw/gVnbCN09v6K+X6sia1PDOCsLWY42Hl3cxGYdWp
+	tEYiMgJ42ZnHmKOT/rvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhh-00000009rpp-0Z3W;
-	Tue, 29 Apr 2025 14:12:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jMA-00000009Wmj-1imc
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Apr 2025 11:42:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=2ERC4iHAopj7w7n3GYQADioGeTv15E5tv5xtE/u14EI=; b=BRtxCfseRiYqmcxQe31PAZwYb8
-	tMKioIsekRq3ri+Y+Tz1I06tzIHXbdpV38OhCNckGJB3j0rfmCtEcHi45C2KC2TEHIphI3zU53aMy
-	zel48Eme59HqLfF8co6acrM0BDSJMCH33/Cmio/G07fwYB6O0223o6/yEesvWMx8tjxOd7nPzPBUQ
-	KpWHyGwJMrWaCUc1SNlQvEfTAkpfpJASIKfiyWjZsA3rQXQrYcNm3IiuNkuJjuHuzGZzTwkziuFdk
-	kYV19p0BihDL13Do7GSUYiOlptsNdDefcui9l79WKWlwD+TEHEhyyw93gas45rLcWzFBo1NmOGdRF
-	wJwJkwwQ==;
+	id 1u9lhl-00000009rtC-3cEV;
+	Tue, 29 Apr 2025 14:13:01 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jM7-0000000DHTj-1mgJ
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1u9jQ0-00000009Xs0-13Tb
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:42:33 +0000
+	Tue, 29 Apr 2025 11:46:33 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745926950;
+	s=mimecast20190719; t=1745927191;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2ERC4iHAopj7w7n3GYQADioGeTv15E5tv5xtE/u14EI=;
-	b=XeG655pUdpwUJF10v3poGNh5HtSKe0GKfgCgA7IJf0/Lld/fVXJqq1N5nZFBUrKWmdrY4R
-	Z68pJkoQPPrnK0ESlDZ2NK4IYSn4q5QnqZxMlfQiqUo6C7wM70ejng3Nn79OaH2Gz8ECrW
-	u7IuW8WtB27syCcltKF1CxDwbZyIo8A=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745926950;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2ERC4iHAopj7w7n3GYQADioGeTv15E5tv5xtE/u14EI=;
-	b=XeG655pUdpwUJF10v3poGNh5HtSKe0GKfgCgA7IJf0/Lld/fVXJqq1N5nZFBUrKWmdrY4R
-	Z68pJkoQPPrnK0ESlDZ2NK4IYSn4q5QnqZxMlfQiqUo6C7wM70ejng3Nn79OaH2Gz8ECrW
-	u7IuW8WtB27syCcltKF1CxDwbZyIo8A=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=UNP0/g1fsLvLBQS0mp5T4cvzk2DsJdERKWqgqviWFK4=;
+	b=PTFiwNSWv1TU3SVUN6sFdcrrC6ctG5qCkurX94HcjzhCQGyyUD/xbkjKUQHQZHuFrT6E1r
+	jFnzYe9SDa2kesTtYqGb8nsroidQwZ+Od/GQ5T5P4lDGaGaNiNOoonNDq2FVFq1iSLZczL
+	7jAIz62PxRSY08J1RLk1IBwU/FYDQWU=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-695-u7QFbanhM32YQonXELOb8w-1; Tue,
- 29 Apr 2025 07:42:26 -0400
-X-MC-Unique: u7QFbanhM32YQonXELOb8w-1
-X-Mimecast-MFC-AGG-ID: u7QFbanhM32YQonXELOb8w_1745926942
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-155-r7bLT26sNc-abpjlyaV0Qg-1; Tue,
+ 29 Apr 2025 07:46:25 -0400
+X-MC-Unique: r7bLT26sNc-abpjlyaV0Qg-1
+X-Mimecast-MFC-AGG-ID: r7bLT26sNc-abpjlyaV0Qg_1745927181
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B2406195608C;
-	Tue, 29 Apr 2025 11:42:22 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BEDBC1800264;
+	Tue, 29 Apr 2025 11:46:21 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AEFB219560A3;
-	Tue, 29 Apr 2025 11:41:53 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4C51B19560A3;
+	Tue, 29 Apr 2025 11:45:52 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -93,7 +68,9 @@ To: linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	bpf@vger.kernel.org
-Cc: Juri Lelli <juri.lelli@redhat.com>,
+Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>,
+	Nicolas Saenz Julienne <nsaenzju@redhat.com>,
+	Juri Lelli <juri.lelli@redhat.com>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Yair Podemsky <ypodemsk@redhat.com>,
 	Josh Poimboeuf <jpoimboe@kernel.org>,
@@ -122,7 +99,6 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
 	x86@kernel.org,
 	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
@@ -175,16 +151,16 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 17/25] x86/speculation/mds: Mark mds_idle_clear key as allowed in .noinstr
-Date: Tue, 29 Apr 2025 13:32:34 +0200
-Message-ID: <20250429113242.998312-18-vschneid@redhat.com>
+Subject: [PATCH v5 25/25] context_tracking,x86: Defer kernel text patching IPIs
+Date: Tue, 29 Apr 2025 13:32:42 +0200
+Message-ID: <20250429113242.998312-26-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_124231_768151_A0E70322 
-X-CRM114-Status: GOOD (  14.63  )
+X-CRM114-CacheID: sfid-20250429_044632_438108_1E0D6DF4 
+X-CRM114-Status: GOOD (  26.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,36 +177,281 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Later commits will cause objtool to warn about static keys being used in
-.noinstr sections in order to safely defer instruction patching IPIs
-targeted at NOHZ_FULL CPUs.
+text_poke_bp_batch() sends IPIs to all online CPUs to synchronize
+them vs the newly patched instruction. CPUs that are executing in userspace
+do not need this synchronization to happen immediately, and this is
+actually harmful interference for NOHZ_FULL CPUs.
 
-mds_idle_clear is used in .noinstr code, and can be modified at
-runtime (SMT hotplug). Suppressing the text_poke_sync() IPI has little
-benefits for this key, as hotplug implies eventually going through
-takedown_cpu() -> stop_machine_cpuslocked() which is going to cause
-interference on all online CPUs anyway.
+As the synchronization IPIs are sent using a blocking call, returning from
+text_poke_bp_batch() implies all CPUs will observe the patched
+instruction(s), and this should be preserved even if the IPI is deferred.
+In other words, to safely defer this synchronization, any kernel
+instruction leading to the execution of the deferred instruction
+sync (ct_work_flush()) must *not* be mutable (patchable) at runtime.
 
-Mark it to let objtool know not to warn about it.
+This means we must pay attention to mutable instructions in the early entry
+code:
+- alternatives
+- static keys
+- static calls
+- all sorts of probes (kprobes/ftrace/bpf/???)
 
+The early entry code leading to ct_work_flush() is noinstr, which gets rid
+of the probes.
+
+Alternatives are safe, because it's boot-time patching (before SMP is
+even brought up) which is before any IPI deferral can happen.
+
+This leaves us with static keys and static calls.
+
+Any static key used in early entry code should be only forever-enabled at
+boot time, IOW __ro_after_init (pretty much like alternatives). Exceptions
+are explicitly marked as allowed in .noinstr and will always generate an
+IPI when flipped.
+
+The same applies to static calls - they should be only updated at boot
+time, or manually marked as an exception.
+
+Objtool is now able to point at static keys/calls that don't respect this,
+and all static keys/calls used in early entry code have now been verified
+as behaving appropriately.
+
+Leverage the new context_tracking infrastructure to defer sync_core() IPIs
+to a target CPU's next kernel entry.
+
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/x86/kernel/cpu/bugs.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/x86/include/asm/context_tracking_work.h |  6 ++-
+ arch/x86/include/asm/text-patching.h         |  1 +
+ arch/x86/kernel/alternative.c                | 39 +++++++++++++++++---
+ arch/x86/kernel/kprobes/core.c               |  4 +-
+ arch/x86/kernel/kprobes/opt.c                |  4 +-
+ arch/x86/kernel/module.c                     |  2 +-
+ include/asm-generic/sections.h               | 15 ++++++++
+ include/linux/context_tracking_work.h        |  4 +-
+ 8 files changed, 60 insertions(+), 15 deletions(-)
 
-diff --git a/arch/x86/kernel/cpu/bugs.c b/arch/x86/kernel/cpu/bugs.c
-index 362602b705cc4..59a77ca1bb14c 100644
---- a/arch/x86/kernel/cpu/bugs.c
-+++ b/arch/x86/kernel/cpu/bugs.c
-@@ -117,7 +117,7 @@ DEFINE_STATIC_KEY_FALSE(switch_vcpu_ibpb);
- EXPORT_SYMBOL_GPL(switch_vcpu_ibpb);
+diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/include/asm/context_tracking_work.h
+index 5f3b2d0977235..485b32881fde5 100644
+--- a/arch/x86/include/asm/context_tracking_work.h
++++ b/arch/x86/include/asm/context_tracking_work.h
+@@ -2,11 +2,13 @@
+ #ifndef _ASM_X86_CONTEXT_TRACKING_WORK_H
+ #define _ASM_X86_CONTEXT_TRACKING_WORK_H
  
- /* Control MDS CPU buffer clear before idling (halt, mwait) */
--DEFINE_STATIC_KEY_FALSE(mds_idle_clear);
-+DEFINE_STATIC_KEY_FALSE_NOINSTR(mds_idle_clear);
- EXPORT_SYMBOL_GPL(mds_idle_clear);
++#include <asm/sync_core.h>
++
+ static __always_inline void arch_context_tracking_work(enum ct_work work)
+ {
+ 	switch (work) {
+-	case CT_WORK_n:
+-		// Do work...
++	case CT_WORK_SYNC:
++		sync_core();
+ 		break;
+ 	case CT_WORK_MAX:
+ 		WARN_ON_ONCE(true);
+diff --git a/arch/x86/include/asm/text-patching.h b/arch/x86/include/asm/text-patching.h
+index ab9e143ec9fea..9dfa46f721c1d 100644
+--- a/arch/x86/include/asm/text-patching.h
++++ b/arch/x86/include/asm/text-patching.h
+@@ -33,6 +33,7 @@ extern void apply_relocation(u8 *buf, const u8 * const instr, size_t instrlen, u
+  */
+ extern void *text_poke(void *addr, const void *opcode, size_t len);
+ extern void text_poke_sync(void);
++extern void text_poke_sync_deferrable(void);
+ extern void *text_poke_kgdb(void *addr, const void *opcode, size_t len);
+ extern void *text_poke_copy(void *addr, const void *opcode, size_t len);
+ #define text_poke_copy text_poke_copy
+diff --git a/arch/x86/kernel/alternative.c b/arch/x86/kernel/alternative.c
+index bf82c6f7d6905..8c73ac6243809 100644
+--- a/arch/x86/kernel/alternative.c
++++ b/arch/x86/kernel/alternative.c
+@@ -18,6 +18,7 @@
+ #include <linux/mmu_context.h>
+ #include <linux/bsearch.h>
+ #include <linux/sync_core.h>
++#include <linux/context_tracking.h>
+ #include <asm/text-patching.h>
+ #include <asm/alternative.h>
+ #include <asm/sections.h>
+@@ -2450,9 +2451,24 @@ static void do_sync_core(void *info)
+ 	sync_core();
+ }
+ 
++static bool do_sync_core_defer_cond(int cpu, void *info)
++{
++	return !ct_set_cpu_work(cpu, CT_WORK_SYNC);
++}
++
++static void __text_poke_sync(smp_cond_func_t cond_func)
++{
++	on_each_cpu_cond(cond_func, do_sync_core, NULL, 1);
++}
++
+ void text_poke_sync(void)
+ {
+-	on_each_cpu(do_sync_core, NULL, 1);
++	__text_poke_sync(NULL);
++}
++
++void text_poke_sync_deferrable(void)
++{
++	__text_poke_sync(do_sync_core_defer_cond);
+ }
  
  /*
+@@ -2623,6 +2639,7 @@ static int tp_vec_nr;
+  */
+ static void text_poke_bp_batch(struct text_poke_loc *tp, unsigned int nr_entries)
+ {
++	smp_cond_func_t cond = do_sync_core_defer_cond;
+ 	unsigned char int3 = INT3_INSN_OPCODE;
+ 	unsigned int i;
+ 	int do_sync;
+@@ -2658,11 +2675,21 @@ static void text_poke_bp_batch(struct text_poke_loc *tp, unsigned int nr_entries
+ 	 * First step: add a int3 trap to the address that will be patched.
+ 	 */
+ 	for (i = 0; i < nr_entries; i++) {
+-		tp[i].old = *(u8 *)text_poke_addr(&tp[i]);
+-		text_poke(text_poke_addr(&tp[i]), &int3, INT3_INSN_SIZE);
++		void *addr = text_poke_addr(&tp[i]);
++
++		/*
++		 * There's no safe way to defer IPIs for patching text in
++		 * .noinstr, record whether there is at least one such poke.
++		 */
++		if (is_kernel_noinstr_text((unsigned long)addr) ||
++		    is_module_noinstr_text_address((unsigned long)addr))
++			cond = NULL;
++
++		tp[i].old = *((u8 *)addr);
++		text_poke(addr, &int3, INT3_INSN_SIZE);
+ 	}
+ 
+-	text_poke_sync();
++	__text_poke_sync(cond);
+ 
+ 	/*
+ 	 * Second step: update all but the first byte of the patched range.
+@@ -2724,7 +2751,7 @@ static void text_poke_bp_batch(struct text_poke_loc *tp, unsigned int nr_entries
+ 		 * not necessary and we'd be safe even without it. But
+ 		 * better safe than sorry (plus there's not only Intel).
+ 		 */
+-		text_poke_sync();
++		__text_poke_sync(cond);
+ 	}
+ 
+ 	/*
+@@ -2745,7 +2772,7 @@ static void text_poke_bp_batch(struct text_poke_loc *tp, unsigned int nr_entries
+ 	}
+ 
+ 	if (do_sync)
+-		text_poke_sync();
++		__text_poke_sync(cond);
+ 
+ 	/*
+ 	 * Remove and wait for refs to be zero.
+diff --git a/arch/x86/kernel/kprobes/core.c b/arch/x86/kernel/kprobes/core.c
+index 09608fd936876..687e6805b7511 100644
+--- a/arch/x86/kernel/kprobes/core.c
++++ b/arch/x86/kernel/kprobes/core.c
+@@ -808,7 +808,7 @@ void arch_arm_kprobe(struct kprobe *p)
+ 	u8 int3 = INT3_INSN_OPCODE;
+ 
+ 	text_poke(p->addr, &int3, 1);
+-	text_poke_sync();
++	text_poke_sync_deferrable();
+ 	perf_event_text_poke(p->addr, &p->opcode, 1, &int3, 1);
+ }
+ 
+@@ -818,7 +818,7 @@ void arch_disarm_kprobe(struct kprobe *p)
+ 
+ 	perf_event_text_poke(p->addr, &int3, 1, &p->opcode, 1);
+ 	text_poke(p->addr, &p->opcode, 1);
+-	text_poke_sync();
++	text_poke_sync_deferrable();
+ }
+ 
+ void arch_remove_kprobe(struct kprobe *p)
+diff --git a/arch/x86/kernel/kprobes/opt.c b/arch/x86/kernel/kprobes/opt.c
+index 36d6809c6c9e1..b2ce4d9c3ba56 100644
+--- a/arch/x86/kernel/kprobes/opt.c
++++ b/arch/x86/kernel/kprobes/opt.c
+@@ -513,11 +513,11 @@ void arch_unoptimize_kprobe(struct optimized_kprobe *op)
+ 	       JMP32_INSN_SIZE - INT3_INSN_SIZE);
+ 
+ 	text_poke(addr, new, INT3_INSN_SIZE);
+-	text_poke_sync();
++	text_poke_sync_deferrable();
+ 	text_poke(addr + INT3_INSN_SIZE,
+ 		  new + INT3_INSN_SIZE,
+ 		  JMP32_INSN_SIZE - INT3_INSN_SIZE);
+-	text_poke_sync();
++	text_poke_sync_deferrable();
+ 
+ 	perf_event_text_poke(op->kp.addr, old, JMP32_INSN_SIZE, new, JMP32_INSN_SIZE);
+ }
+diff --git a/arch/x86/kernel/module.c b/arch/x86/kernel/module.c
+index a7998f3517017..d89c9de0ca9f5 100644
+--- a/arch/x86/kernel/module.c
++++ b/arch/x86/kernel/module.c
+@@ -206,7 +206,7 @@ static int write_relocate_add(Elf64_Shdr *sechdrs,
+ 				   write, apply);
+ 
+ 	if (!early) {
+-		text_poke_sync();
++		text_poke_sync_deferrable();
+ 		mutex_unlock(&text_mutex);
+ 	}
+ 
+diff --git a/include/asm-generic/sections.h b/include/asm-generic/sections.h
+index 0755bc39b0d80..7d2403014010e 100644
+--- a/include/asm-generic/sections.h
++++ b/include/asm-generic/sections.h
+@@ -199,6 +199,21 @@ static inline bool is_kernel_inittext(unsigned long addr)
+ 	       addr < (unsigned long)_einittext;
+ }
+ 
++
++/**
++ * is_kernel_noinstr_text - checks if the pointer address is located in the
++ *                    .noinstr section
++ *
++ * @addr: address to check
++ *
++ * Returns: true if the address is located in .noinstr, false otherwise.
++ */
++static inline bool is_kernel_noinstr_text(unsigned long addr)
++{
++	return addr >= (unsigned long)__noinstr_text_start &&
++	       addr < (unsigned long)__noinstr_text_end;
++}
++
+ /**
+  * __is_kernel_text - checks if the pointer address is located in the
+  *                    .text section
+diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
+index c68245f8d77c5..2facc621be067 100644
+--- a/include/linux/context_tracking_work.h
++++ b/include/linux/context_tracking_work.h
+@@ -5,12 +5,12 @@
+ #include <linux/bitops.h>
+ 
+ enum {
+-	CT_WORK_n_OFFSET,
++	CT_WORK_SYNC_OFFSET,
+ 	CT_WORK_MAX_OFFSET
+ };
+ 
+ enum ct_work {
+-	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
++	CT_WORK_SYNC     = BIT(CT_WORK_SYNC_OFFSET),
+ 	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
+ };
+ 
 -- 
 2.49.0
 
