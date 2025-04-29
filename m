@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A27C3ABAD
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2C04C3ABAF
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lmzJbT/zv3N9O0/8n+UDbFmAxVoJNo1SifnjPsro9dA=; b=lAUZm3iRjbrZWz
-	/R4nsjaPpJ5n8VUt29khKfUxadNzggN+dxZnxhgLwpZ8ZIQL5r5s1ouR0yWqf7LTnFijFQN1QpTq5
-	ghSWJOzF4XtRlzqBHdiB83hQkyo6Mddv4wXlL1ZZzN+EjRi56DBMM9Rb1+umWQTH5Eqrv0gLLB9jL
-	+Y9/Xuqo0tbVecujnHNaJQ11xdCAGIsMyhFRR0LwUk3uq1mL1pMzUuMo9cLGL5YPVtXaqrtKL4ipK
-	+aljloWFWqvTnk29Gpv4mvhE6RUX0d4ktbrA3zdaF+MFWzk5EAk1+WZaT3+efbor3Hu9WyNH+bOSo
-	8V8OW91DdoWaNak0OlZg==;
+	List-Owner; bh=YKRWtII9bp3uWU39PhCHn1zbLmQzOH0qIcijdMhnFOw=; b=4tF4WSfHF4R8Nz
+	Wo4c15r2KBGsreB0TYNmWgHrgolqF9nazk1U+ryyA3MIOyRdT03oHd5CY0vs3nF7sR4cDrBWjdd5b
+	MRign80Qyw4aaESUfqSovVFvCJk4+RGAs70PPUGMdtsPL2tNqzHmvjZeAK2Gih8cGOiFz6vyu0JXP
+	dzO46DXPdA/n5wTLr0Zn6l58w+BFLFWIMLIFhrXEcGvQUULFf1U0i4SUi7kvqerJ/5h6YSdz9ZGhv
+	ubGfsz1/sj+YEqu0rcuhIpFx7ResuICv++q6VEQk2Ltm3m87fKsH0oP9heV9mLiOCc42jcIm4yEa8
+	MgRTP9pfxbqHW5rNjaUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhk-00000009rrm-2rbr;
-	Tue, 29 Apr 2025 14:13:00 +0000
+	id 1u9lhh-00000009rq9-2uxS;
+	Tue, 29 Apr 2025 14:12:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jOY-00000009XaI-3Cl5
+	id 1u9jMg-00000009X3h-1WVY
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Apr 2025 11:45:02 +0000
+	Tue, 29 Apr 2025 11:43:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=o3MWKB0E6r0DhQH09qIedKGJMSXQAuEZVGL4WDfC1H0=; b=QwYDrySqmeyJr2Q96bWUysldEq
-	nNmtax0Z8lYJ8LUuwCUXO+XyDdK/zDvOIUyHu+K1hJboJu/fzRPV1ol9opi+Age3aK8tOWWrF9fec
-	bO25bZtcpYMJaEqCKksPGy+mcXnS9587cmVNtWmkW4E763dySAu/KFYQOXKvO3XHi/jbo4LvW7Sja
-	IGA9wGTsp+M+Cjk+s0j0M9IlTnnuEDl3ZwYr9Fb8eVkzzvYtzdJVeNS41E4TTiUK8R2ssH0uYpsca
-	O5T6QXmCNEJYyBbVG91fwjMb5CTYl0YT2DrM48ZjyUy35DpZ/x8tc+Q5kzsXyI6k6ugVRZqdv4yZQ
-	TZCVQscQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	bh=boHlb9VW5lBF1DESnR599lKlLKrAVEqa90mhXCcqUlU=; b=mX1ebFJrCJKHEafz0R7c22I+yH
+	DarIR1VcNzYUQZ3NF1F+OcQMMFRKz1j01v3fHyzmhFk/Erw5n5Vtm0cVwtTFmnPPM5iOYw7s8ATWy
+	MCvUuq2ChqwR890eywhTjR9FOvZAht9ffr8SYGIMOIcSorjeUCQANC99JIq8BfZh96IYYr50N6Hvw
+	tp7fDx7UQL9Mkvg3uTMgZDMYqoH12hRqMLlE+39U7G/xOZk4DzasWmyZasLPFU5ze3deX8/KOmXZH
+	h9Mb7zK1FFWjTUd5nM8MMXpYKuqXWEirgUxwZhdmtenqgu+Xog6dM/FR4uKL0g/VnmrAlTPK5lv02
+	huYBEGfA==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jOV-0000000DHuX-498R
+	id 1u9jMc-0000000DHaX-2YJS
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:45:01 +0000
+	Tue, 29 Apr 2025 11:43:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927098;
+	s=mimecast20190719; t=1745926981;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=o3MWKB0E6r0DhQH09qIedKGJMSXQAuEZVGL4WDfC1H0=;
-	b=GqRXkN/20vwMZr2tcyQD1jrexU0DfNGLaQPVXWgULCdS2+6RfbQijjn5ypN2Lxgo2vmlXe
-	IITVOPjzmwB6Fuw5vC9OkFPpTm20z7PlEQbbe8C/Mf+JzGsnR2zyP4P3dYwuH9PFgkAQ6c
-	V2s38Z4qXOPTeqpZKxH4SpYvkXEwL24=
+	bh=boHlb9VW5lBF1DESnR599lKlLKrAVEqa90mhXCcqUlU=;
+	b=elhNDUpHaVmxzgzeL92U1lCGkLt5AQ1fpzksiD+rpiAeDAY4RfZxoGP7ZmkX9T3iRwpi+z
+	jvGNo0wKy0+aIat/a9ziXMGtj4zpzZwUsNZ9LGkPa6QbPmNSEUbiSVcSBc5GT9CH/AFURD
+	ZRUgPTwfL1o0wggSEIeowt1G8ep0aQo=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927098;
+	s=mimecast20190719; t=1745926981;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=o3MWKB0E6r0DhQH09qIedKGJMSXQAuEZVGL4WDfC1H0=;
-	b=GqRXkN/20vwMZr2tcyQD1jrexU0DfNGLaQPVXWgULCdS2+6RfbQijjn5ypN2Lxgo2vmlXe
-	IITVOPjzmwB6Fuw5vC9OkFPpTm20z7PlEQbbe8C/Mf+JzGsnR2zyP4P3dYwuH9PFgkAQ6c
-	V2s38Z4qXOPTeqpZKxH4SpYvkXEwL24=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+	bh=boHlb9VW5lBF1DESnR599lKlLKrAVEqa90mhXCcqUlU=;
+	b=elhNDUpHaVmxzgzeL92U1lCGkLt5AQ1fpzksiD+rpiAeDAY4RfZxoGP7ZmkX9T3iRwpi+z
+	jvGNo0wKy0+aIat/a9ziXMGtj4zpzZwUsNZ9LGkPa6QbPmNSEUbiSVcSBc5GT9CH/AFURD
+	ZRUgPTwfL1o0wggSEIeowt1G8ep0aQo=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-484-ayQLBPO2OPy26KvLe-FVSg-1; Tue,
- 29 Apr 2025 07:44:56 -0400
-X-MC-Unique: ayQLBPO2OPy26KvLe-FVSg-1
-X-Mimecast-MFC-AGG-ID: ayQLBPO2OPy26KvLe-FVSg_1745927091
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-25-sPKCJ77MPxe-Wi8VmOXKtA-1; Tue,
+ 29 Apr 2025 07:42:56 -0400
+X-MC-Unique: sPKCJ77MPxe-Wi8VmOXKtA-1
+X-Mimecast-MFC-AGG-ID: sPKCJ77MPxe-Wi8VmOXKtA_1745926972
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 97FC31956089;
-	Tue, 29 Apr 2025 11:44:51 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 255621956077;
+	Tue, 29 Apr 2025 11:42:52 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8F03619560A3;
-	Tue, 29 Apr 2025 11:44:21 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4BE4E19560A3;
+	Tue, 29 Apr 2025 11:42:23 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -175,16 +175,16 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 22/25] module: Remove outdated comment about text_size
-Date: Tue, 29 Apr 2025 13:32:39 +0200
-Message-ID: <20250429113242.998312-23-vschneid@redhat.com>
+Subject: [PATCH v5 18/25] sched/clock, x86: Mark __sched_clock_stable key as allowed in .noinstr
+Date: Tue, 29 Apr 2025 13:32:35 +0200
+Message-ID: <20250429113242.998312-19-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_124500_203802_A8E74399 
-X-CRM114-Status: GOOD (  16.58  )
+X-CRM114-CacheID: sfid-20250429_124302_875622_393C695B 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,39 +201,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The text_size bit referred to by the comment has been removed as of commit
+Later commits will cause objtool to warn about static keys being used in
+.noinstr sections in order to safely defer instruction patching IPIs
+targeted at NOHZ_FULL CPUs.
 
-  ac3b43283923 ("module: replace module_layout with module_memory")
+__sched_clock_stable is used in .noinstr code, and can be modified at
+runtime (e.g. time_cpufreq_notifier()). Suppressing the text_poke_sync()
+IPI has little benefits for this key, as NOHZ_FULL is incompatible with an
+unstable TSC anyway.
 
-and is thus no longer relevant. Remove it and comment about the contents of
-the masks array instead.
+Mark it to let objtool know not to warn about it.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- kernel/module/main.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+ kernel/sched/clock.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/kernel/module/main.c b/kernel/module/main.c
-index a2859dc3eea66..b9f010daaa4c7 100644
---- a/kernel/module/main.c
-+++ b/kernel/module/main.c
-@@ -1562,12 +1562,11 @@ static void __layout_sections(struct module *mod, struct load_info *info, bool i
- {
- 	unsigned int m, i;
+diff --git a/kernel/sched/clock.c b/kernel/sched/clock.c
+index 200e5568b9894..e59986bc14a43 100644
+--- a/kernel/sched/clock.c
++++ b/kernel/sched/clock.c
+@@ -75,8 +75,11 @@ static DEFINE_STATIC_KEY_FALSE_RO(sched_clock_running);
+  *
+  * Similarly we start with __sched_clock_stable_early, thereby assuming we
+  * will become stable, such that there's only a single 1 -> 0 transition.
++ *
++ * Allowed in .noinstr as an unstable TLC is incompatible with NOHZ_FULL,
++ * thus the text patching IPI would be the least of our concerns.
+  */
+-static DEFINE_STATIC_KEY_FALSE(__sched_clock_stable);
++static DEFINE_STATIC_KEY_FALSE_NOINSTR(__sched_clock_stable);
+ static int __sched_clock_stable_early = 1;
  
-+	/*
-+	 * { Mask of required section header flags,
-+	 *   Mask of excluded section header flags }
-+	 */
- 	static const unsigned long masks[][2] = {
--		/*
--		 * NOTE: all executable code must be the first section
--		 * in this array; otherwise modify the text_size
--		 * finder in the two loops below
--		 */
- 		{ SHF_EXECINSTR | SHF_ALLOC, ARCH_SHF_SMALL },
- 		{ SHF_ALLOC, SHF_WRITE | ARCH_SHF_SMALL },
- 		{ SHF_RO_AFTER_INIT | SHF_ALLOC, ARCH_SHF_SMALL },
+ /*
 -- 
 2.49.0
 
