@@ -4,87 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97747C369DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 12:05:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67EB8C369DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 13:01:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OVd3XSGldKA0Upd6g/RE1J2j71uUg7EcGmgZaihzCLE=; b=2z7Iasi1dd3RUe
-	YE9BmO50PHvIiM8sC7iYujnP9W1TO0ADWY2KSoLMSMcdoUoykuF29Jr+INusjpUwb2iG6PZlWX6qi
-	WReK1YfUVGUJBzzmoJ6E+/C2nhGk9bw1p6Dff0QHnWH/aXFz5TXlAF76vLC7dd5Ph1mptZ2fsO/GP
-	/tb9saxoflxkTu3nOwT/ot6+FXKYtgLYZsd8Q2ck1bRvKuLCTx7JkYJ64EzPFuhXLSx1K1pbv535e
-	QQSUiXdqxWoBUUalok852OJvjdBHw+3s6+CjcMV0OSftkvBSd2O9Xsp1rU7Vp4MqRvAmRsjpXoNdQ
-	u3biuVS60dxkv2Vx8b3A==;
+	List-Owner; bh=gmPXX0y9H2evQd8QORL/4s77oCn2btnQwwCLZ9msq1g=; b=XzRcuSmuj3Q4z2
+	g9brBxak78U99ptNbTdR85CwVGddgNys962LBuExR45ywMKUqIA8N669r1fFfx1N3CzWPqVn5e+V5
+	NIG7/pECwwmc/T+cCaa2xWcT8Fk7wYyJgdqic23RUPxCVoYTCUsFqi4g6YY+a/rn60PCdsZBNvbML
+	8xZywi2NdDo6lIu23WaGWGIPs1lA4B3E7bjURUCI5m3G0rpE9/2Ud3cBicU1SDgLGpc4Q9IZlBfke
+	Xa3fahXFkZkfBROrWWl0mPLB0LrEGP78Jo13Xw3eY6qk8bPtVPdKLZqOuj1AxBYd2yFVtC+wgKnAL
+	aWdxE9KG8T9S4ei6smZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jiN-00000009bcU-17rQ;
-	Tue, 29 Apr 2025 12:05:31 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9kaG-00000009iGK-0nwz;
+	Tue, 29 Apr 2025 13:01:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jea-00000009azE-44zG
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Apr 2025 12:01:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=; b=lfyUkYp1vp5JWQDgQcFF7cDe/i
-	FGemTeU4krfap8Z5/vHSaGGV6OeVRwN2e/CJCijbn2SuLrmITWm1fDNN28SI8NSA99dtEWe3cBSAw
-	KX89VhYC6TpVo4SmalLiE0F6Oc1yGNzarVGTADbHmVoTQWs8ydBvO8Q0kjxYpB/4d9Hc+biy/VUS7
-	V60ZziQf53KEgx5XMGNwwu8kZT7x4xLJaRjCFx3CLQ3MpSvqzFKafLUdJWAoVdPkG8BYOvTqaHym/
-	mm7yWt1u8qcl1UFwOFQiR6GiFgl1IE1JSI9HmKusU/R/yUIbDmkavDBVMYgeFoaS/hP+hGgVKc0WW
-	lKFL80xQ==;
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jeX-0000000DJ0c-2ldY
+	id 1u9jLC-00000009Vgh-2vdp
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 12:01:35 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1745928092;
+	Tue, 29 Apr 2025 11:41:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1745926893;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=;
-	b=zs50VbMd5RPwPLLoES8n9vP5JDBeTma5SNNlVGcRoV8H+HTZB9R7c3aP96Cx9Mdk16UBvw
-	RNBgsv4/UFu6erZ5g3/N5FznYjJ+j9VDtBaL/2Xp3d4bHLZxM4p5RPk1QBLHFQRNAUPded
-	ZAvHlTtx0pMZtriVVtm/hXnjV/XbgvGa/dwybOQ9sxFsuIWG5Mkute9JbKpeXdOWtq1bEz
-	xIowuDFUr1928UvbunJnQ7VloI3F2d413tNzi2CVfU47z/FICZOHp0BMSN5ut9KsCz1lRY
-	JgFrPAIRedLPGsyCQwVlTHg4L6cfFlfj6ENHb+ybgKbD/F9vdItQo1jkpIVMLg==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1745928092;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GRN84yAGCbJ9jXd7YMFr0fN4dU5tvyZpKeky5D5bT9k=;
-	b=kUuJdrB1DQ5Z21gxVBukh/xivxxLllH4B3gcRA6T9DaPj9+cx0CMQe51sKURkyfvet4IL7
-	IsRe9NUtI2CELhCA==
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
+	bh=0OOf67lYUqPKctKAmCN90TJlQaAL2pWnlF+O50r9JuE=;
+	b=CurL3icUnmX2b2P2oBgombCIXfLDDib2td3wLx+x/FxzKl1ZTZr3MBpB071HekEf6WvsCN
+	HplQC0hm6yhizN1+7qTeb4MiT6Cf82rk929Yvj8cKnenYgWGxK3B/1cVapsJzFFgeglHBT
+	O+MAJW7McQbkt3zUn86UMDiidBQXw88=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-248--0ZifB14MF-ROg7gruMmbQ-1; Tue,
+ 29 Apr 2025 07:41:28 -0400
+X-MC-Unique: -0ZifB14MF-ROg7gruMmbQ-1
+X-Mimecast-MFC-AGG-ID: -0ZifB14MF-ROg7gruMmbQ_1745926883
+Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9D1681800876;
+	Tue, 29 Apr 2025 11:41:23 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8113119560A3;
+	Tue, 29 Apr 2025 11:40:54 +0000 (UTC)
+From: Valentin Schneider <vschneid@redhat.com>
+To: linux-kernel@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-riscv@lists.infradead.org,
+	linux-perf-users@vger.kernel.org,
+	kvm@vger.kernel.org,
+	linux-arch@vger.kernel.org,
+	linux-modules@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: john.ogness@linutronix.de,
-	Nam Cao <namcao@linutronix.de>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	rcu@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: Juri Lelli <juri.lelli@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Daniel Wagner <dwagner@suse.de>,
+	Petr Tesarik <ptesarik@suse.com>,
+	Nicolas Saenz Julienne <nsaenz@amazon.com>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 18/23] riscv: mm: Add page fault trace points
-Date: Tue, 29 Apr 2025 14:01:03 +0200
-Message-Id: <dbcd52978bc997a59181b3d22601bf7c3c8210ed.1745926331.git.namcao@linutronix.de>
-In-Reply-To: <cover.1745926331.git.namcao@linutronix.de>
-References: <cover.1745926331.git.namcao@linutronix.de>
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Petr Pavlu <petr.pavlu@suse.com>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	Daniel Gomez <da.gomez@samsung.com>,
+	Naveen N Rao <naveen@kernel.org>,
+	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joel@joelfernandes.org>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	Zqiang <qiang.zhang1211@gmail.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Kees Cook <kees@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
+	Rong Xu <xur@google.com>,
+	Rafael Aquini <aquini@redhat.com>,
+	Song Liu <song@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Brian Gerst <brgerst@gmail.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Benjamin Berg <benjamin.berg@intel.com>,
+	Vishal Annapurve <vannapurve@google.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	John Stultz <jstultz@google.com>,
+	Tiezhu Yang <yangtiezhu@loongson.cn>
+Subject: [PATCH v5 15/25] sched/clock: Mark sched_clock_running key as __ro_after_init
+Date: Tue, 29 Apr 2025 13:32:32 +0200
+Message-ID: <20250429113242.998312-16-vschneid@redhat.com>
+In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
+References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_130133_762390_C6ED41C6 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_044134_817672_667E9BB6 
+X-CRM114-Status: GOOD (  13.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,48 +176,30 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add page fault trace points, which are useful to implement RV monitor that
-watches page faults.
+sched_clock_running is only ever enabled in the __init functions
+sched_clock_init() and sched_clock_init_late(), and is never disabled. Mark
+it __ro_after_init.
 
-Signed-off-by: Nam Cao <namcao@linutronix.de>
-Acked-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-riscv@lists.infradead.org
----
- arch/riscv/mm/fault.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+ kernel/sched/clock.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/riscv/mm/fault.c b/arch/riscv/mm/fault.c
-index 0194324a0c50..04ed6f8acae4 100644
---- a/arch/riscv/mm/fault.c
-+++ b/arch/riscv/mm/fault.c
-@@ -20,6 +20,9 @@
- #include <asm/ptrace.h>
- #include <asm/tlbflush.h>
+diff --git a/kernel/sched/clock.c b/kernel/sched/clock.c
+index a09655b481402..200e5568b9894 100644
+--- a/kernel/sched/clock.c
++++ b/kernel/sched/clock.c
+@@ -66,7 +66,7 @@ notrace unsigned long long __weak sched_clock(void)
+ }
+ EXPORT_SYMBOL_GPL(sched_clock);
  
-+#define CREATE_TRACE_POINTS
-+#include <trace/events/exceptions.h>
-+
- #include "../kernel/head.h"
+-static DEFINE_STATIC_KEY_FALSE(sched_clock_running);
++static DEFINE_STATIC_KEY_FALSE_RO(sched_clock_running);
  
- static void show_pte(unsigned long addr)
-@@ -291,6 +294,11 @@ void handle_page_fault(struct pt_regs *regs)
- 	if (kprobe_page_fault(regs, cause))
- 		return;
- 
-+	if (user_mode(regs))
-+		trace_page_fault_user(addr, regs, cause);
-+	else
-+		trace_page_fault_kernel(addr, regs, cause);
-+
- 	/*
- 	 * Fault-in kernel-space virtual memory on-demand.
- 	 * The 'reference' page table is init_mm.pgd.
+ #ifdef CONFIG_HAVE_UNSTABLE_SCHED_CLOCK
+ /*
 -- 
-2.39.5
+2.49.0
 
 
 _______________________________________________
