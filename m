@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21978C3ABAB
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A0D2C3ABAC
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qrJhCMuXtqo1tfUN6ohkloBWKNIxqjUx8t43vZcbbr4=; b=0D34PcWgnI9yZP
-	gyVQEKgV1LPDGh81dhLGgtMZ4u941ze8GaBnQk5PRpvRCQrurIr0SYD7iigo9EdE0dJDrRIKYyVZL
-	OoUEho8EltqKvwNbqOoNxVt8DG1C7+zDOs/jThIqgyhsajKecv95l5PsWuIQA7ZozD5BWEC7LfyE2
-	nh2bvb9QtmsI0BxG/E2HSO+brxGvTKt769mxJvpR39bWcPpQmoNy6Q+k5F3Z4X9wnRznzsOBnMNqI
-	2htYov7lZuCsmPgHDc8p2feIiJnW+jE9EBr2Zo8ENGJE1b6XF7lNatTD4go5at0fTuJk7tTnKCyw8
-	tguiFID1VQMPNwHwkJBg==;
+	List-Owner; bh=iOzX0GuyGyLtuZZAI5oQG3fgnK+YGe1u5sjTygas6fA=; b=a/Y7agVfMs0I8c
+	JvBw50b0aDwbY+V45oy6V17IqbzDVHGCPjQcZ/BNvKC1RlzXE799Fcx/2gfbtUdqmJAjI7hoVtK/K
+	Cb5DFJXZP3A2AHcPUscql3R3qHJ+EISsdoNiKzY047/ZVytcp9yDcZXW5XwwFkS8aDSwSAi3YJzv4
+	Sg9Lygxh9Gl9HnKHRKIWBBkBk11fGIxHyDFkx31SCCvWKAHWYxVX7eaOC88t/rSZ4PlOuJtsGS8G4
+	1EBVWTDLBB99xxjSwA8+P4J9ES2e/5bG/Fb86CGkAzmqeV8rA1gtDf/LqppdLElKczsl4pt/2t+6S
+	xCtprYMMJ7EDzS18UW2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhj-00000009rrL-1w0t;
-	Tue, 29 Apr 2025 14:12:59 +0000
+	id 1u9lhi-00000009rqg-19H3;
+	Tue, 29 Apr 2025 14:12:58 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jNd-00000009XNI-04ZR
+	id 1u9jN8-00000009XFc-09Dx
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Apr 2025 11:44:05 +0000
+	Tue, 29 Apr 2025 11:43:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=wqyFVTvCpvC9uY0zhPN+h7Ken6XvEWjKZ8iIMxjWz98=; b=crIbrEXw5xMaTGwUOT9zllCHiF
-	LXyfoLQHA+1H+dIiJV5jmj/qZXjJyUQ8qPoz3hzjB7TvalMQ4qjO7Ourstu27mBijxz/BFiyhjM0K
-	jPgYB9r934J8CG7Bf0jHTVAxwhE27RUnlf1tC05IUabmMboL0rGaJpJSmjEWln6/PhGgstAKZe8xm
-	UX2OAfNU0RBKwomIrNGy3d87H6Xb49mg687s7B9bDXWu7xDai4hbB5IcKY/Pb4T8udPFpCSDRE+uZ
-	J4mCB032j1mNrqMO5d4DWA1HVTlwx7arrW3TaJTcJErLrbEi6HnXAphioBpcFacFMyVnkLR3ZyIBw
-	1YJ8d3DQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	bh=sI1gyKg8PTf2LVdQbf0nqD17wcONskLzHJWxlVIqF2k=; b=bETegd/ANR7FN8LtEn9qowxdMA
+	oNLhp86RYHMbyZKqjjv7D4fu4JO/bYEuPdikflsNDMuPvPqj76t7ehYqg1XDA6ioVAIfSdx5ABNJR
+	iQoKSaJbgyHxQHf0KBnu+HIdL9Bl3YL8+KTDX3DKyviDVylk0OJQ+8EnhOiFn3OCLE+tbbMbiFiz1
+	Jfhw6W864Jm5OE0r76fZv5DG+FTCpID5L3X34XaLMsnl6hAuTpWKYFzV+/VVaMW7ntByKkwqBbc2+
+	X78HnVWEmy7CS5KRvnEYWDLPZQeaD/apV93f0qvcRzgJrxmPH/+wKg739EgnzsBU1XQuITt3Cbgi4
+	TmpA8u7Q==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jNa-0000000DHk9-13bS
+	id 1u9jN3-0000000DHeX-1JVt
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:44:03 +0000
+	Tue, 29 Apr 2025 11:43:32 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927041;
+	s=mimecast20190719; t=1745927007;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wqyFVTvCpvC9uY0zhPN+h7Ken6XvEWjKZ8iIMxjWz98=;
-	b=ZuadNe1YsaPA5Plo83kVV0HG6k09ib3dHr6vRgGAfHH2NlwZUpnLu56glc9OKXHNiYdL8N
-	dokjJAEISu21uQdSbBJBUOCtMHQAsNc40lY4JNsaxWUE/UxJbcrUxNzFj3oV9gcq+I1qir
-	sNJNWwrgjEbZPGK6cZthqXvBT4LYPEg=
+	bh=sI1gyKg8PTf2LVdQbf0nqD17wcONskLzHJWxlVIqF2k=;
+	b=FtDJZgmVKpJrB9VpXz5ghQvV6podSgKJ61DtssMkR74fd6oikEzT2lcH1Cepv21kV1xx1Q
+	2kHUy++aaHuCJdo3PQZspqL4SicCPrZErgeZACKb4amAnsFRnNzjZ5OuUolJ5nxF/Tfszr
+	lJaDfsCwz9nao1WtVtUYEye5ZyXkynM=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927041;
+	s=mimecast20190719; t=1745927008;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=wqyFVTvCpvC9uY0zhPN+h7Ken6XvEWjKZ8iIMxjWz98=;
-	b=ZuadNe1YsaPA5Plo83kVV0HG6k09ib3dHr6vRgGAfHH2NlwZUpnLu56glc9OKXHNiYdL8N
-	dokjJAEISu21uQdSbBJBUOCtMHQAsNc40lY4JNsaxWUE/UxJbcrUxNzFj3oV9gcq+I1qir
-	sNJNWwrgjEbZPGK6cZthqXvBT4LYPEg=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+	bh=sI1gyKg8PTf2LVdQbf0nqD17wcONskLzHJWxlVIqF2k=;
+	b=Mh00YMAtFsv/o957H6SfbVFu3cBs6kXwF8CD24ETthkyKdj2PaqiwDwp3rNtQmHQPitHjW
+	ZZ2TK1LgQT6HZqcpxD+nKE6C9IVNzJdDvexcPa1bYzo/XWzLZngccCNIkC8FyBmKh3rbEK
+	W9h7nbcX2wSo4bE1b75ktZvsRHpL+EE=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-550-QarA7GnEPmC1tZynHFHkyA-1; Tue,
- 29 Apr 2025 07:43:55 -0400
-X-MC-Unique: QarA7GnEPmC1tZynHFHkyA-1
-X-Mimecast-MFC-AGG-ID: QarA7GnEPmC1tZynHFHkyA_1745927031
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-557-v7g10NnMPXm9mZDM1fLPjw-1; Tue,
+ 29 Apr 2025 07:43:26 -0400
+X-MC-Unique: v7g10NnMPXm9mZDM1fLPjw-1
+X-Mimecast-MFC-AGG-ID: v7g10NnMPXm9mZDM1fLPjw_1745927001
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 6ED81195608C;
-	Tue, 29 Apr 2025 11:43:51 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4857019560A3;
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B51F219560B0;
 	Tue, 29 Apr 2025 11:43:21 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AB8CA19560A3;
+	Tue, 29 Apr 2025 11:42:52 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -175,16 +175,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 20/25] stackleack: Mark stack_erasing_bypass key as allowed in .noinstr
-Date: Tue, 29 Apr 2025 13:32:37 +0200
-Message-ID: <20250429113242.998312-21-vschneid@redhat.com>
+Subject: [PATCH v5 19/25] KVM: VMX: Mark vmx_l1d_should flush and vmx_l1d_flush_cond keys as allowed in .noinstr
+Date: Tue, 29 Apr 2025 13:32:36 +0200
+Message-ID: <20250429113242.998312-20-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_124402_472413_4FB9BCD6 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250429_124329_572327_7ED5EC21 
+X-CRM114-Status: GOOD (  14.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -205,36 +205,41 @@ Later commits will cause objtool to warn about static keys being used in
 .noinstr sections in order to safely defer instruction patching IPIs
 targeted at NOHZ_FULL CPUs.
 
-stack_erasing_bypass is used in .noinstr code, and can be modified at runtime
-(proc/sys/kernel/stack_erasing write). However it is not expected that it
-will be  flipped during latency-sensitive operations, and thus shouldn't be
-a source of interference wrt the text patching IPI.
+These keys are used in .noinstr code, and can be modified at runtime
+(/proc/kernel/vmx* write). However it is not expected that they will be
+flipped during latency-sensitive operations, and thus shouldn't be a source
+of interference wrt the text patching IPI.
 
 Mark it to let objtool know not to warn about it.
 
 Reported-by: Josh Poimboeuf <jpoimboe@kernel.org>
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- kernel/stackleak.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ arch/x86/kvm/vmx/vmx.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-diff --git a/kernel/stackleak.c b/kernel/stackleak.c
-index bb65321761b43..51b24d1e04ba2 100644
---- a/kernel/stackleak.c
-+++ b/kernel/stackleak.c
-@@ -19,7 +19,11 @@
- #include <linux/sysctl.h>
- #include <linux/init.h>
+diff --git a/arch/x86/kvm/vmx/vmx.c b/arch/x86/kvm/vmx/vmx.c
+index 5c5766467a61d..00053458cd10c 100644
+--- a/arch/x86/kvm/vmx/vmx.c
++++ b/arch/x86/kvm/vmx/vmx.c
+@@ -225,8 +225,15 @@ module_param(pt_mode, int, S_IRUGO);
  
--static DEFINE_STATIC_KEY_FALSE(stack_erasing_bypass);
+ struct x86_pmu_lbr __ro_after_init vmx_lbr_caps;
+ 
+-static DEFINE_STATIC_KEY_FALSE(vmx_l1d_should_flush);
+-static DEFINE_STATIC_KEY_FALSE(vmx_l1d_flush_cond);
 +/*
-+ * This static key can only be modified via its sysctl interface. It is
-+ * expected it will remain stable during latency-senstive operations.
++ * Both of these static keys end up being used in .noinstr sections, however
++ * they are only modified:
++ * - at init
++ * - from a /proc/kernel/vmx* write
++ * thus during latency-sensitive operations they should remain stable.
 + */
-+static DEFINE_STATIC_KEY_FALSE_NOINSTR(stack_erasing_bypass);
++static DEFINE_STATIC_KEY_FALSE_NOINSTR(vmx_l1d_should_flush);
++static DEFINE_STATIC_KEY_FALSE_NOINSTR(vmx_l1d_flush_cond);
+ static DEFINE_MUTEX(vmx_l1d_flush_mutex);
  
- #ifdef CONFIG_SYSCTL
- static int stack_erasing_sysctl(const struct ctl_table *table, int write,
+ /* Storage for pre module init parameter parsing */
 -- 
 2.49.0
 
