@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A369EC3ABB0
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:41:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58A71C369DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/v1jj/rWc2iBxHrNHxPB864SjxPDld7vORKW1xw8ZYk=; b=4lR+reCFlVy8Je
-	SrxwtsLfbZXX32gfG1qre4k5OyvsCyoC9wlYVxgxO1g5jvDkiYsEsUoGA1BsaWh9hV+22/ROB5Gt8
-	C3MP7Kc/KPGU57sF9WljHWLnf5G+hdPYso+sYwiZKndmuFgweJjCxXb+ldQ4YMrRBOZqyYAA6RRj/
-	kTAjQF7bEsXMU9LxK0Jtz6mod2NPKyHQiLwUWYbYhC7a/uCmSTMO3DLMJSfitmpb31H1lucAjCfG4
-	CEQnXf662bNJe2olH3zKcikXihkN1N/1GZ2Aee1/A4rsN8WVbgAJJM7jA31xb6BbZU3O8CZbHCr1L
-	OZPFqCoHAHY8dtg9Jwsw==;
+	List-Owner; bh=bNpIqFx4F09vqWl7k/m2SoJrc8OdexcjhsLBk5Of7lc=; b=c53STwkyE//eF1
+	gzFPQ3UVDTgy/HGkHhsOPvRHOc/VQ0YrsZH8yQTEpvIlvtH+CBYeVzTtZZddvonG/Z1MZRSg0cP8C
+	5twANOgsKDPJ1S+gAFuaMKnsIJZQLODq77SWFxCotW4wptju9BCF/tfUc39EL9M7bJe5WY07h1M++
+	r+IwfCCH+5g5jLOI/qqm+NSRefoHCkXr+RjT6eaStb78yhEm3r6UK0oBBKf/Usv1caQD0Nl0fYQjR
+	pxtsSiZdxMOXS+VLsD3+hjklvz8xJE7BqWWOdxA3ELF/zBmSOLNQN5+2PxbtuTL4gktmwMvkOybkY
+	Eqxf+x8cscdXiXgKYSGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jLF-00000009Vkn-1bTE;
-	Tue, 29 Apr 2025 11:41:37 +0000
+	id 1u9jLD-00000009Vj7-2JbX;
+	Tue, 29 Apr 2025 11:41:35 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jHq-00000009UR5-0sh6
+	id 1u9jGo-00000009U4k-37o6
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:38:07 +0000
+	Tue, 29 Apr 2025 11:37:03 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745926685;
+	s=mimecast20190719; t=1745926621;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zIdMzqi05ENyrT+sofMzPcMpxbAubwN5RreZty44ENs=;
-	b=a9BhXrxiv7R36IjKSyl6ukLGqCBH3jjoyRUyGgggJHd799x2dg2BMVc6ED5TsAnH9xE5so
-	0Ogfzrx9ru+k2QdhWOqsWPQFG5OaLtleGZo33t++S9l+bBegYadCzQvWcTy87P12ScWHiJ
-	lmp+r/cFbwtlIw+21M3ShcBVr3mv/yg=
+	bh=4CTiBAD4Rti8TjMCJ1PZfvIzAnjCXNgCNln6LgIw/xA=;
+	b=fWRyAbFX5SPZlmWjnTspJFuQ0VHabX5Y4q2qjSC8UpeCCh5ivLQ1/G2kZ0ZwuS1qyZJ8+y
+	dbCXEv2cG9hxq828vxb32jLaQgKZAAyaaEK+dr+DdxdC8uJp4XyQyIz2JX4J5jxYo01pUA
+	EjsfqA0nE+h43ziQRPYXDdy8v0ZJ9mc=
 Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-301-N3DTrp0xMiyUfELpmI5d3A-1; Tue,
- 29 Apr 2025 07:38:01 -0400
-X-MC-Unique: N3DTrp0xMiyUfELpmI5d3A-1
-X-Mimecast-MFC-AGG-ID: N3DTrp0xMiyUfELpmI5d3A_1745926677
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-35-lV5VzKafOaWS0nCIxHHU5A-1; Tue,
+ 29 Apr 2025 07:36:59 -0400
+X-MC-Unique: lV5VzKafOaWS0nCIxHHU5A-1
+X-Mimecast-MFC-AGG-ID: lV5VzKafOaWS0nCIxHHU5A_1745926615
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C285D1956094;
-	Tue, 29 Apr 2025 11:37:56 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B386C195608E;
+	Tue, 29 Apr 2025 11:36:54 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9AF0519560AB;
-	Tue, 29 Apr 2025 11:37:26 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0CA5F19560AB;
+	Tue, 29 Apr 2025 11:36:23 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -150,16 +150,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 08/25] x86/idle: Mark x86_idle static call as __ro_after_init
-Date: Tue, 29 Apr 2025 13:32:25 +0200
-Message-ID: <20250429113242.998312-9-vschneid@redhat.com>
+Subject: [PATCH v5 06/25] static_call: Add read-only-after-init static calls
+Date: Tue, 29 Apr 2025 13:32:23 +0200
+Message-ID: <20250429113242.998312-7-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_043806_316127_6A71B435 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250429_043702_863641_787190CC 
+X-CRM114-Status: GOOD (  15.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,35 +176,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Later commits will cause objtool to warn about static calls being used in
-.noinstr sections in order to safely defer instruction patching IPIs
-targeted at NOHZ_FULL CPUs.
+From: Josh Poimboeuf <jpoimboe@kernel.org>
 
-x86_idle is updated in:
-o xen_set_default_idle() <- __init xen_arch_setup()
-o __init select_idle_routine()
+Deferring a code patching IPI is unsafe if the patched code is in a
+noinstr region.  In that case the text poke code must trigger an
+immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+CPU running in userspace.
 
-IOW purely init context, and can thus be marked as __ro_after_init.
+If a noinstr static call only needs to be patched during boot, its key
+can be made ro-after-init to ensure it will never be patched at runtime.
 
-Reported-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- arch/x86/kernel/process.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/static_call.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
 
-diff --git a/arch/x86/kernel/process.c b/arch/x86/kernel/process.c
-index 962c3ce39323e..90f31f8526aa4 100644
---- a/arch/x86/kernel/process.c
-+++ b/arch/x86/kernel/process.c
-@@ -752,7 +752,7 @@ void __cpuidle default_idle(void)
- EXPORT_SYMBOL(default_idle);
- #endif
+diff --git a/include/linux/static_call.h b/include/linux/static_call.h
+index 78a77a4ae0ea8..ea6ca57e2a829 100644
+--- a/include/linux/static_call.h
++++ b/include/linux/static_call.h
+@@ -192,6 +192,14 @@ extern long __static_call_return0(void);
+ 	};								\
+ 	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
  
--DEFINE_STATIC_CALL_NULL(x86_idle, default_idle);
-+DEFINE_STATIC_CALL_NULL_RO(x86_idle, default_idle);
++#define DEFINE_STATIC_CALL_RO(name, _func)				\
++	DECLARE_STATIC_CALL(name, _func);				\
++	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
++		.func = _func,						\
++		.type = 1,						\
++	};								\
++	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
++
+ #define DEFINE_STATIC_CALL_NULL(name, _func)				\
+ 	DECLARE_STATIC_CALL(name, _func);				\
+ 	struct static_call_key STATIC_CALL_KEY(name) = {		\
+@@ -200,6 +208,14 @@ extern long __static_call_return0(void);
+ 	};								\
+ 	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
  
- static bool x86_idle_set(void)
- {
++#define DEFINE_STATIC_CALL_NULL_RO(name, _func)				\
++	DECLARE_STATIC_CALL(name, _func);				\
++	struct static_call_key __ro_after_init STATIC_CALL_KEY(name) = {\
++		.func = NULL,						\
++		.type = 1,						\
++	};								\
++	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
++
+ #define DEFINE_STATIC_CALL_RET0(name, _func)				\
+ 	DECLARE_STATIC_CALL(name, _func);				\
+ 	struct static_call_key STATIC_CALL_KEY(name) = {		\
 -- 
 2.49.0
 
