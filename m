@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DEA1C369CB
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 03:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45A9DC3ABA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 05:50:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Mime-Version:Date:Cc:Subject:From:To:
-	Message-Id:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=LWaEj4KCGbEOrHnsB4KJqm9QqKtY06q9pTUFyVVkcsI=; b=4hcfnwU/RfOnMS
-	2bNnxDXrj6Ag0nwJISnofLIOmGv8MoN4p2LWLIaB75S0xOAcpwzvdFXxFZpkl3qryZymnDmWKoDEQ
-	2tfqVbma0YpMJ+QsdCqm95Y6vgQXekHauFpqUxHhibJlV1pFDpVdZVDnz1ewcN9nKpyXApQRFrc/g
-	ERdKRAeOyGZbGcjNuTBdA9ZMp9JMOSgqz5/H6qNlXui3M8ftWm7Fjga4lgaHZ6nv1WDRRG9x3f56e
-	oIINTGkUakoOsPCLE5Sx1o4x2/dR9lCneKvs76erOwMS9DPfc5WJ2j71svtnJ3e/AutubtV1Uphoz
-	Dmi7ng5ZWV5P+qKHSGsw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=AX/yWlTKtQQEpkvF1FxRjScn/0RwQcrd6n5P8McpIOo=; b=w4O+TW4dxk8T4L
+	YWA+Tv4ilpNm/gC0MYtvEPQot8aWJy8CQQBElE4IWdPIrKyPF4UYFLHnYVGMY6DAoqFJ8tC07v2Cw
+	IaruVMBK/rTRArok9mkJtv7o4smVio9uFQ5PmP1WzgvfQ2qlGUt9uuxb1J0SaVoM4eBbNbXP8Z+uI
+	ApGphu60rksIb+GNmiSHGLM3clOjtgu6iE15VOSbg2a3miW9daikPdPVN3re/MeA7VyAT72c4bHYC
+	A9J4s9itT8l07l/afdYBPRozFtr4/U59XjhkWgrGiuin3MtKXP9BrmsE3lOJIDHO5oGd/dD7xroOr
+	75v7fpTV4BvSs5w6QV6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9bpz-00000008Cj8-3A5x;
-	Tue, 29 Apr 2025 03:40:51 +0000
-Received: from sg-1-21.ptr.blmpb.com ([118.26.132.21])
+	id 1u9drE-00000008R8L-2HYa;
+	Tue, 29 Apr 2025 05:50:16 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9bpv-00000008CiM-1f7J
+	id 1u9drB-00000008R5f-3Gtq
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 03:40:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=s1; d=lanxincomputing-com.20200927.dkim.feishu.cn; t=1745898035;
-  h=from:subject:mime-version:from:date:message-id:subject:to:cc:
- reply-to:content-type:mime-version:in-reply-to:message-id;
- bh=A6YL4g9UyBSUEiuqfxS3Pp0bfMg6wdBLYwsmpoZyRY8=;
- b=ytvg3pEGOjKSKgcWJRLAKzORKI0VHKJDmPiJiUs9qd/fza74ZndKaTty4N2cE8aOcBRNQS
- x7ha8KWyAid9XLVJ/fVp7fK1vaUu9yKcVr0BoUda+Cm9sCy0hMTYGNdheOFmh00rnZsOje
- aR5VeTVaiK2+lTOXBcUXtck52ZTFZV1vpJUshB7m5Ve48lTpvdRfKacf2RQBmmRonG3mFF
- VavSnxlXMZPAPTpw49d0Szm8C6Q1mI433n4h4AKqmAlucA77/HXe5Wsrk9CaCFEfl4HSLH
- ndbf7zWNodP/iuhwe2tLasLV/+9hFfgct86rl8laHVo5LJ+zczyDQKoY0rGjVA==
-Message-Id: <20250429034007.578-1-xiangwencheng@lanxincomputing.com>
-X-Lms-Return-Path: <lba+268104a31+2129f5+lists.infradead.org+xiangwencheng@lanxincomputing.com>
-Received: from localhost.localdomain ([222.128.9.250]) by smtp.feishu.cn with ESMTP; Tue, 29 Apr 2025 11:40:32 +0800
-To: <tjeznach@rivosinc.com>
-From: "BillXiang" <xiangwencheng@lanxincomputing.com>
-Subject: [PATCH] iommu/riscv: fix use after free of riscv_iommu_domain
-X-Mailer: git-send-email 2.46.2.windows.1
-Cc: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>, 
-	<paul.walmsley@sifive.com>, <palmer@dabbelt.com>, 
-	<aou@eecs.berkeley.edu>, <alex@ghiti.fr>, <iommu@lists.linux.dev>, 
-	<linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, 
-	<xiangwencheng@lanxincomputing.com>
-Date: Tue, 29 Apr 2025 11:40:07 +0800
-Mime-Version: 1.0
-X-Original-From: BillXiang <xiangwencheng@lanxincomputing.com>
+	Tue, 29 Apr 2025 05:50:15 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-31062172698so58468091fa.0
+        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 22:50:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1745905812; x=1746510612; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HWfOibW0zJXCdtORmeJHJfO7jAlDvwO4GvsgR2VT7fc=;
+        b=dBFWHtKgBibY8hYdAK1PTIaLqV5EU9RpBlMbVkRwnq95NJW6QnpUsLtaHzm00iPsRB
+         uj1SD34Q/LBwtXyro0kgHwS7naZvjH/xIGNaDM7LoPvuFTu8v8QRNDoZIv8ucAoA2Edf
+         /TsgY/Hx17AN0Lf/JAsxzNL0SprgCESwxcWR6mpXmMO6uMFyizmtVdwKX2ek6L7SSZlg
+         HtRMXyeNjD6TCh/cEuQuDaFuS/gEchl+TTFVqOt8bdfjEX2aDcjp8XqtkgR9u7MSdyNi
+         /aN3OW7YbwxuuHZhM5msODnjP99c9mP+crCISLV6Z8IlJf4UXwYgMB7QhcztQg5syLvE
+         0MaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1745905812; x=1746510612;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=HWfOibW0zJXCdtORmeJHJfO7jAlDvwO4GvsgR2VT7fc=;
+        b=Mx85AixX+mfLShBw11rLg1oGwzVT26WllBbNss6fTNMXb+HExDykInSWUdm56/WN/N
+         XEsGnOtDCs144PD9lsAyx1kD0YIxaz1N6C1Cv4l8GWakPWJoAEgI2F5NfLBi4LkeQsT7
+         QH4YrLR2sfP03T01Mc73uL9jNCTKRDFAUSJw+vGXQZCWPVYdIIX7Nh1JJ4iKetY6Wquq
+         0zKRPZl9rvdvu09FLRp+1zh+PPHTkvtHJ/gqbTADK1ESd2WlqRzV8+EV8RZweQs31Zd1
+         pT8xWHqfI2OHS3PkVBhNXmdVUeHo7+c5RaW9v5oXqbYDfSIKZq7l7luWpsMbQio3+ls1
+         BIaw==
+X-Forwarded-Encrypted: i=1; AJvYcCUgRyeSvm97DU9fKQSoLCblYzulfMWs1ydzmqMKfds8AqcLO52JdJj2GVh6++W8gq+x3Lv2lmP++x62Aw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXPzcTCPmBtt5XQTl11RzJo5oddV2B6ncEA6uIKYuymFIJnqp5
+	UM1NMMtRQqXQhNawlT2uOqQkxEPmj0L8ZdYOSAI+WWgL0GkRpA+90zCofIC2m9xNtnfe8PMbuVI
+	QHvpAIAkNY0A1vfHqeouYm5n8f6xFgtnqcgGhmg==
+X-Gm-Gg: ASbGnctR2m54pqLfgpZk8vSGQWxXq7cBbs4mJaK92qPFt8wIQErb4wDOujTJ2sykrXH
+	zd5m5su2z02AfP7E9kb1HxDF+ktS9L8Llw2V7kByfIJ9pvpTb3xQez0d99cqqzb/+ymDIMgQFI6
+	d8bWDk8lVrWtc8RnJx1j7BAxLgXSlrMRcnzw==
+X-Google-Smtp-Source: AGHT+IEXIWagJECOG4RLoTrQYomZ3sHcSOAll8CYP8clhn9zHjblZNubHzN3OqgFWmMSijyY1wb9UjZJkI4zeEP4uLw=
+X-Received: by 2002:a2e:be9e:0:b0:30c:460f:f56 with SMTP id
+ 38308e7fff4ca-31d34d60533mr6426041fa.20.1745905811969; Mon, 28 Apr 2025
+ 22:50:11 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
+ <20250403112522.1566629-6-rkrcmar@ventanamicro.com> <CAAhSdy1RSpVCUzD+Aqbhh7aiQPmC2zdvuQfuOsmYNJrF3HxCsA@mail.gmail.com>
+ <D9IGVF0OY4WJ.1O1BX0M2LWUVM@ventanamicro.com>
+In-Reply-To: <D9IGVF0OY4WJ.1O1BX0M2LWUVM@ventanamicro.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Tue, 29 Apr 2025 11:20:00 +0530
+X-Gm-Features: ATxdqUGsRoK2KaLKI32KI2F__RZN-02oqDCocnMiqzg_aZlzW8XBSk76LkacWdo
+Message-ID: <CAK9=C2W3gLpeOmOcX3sp+J1zuBkWek7nO8tV79=gaWx+QZ6rgQ@mail.gmail.com>
+Subject: Re: [PATCH 3/5] KVM: RISC-V: remove unnecessary SBI reset state
+To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: Anup Patel <anup@brainfault.org>, kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
+	Mayuresh Chitale <mchitale@ventanamicro.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_204048_603801_56B25C22 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250428_225013_818234_9849000F 
+X-CRM114-Status: GOOD (  24.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,74 +95,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The function vfio_group_detach_container begins by calling
-vfio_iommu_type1_detach_group, which may subsequently calls
-riscv_iommu_free_paging_domain to release the riscv_iommu_domain.
-Then, iommu_group_release_dma_owner is triggered, which results in
-the execution of riscv_iommu_attach_paging_domain and
-riscv_iommu_bond_unlink(info->domain). However, the info->domain
-had been freed beforehand but was not set to NULL, leading to errors.
-
-This commit resolves the issue by setting info->domain to NULL within
-riscv_iommu_bond_unlink, a function that is called by
-riscv_iommu_attach_blocking_domain before the domain was freed.
-
-Signed-off-by: BillXiang <xiangwencheng@lanxincomputing.com>
----
- drivers/iommu/riscv/iommu.c | 14 +++++++++++++-
- 1 file changed, 13 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
-index bb57092ca901..f9e127978ac7 100644
---- a/drivers/iommu/riscv/iommu.c
-+++ b/drivers/iommu/riscv/iommu.c
-@@ -880,6 +880,7 @@ static void riscv_iommu_bond_unlink(struct riscv_iommu_domain *domain,
- 	struct riscv_iommu_device *iommu = dev_to_iommu(dev);
- 	struct riscv_iommu_bond *bond, *found = NULL;
- 	struct riscv_iommu_command cmd;
-+	struct riscv_iommu_info *info;
- 	int count = 0;
- 
- 	if (!domain)
-@@ -894,8 +895,11 @@ static void riscv_iommu_bond_unlink(struct riscv_iommu_domain *domain,
- 		else if (dev_to_iommu(bond->dev) == iommu)
- 			count++;
- 	}
--	if (found)
-+	if (found) {
-+		info = dev_iommu_priv_get(dev);
-+		info->domain = NULL;
- 		list_del_rcu(&found->list);
-+	}
- 	spin_unlock(&domain->lock);
- 	kfree_rcu(found, rcu);
- 
-@@ -1293,8 +1297,16 @@ static void riscv_iommu_free_paging_domain(struct iommu_domain *iommu_domain)
- {
- 	struct riscv_iommu_domain *domain = iommu_domain_to_riscv(iommu_domain);
- 	const unsigned long pfn = virt_to_pfn(domain->pgd_root);
-+	struct riscv_iommu_bond *bond;
-+	struct riscv_iommu_info *info;
- 
- 	WARN_ON(!list_empty(&domain->bonds));
-+	spin_lock(&domain->lock);
-+	list_for_each_entry(bond, &domain->bonds, list) {
-+		info = dev_iommu_priv_get(bond->dev);
-+		info->domain = NULL;
-+	}
-+	spin_unlock(&domain->lock);
- 
- 	if ((int)domain->pscid > 0)
- 		ida_free(&riscv_iommu_pscids, domain->pscid);
--- 
-2.46.2.windows.1
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMjgsIDIwMjUgYXQgMTE6MzHigK9QTSBSYWRpbSBLcsSNbcOhxZkgPHJrcmNt
+YXJAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4KPiAyMDI1LTA0LTI4VDE3OjQ2OjAxKzA1OjMw
+LCBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPjoKPiA+IE9uIFRodSwgQXByIDMsIDIw
+MjUgYXQgNTowMuKAr1BNIFJhZGltIEtyxI1tw6HFmSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29t
+PiB3cm90ZToKPiA+Pgo+ID4+IFRoZSBTQkkgcmVzZXQgc3RhdGUgaGFzIG9ubHkgdHdvIHZhcmlh
+YmxlcyAtLSBwYyBhbmQgYTEuCj4gPj4gVGhlIHJlc3QgaXMga25vd24sIHNvIGtlZXAgb25seSB0
+aGUgbmVjZXNzYXJ5IGluZm9ybWF0aW9uLgo+ID4+Cj4gPj4gVGhlIHJlc2V0IHN0cnVjdHVyZXMg
+bWFrZSBzZW5zZSBpZiB3ZSB3YW50IHVzZXJzcGFjZSB0byBjb250cm9sIHRoZQo+ID4+IHJlc2V0
+IHN0YXRlICh3aGljaCB3ZSBkbyksIGJ1dCBJJ2Qgc3RpbGwgcmVtb3ZlIHRoZW0gbm93IGFuZCBy
+ZWludHJvZHVjZQo+ID4+IHdpdGggdGhlIHVzZXJzcGFjZSBpbnRlcmZhY2UgbGF0ZXIgLS0gd2Ug
+Y291bGQgcHJvYmFibHkgaGF2ZSBqdXN0IGEKPiA+PiBzaW5nbGUgcmVzZXQgc3RhdGUgcGVyIFZN
+LCBpbnN0ZWFkIG9mIGEgcmVzZXQgc3RhdGUgZm9yIGVhY2ggVkNQVS4KPiA+Cj4gPiBUaGUgU0JJ
+IHNwZWMgZG9lcyBub3QgZGVmaW5lIHRoZSByZXNldCBzdGF0ZSBvZiBDUFVzLiBUaGUgU0JJCj4g
+PiBpbXBsZW1lbnRhdGlvbnMgKGFrYSBLVk0gUklTQy1WIG9yIE9wZW5TQkkpIG9yIHBsYXRmb3Jt
+Cj4gPiBmaXJtd2FyZXMgYXJlIGZyZWUgdG8gY2xlYXIgYWRkaXRpb25hbCByZWdpc3RlcnMgYXMg
+cGFydCBzeXN0ZW0KPiA+IHJlc2V0IG9yIENQVS4KPiA+Cj4gPiBBcyBwYXJ0IG9mIHJlc2V0dGlu
+ZyB0aGUgVkNQVSwgdGhlIGluLWtlcm5lbCBLVk0gY2xlYXJzIGFsbAo+ID4gdGhlIHJlZ2lzdGVy
+cy4KPgo+IFllcywgYnV0IGluc3RlYWQgb2YgZG9pbmcgYSBzaW1wbGUgbWVtc2V0KDApLCBLVk0g
+Y2FycmllcnMgYXJvdW5kIGEgbG90Cj4gb2YgZGF0YSB3aXRoIG1pbmltYWwgaW5mb3JtYXRpb24g
+dmFsdWUuICBSZXNldCBpcyBub3QgcmVhbGx5IGEgZmFzdAo+IHBhdGgsIHNvIEkgdGhpbmsgaXQg
+d291bGQgYmUgZ29vZCB0byBoYXZlIHRoZSBjb2RlIHRoZXJlIGFzIHNpbXBsZSBhcwo+IHBvc3Np
+YmxlLgo+Cj4gPiBUaGUgc2V0dGluZyBvZiBQQywgQTAsIGFuZCBBMSBpcyBvbmx5IGFuIGVudHJ5
+IGNvbmRpdGlvbiBkZWZpbmVkCj4gPiBmb3IgQ1BVcyBicm91Z2h0LXVwIHVzaW5nIFNCSSBIU00g
+c3RhcnQgb3IgU0JJIFN5c3RlbSBzdXNwZW5kLgo+Cj4gVGhhdCBpcyB3aHkgdGhpcyBwYXRjaCBo
+YXMgdG8gYWRkIGt2bV92Y3B1X3Jlc2V0X3N0YXRlLCB0byByZW1lbWJlciB0aGUKPiBzdGF0ZSBv
+ZiBwYyBhbmQgYTEuICAoYTAgaXMgaGFydCBpZCBhbmQgY2FuIGJlIGZpZ3VyZWQgb3V0LikKPgo+
+ID4gV2Ugc2hvdWxkIG5vdCBnbyBhaGVhZCB3aXRoIHRoaXMgcGF0Y2guCj4KPiBUaGlzIHBhdGNo
+IG9ubHkgZG9lcyByZWZhY3RvcmluZy4gIERvIHlvdSB0aGluayB0aGUgY3VycmVudCByZXNldAo+
+IHN0cnVjdHVyZXMgYXJlIGJldHRlcj8KPgoKSSBhbSBmaW5lIGdldHRpbmcgcmlkIG9mIHJlc2V0
+IHN0cnVjdHVyZXMgYXMgbG9uZyBhcyB3ZSBoYXZlCm1lbXNldCgwKSBpbi1wbGFjZSB0byBhY2hp
+ZXZlIHRoZSBzYW1lIHRoaW5nLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
