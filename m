@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA400C369DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 16:21:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 185DCC3ABA5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 16:35:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=IZOluMrSvFDYylKJ7Lx49cAIGn2bo7Brbw4cqCnvtkI=; b=fVmvPHzFT7DaxK
-	Xu8xZApD7ZtyPYgSAqD8SM4NZ80p10h+OfLgwl5HFjDUyqCxYId2/VZy0+w9Zex/rTgF04K5aA1ak
-	tnGHrjLxGLmPOyDOBzFK9RHhev17Z2Uno7sZL5dr0k5pSpGDeBZwOnXNsyTAQjFfBbA0HGoEizBu/
-	8XYa6y7OMhIzAtFV63Y1vYoKBwkzAII+kkRNC1CqQtEHAICRv5JCrKXAqNCUZIgqQ61tqr2k0iyBV
-	jYlUxV/BlNQV0a/MSmAQJWkJx8FPh8mdMFjc8KldCseWN9SJNBqITxM4QtetdikIPQbDskg6D+jJ0
-	MkrlK0G+Zn3Q86bwZX5w==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fu59TR9n003xE21/yZyrOj7Gd567a4zQqhelulIR7XA=; b=oE3mxcJrFHZLoL
+	i3UY4L6+X5tHPFfuul+svfCsVaFqX60PmZdl94nfDsiPmcfers+p9dqyDpaQRJT4LIm4hGst063SC
+	q9kFE7Na2P/7WOGayhLj9BKdbredwT6v+IAwn/X77fhxRCcDRIubJLCU9+qh3eE90MdPaHV8G/Tlv
+	hiQDJVcGQ9pIcYPP659tgKDAiGiEsoc66d2Bm0ubB46OjSAPCkYsnwQ3fjytUtoNV0hV/5U+XJxhb
+	8mjFi5T16z8aX2Z3D3POmpSSBwCE8+pW4P0mUBqhfRZ+/i+Pd7y4ecyS0cmTJT5dv6NmL6M+TDK1B
+	yMtBQhCXsYqrUNqln3eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ni2-0000000AEwv-2WAP;
-	Tue, 29 Apr 2025 16:21:26 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1u9nvA-0000000AGon-0q5N;
+	Tue, 29 Apr 2025 16:35:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9nbL-0000000AE14-3OdX
+	id 1u9nrV-0000000AG2o-1R2Z
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 16:14:33 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1745943268;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qfL69VYEddMdBXsaXEyqXWeD+E6YG/rOeJLtsomd1uc=;
-	b=aJVgesEDYo+Wr3Ayn7ihOQ3s194qDIi4yeVcaO8nUIYjoOK+4qu1BRRB20IxXvF0t3M6zr
-	p/MUKqyNPcwVSjXploZCfOzJ/PIOjJrmo2M1eNLOTEEW+im0LrMV6XChBlxz3qCHWBLqcN
-	L8OWoRUoN/3T2O4n94bpW5oNnKXVzulzJeal+u+z5Kl0sOZZYHOgvPnIeoSiR7Y0iDjIDf
-	sbQmcAcGDjCrjMiEYKinjBU9ZlD5jupKYGbG4b9Sw4Y5tBr3tDHYjF0lMd4R6MuQzUkZ2w
-	qpcRVAT3WoozOvgrU3nMzzWNJXrT9GqyOvim1T1+tdfD43+zk1um7+gfWh6pxw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1745943268;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=qfL69VYEddMdBXsaXEyqXWeD+E6YG/rOeJLtsomd1uc=;
-	b=Lec00RY2NYzaBrbxa4Kahhmevdr2Ln760zQu6wLFShDGlR0rXTDIplE3tOUEQEsZ1geURU
-	FZo2MPZUa8oJQ7Dg==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org
-Cc: Kai Zhang <zhangkai@iscas.ac.cn>,
+	Tue, 29 Apr 2025 16:31:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDCA5A4AFA6;
+	Tue, 29 Apr 2025 16:25:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C47CAC4CEE3;
+	Tue, 29 Apr 2025 16:31:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1745944272;
+	bh=dp1B5zOvRveNyTwwk3MQebtsan6h8klv0nIzLbZxH4k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=K3Ixu6Az23E18jvbtxtm+rAG1V8Yn/E7bnzmNTNahHTP6SlUdRj23WeR7y3YExtA6
+	 1CDp3wqRw2IouWVPrSEshyhcgR0h60DDlfGBn9XPzgT2xhz6O4xTulWhCV1oTWegQQ
+	 SbuAXA2bnA2l3ASViOzNhNajFrx91y1vgbI3shnw=
+Date: Tue, 29 Apr 2025 18:31:09 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Nam Cao <namcao@linutronix.de>
+Cc: stable@vger.kernel.org, Kai Zhang <zhangkai@iscas.ac.cn>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
 	Samuel Holland <samuel.holland@sifive.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Nam Cao <namcao@linutronix.de>
-Subject: [PATCH stable v6.6] riscv: kprobes: Fix wrong lengths passed to patch_text_nosync()
-Date: Tue, 29 Apr 2025 18:14:18 +0200
-Message-Id: <20250429161418.838564-1-namcao@linutronix.de>
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH stable v6.6] riscv: kprobes: Fix wrong lengths passed to
+ patch_text_nosync()
+Message-ID: <2025042945-financial-rumbling-bcd0@gregkh>
+References: <20250429161418.838564-1-namcao@linutronix.de>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250429161418.838564-1-namcao@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_091431_986894_04959B69 
-X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-CacheID: sfid-20250429_093113_446513_27AA6F40 
+X-CRM114-Status: UNSURE (   9.49  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,42 +75,23 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Unlike patch_text(), patch_text_nosync() takes the length in bytes, not
-number of instructions. It is therefore wrong for arch_prepare_ss_slot() to
-pass length=1 while patching one instruction.
+On Tue, Apr 29, 2025 at 06:14:18PM +0200, Nam Cao wrote:
+> Unlike patch_text(), patch_text_nosync() takes the length in bytes, not
+> number of instructions. It is therefore wrong for arch_prepare_ss_slot() to
+> pass length=1 while patching one instruction.
+> 
+> This bug was introduced by commit b1756750a397 ("riscv: kprobes: Use
+> patch_text_nosync() for insn slots"). It has been fixed upstream by commit
+> 51781ce8f448 ("riscv: Pass patch_text() the length in bytes"). However,
+> beside fixing this bug, this commit does many other things, making it
+> unsuitable for backporting.
 
-This bug was introduced by commit b1756750a397 ("riscv: kprobes: Use
-patch_text_nosync() for insn slots"). It has been fixed upstream by commit
-51781ce8f448 ("riscv: Pass patch_text() the length in bytes"). However,
-beside fixing this bug, this commit does many other things, making it
-unsuitable for backporting.
+We would almost always want the original commit, why not just send that
+instead?  What is wrong with it being in here as-is?
 
-Fix it by properly passing the lengths in bytes.
+thanks,
 
-Fixes: b1756750a397 ("riscv: kprobes: Use patch_text_nosync() for insn slots")
-Signed-off-by: Nam Cao <namcao@linutronix.de>
----
- arch/riscv/kernel/probes/kprobes.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/kernel/probes/kprobes.c b/arch/riscv/kernel/probes/kprobes.c
-index 4fbc70e823f0..dc431b965bc3 100644
---- a/arch/riscv/kernel/probes/kprobes.c
-+++ b/arch/riscv/kernel/probes/kprobes.c
-@@ -28,8 +28,8 @@ static void __kprobes arch_prepare_ss_slot(struct kprobe *p)
- 
- 	p->ainsn.api.restore = (unsigned long)p->addr + offset;
- 
--	patch_text_nosync(p->ainsn.api.insn, &p->opcode, 1);
--	patch_text_nosync((void *)p->ainsn.api.insn + offset, &insn, 1);
-+	patch_text_nosync(p->ainsn.api.insn, &p->opcode, offset);
-+	patch_text_nosync((void *)p->ainsn.api.insn + offset, &insn, sizeof(insn));
- }
- 
- static void __kprobes arch_prepare_simulate(struct kprobe *p)
--- 
-2.39.5
-
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
