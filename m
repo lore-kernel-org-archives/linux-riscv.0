@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5F5DC3ABAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA6F5C3ABAD
 	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:41:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LpbNYiCaOawtHfDuSAP9L+76ZB5CBvylPj0s4Q/BNdg=; b=iImL0HZ9+X2FC+
-	ZyaMiFSmkNABfIWD9KETKUEAc3GHspidVXDyXmgSITxbiR8tndOn5r3aDeqrOjG5lyy6ZYSHnwnMp
-	OjNY6UE1Few6Ua7qwNJOjzE51Ko7UemCmHqKUr1B2hRgNRKJubA7Sut2q0f1ANYCn3aZ5fewKDJbo
-	+AFpq3YO1o7Z+i6pQwCGyDaPPknZ8EyPVTK5TZsvsdeD9IFiQKamttXwIqpGhdLo3C9sVDfEdHGXC
-	nvO1qazFasnfibgcxZkT1neKWaSQvYFG7/iExIJpS/WEssRsNZn1yexrZxTk0NYqNdAjUynMrpyNQ
-	7i0HE17j+aD+YxB9TsFA==;
+	List-Owner; bh=TcqdH7O5G2JcUinTQujp0rZGBzLOVF/zQYxHgVFk5PE=; b=0QqoAn663pbuqK
+	tk0JIjCuf2HBVmLE69V1/SRqcs44/SaSWr9Z8yjlPF9CemXE3cUIPuCUqf8hacC30ggCuDWLF92q2
+	XlO7pJOOUok2g+M1UoPBnmnhhnGtdbfkn0R70ZxvKutOU7O3Me2b0JzT1xxekl7yvXVKwe91TN28h
+	Ivy7WyTztgrQWWMy5M4nWpWwPPCZ5XMEKUNUSQU233YBM2mJ+jflRmgvZQnw1EtgygWVTZ8PjWNMh
+	VJhAwjOgc0S3Wi4s+dkqCa4yfx6F6Tm6z82iB8DTrcygkewdHhV0ew0RLh+N0yNk1sP9vqeG6iu0A
+	wldEKtpTSKdQOUScJwlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jL9-00000009VeZ-3Mhv;
-	Tue, 29 Apr 2025 11:41:31 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u9jLB-00000009VgH-1owI;
+	Tue, 29 Apr 2025 11:41:33 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jEI-00000009T1X-2HxH
+	id 1u9jFN-00000009TTb-0kzU
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:34:28 +0000
+	Tue, 29 Apr 2025 11:35:34 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745926465;
+	s=mimecast20190719; t=1745926532;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=zg58JxmHKhWWUoDaZMgkLto/tyv23WpECMmjdzPtlcw=;
-	b=D01l14XBScRDO+BEOSLwrBpsAmrQJK5id9J3yJ5d/HbS8cLrS26FZKc6l98+k73P55n6i/
-	wJBmHw+vCPep6SqCEtZjfHxFAz5Bi4152gioBVPP2Uv5vh52gFKUcWu0SvQxUh0AXg+pat
-	ILwJh3A7LUcwxjE1MF/JWdioLLBOwDk=
+	bh=j22zCiG1QeZqN2QTD8en4iFokp5KdRN8Nk5nlhe9lkc=;
+	b=YMr8FWmV2YltBYkmIZTyDf/LegBHxNMGlcmjj283sT13wpTNK1WrSGAIQ6eG1QUVBfq8iq
+	vzTqb+Vhg8hfonYOZUoGkWBtqeNMGhaMd/4o4xVZ16jmG7yhPW3CHHUarHaG/MGVAZtnHM
+	OMDBaim/cUqvqmfoVHCtjuS9FZJQ3xg=
 Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-493-3pHjQIe0MlKhWZ_jNury2w-1; Tue,
- 29 Apr 2025 07:34:21 -0400
-X-MC-Unique: 3pHjQIe0MlKhWZ_jNury2w-1
-X-Mimecast-MFC-AGG-ID: 3pHjQIe0MlKhWZ_jNury2w_1745926457
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-578-EZauQ7llMYeHbKRhj0EfkA-1; Tue,
+ 29 Apr 2025 07:35:28 -0400
+X-MC-Unique: EZauQ7llMYeHbKRhj0EfkA-1
+X-Mimecast-MFC-AGG-ID: EZauQ7llMYeHbKRhj0EfkA_1745926524
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 679A11800264;
-	Tue, 29 Apr 2025 11:34:16 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DC50E1800984;
+	Tue, 29 Apr 2025 11:35:23 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 20ACE19560AB;
-	Tue, 29 Apr 2025 11:33:43 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EDD1F19560A3;
+	Tue, 29 Apr 2025 11:34:53 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -68,15 +68,15 @@ To: linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	bpf@vger.kernel.org
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
+Cc: "Paul E. McKenney" <paulmck@kernel.org>,
+	Frederic Weisbecker <frederic@kernel.org>,
 	Juri Lelli <juri.lelli@redhat.com>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Yair Podemsky <ypodemsk@redhat.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>,
 	Nicolas Saenz Julienne <nsaenz@amazon.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
 	Sean Christopherson <seanjc@google.com>,
 	Juergen Gross <jgross@suse.com>,
@@ -150,16 +150,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 01/25] objtool: Make validate_call() recognize indirect calls to pv_ops[]
-Date: Tue, 29 Apr 2025 13:32:18 +0200
-Message-ID: <20250429113242.998312-2-vschneid@redhat.com>
+Subject: [PATCH v5 03/25] rcu: Add a small-width RCU watching counter debug option
+Date: Tue, 29 Apr 2025 13:32:20 +0200
+Message-ID: <20250429113242.998312-4-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_043426_654823_43CDD5E0 
-X-CRM114-Status: GOOD (  15.62  )
+X-CRM114-CacheID: sfid-20250429_043533_282307_070503F4 
+X-CRM114-Status: GOOD (  19.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,75 +176,112 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-call_dest_name() does not get passed the file pointer of validate_call(),
-which means its invocation of insn_reloc() will always return NULL. Make it
-take a file pointer.
+A later commit will reduce the size of the RCU watching counter to free up
+some bits for another purpose. Paul suggested adding a config option to
+test the extreme case where the counter is reduced to its minimum usable
+width for rcutorture to poke at, so do that.
 
-While at it, make sure call_dest_name() uses arch_dest_reloc_offset(),
-otherwise it gets the pv_ops[] offset wrong.
+Make it only configurable under RCU_EXPERT. While at it, add a comment to
+explain the layout of context_tracking->state.
 
-Fabricating an intentional warning shows the change; previously:
-
-  vmlinux.o: warning: objtool: __flush_tlb_all_noinstr+0x4: call to {dynamic}() leaves .noinstr.text section
-
-now:
-
-  vmlinux.o: warning: objtool: __flush_tlb_all_noinstr+0x4: call to pv_ops[1]() leaves .noinstr.text section
-
+Link: http://lore.kernel.org/r/4c2cb573-168f-4806-b1d9-164e8276e66a@paulmck-laptop
+Suggested-by: Paul E. McKenney <paulmck@kernel.org>
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-Acked-by: Josh Poimboeuf <jpoimboe@kernel.org>
+Reviewed-by: Paul E. McKenney <paulmck@kernel.org>
+Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- tools/objtool/check.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ include/linux/context_tracking_state.h | 44 ++++++++++++++++++++++----
+ kernel/rcu/Kconfig.debug               | 15 +++++++++
+ 2 files changed, 52 insertions(+), 7 deletions(-)
 
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 3a411064fa34b..973dfc8fde792 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -3319,7 +3319,7 @@ static inline bool func_uaccess_safe(struct symbol *func)
- 	return false;
- }
+diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
+index 7b8433d5a8efe..0b81248aa03e2 100644
+--- a/include/linux/context_tracking_state.h
++++ b/include/linux/context_tracking_state.h
+@@ -18,12 +18,6 @@ enum ctx_state {
+ 	CT_STATE_MAX		= 4,
+ };
  
--static inline const char *call_dest_name(struct instruction *insn)
-+static inline const char *call_dest_name(struct objtool_file *file, struct instruction *insn)
- {
- 	static char pvname[19];
- 	struct reloc *reloc;
-@@ -3328,9 +3328,9 @@ static inline const char *call_dest_name(struct instruction *insn)
- 	if (insn_call_dest(insn))
- 		return insn_call_dest(insn)->name;
+-/* Odd value for watching, else even. */
+-#define CT_RCU_WATCHING CT_STATE_MAX
+-
+-#define CT_STATE_MASK (CT_STATE_MAX - 1)
+-#define CT_RCU_WATCHING_MASK (~CT_STATE_MASK)
+-
+ struct context_tracking {
+ #ifdef CONFIG_CONTEXT_TRACKING_USER
+ 	/*
+@@ -44,9 +38,45 @@ struct context_tracking {
+ #endif
+ };
  
--	reloc = insn_reloc(NULL, insn);
-+	reloc = insn_reloc(file, insn);
- 	if (reloc && !strcmp(reloc->sym->name, "pv_ops")) {
--		idx = (reloc_addend(reloc) / sizeof(void *));
-+		idx = (arch_dest_reloc_offset(reloc_addend(reloc)) / sizeof(void *));
- 		snprintf(pvname, sizeof(pvname), "pv_ops[%d]", idx);
- 		return pvname;
- 	}
-@@ -3409,17 +3409,19 @@ static int validate_call(struct objtool_file *file,
- {
- 	if (state->noinstr && state->instr <= 0 &&
- 	    !noinstr_call_dest(file, insn, insn_call_dest(insn))) {
--		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(file, insn));
- 		return 1;
- 	}
++/*
++ * We cram two different things within the same atomic variable:
++ *
++ *                     CT_RCU_WATCHING_START  CT_STATE_START
++ *                                |                |
++ *                                v                v
++ *     MSB [ RCU watching counter ][ context_state ] LSB
++ *         ^                       ^
++ *         |                       |
++ * CT_RCU_WATCHING_END        CT_STATE_END
++ *
++ * Bits are used from the LSB upwards, so unused bits (if any) will always be in
++ * upper bits of the variable.
++ */
+ #ifdef CONFIG_CONTEXT_TRACKING
++#define CT_SIZE (sizeof(((struct context_tracking *)0)->state) * BITS_PER_BYTE)
++
++#define CT_STATE_WIDTH bits_per(CT_STATE_MAX - 1)
++#define CT_STATE_START 0
++#define CT_STATE_END   (CT_STATE_START + CT_STATE_WIDTH - 1)
++
++#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_STATE_WIDTH)
++#define CT_RCU_WATCHING_WIDTH     (IS_ENABLED(CONFIG_RCU_DYNTICKS_TORTURE) ? 2 : CT_RCU_WATCHING_MAX_WIDTH)
++#define CT_RCU_WATCHING_START     (CT_STATE_END + 1)
++#define CT_RCU_WATCHING_END       (CT_RCU_WATCHING_START + CT_RCU_WATCHING_WIDTH - 1)
++#define CT_RCU_WATCHING           BIT(CT_RCU_WATCHING_START)
++
++#define CT_STATE_MASK        GENMASK(CT_STATE_END,        CT_STATE_START)
++#define CT_RCU_WATCHING_MASK GENMASK(CT_RCU_WATCHING_END, CT_RCU_WATCHING_START)
++
++#define CT_UNUSED_WIDTH (CT_RCU_WATCHING_MAX_WIDTH - CT_RCU_WATCHING_WIDTH)
++
++static_assert(CT_STATE_WIDTH        +
++	      CT_RCU_WATCHING_WIDTH +
++	      CT_UNUSED_WIDTH       ==
++	      CT_SIZE);
++
+ DECLARE_PER_CPU(struct context_tracking, context_tracking);
+-#endif
++#endif	/* CONFIG_CONTEXT_TRACKING */
  
- 	if (state->uaccess && !func_uaccess_safe(insn_call_dest(insn))) {
--		WARN_INSN(insn, "call to %s() with UACCESS enabled", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() with UACCESS enabled",
-+			  call_dest_name(file, insn));
- 		return 1;
- 	}
+ #ifdef CONFIG_CONTEXT_TRACKING_USER
+ static __always_inline int __ct_state(void)
+diff --git a/kernel/rcu/Kconfig.debug b/kernel/rcu/Kconfig.debug
+index 12e4c64ebae15..625d75392647b 100644
+--- a/kernel/rcu/Kconfig.debug
++++ b/kernel/rcu/Kconfig.debug
+@@ -213,4 +213,19 @@ config RCU_STRICT_GRACE_PERIOD
+ 	  when looking for certain types of RCU usage bugs, for example,
+ 	  too-short RCU read-side critical sections.
  
- 	if (state->df) {
--		WARN_INSN(insn, "call to %s() with DF set", call_dest_name(insn));
-+		WARN_INSN(insn, "call to %s() with DF set",
-+			  call_dest_name(file, insn));
- 		return 1;
- 	}
- 
++
++config RCU_DYNTICKS_TORTURE
++	bool "Minimize RCU dynticks counter size"
++	depends on RCU_EXPERT && !COMPILE_TEST
++	default n
++	help
++	  This option sets the width of the dynticks counter to its
++	  minimum usable value.  This minimum width greatly increases
++	  the probability of flushing out bugs involving counter wrap,
++	  but it also increases the probability of extending grace period
++	  durations.  This Kconfig option should therefore be avoided in
++	  production due to the consequent increased probability of OOMs.
++
++	  This has no value for production and is only for testing.
++
+ endmenu # "RCU Debugging"
 -- 
 2.49.0
 
