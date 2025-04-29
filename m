@@ -4,162 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782FFC369DC
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:49:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79A84C369DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 12:03:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=petquFlul13k/Cu+FE55mSsdOygY0FT78+C1cHj9s8A=; b=yzK5LNAdPyBcEM
-	/Iasx5eBcGa/KnFT8D+qYS/aOcY4Jksr6j33vSpTRXNCJ6T/TAmiRlTcUjCd1S8BvG5344zsZeWfq
-	JXq4eFIDDmB6r6tqVzCzzTkyaUeEszdjQ/UtDkzM9IgBWctJKWbDuKH/7AmVdjKE/8Q2X4CrfwHrf
-	zORimpfnwIm+Ut5Q1be77vG1gtl5zQiwhgINa1W3I31GIgyTg7KnJbKWhcyKxomnSiC9IzjQjw7/N
-	b/KA3zGGGN13jyizeQnmq02wJzdNLCabJ9SbHxHJ8dpCbI/uXWxkh/1KRIePHoSBl8OYZrGqAO3ag
-	fQtt3rz20fV9J3ftaWNw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=cbLTbPK0Qk4fYhJk7KxGqftinxC7Xxrnpx1pMy7GrDw=; b=0sYGuO+letjpaw
+	2gmtVPIjMzeIh1riw5WOMQYQUYyBkvB/IZseLV8USvwwRbahuBfwK6ApJhyvKkWqMFQgNsAgUR6Xa
+	zJJ7sG21o37ncEdY2Ei/S557DtZQ8AM7WElOMjyysDVCxX4wUjjhcFOcA80T5MVJn9/fWXXJSJ8d9
+	keY+fUc0Q+M4O5D5ODFXmCWfFRROuBc1kCZwVhHWUslru0mW75E28Dlb7uATAYsj5s4hSKrx04QUp
+	31gFmge0pWvBRGxEbgGc2ZSXMMa58GSVYNJZ8p+ACMMQPB0xK5y3CzAJm3z0OSORNzKYJ+YW5x63A
+	kN9V3XlPbtEgsjlkxOnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jSz-00000009YeL-087E;
-	Tue, 29 Apr 2025 11:49:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1u9jgT-00000009bE7-09HP;
+	Tue, 29 Apr 2025 12:03:33 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jOy-00000009Xdy-3pPD
-	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:45:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927127;
+	id 1u9jeW-00000009axb-43k4;
+	Tue, 29 Apr 2025 12:01:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=; b=AOvo12WYjOezGJHnGtHPjJIf4t
+	5Wi1TUj7WX/QnTPrdS9Smqtob1LDH122MYvQaJPnoRt0nUTXdK3uK05HEhr336xI5u0RUNN+HWnUZ
+	m96tSAMIMDretpD576OVEM5t2fNCcWXg6V6+LW3SLflaOMd7usKH+7khtE2OjifV2WKTh/cFb09wj
+	HeZ6ds9fJMtONx4/9qsrxgyQWgYyZ1YtCM2rgJS4k3KpUwsakZ8iK4u4U9NegzqY2OuVjHCPkUjwa
+	HJo8p3EIfl3oK9NZoipFVt1tlTbNBBOe7m2Ca786ngJ2KlB6huIfr1MUkiVGZeBsgqpDRsVlByVdX
+	1TqXiOPw==;
+Received: from galois.linutronix.de ([193.142.43.55])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1u9jeT-0000000DIyp-3Jfr;
+	Tue, 29 Apr 2025 12:01:31 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1745928085;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=6eRqqbGq1uFGChwVCp3H62kpC0FqCEBM1hCsGgM03Z0=;
-	b=Vp7KN/DSprbslTpbyFtmIcm8sFVcAHtgXOjSt27sTR4E2DjezN65U0f17gWTIGLckAP20n
-	IdXrsYzJ8Pg3cgEPpWAI7fr80/wdI26v1IbZWBYS3IbGuWgOACfzbpHz3PXMAI7n083Cxa
-	5on+KBxPa1hiNasd1uLJ8CidY831JOU=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-422-Wh1l12g2O4OqWBygOwaAeg-1; Tue,
- 29 Apr 2025 07:45:25 -0400
-X-MC-Unique: Wh1l12g2O4OqWBygOwaAeg-1
-X-Mimecast-MFC-AGG-ID: Wh1l12g2O4OqWBygOwaAeg_1745927120
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B668E1800984;
-	Tue, 29 Apr 2025 11:45:20 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1DB8F19560A3;
-	Tue, 29 Apr 2025 11:44:51 +0000 (UTC)
-From: Valentin Schneider <vschneid@redhat.com>
-To: linux-kernel@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	loongarch@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	kvm@vger.kernel.org,
-	linux-arch@vger.kernel.org,
-	linux-modules@vger.kernel.org,
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=;
+	b=HPWYMh9ANumns3dOYgrIxaS21mGlRZFzigzT+mlH6e1oH/bKIeHfc085Qq3JbPJTDCWBuj
+	wUQsjg6qO4dIfUlDA6dCAMskZHreZegvuioENVYd9z+QICXySsEGmg1dX4N/R2s9bTyKVM
+	IRCV4pJrew7oLOSaooaPQjLlaHhV3FwDO5eVYEfXvXmLotzEpwzZArNTBFyINsw9VkHy2D
+	BBy8cC4m6aY0ZW/vly79cNx8WnANi9+Bcb+Uc9NqA6OzF6SkIaLU1/dBmnxoykrgV/+2gZ
+	f1409wWrkNtY1VMg4cRPHwnq12FOHlKlMmQAPjFZUBsYxARWCq81N2a3/WPVzg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1745928085;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=viTeIvUZAaR+aMI3MB4hor71bLaSJLSIuEX3AYS+noY=;
+	b=yCcSOC96gr65RHOTSy1AdZ3Az9YaIsQAeiU4rn8rvj4vIymBEl0cYtsOx7xqO336LCfhrs
+	Mh8ik2Sv6mm5M9Cg==
+To: Steven Rostedt <rostedt@goodmis.org>,
+	Gabriele Monaco <gmonaco@redhat.com>,
 	linux-trace-kernel@vger.kernel.org,
-	rcu@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	bpf@vger.kernel.org
-Cc: Juri Lelli <juri.lelli@redhat.com>,
-	Marcelo Tosatti <mtosatti@redhat.com>,
-	Yair Podemsky <ypodemsk@redhat.com>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Daniel Wagner <dwagner@suse.de>,
-	Petr Tesarik <ptesarik@suse.com>,
-	Nicolas Saenz Julienne <nsaenz@amazon.com>,
-	Frederic Weisbecker <frederic@kernel.org>,
-	"Paul E. McKenney" <paulmck@kernel.org>,
+	linux-kernel@vger.kernel.org
+Cc: john.ogness@linutronix.de,
+	Nam Cao <namcao@linutronix.de>,
+	Petr Mladek <pmladek@suse.com>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Borislav Petkov <bp@alien8.de>,
 	Dave Hansen <dave.hansen@linux.intel.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Juergen Gross <jgross@suse.com>,
-	Ajay Kaher <ajay.kaher@broadcom.com>,
-	Alexey Makhalov <alexey.amakhalov@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Russell King <linux@armlinux.org.uk>,
+	x86@kernel.org,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
+	linux-arm-kernel@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Borislav Petkov <bp@alien8.de>,
-	x86@kernel.org,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Jason Baron <jbaron@akamai.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Luis Chamberlain <mcgrof@kernel.org>,
-	Petr Pavlu <petr.pavlu@suse.com>,
-	Sami Tolvanen <samitolvanen@google.com>,
-	Daniel Gomez <da.gomez@samsung.com>,
-	Naveen N Rao <naveen@kernel.org>,
-	Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
-	Joel Fernandes <joel@joelfernandes.org>,
-	Josh Triplett <josh@joshtriplett.org>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
-	Lai Jiangshan <jiangshanlai@gmail.com>,
-	Zqiang <qiang.zhang1211@gmail.com>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	Dietmar Eggemann <dietmar.eggemann@arm.com>,
-	Ben Segall <bsegall@google.com>,
-	Mel Gorman <mgorman@suse.de>,
-	Kees Cook <kees@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	"Mike Rapoport (Microsoft)" <rppt@kernel.org>,
-	Rong Xu <xur@google.com>,
-	Rafael Aquini <aquini@redhat.com>,
-	Song Liu <song@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Brian Gerst <brgerst@gmail.com>,
-	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
-	Benjamin Berg <benjamin.berg@intel.com>,
-	Vishal Annapurve <vannapurve@google.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	John Stultz <jstultz@google.com>,
-	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 23/25] module: Add MOD_NOINSTR_TEXT mem_type
-Date: Tue, 29 Apr 2025 13:32:40 +0200
-Message-ID: <20250429113242.998312-24-vschneid@redhat.com>
-In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
-References: <20250429113242.998312-1-vschneid@redhat.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 00/23] RV: Linear temporal logic monitors for RT application
+Date: Tue, 29 Apr 2025 14:00:45 +0200
+Message-Id: <cover.1745926331.git.namcao@linutronix.de>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_044529_026169_D0DFD70C 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20250429_130130_046355_CA7B621C 
+X-CRM114-Status: GOOD (  27.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,235 +108,251 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As pointed out by Sean [1], is_kernel_noinstr_text() will return false for
-an address contained within a module's .noinstr.text section. A later patch
-will require checking whether a text address is noinstr, and this can
-unfortunately be the case of modules - KVM is one such case.
+Real-time applications may have design flaws causing them to have
+unexpected latency. For example, the applications may raise page faults, or
+may be blocked trying to take a mutex without priority inheritance.
 
-A module's .noinstr.text section is already tracked as of commit
-  66e9b0717102 ("kprobes: Prevent probes in .noinstr.text section")
-for kprobe blacklisting purposes, but via an ad-hoc mechanism.
+However, while attempting to implement DA monitors for these real-time
+rules, deterministic automaton is found to be inappropriate as the
+specification language. The automaton is complicated, hard to understand,
+and error-prone.
 
-Add a MOD_NOINSTR_TEXT mem_type, and reorganize __layout_sections() so that
-it maps all the sections in a single invocation.
+For these cases, linear temporal logic is found to be more suitable. The
+LTL is more concise and intuitive.
 
-[1]: http://lore.kernel.org/r/Z4qQL89GZ_gk0vpu@google.com
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
----
- include/linux/module.h |  6 ++--
- kernel/kprobes.c       |  8 ++---
- kernel/module/main.c   | 76 ++++++++++++++++++++++++++++++++----------
- 3 files changed, 66 insertions(+), 24 deletions(-)
+This series adds support for LTL RV monitor, and use it to implement two
+monitors for reporting problems with real-time tasks.
 
-diff --git a/include/linux/module.h b/include/linux/module.h
-index d94b196d5a34e..193d8d34eeee0 100644
---- a/include/linux/module.h
-+++ b/include/linux/module.h
-@@ -332,6 +332,7 @@ struct mod_tree_node {
- 
- enum mod_mem_type {
- 	MOD_TEXT = 0,
-+	MOD_NOINSTR_TEXT,
- 	MOD_DATA,
- 	MOD_RODATA,
- 	MOD_RO_AFTER_INIT,
-@@ -502,8 +503,6 @@ struct module {
- 	void __percpu *percpu;
- 	unsigned int percpu_size;
- #endif
--	void *noinstr_text_start;
--	unsigned int noinstr_text_size;
- 
- #ifdef CONFIG_TRACEPOINTS
- 	unsigned int num_tracepoints;
-@@ -622,12 +621,13 @@ static inline bool module_is_coming(struct module *mod)
-         return mod->state == MODULE_STATE_COMING;
- }
- 
--struct module *__module_text_address(unsigned long addr);
- struct module *__module_address(unsigned long addr);
-+struct module *__module_text_address(unsigned long addr);
- bool is_module_address(unsigned long addr);
- bool __is_module_percpu_address(unsigned long addr, unsigned long *can_addr);
- bool is_module_percpu_address(unsigned long addr);
- bool is_module_text_address(unsigned long addr);
-+bool is_module_noinstr_text_address(unsigned long addr);
- 
- static inline bool within_module_mem_type(unsigned long addr,
- 					  const struct module *mod,
-diff --git a/kernel/kprobes.c b/kernel/kprobes.c
-index ffe0c3d523063..9a799faee68a1 100644
---- a/kernel/kprobes.c
-+++ b/kernel/kprobes.c
-@@ -2547,9 +2547,9 @@ static void add_module_kprobe_blacklist(struct module *mod)
- 		kprobe_add_area_blacklist(start, end);
- 	}
- 
--	start = (unsigned long)mod->noinstr_text_start;
-+	start = (unsigned long)mod->mem[MOD_NOINSTR_TEXT].base;
- 	if (start) {
--		end = start + mod->noinstr_text_size;
-+		end = start + mod->mem[MOD_NOINSTR_TEXT].size;
- 		kprobe_add_area_blacklist(start, end);
- 	}
- }
-@@ -2570,9 +2570,9 @@ static void remove_module_kprobe_blacklist(struct module *mod)
- 		kprobe_remove_area_blacklist(start, end);
- 	}
- 
--	start = (unsigned long)mod->noinstr_text_start;
-+	start = (unsigned long)mod->mem[MOD_NOINSTR_TEXT].base;
- 	if (start) {
--		end = start + mod->noinstr_text_size;
-+		end = start + mod->mem[MOD_NOINSTR_TEXT].size;
- 		kprobe_remove_area_blacklist(start, end);
- 	}
- }
-diff --git a/kernel/module/main.c b/kernel/module/main.c
-index b9f010daaa4c7..0126bae64b698 100644
---- a/kernel/module/main.c
-+++ b/kernel/module/main.c
-@@ -1558,7 +1558,17 @@ bool module_init_layout_section(const char *sname)
- 	return module_init_section(sname);
- }
- 
--static void __layout_sections(struct module *mod, struct load_info *info, bool is_init)
-+static bool module_noinstr_layout_section(const char *sname)
-+{
-+	return strstarts(sname, ".noinstr");
-+}
-+
-+static bool module_default_layout_section(const char *sname)
-+{
-+	return !module_init_layout_section(sname) && !module_noinstr_layout_section(sname);
-+}
-+
-+static void __layout_sections(struct module *mod, struct load_info *info)
- {
- 	unsigned int m, i;
- 
-@@ -1567,20 +1577,44 @@ static void __layout_sections(struct module *mod, struct load_info *info, bool i
- 	 *   Mask of excluded section header flags }
- 	 */
- 	static const unsigned long masks[][2] = {
-+		/* Core */
-+		{ SHF_EXECINSTR | SHF_ALLOC, ARCH_SHF_SMALL },
-+		{ SHF_EXECINSTR | SHF_ALLOC, ARCH_SHF_SMALL },
-+		{ SHF_ALLOC, SHF_WRITE | ARCH_SHF_SMALL },
-+		{ SHF_RO_AFTER_INIT | SHF_ALLOC, ARCH_SHF_SMALL },
-+		{ SHF_WRITE | SHF_ALLOC, ARCH_SHF_SMALL },
-+		{ ARCH_SHF_SMALL | SHF_ALLOC, 0 },
-+		/* Init */
- 		{ SHF_EXECINSTR | SHF_ALLOC, ARCH_SHF_SMALL },
- 		{ SHF_ALLOC, SHF_WRITE | ARCH_SHF_SMALL },
- 		{ SHF_RO_AFTER_INIT | SHF_ALLOC, ARCH_SHF_SMALL },
- 		{ SHF_WRITE | SHF_ALLOC, ARCH_SHF_SMALL },
--		{ ARCH_SHF_SMALL | SHF_ALLOC, 0 }
-+		{ ARCH_SHF_SMALL | SHF_ALLOC, 0 },
- 	};
--	static const int core_m_to_mem_type[] = {
-+	static bool (*const section_filter[])(const char *) = {
-+		/* Core */
-+		module_default_layout_section,
-+		module_noinstr_layout_section,
-+		module_default_layout_section,
-+		module_default_layout_section,
-+		module_default_layout_section,
-+		module_default_layout_section,
-+		/* Init */
-+		module_init_layout_section,
-+		module_init_layout_section,
-+		module_init_layout_section,
-+		module_init_layout_section,
-+		module_init_layout_section,
-+	};
-+	static const int mem_type_map[] = {
-+		/* Core */
- 		MOD_TEXT,
-+		MOD_NOINSTR_TEXT,
- 		MOD_RODATA,
- 		MOD_RO_AFTER_INIT,
- 		MOD_DATA,
- 		MOD_DATA,
--	};
--	static const int init_m_to_mem_type[] = {
-+		/* Init */
- 		MOD_INIT_TEXT,
- 		MOD_INIT_RODATA,
- 		MOD_INVALID,
-@@ -1589,16 +1623,16 @@ static void __layout_sections(struct module *mod, struct load_info *info, bool i
- 	};
- 
- 	for (m = 0; m < ARRAY_SIZE(masks); ++m) {
--		enum mod_mem_type type = is_init ? init_m_to_mem_type[m] : core_m_to_mem_type[m];
-+		enum mod_mem_type type = mem_type_map[m];
- 
- 		for (i = 0; i < info->hdr->e_shnum; ++i) {
- 			Elf_Shdr *s = &info->sechdrs[i];
- 			const char *sname = info->secstrings + s->sh_name;
- 
--			if ((s->sh_flags & masks[m][0]) != masks[m][0]
--			    || (s->sh_flags & masks[m][1])
--			    || s->sh_entsize != ~0UL
--			    || is_init != module_init_layout_section(sname))
-+			if ((s->sh_flags & masks[m][0]) != masks[m][0] ||
-+			    (s->sh_flags & masks[m][1])                ||
-+			    s->sh_entsize != ~0UL                      ||
-+			    !section_filter[m](sname))
- 				continue;
- 
- 			if (WARN_ON_ONCE(type == MOD_INVALID))
-@@ -1638,10 +1672,7 @@ static void layout_sections(struct module *mod, struct load_info *info)
- 		info->sechdrs[i].sh_entsize = ~0UL;
- 
- 	pr_debug("Core section allocation order for %s:\n", mod->name);
--	__layout_sections(mod, info, false);
--
--	pr_debug("Init section allocation order for %s:\n", mod->name);
--	__layout_sections(mod, info, true);
-+	__layout_sections(mod, info);
- }
- 
- static void module_license_taint_check(struct module *mod, const char *license)
-@@ -2515,9 +2546,6 @@ static int find_module_sections(struct module *mod, struct load_info *info)
- 	}
- #endif
- 
--	mod->noinstr_text_start = section_objs(info, ".noinstr.text", 1,
--						&mod->noinstr_text_size);
--
- #ifdef CONFIG_TRACEPOINTS
- 	mod->tracepoints_ptrs = section_objs(info, "__tracepoints_ptrs",
- 					     sizeof(*mod->tracepoints_ptrs),
-@@ -3769,12 +3797,26 @@ struct module *__module_text_address(unsigned long addr)
- 	if (mod) {
- 		/* Make sure it's within the text section. */
- 		if (!within_module_mem_type(addr, mod, MOD_TEXT) &&
-+		    !within_module_mem_type(addr, mod, MOD_NOINSTR_TEXT) &&
- 		    !within_module_mem_type(addr, mod, MOD_INIT_TEXT))
- 			mod = NULL;
- 	}
- 	return mod;
- }
- 
-+bool is_module_noinstr_text_address(unsigned long addr)
-+{
-+	scoped_guard(preempt) {
-+		struct module *mod = __module_address(addr);
-+
-+		/* Make sure it's within the .noinstr.text section. */
-+		if (mod)
-+			return within_module_mem_type(addr, mod, MOD_NOINSTR_TEXT);
-+	}
-+
-+	return false;
-+}
-+
- /* Don't grab lock, we're oopsing. */
- void print_modules(void)
- {
+Patch 1-12 cleanup and prepare the RV code for the integration of LTL
+monitors.
+
+Patch 13 adds support for LTL monitors.
+
+Patch 14 adds the container monitor "rtapp". This encapsulates the
+sub-monitors for real-time.
+
+Patch 15-18 prepares the pagefault tracepoints, so that patch 19 can add
+the monitor which watches real-time tasks doing page faults.
+
+Patch 20 add block_on_rt_mutex tracepoints, allowing patch 21 adds the
+"sleep" monitor.
+
+Patch 22 adds documentation on the new monitors.
+
+Patch 23 allows the number of per-task monitors to be configurable, so that
+the two new monitors can be enabled simultaneously.
+
+v4->v5 https://lore.kernel.org/lkml/cover.1745390829.git.namcao@linutronix.de
+  - sleep monitor: Fix a false positive due to a race with waking and
+    scheduling.
+  - sleep monitor: Add block_on_rt_mutex tracepoints and use them for
+    BLOCK_ON_RT_MUTEX, instead of trace_sched_pi_setprio
+  - sleep monitor: tighten the rule on nanosleep: only clock_nanosleep()
+    with TIMER_ABSTIME and CLOCK_MONOTONIC is allowed
+  - add comments explaining why it is correct to treat PI-boosted tasks as
+    real-time tasks.
+
+    It should be noted that due to the changes in v5, 'perf' does not work
+    as well as before, because sometimes the errors happen out of the
+    real-time tasks' contexts. Fixing this is left for future work.
+
+    stress-ng is also far noisier in v5, because the rule on nanosleep is
+    tightened.
+
+v3->v4 https://lore.kernel.org/lkml/cover.1744785335.git.namcao@linutronix.de
+  - support deadline tasks
+  - rtapp_sleep: use sched_pi_setprio tracepoint instead of contention
+    tracepoints for BLOCK_ON_RT_MUTEX, so that proxy lock is covered.
+  - fix the scripts generating an "slightly" incorrect verification automaton
+  - makes rtapp monitor depends on RV_PER_TASK_MONITORS >= 2
+  - make the event tracepoint output a bit more readable
+  - some documentation's format fixes
+
+v2->v3 https://lore.kernel.org/lkml/cover.1744355018.git.namcao@linutronix.de/
+  - fix a problem with sleep monitor's specification (around
+    KTHREAD_SHOULD_STOP)
+  - merge the patches that move the dot2k/rvgen scripts around
+  - pull panic/printk changes into separate patches
+  - fixup some build errors
+  - fixup monitor's init function return code
+  - fix some flake8 warnings with the scripts
+  - add some references to LTL documentation
+  - fixup some mistakes with rtapp documentation
+  - fixup capitalization mistake with monitor_synthesis.rst
+  - remove the now-redundant macro RV_PER_TASK_MONITORS
+
+v1->v2 https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.de/
+  - Integrate the LTL scripts into the existing dot2k tool, taking
+    advantage of the existing monitor generation scripts.
+  - Switch the struct ltl_monitor to use bitmap instead of an array, to
+    optimize memory usage.
+  - Correct the generated code to be non-deterministic state machine,
+    instead of deterministic state machine
+  - Put common code for all LTL monitors into a single file
+    (include/rv/ltl_monitor.h), reducing code duplication
+  - Change the LTL monitors to make user of container. Add a bug fix to
+    container while at it.
+  - Make the number of per-task monitor configurable
+
+Cc: Petr Mladek <pmladek@suse.com>
+Cc: John Ogness <john.ogness@linutronix.de>
+Cc: Sergey Senozhatsky <senozhatsky@chromium.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Boqun Feng <boqun.feng@gmail.com>
+Cc: Waiman Long <longman@redhat.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
+Cc: Borislav Petkov <bp@alien8.de>
+Cc: Dave Hansen <dave.hansen@linux.intel.com>
+Cc: x86@kernel.org
+Cc: H. Peter Anvin <hpa@zytor.com>
+Cc: Andy Lutomirski <luto@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+
+Nam Cao (23):
+  rv: Add #undef TRACE_INCLUDE_FILE
+  printk: Make vprintk_deferred() public
+  panic: Add vpanic()
+  rv: Let the reactors take care of buffers
+  verification/dot2k: Make a separate dot2k_templates/Kconfig_container
+  verification/dot2k: Remove __buff_to_string()
+  verification/dot2k: Replace is_container() hack with subparsers
+  rv: rename CONFIG_DA_MON_EVENTS to CONFIG_RV_MON_EVENTS
+  verification/dot2k: Prepare the frontend for LTL inclusion
+  Documentation/rv: Prepare monitor synthesis document for LTL inclusion
+  verification/rvgen: Restructure the templates files
+  verification/rvgen: Restructure the classes to prepare for LTL
+    inclusion
+  rv: Add support for LTL monitors
+  rv: Add rtapp container monitor
+  x86/tracing: Remove redundant trace_pagefault_key
+  x86/tracing: Move page fault trace points to generic
+  arm64: mm: Add page fault trace points
+  riscv: mm: Add page fault trace points
+  rv: Add rtapp_pagefault monitor
+  locking/rtmutex: Add block_on_rt_mutex tracepoints
+  rv: Add rtapp_sleep monitor
+  rv: Add documentation for rtapp monitor
+  rv: Allow to configure the number of per-task monitor
+
+ .../trace/rv/da_monitor_synthesis.rst         | 147 -----
+ Documentation/trace/rv/index.rst              |   4 +-
+ .../trace/rv/linear_temporal_logic.rst        | 122 ++++
+ Documentation/trace/rv/monitor_rtapp.rst      | 114 ++++
+ Documentation/trace/rv/monitor_synthesis.rst  | 256 ++++++++
+ arch/arm64/mm/fault.c                         |   8 +
+ arch/riscv/mm/fault.c                         |   8 +
+ arch/x86/include/asm/trace/common.h           |  12 -
+ arch/x86/include/asm/trace/irq_vectors.h      |   1 -
+ arch/x86/kernel/Makefile                      |   1 -
+ arch/x86/kernel/tracepoint.c                  |  21 -
+ arch/x86/mm/fault.c                           |   5 +-
+ include/linux/panic.h                         |   3 +
+ include/linux/printk.h                        |   5 +
+ include/linux/rv.h                            |  74 ++-
+ include/linux/sched.h                         |   8 +-
+ include/rv/da_monitor.h                       |  45 +-
+ include/rv/ltl_monitor.h                      | 184 ++++++
+ .../trace/events}/exceptions.h                |  27 +-
+ include/trace/events/lock.h                   |   8 +
+ kernel/fork.c                                 |   5 +-
+ kernel/locking/rtmutex.c                      |   2 +
+ kernel/locking/rtmutex_api.c                  |   4 +
+ kernel/panic.c                                |  17 +-
+ kernel/printk/internal.h                      |   1 -
+ kernel/trace/rv/Kconfig                       |  27 +-
+ kernel/trace/rv/Makefile                      |   3 +
+ kernel/trace/rv/monitors/pagefault/Kconfig    |  11 +
+ .../trace/rv/monitors/pagefault/pagefault.c   |  87 +++
+ .../trace/rv/monitors/pagefault/pagefault.h   |  57 ++
+ .../rv/monitors/pagefault/pagefault_trace.h   |  14 +
+ kernel/trace/rv/monitors/rtapp/Kconfig        |   7 +
+ kernel/trace/rv/monitors/rtapp/rtapp.c        |  33 ++
+ kernel/trace/rv/monitors/rtapp/rtapp.h        |   3 +
+ kernel/trace/rv/monitors/sleep/Kconfig        |  13 +
+ kernel/trace/rv/monitors/sleep/sleep.c        | 224 +++++++
+ kernel/trace/rv/monitors/sleep/sleep.h        | 232 ++++++++
+ kernel/trace/rv/monitors/sleep/sleep_trace.h  |  14 +
+ kernel/trace/rv/reactor_panic.c               |   8 +-
+ kernel/trace/rv/reactor_printk.c              |   8 +-
+ kernel/trace/rv/rv.c                          |  10 +-
+ kernel/trace/rv/rv_reactors.c                 |   2 +-
+ kernel/trace/rv/rv_trace.h                    |  52 +-
+ tools/verification/dot2/Makefile              |  26 -
+ tools/verification/dot2/dot2k                 |  53 --
+ tools/verification/models/rtapp/pagefault.ltl |   1 +
+ tools/verification/models/rtapp/sleep.ltl     |  20 +
+ tools/verification/rvgen/.gitignore           |   3 +
+ tools/verification/rvgen/Makefile             |  27 +
+ tools/verification/rvgen/__main__.py          |  67 +++
+ tools/verification/{dot2 => rvgen}/dot2c      |   2 +-
+ .../{dot2 => rvgen/rvgen}/automata.py         |   0
+ tools/verification/rvgen/rvgen/container.py   |  22 +
+ .../{dot2 => rvgen/rvgen}/dot2c.py            |   2 +-
+ tools/verification/rvgen/rvgen/dot2k.py       | 129 ++++
+ .../dot2k.py => rvgen/rvgen/generator.py}     | 249 ++------
+ tools/verification/rvgen/rvgen/ltl2ba.py      | 558 ++++++++++++++++++
+ tools/verification/rvgen/rvgen/ltl2k.py       | 245 ++++++++
+ .../rvgen/templates}/Kconfig                  |   0
+ .../rvgen/rvgen/templates/container/Kconfig   |   5 +
+ .../rvgen/templates/container/main.c}         |   0
+ .../rvgen/templates/container/main.h}         |   0
+ .../rvgen/templates/dot2k}/main.c             |   0
+ .../rvgen/templates/dot2k}/trace.h            |   0
+ .../rvgen/rvgen/templates/ltl2k/main.c        | 102 ++++
+ .../rvgen/rvgen/templates/ltl2k/trace.h       |  14 +
+ 66 files changed, 2862 insertions(+), 550 deletions(-)
+ delete mode 100644 Documentation/trace/rv/da_monitor_synthesis.rst
+ create mode 100644 Documentation/trace/rv/linear_temporal_logic.rst
+ create mode 100644 Documentation/trace/rv/monitor_rtapp.rst
+ create mode 100644 Documentation/trace/rv/monitor_synthesis.rst
+ delete mode 100644 arch/x86/include/asm/trace/common.h
+ delete mode 100644 arch/x86/kernel/tracepoint.c
+ create mode 100644 include/rv/ltl_monitor.h
+ rename {arch/x86/include/asm/trace => include/trace/events}/exceptions.h (55%)
+ create mode 100644 kernel/trace/rv/monitors/pagefault/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.c
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.h
+ create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault_trace.h
+ create mode 100644 kernel/trace/rv/monitors/rtapp/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.c
+ create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.h
+ create mode 100644 kernel/trace/rv/monitors/sleep/Kconfig
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep.c
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep.h
+ create mode 100644 kernel/trace/rv/monitors/sleep/sleep_trace.h
+ delete mode 100644 tools/verification/dot2/Makefile
+ delete mode 100644 tools/verification/dot2/dot2k
+ create mode 100644 tools/verification/models/rtapp/pagefault.ltl
+ create mode 100644 tools/verification/models/rtapp/sleep.ltl
+ create mode 100644 tools/verification/rvgen/.gitignore
+ create mode 100644 tools/verification/rvgen/Makefile
+ create mode 100644 tools/verification/rvgen/__main__.py
+ rename tools/verification/{dot2 => rvgen}/dot2c (97%)
+ rename tools/verification/{dot2 => rvgen/rvgen}/automata.py (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/container.py
+ rename tools/verification/{dot2 => rvgen/rvgen}/dot2c.py (99%)
+ create mode 100644 tools/verification/rvgen/rvgen/dot2k.py
+ rename tools/verification/{dot2/dot2k.py => rvgen/rvgen/generator.py} (52%)
+ create mode 100644 tools/verification/rvgen/rvgen/ltl2ba.py
+ create mode 100644 tools/verification/rvgen/rvgen/ltl2k.py
+ rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates}/Kconfig (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/templates/container/Kconfig
+ rename tools/verification/{dot2/dot2k_templates/main_container.c => rvgen/rvgen/templates/container/main.c} (100%)
+ rename tools/verification/{dot2/dot2k_templates/main_container.h => rvgen/rvgen/templates/container/main.h} (100%)
+ rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates/dot2k}/main.c (100%)
+ rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates/dot2k}/trace.h (100%)
+ create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/main.c
+ create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/trace.h
+
 -- 
-2.49.0
+2.39.5
 
 
 _______________________________________________
