@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD5DC3DA4A
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD592C3ABAF
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 14:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=sGoAC7vmnnyOyu67pRIs03ESLt6T3O2935+Yk8aHMg8=; b=jQiPHred/P5sTT
-	Y5wt/rrkGDml4xwDpLDi/ROAULvOr8Ly+gEeaCR2bh4vNb34A1ZkNgNyq6Q4C0LHdochjNHh/t7Fb
-	tg40z7k+TEYatkJ1LSbQdhF+iuLs9qZmaDgoXzqW6n0QbIwMcupimGsK8wT7XxiFPgTP0Q69x+x81
-	i0XOxdT7zQFGFZcDbNbMBvHnclqVsjiwhl3V+vblZUkuRWuWusidA3gkWEfA2e750smnIs9m7tr4V
-	ANlYDUyqTk5Wq6PWyjPIHuTrtnB5AQtmDYapeHW+4X27UvHmuXvH0wIECHovcgUYcozYSTXGCiyBt
-	Vo/dtHrBCy2ChHkOGbFw==;
+	List-Owner; bh=dcWzSSIon/g3L30SoviMefy6Er8f9+NaIrjocnRDgcY=; b=GSBCh1JrKK7iBu
+	0ogQ2XqX/hay64Ii8Tj5k2T7Pzq7jJ45x4Oy0hpOYBiESFA6cvuaBo7GVNMA5UnbJdnf6kURN+ICl
+	TGlDXvKzM2PIT559CDJUNnVmEfUboq+OGGBWjQBoLMtl9BhLlTrbZyFTE5S6R1y0xU/cI5fr+up7w
+	W7UNj37q7Y2mAmciAUUuMmrOtDu2FHWb5dWgk++mkPD6Z1kCIUcovmsOzZzOi3b9N8fgZpInsFlno
+	DCzUipqE8oKwBP7VDOExVKEU3hr9Nhgov50qukXB/yuIVwm8Pqj2Z6bsV1OI09ybIi9QjuA+e302i
+	Kt5TKCxgPfjG047NnhhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9lhk-00000009rrZ-0Niz;
-	Tue, 29 Apr 2025 14:13:00 +0000
+	id 1u9lhl-00000009rrt-17LI;
+	Tue, 29 Apr 2025 14:13:01 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jOC-00000009XV4-0bc1
+	id 1u9jPZ-00000009XlT-0fAz
 	for linux-riscv@bombadil.infradead.org;
-	Tue, 29 Apr 2025 11:44:40 +0000
+	Tue, 29 Apr 2025 11:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=tuANjP98UfL1jj4dJePfTwHISt9kiag/v6edYCwLo6k=; b=CDQ4FqTShGMmjlSVx3Emh6O5Rw
-	TTkVyGsQQd0WONU+5TnqQoVZMh5aSDuC3fEtw3DzJkDWN9um6IN99EwEBDl4JAvRlJiCwlaucT4oj
-	LewX5axKfe+5NPaeNQ1YBsYzlPaaC7OOQQ9MNkiWrxXYAlRGX+d4YtGM4xw0NP37B8yM1jPFCO0y7
-	mGRL2USoAXBLzB54harj4Etpq7xEjYeGZUGDssTTWGOUYDmsT6H2GwHLSkR4H2adAGckJ5NAvN4By
-	UqfxXcXE6i0zKOHpuuvsjP4EyiWus6dIViUzMEFf8SxkQI2LT8rMm5eFrnQpD2JUEFDesRUn5klhL
-	8PdGy0lg==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	bh=ar/mr47kiMxyacwHpY5Bum2PvzcIiR91yGPuMeHTTnU=; b=mM51QFVRQFzvBoUnXg3TDTxifz
+	VmpQOpD9yl+b5btpviVrudK14EpDNFjEQPkUA4cUHS0ZVH1zEODQ5zHo3XfNiaucbg+wes67exI+/
+	Gxs8cLU8XFIMG/5durWdBtGE9Z1q8MOXwUtIcl/oNADhAtGW+3q9F0ayi6q3XEuWFik5kStHGmsUq
+	ScsTfsqXZY89MtCLG3KUOrfQIAmGBvLKtQHnNyvRUGYdZ7QfHMNBV9yiUM+gjg1kJL1f15md+6icJ
+	dvNWOZGLEByxPZcD9mBtphyJTnYagp327RxPamA+ev3SoOGjoTWqInL/CmLl6hJrwoVfGn5Nti+kI
+	DnqOwrGg==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9jO7-0000000DHo7-3vKO
+	id 1u9jPV-0000000DI0y-2GYJ
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:44:39 +0000
+	Tue, 29 Apr 2025 11:46:04 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927074;
+	s=mimecast20190719; t=1745927160;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tuANjP98UfL1jj4dJePfTwHISt9kiag/v6edYCwLo6k=;
-	b=fDSQUU4ZHfDAUggFLbmaS4IURiMhL6XCCVa+4R25J42aKAiFoo7zSzdu7wsvHveNcxv5H9
-	mLNG+gZmvz4ZLR0kwuLD78ZVTZHLczvCizevDsla/sKGBHgkh+pmig3IJLu0LTpdx9tJyN
-	lG4qs0MiuCwLU0dd/xRJbccbl95/ob8=
+	bh=ar/mr47kiMxyacwHpY5Bum2PvzcIiR91yGPuMeHTTnU=;
+	b=CdughGYnE8h2xkkdphDlgetGrkAluPFCEo4DEs76lvZbyWz843PI58Cf9riLOmszn7sAOQ
+	ifa5LvIdLQvlZpn9CMwAzBa3DCI5eoxUten4YKn3V0wKdTyVyvVt7SRAlYyUSOEOCxICQ0
+	59y1icwPAKeKwKMDizTNfhN1jfQkqBI=
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745927075;
+	s=mimecast20190719; t=1745927160;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tuANjP98UfL1jj4dJePfTwHISt9kiag/v6edYCwLo6k=;
-	b=cA25A5WpW0aZ2LTASvOlFsUHaOwgjRJUpdB3lHe1gt4ZnqESauMuP9ZmDsoG5wKE2ucqom
-	/2kaM9+lhrgcdVYFkRZ7bLxJL2E/HjzUahJHZGXmyoiHt2PjKmzfh3fXBMLD2+5lucAWyQ
-	f9OKMr1oiXLnRXV/wm1fVgG3HopOTVI=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=ar/mr47kiMxyacwHpY5Bum2PvzcIiR91yGPuMeHTTnU=;
+	b=CdughGYnE8h2xkkdphDlgetGrkAluPFCEo4DEs76lvZbyWz843PI58Cf9riLOmszn7sAOQ
+	ifa5LvIdLQvlZpn9CMwAzBa3DCI5eoxUten4YKn3V0wKdTyVyvVt7SRAlYyUSOEOCxICQ0
+	59y1icwPAKeKwKMDizTNfhN1jfQkqBI=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-45-wX4I6pchM5-NTYwoxo-_cA-1; Tue,
- 29 Apr 2025 07:44:25 -0400
-X-MC-Unique: wX4I6pchM5-NTYwoxo-_cA-1
-X-Mimecast-MFC-AGG-ID: wX4I6pchM5-NTYwoxo-_cA_1745927061
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-464-HUAa3g8OPOmmYYqMcnsDHg-1; Tue,
+ 29 Apr 2025 07:45:56 -0400
+X-MC-Unique: HUAa3g8OPOmmYYqMcnsDHg-1
+X-Mimecast-MFC-AGG-ID: HUAa3g8OPOmmYYqMcnsDHg_1745927152
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0ABB418001CA;
-	Tue, 29 Apr 2025 11:44:21 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B5230195608E;
+	Tue, 29 Apr 2025 11:45:51 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 16D0019560AF;
-	Tue, 29 Apr 2025 11:43:51 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5A5DD19560A3;
+	Tue, 29 Apr 2025 11:45:21 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -93,10 +93,11 @@ To: linux-kernel@vger.kernel.org,
 	linux-hardening@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	bpf@vger.kernel.org
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
+Cc: Nicolas Saenz Julienne <nsaenzju@redhat.com>,
 	Juri Lelli <juri.lelli@redhat.com>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Yair Podemsky <ypodemsk@redhat.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>,
 	Nicolas Saenz Julienne <nsaenz@amazon.com>,
@@ -175,16 +176,16 @@ Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 21/25] objtool: Add noinstr validation for static branches/calls
-Date: Tue, 29 Apr 2025 13:32:38 +0200
-Message-ID: <20250429113242.998312-22-vschneid@redhat.com>
+Subject: [PATCH v5 24/25] context-tracking: Introduce work deferral infrastructure
+Date: Tue, 29 Apr 2025 13:32:41 +0200
+Message-ID: <20250429113242.998312-25-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_124436_144729_57C01607 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20250429_124601_877586_BBDA4F04 
+X-CRM114-Status: GOOD (  30.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -201,402 +202,354 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Josh Poimboeuf <jpoimboe@kernel.org>
+smp_call_function() & friends have the unfortunate habit of sending IPIs to
+isolated, NOHZ_FULL, in-userspace CPUs, as they blindly target all online
+CPUs.
 
-Warn about static branches/calls in noinstr regions, unless the
-corresponding key is RO-after-init or has been manually whitelisted with
-DEFINE_STATIC_KEY_*_NOINSTR(().
+Some callsites can be bent into doing the right, such as done by commit:
 
-Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
-[Added NULL check for insn_call_dest() return value]
+  cc9e303c91f5 ("x86/cpu: Disable frequency requests via aperfmperf IPI for nohz_full CPUs")
+
+Unfortunately, not all SMP callbacks can be omitted in this
+fashion. However, some of them only affect execution in kernelspace, which
+means they don't have to be executed *immediately* if the target CPU is in
+userspace: stashing the callback and executing it upon the next kernel entry
+would suffice. x86 kernel instruction patching or kernel TLB invalidation
+are prime examples of it.
+
+Reduce the RCU dynticks counter width to free up some bits to be used as a
+deferred callback bitmask. Add some build-time checks to validate that
+setup.
+
+Presence of CT_RCU_WATCHING in the ct_state prevents queuing deferred work.
+
+Later commits introduce the bit:callback mappings.
+
+Link: https://lore.kernel.org/all/20210929151723.162004989@infradead.org/
+Signed-off-by: Nicolas Saenz Julienne <nsaenzju@redhat.com>
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- include/linux/jump_label.h              | 17 +++--
- include/linux/objtool.h                 |  7 ++
- include/linux/static_call.h             |  3 +
- tools/objtool/Documentation/objtool.txt | 34 +++++++++
- tools/objtool/check.c                   | 92 ++++++++++++++++++++++---
- tools/objtool/include/objtool/check.h   |  1 +
- tools/objtool/include/objtool/elf.h     |  1 +
- tools/objtool/include/objtool/special.h |  1 +
- tools/objtool/special.c                 | 15 +++-
- 9 files changed, 155 insertions(+), 16 deletions(-)
+ arch/Kconfig                                 |  9 +++
+ arch/x86/Kconfig                             |  1 +
+ arch/x86/include/asm/context_tracking_work.h | 16 +++++
+ include/linux/context_tracking.h             | 21 ++++++
+ include/linux/context_tracking_state.h       | 30 ++++++---
+ include/linux/context_tracking_work.h        | 26 ++++++++
+ kernel/context_tracking.c                    | 69 +++++++++++++++++++-
+ kernel/time/Kconfig                          |  5 ++
+ 8 files changed, 165 insertions(+), 12 deletions(-)
+ create mode 100644 arch/x86/include/asm/context_tracking_work.h
+ create mode 100644 include/linux/context_tracking_work.h
 
-diff --git a/include/linux/jump_label.h b/include/linux/jump_label.h
-index c4f6240ff4d95..0ea203ebbc493 100644
---- a/include/linux/jump_label.h
-+++ b/include/linux/jump_label.h
-@@ -76,6 +76,7 @@
- #include <linux/types.h>
- #include <linux/compiler.h>
- #include <linux/cleanup.h>
-+#include <linux/objtool.h>
+diff --git a/arch/Kconfig b/arch/Kconfig
+index b0adb665041f1..e363fc0dc1f88 100644
+--- a/arch/Kconfig
++++ b/arch/Kconfig
+@@ -952,6 +952,15 @@ config HAVE_CONTEXT_TRACKING_USER_OFFSTACK
+ 	  - No use of instrumentation, unless instrumentation_begin() got
+ 	    called.
  
- extern bool static_key_initialized;
- 
-@@ -376,8 +377,9 @@ struct static_key_false {
- #define DEFINE_STATIC_KEY_TRUE(name)	\
- 	struct static_key_true name = STATIC_KEY_TRUE_INIT
- 
--#define DEFINE_STATIC_KEY_TRUE_RO(name)	\
--	struct static_key_true name __ro_after_init = STATIC_KEY_TRUE_INIT
-+#define DEFINE_STATIC_KEY_TRUE_RO(name)						\
-+	struct static_key_true name __ro_after_init = STATIC_KEY_TRUE_INIT;	\
-+	ANNOTATE_NOINSTR_ALLOWED(name)
- 
- #define DECLARE_STATIC_KEY_TRUE(name)	\
- 	extern struct static_key_true name
-@@ -385,8 +387,9 @@ struct static_key_false {
- #define DEFINE_STATIC_KEY_FALSE(name)	\
- 	struct static_key_false name = STATIC_KEY_FALSE_INIT
- 
--#define DEFINE_STATIC_KEY_FALSE_RO(name)	\
--	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT
-+#define DEFINE_STATIC_KEY_FALSE_RO(name)					\
-+	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT;	\
-+	ANNOTATE_NOINSTR_ALLOWED(name)
- 
- /*
-  * The _NOINSTR variants are used to tell objtool the static key is allowed to
-@@ -400,10 +403,12 @@ struct static_key_false {
-  * definition with the rationale.
-  */
- #define DEFINE_STATIC_KEY_TRUE_NOINSTR(name)					\
--	DEFINE_STATIC_KEY_TRUE(name)
-+	DEFINE_STATIC_KEY_TRUE(name);						\
-+	ANNOTATE_NOINSTR_ALLOWED(name)
- 
- #define DEFINE_STATIC_KEY_FALSE_NOINSTR(name)					\
--	DEFINE_STATIC_KEY_FALSE(name)
-+	DEFINE_STATIC_KEY_FALSE(name);						\
-+	ANNOTATE_NOINSTR_ALLOWED(name)
- 
- #define DECLARE_STATIC_KEY_FALSE(name)	\
- 	extern struct static_key_false name
-diff --git a/include/linux/objtool.h b/include/linux/objtool.h
-index 366ad004d794b..2d3661de4cf95 100644
---- a/include/linux/objtool.h
-+++ b/include/linux/objtool.h
-@@ -34,6 +34,12 @@
- 	static void __used __section(".discard.func_stack_frame_non_standard") \
- 		*__func_stack_frame_non_standard_##func = func
- 
-+#define __ANNOTATE_NOINSTR_ALLOWED(key) \
-+	static void __used __section(".discard.noinstr_allowed") \
-+		*__annotate_noinstr_allowed_##key = &key
++config HAVE_CONTEXT_TRACKING_WORK
++	bool
++	help
++	  Architecture supports deferring work while not in kernel context.
++	  This is especially useful on setups with isolated CPUs that might
++	  want to avoid being interrupted to perform housekeeping tasks (for
++	  ex. TLB invalidation or icache invalidation). The housekeeping
++	  operations are performed upon re-entering the kernel.
 +
-+#define ANNOTATE_NOINSTR_ALLOWED(key) __ANNOTATE_NOINSTR_ALLOWED(key)
+ config HAVE_TIF_NOHZ
+ 	bool
+ 	help
+diff --git a/arch/x86/Kconfig b/arch/x86/Kconfig
+index 4b9f378e05f6b..c3fbcbee07788 100644
+--- a/arch/x86/Kconfig
++++ b/arch/x86/Kconfig
+@@ -222,6 +222,7 @@ config X86
+ 	select HAVE_CMPXCHG_LOCAL
+ 	select HAVE_CONTEXT_TRACKING_USER		if X86_64
+ 	select HAVE_CONTEXT_TRACKING_USER_OFFSTACK	if HAVE_CONTEXT_TRACKING_USER
++	select HAVE_CONTEXT_TRACKING_WORK		if X86_64
+ 	select HAVE_C_RECORDMCOUNT
+ 	select HAVE_OBJTOOL_MCOUNT		if HAVE_OBJTOOL
+ 	select HAVE_OBJTOOL_NOP_MCOUNT		if HAVE_OBJTOOL_MCOUNT
+diff --git a/arch/x86/include/asm/context_tracking_work.h b/arch/x86/include/asm/context_tracking_work.h
+new file mode 100644
+index 0000000000000..5f3b2d0977235
+--- /dev/null
++++ b/arch/x86/include/asm/context_tracking_work.h
+@@ -0,0 +1,16 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _ASM_X86_CONTEXT_TRACKING_WORK_H
++#define _ASM_X86_CONTEXT_TRACKING_WORK_H
 +
- /*
-  * STACK_FRAME_NON_STANDARD_FP() is a frame-pointer-specific function ignore
-  * for the case where a function is intentionally missing frame pointer setup,
-@@ -130,6 +136,7 @@
- #define STACK_FRAME_NON_STANDARD_FP(func)
- #define __ASM_ANNOTATE(label, type) ""
- #define ASM_ANNOTATE(type)
-+#define ANNOTATE_NOINSTR_ALLOWED(key)
- #else
- .macro UNWIND_HINT type:req sp_reg=0 sp_offset=0 signal=0
- .endm
-diff --git a/include/linux/static_call.h b/include/linux/static_call.h
-index ea6ca57e2a829..0d4b16d348501 100644
---- a/include/linux/static_call.h
-+++ b/include/linux/static_call.h
-@@ -133,6 +133,7 @@
- 
- #include <linux/types.h>
- #include <linux/cpu.h>
-+#include <linux/objtool.h>
- #include <linux/static_call_types.h>
- 
- #ifdef CONFIG_HAVE_STATIC_CALL
-@@ -198,6 +199,7 @@ extern long __static_call_return0(void);
- 		.func = _func,						\
- 		.type = 1,						\
- 	};								\
-+	ANNOTATE_NOINSTR_ALLOWED(STATIC_CALL_TRAMP(name));		\
- 	ARCH_DEFINE_STATIC_CALL_TRAMP(name, _func)
- 
- #define DEFINE_STATIC_CALL_NULL(name, _func)				\
-@@ -214,6 +216,7 @@ extern long __static_call_return0(void);
- 		.func = NULL,						\
- 		.type = 1,						\
- 	};								\
-+	ANNOTATE_NOINSTR_ALLOWED(STATIC_CALL_TRAMP(name));		\
- 	ARCH_DEFINE_STATIC_CALL_NULL_TRAMP(name)
- 
- #define DEFINE_STATIC_CALL_RET0(name, _func)				\
-diff --git a/tools/objtool/Documentation/objtool.txt b/tools/objtool/Documentation/objtool.txt
-index 9e97fc25b2d8a..991e085e10d95 100644
---- a/tools/objtool/Documentation/objtool.txt
-+++ b/tools/objtool/Documentation/objtool.txt
-@@ -456,6 +456,40 @@ the objtool maintainers.
-     these special names and does not use module_init() / module_exit()
-     macros to create them.
- 
-+13. file.o: warning: func()+0x2a: key: non-RO static key usage in noinstr code
-+    file.o: warning: func()+0x2a: key: non-RO static call usage in noinstr code
-+
-+  This means that noinstr function func() uses a static key or
-+  static call named 'key' which can be modified at runtime.  This is
-+  discouraged because it prevents code patching IPIs from being
-+  deferred.
-+
-+  You have the following options:
-+
-+  1) Check whether the static key/call in question is only modified
-+     during init.  If so, define it as read-only-after-init with
-+     DEFINE_STATIC_KEY_*_RO() or DEFINE_STATIC_CALL_RO().
-+
-+  2) Avoid the runtime patching.  For static keys this can be done by
-+     using static_key_enabled() or by getting rid of the static key
-+     altogether if performance is not a concern.
-+
-+     For static calls, something like the following could be done:
-+
-+       target = static_call_query(foo);
-+       if (target == func1)
-+	       func1();
-+	else if (target == func2)
-+		func2();
-+	...
-+
-+  3) Silence the warning by defining the static key/call with
-+     DEFINE_STATIC_*_NOINSTR().  This decision should not
-+     be taken lightly as it may result in code patching IPIs getting
-+     sent to isolated NOHZ_FULL CPUs running in pure userspace.  A
-+     comment should be added above the definition explaining the
-+     rationale for the decision.
-+
- 
- If the error doesn't seem to make sense, it could be a bug in objtool.
- Feel free to ask objtool maintainers for help.
-diff --git a/tools/objtool/check.c b/tools/objtool/check.c
-index 08e73765059fc..85f50777d7219 100644
---- a/tools/objtool/check.c
-+++ b/tools/objtool/check.c
-@@ -978,6 +978,45 @@ static int create_direct_call_sections(struct objtool_file *file)
- 	return 0;
- }
- 
-+static int read_noinstr_allowed(struct objtool_file *file)
++static __always_inline void arch_context_tracking_work(enum ct_work work)
 +{
-+	struct section *rsec;
-+	struct symbol *sym;
-+	struct reloc *reloc;
-+
-+	rsec = find_section_by_name(file->elf, ".rela.discard.noinstr_allowed");
-+	if (!rsec)
-+		return 0;
-+
-+	for_each_reloc(rsec, reloc) {
-+		switch (reloc->sym->type) {
-+		case STT_OBJECT:
-+		case STT_FUNC:
-+			sym = reloc->sym;
-+			break;
-+
-+		case STT_SECTION:
-+			sym = find_symbol_by_offset(reloc->sym->sec,
-+						    reloc_addend(reloc));
-+			if (!sym) {
-+				WARN_FUNC(reloc->sym->sec, reloc_addend(reloc),
-+					  "can't find static key/call symbol");
-+				return -1;
-+			}
-+			break;
-+
-+		default:
-+			WARN("unexpected relocation symbol type in %s: %d",
-+			     rsec->name, reloc->sym->type);
-+			return -1;
-+		}
-+
-+		sym->noinstr_allowed = 1;
++	switch (work) {
++	case CT_WORK_n:
++		// Do work...
++		break;
++	case CT_WORK_MAX:
++		WARN_ON_ONCE(true);
 +	}
-+
-+	return 0;
 +}
 +
- /*
-  * Warnings shouldn't be reported for ignored functions.
-  */
-@@ -1864,6 +1903,8 @@ static int handle_jump_alt(struct objtool_file *file,
- 		return -1;
- 	}
++#endif
+diff --git a/include/linux/context_tracking.h b/include/linux/context_tracking.h
+index af9fe87a09225..0b0faa040e9b5 100644
+--- a/include/linux/context_tracking.h
++++ b/include/linux/context_tracking.h
+@@ -5,6 +5,7 @@
+ #include <linux/sched.h>
+ #include <linux/vtime.h>
+ #include <linux/context_tracking_state.h>
++#include <linux/context_tracking_work.h>
+ #include <linux/instrumentation.h>
  
-+	orig_insn->key = special_alt->key;
-+
- 	if (opts.hack_jump_label && special_alt->key_addend & 2) {
- 		struct reloc *reloc = insn_reloc(file, orig_insn);
- 
-@@ -2596,6 +2637,10 @@ static int decode_sections(struct objtool_file *file)
- 	if (ret)
- 		return ret;
- 
-+	ret = read_noinstr_allowed(file);
-+	if (ret)
-+		return ret;
-+
- 	return 0;
+ #include <asm/ptrace.h>
+@@ -137,6 +138,26 @@ static __always_inline unsigned long ct_state_inc(int incby)
+ 	return raw_atomic_add_return(incby, this_cpu_ptr(&context_tracking.state));
  }
  
-@@ -3365,9 +3410,9 @@ static bool pv_call_dest(struct objtool_file *file, struct instruction *insn)
- 	return file->pv_ops[idx].clean;
- }
- 
--static inline bool noinstr_call_dest(struct objtool_file *file,
--				     struct instruction *insn,
--				     struct symbol *func)
-+static inline bool noinstr_call_allowed(struct objtool_file *file,
-+					struct instruction *insn,
-+					struct symbol *func)
++#ifdef CONFIG_CONTEXT_TRACKING_WORK
++static __always_inline unsigned long ct_state_inc_clear_work(int incby)
++{
++	struct context_tracking *ct = this_cpu_ptr(&context_tracking);
++	unsigned long new, old, state;
++
++	state = arch_atomic_read(&ct->state);
++	do {
++		old = state;
++		new = old & ~CT_WORK_MASK;
++		new += incby;
++		state = arch_atomic_cmpxchg(&ct->state, old, new);
++	} while (old != state);
++
++	return new;
++}
++#else
++#define ct_state_inc_clear_work(x) ct_state_inc(x)
++#endif
++
+ static __always_inline bool warn_rcu_enter(void)
  {
- 	/*
- 	 * We can't deal with indirect function calls at present;
-@@ -3387,10 +3432,10 @@ static inline bool noinstr_call_dest(struct objtool_file *file,
- 		return true;
+ 	bool ret = false;
+diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
+index 0b81248aa03e2..d2c302133672f 100644
+--- a/include/linux/context_tracking_state.h
++++ b/include/linux/context_tracking_state.h
+@@ -5,6 +5,7 @@
+ #include <linux/percpu.h>
+ #include <linux/static_key.h>
+ #include <linux/context_tracking_irq.h>
++#include <linux/context_tracking_work.h>
+ 
+ /* Offset to allow distinguishing irq vs. task-based idle entry/exit. */
+ #define CT_NESTING_IRQ_NONIDLE	((LONG_MAX / 2) + 1)
+@@ -39,16 +40,19 @@ struct context_tracking {
+ };
+ 
+ /*
+- * We cram two different things within the same atomic variable:
++ * We cram up to three different things within the same atomic variable:
+  *
+- *                     CT_RCU_WATCHING_START  CT_STATE_START
+- *                                |                |
+- *                                v                v
+- *     MSB [ RCU watching counter ][ context_state ] LSB
+- *         ^                       ^
+- *         |                       |
+- * CT_RCU_WATCHING_END        CT_STATE_END
++ *                     CT_RCU_WATCHING_START                  CT_STATE_START
++ *                                |         CT_WORK_START          |
++ *                                |               |                |
++ *                                v               v                v
++ *     MSB [ RCU watching counter ][ context work ][ context_state ] LSB
++ *         ^                       ^               ^
++ *         |                       |               |
++ *         |                  CT_WORK_END          |
++ * CT_RCU_WATCHING_END                        CT_STATE_END
+  *
++ * The [ context work ] region spans 0 bits if CONFIG_CONTEXT_WORK=n
+  * Bits are used from the LSB upwards, so unused bits (if any) will always be in
+  * upper bits of the variable.
+  */
+@@ -59,18 +63,24 @@ struct context_tracking {
+ #define CT_STATE_START 0
+ #define CT_STATE_END   (CT_STATE_START + CT_STATE_WIDTH - 1)
+ 
+-#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_STATE_WIDTH)
++#define CT_WORK_WIDTH (IS_ENABLED(CONFIG_CONTEXT_TRACKING_WORK) ? CT_WORK_MAX_OFFSET : 0)
++#define	CT_WORK_START (CT_STATE_END + 1)
++#define CT_WORK_END   (CT_WORK_START + CT_WORK_WIDTH - 1)
++
++#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_WORK_WIDTH - CT_STATE_WIDTH)
+ #define CT_RCU_WATCHING_WIDTH     (IS_ENABLED(CONFIG_RCU_DYNTICKS_TORTURE) ? 2 : CT_RCU_WATCHING_MAX_WIDTH)
+-#define CT_RCU_WATCHING_START     (CT_STATE_END + 1)
++#define CT_RCU_WATCHING_START     (CT_WORK_END + 1)
+ #define CT_RCU_WATCHING_END       (CT_RCU_WATCHING_START + CT_RCU_WATCHING_WIDTH - 1)
+ #define CT_RCU_WATCHING           BIT(CT_RCU_WATCHING_START)
+ 
+ #define CT_STATE_MASK        GENMASK(CT_STATE_END,        CT_STATE_START)
++#define CT_WORK_MASK         GENMASK(CT_WORK_END,         CT_WORK_START)
+ #define CT_RCU_WATCHING_MASK GENMASK(CT_RCU_WATCHING_END, CT_RCU_WATCHING_START)
+ 
+ #define CT_UNUSED_WIDTH (CT_RCU_WATCHING_MAX_WIDTH - CT_RCU_WATCHING_WIDTH)
+ 
+ static_assert(CT_STATE_WIDTH        +
++	      CT_WORK_WIDTH         +
+ 	      CT_RCU_WATCHING_WIDTH +
+ 	      CT_UNUSED_WIDTH       ==
+ 	      CT_SIZE);
+diff --git a/include/linux/context_tracking_work.h b/include/linux/context_tracking_work.h
+new file mode 100644
+index 0000000000000..c68245f8d77c5
+--- /dev/null
++++ b/include/linux/context_tracking_work.h
+@@ -0,0 +1,26 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++#ifndef _LINUX_CONTEXT_TRACKING_WORK_H
++#define _LINUX_CONTEXT_TRACKING_WORK_H
++
++#include <linux/bitops.h>
++
++enum {
++	CT_WORK_n_OFFSET,
++	CT_WORK_MAX_OFFSET
++};
++
++enum ct_work {
++	CT_WORK_n        = BIT(CT_WORK_n_OFFSET),
++	CT_WORK_MAX      = BIT(CT_WORK_MAX_OFFSET)
++};
++
++#include <asm/context_tracking_work.h>
++
++#ifdef CONFIG_CONTEXT_TRACKING_WORK
++extern bool ct_set_cpu_work(unsigned int cpu, enum ct_work work);
++#else
++static inline bool
++ct_set_cpu_work(unsigned int cpu, unsigned int work) { return false; }
++#endif
++
++#endif
+diff --git a/kernel/context_tracking.c b/kernel/context_tracking.c
+index fb5be6e9b423f..3238bb1f41ff4 100644
+--- a/kernel/context_tracking.c
++++ b/kernel/context_tracking.c
+@@ -72,6 +72,70 @@ static __always_inline void rcu_task_trace_heavyweight_exit(void)
+ #endif /* #ifdef CONFIG_TASKS_TRACE_RCU */
+ }
+ 
++#ifdef CONFIG_CONTEXT_TRACKING_WORK
++static noinstr void ct_work_flush(unsigned long seq)
++{
++	int bit;
++
++	seq = (seq & CT_WORK_MASK) >> CT_WORK_START;
++
++	/*
++	 * arch_context_tracking_work() must be noinstr, non-blocking,
++	 * and NMI safe.
++	 */
++	for_each_set_bit(bit, &seq, CT_WORK_MAX)
++		arch_context_tracking_work(BIT(bit));
++}
++
++/**
++ * ct_set_cpu_work - set work to be run at next kernel context entry
++ *
++ * If @cpu is not currently executing in kernelspace, it will execute the
++ * callback mapped to @work (see arch_context_tracking_work()) at its next
++ * entry into ct_kernel_enter_state().
++ *
++ * If it is already executing in kernelspace, this will be a no-op.
++ */
++bool ct_set_cpu_work(unsigned int cpu, enum ct_work work)
++{
++	struct context_tracking *ct = per_cpu_ptr(&context_tracking, cpu);
++	unsigned int old;
++	bool ret = false;
++
++	if (!ct->active)
++		return false;
++
++	preempt_disable();
++
++	old = atomic_read(&ct->state);
++
++	/*
++	 * The work bit must only be set if the target CPU is not executing
++	 * in kernelspace.
++	 * CT_RCU_WATCHING is used as a proxy for that - if the bit is set, we
++	 * know for sure the CPU is executing in the kernel whether that be in
++	 * NMI, IRQ or process context.
++	 * Set CT_RCU_WATCHING here and let the cmpxchg do the check for us;
++	 * the state could change between the atomic_read() and the cmpxchg().
++	 */
++	old |= CT_RCU_WATCHING;
++	/*
++	 * Try setting the work until either
++	 * - the target CPU has entered kernelspace
++	 * - the work has been set
++	 */
++	do {
++		ret = atomic_try_cmpxchg(&ct->state, &old, old | (work << CT_WORK_START));
++	} while (!ret && !(old & CT_RCU_WATCHING));
++
++	preempt_enable();
++	return ret;
++}
++#else
++static __always_inline void ct_work_flush(unsigned long work) { }
++static __always_inline void ct_work_clear(struct context_tracking *ct) { }
++#endif
++
+ /*
+  * Record entry into an extended quiescent state.  This is only to be
+  * called when not already in an extended quiescent state, that is,
+@@ -88,7 +152,7 @@ static noinstr void ct_kernel_exit_state(int offset)
+ 	rcu_task_trace_heavyweight_enter();  // Before CT state update!
+ 	// RCU is still watching.  Better not be in extended quiescent state!
+ 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !rcu_is_watching_curr_cpu());
+-	(void)ct_state_inc(offset);
++	(void)ct_state_inc_clear_work(offset);
+ 	// RCU is no longer watching.
+ }
+ 
+@@ -99,7 +163,7 @@ static noinstr void ct_kernel_exit_state(int offset)
+  */
+ static noinstr void ct_kernel_enter_state(int offset)
+ {
+-	int seq;
++	unsigned long seq;
  
  	/*
--	 * If the symbol is a static_call trampoline, we can't tell.
-+	 * Only DEFINE_STATIC_CALL_*_RO allowed.
+ 	 * CPUs seeing atomic_add_return() must see prior idle sojourns,
+@@ -107,6 +171,7 @@ static noinstr void ct_kernel_enter_state(int offset)
+ 	 * critical section.
  	 */
- 	if (func->static_call_tramp)
--		return true;
-+		return func->noinstr_allowed;
+ 	seq = ct_state_inc(offset);
++	ct_work_flush(seq);
+ 	// RCU is now watching.  Better not be in an extended quiescent state!
+ 	rcu_task_trace_heavyweight_exit();  // After CT state update!
+ 	WARN_ON_ONCE(IS_ENABLED(CONFIG_RCU_EQS_DEBUG) && !(seq & CT_RCU_WATCHING));
+diff --git a/kernel/time/Kconfig b/kernel/time/Kconfig
+index b0b97a60aaa6f..7e8106a0d981f 100644
+--- a/kernel/time/Kconfig
++++ b/kernel/time/Kconfig
+@@ -181,6 +181,11 @@ config CONTEXT_TRACKING_USER_FORCE
+ 	  Say N otherwise, this option brings an overhead that you
+ 	  don't want in production.
  
- 	/*
- 	 * The __ubsan_handle_*() calls are like WARN(), they only happen when
-@@ -3403,14 +3448,29 @@ static inline bool noinstr_call_dest(struct objtool_file *file,
- 	return false;
- }
- 
-+static char *static_call_name(struct symbol *func)
-+{
-+	return func->name + strlen("__SCT__");
-+}
++config CONTEXT_TRACKING_WORK
++	bool
++	depends on HAVE_CONTEXT_TRACKING_WORK && CONTEXT_TRACKING_USER
++	default y
 +
- static int validate_call(struct objtool_file *file,
- 			 struct instruction *insn,
- 			 struct insn_state *state)
- {
--	if (state->noinstr && state->instr <= 0 &&
--	    !noinstr_call_dest(file, insn, insn_call_dest(insn))) {
--		WARN_INSN(insn, "call to %s() leaves .noinstr.text section", call_dest_name(file, insn));
--		return 1;
-+	if (state->noinstr && state->instr <= 0) {
-+		struct symbol *dest = insn_call_dest(insn);
-+
-+		if (dest && dest->static_call_tramp) {
-+			if (!dest->noinstr_allowed) {
-+				WARN_INSN(insn, "%s: non-RO static call usage in noinstr",
-+					  static_call_name(dest));
-+			}
-+
-+		} else if (dest && !noinstr_call_allowed(file, insn, dest)) {
-+			WARN_INSN(insn, "call to %s() leaves .noinstr.text section",
-+				  call_dest_name(file, insn));
-+			return 1;
-+		}
- 	}
- 
- 	if (state->uaccess && !func_uaccess_safe(insn_call_dest(insn))) {
-@@ -3475,6 +3535,17 @@ static int validate_return(struct symbol *func, struct instruction *insn, struct
- 	return 0;
- }
- 
-+static int validate_static_key(struct instruction *insn, struct insn_state *state)
-+{
-+	if (state->noinstr && state->instr <= 0 && !insn->key->noinstr_allowed) {
-+		WARN_INSN(insn, "%s: non-RO static key usage in noinstr",
-+			  insn->key->name);
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
- static struct instruction *next_insn_to_validate(struct objtool_file *file,
- 						 struct instruction *insn)
- {
-@@ -3662,6 +3733,9 @@ static int validate_branch(struct objtool_file *file, struct symbol *func,
- 		if (handle_insn_ops(insn, next_insn, &state))
- 			return 1;
- 
-+		if (insn->key)
-+			validate_static_key(insn, &state);
-+
- 		switch (insn->type) {
- 
- 		case INSN_RETURN:
-diff --git a/tools/objtool/include/objtool/check.h b/tools/objtool/include/objtool/check.h
-index 00fb745e72339..d79b08f55bcbc 100644
---- a/tools/objtool/include/objtool/check.h
-+++ b/tools/objtool/include/objtool/check.h
-@@ -81,6 +81,7 @@ struct instruction {
- 	struct symbol *sym;
- 	struct stack_op *stack_ops;
- 	struct cfi_state *cfi;
-+	struct symbol *key;
- };
- 
- static inline struct symbol *insn_func(struct instruction *insn)
-diff --git a/tools/objtool/include/objtool/elf.h b/tools/objtool/include/objtool/elf.h
-index c7c4e87ebe882..b3c11869931fd 100644
---- a/tools/objtool/include/objtool/elf.h
-+++ b/tools/objtool/include/objtool/elf.h
-@@ -70,6 +70,7 @@ struct symbol {
- 	u8 local_label       : 1;
- 	u8 frame_pointer     : 1;
- 	u8 ignore	     : 1;
-+	u8 noinstr_allowed   : 1;
- 	struct list_head pv_target;
- 	struct reloc *relocs;
- };
-diff --git a/tools/objtool/include/objtool/special.h b/tools/objtool/include/objtool/special.h
-index 72d09c0adf1a1..e84d704f3f20e 100644
---- a/tools/objtool/include/objtool/special.h
-+++ b/tools/objtool/include/objtool/special.h
-@@ -18,6 +18,7 @@ struct special_alt {
- 	bool group;
- 	bool jump_or_nop;
- 	u8 key_addend;
-+	struct symbol *key;
- 
- 	struct section *orig_sec;
- 	unsigned long orig_off;
-diff --git a/tools/objtool/special.c b/tools/objtool/special.c
-index c80fed8a840ee..d77f3fa4bbbc9 100644
---- a/tools/objtool/special.c
-+++ b/tools/objtool/special.c
-@@ -110,13 +110,26 @@ static int get_alt_entry(struct elf *elf, const struct special_entry *entry,
- 
- 	if (entry->key) {
- 		struct reloc *key_reloc;
-+		struct symbol *key;
-+		s64 key_addend;
- 
- 		key_reloc = find_reloc_by_dest(elf, sec, offset + entry->key);
- 		if (!key_reloc) {
- 			ERROR_FUNC(sec, offset + entry->key, "can't find key reloc");
- 			return -1;
- 		}
--		alt->key_addend = reloc_addend(key_reloc);
-+
-+		key = key_reloc->sym;
-+		key_addend = reloc_addend(key_reloc);
-+
-+		if (key->type == STT_SECTION)
-+			key = find_symbol_by_offset(key->sec, key_addend & ~3);
-+
-+		/* embedded keys not supported */
-+		if (key) {
-+			alt->key = key;
-+			alt->key_addend = key_addend;
-+		}
- 	}
- 
- 	return 0;
+ config NO_HZ
+ 	bool "Old Idle dynticks config"
+ 	help
 -- 
 2.49.0
 
