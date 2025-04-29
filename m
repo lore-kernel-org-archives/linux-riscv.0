@@ -4,88 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88A7C369D5
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 00:41:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD2FC369D5
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 02:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ea7anpieaoiqBZ2rEVh5QBwGPj4oE3hCo+/g6zqf3f8=; b=XqUay6purk3272
-	c9Vie3FpmHsPNl4aaWkC837LbrTzaMgtovMkgjrumGA73HIxx6+HejiJhQHWzNLv/zcOpBZQLEUpg
-	x2nGpSA89tUC7rqCIrrqyTfIhL503W+djXeuS39VXij5oQUQqmIaWT5JZ8gKkuV1dDwYs0SzSYpH2
-	Uqvq7EbXbfUvwwfyn7xzPvokNGiZSHaIrKJFCjaktausnTO4DCHdMrlgN8w65nxc93QlzTBK3fdzJ
-	W5nvtXzU6iZI2AoO713uW8t4mCbC8dvJolmbF8UTfo5Rh2TRgeTo+hfYR7MlKsYlhG6agwOgi5qzK
-	dSHclZuhkygYdjGh0tgw==;
+	List-Archive:List-Unsubscribe:List-Id:Date:Message-ID:Subject:Cc:In-Reply-To:
+	To:From:MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=7wKT8nK6xbBiy+tKe7jM+BaM0YwndoatUIROE1tPqSg=; b=mJ9z2yLAJgW/Jx
+	KyE3w0HFNK8hDfrV9GOrwvLlc92GmGzhtaxzO5PgjVisb7Zdt7RyEmGzHDfUDWKv/r55cVqlQ0oCR
+	JYXAOPh9y9p3X426bqGXY36FaO239fTxw8ksu6FsKJJDdIiU8ez4heuglJKuBR55iERO1Sxh0Lm5i
+	jWorfXxpWuFxIfq/F8OkJ/wf8Tn1e5VzR+nfjTBX5pd5s8Bz39Z6XKmrRjSTpWDM1TVIkKMavV5bz
+	arGtjlvR90vDr4IbeOxTBmg2hpQzgkEcGopWkhmCnO4NoxIEjmbkKTCTSrFjjg25z9ekUF9wQAl8a
+	0iZ0jgETN3yGkSGBW8ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Z2H-00000007vh0-2JKF;
-	Tue, 29 Apr 2025 00:41:21 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1u9aMa-000000082rh-2vq2;
+	Tue, 29 Apr 2025 02:06:24 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9Z2E-00000007vgK-1IME
+	id 1u9aMY-000000082rJ-1Ntu
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 00:41:20 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ace3b03c043so835560766b.2
-        for <linux-riscv@lists.infradead.org>; Mon, 28 Apr 2025 17:41:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1745887276; x=1746492076; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cbaKAKCTzfmHltef4oBV78jsKmCoKC/2lN4zrIr3UH8=;
-        b=eyLp6RFtul1kWgNH/8cT7DHROW60CXvjxom0yQ/oapLMCZy+gBSEJnveZrV4FxeAn0
-         v64ogIa/+GRrTgm37xb6ZEoBHbpS34bV9x98KDqqNYMnVqIKg0MlhzViVrHvlYaaHL5x
-         vHzKBq2f4rh1xlsENBh2a1GOGrtCbt1FgKiTrtAQcORGmKZ8TD82E8iGtYiLiZc/edcG
-         +MCI+0lSTg1lxnF4am8tzX7XryrlUE2ikElYRAMw/YlWgSnLEGvmEt/Rvc4J6FBj4rzN
-         3Ow9jNF7PhDK6c3VVpgdk4NBqCen7Qzv/pkBUFwwZ6PQDTH+84Vs242FBaYpfLsvoSWY
-         inVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745887276; x=1746492076;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cbaKAKCTzfmHltef4oBV78jsKmCoKC/2lN4zrIr3UH8=;
-        b=PymVkTkw8pZnTGvrRW4DWuAIcQl6rBsZNXeV/B3xVl/DkhDZwO5PiGUH2vjk7xV4Sn
-         TjoE8Djpud+50Kw5TJxeloknUxlU0IKvBGye1YEoG61yFvuvcH6hX6XNMSJoMMjpQ0gT
-         nPbEP3eOCpSDNc74ZiyaVi9ZSPT44N1aBi724F7V59mKT8tIWvJ7Wovw7qCgpt47kET6
-         HM9KKeXrrp7JMcF4SNCqOaCXS8Z8Jqtr5u7hQSygtpUrcwUgoM8fjWdANFPPHdv75hmn
-         xR6hEdRWOUa7vVXljQcVCOpJPEfjV2CmySl/XxV/eFdCz7GsljgNXEozmLrbjVfvwQ8H
-         79/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVou8ocwyTt0T7AXlbjhZY/zqr0s5LhyMXefiK38Jf2oHDBg6thCwsLPSEAwcQafCnZ01MAq2dTKLOdvA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxaOiEekVZLyzKP6oD0Y/EsQbanjX+7NZ04wzvhju+ByPOPFOre
-	ENl1opv8/HOdVFWLB9eJ+MPLAQUCx+yuSN7/52H4Hb+l6r5lue/53HSXzt/6c0FsLQOEBSm2Q2W
-	MiSqeYCQtRKTHYz67x33Bt4k4ZLTZpDDAcc+Npw==
-X-Gm-Gg: ASbGncsCFRUIL59qvC/WCzxO0HPdmFG1YTcHESEYYG6AbK1KjW+7T38kQiJ6tNQgMLt
-	50IVEXark2Iy82rqZMNRc+GfjAkQUvqTZsPXhwfQUeCe1Ks/IvuruizHXEUFBXgGiJMXZ73QsOc
-	Aehe/12TY+BYSyxCP+x7hQ4IgcJvmPnnrcvA==
-X-Google-Smtp-Source: AGHT+IGDDd1KBmZYtGMAtcmO079rgPCkzThzjrRGdQyH+DShBHm1WziqDjfFzM1LQRG2qnLtbMLpLsYzzQQ9Ipi2Cr0=
-X-Received: by 2002:a17:907:6089:b0:ac2:66ff:878 with SMTP id
- a640c23a62f3a-acec87b1b2cmr75859566b.50.1745887276408; Mon, 28 Apr 2025
- 17:41:16 -0700 (PDT)
+	Tue, 29 Apr 2025 02:06:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1745892359; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Tp+ULCb/NX2CXxKOPjWGqBe0fqwgxr9x9CLyvf6rlNPNi2FiD/rBQGGwdvVcvZtL9EIB750v4XP3RrMfar1DR3mH8BxYN1Ky0qJZDJdHleEVSinQSYHF0jz60k59O1xEbj4mcgypzmq8DnuDG+fIrnNm/jGyVL6UImvmBTsy4EA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1745892359; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=G9pnAX/pTfcnbAMpNAi7zvp1vwdrfPjFEIddTEFp+hs=; 
+	b=lFf/P1omGs/txsFeVDKuSI++OXK3BADA4furDSYctP2uJuYuqBrFGb0nczQcjlrK1FXVUUSImAYjifIyfFvvkXWPblY/st3T7wRAmpg5PSo68okLHV2u0YKgDralFA7QTjuTriUyCrPSs5DPyV+c7vqG5LyEVKCQLOn2uCNo0+o=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1745892359;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=MIME-Version:From:From:To:To:In-Reply-To:Cc:Cc:Subject:Subject:Message-ID:Date:Date:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=G9pnAX/pTfcnbAMpNAi7zvp1vwdrfPjFEIddTEFp+hs=;
+	b=UeGsPCr9GpNvuSdbeFSbgg1lMlumVw5Y3n2BCTEjDObCVF2ZR/ZJrCAQPqAooJ2U
+	6v/vOUa627bOphWxQR/KNnxKdTB1U9PKeEbDtGzLNKzmD6Y0WXNRTrGesBJEpc7i4c/
+	Tx7tN10wFisKubc2HsWxSqPG7IvvFHKRVF2lZLlw=
+Received: by mx.zohomail.com with SMTPS id 1745892356039231.37800848772383;
+	Mon, 28 Apr 2025 19:05:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250420070251.378950-1-guodong@riscstar.com> <20250420070251.378950-4-guodong@riscstar.com>
- <kftfye2zn2ogyvuv7diuyrv5qkp43csbpkcqfcms2xp5lsuubm@z2kocdzkb7qk>
- <CAH1PCMZC5xrX07rd5bo+06zJoJDiAH3UNHqH5catwEALNJL2dQ@mail.gmail.com> <t4tnrsyl7t7hwfm752eapz3ajxkkl23nrfemw4jy6a7khi7a7u@gow3c2ba56ib>
-In-Reply-To: <t4tnrsyl7t7hwfm752eapz3ajxkkl23nrfemw4jy6a7khi7a7u@gow3c2ba56ib>
-From: Guodong Xu <guodong@riscstar.com>
-Date: Tue, 29 Apr 2025 08:41:04 +0800
-X-Gm-Features: ATxdqUG3lFgkg3lNUF6_ATkNEyTDRUTSmHtumyCGNvrS81lb8iksobg6ENCiyps
-Message-ID: <CAH1PCMbuP6CzA-0CWM93MifWDY-cKmvozh7SUoy0658VRssaAA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/6] riscv: dts: spacemit: add PWM support for K1 SoC
-To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
-	alex@ghiti.fr, dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, 
-	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org, 
-	tglx@linutronix.de, hal.feng@starfivetech.com, unicorn_wang@outlook.com, 
-	duje.mihanovic@skole.hr, elder@riscstar.com, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Conor Dooley" <conor@kernel.org>
+In-Reply-To: <20250428-glade-unripe-4cdb4913ede4@spud>
+Cc: "Jassi Brar" <jassisinghbrar@gmail.com>, 
+	"Rob Herring" <robh@kernel.org>, 
+	"Krzysztof Kozlowski" <krzk+dt@kernel.org>, 
+	"Conor Dooley" <conor+dt@kernel.org>, 
+	"Chen Wang" <unicorn_wang@outlook.com>, 
+	"Inochi Amaoto" <inochiama@gmail.com>, "Yuntao Dai" <d1581209858@live.com>, 
+	"Paul Walmsley" <paul.walmsley@sifive.com>, 
+	"Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, 
+	"Alexandre Ghiti" <alex@ghiti.fr>, <linux-kernel@vger.kernel.org>, 
+	<devicetree@vger.kernel.org>, <sophgo@lists.linux.dev>, 
+	<linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH v3 1/3] dt-bindings: mailbox: add Sophgo CV18XX series SoC
+Message-ID: <183aa7d7183c45f8.dee2d6a7f4d6f33a.37931e87d1f102d2@Jude-Air.local>
+Date: Tue, 29 Apr 2025 02:05:47 +0000
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250428_174118_611774_DEFB82AD 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20250428_190622_755294_D6FACC5D 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +80,129 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBBcHIgMjksIDIwMjUgYXQgMTI6MzLigK9BTSBVd2UgS2xlaW5lLUvDtm5pZyA8dWts
-ZWluZWtAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBIZWxsbywKPgo+IE9uIE1vbiwgQXByIDI4LCAy
-MDI1IGF0IDA4OjQ2OjUwUE0gKzA4MDAsIEd1b2RvbmcgWHUgd3JvdGU6Cj4gPiBPbiBUaHUsIEFw
-ciAyNCwgMjAyNSBhdCA0OjE44oCvUE0gVXdlIEtsZWluZS1Lw7ZuaWcgPHVrbGVpbmVrQGtlcm5l
-bC5vcmc+IHdyb3RlOgo+ID4gPiBJIHdhbnQgdG8gbWFrZSBhbGwgcHdtcyB1c2UgI3B3bS1jZWxs
-cyA9IDwzPiBpbiB0aGUgbG9uZyBydW4uIENhbiB5b3UKPiA+Cj4gPiBTdXJlLiBJIGNhbiBkbyB0
-aGlzLgo+ID4KPiA+ID4gcGxlYXNlIHVzZSB0aGF0IGZvciB0aGUgbmV3IGJpbmRpbmc/IChPZiBj
-b3Vyc2UgdGhpcyBuZWVkcyBhZGFwdGlvbiBpbgo+ID4gPiB0aGUgYmluZGluZyBkb2MsIHRoZSBj
-b2RlIHNob3VsZCBhbHJlYWR5IGJlIHByZXBhcmVkIGZvciB0aGF0LikKPiA+ID4KPiA+Cj4gPiBJ
-IGdvdCB3aGF0IHlvdSBtZWFuLiBUaGUgY29kZSBjaGFuZ2UgZm9yIHRoYXQgaXMgYWxyZWFkeSBp
-bnRlZ3JhdGVkIGludG8KPiA+IHY2LjE1LXJjMS4KPiA+IENvbW1pdCA4OTVmZTQ1MzdjYzggKCJw
-d206IEFkZCB1cGdyYWRlIHBhdGggdG8gI3B3bS1jZWxscyA9IDwzPiBmb3IgdXNlcnMgb2YKPiA+
-IG9mX3B3bV9zaW5nbGVfeGxhdGUoKSIpCj4gPgo+ID4gTm93LCBpZiBJIGNoYW5nZSB0aGlzICNw
-d20tY2VsbHMgZnJvbSA8MT4gdG8gPDM+LCB3aXRob3V0IHRoZSBkdC1iaW5kaW5nIGRvYwo+ID4g
-Y2hhbmdlcywgSSB3b3VsZCBleHBlY3QgdG8gc2VlIHdhcm5pbmdzICgiICNwd20tY2VsbHM6IDEg
-d2FzIGV4cGVjdGVkIikgZHVyaW5nCj4gPiAgIG1ha2UgZHRic19jaGVjayBXPTMKPiA+Cj4gPiBB
-bnkgc3VnZ2VzdGlvbnMgd2hlbiB0aGUgZHQtYmluZGluZyBjaGFuZ2VzIHdpbGwgYmUgbWVyZ2Vk
-Pwo+ID4gb3IgSSBjYW4gYWRkIHlvdXIgcGF0Y2ggYXMgYSBkZXBlbmRlbmN5Lgo+ID4gaHR0cHM6
-Ly9sb3JlLmtlcm5lbC5vcmcvYWxsL2NiNzk5ZDhhNWJiMjg0Y2Q4NjE3ODVhNjkxYjhkNWUzMjkz
-MDBkOTkuMTczODg0MjkzOC5naXQudS5rbGVpbmUta29lbmlnQGJheWxpYnJlLmNvbS8KPgo+IEkg
-ZG9uJ3Qgd2FudCB0byBtZXJnZSB0aGlzIHZlcnkgc29vbiBnaXZlbiB0aGF0IDg5NWZlNDUzN2Nj
-OCBpc24ndCB0aGF0Cj4gb2xkIHlldC4gQnV0IEkgc3VnZ2VzdCB5b3UgYWRhcHQgcGF0Y2ggIzEg
-dG8gcmVxdWlyZSAjcHdtLWNlbGxzID0gPDM+Cj4gZm9yIHRoZSBuZXdseSBhZGRlZCBjb21wYXRp
-YmxlLgoKb2ssIEkgd2lsbCBhZGQgYSBjb25kaXRpb25hbCBjaGVjayBvZiAjcHdtLWNlbGxzIGJh
-c2VkIG9uIHRoZSBjb21wYXRpYmxlLgpzcGFjZW1pdCxrMS1wd20gbXVzdCB1c2UgMzsgb3RoZXIg
-Y29tcGF0aWJsZXMgdXNlIDEuCiAoaWY6dGhlbjplbHNlIGluIHRoZSBiaW5nZGluZyB5YW1sKQoK
-VGhhbmtzLgpHdW9kb25nCgo+Cj4gQmVzdCByZWdhcmRzCj4gVXdlCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Conor,
+Thanks for your review.
+
+On 28/04/2025 17:52, Conor Dooley wrote:
+> On Mon, Apr 28, 2025 at 08:39:44PM +0800, Junhui Liu wrote:
+>> From: Yuntao Dai <d1581209858@live.com>
+>> 
+>> Introduce the mailbox module for CV18XX series SoC, which is responsible
+>> for interchanging messages between asymmetric processors.
+>> 
+>> Signed-off-by: Yuntao Dai <d1581209858@live.com>
+>> Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+>> ---
+>>  .../bindings/mailbox/sophgo,cv1800b-mailbox.yaml   | 57 ++++++++++++++++++++++
+>>  1 file changed, 57 insertions(+)
+>> 
+>> diff --git a/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml
+>> new file mode 100644
+>> index 0000000000000000000000000000000000000000..5815dc02189c973d681f5b4ff22a9fb7536802b9
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/mailbox/sophgo,cv1800b-mailbox.yaml
+>> @@ -0,0 +1,57 @@
+>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/mailbox/sophgo,cv1800b-mailbox.yaml#
+>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>> +
+>> +title: Sophgo CV1800/SG2000 mailbox controller
+>> +
+>> +maintainers:
+>> +  - Yuntao Dai <d1581209858@live.com>
+>> +  - Junhui Liu <junhui.liu@pigmoral.tech>
+>> +
+>> +description: |
+>> +  Mailboxes integrated in Sophgo CV1800/SG2000 SoCs have 8 channels, each
+>> +  shipping an 8-byte FIFO. Any processor can write to an arbitrary channel
+>> +  and raise interrupts to receivers. Sending messages to itself is also
+>> +  supported.
+> 
+>> +  Sophgo CV1800/SG2000 SoCs include the following processors, numbered as:
+>> +  <0> Cortex-A53 (Only available on CV181X/SG200X)
+>> +  <1> C906B
+>> +  <2> C906L
+>> +  <3> 8051
+> 
+> I think this section should be moved to the mbox-cells property, since it
+> is describing how to use the mboxes property.
+
+You're right. I will move it to the mbox-cells property.
+
+> 
+>> +
+>> +properties:
+>> +  compatible:
+>> +    const: sophgo,cv1800b-mailbox
+> 
+> Remind me, why only a cv1800b compatible when you also mention sg2000?
+> Rebranding of the same SoC, or something like that?
+
+Yes, this is some kind of rebranding behavior, as discussed previously
+in [1].
+
+And since the behavior of mailbox is consistent between CV18XX/SG200X
+when using C906B RISC-V core (Arm-A53 and C906B can't run at the same
+time), I only added sophgo,cv1800b-mailbox as a common compatible.
+
+Things will be slightly different when using Arm-A53 core, the receiver
+id in the driver will be different. I think a compatible like
+sophgo,sg2000-mailbox-a53 can be added to handle it when the A53 core is
+ready [2].
+
+link: https://lore.kernel.org/linux-riscv/20240116-music-luckiness-3220a9efdbbf@spud/ [1]
+link: https://lore.kernel.org/all/20250316185640.3750873-1-alexander.sverdlin@gmail.com/ [2]
+
+> 
+> Cheers,
+> Conor.
+> 
+>> +
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +  interrupts:
+>> +    maxItems: 1
+>> +
+>> +  "#mbox-cells":
+>> +    const: 2
+>> +    description:
+>> +      The first cell indicates the channel index (0-7), the second cell
+>> +      indicates the target processor ID (0-3) to which messages are sent.
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - interrupts
+>> +  - "#mbox-cells"
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    #include <dt-bindings/interrupt-controller/irq.h>
+>> +
+>> +    mailbox@1900000 {
+>> +        compatible = "sophgo,cv1800b-mailbox";
+>> +        reg = <0x01900000 0x1000>;
+>> +        interrupts = <101 IRQ_TYPE_LEVEL_HIGH>;
+>> +        #mbox-cells = <2>;
+>> +    };
+>> 
+>>
+
+-- 
+Best regards,
+Junhui Liu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
