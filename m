@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE6A6C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:41:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3667DC369DC
+	for <linux-riscv@archiver.kernel.org>; Tue, 29 Apr 2025 11:41:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/h+2TPwyVMhNEPx/5exSdRZkQPE4QdOmfFzDzJmLqzI=; b=EAr5mMppXeI9hX
-	0lB02tmnrKpJG2EKQbw0kQUYCRBNwoEzqgVZRoJDs/m1m4uV7QyYmRL+e9jeCyWqyPAIhJyUkcBMZ
-	DWdgiVGxqbZgRjtC5iFFaebL/mnBKn3W3m9s8UMcduSa4JdDX1Wk6ynrhd6iTKXIWpR5kfByHU25y
-	0t+pKZfJGjnCxsAI1buzvVHV103P0el49NmOZYW+MgVBQ1nx3QAboh7fTjAUVjpcWzPdu7f2mgSpx
-	fAL6/eVAh8SK+fK4fw8njjNyevO8oKitLOoCQJVGMqWMD5KvnF5GDA3PgJfUjS3POXCjNkVD01ZPb
-	baxz4WkyefVQLq00SVIw==;
+	List-Owner; bh=YKwCCcUeBG8gcbpzIoW1e6BKR/gUmRWevR2X7jEHCsM=; b=fjmFoyHJAXXPdT
+	tplzt2xv0splQtpju3mSE5dDIrH4XoYxtxa9ZUXIF7ptrj4LFlNrUWWCpU9Fq+lWmVKQtYA/ke//T
+	sHQqfg6ErhCfuwSHszMqSB9hBK2AMeWGfmSTgVqACBUrqBlVhTSpVyeMZ7gxMWdVNKNPB9ykZvr0+
+	wpZzpOWDVqUxE8PLyeOogYog9C2XB1r32ZeauB1bHV0LBfTTOMLdKRWM6LF5wWM9J63rKr08HelNn
+	H26eHngWYYr5txbY4TNeXBfVtWATh9nQXiJJv5cqyNgbhZXTlKm7SK4+n7SzZFp+NmZE/53E+RoUV
+	FVXupjzDxcrV81lzi/8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jLI-00000009VoQ-2320;
-	Tue, 29 Apr 2025 11:41:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1u9jLJ-00000009VqJ-1n1i;
+	Tue, 29 Apr 2025 11:41:41 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9jJH-00000009UxU-2rOm
+	id 1u9jJl-00000009VA6-0wkr
 	for linux-riscv@lists.infradead.org;
-	Tue, 29 Apr 2025 11:39:36 +0000
+	Tue, 29 Apr 2025 11:40:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1745926774;
+	s=mimecast20190719; t=1745926804;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FU5oL340k+I3IEiTV2H2yWdF5JVjr/jcngssaAGWppY=;
-	b=EjEpWPebdjHSb/iTYfCZOny8dSnt19LroMd7R4YQNqDIxgWHa5xZ9itQQ79+mDV+Hx4AVc
-	EPgHACFfwNetrg+GNQekIjS1oJarpSNfCLgZWRqBBi0kG/WuGi35vtHpOUCBUbPXRD2qox
-	RETRP8g3wIE2el/aOAHEuAL4Wox7TvU=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=keUFEOxzvfEuQuGtzUh6W6JrELfzfZcOEBMj82wu5Js=;
+	b=h9T+ZfonTLJUKG55KQvLxZ5tBFgkmK7YfcFPqNs7Uf7MpQQxR84EGVQk9kjQHHCLDFyYBC
+	jGo6MFOGE24VuxZXy+thv/2SZyyf+w3Gn3j5Z2VHO3DDEaknuiesrFWuth3xzT1qpK459+
+	EXrdlznQmHn7IXOCxV7ZeFgR1D4+obY=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-383-kNbRgdsXNzWuAUJI3S4Dyw-1; Tue,
- 29 Apr 2025 07:39:30 -0400
-X-MC-Unique: kNbRgdsXNzWuAUJI3S4Dyw-1
-X-Mimecast-MFC-AGG-ID: kNbRgdsXNzWuAUJI3S4Dyw_1745926766
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-480-0KyN8NHVNGesDTy4uiZiQg-1; Tue,
+ 29 Apr 2025 07:40:00 -0400
+X-MC-Unique: 0KyN8NHVNGesDTy4uiZiQg-1
+X-Mimecast-MFC-AGG-ID: 0KyN8NHVNGesDTy4uiZiQg_1745926796
 Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F126819560A0;
-	Tue, 29 Apr 2025 11:39:25 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F100F180010A;
+	Tue, 29 Apr 2025 11:39:55 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.225.102])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4528C19560A3;
-	Tue, 29 Apr 2025 11:38:56 +0000 (UTC)
+	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8A8D619560A3;
+	Tue, 29 Apr 2025 11:39:26 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	virtualization@lists.linux.dev,
@@ -150,16 +150,16 @@ Cc: Juri Lelli <juri.lelli@redhat.com>,
 	Randy Dunlap <rdunlap@infradead.org>,
 	John Stultz <jstultz@google.com>,
 	Tiezhu Yang <yangtiezhu@loongson.cn>
-Subject: [PATCH v5 11/25] loongarch/paravirt: Mark pv_steal_clock static call as __ro_after_init
-Date: Tue, 29 Apr 2025 13:32:28 +0200
-Message-ID: <20250429113242.998312-12-vschneid@redhat.com>
+Subject: [PATCH v5 12/25] arm64/paravirt: Mark pv_steal_clock static call as __ro_after_init
+Date: Tue, 29 Apr 2025 13:32:29 +0200
+Message-ID: <20250429113242.998312-13-vschneid@redhat.com>
 In-Reply-To: <20250429113242.998312-1-vschneid@redhat.com>
 References: <20250429113242.998312-1-vschneid@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_043935_793348_147B63A3 
-X-CRM114-Status: GOOD (  14.02  )
+X-CRM114-CacheID: sfid-20250429_044005_333877_259892C2 
+X-CRM114-Status: GOOD (  14.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,22 +185,22 @@ so mark it appropriately as __ro_after_init.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
- arch/loongarch/kernel/paravirt.c | 2 +-
+ arch/arm64/kernel/paravirt.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/loongarch/kernel/paravirt.c b/arch/loongarch/kernel/paravirt.c
-index e5a39bbad0780..b011578d3e931 100644
---- a/arch/loongarch/kernel/paravirt.c
-+++ b/arch/loongarch/kernel/paravirt.c
-@@ -20,7 +20,7 @@ static u64 native_steal_clock(int cpu)
+diff --git a/arch/arm64/kernel/paravirt.c b/arch/arm64/kernel/paravirt.c
+index aa718d6a9274a..ad28fa23c9228 100644
+--- a/arch/arm64/kernel/paravirt.c
++++ b/arch/arm64/kernel/paravirt.c
+@@ -32,7 +32,7 @@ static u64 native_steal_clock(int cpu)
  	return 0;
  }
  
 -DEFINE_STATIC_CALL(pv_steal_clock, native_steal_clock);
 +DEFINE_STATIC_CALL_RO(pv_steal_clock, native_steal_clock);
  
- static bool steal_acc = true;
- 
+ struct pv_time_stolen_time_region {
+ 	struct pvclock_vcpu_stolen_time __rcu *kaddr;
 -- 
 2.49.0
 
