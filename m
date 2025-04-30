@@ -4,87 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503D1C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 03:52:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A22EFC369DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 03:52:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gdW4LcWrz5TNsngDe/U1UoQDJ7F2v4om9C7uLRfMhGE=; b=LizeJtHnIY3jjy
-	8qNodwUalLEp9EYbP0Qe3n0ZksWxluNWpHTfbM+wxilvemvie8jpqRvXUgcEqOxH3ONSL3prJ+4Ck
-	+HAQFIDS9FO0o8ju9988cJBRJgDKZ12DPT0a1JaTUjsTtt5tS/B6NwQYC3SC7sGATKaRh0/NKrJ+C
-	7wIMj93jCEe6pqy8ZVvJVZB5XtQ0znT4IE/Tm1d8mDCO1yoRQUSvBk1c0oTByD4TsqbKcm+KczpA6
-	mU6JTgR/lRql24UIw7t7IryydN78OPn9Gyu+0lX6iGEiq6BegXdXdEm+tx3UK8Mfs3lJvpKDHeuMH
-	apb89/bSRsi7OtkwXEbQ==;
+	List-Owner; bh=9zMHs1Y/H008XqV4YCXfpY6SnHjpxfVkaKqh52D8qEc=; b=icW+4ogVlqqZS5
+	mwpedNwlhuE0dddxV+RkJ8CeIYCcaqh7eGvQAIYcEHPpuOg4w9XoFX6Q3eh1nOJPPDoEb9xiD1lgF
+	StaVaGH8JcJ8IB5SvqfvHMNbR3nKhm6pM8SxYtOVwROTTElRxfkxr76H0sjNoLJAaFp4N8u10wM9f
+	A1xbzv6lXWc/rZs2XeCqPtH/sDEivrAQBVgmvX1BnSZTaPDSWKgmACZvGaSsH+bgDbRycVO/y5h17
+	2gZaKTwr0Qbqo9kSjfIkhdBUB14KYUWySdU0Ji0jHMJtUE+JNlUROZ8USmIOPQ2mkDMeGnYkdx6hj
+	iIeNK4WhUiwyJ7ZYR8vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yUH-0000000Bcc5-1uqh;
-	Wed, 30 Apr 2025 03:51:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1u9yUG-0000000Bcc1-3obR;
+	Wed, 30 Apr 2025 03:51:56 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yRQ-0000000BcKf-0C8T
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 30 Apr 2025 03:49:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=4MFsVWY1OVehHD6ajOPJIuL2BzQALFZdi4vsjhHYWq0=; b=UTxflPxJd4vTq2pK5uAJzg/3Ef
-	II0Oxh4kvectr4alr3D8ti4019J8axoIfvkMIfoQR1gCwj+77rwmwYw4VuJX61tyJeJfSQSrD2Xpl
-	qwmGN9IvbjknBe/tarjvwVbJo0dcJ1XDMhq6z1U6aWxhNlDfciB9vxfwVqEA8rAdmds+fNtyyW8LE
-	yi+AGvyHzqDRRq3anj74DbcxGm+l+3VFgbPqqq4C5pwLsrHaN5tUguizlj12eRdpBUcyE3rS/tUyB
-	paW+wl/U6DTJz0GLJcQnJcdrsGM/dphfgqMpavvyu/H+LkjV8kqKZQt4dBWgoa6nOyFlEU5grM68F
-	Rqz0zCzg==;
-Received: from szxga04-in.huawei.com ([45.249.212.190])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9yRK-0000000DfVi-0QAZ
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 03:48:58 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZnNNw3Wpcz2Cdd3;
-	Wed, 30 Apr 2025 11:45:04 +0800 (CST)
-Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id D63A0140275;
-	Wed, 30 Apr 2025 11:48:36 +0800 (CST)
-Received: from [10.67.109.184] (10.67.109.184) by
- kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 30 Apr 2025 11:48:35 +0800
-Message-ID: <55128b58-3d1b-4330-af72-a84f1cd6949b@huawei.com>
-Date: Wed, 30 Apr 2025 11:48:35 +0800
+	id 1u9yQy-0000000BcFa-3ITH;
+	Wed, 30 Apr 2025 03:48:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=fD6zxRFFdRFmxzaf4tcfULngb0ghBzMFzuAhq3mvYqE=; b=hWW2WGSUC7/9y1k66lTSv8t0NB
+	86jMa18oP8xVKrRy2pet+kyNDfDkiWXnkDiHusEJqsOTzP0cP/0PkMigOPIuo+87s9Z9XPVpskRro
+	dS1WOUUbPQ1jKfi/lWH17yj4Q/Wuok27nYeCDky8E3CU7xBge8BSa1jutA53iZWzZm+x6tU6XvwXb
+	Gp6LoZ5J7KqxmrS/+M/LV41C4ymxNHH/0Ilke/dwwr4I6LwfkqKV6LfmlgSYX1Fx8Big8f8hBVE9M
+	/BAxCuYpNOUBD5NdkedVJypqafu3Mghqtyq1NxuuZtmuXUh+9ajklKb+hq0UBQv8VBgh17AwRRM4p
+	3wjeCrog==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9yQs-0029Ri-24;
+	Wed, 30 Apr 2025 11:48:27 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 30 Apr 2025 11:48:26 +0800
+Date: Wed, 30 Apr 2025 11:48:26 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v4 01/13] crypto: sha256 - support arch-optimized lib and
+ expose through shash
+Message-ID: <aBGdiv17ztQnhAps@gondor.apana.org.au>
+References: <20250428170040.423825-1-ebiggers@kernel.org>
+ <20250428170040.423825-2-ebiggers@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 3/8] bpf, riscv64: Support load-acquire and
- store-release instructions
-Content-Language: en-US
-To: Peilin Ye <yepeilin@google.com>, <bpf@vger.kernel.org>
-CC: Andrea Parri <parri.andrea@gmail.com>, <linux-riscv@lists.infradead.org>,
-	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Puranjay Mohan
-	<puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
-	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
-	<martin.lau@linux.dev>, Eduard Zingerman <eddyz87@gmail.com>, "Paul E.
- McKenney" <paulmck@kernel.org>, Song Liu <song@kernel.org>, Yonghong Song
-	<yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, KP
- Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo
-	<haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>, Luke Nelson
-	<luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>, Paul Walmsley
-	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
-	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Mykola Lysenko
-	<mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, Josh Don
-	<joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu
-	<neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
-References: <cover.1745970908.git.yepeilin@google.com>
- <248aa4b0ef7e439e0446d25732af7246d119c6a9.1745970908.git.yepeilin@google.com>
-From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <248aa4b0ef7e439e0446d25732af7246d119c6a9.1745970908.git.yepeilin@google.com>
-X-Originating-IP: [10.67.109.184]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemf100007.china.huawei.com (7.202.181.221)
+Content-Disposition: inline
+In-Reply-To: <20250428170040.423825-2-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_044855_150973_3A6E162C 
-X-CRM114-Status: GOOD (  23.12  )
+X-CRM114-CacheID: sfid-20250429_204832_824313_837AC305 
+X-CRM114-Status: GOOD (  22.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,219 +76,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/4/30 8:50, Peilin Ye wrote:
-> From: Andrea Parri <parri.andrea@gmail.com>
+On Mon, Apr 28, 2025 at 10:00:26AM -0700, Eric Biggers wrote:
+> From: Eric Biggers <ebiggers@google.com>
 > 
-> Support BPF load-acquire (BPF_LOAD_ACQ) and store-release
-> (BPF_STORE_REL) instructions in the riscv64 JIT compiler.  For example,
-> consider the following 64-bit load-acquire (assuming little-endian):
+> As has been done for various other algorithms, rework the design of the
+> SHA-256 library to support arch-optimized implementations, and make
+> crypto/sha256.c expose both generic and arch-optimized shash algorithms
+> that wrap the library functions.
 > 
->    db 10 00 00 00 01 00 00  r1 = load_acquire((u64 *)(r1 + 0x0))
->    95 00 00 00 00 00 00 00  exit
+> This allows users of the SHA-256 library functions to take advantage of
+> the arch-optimized code, and this makes it much simpler to integrate
+> SHA-256 for each architecture.
 > 
->    opcode (0xdb): BPF_ATOMIC | BPF_DW | BPF_STX
->    imm (0x00000100): BPF_LOAD_ACQ
+> Note that sha256_base.h is not used in the new design.  It will be
+> removed once all the architecture-specific code has been updated.
 > 
-> The JIT compiler will emit an LD instruction followed by a FENCE R,RW
-> instruction for the above, e.g.:
+> Move the generic block function into its own module to avoid a circular
+> dependency from libsha256.ko => sha256-$ARCH.ko => libsha256.ko.
 > 
->    ld x7,0(x6)
->    fence r,rw
-> 
-> Similarly, consider the following 16-bit store-release:
-> 
->    cb 21 00 00 10 01 00 00  store_release((u16 *)(r1 + 0x0), w2)
->    95 00 00 00 00 00 00 00  exit
-> 
->    opcode (0xcb): BPF_ATOMIC | BPF_H | BPF_STX
->    imm (0x00000110): BPF_STORE_REL
-> 
-> A FENCE RW,W instruction followed by an SH instruction will be emitted,
-> e.g.:
-> 
->    fence rw,w
->    sh x2,0(x4)
-> 
-> 8-bit and 16-bit load-acquires are zero-extending (cf., LBU, LHU).  The
-> verifier always rejects misaligned load-acquires/store-releases (even if
-> BPF_F_ANY_ALIGNMENT is set), so the emitted load and store instructions
-> are guaranteed to be single-copy atomic.
-> 
-> Introduce primitives to emit the relevant (and the most common/used in
-> the kernel) fences, i.e. fences with R -> RW, RW -> W and RW -> RW.
-> 
-> Rename emit_atomic() to emit_atomic_rmw() to make it clear that it only
-> handles RMW atomics, and replace its is64 parameter to allow to perform
-> the required checks on the opsize (BPF_SIZE(code)).
-> 
-> Tested-by: Peilin Ye <yepeilin@google.com>
-> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-> [yepeilin@google.com: whitespace changes; cosmetic changes to commit
->                        title and message]
-> Signed-off-by: Peilin Ye <yepeilin@google.com>
+> Signed-off-by: Eric Biggers <ebiggers@google.com>
 > ---
->   arch/riscv/net/bpf_jit.h        | 15 +++++++
->   arch/riscv/net/bpf_jit_comp64.c | 77 ++++++++++++++++++++++++++++++---
->   2 files changed, 85 insertions(+), 7 deletions(-)
-> 
-> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
-> index 1d1c78d4cff1..e7b032dfd17f 100644
-> --- a/arch/riscv/net/bpf_jit.h
-> +++ b/arch/riscv/net/bpf_jit.h
-> @@ -608,6 +608,21 @@ static inline u32 rv_fence(u8 pred, u8 succ)
->   	return rv_i_insn(imm11_0, 0, 0, 0, 0xf);
->   }
->   
-> +static inline void emit_fence_r_rw(struct rv_jit_context *ctx)
-> +{
-> +	emit(rv_fence(0x2, 0x3), ctx);
-> +}
-> +
-> +static inline void emit_fence_rw_w(struct rv_jit_context *ctx)
-> +{
-> +	emit(rv_fence(0x3, 0x1), ctx);
-> +}
-> +
-> +static inline void emit_fence_rw_rw(struct rv_jit_context *ctx)
-> +{
-> +	emit(rv_fence(0x3, 0x3), ctx);
-> +}
-> +
->   static inline u32 rv_nop(void)
->   {
->   	return rv_i_insn(0, 0, 0, 0, 0x13);
-> diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index 953b6a20c69f..b71a9c88fb4f 100644
-> --- a/arch/riscv/net/bpf_jit_comp64.c
-> +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -607,11 +607,65 @@ static void emit_store_64(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
->   	emit_sd(RV_REG_T1, 0, rs, ctx);
->   }
->   
-> -static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
-> -			struct rv_jit_context *ctx)
-> +static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_jit_context *ctx)
-> +{
-> +	switch (imm) {
-> +	/* dst_reg = load_acquire(src_reg + off16) */
-> +	case BPF_LOAD_ACQ:
-> +		switch (BPF_SIZE(code)) {
-> +		case BPF_B:
-> +			emit_load_8(false, rd, off, rs, ctx);
-> +			break;
-> +		case BPF_H:
-> +			emit_load_16(false, rd, off, rs, ctx);
-> +			break;
-> +		case BPF_W:
-> +			emit_load_32(false, rd, off, rs, ctx);
-> +			break;
-> +		case BPF_DW:
-> +			emit_load_64(false, rd, off, rs, ctx);
-> +			break;
-> +		}
-> +		emit_fence_r_rw(ctx);
-> +		break;
-> +	/* store_release(dst_reg + off16, src_reg) */
-> +	case BPF_STORE_REL:
-> +		emit_fence_rw_w(ctx);
-> +		switch (BPF_SIZE(code)) {
-> +		case BPF_B:
-> +			emit_store_8(rd, off, rs, ctx);
-> +			break;
-> +		case BPF_H:
-> +			emit_store_16(rd, off, rs, ctx);
-> +			break;
-> +		case BPF_W:
-> +			emit_store_32(rd, off, rs, ctx);
-> +			break;
-> +		case BPF_DW:
-> +			emit_store_64(rd, off, rs, ctx);
-> +			break;
-> +		}
-> +		break;
-> +	default:
-> +		pr_err_once("bpf-jit: invalid atomic load/store opcode %02x\n", imm);
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int emit_atomic_rmw(u8 rd, u8 rs, s16 off, s32 imm, u8 code,
-> +			   struct rv_jit_context *ctx)
->   {
->   	u8 r0;
->   	int jmp_offset;
-> +	bool is64;
-> +
-> +	if (BPF_SIZE(code) != BPF_W && BPF_SIZE(code) != BPF_DW) {
-> +		pr_err_once("bpf-jit: 1- and 2-byte RMW atomics are not supported\n");
-> +		return -EINVAL;
-> +	}
-> +	is64 = BPF_SIZE(code) == BPF_DW;
->   
->   	if (off) {
->   		if (is_12b_int(off)) {
-> @@ -688,9 +742,14 @@ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
->   		     rv_sc_w(RV_REG_T3, rs, rd, 0, 1), ctx);
->   		jmp_offset = ninsns_rvoff(-6);
->   		emit(rv_bne(RV_REG_T3, 0, jmp_offset >> 1), ctx);
-> -		emit(rv_fence(0x3, 0x3), ctx);
-> +		emit_fence_rw_rw(ctx);
->   		break;
-> +	default:
-> +		pr_err_once("bpf-jit: invalid atomic RMW opcode %02x\n", imm);
-> +		return -EINVAL;
->   	}
-> +
-> +	return 0;
->   }
->   
->   #define BPF_FIXUP_OFFSET_MASK   GENMASK(26, 0)
-> @@ -1259,7 +1318,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   {
->   	bool is64 = BPF_CLASS(insn->code) == BPF_ALU64 ||
->   		    BPF_CLASS(insn->code) == BPF_JMP;
-> -	int s, e, rvoff, ret, i = insn - ctx->prog->insnsi;
-> +	int s, e, rvoff, ret = 0, i = insn - ctx->prog->insnsi;
->   	struct bpf_prog_aux *aux = ctx->prog->aux;
->   	u8 rd = -1, rs = -1, code = insn->code;
->   	s16 off = insn->off;
-> @@ -1962,10 +2021,14 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   	case BPF_STX | BPF_MEM | BPF_DW:
->   		emit_store_64(rd, off, rs, ctx);
->   		break;
-> +	case BPF_STX | BPF_ATOMIC | BPF_B:
-> +	case BPF_STX | BPF_ATOMIC | BPF_H:
->   	case BPF_STX | BPF_ATOMIC | BPF_W:
->   	case BPF_STX | BPF_ATOMIC | BPF_DW:
-> -		emit_atomic(rd, rs, off, imm,
-> -			    BPF_SIZE(code) == BPF_DW, ctx);
-> +		if (bpf_atomic_is_load_store(insn))
-> +			ret = emit_atomic_ld_st(rd, rs, off, imm, code, ctx);
-> +		else
-> +			ret = emit_atomic_rmw(rd, rs, off, imm, code, ctx);
->   		break;
->   
->   	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
-> @@ -2050,7 +2113,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
->   		return -EINVAL;
->   	}
->   
-> -	return 0;
-> +	return ret;
->   }
->   
->   void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
+>  crypto/Kconfig                 |   1 +
+>  crypto/Makefile                |   3 +-
+>  crypto/sha256.c                | 201 +++++++++++++++++++++++++++++++++
+>  crypto/sha256_generic.c        | 102 -----------------
+>  include/crypto/internal/sha2.h |  28 +++++
+>  include/crypto/sha2.h          |  15 +--
+>  include/crypto/sha256_base.h   |   9 +-
+>  lib/crypto/Kconfig             |  19 ++++
+>  lib/crypto/Makefile            |   3 +
+>  lib/crypto/sha256-generic.c    | 137 ++++++++++++++++++++++
+>  lib/crypto/sha256.c            | 196 ++++++++++++++------------------
+>  11 files changed, 487 insertions(+), 227 deletions(-)
+>  create mode 100644 crypto/sha256.c
+>  delete mode 100644 crypto/sha256_generic.c
+>  create mode 100644 include/crypto/internal/sha2.h
+>  create mode 100644 lib/crypto/sha256-generic.c
 
-Reviewed-by: Pu Lehui <pulehui@huawei.com>
+This is the patch that I will fold in here to maintain the existing
+export format:
+
+diff --git a/crypto/sha256.c b/crypto/sha256.c
+index 1c2edcf9453d..c2588d08ee3e 100644
+--- a/crypto/sha256.c
++++ b/crypto/sha256.c
+@@ -116,6 +116,32 @@ static int crypto_sha224_final_arch(struct shash_desc *desc, u8 *out)
+ 	return 0;
+ }
+ 
++static int crypto_sha256_import_lib(struct shash_desc *desc, const void *in)
++{
++	struct sha256_state *sctx = shash_desc_ctx(desc);
++	const u8 *p = in;
++
++	memcpy(sctx, p, sizeof(*sctx));
++	p += sizeof(*sctx);
++	sctx->count += *p;
++	return 0;
++}
++
++static int crypto_sha256_export_lib(struct shash_desc *desc, void *out)
++{
++	struct sha256_state *sctx0 = shash_desc_ctx(desc);
++	struct sha256_state sctx = *sctx0;
++	unsigned int partial;
++	u8 *p = out;
++
++	partial = sctx.count % SHA256_BLOCK_SIZE;
++	sctx.count -= partial;
++	memcpy(p, &sctx, sizeof(sctx));
++	p += sizeof(sctx);
++	*p = partial;
++	return 0;
++}
++
+ static struct shash_alg algs[] = {
+ 	{
+ 		.base.cra_name		= "sha256",
+@@ -130,6 +156,10 @@ static struct shash_alg algs[] = {
+ 		.finup			= crypto_sha256_finup_generic,
+ 		.digest			= crypto_sha256_digest_generic,
+ 		.descsize		= sizeof(struct sha256_state),
++		.statesize		= sizeof(struct crypto_sha256_state) +
++					  SHA256_BLOCK_SIZE + 1,
++		.import			= crypto_sha256_import_lib,
++		.export			= crypto_sha256_export_lib,
+ 	},
+ 	{
+ 		.base.cra_name		= "sha224",
+@@ -142,6 +172,10 @@ static struct shash_alg algs[] = {
+ 		.update			= crypto_sha256_update_generic,
+ 		.final			= crypto_sha224_final_generic,
+ 		.descsize		= sizeof(struct sha256_state),
++		.statesize		= sizeof(struct crypto_sha256_state) +
++					  SHA256_BLOCK_SIZE + 1,
++		.import			= crypto_sha256_import_lib,
++		.export			= crypto_sha256_export_lib,
+ 	},
+ 	{
+ 		.base.cra_name		= "sha256",
+@@ -156,6 +190,10 @@ static struct shash_alg algs[] = {
+ 		.finup			= crypto_sha256_finup_arch,
+ 		.digest			= crypto_sha256_digest_arch,
+ 		.descsize		= sizeof(struct sha256_state),
++		.statesize		= sizeof(struct crypto_sha256_state) +
++					  SHA256_BLOCK_SIZE + 1,
++		.import			= crypto_sha256_import_lib,
++		.export			= crypto_sha256_export_lib,
+ 	},
+ 	{
+ 		.base.cra_name		= "sha224",
+@@ -168,6 +206,10 @@ static struct shash_alg algs[] = {
+ 		.update			= crypto_sha256_update_arch,
+ 		.final			= crypto_sha224_final_arch,
+ 		.descsize		= sizeof(struct sha256_state),
++		.statesize		= sizeof(struct crypto_sha256_state) +
++					  SHA256_BLOCK_SIZE + 1,
++		.import			= crypto_sha256_import_lib,
++		.export			= crypto_sha256_export_lib,
+ 	},
+ };
+
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
