@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523B6C3ABAB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C88E0C3ABAF
 	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 07:33:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=b7KDRDDygPUiXOLmy8w/ADylyhYCo1D6jsffEyfphSo=; b=TrQGiY6uDe3N6U
-	wTtsCKBmolX5M7+QelGpsrqcFNfiz6r+C4aHWjsaUjOsuecii5yGn801mA5JoL5YHGEi6j1ffHHtU
-	OMJG4VzWlF6N//2Z/0CmLc7P7IOQ7SUgrv9GVfiFybuMH9Jn2o8hIbBF8cK1AG6o5BudXwz/P6oR6
-	YtRv83g7LGcj48a2L3F/CXWSEfRrnAERKF3PDBXZL/F3IF0cL/q0PtLhwMTIpOGjmFsEVPqxpZNWB
-	XYgiUqbckt+a7RwzNED4GgCUgNtaIPE9T6WhsfTBABH1y8ds9DN3iV0KKR8iZrP9Hk0O0AQjPUUWI
-	hqHlwUrJiN91se5YEBew==;
+	List-Owner; bh=ZcZiD4ksDVnCI//f4NdA89IGr6zmgfflpF1Cnrq6uLU=; b=vtVOMVnFExNE0A
+	l0KOtAsG3GA4BscOzVu40uD+20JtVVNneKGZf17gROQUMCGeKNIAA4eNV2KY4TeAQtCU6PRKxVOOX
+	SUBlt01HG3w+hx+nx+X+Qq0P92pUw+b8zFkLAhGNg5cnziprtNyGfCnjVRSNTwG0+z+EAWXQDAZJ/
+	mz0P9KCPWoUGSVKdf1/pLcOGnKKxnGCCkbywYgbfs4R5WUHjaoxpJvO1On3HmamTI6nLNtuzmwbJf
+	JcmU7KccElUGohachinBztX6MJw2xF0M/aUGNpLFoj3BU5i9xFB45XzVXgU04BTgufLlJCha9ZFxr
+	anOYILJuTnWS3G5cqNvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1w8-0000000C0Al-44iE;
-	Wed, 30 Apr 2025 07:32:56 +0000
-Received: from out-179.mta1.migadu.com ([2001:41d0:203:375::b3])
+	id 1uA1w9-0000000C0BQ-2i8u;
+	Wed, 30 Apr 2025 07:32:57 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA1kd-0000000By9G-3mZ3
+	id 1uA1kg-0000000ByAA-3A7r
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 07:21:05 +0000
-Message-ID: <a6cb0396-4bc5-4215-9e2e-a68be83c1c94@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1745997661;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=OuZnX2BRFmICCR806hXS16BUkH/lmlas9chN4sIYfsU=;
-	b=bPJx5QNDt0UOh1b+z/teoeW8pSlsLjqvN8xsIZ7LxxCrsjwdSOitJftIIG28PfVJ0lU720
-	Kq7KISGQs3uESsgO2qFARs4nDrGziShEw2urNKkH/45pLX6V9hvHF4uNfOHFNdimWASxXn
-	WxZsi9Cy1Lkr7N7P2Zm1fFMkaf5y8BI=
-Date: Wed, 30 Apr 2025 00:20:48 -0700
+	Wed, 30 Apr 2025 07:21:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B2855C402B;
+	Wed, 30 Apr 2025 07:18:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A350C4CEE9;
+	Wed, 30 Apr 2025 07:21:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1745997665;
+	bh=unOAuHHlLSDYswEV053BVvtCpbY1HBhf14HMlI/dclI=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=YkrydZABVN2h5znRN4UMWCuCuzR39Wj/6N5lYPSOxVD7PLIr07qGDVz8B0ddsauDn
+	 vfcrkOHyrCDAeShx323/3z12fMsEJYRLoD2ptrbyW3ehqtigC5WsVV1nhvntJ8jRLZ
+	 Lh0YYIkTB1kdvTyvsUAoz0eeV5J5IPQKcejy2iqxEPEy5NKYq//DwhSkzhvnsHrDfy
+	 pGPHAcAa1IkB0NKxjhTtXw/C5R/B0w3LU2AMcVAYguYI3IHs+ZzzSsvFqUCTlJMlqd
+	 CaL/3ZH7gVg/ZWS+3AyTHReOJ2CTKlJw1+8FIlD/wpG8CkftZBTQv9KcSrHAkIy2ZS
+	 Lr4N3qNmn2kXA==
+Date: Wed, 30 Apr 2025 09:21:03 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Icenowy Zheng <uwu@icenowy.me>
+Cc: Emil Renner Berthing <kernel@esmil.dk>, 
+	Jianlong Huang <jianlong.huang@starfivetech.com>, Hal Feng <hal.feng@starfivetech.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: pinctrl: starfive,jh7110: add
+ PAD_INTERNAL_* virtual pins
+Message-ID: <20250430-vagabond-agile-yak-7afe68@kuoka>
+References: <20250424062017.652969-1-uwu@icenowy.me>
+ <20250424062017.652969-2-uwu@icenowy.me>
+ <20250428-smiling-azure-sunfish-7c1c25@kuoka>
+ <34c92033f4bbf289c6048a85f0f6ba04435e7bf8.camel@icenowy.me>
+ <8e131fce-12b6-4a5f-8601-c15a0e4290fe@kernel.org>
+ <4d0bf5b8e1dd00f4025b7643a746cd99010c08fc.camel@icenowy.me>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 2/3] KVM: riscv: selftests: Decode stval to identify
- exact exception type
-To: Andrew Jones <ajones@ventanamicro.com>
-Cc: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250429-kvm_selftest_improve-v2-0-51713f91e04a@rivosinc.com>
- <20250429-kvm_selftest_improve-v2-2-51713f91e04a@rivosinc.com>
- <20250430-b40cd14818cc9264506e61f2@orel>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250430-b40cd14818cc9264506e61f2@orel>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
+In-Reply-To: <4d0bf5b8e1dd00f4025b7643a746cd99010c08fc.camel@icenowy.me>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_002104_102924_8CF8640F 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250430_002106_842151_4CCD360E 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,103 +76,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-On 4/30/25 12:09 AM, Andrew Jones wrote:
-> On Tue, Apr 29, 2025 at 05:18:46PM -0700, Atish Patra wrote:
->> Currently, the sbi_pmu_test continues if the exception type is illegal
->> instruction because access to hpmcounter will generate that. However
->> illegal instruction exception may occur due to the other reasons
->> which should result in test assertion.
->>
->> Use the stval to decode the exact type of instructions and which csrs are
->> being accessed if it is csr access instructions. Assert in all cases
->> except if it is a csr access instructions that access valid PMU related
->> registers.
->>
->> Reviewed-by: Anup Patel <anup@brainfault.org>
->> Signed-off-by: Atish Patra <atishp@rivosinc.com>
->> ---
->>   .../testing/selftests/kvm/include/riscv/processor.h  | 13 +++++++++++++
->>   tools/testing/selftests/kvm/riscv/sbi_pmu_test.c     | 20 ++++++++++++++++++++
->>   2 files changed, 33 insertions(+)
->>
->> diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
->> index 1b5aef87de0f..162f303d9daa 100644
->> --- a/tools/testing/selftests/kvm/include/riscv/processor.h
->> +++ b/tools/testing/selftests/kvm/include/riscv/processor.h
->> @@ -11,6 +11,19 @@
->>   #include <asm/csr.h>
->>   #include "kvm_util.h"
->>   
->> +#define INSN_OPCODE_MASK	0x007c
->> +#define INSN_OPCODE_SHIFT	2
->> +#define INSN_OPCODE_SYSTEM	28
->> +
->> +#define INSN_MASK_FUNCT3	0x7000
->> +#define INSN_SHIFT_FUNCT3	12
->> +
->> +#define INSN_CSR_MASK		0xfff00000
->> +#define INSN_CSR_SHIFT		20
->> +
->> +#define GET_RM(insn)            (((insn) & INSN_MASK_FUNCT3) >> INSN_SHIFT_FUNCT3)
->> +#define GET_CSR_NUM(insn)       (((insn) & INSN_CSR_MASK) >> INSN_CSR_SHIFT)
->> +
->>   static inline uint64_t __kvm_reg_id(uint64_t type, uint64_t subtype,
->>   				    uint64_t idx, uint64_t size)
->>   {
->> diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> index 6e66833e5941..3c47268df262 100644
->> --- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> +++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
->> @@ -130,9 +130,29 @@ static void stop_counter(unsigned long counter, unsigned long stop_flags)
->>   
->>   static void guest_illegal_exception_handler(struct pt_regs *regs)
->>   {
->> +	unsigned long insn;
->> +	int opcode, csr_num, funct3;
->> +
->>   	__GUEST_ASSERT(regs->cause == EXC_INST_ILLEGAL,
->>   		       "Unexpected exception handler %lx\n", regs->cause);
->>   
->> +	insn = regs->badaddr;
->> +	opcode = (insn & INSN_OPCODE_MASK) >> INSN_OPCODE_SHIFT;
->> +	__GUEST_ASSERT(opcode == INSN_OPCODE_SYSTEM,
->> +		       "Unexpected instruction with opcode 0x%x insn 0x%lx\n", opcode, insn);
->> +
->> +	csr_num = GET_CSR_NUM(insn);
->> +	funct3 = GET_RM(insn);
->> +	/* Validate if it is a CSR read/write operation */
->> +	__GUEST_ASSERT(funct3 <= 7 && (funct3 != 0 && funct3 != 4),
->> +		       "Unexpected system opcode with funct3 0x%x csr_num 0x%x\n",
->> +		       funct3, csr_num);
->> +
->> +	/* Validate if it is a HPMCOUNTER CSR operation */
->> +	__GUEST_ASSERT((csr_num >= CSR_CYCLE && csr_num <= CSR_HPMCOUNTER31) ||
->> +		       (csr_num >= CSR_CYCLEH && csr_num <= CSR_HPMCOUNTER31H),
-> We should never get csr accesses to the rv32 high registers since we only
-> support 64-bit.
-
-Sure. I will remove that along with CSR_CYCLEH in pmu_csr_read_num.
-
->> +		       "Unexpected csr_num 0x%x\n", csr_num);
->> +
->>   	illegal_handler_invoked = true;
->>   	/* skip the trapping instruction */
->>   	regs->epc += 4;
->>
->> -- 
->> 2.43.0
->>
-> Otherwise,
->
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBBcHIgMjksIDIwMjUgYXQgMDU6MDA6MDRQTSBHTVQsIEljZW5vd3kgWmhlbmcgd3Jv
+dGU6Cj4gPiA+ID4gPiArLyogdmlydHVhbCBwaW5zIGZvciBmb3JjaW5nIEdQSSAqLwo+ID4gPiA+
+ID4gKyNkZWZpbmUgUEFEX0lOVEVSTkFMX0xPV8KgwqDCoMKgwqDCoMKgMjU0Cj4gPiA+ID4gPiAr
+I2RlZmluZSBQQURfSU5URVJOQUxfSElHSMKgwqDCoMKgwqDCoDI1NQo+ID4gPiA+IAo+ID4gPiA+
+IFdoeSB0aGlzIGNhbm5vdCBiZSAyMCBhbmQgMjE/IFRoZXNlIGFyZSBub3QgdmFsdWVzIGZvciBy
+ZWdpc3RlcnMsCj4gPiA+ID4gYnV0Cj4gPiA+ID4gYWJzdHJhY3QgbnVtYmVycy4KPiA+ID4gCj4g
+PiA+IFRoZSBudW1iZXIgbXVzdCBub3QgY29sbGlkZSB3aXRoIFNZUyBHUElPIHBhZHMgdG9vLgo+
+ID4gCj4gPiBUaGVyZSBhcmUgbm8gU1lTIEdQSU8gcGFkcyBoZXJlLiBEbyB5b3UgdW5kZXJzdGFu
+ZCB0aGF0IHRoaXMgaXMgbm90Cj4gPiB2YWx1ZSBmb3IgcmVnaXN0ZXJzPwo+IAo+IFllcyBJIHVu
+ZGVyc3RhbmQuCj4gCj4gVGhlIHNpdHVhdGlvbiBpcyB0aGF0IEpINzExMCBoYXMgdHdvIHNpbWls
+YXIgcGluIG11eCBjb250cm9sbGVycywgb25lCj4gU1lTR1BJTyBhbmQgb25lIEFPTkdQSU8uIERl
+c3BpdGUgSSBsaXN0ZWQgdGhlIHZhbHVlcyBhZnRlciB0aGUgQU9OR1BJTwo+IHBhZCBsaXN0LCB0
+aGVzZSB2YWx1ZXMgc2hvdWxkIGFwcGx5IHRvIFNZU0dQSU8gdG9vICh1bmxlc3MgeW91IHdhbnQg
+dG8KPiBsZXQgdGhlbSBoYXZlIGRpZmZlcmVudCB2YWx1ZXMgZm9yIHRoZXNlIHR3byBwaW5tdXgg
+Y29udHJvbGxlcnMpLCB3aGljaAo+IGlzIHRoZSBwYXJ0IHdpdGggY29tbWVudCAic3lzX2lvbXV4
+IHBpbnMiLgoKSXQgaXMgZmluZSBmb3IgbWUgaW4gc3VjaCBjYXNlLgoKQWNrZWQtYnk6IEtyenlz
+enRvZiBLb3psb3dza2kgPGtyenlzenRvZi5rb3psb3dza2lAbGluYXJvLm9yZz4KCkJlc3QgcmVn
+YXJkcywKS3J6eXN6dG9mCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
