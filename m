@@ -4,52 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C8E0C369DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 07:59:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D14C3ABA9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 08:15:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=iH5or2kBtfKVFtmgFRx96BklmzjKA+ehbvCesNFx+s8=; b=G+j4Qn9Z6kWVIf
-	oy0mURH2RxCIl94o2CLtVxCPUFRJ6yrbybm6hQddC+20aT7ygpr8xd9t6jQdW92mrBsbRTK+apBfg
-	dy9ie4DE5U38n1SX0BC6iliSZH2cAWm7JqdaRZhsCrZ7izDYW46kDFzjxr0r7Y+5xo5nfcFK2sQ/p
-	nuCoRPgAyf0BMAiL/WX17rKIQBbsMxn6tp4SXfqZeQAAgUlQ7clZBm1g/+otxmHq9w30zvhWzd9p+
-	F+DBOg1vK5jTx/QmlDq4/mCp3H9uBRED1lN0PZOFTGpG8sDwWOE6DK7YTwZs+kmR8CrzPN6ksroP6
-	PqJiWtK7sC9JrrSBPmlQ==;
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=d4HlvguhNWTrWXrFdmiH/gFhPLQsruvXl6HinfoT11g=; b=EM4IsmXeCF45YJ
+	J1XU3VD31JDsWyyCpMBwBK/5L6gv4ZYue1SoavZiF9Pkt5B1KoxHkpkhJcmkMS22iDoBW5hJU1dRb
+	smANnJXl/qnPOahf0TkA3aMZwbI1sXetlM6us6a428LA+VExTQqb1c0Tz7YwYaTYhfWsRtq5AaaA6
+	aEF9TqBW7jzLjtaPzaL9P2DvP1XGHD/euKS5tHD3kBNSeqyBV1j1OGnUi059QDbmGT2JSthElKqXU
+	c/4fsbt0R3LU05a2dESrZggUzlfee/8mHRwbW8vfn6QRnHE01dAH7lB9y6BecZI9FPgYrPobv3PXI
+	8Oqlhu4ubGVzYb0r0qQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2Lo-0000000C4Yz-1Hvi;
-	Wed, 30 Apr 2025 07:59:28 +0000
-Received: from mail.commetro.pl ([217.61.16.142])
+	id 1uA2b1-0000000C76K-1OgE;
+	Wed, 30 Apr 2025 08:15:11 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA24L-0000000C1XH-38zw
+	id 1uA2FB-0000000C3Ht-03YT
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 07:41:26 +0000
-Received: by mail.commetro.pl (Postfix, from userid 1002)
-	id 71E1A8337F; Wed, 30 Apr 2025 09:41:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetro.pl; s=mail;
-	t=1745998884; bh=COht1CALZmZz8MRkow5xVDQUyVzx29Nu6ozA/Y0jgb4=;
-	h=Date:From:To:Subject:From;
-	b=RRv/bf1+swweYdygUtDmTDZOOfDIYh5X66nbLG+dBCWmeRCjDUx/1O6ZkcBUNyMsM
-	 /nouhvP5oh/9phvmtKaB6xc2WZhraUTrZfcN67gztQkSGvuTdtrufzoMhduT+I0rsL
-	 g7xOUwxswtzm0pcCV7wCjKmSEXLfQ8QgvlWgrcd7Z1HvncQhWUk6s3DJT7GSXWtKns
-	 Hmid+p3p6QkCX9V3Ix/M8s2vUkCjZolsYQZoE1ecmIZJq1YUH2V6CQbAWNR1WugVrf
-	 MzAZzmzcvUpikEh2SshHQSVq44Ju1uZE9gewe7NUf/nsdlA0yqMwzLsrtvZfbLRpru
-	 FS941s/TK8lKQ==
-Received: by mail.commetro.pl for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 07:41:06 GMT
-Message-ID: <20250430084500-0.1.2a.qb66.0.zh03b72lsc@commetro.pl>
-Date: Wed, 30 Apr 2025 07:41:06 GMT
-From: =?UTF-8?Q?"Jaros=C5=82aw_Kownacki"?= <jaroslaw.kownacki@commetro.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: =?UTF-8?Q?Pytanie_o_ofert=C4=99?=
-X-Mailer: mail.commetro.pl
+	Wed, 30 Apr 2025 07:52:39 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250430075231euoutp01210e3e41801d83d2401934d009960ba9~7CVdvQpMs1385813858euoutp01Z
+	for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 07:52:31 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250430075231euoutp01210e3e41801d83d2401934d009960ba9~7CVdvQpMs1385813858euoutp01Z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1745999551;
+	bh=qI3xeJtXvmwbkwfCNGhT9/+KA3tkoCUGRYmZdMz5vr8=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=huZuIR3/NjO36Ip4MwWyXJoc9F87b9Pbh2SgiZH6z7FLmWBYs+2c3s1JkepjYJAy+
+	 Ld3FOqBDuN6Z0X1L8VWUp/UFQxiMNI+/yNLaZcnuYkn8/qsfh8sZGtpKNYZ8o1siQ2
+	 K3URzLHwgecuMMjcpl5Keq/TwaOgaXkV331Z/KOI=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250430075230eucas1p12da87b9a4202316b95a70a82c251185c~7CVc1y5D_1711917119eucas1p13;
+	Wed, 30 Apr 2025 07:52:30 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250430075229eusmtip20196a0472e6c82627cb89c1c3f5965ea~7CVcCfJC02585025850eusmtip2F;
+	Wed, 30 Apr 2025 07:52:29 +0000 (GMT)
+Message-ID: <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
+Date: Wed, 30 Apr 2025 09:52:29 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
+ controller
+To: Stephen Boyd <sboyd@kernel.org>, Drew Fustini <drew@pdp7.com>
+Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com,
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de,
+	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org>
+X-CMS-MailID: 20250430075230eucas1p12da87b9a4202316b95a70a82c251185c
+X-Msg-Generator: CA
+X-RootMTR: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
+X-EPHeader: CA
+X-CMS-RootMailID: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
+References: <20250403094425.876981-1-m.wilczynski@samsung.com>
+	<CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
+	<20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1>
+	<17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
+	<9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_004125_914365_432CEE0A 
-X-CRM114-Status: UNSURE (   0.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250430_005237_634020_52863DD1 
+X-CRM114-Status: GOOD (  20.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -61,16 +87,100 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKQ3p5IHBvdHJ6ZWJ1asSFIFBhxYRzdHdvIGFrdHVhbG5pZSBub3d5Y2gg
-a2xpZW50w7N3ID8KClNrdXRlY3puaWUgcG9tYWdhbXkgcm96cG9jenluYcSHIHJvem1vd3kgaGFu
-ZGxvd2UgeiBrbGllbnRhbWkgemFpbnRlcmVzb3dhbnltaSBQYcWEc3R3YSBvZmVydMSFLgoKWmFw
-cmFzemFtIGRvIGtvbnRha3R1IHp3cm90bmVnby4KCgpQb3pkcmF3aWFtIHNlcmRlY3puaWUKSmFy
-b3PFgmF3IEtvd25hY2tpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFk
-ZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4
-LXJpc2N2Cg==
+
+
+On 4/30/25 00:29, Stephen Boyd wrote:
+> Quoting Michal Wilczynski (2025-04-07 08:30:43)
+>> On 4/5/25 01:16, Drew Fustini wrote:
+>>>> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+>>>> index 527336417765..d4cba0713cab 100644
+>>>> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+>>>> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+>>>> @@ -489,6 +489,13 @@ clk: clock-controller@ffef010000 {
+>>>>                      #clock-cells = <1>;
+>>>>              };
+>>>>  
+>>>> +            clk_vo: clock-controller@ffef528050 {
+>>>> +                    compatible = "thead,th1520-clk-vo";
+>>>> +                    reg = <0xff 0xef528050 0x0 0xfb0>;
+>>>
+>>> Thanks for your patch. It is great to have more of the clocks supported
+>>> upstream.
+>>>
+>>> The TH1520 System User Manual shows 0xFF_EF52_8000 for VO_SUBSYS on page
+>>> 205. Is there a reason you decided to use 0xFF_EF52_8050 as the base?
+>>>
+>>> I see on page 213 that the first register for VO_SUBSYS starts with
+>>> VOSYS_CLK_GATE at offset 0x50. I figure you did this to have the
+>>> CCU_GATE macros use offset of 0x0 instead 0x50.
+>>>
+>>> I kind of think the reg property using the actual base address
+>>> (0xFF_EF52_8000) makes more sense as that's a closer match to the tables
+>>> in the manual. But I don't have a strong preference if you think think
+>>> using 0xef528050 makes the CCU_GATE macros easier to read.
+>>
+>> Thank you for your comment.
+>>
+>> This was discussed some time ago. The main issue was that the address
+>> space was fragmented between clocks and resets. Initially, I proposed
+>> using syscon as a way to abstract this, but the idea wasn't particularly
+>> well received.
+>>
+>> So at the start of the 0xFF_EF52_8000 there is a reset register GPU_RST_CFG
+>> I need for resetting the GPU.
+>>
+>> For reference, here's the earlier discussion: [1]
+>>
+>> [1] - https://lore.kernel.org/all/1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org/
+>>
+> 
+> In that email I said you should have one node
+> clock-controller@ffef528000. Why did 0x50 get added to the address?
+
+Hi Stephen,
+In the v2 version of the patchset, there was no reset controller yet, so
+I thought your comment was made referring to that earlier version.
+This representation clearly describes the hardware correctly, which is
+the requirement for the Device Tree.
+
+The manual, in section 5.4.1.6 VO_SUBSYS, describes the reset registers
+starting at 0xFF_EF52_8000:
+
+GPU_RST_CFG             0x00
+DPU_RST_CFG             0x04
+MIPI_DSI0_RST_CFG       0x8
+MIPI_DSI1_RST_CFG       0xc
+HDMI_RST_CFG            0x14
+AXI4_VO_DW_AXI          0x18
+X2H_X4_VOSYS_DW_AXI_X2H 0x20
+
+And the clock registers for VO_SUBSYS, manual section 4.4.1.6 start at offset 0x50:
+VOSYS_CLK_GATE          0x50
+VOSYS_CLK_GATE1         0x54
+VOSYS_DPU_CCLK_CFG0     0x64
+TEST_CLK_FREQ_STAT      0xc4
+TEST_CLK_CFG            0xc8
+
+So I considered this back then and thought it was appropriate to divide
+it into two nodes, as the reset node wasn't being considered at that
+time.
+
+When looking for the reference [1], I didn't notice if you corrected
+yourself later, but I do remember considering the single-node approach
+at the time.
+
+> 
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
