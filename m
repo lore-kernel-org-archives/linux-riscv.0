@@ -4,105 +4,209 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97311C3ABAB
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 08:29:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B269CC369DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 09:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BPNh+EAdEWeNwu4s23mXmEyGoeFE84hsKHR93oXjPxg=; b=1MmKz+u3r2dQEj
-	wBaXEPH7t3t33gUEUis74VL0ZVCOxeAXINkfiDD7jcgrZIJOF2DemdI3FylX1tSEwYo2nSp7qsTxd
-	cH2n6dNRYN+R9f/S7vYHR2hs41W1OEldRkVU2iVZ7cgpNaXH7fWY3WABxskEk0DYwEjwtRzb9Qchs
-	j8NDt4CspNhZ7qzh+tdb3XHhsjm+w3S7dGcuWoJU2pqmKV4DZva0G/wqdyQT/GVZFiDYAz09qKy43
-	UmPK8aohmxcCQui//dUaJDjDuRyqpYktpR0X88D/sTIeYYM15gwK47ocDCIcorsRHqOJFvb2MQ61e
-	6msieu/+3KG3JVZ5eTHw==;
+	List-Owner; bh=yG6seb5JQzZyw47qwvdDZFWaARVQQjxZQWFM5SXMohk=; b=MQS6Vgay5Vqjj6
+	x2qIITp834zElWnArp1Rbo0CfgMnuT8X0JunWVNKRx+f1C3/bY9dsxdueMVSMdzoKXSPonUFirKB4
+	ZhOne3y3tUNtDzUkwEzVfzmlGjid+/V8+MmcuZVGVf4erf6hX6xAisZBjSFnyZgpJWtOJqekEI025
+	X0hY53zc5x5Pp8tcEh4qiESyLuZbB1V5VXuM9ZoriB6svqy02czgglPr6Mz5dyyzNzVdNTCUA7uh5
+	XdJiVB5j2e6qD7SYEodQ030ZXGHE4Xe1mjPaTmRRvBpumEpk3kDGLUPewyeA5C4pVgCKEhUYOJeHy
+	xFk+fBEw6Ra1MB4ojtEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2or-0000000C9VR-2Teq;
-	Wed, 30 Apr 2025 08:29:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uA3bf-0000000CKt8-2gXX;
+	Wed, 30 Apr 2025 09:19:55 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA2cU-0000000C7Lr-1jlr
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 30 Apr 2025 08:16:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GMR7LQ4EcuISRMn9uVkeFVkgbpXUkyH5s1ul4wVziJk=; b=rfYwZWcDUh3XXtCqrtQzP7207Q
-	Vh2//0p9fueK9FcGTn9ivMFechEPSsKB8D6HuqGF0Az+VkFfq01nQrtd1faxw+UOEDA9ti3v8j+4j
-	UoFjRe3ALrQRlJrAnUC3U7k6qfcSDbvclAhL6ZVAWa1T9OmwtCE5ho4MYlf0F+yHeJYb67hEN3T+J
-	fH/+cj2DF129F6FmjbHTh4WGP/22VsNeDYWSZ8OV5S+6vIylW4awdAxf3bRtMrNc6d9c42ptvWOw2
-	iJMK4Z/M1R2E6gtUtyRm475G52saS+wBrfFkE2stp443c5DtPxX1htA7Ihk4IeE3U9kjPosBWVW7z
-	lodAFfsA==;
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uA2cQ-0000000DjX3-2eb7
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 08:16:41 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-7376dd56f8fso9304323b3a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 01:16:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1746000995; x=1746605795; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GMR7LQ4EcuISRMn9uVkeFVkgbpXUkyH5s1ul4wVziJk=;
-        b=eBJ/qFNylu0npCLF4NbjMx8Z1FppfID1Ng/Y0TfaeOlpBAjALyap+wllxgbTaHw/nY
-         6k3AvY21StAOB8jDwE9AXCRgWGehJ5xvSkP5NxJn/8fIoUIhtYU7eUMGdvlz2t/kFm/o
-         0TEKXbxPnZOo/maWz2TsuGfktn3HnSRf5f6JwrgENw7mnb942SFkvBOKh8WSHXjDPxQw
-         NsMxO3a4Ih2vEHduquKVjcBQiylTb1FnI+dT0ODVg42z8xFD2d18nei0V3QRrrC3e6Yo
-         XyWwKDnfb+L76v1AnRt12B7jsjOsOa1GXwxrlyOfXUR1wgaA0BzS4yeWB8ApqP/jESXh
-         eaBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746000995; x=1746605795;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=GMR7LQ4EcuISRMn9uVkeFVkgbpXUkyH5s1ul4wVziJk=;
-        b=TR/bAsoPuydyhDvlJ0fmPHuUHzPiiCTPRm3oT0lYgDxgvqoIx2D+wJ3epmXsnu1FQ/
-         fb3X0/vYb1bRzuiaK5D7dZOI7LL4IDIaLnMwbNgDffgzb8hvOl6h9JqHShh7sVGNlrkR
-         utMVeteySwDP6T70wegvdzgm8kQiB9zoJgqapuPsNLpmwg+Qc47ZfDe08vkxqbuNj4XI
-         cOyycmH1LGwWMqC7nNAAm6sozQdKV/FMixaEwFLKXtug/RrYRrwKEOGfoxwE8kaG2h4V
-         X/GIR3hN2A4dnfC1RNCcXYY9VTpNyb2jS9FxUnHTu8bZb/KH+PnpjZJ+2AwfbkCMTRW5
-         n1mQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWgbvFIBumO0ro0T6ya0/xnGJEhOyaZuz6/51Waieep7kAKT4ERX0fDQEXjcEEJ7Tde6dENOvEdMl4D8g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YygzWdaU4iLgAnCjc0Zsl7wSzD8d5u9KHCrAMDzqmTiXism54R3
-	vmgntdTMokxxYhYHmp1ZuVbMbFGK3n9TmOmGHDWuPqWHFKp7ycvNnU+xKlapNsE=
-X-Gm-Gg: ASbGncssec8lgiW9HCm3MbJ+ib7A+22UiRvhyWwikRZrX5gyh0gtnT/w5uVaMITXB4u
-	u2UXpa+dfaBbB5+O+GWC0UsaWYs763x7uN8jU8A66TAXS07+SpVyNL4eTtb8noL407ewXbjKDYl
-	yrdYzdYm0OXlG1j/upckVA/N4w6yiowV3RZcXxbwjP7rpXD0UemjZUQzB2PnohTCNWleatbW0hB
-	s2nsSRjSErQtInwFp61tioaQfonh00p0kkjsPrMHv2uFvI4Zu0J5pmvnL5R6HPp5dU9tO1SYR5I
-	TaytVBFqVCl0rKNjRbSHaeQwhZ5S/PmmkRHHUbZOtUcLRTwgpjBfeQ==
-X-Google-Smtp-Source: AGHT+IEszTsV/BUeZBkL4ZpuZ0SkL3h2U9eOwaQLGRPB51BWwKG2aiOQfovURMFi8gr43T+5AaK3Cg==
-X-Received: by 2002:a05:6a00:139b:b0:736:bfc4:ef2c with SMTP id d2e1a72fcca58-74038793f8dmr3272406b3a.0.1746000995136;
-        Wed, 30 Apr 2025 01:16:35 -0700 (PDT)
-Received: from atishp.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74039a309edsm1073084b3a.91.2025.04.30.01.16.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 01:16:34 -0700 (PDT)
-From: Atish Patra <atishp@rivosinc.com>
-Date: Wed, 30 Apr 2025 01:16:28 -0700
-Subject: [PATCH v3 1/3] KVM: riscv: selftests: Align the trap information
- wiht pt_regs
+	id 1uA3YY-0000000CKKx-0mHt;
+	Wed, 30 Apr 2025 09:16:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746004602; x=1777540602;
+  h=from:to:cc:subject:date:message-id:references:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=yqCq7Z9xPLU+Zkh6e3IBlt49EsDRW6wuH2BTHsxPkOs=;
+  b=a5LUsypZsuqhXkG8qaTWLAt3tApHeTbWkCa5rcbXollv01DaRLG1+WAJ
+   yJMk/HAdxqjmjzGgPuYG79h/eFQQ4iIclCdZkLdSgHnQS0TbGPP2LV6Tf
+   iASJHgh/svDbSHaUKauXHfM5bFPf/8VOJ0uBVxO0QGGb7554W0Tn9KRSW
+   /bGFqTfFTf2TE9PrUptJS0E68hdzUoG757PwqUf18lhKKpIgCJjceztRd
+   /ivC2OdliQJbOdVjUyl1WhAYn4G0xuhAXsPytz/X8yQVDdol843dYDjeg
+   mrCSroY5V96SK5EiWFazTaX7GR5SsF0LPtC1NAmlPW9OwwvKQqY8h01XN
+   A==;
+X-CSE-ConnectionGUID: MInRBFthRoaVI73FYuWyvQ==
+X-CSE-MsgGUID: 4ukx3BpFQPuvXIL4gc3cEw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11418"; a="47805026"
+X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
+   d="scan'208";a="47805026"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2025 02:16:37 -0700
+X-CSE-ConnectionGUID: Wyo4qRQqR4CW1CdyqXUTtQ==
+X-CSE-MsgGUID: 5xR87c/HRs2wjoGqEkbsdA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,251,1739865600"; 
+   d="scan'208";a="134581284"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Apr 2025 02:16:36 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 30 Apr 2025 02:16:36 -0700
+Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Wed, 30 Apr 2025 02:16:36 -0700
+Received: from NAM11-BN8-obe.outbound.protection.outlook.com (104.47.58.174)
+ by edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 30 Apr 2025 02:16:35 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PzxJ7J+AA5+Wos4xP2uP1Wn2Jb3xKiTQRYguNLXy1tq1xvuLWWdzcpUIWH05+xImABUm6qiK77cjAI38Dm6LOvddKgkzHEl+Pw+4NYIHNsm24q4ov1BSfOtV9DxKRuEjrHZA+znOi/O/SCVBQKuU/cO4SG7h2CF0POAIOKrGIgc1VF39zCTrgR2of6fpctEC59eHJFgsQtLhDvBeAUXOTV8GtQG/yNFW+8uf4Ac8+ctnAlVAhykop71jwl8yNWfIL60GWu5apuiq5A8WQlqfyBTCydmnGVdaCWxwCo/KUmw0Lw8AfId1L7qZpoDZHETssCv7KrWDaNGOQi0oNZdWnw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=e8lQ/tQY6ZhEzEASBrBtpHwlTs0yxkNDTItdI994bhM=;
+ b=RSY+5GqJF2apcRDIDLci+yfMSS1OIImfuFGNBcAbsDf8E22MescDIBXrMe+Hz0SrzQ37pjXDp03bQ35RReGXn+oUnUh+7Sl9oAaywWZHoa9FQYFGhR+MyIyyJjK3mACUzk8Tm5x3VtCmz6WuSRN5/dI6BvglCOjgh94y6pBMUDBMJ7iycd4rDcf5OJDxFwiclHe0o3SSlDHCIXYN4rcDLBR0U/8B6+OXlcGrIQ02KHU7qbD1LXsNb15NHeyYNAhHamiDQmmu3dlhgfNLC4oIaIfSCwHyqHsdp9LC1PXYBU3t80r3QlWsKqP2GfWAA0QYyrgXlmLmnUtx7vCqyuf7og==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com (2603:10b6:408:135::18)
+ by DM4PR11MB7205.namprd11.prod.outlook.com (2603:10b6:8:113::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8699.19; Wed, 30 Apr
+ 2025 09:16:32 +0000
+Received: from BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1]) by BN9PR11MB5276.namprd11.prod.outlook.com
+ ([fe80::b576:d3bd:c8e0:4bc1%6]) with mapi id 15.20.8699.012; Wed, 30 Apr 2025
+ 09:16:32 +0000
+From: "Tian, Kevin" <kevin.tian@intel.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>, "Alim
+ Akhtar" <alim.akhtar@samsung.com>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "asahi@lists.linux.dev" <asahi@lists.linux.dev>,
+	Baolin Wang <baolin.wang@linux.alibaba.com>, Lu Baolu
+	<baolu.lu@linux.intel.com>, David Woodhouse <dwmw2@infradead.org>, "Gerald
+ Schaefer" <gerald.schaefer@linux.ibm.com>, Heiko Stuebner <heiko@sntech.de>,
+	"iommu@lists.linux.dev" <iommu@lists.linux.dev>, Janne Grunau <j@jannau.net>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>, Jernej Skrabec
+	<jernej.skrabec@gmail.com>, Jonathan Hunter <jonathanh@nvidia.com>, "Joerg
+ Roedel" <joro@8bytes.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
+	<linux-mediatek@lists.infradead.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-rockchip@lists.infradead.org"
+	<linux-rockchip@lists.infradead.org>, "linux-s390@vger.kernel.org"
+	<linux-s390@vger.kernel.org>, "linux-samsung-soc@vger.kernel.org"
+	<linux-samsung-soc@vger.kernel.org>, "linux-sunxi@lists.linux.dev"
+	<linux-sunxi@lists.linux.dev>, "linux-tegra@vger.kernel.org"
+	<linux-tegra@vger.kernel.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>, Matthew Rosato
+	<mjrosato@linux.ibm.com>, Neal Gompa <neal@gompa.dev>, Orson Zhai
+	<orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Rob Clark <robdclark@gmail.com>, Robin Murphy
+	<robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>, Niklas Schnelle
+	<schnelle@linux.ibm.com>, Sven Peter <sven@svenpeter.dev>, Thierry Reding
+	<thierry.reding@gmail.com>, Tomasz Jeznach <tjeznach@rivosinc.com>, "Krishna
+ Reddy" <vdumpa@nvidia.com>, "virtualization@lists.linux.dev"
+	<virtualization@lists.linux.dev>, Chen-Yu Tsai <wens@csie.org>, Will Deacon
+	<will@kernel.org>, Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang
+	<zhang.lyra@gmail.com>
+CC: "patches@lists.linux.dev" <patches@lists.linux.dev>
+Subject: RE: [PATCH 0/7] Remove ops.pgsize_bitmap
+Thread-Topic: [PATCH 0/7] Remove ops.pgsize_bitmap
+Thread-Index: AQHbuRPVi33TepR4cUGRaenWa+TQJ7O77svQ
+Date: Wed, 30 Apr 2025 09:16:32 +0000
+Message-ID: <BN9PR11MB527642B10DAA685204CADD2E8C832@BN9PR11MB5276.namprd11.prod.outlook.com>
+References: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+In-Reply-To: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BN9PR11MB5276:EE_|DM4PR11MB7205:EE_
+x-ms-office365-filtering-correlation-id: ae6ce83d-28e2-4e1d-c92e-08dd87c7b302
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|38070700018|921020;
+x-microsoft-antispam-message-info: =?us-ascii?Q?Hf0EgFoXnJKiWK/H85jHyh2ND0/l+iZW0q0Dqiu3YwJKCt6+IWc0dl4IA0Mw?=
+ =?us-ascii?Q?/ob5/L8G1yGnmP+2fWSApyZhN5wq3wq/KjivPksu2uIiiwOzANlwnzeeSfxF?=
+ =?us-ascii?Q?J9KxaupUQbgu4BYMbaVaahA9BiaZZ85+A/ieYeEUj/V6Y7XQCJueAriDiDD/?=
+ =?us-ascii?Q?YYzvjND6KzyBEuJ2s3aJtkt5ZUvjoWlKPutzM3n4ojRifRbD3xnxPrYWXtH9?=
+ =?us-ascii?Q?1oNV/MSFPBdgRLnc3RVfLHPPofhFZzkwvTa6ameCACDvVYgsN+OaEfqxgi5x?=
+ =?us-ascii?Q?FROZMrbS7lWKzxRzMmNJ5obY3MDoPfLTbRC6xHvInGTsHXjUc6vDtyXBq01J?=
+ =?us-ascii?Q?0VP0RUcmut9kSFmej8G6+CfchnwxCB9NXyQdHn6wg3fyk/wzYHOXGCBTcFLu?=
+ =?us-ascii?Q?pl2pZMZ2hbcI/nEvBKmTQE6Elle4BsseOiYzDslY6mqbMqriRGtgAKKe2+iX?=
+ =?us-ascii?Q?x4jpB6YrgfOltOYHb/xD9gEbGSkccReOVG2LKZPTt+5FdDrz1LG16r+7v7R+?=
+ =?us-ascii?Q?YQXqsfegCWbeQxgz6RJG0RLRW2fQIHSbDc+e8Yy0W6W2EllajwWsOHIM2Eb6?=
+ =?us-ascii?Q?56Mb32KJTHj4LCcu5EKIe3wuJZmKKd6lLG+YFjGpKjCikPyb3zxX7K3gh/wt?=
+ =?us-ascii?Q?oLgDQ+rjRNVokSyDmAhyNUlqfvAY/kBQrOkiYtwInyRDnUBeNLFSpT1py5uF?=
+ =?us-ascii?Q?HgnmjwYeZlu5bmKsBBGqNf7H48GbgEddsmZMyvmSbmnJbZkANWo+xcaXePiw?=
+ =?us-ascii?Q?IlUOuw6w0f1ND/xrQZubBgl6hLXrmM73mUfpvCTBxBeXEOFEcfUQjV3/Mmjw?=
+ =?us-ascii?Q?Ri5SiUsezth/FcOUpEenKx9czX+L5Dq+L4f7WJTp7SuVxWvk8WsgMCR1k7/c?=
+ =?us-ascii?Q?4OBEZ1rZ9xHabjYkmVuGjwFwzhmcHDPD5YhpuZuR5jhnX+6UciLHnlkrctUE?=
+ =?us-ascii?Q?UIgGH646LmX9jVlHopHCu8WvCAB8unJ/JmGb+JvEhiU2OwRrnJKY/a9JC2m+?=
+ =?us-ascii?Q?cPfnMdCy0dH0zWoUCmmhB7FrT7NYeLGF92Ok4k2yUtgPSt3Xt/PI/NsYm4Ct?=
+ =?us-ascii?Q?hsnrbcK2XEHnWgkd/jbWb6z9f5RJ2/DQ+2iPkIu8YZrT43CYYZSI0mu2zmKe?=
+ =?us-ascii?Q?KjxYMlzvQypzmHKmN2YJeeihWVm/55LIy2GM9a1zez7zq6c/88za2D0LEbPC?=
+ =?us-ascii?Q?Hj5uwKX2zn1dJ/MI6C8wZCAc23OLEsnI5q4JkaASLVqUwtADQkWwDBP1uDQQ?=
+ =?us-ascii?Q?zTkooX5ZYgrERjQ9FHGKoXZ2EljnpR8Kdi7MbmMsgvmdR6cSme+AykcoM6Il?=
+ =?us-ascii?Q?csBSbTZ+Cfs+ZHPl7DsmKhrUm5P/oBlU8KTk8beDv+ET/MQgWaH1ckty1VmQ?=
+ =?us-ascii?Q?G6hOsL1pG0DUbtWl0LvMX6XBfT5PudZcdy9FO7vu/n8Gzd2ald/atX6SkSDH?=
+ =?us-ascii?Q?zs5cMSLtB8bwKyqupcFIKzTc3yUfxIHmZRekPCoJTUQsZ0OYWWOWHc5MRs60?=
+ =?us-ascii?Q?zku6odGSFNOdpkU=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BN9PR11MB5276.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?TzSDki8SE6KdQgvp4ZETyc35BmWZJALc6bnkSP74+x5ZOehubJBBEkc+6zRk?=
+ =?us-ascii?Q?56mTEkteTCSHgc9BTibSvjYUZbwBmqOOROfO0cWRiR1VebHg7toE4ztgaw4J?=
+ =?us-ascii?Q?Dw5s0/I+G9oZnhfy7T50JFykSvsg/NUL3ZF73CGHIL+d5BgFO+lvFD8aVB/y?=
+ =?us-ascii?Q?tLLw1kmOpPfTiGmXhdQh6XNv3h28Nid2HpPyBbC/orwk/a1HxtaLIKWmjRH2?=
+ =?us-ascii?Q?x1deYhCKJA+wi2TQUJ/hWeGaTzcU7F9NVgxtpYcEop1OHASukm8923kWOLD/?=
+ =?us-ascii?Q?o2xWbQBXeke7vzIYSahnWMYnPjtUjXCyvN8Vx70uZxFJc6NBvMVW5t3TJeQX?=
+ =?us-ascii?Q?/oimiQ0mblVmWQY6iJXbO4iLNv9YFYhVjh0NaFcmrURtSjeLG0somYIp9lOl?=
+ =?us-ascii?Q?O6GNfUSv+f6bMjpxU0A9oAWwmR8RpM+XdmynkXEbA3MK4iWDYGoDlOSB8OCh?=
+ =?us-ascii?Q?X5nT3pEUC+OvDqS7JaLjmaTZEDOb/JElCny7sSY4V+a9mSGKmRVm6xSQoLtw?=
+ =?us-ascii?Q?lvB7boKQi+3VSYnGC871Uj9MEPUvoBbNH0O0aNAAh7gC4hFgP6h6JYvvJA8f?=
+ =?us-ascii?Q?8Ii+LbYYGaxD/ooJjShYjmyOHYz7Zlkxyk5mN+swED1+EhCRvxNb8oDqpjck?=
+ =?us-ascii?Q?Nmquz+QmRbw0LAnM23HzAl8P24iDt4bz81mhAmawKzwSWDsaSuBxpFmolNHd?=
+ =?us-ascii?Q?5tmAh9wYqM+UyGchsis+vpwBZKomt+2WMFiL/srneYgTFF1m9MNMFPXZlzuD?=
+ =?us-ascii?Q?RiV4KFsbe4UezLCbG2JFUsQiHpOUtRUfFo5yMusjkLmt7fb1Yj439JZN2U21?=
+ =?us-ascii?Q?IENvQ5FqsWFv13LXKUWjJmS+07RulovGd3nG2WdXg6QgPVdFJaQnkSWWBBN7?=
+ =?us-ascii?Q?SS261QyeSy0Q9dr5RmfkkISxYEypQTM7zORizXC1aVCfgGlbM/q31SZJKpzd?=
+ =?us-ascii?Q?pc+OO+qH7fR0Ba0E7Dk00B5cONUO734Px/FZK6wtsUlkzHiQJT0hBcGqfKOK?=
+ =?us-ascii?Q?muRvt4bNbJoS7PeSuucMRMuDifCEXBxTj7KJpFiXnuSuAES3aMg7RVQ9yAYN?=
+ =?us-ascii?Q?3Jukh78Frk6oqQDEYTEiiw0ZTM6c72Dk4tXfOxbRsJJV0klWRr4s+lCOxQBJ?=
+ =?us-ascii?Q?WHvkToVurYoklUFbNtXpPeO5iTEk/ISMtvWrvcwrfPxwuqCXCYX46ZNXbELP?=
+ =?us-ascii?Q?LXXPxANglGDdGqyIUS27IvajZw9i4qgII11Oxhm0qVh8h+3vq88SITX0/+Fv?=
+ =?us-ascii?Q?PeQAqPbYF+q5G9SdWe6Pksr7yQr3Hq1FB/dkqanOg3ErLphzWw5mmo12DPIu?=
+ =?us-ascii?Q?04NwVpho3c/0ImqpAakbBwAjFXVGAxHCZa4qZU/4My/1RwA8UN7pjoXbfPpq?=
+ =?us-ascii?Q?drCneAuIA7frdUNcO7pRD/gvvudJ4bQOO6JYlpFDpMWMpbfQf/LkCQSucTF/?=
+ =?us-ascii?Q?CpHK8+pFD3oejppM33BjquRRZdLNdFXGB3rygl6sMYAuQK6OktWgXG3fvj6E?=
+ =?us-ascii?Q?uchXhuFnd6Oyq/qAvzw+WQgTjyYnmZOpd58cLOpBk7wszrR6ZVjLR/omVsbB?=
+ =?us-ascii?Q?lQLMbUpHQdjlqnV9V+qzHDhg4B/buZm6eerM1U5G?=
 MIME-Version: 1.0
-Message-Id: <20250430-kvm_selftest_improve-v3-1-eea270ff080b@rivosinc.com>
-References: <20250430-kvm_selftest_improve-v3-0-eea270ff080b@rivosinc.com>
-In-Reply-To: <20250430-kvm_selftest_improve-v3-0-eea270ff080b@rivosinc.com>
-To: Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
- Paolo Bonzini <pbonzini@redhat.com>, Shuah Khan <shuah@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Andrew Jones <ajones@ventanamicro.com>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, 
- linux-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Atish Patra <atishp@rivosinc.com>
-X-Mailer: b4 0.15-dev-42535
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BN9PR11MB5276.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ae6ce83d-28e2-4e1d-c92e-08dd87c7b302
+X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Apr 2025 09:16:32.7738
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: MHfHbVuVnFhbAadLUqVIOk8blq1zT+BY5YpVTeYF13I0TDsYCDawqMsHkNqfEZTvyvTNFpWLtcik+UhfWHqBNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM4PR11MB7205
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_091639_242347_8C4912B5 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250430_021642_232008_3E488C7A 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,284 +223,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current exeception register structure in selftests are missing
-few registers (e.g stval). Instead of adding it manually, change
-the ex_regs to align with pt_regs to make it future proof.
+> From: Jason Gunthorpe <jgg@nvidia.com>
+> Sent: Tuesday, April 29, 2025 10:34 PM
+> 
+> Now that all drivers are using domain_alloc_paging() and dev is never
+> NULL, we can have all drivers correctly set domain.pgsize_bitmap during
+> their allocation function.
+> 
+> There are a few oddities that have accumulated here over past changes:
+> 
+>  - Some drivers always set domain.pgsize_bitmap during their
+>    domain_alloc_paging() call but still provide a value in ops. This is dead
+>    code, delete it.
+> 
+>  - Some drivers calculate a system global pgsize_bitmap in the ops, but
+>    it is now trivial to use the per-instance value instead. In several
+>    cases this is dead code, delete it. This also allows
+>    constifying the ops in these drivers as a hardening measure
+> 
+>  - Some drivers have a fixed pgsize_bitmap, put it next to setting up the
+>    geometry in their domain_alloc_paging() functions.
+> 
+>  - Finally a few drivers still use ops because they have a delayed
+>    finalize operation. Set the constant pgsize_bitmap in the
+>    domain_alloc_paging().
+> 
+> Then remove ops.pgsize_bitmap.
+> 
+> This is based on iommu next, and must go after the virtio
+> domain_alloc_paging() conversion.
+> 
 
-Suggested-by: Andrew Jones <ajones@ventanamicro.com>
-Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
-Signed-off-by: Atish Patra <atishp@rivosinc.com>
----
- .../selftests/kvm/include/riscv/processor.h        |  10 +-
- tools/testing/selftests/kvm/lib/riscv/handlers.S   | 139 +++++++++++----------
- tools/testing/selftests/kvm/lib/riscv/processor.c  |   2 +-
- tools/testing/selftests/kvm/riscv/arch_timer.c     |   2 +-
- tools/testing/selftests/kvm/riscv/ebreak_test.c    |   2 +-
- tools/testing/selftests/kvm/riscv/sbi_pmu_test.c   |   4 +-
- 6 files changed, 83 insertions(+), 76 deletions(-)
+for entire series:
 
-diff --git a/tools/testing/selftests/kvm/include/riscv/processor.h b/tools/testing/selftests/kvm/include/riscv/processor.h
-index 5f389166338c..1b5aef87de0f 100644
---- a/tools/testing/selftests/kvm/include/riscv/processor.h
-+++ b/tools/testing/selftests/kvm/include/riscv/processor.h
-@@ -60,7 +60,8 @@ static inline bool __vcpu_has_sbi_ext(struct kvm_vcpu *vcpu, uint64_t sbi_ext)
- 	return __vcpu_has_ext(vcpu, RISCV_SBI_EXT_REG(sbi_ext));
- }
- 
--struct ex_regs {
-+struct pt_regs {
-+	unsigned long epc;
- 	unsigned long ra;
- 	unsigned long sp;
- 	unsigned long gp;
-@@ -92,16 +93,19 @@ struct ex_regs {
- 	unsigned long t4;
- 	unsigned long t5;
- 	unsigned long t6;
--	unsigned long epc;
-+	/* Supervisor/Machine CSRs */
- 	unsigned long status;
-+	unsigned long badaddr;
- 	unsigned long cause;
-+	/* a0 value before the syscall */
-+	unsigned long orig_a0;
- };
- 
- #define NR_VECTORS  2
- #define NR_EXCEPTIONS  32
- #define EC_MASK  (NR_EXCEPTIONS - 1)
- 
--typedef void(*exception_handler_fn)(struct ex_regs *);
-+typedef void(*exception_handler_fn)(struct pt_regs *);
- 
- void vm_init_vector_tables(struct kvm_vm *vm);
- void vcpu_init_vector_tables(struct kvm_vcpu *vcpu);
-diff --git a/tools/testing/selftests/kvm/lib/riscv/handlers.S b/tools/testing/selftests/kvm/lib/riscv/handlers.S
-index aa0abd3f35bb..b787b982e922 100644
---- a/tools/testing/selftests/kvm/lib/riscv/handlers.S
-+++ b/tools/testing/selftests/kvm/lib/riscv/handlers.S
-@@ -10,85 +10,88 @@
- #include <asm/csr.h>
- 
- .macro save_context
--	addi  sp, sp, (-8*34)
--	sd    x1, 0(sp)
--	sd    x2, 8(sp)
--	sd    x3, 16(sp)
--	sd    x4, 24(sp)
--	sd    x5, 32(sp)
--	sd    x6, 40(sp)
--	sd    x7, 48(sp)
--	sd    x8, 56(sp)
--	sd    x9, 64(sp)
--	sd    x10, 72(sp)
--	sd    x11, 80(sp)
--	sd    x12, 88(sp)
--	sd    x13, 96(sp)
--	sd    x14, 104(sp)
--	sd    x15, 112(sp)
--	sd    x16, 120(sp)
--	sd    x17, 128(sp)
--	sd    x18, 136(sp)
--	sd    x19, 144(sp)
--	sd    x20, 152(sp)
--	sd    x21, 160(sp)
--	sd    x22, 168(sp)
--	sd    x23, 176(sp)
--	sd    x24, 184(sp)
--	sd    x25, 192(sp)
--	sd    x26, 200(sp)
--	sd    x27, 208(sp)
--	sd    x28, 216(sp)
--	sd    x29, 224(sp)
--	sd    x30, 232(sp)
--	sd    x31, 240(sp)
-+	addi  sp, sp, (-8*36)
-+	sd    x1, 8(sp)
-+	sd    x2, 16(sp)
-+	sd    x3, 24(sp)
-+	sd    x4, 32(sp)
-+	sd    x5, 40(sp)
-+	sd    x6, 48(sp)
-+	sd    x7, 56(sp)
-+	sd    x8, 64(sp)
-+	sd    x9, 72(sp)
-+	sd    x10, 80(sp)
-+	sd    x11, 88(sp)
-+	sd    x12, 96(sp)
-+	sd    x13, 104(sp)
-+	sd    x14, 112(sp)
-+	sd    x15, 120(sp)
-+	sd    x16, 128(sp)
-+	sd    x17, 136(sp)
-+	sd    x18, 144(sp)
-+	sd    x19, 152(sp)
-+	sd    x20, 160(sp)
-+	sd    x21, 168(sp)
-+	sd    x22, 176(sp)
-+	sd    x23, 184(sp)
-+	sd    x24, 192(sp)
-+	sd    x25, 200(sp)
-+	sd    x26, 208(sp)
-+	sd    x27, 216(sp)
-+	sd    x28, 224(sp)
-+	sd    x29, 232(sp)
-+	sd    x30, 240(sp)
-+	sd    x31, 248(sp)
- 	csrr  s0, CSR_SEPC
- 	csrr  s1, CSR_SSTATUS
--	csrr  s2, CSR_SCAUSE
--	sd    s0, 248(sp)
-+	csrr  s2, CSR_STVAL
-+	csrr  s3, CSR_SCAUSE
-+	sd    s0, 0(sp)
- 	sd    s1, 256(sp)
- 	sd    s2, 264(sp)
-+	sd    s3, 272(sp)
- .endm
- 
- .macro restore_context
-+	ld    s3, 272(sp)
- 	ld    s2, 264(sp)
- 	ld    s1, 256(sp)
--	ld    s0, 248(sp)
--	csrw  CSR_SCAUSE, s2
-+	ld    s0, 0(sp)
-+	csrw  CSR_SCAUSE, s3
- 	csrw  CSR_SSTATUS, s1
- 	csrw  CSR_SEPC, s0
--	ld    x31, 240(sp)
--	ld    x30, 232(sp)
--	ld    x29, 224(sp)
--	ld    x28, 216(sp)
--	ld    x27, 208(sp)
--	ld    x26, 200(sp)
--	ld    x25, 192(sp)
--	ld    x24, 184(sp)
--	ld    x23, 176(sp)
--	ld    x22, 168(sp)
--	ld    x21, 160(sp)
--	ld    x20, 152(sp)
--	ld    x19, 144(sp)
--	ld    x18, 136(sp)
--	ld    x17, 128(sp)
--	ld    x16, 120(sp)
--	ld    x15, 112(sp)
--	ld    x14, 104(sp)
--	ld    x13, 96(sp)
--	ld    x12, 88(sp)
--	ld    x11, 80(sp)
--	ld    x10, 72(sp)
--	ld    x9, 64(sp)
--	ld    x8, 56(sp)
--	ld    x7, 48(sp)
--	ld    x6, 40(sp)
--	ld    x5, 32(sp)
--	ld    x4, 24(sp)
--	ld    x3, 16(sp)
--	ld    x2, 8(sp)
--	ld    x1, 0(sp)
--	addi  sp, sp, (8*34)
-+	ld    x31, 248(sp)
-+	ld    x30, 240(sp)
-+	ld    x29, 232(sp)
-+	ld    x28, 224(sp)
-+	ld    x27, 216(sp)
-+	ld    x26, 208(sp)
-+	ld    x25, 200(sp)
-+	ld    x24, 192(sp)
-+	ld    x23, 184(sp)
-+	ld    x22, 176(sp)
-+	ld    x21, 168(sp)
-+	ld    x20, 160(sp)
-+	ld    x19, 152(sp)
-+	ld    x18, 144(sp)
-+	ld    x17, 136(sp)
-+	ld    x16, 128(sp)
-+	ld    x15, 120(sp)
-+	ld    x14, 112(sp)
-+	ld    x13, 104(sp)
-+	ld    x12, 96(sp)
-+	ld    x11, 88(sp)
-+	ld    x10, 80(sp)
-+	ld    x9, 72(sp)
-+	ld    x8, 64(sp)
-+	ld    x7, 56(sp)
-+	ld    x6, 48(sp)
-+	ld    x5, 40(sp)
-+	ld    x4, 32(sp)
-+	ld    x3, 24(sp)
-+	ld    x2, 16(sp)
-+	ld    x1, 8(sp)
-+	addi  sp, sp, (8*36)
- .endm
- 
- .balign 4
-diff --git a/tools/testing/selftests/kvm/lib/riscv/processor.c b/tools/testing/selftests/kvm/lib/riscv/processor.c
-index dd663bcf0cc0..2eac7d4b59e9 100644
---- a/tools/testing/selftests/kvm/lib/riscv/processor.c
-+++ b/tools/testing/selftests/kvm/lib/riscv/processor.c
-@@ -402,7 +402,7 @@ struct handlers {
- 	exception_handler_fn exception_handlers[NR_VECTORS][NR_EXCEPTIONS];
- };
- 
--void route_exception(struct ex_regs *regs)
-+void route_exception(struct pt_regs *regs)
- {
- 	struct handlers *handlers = (struct handlers *)exception_handlers;
- 	int vector = 0, ec;
-diff --git a/tools/testing/selftests/kvm/riscv/arch_timer.c b/tools/testing/selftests/kvm/riscv/arch_timer.c
-index 9e370800a6a2..f962fefc48fa 100644
---- a/tools/testing/selftests/kvm/riscv/arch_timer.c
-+++ b/tools/testing/selftests/kvm/riscv/arch_timer.c
-@@ -15,7 +15,7 @@
- 
- static int timer_irq = IRQ_S_TIMER;
- 
--static void guest_irq_handler(struct ex_regs *regs)
-+static void guest_irq_handler(struct pt_regs *regs)
- {
- 	uint64_t xcnt, xcnt_diff_us, cmp;
- 	unsigned int intid = regs->cause & ~CAUSE_IRQ_FLAG;
-diff --git a/tools/testing/selftests/kvm/riscv/ebreak_test.c b/tools/testing/selftests/kvm/riscv/ebreak_test.c
-index cfed6c727bfc..739d17befb5a 100644
---- a/tools/testing/selftests/kvm/riscv/ebreak_test.c
-+++ b/tools/testing/selftests/kvm/riscv/ebreak_test.c
-@@ -27,7 +27,7 @@ static void guest_code(void)
- 	GUEST_DONE();
- }
- 
--static void guest_breakpoint_handler(struct ex_regs *regs)
-+static void guest_breakpoint_handler(struct pt_regs *regs)
- {
- 	WRITE_ONCE(sw_bp_addr, regs->epc);
- 	regs->epc += 4;
-diff --git a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-index 03406de4989d..6e66833e5941 100644
---- a/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-+++ b/tools/testing/selftests/kvm/riscv/sbi_pmu_test.c
-@@ -128,7 +128,7 @@ static void stop_counter(unsigned long counter, unsigned long stop_flags)
- 		       "Unable to stop counter %ld error %ld\n", counter, ret.error);
- }
- 
--static void guest_illegal_exception_handler(struct ex_regs *regs)
-+static void guest_illegal_exception_handler(struct pt_regs *regs)
- {
- 	__GUEST_ASSERT(regs->cause == EXC_INST_ILLEGAL,
- 		       "Unexpected exception handler %lx\n", regs->cause);
-@@ -138,7 +138,7 @@ static void guest_illegal_exception_handler(struct ex_regs *regs)
- 	regs->epc += 4;
- }
- 
--static void guest_irq_handler(struct ex_regs *regs)
-+static void guest_irq_handler(struct pt_regs *regs)
- {
- 	unsigned int irq_num = regs->cause & ~CAUSE_IRQ_FLAG;
- 	struct riscv_pmu_snapshot_data *snapshot_data = snapshot_gva;
-
--- 
-2.43.0
-
+Reviewed-by: Kevin Tian <kevin.tian@intel.com>
 
 _______________________________________________
 linux-riscv mailing list
