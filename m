@@ -4,100 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55001C3ABA5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:10:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3445BC369DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:29:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=FA5SbKLncZ91ErojqYdnCOZOefw3svld2FaQtw6vGH4=; b=hmof9VP3cQyapc
-	oLx9sQDpBnbgYY7WHkbmyuQJSRhpaKIL+x8qGGlGsF7VMie+dutI5KONHPE0TiUkxGkYYpc81qKIn
-	IoiJCic6QDqG/+zjDrpDt2O1Y88/EiFKNJftCTF+A4I8o06lMPHAFpyp7ZlngbAr9FOWp4oIq3j55
-	O7DyIhbFq4VI5VFUzv+KmmQjwm+QWUwuPFXuKp7Ej9QXJcmdxEl1Y1q0XsFz9Sg+Jp8ZmRZOkjpus
-	QAnJbDrR20fJ0U5G7mCEs4PC+1ICG5SNnlf8MLitNqaS4cC6fVRbHPeXhFIY3eLg9G3qkpJuAzIUS
-	c0xODKrbbjd+I7P+oiYA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=82cehgX7A9ZlxEdKAqaJcvpcFIM5O6tFeXI82xi6GE8=; b=esemnUbrKd6hKX
+	Hii4E2NFPyBXjlXF0vJN1C3CEdlycKadZrvxggKUa+DSMeJf5PtaL3bKHCk2KhtjmpwO7L5yUCWJC
+	/10fvmGMqwZzq2i7q1CtTfxHSptvofKwyYcSmXkusBDUcwMypMw9Y+nEqzPFIOjYWKc4Z4wQEAc0d
+	VM9ZLvDmme7qWHcIGtPBch2Ljs9Zrc183HBxX5wQa1/WSM87LEOWvxTIC3xa/8m092aFsqf1Fzw/Q
+	D60NhCanE/yu5xJYmM4yDbqjq1HiqTE1+nl4wMKnLib8iJNT3Wa8cOapiT1u1mLG06mY6XtUDHbbl
+	NbiytYTbI+qapyeJeKhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wtZ-0000000BUpM-3evQ;
-	Wed, 30 Apr 2025 02:09:57 +0000
-Received: from mail-qt1-f170.google.com ([209.85.160.170])
+	id 1u9xCQ-0000000BW9L-00Pm;
+	Wed, 30 Apr 2025 02:29:26 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wtT-0000000BUoR-3E62
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 02:09:56 +0000
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-4767e969b94so152024321cf.2
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 19:09:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1745978990; x=1746583790; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gMRCqnYomW+wsK1zzIEugxafFdeEE4BP1eOXuKoDm5I=;
-        b=CqSPQvMeWymfrRFqzsTi8ynaERo1LWHseKRH14XtyyKBLmyKAM1NvxNJvM26Gw27o3
-         MvmmvWY8IIheTGqEHmPY35fctRYP72vmKHDt/4aHRGGFqRMvy3xgC0Riyk5R2Hg2VJW3
-         fHFn7peNxLmH0j+F60wKQpLp25/29u3zuNPjMsMZ06DI6d1GfPc3gwFwLUzrvebfWL5V
-         xgfc8rfaNu5w2j/+b8tO8Myw0kWOpH/R7el9MN/8zn99/Gm3UqbeoSlGh5DJVvDPQM2H
-         TAl45HAKZRH9SqFNiVGx3xIPOQGhKaedj7yvUbnvGjda/c9GmiRvXYZUGNtgP0sfBx4w
-         5jqQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745978990; x=1746583790;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gMRCqnYomW+wsK1zzIEugxafFdeEE4BP1eOXuKoDm5I=;
-        b=PX8ITJf33GtO8mCkqv7M8GZV7stdFKtvGhxdumBDOxYKfT0hLOiWmhT7UpPamEvU3o
-         enM0DFWjNTC2sm+C+xm+IPbkDEW1DjYVrV7xpwDv0gi1szrReZeoWw4gLUtdvg8uNpgt
-         XhWZ69Zb3sKBUTkpRuc5eMRnz0xx4uQ5BGgQ+XowUhdosiEVRr+/+4+qbk+tYdm+mGbL
-         oeNu7gLBpDnjZ5WAICcaN+hvP5EmGpj1ph7Xgz1sm4hL/Pt5km/jbFXdTt3e04+lm5eL
-         ZU1reiM7jYQyfXKKR9NmrItPp3SER+N0+sVm/wUUoBzTI2OrHo4lNNFccyShmF/FGHPD
-         7S5g==
-X-Forwarded-Encrypted: i=1; AJvYcCUbfCvZkq2PFodysDrlyO5mS9hujl5VsyH8cuVUtnLl7sRzJ9hgJ9yiPxd/OYmTHz9vr6gUiFmN+GnQlw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzO1aRmV6Upo4se9JO2KVetEl1Kw/faqcwO1g4Yn7qbxtEOuyD
-	MCjrf4Ahb2aXmM1c5dpWrssZKdsXjhDpnE8VB+82K12Q6xGvfraD
-X-Gm-Gg: ASbGnctQrqp1mU32/muSxx1plk5M41KwxGZRRDjYrIXv1TdZUffml3wgldXoVmWJ7aQ
-	wfyP6UaxhzHBPfrBDAxNJbPBXc1EbuNCcXzNI58z+WFSSMp+UgunCl/EjEpLtLRvA0xlGxtYn6P
-	tV3vpJdzPEknEYrtQhlEx1CpU+8Cc59/Q5PSsQkfppSoXwEpuLV1W59JE/mdrf+MXfjg5KbI+Jf
-	WWsxkF0tlgprfecOH/3OxkUZowwy94JF6bWGs3bK2DIh3cgahOfetZdbXgo9EzwmYLm7I9FFeHh
-	GJBsNW8fbL1X9gBS
-X-Google-Smtp-Source: AGHT+IH3QEcqlp51tOnN2l6ZLTNjrQhnIbAtp++1IB7gybN/d7hCg0IFcRClQaapkL+poJtpoZTgVQ==
-X-Received: by 2002:a05:622a:2617:b0:476:60a1:3115 with SMTP id d75a77b69052e-489e63d86fbmr13994811cf.33.1745978990109;
-        Tue, 29 Apr 2025 19:09:50 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-47ea1ba2868sm86855891cf.74.2025.04.29.19.09.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 29 Apr 2025 19:09:49 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-Cc: linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH 0/3] riscv: sophgo: cv18xx: dts rework, part 2
-Date: Wed, 30 Apr 2025 10:09:28 +0800
-Message-ID: <20250430020932.307198-1-inochiama@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	id 1u9xAV-0000000BVx7-2BuY;
+	Wed, 30 Apr 2025 02:27:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=k4QjAmh83yMZNLzUuAj1J5f4WZGw3kbBWCArSRYks8c=; b=Vieyc26VLhqz4zWnYRj3rYoyQj
+	H0zpuIjmCDGV04Csn9F7DAzFr4VMNjSPrC0ttYmpV9ePC4GcLW04Gh2LQ1DfIxlqp8R2aL3ipQgqS
+	Hoxj4/7XIQ9SP8MYTw9J6YxFRkgAmoixnyakr025Cu5UwmrQd+FkzC7jHq9Sv7Lbup88SHAX/kJOO
+	gCZMT32Dh2FRvOwZvUtHvMWVDl4ZzRtgK+7mmLDbkUAE5fgD6/s5zMPyYWMNXS2Dyy648liRupOcp
+	RncktiF2kCxxXhDi4UksWk66YNHf90reaqkRJHJIrq0moVeglYppY4Tl1LsVfkb0I0T9xlkGgF+Dz
+	KZjeX6Og==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1u9xAJ-0028rg-2e;
+	Wed, 30 Apr 2025 10:27:16 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Wed, 30 Apr 2025 10:27:15 +0800
+Date: Wed, 30 Apr 2025 10:27:15 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [v3 PATCH 00/13] Architecture-optimized SHA-256 library API
+Message-ID: <aBGKg5bq0zLkhy3-@gondor.apana.org.au>
+References: <cover.1745816372.git.herbert@gondor.apana.org.au>
+ <20250429165749.GC1743@sol.localdomain>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250429165749.GC1743@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_190951_807830_DE726B21 
-X-CRM114-Status: UNSURE (   7.69  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_192727_559688_5E126435 
+X-CRM114-Status: GOOD (  15.00  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +80,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The part 2 of dts rework replaces precise compatible for existed clock device
-with old wildcard one.
+On Tue, Apr 29, 2025 at 09:57:49AM -0700, Eric Biggers wrote:
+>
+> To be clear, the objections I have on your v2 patchset still hold.  Your
+> unsolicited changes to my patches add unnecessary complexity and redundancy,
+> make the crypto_shash API even harder to use correctly, and also break the build
+> for several architectures.  If you're going to again use your maintainer
+> privileges to push these out anyway over my objections, I'd appreciate it if you
+> at least made your dubious changes as incremental patches using your own
+> authorship so that they can be properly reviewed/blamed.
 
-Inochi Amaoto (3):
-  dt-bindings: clock: sophgo: Use precise compatible for CV1800 series
-    SoC
-  clk: sophgo: Add support for newly added precise compatible
-  riscv: dts: sophgo: switch precise compatible for existed clock device
-    for CV18XX
+Well the main problem is that your patch introduces a regression
+in the shash sha256 code by making its export format differ from
+other shash sha256 implementations (e.g., padlock-sha).
 
- .../bindings/clock/sophgo,cv1800-clk.yaml           | 13 +++++++++----
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi             |  2 +-
- arch/riscv/boot/dts/sophgo/cv1812h.dtsi             |  2 +-
- arch/riscv/boot/dts/sophgo/sg2002.dtsi              |  2 +-
- drivers/clk/sophgo/clk-cv1800.c                     |  3 +++
- 5 files changed, 15 insertions(+), 7 deletions(-)
+So your first patch cannot stand as is.  What I could do is split up
+the first patch so that the lib/crypto sha stuff goes in by itself
+followed by a separate patch replacing the crypto/sha256 code.
 
+> Please also note that I've sent a v4 which fixes the one real issue that my v1
+> patchset had: https://lore.kernel.org/r/20250428170040.423825-1-ebiggers@kernel.org
 
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-prerequisite-patch-id: 94fb3d26e017cf839b4dcb4bf85624614a94b9ac
-prerequisite-patch-id: 8f4a8bdead0e4e3d6904adbc0fd150b7dffefc85
-prerequisite-patch-id: b30e850690903c3ddc3d8bb77a99e97934dc9dde
-prerequisite-patch-id: 6e1117694a53a0059b145ad4751ec204cae0db35
---
-2.49.0
+Yes I've seen it but it still has the same issue of changing the
+shash sha256 export format.
 
+Cheers,
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
