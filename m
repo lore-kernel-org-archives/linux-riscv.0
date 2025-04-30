@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 240EDC369DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1897C369DC
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:01:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
-	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	References:List-Owner; bh=5M4wIkP3g3QhUYQsu8hrWMZEguKAm8gZ/iX7305l7nI=; b=sFg
-	IhVNWtx8ipv39YetChRGbywjicE5163AG2i8P46P3EyRXTkDrfldaepggzEYPdynBVjNTJMhsgbea
-	uJploUzC19rdxyiTvj6AvR0wACJvyvydp03k24o5KR7//gYKB0oNUS3gk4xtp5CpNIJ8gVH8JsFwj
-	wRl5CP2pqSpXPx8gsx09lfhOG+M/mvSM7bMgT1j4R3I0bZD9yvu1pmbdYyGtyHp1tEY52Ic/IzuUF
-	4soFc2Mh2C76ZP2vlPt/ArFbHLDzogHY5VzMlv3x54wSjJ/DeN3XE9d+hi9dae0W1D82gde1uzwiV
-	tzzp/iEbbf/s7VyyyxOeHu6l4WFqkLg==;
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=LmK5qJtNtNh6bB/lLWgOwZwnNBo988Gx1M2vDEy6aK4=; b=Cpm4U5NWI/hJI1FnFN7YUiylD5
+	DoemPaRi4Z9+3FntFY9bVFdL6vqAE8uf2veYW5E2CpzX26tBONyQwjyML7zF4OMzHncdaRgkt1gqP
+	RRqUxmTkcpx5QLZgQN8oi7j05uelgNtcnpUHyRnqS+5aUK6DDl2UpymiS1fTXH8i1q0hohH5mzF06
+	S6KZuSLH4W8DPpMhYLZvYlF3FpwObRgRTep8FylmucbOmvb3/3pJsc2Ey/Zx+RTQvXikJ1tWXQItl
+	pDo9ZNp3Ce+PQS1lnxNI2D9cYzt5Ce55uNt8x6vWYhP7sf3EzApJGk0KdzUnAhBMEUR7avSIH5m+t
+	cnXotzIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wlD-0000000BTnv-45Rx;
-	Wed, 30 Apr 2025 02:01:19 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1u9wlE-0000000BTnz-28i8;
+	Wed, 30 Apr 2025 02:01:20 +0000
+Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9ve4-0000000BNUi-133m
+	id 1u9ved-0000000BNYx-0coF
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 00:49:53 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-227a8cdd272so54604015ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:49:51 -0700 (PDT)
+	Wed, 30 Apr 2025 00:50:28 +0000
+Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-736c0306242so8795798b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:50:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745974191; x=1746578991; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=uVJn6R8AyLKP9RLCMrKJhUthQHLHAwUZd1bqoncqyPg=;
-        b=FfF1Dl1UFbTvhtwijHP7E0P3FruWNGVvpV/XXwDzob79k1engIOI6Tj8l/zuJwI1NJ
-         pdCPIyZTebe/uZs+McIdvrS3Wbef91M8lUUGxceMN9STiu0JZATlqH9XC+HOtcqhkzGS
-         MHJ/AaAzVKaJV4Jw35El2lQyrPH/cbnVJsLjL9SeavRB8uytnkJu/ZKfEEUtax2TqT35
-         mJlI3zHDPZhpbAETLzdgoQq4dBajfZmiGZl4YBwaDntP5VMG0t4alFta5mkPORVKFoSJ
-         Xg+Bm+yM06mtBqe2Gjpoj7HIh9ANAIWZvvhAMOv912lVXfKRci9PN5eN7ixftrRPNJTl
-         9HjQ==
+        d=google.com; s=20230601; t=1745974225; x=1746579025; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=zV8KfWtJknVUvMYzwAQZK7J5V2/CfVSOWymHPTFROZA=;
+        b=qex050N671jMQdDI5bu4f0DdUMYlZallhhH8haSc5NZs/UbGooU+d9DPnp/jAKgDPP
+         dvaORJIWmnuViFHMHgzbw6Yb3yt3m8TYplvghYvMlt3Gic3l5MAHtIxQWj35PS0OogCF
+         +8s/OjOW7RpuxKWuC4OIdVSSx3U/s+s8rGY70ppr/ZuJOJHehKdOmqJeoAqBoUd8haok
+         YNKVv/IAArd+WjzM1/zM8uSGFLfFny2hvREPbPfGZnAIUUCBNgfvuPnUGmoKeHd4wzPP
+         AwkDOegNU0BGrnsLn78eUDqC5us9QhhIc9JNDywDlzM50YmYOxMum6mg2SGWcG5wkngk
+         WeQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745974191; x=1746578991;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=uVJn6R8AyLKP9RLCMrKJhUthQHLHAwUZd1bqoncqyPg=;
-        b=wnNCccydx/38xwCwmCDIsZIz1PaKf1IxCWz32rZ7GeJMfD47bkM0ZySHHBNmn8S28/
-         C51IGwunQQzVdS08WfJr3t4cPyAl4r3/VhJec5Yy8yGyNV80zg3qEMgvS1WFGeDfz7NR
-         gi/8aoRqSfAkp92z7FiANOfn2XasKLxSzKzLbztybov144AeqVDySKLw+/6kA6kkCz3X
-         D1/FBJlIvyo+4+6Cevin7Z1n108uc1J3Y96MwFTY38mwF3rbygqKojW79/rHP6SySoNF
-         lix9hd+xgibA6I7VuOu41gom64vTQIUikenCtU0nyEtlBjHVTkFgnIrfW+6A4slPAEFn
-         U1lg==
-X-Forwarded-Encrypted: i=1; AJvYcCWC6u0MhBhNdUKh1YF7M90DzA5LECP3T4S9ITpaWcqPbhjj+skf/+Kf+gZCm5vEl8Qod22bJ0lB4MJC1g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz9YxKkf4jShR3+Fxzj5Dk0zKzfNviOHFJ8tEK48PfY6+Bvwrm3
-	H0jbvbPbFk1MrhCIqs2VAtXH0MVF8uwHpknjD0SAzz7nw0JammB8NbyyVFzUH6MMo7t7OQYYC5K
-	ztpQdgEd0EQ==
-X-Google-Smtp-Source: AGHT+IF9zsphPMP1HajZC8Eo2sh2+VzDRKm+YZlHx2A2vQLcAL4BFROSnhFTkQQBucvMfF5NEp7t7fHg/OmYfg==
-X-Received: from pgbcr13.prod.google.com ([2002:a05:6a02:410d:b0:af2:4edb:7793])
+        d=1e100.net; s=20230601; t=1745974225; x=1746579025;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zV8KfWtJknVUvMYzwAQZK7J5V2/CfVSOWymHPTFROZA=;
+        b=f5CgJFPb4wVwps8a0ZZsostNjDVsqzZJTF9iEvzuUya5XT64f5CNtwvoo3eYGLcKnF
+         z4V8aElz0UcO+To20RIOP62QJD0j9fJDKJcNcanpa5yTjSwzBeeHEyvLTgKmkOgW9abK
+         iOs4Mi3JkqovfNWkdzKrE5V17p568XDRPfMOWljkOCTO37/2oQIQEV2MRF/+kvoH+KwR
+         0EII7FK7u/8GHzDBtCS85V+OIJRLffRwmcEazUcSmbwqMcNp2Zo3IQX9qKZ7Fef/Zqai
+         IAYJkG/tKi4LOL0pDGrgNyJmxavpJQaA/+mSOFxMHh6Afj+Fwg6jtFtSjn/Jjm2rvCEJ
+         slGA==
+X-Forwarded-Encrypted: i=1; AJvYcCUaWTu1tJ2UTXdFwYASr/OtlIqYPDh/alUm7KVsuHeBVDpoYxggwgUVnKfraxYxLbruX6EC0K594zlKEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXo24PM3RvtYNT5nw9TdtM2tvawZmjMluFqsi80RxTbONtREkI
+	R85Ss6PigKmB2ZyMBvt711zQSklfpC+tRQjUDMnBTe+HTsSYEGPmLoR7MPNsUyTBsKLJpv5HusO
+	1jhgvRObfFw==
+X-Google-Smtp-Source: AGHT+IGXjMAQ6Z4HpUzZGw+SfPLRp4intDdhQh/m2Ddl0uunRXtaCeDsdf0ekIVVtBs7GrtIhrk10UjAwgEmPg==
+X-Received: from pfua19.prod.google.com ([2002:a05:6a00:11d3:b0:730:8e17:ed13])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:903:2ec8:b0:223:60ce:2451 with SMTP id d9443c01a7336-22df57a5cabmr8537185ad.15.1745974190699;
- Tue, 29 Apr 2025 17:49:50 -0700 (PDT)
-Date: Wed, 30 Apr 2025 00:48:53 +0000
+ 2002:a05:6a00:928e:b0:736:2a73:6756 with SMTP id d2e1a72fcca58-7403a831702mr887054b3a.21.1745974225616;
+ Tue, 29 Apr 2025 17:50:25 -0700 (PDT)
+Date: Wed, 30 Apr 2025 00:50:00 +0000
+In-Reply-To: <cover.1745970908.git.yepeilin@google.com>
 Mime-Version: 1.0
+References: <cover.1745970908.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.49.0.901.g37484f566f-goog
-Message-ID: <cover.1745970908.git.yepeilin@google.com>
-Subject: [PATCH bpf-next 0/8] bpf, riscv64: Support load-acquire and
- store-release instructions
+Message-ID: <2c1ec0e60974f8438730dc5126f9ed986b32a3f6.1745970908.git.yepeilin@google.com>
+Subject: [PATCH bpf-next 1/8] bpf/verifier: Handle BPF_LOAD_ACQ instructions
+ in insn_def_regno()
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org
 Cc: Peilin Ye <yepeilin@google.com>, linux-riscv@lists.infradead.org, 
@@ -83,9 +86,8 @@ Cc: Peilin Ye <yepeilin@google.com>, linux-riscv@lists.infradead.org,
 	Shuah Khan <shuah@kernel.org>, Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, 
 	Neel Natu <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_174952_289285_FF65D5DF 
-X-CRM114-Status: UNSURE (   7.98  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250429_175027_188053_72ABAD1A 
+X-CRM114-Status: GOOD (  11.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,53 +104,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi all!
+In preparation for supporting BPF load-acquire and store-release
+instructions for architectures where bpf_jit_needs_zext() returns true
+(e.g. riscv64), make insn_def_regno() handle load-acquires properly.
 
-Patchset [1] introduced BPF load-acquire (BPF_LOAD_ACQ) and
-store-release (BPF_STORE_REL) instructions, and added x86-64 and arm64
-JIT compiler support.  As a follow-up, this patchset supports
-load-acquire and store-release instructions for the riscv64 JIT
-compiler, and introduces some related selftests/ changes.
+Signed-off-by: Peilin Ye <yepeilin@google.com>
+---
+ kernel/bpf/verifier.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
-Specifically:
-
- * PATCH 1 makes insn_def_regno() handle load-acquires properly for
-   bpf_jit_needs_zext() (true for riscv64) architectures
- * PATCH 2, 3 from Andrea Parri add the actual support to the riscv64
-   JIT compiler
- * PATCH 4 optimizes code emission by skipping redundant zext
-   instructions inserted by the verifier
- * PATCH 5, 6 and 7 are minor selftest/ improvements
- * PATCH 8 enables (non-arena) load-acquire/store-release selftests for
-   riscv64
-
-Please refer to individual patches for details.  Thanks!
-
-[1] https://lore.kernel.org/all/cover.1741049567.git.yepeilin@google.com/
-
-Andrea Parri (2):
-  bpf, riscv64: Introduce emit_load_*() and emit_store_*()
-  bpf, riscv64: Support load-acquire and store-release instructions
-
-Peilin Ye (6):
-  bpf/verifier: Handle BPF_LOAD_ACQ instructions in insn_def_regno()
-  bpf, riscv64: Skip redundant zext instruction after load-acquire
-  selftests/bpf: Use CAN_USE_LOAD_ACQ_STORE_REL when appropriate
-  selftests/bpf: Avoid passing out-of-range values to __retval()
-  selftests/bpf: Verify zero-extension behavior in load-acquire tests
-  selftests/bpf: Enable non-arena load-acquire/store-release selftests
-    for riscv64
-
- arch/riscv/net/bpf_jit.h                      |  15 +
- arch/riscv/net/bpf_jit_comp64.c               | 334 ++++++++++++------
- arch/riscv/net/bpf_jit_core.c                 |   3 +-
- kernel/bpf/verifier.c                         |  11 +-
- tools/testing/selftests/bpf/progs/bpf_misc.h  |   5 +-
- .../bpf/progs/verifier_load_acquire.c         |  48 ++-
- .../selftests/bpf/progs/verifier_precision.c  |   5 +-
- .../bpf/progs/verifier_store_release.c        |  39 +-
- 8 files changed, 314 insertions(+), 146 deletions(-)
-
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index 54c6953a8b84..6435ea23fee4 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -3649,13 +3649,16 @@ static int insn_def_regno(const struct bpf_insn *insn)
+ 	case BPF_ST:
+ 		return -1;
+ 	case BPF_STX:
+-		if ((BPF_MODE(insn->code) == BPF_ATOMIC ||
+-		     BPF_MODE(insn->code) == BPF_PROBE_ATOMIC) &&
+-		    (insn->imm & BPF_FETCH)) {
++		if (BPF_MODE(insn->code) == BPF_ATOMIC ||
++		    BPF_MODE(insn->code) == BPF_PROBE_ATOMIC) {
+ 			if (insn->imm == BPF_CMPXCHG)
+ 				return BPF_REG_0;
+-			else
++			else if (insn->imm == BPF_LOAD_ACQ)
++				return insn->dst_reg;
++			else if (insn->imm & BPF_FETCH)
+ 				return insn->src_reg;
++			else
++				return -1;
+ 		} else {
+ 			return -1;
+ 		}
 -- 
 2.49.0.901.g37484f566f-goog
 
