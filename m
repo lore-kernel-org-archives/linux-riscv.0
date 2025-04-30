@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22BFC3ABAC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87877C369D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=saU01Aviu7XbNDYYNjr4KdymCj9aUunA0yuHQH2/lpU=; b=t2KZu10HcA5szXiCu4Tvgb3YN8
-	suSAx4TXoI8zauGnogIuoq4FfZ+8AcX1cjoh7n0BZaI9hzdWOkOG0csOGU3rAaZGDYQsws5tX07gm
-	LMGG7e5e/enoRKRxIs4TC29ZzEtg+mGB9C58+JlhKzgjqWmPjDGDLrbjtpborscaL79uyrYawi5xm
-	6+kYLZAPgE4zsS4Qdo/UWbRsAQUcsPhJlig8h9X+oPAwXEvrjdzAu8byNGMRyKJvtANIWLl7ZTYYk
-	zbv0Plrbdy/4Nol8zjF6AKmzd9KVngJfhZoetgrrimRhXKyN2HWtUy5nuc6s9MBTEOsENaRRO2+Q2
-	92rISunA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UleOP0WAmi8RrpmdNWp7703mjo4sRfAXOAzAd+BuWsA=; b=Ux7jUtzoxfiWHa
+	ZbPKOAY/SuxeAg6JfCvlT1gMkvqq8rhNr6AMPwle3dgGmVsj+0E2Jr53190WqEFuhZrMjL+Y+FBSy
+	sarsQxdiimCBq6sTpT4t/QqlxhiHKW2/KrJok2qccYbrcN8v1Oe+lj1xpL81AISiDK3mnCtr4ksKq
+	0AkdANkf06ajHWGRdtaL92WVBfLQhezoC/OGUTy6Hcc18Prr9jx4qWLq9Hhz0hzCXb5dYG8SXTDRB
+	xtNPVQTo8npg2RKVX+JCVlE454aP3NtONweV00fifXSeyghlvhivPhtQgIREQOa27d5uOF1VUmtBJ
+	qAHd7SgWarGzTfFhxoqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9uc-0000000DMY4-0akS;
-	Wed, 30 Apr 2025 16:03:54 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uA9ug-0000000DMbr-2moF;
+	Wed, 30 Apr 2025 16:03:58 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9Uj-0000000DJ39-09MT
+	id 1uA9g9-0000000DKp0-40MJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 15:37:09 +0000
+	Wed, 30 Apr 2025 15:48:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5063E6845C;
-	Wed, 30 Apr 2025 15:36:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E293C4CEEC;
-	Wed, 30 Apr 2025 15:37:03 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4FA675C49F9;
+	Wed, 30 Apr 2025 15:46:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE9A5C4CEE7;
+	Wed, 30 Apr 2025 15:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746027428;
-	bh=szeQj+bnY9ogQvY4OUwIgus6AzzTlktdYaxtxFfhJIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ml/JC1N9U9Q1EOkGUdxqyDMwN5oXs6mnxag8VzQw28/OoNJArBckIP3pLeFBKW9ro
-	 RcXLw49kpTtAm06RDPMIH5NhkjsFyd4Nsq4ctPWZxJU2LrubnQBNDydTpc6DBmM+cb
-	 XrgYWVDRD6Yh5JwUV1EFh3fC9cHTMU0EA6Z8+2RHxIGE+2NJi80TuU9xfHB7oNifh5
-	 29tn5y7HKs8eipTx1V5yp5ZMg9ceCwbygZEkpFi8a9yOuuF0FrM28zhQqaS82ochkk
-	 W7UpDWv/FulscnvtCe2XDBqpgCHqfa26xMaDCQRWpJOJQC5aqI//7WdUTFzdKEv43e
-	 CD0pN63FTVk4w==
-Date: Wed, 30 Apr 2025 16:37:01 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
- compatible
-Message-ID: <20250430-snort-raider-dbf10d14993f@spud>
-References: <20250430020932.307198-1-inochiama@gmail.com>
- <20250430020932.307198-3-inochiama@gmail.com>
- <20250430-radiance-rebuilt-2caa906d5e6f@spud>
+	s=k20201202; t=1746028136;
+	bh=EpdyxGfmIGM/4y2DbJ0OMYH/LxyVa4jnB71F6fCAjiI=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=hV+RSHROe8y9M6TG3n4UqKL/GYMH1zRzLtVqgegLtW/9lsNUn95NlSrItfc+bHfEA
+	 n6sO+hDAlFxcucIpRcjeVICiOWRHXxa49nhV+LMzqYVJmW33k+83cTJCT/wVz5UUgW
+	 REjzRljhm9OKHR/UuT3XiaBKSqHiFO6CA7J8ulboqXfBMCpLjB8gUnwMEEl48iaOzW
+	 Cek2zPGuf8n4TXhCcOTB710jnn8VmpCApsSFjPxJLIO2exXSmrIRFdtu3zbhJ4d+Dh
+	 aIzN0U/QBkV/rGKqbQ4BvKQhunAMKyJtamk2Zh2ZknUjpueb6PBzNAqaXHEsYfBmy8
+	 8XZI5WBXktHCQ==
+From: Miguel Ojeda <ojeda@kernel.org>
+To: naresh.kamboju@linaro.org
+Cc: anders.roxell@linaro.org,
+	aou@eecs.berkeley.edu,
+	arnd@arndb.de,
+	dan.carpenter@linaro.org,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	lkft-triage@lists.linaro.org,
+	llvm@lists.linux.dev,
+	masahiroy@kernel.org,
+	namcao@linutronix.de,
+	nathan@kernel.org,
+	palmer@dabbelt.com,
+	regressions@lists.linux.dev
+Subject: Re: next-20250422: arch/riscv/kernel/vdso/vdso.so.dbg: dynamic relocations are not supported
+Date: Wed, 30 Apr 2025 17:48:45 +0200
+Message-ID: <20250430154845.795993-1-ojeda@kernel.org>
+In-Reply-To: <CA+G9fYtN2ie+YtK3H9mrQ5QqrSCFGGjVbtJcfiYX0oHMVWMn9w@mail.gmail.com>
+References: <CA+G9fYtN2ie+YtK3H9mrQ5QqrSCFGGjVbtJcfiYX0oHMVWMn9w@mail.gmail.com>
 MIME-Version: 1.0
-In-Reply-To: <20250430-radiance-rebuilt-2caa906d5e6f@spud>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250430_084858_033205_EADD450E 
+X-CRM114-Status: UNSURE (   5.64  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +78,28 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0846741407697849804=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 23 Apr 2025 20:15:45 +0530 Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
+>
+> build errors with clang
+> ld.lld: error: version script assignment of 'LINUX_4.15' to symbol
+> '__vdso_getrandom' failed: symbol not defined
+> llvm-nm: error: arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg: No
+> such file or directory
 
---===============0846741407697849804==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="87W6SvIbW2ImtIsk"
-Content-Disposition: inline
+I have also been seeing this too in my Rust-enabled builds for a few
+days at least.
 
+Thanks!
 
---87W6SvIbW2ImtIsk
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Apr 30, 2025 at 04:33:39PM +0100, Conor Dooley wrote:
-> On Wed, Apr 30, 2025 at 10:09:30AM +0800, Inochi Amaoto wrote:
-> > Add of device id definition for newly added precise compatible.
-> >=20
-> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > ---
-> >  drivers/clk/sophgo/clk-cv1800.c | 3 +++
-> >  1 file changed, 3 insertions(+)
-> >=20
-> > diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-c=
-v1800.c
-> > index e0c4dc347579..e10221df6385 100644
-> > --- a/drivers/clk/sophgo/clk-cv1800.c
-> > +++ b/drivers/clk/sophgo/clk-cv1800.c
-> > @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_devi=
-ce *pdev)
-> > =20
-> >  static const struct of_device_id cv1800_clk_ids[] =3D {
-> >  	{ .compatible =3D "sophgo,cv1800-clk", .data =3D &cv1800_desc },
-> > +	{ .compatible =3D "sophgo,cv1800b-clk", .data =3D &cv1800_desc },
->=20
-> Given the same data is used here, should there not be fallbacks in the
-> dt for some of these? For example, 1812 to 1800? Or is that not okay,
-> because 1800 is not a real device id?
->=20
-> >  	{ .compatible =3D "sophgo,cv1810-clk", .data =3D &cv1810_desc },
-> > +	{ .compatible =3D "sophgo,cv1812h-clk", .data =3D &cv1800_desc },
-> >  	{ .compatible =3D "sophgo,sg2000-clk", .data =3D &sg2000_desc },
-> > +	{ .compatible =3D "sophgo,sg2002-clk", .data =3D &sg2000_desc },
-
-Actually, this one is a better example. sg2000 is not marked deprecated.
-sg2002 uses the same match data. Why is no fallback to sg2000 used for
-the sg2002 case?
-
---87W6SvIbW2ImtIsk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBJDnQAKCRB4tDGHoIJi
-0lfMAP45MQndFPi3Xx3SJU+Ys3AnOJrH+Tuj9GmF7L47GJab3QD8Dhn3UBrka0Uc
-I2WbsNSSF8pSxW1RW9HI8WsMjkO3WA4=
-=WPBL
------END PGP SIGNATURE-----
-
---87W6SvIbW2ImtIsk--
-
-
---===============0846741407697849804==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Cheers,
+Miguel
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0846741407697849804==--
-
