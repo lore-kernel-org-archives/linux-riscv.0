@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BAB9C3ABA5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:01:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C25FC3ABA5
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 02:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,64 +13,66 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=wwY0BYyCV+W+apZTeUiuZXYrQxcuOm0DMId03StmypE=; b=R7ZFp7gApXkrl4AsMc4+j6MG2L
-	ObZdkOcgoYsrKoredjUmNdhz0efR/MihMzwHtTrD9SYCK34g250uvL5gCrvJxk164ElyUax9GJ44t
-	nYRPHv1zP3ao3z50ZxnKjah3vXMqkrE0BgwIA7H+U1aIIMr0tSSfM0shOd9jUjElOg97u85qaTRyF
-	1vfPkhGPqYTqB1uPW1RFP8Os3c0bsDywiqqSQ17uuZGaTEnMY90qP7eBTyri+caSy5y7oJXcLPObW
-	oaZDvjH1oxEVKAgPB8nq/2TWLKyydbbkiF84/b5sSBObmDfBIz2iiLvbfd6Zasu9qgj0LOnjAneMj
-	EFq0ENPQ==;
+	bh=dR/CHDiyqi9MyktRdyGnsbUqNWd7AS+7PqsgwRVs6WE=; b=ycwkVac4rxlSvM8/xaIw5mmm1Q
+	Taw4P6nRRJSdifH70kBa1Ki/UDvGx8uLkYochACdfCdWGw3bJ+V7CcsS+9MskWVe3TSfazGFz7E0/
+	ygoY9oSPUxecbhJ/rcK7hp3BOqJrYDcD84yaQeN6KeMTn2i4XErz4UKQT3aRtKC2YYZDce3vnpOCZ
+	CxJyRsxI5H5VKYCS82rWafPJQP3Q3t6WFqf6B5gogGQPNI5BBj3T5qxvyaGqFcSF/Piru3gW+FzNX
+	4xb2TSwACqvSZ1CFcByTn0nQSEH5KlSs/Xf+WPRSyaYH3kYeghRYNzijUEYhjVOLuhK4tj2fCb94H
+	GGd50y1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9wlF-0000000BTo5-0Cms;
+	id 1u9wlF-0000000BToI-2a62;
 	Wed, 30 Apr 2025 02:01:21 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9vel-0000000BNZX-255r
+	id 1u9vfS-0000000BNmd-1gs3
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 00:50:36 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-73e0094706bso8121225b3a.3
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:50:34 -0700 (PDT)
+	Wed, 30 Apr 2025 00:51:19 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22406ee0243so45014995ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:51:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745974234; x=1746579034; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1745974277; x=1746579077; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=SYsvpTSFuwaN3Xhjb+Bga83BKgbo4zszHWjKjZxV+xU=;
-        b=cv0SddGkdNPZ97kKYI2khY/aelHQfcKkbuxiWJQdLxJI4N4Q1ucF5b/U69ded2a3d5
-         7ed9jGulvF4AKSmiLZNC2OiXXJIBXn8SaCSKZLL1B0VwepmzHoamOJw1IieMbjC/sHTW
-         fgf/KWxoF55M4ej96fYOIdi2GlwdpyPsQ82xUhe2FV8nlT32WgsPVKUZa+hozZNr6DxK
-         8dBzfKZbWYoyc5LBaL9ztI0WZiFQB1AttVNwMFqkyqsfdrqTLJUP8yRmtYiAj4kKuult
-         UrdLZSVQJjjwys2NqVYMEA0/xtleUOMNj/fgMIhyAx5CiLC109hKyey+5UUa3S8NXVGI
-         Ak5w==
+        bh=xxJ5TtWLxgaoejFEHtcTPy0MdITFEK7aLosZ4mTRA+Y=;
+        b=a9P6jTHdkKKgst9KXt9KfppAi45sFviRadBKkKjv1MUnwDa9Ay3IIffVMZjQ3G/SlM
+         WjKfLjeILXmJYNEhDDNFE/c70fyC4pbAUp4os6slWp7WMt6Ur084DKf3osJ+HWurxXyY
+         R8FgFy++7crx4Zcy3vG/jM/hHLIZcGmFGPWzUg7eHXh5j+2oWovT2weGvXCOA426KH/t
+         yMrDYCSA8m1fDgOh/VisE0Z7TduC1Zmc45qf6GgpZd8WN90k5n2ek+tWi3YgGjwrvc2c
+         5MOjh5UXglcXIE7h6tqy+uSZaCdfHL6edpLnSKlXGA5otgrGdDmPPF6+ks5OHxs1vEhr
+         RCVA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745974234; x=1746579034;
+        d=1e100.net; s=20230601; t=1745974277; x=1746579077;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=SYsvpTSFuwaN3Xhjb+Bga83BKgbo4zszHWjKjZxV+xU=;
-        b=qh7VUc1TEeOYCmTHlUadFiJysYCAY+yTtCoWg7zgBs3Zj+wXfPiZZXhKNdeb3SlTes
-         HmozSPTPouqEE9fAdQs54GdgA4s/CLbm6C5/NaWVBdu+kF+a8OseKuTKoG8aO9kTFRM0
-         YY1hwZsZvrKO8VMFg1tGk2YHtXcyF669bycoTK+gMvp1L8+SyOWg4QXWONZMfTVmuO1F
-         d5QIR0Xob56maODrzZpKLd8pqZgRM7cYruMM6CXfAQDSm8f/471jY+DQSYCi4XglkVJc
-         uB95vJxd/Q667BKEe7uYZd7Whu+ALP/o8L22a59LEMX1FjcmdT3nlIefFOP70Dve7mTj
-         Sn4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV1n+MSW9ZArdo/cjOwJyxAlsU0n6nPs07NiO5y87rAknKwLbO1x4x++DwVJTnGAlNtzXYj1c1dKbQfHg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5DXb1SSyt7DavsNiY/+VYL/P1htZPbMaiDuuoFSpHVKKN8rmy
-	A8DHt1D5ZO3AG3y15dSp7an/eY89rSM+rFZLX+YLW00AaBHRJrbyp0Q7YAa+P3ezsK7fwA73OGS
-	SGJ3Dt3qGfw==
-X-Google-Smtp-Source: AGHT+IHDsfr6K/xh6p7tpN54bW5XPrAGmzEBjUpdz1fyQMUjC+FLOSn9Y1qnxExjMJLfqqPWGSuzMoh4lQRVsA==
-X-Received: from pfjt22.prod.google.com ([2002:a05:6a00:21d6:b0:73c:28d4:aca4])
+        bh=xxJ5TtWLxgaoejFEHtcTPy0MdITFEK7aLosZ4mTRA+Y=;
+        b=cg0+gJGTwYL9+FXEiYE7JffMYTkDMdIZqiu8HHgJ01GcjhAKYcqRoILqrCYcdXzvib
+         EYxUtcTGnkYZ/CHTd0D/zZZtkbhJnglhzXhD7zaZ/99QGkyI2qFvLNq2SUy+qbd5UMqu
+         wH9EzGCOuP/qiTpG40nNCdNNyloG+LQgYHQ8NFXgkU/MBGZy8SNgpazF2f3bQlA4Nmtr
+         06pSnXvH3gwHtdKSfARrUtROX8Fn00rFQoXWvRkW0OFllascOlBbI8edIccXF0FqHVTn
+         MZsgWE8Rxdge9WqZez97X9jCoTPEmQGJubbBVhwlc4Vw8rvOfg1BUxPK/DDHO57/R1Np
+         Kk0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWZAB1N5WzVZqXrBRmnBnQt7DfOeKzzKP2yNDODCuoEXEbBZqyLlEpf7SfqAkS/TUBEwc1yGjMC39JNag==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7ckuE2iBiMN82tXHaiO/LdGv9QZMLbm87NHxQ+dLzfjguZalt
+	4GISNqxcXQfQQSHBeR2Zm3lJssbvHzDBvZfCqahx4Pd/cwA0QH4EfvGqVFv7OhhvEl7nMqEZPCz
+	w/g4JrP6hrQ==
+X-Google-Smtp-Source: AGHT+IHFrghFeywSToDMfnV9sUQmryXM1veAHDARm5dT8I66D5TH9gpdsDeH+gy0UCH4r7Avq9x9SYzQtJdfIA==
+X-Received: from pgcj4.prod.google.com ([2002:a05:6a02:5004:b0:af5:6108:71bc])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2e0e:b0:737:6e1f:29da with SMTP id d2e1a72fcca58-74038abfa63mr1850483b3a.21.1745974234407;
- Tue, 29 Apr 2025 17:50:34 -0700 (PDT)
-Date: Wed, 30 Apr 2025 00:50:29 +0000
+ 2002:a17:902:f301:b0:224:2717:7992 with SMTP id d9443c01a7336-22df5839ed8mr7240245ad.33.1745974277081;
+ Tue, 29 Apr 2025 17:51:17 -0700 (PDT)
+Date: Wed, 30 Apr 2025 00:51:10 +0000
 In-Reply-To: <cover.1745970908.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1745970908.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.49.0.901.g37484f566f-goog
-Message-ID: <3fd92afabeb9ed92a513b2c0aac091b69dbb76aa.1745970908.git.yepeilin@google.com>
-Subject: [PATCH bpf-next 2/8] bpf, riscv64: Introduce emit_load_*() and emit_store_*()
+Message-ID: <5f7e4c5ac5d254c0f42b4ba274437262e238a5cb.1745970908.git.yepeilin@google.com>
+Subject: [PATCH bpf-next 6/8] selftests/bpf: Avoid passing out-of-range values
+ to __retval()
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org
-Cc: Andrea Parri <parri.andrea@gmail.com>, linux-riscv@lists.infradead.org, 
+Cc: Peilin Ye <yepeilin@google.com>, linux-riscv@lists.infradead.org, 
+	Andrea Parri <parri.andrea@gmail.com>, 
 	"=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=" <bjorn@kernel.org>, Pu Lehui <pulehui@huawei.com>, 
 	Puranjay Mohan <puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, 
 	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
@@ -82,11 +84,11 @@ Cc: Andrea Parri <parri.andrea@gmail.com>, linux-riscv@lists.infradead.org,
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Mykola Lysenko <mykolal@fb.com>, 
 	Shuah Khan <shuah@kernel.org>, Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, 
-	Neel Natu <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>, 
-	Peilin Ye <yepeilin@google.com>
+	Neel Natu <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_175035_538358_AADA43B7 
-X-CRM114-Status: GOOD (  12.67  )
+X-CRM114-CacheID: sfid-20250429_175118_442357_F6B81F03 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,307 +105,209 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Andrea Parri <parri.andrea@gmail.com>
+Currently, we pass 0x1234567890abcdef to __retval() for the following
+two tests:
 
-We're planning to add support for the load-acquire and store-release
-BPF instructions.  Define emit_load_<size>() and emit_store_<size>()
-to enable/facilitate the (re)use of their code.
+  verifier_load_acquire/load_acquire_64
+  verifier_store_release/store_release_64
 
-Tested-by: Peilin Ye <yepeilin@google.com>
-Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
-[yepeilin@google.com: cosmetic change to commit title]
+However, the upper 32 bits of that value are being ignored, since
+__retval() expects an int.  Actually, the tests would still pass even if
+I change '__retval(0x1234567890abcdef)' to e.g. '__retval(0x90abcdef)'.
+
+Restructure the tests a bit to test the entire 64-bit values properly.
+Do the same to their 8-, 16- and 32-bit variants as well to keep the
+style consistent.
+
+Fixes: ff3afe5da998 ("selftests/bpf: Add selftests for load-acquire and store-release instructions")
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 242 +++++++++++++++++++-------------
- 1 file changed, 143 insertions(+), 99 deletions(-)
+ .../bpf/progs/verifier_load_acquire.c         | 40 +++++++++++++------
+ .../bpf/progs/verifier_store_release.c        | 32 +++++++++++----
+ 2 files changed, 52 insertions(+), 20 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index ca60db75199d..953b6a20c69f 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -473,6 +473,140 @@ static inline void emit_kcfi(u32 hash, struct rv_jit_context *ctx)
- 		emit(hash, ctx);
+diff --git a/tools/testing/selftests/bpf/progs/verifier_load_acquire.c b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+index 77698d5a19e4..a696ab84bfd6 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
++++ b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+@@ -10,65 +10,81 @@
+ 
+ SEC("socket")
+ __description("load-acquire, 8-bit")
+-__success __success_unpriv __retval(0x12)
++__success __success_unpriv __retval(0)
+ __naked void load_acquire_8(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x12;"
+ 	"*(u8 *)(r10 - 1) = w1;"
+-	".8byte %[load_acquire_insn];" // w0 = load_acquire((u8 *)(r10 - 1));
++	".8byte %[load_acquire_insn];" // w2 = load_acquire((u8 *)(r10 - 1));
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(load_acquire_insn,
+-		     BPF_ATOMIC_OP(BPF_B, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -1))
++		     BPF_ATOMIC_OP(BPF_B, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -1))
+ 	: __clobber_all);
  }
  
-+static int emit_load_8(bool sign_ext, u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	int insns_start;
-+
-+	if (is_12b_int(off)) {
-+		insns_start = ctx->ninsns;
-+		if (sign_ext)
-+			emit(rv_lb(rd, off, rs), ctx);
-+		else
-+			emit(rv_lbu(rd, off, rs), ctx);
-+		return ctx->ninsns - insns_start;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
-+	insns_start = ctx->ninsns;
-+	if (sign_ext)
-+		emit(rv_lb(rd, 0, RV_REG_T1), ctx);
-+	else
-+		emit(rv_lbu(rd, 0, RV_REG_T1), ctx);
-+	return ctx->ninsns - insns_start;
-+}
-+
-+static int emit_load_16(bool sign_ext, u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	int insns_start;
-+
-+	if (is_12b_int(off)) {
-+		insns_start = ctx->ninsns;
-+		if (sign_ext)
-+			emit(rv_lh(rd, off, rs), ctx);
-+		else
-+			emit(rv_lhu(rd, off, rs), ctx);
-+		return ctx->ninsns - insns_start;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
-+	insns_start = ctx->ninsns;
-+	if (sign_ext)
-+		emit(rv_lh(rd, 0, RV_REG_T1), ctx);
-+	else
-+		emit(rv_lhu(rd, 0, RV_REG_T1), ctx);
-+	return ctx->ninsns - insns_start;
-+}
-+
-+static int emit_load_32(bool sign_ext, u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	int insns_start;
-+
-+	if (is_12b_int(off)) {
-+		insns_start = ctx->ninsns;
-+		if (sign_ext)
-+			emit(rv_lw(rd, off, rs), ctx);
-+		else
-+			emit(rv_lwu(rd, off, rs), ctx);
-+		return ctx->ninsns - insns_start;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
-+	insns_start = ctx->ninsns;
-+	if (sign_ext)
-+		emit(rv_lw(rd, 0, RV_REG_T1), ctx);
-+	else
-+		emit(rv_lwu(rd, 0, RV_REG_T1), ctx);
-+	return ctx->ninsns - insns_start;
-+}
-+
-+static int emit_load_64(bool sign_ext, u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	int insns_start;
-+
-+	if (is_12b_int(off)) {
-+		insns_start = ctx->ninsns;
-+		emit_ld(rd, off, rs, ctx);
-+		return ctx->ninsns - insns_start;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
-+	insns_start = ctx->ninsns;
-+	emit_ld(rd, 0, RV_REG_T1, ctx);
-+	return ctx->ninsns - insns_start;
-+}
-+
-+static void emit_store_8(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	if (is_12b_int(off)) {
-+		emit(rv_sb(rd, off, rs), ctx);
-+		return;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
-+	emit(rv_sb(RV_REG_T1, 0, rs), ctx);
-+}
-+
-+static void emit_store_16(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	if (is_12b_int(off)) {
-+		emit(rv_sh(rd, off, rs), ctx);
-+		return;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
-+	emit(rv_sh(RV_REG_T1, 0, rs), ctx);
-+}
-+
-+static void emit_store_32(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	if (is_12b_int(off)) {
-+		emit_sw(rd, off, rs, ctx);
-+		return;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
-+	emit_sw(RV_REG_T1, 0, rs, ctx);
-+}
-+
-+static void emit_store_64(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
-+{
-+	if (is_12b_int(off)) {
-+		emit_sd(rd, off, rs, ctx);
-+		return;
-+	}
-+
-+	emit_imm(RV_REG_T1, off, ctx);
-+	emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
-+	emit_sd(RV_REG_T1, 0, rs, ctx);
-+}
-+
- static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
- 			struct rv_jit_context *ctx)
+ SEC("socket")
+ __description("load-acquire, 16-bit")
+-__success __success_unpriv __retval(0x1234)
++__success __success_unpriv __retval(0)
+ __naked void load_acquire_16(void)
  {
-@@ -1650,8 +1784,8 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_W:
- 	case BPF_LDX | BPF_PROBE_MEM32 | BPF_DW:
- 	{
--		int insn_len, insns_start;
- 		bool sign_ext;
-+		int insn_len;
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x1234;"
+ 	"*(u16 *)(r10 - 2) = w1;"
+-	".8byte %[load_acquire_insn];" // w0 = load_acquire((u16 *)(r10 - 2));
++	".8byte %[load_acquire_insn];" // w2 = load_acquire((u16 *)(r10 - 2));
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(load_acquire_insn,
+-		     BPF_ATOMIC_OP(BPF_H, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -2))
++		     BPF_ATOMIC_OP(BPF_H, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -2))
+ 	: __clobber_all);
+ }
  
- 		sign_ext = BPF_MODE(insn->code) == BPF_MEMSX ||
- 			   BPF_MODE(insn->code) == BPF_PROBE_MEMSX;
-@@ -1663,78 +1797,16 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+ SEC("socket")
+ __description("load-acquire, 32-bit")
+-__success __success_unpriv __retval(0x12345678)
++__success __success_unpriv __retval(0)
+ __naked void load_acquire_32(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x12345678;"
+ 	"*(u32 *)(r10 - 4) = w1;"
+-	".8byte %[load_acquire_insn];" // w0 = load_acquire((u32 *)(r10 - 4));
++	".8byte %[load_acquire_insn];" // w2 = load_acquire((u32 *)(r10 - 4));
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(load_acquire_insn,
+-		     BPF_ATOMIC_OP(BPF_W, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -4))
++		     BPF_ATOMIC_OP(BPF_W, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -4))
+ 	: __clobber_all);
+ }
  
- 		switch (BPF_SIZE(code)) {
- 		case BPF_B:
--			if (is_12b_int(off)) {
--				insns_start = ctx->ninsns;
--				if (sign_ext)
--					emit(rv_lb(rd, off, rs), ctx);
--				else
--					emit(rv_lbu(rd, off, rs), ctx);
--				insn_len = ctx->ninsns - insns_start;
--				break;
--			}
--
--			emit_imm(RV_REG_T1, off, ctx);
--			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
--			insns_start = ctx->ninsns;
--			if (sign_ext)
--				emit(rv_lb(rd, 0, RV_REG_T1), ctx);
--			else
--				emit(rv_lbu(rd, 0, RV_REG_T1), ctx);
--			insn_len = ctx->ninsns - insns_start;
-+			insn_len = emit_load_8(sign_ext, rd, off, rs, ctx);
- 			break;
- 		case BPF_H:
--			if (is_12b_int(off)) {
--				insns_start = ctx->ninsns;
--				if (sign_ext)
--					emit(rv_lh(rd, off, rs), ctx);
--				else
--					emit(rv_lhu(rd, off, rs), ctx);
--				insn_len = ctx->ninsns - insns_start;
--				break;
--			}
--
--			emit_imm(RV_REG_T1, off, ctx);
--			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
--			insns_start = ctx->ninsns;
--			if (sign_ext)
--				emit(rv_lh(rd, 0, RV_REG_T1), ctx);
--			else
--				emit(rv_lhu(rd, 0, RV_REG_T1), ctx);
--			insn_len = ctx->ninsns - insns_start;
-+			insn_len = emit_load_16(sign_ext, rd, off, rs, ctx);
- 			break;
- 		case BPF_W:
--			if (is_12b_int(off)) {
--				insns_start = ctx->ninsns;
--				if (sign_ext)
--					emit(rv_lw(rd, off, rs), ctx);
--				else
--					emit(rv_lwu(rd, off, rs), ctx);
--				insn_len = ctx->ninsns - insns_start;
--				break;
--			}
--
--			emit_imm(RV_REG_T1, off, ctx);
--			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
--			insns_start = ctx->ninsns;
--			if (sign_ext)
--				emit(rv_lw(rd, 0, RV_REG_T1), ctx);
--			else
--				emit(rv_lwu(rd, 0, RV_REG_T1), ctx);
--			insn_len = ctx->ninsns - insns_start;
-+			insn_len = emit_load_32(sign_ext, rd, off, rs, ctx);
- 			break;
- 		case BPF_DW:
--			if (is_12b_int(off)) {
--				insns_start = ctx->ninsns;
--				emit_ld(rd, off, rs, ctx);
--				insn_len = ctx->ninsns - insns_start;
--				break;
--			}
--
--			emit_imm(RV_REG_T1, off, ctx);
--			emit_add(RV_REG_T1, RV_REG_T1, rs, ctx);
--			insns_start = ctx->ninsns;
--			emit_ld(rd, 0, RV_REG_T1, ctx);
--			insn_len = ctx->ninsns - insns_start;
-+			insn_len = emit_load_64(sign_ext, rd, off, rs, ctx);
- 			break;
- 		}
+ SEC("socket")
+ __description("load-acquire, 64-bit")
+-__success __success_unpriv __retval(0x1234567890abcdef)
++__success __success_unpriv __retval(0)
+ __naked void load_acquire_64(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"r1 = 0x1234567890abcdef ll;"
+ 	"*(u64 *)(r10 - 8) = r1;"
+-	".8byte %[load_acquire_insn];" // r0 = load_acquire((u64 *)(r10 - 8));
++	".8byte %[load_acquire_insn];" // r2 = load_acquire((u64 *)(r10 - 8));
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(load_acquire_insn,
+-		     BPF_ATOMIC_OP(BPF_DW, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -8))
++		     BPF_ATOMIC_OP(BPF_DW, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -8))
+ 	: __clobber_all);
+ }
  
-@@ -1879,44 +1951,16 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+diff --git a/tools/testing/selftests/bpf/progs/verifier_store_release.c b/tools/testing/selftests/bpf/progs/verifier_store_release.c
+index 7e456e2861b4..72f1eb006074 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_store_release.c
++++ b/tools/testing/selftests/bpf/progs/verifier_store_release.c
+@@ -10,13 +10,17 @@
  
- 	/* STX: *(size *)(dst + off) = src */
- 	case BPF_STX | BPF_MEM | BPF_B:
--		if (is_12b_int(off)) {
--			emit(rv_sb(rd, off, rs), ctx);
--			break;
--		}
--
--		emit_imm(RV_REG_T1, off, ctx);
--		emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
--		emit(rv_sb(RV_REG_T1, 0, rs), ctx);
-+		emit_store_8(rd, off, rs, ctx);
- 		break;
- 	case BPF_STX | BPF_MEM | BPF_H:
--		if (is_12b_int(off)) {
--			emit(rv_sh(rd, off, rs), ctx);
--			break;
--		}
--
--		emit_imm(RV_REG_T1, off, ctx);
--		emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
--		emit(rv_sh(RV_REG_T1, 0, rs), ctx);
-+		emit_store_16(rd, off, rs, ctx);
- 		break;
- 	case BPF_STX | BPF_MEM | BPF_W:
--		if (is_12b_int(off)) {
--			emit_sw(rd, off, rs, ctx);
--			break;
--		}
--
--		emit_imm(RV_REG_T1, off, ctx);
--		emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
--		emit_sw(RV_REG_T1, 0, rs, ctx);
-+		emit_store_32(rd, off, rs, ctx);
- 		break;
- 	case BPF_STX | BPF_MEM | BPF_DW:
--		if (is_12b_int(off)) {
--			emit_sd(rd, off, rs, ctx);
--			break;
--		}
--
--		emit_imm(RV_REG_T1, off, ctx);
--		emit_add(RV_REG_T1, RV_REG_T1, rd, ctx);
--		emit_sd(RV_REG_T1, 0, rs, ctx);
-+		emit_store_64(rd, off, rs, ctx);
- 		break;
- 	case BPF_STX | BPF_ATOMIC | BPF_W:
- 	case BPF_STX | BPF_ATOMIC | BPF_DW:
+ SEC("socket")
+ __description("store-release, 8-bit")
+-__success __success_unpriv __retval(0x12)
++__success __success_unpriv __retval(0)
+ __naked void store_release_8(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x12;"
+ 	".8byte %[store_release_insn];" // store_release((u8 *)(r10 - 1), w1);
+-	"w0 = *(u8 *)(r10 - 1);"
++	"w2 = *(u8 *)(r10 - 1);"
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(store_release_insn,
+@@ -26,13 +30,17 @@ __naked void store_release_8(void)
+ 
+ SEC("socket")
+ __description("store-release, 16-bit")
+-__success __success_unpriv __retval(0x1234)
++__success __success_unpriv __retval(0)
+ __naked void store_release_16(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x1234;"
+ 	".8byte %[store_release_insn];" // store_release((u16 *)(r10 - 2), w1);
+-	"w0 = *(u16 *)(r10 - 2);"
++	"w2 = *(u16 *)(r10 - 2);"
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(store_release_insn,
+@@ -42,13 +50,17 @@ __naked void store_release_16(void)
+ 
+ SEC("socket")
+ __description("store-release, 32-bit")
+-__success __success_unpriv __retval(0x12345678)
++__success __success_unpriv __retval(0)
+ __naked void store_release_32(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"w1 = 0x12345678;"
+ 	".8byte %[store_release_insn];" // store_release((u32 *)(r10 - 4), w1);
+-	"w0 = *(u32 *)(r10 - 4);"
++	"w2 = *(u32 *)(r10 - 4);"
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(store_release_insn,
+@@ -58,13 +70,17 @@ __naked void store_release_32(void)
+ 
+ SEC("socket")
+ __description("store-release, 64-bit")
+-__success __success_unpriv __retval(0x1234567890abcdef)
++__success __success_unpriv __retval(0)
+ __naked void store_release_64(void)
+ {
+ 	asm volatile (
++	"r0 = 0;"
+ 	"r1 = 0x1234567890abcdef ll;"
+ 	".8byte %[store_release_insn];" // store_release((u64 *)(r10 - 8), r1);
+-	"r0 = *(u64 *)(r10 - 8);"
++	"r2 = *(u64 *)(r10 - 8);"
++	"if r2 == r1 goto 1f;"
++	"r0 = 1;"
++"1:"
+ 	"exit;"
+ 	:
+ 	: __imm_insn(store_release_insn,
 -- 
 2.49.0.901.g37484f566f-goog
 
