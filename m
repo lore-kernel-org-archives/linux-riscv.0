@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C02CC3ABA5
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 00:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66880C3ABA5
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 00:51:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,62 +13,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=fG13nv/ZjqG8bqh+87LaBNdzUtbxYsDgzEfDVIftUaE=; b=qPTlFZSx5suhY/1VZyD8C8vFIn
-	V8sYwDojHcL8KEHg72bhc2miXoBGDHjZpCjZteegKNIOnbBN45OCkLJU6MywSVZtdEy47o7Kdiuo9
-	uh260kw4zJt1+PMGxfIDHg/o4se7BKGN6dboWMWJ0NAlPxnTWkvYRoTnkXwxAOM3RGy6YnSUaabHt
-	1DyajxvuWzyavvp/ROQ0mjnI6x4Wy+Y+LLxJR/O0QlASzYa9NX5cdDMvRp5IXJdGT2Rhuw3Vbs2+n
-	8YMg/FPoLT30fkuT0GFkGamaUT/ocWaAAnBLWxq313xKmaw5XBZdCHeVXHqo5oK3OkamWNWVGXgHN
-	HcE0XSUg==;
+	bh=I3yTOAZ8KOaPTbaOtGeLpIs+5Pv1dcDKm+XpoALoqSQ=; b=0mSK+dopGKQECGeYWPHb0pM43b
+	9CQ5ddl7vurVafenzPYIXvcdE9IEbdJMyJlnqTl76FAYtfZIQWDQcSemSCE/039TeY9tmLOkRFDjI
+	dj2QGcnepFpHg7PrypIeT3eK2ctxB7vqlNOZwhHy4VRlPG/jMNC7qbUU/APCdO5Jaw+XzxrzIAhl1
+	bxa1IaxaCoHW51hkxeIBP+KSgo+AV/J4F6CJefKdDtklygLkNsEj3Lw9R6IrRTAk2Jngj7Wty7NOW
+	w5X1HgOaLwYuL4OQZbpwfu9DdGOFHCuvoUdK94LfGxUjui7xOAtqIY7sfFyronzSWWBE2VvjW/eE4
+	fh3cz4Cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9vfD-0000000BNhh-1OXO;
-	Wed, 30 Apr 2025 00:51:03 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1u9vfJ-0000000BNjw-3vYl;
+	Wed, 30 Apr 2025 00:51:09 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9vfA-0000000BNgm-0y3Z
+	id 1u9vfH-0000000BNit-2u5e
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 00:51:01 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7395095a505so4955447b3a.1
-        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:50:59 -0700 (PDT)
+	Wed, 30 Apr 2025 00:51:08 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-2ff8119b436so4933634a91.0
+        for <linux-riscv@lists.infradead.org>; Tue, 29 Apr 2025 17:51:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1745974259; x=1746579059; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1745974266; x=1746579066; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ABOqan36lZIveWEkLasL+8eAvkOggPga+/54lThTXZA=;
-        b=21Jskh9wa5IosxJ1n7b6mSKyv/9QG+vFwbS7DJBZk2870J1HO39vGhd/Ij4gRVuuyq
-         QRUqzsmawt5TcUrH3uBqeEqKRXUmp7LzHDPV1E/OZt6FqXtwozRmqGVlYVwLX9/8YPJ1
-         hPSfXPQt4l9ePUz8Sr2j+4h82ZGg/Whoicbhf26AeMF470v2yXu53f4sD4Ck85sztF7l
-         /ED1UWlKr+HKNybMDLuCBeR3E6r/FxsDZCAKURHqshHOBlvraQzTWwMgaoDb0aNK8yBG
-         ZtQzkqiKnWrwsE3xE8LLRx6kNtGH/MXEv+plQibVnioLD/Qzo6ioVfL8JE6NZC1d+ykf
-         Z47w==
+        bh=j+l4CwmzcQV88NSApvBjyn1wiwPNcLUJiUFhfemm+Ew=;
+        b=f7RT9IjkRZP/uDHxVuDKHxUV0aeQq0VrJfvl3JZ3HXXDLxMW8tqwYSjq6orbdfChaq
+         HTYZF9kYDfs+AexRsIY83e3OVTff+3jryMN3hxp9iziT9Ia0/XIJQhrYQXuA6i+JRs1R
+         k0Gw8vjzMNoxq6UT64pT3hiN9YJ4MeGcSVbeVgPS74fU6FrWS8Hgd08LIcbVWxTGUpEA
+         ByoB6QG+26XalJe0UQPHWBGeryMsHf4XgA87RgjYNHnprO1cvUMUAPiR7DvrVGob9/Pn
+         0RmnUkNDgARn3+NykpmT1McagFnrwFPHMRQ1IXBSDn6oQkhpMiAhQHrpQibk8H22LIZy
+         pI6A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1745974259; x=1746579059;
+        d=1e100.net; s=20230601; t=1745974266; x=1746579066;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ABOqan36lZIveWEkLasL+8eAvkOggPga+/54lThTXZA=;
-        b=SW5VvfoO0V/GbRcWoi3jb1IxAyjd9m67o9MNLw6qUjpz8673cHSE37RkJtirnQl3Xv
-         Y/W3LetvJrsmqHVA6Oqs9MkIP2vOpGvUQM6RN8GqftQ8NADn+AA+g1TWIytCNz5AgwJ3
-         RJyAENb7YH8LrAqLH21jQqTYHkjhazjDaG3Wmz24LrQqBvXGgHJ98+knPz3YQpaSh5ZI
-         0GOEjpzywJsRpMjkTUTlr0ohxv7WwfSnRimfs6whW9IwmI8nWRpz20C+nep5FeHuiMZm
-         kPTBXUneGo75/5GWmO9FyIjwnUoHifkXeXxjcxjxzZrCtdocU7Sunbhk2D2wi4RUcdan
-         h4NQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUCwXlRDsmimK3PXh55pem63aBJNeNi3pFLXoppUH72smmwhuNB1GHtoIkGFS6evR0MCAFSR4Ef4wD8rw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRofdBmLkIsb1UYpR07R/+8C+/9Ucn3a19x5Rt3zxJvayHd6yH
-	QOV0qgf00QMIgQGI4TOR97pW+4Rb+W3tH94fb6CXY0IDXkpOf4e/sUJoo8oB2t8OMmeizGcriNL
-	mhc+cvv9VeQ==
-X-Google-Smtp-Source: AGHT+IHR8EdraOTeSJWSciGTdGHVcTZQJUarxce25b/yrSiFsMjC5ucKt57s2owsMNSPbNpmZQTiX6NEqr7wMQ==
-X-Received: from pfhr5.prod.google.com ([2002:a62:e405:0:b0:736:a134:94ad])
+        bh=j+l4CwmzcQV88NSApvBjyn1wiwPNcLUJiUFhfemm+Ew=;
+        b=QdfGex0NHqT5nRsoeJngFkNqrVjzfpl9uHwRrTJrOA0+hEJq0UwJvfFXVo1oQoE8EL
+         w1jVR97ozJVnE7yX31X2tX8Xj1+2j2t9aDVFQl7zc1gEhdxUgbl+/CzbrY7DH10QVWWM
+         RT2OD2fAOFX2YT879tjcSa+j+EYnG8D0sfcLVJ3u5g2hyVUBsAp/ItogPpUWJtl4wiz6
+         4tvXHiR2pISRVU61EwefnNhocsrM7tHftKjnxR7MAtAlcX2hL2zsiFb4dT7J3QAqkoSO
+         WrSSMlfkDNrKKKDJRoZ47ZR9K/QGwyhVEeIcxC9omIZM3V+oLvEdOctfH2KnCaQ+Inuf
+         gbUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV+Onsm2fTylr6Y6fXE+W/Hlgt+gbapvgdukYwvMJwAeP45FmwXnLMaIIvOWuruEhYaI/HkJEpkgDp25g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcFyPLswL9LfC699DzUPRGXp91DjT4NB/LjQGpzzZA0vxbdAzB
+	YsQziQtrMqyX5NfZP83GjcDcQ0ivYA/Ccd6Q6qe99320PcfZ4DWD1eyidEmBdJra/xmsnmgtRpe
+	cV6682zEOeA==
+X-Google-Smtp-Source: AGHT+IFLFCeRdlc8weunDBrt8thymEXI4mbAQuV2g66tj9AakSKOPtGm7SPoDCEdewMpWYbH0BoKH8PsEUZ6Pg==
+X-Received: from pjf13.prod.google.com ([2002:a17:90b:3f0d:b0:2fc:1356:bcc3])
  (user=yepeilin job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:2e05:b0:73e:2359:4115 with SMTP id d2e1a72fcca58-7403a82d834mr928914b3a.23.1745974259287;
- Tue, 29 Apr 2025 17:50:59 -0700 (PDT)
-Date: Wed, 30 Apr 2025 00:50:55 +0000
+ 2002:a17:90a:d010:b0:2ee:d63f:d8f with SMTP id 98e67ed59e1d1-30a332e99b8mr1751500a91.13.1745974266681;
+ Tue, 29 Apr 2025 17:51:06 -0700 (PDT)
+Date: Wed, 30 Apr 2025 00:51:02 +0000
 In-Reply-To: <cover.1745970908.git.yepeilin@google.com>
 Mime-Version: 1.0
 References: <cover.1745970908.git.yepeilin@google.com>
 X-Mailer: git-send-email 2.49.0.901.g37484f566f-goog
-Message-ID: <875edd356603dd5d7be30b79b97d8ee15ebc59b3.1745970908.git.yepeilin@google.com>
-Subject: [PATCH bpf-next 4/8] bpf, riscv64: Skip redundant zext instruction
- after load-acquire
+Message-ID: <ca441a13f5ad4a34ddb622cb5b2616b309d59694.1745970908.git.yepeilin@google.com>
+Subject: [PATCH bpf-next 5/8] selftests/bpf: Use CAN_USE_LOAD_ACQ_STORE_REL
+ when appropriate
 From: Peilin Ye <yepeilin@google.com>
 To: bpf@vger.kernel.org
 Cc: Peilin Ye <yepeilin@google.com>, linux-riscv@lists.infradead.org, 
@@ -86,8 +86,8 @@ Cc: Peilin Ye <yepeilin@google.com>, linux-riscv@lists.infradead.org,
 	Shuah Khan <shuah@kernel.org>, Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, 
 	Neel Natu <neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250429_175100_275025_6C01F071 
-X-CRM114-Status: GOOD (  15.88  )
+X-CRM114-CacheID: sfid-20250429_175107_737737_1DC594F9 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,102 +104,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Currently, the verifier inserts a zext instruction right after every 8-,
-16- or 32-bit load-acquire, which is already zero-extending.  Skip such
-redundant zext instructions.
+Instead of open-coding the conditions, use
+'#ifdef CAN_USE_LOAD_ACQ_STORE_REL' to guard the following tests:
 
-While we are here, update that already-obsolete comment about "skip the
-next instruction" in build_body().  Also change emit_atomic_rmw()'s
-parameters to keep it consistent with emit_atomic_ld_st().
+  verifier_precision/bpf_load_acquire
+  verifier_precision/bpf_store_release
+  verifier_store_release/*
 
-Note that checking 'insn[1]' relies on 'insn' not being the last
-instruction, which should have been guaranteed by the verifier; we
-already use 'insn[1]' elsewhere in the file for similar purposes.
-Additionally, we don't check if 'insn[1]' is actually a zext for our
-load-acquire's dst_reg, or some other registers - in other words, here
-we are relying on the verifier to always insert a redundant zext right
-after a 8/16/32-bit load-acquire, for its dst_reg.
+Note that, for the first two tests in verifier_precision.c, switching to
+'#ifdef CAN_USE_LOAD_ACQ_STORE_REL' means also checking if
+'__clang_major__ >= 18', which has already been guaranteed by the outer
+'#if' check.
 
 Signed-off-by: Peilin Ye <yepeilin@google.com>
 ---
- arch/riscv/net/bpf_jit_comp64.c | 23 ++++++++++++++++++-----
- arch/riscv/net/bpf_jit_core.c   |  3 +--
- 2 files changed, 19 insertions(+), 7 deletions(-)
+ tools/testing/selftests/bpf/progs/verifier_precision.c     | 5 ++---
+ tools/testing/selftests/bpf/progs/verifier_store_release.c | 7 +++----
+ 2 files changed, 5 insertions(+), 7 deletions(-)
 
-diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-index b71a9c88fb4f..4cb50dbbe94b 100644
---- a/arch/riscv/net/bpf_jit_comp64.c
-+++ b/arch/riscv/net/bpf_jit_comp64.c
-@@ -607,8 +607,13 @@ static void emit_store_64(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
- 	emit_sd(RV_REG_T1, 0, rs, ctx);
+diff --git a/tools/testing/selftests/bpf/progs/verifier_precision.c b/tools/testing/selftests/bpf/progs/verifier_precision.c
+index 6662d4b39969..2dd0d15c2678 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_precision.c
++++ b/tools/testing/selftests/bpf/progs/verifier_precision.c
+@@ -91,8 +91,7 @@ __naked int bpf_end_bswap(void)
+ 		::: __clobber_all);
  }
  
--static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_jit_context *ctx)
-+static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
-+			     struct rv_jit_context *ctx)
- {
-+	u8 code = insn->code;
-+	s32 imm = insn->imm;
-+	s16 off = insn->off;
-+
- 	switch (imm) {
- 	/* dst_reg = load_acquire(src_reg + off16) */
- 	case BPF_LOAD_ACQ:
-@@ -627,6 +632,12 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_
- 			break;
- 		}
- 		emit_fence_r_rw(ctx);
-+
-+		/* If our next insn is a redundant zext, return 1 to tell
-+		 * build_body() to skip it.
-+		 */
-+		if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
-+			return 1;
- 		break;
- 	/* store_release(dst_reg + off16, src_reg) */
- 	case BPF_STORE_REL:
-@@ -654,10 +665,12 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_
+-#if defined(ENABLE_ATOMICS_TESTS) && \
+-	(defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86))
++#ifdef CAN_USE_LOAD_ACQ_STORE_REL
+ 
+ SEC("?raw_tp")
+ __success __log_level(2)
+@@ -138,7 +137,7 @@ __naked int bpf_store_release(void)
+ 	: __clobber_all);
+ }
+ 
+-#endif /* load-acquire, store-release */
++#endif /* CAN_USE_LOAD_ACQ_STORE_REL */
+ #endif /* v4 instruction */
+ 
+ SEC("?raw_tp")
+diff --git a/tools/testing/selftests/bpf/progs/verifier_store_release.c b/tools/testing/selftests/bpf/progs/verifier_store_release.c
+index c0442d5bb049..7e456e2861b4 100644
+--- a/tools/testing/selftests/bpf/progs/verifier_store_release.c
++++ b/tools/testing/selftests/bpf/progs/verifier_store_release.c
+@@ -6,8 +6,7 @@
+ #include "../../../include/linux/filter.h"
+ #include "bpf_misc.h"
+ 
+-#if __clang_major__ >= 18 && defined(ENABLE_ATOMICS_TESTS) && \
+-	(defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86))
++#ifdef CAN_USE_LOAD_ACQ_STORE_REL
+ 
+ SEC("socket")
+ __description("store-release, 8-bit")
+@@ -271,7 +270,7 @@ __naked void store_release_with_invalid_reg(void)
+ 	: __clobber_all);
+ }
+ 
+-#else
++#else /* CAN_USE_LOAD_ACQ_STORE_REL */
+ 
+ SEC("socket")
+ __description("Clang version < 18, ENABLE_ATOMICS_TESTS not defined, and/or JIT doesn't support store-release, use a dummy test")
+@@ -281,6 +280,6 @@ int dummy_test(void)
  	return 0;
  }
  
--static int emit_atomic_rmw(u8 rd, u8 rs, s16 off, s32 imm, u8 code,
-+static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
- 			   struct rv_jit_context *ctx)
- {
--	u8 r0;
-+	u8 r0, code = insn->code;
-+	s16 off = insn->off;
-+	s32 imm = insn->imm;
- 	int jmp_offset;
- 	bool is64;
+-#endif
++#endif /* CAN_USE_LOAD_ACQ_STORE_REL */
  
-@@ -2026,9 +2039,9 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
- 	case BPF_STX | BPF_ATOMIC | BPF_W:
- 	case BPF_STX | BPF_ATOMIC | BPF_DW:
- 		if (bpf_atomic_is_load_store(insn))
--			ret = emit_atomic_ld_st(rd, rs, off, imm, code, ctx);
-+			ret = emit_atomic_ld_st(rd, rs, insn, ctx);
- 		else
--			ret = emit_atomic_rmw(rd, rs, off, imm, code, ctx);
-+			ret = emit_atomic_rmw(rd, rs, insn, ctx);
- 		break;
- 
- 	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
-diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-index f8cd2f70a7fb..f6ca5cfa6b2f 100644
---- a/arch/riscv/net/bpf_jit_core.c
-+++ b/arch/riscv/net/bpf_jit_core.c
-@@ -26,9 +26,8 @@ static int build_body(struct rv_jit_context *ctx, bool extra_pass, int *offset)
- 		int ret;
- 
- 		ret = bpf_jit_emit_insn(insn, ctx, extra_pass);
--		/* BPF_LD | BPF_IMM | BPF_DW: skip the next instruction. */
- 		if (ret > 0)
--			i++;
-+			i++; /* skip the next instruction */
- 		if (offset)
- 			offset[i] = ctx->ninsns;
- 		if (ret < 0)
+ char _license[] SEC("license") = "GPL";
 -- 
 2.49.0.901.g37484f566f-goog
 
