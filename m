@@ -4,106 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92698C369D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 21:46:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6356CC369D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 22:38:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BkEURa2dv6MpswyWu5r0zI2RGW10zlnt8QwYHJuS9YU=; b=ZiqZe1XarM0K9+
-	5gyq6OetwlERVk4h/dduN1JJBA9wVn0GQQFdW9lTHY6m5fZxeKYBviOVPH7plQcCY3AtenJ187G+R
-	ugzwB1Wtq3WXQkXh6JLAYz+aypDflTgzEJ18iU1/aawWSBTbJZDPGmKUPKtAz3JclbMf1DFKYuRtZ
-	fZ4IaUV/SLph796qyPWJWCqMzwZZ+ddBV49U7UoyOSUTn3oYMq1/+6KvcvLjzTSqGzQ/WGqywVsFc
-	8eXvdNExhuw13bHTF/eST9pnbtUBhXVjoLYaqB+9JYdWcFs6dlZz89bcfev+gCj9uwY265LW++PeJ
-	/YPh/tvTZ0WWeIMlKCMw==;
+	List-Owner; bh=x4nZ6nckw3b8dtQjUNY+av5tT7mgU8StbrA1cs+HjX8=; b=KAktX4K5g9klva
+	I8BxGuRO+GN36Vf+aydBqZbQQlOO8e7uGbQXymC3Wyoq5B1KDL6kA+c5LkELHwrI5315Zkuc75vSj
+	QqJlQeLwAr4XL56r0tr8HpmZW+KS8ZKxJPMyC82sF9YrfwfbZ7K5emr4I5y2w8FhAPQdfnWL/9Jdg
+	0igZq0l5mYml7AfJ0AYSnNQvCfqaHmQ4VcrcqEd7xTQycQMognECj9qmR78+BdS63SB/I/03HSa9A
+	YBOyBWCLQi9uqFulMMGztwv051o3V/Acyq5hhFfshpKsy37r7zq4l8C4pYpmmLUNliClT4jmEYMeB
+	e0EMsUB/dmR2XMyD307w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAFG8-0000000E6xJ-1vdy;
-	Wed, 30 Apr 2025 21:46:28 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uAG4h-0000000EAXO-1feI;
+	Wed, 30 Apr 2025 22:38:43 +0000
+Received: from mail-qk1-x735.google.com ([2607:f8b0:4864:20::735])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uADyH-0000000Du9E-3DBx
+	id 1uAG4d-0000000EAWt-07nN
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 20:23:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746044636;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+MZvmRfCtI61m/XdI87EqyqLvZ2yGHt28AUm8pnJCIE=;
-	b=Z9Vg+OAPSK6mdCQ67rTwcWhCjsN/BRy/SObbE1utObi4Y0lvrVozQXJHzYx+WTGqD1NmME
-	e2J2Y4j7FLgBHvOcUxCLl10ztDvLQtgOpOCqUevHz94H+cPpkwZnUBmWJMC3ruH4sMWNQl
-	JUJGSMggrCTezrVlMgmNpVfZwwwvw44=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-587-D2VxUS_sMJ2DiK9mwB2K1A-1; Wed,
- 30 Apr 2025 16:23:53 -0400
-X-MC-Unique: D2VxUS_sMJ2DiK9mwB2K1A-1
-X-Mimecast-MFC-AGG-ID: D2VxUS_sMJ2DiK9mwB2K1A_1746044629
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A93711800570;
-	Wed, 30 Apr 2025 20:23:48 +0000 (UTC)
-Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 421A71800871;
-	Wed, 30 Apr 2025 20:23:43 +0000 (UTC)
-From: Maxim Levitsky <mlevitsk@redhat.com>
-To: kvm@vger.kernel.org
-Cc: "H. Peter Anvin" <hpa@zytor.com>,
-	x86@kernel.org,
-	Maxim Levitsky <mlevitsk@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Will Deacon <will@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Anup Patel <anup@brainfault.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Atish Patra <atishp@atishpatra.org>,
-	kvmarm@lists.linux.dev,
-	Waiman Long <longman@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Peter Zijlstra <peterz@infradead.org>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Sean Christopherson <seanjc@google.com>,
-	Marc Zyngier <maz@kernel.org>,
-	Alexander Potapenko <glider@google.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Shusen Li <lishusen2@huawei.com>,
-	kvm-riscv@lists.infradead.org
-Subject: [PATCH v3 4/4] x86: KVM: SEV: implement kvm_lock_all_vcpus and use it
-Date: Wed, 30 Apr 2025 16:23:11 -0400
-Message-ID: <20250430202311.364641-5-mlevitsk@redhat.com>
-In-Reply-To: <20250430202311.364641-1-mlevitsk@redhat.com>
-References: <20250430202311.364641-1-mlevitsk@redhat.com>
+	Wed, 30 Apr 2025 22:38:40 +0000
+Received: by mail-qk1-x735.google.com with SMTP id af79cd13be357-7c9376c4bddso38911085a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 15:38:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746052718; x=1746657518; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=vQMd4+KE05AiC2tiYMqBEsrGqf6EspjdNnY21/A2l/0=;
+        b=QHTDptYM3TACoq5DkzgYGTd14KNUK/Hsg+B03E7Inaa07mSfUxwobDbalxHuL6qNfl
+         c3dhOrStjkAJynMO7Ndx0DGUDai8n46+pfJDk6qVHtPZwD+PmQ65P+zx36Rx9zvrcxsK
+         47ZfiFIfLw5WlCpVMa5TPv/w2QHy2vdW25Hv78AYVRrOr6UuhP4+rgm2HJikbZiuV4T2
+         shB6J7cdS9hrmGVMdkg1Qj1e/0Dh8JvZK+l5SW492mCOIvLparivqVfgA4yHRb084oS0
+         15+4HQLfzwfJWrTaZ+5PASqopLBMwN9885Xdp9fgEbji8/xuj5/sl27XgdxWvGxX0kSO
+         vdog==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746052718; x=1746657518;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=vQMd4+KE05AiC2tiYMqBEsrGqf6EspjdNnY21/A2l/0=;
+        b=hH9zG6B8I9pJ9cKru61WfvWzFh2QZH6Fa7WxVKtuX9SjA3XMDBQkFPmMtbvJ0vSIh4
+         Hf0fA3KqLT7mhdE30EvmDAnLFUEtqLKq/lWpDWuBEtVyd//LENRigSTECOiSXSXQTiRw
+         0LJGz1+Tk0WptSPfngxW+KRmTRNPcR+J6x1NycIMOVpXeylyzg+hWPGESSfM55WmEXuR
+         sKcF1GPgp0ThGRFgesp1qdi5xgUT18W8rTF+vM2KZ2PcbwIX0l5j2xvYXFByxGDZdqF3
+         Y67zo5obVtf7xVE9wTFI76tsdhiF5ya38FUQXjwPw7tuC4FYamTpgNQFMB+T1kmiws0j
+         6meg==
+X-Forwarded-Encrypted: i=1; AJvYcCVO33Ih16YXTpob826vXKEEunABs+zyIz6aK61ggx8bmZ4mPMx+kKEfvDBFX451HOaqrLgFMdptGNS/DQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxE9wBqoUp+Sa/Hh/Iw0u+7x/Zo8at+ChwedhBhJYAE5LbI9Pbk
+	eLkNCnPyN5PFToeliZu0qaf301y6BqzNNT2Ny/Euj5tBvd9jZiR3
+X-Gm-Gg: ASbGncsSbHf3u8Qd//vRDM+V02nrSiY8tkWspQ+DfXWuEjBZW6G2I/vxXE/zd9wZEIq
+	7S7IvFLZYNUHuAnS97r+kQp3pva8nLSKrtBSW+zAKKKU4aGQdsi24ou4WvbWoJCqcliAz9lsjbv
+	1UgbO5n8oUjyqoY7Sxt9A6eIKdJSCj5O8Z9kO/nmNfZKkQjOKBB9rWTmek7pBD1WPo617FgHSg7
+	xmACVmzBm9HOOpfDl3U8MuuFhgieRJdys0RdZHLaMMopEjkoYnv0/ys8isezp9sPST9ruNJjENm
+	goUFwSJay4k3GuTH
+X-Google-Smtp-Source: AGHT+IEPKtkVF8ujzFEgXSiPNo+Q85srLA3blCN17p2R6lHtYzaH97Dg/qRUupCq5aMr7gFzbI+8rg==
+X-Received: by 2002:a05:620a:248c:b0:7c5:9c13:2858 with SMTP id af79cd13be357-7cacee78829mr17841585a.0.1746052717703;
+        Wed, 30 Apr 2025 15:38:37 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cacdee0d90sm15158085a.87.2025.04.30.15.38.36
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 15:38:37 -0700 (PDT)
+Date: Thu, 1 May 2025 06:38:20 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
+ compatible
+Message-ID: <miemx3dszewxyu33ymwbrdmyjxa7emay4z3wst6fgbsk6kdpn5@aa434epgrszf>
+References: <20250430020932.307198-1-inochiama@gmail.com>
+ <20250430020932.307198-3-inochiama@gmail.com>
+ <9ea234373b18a91c6a2f7a41c441002de1e92e98.camel@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Disposition: inline
+In-Reply-To: <9ea234373b18a91c6a2f7a41c441002de1e92e98.camel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_132357_884224_15EF929D 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250430_153839_091105_6D157660 
+X-CRM114-Status: GOOD (  19.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,173 +97,55 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Implement kvm_lock_all_vcpus() and use it instead of
-sev own sev_{lock|unlock}_vcpus_for_migration().
+On Wed, Apr 30, 2025 at 05:39:52PM +0200, Alexander Sverdlin wrote:
+> Hi Inochi!
+> =
 
-Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
----
- arch/x86/kvm/svm/sev.c   | 72 +++-------------------------------------
- include/linux/kvm_host.h |  1 +
- virt/kvm/kvm_main.c      | 25 ++++++++++++++
- 3 files changed, 30 insertions(+), 68 deletions(-)
+> On Wed, 2025-04-30 at 10:09 +0800, Inochi Amaoto wrote:
+> > Add of device id definition for newly added precise compatible.
+> > =
 
-diff --git a/arch/x86/kvm/svm/sev.c b/arch/x86/kvm/svm/sev.c
-index 0bc708ee2788..16db6179013d 100644
---- a/arch/x86/kvm/svm/sev.c
-+++ b/arch/x86/kvm/svm/sev.c
-@@ -1882,70 +1882,6 @@ static void sev_unlock_two_vms(struct kvm *dst_kvm, struct kvm *src_kvm)
- 	atomic_set_release(&src_sev->migration_in_progress, 0);
- }
- 
--/* vCPU mutex subclasses.  */
--enum sev_migration_role {
--	SEV_MIGRATION_SOURCE = 0,
--	SEV_MIGRATION_TARGET,
--	SEV_NR_MIGRATION_ROLES,
--};
--
--static int sev_lock_vcpus_for_migration(struct kvm *kvm,
--					enum sev_migration_role role)
--{
--	struct kvm_vcpu *vcpu;
--	unsigned long i, j;
--
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		if (mutex_lock_killable_nested(&vcpu->mutex, role))
--			goto out_unlock;
--
--#ifdef CONFIG_PROVE_LOCKING
--		if (!i)
--			/*
--			 * Reset the role to one that avoids colliding with
--			 * the role used for the first vcpu mutex.
--			 */
--			role = SEV_NR_MIGRATION_ROLES;
--		else
--			mutex_release(&vcpu->mutex.dep_map, _THIS_IP_);
--#endif
--	}
--
--	return 0;
--
--out_unlock:
--
--	kvm_for_each_vcpu(j, vcpu, kvm) {
--		if (i == j)
--			break;
--
--#ifdef CONFIG_PROVE_LOCKING
--		if (j)
--			mutex_acquire(&vcpu->mutex.dep_map, role, 0, _THIS_IP_);
--#endif
--
--		mutex_unlock(&vcpu->mutex);
--	}
--	return -EINTR;
--}
--
--static void sev_unlock_vcpus_for_migration(struct kvm *kvm)
--{
--	struct kvm_vcpu *vcpu;
--	unsigned long i;
--	bool first = true;
--
--	kvm_for_each_vcpu(i, vcpu, kvm) {
--		if (first)
--			first = false;
--		else
--			mutex_acquire(&vcpu->mutex.dep_map,
--				      SEV_NR_MIGRATION_ROLES, 0, _THIS_IP_);
--
--		mutex_unlock(&vcpu->mutex);
--	}
--}
--
- static void sev_migrate_from(struct kvm *dst_kvm, struct kvm *src_kvm)
- {
- 	struct kvm_sev_info *dst = to_kvm_sev_info(dst_kvm);
-@@ -2083,10 +2019,10 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
- 		charged = true;
- 	}
- 
--	ret = sev_lock_vcpus_for_migration(kvm, SEV_MIGRATION_SOURCE);
-+	ret = kvm_lock_all_vcpus(kvm);
- 	if (ret)
- 		goto out_dst_cgroup;
--	ret = sev_lock_vcpus_for_migration(source_kvm, SEV_MIGRATION_TARGET);
-+	ret = kvm_lock_all_vcpus(source_kvm);
- 	if (ret)
- 		goto out_dst_vcpu;
- 
-@@ -2100,9 +2036,9 @@ int sev_vm_move_enc_context_from(struct kvm *kvm, unsigned int source_fd)
- 	ret = 0;
- 
- out_source_vcpu:
--	sev_unlock_vcpus_for_migration(source_kvm);
-+	kvm_unlock_all_vcpus(source_kvm);
- out_dst_vcpu:
--	sev_unlock_vcpus_for_migration(kvm);
-+	kvm_unlock_all_vcpus(kvm);
- out_dst_cgroup:
- 	/* Operates on the source on success, on the destination on failure.  */
- 	if (charged)
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 10d6652c7aa0..a6140415c693 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1016,6 +1016,7 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
- void kvm_destroy_vcpus(struct kvm *kvm);
- 
- int kvm_trylock_all_vcpus(struct kvm *kvm);
-+int kvm_lock_all_vcpus(struct kvm *kvm);
- void kvm_unlock_all_vcpus(struct kvm *kvm);
- 
- void vcpu_load(struct kvm_vcpu *vcpu);
-diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-index 834f08dfa24c..9211b07b0565 100644
---- a/virt/kvm/kvm_main.c
-+++ b/virt/kvm/kvm_main.c
-@@ -1392,6 +1392,31 @@ int kvm_trylock_all_vcpus(struct kvm *kvm)
- }
- EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
- 
-+/*
-+ * Lock all of the VM's vCPUs.
-+ * Assumes that the kvm->lock is held.
-+ * Returns -EINTR if the process is killed.
-+ */
-+int kvm_lock_all_vcpus(struct kvm *kvm)
-+{
-+	struct kvm_vcpu *vcpu;
-+	unsigned long i, j;
-+
-+	kvm_for_each_vcpu(i, vcpu, kvm)
-+		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
-+			goto out_unlock;
-+	return 0;
-+
-+out_unlock:
-+	kvm_for_each_vcpu(j, vcpu, kvm) {
-+		if (i == j)
-+			break;
-+		mutex_unlock(&vcpu->mutex);
-+	}
-+	return -EINTR;
-+}
-+EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
-+
- void kvm_unlock_all_vcpus(struct kvm *kvm)
- {
- 	struct kvm_vcpu *vcpu;
--- 
-2.46.0
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> > =A0drivers/clk/sophgo/clk-cv1800.c | 3 +++
+> > =A01 file changed, 3 insertions(+)
+> > =
 
+> > diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-c=
+v1800.c
+> > index e0c4dc347579..e10221df6385 100644
+> > --- a/drivers/clk/sophgo/clk-cv1800.c
+> > +++ b/drivers/clk/sophgo/clk-cv1800.c
+> > @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_devi=
+ce *pdev)
+> > =A0
+> > =A0static const struct of_device_id cv1800_clk_ids[] =3D {
+> > =A0	{ .compatible =3D "sophgo,cv1800-clk", .data =3D &cv1800_desc },
+> > +	{ .compatible =3D "sophgo,cv1800b-clk", .data =3D &cv1800_desc },
+> > =A0	{ .compatible =3D "sophgo,cv1810-clk", .data =3D &cv1810_desc },
+> > +	{ .compatible =3D "sophgo,cv1812h-clk", .data =3D &cv1800_desc },
+>                                                            ^
+> Should it have been "cv1810_desc" instead?
+> =
+
+
+Yeah, this is a mistake. I will fix it.
+
+> > =A0	{ .compatible =3D "sophgo,sg2000-clk", .data =3D &sg2000_desc },
+> > +	{ .compatible =3D "sophgo,sg2002-clk", .data =3D &sg2000_desc },
+> > =A0	{ }
+> > =A0};
+> > =A0MODULE_DEVICE_TABLE(of, cv1800_clk_ids);
+> =
+
+> -- =
+
+> Alexander Sverdlin.
 
 _______________________________________________
 linux-riscv mailing list
