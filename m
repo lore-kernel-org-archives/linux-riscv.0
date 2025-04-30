@@ -4,86 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C50C369D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 15:25:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F47DC369D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 15:34:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L3sn15qR/vF5r1CNc+E3oOsODi9os4SxKzHHJxwiyLQ=; b=eolPXyJ7EDS001
-	kyMP9K3sA+fjqCCGojrfiPW7eRBd+7//MVBn8zOKk4edhuIQyMXVeq//XnH0A6M11tyhI1t0W+HgR
-	M2O7YhMjk4eKkHxv04uNwaMoi1+SvHsMdZcnYIokETDTbhmc/OHQlIit8tfy1RtevN/yHK919rsLl
-	P3HKZDAAl2uKnuQ5RTp58F/W/D1JUj9uQKQMrJ8e03NpKHITborSWGjs4d98oPs51hSfZhOyddRh/
-	wMAliyiDYKxO8cB6mYfwCUWpJ0LnuMUPpwWXY30ooM2ziCleR1o76O/ZzzZSE4h2YUpL88xx4ZrZ8
-	OF57mv5jKZgKxzzrpgQQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pFNAjwZIaFCbmcvdyCg6iyPyNdniyWuCxu1+cYia5DM=; b=Fr2+vQZVNdA7t+DsVh9AKGoW1r
+	fq0Ut8PLEdI3uG/7Ns7IVCA1IfVH2/o3UlgspLQw7UYpZcMaUWg60TZLvuaUQwth7z/NeAGQbcbg2
+	k/FQ0DoE4w9K9RMkaIavDzssYtsR26/SLVwnWlJiDbEWZSmWlffoKd1wqni89bQ7AZPfMC9EeMyo7
+	3AnzMF945YXYD8D4eb8dUg3l0fbPFPwX7ADQZLhcL7SnJe1Jrw75PJGqZVS6ZvEDBrgDH/NhcIycu
+	75/47ihbimpwtnxWckDVXvLjtiRoMu7Lr9P+VC0SCFdNsrbcNQVO+KT1XpHTlhfxrMXBA4dHn6vNr
+	pp8K+mJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9J9-0000000DHLK-2dMZ;
-	Wed, 30 Apr 2025 15:25:11 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1uA9SN-0000000DIZ0-0sE0;
+	Wed, 30 Apr 2025 15:34:43 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9J6-0000000DHJN-1RQW
+	id 1uA9RT-0000000DIQM-0UxL
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 15:25:09 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-acae7e7587dso1089469666b.2
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 08:25:07 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746026706; x=1746631506; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=sj0MRflIvEedys6JQ53UQlPgHXKKoxulPTXkRt9mne4=;
-        b=jg+xwo5pBtmWjcgSYtqu/INH1B3vRAM5UqNs+H5Q8/jwbBRpXhWM+o/4Ig1/KrocEW
-         psNwUj16kHXdhezwZJY2IolMwnZgnQpRR1h+jNIY1gSvVDf51QfBe6xaNBJSpNiteqzO
-         IEHsN+//OfzDNv7m/6/hnIa6+XpHvIuX+CjfBfN1spMvFUhAHTtE2rVD0GdkvEw8D4YV
-         Q37FQuv0FeWQC1QvwmsRA2kui/D/nBpL8u5rXMTU+0lSADFGmXaUe0ssf0RohINrVEZY
-         HU0iObcsJr2spXb05Ai0j7yoLBAqrwBDAH0fAFxc0Zz86G2rDXyvvf934HPcBSESiRjL
-         ueAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746026706; x=1746631506;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=sj0MRflIvEedys6JQ53UQlPgHXKKoxulPTXkRt9mne4=;
-        b=HCJ4pQGSLWowPcZYV0/g1JFdh8NyCfmYLBaNrQyXCc9yzjZxH/RiR2JJC6yB8ij/S9
-         ncO7u47+rXqSLWJY+MtpX8Jv92bHLXZ/8mxo0+o8NgVK0MQq7WkyFIGTlQzTCRo4jYn6
-         WeRBpDDx62mEtPPkngrqkYHBpJExV8jsT7v0Trg/0WmBZOWEFhoHgDMfHP3kyD0KhOpD
-         9dypulStrQUM544QwcX4md5rdwEftAsLU6jPsOiiggR304CHXEEewNlfnJ3LSJGTUSLM
-         J/wl1Bx9vV9PYe7ju6x8eA1TQb+ykVQtuhYdeRH/PKvWANS8gxLSJbYFM7oKx7gSdYTA
-         0iGg==
-X-Forwarded-Encrypted: i=1; AJvYcCXf0UKETR5kp5/C5yJmyto73MJV2wDkAi8w6+jVhuGfmQNgELPvXYaHH2TuliJbcefWiMMx0PlyDgf+3g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYcjZcLLUY390aeLIM2xa/B4YIDT5FuumYF4Hg3xvVfb/Lj6pU
-	dArDngO2bK284tQJxdiRMmxsKktna7GHAqe2F9cin59UzCCtaaIyc1flv0Fivtg=
-X-Gm-Gg: ASbGncvZh0FEUzu202gMBFQAWTqDwrGsCwVN2869Jif1wzhALcePVZ2kCH2NBNmJNM7
-	iZ9/zFal6u7n3g5M3r8W+1TLBsvoZfoVxfWpF3DtNea0sGwJSf1G0Lxg0q7s8/MxrWa7/JS1r6V
-	sCMRiZ1eN7vP6o+heGGgcPg+MHFmwopOawKexaEKVoGPqzoHLRqv65FfNBKzh2YoP+qZ8gdhddn
-	WLWpafgdoJLjeVNYWK5nRV0h544kDtPyMcxZet91y5/aWLgs1PRFIULRr8ig2biQMkJR6Gz4GZH
-	Pnezz78PmVwU0AnyeVyZsB+2tzhUAI8kjjvnVQcuLPF2p4yRtxr3FnFDKOhK
-X-Google-Smtp-Source: AGHT+IFzQBgBRSQ6GOeinovlut4MyV3fq4DbhhNOJPV0muIn4pxuSp88mG1LvZ+7QvhqG/Fa7ZM10w==
-X-Received: by 2002:a17:907:3f21:b0:ac6:f6ea:cc21 with SMTP id a640c23a62f3a-acedc764e4cmr435843166b.55.1746026706150;
-        Wed, 30 Apr 2025 08:25:06 -0700 (PDT)
-Received: from giga-mm-3.home ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ace6ed704f7sm943027266b.146.2025.04.30.08.25.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 08:25:05 -0700 (PDT)
-Message-ID: <a6164eadc96bea72cc21ddc4794401907fb11d97.camel@gmail.com>
-Subject: Re: [PATCH 3/4] riscv: dts: sophgo: rename header file cv18xx.dtsi
- to cv180x.dtsi
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+	Wed, 30 Apr 2025 15:33:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6643DA4AFAA;
+	Wed, 30 Apr 2025 15:28:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4915C4CEE7;
+	Wed, 30 Apr 2025 15:33:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746027225;
+	bh=GHWKyQrFtLFEsAd9D7tQib4YQeKEyzwclNeqeYd5kDQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SlCi7ebiNQ2BeVFzNkiHJCVx2MJpTnsEJyICSPJLgM37NV9QR6HzhAOKxILNrsyBU
+	 23bQE9a1E3Wtqkv5QqeIX9Ie6gp/+w1qVmuI+6vPSpvYJf+cCFAEVwBkg4UOdj4Ve6
+	 1dTWm+j9zifDYh0uPTZev0uqikTu4AmG5UoCSmWDhuoq1Qn2CQ9Zn8Y+UQ+Z+KiLID
+	 2JMle4z70AZRD3IDR9ZwGWLgKU12xysOE9QxCG4kMJ4W1upVvzbMcXwv5NALZyQ5x4
+	 PGAfvELPB89tzkjbmB0Ttw9kDAwAZ6rdrUkvS+tCXzj95WXihFKS9xqmklDV/3Wu4x
+	 AcEKRHaBrmj1w==
+Date: Wed, 30 Apr 2025 16:33:39 +0100
+From: Conor Dooley <conor@kernel.org>
 To: Inochi Amaoto <inochiama@gmail.com>
-Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org
-Date: Wed, 30 Apr 2025 17:25:07 +0200
-In-Reply-To: <20250430012654.235830-4-inochiama@gmail.com>
-References: <20250430012654.235830-1-inochiama@gmail.com>
-	 <20250430012654.235830-4-inochiama@gmail.com>
-User-Agent: Evolution 3.56.0 
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
+ compatible
+Message-ID: <20250430-radiance-rebuilt-2caa906d5e6f@spud>
+References: <20250430020932.307198-1-inochiama@gmail.com>
+ <20250430020932.307198-3-inochiama@gmail.com>
 MIME-Version: 1.0
+In-Reply-To: <20250430020932.307198-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_082508_378489_B168D320 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250430_083347_224008_752809C8 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,28 +81,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2818303210332858715=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSW5vY2hpIQoKT24gV2VkLCAyMDI1LTA0LTMwIGF0IDA5OjI2ICswODAwLCBJbm9jaGkgQW1h
-b3RvIHdyb3RlOgo+IEFzIHRoZSBjdjE4eHguZHRzaSBzZXJ2ZXMgYXMgYSBjb21tb24gcGVyaXBo
-ZXJhbCBoZWFkZXIgZm9yIGFsbAo+IHJpc2N2IGN2MTgweC9jdjE4MXgvc2cyMDB4IFNvQ3MsIGl0
-IG5vdCBjb3ZlciB0aGUgZW50aXJlIGN2MTh4eAogICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgXgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRvZXMKPiBz
-ZXJpZXMgYXMgdGhlcmUgaXMgY3YxODJ4IGFuZCBjdjE4M3guIFNvIHJlbmFtZSB0aGUgaGVhZGVy
-IGZpbGUKPiB0byBtYWtlIGl0IHByZWNpc2UuCj4gCj4gU2lnbmVkLW9mZi1ieTogSW5vY2hpIEFt
-YW90byA8aW5vY2hpYW1hQGdtYWlsLmNvbT4KClJldmlld2VkLWJ5OiBBbGV4YW5kZXIgU3ZlcmRs
-aW4gPGFsZXhhbmRlci5zdmVyZGxpbkBnbWFpbC5jb20+Cgo+IC0tLQo+IMKgYXJjaC9yaXNjdi9i
-b290L2R0cy9zb3BoZ28vY3YxODAwYi5kdHNpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgfCAyICstCj4gwqBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby97Y3YxOHh4LmR0c2kgPT4g
-Y3YxODB4LmR0c2l9IHwgMAo+IMKgYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxODEyaC5k
-dHNpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAyICstCj4gwqBhcmNoL3Jpc2N2
-L2Jvb3QvZHRzL3NvcGhnby9zZzIwMDIuZHRzacKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqAgfCAyICstCj4gwqA0IGZpbGVzIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKSwgMyBkZWxl
-dGlvbnMoLSkKPiDCoHJlbmFtZSBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby97Y3YxOHh4LmR0
-c2kgPT4gY3YxODB4LmR0c2l9ICgxMDAlKQoKLS0gCkFsZXhhbmRlciBTdmVyZGxpbi4KCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
-aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
-bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============2818303210332858715==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="sMKL3DI6Jh6onOT5"
+Content-Disposition: inline
+
+
+--sMKL3DI6Jh6onOT5
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 30, 2025 at 10:09:30AM +0800, Inochi Amaoto wrote:
+> Add of device id definition for newly added precise compatible.
+>=20
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>  drivers/clk/sophgo/clk-cv1800.c | 3 +++
+>  1 file changed, 3 insertions(+)
+>=20
+> diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1=
+800.c
+> index e0c4dc347579..e10221df6385 100644
+> --- a/drivers/clk/sophgo/clk-cv1800.c
+> +++ b/drivers/clk/sophgo/clk-cv1800.c
+> @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_device=
+ *pdev)
+> =20
+>  static const struct of_device_id cv1800_clk_ids[] =3D {
+>  	{ .compatible =3D "sophgo,cv1800-clk", .data =3D &cv1800_desc },
+> +	{ .compatible =3D "sophgo,cv1800b-clk", .data =3D &cv1800_desc },
+
+Given the same data is used here, should there not be fallbacks in the
+dt for some of these? For example, 1812 to 1800? Or is that not okay,
+because 1800 is not a real device id?
+
+>  	{ .compatible =3D "sophgo,cv1810-clk", .data =3D &cv1810_desc },
+> +	{ .compatible =3D "sophgo,cv1812h-clk", .data =3D &cv1800_desc },
+>  	{ .compatible =3D "sophgo,sg2000-clk", .data =3D &sg2000_desc },
+> +	{ .compatible =3D "sophgo,sg2002-clk", .data =3D &sg2000_desc },
+>  	{ }
+>  };
+>  MODULE_DEVICE_TABLE(of, cv1800_clk_ids);
+> --=20
+> 2.49.0
+>=20
+
+--sMKL3DI6Jh6onOT5
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBJC0wAKCRB4tDGHoIJi
+0kMAAP9ZKNc6a0xYBkYr8oqooliJY8N3PWy3hSRIU/+E2sr52AEAjzrVNBdoDTN3
+S37PalSpc7ohjoXJsyX87gDgmKv1kwE=
+=EuHX
+-----END PGP SIGNATURE-----
+
+--sMKL3DI6Jh6onOT5--
+
+
+--===============2818303210332858715==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2818303210332858715==--
+
