@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55D84C369D9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F22BFC3ABAC
 	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 16:04:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GklZV9eHM/VobnPHZmXe9Cb22CNSlW0cxG55gJfapqM=; b=BsvTS577NENXwP
-	s5Tk4zhzaF7xSUngEY4BDg9vBIdhxMT7dF5icXSy1fa5Gp7fr76wZCpxBXZHb+1hMaI6HMpvaf2eU
-	An4zl1ldjv4Vr1HZXdZIKgZP2F48kt7cxIZfK4nTYpakiPPy/CQg5lbl4SCYzG3lo0ZAyCNhD4zPz
-	0Dp7cQArE2zu/JOnfL2YyCQv3xce9OxXrJstDWwWelJI2huYhDsgDyazNFSIRx3uCEm596V2CGc2I
-	u0Za9ll4wdS70Q2XaUHbezwPzERgbpLSMAbxLOoFU1RFNDVP8C7rowBCQuyQ1ZlMjnkuvNVZ95bXk
-	ehPWL5+JinzjOQkYL6GQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=saU01Aviu7XbNDYYNjr4KdymCj9aUunA0yuHQH2/lpU=; b=t2KZu10HcA5szXiCu4Tvgb3YN8
+	suSAx4TXoI8zauGnogIuoq4FfZ+8AcX1cjoh7n0BZaI9hzdWOkOG0csOGU3rAaZGDYQsws5tX07gm
+	LMGG7e5e/enoRKRxIs4TC29ZzEtg+mGB9C58+JlhKzgjqWmPjDGDLrbjtpborscaL79uyrYawi5xm
+	6+kYLZAPgE4zsS4Qdo/UWbRsAQUcsPhJlig8h9X+oPAwXEvrjdzAu8byNGMRyKJvtANIWLl7ZTYYk
+	zbv0Plrbdy/4Nol8zjF6AKmzd9KVngJfhZoetgrrimRhXKyN2HWtUy5nuc6s9MBTEOsENaRRO2+Q2
+	92rISunA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9uc-0000000DMYX-3MS5;
+	id 1uA9uc-0000000DMY4-0akS;
 	Wed, 30 Apr 2025 16:03:54 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA9XM-0000000DJZi-1zSJ
+	id 1uA9Uj-0000000DJ39-09MT
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 15:39:54 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39c1ef4ae3aso10767f8f.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 08:39:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746027591; x=1746632391; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=AgReYpbiEfzzRjpl9plzaSPk0WShKygYvywpy8RPSlc=;
-        b=CGloNruqJ+DNFrU9RPoiS7Ay/AYQKiIkmlF8t5zLiECcXeKF7u7b73V5i1FMUUh2CK
-         Tn4XMax4OO3wMdpDTIZJezIu8Q00IYyftDeszASlXdQfHGoZDNi8/nUHnJW+s6megjMc
-         26dwf1SOhN22DzPU5Wp57lTCWopw6VETaGX/gUmdmjBAUum7C9ESCstThIsXedVg5Mlx
-         6Erbo5sxHzkajWN0JBNrgbQPZoLInOdXnBKp4zoSnTXAr2IcI0mYztUuq0ci/9aqUkVz
-         LrEPyruBi6UCZ8sSfPJDYqVckgygZoEuBd2ahpCGBbI/9rbHtVHXnnPPLrlR/YXMASU7
-         RDQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746027591; x=1746632391;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=AgReYpbiEfzzRjpl9plzaSPk0WShKygYvywpy8RPSlc=;
-        b=ffVVGeK1Pfk4V+fgOTCcqxhAb3MT1NjDIC34soiCDC0QVhvtiEDVRGxHbhHJA4ybbT
-         8eBZIUQujkK386YQKp38nO43A/aTfM/mGx3arOObx4rJ4dQvxn0mpNZo4by0mizYAYzU
-         ajf7+69KxNfZID0Sriqdo8CgDBVqaGfXumpkq2lNohGUtpTBZjzD+Ti31t7TX0g7x6jZ
-         AliisMT1ayKhG5lE95uDRilv51cm2ofeARSsjXhjUbjGRyl7l76XOGH0PR9350UJJjcB
-         mRUn4gJieZopCeqcMSdDq68XC2hovxSfsW9JJWeF3fQ1UVldUyMZkoENh8lKIErhk3mC
-         /MhA==
-X-Forwarded-Encrypted: i=1; AJvYcCUtSnf7oNgqSjua8Vmiua6hw2s/KR3F6KaMarlpZkQ3yMY6QqX6nqI7i7kbnu1JpuM6av499rBn06fpZg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YybYT7glEVxUr9xHrVCzdtNpHpZjABiTyOSL27N1FPXyaOAHZF0
-	7OHfC5JlUcIIrTt7qaLnftlE55oaF64usfhfTMVqJCNxvl43cV4o
-X-Gm-Gg: ASbGncsaLswqWfjjgMXhevFLBJLTC8wCeaju6gxwmtYZtraQvG1IT0804/1qpe4uKhB
-	RAf41MKSQY/U5NFomd6Wm/1KP/W7/OrbQB0/Oo9JGxFdwImrVm13K3i6RZNTv37b7Q+olPNNIb4
-	PFWkQTLkKwnM0LAJ69rAJQQFQzl+bJ1o4cWhm0o+HMr8YbSxBNOA3/LDFdKqadRMc6YAljluR6I
-	p72qBIFlhPbtJynIo50xz4Ym0N5Y4izh03rjkeH76hz9+ycRRtHoRhsLSPYOoA4yItXyrBY+8va
-	MbRbDw1FNASHGRe5Wu6gozuQMuHjozX2Qm9DQn+SRaH/Wv8MCAId3WL7PxLzHTVDmLJK37s=
-X-Google-Smtp-Source: AGHT+IHcVYNpX6kC+rpllRwGYlEvC7hfE7RUIIVLkUZ5sknWEbkBsoGfPhKSTHjS/hL2h6rPpP2B+A==
-X-Received: by 2002:a05:6000:430c:b0:3a0:85e4:2268 with SMTP id ffacd0b85a97d-3a08fb450d8mr3047261f8f.10.1746027590590;
-        Wed, 30 Apr 2025 08:39:50 -0700 (PDT)
-Received: from giga-mm-3.home ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2b28732sm28740255e9.37.2025.04.30.08.39.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 30 Apr 2025 08:39:50 -0700 (PDT)
-Message-ID: <9ea234373b18a91c6a2f7a41c441002de1e92e98.camel@gmail.com>
+	Wed, 30 Apr 2025 15:37:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5063E6845C;
+	Wed, 30 Apr 2025 15:36:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E293C4CEEC;
+	Wed, 30 Apr 2025 15:37:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746027428;
+	bh=szeQj+bnY9ogQvY4OUwIgus6AzzTlktdYaxtxFfhJIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ml/JC1N9U9Q1EOkGUdxqyDMwN5oXs6mnxag8VzQw28/OoNJArBckIP3pLeFBKW9ro
+	 RcXLw49kpTtAm06RDPMIH5NhkjsFyd4Nsq4ctPWZxJU2LrubnQBNDydTpc6DBmM+cb
+	 XrgYWVDRD6Yh5JwUV1EFh3fC9cHTMU0EA6Z8+2RHxIGE+2NJi80TuU9xfHB7oNifh5
+	 29tn5y7HKs8eipTx1V5yp5ZMg9ceCwbygZEkpFi8a9yOuuF0FrM28zhQqaS82ochkk
+	 W7UpDWv/FulscnvtCe2XDBqpgCHqfa26xMaDCQRWpJOJQC5aqI//7WdUTFzdKEv43e
+	 CD0pN63FTVk4w==
+Date: Wed, 30 Apr 2025 16:37:01 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
 Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
  compatible
-From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Date: Wed, 30 Apr 2025 17:39:52 +0200
-In-Reply-To: <20250430020932.307198-3-inochiama@gmail.com>
+Message-ID: <20250430-snort-raider-dbf10d14993f@spud>
 References: <20250430020932.307198-1-inochiama@gmail.com>
-	 <20250430020932.307198-3-inochiama@gmail.com>
-User-Agent: Evolution 3.56.0 
+ <20250430020932.307198-3-inochiama@gmail.com>
+ <20250430-radiance-rebuilt-2caa906d5e6f@spud>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_083952_510568_B7287BBE 
-X-CRM114-Status: GOOD (  13.04  )
+In-Reply-To: <20250430-radiance-rebuilt-2caa906d5e6f@spud>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,33 +79,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0846741407697849804=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgSW5vY2hpIQoKT24gV2VkLCAyMDI1LTA0LTMwIGF0IDEwOjA5ICswODAwLCBJbm9jaGkgQW1h
-b3RvIHdyb3RlOgo+IEFkZCBvZiBkZXZpY2UgaWQgZGVmaW5pdGlvbiBmb3IgbmV3bHkgYWRkZWQg
-cHJlY2lzZSBjb21wYXRpYmxlLgo+IAo+IFNpZ25lZC1vZmYtYnk6IElub2NoaSBBbWFvdG8gPGlu
-b2NoaWFtYUBnbWFpbC5jb20+Cj4gLS0tCj4gwqBkcml2ZXJzL2Nsay9zb3BoZ28vY2xrLWN2MTgw
-MC5jIHwgMyArKysKPiDCoDEgZmlsZSBjaGFuZ2VkLCAzIGluc2VydGlvbnMoKykKPiAKPiBkaWZm
-IC0tZ2l0IGEvZHJpdmVycy9jbGsvc29waGdvL2Nsay1jdjE4MDAuYyBiL2RyaXZlcnMvY2xrL3Nv
-cGhnby9jbGstY3YxODAwLmMKPiBpbmRleCBlMGM0ZGMzNDc1NzkuLmUxMDIyMWRmNjM4NSAxMDA2
-NDQKPiAtLS0gYS9kcml2ZXJzL2Nsay9zb3BoZ28vY2xrLWN2MTgwMC5jCj4gKysrIGIvZHJpdmVy
-cy9jbGsvc29waGdvL2Nsay1jdjE4MDAuYwo+IEBAIC0xNTE5LDggKzE1MTksMTEgQEAgc3RhdGlj
-IGludCBjdjE4MDBfY2xrX3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpCj4gwqAK
-PiDCoHN0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIGN2MTgwMF9jbGtfaWRzW10gPSB7
-Cj4gwqAJeyAuY29tcGF0aWJsZSA9ICJzb3BoZ28sY3YxODAwLWNsayIsIC5kYXRhID0gJmN2MTgw
-MF9kZXNjIH0sCj4gKwl7IC5jb21wYXRpYmxlID0gInNvcGhnbyxjdjE4MDBiLWNsayIsIC5kYXRh
-ID0gJmN2MTgwMF9kZXNjIH0sCj4gwqAJeyAuY29tcGF0aWJsZSA9ICJzb3BoZ28sY3YxODEwLWNs
-ayIsIC5kYXRhID0gJmN2MTgxMF9kZXNjIH0sCj4gKwl7IC5jb21wYXRpYmxlID0gInNvcGhnbyxj
-djE4MTJoLWNsayIsIC5kYXRhID0gJmN2MTgwMF9kZXNjIH0sCiAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXgpTaG91bGQgaXQgaGF2ZSBi
-ZWVuICJjdjE4MTBfZGVzYyIgaW5zdGVhZD8KCj4gwqAJeyAuY29tcGF0aWJsZSA9ICJzb3BoZ28s
-c2cyMDAwLWNsayIsIC5kYXRhID0gJnNnMjAwMF9kZXNjIH0sCj4gKwl7IC5jb21wYXRpYmxlID0g
-InNvcGhnbyxzZzIwMDItY2xrIiwgLmRhdGEgPSAmc2cyMDAwX2Rlc2MgfSwKPiDCoAl7IH0KPiDC
-oH07Cj4gwqBNT0RVTEVfREVWSUNFX1RBQkxFKG9mLCBjdjE4MDBfY2xrX2lkcyk7CgotLSAKQWxl
-eGFuZGVyIFN2ZXJkbGluLgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
-ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
-eC1yaXNjdgo=
+
+--===============0846741407697849804==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="87W6SvIbW2ImtIsk"
+Content-Disposition: inline
+
+
+--87W6SvIbW2ImtIsk
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 30, 2025 at 04:33:39PM +0100, Conor Dooley wrote:
+> On Wed, Apr 30, 2025 at 10:09:30AM +0800, Inochi Amaoto wrote:
+> > Add of device id definition for newly added precise compatible.
+> >=20
+> > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > ---
+> >  drivers/clk/sophgo/clk-cv1800.c | 3 +++
+> >  1 file changed, 3 insertions(+)
+> >=20
+> > diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-c=
+v1800.c
+> > index e0c4dc347579..e10221df6385 100644
+> > --- a/drivers/clk/sophgo/clk-cv1800.c
+> > +++ b/drivers/clk/sophgo/clk-cv1800.c
+> > @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_devi=
+ce *pdev)
+> > =20
+> >  static const struct of_device_id cv1800_clk_ids[] =3D {
+> >  	{ .compatible =3D "sophgo,cv1800-clk", .data =3D &cv1800_desc },
+> > +	{ .compatible =3D "sophgo,cv1800b-clk", .data =3D &cv1800_desc },
+>=20
+> Given the same data is used here, should there not be fallbacks in the
+> dt for some of these? For example, 1812 to 1800? Or is that not okay,
+> because 1800 is not a real device id?
+>=20
+> >  	{ .compatible =3D "sophgo,cv1810-clk", .data =3D &cv1810_desc },
+> > +	{ .compatible =3D "sophgo,cv1812h-clk", .data =3D &cv1800_desc },
+> >  	{ .compatible =3D "sophgo,sg2000-clk", .data =3D &sg2000_desc },
+> > +	{ .compatible =3D "sophgo,sg2002-clk", .data =3D &sg2000_desc },
+
+Actually, this one is a better example. sg2000 is not marked deprecated.
+sg2002 uses the same match data. Why is no fallback to sg2000 used for
+the sg2002 case?
+
+--87W6SvIbW2ImtIsk
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBJDnQAKCRB4tDGHoIJi
+0lfMAP45MQndFPi3Xx3SJU+Ys3AnOJrH+Tuj9GmF7L47GJab3QD8Dhn3UBrka0Uc
+I2WbsNSSF8pSxW1RW9HI8WsMjkO3WA4=
+=WPBL
+-----END PGP SIGNATURE-----
+
+--87W6SvIbW2ImtIsk--
+
+
+--===============0846741407697849804==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============0846741407697849804==--
+
