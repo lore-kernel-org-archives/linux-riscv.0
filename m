@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EB11C369D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 03:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 503D1C3ABAA
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 03:52:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fpa2hAqlVZuUuUxGvGTgeVRfus5a9Wpjpk9A1kRO4iw=; b=hYf/DnXr8Nbzda
-	cpFB+xf4gwGhv1w1KrferiZqCXMr1sB7L47E+CCkF9YtFPpQsdsepPt1/NOWcGYTejCbs9uQgFLQg
-	BQCs08YQ9QwWCIRrn6+uyzxy+Z0vF118bv6TBQTEG/9iUTkYlwlyrV5R0Jug2ZMS9AaFBnM+QlBvW
-	6fwZlif/jukhpPU7KyWQJeMVde0VjjuAkweyeQFoxX9bpd8ENryOttXXt5UwxcUiGTWC+U3tNORho
-	N/26Kngptc7DSx4rjlzg6E6gTH2iAEyCObBo5+XXczrS9McSXIBilA2VOAKa1QAlWomXSOuss4e4a
-	9ZNRxaNVFPN/mNhd1OrQ==;
+	List-Owner; bh=gdW4LcWrz5TNsngDe/U1UoQDJ7F2v4om9C7uLRfMhGE=; b=LizeJtHnIY3jjy
+	8qNodwUalLEp9EYbP0Qe3n0ZksWxluNWpHTfbM+wxilvemvie8jpqRvXUgcEqOxH3ONSL3prJ+4Ck
+	+HAQFIDS9FO0o8ju9988cJBRJgDKZ12DPT0a1JaTUjsTtt5tS/B6NwQYC3SC7sGATKaRh0/NKrJ+C
+	7wIMj93jCEe6pqy8ZVvJVZB5XtQ0znT4IE/Tm1d8mDCO1yoRQUSvBk1c0oTByD4TsqbKcm+KczpA6
+	mU6JTgR/lRql24UIw7t7IryydN78OPn9Gyu+0lX6iGEiq6BegXdXdEm+tx3UK8Mfs3lJvpKDHeuMH
+	apb89/bSRsi7OtkwXEbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yUI-0000000BccS-08PC;
-	Wed, 30 Apr 2025 03:51:58 +0000
+	id 1u9yUH-0000000Bcc5-1uqh;
+	Wed, 30 Apr 2025 03:51:57 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1u9yRZ-0000000BcLr-0sIU
+	id 1u9yRQ-0000000BcKf-0C8T
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 30 Apr 2025 03:49:09 +0000
+	Wed, 30 Apr 2025 03:49:00 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=2sS5p9ELPndUDjPfPAYD9R9EmLRHlFr6nQik6dmiLmE=; b=P1B/GLml7xxIcsP3vfj5Y9qpHr
-	zz0WYS6QMVQHNyuSJ6nYoPUSbKoTYdCIWZfzgeYemLpBFIsKhaZEDGp9wbJp91z8Xdi8zii0gjlS/
-	AbkLFwh3h3GExkd+HOnURiOSH0KQkX+PUNBXVOrcXeFqYgHOUAEVrxcwZrpR75nGbBwJwfQSf+ylG
-	KdgVfuy2mXzPUt39cvo2ekEhMMvk+ZYFHQEQ1FM37DCb6nD9275Eb7PTa7wpz4wNc1o8TQVTrp9Ei
-	tl/PZfg9Di5iJAAjnZSCwqrpm8s0Jri/ezWxFi8qesWmpmYLh7wrtM4hNZScWyfSAhzvfzfnbTOkd
-	62yOBMvg==;
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	bh=4MFsVWY1OVehHD6ajOPJIuL2BzQALFZdi4vsjhHYWq0=; b=UTxflPxJd4vTq2pK5uAJzg/3Ef
+	II0Oxh4kvectr4alr3D8ti4019J8axoIfvkMIfoQR1gCwj+77rwmwYw4VuJX61tyJeJfSQSrD2Xpl
+	qwmGN9IvbjknBe/tarjvwVbJo0dcJ1XDMhq6z1U6aWxhNlDfciB9vxfwVqEA8rAdmds+fNtyyW8LE
+	yi+AGvyHzqDRRq3anj74DbcxGm+l+3VFgbPqqq4C5pwLsrHaN5tUguizlj12eRdpBUcyE3rS/tUyB
+	paW+wl/U6DTJz0GLJcQnJcdrsGM/dphfgqMpavvyu/H+LkjV8kqKZQt4dBWgoa6nOyFlEU5grM68F
+	Rqz0zCzg==;
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1u9yRR-0000000DfXi-20Qc
+	id 1u9yRK-0000000DfVi-0QAZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 03:49:06 +0000
+	Wed, 30 Apr 2025 03:48:58 +0000
 Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4ZnNVB510nz27hVW;
-	Wed, 30 Apr 2025 11:49:38 +0800 (CST)
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZnNNw3Wpcz2Cdd3;
+	Wed, 30 Apr 2025 11:45:04 +0800 (CST)
 Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id 26E17140275;
-	Wed, 30 Apr 2025 11:48:54 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D63A0140275;
+	Wed, 30 Apr 2025 11:48:36 +0800 (CST)
 Received: from [10.67.109.184] (10.67.109.184) by
  kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Wed, 30 Apr 2025 11:48:52 +0800
-Message-ID: <05cf616f-659d-4e27-97ee-95c516ad4468@huawei.com>
-Date: Wed, 30 Apr 2025 11:48:52 +0800
+ 15.2.1544.11; Wed, 30 Apr 2025 11:48:35 +0800
+Message-ID: <55128b58-3d1b-4330-af72-a84f1cd6949b@huawei.com>
+Date: Wed, 30 Apr 2025 11:48:35 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 4/8] bpf, riscv64: Skip redundant zext
- instruction after load-acquire
+Subject: Re: [PATCH bpf-next 3/8] bpf, riscv64: Support load-acquire and
+ store-release instructions
 Content-Language: en-US
 To: Peilin Ye <yepeilin@google.com>, <bpf@vger.kernel.org>
-CC: <linux-riscv@lists.infradead.org>, Andrea Parri <parri.andrea@gmail.com>,
+CC: Andrea Parri <parri.andrea@gmail.com>, <linux-riscv@lists.infradead.org>,
 	=?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>, Puranjay Mohan
 	<puranjay@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
 	<daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau
@@ -76,15 +76,15 @@ CC: <linux-riscv@lists.infradead.org>, Andrea Parri <parri.andrea@gmail.com>,
 	<joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu
 	<neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
 References: <cover.1745970908.git.yepeilin@google.com>
- <875edd356603dd5d7be30b79b97d8ee15ebc59b3.1745970908.git.yepeilin@google.com>
+ <248aa4b0ef7e439e0446d25732af7246d119c6a9.1745970908.git.yepeilin@google.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <875edd356603dd5d7be30b79b97d8ee15ebc59b3.1745970908.git.yepeilin@google.com>
+In-Reply-To: <248aa4b0ef7e439e0446d25732af7246d119c6a9.1745970908.git.yepeilin@google.com>
 X-Originating-IP: [10.67.109.184]
 X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
  kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_044902_477404_9DC4BF25 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20250430_044855_150973_3A6E162C 
+X-CRM114-Status: GOOD (  23.12  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,102 +104,209 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 2025/4/30 8:50, Peilin Ye wrote:
-> Currently, the verifier inserts a zext instruction right after every 8-,
-> 16- or 32-bit load-acquire, which is already zero-extending.  Skip such
-> redundant zext instructions.
+> From: Andrea Parri <parri.andrea@gmail.com>
 > 
-> While we are here, update that already-obsolete comment about "skip the
-> next instruction" in build_body().  Also change emit_atomic_rmw()'s
-> parameters to keep it consistent with emit_atomic_ld_st().
+> Support BPF load-acquire (BPF_LOAD_ACQ) and store-release
+> (BPF_STORE_REL) instructions in the riscv64 JIT compiler.  For example,
+> consider the following 64-bit load-acquire (assuming little-endian):
 > 
-> Note that checking 'insn[1]' relies on 'insn' not being the last
-> instruction, which should have been guaranteed by the verifier; we
-> already use 'insn[1]' elsewhere in the file for similar purposes.
-> Additionally, we don't check if 'insn[1]' is actually a zext for our
-> load-acquire's dst_reg, or some other registers - in other words, here
-> we are relying on the verifier to always insert a redundant zext right
-> after a 8/16/32-bit load-acquire, for its dst_reg.
+>    db 10 00 00 00 01 00 00  r1 = load_acquire((u64 *)(r1 + 0x0))
+>    95 00 00 00 00 00 00 00  exit
 > 
+>    opcode (0xdb): BPF_ATOMIC | BPF_DW | BPF_STX
+>    imm (0x00000100): BPF_LOAD_ACQ
+> 
+> The JIT compiler will emit an LD instruction followed by a FENCE R,RW
+> instruction for the above, e.g.:
+> 
+>    ld x7,0(x6)
+>    fence r,rw
+> 
+> Similarly, consider the following 16-bit store-release:
+> 
+>    cb 21 00 00 10 01 00 00  store_release((u16 *)(r1 + 0x0), w2)
+>    95 00 00 00 00 00 00 00  exit
+> 
+>    opcode (0xcb): BPF_ATOMIC | BPF_H | BPF_STX
+>    imm (0x00000110): BPF_STORE_REL
+> 
+> A FENCE RW,W instruction followed by an SH instruction will be emitted,
+> e.g.:
+> 
+>    fence rw,w
+>    sh x2,0(x4)
+> 
+> 8-bit and 16-bit load-acquires are zero-extending (cf., LBU, LHU).  The
+> verifier always rejects misaligned load-acquires/store-releases (even if
+> BPF_F_ANY_ALIGNMENT is set), so the emitted load and store instructions
+> are guaranteed to be single-copy atomic.
+> 
+> Introduce primitives to emit the relevant (and the most common/used in
+> the kernel) fences, i.e. fences with R -> RW, RW -> W and RW -> RW.
+> 
+> Rename emit_atomic() to emit_atomic_rmw() to make it clear that it only
+> handles RMW atomics, and replace its is64 parameter to allow to perform
+> the required checks on the opsize (BPF_SIZE(code)).
+> 
+> Tested-by: Peilin Ye <yepeilin@google.com>
+> Signed-off-by: Andrea Parri <parri.andrea@gmail.com>
+> [yepeilin@google.com: whitespace changes; cosmetic changes to commit
+>                        title and message]
 > Signed-off-by: Peilin Ye <yepeilin@google.com>
 > ---
->   arch/riscv/net/bpf_jit_comp64.c | 23 ++++++++++++++++++-----
->   arch/riscv/net/bpf_jit_core.c   |  3 +--
->   2 files changed, 19 insertions(+), 7 deletions(-)
+>   arch/riscv/net/bpf_jit.h        | 15 +++++++
+>   arch/riscv/net/bpf_jit_comp64.c | 77 ++++++++++++++++++++++++++++++---
+>   2 files changed, 85 insertions(+), 7 deletions(-)
 > 
+> diff --git a/arch/riscv/net/bpf_jit.h b/arch/riscv/net/bpf_jit.h
+> index 1d1c78d4cff1..e7b032dfd17f 100644
+> --- a/arch/riscv/net/bpf_jit.h
+> +++ b/arch/riscv/net/bpf_jit.h
+> @@ -608,6 +608,21 @@ static inline u32 rv_fence(u8 pred, u8 succ)
+>   	return rv_i_insn(imm11_0, 0, 0, 0, 0xf);
+>   }
+>   
+> +static inline void emit_fence_r_rw(struct rv_jit_context *ctx)
+> +{
+> +	emit(rv_fence(0x2, 0x3), ctx);
+> +}
+> +
+> +static inline void emit_fence_rw_w(struct rv_jit_context *ctx)
+> +{
+> +	emit(rv_fence(0x3, 0x1), ctx);
+> +}
+> +
+> +static inline void emit_fence_rw_rw(struct rv_jit_context *ctx)
+> +{
+> +	emit(rv_fence(0x3, 0x3), ctx);
+> +}
+> +
+>   static inline u32 rv_nop(void)
+>   {
+>   	return rv_i_insn(0, 0, 0, 0, 0x13);
 > diff --git a/arch/riscv/net/bpf_jit_comp64.c b/arch/riscv/net/bpf_jit_comp64.c
-> index b71a9c88fb4f..4cb50dbbe94b 100644
+> index 953b6a20c69f..b71a9c88fb4f 100644
 > --- a/arch/riscv/net/bpf_jit_comp64.c
 > +++ b/arch/riscv/net/bpf_jit_comp64.c
-> @@ -607,8 +607,13 @@ static void emit_store_64(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
+> @@ -607,11 +607,65 @@ static void emit_store_64(u8 rd, s32 off, u8 rs, struct rv_jit_context *ctx)
 >   	emit_sd(RV_REG_T1, 0, rs, ctx);
 >   }
 >   
-> -static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_jit_context *ctx)
-> +static int emit_atomic_ld_st(u8 rd, u8 rs, const struct bpf_insn *insn,
-> +			     struct rv_jit_context *ctx)
+> -static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
+> -			struct rv_jit_context *ctx)
+> +static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_jit_context *ctx)
+> +{
+> +	switch (imm) {
+> +	/* dst_reg = load_acquire(src_reg + off16) */
+> +	case BPF_LOAD_ACQ:
+> +		switch (BPF_SIZE(code)) {
+> +		case BPF_B:
+> +			emit_load_8(false, rd, off, rs, ctx);
+> +			break;
+> +		case BPF_H:
+> +			emit_load_16(false, rd, off, rs, ctx);
+> +			break;
+> +		case BPF_W:
+> +			emit_load_32(false, rd, off, rs, ctx);
+> +			break;
+> +		case BPF_DW:
+> +			emit_load_64(false, rd, off, rs, ctx);
+> +			break;
+> +		}
+> +		emit_fence_r_rw(ctx);
+> +		break;
+> +	/* store_release(dst_reg + off16, src_reg) */
+> +	case BPF_STORE_REL:
+> +		emit_fence_rw_w(ctx);
+> +		switch (BPF_SIZE(code)) {
+> +		case BPF_B:
+> +			emit_store_8(rd, off, rs, ctx);
+> +			break;
+> +		case BPF_H:
+> +			emit_store_16(rd, off, rs, ctx);
+> +			break;
+> +		case BPF_W:
+> +			emit_store_32(rd, off, rs, ctx);
+> +			break;
+> +		case BPF_DW:
+> +			emit_store_64(rd, off, rs, ctx);
+> +			break;
+> +		}
+> +		break;
+> +	default:
+> +		pr_err_once("bpf-jit: invalid atomic load/store opcode %02x\n", imm);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static int emit_atomic_rmw(u8 rd, u8 rs, s16 off, s32 imm, u8 code,
+> +			   struct rv_jit_context *ctx)
 >   {
-> +	u8 code = insn->code;
-> +	s32 imm = insn->imm;
-> +	s16 off = insn->off;
+>   	u8 r0;
+>   	int jmp_offset;
+> +	bool is64;
 > +
->   	switch (imm) {
->   	/* dst_reg = load_acquire(src_reg + off16) */
->   	case BPF_LOAD_ACQ:
-> @@ -627,6 +632,12 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_
->   			break;
->   		}
->   		emit_fence_r_rw(ctx);
-> +
-> +		/* If our next insn is a redundant zext, return 1 to tell
-> +		 * build_body() to skip it.
-> +		 */
-> +		if (BPF_SIZE(code) != BPF_DW && insn_is_zext(&insn[1]))
-> +			return 1;
+> +	if (BPF_SIZE(code) != BPF_W && BPF_SIZE(code) != BPF_DW) {
+> +		pr_err_once("bpf-jit: 1- and 2-byte RMW atomics are not supported\n");
+> +		return -EINVAL;
+> +	}
+> +	is64 = BPF_SIZE(code) == BPF_DW;
+>   
+>   	if (off) {
+>   		if (is_12b_int(off)) {
+> @@ -688,9 +742,14 @@ static void emit_atomic(u8 rd, u8 rs, s16 off, s32 imm, bool is64,
+>   		     rv_sc_w(RV_REG_T3, rs, rd, 0, 1), ctx);
+>   		jmp_offset = ninsns_rvoff(-6);
+>   		emit(rv_bne(RV_REG_T3, 0, jmp_offset >> 1), ctx);
+> -		emit(rv_fence(0x3, 0x3), ctx);
+> +		emit_fence_rw_rw(ctx);
 >   		break;
->   	/* store_release(dst_reg + off16, src_reg) */
->   	case BPF_STORE_REL:
-> @@ -654,10 +665,12 @@ static int emit_atomic_ld_st(u8 rd, u8 rs, s16 off, s32 imm, u8 code, struct rv_
->   	return 0;
+> +	default:
+> +		pr_err_once("bpf-jit: invalid atomic RMW opcode %02x\n", imm);
+> +		return -EINVAL;
+>   	}
+> +
+> +	return 0;
 >   }
 >   
-> -static int emit_atomic_rmw(u8 rd, u8 rs, s16 off, s32 imm, u8 code,
-> +static int emit_atomic_rmw(u8 rd, u8 rs, const struct bpf_insn *insn,
->   			   struct rv_jit_context *ctx)
+>   #define BPF_FIXUP_OFFSET_MASK   GENMASK(26, 0)
+> @@ -1259,7 +1318,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
 >   {
-> -	u8 r0;
-> +	u8 r0, code = insn->code;
-> +	s16 off = insn->off;
-> +	s32 imm = insn->imm;
->   	int jmp_offset;
->   	bool is64;
->   
-> @@ -2026,9 +2039,9 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	bool is64 = BPF_CLASS(insn->code) == BPF_ALU64 ||
+>   		    BPF_CLASS(insn->code) == BPF_JMP;
+> -	int s, e, rvoff, ret, i = insn - ctx->prog->insnsi;
+> +	int s, e, rvoff, ret = 0, i = insn - ctx->prog->insnsi;
+>   	struct bpf_prog_aux *aux = ctx->prog->aux;
+>   	u8 rd = -1, rs = -1, code = insn->code;
+>   	s16 off = insn->off;
+> @@ -1962,10 +2021,14 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   	case BPF_STX | BPF_MEM | BPF_DW:
+>   		emit_store_64(rd, off, rs, ctx);
+>   		break;
+> +	case BPF_STX | BPF_ATOMIC | BPF_B:
+> +	case BPF_STX | BPF_ATOMIC | BPF_H:
 >   	case BPF_STX | BPF_ATOMIC | BPF_W:
 >   	case BPF_STX | BPF_ATOMIC | BPF_DW:
->   		if (bpf_atomic_is_load_store(insn))
-> -			ret = emit_atomic_ld_st(rd, rs, off, imm, code, ctx);
-> +			ret = emit_atomic_ld_st(rd, rs, insn, ctx);
->   		else
-> -			ret = emit_atomic_rmw(rd, rs, off, imm, code, ctx);
-> +			ret = emit_atomic_rmw(rd, rs, insn, ctx);
+> -		emit_atomic(rd, rs, off, imm,
+> -			    BPF_SIZE(code) == BPF_DW, ctx);
+> +		if (bpf_atomic_is_load_store(insn))
+> +			ret = emit_atomic_ld_st(rd, rs, off, imm, code, ctx);
+> +		else
+> +			ret = emit_atomic_rmw(rd, rs, off, imm, code, ctx);
 >   		break;
 >   
 >   	case BPF_STX | BPF_PROBE_MEM32 | BPF_B:
-> diff --git a/arch/riscv/net/bpf_jit_core.c b/arch/riscv/net/bpf_jit_core.c
-> index f8cd2f70a7fb..f6ca5cfa6b2f 100644
-> --- a/arch/riscv/net/bpf_jit_core.c
-> +++ b/arch/riscv/net/bpf_jit_core.c
-> @@ -26,9 +26,8 @@ static int build_body(struct rv_jit_context *ctx, bool extra_pass, int *offset)
->   		int ret;
+> @@ -2050,7 +2113,7 @@ int bpf_jit_emit_insn(const struct bpf_insn *insn, struct rv_jit_context *ctx,
+>   		return -EINVAL;
+>   	}
 >   
->   		ret = bpf_jit_emit_insn(insn, ctx, extra_pass);
-> -		/* BPF_LD | BPF_IMM | BPF_DW: skip the next instruction. */
->   		if (ret > 0)
-> -			i++;
-> +			i++; /* skip the next instruction */
->   		if (offset)
->   			offset[i] = ctx->ninsns;
->   		if (ret < 0)
+> -	return 0;
+> +	return ret;
+>   }
+>   
+>   void bpf_jit_build_prologue(struct rv_jit_context *ctx, bool is_subprog)
 
 Reviewed-by: Pu Lehui <pulehui@huawei.com>
 
