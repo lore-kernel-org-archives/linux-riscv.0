@@ -4,83 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0545AC369D9
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 12:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1A2DC3ABA9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 12:19:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=gc4Wi3aK7k0gJTk4q0QV2RK6PoEPIfnXnZ79yD7yELQ=; b=m/vRDJJGsXgRAa
-	V4X8q8DFZJjpWKbAYibBswbn5kH7LBERgG3TEaDPvsZnojoxitOxdE4TSHAfIIl2sszouYTPjw/YO
-	iAbBpk9WywMtLrVQi0OKsrZ397jXdUQyFdEKZGhEYC0sZ+DY4Z4HCWZCDqnzKqIWtaRXn7K8PKkyJ
-	1T5tMk9a3BYLO/rMO8YYWg/LEQC4N0A4Ie+1ik0D5c7UIDOJa0Yufgbv7cBciOdZiJwHyPQY3FehZ
-	zWf72gEaH3Atn3E3ScTnbLNXfZMgn0szz1WCrKp7aysmALGTdb5uBXCu5N2jQIi5uaV80b6b0sAZk
-	U2uD9ROtdlDBxNWmiE1A==;
+	List-Owner; bh=EQoNFMmtIrEuxewQd8Jx5Uiy3gsY1DoPKiut3Sg0PoY=; b=T7MGn1gFERaQoJ
+	PMxrT0cvl2E3/U+VL4V2zNQd3dTGY/f5upHVPrt9RT1+RUdt8qJH7YqVqK0m9oCwYaFsVU1ObliQi
+	7k/hnJGfiRxPMNa/DKbdEBo6mxYNlC44FaFGSWxHB7HWfT+CpQDOhWAHUol+UYMd9WDoWU5PPP6ab
+	LLWyApZY9zEdoXRHh3GFK9CnKY6b0c/soBtnU0Hk1cjZuKrPPATABzcy+tb+BVUaS6bOvHsLAubUg
+	dkWak43XmjvhQvlEyn6lgzd0r51hZT8aDrFJxsfsQTrzlkNitLONWy8vZGz3IuNMfy43APXIxzDwh
+	IPS9Yksz5Uln6e1CQM4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6NJ-0000000Cnxr-3coo;
-	Wed, 30 Apr 2025 12:17:17 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uA6Pc-0000000CoUl-0YZK;
+	Wed, 30 Apr 2025 12:19:40 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA6NF-0000000CnxQ-1GLQ
+	id 1uA6Nh-0000000Co5S-0arY
 	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 12:17:15 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250430121708euoutp017cc19c2503247a716aba261d3708be63~7F8gAFVtC2185321853euoutp01Y
-	for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 12:17:08 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250430121708euoutp017cc19c2503247a716aba261d3708be63~7F8gAFVtC2185321853euoutp01Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1746015428;
-	bh=4JLcjR3NKmbTIpY7Ig7hH0ZRadrUWtEC46toJgZbLXs=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=NhTVswmMQv02s1uY+gGXLPKSJpvlx1hz3V8mjmWImF3d+PxOm3/bp2fjhFs5mpSYd
-	 igAKZrj/QEIw0Sgyj+Tj9++Gy/PjBL+1YlJ15GERqFWMcTvgU0crnNkP2WJXFoojxv
-	 exZn7DnTc+MtOuFlB87UbBNHAi736Y1vvgpXdi1I=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250430121707eucas1p2a9e61dc5accfb9784d6d1aa81028408c~7F8ff0M5F2650226502eucas1p2q;
-	Wed, 30 Apr 2025 12:17:07 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250430121706eusmtip122471c36d7228758127881c4f8464ec5~7F8ecFgJI2844428444eusmtip1q;
-	Wed, 30 Apr 2025 12:17:06 +0000 (GMT)
-Message-ID: <5413f5c7-8049-4490-bdd6-8c03f6e2057f@samsung.com>
-Date: Wed, 30 Apr 2025 14:17:06 +0200
+	Wed, 30 Apr 2025 12:17:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1746015460;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
+	b=MzsjMLRwFFaXsGd5V2hZU88e+9tzz1oYQZxf7pXyFuXHsIbFdHwE6KBdq+V544QAlzq4T9
+	7SNKd26QSZAXFHVSrCT89/ykwaMl51Z35HBxv+D56/YicriLFR8RioUdUYffzGrWI5mMhk
+	0PT2BdIdodD0av+ETBONBR1dMQSHPgQ=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-644-V89ByroaMhmLOCFYxCxoyA-1; Wed, 30 Apr 2025 08:17:35 -0400
+X-MC-Unique: V89ByroaMhmLOCFYxCxoyA-1
+X-Mimecast-MFC-AGG-ID: V89ByroaMhmLOCFYxCxoyA_1746015454
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43d4d15058dso49277625e9.0
+        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 05:17:35 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746015454; x=1746620254;
+        h=mime-version:user-agent:content-transfer-encoding:autocrypt
+         :references:in-reply-to:date:cc:to:from:subject:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lN3XXhvZkEzmXtYd28YKRe70tCct3jaUfGTuQGGD+g0=;
+        b=GSIz4OL2fnIFdIfENHhyH69S6kE7E5TTXu1W19wBZOzAamzJ/C4ilVHdprBqFw5eAV
+         zyDYwxvmEpu8eiVWYXSUTTUJxmJoJKjBsZIcHVHgpc28fNgNdNbDkv13zUDEyMyLBrob
+         2rrr4oTsuJNWNpwRPL9qlkJxZ+Dm4w/vX1EbMljrWjy2gHCM3KCiMoUvNoPe4b3gSOpq
+         yV518cq8GL4OSqhnwIVlk0YQ+x0WCGtXJ5ZNPyjCDf2jQAJn6851cipkzO/0dOVmvVVV
+         BhSchUuvSjJMnEEUAlPTw6nXzkc8kWN+P+O+FRpi3lM71arp5zDFbCYWGs6aihn5kF29
+         1VVQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUk5tk++W7kc/bGC5Jk0eZVrdtAfjAlpGOdqvbwFbOm8Pv/Jm2P3GR6Bqlgv9EiRNaRlPAcZoJ3d3EjFw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYPn5NRe1hLISNIBO+ECv+Av5eQot35sEuNMO3KyseE4dfkUOc
+	rFOMVqoUndgD+SLYytLWrANw2oKBBjVvvRao/KwsLk6Nb8Dnn75MJe/tKgEK2KOdW9DJmBTuzSs
+	MQpQVFtTohf3/uIHqA2oBYkpJasdF7PFVi2hen470AdYLRKhNgdb6MXjtvt+3NwLCfQ==
+X-Gm-Gg: ASbGncvgvDt+NDAWz2N3HVMaXSFBYBacuU2TpVzvCYsB/4O/5ZKKWvI5d4g4Cnmd5Qj
+	hclMSfgfcg8UBi/yXADe+uw9S75p1v5ywEtkExe5UI+wzOxpMaCcruRl5T64LW+ayDdJKZ24bWr
+	YbJZ5makWJRrXX8qLcJaGqR4SwQi2Pzhp/tfQ/R1hdFpfmfrKvoDzAQCb/zi/1iCwX0fcKfb+al
+	xGEDN8K8+rvAGZjt/I091fuVBRbaBuXl35WWM40U2FKV8OjDvbTuM9mcGEgan2kYWD3xFe2WMV0
+	nzeRZVa2EnIlYQc2ARLeVvpXctCmhP7+9bgNCQ==
+X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12659155e9.31.1746015454190;
+        Wed, 30 Apr 2025 05:17:34 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEeDRQpH85Tjf5lCeTC38YV5zFGOEEWEJ15Q43zpvFHsUBUREIV9t8rFVVspwP+av3krGaKQA==
+X-Received: by 2002:a05:600c:3b08:b0:43c:fda5:41e9 with SMTP id 5b1f17b1804b1-441b43a6849mr12658865e9.31.1746015453815;
+        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
+Received: from gmonaco-thinkpadt14gen3.rmtit.csb ([185.107.56.30])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2af2a9dsm23611265e9.19.2025.04.30.05.17.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 30 Apr 2025 05:17:33 -0700 (PDT)
+Message-ID: <cbcefdb80d5e10b8fed80de17bb97bf61df81386.camel@redhat.com>
+Subject: Re: [PATCH v6 00/22] RV: Linear temporal logic monitors for RT
+ application
+From: Gabriele Monaco <gmonaco@redhat.com>
+To: Steven Rostedt <rostedt@goodmis.org>
+Cc: Nam Cao <namcao@linutronix.de>, john.ogness@linutronix.de, Petr Mladek	
+ <pmladek@suse.com>, Sergey Senozhatsky <senozhatsky@chromium.org>, Ingo
+ Molnar	 <mingo@redhat.com>, Thomas Gleixner <tglx@linutronix.de>, Borislav
+ Petkov	 <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ x86@kernel.org, "H . Peter Anvin"	 <hpa@zytor.com>, Andy Lutomirski
+ <luto@kernel.org>, Peter Zijlstra	 <peterz@infradead.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, 	linux-arm-kernel@lists.infradead.org, Paul
+ Walmsley <paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	linux-riscv@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Wed, 30 Apr 2025 14:17:30 +0200
+In-Reply-To: <cover.1745999587.git.namcao@linutronix.de>
+References: <cover.1745999587.git.namcao@linutronix.de>
+Autocrypt: addr=gmonaco@redhat.com; prefer-encrypt=mutual;
+ keydata=mDMEZuK5YxYJKwYBBAHaRw8BAQdAmJ3dM9Sz6/Hodu33Qrf8QH2bNeNbOikqYtxWFLVm0
+ 1a0JEdhYnJpZWxlIE1vbmFjbyA8Z21vbmFjb0ByZWRoYXQuY29tPoiZBBMWCgBBFiEEysoR+AuB3R
+ Zwp6j270psSVh4TfIFAmbiuWMCGwMFCQWjmoAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AACgk
+ Q70psSVh4TfJzZgD/TXjnqCyqaZH/Y2w+YVbvm93WX2eqBqiVZ6VEjTuGNs8A/iPrKbzdWC7AicnK
+ xyhmqeUWOzFx5P43S1E1dhsrLWgP
+User-Agent: Evolution 3.56.1 (3.56.1-1.fc42)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] pmdomain: thead: Add GPU-specific clock and
- reset handling for TH1520
-To: Ulf Hansson <ulf.hansson@linaro.org>, Bartosz Golaszewski
-	<brgl@bgdev.pl>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich
-	<dakr@kernel.org>, Pavel Machek <pavel@kernel.org>, Drew Fustini
-	<drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob
-	Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
-	Dooley <conor+dt@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, Frank
-	Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
-	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
-	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	m.szyprowski@samsung.com, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <CAPDyKFqX5cjQe3-MX3W9wMoQW3gzwSvb0QMf-_sTJuq_TeGsCg@mail.gmail.com>
-X-CMS-MailID: 20250430121707eucas1p2a9e61dc5accfb9784d6d1aa81028408c
-X-Msg-Generator: CA
-X-RootMTR: 20250414185316eucas1p2c2dbd33788d9141773546f7a479ac288
-X-EPHeader: CA
-X-CMS-RootMailID: 20250414185316eucas1p2c2dbd33788d9141773546f7a479ac288
-References: <CGME20250414185316eucas1p2c2dbd33788d9141773546f7a479ac288@eucas1p2.samsung.com>
-	<20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
-	<20250414-apr_14_for_sending-v2-3-70c5af2af96c@samsung.com>
-	<CAPDyKFqX5cjQe3-MX3W9wMoQW3gzwSvb0QMf-_sTJuq_TeGsCg@mail.gmail.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 0SMqX1qO2HUIWH0zwGjBCsfrMBuVoTgw-c52fIOFdI8_1746015454
+X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_051713_931590_0C8288C0 
-X-CRM114-Status: GOOD (  38.31  )
+X-CRM114-CacheID: sfid-20250430_051741_249259_CF8C4E41 
+X-CRM114-Status: GOOD (  34.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,386 +119,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 4/25/25 10:50, Ulf Hansson wrote:
-> + Bartosz
-> 
-> On Mon, 14 Apr 2025 at 20:53, Michal Wilczynski
-> <m.wilczynski@samsung.com> wrote:
->>
->> Extend the TH1520 power domain driver to manage GPU related clocks and
->> resets via generic PM domain start/stop callbacks.
->>
->> The TH1520 GPU requires a special sequence to correctly initialize:
->> - Enable the GPU clocks
->> - Deassert the GPU clkgen reset
->> - Delay for a few cycles to satisfy hardware requirements
->> - Deassert the GPU core reset
->>
->> This sequence is SoC-specific and must be abstracted away from the
->> Imagination GPU driver, which expects only a standard single reset
->> interface. Following discussions with kernel maintainers [1], this
->> logic is placed inside a PM domain, rather than polluting the clock or
->> reset frameworks, or the GPU driver itself.
-> 
-> Speaking about special sequences for power-on/off devices like this
-> one, that's a known common problem. We actually have a generic
-> subsystem for this now, drivers/power/sequencing/*.
-> 
-> Perhaps it's worth having a look at that, it should allow us to
-> abstract things, so the GPU driver can stay more portable.
-> 
-> Kind regards
-> Uffe
-
-
-Hi Ulf, Bartosz,
-
-Thank you very much for your suggestion, Ulf. I took a look at the
-drivers/power/sequencing/ API and agree that it seems like a suitable
-framework to model the specific power-on/off sequence required for the
-TH1520 GPU, allowing for better abstraction than embedding the logic
-directly in genpd callbacks.
-
-My plan is to refactor the series based on this approach. Here's how I
-envision the implementation:
-
-1) Provider (th1520-pm-domains.c): This driver will register as both a
-generic power domain provider and a power sequencer provider for the GPU
-domain.
-
-2) pwrseq target Definition: A pwrseq target will be defined within the
-provider to encapsulate the required sequence (enable clocks, deassert
-clkgen reset, delay, deassert GPU core reset). The target will be
-named using the GPU's first compatible string with a "-power" suffix.
-
-Example GPU DT node, adhering to convention introduced here [1].
-gpu: gpu@ffef400000 {
-	compatible = "thead,th1520-gpu", "img,img-bxm-4-64",
-	             "img,img-bxm", "img-rogue";
-};
-
-[1] - https://lore.kernel.org/all/20250410-sets-bxs-4-64-patch-v1-v6-1-eda620c5865f@imgtec.com/#t
-
-3) Consumer (drm/imagination): In its probe function, the driver will
-read the first compatible string of the device node. It will then
-attempt devm_pwrseq_get(dev, compatible_string_with_suffix) (e.g.
-devm_pwrseq_get(dev, "thead,th1520-gpu-power")). The result
-pvr_dev->pwrseq_desc will be stored (it will be NULL if no suitable
-provider/target is found, or a valid descriptor if successful). The
-driver will still acquire its necessary clock/reset handles via
-devm_*_get in probe for potential use outside of RPM (like devfreq).
-
-4) Consumer Runtime PM Callbacks
-(pvr_power_device_resume/suspend): These functions will check if
-pvr_dev->pwrseq_desc is valid. If valid: Call pwrseq_power_on() in
-resume and pwrseq_power_off() in suspend. The driver will not perform
-its own clock/reset enabling/disabling for resources managed by the
-sequence. If NULL: Execute the existing fallback logic (manually
-enabling/disabling clocks/resets using the handles acquired in probe).
-Unconditional logic (like FW booting/shutdown) will remain within the
-RPM callbacks, executed after successful power on or before power off,
-respectively.
-
-5) Resource Handling (via genpd callbacks): To allow the provider
-(th1520-pm-domains.c) to access resources defined in the consumer's DT
-node (specifically the clocks and gpu_reset needed in the sequence), I
-plan to keep the attach_dev / detach_dev genpd callbacks as implemented
-in the previous patch version. attach_dev will acquire the consumer's
-resources (using the consumer_dev pointer) and store the handles in the
-provider's context. The pwrseq unit callbacks will then access these
-stored handles via the shared context. detach_dev will release these
-resources. This seems necessary as the pwrseq API itself doesn't
-currently provide a direct hook for the provider to get the consumer's
-device pointer or manage its resources across the pwrseq_get/put
-lifecycle.
-
-This approach uses the pwrseq framework for the sequence logic as
-suggested, keeps the generic consumer driver free of SoC-specific
-sequence details (by using the compatible string lookup for this), and
-retains the genpd attach/detach mechanism to handle cross-node resource
-dependencies.
-
-Please let me know if this plan sounds reasonable.
-
-Thanks !
-
-> 
->>
->> To support this, the TH1520 PM domain implements `attach_dev` and
->> `detach_dev` callbacks, allowing it to dynamically acquire clock and
->> reset resources from the GPU device tree node at runtime. This allows to
->> maintain the separation between generic drivers and SoC-specific
->> integration logic.
->>
->> As a result, the PM domain not only handles power sequencing but also
->> effectively acts as the SoC specific "glue driver" for the GPU device,
->> encapsulating all TH1520-specific clock and reset management.
->>
->> This approach improves maintainability and aligns with the broader
->> direction of treating PM domains as lightweight SoC-specific power
->> management drivers [2].
->>
->> [1] - https://lore.kernel.org/all/CAPDyKFqsJaTrF0tBSY-TjpqdVt5=6aPQHYfnDebtphfRZSU=-Q@mail.gmail.com/
->> [2] - https://osseu2024.sched.com/event/1ej38/the-case-for-an-soc-power-management-driver-stephen-boyd-google
->>
->> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
->> ---
->>  drivers/pmdomain/thead/th1520-pm-domains.c | 199 +++++++++++++++++++++++++++++
->>  1 file changed, 199 insertions(+)
->>
->> diff --git a/drivers/pmdomain/thead/th1520-pm-domains.c b/drivers/pmdomain/thead/th1520-pm-domains.c
->> index f702e20306f469aeb0ed15e54bd4f8309f28018c..75412efb195eb534c2e8ff10ced65ed4c4d2452c 100644
->> --- a/drivers/pmdomain/thead/th1520-pm-domains.c
->> +++ b/drivers/pmdomain/thead/th1520-pm-domains.c
->> @@ -5,10 +5,13 @@
->>   * Author: Michal Wilczynski <m.wilczynski@samsung.com>
->>   */
->>
->> +#include <linux/clk.h>
->> +#include <linux/delay.h>
->>  #include <linux/firmware/thead/thead,th1520-aon.h>
->>  #include <linux/slab.h>
->>  #include <linux/platform_device.h>
->>  #include <linux/pm_domain.h>
->> +#include <linux/reset.h>
->>
->>  #include <dt-bindings/power/thead,th1520-power.h>
->>
->> @@ -16,6 +19,15 @@ struct th1520_power_domain {
->>         struct th1520_aon_chan *aon_chan;
->>         struct generic_pm_domain genpd;
->>         u32 rsrc;
->> +
->> +       /* PM-owned reset */
->> +       struct reset_control *clkgen_reset;
->> +
->> +       /* Device-specific resources */
->> +       struct device *attached_dev;
->> +       struct clk_bulk_data *clks;
->> +       int num_clks;
->> +       struct reset_control *gpu_reset;
->>  };
->>
->>  struct th1520_power_info {
->> @@ -61,6 +73,177 @@ static int th1520_pd_power_off(struct generic_pm_domain *domain)
->>         return th1520_aon_power_update(pd->aon_chan, pd->rsrc, false);
->>  }
->>
->> +static int th1520_gpu_init_consumer_clocks(struct device *dev,
->> +                                          struct th1520_power_domain *pd)
->> +{
->> +       static const char *const clk_names[] = { "core", "sys" };
->> +       int i, ret;
->> +
->> +       pd->num_clks = ARRAY_SIZE(clk_names);
->> +       pd->clks = devm_kcalloc(dev, pd->num_clks, sizeof(*pd->clks), GFP_KERNEL);
->> +       if (!pd->clks)
->> +               return -ENOMEM;
->> +
->> +       for (i = 0; i < pd->num_clks; i++)
->> +               pd->clks[i].id = clk_names[i];
->> +
->> +       ret = devm_clk_bulk_get(dev, pd->num_clks, pd->clks);
->> +       if (ret)
->> +               return dev_err_probe(dev, ret, "Failed to get GPU clocks\n");
->> +
->> +       return 0;
->> +}
->> +
->> +static int th1520_gpu_init_consumer_reset(struct device *dev,
->> +                                         struct th1520_power_domain *pd)
->> +{
->> +       int ret;
->> +
->> +       pd->gpu_reset = reset_control_get_exclusive(dev, NULL);
->> +       if (IS_ERR(pd->gpu_reset)) {
->> +               ret = PTR_ERR(pd->gpu_reset);
->> +               pd->gpu_reset = NULL;
->> +               return dev_err_probe(dev, ret, "Failed to get GPU reset\n");
->> +       }
->> +
->> +       return 0;
->> +}
->> +
->> +static int th1520_gpu_init_pm_reset(struct device *dev,
->> +                                   struct th1520_power_domain *pd)
->> +{
->> +       pd->clkgen_reset = devm_reset_control_get_exclusive(dev, "gpu-clkgen");
->> +       if (IS_ERR(pd->clkgen_reset))
->> +               return dev_err_probe(dev, PTR_ERR(pd->clkgen_reset),
->> +                                    "Failed to get GPU clkgen reset\n");
->> +
->> +       return 0;
->> +}
->> +
->> +static int th1520_gpu_domain_attach_dev(struct generic_pm_domain *genpd,
->> +                                       struct device *dev)
->> +{
->> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
->> +       int ret;
->> +
->> +       /* Enforce 1:1 mapping - only one device can be attached. */
->> +       if (pd->attached_dev)
->> +               return -EBUSY;
->> +
->> +       /* Initialize clocks using the consumer device */
->> +       ret = th1520_gpu_init_consumer_clocks(dev, pd);
->> +       if (ret)
->> +               return ret;
->> +
->> +       /* Initialize consumer reset using the consumer device */
->> +       ret = th1520_gpu_init_consumer_reset(dev, pd);
->> +       if (ret) {
->> +               if (pd->clks) {
->> +                       clk_bulk_put(pd->num_clks, pd->clks);
->> +                       kfree(pd->clks);
->> +                       pd->clks = NULL;
->> +                       pd->num_clks = 0;
->> +               }
->> +               return ret;
->> +       }
->> +
->> +       /* Mark device as platform PM driver managed */
->> +       device_platform_resources_set_pm_managed(dev, true);
->> +       pd->attached_dev = dev;
->> +
->> +       return 0;
->> +}
->> +
->> +static void th1520_gpu_domain_detach_dev(struct generic_pm_domain *genpd,
->> +                                        struct device *dev)
->> +{
->> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
->> +
->> +       /* Ensure this is the device we have attached */
->> +       if (pd->attached_dev != dev) {
->> +               dev_warn(dev,
->> +                        "tried to detach from GPU domain but not attached\n");
->> +               return;
->> +       }
->> +
->> +       /* Remove PM managed flag when detaching */
->> +       device_platform_resources_set_pm_managed(dev, false);
->> +
->> +       /* Clean up the consumer-owned resources */
->> +       if (pd->gpu_reset) {
->> +               reset_control_put(pd->gpu_reset);
->> +               pd->gpu_reset = NULL;
->> +       }
->> +
->> +       if (pd->clks) {
->> +               clk_bulk_put(pd->num_clks, pd->clks);
->> +               kfree(pd->clks);
->> +               pd->clks = NULL;
->> +               pd->num_clks = 0;
->> +       }
->> +
->> +       pd->attached_dev = NULL;
->> +}
->> +
->> +static int th1520_gpu_domain_start(struct device *dev)
->> +{
->> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
->> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
->> +       int ret;
->> +
->> +       /* Check if we have all required resources */
->> +       if (pd->attached_dev != dev || !pd->clks || !pd->gpu_reset ||
->> +           !pd->clkgen_reset)
->> +               return -ENODEV;
->> +
->> +       ret = clk_bulk_prepare_enable(pd->num_clks, pd->clks);
->> +       if (ret)
->> +               return ret;
->> +
->> +       ret = reset_control_deassert(pd->clkgen_reset);
->> +       if (ret)
->> +               goto err_disable_clks;
->> +
->> +       /*
->> +        * According to the hardware manual, a delay of at least 32 clock
->> +        * cycles is required between de-asserting the clkgen reset and
->> +        * de-asserting the GPU reset. Assuming a worst-case scenario with
->> +        * a very high GPU clock frequency, a delay of 1 microsecond is
->> +        * sufficient to ensure this requirement is met across all
->> +        * feasible GPU clock speeds.
->> +        */
->> +       udelay(1);
->> +
->> +       ret = reset_control_deassert(pd->gpu_reset);
->> +       if (ret)
->> +               goto err_assert_clkgen;
->> +
->> +       return 0;
->> +
->> +err_assert_clkgen:
->> +       reset_control_assert(pd->clkgen_reset);
->> +err_disable_clks:
->> +       clk_bulk_disable_unprepare(pd->num_clks, pd->clks);
->> +       return ret;
->> +}
->> +
->> +static int th1520_gpu_domain_stop(struct device *dev)
->> +{
->> +       struct generic_pm_domain *genpd = pd_to_genpd(dev->pm_domain);
->> +       struct th1520_power_domain *pd = to_th1520_power_domain(genpd);
->> +
->> +       /* Check if we have all required resources and if this is the attached device */
->> +       if (pd->attached_dev != dev || !pd->clks || !pd->gpu_reset ||
->> +           !pd->clkgen_reset)
->> +               return -ENODEV;
->> +
->> +       reset_control_assert(pd->gpu_reset);
->> +       reset_control_assert(pd->clkgen_reset);
->> +       clk_bulk_disable_unprepare(pd->num_clks, pd->clks);
->> +
->> +       return 0;
->> +}
->> +
->>  static struct generic_pm_domain *th1520_pd_xlate(const struct of_phandle_args *spec,
->>                                                  void *data)
->>  {
->> @@ -99,6 +282,22 @@ th1520_add_pm_domain(struct device *dev, const struct th1520_power_info *pi)
->>         pd->genpd.power_off = th1520_pd_power_off;
->>         pd->genpd.name = pi->name;
->>
->> +       /* there are special callbacks for the GPU */
->> +       if (pi == &th1520_pd_ranges[TH1520_GPU_PD]) {
->> +               /* Initialize the PM-owned reset */
->> +               ret = th1520_gpu_init_pm_reset(dev, pd);
->> +               if (ret)
->> +                       return ERR_PTR(ret);
->> +
->> +               /* No device attached yet */
->> +               pd->attached_dev = NULL;
->> +
->> +               pd->genpd.dev_ops.start = th1520_gpu_domain_start;
->> +               pd->genpd.dev_ops.stop = th1520_gpu_domain_stop;
->> +               pd->genpd.attach_dev = th1520_gpu_domain_attach_dev;
->> +               pd->genpd.detach_dev = th1520_gpu_domain_detach_dev;
->> +       }
->> +
->>         ret = pm_genpd_init(&pd->genpd, NULL, true);
->>         if (ret)
->>                 return ERR_PTR(ret);
->>
->> --
->> 2.34.1
->>
-> 
-
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCAyMDI1LTA0LTMwIGF0IDEzOjAyICswMjAwLCBOYW0gQ2FvIHdyb3RlOgo+IFJlYWwt
+dGltZSBhcHBsaWNhdGlvbnMgbWF5IGhhdmUgZGVzaWduIGZsYXdzIGNhdXNpbmcgdGhlbSB0byBo
+YXZlCj4gdW5leHBlY3RlZCBsYXRlbmN5LiBGb3IgZXhhbXBsZSwgdGhlIGFwcGxpY2F0aW9ucyBt
+YXkgcmFpc2UgcGFnZQo+IGZhdWx0cywgb3IKPiBtYXkgYmUgYmxvY2tlZCB0cnlpbmcgdG8gdGFr
+ZSBhIG11dGV4IHdpdGhvdXQgcHJpb3JpdHkgaW5oZXJpdGFuY2UuCj4gCj4gSG93ZXZlciwgd2hp
+bGUgYXR0ZW1wdGluZyB0byBpbXBsZW1lbnQgREEgbW9uaXRvcnMgZm9yIHRoZXNlIHJlYWwtCj4g
+dGltZQo+IHJ1bGVzLCBkZXRlcm1pbmlzdGljIGF1dG9tYXRvbiBpcyBmb3VuZCB0byBiZSBpbmFw
+cHJvcHJpYXRlIGFzIHRoZQo+IHNwZWNpZmljYXRpb24gbGFuZ3VhZ2UuIFRoZSBhdXRvbWF0b24g
+aXMgY29tcGxpY2F0ZWQsIGhhcmQgdG8KPiB1bmRlcnN0YW5kLAo+IGFuZCBlcnJvci1wcm9uZS4K
+PiAKPiBGb3IgdGhlc2UgY2FzZXMsIGxpbmVhciB0ZW1wb3JhbCBsb2dpYyBpcyBmb3VuZCB0byBi
+ZSBtb3JlIHN1aXRhYmxlLgo+IFRoZQo+IExUTCBpcyBtb3JlIGNvbmNpc2UgYW5kIGludHVpdGl2
+ZS4KPiAKPiBUaGlzIHNlcmllcyBhZGRzIHN1cHBvcnQgZm9yIExUTCBSViBtb25pdG9yLCBhbmQg
+dXNlIGl0IHRvIGltcGxlbWVudAo+IHR3bwo+IG1vbml0b3JzIGZvciByZXBvcnRpbmcgcHJvYmxl
+bXMgd2l0aCByZWFsLXRpbWUgdGFza3MuCj4gCgpTdGV2ZSwKCkZyb20gbXkgcG9pbnQgb2Ygdmll
+dyB0aGlzIHNlcmllcyBpcyByZWFkeSBmb3IgaW5jbHVzaW9uLCB3aGF0IGRvIHlvdQp0aGluaz8K
+CldlIG1heSBzdGlsbCBuZWVkIEFja3MgZnJvbSB0aGUgeDg2IGFuZCBhcm02NCBtYWludGFpbmVy
+cyByZWdhcmRpbmcgdGhlCnRyYWNlcG9pbnRzIGNoYW5nZXMsIHRob3VnaC4KClRoYW5rcywKR2Fi
+cmllbGUKCj4gUGF0Y2ggMS0xMiBjbGVhbnVwIGFuZCBwcmVwYXJlIHRoZSBSViBjb2RlIGZvciB0
+aGUgaW50ZWdyYXRpb24gb2YgTFRMCj4gbW9uaXRvcnMuCj4gCj4gUGF0Y2ggMTMgYWRkcyBzdXBw
+b3J0IGZvciBMVEwgbW9uaXRvcnMuCj4gCj4gUGF0Y2ggMTQgYWRkcyB0aGUgY29udGFpbmVyIG1v
+bml0b3IgInJ0YXBwIi4gVGhpcyBlbmNhcHN1bGF0ZXMgdGhlCj4gc3ViLW1vbml0b3JzIGZvciBy
+ZWFsLXRpbWUuCj4gCj4gUGF0Y2ggMTUtMTggcHJlcGFyZXMgdGhlIHBhZ2VmYXVsdCB0cmFjZXBv
+aW50cywgc28gdGhhdCBwYXRjaCAxOSBjYW4KPiBhZGQKPiB0aGUgbW9uaXRvciB3aGljaCB3YXRj
+aGVzIHJlYWwtdGltZSB0YXNrcyBkb2luZyBwYWdlIGZhdWx0cy4KPiAKPiBQYXRjaCAyMCBhZGRz
+IHRoZSAic2xlZXAiIG1vbml0b3I6IGl0IGRldGVjdHMgcG90ZW50aWFsIHVuZGVzaXJhYmxlCj4g
+bGF0ZW5jeQo+IHdpdGggcmVhbC10aW1lIHRocmVhZHMuCj4gCj4gUGF0Y2ggMjEgYWRkcyBkb2N1
+bWVudGF0aW9uIG9uIHRoZSBuZXcgbW9uaXRvcnMuCj4gCj4gUGF0Y2ggMjIgYWxsb3dzIHRoZSBu
+dW1iZXIgb2YgcGVyLXRhc2sgbW9uaXRvcnMgdG8gYmUgY29uZmlndXJhYmxlLAo+IHNvIHRoYXQK
+PiB0aGUgdHdvIG5ldyBtb25pdG9ycyBjYW4gYmUgZW5hYmxlZCBzaW11bHRhbmVvdXNseS4KPiAK
+PiB2NS0+djYKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sL2NvdmVyLjE3NDU5MjYzMzEu
+Z2l0Lm5hbWNhb0BsaW51dHJvbml4LmRlCj4gwqAgLSBzbGVlcCBtb25pdG9yOiBEcm9wIHRoZSBi
+bG9ja19vbl9ydF9tdXRleCB0cmFjZXBvaW50cy4gVGhlCj4gY29udGVudGlvbgo+IMKgwqDCoCB0
+cmFjZXBvaW50cyBhcmUgc3VmZmljaWVudC4KPiAKPiB2NC0+djUKPiBodHRwczovL2xvcmUua2Vy
+bmVsLm9yZy9sa21sL2NvdmVyLjE3NDUzOTA4MjkuZ2l0Lm5hbWNhb0BsaW51dHJvbml4LmRlCj4g
+wqAgLSBzbGVlcCBtb25pdG9yOiBGaXggYSBmYWxzZSBwb3NpdGl2ZSBkdWUgdG8gYSByYWNlIHdp
+dGggd2FraW5nIGFuZAo+IMKgwqDCoCBzY2hlZHVsaW5nLgo+IMKgIC0gc2xlZXAgbW9uaXRvcjog
+QWRkIGJsb2NrX29uX3J0X211dGV4IHRyYWNlcG9pbnRzIGFuZCB1c2UgdGhlbSBmb3IKPiDCoMKg
+wqAgQkxPQ0tfT05fUlRfTVVURVgsIGluc3RlYWQgb2YgdHJhY2Vfc2NoZWRfcGlfc2V0cHJpbwo+
+IMKgIC0gc2xlZXAgbW9uaXRvcjogdGlnaHRlbiB0aGUgcnVsZSBvbiBuYW5vc2xlZXA6IG9ubHkK
+PiBjbG9ja19uYW5vc2xlZXAoKQo+IMKgwqDCoCB3aXRoIFRJTUVSX0FCU1RJTUUgYW5kIENMT0NL
+X01PTk9UT05JQyBpcyBhbGxvd2VkCj4gwqAgLSBhZGQgY29tbWVudHMgZXhwbGFpbmluZyB3aHkg
+aXQgaXMgY29ycmVjdCB0byB0cmVhdCBQSS1ib29zdGVkCj4gdGFza3MgYXMKPiDCoMKgwqAgcmVh
+bC10aW1lIHRhc2tzLgo+IAo+IMKgwqDCoCBJdCBzaG91bGQgYmUgbm90ZWQgdGhhdCBkdWUgdG8g
+dGhlIGNoYW5nZXMgaW4gdjUsICdwZXJmJyBkb2VzIG5vdAo+IHdvcmsKPiDCoMKgwqAgYXMgd2Vs
+bCBhcyBiZWZvcmUsIGJlY2F1c2Ugc29tZXRpbWVzIHRoZSBlcnJvcnMgaGFwcGVuIG91dCBvZiB0
+aGUKPiDCoMKgwqAgcmVhbC10aW1lIHRhc2tzJyBjb250ZXh0cy4gRml4aW5nIHRoaXMgaXMgbGVm
+dCBmb3IgZnV0dXJlIHdvcmsuCj4gCj4gwqDCoMKgIHN0cmVzcy1uZyBpcyBhbHNvIGZhciBub2lz
+aWVyIGluIHY1LCBiZWNhdXNlIHRoZSBydWxlIG9uCj4gbmFub3NsZWVwIGlzCj4gwqDCoMKgIHRp
+Z2h0ZW5lZC4KPiAKPiB2My0+djQKPiBodHRwczovL2xvcmUua2VybmVsLm9yZy9sa21sL2NvdmVy
+LjE3NDQ3ODUzMzUuZ2l0Lm5hbWNhb0BsaW51dHJvbml4LmRlCj4gwqAgLSBzdXBwb3J0IGRlYWRs
+aW5lIHRhc2tzCj4gwqAgLSBydGFwcF9zbGVlcDogdXNlIHNjaGVkX3BpX3NldHByaW8gdHJhY2Vw
+b2ludCBpbnN0ZWFkIG9mCj4gY29udGVudGlvbgo+IMKgwqDCoCB0cmFjZXBvaW50cyBmb3IgQkxP
+Q0tfT05fUlRfTVVURVgsIHNvIHRoYXQgcHJveHkgbG9jayBpcyBjb3ZlcmVkLgo+IMKgIC0gZml4
+IHRoZSBzY3JpcHRzIGdlbmVyYXRpbmcgYW4gInNsaWdodGx5IiBpbmNvcnJlY3QgdmVyaWZpY2F0
+aW9uCj4gYXV0b21hdG9uCj4gwqAgLSBtYWtlcyBydGFwcCBtb25pdG9yIGRlcGVuZHMgb24gUlZf
+UEVSX1RBU0tfTU9OSVRPUlMgPj0gMgo+IMKgIC0gbWFrZSB0aGUgZXZlbnQgdHJhY2Vwb2ludCBv
+dXRwdXQgYSBiaXQgbW9yZSByZWFkYWJsZQo+IMKgIC0gc29tZSBkb2N1bWVudGF0aW9uJ3MgZm9y
+bWF0IGZpeGVzCj4gCj4gdjItPnYzCj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC9jb3Zl
+ci4xNzQ0MzU1MDE4LmdpdC5uYW1jYW9AbGludXRyb25peC5kZS8KPiDCoCAtIGZpeCBhIHByb2Js
+ZW0gd2l0aCBzbGVlcCBtb25pdG9yJ3Mgc3BlY2lmaWNhdGlvbiAoYXJvdW5kCj4gwqDCoMKgIEtU
+SFJFQURfU0hPVUxEX1NUT1ApCj4gwqAgLSBtZXJnZSB0aGUgcGF0Y2hlcyB0aGF0IG1vdmUgdGhl
+IGRvdDJrL3J2Z2VuIHNjcmlwdHMgYXJvdW5kCj4gwqAgLSBwdWxsIHBhbmljL3ByaW50ayBjaGFu
+Z2VzIGludG8gc2VwYXJhdGUgcGF0Y2hlcwo+IMKgIC0gZml4dXAgc29tZSBidWlsZCBlcnJvcnMK
+PiDCoCAtIGZpeHVwIG1vbml0b3IncyBpbml0IGZ1bmN0aW9uIHJldHVybiBjb2RlCj4gwqAgLSBm
+aXggc29tZSBmbGFrZTggd2FybmluZ3Mgd2l0aCB0aGUgc2NyaXB0cwo+IMKgIC0gYWRkIHNvbWUg
+cmVmZXJlbmNlcyB0byBMVEwgZG9jdW1lbnRhdGlvbgo+IMKgIC0gZml4dXAgc29tZSBtaXN0YWtl
+cyB3aXRoIHJ0YXBwIGRvY3VtZW50YXRpb24KPiDCoCAtIGZpeHVwIGNhcGl0YWxpemF0aW9uIG1p
+c3Rha2Ugd2l0aCBtb25pdG9yX3N5bnRoZXNpcy5yc3QKPiDCoCAtIHJlbW92ZSB0aGUgbm93LXJl
+ZHVuZGFudCBtYWNybyBSVl9QRVJfVEFTS19NT05JVE9SUwo+IAo+IHYxLT52Mgo+IGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL2xrbWwvY292ZXIuMTc0MTcwODIzOS5naXQubmFtY2FvQGxpbnV0cm9u
+aXguZGUvCj4gwqAgLSBJbnRlZ3JhdGUgdGhlIExUTCBzY3JpcHRzIGludG8gdGhlIGV4aXN0aW5n
+IGRvdDJrIHRvb2wsIHRha2luZwo+IMKgwqDCoCBhZHZhbnRhZ2Ugb2YgdGhlIGV4aXN0aW5nIG1v
+bml0b3IgZ2VuZXJhdGlvbiBzY3JpcHRzLgo+IMKgIC0gU3dpdGNoIHRoZSBzdHJ1Y3QgbHRsX21v
+bml0b3IgdG8gdXNlIGJpdG1hcCBpbnN0ZWFkIG9mIGFuIGFycmF5LAo+IHRvCj4gwqDCoMKgIG9w
+dGltaXplIG1lbW9yeSB1c2FnZS4KPiDCoCAtIENvcnJlY3QgdGhlIGdlbmVyYXRlZCBjb2RlIHRv
+IGJlIG5vbi1kZXRlcm1pbmlzdGljIHN0YXRlIG1hY2hpbmUsCj4gwqDCoMKgIGluc3RlYWQgb2Yg
+ZGV0ZXJtaW5pc3RpYyBzdGF0ZSBtYWNoaW5lCj4gwqAgLSBQdXQgY29tbW9uIGNvZGUgZm9yIGFs
+bCBMVEwgbW9uaXRvcnMgaW50byBhIHNpbmdsZSBmaWxlCj4gwqDCoMKgIChpbmNsdWRlL3J2L2x0
+bF9tb25pdG9yLmgpLCByZWR1Y2luZyBjb2RlIGR1cGxpY2F0aW9uCj4gwqAgLSBDaGFuZ2UgdGhl
+IExUTCBtb25pdG9ycyB0byBtYWtlIHVzZXIgb2YgY29udGFpbmVyLiBBZGQgYSBidWcgZml4Cj4g
+dG8KPiDCoMKgwqAgY29udGFpbmVyIHdoaWxlIGF0IGl0Lgo+IMKgIC0gTWFrZSB0aGUgbnVtYmVy
+IG9mIHBlci10YXNrIG1vbml0b3IgY29uZmlndXJhYmxlCgoKX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFp
+bG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
