@@ -4,91 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0212C369DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 13:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95717C369D9
+	for <linux-riscv@archiver.kernel.org>; Wed, 30 Apr 2025 13:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YEqfRjMtc8BXfvC0OT58RpzEwUnccFgNYg7Of8veMPQ=; b=Mai93Sn43glAPQ
-	Bbnq4j7toHxAK0gx/YfBreOk+8k4SCLfsajt0uvYkDOcU9vTX/a00J7ROBWPvSfFXkxLNO/v7Gjm3
-	HxYMP14WTdOG2fMBwogmiHL1NmG2NhhLoOIZRqFIp81Wkf7WHQUa9qDT7nBJ8NhnqKCPyMExLJ688
-	UHEZkLLwZv6nRhGwq87Dt7nOaN5tKvGdxSMkOcz6UXwgmZNlUR/lqSSVa+w7edq0OEchQA2c5bxDX
-	jKmQuNFM1DVJZvU7cKwmFTgwNUhbDnxi/pdtkGpYfNAY7hgbDsGa3718HXfPPwkZOQ3p+T9qt9C/d
-	vOLnwsyWUM5oVGGOvXig==;
+	List-Owner; bh=FdcDHjQMhSceSLZMqzyWdOz7erK6tCqxoK4NUnFJaDs=; b=LBvGhjgciy2ueq
+	FtGrkvyLpR0XOdFkaasyAU0a0q6GZeIlWK00nMfJMQmjdMNv05hITlSW0Q5p4FB3zxu62LNvZ5CXj
+	3eJpoXuacEJAzt6LWQNLmnjmtY66U3OC6vitzQ76/7wIBmJKdSHS2jn2nxnJA0wWXkvjAgsAgD9JW
+	mn1Z5w11f/+8k/grV+trNcb++NjyDaLhXdOmJcvVHlf49/eE/Gl4qeGu1WD1OsbfyNzTa4F0ClgQN
+	+F4JfKu4ukKP7LREJpWwWrLSQNdy0FQKFmrjtdu5LJ6gSvF32Rp1L/whK8s4hMx2E4JJfAFJKzFME
+	kVXrLjhDPtRGZRIsN4Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA75Z-0000000CvAY-21FZ;
-	Wed, 30 Apr 2025 13:03:01 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1uA7K3-0000000CyDF-11Uo;
+	Wed, 30 Apr 2025 13:17:59 +0000
+Received: from mx0a-001b2d01.pphosted.com ([148.163.156.1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uA75H-0000000Cv7w-2X4a
-	for linux-riscv@lists.infradead.org;
-	Wed, 30 Apr 2025 13:02:44 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3d96d16b375so787415ab.1
-        for <linux-riscv@lists.infradead.org>; Wed, 30 Apr 2025 06:02:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1746018162; x=1746622962; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=vp0okNAQhGtn3j89G0GTNiN0i7XN6OEtooLucIvK78M=;
-        b=NUwgFXSkO5XXyyIHsVbmXsjqfqQRdqbKhpiKnmqx4nLuLYRBUhP1Wo5zN18/vmTODm
-         D26nSopBPicaL8OMMle5nON0SZgitORPgvqltGd6+a7G60JQ4iEL4jPbzy9rVs/Iy77Q
-         92f0Yy7lUU2fGLGRPrSXVmpWIzPR2D7bNHdzX7QP9HMtnz8Cff3C7LrUcIh05k7/rAF3
-         BVHwbwLrYz/rDJDXM5OxLF4nY3oa/4R5Zi0dj/9anvWyF7L8zWyMZ2JGPUJAAjxGTEpV
-         ugo8W+5tTwqlLHNJOeV9P4bNEQeguuZkNXIPSKa+FBZ6F8zGzvK6wcsvWbP6HF3U6NMM
-         IK/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746018162; x=1746622962;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=vp0okNAQhGtn3j89G0GTNiN0i7XN6OEtooLucIvK78M=;
-        b=YcdAKi3CtfRAfvkbnJXuP1znKGOMLscwJdwSr8ca7GlBukPx/XQjMRheR0896cnrDU
-         ma1waFBQBVqIELeRZkdmMqS+ZylRR1Hcsamd1hrpNxehGhH9p/+rH8GoldzXthyE1wK0
-         kplFWaUAZTe7/Kkj+sr7Keeiv62mB+dHHcueukREOKyGYYL+0zKD6L8GW39SMFWuKWYx
-         wsrCZhJfrFL6ka95aaQAIbHPmg18BBBUhkf6tUQzXsdr2KQ95Cdrj9Sw0WIrtITZH6Ih
-         Frz302Si1f7Z1tS88vPGojzZEjuDFzdfKcy3RO2qisnzP+04BbErtbvpzKJRGwvwsuod
-         me/g==
-X-Forwarded-Encrypted: i=1; AJvYcCVcUGUQFEnQcevHpph75gFBTWcJ7zO5eoTG6ChxQl6aOzLm7iiBa2JBEYhF5JDZGKeJBH5qkE4jL2lBKw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1Y3Jt7ifZDRa7bRgGgQumtOEZR0cMtB3szYceEio6jbw9NXOd
-	smd9zkOdloxUSQE0jCIeY7Oljh8/IQ7f0G2yQovrGfzknMhqhhAt5GDghz1sCHGAcE4e/fKepIn
-	CwZdtW92AK/o7mz+PDzYdyBvnuUtWbdyE1jv2o5Pt9702j378WXY=
-X-Gm-Gg: ASbGncuI+p1tNw+oOGUIYExkJ4MlqJ8ild3HKMH0CXsAn/ckXiBbOjT7CkaJ/SccJdE
-	YIGCONDu9IpCKZ5d5qKFKwt9MGNeIoyNL6C2YAO/9LmzTIes1kCuDL2eW9g4jEAXdiGIP+1D00Q
-	VONkDsDaeLU9ZkINB2vjMQ0ZQ=
-X-Google-Smtp-Source: AGHT+IFltNG5LrzMPCK7C6LDg14PO7W7coDdcuUm278zKD9SLwj77Gzwt4AG6zeQBZfmymsMU1N87BYFfyazgTLsFRc=
-X-Received: by 2002:a05:6e02:188a:b0:3d8:975:b825 with SMTP id
- e9e14a558f8ab-3d967fa1b89mr21495005ab.5.1746018162237; Wed, 30 Apr 2025
- 06:02:42 -0700 (PDT)
+	id 1uA7I5-0000000CxrS-1pSg;
+	Wed, 30 Apr 2025 13:15:58 +0000
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 53UA4Dwk006413;
+	Wed, 30 Apr 2025 13:15:29 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=q/kum/
+	xyIExGMc5hG28NRFZbeGIOSqBLoOtMSE9kQno=; b=DOG7cRspj7YVva03zbzaew
+	s/h5qhtz+RmrLfuzsQjKqli6vyk+MQaCg7PM5jGZfr348vQjgPOOmfEiXXDzdbbR
+	GAT8WVzE+rcm1+C0oJHsODPKDMSF89umb6nhM/pZH56IQ4tPabd/R+Lf6V7xjQLA
+	cEVsMxAryq2y7hXaK6WHZWwD9evw2sfZqkjxBRDud/shVP28JoS9ZoOKfW46+GGU
+	KhntCIY0Hu88JkqRaWWeTvAI9GRc3I2KDQm5VmmT9rBQlM/Vknbbp49I+UQ905/+
+	2ayvVw/NMpjUM/CGINyT6dJyAbtc/XZ3TbswfR4Ze/Ty/Au38w1QrbMe4U4pQYWQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46bhsjrupg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 13:15:28 +0000 (GMT)
+Received: from m0360083.ppops.net (m0360083.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 53UDElTg022870;
+	Wed, 30 Apr 2025 13:15:27 GMT
+Received: from ppma22.wdc07v.mail.ibm.com (5c.69.3da9.ip4.static.sl-reverse.com [169.61.105.92])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46bhsjrupb-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 13:15:27 +0000 (GMT)
+Received: from pps.filterd (ppma22.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma22.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 53UC99Q8016145;
+	Wed, 30 Apr 2025 13:15:26 GMT
+Received: from smtprelay02.dal12v.mail.ibm.com ([172.16.1.4])
+	by ppma22.wdc07v.mail.ibm.com (PPS) with ESMTPS id 469a70g3cm-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 30 Apr 2025 13:15:25 +0000
+Received: from smtpav04.wdc07v.mail.ibm.com (smtpav04.wdc07v.mail.ibm.com [10.39.53.231])
+	by smtprelay02.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 53UDFOdT63766940
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 30 Apr 2025 13:15:24 GMT
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 50CFB58052;
+	Wed, 30 Apr 2025 13:15:24 +0000 (GMT)
+Received: from smtpav04.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id B775158060;
+	Wed, 30 Apr 2025 13:15:15 +0000 (GMT)
+Received: from [9.111.36.251] (unknown [9.111.36.251])
+	by smtpav04.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 30 Apr 2025 13:15:15 +0000 (GMT)
+Message-ID: <176e3870fd0284a05a19d424ad1a56e73120573c.camel@linux.ibm.com>
+Subject: Re: [PATCH 4/7] iommu: Remove iommu_ops pgsize_bitmap from simple
+ drivers
+From: Niklas Schnelle <schnelle@linux.ibm.com>
+To: Jason Gunthorpe <jgg@nvidia.com>, Alexandre Ghiti <alex@ghiti.fr>,
+        Alim
+ Akhtar <alim.akhtar@samsung.com>,
+        Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+        AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+        Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+        Baolin Wang
+ <baolin.wang@linux.alibaba.com>,
+        Lu Baolu	 <baolu.lu@linux.intel.com>,
+        David Woodhouse <dwmw2@infradead.org>,
+        Gerald Schaefer
+ <gerald.schaefer@linux.ibm.com>,
+        Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+        Janne Grunau	 <j@jannau.net>,
+        Jean-Philippe Brucker
+ <jean-philippe@linaro.org>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Jonathan Hunter <jonathanh@nvidia.com>,
+        Joerg Roedel	 <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+        Krzysztof Kozlowski	 <krzk@kernel.org>,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+        linux-tegra@vger.kernel.org,
+        Marek Szyprowski	 <m.szyprowski@samsung.com>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Matthew Rosato
+ <mjrosato@linux.ibm.com>, Neal Gompa <neal@gompa.dev>,
+        Orson Zhai
+ <orsonzhai@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+        Paul Walmsley
+ <paul.walmsley@sifive.com>,
+        Rob Clark	 <robdclark@gmail.com>, Robin Murphy
+ <robin.murphy@arm.com>,
+        Samuel Holland	 <samuel@sholland.org>,
+        Sven Peter
+ <sven@svenpeter.dev>,
+        Thierry Reding	 <thierry.reding@gmail.com>,
+        Tomasz
+ Jeznach <tjeznach@rivosinc.com>,
+        Krishna Reddy <vdumpa@nvidia.com>, virtualization@lists.linux.dev,
+        Chen-Yu Tsai <wens@csie.org>, Will Deacon
+ <will@kernel.org>,
+        Yong Wu <yong.wu@mediatek.com>, Chunyan Zhang
+ <zhang.lyra@gmail.com>
+Cc: patches@lists.linux.dev
+Date: Wed, 30 Apr 2025 15:15:14 +0200
+In-Reply-To: <4-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+References: <4-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+Autocrypt: addr=schnelle@linux.ibm.com; prefer-encrypt=mutual; keydata=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
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
- <20250403112522.1566629-7-rkrcmar@ventanamicro.com> <CAAhSdy0e3HVN6pX-hcX2N+kpwsupsCf6BqrYq=bvtwtFOuEVhA@mail.gmail.com>
- <D9IGJR9DGFAM.1PVHVOOTVRFZW@ventanamicro.com> <CAK9=C2Woc5MtrJeqNtaVkMXWEsGeZPsmUgtFQET=OKLHLwRbPA@mail.gmail.com>
- <D9J1TBKYC8YH.1OPUI289U0O2C@ventanamicro.com> <CAAhSdy01yBBfJwdTn90WeXFR85=1zTxuebFhi4CQJuOujVTHXg@mail.gmail.com>
- <D9J9DW53Q2GD.1PB647ISOCXRX@ventanamicro.com> <CAAhSdy0B-pF-jHmTXNYE7NXwdCWJepDtGR__S+P4MhZ1bfUERQ@mail.gmail.com>
- <CAAhSdy20pq3KvbCeST=h+O5PWfs2E4uXpX9BbbzE7GJzn+pzkA@mail.gmail.com>
- <D9JTZ6HH00KY.1B1SKH1Z0UI1S@ventanamicro.com> <CAAhSdy0TfpWQ-kC_gUUCU0oC5dR45A1v9q84H2Tj9A8kdO0d1A@mail.gmail.com>
- <D9JY52BJEFX2.2S5XL9NOOGBS7@ventanamicro.com>
-In-Reply-To: <D9JY52BJEFX2.2S5XL9NOOGBS7@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 30 Apr 2025 18:32:31 +0530
-X-Gm-Features: ATxdqUEFxpf2kco5RCzE6InKYF1PowLSM7jupULrAjdgxCDaTJf8QVEmoaCDMJQ
-Message-ID: <CAAhSdy1xCRocu2uNri4iDm+NQd+VE8JRVeASfYJ8Qspr5aEz8g@mail.gmail.com>
-Subject: Re: [PATCH 4/5] KVM: RISC-V: reset VCPU state when becoming runnable
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: Anup Patel <apatel@ventanamicro.com>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <ajones@ventanamicro.com>, Mayuresh Chitale <mchitale@ventanamicro.com>
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=dcuA3WXe c=1 sm=1 tr=0 ts=68122270 cx=c_pps a=5BHTudwdYE3Te8bg5FgnPg==:117 a=5BHTudwdYE3Te8bg5FgnPg==:17 a=IkcTkHD0fZMA:10 a=XR8D0OoHHMoA:10 a=Ikd4Dj_1AAAA:8 a=VnNF1IyMAAAA:8 a=_knvdkSgN1paDctlJl8A:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: R-J8zs6vbU8Fj3Hg9HUhfjU7mRcYm1f9
+X-Proofpoint-ORIG-GUID: vs1u3Uxwur-7V56wvsM_6u35JXL4UxRN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNDMwMDA5NCBTYWx0ZWRfX0crM3ye1wDMC kbmvOcxMpt8qp2kb4hwNdhueblTXbdKjNKMEcOSa9phlvxoFwMQXJmwiAp7rlQ7umEpUTk9O8CH UCh1SsJLhJFOGqLkqdLIUMVxHD2tmkVHp21Kmq6apmJj6BpFoInlRLKY9vyZKSLjWOjbIl3rD7l
+ YawL/LEQRbIf0uhOvsspLktyC77qIIQvgQt4rRFWnDeyuOyiGrRyPobDRpyhZCfQTwFfkLm8LtY NZ7rCINGc6RERQcdHZhgAdny2ZdDjlFvLirlNByExuRX1MLsV5nVvf+goh9gNvItulc1gKtQGp+ rq1FAXQIMKZNw/CwAz671p6Mrn4TKgH4erOUiMN+gjKhWQapr6AEiC7/lnishFqsgt9s/516iPH
+ LvI+GvtmUiFHTYwvCG4xuzdAArZsdz5kRIQHBnA3AwCDoxMRS+qc0YKJmRX8qpFUjzE3x0Dg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-04-30_04,2025-04-24_02,2025-02-21_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 suspectscore=0
+ spamscore=0 impostorscore=0 bulkscore=0 adultscore=0 mlxscore=0
+ malwarescore=0 mlxlogscore=999 priorityscore=1501 lowpriorityscore=0
+ clxscore=1011 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2504070000
+ definitions=main-2504300094
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_060243_921962_9FC054FD 
-X-CRM114-Status: GOOD (  32.90  )
+X-CRM114-CacheID: sfid-20250430_061557_476639_4F0D132F 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,71 +158,102 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBBcHIgMzAsIDIwMjUgYXQgNToxNeKAr1BNIFJhZGltIEtyxI1tw6HFmSA8cmtyY21h
-ckB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IDIwMjUtMDQtMzBUMTU6NDc6MTMrMDU6MzAs
-IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Ogo+ID4gT24gV2VkLCBBcHIgMzAsIDIw
-MjUgYXQgMTo1OeKAr1BNIFJhZGltIEtyxI1tw6HFmSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29t
-PiB3cm90ZToKPiA+PiAyMDI1LTA0LTMwVDEwOjU2OjM1KzA1OjMwLCBBbnVwIFBhdGVsIDxhbnVw
-QGJyYWluZmF1bHQub3JnPjoKPiA+PiA+IE9uIFdlZCwgQXByIDMwLCAyMDI1IGF0IDk6NTLigK9B
-TSBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPiB3cm90ZToKPiA+PiA+PiBPbiBUdWUs
-IEFwciAyOSwgMjAyNSBhdCA5OjUx4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRh
-bmFtaWNyby5jb20+IHdyb3RlOgo+ID4+ID4+ID4gVGhlIHBvaW50IG9mIHRoaXMgcGF0Y2ggaXMg
-dG8gcmVzZXQgdGhlIGJvb3QgVkNQVSwgc28gd2UgcmVzZXQgdGhlIFZDUFUKPiA+PiA+PiA+IHRo
-YXQgaXMgbWFkZSBydW5uYWJsZSBieSB0aGUgS1ZNX1NFVF9NUF9TVEFURSBJT0NUTC4KPiA+PiA+
-Pgo+ID4+ID4+IExpa2UgSSBzYWlkIGJlZm9yZSwgd2UgZG9uJ3QgbmVlZCB0byBkbyB0aGlzLiBU
-aGUgaW5pdGlhdGluZyBWQ1BVCj4gPj4gPj4gY2FuIGJlIHJlc2V0dGVkIGp1c3QgYmVmb3JlIGV4
-aXRpbmcgdG8gdXNlciBzcGFjZSBmb3Igc3lzdGVtIHJlc2V0Cj4gPj4gPj4gZXZlbnQgZXhpdC4K
-PiA+Pgo+ID4+IFlvdSBhc3N1bWUgaW5pdGlhdGluZyBWQ1BVID09IGJvb3QgVkNQVS4KPiA+Pgo+
-ID4+IFdlIHNob3VsZCBwcmV2ZW50IEtWTV9TRVRfTVBfU1RBVEUgSU9DVEwgZm9yIGFsbCBub24t
-aW5pdGlhdGluZyBWQ1BVcyBpZgo+ID4+IHdlIGRlY2lkZSB0byBhY2NlcHQgdGhlIGFzc3VtcHRp
-b24uCj4gPgo+ID4gVGhlcmUgaXMgbm8gc3VjaCBhc3N1bXB0aW9uLgo+Cj4gWW91IHByb2JhYmx5
-IGhhdmVuJ3QgaW50ZW5kZWQgaXQ6Cj4KPiAgIDEpIFZDUFUgMCBpcyAiY2hpbGxpbmciIGluIHVz
-ZXJzcGFjZS4KPiAgIDIpIFZDUFUgMSBpbml0aWF0ZXMgU0JJIHJlc2V0Lgo+ICAgMykgVkNQVSAx
-IG1ha2VzIGEgcmVzZXQgcmVxdWVzdCB0byBWQ1BVIDAuCj4gICA0KSBWQ1BVIDEgcmV0dXJucyB0
-byB1c2Vyc3BhY2UuCj4gICA1KSBVc2Vyc3BhY2Uga25vd3MgaXQgc2hvdWxkIHJlc2V0IHRoZSBW
-TS4KPiAgIDYpIFZDUFUgMCBzdGlsbCBoYXNuJ3QgZW50ZXJlZCBLVk0uCj4gICA3KSBVc2Vyc3Bh
-Y2Ugc2V0cyB0aGUgaW5pdGlhbCBzdGF0ZSBvZiBWQ1BVIDAgYW5kIGVudGVycyBLVk0uCj4gICA4
-KSBWQ1BVIDAgaXMgcmVzZXQgaW4gS1ZNLCBiZWNhdXNlIG9mIHRoZSBwZW5kaW5nIHJlcXVlc3Qu
-Cj4gICA5KSBUaGUgaW5pdGlhbCBib290IHN0YXRlIGZyb20gdXNlcnNwYWNlIGlzIGxvc3QuCj4K
-PiA+PiBJJ2QgcmF0aGVyIGNob29zZSBhIGRpZmZlcmVudCBkZXNpZ24sIHRob3VnaC4KPiA+Pgo+
-ID4+IEhvdyBhYm91dCBhIG5ldyB1c2Vyc3BhY2UgaW50ZXJmYWNlIGZvciBJT0NUTCByZXNldD8K
-PiA+PiAoQ2FuIGJlIGNhcGFiaWxpdHkgdG9nZ2xlIGZvciBLVk1fU0VUX01QX1NUQVRFIG9yIGEg
-c3RyYWlnaHQgbmV3IElPQ1RMLikKPiA+Pgo+ID4+IFRoYXQgd291bGRuJ3QgImZpeCIgY3VycmVu
-dCB1c2Vyc3BhY2VzLCBidXQgd291bGQgc2lnbmlmaWNhbnRseSBpbXByb3ZlCj4gPj4gdGhlIHNh
-bml0eSBvZiB0aGUgS1ZNIGludGVyZmFjZS4KPiA+Cj4gPiBJIGJlbGlldmUgdGhlIGN1cnJlbnQg
-aW1wbGVtZW50YXRpb24gbmVlZHMgYSBmZXcgaW1wcm92ZW1lbnRzCj4gPiB0aGF0J3MgYWxsLiBX
-ZSBjZXJ0YWlubHkgZG9uJ3QgbmVlZCB0byBpbnRyb2R1Y2UgYW55IG5ldyBJT0NUTC4KPgo+IEkg
-ZG8gdG9vLiAgVGhlIHdob2xlIHBhdGNoIGNvdWxkIGhhdmUgYmVlbiBhIHNpbmdsZSBsaW5lOgo+
-Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYyBiL2FyY2gvcmlzY3Yva3ZtL3Zj
-cHUuYwo+IGluZGV4IGQzZDk1N2E5ZTVjNC4uYjNlNmFkODdlMWNkIDEwMDY0NAo+IC0tLSBhL2Fy
-Y2gvcmlzY3Yva3ZtL3ZjcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IEBAIC01
-MTEsNiArNTExLDcgQEAgaW50IGt2bV9hcmNoX3ZjcHVfaW9jdGxfc2V0X21wc3RhdGUoc3RydWN0
-IGt2bV92Y3B1ICp2Y3B1LAo+Cj4gICAgICAgICBzd2l0Y2ggKG1wX3N0YXRlLT5tcF9zdGF0ZSkg
-ewo+ICAgICAgICAgY2FzZSBLVk1fTVBfU1RBVEVfUlVOTkFCTEU6Cj4gKyAgICAgICAgICAgICAg
-IGt2bV9yaXNjdl9yZXNldF92Y3B1KHZjcHUpOwo+ICAgICAgICAgICAgICAgICBXUklURV9PTkNF
-KHZjcHUtPmFyY2gubXBfc3RhdGUsICptcF9zdGF0ZSk7Cj4gICAgICAgICAgICAgICAgIGJyZWFr
-Owo+ICAgICAgICAgY2FzZSBLVk1fTVBfU1RBVEVfU1RPUFBFRDoKPgo+IEl0IGlzIHRoZSBiYWNr
-d2FyZCBjb21wYXRpYmlsaXR5IGFuZCB0cnlpbmcgdG8gZml4IGN1cnJlbnQgdXNlcnNwYWNlcwo+
-IHRoYXQncyBtYWtpbmcgaXQgdWdseS4gIEkgYWxyZWFkeSBnYXZlIHVwIG9uIHRoZSBsYXR0ZXIs
-IHNvIHdlIGNhbiBoYXZlCj4gYSBkZWNlbnRseSBjbGVhbiBzb2x1dGlvbiB3aXRoIHRoZSBmb3Jt
-ZXIuCj4KPiA+IEFsc28sIGtlZXAgaW4gbWluZCB0aGF0IHNvIGZhciB3ZSBoYXZlIGF2b2lkZWQg
-YW55IFJJU0MtVgo+ID4gc3BlY2lmaWMgS1ZNIElPQ1RMcyBhbmQgd2Ugc2hvdWxkIHRyeSB0byBr
-ZWVwIGl0IHRoYXQgd2F5Cj4gPiBhcyBsb25nIGFzIHdlIGNhbi4KPgo+IFdlIGNhbiByZS11c2Ug
-S1ZNX1NFVF9NUF9TVEFURSBhbmQgYWRkIGEgS1ZNIGNhcGFiaWxpdHkuCj4gVXNlcnNwYWNlIHdp
-bGwgb3B0LWluIHRvIHJlc2V0IHRoZSBWQ1BVIHRocm91Z2ggdGhlIGV4aXN0aW5nIElPQ1RMLgo+
-Cj4gVGhpcyBkZXNpZ24gd2lsbCBhbHNvIGFsbG93IHVzZXJzcGFjZSB0byB0cmlnZ2VyIGEgVkNQ
-VSByZXNldCB3aXRob3V0Cj4gdGVhcmluZyBkb3duIHRoZSB3aG9sZSBWTS4KCk9rYXksIGxldHMg
-Z28gYWhlYWQgd2l0aCBhIEtWTSBjYXBhYmlsaXR5IHdoaWNoIHVzZXIgc3BhY2UgY2FuIG9wdC1p
-bgpmb3IgS1ZNX1NFVF9NUF9TVEFURSBpb2N0bCgpLgoKS2VlcCBpbiBtaW5kIHRoYXQgYXQgcnVu
-dGltZSBHdWVzdCBjYW4gc3RpbGwgZG8gQ1BVIGhvdHBsdWcgdXNpbmcgU0JJCkhTTSBzdGFydC9z
-dG9wIGFuZCBkbyBzeXN0ZW0gc3VzcGVuZCB1c2luZyBTQkkgU1VTUCBzbyB3ZSBzaG91bGQKY29u
-dGludWUgdG8gaGF2ZSBWQ1BVIHJlc2V0IHJlcXVlc3RzIGZvciBib3RoIHRoZXNlIFNCSSBleHRl
-bnNpb25zLgoKUmVnYXJkcywKQW51cAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
-LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
-by9saW51eC1yaXNjdgo=
+On Tue, 2025-04-29 at 11:34 -0300, Jason Gunthorpe wrote:
+> These drivers just have a constant value for their page size, move it
+> into their domain_alloc_paging function before setting up the geometry.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/exynos-iommu.c   | 3 ++-
+>  drivers/iommu/ipmmu-vmsa.c     | 4 ++--
+>  drivers/iommu/mtk_iommu_v1.c   | 3 ++-
+>  drivers/iommu/omap-iommu.c     | 3 ++-
+>  drivers/iommu/rockchip-iommu.c | 3 ++-
+>  drivers/iommu/s390-iommu.c     | 2 +-
+>  drivers/iommu/sprd-iommu.c     | 3 ++-
+>  drivers/iommu/sun50i-iommu.c   | 3 ++-
+>  drivers/iommu/tegra-smmu.c     | 3 ++-
+>  9 files changed, 17 insertions(+), 10 deletions(-)
+> 
+--- snip ---
+> diff --git a/drivers/iommu/omap-iommu.c b/drivers/iommu/omap-iommu.c
+> index 3c62337f43c677..21c218976143ef 100644
+> --- a/drivers/iommu/omap-iommu.c
+> +++ b/drivers/iommu/omap-iommu.c
+> @@ -1584,6 +1584,8 @@ static struct iommu_domain *omap_iommu_domain_alloc_paging(struct device *dev)
+>  
+>  	spin_lock_init(&omap_domain->lock);
+>  
+> +	omap_domain->domain.pgsize_bitmap = OMAP_IOMMU_PGSIZES;
+> +
+>  	omap_domain->domain.geometry.aperture_start = 0;
+>  	omap_domain->domain.geometry.aperture_end   = (1ULL << 32) - 1;
+>  	omap_domain->domain.geometry.force_aperture = true;
+> @@ -1735,7 +1737,6 @@ static const struct iommu_ops omap_iommu_ops = {
+>  	.release_device	= omap_iommu_release_device,
+>  	.device_group	= generic_single_device_group,
+>  	.of_xlate	= omap_iommu_of_xlate,
+> -	.pgsize_bitmap	= OMAP_IOMMU_PGSIZES,
+>  	.default_domain_ops = &(const struct iommu_domain_ops) {
+>  		.attach_dev	= omap_iommu_attach_dev,
+>  		.map_pages	= omap_iommu_map,
+> diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+> index 22f74ba33a0e38..f4a5ad096343ab 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -1081,6 +1081,8 @@ static struct iommu_domain *rk_iommu_domain_alloc_paging(struct device *dev)
+>  	spin_lock_init(&rk_domain->dt_lock);
+>  	INIT_LIST_HEAD(&rk_domain->iommus);
+>  
+> +	rk_domain->domain.pgsize_bitmap = RK_IOMMU_PGSIZE_BITMAP;
+> +
+>  	rk_domain->domain.geometry.aperture_start = 0;
+>  	rk_domain->domain.geometry.aperture_end   = DMA_BIT_MASK(32);
+>  	rk_domain->domain.geometry.force_aperture = true;
+> @@ -1171,7 +1173,6 @@ static const struct iommu_ops rk_iommu_ops = {
+>  	.probe_device = rk_iommu_probe_device,
+>  	.release_device = rk_iommu_release_device,
+>  	.device_group = generic_single_device_group,
+> -	.pgsize_bitmap = RK_IOMMU_PGSIZE_BITMAP,
+>  	.of_xlate = rk_iommu_of_xlate,
+>  	.default_domain_ops = &(const struct iommu_domain_ops) {
+>  		.attach_dev	= rk_iommu_attach_device,
+> diff --git a/drivers/iommu/s390-iommu.c b/drivers/iommu/s390-iommu.c
+> index 433b59f435302b..9c80d61deb2c0b 100644
+> --- a/drivers/iommu/s390-iommu.c
+> +++ b/drivers/iommu/s390-iommu.c
+> @@ -557,6 +557,7 @@ static struct iommu_domain *s390_domain_alloc_paging(struct device *dev)
+>  	}
+>  	zdev->end_dma = zdev->start_dma + aperture_size - 1;
+>  
+> +	s390_domain->domain.pgsize_bitmap = SZ_4K;
+>  	s390_domain->domain.geometry.force_aperture = true;
+>  	s390_domain->domain.geometry.aperture_start = 0;
+>  	s390_domain->domain.geometry.aperture_end = max_tbl_size(s390_domain);
+> @@ -1158,7 +1159,6 @@ static struct iommu_domain blocking_domain = {
+>  	.domain_alloc_paging = s390_domain_alloc_paging, \
+>  	.probe_device = s390_iommu_probe_device, \
+>  	.device_group = generic_device_group, \
+> -	.pgsize_bitmap = SZ_4K, \
+>  	.get_resv_regions = s390_iommu_get_resv_regions, \
+>  	.default_domain_ops = &(const struct iommu_domain_ops) { \
+>  		.attach_dev	= s390_iommu_attach_device, \
+
+I'm guessing there's no particular thought behind not adding an empty
+line for s390-iommu.c like for the others? I slightly prefer not having
+an empty line here but would be fine with it too, so just curious.
+
+Acked-by: Niklas Schnelle <schnelle@linux.ibm.com> # for s390-iommu.c
+
+> diff --git a/drivers/iommu/sprd-iommu.c b/drivers/iommu/sprd-iommu.c
+--- snip ---
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
