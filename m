@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F262CC3ABA3
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 08:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EC32C3ABA9
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 08:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DiixMNiBSxd3CfHV45547L2TMJZXYrZKg+K54M3f5cI=; b=Lix38EPsKleWZV
-	Gs10d3GpdstxNyC2X7Km9ZUfMtSWFBVEC4oU266H3unZdBqM8UCH5fO1FDqQnc1ERbwCb2KlCkYGD
-	nbQyI4i5pdglDWthZdvbEx8XB9iocBZZIDr8x1XzCZ3tDRTMA8SSVoDZfBSfqAOb9dWMOT6k85vGd
-	IOe6t0EkHFPmM5U3a7zhkMXmT7oAVeCWFoBSatvW56NasxpaT40tT36HnAtA2M4pE5QGg1HnKMa5e
-	tsPOPify5C0ASo9OizdK2iZ0uDi06UBsJIQNj1jszbw5cyi7tXaVhvetd027EORUaeIUL73AMvHqQ
-	yHlgEn2C+wo/L1H3bCaQ==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fvED04LGW09IrZBYpsKOQ5BCzbGyBNWOlKIf03xl3Jc=; b=bcIKFqOmjWN2uM
+	e4GeLziTyJe06SJW2WR/9yHFsrg5LiA73ROYTPj9yXVLoZHiaXObH7vKaAOwydaBPk/Uu9adL2Va/
+	cgz4drawPmNdDTZz+Dx+/nbeOwsz2OiF9Kc5s/qhm47iRo1tAIxcF7pKduc1nG/3tw5YOOvak4zWz
+	AKCXOXT4bM/xlQZ8ZyVIArNsn+NFH7wxYgnwtwsxE8xzyL1Vodq5ZeJXSK9mEJl57ejm1grJKWvS1
+	n4gaEr5crpkHZjQIXqjtySrcPnkc7e8DZTGD3fFJl74rAu6/8ta5cpZYuRShuIaHmQvDh+vOTglKy
+	aL/oBl2ZirkZlyXJ9N1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPFH-0000000F2TH-1WdP;
-	Thu, 01 May 2025 08:26:15 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uAPdB-0000000F46o-1eGI;
+	Thu, 01 May 2025 08:50:57 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAPDM-0000000F2Bq-2Wbn;
-	Thu, 01 May 2025 08:24:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 973215C1364;
-	Thu,  1 May 2025 08:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60251C4CEE3;
-	Thu,  1 May 2025 08:24:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746087855;
-	bh=FUtw7sDZdVXOm9Nv2svOTgxrCByJlvpP+UTjvuTtS1I=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=O97L3cnMvunZjO/0b3AD7mX6YsWjOA1AairfrKios6nfa+PekJx8V9jm72WccaYLD
-	 MFg2U9+xORpdBstItLdTn2jDJ/KEsIRT04HWQvHyQCbyTtG0ClRI3D/X2CD6XM+FOj
-	 /tz1rvNkqLQslwyHEIsvRxeQEF7oPqOkIM7OE5yCyUmforniQ2Wdg+RNlnV8cmfd9X
-	 16HjICyqst700kZfBgn5lDQrvldBI/haW5J2/qj7rZP5/M2+H5tq4/MkVCxXr+bLok
-	 BPs+unjgpwBK9BDZKgsuXLVUjyyxhBLmEvRC18HDlHZbiqF5SS0uUSHzhHrhH/LVHG
-	 92LXRRsmolgow==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAPDI-00AWZy-KR;
-	Thu, 01 May 2025 09:24:12 +0100
-Date: Thu, 01 May 2025 09:24:11 +0100
-Message-ID: <864iy4ivro.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-In-Reply-To: <20250430203013.366479-3-mlevitsk@redhat.com>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
-	<20250430203013.366479-3-mlevitsk@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, peterz@infradead.org, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1uAPd8-0000000F46M-2X2p
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 May 2025 08:50:55 +0000
+Received: from [127.0.0.1] (unknown [116.232.147.253])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BC823340C39;
+	Thu, 01 May 2025 08:50:49 +0000 (UTC)
+From: Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH v2 0/2] soc: spacemit: add sdhci support to K1 SoC
+Date: Thu, 01 May 2025 16:50:20 +0800
+Message-Id: <20250501-20-k1-sdhci-v2-0-3e7005fae29b@gentoo.org>
+MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIAMw1E2gC/1XOTQrCMBCG4auUrI3MTGtMu/Ie4iI/0zaIjSa1K
+ OLdjYoLl+8H8zAPkTkFzqKrHiLxEnKIUwlaVcKNZhpYBl9aENAGCEkSyCPK7EcX5FaZpgWEGrw
+ V5eKcuA+3j7Y/lB5DnmO6f/AF3+vPqf+cBSVI7JtakWk1OL8beJpjXMc0iMPzKye+XMt785cX1
+ mSWLp5OYe4qMD31yjLahjTWemMVame1Mr5tFHv2oFvjdMGeL5sILsPzAAAA
+X-Change-ID: 20250212-20-k1-sdhci-76a4901030db
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Adrian Hunter <adrian.hunter@intel.com>
+Cc: Alex Elder <elder@riscstar.com>, linux-mmc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ spacemit@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Yixun Lan <dlan@gentoo.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1960; i=dlan@gentoo.org;
+ h=from:subject:message-id; bh=7iG3g5Fpkpmnaw2P8DKAL0enzyTifLCknRgh9KOA600=;
+ b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoEzXfTy59n2gtVx6jPw4KiofG2dRFcY72qANKR
+ 0UNuoigwqSJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaBM1318UgAAAAAAuAChp
+ c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
+ CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277T4qD/9J9QVJfXVytcWb2J
+ DpCJg4p11unIBM6rffhwQjI2fJVI4bnrKBDphYWMw06VX3LVWKy6vPvwUaBcfGQ6x6wgSDCZyYi
+ ppdBww4//bTNtHc78DTZaYTxztm3oxNl9mI1XOO0NlsYRHvpobE1eTwjOpMR4Eay6FEQuoNTtB6
+ 2JxHw5vpEyZIWCt4aKbsJJ5hQZZXWFG4FXac9aTupmdJEiUSIYVSOPmQ3++YVmy+gIyEm4qPoha
+ 7xYJ+t6RYVzw91Bcl4GDcjYLZp1RtdebwXDm8Gvkw5zAvKtU+Yy4kyzbzARtqCKD/8yTabcwqMe
+ rHodvBTMMfFFHne8sVfSgvhlRP56q+VmUSWp3xJBo2wnUFewY2X09YsPzR8EcPMLqdRdyL+N44I
+ xae4jgBEUHFlueZbM8tqhh8INlhK3isYJYGsslc5uuGlwHGlK3WAInZJDUokink9yfCrTWcPvmD
+ njUClyQraISF4XG/iOna4+9FuCdLw07qCKq6gv3HOGE8X70EZHcPllfy8UcYlk1fjHnMdJw8w/t
+ 5icbJUWtW/4slKhlNNW4VB18tnsP9DS0hprNm6f53jbncyVxTSJ//t24WXacA6sbBR119f73QmX
+ pPX//ggMKyh/Q1/kV9ni/LW4GaTiyE2/R7fDVPezGveDIeXCQ/YK7ek8gpwyUn9KHM2g==
+X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
+ fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_012416_730089_EA7DABC5 
-X-CRM114-Status: GOOD (  28.81  )
+X-CRM114-CacheID: sfid-20250501_015054_673439_5FCF6E29 
+X-CRM114-Status: UNSURE (   8.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,139 +89,55 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-nit: in keeping with the existing arm64 patches, please write the
-subject as "KVM: arm64: Use ..."
+Add support for the SD/eMMC Host Controller found in SpacemiT K1 SoC,
+The controller supports data transmission of MMC, SDIO, and SD protocol.
 
-On Wed, 30 Apr 2025 21:30:10 +0100,
-Maxim Levitsky <mlevitsk@redhat.com> wrote:
+The SD/eMMC Host Controller has the following features:
+- MMC/eMMC 5.1 specification compliant
+- Supports PIO mode and SDMA mode data transfer
+- Supports ADMA1 and ADMA 2 (64-bit addressing) data transfer
+- Supports 1-bit/4-bit SD memory and SDIO
+- Supports 1-bit/8-bit MMC and CE-ATA cards
+- SPI mode supported for eMMC card
+Full docs can be found at SpacemiT's developer web, chapter 10.4 SD/eMMC [1]
 
-[...]
+In this patch series, only MMC part has been implemented and tested.
+This driver also requires clock support which now is ready for v6.16 [2].
 
-> 
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 68fec8c95fee..d31f42a71bdc 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -1914,49 +1914,6 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
->  	}
->  }
->  
-> -/* unlocks vcpus from @vcpu_lock_idx and smaller */
-> -static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
-> -{
-> -	struct kvm_vcpu *tmp_vcpu;
-> -
-> -	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
-> -		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
-> -		mutex_unlock(&tmp_vcpu->mutex);
-> -	}
-> -}
-> -
-> -void unlock_all_vcpus(struct kvm *kvm)
-> -{
-> -	lockdep_assert_held(&kvm->lock);
+There is a WIP branch at SpacemiT's repo for people who interested [3].
 
-Note this assertion...
+Link: https://developer.spacemit.com/documentation?token=WZNvwFDkYinYx0k9jzPcMK5WnIe [1]
+Link: https://lore.kernel.org/all/20250430012941-GYA288294@gentoo [2]
+Link: https://github.com/spacemit-com/linux/tree/k1/wip-sdhci [3]
 
-> -
-> -	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
-> -}
-> -
-> -/* Returns true if all vcpus were locked, false otherwise */
-> -bool lock_all_vcpus(struct kvm *kvm)
-> -{
-> -	struct kvm_vcpu *tmp_vcpu;
-> -	unsigned long c;
-> -
-> -	lockdep_assert_held(&kvm->lock);
+Signed-off-by: Yixun Lan <dlan@gentoo.org>
+---
+Changes in v2:
+- rebase to v6.15-rc1
+- collect review tags
+- drop RFC as clock driver is ready
+- drop spacemit_sdhci_remove(), favor sdhci_pltfm_remove()
+- update register definition using GENMASK(), FIELD_PREP()
+- Link to v1: https://lore.kernel.org/r/20250213-20-k1-sdhci-v1-0-1f4362a980cd@gentoo.org
 
-and this one...
+---
+Yixun Lan (2):
+      dt-bindings: mmc: spacemit,sdhci: add support for K1 SoC
+      mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
 
-> -
-> -	/*
-> -	 * Any time a vcpu is in an ioctl (including running), the
-> -	 * core KVM code tries to grab the vcpu->mutex.
-> -	 *
-> -	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
-> -	 * other VCPUs can fiddle with the state while we access it.
-> -	 */
-> -	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
-> -		if (!mutex_trylock(&tmp_vcpu->mutex)) {
-> -			unlock_vcpus(kvm, c - 1);
-> -			return false;
-> -		}
-> -	}
-> -
-> -	return true;
-> -}
-> -
->  static unsigned long nvhe_percpu_size(void)
->  {
->  	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
+ .../devicetree/bindings/mmc/spacemit,sdhci.yaml    |  53 ++++
+ drivers/mmc/host/Kconfig                           |  14 +
+ drivers/mmc/host/Makefile                          |   1 +
+ drivers/mmc/host/sdhci-of-k1.c                     | 306 +++++++++++++++++++++
+ 4 files changed, 374 insertions(+)
+---
+base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
+change-id: 20250212-20-k1-sdhci-76a4901030db
 
-[...]
-
-> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
-> index 69782df3617f..834f08dfa24c 100644
-> --- a/virt/kvm/kvm_main.c
-> +++ b/virt/kvm/kvm_main.c
-> @@ -1368,6 +1368,40 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
->  	return 0;
->  }
->  
-> +/*
-> + * Try to lock all of the VM's vCPUs.
-> + * Assumes that the kvm->lock is held.
-
-Assuming is not enough. These assertions have caught a number of bugs,
-and I'm not prepared to drop them.
-
-> + */
-> +int kvm_trylock_all_vcpus(struct kvm *kvm)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i, j;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-> +			goto out_unlock;
-> +	return 0;
-> +
-> +out_unlock:
-> +	kvm_for_each_vcpu(j, vcpu, kvm) {
-> +		if (i == j)
-> +			break;
-> +		mutex_unlock(&vcpu->mutex);
-> +	}
-> +	return -EINTR;
-> +}
-> +EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
-> +
-> +void kvm_unlock_all_vcpus(struct kvm *kvm)
-> +{
-> +	struct kvm_vcpu *vcpu;
-> +	unsigned long i;
-> +
-> +	kvm_for_each_vcpu(i, vcpu, kvm)
-> +		mutex_unlock(&vcpu->mutex);
-> +}
-> +EXPORT_SYMBOL_GPL(kvm_unlock_all_vcpus);
-
-I don't mind you not including the assertions in these helpers, but
-then the existing primitives have to stay and call into the new stuff.
-Which, from a simple patch volume, would be far preferable and help
-with managing backports.
-
-I'd also expect the introduction of these new helpers to be done in
-its own patch, so that we don't get cross architecture dependencies if
-something needs to be backported for a reason or another.
-
-Thanks,
-
-	M.
-
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Yixun Lan
+
 
 _______________________________________________
 linux-riscv mailing list
