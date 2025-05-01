@@ -4,88 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03D9CC369DC
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 17:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00EDEC369DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 18:33:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q20DsyKGJhev8GZnTfKHAkw0pn63w99OU+y/UYMfa2E=; b=a0vzn9HM1CF5y8
-	CdtB234+F2STq/PHrn3Ko3SwdqvGCFLe3UJbKk4Ui9YJxh7cv+/5zUrERDB4oTS6QU+RTIHBXaqZx
-	rk9aIaidzRxBo6b3w+o5qRc1Wju9ZfYnTMWWjNxgLo0kX9XfFFSz7VucpLAk0lq20r3sqRxVvRC3o
-	1eKxevJAkm+ad86RHMcqzFdez1pq6UuJcwAGXiidIKCeSQzAywetRe7PgTmzsNjPjBEnBGZZjnHPc
-	aPMjP7hlvnvhXBTPv1MAOTpCDWmNzUoHKUuRf8cLX4HZbTEjWwZQtdas0pei/gLtpMuZIhylP5oKU
-	CqWHMojGDLq0aahC2Qcg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	Mime-Version:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Td7t34t5/JSDYvZ/G80J/QQhw5XqfgaDHzyoJ18YbWw=; b=bEF
+	wbYOqXehm+gy6cm4vmTnYJbvGSDWWA3HAOTQtP8eLNxnhcNgPktrSKNuGILZ6PH0ka6+WuxYfTu3e
+	yUcQDr7vCqvOcWlrdHB8qZo3411JNgoc57tq0jXeSwBTnpueYgZXRVcOs2kf3iQBLqt+bGhWGfId8
+	+f6ETclUu4R80OsCoz8xF/r9yQx0Rz02mClZiLrrjJBeLq5VlrSW9DC09P97cPiiw6z0bqgIbLqAA
+	ZHajZKQGybgKlqU+DeNejrP3EFHAHP6D4Qd1W9siURY9Tc4JLXwZOf00ZBphLFCeZeLsGatSP82Xa
+	2ZrtUeGuPRS/pxm/LRuDxszzqhSrN0g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAY0c-0000000GJrx-0uAc;
-	Thu, 01 May 2025 17:47:42 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uAYik-0000000GMva-0UlS;
+	Thu, 01 May 2025 18:33:18 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAY0D-0000000GJpP-3Wfz
+	id 1uAYih-0000000GMtq-2I45
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 May 2025 17:47:19 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-22928d629faso12790235ad.3
-        for <linux-riscv@lists.infradead.org>; Thu, 01 May 2025 10:47:17 -0700 (PDT)
+	Thu, 01 May 2025 18:33:16 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b00ce246e38so1273937a12.2
+        for <linux-riscv@lists.infradead.org>; Thu, 01 May 2025 11:33:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746121637; x=1746726437; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0JgrpjyIVurw8ZnhExu0OpjTLOaTTcXOTASTKpgw31Y=;
-        b=LpUFoSCOIghEjqoTiW2ragiVg4IgUlwl98Unvjy/VcwjL+RxvucnTZWREj7uZgjSwd
-         148wtGX8Lu8lVbgda1W3qqZmf92fN6kA6fiJCLPdxX7u2U5U1K+m634Tq0X8S5q71kcc
-         3Ba55EBXK90K850iAt1IS3Iz75/ulmyIgG7F0aokJ28p8BdV7oUCi/BykZBFNC0i9zcK
-         TF+nFKyi30iQOrXwBPjNLj7YdPaw2+5Y3+Qfvy2jCTlLezqQ68iE8lhlO3hr1fG0rF/u
-         rzac1BfInloY2Ec/x8KFVGzE71uqBx+qIATbmsP0+ZK43+YCUx2rBCH++C29+5Q8Y1oq
-         J1iw==
+        d=google.com; s=20230601; t=1746124394; x=1746729194; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=V4GbBX4m3F40HkG5QMMrGH567MTyfbhtitHqIKhSnmM=;
+        b=qPtf1Bcve1xwBx1zHdiz38ECEGJBAypyzeBTyFR8KSzOfHYXlE5XbruUWmrJHFinsy
+         CcljFqKPWIPF2T1JlVjzWVrfvVtpOS9hj9L96bQC1LB1XH+wgiX7rJBhk9Emag7wHdkG
+         vHgdJCumjKKX/XmMZPuV2R0V3O2RGApUjhaLfWRGulO7qgKq9jnYv5qo6ua3wW2e4Sv9
+         a7kiNsn+AuVOXqQeHPSdjgPoJdS65sDnFJ54UiGlXGItS7oPoNLuqlySiUuavW96zzUe
+         wrBa6wBSXreQInGIopOwon33TmfiNOslrjGWsMYhGEkNwkdf+yFImxd2n27imM3fl6CA
+         AGMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746121637; x=1746726437;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0JgrpjyIVurw8ZnhExu0OpjTLOaTTcXOTASTKpgw31Y=;
-        b=WU2bl9WsC6cyWcdZwOs+m04qKqoocx5xn25HCIR8jXG/o44LM7ZRSYWdUAf+pos+kL
-         Tjh+WMRACVPKjUCnCbWjDCW3xJomwzfIFHj3j6Xjbrpx0Gs5XiUlaCeiyqxtxcaCASo5
-         Zh7JXyWs6CsQ2djDN3UZJJujOgJz6lg+TICkvkgyzxZFOhWHkFeF70aXbAGO3e/qMlY0
-         yR/kuT0/kJdzIkgk3clWnqB7XLHlyffZWRTnPMEbpdC0jb8w0HM3CHVHwew3/T+FHw8Z
-         BB57m0SYd1AwvPbUaEQr4iAUSdD4tUdEoOXGImxqs6wOMBbLi0iZqlbzDkHCCIy7re3v
-         MMfA==
-X-Forwarded-Encrypted: i=1; AJvYcCUjxzmDVra1+3+X28XcMrWyGs9/Fe2srYCzrPwfUurkiRuy7p2loPvT42+/lTSjeyFuLM4hOCCQw27dPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUjT10VK4VNrH1qcwLzS5zS4iByj1dWA0gjKEX31f1J9dLN1x5
-	GpuXRMeEA5ToZwoh+hE5m6gO9Dw0cNhNeaLKSxzQhIwUaP7L742B2ifIDhzxIA==
-X-Gm-Gg: ASbGncuwmyUFkS/QWLy77r10pn2kOlQ43fB82YngThzhaNQgQjR8Hne96BdABngx1LE
-	73sCQgohpeQPVSx5zQ0+wC3do+JbhO32t3DNCnPWiIJZpPfvZ6QhA/2p0Rpv45KF2QtN2CQKruG
-	moJPKJCDXEKMdNp6+GsJSG7qraRyjf9Qmh7SpaCUj68wlmqnOEINAQRkEujgIsP/CYqZml9hF2j
-	NDrUSwJLqB/oBRr4ozmUiGjzZLzzkmYoDC+Uo8zyrFb1oq+7Qjit+1k3t590HFKpBVtoNzioN4a
-	mcVGb/4Sr8gyTYUYWHXip6Ue5uChnr63hwSDYTyV0sKWzMWsyRrrsyaRsSMTfmrGm1hESWzjGH8
-	o9qqKHz56IqaFhQ==
-X-Google-Smtp-Source: AGHT+IG3mPJyDPXGVidQgks96nF8i3OAf1xC+gtDnCesF+Inf4BO1ZhItOBTJP8wGyJkHDf9fzb1qA==
-X-Received: by 2002:a17:903:1249:b0:22c:35c5:e30a with SMTP id d9443c01a7336-22e08424dcfmr54803565ad.16.1746121636607;
-        Thu, 01 May 2025 10:47:16 -0700 (PDT)
-Received: from google.com (30.240.118.34.bc.googleusercontent.com. [34.118.240.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e0bb0e158sm9676965ad.67.2025.05.01.10.47.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 May 2025 10:47:15 -0700 (PDT)
-Date: Thu, 1 May 2025 10:47:10 -0700
+        d=1e100.net; s=20230601; t=1746124394; x=1746729194;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=V4GbBX4m3F40HkG5QMMrGH567MTyfbhtitHqIKhSnmM=;
+        b=ExtWbZY+8Hz6DLi9QbuzuIli6FDK8F+uq8NobO7DPHbeeIvK8ojD3E+AtU3HxC7K4C
+         m7OC3m3JEB6aHZuwIKp7RmCtya43iANJoZMzj7ApzItphdV0O2hjN9P1JXG4WBhCyrhn
+         GEBqiGgAebhIx5EBAuZWtRrHBN4z9loZo+YDbARNTAS5fq5P/fHNlWCExInNrWLCuuBc
+         cmNLDF1HxlsPoA8NAYGLK5JT97RjhTHdKAdPGu/UAt55nyylhtDgSohBNMsu2WRqfSiW
+         YN/ubo4xCCkbIg7JDaKsGO97h75aiYtU4ZZS25ylXh+rzdQOpKztIF0owrlu2WtsDlsM
+         1skQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUwT1Y72FST+eBdNl+zHvFdBJaNgaBh5B7MjTToNDBROwC1lu49+zXF+98M3MmJBOlUyK2PMilQBsYp9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzFWSJ4zO2Z6s8AOmp4BkQcG++qwW7Nrm13hVkIGYNgCyazi3M/
+	5bdn1RVwHN1ecVDa8dnDxt1NVnw5cf0JwDWTesjC80aTHD2zTSR41hJxDjVQLEmUDtM2riKdH8Y
+	H4fOPzaFUmA==
+X-Google-Smtp-Source: AGHT+IGXwYAIoxVS4EV4qeDqzJEpC/WOH4jZUp4diHaNWDhCf+MASol5shMUc/fTmqZrQNaV64K5SlkNqDWjzw==
+X-Received: from pgmt15.prod.google.com ([2002:a63:224f:0:b0:af8:cf0d:14cd])
+ (user=dmatlack job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:1fc1:b0:1f5:9175:2596 with SMTP id adf61e73a8af0-20cde952c49mr22469637.13.1746124394234;
+ Thu, 01 May 2025 11:33:14 -0700 (PDT)
+Date: Thu,  1 May 2025 11:32:54 -0700
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.906.g1f30a19c02-goog
+Message-ID: <20250501183304.2433192-1-dmatlack@google.com>
+Subject: [PATCH 00/10] KVM: selftests: Convert to kernel-style types
 From: David Matlack <dmatlack@google.com>
 To: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Sean Christopherson <seanjc@google.com>,
-	Muhammad Usama Anjum <usama.anjum@collabora.com>,
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH] KVM: selftests: Use $(SRCARCH) instead of $(ARCH)
-Message-ID: <aBOznhkrLZ0Z_3Xw@google.com>
-References: <20250430224720.1882145-1-dmatlack@google.com>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250430224720.1882145-1-dmatlack@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Zenghui Yu <yuzenghui@huawei.com>, Anup Patel <anup@brainfault.org>, 
+	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Christian Borntraeger <borntraeger@linux.ibm.com>, 
+	Janosch Frank <frankja@linux.ibm.com>, Claudio Imbrenda <imbrenda@linux.ibm.com>, 
+	David Hildenbrand <david@redhat.com>, Sean Christopherson <seanjc@google.com>, 
+	David Matlack <dmatlack@google.com>, Andrew Jones <ajones@ventanamicro.com>, 
+	Isaku Yamahata <isaku.yamahata@intel.com>, Reinette Chatre <reinette.chatre@intel.com>, 
+	Eric Auger <eric.auger@redhat.com>, James Houghton <jthoughton@google.com>, 
+	Colin Ian King <colin.i.king@gmail.com>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_104717_899342_C1D5C863 
-X-CRM114-Status: GOOD (  20.23  )
+X-CRM114-CacheID: sfid-20250501_113315_588362_8F5B61A0 
+X-CRM114-Status: GOOD (  12.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,197 +100,210 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 2025-04-30 03:47 PM, David Matlack wrote:
-> Use $(SRCARCH) in Makefile.kvm instead of $(ARCH). The former may have
-> been set on the command line and thus make will ignore the variable
-> assignment to convert x86_64 to x86.
-> 
-> Introduce $(SRCARCH) rather than just reverting commit 9af04539d474
-> ("KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR")
-> to keep KVM selftests consistent with the top-level kernel Makefile,
-> which uses $(SRCARCH) for the exact same purpose.
-> 
-> While here, drop the comment about the top-level selftests allowing
-> ARCH=x86_64. The kernel itself allows/expects ARCH=x86_64 so it's
-> reasonable to expect the KVM selftests to handle it as well.
-> 
-> Fixes: 9af04539d474 ("KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR")
-> Signed-off-by: David Matlack <dmatlack@google.com>
+This series renames types across all KVM selftests to more align with
+types used in the kernel:
 
-If this approach seems reasonable I can also send another patch to share
-the definitions of $(ARCH) and $(SRCARCH) with the top-level Makefile so
-that we don't need any custom Makefile code in KVM selftests for this.
+  vm_vaddr_t -> gva_t
+  vm_paddr_t -> gpa_t
 
-e.g.
+  uint64_t -> u64
+  uint32_t -> u32
+  uint16_t -> u16
+  uint8_t  -> u8
 
-From: David Matlack <dmatlack@google.com>
-Date: Thu, 1 May 2025 10:30:26 -0700
-Subject: [PATCH v2] kbuild: Share $(ARCH) and $(SRCARCH) with tools/
+  int64_t -> s64
+  int32_t -> s32
+  int16_t -> s16
+  int8_t  -> s8
 
-Pull out the definitions for $(ARCH), $(SRCARCH), and $(SUBARCH) into a
-scripts/arch.include and use it to reduce duplication in Makefiles under
-tools/.
+The goal of this series is to make the KVM selftests code more concise
+(the new type names are shorter) and more similar to the kernel, since
+selftests are developed by kernel developers.
 
-Signed-off-by: David Matlack <dmatlack@google.com>
----
- Makefile                                  | 28 +++--------------------
- scripts/{subarch.include => arch.include} | 24 +++++++++++++++++++
- tools/include/nolibc/Makefile             |  5 +---
- tools/testing/selftests/Makefile          |  3 +--
- tools/testing/selftests/kvm/Makefile      |  8 +------
- tools/testing/selftests/nolibc/Makefile   |  5 +---
- 6 files changed, 31 insertions(+), 42 deletions(-)
- rename scripts/{subarch.include => arch.include} (61%)
+I know broad changes like this series can be difficult to merge and also
+muddies up the git-blame history, so if there isn't appetite for this we
+can drop it. But if there is I would be happy to help with rebasing and
+resolving merge conflicts to get it in.
 
-diff --git a/Makefile b/Makefile
-index c91afd55099e..7a10252ddbe1 100644
---- a/Makefile
-+++ b/Makefile
-@@ -380,8 +380,6 @@ KERNELRELEASE = $(call read-file, $(objtree)/include/config/kernel.release)
- KERNELVERSION = $(VERSION)$(if $(PATCHLEVEL),.$(PATCHLEVEL)$(if $(SUBLEVEL),.$(SUBLEVEL)))$(EXTRAVERSION)
- export VERSION PATCHLEVEL SUBLEVEL KERNELRELEASE KERNELVERSION
- 
--include $(srctree)/scripts/subarch.include
--
- # Cross compiling and selecting different set of gcc/bin-utils
- # ---------------------------------------------------------------------------
- #
-@@ -400,32 +398,12 @@ include $(srctree)/scripts/subarch.include
- # Alternatively CROSS_COMPILE can be set in the environment.
- # Default value for CROSS_COMPILE is not to prefix executables
- # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
--ARCH		?= $(SUBARCH)
-+
-+# Import definitions for SUBARCH, ARCH, and SRCARCH.
-+include $(srctree)/scripts/arch.include
- 
- # Architecture as present in compile.h
- UTS_MACHINE 	:= $(ARCH)
--SRCARCH 	:= $(ARCH)
--
--# Additional ARCH settings for x86
--ifeq ($(ARCH),i386)
--        SRCARCH := x86
--endif
--ifeq ($(ARCH),x86_64)
--        SRCARCH := x86
--endif
--
--# Additional ARCH settings for sparc
--ifeq ($(ARCH),sparc32)
--       SRCARCH := sparc
--endif
--ifeq ($(ARCH),sparc64)
--       SRCARCH := sparc
--endif
--
--# Additional ARCH settings for parisc
--ifeq ($(ARCH),parisc64)
--       SRCARCH := parisc
--endif
- 
- export cross_compiling :=
- ifneq ($(SRCARCH),$(SUBARCH))
-diff --git a/scripts/subarch.include b/scripts/arch.include
-similarity index 61%
-rename from scripts/subarch.include
-rename to scripts/arch.include
-index c4592d59d69b..545f731140df 100644
---- a/scripts/subarch.include
-+++ b/scripts/arch.include
-@@ -11,3 +11,27 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/x86/ -e s/x86_64/x86/ \
- 				  -e s/ppc.*/powerpc/ -e s/mips.*/mips/ \
- 				  -e s/sh[234].*/sh/ -e s/aarch64.*/arm64/ \
- 				  -e s/riscv.*/riscv/ -e s/loongarch.*/loongarch/)
-+
-+ARCH		?= $(SUBARCH)
-+SRCARCH 	:= $(ARCH)
-+
-+# Additional ARCH settings for x86
-+ifeq ($(ARCH),i386)
-+        SRCARCH := x86
-+endif
-+ifeq ($(ARCH),x86_64)
-+        SRCARCH := x86
-+endif
-+
-+# Additional ARCH settings for sparc
-+ifeq ($(ARCH),sparc32)
-+       SRCARCH := sparc
-+endif
-+ifeq ($(ARCH),sparc64)
-+       SRCARCH := sparc
-+endif
-+
-+# Additional ARCH settings for parisc
-+ifeq ($(ARCH),parisc64)
-+       SRCARCH := parisc
-+endif
-diff --git a/tools/include/nolibc/Makefile b/tools/include/nolibc/Makefile
-index f9702877ac21..9a78fe77205f 100644
---- a/tools/include/nolibc/Makefile
-+++ b/tools/include/nolibc/Makefile
-@@ -8,10 +8,7 @@ srctree := $(patsubst %/tools/include/,%,$(dir $(CURDIR)))
- endif
- 
- # when run as make -C tools/ nolibc_<foo> the arch is not set
--ifeq ($(ARCH),)
--include $(srctree)/scripts/subarch.include
--ARCH = $(SUBARCH)
--endif
-+include $(srctree)/scripts/arch.include
- 
- # OUTPUT is only set when run from the main makefile, otherwise
- # it defaults to this nolibc directory.
-diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
-index c77c8c8e3d9b..827ce9bf3e50 100644
---- a/tools/testing/selftests/Makefile
-+++ b/tools/testing/selftests/Makefile
-@@ -190,8 +190,7 @@ else
- endif
- 
- # Prepare for headers install
--include $(top_srcdir)/scripts/subarch.include
--ARCH           ?= $(SUBARCH)
-+include $(top_srcdir)/scripts/arch.include
- export BUILD
- export KHDR_INCLUDES
- 
-diff --git a/tools/testing/selftests/kvm/Makefile b/tools/testing/selftests/kvm/Makefile
-index 02bf061c51f8..503530d671e9 100644
---- a/tools/testing/selftests/kvm/Makefile
-+++ b/tools/testing/selftests/kvm/Makefile
-@@ -1,13 +1,7 @@
- # SPDX-License-Identifier: GPL-2.0-only
- top_srcdir = ../../../..
- 
--include $(top_srcdir)/scripts/subarch.include
--ARCH 	?= $(SUBARCH)
--SRCARCH := $(ARCH)
--
--ifeq ($(ARCH),x86_64)
--        SRCARCH := x86
--endif
-+include $(top_srcdir)/scripts/arch.include
- 
- ifeq ($(SRCARCH),$(filter $(SRCARCH),arm64 s390 riscv x86))
- include Makefile.kvm
-diff --git a/tools/testing/selftests/nolibc/Makefile b/tools/testing/selftests/nolibc/Makefile
-index 58bcbbd029bc..13555d418c78 100644
---- a/tools/testing/selftests/nolibc/Makefile
-+++ b/tools/testing/selftests/nolibc/Makefile
-@@ -18,10 +18,7 @@ else
- objtree ?= $(srctree)
- endif
- 
--ifeq ($(ARCH),)
--include $(srctree)/scripts/subarch.include
--ARCH = $(SUBARCH)
--endif
-+include $(srctree)/scripts/arch.include
- 
- cc-option = $(call __cc-option, $(CC),$(CLANG_CROSS_FLAGS),$(1),$(2))
- 
+Most of the commits in this series are auto-generated with a single
+command (see commit messages), aside from whitespace fixes, so rebasing
+onto a different base isn't terrible.
+
+David Matlack (10):
+  KVM: selftests: Use gva_t instead of vm_vaddr_t
+  KVM: selftests: Use gpa_t instead of vm_paddr_t
+  KVM: selftests: Use gpa_t for GPAs in Hyper-V selftests
+  KVM: selftests: Use u64 instead of uint64_t
+  KVM: selftests: Use s64 instead of int64_t
+  KVM: selftests: Use u32 instead of uint32_t
+  KVM: selftests: Use s32 instead of int32_t
+  KVM: selftests: Use u16 instead of uint16_t
+  KVM: selftests: Use s16 instead of int16_t
+  KVM: selftests: Use u8 instead of uint8_t
+
+ .../selftests/kvm/access_tracking_perf_test.c |  40 +--
+ tools/testing/selftests/kvm/arch_timer.c      |   6 +-
+ .../selftests/kvm/arm64/aarch32_id_regs.c     |  14 +-
+ .../testing/selftests/kvm/arm64/arch_timer.c  |   8 +-
+ .../kvm/arm64/arch_timer_edge_cases.c         | 159 +++++----
+ .../selftests/kvm/arm64/debug-exceptions.c    |  73 ++--
+ .../testing/selftests/kvm/arm64/hypercalls.c  |  24 +-
+ .../testing/selftests/kvm/arm64/no-vgic-v3.c  |   6 +-
+ .../selftests/kvm/arm64/page_fault_test.c     |  82 ++---
+ tools/testing/selftests/kvm/arm64/psci_test.c |  26 +-
+ .../testing/selftests/kvm/arm64/set_id_regs.c |  58 ++--
+ .../selftests/kvm/arm64/smccc_filter.c        |  10 +-
+ tools/testing/selftests/kvm/arm64/vgic_init.c |  56 ++--
+ tools/testing/selftests/kvm/arm64/vgic_irq.c  | 116 +++----
+ .../selftests/kvm/arm64/vgic_lpi_stress.c     |  20 +-
+ .../selftests/kvm/arm64/vpmu_counter_access.c |  62 ++--
+ .../testing/selftests/kvm/coalesced_io_test.c |  38 +--
+ .../selftests/kvm/demand_paging_test.c        |  10 +-
+ .../selftests/kvm/dirty_log_perf_test.c       |  14 +-
+ tools/testing/selftests/kvm/dirty_log_test.c  |  82 ++---
+ tools/testing/selftests/kvm/get-reg-list.c    |   2 +-
+ .../testing/selftests/kvm/guest_memfd_test.c  |   2 +-
+ .../testing/selftests/kvm/guest_print_test.c  |  22 +-
+ .../selftests/kvm/hardware_disable_test.c     |   6 +-
+ .../selftests/kvm/include/arm64/arch_timer.h  |  30 +-
+ .../selftests/kvm/include/arm64/delay.h       |   4 +-
+ .../testing/selftests/kvm/include/arm64/gic.h |   8 +-
+ .../selftests/kvm/include/arm64/gic_v3_its.h  |   8 +-
+ .../selftests/kvm/include/arm64/processor.h   |  20 +-
+ .../selftests/kvm/include/arm64/ucall.h       |   4 +-
+ .../selftests/kvm/include/arm64/vgic.h        |  20 +-
+ .../testing/selftests/kvm/include/kvm_util.h  | 311 +++++++++---------
+ .../selftests/kvm/include/kvm_util_types.h    |   4 +-
+ .../testing/selftests/kvm/include/memstress.h |  30 +-
+ .../selftests/kvm/include/riscv/arch_timer.h  |  22 +-
+ .../selftests/kvm/include/riscv/processor.h   |   9 +-
+ .../selftests/kvm/include/riscv/ucall.h       |   4 +-
+ .../kvm/include/s390/diag318_test_handler.h   |   2 +-
+ .../selftests/kvm/include/s390/facility.h     |   4 +-
+ .../selftests/kvm/include/s390/ucall.h        |   4 +-
+ .../testing/selftests/kvm/include/sparsebit.h |   6 +-
+ .../testing/selftests/kvm/include/test_util.h |  40 +--
+ .../selftests/kvm/include/timer_test.h        |  18 +-
+ .../selftests/kvm/include/ucall_common.h      |  22 +-
+ .../selftests/kvm/include/userfaultfd_util.h  |   6 +-
+ .../testing/selftests/kvm/include/x86/apic.h  |  22 +-
+ .../testing/selftests/kvm/include/x86/evmcs.h |  22 +-
+ .../selftests/kvm/include/x86/hyperv.h        |  28 +-
+ .../selftests/kvm/include/x86/kvm_util_arch.h |  12 +-
+ tools/testing/selftests/kvm/include/x86/pmu.h |   6 +-
+ .../selftests/kvm/include/x86/processor.h     | 272 ++++++++-------
+ tools/testing/selftests/kvm/include/x86/sev.h |  14 +-
+ .../selftests/kvm/include/x86/svm_util.h      |  10 +-
+ .../testing/selftests/kvm/include/x86/ucall.h |   2 +-
+ tools/testing/selftests/kvm/include/x86/vmx.h |  80 ++---
+ .../selftests/kvm/kvm_page_table_test.c       |  54 +--
+ tools/testing/selftests/kvm/lib/arm64/gic.c   |   6 +-
+ .../selftests/kvm/lib/arm64/gic_private.h     |  24 +-
+ .../testing/selftests/kvm/lib/arm64/gic_v3.c  |  84 ++---
+ .../selftests/kvm/lib/arm64/gic_v3_its.c      |  12 +-
+ .../selftests/kvm/lib/arm64/processor.c       | 126 +++----
+ tools/testing/selftests/kvm/lib/arm64/ucall.c |  12 +-
+ tools/testing/selftests/kvm/lib/arm64/vgic.c  |  38 +--
+ tools/testing/selftests/kvm/lib/elf.c         |   8 +-
+ tools/testing/selftests/kvm/lib/guest_modes.c |   2 +-
+ .../testing/selftests/kvm/lib/guest_sprintf.c |  18 +-
+ tools/testing/selftests/kvm/lib/kvm_util.c    | 222 +++++++------
+ tools/testing/selftests/kvm/lib/memstress.c   |  38 +--
+ .../selftests/kvm/lib/riscv/processor.c       |  56 ++--
+ .../kvm/lib/s390/diag318_test_handler.c       |  12 +-
+ .../testing/selftests/kvm/lib/s390/facility.c |   2 +-
+ .../selftests/kvm/lib/s390/processor.c        |  42 +--
+ tools/testing/selftests/kvm/lib/sparsebit.c   |  18 +-
+ tools/testing/selftests/kvm/lib/test_util.c   |  30 +-
+ .../testing/selftests/kvm/lib/ucall_common.c  |  30 +-
+ .../selftests/kvm/lib/userfaultfd_util.c      |  14 +-
+ tools/testing/selftests/kvm/lib/x86/apic.c    |   2 +-
+ tools/testing/selftests/kvm/lib/x86/hyperv.c  |  14 +-
+ .../testing/selftests/kvm/lib/x86/memstress.c |  10 +-
+ tools/testing/selftests/kvm/lib/x86/pmu.c     |   4 +-
+ .../testing/selftests/kvm/lib/x86/processor.c | 178 +++++-----
+ tools/testing/selftests/kvm/lib/x86/sev.c     |  14 +-
+ tools/testing/selftests/kvm/lib/x86/svm.c     |  16 +-
+ tools/testing/selftests/kvm/lib/x86/ucall.c   |   4 +-
+ tools/testing/selftests/kvm/lib/x86/vmx.c     | 108 +++---
+ .../kvm/memslot_modification_stress_test.c    |  10 +-
+ .../testing/selftests/kvm/memslot_perf_test.c | 164 ++++-----
+ tools/testing/selftests/kvm/mmu_stress_test.c |  28 +-
+ .../selftests/kvm/pre_fault_memory_test.c     |  12 +-
+ .../testing/selftests/kvm/riscv/arch_timer.c  |   8 +-
+ .../testing/selftests/kvm/riscv/ebreak_test.c |   6 +-
+ .../selftests/kvm/riscv/get-reg-list.c        |   2 +-
+ .../selftests/kvm/riscv/sbi_pmu_test.c        |   8 +-
+ tools/testing/selftests/kvm/s390/debug_test.c |   8 +-
+ tools/testing/selftests/kvm/s390/memop.c      |  94 +++---
+ tools/testing/selftests/kvm/s390/resets.c     |   6 +-
+ .../selftests/kvm/s390/shared_zeropage_test.c |   2 +-
+ tools/testing/selftests/kvm/s390/tprot.c      |  24 +-
+ .../selftests/kvm/s390/ucontrol_test.c        |   2 +-
+ .../selftests/kvm/set_memory_region_test.c    |  40 +--
+ tools/testing/selftests/kvm/steal_time.c      |  52 +--
+ .../kvm/system_counter_offset_test.c          |  12 +-
+ tools/testing/selftests/kvm/x86/amx_test.c    |  14 +-
+ .../selftests/kvm/x86/apic_bus_clock_test.c   |  24 +-
+ tools/testing/selftests/kvm/x86/cpuid_test.c  |   6 +-
+ tools/testing/selftests/kvm/x86/debug_regs.c  |   4 +-
+ .../kvm/x86/dirty_log_page_splitting_test.c   |  16 +-
+ .../selftests/kvm/x86/feature_msrs_test.c     |  12 +-
+ .../selftests/kvm/x86/fix_hypercall_test.c    |  20 +-
+ .../selftests/kvm/x86/flds_emulation.h        |   6 +-
+ .../testing/selftests/kvm/x86/hwcr_msr_test.c |  10 +-
+ .../testing/selftests/kvm/x86/hyperv_clock.c  |   6 +-
+ .../testing/selftests/kvm/x86/hyperv_evmcs.c  |  10 +-
+ .../kvm/x86/hyperv_extended_hypercalls.c      |  20 +-
+ .../selftests/kvm/x86/hyperv_features.c       |  26 +-
+ tools/testing/selftests/kvm/x86/hyperv_ipi.c  |  12 +-
+ .../selftests/kvm/x86/hyperv_svm_test.c       |  10 +-
+ .../selftests/kvm/x86/hyperv_tlb_flush.c      |  36 +-
+ .../selftests/kvm/x86/kvm_clock_test.c        |  14 +-
+ tools/testing/selftests/kvm/x86/kvm_pv_test.c |  10 +-
+ .../selftests/kvm/x86/monitor_mwait_test.c    |   2 +-
+ .../selftests/kvm/x86/nested_emulation_test.c |  20 +-
+ .../kvm/x86/nested_exceptions_test.c          |   6 +-
+ .../selftests/kvm/x86/nx_huge_pages_test.c    |  18 +-
+ .../selftests/kvm/x86/platform_info_test.c    |   6 +-
+ .../selftests/kvm/x86/pmu_counters_test.c     | 108 +++---
+ .../selftests/kvm/x86/pmu_event_filter_test.c | 102 +++---
+ .../kvm/x86/private_mem_conversions_test.c    |  78 ++---
+ .../kvm/x86/private_mem_kvm_exits_test.c      |  14 +-
+ .../selftests/kvm/x86/set_boot_cpu_id.c       |   6 +-
+ .../selftests/kvm/x86/set_sregs_test.c        |   6 +-
+ .../selftests/kvm/x86/sev_init2_tests.c       |   6 +-
+ .../selftests/kvm/x86/sev_smoke_test.c        |  14 +-
+ .../x86/smaller_maxphyaddr_emulation_test.c   |  10 +-
+ tools/testing/selftests/kvm/x86/smm_test.c    |   8 +-
+ tools/testing/selftests/kvm/x86/state_test.c  |  14 +-
+ .../selftests/kvm/x86/svm_int_ctl_test.c      |   2 +-
+ .../kvm/x86/svm_nested_shutdown_test.c        |   2 +-
+ .../kvm/x86/svm_nested_soft_inject_test.c     |  10 +-
+ .../selftests/kvm/x86/svm_vmcall_test.c       |   2 +-
+ .../selftests/kvm/x86/sync_regs_test.c        |   2 +-
+ .../kvm/x86/triple_fault_event_test.c         |   4 +-
+ .../testing/selftests/kvm/x86/tsc_msrs_test.c |   2 +-
+ .../selftests/kvm/x86/tsc_scaling_sync.c      |   4 +-
+ .../selftests/kvm/x86/ucna_injection_test.c   |  45 +--
+ .../selftests/kvm/x86/userspace_io_test.c     |   4 +-
+ .../kvm/x86/userspace_msr_exit_test.c         |  58 ++--
+ .../selftests/kvm/x86/vmx_apic_access_test.c  |   4 +-
+ .../kvm/x86/vmx_close_while_nested_test.c     |   2 +-
+ .../selftests/kvm/x86/vmx_dirty_log_test.c    |   4 +-
+ .../kvm/x86/vmx_invalid_nested_guest_state.c  |   2 +-
+ .../testing/selftests/kvm/x86/vmx_msrs_test.c |  22 +-
+ .../kvm/x86/vmx_nested_tsc_scaling_test.c     |  26 +-
+ .../selftests/kvm/x86/vmx_pmu_caps_test.c     |  12 +-
+ .../kvm/x86/vmx_preemption_timer_test.c       |   2 +-
+ .../selftests/kvm/x86/vmx_tsc_adjust_test.c   |  12 +-
+ .../selftests/kvm/x86/xapic_ipi_test.c        |  58 ++--
+ .../selftests/kvm/x86/xapic_state_test.c      |  20 +-
+ .../selftests/kvm/x86/xcr0_cpuid_test.c       |   8 +-
+ .../selftests/kvm/x86/xen_shinfo_test.c       |  22 +-
+ .../testing/selftests/kvm/x86/xss_msr_test.c  |   2 +-
+ 161 files changed, 2323 insertions(+), 2338 deletions(-)
+
 
 base-commit: 45eb29140e68ffe8e93a5471006858a018480a45
 prerequisite-patch-id: 3bae97c9e1093148763235f47a84fa040b512d04
