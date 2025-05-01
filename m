@@ -4,107 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6EF1FC3ABA9
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 13:57:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C420C369DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 14:22:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MWTht+yrQODV9ZaCCUeciHgcuWq1NHzAXB+IzHMgAcA=; b=hFJ74qKT1R7p9R
-	mMoM/zyMjNDhRq0UfvQwEH0W0gV+fdXkbxtMAXYLEdC9ag87qLSUUavx17wYAtQ/cyLSazpuw3rhA
-	uAxl3tQ2E+2GErzjd2oUMpoLUz7YDf42KxLD1lDR3Y7QYQCwT0RJSMXkcuKP5fPwCgrtvzuoW55vt
-	bLFvNxv+wJ3pISqfqdAFr/ZJUASY3RaAe7eRF3sXdwduTCNbi71DKyouodCW9c0Yju1eghoEInSY5
-	4zC7dRrp0uk+X29yTe203RdPaCKq7Hoi+cwixqU1wWWq+C/DjEYipdvZCgPAdS2VR5OXEjUA07pRj
-	Dd8f2GBDC+mpXcFIM8jA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UtPuEhiX2eXdpa8+Sy2KWFwMEDW7Lgxzp80s+beyMGU=; b=AyWrjEb2ftcFF5+1gDiWFrvnIF
+	u3Y0VlrGKgyoPC5Xw+TUUWn5pTv7ym0xoQN7Lbv0KKB5786Ci99NS0/7nhJdFDcD3H3uGKToOJ2LM
+	Q4KWsgjbp9gcdbEybCX/J2zVDmF5xfBUpQ2SYm6E5dzW/yMiU2i/GLd6pCV7Pz1psrSX5Rw1QZr93
+	kFQTjY55H2m8JLthcsj/H16FSeyIKVwMBfd1ARKugcfL4p+v3DrGxz1OxFDD5cW/yo4cslSeB3iaT
+	kz8+3Io/RU8On01QNSl+2HJYUlELj1IEEba32q3Wn17P7yhVH0dtRdrajKltWGxxP63QoBgstmPJa
+	DFWx5bwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUPX-0000000FtVt-2Q1H;
-	Thu, 01 May 2025 13:57:11 +0000
+	id 1uAUnx-0000000FxDo-3uS9;
+	Thu, 01 May 2025 14:22:25 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAUNd-0000000FtEa-3hkD;
-	Thu, 01 May 2025 13:55:13 +0000
+	id 1uAUnw-0000000FxDh-24dX
+	for linux-riscv@lists.infradead.org;
+	Thu, 01 May 2025 14:22:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 11D4E68463;
-	Thu,  1 May 2025 13:54:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E48EC4CEE3;
-	Thu,  1 May 2025 13:55:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0996068443;
+	Thu,  1 May 2025 14:21:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D431C4CEE3;
+	Thu,  1 May 2025 14:22:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746107712;
-	bh=HP9qPQcXPFBaNtd0LbBqA0JNCPyQw698ggOHjYeim0Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Pfk1ZFoGFQBcJbn4eAazqmyuBJ6TkiGf2ekSQDgoa5Fjia9S2lMt5efsrXyzq1Vvm
-	 ULeuC83dmMDOduBWW3xv2ptavXQm1vdoGdMaOq6foW7rtSQf8ouqLVTIFegJWn1fzS
-	 EorN2jN0LePdF11Vpm6UW5UyEsjAfLLhsNMAJTWfxtw7S29pRommXhIjicwQXKd09K
-	 dja4faMd/aLvbeN4QKFNqUIDiiz0PK5zIlRXOlq9ONM7WY09BvtawseMmekfxpdUph
-	 231yeafldT6FquJnpqz72EltQ8Tb6TsqSFX9obyV9riRozvuNYg8YfhJH7B6vS3/oQ
-	 Lfve/zxbzhOzw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uAUNa-00AakJ-3R;
-	Thu, 01 May 2025 14:55:10 +0100
-Date: Thu, 01 May 2025 14:55:08 +0100
-Message-ID: <86v7qkh1vn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Maxim Levitsky <mlevitsk@redhat.com>,
-	kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Anup Patel <anup@brainfault.org>,
+	s=k20201202; t=1746109343;
+	bh=rBzRwoJgC9nPVv1XokQKUJ4a0+Ap+oQYmBNV9icBp+M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=H2c/wNcstc22sKguf3GzhxY8FNPZ0zc9gh4t30uC7yQTWApP0Cf15w/toqAhva0sa
+	 5aLKUPskmITnWqkpx4ue8WGDDlovvDtKVIFZCXa7T6OwIrK2iGHnLuDw8FrubLL9Ox
+	 L5ZHMnwzab69aspDqWJSvyRO6JIs1dZLBXp7lIR33Y49tLppdT1pcBIVPljucpMeKW
+	 JH0AWCTsyDNpyK13+mqr3G4ESNr24TDf5skxL6CoH9+TwfQ6AHtc4z+HxiovWQc5SV
+	 rKwsslg4uUjRirfVT9W9BXmU0u4UYIyXmlat76v3tOhn9x81oGH1TwRooGEIay62kR
+	 9RXI8ptCuftXQ==
+Date: Thu, 1 May 2025 15:22:17 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>,
-	x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Sean Christopherson <seanjc@google.com>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when locking all vCPUs
-In-Reply-To: <20250501134126.GT4439@noisy.programming.kicks-ass.net>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
-	<20250430203013.366479-3-mlevitsk@redhat.com>
-	<864iy4ivro.wl-maz@kernel.org>
-	<20250501111552.GO4198@noisy.programming.kicks-ass.net>
-	<861pt8ijpv.wl-maz@kernel.org>
-	<20250501134126.GT4439@noisy.programming.kicks-ass.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peterz@infradead.org, mlevitsk@redhat.com, kvm@vger.kernel.org, linux-riscv@lists.infradead.org, jiangkunkun@huawei.com, longman@redhat.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, catalin.marinas@arm.com, bhelgaas@google.com, boqun.feng@gmail.com, bp@alien8.de, aou@eecs.berkeley.edu, anup@brainfault.org, paul.walmsley@sifive.com, suzuki.poulose@arm.com, palmer@dabbelt.com, alex@ghiti.fr, glider@google.com, oliver.upton@linux.dev, andre.przywara@arm.com, x86@kernel.org, joey.gouly@arm.com, tglx@linutronix.de, kvm-riscv@lists.infradead.org, atishp@atishpatra.org, mingo@redhat.com, jingzhangos@google.com, hpa@zytor.com, dave.hansen@linux.intel.com, kvmarm@lists.linux.dev, will@kernel.org, keisuke.nishimura@inria.fr, sebott@redhat.com, lishusen2@huawei.com, pbonzini@redhat.com, rdunlap@infradead.org, seanjc@google.com, yuzenghui@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
+ compatible
+Message-ID: <20250501-shrubs-unmixable-a2a8a9bedd01@spud>
+References: <20250430020932.307198-1-inochiama@gmail.com>
+ <20250430020932.307198-3-inochiama@gmail.com>
+ <20250430-radiance-rebuilt-2caa906d5e6f@spud>
+ <20250430-snort-raider-dbf10d14993f@spud>
+ <otuaro3xh2ut3kurcomrq5j3guyyj7uhhwgngqdqqrrcpvlk6t@4wqbxy3m3tq7>
+MIME-Version: 1.0
+In-Reply-To: <otuaro3xh2ut3kurcomrq5j3guyyj7uhhwgngqdqqrrcpvlk6t@4wqbxy3m3tq7>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,84 +81,87 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============4780995338081921975=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 01 May 2025 14:41:26 +0100,
-Peter Zijlstra <peterz@infradead.org> wrote:
-> 
-> On Thu, May 01, 2025 at 01:44:28PM +0100, Marc Zyngier wrote:
-> > On Thu, 01 May 2025 12:15:52 +0100,
-> > Peter Zijlstra <peterz@infradead.org> wrote:
-> > > 
-> > > > > + */
-> > > > > +int kvm_trylock_all_vcpus(struct kvm *kvm)
-> > > > > +{
-> > > > > +	struct kvm_vcpu *vcpu;
-> > > > > +	unsigned long i, j;
-> > > > > +
-> > > > > +	kvm_for_each_vcpu(i, vcpu, kvm)
-> > > > > +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
-> > > 
-> > > This one includes an assertion that kvm->lock is actually held.
-> > 
-> > Ah, cunning. Thanks.
-> > 
-> > > That said, I'm not at all sure what the purpose of all this trylock
-> > > stuff is here.
-> > > 
-> > > Can someone explain? Last time I asked someone said something about
-> > > multiple VMs, but I don't know enough about kvm to know what that means.
-> > 
-> > Multiple VMs? That'd be real fun. Not.
-> > 
-> > > Are those vcpu->mutex another class for other VMs? Or what gives?
-> > 
-> > Nah. This is firmly single VM.
-> > 
-> > The purpose of this contraption is that there are some rare cases
-> > where we need to make sure that if we update some global state, all
-> > the vcpus of a VM need to see, or none of them.
-> > 
-> > For these cases, the guarantee comes from luserspace, and it gives the
-> > pinky promise that none of the vcpus are running at that point. But
-> > being of a suspicious nature, we assert that this is true by trying to
-> > take all the vcpu mutexes in one go. This will fail if a vcpu is
-> > running, as KVM itself takes the vcpu mutex before doing anything.
-> > 
-> > Similar requirement exists if we need to synthesise some state for
-> > userspace from all the individual vcpu states.
-> 
-> Ah, okay. Because x86 is simply doing mutex_lock() instead of
-> mutex_trylock() -- which would end up waiting for this activity to
-> subside I suppose.
-> 
-> Hence the use of the killable variant I suppose, for when they get tired
-> of waiting.
 
-Yeah, I remember some debate around that when this refactoring was
-first posted. I quickly paged it out.
+--===============4780995338081921975==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="XVRDKcPyTtvEDhL7"
+Content-Disposition: inline
 
-> If all the architectures are basically doing the same thing, it might
-> make sense to unify this particular behaviour. But what do I know.
 
-I don't know either. The trylock behaviour has been there since day-1
-on the arm side, and changing it would have userspace visible effects.
-So I'm pretty keen on preserving it, warts and all. The last thing I
-need is a VMM person hitting my inbox on the grounds that their toy is
-broken.
+--XVRDKcPyTtvEDhL7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On the other hand, we're talking about virtualisation, so everything
-is more or less broken by design...
+On Thu, May 01, 2025 at 06:43:07AM +0800, Inochi Amaoto wrote:
+> On Wed, Apr 30, 2025 at 04:37:01PM +0100, Conor Dooley wrote:
+> > On Wed, Apr 30, 2025 at 04:33:39PM +0100, Conor Dooley wrote:
+> > > On Wed, Apr 30, 2025 at 10:09:30AM +0800, Inochi Amaoto wrote:
+> > > > Add of device id definition for newly added precise compatible.
+> > > >=20
+> > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> > > > ---
+> > > >  drivers/clk/sophgo/clk-cv1800.c | 3 +++
+> > > >  1 file changed, 3 insertions(+)
+> > > >=20
+> > > > diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/c=
+lk-cv1800.c
+> > > > index e0c4dc347579..e10221df6385 100644
+> > > > --- a/drivers/clk/sophgo/clk-cv1800.c
+> > > > +++ b/drivers/clk/sophgo/clk-cv1800.c
+> > > > @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_=
+device *pdev)
+> > > > =20
+> > > >  static const struct of_device_id cv1800_clk_ids[] =3D {
+> > > >  	{ .compatible =3D "sophgo,cv1800-clk", .data =3D &cv1800_desc },
+> > > > +	{ .compatible =3D "sophgo,cv1800b-clk", .data =3D &cv1800_desc },
+> > >=20
+> > > Given the same data is used here, should there not be fallbacks in the
+> > > dt for some of these? For example, 1812 to 1800? Or is that not okay,
+> > > because 1800 is not a real device id?
+> > >=20
+> > > >  	{ .compatible =3D "sophgo,cv1810-clk", .data =3D &cv1810_desc },
+> > > > +	{ .compatible =3D "sophgo,cv1812h-clk", .data =3D &cv1800_desc },
+> > > >  	{ .compatible =3D "sophgo,sg2000-clk", .data =3D &sg2000_desc },
+> > > > +	{ .compatible =3D "sophgo,sg2002-clk", .data =3D &sg2000_desc },
+> >=20
+> > Actually, this one is a better example. sg2000 is not marked deprecated.
+> > sg2002 uses the same match data. Why is no fallback to sg2000 used for
+> > the sg2002 case?
+>=20
+> Yeah, It is a good idea. I will take it, thanks,
 
-	M.
+Can you point out the difference in the dt-binding patch when you do,
+between the sg2000 being a real device and the others not?
 
--- 
-Without deviation from the norm, progress is not possible.
+--XVRDKcPyTtvEDhL7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBODmQAKCRB4tDGHoIJi
+0pqUAPwI/zQNgP9x1HvcIE0paiqb55dihwJ5KU9E0DUZ/tC4egEAigTEf+A6r4+2
+rxWOVtgQTrgGBiBhzOKRtofcr/OrIw0=
+=6kou
+-----END PGP SIGNATURE-----
+
+--XVRDKcPyTtvEDhL7--
+
+
+--===============4780995338081921975==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============4780995338081921975==--
+
