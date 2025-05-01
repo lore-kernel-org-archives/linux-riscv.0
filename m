@@ -4,64 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACD6C369D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 00:45:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 704F7C369D9
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 01:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EgOzZc+NpmhX3+ENZV0V1ebVUuXs7xnKkMDL/FWARwo=; b=QDgwW7QfZo4oR+
-	FhBlzp0pKwiWit4WdZPOC5neFW2gAMXC0xrQbzpvjQIxyDtbWv/1AooJ9TK2S8Mz7uQ2ovEcNRU18
-	INE+k0lzp+fsehT7UlHUWUzdVxpxk/hbtKq9aHaBe1Vmq8OatwTklS+Vp9aSkgmMPPZBd39UGKsCT
-	zeF6TKDThKJd4SX8N5PcvcDDp3o99wA/GBE3/GmbBqzYyuGqQHdvK7WIQggycy7W+/l398RDYRJyN
-	DYZWsZlUuyPXoLLbNYTdjxHRMn9gI5817jzGWlUho6m6aq5UsIhm6oBC66DS1ZU5C7XyhOXmWoTt0
-	QPygNbzxiwQbEiZr4n2A==;
+	List-Owner; bh=/GamI+iIYPCo2flsQUpq/ygcubyTVPCPNI1HHEgbcTk=; b=0bAysQ/8amAE24
+	t8dusgruMISW+7yKzU7ccktK4u0sEmwZQFm9ueVYHtkiasnLr5aE1BzwwjgWESdtCHl8nsS6FUSKY
+	KR3Uv/6eyOS52QatF9OxcCrOenF2MouPnhXhTu5zzNAq4V+rUeG6xJzhssHgTbhQztgU7okgbGc8I
+	pWpttU3iOZ81ZGkUf2qh1cNqY7LTSLQY4egu51Q25tRnxjqsSgP8uXk7NLDNkunnK68DnlTbG9Oyt
+	JEpr9Jx0Onf7FTjWP4ai9/VqT2R/LziDTEtbiGZtiVtDswnPvcoybrgibrqhZ96JKc3ehQWGh27wa
+	aK4IMses3wvmfjegwnQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAI3Z-0000000EKXb-3t1N;
-	Thu, 01 May 2025 00:45:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uAIe5-0000000ENDk-0727;
+	Thu, 01 May 2025 01:23:25 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAI2f-0000000EKTB-3rLI
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 May 2025 00:44:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 824EFA4A9A8;
-	Thu,  1 May 2025 00:39:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B197C4CEE7;
-	Thu,  1 May 2025 00:44:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746060282;
-	bh=Ab7M7H7nRmNFNWh96Fia/8+mn2FgmJJgEuGJ617QAdM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rhv+D+ZN0Iljf1UblLJSGJqBr54u37Uo1lwFXZoyEMKxzEpCkG7wm7Zv+VEkJ27ms
-	 orJ9BxGfG6BBP0eLm6K5VRxwu1vRfCyZbIY+drVnCL8BGge46Be2bBwQ3b8lqBN1Ah
-	 hUPY8mB4xiDJAv4rmkejYqKm2M0NW0noL26jB4+nv8ltIBKfur0PJxFRLgTuaK0/kl
-	 qEWknnjo1noEg34CDZvJzmItSL1iqRYCL/J5ONAmpf+De1WfpXaGHIBuf5BSqGyEzw
-	 H/uC//BoPmZCuQNWSJd6U8UZkmNSYKF6KCL2tuM7oHECVC/zUmyKaM0gJHnizJXSuY
-	 Q3Sh4ncb6FGKQ==
-Date: Wed, 30 Apr 2025 17:44:34 -0700
-From: Nathan Chancellor <nathan@kernel.org>
-To: Miguel Ojeda <ojeda@kernel.org>
-Cc: naresh.kamboju@linaro.org, anders.roxell@linaro.org,
-	aou@eecs.berkeley.edu, arnd@arndb.de, dan.carpenter@linaro.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	lkft-triage@lists.linaro.org, llvm@lists.linux.dev,
-	masahiroy@kernel.org, namcao@linutronix.de, palmer@dabbelt.com,
-	regressions@lists.linux.dev
-Subject: Re: next-20250422: arch/riscv/kernel/vdso/vdso.so.dbg: dynamic
- relocations are not supported
-Message-ID: <20250501004434.GA3762678@ax162>
-References: <CA+G9fYtN2ie+YtK3H9mrQ5QqrSCFGGjVbtJcfiYX0oHMVWMn9w@mail.gmail.com>
- <20250430154845.795993-1-ojeda@kernel.org>
+	id 1uAIc7-0000000EMzJ-2cQB;
+	Thu, 01 May 2025 01:21:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=NW5f/6zfXSJgSFBDpq9nG7FU/uxSqKRQHQ8TMd0Poy8=; b=a/NlvQqOeoRlesedjZn7kxOnFw
+	uv4a9xzHl7D1VZeIL93rjMMAkhe5hxqE4x0m2n/FWDvbWRvtAX99hxnOhhW6vCIjzXO0BHZ3lqJM5
+	RB9c0EnDFbkQGKZre/Y99u6FTj0aU0AbJGl20o5hnmiDJvj7wFkXsXvZtugU3t3vxsaSBA7xX9NFz
+	wK8MiCgvwE6zOyaFZ4PnOSV/LXOZB/7xN/Nq+7ZCdajE/MnuryS2PJCBO8luW8qV3BFecbN+Fs9Ot
+	Cw+tw3zJmJw9KzUB2KECxEtcp23uuxyS5Q/PBLXt9Z81aTgSodFT60Fy0hM+6eWtxA0rVUI0j3R7q
+	BRzxY+2w==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uAIbz-002Qsc-2M;
+	Thu, 01 May 2025 09:21:16 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 01 May 2025 09:21:15 +0800
+Date: Thu, 1 May 2025 09:21:15 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org,
+	x86@kernel.org, Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH 00/12] crypto: sha256 - Use partial block API
+Message-ID: <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
+References: <cover.1745992998.git.herbert@gondor.apana.org.au>
+ <20250430174543.GB1958@sol.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250430154845.795993-1-ojeda@kernel.org>
+In-Reply-To: <20250430174543.GB1958@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_174446_022649_FD16DB3B 
-X-CRM114-Status: GOOD (  11.17  )
+X-CRM114-CacheID: sfid-20250430_182123_659921_276E4696 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,25 +80,26 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 05:48:45PM +0200, Miguel Ojeda wrote:
-> On Wed, 23 Apr 2025 20:15:45 +0530 Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
-> >
-> > build errors with clang
-> > ld.lld: error: version script assignment of 'LINUX_4.15' to symbol
-> > '__vdso_getrandom' failed: symbol not defined
-> > llvm-nm: error: arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg: No
-> > such file or directory
-> 
-> I have also been seeing this too in my Rust-enabled builds for a few
-> days at least.
+On Wed, Apr 30, 2025 at 10:45:43AM -0700, Eric Biggers wrote:
+>
+> As for your sha256_finup "optimization", it's an interesting idea, but
+> unfortunately it slightly slows down the common case which is count % 64 < 56,
+> due to the unnecessary copy to the stack and the following zeroization.  In the
+> uncommon case where count % 64 >= 56 you do get to pass nblocks=2 to
+> sha256_blocks_*(), but ultimately SHA-256 is serialized block-by-block anyway,
+> so it ends up being only slightly faster in that case, which again is the
+> uncommon case.  So while it's an interesting idea, it doesn't seem to actually
+> be better.  And the fact that that patch is also being used to submit unrelated,
+> more dubious changes isn't very helpful, of course.
 
-I forgot to follow up here and say that I sent a patch for this, it just
-needs to be applied by the RISC-V folks.
-
-https://lore.kernel.org/20250423-riscv-fix-compat_vdso-lld-v2-1-b7bbbc244501@kernel.org/
+I'm more than willing to change sha256_finup if you can prove it
+with real numbers that it is worse than the single-block version.
 
 Cheers,
-Nathan
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
