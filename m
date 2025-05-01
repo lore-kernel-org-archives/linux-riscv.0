@@ -4,46 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BCBC369D9
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 02:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8E73C3ABA3
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 05:21:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2KxgmFxpdrgRvWlbfOtYT0CtjWZSyjLPbgRMA7kfMO0=; b=XHn0geDqDGCPHO
-	rsv6ASm4E90M8HHQhJaZRpmDZ7Idv3khiuiRF4H5xS0qSSJX/bxB/Unu+CYkHyZQxkq5Vag/AI177
-	QyK8ZKOtfQx6/qAWjNJ+2HuU1g4VVkmbZuejgvwf2k7OkAfivrlfLauIzE2I4CCVmQi67Y+rmp+5R
-	G0NIvVZnXVToVxkP5wBxtBWwiM36Yp19s1s92hsi76pLCemVDLYDHwI4V3TKK7wtPotRLpC49VAdz
-	Kms9J4fzFverCLU+iAZpEXKmysPi67cx4S0kQSQqbGA4d+92YCMf/1BDZ05lQcAoqc0mZpvVvWjFe
-	/pojJ64o9Mo0huXpKiFA==;
+	List-Owner; bh=kUpZ+pcBcIrBMEtWsLNmoz1tI8PhIj2+F41UWzx+Dww=; b=ZOthj7EtGJk5K/
+	+AD2kw1Hitt0uq+Osle1HtNu2SZMAh2Id5lZBWjq4VJDf+dorQnoU6RioxQUbONu+PJ7TrFxNXJOB
+	XfVh+DwbIPm+FCBh2TdpVH99z/2Hc0VMy0hBA0NnyKz5GbuIXt7vtdsJC5xOsbf8Yr7rxn/s+0KWL
+	+1fymedUVn989IHAy03vgKv64XdwAgqKWwSeXjTJXQWVmiXLYz1y6nkm4F66nBKQ8KuINXTZaRTS5
+	QaCI1MXnGCCXkq3y25QdpHL8An0GYIra0dK0YRt9kipavG12V+SneSOaiPWyfZSYj+fje1UL28hIa
+	FXxYIVqjKXtKE/1KO4AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAJey-0000000EVkO-0AIs;
-	Thu, 01 May 2025 02:28:24 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uAMM9-0000000Ekxv-1UUe;
+	Thu, 01 May 2025 05:21:09 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAJd0-0000000EVC3-4B9m;
-	Thu, 01 May 2025 02:26:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 70FF343E95;
-	Thu,  1 May 2025 02:26:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4EBC4CEE7;
-	Thu,  1 May 2025 02:26:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746066381;
-	bh=xDvmI+RzBrsAPUkmwQMATcemiN1t9n0AYagyAz0GKD8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aVIMS6EX1bmdbZlCT4Ph9BQSkBsKo1ZZ8cv5kzE4w46J3KEcLVv9IU8J0N+zyXVDh
-	 AQh5znq8L73Eebkqo9Roe6Tl62Ut7eDfj7S+TgnQVbe0LlkF9QvY+5jRgMO/I58+Hd
-	 DUtTGnQiUls4Cq2vq1gOBHdJSYQrXrUnhN1ltHksGAwh2qLYZDOhdMQfyTqAL8258e
-	 EYaDBvVua06TCgkHQsRTxv7B27A5j+kEQQOkOjqMum92sfyZPD0dgF2MTTnz9pQXtS
-	 TW38MM3FRjMU3ZHSvSgrLnKmeDJzpKfSfPN84pKFsYNlM2D3IIZyiP174i14GcTTpv
-	 XkpcgDRMXkRMw==
-Date: Wed, 30 Apr 2025 19:26:17 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Herbert Xu <herbert@gondor.apana.org.au>
+	id 1uAMKB-0000000Ekjd-3MUm;
+	Thu, 01 May 2025 05:19:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=9t5+R7MBB1CitzsoU7qrOUojn4639+WchyM4zx0d4j4=; b=ORsTUm+3tDs7MqOLXniwLbTENu
+	6p8Ijou3tB4FtepjWe3F1A6W8IvySh95cZdbo6AzTOgys1fAFOnLjgZl/ixeJAU3uP78oydLi8D//
+	yAax6cWpNxoAHYpOezO8beaYeuGHP68V4qdyQTdAirltbeZ3K5W1HWRLRdTu1DRHvIhqGACuMLtsD
+	L4/ELm9xRzxjZE9uSzRBsLPKu384XEncFgdp8RWbWcWOQIo8DOJNbz9+cCdkKdgpDc51jJ2r9y5VI
+	V7Wcl+IDdkPoN5XAqV8kKx2r8DlOwoCrwVYtmf6WPYNYB7nm6jKdpr5Y35dDNgam3PekRDwUujufp
+	tuz3w6FQ==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uAMK4-002SVz-1M;
+	Thu, 01 May 2025 13:19:01 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Thu, 01 May 2025 13:19:00 +0800
+Date: Thu, 1 May 2025 13:19:00 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
 Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
 	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
@@ -53,16 +55,18 @@ Cc: Linux Crypto Mailing List <linux-crypto@vger.kernel.org>,
 	"Jason A . Donenfeld" <Jason@zx2c4.com>,
 	Linus Torvalds <torvalds@linux-foundation.org>
 Subject: Re: [PATCH 00/12] crypto: sha256 - Use partial block API
-Message-ID: <20250501022617.GA65059@sol.localdomain>
+Message-ID: <aBMERARvCQsl-5iN@gondor.apana.org.au>
 References: <cover.1745992998.git.herbert@gondor.apana.org.au>
  <20250430174543.GB1958@sol.localdomain>
  <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
+ <20250501022617.GA65059@sol.localdomain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aBLMi5XOQKJyJGu-@gondor.apana.org.au>
+In-Reply-To: <20250501022617.GA65059@sol.localdomain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250430_192623_076320_E21EFC21 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250430_221907_840843_236AC238 
+X-CRM114-Status: UNSURE (   7.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,171 +83,21 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 01, 2025 at 09:21:15AM +0800, Herbert Xu wrote:
-> On Wed, Apr 30, 2025 at 10:45:43AM -0700, Eric Biggers wrote:
-> >
-> > As for your sha256_finup "optimization", it's an interesting idea, but
-> > unfortunately it slightly slows down the common case which is count % 64 < 56,
-> > due to the unnecessary copy to the stack and the following zeroization.  In the
-> > uncommon case where count % 64 >= 56 you do get to pass nblocks=2 to
-> > sha256_blocks_*(), but ultimately SHA-256 is serialized block-by-block anyway,
-> > so it ends up being only slightly faster in that case, which again is the
-> > uncommon case.  So while it's an interesting idea, it doesn't seem to actually
-> > be better.  And the fact that that patch is also being used to submit unrelated,
-> > more dubious changes isn't very helpful, of course.
+On Wed, Apr 30, 2025 at 07:26:17PM -0700, Eric Biggers wrote:
+>
+> Interesting approach -- pushing out misguided optimizations without data, then
+> demanding data for them to be reverted.  It's obviously worse for
+> len % 64 < 56 for the reason I gave, so this is a waste of time IMO.  But since
+> you're insisting on data anyway, here are some quick benchmarks on AMD Zen 5
+> (not going to bother formatting into a table):
 > 
-> I'm more than willing to change sha256_finup if you can prove it
-> with real numbers that it is worse than the single-block version.
+> Before your finup "optimization":
 
-Interesting approach -- pushing out misguided optimizations without data, then
-demanding data for them to be reverted.  It's obviously worse for
-len % 64 < 56 for the reason I gave, so this is a waste of time IMO.  But since
-you're insisting on data anyway, here are some quick benchmarks on AMD Zen 5
-(not going to bother formatting into a table):
-
-Before your finup "optimization":
-
- sha256(len=0): 145 cycles
- sha256(len=1): 146 cycles
- sha256(len=2): 146 cycles
- sha256(len=3): 146 cycles
- sha256(len=4): 146 cycles
- sha256(len=5): 146 cycles
- sha256(len=6): 146 cycles
- sha256(len=7): 146 cycles
- sha256(len=8): 151 cycles
- sha256(len=9): 148 cycles
- sha256(len=10): 148 cycles
- sha256(len=11): 148 cycles
- sha256(len=12): 148 cycles
- sha256(len=13): 148 cycles
- sha256(len=14): 148 cycles
- sha256(len=15): 149 cycles
- sha256(len=16): 149 cycles
- sha256(len=17): 148 cycles
- sha256(len=18): 148 cycles
- sha256(len=19): 148 cycles
- sha256(len=20): 148 cycles
- sha256(len=21): 148 cycles
- sha256(len=22): 148 cycles
- sha256(len=23): 148 cycles
- sha256(len=24): 148 cycles
- sha256(len=25): 148 cycles
- sha256(len=26): 148 cycles
- sha256(len=27): 148 cycles
- sha256(len=28): 148 cycles
- sha256(len=29): 148 cycles
- sha256(len=30): 148 cycles
- sha256(len=31): 148 cycles
- sha256(len=32): 151 cycles
- sha256(len=33): 148 cycles
- sha256(len=34): 148 cycles
- sha256(len=35): 148 cycles
- sha256(len=36): 148 cycles
- sha256(len=37): 148 cycles
- sha256(len=38): 148 cycles
- sha256(len=39): 148 cycles
- sha256(len=40): 148 cycles
- sha256(len=41): 148 cycles
- sha256(len=42): 148 cycles
- sha256(len=43): 148 cycles
- sha256(len=44): 148 cycles
- sha256(len=45): 148 cycles
- sha256(len=46): 150 cycles
- sha256(len=47): 149 cycles
- sha256(len=48): 147 cycles
- sha256(len=49): 147 cycles
- sha256(len=50): 147 cycles
- sha256(len=51): 147 cycles
- sha256(len=52): 147 cycles
- sha256(len=53): 147 cycles
- sha256(len=54): 147 cycles
- sha256(len=55): 148 cycles
- sha256(len=56): 278 cycles
- sha256(len=57): 278 cycles
- sha256(len=58): 278 cycles
- sha256(len=59): 278 cycles
- sha256(len=60): 277 cycles
- sha256(len=61): 277 cycles
- sha256(len=62): 277 cycles
- sha256(len=63): 276 cycles
- sha256(len=64): 276 cycles
-
-After your finup "optimization":
-
- sha256(len=0): 188 cycles
- sha256(len=1): 190 cycles
- sha256(len=2): 190 cycles
- sha256(len=3): 190 cycles
- sha256(len=4): 189 cycles
- sha256(len=5): 189 cycles
- sha256(len=6): 189 cycles
- sha256(len=7): 190 cycles
- sha256(len=8): 187 cycles
- sha256(len=9): 188 cycles
- sha256(len=10): 188 cycles
- sha256(len=11): 188 cycles
- sha256(len=12): 189 cycles
- sha256(len=13): 189 cycles
- sha256(len=14): 188 cycles
- sha256(len=15): 189 cycles
- sha256(len=16): 189 cycles
- sha256(len=17): 190 cycles
- sha256(len=18): 190 cycles
- sha256(len=19): 190 cycles
- sha256(len=20): 190 cycles
- sha256(len=21): 190 cycles
- sha256(len=22): 190 cycles
- sha256(len=23): 190 cycles
- sha256(len=24): 191 cycles
- sha256(len=25): 191 cycles
- sha256(len=26): 191 cycles
- sha256(len=27): 191 cycles
- sha256(len=28): 191 cycles
- sha256(len=29): 192 cycles
- sha256(len=30): 191 cycles
- sha256(len=31): 191 cycles
- sha256(len=32): 191 cycles
- sha256(len=33): 191 cycles
- sha256(len=34): 191 cycles
- sha256(len=35): 191 cycles
- sha256(len=36): 192 cycles
- sha256(len=37): 192 cycles
- sha256(len=38): 192 cycles
- sha256(len=39): 191 cycles
- sha256(len=40): 191 cycles
- sha256(len=41): 194 cycles
- sha256(len=42): 193 cycles
- sha256(len=43): 193 cycles
- sha256(len=44): 193 cycles
- sha256(len=45): 193 cycles
- sha256(len=46): 194 cycles
- sha256(len=47): 194 cycles
- sha256(len=48): 193 cycles
- sha256(len=49): 195 cycles
- sha256(len=50): 195 cycles
- sha256(len=51): 196 cycles
- sha256(len=52): 196 cycles
- sha256(len=53): 195 cycles
- sha256(len=54): 195 cycles
- sha256(len=55): 195 cycles
- sha256(len=56): 297 cycles
- sha256(len=57): 297 cycles
- sha256(len=58): 297 cycles
- sha256(len=59): 297 cycles
- sha256(len=60): 297 cycles
- sha256(len=61): 297 cycles
- sha256(len=62): 297 cycles
- sha256(len=63): 297 cycles
- sha256(len=64): 292 cycles
-
-So your "optimization" made it ~43 cycles slower for len % 64 < 56, or ~19
-cycles slower for len % 64 >= 56.
-
-As I said, it's from the overhead of unnecessarily copying the data onto the
-stack and then having to zeroize it at the end.
-
-- Eric
+Thanks, I'll revert to the single-block version.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
 
 _______________________________________________
 linux-riscv mailing list
