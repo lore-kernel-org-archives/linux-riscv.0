@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63535C369DC
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 09:23:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15CCAC369DC
+	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 11:19:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uajMHHevjJBZJpD/OiJ6ORTOzUhdhEE0jNUlzgHmq9Y=; b=tnhAsLeLqjRH/E
-	zS2pbRPR1YI9PCftBr0ZzvlsktFa35D+0Qv9WBB5u3+WUF461iLjDj1BimP24YRPDV3YS+HYcvZoh
-	NGOTTMgPzOmHsZxg40uZXLVJ+sVbXT/14kXpeKz6yMZNtHUbHG5iJOWass3erP6HmvtMxfD4LgPN1
-	xC4H30NrFeevhJm7E6exvN9JLlC4XZMCNYpDb3FWU+DgIFxUoWaSWWxeX7SDxGOzC88KOU+XndqJz
-	NnUdX1d9gvT3QZmyhSHAW2hILCv6tcS62lT1+ClMX42VgabIc0fZ5P7enU8zeiXAcOrmKoZoQFNAD
-	IbtSmx2/DuyarNI6aw6A==;
+	List-Owner; bh=amK9fGzbHkEKsZ74fUMLzZpp0lc7LjN+cd3X70LJ0qE=; b=gXuRermnHhCZid
+	HGkYgYURxOg2dauOxorNdJBQnBYpoYkMkUeJqd12R+UHhtiwSKXoRd/YwgLnizux7W/x5R+hWoXu9
+	4l/+vTGrnqhAeeP6S/nGT/5yKPRjDCvadoFN0GvmM82fXFnI8AtOw7WudiNE35Kso8FnirewdE7OO
+	CaMX2aK0wKWI6bA7u3LwFzUL7MmtlcfgleuBijT2SukufrQJECVn4Z6PfKW5JKYtlS2B5oXkaQ1QN
+	z/57dgjNV+NNVEo7X+nw1okoi5hnEjbyt39XyUCyntOgo4AYQn6fiXHGjz3YNuMIf6f/9p47xYwED
+	xm3sGm9Y0Uc1uzulDJaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQ8b-0000000F6ts-0ajR;
-	Thu, 01 May 2025 09:23:25 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1uARws-0000000FGwC-49fV;
+	Thu, 01 May 2025 11:19:26 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAQ8Z-0000000F6tS-0Y3w
-	for linux-riscv@lists.infradead.org;
-	Thu, 01 May 2025 09:23:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1746091397;
-	bh=Afd/qagLKI/fX+0RGz5E2Ib/ep+ALL7XK8CbKf8SgZ8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=WC5PUHBpzf/Bq7qfABvB68s996X+KfIVkxXtnqWlzFu6ZE1F9tPrgFtZTAApIeEah
-	 Td6zPENp9j3EAxeWDDIck+n9YbS/THiOkDHcW1tTj6/GFUMuFgv/YSPY92ZbiyyQLl
-	 yNoKEPyWyHpDIUJD7IZtBA0mycpOVKxxpLINqk4A=
-Received: from [127.0.0.1] (unknown [IPv6:2001:470:683e::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 4D8E365F64;
-	Thu,  1 May 2025 05:23:16 -0400 (EDT)
-Message-ID: <7249b7dfdfa5fc56d321c9b69affa17b325d1e4a.camel@xry111.site>
-Subject: Re: [PATCH v2] riscv: vdso.lds.S: Do not export __vdso_getrandom
- when building a 32-bit vDSO
-From: Xi Ruoyao <xry111@xry111.site>
-To: Nathan Chancellor <nathan@kernel.org>, Palmer Dabbelt
- <palmer@rivosinc.com>,  Alexandre Ghiti	 <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org, llvm@lists.linux.dev, 
-	patches@lists.linux.dev, Linux Kernel Functional Testing <lkft@linaro.org>
-Date: Thu, 01 May 2025 17:23:14 +0800
-In-Reply-To: <20250423-riscv-fix-compat_vdso-lld-v2-1-b7bbbc244501@kernel.org>
-References: <20250423-riscv-fix-compat_vdso-lld-v2-1-b7bbbc244501@kernel.org>
-User-Agent: Evolution 3.56.1 
+	id 1uARtW-0000000FGMS-3DRt;
+	Thu, 01 May 2025 11:15:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=fDTwHpsnK1HXZhn01AWF6PLmK/DHwvlEcCJKIgKSjwU=; b=T9/U85yA6hIvoLlv4HtdStuKjP
+	k6a+M4OL1L8OrIa901hPNKwtI82kA7+N0hMBR4zoBE4E7d8nz+08o7P3Hqnf+luSVJtZHm26QDQeL
+	coxvHFky9Ql49FikfAU1SxOAuXLIYDOauM3z0FBIQq3Tir7getueoC3bLogxKBsh1TJEEzkYqaO8h
+	09XEiOWi3RGIS1ZNaoLTFMCQegpfBzn1q8vB4AjvsBn0X+A1YyCqSj+RKU0GwXh7padrqDdihLm6T
+	B92bH9jqwkkHgnw/yI9KSsUvXa44Jpy90QMruIl10CIFHO3WayAfe9wLnVOvJZd0v+25QAZwAnm2U
+	0sx7Dndw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uARtR-0000000HaXn-0gzL;
+	Thu, 01 May 2025 11:15:53 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id A2CD8300230; Thu,  1 May 2025 13:15:52 +0200 (CEST)
+Date: Thu, 1 May 2025 13:15:52 +0200
+From: Peter Zijlstra <peterz@infradead.org>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Borislav Petkov <bp@alien8.de>,
+	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Potapenko <glider@google.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Andre Przywara <andre.przywara@arm.com>, x86@kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>, kvm-riscv@lists.infradead.org,
+	Atish Patra <atishp@atishpatra.org>, Ingo Molnar <mingo@redhat.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>, kvmarm@lists.linux.dev,
+	Will Deacon <will@kernel.org>,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Sebastian Ott <sebott@redhat.com>, Shusen Li <lishusen2@huawei.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH v4 2/5] arm64: KVM: use mutex_trylock_nest_lock when
+ locking all vCPUs
+Message-ID: <20250501111552.GO4198@noisy.programming.kicks-ass.net>
+References: <20250430203013.366479-1-mlevitsk@redhat.com>
+ <20250430203013.366479-3-mlevitsk@redhat.com>
+ <864iy4ivro.wl-maz@kernel.org>
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_022323_188229_D55FCBC6 
-X-CRM114-Status: GOOD (  16.49  )
+Content-Disposition: inline
+In-Reply-To: <864iy4ivro.wl-maz@kernel.org>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,52 +94,119 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCAyMDI1LTA0LTIzIGF0IDEzOjAzIC0wNzAwLCBOYXRoYW4gQ2hhbmNlbGxvciB3cm90
-ZToKPiBsZC5sbGQgZGVmYXVsdHMgdG8gJy0tbm8tdW5kZWZpbmVkLXZlcnNpb24nLCB3aGljaCBj
-YXVzZXMgdGhlIGNvbXBhdAo+IHZEU08gZm9yIDY0LWJpdCBidWlsZHMgYW5kIHRoZSByZWd1bGFy
-IHZEU08gZm9yIDMyLWJpdCBidWlsZHMgdG8gYnJlYWsKPiBhZnRlciB3aXJpbmcgdXAgdGhlIHZE
-U08gZ2V0cmFuZG9tKCkgY2FsbCBiZWNhdXNlIF9fdmRzb19nZXRyYW5kb20gaXMKPiB1bmNvbmRp
-dGlvbmFsbHkgZXhwb3J0ZWQsIGV2ZW4gdGhvdWdoIGl0IGlzIG5vdCBhbHdheXMgcHJlc2VudC4K
-PiAKPiDCoCBsZC5sbGQ6IGVycm9yOiB2ZXJzaW9uIHNjcmlwdCBhc3NpZ25tZW50IG9mICdMSU5V
-WF80LjE1JyB0byBzeW1ib2wgJ19fdmRzb19nZXRyYW5kb20nIGZhaWxlZDogc3ltYm9sIG5vdCBk
-ZWZpbmVkCj4gCj4gTW92ZSB0aGUgZXhwb3J0IG9mIF9fdmRzb19nZXRyYW5kb20oKSB1bmRlciBh
-biBpZmRlZiB0byBvbmx5IGluY2x1ZGUgaXQKPiB3aGVuIENPTkZJR19WRFNPX0dFVFJBTkRPTSBp
-cyBkZWZpbmVkICh0byBleGNsdWRlIDMyLWJpdCBidWlsZHMpIGFuZAo+IENPTVBBVF9WRFNPIGlz
-IG5vdCBkZWZpbmVkICh0byBleGNsdWRlIHRoZSAzMi1iaXQgdkRTTyBvbiA2NC1iaXQgYnVpbGRz
-KQo+IHRvIHJlc29sdmUgdGhlIGVycm9yLgo+IAo+IEZpeGVzOiA4OTA3OTUyMGNlZjYgKCJSSVND
-LVY6IHZEU086IFdpcmUgdXAgZ2V0cmFuZG9tKCkgdkRTTyBpbXBsZW1lbnRhdGlvbiIpCj4gUmVw
-b3J0ZWQtYnk6IExpbnV4IEtlcm5lbCBGdW5jdGlvbmFsIFRlc3RpbmcgPGxrZnRAbGluYXJvLm9y
-Zz4KPiBDbG9zZXM6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL0NBK0c5Zll0TjJpZStZdEszSDlt
-clE1UXFyU0NGR0dqVmJ0SmNmaVlYMG9ITVZXTW45d0BtYWlsLmdtYWlsLmNvbS8KPiBTaWduZWQt
-b2ZmLWJ5OiBOYXRoYW4gQ2hhbmNlbGxvciA8bmF0aGFuQGtlcm5lbC5vcmc+CgpSZXZpZXdlZC1i
-eTogWGkgUnVveWFvIDx4cnkxMTFAeHJ5MTExLnNpdGU+CgpJIGRpZG4ndCBleHBlY3QgbXkgcGF0
-Y2ggdG8gbWFrZSBpdCB3YXkgaW50byAtbmV4dCBhcyBpdCBhbHJlYWR5IGZhaWxlZAp0aGUgQ0ku
-ICBJIHdhcyBqdXN0IHRvbyBidXN5IG9uICRvdGhlcl9zdHVmZiBhbmQgdGhpbmtpbmcgImhleSBs
-ZXQgbWUKcmV3b3JrIHRoZSBwYXRjaCB3aGVuIEkgZ2V0IHNvbWUgdGltZSIgOiguCgo+IC0tLQo+
-IENoYW5nZXMgaW4gdjI6Cj4gLSBJbmNsdWRlIGEgY2hlY2sgZm9yIENPTkZJR19WRFNPX0dFVFJB
-TkRPTSB0byBmaXggYnJlYWthZ2Ugb24KPiDCoCBydjMyX2RlZmNvbmZpZy4gSW5jbHVkZSB0aGUg
-dGFncyBmb3IgdGhlIHJlcG9ydCB0aGF0IGhlbHBlZCBoaWdobGlnaHQKPiDCoCB0aGlzIGlzc3Vl
-Lgo+IC0gTGluayB0byB2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDI1MDQyMy1yaXNj
-di1maXgtY29tcGF0X3Zkc28tbGxkLXYxLTEtODIwZGU1Y2FkNjA1QGtlcm5lbC5vcmcKPiAtLS0K
-PiDCoGFyY2gvcmlzY3Yva2VybmVsL3Zkc28vdmRzby5sZHMuUyB8IDIgKysKPiDCoDEgZmlsZSBj
-aGFuZ2VkLCAyIGluc2VydGlvbnMoKykKPiAKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJu
-ZWwvdmRzby92ZHNvLmxkcy5TIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92ZHNvLmxkcy5TCj4g
-aW5kZXggYWJjNjljZGEwNDQ1Li43YzE1YjBmNGVlM2IgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNj
-di9rZXJuZWwvdmRzby92ZHNvLmxkcy5TCj4gKysrIGIvYXJjaC9yaXNjdi9rZXJuZWwvdmRzby92
-ZHNvLmxkcy5TCj4gQEAgLTgwLDcgKzgwLDkgQEAgVkVSU0lPTgo+IMKgI2lmbmRlZiBDT01QQVRf
-VkRTTwo+IMKgCQlfX3Zkc29fcmlzY3ZfaHdwcm9iZTsKPiDCoCNlbmRpZgo+ICsjaWYgZGVmaW5l
-ZChDT05GSUdfVkRTT19HRVRSQU5ET00pICYmICFkZWZpbmVkKENPTVBBVF9WRFNPKQo+IMKgCQlf
-X3Zkc29fZ2V0cmFuZG9tOwo+ICsjZW5kaWYKPiDCoAlsb2NhbDogKjsKPiDCoAl9Owo+IMKgfQo+
-IAo+IC0tLQo+IGJhc2UtY29tbWl0OiBiYWZhNDUxYTk2ZDBmMTQwNGFhMWE1YTI2N2Y3ODc2N2E1
-NWZhYzcxCj4gY2hhbmdlLWlkOiAyMDI1MDQyMy1yaXNjdi1maXgtY29tcGF0X3Zkc28tbGxkLWUx
-YjgwYjMyNGQ5Nwo+IAo+IEJlc3QgcmVnYXJkcywKCi0tIApYaSBSdW95YW8gPHhyeTExMUB4cnkx
-MTEuc2l0ZT4KU2Nob29sIG9mIEFlcm9zcGFjZSBTY2llbmNlIGFuZCBUZWNobm9sb2d5LCBYaWRp
-YW4gVW5pdmVyc2l0eQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVh
-ZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1y
-aXNjdgo=
+On Thu, May 01, 2025 at 09:24:11AM +0100, Marc Zyngier wrote:
+> nit: in keeping with the existing arm64 patches, please write the
+> subject as "KVM: arm64: Use ..."
+> 
+> On Wed, 30 Apr 2025 21:30:10 +0100,
+> Maxim Levitsky <mlevitsk@redhat.com> wrote:
+> 
+> [...]
+> 
+> > 
+> > diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> > index 68fec8c95fee..d31f42a71bdc 100644
+> > --- a/arch/arm64/kvm/arm.c
+> > +++ b/arch/arm64/kvm/arm.c
+> > @@ -1914,49 +1914,6 @@ int kvm_arch_vm_ioctl(struct file *filp, unsigned int ioctl, unsigned long arg)
+> >  	}
+> >  }
+> >  
+> > -/* unlocks vcpus from @vcpu_lock_idx and smaller */
+> > -static void unlock_vcpus(struct kvm *kvm, int vcpu_lock_idx)
+> > -{
+> > -	struct kvm_vcpu *tmp_vcpu;
+> > -
+> > -	for (; vcpu_lock_idx >= 0; vcpu_lock_idx--) {
+> > -		tmp_vcpu = kvm_get_vcpu(kvm, vcpu_lock_idx);
+> > -		mutex_unlock(&tmp_vcpu->mutex);
+> > -	}
+> > -}
+> > -
+> > -void unlock_all_vcpus(struct kvm *kvm)
+> > -{
+> > -	lockdep_assert_held(&kvm->lock);
+> 
+> Note this assertion...
+> 
+> > -
+> > -	unlock_vcpus(kvm, atomic_read(&kvm->online_vcpus) - 1);
+> > -}
+> > -
+> > -/* Returns true if all vcpus were locked, false otherwise */
+> > -bool lock_all_vcpus(struct kvm *kvm)
+> > -{
+> > -	struct kvm_vcpu *tmp_vcpu;
+> > -	unsigned long c;
+> > -
+> > -	lockdep_assert_held(&kvm->lock);
+> 
+> and this one...
+> 
+> > -
+> > -	/*
+> > -	 * Any time a vcpu is in an ioctl (including running), the
+> > -	 * core KVM code tries to grab the vcpu->mutex.
+> > -	 *
+> > -	 * By grabbing the vcpu->mutex of all VCPUs we ensure that no
+> > -	 * other VCPUs can fiddle with the state while we access it.
+> > -	 */
+> > -	kvm_for_each_vcpu(c, tmp_vcpu, kvm) {
+> > -		if (!mutex_trylock(&tmp_vcpu->mutex)) {
+> > -			unlock_vcpus(kvm, c - 1);
+> > -			return false;
+> > -		}
+> > -	}
+> > -
+> > -	return true;
+> > -}
+> > -
+> >  static unsigned long nvhe_percpu_size(void)
+> >  {
+> >  	return (unsigned long)CHOOSE_NVHE_SYM(__per_cpu_end) -
+> 
+> [...]
+> 
+> > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> > index 69782df3617f..834f08dfa24c 100644
+> > --- a/virt/kvm/kvm_main.c
+> > +++ b/virt/kvm/kvm_main.c
+> > @@ -1368,6 +1368,40 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+> >  	return 0;
+> >  }
+> >  
+> > +/*
+> > + * Try to lock all of the VM's vCPUs.
+> > + * Assumes that the kvm->lock is held.
+> 
+> Assuming is not enough. These assertions have caught a number of bugs,
+> and I'm not prepared to drop them.
+> 
+> > + */
+> > +int kvm_trylock_all_vcpus(struct kvm *kvm)
+> > +{
+> > +	struct kvm_vcpu *vcpu;
+> > +	unsigned long i, j;
+> > +
+> > +	kvm_for_each_vcpu(i, vcpu, kvm)
+> > +		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
+
+This one includes an assertion that kvm->lock is actually held.
+
+That said, I'm not at all sure what the purpose of all this trylock
+stuff is here.
+
+Can someone explain? Last time I asked someone said something about
+multiple VMs, but I don't know enough about kvm to know what that means.
+
+Are those vcpu->mutex another class for other VMs? Or what gives?
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
