@@ -4,97 +4,184 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 319D0C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 17:36:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 282A9C3ABAC
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 17:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FXhWZDrbAk7KN0lLRUF4FQLOki3n6A1iOoP8L4yXAPk=; b=gBZzx+r/mB2bJ/
-	YJJTwCHO2hHJH0EjHrShBjE5aa1Ws3IRv8/bLPmMN2p08xlaI5CNO9cCXJLYF515WLr9Hcwl4tRLK
-	q+HFdfHtZSjYLwpsyeXkTrKKkPpVjphCaEdpPGokAquRdV+2b8PhXx8PqBFDdjjq9MRfXEQErjJVV
-	vWaWJtzGQ8V6RSJ8CTueCnUJtKTXX4YdXT/Uvmh6vnBXkj8n7G5pUC4s4cOiCc1y2sRr5+ozJsR6y
-	pUox0DKtZTkUZrM9MOIgI3nUm8dHIhA0Cj7PgsrU9DTodooHzmMDXeJUURm1QSxvW1CNrOrGKC3Iu
-	Ot9U7LJpRFMNWThMFC6g==;
+	List-Owner; bh=W9yQeEA8Iz9JbxPfyvC8VI/YFzVS5xo6FXwiMFWXJDY=; b=uHhQtUjaUIrf8J
+	2Lnpz3OdGz5z3bJg+IC2oVH4PD0ufzLypXOETxLarsZuNFjVrbAZOWaFBP3qL4QMDUkEjvQuSbVaM
+	3o/XBUEbocRnt1Bj3rh2m/XjeimGO/vh25Gop+TBe08PFyot2yKvkqbBDzh55hpW758Lt1eMsKtpj
+	f20HcRkU+LW/Yu+8yWZ+Jy18TEJDA/iq5BymOJu/7ZCpZ6nazEshEPvy3u+32j4Mc5lfpueyP5HDp
+	5JPrecVxtEuenKVW6XGwqwccj3FYc/RRmdpiV2pOvmB+cnlrNvjK1Bpqj7ksGriQ7+E/Y8p0kJASM
+	ohrmvKFS+c3lizybzUuQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAuIk-00000002h7W-1jNj;
-	Fri, 02 May 2025 17:35:54 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uAuej-00000002j91-2CHn;
+	Fri, 02 May 2025 17:58:37 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAuIh-00000002h6u-2EEM
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 May 2025 17:35:53 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-22c336fcdaaso30159315ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 02 May 2025 10:35:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1746207350; x=1746812150; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZYhAVQlokiByUgWXBup9K48iVS+b0vgtDdhC/WcTVzQ=;
-        b=vXdBGIBnLqyuuqxQhZlfBzN1mmXbabBiYGp+fj6sZ7e87ugiD1AUC2hBb6Bcm7A0xF
-         Ue0dfpeeMFrK9dU92PG+OPdJzGyGANZO78/gwmrVUkx38BJx+PziwsFr9yhMrmKt27yW
-         YwNaGIgfutPtlcjucRjsxIbBclpBTlO+8hTXN3Cug0kwkE1yKtjDi/2F4Q5jmHNgu7cX
-         CXolyYAnOV8nQPC7lPf5DfaEsEAAvB8HepdD/mit18vR/dSa79UaZP5sJR3isI9HxzpZ
-         XV26sP8NCpx5IEia/UXaRvQPCCuMkk62yxeuMHogazULM0scBkzjcWCYzWdQ9qXg6pnb
-         HQaw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746207350; x=1746812150;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZYhAVQlokiByUgWXBup9K48iVS+b0vgtDdhC/WcTVzQ=;
-        b=ImZrygd+5t50IgihR95kiuj90iH99tzOslTACQbYC+ESHT4VItE+/9iTQLFW3/AbJW
-         9b+ymp8C6h84wlKzW3JgCWNz4FCHPmSRN1OL6YAl04W00MB+6GG8UJtcAiJRqtvQ0fap
-         pn/BwIk5CrEC2hFRxsTR6qC4YgY/9++IQiPVO7y4md3sq+gwbu/PyyZRnhfB7XljE2jj
-         GSSvHfwtHCkIZY8T9PYgjnpV/pzKsoLpOtEXmhu2jJk5WOn7yCAXRbhZKuFu4+GHwgiU
-         qLALTKWE/gTPafZA+91GhMIL9X6M2gliM2AmyFF9rIaYHzKx0GeW8wGlN6kU2xEg+WHt
-         R4Qw==
-X-Forwarded-Encrypted: i=1; AJvYcCXpXzmuKujrLWt1HdS8UmyxNHtIho0+qhPdBP2IAGI8vbOX1FbJc7mOTijN59UVVv+9Q4Cpr/KjQQ0cCQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM64pYqYGY6SsbyX2hiCSTjVFwg0Z+WGS4Ietr2YAp0GgUY+Ri
-	OBflAmU+FwGO5SAxMl5JL074c3fXR2KgPu0ZpeHph57TU7+WPPaMUHrgH7vBu2o=
-X-Gm-Gg: ASbGncuGf19wIYiPehQT4kisrWhUJzeUMeO6BHWpoiRMzfHoYVYmqOHc4rfNiTsp1us
-	tkTZcsO0gpKe2lFAPJmAdA32CtjIyDZD3aL4hNYk4Q6Wndfv2pHj5JtVe9H6eHwTsPs8H13tG8G
-	SJ2BNoVjqOLbnuhxoZmQd2Jcuiv1VugGfU9wKVz2Jy0a1C5rIetTlrGdK19L6041RzjOX52rhjJ
-	CFYXly+RppMWeb5aI80/zzYoCFVDxE3LQ5JGmtejHH4tR6jKM7eHFuYqXCuffiLBLNq8IKV6hFR
-	bKufoA7+iu2AXU5NjGDDu3xG6xCImTuaPujRi410ZBkSy/6RJ8ff5ilMkg==
-X-Google-Smtp-Source: AGHT+IHBxa82j3Roorwj2Et3r1OrV5OkcZFDFTDmDeIMXs4BMM/H2pad3CjPCcSgOfU4YoigoF7IqQ==
-X-Received: by 2002:a17:903:3b88:b0:223:5ca1:3b0b with SMTP id d9443c01a7336-22e103965femr57603255ad.40.1746207350292;
-        Fri, 02 May 2025 10:35:50 -0700 (PDT)
-Received: from x1 (97-120-122-6.ptld.qwest.net. [97.120.122.6])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22e15232797sm10306915ad.240.2025.05.02.10.35.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 10:35:49 -0700 (PDT)
-Date: Fri, 2 May 2025 10:35:48 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, mturquette@baylibre.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
- controller
-Message-ID: <aBUCdA0ZSQL1n3i4@x1>
-References: <20250403094425.876981-1-m.wilczynski@samsung.com>
- <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
- <20250403094425.876981-4-m.wilczynski@samsung.com>
- <Z/BoQIXKEhL3/q50@x1>
- <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
- <9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org>
- <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
+	id 1uAudK-00000002iwD-1HH5;
+	Fri, 02 May 2025 17:57:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746208630; x=1777744630;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=FPvdubOWtdtEW76tl7BSAT1G+Iw/Jzhgke+tpDRdvc4=;
+  b=eqUT5wjYuI3H28BRcMoNcBQtokJa3VpknCXH3BMPnblUuF7tsRreqlFl
+   vJeIf/79hvQAyDep+S6aQjPdjpQVd8W/pOT/DvagT34ft+tNcBr6PhVFP
+   cGgOCSa6JhyqeuBsSemhXDQyGskbov90sGBiqciDQmM3UTEBrrnhfq/VR
+   SNgzrExyg32iVd2Vm7yPBep+JGfjpDV0GGfkc9XlMYUOJRDzNjgP00G2P
+   kQZ6cLL/Y5cTl9jXGrRrC0/wQLnUvpJTFwIVKX7ZY2iLIH7JCEQ2JWUP2
+   dUt1Q1PAdnuGVA0PvZovOeb7qd52bQhs0cITdzsAfy9hxSSxrFgwf1hcr
+   Q==;
+X-CSE-ConnectionGUID: jvDBU558StOcE9iG+TIX5Q==
+X-CSE-MsgGUID: zcfsqti+QB+zOGcP/inn5A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="48040296"
+X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
+   d="scan'208";a="48040296"
+Received: from fmviesa002.fm.intel.com ([10.60.135.142])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 10:57:07 -0700
+X-CSE-ConnectionGUID: 6Hv7z+i+RT+M1DlX4ZfpnA==
+X-CSE-MsgGUID: hA4mMTh5S5axSY7+RrKG1w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,257,1739865600"; 
+   d="scan'208";a="157925740"
+Received: from bjrankin-mobl3.amr.corp.intel.com (HELO [10.124.220.153]) ([10.124.220.153])
+  by fmviesa002-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 10:57:03 -0700
+Message-ID: <2c5d11cf-ad06-444c-b84a-42de7a10159d@intel.com>
+Date: Fri, 2 May 2025 10:57:00 -0700
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/25] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+To: Valentin Schneider <vschneid@redhat.com>,
+ Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ kvm@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-modules@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ rcu@vger.kernel.org, linux-hardening@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+ Juri Lelli <juri.lelli@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Yair Podemsky <ypodemsk@redhat.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+ Nicolas Saenz Julienne <nsaenz@amazon.com>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Sean Christopherson <seanjc@google.com>, Juergen Gross <jgross@suse.com>,
+ Ajay Kaher <ajay.kaher@broadcom.com>,
+ Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+ Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
+ Sami Tolvanen <samitolvanen@google.com>, Daniel Gomez
+ <da.gomez@samsung.com>, Naveen N Rao <naveen@kernel.org>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+ Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Miguel Ojeda <ojeda@kernel.org>, "Mike Rapoport (Microsoft)"
+ <rppt@kernel.org>, Rong Xu <xur@google.com>,
+ Rafael Aquini <aquini@redhat.com>, Song Liu <song@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Brian Gerst <brgerst@gmail.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+ Benjamin Berg <benjamin.berg@intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Randy Dunlap <rdunlap@infradead.org>, John Stultz <jstultz@google.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>
+References: <20250429113242.998312-1-vschneid@redhat.com>
+ <fefcd1a6-f146-4f3c-b28b-f907e7346ddd@intel.com>
+ <20250430132047.01d48647@gandalf.local.home>
+ <019f6713-cfbd-466b-8fb5-dcd982cf8644@intel.com>
+ <20250430154228.1d6306b4@gandalf.local.home>
+ <a6b3a331-1ff3-4490-b300-a62b3c21578d@intel.com>
+ <xhsmhr0179w1i.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+ <34535b8c-35c8-4a7f-8363-f5a9c5a69023@intel.com>
+ <xhsmho6wb9de3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <xhsmho6wb9de3.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_103551_845019_D58B3D54 
-X-CRM114-Status: GOOD (  35.01  )
+X-CRM114-CacheID: sfid-20250502_105710_358394_02DD3F34 
+X-CRM114-Status: GOOD (  16.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,103 +198,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 30, 2025 at 09:52:29AM +0200, Michal Wilczynski wrote:
-> 
-> 
-> On 4/30/25 00:29, Stephen Boyd wrote:
-> > Quoting Michal Wilczynski (2025-04-07 08:30:43)
-> >> On 4/5/25 01:16, Drew Fustini wrote:
-> >>>> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> >>>> index 527336417765..d4cba0713cab 100644
-> >>>> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> >>>> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> >>>> @@ -489,6 +489,13 @@ clk: clock-controller@ffef010000 {
-> >>>>                      #clock-cells = <1>;
-> >>>>              };
-> >>>>  
-> >>>> +            clk_vo: clock-controller@ffef528050 {
-> >>>> +                    compatible = "thead,th1520-clk-vo";
-> >>>> +                    reg = <0xff 0xef528050 0x0 0xfb0>;
-> >>>
-> >>> Thanks for your patch. It is great to have more of the clocks supported
-> >>> upstream.
-> >>>
-> >>> The TH1520 System User Manual shows 0xFF_EF52_8000 for VO_SUBSYS on page
-> >>> 205. Is there a reason you decided to use 0xFF_EF52_8050 as the base?
-> >>>
-> >>> I see on page 213 that the first register for VO_SUBSYS starts with
-> >>> VOSYS_CLK_GATE at offset 0x50. I figure you did this to have the
-> >>> CCU_GATE macros use offset of 0x0 instead 0x50.
-> >>>
-> >>> I kind of think the reg property using the actual base address
-> >>> (0xFF_EF52_8000) makes more sense as that's a closer match to the tables
-> >>> in the manual. But I don't have a strong preference if you think think
-> >>> using 0xef528050 makes the CCU_GATE macros easier to read.
-> >>
-> >> Thank you for your comment.
-> >>
-> >> This was discussed some time ago. The main issue was that the address
-> >> space was fragmented between clocks and resets. Initially, I proposed
-> >> using syscon as a way to abstract this, but the idea wasn't particularly
-> >> well received.
-> >>
-> >> So at the start of the 0xFF_EF52_8000 there is a reset register GPU_RST_CFG
-> >> I need for resetting the GPU.
-> >>
-> >> For reference, here's the earlier discussion: [1]
-> >>
-> >> [1] - https://lore.kernel.org/all/1b05b11b2a8287c0ff4b6bdd079988c7.sboyd@kernel.org/
-> >>
-> > 
-> > In that email I said you should have one node
-> > clock-controller@ffef528000. Why did 0x50 get added to the address?
-> 
-> Hi Stephen,
-> In the v2 version of the patchset, there was no reset controller yet, so
-> I thought your comment was made referring to that earlier version.
-> This representation clearly describes the hardware correctly, which is
-> the requirement for the Device Tree.
-> 
-> The manual, in section 5.4.1.6 VO_SUBSYS, describes the reset registers
-> starting at 0xFF_EF52_8000:
-> 
-> GPU_RST_CFG             0x00
-> DPU_RST_CFG             0x04
-> MIPI_DSI0_RST_CFG       0x8
-> MIPI_DSI1_RST_CFG       0xc
-> HDMI_RST_CFG            0x14
-> AXI4_VO_DW_AXI          0x18
-> X2H_X4_VOSYS_DW_AXI_X2H 0x20
-> 
-> And the clock registers for VO_SUBSYS, manual section 4.4.1.6 start at offset 0x50:
-> VOSYS_CLK_GATE          0x50
-> VOSYS_CLK_GATE1         0x54
-> VOSYS_DPU_CCLK_CFG0     0x64
-> TEST_CLK_FREQ_STAT      0xc4
-> TEST_CLK_CFG            0xc8
-> 
-> So I considered this back then and thought it was appropriate to divide
-> it into two nodes, as the reset node wasn't being considered at that
-> time.
-> 
-> When looking for the reference [1], I didn't notice if you corrected
-> yourself later, but I do remember considering the single-node approach
-> at the time.
-> 
-> > 
-> 
-> Best regards,
-> -- 
-> Michal Wilczynski <m.wilczynski@samsung.com>
+gah, the cc list here is rotund...
 
-I chatted with Stephen on irc about setting up a thead clk branch and
-sending pull requests to Stephen.
+On 5/2/25 09:38, Valentin Schneider wrote:
+...
+>> All of the paths to enter the kernel from userspace have some
+>> SWITCH_TO_KERNEL_CR3 variant. If they didn't, the userspace that they
+>> entered from could have attacked the kernel with Meltdown.
+>>
+>> I'm theorizing that if this is _just_ about avoiding TLB flush IPIs that
+>> you can get away with a single mechanism.
+> 
+> So right now there would indeed be the TLB flush IPIs, but also the
+> text_poke() ones (sync_core() after patching text).
+> 
+> These are the two NOHZ-breaking IPIs that show up on my HP box, and that I
+> also got reports for from folks using NOHZ_FULL + CPU isolation in
+> production, mostly on SPR "edge enhanced" type of systems.
+...
+> While I don't expect the list to grow much, it's unfortunately not just the
+> TLB flush IPIs.
 
-Stephen - are there changes in this series that you want to see in order
-to give your Reviewed-by?
+Isn't text patching way easier than TLB flushes? You just need *some*
+serialization. Heck, since TLB flushes are architecturally serializing,
+you could probably even reuse the exact same mechanism: implement
+deferred text patch serialization operations as a deferred TLB flush.
 
-Thanks,
-Drew
+The hardest part is figuring out which CPUs are in the state where they
+can be deferred or not. But you have to solve that in any case, and you
+already have an algorithm to do it.
 
 _______________________________________________
 linux-riscv mailing list
