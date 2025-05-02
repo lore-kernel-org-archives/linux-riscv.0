@@ -4,88 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B64E1C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 19:14:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EEE4C3ABAA
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 21:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+LA1/ji5otTj7fSONNuEXS0M67+Bd91NKPge7n5eOnY=; b=DQgDnqZUKfwFlq
-	1x7ReKVz27/C2D++5DvpOsnaiIeMDir0A/AAUP4evJnLUJ0pZFs+7x8ysy5dBJdpbBb/o0RxHlp+U
-	BEMp2gM7Wl7IThXRdtoqQgNYbY3THXmHU2iUfRn1bVS1rlUDI/kzuVz1C8T/77FD0XIYHetP+cSIa
-	H3dTKGVhhHNzizt3DeCeEKCnmmEcTo2swdGUH+jRz/Zvtw9aOPvV1jYxjfjD50/mKpv9T5VKem9GP
-	J9ykusZtffW0rPNKNoh8XN7O5i2yB11cGj3uHPBl71L+vdvFjf6KbsyffnihtkJxKZnszxhyztHaX
-	3siJHDYM6KROA64e6v9w==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=i9WvtSiTLCagHaMbsrApRo7OYHj5SSOPyw4+9YFNBBc=; b=kQkFFymQHQFzHjrpICrjQK7UaY
+	Lvezipi+n+zBRNFQd9CkTxafR/FdHYAdd7EVPhNZQMO7HttBJmfSYaPerVxvbi/TsAIHYa9B4F8/y
+	Inwh2Ww8l0Wo073xHt+MzRdkGmxdizMnpWbiNGPpYH28nsR+nYAIDyhhSxbem4ZA/M+vAx85l4Yhh
+	dTMZ1qeS6I6tPZGWJuaTZ+JUA1/u78p8L0LiPg2rV8R6gGn1IocXJZIA7J1Gx8z1/VsrWz+/IrXji
+	OAo6KEQ/GZ39VnUWXLzigDA/c8puTOr6LZX29/BL9P5/v67iKfVUiab+mwbjjb0UJiQnxd+55PYkv
+	L04UqtWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvqN-00000002r8g-0u9k;
-	Fri, 02 May 2025 19:14:43 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uAxZg-000000031rI-245i;
+	Fri, 02 May 2025 21:05:36 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAvdo-00000002p9K-0PfV;
-	Fri, 02 May 2025 19:01:44 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=NG/rF3bvTsluKUSY/5qFQcGuNB6yJPMQ7BdMPhUhXd0=; b=Rm8DGulLsGaWG4nQkJoQHhjvPV
-	f2Ls5hgeTXcdAT2W1BF9F63tEaRAuBGWCbR6VF8vNj2oIVM5I1fFuIZDGMKg62YfgLI8lzCLJ4D2K
-	xMnrj9e3pAJEBM6fkBEuwvnHV6Zbb7RnLWc6P2MBbBo0Mku21vWjjEyXUcoEwiBYK2ZXOyrLrEVu+
-	fyRSdJ/wvEFBu7pC/R2OIBxp+Fq9ADbLl4xxufpFVYAMABPp6MDCS3n35xRPuZcQU3yPso8gFGKMe
-	Q47Yu8/P4MSKDAU0buL/zX3DaM3UrK5eIcjJnqLYxH9BmjVhJcZUtLZuwWxN8VVmaNgvVultv3A3J
-	AKm0RdzA==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uAvdj-0000000F5XH-0VDE;
-	Fri, 02 May 2025 19:01:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CA22E5C589A;
-	Fri,  2 May 2025 18:59:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 969D0C4CEE9;
-	Fri,  2 May 2025 19:01:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746212492;
-	bh=hbyQsZ/6y5+e9RQDQHbSQJPPcxxu+z1a8WXI/ozgaEE=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=o2GJQzXKc02W5VxYdTVih/HORsTVpMq40WjhYb4fGX1HtjjO3pPvAbvObQNSCWxxZ
-	 Ng43uPC/KH7GiDZqjkrLtRmkg0M/gdsc7ksWcd/mIx6P9tkMzQUxXtBOvOZeTYrCpI
-	 xlhKSUdDYwITd66QUg7ejPlU/MqyMZfSC9OlRx4Q44hhVPguTSTBzbGQ9ZMlBgw+RQ
-	 kKBKyHknHENsZKCK3DOreaUYBw/ThIoa1s5a6Lf6tvcjuOp+LqoaSHyBpWyhF0lbHG
-	 uT63cmyhdmXSuQfg1NnuQx5HQqRqE8vmyB+YaCWUClZ27zNzmAAD9T2plvj5UgT/al
-	 U5TmLUcKLlxvw==
-From: Kees Cook <kees@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>,
-	x86@kernel.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	llvm@lists.linux.dev
-Subject: [PATCH RFC 1/4] stackleak: Rename CONFIG_GCC_PLUGIN_STACKLEAK to CONFIG_STACKLEAK
-Date: Fri,  2 May 2025 12:01:24 -0700
-Message-Id: <20250502190129.246328-1-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250502185834.work.560-kees@kernel.org>
-References: <20250502185834.work.560-kees@kernel.org>
-MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=17888; i=kees@kernel.org; h=from:subject; bh=hbyQsZ/6y5+e9RQDQHbSQJPPcxxu+z1a8WXI/ozgaEE=; b=owGbwMvMwCVmps19z/KJym7G02pJDBmiYq2+zXc+bn0vVlUVuWC6jfAv3vSSYvsZGZ7OepZW0 SWT10/oKGVhEONikBVTZAmyc49z8XjbHu4+VxFmDisTyBAGLk4BmIjqDkaGh5Yx4gdsp1ar3JI7 2r0vPm/Z15Yje1iY3N+GPNhzatOaAob/oV/bGjZ/3+t+u8b16/qJrN2WXmkCoa8XO5pbrbn28U4 IAwA=
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+	id 1uAxRc-000000030wN-40KE
+	for linux-riscv@lists.infradead.org;
+	Fri, 02 May 2025 20:57:18 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b00e4358a34so1463544a12.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 May 2025 13:57:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746219435; x=1746824235; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZjfhxP1aTkCqZKrd23sK3YHNUgKYVqxJbIVvYWHW5Vg=;
+        b=CCO0UPAPEcW1FhpcdnqRa/5QVFCgirASa6Jiwx4U9bD+Vp3KjzJHRXyCHT2n/it0Mb
+         r6nI1POCp3MEP/XmbhiUMxa7MWUyZ5o5Eo5+J1n7rFFEwTKuscqdNmEOa9R/ugI8XG9b
+         N1JIV6e/PEd6Xui6QqpZWOIf+pgAmQMGSKopXrX0Wph015simffST1YfhI8QILPUFseu
+         +jau8kiCVA9TnGeQA74LFT8b1DedWRtsv80TY4GxmjT+YlzI9JAJPVTzvylZr6eOntgU
+         q5hbDR73pKU+Xn3fprfCU5ecG/aVVAVY040rQAl+uhAcrr9zxGZH+Fs/sJP2P6f2os0L
+         9T9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746219435; x=1746824235;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZjfhxP1aTkCqZKrd23sK3YHNUgKYVqxJbIVvYWHW5Vg=;
+        b=Tjr5EMUH1tAbZngyhUIiUUmXOHUXEJN6AdeXsDrrW/NPlwb1nT0J2YEqs76kac8DEF
+         GEOJk2O4BvJTvauhPJrTV7mZaUwc1AimMzPeACLeN1mOfJnj1QQGuFRykmOgVcdiVA5E
+         85Q5FFPLtQUwFP9J5JISr0HM49QrrIL1qsHA28MEDk1yhgngh6LjaLE0IU5dcDuZ4xdo
+         Uwo4S/SpqHZa8fDCi569oAnPDr1Ytz23IM9DFmYsOhvJXtgZMtJ5gVmyFndW39TGEe/2
+         pHXSKaJNy5TaSr8jr7ks6PJvOvskdDbYkBvXFF4RrhRwIEU1fS0ixo7KnhpeEyEDImNL
+         lepA==
+X-Forwarded-Encrypted: i=1; AJvYcCU4dMMFbnRzssJdejgJ+iuKVJyV3DN7XlTPpe9cdx4ssQ59eTG8E7b5EXPFRgkvwmPCglrm4OoEZGavoQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzS4UhdpNGAqMIRZPU+aDa+enAiGAHMvi5xL88SFhbjNw01T+pa
+	KQVe1auMEE7W/ijGdDQk+cmevmcobSgj7+ZiRMlPV3pzJOKpjV0tUjE3jIhUB8vNT3v3Z8h111r
+	tzg==
+X-Google-Smtp-Source: AGHT+IFuPDTKjcdWvbnOJrt3XOUZC4A4co+KVYAa4VIdQzxs3SS2Bb249oxqj85YoS9Ls6YyYG5MsQtlc4s=
+X-Received: from pjbqb9.prod.google.com ([2002:a17:90b:2809:b0:2f5:63a:4513])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2f0e:b0:2ff:618c:a1e0
+ with SMTP id 98e67ed59e1d1-30a4e6b2624mr6211245a91.29.1746219435414; Fri, 02
+ May 2025 13:57:15 -0700 (PDT)
+Date: Fri, 2 May 2025 13:57:13 -0700
+In-Reply-To: <20250430203013.366479-6-mlevitsk@redhat.com>
+Mime-Version: 1.0
+References: <20250430203013.366479-1-mlevitsk@redhat.com> <20250430203013.366479-6-mlevitsk@redhat.com>
+Message-ID: <aBUxqZ6qgfYZLsye@google.com>
+Subject: Re: [PATCH v4 5/5] x86: KVM: SEV: implement kvm_lock_all_vcpus and
+ use it
+From: Sean Christopherson <seanjc@google.com>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Kunkun Jiang <jiangkunkun@huawei.com>, Waiman Long <longman@redhat.com>, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Bjorn Helgaas <bhelgaas@google.com>, 
+	Boqun Feng <boqun.feng@gmail.com>, Borislav Petkov <bp@alien8.de>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Suzuki K Poulose <suzuki.poulose@arm.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Alexander Potapenko <glider@google.com>, Oliver Upton <oliver.upton@linux.dev>, 
+	Andre Przywara <andre.przywara@arm.com>, x86@kernel.org, Joey Gouly <joey.gouly@arm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, kvm-riscv@lists.infradead.org, 
+	Atish Patra <atishp@atishpatra.org>, Ingo Molnar <mingo@redhat.com>, 
+	Jing Zhang <jingzhangos@google.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, kvmarm@lists.linux.dev, 
+	Will Deacon <will@kernel.org>, Keisuke Nishimura <keisuke.nishimura@inria.fr>, 
+	Sebastian Ott <sebott@redhat.com>, Peter Zijlstra <peterz@infradead.org>, 
+	Shusen Li <lishusen2@huawei.com>, Paolo Bonzini <pbonzini@redhat.com>, 
+	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>, 
+	Zenghui Yu <yuzenghui@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_200139_530194_5E6FB8B2 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250502_135716_984671_DF865AD2 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,450 +107,67 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-In preparation for adding Clang sanitizer coverage stack depth
-tracking that can support stack depth callbacks, remove "GCC_PLUGIN"
-from "CONFIG_GCC_PLUGIN_STACKLEAK" and remove "PLUGIN" from
-"DISABLE_STACKLEAK_PLUGIN". Rearrange the Kconfig to have a top-level
-CONFIG_STACKLEAK that will depend on either GCC plugins or Clang soon.
+On Wed, Apr 30, 2025, Maxim Levitsky wrote:
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index 834f08dfa24c..9211b07b0565 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+> @@ -1392,6 +1392,31 @@ int kvm_trylock_all_vcpus(struct kvm *kvm)
+>  }
+>  EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
+>  
+> +/*
+> + * Lock all of the VM's vCPUs.
+> + * Assumes that the kvm->lock is held.
 
-While here, also split "prev_lowest_stack" into CONFIG_STACKLEAK_METRICS,
-since that's the only place it is referenced from.
+Add a lockdep assertion instead of a comment.
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: <x86@kernel.org>
-Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: <linux-doc@vger.kernel.org>
-Cc: <linux-arm-kernel@lists.infradead.org>
-Cc: <kvmarm@lists.linux.dev>
-Cc: <linux-riscv@lists.infradead.org>
-Cc: <linux-s390@vger.kernel.org>
-Cc: <linux-efi@vger.kernel.org>
-Cc: <linux-hardening@vger.kernel.org>
-Cc: <linux-kbuild@vger.kernel.org>
-Cc: <linux-security-module@vger.kernel.org>
-Cc: <linux-kselftest@vger.kernel.org>
----
- Documentation/admin-guide/sysctl/kernel.rst |  2 +-
- Documentation/security/self-protection.rst  |  2 +-
- arch/arm/boot/compressed/Makefile           |  2 +-
- arch/arm/kernel/entry-common.S              |  2 +-
- arch/arm64/kernel/entry.S                   |  2 +-
- arch/arm64/kernel/pi/Makefile               |  2 +-
- arch/arm64/kvm/hyp/nvhe/Makefile            |  2 +-
- arch/riscv/kernel/entry.S                   |  2 +-
- arch/riscv/kernel/pi/Makefile               |  2 +-
- arch/riscv/purgatory/Makefile               |  2 +-
- arch/s390/kernel/entry.S                    |  2 +-
- arch/x86/entry/calling.h                    |  4 ++--
- arch/x86/purgatory/Makefile                 |  2 +-
- drivers/firmware/efi/libstub/Makefile       |  6 +++---
- drivers/misc/lkdtm/stackleak.c              |  8 ++++----
- include/linux/sched.h                       |  4 +++-
- include/linux/stackleak.h                   |  4 ++--
- kernel/Makefile                             |  4 ++--
- lib/Makefile                                |  2 +-
- scripts/Makefile.gcc-plugins                |  4 ++--
- security/Kconfig.hardening                  | 18 +++++++++++-------
- tools/testing/selftests/lkdtm/config        |  2 +-
- 22 files changed, 43 insertions(+), 37 deletions(-)
+> + * Returns -EINTR if the process is killed.
+> + */
+> +int kvm_lock_all_vcpus(struct kvm *kvm)
+> +{
+> +	struct kvm_vcpu *vcpu;
+> +	unsigned long i, j;
+> +
+> +	kvm_for_each_vcpu(i, vcpu, kvm)
 
-diff --git a/Documentation/admin-guide/sysctl/kernel.rst b/Documentation/admin-guide/sysctl/kernel.rst
-index dd49a89a62d3..c94475661a80 100644
---- a/Documentation/admin-guide/sysctl/kernel.rst
-+++ b/Documentation/admin-guide/sysctl/kernel.rst
-@@ -1465,7 +1465,7 @@ stack_erasing
- =============
- 
- This parameter can be used to control kernel stack erasing at the end
--of syscalls for kernels built with ``CONFIG_GCC_PLUGIN_STACKLEAK``.
-+of syscalls for kernels built with ``CONFIG_STACKLEAK``.
- 
- That erasing reduces the information which kernel stack leak bugs
- can reveal and blocks some uninitialized stack variable attacks.
-diff --git a/Documentation/security/self-protection.rst b/Documentation/security/self-protection.rst
-index 910668e665cb..67a266d38172 100644
---- a/Documentation/security/self-protection.rst
-+++ b/Documentation/security/self-protection.rst
-@@ -303,7 +303,7 @@ Memory poisoning
- 
- When releasing memory, it is best to poison the contents, to avoid reuse
- attacks that rely on the old contents of memory. E.g., clear stack on a
--syscall return (``CONFIG_GCC_PLUGIN_STACKLEAK``), wipe heap memory on a
-+syscall return (``CONFIG_STACKLEAK``), wipe heap memory on a
- free. This frustrates many uninitialized variable attacks, stack content
- exposures, heap content exposures, and use-after-free attacks.
- 
-diff --git a/arch/arm/boot/compressed/Makefile b/arch/arm/boot/compressed/Makefile
-index 945b5975fce2..2da39e41e5c0 100644
---- a/arch/arm/boot/compressed/Makefile
-+++ b/arch/arm/boot/compressed/Makefile
-@@ -9,7 +9,7 @@ OBJS		=
- 
- HEAD	= head.o
- OBJS	+= misc.o decompress.o
--CFLAGS_decompress.o += $(DISABLE_STACKLEAK_PLUGIN)
-+CFLAGS_decompress.o += $(DISABLE_STACKLEAK)
- ifeq ($(CONFIG_DEBUG_UNCOMPRESS),y)
- OBJS	+= debug.o
- AFLAGS_head.o += -DDEBUG
-diff --git a/arch/arm/kernel/entry-common.S b/arch/arm/kernel/entry-common.S
-index f379c852dcb7..9921898d29a1 100644
---- a/arch/arm/kernel/entry-common.S
-+++ b/arch/arm/kernel/entry-common.S
-@@ -119,7 +119,7 @@ no_work_pending:
- 
- 	ct_user_enter save = 0
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	bl	stackleak_erase_on_task_stack
- #endif
- 	restore_user_regs fast = 0, offset = 0
-diff --git a/arch/arm64/kernel/entry.S b/arch/arm64/kernel/entry.S
-index 5ae2a34b50bd..c5456ff920d3 100644
---- a/arch/arm64/kernel/entry.S
-+++ b/arch/arm64/kernel/entry.S
-@@ -614,7 +614,7 @@ SYM_CODE_END(ret_to_kernel)
- SYM_CODE_START_LOCAL(ret_to_user)
- 	ldr	x19, [tsk, #TSK_TI_FLAGS]	// re-check for single-step
- 	enable_step_tsk x19, x2
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	bl	stackleak_erase_on_task_stack
- #endif
- 	kernel_exit 0
-diff --git a/arch/arm64/kernel/pi/Makefile b/arch/arm64/kernel/pi/Makefile
-index 4d11a8c29181..77159298f3c6 100644
---- a/arch/arm64/kernel/pi/Makefile
-+++ b/arch/arm64/kernel/pi/Makefile
-@@ -2,7 +2,7 @@
- # Copyright 2022 Google LLC
- 
- KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
--		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
-+		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK) \
- 		   $(DISABLE_LATENT_ENTROPY_PLUGIN) \
- 		   $(call cc-option,-mbranch-protection=none) \
- 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
-diff --git a/arch/arm64/kvm/hyp/nvhe/Makefile b/arch/arm64/kvm/hyp/nvhe/Makefile
-index b43426a493df..4e00a2a8ad0c 100644
---- a/arch/arm64/kvm/hyp/nvhe/Makefile
-+++ b/arch/arm64/kvm/hyp/nvhe/Makefile
-@@ -12,7 +12,7 @@ asflags-y := -D__KVM_NVHE_HYPERVISOR__ -D__DISABLE_EXPORTS
- ccflags-y := -D__KVM_NVHE_HYPERVISOR__ -D__DISABLE_EXPORTS -D__DISABLE_TRACE_MMIO__
- ccflags-y += -fno-stack-protector	\
- 	     -DDISABLE_BRANCH_PROFILING	\
--	     $(DISABLE_STACKLEAK_PLUGIN)
-+	     $(DISABLE_STACKLEAK)
- 
- hostprogs := gen-hyprel
- HOST_EXTRACFLAGS += -I$(objtree)/include
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 33a5a9f2a0d4..d6e9903817f7 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -220,7 +220,7 @@ SYM_CODE_START_NOALIGN(ret_from_exception)
- #endif
- 	bnez s0, 1f
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	call	stackleak_erase_on_task_stack
- #endif
- 
-diff --git a/arch/riscv/kernel/pi/Makefile b/arch/riscv/kernel/pi/Makefile
-index 81d69d45c06c..40238ed13ea1 100644
---- a/arch/riscv/kernel/pi/Makefile
-+++ b/arch/riscv/kernel/pi/Makefile
-@@ -2,7 +2,7 @@
- # This file was copied from arm64/kernel/pi/Makefile.
- 
- KBUILD_CFLAGS	:= $(subst $(CC_FLAGS_FTRACE),,$(KBUILD_CFLAGS)) -fpie \
--		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK_PLUGIN) \
-+		   -Os -DDISABLE_BRANCH_PROFILING $(DISABLE_STACKLEAK) \
- 		   $(call cc-option,-mbranch-protection=none) \
- 		   -I$(srctree)/scripts/dtc/libfdt -fno-stack-protector \
- 		   -include $(srctree)/include/linux/hidden.h \
-diff --git a/arch/riscv/purgatory/Makefile b/arch/riscv/purgatory/Makefile
-index fb9c917c9b45..af8fa4aded5c 100644
---- a/arch/riscv/purgatory/Makefile
-+++ b/arch/riscv/purgatory/Makefile
-@@ -53,7 +53,7 @@ targets += purgatory.ro purgatory.chk
- 
- PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
- PURGATORY_CFLAGS := -mcmodel=medany -ffreestanding -fno-zero-initialized-in-bss
--PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
-+PURGATORY_CFLAGS += $(DISABLE_STACKLEAK) -DDISABLE_BRANCH_PROFILING
- PURGATORY_CFLAGS += -fno-stack-protector -g0
- 
- # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
-diff --git a/arch/s390/kernel/entry.S b/arch/s390/kernel/entry.S
-index dd291c9ad6a6..6b43318dc0cc 100644
---- a/arch/s390/kernel/entry.S
-+++ b/arch/s390/kernel/entry.S
-@@ -124,7 +124,7 @@ _LPP_OFFSET	= __LC_LPP
- #endif
- 
- 	.macro STACKLEAK_ERASE
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	brasl	%r14,stackleak_erase_on_task_stack
- #endif
- 	.endm
-diff --git a/arch/x86/entry/calling.h b/arch/x86/entry/calling.h
-index d83236b96f22..790e63df94a2 100644
---- a/arch/x86/entry/calling.h
-+++ b/arch/x86/entry/calling.h
-@@ -369,7 +369,7 @@ For 32-bit we have the following conventions - kernel is built with
- .endm
- 
- .macro STACKLEAK_ERASE_NOCLOBBER
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	PUSH_AND_CLEAR_REGS
- 	call stackleak_erase
- 	POP_REGS
-@@ -388,7 +388,7 @@ For 32-bit we have the following conventions - kernel is built with
- #endif /* !CONFIG_X86_64 */
- 
- .macro STACKLEAK_ERASE
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	call stackleak_erase
- #endif
- .endm
-diff --git a/arch/x86/purgatory/Makefile b/arch/x86/purgatory/Makefile
-index ebdfd7b84feb..5450d5f7fd88 100644
---- a/arch/x86/purgatory/Makefile
-+++ b/arch/x86/purgatory/Makefile
-@@ -35,7 +35,7 @@ targets += purgatory.ro purgatory.chk
- PURGATORY_CFLAGS_REMOVE := -mcmodel=kernel
- PURGATORY_CFLAGS := -mcmodel=small -ffreestanding -fno-zero-initialized-in-bss -g0
- PURGATORY_CFLAGS += -fpic -fvisibility=hidden
--PURGATORY_CFLAGS += $(DISABLE_STACKLEAK_PLUGIN) -DDISABLE_BRANCH_PROFILING
-+PURGATORY_CFLAGS += $(DISABLE_STACKLEAK) -DDISABLE_BRANCH_PROFILING
- PURGATORY_CFLAGS += -fno-stack-protector
- 
- # Default KBUILD_CFLAGS can have -pg option set when FTRACE is enabled. That
-diff --git a/drivers/firmware/efi/libstub/Makefile b/drivers/firmware/efi/libstub/Makefile
-index d23a1b9fed75..1cfdde43da02 100644
---- a/drivers/firmware/efi/libstub/Makefile
-+++ b/drivers/firmware/efi/libstub/Makefile
-@@ -22,15 +22,15 @@ cflags-$(CONFIG_X86)		+= -m$(BITS) -D__KERNEL__ -std=gnu11 \
- 
- # arm64 uses the full KBUILD_CFLAGS so it's necessary to explicitly
- # disable the stackleak plugin
--cflags-$(CONFIG_ARM64)		+= -fpie $(DISABLE_STACKLEAK_PLUGIN) \
-+cflags-$(CONFIG_ARM64)		+= -fpie $(DISABLE_STACKLEAK) \
- 				   -fno-unwind-tables -fno-asynchronous-unwind-tables
- cflags-$(CONFIG_ARM)		+= -DEFI_HAVE_STRLEN -DEFI_HAVE_STRNLEN \
- 				   -DEFI_HAVE_MEMCHR -DEFI_HAVE_STRRCHR \
- 				   -DEFI_HAVE_STRCMP -fno-builtin -fpic \
- 				   $(call cc-option,-mno-single-pic-base) \
--				   $(DISABLE_STACKLEAK_PLUGIN)
-+				   $(DISABLE_STACKLEAK)
- cflags-$(CONFIG_RISCV)		+= -fpic -DNO_ALTERNATIVE -mno-relax \
--				   $(DISABLE_STACKLEAK_PLUGIN)
-+				   $(DISABLE_STACKLEAK)
- cflags-$(CONFIG_LOONGARCH)	+= -fpie
- 
- cflags-$(CONFIG_EFI_PARAMS_FROM_FDT)	+= -I$(srctree)/scripts/dtc/libfdt
-diff --git a/drivers/misc/lkdtm/stackleak.c b/drivers/misc/lkdtm/stackleak.c
-index f1d022160913..ab8c690a039a 100644
---- a/drivers/misc/lkdtm/stackleak.c
-+++ b/drivers/misc/lkdtm/stackleak.c
-@@ -11,7 +11,7 @@
- #include "lkdtm.h"
- #include <linux/stackleak.h>
- 
--#if defined(CONFIG_GCC_PLUGIN_STACKLEAK)
-+#if defined(CONFIG_STACKLEAK)
- /*
-  * Check that stackleak tracks the lowest stack pointer and erases the stack
-  * below this as expected.
-@@ -129,16 +129,16 @@ static void lkdtm_STACKLEAK_ERASING(void)
- 	check_stackleak_irqoff();
- 	local_irq_restore(flags);
- }
--#else /* defined(CONFIG_GCC_PLUGIN_STACKLEAK) */
-+#else /* defined(CONFIG_STACKLEAK) */
- static void lkdtm_STACKLEAK_ERASING(void)
- {
- 	if (IS_ENABLED(CONFIG_HAVE_ARCH_STACKLEAK)) {
--		pr_err("XFAIL: stackleak is not enabled (CONFIG_GCC_PLUGIN_STACKLEAK=n)\n");
-+		pr_err("XFAIL: stackleak is not enabled (CONFIG_STACKLEAK=n)\n");
- 	} else {
- 		pr_err("XFAIL: stackleak is not supported on this arch (HAVE_ARCH_STACKLEAK=n)\n");
- 	}
- }
--#endif /* defined(CONFIG_GCC_PLUGIN_STACKLEAK) */
-+#endif /* defined(CONFIG_STACKLEAK) */
- 
- static struct crashtype crashtypes[] = {
- 	CRASHTYPE(STACKLEAK_ERASING),
-diff --git a/include/linux/sched.h b/include/linux/sched.h
-index f96ac1982893..f323a4d9f0ef 100644
---- a/include/linux/sched.h
-+++ b/include/linux/sched.h
-@@ -1599,8 +1599,10 @@ struct task_struct {
- 	/* Used by BPF for per-TASK xdp storage */
- 	struct bpf_net_context		*bpf_net_context;
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- 	unsigned long			lowest_stack;
-+#endif
-+#ifdef CONFIG_STACKLEAK_METRICS
- 	unsigned long			prev_lowest_stack;
- #endif
- 
-diff --git a/include/linux/stackleak.h b/include/linux/stackleak.h
-index 3be2cb564710..71e8242fd8f2 100644
---- a/include/linux/stackleak.h
-+++ b/include/linux/stackleak.h
-@@ -12,7 +12,7 @@
- #define STACKLEAK_POISON -0xBEEF
- #define STACKLEAK_SEARCH_DEPTH 128
- 
--#ifdef CONFIG_GCC_PLUGIN_STACKLEAK
-+#ifdef CONFIG_STACKLEAK
- #include <asm/stacktrace.h>
- #include <linux/linkage.h>
- 
-@@ -82,7 +82,7 @@ asmlinkage void noinstr stackleak_erase_on_task_stack(void);
- asmlinkage void noinstr stackleak_erase_off_task_stack(void);
- void __no_caller_saved_registers noinstr stackleak_track_stack(void);
- 
--#else /* !CONFIG_GCC_PLUGIN_STACKLEAK */
-+#else /* !CONFIG_STACKLEAK */
- static inline void stackleak_task_init(struct task_struct *t) { }
- #endif
- 
-diff --git a/kernel/Makefile b/kernel/Makefile
-index 434929de17ef..79583e3501b4 100644
---- a/kernel/Makefile
-+++ b/kernel/Makefile
-@@ -137,8 +137,8 @@ obj-$(CONFIG_WATCH_QUEUE) += watch_queue.o
- obj-$(CONFIG_RESOURCE_KUNIT_TEST) += resource_kunit.o
- obj-$(CONFIG_SYSCTL_KUNIT_TEST) += sysctl-test.o
- 
--CFLAGS_stackleak.o += $(DISABLE_STACKLEAK_PLUGIN)
--obj-$(CONFIG_GCC_PLUGIN_STACKLEAK) += stackleak.o
-+CFLAGS_stackleak.o += $(DISABLE_STACKLEAK)
-+obj-$(CONFIG_STACKLEAK) += stackleak.o
- KASAN_SANITIZE_stackleak.o := n
- KCSAN_SANITIZE_stackleak.o := n
- KCOV_INSTRUMENT_stackleak.o := n
-diff --git a/lib/Makefile b/lib/Makefile
-index f07b24ce1b3f..720c4846d255 100644
---- a/lib/Makefile
-+++ b/lib/Makefile
-@@ -338,7 +338,7 @@ obj-$(CONFIG_UBSAN) += ubsan.o
- UBSAN_SANITIZE_ubsan.o := n
- KASAN_SANITIZE_ubsan.o := n
- KCSAN_SANITIZE_ubsan.o := n
--CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK_PLUGIN)
-+CFLAGS_ubsan.o := -fno-stack-protector $(DISABLE_STACKLEAK)
- 
- obj-$(CONFIG_SBITMAP) += sbitmap.o
- 
-diff --git a/scripts/Makefile.gcc-plugins b/scripts/Makefile.gcc-plugins
-index e4deaf5fa571..e3ed92e20d16 100644
---- a/scripts/Makefile.gcc-plugins
-+++ b/scripts/Makefile.gcc-plugins
-@@ -32,9 +32,9 @@ gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK)		\
- gcc-plugin-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE)	\
- 		+= -fplugin-arg-stackleak_plugin-verbose
- ifdef CONFIG_GCC_PLUGIN_STACKLEAK
--    DISABLE_STACKLEAK_PLUGIN += -fplugin-arg-stackleak_plugin-disable
-+    DISABLE_STACKLEAK += -fplugin-arg-stackleak_plugin-disable
- endif
--export DISABLE_STACKLEAK_PLUGIN
-+export DISABLE_STACKLEAK
- 
- gcc-plugin-$(CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK) += arm_ssp_per_task_plugin.so
- ifdef CONFIG_GCC_PLUGIN_ARM_SSP_PER_TASK
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 3fe9d7b945c4..8aa5c1d4794d 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -158,10 +158,10 @@ config GCC_PLUGIN_STRUCTLEAK_VERBOSE
- 	  initialized. Since not all existing initializers are detected
- 	  by the plugin, this can produce false positive warnings.
- 
--config GCC_PLUGIN_STACKLEAK
-+config STACKLEAK
- 	bool "Poison kernel stack before returning from syscalls"
--	depends on GCC_PLUGINS
- 	depends on HAVE_ARCH_STACKLEAK
-+	depends on GCC_PLUGINS
- 	help
- 	  This option makes the kernel erase the kernel stack before
- 	  returning from system calls. This has the effect of leaving
-@@ -179,6 +179,10 @@ config GCC_PLUGIN_STACKLEAK
- 	  are advised to test this feature on your expected workload before
- 	  deploying it.
- 
-+config GCC_PLUGIN_STACKLEAK
-+	def_bool STACKLEAK
-+	depends on GCC_PLUGINS
-+	help
- 	  This plugin was ported from grsecurity/PaX. More information at:
- 	   * https://grsecurity.net/
- 	   * https://pax.grsecurity.net/
-@@ -197,9 +201,9 @@ config STACKLEAK_TRACK_MIN_SIZE
- 	int "Minimum stack frame size of functions tracked by STACKLEAK"
- 	default 100
- 	range 0 4096
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	help
--	  The STACKLEAK gcc plugin instruments the kernel code for tracking
-+	  The STACKLEAK options instruments the kernel code for tracking
- 	  the lowest border of the kernel stack (and for some other purposes).
- 	  It inserts the stackleak_track_stack() call for the functions with
- 	  a stack frame size greater than or equal to this parameter.
-@@ -207,7 +211,7 @@ config STACKLEAK_TRACK_MIN_SIZE
- 
- config STACKLEAK_METRICS
- 	bool "Show STACKLEAK metrics in the /proc file system"
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	depends on PROC_FS
- 	help
- 	  If this is set, STACKLEAK metrics for every task are available in
-@@ -219,11 +223,11 @@ config STACKLEAK_METRICS
- 
- config STACKLEAK_RUNTIME_DISABLE
- 	bool "Allow runtime disabling of kernel stack erasing"
--	depends on GCC_PLUGIN_STACKLEAK
-+	depends on STACKLEAK
- 	help
- 	  This option provides 'stack_erasing' sysctl, which can be used in
- 	  runtime to control kernel stack erasing for kernels built with
--	  CONFIG_GCC_PLUGIN_STACKLEAK.
-+	  CONFIG_STACKLEAK.
- 
- config INIT_ON_ALLOC_DEFAULT_ON
- 	bool "Enable heap memory zeroing on allocation by default"
-diff --git a/tools/testing/selftests/lkdtm/config b/tools/testing/selftests/lkdtm/config
-index 7afe05e8c4d7..b9b1275c07e8 100644
---- a/tools/testing/selftests/lkdtm/config
-+++ b/tools/testing/selftests/lkdtm/config
-@@ -2,7 +2,7 @@ CONFIG_LKDTM=y
- CONFIG_DEBUG_LIST=y
- CONFIG_SLAB_FREELIST_HARDENED=y
- CONFIG_FORTIFY_SOURCE=y
--CONFIG_GCC_PLUGIN_STACKLEAK=y
-+CONFIG_STACKLEAK=y
- CONFIG_HARDENED_USERCOPY=y
- CONFIG_RANDOMIZE_KSTACK_OFFSET_DEFAULT=y
- CONFIG_INIT_ON_FREE_DEFAULT_ON=y
--- 
-2.34.1
+Needs curly braces.
 
+> +		if (mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock))
+
+I'd rather return mutex_lock_killable_nest_lock()'s error code verbatim.  Then
+the function comment can go away, because the only thing remaining would be:
+
+	/*
+	 * Lock all of the VM's vCPUs.
+	 /*
+
+and that should be completely self-explanatory.  E.g.
+
+int kvm_lock_all_vcpus(struct kvm *kvm)
+{
+	struct kvm_vcpu *vcpu;
+	unsigned long i, j;
+	int r;
+
+	lockdep_assert_held(&kvm->lock);
+
+	kvm_for_each_vcpu(i, vcpu, kvm) {
+		r = mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock);
+		if (r)
+			goto out_unlock;
+	}
+	return 0;
+
+out_unlock:
+	kvm_for_each_vcpu(j, vcpu, kvm) {
+		if (i == j)
+			break;
+		mutex_unlock(&vcpu->mutex);
+	}
+	return r;
+}
+EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
 
 _______________________________________________
 linux-riscv mailing list
