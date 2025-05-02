@@ -4,97 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00A94C369DC
-	for <linux-riscv@archiver.kernel.org>; Thu,  1 May 2025 22:24:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A488CC369DC
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 00:43:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tMd6dHSj2/mpuKorVDQ0f4XR6661LVa4q6DLIuHlXWA=; b=JWrQLZkViMbw2s
-	2egrQhhTvBnujHiwzH4VG3GV3VmnpRki2kol8euaqCJv97xH8wTeV9wgxMMdiozv8KZ63qnNBX7WJ
-	3WVmgHOFKN8off2sYfb0dfBaHvjZanJLfB4ajYvmu+rfLQ2NcXfPYTpXU4/IjOblgXrRengKoJypL
-	iMmCibYjHLCk385pMWTYmTTYUjYzBjd217d5xptvchV5AgMjLbo9h/1t6BzymrxGn6uHB4ya0cM//
-	9+qq1dI4IXCvYpMRQKuJq0/JjnStxtdBRWy4uQgdjWAREdc9ycsYv2fHnFJRPZvZtOrSZyBJ+qu68
-	wyy/ibdXNHkEMsQkVPew==;
+	List-Owner; bh=Q4FrnjFiIN3W4PhN3nSePxs/OrzLncV86MgyGN6QjoE=; b=FzkOlYauAfkNSp
+	WeddDLWZ0Qs2jSwYrSpxSxhfoew4V+L0VP1rMowg55rD+hGprGanQnea+NGSbxk6unQcLvcsNmb4J
+	7KTR8nksEWO/NwPjvqdwQLAxpTg/LAuEAZ1ygOdHuGD91vEpFrQOlYGbbymNXrJ6CMdZnv7SKs/8S
+	4kXhSqyJRmXprYyb22raAT/pnxUThrZl4ea+IShc9kN/5FZGcOc1t/gt5itM5QfklgpA4J50eRyif
+	5HSZkMXev2M+eHLa0tt0Y1Nm0+byFQgwfLrtppGxZJ4i4p1rWs8Hb5sbKpfwcjNNspLR/eOhvHBqH
+	QaBK5VlRe+YTVbghgG8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAcJy-0000000HZ24-2bbo;
-	Thu, 01 May 2025 22:23:58 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1uAeVD-00000000Qpb-216H;
+	Fri, 02 May 2025 00:43:43 +0000
+Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAcJv-0000000HYzK-3AOB
+	id 1uAeVA-00000000QoN-3C7l
 	for linux-riscv@lists.infradead.org;
-	Thu, 01 May 2025 22:23:56 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-7c5aecec8f3so249909085a.1
-        for <linux-riscv@lists.infradead.org>; Thu, 01 May 2025 15:23:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746138234; x=1746743034; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ALJpzUTq/FKpZ6ZIbBrWjDg3p3NoIlcuclCH+vNu1Do=;
-        b=ej8vB2H5Z8KQJuSj+ohjMFLI2rCb/7eByx4DJGhoMCCK5QP8/EilQA2JvHzIFaYWo9
-         O3RNgsbthys+K4QmIc62IiGgMmrZKxgZ5BZS/yFL2hpoSCrJj1Bjpbi7FCJCxXhtFh45
-         Vul/geX298BP3MzmEyA3zrbLcAPg70FpgomwGovMrYJFhVQieab+R/Okb5UjFIV6F6c0
-         wAJyiK3xQfyTbx7GoUa0hf0WKJjbHgqgAIoSgPi3FllWA8ayApPfW8eOxAs8SRG7yZSX
-         UuBChUYEJsUpQP938W1+Qawk/8iqnFd1x41NW9w7FAv0qPsUSzvmVA4M2uA0aeQEW5IJ
-         DMFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746138234; x=1746743034;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ALJpzUTq/FKpZ6ZIbBrWjDg3p3NoIlcuclCH+vNu1Do=;
-        b=mrAabBuQBv3uO6HJly90Kfh/6CGEIZTsAFZcA/FNHl/G+FTSOB1XCeDpqrPwMdGOgz
-         2BMzrda3GZqDvIb9j5u1AkuA1Ncn7bRahEAgbKtdaoex7H7+RX80qBinaPs7aeiBokyV
-         79tWtE4xwMxUkLrss/PviHwErn142LBK6xGaGGHNsEh6cnbTlkOD1LQklHZ9W6NY069+
-         LhqiVSovgRacZ+7DUH5/5VFd2b+b4SXRh6kIYokSnNRi1B53WpGoYFl/8UxVFNupMGvi
-         jIHPYdg91HYp5aRbnVAJSR/ccDblxIPjq1NzICJDB/vS7NmN8qBb6ldNqPpZiEIQsokh
-         1rOw==
-X-Forwarded-Encrypted: i=1; AJvYcCWAf2Vth0EWOGdysWBBkuCkGcneq4IVN6QvQ6/N4lQwWKjWNDnhiRhT9VOdnDQ1vVfRz/bS95FGrX4ilw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPzvR1DY6ljrV6GiiNbHFhichTzVE567DnCOhxaMT/AvNWEjb/
-	G+e+ue96/e41criSbgGpLltz14daa7aY16vGv8xHzePUas3L3mnL
-X-Gm-Gg: ASbGncviA8eWbxtnmFK8s8yq83NsD4dyCbkqwrY5L78qW6lvCmlmQPZne/8QaHGJzk+
-	Q1saIw7Zqxn0jGuNAu+dX0A+Tes95nsKYPku3gL7S+09qlrMWp3sWlhY8RMvv2ejApCyn3WXP3B
-	HW9xue3iqSHjjaLa9ksUjdBnJSHLTu5eiEHFp9MZaCcGhjKGYmJBpXMF2gjtANTqZM3DCTBlB+B
-	cscU3CV3u7npNoja/FDXexlrMhDzg8Dmct9WzLishf8+ukHEMMZqsg2zRiVSatG3sHPOoZBugf4
-	zSSmOdhE3Bx5nnx7
-X-Google-Smtp-Source: AGHT+IHSSsKyi9FGAPd9UU71QhjqJiaS5ihLbJsB2KEjxOY2dmC2E2E/lDqi0usoLmyGcynJlgTLAw==
-X-Received: by 2002:a05:620a:460d:b0:7c5:4adb:781b with SMTP id af79cd13be357-7cad5b2392bmr136857685a.7.1746138234183;
-        Thu, 01 May 2025 15:23:54 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cad23c3ed3sm100036785a.44.2025.05.01.15.23.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 01 May 2025 15:23:53 -0700 (PDT)
-Date: Fri, 2 May 2025 06:23:35 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Conor Dooley <conor@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Jeff Johnson <jeff.johnson@oss.qualcomm.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, sophgo@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
+	Fri, 02 May 2025 00:43:41 +0000
+Received: from localhost (unknown [116.232.147.253])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 0E151342FDB;
+	Fri, 02 May 2025 00:43:37 +0000 (UTC)
+Date: Fri, 2 May 2025 00:43:28 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/3] clk: sophgo: Add support for newly added precise
- compatible
-Message-ID: <ocbvvu7hmeh372dfvyokwy5saa3l3atjfxwd7i5prif57r3wan@mizv37xwg3k5>
-References: <20250430020932.307198-1-inochiama@gmail.com>
- <20250430020932.307198-3-inochiama@gmail.com>
- <20250430-radiance-rebuilt-2caa906d5e6f@spud>
- <20250430-snort-raider-dbf10d14993f@spud>
- <otuaro3xh2ut3kurcomrq5j3guyyj7uhhwgngqdqqrrcpvlk6t@4wqbxy3m3tq7>
- <20250501-shrubs-unmixable-a2a8a9bedd01@spud>
+Subject: Re: [PATCH 1/4] riscv: dts: sophgo: Move all soc specific device
+ into soc dtsi file
+Message-ID: <20250502004328-GYA427222@gentoo>
+References: <20250430012654.235830-1-inochiama@gmail.com>
+ <20250430012654.235830-2-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250501-shrubs-unmixable-a2a8a9bedd01@spud>
+In-Reply-To: <20250430012654.235830-2-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250501_152355_793779_C28AA5D7 
-X-CRM114-Status: GOOD (  26.76  )
+X-CRM114-CacheID: sfid-20250501_174340_833867_5E30F179 
+X-CRM114-Status: GOOD (  19.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +75,249 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 01, 2025 at 03:22:17PM +0100, Conor Dooley wrote:
-> On Thu, May 01, 2025 at 06:43:07AM +0800, Inochi Amaoto wrote:
-> > On Wed, Apr 30, 2025 at 04:37:01PM +0100, Conor Dooley wrote:
-> > > On Wed, Apr 30, 2025 at 04:33:39PM +0100, Conor Dooley wrote:
-> > > > On Wed, Apr 30, 2025 at 10:09:30AM +0800, Inochi Amaoto wrote:
-> > > > > Add of device id definition for newly added precise compatible.
-> > > > > 
-> > > > > Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> > > > > ---
-> > > > >  drivers/clk/sophgo/clk-cv1800.c | 3 +++
-> > > > >  1 file changed, 3 insertions(+)
-> > > > > 
-> > > > > diff --git a/drivers/clk/sophgo/clk-cv1800.c b/drivers/clk/sophgo/clk-cv1800.c
-> > > > > index e0c4dc347579..e10221df6385 100644
-> > > > > --- a/drivers/clk/sophgo/clk-cv1800.c
-> > > > > +++ b/drivers/clk/sophgo/clk-cv1800.c
-> > > > > @@ -1519,8 +1519,11 @@ static int cv1800_clk_probe(struct platform_device *pdev)
-> > > > >  
-> > > > >  static const struct of_device_id cv1800_clk_ids[] = {
-> > > > >  	{ .compatible = "sophgo,cv1800-clk", .data = &cv1800_desc },
-> > > > > +	{ .compatible = "sophgo,cv1800b-clk", .data = &cv1800_desc },
-> > > > 
-> > > > Given the same data is used here, should there not be fallbacks in the
-> > > > dt for some of these? For example, 1812 to 1800? Or is that not okay,
-> > > > because 1800 is not a real device id?
-> > > > 
-> > > > >  	{ .compatible = "sophgo,cv1810-clk", .data = &cv1810_desc },
-> > > > > +	{ .compatible = "sophgo,cv1812h-clk", .data = &cv1800_desc },
-> > > > >  	{ .compatible = "sophgo,sg2000-clk", .data = &sg2000_desc },
-> > > > > +	{ .compatible = "sophgo,sg2002-clk", .data = &sg2000_desc },
-> > > 
-> > > Actually, this one is a better example. sg2000 is not marked deprecated.
-> > > sg2002 uses the same match data. Why is no fallback to sg2000 used for
-> > > the sg2002 case?
-> > 
-> > Yeah, It is a good idea. I will take it, thanks,
+On 09:26 Wed 30 Apr     , Inochi Amaoto wrote:
+> Although the cv1800b/cv1812h/sg2000/sg2002 share most peripherals,
+> some basic peripherals, like clock, pinctrl, clint and plint, are
+> not shared. These are caused by not only historical reason (plic,
+> clint), but also the fact the device is not the same (clock, pinctrl).
 > 
-> Can you point out the difference in the dt-binding patch when you do,
-> between the sg2000 being a real device and the others not?
+> It is good to override device compatible when the soc number is small,
+                                                    ~~~SoC, we usually
+> but now it is a burden for maintenance, and it is kind of annoyed to
+> explain why using override. So it is time to move this out of the
+> common peripheral header.
+> 
+> Move all soc related peripherla device from common peripheral header
+                       ~~~~~~~~~~typo, peripheral
+> to the soc specific header to get rid of most compatible override.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+otherwise, looks good
 
-I will, thanks for the reminder.
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
-Regards,
-Inochi
+> ---
+>  arch/riscv/boot/dts/sophgo/cv1800b.dtsi | 38 +++++++++++++++++--------
+>  arch/riscv/boot/dts/sophgo/cv1812h.dtsi | 38 +++++++++++++++++--------
+>  arch/riscv/boot/dts/sophgo/cv18xx.dtsi  | 22 --------------
+>  arch/riscv/boot/dts/sophgo/sg2002.dtsi  | 38 +++++++++++++++++--------
+>  4 files changed, 78 insertions(+), 58 deletions(-)
+> 
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> index aa1f5df100f0..fc9e6b56790f 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv1800b.dtsi
+> @@ -15,23 +15,37 @@ memory@80000000 {
+>  	};
+>  
+>  	soc {
+> +		interrupt-parent = <&plic>;
+> +		dma-noncoherent;
+> +
+>  		pinctrl: pinctrl@3001000 {
+>  			compatible = "sophgo,cv1800b-pinctrl";
+>  			reg = <0x03001000 0x1000>,
+>  			      <0x05027000 0x1000>;
+>  			reg-names = "sys", "rtc";
+>  		};
+> +
+> +		clk: clock-controller@3002000 {
+> +			compatible = "sophgo,cv1800-clk";
+> +			reg = <0x03002000 0x1000>;
+> +			clocks = <&osc>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		plic: interrupt-controller@70000000 {
+> +			compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
+> +			reg = <0x70000000 0x4000000>;
+> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> +			interrupt-controller;
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			riscv,ndev = <101>;
+> +		};
+> +
+> +		clint: timer@74000000 {
+> +			compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
+> +			reg = <0x74000000 0x10000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> +		};
+>  	};
+>  };
+> -
+> -&plic {
+> -	compatible = "sophgo,cv1800b-plic", "thead,c900-plic";
+> -};
+> -
+> -&clint {
+> -	compatible = "sophgo,cv1800b-clint", "thead,c900-clint";
+> -};
+> -
+> -&clk {
+> -	compatible = "sophgo,cv1800-clk";
+> -};
+> diff --git a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+> index 8a1b95c5116b..fcea4376fb79 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv1812h.dtsi
+> @@ -17,23 +17,37 @@ memory@80000000 {
+>  	};
+>  
+>  	soc {
+> +		interrupt-parent = <&plic>;
+> +		dma-noncoherent;
+> +
+>  		pinctrl: pinctrl@3001000 {
+>  			compatible = "sophgo,cv1812h-pinctrl";
+>  			reg = <0x03001000 0x1000>,
+>  			      <0x05027000 0x1000>;
+>  			reg-names = "sys", "rtc";
+>  		};
+> +
+> +		clk: clock-controller@3002000 {
+> +			compatible = "sophgo,cv1810-clk";
+> +			reg = <0x03002000 0x1000>;
+> +			clocks = <&osc>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		plic: interrupt-controller@70000000 {
+> +			compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
+> +			reg = <0x70000000 0x4000000>;
+> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> +			interrupt-controller;
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			riscv,ndev = <101>;
+> +		};
+> +
+> +		clint: timer@74000000 {
+> +			compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
+> +			reg = <0x74000000 0x10000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> +		};
+>  	};
+>  };
+> -
+> -&plic {
+> -	compatible = "sophgo,cv1812h-plic", "thead,c900-plic";
+> -};
+> -
+> -&clint {
+> -	compatible = "sophgo,cv1812h-clint", "thead,c900-clint";
+> -};
+> -
+> -&clk {
+> -	compatible = "sophgo,cv1810-clk";
+> -};
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> index c18822ec849f..805b694aa814 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -49,18 +49,10 @@ osc: oscillator {
+>  
+>  	soc {
+>  		compatible = "simple-bus";
+> -		interrupt-parent = <&plic>;
+>  		#address-cells = <1>;
+>  		#size-cells = <1>;
+> -		dma-noncoherent;
+>  		ranges;
+>  
+> -		clk: clock-controller@3002000 {
+> -			reg = <0x03002000 0x1000>;
+> -			clocks = <&osc>;
+> -			#clock-cells = <1>;
+> -		};
+> -
+>  		gpio0: gpio@3020000 {
+>  			compatible = "snps,dw-apb-gpio";
+>  			reg = <0x3020000 0x1000>;
+> @@ -344,19 +336,5 @@ dmac: dma-controller@4330000 {
+>  			snps,data-width = <4>;
+>  			status = "disabled";
+>  		};
+> -
+> -		plic: interrupt-controller@70000000 {
+> -			reg = <0x70000000 0x4000000>;
+> -			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> -			interrupt-controller;
+> -			#address-cells = <0>;
+> -			#interrupt-cells = <2>;
+> -			riscv,ndev = <101>;
+> -		};
+> -
+> -		clint: timer@74000000 {
+> -			reg = <0x74000000 0x10000>;
+> -			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> -		};
+>  	};
+>  };
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2002.dtsi b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> index 7f79de33163c..df133831bd3e 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2002.dtsi
+> @@ -17,27 +17,41 @@ memory@80000000 {
+>  	};
+>  
+>  	soc {
+> +		interrupt-parent = <&plic>;
+> +		dma-noncoherent;
+> +
+>  		pinctrl: pinctrl@3001000 {
+>  			compatible = "sophgo,sg2002-pinctrl";
+>  			reg = <0x03001000 0x1000>,
+>  			      <0x05027000 0x1000>;
+>  			reg-names = "sys", "rtc";
+>  		};
+> +
+> +		clk: clock-controller@3002000 {
+> +			compatible = "sophgo,sg2000-clk";
+> +			reg = <0x03002000 0x1000>;
+> +			clocks = <&osc>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		plic: interrupt-controller@70000000 {
+> +			compatible = "sophgo,sg2002-plic", "thead,c900-plic";
+> +			reg = <0x70000000 0x4000000>;
+> +			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>;
+> +			interrupt-controller;
+> +			#address-cells = <0>;
+> +			#interrupt-cells = <2>;
+> +			riscv,ndev = <101>;
+> +		};
+> +
+> +		clint: timer@74000000 {
+> +			compatible = "sophgo,sg2002-clint", "thead,c900-clint";
+> +			reg = <0x74000000 0x10000>;
+> +			interrupts-extended = <&cpu0_intc 3>, <&cpu0_intc 7>;
+> +		};
+>  	};
+>  };
+>  
+> -&plic {
+> -	compatible = "sophgo,sg2002-plic", "thead,c900-plic";
+> -};
+> -
+> -&clint {
+> -	compatible = "sophgo,sg2002-clint", "thead,c900-clint";
+> -};
+> -
+> -&clk {
+> -	compatible = "sophgo,sg2000-clk";
+> -};
+> -
+>  &sdhci0 {
+>  	compatible = "sophgo,sg2002-dwcmshc";
+>  };
+> -- 
+> 2.49.0
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
