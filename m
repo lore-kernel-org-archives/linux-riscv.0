@@ -4,109 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A701C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 13:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED76CC3ABAA
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 13:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KTvw0k+SEd0PotZjshi9QoanWvyOpQWbBt7+YAE8Amw=; b=xnefPbagPaMMS3
-	NzUotUw96ApJZMPtItg3zCFIEgzAz8dUnwh5UNxXDRFbSnB+xHQje0pA/N1ksHmec3jFURFJpp/PH
-	+NOmm96avMykAOQETiIgthEUcntLkDY58qaREkztdSg71qYAg3775o1tBgPD1gq3YZlzSD5j90rgf
-	ZHeIrXprC/mp6yNN1aiLgXKPJfKyWHgb8iq2HImPqmn53Jtpm6m6omt4ifka1B7R6ZEnbAQQWF3Hj
-	XwvMHaFPL58kNtnirCTK+L6bjG3ZMwWOKspC6DDsBMngcM4kFUmImZpafAZy+sn/pO4rikK8OpE9t
-	OYUoVZKVl0dsvychtDWQ==;
+	List-Owner; bh=nmKiKZNronjGjPcvmpphTQyeyFN1r22tfVaSzGgeTgM=; b=i7Dvtd/AjLn/kS
+	zXfWhKllnMv6rHvbE6oUxbkqqEV5bId3ASl4Duptn5AGVsdZb1JGiC6uPsIFN4Fnd7BfpFvBCXj2G
+	4bHidPuvV7HeMsdHFpiDNq6LNWsY/ODp5KVM4XZ/et6fPVm5/pdMBVcgASnAiDgfM96jvMJl0UyqJ
+	anyDZl44QCuALRQ2324nU9pvK0aXw6b7FdDGYXZ/cKidNraL1GeJSQFNGH7rypBdyMS7fAYvIxSlT
+	KhjI8Y9IPJsVPtrw1LrQ7s9yfOTIzIKkXfBXCmjf4XAAWaPwdGq5K0b8egVJn3CVgoOz8RUf7ILbm
+	SOvErQ7bd+hK2WrM9cJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqkk-000000026SK-3DqM;
-	Fri, 02 May 2025 13:48:34 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uAqpm-0000000273C-0cX1;
+	Fri, 02 May 2025 13:53:46 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAqj2-0000000269M-2SX4
-	for linux-riscv@lists.infradead.org;
-	Fri, 02 May 2025 13:46:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746193607;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=t26WFBHi08pW7euHNG026rO+y6++jNdV0Wnu59PtcDI=;
-	b=PvKoG7zH5mWdvt1kglKm0mzgIA4E/kLKRr72PZlbMjDRJGRKUloqlp8He9Jm6dDzK5vtED
-	4ohZU4taPtYpFqsqR/xSAh9hPHKdrpvU1SHOzNy3xXEGlPpJHhSZ6IqXIJPQVyG3vzi/kk
-	X9rZ3Q6EPJ6TTbCsiaG49zsD16McBJU=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-448-B_BImlHvOgqZucyfJfS2bA-1; Fri, 02 May 2025 09:46:46 -0400
-X-MC-Unique: B_BImlHvOgqZucyfJfS2bA-1
-X-Mimecast-MFC-AGG-ID: B_BImlHvOgqZucyfJfS2bA_1746193605
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-39130f02631so567275f8f.2
-        for <linux-riscv@lists.infradead.org>; Fri, 02 May 2025 06:46:46 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746193605; x=1746798405;
-        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=t26WFBHi08pW7euHNG026rO+y6++jNdV0Wnu59PtcDI=;
-        b=QrYwPg+jfnNMi4O4KHBUdxRwcDMs0tUm72HT/jESGnBG177X21yaXqAkZOTR0Kn7Oj
-         vT0p1qSFCVunxDCnk1lvDCGaDezev5ArSCWvIYI4j1LsTi5DhEks4zYDH3s2fyiPqk/F
-         Wy4UXeDqc/58KKlmjME24vr9ESwQ8cqswOwIVDMteOJKkNMtcaGRP/MAvGgnviFsbJqW
-         CKPSmx09Mn1AEcs31CXLjWxTYubdJRml7bydiLnIEewya9P08lRAgr2EOpwQmYw2mQez
-         sdlVQgktxLcIE31UeDrjdJqJEhy+wJSsgaLAzO6z2cZ5Ho1n3URnJidBJ+dHbgfnMPgV
-         GIuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWOueiX5/maYaMlv25YCEaXYms8lEkFlH0k8W92/wBm/Uo5unaNAT0NDBhhXMHwU6DDi6Z88y87zZfuVA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2RJmZjPrw7s2728YuOG23tM9E/L+gZB0edWtCKqhBUCLYwRE4
-	GjfIdbpkTM5uCdKw2e/ShQvJ4UY9GOrP1uwDt1yjbSCqgm6Ej7ymlmWynyC9uHrBDRAj6U6Jude
-	/ScAlAxka6gDHnW9lD79kRq48u+DypLchYrOpGFU9DaOqOI+UtQZgqLt2Fl/XV0GFEQ==
-X-Gm-Gg: ASbGncuBgrCU0loAVEdB6/ccSE3FNRiuLzxPWdZxySW/ye+C97mb1TeYq8KTOcOR+4j
-	Bez+cgqopWSy5cEfG9Ydj10jzJEA7OYSey0taUeIk3jwBLerfLn8x2fExL9FIn59BXJzGj2AR+n
-	pPryM7PuLsT+Dr5xV9UbYRbNq49fY2xcA93ABo5WD1CwuNhtjfjLXTrdgqG/lSpNNp26JzE+b8b
-	5jIkp1BkqSzlWrLK3RYofn7Y/d/1KFi+pi2fAR3L4Y2q1IxAEuusYgTUcp9bUFuDicEtA3sxMYh
-	OFzTosY=
-X-Received: by 2002:a5d:588b:0:b0:3a0:8442:2c48 with SMTP id ffacd0b85a97d-3a099ae9222mr2602341f8f.44.1746193605159;
-        Fri, 02 May 2025 06:46:45 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFGs1GZuij98mNUcVZcrNsFGm1V35jGUDgdtybLeV9BC/KcmWiOtMwk4H8uBWA4raSVAiEO2w==
-X-Received: by 2002:a5d:588b:0:b0:3a0:8442:2c48 with SMTP id ffacd0b85a97d-3a099ae9222mr2602322f8f.44.1746193604732;
-        Fri, 02 May 2025 06:46:44 -0700 (PDT)
-Received: from fedora (g3.ign.cz. [91.219.240.17])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b2b20c3fsm91680295e9.28.2025.05.02.06.46.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 02 May 2025 06:46:44 -0700 (PDT)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, Thomas Gleixner
- <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Dave Hansen
- <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, Peter
- Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, Emanuele
- Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann
- <kraxel@redhat.com>, Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi
- <bluca@debian.org>, Peter Zijlstra <peterz@infradead.org>, Matthew Garrett
- <mjg59@srcf.ucam.org>, James Bottomley
- <James.Bottomley@hansenpartnership.com>, Eric Snowberg
- <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] x86/efi: Implement support for embedding SBAT data
- for x86
-In-Reply-To: <CAMj1kXFkFCOqU2jvG_o97DzrhpXKyUd=WxPhHFA-_0ddPSvs0g@mail.gmail.com>
-References: <20250424080950.289864-1-vkuznets@redhat.com>
- <20250424080950.289864-3-vkuznets@redhat.com>
- <CAMj1kXFMmhROmaDZ0gsw+ozG5iSkMvSXb15qexToUSAFyBn5hQ@mail.gmail.com>
- <87ldrka6w6.fsf@redhat.com>
- <CAMj1kXE0WcenLEB+60=+oc+aKfbqZkwYZf-TrOyDY=ShXQ2pYw@mail.gmail.com>
- <87a57v9pt4.fsf@redhat.com>
- <CAMj1kXFkFCOqU2jvG_o97DzrhpXKyUd=WxPhHFA-_0ddPSvs0g@mail.gmail.com>
-Date: Fri, 02 May 2025 15:46:43 +0200
-Message-ID: <877c2z9lbw.fsf@redhat.com>
+	id 1uAqpX-000000026xt-0co7;
+	Fri, 02 May 2025 13:53:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1746194011; x=1777730011;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=LeoToeMCstsNjQeg4LXTjGxTobsjhD5xoUYnP0ZcFzk=;
+  b=Y5p3imj32afeGoXzYn1oF1mUaXnX3GHygiN5YRYN2Sy7WVQyqFJDbvl0
+   fVFCTo28TudF5/mFa7+65Nu98YeCBwxgY7vB+KWyf3Pm5kefPlVOYNfsq
+   LezOh9E/m69ZrIShW/NSmImyQvZoNo3U/yIKHztabEHzTI22Sx4rleCVQ
+   rhtvwITOqcNA+ylS3AOdD89Z+DwZyQZ7SH/R6Fj3FJX7hC890/0o9lopd
+   iOtjcNsIEzBmTtEoTY/5sLFAfekz2hfLZIMh4S7+SWW7K24sj/NlHUjIE
+   hAQ8WMgKv9ezQkXMnnE85+8/yZIyz7m3YeR2nY3rejrJkB+RCwoLfqUsJ
+   w==;
+X-CSE-ConnectionGUID: Bq4e6RWJTAOkkgyH042hJw==
+X-CSE-MsgGUID: d3ELsLHRT+GDJWasjafdGw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11421"; a="48013478"
+X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
+   d="scan'208";a="48013478"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 06:53:30 -0700
+X-CSE-ConnectionGUID: Gm2K84tGReOY9bNQcutK0w==
+X-CSE-MsgGUID: 9PgngiGMRkyNHSp6md3TLA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,256,1739865600"; 
+   d="scan'208";a="134542729"
+Received: from ssimmeri-mobl2.amr.corp.intel.com (HELO [10.124.220.114]) ([10.124.220.114])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 May 2025 06:53:20 -0700
+Message-ID: <34535b8c-35c8-4a7f-8363-f5a9c5a69023@intel.com>
+Date: Fri, 2 May 2025 06:53:17 -0700
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: Aj3gCTCu03tAeV5wTjjLUl1Kxeckmr3SftZTrNfa7Sc_1746193605
-X-Mimecast-Originator: redhat.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 00/25] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+To: Valentin Schneider <vschneid@redhat.com>,
+ Steven Rostedt <rostedt@goodmis.org>
+Cc: linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org,
+ kvm@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-modules@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ rcu@vger.kernel.org, linux-hardening@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, bpf@vger.kernel.org,
+ Juri Lelli <juri.lelli@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Yair Podemsky <ypodemsk@redhat.com>, Josh Poimboeuf <jpoimboe@kernel.org>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>,
+ Nicolas Saenz Julienne <nsaenz@amazon.com>,
+ Frederic Weisbecker <frederic@kernel.org>,
+ "Paul E. McKenney" <paulmck@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ Sean Christopherson <seanjc@google.com>, Juergen Gross <jgross@suse.com>,
+ Ajay Kaher <ajay.kaher@broadcom.com>,
+ Alexey Makhalov <alexey.amakhalov@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Russell King
+ <linux@armlinux.org.uk>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Huacai Chen <chenhuacai@kernel.org>,
+ WANG Xuerui <kernel@xen0n.name>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>,
+ Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+ Adrian Hunter <adrian.hunter@intel.com>,
+ "Liang, Kan" <kan.liang@linux.intel.com>,
+ Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+ Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+ Jason Baron <jbaron@akamai.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Luis Chamberlain <mcgrof@kernel.org>, Petr Pavlu <petr.pavlu@suse.com>,
+ Sami Tolvanen <samitolvanen@google.com>, Daniel Gomez
+ <da.gomez@samsung.com>, Naveen N Rao <naveen@kernel.org>,
+ Anil S Keshavamurthy <anil.s.keshavamurthy@intel.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+ Joel Fernandes <joel@joelfernandes.org>,
+ Josh Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>,
+ Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+ Lai Jiangshan <jiangshanlai@gmail.com>, Zqiang <qiang.zhang1211@gmail.com>,
+ Vincent Guittot <vincent.guittot@linaro.org>,
+ Dietmar Eggemann <dietmar.eggemann@arm.com>, Ben Segall
+ <bsegall@google.com>, Mel Gorman <mgorman@suse.de>,
+ Kees Cook <kees@kernel.org>, Shuah Khan <shuah@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>, Alice Ryhl <aliceryhl@google.com>,
+ Miguel Ojeda <ojeda@kernel.org>, "Mike Rapoport (Microsoft)"
+ <rppt@kernel.org>, Rong Xu <xur@google.com>,
+ Rafael Aquini <aquini@redhat.com>, Song Liu <song@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Brian Gerst <brgerst@gmail.com>,
+ "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+ Benjamin Berg <benjamin.berg@intel.com>,
+ Vishal Annapurve <vannapurve@google.com>,
+ Randy Dunlap <rdunlap@infradead.org>, John Stultz <jstultz@google.com>,
+ Tiezhu Yang <yangtiezhu@loongson.cn>
+References: <20250429113242.998312-1-vschneid@redhat.com>
+ <fefcd1a6-f146-4f3c-b28b-f907e7346ddd@intel.com>
+ <20250430132047.01d48647@gandalf.local.home>
+ <019f6713-cfbd-466b-8fb5-dcd982cf8644@intel.com>
+ <20250430154228.1d6306b4@gandalf.local.home>
+ <a6b3a331-1ff3-4490-b300-a62b3c21578d@intel.com>
+ <xhsmhr0179w1i.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
+From: Dave Hansen <dave.hansen@intel.com>
+Content-Language: en-US
+Autocrypt: addr=dave.hansen@intel.com; keydata=
+ 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
+In-Reply-To: <xhsmhr0179w1i.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_064648_698573_02F28E2E 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20250502_065331_206974_7DF24969 
+X-CRM114-Status: GOOD (  11.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,148 +196,19 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ard Biesheuvel <ardb@kernel.org> writes:
+On 5/2/25 02:55, Valentin Schneider wrote:
+> My gripe with that was having two separate mechanisms
+> - super early entry around SWITCH_TO_KERNEL_CR3)
+> - later entry at context tracking
 
-> On Fri, 2 May 2025 at 14:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->>
->> Ard Biesheuvel <ardb@kernel.org> writes:
->>
->> > On Mon, 28 Apr 2025 at 12:59, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->> >>
->> >> Ard Biesheuvel <ardb@kernel.org> writes:
->> >>
->> >> > On Thu, 24 Apr 2025 at 10:10, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->>
->> ...
->>
->> >> >>  $(obj)/vmlinux: $(vmlinux-objs-y) $(vmlinux-libs-y) FORCE
->> >> >>         $(call if_changed,ld)
->> >> >>
->> >> >> diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
->> >> >> index 3b2bc61c9408..d0a27905de90 100644
->> >> >> --- a/arch/x86/boot/compressed/vmlinux.lds.S
->> >> >> +++ b/arch/x86/boot/compressed/vmlinux.lds.S
->> >> >> @@ -49,9 +49,22 @@ SECTIONS
->> >> >>                 *(.data.*)
->> >> >>
->> >> >>                 /* Add 4 bytes of extra space for the obsolete CRC-32 checksum */
->> >> >> +#ifndef CONFIG_EFI_SBAT
->> >> >>                 . = ALIGN(. + 4, 0x200);
->> >> >> +#else
->> >> >> +               /* Avoid gap between '.data' and '.sbat' */
->> >> >> +               . = ALIGN(. + 4, 0x1000);
->> >> >> +#endif
->> >> >>                 _edata = . ;
->> >> >>         }
->> >> >> +#ifdef CONFIG_EFI_SBAT
->> >> >> +       .sbat : ALIGN(0x1000) {
->> >> >> +               _sbat = . ;
->> >> >> +               *(.sbat)
->> >> >> +               _esbat = ALIGN(0x200);
->> >> >> +               . = _esbat;
->> >> >> +       }
->> >> >> +#endif
->> >> >>         . = ALIGN(L1_CACHE_BYTES);
->> >> >>         .bss : {
->> >> >>                 _bss = . ;
->> >> >
->> >> > This looks a bit odd - see below
->> >> >
->> >> >> diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
->> >> >> index b5c79f43359b..ab851490ef74 100644
->> >> >> --- a/arch/x86/boot/header.S
->> >> >> +++ b/arch/x86/boot/header.S
->> >> >> @@ -207,6 +207,19 @@ pecompat_fstart:
->> >> >>                 IMAGE_SCN_MEM_READ              | \
->> >> >>                 IMAGE_SCN_MEM_WRITE             # Characteristics
->> >> >>
->> >> >> +#ifdef CONFIG_EFI_SBAT
->> >> >> +       .ascii ".sbat\0\0\0"
->> >> >> +       .long   ZO__esbat - ZO__sbat            # VirtualSize
->> >> >> +       .long   setup_size + ZO__sbat           # VirtualAddress
->> >> >> +       .long   ZO__esbat - ZO__sbat            # SizeOfRawData
->> >> >> +       .long   setup_size + ZO__sbat           # PointerToRawData
->> >> >> +
->> >> >> +       .long   0, 0, 0
->> >> >> +       .long   IMAGE_SCN_CNT_INITIALIZED_DATA  | \
->> >> >> +               IMAGE_SCN_MEM_READ              | \
->> >> >> +               IMAGE_SCN_MEM_DISCARDABLE       # Characteristics
->> >> >> +#endif
->> >> >> +
->> >> >
->> >> > This puts the .sbat section at the very end of the file. However, the
->> >> > virtual size of .data is 'ZO__end - ZO__data' not 'ZO__edata -
->> >> > ZO__data', and so the .sbat section will overlap with .bss in the
->> >> > memory view of the image.
->> >>
->> >> Missed that, will fix, thanks! A stupid question though: does this
->> >> matter in practice for SBAT? I don't think anyone needs SBAT data after
->> >> kernel starts booting so we can consider it 'discarded'. BSS data can
->> >> then do whatever it wants.
->> >>
->> >
->> > It violates the PE/COFF spec, and some PE loaders and signing tools
->> > are very pedantic about the layout.
->>
->> Turns out it the problem is slightly harder to address then I initially
->> thought.
->
-> Yeah I was afraid this was going to be tricky.
->
-> ...
->
->> The problem is similar for zboot.
->
-> How so?
->
+What do you mean by "later entry"?
 
-zboot-header.S has:
+All of the paths to enter the kernel from userspace have some
+SWITCH_TO_KERNEL_CR3 variant. If they didn't, the userspace that they
+entered from could have attacked the kernel with Meltdown.
 
-    .ascii          ".data\0\0\0"
-    .long           __data_size
-    .long           _etext - .Ldoshdr
-    .long           __data_rawsize
-    .long           _etext - .Ldoshdr
-
-where the difference between '__data_rawsize' and '__data_size' is:
-
- PROVIDE(__data_rawsize = ABSOLUTE(_edata - _etext));
- PROVIDE(__data_size = ABSOLUTE(_end - _etext));
-
-and "_end" is the end of BSS. So if we put '.sbat' right after '.data'
-then '.data' will cover it too (so we will get an overlap). If we put
-if after '.bss' then we're going to get a hole (size of '.bss') upon
-(aarch64 example):
-
- objcopy  -O binary arch/arm64/boot/vmlinuz.efi.elf arch/arm64/boot/vmlinuz.efi
-
-as AFAIU it won't be able to squeeze the binary, it only truncates the
-tail throwing away secions without content (in particular, '.sbat').
-
->> I have two ideas:
->> 1) Get back to the idea of putting '.sbat' between '.text' and '.data'
->> (was in my RFC).
->>
->
-> This is what zboot does, no?
->
-
-In v1 I put '.sbat' right after '.data' and before '.bss' but I didn't
-think about the memory overlap problem.
-
->> 2) Introduce a separate '.bss' section to the PE binary, basically:
->>
->
-> I'd like .sbat to be as unintrusive as we can make it, so this is my
-> least preferred option.
->
-
-This is very reasonable -- unless for some reason we belive that
-separating '.bss' into its own PE section is a good idea on its own.
-
--- 
-Vitaly
-
+I'm theorizing that if this is _just_ about avoiding TLB flush IPIs that
+you can get away with a single mechanism.
 
 _______________________________________________
 linux-riscv mailing list
