@@ -4,57 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7895CC3ABA3
-	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 10:33:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC55C3ABAA
+	for <linux-riscv@archiver.kernel.org>; Fri,  2 May 2025 11:35:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X3tkNvQjr6HWY2mD9Op8sPxR68y4xEt0Ro4Sg9LrvaI=; b=dihu/6SQq6fW/W
-	MxwleLyESSsKxScLQQ+DfJLbsOqDKi2eXZSmKyku2CHneosgW7Q8/DjLnYjsHxKcFfyBHHhn0fiQs
-	HLDs7zHMGAQk5uZB6/eGiJibfdvxd3AMvzEYEndq/LXXL6ocNnWtg/Zk26XYWOxRrVdggEtXAEJ9/
-	MVDNLqMivxLEoqxEQ088OKC414ZxhN95XotbzhtBMmnGHAg76nAKmhtizy3Anr6Ka4Vpp5n9JT4ms
-	bjvXsbcnnfObwmLms++wrRyJZrobv7xh27wmaY0aE0eKg+n+JRbXSLryUjx47Ja6PWgsvzb359QlP
-	21anNJ84+94z8FfVztjg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=XMwknhEkCqtevbtCVg7cxs+0PuTk12mQCIWeS4145m8=; b=oBZYhliFu40aKLWtCEcKm5Q5+E
+	SZ3qYCYTmfxMbJSVEFsi5kdOk2UPfV52qtd/ck9DF1GTsxvUiqr+u6/+1Ea1StRqFVHtCqAe26BFV
+	olaZJ5dcVQCkGS8nxrDYWQAN6SWoOV+X6ez1A1Rj6Q+fggYV7c7116yd9f+/uZ+dsYxspLH7AHzLP
+	G9uhzM+y2cOUhTJ/8MjkbBZWdhtrYPwHxYI1Rw2WUjMbeujEFzeZMDhvo3EA2yotRjIJv0UmCjPoP
+	+bImmvrsCZrtfzBijUbAaOVSYgo6ESH2jXXQGchR/0UdRgXjKbYfskFlr9cgIMFu5NKDM0pP8gxzf
+	PDAxZRIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAnhe-00000001bAO-3ahE;
-	Fri, 02 May 2025 10:33:10 +0000
-Received: from freeshell.de ([2a01:4f8:231:482b::2])
+	id 1uAog8-00000001nJi-28QX;
+	Fri, 02 May 2025 11:35:40 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uAng1-00000001aQZ-2sXN
+	id 1uAoOU-00000001lDI-2Ny8
 	for linux-riscv@lists.infradead.org;
-	Fri, 02 May 2025 10:31:31 +0000
-Received: from hay.lan. (unknown [IPv6:2605:59c0:20f3:a400:6ecf:39ff:fe00:8375])
-	(Authenticated sender: e)
-	by freeshell.de (Postfix) with ESMTPSA id 5128FB4C23F9;
-	Fri,  2 May 2025 12:31:24 +0200 (CEST)
-From: E Shattow <e@freeshell.de>
-To: Conor Dooley <conor@kernel.org>,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	E Shattow <e@freeshell.de>
-Subject: [PATCH v3 1/4] riscv: dts: starfive: jh7110-common: add CPU BUS PERH QSPI clocks to syscrg
-Date: Fri,  2 May 2025 03:30:41 -0700
-Message-ID: <20250502103101.957016-2-e@freeshell.de>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250502103101.957016-1-e@freeshell.de>
-References: <20250502103101.957016-1-e@freeshell.de>
-MIME-Version: 1.0
+	Fri, 02 May 2025 11:17:27 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43e9b0fd00cso7962185e9.0
+        for <linux-riscv@lists.infradead.org>; Fri, 02 May 2025 04:17:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746184643; x=1746789443; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=p5OL8nU942aSLT09UgHbmIML3ySj45uDmdMG5/wKvHc=;
+        b=lZOYktcCiHRuBmGPR3g0MAmtYTnqitLSQijF3TOKnh3AaX91wHWutdpIEfowekbw8A
+         TNjdC+djfZRkp7AVD8fhFX+tXQvcqAuJO0zB4e9cbqWHKgp0s1HbIo8bFs+bvUuBp5K4
+         FQwvo3UmmwiTnXaNT3lv2/khG+5SgxjfrBgVbFR6/S25topC9ThcH9mb21ZG7EOneRfG
+         c6bsLtx0/dlSjJ+TTPpfpRcD9fkn97Nacz6pPoKplWQfQwawg7bepsacyMu21Q/zjMWd
+         HjcNlR3RrbI5x/TJvfSrcCGi42kwrcaoai6ewuuI/hp22TadJ6JD6O2kjyphrZ5WhEo/
+         DaGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746184643; x=1746789443;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=p5OL8nU942aSLT09UgHbmIML3ySj45uDmdMG5/wKvHc=;
+        b=mFXP0u2z3SnyefnJ1MTWuQyQXrgD+Ipd3IoZ0sUHsZu/abYxxcrHm4nbX6eBcKhEXs
+         X28yb6ADoBJxsB8hQXIyTABV2mB7ny1j5AVdzwOf0EMCc+0QsGTWHQaW86Wwv+leuw6m
+         JRgrDZvG7aHok+Dh/bPIo/DXoJ/Ndr7iZnkkTcLocMJ2ZRXAd49qUa/MbYy9272cdWXc
+         9R9AQ6PuTRKAVdsn97LhWCW6U4mz0X2KLgh9G5QxbQcGmzBprXjOCB3N5Ke83zQ3UPyn
+         aciFXfcVurEEcc5itF3hPLHVh056GycHPRHxNzJ4MxiEAflUvgZFdx9IyNfgx14B1PAX
+         +0RA==
+X-Forwarded-Encrypted: i=1; AJvYcCW16KCbq9f7nNP+rEN/xqk0dV0r0nKneEx6V77TBHEEMZ2W4jSuXoYTtd1aDlHvC9o+NBs/7ZC63eLmmg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxaBaD7Mdg4jorCqGFWwF4+mZUi6sqIcdfT8asYKq79vOY69Vfi
+	r+MO4Zr4uBUv7yMIR35egyrImqtc23ycELT9LQqi4+X88pfVnhZ+YoztZ2MBZ/26wXDyu0zLTGg
+	85cf/VnqQ1hnXsA==
+X-Google-Smtp-Source: AGHT+IE72hvZ6mV4D/kXtlS6V50J8cDZa9GKooUY0w71JECu4b4Ctc5ADtyJqEQ5cdCjB5Oy5b/n+Jkyg9Gzn9c=
+X-Received: from wmbel14.prod.google.com ([2002:a05:600c:3e0e:b0:440:5f8a:667c])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:3acd:b0:435:edb0:5d27 with SMTP id 5b1f17b1804b1-441b72c0a66mr50048405e9.9.1746184643608;
+ Fri, 02 May 2025 04:17:23 -0700 (PDT)
+Date: Fri, 2 May 2025 11:17:21 +0000
+In-Reply-To: <20250502094537.231725-5-fujita.tomonori@gmail.com>
+Mime-Version: 1.0
+References: <20250502094537.231725-1-fujita.tomonori@gmail.com> <20250502094537.231725-5-fujita.tomonori@gmail.com>
+Message-ID: <aBSpwXh0GnuyXyST@google.com>
+Subject: Re: [PATCH v6 4/4] rust: Add warn_on macro
+From: Alice Ryhl <aliceryhl@google.com>
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>
+Cc: linux-kernel@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+	x86@kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, peterz@infradead.org, hpa@zytor.com, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org, 
+	kernel@xen0n.name, tangyouling@loongson.cn, hejinyang@loongson.cn, 
+	yangtiezhu@loongson.cn, ojeda@kernel.org, alex.gaynor@gmail.com, 
+	boqun.feng@gmail.com, gary@garyguo.net, bjorn3_gh@protonmail.com, 
+	benno.lossin@proton.me, a.hindborg@kernel.org, tmgross@umich.edu, 
+	dakr@kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250502_033129_870418_06215BB6 
-X-CRM114-Status: UNSURE (   7.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250502_041726_600707_134BCAD4 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,41 +100,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add syscrg clock assignments for CPU, BUS, PERH, and QSPI as required by
-boot loader before kernel.
+On Fri, May 02, 2025 at 06:45:36PM +0900, FUJITA Tomonori wrote:
+> Add warn_on macro, uses the BUG/WARN feature (lib/bug.c) via assembly
+> for x86_64/arm64/riscv.
+> 
+> The current Rust code simply wraps BUG() macro but doesn't provide the
+> proper debug information. The BUG/WARN feature can only be used from
+> assembly.
+> 
+> This uses the assembly code exported by the C side via ARCH_WARN_ASM
+> macro. To avoid duplicating the assembly code, this approach follows
+> the same strategy as the static branch code: it generates the assembly
+> code for Rust using the C preprocessor at compile time.
+> 
+> Similarly, ARCH_WARN_REACHABLE is also used at compile time to
+> generate the assembly code; objtool's reachable annotation code. It's
+> used for only architectures that use objtool.
+> 
+> For now, Loongarch and arm just use a wrapper for WARN macro.
+> 
+> UML doesn't use the assembly BUG/WARN feature; just wrapping generic
+> BUG/WARN functions implemented in C works.
+> 
+> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
 
-Signed-off-by: E Shattow <e@freeshell.de>
----
- arch/riscv/boot/dts/starfive/jh7110-common.dtsi | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
-
-diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-index c2f70f5e2918..f1489e9bb83e 100644
---- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-+++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
-@@ -353,9 +353,17 @@ &spi0 {
- };
- 
- &syscrg {
--	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_CORE>,
-+	assigned-clocks = <&syscrg JH7110_SYSCLK_CPU_ROOT>,
-+			  <&syscrg JH7110_SYSCLK_BUS_ROOT>,
-+			  <&syscrg JH7110_SYSCLK_PERH_ROOT>,
-+			  <&syscrg JH7110_SYSCLK_QSPI_REF>,
-+			  <&syscrg JH7110_SYSCLK_CPU_CORE>,
- 			  <&pllclk JH7110_PLLCLK_PLL0_OUT>;
--	assigned-clock-rates = <500000000>, <1500000000>;
-+	assigned-clock-parents = <&pllclk JH7110_PLLCLK_PLL0_OUT>,
-+				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
-+				 <&pllclk JH7110_PLLCLK_PLL2_OUT>,
-+				 <&syscrg JH7110_SYSCLK_QSPI_REF_SRC>;
-+	assigned-clock-rates = <0>, <0>, <0>, <0>, <500000000>, <1500000000>;
- };
- 
- &sysgpio {
--- 
-2.49.0
-
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
 
 _______________________________________________
 linux-riscv mailing list
