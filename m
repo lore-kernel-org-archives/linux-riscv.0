@@ -4,84 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B93B6C3ABB0
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 May 2025 10:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B1E4C369C2
+	for <linux-riscv@archiver.kernel.org>; Sat,  3 May 2025 15:19:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y4DRSmppoPQyX2Qh7eEAnwaPakpKmEg80NftNPccuVI=; b=addFehJTDM8clx
-	HBkzs9kRzLHdhguj9K0s/pkrMFJmRObk2FAeqSWJoRv+a8NrGKp8hAaETgHkpADFoXwsPe8QkdoTZ
-	IU8IS6aX5qTgaA+hh4l5dTVPwP8XSe+s/KvEITRrfOP1EyXCK75Ev9m30BAzUdRmI9Qat1QfW3Yqi
-	pzh9AJ9aENfYuv5dbs63Z/y+w7BSu2DFUwoBz6gyLE/uy0SMtACTqoieGvlagzguvuyjS1JbVUdUl
-	vvgblmLOzQqcQqTlPpKOOSmxapIXIOsyWVcS0p7F184kGva6ZZTulujitQTV91Jd2h/bzKNVIa47I
-	fbGJxHESpkE5q2189g9g==;
+	List-Owner; bh=6nybmCnqHFu7XKe/Rchmz/qUnsu3ttJhZQ+PWC5jhcM=; b=KfEy2DkzJG1qlp
+	P247+Gdsd6mOkl9sKyQFFs6nI1HildU+0fOTLhaVKzwEcvTk0Dnh8z1cyp9KElQN4g6T0PBLtACe7
+	Hfdw6nzsMBjQRJ7Yw3KCekssNtZc96Rgl6ERFpJEdq0/irx6kUbuG94WnKIeew7dak261mExhirtw
+	FBodiED9d5dCEXdqeYRz0GXNMLGwaCBaCxEXkzJND0DC+8KLzaUpvfA2Vz2lIm75MfNBBTtjG5sWR
+	aLT/M3zbnEk+/4kaaHrd7ISYFSuznIpRZUJ32wMTnhUzruwXkOXsLM2O6KG/Ng1tlM2fOt1YpT91w
+	cyaQe+2J2dyTycozpHdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBA7w-00000003ksu-3XPo;
-	Sat, 03 May 2025 10:29:48 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1uBEeU-0000000418l-2YyO;
+	Sat, 03 May 2025 15:19:42 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9nK-00000003jBn-3jNE;
-	Sat, 03 May 2025 10:08:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=dJ5yxwzSd18ze9t6hVLldU0j6KOkUmoNge4T8HYqBS0=; b=GOB+MR3VxfN1j7WarrQhI/6dmH
-	vRfudx8ixVXXLahZ5Vh8j/YV+rz0bN0tn9bTArcTr1NsyR+0jGLwlNt8EYztmc0IUq0DpZL7Pe46D
-	mCGzoxK2teuDvnXJsCVUEUXwYXDC3wAee2RqoeN+fsJd+RzTI+mQwxdDIvggeLZlaiKAWFLqPRq0S
-	IuswIIPXKlfbEagBmwO0i3IGgARDudkxbUIeLTk+oovsy5LYtPuksQ4IQ+OneWlj/q6IJCz1xOC8h
-	XittOBymb3zchZdOthguklAKCk9nDEM6I2jsYEv83el4962flzGypwFgOz5frjIaNshHKTwaMi6+8
-	KWo6/NdQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uB9nB-00000002xfU-2zcZ;
-	Sat, 03 May 2025 10:08:22 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 09B7630114C; Sat,  3 May 2025 12:08:21 +0200 (CEST)
-Date: Sat, 3 May 2025 12:08:20 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Sean Christopherson <seanjc@google.com>
-Cc: Maxim Levitsky <mlevitsk@redhat.com>, kvm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	Waiman Long <longman@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Borislav Petkov <bp@alien8.de>,
-	Albert Ou <aou@eecs.berkeley.edu>, Anup Patel <anup@brainfault.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Potapenko <glider@google.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Andre Przywara <andre.przywara@arm.com>, x86@kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, kvm-riscv@lists.infradead.org,
-	Atish Patra <atishp@atishpatra.org>, Ingo Molnar <mingo@redhat.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, kvmarm@lists.linux.dev,
-	Will Deacon <will@kernel.org>,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Sebastian Ott <sebott@redhat.com>, Shusen Li <lishusen2@huawei.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Randy Dunlap <rdunlap@infradead.org>, Marc Zyngier <maz@kernel.org>,
-	Zenghui Yu <yuzenghui@huawei.com>
-Subject: Re: [PATCH v4 5/5] x86: KVM: SEV: implement kvm_lock_all_vcpus and
- use it
-Message-ID: <20250503100820.GF4198@noisy.programming.kicks-ass.net>
-References: <20250430203013.366479-1-mlevitsk@redhat.com>
- <20250430203013.366479-6-mlevitsk@redhat.com>
- <aBUxqZ6qgfYZLsye@google.com>
+	id 1uBEeP-0000000415b-0wjS
+	for linux-riscv@lists.infradead.org;
+	Sat, 03 May 2025 15:19:40 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 543FIfpF087567
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Sat, 3 May 2025 23:18:41 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Sat, 3 May 2025
+ 23:18:41 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: 
+CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <paul.walmsley@sifive.com>,
+        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <tglx@linutronix.de>, <daniel.lezcano@linaro.org>,
+        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
+        "Ben
+ Zong-You Xie" <ben717@andestech.com>
+Subject: [PATCH v2 1/9] riscv: add Andes SoC family Kconfig support
+Date: Sat, 3 May 2025 23:18:21 +0800
+Message-ID: <20250503151829.605006-2-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250503151829.605006-1-ben717@andestech.com>
+References: <20250503151829.605006-1-ben717@andestech.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aBUxqZ6qgfYZLsye@google.com>
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 543FIfpF087567
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250503_081937_599303_52801F79 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +75,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 02, 2025 at 01:57:13PM -0700, Sean Christopherson wrote:
+The first SoC in the Andes series is QiLai. It includes a high-performance
+quad-core RISC-V AX45MP cluster and one NX27V vector processor.
 
-> int kvm_lock_all_vcpus(struct kvm *kvm)
-> {
-> 	struct kvm_vcpu *vcpu;
-> 	unsigned long i, j;
-> 	int r;
-> 
-> 	lockdep_assert_held(&kvm->lock);
+For further information, refer to [1].
 
-So I agree that having this assertion here is probably good from a
-read-code pov, however, strictly speaking, it is redundant in that:
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
 
-> 	kvm_for_each_vcpu(i, vcpu, kvm) {
-> 		r = mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock);
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ arch/riscv/Kconfig.errata | 2 +-
+ arch/riscv/Kconfig.socs   | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-will implicitly assert kvm->lock is held. If you try to use an unheld
-lock as nest lock, it will complain loudly :-)
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e318119d570d..be76883704a6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
+ 
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && ARCH_R9A07G043
++	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 8b503e54fa1b..2f1626daaad1 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,14 @@
+ menu "SoC selection"
+ 
++config ARCH_ANDES
++	bool "Andes SoCs"
++	depends on MMU && !XIP_KERNEL
++	select ERRATA_ANDES
++	select ERRATA_ANDES_CMO
++	select AX45MP_L2_CACHE
++	help
++	  This enables support for Andes SoC platform hardware.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
+-- 
+2.34.1
 
-(my inner pendant had to reply, ignore at will :-)
-
-> 		if (r)
-> 			goto out_unlock;
-> 	}
-> 	return 0;
-> 
-> out_unlock:
-> 	kvm_for_each_vcpu(j, vcpu, kvm) {
-> 		if (i == j)
-> 			break;
-> 		mutex_unlock(&vcpu->mutex);
-> 	}
-> 	return r;
-> }
-> EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
 
 _______________________________________________
 linux-riscv mailing list
