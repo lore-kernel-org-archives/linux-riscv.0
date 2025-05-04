@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17D1C369C2
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 May 2025 00:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAB6C3ABB6
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 May 2025 00:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Wzc31bUBnlIP9PQtIosaINyU5qh/9Sv7kHQNFrVygtQ=; b=bV0Pf7YF/w/kF2
-	sG7IYRpBtcRtGXdlUI2PUtW2jWNHDCLbKdNl27yLIvA78r2iOARZ0jb8SJOfl2rFECY+5Pgba5A1u
-	9lXcWs6aecLiD/2Cf53fA9amXuKz2ichIfOBQ6FDceQ37nsbD2aqz7oNFJ1Qvk+MqJiQM1QcUl5OO
-	im29gY1Vw2VO6zH3/mZ8NeBntX4XixWDg7Db9q7gVAkVqvnnX4cO91wqZRfhqmsKvUv8xxu7qvCOg
-	TURGEpbS7CGO1nyTf1dZze9zt/qeGGKzrQEed8n0jDLuIxZETvS1HF35Qz48HYOmYstYkp4PwrYWB
-	cBS1u9Sp0N55BRkkD6jA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=05A5TgnH9UTaM3ybyLI4OUqCKZE6aCAJ4Yvb6Y5j2NY=; b=QqXlQy9XMYaN3R
+	G2W/d9g92ygza7WhXnvqrDEqfGwl1y2JDRy+DU0NTWJNGjXmk9YafYi6xvqHreQIYGdQZpzqnx1+z
+	hGxP2FtT8CRrI5J+KDtwuEkBZ0ljwq43uVh8kDcWpuOoHaMr4ngaPJ4mBmDyOu0MswydYPkXUkVo9
+	pqGuh4DmVhY0xhDjN0Izd3tIuJsra7OpJNAQnON2aJkpcfqkywTKYUjNB+Ho+VTEArY9xXIh23DrS
+	SHxHhd+fbUM1hRQ19BQBK3EynXeuyyqjoFu616AlLUPQpwQYXaEK1Gpe7NzBONfSNf26Y/W+hIOkH
+	XyfyZqyYfmoOEDAdV6EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBNTL-00000004ey0-16I8;
-	Sun, 04 May 2025 00:44:47 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1uBNTR-00000004eza-1XnP;
+	Sun, 04 May 2025 00:44:53 +0000
+Received: from mail-qt1-x832.google.com ([2607:f8b0:4864:20::832])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBNTI-00000004exV-22jj
+	id 1uBNTP-00000004eyk-0WbM
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 May 2025 00:44:46 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6e8f06e13a4so53529676d6.0
-        for <linux-riscv@lists.infradead.org>; Sat, 03 May 2025 17:44:43 -0700 (PDT)
+	Sun, 04 May 2025 00:44:52 +0000
+Received: by mail-qt1-x832.google.com with SMTP id d75a77b69052e-4774193fdffso57222841cf.1
+        for <linux-riscv@lists.infradead.org>; Sat, 03 May 2025 17:44:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746319483; x=1746924283; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=lBTdU5/DczpzT7bxTMClec5iVTOpUIHz+Uhri46H47k=;
-        b=lb7FWcktYaYU/vpwN6sZf6O/Ns+HOMeSpoa8O3x1+iAV3ZyNQhgNuBOPKTxT7xiX6Y
-         L5qwmXcxJ+JgBEMTDSvm9Ihc7Eb6Jofyu7YFgFknZR8A0Qp2NaX0ulnELeXkrdd73rxo
-         mJjDL8rirltvFSUDOak9YndsE0TguhTLU/5LQpD9adyRHTwym9ACRrCyOitw5UWIZ/9E
-         ZdkeE14soWJQ2E1zIPpX8C9a/UQsNFIPAGUrd58VBGTXcduaHsr50qKlFLxov1KBWOGG
-         tArrJ5X2QccmWWDz/0ij/6ZdqR6OR6G4Z4SpcuMjPOEsDeztUZUG8mpXhgtnqwfXBz8+
-         PVGw==
+        d=gmail.com; s=20230601; t=1746319490; x=1746924290; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=glUJtReybeSU9UMmM2aC3jiSRkxCBYujyIZYYLRpM4Q=;
+        b=JcCPzHB241ZWpgGpCGImTTFV9Y0KMIAQ4AOT3/reLJePpRVuSfZtbfBXMjPbLc5PpF
+         znz/Zu52JDccK1guXtVX3+PsesJ1jSkrsJ44D/u4ZyAl3YgVNKH4OnXwnyC5mCROV2go
+         uKuEJ1gnj6RcbtzE9+MiTVUO8ReWwBFBrpkNpJeqYrpqWM4l+hJP4HNFriLZKuxQe+Vw
+         Eruw4qYSdTT1Jez+mito+NKxq/z8M49Uid2Sh4Y3FEsN4EeSL9/+8VrcC0Bpbx4Nc8CP
+         YaUHphISZMoXPDZ4knXs0xlkMWih+jsImkwm8cGhfI0rptlzMGYTI18dbt0mSNxwIGo7
+         nrpg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746319483; x=1746924283;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=lBTdU5/DczpzT7bxTMClec5iVTOpUIHz+Uhri46H47k=;
-        b=seANaPA6UAfXV3F1WfRI6RAnovz7Egt89Zp9W/yUf3RZ+ebk1MAge0+Wev9tGrKTL1
-         JlV8E3oP5dFs/HVgUDhr77VnuLO+fRB04JOiD+/Y3YT56smg67aJ0pQAhalypJc2ZDxN
-         v/ZW/cty2S47v67POH+1KJTxTdHADgEtOqcLR+vEMJVIxkFjP2ouiXrByA1dPI48+M9s
-         ZqLjht+7L1NXCB6itMQ958PfnVkRZnVM72RJsd1hOrsAHCSW/e6ret0iUbBwY5yVHxmc
-         hB1W0xto3NpFSqlmCL1QO4jNwO4RK9BZ/lPEFODa0wHJcsjkYJyM06m+zaaxOYNViA1/
-         NmoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVPB6kSyrwaWABZUA4ZzjdoQ+CFwxL+XhfkuJurJ1f0TCiH9drAkWWC7Lq2Selb8/Lr+QBkJpszq6jZKg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7wobxf9emMQxH55ypPmpoUhM5Jy0OYF6OdqLHW9PGt6+C5uTq
-	Kmi6xQuXOCBJrmOBdMSLbM8YHK3S4lV9a4XEOpDDXvORoLpsoN2H
-X-Gm-Gg: ASbGncvZkJaX18Yp1ao4S4FdSiRJ7HMBSEjfJxVhY8iWQCK4D64Q/14iVWDHuB7cRig
-	TYass7cMMlLnMJMwu37ibBz5XDqj1BT6fhFGAYIPPR9RWJvV+H7zuHxl/ltfOapiVsvFT1NNuh6
-	/TMa905imXu6aA6PTVqnt67Oow9Qqy5Xb2YXqdlIEG0TwVrDVID6+u88PmleUsgzTBmg2kcwRRB
-	BHR9vWeXHhhxGtfVJXUgU4rE0IEcNBRbdWEuGFSTKxM/tDbWquP79eY5b7prXpAF2yuxLGKLaWG
-	s64aKitCZVFwNlQN
-X-Google-Smtp-Source: AGHT+IEDwbk2Ni1OGcnEfuTByVJGsVIbn0PVA4xwx3Q1aAWNwQLEX82DH4thMivs0ayFz/by16ai8Q==
-X-Received: by 2002:a05:6214:20e6:b0:6f5:dad:5a60 with SMTP id 6a1803df08f44-6f515264f21mr128971706d6.3.1746319482732;
-        Sat, 03 May 2025 17:44:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746319490; x=1746924290;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=glUJtReybeSU9UMmM2aC3jiSRkxCBYujyIZYYLRpM4Q=;
+        b=HFI78xBJ6+0+ZT71QcJIQdR5w5VbV78X0ydak/zOMqc2G4eaPeSPLRHuRZqNBpVrUm
+         /66XDKF44fD0Na2W4vXAaTToxJWXAojwlKy4wfv/W+4sTMZkkaDB7UY/jG/8KpxekBKv
+         MQQOrrtUJhR96jM/32Q5Ilt4SwI4e43G6LX95lpOcu5XI5B1NS50TurRsCblBXRDB1QZ
+         hd/TfTS+ZsryEHdk19wb3QX2YR+ViS3TP5ta8gG1ymxPrDR7ylHeW7J2Wh67rx4VSvDs
+         MypnSEu+hgocJVeZi2wX6ETJhFkeIU9jUroikv27xctmGPjcfZFncWzXDLkgS8wwb1ft
+         FkbA==
+X-Forwarded-Encrypted: i=1; AJvYcCWhgOW2sLxbRoWuYYAuLR4IdEl8A9dvmkxBJ57qA2ULeznyUY/w+wcedoAWTJpw5sqSwJSyCsWC4XEs3A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWoUPk5kofFdMBSRN+rGH6XyGxxEwXV2FqxxGV3cN8MlU8Fq6N
+	Vj9iuA7jJVE2Ag2hHbQwhUwvqafQZtk9o55qqqzryxFjZsiUvBCp
+X-Gm-Gg: ASbGncscZX8CrL7a8+lxkcZd5HB7/Wke4B0QOTHytlFAO8AMfaF1nvV5sxPucFRtQI3
+	sa3CJjw97OKu8QeQwApBb//UjfYJMklOXt1Ye1uj4d1Mdu8XPMuf35ZHivBmNk/imTdlg3H0o7w
+	WY04RZsPl2v6txBM7vlvFgmHvqTG50YJ11J5ll5SE36MXbFYLIS+8s4XRD8MdzyU0R1l/dXb1uT
+	uQrOmQqTq6Adm7mLeNaZTCG0mE5LPQA4LoPqKYF1KXED5jBFLsQ1YetjSsSXu0Pc9fb0+ncAd2U
+	hFZk49E0SXRRMldh
+X-Google-Smtp-Source: AGHT+IH7/DZ/pctM9PXgMnRa9IZ+/9tnpxbAJ1vWO6J4mbNoekyJ4ajeyrdsTwYwdx6Y6MlNlT03GA==
+X-Received: by 2002:ac8:7dc2:0:b0:47a:eade:95eb with SMTP id d75a77b69052e-48e00f625abmr24684061cf.40.1746319489727;
+        Sat, 03 May 2025 17:44:49 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f50f3b05efsm38597456d6.23.2025.05.03.17.44.41
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-48b966d8b7csm39551881cf.27.2025.05.03.17.44.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 03 May 2025 17:44:42 -0700 (PDT)
+        Sat, 03 May 2025 17:44:49 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
@@ -93,14 +94,16 @@ Cc: linux-pci@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v3 0/2] riscv: sophgo Add PCIe support to Sophgo SG2044 SoC
-Date: Sun,  4 May 2025 08:44:17 +0800
-Message-ID: <20250504004420.202685-1-inochiama@gmail.com>
+Subject: [PATCH v3 2/2] PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+Date: Sun,  4 May 2025 08:44:19 +0800
+Message-ID: <20250504004420.202685-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250504004420.202685-1-inochiama@gmail.com>
+References: <20250504004420.202685-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_174444_527462_E8F8E1AB 
-X-CRM114-Status: GOOD (  11.23  )
+X-CRM114-CacheID: sfid-20250503_174451_168384_2A319263 
+X-CRM114-Status: GOOD (  21.55  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,47 +120,314 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Sophgo's SG2044 SoC uses Synopsys Designware PCIe core
-to implement RC mode.
+Add support for DesignWare-based PCIe controller in SG2044 SoC.
 
-For legacy interrupt, the PCIe controller on SG2044 implement
-its own legacy interrupt controller. For MSI/MSI-X, it use an
-external interrupt controller to handle.
-
-The external MSI interrupt controller patch can be found on [1].
-As SG2044 needs a mirror change to support the way to send MSI
-message and different irq number.
-
-[1] https://lore.kernel.org/all/20250413224922.69719-1-inochiama@gmail.com
-
-Changed from v2:
-- https://lore.kernel.org/all/20250304071239.352486-1-inochiama@gmail.com
-1. patch 1: remove "|+" for description
-2. patch 1: apply Rob's tag
-3. patch 2: remove empty irq_eoi and use handle_level_irq as the right
-	    irq handle function.
-
-Changed from v1:
-- https://lore.kernel.org/all/20250221013758.370936-1-inochiama@gmail.com
-1. patch 1: remove dma-coherent property
-2. patch 2: remove unused reset
-3. patch 2: fix Kconfig menu title and reorder the entry
-4. patch 2: use FIELD_GET/FIELD_PREP to simplify the code.
-5. patch 2: rename the irq handle function to match the irq_chip name
-
-Inochi Amaoto (2):
-  dt-bindings: pci: Add Sophgo SG2044 PCIe host
-  PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
-
- .../bindings/pci/sophgo,sg2044-pcie.yaml      | 122 +++++++++
- drivers/pci/controller/dwc/Kconfig            |  10 +
- drivers/pci/controller/dwc/Makefile           |   1 +
- drivers/pci/controller/dwc/pcie-dw-sophgo.c   | 258 ++++++++++++++++++
- 4 files changed, 391 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ drivers/pci/controller/dwc/Kconfig          |  10 +
+ drivers/pci/controller/dwc/Makefile         |   1 +
+ drivers/pci/controller/dwc/pcie-dw-sophgo.c | 258 ++++++++++++++++++++
+ 3 files changed, 269 insertions(+)
  create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
 
---
+diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
+index d9f0386396ed..b5b53e5a4cbf 100644
+--- a/drivers/pci/controller/dwc/Kconfig
++++ b/drivers/pci/controller/dwc/Kconfig
+@@ -402,6 +402,16 @@ config PCIE_UNIPHIER_EP
+ 	  Say Y here if you want PCIe endpoint controller support on
+ 	  UniPhier SoCs. This driver supports Pro5 SoC.
+ 
++config PCIE_SOPHGO_DW
++	bool "Sophgo DesignWare PCIe controller"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	depends on PCI_MSI
++	depends on OF
++	select PCIE_DW_HOST
++	help
++	  Enables support for the DesignWare PCIe controller in the
++	  Sophgo SoC.
++
+ config PCIE_SPEAR13XX
+ 	bool "STMicroelectronics SPEAr PCIe controller"
+ 	depends on ARCH_SPEAR13XX || COMPILE_TEST
+diff --git a/drivers/pci/controller/dwc/Makefile b/drivers/pci/controller/dwc/Makefile
+index 908cb7f345db..510abb4e04c4 100644
+--- a/drivers/pci/controller/dwc/Makefile
++++ b/drivers/pci/controller/dwc/Makefile
+@@ -20,6 +20,7 @@ obj-$(CONFIG_PCIE_QCOM_EP) += pcie-qcom-ep.o
+ obj-$(CONFIG_PCIE_ARMADA_8K) += pcie-armada8k.o
+ obj-$(CONFIG_PCIE_ARTPEC6) += pcie-artpec6.o
+ obj-$(CONFIG_PCIE_ROCKCHIP_DW) += pcie-dw-rockchip.o
++obj-$(CONFIG_PCIE_SOPHGO_DW) += pcie-dw-sophgo.o
+ obj-$(CONFIG_PCIE_INTEL_GW) += pcie-intel-gw.o
+ obj-$(CONFIG_PCIE_KEEMBAY) += pcie-keembay.o
+ obj-$(CONFIG_PCIE_KIRIN) += pcie-kirin.o
+diff --git a/drivers/pci/controller/dwc/pcie-dw-sophgo.c b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+new file mode 100644
+index 000000000000..89b22b3ac8d6
+--- /dev/null
++++ b/drivers/pci/controller/dwc/pcie-dw-sophgo.c
+@@ -0,0 +1,258 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Sophgo DesignWare based PCIe host controller driver
++ */
++
++#include <linux/bits.h>
++#include <linux/clk.h>
++#include <linux/irqchip/chained_irq.h>
++#include <linux/irqdomain.h>
++#include <linux/module.h>
++#include <linux/property.h>
++#include <linux/platform_device.h>
++
++#include "pcie-designware.h"
++
++#define to_sophgo_pcie(x)		dev_get_drvdata((x)->dev)
++
++#define PCIE_INT_SIGNAL			0xc48
++#define PCIE_INT_EN			0xca0
++
++#define PCIE_INT_SIGNAL_INTX		GENMASK(8, 5)
++
++#define PCIE_INT_EN_INTX		GENMASK(4, 1)
++#define PCIE_INT_EN_INT_MSI		BIT(5)
++
++struct sophgo_pcie {
++	struct dw_pcie		pci;
++	void __iomem		*app_base;
++	struct clk_bulk_data	*clks;
++	unsigned int		clk_cnt;
++	struct irq_domain	*irq_domain;
++};
++
++static int sophgo_pcie_readl_app(struct sophgo_pcie *sophgo, u32 reg)
++{
++	return readl_relaxed(sophgo->app_base + reg);
++}
++
++static void sophgo_pcie_writel_app(struct sophgo_pcie *sophgo, u32 val, u32 reg)
++{
++	writel_relaxed(val, sophgo->app_base + reg);
++}
++
++static void sophgo_pcie_intx_handler(struct irq_desc *desc)
++{
++	struct dw_pcie_rp *pp = irq_desc_get_handler_data(desc);
++	struct irq_chip *chip = irq_desc_get_chip(desc);
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
++	unsigned long hwirq, reg;
++
++	chained_irq_enter(chip, desc);
++
++	reg = sophgo_pcie_readl_app(sophgo, PCIE_INT_SIGNAL);
++	reg = FIELD_GET(PCIE_INT_SIGNAL_INTX, reg);
++
++	for_each_set_bit(hwirq, &reg, PCI_NUM_INTX)
++		generic_handle_domain_irq(sophgo->irq_domain, hwirq);
++
++	chained_irq_exit(chip, desc);
++}
++
++static void sophgo_intx_irq_mask(struct irq_data *d)
++{
++	struct dw_pcie_rp *pp = irq_data_get_irq_chip_data(d);
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
++	unsigned long flags;
++	u32 val;
++
++	raw_spin_lock_irqsave(&pp->lock, flags);
++
++	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
++	val &= ~FIELD_PREP(PCIE_INT_EN_INTX, BIT(d->hwirq));
++	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
++
++	raw_spin_unlock_irqrestore(&pp->lock, flags);
++};
++
++static void sophgo_intx_irq_unmask(struct irq_data *d)
++{
++	struct dw_pcie_rp *pp = irq_data_get_irq_chip_data(d);
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
++	unsigned long flags;
++	u32 val;
++
++	raw_spin_lock_irqsave(&pp->lock, flags);
++
++	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
++	val |= FIELD_PREP(PCIE_INT_EN_INTX, BIT(d->hwirq));
++	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
++
++	raw_spin_unlock_irqrestore(&pp->lock, flags);
++};
++
++static struct irq_chip sophgo_intx_irq_chip = {
++	.name			= "INTx",
++	.irq_mask		= sophgo_intx_irq_mask,
++	.irq_unmask		= sophgo_intx_irq_unmask,
++};
++
++static int sophgo_pcie_intx_map(struct irq_domain *domain, unsigned int irq,
++				irq_hw_number_t hwirq)
++{
++	irq_set_chip_and_handler(irq, &sophgo_intx_irq_chip, handle_level_irq);
++	irq_set_chip_data(irq, domain->host_data);
++
++	return 0;
++}
++
++static const struct irq_domain_ops intx_domain_ops = {
++	.map = sophgo_pcie_intx_map,
++};
++
++static int sophgo_pcie_init_irq_domain(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
++	struct device *dev = sophgo->pci.dev;
++	struct fwnode_handle *intc;
++	int irq;
++
++	intc = device_get_named_child_node(dev, "interrupt-controller");
++	if (!intc) {
++		dev_err(dev, "missing child interrupt-controller node\n");
++		return -ENODEV;
++	}
++
++	irq = fwnode_irq_get(intc, 0);
++	if (irq < 0) {
++		dev_err(dev, "failed to get INTx irq number\n");
++		fwnode_handle_put(intc);
++		return irq;
++	}
++
++	sophgo->irq_domain = irq_domain_create_linear(intc, PCI_NUM_INTX,
++						      &intx_domain_ops, pp);
++	fwnode_handle_put(intc);
++	if (!sophgo->irq_domain) {
++		dev_err(dev, "failed to get a INTx irq domain\n");
++		return -EINVAL;
++	}
++
++	return irq;
++}
++
++static void sophgo_pcie_msi_enable(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct sophgo_pcie *sophgo = to_sophgo_pcie(pci);
++	unsigned long flags;
++	u32 val;
++
++	raw_spin_lock_irqsave(&pp->lock, flags);
++
++	val = sophgo_pcie_readl_app(sophgo, PCIE_INT_EN);
++	val |= PCIE_INT_EN_INT_MSI;
++	sophgo_pcie_writel_app(sophgo, val, PCIE_INT_EN);
++
++	raw_spin_unlock_irqrestore(&pp->lock, flags);
++}
++
++static int sophgo_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	int irq;
++
++	irq = sophgo_pcie_init_irq_domain(pp);
++	if (irq < 0)
++		return irq;
++
++	irq_set_chained_handler_and_data(irq, sophgo_pcie_intx_handler,
++					 pp);
++
++	sophgo_pcie_msi_enable(pp);
++
++	return 0;
++}
++
++static const struct dw_pcie_host_ops sophgo_pcie_host_ops = {
++	.init = sophgo_pcie_host_init,
++};
++
++static int sophgo_pcie_clk_init(struct sophgo_pcie *sophgo)
++{
++	struct device *dev = sophgo->pci.dev;
++	int ret;
++
++	ret = devm_clk_bulk_get_all_enabled(dev, &sophgo->clks);
++	if (ret < 0)
++		return dev_err_probe(dev, ret, "failed to get clocks\n");
++
++	sophgo->clk_cnt = ret;
++
++	return 0;
++}
++
++static int sophgo_pcie_resource_get(struct platform_device *pdev,
++				    struct sophgo_pcie *sophgo)
++{
++	sophgo->app_base = devm_platform_ioremap_resource_byname(pdev, "app");
++	if (IS_ERR(sophgo->app_base))
++		return dev_err_probe(&pdev->dev, PTR_ERR(sophgo->app_base),
++				     "failed to map app registers\n");
++
++	return 0;
++}
++
++static int sophgo_pcie_configure_rc(struct sophgo_pcie *sophgo)
++{
++	struct dw_pcie_rp *pp;
++
++	pp = &sophgo->pci.pp;
++	pp->ops = &sophgo_pcie_host_ops;
++
++	return dw_pcie_host_init(pp);
++}
++
++static int sophgo_pcie_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct sophgo_pcie *sophgo;
++	int ret;
++
++	sophgo = devm_kzalloc(dev, sizeof(*sophgo), GFP_KERNEL);
++	if (!sophgo)
++		return -ENOMEM;
++
++	platform_set_drvdata(pdev, sophgo);
++
++	sophgo->pci.dev = dev;
++
++	ret = sophgo_pcie_resource_get(pdev, sophgo);
++	if (ret)
++		return ret;
++
++	ret = sophgo_pcie_clk_init(sophgo);
++	if (ret)
++		return ret;
++
++	return sophgo_pcie_configure_rc(sophgo);
++}
++
++static const struct of_device_id sophgo_pcie_of_match[] = {
++	{ .compatible = "sophgo,sg2044-pcie" },
++	{ }
++};
++MODULE_DEVICE_TABLE(of, sophgo_pcie_of_match);
++
++static struct platform_driver sophgo_pcie_driver = {
++	.driver = {
++		.name = "sophgo-dw-pcie",
++		.of_match_table = sophgo_pcie_of_match,
++		.suppress_bind_attrs = true,
++	},
++	.probe = sophgo_pcie_probe,
++};
++builtin_platform_driver(sophgo_pcie_driver);
+-- 
 2.49.0
 
 
