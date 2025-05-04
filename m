@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C645C369DC
-	for <linux-riscv@archiver.kernel.org>; Sun,  4 May 2025 10:46:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B673C369DC
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 May 2025 10:46:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JwbfsNRrN6+pLbDC9WfQz8sfuChGVBf44oWCVfpU8Bo=; b=SE6OWnbOZ3d4YF
-	KznuIfRZI3P8U46J9uenhiftO8OBcLLpygBiMFsI3by9sCVZRvRKITl4xSdaS50zCFXu1wwUUVAPl
-	yzLJJ6GingyfMge6rlQ25wxDd5Dm0plPC7wX8hJL5uqcJheITb3gBJV+jO9kXQnTZaxJJpINnoPFd
-	Yy972Jb6tf+cKBELTJnbsh1vckjRMkxQMWfJK8MfYlEl5/N6G8hDQ9Rp58PDOQfe6/nc9wBjfpjY7
-	LBGuxnN3+DQPpIA5TQ5PGSqXCRLJASuIJ9ezrwPBU8jWlo3QEgBwkBWTd01M6cJXqSc0JKj/dv7dP
-	Anqp4l1lNScdmk+zUXNQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=/G/WYRh8Ru7t+v49WixPm2QfH3y+c5pbQV+205nQI7U=; b=a0im/jDzuX5Mr6
+	p/sr+z9hdvtqqtMxWB/ibY+FaB1KRLDcSF424m86+dq5gZgrnPxK4UnyR7RjdpNzKwKwaoXIxAVfP
+	0c6CXoe+VPz4PyA7QrE0qJMPZpBtwQo+cFiUBxvLnXip7k2Uupe9NzcYo2+Nzn0dr/nO1yNl5F0A6
+	H1gsGH+AQvQK7WmtQ3UFzhL4ykWDZW9/o6wfyEy6FYZiHGHtI7gdx0nXlCUcAhWDLJpBHoXFL7vvx
+	hb+XSr+LdkFMcPEpTvzFNT5pPPMJuqcKFUWGnzSKqTmzjXea6OyR7CgIJbOkyWtg6z79fHrmfLe0w
+	pmgZmvVXSgf9uua447gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWrU-00000005C8K-3QeC;
-	Sun, 04 May 2025 10:46:20 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1uBWrY-00000005C9M-1VBB;
+	Sun, 04 May 2025 10:46:24 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBWrS-00000005C7w-3FZq
+	id 1uBWrW-00000005C8c-0b5Y
 	for linux-riscv@lists.infradead.org;
-	Sun, 04 May 2025 10:46:20 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-48d71b77cc0so16192031cf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 04 May 2025 03:46:18 -0700 (PDT)
+	Sun, 04 May 2025 10:46:23 +0000
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7c7913bab2cso379561985a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 04 May 2025 03:46:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746355578; x=1746960378; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Nq+V10Dns5XsDfB+eto5dT40TdHnbLnPhgKmmJjTtqo=;
-        b=IHAYz6azyTAg5e4kcAbGD2CENOSpKHEYEpYcfZGhLsMgdS5tDiPQ7KZ14SUAsBkkTH
-         z4vyQoIyi0LHmN4wwebJVvEnEcdCDhk4Ttlt3wnBb/KQggArOEn8+2cC2jghA5A9/Lr0
-         Dn0G1Y+ubP1wAofP/i7Y25ajVUffO3JkKoMqhMDGo4pUmemFvLoCa8jc8JZfjR3XBWTj
-         BvoOtd/yVKbBlBqteMNLEeWphsOGKd+MREmn6WzUcXnTg6YMTVfWWx+w89bcueqA6/4e
-         Bm29EpR4Y2GXx3TxuhTO75EcBIh8g99ISpzhfe1LQ26hFU9Q9EyVt+lDNvvhHmsb0rGG
-         l9Jw==
+        d=gmail.com; s=20230601; t=1746355581; x=1746960381; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=c0dBNsRLfozNYsO2JqfQXy110W8bkOtUjtTaQB8elP4=;
+        b=FB6B+26aMVxIUqxc4dij3tSxcuWkHjoMjQ7l/yMSWc0AEFcSAWSwyPcP7n+md6/Jhg
+         JoFmXC24ajDV6mIGROKDtVSxyz+Au3BIuKzfHPeCPwbQWiReP9uOKdguUg+mra0B9NUK
+         wnpCW6X8Ps77519QMLlDLXL0SWlOEQE/4CMtNGp05dGL717tB7ySl+6z0K1xaZKecUMl
+         700ajXd4SovNXNBFZ3kZD9bebIvUiY3Q61Agt37YBDYmZMOhErmEucRAG+j+p+gBTDyN
+         FNwQHN6+kiwXWahCBytmPkASeex11ODLBmZntpu3TU7gSjRb/QQXhoulW7QH14/yLZm0
+         psaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746355578; x=1746960378;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Nq+V10Dns5XsDfB+eto5dT40TdHnbLnPhgKmmJjTtqo=;
-        b=OIThhZXPVYk7NEmow2lFgDvsls2EEEsRzOIVmdzJImU99oof22ud3RbqNJ8yzv9LpF
-         YOIBfloJx8AriDRx3q8ZLC1J2hXwIEWlr6rRNdNdYNTsmoAI8iY2IEQX1PsEH2SFqVLC
-         dIXBQzOi6xht1t44B6O7KA2QVaqz3q2yxEa0NJ7FobPN+hTtuvgEJL7XdGqYabwKOwEU
-         In0mMPzYQpX9SwpT0OCdW6dsUi9CTdFq8OUOuCKeOnlsHpeJBMOqCphPM2k+TqkVhqh+
-         mX5HKuadO6JWkXQIDVOsxx5NzLQg2fIgzH8gRKkVRVMSbPrCit6xbuUIb2CmWMrHxQ9x
-         Bpkg==
-X-Forwarded-Encrypted: i=1; AJvYcCWWJe4y7xSndY1BhtCu+2jtcafBzeqo87k7Tp1i3SfJacUh9JQJUd7S2tEOHvTMJ0AjKTsKOMsdauh/6g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhNriI+wYntKo16ON/6IBvE0Ovzse7Oc2ZmTwF9lSkSGkabjlk
-	+UitlvDGYtbxHjxR8vQGIosTN59fcf1SK11IHZP9iswYH7xU6yLn5qXyE9Qb
-X-Gm-Gg: ASbGnctu1PrAGmkqqL4+tGaUD52A5p3SIlzJW7y5FwJ39smL/ij14RFpi0F5eZkFVR6
-	51tBsdrns2LgPUEHmTth3iPO2LHHTQwEG/rTwi+I8KPb0foy3bQ2C/5moIEhZ+JYfvVFvdvHcEr
-	VVauCrCMqtKCvwh2aNcZXty9CU9ZeM4EMtJMctL2qcaLuNqkk+vrcOsc+pfHXPG5S0t1q16jekS
-	QBpPmibmFVbZjrYGPcTHQLrmh8G1iEJ6gPBC8BFJPZ3+ZXsB2CdWu7dOOK9OPzZ+wNuJ1Uh38UK
-	9kAjwKe7dP+ziu2V
-X-Google-Smtp-Source: AGHT+IElXOJ8VLrJgB2ldI5hP8eRxH52DW4UdnhojjCazX+wPJrTxe+0SKD3E9HjgZkTHUgG8JE3eg==
-X-Received: by 2002:a05:622a:1a29:b0:48a:d979:9a38 with SMTP id d75a77b69052e-48dff3e17a6mr55044671cf.2.1746355577750;
-        Sun, 04 May 2025 03:46:17 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746355581; x=1746960381;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=c0dBNsRLfozNYsO2JqfQXy110W8bkOtUjtTaQB8elP4=;
+        b=IvUu5zhL2HHkemn71gTKYFjJ5WyO3R29DFbmVfPfRa05IdKy7FJpjjZg74Zbr2rTpC
+         K/mSwiRi3hoBpPdCXa4JfUzfgBeoK2e0pRwChqNwGqnVySxNCgJfT1d11jT7VyIDF4F4
+         uvaZb1NdiS5oVYaqYdhYkHaGM+BFdvzEDgJywdgU6Dcb7l/+RkV8kfmIGD9fwaZnOmTb
+         h0XvSKaQghVu14jF2VjU6y6E+dAebuBg15ha7wAGzd94rF9q7qGABHazHWRECt7nzr/f
+         XtKvJhkMix3B5v67Syo77cmldr+lQkHztrZZ0Blld/l8gbC6UwVA4w1+vdtWTbFl+wFY
+         OQkw==
+X-Forwarded-Encrypted: i=1; AJvYcCVHrJJ6THjs3ESjep0aGPApR5V1cgD9PoU3RgmnOdBgpxHFL+1i69kKH7hEPFjKlpF51sSTTUu+Ln8lQg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydguv/EGRnuo4frxvydct3/jFkjekf71PT5mfiqaEBnwvbbbjE
+	RQIfVSOt/sbaz5RajraRyiKHGmEldGujIFocdXtKDN4sAFHw8Ht1
+X-Gm-Gg: ASbGncun29X7Hk1daEqxMYnmgry/GE3FComWujstLjnFZHkexUoANQcyRsMdwtOsIOC
+	e0J30+5xQMf42PBPLotOroP+gtgKURTCwT4NStjX+FoDyTtBQBGeCLLQh08t2uut+MhKi97UPnG
+	Genstzb7t4eXWYUsFId/nd6KrbjCahVxCm3pARH1bZalQj1LFOkJaQfUnFLqqHNbYUWNao/JTTU
+	K7z62tuju1BMhA4TRkFnszttB8b7LEyoNVEcWC+VlciWaVhWcRwFQBdh4GUGe3/9EelW7wJlrIN
+	s9cIgrD+S9m12f62
+X-Google-Smtp-Source: AGHT+IGYfcJI1KOo4mnYSm2aZ/wO68fNQbksb1q2N85JkbNZoHHGaOY6wCLzQBxd67wnG1djUIGKBQ==
+X-Received: by 2002:a05:620a:2a10:b0:7c5:99f9:6ada with SMTP id af79cd13be357-7cae3b0a53cmr471104785a.50.1746355580956;
+        Sun, 04 May 2025 03:46:20 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-48b98d10309sm42842181cf.79.2025.05.04.03.46.15
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cad23b5f46sm429527585a.20.2025.05.04.03.46.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 04 May 2025 03:46:16 -0700 (PDT)
+        Sun, 04 May 2025 03:46:20 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -89,14 +90,16 @@ Cc: linux-clk@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 0/3] riscv: sophgo: cv18xx: dts rework, part 2
-Date: Sun,  4 May 2025 18:45:49 +0800
-Message-ID: <20250504104553.1447819-1-inochiama@gmail.com>
+Subject: [PATCH v2 1/3] dt-bindings: clock: sophgo: Use precise compatible for CV1800 series SoC
+Date: Sun,  4 May 2025 18:45:50 +0800
+Message-ID: <20250504104553.1447819-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250504104553.1447819-1-inochiama@gmail.com>
+References: <20250504104553.1447819-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250504_034618_821049_63212ABB 
-X-CRM114-Status: UNSURE (   7.98  )
+X-CRM114-CacheID: sfid-20250504_034622_179398_A3AB9AAF 
+X-CRM114-Status: UNSURE (   9.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -114,39 +117,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The part 2 of dts rework replaces precise compatible for existed clock device
-with old wildcard one.
+As previous binding uses a wildcard compatible for existed clock device
+of CV1800 series SoC, it is not suitable for existed requirement. The
+only exception is sophgo,sg2000-clk, it does match a real device, so
+keep it as is.
 
-Changed from v1:
-- https://lore.kernel.org/all/20250430020932.307198-1-inochiama@gmail.com/
-1. patch 1: reused sophgo,sg2000-clk for sg2002.
-2. patch 1: mention sg2002 refer to a real device, not a wildcard one in
-            commit message.
-3. patch 2: fix wrong data for sophgo,cv1812h-clk.
-4. patch 2: remove compatible sophgo,sg2002-clk.
-5. patch 3: adapt the change of patch 1,2.
+Add new precise compatible for existed clock devices of CV1800 series
+SoCs and make old wildcard compatible deprecated.
 
-Inochi Amaoto (3):
-  dt-bindings: clock: sophgo: Use precise compatible for CV1800 series
-    SoC
-  clk: sophgo: Add support for newly added precise compatible
-  riscv: dts: sophgo: switch precise compatible for existed clock device
-    for CV18XX
-
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
  .../bindings/clock/sophgo,cv1800-clk.yaml        | 16 ++++++++++++----
- arch/riscv/boot/dts/sophgo/cv1800b.dtsi          |  2 +-
- arch/riscv/boot/dts/sophgo/cv1812h.dtsi          |  2 +-
- arch/riscv/boot/dts/sophgo/sg2002.dtsi           |  2 +-
- drivers/clk/sophgo/clk-cv1800.c                  |  2 ++
- 5 files changed, 17 insertions(+), 7 deletions(-)
+ 1 file changed, 12 insertions(+), 4 deletions(-)
 
-
-base-commit: 0af2f6be1b4281385b618cb86ad946eded089ac8
-prerequisite-patch-id: 94fb3d26e017cf839b4dcb4bf85624614a94b9ac
-prerequisite-patch-id: 8f4a8bdead0e4e3d6904adbc0fd150b7dffefc85
-prerequisite-patch-id: b30e850690903c3ddc3d8bb77a99e97934dc9dde
-prerequisite-patch-id: 6e1117694a53a0059b145ad4751ec204cae0db35
---
+diff --git a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+index 59ef41adb539..379ce3e9e391 100644
+--- a/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
++++ b/Documentation/devicetree/bindings/clock/sophgo,cv1800-clk.yaml
+@@ -11,10 +11,18 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - sophgo,cv1800-clk
+-      - sophgo,cv1810-clk
+-      - sophgo,sg2000-clk
++    oneOf:
++      - enum:
++          - sophgo,cv1800b-clk
++          - sophgo,cv1812h-clk
++          - sophgo,sg2000-clk
++      - items:
++          - const: sophgo,sg2002-clk
++          - const: sophgo,sg2000-clk
++      - const: sophgo,cv1800-clk
++        deprecated: true
++      - const: sophgo,cv1810-clk
++        deprecated: true
+ 
+   reg:
+     maxItems: 1
+-- 
 2.49.0
 
 
