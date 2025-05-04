@@ -4,61 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BE9C3ABAA
-	for <linux-riscv@archiver.kernel.org>; Sat,  3 May 2025 15:20:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F17D1C369C2
+	for <linux-riscv@archiver.kernel.org>; Sun,  4 May 2025 00:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GvsEGPPNBS4fgBiDOWCan4/JcqKO+VE4kawnYbOI7OE=; b=cG0HyIMdU1mdbE
-	mmWTu3lAiEpOcCcRNoWpp7Z3fNJNzkr5QkDcrRuf8SLmcLUEWq1mBDLyz4lZA64tH4bPJL3ONZqYY
-	8qV/ssbh0CNPkvbgtNOR4ocpsgVqQSFa9YJGiwb7OanrCRTCeefJkkILGnAU9dakAFcEdpIXhxy3O
-	sSYMqvnZ5g8Mrt4S7qR8dXVejO+5BKO7FA/uOOyA8mjT6lamgRiBvDPV8k+HGxuTk2nKBU+CnzU/b
-	qWYfesQqFDE8N7PI+CzqN+2GQbX5CfEPi08fp6VtgSx65PY8o+Nlh9VDdTP3dVkpbt7lOfNBnbKpc
-	0+e9lBTGgFkkjNgVZKpA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Wzc31bUBnlIP9PQtIosaINyU5qh/9Sv7kHQNFrVygtQ=; b=bV0Pf7YF/w/kF2
+	sG7IYRpBtcRtGXdlUI2PUtW2jWNHDCLbKdNl27yLIvA78r2iOARZ0jb8SJOfl2rFECY+5Pgba5A1u
+	9lXcWs6aecLiD/2Cf53fA9amXuKz2ichIfOBQ6FDceQ37nsbD2aqz7oNFJ1Qvk+MqJiQM1QcUl5OO
+	im29gY1Vw2VO6zH3/mZ8NeBntX4XixWDg7Db9q7gVAkVqvnnX4cO91wqZRfhqmsKvUv8xxu7qvCOg
+	TURGEpbS7CGO1nyTf1dZze9zt/qeGGKzrQEed8n0jDLuIxZETvS1HF35Qz48HYOmYstYkp4PwrYWB
+	cBS1u9Sp0N55BRkkD6jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBEeV-00000004193-0kt9;
-	Sat, 03 May 2025 15:19:43 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1uBNTL-00000004ey0-16I8;
+	Sun, 04 May 2025 00:44:47 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBEeP-0000000415g-0yyG
+	id 1uBNTI-00000004exV-22jj
 	for linux-riscv@lists.infradead.org;
-	Sat, 03 May 2025 15:19:40 +0000
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 543FIkLE087578
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Sat, 3 May 2025 23:18:46 +0800 (+08)
-	(envelope-from ben717@andestech.com)
-Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
- (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Sat, 3 May 2025
- 23:18:46 +0800
-From: Ben Zong-You Xie <ben717@andestech.com>
-To: 
-CC: <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <paul.walmsley@sifive.com>,
-        <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>, <alex@ghiti.fr>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <tglx@linutronix.de>, <daniel.lezcano@linaro.org>,
-        <prabhakar.mahadev-lad.rj@bp.renesas.com>, <tim609@andestech.com>,
-        "Ben
- Zong-You Xie" <ben717@andestech.com>
-Subject: [PATCH v2 4/9] dt-bindings: interrupt-controller: add Andes machine-level software interrupt controller
-Date: Sat, 3 May 2025 23:18:24 +0800
-Message-ID: <20250503151829.605006-5-ben717@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250503151829.605006-1-ben717@andestech.com>
-References: <20250503151829.605006-1-ben717@andestech.com>
+	Sun, 04 May 2025 00:44:46 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6e8f06e13a4so53529676d6.0
+        for <linux-riscv@lists.infradead.org>; Sat, 03 May 2025 17:44:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746319483; x=1746924283; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=lBTdU5/DczpzT7bxTMClec5iVTOpUIHz+Uhri46H47k=;
+        b=lb7FWcktYaYU/vpwN6sZf6O/Ns+HOMeSpoa8O3x1+iAV3ZyNQhgNuBOPKTxT7xiX6Y
+         L5qwmXcxJ+JgBEMTDSvm9Ihc7Eb6Jofyu7YFgFknZR8A0Qp2NaX0ulnELeXkrdd73rxo
+         mJjDL8rirltvFSUDOak9YndsE0TguhTLU/5LQpD9adyRHTwym9ACRrCyOitw5UWIZ/9E
+         ZdkeE14soWJQ2E1zIPpX8C9a/UQsNFIPAGUrd58VBGTXcduaHsr50qKlFLxov1KBWOGG
+         tArrJ5X2QccmWWDz/0ij/6ZdqR6OR6G4Z4SpcuMjPOEsDeztUZUG8mpXhgtnqwfXBz8+
+         PVGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746319483; x=1746924283;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=lBTdU5/DczpzT7bxTMClec5iVTOpUIHz+Uhri46H47k=;
+        b=seANaPA6UAfXV3F1WfRI6RAnovz7Egt89Zp9W/yUf3RZ+ebk1MAge0+Wev9tGrKTL1
+         JlV8E3oP5dFs/HVgUDhr77VnuLO+fRB04JOiD+/Y3YT56smg67aJ0pQAhalypJc2ZDxN
+         v/ZW/cty2S47v67POH+1KJTxTdHADgEtOqcLR+vEMJVIxkFjP2ouiXrByA1dPI48+M9s
+         ZqLjht+7L1NXCB6itMQ958PfnVkRZnVM72RJsd1hOrsAHCSW/e6ret0iUbBwY5yVHxmc
+         hB1W0xto3NpFSqlmCL1QO4jNwO4RK9BZ/lPEFODa0wHJcsjkYJyM06m+zaaxOYNViA1/
+         NmoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVPB6kSyrwaWABZUA4ZzjdoQ+CFwxL+XhfkuJurJ1f0TCiH9drAkWWC7Lq2Selb8/Lr+QBkJpszq6jZKg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7wobxf9emMQxH55ypPmpoUhM5Jy0OYF6OdqLHW9PGt6+C5uTq
+	Kmi6xQuXOCBJrmOBdMSLbM8YHK3S4lV9a4XEOpDDXvORoLpsoN2H
+X-Gm-Gg: ASbGncvZkJaX18Yp1ao4S4FdSiRJ7HMBSEjfJxVhY8iWQCK4D64Q/14iVWDHuB7cRig
+	TYass7cMMlLnMJMwu37ibBz5XDqj1BT6fhFGAYIPPR9RWJvV+H7zuHxl/ltfOapiVsvFT1NNuh6
+	/TMa905imXu6aA6PTVqnt67Oow9Qqy5Xb2YXqdlIEG0TwVrDVID6+u88PmleUsgzTBmg2kcwRRB
+	BHR9vWeXHhhxGtfVJXUgU4rE0IEcNBRbdWEuGFSTKxM/tDbWquP79eY5b7prXpAF2yuxLGKLaWG
+	s64aKitCZVFwNlQN
+X-Google-Smtp-Source: AGHT+IEDwbk2Ni1OGcnEfuTByVJGsVIbn0PVA4xwx3Q1aAWNwQLEX82DH4thMivs0ayFz/by16ai8Q==
+X-Received: by 2002:a05:6214:20e6:b0:6f5:dad:5a60 with SMTP id 6a1803df08f44-6f515264f21mr128971706d6.3.1746319482732;
+        Sat, 03 May 2025 17:44:42 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f50f3b05efsm38597456d6.23.2025.05.03.17.44.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 03 May 2025 17:44:42 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Niklas Cassel <cassel@kernel.org>,
+	Johan Hovold <johan+linaro@kernel.org>,
+	Shradha Todi <shradha.t@samsung.com>,
+	Thippeswamy Havalige <thippeswamy.havalige@amd.com>,
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>
+Cc: linux-pci@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: [PATCH v3 0/2] riscv: sophgo Add PCIe support to Sophgo SG2044 SoC
+Date: Sun,  4 May 2025 08:44:17 +0800
+Message-ID: <20250504004420.202685-1-inochiama@gmail.com>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.183]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 543FIkLE087578
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250503_081937_608877_79A0E85C 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20250503_174444_527462_E8F8E1AB 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,95 +117,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the DT binding documentation for Andes machine-level software
-interrupt controller.
+Sophgo's SG2044 SoC uses Synopsys Designware PCIe core
+to implement RC mode.
 
-In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
-second time with all interrupt sources tied to zero as the software
-interrupt controller (PLICSW). PLICSW can generate machine-level software
-interrupts through programming its registers.
+For legacy interrupt, the PCIe controller on SG2044 implement
+its own legacy interrupt controller. For MSI/MSI-X, it use an
+external interrupt controller to handle.
 
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
----
- .../andestech,plicsw.yaml                     | 54 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 55 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+The external MSI interrupt controller patch can be found on [1].
+As SG2044 needs a mirror change to support the way to send MSI
+message and different irq number.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
-new file mode 100644
-index 000000000000..eb2eb611ac09
---- /dev/null
-+++ b/Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
-@@ -0,0 +1,54 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/interrupt-controller/andestech,plicsw.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Andes machine-level software interrupt controller
-+
-+description:
-+  In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
-+  second time with all interrupt sources tied to zero as the software interrupt
-+  controller (PLIC_SW). PLIC_SW directly connects to the machine-mode
-+  inter-processor interrupt lines of CPUs, so RISC-V per-CPU local interrupt
-+  controller is the parent interrupt controller for PLIC_SW. PLIC_SW can
-+  generate machine-mode inter-processor interrupts through programming its
-+  registers.
-+
-+maintainers:
-+  - Ben Zong-You Xie <ben717@andestech.com>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - andestech,qilai-plicsw
-+      - const: andestech,plicsw
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 15872
-+    description:
-+      Specifies which harts are connected to the PLIC_SW. Each item must points
-+      to a riscv,cpu-intc node, which has a riscv cpu node as parent.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts-extended
-+
-+examples:
-+  - |
-+    interrupt-controller@400000 {
-+      compatible = "andestech,qilai-plicsw", "andestech,plicsw";
-+      reg = <0x400000 0x400000>;
-+      interrupts-extended = <&cpu0intc 3>,
-+                            <&cpu1intc 3>,
-+                            <&cpu2intc 3>,
-+                            <&cpu3intc 3>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 8ac96b1f2e09..856753183687 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20812,6 +20812,7 @@ F:	include/linux/irqchip/riscv-imsic.h
- RISC-V ANDES SoC Support
- M:	Ben Zong-You Xie <ben717@andestech.com>
- S:	Maintained
-+F:	Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
- F:	Documentation/devicetree/bindings/riscv/andes.yaml
- 
- RISC-V ARCHITECTURE
--- 
-2.34.1
+[1] https://lore.kernel.org/all/20250413224922.69719-1-inochiama@gmail.com
+
+Changed from v2:
+- https://lore.kernel.org/all/20250304071239.352486-1-inochiama@gmail.com
+1. patch 1: remove "|+" for description
+2. patch 1: apply Rob's tag
+3. patch 2: remove empty irq_eoi and use handle_level_irq as the right
+	    irq handle function.
+
+Changed from v1:
+- https://lore.kernel.org/all/20250221013758.370936-1-inochiama@gmail.com
+1. patch 1: remove dma-coherent property
+2. patch 2: remove unused reset
+3. patch 2: fix Kconfig menu title and reorder the entry
+4. patch 2: use FIELD_GET/FIELD_PREP to simplify the code.
+5. patch 2: rename the irq handle function to match the irq_chip name
+
+Inochi Amaoto (2):
+  dt-bindings: pci: Add Sophgo SG2044 PCIe host
+  PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+
+ .../bindings/pci/sophgo,sg2044-pcie.yaml      | 122 +++++++++
+ drivers/pci/controller/dwc/Kconfig            |  10 +
+ drivers/pci/controller/dwc/Makefile           |   1 +
+ drivers/pci/controller/dwc/pcie-dw-sophgo.c   | 258 ++++++++++++++++++
+ 4 files changed, 391 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+ create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
+
+--
+2.49.0
 
 
 _______________________________________________
