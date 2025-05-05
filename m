@@ -4,75 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93F7C3ABBF
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 May 2025 22:52:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FCBCC3ABB6
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 00:01:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lz/nlejT6PzPAuFEghLzplkeFQxWIkplDivTcTqt1uQ=; b=mCY4PUqQlS/mNd
-	x1rXQnlp0e0vmqQEp1LnMIcz/dDTDk+HfvCRpQli02jmCrqoO8wzE2Epj6/fwC3zBVhOhxl83pU+O
-	przNCTVnKwfifNNBdnHJxZKTCk5ht5HVvzgSly3ATX1sXnrBTf5lnHTAl6Qny9z2x+aPadOZs8T2r
-	3f1R6j1pdXEBy2fvyz0KJRNplA6ErsYrbqyaz9ND3CIs4DwOefDiPqfdj7wPGpUKwDkxhVLY09BSB
-	qDG+cLIpewrZeC4+g3cmWJRBQ2w4vERH9XL+6/Lddvp31NSCN0YenKhKTY3L0ivz2KEv57ADSEDcZ
-	RqgAHYXdkvG/fg8EYTNA==;
+	List-Owner; bh=JEFX1CrLXT2Sm9wFH5H+oCeA/wGGA7nQO2T2KUANjgQ=; b=IRXKfqCEFJuVt4
+	0d9e/D3OMzPwOnte6OW8xedWu4fvSbFnQpbEOKtq+bo+DpKvYoImRIh1VGh/r+9MiYbDhHtx/rhp5
+	ekyd9UbpAoJBKsZuEZ2b3B/5S2kFJ2EA5Cubl+OcVeqT5zI0OcKLCtNAtPvRR7wYR4yqJtvd1x02W
+	daMyTo3qdHlEqISra8WcXhb75nVaDEi4fZW8auoEvamtMD6jP3b7rftQJJKGUwD4MJwDG5sJHA2Yn
+	4Ag0GvjDvNHsUnkmyW7dVUiZShnDNL1wtLxakDlhyHxeV1Bbfi0YF7Yda1CRPoq2KJa0wDTvWUADE
+	AVshDgRf+eJsqd3wcVag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4fH-00000008szG-2aQx;
-	Mon, 05 May 2025 22:51:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uC5kC-00000009BJC-00W0;
+	Tue, 06 May 2025 00:01:08 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC49y-00000008isA-3hVQ
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 05 May 2025 22:19:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=PgKGzXr8JtGvpO7e8agghuz/Lo6OiZK8X8zoA21Oras=; b=g6kR0+LpQ7ZelYEPAWW7RtpI98
-	niGRGfCKHEVXgmsFPje3+gp9Ne/jpLD22DPYbg3F2YNNqllUlIf6lltQpRX129VYvF396VeHzutNX
-	pkTrwdid0mWwLwQ5prJ2TT5/lU+N+aI6XDQYXymzAgOK54d2fU0H+ukzYfFC3Z3Z5qeq8DxKzSVaY
-	bBVhuzzHTC+4mPXQRBU9TeooSOApRpfpL3Cccxp4ixO2DyCvbWso6sWd2OD0oYmmuMBJunGDjFDOf
-	ihFl2BxVESwX5LYobYV4i23f5D0Cd2TfBETjyoM8c3Uupr6ioSI8fS8sVRPdBqoiCQ7cVIMXpw7bP
-	mM0gh1Ug==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uC49a-0000000FYdT-3hcy
+	id 1uC4JJ-00000008lsv-12Ao
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 May 2025 22:19:18 +0000
+	Mon, 05 May 2025 22:29:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 711DA44EE6;
-	Mon,  5 May 2025 22:19:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7072C4CEEE;
-	Mon,  5 May 2025 22:19:11 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4757E43EE6;
+	Mon,  5 May 2025 22:29:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B8544C4CEEE;
+	Mon,  5 May 2025 22:29:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483553;
-	bh=NWrCB9QKWE9LHJw3TZ6TiMGktRwEOC/Vp74f1sAzblg=;
+	s=k20201202; t=1746484156;
+	bh=4WEdse9DhIY3gKRwb/kcsQA09lgqZL0zay9SNtPagos=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uND8PcYlzRMFuED9TY1zophUqD5SUZyWkOk1xva1vuUzNqqguNa8XYOZGKQCAj/rE
-	 saYl1m14SDW7oFvSoN34DMQjrZXFdKktDdtc39lYJsnZJHiQYV9l4JjRzmav77X8NB
-	 iHKM+ZkaRpWUk/a/+FTf536Yc9F/7pM6Gx7GTUAiBIz0nV3K9tGUQK8pYBDWmcZmF1
-	 dhpFMnT9VsCYN/6sP0FnlWEGpTRSBkCLg4PzY9teVlrAQwT3k2bPknEriciQ7Ig1Sk
-	 MC5o7fyaw/7MZ9Gh4ZtE6Qlibfkkh1mNRaH+CEB4AZRBkH2CdDXSw+tjgE1R1fvKsZ
-	 47sMnUhFreqeA==
+	b=FywURmbGKd1xYqtj2/VgLWVzOOF0S/OaKPNwrM4+7l/LUJyL71H5BidwIxFSFPp3A
+	 /CU9NkIFqCaenN3On8heSX2y4fE8+9g0bK9+xti1Vwsvn1agw3ohuahqoa7iUhP9AM
+	 M2Zbo0XzodOuMXyniVOnu4xIk/xjb//4l4h7SPHESDJVaC1421bPyZTMtyVzUu0Ajy
+	 0HxvsiHrgBA0i+c6dug4+iDG9Ycb1LwYh1E5HVKlmjMQA2N5i+Gag7Q6yroH2C3Pen
+	 INHG77Wo/ESrFouF4dGfFX2Eqf2csuCyd3iKhQtk0Cnbj+0af26ql/wPGSzVE2A2aj
+	 Cji5RNmXwsZIg==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Nick Hu <nick.hu@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
+Cc: Anup Patel <apatel@ventanamicro.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Sasha Levin <sashal@kernel.org>,
-	tglx@linutronix.de,
+	anup@brainfault.org,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 112/642] clocksource/drivers/timer-riscv: Stop stimecmp when cpu hotplug
-Date: Mon,  5 May 2025 18:05:28 -0400
-Message-Id: <20250505221419.2672473-112-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 380/642] irqchip/riscv-imsic: Separate next and previous pointers in IMSIC vector
+Date: Mon,  5 May 2025 18:09:56 -0400
+Message-Id: <20250505221419.2672473-380-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -81,9 +64,8 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_231915_726456_14A7D86E 
-X-CRM114-Status: UNSURE (   9.21  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250505_152917_326660_A6A1E9F9 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,43 +82,271 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Nick Hu <nick.hu@sifive.com>
+From: Anup Patel <apatel@ventanamicro.com>
 
-[ Upstream commit 70c93b026ed07078e933583591aa9ca6701cd9da ]
+[ Upstream commit 0f67911e821c67ecfccc365a2103ce276a9a56fe ]
 
-Stop the timer when the cpu is going to be offline otherwise the
-timer interrupt may be pending while performing power-down.
+Currently, there is only one "move" pointer in struct imsic_vector so
+during vector movement the old vector points to the new vector and new
+vector points to itself.
 
-Suggested-by: Anup Patel <anup@brainfault.org>
-Link: https://lore.kernel.org/lkml/20240829033904.477200-3-nick.hu@sifive.com/T/#u
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
-Reviewed-by: Anup Patel <anup@brainfault.org>
-Acked-by: Daniel Lezcano <daniel.lezcano@linaro.org>
-Link: https://lore.kernel.org/r/20250219114135.27764-3-nick.hu@sifive.com
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+To support forced cleanup of the old vector, add separate "move_next" and
+"move_prev" pointers to struct imsic_vector, where during vector movement
+the "move_next" pointer of the old vector points to the new vector and the
+"move_prev" pointer of the new vector points to the old vector.
+
+Both "move_next" and "move_prev" pointers are cleared separately by
+__imsic_local_sync() with a restriction that "move_prev" on the new
+CPU is cleared only after the old CPU has cleared "move_next".
+
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+Link: https://lore.kernel.org/all/20250217085657.789309-8-apatel@ventanamicro.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
- drivers/clocksource/timer-riscv.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/irqchip/irq-riscv-imsic-early.c |  8 ++-
+ drivers/irqchip/irq-riscv-imsic-state.c | 96 +++++++++++++++++--------
+ drivers/irqchip/irq-riscv-imsic-state.h |  7 +-
+ 3 files changed, 78 insertions(+), 33 deletions(-)
 
-diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-index 48ce50c5f5e68..4d7cf338824a3 100644
---- a/drivers/clocksource/timer-riscv.c
-+++ b/drivers/clocksource/timer-riscv.c
-@@ -126,7 +126,13 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+diff --git a/drivers/irqchip/irq-riscv-imsic-early.c b/drivers/irqchip/irq-riscv-imsic-early.c
+index 275df50057057..553650932c75f 100644
+--- a/drivers/irqchip/irq-riscv-imsic-early.c
++++ b/drivers/irqchip/irq-riscv-imsic-early.c
+@@ -77,6 +77,12 @@ static void imsic_handle_irq(struct irq_desc *desc)
+ 	struct imsic_vector *vec;
+ 	unsigned long local_id;
  
- static int riscv_timer_dying_cpu(unsigned int cpu)
- {
 +	/*
-+	 * Stop the timer when the cpu is going to be offline otherwise
-+	 * the timer interrupt may be pending while performing power-down.
++	 * Process pending local synchronization instead of waiting
++	 * for per-CPU local timer to expire.
 +	 */
-+	riscv_clock_event_stop();
- 	disable_percpu_irq(riscv_clock_event_irq);
++	imsic_local_sync_all(false);
 +
- 	return 0;
+ 	chained_irq_enter(chip, desc);
+ 
+ 	while ((local_id = csr_swap(CSR_TOPEI, 0))) {
+@@ -120,7 +126,7 @@ static int imsic_starting_cpu(unsigned int cpu)
+ 	 * Interrupts identities might have been enabled/disabled while
+ 	 * this CPU was not running so sync-up local enable/disable state.
+ 	 */
+-	imsic_local_sync_all();
++	imsic_local_sync_all(true);
+ 
+ 	/* Enable local interrupt delivery */
+ 	imsic_local_delivery(true);
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.c b/drivers/irqchip/irq-riscv-imsic-state.c
+index b97e6cd89ed74..1aeba76d72795 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.c
++++ b/drivers/irqchip/irq-riscv-imsic-state.c
+@@ -124,10 +124,11 @@ void __imsic_eix_update(unsigned long base_id, unsigned long num_id, bool pend,
+ 	}
  }
  
+-static void __imsic_local_sync(struct imsic_local_priv *lpriv)
++static bool __imsic_local_sync(struct imsic_local_priv *lpriv)
+ {
+ 	struct imsic_local_config *mlocal;
+ 	struct imsic_vector *vec, *mvec;
++	bool ret = true;
+ 	int i;
+ 
+ 	lockdep_assert_held(&lpriv->lock);
+@@ -143,35 +144,75 @@ static void __imsic_local_sync(struct imsic_local_priv *lpriv)
+ 			__imsic_id_clear_enable(i);
+ 
+ 		/*
+-		 * If the ID was being moved to a new ID on some other CPU
+-		 * then we can get a MSI during the movement so check the
+-		 * ID pending bit and re-trigger the new ID on other CPU
+-		 * using MMIO write.
++		 * Clear the previous vector pointer of the new vector only
++		 * after the movement is complete on the old CPU.
+ 		 */
+-		mvec = READ_ONCE(vec->move);
+-		WRITE_ONCE(vec->move, NULL);
+-		if (mvec && mvec != vec) {
++		mvec = READ_ONCE(vec->move_prev);
++		if (mvec) {
++			/*
++			 * If the old vector has not been updated then
++			 * try again in the next sync-up call.
++			 */
++			if (READ_ONCE(mvec->move_next)) {
++				ret = false;
++				continue;
++			}
++
++			WRITE_ONCE(vec->move_prev, NULL);
++		}
++
++		/*
++		 * If a vector was being moved to a new vector on some other
++		 * CPU then we can get a MSI during the movement so check the
++		 * ID pending bit and re-trigger the new ID on other CPU using
++		 * MMIO write.
++		 */
++		mvec = READ_ONCE(vec->move_next);
++		if (mvec) {
+ 			if (__imsic_id_read_clear_pending(i)) {
+ 				mlocal = per_cpu_ptr(imsic->global.local, mvec->cpu);
+ 				writel_relaxed(mvec->local_id, mlocal->msi_va);
+ 			}
+ 
++			WRITE_ONCE(vec->move_next, NULL);
+ 			imsic_vector_free(&lpriv->vectors[i]);
+ 		}
+ 
+ skip:
+ 		bitmap_clear(lpriv->dirty_bitmap, i, 1);
+ 	}
++
++	return ret;
+ }
+ 
+-void imsic_local_sync_all(void)
++#ifdef CONFIG_SMP
++static void __imsic_local_timer_start(struct imsic_local_priv *lpriv)
++{
++	lockdep_assert_held(&lpriv->lock);
++
++	if (!timer_pending(&lpriv->timer)) {
++		lpriv->timer.expires = jiffies + 1;
++		add_timer_on(&lpriv->timer, smp_processor_id());
++	}
++}
++#else
++static inline void __imsic_local_timer_start(struct imsic_local_priv *lpriv)
++{
++}
++#endif
++
++void imsic_local_sync_all(bool force_all)
+ {
+ 	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
+ 	unsigned long flags;
+ 
+ 	raw_spin_lock_irqsave(&lpriv->lock, flags);
+-	bitmap_fill(lpriv->dirty_bitmap, imsic->global.nr_ids + 1);
+-	__imsic_local_sync(lpriv);
++
++	if (force_all)
++		bitmap_fill(lpriv->dirty_bitmap, imsic->global.nr_ids + 1);
++	if (!__imsic_local_sync(lpriv))
++		__imsic_local_timer_start(lpriv);
++
+ 	raw_spin_unlock_irqrestore(&lpriv->lock, flags);
+ }
+ 
+@@ -190,12 +231,7 @@ void imsic_local_delivery(bool enable)
+ #ifdef CONFIG_SMP
+ static void imsic_local_timer_callback(struct timer_list *timer)
+ {
+-	struct imsic_local_priv *lpriv = this_cpu_ptr(imsic->lpriv);
+-	unsigned long flags;
+-
+-	raw_spin_lock_irqsave(&lpriv->lock, flags);
+-	__imsic_local_sync(lpriv);
+-	raw_spin_unlock_irqrestore(&lpriv->lock, flags);
++	imsic_local_sync_all(false);
+ }
+ 
+ static void __imsic_remote_sync(struct imsic_local_priv *lpriv, unsigned int cpu)
+@@ -216,14 +252,11 @@ static void __imsic_remote_sync(struct imsic_local_priv *lpriv, unsigned int cpu
+ 	 */
+ 	if (cpu_online(cpu)) {
+ 		if (cpu == smp_processor_id()) {
+-			__imsic_local_sync(lpriv);
+-			return;
++			if (__imsic_local_sync(lpriv))
++				return;
+ 		}
+ 
+-		if (!timer_pending(&lpriv->timer)) {
+-			lpriv->timer.expires = jiffies + 1;
+-			add_timer_on(&lpriv->timer, cpu);
+-		}
++		__imsic_local_timer_start(lpriv);
+ 	}
+ }
+ #else
+@@ -278,8 +311,9 @@ void imsic_vector_unmask(struct imsic_vector *vec)
+ 	raw_spin_unlock(&lpriv->lock);
+ }
+ 
+-static bool imsic_vector_move_update(struct imsic_local_priv *lpriv, struct imsic_vector *vec,
+-				     bool new_enable, struct imsic_vector *new_move)
++static bool imsic_vector_move_update(struct imsic_local_priv *lpriv,
++				     struct imsic_vector *vec, bool is_old_vec,
++				     bool new_enable, struct imsic_vector *move_vec)
+ {
+ 	unsigned long flags;
+ 	bool enabled;
+@@ -289,7 +323,10 @@ static bool imsic_vector_move_update(struct imsic_local_priv *lpriv, struct imsi
+ 	/* Update enable and move details */
+ 	enabled = READ_ONCE(vec->enable);
+ 	WRITE_ONCE(vec->enable, new_enable);
+-	WRITE_ONCE(vec->move, new_move);
++	if (is_old_vec)
++		WRITE_ONCE(vec->move_next, move_vec);
++	else
++		WRITE_ONCE(vec->move_prev, move_vec);
+ 
+ 	/* Mark the vector as dirty and synchronize */
+ 	bitmap_set(lpriv->dirty_bitmap, vec->local_id, 1);
+@@ -322,8 +359,8 @@ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_ve
+ 	 * interrupt on the old vector while device was being moved
+ 	 * to the new vector.
+ 	 */
+-	enabled = imsic_vector_move_update(old_lpriv, old_vec, false, new_vec);
+-	imsic_vector_move_update(new_lpriv, new_vec, enabled, new_vec);
++	enabled = imsic_vector_move_update(old_lpriv, old_vec, true, false, new_vec);
++	imsic_vector_move_update(new_lpriv, new_vec, false, enabled, old_vec);
+ }
+ 
+ #ifdef CONFIG_GENERIC_IRQ_DEBUGFS
+@@ -386,7 +423,8 @@ struct imsic_vector *imsic_vector_alloc(unsigned int hwirq, const struct cpumask
+ 	vec = &lpriv->vectors[local_id];
+ 	vec->hwirq = hwirq;
+ 	vec->enable = false;
+-	vec->move = NULL;
++	vec->move_next = NULL;
++	vec->move_prev = NULL;
+ 
+ 	return vec;
+ }
+diff --git a/drivers/irqchip/irq-riscv-imsic-state.h b/drivers/irqchip/irq-riscv-imsic-state.h
+index 391e442808275..f02842b84ed58 100644
+--- a/drivers/irqchip/irq-riscv-imsic-state.h
++++ b/drivers/irqchip/irq-riscv-imsic-state.h
+@@ -23,7 +23,8 @@ struct imsic_vector {
+ 	unsigned int				hwirq;
+ 	/* Details accessed using local lock held */
+ 	bool					enable;
+-	struct imsic_vector			*move;
++	struct imsic_vector			*move_next;
++	struct imsic_vector			*move_prev;
+ };
+ 
+ struct imsic_local_priv {
+@@ -74,7 +75,7 @@ static inline void __imsic_id_clear_enable(unsigned long id)
+ 	__imsic_eix_update(id, 1, false, false);
+ }
+ 
+-void imsic_local_sync_all(void);
++void imsic_local_sync_all(bool force_all);
+ void imsic_local_delivery(bool enable);
+ 
+ void imsic_vector_mask(struct imsic_vector *vec);
+@@ -87,7 +88,7 @@ static inline bool imsic_vector_isenabled(struct imsic_vector *vec)
+ 
+ static inline struct imsic_vector *imsic_vector_get_move(struct imsic_vector *vec)
+ {
+-	return READ_ONCE(vec->move);
++	return READ_ONCE(vec->move_prev);
+ }
+ 
+ void imsic_vector_move(struct imsic_vector *old_vec, struct imsic_vector *new_vec);
 -- 
 2.39.5
 
