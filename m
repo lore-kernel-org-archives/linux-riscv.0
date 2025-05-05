@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80509C3ABB9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A93F7C3ABBF
 	for <linux-riscv@archiver.kernel.org>; Mon,  5 May 2025 22:52:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,67 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tpzJaQ1UQ6HLHA2JqQ1xJxdX8uaRK6H99Hs4LyfjxFQ=; b=AJctZnVlGlQzsN
-	3IWLa2qTZDlOeaijyt9pz6/T6tjDqPvf/5UTBJilWAt3q7NgOFLipTMfwHRygkSzbZ1BvbtQUoJJO
-	E7weXG0kz10BBnjXjOCM7ACTl39IozhH7LvsX7KJ9DMHQ108+d68fynGJj3FRbJAt8qVuTjxOfRFL
-	ZVwkS3WZjVKZHFEvqglRfmx0WAaOoB64Rzn4Yls9RIZ3wmhXMc6WbH+1880Pa5Tg6+2P3LB22mYl7
-	JG0GAiAcO/8rCi34IrHBXZhGdHMxKMkIH3kjX3/h5Zmm0zsbHHjPaMe905SIIJ6EIdHfkLl6t+Zd7
-	iJkx6PJiv79VMdmC9l/A==;
+	List-Owner; bh=lz/nlejT6PzPAuFEghLzplkeFQxWIkplDivTcTqt1uQ=; b=mCY4PUqQlS/mNd
+	x1rXQnlp0e0vmqQEp1LnMIcz/dDTDk+HfvCRpQli02jmCrqoO8wzE2Epj6/fwC3zBVhOhxl83pU+O
+	przNCTVnKwfifNNBdnHJxZKTCk5ht5HVvzgSly3ATX1sXnrBTf5lnHTAl6Qny9z2x+aPadOZs8T2r
+	3f1R6j1pdXEBy2fvyz0KJRNplA6ErsYrbqyaz9ND3CIs4DwOefDiPqfdj7wPGpUKwDkxhVLY09BSB
+	qDG+cLIpewrZeC4+g3cmWJRBQ2w4vERH9XL+6/Lddvp31NSCN0YenKhKTY3L0ivz2KEv57ADSEDcZ
+	RqgAHYXdkvG/fg8EYTNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4fG-00000008syv-417H;
-	Mon, 05 May 2025 22:51:58 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uC4fH-00000008szG-2aQx;
+	Mon, 05 May 2025 22:51:59 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC49q-00000008ipz-39XP
+	id 1uC49y-00000008isA-3hVQ
+	for linux-riscv@bombadil.infradead.org;
+	Mon, 05 May 2025 22:19:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=PgKGzXr8JtGvpO7e8agghuz/Lo6OiZK8X8zoA21Oras=; b=g6kR0+LpQ7ZelYEPAWW7RtpI98
+	niGRGfCKHEVXgmsFPje3+gp9Ne/jpLD22DPYbg3F2YNNqllUlIf6lltQpRX129VYvF396VeHzutNX
+	pkTrwdid0mWwLwQ5prJ2TT5/lU+N+aI6XDQYXymzAgOK54d2fU0H+ukzYfFC3Z3Z5qeq8DxKzSVaY
+	bBVhuzzHTC+4mPXQRBU9TeooSOApRpfpL3Cccxp4ixO2DyCvbWso6sWd2OD0oYmmuMBJunGDjFDOf
+	ihFl2BxVESwX5LYobYV4i23f5D0Cd2TfBETjyoM8c3Uupr6ioSI8fS8sVRPdBqoiCQ7cVIMXpw7bP
+	mM0gh1Ug==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uC49a-0000000FYdT-3hcy
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 May 2025 22:19:32 +0000
+	Mon, 05 May 2025 22:19:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 153FC5C2ACD;
-	Mon,  5 May 2025 22:17:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7EE58C4CEE4;
-	Mon,  5 May 2025 22:19:28 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 711DA44EE6;
+	Mon,  5 May 2025 22:19:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7072C4CEEE;
+	Mon,  5 May 2025 22:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746483569;
-	bh=9tNZxUuqG1AtGoHQhp8p2F/QBEZIRb2NRve237ywaYo=;
+	s=k20201202; t=1746483553;
+	bh=NWrCB9QKWE9LHJw3TZ6TiMGktRwEOC/Vp74f1sAzblg=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=sLx74lkeADkjNOs/GmXzgzjrvGV/gk0z1f5hOhkKaDCLSE+ImbdCjpgvS4k0DV7Sg
-	 cT9tO9f/kyYrjYaXnoUy/M14X7KG0wtwM1e3DKgWT1yUwLbPrVuzwRZBGjaZhOxwc9
-	 7wperGK+tiPAXHHDvfFQNustOvk9CS8hdPNhR5IvQkG2CnF+OQGv1vrMY73QAZtCD1
-	 STgNj+XcAIsjp1wCTnjD1bCbyFxOhw9Sb+vVVZIr4X3evc3Jdn/3LzeTd9gYmadG9+
-	 iWrXOwG6NH2W742G8rlDV/PmUVQc6sY5C1ERquPko/JpVbq7PwCMZ0RvIIDM0adbj6
-	 NhnB9ON/2uZAQ==
+	b=uND8PcYlzRMFuED9TY1zophUqD5SUZyWkOk1xva1vuUzNqqguNa8XYOZGKQCAj/rE
+	 saYl1m14SDW7oFvSoN34DMQjrZXFdKktDdtc39lYJsnZJHiQYV9l4JjRzmav77X8NB
+	 iHKM+ZkaRpWUk/a/+FTf536Yc9F/7pM6Gx7GTUAiBIz0nV3K9tGUQK8pYBDWmcZmF1
+	 dhpFMnT9VsCYN/6sP0FnlWEGpTRSBkCLg4PzY9teVlrAQwT3k2bPknEriciQ7Ig1Sk
+	 MC5o7fyaw/7MZ9Gh4ZtE6Qlibfkkh1mNRaH+CEB4AZRBkH2CdDXSw+tjgE1R1fvKsZ
+	 47sMnUhFreqeA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
+Cc: Nick Hu <nick.hu@sifive.com>,
+	Anup Patel <anup@brainfault.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
+	tglx@linutronix.de,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
-	will@kernel.org,
-	wangkefeng.wang@huawei.com,
-	baohua@kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.14 119/642] riscv: Call secondary mmu notifier when flushing the tlb
-Date: Mon,  5 May 2025 18:05:35 -0400
-Message-Id: <20250505221419.2672473-119-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.14 112/642] clocksource/drivers/timer-riscv: Stop stimecmp when cpu hotplug
+Date: Mon,  5 May 2025 18:05:28 -0400
+Message-Id: <20250505221419.2672473-112-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
 In-Reply-To: <20250505221419.2672473-1-sashal@kernel.org>
 References: <20250505221419.2672473-1-sashal@kernel.org>
@@ -67,8 +81,9 @@ X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.14.5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_151930_871877_5780A49F 
-X-CRM114-Status: GOOD (  10.56  )
+X-CRM114-CacheID: sfid-20250505_231915_726456_14A7D86E 
+X-CRM114-Status: UNSURE (   9.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,87 +95,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlAcml2b3NpbmMuY29tPgoKWyBVcHN0cmVh
-bSBjb21taXQgZDliZTJiOWI2MDQ5N2E4MmFlY2VlYzNhOThkOGIzN2ZkZDI5NjBmMiBdCgpUaGlz
-IGlzIHJlcXVpcmVkIHRvIGFsbG93IHRoZSBJT01NVSBkcml2ZXIgdG8gY29ycmVjdGx5IGZsdXNo
-IGl0cyBvd24KVExCLgoKUmV2aWV3ZWQtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xlZ2VyQHJpdm9z
-aW5jLmNvbT4KUmV2aWV3ZWQtYnk6IFNhbXVlbCBIb2xsYW5kIDxzYW11ZWwuaG9sbGFuZEBzaWZp
-dmUuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjUwMTEzMTQyNDI0LjMw
-NDg3LTEtYWxleGdoaXRpQHJpdm9zaW5jLmNvbQpTaWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hp
-dGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+ClNpZ25lZC1vZmYtYnk6IFNhc2hhIExldmluIDxz
-YXNoYWxAa2VybmVsLm9yZz4KLS0tCiBhcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMgfCAzNyArKysr
-KysrKysrKysrKysrKysrKysrLS0tLS0tLS0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMjIgaW5z
-ZXJ0aW9ucygrKSwgMTUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9tbS90
-bGJmbHVzaC5jIGIvYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jCmluZGV4IDliNmU4NmNlMzg2NzQu
-LmJiNzc2MDdjODdhYTIgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbW0vdGxiZmx1c2guYworKysg
-Yi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKQEAgLTQsNiArNCw3IEBACiAjaW5jbHVkZSA8bGlu
-dXgvc21wLmg+CiAjaW5jbHVkZSA8bGludXgvc2NoZWQuaD4KICNpbmNsdWRlIDxsaW51eC9odWdl
-dGxiLmg+CisjaW5jbHVkZSA8bGludXgvbW11X25vdGlmaWVyLmg+CiAjaW5jbHVkZSA8YXNtL3Ni
-aS5oPgogI2luY2x1ZGUgPGFzbS9tbXVfY29udGV4dC5oPgogCkBAIC03OCwxMCArNzksMTcgQEAg
-c3RhdGljIHZvaWQgX19pcGlfZmx1c2hfdGxiX3JhbmdlX2FzaWQodm9pZCAqaW5mbykKIAlsb2Nh
-bF9mbHVzaF90bGJfcmFuZ2VfYXNpZChkLT5zdGFydCwgZC0+c2l6ZSwgZC0+c3RyaWRlLCBkLT5h
-c2lkKTsKIH0KIAotc3RhdGljIHZvaWQgX19mbHVzaF90bGJfcmFuZ2UoY29uc3Qgc3RydWN0IGNw
-dW1hc2sgKmNtYXNrLCB1bnNpZ25lZCBsb25nIGFzaWQsCitzdGF0aWMgaW5saW5lIHVuc2lnbmVk
-IGxvbmcgZ2V0X21tX2FzaWQoc3RydWN0IG1tX3N0cnVjdCAqbW0pCit7CisJcmV0dXJuIG1tID8g
-Y250eDJhc2lkKGF0b21pY19sb25nX3JlYWQoJm1tLT5jb250ZXh0LmlkKSkgOiBGTFVTSF9UTEJf
-Tk9fQVNJRDsKK30KKworc3RhdGljIHZvaWQgX19mbHVzaF90bGJfcmFuZ2Uoc3RydWN0IG1tX3N0
-cnVjdCAqbW0sCisJCQkgICAgICBjb25zdCBzdHJ1Y3QgY3B1bWFzayAqY21hc2ssCiAJCQkgICAg
-ICB1bnNpZ25lZCBsb25nIHN0YXJ0LCB1bnNpZ25lZCBsb25nIHNpemUsCiAJCQkgICAgICB1bnNp
-Z25lZCBsb25nIHN0cmlkZSkKIHsKKwl1bnNpZ25lZCBsb25nIGFzaWQgPSBnZXRfbW1fYXNpZCht
-bSk7CiAJdW5zaWduZWQgaW50IGNwdTsKIAogCWlmIChjcHVtYXNrX2VtcHR5KGNtYXNrKSkKQEAg
-LTEwNSwzMCArMTEzLDI2IEBAIHN0YXRpYyB2b2lkIF9fZmx1c2hfdGxiX3JhbmdlKGNvbnN0IHN0
-cnVjdCBjcHVtYXNrICpjbWFzaywgdW5zaWduZWQgbG9uZyBhc2lkLAogCX0KIAogCXB1dF9jcHUo
-KTsKLX0KIAotc3RhdGljIGlubGluZSB1bnNpZ25lZCBsb25nIGdldF9tbV9hc2lkKHN0cnVjdCBt
-bV9zdHJ1Y3QgKm1tKQotewotCXJldHVybiBjbnR4MmFzaWQoYXRvbWljX2xvbmdfcmVhZCgmbW0t
-PmNvbnRleHQuaWQpKTsKKwlpZiAobW0pCisJCW1tdV9ub3RpZmllcl9hcmNoX2ludmFsaWRhdGVf
-c2Vjb25kYXJ5X3RsYnMobW0sIHN0YXJ0LCBzdGFydCArIHNpemUpOwogfQogCiB2b2lkIGZsdXNo
-X3RsYl9tbShzdHJ1Y3QgbW1fc3RydWN0ICptbSkKIHsKLQlfX2ZsdXNoX3RsYl9yYW5nZShtbV9j
-cHVtYXNrKG1tKSwgZ2V0X21tX2FzaWQobW0pLAotCQkJICAwLCBGTFVTSF9UTEJfTUFYX1NJWkUs
-IFBBR0VfU0laRSk7CisJX19mbHVzaF90bGJfcmFuZ2UobW0sIG1tX2NwdW1hc2sobW0pLCAwLCBG
-TFVTSF9UTEJfTUFYX1NJWkUsIFBBR0VfU0laRSk7CiB9CiAKIHZvaWQgZmx1c2hfdGxiX21tX3Jh
-bmdlKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAogCQkJdW5zaWduZWQgbG9uZyBzdGFydCwgdW5zaWdu
-ZWQgbG9uZyBlbmQsCiAJCQl1bnNpZ25lZCBpbnQgcGFnZV9zaXplKQogewotCV9fZmx1c2hfdGxi
-X3JhbmdlKG1tX2NwdW1hc2sobW0pLCBnZXRfbW1fYXNpZChtbSksCi0JCQkgIHN0YXJ0LCBlbmQg
-LSBzdGFydCwgcGFnZV9zaXplKTsKKwlfX2ZsdXNoX3RsYl9yYW5nZShtbSwgbW1fY3B1bWFzayht
-bSksIHN0YXJ0LCBlbmQgLSBzdGFydCwgcGFnZV9zaXplKTsKIH0KIAogdm9pZCBmbHVzaF90bGJf
-cGFnZShzdHJ1Y3Qgdm1fYXJlYV9zdHJ1Y3QgKnZtYSwgdW5zaWduZWQgbG9uZyBhZGRyKQogewot
-CV9fZmx1c2hfdGxiX3JhbmdlKG1tX2NwdW1hc2sodm1hLT52bV9tbSksIGdldF9tbV9hc2lkKHZt
-YS0+dm1fbW0pLAorCV9fZmx1c2hfdGxiX3JhbmdlKHZtYS0+dm1fbW0sIG1tX2NwdW1hc2sodm1h
-LT52bV9tbSksCiAJCQkgIGFkZHIsIFBBR0VfU0laRSwgUEFHRV9TSVpFKTsKIH0KIApAQCAtMTYx
-LDEzICsxNjUsMTMgQEAgdm9pZCBmbHVzaF90bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0
-ICp2bWEsIHVuc2lnbmVkIGxvbmcgc3RhcnQsCiAJCX0KIAl9CiAKLQlfX2ZsdXNoX3RsYl9yYW5n
-ZShtbV9jcHVtYXNrKHZtYS0+dm1fbW0pLCBnZXRfbW1fYXNpZCh2bWEtPnZtX21tKSwKKwlfX2Zs
-dXNoX3RsYl9yYW5nZSh2bWEtPnZtX21tLCBtbV9jcHVtYXNrKHZtYS0+dm1fbW0pLAogCQkJICBz
-dGFydCwgZW5kIC0gc3RhcnQsIHN0cmlkZV9zaXplKTsKIH0KIAogdm9pZCBmbHVzaF90bGJfa2Vy
-bmVsX3JhbmdlKHVuc2lnbmVkIGxvbmcgc3RhcnQsIHVuc2lnbmVkIGxvbmcgZW5kKQogewotCV9f
-Zmx1c2hfdGxiX3JhbmdlKGNwdV9vbmxpbmVfbWFzaywgRkxVU0hfVExCX05PX0FTSUQsCisJX19m
-bHVzaF90bGJfcmFuZ2UoTlVMTCwgY3B1X29ubGluZV9tYXNrLAogCQkJICBzdGFydCwgZW5kIC0g
-c3RhcnQsIFBBR0VfU0laRSk7CiB9CiAKQEAgLTE3NSw3ICsxNzksNyBAQCB2b2lkIGZsdXNoX3Rs
-Yl9rZXJuZWxfcmFuZ2UodW5zaWduZWQgbG9uZyBzdGFydCwgdW5zaWduZWQgbG9uZyBlbmQpCiB2
-b2lkIGZsdXNoX3BtZF90bGJfcmFuZ2Uoc3RydWN0IHZtX2FyZWFfc3RydWN0ICp2bWEsIHVuc2ln
-bmVkIGxvbmcgc3RhcnQsCiAJCQl1bnNpZ25lZCBsb25nIGVuZCkKIHsKLQlfX2ZsdXNoX3RsYl9y
-YW5nZShtbV9jcHVtYXNrKHZtYS0+dm1fbW0pLCBnZXRfbW1fYXNpZCh2bWEtPnZtX21tKSwKKwlf
-X2ZsdXNoX3RsYl9yYW5nZSh2bWEtPnZtX21tLCBtbV9jcHVtYXNrKHZtYS0+dm1fbW0pLAogCQkJ
-ICBzdGFydCwgZW5kIC0gc3RhcnQsIFBNRF9TSVpFKTsKIH0KICNlbmRpZgpAQCAtMTg5LDcgKzE5
-MywxMCBAQCB2b2lkIGFyY2hfdGxiYmF0Y2hfYWRkX3BlbmRpbmcoc3RydWN0IGFyY2hfdGxiZmx1
-c2hfdW5tYXBfYmF0Y2ggKmJhdGNoLAogCQkJICAgICAgIHN0cnVjdCBtbV9zdHJ1Y3QgKm1tLAog
-CQkJICAgICAgIHVuc2lnbmVkIGxvbmcgdWFkZHIpCiB7CisJdW5zaWduZWQgbG9uZyBzdGFydCA9
-IHVhZGRyICYgUEFHRV9NQVNLOworCiAJY3B1bWFza19vcigmYmF0Y2gtPmNwdW1hc2ssICZiYXRj
-aC0+Y3B1bWFzaywgbW1fY3B1bWFzayhtbSkpOworCW1tdV9ub3RpZmllcl9hcmNoX2ludmFsaWRh
-dGVfc2Vjb25kYXJ5X3RsYnMobW0sIHN0YXJ0LCBzdGFydCArIFBBR0VfU0laRSk7CiB9CiAKIHZv
-aWQgYXJjaF9mbHVzaF90bGJfYmF0Y2hlZF9wZW5kaW5nKHN0cnVjdCBtbV9zdHJ1Y3QgKm1tKQpA
-QCAtMTk5LDcgKzIwNiw3IEBAIHZvaWQgYXJjaF9mbHVzaF90bGJfYmF0Y2hlZF9wZW5kaW5nKHN0
-cnVjdCBtbV9zdHJ1Y3QgKm1tKQogCiB2b2lkIGFyY2hfdGxiYmF0Y2hfZmx1c2goc3RydWN0IGFy
-Y2hfdGxiZmx1c2hfdW5tYXBfYmF0Y2ggKmJhdGNoKQogewotCV9fZmx1c2hfdGxiX3JhbmdlKCZi
-YXRjaC0+Y3B1bWFzaywgRkxVU0hfVExCX05PX0FTSUQsIDAsCi0JCQkgIEZMVVNIX1RMQl9NQVhf
-U0laRSwgUEFHRV9TSVpFKTsKKwlfX2ZsdXNoX3RsYl9yYW5nZShOVUxMLCAmYmF0Y2gtPmNwdW1h
-c2ssCisJCQkgIDAsIEZMVVNIX1RMQl9NQVhfU0laRSwgUEFHRV9TSVpFKTsKIAljcHVtYXNrX2Ns
-ZWFyKCZiYXRjaC0+Y3B1bWFzayk7CiB9Ci0tIAoyLjM5LjUKCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
-dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
-YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Nick Hu <nick.hu@sifive.com>
+
+[ Upstream commit 70c93b026ed07078e933583591aa9ca6701cd9da ]
+
+Stop the timer when the cpu is going to be offline otherwise the
+timer interrupt may be pending while performing power-down.
+
+Suggested-by: Anup Patel <anup@brainfault.org>
+Link: https://lore.kernel.org/lkml/20240829033904.477200-3-nick.hu@sifive.com/T/#u
+Signed-off-by: Nick Hu <nick.hu@sifive.com>
+Reviewed-by: Anup Patel <anup@brainfault.org>
+Acked-by: Daniel Lezcano <daniel.lezcano@linaro.org>
+Link: https://lore.kernel.org/r/20250219114135.27764-3-nick.hu@sifive.com
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/clocksource/timer-riscv.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 48ce50c5f5e68..4d7cf338824a3 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -126,7 +126,13 @@ static int riscv_timer_starting_cpu(unsigned int cpu)
+ 
+ static int riscv_timer_dying_cpu(unsigned int cpu)
+ {
++	/*
++	 * Stop the timer when the cpu is going to be offline otherwise
++	 * the timer interrupt may be pending while performing power-down.
++	 */
++	riscv_clock_event_stop();
+ 	disable_percpu_irq(riscv_clock_event_irq);
++
+ 	return 0;
+ }
+ 
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
