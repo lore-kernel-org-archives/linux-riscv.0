@@ -4,68 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D84AC3ABB6
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 02:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B077C3ABB6
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 02:24:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Jum0w2e9vhNu8HxUGdVDOvgWzFrLoI5OpsMDz1o21gs=; b=EKlkgNeb0VwrqZ
-	r7v90Ce9wJP0D2MOkgf12sQ9ozxjSAQ6u39ygD4cbTluojKYkbnjM6Gm+cosV7UwTY7kftMuUOXc3
-	0R/0j++2PvGLlbfnuAvTvnxbBULBtQkzFt+xlQ5cTQRABpw7TkgJ0IrDxmrUwt4LJiaEes8h7/hO7
-	TMHgqkFQiFTViPwnZyM31CwUiuTS51Xze3JlZ0EyFQtu4yXHEVL/twcbY7vt5ZOAUgaWFdjlqF/lT
-	3TBh0ici+yFPNr7jtWTK8xZA8E4wSFmaRvANfg7qPoeOUUWmB+hyNF/6HiMk2Rp6pLmKiFbdKEDhQ
-	OthJm/TAE/PY+2maPLJg==;
+	List-Owner; bh=zkyPqGiWbHqD1BwO+7fwEwRjcFjdg5pejsiVHyYz1gA=; b=yCVcikv+6Fd4xH
+	/u47ob7G3+atdkGDXMe0kYgdePwLeJuukLlKCZw32VPwT3ihBplAU5JAGwPC4pu1og+huBxWj88Cr
+	cOy3dHYNN5k6TdbNPZFMkb7bZBr1caNrN2nbWxXglyDK66/+wiOPuQbhwG8FhqvqBZ7DMBD/W62+r
+	ylaDnNClL5avijlp3Ti1aRN09SLrX6O8/wJzaY3vJF5RjC3VURh9dBKfV8yfatVOSo7fP1hT5wDtA
+	ng1u8KYAEFXgXfQLRDKZh+3TkjVYYCKkZnlQST1AHGyXCZnBpgWZ8nkkVdxXIyO6hpqY69CKhDZYN
+	docAN+217KDnGRvko7vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC7tL-00000009iFB-0Y1D;
-	Tue, 06 May 2025 02:18:43 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uC7zK-00000009jwP-1ObA;
+	Tue, 06 May 2025 02:24:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uC4il-00000008uFj-0eiK
+	id 1uC4kC-00000008ult-2VhO
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 May 2025 22:55:36 +0000
+	Mon, 05 May 2025 22:57:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5262C5C5522;
-	Mon,  5 May 2025 22:53:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2535DC4CEE4;
-	Mon,  5 May 2025 22:55:33 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8E44644792;
+	Mon,  5 May 2025 22:57:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E971FC4CEE4;
+	Mon,  5 May 2025 22:57:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746485734;
-	bh=5Ul5afnxT4Ev7pMFKXsZJc0l/RU9J+GqH7JwLx6dk74=;
+	s=k20201202; t=1746485824;
+	bh=9DI2HHnmjUxdW4QLwVgpY8p3vKpqr9H6QE5nZNsdzMQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=NlTI5LR6js7dFUd1BpHxTagrwpqA0FOQnRhcrHodC3qEI/p24tpXoxDxg4IzF1xvn
-	 3WvN5JwfAFX9sVxWHWMFNEhIUqCvOXk6QbIpwn+X6JxNDp3+lzNx03JJnTXzV1QEGP
-	 VIbZlorf3gAhYD91wvn1V0L5Mv2/YGrmI522vP/k10E5UC9UGjr2Fhixa05/0HktD9
-	 3N/UiDXS8wvFhnMY/CuJx+l7tWi2fVKxZYO1sXmsnr3UEcmBvUsQt3UTdo2xDg7e1E
-	 GESMTG8+RJa81RVgcrFrLX58egX8NrdZCi7Bpk7xZWgFO0duAphjKJIpiHMYghpzdX
-	 iMu5xrUbUQhgw==
+	b=HViPDxfI069hmYjymkGcnFDTKIb4MI/G86S5TtX8n6baTzyS9QTWOw3DzZ9r6pBYM
+	 ZewILBl8RC+GrZ3hyaM70qtTKqV5VLvuKtHug4Qa2gz+YlciYSTQ+dLGpqflJdT2dT
+	 Hxj0sO5FaCGRI8S1RLc4dHGmvFgRDffexdAoyIC/3mWC0/u07r00A0/GD3LOCc99It
+	 u/Pc3iXzC2U+Jqq/hKyrWpf3PEgPBpI6BumsjqB/25vOyir/pcFTu25DNLJjeYeUtd
+	 /ao36HULowz5n+eADWP+miCK/8yGpMGUVAoC3LWPnLYVYl0+PIwJp3wF5ly0/5TjlJ
+	 zS3T+HdKUa7hA==
 From: Sasha Levin <sashal@kernel.org>
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Cc: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Anup Patel <anup@brainfault.org>,
+Cc: Samuel Holland <samuel.holland@sifive.com>,
+	Jesse Taube <mr.bossman075@gmail.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
 	Sasha Levin <sashal@kernel.org>,
 	paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
 	aou@eecs.berkeley.edu,
+	alexghiti@rivosinc.com,
+	namcao@linutronix.de,
+	bjorn@rivosinc.com,
+	vincenzo.frascino@arm.com,
+	stuart.menefy@codasip.com,
+	luxu.kernel@bytedance.com,
+	david@redhat.com,
+	akpm@linux-foundation.org,
+	libang.li@antgroup.com,
+	abrestic@rivosinc.com,
+	anshuman.khandual@arm.com,
+	yongxuan.wang@sifive.com,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH AUTOSEL 6.12 451/486] irqchip/riscv-aplic: Add support for hart indexes
-Date: Mon,  5 May 2025 18:38:47 -0400
-Message-Id: <20250505223922.2682012-451-sashal@kernel.org>
+Subject: [PATCH AUTOSEL 6.6 016/294] riscv: Allow NOMMU kernels to access all of RAM
+Date: Mon,  5 May 2025 18:51:56 -0400
+Message-Id: <20250505225634.2688578-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250505223922.2682012-1-sashal@kernel.org>
-References: <20250505223922.2682012-1-sashal@kernel.org>
+In-Reply-To: <20250505225634.2688578-1-sashal@kernel.org>
+References: <20250505225634.2688578-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 6.12.26
+X-stable-base: Linux 6.6.89
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_155535_295932_40A530D4 
-X-CRM114-Status: GOOD (  16.85  )
+X-CRM114-CacheID: sfid-20250505_155704_681593_4F7DB4D4 
+X-CRM114-Status: GOOD (  12.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,69 +89,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogVmxhZGltaXIgS29uZHJhdGlldiA8dmxhZGltaXIua29uZHJhdGlldkBtb2JpbGV5ZS5j
-b20+CgpbIFVwc3RyZWFtIGNvbW1pdCBiOTNhZmU4YTNhYzUzYWU1MjI5NmQ2NWFjZmFhOWM1ZjU4
-MmE0OGNjIF0KClJJU0MtViBBUExJQyBzcGVjaWZpY2F0aW9uIGRlZmluZXMgImhhcnQgaW5kZXgi
-IGluOgoKICBodHRwczovL2dpdGh1Yi5jb20vcmlzY3YvcmlzY3YtYWlhCgpXaXRoaW4gYSBnaXZl
-biBpbnRlcnJ1cHQgZG9tYWluLCBlYWNoIG9mIHRoZSBkb21haW7igJlzIGhhcnRzIGhhcyBhIHVu
-aXF1ZQppbmRleCBudW1iZXIgaW4gdGhlIHJhbmdlIDAgdG8gMl4xNCDiiJIgMSAoPSAxNiwzODMp
-LiBUaGUgaW5kZXggbnVtYmVyIGEKZG9tYWluIGFzc29jaWF0ZXMgd2l0aCBhIGhhcnQgbWF5IG9y
-IG1heSBub3QgaGF2ZSBhbnkgcmVsYXRpb25zaGlwIHRvIHRoZQp1bmlxdWUgaGFydCBpZGVudGlm
-aWVyICjigJxoYXJ0IElE4oCdKSB0aGF0IHRoZSBSSVNDLVYgUHJpdmlsZWdlZCBBcmNoaXRlY3R1
-cmUKYXNzaWducyB0byB0aGUgaGFydC4gVHdvIGRpZmZlcmVudCBpbnRlcnJ1cHQgZG9tYWlucyBt
-YXkgZW1wbG95IGVudGlyZWx5CmRpZmZlcmVudCBpbmRleCBudW1iZXJzIGZvciB0aGUgc2FtZSBz
-ZXQgb2YgaGFydHMuCgpGdXJ0aGVyLCB0aGlzIGRvY3VtZW50IHNheXMgaW4gIjQuNSBNZW1vcnkt
-bWFwcGVkIGNvbnRyb2wgcmVnaW9uIGZvciBhbgppbnRlcnJ1cHQgZG9tYWluIjoKClRoZSBhcnJh
-eSBvZiBJREMgc3RydWN0dXJlcyBtYXkgaW5jbHVkZSBzb21lIGZvciBwb3RlbnRpYWwgaGFydCBp
-bmRleApudW1iZXJzIHRoYXQgYXJlIG5vdCBhY3R1YWwgaGFydCBpbmRleCBudW1iZXJzIGluIHRo
-ZSBkb21haW4uIEZvciBleGFtcGxlLAp0aGUgZmlyc3QgSURDIHN0cnVjdHVyZSBpcyBhbHdheXMg
-Zm9yIGhhcnQgaW5kZXggMCwgYnV0IDAgaXMgbm90Cm5lY2Vzc2FyaWx5IGEgdmFsaWQgaW5kZXgg
-bnVtYmVyIGZvciBhbnkgaGFydCBpbiB0aGUgZG9tYWluLgoKU3VwcG9ydCBhcmJpdHJhcnkgaGFy
-dCBpbmRpY2VzIHNwZWNpZmllZCBpbiBhbiBvcHRpb25hbCBBUExJQyBwcm9wZXJ0eQoicmlzY3Ys
-aGFydC1pbmRleGVzIiB3aGljaCBpcyBzcGVjaWZpZWQgYXMgYW4gYXJyYXkgb2YgdTMyIGVsZW1l
-bnRzLCBvbmUKcGVyIGludGVycnVwdCB0YXJnZXQuIElmIHRoaXMgcHJvcGVydHkgaXMgbm90IHNw
-ZWNpZmllZCwgZmFsbGJhY2sgdG8gdXNlCmxvZ2ljYWwgaGFydCBpbmRpY2VzIHdpdGhpbiB0aGUg
-ZG9tYWluLgoKU2lnbmVkLW9mZi1ieTogVmxhZGltaXIgS29uZHJhdGlldiA8dmxhZGltaXIua29u
-ZHJhdGlldkBtb2JpbGV5ZS5jb20+ClNpZ25lZC1vZmYtYnk6IFRob21hcyBHbGVpeG5lciA8dGds
-eEBsaW51dHJvbml4LmRlPgpSZXZpZXdlZC1ieTogQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0
-Lm9yZz4KTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwMTI5MDkxNjM3LjE2
-NjcyNzktMy12bGFkaW1pci5rb25kcmF0aWV2QG1vYmlsZXllLmNvbQpTaWduZWQtb2ZmLWJ5OiBT
-YXNoYSBMZXZpbiA8c2FzaGFsQGtlcm5lbC5vcmc+Ci0tLQogZHJpdmVycy9pcnFjaGlwL2lycS1y
-aXNjdi1hcGxpYy1kaXJlY3QuYyB8IDI0ICsrKysrKysrKysrKysrKysrKysrKy0tLQogMSBmaWxl
-IGNoYW5nZWQsIDIxIGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEv
-ZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1kaXJlY3QuYyBiL2RyaXZlcnMvaXJxY2hp
-cC9pcnEtcmlzY3YtYXBsaWMtZGlyZWN0LmMKaW5kZXggN2NkNmI2NDY3NzRiOS4uMjA1YWQ2MWQx
-NWU0OSAxMDA2NDQKLS0tIGEvZHJpdmVycy9pcnFjaGlwL2lycS1yaXNjdi1hcGxpYy1kaXJlY3Qu
-YworKysgYi9kcml2ZXJzL2lycWNoaXAvaXJxLXJpc2N2LWFwbGljLWRpcmVjdC5jCkBAIC0zMSw3
-ICszMSw3IEBAIHN0cnVjdCBhcGxpY19kaXJlY3QgewogfTsKIAogc3RydWN0IGFwbGljX2lkYyB7
-Ci0JdW5zaWduZWQgaW50CQloYXJ0X2luZGV4OworCXUzMgkJCWhhcnRfaW5kZXg7CiAJdm9pZCBf
-X2lvbWVtCQkqcmVnczsKIAlzdHJ1Y3QgYXBsaWNfZGlyZWN0CSpkaXJlY3Q7CiB9OwpAQCAtMjE5
-LDYgKzIxOSwyMCBAQCBzdGF0aWMgaW50IGFwbGljX2RpcmVjdF9wYXJzZV9wYXJlbnRfaHdpcnEo
-c3RydWN0IGRldmljZSAqZGV2LCB1MzIgaW5kZXgsCiAJcmV0dXJuIDA7CiB9CiAKK3N0YXRpYyBp
-bnQgYXBsaWNfZGlyZWN0X2dldF9oYXJ0X2luZGV4KHN0cnVjdCBkZXZpY2UgKmRldiwgdTMyIGxv
-Z2ljYWxfaW5kZXgsCisJCQkJICAgICAgIHUzMiAqaGFydF9pbmRleCkKK3sKKwljb25zdCBjaGFy
-ICpwcm9wX2hhcnRfaW5kZXggPSAicmlzY3YsaGFydC1pbmRleGVzIjsKKwlzdHJ1Y3QgZGV2aWNl
-X25vZGUgKm5wID0gdG9fb2Zfbm9kZShkZXYtPmZ3bm9kZSk7CisKKwlpZiAoIW5wIHx8ICFvZl9w
-cm9wZXJ0eV9wcmVzZW50KG5wLCBwcm9wX2hhcnRfaW5kZXgpKSB7CisJCSpoYXJ0X2luZGV4ID0g
-bG9naWNhbF9pbmRleDsKKwkJcmV0dXJuIDA7CisJfQorCisJcmV0dXJuIG9mX3Byb3BlcnR5X3Jl
-YWRfdTMyX2luZGV4KG5wLCBwcm9wX2hhcnRfaW5kZXgsIGxvZ2ljYWxfaW5kZXgsIGhhcnRfaW5k
-ZXgpOworfQorCiBpbnQgYXBsaWNfZGlyZWN0X3NldHVwKHN0cnVjdCBkZXZpY2UgKmRldiwgdm9p
-ZCBfX2lvbWVtICpyZWdzKQogewogCWludCBpLCBqLCByYywgY3B1LCBjdXJyZW50X2NwdSwgc2V0
-dXBfY291bnQgPSAwOwpAQCAtMjY1LDggKzI3OSwxMiBAQCBpbnQgYXBsaWNfZGlyZWN0X3NldHVw
-KHN0cnVjdCBkZXZpY2UgKmRldiwgdm9pZCBfX2lvbWVtICpyZWdzKQogCQljcHVtYXNrX3NldF9j
-cHUoY3B1LCAmZGlyZWN0LT5sbWFzayk7CiAKIAkJaWRjID0gcGVyX2NwdV9wdHIoJmFwbGljX2lk
-Y3MsIGNwdSk7Ci0JCWlkYy0+aGFydF9pbmRleCA9IGk7Ci0JCWlkYy0+cmVncyA9IHByaXYtPnJl
-Z3MgKyBBUExJQ19JRENfQkFTRSArIGkgKiBBUExJQ19JRENfU0laRTsKKwkJcmMgPSBhcGxpY19k
-aXJlY3RfZ2V0X2hhcnRfaW5kZXgoZGV2LCBpLCAmaWRjLT5oYXJ0X2luZGV4KTsKKwkJaWYgKHJj
-KSB7CisJCQlkZXZfd2FybihkZXYsICJoYXJ0IGluZGV4IG5vdCBmb3VuZCBmb3IgSURDJWRcbiIs
-IGkpOworCQkJY29udGludWU7CisJCX0KKwkJaWRjLT5yZWdzID0gcHJpdi0+cmVncyArIEFQTElD
-X0lEQ19CQVNFICsgaWRjLT5oYXJ0X2luZGV4ICogQVBMSUNfSURDX1NJWkU7CiAJCWlkYy0+ZGly
-ZWN0ID0gZGlyZWN0OwogCiAJCWFwbGljX2lkY19zZXRfZGVsaXZlcnkoaWRjLCB0cnVlKTsKLS0g
-CjIuMzkuNQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
-Cmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+From: Samuel Holland <samuel.holland@sifive.com>
+
+[ Upstream commit 2c0391b29b27f315c1b4c29ffde66f50b29fab99 ]
+
+NOMMU kernels currently cannot access memory below the kernel link
+address. Remove this restriction by setting PAGE_OFFSET to the actual
+start of RAM, as determined from the devicetree. The kernel link address
+must be a constant, so keep using CONFIG_PAGE_OFFSET for that purpose.
+
+Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+Reviewed-by: Jesse Taube <mr.bossman075@gmail.com>
+Link: https://lore.kernel.org/r/20241026171441.3047904-3-samuel.holland@sifive.com
+Signed-off-by: Palmer Dabbelt <palmer@rivosinc.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ arch/riscv/include/asm/page.h    | 12 ++++--------
+ arch/riscv/include/asm/pgtable.h |  2 +-
+ 2 files changed, 5 insertions(+), 9 deletions(-)
+
+diff --git a/arch/riscv/include/asm/page.h b/arch/riscv/include/asm/page.h
+index 4d1f58848129e..dbb9d0d0f405e 100644
+--- a/arch/riscv/include/asm/page.h
++++ b/arch/riscv/include/asm/page.h
+@@ -26,12 +26,9 @@
+  * When not using MMU this corresponds to the first free page in
+  * physical memory (aligned on a page boundary).
+  */
+-#ifdef CONFIG_64BIT
+ #ifdef CONFIG_MMU
++#ifdef CONFIG_64BIT
+ #define PAGE_OFFSET		kernel_map.page_offset
+-#else
+-#define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
+-#endif
+ /*
+  * By default, CONFIG_PAGE_OFFSET value corresponds to SV57 address space so
+  * define the PAGE_OFFSET value for SV48 and SV39.
+@@ -41,6 +38,9 @@
+ #else
+ #define PAGE_OFFSET		_AC(CONFIG_PAGE_OFFSET, UL)
+ #endif /* CONFIG_64BIT */
++#else
++#define PAGE_OFFSET		((unsigned long)phys_ram_base)
++#endif /* CONFIG_MMU */
+ 
+ #ifndef __ASSEMBLY__
+ 
+@@ -97,11 +97,7 @@ typedef struct page *pgtable_t;
+ #define MIN_MEMBLOCK_ADDR      0
+ #endif
+ 
+-#ifdef CONFIG_MMU
+ #define ARCH_PFN_OFFSET		(PFN_DOWN((unsigned long)phys_ram_base))
+-#else
+-#define ARCH_PFN_OFFSET		(PAGE_OFFSET >> PAGE_SHIFT)
+-#endif /* CONFIG_MMU */
+ 
+ struct kernel_mapping {
+ 	unsigned long page_offset;
+diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+index f540b2625714d..332a6bf72b1d5 100644
+--- a/arch/riscv/include/asm/pgtable.h
++++ b/arch/riscv/include/asm/pgtable.h
+@@ -12,7 +12,7 @@
+ #include <asm/pgtable-bits.h>
+ 
+ #ifndef CONFIG_MMU
+-#define KERNEL_LINK_ADDR	PAGE_OFFSET
++#define KERNEL_LINK_ADDR	_AC(CONFIG_PAGE_OFFSET, UL)
+ #define KERN_VIRT_SIZE		(UL(-1))
+ #else
+ 
+-- 
+2.39.5
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
