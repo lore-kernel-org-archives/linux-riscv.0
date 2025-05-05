@@ -4,77 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6FD5C3ABB0
-	for <linux-riscv@archiver.kernel.org>; Mon,  5 May 2025 12:38:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE59FC3ABAA
+	for <linux-riscv@archiver.kernel.org>; Mon,  5 May 2025 13:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=a9OWMCvsYnCQ4of7kOQrWm6CrWxzyGm4MKVG4NV/4Rs=; b=DOYXEPO4hn6gjj
-	xnMOK7tzU+qxCErqkXf/Nhpcm6SseB9uFyT5MX2tUyewP+OM8lQZDkXtRgcFBqQnfJs40dHxKsKxo
-	0SWGpmaPOdhkcgIVcyuv9+eKW0kLffIwFiyoIJG5YxnODPlgxsAOPPpxVtcNieneawsCueCW83Oia
-	IlguRRfw2oG+ePyw9/GtqIvqUHS/deRjNNtzchQ+I980DgOfmzpvfScra7UMN0f4A3+grT9eROWcj
-	SJBL0zEri3RsBrI2rUpYSLuvPFNtOX64+vKzHzxwKdJUibVXDLhBcoNtW3be5NzNhd4jVeLUHTMwx
-	WEhTMQEzK5DQ/XzaEhMA==;
+	List-Owner; bh=9NCL+7z8OGAg9+n24vlGfZTvEBRRJcJnu7x8paEEdKk=; b=n3+h84SL0ehB/v
+	zWBswhfrqTUId6DHcb4An0hKn69LxArycFQag+xEVn/Qxf7JEa6f08VNBAuu7xXnYzX5PGE81Qbex
+	bmI4bItfXhr3icbDNXXMXAVq9CPEsDPAbpzpDA4qN7l2Hd4/s9vh0t7bBjZid4b9CHkcQIs5lmpAQ
+	ABloBCVj5oa6ZD72jxtirgwMLmXYoF/x14GgugANfwFakaSFNMR9zM7q2G6eRYwOoQpBYZdogZ7ew
+	j/RMxUv3nA+wemZctQpTe3R4fwjovTXs8EqW9ygBhXLdCmGtnW3Z1FFjvwruBawAv5GZ5m42qyC6d
+	38BoubUM11UHYZ8XMV4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBv57-00000007LP6-2BXt;
-	Mon, 05 May 2025 12:38:01 +0000
-Received: from mail-il1-x12f.google.com ([2607:f8b0:4864:20::12f])
+	id 1uBw2a-00000007WK6-0rFq;
+	Mon, 05 May 2025 13:39:28 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uBuzW-00000007KEy-195k
+	id 1uBvtK-00000007V4K-3PSn
 	for linux-riscv@lists.infradead.org;
-	Mon, 05 May 2025 12:32:15 +0000
-Received: by mail-il1-x12f.google.com with SMTP id e9e14a558f8ab-3d5e43e4725so11730895ab.1
-        for <linux-riscv@lists.infradead.org>; Mon, 05 May 2025 05:32:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1746448333; x=1747053133; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2ROvQBGSdDBOd+A03xhzhhLZdwd+Yr3g8998GOj2eyg=;
-        b=Wo8XVeU4EPhFqDGA0/n4Yyo6TTJ82bOWbBoRiBa93QV+NFlTwmtcZsMhPDTLpyo1Lg
-         cDPThLk7ML44DdcMY1rTuxKkOA6V+K5o87MCa2KLgLtt/xroN/uwL/IpRJ8k24hunmB4
-         EukjRlh0GbDh00pQ1wR9sQZtoD+DyaB8mHJMHZUOLimVkJaAXmxUHZXdy7N8IEhc2vcw
-         8wA/9CBeXSDUO/Go9W8sFyuVqWCvBOtbVxtZKAcVl8fujHR2go30j07apWq0Zzos6dTs
-         TXXvX7Bzf6I8H2OJBdUJqxMOPIO2ydlMWlPY1egGifErOPdPrKbvltwM95uCXoT0nUXl
-         s9Bg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746448333; x=1747053133;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2ROvQBGSdDBOd+A03xhzhhLZdwd+Yr3g8998GOj2eyg=;
-        b=CelkQK4Nn7z0ikQR66EBJ9d3cfPWgR0/SDWjx8RDJRa/8bsm2YhYN9HE0M0FDlmaSQ
-         +vesk2Zz7E2Z3NsOgvvmQ1+KcfjWJrx0N2Bghz9WwXwRdtx54rmlJCUCZmzIV81ezx2L
-         IvO+v/8POVUZ/dQipQQKM8dRFhXpISveIuF5Mc7plCtMBdIf5Fml6JpKYclG/lsdrVMl
-         k4zz/gBVEiAAZhVeK6sCdt1KZ2mC0Zqu+QVhgYxvZmB8KyxYOsrMsbxnSIE/Z9xaFbIA
-         356Bzvami9croT3Fn4xr4V4IKPP4wY5w73H+8JpQPtLAuG4XbZNZ97CNtMKkkR5qb9pD
-         xfXQ==
-X-Gm-Message-State: AOJu0YybweUr6lPg2Io4FcUK5jH8UWeRcyo+Nm8lHdMkkh1tsTa+V4Hh
-	/RV7l733P2DF6qyxP1J3fZ6GqQ+3SaZDk+N3citRIIViuyO50D92CpiT0ObTWgJiquotoHEmN2j
-	5xDjMpjgZJq61E59RF0BsB0VdBFqxZpf0WjyjTQ==
-X-Gm-Gg: ASbGncu1zD5xroRJ7qe1V6ZwtfAHJVdvSDMT1DWRLa/sv1h7MGr4ig/UGiG6tx5+E73
-	/c15Ulg7qU4vG0IZaDNcMQ76Nqv3cRaHuT6C2pHm1VcTWUkP+pPSN3Ft+291n5wnShf/Mctfst9
-	OXRkHfHLz0u2TeKoKzLxARa6E=
-X-Google-Smtp-Source: AGHT+IGKfyVuSpXvhyCqr3MzLrMWyvS/DXDaTYYmrBeFPlCthPJdi1/XEIr6vTapFuhwTG/+VDZdp44YaLe79OiDUvE=
-X-Received: by 2002:a92:ca4e:0:b0:3d8:2023:d048 with SMTP id
- e9e14a558f8ab-3da569fc0fdmr78214885ab.22.1746448332626; Mon, 05 May 2025
- 05:32:12 -0700 (PDT)
+	Mon, 05 May 2025 13:29:56 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvsv-0001kY-OL; Mon, 05 May 2025 15:29:29 +0200
+Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvsr-001EmE-2j;
+	Mon, 05 May 2025 15:29:25 +0200
+Received: from pza by lupine with local (Exim 4.96)
+	(envelope-from <p.zabel@pengutronix.de>)
+	id 1uBvsr-000KtU-2N;
+	Mon, 05 May 2025 15:29:25 +0200
+Message-ID: <a21bc1518141c38b064360ff4c2b7953bfdfda41.camel@pengutronix.de>
+Subject: Re: [PATCH v2 05/10] dt-bindings: reset: sophgo: Add SG2044
+ bindings.
+From: Philipp Zabel <p.zabel@pengutronix.de>
+To: Inochi Amaoto <inochiama@gmail.com>, Jean Delvare <jdelvare@suse.com>, 
+ Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, Andi Shyti
+ <andi.shyti@kernel.org>,  Thomas Gleixner <tglx@linutronix.de>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Samuel Holland
+ <samuel.holland@sifive.com>, Ulf Hansson <ulf.hansson@linaro.org>, Palmer
+ Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
+ Ghiti <alex@ghiti.fr>,  Daniel Lezcano <daniel.lezcano@linaro.org>, Thomas
+ Bonnefille <thomas.bonnefille@bootlin.com>, Jarkko Nikula
+ <jarkko.nikula@linux.intel.com>, Jisheng Zhang <jszhang@kernel.org>, Chao
+ Wei <chao.wei@sophgo.com>
+Cc: linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-i2c@vger.kernel.org,  linux-riscv@lists.infradead.org,
+ linux-mmc@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, Longbin Li
+ <looong.bin@gmail.com>
+Date: Mon, 05 May 2025 15:29:25 +0200
+In-Reply-To: <20250413223507.46480-6-inochiama@gmail.com>
+References: <20250413223507.46480-1-inochiama@gmail.com>
+	 <20250413223507.46480-6-inochiama@gmail.com>
+User-Agent: Evolution 3.46.4-2 
 MIME-Version: 1.0
-References: <20250227123628.2931490-1-hchauhan@ventanamicro.com> <20250227123628.2931490-2-hchauhan@ventanamicro.com>
-In-Reply-To: <20250227123628.2931490-2-hchauhan@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Mon, 5 May 2025 18:02:03 +0530
-X-Gm-Features: ATxdqUH3w6mQ0qSoQ0tXhdBpHdmtraVQBLRXb-lEZsWxpb787pmCQYQjNjM4yWg
-Message-ID: <CAAhSdy1bupf80qpio6-HpwzC53MW3UguKj+zxd3Zmduxay4rpg@mail.gmail.com>
-Subject: Re: [RFC PATCH v1 01/10] riscv: Define ioremap_cache for RISC-V
-To: Himanshu Chauhan <hchauhan@ventanamicro.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: p.zabel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250505_053214_516900_7E0C4F09 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250505_062954_850360_6AAD9BD7 
+X-CRM114-Status: UNSURE (   8.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,30 +88,32 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: apatel@ventanamicro.com, cleger@rivosinc.com, linux-efi@vger.kernel.org, acpica-devel@lists.linux.dev, linux-kernel@vger.kernel.org, conor@kernel.org, robert.moore@intel.com, linux-acpi@vger.kernel.org, tony.luck@intel.com, palmer@dabbelt.com, paul.walmsley@sifive.com, james.morse@arm.com, linux-riscv@lists.infradead.org, ardb@kernel.org, lenb@kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBGZWIgMjcsIDIwMjUgYXQgNjowOOKAr1BNIEhpbWFuc2h1IENoYXVoYW4KPGhjaGF1
-aGFuQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gYmVydCBhbmQgZWluaiBkcml2ZXJzIHVz
-ZSBpb3JlbWFwX2NhY2hlIGZvciBtYXBwaW5nIGVudHJpZXMKPiBidXQgaW9yZW1hcF9jYWNoZSBp
-cyBub3QgZGVmaW5lZCBmb3IgUklTQy1WLgo+Cj4gU2lnbmVkLW9mZi1ieTogSGltYW5zaHUgQ2hh
-dWhhbiA8aGNoYXVoYW5AdmVudGFuYW1pY3JvLmNvbT4KPiAtLS0KPiAgYXJjaC9yaXNjdi9pbmNs
-dWRlL2FzbS9pby5oIHwgMyArKysKPiAgMSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKQo+
-Cj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW8uaCBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaW8uaAo+IGluZGV4IDFjNWM2NDEwNzVkMi4uZTIzYTQ5MDFlOTI4IDEwMDY0
-NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW8uaAo+ICsrKyBiL2FyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vaW8uaAo+IEBAIC0zMCw2ICszMCw5IEBACj4gICNkZWZpbmUgUENJX0lPQkFT
-RSAgICAgICAgICAgICAoKHZvaWQgX19pb21lbSAqKVBDSV9JT19TVEFSVCkKPiAgI2VuZGlmIC8q
-IENPTkZJR19NTVUgKi8KPgo+ICsjZGVmaW5lIGlvcmVtYXBfY2FjaGUoYWRkciwgc2l6ZSkgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiArICAgICAgICgoX19mb3JjZSB2
-b2lkICopaW9yZW1hcF9wcm90KChhZGRyKSwgKHNpemUpLCBfUEFHRV9LRVJORUwpKQo+ICsKClRo
-ZXJlIGlzIGEgY29tcGlsZSBlcnJvciBvYnNlcnZlZCB3aXRoIHRoaXMgcGF0Y2ggYXBwbGllZApv
-biB0aGUgbGF0ZXN0IExpbnV4LTYuMTUtcmNYIGtlcm5lbC4KClRvIGZpeCBjb21waWxlIGVycm9y
-LCB3ZSBuZWVkIHRoZSBmb2xsb3dpbmcgY2hhbmdlOgpzL19QQUdFX0tFUk5FTC9QQUdFX0tFUk5F
-TC8KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZy
-YWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGlu
-dXgtcmlzY3YK
+On Mo, 2025-04-14 at 06:34 +0800, Inochi Amaoto wrote:
+> The SG2044 shares the same reset controller as SG2042, so it
+> is just enough to use the compatible string of SG2042 as a
+> basis.
+> 
+> Add compatible string for the reset controller of SG2044.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+
+Applied patch 5 to reset/next, thanks!
+
+[05/10] dt-bindings: reset: sophgo: Add SG2044 bindings.
+        https://git.pengutronix.de/cgit/pza/linux/commit/?id=1c64de886b88
+
+regards
+Philipp
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
