@@ -4,117 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8CF4DC3ABBF
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 11:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C886C3ABAC
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 12:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EYlaK8FzmKMAJQce0Ou45rlHQhIsMaYZeESexK0p7FU=; b=jN39D2t4dDIepx
-	kaBlOr2iMy0vt+FmAcLcN1Mlq+SNWUfOPeKqBKD3G55hbF0eb1/mkWwlF2SSDYrucETTl4yvcGLvp
-	KDgeclYAIK4K3VZRZp6A70N8sA5s43eoYrvRyz1aZSEcUoofVvtDmq+IdmAkAsTePsvPM6eiY2kG1
-	QTa7xVdXiFNpU49TBNR9ot7sJ4xY3IemeMUJ92K4CQr50qrwPVmOyCw4mNgTfIj15AiOtNHoGvyj5
-	YcchJzSDb4QU1QojkqtI9CWs9Oy47dVdxWW91f8DWSIuiRYNYXY/Av4SfjoRok2fQFrpqod0iiqHH
-	uoLKmkPUG9IMUWZdjEdQ==;
+	List-Owner; bh=oTQ4Dnr3mrbP7yr4A9NR09zEjchrXaLV9ueeqsyU5ps=; b=f4KHAQFnRUOzOY
+	2nKSZbfomFPdsGDl201yNgiUo9NMZR/WBe8rTu+zr0+KvzuLuT7Q8KrdRT5BavDUkiQQjrN9QKNKF
+	+mofnKRFEqj0vYCBJJKbSpmx2q092ounWVK8r+1Wqn3FJjllC/eRhy+TaZJheEhpqcCc4zg5pvS+P
+	kXsW3g+KFDSCLbpgENU2k1yep5PJH1ojTeBySiU7hxApU6NeoMecomwUuo/6A+Qv0TlZdZhQi86g3
+	lq+bDEy6YjeiIiWmoIVLDbRuszxdWV8LNB2fUgu+1pS0YwsvU8UupxggF+EOEgfqgdjZ2yaRCNAhc
+	9jl0eiu3js/74eLdamzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCGEw-0000000Bh13-3nN1;
-	Tue, 06 May 2025 11:13:34 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1uCH6J-0000000Bqo1-34yU;
+	Tue, 06 May 2025 12:08:43 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEgC-0000000BOSS-0o5c;
-	Tue, 06 May 2025 09:33:39 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4768f90bf36so60556521cf.0;
-        Tue, 06 May 2025 02:33:35 -0700 (PDT)
+	id 1uCFG1-0000000BWWJ-1R3j
+	for linux-riscv@lists.infradead.org;
+	Tue, 06 May 2025 10:10:38 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-3a0b28d9251so19825f8f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 03:10:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746524015; x=1747128815; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1746526235; x=1747131035; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TalyY7f0z8WFpKTCKpbbWsIQgKcxq7l3XWcN5VvgXPM=;
-        b=M1FqVlhoAUdxUtcQALBEV3WnlDQyUoC1iCkHOmDC0sYm3k62c1Rs48T7CNIhk5/nN/
-         y9hLUKPaiAYg3xn3GL6VneHJbYbj3dhm0/iu7kERHC0hG3y0foRS4U3F/w5FehG7By2E
-         5SotRXsBEtbrjL5OzOehJAI3swPKriTeuPZzkf7izLAmUtp+nF6rF3JwaeHpbXiGQQgw
-         +QRV9LsCUpSnpIb8MY3uBTUwRcPgUlbWPLFYa+CtHMCJXpz299uWZok2FdehSqHZTJw+
-         UHvpWBIwdb06IPp6jDqNLyZEicIi7UZ5LQ+CVkdfpWesg4YAgwscF0a4SmD/N1uZyO8U
-         Cvqg==
+        bh=MDlCPukG676ZkXDqA7+irYPpUi8ypltoa/WLU7iYTZw=;
+        b=jfU1aOesL3VLnW/LdXf7kFDaYfZAcr5mgp8E4KDRj1Wb6v+atHSE+GnuyZ86j+jAxr
+         MFtKN0GmuPJ3SDvK/hZKBtmtBNdUGhXZYZZrkD+yJ7RDdAmnDcjvPRRxk75SrDyAKwDx
+         TQlcgzpM49jYlFA59SYCYuYZHiV2L1mkFWmlp7FrawHAoQBvmIUkz0NokQjdq0CIWMhL
+         SEhZuMLuBVa9ftozTfqJn3YfcGykq3H72HBTjTllc9OVNIbbY13lF+CD/OaIFY/p38B8
+         PhfDOhIr+knn/Xv22FEOQ2GNWqoemAybB7OATO1lG0D6EWkPplWj3gfGEOEXBQZgqh0x
+         yQVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746524015; x=1747128815;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=TalyY7f0z8WFpKTCKpbbWsIQgKcxq7l3XWcN5VvgXPM=;
-        b=NiW7+62xv/Wh0PqekMyuCDVwsC3vlj2wp17/1NljxYOGkFnMXlHkpgH8tdjuC3PqWk
-         DTsKw7HKU7wPfQqWdQK5MECHWKVsSe9RwRToVB5hSj44htShkYBNx6kRnFTGLT7n4DpW
-         Jaz9An3n9J6/2Oe3B3GHv98mSOYb+ThuXSE80tB4NgvVGt+TqpCvkK8qxOL3EzRpZ002
-         EzOHUgr/1k5hf7AAo1nQ0bF+AG0zNTBQPPiwgxHFvOdJEbSc5ngl6jY8XOqwO4gedDXt
-         t5iuDXGEbpfN+WJDVf2RbwVWB02B6zhXsoUjYm26A/AG0mXGiPWtsKtii+TH3S2pgJ4z
-         KJxg==
-X-Forwarded-Encrypted: i=1; AJvYcCW3sersy910vpCdc9/NL4WtbF/uFxzgIwtbWmiXk1OUDaLSaY5Q2ykdYpSU/4knGlXIjiBoQ73/+3cpRNY=@lists.infradead.org, AJvYcCXL5s52oCp8gPPvrwu+J8ciH1+1tBwCjGRP02Bhss5udXqUtUvNx3QaMSzXvo9Bqbk6ihhZwxOhjI6DDUEw2V16@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyk7UfM/q02H0mnRMHYtSqYGU26WB/AQoiKGAMpKVMcCPLdGLas
-	POffXzU4Qd5/QINY6Hggxgq2xPdDSgbFgZIFtnDOAvUlaieBZWh8
-X-Gm-Gg: ASbGnct9K9zPDIeYHisYFTZpOUiVuUDPCOzsFE2Mdg0MMqoMDBo0A2D1Wy3/QXa0d+l
-	wxPB/+mo4ziIAn8VoK2HRFa5EPJ7mBn30sxtFlwruz1UHW7BZZ8cROTePkrns43Q0vsI8KgB0DR
-	dIZgtw0oI59cgY4/uyf64wR0Z1mgtQh0ZkbqMRQc6xMJYU2v8htqMrlhJexkhKGfx/6m8SlC58v
-	kJbss4j5SUx7bm4hT8QWt9yaZ3eMnTCAEp2S2lAx4oWiE57kpgoce9iBuAXPcop2dgX6cbQ8Qyd
-	+V1jexJZwqhXKJjY
-X-Google-Smtp-Source: AGHT+IEXTIp4yFfB4Q9w6fbdseD2o1pqfO5Hhy0H0j3RnKD3vdKl89OZk1qQra91sAFPJlTcnfVM6w==
-X-Received: by 2002:a05:622a:288:b0:476:8eb5:1669 with SMTP id d75a77b69052e-490f2d813f1mr47198331cf.32.1746524014995;
-        Tue, 06 May 2025 02:33:34 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-48b98721c43sm69901391cf.63.2025.05.06.02.33.33
+        d=1e100.net; s=20230601; t=1746526235; x=1747131035;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MDlCPukG676ZkXDqA7+irYPpUi8ypltoa/WLU7iYTZw=;
+        b=ZMguEJsO6HJOZ+SfJGTqefsjEY4AL3X6TrdA6M9ZznovWvmd+upnevT6mf4EfGCwoM
+         EToksw2WYHIBMPbuRsTuj3cer1Iru05BP83N7zcSCSA2Hly392j3Bx6jpsvWEh+Nh85s
+         yEE/TxjgbibwrG4Sjlyc1DNImU/+7qr2OdUoyujOVKU40fY5o6nBlY/jb+JP2K3YtQBw
+         WZXyVAWImihKS/LCblJOYCBbbYJgfxvqsEEGcUJNnQFw7EOA0e1/K6Dg3A9g4iqXacCb
+         qTwbbsiX7GiXgx4s0i5uIl5y6gvgsh2/nuQ5prHvIlEJ3AkkJ0oVCW8ezQ2V3log9hHm
+         61Xg==
+X-Forwarded-Encrypted: i=1; AJvYcCUucE8Hnqbd0eiq9XwvaXlWSbVN/2I/JPrcnlCsrTyaIFh6eiUY7ad1Qv+7hzy6UDPbiKH0AQgY6Nikew==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaDZQOLmIjEiGlt1S2Ftavu0nvEtIDAvYzPDc/69Uutmq7OS4u
+	9Sapvl0leRxPI1KqaOXaQ/cYwBBYiiyNs8Bm5azWl022xkYBppVobPnUN6KoDXA=
+X-Gm-Gg: ASbGncvuB5jDCyL0A7bUhIsz2DF/hmspFB2HyWs0UrLF+/uqkZ3ZO1J1h1xilvaXrvw
+	IGhnGIMv/5x3IqaEviTRpovDR2tLuJ8HHPnh8n5otyM83AYO/T3g1HVK1qJpjLYYrqm9bqMHao2
+	ZrnvyCZuDUtjkmxpX6p8qGk3QlG19j7JaqXqNw2dhhgx4rnKooHtgl1UVHCuqWMs0IHH7DbRZZn
+	JJ+xgq9RTMqTlA7SsjCSNsxwLA9IdPVpmx7FReLQEcOnZ3UvzekXwvS9vgzXc6YeSVIRZAKBQVZ
+	hVJkfwQF0gZrWRvh3PleOzAXEs67D8zL2gc/JibWAQq0sXPt
+X-Google-Smtp-Source: AGHT+IEUjKjGwlmMCjrKZvF7YuhMUsrs5D+dPoN1CPSaPd4oD3QBATAQzTQqUOqU1bgynoQlRYwsyA==
+X-Received: by 2002:a05:6000:144a:b0:3a0:9f28:2e53 with SMTP id ffacd0b85a97d-3a09f282ec4mr3244079f8f.0.1746526235363;
+        Tue, 06 May 2025 03:10:35 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:d5f0:7802:c94b:10f6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b89cc441sm166448565e9.3.2025.05.06.03.10.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 02:33:34 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Guo Ren <guoren@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Lothar Rubusch <l.rubusch@gmail.com>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Han Gao <rabenda.cn@gmail.com>
-Subject: [PATCH net-next 4/4] riscv: dts: sophgo: add ethernet GMAC device for sg2042
-Date: Tue,  6 May 2025 17:32:54 +0800
-Message-ID: <20250506093256.1107770-5-inochiama@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250506093256.1107770-1-inochiama@gmail.com>
-References: <20250506093256.1107770-1-inochiama@gmail.com>
-MIME-Version: 1.0
+        Tue, 06 May 2025 03:10:35 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 06 May 2025 12:10:34 +0200
+Message-Id: <D9OZVNOGLU4T.2XOUPX27HN0W8@ventanamicro.com>
+Subject: Re: [PATCH v15 05/27] riscv: usercfi state for task and
+ save/restore of CSR_SSP on trap entry/exit
+Cc: <linux-kernel@vger.kernel.org>, <linux-fsdevel@vger.kernel.org>,
+ <linux-mm@kvack.org>, <linux-riscv@lists.infradead.org>,
+ <devicetree@vger.kernel.org>, <linux-arch@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <alistair.francis@wdc.com>, <richard.henderson@linaro.org>,
+ <jim.shu@sifive.com>, <andybnac@gmail.com>, <kito.cheng@sifive.com>,
+ <charlie@rivosinc.com>, <atishp@rivosinc.com>, <evan@rivosinc.com>,
+ <cleger@rivosinc.com>, <alexghiti@rivosinc.com>, <samitolvanen@google.com>,
+ <broonie@kernel.org>, <rick.p.edgecombe@intel.com>,
+ <rust-for-linux@vger.kernel.org>, "Zong Li" <zong.li@sifive.com>,
+ "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+To: "Deepak Gupta" <debug@rivosinc.com>, "Thomas Gleixner"
+ <tglx@linutronix.de>, "Ingo Molnar" <mingo@redhat.com>, "Borislav Petkov"
+ <bp@alien8.de>, "Dave Hansen" <dave.hansen@linux.intel.com>,
+ <x86@kernel.org>, "H. Peter Anvin" <hpa@zytor.com>, "Andrew Morton"
+ <akpm@linux-foundation.org>, "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ "Vlastimil Babka" <vbabka@suse.cz>, "Lorenzo Stoakes"
+ <lorenzo.stoakes@oracle.com>, "Paul Walmsley" <paul.walmsley@sifive.com>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Conor Dooley" <conor@kernel.org>, "Rob Herring" <robh@kernel.org>,
+ "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Arnd Bergmann"
+ <arnd@arndb.de>, "Christian Brauner" <brauner@kernel.org>, "Peter Zijlstra"
+ <peterz@infradead.org>, "Oleg Nesterov" <oleg@redhat.com>, "Eric Biederman"
+ <ebiederm@xmission.com>, "Kees Cook" <kees@kernel.org>, "Jonathan Corbet"
+ <corbet@lwn.net>, "Shuah Khan" <shuah@kernel.org>, "Jann Horn"
+ <jannh@google.com>, "Conor Dooley" <conor+dt@kernel.org>, "Miguel Ojeda"
+ <ojeda@kernel.org>, "Alex Gaynor" <alex.gaynor@gmail.com>, "Boqun Feng"
+ <boqun.feng@gmail.com>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <benno.lossin@proton.me>, "Andreas Hindborg" <a.hindborg@kernel.org>,
+ "Alice Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250502-v5_user_cfi_series-v15-0-914966471885@rivosinc.com>
+ <20250502-v5_user_cfi_series-v15-5-914966471885@rivosinc.com>
+In-Reply-To: <20250502-v5_user_cfi_series-v15-5-914966471885@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_023336_227263_9FE722ED 
-X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-CacheID: sfid-20250506_031037_383841_9AD9FA04 
+X-CRM114-Status: UNSURE (   6.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -132,90 +128,39 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ethernet GMAC device node for the sg2042.
+[Ah, I missed v13 and v14, feel free to Cc me on next versions.]
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Tested-by: Han Gao <rabenda.cn@gmail.com>
----
- arch/riscv/boot/dts/sophgo/sg2042.dtsi | 62 ++++++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
+2025-05-02T16:30:36-07:00, Deepak Gupta <debug@rivosinc.com>:
+> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
+> @@ -91,6 +91,32 @@
+> +.macro save_userssp tmp, status
+> +	ALTERNATIVE("nops(4)",
+> +		__stringify(				\
+> +		andi \tmp, \status, SR_SPP;		\
+> +		bnez \tmp, skip_ssp_save;		\
+> +		csrrw \tmp, CSR_SSP, x0;		\
+> +		REG_S \tmp, TASK_TI_USER_SSP(tp);	\
+> +		skip_ssp_save:),
+> +		0,
+> +		RISCV_ISA_EXT_ZICFISS,
+> +		CONFIG_RISCV_USER_CFI)
+> +.endm
+> +
+> +.macro restore_userssp tmp
+> +	ALTERNATIVE("nops(2)",
+> +		__stringify(				\
+> +		REG_L \tmp, TASK_TI_USER_SSP(tp);	\
+> +		csrw CSR_SSP, \tmp),
+> +		0,
+> +		RISCV_ISA_EXT_ZICFISS,
+> +		CONFIG_RISCV_USER_CFI)
+> +.endm
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2042.dtsi b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-index f61de4788475..886c13cef6ba 100644
---- a/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2042.dtsi
-@@ -543,6 +543,68 @@ uart0: serial@7040000000 {
- 			status = "disabled";
- 		};
- 
-+		gmac0: ethernet@7040026000 {
-+			compatible = "sophgo,sg2042-dwmac", "snps,dwmac-5.00a";
-+			reg = <0x70 0x40026000 0x0 0x4000>;
-+			clocks = <&clkgen GATE_CLK_AXI_ETH0>,
-+				 <&clkgen GATE_CLK_PTP_REF_I_ETH0>,
-+				 <&clkgen GATE_CLK_TX_ETH0>;
-+			clock-names = "stmmaceth", "ptp_ref", "tx";
-+			dma-noncoherent;
-+			interrupt-parent = <&intc>;
-+			interrupts = <132 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			resets = <&rstgen RST_ETH0>;
-+			reset-names = "stmmaceth";
-+			snps,multicast-filter-bins = <0>;
-+			snps,perfect-filter-entries = <1>;
-+			snps,aal;
-+			snps,tso;
-+			snps,txpbl = <32>;
-+			snps,rxpbl = <32>;
-+			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-+			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-+			snps,axi-config = <&gmac0_stmmac_axi_setup>;
-+			status = "disabled";
-+
-+			mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			gmac0_mtl_rx_setup: rx-queues-config {
-+				snps,rx-queues-to-use = <8>;
-+				snps,rx-sched-wsp;
-+				queue0 {};
-+				queue1 {};
-+				queue2 {};
-+				queue3 {};
-+				queue4 {};
-+				queue5 {};
-+				queue6 {};
-+				queue7 {};
-+			};
-+
-+			gmac0_mtl_tx_setup: tx-queues-config {
-+				snps,tx-queues-to-use = <8>;
-+				queue0 {};
-+				queue1 {};
-+				queue2 {};
-+				queue3 {};
-+				queue4 {};
-+				queue5 {};
-+				queue6 {};
-+				queue7 {};
-+			};
-+
-+			gmac0_stmmac_axi_setup: stmmac-axi-config {
-+				snps,blen = <16 8 4 0 0 0 0>;
-+				snps,wr_osr_lmt = <1>;
-+				snps,rd_osr_lmt = <2>;
-+			};
-+		};
-+
- 		emmc: mmc@704002a000 {
- 			compatible = "sophgo,sg2042-dwcmshc";
- 			reg = <0x70 0x4002a000 0x0 0x1000>;
--- 
-2.49.0
+Do we need to emit the nops when CONFIG_RISCV_USER_CFI isn't selected?
 
+(Why not put #ifdef CONFIG_RISCV_USER_CFI around the ALTERNATIVES?)
+
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
