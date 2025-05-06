@@ -4,72 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D9DAC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 20:09:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC7FC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 20:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QYolpZ+P9fD3DA78y6sVQe3DMJUeoqKB5GJ2+vhfgo8=; b=FkT6RQGKjEAyD+a/idt8kQbJXV
-	veRY33WVcQb7PAkt3kOhh29fDfyzt2rqe88eEMbRfZMjNC3wrd7t8VfPscHMXD3fz7SK8jUWCO2II
-	o+WQazHxBm2XS4JeWtzZ5SIayU1KyCB4L/Hy9a5Rj0gC/hEIEbZvjuMfqArA3GIbP0eNpRlTlP1m+
-	Da2vr0mU3rX39G9s0QJGIihXQsvm7RrUx361qmcYhs+qY7txOxQ8jRbA/ZleKq5YCe370/sbieJJZ
-	f5bgdnvuv50c1Dz2bL6Kay0uL/oJzoHPAubU4Cp4N3Glcy3ifubFY53ARU8jRzwo4SJvzTDuNsdJa
-	Arx50xgA==;
+	bh=TPBchwZlp3wsFUrOvPwZu+pV2bjLUqspUUhZ09XTPlo=; b=mZxkRn8MKsw+ZM6yhBmrvNsUsd
+	tRoqQUtA4ekzBnwOeOe9DKcsLLtZuDv0ZCl3eUgMIUfk9s1DX2YTvmZGJD2QnIUG83ZE13zEre9Rw
+	UQIaRXNauv0mDpsOG4JVJcBXpC3qSpIdmkHCDThYzIiOwZgRL/KrrjWSMxjGbXgu/XtXuDjSZdCVw
+	mgq4jQIGN7xRFHgJ+p+FLn+lWWd4Qom5Kw3sROdMfDRhh00rtcQYNjeNqnBovnYjdQUjltkOsQxl5
+	Vzo+9zHCBx3+kJ7lMVLxsT1g4tf/fFVIM/YRIL+Ne/NFS97HEuDKa5mDOq3X3yEfTKQJD+HNu51Sn
+	Trjs7/oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCObF-0000000DKWO-1No6;
-	Tue, 06 May 2025 20:09:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCOf8-0000000DL0Q-1WRt;
+	Tue, 06 May 2025 20:13:10 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCL2C-0000000CeS9-2lM1
+	id 1uCL4p-0000000CesJ-2iVT
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 16:20:45 +0000
+	Tue, 06 May 2025 16:23:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BD8C8A4D659;
-	Tue,  6 May 2025 16:20:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B872C4CEE4;
-	Tue,  6 May 2025 16:20:39 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id AB356A4D6AC;
+	Tue,  6 May 2025 16:23:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 884F4C4CEE4;
+	Tue,  6 May 2025 16:23:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746548443;
-	bh=ffcpxlWjSEshf5NcicDlb/m67mTvD/u3Mouc4HHrfXk=;
+	s=k20201202; t=1746548606;
+	bh=dq9ErICKWqQf/JE8a2nlljpBO2Y+xrl7KL21aVj/qC0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JqOu6pB8m+qYaRr1P2LXzSuy0Tn8Oo30S+afmUZDcTkselexJTLXbirWpS+nRdrVl
-	 es407zMXNM7gbLi3ookAni5E2KNB4W0AkTPIghN0K3PXDaab4dzjfeZNVatuKQvOpu
-	 Cwbhm0bEr6q9f7dfxgde8iscwE546fd0P3LJtA0FZAPcCeX/oidwqnWzFP0RJqZkM4
-	 KSQDzgRepikagtYEmT2R21rz9PCMXkEvtceCsX2zgmw00rQzfljyG3OWucHTVlQAyk
-	 WDi720Vc+1bdTkvHH5MQyLO3A9nq/6HM3nqKam4dV52aYhV8Vy3E2YENIoXZ1P4dBR
-	 9GnagFPZwYEBQ==
-Date: Tue, 6 May 2025 17:20:37 +0100
+	b=tUREuewadKW9lDi6wOx2CWKLa3EhWk2XQynw6eI2YnuLDJ9UkxSVBqm+VqGd2Y/TN
+	 Ohu9WOnn9sw+i1AXY5VTb47VqQO9OEh3oftDfCwuHce117K563LMCwnwWKman3cXNv
+	 it92xpu6KyeoVHk9jwomQjbh+edCHMbsJMXGaFKzVW9CWQ/sRXaJJV/DBnLgpjxWDS
+	 Uo8kKKXsrfSYtr6bOuAVsdLXk2LxXjqEcKIMmMvcb59DmAcIlUC5za0NCQw7SVnw/C
+	 lT9gWGCrzFA9nZrio0GWZs3iJhLDJaCMMKcHmRIW4Q1I8AVLuA8qxvDuOAcXHledF4
+	 m0tmJxWbMxCzA==
+Date: Tue, 6 May 2025 17:23:21 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v2 1/3] dt-bindings: clock: sophgo: Use precise
- compatible for CV1800 series SoC
-Message-ID: <20250506-rhyme-gangway-023d58f1488a@spud>
-References: <20250504104553.1447819-1-inochiama@gmail.com>
- <20250504104553.1447819-2-inochiama@gmail.com>
+To: Ben Zong-You Xie <ben717@andestech.com>
+Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	tglx@linutronix.de, daniel.lezcano@linaro.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com
+Subject: Re: [PATCH v2 6/9] dt-bindings: cache: ax45mp-cache: allow variable
+ cache-sets for Andes L2 cache
+Message-ID: <20250506-clammy-punctuate-6cb07dd0e81e@spud>
+References: <20250503151829.605006-1-ben717@andestech.com>
+ <20250503151829.605006-7-ben717@andestech.com>
 MIME-Version: 1.0
-In-Reply-To: <20250504104553.1447819-2-inochiama@gmail.com>
+In-Reply-To: <20250503151829.605006-7-ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_092044_766476_82A5310F 
-X-CRM114-Status: GOOD (  10.35  )
+X-CRM114-CacheID: sfid-20250506_092327_758294_76ED149F 
+X-CRM114-Status: UNSURE (   9.27  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,50 +73,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4658102761986612561=="
+Content-Type: multipart/mixed; boundary="===============6731962880950205504=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============4658102761986612561==
+--===============6731962880950205504==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="J7ij7iB+WCTcP2Yg"
+	protocol="application/pgp-signature"; boundary="5IEHagUulufTAK40"
 Content-Disposition: inline
 
 
---J7ij7iB+WCTcP2Yg
+--5IEHagUulufTAK40
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, May 04, 2025 at 06:45:50PM +0800, Inochi Amaoto wrote:
-> As previous binding uses a wildcard compatible for existed clock device
-> of CV1800 series SoC, it is not suitable for existed requirement. The
-> only exception is sophgo,sg2000-clk, it does match a real device, so
-> keep it as is.
+On Sat, May 03, 2025 at 11:18:26PM +0800, Ben Zong-You Xie wrote:
+> The current device tree binding for the Andes AX45MP L2 cache enforces
+> a fixed number of cache-sets (1024). However, there are 2048 cache-sets in
+> the QiLai SoC. This change allows both 1024 and 2048 as valid values for
+> "cache-sets".
 >=20
-> Add new precise compatible for existed clock devices of CV1800 series
-> SoCs and make old wildcard compatible deprecated.
->=20
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+> Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Applied, thanks.
 
---J7ij7iB+WCTcP2Yg
+--5IEHagUulufTAK40
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo21QAKCRB4tDGHoIJi
-0otGAQCWZraHz/cRq5N3eF/1QZha/fa65MJtkglr3lJkKPPA2gEAsZX+9TUKCii9
-XXKXZikRNTV4EP7DGbVw8OT8lQ4HyQg=
-=ueEX
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo3eQAKCRB4tDGHoIJi
+0vNRAP9KmSdGwei5bWarXurTygTvCcNE5W3uyNAoqvI15vlJ8QD/TDxmc+ZcEQnG
+Vecgy8nqGVt4RibG2dtkq2a4zI07pQg=
+=FvUY
 -----END PGP SIGNATURE-----
 
---J7ij7iB+WCTcP2Yg--
+--5IEHagUulufTAK40--
 
 
---===============4658102761986612561==
+--===============6731962880950205504==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -135,5 +125,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============4658102761986612561==--
+--===============6731962880950205504==--
 
