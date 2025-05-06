@@ -4,104 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 031F5C3ABBE
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 23:52:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BAEC3ABC7
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=TLFYgDCCNhKVnhYA9T6bscVuueBv72XDNuXMme43sQ4=; b=rC83AWCgAlacmi
-	CSgVblwU3em6TNrere6rYtCGbUj3/mWQyeIAEewVbxCIMuh6DXrUA7AnclRhiMtmVCVG3tX8BaxHY
-	39cLeY9tXtOttFLSjEcdQBecGShRFI9galu9zbb9SB9Cbu79BamBUuNgWuqp0Q7vS3LTHviqb4X1+
-	yaoh/u1dMNu0o0MzRR0NUszDBJrP5sp39UwY7zWfDb7LcFDDKgOEEqUW/pgxXkZxD53NJoeITPfm1
-	nVciJssAfLwbocv5T9iXL7NjpI93tKUDAon3Ik7he+kLF5yzBSfxkJKpRowRUQImN98VF16h00O2K
-	rD/plKJAOEW8V8jDb7Jw==;
+	List-Owner; bh=/uX+kfxiXKWrs7hqPGCzXSVMKpEItvvO39D8YV7GwQo=; b=E6rMl9GJc5Ru+6
+	WgzRpxkhRbQvb3foD9BRMrZt9s7gOKhWJ3xBcI8oUhgaQjquhLnPAqztbRHdim/lb2Qlx9t+Qr2vm
+	/DVf6XRk09VJbeDPtHLjTkN8zzzetGuecAwSegmnajFWS3v0Ty79Ov1N45hn9pvJEHM6tPkzzngiv
+	l3wqJFQK/RPy2ZTlYq3fDUwU6kBdsl/rskK2p349PrqQfkHDbOLu03ghuhKft5mmuuPn1XLSqDhL8
+	GQc02v54RU/CqbdHwABr5CvOvz6cALTNY2aelapzOJROrXYm0osX/1k6ePIemE+/P/iTW3+toPqWt
+	GCmaxmpy1WaFPpMuXYDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCS4u-0000000DkIB-3GHX;
-	Tue, 06 May 2025 23:52:00 +0000
-Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
+	id 1uCUah-0000000Duid-2NUM;
+	Wed, 07 May 2025 02:32:59 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOI0-0000000DGrp-1RYw;
-	Tue, 06 May 2025 19:49:17 +0000
-Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-736b0c68092so5375570b3a.0;
-        Tue, 06 May 2025 12:49:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746560955; x=1747165755; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=dZ5089g5fcxDtK8RW4HG6ld5BJ4Ih76RBmbnYmG1YBs=;
-        b=CYxWC+j72IQIiLM2itGXEqO+8556JJxFwXNMfdGJA8C8ckL4TER+64K+ep+XfKWhP6
-         /msNTgZPoBXyWNL55GrezDxu0TV2/47BsgQ+/CaFC6lriH+NnasRlRsFCee6tv+FmJWE
-         A/6a1kTmxLR+3dQYaHorBK+e5SrH++xJly/6dbmz1kOLD3EknqAJLrJvRNdhhwibMvvC
-         Lys4RE2a5FIMF9bR6sb0tRGWxNUg6ciz5JIUVDYdZp/+OiPVNzznzfjJ/juWyxYsx5da
-         E0kjelfXv+s8rjBNkkrC0E950hXOfYyf980QvGo1Og1RXp+AAJhRjzfhW+3BG7UWunb5
-         x7NA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746560955; x=1747165755;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=dZ5089g5fcxDtK8RW4HG6ld5BJ4Ih76RBmbnYmG1YBs=;
-        b=BKm9fdNec8/5+3wxR3MElEMM/nv3gFMOLPN/DHvRb1NjqghQ2XZ3gr1Ltt8AAfyjAr
-         3+B/QmMXRF5rV3Qd9HzTFjzyyeg+MtwoYv2lCNhYit+D26FV9qwwzhZTs4oKxMty56L/
-         nb3fa6O787UZ9xV7ApKfdglixANjXuIBHuXO8zfKZ3goCpQEzcQ1PMyPjgpkYB/JJ0BG
-         0zNpckNJmXVbM8cugR26cEvm0uxtOhfMX5BeMMzxbIcd+Lnf/DzyPZAjV/MpWv9jV8xI
-         vG+LVzbyfBnAIUUZFNzkFk+O0IKAyrPmDMvj+hviwuYqqNMEV/zlI4tN68/U53h7WbBr
-         PG3g==
-X-Forwarded-Encrypted: i=1; AJvYcCUdhwP5PodlkD5L5iuQB3VEfRCncl7Stwn/DiZtDc/AteZb0UdD2gayMtofiZp9lvb77UWGqGHr4oXKDryyp7AA@lists.infradead.org, AJvYcCVKDL9PyZIUVCR9m+AmrtIJm1JOpdYvF99MheeBTzD92Fa9kb4iZX5oGffZGH1Er131ArjGbckKvMX1gJ4=@lists.infradead.org, AJvYcCXvbiwW0aoqD3fUX83KhbnyaX19kmfihJsa3lAoosddfL+VHByQx6kkOuAA/yLKGSWy37jvmxTeejlAKSJ5Uhk=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYXNBV+y0ILdewzKhA7r8KosxBVrCQIc0STMUmN9OfBGyqLBa7
-	Vew43hT2gig1Ena1nq59Q5UPCxvudQYoCYbRiAgW5rQ2Qm3YW2ye6qSWp41t
-X-Gm-Gg: ASbGncujbvY87l1ydaPtMM7066B/vd4IqCvE75MRM87jlpVVDcXL6z3XdyuqV+pllfp
-	OEyRBzoQC7EXaRhHReQeimELg6e6ThZiGJh0KiKdGAxcvRLtjt7pDfTV1gyLnquVco2KQ7gWq7v
-	SgzUr/3bio02/DpfW1/wlDtRa2X9kO8D8JStCFUQk7pCE5U17g2T2dLneOo1+LVlo+t7D5WTaqb
-	OOJg6pWkhlZ/f6EMuq0kqzOB3/1zPu/fGIWQlUhY88wrF9lc+rMOSLL6MKH3FbtDjY/e9W51KkC
-	lyJoIFY2T6PJyaHoWo1r0dPRr2ytEhbt/x8SNnhCFoXinhGMVdoZ
-X-Google-Smtp-Source: AGHT+IF5NliMgAkD005uOw+1owSmpP0uGKxfxNXpPz2R7hfi06C85Yyah/G4yQkzTWZpYJUeU1a68w==
-X-Received: by 2002:a05:6a20:6f87:b0:203:c461:dd36 with SMTP id adf61e73a8af0-2148b113868mr730085637.6.1746560954804;
-        Tue, 06 May 2025 12:49:14 -0700 (PDT)
-Received: from localhost.localdomain ([104.28.249.218])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74058d7a473sm9686059b3a.18.2025.05.06.12.49.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 12:49:14 -0700 (PDT)
-From: Jesung Yang <y.j3ms.n@gmail.com>
-To: Jonathan Corbet <corbet@lwn.net>
-Cc: Vineet Gupta <vgupta@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Guo Ren <guoren@kernel.org>,
-	Brian Cain <bcain@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>,
-	Dinh Nguyen <dinguyen@kernel.org>,
-	Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
+	id 1uCOjr-0000000DM6p-2D7K
+	for linux-riscv@lists.infradead.org;
+	Tue, 06 May 2025 20:18:05 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1746562680;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JL3KJECzkhV/qvzTbpNQakf8HDmxnrdG6VFLv0G/Yhs=;
+	b=aUkU0EFpALSvYtaPELyXgLD9eiLYltdKXUYsXtn2Hjj7y0cBwyrAqj6CQw/W95tk30NxFA
+	3fY4DzE3PgVUTsUjJI8Wc6EuBZit4uZAdohzfaY4asalDv+2Orx6W44OW9qs/XxXRyPCa/
+	Gq9NwHkfTtdyx9mfAJQJJ0pf2xIveuz7lgYsWSm5Jz4Q0FUVPYB+BtHz5ddOJx5XdaYPtt
+	uTQYChI2SMNI5vIy5toFVg+uSB0kpA/V6DykHegnQp1NHMGAkuNXFNfjF7/AAcd5zU+Raa
+	5BlkmvonCVHpQCmgTReoGtUaH6CtTCPm/T7bel1tLvsSPFkVPtmR9qRKvJSkXQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1746562680;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=JL3KJECzkhV/qvzTbpNQakf8HDmxnrdG6VFLv0G/Yhs=;
+	b=ISTqBmHfkw0nuQ6Ti7cf04Qt+m5Hevz5/81ZA22DDowMHZgue8Ig2w2rnbpc0FfAs420BP
+	Blzxi4Q1mmyZgTDQ==
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	stable@vger.kernel.org
+Cc: Kai Zhang <zhangkai@iscas.ac.cn>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-snps-arc@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-csky@vger.kernel.org,
-	linux-hexagon@vger.kernel.org,
-	loongarch@lists.linux.dev,
-	linux-openrisc@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	workflows@vger.kernel.org,
-	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Jesung Yang <y.j3ms.n@gmail.com>
-Subject: [PATCH] docs: align with scripts/syscall.tbl migration
-Date: Wed,  7 May 2025 04:48:41 +0900
-Message-ID: <20250506194841.1567737-1-y.j3ms.n@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Samuel Holland <samuel.holland@sifive.com>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Palmer Dabbelt <palmer@rivosinc.com>,
+	Nam Cao <namcao@linutronix.de>
+Subject: [PATCH stable v6.6] riscv: Pass patch_text() the length in bytes
+Date: Tue,  6 May 2025 22:17:52 +0200
+Message-Id: <20250506201752.1915639-1-namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_124916_391603_9C6F3D08 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250506_131803_846882_EBA1814D 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,346 +79,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Update the documentation to reflect the migration of the following
-architectures to the centralized syscall table format:
-
-  arc, arm64, csky, hexagon, loongarch, nios2, openrisc, riscv
-
-As of commit 3db80c999debbad ("riscv: convert to generic syscall table"),
-these architectures no longer rely on include/uapi/asm-generic/unistd.h.
-Instead, syscall table headers (syscall_table_{32,64}.h) are generated by
-scripts/syscalltbl.sh based on entries in scripts/syscall.tbl, with ABIs
-specified in arch/*/kernel/Makefile.syscalls.
-
-For the convenience of developers working with older kernel versions, the
-original documentation is fully retained, with new sections added to
-cover the scripts/syscall.tbl approach.
-
-Verified with `make htmldocs`.
-
-Signed-off-by: Jesung Yang <y.j3ms.n@gmail.com>
-Link: https://lore.kernel.org/lkml/20240704143611.2979589-1-arnd@kernel.org
----
-
-I have tested all the listed architectures except hexagon and nios2.
-
-Hexagon was skipped because no system-level emulator appears to be
-available.
-
-For nios2, QEMU removed support for both user and system emulation as of
-version 9.1. With older versions (9.0.4 and 5.2.0), the kernel appears to
-boot but gets stuck alternating between `get_cycles` and `__const_udelay`
-during execution. Additionally, I could not find sufficient documentation
-to enable runtime testing for nios2.
-
-Any guidance on how to proceed with testing for hexagon or nios2 would be
-appreciated.
-
-Testing Summary:
-
-- Linux kernel: 6.15.0-rc4-next-20250501
-- System call number: 468
-- System call name: xyzzy
-- System call implementation:
-    SYSCALL_DEFINE1(xyzzy, u64, d)
-    {
-    	printk("Hi, SYSCALL_DEFINE1\n");
-    	return d;
-    }
-
-    COMPAT_SYSCALL_DEFINE2(xyzzy, compat_arg_u64_dual(d))
-    {
-    	printk("Hi, COMPAT_SYSCALL_DEFINE2\n");
-    	return compat_arg_u64_glue(d);
-    }
-- Test userspace program:
-    #include <unistd.h>
-    int main(void) {
-        long r = syscall(468, 17, 39);
-        return 0;
-    }
-
-Each architecture was tested using the following steps:
-  - Add the following entry to scripts/syscall.tbl:
-      468	common	xyzzy			sys_xyzzy		compat_sys_xyzzy
-  - Compile the kernel with the new syscall implementation
-  - Verify that arch/*/include/generated/uapi/asm/unistd_*.h contains:
-      #define __NR_xyzzy 468
-  - Verify that arch/*/include/generated/asm/syscall_table_*.h contains:
-      __SYSCALL_WITH_COMPAT(468, sys_xyzzy, compat_sys_xyzzy)
-  - Boot the kernel under QEMU
-  - Invoke sys_xyzzy() using the test program
-
-Detailed Results:
-
-1. arc
-  - Kernel config: haps_hs_defconfig
-  - QEMU target: qemu-system-arc -M virt -cpu archs
-    - Src: https://github.com/foss-for-synopsys-dwc-arc-processors/qemu
-    - Commit hash: 76e0fa9053b4184a29c9077959d484047eefe521
-    - Version: 7.0.0
-  - Result:
-    - The following files were correctly generated
-      - arch/arc/include/generated/asm/syscall_table_32.h
-      - arch/arc/include/generated/uapi/asm/unistd_32.h
-    - The system call was successfully invoked with output:
-        "Hi, SYSCALL_DEFINE1\n"
-    - The above output is expected due to a macro override in
-      arch/arc/kernel/sys.c:
-        #define __SYSCALL_WITH_COMPAT(nr, native, compat) \
-                __SYSCALL(nr, native)
-  - Notes:
-    - Modified arch/arc/Makefile:
-        - tune-mcpu-def-$(CONFIG_ISA_ARCV2)	:= -mcpu=hs38
-        + tune-mcpu-def-$(CONFIG_ISA_ARCV2)	:= -mcpu=archs
-
-2. arm64
-  - Kernel config: defconfig
-  - QEMU target: qemu-system-aarch64 -M virt -cpu cortex-a53
-    - Src: https://github.com/qemu/qemu
-    - Commit hash: a17976b04f2117e1bab64358f873b36fe4561520
-    - Version: 9.0.4
-  - Result:
-    - The following files were correctly generated
-      - arch/arm64/include/generated/asm/syscall_table_32.h
-      - arch/arm64/include/generated/asm/syscall_table_64.h
-      - arch/arm64/include/generated/asm/unistd_32.h
-      - arch/arm64/include/generated/asm/unistd_compat_32.h
-        - contains #define __NR_compat32_xyzzy 468
-      - arch/arm64/include/generated/uapi/asm/unistd_64.h
-    - 32-bit userspace process successfully invoked the system call with
-      output:
-        "Hi, COMPAT_SYSCALL_DEFINE2\n"
-    - 64-bit userspace process successfully invoked the system call with
-      output:
-        "Hi, SYSCALL_DEFINE1\n"
-
-3. csky
-  - Kernel config: defconfig
-  - QEMU target: qemu-system-cskyv2 -M virt -cpu ck807
-    - Src: https://github.com/XUANTIE-RV/qemu/tree/xuantie-qemu-9.0
-    - Commit hash: e0ace167effcd36d1f82c7ccb4522b3126011479
-    - Version: 8.2.94
-  - Result:
-    - The following files were correctly generated
-      - arch/csky/include/generated/asm/syscall_table_32.h
-      - arch/csky/include/generated/uapi/asm/unistd_32.h
-    - The system call was successfully invoked with output:
-        "Hi, SYSCALL_DEFINE1\n"
-    - The above output is expected due to a macro override in
-      arch/csky/kernel/syscall_table.c:
-        #define __SYSCALL_WITH_COMPAT(nr, native, compat) \
-                __SYSCALL(nr, native)
-
-4. hexagon
-  - Kernel config: defconfig
-  - QEMU target: N/A
-  - Result:
-    - The following files were correctly generated
-      - arch/hexagon/include/generated/asm/syscall_table_32.h
-      - arch/hexagon/include/generated/uapi/asm/unistd_32.h
-
-5. loongarch
-  - Kernel config: loongson3_defconfig
-  - QEMU target: qemu-system-loongarch64 -machine virt -cpu la464
-    - Src: https://github.com/qemu/qemu
-    - Commit hash: a17976b04f2117e1bab64358f873b36fe4561520
-    - Version: 9.0.4
-  - Result:
-    - The following files were correctly generated
-      - arch/loongarch/include/generated/asm/syscall_table_64.h
-      - arch/loongarch/include/generated/uapi/asm/unistd_64.h
-    - The system call was successfully invoked with output:
-        "Hi, SYSCALL_DEFINE1\n"
-    - The above output is expected due to a macro override in
-      arch/loongarch/kernel/syscall.c:
-        #define __SYSCALL_WITH_COMPAT(nr, native, compat) \
-                __SYSCALL(nr, native)
-
-6. nios2
-  - Kernel config: 10m50_defconfig
-  - QEMU target: qemu-system-nios2 -machine 10m50-ghrd
-    - Src: https://github.com/qemu/qemu
-    - Commit hash (9.0.4): a17976b04f2117e1bab64358f873b36fe4561520
-    - Commit hash (5.2.0): 553032db17440f8de011390e5a1cfddd13751b0b
-    - Version: 9.0.4, 5.2.0
-  - Result:
-    - The following files were correctly generated
-      - arch/nios2/include/generated/asm/syscall_table_32.h
-      - arch/nios2/include/generated/uapi/asm/unistd_32.h
-
-7. openrisc
-  - Kernel config: virt_defconfig
-  - QEMU target: qemu-system-or1k -machine virt -cpu or1200
-    - Src: https://github.com/qemu/qemu
-    - Commit hash: a17976b04f2117e1bab64358f873b36fe4561520
-    - Version: 9.0.4
-  - Result:
-    - The following files were correctly generated
-      - arch/openrisc/include/generated/asm/syscall_table_32.h
-      - arch/openrisc/include/generated/uapi/asm/unistd_32.h
-    - The system call was successfully invoked with output:
-        "Hi, SYSCALL_DEFINE1\n"
-    - The above output is expected due to a macro override in
-      arch/openrisc/kernel/sys_call_table.c:
-        #define __SYSCALL_WITH_COMPAT(nr, native, compat) \
-                __SYSCALL(nr, native)
-
-8. riscv (32-bit)
-  - Kernel config: defconfig + 32-bit.config
-  - QEMU target: qemu-system-riscv32 -M virt -cpu rv32
-    - Src: https://github.com/qemu/qemu
-    - Commit hash: a17976b04f2117e1bab64358f873b36fe4561520
-    - Version: 9.0.4
-  - Result:
-    - The following files were correctly generated
-      - arch/riscv/include/generated/asm/syscall_table_32.h
-      - arch/riscv/include/generated/uapi/asm/unistd_32.h
-    - The system call was successfully invoked with output:
-        "Hi, SYSCALL_DEFINE1\n"
-    - The above output is expected due to a macro override in
-      arch/riscv/kernel/syscall_table.c:
-        #define __SYSCALL_WITH_COMPAT(nr, native, compat) \
-                __SYSCALL(nr, native)
-
-9. riscv (64-bit)
-  - Kernel config: defconfig + 64-bit.config
-  - QEMU target: qemu-system-riscv64 -M virt -cpu rv64
-    - Src: https://github.com/qemu/qemu
-    - Commit hash: a17976b04f2117e1bab64358f873b36fe4561520
-    - Version: 9.0.4
-  - Result:
-    - The following files were correctly generated
-      - arch/riscv/include/generated/asm/syscall_table_32.h
-      - arch/riscv/include/generated/asm/syscall_table_64.h
-      - arch/riscv/include/generated/uapi/asm/unistd_32.h
-      - arch/riscv/include/generated/uapi/asm/unistd_64.h
-    - 32-bit userspace process successfully invoked the system call with
-      output:
-        "Hi, COMPAT_SYSCALL_DEFINE2\n"
-    - 64-bit userspace process successfully invoked the system call with
-      output:
-        "Hi, SYSCALL_DEFINE1\n"
-
- Documentation/process/adding-syscalls.rst | 84 +++++++++++++++++++++++
- 1 file changed, 84 insertions(+)
-
-diff --git a/Documentation/process/adding-syscalls.rst b/Documentation/process/adding-syscalls.rst
-index 906c47f1a9e5..fc0b0bbcd34d 100644
---- a/Documentation/process/adding-syscalls.rst
-+++ b/Documentation/process/adding-syscalls.rst
-@@ -248,6 +248,52 @@ To summarize, you need a commit that includes:
-  - fallback stub in ``kernel/sys_ni.c``
- 
- 
-+.. _syscall_generic_6_11:
-+
-+Since 6.11
-+~~~~~~~~~~
-+
-+Starting with kernel version 6.11, general system call implementation for the
-+following architectures no longer requires modifications to
-+``include/uapi/asm-generic/unistd.h``:
-+
-+ - arc
-+ - arm64
-+ - csky
-+ - hexagon
-+ - loongarch
-+ - nios2
-+ - openrisc
-+ - riscv
-+
-+Instead, you need to update ``scripts/syscall.tbl`` and, if applicable, adjust
-+``arch/*/kernel/Makefile.syscalls``.
-+
-+As ``scripts/syscall.tbl`` serves as a common syscall table across multiple
-+architectures, a new entry is required in this table::
-+
-+    468   common   xyzzy     sys_xyzzy
-+
-+Note that adding an entry to ``scripts/syscall.tbl`` with the "common" ABI
-+also affects all architectures that share this table. For more limited or
-+architecture-specific changes, consider using an architecture-specific ABI or
-+defining a new one.
-+
-+If a new ABI, say ``xyz``, is introduced, the corresponding updates should be
-+made to ``arch/*/kernel/Makefile.syscalls`` as well::
-+
-+    syscall_abis_{32,64} += xyz (...)
-+
-+To summarize, you need a commit that includes:
-+
-+ - ``CONFIG`` option for the new function, normally in ``init/Kconfig``
-+ - ``SYSCALL_DEFINEn(xyzzy, ...)`` for the entry point
-+ - corresponding prototype in ``include/linux/syscalls.h``
-+ - new entry in ``scripts/syscall.tbl``
-+ - (if needed) Makefile updates in ``arch/*/kernel/Makefile.syscalls``
-+ - fallback stub in ``kernel/sys_ni.c``
-+
-+
- x86 System Call Implementation
- ------------------------------
- 
-@@ -353,6 +399,41 @@ To summarize, you need:
-    ``include/uapi/asm-generic/unistd.h``
- 
- 
-+Since 6.11
-+~~~~~~~~~~
-+
-+This applies to all the architectures listed in :ref:`Since 6.11<syscall_generic_6_11>`
-+under "Generic System Call Implementation", except arm64. See
-+:ref:`Compatibility System Calls (arm64)<compat_arm64>` for more information.
-+
-+You need to extend the entry in ``scripts/syscall.tbl`` with an extra column
-+to indicate that a 32-bit userspace program running on a 64-bit kernel should
-+hit the compat entry point::
-+
-+    468   common     xyzzy     sys_xyzzy    compat_sys_xyzzy
-+
-+To summarize, you need:
-+
-+ - ``COMPAT_SYSCALL_DEFINEn(xyzzy, ...)`` for the compat entry point
-+ - corresponding prototype in ``include/linux/compat.h``
-+ - modification of the entry in ``scripts/syscall.tbl`` to include an extra
-+   "compat" column
-+ - (if needed) 32-bit mapping struct in ``include/linux/compat.h``
-+
-+
-+.. _compat_arm64:
-+
-+Compatibility System Calls (arm64)
-+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-+
-+On arm64, there is a dedicated syscall table for compatibility system calls
-+targeting 32-bit (AArch32) userspace: ``arch/arm64/tools/syscall_32.tbl``.
-+You need to add an additional line to this table specifying the compat
-+entry point::
-+
-+    468   common     xyzzy     sys_xyzzy    compat_sys_xyzzy
-+
-+
- Compatibility System Calls (x86)
- --------------------------------
- 
-@@ -575,3 +656,6 @@ References and Sources
-  - Recommendation from Linus Torvalds that x32 system calls should prefer
-    compatibility with 64-bit versions rather than 32-bit versions:
-    https://lore.kernel.org/r/CA+55aFxfmwfB7jbbrXxa=K7VBYPfAvmu3XOkGrLbB1UFjX1+Ew@mail.gmail.com
-+ - Patch series revising system call table infrastructure to use
-+   scripts/syscall.tbl across multiple architectures:
-+   https://lore.kernel.org/lkml/20240704143611.2979589-1-arnd@kernel.org
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+RnJvbTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+CgpbIFVwc3Ry
+ZWFtIGNvbW1pdCA1MTc4MWNlOGY0NDg2YzM3MzhhNmM4NTE3NWI1OTlhZDFiZTcxZjg5IF0KCnBh
+dGNoX3RleHRfbm9zeW5jKCkgYWxyZWFkeSBoYW5kbGVzIGFuIGFyYml0cmFyeSBsZW5ndGggb2Yg
+Y29kZSwgc28gdGhpcwpyZW1vdmVzIGEgc3VwZXJmbHVvdXMgbG9vcCBhbmQgcmVkdWNlcyB0aGUg
+bnVtYmVyIG9mIGljYWNoZSBmbHVzaGVzLgoKUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJq
+b3JuQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5o
+b2xsYW5kQHNpZml2ZS5jb20+ClJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xl
+eUBtaWNyb2NoaXAuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjQwMzI3
+MTYwNTIwLjc5MTMyMi02LXNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20KU2lnbmVkLW9mZi1ieTog
+UGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClthcHBseSB0byB2Ni42XQpTaWdu
+ZWQtb2ZmLWJ5OiBOYW0gQ2FvIDxuYW1jYW9AbGludXRyb25peC5kZT4KLS0tCnRoaXMgcGF0Y2gg
+Zml4ZXMgYSBidWcgaW50cm9kdWNlZCBieSBjb21taXQgYjE3NTY3NTBhMzk3ICgicmlzY3Y6IGtw
+cm9iZXM6IFVzZQpwYXRjaF90ZXh0X25vc3luYygpIGZvciBpbnNuIHNsb3RzIiksIHdoaWNoIHJl
+cGxhY2VkIHBhdGNoX3RleHQoKSB3aXRoCnBhdGNoX3RleHRfbm9zeW5jKCkuIFRoYXQgaXMgYnJv
+a2VuLCBiZWNhdXNlIHBhdGNoX3RleHQoKSBhbmQKcGF0Y2hfdGV4dF9ub3N5bmMoKSB0YWtlcyBk
+aWZmZXJlbnQgcGFyYW1ldGVycyAobnVtYmVyIG9mIGluc3RydWN0aW9uIHZzCnBhdGNoZWQgbGVu
+Z3RoIGluIGJ5dGVzKS4KClRoaXMgYnVnIHdhcyByZXBvcnRlZCBpbjoKaHR0cHM6Ly9sb3JlLmtl
+cm5lbC5vcmcvc3RhYmxlL2M3ZTQ2M2MwLThjYWQtNGY0ZS1hZGRkLTE5NWMwNmI3YjZkZUBpc2Nh
+cy5hYy5jbi8KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhdGNoLmggICAgIHwgIDIgKy0K
+IGFyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMgICAgICAgICAgfCAxNCArKysrKy0tLS0tLS0tLQog
+YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyB8IDE4ICsrKysrKysrKystLS0tLS0t
+LQogYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyAgICB8ICA3ICsrKystLS0KIDQgZmls
+ZXMgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKSwgMjEgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0
+IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYXRjaC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9wYXRjaC5oCmluZGV4IDlmNWQ2ZTE0YzQwNS4uNzIyOGUyNjZiOWExIDEwMDY0NAotLS0gYS9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhdGNoLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
+bS9wYXRjaC5oCkBAIC05LDcgKzksNyBAQAogaW50IHBhdGNoX2luc25fd3JpdGUodm9pZCAqYWRk
+ciwgY29uc3Qgdm9pZCAqaW5zbiwgc2l6ZV90IGxlbik7CiBpbnQgcGF0Y2hfdGV4dF9ub3N5bmMo
+dm9pZCAqYWRkciwgY29uc3Qgdm9pZCAqaW5zbnMsIHNpemVfdCBsZW4pOwogaW50IHBhdGNoX3Rl
+eHRfc2V0X25vc3luYyh2b2lkICphZGRyLCB1OCBjLCBzaXplX3QgbGVuKTsKLWludCBwYXRjaF90
+ZXh0KHZvaWQgKmFkZHIsIHUzMiAqaW5zbnMsIGludCBuaW5zbnMpOworaW50IHBhdGNoX3RleHQo
+dm9pZCAqYWRkciwgdTMyICppbnNucywgc2l6ZV90IGxlbik7CiAKIGV4dGVybiBpbnQgcmlzY3Zf
+cGF0Y2hfaW5fc3RvcF9tYWNoaW5lOwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9w
+YXRjaC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYwppbmRleCA3ODM4N2Q4NDNhYTUuLmFl
+ZGE4NzI0MGRiYyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYworKysgYi9h
+cmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCkBAIC0xOSw3ICsxOSw3IEBACiBzdHJ1Y3QgcGF0Y2hf
+aW5zbiB7CiAJdm9pZCAqYWRkcjsKIAl1MzIgKmluc25zOwotCWludCBuaW5zbnM7CisJc2l6ZV90
+IGxlbjsKIAlhdG9taWNfdCBjcHVfY291bnQ7CiB9OwogCkBAIC0yMzQsMTQgKzIzNCwxMCBAQCBO
+T0tQUk9CRV9TWU1CT0wocGF0Y2hfdGV4dF9ub3N5bmMpOwogc3RhdGljIGludCBwYXRjaF90ZXh0
+X2NiKHZvaWQgKmRhdGEpCiB7CiAJc3RydWN0IHBhdGNoX2luc24gKnBhdGNoID0gZGF0YTsKLQl1
+bnNpZ25lZCBsb25nIGxlbjsKLQlpbnQgaSwgcmV0ID0gMDsKKwlpbnQgcmV0ID0gMDsKIAogCWlm
+IChhdG9taWNfaW5jX3JldHVybigmcGF0Y2gtPmNwdV9jb3VudCkgPT0gbnVtX29ubGluZV9jcHVz
+KCkpIHsKLQkJZm9yIChpID0gMDsgcmV0ID09IDAgJiYgaSA8IHBhdGNoLT5uaW5zbnM7IGkrKykg
+ewotCQkJbGVuID0gR0VUX0lOU05fTEVOR1RIKHBhdGNoLT5pbnNuc1tpXSk7Ci0JCQlyZXQgPSBw
+YXRjaF9pbnNuX3dyaXRlKHBhdGNoLT5hZGRyICsgaSAqIGxlbiwgJnBhdGNoLT5pbnNuc1tpXSwg
+bGVuKTsKLQkJfQorCQlyZXQgPSBwYXRjaF9pbnNuX3dyaXRlKHBhdGNoLT5hZGRyLCBwYXRjaC0+
+aW5zbnMsIHBhdGNoLT5sZW4pOwogCQkvKgogCQkgKiBNYWtlIHN1cmUgdGhlIHBhdGNoaW5nIHN0
+b3JlIGlzIGVmZmVjdGl2ZSAqYmVmb3JlKiB3ZQogCQkgKiBpbmNyZW1lbnQgdGhlIGNvdW50ZXIg
+d2hpY2ggcmVsZWFzZXMgYWxsIHdhaXRpbmcgQ1BVcwpAQCAtMjYyLDEzICsyNTgsMTMgQEAgc3Rh
+dGljIGludCBwYXRjaF90ZXh0X2NiKHZvaWQgKmRhdGEpCiB9CiBOT0tQUk9CRV9TWU1CT0wocGF0
+Y2hfdGV4dF9jYik7CiAKLWludCBwYXRjaF90ZXh0KHZvaWQgKmFkZHIsIHUzMiAqaW5zbnMsIGlu
+dCBuaW5zbnMpCitpbnQgcGF0Y2hfdGV4dCh2b2lkICphZGRyLCB1MzIgKmluc25zLCBzaXplX3Qg
+bGVuKQogewogCWludCByZXQ7CiAJc3RydWN0IHBhdGNoX2luc24gcGF0Y2ggPSB7CiAJCS5hZGRy
+ID0gYWRkciwKIAkJLmluc25zID0gaW5zbnMsCi0JCS5uaW5zbnMgPSBuaW5zbnMsCisJCS5sZW4g
+PSBsZW4sCiAJCS5jcHVfY291bnQgPSBBVE9NSUNfSU5JVCgwKSwKIAl9OwogCmRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwv
+cHJvYmVzL2twcm9iZXMuYwppbmRleCA0ZmJjNzBlODIzZjAuLjI5NzQyN2ZmYzRlMCAxMDA2NDQK
+LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYworKysgYi9hcmNoL3Jpc2N2
+L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCkBAIC0yMywxMyArMjMsMTMgQEAgcG9zdF9rcHJvYmVf
+aGFuZGxlcihzdHJ1Y3Qga3Byb2JlICosIHN0cnVjdCBrcHJvYmVfY3RsYmxrICosIHN0cnVjdCBw
+dF9yZWdzICopOwogCiBzdGF0aWMgdm9pZCBfX2twcm9iZXMgYXJjaF9wcmVwYXJlX3NzX3Nsb3Qo
+c3RydWN0IGtwcm9iZSAqcCkKIHsKKwlzaXplX3QgbGVuID0gR0VUX0lOU05fTEVOR1RIKHAtPm9w
+Y29kZSk7CiAJdTMyIGluc24gPSBfX0JVR19JTlNOXzMyOwotCXVuc2lnbmVkIGxvbmcgb2Zmc2V0
+ID0gR0VUX0lOU05fTEVOR1RIKHAtPm9wY29kZSk7CiAKLQlwLT5haW5zbi5hcGkucmVzdG9yZSA9
+ICh1bnNpZ25lZCBsb25nKXAtPmFkZHIgKyBvZmZzZXQ7CisJcC0+YWluc24uYXBpLnJlc3RvcmUg
+PSAodW5zaWduZWQgbG9uZylwLT5hZGRyICsgbGVuOwogCi0JcGF0Y2hfdGV4dF9ub3N5bmMocC0+
+YWluc24uYXBpLmluc24sICZwLT5vcGNvZGUsIDEpOwotCXBhdGNoX3RleHRfbm9zeW5jKCh2b2lk
+ICopcC0+YWluc24uYXBpLmluc24gKyBvZmZzZXQsICZpbnNuLCAxKTsKKwlwYXRjaF90ZXh0X25v
+c3luYyhwLT5haW5zbi5hcGkuaW5zbiwgJnAtPm9wY29kZSwgbGVuKTsKKwlwYXRjaF90ZXh0X25v
+c3luYygodm9pZCAqKXAtPmFpbnNuLmFwaS5pbnNuICsgbGVuLCAmaW5zbiwgR0VUX0lOU05fTEVO
+R1RIKGluc24pKTsKIH0KIAogc3RhdGljIHZvaWQgX19rcHJvYmVzIGFyY2hfcHJlcGFyZV9zaW11
+bGF0ZShzdHJ1Y3Qga3Byb2JlICpwKQpAQCAtMTE2LDE2ICsxMTYsMTggQEAgdm9pZCAqYWxsb2Nf
+aW5zbl9wYWdlKHZvaWQpCiAvKiBpbnN0YWxsIGJyZWFrcG9pbnQgaW4gdGV4dCAqLwogdm9pZCBf
+X2twcm9iZXMgYXJjaF9hcm1fa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApCiB7Ci0JdTMyIGluc24g
+PSAocC0+b3Bjb2RlICYgX19JTlNOX0xFTkdUSF9NQVNLKSA9PSBfX0lOU05fTEVOR1RIXzMyID8K
+LQkJICAgX19CVUdfSU5TTl8zMiA6IF9fQlVHX0lOU05fMTY7CisJc2l6ZV90IGxlbiA9IEdFVF9J
+TlNOX0xFTkdUSChwLT5vcGNvZGUpOworCXUzMiBpbnNuID0gbGVuID09IDQgPyBfX0JVR19JTlNO
+XzMyIDogX19CVUdfSU5TTl8xNjsKIAotCXBhdGNoX3RleHQocC0+YWRkciwgJmluc24sIDEpOwor
+CXBhdGNoX3RleHQocC0+YWRkciwgJmluc24sIGxlbik7CiB9CiAKIC8qIHJlbW92ZSBicmVha3Bv
+aW50IGZyb20gdGV4dCAqLwogdm9pZCBfX2twcm9iZXMgYXJjaF9kaXNhcm1fa3Byb2JlKHN0cnVj
+dCBrcHJvYmUgKnApCiB7Ci0JcGF0Y2hfdGV4dChwLT5hZGRyLCAmcC0+b3Bjb2RlLCAxKTsKKwlz
+aXplX3QgbGVuID0gR0VUX0lOU05fTEVOR1RIKHAtPm9wY29kZSk7CisKKwlwYXRjaF90ZXh0KHAt
+PmFkZHIsICZwLT5vcGNvZGUsIGxlbik7CiB9CiAKIHZvaWQgX19rcHJvYmVzIGFyY2hfcmVtb3Zl
+X2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBm
+X2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKaW5kZXggMjZl
+ZWIzOTczNjMxLi4xNmViNGNkMTFjYmQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9q
+aXRfY29tcDY0LmMKKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwpAQCAtMTQs
+NiArMTQsNyBAQAogI2luY2x1ZGUgImJwZl9qaXQuaCIKIAogI2RlZmluZSBSVl9GRU5UUllfTklO
+U05TIDIKKyNkZWZpbmUgUlZfRkVOVFJZX05CWVRFUyAoUlZfRkVOVFJZX05JTlNOUyAqIDQpCiAK
+ICNkZWZpbmUgUlZfUkVHX1RDQyBSVl9SRUdfQTYKICNkZWZpbmUgUlZfUkVHX1RDQ19TQVZFRCBS
+Vl9SRUdfUzYgLyogU3RvcmUgQTYgaW4gUzYgaWYgcHJvZ3JhbSBkbyBjYWxscyAqLwpAQCAtNjgx
+LDcgKzY4Miw3IEBAIGludCBicGZfYXJjaF90ZXh0X3Bva2Uodm9pZCAqaXAsIGVudW0gYnBmX3Rl
+eHRfcG9rZV90eXBlIHBva2VfdHlwZSwKIAlpZiAocmV0KQogCQlyZXR1cm4gcmV0OwogCi0JaWYg
+KG1lbWNtcChpcCwgb2xkX2luc25zLCBSVl9GRU5UUllfTklOU05TICogNCkpCisJaWYgKG1lbWNt
+cChpcCwgb2xkX2luc25zLCBSVl9GRU5UUllfTkJZVEVTKSkKIAkJcmV0dXJuIC1FRkFVTFQ7CiAK
+IAlyZXQgPSBnZW5fanVtcF9vcl9ub3BzKG5ld19hZGRyLCBpcCwgbmV3X2luc25zLCBpc19jYWxs
+KTsKQEAgLTY5MCw4ICs2OTEsOCBAQCBpbnQgYnBmX2FyY2hfdGV4dF9wb2tlKHZvaWQgKmlwLCBl
+bnVtIGJwZl90ZXh0X3Bva2VfdHlwZSBwb2tlX3R5cGUsCiAKIAljcHVzX3JlYWRfbG9jaygpOwog
+CW11dGV4X2xvY2soJnRleHRfbXV0ZXgpOwotCWlmIChtZW1jbXAoaXAsIG5ld19pbnNucywgUlZf
+RkVOVFJZX05JTlNOUyAqIDQpKQotCQlyZXQgPSBwYXRjaF90ZXh0KGlwLCBuZXdfaW5zbnMsIFJW
+X0ZFTlRSWV9OSU5TTlMpOworCWlmIChtZW1jbXAoaXAsIG5ld19pbnNucywgUlZfRkVOVFJZX05C
+WVRFUykpCisJCXJldCA9IHBhdGNoX3RleHQoaXAsIG5ld19pbnNucywgUlZfRkVOVFJZX05CWVRF
+Uyk7CiAJbXV0ZXhfdW5sb2NrKCZ0ZXh0X211dGV4KTsKIAljcHVzX3JlYWRfdW5sb2NrKCk7CiAK
+LS0gCjIuMzkuNQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
