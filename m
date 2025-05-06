@@ -4,57 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F598C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF14AC3ABBC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:35:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=LDOcV7hT6y6aPb+oI4AA99o1HlY+m6+6gnumx5TA16s=; b=ZsuoQ+RnoxzKmB
-	+v90/QOGdhSWWkjTNhAKMidM7oGQsM0XizIpDdcXo2uO4KIbqclYUjPyKJcMeum8OFEjbcBQhDSeU
-	5Ho8vLJLWrOXh3GcKcVkgM+Wt9EZ7tLjle/7/LcYL1ORmdecjarb/bScX34ZwzRzpnQySq/EzZXDc
-	2sIlr6cN8FWcOSvnk3wgPjVJOboaA2TcqTZyS/TU1d7pW11jPQ2Lq7EfyMsCx0WYBVT+24njyMyB5
-	Qg8YrUjvrtXaS50ZEuxC39z1ybizpojWI6CaP9w/QRJ+8kGQ4upHUv3JZGaT2t8EbTFLQLeCqoeh+
-	aMgQyk8XkCpnT1w/DlrA==;
+	List-Owner; bh=mMvN98OnjShaMs8JCRVP8GW1UZ+nf/x8GTxy0XsDcgQ=; b=Yr3aYVFnCoLvr/
+	RsHMX26ctAehgSe3Ea8FitFAlVjUxEdixu3Fek20eXUxMzc4QbqQbjz0QGldKjAG450g1iTqdoxLT
+	AK4NUEWJ1JysTexc2V58XCQRP470oqCa3POfpIxQ4mGHS/cnF8Dx9vgnLc9xLCfv359GMJxW+JsOD
+	gf7UMtfvXL/Wf2+70eD9+NcA+cLpci8dqoNLv/Genw5UJTxLpVQXMS67M4eruEDm33vDaZc64XBxq
+	+rgdMv6T1pmd05aTHbyDXN4tdj+i75jykp8vLzOTpca32+NH4Uf2L+LapRYb1iAYCu8SLt2Rzh+fz
+	j2LJd2zzuv9vpF5hC5/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUcq-0000000DyVf-2fz2;
-	Wed, 07 May 2025 02:35:12 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uCUct-0000000DycQ-2CGe;
+	Wed, 07 May 2025 02:35:15 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCREJ-0000000DdUU-1PBc
+	id 1uCRzU-0000000DjTj-36NL
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 22:57:41 +0000
-Received: from localhost (unknown [116.232.147.253])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 33944343140;
-	Tue, 06 May 2025 22:57:35 +0000 (UTC)
-Date: Tue, 6 May 2025 22:57:20 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Tue, 06 May 2025 23:46:26 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7c597760323so652910585a.3
+        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 16:46:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746575183; x=1747179983; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kNpUQ6GumF9/TU6uK+pRbTYeJUeB4xU1u30e/GuoHLE=;
+        b=IFP/8WV+EnhB6xuUNf7wpAbcNSemzZYZ/0pOooC+ScE4b5P9FZWzL9W4U1pFMp17mK
+         qSMSfad7vGS46AIakbK5SJf50tGoJ0CxPnFCQF0xWJrB0NMuzxeiU0eMDbSExrxRDO+9
+         7676/Oc8pzyjpiUmvrc0pSGb96fKxf0fsGgCsP+8SPfANwq1eRqEWsX2gErUw/Vl/NTc
+         lfkmcJ9wXcApxXUqemrHjN8LXEps9TqFEMv4W3XE5og3XwwPyRkF+19n6jXc59w9car1
+         gjr2DOU1etbp0ZVRNF9XQ3Hno5EO17mpOo/zGThxdOVhssVEZyPiQVLK9BcoawNXw1UE
+         Ainw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746575183; x=1747179983;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kNpUQ6GumF9/TU6uK+pRbTYeJUeB4xU1u30e/GuoHLE=;
+        b=hnDwNSbrfVMxkUj8Z0ZSparThh9Yw2bLzZlv1/KGU/5LK8T6LF5ij2+hmF4+3LZIXR
+         wwa7xL9XEJIgu/9PdDRziqntYr/VRp/5Dv043uydp1kR6bPhd/5v1Vy+TucUJaWXSXLZ
+         N+t2NShSRGLQZPnYoyGMuKWpGlgqUiz+Wk6VD2BvAaSIEWBnB66QzJGSCZe7z5QYqUis
+         M8iaL42uiYMfdiKrTtYNT+68fzu1p+wro788y428koHXKz0IAZj8cOuBQ3Lfd8uixjbj
+         yzZ6REmqT5CfL8EcEH/rmaa7Oe2WA2joh0VbuZZApg+HI686poV96ILV1z3C/ogaG4N0
+         HYbw==
+X-Forwarded-Encrypted: i=1; AJvYcCUOTxolOXBfT7wLIg6HihyiC7LZNL0w9y7gUgUc8bPvsVFGcrLZS9tNo3kZHR4umWzCq7wcKxDXknWO1A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf2YYQBMKcHPN+MDQRM5EfNhA+eJKf8mtXckSCc3B3d2S8d6ay
+	gOoQ2KJElkkUXXZPeEF9AS1qhE5OOz0cVgcq/HYQHsiIjZ+lfwT0
+X-Gm-Gg: ASbGncsACTALzR7cDaNLYZ4z48DI/V17jcUlYCEt1An0aiy7P4IoIsThDooF0fvDdjA
+	K8iM2lcHbCADafpkBfxY2tUNbCMUJfx5VsH5KeljWQ9pCIOJ0EUmXvu2LbkC7xsI7YT9FYQjho8
+	sTTd/tkgaiEjIMhh9NCJCJ1lP8C0gOD8vHvBWzEuNwCLtLnPEPzrFLL0x8RE+8Xj4S33ngq7KSA
+	lBS6SI2q8u/66COqS8GioPj+AaWK8P/YlEG2qlDyd8Ho92SliEmKccx6Hhi+nbjwvkT1Qij7/Qm
+	vJ9UUJuL8j5XRtnjpOiY/lapnx8=
+X-Google-Smtp-Source: AGHT+IHeDbXh28cKEU2lNRj30EE82yC2TAKjYla28J2iicvKZY5F7e3fcCLy0NDluJznncuzGWfCsw==
+X-Received: by 2002:a05:620a:1724:b0:7ca:cd43:e46e with SMTP id af79cd13be357-7caf73fa4bfmr266382985a.36.1746575183537;
+        Tue, 06 May 2025 16:46:23 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7caf75b87casm46952985a.74.2025.05.06.16.46.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 16:46:23 -0700 (PDT)
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Alex Elder <elder@riscstar.com>, linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
-Message-ID: <20250506225720-GYA499202@gentoo>
-References: <20250501-20-k1-sdhci-v2-0-3e7005fae29b@gentoo.org>
- <20250501-20-k1-sdhci-v2-2-3e7005fae29b@gentoo.org>
- <gfrdvfencetztdmkxmeo5q5vdnp3yxmggnuewfprjyxsldzhv2@eur5wtlltqtm>
+	Chen Wang <unicorn_wang@outlook.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
+	Inochi Amaoto <inochiama@gmail.com>
+Cc: linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: (subset) [PATCH v2 0/3] riscv: sophgo: cv18xx: dts rework, part 2
+Date: Wed,  7 May 2025 07:45:53 +0800
+Message-ID: <174657514013.201370.6246239358631068735.b4-ty@gmail.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250504104553.1447819-1-inochiama@gmail.com>
+References: <20250504104553.1447819-1-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <gfrdvfencetztdmkxmeo5q5vdnp3yxmggnuewfprjyxsldzhv2@eur5wtlltqtm>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_155739_422945_B842D25B 
-X-CRM114-Status: GOOD (  36.36  )
+X-CRM114-CacheID: sfid-20250506_164624_778540_C99CAF40 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,400 +117,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
-
-On 06:37 Wed 07 May     , Inochi Amaoto wrote:
-> On Thu, May 01, 2025 at 04:50:22PM +0800, Yixun Lan wrote:
-> > The SDHCI controller found in SpacemiT K1 SoC features SD,
-> > SDIO, eMMC support, such as:
-> > 
-> > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
-> > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
-> > - Compatible for 8bit eMMC5.1, up to HS400
-> > 
-> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > ---
-> >  drivers/mmc/host/Kconfig       |  14 ++
-> >  drivers/mmc/host/Makefile      |   1 +
-> >  drivers/mmc/host/sdhci-of-k1.c | 306 +++++++++++++++++++++++++++++++++++++++++
-> >  3 files changed, 321 insertions(+)
-> > 
-> > diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
-> > index 6824131b69b188cae58c8f48076715ca647ca28c..0ce78f22c33cfff916a2d4d680c79e9d19637e0e 100644
-> > --- a/drivers/mmc/host/Kconfig
-> > +++ b/drivers/mmc/host/Kconfig
-> > @@ -250,6 +250,20 @@ config MMC_SDHCI_OF_DWCMSHC
-> >  	  If you have a controller with this interface, say Y or M here.
-> >  	  If unsure, say N.
-> >  
-> > +config MMC_SDHCI_OF_K1
-> > +	tristate "SDHCI OF support for the SpacemiT K1 SoC"
-> > +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> > +	depends on MMC_SDHCI_PLTFM
-> > +	depends on OF
-> > +	depends on COMMON_CLK
-> > +	help
-> > +	  This selects the Secure Digital Host Controller Interface (SDHCI)
-> > +	  found in the SpacemiT K1 SoC.
-> > +
-> > +	  If you have a controller with this interface, say Y or M here.
-> > +
-> > +	  If unsure, say N.
-> > +
-> >  config MMC_SDHCI_OF_SPARX5
-> >  	tristate "SDHCI OF support for the MCHP Sparx5 SoC"
-> >  	depends on MMC_SDHCI_PLTFM
-> > diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
-> > index 5147467ec825ffaef3a7bd812fad80545e52b180..75bafc7b162b9e1d4c6c050f5d28b9d7cb582447 100644
-> > --- a/drivers/mmc/host/Makefile
-> > +++ b/drivers/mmc/host/Makefile
-> > @@ -88,6 +88,7 @@ obj-$(CONFIG_MMC_SDHCI_OF_AT91)		+= sdhci-of-at91.o
-> >  obj-$(CONFIG_MMC_SDHCI_OF_ESDHC)	+= sdhci-of-esdhc.o
-> >  obj-$(CONFIG_MMC_SDHCI_OF_HLWD)		+= sdhci-of-hlwd.o
-> >  obj-$(CONFIG_MMC_SDHCI_OF_DWCMSHC)	+= sdhci-of-dwcmshc.o
-> > +obj-$(CONFIG_MMC_SDHCI_OF_K1)		+= sdhci-of-k1.o
-> >  obj-$(CONFIG_MMC_SDHCI_OF_SPARX5)	+= sdhci-of-sparx5.o
-> >  obj-$(CONFIG_MMC_SDHCI_OF_MA35D1)	+= sdhci-of-ma35d1.o
-> >  obj-$(CONFIG_MMC_SDHCI_BCM_KONA)	+= sdhci-bcm-kona.o
-> > diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-> > new file mode 100644
-> > index 0000000000000000000000000000000000000000..8988053eeb33a476fa484d145579db6214b2d0b7
-> > --- /dev/null
-> > +++ b/drivers/mmc/host/sdhci-of-k1.c
-> > @@ -0,0 +1,306 @@
-> > +// SPDX-License-Identifier: GPL-2.0
-> > +/*
-> > + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
-> > + * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
-> > + */
-> > +
-> > +#include <linux/bitfield.h>
-> > +#include <linux/clk.h>
-> > +#include <linux/delay.h>
-> > +#include <linux/iopoll.h>
-> > +#include <linux/init.h>
-> > +#include <linux/mmc/card.h>
-> > +#include <linux/mmc/host.h>
-> > +#include <linux/mmc/mmc.h>
-> > +#include <linux/module.h>
-> > +#include <linux/of.h>
-> > +#include <linux/of_device.h>
-> > +#include <linux/platform_device.h>
-> > +
-> > +#include "sdhci.h"
-> > +#include "sdhci-pltfm.h"
-> > +
-> > +#define SDHC_MMC_CTRL_REG		0x114
-> > +#define  MISC_INT_EN			BIT(1)
-> > +#define  MISC_INT			BIT(2)
-> > +#define  ENHANCE_STROBE_EN		BIT(8)
-> > +#define  MMC_HS400			BIT(9)
-> > +#define  MMC_HS200			BIT(10)
-> > +#define  MMC_CARD_MODE			BIT(12)
-> > +
-> > +#define SDHC_TX_CFG_REG			0x11C
-> > +#define  TX_INT_CLK_SEL			BIT(30)
-> > +#define  TX_MUX_SEL			BIT(31)
-> > +
-> > +#define SDHC_PHY_CTRL_REG		0x160
-> > +#define  PHY_FUNC_EN			BIT(0)
-> > +#define  PHY_PLL_LOCK			BIT(1)
-> > +#define  HOST_LEGACY_MODE		BIT(31)
-> > +
-> > +#define SDHC_PHY_FUNC_REG		0x164
-> > +#define  PHY_TEST_EN			BIT(7)
-> > +#define  HS200_USE_RFIFO		BIT(15)
-> > +
-> > +#define SDHC_PHY_DLLCFG			0x168
-> > +#define  DLL_PREDLY_NUM			GENMASK(3, 2)
-> > +#define  DLL_FULLDLY_RANGE		GENMASK(5, 4)
-> > +#define  DLL_VREG_CTRL			GENMASK(7, 6)
-> > +#define  DLL_ENABLE			BIT(31)
-> > +
-> > +#define SDHC_PHY_DLLCFG1		0x16C
-> > +#define  DLL_REG1_CTRL			GENMASK(7, 0)
-> > +#define  DLL_REG2_CTRL			GENMASK(15, 8)
-> > +#define  DLL_REG3_CTRL			GENMASK(23, 16)
-> > +#define  DLL_REG4_CTRL			GENMASK(31, 24)
-> > +
-> > +#define SDHC_PHY_DLLSTS			0x170
-> > +#define  DLL_LOCK_STATE			BIT(0)
-> > +
-> > +#define SDHC_PHY_PADCFG_REG		0x178
-> > +#define  PHY_DRIVE_SEL			GENMASK(2, 0)
-> > +#define  RX_BIAS_CTRL			BIT(5)
-> > +
-> > +struct spacemit_sdhci_host {
-> > +	struct clk *clk_core;
-> > +	struct clk *clk_io;
-> > +};
-> > +
-> > +static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
-> > +{
-> > +	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
-> > +}
-> > +
-> > +static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
-> > +{
-> > +	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
-> > +}
-> > +
+On Sun, 04 May 2025 18:45:49 +0800, Inochi Amaoto wrote:
+> The part 2 of dts rework replaces precise compatible for existed clock device
+> with old wildcard one.
 > 
-> > +static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
+> Changed from v1:
+> - https://lore.kernel.org/all/20250430020932.307198-1-inochiama@gmail.com/
+> 1. patch 1: reused sophgo,sg2000-clk for sg2002.
+> 2. patch 1: mention sg2002 refer to a real device, not a wildcard one in
+>             commit message.
+> 3. patch 2: fix wrong data for sophgo,cv1812h-clk.
+> 4. patch 2: remove compatible sophgo,sg2002-clk.
+> 5. patch 3: adapt the change of patch 1,2.
 > 
-> updatebits?
-> 
-IMO, it's more ambiguous to use updatebits(), so I will just keep it
+> [...]
 
-besides, these above helper functions should really be carefully used,
-setbits() only set bits of 'val' while preserve other bits,
-clrsetbits() will first clear bits, then set, while still preserve others
+Applied to sophgo-clk-for-6.16-rc1, thanks!
 
-I will try to put a comment for them while updating next version
+[1/3] dt-bindings: clock: sophgo: Use precise compatible for CV1800 series SoC
+      https://github.com/sophgo/linux/commit/6d880961f5f9b84d13fb4a0208c7405966bc3489
+[2/3] clk: sophgo: Add support for newly added precise compatible
+      https://github.com/sophgo/linux/commit/dd8bbae9fefeead76f20cd410a5a8299fcbad220
 
-> > +{
-> > +	u32 val = sdhci_readl(host, reg);
-> > +
-> > +	val = (val & ~clr) | set;
-> > +	sdhci_writel(host, val, reg);
-> > +}
-> > +
-> > +static void spacemit_sdhci_reset(struct sdhci_host *host, u8 mask)
-> > +{
-> > +	struct platform_device *pdev;
-> > +
-> > +	pdev = to_platform_device(mmc_dev(host->mmc));
-> > +	sdhci_reset(host, mask);
-> > +
-> > +	if (mask != SDHCI_RESET_ALL)
-> > +		return;
-> > +
-> > +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-> > +
-> > +	spacemit_sdhci_clrsetbits(host, PHY_DRIVE_SEL,
-> > +				  RX_BIAS_CTRL | FIELD_PREP(PHY_DRIVE_SEL, 4),
-> > +				  SDHC_PHY_PADCFG_REG);
-> > +
-> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC))
-> > +		spacemit_sdhci_setbits(host, MMC_CARD_MODE, SDHC_MMC_CTRL_REG);
-> > +}
-> > +
-> > +static void spacemit_sdhci_set_uhs_signaling(struct sdhci_host *host, unsigned int timing)
-> > +{
-> > +	if (timing == MMC_TIMING_MMC_HS200)
-> > +		spacemit_sdhci_setbits(host, MMC_HS200, SDHC_MMC_CTRL_REG);
-> > +
-> > +	if (timing == MMC_TIMING_MMC_HS400)
-> > +		spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
-> > +
-> > +	sdhci_set_uhs_signaling(host, timing);
-> > +
-> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_SDIO))
-> > +		spacemit_sdhci_setbits(host, SDHCI_CTRL_VDD_180, SDHCI_HOST_CONTROL2);
-> > +}
-> > +
-> > +static void spacemit_sdhci_set_clock(struct sdhci_host *host, unsigned int clock)
-> > +{
-> > +	struct mmc_host *mmc = host->mmc;
-> > +
-> > +	if (mmc->ios.timing <= MMC_TIMING_UHS_SDR50)
-> > +		spacemit_sdhci_setbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
-> > +	else
-> > +		spacemit_sdhci_clrbits(host, TX_INT_CLK_SEL, SDHC_TX_CFG_REG);
-> > +
-> > +	sdhci_set_clock(host, clock);
-> > +};
-> > +
-> > +static void spacemit_sdhci_phy_dll_init(struct sdhci_host *host)
-> > +{
-> > +	u32 state;
-> > +	int ret;
-> > +
-> > +	spacemit_sdhci_clrsetbits(host, DLL_PREDLY_NUM | DLL_FULLDLY_RANGE | DLL_VREG_CTRL,
-> > +				  FIELD_PREP(DLL_PREDLY_NUM, 1) |
-> > +				  FIELD_PREP(DLL_FULLDLY_RANGE, 1) |
-> > +				  FIELD_PREP(DLL_VREG_CTRL, 1),
-> > +				  SDHC_PHY_DLLCFG);
-> > +
-> > +	spacemit_sdhci_clrsetbits(host, DLL_REG1_CTRL,
-> > +				  FIELD_PREP(DLL_REG1_CTRL, 0x92),
-> > +				  SDHC_PHY_DLLCFG1);
-> > +
-> > +	spacemit_sdhci_setbits(host, DLL_ENABLE, SDHC_PHY_DLLCFG);
-> > +
-> > +	ret = readl_poll_timeout(host->ioaddr + SDHC_PHY_DLLSTS, state,
-> > +				 state & DLL_LOCK_STATE, 2, 100);
-> > +	if (ret == -ETIMEDOUT)
-> > +		dev_warn(mmc_dev(host->mmc), "fail to lock phy dll in 100us!\n");
-> > +}
-> > +
-> > +static void spacemit_sdhci_hs400_enhanced_strobe(struct mmc_host *mmc, struct mmc_ios *ios)
-> > +{
-> > +	struct sdhci_host *host = mmc_priv(mmc);
-> > +
-> > +	if (!ios->enhanced_strobe) {
-> > +		spacemit_sdhci_clrbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
-> > +		return;
-> > +	}
-> > +
-> > +	spacemit_sdhci_setbits(host, ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
-> > +	spacemit_sdhci_phy_dll_init(host);
-> > +}
-> > +
-> > +static unsigned int spacemit_sdhci_clk_get_max_clock(struct sdhci_host *host)
-> > +{
-> > +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> > +
-> > +	return clk_get_rate(pltfm_host->clk);
-> > +}
-> > +
-> > +static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
-> > +{
-> > +	struct sdhci_host *host = mmc_priv(mmc);
-> > +
-> > +	spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
-> > +	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
-> > +{
-> > +	struct sdhci_host *host = mmc_priv(mmc);
-> > +
-> > +	spacemit_sdhci_phy_dll_init(host);
-> > +	host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
-> > +}
-> > +
-> > +static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
-> > +{
-> > +	struct sdhci_host *host = mmc_priv(mmc);
-> > +
-> > +	spacemit_sdhci_clrbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-> > +	spacemit_sdhci_clrbits(host, MMC_HS400 | MMC_HS200 | ENHANCE_STROBE_EN, SDHC_MMC_CTRL_REG);
-> > +	spacemit_sdhci_clrbits(host, HS200_USE_RFIFO, SDHC_PHY_FUNC_REG);
-> > +
-> > +	udelay(5);
-> > +
-> > +	spacemit_sdhci_setbits(host, PHY_FUNC_EN | PHY_PLL_LOCK, SDHC_PHY_CTRL_REG);
-> > +}
-> > +
-> > +static inline int spacemit_sdhci_get_clocks(struct device *dev,
-> > +					    struct sdhci_pltfm_host *pltfm_host)
-> > +{
-> > +	struct spacemit_sdhci_host *sdhst = sdhci_pltfm_priv(pltfm_host);
-> > +
-> > +	sdhst->clk_core = devm_clk_get_enabled(dev, "core");
-> > +	if (IS_ERR(sdhst->clk_core))
-> > +		return -EINVAL;
-> > +
-> > +	sdhst->clk_io = devm_clk_get_enabled(dev, "io");
-> > +	if (IS_ERR(sdhst->clk_io))
-> > +		return -EINVAL;
-> > +
-> > +	pltfm_host->clk = sdhst->clk_io;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static const struct sdhci_ops spacemit_sdhci_ops = {
-> > +	.get_max_clock		= spacemit_sdhci_clk_get_max_clock,
-> > +	.reset			= spacemit_sdhci_reset,
-> > +	.set_bus_width		= sdhci_set_bus_width,
-> > +	.set_clock		= spacemit_sdhci_set_clock,
-> > +	.set_uhs_signaling	= spacemit_sdhci_set_uhs_signaling,
-> > +};
-> > +
-> > +static const struct sdhci_pltfm_data spacemit_sdhci_k1_pdata = {
-> > +	.ops = &spacemit_sdhci_ops,
-> > +	.quirks = SDHCI_QUIRK_DATA_TIMEOUT_USES_SDCLK |
-> > +		  SDHCI_QUIRK_NO_ENDATTR_IN_NOPDESC |
-> > +		  SDHCI_QUIRK_32BIT_ADMA_SIZE |
-> > +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
-> > +		  SDHCI_QUIRK_BROKEN_CARD_DETECTION |
-> > +		  SDHCI_QUIRK_BROKEN_TIMEOUT_VAL,
-> > +	.quirks2 = SDHCI_QUIRK2_BROKEN_64_BIT_DMA |
-> > +		   SDHCI_QUIRK2_PRESET_VALUE_BROKEN,
-> > +};
-> > +
-> > +static const struct of_device_id spacemit_sdhci_of_match[] = {
-> > +	{ .compatible = "spacemit,k1-sdhci" },
-> > +	{ /* sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, spacemit_sdhci_of_match);
-> > +
-> > +static int spacemit_sdhci_probe(struct platform_device *pdev)
-> > +{
-> > +	struct device *dev = &pdev->dev;
-> > +	struct spacemit_sdhci_host *sdhst;
-> > +	struct sdhci_pltfm_host *pltfm_host;
-> > +	struct sdhci_host *host;
-> > +	struct mmc_host_ops *mops;
-> > +	int ret;
-> > +
-> > +	host = sdhci_pltfm_init(pdev, &spacemit_sdhci_k1_pdata, sizeof(*sdhst));
-> > +	if (IS_ERR(host))
-> > +		return PTR_ERR(host);
-> > +
-> > +	pltfm_host = sdhci_priv(host);
-> > +
-> > +	ret = mmc_of_parse(host->mmc);
-> > +	if (ret)
-> > +		goto err_pltfm;
-> > +
-> > +	sdhci_get_of_property(pdev);
-> > +
-> > +	if (!(host->mmc->caps2 & MMC_CAP2_NO_MMC)) {
-> > +		mops = &host->mmc_host_ops;
-> > +		mops->hs400_prepare_ddr	= spacemit_sdhci_pre_select_hs400;
-> > +		mops->hs400_complete	= spacemit_sdhci_post_select_hs400;
-> > +		mops->hs400_downgrade	= spacemit_sdhci_pre_hs400_to_hs200;
-> > +		mops->hs400_enhanced_strobe = spacemit_sdhci_hs400_enhanced_strobe;
-> > +	}
-> > +
-> > +	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
-> > +
-> > +	if (spacemit_sdhci_get_clocks(dev, pltfm_host))
-> > +		goto err_pltfm;
-> > +
-> > +	ret = sdhci_add_host(host);
-> > +	if (ret)
-> > +		goto err_pltfm;
-> > +
-> > +	return 0;
-> > +
-> > +err_pltfm:
-> > +	sdhci_pltfm_free(pdev);
-> > +	return ret;
-> > +}
-> > +
-> > +static struct platform_driver spacemit_sdhci_driver = {
-> > +	.driver		= {
-> > +		.name	= "sdhci-spacemit",
-> 
-> > +		.of_match_table = of_match_ptr(spacemit_sdhci_of_match),
-> 
-> I think the of_match_ptr is not needed.
-> 
-right, since CONFIG_OF is enforced here, will drop in next version
+Thanks,
+Inochi
 
-thanks for the review
-
-> > +	},
-> > +	.probe		= spacemit_sdhci_probe,
-> > +	.remove		= sdhci_pltfm_remove,
-> > +};
-> > +module_platform_driver(spacemit_sdhci_driver);
-> > +
-> > +MODULE_DESCRIPTION("SpacemiT SDHCI platform driver");
-> > +MODULE_LICENSE("GPL");
-> > 
-> > -- 
-> > 2.49.0
-> > 
-
--- 
-Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
