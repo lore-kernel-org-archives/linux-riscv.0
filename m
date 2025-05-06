@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9F82C3ABBE
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 20:13:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B26C3ABBC
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 20:15:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
 	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9l5EpdsTNAPg4VE6ShAiZu9lXTQpNM+zFtFhlIJvW8=; b=ut37rxMUpaJ1sKL4u5eFE6ZmPZ
-	D3yZW/L1fp1KTSlqJQZWlY+qZl9rhW3MTnUMKADdJRAV5VGRj3utjKztj5v0c7sDNSF3dl4VgJw/c
-	6zdaVRMMRwCUQx4cjpkUUigXloxkBVR6BaVVTKvo6I6LAS7UVlJVnX9rfdCzxNqtT2Lam+qN06uKI
-	DGcNzMTNu1hbpblvMaHcwARhs9VKcnoKGF8XwZWrkt9xd1pHx1lH5oCeFNoyUOJhkEuQ3zkqNv2QC
-	xhRZQp8OFsCCbs/nwWP9NOb39vAkdv/PWwkflns/lfiUozVwDOJqlB3K5ozU9g8JbejR8BtYzEZiz
-	G0+1onIw==;
+	bh=n5Q2zhOPv048zdbyHVfsy8+xGrrM6ZbeU22XcZymxcc=; b=OyynXZf5p4ITNoqErdbVKdQVW4
+	/H5jvmfXqz65pmXJZOibw+RWGXyuZMJ9V2roLC/wqLPmJFRO8pF6XAbFBK7BmEigm7rpTj73W7o9A
+	67AfGe2+5mVrUGu7fpSZoDMQcynhGW/TFRmKL4oEvD6r5FQb+rHRaCHv0Wsf50IFOWGTuJs6ZIhuz
+	hpPQwN5it1olqME3co0RcnUP1YE5s3nFDQ2GpNdPBUYdjcFECHO4WkvmTxzui5LpdbA4dfA46TzMV
+	0nJ5iKvoZoYZvDGfFKVkzN5Kk5nufshKEatsB5Us9lUONtK5TO54IMHJecZs+24d2hscLfsrVaSID
+	xZ9MDGhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOf9-0000000DL0k-04V6;
-	Tue, 06 May 2025 20:13:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uCOh4-0000000DLUA-3GeL;
+	Tue, 06 May 2025 20:15:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCL5z-0000000Cf34-38Yi
+	id 1uCL87-0000000CfPy-0jsB
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 16:24:44 +0000
+	Tue, 06 May 2025 16:26:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00984A4D6A1;
-	Tue,  6 May 2025 16:24:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E5DC4CEE4;
-	Tue,  6 May 2025 16:24:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AD71D43C4B;
+	Tue,  6 May 2025 16:26:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB54EC4CEE4;
+	Tue,  6 May 2025 16:26:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746548678;
-	bh=6+AzYXO0+ZpuHKJPEjy4CD2Mhi6+e9atkIbMEDc7uPA=;
+	s=k20201202; t=1746548810;
+	bh=qqnaCN+QUPYHPuDmxiApoJhIGYIBjx2h4vMiQAZJhHc=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZxV3Vry2aNCG/2NFKmWiKWDWiA8hz7CA/FrBuvTyTK47Qkk0Sc3JfTba6MswVoTkc
-	 fPGfD+kCi3ywCx/sEVKzCCRW4Bg/hikHoEZ2A1mDWIsW5O1555t6y/PFhas9ptd9/e
-	 87Okr2xqzFKzczpU105GCgilbleGfvTGUxyBAfo96MifiGk5nQx7ml8qphHdzewWjq
-	 1biE73DYbbC52Cr5v5PO4y7hnjE4swcj703c5NwYVnJ5NRghatc6CC7YC/+LH66W1R
-	 2d9do0ma+M10fKBG1Wkd86hzGNuSN80uBb7tht0jTw27GDZ8Q0rr4+hJzwgWcx2TRA
-	 AH6kPqYKje67w==
-Date: Tue, 6 May 2025 17:24:33 +0100
+	b=LFHuWwt8KEmzfbjluK08PXJ75odEuQdIzn1DQ34fKIIrWPAFJ6UM8PkQlbT/P2Zzx
+	 Ln+8bbdrBzXviTn/DhBbupzYUJA5F3aGeIQBmMZCTkLEj5STbZGp+Ay3vWps/iopps
+	 qeiavphfsQGCL+VEYBQ760Fcd/c6fHw3Gx0kAZFgoKE01TsKfhK+IHBh8tHQtmPL3z
+	 YCJp6hAQDiIrQJHoL5MRNnvkoDiLdXR1vnojmdG6KpdZqyzqRAXVCuzz8Ghq4p3Nfi
+	 /45IAq1a47qN0hMB8P0+wntcUHzGd64/IEiEstVR8GUN66NV+E0srIF8KRaKru4Kx2
+	 NdE91e8vXaakg==
+Date: Tue, 6 May 2025 17:26:45 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Ben Zong-You Xie <ben717@andestech.com>
 Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
@@ -51,16 +51,15 @@ Cc: devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
 	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
 	tglx@linutronix.de, daniel.lezcano@linaro.org,
 	prabhakar.mahadev-lad.rj@bp.renesas.com, tim609@andestech.com
-Subject: Re: [PATCH v2 4/9] dt-bindings: interrupt-controller: add Andes
- machine-level software interrupt controller
-Message-ID: <20250506-vocation-herbs-a2c84688ce03@spud>
+Subject: Re: [PATCH v2 9/9] riscv: defconfig: enable Andes SoC
+Message-ID: <20250506-gargle-lustrous-4fbf8c7d28e8@spud>
 References: <20250503151829.605006-1-ben717@andestech.com>
- <20250503151829.605006-5-ben717@andestech.com>
+ <20250503151829.605006-10-ben717@andestech.com>
 MIME-Version: 1.0
-In-Reply-To: <20250503151829.605006-5-ben717@andestech.com>
+In-Reply-To: <20250503151829.605006-10-ben717@andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_092439_852121_7A86C3C5 
-X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-CacheID: sfid-20250506_092651_233305_7A3179DC 
+X-CRM114-Status: UNSURE (   8.36  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -73,50 +72,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2726605072130152026=="
+Content-Type: multipart/mixed; boundary="===============1049474114467221089=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============2726605072130152026==
+--===============1049474114467221089==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0bdWrlMUgMOcOWqv"
+	protocol="application/pgp-signature"; boundary="jKXAgiWgHNZ7yjmY"
 Content-Disposition: inline
 
 
---0bdWrlMUgMOcOWqv
+--jKXAgiWgHNZ7yjmY
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, May 03, 2025 at 11:18:24PM +0800, Ben Zong-You Xie wrote:
-> Add the DT binding documentation for Andes machine-level software
-> interrupt controller.
->=20
-> In the Andes platform such as QiLai SoC, the PLIC module is instantiated a
-> second time with all interrupt sources tied to zero as the software
-> interrupt controller (PLICSW). PLICSW can generate machine-level software
-> interrupts through programming its registers.
+On Sat, May 03, 2025 at 11:18:29PM +0800, Ben Zong-You Xie wrote:
+> Enable Andes SoC config in defconfig to allow the default
+> upstream kernel to boot on Voyager board.
 >=20
 > Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---0bdWrlMUgMOcOWqv
+--jKXAgiWgHNZ7yjmY
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo3wQAKCRB4tDGHoIJi
-0o8zAP92lbwWkHAN8n5L5vt7gwGbaVT5MfKv0s0yWfVwM3ObhwEApTIMtPUnOpOJ
-IatmZoOtytwSw9dPTa/GXpGpJ02+CA4=
-=JFu/
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaBo4RQAKCRB4tDGHoIJi
+0uAUAP92hrP7s3WaVFynMqKTElxT3ELtr+tufOcVF07+D/ugAgD/SdMXiT8FhPv8
++Z0WDTWilrlPNUYIGLIDgiYcsrxsFwo=
+=Vig7
 -----END PGP SIGNATURE-----
 
---0bdWrlMUgMOcOWqv--
+--jKXAgiWgHNZ7yjmY--
 
 
---===============2726605072130152026==
+--===============1049474114467221089==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -127,5 +121,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============2726605072130152026==--
+--===============1049474114467221089==--
 
