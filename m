@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39BAEC3ABC7
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:33:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E372EC3ABBC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:33:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/uX+kfxiXKWrs7hqPGCzXSVMKpEItvvO39D8YV7GwQo=; b=E6rMl9GJc5Ru+6
-	WgzRpxkhRbQvb3foD9BRMrZt9s7gOKhWJ3xBcI8oUhgaQjquhLnPAqztbRHdim/lb2Qlx9t+Qr2vm
-	/DVf6XRk09VJbeDPtHLjTkN8zzzetGuecAwSegmnajFWS3v0Ty79Ov1N45hn9pvJEHM6tPkzzngiv
-	l3wqJFQK/RPy2ZTlYq3fDUwU6kBdsl/rskK2p349PrqQfkHDbOLu03ghuhKft5mmuuPn1XLSqDhL8
-	GQc02v54RU/CqbdHwABr5CvOvz6cALTNY2aelapzOJROrXYm0osX/1k6ePIemE+/P/iTW3+toPqWt
-	GCmaxmpy1WaFPpMuXYDg==;
+	List-Owner; bh=MgA1TAk5jgQwkcmqAjQg1qkvWfQqTH+k2NDTgtL/FhQ=; b=dQTo6xp8VNuCcT
+	2oaCfScIclIQ9vvhyo5EsZUhts1cQ1z5X7TgpuHvnADfhO3RwMH6UNa9uCAMSDJ/w8g06j4GPlWuE
+	Ybeu8sh0JZ+Ke/VovgAmXCvPtyQS9r1QOTsQjaVyXekTVoJdb8F22/oUcVro9bcn/2C2cwwY9GWei
+	m4VHPTE98PskOsf63mQs8tzaYn9zbFeHg/zCBWH9gTpgctnxUhUTD26cFCH+dCKaCNqDSiv8fjtOm
+	EgF2WUacC6T3XLAbiD95DK1OIywX4EjfmU18snPNxIifsm7PcxZ1dTgfD8TCXxTbrOpfRr9Yd0TB5
+	8BGBXEULCKmhk9BZZHMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUah-0000000Duid-2NUM;
-	Wed, 07 May 2025 02:32:59 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1uCUb8-0000000DvVb-2ZS3;
+	Wed, 07 May 2025 02:33:26 +0000
+Received: from mail-io1-xd29.google.com ([2607:f8b0:4864:20::d29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCOjr-0000000DM6p-2D7K
+	id 1uCPUz-0000000DPHg-0ZsD
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 20:18:05 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1746562680;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JL3KJECzkhV/qvzTbpNQakf8HDmxnrdG6VFLv0G/Yhs=;
-	b=aUkU0EFpALSvYtaPELyXgLD9eiLYltdKXUYsXtn2Hjj7y0cBwyrAqj6CQw/W95tk30NxFA
-	3fY4DzE3PgVUTsUjJI8Wc6EuBZit4uZAdohzfaY4asalDv+2Orx6W44OW9qs/XxXRyPCa/
-	Gq9NwHkfTtdyx9mfAJQJJ0pf2xIveuz7lgYsWSm5Jz4Q0FUVPYB+BtHz5ddOJx5XdaYPtt
-	uTQYChI2SMNI5vIy5toFVg+uSB0kpA/V6DykHegnQp1NHMGAkuNXFNfjF7/AAcd5zU+Raa
-	5BlkmvonCVHpQCmgTReoGtUaH6CtTCPm/T7bel1tLvsSPFkVPtmR9qRKvJSkXQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1746562680;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=JL3KJECzkhV/qvzTbpNQakf8HDmxnrdG6VFLv0G/Yhs=;
-	b=ISTqBmHfkw0nuQ6Ti7cf04Qt+m5Hevz5/81ZA22DDowMHZgue8Ig2w2rnbpc0FfAs420BP
-	Blzxi4Q1mmyZgTDQ==
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	stable@vger.kernel.org
-Cc: Kai Zhang <zhangkai@iscas.ac.cn>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
+	Tue, 06 May 2025 21:06:46 +0000
+Received: by mail-io1-xd29.google.com with SMTP id ca18e2360f4ac-85dac9728cdso170477839f.0
+        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 14:06:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746565604; x=1747170404; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ctQSvVihHY5dWsU4MBBsIjj+H5evIdxG47g04dOZUkE=;
+        b=zYL/eGV3CloUOCViAO2vH8EiJshkl4H3Ckd2KSUzkr9BbHFT74Chij5yESe8ocJNDF
+         /GJs0Awiiuy/bkbKxTd5Ni9+I7ll9fh/4vwcsKNQDVb28/07lXCSLx9V18f1CHpCRq14
+         bD5pnivGX1tfJxtYYpjnWtR23O49men4JRM1LalDFBYRYIQeEt0bVBUQk/SAIbsdaYJ5
+         orLRVny8a8JXjId4oNxbWpPSF1k1epe+EUk6/RAlyD0PFixuVU7wAHlTmald9/ClNigg
+         srdQIABjfmErP7o4pAoOFtMmL+7xXafMUnzVAETAdtiiDe/ma3wAXZ4dISfUbN8ZZYqI
+         6tGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746565604; x=1747170404;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ctQSvVihHY5dWsU4MBBsIjj+H5evIdxG47g04dOZUkE=;
+        b=ouKcd8wbFjTskv8pydNB0ezLJVpvkOqKpOdNz7KXxSFU3MExqQx7OEsT1bShAI8Ick
+         tACwThwofSq1lXwSV7JUCMjtdKk5cdgfZ5Q7Sp1ZRzg0SeniDqDPGkScq8BlFxHHfuiK
+         OxEQNr/gB0H66I4IobiU3jqfB686cdauynw/Q7uIrUB0X9eSCwjAxbVO3WgRIP90asuL
+         J2+hBZZem0zUIVgacHXs7i6EsNDeDuT+7MNt92ND0ogbtpueFIDrqvlT/DP2nUeRVzHG
+         ExeGhRcgd0bnoFKFgbdjLw/VINNjg4tYfIjXT71V67X1ubmO1plqzaZXekhjV9m4fIkm
+         mBiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX9U9jrhE/G920nNDHIKpTKdvsofTNLfUlSCG+xZ1mIUivPk0KFSloUuCVpgCNWdfz42RWgUf1Cm59lew==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyA7yYsOvxTThgP+J0BZvG3egDG4XlihrLLrwMUPbSZgNCLlwo2
+	VtWv7ioQ3xhC5BW/0HjmgoA6BQmWNfq60Yl5mf+iz6iWUeULVqkY08bVyr7inkw=
+X-Gm-Gg: ASbGncuSXWRctMzrXkJngqV81PUFcPmYYGg/Qar7tzwCdHNpIcip2P8BGuIWXssM51D
+	5nw8UGQ76hzrAqmSQ6J7jq05Qyq8+La4xJRlvbEq2z/Fcor1/tV+XfOvT8CdE10aPTjTNgTuOLQ
+	ehB+Nm8OlSeVeoSvn48RfG5qSvx8B40cC+w+ZRId+MNcbR0dqKOS9gkXsOh7BYhOdMNoyc9SjGk
+	4SmCBQYYFm0b8OiWEDTA2y2/W3noyUuULjVfO30dSDuzpahLjjB8b9N1e/GujqvzEgeZ6TFexWy
+	YhUuANpoFdYpheDVegeMXjeT37kcYtnN0KScYY5r92GIa0IES4UpA0DyiUZepmLqb9DXY7BWi1M
+	lGfeLvXGw+8KeGg==
+X-Google-Smtp-Source: AGHT+IHmLwR/RdxY6gKxsVffp2BFaQw1Bk6UdfmCxeRt2RRt1uEhRJSBeWBP2YNWT9ppTywhStu3jQ==
+X-Received: by 2002:a05:6602:6b07:b0:85b:41cc:f709 with SMTP id ca18e2360f4ac-86747413db3mr136372539f.14.1746565603723;
+        Tue, 06 May 2025 14:06:43 -0700 (PDT)
+Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f88aa588basm2419559173.79.2025.05.06.14.06.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 14:06:43 -0700 (PDT)
+From: Alex Elder <elder@riscstar.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	mturquette@baylibre.com,
+	sboyd@kernel.org,
+	p.zabel@pengutronix.de,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	dlan@gentoo.org
+Cc: heylenay@4d2.org,
+	inochiama@outlook.com,
+	guodong@riscstar.com,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@rivosinc.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Palmer Dabbelt <palmer@rivosinc.com>,
-	Nam Cao <namcao@linutronix.de>
-Subject: [PATCH stable v6.6] riscv: Pass patch_text() the length in bytes
-Date: Tue,  6 May 2025 22:17:52 +0200
-Message-Id: <20250506201752.1915639-1-namcao@linutronix.de>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v6 0/6] clk: spacemit: add K1 reset support
+Date: Tue,  6 May 2025 16:06:31 -0500
+Message-ID: <20250506210638.2800228-1-elder@riscstar.com>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_131803_846882_EBA1814D 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250506_140645_304049_537E833F 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,115 +107,118 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RnJvbTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20+CgpbIFVwc3Ry
-ZWFtIGNvbW1pdCA1MTc4MWNlOGY0NDg2YzM3MzhhNmM4NTE3NWI1OTlhZDFiZTcxZjg5IF0KCnBh
-dGNoX3RleHRfbm9zeW5jKCkgYWxyZWFkeSBoYW5kbGVzIGFuIGFyYml0cmFyeSBsZW5ndGggb2Yg
-Y29kZSwgc28gdGhpcwpyZW1vdmVzIGEgc3VwZXJmbHVvdXMgbG9vcCBhbmQgcmVkdWNlcyB0aGUg
-bnVtYmVyIG9mIGljYWNoZSBmbHVzaGVzLgoKUmV2aWV3ZWQtYnk6IEJqw7ZybiBUw7ZwZWwgPGJq
-b3JuQHJpdm9zaW5jLmNvbT4KU2lnbmVkLW9mZi1ieTogU2FtdWVsIEhvbGxhbmQgPHNhbXVlbC5o
-b2xsYW5kQHNpZml2ZS5jb20+ClJldmlld2VkLWJ5OiBDb25vciBEb29sZXkgPGNvbm9yLmRvb2xl
-eUBtaWNyb2NoaXAuY29tPgpMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9yLzIwMjQwMzI3
-MTYwNTIwLjc5MTMyMi02LXNhbXVlbC5ob2xsYW5kQHNpZml2ZS5jb20KU2lnbmVkLW9mZi1ieTog
-UGFsbWVyIERhYmJlbHQgPHBhbG1lckByaXZvc2luYy5jb20+ClthcHBseSB0byB2Ni42XQpTaWdu
-ZWQtb2ZmLWJ5OiBOYW0gQ2FvIDxuYW1jYW9AbGludXRyb25peC5kZT4KLS0tCnRoaXMgcGF0Y2gg
-Zml4ZXMgYSBidWcgaW50cm9kdWNlZCBieSBjb21taXQgYjE3NTY3NTBhMzk3ICgicmlzY3Y6IGtw
-cm9iZXM6IFVzZQpwYXRjaF90ZXh0X25vc3luYygpIGZvciBpbnNuIHNsb3RzIiksIHdoaWNoIHJl
-cGxhY2VkIHBhdGNoX3RleHQoKSB3aXRoCnBhdGNoX3RleHRfbm9zeW5jKCkuIFRoYXQgaXMgYnJv
-a2VuLCBiZWNhdXNlIHBhdGNoX3RleHQoKSBhbmQKcGF0Y2hfdGV4dF9ub3N5bmMoKSB0YWtlcyBk
-aWZmZXJlbnQgcGFyYW1ldGVycyAobnVtYmVyIG9mIGluc3RydWN0aW9uIHZzCnBhdGNoZWQgbGVu
-Z3RoIGluIGJ5dGVzKS4KClRoaXMgYnVnIHdhcyByZXBvcnRlZCBpbjoKaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvc3RhYmxlL2M3ZTQ2M2MwLThjYWQtNGY0ZS1hZGRkLTE5NWMwNmI3YjZkZUBpc2Nh
-cy5hYy5jbi8KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhdGNoLmggICAgIHwgIDIgKy0K
-IGFyY2gvcmlzY3Yva2VybmVsL3BhdGNoLmMgICAgICAgICAgfCAxNCArKysrKy0tLS0tLS0tLQog
-YXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYyB8IDE4ICsrKysrKysrKystLS0tLS0t
-LQogYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYyAgICB8ICA3ICsrKystLS0KIDQgZmls
-ZXMgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKSwgMjEgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0
-IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wYXRjaC5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wYXRjaC5oCmluZGV4IDlmNWQ2ZTE0YzQwNS4uNzIyOGUyNjZiOWExIDEwMDY0NAotLS0gYS9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3BhdGNoLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS9wYXRjaC5oCkBAIC05LDcgKzksNyBAQAogaW50IHBhdGNoX2luc25fd3JpdGUodm9pZCAqYWRk
-ciwgY29uc3Qgdm9pZCAqaW5zbiwgc2l6ZV90IGxlbik7CiBpbnQgcGF0Y2hfdGV4dF9ub3N5bmMo
-dm9pZCAqYWRkciwgY29uc3Qgdm9pZCAqaW5zbnMsIHNpemVfdCBsZW4pOwogaW50IHBhdGNoX3Rl
-eHRfc2V0X25vc3luYyh2b2lkICphZGRyLCB1OCBjLCBzaXplX3QgbGVuKTsKLWludCBwYXRjaF90
-ZXh0KHZvaWQgKmFkZHIsIHUzMiAqaW5zbnMsIGludCBuaW5zbnMpOworaW50IHBhdGNoX3RleHQo
-dm9pZCAqYWRkciwgdTMyICppbnNucywgc2l6ZV90IGxlbik7CiAKIGV4dGVybiBpbnQgcmlzY3Zf
-cGF0Y2hfaW5fc3RvcF9tYWNoaW5lOwogCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC9w
-YXRjaC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYwppbmRleCA3ODM4N2Q4NDNhYTUuLmFl
-ZGE4NzI0MGRiYyAxMDA2NDQKLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcGF0Y2guYworKysgYi9h
-cmNoL3Jpc2N2L2tlcm5lbC9wYXRjaC5jCkBAIC0xOSw3ICsxOSw3IEBACiBzdHJ1Y3QgcGF0Y2hf
-aW5zbiB7CiAJdm9pZCAqYWRkcjsKIAl1MzIgKmluc25zOwotCWludCBuaW5zbnM7CisJc2l6ZV90
-IGxlbjsKIAlhdG9taWNfdCBjcHVfY291bnQ7CiB9OwogCkBAIC0yMzQsMTQgKzIzNCwxMCBAQCBO
-T0tQUk9CRV9TWU1CT0wocGF0Y2hfdGV4dF9ub3N5bmMpOwogc3RhdGljIGludCBwYXRjaF90ZXh0
-X2NiKHZvaWQgKmRhdGEpCiB7CiAJc3RydWN0IHBhdGNoX2luc24gKnBhdGNoID0gZGF0YTsKLQl1
-bnNpZ25lZCBsb25nIGxlbjsKLQlpbnQgaSwgcmV0ID0gMDsKKwlpbnQgcmV0ID0gMDsKIAogCWlm
-IChhdG9taWNfaW5jX3JldHVybigmcGF0Y2gtPmNwdV9jb3VudCkgPT0gbnVtX29ubGluZV9jcHVz
-KCkpIHsKLQkJZm9yIChpID0gMDsgcmV0ID09IDAgJiYgaSA8IHBhdGNoLT5uaW5zbnM7IGkrKykg
-ewotCQkJbGVuID0gR0VUX0lOU05fTEVOR1RIKHBhdGNoLT5pbnNuc1tpXSk7Ci0JCQlyZXQgPSBw
-YXRjaF9pbnNuX3dyaXRlKHBhdGNoLT5hZGRyICsgaSAqIGxlbiwgJnBhdGNoLT5pbnNuc1tpXSwg
-bGVuKTsKLQkJfQorCQlyZXQgPSBwYXRjaF9pbnNuX3dyaXRlKHBhdGNoLT5hZGRyLCBwYXRjaC0+
-aW5zbnMsIHBhdGNoLT5sZW4pOwogCQkvKgogCQkgKiBNYWtlIHN1cmUgdGhlIHBhdGNoaW5nIHN0
-b3JlIGlzIGVmZmVjdGl2ZSAqYmVmb3JlKiB3ZQogCQkgKiBpbmNyZW1lbnQgdGhlIGNvdW50ZXIg
-d2hpY2ggcmVsZWFzZXMgYWxsIHdhaXRpbmcgQ1BVcwpAQCAtMjYyLDEzICsyNTgsMTMgQEAgc3Rh
-dGljIGludCBwYXRjaF90ZXh0X2NiKHZvaWQgKmRhdGEpCiB9CiBOT0tQUk9CRV9TWU1CT0wocGF0
-Y2hfdGV4dF9jYik7CiAKLWludCBwYXRjaF90ZXh0KHZvaWQgKmFkZHIsIHUzMiAqaW5zbnMsIGlu
-dCBuaW5zbnMpCitpbnQgcGF0Y2hfdGV4dCh2b2lkICphZGRyLCB1MzIgKmluc25zLCBzaXplX3Qg
-bGVuKQogewogCWludCByZXQ7CiAJc3RydWN0IHBhdGNoX2luc24gcGF0Y2ggPSB7CiAJCS5hZGRy
-ID0gYWRkciwKIAkJLmluc25zID0gaW5zbnMsCi0JCS5uaW5zbnMgPSBuaW5zbnMsCisJCS5sZW4g
-PSBsZW4sCiAJCS5jcHVfY291bnQgPSBBVE9NSUNfSU5JVCgwKSwKIAl9OwogCmRpZmYgLS1naXQg
-YS9hcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jIGIvYXJjaC9yaXNjdi9rZXJuZWwv
-cHJvYmVzL2twcm9iZXMuYwppbmRleCA0ZmJjNzBlODIzZjAuLjI5NzQyN2ZmYzRlMCAxMDA2NDQK
-LS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvcHJvYmVzL2twcm9iZXMuYworKysgYi9hcmNoL3Jpc2N2
-L2tlcm5lbC9wcm9iZXMva3Byb2Jlcy5jCkBAIC0yMywxMyArMjMsMTMgQEAgcG9zdF9rcHJvYmVf
-aGFuZGxlcihzdHJ1Y3Qga3Byb2JlICosIHN0cnVjdCBrcHJvYmVfY3RsYmxrICosIHN0cnVjdCBw
-dF9yZWdzICopOwogCiBzdGF0aWMgdm9pZCBfX2twcm9iZXMgYXJjaF9wcmVwYXJlX3NzX3Nsb3Qo
-c3RydWN0IGtwcm9iZSAqcCkKIHsKKwlzaXplX3QgbGVuID0gR0VUX0lOU05fTEVOR1RIKHAtPm9w
-Y29kZSk7CiAJdTMyIGluc24gPSBfX0JVR19JTlNOXzMyOwotCXVuc2lnbmVkIGxvbmcgb2Zmc2V0
-ID0gR0VUX0lOU05fTEVOR1RIKHAtPm9wY29kZSk7CiAKLQlwLT5haW5zbi5hcGkucmVzdG9yZSA9
-ICh1bnNpZ25lZCBsb25nKXAtPmFkZHIgKyBvZmZzZXQ7CisJcC0+YWluc24uYXBpLnJlc3RvcmUg
-PSAodW5zaWduZWQgbG9uZylwLT5hZGRyICsgbGVuOwogCi0JcGF0Y2hfdGV4dF9ub3N5bmMocC0+
-YWluc24uYXBpLmluc24sICZwLT5vcGNvZGUsIDEpOwotCXBhdGNoX3RleHRfbm9zeW5jKCh2b2lk
-ICopcC0+YWluc24uYXBpLmluc24gKyBvZmZzZXQsICZpbnNuLCAxKTsKKwlwYXRjaF90ZXh0X25v
-c3luYyhwLT5haW5zbi5hcGkuaW5zbiwgJnAtPm9wY29kZSwgbGVuKTsKKwlwYXRjaF90ZXh0X25v
-c3luYygodm9pZCAqKXAtPmFpbnNuLmFwaS5pbnNuICsgbGVuLCAmaW5zbiwgR0VUX0lOU05fTEVO
-R1RIKGluc24pKTsKIH0KIAogc3RhdGljIHZvaWQgX19rcHJvYmVzIGFyY2hfcHJlcGFyZV9zaW11
-bGF0ZShzdHJ1Y3Qga3Byb2JlICpwKQpAQCAtMTE2LDE2ICsxMTYsMTggQEAgdm9pZCAqYWxsb2Nf
-aW5zbl9wYWdlKHZvaWQpCiAvKiBpbnN0YWxsIGJyZWFrcG9pbnQgaW4gdGV4dCAqLwogdm9pZCBf
-X2twcm9iZXMgYXJjaF9hcm1fa3Byb2JlKHN0cnVjdCBrcHJvYmUgKnApCiB7Ci0JdTMyIGluc24g
-PSAocC0+b3Bjb2RlICYgX19JTlNOX0xFTkdUSF9NQVNLKSA9PSBfX0lOU05fTEVOR1RIXzMyID8K
-LQkJICAgX19CVUdfSU5TTl8zMiA6IF9fQlVHX0lOU05fMTY7CisJc2l6ZV90IGxlbiA9IEdFVF9J
-TlNOX0xFTkdUSChwLT5vcGNvZGUpOworCXUzMiBpbnNuID0gbGVuID09IDQgPyBfX0JVR19JTlNO
-XzMyIDogX19CVUdfSU5TTl8xNjsKIAotCXBhdGNoX3RleHQocC0+YWRkciwgJmluc24sIDEpOwor
-CXBhdGNoX3RleHQocC0+YWRkciwgJmluc24sIGxlbik7CiB9CiAKIC8qIHJlbW92ZSBicmVha3Bv
-aW50IGZyb20gdGV4dCAqLwogdm9pZCBfX2twcm9iZXMgYXJjaF9kaXNhcm1fa3Byb2JlKHN0cnVj
-dCBrcHJvYmUgKnApCiB7Ci0JcGF0Y2hfdGV4dChwLT5hZGRyLCAmcC0+b3Bjb2RlLCAxKTsKKwlz
-aXplX3QgbGVuID0gR0VUX0lOU05fTEVOR1RIKHAtPm9wY29kZSk7CisKKwlwYXRjaF90ZXh0KHAt
-PmFkZHIsICZwLT5vcGNvZGUsIGxlbik7CiB9CiAKIHZvaWQgX19rcHJvYmVzIGFyY2hfcmVtb3Zl
-X2twcm9iZShzdHJ1Y3Qga3Byb2JlICpwKQpkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9uZXQvYnBm
-X2ppdF9jb21wNjQuYyBiL2FyY2gvcmlzY3YvbmV0L2JwZl9qaXRfY29tcDY0LmMKaW5kZXggMjZl
-ZWIzOTczNjMxLi4xNmViNGNkMTFjYmQgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3YvbmV0L2JwZl9q
-aXRfY29tcDY0LmMKKysrIGIvYXJjaC9yaXNjdi9uZXQvYnBmX2ppdF9jb21wNjQuYwpAQCAtMTQs
-NiArMTQsNyBAQAogI2luY2x1ZGUgImJwZl9qaXQuaCIKIAogI2RlZmluZSBSVl9GRU5UUllfTklO
-U05TIDIKKyNkZWZpbmUgUlZfRkVOVFJZX05CWVRFUyAoUlZfRkVOVFJZX05JTlNOUyAqIDQpCiAK
-ICNkZWZpbmUgUlZfUkVHX1RDQyBSVl9SRUdfQTYKICNkZWZpbmUgUlZfUkVHX1RDQ19TQVZFRCBS
-Vl9SRUdfUzYgLyogU3RvcmUgQTYgaW4gUzYgaWYgcHJvZ3JhbSBkbyBjYWxscyAqLwpAQCAtNjgx
-LDcgKzY4Miw3IEBAIGludCBicGZfYXJjaF90ZXh0X3Bva2Uodm9pZCAqaXAsIGVudW0gYnBmX3Rl
-eHRfcG9rZV90eXBlIHBva2VfdHlwZSwKIAlpZiAocmV0KQogCQlyZXR1cm4gcmV0OwogCi0JaWYg
-KG1lbWNtcChpcCwgb2xkX2luc25zLCBSVl9GRU5UUllfTklOU05TICogNCkpCisJaWYgKG1lbWNt
-cChpcCwgb2xkX2luc25zLCBSVl9GRU5UUllfTkJZVEVTKSkKIAkJcmV0dXJuIC1FRkFVTFQ7CiAK
-IAlyZXQgPSBnZW5fanVtcF9vcl9ub3BzKG5ld19hZGRyLCBpcCwgbmV3X2luc25zLCBpc19jYWxs
-KTsKQEAgLTY5MCw4ICs2OTEsOCBAQCBpbnQgYnBmX2FyY2hfdGV4dF9wb2tlKHZvaWQgKmlwLCBl
-bnVtIGJwZl90ZXh0X3Bva2VfdHlwZSBwb2tlX3R5cGUsCiAKIAljcHVzX3JlYWRfbG9jaygpOwog
-CW11dGV4X2xvY2soJnRleHRfbXV0ZXgpOwotCWlmIChtZW1jbXAoaXAsIG5ld19pbnNucywgUlZf
-RkVOVFJZX05JTlNOUyAqIDQpKQotCQlyZXQgPSBwYXRjaF90ZXh0KGlwLCBuZXdfaW5zbnMsIFJW
-X0ZFTlRSWV9OSU5TTlMpOworCWlmIChtZW1jbXAoaXAsIG5ld19pbnNucywgUlZfRkVOVFJZX05C
-WVRFUykpCisJCXJldCA9IHBhdGNoX3RleHQoaXAsIG5ld19pbnNucywgUlZfRkVOVFJZX05CWVRF
-Uyk7CiAJbXV0ZXhfdW5sb2NrKCZ0ZXh0X211dGV4KTsKIAljcHVzX3JlYWRfdW5sb2NrKCk7CiAK
-LS0gCjIuMzkuNQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
-b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
-Y3YK
+This series adds reset controller support for the SpacemiT K1 SoC.
+
+This code builds upon the clock controller driver from Haylen Chu.
+This version has been reworked to use the auxiliary device model,
+as requested by Stephen Boyd.  As a result the reset code resides
+under drivers/reset rather than drivers/clk.  A new header file
+holds definitions used by the clock and reset drivers.  The first
+patch is the same as before, so I preserved Krzysztof's Reviewed-by
+tag.  I dropped the tags from Haylen and Philipp, given the new
+location of the code.  (The actual reset code is largely the same.)
+
+This series is based on the "for-next" branch in the SpacemiT
+repository:
+  https://github.com/spacemit-com/linux/tree/for-next
+
+All of these patches are available here:
+  https://github.com/riscstar/linux/tree/outgoing/reset-v6
+
+Between version 5 and version 6:
+  - Reworked the code to use the auxiliary device framework.
+  - Moved the code supporting reset under drivers/reset/spacemit.
+  - Created a new header file shared by reset and clock.
+  - Separated generic from SoC-specific code in the reset driver.
+  - Dropped two Reviewed-by tags.
+
+Between version 4 and version 5:
+  - Added Haylen's Reviewed-by on the second patch.
+  - Added Philipp's Reviewed-by on the third patch.
+  - In patch 4, added a const qualifier to some structures, and removed
+    parentheses surrounding integer constants, as suggested by Philipp
+  - Now based on the SpacemiT for-next branch
+
+Here is version 4 of this series.
+  https://lore.kernel.org/lkml/20250414191715.2264758-1-elder@riscstar.com/
+
+Between version 3 and version 4:
+  - Now based on Haylen Chu's v7 clock code, built on v6.15-rc2.
+  - Added Krzysztof's Reviewed-by on the first patch.
+
+Here is version 3 of this series.
+  https://lore.kernel.org/lkml/20250409211741.1171584-1-elder@riscstar.com/
+
+Between version 2 and version 3 there was no feedback, however:
+  - Haylen posted v6 of the clock series, and it included some changes
+    that affected the logic in this reset code.
+  - I was informed that defining CCU nodes without any clocks led to
+    warnings about "clocks" being a required property when running
+    "make dtbs_check".  For that reason, I made clock properties
+    optional for reset-only CCU nodes.
+  - This code is now based on v6.15-rc1, which includes a few commits
+    that were listed as dependencies previously.
+
+Here is version 2 of this series.
+  https://lore.kernel.org/lkml/20250328210233.1077035-1-elder@riscstar.com/
+
+Between version 1 and version 2:
+  - Added Rob's Reviewed-by tag on the first patch
+  - Renamed the of_match_data data type (and one or two other symbols) to
+    use "spacemit" rather than "k1".
+  - Replaced the abbreviated "rst" or "RST" in names of newly-defined
+    sympols with "reset" or "RESET" respectively.
+  - Eliminated rcdev_to_controller(), which was only used once.
+  - Changed a function that unsafely did a read/modify/write of a register
+    to use regmap_update_bits() instead as suggested by Haylen.
+  - Eliminated a null check for a pointer known to be non-null.
+  - Reordered the assignment of reset controller device fields.
+  - Added a "sentinel" comment as requested by Yixun.
+  - Updated to be based on Linux v6.14 final.
+
+Here is the first version of this series.
+  https://lore.kernel.org/lkml/20250321151831.623575-1-elder@riscstar.com/
+
+					-Alex
+
+Alex Elder (6):
+  dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
+  soc: spacemit: create a header for clock/reset registers
+  clk: spacemit: set up reset auxiliary devices
+  reset: spacemit: add support for SpacemiT CCU resets
+  reset: spacemit: define three more CCUs
+  riscv: dts: spacemit: add reset support for the K1 SoC
+
+ .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 ++-
+ arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 ++
+ drivers/clk/spacemit/ccu-k1.c                 | 220 ++++++++---------
+ drivers/reset/Kconfig                         |   1 +
+ drivers/reset/Makefile                        |   1 +
+ drivers/reset/spacemit/Kconfig                |  12 +
+ drivers/reset/spacemit/Makefile               |   7 +
+ drivers/reset/spacemit/core.c                 |  61 +++++
+ drivers/reset/spacemit/core.h                 |  39 +++
+ drivers/reset/spacemit/k1.c                   | 231 ++++++++++++++++++
+ .../dt-bindings/clock/spacemit,k1-syscon.h    | 128 ++++++++++
+ include/soc/spacemit/ccu_k1.h                 | 155 ++++++++++++
+ 12 files changed, 777 insertions(+), 125 deletions(-)
+ create mode 100644 drivers/reset/spacemit/Kconfig
+ create mode 100644 drivers/reset/spacemit/Makefile
+ create mode 100644 drivers/reset/spacemit/core.c
+ create mode 100644 drivers/reset/spacemit/core.h
+ create mode 100644 drivers/reset/spacemit/k1.c
+ create mode 100644 include/soc/spacemit/ccu_k1.h
+
+base-commit: cb9c3aeae509b36afbdf46942a7a0a0dfc856ce7
+-- 
+2.45.2
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
