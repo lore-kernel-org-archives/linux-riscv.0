@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C61C3ABBE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7F7CC3ABC3
 	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 18:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,37 +12,37 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:CC:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=6qXWSyUttp7RxLcwbBeGn8L4zhlUIgqGprxTwus5IU0=; b=Ga4wpODSCST8B4
-	31y8m3RF6NVxcF0MC9d+skpBdibhoWt/JAltR0vq+FAqf7sLz5RpGvFZ48WoaoNL6EH/rUfWldK//
-	RMMS5atAVk9evPzg0QT4E71uglHgDK11eAZ60VufDqYk9+WldXRu++mXAxt3pVo8cqFxYtoC4QuH1
-	my1cVavel/lQ1rM7QBGyR1u3le+u6DNneGZ1fzpGfJZ+9dyLQTpG0wa/Wj/NrFsSI7jl1FH7/QP2p
-	ev0XC4pto4mFtEiVlVQuou2VFQc8DYOta+MTwXMNJc2I4E/7Q7tLhKEDIP/HbJstf0SO0jeJZVmSI
-	zPHf4PQN1ddN4hM+bmKw==;
+	List-Owner; bh=Aiu7kQmR+J6J1ALPAEUqo++B6yDpZYXZ8+/9UD1mQyk=; b=mTXJf73Y/SzmvL
+	U7myJBCKc1/aCsL2XFKvaEuN3fSX8jq9Ev/SHg5ekMyxCenenO2tHsik7Gji2yCELFJpXTCWb0aLm
+	D/cPsLE0lwIAPHxx1t/KNIycb0k3eQ7hh5n8LbrT/yxHZ9MnzXQiUlVc/DmHTeJHe0vZmjh/qHwNW
+	RysF9g22rUpLNkBr1xR780sdJYwWKCXSgLJwzfXvv3ngAxn6h9LCSVBuRdg7GYv82lqzAWPx2ZCg8
+	9ZwyR+Mm+chwLKW77iuaiqZVeKjZs7F9emEr/0IjibGDNiXCHi7CloMVKs4qE7Xbz8cmfiy//9LPg
+	cvfeOMIbR2aKt6TBa3mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCMsV-0000000CxTn-44qA;
-	Tue, 06 May 2025 18:18:51 +0000
-Received: from szxga02-in.huawei.com ([45.249.212.188])
+	id 1uCMsW-0000000CxU5-2L2O;
+	Tue, 06 May 2025 18:18:52 +0000
+Received: from szxga07-in.huawei.com ([45.249.212.35])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCJCI-0000000CIkV-2Ks0
+	id 1uCJCV-0000000CImW-1N1B
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 14:23:04 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.48])
-	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZsLDY29N5znfZy;
-	Tue,  6 May 2025 22:21:33 +0800 (CST)
+	Tue, 06 May 2025 14:23:17 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4ZsLFn5g1vzsTJl;
+	Tue,  6 May 2025 22:22:37 +0800 (CST)
 Received: from kwepemf100007.china.huawei.com (unknown [7.202.181.221])
-	by mail.maildlp.com (Postfix) with ESMTPS id BFBD11800B1;
-	Tue,  6 May 2025 22:22:51 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id D6A521A0188;
+	Tue,  6 May 2025 22:23:11 +0800 (CST)
 Received: from [10.67.109.184] (10.67.109.184) by
  kwepemf100007.china.huawei.com (7.202.181.221) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 6 May 2025 22:22:50 +0800
-Message-ID: <6d9f8333-a14a-468a-83ef-4562e54eb60e@huawei.com>
-Date: Tue, 6 May 2025 22:22:49 +0800
+ 15.2.1544.11; Tue, 6 May 2025 22:23:09 +0800
+Message-ID: <22ecc626-0982-4cff-adfd-9ea4bb658ee5@huawei.com>
+Date: Tue, 6 May 2025 22:23:09 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next 5/8] selftests/bpf: Use
- CAN_USE_LOAD_ACQ_STORE_REL when appropriate
+Subject: Re: [PATCH bpf-next 6/8] selftests/bpf: Avoid passing out-of-range
+ values to __retval()
 Content-Language: en-US
 To: Peilin Ye <yepeilin@google.com>, <bpf@vger.kernel.org>
 CC: <linux-riscv@lists.infradead.org>, Andrea Parri <parri.andrea@gmail.com>,
@@ -61,15 +61,15 @@ CC: <linux-riscv@lists.infradead.org>, Andrea Parri <parri.andrea@gmail.com>,
 	<joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu
 	<neelnatu@google.com>, Benjamin Segall <bsegall@google.com>
 References: <cover.1745970908.git.yepeilin@google.com>
- <ca441a13f5ad4a34ddb622cb5b2616b309d59694.1745970908.git.yepeilin@google.com>
+ <5f7e4c5ac5d254c0f42b4ba274437262e238a5cb.1745970908.git.yepeilin@google.com>
 From: Pu Lehui <pulehui@huawei.com>
-In-Reply-To: <ca441a13f5ad4a34ddb622cb5b2616b309d59694.1745970908.git.yepeilin@google.com>
+In-Reply-To: <5f7e4c5ac5d254c0f42b4ba274437262e238a5cb.1745970908.git.yepeilin@google.com>
 X-Originating-IP: [10.67.109.184]
 X-ClientProxiedBy: dggems702-chm.china.huawei.com (10.3.19.179) To
  kwepemf100007.china.huawei.com (7.202.181.221)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_072302_915381_3AB79C0C 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20250506_072315_805530_15E7B683 
+X-CRM114-Status: GOOD (  11.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,78 +89,209 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 2025/4/30 8:51, Peilin Ye wrote:
-> Instead of open-coding the conditions, use
-> '#ifdef CAN_USE_LOAD_ACQ_STORE_REL' to guard the following tests:
+> Currently, we pass 0x1234567890abcdef to __retval() for the following
+> two tests:
 > 
->    verifier_precision/bpf_load_acquire
->    verifier_precision/bpf_store_release
->    verifier_store_release/*
+>    verifier_load_acquire/load_acquire_64
+>    verifier_store_release/store_release_64
 > 
-> Note that, for the first two tests in verifier_precision.c, switching to
-> '#ifdef CAN_USE_LOAD_ACQ_STORE_REL' means also checking if
-> '__clang_major__ >= 18', which has already been guaranteed by the outer
-> '#if' check.
+> However, the upper 32 bits of that value are being ignored, since
+> __retval() expects an int.  Actually, the tests would still pass even if
+> I change '__retval(0x1234567890abcdef)' to e.g. '__retval(0x90abcdef)'.
 > 
+> Restructure the tests a bit to test the entire 64-bit values properly.
+> Do the same to their 8-, 16- and 32-bit variants as well to keep the
+> style consistent.
+> 
+> Fixes: ff3afe5da998 ("selftests/bpf: Add selftests for load-acquire and store-release instructions")
 > Signed-off-by: Peilin Ye <yepeilin@google.com>
 > ---
->   tools/testing/selftests/bpf/progs/verifier_precision.c     | 5 ++---
->   tools/testing/selftests/bpf/progs/verifier_store_release.c | 7 +++----
->   2 files changed, 5 insertions(+), 7 deletions(-)
+>   .../bpf/progs/verifier_load_acquire.c         | 40 +++++++++++++------
+>   .../bpf/progs/verifier_store_release.c        | 32 +++++++++++----
+>   2 files changed, 52 insertions(+), 20 deletions(-)
 > 
-> diff --git a/tools/testing/selftests/bpf/progs/verifier_precision.c b/tools/testing/selftests/bpf/progs/verifier_precision.c
-> index 6662d4b39969..2dd0d15c2678 100644
-> --- a/tools/testing/selftests/bpf/progs/verifier_precision.c
-> +++ b/tools/testing/selftests/bpf/progs/verifier_precision.c
-> @@ -91,8 +91,7 @@ __naked int bpf_end_bswap(void)
->   		::: __clobber_all);
->   }
+> diff --git a/tools/testing/selftests/bpf/progs/verifier_load_acquire.c b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+> index 77698d5a19e4..a696ab84bfd6 100644
+> --- a/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+> +++ b/tools/testing/selftests/bpf/progs/verifier_load_acquire.c
+> @@ -10,65 +10,81 @@
 >   
-> -#if defined(ENABLE_ATOMICS_TESTS) && \
-> -	(defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86))
-> +#ifdef CAN_USE_LOAD_ACQ_STORE_REL
->   
->   SEC("?raw_tp")
->   __success __log_level(2)
-> @@ -138,7 +137,7 @@ __naked int bpf_store_release(void)
+>   SEC("socket")
+>   __description("load-acquire, 8-bit")
+> -__success __success_unpriv __retval(0x12)
+> +__success __success_unpriv __retval(0)
+>   __naked void load_acquire_8(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x12;"
+>   	"*(u8 *)(r10 - 1) = w1;"
+> -	".8byte %[load_acquire_insn];" // w0 = load_acquire((u8 *)(r10 - 1));
+> +	".8byte %[load_acquire_insn];" // w2 = load_acquire((u8 *)(r10 - 1));
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(load_acquire_insn,
+> -		     BPF_ATOMIC_OP(BPF_B, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -1))
+> +		     BPF_ATOMIC_OP(BPF_B, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -1))
 >   	: __clobber_all);
 >   }
 >   
-> -#endif /* load-acquire, store-release */
-> +#endif /* CAN_USE_LOAD_ACQ_STORE_REL */
->   #endif /* v4 instruction */
+>   SEC("socket")
+>   __description("load-acquire, 16-bit")
+> -__success __success_unpriv __retval(0x1234)
+> +__success __success_unpriv __retval(0)
+>   __naked void load_acquire_16(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x1234;"
+>   	"*(u16 *)(r10 - 2) = w1;"
+> -	".8byte %[load_acquire_insn];" // w0 = load_acquire((u16 *)(r10 - 2));
+> +	".8byte %[load_acquire_insn];" // w2 = load_acquire((u16 *)(r10 - 2));
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(load_acquire_insn,
+> -		     BPF_ATOMIC_OP(BPF_H, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -2))
+> +		     BPF_ATOMIC_OP(BPF_H, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -2))
+>   	: __clobber_all);
+>   }
 >   
->   SEC("?raw_tp")
+>   SEC("socket")
+>   __description("load-acquire, 32-bit")
+> -__success __success_unpriv __retval(0x12345678)
+> +__success __success_unpriv __retval(0)
+>   __naked void load_acquire_32(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x12345678;"
+>   	"*(u32 *)(r10 - 4) = w1;"
+> -	".8byte %[load_acquire_insn];" // w0 = load_acquire((u32 *)(r10 - 4));
+> +	".8byte %[load_acquire_insn];" // w2 = load_acquire((u32 *)(r10 - 4));
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(load_acquire_insn,
+> -		     BPF_ATOMIC_OP(BPF_W, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -4))
+> +		     BPF_ATOMIC_OP(BPF_W, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -4))
+>   	: __clobber_all);
+>   }
+>   
+>   SEC("socket")
+>   __description("load-acquire, 64-bit")
+> -__success __success_unpriv __retval(0x1234567890abcdef)
+> +__success __success_unpriv __retval(0)
+>   __naked void load_acquire_64(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"r1 = 0x1234567890abcdef ll;"
+>   	"*(u64 *)(r10 - 8) = r1;"
+> -	".8byte %[load_acquire_insn];" // r0 = load_acquire((u64 *)(r10 - 8));
+> +	".8byte %[load_acquire_insn];" // r2 = load_acquire((u64 *)(r10 - 8));
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(load_acquire_insn,
+> -		     BPF_ATOMIC_OP(BPF_DW, BPF_LOAD_ACQ, BPF_REG_0, BPF_REG_10, -8))
+> +		     BPF_ATOMIC_OP(BPF_DW, BPF_LOAD_ACQ, BPF_REG_2, BPF_REG_10, -8))
+>   	: __clobber_all);
+>   }
+>   
 > diff --git a/tools/testing/selftests/bpf/progs/verifier_store_release.c b/tools/testing/selftests/bpf/progs/verifier_store_release.c
-> index c0442d5bb049..7e456e2861b4 100644
+> index 7e456e2861b4..72f1eb006074 100644
 > --- a/tools/testing/selftests/bpf/progs/verifier_store_release.c
 > +++ b/tools/testing/selftests/bpf/progs/verifier_store_release.c
-> @@ -6,8 +6,7 @@
->   #include "../../../include/linux/filter.h"
->   #include "bpf_misc.h"
->   
-> -#if __clang_major__ >= 18 && defined(ENABLE_ATOMICS_TESTS) && \
-> -	(defined(__TARGET_ARCH_arm64) || defined(__TARGET_ARCH_x86))
-> +#ifdef CAN_USE_LOAD_ACQ_STORE_REL
+> @@ -10,13 +10,17 @@
 >   
 >   SEC("socket")
 >   __description("store-release, 8-bit")
-> @@ -271,7 +270,7 @@ __naked void store_release_with_invalid_reg(void)
->   	: __clobber_all);
->   }
->   
-> -#else
-> +#else /* CAN_USE_LOAD_ACQ_STORE_REL */
+> -__success __success_unpriv __retval(0x12)
+> +__success __success_unpriv __retval(0)
+>   __naked void store_release_8(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x12;"
+>   	".8byte %[store_release_insn];" // store_release((u8 *)(r10 - 1), w1);
+> -	"w0 = *(u8 *)(r10 - 1);"
+> +	"w2 = *(u8 *)(r10 - 1);"
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(store_release_insn,
+> @@ -26,13 +30,17 @@ __naked void store_release_8(void)
 >   
 >   SEC("socket")
->   __description("Clang version < 18, ENABLE_ATOMICS_TESTS not defined, and/or JIT doesn't support store-release, use a dummy test")
-> @@ -281,6 +280,6 @@ int dummy_test(void)
->   	return 0;
->   }
+>   __description("store-release, 16-bit")
+> -__success __success_unpriv __retval(0x1234)
+> +__success __success_unpriv __retval(0)
+>   __naked void store_release_16(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x1234;"
+>   	".8byte %[store_release_insn];" // store_release((u16 *)(r10 - 2), w1);
+> -	"w0 = *(u16 *)(r10 - 2);"
+> +	"w2 = *(u16 *)(r10 - 2);"
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(store_release_insn,
+> @@ -42,13 +50,17 @@ __naked void store_release_16(void)
 >   
-> -#endif
-> +#endif /* CAN_USE_LOAD_ACQ_STORE_REL */
+>   SEC("socket")
+>   __description("store-release, 32-bit")
+> -__success __success_unpriv __retval(0x12345678)
+> +__success __success_unpriv __retval(0)
+>   __naked void store_release_32(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"w1 = 0x12345678;"
+>   	".8byte %[store_release_insn];" // store_release((u32 *)(r10 - 4), w1);
+> -	"w0 = *(u32 *)(r10 - 4);"
+> +	"w2 = *(u32 *)(r10 - 4);"
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(store_release_insn,
+> @@ -58,13 +70,17 @@ __naked void store_release_32(void)
 >   
->   char _license[] SEC("license") = "GPL";
+>   SEC("socket")
+>   __description("store-release, 64-bit")
+> -__success __success_unpriv __retval(0x1234567890abcdef)
+> +__success __success_unpriv __retval(0)
+>   __naked void store_release_64(void)
+>   {
+>   	asm volatile (
+> +	"r0 = 0;"
+>   	"r1 = 0x1234567890abcdef ll;"
+>   	".8byte %[store_release_insn];" // store_release((u64 *)(r10 - 8), r1);
+> -	"r0 = *(u64 *)(r10 - 8);"
+> +	"r2 = *(u64 *)(r10 - 8);"
+> +	"if r2 == r1 goto 1f;"
+> +	"r0 = 1;"
+> +"1:"
+>   	"exit;"
+>   	:
+>   	: __imm_insn(store_release_insn,
 Reviewed-by: Pu Lehui <pulehui@huawei.com>
 
 _______________________________________________
