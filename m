@@ -4,102 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A0B4C3ABC6
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE33C3ABBE
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
+	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Nt9Weo+8vfn8fpD8NKBvDqWLeC9PnaFFdzIHslmv+yI=; b=WQ2tGwfTKtVANC
-	RMCXANpwWF15EWFIK3NmC85mn5dHkkg7sOdOluHTt2GZk++YZrC5nJCu3+kL6A/maw1Iu3xtAb6Lx
-	uwmn/Eyk2Pz692qIi0Dw7nLB6F8KHcjkJDZXhknkyRSuEu9oFG2PJUyPuBlUix3bS/7gB7UjkOjwp
-	N2IUPrp+nYEtolW5dPGbojntovJ62Fy6lcEWXbGeC7XErbkztB8uqwLxTvOduFqcEEfRDUeuLrgYQ
-	sNoY4SwAL60L3ySDUsgOMRZS0TTl3N3iKgoIpdFF03TL/ERe303qOdPZfuHY5PgwJeNeLUEERyiyi
-	0iNpLHEaH1V8OQyfTLRw==;
+	List-Owner; bh=NSkAnfq/CpSm0l1T/nEVUj7YYMBfY8yTjmScAnFdxpI=; b=HJjn/j+QYs8UHD
+	7J9sBaZme9xuPA1gVR0ZtjDr9RiNd0+l29tzST+XoH7V56wCuyOso3Nu+KAFafAsLc+z970k+uFXE
+	7C+Qg0sM7iMscwTtnrvsKceVI5QhlyHAT12Tuy4zv4XEYTtM6w9CbxQwTaA645baodNZHyBI63mqN
+	2wHKdXaCplwXMOE/uPLHCmjfc6KAJbJG17XZLnsFOT19YWucHPHk93wroi8s7YRiYuFOPTuPkvaUT
+	4ZHObuPhBqtiiydMeOg/CkeFGVLpXcJ7vIcMIgKzyAAYfjAQ+1I0nKeijW1IsXKaBwSHfBxMSDYOS
+	OWOURRtXb8qIpbekH1EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUbL-0000000DvvF-1wbh;
-	Wed, 07 May 2025 02:33:39 +0000
-Received: from mail-io1-xd31.google.com ([2607:f8b0:4864:20::d31])
+	id 1uCUbk-0000000DwTi-0gTB;
+	Wed, 07 May 2025 02:34:04 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPV6-0000000DPK7-27h9
+	id 1uCPry-0000000DQih-0Vw0
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 21:06:53 +0000
-Received: by mail-io1-xd31.google.com with SMTP id ca18e2360f4ac-8647e143f28so497688939f.1
-        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 14:06:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746565611; x=1747170411; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f4O20IXLpg8jEm9xUHHnlctypzKfsB1ZRP9Xc0/of3c=;
-        b=jFpdkxEqjvlDS2Q0pJr7MqpLNkvQsxucrs5ZlIhU7yHr7l3KDVvMnZ/yHe4AWiReDm
-         ITNMPWVLbJdVG8eiTqMQG24aKUz923oR9D7AH+jvOzOmkVwWpsy6+LzdG6Z4FalO1vRB
-         Yor05bZDZlv0WBjQHKxRApEfR8fWgz77LTsrG9p2iGQ083aJlgz6Q4icY8Hz7rXcQ870
-         FnBaQ3n6rF0h/aFvYNcP5hQ4jfgbJuRWfQxmBGzLOaWEllHyUzL6hG1+3yWJ3pYffDw5
-         t/FEGgtnTaiyhL7JXkM/swnwfMBXGyv0FjeDvT4aqJkvNmDe5qKQSngAntjq0AYT7zxD
-         4JnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746565611; x=1747170411;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f4O20IXLpg8jEm9xUHHnlctypzKfsB1ZRP9Xc0/of3c=;
-        b=PdBii0sPARj226dEtiCahoXrpiCeOXlhpap986WoZ9YAh7RvTL7cHniOboiEwNrGwE
-         rs5nEM0uP5axIUEoP4d8vMmbC0e0q4A7A4bmj2ajDYQ62WVL98RlN3HLHfnHYzjetGGl
-         /gASnnYb+suBV9dNW7ZxlXgdhgFbeOGW+0Am944CuXk3mbFCGtJucxfcFupoSQM5J9QL
-         T7wSHwyPKPU8gk259BbWli6cYzK3UbveEIqfhKtjlwXLI7abhZTsJ3YUq755CRYoAxCa
-         sC4OdBY3e0t5xjBs7F/YbKnFu2SdvW3q7hkAq7ytYs/o0FbPogtktDEmfgXxTWVXny/I
-         FKCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXZVD9H0tSDexOJAnLLHoovFd6A0FvK76DszAyJtHjUjW5FLijN1BVnQr+6cKBCQ0XJNq6aXsrXoXoR8w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEzZbKrsuCI8o3mCSl+6xBPowE4oQvGeLNvkLHyArz1HTtBttg
-	fcbU6hg2HtJy1ENtoZfpZuQ8qmUXktoDarah/z5Wy9tbD2Rek/JXw2NQbML+iB0=
-X-Gm-Gg: ASbGncvoYgaKoqsTMakvkkbwhtzWV0/PLSPx0v+5sAY2n2OYW1zjZw3p4UmJ8ChfUEm
-	OoQKJWwrtbtSWV8k0oQBzOgtDQbddyYYI0kNzGCm17zaCv8Sd7W7LuTxSDVFLkj1Tv20t0DOge1
-	jk1EhX958VtdKmntkWI2AXKIrlpOgM4GTMrepYYQ0FDQtjFfebb5T+Tcky/Bv6PGHCleZx/v13m
-	LCy4bRyxYJnFx7fGldyq8TbToWEynaGVHCIFo9KYiStPDUE2hxkgjpuFbDAwApdDCMcbqfXjE0e
-	IFKjUDaN508OZG8BzdYa6hH9owBY0E/c2HHldrXHioxObmujT1Jx9087ACV911uJwLNzwfenG5Q
-	gdnr0mLW+kWaA0A==
-X-Google-Smtp-Source: AGHT+IEul28rdtLnf24eQSg9o53hrAPhvZHN/Ndz1HzML1us6xJoFlvoRMcUFOXYOR8J/ANloTh/Jg==
-X-Received: by 2002:a05:6602:1350:b0:85d:f316:fabc with SMTP id ca18e2360f4ac-8674731bb70mr129539539f.8.1746565611497;
-        Tue, 06 May 2025 14:06:51 -0700 (PDT)
-Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f88aa588basm2419559173.79.2025.05.06.14.06.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 14:06:51 -0700 (PDT)
-From: Alex Elder <elder@riscstar.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	mturquette@baylibre.com,
-	sboyd@kernel.org,
-	p.zabel@pengutronix.de,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	dlan@gentoo.org
-Cc: heylenay@4d2.org,
-	inochiama@outlook.com,
-	guodong@riscstar.com,
-	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v6 6/6] riscv: dts: spacemit: add reset support for the K1 SoC
-Date: Tue,  6 May 2025 16:06:37 -0500
-Message-ID: <20250506210638.2800228-7-elder@riscstar.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250506210638.2800228-1-elder@riscstar.com>
-References: <20250506210638.2800228-1-elder@riscstar.com>
+	Tue, 06 May 2025 21:30:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 91FC74A06A;
+	Tue,  6 May 2025 21:30:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62CB3C4CEE4;
+	Tue,  6 May 2025 21:30:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746567029;
+	bh=tHVSCMowVHak9eFvdfPawbHvEbN8M8vOtdhU5mpQIbU=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=tIxHCMEVNzGmZlsR7hg0FiY2js/ySu7vVNW0VTozqzvoEdwXRqRhVKo00FIIcTvVD
+	 jBH2l5E0TL6aBm7Fw3hHCJctfykIjwrQGnrzoFKMsixFIEQVVGRA1G8winWudeS6sz
+	 Rynlhtjp5LckOsx6gnK8G33zda4cT+oGr4repRWgN2DRqQvEX7DVuSNPfxCyCPnc1I
+	 xZozNJY0PeBs43kwRdMWdQmGj9bCxPoq80+9NggkdGwq4L4mWXIPMXZItq9wXiSD3o
+	 bCLAcvDZxCC7PsjLm+78YJH7SBW1PJunjrcn1Khu9F0A68ExXqAd0yvNWNq5QSWtIQ
+	 NZ3FLz3dBHoBA==
+Message-ID: <c46de621e098b7873a00c1af4ca550a1@kernel.org>
 MIME-Version: 1.0
+In-Reply-To: <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
+References: <20250403094425.876981-1-m.wilczynski@samsung.com> <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com> <20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1> <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com> <9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org> <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
+Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock controller
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+To: Drew Fustini <drew@pdp7.com>, Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Tue, 06 May 2025 14:30:27 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_140652_545795_F7036E44 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250506_143030_201596_0C9BB6E7 
+X-CRM114-Status: GOOD (  17.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,53 +71,61 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Define syscon nodes for the RCPU, RCPU2, and APBC2 SpacemiT CCUS, which
-currently support resets but not clocks in the SpacemiT K1.
+Quoting Michal Wilczynski (2025-04-30 00:52:29)
+> 
+> In the v2 version of the patchset, there was no reset controller yet, so
+> I thought your comment was made referring to that earlier version.
+> This representation clearly describes the hardware correctly, which is
+> the requirement for the Device Tree.
+> 
+> The manual, in section 5.4.1.6 VO_SUBSYS, describes the reset registers
+> starting at 0xFF_EF52_8000:
+> 
+> GPU_RST_CFG             0x00
+> DPU_RST_CFG             0x04
+> MIPI_DSI0_RST_CFG       0x8
+> MIPI_DSI1_RST_CFG       0xc
+> HDMI_RST_CFG            0x14
+> AXI4_VO_DW_AXI          0x18
+> X2H_X4_VOSYS_DW_AXI_X2H 0x20
+> 
+> And the clock registers for VO_SUBSYS, manual section 4.4.1.6 start at offset 0x50:
+> VOSYS_CLK_GATE          0x50
+> VOSYS_CLK_GATE1         0x54
+> VOSYS_DPU_CCLK_CFG0     0x64
+> TEST_CLK_FREQ_STAT      0xc4
+> TEST_CLK_CFG            0xc8
+> 
+> So I considered this back then and thought it was appropriate to divide
+> it into two nodes, as the reset node wasn't being considered at that
+> time.
+> 
+> When looking for the reference [1], I didn't notice if you corrected
+> yourself later, but I do remember considering the single-node approach
+> at the time.
+> 
 
-Signed-off-by: Alex Elder <elder@riscstar.com>
----
- arch/riscv/boot/dts/spacemit/k1.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+If the two register ranges don't overlap then this is probably OK. I
+imagine this is one device shipped by the hardware engineer, VO_SUBSYS,
+which happens to be a clock and reset controller. This is quite common,
+and we usually have one node with both #clock-cells and #reset-cells in
+it. Then we use the auxiliary bus to create the reset device from the
+clk driver with the same node. This helps match the device in the
+datasheet to the node and compatible in DT without making the compatible
+provider specific (clk or reset postfix).
 
-diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
-index 6eec6328c26fe..f4afb35dc6bc9 100644
---- a/arch/riscv/boot/dts/spacemit/k1.dtsi
-+++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
-@@ -346,6 +346,18 @@ soc {
- 		dma-noncoherent;
- 		ranges;
- 
-+		syscon_rcpu: system-controller@c0880000 {
-+			compatible = "spacemit,k1-syscon-rcpu";
-+			reg = <0x0 0xc0880000 0x0 0x2048>;
-+			#reset-cells = <1>;
-+		};
-+
-+		syscon_rcpu2: system-controller@c0888000 {
-+			compatible = "spacemit,k1-syscon-rcpu2";
-+			reg = <0x0 0xc0888000 0x0 0x28>;
-+			#reset-cells = <1>;
-+		};
-+
- 		syscon_apbc: system-control@d4015000 {
- 			compatible = "spacemit,k1-syscon-apbc";
- 			reg = <0x0 0xd4015000 0x0 0x1000>;
-@@ -553,6 +565,12 @@ clint: timer@e4000000 {
- 					      <&cpu7_intc 3>, <&cpu7_intc 7>;
- 		};
- 
-+		syscon_apbc2: system-controller@f0610000 {
-+			compatible = "spacemit,k1-syscon-apbc2";
-+			reg = <0x0 0xf0610000 0x0 0x20>;
-+			#reset-cells = <1>;
-+		};
-+
- 		sec_uart1: serial@f0612000 {
- 			compatible = "spacemit,k1-uart", "intel,xscale-uart";
- 			reg = <0x0 0xf0612000 0x0 0x100>;
--- 
-2.45.2
+That's another reason why we usually have one node. DT doesn't describe
+software, i.e. the split between clk and reset frameworks may not exist
+in other operating systems. We don't want to put the software design
+decisions into the DT.
 
+It may also be that a device like this consumes shared power resources
+like clks or regulators that need to be enabled to drive the device, or
+an IOMMU is used to translate the register mappings. We wouldn't want to
+split the device in DT in that case so we can easily manage the power
+resources or memory mappings for the device.
+
+TL;DR: This is probably OK, but I'd be careful to not make it a thing.
 
 _______________________________________________
 linux-riscv mailing list
