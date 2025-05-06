@@ -4,57 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AE33C3ABBE
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:34:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5A43C3ABBF
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 02:35:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:References:
-	In-Reply-To:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NSkAnfq/CpSm0l1T/nEVUj7YYMBfY8yTjmScAnFdxpI=; b=HJjn/j+QYs8UHD
-	7J9sBaZme9xuPA1gVR0ZtjDr9RiNd0+l29tzST+XoH7V56wCuyOso3Nu+KAFafAsLc+z970k+uFXE
-	7C+Qg0sM7iMscwTtnrvsKceVI5QhlyHAT12Tuy4zv4XEYTtM6w9CbxQwTaA645baodNZHyBI63mqN
-	2wHKdXaCplwXMOE/uPLHCmjfc6KAJbJG17XZLnsFOT19YWucHPHk93wroi8s7YRiYuFOPTuPkvaUT
-	4ZHObuPhBqtiiydMeOg/CkeFGVLpXcJ7vIcMIgKzyAAYfjAQ+1I0nKeijW1IsXKaBwSHfBxMSDYOS
-	OWOURRtXb8qIpbekH1EA==;
+	List-Owner; bh=uZ7dSCudP4rYs8/lmrsiZ1jmL+JJdHo9Js9cpgfa8jE=; b=O89ryWZib6HOUN
+	Kh/bj8cAyaqqVCaeNRBsa+3sujt5C3d/DjSWJRaLa0bgY2u0eCLxWAzbqNy8gp6PL0J2H5d/ysU3M
+	HHuLEZqXXHP1sNzieyLogpkmkTMxCmrYtvmjn1TZ3WwuA2ZpPpuTJ38VosZgt59yU6cRIlvKkfnR6
+	7Oh445KTSwqkepDNmqmbduOBBo9MWjm8d+teBJkrRkeaJzmZv6MDizjpTaFSwwDir7axDuLR57Qde
+	yyvMlIpSWVIExpTqfbDZmL1fyb2H8LMHRBoF90P7CFiG9obMrbocAjlvN7aY5w6r4NiF6ULzer76c
+	56J8YdTiL5d2eA6pdM3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCUbk-0000000DwTi-0gTB;
-	Wed, 07 May 2025 02:34:04 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uCUcb-0000000Dy5k-2OtP;
+	Wed, 07 May 2025 02:34:57 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCPry-0000000DQih-0Vw0
-	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 21:30:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 91FC74A06A;
-	Tue,  6 May 2025 21:30:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62CB3C4CEE4;
-	Tue,  6 May 2025 21:30:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746567029;
-	bh=tHVSCMowVHak9eFvdfPawbHvEbN8M8vOtdhU5mpQIbU=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=tIxHCMEVNzGmZlsR7hg0FiY2js/ySu7vVNW0VTozqzvoEdwXRqRhVKo00FIIcTvVD
-	 jBH2l5E0TL6aBm7Fw3hHCJctfykIjwrQGnrzoFKMsixFIEQVVGRA1G8winWudeS6sz
-	 Rynlhtjp5LckOsx6gnK8G33zda4cT+oGr4repRWgN2DRqQvEX7DVuSNPfxCyCPnc1I
-	 xZozNJY0PeBs43kwRdMWdQmGj9bCxPoq80+9NggkdGwq4L4mWXIPMXZItq9wXiSD3o
-	 bCLAcvDZxCC7PsjLm+78YJH7SBW1PJunjrcn1Khu9F0A68ExXqAd0yvNWNq5QSWtIQ
-	 NZ3FLz3dBHoBA==
-Message-ID: <c46de621e098b7873a00c1af4ca550a1@kernel.org>
+	id 1uCQic-0000000DZtF-0jdH;
+	Tue, 06 May 2025 22:24:55 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6e8fb83e137so59843216d6.0;
+        Tue, 06 May 2025 15:24:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746570293; x=1747175093; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=S6PuN11kmLGkE9CdpXY3LsP08NiwndWR9cFcKMuKbeQ=;
+        b=Hxj1MzwZyoeC9xPbvssqbncR4LY7WdhM6GZdfZb9cPGoQZZDs5mHDHzc6+To8TT6kc
+         oDzAQG7SRwNYEVum32KEvmwYM76SRqBQQcHalASN97FJEftSrcZV5JQTYQ3o6O1SAsIS
+         5syXyOBgueSByQ2jtyQpk90QSrSB8jL5JbshTDz1Vhjrgl053g1r4bDJ+ldBcbXw/lWl
+         huX3IeaI3xTgxrf3jt0qj8ZaEbisJCNtGsOv3xgPlsPE1n/jfQLkIeHAzP7TVmSU/Rtu
+         dOPe93dYekYBRPQE29MaYF3fQD9O/ktSlg0V86B5vcDRurHSiekcw9zV3l5JckNkgEpR
+         TNZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746570293; x=1747175093;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=S6PuN11kmLGkE9CdpXY3LsP08NiwndWR9cFcKMuKbeQ=;
+        b=Sk6oVPpkBXeAPdar7LMNqhuDl/hbldcQV5HUXHjFAbOsPL8BG+BULfA2ZuP8V6DBve
+         +UkRmkP7TA7GFo4g/hBkpwaD6rKFKF0wSjLZGwOMT2CflA5OT2ZVJ/8Bl45x3xnTZDA1
+         o8fThFV5YIbDb93aWwWiYMxexKz03sSYFH4D04C2VgXfcmX+DjhSkPT9LYU1EX8qfIc6
+         jmBTbXkDVzOscOEPT5VglXdP7XfT1rcPm4SahpcaWsjRWgTtcPqfgDEocPyMo9kN1skt
+         DXVTPj9dLmrEm6DDTX84vG9JbWbHmKnce+oKHa1tF+wO04HHomhcJkjnbcXqePp/Ze3+
+         PJPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJzuSWnV5/DNRcZkCMjIglmENHLU/E+FaW2DobsJSiXwMCkenpxnE9tHQ0lXSLXd2TLZ/8b6ewLv5Hqm4=@lists.infradead.org, AJvYcCVWkhGWQrvZNWhG8G3NqjUPXahmq9RjC6Oa1kKkmGOn9GbjDYvxOZpw6IOI1deZlMlcfeKq/kEUeEbRGQcJAtUV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXdRJa/QKQYfqWcO9d7Q7S0nfPRXMq5pyeMKoKF2yXbZDFNBwj
+	jdffqjKPffRZHVwuJTMTv+fBZS72QSgrjrdXgHVv7k5DefjsXB1g
+X-Gm-Gg: ASbGncuOpXrveUXN281BFYgxvMTdPsjNKxLo2oGXBhx/6HaX4/aztdSHwbOq6nQ77Jg
+	HKpllexc/uoR9yiKiH2tQiWd6fkD1KwkO+utCaL8c7eOkas5Lcgz4MsLB3OOYwSnhPtZdZGNnbM
+	JydS/DzjvcQEuz8MAvYLEJE0Q+x27M7ZQLJXOoFo5TGaYbnHxLrKskuspWO/VfsP0T+nW4dwmTv
+	dwI9FFprhuiHPa3lVrk6clEo1ed40Ixkdt+6gjv96NR/ZNkth3jcx3qlBM3cv9i81cQDLJp3jYY
+	lswZXKrYUPjsLig9
+X-Google-Smtp-Source: AGHT+IE/HcOkUaQ1OjeZ76XLCIoAMcLQ4gb8y3bZBjcdCFJTsGZuHVr3Qr8wRx0H5mUFdFynUfAxQQ==
+X-Received: by 2002:ad4:5b87:0:b0:6f5:3e46:63f9 with SMTP id 6a1803df08f44-6f5429afe88mr16025426d6.7.1746570292605;
+        Tue, 06 May 2025 15:24:52 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f5427b07e6sm3118126d6.106.2025.05.06.15.24.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 15:24:52 -0700 (PDT)
+Date: Wed, 7 May 2025 06:24:29 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>, "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, 
+	Romain Gantois <romain.gantois@bootlin.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Lothar Rubusch <l.rubusch@gmail.com>, Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, 
+	linux-riscv@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 0/4] riscv: sophgo: Add ethernet support for
+ SG2042
+Message-ID: <fgao5qnim6o3gvixzl7lnftgsish6uajlia5okylxskn3nrexe@gyvgrp72jvj6>
+References: <20250506093256.1107770-1-inochiama@gmail.com>
+ <c7a8185e-07b7-4a62-b39b-7d1e6eec64d6@lunn.ch>
 MIME-Version: 1.0
-In-Reply-To: <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
-References: <20250403094425.876981-1-m.wilczynski@samsung.com> <CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com> <20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1> <17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com> <9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org> <475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
-Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock controller
-From: Stephen Boyd <sboyd@kernel.org>
-Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com, paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de, m.szyprowski@samsung.com, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-To: Drew Fustini <drew@pdp7.com>, Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Tue, 06 May 2025 14:30:27 -0700
-User-Agent: alot/0.12.dev8+g17a99a841c4b
+Content-Disposition: inline
+In-Reply-To: <c7a8185e-07b7-4a62-b39b-7d1e6eec64d6@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_143030_201596_0C9BB6E7 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250506_152454_229967_200FB213 
+X-CRM114-Status: GOOD (  17.75  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,61 +112,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Quoting Michal Wilczynski (2025-04-30 00:52:29)
+On Tue, May 06, 2025 at 02:03:18PM +0200, Andrew Lunn wrote:
+> On Tue, May 06, 2025 at 05:32:50PM +0800, Inochi Amaoto wrote:
+> > The ethernet controller of SG2042 is Synopsys DesignWare IP with
+> > tx clock. Add device id for it.
+> > 
+> > This patch can only be tested on a SG2042 x4 evb board, as pioneer
+> > does not expose this device.
 > 
-> In the v2 version of the patchset, there was no reset controller yet, so
-> I thought your comment was made referring to that earlier version.
-> This representation clearly describes the hardware correctly, which is
-> the requirement for the Device Tree.
+> Do you have a patch for this EVB board? Ideally there should be a user
+> added at the same time as support for a device.
 > 
-> The manual, in section 5.4.1.6 VO_SUBSYS, describes the reset registers
-> starting at 0xFF_EF52_8000:
-> 
-> GPU_RST_CFG             0x00
-> DPU_RST_CFG             0x04
-> MIPI_DSI0_RST_CFG       0x8
-> MIPI_DSI1_RST_CFG       0xc
-> HDMI_RST_CFG            0x14
-> AXI4_VO_DW_AXI          0x18
-> X2H_X4_VOSYS_DW_AXI_X2H 0x20
-> 
-> And the clock registers for VO_SUBSYS, manual section 4.4.1.6 start at offset 0x50:
-> VOSYS_CLK_GATE          0x50
-> VOSYS_CLK_GATE1         0x54
-> VOSYS_DPU_CCLK_CFG0     0x64
-> TEST_CLK_FREQ_STAT      0xc4
-> TEST_CLK_CFG            0xc8
-> 
-> So I considered this back then and thought it was appropriate to divide
-> it into two nodes, as the reset node wasn't being considered at that
-> time.
-> 
-> When looking for the reference [1], I didn't notice if you corrected
-> yourself later, but I do remember considering the single-node approach
-> at the time.
-> 
+> 	Andrew
 
-If the two register ranges don't overlap then this is probably OK. I
-imagine this is one device shipped by the hardware engineer, VO_SUBSYS,
-which happens to be a clock and reset controller. This is quite common,
-and we usually have one node with both #clock-cells and #reset-cells in
-it. Then we use the auxiliary bus to create the reset device from the
-clk driver with the same node. This helps match the device in the
-datasheet to the node and compatible in DT without making the compatible
-provider specific (clk or reset postfix).
+Yes, I have one for this device. And Han Gao told me that he will send
+the board patch for the evb board. So I only send the driver.
+And the fragment for the evb board is likes below, I think it is kind
+of trivial:
 
-That's another reason why we usually have one node. DT doesn't describe
-software, i.e. the split between clk and reset frameworks may not exist
-in other operating systems. We don't want to put the software design
-decisions into the DT.
+&gmac0 {
+	phy-handle = <&phy0>;
+	phy-mode = "rgmii-txid";
+	status = "okay";
 
-It may also be that a device like this consumes shared power resources
-like clks or regulators that need to be enabled to drive the device, or
-an IOMMU is used to translate the register mappings. We wouldn't want to
-split the device in DT in that case so we can easily manage the power
-resources or memory mappings for the device.
-
-TL;DR: This is probably OK, but I'd be careful to not make it a thing.
+	mdio {
+		phy0: phy@0 {
+			compatible = "ethernet-phy-ieee802.3-c22";
+			reg = <0>;
+			reset-gpios = <&port0a 27 GPIO_ACTIVE_LOW>;
+			reset-assert-us = <100000>;
+			reset-deassert-us = <100000>;
+		};
+	};
+};
+ 
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
