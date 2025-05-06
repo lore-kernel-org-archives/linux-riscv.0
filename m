@@ -4,53 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 010E6C3ABAC
-	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 09:22:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D262C3ABAC
+	for <linux-riscv@archiver.kernel.org>; Tue,  6 May 2025 10:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hw+9f36xjuyyNk9CoAP26ZyWMO1RUUyI9WFZKQQJs0c=; b=CxxlvHR1uZh3rX
-	aYzShfTwCOhehVa6hmMpTPo43HIJQYXdEouYPFT0GJPkNgQOMs8jMap587ARXWI2XjV6zRaXGki4y
-	ZUxzCQ0H0uc5DZHjJsWzglSiNMQ8+GFn3S7Fm2AjUX6ko+actbSGfUcmssx+OhdKsusvceVaHmoM4
-	SOdZELriUM/7fwbmasivUNvvaYiMOf+F0ZFOnuKBicKsTgyMSZb9JQJ6iPNFTPXNVx6vPZNhslWUS
-	6S/ie0+F89uoZ/4YbLNTdvSalLH6lwkn+rXbYh3/nrOdwv+ryIlH1qJQgmy1vrKjiOp7Itb+MNl7y
-	00co1S0gm3XrpND5OXGw==;
+	List-Owner; bh=MT3l1LPdjZhHAWlso7DeBAQxNwQl8KN+IMD/X+mhtJA=; b=IC4wTCojUvAwPf
+	tgS0Lk+HrMj89sANH/FB9Fu88TXHNDC4sQ7B+uZhIciw0JadYObsOmnuz0jedALZzNVSYvdF1qptS
+	qO8EtB1OyPrJuUrNQ3TdRsdGrheIlHPr6ERM0vrs7FhXh+ffLC33DPfRCKevnVOcOvQhNhC+9SRyz
+	DZkqyY0tHDh5EUj+bCTFLRgMpG2TtribEM8SaQjZfXupbqJg9iW8Z1EOGPQp6CnPg04f9oNrXXp7k
+	trJ+mRaZTmFXIZ/FSJsEAUwY/2uGrht563RFHCaokCuVQU0ZawcBnA1Wx/yqvR5kVkbfcKfNn+GOl
+	W5YQ+H8xM7BC2wYVq+jQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCEV0-0000000BLXy-2p5O;
-	Tue, 06 May 2025 09:22:02 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1uCFvn-0000000BdMz-32wp;
+	Tue, 06 May 2025 10:53:47 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCDpn-0000000BCCA-3seD
+	id 1uCEXU-0000000BMGJ-48mX
 	for linux-riscv@lists.infradead.org;
-	Tue, 06 May 2025 08:39:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 788B641C84;
-	Tue,  6 May 2025 08:39:21 +0000 (UTC)
-Message-ID: <d5da7382-5e11-4c35-b096-d888e16effd5@ghiti.fr>
-Date: Tue, 6 May 2025 10:39:21 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: defconfig: Remove EXPERT
-Content-Language: en-US
-To: Joel Stanley <joel@jms.id.au>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-Cc: Hal Feng <hal.feng@starfivetech.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Arnd Bergmann <arnd@arndb.de>,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-References: <20250415122832.982610-1-joel@jms.id.au>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250415122832.982610-1-joel@jms.id.au>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddvkeefhedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemheekvgdumehfvdgsgeemjegrledvmeefvdeltdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemheekvgdumehfvdgsgeemjegrledvmeefvdeltddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemheekvgdumehfvdgsgeemjegrledvmeefvdeltdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehjohgvlhesjhhmshdrihgurdgruhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvr
- hesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtohephhgrlhdrfhgvnhhgsehsthgrrhhfihhvvghtvggthhdrtghomhdprhgtphhtthhopehmphgvsegvlhhlvghrmhgrnhdrihgurdgruhdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggvpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-X-GND-Sasl: alex@ghiti.fr
+	Tue, 06 May 2025 09:24:41 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-441c0d8eb3bso2515775e9.1
+        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 02:24:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1746523475; x=1747128275; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mtrK30WSclX8+CsTIEESOGs2XijMelv6Z+mtcK6WgL8=;
+        b=aBOABMHc5n6vbUniRIziOBj6PgRh+K56RI5HC9VgLamVNPTHW1mMa8sWPJaK9g8Lvt
+         swQLGvPQTnpozdXi97jcS0NOngR4mHDr3vnYBP6HoJwe3sW1X65lqFDIG7g2nWjyfx8b
+         p0uZkFPq7HhueIGQ0Vi4JvoSYzNDILU20gbKGrXEVT9wWsNTWwK3vMyswgHfnXOyrau3
+         +8qQy0vFAQ9nuzM4ybfhIuKdJtbQt+35nIEqsX97DwF7jDL8x0gI84sp8SfePxPHsuHa
+         nMcdeoKO95ydZIDJMulSLTY1Js9Nea2ntFOSZUyrFUZHEc6NI1lh4GX9Y68ob751e1ec
+         A1BA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746523475; x=1747128275;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=mtrK30WSclX8+CsTIEESOGs2XijMelv6Z+mtcK6WgL8=;
+        b=jEudfpu7YMK6E5wcVOY7ta79mbpAJDaQ2+Ilw/M4vGy3WYyjS4jIbTdgMnnVBIqfWB
+         wg8UMQlHU7DGIfzgMfg5kDNGx9Lud0jrpUse4+PPxuTOVFHAYCp+r31MOTm/NtItmD55
+         s/ZPkAzo/SIDPUH0y+tEslYIwFI91qyr/a62RyMmXWgWUi1Y51xKuHvQK/Rp5DkYsMKL
+         /x55CyThsZknVxXxfIV4bfqLjdqKloCqSDIn7RZE3rL4LPWhJPDsoGqvFpVO1pkA8bNf
+         2rUeM+Wmba5hm+AxmwLE/Y/JMD6Pmw4UxkRmRwO98cRp2pekwQyBkhBHyEFICFPQ25i8
+         fMuQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUh4cChmEQeTtDEJdjurQ9IOMRQyG8MEgnEKbN7Ai07rIpxV+RoJlRaUKLon3vlUzlKM4zkNiKCJWiBQA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX4mN/HSKcDrjw0X6vO3BsiV926QLlE7CUg/wZBQi2QuR4FexW
+	iGCRLo1SjkKPM9cnseLdE0bpDsuB6s1m7j3ESRiFWPzQji0kqAWai2/0mh5C33o=
+X-Gm-Gg: ASbGncu7M1Cr2MXtD4dFTBv8sddsE9I/xdgTyS0hC1TBHldAI2YVVz7KGu+pxXRfues
+	kB+0ammZK3EvPS6xxuthzS/lwVsZKdfv59U5mAtiHtLEN6x4NH5+EQ2eo3mCkYQG/q7hby/9CUA
+	RPsUxziN8b7FD+YtEvrq80CDXTODM2opb8rIyxkW4tSuMvVuKNwy/fOmtmmyJnmnYfZ1PlIzqbj
+	HjxlvnDRotcyJFOyJTBfqUO5VHSaCpsNerykuNsms2Y+97UNpmvUOBCeHhxDYxXPM3jlMiCnz8C
+	8OnrlqXphx8beXwgw5zqrAo/eUP7t08yPNBfuO1GtD64SE3X
+X-Google-Smtp-Source: AGHT+IHZgaRK6ml9AWyse65POBkzHsZ8Ut+BjX7oVJ10RpUOC/PC4jjz2MMApvtA5diNrjCKmwAdmg==
+X-Received: by 2002:a7b:ca59:0:b0:441:d244:1463 with SMTP id 5b1f17b1804b1-441d2441701mr2017735e9.0.1746523474923;
+        Tue, 06 May 2025 02:24:34 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:d5f0:7802:c94b:10f6])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-441b8992b4csm165890855e9.0.2025.05.06.02.24.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 06 May 2025 02:24:34 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 06 May 2025 11:24:33 +0200
+Message-Id: <D9OYWFEXSA55.OUUXFPIGGBZV@ventanamicro.com>
+Subject: Re: [PATCH 0/5] Enable hstateen bits lazily for the KVM RISC-V
+ Guests
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+To: "Atish Patra" <atishp@rivosinc.com>, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atishp@atishpatra.org>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250505-kvm_lazy_enable_stateen-v1-0-3bfc4008373c@rivosinc.com>
+In-Reply-To: <20250505-kvm_lazy_enable_stateen-v1-0-3bfc4008373c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_013928_269780_23DAA8CA 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20250506_022437_040677_CE7AFA6A 
+X-CRM114-Status: GOOD (  14.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,328 +97,50 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Joel,
+2025-05-05T14:39:25-07:00, Atish Patra <atishp@rivosinc.com>:
+> This series adds support for enabling hstateen bits lazily at runtime
+> instead of statically at bootime. The boot time enabling happens for
+> all the guests if the required extensions are present in the host and/or
+> guest. That may not be necessary if the guest never exercise that
+> feature. We can enable the hstateen bits that controls the access lazily
+> upon first access. This providers KVM more granular control of which
+> feature is enabled in the guest at runtime.
+>
+> Currently, the following hstateen bits are supported to control the access
+> from VS mode.
+>
+> 1. BIT(58): IMSIC     : STOPEI and IMSIC guest interrupt file
+> 2. BIT(59): AIA       : SIPH/SIEH/STOPI
+> 3. BIT(60): AIA_ISEL  : Indirect csr access via siselect/sireg
+> 4. BIT(62): HSENVCFG  : SENVCFG access
+> 5. BIT(63): SSTATEEN0 : SSTATEEN0 access
+>
+> KVM already support trap/enabling of BIT(58) and BIT(60) in order
+> to support sw version of the guest interrupt file.
 
-First sorry for the late reply.
+I don't think KVM toggles the hstateen bits at runtime, because that
+would mean there is a bug even in current KVM.
 
-On 15/04/2025 14:28, Joel Stanley wrote:
-> The setting of EXPERT is a leftover from when the riscv defconfig was
-> first added. As mentioned in the EXPERT Kconfig help text it is not
-> intended to be set in the usual case.
->
-> Upon removal a bunch of intrusive debug-related kernel options are no
-> longer set, which is good. A few may want to come back in the future but
-> let those be advocated for on a case by case basis.
+>                                                    This series extends
+> those to enable to correpsonding hstateen bits in PATCH1. The remaining
+> patches adds lazy enabling support of the other bits.
 
+The ISA has a peculiar design for hstateen/sstateen interaction:
 
-I disagree with that, debug options are here to help us so I would not 
-remove them.
+  For every bit in an hstateen CSR that is zero (whether read-only zero
+  or set to zero), the same bit appears as read-only zero in sstateen
+  when accessed in VS-mode.
 
-Let's stick to the initial purpose which was to set MEDIA_SUPPORT_FILTER.
+This means we must clear bit 63 in hstateen and trap on sstateen
+accesses if any of the sstateen bits are not supposed to be read-only 0
+to the guest while the hypervisor wants to have them as 0.
 
-Thanks,
-
-Alex
-
-
->
-> NAMESPACES, SYSFS_SYSCALL and MEDIA_SUPPORT_FILTER default on and thus
-> fall out of the defconfig.
->
-> Set VIDEO_CADENCE_CSI2RX=y to ensure VIDEO_CADENCE_CSI2RX stays enabled.
->
-> Set DEBUG_KERNEL=y in line with other arch defconfigs. This turns on
-> tracing.
->
-> Signed-off-by: Joel Stanley <joel@jms.id.au>
-> ---
-> This supersedes https://lore.kernel.org/all/20250404062235.671872-1-joel@jms.id.au/
-> as it is a fix for the root cause: by removing EXPERT causes
-> MEDIA_SUPPORT_FILTER=y like most other defconfigs and thus the
-> unwanted MEDIA drivers stay disabled.
->
-> To view the change between the old .config and the new, use a recipe
-> such as:
->
-> make ARCH=riscv defconfig && cp .config config-before-removing-expert
-> git am 0001-riscv-defconfig-Remove-EXPERT.patch
-> make ARCH=riscv defconfig
-> diff -up config-before-removing-expert .config | grep "^+\|^-" | grep CONFIG
->
-> The output when run on v6.15-rc1:
->
-> -# CONFIG_PREEMPT_RT is not set
-> -CONFIG_PREEMPT_COUNT=y
-> -# CONFIG_LD_DEAD_CODE_DATA_ELIMINATION is not set
-> -CONFIG_EXPERT=y
-> +# CONFIG_EXPERT is not set
-> -# CONFIG_SGETMASK_SYSCALL is not set
-> -# CONFIG_SYSFS_SYSCALL is not set
-> +CONFIG_SYSFS_SYSCALL=y
-> -# CONFIG_BASE_SMALL is not set
-> -# CONFIG_DEBUG_RSEQ is not set
-> -# CONFIG_PC104 is not set
-> +CONFIG_TRACEPOINTS=y
-> -# CONFIG_SUSPEND_SKIP_SYNC is not set
-> +CONFIG_UPROBES=y
-> -CONFIG_UNINLINE_SPIN_UNLOCK=y
-> +CONFIG_INLINE_SPIN_UNLOCK_IRQ=y
-> +CONFIG_INLINE_READ_UNLOCK=y
-> +CONFIG_INLINE_READ_UNLOCK_IRQ=y
-> +CONFIG_INLINE_WRITE_UNLOCK=y
-> +CONFIG_INLINE_WRITE_UNLOCK_IRQ=y
-> -# CONFIG_SLUB_TINY is not set
-> +# CONFIG_NET_DROP_MONITOR is not set
-> -# CONFIG_PCIE_BUS_TUNE_OFF is not set
-> -CONFIG_PCIE_BUS_DEFAULT=y
-> -# CONFIG_PCIE_BUS_SAFE is not set
-> -# CONFIG_PCIE_BUS_PERFORMANCE is not set
-> -# CONFIG_PCIE_BUS_PEER2PEER is not set
-> -# CONFIG_FIRMWARE_MEMMAP is not set
-> -# CONFIG_INPUT_FF_MEMLESS is not set
-> +CONFIG_INPUT_FF_MEMLESS=y
-> -# CONFIG_TTY_PRINTK is not set
-> -# CONFIG_GPIO_SYSFS is not set
-> -# CONFIG_GPIO_SLOPPY_LOGIC_ANALYZER is not set
-> +CONFIG_MEDIA_HIDE_ANCILLARY_SUBDRV=y
-> -# CONFIG_VIDEO_CS3308 is not set
-> -# CONFIG_VIDEO_CS5345 is not set
-> -# CONFIG_VIDEO_CS53L32A is not set
-> -# CONFIG_VIDEO_MSP3400 is not set
-> -# CONFIG_VIDEO_SONY_BTF_MPX is not set
-> -# CONFIG_VIDEO_TDA1997X is not set
-> -# CONFIG_VIDEO_TDA7432 is not set
-> -# CONFIG_VIDEO_TDA9840 is not set
-> -# CONFIG_VIDEO_TEA6415C is not set
-> -# CONFIG_VIDEO_TEA6420 is not set
-> -# CONFIG_VIDEO_TLV320AIC23B is not set
-> -# CONFIG_VIDEO_TVAUDIO is not set
-> -# CONFIG_VIDEO_UDA1342 is not set
-> -# CONFIG_VIDEO_VP27SMPX is not set
-> -# CONFIG_VIDEO_WM8739 is not set
-> -# CONFIG_VIDEO_WM8775 is not set
-> -# CONFIG_VIDEO_SAA6588 is not set
-> -# CONFIG_VIDEO_ADV7180 is not set
-> -# CONFIG_VIDEO_ADV7183 is not set
-> -# CONFIG_VIDEO_ADV748X is not set
-> -# CONFIG_VIDEO_ADV7604 is not set
-> -# CONFIG_VIDEO_ADV7842 is not set
-> -# CONFIG_VIDEO_BT819 is not set
-> -# CONFIG_VIDEO_BT856 is not set
-> -# CONFIG_VIDEO_BT866 is not set
-> -# CONFIG_VIDEO_ISL7998X is not set
-> -# CONFIG_VIDEO_LT6911UXE is not set
-> -# CONFIG_VIDEO_KS0127 is not set
-> -# CONFIG_VIDEO_MAX9286 is not set
-> -# CONFIG_VIDEO_ML86V7667 is not set
-> -# CONFIG_VIDEO_SAA7110 is not set
-> -# CONFIG_VIDEO_SAA711X is not set
-> -# CONFIG_VIDEO_TC358743 is not set
-> -# CONFIG_VIDEO_TC358746 is not set
-> -# CONFIG_VIDEO_TVP514X is not set
-> -# CONFIG_VIDEO_TVP5150 is not set
-> -# CONFIG_VIDEO_TVP7002 is not set
-> -# CONFIG_VIDEO_TW2804 is not set
-> -# CONFIG_VIDEO_TW9900 is not set
-> -# CONFIG_VIDEO_TW9903 is not set
-> -# CONFIG_VIDEO_TW9906 is not set
-> -# CONFIG_VIDEO_TW9910 is not set
-> -# CONFIG_VIDEO_VPX3220 is not set
-> -# CONFIG_VIDEO_SAA717X is not set
-> -# CONFIG_VIDEO_CX25840 is not set
-> -# CONFIG_VIDEO_ADV7170 is not set
-> -# CONFIG_VIDEO_ADV7175 is not set
-> -# CONFIG_VIDEO_ADV7343 is not set
-> -# CONFIG_VIDEO_ADV7393 is not set
-> -# CONFIG_VIDEO_ADV7511 is not set
-> -# CONFIG_VIDEO_AK881X is not set
-> -# CONFIG_VIDEO_SAA7127 is not set
-> -# CONFIG_VIDEO_SAA7185 is not set
-> -# CONFIG_VIDEO_THS8200 is not set
-> -# CONFIG_VIDEO_UPD64031A is not set
-> -# CONFIG_VIDEO_UPD64083 is not set
-> -# CONFIG_VIDEO_SAA6752HS is not set
-> -# CONFIG_VIDEO_I2C is not set
-> -# CONFIG_VIDEO_M52790 is not set
-> -# CONFIG_VIDEO_ST_MIPID02 is not set
-> -# CONFIG_VIDEO_THS7303 is not set
-> -# CONFIG_DRM_DEBUG_DP_MST_TOPOLOGY_REFS is not set
-> -# CONFIG_DRM_DEBUG_MODESET_LOCK is not set
-> -# CONFIG_DRM_FBDEV_LEAK_PHYS_SMEM is not set
-> -# CONFIG_DRM_WERROR is not set
-> -# CONFIG_HID_A4TECH is not set
-> +CONFIG_HID_A4TECH=y
-> -# CONFIG_HID_BELKIN is not set
-> +CONFIG_HID_BELKIN=y
-> -# CONFIG_HID_CHERRY is not set
-> -# CONFIG_HID_CHICONY is not set
-> +CONFIG_HID_CHERRY=y
-> +CONFIG_HID_CHICONY=y
-> -# CONFIG_HID_CYPRESS is not set
-> +CONFIG_HID_CYPRESS=y
-> -# CONFIG_HID_EZKEY is not set
-> +CONFIG_HID_EZKEY=y
-> -# CONFIG_HID_ITE is not set
-> +CONFIG_HID_ITE=y
-> -# CONFIG_HID_KENSINGTON is not set
-> +CONFIG_HID_KENSINGTON=y
-> -# CONFIG_HID_REDRAGON is not set
-> -# CONFIG_HID_MICROSOFT is not set
-> -# CONFIG_HID_MONTEREY is not set
-> +CONFIG_HID_REDRAGON=y
-> +CONFIG_HID_MICROSOFT=y
-> +CONFIG_HID_MONTEREY=y
-> +# CONFIG_QCOM_PMIC_PDCHARGER_ULOG is not set
-> -CONFIG_LIST_HARDENED=y
-> +# CONFIG_LIST_HARDENED is not set
-> -# CONFIG_CPUMASK_OFFSTACK is not set
-> -# CONFIG_DEBUG_FORCE_FUNCTION_ALIGN_64B is not set
-> -# CONFIG_VMLINUX_MAP is not set
-> -CONFIG_DEBUG_PAGEALLOC=y
-> -# CONFIG_DEBUG_PAGEALLOC_ENABLE_DEFAULT is not set
-> +# CONFIG_DEBUG_PAGEALLOC is not set
-> +# CONFIG_DEBUG_PAGE_REF is not set
-> -CONFIG_SCHED_STACK_END_CHECK=y
-> +# CONFIG_SCHED_STACK_END_CHECK is not set
-> -CONFIG_DEBUG_VM_IRQSOFF=y
-> -CONFIG_DEBUG_VM=y
-> -# CONFIG_DEBUG_VM_MAPLE_TREE is not set
-> -# CONFIG_DEBUG_VM_RB is not set
-> -CONFIG_DEBUG_VM_PGFLAGS=y
-> -CONFIG_DEBUG_VM_PGTABLE=y
-> +# CONFIG_DEBUG_VM is not set
-> +# CONFIG_DEBUG_VM_PGTABLE is not set
-> -CONFIG_DEBUG_PER_CPU_MAPS=y
-> +# CONFIG_DEBUG_PER_CPU_MAPS is not set
-> -CONFIG_LOCKUP_DETECTOR=y
-> -CONFIG_SOFTLOCKUP_DETECTOR=y
-> -# CONFIG_BOOTPARAM_SOFTLOCKUP_PANIC is not set
-> +# CONFIG_SOFTLOCKUP_DETECTOR is not set
-> -CONFIG_DETECT_HUNG_TASK=y
-> -CONFIG_DEFAULT_HUNG_TASK_TIMEOUT=120
-> -# CONFIG_BOOTPARAM_HUNG_TASK_PANIC is not set
-> -CONFIG_DETECT_HUNG_TASK_BLOCKER=y
-> -CONFIG_WQ_WATCHDOG=y
-> +# CONFIG_DETECT_HUNG_TASK is not set
-> +# CONFIG_WQ_WATCHDOG is not set
-> -CONFIG_DEBUG_RT_MUTEXES=y
-> -CONFIG_DEBUG_SPINLOCK=y
-> -CONFIG_DEBUG_MUTEXES=y
-> +# CONFIG_DEBUG_RT_MUTEXES is not set
-> +# CONFIG_DEBUG_SPINLOCK is not set
-> +# CONFIG_DEBUG_MUTEXES is not set
-> -CONFIG_DEBUG_RWSEMS=y
-> +# CONFIG_DEBUG_RWSEMS is not set
-> -CONFIG_DEBUG_ATOMIC_SLEEP=y
-> +# CONFIG_DEBUG_ATOMIC_SLEEP is not set
-> -CONFIG_DEBUG_LIST=y
-> -CONFIG_DEBUG_PLIST=y
-> -CONFIG_DEBUG_SG=y
-> +# CONFIG_DEBUG_LIST is not set
-> +# CONFIG_DEBUG_PLIST is not set
-> +# CONFIG_DEBUG_SG is not set
-> -# CONFIG_RCU_TRACE is not set
-> -CONFIG_RCU_EQS_DEBUG=y
-> +CONFIG_RCU_TRACE=y
-> +# CONFIG_RCU_EQS_DEBUG is not set
-> +CONFIG_NOP_TRACER=y
-> +CONFIG_TRACE_CLOCK=y
-> +CONFIG_RING_BUFFER=y
-> +CONFIG_EVENT_TRACING=y
-> +CONFIG_CONTEXT_SWITCH_TRACER=y
-> +CONFIG_TRACING=y
-> -# CONFIG_FTRACE is not set
-> +CONFIG_FTRACE=y
-> +# CONFIG_BOOTTIME_TRACING is not set
-> +# CONFIG_FUNCTION_TRACER is not set
-> +# CONFIG_STACK_TRACER is not set
-> +# CONFIG_IRQSOFF_TRACER is not set
-> +# CONFIG_SCHED_TRACER is not set
-> +# CONFIG_HWLAT_TRACER is not set
-> +# CONFIG_OSNOISE_TRACER is not set
-> +# CONFIG_TIMERLAT_TRACER is not set
-> +# CONFIG_ENABLE_DEFAULT_TRACERS is not set
-> +# CONFIG_FTRACE_SYSCALLS is not set
-> +# CONFIG_TRACER_SNAPSHOT is not set
-> +CONFIG_BRANCH_PROFILE_NONE=y
-> +# CONFIG_PROFILE_ANNOTATED_BRANCHES is not set
-> +# CONFIG_PROFILE_ALL_BRANCHES is not set
-> +# CONFIG_BLK_DEV_IO_TRACE is not set
-> +CONFIG_UPROBE_EVENTS=y
-> +CONFIG_BPF_EVENTS=y
-> +CONFIG_DYNAMIC_EVENTS=y
-> +CONFIG_PROBE_EVENTS=y
-> +# CONFIG_SYNTH_EVENTS is not set
-> +# CONFIG_USER_EVENTS is not set
-> +# CONFIG_TRACE_EVENT_INJECT is not set
-> +# CONFIG_TRACEPOINT_BENCHMARK is not set
-> +# CONFIG_RING_BUFFER_BENCHMARK is not set
-> +# CONFIG_TRACE_EVAL_MAP_FILE is not set
-> +# CONFIG_RING_BUFFER_STARTUP_TEST is not set
-> +# CONFIG_RING_BUFFER_VALIDATE_TIME_DELTAS is not set
-> +# CONFIG_PREEMPTIRQ_DELAY_TEST is not set
-> +# CONFIG_RV is not set
->
->   arch/riscv/configs/defconfig | 24 ++----------------------
->   1 file changed, 2 insertions(+), 22 deletions(-)
->
-> diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-> index 3c8e16d71e17..286f490ead37 100644
-> --- a/arch/riscv/configs/defconfig
-> +++ b/arch/riscv/configs/defconfig
-> @@ -18,12 +18,9 @@ CONFIG_CGROUP_DEVICE=y
->   CONFIG_CGROUP_CPUACCT=y
->   CONFIG_CGROUP_PERF=y
->   CONFIG_CGROUP_BPF=y
-> -CONFIG_NAMESPACES=y
->   CONFIG_USER_NS=y
->   CONFIG_CHECKPOINT_RESTORE=y
->   CONFIG_BLK_DEV_INITRD=y
-> -CONFIG_EXPERT=y
-> -# CONFIG_SYSFS_SYSCALL is not set
->   CONFIG_PROFILING=y
->   CONFIG_ARCH_MICROCHIP=y
->   CONFIG_ARCH_SIFIVE=y
-> @@ -181,6 +178,7 @@ CONFIG_REGULATOR_FIXED_VOLTAGE=y
->   CONFIG_REGULATOR_AXP20X=y
->   CONFIG_REGULATOR_GPIO=y
->   CONFIG_MEDIA_SUPPORT=m
-> +CONFIG_MEDIA_PLATFORM_SUPPORT=y
->   CONFIG_VIDEO_CADENCE_CSI2RX=m
->   CONFIG_DRM=m
->   CONFIG_DRM_RADEON=m
-> @@ -294,25 +292,7 @@ CONFIG_DEFAULT_SECURITY_DAC=y
->   CONFIG_CRYPTO_USER_API_HASH=y
->   CONFIG_CRYPTO_DEV_VIRTIO=y
->   CONFIG_PRINTK_TIME=y
-> +CONFIG_DEBUG_KERNEL=y
->   CONFIG_DEBUG_FS=y
-> -CONFIG_DEBUG_PAGEALLOC=y
-> -CONFIG_SCHED_STACK_END_CHECK=y
-> -CONFIG_DEBUG_VM=y
-> -CONFIG_DEBUG_VM_PGFLAGS=y
-> -CONFIG_DEBUG_MEMORY_INIT=y
-> -CONFIG_DEBUG_PER_CPU_MAPS=y
-> -CONFIG_SOFTLOCKUP_DETECTOR=y
-> -CONFIG_WQ_WATCHDOG=y
-> -CONFIG_DEBUG_RT_MUTEXES=y
-> -CONFIG_DEBUG_SPINLOCK=y
-> -CONFIG_DEBUG_MUTEXES=y
-> -CONFIG_DEBUG_RWSEMS=y
-> -CONFIG_DEBUG_ATOMIC_SLEEP=y
-> -CONFIG_DEBUG_LIST=y
-> -CONFIG_DEBUG_PLIST=y
-> -CONFIG_DEBUG_SG=y
-> -# CONFIG_RCU_TRACE is not set
-> -CONFIG_RCU_EQS_DEBUG=y
-> -# CONFIG_FTRACE is not set
->   # CONFIG_RUNTIME_TESTING_MENU is not set
->   CONFIG_MEMTEST=y
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
