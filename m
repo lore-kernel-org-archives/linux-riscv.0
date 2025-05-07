@@ -4,80 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75E51C3ABBF
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 10:22:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7DCC3ABBF
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 11:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H/EyK2j/91Xp14RzSSpuPqsIBXpwifPD10/DdnFxx8w=; b=4t+BgiPCHjQlO7
-	bo/l6c/uwUJKye2cE0bukggbQO60hGxBKzsizJvtf+KceTK9JKdrEQjZJJ5vUqXW6mT610pBf0/yl
-	zlRajmkxQn1X5Kyxmeg18ywbdjjUCvt0AiSHegWGpPTnrGfx6CHwCejedLCh9OViHvRGBwwUHbkm+
-	6ICQ+X55GqLzM1pAoIgJELO34h69+O66OYwgeF1ckFBu3f2uHPWeIDPW+ji0LJ8h9mfjYz0sM+m1R
-	vGrrZckKVBBKdU6GfriMGx7E9ws9zmaajJBonLwgRCDkA/I2wyGH8s+stZSHATH01FY6uK5AZFqC/
-	p3Z81BbEZbZ0POKMdmCA==;
+	List-Owner; bh=3g77bBpSyJ0c8uLLdxe1SANei4d3za7/rM+Cyc9+48o=; b=W3SRHQ3Slcqtzz
+	iZ0GzQ/W6S9ZqRqDy7KjFmUekJwUsT/9HoCQQ7BFf2MX6wSs4TlIjXXvojbhr3zUGclotsq2AAKtc
+	dfDGiklnViL49Vp2GnoASaa6lDWzBVqa7NOA7fq25ISc3MfIg12hYsVY2tujj33VqHWXqihHwDerO
+	WfVywMhoyThgDXFLWp4e3T7imePzYaMU1jRvvSGn666YWR1fiCiLPYA7GkyBBnPET8w51cUVMzUJh
+	ZahajbxuqdOIZ3VqptLi2Y+J1EVOqDf2IGVKOZFaDGt0tX192Hn0RRGZ+feKI/fbNJ5Kk6BE5xqoG
+	SCROyE7ZAR4JeGuewYAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbv9-0000000F66R-2vhk;
-	Wed, 07 May 2025 10:22:35 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uCczy-0000000FEm1-1xgR;
+	Wed, 07 May 2025 11:31:38 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCbdI-0000000F3oD-0YOu
+	id 1uCcxT-0000000FEIK-0hZt
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 May 2025 10:04:11 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250507100403euoutp01642e35a0f979ea660488d9a68d3fc41a~9NpT4khnh0941809418euoutp01L
-	for <linux-riscv@lists.infradead.org>; Wed,  7 May 2025 10:04:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250507100403euoutp01642e35a0f979ea660488d9a68d3fc41a~9NpT4khnh0941809418euoutp01L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1746612243;
-	bh=N32TfHVqNTkje4PcTK07rh/HIsJBsQBWcN1H8kWn9js=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=JkPLRVWuHBDbxns/R/3DK8w87IPCtNOg2sGMoqr4GavTq/yF0viOnzZnBTs8ZrWI6
-	 lYvhnCAFyq59EGWlnhGYpCXwQzDsHeXwqOD/orpLzP+waygrJJjzqYthmqoUeCMMKg
-	 PCaedNImP5Y/Dbgr/zZOR/RRE7Oq68itdkMfRpGQ=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250507100403eucas1p1c31cf23f55512589a7663132f9f50778~9NpTWWOeV1269412694eucas1p11;
-	Wed,  7 May 2025 10:04:03 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250507100402eusmtip2f16f3da88a0473dad88a4f960a19539c~9NpSR_l2o2857428574eusmtip2I;
-	Wed,  7 May 2025 10:04:02 +0000 (GMT)
-Message-ID: <91ecca14-2102-4c29-9252-025ce6b6a07f@samsung.com>
-Date: Wed, 7 May 2025 12:04:01 +0200
+	Wed, 07 May 2025 11:29:04 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-2ff694d2d4dso6230090a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 07 May 2025 04:29:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1746617342; x=1747222142; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=sttONq6C7vjvpabOEe6Nl/nb6a/BYUM2iobwsWyFxG0=;
+        b=K/fdtccJzEj9FU+JjowfDCK2N8c4DDYLyCM+OJ5xjn6TlKNStIDvRbAyFJx8nrYVj2
+         SaqDN/cdMw0XkQD6oIqWR+8Mcuvbq0r+VAcyZGYO1AD29+T1K7KQAMmAWQGbtIOFmtBT
+         2HjGg873g/4hX+89Umpvz+ud1Mru/JJ3w1jCZuYPsSoVX0uesFhwE3ZqfpPlb45fGhXi
+         RKzg1MxSNxcTMLrcxioU4Ua6l1BUDjvSScmzVfOL9pMCIZaBq7BoSMhoL3z5mZNcn0DJ
+         NftU7iszNyigYitPAdH8KFlWMNASyc3gRUkAJmlwvJHuGWfwQRALZ/iLTAE+PKmit/wc
+         hz1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746617342; x=1747222142;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=sttONq6C7vjvpabOEe6Nl/nb6a/BYUM2iobwsWyFxG0=;
+        b=uQ6bflekiJgYNTdvuWDfR5cbWDEQsTySyJT5a03ew7fMEbj/v6Qx5VvlZ7uPWfG28h
+         i9ZsRrbe/9WxEgbgE88dPt5RUZOyMtEOXhGAE2yBmG2zvYYt+mviwI28klvjlg7gv6uz
+         zB1JVqXaDY/kjbpo9m+AP4jNNNl5kyrylJqDKAASZpCwpR1UQNX9r8JqEsjte4CIxdey
+         A3TpT5iX0oAYxLwSiHFUBVU/qAfQce0S4Djc6FMljG3GTqrnfVbxzKRKQo5UtHFTbCuz
+         2vUhLehFEzkTwlI3PdlLDOP74OjEZPx/aUes+da/7Wy9WU0QAjzGHuy0Tx8FaGO47IFF
+         2LlA==
+X-Gm-Message-State: AOJu0YydAR3PTw2/aFyO64kOP2quBXC0KNlnqp84xLhsW8uSlqmrbo7u
+	G6XFgPsSMDisKbBCA3iu8UyRLC64HKIOMFqJRhPuOTmn/AZ9vv+JGUcFmkhe488=
+X-Gm-Gg: ASbGncuWe0apoOtePfNphais2d2gj7keE4iFT8mpuTW5lECFuTA3+GLDmWP3wpc16Yx
+	xqCJPdOSTzq6waS/mLosyNFWFRSoO1trcgxp8mDUgBvQy3Er6D1gTk3qX8VFhMUddZtRMljSAlx
+	nMC24Rr8ZvvKnI14BOdO0bZqaGcTmnntPUDQmXfcTTkzvCqpa+yUKR04sT2WIgwVKlLfv3h9bFx
+	9y8VNiJBIu5SvS/PMSu0lXuBfBhwpta85Q9EModLHMzWuEPlBazYMbEuWcBOBNgzYrqpDd3nkEM
+	pGaknm2om7gFQwc8NCgnwZ2k7UUftfdXFSQYhuwcPl9a22/Mo2m3AiirsD2Nk9WeYJB+MFjmQMg
+	Bmq/hejFR63n2DMPCgbdIEwE=
+X-Google-Smtp-Source: AGHT+IG0tWDBCkB5n9QIjsb9/8DjWrsdfDefC415eDCLuX/h+jgmPObe4nyyj6NIY6hM4/giQEdftA==
+X-Received: by 2002:a17:90b:4d04:b0:2ff:6488:e01c with SMTP id 98e67ed59e1d1-30aac2a3241mr4289150a91.29.1746617341806;
+        Wed, 07 May 2025 04:29:01 -0700 (PDT)
+Received: from ?IPV6:2401:4900:7aa3:bb0a:8dbc:b918:6297:af68? ([2401:4900:7aa3:bb0a:8dbc:b918:6297:af68])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-30aae4fd109sm1761398a91.1.2025.05.07.04.28.58
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 07 May 2025 04:29:01 -0700 (PDT)
+Message-ID: <014a66e3-1713-4450-a31b-a0619cca7bd3@ventanamicro.com>
+Date: Wed, 7 May 2025 16:58:56 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 3/3] riscv: dts: thead: Add device tree VO clock
- controller
-To: Stephen Boyd <sboyd@kernel.org>, Drew Fustini <drew@pdp7.com>
-Cc: mturquette@baylibre.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, guoren@kernel.org, wefu@redhat.com,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, jszhang@kernel.org, p.zabel@pengutronix.de,
-	m.szyprowski@samsung.com, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
+Subject: Re: [RFC PATCH 2/2] riscv: Introduce support for hardware
+ break/watchpoints
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu
+References: <20240222125059.13331-1-hchauhan@ventanamicro.com>
+ <20240222125059.13331-3-hchauhan@ventanamicro.com> <aBltPLLrvUNKR857@ghost>
 Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <c46de621e098b7873a00c1af4ca550a1@kernel.org>
-X-CMS-MailID: 20250507100403eucas1p1c31cf23f55512589a7663132f9f50778
-X-Msg-Generator: CA
-X-RootMTR: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
-X-EPHeader: CA
-X-CMS-RootMailID: 20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319
-References: <20250403094425.876981-1-m.wilczynski@samsung.com>
-	<CGME20250403094433eucas1p2da03e00ef674c1f5aa8d41f2a7371319@eucas1p2.samsung.com>
-	<20250403094425.876981-4-m.wilczynski@samsung.com> <Z/BoQIXKEhL3/q50@x1>
-	<17d69810-9d1c-4dd9-bf8a-408196668d7b@samsung.com>
-	<9ce45e7c1769a25ea1abfaeac9aefcfb@kernel.org>
-	<475c9a27-e1e8-4245-9ca0-74c9ed663920@samsung.com>
-	<c46de621e098b7873a00c1af4ca550a1@kernel.org>
+From: Himanshu Chauhan <hchauhan@ventanamicro.com>
+In-Reply-To: <aBltPLLrvUNKR857@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_030408_742396_280D2191 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20250507_042903_214872_3AE06119 
+X-CRM114-Status: GOOD (  28.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,61 +96,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiA1LzYvMjUgMjM6MzAsIFN0ZXBoZW4gQm95ZCB3cm90ZToKPiBRdW90aW5nIE1pY2hhbCBX
-aWxjenluc2tpICgyMDI1LTA0LTMwIDAwOjUyOjI5KQo+Pgo+PiBJbiB0aGUgdjIgdmVyc2lvbiBv
-ZiB0aGUgcGF0Y2hzZXQsIHRoZXJlIHdhcyBubyByZXNldCBjb250cm9sbGVyIHlldCwgc28KPj4g
-SSB0aG91Z2h0IHlvdXIgY29tbWVudCB3YXMgbWFkZSByZWZlcnJpbmcgdG8gdGhhdCBlYXJsaWVy
-IHZlcnNpb24uCj4+IFRoaXMgcmVwcmVzZW50YXRpb24gY2xlYXJseSBkZXNjcmliZXMgdGhlIGhh
-cmR3YXJlIGNvcnJlY3RseSwgd2hpY2ggaXMKPj4gdGhlIHJlcXVpcmVtZW50IGZvciB0aGUgRGV2
-aWNlIFRyZWUuCj4+Cj4+IFRoZSBtYW51YWwsIGluIHNlY3Rpb24gNS40LjEuNiBWT19TVUJTWVMs
-IGRlc2NyaWJlcyB0aGUgcmVzZXQgcmVnaXN0ZXJzCj4+IHN0YXJ0aW5nIGF0IDB4RkZfRUY1Ml84
-MDAwOgo+Pgo+PiBHUFVfUlNUX0NGRyAgICAgICAgICAgICAweDAwCj4+IERQVV9SU1RfQ0ZHICAg
-ICAgICAgICAgIDB4MDQKPj4gTUlQSV9EU0kwX1JTVF9DRkcgICAgICAgMHg4Cj4+IE1JUElfRFNJ
-MV9SU1RfQ0ZHICAgICAgIDB4Ywo+PiBIRE1JX1JTVF9DRkcgICAgICAgICAgICAweDE0Cj4+IEFY
-STRfVk9fRFdfQVhJICAgICAgICAgIDB4MTgKPj4gWDJIX1g0X1ZPU1lTX0RXX0FYSV9YMkggMHgy
-MAo+Pgo+PiBBbmQgdGhlIGNsb2NrIHJlZ2lzdGVycyBmb3IgVk9fU1VCU1lTLCBtYW51YWwgc2Vj
-dGlvbiA0LjQuMS42IHN0YXJ0IGF0IG9mZnNldCAweDUwOgo+PiBWT1NZU19DTEtfR0FURSAgICAg
-ICAgICAweDUwCj4+IFZPU1lTX0NMS19HQVRFMSAgICAgICAgIDB4NTQKPj4gVk9TWVNfRFBVX0ND
-TEtfQ0ZHMCAgICAgMHg2NAo+PiBURVNUX0NMS19GUkVRX1NUQVQgICAgICAweGM0Cj4+IFRFU1Rf
-Q0xLX0NGRyAgICAgICAgICAgIDB4YzgKPj4KPj4gU28gSSBjb25zaWRlcmVkIHRoaXMgYmFjayB0
-aGVuIGFuZCB0aG91Z2h0IGl0IHdhcyBhcHByb3ByaWF0ZSB0byBkaXZpZGUKPj4gaXQgaW50byB0
-d28gbm9kZXMsIGFzIHRoZSByZXNldCBub2RlIHdhc24ndCBiZWluZyBjb25zaWRlcmVkIGF0IHRo
-YXQKPj4gdGltZS4KPj4KPj4gV2hlbiBsb29raW5nIGZvciB0aGUgcmVmZXJlbmNlIFsxXSwgSSBk
-aWRuJ3Qgbm90aWNlIGlmIHlvdSBjb3JyZWN0ZWQKPj4geW91cnNlbGYgbGF0ZXIsIGJ1dCBJIGRv
-IHJlbWVtYmVyIGNvbnNpZGVyaW5nIHRoZSBzaW5nbGUtbm9kZSBhcHByb2FjaAo+PiBhdCB0aGUg
-dGltZS4KPj4KPiAKPiBJZiB0aGUgdHdvIHJlZ2lzdGVyIHJhbmdlcyBkb24ndCBvdmVybGFwIHRo
-ZW4gdGhpcyBpcyBwcm9iYWJseSBPSy4gSQo+IGltYWdpbmUgdGhpcyBpcyBvbmUgZGV2aWNlIHNo
-aXBwZWQgYnkgdGhlIGhhcmR3YXJlIGVuZ2luZWVyLCBWT19TVUJTWVMsCj4gd2hpY2ggaGFwcGVu
-cyB0byBiZSBhIGNsb2NrIGFuZCByZXNldCBjb250cm9sbGVyLiBUaGlzIGlzIHF1aXRlIGNvbW1v
-biwKPiBhbmQgd2UgdXN1YWxseSBoYXZlIG9uZSBub2RlIHdpdGggYm90aCAjY2xvY2stY2VsbHMg
-YW5kICNyZXNldC1jZWxscyBpbgo+IGl0LiBUaGVuIHdlIHVzZSB0aGUgYXV4aWxpYXJ5IGJ1cyB0
-byBjcmVhdGUgdGhlIHJlc2V0IGRldmljZSBmcm9tIHRoZQo+IGNsayBkcml2ZXIgd2l0aCB0aGUg
-c2FtZSBub2RlLiBUaGlzIGhlbHBzIG1hdGNoIHRoZSBkZXZpY2UgaW4gdGhlCj4gZGF0YXNoZWV0
-IHRvIHRoZSBub2RlIGFuZCBjb21wYXRpYmxlIGluIERUIHdpdGhvdXQgbWFraW5nIHRoZSBjb21w
-YXRpYmxlCj4gcHJvdmlkZXIgc3BlY2lmaWMgKGNsayBvciByZXNldCBwb3N0Zml4KS4KPiAKPiBU
-aGF0J3MgYW5vdGhlciByZWFzb24gd2h5IHdlIHVzdWFsbHkgaGF2ZSBvbmUgbm9kZS4gRFQgZG9l
-c24ndCBkZXNjcmliZQo+IHNvZnR3YXJlLCBpLmUuIHRoZSBzcGxpdCBiZXR3ZWVuIGNsayBhbmQg
-cmVzZXQgZnJhbWV3b3JrcyBtYXkgbm90IGV4aXN0Cj4gaW4gb3RoZXIgb3BlcmF0aW5nIHN5c3Rl
-bXMuIFdlIGRvbid0IHdhbnQgdG8gcHV0IHRoZSBzb2Z0d2FyZSBkZXNpZ24KPiBkZWNpc2lvbnMg
-aW50byB0aGUgRFQuCj4gCj4gSXQgbWF5IGFsc28gYmUgdGhhdCBhIGRldmljZSBsaWtlIHRoaXMg
-Y29uc3VtZXMgc2hhcmVkIHBvd2VyIHJlc291cmNlcwo+IGxpa2UgY2xrcyBvciByZWd1bGF0b3Jz
-IHRoYXQgbmVlZCB0byBiZSBlbmFibGVkIHRvIGRyaXZlIHRoZSBkZXZpY2UsIG9yCj4gYW4gSU9N
-TVUgaXMgdXNlZCB0byB0cmFuc2xhdGUgdGhlIHJlZ2lzdGVyIG1hcHBpbmdzLiBXZSB3b3VsZG4n
-dCB3YW50IHRvCj4gc3BsaXQgdGhlIGRldmljZSBpbiBEVCBpbiB0aGF0IGNhc2Ugc28gd2UgY2Fu
-IGVhc2lseSBtYW5hZ2UgdGhlIHBvd2VyCj4gcmVzb3VyY2VzIG9yIG1lbW9yeSBtYXBwaW5ncyBm
-b3IgdGhlIGRldmljZS4KPiAKPiBUTDtEUjogVGhpcyBpcyBwcm9iYWJseSBPSywgYnV0IEknZCBi
-ZSBjYXJlZnVsIHRvIG5vdCBtYWtlIGl0IGEgdGhpbmcuCgpUaGFuayB5b3UgdmVyeSBtdWNoIGZv
-ciB0aGUgY29tcHJlaGVuc2l2ZSBleHBsYW5hdGlvbi4gQmVjYXVzZSB0aGUKcmVnaXN0ZXJzIGRv
-buKAmXQgb3ZlcmxhcCwgaXTigJlzIGZpbmUgaW4gdGhpcyBjYXNlLiBTaW5jZSBEcmV3IGFsc28g
-c2VlbSB0bwphZ3JlZSwgd2UgY2FuIHByb2JhYmx5IHB1c2ggdGhlc2UgcGF0Y2hlcyBmb3J3YXJk
-LCB3aGlsZSBrZWVwaW5nIGluIG1pbmQKdGhhdCBmb3IgZnV0dXJlIFNvQ3MgaXQgd291bGQgYmUg
-YmV0dGVyIHRvIHVzZSBhIHNpbmdsZSBub2RlLgoKPiAKCkJlc3QgcmVnYXJkcywKLS0gCk1pY2hh
-bCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+CgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Charlie,
+
+On 5/6/25 07:30, Charlie Jenkins wrote:
+> On Thu, Feb 22, 2024 at 06:20:59PM +0530, Himanshu Chauhan wrote:
+>> RISC-V hardware breakpoint framework is built on top of perf subsystem and uses
+>> SBI debug trigger extension to install/uninstall/update/enable/disable hardware
+>> triggers as specified in Sdtrig ISA extension.
+>>
+>> Signed-off-by: Himanshu Chauhan <hchauhan@ventanamicro.com>
+>> ---
+>>   arch/riscv/Kconfig                     |   1 +
+>>   arch/riscv/include/asm/hw_breakpoint.h | 327 ++++++++++++
+>>   arch/riscv/include/asm/kdebug.h        |   3 +-
+>>   arch/riscv/kernel/Makefile             |   1 +
+>>   arch/riscv/kernel/hw_breakpoint.c      | 659 +++++++++++++++++++++++++
+>>   arch/riscv/kernel/traps.c              |   6 +
+>>   6 files changed, 996 insertions(+), 1 deletion(-)
+>>   create mode 100644 arch/riscv/include/asm/hw_breakpoint.h
+>>   create mode 100644 arch/riscv/kernel/hw_breakpoint.c
+>>
+> ...
+>
+>> diff --git a/arch/riscv/kernel/hw_breakpoint.c b/arch/riscv/kernel/hw_breakpoint.c
+>> new file mode 100644
+>> index 000000000000..7787123c7180
+>> --- /dev/null
+>> +++ b/arch/riscv/kernel/hw_breakpoint.c
+>> +
+>> +void clear_ptrace_hw_breakpoint(struct task_struct *tsk)
+>> +static int __init arch_hw_breakpoint_init(void)
+>> +{
+>> +	unsigned int cpu;
+>> +	int rc = 0;
+>> +
+>> +	for_each_possible_cpu(cpu)
+>> +		raw_spin_lock_init(&per_cpu(ecall_lock, cpu));
+>> +
+>> +	if (!dbtr_init)
+>> +		init_sbi_dbtr();
+>> +
+>> +	if (dbtr_total_num) {
+>> +		pr_info("%s: total number of type %d triggers: %u\n",
+>> +			__func__, dbtr_type, dbtr_total_num);
+>> +	} else {
+>> +		pr_info("%s: No hardware triggers available\n", __func__);
+>> +		goto out;
+>> +	}
+>> +
+>> +	/* Allocate per-cpu shared memory */
+>> +	sbi_dbtr_shmem = __alloc_percpu(sizeof(*sbi_dbtr_shmem) * dbtr_total_num,
+>> +					PAGE_SIZE);
+>> +
+>> +	if (!sbi_dbtr_shmem) {
+>> +		pr_warn("%s: Failed to allocate shared memory.\n", __func__);
+>> +		rc = -ENOMEM;
+>> +		goto out;
+>> +	}
+>> +
+>> +	/* Hotplug handler to register/unregister shared memory with SBI */
+>> +	rc = cpuhp_setup_state(CPUHP_AP_ONLINE_DYN,
+> When using this, only hart 0 is getting setup. I think instead we want
+> the following to have all harts get setup:
+>
+> 	for_each_online_cpu(cpu)
+> 		arch_smp_setup_sbi_shmem(cpu);
+>
+> 	/* Hotplug handler to register/unregister shared memory with SBI */
+> 	rc = cpuhp_setup_state_nocalls(CPUHP_AP_ONLINE_DYN,
+
+cpuhp_setup_state() install the callbacks and invoke the @startup 
+callback (if not NULL) for all online CPUs. So there is no need to call 
+"arch_smp_setup_sbi_shmem" for each CPU and then install the hotplug 
+handler.
+
+If you are running this on QEMU, could you please share the qemu command 
+you are invoking? I will test at my end and update you.
+
+Regards
+
+Himanshu
+
+>
+>
+> However, I am testing against tip-of-tree opensbi and am hitting an
+> issue during the setup on all harts:
+>
+> [    0.202332] arch_smp_setup_sbi_shmem: Invalid address parameter (18446744073709551611)
+> [    0.202794] CPU 0: HW Breakpoint shared memory registered.
+>
+> Additionally, this seems like it should be a fatal error, but it
+> continues on to print that the shared memory is registered because there
+> is no check before printing this seemingly successful message.
+>
+> I know I am reviving an old thread, but do you have any insight into
+> what might be happening?
+>
+> - Charlie
+>
+>> +			       "riscv/hw_breakpoint:prepare",
+>> +			       arch_smp_setup_sbi_shmem,
+>> +			       arch_smp_teardown_sbi_shmem);
+>> +
+>> +	if (rc < 0) {
+>> +		pr_warn("%s: Failed to setup CPU hotplug state\n", __func__);
+>> +		free_percpu(sbi_dbtr_shmem);
+>> +		return rc;
+>> +	}
+>> + out:
+>> +	return rc;
+>> +}
+>> +arch_initcall(arch_hw_breakpoint_init);
+>> diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>> index a1b9be3c4332..53e1dfe5746b 100644
+>> --- a/arch/riscv/kernel/traps.c
+>> +++ b/arch/riscv/kernel/traps.c
+>> @@ -277,6 +277,12 @@ void handle_break(struct pt_regs *regs)
+>>   	if (probe_breakpoint_handler(regs))
+>>   		return;
+>>   
+>> +#ifdef CONFIG_HAVE_HW_BREAKPOINT
+>> +	if (notify_die(DIE_DEBUG, "EBREAK", regs, 0, regs->cause, SIGTRAP)
+>> +	    == NOTIFY_STOP)
+>> +		return;
+>> +#endif
+>> +
+>>   	current->thread.bad_cause = regs->cause;
+>>   
+>>   	if (user_mode(regs))
+>> -- 
+>> 2.34.1
+>>
+>>
+>> _______________________________________________
+>> linux-riscv mailing list
+>> linux-riscv@lists.infradead.org
+>> http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
