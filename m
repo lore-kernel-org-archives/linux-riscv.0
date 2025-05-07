@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22233C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 18:30:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7421FC3ABC0
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 18:32:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=vqvEhBqw7z2soso7GLmimEalZyRICAAAHny2+Dw5dCk=; b=utR93ZkZL87J2h
-	Dq9ebKeD5bCa9jNM5tw2/iYhr4UYugwpPdbMBltaH46trg3B9WEM+rpilGOLJoDsGvLMGBWZg9reL
-	8Dv9yuvSwCaFlAEJ4Lu5iYtUnMjWQRi6PAGdl5xdBZua6ck/Vaky+ulnav2GpddFyQ4G+9sVPFtpp
-	Vii7L/8fgHWFKz2MFjSv/rF5LsLb9E3HdLua6Bd01YKhLLZQIhQT2YLlj3ZiRX/ABO8f1yQ5KtHeX
-	jzbg/sck8fpPwp+Us01nsdOkFVxJy2W81mst+c3E7fKE05OIIPOy6V2kbhHs0ddXh1vwhCxUlFpjB
-	1qIId6ab3hSlXYQDBJBQ==;
+	List-Owner; bh=fs84EVDwpYyTn3jfMzdXncbWhyo1ouiBEkk2ysRlv+k=; b=ayY5YIur/4D3/k
+	/0Z5/Du9tqBrtuWkCOL+tCOQRWgOxFEgbUFcBiFxOnP3WC7r0ojjk/Q6wmoQC8H8H8CMku50EzQTe
+	cP1LHATijFoNawYiF/V+T4i/wZCqjizPRniL77NnGqMB9rzqX5LVSpOvkoDsg23bsNSPnLXD7TFqx
+	/7J50BYy7dj9i4h/BDrwqrUkwExwxfRve5XXxghw/UmOi6Ss8bK/ohzvMw9cT7rlGVlX6149InWjC
+	VX+S+EKv8N4E0kSDSRrH2NNknrKSLm0fVahm4Vjr14CeAMWPfo+lqQkfpos5i4DeDEWSH9PasQEu+
+	3Ct2tWW0ZTdCjbgAapsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjX8-0000000GUTo-2MXx;
-	Wed, 07 May 2025 18:30:18 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uCjZ4-0000000GUv4-1hvh;
+	Wed, 07 May 2025 18:32:18 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjJd-0000000GRsK-3sdo;
-	Wed, 07 May 2025 18:16:24 +0000
+	id 1uCjJe-0000000GRsL-0HUh;
+	Wed, 07 May 2025 18:16:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 359C15C5F3F;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3C18D5C5F57;
 	Wed,  7 May 2025 18:14:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB66C4CEE2;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40B73C4AF09;
 	Wed,  7 May 2025 18:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1746641781;
-	bh=JBC57/AJ4s9wnqVrwmV7BOpA+2zHUnfcHWTkMgWl8NU=;
+	bh=voDf6H+5x8ZJ+QNvLaKxp1ngBKm9HW1NaIJiF5gitL0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=F7UcDZXdXjx3KZ0l3mLTB+csre7VN6l1usVAnFYpDApDPAm06prvBdEhlADnkW6qA
-	 6Ct662+QPW0P+8F0Oa58tF6i9aT/9MCvBj/FBr6/uU/vhZiR6R4zBCfysEenLCqUrE
-	 6tHqabUzR/N/LG6jfquCv4eWd3RJ/h4rXkS1TFORy7r97wCz0ABguF/eGnXxW8zxIz
-	 ljfxv6OYRJ3vkc045YYhxP1/yI3w0ca03pTUHUMVgH8UIKM6xE/RhL/CRvTjpi4qn3
-	 JyQH3je+lX/JEdGO+Fm75JCf/UdhCxfXNlzSyJ5TaUdz+qFXxrtWxAwoV/tmvZGTYw
-	 KMyTgtIMShNuw==
+	b=Galm7MFzgJLnAO40Xck5MAyECjLHydu6iGER9PypizD509zMeOB/4tfpj2XjlmQbB
+	 4sJSSWPSoYH2FAb4h4V4vRe/L+lulz2GTN4v/Qam2C9/DeU1Bc8Uzld3CWYqu8eTHE
+	 ir4Pl2cYuXKEoHsR2jmnso75ptgZHUGanjNsz9duDft9vH/aJOHXDvqz/1SMQ0iyPU
+	 VZ9BQLpS2AN4I80976dcubo05dYAgXIT3H4E5hXAHvFZ//fta2lERW7Te6m4xgSwyy
+	 s1ccWzl/5WcaoZIMRaGu2tuqeIfrQ9EmgUOzjHXkyfA7J+ftgXLoofKE0fbhmo7/Np
+	 xSnh6mmNFLhLw==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
@@ -71,18 +71,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH 8/8] configs/hardening: Enable CONFIG_INIT_ON_FREE_DEFAULT_ON
-Date: Wed,  7 May 2025 11:16:14 -0700
-Message-Id: <20250507181615.1947159-8-kees@kernel.org>
+Subject: [PATCH 7/8] configs/hardening: Enable CONFIG_STACKLEAK
+Date: Wed,  7 May 2025 11:16:13 -0700
+Message-Id: <20250507181615.1947159-7-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250507180852.work.231-kees@kernel.org>
 References: <20250507180852.work.231-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=kees@kernel.org; h=from:subject; bh=JBC57/AJ4s9wnqVrwmV7BOpA+2zHUnfcHWTkMgWl8NU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBnSi3OdD7t0n7oULsejGJ/+9MQm/geGMg9cz00Vqajg/ sTnY3e9o5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCJToxkZNsxfvyhx39Nzpiyy k1d9mfdaZ2I4d4Fed23ppfk+FmvT+Bn+V65ZP6cwRVHDaFl+g9uJIPvmT50TbXLDqlrmpn0pTfX nBAA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1035; i=kees@kernel.org; h=from:subject; bh=voDf6H+5x8ZJ+QNvLaKxp1ngBKm9HW1NaIJiF5gitL0=; b=owGbwMvMwCVmps19z/KJym7G02pJDBnSi3NndCfFZfNKLYsNrJ26vcOTL89ba72XzNPJVjs9u S6YOVh0lLIwiHExyIopsgTZuce5eLxtD3efqwgzh5UJZAgDF6cATKTsBiNDx94c+e3PfryMY4kJ m5dxOLHrbdTcm/xLJ6UelLZ+09L/heG/q46Tus+VBTWHLX+eee7NGPv0yjELoStvXEK7Fl3oXvG DBQA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_111622_008187_73C751E9 
-X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-CacheID: sfid-20250507_111622_200080_81E8DBD0 
+X-CRM114-Status: UNSURE (   8.14  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -100,9 +100,8 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To reduce stale data lifetimes, enable CONFIG_INIT_ON_FREE_DEFAULT_ON as
-well. This matches the addition of CONFIG_STACKLEAK=y, which is doing
-similar for stack memory.
+Since we can wipe the stack with both Clang and GCC plugins, enable this
+for the "hardening.config" for wider testing.
 
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
@@ -113,19 +112,19 @@ Cc: <linux-hardening@vger.kernel.org>
  1 file changed, 3 insertions(+)
 
 diff --git a/kernel/configs/hardening.config b/kernel/configs/hardening.config
-index 3da00926b4eb..7d92a740e490 100644
+index dd7c32fb5ac1..3da00926b4eb 100644
 --- a/kernel/configs/hardening.config
 +++ b/kernel/configs/hardening.config
-@@ -60,6 +60,9 @@ CONFIG_LIST_HARDENED=y
- # Initialize all heap variables to zero on allocation.
- CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y
- 
-+# Initialize all heap variables to zero on free to reduce stale data lifetime.
-+CONFIG_INIT_ON_FREE_DEFAULT_ON=y
-+
+@@ -63,6 +63,9 @@ CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y
  # Initialize all stack variables to zero on function entry.
  CONFIG_INIT_STACK_ALL_ZERO=y
  
++# Wipe kernel stack after syscall completion to reduce stale data lifetime.
++CONFIG_STACKLEAK=y
++
+ # Wipe RAM at reboot via EFI. For more details, see:
+ # https://trustedcomputinggroup.org/resource/pc-client-work-group-platform-reset-attack-mitigation-specification/
+ # https://bugzilla.redhat.com/show_bug.cgi?id=1532058
 -- 
 2.34.1
 
