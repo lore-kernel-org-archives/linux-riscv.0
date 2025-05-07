@@ -4,74 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72B7C3ABC3
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 13:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4423EC3ABC0
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 13:47:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OmuhrvOQm0yPOQSX4SsEkF+4j2PFPqp8ul1l3XxIlXA=; b=N/vg86tHKVa+5P
-	RwXckGRn0OeSkMfiORpATo916vM9lOtLlTB4B8o30WJwA3Es5NmGZBMxwgNzKjifux0vLrDBjWAHO
-	TSbh+NZ0d6Y09p324f13uJjEV3o0udGRCIcpPK5zmuVTC8WlXZCN66vrjpQhE/lLtrqdMmEDcRy3N
-	+RDixOkADbUlR05GXADNVfjSsfuyVGNfJ2JkWOp1srYKleJn2Wef0XFmFNr/tz51iaO+6GeAw+yWi
-	ZhMOKQ9jLkob7qytgc51QwPM0Xw8ElUMoaywIRspE26s/xfbscfHQIjb+tYrL25N5IpGOqQm0hCxc
-	zDMAXYG/hRolY2sxjX8Q==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID:
+	References:Mime-Version:In-Reply-To:Date:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=QWMg/pQGF1qUzvEOk65c7e+s0H7rikkOiQbZWoUSrSQ=; b=2CpDudhQVtbBmEPlfkO1tu6cP5
+	3OG2qoiUIVU3vcoWpiJFHQ83mH391EmWikoG5b43CQAVH8i+r8Rnv9mTVRcz2SWZsFn7XRuVKOTbF
+	+Zd3nO3IkTJlsh7Pr4nz3RyCjEPfjbdBAmnU/FVUq9oSYVJEBUKeSQpmXwk+XS/YoV8qW0pPRUCf7
+	LEZNfbVp2dgJJSA1F2DmfKLK1DdFXvvG/KgxD5ehBzhp3ArRHi1pNmRLsr5oMOEPPDlqkCqq8OD4S
+	nVvPeyMEocNlDX3++y1tDXnzeX8GU03TKME5oPTacsHlXbzaKPh6sYOMUvVi9rXBZl8vob/EwVXeB
+	YtsSR+pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCf7M-0000000FcUO-2kX7;
-	Wed, 07 May 2025 13:47:24 +0000
-Received: from sender3-op-o16.zoho.com ([136.143.184.16])
+	id 1uCf7O-0000000FcVb-02VP;
+	Wed, 07 May 2025 13:47:26 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCenH-0000000FZGz-1Wwt
+	id 1uCeo2-0000000FZQ2-0iZB
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 May 2025 13:26:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1746624387; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=SD9GjFQO0Hl3nq9kUw7qcxzc8Ph7XwWtb18xE++xbekM1jpEwaBx72NHTG/ioKqOVo9D4+lob96dU9zN+bKfLYpF4P3uwb9YEWeIjZMr+0He6rQK0H4LwS40Z054Qn6nyxO9qqxIfY5J+nGCpoRCvqUtcC/+MHKP+YGcDdPxKyE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1746624387; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=RwMP1KKbEuTPv9DVxFj/JYtXhUf6m5oOAVvM8JZb6Ck=; 
-	b=fXlFA4DM+rAZShpXYiQWRkjt2Vd6tr5fe63vKGW5V4riqJXJ0yV5ypsdRG7a967PAYQZ2Mp8k7qu9Q3QFFi9G0jgC/EgmYzpiutDUXVDf3w3vUinhlJ9wcvT4DXyeb/RKlcFJWa3IwgjF643SLZFcdFzAApUkmbsIgGDEUEYgb4=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1746624387;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=RwMP1KKbEuTPv9DVxFj/JYtXhUf6m5oOAVvM8JZb6Ck=;
-	b=h8oxnT9Ly0m/PiArx2alkPfnDA3dzHNF/yH3qkHj16DgHImUh83DUH/OijWGlTZY
-	xAbKQI3ghBNg7KPKYsc065EYsaLnq8ia1EYGdGlMn5HT7seAffGzXxgMmbiiBwHAcOE
-	lrA2qcKaf1SDxmNMR265C2hdKjKfd5MIWll3Qq4A=
-Received: by mx.zohomail.com with SMTPS id 1746624386135508.5781894207631;
-	Wed, 7 May 2025 06:26:26 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Wed, 07 May 2025 21:25:33 +0800
-Subject: [PATCH v3 1/2] dt-bindings: reset: add support for canaan,k230-rst
-MIME-Version: 1.0
-Message-Id: <20250507-k230-reset-v3-1-c85240782ea5@pigmoral.tech>
-References: <20250507-k230-reset-v3-0-c85240782ea5@pigmoral.tech>
-In-Reply-To: <20250507-k230-reset-v3-0-c85240782ea5@pigmoral.tech>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, Conor Dooley <conor.dooley@microchip.com>, 
- Chen Wang <unicorn_wang@outlook.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1746624358; l=4335;
- i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
- bh=ODVCmynnJQ0c6rF92R6nLjsQtfRSNDqvQd+5DSy8y4U=;
- b=X0fQigF6puj42Hcef0+G9Dc61RVyhhXFVJR9USBpr/lpXE7rSRRTEff+pWczwcEj5/YV1r6w4
- iSAW8exmkSzBVUk9EvYLbZHSqbIbvBF+X7I8UHjQVf1HNiCZkBt62kL
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
-X-ZohoMailClient: External
+	Wed, 07 May 2025 13:27:27 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-7395d07a3dcso4325739b3a.3
+        for <linux-riscv@lists.infradead.org>; Wed, 07 May 2025 06:27:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1746624445; x=1747229245; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=gn4ouDHYMf1rQDJgdtIk3JcH002Nvu2EKgt6CdyYxYc=;
+        b=w9XMjeOFvVij2qHzkOYDQaysqracbEWfAbMnOulIAmCTaovRcA7FfK5xN+5aSahIiq
+         jKmDwdPlvxBfk6DaL5Fes7HHjMM/j+4aa3mBT+LwaOmPAQu/vPNVKC3Xatnf9HFanJhz
+         lDxiejYQir/XW+zbgasKHWJ3XWQNZ6mkUchEabVjpOdsdQcV6x6YxtbQaJgxf54wGBos
+         uxRPh5+7KueWq229w0DiJ/WQV1fWZuZUPvyIGKeKXwXC47vfVvMpASEUUnOse8KGEsdA
+         JGB9WohebME7QutWRKexyqw6o3iPgE5LgOo9vZiA2S2skJcxOQNTOTjunfQDcNHQ1829
+         jfsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746624445; x=1747229245;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=gn4ouDHYMf1rQDJgdtIk3JcH002Nvu2EKgt6CdyYxYc=;
+        b=NqLt2BrasgCFJNgnZAftlGKUvSCIuPne3p0eecKets1Cb8pzVqCHeCHC74M0+/TwFv
+         1DVj1SnkK/TQ17b4szefMCvqHqW9ltjki55EvknJh1RP5VKH1FC/UerqNh0CRRCaLa25
+         MSExLAMzJKKH+dw/3uC500tGZ/tST2+qvgn+v5X0k6Q3puH7+4gAr5bsAP2fMsziuJ22
+         kIfEqeL2aI28y8S+BovgNHfCtmk8jL7ZjxVP3FIkSFZL+76opvE3cwb2c+G72atp+KLB
+         DxyD3M1hT7ZNVuGymqwOO07QxOeuUuPc+z41s21HJ+5xN39qdq9VrcjFd9Mce+yk+Nq/
+         Tekg==
+X-Forwarded-Encrypted: i=1; AJvYcCX6LLc4uIYLVj5C6mKEJ7YqKROpyvh1W0riL5NsrmHtws72XfL0QRrp7cYVpr53DK5f2pXq1uf2/UQRrA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzF9xswqmzd9qUd8wLWbWiKzfmX3yrS1EQ0jUIw6+EhW63qDiY0
+	nUmJbOFQLeFGLWbDQLhSFVZ9geejEw42P3OCRkL7kK+XKM/ZYGGfHH8HQ8BcDSdYA0xDGv3Ax5g
+	Peg==
+X-Google-Smtp-Source: AGHT+IEPjV7nnxIQdSAnye71UsJYJwQylTYuYdPxkCgubdgOAyiIVlZOePc56cd6g1wSD8shZczYh2GfBm8=
+X-Received: from pfbit5.prod.google.com ([2002:a05:6a00:4585:b0:736:5012:3564])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:920a:b0:1f5:87a0:60ed
+ with SMTP id adf61e73a8af0-2148be10ddbmr4868825637.19.1746624444753; Wed, 07
+ May 2025 06:27:24 -0700 (PDT)
+Date: Wed, 7 May 2025 06:27:23 -0700
+In-Reply-To: <aBOznhkrLZ0Z_3Xw@google.com>
+Mime-Version: 1.0
+References: <20250430224720.1882145-1-dmatlack@google.com> <aBOznhkrLZ0Z_3Xw@google.com>
+Message-ID: <aBtfuy82Ze7G4vdm@google.com>
+Subject: Re: [PATCH] KVM: selftests: Use $(SRCARCH) instead of $(ARCH)
+From: Sean Christopherson <seanjc@google.com>
+To: David Matlack <dmatlack@google.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Muhammad Usama Anjum <usama.anjum@collabora.com>, kvm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_062639_453642_057D91C2 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250507_062726_207027_F559ED21 
+X-CRM114-Status: GOOD (  18.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,163 +92,42 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduces a reset controller driver for the Kendryte K230 SoC,
-resposible for managing the reset functionality of the CPUs and
-various sub-modules.
+On Thu, May 01, 2025, David Matlack wrote:
+> On 2025-04-30 03:47 PM, David Matlack wrote:
+> > Use $(SRCARCH) in Makefile.kvm instead of $(ARCH). The former may have
+> > been set on the command line and thus make will ignore the variable
+> > assignment to convert x86_64 to x86.
+> > 
+> > Introduce $(SRCARCH) rather than just reverting commit 9af04539d474
+> > ("KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR")
+> > to keep KVM selftests consistent with the top-level kernel Makefile,
+> > which uses $(SRCARCH) for the exact same purpose.
+> > 
+> > While here, drop the comment about the top-level selftests allowing
+> > ARCH=x86_64. The kernel itself allows/expects ARCH=x86_64 so it's
+> > reasonable to expect the KVM selftests to handle it as well.
+> > 
+> > Fixes: 9af04539d474 ("KVM: selftests: Override ARCH for x86_64 instead of using ARCH_DIR")
+> > Signed-off-by: David Matlack <dmatlack@google.com>
+> 
+> If this approach seems reasonable I can also send another patch to share
+> the definitions of $(ARCH) and $(SRCARCH) with the top-level Makefile so
+> that we don't need any custom Makefile code in KVM selftests for this.
+> 
+> e.g.
+> 
+> From: David Matlack <dmatlack@google.com>
+> Date: Thu, 1 May 2025 10:30:26 -0700
+> Subject: [PATCH v2] kbuild: Share $(ARCH) and $(SRCARCH) with tools/
+> 
+> Pull out the definitions for $(ARCH), $(SRCARCH), and $(SUBARCH) into a
+> scripts/arch.include and use it to reduce duplication in Makefiles under
+> tools/.
 
-Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- .../devicetree/bindings/reset/canaan,k230-rst.yaml | 39 ++++++++++
- include/dt-bindings/reset/canaan,k230-rst.h        | 90 ++++++++++++++++++++++
- 2 files changed, 129 insertions(+)
+Yes, please.  However, SRCARCH might be going away in the kernel's Makefile[*].
+I recommend holding off on anything until that discussion is fully resolved.
 
-diff --git a/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml b/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..d352d0e12d8106a232bb5e6d7e138697d2106937
---- /dev/null
-+++ b/Documentation/devicetree/bindings/reset/canaan,k230-rst.yaml
-@@ -0,0 +1,39 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/reset/canaan,k230-rst.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Canaan Kendryte K230 Reset Controller
-+
-+maintainers:
-+  - Junhui Liu <junhui.liu@pigmoral.tech>
-+
-+description:
-+  The Canaan Kendryte K230 reset controller is part of the SoC's system
-+  controller and controls the reset registers for CPUs and various peripherals.
-+
-+properties:
-+  compatible:
-+    const: canaan,k230-rst
-+
-+  reg:
-+    maxItems: 1
-+
-+  '#reset-cells':
-+    const: 1
-+
-+required:
-+  - compatible
-+  - reg
-+  - '#reset-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    reset-controller@91101000 {
-+      compatible = "canaan,k230-rst";
-+      reg = <0x91101000 0x1000>;
-+      #reset-cells = <1>;
-+    };
-diff --git a/include/dt-bindings/reset/canaan,k230-rst.h b/include/dt-bindings/reset/canaan,k230-rst.h
-new file mode 100644
-index 0000000000000000000000000000000000000000..e4f6612607fea2faf2bcaa80add0b291c3371e4b
---- /dev/null
-+++ b/include/dt-bindings/reset/canaan,k230-rst.h
-@@ -0,0 +1,90 @@
-+/* SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) */
-+/*
-+ * Copyright (C) 2023-2024 Canaan Bright Sight Co., Ltd
-+ * Copyright (C) 2024-2025 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+#ifndef _DT_BINDINGS_CANAAN_K230_RST_H_
-+#define _DT_BINDINGS_CANAAN_K230_RST_H_
-+
-+#define RST_CPU0		0
-+#define RST_CPU1		1
-+#define RST_CPU0_FLUSH		2
-+#define RST_CPU1_FLUSH		3
-+#define RST_AI			4
-+#define RST_VPU			5
-+#define RST_HISYS		6
-+#define RST_HISYS_AHB		7
-+#define RST_SDIO0		8
-+#define RST_SDIO1		9
-+#define RST_SDIO_AXI		10
-+#define RST_USB0		11
-+#define RST_USB1		12
-+#define RST_USB0_AHB		13
-+#define RST_USB1_AHB		14
-+#define RST_SPI0		15
-+#define RST_SPI1		16
-+#define RST_SPI2		17
-+#define RST_SEC			18
-+#define RST_PDMA		19
-+#define RST_SDMA		20
-+#define RST_DECOMPRESS		21
-+#define RST_SRAM		22
-+#define RST_SHRM_AXIM		23
-+#define RST_SHRM_AXIS		24
-+#define RST_NONAI2D		25
-+#define RST_MCTL		26
-+#define RST_ISP			27
-+#define RST_ISP_DW		28
-+#define RST_DPU			29
-+#define RST_DISP		30
-+#define RST_GPU			31
-+#define RST_AUDIO		32
-+#define RST_TIMER0		33
-+#define RST_TIMER1		34
-+#define RST_TIMER2		35
-+#define RST_TIMER3		36
-+#define RST_TIMER4		37
-+#define RST_TIMER5		38
-+#define RST_TIMER_APB		39
-+#define RST_HDI			40
-+#define RST_WDT0		41
-+#define RST_WDT1		42
-+#define RST_WDT0_APB		43
-+#define RST_WDT1_APB		44
-+#define RST_TS_APB		45
-+#define RST_MAILBOX		46
-+#define RST_STC			47
-+#define RST_PMU			48
-+#define RST_LOSYS_APB		49
-+#define RST_UART0		50
-+#define RST_UART1		51
-+#define RST_UART2		52
-+#define RST_UART3		53
-+#define RST_UART4		54
-+#define RST_I2C0		55
-+#define RST_I2C1		56
-+#define RST_I2C2		57
-+#define RST_I2C3		58
-+#define RST_I2C4		59
-+#define RST_JAMLINK0_APB	60
-+#define RST_JAMLINK1_APB	61
-+#define RST_JAMLINK2_APB	62
-+#define RST_JAMLINK3_APB	63
-+#define RST_CODEC_APB		64
-+#define RST_GPIO_DB		65
-+#define RST_GPIO_APB		66
-+#define RST_ADC			67
-+#define RST_ADC_APB		68
-+#define RST_PWM_APB		69
-+#define RST_SHRM_APB		70
-+#define RST_CSI0		71
-+#define RST_CSI1		72
-+#define RST_CSI2		73
-+#define RST_CSI_DPHY		74
-+#define RST_ISP_AHB		75
-+#define RST_M0			76
-+#define RST_M1			77
-+#define RST_M2			78
-+#define RST_SPI2AXI		79
-+
-+#endif
-
--- 
-2.49.0
-
+[*] https://lore.kernel.org/all/cd541739-4ec5-4772-9cef-e3527fc69e26@app.fastmail.com
 
 _______________________________________________
 linux-riscv mailing list
