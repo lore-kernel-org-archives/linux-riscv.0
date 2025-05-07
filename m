@@ -4,84 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7B4AC3ABC3
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 12:05:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34A37C3ABBF
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 12:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aXw/YiBbsgR6DZ5oaQBk6rDSrpTj2ro/knJzG4W3Lqs=; b=KzRFLyJvNQzndE
-	sE4Z1eMTRMG2vTeF0DlHYkjYRRVU5FuDaERcT2WbyjyHUdaijAG/l0/Shs4OaLESwFoeaYRcg3i2B
-	F5ua64vgVaU+a8aHGIDFYeeqG/ae4U0s7rBofq3H7z7ac6XAfZq+DFRapOA2qtb+/72PLeHVfNNkA
-	Rs0oNC3g8o60AklXpMlleEwyuEh+rDukKjFUWdSdM2me/v5RcmEZL/rHQTaqQiTnxom4e09I0Ipok
-	p3Gjiz7UrM5X2rAj4CaIPSBcMhg8wBLvTGIxbZw71zL0UcCAIE14XPSI69QIoh2kfEoluqsRsJVQF
-	g4vrp321ita076qN3pjA==;
+	List-Owner; bh=2SHyJ4khUqfdMBZ3G63sEK4EcnF7XDcHWz/LrlwTnwU=; b=3EQyZ7uWPcmLy9
+	ub3HStbuiC4yDvkLTpyH7ev3onr19JSQWMztXWsUfwd1y06NkV6kwhyTEWOc0UNSkgK9NPVxai4p9
+	YWCzm3SCAFckXht2+HVU8WNLO0uvI8P7Kodo0sABBfEASj6aK9T9XKNr+PGKM4ZmWQ71oPiagToxv
+	FIVUiZTmhQaHDDC1nP115uzQmNYeg2LZpqkPXCI/ITQ+CzqDzY9DPFgkpmKMJ3PDrI9WAdlxb9oj5
+	XeGOcGu5TLQaqCKaI9gO7OduicNnXyz/L3tdSAZTsBx5jm/lEzPazHDXjdT/ux7QxcH4Mntr8VcnB
+	ZikzxMBS91zQMexm0nGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdWv-0000000FJHH-06M2;
-	Wed, 07 May 2025 12:05:41 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1uCdb2-0000000FKYm-2maL;
+	Wed, 07 May 2025 12:09:56 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCdT8-0000000FISL-0RBO
+	id 1uCday-0000000FKWs-2D9o
 	for linux-riscv@lists.infradead.org;
-	Wed, 07 May 2025 12:01:47 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3d8020ba858so39113935ab.0
-        for <linux-riscv@lists.infradead.org>; Wed, 07 May 2025 05:01:45 -0700 (PDT)
+	Wed, 07 May 2025 12:09:55 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-47688ae873fso80800941cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 07 May 2025 05:09:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1746619305; x=1747224105; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MfksTJphxL8/tqIZbEC1vmhshvxVbtCcWFaJZOmGc+c=;
-        b=PWquw1pYeu2f1BLEFzcmhiy6z7JgB/0ZvDLUAqc43z+hQG8o1CR2rkGjX3zEWIhOiQ
-         jJOc+J8/BMZ2TlDjRvsSeKPUUKLQHa7aNIeLbA1VKgKJdIOMDFUI1O1yfmrnCZ0atEmE
-         zo0rKO9hjMstEz+BElsbihAiKFpaY5W9hmOD7peCI2ZsIbj8oWY/xwoxfXjcneXQleSD
-         dz83j2sl1E6GTQaJCjRguN42a74DVKRNnK8Y5K+phAKtawmA6qpJzKaIzw5cN+oDmno6
-         yWBOfW/2fS2lU/khBWiD5UpEH1RlvJ0XalonX8kqteeIoYU2CocdXy4FSzySEOioJ1i2
-         8w3Q==
+        d=gmail.com; s=20230601; t=1746619791; x=1747224591; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=wzvCqlM6V4NoRraLw8v4M7ajYBzOkSRv0bJeZomdZWU=;
+        b=d1GTYbdPxq+oWO+iW05NCWwK138wPUJUtKWyBXnhPd0memqUH/xC8jWHZp4gQJLhL9
+         x6YMS7d7VwiH44LQ3xhCDqGhkrjhDoysouqCI3FP1pdnpH9auj8En9VEw78Z5uyHe6Uu
+         30sA1VA+b0jPC3FS7dPP0hpVb6/UKAfk8EF2Jh2JA+NHoSuIwB13o4cuDUm+ZizAxID9
+         9SjE7vVIE6lJVZ0eU5ydk5Xrtrik2KfIYY416V/hHgqW893aUKu3H3OR3yxnNwh/3Hmh
+         GB68M7uatjEFyBXDaIT8Hp0ZtEehhtO24AxCLy2UMIxtIa1r+9DDyju5CDUWFLd1z2io
+         nkoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746619305; x=1747224105;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=MfksTJphxL8/tqIZbEC1vmhshvxVbtCcWFaJZOmGc+c=;
-        b=EDG1dx2qIITBQRudXyCojqbJCHB1/mG7FAKaoWU1bx9oGyG4u0xJYCy983oS3D0rA6
-         D8FFXGnECfJF+lS8ORnTxihiwHdcvIgqGmktfgSVTstF64F9ExQu7sz/RhPepoN1/T71
-         7e5YjG2PRx4cxDpYkkUFVWK097rhqaW0htEMPBvuGq1UpniMatnxSdzg6dX0bAIPmOO+
-         aihw0PMPl7kzlkoezwW4TGWXDB1v158ifhV4Xw+0OvrhCbgQs9EBJCQCxj+tx/0cL1KC
-         yvYKzkE7dtvhjLmp7Lt5zBJV3chMmda3k1QFSPXLMLsRuTmMzrnl5BhrC+LTVqqt5jYR
-         DY/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXkcAi5X2rKfsZdj1sFYdXvcvA1HP9aB+HFrD0sZC0e8HFnQkRDDRWefjWUTWNtmk92ZwHYNujC8It7bQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwyvuFD0wDFOhkGfwMUChYnAO5y6zOP1K6lf8il+Kmn/xhQP5JJ
-	ynMxtVfoMLmONZAXP6GwRcdAViDEh6In5Ehe50T+jRHZm4QcSDDNkXbAj4KmjlVcDvZdOHmlSpc
-	5vrD3Bsrh98O4eNp9HF05z9zKSwIcInscpnrrKQ==
-X-Gm-Gg: ASbGncunUZIrUMGBokkx0lP8rWlQGkxJtBPXQekeU7DTEOGzoA3mIK0F7O76oWjyYCb
-	8igh2UhIzcZ7uT4E7BghbAR4dlOAwhFfEwGSs+rUasSGG3JoAtWFSWvtxZXZGqJ6fNQ4N20EXn0
-	AICSs6X/keOMqBS54BW7PHyu8=
-X-Google-Smtp-Source: AGHT+IFkZGdbLqqYtnBIxPNoB/AAAkKnYxcbV3TvXGHWR/dk3f5HpfrkqVg/svBXEFNqgSJQ1iCWCi8Uf95FPmM7zQQ=
-X-Received: by 2002:a05:6e02:1c2c:b0:3d8:1d7c:e192 with SMTP id
- e9e14a558f8ab-3da738f849emr29139475ab.7.1746619304812; Wed, 07 May 2025
- 05:01:44 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746619791; x=1747224591;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wzvCqlM6V4NoRraLw8v4M7ajYBzOkSRv0bJeZomdZWU=;
+        b=Iu2R7RkOYoCG/ICBGACRs80jHVRBjuEVWZJbCj8AiyH9jMcZNvlLjBxLzk4BSSYEN1
+         MRabVUO99qUwunWNq/nS7W0b2O4m/jLK271+tmTZK2WkKnBQmZUS+E8Ukq95NV7yts7J
+         rQX1emjzS7DFVJOnwNq6E1Ad+hEzgOWUTYlHOPt4FPPTPD00T1BF0iZnHQFPYraIhNjX
+         Zm0a5BixuI8C2lj0ifBrznSjNoq7wmxlwezdDmu80qe5OjDhv9PVWD14IIHsu5/VS33f
+         9xOdNXtqKEHsk0G2CARC/HOF24ktdnzXp+OFx77cgLgtkaZlWdOWSZm9ZI1anzjArrX3
+         r8lQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVf+ve9dd0BKH3ETZb+Cqtfwjow14EbiSeeStmSTQkc7D7Sf+SShw+6OgvGdXy8igqQ1QrKtbuNkTMUjQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxPCd4yL3ABgq+kwa/lvHAIkS5JDyo82kpkaGCu9yCBgDOirpN1
+	KlBUA21HjYLj92X8oTN4DDO4ysoQ5ITI1a3yEznyql9AudyagS8I
+X-Gm-Gg: ASbGncsMrBvgiTw4HDICAp6tazA425c3W0GTbzMQItiaQmPqgbky6e/Udv8hI9qQYTV
+	mZJQDUYkdbtCZUi4MCXlbKW8k8osQ8/B9+SLwXa/dj7V3GaBmruxahwIUQCerUPVXsWJkBFR+h1
+	vKFTz2cJazcge9vl8c7GopY+LozrOzkgq8VNikRQTq3dAE9A214W2vLA7ImXQcD3PW7HNqWtAr3
+	N+8wfx1StWVXNvgxXMECQ8gjO/WAr7d8mGY3V1ID9Un/vDNQ0JqAfmIyDWbNMZ5PTR2j2iQ5Mka
+	V7de/+o5rUG+sh1y
+X-Google-Smtp-Source: AGHT+IH7wKlghg8C9MW5UbE15J0DCcdrY3Ipd1gx5YTdMrj+JDWaSANUBcKoxE/1t95TYjo8l1Xxyw==
+X-Received: by 2002:a05:622a:cd:b0:476:9847:7c73 with SMTP id d75a77b69052e-492265e977fmr37240231cf.26.1746619790754;
+        Wed, 07 May 2025 05:09:50 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-49222da009dsm13199261cf.58.2025.05.07.05.09.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 07 May 2025 05:09:50 -0700 (PDT)
+Date: Wed, 7 May 2025 20:09:25 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Yixun Lan <dlan@gentoo.org>, Inochi Amaoto <inochiama@gmail.com>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Adrian Hunter <adrian.hunter@intel.com>, Alex Elder <elder@riscstar.com>, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
+Message-ID: <acvqiaaptw4s54zekvbkdpfzam4x7juiajcxyohzpfcuf5xpxs@addpa5x73efo>
+References: <20250501-20-k1-sdhci-v2-0-3e7005fae29b@gentoo.org>
+ <20250501-20-k1-sdhci-v2-2-3e7005fae29b@gentoo.org>
+ <gfrdvfencetztdmkxmeo5q5vdnp3yxmggnuewfprjyxsldzhv2@eur5wtlltqtm>
+ <20250506225720-GYA499202@gentoo>
 MIME-Version: 1.0
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com> <20250403112522.1566629-5-rkrcmar@ventanamicro.com>
-In-Reply-To: <20250403112522.1566629-5-rkrcmar@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Wed, 7 May 2025 17:31:33 +0530
-X-Gm-Features: ATxdqUEfXOKoC0fyIHGD5l9Qjl_U-GZBULEO3hLfdZKgXeyi62xCroqXS1Rt6jw
-Message-ID: <CAAhSdy0v7Cw+aGF8DDWh1gjTBXA23=H01KRK8R2LTQHLRHo5Kw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] KVM: RISC-V: refactor sbi reset request
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20250506225720-GYA499202@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_050146_145369_20019B92 
-X-CRM114-Status: GOOD (  19.23  )
+X-CRM114-CacheID: sfid-20250507_050952_566085_9BF86C77 
+X-CRM114-Status: GOOD (  29.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,100 +98,171 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBBcHIgMywgMjAyNSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFy
-QHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gVGhlIHNhbWUgY29kZSBpcyB1c2VkIHR3aWNl
-IGFuZCBTQkkgcmVzZXQgc2V0cyBvbmx5IHR3byB2YXJpYWJsZXMuCj4KPiBTaWduZWQtb2ZmLWJ5
-OiBSYWRpbSBLcsSNbcOhxZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4KPiAtLS0KPiAgYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9zYmkuaCB8ICAyICsrCj4gIGFyY2gvcmlzY3Yv
-a3ZtL3ZjcHVfc2JpLmMgICAgICAgICAgICAgfCAxMiArKysrKysrKysrKysKPiAgYXJjaC9yaXNj
-di9rdm0vdmNwdV9zYmlfaHNtLmMgICAgICAgICB8IDEzICstLS0tLS0tLS0tLS0KPiAgYXJjaC9y
-aXNjdi9rdm0vdmNwdV9zYmlfc3lzdGVtLmMgICAgICB8IDEwICstLS0tLS0tLS0KPiAgNCBmaWxl
-cyBjaGFuZ2VkLCAxNiBpbnNlcnRpb25zKCspLCAyMSBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1n
-aXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9rdm1fdmNwdV9zYmkuaAo+IGluZGV4IDRlZDYyMDNjZGQzMC4uYWFhYTgxMzU1
-Mjc2IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmgK
-PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oCj4gQEAgLTU1LDYg
-KzU1LDggQEAgdm9pZCBrdm1fcmlzY3ZfdmNwdV9zYmlfZm9yd2FyZChzdHJ1Y3Qga3ZtX3ZjcHUg
-KnZjcHUsIHN0cnVjdCBrdm1fcnVuICpydW4pOwo+ICB2b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9z
-eXN0ZW1fcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICBzdHJ1Y3Qga3ZtX3J1biAqcnVuLAo+ICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICB1MzIgdHlwZSwgdTY0IGZsYWdzKTsKPiArdm9pZCBrdm1fcmlz
-Y3ZfdmNwdV9zYmlfcmVxdWVzdF9yZXNldChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gKyAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdW5zaWduZWQgbG9uZyBwYywgdW5zaWdu
-ZWQgbG9uZyBhMSk7CgpVc2UgdGFicyBmb3IgYWxpZ25tZW50IGluc3RlYWQgb2Ygc3BhY2VzLgoK
-PiAgaW50IGt2bV9yaXNjdl92Y3B1X3NiaV9yZXR1cm4oc3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBz
-dHJ1Y3Qga3ZtX3J1biAqcnVuKTsKPiAgaW50IGt2bV9yaXNjdl92Y3B1X3NldF9yZWdfc2JpX2V4
-dChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCj4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICBjb25zdCBzdHJ1Y3Qga3ZtX29uZV9yZWcgKnJlZyk7Cj4gZGlmZiAtLWdpdCBhL2FyY2gv
-cmlzY3Yva3ZtL3ZjcHVfc2JpLmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5jCj4gaW5kZXgg
-ZDFjODNhNzc3MzVlLi5mNTgzNjhmN2RmMWQgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0v
-dmNwdV9zYmkuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMKPiBAQCAtMTU2LDYg
-KzE1NiwxOCBAQCB2b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9zeXN0ZW1fcmVzZXQoc3RydWN0IGt2
-bV92Y3B1ICp2Y3B1LAo+ICAgICAgICAgcnVuLT5leGl0X3JlYXNvbiA9IEtWTV9FWElUX1NZU1RF
-TV9FVkVOVDsKPiAgfQo+Cj4gK3ZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3JlcXVlc3RfcmVzZXQo
-c3RydWN0IGt2bV92Y3B1ICp2Y3B1LAo+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIHVuc2lnbmVkIGxvbmcgcGMsIHVuc2lnbmVkIGxvbmcgYTEpCj4gK3sKPiArICAgICAg
-IHNwaW5fbG9jaygmdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOwo+ICsgICAgICAgdmNwdS0+
-YXJjaC5ndWVzdF9yZXNldF9jb250ZXh0LnNlcGMgPSBwYzsKPiArICAgICAgIHZjcHUtPmFyY2gu
-Z3Vlc3RfcmVzZXRfY29udGV4dC5hMCA9IHZjcHUtPnZjcHVfaWQ7Cj4gKyAgICAgICB2Y3B1LT5h
-cmNoLmd1ZXN0X3Jlc2V0X2NvbnRleHQuYTEgPSBhMTsKPiArICAgICAgIHNwaW5fdW5sb2NrKCZ2
-Y3B1LT5hcmNoLnJlc2V0X2NudHhfbG9jayk7Cj4gKwo+ICsgICAgICAga3ZtX21ha2VfcmVxdWVz
-dChLVk1fUkVRX1ZDUFVfUkVTRVQsIHZjcHUpOwo+ICt9Cj4gKwo+ICBpbnQga3ZtX3Jpc2N2X3Zj
-cHVfc2JpX3JldHVybihzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVjdCBrdm1fcnVuICpydW4p
-Cj4gIHsKPiAgICAgICAgIHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKmNwID0gJnZjcHUtPmFyY2gu
-Z3Vlc3RfY29udGV4dDsKPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfaHNt
-LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9oc20uYwo+IGluZGV4IDMwNzBiYjMxNzQ1ZC4u
-ZjI2MjA3Zjg0YmFiIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2hzbS5j
-Cj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfaHNtLmMKPiBAQCAtMTUsNyArMTUsNiBA
-QAo+Cj4gIHN0YXRpYyBpbnQga3ZtX3NiaV9oc21fdmNwdV9zdGFydChzdHJ1Y3Qga3ZtX3ZjcHUg
-KnZjcHUpCj4gIHsKPiAtICAgICAgIHN0cnVjdCBrdm1fY3B1X2NvbnRleHQgKnJlc2V0X2NudHg7
-Cj4gICAgICAgICBzdHJ1Y3Qga3ZtX2NwdV9jb250ZXh0ICpjcCA9ICZ2Y3B1LT5hcmNoLmd1ZXN0
-X2NvbnRleHQ7Cj4gICAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHUgKnRhcmdldF92Y3B1Owo+ICAgICAg
-ICAgdW5zaWduZWQgbG9uZyB0YXJnZXRfdmNwdWlkID0gY3AtPmEwOwo+IEBAIC0zMiwxNyArMzEs
-NyBAQCBzdGF0aWMgaW50IGt2bV9zYmlfaHNtX3ZjcHVfc3RhcnQoc3RydWN0IGt2bV92Y3B1ICp2
-Y3B1KQo+ICAgICAgICAgICAgICAgICBnb3RvIG91dDsKPiAgICAgICAgIH0KPgo+IC0gICAgICAg
-c3Bpbl9sb2NrKCZ0YXJnZXRfdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOwo+IC0gICAgICAg
-cmVzZXRfY250eCA9ICZ0YXJnZXRfdmNwdS0+YXJjaC5ndWVzdF9yZXNldF9jb250ZXh0Owo+IC0g
-ICAgICAgLyogc3RhcnQgYWRkcmVzcyAqLwo+IC0gICAgICAgcmVzZXRfY250eC0+c2VwYyA9IGNw
-LT5hMTsKPiAtICAgICAgIC8qIHRhcmdldCB2Y3B1IGlkIHRvIHN0YXJ0ICovCj4gLSAgICAgICBy
-ZXNldF9jbnR4LT5hMCA9IHRhcmdldF92Y3B1aWQ7Cj4gLSAgICAgICAvKiBwcml2YXRlIGRhdGEg
-cGFzc2VkIGZyb20ga2VybmVsICovCj4gLSAgICAgICByZXNldF9jbnR4LT5hMSA9IGNwLT5hMjsK
-PiAtICAgICAgIHNwaW5fdW5sb2NrKCZ0YXJnZXRfdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2sp
-Owo+IC0KPiAtICAgICAgIGt2bV9tYWtlX3JlcXVlc3QoS1ZNX1JFUV9WQ1BVX1JFU0VULCB0YXJn
-ZXRfdmNwdSk7Cj4gKyAgICAgICBrdm1fcmlzY3ZfdmNwdV9zYmlfcmVxdWVzdF9yZXNldCh0YXJn
-ZXRfdmNwdSwgY3AtPmExLCBjcC0+YTIpOwo+Cj4gICAgICAgICBfX2t2bV9yaXNjdl92Y3B1X3Bv
-d2VyX29uKHRhcmdldF92Y3B1KTsKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1
-X3NiaV9zeXN0ZW0uYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX3N5c3RlbS5jCj4gaW5kZXgg
-YmMwZWJiYTg5MDAzLi4zNTliZTkwYjBmYzUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9rdm0v
-dmNwdV9zYmlfc3lzdGVtLmMKPiArKysgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9zeXN0ZW0u
-Ywo+IEBAIC0xMyw3ICsxMyw2IEBAIHN0YXRpYyBpbnQga3ZtX3NiaV9leHRfc3VzcF9oYW5kbGVy
-KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgc3RydWN0IGt2bV9ydW4gKnJ1biwKPiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHVfc2JpX3JldHVybiAqcmV0
-ZGF0YSkKPiAgewo+ICAgICAgICAgc3RydWN0IGt2bV9jcHVfY29udGV4dCAqY3AgPSAmdmNwdS0+
-YXJjaC5ndWVzdF9jb250ZXh0Owo+IC0gICAgICAgc3RydWN0IGt2bV9jcHVfY29udGV4dCAqcmVz
-ZXRfY250eDsKPiAgICAgICAgIHVuc2lnbmVkIGxvbmcgZnVuY2lkID0gY3AtPmE2Owo+ICAgICAg
-ICAgdW5zaWduZWQgbG9uZyBodmEsIGk7Cj4gICAgICAgICBzdHJ1Y3Qga3ZtX3ZjcHUgKnRtcDsK
-PiBAQCAtNDUsMTQgKzQ0LDcgQEAgc3RhdGljIGludCBrdm1fc2JpX2V4dF9zdXNwX2hhbmRsZXIo
-c3RydWN0IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuLAo+ICAgICAgICAgICAg
-ICAgICAgICAgICAgIH0KPiAgICAgICAgICAgICAgICAgfQo+Cj4gLSAgICAgICAgICAgICAgIHNw
-aW5fbG9jaygmdmNwdS0+YXJjaC5yZXNldF9jbnR4X2xvY2spOwo+IC0gICAgICAgICAgICAgICBy
-ZXNldF9jbnR4ID0gJnZjcHUtPmFyY2guZ3Vlc3RfcmVzZXRfY29udGV4dDsKPiAtICAgICAgICAg
-ICAgICAgcmVzZXRfY250eC0+c2VwYyA9IGNwLT5hMTsKPiAtICAgICAgICAgICAgICAgcmVzZXRf
-Y250eC0+YTAgPSB2Y3B1LT52Y3B1X2lkOwo+IC0gICAgICAgICAgICAgICByZXNldF9jbnR4LT5h
-MSA9IGNwLT5hMjsKPiAtICAgICAgICAgICAgICAgc3Bpbl91bmxvY2soJnZjcHUtPmFyY2gucmVz
-ZXRfY250eF9sb2NrKTsKPiAtCj4gLSAgICAgICAgICAgICAgIGt2bV9tYWtlX3JlcXVlc3QoS1ZN
-X1JFUV9WQ1BVX1JFU0VULCB2Y3B1KTsKPiArICAgICAgICAgICAgICAga3ZtX3Jpc2N2X3ZjcHVf
-c2JpX3JlcXVlc3RfcmVzZXQodmNwdSwgY3AtPmExLCBjcC0+YTIpOwo+Cj4gICAgICAgICAgICAg
-ICAgIC8qIHVzZXJzcGFjZSBwcm92aWRlcyB0aGUgc3VzcGVuZCBpbXBsZW1lbnRhdGlvbiAqLwo+
-ICAgICAgICAgICAgICAgICBrdm1fcmlzY3ZfdmNwdV9zYmlfZm9yd2FyZCh2Y3B1LCBydW4pOwo+
-IC0tCj4gMi40OC4xCj4KCk90aGVyd2lzZSwgaXQgbG9va3MgZ29vZCB0byBtZS4KSSBoYXZlIHRh
-a2VuIGNhcmUgb2YgdGhlIGFib3ZlIGNvbW1lbnQgYXQgdGhlIHRpbWUKb2YgbWVyZ2luZyB0aGlz
-IHBhdGNoLgoKUXVldWVkIHRoaXMgcGF0Y2ggZm9yIExpbnV4LTYuMTYKClRoYW5rcywKQW51cAoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+On Tue, May 06, 2025 at 10:57:20PM +0000, Yixun Lan wrote:
+> Hi Inochi,
+> 
+> On 06:37 Wed 07 May     , Inochi Amaoto wrote:
+> > On Thu, May 01, 2025 at 04:50:22PM +0800, Yixun Lan wrote:
+> > > The SDHCI controller found in SpacemiT K1 SoC features SD,
+> > > SDIO, eMMC support, such as:
+> > > 
+> > > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
+> > > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
+> > > - Compatible for 8bit eMMC5.1, up to HS400
+> > > 
+> > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > > ---
+> > >  drivers/mmc/host/Kconfig       |  14 ++
+> > >  drivers/mmc/host/Makefile      |   1 +
+> > >  drivers/mmc/host/sdhci-of-k1.c | 306 +++++++++++++++++++++++++++++++++++++++++
+> > >  3 files changed, 321 insertions(+)
+> > > 
+> > > diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+> > > index 6824131b69b188cae58c8f48076715ca647ca28c..0ce78f22c33cfff916a2d4d680c79e9d19637e0e 100644
+> > > --- a/drivers/mmc/host/Kconfig
+> > > +++ b/drivers/mmc/host/Kconfig
+> > > @@ -250,6 +250,20 @@ config MMC_SDHCI_OF_DWCMSHC
+> > >  	  If you have a controller with this interface, say Y or M here.
+> > >  	  If unsure, say N.
+> > >  
+> > > +config MMC_SDHCI_OF_K1
+> > > +	tristate "SDHCI OF support for the SpacemiT K1 SoC"
+> > > +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > > +	depends on MMC_SDHCI_PLTFM
+> > > +	depends on OF
+> > > +	depends on COMMON_CLK
+> > > +	help
+> > > +	  This selects the Secure Digital Host Controller Interface (SDHCI)
+> > > +	  found in the SpacemiT K1 SoC.
+> > > +
+> > > +	  If you have a controller with this interface, say Y or M here.
+> > > +
+> > > +	  If unsure, say N.
+> > > +
+> > >  config MMC_SDHCI_OF_SPARX5
+> > >  	tristate "SDHCI OF support for the MCHP Sparx5 SoC"
+> > >  	depends on MMC_SDHCI_PLTFM
+> > > diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
+> > > index 5147467ec825ffaef3a7bd812fad80545e52b180..75bafc7b162b9e1d4c6c050f5d28b9d7cb582447 100644
+> > > --- a/drivers/mmc/host/Makefile
+> > > +++ b/drivers/mmc/host/Makefile
+> > > @@ -88,6 +88,7 @@ obj-$(CONFIG_MMC_SDHCI_OF_AT91)		+= sdhci-of-at91.o
+> > >  obj-$(CONFIG_MMC_SDHCI_OF_ESDHC)	+= sdhci-of-esdhc.o
+> > >  obj-$(CONFIG_MMC_SDHCI_OF_HLWD)		+= sdhci-of-hlwd.o
+> > >  obj-$(CONFIG_MMC_SDHCI_OF_DWCMSHC)	+= sdhci-of-dwcmshc.o
+> > > +obj-$(CONFIG_MMC_SDHCI_OF_K1)		+= sdhci-of-k1.o
+> > >  obj-$(CONFIG_MMC_SDHCI_OF_SPARX5)	+= sdhci-of-sparx5.o
+> > >  obj-$(CONFIG_MMC_SDHCI_OF_MA35D1)	+= sdhci-of-ma35d1.o
+> > >  obj-$(CONFIG_MMC_SDHCI_BCM_KONA)	+= sdhci-bcm-kona.o
+> > > diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+> > > new file mode 100644
+> > > index 0000000000000000000000000000000000000000..8988053eeb33a476fa484d145579db6214b2d0b7
+> > > --- /dev/null
+> > > +++ b/drivers/mmc/host/sdhci-of-k1.c
+> > > @@ -0,0 +1,306 @@
+> > > +// SPDX-License-Identifier: GPL-2.0
+> > > +/*
+> > > + * Copyright (C) 2023-2025 SpacemiT (Hangzhou) Technology Co. Ltd
+> > > + * Copyright (c) 2025 Yixun Lan <dlan@gentoo.org>
+> > > + */
+> > > +
+> > > +#include <linux/bitfield.h>
+> > > +#include <linux/clk.h>
+> > > +#include <linux/delay.h>
+> > > +#include <linux/iopoll.h>
+> > > +#include <linux/init.h>
+> > > +#include <linux/mmc/card.h>
+> > > +#include <linux/mmc/host.h>
+> > > +#include <linux/mmc/mmc.h>
+> > > +#include <linux/module.h>
+> > > +#include <linux/of.h>
+> > > +#include <linux/of_device.h>
+> > > +#include <linux/platform_device.h>
+> > > +
+> > > +#include "sdhci.h"
+> > > +#include "sdhci-pltfm.h"
+> > > +
+> > > +#define SDHC_MMC_CTRL_REG		0x114
+> > > +#define  MISC_INT_EN			BIT(1)
+> > > +#define  MISC_INT			BIT(2)
+> > > +#define  ENHANCE_STROBE_EN		BIT(8)
+> > > +#define  MMC_HS400			BIT(9)
+> > > +#define  MMC_HS200			BIT(10)
+> > > +#define  MMC_CARD_MODE			BIT(12)
+> > > +
+> > > +#define SDHC_TX_CFG_REG			0x11C
+> > > +#define  TX_INT_CLK_SEL			BIT(30)
+> > > +#define  TX_MUX_SEL			BIT(31)
+> > > +
+> > > +#define SDHC_PHY_CTRL_REG		0x160
+> > > +#define  PHY_FUNC_EN			BIT(0)
+> > > +#define  PHY_PLL_LOCK			BIT(1)
+> > > +#define  HOST_LEGACY_MODE		BIT(31)
+> > > +
+> > > +#define SDHC_PHY_FUNC_REG		0x164
+> > > +#define  PHY_TEST_EN			BIT(7)
+> > > +#define  HS200_USE_RFIFO		BIT(15)
+> > > +
+> > > +#define SDHC_PHY_DLLCFG			0x168
+> > > +#define  DLL_PREDLY_NUM			GENMASK(3, 2)
+> > > +#define  DLL_FULLDLY_RANGE		GENMASK(5, 4)
+> > > +#define  DLL_VREG_CTRL			GENMASK(7, 6)
+> > > +#define  DLL_ENABLE			BIT(31)
+> > > +
+> > > +#define SDHC_PHY_DLLCFG1		0x16C
+> > > +#define  DLL_REG1_CTRL			GENMASK(7, 0)
+> > > +#define  DLL_REG2_CTRL			GENMASK(15, 8)
+> > > +#define  DLL_REG3_CTRL			GENMASK(23, 16)
+> > > +#define  DLL_REG4_CTRL			GENMASK(31, 24)
+> > > +
+> > > +#define SDHC_PHY_DLLSTS			0x170
+> > > +#define  DLL_LOCK_STATE			BIT(0)
+> > > +
+> > > +#define SDHC_PHY_PADCFG_REG		0x178
+> > > +#define  PHY_DRIVE_SEL			GENMASK(2, 0)
+> > > +#define  RX_BIAS_CTRL			BIT(5)
+> > > +
+> > > +struct spacemit_sdhci_host {
+> > > +	struct clk *clk_core;
+> > > +	struct clk *clk_io;
+> > > +};
+> > > +
+> > > +static inline void spacemit_sdhci_setbits(struct sdhci_host *host, u32 val, int reg)
+> > > +{
+> > > +	sdhci_writel(host, sdhci_readl(host, reg) | val, reg);
+> > > +}
+> > > +
+> > > +static inline void spacemit_sdhci_clrbits(struct sdhci_host *host, u32 val, int reg)
+> > > +{
+> > > +	sdhci_writel(host, sdhci_readl(host, reg) & ~val, reg);
+> > > +}
+> > > +
+> > 
+> > > +static inline void spacemit_sdhci_clrsetbits(struct sdhci_host *host, u32 clr, u32 set, int reg)
+> > 
+> > updatebits?
+> > 
+> IMO, it's more ambiguous to use updatebits(), so I will just keep it
+> 
+> besides, these above helper functions should really be carefully used,
+> setbits() only set bits of 'val' while preserve other bits,
+> clrsetbits() will first clear bits, then set, while still preserve others
+> 
+> I will try to put a comment for them while updating next version
+
+This is like something "regmap_update_bits". I think "update_bits" may
+be better? I agree that it is good to put a comment here, whatever the
+function name is. So this is fine for me, do it in the way you prefer.
+
+Regards,
+Inochi
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
