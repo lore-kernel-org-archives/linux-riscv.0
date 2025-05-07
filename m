@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EABA0C3ABBF
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 18:30:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22233C3ABC0
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 18:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mLftbRpoLfRKJgcMGrwhCo/gUbJzQlVDbZxN+4lZH+Y=; b=QTsc0VWXlorYtX
-	kDWQITvXCZjj+FST6bD7/JPCtZNwn3kh4P6H8Xrzfb36ofPptxvHkJutG9r4pueIOhZTkJVzajVpO
-	0n+2vwdTZACaaDZEJH9NHj7EL4AgI369QZ6BXAmXYHdPUACWGShtZAxvMp5BzhXOGTE0nmNiKHgi1
-	PRfcIFb8NGcGK1N8e0IlruuRr4axUZSLo1VekBkWK31+UZmt1jd2/UvKIfw56L6mNQlhrMvlWbPsN
-	drstsY/b+Ub8leuCBC4G7HAbIixHf1Y0A9fwzdUwd5G5vE5E5hnHzOzW6XoMHBBMf/kus4kb+jD7m
-	JAD++wSmDykI8TA/EDjg==;
+	List-Owner; bh=vqvEhBqw7z2soso7GLmimEalZyRICAAAHny2+Dw5dCk=; b=utR93ZkZL87J2h
+	Dq9ebKeD5bCa9jNM5tw2/iYhr4UYugwpPdbMBltaH46trg3B9WEM+rpilGOLJoDsGvLMGBWZg9reL
+	8Dv9yuvSwCaFlAEJ4Lu5iYtUnMjWQRi6PAGdl5xdBZua6ck/Vaky+ulnav2GpddFyQ4G+9sVPFtpp
+	Vii7L/8fgHWFKz2MFjSv/rF5LsLb9E3HdLua6Bd01YKhLLZQIhQT2YLlj3ZiRX/ABO8f1yQ5KtHeX
+	jzbg/sck8fpPwp+Us01nsdOkFVxJy2W81mst+c3E7fKE05OIIPOy6V2kbhHs0ddXh1vwhCxUlFpjB
+	1qIId6ab3hSlXYQDBJBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjX9-0000000GUU6-0c6R;
-	Wed, 07 May 2025 18:30:19 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uCjX8-0000000GUTo-2MXx;
+	Wed, 07 May 2025 18:30:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCjJd-0000000GRsI-2uo9;
+	id 1uCjJd-0000000GRsK-3sdo;
 	Wed, 07 May 2025 18:16:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6ECBA4AB29;
-	Wed,  7 May 2025 18:16:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 415D2C4AF0D;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 359C15C5F3F;
+	Wed,  7 May 2025 18:14:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EB66C4CEE2;
 	Wed,  7 May 2025 18:16:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1746641781;
-	bh=HWoalOBMMGh9CGDJhSNrUZqEPdcdOzZUgEuD85/CAd4=;
+	bh=JBC57/AJ4s9wnqVrwmV7BOpA+2zHUnfcHWTkMgWl8NU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=TxTsO8ykqQtoOsOd9xDG+/enjDzLXUsyguLr8qcMDo7z25PUjNA3ctp+C5+vEU/iz
-	 acPEf4SFolFxUXbbWo+yOPM+yOoeM+ecKmTktuuFRwMv7zhdF3FAc9f4w4MtU0SxmH
-	 LMMBFfB1Fs5YdHx+JHb01PbWo+v5UXa/GUQlqAx0XW8c5NTL9x/1nSjokQuPwm45hZ
-	 WbgmZM+qsjf0qmCZgGyHrUOf1/Dv8v3jFpNvk/ZWIe4liVXUsL3Mxq1tpVxtAmoOX1
-	 0g/ZLCu3kk7zpO68JNaDl8pD7mK2VBFfnCeJZvUgWjGwU0tnN0TzoYaOTMZ+5ukiM4
-	 YKu967X4A/fow==
+	b=F7UcDZXdXjx3KZ0l3mLTB+csre7VN6l1usVAnFYpDApDPAm06prvBdEhlADnkW6qA
+	 6Ct662+QPW0P+8F0Oa58tF6i9aT/9MCvBj/FBr6/uU/vhZiR6R4zBCfysEenLCqUrE
+	 6tHqabUzR/N/LG6jfquCv4eWd3RJ/h4rXkS1TFORy7r97wCz0ABguF/eGnXxW8zxIz
+	 ljfxv6OYRJ3vkc045YYhxP1/yI3w0ca03pTUHUMVgH8UIKM6xE/RhL/CRvTjpi4qn3
+	 JyQH3je+lX/JEdGO+Fm75JCf/UdhCxfXNlzSyJ5TaUdz+qFXxrtWxAwoV/tmvZGTYw
+	 KMyTgtIMShNuw==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	linux-hardening@vger.kernel.org,
+	Christoph Hellwig <hch@lst.de>,
 	Marco Elver <elver@google.com>,
 	Andrey Konovalov <andreyknvl@gmail.com>,
 	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
 	Ard Biesheuvel <ardb@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	linux-kbuild@vger.kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-hardening@vger.kernel.org,
-	Christoph Hellwig <hch@lst.de>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
 	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
 	Bill Wendling <morbo@google.com>,
 	Justin Stitt <justinstitt@google.com>,
 	linux-kernel@vger.kernel.org,
 	x86@kernel.org,
+	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
 	linux-efi@vger.kernel.org,
+	linux-kbuild@vger.kernel.org,
 	linux-security-module@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH 6/8] stackleak: Support Clang stack depth tracking
-Date: Wed,  7 May 2025 11:16:12 -0700
-Message-Id: <20250507181615.1947159-6-kees@kernel.org>
+Subject: [PATCH 8/8] configs/hardening: Enable CONFIG_INIT_ON_FREE_DEFAULT_ON
+Date: Wed,  7 May 2025 11:16:14 -0700
+Message-Id: <20250507181615.1947159-8-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250507180852.work.231-kees@kernel.org>
 References: <20250507180852.work.231-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2395; i=kees@kernel.org; h=from:subject; bh=HWoalOBMMGh9CGDJhSNrUZqEPdcdOzZUgEuD85/CAd4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBnSi3OV3f9aX9C6psL+Z4P189SPmrHrPq2vaGzQi7++J e3+b/9ZHaUsDGJcDLJiiixBdu5xLh5v28Pd5yrCzGFlAhnCwMUpABOZW8zIcOOQ8o9DShIK8v8K 78ip3l31Xjeztf3PMTP1fVIJigJ7RBj+absd2iPNURU2fbXh3XVreGuX+2wvdGKVFoni+iFa91+ TGwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=961; i=kees@kernel.org; h=from:subject; bh=JBC57/AJ4s9wnqVrwmV7BOpA+2zHUnfcHWTkMgWl8NU=; b=owGbwMvMwCVmps19z/KJym7G02pJDBnSi3OdD7t0n7oULsejGJ/+9MQm/geGMg9cz00Vqajg/ sTnY3e9o5SFQYyLQVZMkSXIzj3OxeNte7j7XEWYOaxMIEMYuDgFYCJToxkZNsxfvyhx39Nzpiyy k1d9mfdaZ2I4d4Fed23ppfk+FmvT+Bn+V65ZP6cwRVHDaFl+g9uJIPvmT50TbXLDqlrmpn0pTfX nBAA=
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_111621_769568_1A5AEF8C 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250507_111622_008187_73C751E9 
+X-CRM114-Status: UNSURE (   8.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,65 +100,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Wire up CONFIG_STACKLEAK to Clang 21's new stack depth tracking
-callback[1] option.
+To reduce stale data lifetimes, enable CONFIG_INIT_ON_FREE_DEFAULT_ON as
+well. This matches the addition of CONFIG_STACKLEAK=y, which is doing
+similar for stack memory.
 
-Link: https://clang.llvm.org/docs/SanitizerCoverage.html#tracing-stack-depth [1]
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: Arnd Bergmann <arnd@arndb.de>
-Cc: Masahiro Yamada <masahiroy@kernel.org>
-Cc: Nathan Chancellor <nathan@kernel.org>
-Cc: Nicolas Schier <nicolas.schier@linux.dev>
-Cc: Marco Elver <elver@google.com>
-Cc: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: "Gustavo A. R. Silva" <gustavoars@kernel.org>
-Cc: <linux-kbuild@vger.kernel.org>
-Cc: <kasan-dev@googlegroups.com>
 Cc: <linux-hardening@vger.kernel.org>
 ---
- security/Kconfig.hardening | 5 ++++-
- scripts/Makefile.stackleak | 6 ++++++
- 2 files changed, 10 insertions(+), 1 deletion(-)
+ kernel/configs/hardening.config | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/security/Kconfig.hardening b/security/Kconfig.hardening
-index 2be6aed71c92..94aa8612c4e4 100644
---- a/security/Kconfig.hardening
-+++ b/security/Kconfig.hardening
-@@ -158,10 +158,13 @@ config GCC_PLUGIN_STRUCTLEAK_VERBOSE
- 	  initialized. Since not all existing initializers are detected
- 	  by the plugin, this can produce false positive warnings.
+diff --git a/kernel/configs/hardening.config b/kernel/configs/hardening.config
+index 3da00926b4eb..7d92a740e490 100644
+--- a/kernel/configs/hardening.config
++++ b/kernel/configs/hardening.config
+@@ -60,6 +60,9 @@ CONFIG_LIST_HARDENED=y
+ # Initialize all heap variables to zero on allocation.
+ CONFIG_INIT_ON_ALLOC_DEFAULT_ON=y
  
-+config CC_HAS_SANCOV_STACK_DEPTH_CALLBACK
-+	def_bool $(cc-option,-fsanitize-coverage-stack-depth-callback-min=1)
++# Initialize all heap variables to zero on free to reduce stale data lifetime.
++CONFIG_INIT_ON_FREE_DEFAULT_ON=y
 +
- config STACKLEAK
- 	bool "Poison kernel stack before returning from syscalls"
- 	depends on HAVE_ARCH_STACKLEAK
--	depends on GCC_PLUGINS
-+	depends on GCC_PLUGINS || CC_HAS_SANCOV_STACK_DEPTH_CALLBACK
- 	help
- 	  This option makes the kernel erase the kernel stack before
- 	  returning from system calls. This has the effect of leaving
-diff --git a/scripts/Makefile.stackleak b/scripts/Makefile.stackleak
-index 1db0835b29d4..639cc32bcd1d 100644
---- a/scripts/Makefile.stackleak
-+++ b/scripts/Makefile.stackleak
-@@ -8,6 +8,12 @@ stackleak-cflags-$(CONFIG_GCC_PLUGIN_STACKLEAK_VERBOSE) += -fplugin-arg-stacklea
- DISABLE_STACKLEAK  := -fplugin-arg-stackleak_plugin-disable
- endif
+ # Initialize all stack variables to zero on function entry.
+ CONFIG_INIT_STACK_ALL_ZERO=y
  
-+ifdef CONFIG_CC_IS_CLANG
-+stackleak-cflags-y += -fsanitize-coverage=stack-depth
-+stackleak-cflags-y += -fsanitize-coverage-stack-depth-callback-min=$(CONFIG_STACKLEAK_TRACK_MIN_SIZE)
-+DISABLE_STACKLEAK  := -fno-sanitize-coverage=stack-depth
-+endif
-+
- STACKLEAK_CFLAGS   := $(stackleak-cflags-y)
- 
- export STACKLEAK_CFLAGS DISABLE_STACKLEAK
 -- 
 2.34.1
 
