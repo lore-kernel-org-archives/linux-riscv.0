@@ -4,104 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B587C369DC
-	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 03:46:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82733C369DC
+	for <linux-riscv@archiver.kernel.org>; Wed,  7 May 2025 03:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4Pi3xA77/6Fj+EuksB74NDSopJC2nDDRlKoL47eCX5M=; b=wr2cmZrelpAWsm
-	qN94UPFuzNNo5mfQofF3nvX8s+B+tAwNul1gpFTSe1nHOqxv7QlbPTkokVlA2/ybT7dQX/OGcwbDp
-	nNZe/Z2rRdj3T0qULkrsizc1V8MlMby8Dg33xTC17L4GMCt3XT4XCfhLPqMOWYIu1bxYjPueH4/vi
-	GdYIChfDPOmxnwbMx5hfiRwAEwaurdeCp2hAXkmLCtxGoe8IZ7iSGwzDKfQO3tnFirzWslbFbmi8B
-	6PNY6mdEfrswrOeoVys2rnmW4OeLDQGS3o4PwenjybgAKEDiPeuwTvFLr7iTvwOafGujQHQGVf/fM
-	CiAcJlVbErRri4J8XcuQ==;
+	List-Owner; bh=71OafsdnxAanTPYo/svbDmLWueCxKsMwM+1k+8F/n80=; b=rHnGcvmsxRXLJd
+	0PydMNJ0W6K2rqb/iO+bfKifTKFZtZcACaI+NdelSSTBpqCY5W9rh5IPW6qpE1qkDiHNSAgeAbqVd
+	hyfult0YvhKeZEOHxjhFWO68BGg5dqh8HT1IumP8jRM3hZMf1cf2eKvJQ8kKEyhB6AbCOqQsr3+EU
+	4D2kaN/98BOmcEAkVLyilJe6MFWP/UJBr4MiaCyjZTWEkTUIDRXCzkcjqjDEqEJxdFF4jFLM0jZ3b
+	nGIsyR6yV0syaXvtwz6AhRaGyXENgGg8+9k3MOrF73nhLPEyNIjUZPtY31Y3sMRzOkjRZFmGvrD4z
+	QGHnO3rCPauhvC19YieA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVjh-0000000E6oD-3Dzk;
-	Wed, 07 May 2025 03:46:21 +0000
-Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
+	id 1uCVk5-0000000E7Ox-0Hq2;
+	Wed, 07 May 2025 03:46:45 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCVjf-0000000E6nd-3CIG
-	for linux-riscv@lists.infradead.org;
-	Wed, 07 May 2025 03:46:21 +0000
-Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-22e39fbad5fso71255ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 06 May 2025 20:46:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1746589579; x=1747194379; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=CprdoLUso6rbsqIqPABR3Bwu/KBPakjt6caNQFlDa9s=;
-        b=vat24AnTbGyxCBxUpqdpJ4XYrt9JS9W+uGWTodwYkv1KdwCgvhJCx7UPmdOEjY2CKw
-         EeCat1+f4aSWG+b+SX1yJdHWO9tHnQAJXOJFniQ/+Sz6ixkyuy0BU5I2QzR2thu7TnnC
-         wtyoqRCaV0gTsEY+R5Gf1NIyd8uX35/fJNRtMxLLLKI6YTiE/D+aL0oIdK+z+uATLDyE
-         gFQuswlr8TFdex29GqYxiYt/gGXJhwqGO4KawBpTY2/+vCZHTBNs8VMlCBBKz1ta2mt2
-         LS1eYCE3dghkivg436FsUlaTyEUzapGZarn66PQ6z30/aMhcAjmRSmDR4emvZS4Y2CWE
-         3Gjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746589579; x=1747194379;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CprdoLUso6rbsqIqPABR3Bwu/KBPakjt6caNQFlDa9s=;
-        b=VwfK87cAf95GWg9xc63N1te4tGnAGj7IWfznjruNDaJAeeLbMZ/js3ocylXuN/r4+k
-         rPM9rETFCtMMKuNnb5EVXQhVdgjRIThoK/qFO/sodWq7wNBElraFmNtJ32qu0VJIZ8iA
-         6ZrtlSflE2ItcqtfPh2i3rHczfSerr7iIDmrZdVeGnnAfFueWm9fcYhCvZdAQpEshAkV
-         cmkEjTQUyZFmWj7D0GfRoY+m+PCQ+J09njZOToV5Gpnc7VfFVTnpjxlfRz7hj9tkXfdB
-         vW2HBTJdeprG2DzE9uC3HPNKiwglmwNEPqBXa4837reFsL1SWCqzWa6PULY+lQmrC+K/
-         8jIw==
-X-Gm-Message-State: AOJu0YxnqPG0BmroI/7Iw4oVd9uryAiWQTn1W/N+GjIj72oPaM242bgZ
-	cS90cTBp8zMCuzAZ5SzdmWGWgcOiT66eUsMbLDTFIWh1h8tzeBN1Sky6jq8gNg==
-X-Gm-Gg: ASbGncuVqZa/V0yTTo6veechLPQcFuzlBM5enx7lgBKKeqvgPtqAUI5OoesDlDSfXER
-	GYEcfGUsujQ5sYtCdRlQwzZ0VoYHs7hNi4Lagck9vxOUezGTK/FGdBiRDsNfYAt6VCmmVUWGo2O
-	eHc+07Ur6RFs/VG84CI0m84Yu+lQ4gZWz1wMmJ3Vj/S+cNge1Hc+8+ONYhoKTCHmDY+ZYxXX+ni
-	C5fCDns9UuRmSZQYBFgn4E0tud9TxF4V6D4Q9INah6/7BoSyILQEllfTQvMN8e/Urm6SAEQKXoP
-	/XtiYHynRCt+0YMczGfGcJHZORasSlrcupsN/z2q5lAc9+kFDrCq6D1zPMJYO9WNceVYCGGEZYt
-	sqQ4uZQ==
-X-Google-Smtp-Source: AGHT+IGBb8IZ+p4eSssPzIozOCBP9geGZhXA8XOl5UScfnTahE2nYrYHiyIiwfXFxk5ASUPHxlM5IA==
-X-Received: by 2002:a17:902:ccc7:b0:223:5696:44f5 with SMTP id d9443c01a7336-22e5ee8bfdemr1866575ad.12.1746589578269;
-        Tue, 06 May 2025 20:46:18 -0700 (PDT)
-Received: from google.com (202.108.125.34.bc.googleusercontent.com. [34.125.108.202])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b1fb3c6c4a4sm8409572a12.73.2025.05.06.20.46.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 06 May 2025 20:46:17 -0700 (PDT)
-Date: Wed, 7 May 2025 03:46:12 +0000
-From: Peilin Ye <yepeilin@google.com>
-To: bpf@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, Andrea Parri <parri.andrea@gmail.com>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
-	Pu Lehui <pulehui@huawei.com>, Puranjay Mohan <puranjay@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	John Fastabend <john.fastabend@gmail.com>,
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>,
-	Hao Luo <haoluo@google.com>, Jiri Olsa <jolsa@kernel.org>,
-	Luke Nelson <luke.r.nels@gmail.com>, Xi Wang <xi.wang@gmail.com>,
+	id 1uCSNk-0000000Dlns-3cUz;
+	Wed, 07 May 2025 00:11:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=98pflIFzNKHbzDVEXy4pjIzkWLVMBe8kC2mJxekYy5E=; b=Zga/Aob9wxV06lwi0mqp5S5X7v
+	D5tObw97kMGUxSSpg9nYOysSnSHxjdyf7RonaYzrUXSmb9Ruy9EKNemuQmj1nQDxs5JPZNTYLDlKM
+	ZfnI0EGgd+wu3r7qc2HjpxyDnmthD2HxAKtE84XCMVcnMqub4Pw9LRmCGmhWYJRElAts=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uCSN6-00BpFN-Sr; Wed, 07 May 2025 02:10:48 +0200
+Date: Wed, 7 May 2025 02:10:48 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>,
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>,
-	Neel Natu <neelnatu@google.com>,
-	Benjamin Segall <bsegall@google.com>
-Subject: Re: [PATCH bpf-next v2 0/8] bpf, riscv64: Support load-acquire and
- store-release instructions
-Message-ID: <aBrXhK_Tv1M5ON-e@google.com>
-References: <cover.1746588351.git.yepeilin@google.com>
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Guo Ren <guoren@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 0/4] riscv: sophgo: Add ethernet support for
+ SG2042
+Message-ID: <ffa044e2-ee9e-4a34-af6a-2e45294144f7@lunn.ch>
+References: <20250506093256.1107770-1-inochiama@gmail.com>
+ <c7a8185e-07b7-4a62-b39b-7d1e6eec64d6@lunn.ch>
+ <fgao5qnim6o3gvixzl7lnftgsish6uajlia5okylxskn3nrexe@gyvgrp72jvj6>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <cover.1746588351.git.yepeilin@google.com>
+In-Reply-To: <fgao5qnim6o3gvixzl7lnftgsish6uajlia5okylxskn3nrexe@gyvgrp72jvj6>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250506_204619_802245_4E89A743 
-X-CRM114-Status: GOOD (  12.29  )
+X-CRM114-CacheID: sfid-20250506_171128_982995_7888C342 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,59 +91,40 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Lehui,
+On Wed, May 07, 2025 at 06:24:29AM +0800, Inochi Amaoto wrote:
+> On Tue, May 06, 2025 at 02:03:18PM +0200, Andrew Lunn wrote:
+> > On Tue, May 06, 2025 at 05:32:50PM +0800, Inochi Amaoto wrote:
+> > > The ethernet controller of SG2042 is Synopsys DesignWare IP with
+> > > tx clock. Add device id for it.
+> > > 
+> > > This patch can only be tested on a SG2042 x4 evb board, as pioneer
+> > > does not expose this device.
+> > 
+> > Do you have a patch for this EVB board? Ideally there should be a user
+> > added at the same time as support for a device.
+> > 
+> > 	Andrew
+> 
+> Yes, I have one for this device. And Han Gao told me that he will send
+> the board patch for the evb board. So I only send the driver.
+> And the fragment for the evb board is likes below, I think it is kind
+> of trivial:
+> 
+> &gmac0 {
+> 	phy-handle = <&phy0>;
+> 	phy-mode = "rgmii-txid";
 
-On Wed, May 07, 2025 at 03:42:29AM +0000, Peilin Ye wrote:
-> v1: https://lore.kernel.org/bpf/cover.1745970908.git.yepeilin@google.com/
-> Changes since v1:
-> =
+And this is why i ask, because this is broken. For more information,
+please see:
 
->  * add Acked-by:, Reviewed-by: and Tested-by: tags from Lehui and Bj=F6rn
->  * simplify code logic in PATCH 1 (Lehui)
->  * in PATCH 3, avoid changing 'return 0;' to 'return ret;' at the end of
->    bpf_jit_emit_insn() (Lehui)
-> =
+https://patchwork.kernel.org/project/netdevbpf/patch/20250430-v6-15-rc3-net-rgmii-delays-v2-1-099ae651d5e5@lunn.ch/
 
-> Please refer to individual patches for details.  Thanks!
-> =
-
-> [1] https://lore.kernel.org/all/cover.1741049567.git.yepeilin@google.com/
-> =
-
-> Andrea Parri (2):
->   bpf, riscv64: Introduce emit_load_*() and emit_store_*()
->   bpf, riscv64: Support load-acquire and store-release instructions
-> =
-
-> Peilin Ye (6):
->   bpf/verifier: Handle BPF_LOAD_ACQ instructions in insn_def_regno()
->   bpf, riscv64: Skip redundant zext instruction after load-acquire
->   selftests/bpf: Use CAN_USE_LOAD_ACQ_STORE_REL when appropriate
->   selftests/bpf: Avoid passing out-of-range values to __retval()
->   selftests/bpf: Verify zero-extension behavior in load-acquire tests
->   selftests/bpf: Enable non-arena load-acquire/store-release selftests
->     for riscv64
-> =
-
->  arch/riscv/net/bpf_jit.h                      |  15 +
->  arch/riscv/net/bpf_jit_comp64.c               | 332 ++++++++++++------
->  arch/riscv/net/bpf_jit_core.c                 |   3 +-
->  kernel/bpf/verifier.c                         |  12 +-
->  tools/testing/selftests/bpf/progs/bpf_misc.h  |   5 +-
->  .../bpf/progs/verifier_load_acquire.c         |  48 ++-
->  .../selftests/bpf/progs/verifier_precision.c  |   5 +-
->  .../bpf/progs/verifier_store_release.c        |  39 +-
->  8 files changed, 313 insertions(+), 146 deletions(-)
-
-Please take another look at v2 PATCH 1/8 and 3/8, thanks!
-
-Peilin Ye
-
+	Andrew
 
 _______________________________________________
 linux-riscv mailing list
