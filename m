@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D05AC3ABBE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB56CC3ABC0
 	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 12:54:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=R8mf9lj2g84IaPuNh75kaUtqmU2KLrX8GMrTu/Yo17Q=; b=IJUa3qp5v47yO3
-	OuCbGsJrZfWhwfVAJzIIavo0QlA9RAsgoFNlw86eojz6sJ90vlTz8da3WAwVPBAXy/VgPbLfsUWCv
-	FO/WH4e3IGZWaoeuvtZE5YUzhf/SP9vO2m3Jo+m6Ll5VinH0+zVjpWjRgErR+BglA0HfP4tu0QpZJ
-	kB+1vd9uwJLdRkEaoRkwxNzllhdkF6KLpz4XbNCxs4k4mWjh9MHGG9CEIzJiXPi4K/EVbUQ0i/8vf
-	6ZsfRRP51WYz5s2M6nsYb6iKIy6P+PkBgJdBtByLZgKOns2ZIMsvnjMn9Q2f3+nsWJI9R/hH2vSQZ
-	Eugpq9QQoPzuTinsFXcQ==;
+	List-Owner; bh=gCfzIAjEnykVal+vZ50LOisvSpnCj+FJ6YWCcS6VDrY=; b=oZhhZSljjZvMgp
+	x2EmS6VhZYrONNXQ1Afw7hci9Ywmaw9AYiPlwTiHivQos6gks/pbxc9a4A0r7jzjqc3e+bQm8VX6+
+	lFxBanWUrObgHtajpxU99ijsu3daAnqd02FnSbVXi6C8KRtD4as8MKQeXgRoSE2aWB2niqqgUplA4
+	eqEPG0ZpzYVpC+nYklgmDSB0GKySFvR1GGWAa2dlb22MfT8BLsMGhY9kMQRRZgb83+8rw7T2OHjx0
+	fwB/2fUiv7X26MJk82DWOrD42NMjrDQX78zjXLUgQth3cqPuUCYgsYsbQroMhsLgkw9aO47FTTKy5
+	HvEq+LFatCPeAsgfkp8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0lZ-00000000gIz-25tc;
-	Thu, 08 May 2025 12:54:21 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uD0la-00000000gKh-2hMr;
+	Thu, 08 May 2025 12:54:22 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0kM-00000000g1e-3JNb
+	id 1uD0lL-00000000gDS-4BCd
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 12:53:08 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43d0359b1fcso6629815e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:53:06 -0700 (PDT)
+	Thu, 08 May 2025 12:54:10 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-442ccf0e1b3so10232085e9.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:54:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1746708785; x=1747313585; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1746708846; x=1747313646; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=vh7Nh/LNhUg5Xl+qiW1/QFk8dwafIYEiWF4enwv0UK4=;
-        b=BsOgDsUtkZz+QCUvXEm1xCy9OnCkeN3Jw55ukCbkkSIfmsl612MPD6BTwJ+0AYXqGD
-         syd3ci9PjA85NHF8FW9TtXH7sq3UM9mg3DlLHHdnVHkX6tnJqTn/TqReKCzvBmSXAkWg
-         gcGo4O1ripv8n7O31ZJp0Oa4xFOl/4ki0sVZE6kcF36jcdF8mBOEYUreCcV1iyDFACPg
-         MI88CkZ30oQq7MdZTKMnhzGPFmAxozjtKFuyNVK7v/psEvct1ic0Ccnl84UmJOxz5+nH
-         nzFnFHzLDIpc+pKhuHeCRIs+MKOUqxOqisM0lcq7DtU0izG/LrRwIFirPkJryLgyk6XN
-         latQ==
+        bh=jm423Y8G3bZzVpNR0UOH1j8FXfca62QjmxMzBfC7huk=;
+        b=odD/Vu8cDEG/X72/MDhKjhUH6ijEhfh1erPonbDG6L8uyuJCoJ48bFzHgYIKTOt+12
+         dpSGVBh+EJl7KQfY47DYpbGbjTsGpzRTenSRuCbtKelgJ5Dn+k6Tt0AN0aCORs/stIYl
+         5bnXMCayY1M6Hu6BBnCDdBHlGGMGgeNbkxcpERwSUCg0rP+bG2vsLgbufxQB0arnDWJx
+         AOKVtiQgURFcOI8O52og3EPUMfBM/t7zn4AtEM6USusoyyYLmXqEhAYy8+xMZ0S34hUD
+         l+gk6uRU3z9SnhWRQPkUcbGBNyhEWBXEvlxWKByxDFjLxAs3/RpBMrEol2U/vYoY6/zR
+         6iFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746708785; x=1747313585;
+        d=1e100.net; s=20230601; t=1746708846; x=1747313646;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=vh7Nh/LNhUg5Xl+qiW1/QFk8dwafIYEiWF4enwv0UK4=;
-        b=sFvcT+pnmPwlVt1Zl7chHeMm3v6ZaE2QQhh9t6xQSYFCR5o5cYbkCSli1MydCtxxpi
-         9HeXZJe9hpkZSPxmlN7LsZvdHrWkF4aOJIW1St5UkORX//vhAjrVMCJ/MTdERinekznk
-         0xf1lAJgXxZL4yv4tvpgopEbVwq6l93gOxo2e+eX8okDHKaWTqKGrvbHtvAsMf6Sv1gj
-         RS9drqce3QgmRseZPPnbgwrD1kygqdb3c3rWcjO7IDM7yE8CpxfvbnQsWyKXOw7x022E
-         kYpcx3i66qiSqdiIrcOHaJ48QsMZE5Fh8XyNtrUXM7A/J+RVJpA/OzOs/rR41mntj1UF
-         EnNg==
-X-Forwarded-Encrypted: i=1; AJvYcCV1nAyIPJl6wiqNu26iryru/nMUvHDndA3HtoI4mqGrGBkMwjctiIRGE+pjHTKAVooZmitfaqlx3+GsFg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YydxrWhVn7s7P7qb0R2XcMFBubMRveCkHdiDHTjPYMh8DRJPsTQ
-	fy7KP8Q0QYGNh1FlQHaDSnrtfd9F7l4LBliXHNEW7SLShLDLDGFGHoudgIM3I7M=
-X-Gm-Gg: ASbGnctN0eiYZcteXi4IYLlrQRERlmkBUMPDVb7JuSjJbZ1JY1S3o+aDX8HGn+O5WgM
-	+7rY3UhAef5bFzf0KUII2pqc0pvPJxYeCvXl2X4s7r7ivcxCWI3bP1xR0CB41W80hMFzxDKb/60
-	T5CKuPwplZ7ouS2xGcelr7CH45+PrTIpExcm+A4ioy9WlZVfoG/PsNe3hoT+EtvWDfGNNNEKvQi
-	fNqNvZ3oQSFs02zkqFj4PweX+ldrPdraXAhvhevlZUWljj/m0bsbHZJ3GJJkqmwJyBNAHFKZz9P
-	/lm5+XOecY+um8w8oFLeowxmWoabvZfg1Y5LjEPtegL+6RbHZSg=
-X-Google-Smtp-Source: AGHT+IFR8QCSoAU+f4KSrfc+O+GL0KH+EcLDchKk/zyNXpj2HtkBA6LUoeVtjpf2wnryhRhOk+2CgA==
-X-Received: by 2002:a05:600c:3150:b0:439:5f04:4f8d with SMTP id 5b1f17b1804b1-442d02ef128mr29446975e9.12.1746708785138;
-        Thu, 08 May 2025 05:53:05 -0700 (PDT)
+        bh=jm423Y8G3bZzVpNR0UOH1j8FXfca62QjmxMzBfC7huk=;
+        b=KJLLjaiiFlLojh/IxFs7vfKkrPk8b5xp31PITRWLg1B+YPybZVydtXG9BFoHOolY7+
+         vWechOqtR3/vWp7jMSRygRrlQJvtxoQJOVI68+kfEKyH7lN01fldZgZN3X/JMF5f08CP
+         VRUFUS1jDuwA0HOSJccqHRRyrwo5F+FYkaPpE56e96hUaYRlxv1gmoVopkjGLJCWpsF0
+         +6fVaj5ChS9crnXrIhWTa6t2PqBkvsUWNQdyIui9VpjQO48RM0MV1d884/EwcoYta19k
+         2LUeJVm2BFEbt2G+FE6G0qPcLJzfF6J3EEAld/VYqwurbRULKx+ClToEmENLLRUNV00I
+         C5sw==
+X-Forwarded-Encrypted: i=1; AJvYcCW4oArGx1ZmKS6ERPOWPnWcjN13v87SR0xyXpL2PDDdH3azWm55cAHVGkem+HddqYru43R8LdUhUaVXPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YziFI8O0I9e2nIllUzFudNjP5BGiiHJZj2V2vp4apwbBObelgAV
+	TJxtm6pdNYVvUMPJluWzt8tgQptJTy5wwBxGchx06eXBia7ZMrro5bLwnbm50/A=
+X-Gm-Gg: ASbGnctfUVJujneMt/Kmye719kaX2Bcv5eLliCq7lmJbxrw7/jOpNGeUoTbjg7N6LVP
+	ULM6J81CKYBSrN5mERZzwMEW6UlK/qPmu74XL+SWW8tyZ/L9UltV2QSfFeXhwz+SVCEEpUCm7t+
+	siMj5x5JjMLsOz57oHOBjIBuXzp4D+kpotLPgf5d/qFqju4oPO9/kT/kuA+miT6S+FMDYOZ58Vy
+	wigovYqghUnlon9giEOg2a8S7fbJHVj1jYM9IdgqtX9+9bPNNRv88IH+CXj3CMcK6t+RF4YSFgO
+	p/bOWIDyoWWycymknSuFStuW1HMJ/5E6c94PcIMHKY3oDug9gXGjMqyRZTpUqw==
+X-Google-Smtp-Source: AGHT+IG1nnYSwMKUh8NiWx5aATvCUW2fpW8/7C+bUd4+UV4P5eti7YcHhuvCEC7sOjk1ZxZemts2xg==
+X-Received: by 2002:a05:600c:3b29:b0:43d:83a:417d with SMTP id 5b1f17b1804b1-442d02ecb69mr31105475e9.12.1746708846224;
+        Thu, 08 May 2025 05:54:06 -0700 (PDT)
 Received: from alex-rivos.lan ([2001:861:3382:ef90:e3eb:2939:f761:f7f1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32f238sm36021615e9.11.2025.05.08.05.53.04
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd35f40asm35960345e9.27.2025.05.08.05.54.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 05:53:04 -0700 (PDT)
+        Thu, 08 May 2025 05:54:05 -0700 (PDT)
 From: Alexandre Ghiti <alexghiti@rivosinc.com>
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
@@ -78,19 +78,17 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-kernel@vger.kernel.org,
 	kvm@vger.kernel.org,
 	kvm-riscv@lists.infradead.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>,
-	=?UTF-8?q?Philippe=20Mathieu-Daud=C3=A9?= <philmd@linaro.org>,
-	Andrew Jones <ajones@ventanamicro.com>
-Subject: [PATCH v3 1/3] riscv: Fix typo EXRACT -> EXTRACT
-Date: Thu,  8 May 2025 14:52:00 +0200
-Message-Id: <20250508125202.108613-2-alexghiti@rivosinc.com>
+Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v3 2/3] riscv: Strengthen duplicate and inconsistent definition of RV_X()
+Date: Thu,  8 May 2025 14:52:01 +0200
+Message-Id: <20250508125202.108613-3-alexghiti@rivosinc.com>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250508125202.108613-1-alexghiti@rivosinc.com>
 References: <20250508125202.108613-1-alexghiti@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_055306_820148_7DE4A576 
-X-CRM114-Status: GOOD (  10.78  )
+X-CRM114-CacheID: sfid-20250508_055408_040075_4DF1CC36 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +100,179 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-U2ltcGx5IGZpeCBhIHR5cG8uCgpSZXZpZXdlZC1ieTogUGhpbGlwcGUgTWF0aGlldS1EYXVkw6kg
-PHBoaWxtZEBsaW5hcm8ub3JnPgpSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVu
-dGFuYW1pY3JvLmNvbT4KU2lnbmVkLW9mZi1ieTogQWxleGFuZHJlIEdoaXRpIDxhbGV4Z2hpdGlA
-cml2b3NpbmMuY29tPgotLS0KIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW5zbi5oIHwgMiArLQog
-YXJjaC9yaXNjdi9rZXJuZWwvdmVjdG9yLmMgICAgfCAyICstCiAyIGZpbGVzIGNoYW5nZWQsIDIg
-aW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2lu
-Y2x1ZGUvYXNtL2luc24uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vaW5zbi5oCmluZGV4IDA5
-ZmRlOTVhNWU4Zi4uMmE1ODlhNThiMjkxIDEwMDY0NAotLS0gYS9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL2luc24uaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2luc24uaApAQCAtMzUyLDcg
-KzM1Miw3IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUgYm9vbCByaXNjdl9pbnNuX2lzX2NfamFs
-cih1MzIgY29kZSkKIAkoe3R5cGVvZih4KSB4XyA9ICh4KTsgUlZfWCh4XywgUlZGRFFfRkxfRlNf
-V0lEVEhfT0ZGLCBcCiAJCQkJICAgUlZGRFFfRkxfRlNfV0lEVEhfTUFTSyk7IH0pCiAKLSNkZWZp
-bmUgUlZWX0VYUkFDVF9WTF9WU19XSURUSCh4KSBSVkZEUV9FWFRSQUNUX0ZMX0ZTX1dJRFRIKHgp
-CisjZGVmaW5lIFJWVl9FWFRSQUNUX1ZMX1ZTX1dJRFRIKHgpIFJWRkRRX0VYVFJBQ1RfRkxfRlNf
-V0lEVEgoeCkKIAogLyoKICAqIEdldCB0aGUgaW1tZWRpYXRlIGZyb20gYSBKLXR5cGUgaW5zdHJ1
-Y3Rpb24uCmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYyBiL2FyY2gvcmlz
-Y3Yva2VybmVsL3ZlY3Rvci5jCmluZGV4IDE4NGY3ODBjOTMyZC4uOTAxZTY3YWRmNTc2IDEwMDY0
-NAotLS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuYworKysgYi9hcmNoL3Jpc2N2L2tlcm5l
-bC92ZWN0b3IuYwpAQCAtOTMsNyArOTMsNyBAQCBib29sIGluc25faXNfdmVjdG9yKHUzMiBpbnNu
-X2J1ZikKIAkJcmV0dXJuIHRydWU7CiAJY2FzZSBSVlZfT1BDT0RFX1ZMOgogCWNhc2UgUlZWX09Q
-Q09ERV9WUzoKLQkJd2lkdGggPSBSVlZfRVhSQUNUX1ZMX1ZTX1dJRFRIKGluc25fYnVmKTsKKwkJ
-d2lkdGggPSBSVlZfRVhUUkFDVF9WTF9WU19XSURUSChpbnNuX2J1Zik7CiAJCWlmICh3aWR0aCA9
-PSBSVlZfVkxfVlNfV0lEVEhfOCB8fCB3aWR0aCA9PSBSVlZfVkxfVlNfV0lEVEhfMTYgfHwKIAkJ
-ICAgIHdpZHRoID09IFJWVl9WTF9WU19XSURUSF8zMiB8fCB3aWR0aCA9PSBSVlZfVkxfVlNfV0lE
-VEhfNjQpCiAJCQlyZXR1cm4gdHJ1ZTsKLS0gCjIuMzkuMgoKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+RV_X() macro is defined in two different ways which is error prone.
+
+So harmonize its first definition and add another macro RV_X_mask() for
+the second one.
+
+Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+---
+ arch/riscv/include/asm/insn.h        | 39 ++++++++++++++--------------
+ arch/riscv/kernel/elf_kexec.c        |  2 +-
+ arch/riscv/kernel/traps_misaligned.c |  2 +-
+ arch/riscv/kvm/vcpu_insn.c           |  2 +-
+ 4 files changed, 23 insertions(+), 22 deletions(-)
+
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index 2a589a58b291..ac3e606feca2 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -288,43 +288,44 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+ 
+ #define RV_IMM_SIGN(x) (-(((x) >> 31) & 1))
+ #define RVC_IMM_SIGN(x) (-(((x) >> 12) & 1))
+-#define RV_X(X, s, mask)  (((X) >> (s)) & (mask))
+-#define RVC_X(X, s, mask) RV_X(X, s, mask)
++#define RV_X_mask(X, s, mask)  (((X) >> (s)) & (mask))
++#define RV_X(X, s, n) RV_X_mask(X, s, ((1 << (n)) - 1))
++#define RVC_X(X, s, mask) RV_X_mask(X, s, mask)
+ 
+ #define RV_EXTRACT_RS1_REG(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RVG_RS1_OPOFF, RVG_RS1_MASK)); })
++	(RV_X_mask(x_, RVG_RS1_OPOFF, RVG_RS1_MASK)); })
+ 
+ #define RV_EXTRACT_RD_REG(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RVG_RD_OPOFF, RVG_RD_MASK)); })
++	(RV_X_mask(x_, RVG_RD_OPOFF, RVG_RD_MASK)); })
+ 
+ #define RV_EXTRACT_UTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RV_U_IMM_31_12_OPOFF, RV_U_IMM_31_12_MASK)); })
++	(RV_X_mask(x_, RV_U_IMM_31_12_OPOFF, RV_U_IMM_31_12_MASK)); })
+ 
+ #define RV_EXTRACT_JTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RV_J_IMM_10_1_OPOFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OFF) | \
+-	(RV_X(x_, RV_J_IMM_11_OPOFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OFF) | \
+-	(RV_X(x_, RV_J_IMM_19_12_OPOFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OFF) | \
++	(RV_X_mask(x_, RV_J_IMM_10_1_OPOFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OFF) | \
++	(RV_X_mask(x_, RV_J_IMM_11_OPOFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OFF) | \
++	(RV_X_mask(x_, RV_J_IMM_19_12_OPOFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OFF) | \
+ 	(RV_IMM_SIGN(x_) << RV_J_IMM_SIGN_OFF); })
+ 
+ #define RV_EXTRACT_ITYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RV_I_IMM_11_0_OPOFF, RV_I_IMM_11_0_MASK)) | \
++	(RV_X_mask(x_, RV_I_IMM_11_0_OPOFF, RV_I_IMM_11_0_MASK)) | \
+ 	(RV_IMM_SIGN(x_) << RV_I_IMM_SIGN_OFF); })
+ 
+ #define RV_EXTRACT_BTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RV_B_IMM_4_1_OPOFF, RV_B_IMM_4_1_MASK) << RV_B_IMM_4_1_OFF) | \
+-	(RV_X(x_, RV_B_IMM_10_5_OPOFF, RV_B_IMM_10_5_MASK) << RV_B_IMM_10_5_OFF) | \
+-	(RV_X(x_, RV_B_IMM_11_OPOFF, RV_B_IMM_11_MASK) << RV_B_IMM_11_OFF) | \
++	(RV_X_mask(x_, RV_B_IMM_4_1_OPOFF, RV_B_IMM_4_1_MASK) << RV_B_IMM_4_1_OFF) | \
++	(RV_X_mask(x_, RV_B_IMM_10_5_OPOFF, RV_B_IMM_10_5_MASK) << RV_B_IMM_10_5_OFF) | \
++	(RV_X_mask(x_, RV_B_IMM_11_OPOFF, RV_B_IMM_11_MASK) << RV_B_IMM_11_OFF) | \
+ 	(RV_IMM_SIGN(x_) << RV_B_IMM_SIGN_OFF); })
+ 
+ #define RVC_EXTRACT_C2_RS1_REG(x) \
+ 	({typeof(x) x_ = (x); \
+-	(RV_X(x_, RVC_C2_RS1_OPOFF, RVC_C2_RS1_MASK)); })
++	(RV_X_mask(x_, RVC_C2_RS1_OPOFF, RVC_C2_RS1_MASK)); })
+ 
+ #define RVC_EXTRACT_JTYPE_IMM(x) \
+ 	({typeof(x) x_ = (x); \
+@@ -346,10 +347,10 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+ 	(RVC_IMM_SIGN(x_) << RVC_B_IMM_SIGN_OFF); })
+ 
+ #define RVG_EXTRACT_SYSTEM_CSR(x) \
+-	({typeof(x) x_ = (x); RV_X(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MASK); })
++	({typeof(x) x_ = (x); RV_X_mask(x_, RVG_SYSTEM_CSR_OFF, RVG_SYSTEM_CSR_MASK); })
+ 
+ #define RVFDQ_EXTRACT_FL_FS_WIDTH(x) \
+-	({typeof(x) x_ = (x); RV_X(x_, RVFDQ_FL_FS_WIDTH_OFF, \
++	({typeof(x) x_ = (x); RV_X_mask(x_, RVFDQ_FL_FS_WIDTH_OFF, \
+ 				   RVFDQ_FL_FS_WIDTH_MASK); })
+ 
+ #define RVV_EXTRACT_VL_VS_WIDTH(x) RVFDQ_EXTRACT_FL_FS_WIDTH(x)
+@@ -375,10 +376,10 @@ static inline void riscv_insn_insert_jtype_imm(u32 *insn, s32 imm)
+ {
+ 	/* drop the old IMMs, all jal IMM bits sit at 31:12 */
+ 	*insn &= ~GENMASK(31, 12);
+-	*insn |= (RV_X(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
+-		 (RV_X(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
+-		 (RV_X(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
+-		 (RV_X(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
++	*insn |= (RV_X_mask(imm, RV_J_IMM_10_1_OFF, RV_J_IMM_10_1_MASK) << RV_J_IMM_10_1_OPOFF) |
++		 (RV_X_mask(imm, RV_J_IMM_11_OFF, RV_J_IMM_11_MASK) << RV_J_IMM_11_OPOFF) |
++		 (RV_X_mask(imm, RV_J_IMM_19_12_OFF, RV_J_IMM_19_12_MASK) << RV_J_IMM_19_12_OPOFF) |
++		 (RV_X_mask(imm, RV_J_IMM_SIGN_OFF, 1) << RV_J_IMM_SIGN_OPOFF);
+ }
+ 
+ /*
+diff --git a/arch/riscv/kernel/elf_kexec.c b/arch/riscv/kernel/elf_kexec.c
+index e783a72d051f..1c3b76a67356 100644
+--- a/arch/riscv/kernel/elf_kexec.c
++++ b/arch/riscv/kernel/elf_kexec.c
+@@ -21,6 +21,7 @@
+ #include <linux/memblock.h>
+ #include <linux/vmalloc.h>
+ #include <asm/setup.h>
++#include <asm/insn.h>
+ 
+ int arch_kimage_file_post_load_cleanup(struct kimage *image)
+ {
+@@ -336,7 +337,6 @@ static void *elf_kexec_load(struct kimage *image, char *kernel_buf,
+ 	return ret ? ERR_PTR(ret) : NULL;
+ }
+ 
+-#define RV_X(x, s, n)  (((x) >> (s)) & ((1 << (n)) - 1))
+ #define RISCV_IMM_BITS 12
+ #define RISCV_IMM_REACH (1LL << RISCV_IMM_BITS)
+ #define RISCV_CONST_HIGH_PART(x) \
+diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps_misaligned.c
+index 4354c87c0376..3d0e5eadfac3 100644
+--- a/arch/riscv/kernel/traps_misaligned.c
++++ b/arch/riscv/kernel/traps_misaligned.c
+@@ -17,6 +17,7 @@
+ #include <asm/hwprobe.h>
+ #include <asm/cpufeature.h>
+ #include <asm/vector.h>
++#include <asm/insn.h>
+ 
+ #define INSN_MATCH_LB			0x3
+ #define INSN_MASK_LB			0x707f
+@@ -105,7 +106,6 @@
+ #define SH_RS2				20
+ #define SH_RS2C				2
+ 
+-#define RV_X(x, s, n)			(((x) >> (s)) & ((1 << (n)) - 1))
+ #define RVC_LW_IMM(x)			((RV_X(x, 6, 1) << 2) | \
+ 					 (RV_X(x, 10, 3) << 3) | \
+ 					 (RV_X(x, 5, 1) << 6))
+diff --git a/arch/riscv/kvm/vcpu_insn.c b/arch/riscv/kvm/vcpu_insn.c
+index 97dec18e6989..62cb2ab4b636 100644
+--- a/arch/riscv/kvm/vcpu_insn.c
++++ b/arch/riscv/kvm/vcpu_insn.c
+@@ -8,6 +8,7 @@
+ #include <linux/kvm_host.h>
+ 
+ #include <asm/cpufeature.h>
++#include <asm/insn.h>
+ 
+ #define INSN_OPCODE_MASK	0x007c
+ #define INSN_OPCODE_SHIFT	2
+@@ -91,7 +92,6 @@
+ #define SH_RS2C			2
+ #define MASK_RX			0x1f
+ 
+-#define RV_X(x, s, n)		(((x) >> (s)) & ((1 << (n)) - 1))
+ #define RVC_LW_IMM(x)		((RV_X(x, 6, 1) << 2) | \
+ 				 (RV_X(x, 10, 3) << 3) | \
+ 				 (RV_X(x, 5, 1) << 6))
+-- 
+2.39.2
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
