@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6A0AC3ABBE
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:21:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE074C3ABC0
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3HgwXb8teORz8N+MtxDxw6zXhQfBWf0GaM89ghd76Ps=; b=t4ZdXMyycWcMTh
-	iQ7DvJ8i+BR/JTmCrgIcX3s5bpRWVlf0uJm6j4PMAE9NQtGH98wTKFvzyOkIllC4FRreW+DKTwhO1
-	cVJklpAHIT459E/Bimpbj2JPo2ZbuEIgXvhlVa85c91vbjjAERCGXBMTsF9PSZcLAhQluCraWSstb
-	bDO9L1vrN8LDXvySLdpv2BxEr05aJm4v3yGRXEruiV/FzMWDzQV3T/OI2ACKTswCqnt1QkQV2q0U7
-	NQA9bY14XHBTkggWBhlsFegvuQNfJY8rSvx7cdxNnZfoZTonwrYc9ehiTrS80Ad2kJcNPy2mGg63S
-	qHIA2WAg0HuKueJwLuvQ==;
+	List-Owner; bh=IV9E7iy7OcYeUGa0lvutwoR7GCt/8p2D/gy5Bcsyk3o=; b=IlFJ+Fc/VPo5t6
+	4jcmA9Zt+XZoCoapSmarkoF3UiX7yAiFbwZeyaYeMXHra/yyAdH/LbAllYf+i8ZpEIJAXsyYHiU34
+	x/glABCDuz7KPtTwb+oGkje3VdYn8CD6e2JYjUFyC9UE9q/9drXnHCHFqnuxlGvCQyxedzfv8e/4P
+	8PQ8iq+/Yb48194H2yU17fANVX8R3UdpMNraVYjWg5vFAGhU12m8vNoptn9OXapmdf+U+K4NMLeJC
+	0dPYN7GHliKJ17MZCFFN62H4quW32BLmHZPuyCSNlpgvsZmnq4jU6x3KOYYX4vZYh/Wm9g9p4IVZV
+	6Afy7CnlA7Zh30EZW+fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4w0-00000001NUF-1c3Z;
-	Thu, 08 May 2025 17:21:24 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uD4w1-00000001NW2-2fby;
+	Thu, 08 May 2025 17:21:25 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4T5-00000001K5x-3NrW
+	id 1uD4T7-00000001K6F-0P59
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 16:51:32 +0000
+	Thu, 08 May 2025 16:51:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 42E954AD67;
-	Thu,  8 May 2025 16:51:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FAD0C4CEE7;
-	Thu,  8 May 2025 16:51:31 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 7279F436C4;
+	Thu,  8 May 2025 16:51:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C240C4CEE7;
+	Thu,  8 May 2025 16:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746723091;
-	bh=CqM/OHPCyhT3HBcTk1o6Jg2KbU0I9Kyg6nGIy8ZyWcc=;
+	s=k20201202; t=1746723092;
+	bh=xT/fOiFfbEtx2E9bQX+adB6nV0zaucHTcEUzjfgMukA=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=BvkUaHrD0/kpfGObaoE8TbmREcP+uL/31YLX+6W9iH+SxgQAJCsbKETziKG4OOGu+
-	 2p1dpeFjCi1KufIB7qrmuPXVIxLrCVmvOUKQFtUM96rIILswHxkxjQ4Fk9n9H5Uj8l
-	 rBDzZXx+rnu3DzuvB0pC6omHtojlWbZS5yiPh5fLNIp6mtjIRRa87BiF97UPPljCjp
-	 IHM66prCCZnB2pvGRR8xn4OYVbYIdbyaDDmdS0I0sMMx6a0dnUv+ikPxyeIu3iEKKv
-	 orP/z8CdD3MPKiJuIoDjjCYDY15DnJcF/bYYHC8ZA7TYu/d4ZA+aojdRTiMLdlm2oV
-	 XuXkvfAylVw6A==
+	b=Np96leWRr61I4LefGP0vjdqRdxi/864PpjzWwbwSBS6dAz49TLeUhg9bxAhHmNkXA
+	 SzRufIcOHKorUv5VcCZXXoj8JHClPQFlZc0aPWuDWbdzJ01J2mWypjztnv5O+uR4h3
+	 jsxue4ZyIVukRpSxh6qUyrinbT+p+tdWRTrYnainPVR778dzAfUIFyOKYv+3rLWc9z
+	 sMiUmTcm7qJwgkHEwaTk/X0xFiPISw9Ynl+dnu/sOThOOwfMlJlcUY1/OEztF2PE+P
+	 LKSx3gwaeANlVBJ9g0EmNMfuBvJSXZHREhg6chJOdS9tSqntz4UlM6PcXX+vxwA/SJ
+	 ESqYSGEvdWJIw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEA0380AA70;
-	Thu,  8 May 2025 16:52:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C9E380AA70;
+	Thu,  8 May 2025 16:52:12 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3] scripts: Do not strip .rela.dyn section
+Subject: Re: [PATCH] riscv: Fix kernel crash due to PR_SET_TAGGED_ADDR_CTRL
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174672312974.2976395.10364863541225876459.git-patchwork-notify@kernel.org>
-Date: Thu, 08 May 2025 16:52:09 +0000
-References: <20250408072851.90275-1-alexghiti@rivosinc.com>
-In-Reply-To: <20250408072851.90275-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Message-Id: <174672313099.2976395.17884540800538496278.git-patchwork-notify@kernel.org>
+Date: Thu, 08 May 2025 16:52:10 +0000
+References: <20250504101920.3393053-1-namcao@linutronix.de>
+In-Reply-To: <20250504101920.3393053-1-namcao@linutronix.de>
+To: Nam Cao <namcao@linutronix.de>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, alex@ghiti.fr, bjorn@rivosinc.com, masahiroy@kernel.org,
- nathan@kernel.org, nicolas@fjasle.eu, ardb@kernel.org, charlie@rivosinc.com,
- linux-kernel@vger.kernel.org, linux-kbuild@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ samuel.holland@sifive.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_095131_870048_81315C23 
-X-CRM114-Status: UNSURE (   9.81  )
+X-CRM114-CacheID: sfid-20250508_095133_150275_67B4BA59 
+X-CRM114-Status: UNSURE (   7.56  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,19 +82,27 @@ Hello:
 This patch was applied to riscv/linux.git (fixes)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Tue,  8 Apr 2025 09:28:51 +0200 you wrote:
-> The .rela.dyn section contains runtime relocations and is only emitted
-> for a relocatable kernel.
+On Sun,  4 May 2025 12:19:20 +0200 you wrote:
+> When userspace does PR_SET_TAGGED_ADDR_CTRL, but Supm extension is not
+> available, the kernel crashes:
 > 
-> riscv uses this section to relocate the kernel at runtime but that section
-> is stripped from vmlinux. That prevents kexec to successfully load vmlinux
-> since it does not contain the relocations info needed.
+> Oops - illegal instruction [#1]
+>     [snip]
+> epc : set_tagged_addr_ctrl+0x112/0x15a
+>  ra : set_tagged_addr_ctrl+0x74/0x15a
+> epc : ffffffff80011ace ra : ffffffff80011a30 sp : ffffffc60039be10
+>     [snip]
+> status: 0000000200000120 badaddr: 0000000010a79073 cause: 0000000000000002
+>     set_tagged_addr_ctrl+0x112/0x15a
+>     __riscv_sys_prctl+0x352/0x73c
+>     do_trap_ecall_u+0x17c/0x20c
+>     andle_exception+0x150/0x15c
 > 
 > [...]
 
 Here is the summary with links:
-  - [v3] scripts: Do not strip .rela.dyn section
-    https://git.kernel.org/riscv/c/e9d86b8e17e7
+  - riscv: Fix kernel crash due to PR_SET_TAGGED_ADDR_CTRL
+    https://git.kernel.org/riscv/c/ae08d55807c0
 
 You are awesome, thank you!
 -- 
