@@ -4,85 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEBCBC3ABBE
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:48:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E0A8C3ABC0
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 18:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=+LvoKbeSsedo8reNgh5qtTsCyb1NUJ975NAw00/aSQs=; b=B0UIlJRDgWBqDHAOzrftxN8Cra
-	hcP4XJ18buaWqkUWo1mbE06yGrLyG/2l32U88h1Vtf8sdpxdaewP6xMI8dYk/PPn9J+CKbChwAE0N
-	svGfMzt9M5MGJn2jemtsyxXWRlxf9EMPoc4p9hDW2SCT1rrIpCKltBffzRZrKMZqmExV2dV823mZY
-	rOpmqJMQGWXS/U9eVRqd/BVXQ+ePzi44+W8XBQykUgpjxRVS0oHgJwXEB0Spt5uYrIfbO7TSh/awZ
-	RHHYWWYR/Mf74/OS09gBNr5QwpzntuFovvkL0yqwv1cifALu8IEn2OY1OWZg88abeJL+3Sr5G5b69
-	UHGxdSWw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=To7NGCIli4X/FjUOdBf7ok0wwN5UYcXnC8jmQAi4rVE=; b=byK4sKqYm5BQKD
+	mt+8G3Mi5p1wNiDNRSN0m4VmB7Kjg+nmP2pSct+ZSOGuTzsxCebA9CHb0NJTN6Jn9WOfk2GZ4Xq2e
+	e6Qh8ZfebD9K6qCGtPjz3ovgQMH9JdI6deZkanVK0unwMuJalxEK2OFcgJ0Sc5Yaq3SnweJt9pv41
+	Mu5u7zcZ6VNd/ijsNXWT60N4O16FTh6Rx93kV7NCKh/9q2fGuB2ZNkysLcAnpxnsjbJiVf5aBYBqi
+	VTtlkkCVLnUoaXs4cv12AYeNS7qPI+xodqcA65x+d/W+BlCH0LunGmaDaOguGb8sdgbQQWPmTW1B5
+	DLHpbLYN/tz7KDfMQ5gw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD5Ma-00000001Sgu-3hcp;
-	Thu, 08 May 2025 17:48:52 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1uD5fz-00000001VVY-2JC1;
+	Thu, 08 May 2025 18:08:55 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD5MW-00000001SgF-21ZX
-	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 17:48:52 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22e16234307so15315525ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 10:48:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746726527; x=1747331327; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=DYqLmfWWYnfjqyKiU4qtxry5bO8L2HemS6Lj3IB5Ozo=;
-        b=V6HkS5W5IqP3X1aQL71NfKXja6yHttUa5YxKmZ9o8FPxGN2pW3URD/60nE597JDaM3
-         fUDCnOwkzxBgFLFBxu6PQPBS087pR974sRcj+wQxsFs86ybW15YODjuhS6aeCtsXAfbZ
-         zZ2UctNaWinIZEQMf5+8vVBrSccloFdafBAfvZdUnIJ0HM1rJA8rjJmgFIDyJSk497Gc
-         K3FFMpkOjNrPhN5SVU3mh4o9JcBh99pi5qy9GrydO35d737GzB+hzZrP/8ZGIWB3wwnS
-         yGrdSF0E1L0cN9tR0dCH86LZ+iUqWWqaKcvlvYCq2xWD9CODdjNnDkyIM62m7h3IqC+p
-         sW0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746726527; x=1747331327;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DYqLmfWWYnfjqyKiU4qtxry5bO8L2HemS6Lj3IB5Ozo=;
-        b=ONJNCLO1hQfYjZ0U7lCBuPb/UKp1KLQWOmSMc+G/x2tbsktwKOQiAFKv8WAPe/qoXS
-         aNU2ifZRvE6e4fHHEu9ff6rqCQURmGrc626x0AVtaD6LErfQq1Dic0mJvtgHReENCDfT
-         MvfGQaVUwepVCTfxWhbdz5Sq4pzDEmJ2LDtAWiGIxi3eUPQMfnzdKltHebwpmszCmtI2
-         3EEsG7iFRWKKUQPhsy2PkfQFQOpNg4HOOM6ivoNOzzsrU/8b98ynKrglRx/WcYHzPVqs
-         Kk5orS87y9SSim2T9gx670rxlnbZSNzJoWx3qG82iDp7VHYOmQy1Q9bDzeFAOSgIx/Px
-         oBEw==
-X-Forwarded-Encrypted: i=1; AJvYcCU7Da5qEvngZjDJO+T5zkWIk8GuuqTv8z95LABrHJB6Sj42bugg0w/1BvtknUJ2xODBMa0kx9rBRT9UTA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzKEInlkfAjhZv5Y653rsAUxEZqo0wbmdCcUiTbrEYH5n20AvQQ
-	trSH0iWD7UoVQXHNNEITA6auLQGs2D7rZ40tmR52SDLsTKGBuNUBNvKF+rva/zm62QfRDvD/KAs
-	e
-X-Gm-Gg: ASbGnctRkzy1hBuUiIAfrEG5tfUVYWSck+21uzPlDGGvz65pISDc/LBGwgwipoJzq/s
-	IE5vB+r8f1Rv+wdlwTpb44yrZSkOOy1sNDf0Qf3BBtfgSjVBlwCQit4yz+tLn8R+S+dDlG7WFl3
-	ISBIdt0M/k7Eu11tXEAHv2/mOy5sDG6Cmn47Ds6HodOJLd7S/H9ZcoEA7F0855Rd/DHrKV/7pOs
-	YFdDeF6E1JbVAxrMJuOHUEvmRhm5ShH54jkwler4KO+x26qsIf6tm9UG6Hp/YbTfQ7YuQ7JpFp+
-	4wR/TH3OqJhlIGpEbkzWeneQhiVoRnEw9Jw2eZUkrTXf
-X-Google-Smtp-Source: AGHT+IH82nPRzsrk8rYddBvn02C0V4vxqNATQ/FAfbV0gyTYbn992YmIneFZFLQQNKd12/Qa8kEAyA==
-X-Received: by 2002:a17:903:8cc:b0:223:517a:d4ed with SMTP id d9443c01a7336-22fc938ca63mr1882425ad.15.1746726527509;
-        Thu, 08 May 2025 10:48:47 -0700 (PDT)
-Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7547838sm2322225ad.18.2025.05.08.10.48.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 10:48:46 -0700 (PDT)
-Date: Thu, 08 May 2025 10:48:46 -0700 (PDT)
-X-Google-Original-Date: Thu, 08 May 2025 10:48:45 PDT (-0700)
-Subject: Re: [PATCH] riscv: add Andes SoC family Kconfig support
-In-Reply-To: <Z8rMKZoDYmpNosSj@atctrx.andestech.com>
-CC: Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org, Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, alex@ghiti.fr,
-  tim609@andestech.com
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: ben717@andestech.com
-Message-ID: <mhng-d0a8012c-c5c9-4309-ac08-bcb1dab85b26@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+	id 1uD5e1-00000001VLu-1rYB;
+	Thu, 08 May 2025 18:06:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 0432C4A1DF;
+	Thu,  8 May 2025 18:06:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4981EC4CEE7;
+	Thu,  8 May 2025 18:06:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1746727611;
+	bh=T3fd8i3e9m2qTXLSzLMLI6WreQFWFZts5ieUhzAtv50=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z6qe3XtzC0dgxeaQP4aahmUFX24uY2iZ3t2sb6neITe69z8y/KsV14e0Un9m1jGK2
+	 /tEnt3sdoHSmcStSrNJVclL2CaRyAjciHa73CCjMdKHpFD9blJNdWaOeeI77jtdubT
+	 DjtKSPu29fda7idtTVch/6nzYVK1BqOW14ORfPccTGLKQkDdqmisXANhvptuC0tB9O
+	 TerEWeAPM8x2xKoI4x/n0y4Zk27bbk+n6O4fipuNoakdGt6dvd4xUAiMHt3nza9IMh
+	 HApWd5IFoifI1COGvPPwFJuVoSUh2d1oXeBxiuf/SD+xDmuqoXrGs3cG3w0fU5dfXY
+	 FVGqTmzoMkKbQ==
+Date: Thu, 8 May 2025 18:06:49 +0000
+From: Eric Biggers <ebiggers@kernel.org>
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
+	linux-s390@vger.kernel.org, x86@kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>, Jason@zx2c4.com,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH v4 07/13] crypto: riscv/sha256 - implement library
+ instead of shash
+Message-ID: <20250508180649.GA570496@google.com>
+References: <20250428170040.423825-8-ebiggers@kernel.org>
+ <mhng-0b1a0c43-eff8-4ea0-9aaa-46727504555c@palmer-ri-x1c9a>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <mhng-0b1a0c43-eff8-4ea0-9aaa-46727504555c@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_104848_517201_3417890A 
-X-CRM114-Status: GOOD (  28.36  )
+X-CRM114-CacheID: sfid-20250508_110653_501076_59EFE5F5 
+X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,103 +74,22 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, 07 Mar 2025 02:36:25 PST (-0800), ben717@andestech.com wrote:
-> On Thu, Mar 06, 2025 at 04:40:49PM +0000, Conor Dooley wrote:
->> [EXTERNAL MAIL]
->
->> Date: Thu, 6 Mar 2025 16:40:49 +0000
->> From: Conor Dooley <conor@kernel.org>
->> To: Ben Zong-You Xie <ben717@andestech.com>
->> Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
->>  paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
->>  alex@ghiti.fr
->> Subject: Re: [PATCH] riscv: add Andes SoC family Kconfig support
->>
->> On Wed, Mar 05, 2025 at 11:05:26AM +0800, Ben Zong-You Xie wrote:
->> > The first SoC in the Andes series is QiLai. It includes a high-performance
->> > quad-core RISC-V AX45MP cluster and one NX27V vector processor.
->>
->> I'd expect a config option like this to come with the user, which in
->> this case is the dts etc for a board using the QiLai SoC or drivers for
->> the SoC. Without dts or drivers, there's no reason to ever enable this,
->> so where are those patches?
->>
->> Cheers,
->> Conor.
->>
->
-> Hi Conor,
->
-> We are still preparing those patches for upstream, and we will add them
-> in the next patch series.
+On Thu, May 08, 2025 at 10:45:39AM -0700, Palmer Dabbelt wrote:
+> 
+> Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+> 
+> I assume you want to keep these all together somewhere, so I'm going to 
+> drop it from the RISC-V patchwork.
 
-This is still "Needs Ack" in patchwork, so
+Thanks!  Yes, this series was already applied to "cryptodev"
+(https://git.kernel.org/pub/scm/linux/kernel/git/herbert/cryptodev-2.6.git/log/).
 
-Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
-
-Though like Conor says, we need the rest of the code to do anything 
-here, so that's really just a way to get it out of my queue ;)
-
->
-> Thanks,
-> Ben
->
->> >
->> > For further information, refer to [1].
->> >
->> > [1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
->> >
->> > Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
->> > ---
->> >  arch/riscv/Kconfig.errata | 2 +-
->> >  arch/riscv/Kconfig.socs   | 9 +++++++++
->> >  2 files changed, 10 insertions(+), 1 deletion(-)
->> >
->> > diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
->> > index e318119d570d..be76883704a6 100644
->> > --- a/arch/riscv/Kconfig.errata
->> > +++ b/arch/riscv/Kconfig.errata
->> > @@ -12,7 +12,7 @@ config ERRATA_ANDES
->> >
->> >  config ERRATA_ANDES_CMO
->> >  	bool "Apply Andes cache management errata"
->> > -	depends on ERRATA_ANDES && ARCH_R9A07G043
->> > +	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
->> >  	select RISCV_DMA_NONCOHERENT
->> >  	default y
->> >  	help
->> > diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
->> > index 1916cf7ba450..b89b6e0d1bc9 100644
->> > --- a/arch/riscv/Kconfig.socs
->> > +++ b/arch/riscv/Kconfig.socs
->> > @@ -1,5 +1,14 @@
->> >  menu "SoC selection"
->> >
->> > +config ARCH_ANDES
->> > +	bool "Andes SoCs"
->> > +	depends on MMU && !XIP_KERNEL
->> > +	select ERRATA_ANDES
->> > +	select ERRATA_ANDES_CMO
->> > +	select AX45MP_L2_CACHE
->> > +	help
->> > +	  This enables support for Andes SoC platform hardware.
->> > +
->> >  config ARCH_MICROCHIP_POLARFIRE
->> >  	def_bool ARCH_MICROCHIP
->> >
->> > --
->> > 2.34.1
->> >
->> >
->> > _______________________________________________
->> > linux-riscv mailing list
->> > linux-riscv@lists.infradead.org
->> > http://lists.infradead.org/mailman/listinfo/linux-riscv
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
