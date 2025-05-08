@@ -4,86 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A097C3ABBE
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:30:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A0E0C3ABBE
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:32:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:To:From:CC:Mime-Version:Message-ID:In-Reply-To:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
 	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=ai51cSCcAHlANhTNEglMeprX72QNE2E7p8of6Sx7AXo=; b=Ut+b/8o0/UJqGXDDLJLV185pKT
-	q57O06gJ2zBpf8kuY9yMfS23hCqSEhuyb2akCqHypaN9WZwD6hWGILsEgwOCKpCwfm0N4/NEDE4K5
-	QhzNoMiGq0B8swgHhCGPdv8ML7DpnNIENlvGG4T42tRCtb4r7ZwD33m6CkTMmFM0HjmsRV6o9AAdi
-	5VEpuTSx21sWfyiuh6rPfddnHvqkpz15gDlXQ9jGFNIg0Z0Y5pU4NjOlPpO1rjYSfCaBhRPGjM4DN
-	SK0TGatEUmpCstL8ZZfl7z6vWdLCCD3unxcf6UaS4yE3DoVEb/KUA2RSgf3PmsHPu01u25jesjpBB
-	vmXKdhHQ==;
+	bh=GWYwJZw7QbjmtNKvIc1E9kVBai8/rfDJoJTDkCCdgjk=; b=ZBZ73DreDHPeaa49vRkS4ecJG/
+	RvjxOEBjpyc8KGA935YT/VLluzE5h6N7JFHZnoKjIbJtYpJ/4Jgih/4u+C4ane0t0krTK4IALMgvk
+	14oVwxesBgzJktpP1OZ259ePAq/VtstNvzIloukAqkRSCCeFPIBNC4lbHzKeOW9+s84l2VYvixd8z
+	xkO8PzEsuIHMRXtoDauteL0aYWSInXdCneLNA57TBvDPXyGEMt7dqNuBpLJ8hOqhcHx+tC3MVOkla
+	sE/X898nXG+R2ip6NAl3vrnRwEFpdDlHHdWGDtzVIawloqvQtNyBi48X5FgT+mZPrKqYbBhEgxVBb
+	WOXAhlkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD54k-00000001Qae-03HQ;
-	Thu, 08 May 2025 17:30:26 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uD56Y-00000001QoR-3a0p;
+	Thu, 08 May 2025 17:32:18 +0000
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD528-00000001QAB-18W8
+	id 1uD56W-00000001Qo1-0WAj
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 17:27:46 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2264aefc45dso19471295ad.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 10:27:43 -0700 (PDT)
+	Thu, 08 May 2025 17:32:17 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22e033a3a07so15443495ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 10:32:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746725263; x=1747330063; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746725535; x=1747330335; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Lj7cyiQKL5aop0XuhE8HLNECrq0rmmRNxk3ltC9EqP0=;
-        b=UTpD/JqZ5lHNGEkpRMOZgi//Legx4e2BQazvL/7Lg0r9mUDpH64dDr3N0IEYGh0S76
-         aozD1izsbpfkGIFuN7cMgDNBWv7DzHnaY5OG5lonQQ1Zk9/MvfkfADQmRhkwD55JCr0s
-         4XUyNWV2H/jbeGUAUXMhbyeQs7JKrmtEpmhI8C1ZctVM6gTlibg08SwoNQb5QWQwnDVY
-         TusrZZbzmSoOlifAgukSlQtLv9SYFdmDR+wzXWTLTVtSE4og6VgjsqjclIrmxyKNJc4P
-         r8ejqQ6SBAiDQ6Kuc6BorWip9XPQD3IX4BRBtp6l4YgTlAauSW9KpUtX3W1JYhkZy0Dm
-         urjw==
+        bh=IPMbNxc43AcR45VhaO0+Mz0+fFeHkW9XaM5DPtDrlDo=;
+        b=Nur5lDlDE9YPkeVVxfBYbMuRkhnMcAhz/y5yOZ/mZgC3OUWoTwwIwlVU0+O8pgFXg2
+         vhSl05GSUIcJI1OkxHe79VPx18mQlBExp4onVxSY5ymevVezj9G7lxd2z8jioX+0mOME
+         4kytC0qZrJv628msghJYJR60ljHHP3xwvVK+/S6JsFt2JhIY3Phq5dEaYHKgyYBGkJ2t
+         E0n09b7AyV+hr7FTxwWXpm2vrofaZ5eBXnk4RcSkKaaeUQ64uPHsm6hg1chPOFxxlURG
+         3sk52ten4AsZXp03YxW1prNRo7M7A05OjcS3ckbTs0DkuAnXWRdXyivYN/DKktSaKXBB
+         zicA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746725263; x=1747330063;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id
+        d=1e100.net; s=20230601; t=1746725535; x=1747330335;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
          :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Lj7cyiQKL5aop0XuhE8HLNECrq0rmmRNxk3ltC9EqP0=;
-        b=f2miiLYJWtqzX442bSibU0MCtiXn8SQBzBIg/8U0eiN4GWXzssB2lo9HCjD/b3ui7A
-         WKXjGwsfD5I9ZrrG1X/YqA3j5uDZEgyUGkIHBmDTmQzJUcbrUa91Kno2NHMWFlF95vJ0
-         FhnXz8o1oM6yugnEpmYEkK48YKTWJTg8gB6gTfpqUcWsMp0uO9fLtE2PDWk/MHmdy44t
-         xHg30TlSCEhM1j1yK/oeK9aKTeW9fU9EHUEgKShbb6AtQRXqcxk9deXZpSaCVVfmXFab
-         awG6CYhAkccRo3+AubWrexeA21SXDl2HPvkd7I8VI1a4qorCS+qKulDxhxtWakRZvUCU
-         z6hg==
-X-Forwarded-Encrypted: i=1; AJvYcCXn59F2zVs+DhfhFj7m6OMB6XLF7eHAQtbYFWzXjtmf7MeOFGFXatiUJzIldMNWBd/LC4eT+6FIVvcrwA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7Ui8k5S2O4vUrdmvtIdfItSSFDr9VgGWc39tFoQze4SgVA+5t
-	q79HmGmaXH60tz9r3pv2KonewgZgPQnIBYqeQQ4agvTT6iLxmFYEuc3hJ6iuNS4=
-X-Gm-Gg: ASbGncuvU22vxggGrVWBe6SpFvJ99OR3f0EcD5x4U0Zh5MH0NMDoH0Rc9kxs/t0r0ny
-	H+kzUBzckllEtTOezIM5PDAIeS4gx0VsuTLo8SG6RGkvJMAPUCf/Q0ZZfhL6nHqZ+9Ea43wOdKc
-	IKP0iyWZfttis2KxI0Suu11tjEhbCT1mSYrwxmlBbJ/5FoV4vIT11JAPtlxCo5/xLYZZzeCdgO1
-	dh0ekpQObwj9j+XZawW5gJvCA0DvjmRqSdt47w3O/ZXnCqnNT7pSfv0UUlRNlDXAjEUm8gqeNKl
-	VTkPv1ipssk/LtkW3Mi8JeBejCKHbeQfRQ==
-X-Google-Smtp-Source: AGHT+IEYd58LeJ0u1CUxMuwZxbkluf8OhO7J3QPqaVyoyBSF/i0V/aUwiGK86VABZzmA4Z6qekYbEw==
-X-Received: by 2002:a17:902:d54a:b0:224:26f5:9c1e with SMTP id d9443c01a7336-22fc8b3e307mr2450145ad.2.1746725263193;
-        Thu, 08 May 2025 10:27:43 -0700 (PDT)
+        bh=IPMbNxc43AcR45VhaO0+Mz0+fFeHkW9XaM5DPtDrlDo=;
+        b=dxfvc8O1ZkclC2hKRI/hSIKw4maUYYukD+wzBAhZnOMA0cdsdd0TZ2mxYtGfBe25wr
+         queq4ZBu1M+ROOmq7ID7+Hrfn9gQ6rsIc2BkoyBDZkbrfEhh0ZTsuXqxttPMlJbxh1A0
+         RuEFARrlYLUiIUhrl7B/PNT5+NwW87atDNk5CRu+FdPFqr1jsHEnea/wMW/mi39ViQ4q
+         y4aH0NuvJWni1MNHpZHbAy0I31xz6IkBz3clTX4nVF50AsbBreuljmInes+KtKgkI5+F
+         eRZxLZMwiatk7bYmD73k0lH3fn66dpyJIM2LENbpTzNgAaE7kiwkuWzCYZ4lJKYRxUB7
+         n9Og==
+X-Forwarded-Encrypted: i=1; AJvYcCU1KOZTuRLW6YiiqbtNvd2KkcEX/+mp2oOMG4R4km2I2YHnl5Pimj38bsR7A0/pb14ONCIrM2JqhRl/Kw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOn6rzbQOcJOHVHrZTYxvuRyFb51Y+IEE2czgTneG3Ra/d1UUr
+	0JNDC/xAR+alujRURFRRMTcm6vP9O80k/CfZmBQHnVKcftcICqMLGqHOZoTuAO4=
+X-Gm-Gg: ASbGncvKTdI6/OYgOpMAFC45wlyr3MLSSevcu185aU5UVsbGBk0clrBr7QtJxB+6952
+	uvvWxb1wCVpu97tniZyvIGeYKD5xoFEEhn7kYfp75Z74rw4UlaXeUO4baXA0oWz6sIR9bWb1a3U
+	8MVqIN0oQCsdm0Q/TywXbBdtBkcezint2N7TFZkmOMP7iSxyrU+tLg5p585UWweXL/9DuaozIcc
+	DkGBPHy6gk61+87rOajCUs2RezdZSsbqoPzSzFRo6mbRUAhQXMrT6OewH4c66NxOaWa3iL+4Bi5
+	voVe5LdixvIfjuum1CxdTSvr6e9ViE2rzA==
+X-Google-Smtp-Source: AGHT+IE9VgVPP9dUNk5nU36GZVaBczxNclok26A18Dg0EZaOSiwRtsNDoM6n6nUdbHkW7QysWWdeDA==
+X-Received: by 2002:a17:902:dacd:b0:22e:566f:bca7 with SMTP id d9443c01a7336-22fc8b5192fmr2750915ad.17.1746725535067;
+        Thu, 08 May 2025 10:32:15 -0700 (PDT)
 Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7741515sm2031635ad.95.2025.05.08.10.27.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc82c3063sm1796455ad.244.2025.05.08.10.32.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 10:27:42 -0700 (PDT)
-Date: Thu, 08 May 2025 10:27:42 -0700 (PDT)
-X-Google-Original-Date: Thu, 08 May 2025 10:26:58 PDT (-0700)
-Subject: Re: [PATCH v6 11/14] RISC-V: KVM: add SBI extension init()/deinit() functions
-In-Reply-To: <20250424173204.1948385-12-cleger@rivosinc.com>
-Message-ID: <mhng-0c7b576b-882d-4020-996d-adb1b2bbcc4b@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
-CC: cleger@rivosinc.com, Paul Walmsley <paul.walmsley@sifive.com>,
-  anup@brainfault.org, atishp@atishpatra.org, shuah@kernel.org, corbet@lwn.net,
-  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, kvm@vger.kernel.org,
-  kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, cleger@rivosinc.com,
-  samuel.holland@sifive.com, ajones@ventanamicro.com, debug@rivosinc.com
+        Thu, 08 May 2025 10:32:14 -0700 (PDT)
+Date: Thu, 08 May 2025 10:32:14 -0700 (PDT)
+X-Google-Original-Date: Thu, 08 May 2025 10:32:12 PDT (-0700)
+Subject: Re: [PATCH v4 0/2] Implement endianess swap macros for RISC-V
+In-Reply-To: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, alex@ghiti.fr, ebiggers@kernel.org,
+  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
+  skhan@linuxfoundation.org, zhihang.shao.iscas@gmail.com, bjorn@kernel.org, linux-arch@vger.kernel.org,
+  ignacio@iencinas.com
 From: Palmer Dabbelt <palmer@dabbelt.com>
-To: anup@brainfault.org, Atish Patra <atishp@rivosinc.com>
+To: ignacio@iencinas.com, Arnd Bergmann <arnd@arndb.de>
+Message-ID: <mhng-3695679f-b501-42f4-95e0-69457773b787@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_102744_316369_71919C3B 
-X-CRM114-Status: GOOD (  23.86  )
+X-CRM114-CacheID: sfid-20250508_103216_160022_1C591324 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,75 +94,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyNCBBcHIgMjAyNSAxMDozMTo1OCBQRFQgKC0wNzAwKSwgY2xlZ2VyQHJpdm9zaW5j
-LmNvbSB3cm90ZToKPiBUaGUgRldGVCBTQkkgZXh0ZW5zaW9uIHdpbGwgbmVlZCB0byBkeW5hbWlj
-YWxseSBhbGxvY2F0ZSBtZW1vcnkgYW5kIGRvCj4gaW5pdCB0aW1lIHNwZWNpZmljIGluaXRpYWxp
-emF0aW9uLiBBZGQgYW4gaW5pdC9kZWluaXQgY2FsbGJhY2tzIHRoYXQKPiBhbGxvd3MgdG8gZG8g
-c28uCj4KPiBTaWduZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5j
-b20+Cj4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFtaWNyby5jb20+
-Cj4gLS0tCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmggfCAgOSArKysr
-KysrKysKPiAgYXJjaC9yaXNjdi9rdm0vdmNwdS5jICAgICAgICAgICAgICAgICB8ICAyICsrCj4g
-IGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMgICAgICAgICAgICAgfCAyNiArKysrKysrKysrKysr
-KysrKysrKysrKysrKwo+ICAzIGZpbGVzIGNoYW5nZWQsIDM3IGluc2VydGlvbnMoKykKClRoZXJl
-J3MgNCBLVk0gcGF0Y2hlcyBpbiBoZXJlIHdpdGhvdXQgYW4gQWNrIGZyb20gQXRpc2ggb3IgQW51
-cC4gIApUaGV5J3JlIGFsbCB0aWVkIHVwIGluIHRoZSBTQkl2MyBzdHVmZiwgc28ganVzdCBMTUsg
-aWYgeW91IHdhbnQgbWUgdG8gCnRha2UgdGhlbSBpbnRvIHRoYXQgc3RhZ2luZyBicmFuY2ggb3Ig
-aWYgeW91IHdhbnQgbWUgdG8gd2FpdC4KCkZvciBub3cgSSdtIGdvaW5nIHRvIGdvIGxvb2sgYXQg
-b3RoZXIgc3R1ZmYsIG5vIHJ1c2ggb24gbXkgZW5kLgoKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9r
-dm1fdmNwdV9zYmkuaAo+IGluZGV4IDRlZDYyMDNjZGQzMC4uYmNiOTA3NTdiMTQ5IDEwMDY0NAo+
-IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmgKPiArKysgYi9hcmNo
-L3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oCj4gQEAgLTQ5LDYgKzQ5LDE0IEBAIHN0
-cnVjdCBrdm1fdmNwdV9zYmlfZXh0ZW5zaW9uIHsKPgo+ICAJLyogRXh0ZW5zaW9uIHNwZWNpZmlj
-IHByb2JlIGZ1bmN0aW9uICovCj4gIAl1bnNpZ25lZCBsb25nICgqcHJvYmUpKHN0cnVjdCBrdm1f
-dmNwdSAqdmNwdSk7Cj4gKwo+ICsJLyoKPiArCSAqIEluaXQvZGVpbml0IGZ1bmN0aW9uIGNhbGxl
-ZCBvbmNlIGR1cmluZyBWQ1BVIGluaXQvZGVzdHJveS4gVGhlc2UKPiArCSAqIG1pZ2h0IGJlIHVz
-ZSBpZiB0aGUgU0JJIGV4dGVuc2lvbnMgbmVlZCB0byBhbGxvY2F0ZSBvciBkbyBzcGVjaWZpYwo+
-ICsJICogaW5pdCB0aW1lIG9ubHkgY29uZmlndXJhdGlvbi4KPiArCSAqLwo+ICsJaW50ICgqaW5p
-dCkoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPiArCXZvaWQgKCpkZWluaXQpKHN0cnVjdCBrdm1f
-dmNwdSAqdmNwdSk7Cj4gIH07Cj4KPiAgdm9pZCBrdm1fcmlzY3ZfdmNwdV9zYmlfZm9yd2FyZChz
-dHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVjdCBrdm1fcnVuICpydW4pOwo+IEBAIC02OSw2ICs3
-Nyw3IEBAIGNvbnN0IHN0cnVjdCBrdm1fdmNwdV9zYmlfZXh0ZW5zaW9uICprdm1fdmNwdV9zYmlf
-ZmluZF9leHQoCj4gIGJvb2wgcmlzY3ZfdmNwdV9zdXBwb3J0c19zYmlfZXh0KHN0cnVjdCBrdm1f
-dmNwdSAqdmNwdSwgaW50IGlkeCk7Cj4gIGludCBrdm1fcmlzY3ZfdmNwdV9zYmlfZWNhbGwoc3Ry
-dWN0IGt2bV92Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuKTsKPiAgdm9pZCBrdm1fcmlz
-Y3ZfdmNwdV9zYmlfaW5pdChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwo+ICt2b2lkIGt2bV9yaXNj
-dl92Y3B1X3NiaV9kZWluaXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPgo+ICBpbnQga3ZtX3Jp
-c2N2X3ZjcHVfZ2V0X3JlZ19zYmlfc3RhKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwgdW5zaWduZWQg
-bG9uZyByZWdfbnVtLAo+ICAJCQkJICAgdW5zaWduZWQgbG9uZyAqcmVnX3ZhbCk7Cj4gZGlmZiAt
-LWdpdCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IGlu
-ZGV4IDYwZDY4NGM3NmM1OC4uODc3YmNjODVjMDY3IDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3Yv
-a3ZtL3ZjcHUuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHUuYwo+IEBAIC0xODUsNiArMTg1
-LDggQEAgdm9pZCBrdm1fYXJjaF92Y3B1X3Bvc3RjcmVhdGUoc3RydWN0IGt2bV92Y3B1ICp2Y3B1
-KQo+Cj4gIHZvaWQga3ZtX2FyY2hfdmNwdV9kZXN0cm95KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkK
-PiAgewo+ICsJa3ZtX3Jpc2N2X3ZjcHVfc2JpX2RlaW5pdCh2Y3B1KTsKPiArCj4gIAkvKiBDbGVh
-bnVwIFZDUFUgQUlBIGNvbnRleHQgKi8KPiAgCWt2bV9yaXNjdl92Y3B1X2FpYV9kZWluaXQodmNw
-dSk7Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYyBiL2FyY2gvcmlz
-Y3Yva3ZtL3ZjcHVfc2JpLmMKPiBpbmRleCBkMWM4M2E3NzczNWUuLjMxMzlmMTcxYzIwZiAxMDA2
-NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaS5jCj4gKysrIGIvYXJjaC9yaXNjdi9r
-dm0vdmNwdV9zYmkuYwo+IEBAIC01MDgsNSArNTA4LDMxIEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVf
-c2JpX2luaXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ICAJCXNjb250ZXh0LT5leHRfc3RhdHVz
-W2lkeF0gPSBleHQtPmRlZmF1bHRfZGlzYWJsZWQgPwo+ICAJCQkJCUtWTV9SSVNDVl9TQklfRVhU
-X1NUQVRVU19ESVNBQkxFRCA6Cj4gIAkJCQkJS1ZNX1JJU0NWX1NCSV9FWFRfU1RBVFVTX0VOQUJM
-RUQ7Cj4gKwo+ICsJCWlmIChleHQtPmluaXQgJiYgZXh0LT5pbml0KHZjcHUpICE9IDApCj4gKwkJ
-CXNjb250ZXh0LT5leHRfc3RhdHVzW2lkeF0gPSBLVk1fUklTQ1ZfU0JJX0VYVF9TVEFUVVNfVU5B
-VkFJTEFCTEU7Cj4gKwl9Cj4gK30KPiArCj4gK3ZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX2RlaW5p
-dChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpCj4gK3sKPiArCXN0cnVjdCBrdm1fdmNwdV9zYmlfY29u
-dGV4dCAqc2NvbnRleHQgPSAmdmNwdS0+YXJjaC5zYmlfY29udGV4dDsKPiArCWNvbnN0IHN0cnVj
-dCBrdm1fcmlzY3Zfc2JpX2V4dGVuc2lvbl9lbnRyeSAqZW50cnk7Cj4gKwljb25zdCBzdHJ1Y3Qg
-a3ZtX3ZjcHVfc2JpX2V4dGVuc2lvbiAqZXh0Owo+ICsJaW50IGlkeCwgaTsKPiArCj4gKwlmb3Ig
-KGkgPSAwOyBpIDwgQVJSQVlfU0laRShzYmlfZXh0KTsgaSsrKSB7Cj4gKwkJZW50cnkgPSAmc2Jp
-X2V4dFtpXTsKPiArCQlleHQgPSBlbnRyeS0+ZXh0X3B0cjsKPiArCQlpZHggPSBlbnRyeS0+ZXh0
-X2lkeDsKPiArCj4gKwkJaWYgKGlkeCA8IDAgfHwgaWR4ID49IEFSUkFZX1NJWkUoc2NvbnRleHQt
-PmV4dF9zdGF0dXMpKQo+ICsJCQljb250aW51ZTsKPiArCj4gKwkJaWYgKHNjb250ZXh0LT5leHRf
-c3RhdHVzW2lkeF0gPT0gS1ZNX1JJU0NWX1NCSV9FWFRfU1RBVFVTX1VOQVZBSUxBQkxFIHx8Cj4g
-KwkJICAgICFleHQtPmRlaW5pdCkKPiArCQkJY29udGludWU7Cj4gKwo+ICsJCWV4dC0+ZGVpbml0
-KHZjcHUpOwo+ICAJfQo+ICB9CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+On Sat, 26 Apr 2025 07:56:17 PDT (-0700), ignacio@iencinas.com wrote:
+> Motivated by [1]. A couple of things to note:
+>
+> RISC-V needs a default implementation to fall back on. There is one
+> available in include/uapi/linux/swab.h but that header can't be included
+> from arch/riscv/include/asm/swab.h. Therefore, the first patch in this
+> series moves the default implementation into asm-generic.
+
+This seems fine to me, so 
+
+Acked-by: Palmer Dabbelt <palmer@rivosinc.com>
+
+It's asm-generic, though, so I usually try to wait for a review from 
+Arnd for those.
+
+> Tested with crc_kunit as pointed out here [2]. I can't provide
+> performance numbers as I don't have RISC-V hardware yet.
+>
+> [1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
+> [2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
+>
+> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+> ---
+> Changes in v4:
+>
+> - Add missing include in the 1st patch, reported by
+>   https://lore.kernel.org/all/202504042300.it9RcOSt-lkp@intel.com/
+> - Rewrite the ARCH_SWAB macro as suggested by Arnd
+> - Define __arch_swab64 for CONFIG_32BIT (Ben)
+> - Link to v3: https://lore.kernel.org/r/20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com
+>
+> Arnd, I know you don't like Patch 1 but I tried your suggestions and
+> couldn't make them work. Please let me know if I missed anything [3] [4]
+>
+> [3] https://lore.kernel.org/linux-riscv/f5464e26-faa0-48f1-8585-9ce52c8c9f5f@iencinas.com/
+> [4] https://lore.kernel.org/linux-riscv/b3b59747-0484-4042-bdc4-c067688e3bfe@iencinas.com/
+>
+> Changes in v3:
+>
+> PATCH 2:
+>   Use if(riscv_has_extension_likely) instead of asm goto (Eric). It
+>   looks like both versions generate the same assembly. Perhaps we should
+>   do the same change in other places such as arch/riscv/include/asm/bitops.h
+> - Link to v2: https://lore.kernel.org/r/20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com
+>
+> Changes in v2:
+> - Introduce first patch factoring out the default implementation into
+>   asm-generic
+> - Remove blank line to make checkpatch happy
+> - Link to v1: https://lore.kernel.org/r/20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com
+>
+> ---
+> Ignacio Encinas (2):
+>       include/uapi/linux/swab.h: move default implementation for swab macros into asm-generic
+>       riscv: introduce asm/swab.h
+>
+>  arch/riscv/include/asm/swab.h   | 62 +++++++++++++++++++++++++++++++++++++++++
+>  include/uapi/asm-generic/swab.h | 33 ++++++++++++++++++++++
+>  include/uapi/linux/swab.h       | 33 +---------------------
+>  3 files changed, 96 insertions(+), 32 deletions(-)
+> ---
+> base-commit: a7f2e10ecd8f18b83951b0bab47ddaf48f93bf47
+> change-id: 20250307-riscv-swab-b81b94a9ac1b
+>
+> Best regards,
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
