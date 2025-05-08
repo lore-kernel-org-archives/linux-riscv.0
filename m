@@ -4,64 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97190C3ABBE
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:21:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57C57C3ABBE
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 17:25:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=yVf2atxUojXD76AW5BXzFxZ/qGpgfdriVFp5HPsqZBo=; b=OvZKyTIzSqRt/0
-	8RRWUS7gt+eCVczuxIkejdZ8dHqtF2dOjPzmyuYhDxWwLf96Bi+NpoU85PwK0sgiRuFaUIgwomggy
-	yDncz1j3RUK/3UZdW212JVCTI/Qa/mZJB+a+6oVlR5qJN4a9lLlj2PgdR5qjhf3h5KDLyYUw1v7FH
-	zOS0NJmXpjG2mk5GMEgnHZ5IgYmK8JxoBsBSuMTI5jJudKhOjNEtqMeeRAer80iMSbyH2gwfZxa1f
-	2FjmqbYxdWzef0cZ1LZjQ84heZBxV6hDMWE0IDqQDFr+q6SxVhCTvg9yVMhkvCaziyalk/snPKtop
-	Bhcrberp4VMkGUaX125A==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:Subject:Date:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=yX5g0ta0RbKdDmEg5+T4ZBnasf6PXcft6TmSQ+yyu/A=; b=G7QS34JPGqbP5M
+	Zsd8oFQOCBVX/o/zvc8z+35arlQ83PVLFl0KhFhPG4ChQR6Vk4BhDZkHTYZn5jTSslHz1JymUMXMk
+	cD0OfZ9QvDq9/Ei1DiC7pPVUq/5W+ZzSVDOYNUSiwJE+gkFW6wMKyvEaP9fMshhmHSjaV1+0qqKWa
+	tViaJWC8O8Tgp0Zj/m2eVt9y3lSvsKGRTtVrF1vn+pl6PBPnW1kR37G1mjvD0OkIFBJ2/ofv0OLfp
+	XfcQD9dsUxiNaYWe2jlHxFC4fz6GfuXbIkwELlAnXGbuuZEXfStTxJRF40+Riy+7CKTdiJCZyo+1y
+	MuEZYlCGDK5jAICuopGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4vw-00000001NNR-2rhz;
-	Thu, 08 May 2025 17:21:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uD4zz-00000001Pjj-4Aub;
+	Thu, 08 May 2025 17:25:31 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD4T3-00000001K5K-3Ytv
+	id 1uD4zx-00000001PiZ-1chx
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 16:51:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 711385C6247;
-	Thu,  8 May 2025 16:49:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56570C4CEE7;
-	Thu,  8 May 2025 16:51:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746723088;
-	bh=0k+Wh6+uCGMO9uLN2T6ncyytOn1upByjcEkNa1fx1r4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ejoa2BEdUlP1DbdY+j6d/ljdnXRtQ1JbuAIfWusXbXKwEX2fAuyovjXR4W6Ae76iB
-	 K38V/ZVWGLbXs1xCy6gk+awFa54Rf1FxM+pA7SEMwyHQdjtXBLBBIsRZKr310lDAbR
-	 kihI2OY/f3f/wrzvZj0R1ayWyPLh/OnpZT6MIEcooHaLQJaWUQYK2jHBGZSaoEIV7K
-	 B3FHNQPprAa9LUrjKJhEoMbJkMusxLL7mUsQK/cIgq3Pf7lpskw8TxB/nBUsU9oE6Y
-	 FfCfGnvoHs8lEhvhnxA+Nje7AMklgjO2s9qIJzoSlO/Liq3TqHGc8te/hGkPFfXQ0X
-	 adn+WSXQ/Dlgg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34016380AA70;
-	Thu,  8 May 2025 16:52:08 +0000 (UTC)
-MIME-Version: 1.0
-Subject: Re: [PATCH v2 0/5] riscv: misaligned: fix interruptible context and add
- tests
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174672312700.2976395.88758017141795080.git-patchwork-notify@kernel.org>
-Date: Thu, 08 May 2025 16:52:07 +0000
-References: <20250422162324.956065-1-cleger@rivosinc.com>
-In-Reply-To: <20250422162324.956065-1-cleger@rivosinc.com>
-To: =?utf-8?b?Q2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPg==?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- corbet@lwn.net, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, shuah@kernel.org,
- ajones@ventanamicro.com, samuel.holland@sifive.com
+	Thu, 08 May 2025 17:25:30 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-736ad42dfd6so1070896b3a.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 10:25:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746725127; x=1747329927; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:subject
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=OwMv2Dele2i3ePJGKyi8rGIW+sb2B+dfxRjnej0ldTc=;
+        b=LYxaNfXE2ljM11/Dzh8wSS5wcJuZFWnbdSLiQ7XAaYo9dMYyuNBT9IGQ6NsZwlI3yX
+         ueatyHpFFbedE2/9H50Kl73WLul0ym8y1Yh4Xzyo0WaXJ/ECEwVLn9ej8gmJUyieclz9
+         2N6hoWqGo9t6KkFPVXT3oHYUeHFI3cyMTM64fy9v+YcjUQKi5/l2Z++7+1DHTMh492sJ
+         RAJsPmxiCExtkS+riRNu4wV+DFFuwNvuVOBACb5Ghp2zWu4dpr9oufTZ0b+6CM/6jGSd
+         F3ZSMEFyd06fJl+HmuLGg9xWdJtYqyi2JOKPlkiy4SCHGQeXrjy1i5h/AJtVQdtzho6a
+         X5KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746725127; x=1747329927;
+        h=content-transfer-encoding:mime-version:message-id:to:from:subject
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OwMv2Dele2i3ePJGKyi8rGIW+sb2B+dfxRjnej0ldTc=;
+        b=S/AEhcOiAy+W0041Fl2CupuVjYz+68ABg2culAAW36zL7q6D5lgYpqxx0GqoyZ8ENM
+         NisGcivWRiaO2FAqeR1lVw8pBigUqB/3XneOXSXNqEkPH30cP4LlOHO+l7LaqumTQjHw
+         wyv+Ep1sm2x5QjxuXU6t37JqA6X+Vfww49KOyrzMF18coFerwVkr0y1puz3L01alrBvX
+         Te1jYzQxp7McZw8A2OWa6HBdTqpF2DN56S9Eu7zJOXAoFLySuLNMsk4KUbp42eAoL+cN
+         s10GxA0Aq8nCKBnW+Sn6ennQaA46rM7aeRIX2F+BByCQ7M9mWyMVipMRAq58SvccvCAI
+         mWzQ==
+X-Gm-Message-State: AOJu0Yz61zVRgcMP8zI9vgjJW9dJevOORXX3PqeY3x6FVx3SFnUrCwmN
+	SSJiIF5hRt71BkKIjskheEja86NwvBAjp2TinI1xSUKqoHdn8YdjVGnphECbJvI6IedQluBxmKV
+	J
+X-Gm-Gg: ASbGncvUQnKupcUnzsP97PZvNi4Dmh/oVAohwIIBjKmNqjNJRf/7OVNOcZvjgEn6+uN
+	z3ovFFHZWFvmcspUMZFPjj9f6UQqAs620GTo+6rchr7b6SOks0ubHmSYNGYQamYtXT+82CqI+xV
+	zdBWOKmmBK4gb/gsPrYIojdqRypEEDmWWVcOk7zTM7YCvWswbZTlQLHTAoE2dw7/9C4EqBuM00j
+	t8wcH3zZrSPT8UQp/acSNTRR751wMvI+KHszbmMgWZD8BlEl+lXXSe0mxYXWI7dyvcGHhuS+ozH
+	Yh3aWS7KnGraaqLGyCScUUenrspJ3m1H0A==
+X-Google-Smtp-Source: AGHT+IGE1jr1cArVsOywq6oEXaZ2Cw/DnjYbfnUUE+RwC9LrkJywUOyn7z+1gMN5Bf5Sw1Y6TcawTw==
+X-Received: by 2002:a05:6a21:9002:b0:1f5:7873:3041 with SMTP id adf61e73a8af0-2148bc0fccamr13339943637.18.1746725127508;
+        Thu, 08 May 2025 10:25:27 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2350ddb4f3sm83165a12.56.2025.05.08.10.25.26
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 10:25:26 -0700 (PDT)
+Date: Thu, 08 May 2025 10:25:26 -0700 (PDT)
+X-Google-Original-Date: Thu, 08 May 2025 10:25:21 PDT (-0700)
+Subject: Merging plan for SBIv3-dependent patches
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: linux-riscv@lists.infradead.org
+Message-ID: <mhng-4c05b8a8-03ab-4e68-ae73-ed405f196e7c@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_095129_939344_1837AAAC 
-X-CRM114-Status: GOOD (  10.63  )
+X-CRM114-CacheID: sfid-20250508_102529_620437_9E03C9B7 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +88,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+We've talked about this a few times in the patchwork meeting, but I 
+figured I'd write up an email as this is a bit of a wacky process.  
 
-This series was applied to riscv/linux.git (fixes)
-by Alexandre Ghiti <alexghiti@rivosinc.com>:
+There's a bunch of patch sets blocked on the SBIv3 freeze.  That's been 
+coming soon for a while now, but it seems like now it's actually really 
+coming soon.  So I'm going to start staging those onto a "sbiv3" branch, 
+as there's some cross-set dependencies and probably some merge conflicts 
+that will need to get sorted out.
 
-On Tue, 22 Apr 2025 18:23:07 +0200 you wrote:
-> This series fixes misaligned access handling when in non interruptible
-> context by reenabling interrupts when possible. A previous commit
-> changed raw_copy_from_user() with copy_from_user() which enables page
-> faulting and thus can sleep. While correct, a warning is now triggered
-> due to being called in an invalid context (sleeping in
-> non-interruptible). This series fixes that problem by factorizing
-> misaligned load/store entry in a single function than reenables
-> interrupt if the interrupted context had interrupts enabled.
-> In order for misaligned handling problems to be caught sooner, add a
-> kselftest for all the currently supported instructions .
-> 
-> [...]
-
-Here is the summary with links:
-  - [v2,1/5] riscv: misaligned: factorize trap handling
-    (no matching commit)
-  - [v2,2/5] riscv: misaligned: enable IRQs while handling misaligned accesses
-    https://git.kernel.org/riscv/c/453805f0a28f
-  - [v2,3/5] riscv: misaligned: use get_user() instead of __get_user()
-    https://git.kernel.org/riscv/c/897e8aece3c8
-  - [v2,4/5] Documentation/sysctl: add riscv to unaligned-trap supported archs
-    (no matching commit)
-  - [v2,5/5] selftests: riscv: add misaligned access testing
-    (no matching commit)
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+I'm going to plan on doing a staging merge of that branch onto the tip  
+of for-next, so it can get some time on the testers.  That'll be a 
+little different than how we usually handle for-next, but I think it's 
+the best way to go as it'll make dropping the patches easy in case the 
+specs don't get frozen in time.
 
 _______________________________________________
 linux-riscv mailing list
