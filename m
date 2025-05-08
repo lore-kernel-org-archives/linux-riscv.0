@@ -4,96 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE07C3ABC5
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 12:20:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9D6EC3ABBE
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 12:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j9S8NjJfhsyp53y3j9ht0t7rLDak7nihiMNOOFC05T0=; b=fk9r1/p99GAPOz
-	IupL78wrZXehofD/PlKl6ba/d8UbCxYJfGXG2OoctuGipjASj2D+CmhqU48rh2+D/lQGipezaKWXu
-	3YQYAQAGNyBak3dFuuln0/8OHeaylDKGe5Aw1xwLRPSWAEMe6etX08qO7lkbXNh6y4BGABI5VDTZB
-	h0KxOxpXl70LmbFwJwSSQWAGxS7Ot/6mmO+ik5uSCQ80G4z+sgIutUnkxuXFSErAEhlPdAv5nGfoE
-	jS5wQYWigmoR0thqF4GqPZ/4fQpt/JUR+Pe5R4covP0demOcENNkb1Ij1djzGgEjlNWe7yiQVlaBN
-	MNLISJ40dMzbGZPXJdXA==;
+	List-Owner; bh=0VKqtdlYn9kyzViC4oABDRkrQhqwUrIoGupjdicCq98=; b=n8MJi6PD+kkHdd
+	9nolXZafpugQkuUeIou1lNVdZ4kOXgfWpbTP1vL9mXgFMu+Hd/qpaL3xXiZORlZ0PcAnS3acc2lLP
+	sEa2F1LWyExNliKA8l8+phK5jnJZND8EnRmhgVtL40ZU9/Djr/wAf211tePWt375u5bTYfzKLHMQW
+	Np+BNgn4b9w8RjZAiuDJm0XS3JTo5YcD0Fo0q8mFg5yBG60bRYjonfSEcl1VwGOP4tVT6fBaZ6fjY
+	r1ZFR1+o4ak6PbR1Lp9SzAR9GHP96f5v5u0P1Uer5PxaO7TKJCMPZMLGczQWXurqPuZRQgCDCYRWD
+	D+uwKHTs8Ib2KhwlxWhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Ef-00000000aOQ-3BTe;
-	Thu, 08 May 2025 12:20:21 +0000
-Received: from mail-io1-xd2e.google.com ([2607:f8b0:4864:20::d2e])
+	id 1uD0Jc-00000000bE8-0ywZ;
+	Thu, 08 May 2025 12:25:28 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0Bh-00000000Zrc-1Jjo
+	id 1uD0Hd-00000000arN-1Uze
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 12:17:18 +0000
-Received: by mail-io1-xd2e.google.com with SMTP id ca18e2360f4ac-85b3f92c8f8so86695439f.1
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:17:17 -0700 (PDT)
+	Thu, 08 May 2025 12:23:26 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22e331215dbso16164875ad.1
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:23:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746706636; x=1747311436; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ITsof7vKMaX3jP45vYP8VvBDvnD7ar/ly91W1po1fYs=;
-        b=irgEA979XA7ZQ/XgAd+8Bh2R3UY7GFZ5paxhaGc+6DUATG7rTxkd2zvVAaCJMk3Kch
-         9U6DhOH+tVWi4j4BmAcdoVaHQ/FpRtA4Z4mvpW2IudctXxj69Y4mYM37aV2NIUOHEO7N
-         JpALkx04/eIxL3Kt8tBMJ0Uzhp6TYpsy59W003L6ph4edepwS9YSaLU46ndsCpTtd8l+
-         niCsBHpo7NCoLAtSYQoRK6ilC+etuK5zmswuUAhF8b7dLoJ6v04gPulBXgQhlBOmi7qg
-         VEk/PyC7w9ScG2LEKCi9+G3rQyIHOXOpLLAi6wq8GlU9T3j3+JnOjQQxTL/FJAZbx3B/
-         /gxQ==
+        d=google.com; s=20230601; t=1746707004; x=1747311804; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
+        b=2fCOLE85ilhH5V+GxfhNANcfknxzNiDDhxhjKDttT7V/6yAMm635OKOE0deamNK6PM
+         7pBUInbrCPB/NF2/+e7ebbtecwXn1Y90U+fz59vCOnLMbzmTm7t9tXd1jPCx/ElBhhfb
+         CjwM5/6meWO6h3u27S1bVPP2jIU/ADOb+ij1UIQce3qpIljK7Sdmvu2CGYj2pbipkhpC
+         sP8n8hcIGV3WO7E3KhzNVXuW7LIICmhu1D/b2AGaI97bm7YdcvivLvgNvXHnkDL990j3
+         uqBD3X/+YDPqppCu3AASO0A/WOl25q2YPYmTlUYWng7YdRWeAZmlspG6X1FLTXfhvs1s
+         hmxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746706636; x=1747311436;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ITsof7vKMaX3jP45vYP8VvBDvnD7ar/ly91W1po1fYs=;
-        b=e2BWiXORQR9RUhh9LJPjSZT7GPANiFyq20ZCxVXqKLwOKKEJbwzcl297rgWKPy85nP
-         KWzHsmilcpFPgw4EGB4KVTt+88nuUMcMRXdZhPqg7XWJVMtO5FhoOCRj2sPcjhUMxF2b
-         /Mn4HpkhvxlWve4Q4/UrkQFp+8q37Mhm2LMrs1f+xOA/MzewJHKxCrt8yZE6dxsV3Zzt
-         LPfU5jW5cVl8i1SkeSK/eLFBqXPg7jh+WV7cFuFSzSZ/mKYynBwObqqohjBQk3kezy4G
-         D9p96IYrisqjhmeAXhB9Z0j/pko2vGmP3mB6Y0G2qXjTLnLSJivE6PkuQ0CKNw8iPEih
-         9qnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWbAxcGZFkjZhh5D3p2T8qSghEB1HZ+oJj3QkJFzWZ35u/OtOlTTFEtHxlWMBKOJXYBq7qkp0Wwr2XAmA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN8MOXNCphvFkPGrzpxjj/6U3ZwnTRkprTxLEq2LRHK43VhUI/
-	K+X3sz32rYWuZcEDvN+Y9ulrwioQjy7ygmeDk5jc3ymG/tzY7iuPFsHhMXURlu4=
-X-Gm-Gg: ASbGncu+bj0HMXnkQTRDVmerixNKOVGmEXWSgDYzWRv9BM3nT2Ahs4eb8LMnMVOLwPO
-	avblwSEeS8t4eYs2BCgJUMD9aF2OtiUW72b/CQz6cl1N1SNItDvcVEmJ3xbd82VSWVU1ZB3yR3Q
-	29Z+v0vOrTQm0JSBLzuVn0tCaqCrLRPmQzS/pyDdD32mju1JFtrWiqoMmVgPbthYz4mcstYKBX5
-	PQbCB04w48uupx395awofBBU4bKcOaTxi8SHIVk4YkO0lmfYbEZKHZOYXTrx0DBuRoTd+0z1Mqa
-	ayHm4etyFXTLD0f84HSHtjFDLqZ+N1iO3RTYcgSrSUnRlu8C8QCule/9ZdZj5lIGCWVPIDngPlr
-	arRl+
-X-Google-Smtp-Source: AGHT+IEpsfxrAkflVw0/hRABTEz4CwO/hvBuswU8lzk6t7nrXFnCj3fyA636Nq30np0oFo7xbeEBJA==
-X-Received: by 2002:a05:6602:3f85:b0:867:3e9e:89db with SMTP id ca18e2360f4ac-867473170e3mr934513939f.8.1746706636487;
-        Thu, 08 May 2025 05:17:16 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-864aa2bb1bdsm294250539f.7.2025.05.08.05.17.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 May 2025 05:17:15 -0700 (PDT)
-Message-ID: <1521c828-31f3-4e45-a651-750ce2e37364@riscstar.com>
-Date: Thu, 8 May 2025 07:17:14 -0500
+        d=1e100.net; s=20230601; t=1746707004; x=1747311804;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YHzGR2TH3f5PkiaDuIeNupqLtaLoSxh32TBcttsiE58=;
+        b=hgUPEJrtTi8CaLiuQJbgJQ1c7mkuP0FaaXB3DT3N5YOL7f7YYJlBN2fQtCIUH2BDUV
+         B4VsbinRdokyiEt5lM9tz4+IlaW/e3tBv7LnFzC9xkALSRarRH+nyYeo3xkLoCPNqJW4
+         eHbyl/2Q9AKTTZN45FRAQ79faU+W9n2l93pC0zuuRIfAGtBiPFYVrsLQwi7mXKHmqXE+
+         6x5JVsFqIKqHqviaKnyWUbq8dfoT9U9RbTFDfTOu+Xz3b6Fjs/3bpRy31VrG4T1vecwt
+         yHb9lpXgo/Xy4zs9dZrnWPGx7ojRxtVqJ6E9zHQQXx95RzUuRGeDbXapKc29Y5Z0Gk+J
+         +dDg==
+X-Forwarded-Encrypted: i=1; AJvYcCWVyCIJ2oM4OaTtfdbYSRWyV3kuU1WA3HpRmUDO9sbogoojF+qOGPkBlpX3i328E82J/N9Xo7J64fuyqQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYe5zALolpe4X/u001bf/68NnIOEj9whTLC4DCjSs+cVP1GAFY
+	rrIN40F06vb4M48ac6dcEUIE7OrY354Io3aWxKlr32S0VhTdeMfc9ebOvZwAXV4P4Hr5AoSkoI/
+	wSWA19wIEXD6yP/h0NTjJ536CMoSIENfcRUGw
+X-Gm-Gg: ASbGncuxYqt2i3ByWyhpw3eTqtFilhj5Qn+HcLfCa6aD+dhED9ta7i3UE9FQqyEffou
+	HM/alL4T6kFPrtRqfQgrPKgr1vZNQtog/xweM4KD1NppisOjF9sDZ38VInQXKVlPBHqw2i8aPIn
+	nPYY1+QSw4iIE0hMrptnskEZ0nPHBfQ2Oq/hS6vYdk79XJ+OBy42YGe93b2CrmpWo=
+X-Google-Smtp-Source: AGHT+IGuazhS9joimxHTMGiamVK9GxUm2CRwvQi3+Gq6fqxsbfAnr7up4McbBtUROkgn62zEFRcy/K/C2EzHqfHG+xw=
+X-Received: by 2002:a17:90b:4b8c:b0:2fa:1d9f:c80 with SMTP id
+ 98e67ed59e1d1-30adbf6d05amr4939913a91.17.1746707003520; Thu, 08 May 2025
+ 05:23:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/6] dt-bindings: soc: spacemit: define spacemit,k1-ccu
- resets
-To: Krzysztof Kozlowski <krzk@kernel.org>, Yixun Lan <dlan@gentoo.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- mturquette@baylibre.com, sboyd@kernel.org, p.zabel@pengutronix.de,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, heylenay@4d2.org, inochiama@outlook.com,
- guodong@riscstar.com, devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-References: <20250506210638.2800228-1-elder@riscstar.com>
- <20250506210638.2800228-2-elder@riscstar.com>
- <20250507223554-GYA505240@gentoo>
- <22b7b5fc-6f5a-4ce8-ae12-a7423925c113@kernel.org>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <22b7b5fc-6f5a-4ce8-ae12-a7423925c113@kernel.org>
+References: <20250507180852.work.231-kees@kernel.org> <20250507181615.1947159-2-kees@kernel.org>
+In-Reply-To: <20250507181615.1947159-2-kees@kernel.org>
+From: Marco Elver <elver@google.com>
+Date: Thu, 8 May 2025 14:22:47 +0200
+X-Gm-Features: ATxdqUHttH2gHvJKzLvMz7fkEuSC2xFFktBrniyRJYj71k93n_Rm8LTTobDJ7fU
+Message-ID: <CANpmjNPcYPvnQzMT3p+Vc2=EiEbR1WnykUEjuYc0bH2HOFi6HQ@mail.gmail.com>
+Subject: Re: [PATCH 2/8] init.h: Disable sanitizer coverage for __init and __head
+To: Kees Cook <kees@kernel.org>, Dmitry Vyukov <dvyukov@google.com>, 
+	Alexander Potapenko <glider@google.com>, Aleksandr Nogikh <nogikh@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org, 
+	"H. Peter Anvin" <hpa@zytor.com>, Ard Biesheuvel <ardb@kernel.org>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>, Hou Wenlong <houwenlong.hwl@antgroup.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Masahiro Yamada <masahiroy@kernel.org>, 
+	"Peter Zijlstra (Intel)" <peterz@infradead.org>, Luis Chamberlain <mcgrof@kernel.org>, 
+	Sami Tolvanen <samitolvanen@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, 
+	kasan-dev@googlegroups.com, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+	Christoph Hellwig <hch@lst.de>, Nathan Chancellor <nathan@kernel.org>, 
+	Nicolas Schier <nicolas.schier@linux.dev>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-efi@vger.kernel.org, 
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	sparclinux@vger.kernel.org, llvm@lists.linux.dev, 
+	syzkaller <syzkaller@googlegroups.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_051717_358686_66C64A27 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250508_052325_388230_8142BE96 
+X-CRM114-Status: GOOD (  21.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,75 +108,90 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/8/25 7:02 AM, Krzysztof Kozlowski wrote:
-> On 08/05/2025 00:35, Yixun Lan wrote:
->>> +  - if:
->>> +      properties:
->>> +        compatible:
->>> +          contains:
->>> +            enum:
->>> +              - spacemit,k1-syscon-apbc
->>> +              - spacemit,k1-syscon-apmu
->>> +              - spacemit,k1-syscon-mpmu
->>> +    then:
->>> +      required:
->>> +        - clocks
->>> +        - clock-names
->>> +        - "#clock-cells"
->>>   
->>>   additionalProperties: false
->>>   
->>> diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
->>> index 35968ae982466..f5965dda3b905 100644
->>> --- a/include/dt-bindings/clock/spacemit,k1-syscon.h
->>> +++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
->> would it be better to move all reset definition to its dedicated dir?
->> which like: include/dt-bindings/reset/spacemit,k1-syscon.h?
-> 
-> Please kindly trim the replies from unnecessary context. It makes it
-> much easier to find new content.
-> 
-> 
-> I don't get why such comments are appearing so late - at v6. There was
-> nothing from you about this in v1, v2 and v3, which finally got reviewed.
++Cc KCOV maintainers
 
-Stephen Boyd said "please rework this to use the auxiliary driver
-framework" on version 5 of the series; it was otherwise "done" at
-that point.
+On Wed, 7 May 2025 at 20:16, Kees Cook <kees@kernel.org> wrote:
+>
+> While __noinstr already contained __no_sanitize_coverage, it needs to
+> be added to __init and __head section markings to support the Clang
+> implementation of CONFIG_STACKLEAK. This is to make sure the stack depth
+> tracking callback is not executed in unsupported contexts.
+>
+> The other sanitizer coverage options (trace-pc and trace-cmp) aren't
+> needed in __head nor __init either ("We are interested in code coverage
+> as a function of a syscall inputs"[1]), so this appears safe to disable
+> for them as well.
 
-Doing this meant there was a much clearer separation of the clock
-definitions from the reset definitions.  And Yixun's suggestion
-came from viewing things in that context.
+@ Dmitry, Aleksandr - Will this produce some unwanted side-effects for
+syzbot? I also think it's safe, but just double checking.
 
-Given the rework, I considered sending this as v1 of a new series
-but did not.
+> Link: https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/kernel/kcov.c?h=v6.14#n179 [1]
+> Signed-off-by: Kees Cook <kees@kernel.org>
 
-> I just feel people wait for maintainers to review and only after they
-> will add their 2 cents of nitpicks or even some more important things
-> potentially invalidating the review. Lesson for me: do not review
-> people's work before it reaches v10, right?
+Acked-by: Marco Elver <elver@google.com>
 
-That's not what happened here--or at least, it's not as simple
-as that.  Your quick review was very much appreciated.
-
-Yixun:  Krzysztof was satisfied with things the way they're
-defined here.  Do you feel strongly I should make your suggested
-change?  Or are you OK with me just keeping things defined this
-way for the next version?  I'd like this question resolved before
-I send the next version.
-
-Thank you.
-
-					-Alex
-
-> Best regards,
-> Krzysztof
-
+> ---
+> Cc: Marco Elver <elver@google.com>
+> Cc: Andrey Konovalov <andreyknvl@gmail.com>
+> Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
+> Cc: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Ingo Molnar <mingo@redhat.com>
+> Cc: Borislav Petkov <bp@alien8.de>
+> Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> Cc: <x86@kernel.org>
+> Cc: "H. Peter Anvin" <hpa@zytor.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+> Cc: Hou Wenlong <houwenlong.hwl@antgroup.com>
+> Cc: Andrew Morton <akpm@linux-foundation.org>
+> Cc: Masahiro Yamada <masahiroy@kernel.org>
+> Cc: "Peter Zijlstra (Intel)" <peterz@infradead.org>
+> Cc: Luis Chamberlain <mcgrof@kernel.org>
+> Cc: Sami Tolvanen <samitolvanen@google.com>
+> Cc: Arnd Bergmann <arnd@arndb.de>
+> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
+> Cc: <kasan-dev@googlegroups.com>
+> ---
+>  arch/x86/include/asm/init.h | 2 +-
+>  include/linux/init.h        | 4 +++-
+>  2 files changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/x86/include/asm/init.h b/arch/x86/include/asm/init.h
+> index 8b1b1abcef15..6bfdaeddbae8 100644
+> --- a/arch/x86/include/asm/init.h
+> +++ b/arch/x86/include/asm/init.h
+> @@ -5,7 +5,7 @@
+>  #if defined(CONFIG_CC_IS_CLANG) && CONFIG_CLANG_VERSION < 170000
+>  #define __head __section(".head.text") __no_sanitize_undefined __no_stack_protector
+>  #else
+> -#define __head __section(".head.text") __no_sanitize_undefined
+> +#define __head __section(".head.text") __no_sanitize_undefined __no_sanitize_coverage
+>  #endif
+>
+>  struct x86_mapping_info {
+> diff --git a/include/linux/init.h b/include/linux/init.h
+> index ee1309473bc6..c65a050d52a7 100644
+> --- a/include/linux/init.h
+> +++ b/include/linux/init.h
+> @@ -49,7 +49,9 @@
+>
+>  /* These are for everybody (although not all archs will actually
+>     discard it in modules) */
+> -#define __init         __section(".init.text") __cold  __latent_entropy __noinitretpoline
+> +#define __init         __section(".init.text") __cold __latent_entropy \
+> +                                               __noinitretpoline       \
+> +                                               __no_sanitize_coverage
+>  #define __initdata     __section(".init.data")
+>  #define __initconst    __section(".init.rodata")
+>  #define __exitdata     __section(".exit.data")
+> --
+> 2.34.1
+>
 
 _______________________________________________
 linux-riscv mailing list
