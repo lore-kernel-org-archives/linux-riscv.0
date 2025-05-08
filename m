@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44A30C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 05:02:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E64C3ABC0
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 05:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RM82/0c34gDooi3PZlbfiN1rmfGPuwQeGiMo1iyNu6Q=; b=1X03RisOxEkg4W
-	4DUWqeAvEjaWzdr8k93N8AQW+ojAMaS7NGDTG/oyX1pi9O9Rj9OLQYOkRd1QBiDup6gw6j2g8rPhq
-	R241b49cG/xJVbRNEAXfjAkSgnCXWn0IJeKzsunBVnndcIt3q85zVq4P1iUmFom1Vvw/7FK4Q0+Dp
-	gvA/2CjHg4LlTTfBazTj0UwM3s6jZoDSwUP32UdRw9+/3D/o9xUapljbH/+Ii0MhfHe2aBWySZRvD
-	qqoW27KM085APzK2R2OZmMXQeXh60qtblDs9BLz1CesCtV5jHUngUxXlt3AFqauuV7T41ORVgmTS5
-	WBBw4v0d6cea6gnpae3w==;
+	List-Owner; bh=zS8rOBoXkmQZHB0GvNZ2PBeICEyXWVNyScpqPB8+kUw=; b=hs19q2nZXl+M8k
+	wNvdrqjtLEhR75TVRPSlvUjjy+up1E3dQyvx/ww39kl+qSLwEp+bTgbxToOsJcPAkH35zxcxGYR1N
+	+3xr8f+jTepsxpA1rRXQmteEhkc0ZINbOF4AJFjSInQDv/Ko29OhgXDxfR3TxpRdxJzO/LGUQsKAo
+	+v8cTcE/GSPWbbEmJ+DjicN1vZYu9U64HyvV4ZG9RBrANzncVI03M7Md8//hfOLjfb3cBJR657bh7
+	n0tz8oHRSS00nC8SUpPJ9Za+BdSyPgu0U+LlNgA31/LEt78BmvW69rcxtIzY1X9sTDT9itZ9wEgvR
+	09K8yAfzRVvU5LL67jbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtOu-0000000HJpK-0ykj;
-	Thu, 08 May 2025 05:02:28 +0000
-Received: from mail-il1-x130.google.com ([2607:f8b0:4864:20::130])
+	id 1uCtzT-0000000HO7A-0oB8;
+	Thu, 08 May 2025 05:40:15 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtOr-0000000HJnr-2KwY
+	id 1uCtyB-0000000HO25-1Yoo
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 05:02:27 +0000
-Received: by mail-il1-x130.google.com with SMTP id e9e14a558f8ab-3d8dcc7cd17so5865735ab.1
-        for <linux-riscv@lists.infradead.org>; Wed, 07 May 2025 22:02:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1746680544; x=1747285344; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=o4O7+nQ6u5XMVEZ9olWj3Ht9QPAgJnl5lq5fX/yAqRY=;
-        b=UqarNX5+hFDZp6WyKRY8706EvHfE7VIicdnuO1kn8Od7XJ3ZbUKG12fWYTdRIBoa36
-         AK1LSEBLrGkV0kcGqh18knrl1SQOemYxda+mpcmqQIxV3801A2Y5CjdLxnoa9r/T1IFV
-         aRQ6WpfJFb8nsHxtebiDIyO+FN08Tj+SJ95BoExgqbcVuW2Q6kYcccTBLmVnZ3NgjfEj
-         520UvozzOiz4wq4j8f7hpoBfq6H7x2hk7A5ImkdHmccnAMd8k1DDx1/wdsdXEvPk5N6v
-         iGglsyCGfpWluaE7QMw7iM1qmPLdapGyZId+5ldHdhG3hag8PXtV93uVjE3KJxl4qgrM
-         h/ZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746680544; x=1747285344;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=o4O7+nQ6u5XMVEZ9olWj3Ht9QPAgJnl5lq5fX/yAqRY=;
-        b=djhBklsd823af7zu9crdeGBdXRWistBXvS4IrYF4J7hEprvB57S/9Hj84PpHysIYGo
-         BrFH3fCY2vvKntbDc3hCh7H3PBGJwqacWUs6WewbB6Ss5CrnlDpWn35Is3oukdz16tjc
-         6ksvbkKPKW1QnLG4nftdx8mS0AyLcwJmUr3WDOAcA3wt4BO9LjVrv1jn0UyQwgtYuDNq
-         1jyoo92L3qE3Dnm3T19xv+sdto+ppoRth6f1S51ahxn/IoZ6e8SZiTW42ADnDWUiQ1yi
-         u+ct+dY28yGoXNzJ8LHl4MC1b1SGPzgcMedSZO2W7pWUm5mF9pe24NUfSm372sAyZQ+e
-         J1+g==
-X-Forwarded-Encrypted: i=1; AJvYcCW52KS3NG4xqn0W9vskhsfY9n59Oa5e6qr9JRlhgcJtaUxEoVCpuTLlxa25BJn1qN8wkLAMgiILlCi4sA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFvbq1Dhd8g+RM3mW30gQYwAw8bEd7IpInhwaT8Yl/N9BSMbTc
-	uppUAJD8V4OHFCMz885Vl/IEcooHX7YzHP3Vwq3qOia4pOeldU3AgZ3u0OIeCXqDR4iMNSj011p
-	hevVzjIR4A81b6WxDFxrgVr0IP9VhK3N7IaOOvg==
-X-Gm-Gg: ASbGncsChWCuIkjOuWucAlL1g2Bf0G66t79R5ZfHnYL1lhSn8AmvWeYpnuWLa4wW6tC
-	ZYHBHimMO29uKM+pH11efSjQKnWI/+folxm0KAZpJZ+TvvOqJO2UsDwbcl5AFLNwiThvtInnJoV
-	3RwnPAcNuabS7ahhCEgs50
-X-Google-Smtp-Source: AGHT+IECR9VWWp5sM9ekT0izdpJvnXGhLFrUYyeXvUgiyjcyi/z8ERS2MGNabEsCST5MXjtN+VKccxirLbFB93wPSAg=
-X-Received: by 2002:a05:6e02:33a1:b0:3d2:af0b:6e2a with SMTP id
- e9e14a558f8ab-3da7854d904mr27339085ab.5.1746680543894; Wed, 07 May 2025
- 22:02:23 -0700 (PDT)
+	Thu, 08 May 2025 05:38:56 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 96FA612FB444;
+	Wed, 07 May 2025 22:38:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1746682733; bh=dDCrl7bkwo/0S+4APKJnm3R6af9SQELqg9M5HZnlgFc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=bnXy1y85/b2c9u9GelQ+EWxYmOcP25x/X4mu7n3Hk7WxQvGvHJTEKvMRInDeQGJON
+	 CJydroNKSYlW2P7BMVwe/YZsoPToMgaBv1AZQhOe4MJ9rZ2T3YKi3APDRyiStx2jB6
+	 8mblpqic/vFCLea7qgCZ8lrUA7iDUqsTZ3cBen8ckgA57SMXpbI2OjUfl/qJA1rV/1
+	 Whhf+bHiDao2TW1lh+UJ1ngRYdzfYU9Kp0krWuZA+EOAQhA/IOY6RoqBvAPWCMiBD+
+	 A76ndalXqqA/XDH1iao5VF9INz7gn2GDNBBKwSpa1zMapbYS1LlHzKoS4ex+QC1Vpi
+	 j0pMZEGkzPzeQ==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id oLEJHnSxcwgL; Wed,  7 May 2025 22:38:19 -0700 (PDT)
+Received: from ketchup (unknown [183.217.82.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 7773212FB404;
+	Wed, 07 May 2025 22:38:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1746682699; bh=dDCrl7bkwo/0S+4APKJnm3R6af9SQELqg9M5HZnlgFc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=1ZCSTR2UamB34rz6a0We4Hxm+i7shGD78C0zzsPrCYtO4ElKKXZ5B1r9CyF1Bnwvw
+	 3xhCO7GIr8ibHgQMnZKZJwMbIijgOg3JD/gtXWviUPE+cCwYtaKhJcIX8DVs90Z3Av
+	 it6iWm2SnKOY3j1fjQ3XUtkJLCPMaKxt6g93++gr1gJa5FqEe761gCbSIYgkX78atw
+	 j87r5jc5yIgagwzEmUGRnlzgZY1Vq4E1ENA5TUDStsGuFSrXbCCj70r+5sh8NAS6Si
+	 yPuNjkXVh5c7CWQmp0ZAygwvP6ei3Cq2evvtm3qUv7szHCke/dFSTDew6PEkysSGcS
+	 q1J5WYq0dbQpA==
+Date: Thu, 8 May 2025 05:38:11 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+	p.zabel@pengutronix.de, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	dlan@gentoo.org
+Cc: inochiama@outlook.com, guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 4/6] reset: spacemit: add support for SpacemiT CCU
+ resets
+Message-ID: <aBxDQ1_2xJjGlwNf@ketchup>
+References: <20250506210638.2800228-1-elder@riscstar.com>
+ <20250506210638.2800228-5-elder@riscstar.com>
 MIME-Version: 1.0
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
- <20250403112522.1566629-5-rkrcmar@ventanamicro.com> <CAAhSdy0v7Cw+aGF8DDWh1gjTBXA23=H01KRK8R2LTQHLRHo5Kw@mail.gmail.com>
- <D9Q3TKPXTPMO.39LSPFEO587XO@ventanamicro.com>
-In-Reply-To: <D9Q3TKPXTPMO.39LSPFEO587XO@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Thu, 8 May 2025 10:32:13 +0530
-X-Gm-Features: ATxdqUHAtn3fdoGp6jzvIyBGtoq6BWz_b3EO39aBJbq4imtAWzXWd7ChbJprOwA
-Message-ID: <CAAhSdy0tb5Su_4ydBx1eSt6_1PPpgt1gE=nx53mwum=5DPzMRw@mail.gmail.com>
-Subject: Re: [PATCH 2/5] KVM: RISC-V: refactor sbi reset request
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Atish Patra <atishp@atishpatra.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Andrew Jones <ajones@ventanamicro.com>, 
-	Mayuresh Chitale <mchitale@ventanamicro.com>
+Content-Disposition: inline
+In-Reply-To: <20250506210638.2800228-5-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_220225_797265_85F1FA04 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250507_223855_744728_4B5B2B10 
+X-CRM114-Status: GOOD (  22.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +91,122 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgNywgMjAyNSBhdCAxMDo1OOKAr1BNIFJhZGltIEtyxI1tw6HFmSA8cmtyY21h
-ckB2ZW50YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IDIwMjUtMDUtMDdUMTc6MzE6MzMrMDU6MzAs
-IEFudXAgUGF0ZWwgPGFudXBAYnJhaW5mYXVsdC5vcmc+Ogo+ID4gT24gVGh1LCBBcHIgMywgMjAy
-NSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+
-IHdyb3RlOgo+ID4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1
-X3NiaS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9zYmkuaAo+ID4+IEBAIC01
-NSw2ICs1NSw4IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX2ZvcndhcmQoc3RydWN0IGt2bV92
-Y3B1ICp2Y3B1LCBzdHJ1Y3Qga3ZtX3J1biAqcnVuKTsKPiA+PiAgdm9pZCBrdm1fcmlzY3ZfdmNw
-dV9zYmlfc3lzdGVtX3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSwKPiA+PiAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IGt2bV9ydW4gKnJ1biwKPiA+PiAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdTMyIHR5cGUsIHU2NCBmbGFncyk7Cj4g
-Pj4gK3ZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3JlcXVlc3RfcmVzZXQoc3RydWN0IGt2bV92Y3B1
-ICp2Y3B1LAo+ID4+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHVuc2ln
-bmVkIGxvbmcgcGMsIHVuc2lnbmVkIGxvbmcgYTEpOwo+ID4KPiA+IFVzZSB0YWJzIGZvciBhbGln
-bm1lbnQgaW5zdGVhZCBvZiBzcGFjZXMuCj4KPiBPb3BzLCBJIHRvdGFsbHkgZm9yZ290IHRoYXQg
-bGludXggdXNlcyB0YWJzIGV2ZW4gZm9yIGFsaWdubWVudC4KPgo+ID4gT3RoZXJ3aXNlLCBpdCBs
-b29rcyBnb29kIHRvIG1lLgo+ID4gSSBoYXZlIHRha2VuIGNhcmUgb2YgdGhlIGFib3ZlIGNvbW1l
-bnQgYXQgdGhlIHRpbWUKPiA+IG9mIG1lcmdpbmcgdGhpcyBwYXRjaC4KPgo+IFRoYW5rcywgSSds
-bCBwb3N0IHYyIHdpdGhvdXQgdGhlIHRocmVlIHBhdGNoZXMuCgpCYXNlIHlvdXIgdjIgdXBvbiBy
-aXNjdl9rdm1fcXVldWUgYnJhbmNoIGF0Cmh0dHBzOi8vZ2l0aHViLmNvbS9rdm0tcmlzY3YvbGlu
-dXguZ2l0CgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Tue, May 06, 2025 at 04:06:35PM -0500, Alex Elder wrote:
+> Implement reset support for SpacemiT CCUs.  The code is structured to
+> handle SpacemiT resets generically, while defining the set of specific
+> reset controllers and their resets in an SoC-specific source file.  A
+> SpacemiT reset controller device is an auxiliary device associated with
+> a clock controller (CCU).
+> 
+> This initial patch defines the reset controllers for the MPMU, APBC, and
+> MPMU CCUs, which already defined clock controllers.
+> 
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> ---
+>  drivers/reset/Kconfig           |   1 +
+>  drivers/reset/Makefile          |   1 +
+>  drivers/reset/spacemit/Kconfig  |  12 +++
+>  drivers/reset/spacemit/Makefile |   7 ++
+>  drivers/reset/spacemit/core.c   |  61 +++++++++++
+>  drivers/reset/spacemit/core.h   |  39 +++++++
+>  drivers/reset/spacemit/k1.c     | 177 ++++++++++++++++++++++++++++++++
+>  7 files changed, 298 insertions(+)
+>  create mode 100644 drivers/reset/spacemit/Kconfig
+>  create mode 100644 drivers/reset/spacemit/Makefile
+>  create mode 100644 drivers/reset/spacemit/core.c
+>  create mode 100644 drivers/reset/spacemit/core.h
+>  create mode 100644 drivers/reset/spacemit/k1.c
+> 
+
+...
+
+> diff --git a/drivers/reset/spacemit/Kconfig b/drivers/reset/spacemit/Kconfig
+> new file mode 100644
+> index 0000000000000..4ff3487a99eff
+> --- /dev/null
+> +++ b/drivers/reset/spacemit/Kconfig
+> @@ -0,0 +1,12 @@
+> +# SPDX-License-Identifier: GPL-2.0-only
+> +
+> +config RESET_SPACEMIT
+> +	bool
+> +
+> +config RESET_SPACEMIT_K1
+> +	tristate "SpacemiT K1 reset driver"
+> +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> +	select RESET_SPACEMIT
+> +	default ARCH_SPACEMIT
+> +	help
+> +	  This enables the reset controller driver for the SpacemiT K1 SoC.
+
+With auxiliary bus introduced, Kconfig entries for both the reset and
+clock should select AUXILIARY_BUS, or building defconfig will fail with
+undefined references,
+
+        riscv64-unknown-linux-musl-ld: drivers/clk/spacemit/ccu-k1.o: in function `k1_ccu_probe':
+        ccu-k1.c:(.text+0x19c): undefined reference to `auxiliary_device_init'
+        riscv64-unknown-linux-musl-ld: ccu-k1.c:(.text+0x226): undefined reference to `__auxiliary_device_add'
+        riscv64-unknown-linux-musl-ld: drivers/reset/spacemit/k1.o: in function `spacemit_k1_reset_driver_init':
+        k1.c:(.init.text+0x1a): undefined reference to `__auxiliary_driver_register'
+        riscv64-unknown-linux-musl-ld: drivers/reset/spacemit/k1.o: in function `spacemit_k1_reset_driver_exit':
+        k1.c:(.exit.text+0x10): undefined reference to `auxiliary_driver_unregister'
+
+> diff --git a/drivers/reset/spacemit/Makefile b/drivers/reset/spacemit/Makefile
+> new file mode 100644
+> index 0000000000000..3a064e9d5d6b4
+> --- /dev/null
+> +++ b/drivers/reset/spacemit/Makefile
+> @@ -0,0 +1,7 @@
+> +# SPDX-License-Identifier: GPL-2.0
+> +
+> +obj-$(CONFIG_RESET_SPACEMIT)			+= reset_spacemit.o
+
+As RESET_SPACEMIT is defined as bool, the reset driver will never be
+compiled as a module... so either the RESET_SPACEMIT_K1 should be
+limited to bool as well or you could take an approach similar to the
+clock driver.
+
+> +reset_spacemit-y				:= core.o
+> +
+> +reset_spacemit-$(CONFIG_RESET_SPACEMIT_K1)	+= k1.o
+
+...
+
+> new file mode 100644
+> index 0000000000000..19a34f151b214
+> --- /dev/null
+> +++ b/drivers/reset/spacemit/k1.c
+
+...
+
+> +MODULE_DEVICE_TABLE(auxiliary, spacemit_k1_reset_ids);
+> +
+> +#undef K1_AUX_DEV_ID
+> +
+> +static struct auxiliary_driver spacemit_k1_reset_driver = {
+> +	.probe          = spacemit_k1_reset_probe,
+> +	.id_table       = spacemit_k1_reset_ids,
+> +};
+> +module_auxiliary_driver(spacemit_k1_reset_driver);
+> -- 
+> 2.45.2
+
+If you're willing to make the reset driver buildable as a module, please
+add MODULE_{LICENSE,DESCRIPTION} statements and possibly also
+MODULE_AUTHOR(), or modpost will complain,
+
+	ERROR: modpost: missing MODULE_LICENSE() in drivers/reset/spacemit/reset_spacemit.o
+	WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/reset/spacemit/reset_spacemit.o
+
+Best regards,
+Haylen Chu
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
