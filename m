@@ -4,93 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 87611C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 13:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01FFCC3ABC5
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 14:19:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
+	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4cj6HgmSKC4fixG4Cx64Sk9A/TVxUPVJSbwhBju6p9o=; b=LrB4BGcZn4LcxW
-	ii2diyyoBDWPLbSAHjZ0wx2K57VGO4uDqT9HYp9XOJJOBCP6anJXhlKRMW09IDaEV/qrc8OZVgNzp
-	59ukh8eIkI7Mo95DvkaKrtR9JNDX8ZPkj5e2gPNznUvkdG07iA2VvFJ+dR/CC0Qdu83LQsITQnNC2
-	3oBYUfHBWlG5k52hyZpk74u5Szx4c2g9FiZO+5yZrRVQAG/OWeUF0ZnUN1hgmFvqXvtwuHAHuP55/
-	ZI9nhLihe3tV1Zaw+0KvDenYVkDKEPr0Jy9eO1TmJekLqIBMM2QzNBerkWd+8rKv5uaNbpikCRab9
-	ZBoqLToSsjrXWHaTm/0g==;
+	List-Owner; bh=KQdYGVcGSod9syc7bzoGX7De7mNsrfrAhs4wIaLcVgI=; b=BBbEBAqw3OI8Jf
+	BENSRG4RU3pCbJ5Pq9hzUvRbBURLOhUUieFejebRYkhd5ehACRGETDGAYmv1mXgZe8jlThqQBSCZ3
+	DC4m03O4dsd9fcvxVMLtIqquxg1W+XdnFy8mpra8rMpkxe9/CVGPw+0el3HMighre3dVRhRAg6ED/
+	Gn1qwMyTlXkyLRFqHnOWEyJPmNMuNO6mgQKG30E01I/bJp9RbMtfhpOo9r4aG/D889S6A6pAa4Jrl
+	41wcrkOdstqQ0sQw+xQqeINPNBRLIqay7Z7z1XGiMhNmQyKuwcLs11/EI200Yg3uxA4QR29kLG8Iw
+	+rwF6gdUzqYqQxN0SNKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD1Lb-00000000kwx-3zji;
-	Thu, 08 May 2025 13:31:35 +0000
-Received: from mail-io1-xd36.google.com ([2607:f8b0:4864:20::d36])
+	id 1uD25m-00000000tPj-1iNT;
+	Thu, 08 May 2025 14:19:18 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0No-00000000cBP-2qKW
+	id 1uD1LC-00000000krt-0pzI
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 12:29:49 +0000
-Received: by mail-io1-xd36.google.com with SMTP id ca18e2360f4ac-861525e9b0aso81032639f.3
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:29:48 -0700 (PDT)
+	Thu, 08 May 2025 13:31:11 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43cee550af2so420645e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 06:31:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746707388; x=1747312188; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=EchSTz2ixLAWYTB96sLu87zXRfh/aWLsrM0Vf/7G5Gc=;
-        b=zYR2jHClzEM9mjD7GMmcuMzgAfR/wYU20n80KewwRu5Zm8v5diDvR46yqcDXgJafaY
-         7gg7aYi704ansb92VASxnLnSMLMLem394yPU9mXuR/1xhr5NZVuZkjh1nFUV5ceKMfZ6
-         /E0F3o85NBaiXyHo8S9ircXed9yAGJ7ldr0kEophw2uxW0wtT20PzVsTrQ9Gbq9Yz0zA
-         3aZe5N/K8v+F87hVnS/mbvyliElm0LLwQAPjUpH9+XqSFhNcQvSFlgf6q3F3RjHP0KGv
-         EDKKkEPsOGSB8CJUnES3lwD1JRJA9zQRTWuBHqzovMMjPL6En+6u1V/ddYw1o3iXoXLl
-         iYgw==
+        d=ventanamicro.com; s=google; t=1746711068; x=1747315868; darn=lists.infradead.org;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6S+40JPuRC3gzWdqTu3aQzXeyhaHlO7szVi8IcUpV9U=;
+        b=iZaXVbFBcBEPIUYyke4nxd8KOE6FDcOZQhgwyWAyE/1HFYlDG+5La3sbiuv9Kbu74x
+         /FLIpJLm+x6pYDUTw6wWYAaUdRlrCc+MWWa6fmP7OSoWl+EDdPRnGOff1p6D0bodUWdM
+         S+aRFAtWn2paPUtZFHSdWg5IpDnxVEuD0JvuzkheKkGrwaRaQHuqB8GXQlDhpP5Cmr/f
+         JLykpdig54lDiQOp8PeX3qS64hMKVPsELJhMy3BgwMaTk+zM108rMhDsa49v/MaWPV0p
+         dJmdjQbLSX/DIXTqCnmxNW5OYOKm5twdSJinZWWk/DfHpm1j4pocAy8whxyqMa95Dnsu
+         SO0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746707388; x=1747312188;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=EchSTz2ixLAWYTB96sLu87zXRfh/aWLsrM0Vf/7G5Gc=;
-        b=QKP7nkHqS5uSvto0fWLIf/FLFZVHkpYFMqYD4CryRJeG5VDnNDjPYLl1tHos7t/XKn
-         fNAcDCcYgxy4d4n3+u0YAR5CFYVQkjysATt7u9p2EONOGltpbxh49OcfPbFPtmanZFvD
-         F+0Rz5G9kSUxfuz4B1wZEFh82hM4KlWXFZQkgdhKs8ByDuDyVKNHXeP8AkW0cs3heeUn
-         cIPDsx64HBGUoT6NmKy2VEYJL7lb62+J0hqSlkSsN3CHhBm4yrCnKokwyDwBxS1nRxsd
-         2EoemewH5XPk0FXuIzqbw+KiVjG9hpZ4LfIxenoPu7J6/CMGHj/g29rpSi/XvCUMANL3
-         Bvpw==
-X-Forwarded-Encrypted: i=1; AJvYcCUwhD1a9CeLdO/s1zYDZrB223/t1yptm1FhdfEleBl01FZ/LDbEGHcE8MgsZa7UTW0dFtwZDjtqRoHsrA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy7ku8pwqSOOh7su61MSka5pKjK68lvv4Y3OIV4Mtqi6HVv7EM/
-	wTY2sdKVxwmPgZ9by5V9WsAHWW4xpOpJoo00ccvH39W4PWG0egKU0tv5OOrmGSQ=
-X-Gm-Gg: ASbGnctFkVLp2/N2z5scHkl/v2OACPG8FrJuf+/ztr6AZhSXUVHsHCJ1Z/pZVsB6QgO
-	aXnOcEjPhAxALUz12K7V3eKXqdeo6zxyWGAHux3o41Kd/mv3MujBFCNodSvzWHgoLPcGsxUFr7u
-	tmLdadL45nA0qjIOaEE7dsXbvSV2sZAbamtLtSn7Mz8xc8pcEMQlzDKrWrOpj0kB/OY8Ju8iHoo
-	10u0YMnJB+u2GmZBC1GGMghdeoX5wbDC7QxzVdrHy2vJJOffEMh7eq/69fUMLgU54MADsGSj6j0
-	fJbMkYtwsnHz24MDqq8FvrmVoSpLjulWsusUEZtMd/2aT3IKMLz73c1d40i/b7Y7NPmq3MRXJKI
-	E/+BC
-X-Google-Smtp-Source: AGHT+IF690lf3lW382YdkiJiBkYc8A/KfmHLjKI68D6s9G2Rm2ydeiV8IBPkiN5nxv5k+Txl9dCHlg==
-X-Received: by 2002:a05:6602:3413:b0:867:17a6:9fd2 with SMTP id ca18e2360f4ac-8674737348bmr976931039f.9.1746707387766;
-        Thu, 08 May 2025 05:29:47 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f88a8cf769sm3129157173.2.2025.05.08.05.29.46
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 May 2025 05:29:47 -0700 (PDT)
-Message-ID: <65bc21e7-d936-492a-b095-4c1469932623@riscstar.com>
-Date: Thu, 8 May 2025 07:29:46 -0500
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/6] reset: spacemit: define three more CCUs
-To: Philipp Zabel <p.zabel@pengutronix.de>, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, mturquette@baylibre.com,
- sboyd@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, dlan@gentoo.org
-Cc: heylenay@4d2.org, inochiama@outlook.com, guodong@riscstar.com,
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250506210638.2800228-1-elder@riscstar.com>
- <20250506210638.2800228-6-elder@riscstar.com>
- <a3febd3718397d7cf067e2ae637c2d633388f89f.camel@pengutronix.de>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <a3febd3718397d7cf067e2ae637c2d633388f89f.camel@pengutronix.de>
+        d=1e100.net; s=20230601; t=1746711068; x=1747315868;
+        h=in-reply-to:references:from:to:cc:subject:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6S+40JPuRC3gzWdqTu3aQzXeyhaHlO7szVi8IcUpV9U=;
+        b=CMuUA4B7Iq9RppMgBF3ITrsSjXVoJ1WtNSJwRw/Lm79tzydT8iK+p0k41PlUQ2mOWO
+         9GlBoKdbddKiyV9RfPMxkIBWWQN1tfdlID1rk5aNclvlP4FC0e/fz5ob5XYIbx8ky2NQ
+         QS9CtTEhhMw5N7FBNNNqDpl74wGTHRjhuv6Te8NPEzIoldqb3frItIcSYEFkSDEdLiR1
+         VQTFNv2+0Y1H71g1iinqYeWyvr2cM62/PGvPz0SVDAUjwo7+dOwlEAei+tNpvxfTD+Zv
+         wEi3daWp3AnoshKcRU6B12WhP4vcfXlDZJLpBQfa0utXDJRA2xKF8NyE6nAQ/vwgaVGx
+         TPXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVlM0E01Bf9daef2MHcVLDdWDseda99l3Khs22P0cbOAbnQxt7aG4YjhFEBKFupDyyQnQ2uUPw8iMxYKQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeW38HpqOu5Riby+NLFXklVmxDnz2xGYdEDW0FExtPxhkjwxbh
+	0jWdxzXe9ltGfQ32S9z6wWYNoDDlTYwKwUmZWOjKjS/UIfl9IUSU01wPmYnC/0U=
+X-Gm-Gg: ASbGnctV0Flsk6ROFunA5EJT9VshQG25GTbxpsUuyElozhpVkQMJ255+Soh/fF4E1Bt
+	EHf9YTK6Ii5DUpH50HkMTEDlwITgEvKOJDT62OSm/ggBy8SpGgCtDlEQTRyDUf3Xssdzrhljskn
+	npFymidpyuiqgA+bzMs39CMrI7+LuGxAQaM2ig1b18ajwa5b82O9tk87wlB6Nw5Wd0wzM2UKnVw
+	KjbI94KHPHvLueN4vdIL7AZsqIEPcFqQmMfXJMxRip9YQCgTEDVIFsAs3+Y8ZrgRru8ek4Be+tT
+	mbAl7s4cKUAXWt2ODMrA9wJLe1vvGLEFu1D+fUHx+9e9tjM9
+X-Google-Smtp-Source: AGHT+IGijAnvSUvNKAgb7ZNKd5QJJ9UF+zXOT/jF3FQWpi7RwPSldc9C2Ir4SMyQ4xieyEHWiNZ1qw==
+X-Received: by 2002:a05:600c:1d8c:b0:43b:c825:6cde with SMTP id 5b1f17b1804b1-441d44c4749mr23230845e9.3.1746711068529;
+        Thu, 08 May 2025 06:31:08 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:a451:a252:64ea:9a0e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-442cd32f238sm37108665e9.11.2025.05.08.06.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 06:31:08 -0700 (PDT)
+Mime-Version: 1.0
+Date: Thu, 08 May 2025 15:31:07 +0200
+Message-Id: <D9QTEAUN0RNE.11G3ZW4IBGL5M@ventanamicro.com>
+Subject: Re: [PATCH 1/5] RISC-V: KVM: Lazy enable hstateen IMSIC & ISEL bit
+Cc: <kvm@vger.kernel.org>, <kvm-riscv@lists.infradead.org>,
+ <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
+To: "Atish Patra" <atishp@rivosinc.com>, "Anup Patel" <anup@brainfault.org>,
+ "Atish Patra" <atishp@atishpatra.org>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Alexandre Ghiti" <alex@ghiti.fr>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+References: <20250505-kvm_lazy_enable_stateen-v1-0-3bfc4008373c@rivosinc.com> <20250505-kvm_lazy_enable_stateen-v1-1-3bfc4008373c@rivosinc.com>
+In-Reply-To: <20250505-kvm_lazy_enable_stateen-v1-1-3bfc4008373c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_052948_724311_34D985B9 
-X-CRM114-Status: GOOD (  24.53  )
+X-CRM114-CacheID: sfid-20250508_063110_239146_6E0E118E 
+X-CRM114-Status: UNSURE (   6.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,116 +97,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/8/25 4:11 AM, Philipp Zabel wrote:
-> On Di, 2025-05-06 at 16:06 -0500, Alex Elder wrote:
->> Three more CCUs on the SpacemiT K1 SoC implement only resets, not clocks.
->> Define these resets so they can be used.
->>
->> Signed-off-by: Alex Elder <elder@riscstar.com>
->> ---
->>   drivers/clk/spacemit/ccu-k1.c | 24 ++++++++++++++++
->>   drivers/reset/spacemit/k1.c   | 54 +++++++++++++++++++++++++++++++++++
->>   include/soc/spacemit/ccu_k1.h | 30 +++++++++++++++++++
->>   3 files changed, 108 insertions(+)
->>
->> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
->> index 6b1845e899e5f..bddc83aff23cd 100644
->> --- a/drivers/clk/spacemit/ccu-k1.c
->> +++ b/drivers/clk/spacemit/ccu-k1.c
->> @@ -939,6 +939,18 @@ static const struct spacemit_ccu_data k1_ccu_apmu_data = {
->>   	.num		= ARRAY_SIZE(k1_ccu_apmu_hws),
->>   };
->>   
->> +static const struct spacemit_ccu_data k1_ccu_rcpu_data = {
-> 
-> The /* No clocks in the RCPU CCU */ comment belongs here, instead of in
-> the reset driver.
-> 
-> I wonder though, if these units have no clocks, why are they called
-> CCUs? It doesn't make much sense to me to add their compatibles to the
-> ccu-k1 driver only to load the reset aux driver. Why not just add a
-> platform driver next to the aux driver in reset-spacemit.ko for these
-> three?
+2025-05-05T14:39:26-07:00, Atish Patra <atishp@rivosinc.com>:
+> Currently, we enable the smstateen bit at vcpu configure time by
+> only checking the presence of required ISA extensions.
+>
+> These bits are not required to be enabled if the guest never uses
+> the corresponding architectural state. Enable the smstaeen bits
+> at runtime lazily upon first access.
 
-In fact, the particular registers involved *do* have fields
-to control some clocks, but there is currently no use for
-them, so support for them isn't implemented.  The reset
-controls in those registers are needed now, however.
+What is the advantage of enabling them lazily?
 
-I actually first implemented this as a small, separate reset
-driver, only to learn late in the process that these other
-clocks might be needed someday.
+To make the trap useful, we would have to lazily perform initialization
+of the AIA.  I think it would require notable changes to AIA, though...
 
-> 
->> +	.reset_name	= "rcpu-reset",
->> +};
->> +
->> +static const struct spacemit_ccu_data k1_ccu_rcpu2_data = {
->> +	.reset_name	= "rcpu2-reset",
->> +};
->> +
->> +static const struct spacemit_ccu_data k1_ccu_apbc2_data = {
->> +	.reset_name	= "apbc2-reset",
->> +};
->> +
->>   static int spacemit_ccu_register(struct device *dev,
->>   				 struct regmap *regmap,
->>   				 struct regmap *lock_regmap,
->> @@ -1106,6 +1118,18 @@ static const struct of_device_id of_k1_ccu_match[] = {
->>   		.compatible	= "spacemit,k1-syscon-apmu",
->>   		.data		= &k1_ccu_apmu_data,
->>   	},
->> +	{
->> +		.compatible	= "spacemit,k1-syscon-rcpu",
->> +		.data		= &k1_ccu_rcpu_data,
->> +	},
->> +	{
->> +		.compatible	= "spacemit,k1-syscon-rcpu2",
->> +		.data		= &k1_ccu_rcpu2_data,
->> +	},
->> +	{
->> +		.compatible	= "spacemit,k1-syscon-apbc2",
->> +		.data		= &k1_ccu_apbc2_data,
->> +	},
->>   	{ }
->>   };
->>   MODULE_DEVICE_TABLE(of, of_k1_ccu_match);
->> diff --git a/drivers/reset/spacemit/k1.c b/drivers/reset/spacemit/k1.c
->> index 19a34f151b214..27434a1928261 100644
->> --- a/drivers/reset/spacemit/k1.c
->> +++ b/drivers/reset/spacemit/k1.c
->> @@ -137,6 +137,57 @@ static const struct ccu_reset_controller_data k1_apmu_reset_data = {
->>   	.count		= ARRAY_SIZE(apmu_resets),
->>   };
->>   
->> +static const struct ccu_reset_data rcpu_resets[] = {
->> +	[RESET_RCPU_SSP0]	= RESET_DATA(RCPU_SSP0_CLK_RST,	0, BIT(0)),
->> +	[RESET_RCPU_I2C0]	= RESET_DATA(RCPU_I2C0_CLK_RST,	0, BIT(0)),
->> +	[RESET_RCPU_UART1]	= RESET_DATA(RCPU_UART1_CLK_RST, 0, BIT(0)),
->> +	[RESET_RCPU_IR]		= RESET_DATA(RCPU_CAN_CLK_RST,	0, BIT(0)),
->> +	[RESET_RCPU_CAN]	= RESET_DATA(RCPU_IR_CLK_RST,	0, BIT(0)),
->> +	[RESET_RCPU_UART0]	= RESET_DATA(RCPU_UART0_CLK_RST, 0, BIT(0)),
->> +	[RESET_RCPU_HDMI_AUDIO]	= RESET_DATA(AUDIO_HDMI_CLK_CTRL, 0, BIT(0)),
->> +};
->> +
->> +static const struct ccu_reset_controller_data k1_rcpu_reset_data = {
->> +	/* No clocks in the RCPU CCU */
-> 
-> This information is not useful in the reset driver.
-
-Yes, I think this was just copy-pasted from the previous code.
-This won't be there in the next version.
-
-					-Alex
-
-> regards
-> Philipp
-
+Thanks.
 
 _______________________________________________
 linux-riscv mailing list
