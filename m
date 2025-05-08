@@ -4,90 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50823C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 10:02:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF302C3ABBE
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 11:14:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:From:To:Cc:
-	Subject:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aC0wOrYOZ06Hlqg+6NzZxaQ6xsAHfzRkWtYqWvv4vog=; b=bwbvUuoTB8wXk0
-	ijgtBUaH64XlGVxP4kAPW/rZ8te4RhJtboMA3TZlE4aCtuYXBHrfQYQErznAVnIGccv1Xb+j+XvKs
-	+P48VyYIgufBPBQsz2RHg7qMZzzpcAgISm1XRmY4/YFMhzgpW3N/6BIRqdERQBBIdwogw7gvMYQ3Z
-	tsnF5JlaJlR9/ZjCdSgGcFu5XB9HL7ZncdAMjF3AzZkJ3dD+Kde+a6nUtL7rGfEGnVT7gf89SrRVe
-	8w/kN+ionMKj0SkMiJeGKMdDx51873t7Lz4LPDmWS3i+GObnw/TClS2/JbKqcGhM4nPdXkzY5YlOO
-	VG0pgJV2zLMKkCAVF4Bw==;
+	List-Owner; bh=wcS2IGHsVbRwL8zy3nZu8KWR26+uoJxhJKKj220c4vw=; b=ZbgGpQ2saTPcDR
+	Lhkcrd5C0/ooXsnluXfWchRFT9Q4LEWJD5MG8tKeGb2LF52NNICMvBHRMJZ9UuHXjp6E9W3kgnKGN
+	hQT7EG+WpUVnfeR4C7jCrdy/1/o+ExSy7blHIBCX8RC4ohXItWBBF2lS++tFqzHLaglDtaudTZxvf
+	4lKjEcQuHSPg7Q8eYqOh7RzTg/LZ7HzDlbpVkv1JsVMRtCPuU3t86Vy5XeImQ4/AR2BNO7N2VfB+g
+	NZF9JCHRDUXZ52XsfVWSaLsM+7/bOxEmxkUreuIkwrQ6n6JG324jQVN/fSBGfd05hd8ydNBa1jtRc
+	hcjZ8F+p8jVfRWRmmghg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCy4y-00000000KNb-0CKE;
-	Thu, 08 May 2025 10:02:12 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1uCzD8-00000000SsD-3VlD;
+	Thu, 08 May 2025 11:14:42 +0000
+Received: from mail-yb1-xb2c.google.com ([2607:f8b0:4864:20::b2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCy4v-00000000KMm-3oWl
+	id 1uCzCO-00000000SlR-1C1d
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 10:02:10 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43cf7c2c351so791735e9.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 03:02:09 -0700 (PDT)
+	Thu, 08 May 2025 11:13:57 +0000
+Received: by mail-yb1-xb2c.google.com with SMTP id 3f1490d57ef6-e7311e66a8eso864018276.2
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 04:13:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1746698528; x=1747303328; darn=lists.infradead.org;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WBoYS0wz++EQw8/z3GxgW1EZr6KbY89jyHXnVjV8trs=;
-        b=X6/Du0BUCJLCDnHsd7HoNu+5X5ji0JgAvyj8I+eCctKtxcWqF0Pe10ptAHD99mk9Hw
-         YhHipFKTbvPOS56Fs0A3XVAq+hoymfejYs3myf8J22kfZw9FsNmHd1dlKINYCuBCm3gw
-         Hs8U4mexvybRKHG+h//KY3FtjaojPfdRdECWZYMA6qWRFmmiY4wrr3iMb0JouE9W/FX6
-         OB0hLRnNYYXEZmpv+Og2uJrpyWL+QKIMHhuIYLgMvF6vJamMB0DzD/9JWwkCEYQmcqPH
-         q63nGIrfVCAB28HKH+Qwh6ysbjtD0hyFJgAQSmJPMN32G5njNW9ISYs0sNp5HEbvCmL2
-         pVwA==
+        d=linaro.org; s=google; t=1746702835; x=1747307635; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Wz0l5OYYb4wZW+mHv+F5ZoKS8UyIRgGRSrQBEHKOgR8=;
+        b=s4zkViaZdy/TUt0JfFJIfqtJRWHkAEIp7hpEl5sOrsZdU9hJ6ZlI5Hi0j0Skqg8L7X
+         ImC5D0zk9QGdFGenM0WEdLvaJwc22+7Hsp+nRSSqVgA4TSfwqlLu+IqY+GyBTV9kZ4Bl
+         axlnOteQNDpmBVKYFFPStPpAanFZmWRowDyiQRDZ7TBIo0CQLsXloNFNjr0GbY4xhj/d
+         aV+2t8vT8E2c8UxEjKpK7OLjQ2fXUumxhrS99A1mYDHvAlxC23Q5IvzmjDtZHPFkgV0K
+         fk6/6VD5QYs7EaDIgd8C0g+kTBxDNgZskmqRtUiLha5UDU7jAN00GXt4sq+xi/nCYX1Z
+         aPYA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746698528; x=1747303328;
-        h=in-reply-to:references:from:to:cc:subject:message-id:date
-         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=WBoYS0wz++EQw8/z3GxgW1EZr6KbY89jyHXnVjV8trs=;
-        b=ZNOk9YmkxMhv1S+SPZVd+zGfbZJBxyt3fXeLhveNaxbed5lECH/8nR3xojYtIFkW8W
-         HoqYf5P3f3ewy4txdSm0YpEte7WycgZUeKLaL18iAed1pLhWqiuC9dpbXn9P/LbSBdLV
-         Zz5oiiz9ucoB9dEN3ci1dpzUmlNTa7NiuLnZsLhY9mzlwp2+x8RHVUy1qsjABWpvFclT
-         wKOAUm23tUBXBmn4KBhymSeRBRWbzVcjP89cMRfs8CEZlaLcYEMbL4EBhF4TYceeJlbM
-         kHRm4EDLne3QGPypCMwgoboUWYhaNH/UqWWifRFQC2ETodoG2s01Zx0andDl0A3oAzPy
-         5pGg==
-X-Forwarded-Encrypted: i=1; AJvYcCV7DIv7szsQnbLIKUMFDCoybl+h2vB0upzT519Fy2pYVaNdKtABpIsR2she9D5RI3W9M69Zr5TR5e2ECQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzWYDgJf3LYuPmSz5ZBH+iDsx102MT7zZ1SeJGH9w03XlbAOXoN
-	sB+eWITxLIkam+xFEObnBwh5SouyPVJWOUq3PRtRzDOZK6O3PCUNOOW+ycfQp/3gp1HkKYcCI7Z
-	8
-X-Gm-Gg: ASbGncs3AmMlttNZ0lS39KGS2fA9oc5DKgEDmVcrrLfnCFOSzLvUphnuucLtBgUnX5p
-	RSXO8jF0ryRFLCYAK+3Tj3Zg7QiqMKAgxyxeniFrkXKCrYgWJbh+1N0gk0QhJUippKvg58M8qZZ
-	exIpI0P2K24bRtFhfOf4NmbSGj3lq7+56uvjhL3qCsVGlXZUNwDewIH1I/12kh0VwrEsxIvJIvN
-	r7V3nhbeYuVtRaNCFTJeU/DePQnanApwLTUWjYKmFZFo6mhQM9ir6NszkWCE9v2tiCMRv0J8rg/
-	Yh4PDyy96+dGI/qyIwO6WK17OTwYJ61FT/4bqnYH4sn4UVziGv/HEZvCrM4=
-X-Google-Smtp-Source: AGHT+IHUaQx/Mee6s3Ke3xU/t61RV8r367qD/26lQfVX2YZuAy0gm6pedVbgXrEeJfa8XZl3movr0A==
-X-Received: by 2002:a05:600c:1c97:b0:43d:301b:5508 with SMTP id 5b1f17b1804b1-441d44bc487mr21958065e9.2.1746698528415;
-        Thu, 08 May 2025 03:02:08 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200:a451:a252:64ea:9a0e])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099ae7caasm20004897f8f.54.2025.05.08.03.02.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 03:02:08 -0700 (PDT)
-Mime-Version: 1.0
-Date: Thu, 08 May 2025 12:02:07 +0200
-Message-Id: <D9QOY9TMQXSX.2VOEKVRCXKOO1@ventanamicro.com>
-Subject: Re: [PATCH 3/5] KVM: RISC-V: remove unnecessary SBI reset state
-Cc: <kvm-riscv@lists.infradead.org>, <kvm@vger.kernel.org>,
- <linux-riscv@lists.infradead.org>, <linux-kernel@vger.kernel.org>, "Atish
- Patra" <atishp@atishpatra.org>, "Paul Walmsley" <paul.walmsley@sifive.com>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Andrew Jones"
- <ajones@ventanamicro.com>, "Mayuresh Chitale" <mchitale@ventanamicro.com>
-To: "Anup Patel" <anup@brainfault.org>
-From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
-References: <20250403112522.1566629-3-rkrcmar@ventanamicro.com>
- <20250403112522.1566629-6-rkrcmar@ventanamicro.com>
- <CAAhSdy3y0-hz59Nrqvvhp=+cWJe1s50K7EpuZmKBqfy-XQFd1Q@mail.gmail.com>
-In-Reply-To: <CAAhSdy3y0-hz59Nrqvvhp=+cWJe1s50K7EpuZmKBqfy-XQFd1Q@mail.gmail.com>
+        d=1e100.net; s=20230601; t=1746702835; x=1747307635;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Wz0l5OYYb4wZW+mHv+F5ZoKS8UyIRgGRSrQBEHKOgR8=;
+        b=QmroxeXg8OOMRV8I/V6SQ1mvaVoqbJeV7ERfCt98zsIPzYg5U6hwWGaxbpkK5jEF4C
+         P1VuxAr23uSoJ4d9Vsv/ooJ0CduqicHx+tmGx/Gi/tYCnTLgYsHOGA2GHNndQr6AM1A+
+         iOONYvFp93WB1pDWPRxmd6i5aRuG0FtaXOs6kqArh8TNAAnZX0md3DykIbY4EHHIqj3k
+         5G8kknTw2FTACqDE9tGU5a4w7l7jAy4CH6KdxBb+WWvdNrQxhzOK1lykqHW9/eGRvLya
+         mvQOQ0hyLfVOL/NAmzrJH0DpW5k6DbFPDnIC+irVCDJgKi41FJi2OogzAWk9lXH36OLk
+         /AGA==
+X-Forwarded-Encrypted: i=1; AJvYcCWXPpKrGhifcGazNxefjcviY7iwaCeeYOBFnt3XGFGxgZ8D5H6nFR49g3LzXSbf2pwSwvwbRtAm3ct+AA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdcQPIcBaVxS4lTHYrJit0gU+aO4bCXoJSZzeBcar7b0hxnW8g
+	6QSyOwkbLKw41ZUVFNnM2ZiNttTazlsBADNtt4l3OEOHXu+xl/Xwatn8ZwonpxmlpbKnYJCHLcD
+	JUZGIadSFqs+gn3BmzRFf8+kCC33qbWsYeP7LRQ==
+X-Gm-Gg: ASbGnctmqvPcKmpcQb2lwNA8SNEmEEk97MuMNqOq3kdQ5mpyLtURzWUXjwH6FvYxpCf
+	WigiR6Vh8OoiAxZWGi2xaJ/PCOq9ssPDdm7oQT8bGr26MDxhmmrJec345fazZpEfAaIYJRMliU+
+	jcS9ZvxGziks85a6A0PnyGcFs=
+X-Google-Smtp-Source: AGHT+IFqQdI6e1trWbJBwK/oeHTdsQLNh5rp3zpOH+TfiAJBCwyBTZ7DbhV2v2lokDznxkf4DSHMOmiGIM30cUQx248=
+X-Received: by 2002:a05:6902:1b89:b0:e78:ed12:6d92 with SMTP id
+ 3f1490d57ef6-e78ef73b5d7mr3479249276.40.1746702834996; Thu, 08 May 2025
+ 04:13:54 -0700 (PDT)
+MIME-Version: 1.0
+References: <CGME20250414185316eucas1p2c2dbd33788d9141773546f7a479ac288@eucas1p2.samsung.com>
+ <20250414-apr_14_for_sending-v2-0-70c5af2af96c@samsung.com>
+ <20250414-apr_14_for_sending-v2-3-70c5af2af96c@samsung.com>
+ <CAPDyKFqX5cjQe3-MX3W9wMoQW3gzwSvb0QMf-_sTJuq_TeGsCg@mail.gmail.com> <5413f5c7-8049-4490-bdd6-8c03f6e2057f@samsung.com>
+In-Reply-To: <5413f5c7-8049-4490-bdd6-8c03f6e2057f@samsung.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 8 May 2025 13:13:19 +0200
+X-Gm-Features: ATxdqUFZBkfWWqLt3Ds_1EAZOWb0PLKmTy9yLzgOWSvL-CIrLIE3LaF4c8kkZg0
+Message-ID: <CAPDyKFpi6_CD++a9sbGBvJCuBSQS6YcpNttkRQhQMTWy1yyrRg@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] pmdomain: thead: Add GPU-specific clock and reset
+ handling for TH1520
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>, 
+	Pavel Machek <pavel@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
+	Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	m.szyprowski@samsung.com, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_030209_946707_5DC8B341 
-X-CRM114-Status: GOOD (  10.18  )
+X-CRM114-CacheID: sfid-20250508_041356_336359_5CDBDA39 
+X-CRM114-Status: GOOD (  37.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,28 +101,147 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-MjAyNS0wNS0wOFQxMTo0ODowMCswNTozMCwgQW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9y
-Zz46Cj4gT24gVGh1LCBBcHIgMywgMjAyNSBhdCA1OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxy
-a3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Pgo+PiBUaGUgU0JJIHJlc2V0IHN0YXRl
-IGhhcyBvbmx5IHR3byB2YXJpYWJsZXMgLS0gcGMgYW5kIGExLgo+PiBUaGUgcmVzdCBpcyBrbm93
-biwgc28ga2VlcCBvbmx5IHRoZSBuZWNlc3NhcnkgaW5mb3JtYXRpb24uCj4+Cj4+IFRoZSByZXNl
-dCBzdHJ1Y3R1cmVzIG1ha2Ugc2Vuc2UgaWYgd2Ugd2FudCB1c2Vyc3BhY2UgdG8gY29udHJvbCB0
-aGUKPj4gcmVzZXQgc3RhdGUgKHdoaWNoIHdlIGRvKSwgYnV0IEknZCBzdGlsbCByZW1vdmUgdGhl
-bSBub3cgYW5kIHJlaW50cm9kdWNlCj4+IHdpdGggdGhlIHVzZXJzcGFjZSBpbnRlcmZhY2UgbGF0
-ZXIgLS0gd2UgY291bGQgcHJvYmFibHkgaGF2ZSBqdXN0IGEKPj4gc2luZ2xlIHJlc2V0IHN0YXRl
-IHBlciBWTSwgaW5zdGVhZCBvZiBhIHJlc2V0IHN0YXRlIGZvciBlYWNoIFZDUFUuCj4+Cj4+IFNp
-Z25lZC1vZmYtYnk6IFJhZGltIEtyxI1tw6HFmSA8cmtyY21hckB2ZW50YW5hbWljcm8uY29tPgo+
-Cj4gUXVldWVkIHRoaXMgcGF0Y2ggZm9yIExpbnV4LTYuMTYKCls1LzVdIHdhcyBhbHJlYWR5IGFw
-cGxpZWQsIHdoaWNoIG1lYW5zIHRoYXQgWzMvNV0gd291bGQgYmUgbmljZXIgd2l0aAoKICBtZW1z
-ZXQoJnZjcHUtPmFyY2guc21zdGF0ZWVuX2NzciwgMCwgc2l6ZW9mKHZjcHUtPmFyY2guc21zdGF0
-ZWVuX2NzcikpOwoKaW4gdGhlIG5ldyBmdW5jdGlvbiAoa3ZtX3Jpc2N2X3ZjcHVfY29udGV4dF9y
-ZXNldCkgd2hlcmUgd2UgbWVtc2V0KDApCnRoZSBvdGhlciBjc3IgY29udGV4dC4KClNob3VsZCBJ
-IGFkZCBhIHBhdGNoIHRvIGRvIHRoYXQgaW4gdjI/CgpUaGFua3MuCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Wed, 30 Apr 2025 at 14:17, Michal Wilczynski
+<m.wilczynski@samsung.com> wrote:
+>
+>
+>
+> On 4/25/25 10:50, Ulf Hansson wrote:
+> > + Bartosz
+> >
+> > On Mon, 14 Apr 2025 at 20:53, Michal Wilczynski
+> > <m.wilczynski@samsung.com> wrote:
+> >>
+> >> Extend the TH1520 power domain driver to manage GPU related clocks and
+> >> resets via generic PM domain start/stop callbacks.
+> >>
+> >> The TH1520 GPU requires a special sequence to correctly initialize:
+> >> - Enable the GPU clocks
+> >> - Deassert the GPU clkgen reset
+> >> - Delay for a few cycles to satisfy hardware requirements
+> >> - Deassert the GPU core reset
+> >>
+> >> This sequence is SoC-specific and must be abstracted away from the
+> >> Imagination GPU driver, which expects only a standard single reset
+> >> interface. Following discussions with kernel maintainers [1], this
+> >> logic is placed inside a PM domain, rather than polluting the clock or
+> >> reset frameworks, or the GPU driver itself.
+> >
+> > Speaking about special sequences for power-on/off devices like this
+> > one, that's a known common problem. We actually have a generic
+> > subsystem for this now, drivers/power/sequencing/*.
+> >
+> > Perhaps it's worth having a look at that, it should allow us to
+> > abstract things, so the GPU driver can stay more portable.
+> >
+> > Kind regards
+> > Uffe
+>
+>
+> Hi Ulf, Bartosz,
+>
+> Thank you very much for your suggestion, Ulf. I took a look at the
+> drivers/power/sequencing/ API and agree that it seems like a suitable
+> framework to model the specific power-on/off sequence required for the
+> TH1520 GPU, allowing for better abstraction than embedding the logic
+> directly in genpd callbacks.
+>
+> My plan is to refactor the series based on this approach. Here's how I
+> envision the implementation:
+>
+> 1) Provider (th1520-pm-domains.c): This driver will register as both a
+> generic power domain provider and a power sequencer provider for the GPU
+> domain.
+>
+> 2) pwrseq target Definition: A pwrseq target will be defined within the
+> provider to encapsulate the required sequence (enable clocks, deassert
+> clkgen reset, delay, deassert GPU core reset). The target will be
+> named using the GPU's first compatible string with a "-power" suffix.
+>
+> Example GPU DT node, adhering to convention introduced here [1].
+> gpu: gpu@ffef400000 {
+>         compatible = "thead,th1520-gpu", "img,img-bxm-4-64",
+>                      "img,img-bxm", "img-rogue";
+> };
+
+I don't think the power-domain provider node is the correct place for
+this, from DT point of view.
+
+Instead, I would try to follow the same approach as
+Documentation/devicetree/bindings/regulator/qcom,qca6390-pmu.yaml,
+which uses a separate device-node to describe the pwrseq provider.
+
+>
+> [1] - https://lore.kernel.org/all/20250410-sets-bxs-4-64-patch-v1-v6-1-eda620c5865f@imgtec.com/#t
+>
+> 3) Consumer (drm/imagination): In its probe function, the driver will
+> read the first compatible string of the device node. It will then
+> attempt devm_pwrseq_get(dev, compatible_string_with_suffix) (e.g.
+> devm_pwrseq_get(dev, "thead,th1520-gpu-power")). The result
+
+Make sense, but we should probably use a more generic target-name,
+such as "gpu-power" or something along those lines.
+
+> pvr_dev->pwrseq_desc will be stored (it will be NULL if no suitable
+> provider/target is found, or a valid descriptor if successful). The
+> driver will still acquire its necessary clock/reset handles via
+> devm_*_get in probe for potential use outside of RPM (like devfreq).
+>
+> 4) Consumer Runtime PM Callbacks
+> (pvr_power_device_resume/suspend): These functions will check if
+> pvr_dev->pwrseq_desc is valid. If valid: Call pwrseq_power_on() in
+> resume and pwrseq_power_off() in suspend. The driver will not perform
+> its own clock/reset enabling/disabling for resources managed by the
+> sequence. If NULL: Execute the existing fallback logic (manually
+> enabling/disabling clocks/resets using the handles acquired in probe).
+> Unconditional logic (like FW booting/shutdown) will remain within the
+> RPM callbacks, executed after successful power on or before power off,
+> respectively.
+>
+> 5) Resource Handling (via genpd callbacks): To allow the provider
+> (th1520-pm-domains.c) to access resources defined in the consumer's DT
+> node (specifically the clocks and gpu_reset needed in the sequence), I
+> plan to keep the attach_dev / detach_dev genpd callbacks as implemented
+> in the previous patch version. attach_dev will acquire the consumer's
+> resources (using the consumer_dev pointer) and store the handles in the
+> provider's context. The pwrseq unit callbacks will then access these
+> stored handles via the shared context. detach_dev will release these
+> resources. This seems necessary as the pwrseq API itself doesn't
+> currently provide a direct hook for the provider to get the consumer's
+> device pointer or manage its resources across the pwrseq_get/put
+> lifecycle.
+
+If we have a separate node describing the pwrseq, as
+Documentation/devicetree/bindings/regulator/qcom,qca6390-pmu.yaml,
+it's should be rather easy to hook up and pwrseq driver for it too, as
+drivers/power/sequencing/pwrseq-qcom-wcn.c does it.
+
+>
+> This approach uses the pwrseq framework for the sequence logic as
+> suggested, keeps the generic consumer driver free of SoC-specific
+> sequence details (by using the compatible string lookup for this), and
+> retains the genpd attach/detach mechanism to handle cross-node resource
+> dependencies.
+>
+> Please let me know if this plan sounds reasonable.
+>
+> Thanks !
+
+[...]
+
+That said, Bartosz is better with guidance around pwrseq
+providers/consumers. The above is just my view of it - and I might
+have missed something.
+
+Kind regards
+Uffe
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
