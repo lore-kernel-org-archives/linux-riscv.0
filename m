@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 912E4C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 07:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECA63C3ABC5
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 07:30:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZzhWadMtHcwOSa5qJdA6X82MYTrdXyzKXLCPLoUsFek=; b=JXGbTgixjmUuDS
-	gQs7AT6TeGLaSdmZuQ2PELlWohnICf/FU+mi9sStFU8nvb8ulMVjP+G+0Cm7jiim9hlHv80xACSoA
-	EBjHDZWsHxFHekXeEcvoIfY/VAN69sP5pTAABUJFV48MWZB+wc/n73+9EH0o1wfTHdEiImXbZsrXa
-	ulu594LqEGW8mdaMFOGHBWu3yxBfYHIzKw0XGwmjlxuynyVzsfg+TmmtnYHboaH+GsaLy08OAGh6g
-	qP+y1UGPNQRi6YMTJK1TsF+I6y1iVSAZQzQlOCERApooW2QgulXCfA4dtDx2pH53luuGDEIbwpHri
-	b5NvIzzYpQU6Y8fhM+aQ==;
+	List-Owner; bh=SRu+FWXo/l8TmO0yVmteqEbeAZVAdN4n0P0RwPr6f98=; b=AhmOAsgrhfGcDA
+	EVdRgT0Odvv/1sMA7AmhWW9q6fuHy64Y+2T4DfZjx3fKcXi1lB+5P6u1OUDDn2B/TvRRYYzYQzdUP
+	w5DACVG0l+n3/3b3i4i8yBRNFi1m3TQCl+keAKzpg48BNqKENpdfQbyPkc4yRHfIhup7AWcAsfsCC
+	Ukc4y9of4lSVncNzAf9fRwIq09sY+DPZX9AB4vd3F2ZEfeqs1rDBW9kG7YQs/kT0QZNnLxsZniRp3
+	SeDijmqLZQS2Bv8LEPPGU9VWU6EkGAHVvXFO/LmOQnrxLBogR2uSc1nxPVgrK8EM0F6WWXNCHZtB0
+	W1boFVCSH3rsc0mKpbQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvga-0000000HazU-48tM;
-	Thu, 08 May 2025 07:28:52 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1uCviW-000000000Fr-1Y7G;
+	Thu, 08 May 2025 07:30:52 +0000
+Received: from mail-oo1-xc30.google.com ([2607:f8b0:4864:20::c30])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCvP0-0000000HYHT-0UTk
+	id 1uCvTc-0000000HZ9i-38cR
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 07:10:43 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-441c99459e9so4220795e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 00:10:41 -0700 (PDT)
+	Thu, 08 May 2025 07:15:29 +0000
+Received: by mail-oo1-xc30.google.com with SMTP id 006d021491bc7-60638c07cabso432549eaf.3
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 00:15:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746688240; x=1747293040; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gxqvv2kVznygyMpPQhBBuZdHRKOaCwcOHj02WM+6aCA=;
-        b=vz8FHhJ3dqm2MRLNeEiBpxo/HnIQZRITmhAR82eM60hIfPlw7UzYtFNF72E0eLr3C1
-         gltwG/8TzLRk1fbxqvvLqyRS2EyOrWchB/ghFLJX9qJKPfEwqZCHUWote3jiW3pMzJPU
-         XkJ5FgvXoLS8k5miEVHlRoqUI85Af1b1UK7yc4XXJBFJqRw4oJuwZnIg0qI3ZOuUbZvr
-         A1+NxVgY7Y6GZXGKL0Q9ut35VaaEGln7wGWi4MFzedknUvSMl+M9fHrdAZHFsIIcUQ5t
-         vFI5wF+Q2mkVbwM8xvJgKfZ6UdYUGnLQYyDVcYM0AHSYz2hWInw/0vzsK6dpbAL1FWKu
-         PzEg==
+        d=gmail.com; s=20230601; t=1746688527; x=1747293327; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=+6hEwmNbvDrX8ZUAsqAq49EAFin/5oOteZQpulus6Tc=;
+        b=DvCWLldsXmldMWEgcluQS0g0geM8rLSOhLwl60fw6WUVwIvDoZT9K+1v4IvCKJAz7S
+         Mgxci9JlgeIZE0vw9mzNhKKF0xoa3XxAvbd6b1+yjPTBJuvTy4dTBOr6+XN3KsbAYLj2
+         hJUAYCEhYuw7h4FdyluHdN8xzr/v18nvLALr2bOnPQgHJg70d6GrIzMUNXQ6k/7p7nEA
+         IQS+bFdQG8cS8rG/yCs1p0U5IVcDmv6urP36prmc+FnMXXuSVLDqxZ7xO+4iy/TE9RWF
+         dFQLhgQsqLgeA2EPR63lpT1+qXE9aCDDs0i14OU2GAVI8ZIXenMy0jq6HYtb1oBm0Dst
+         buFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746688240; x=1747293040;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gxqvv2kVznygyMpPQhBBuZdHRKOaCwcOHj02WM+6aCA=;
-        b=IYrl6S2Tv9cffuwcxgm2pt+1mGXZ5Ae/ZK77SXqZaPOG+9Wj8tBHh3kFJyyysS8gfm
-         8HJ9kxfyorABrHkmGCpYQFQfAfonepkDABjojYiK+8iMPxMNa5KlS1ayNBNUakh+mXeT
-         wfOCH9ypOJsQyVsdlQrSsdSu3JEFfxoZq1VGdp3EuZHhDLCU6OrF2AYVJDJ7XfM3BE/3
-         B931IgWtj4RxIz92C3xo+X+6N+BkTgBgXhre0rrhcCIWJCjP2hkcvPd6WDGutDeSweFX
-         rQlFb4gLKLUte9FMWVAytoqhRLBJ+l7YdA104Dn7WK8UMCikZTtHtw9/gAzEjNyNl02Q
-         nEDw==
-X-Forwarded-Encrypted: i=1; AJvYcCXV0djKfss25DpZHFPsOMMVQ7Yw7tNSMB0yPa+92DO4w2UNZPxgTXSLmtf/xH2HSZPZSiwbUa+UN0tTqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytDD3+aDXrCljbsJYr0yiYR5TVwkm6fOQfXf0cWwRv6zwEfD6K
-	6mr5NFG+evZZgQLx42o67EMAUUt5cnboKowsdWzZNWgnMZB5JTTAz8PgT50OQg==
-X-Gm-Gg: ASbGncuiLoCiCxumt6KIf7iYYiOMqJ3AGG2bPYnG60n1eewQ0jR6gIs7ngtEpPHTBSS
-	nzgHKi8n8CpixNIk9J84ekyd90NGnMKswXSydCzL9UC8GAgwl+XgDq3Wkk4sTnGBfyhQXKwlVFF
-	08ENyweKEUtXsGQD0ep/d3OttUeKCbo/z7zpPnKB4oHYRK9oJVjscQwxiTB8QEAfPJB85WQRBe0
-	64JEDGEcW83Wt06uV9awJY2urxfJJ0OavMpgalCUpp5aeLSQ4wVMWbdCXTXfh7R062m8u2UaUAl
-	2HpdXe0mlta10ISn29+Uj9hRS1tbvbZ8LVB8h5/QXw7wZ+BH/3/bGbf2ZVwzgxguPbhbly9DEQM
-	7XJ/epNHiWbqMPeQtOK6SXUSHz3Y=
-X-Google-Smtp-Source: AGHT+IGgtnss5GpWiojDUKov4jA59LAJatPG58Yl1qISK3zZp6/FyC3f5EypTaesaAZKtavZpNaRbA==
-X-Received: by 2002:a05:600c:4454:b0:43c:ec4c:25b4 with SMTP id 5b1f17b1804b1-441d44c439dmr52550855e9.10.1746688240344;
-        Thu, 08 May 2025 00:10:40 -0700 (PDT)
-Received: from [127.0.1.1] (cust-east-par-46-193-69-61.cust.wifirst.net. [46.193.69.61])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a099b178absm19500236f8f.97.2025.05.08.00.10.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 08 May 2025 00:10:39 -0700 (PDT)
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-Date: Thu, 08 May 2025 12:40:34 +0530
-Subject: [PATCH v4 5/5] PCI: qcom: Add support for resetting the slot due
- to link down event
+        d=1e100.net; s=20230601; t=1746688527; x=1747293327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+6hEwmNbvDrX8ZUAsqAq49EAFin/5oOteZQpulus6Tc=;
+        b=tfTHrmifJDQ3rHFB3PF5a54zGukQ6IzHpvA9GmNUDwsfLiT+Pq6aRJIm8aTEu3ZPD+
+         5EHGqBFIEiRkeCVV3Swsr0g0YH4gQ3M+hHoqZ1v7fMJUR7acYMx8cmC2ZQndFOniwoGk
+         IuAMEhLS6ylyxI+diC4ndzl32lj+7J5YNVQTaBT42k6N9qegJOdn6RyyBz7h0nPZHzs6
+         9hhkEbMQXf+zZuLulkQwz5Z9AxidbFiy7f0Prarjbc/JwQoGE5iHsc3Mw6KzZciOWQu3
+         9/IFojiEEevt/77RJYrQxyafmhwL7/6L8oxph5x+Yis1Om4kp4RhBa7cJQlm+n1GpUZp
+         2CoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUFzgFJKTuhzYCSCQaBMxijXu3DMpValB7rJsDqUTr8HLSGpZMs4OXgMZQ0jcRsPOzuLT9jflB5+xgNfA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxIfxiEMS+M1/Akn/UK++ZBYd6CSwyN30faHstggMVVsvQHbbqj
+	xsr5XTx5voNlb/c6UxPTgFj5bH0tTnP8dbpYNj58mBUhMVGZ7qFxldJAB/2XHhiQ5PqmABPVav4
+	lSP1RG6F8oipvEbG+GW4H4y71nqA=
+X-Gm-Gg: ASbGnct7R201Sqr6LbxlCuDvRBe41iO3ElmXfZkL1HDAlrnQzqHHGlSXJ6jNrmv+azD
+	LxlI6+LsI2nKZa3nVhEnh9JBy8nEOOnCJnrlRny4u4IrTUwWKbjmGOkoE/40x+GHZ0bY4oSXpn8
+	TkC/plk9tT2skkN7MIyxHECofQkpLDHHEikpVpQlZeNXYi2AaNQvwMvA==
+X-Google-Smtp-Source: AGHT+IH2EyRJKsRob0eFF+uoEduxPFeAuaPWyoQOX+ekx3T7de4gceRUCwFsPI+rPxKDLq8u+Ohe4WJ4VNimGAumXD4=
+X-Received: by 2002:a05:6820:203:b0:607:e15c:be07 with SMTP id
+ 006d021491bc7-60828d4dcf9mr4371937eaf.7.1746688527253; Thu, 08 May 2025
+ 00:15:27 -0700 (PDT)
 MIME-Version: 1.0
-Message-Id: <20250508-pcie-reset-slot-v4-5-7050093e2b50@linaro.org>
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
-In-Reply-To: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
-To: Mahesh J Salgaonkar <mahesh@linux.ibm.com>, 
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>, 
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>, 
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=8188;
- i=manivannan.sadhasivam@linaro.org; h=from:subject:message-id;
- bh=Xhfd2aLgY7EkLO7Pad4MqFaMxVqdKEiC/l5bXSdXFT0=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBoHFjqE6NUL0GQ03l5Ef29uZNrbNS1bDnMhx8cr
- lsEHGkeSamJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCaBxY6gAKCRBVnxHm/pHO
- 9Tv1B/4koilg8iRNvCXVqQRwOxyYvaueq2dMyvXrQNYllkSrcD/o3052unTWYPESlsa5UOWEvaj
- 2y+HRo5lOulNl50qrUg8NWJ8W2yVYT0MrBR3cu1uCsyXcMibs3heRmjgGb+BIWbDAbsRg++uwYX
- Zj9pWydtNgT5VIdMeywoHG5gVG9pxDo5IKX2feIE/EYC8VvejRC1cZlGud4yf4jwwQTu6jAgbdx
- JaneNTS/ekYtNYM3H/rLGFXJa5LLrzBkFh2mIVfRJMJMUvNFBcVwaW+oEPIwOaJiXyQQCuX986o
- mJAxemkQmzkhYW2XafVUWnkimHGGHOnNpiV98tIh9c2WmK/N
-X-Developer-Key: i=manivannan.sadhasivam@linaro.org; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
+References: <20250305083707.74218-1-zhangchunyan@iscas.ac.cn> <mhng-63c49bc7-0f86-47f7-bc41-0186f77b9d6f@palmer-ri-x1c9>
+In-Reply-To: <mhng-63c49bc7-0f86-47f7-bc41-0186f77b9d6f@palmer-ri-x1c9>
+From: Chunyan Zhang <zhang.lyra@gmail.com>
+Date: Thu, 8 May 2025 15:14:50 +0800
+X-Gm-Features: ATxdqUHZ_WeGypQ24ll_k9Tlw-2jyRAQMCglZpNZhX8QH-tmXjBcBV4g9oFBEAg
+Message-ID: <CAAfSe-vD_37uihLjGwOqQKnyKJaJ36OwxDeocMOhK4s6-cpzAA@mail.gmail.com>
+Subject: Re: [PATCH V5] raid6: Add RISC-V SIMD syndrome and recovery calculations
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: zhangchunyan@iscas.ac.cn, Paul Walmsley <paul.walmsley@sifive.com>, 
+	aou@eecs.berkeley.edu, Charlie Jenkins <charlie@rivosinc.com>, song@kernel.org, 
+	yukuai3@huawei.com, linux-riscv@lists.infradead.org, 
+	linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_001042_149982_A17DC644 
-X-CRM114-Status: GOOD (  28.88  )
+X-CRM114-CacheID: sfid-20250508_001528_785539_39C0B0F0 
+X-CRM114-Status: GOOD (  14.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,254 +95,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The PCIe link can go down under circumstances such as the device firmware
-crash, link instability, etc... When that happens, the PCIe slot needs to
-be reset to make it operational again. Currently, the driver is not
-handling the link down event, due to which the users have to restart the
-machine to make PCIe link operational again. So fix it by detecting the
-link down event and resetting the slot.
+Hi Palmer,
 
-Since the Qcom PCIe controllers report the link down event through the
-'global' IRQ, enable the link down event by setting PARF_INT_ALL_LINK_DOWN
-bit in PARF_INT_ALL_MASK register.
+On Mon, 31 Mar 2025 at 23:55, Palmer Dabbelt <palmer@dabbelt.com> wrote:
+>
+> On Wed, 05 Mar 2025 00:37:06 PST (-0800), zhangchunyan@iscas.ac.cn wrote:
+> > The assembly is originally based on the ARM NEON and int.uc, but uses
+> > RISC-V vector instructions to implement the RAID6 syndrome and
+> > recovery calculations.
+> >
+> > The functions are tested on QEMU running with the option "-icount shift=0":
+>
+> Does anyone have hardware benchmarks for this?  There's a lot more code
+> here than the other targets have.  If all that unrolling is necessary for
+> performance on real hardware then it seems fine to me, but just having
+> it for QEMU doesn't really tell us much.
 
-Then in the case of the event, call pci_host_handle_link_down() API
-in the handler to let the PCI core handle the link down condition. Note
-that both link up and link down events could be set at a time when the
-handler runs. So always handle link down first.
+I made tests on Banana Pi BPI-F3 and Canaan K230.
 
-The API will internally call, 'pci_host_bridge::reset_slot()' callback to
-reset the slot in a platform specific way. So implement the callback to
-reset the slot by first resetting the PCIe core, followed by reinitializing
-the resources and then finally starting the link again.
+BPI-F3 is designed with SpacemiT K1 8-core RISC-V chip, the test
+result on BPI-F3 was:
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
----
- drivers/pci/controller/dwc/Kconfig     |   1 +
- drivers/pci/controller/dwc/pcie-qcom.c | 112 ++++++++++++++++++++++++++++++---
- 2 files changed, 105 insertions(+), 8 deletions(-)
+  raid6: rvvx1    gen()  2916 MB/s
+  raid6: rvvx2    gen()  2986 MB/s
+  raid6: rvvx4    gen()  2975 MB/s
+  raid6: rvvx8    gen()  2763 MB/s
+  raid6: int64x8  gen()  1571 MB/s
+  raid6: int64x4  gen()  1741 MB/s
+  raid6: int64x2  gen()  1639 MB/s
+  raid6: int64x1  gen()  1394 MB/s
+  raid6: using algorithm rvvx2 gen() 2986 MB/s
+  raid6: .... xor() 2 MB/s, rmw enabled
+  raid6: using rvv recovery algorithm
 
-diff --git a/drivers/pci/controller/dwc/Kconfig b/drivers/pci/controller/dwc/Kconfig
-index d9f0386396edf66ad0e514a0f545ed24d89fcb6c..ce04ee6fbd99cbcce5d2f3a75ebd72a17070b7b7 100644
---- a/drivers/pci/controller/dwc/Kconfig
-+++ b/drivers/pci/controller/dwc/Kconfig
-@@ -296,6 +296,7 @@ config PCIE_QCOM
- 	select PCIE_DW_HOST
- 	select CRC8
- 	select PCIE_QCOM_COMMON
-+	select PCI_HOST_COMMON
- 	help
- 	  Say Y here to enable PCIe controller support on Qualcomm SoCs. The
- 	  PCIe controller uses the DesignWare core plus Qualcomm-specific
-diff --git a/drivers/pci/controller/dwc/pcie-qcom.c b/drivers/pci/controller/dwc/pcie-qcom.c
-index dc98ae63362db0422384b1879a2b9a7dc564d091..e577619d0f8ceddf0955139ae6b939842f8cb7be 100644
---- a/drivers/pci/controller/dwc/pcie-qcom.c
-+++ b/drivers/pci/controller/dwc/pcie-qcom.c
-@@ -34,6 +34,7 @@
- #include <linux/units.h>
- 
- #include "../../pci.h"
-+#include "../pci-host-common.h"
- #include "pcie-designware.h"
- #include "pcie-qcom-common.h"
- 
-@@ -55,6 +56,7 @@
- #define PARF_INT_ALL_STATUS			0x224
- #define PARF_INT_ALL_CLEAR			0x228
- #define PARF_INT_ALL_MASK			0x22c
-+#define PARF_STATUS				0x230
- #define PARF_SID_OFFSET				0x234
- #define PARF_BDF_TRANSLATE_CFG			0x24c
- #define PARF_DBI_BASE_ADDR_V2			0x350
-@@ -130,9 +132,14 @@
- 
- /* PARF_LTSSM register fields */
- #define LTSSM_EN				BIT(8)
-+#define SW_CLEAR_FLUSH_MODE			BIT(10)
-+#define FLUSH_MODE				BIT(11)
- 
- /* PARF_INT_ALL_{STATUS/CLEAR/MASK} register fields */
--#define PARF_INT_ALL_LINK_UP			BIT(13)
-+#define INT_ALL_LINK_DOWN			1
-+#define INT_ALL_LINK_UP				13
-+#define PARF_INT_ALL_LINK_DOWN			BIT(INT_ALL_LINK_DOWN)
-+#define PARF_INT_ALL_LINK_UP			BIT(INT_ALL_LINK_UP)
- #define PARF_INT_MSI_DEV_0_7			GENMASK(30, 23)
- 
- /* PARF_NO_SNOOP_OVERRIDE register fields */
-@@ -145,6 +152,9 @@
- /* PARF_BDF_TO_SID_CFG fields */
- #define BDF_TO_SID_BYPASS			BIT(0)
- 
-+/* PARF_STATUS fields */
-+#define FLUSH_COMPLETED				BIT(8)
-+
- /* ELBI_SYS_CTRL register fields */
- #define ELBI_SYS_CTRL_LT_ENABLE			BIT(0)
- 
-@@ -169,6 +179,7 @@
- 						PCIE_CAP_SLOT_POWER_LIMIT_SCALE)
- 
- #define PERST_DELAY_US				1000
-+#define FLUSH_TIMEOUT_US			100
- 
- #define QCOM_PCIE_CRC8_POLYNOMIAL		(BIT(2) | BIT(1) | BIT(0))
- 
-@@ -274,11 +285,14 @@ struct qcom_pcie {
- 	struct icc_path *icc_cpu;
- 	const struct qcom_pcie_cfg *cfg;
- 	struct dentry *debugfs;
-+	int global_irq;
- 	bool suspended;
- 	bool use_pm_opp;
- };
- 
- #define to_qcom_pcie(x)		dev_get_drvdata((x)->dev)
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev);
- 
- static void qcom_ep_reset_assert(struct qcom_pcie *pcie)
- {
-@@ -1263,6 +1277,8 @@ static int qcom_pcie_host_init(struct dw_pcie_rp *pp)
- 			goto err_assert_reset;
- 	}
- 
-+	pp->bridge->reset_slot = qcom_pcie_reset_slot;
-+
- 	return 0;
- 
- err_assert_reset:
-@@ -1517,6 +1533,74 @@ static void qcom_pcie_icc_opp_update(struct qcom_pcie *pcie)
- 	}
- }
- 
-+static int qcom_pcie_reset_slot(struct pci_host_bridge *bridge,
-+				  struct pci_dev *pdev)
-+{
-+	struct pci_bus *bus = bridge->bus;
-+	struct dw_pcie_rp *pp = bus->sysdata;
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct qcom_pcie *pcie = to_qcom_pcie(pci);
-+	struct device *dev = pcie->pci->dev;
-+	u32 val;
-+	int ret;
-+
-+	/* Wait for the pending transactions to be completed */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_STATUS, val,
-+					 val & FLUSH_COMPLETED, 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush completion failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	/* Clear the FLUSH_MODE to allow the core to be reset */
-+	val = readl(pcie->parf + PARF_LTSSM);
-+	val |= SW_CLEAR_FLUSH_MODE;
-+	writel(val, pcie->parf + PARF_LTSSM);
-+
-+	/* Wait for the FLUSH_MODE to clear */
-+	ret = readl_relaxed_poll_timeout(pcie->parf + PARF_LTSSM, val,
-+					 !(val & FLUSH_MODE), 10,
-+					 FLUSH_TIMEOUT_US);
-+	if (ret) {
-+		dev_err(dev, "Flush mode clear failed: %d\n", ret);
-+		goto err_host_deinit;
-+	}
-+
-+	qcom_pcie_host_deinit(pp);
-+
-+	ret = qcom_pcie_host_init(pp);
-+	if (ret) {
-+		dev_err(dev, "Host init failed\n");
-+		return ret;
-+	}
-+
-+	ret = dw_pcie_setup_rc(pp);
-+	if (ret)
-+		goto err_host_deinit;
-+
-+	/*
-+	 * Re-enable global IRQ events as the PARF_INT_ALL_MASK register is
-+	 * non-sticky.
-+	 */
-+	if (pcie->global_irq)
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+	qcom_pcie_start_link(pci);
-+	if (!dw_pcie_wait_for_link(pci))
-+		qcom_pcie_icc_opp_update(pcie);
-+
-+	dev_dbg(dev, "Slot reset completed\n");
-+
-+	return 0;
-+
-+err_host_deinit:
-+	qcom_pcie_host_deinit(pp);
-+
-+	return ret;
-+}
-+
- static int qcom_pcie_link_transition_count(struct seq_file *s, void *data)
- {
- 	struct qcom_pcie *pcie = (struct qcom_pcie *)dev_get_drvdata(s->private);
-@@ -1559,11 +1643,20 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 	struct qcom_pcie *pcie = data;
- 	struct dw_pcie_rp *pp = &pcie->pci->pp;
- 	struct device *dev = pcie->pci->dev;
--	u32 status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
-+	unsigned long status = readl_relaxed(pcie->parf + PARF_INT_ALL_STATUS);
- 
- 	writel_relaxed(status, pcie->parf + PARF_INT_ALL_CLEAR);
- 
--	if (FIELD_GET(PARF_INT_ALL_LINK_UP, status)) {
-+	/*
-+	 * It is possible that both Link Up and Link Down events might have
-+	 * happended. So always handle Link Down first.
-+	 */
-+	if (test_and_clear_bit(INT_ALL_LINK_DOWN, &status)) {
-+		dev_dbg(dev, "Received Link down event\n");
-+		pci_host_handle_link_down(pp->bridge);
-+	}
-+
-+	if (test_and_clear_bit(INT_ALL_LINK_UP, &status)) {
- 		dev_dbg(dev, "Received Link up event. Starting enumeration!\n");
- 		/* Rescan the bus to enumerate endpoint devices */
- 		pci_lock_rescan_remove();
-@@ -1571,11 +1664,12 @@ static irqreturn_t qcom_pcie_global_irq_thread(int irq, void *data)
- 		pci_unlock_rescan_remove();
- 
- 		qcom_pcie_icc_opp_update(pcie);
--	} else {
--		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
--			      status);
- 	}
- 
-+	if (status)
-+		dev_WARN_ONCE(dev, 1, "Received unknown event. INT_STATUS: 0x%08x\n",
-+			      (u32) status);
-+
- 	return IRQ_HANDLED;
- }
- 
-@@ -1732,8 +1826,10 @@ static int qcom_pcie_probe(struct platform_device *pdev)
- 			goto err_host_deinit;
- 		}
- 
--		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_MSI_DEV_0_7,
--			       pcie->parf + PARF_INT_ALL_MASK);
-+		writel_relaxed(PARF_INT_ALL_LINK_UP | PARF_INT_ALL_LINK_DOWN |
-+			       PARF_INT_MSI_DEV_0_7, pcie->parf + PARF_INT_ALL_MASK);
-+
-+		pcie->global_irq = irq;
- 	}
- 
- 	qcom_pcie_icc_opp_update(pcie);
+The K230 uses the XuanTie C908 dual-core processor, with the larger
+core C908 featuring the RVV1.0 extension, the test result on K230 was:
 
--- 
-2.43.0
+  raid6: rvvx1    gen()  1556 MB/s
+  raid6: rvvx2    gen()  1576 MB/s
+  raid6: rvvx4    gen()  1590 MB/s
+  raid6: rvvx8    gen()  1491 MB/s
+  raid6: int64x8  gen()  1142 MB/s
+  raid6: int64x4  gen()  1628 MB/s
+  raid6: int64x2  gen()  1651 MB/s
+  raid6: int64x1  gen()  1391 MB/s
+  raid6: using algorithm int64x2 gen() 1651 MB/s
+  raid6: .... xor() 879 MB/s, rmw enabled
+  raid6: using rvv recovery algorithm
 
+We can see the fastest unrolling algorithm was rvvx2 on BPI-F3 and
+rvvx4 on K230 compared with other rvv algorithms.
+
+I have only these two RVV boards for now, so no more testing data on
+more different systems, I'm not sure if rvv8 will be needed on some
+hardware or some other system environments.
+
+Thanks,
+Chunyan
 
 _______________________________________________
 linux-riscv mailing list
