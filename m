@@ -4,87 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A494C3ABC6
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770C4C3ABCA
 	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 12:54:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=azr2FxEi8yQYU30AcBUxn34IGDPt1ktXz+2GAMelSOQ=; b=y7jo6boEuN1gZp
-	J/uHySqxBALxtmoaT5+tibexySvD0/80ZsS7yuxBxR61qKxUooPTIaSrhspYy6O7scIernX8R7xIL
-	2b377zTvxhoOcL7ynimHmyPt8c4tiUZsyRMVm1hpTkJ1Ti+zi54Y4nbb0PXeEsDjOvFQBZXWp9v4o
-	scUlTVSP6S4lVLwDYIeGx8AUVktbAZW4K4S2WFLp0Aw5MNjMVgcL6JMkza6UYTXQG71KNKDTkL1H0
-	wIM2cevA3RypKFcT2NJg6TNHGNsqb3SyZVKckGYix6ewD94cneFWtMdeP3I3K/sR1bMQNHpGHQMwP
-	k9YT9/XO6H0o/Ysl5VWQ==;
+	List-Owner; bh=rVRFk5wlNRWl2IQqDU2eXdBjzbLzBUXt1F9PoIC+UEQ=; b=SXVZbyLR0l4xo8
+	q12XQ08Sl0xWgPfmkL9Jv3LoxrLLpm6xOeEqknVGkEvKPO7u0y4caNuF3lTVSaacvSNaeU+kaOkF+
+	I2R+0dfNBcg4vYzCUnhxXWBnyyS0gVQSWB7P8/91ZcKJ+8sOBdmslyc2uNzi5xDkOdQw/POKvj6as
+	6lSnqnwVHKIZ11X7vky78zP1PK5Wa1tkVJAqt2k1FHuCnQZjh4QLe/Hh7DDk+Ed2MUbLDVpI0+/sR
+	drVAkhMDw8G9Af0U0IfeYNMkdrUNLgRlvEGyHQLBbZ14zjqh2klkH7nUv6AT/p14gH0VIrCyzOtF5
+	krDawI4w4qGo1VpEdK2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0lW-00000000gGW-27be;
-	Thu, 08 May 2025 12:54:18 +0000
-Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
+	id 1uD0lX-00000000gGo-0ufT;
+	Thu, 08 May 2025 12:54:19 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uD0dw-00000000ehg-3OxR
+	id 1uD0fU-00000000ext-3Guq
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 12:46:30 +0000
-Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-879ed601971so141945241.1
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 05:46:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1746708384; x=1747313184; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=GxhL21BMpd7ZCe+Gl4Bl8PbrN0Fr94zagNOX3ZIRJuo=;
-        b=k6jhUsVlfG6FisAeGisZVCG9Rmbqz73iqRDBIaax4OVjYmT2oYZ+QQhwPLxSFpTx7T
-         eEGp4NdKu4pPAHZlvqtDjhG6TyED4YmniX9w+OtaBTq9WV2WWfye8jqNUdlWItky4hjo
-         NenB3oMZy+j6CHVgWaKsGDKCCqL6osiEmRItfEkubfzgvjyUxhYFcRhjSuUBsHwNpFCT
-         DFK3p0Eof/jHdILbo8ts7d17P0SXLXSn7ctUJniYNLBxpsm3dIK5sRraf6XZJJyyfgo9
-         SyBOsgDJRpRZa/11m35llVulb4X9VDqtVFQMRRK7Srz0aueofwoD6QZX8u/To/p9pQxf
-         DoAw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746708384; x=1747313184;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GxhL21BMpd7ZCe+Gl4Bl8PbrN0Fr94zagNOX3ZIRJuo=;
-        b=YGqFpcAL55OdtHxw6uMz5t43gbRDc+y1H1d1PgUCppBjY5ejdt+AfJIv7PzC4FVtpr
-         xANpj57Zwl4asUEYBchaJhCGipthslngmGG8QIBb6u5aLdUkc3eiwpDtbMJsY4rqBR0T
-         KFy+Z6c4N5MExbz5WaBqc2UX+aln1IryzFd48SQJyNkezSCIU2u3m01noX8CVmTYq58d
-         Eh3SGg4/l18LWZSPmIkUZ/AMu0XKWYCfnA3A/mPZeNCsyePLG6UsFykOyDt5Z3GxNT6n
-         ihd9ePLtRO/6aGxjs6k46kYTI4+fK2sahQTXhDVSmlAIZ87Tq4dtQS1E8vQwDH6y824u
-         i/tw==
-X-Forwarded-Encrypted: i=1; AJvYcCWw+9NYahA1EO7vuc1NqK5r4A6yPTwMKiGwrq6znf4WrPgz0E94xDcTZDOySesD09pW91kl4L/KGPqmZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxDJWD7dn9LtfY/OiYeBxXZypLocwourHGfFOFcXYG80w90mEZ
-	Aq4PsUenLPlKgZICTI5midtUoCx9XsEMPJr5jQQP2/Vh7X3IDD8+igvgvwQnN6M1cdxRiaBjT1h
-	H7ZQ+BSY/W7CPrTVisNPnkqTsYc6C1zQJHhF9bA==
-X-Gm-Gg: ASbGnctPTUrpK+3yyEKvTcCozLYN7ljJ/fDWZUgFIufKaXNIG64i8zNRmO1fFr97d5S
-	CWd5uGa6K/xM8GkBA9eL8EK15nWvplU1CCBHpdUGNfdVtoqo+lBUHs6u0PlJXJ8WtbjhooLSOMb
-	9XYqxn/u6SSb1vrjUYmG8x2gohFliyVrG3OHOXqumZKUD+EfaO96O3gEk=
-X-Google-Smtp-Source: AGHT+IFbvVLt60GR/D06kXgXguRPxKyPhSA1l9Mw/CXrZpcupzwQrtjV+ttTgDBVDbqFZyYz6tmMEWUoqdrcuK9JqVw=
-X-Received: by 2002:a05:6122:d0c:b0:52a:c0db:29e3 with SMTP id
- 71dfb90a1353d-52c37adcb5bmr4445788e0c.10.1746708384263; Thu, 08 May 2025
- 05:46:24 -0700 (PDT)
+	Thu, 08 May 2025 12:48:06 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 157CF12FB439;
+	Thu, 08 May 2025 05:48:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1746708483; bh=32CtRKmrPA7nB/+f8XmyUNlfkbdkgk0lazsLdNElUp8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=0Gy0hFUnJwW7W4VikxFm8zEYloYZjmlt56duf6SD/a1jKj2920kTub7a76TU4Xtpl
+	 8jtcYMFREVMr/r3tjrwO5V3rc3m2QYKKydHPSauHppvE6+eKuSzUEXNPPw3utZT5Nw
+	 wx1CyQxTbqSwOJoJkCAhzyToVXy2ne2U8NOPAyO9njuJZHrtYJraIxkykswX9g8+KX
+	 kbcfIK1xVTon+U1au/0jl8vOpIN154S4SRdlPYXhg7KkPpIc1IvHa/pDpIBFib3giU
+	 KeXe1eNwcDCEdinqd/+qEaefNGzePho0FGbnAaNtF1DqvmJ1dy8vY8MCFHC1ur1P5j
+	 5mLLm1dCj6LYA==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id Ylu42rJHkAyE; Thu,  8 May 2025 05:47:27 -0700 (PDT)
+Received: from ketchup (unknown [183.217.82.204])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id B177312FB404;
+	Thu, 08 May 2025 05:47:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1746708446; bh=32CtRKmrPA7nB/+f8XmyUNlfkbdkgk0lazsLdNElUp8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=j9Rxn0NnDtxFBNTZXaVNbdMlSNpg2FVTn1w7cyn9yZpuTnSC3saa0N6MeOBzX1uGD
+	 M5V5CqijL2FQCjQLOfl4w885XKxkR65CLQenF20WoJB+QFBcRHu0aWeYBqzsjm/MxA
+	 gTsZRNeRlk21Qg9K+213efdRner3P7bzuijDM1Itdjrls9SQlfSAys5wxq8tl+kZ9i
+	 aG4Z+DLuU1KOEiiJPdzokK9bBrA4MNlFji0bmN8K9t82TNBoBjyU49vMoAvn2VjnFR
+	 iE46+EBTQngIMS0MPAy8S4PJNhQs2OKApoHSHHXuEk7KnI8pN8s+rsTqPSVpRpkXvm
+	 0+MTId2zsOavg==
+Date: Thu, 8 May 2025 12:47:19 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
+	p.zabel@pengutronix.de, paul.walmsley@sifive.com,
+	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+	dlan@gentoo.org
+Cc: inochiama@outlook.com, guodong@riscstar.com, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v6 4/6] reset: spacemit: add support for SpacemiT CCU
+ resets
+Message-ID: <aByn187aRWyrzzF4@ketchup>
+References: <20250506210638.2800228-1-elder@riscstar.com>
+ <20250506210638.2800228-5-elder@riscstar.com>
+ <aBxDQ1_2xJjGlwNf@ketchup>
+ <d2614363-1dab-4ea3-b79a-5d3c02c4bc17@riscstar.com>
 MIME-Version: 1.0
-References: <20250508112618.875786933@linuxfoundation.org>
-In-Reply-To: <20250508112618.875786933@linuxfoundation.org>
-From: Naresh Kamboju <naresh.kamboju@linaro.org>
-Date: Thu, 8 May 2025 18:16:12 +0530
-X-Gm-Features: AX0GCFv8JbrdwShAXY5M9k1TMxLoslym5xx2qqXHrMOUjCEEzcClWt3y2dmQbkc
-Message-ID: <CA+G9fYsKqxUExVW1rEhU8_5pYOuhkzXyeL9TmTyGVsV2-C-PFQ@mail.gmail.com>
-Subject: Re: [PATCH 6.6 000/129] 6.6.90-rc2 review
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: stable@vger.kernel.org, patches@lists.linux.dev, 
-	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org, 
-	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org, 
-	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@denx.de, 
-	jonathanh@nvidia.com, f.fainelli@gmail.com, sudipm.mukherjee@gmail.com, 
-	srw@sladewatkins.net, rwarsow@gmx.de, conor@kernel.org, hargar@microsoft.com, 
-	broonie@kernel.org, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Anders Roxell <anders.roxell@linaro.org>, Dan Carpenter <dan.carpenter@linaro.org>, 
-	Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
+Content-Disposition: inline
+In-Reply-To: <d2614363-1dab-4ea3-b79a-5d3c02c4bc17@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_054628_860093_FC1E427D 
-X-CRM114-Status: GOOD (  17.62  )
+X-CRM114-CacheID: sfid-20250508_054805_134301_415CEDBF 
+X-CRM114-Status: GOOD (  32.62  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,183 +98,100 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 8 May 2025 at 17:00, Greg Kroah-Hartman
-<gregkh@linuxfoundation.org> wrote:
->
-> This is the start of the stable review cycle for the 6.6.90 release.
-> There are 129 patches in this series, all will be posted as a response
-> to this one.  If anyone has any issues with these being applied, please
-> let me know.
->
-> Responses should be made by Sat, 10 May 2025 11:25:47 +0000.
-> Anything received after that time might be too late.
->
-> The whole patch series can be found in one patch at:
->         https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.6.90-rc2.gz
-> or in the git tree and branch at:
->         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.6.y
-> and the diffstat can be found below.
->
-> thanks,
->
-> greg k-h
+On Thu, May 08, 2025 at 06:55:17AM -0500, Alex Elder wrote:
+> On 5/8/25 12:38 AM, Haylen Chu wrote:
+> > On Tue, May 06, 2025 at 04:06:35PM -0500, Alex Elder wrote:
+> > > Implement reset support for SpacemiT CCUs.  The code is structured to
+> > > handle SpacemiT resets generically, while defining the set of specific
+> > > reset controllers and their resets in an SoC-specific source file.  A
+> > > SpacemiT reset controller device is an auxiliary device associated with
+> > > a clock controller (CCU).
+> > > 
+> > > This initial patch defines the reset controllers for the MPMU, APBC, and
+> > > MPMU CCUs, which already defined clock controllers.
+> > > 
+> > > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > > ---
+> > >   drivers/reset/Kconfig           |   1 +
+> > >   drivers/reset/Makefile          |   1 +
+> > >   drivers/reset/spacemit/Kconfig  |  12 +++
+> > >   drivers/reset/spacemit/Makefile |   7 ++
+> > >   drivers/reset/spacemit/core.c   |  61 +++++++++++
+> > >   drivers/reset/spacemit/core.h   |  39 +++++++
+> > >   drivers/reset/spacemit/k1.c     | 177 ++++++++++++++++++++++++++++++++
+> > >   7 files changed, 298 insertions(+)
+> > >   create mode 100644 drivers/reset/spacemit/Kconfig
+> > >   create mode 100644 drivers/reset/spacemit/Makefile
+> > >   create mode 100644 drivers/reset/spacemit/core.c
+> > >   create mode 100644 drivers/reset/spacemit/core.h
+> > >   create mode 100644 drivers/reset/spacemit/k1.c
+> > > 
+> > 
+> > ...
+> > 
+> > > diff --git a/drivers/reset/spacemit/Kconfig b/drivers/reset/spacemit/Kconfig
+> > > new file mode 100644
+> > > index 0000000000000..4ff3487a99eff
+> > > --- /dev/null
+> > > +++ b/drivers/reset/spacemit/Kconfig
+> > > @@ -0,0 +1,12 @@
+> > > +# SPDX-License-Identifier: GPL-2.0-only
+> > > +
+> > > +config RESET_SPACEMIT
+> > > +	bool
+> > > +
+> > > +config RESET_SPACEMIT_K1
+> > > +	tristate "SpacemiT K1 reset driver"
+> > > +	depends on ARCH_SPACEMIT || COMPILE_TEST
+> > > +	select RESET_SPACEMIT
+> > > +	default ARCH_SPACEMIT
+> > > +	help
+> > > +	  This enables the reset controller driver for the SpacemiT K1 SoC.
 
-Regressions on riscv with allyesconfig and allmodconfig builds failed with
-clang-20 and gcc-13 toolchain on the stable-rc 6.6.90-rc1 and 6.6.90-rc2
+...
 
-* riscv, build
-  - clang-20-allmodconfig
-  - gcc-13-allmodconfig
-  - gcc-13-allyesconfig
+> > > diff --git a/drivers/reset/spacemit/Makefile b/drivers/reset/spacemit/Makefile
+> > > new file mode 100644
+> > > index 0000000000000..3a064e9d5d6b4
+> > > --- /dev/null
+> > > +++ b/drivers/reset/spacemit/Makefile
+> > > @@ -0,0 +1,7 @@
+> > > +# SPDX-License-Identifier: GPL-2.0
+> > > +
+> > > +obj-$(CONFIG_RESET_SPACEMIT)			+= reset_spacemit.o
+> > 
+> > As RESET_SPACEMIT is defined as bool, the reset driver will never be
+> > compiled as a module... so either the RESET_SPACEMIT_K1 should be
+> > limited to bool as well or you could take an approach similar to the
+> > clock driver.
+> 
+> I'm not sure I understand this statement, at least in this
+> context.  This pattern is used to define a single module
+> "reset_spacemit.o" out of several source files.
 
-Regression Analysis:
- - New regression? Yes
- - Reproducibility? Yes
+The problem is that RESET_SPACEMIT could only evaluate to N or Y (it's a
+bool entry), thus reset_spacemit.o will always be built into the kernel,
+regardless whether RESET_SPACEMIT_K1 is set to Y or M.
 
-Build regression: riscv uprobes.c unused variable 'start'
+In the clock driver, the platform config entry (SPACEMIT_CCU, bool type)
+is used to hide SoC-specific entries instead of being really used in
+Makefile.
 
-Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> But I think you're saying that RESET_SPACEMIT and
+> RESET_SPACEMIT_K1 should both be bool, or both be
+> tristate.  I will resolve that question before I
+> send the next version.
 
-## Build error riscv
-arch/riscv/kernel/probes/uprobes.c: In function 'arch_uprobe_copy_ixol':
-arch/riscv/kernel/probes/uprobes.c:170:23: error: unused variable
-'start' [-Werror=unused-variable]
-  170 |         unsigned long start = (unsigned long)dst;
-      |                       ^~~~~
-cc1: all warnings being treated as errors
+This isn't necessary, but making both of them bool will definitely
+simplify your work, although I'd like to see the reset driver able to
+be built as module, just like the clock one :)
 
-## Build riscv
-* Build log:  https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.6.y/build/v6.6.89-130-ga7b3b5860e08/testrun/28376898/suite/build/test/gcc-13-allmodconfig/log
-* Build history:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.6.y/build/v6.6.89-130-ga7b3b5860e08/testrun/28376898/suite/build/test/gcc-13-allmodconfig/history/
-* Build details:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.6.y/build/v6.6.89-130-ga7b3b5860e08/testrun/28376898/suite/build/test/gcc-13-allmodconfig/details/
-* Build link: https://storage.tuxsuite.com/public/linaro/lkft/builds/2woO9vttziZGlSKcBdoVu2LZm8Q/
-* Kernel config:
-https://storage.tuxsuite.com/public/linaro/lkft/builds/2woO9vttziZGlSKcBdoVu2LZm8Q/config
-* Toolchain: gcc-13 and clang-20
+> > > +reset_spacemit-y				:= core.o
+> > > +
+> > > +reset_spacemit-$(CONFIG_RESET_SPACEMIT_K1)	+= k1.o
 
-## Steps to reproduce
- -  tuxmake --runtime podman --target-arch riscv --toolchain gcc-13
---kconfig allmodconfig
-
-## Build
-* kernel: 6.6.90-rc2
-* git: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git
-* git commit: a7b3b5860e08c3b29b4a004562b9691d7c25a2f3
-* git describe: v6.6.89-130-ga7b3b5860e08
-* test details:
-https://qa-reports.linaro.org/lkft/linux-stable-rc-linux-6.6.y/build/v6.6.89-130-ga7b3b5860e08
-
-## Test Regressions (compared to v6.6.87-586-gda7333f263c3)
-
-* riscv, build
-  - clang-20-allmodconfig
-  - gcc-13-allmodconfig
-  - gcc-13-allyesconfig
-
-## Metric Regressions (compared to v6.6.87-586-gda7333f263c3)
-
-## Test Fixes (compared to v6.6.87-586-gda7333f263c3)
-
-## Metric Fixes (compared to v6.6.87-586-gda7333f263c3)
-
-## Test result summary
-total: 112131, pass: 91642, fail: 4421, skip: 15654, xfail: 414
-
-## Build Summary
-* arc: 5 total, 5 passed, 0 failed
-* arm: 129 total, 129 passed, 0 failed
-* arm64: 44 total, 44 passed, 0 failed
-* i386: 27 total, 20 passed, 7 failed
-* mips: 26 total, 22 passed, 4 failed
-* parisc: 4 total, 4 passed, 0 failed
-* powerpc: 32 total, 31 passed, 1 failed
-* riscv: 20 total, 17 passed, 3 failed
-* s390: 14 total, 13 passed, 1 failed
-* sh: 10 total, 10 passed, 0 failed
-* sparc: 7 total, 7 passed, 0 failed
-* riscv: 37 total, 33 passed, 4 failed
-
-## Test suites summary
-* boot
-* commands
-* kselftest-arm64
-* kselftest-breakpoints
-* kselftest-capabilities
-* kselftest-cgroup
-* kselftest-clone3
-* kselftest-core
-* kselftest-cpu-hotplug
-* kselftest-cpufreq
-* kselftest-efivarfs
-* kselftest-exec
-* kselftest-fpu
-* kselftest-ftrace
-* kselftest-futex
-* kselftest-gpio
-* kselftest-intel_pstate
-* kselftest-ipc
-* kselftest-kcmp
-* kselftest-kvm
-* kselftest-livepatch
-* kselftest-membarrier
-* kselftest-memfd
-* kselftest-mincore
-* kselftest-mqueue
-* kselftest-net
-* kselftest-net-mptcp
-* kselftest-openat2
-* kselftest-ptrace
-* kselftest-rseq
-* kselftest-rtc
-* kselftest-seccomp
-* kselftest-sigaltstack
-* kselftest-size
-* kselftest-tc-testing
-* kselftest-timers
-* kselftest-tmpfs
-* kselftest-tpm2
-* kselftest-user_events
-* kselftest-vDSO
-* kselftest-x86
-* kunit
-* kvm-unit-tests
-* lava
-* libgpiod
-* libhugetlbfs
-* log-parser-boot
-* log-parser-build-clang
-* log-parser-build-gcc
-* log-parser-test
-* ltp-capability
-* ltp-commands
-* ltp-containers
-* ltp-controllers
-* ltp-cpuhotplug
-* ltp-crypto
-* ltp-cve
-* ltp-dio
-* ltp-fcntl-locktests
-* ltp-fs
-* ltp-fs_bind
-* ltp-fs_perms_simple
-* ltp-hugetlb
-* ltp-ipc
-* ltp-math
-* ltp-mm
-* ltp-nptl
-* ltp-pty
-* ltp-sched
-* ltp-smoke
-* ltp-syscalls
-* ltp-tracing
-* perf
-* rcutorture
-
---
-Linaro LKFT
-https://lkft.linaro.org
+Regards,
+Haylen Chu
 
 _______________________________________________
 linux-riscv mailing list
