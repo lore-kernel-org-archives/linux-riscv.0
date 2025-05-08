@@ -4,82 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25E64C3ABC0
-	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 05:40:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80B58C3ABC0
+	for <linux-riscv@archiver.kernel.org>; Thu,  8 May 2025 05:50:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zS8rOBoXkmQZHB0GvNZ2PBeICEyXWVNyScpqPB8+kUw=; b=hs19q2nZXl+M8k
-	wNvdrqjtLEhR75TVRPSlvUjjy+up1E3dQyvx/ww39kl+qSLwEp+bTgbxToOsJcPAkH35zxcxGYR1N
-	+3xr8f+jTepsxpA1rRXQmteEhkc0ZINbOF4AJFjSInQDv/Ko29OhgXDxfR3TxpRdxJzO/LGUQsKAo
-	+v8cTcE/GSPWbbEmJ+DjicN1vZYu9U64HyvV4ZG9RBrANzncVI03M7Md8//hfOLjfb3cBJR657bh7
-	n0tz8oHRSS00nC8SUpPJ9Za+BdSyPgu0U+LlNgA31/LEt78BmvW69rcxtIzY1X9sTDT9itZ9wEgvR
-	09K8yAfzRVvU5LL67jbQ==;
+	List-Owner; bh=9c8Q74TujeiZbKhmT18FNWCFBGCiSOnZ8zNW2kzGjyg=; b=DlmczPx/+F516F
+	aOmaLm48RyETrDGMIBcqCxhfqAZ6iR1UhnhWchXo/Z44IfkUerw5SZm5d7e53FFl/xCNpHn5/xS7c
+	QF/BompTUwdG9GZsNpPUbu7MEvIAovkxVeaadLIE4fvXExXugsEiD+K6oVsUmMasH2tyruMW+EIzg
+	v8KNRG4rUadvuD15+DCRwRMutWEGPICIp77QwMF4uDYsrNxb11uSxwwWj7u8bFzoh/Qnn/CX50Jsh
+	viCmNKMK5f0UAaE3HDT/g1v+TKEwIavM8JgTIaQPXqIu/lUXdE+Jl1sgfFxaRfjwCospf9OctDdqh
+	bRsjQgHcJ6YTyQO5SKJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtzT-0000000HO7A-0oB8;
-	Thu, 08 May 2025 05:40:15 +0000
+	id 1uCu9N-0000000HOx4-0Pqk;
+	Thu, 08 May 2025 05:50:29 +0000
 Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uCtyB-0000000HO25-1Yoo
+	id 1uCu9H-0000000HOwG-0ab3
 	for linux-riscv@lists.infradead.org;
-	Thu, 08 May 2025 05:38:56 +0000
+	Thu, 08 May 2025 05:50:24 +0000
 Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
-	by bayard.4d2.org (Postfix) with ESMTP id 96FA612FB444;
-	Wed, 07 May 2025 22:38:53 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTP id 8305B12FB447;
+	Wed, 07 May 2025 22:50:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1746682733; bh=dDCrl7bkwo/0S+4APKJnm3R6af9SQELqg9M5HZnlgFc=;
+	t=1746683421; bh=9h1xbURXxGWrvKx9QCcbV1QCEaBoQJVsir3FtKD2gCs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bnXy1y85/b2c9u9GelQ+EWxYmOcP25x/X4mu7n3Hk7WxQvGvHJTEKvMRInDeQGJON
-	 CJydroNKSYlW2P7BMVwe/YZsoPToMgaBv1AZQhOe4MJ9rZ2T3YKi3APDRyiStx2jB6
-	 8mblpqic/vFCLea7qgCZ8lrUA7iDUqsTZ3cBen8ckgA57SMXpbI2OjUfl/qJA1rV/1
-	 Whhf+bHiDao2TW1lh+UJ1ngRYdzfYU9Kp0krWuZA+EOAQhA/IOY6RoqBvAPWCMiBD+
-	 A76ndalXqqA/XDH1iao5VF9INz7gn2GDNBBKwSpa1zMapbYS1LlHzKoS4ex+QC1Vpi
-	 j0pMZEGkzPzeQ==
+	b=mtVqxhw4uMfcFkqkn2govDBg6HdQT72/yv4YNkMaAMZ2W/qkCfX1waLVpD32rUYE6
+	 pdyZx/XcDqW7FEI0x26rojU6SejdMYGe/ue0olk1cN1M3jjP0P9/WY0Cu1vCIuzZaX
+	 4yJiwaOIWJBgqJayp0uWrbcg6CLXnftxGNNr7W9bulaQVVHh9agzmhWYNvCAVrOwXA
+	 mKVXUDHfYTwxE6Sn7bdVukTP4KajT9Qr+bbBxqiKZJamvCdSKhRsTpqtGmYNThoySm
+	 z8J15ghInqO+VDIeEeL0Fnd6FZWcXvLr1tNLxd/PdkugaDfZV6e7EeMEv7mEaCH07w
+	 tcOdpUiTgVJgg==
 X-Virus-Scanned: amavisd-new at 4d2.org
 Received: from bayard.4d2.org ([127.0.0.1])
  by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id oLEJHnSxcwgL; Wed,  7 May 2025 22:38:19 -0700 (PDT)
+ with ESMTP id ZB89_tY-Ofmk; Wed,  7 May 2025 22:49:47 -0700 (PDT)
 Received: from ketchup (unknown [183.217.82.204])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: heylenay@4d2.org)
-	by bayard.4d2.org (Postfix) with ESMTPSA id 7773212FB404;
-	Wed, 07 May 2025 22:38:15 -0700 (PDT)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 896BA12FB439;
+	Wed, 07 May 2025 22:49:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
-	t=1746682699; bh=dDCrl7bkwo/0S+4APKJnm3R6af9SQELqg9M5HZnlgFc=;
+	t=1746683387; bh=9h1xbURXxGWrvKx9QCcbV1QCEaBoQJVsir3FtKD2gCs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=1ZCSTR2UamB34rz6a0We4Hxm+i7shGD78C0zzsPrCYtO4ElKKXZ5B1r9CyF1Bnwvw
-	 3xhCO7GIr8ibHgQMnZKZJwMbIijgOg3JD/gtXWviUPE+cCwYtaKhJcIX8DVs90Z3Av
-	 it6iWm2SnKOY3j1fjQ3XUtkJLCPMaKxt6g93++gr1gJa5FqEe761gCbSIYgkX78atw
-	 j87r5jc5yIgagwzEmUGRnlzgZY1Vq4E1ENA5TUDStsGuFSrXbCCj70r+5sh8NAS6Si
-	 yPuNjkXVh5c7CWQmp0ZAygwvP6ei3Cq2evvtm3qUv7szHCke/dFSTDew6PEkysSGcS
-	 q1J5WYq0dbQpA==
-Date: Thu, 8 May 2025 05:38:11 +0000
+	b=Q7g4GK4QYHgbQRvVz6WueosEuJM3dTt/iuT/Z69kHnZRsG0/sUiBbIyX4qx/VniWK
+	 SWoAyq3+YdPBynkoZy8PMBLF/6a8XVwYF5jAGJaYVLPi5fEU+SGJdnbQm1UbgERhb2
+	 knsws/s/c6KJgz3BRpNDaspFV50aUkpi/tE9GlVs9uCLSXth8ItSS7xFnDrato4Z2E
+	 nEkHMItd74NUdWtAF7qFWr95LFveUeghbIFwWhVVsKLYQ8iaIJjqrJaDTOo3SpXXaV
+	 B9bNrtnQXXwriCcCMqxef2UHdfSuvxPu+lB/kcc2Sk0GnC4zYzfLEo9n64czP8mj89
+	 yRq0ef7LoXY0A==
+Date: Thu, 8 May 2025 05:49:39 +0000
 From: Haylen Chu <heylenay@4d2.org>
-To: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org,
-	p.zabel@pengutronix.de, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	dlan@gentoo.org
-Cc: inochiama@outlook.com, guodong@riscstar.com, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v6 4/6] reset: spacemit: add support for SpacemiT CCU
- resets
-Message-ID: <aBxDQ1_2xJjGlwNf@ketchup>
-References: <20250506210638.2800228-1-elder@riscstar.com>
- <20250506210638.2800228-5-elder@riscstar.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Haylen Chu <heylenay@outlook.com>, Yixun Lan <dlan@gentoo.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	spacemit@lists.linux.dev, Inochi Amaoto <inochiama@outlook.com>,
+	Chen Wang <unicornxdotw@foxmail.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Meng Zhang <zhangmeng.kevin@linux.spacemit.com>,
+	Alex Elder <elder@riscstar.com>
+Subject: Re: [PATCH v8 5/6] riscv: dts: spacemit: Add clock tree for SpacemiT
+ K1
+Message-ID: <aBxF81yqPgHP5oA_@ketchup>
+References: <20250416135406.16284-1-heylenay@4d2.org>
+ <20250416135406.16284-6-heylenay@4d2.org>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250506210638.2800228-5-elder@riscstar.com>
+In-Reply-To: <20250416135406.16284-6-heylenay@4d2.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250507_223855_744728_4B5B2B10 
-X-CRM114-Status: GOOD (  22.88  )
+X-CRM114-CacheID: sfid-20250507_225023_221688_AAAD71E1 
+X-CRM114-Status: GOOD (  16.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,115 +103,95 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 06, 2025 at 04:06:35PM -0500, Alex Elder wrote:
-> Implement reset support for SpacemiT CCUs.  The code is structured to
-> handle SpacemiT resets generically, while defining the set of specific
-> reset controllers and their resets in an SoC-specific source file.  A
-> SpacemiT reset controller device is an auxiliary device associated with
-> a clock controller (CCU).
+Hi Yixun,
+
+On Wed, Apr 16, 2025 at 01:54:05PM +0000, Haylen Chu wrote:
+> Describe the PLL and system controllers that're capable of generating
+> clock signals in the devicetree.
 > 
-> This initial patch defines the reset controllers for the MPMU, APBC, and
-> MPMU CCUs, which already defined clock controllers.
-> 
-> Signed-off-by: Alex Elder <elder@riscstar.com>
+> Signed-off-by: Haylen Chu <heylenay@4d2.org>
+> Reviewed-by: Alex Elder <elder@riscstar.com>
+> Reviewed-by: Yixun Lan <dlan@gentoo.org>
 > ---
->  drivers/reset/Kconfig           |   1 +
->  drivers/reset/Makefile          |   1 +
->  drivers/reset/spacemit/Kconfig  |  12 +++
->  drivers/reset/spacemit/Makefile |   7 ++
->  drivers/reset/spacemit/core.c   |  61 +++++++++++
->  drivers/reset/spacemit/core.h   |  39 +++++++
->  drivers/reset/spacemit/k1.c     | 177 ++++++++++++++++++++++++++++++++
->  7 files changed, 298 insertions(+)
->  create mode 100644 drivers/reset/spacemit/Kconfig
->  create mode 100644 drivers/reset/spacemit/Makefile
->  create mode 100644 drivers/reset/spacemit/core.c
->  create mode 100644 drivers/reset/spacemit/core.h
->  create mode 100644 drivers/reset/spacemit/k1.c
+>  arch/riscv/boot/dts/spacemit/k1.dtsi | 75 ++++++++++++++++++++++++++++
+>  1 file changed, 75 insertions(+)
 > 
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index c670ebf8fa12..584f0dbc60f5 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
 
-...
+I found that I forgot to make the nodenames of syscons consistent:
+both "system-control" and "system-controller" are used, and pll should
+be named as "clock-controller" instead.
 
-> diff --git a/drivers/reset/spacemit/Kconfig b/drivers/reset/spacemit/Kconfig
-> new file mode 100644
-> index 0000000000000..4ff3487a99eff
-> --- /dev/null
-> +++ b/drivers/reset/spacemit/Kconfig
-> @@ -0,0 +1,12 @@
-> +# SPDX-License-Identifier: GPL-2.0-only
-> +
-> +config RESET_SPACEMIT
-> +	bool
-> +
-> +config RESET_SPACEMIT_K1
-> +	tristate "SpacemiT K1 reset driver"
-> +	depends on ARCH_SPACEMIT || COMPILE_TEST
-> +	select RESET_SPACEMIT
-> +	default ARCH_SPACEMIT
-> +	help
-> +	  This enables the reset controller driver for the SpacemiT K1 SoC.
+Could you please drop the SoC devicetree patch then I could rework on
+it and correct the mistake? Or I could follow up a clean up patch if
+dropping isn't easy or doesn't follow the convention.
 
-With auxiliary bus introduced, Kconfig entries for both the reset and
-clock should select AUXILIARY_BUS, or building defconfig will fail with
-undefined references,
-
-        riscv64-unknown-linux-musl-ld: drivers/clk/spacemit/ccu-k1.o: in function `k1_ccu_probe':
-        ccu-k1.c:(.text+0x19c): undefined reference to `auxiliary_device_init'
-        riscv64-unknown-linux-musl-ld: ccu-k1.c:(.text+0x226): undefined reference to `__auxiliary_device_add'
-        riscv64-unknown-linux-musl-ld: drivers/reset/spacemit/k1.o: in function `spacemit_k1_reset_driver_init':
-        k1.c:(.init.text+0x1a): undefined reference to `__auxiliary_driver_register'
-        riscv64-unknown-linux-musl-ld: drivers/reset/spacemit/k1.o: in function `spacemit_k1_reset_driver_exit':
-        k1.c:(.exit.text+0x10): undefined reference to `auxiliary_driver_unregister'
-
-> diff --git a/drivers/reset/spacemit/Makefile b/drivers/reset/spacemit/Makefile
-> new file mode 100644
-> index 0000000000000..3a064e9d5d6b4
-> --- /dev/null
-> +++ b/drivers/reset/spacemit/Makefile
-> @@ -0,0 +1,7 @@
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +obj-$(CONFIG_RESET_SPACEMIT)			+= reset_spacemit.o
-
-As RESET_SPACEMIT is defined as bool, the reset driver will never be
-compiled as a module... so either the RESET_SPACEMIT_K1 should be
-limited to bool as well or you could take an approach similar to the
-clock driver.
-
-> +reset_spacemit-y				:= core.o
-> +
-> +reset_spacemit-$(CONFIG_RESET_SPACEMIT_K1)	+= k1.o
-
-...
-
-> new file mode 100644
-> index 0000000000000..19a34f151b214
-> --- /dev/null
-> +++ b/drivers/reset/spacemit/k1.c
-
-...
-
-> +MODULE_DEVICE_TABLE(auxiliary, spacemit_k1_reset_ids);
-> +
-> +#undef K1_AUX_DEV_ID
-> +
-> +static struct auxiliary_driver spacemit_k1_reset_driver = {
-> +	.probe          = spacemit_k1_reset_probe,
-> +	.id_table       = spacemit_k1_reset_ids,
-> +};
-> +module_auxiliary_driver(spacemit_k1_reset_driver);
-> -- 
-> 2.45.2
-
-If you're willing to make the reset driver buildable as a module, please
-add MODULE_{LICENSE,DESCRIPTION} statements and possibly also
-MODULE_AUTHOR(), or modpost will complain,
-
-	ERROR: modpost: missing MODULE_LICENSE() in drivers/reset/spacemit/reset_spacemit.o
-	WARNING: modpost: missing MODULE_DESCRIPTION() in drivers/reset/spacemit/reset_spacemit.o
-
-Best regards,
+Thanks for your work,
 Haylen Chu
+
+> @@ -314,6 +346,17 @@ soc {
+>  		dma-noncoherent;
+>  		ranges;
+>  
+> +		syscon_apbc: system-control@d4015000 {
+> +			compatible = "spacemit,k1-syscon-apbc";
+> +			reg = <0x0 0xd4015000 0x0 0x1000>;
+> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
+> +				 <&vctcxo_24m>;
+> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
+> +				      "vctcxo_24m";
+> +			#clock-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+>  		uart0: serial@d4017000 {
+>  			compatible = "spacemit,k1-uart", "intel,xscale-uart";
+>  			reg = <0x0 0xd4017000 0x0 0x100>;
+> @@ -409,6 +452,38 @@ pinctrl: pinctrl@d401e000 {
+>  			reg = <0x0 0xd401e000 0x0 0x400>;
+>  		};
+>  
+> +		syscon_mpmu: system-controller@d4050000 {
+> +			compatible = "spacemit,k1-syscon-mpmu";
+> +			reg = <0x0 0xd4050000 0x0 0x209c>;
+> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
+> +				 <&vctcxo_24m>;
+> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
+> +				      "vctcxo_24m";
+> +			#clock-cells = <1>;
+> +			#power-domain-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+> +		pll: system-control@d4090000 {
+> +			compatible = "spacemit,k1-pll";
+> +			reg = <0x0 0xd4090000 0x0 0x1000>;
+> +			clocks = <&vctcxo_24m>;
+> +			spacemit,mpmu = <&syscon_mpmu>;
+> +			#clock-cells = <1>;
+> +		};
+> +
+> +		syscon_apmu: system-control@d4282800 {
+> +			compatible = "spacemit,k1-syscon-apmu";
+> +			reg = <0x0 0xd4282800 0x0 0x400>;
+> +			clocks = <&osc_32k>, <&vctcxo_1m>, <&vctcxo_3m>,
+> +				 <&vctcxo_24m>;
+> +			clock-names = "osc", "vctcxo_1m", "vctcxo_3m",
+> +				      "vctcxo_24m";
+> +			#clock-cells = <1>;
+> +			#power-domain-cells = <1>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+>  		plic: interrupt-controller@e0000000 {
+>  			compatible = "spacemit,k1-plic", "sifive,plic-1.0.0";
+>  			reg = <0x0 0xe0000000 0x0 0x4000000>;
+> -- 
+> 2.49.0
+> 
 
 _______________________________________________
 linux-riscv mailing list
