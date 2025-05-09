@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63D14C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 22:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C66CC3ABC9
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 22:28:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MVncIIPCUwpFHtBXS6M35A48dYecpAzeGN8Hmom6UW0=; b=GAQD7Be9qr+mMP
-	Ztm72GdQZoGh4LGB09aeRYrvY/b385yVMsmY2m1bmrzOyOC9MC4+bADfw7fTdnI2Kfk4Rxw74Pju5
-	4SUl3JQNWuhRO61YVgIhVM5m0stOol/LE2YxqRWBRsFC8lcoLW8o0iIVbBK8ZOdEz6ZMf1ewokM4u
-	IvnxbmFJRlLhbkmUU0bl8a6vHpLZ/jwXuBHt9gH8siCwx+jl5UlvhyHPVdvzd7gbOdvlpSUkTSha1
-	JCqi4mmHQvqnDn5LwJCP/POiSuFgadOjWEVgx2khvPxJH7/S1cvPo2xjPE7KPRkhX3Y7TTSGVyEPH
-	oT4K4kaX1MwRDPThFb1w==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=PW461y2ryavjHPYSkQJgsYWT6nBLCSOzWNMfFqgBejs=; b=iSKDCMz1+yQZtM
+	m859PKhzuViDzbZ+Q3bN5u2kt0B5nTkisxZ4+6ZAMfZMAn+RJSP/8QOeWhVnH0QpBtLjfFWkV/5oz
+	p971t5QmeoMMHROTVQrZnrcttemgrr1Ek5bi9qrauAnOYVAjWCPGYwNhoWDRjDcHus3VlmWideEyv
+	n+oLJy5tyTpZMNcuHfcfrns1r7MtOQl7ZD4fKyOQUtTXs6tr9WOz5bfPSbdYGffKQpf2gAA7xRi1a
+	QqKmfx9JnoMqqkZ3lwkE7XsH6WZPJp+z2u+wO9wA8c7Mwt+R7Pf9cwZPTADmToYqDcWG7X5M+DoR9
+	4sFwKSoWOHiKaKX/y28g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWBf-0000000543p-2Dt4;
-	Fri, 09 May 2025 22:27:23 +0000
-Received: from out-171.mta1.migadu.com ([95.215.58.171])
+	id 1uDWCE-0000000549u-1WJY;
+	Fri, 09 May 2025 22:27:58 +0000
+Received: from mail-pf1-f173.google.com ([209.85.210.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDWBc-0000000542i-31PN
+	id 1uDWC8-0000000548R-1oa2
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 22:27:21 +0000
-Message-ID: <260a8c6a-f92f-41c8-a212-8f9f8ddf6b5b@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1746829628;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=jteVl+qSFnN6ueuKmbFExf6FzhNWgyq6s4G+Z3sYIiU=;
-	b=PaPQgo3bkhPNazELJ9NUurbL3qAdnBDCM4rrLX089JO2lMY65sw7yCqZXRHmBesqO7f/3y
-	LfpsLOI5NX6Bdx4UA8VAF/1JFUss+cvO+g7o3w1o5jSktrnZADu/9+aYXof68HipAsZDQa
-	Ud0eqikeeTnxFGNBnXOEyoFRQc9FAKo=
-Date: Fri, 9 May 2025 15:26:52 -0700
+	Fri, 09 May 2025 22:27:57 +0000
+Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-739525d4e12so2615106b3a.3
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 15:27:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1746829671; x=1747434471; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=SlfY6HFrt6KjD7LtGN0cH5vsLg4tj5XTdmzdfNRbZFQ=;
+        b=y38Hd93GO2Y4tzTMjLY9Scq8GbuDTDK9pEaL1vNk3IKXeWk8EOjWA3eiXBHSESiWSs
+         vIjRbKx4Rjtc1BI1l/OOWc5N0kWaZvPLjtyrt4FBik0JoB8rM75iAYcM4qNV+mnujTBU
+         byzTEw2ky1d2oQCyxNzmmGOy6q7BAyLz2M046AEJ67s//chIWpNsrjpxPhFxXrKyaLTH
+         9k6BVTdFpQeM5fdYVGeJAJb71Xb++J8vialvns/G8wXwHnG3XbALZ6BGu4lKk7cjnTq+
+         UxFeAABOHHgt7dpkK16oGcrSVtLPfNHngJb/fH1NOT/vhydvC5jjYvaPX1kj9+dU41Jb
+         TTaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746829671; x=1747434471;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SlfY6HFrt6KjD7LtGN0cH5vsLg4tj5XTdmzdfNRbZFQ=;
+        b=XGsdx/v9mdHn05us0rgoctPW90whYspa/oZcj2Tj2ogG6erJ94t8FdMVnU1KhNyGcI
+         IQAK0kbhvpiPejPCsV5/UMXav/n7Igc0S3llarVUaujN94xNV67cgv1rDLaFcElOI8Ov
+         4rLvZwy9foXHDuXhmE6e0MDcBkJkam1fW/lzQLLKcUHja9TV5vZ9AcTUNLy4ZFiqPxpP
+         u7pXNIo51R+DhRjb0omc3RQSu11g6C8zPDMaDuZJOCH1Gd9/2gtQ/2mkkvD8EbtKgeVh
+         0Zf0js1IRABDtCZU0cfcbsYPZM0Fa2ASs33iZSaYegQMJkHJm4C20YVC0YtmR+OlcWdY
+         D1bg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFZgF1bvsZaNQsBn+vZtKIKrms1KzuiiI6PHQd+LZA4pw8Ra8O1qVuT2iJDxZEeE53Hd+I7YbP8aetpw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWYBmptQouS4ciH/5NSlZIYzxr0rbKzNHLujY7E2ckneijUqPk
+	JUD33xiKsAEIEPFJ4DjcAcxR26tTmw0VwfGu+vyBn8Z47WUEMIkquhnnWy0qkHI=
+X-Gm-Gg: ASbGncvq2U1vdYBFW5wYz/2K+0AmRJa9OmEbzSWn2O8lYmXMXrpmhWhRuFkWVtztfWJ
+	4O2f5HS2KWtmLtCSwv8oxSpVy+ZXEoCHZkO2E5YbYKTIwBs8HZnWDfj59eIAIIlc3hPTWaibe5+
+	0dMGlpaHeZ9xMAz5E74iNs1mC1V8CzObMJ+/qu1NfxRLV3zoEmhaT6E1TJR8Pa54sOlAypQX4Vd
+	lN7lTeO50mxhGgBPSyfrJV6qD4btICFrb6SzNiFwaer/YGB6g0Svdd/wO+DXn0PXs92y/apdKJV
+	iUYUiv00Q0TfXkqxUy2cqc570WCIqdB/cgat9/tqMz5e0+vO374qW/e1aQ==
+X-Google-Smtp-Source: AGHT+IENf7Kcb8dJPQCDteAQPpxoaSfjEOkbSR/iBVh1JMloeodx77VyrnDGlCBUYNSjh2bS0sBuDQ==
+X-Received: by 2002:a17:903:41c2:b0:22e:62da:2e66 with SMTP id d9443c01a7336-22fc8c78182mr82262675ad.24.1746829671116;
+        Fri, 09 May 2025 15:27:51 -0700 (PDT)
+Received: from x1 (97-120-122-6.ptld.qwest.net. [97.120.122.6])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc82a0e52sm22426175ad.216.2025.05.09.15.27.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 15:27:50 -0700 (PDT)
+Date: Fri, 9 May 2025 15:27:48 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: soc@kernel.org
+Cc: Arnd Bergmann <arnd@arndb.de>, Conor Dooley <conor@kernel.org>,
+	Jisheng Zhang <jszhang@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>,
+	Michal Wilczynski <m.wilczynski@samsung.com>,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: T-HEAD Devicetrees for v6.16
+Message-ID: <aB6BZMWDXoRXrZVf@x1>
 MIME-Version: 1.0
-Subject: Re: [PATCH 0/5] Enable hstateen bits lazily for the KVM RISC-V Guests
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>,
- Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>
-Cc: kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-riscv <linux-riscv-bounces@lists.infradead.org>
-References: <20250505-kvm_lazy_enable_stateen-v1-0-3bfc4008373c@rivosinc.com>
- <D9OYWFEXSA55.OUUXFPIGGBZV@ventanamicro.com>
- <bc0f1273-d596-47dd-bcc6-be9894157828@linux.dev>
- <D9Q05T702L8Y.3UTLG7VXIFXOK@ventanamicro.com>
- <ec73105c-f359-4156-8285-b471e3521378@linux.dev>
- <D9QTOYMN362W.398FE9SQB0S4X@ventanamicro.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <D9QTOYMN362W.398FE9SQB0S4X@ventanamicro.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_152720_898443_6C0DC823 
-X-CRM114-Status: GOOD (  18.74  )
+X-CRM114-CacheID: sfid-20250509_152752_736062_88F17BBB 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,65 +94,47 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDUvOC8yNSA2OjQ1IEFNLCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4gMjAyNS0wNS0wN1Qx
-NzozNDozOC0wNzowMCwgQXRpc2ggUGF0cmEgPGF0aXNoLnBhdHJhQGxpbnV4LmRldj46Cj4+IE9u
-IDUvNy8yNSA3OjM2IEFNLCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4+PiAyMDI1LTA1LTA2VDEx
-OjI0OjQxLTA3OjAwLCBBdGlzaCBQYXRyYSA8YXRpc2gucGF0cmFAbGludXguZGV2PjoKPj4+PiBP
-biA1LzYvMjUgMjoyNCBBTSwgUmFkaW0gS3LEjW3DocWZIHdyb3RlOgo+Pj4+PiAyMDI1LTA1LTA1
-VDE0OjM5OjI1LTA3OjAwLCBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT46Cj4+Pj4+
-PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBU
-aGlzIHNlcmllcyBleHRlbmRzCj4+Pj4+PiB0aG9zZSB0byBlbmFibGUgdG8gY29ycmVwc29uZGlu
-ZyBoc3RhdGVlbiBiaXRzIGluIFBBVENIMS4gVGhlIHJlbWFpbmluZwo+Pj4+Pj4gcGF0Y2hlcyBh
-ZGRzIGxhenkgZW5hYmxpbmcgc3VwcG9ydCBvZiB0aGUgb3RoZXIgYml0cy4KPj4+Pj4gVGhlIElT
-QSBoYXMgYSBwZWN1bGlhciBkZXNpZ24gZm9yIGhzdGF0ZWVuL3NzdGF0ZWVuIGludGVyYWN0aW9u
-Ogo+Pj4+Pgo+Pj4+PiAgICAgIEZvciBldmVyeSBiaXQgaW4gYW4gaHN0YXRlZW4gQ1NSIHRoYXQg
-aXMgemVybyAod2hldGhlciByZWFkLW9ubHkgemVybwo+Pj4+PiAgICAgIG9yIHNldCB0byB6ZXJv
-KSwgdGhlIHNhbWUgYml0IGFwcGVhcnMgYXMgcmVhZC1vbmx5IHplcm8gaW4gc3N0YXRlZW4KPj4+
-Pj4gICAgICB3aGVuIGFjY2Vzc2VkIGluIFZTLW1vZGUuCj4+Pj4gQ29ycmVjdC4KPj4+Pgo+Pj4+
-PiBUaGlzIG1lYW5zIHdlIG11c3QgY2xlYXIgYml0IDYzIGluIGhzdGF0ZWVuIGFuZCB0cmFwIG9u
-IHNzdGF0ZWVuCj4+Pj4+IGFjY2Vzc2VzIGlmIGFueSBvZiB0aGUgc3N0YXRlZW4gYml0cyBhcmUg
-bm90IHN1cHBvc2VkIHRvIGJlIHJlYWQtb25seSAwCj4+Pj4+IHRvIHRoZSBndWVzdCB3aGlsZSB0
-aGUgaHlwZXJ2aXNvciB3YW50cyB0byBoYXZlIHRoZW0gYXMgMC4KPj4+PiBDdXJyZW50bHksIHRo
-ZXJlIGFyZSB0d28gYml0cyBpbiBzc3RhdGVlbi4gRkNTUiBhbmQgWlZUIHdoaWNoIGFyZSBub3QK
-Pj4+PiB1c2VkIGFueXdoZXJlIGluIG9wZW5zYmkvTGludXgvS1ZNIHN0YWNrLgo+Pj4gVHJ1ZSwg
-SSBndWVzcyB3ZSBjYW4ganVzdCBtYWtlIHN1cmUgdGhlIGN1cnJlbnQgY29kZSBjYW4ndCBieSBt
-aXN0YWtlCj4+PiBsYXppbHkgZW5hYmxlIGFueSBvZiB0aGUgYm90dG9tIDMyIGhzdGF0ZWVuIGJp
-dHMgYW5kIGhhbmRsZSB0aGUgY2FzZQo+Pj4gcHJvcGVybHkgbGF0ZXIuCj4+IEkgY2FuIHVwZGF0
-ZSB0aGUgY292ZXIgbGV0dGVyIGFuZCBsZWF2ZSBhIGNvbW1lbnQgYWJvdXQgdGhhdC4KPj4KPj4g
-RG8geW91IHdhbnQgYSBhZGRpdGlvbmFsIGNoZWNrIGluIHNzdGF0ZWVuCj4+IHRyYXAoa3ZtX3Jp
-c2N2X3ZjcHVfaHN0YXRlZW5fZW5hYmxlX3N0YXRlZW4pCj4+IHRvIG1ha2Ugc3VyZSB0aGF0IHRo
-ZSBuZXcgdmFsdWUgZG9lc24ndCBoYXZlIGFueSBiaXRzIHNldCB0aGF0IGlzIG5vdAo+PiBwZXJt
-aXR0ZWQgYnkgdGhlIGh5cGVydmlzb3IgPwo+IEkgd2FudGVkIHRvIHByZXZlbnQga3ZtX3Jpc2N2
-X3ZjcHVfaHN0YXRlZW5fbGF6eV9lbmFibGUoKSBmcm9tIGJlaW5nCj4gYWJsZSB0byBtb2RpZnkg
-dGhlIGJvdHRvbSAzMiBiaXRzLCBiZWNhdXNlIHRoZXkgYXJlIGd1ZXN0LXZpc2libGUgYW5kCj4g
-S1ZNIGRvZXMgbm90IGhhbmRsZSB0aGVtIGNvcnJlY3RseSAtLSBpdCdzIGFuIGludGVybmFsIEtW
-TSBlcnJvciB0aGF0Cj4gc2hvdWxkIGJlIG1hZGUgb2J2aW91cyB0byBmdXR1cmUgcHJvZ3JhbW1l
-cnMuCgpTdXJlLiBJIHdpbGwgYWRkIHNvbWV0aGluZyBhbG9uZyB0aG9zZSBsaW5lcy4KCgo+Pj4+
-IEluIGNhc2UsIHdlIG5lZWQgdG8gZW5hYmxlIG9uZSBvZiB0aGUgYml0cyBpbiB0aGUgZnV0dXJl
-LCBkb2VzIGh5cGV2aXNvcgo+Pj4+IG5lZWQgdG8gdHJhcCBldmVyeSBzc3RhdGVlbiBhY2Nlc3Mg
-Pwo+Pj4gV2UgbmVlZCB0byB0cmFwIHNzdGF0ZWVuIGFjY2Vzc2VzIGlmIHRoZSBndWVzdCBpcyBz
-dXBwb3NlZCB0byBiZSBhYmxlIHRvCj4+PiBjb250cm9sIGEgYml0IGluIHNzdGF0ZWVuLCBidXQg
-dGhlIGh5cGVydmlzb3Igd2FudHMgdG8gbGF6aWx5IGVuYWJsZQo+Pj4gdGhhdCBmZWF0dXJlIGFu
-ZCBzZXRzIDAgaW4gaHN0YXRlZW4gdW50aWwgdGhlIGZpcnN0IHRyYXAuCj4+IFllcy4gVGhhdCdz
-IHdoYXQgUEFUQ0ggNCBpbiB0aGlzIHNlcmllcyBkb2VzLgo+IEkgd2FzIHRoaW5raW5nIGFib3V0
-IHRoZSBjb3JyZWN0IGVtdWxhdGlvbi4KPgo+IGUuZy4gZ3Vlc3Qgc2V0cyBzc3RhdGVlbiBiaXQg
-WCB0byAxLCBidXQgS1ZNIHdhbnRzIHRvIGhhbmRsZSB0aGUgZmVhdHVyZQo+IFggbGF6aWx5LCB3
-aGljaCBtZWFucyB0aGF0IGhzdGF0ZWVuIGJpdCBYIGlzIDAuCj4gaHN0YXRlZW4gYml0IFNFMCBt
-dXN0IGJlIDAgaW4gdGhhdCBjYXNlLCBiZWNhdXNlIEtWTSBtdXN0IHRyYXAgdGhlIGd1ZXN0Cj4g
-YWNjZXNzIHRvIGJpdCBYIGFuZCBwcm9wZXJseSBlbXVsYXRlIGl0Lgo+IFdoZW4gdGhlIGd1ZXN0
-IGFjY2Vzc2VzIGEgZmVhdHVyZSBjb250cm9sbGVkIGJ5IHNzdGF0ZWVuIGJpdCBYLCBLVk0gd2ls
-bAo+IGxhemlseSBlbmFibGUgdGhlIGZlYXR1cmUgYW5kIHRoZW4gc2V0IHNzdGF0ZWVuIGFuZCBo
-c3RhdGVlbiBiaXQgWC4KClllYWguIFRoYXQncyBwb3NzaWJsZS4gVGhlIGN1cnJlbnQgc2VyaWVz
-IGlzIGp1c3QgdHJ5aW5nIHRvIHRyYXAgJiAKZW5hYmxlIHJhdGhlcgp0aGFuIHRyYXAgJiBlbXVs
-YXRlIGV4Y2VwdCBmb3IgZmV3IEFJQSByZWxhdGVkIGJpdHMgd2hpY2ggdHJhcCBldmVuIHdpdGgg
-CmhzdGF0ZWVuCmJpdCBzZXQgZHVlIHRvIHN3IGZpbGUgaW5zdGVhZCBvZiB2c2ZpbGUuCgpPbmNl
-IHdlIGhhdmUgc3VjaCByZXF1aXJlbWVudCBhbnkgb3RoZXIgZmVhdHVyZSBiaXQsIHdlIGNhbiBl
-eHRlbmQgdGhlIApnZW5lcmljCnRyYXAgJiBlbmFibGUgZnJhbWV3b3JrIHRvIHRyYXAgJiBlbXVs
-YXRlLgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxp
-bnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0
-dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
+
+  Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
+
+are available in the Git repository at:
+
+  git@github.com:pdp7/linux.git tags/thead-dt-for-v6.16
+
+for you to fetch changes up to a4c95b924d513728df8631471eb3b1c300909e21:
+
+  riscv: dts: thead: Add device tree VO clock controller (2025-05-07 23:38:41 -0700)
+
+----------------------------------------------------------------
+T-HEAD Devicetrees for v6.16
+
+There are several additions for the T-Head TH1520 SoC:
+
+ - AON (Always-On) node which serves as a power-domain controller
+ - Reset controller node
+ - VO (Video Output) clock controller node
+
+These changes have all been tested in linux-next with the corresponding
+driver patches.
+
+Signed-off-by: Drew Fustini <drew@pdp7.com>
+
+----------------------------------------------------------------
+Michal Wilczynski (3):
+      riscv: dts: thead: Introduce power domain nodes with aon firmware
+      riscv: dts: thead: Introduce reset controller node
+      riscv: dts: thead: Add device tree VO clock controller
+
+ arch/riscv/boot/dts/thead/th1520.dtsi | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
