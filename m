@@ -4,84 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5A4C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 05:13:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97451C3ABBC
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 06:13:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QqMGlM1JExeNgib/8F3H9Ue3+VvCeQXwNhzH6gZ0cUM=; b=ewgp59nc3u+zoX
-	LJfTAhfu7Ia8aQ+utSmpT5rwqwjxNF7uP5H5K+mLFg3k8FTAcADHproXWkuuZeQP5i+yZTpR7XzjF
-	ReR6aGuTaWg/Et/bt8Ekn3f5JEHU1J8jpMBN6hM456z3UkwdOEtSKvIfOcR9Te7lz+HrkapUVaFdH
-	kzkYeZ1dfkCF/pq9+6x4k23h29vlAXDh+SBW31Ds1rfqLMUjXgY3O1P9REmADOcLzQEMXNSOGEbHS
-	0RxUxXwlEiQXS5DMSOYrEbg13pPa1jajv8KB8C7l2kHarmm2hg6iISUu6EXZVADs9U8eII3HVAQwa
-	jQbpRfZ5GZae+YHVCu1w==;
+	List-Owner; bh=U2GyLvyMaQ9dZSwINc+4G0sEUByJyjHcqJSuFmmou4A=; b=TXdw3KzGSscD7H
+	bgCwTnioiuuNv0p0AEAkJOcrwwbwyMW9TouzN5SXYTnsjzOtM67ysfTaZaXMZ6qPQBNSVhVPCnp1e
+	bxYFobizRx4oOQ60/iyDyK7U4SBbbKn+S2z3tIAC57uhF07PpIJIMNfCZQcGQp+eWNGzozn1WBAEB
+	9TT6SO+DSR2dxQNPLtUAA0oMBzCixA5/ra6NBa9CLng9zwPwX829gP86/3TFWVzy99zBjinzBvDS1
+	bCj/gNF8C3dhCYt6LJLriep6RWluXf4n5hrvGEMzGGTqQ51TGldl8fuDlDnDHda0yn+ZTkwqGo6XX
+	J6l9E9DZ7rcNpesZmclA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDG3M-00000002V2g-32Mn;
-	Fri, 09 May 2025 05:13:44 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1uDGz2-00000002aaA-0TKT;
+	Fri, 09 May 2025 06:13:20 +0000
+Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDG3K-00000002V1Y-1Oke
-	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 05:13:43 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-3105ef2a08dso14664901fa.0
-        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 22:13:41 -0700 (PDT)
+	id 1uDGwt-00000002aD5-2rqT;
+	Fri, 09 May 2025 06:11:08 +0000
+Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-ad21a5466f6so108127166b.1;
+        Thu, 08 May 2025 23:11:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1746767620; x=1747372420; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZDLCK0Uz19/Y7Q6HkSbcnfKNXhJp+XeOV0z584wVfeg=;
-        b=JtRxTRIaJRe7/82G/Fou87lRBRdbGdq3pHX3kgTn6qBlYiioVUD8fXKrPm4JkxXD9S
-         PhKjptS6DYXXLPAhfJ30c0naF57BFuhEk2tArY8FXfdN1DwoF3aZGGLLg+P/PGDFZT1I
-         RvRtBI6qGfZBX4u5XSXF2dLt3C9T++qUzQs9bAjw+i4bJQ8fGJIFKzcthv4fuvo3jw1s
-         gWXZzSBZuJut9C4DRNj1cI7ByzCB8ziYuv7UIpewP8T/kBGNOxkmV7edNsaRHD27g4fr
-         KkkSLnlmOZznGKGJFXvdWyOwaGq/U1Qp9mjkE/IHUW2WI5JzoAbu5swcsV3J6F/CTt9S
-         lWsQ==
+        d=gmail.com; s=20230601; t=1746771065; x=1747375865; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=tT4nmiF3B+9Zf02ngFo5qPxLiB0Cnk6TGo7gdbEV7tc=;
+        b=JMwrEXO0IcLYpJOaT2mlvpy04AY6mOdK5QUiTpF+UCCsJI8LeQfaAUyqLOzf0iSmQ7
+         5Oqs8hVj/K3L9gpm1YYHl+CWGrNswXIgOUgHK4z1Lq7EvdeeppOY9OLslfIMJlFZoM9F
+         NMkUT5YVuRokkqbHSzwy2/vbTX48kl/hhrs/EwinCVUroPbOADQR0BCpKL/Itvzyp5Rt
+         gdGz1Uq7GUZvrVmxjf0rpiRCd9a3PFdN0oq8/E4OteOUKAxPscSOxgW3l94PU4cSs03w
+         yWATtUxyOwGSbTtvGohKnSVdEefQoap8ka3qZpqMWnYX0M4vAoyjsuiTvIbacPu2Ekdg
+         WSlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746767620; x=1747372420;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZDLCK0Uz19/Y7Q6HkSbcnfKNXhJp+XeOV0z584wVfeg=;
-        b=oEUkquhgurpi/1kgDUXTLW3NJFJP5fSTlnEiaF8qTxWC/v+VWFQ5cgm8tJv1t50XLI
-         x6B04N8cBNwUWCNdR3kftLLLA+BhJj3LSn4A81XlLsZYyGJjcrNv2THPZrxNfnGbNzJl
-         AU1P9PtZm7nkK9HVDqrXque+9s41hJmgD9rGScO2LS/y662IPIZ/7+gB59qkoqbdMYJ4
-         QOxVhgFIhggQ/6vYI0VF5kiHJQrvaNta3fLHpeUNY4iZ0krUKXSDDLQoSJIja0IBNMW7
-         XPrT7t2rxL0nWFZzgVVPQ4k4y3W6mwDimrtP8/+Sshu/KawA10l6A4avX252nhMCjzQ0
-         lImw==
-X-Forwarded-Encrypted: i=1; AJvYcCVeeFR9ny2LtTOKJxFPM/gbYtbGcvkmDkRTAPCc/CL6vLjy78udgdZUjJekQCeHpimE4yMnJSxzEJ68Dw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrVT0BHy/5n9kLj39DjqurIvPF0/qhfZvgXfG6UmvswNTi149G
-	BJcTDlhh2gmd2xtz+SMKO0ndQkuXRRTufqwSLISjAz0uQF9mQFgECWy1M3Z5SnYCALzFSOzDqDM
-	tNw86cqUAUS/k8nIYX3A8qNK471u/Uks2CUeRZA==
-X-Gm-Gg: ASbGncvkIBnqAw0UfC85NcXgmprsjsA+3FTTYm65jm96q6DJF4xXomWrEK2acBuruOs
-	AXoiVo5ERtrwwdWEeGnw23feC1eciE95Y9Cdi0+/1wTWnKCZjfegtFjlpmb27Bb4+2TzqDdPyPM
-	26Lm13CBkluB8JNZyfTUU0SXQ=
-X-Google-Smtp-Source: AGHT+IH932onN3LtbuDsB2zIJMZAB7zVyXn9SdYNT5bEdTdpbtKDjtpG9xMpkEjuL1jvH3p5mBmUHA70IkrkqZGMWFs=
-X-Received: by 2002:a05:651c:a11:b0:31a:466a:4746 with SMTP id
- 38308e7fff4ca-326c4626122mr9560221fa.28.1746767619980; Thu, 08 May 2025
- 22:13:39 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746771065; x=1747375865;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=tT4nmiF3B+9Zf02ngFo5qPxLiB0Cnk6TGo7gdbEV7tc=;
+        b=aQBBSELcpOg1G1usrzjn8cnfLKkfkyq5gUW0Yds68I4NVRu9Q3cn9Y++DCzRNch8Q2
+         mXqH5Bd95BXYFZmvEuesDHt8A8r7MpKbXGd+gZpFBy3gJe3hEpAD8q8fH+8dMen6A7yp
+         iP3+sDFJQSqp6o+mpcMLvJECk0vXDf6+8lRBr0SITImo3yRt/oTQLBkpGOT66NBd4zlU
+         OcFZSaoJpMwd1Q3ZAyMaB3C8D0cEwnqObmvg3uBNbuhbdGr+L5NsmiuWpTGPhvjVMSIg
+         erK6hVkct4ZFeymX1IyNcpUqpuQaVj/ML5orYv5UzY8tzykWR2KwVWKi7GMXkeEPe/dF
+         Nv9A==
+X-Forwarded-Encrypted: i=1; AJvYcCVX8GWlMeVxBk4CgIBJuRrWSXXBDcl2JSdN2B2A91larPfV4nI+csYfDGAsAdOY50ESFO5ipCnNZY7G9YViH/+8@lists.infradead.org, AJvYcCXZPhoUyykJqLqDUCVKR8dgIxS+y37PKSPWYNPG6R7mbQYGCoxoBnhbnSrOrwl+r1fHAzJuLG+Tqn5cNfA=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyM5V5LpbnsmhNl485ZewRfSLdhMdq6xCfjx9rhrDrT92V7Mq0Z
+	7UTtcBNLMjp6hHc/wKWEsBIgX/oTwJsUqgLdKVm8Y/SpmdMj6ToE
+X-Gm-Gg: ASbGncvF7AomoVfYU56E/wnyitz7q6Kj3KHYTYo5ESpu2LZ6SvPycMArKOkNjPDhXtQ
+	xqWJjxi5kDqyBubzzMylAAjHMfBUgD5b5Wz4wlj5aZwUnioBibRkfLfp7hf7h7ZXgzs9wx83ykS
+	XhOh4dA/O928Gkbxq/ocAj4vWnSAwMTUxXkZo1+ONRqrvZ4gPIJ8C+ywt9YhC4vOnVd/8MmksGJ
+	6AQP/EzTTUwFoASAmNIbOFL84pyYd1MBpD0s+6swFfK/EHgWwVVFH4czOwomEV/fXmHBmRTCrkg
+	6b9InnL1Y7bCGnKEdksg/vDIrtp2Movl3pSuU/nq19QnaF7mbp4Sm1c4okQ19C6Ri7NVanIY8+A
+	Nh+4hdrmLR8uT1yPjaHjL0AQuRT0KSrQr9v2d4MrM2hvcoHejmxM=
+X-Google-Smtp-Source: AGHT+IHV7Lb+Jz2vAFwguRkPg3xEv8RK1gYxrdSEajyR1uZCyO5I90pymBqse+1L9ASZRUyJgq24dg==
+X-Received: by 2002:a17:906:6a22:b0:ad2:cce:8d5e with SMTP id a640c23a62f3a-ad21b16d4d8mr201457766b.7.1746771065029;
+        Thu, 08 May 2025 23:11:05 -0700 (PDT)
+Received: from [26.26.26.1] (ec2-3-69-236-239.eu-central-1.compute.amazonaws.com. [3.69.236.239])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad219343c81sm101663266b.58.2025.05.08.23.11.00
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 08 May 2025 23:11:04 -0700 (PDT)
+Message-ID: <ec5bd8d1-c865-40ac-b03d-9e07875d931c@gmail.com>
+Date: Fri, 9 May 2025 14:11:00 +0800
 MIME-Version: 1.0
-References: <20250508142842.1496099-2-rkrcmar@ventanamicro.com> <20250508142842.1496099-3-rkrcmar@ventanamicro.com>
-In-Reply-To: <20250508142842.1496099-3-rkrcmar@ventanamicro.com>
-From: Anup Patel <apatel@ventanamicro.com>
-Date: Fri, 9 May 2025 10:43:28 +0530
-X-Gm-Features: ATxdqUEv61ChnZUOzx7yPdXINdl80n6Z4DSE8-_2d7Qt3jd-BEsqt9upnD2bVHQ
-Message-ID: <CAK9=C2XpNMmYu_MxcA390+SBm5fMSXYYJ37JeYGHa8OHjWmYqA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] KVM: RISC-V: reset smstateen in a better place
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: kvm-riscv@lists.infradead.org, kvm@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Andrew Jones <ajones@ventanamicro.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
+ panic
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+ Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+ Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>,
+ Conor Dooley <conor.dooley@microchip.com>,
+ Daire McNamara <daire.mcnamara@microchip.com>
+Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
+ Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+ linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
+References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
+ <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+Content-Language: en-US
+From: Ethan Zhao <etzhao1900@gmail.com>
+In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_221342_376650_7ECB40F8 
-X-CRM114-Status: GOOD (  14.80  )
+X-CRM114-CacheID: sfid-20250508_231107_726339_B900F8BD 
+X-CRM114-Status: GOOD (  15.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,35 +108,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCBNYXkgOCwgMjAyNSBhdCA4OjAy4oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFy
-QHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gVGhpcyBnb3QgbWlzc2VkIHdoZW4gdGhlIHNl
-cmllcyB3YXMgYXBwbGllZCBvdXQgb2Ygb3JkZXIuCj4KPiBTaWduZWQtb2ZmLWJ5OiBSYWRpbSBL
-csSNbcOhxZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4KPiAtLS0KPiBGZWVsIGZyZWUgdG8g
-c3F1YXNoIHRoaXMgcGF0Y2ggd2l0aCAzNzZlM2MwZjhhYTUgKCJLVk06IFJJU0MtVjogcmVtb3Zl
-Cj4gdW5uZWNlc3NhcnkgU0JJIHJlc2V0IHN0YXRlIikuCgpJIGhhdmUgc3F1YXNoZWQgdGhpcyBw
-YXRjaCBpbnRvIGNvbW1pdCAzNzZlM2MwZjhhYTUKClJlZ2FyZHMsCkFudXAKCj4gLS0tCj4gIGFy
-Y2gvcmlzY3Yva3ZtL3ZjcHUuYyB8IDMgKy0tCj4gIDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlv
-bigrKSwgMiBkZWxldGlvbnMoLSkKPgo+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2t2bS92Y3B1
-LmMgYi9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiBpbmRleCA3Y2MwNzk2OTk5ZWIuLmE3OGY5ZWMy
-ZmEwZSAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2L2t2bS92Y3B1LmMKPiArKysgYi9hcmNoL3Jp
-c2N2L2t2bS92Y3B1LmMKPiBAQCAtNjAsNiArNjAsNyBAQCBzdGF0aWMgdm9pZCBrdm1fcmlzY3Zf
-dmNwdV9jb250ZXh0X3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPgo+ICAgICAgICAgbWVt
-c2V0KGNudHgsIDAsIHNpemVvZigqY250eCkpOwo+ICAgICAgICAgbWVtc2V0KGNzciwgMCwgc2l6
-ZW9mKCpjc3IpKTsKPiArICAgICAgIG1lbXNldCgmdmNwdS0+YXJjaC5zbXN0YXRlZW5fY3NyLCAw
-LCBzaXplb2YodmNwdS0+YXJjaC5zbXN0YXRlZW5fY3NyKSk7Cj4KPiAgICAgICAgIC8qIFJlc3Rv
-cmUgZGF0YXAgYXMgaXQncyBub3QgYSBwYXJ0IG9mIHRoZSBndWVzdCBjb250ZXh0LiAqLwo+ICAg
-ICAgICAgY250eC0+dmVjdG9yLmRhdGFwID0gdmVjdG9yX2RhdGFwOwo+IEBAIC0xMDEsOCArMTAy
-LDYgQEAgc3RhdGljIHZvaWQga3ZtX3Jpc2N2X3Jlc2V0X3ZjcHUoc3RydWN0IGt2bV92Y3B1ICp2
-Y3B1KQo+Cj4gICAgICAgICBrdm1fcmlzY3ZfdmNwdV9jb250ZXh0X3Jlc2V0KHZjcHUpOwo+Cj4g
-LSAgICAgICBtZW1zZXQoJnZjcHUtPmFyY2guc21zdGF0ZWVuX2NzciwgMCwgc2l6ZW9mKHZjcHUt
-PmFyY2guc21zdGF0ZWVuX2NzcikpOwo+IC0KPiAgICAgICAgIGt2bV9yaXNjdl92Y3B1X2ZwX3Jl
-c2V0KHZjcHUpOwo+Cj4gICAgICAgICBrdm1fcmlzY3ZfdmNwdV92ZWN0b3JfcmVzZXQodmNwdSk7
-Cj4gLS0KPiAyLjQ5LjAKPgo+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5m
-cmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xp
-bnV4LXJpc2N2Cg==
+
+
+On 5/8/2025 3:10 PM, Manivannan Sadhasivam wrote:
+> A PCI device is just another peripheral in a system. So failure to
+> recover it, must not result in a kernel panic. So remove the TODO which
+> is quite misleading.
+> 
+Could you explain what the result would be if A PCI device failed to
+recovery from FATAL/NON_FATAL aer error or DPC event ? what else
+better choice we have as next step ? or just saying "failed" then
+go ahead ?
+
+Thanks,
+Ethan
+> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+> ---
+>   drivers/pci/pcie/err.c | 1 -
+>   1 file changed, 1 deletion(-)
+> 
+> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
+> index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
+> --- a/drivers/pci/pcie/err.c
+> +++ b/drivers/pci/pcie/err.c
+> @@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+>   
+>   	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
+>   
+> -	/* TODO: Should kernel panic here? */
+>   	pci_info(bridge, "device recovery failed\n");
+>   
+>   	return status;
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
