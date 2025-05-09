@@ -4,79 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B13C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 10:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90402C3ABBC
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 10:36:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oPyiGajksmaLA3h0HUfwRWKDTbBSfwiPheeHr2CcQfc=; b=nZXyh6JBVcCsjW
-	ar4GJkD+LdflxQ1CbzmL95+iAXXtdH2abTN+3p+7aBF4w3UoLifpcH9iPS3svStrlDZfZEP1juBPP
-	TGgzaR262cH8vTu0R624ikefSySDWOBEBLDO4UHbHnnMPKREIkTRfWNig/xLxrJNGMUA1LCCmeOeb
-	57HUTJyoPHs0WcsfHE99735cebVNWFxYx3SnnfpeKskbjhuGrcn1OmBx0wNpOPZhVI2a9ZQxr8wU/
-	2nPfP/HBI78kE+6+WPFZHYjuMK2kXfALqUws1lqEpVJ+KBeCOtvZZ1DagrP9LlAQag/4GYeGGKIwj
-	9b5db9MzUDCU/my1BpcA==;
+	List-Owner; bh=xfes7NonDdquEMvvUde49BZaA0o1BvleMcFw5AqFXSE=; b=2g1vBN7lGY6k0N
+	wtRArTNin00lQeTbVTO449Mp8aqKeN/Y10xL/nYF8u8pbp/y1IPvXgJ2KdlR9D1Y3Mf82pokxK9CB
+	U8SdL8TKTD8AygmndU5WT2He7ch8dpMfOLjpOwQyXGesYN/6yj1V1qS/RYusfj0oH8GYcF+4FXDUj
+	fDArEI/pML9DY9cyTfgwa9N1c9KlWFmGd1/DUksP8U9TYTOCfG4CeTNALw5bJfw8vwOpzp1TEwxg4
+	xjM8BH1JI/fH/BqhfCuyMImA4gs7JJVM6ZjvjNejGdQCD+y4LABV9ZpkoyjS+syNhvQEibm7ldHUd
+	8s2k+N2mK1uj/cRuTQOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKZ5-00000003C7p-34Wj;
-	Fri, 09 May 2025 10:02:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDL64-00000003IQi-2JkK;
+	Fri, 09 May 2025 10:36:52 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDJqk-000000034SF-15C7
+	id 1uDKEa-000000038Yv-174s
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 09:16:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A501A4A6A3
-	for <linux-riscv@lists.infradead.org>; Fri,  9 May 2025 09:16:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B536C4CEFA
-	for <linux-riscv@lists.infradead.org>; Fri,  9 May 2025 09:16:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746782217;
-	bh=x+d130iQ4OisBQ1RwPsHMzQrkjOFTBbyg4UmChoAzGs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=BOaX9KxJUz8CzmtKc8p70TeZxOwMMeIU4P3Qtnex8TyDKK4VYg9IguIg1nbe6u4Cz
-	 wejSp+/rUd3iHSV5P56w6VddU5fFt2ptNTSXNpmxHA+Ann9HmYECkHdCgo1rNjs8U3
-	 LENz92T5AZFm83CWRB5QPTzB2ZJM8pF91OoSVGXASMjhwgJ3bJH+qgBMYKq6qn1dJw
-	 tRdM03mLNDqEIfK3m8WLnRrefrtJIqW3xNUQAMfoCCUx5d6qaAzUWonrVBH+KglHXH
-	 ARooMbo+YLL3oiMr4HECY+y+3dZOyLLu0/7Zmc3bQEWvRUdkBVRveB7lvSbPzIpc+B
-	 WnYoYqTtBKKyg==
-Received: by mail-lf1-f54.google.com with SMTP id 2adb3069b0e04-54fc64e8419so863482e87.1
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 02:16:57 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWBuZCwe0Mn3IDwGy36lpmC+q05a7FRQqn0WrOftTUUP0OswMAr4csik63ZEXfd/wJ/HWvWKvolvce9UQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YymjDaynZV4ogXAYpDOiFLzJxz89tBI3gVI5+R121NcYzZOxhuU
-	INevhpZ6m31yUqAnM7U8T0y3AU3PI01U82/6RL/QprMaO16rBAOw+tqDANb7fhbqWkFx7Cr+o3q
-	B1ANBcOgtUW6aWGaERxJ0lXgMkks=
-X-Google-Smtp-Source: AGHT+IHkBaVzoQTAsYshsXOwRceKOTjqdoPFSB4Nen3iA8jPmif43We1NbgcTURYcEcll6NAIemTE7E1kMosjzoprD8=
-X-Received: by 2002:a05:6512:6613:b0:549:7145:5d2d with SMTP id
- 2adb3069b0e04-54fc6769fc3mr707169e87.16.1746782215612; Fri, 09 May 2025
- 02:16:55 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250505154523.231233-1-vkuznets@redhat.com> <20250505154523.231233-2-vkuznets@redhat.com>
-In-Reply-To: <20250505154523.231233-2-vkuznets@redhat.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 9 May 2025 11:16:44 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHSW1=k59J9vOQULw2A_htLiKYc0h9zQ12xYqmutja+eg@mail.gmail.com>
-X-Gm-Features: ATxdqUHIWMlwRPxGAvRlP1N6SGtiAq6FedBV8uC9y8j_U6nYAhSL-_feheWMgt8
-Message-ID: <CAMj1kXHSW1=k59J9vOQULw2A_htLiKYc0h9zQ12xYqmutja+eg@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] efi: zboot specific mechanism for embedding SBAT section
-To: Vitaly Kuznetsov <vkuznets@redhat.com>
-Cc: x86@kernel.org, linux-efi@vger.kernel.org, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Jones <pjones@redhat.com>, Daniel Berrange <berrange@redhat.com>, 
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>, Gerd Hoffmann <kraxel@redhat.com>, 
-	Greg KH <gregkh@linuxfoundation.org>, Luca Boccassi <bluca@debian.org>, 
-	Peter Zijlstra <peterz@infradead.org>, Matthew Garrett <mjg59@srcf.ucam.org>, 
-	James Bottomley <James.Bottomley@hansenpartnership.com>, 
-	Eric Snowberg <eric.snowberg@oracle.com>, Paolo Bonzini <pbonzini@redhat.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-riscv@lists.infradead.org, 
+	Fri, 09 May 2025 09:41:37 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-7406c6dd2b1so2857711b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 02:41:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1746783695; x=1747388495; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l3iCEA8tjYiThU7Rin4dKsTFv6XsSOzMIb0/FuGpw2E=;
+        b=Jvt3Ec31F9ZWaoB4FmJf6QAHoDuiX5HYZxutWuPFnD3rRdHRpIq1t6v98U3xM7noYO
+         1LzaGY5H6p/1GSukgbhcar1tqLneGhToM8zNEzGSN8C6K3bKLXIqfQ1cYNDPaFaVpDok
+         hYnNVeApuLhjIxVJQ9w0xfrLSX9YWOxb3OHHuVPWbS5kYzdQEKXGIjL663ViJnwIkSmH
+         dk4IFeceQJTJMgvwVgJhieQEF56ROqLJbAFzlTWbeySfLzvmq1h44YYuiTCuZjadwcJJ
+         5eXJFDBXrNcnAvo2gbFN6bItSbfoNV3coEv4KemSPxknMwZ3BuCABV+IYVhWNpleztUc
+         1YBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746783695; x=1747388495;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=l3iCEA8tjYiThU7Rin4dKsTFv6XsSOzMIb0/FuGpw2E=;
+        b=Ct/sT5CNsCek0tcBFJR67Ccp/NXcKKZ6hIdow9dkupe4JtJRTa23cwd5lQr9OcBKX1
+         1GvC5OLP7CDIFjtqtTLzOnSXakExcuPIQ0B1ScrzVWx/yEvR7X47yLlC/byl4qiDozXj
+         tc5eGEsOfLmU92wHPvhSI7jv+uswsUFdlP17aIKS1UyDHs+Nkf9mOkWXceAR5XPZjjif
+         +xZnJWYaJGPiNIOyyBUcbwnX95kzrgHBDF08sa02T2ybNvZEv6RfVMjbv/QU/sar57MH
+         ao8L0nd5d7vG+OC72ku9nYscKoy+9ue8iBhGcgzjwohtACiETfNbW1oTonYIbaIZTUIT
+         c6Bw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/WYj9ui6CAx0+iW3hO/osFc7kSYBVQKPW7F42w8TPL42baH3VI80geaWsudHp0p8zw0xDmczgz+nBHg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyO02pLbX01XGMzmp+xk+SgtlEEpKINvxRbbIW3Q3CfV0cbTXjw
+	NVCtSgmFctlruF6LMNEkd/2g8cQoQlvKKwoNiETJHr/flcSuggL0/CB+OrKg298=
+X-Gm-Gg: ASbGncsdA+llDYO4hhoijnVl8CW2mjrnTZJcQ2/pdiJicBehBXfogOCU/YanlfUvuee
+	7yC54ajQLQwrvZ65aLRnKChoTUPmUXgRwnPUPVrB9HTL7d0Sn8R635L3PjKNsgbwo+kN3TL9DQe
+	qGDdkj2um/dux3issf5vGGuuA7+AfPW2N8xWK79+2EG0OHGEwOFjNGIB8rQdrVt9Jl37BcIdZ6Z
+	lKHeHxlx+h7bp1rUTR71VZydEXTgqJ5Ec2jAqFj6I/385S8O+qslDQ/wzRf2j1hJ2KqrRtNNloA
+	OwcqhVULE+Ynk1OlkqOWDJf6YfaLuOfrUEtDQViB0NskMeN0Z+V5dvoNbQ4ZEbNOoxlNojFZW1S
+	FiA==
+X-Google-Smtp-Source: AGHT+IEgalPQ22cx7DiKoLmOGrrO9ni0jyC4XIPIwGEyDn4n6J78lWHZEvPtJShZItbWPQLmYJ0Xvg==
+X-Received: by 2002:a17:902:f602:b0:220:fe36:650c with SMTP id d9443c01a7336-22fc93e3d82mr42864265ad.23.1746783695428;
+        Fri, 09 May 2025 02:41:35 -0700 (PDT)
+Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc8271c38sm13271035ad.119.2025.05.09.02.41.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 02:41:35 -0700 (PDT)
+From: Nylon Chen <nylon.chen@sifive.com>
+To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+	devicetree@vger.kernel.org,
+	linux-pwm@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
+Cc: conor@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	samuel.holland@sifive.com,
+	Nylon Chen <nylon.chen@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Vincent Chen <vincent.chen@sifive.com>
+Subject: [PATCH v14 1/5] riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's active-low properties
+Date: Fri,  9 May 2025 17:52:30 +0800
+Message-Id: <20250509095234.643890-2-nylon.chen@sifive.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250509095234.643890-1-nylon.chen@sifive.com>
+References: <20250509095234.643890-1-nylon.chen@sifive.com>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_021658_337341_48660580 
-X-CRM114-Status: GOOD (  27.30  )
+X-CRM114-CacheID: sfid-20250509_024136_301710_0CC49B84 
+X-CRM114-Status: UNSURE (   8.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,158 +112,105 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 5 May 2025 at 17:45, Vitaly Kuznetsov <vkuznets@redhat.com> wrote:
->
-> SBAT is a mechanism which improves SecureBoot revocations of UEFI binaries
-> by introducing a generation-based technique. Compromised or vulnerable UEFI
-> binaries can be prevented from booting by bumping the minimal required
-> generation for the specific component in the bootloader. More information
-> on the SBAT can be obtained here:
->
-> https://github.com/rhboot/shim/blob/main/SBAT.md
->
-> Upstream Linux kernel does not currently participate in any way in SBAT as
-> there's no existing policy in how SBAT generation number should be
-> defined. Keep the status quo and provide a mechanism for distro vendors and
-> anyone else who signs their kernel for SecureBoot to include their own SBAT
-> data. This leaves the decision on the policy to the vendor. Basically, each
-> distro implementing SecureBoot today, will have an option to inject their
-> own SBAT data during kernel build and before it gets signed by their
-> SecureBoot CA. Different distro do not need to agree on the common SBAT
-> component names or generation numbers as each distro ships its own 'shim'
-> with their own 'vendor_cert'/'vendor_db'
->
-> Implement support for embedding SBAT data for architectures using
-> zboot (arm64, loongarch, riscv). Put '.sbat' section in between '.data' and
-> '.text' as the former also covers '.bss' and thus must be the last one.
->
-> Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
+This removes the active-low properties of the PWM-controlled LEDs in
+the HiFive Unmatched device tree.
 
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
+The reference is hifive-unleashed-a00.pdf[0] and hifive-unmatched-schematics-v3.pdf[1].
 
-> ---
->  drivers/firmware/efi/Kconfig                | 24 +++++++++++++++++++++
->  drivers/firmware/efi/libstub/Makefile.zboot |  4 ++++
->  drivers/firmware/efi/libstub/zboot-header.S | 22 +++++++++++++++++--
->  drivers/firmware/efi/libstub/zboot.lds      | 11 ++++++++++
->  4 files changed, 59 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-> index 5fe61b9ab5f9..db8c5c03d3a2 100644
-> --- a/drivers/firmware/efi/Kconfig
-> +++ b/drivers/firmware/efi/Kconfig
-> @@ -281,6 +281,30 @@ config EFI_EMBEDDED_FIRMWARE
->         bool
->         select CRYPTO_LIB_SHA256
->
-> +config EFI_SBAT
-> +       def_bool y if EFI_SBAT_FILE!=""
-> +
-> +config EFI_SBAT_FILE
-> +       string "Embedded SBAT section file path"
-> +       depends on EFI_ZBOOT
-> +       help
-> +         SBAT section provides a way to improve SecureBoot revocations of UEFI
-> +         binaries by introducing a generation-based mechanism. With SBAT, older
-> +         UEFI binaries can be prevented from booting by bumping the minimal
-> +         required generation for the specific component in the bootloader.
-> +
-> +         Note: SBAT information is distribution specific, i.e. the owner of the
-> +         signing SecureBoot certificate must define the SBAT policy. Linux
-> +         kernel upstream does not define SBAT components and their generations.
-> +
-> +         See https://github.com/rhboot/shim/blob/main/SBAT.md for the additional
-> +         details.
-> +
-> +         Specify a file with SBAT data which is going to be embedded as '.sbat'
-> +         section into the kernel.
-> +
-> +         If unsure, leave blank.
-> +
->  endmenu
->
->  config UEFI_CPER
-> diff --git a/drivers/firmware/efi/libstub/Makefile.zboot b/drivers/firmware/efi/libstub/Makefile.zboot
-> index 48842b5c106b..92e3c73502ba 100644
-> --- a/drivers/firmware/efi/libstub/Makefile.zboot
-> +++ b/drivers/firmware/efi/libstub/Makefile.zboot
-> @@ -44,6 +44,10 @@ AFLAGS_zboot-header.o += -DMACHINE_TYPE=IMAGE_FILE_MACHINE_$(EFI_ZBOOT_MACH_TYPE
->  $(obj)/zboot-header.o: $(srctree)/drivers/firmware/efi/libstub/zboot-header.S FORCE
->         $(call if_changed_rule,as_o_S)
->
-> +ifneq ($(CONFIG_EFI_SBAT_FILE),)
-> +$(obj)/zboot-header.o: $(CONFIG_EFI_SBAT_FILE)
-> +endif
-> +
->  ZBOOT_DEPS := $(obj)/zboot-header.o $(objtree)/drivers/firmware/efi/libstub/lib.a
->
->  LDFLAGS_vmlinuz.efi.elf := -T $(srctree)/drivers/firmware/efi/libstub/zboot.lds
-> diff --git a/drivers/firmware/efi/libstub/zboot-header.S b/drivers/firmware/efi/libstub/zboot-header.S
-> index fb676ded47fa..e02247458b65 100644
-> --- a/drivers/firmware/efi/libstub/zboot-header.S
-> +++ b/drivers/firmware/efi/libstub/zboot-header.S
-> @@ -123,11 +123,29 @@ __efistub_efi_zboot_header:
->                         IMAGE_SCN_MEM_READ | \
->                         IMAGE_SCN_MEM_EXECUTE
->
-> +#ifdef CONFIG_EFI_SBAT
-> +       .ascii          ".sbat\0\0\0"
-> +       .long           __sbat_size
-> +       .long           _sbat - .Ldoshdr
-> +       .long           __sbat_size
-> +       .long           _sbat - .Ldoshdr
-> +
-> +       .long           0, 0
-> +       .short          0, 0
-> +       .long           IMAGE_SCN_CNT_INITIALIZED_DATA | \
-> +                       IMAGE_SCN_MEM_READ | \
-> +                       IMAGE_SCN_MEM_DISCARDABLE
-> +
-> +       .pushsection ".sbat", "a", @progbits
-> +       .incbin CONFIG_EFI_SBAT_FILE
-> +       .popsection
-> +#endif
-> +
->         .ascii          ".data\0\0\0"
->         .long           __data_size
-> -       .long           _etext - .Ldoshdr
-> +       .long           _data - .Ldoshdr
->         .long           __data_rawsize
-> -       .long           _etext - .Ldoshdr
-> +       .long           _data - .Ldoshdr
->
->         .long           0, 0
->         .short          0, 0
-> diff --git a/drivers/firmware/efi/libstub/zboot.lds b/drivers/firmware/efi/libstub/zboot.lds
-> index 9ecc57ff5b45..c3a166675450 100644
-> --- a/drivers/firmware/efi/libstub/zboot.lds
-> +++ b/drivers/firmware/efi/libstub/zboot.lds
-> @@ -29,7 +29,17 @@ SECTIONS
->                 . = _etext;
->         }
->
-> +#ifdef CONFIG_EFI_SBAT
-> +        .sbat : ALIGN(4096) {
-> +               _sbat = .;
-> +               *(.sbat)
-> +               _esbat = ALIGN(4096);
-> +               . = _esbat;
-> +       }
-> +#endif
-> +
->         .data : ALIGN(4096) {
-> +               _data = .;
->                 *(.data* .init.data*)
->                 _edata = ALIGN(512);
->                 . = _edata;
-> @@ -52,3 +62,4 @@ PROVIDE(__efistub__gzdata_size =
->
->  PROVIDE(__data_rawsize = ABSOLUTE(_edata - _etext));
->  PROVIDE(__data_size = ABSOLUTE(_end - _etext));
-> +PROVIDE(__sbat_size = ABSOLUTE(_esbat - _sbat));
-> --
-> 2.49.0
->
+Link: https://sifive.cdn.prismic.io/sifive/c52a8e32-05ce-4aaf-95c8-7bf8453f8698_hifive-unleashed-a00-schematics-1.pdf [0]
+Link: https://sifive.cdn.prismic.io/sifive/6a06d6c0-6e66-49b5-8e9e-e68ce76f4192_hifive-unmatched-schematics-v3.pdf [1]
+
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
+Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
+---
+ arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts | 12 ++++--------
+ arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts | 12 ++++--------
+ 2 files changed, 8 insertions(+), 16 deletions(-)
+
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+index 900a50526d77..06731b8c7bc3 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unleashed-a00.dts
+@@ -49,32 +49,28 @@ led-controller {
+ 		compatible = "pwm-leds";
+ 
+ 		led-d1 {
+-			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
++			pwms = <&pwm0 0 7812500 0>;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d1";
+ 		};
+ 
+ 		led-d2 {
+-			pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
++			pwms = <&pwm0 1 7812500 0>;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d2";
+ 		};
+ 
+ 		led-d3 {
+-			pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
++			pwms = <&pwm0 2 7812500 0>;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d3";
+ 		};
+ 
+ 		led-d4 {
+-			pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
++			pwms = <&pwm0 3 7812500 0>;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d4";
+diff --git a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+index 72b87b08ab44..03ce2cee4e97 100644
+--- a/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
++++ b/arch/riscv/boot/dts/sifive/hifive-unmatched-a00.dts
+@@ -51,8 +51,7 @@ led-controller-1 {
+ 		compatible = "pwm-leds";
+ 
+ 		led-d12 {
+-			pwms = <&pwm0 0 7812500 PWM_POLARITY_INVERTED>;
+-			active-low;
++			pwms = <&pwm0 0 7812500 0>;
+ 			color = <LED_COLOR_ID_GREEN>;
+ 			max-brightness = <255>;
+ 			label = "d12";
+@@ -68,20 +67,17 @@ multi-led {
+ 			label = "d2";
+ 
+ 			led-red {
+-				pwms = <&pwm0 2 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
++				pwms = <&pwm0 2 7812500 0>;
+ 				color = <LED_COLOR_ID_RED>;
+ 			};
+ 
+ 			led-green {
+-				pwms = <&pwm0 1 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
++				pwms = <&pwm0 1 7812500 0>;
+ 				color = <LED_COLOR_ID_GREEN>;
+ 			};
+ 
+ 			led-blue {
+-				pwms = <&pwm0 3 7812500 PWM_POLARITY_INVERTED>;
+-				active-low;
++				pwms = <&pwm0 3 7812500 0>;
+ 				color = <LED_COLOR_ID_BLUE>;
+ 			};
+ 		};
+-- 
+2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
