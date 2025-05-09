@@ -4,99 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97451C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 06:13:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74018C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 06:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=U2GyLvyMaQ9dZSwINc+4G0sEUByJyjHcqJSuFmmou4A=; b=TXdw3KzGSscD7H
-	bgCwTnioiuuNv0p0AEAkJOcrwwbwyMW9TouzN5SXYTnsjzOtM67ysfTaZaXMZ6qPQBNSVhVPCnp1e
-	bxYFobizRx4oOQ60/iyDyK7U4SBbbKn+S2z3tIAC57uhF07PpIJIMNfCZQcGQp+eWNGzozn1WBAEB
-	9TT6SO+DSR2dxQNPLtUAA0oMBzCixA5/ra6NBa9CLng9zwPwX829gP86/3TFWVzy99zBjinzBvDS1
-	bCj/gNF8C3dhCYt6LJLriep6RWluXf4n5hrvGEMzGGTqQ51TGldl8fuDlDnDHda0yn+ZTkwqGo6XX
-	J6l9E9DZ7rcNpesZmclA==;
+	List-Owner; bh=IwhHmJcQcd75AJ6y5o/Toowpj/9d3ILH0mbRWZGaYrw=; b=h/jtefWNAaUX/P
+	lLUuNSBvH9nZ9/dIbo33pDw9vyonoX5guq+DwT0ILIQo4U40QECCzmBEb+m51l3+mHmJTlIuIztis
+	RBES5I6STsAxg+vcCBdYzgNNBawt8uTCutUUTF/lxwm86R0KWa6jP8F4MN6qSWjP9e/dzYqf5hPAp
+	Vwv6m2Wq8btUHHMTUG/z+gpzra9v/hLl+kn7fHcmVh27NyARKIW3RGAOqSFJyA5L71E8W24KwItGf
+	BegzgkPEitwHxsN+CIDNak6mb2MjCnp1Q2oVkv6Wle6OrxRs3UgsB+q63BJXiJggkWM96I7fZpiMF
+	0p1O97NtgDvN8yINv7OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDGz2-00000002aaA-0TKT;
-	Fri, 09 May 2025 06:13:20 +0000
-Received: from mail-ej1-x644.google.com ([2a00:1450:4864:20::644])
+	id 1uDH4i-00000002b9E-0nid;
+	Fri, 09 May 2025 06:19:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDGwt-00000002aD5-2rqT;
-	Fri, 09 May 2025 06:11:08 +0000
-Received: by mail-ej1-x644.google.com with SMTP id a640c23a62f3a-ad21a5466f6so108127166b.1;
-        Thu, 08 May 2025 23:11:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746771065; x=1747375865; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tT4nmiF3B+9Zf02ngFo5qPxLiB0Cnk6TGo7gdbEV7tc=;
-        b=JMwrEXO0IcLYpJOaT2mlvpy04AY6mOdK5QUiTpF+UCCsJI8LeQfaAUyqLOzf0iSmQ7
-         5Oqs8hVj/K3L9gpm1YYHl+CWGrNswXIgOUgHK4z1Lq7EvdeeppOY9OLslfIMJlFZoM9F
-         NMkUT5YVuRokkqbHSzwy2/vbTX48kl/hhrs/EwinCVUroPbOADQR0BCpKL/Itvzyp5Rt
-         gdGz1Uq7GUZvrVmxjf0rpiRCd9a3PFdN0oq8/E4OteOUKAxPscSOxgW3l94PU4cSs03w
-         yWATtUxyOwGSbTtvGohKnSVdEefQoap8ka3qZpqMWnYX0M4vAoyjsuiTvIbacPu2Ekdg
-         WSlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746771065; x=1747375865;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tT4nmiF3B+9Zf02ngFo5qPxLiB0Cnk6TGo7gdbEV7tc=;
-        b=aQBBSELcpOg1G1usrzjn8cnfLKkfkyq5gUW0Yds68I4NVRu9Q3cn9Y++DCzRNch8Q2
-         mXqH5Bd95BXYFZmvEuesDHt8A8r7MpKbXGd+gZpFBy3gJe3hEpAD8q8fH+8dMen6A7yp
-         iP3+sDFJQSqp6o+mpcMLvJECk0vXDf6+8lRBr0SITImo3yRt/oTQLBkpGOT66NBd4zlU
-         OcFZSaoJpMwd1Q3ZAyMaB3C8D0cEwnqObmvg3uBNbuhbdGr+L5NsmiuWpTGPhvjVMSIg
-         erK6hVkct4ZFeymX1IyNcpUqpuQaVj/ML5orYv5UzY8tzykWR2KwVWKi7GMXkeEPe/dF
-         Nv9A==
-X-Forwarded-Encrypted: i=1; AJvYcCVX8GWlMeVxBk4CgIBJuRrWSXXBDcl2JSdN2B2A91larPfV4nI+csYfDGAsAdOY50ESFO5ipCnNZY7G9YViH/+8@lists.infradead.org, AJvYcCXZPhoUyykJqLqDUCVKR8dgIxS+y37PKSPWYNPG6R7mbQYGCoxoBnhbnSrOrwl+r1fHAzJuLG+Tqn5cNfA=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM5V5LpbnsmhNl485ZewRfSLdhMdq6xCfjx9rhrDrT92V7Mq0Z
-	7UTtcBNLMjp6hHc/wKWEsBIgX/oTwJsUqgLdKVm8Y/SpmdMj6ToE
-X-Gm-Gg: ASbGncvF7AomoVfYU56E/wnyitz7q6Kj3KHYTYo5ESpu2LZ6SvPycMArKOkNjPDhXtQ
-	xqWJjxi5kDqyBubzzMylAAjHMfBUgD5b5Wz4wlj5aZwUnioBibRkfLfp7hf7h7ZXgzs9wx83ykS
-	XhOh4dA/O928Gkbxq/ocAj4vWnSAwMTUxXkZo1+ONRqrvZ4gPIJ8C+ywt9YhC4vOnVd/8MmksGJ
-	6AQP/EzTTUwFoASAmNIbOFL84pyYd1MBpD0s+6swFfK/EHgWwVVFH4czOwomEV/fXmHBmRTCrkg
-	6b9InnL1Y7bCGnKEdksg/vDIrtp2Movl3pSuU/nq19QnaF7mbp4Sm1c4okQ19C6Ri7NVanIY8+A
-	Nh+4hdrmLR8uT1yPjaHjL0AQuRT0KSrQr9v2d4MrM2hvcoHejmxM=
-X-Google-Smtp-Source: AGHT+IHV7Lb+Jz2vAFwguRkPg3xEv8RK1gYxrdSEajyR1uZCyO5I90pymBqse+1L9ASZRUyJgq24dg==
-X-Received: by 2002:a17:906:6a22:b0:ad2:cce:8d5e with SMTP id a640c23a62f3a-ad21b16d4d8mr201457766b.7.1746771065029;
-        Thu, 08 May 2025 23:11:05 -0700 (PDT)
-Received: from [26.26.26.1] (ec2-3-69-236-239.eu-central-1.compute.amazonaws.com. [3.69.236.239])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ad219343c81sm101663266b.58.2025.05.08.23.11.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 08 May 2025 23:11:04 -0700 (PDT)
-Message-ID: <ec5bd8d1-c865-40ac-b03d-9e07875d931c@gmail.com>
-Date: Fri, 9 May 2025 14:11:00 +0800
+	id 1uDH4f-00000002b7y-0351
+	for linux-riscv@lists.infradead.org;
+	Fri, 09 May 2025 06:19:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 374E843C68;
+	Fri,  9 May 2025 06:19:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 866D6C4CEE4;
+	Fri,  9 May 2025 06:19:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1746771548;
+	bh=NYM1/STB/SI2JzqgJlobo7dJE80eQHq/fsb0VCpU9RQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Jf35wBd1dAn1FMXBlyvwKAPBK+QlZtSeAYasNL4hs+ZTIqS/R/HHL0j0PaTmWWWNu
+	 6dRsc2KRapfXpq4QgqRPbmyGs7mbtoVsZpafv3vab+Bi7iza8rbNMCU+51dCndLHrY
+	 5+AxpKOIE8rzuy7X6E0VUbt44NpsltTf4Zo1QayA=
+Date: Fri, 9 May 2025 08:19:05 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Naresh Kamboju <naresh.kamboju@linaro.org>
+Cc: stable@vger.kernel.org, patches@lists.linux.dev,
+	linux-kernel@vger.kernel.org, torvalds@linux-foundation.org,
+	akpm@linux-foundation.org, linux@roeck-us.net, shuah@kernel.org,
+	patches@kernelci.org, lkft-triage@lists.linaro.org, pavel@denx.de,
+	jonathanh@nvidia.com, f.fainelli@gmail.com,
+	sudipm.mukherjee@gmail.com, srw@sladewatkins.net, rwarsow@gmx.de,
+	conor@kernel.org, hargar@microsoft.com, broonie@kernel.org,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Anders Roxell <anders.roxell@linaro.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Arnd Bergmann <arnd@arndb.de>, Palmer Dabbelt <palmer@rivosinc.com>,
+	linux-riscv <linux-riscv@lists.infradead.org>
+Subject: Re: [PATCH 6.6 000/129] 6.6.90-rc2 review
+Message-ID: <2025050917-dismay-scary-7261@gregkh>
+References: <20250508112618.875786933@linuxfoundation.org>
+ <CA+G9fYsKqxUExVW1rEhU8_5pYOuhkzXyeL9TmTyGVsV2-C-PFQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
- panic
-To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
- Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
- Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Marc Zyngier <maz@kernel.org>,
- Conor Dooley <conor.dooley@microchip.com>,
- Daire McNamara <daire.mcnamara@microchip.com>
-Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
- Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
- linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
-References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
-Content-Language: en-US
-From: Ethan Zhao <etzhao1900@gmail.com>
-In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <CA+G9fYsKqxUExVW1rEhU8_5pYOuhkzXyeL9TmTyGVsV2-C-PFQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_231107_726339_B900F8BD 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250508_231909_092575_0F9FEEDC 
+X-CRM114-Status: GOOD (  22.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +75,70 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 5/8/2025 3:10 PM, Manivannan Sadhasivam wrote:
-> A PCI device is just another peripheral in a system. So failure to
-> recover it, must not result in a kernel panic. So remove the TODO which
-> is quite misleading.
+On Thu, May 08, 2025 at 06:16:12PM +0530, Naresh Kamboju wrote:
+> On Thu, 8 May 2025 at 17:00, Greg Kroah-Hartman
+> <gregkh@linuxfoundation.org> wrote:
+> >
+> > This is the start of the stable review cycle for the 6.6.90 release.
+> > There are 129 patches in this series, all will be posted as a response
+> > to this one.  If anyone has any issues with these being applied, please
+> > let me know.
+> >
+> > Responses should be made by Sat, 10 May 2025 11:25:47 +0000.
+> > Anything received after that time might be too late.
+> >
+> > The whole patch series can be found in one patch at:
+> >         https://www.kernel.org/pub/linux/kernel/v6.x/stable-review/patch-6.6.90-rc2.gz
+> > or in the git tree and branch at:
+> >         git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable-rc.git linux-6.6.y
+> > and the diffstat can be found below.
+> >
+> > thanks,
+> >
+> > greg k-h
 > 
-Could you explain what the result would be if A PCI device failed to
-recovery from FATAL/NON_FATAL aer error or DPC event ? what else
-better choice we have as next step ? or just saying "failed" then
-go ahead ?
-
-Thanks,
-Ethan
-> Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-> ---
->   drivers/pci/pcie/err.c | 1 -
->   1 file changed, 1 deletion(-)
+> Regressions on riscv with allyesconfig and allmodconfig builds failed with
+> clang-20 and gcc-13 toolchain on the stable-rc 6.6.90-rc1 and 6.6.90-rc2
 > 
-> diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
-> --- a/drivers/pci/pcie/err.c
-> +++ b/drivers/pci/pcie/err.c
-> @@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
->   
->   	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
->   
-> -	/* TODO: Should kernel panic here? */
->   	pci_info(bridge, "device recovery failed\n");
->   
->   	return status;
+> * riscv, build
+>   - clang-20-allmodconfig
+>   - gcc-13-allmodconfig
+>   - gcc-13-allyesconfig
 > 
+> Regression Analysis:
+>  - New regression? Yes
+>  - Reproducibility? Yes
+> 
+> Build regression: riscv uprobes.c unused variable 'start'
+> 
+> Reported-by: Linux Kernel Functional Testing <lkft@linaro.org>
+> 
+> ## Build error riscv
+> arch/riscv/kernel/probes/uprobes.c: In function 'arch_uprobe_copy_ixol':
+> arch/riscv/kernel/probes/uprobes.c:170:23: error: unused variable
+> 'start' [-Werror=unused-variable]
+>   170 |         unsigned long start = (unsigned long)dst;
+>       |                       ^~~~~
+> cc1: all warnings being treated as errors
 
+Oh that's wierd.  riscv defines flush_icache_range() as "empty" so then
+this patch does nothing in these older kernels.  Ah, it's an inline
+function in newer kernel trees as well so that the build warning isn't
+there anymore.
+
+As this change feels odd for 6.6 and older kernels, AND it's causing
+build warnings, I'm just going to drop it and if the riscv maintainers
+really want it applied to these trees, will take a working backport from
+them.
+
+thanks,
+
+greg k-h
 
 _______________________________________________
 linux-riscv mailing list
