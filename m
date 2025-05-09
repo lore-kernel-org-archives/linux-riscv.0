@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B080BC3ABC9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5124C3ABBC
 	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 20:26:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,51 +12,56 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SBNj6vV/s+Iox28GDhwz1EeWu+zs9hwWyq/CGYtlXIE=; b=UxDHypY26reqWJ
-	lIKswfiQIkwPR8upRfyQ9cvTA4sixlpv6F5qMLPl1ZB4D/Omjxn2ivmLuQshUfh//TaZBQtlf9USM
-	BOveRcXjEuedJBt952tZaxUpk7BFsc+IVG6Q47axQ0MfAUYeS52FqoQdLKrYU5fXyS7s06J/tA9dz
-	lqdbWf5NLuMiLj2Wif0UYGbpUcIkiHPyt8xM9ycrJ1UoDJ80eiLxLJ/BkhVU5kWZ9+SxF29EP6e59
-	TLD+Cc5+woOTpffn1kDO5TfGAmV1Ho+AOR+UvSn1ycIzPUrQ7+uSyrqiIjEcLGAh2VwxKzaOumCBe
-	DyIJYPQJT2yQ7NU2Up8w==;
+	List-Owner; bh=CHepHEQZX9JreYDFvMJXqs6bGBZj4qeF7qXqAx8TkqA=; b=dH4Fb0lOKrUjIm
+	yDjbhUxczoohAgnljPhBwTOnBUqAHkGL3heFtseie3xef0hcO5RKT9eHKgWT6wfVfqf7fR5Ti0lr5
+	+ncZm8ocLStjqHCICAwijeRTg0HczXNSV72HhdNeCL4Nd9gtdqwXb8+qOaVbyUOsfYaAAntO5dgCu
+	VlupUMEBLb/nGzKR8aQBX5hD2mDakAxQ/Ma+KiM7udZu4FIWWRFlKzr8EM0GlP7n1D+ccX0kNsse8
+	/w0V59nnNwpHBqppGMTpvfpZE1Zilf+AveT69H7jLOLSDWml9jPoHSEjHqN0fJw9xEcP130Zo2E3p
+	yAitiOYGrq7wivhDY2+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDUI7-00000004nAn-1VuP;
-	Fri, 09 May 2025 20:25:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uDUI9-00000004nEb-0reZ;
+	Fri, 09 May 2025 20:25:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDRXq-00000004RL3-2n3H
+	id 1uDRXp-00000004RKb-2nh2
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 17:29:58 +0000
+	Fri, 09 May 2025 17:29:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AFEFC61120;
-	Fri,  9 May 2025 17:29:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F2C9C4CEEE;
-	Fri,  9 May 2025 17:29:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 763C0A4CC2F;
+	Fri,  9 May 2025 17:29:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0EB59C4CEE4;
+	Fri,  9 May 2025 17:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746811797;
-	bh=etDsIxt76pe2uk/B9drL0wcQPb5b1z/MtT4+J3JduI4=;
+	s=k20201202; t=1746811796;
+	bh=qkjoxm3bbJP62+wBHa3WTMwFdpJNYs1tNupsrehi5/4=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=aQMHR6xyE5UP1RdRHiJ9tbHGeftJChLoLCQABr/cgqNexjgRdf+M3/HnHOykeVBp+
-	 1cyUo4chGPTgrs0SyittY8u4PC8fzQ91pvLM+126Fw+3qYcE0R/2lpRPUW/JVrvNXT
-	 kryN8nqD1sBqxbY+BIBczxAupGpWZNG2mqauR4x7QiUgsI4viWhAd4NxScbTKBkKQg
-	 TOfjoNQAo+Ta/BYQxFB2JAtrqhWwGYW/rsKLLI2AeJgsdxRkDRBMBbKaC+soEoyPRl
-	 jbdAIVdEHeEw56OC6w/tGqV2/Bk27Y2WtqV4DaYbprsTVd5Q9h8SI1LrNLw/2lpavq
-	 hKXO1Sff8OYFQ==
+	b=m2P1BPXCDIbjZYVWk50NZRZNQWKvevBWYdk4hBZedF120Xv/aG5bKbwKRZuURLNK7
+	 a3cwGZ1YIwnVuK/wscgOd/NnvkUaIt4A7vMqEiQOi/IXJkvFPITCYfa9rZRgIwbMqe
+	 +zruay/MsLPZ2EEhqXVRv08+871Ex/5chti0jGjU6x/L9JnxHi4x1HxltOPFVqLDw2
+	 22gTjrv1UxOVqw1rVYSAhxbTnOVE2y7k07LTIegJ0hzLqlpyMx9HmLuBoaDnfTLB6E
+	 /p5cmYXz+2nIGXzgxG/PkSkCKB/BS6/61lw3YMnx5fJDeXsUbv5RRMYd+C1cDopRo5
+	 J6hJw4zWW4Y2w==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADE0380DBCB;
-	Fri,  9 May 2025 17:30:36 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id AE1BE380DBCB;
+	Fri,  9 May 2025 17:30:35 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 0/5] riscv: uaccess: optimisations
+Subject: Re: [PATCH 00/12] riscv: Add vendor extensions support for SiFive
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174681183574.3697320.3349869843167722914.git-patchwork-notify@kernel.org>
-Date: Fri, 09 May 2025 17:30:35 +0000
-References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
-In-Reply-To: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
-To: Cyril Bur <cyrilbur@tenstorrent.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, paul.walmsley@sifive.com, charlie@rivosinc.com,
- jrtc27@jrtc27.com, ben.dooks@codethink.co.uk, alex@ghiti.fr,
- linux-kernel@vger.kernel.org, jszhang@kernel.org
+Message-Id: <174681183450.3697320.4232905271465493663.git-patchwork-notify@kernel.org>
+Date: Fri, 09 May 2025 17:30:34 +0000
+References: <20250418053239.4351-1-cyan.yang@sifive.com>
+In-Reply-To: <20250418053239.4351-1-cyan.yang@sifive.com>
+To: Cyan Yang <cyan.yang@sifive.com>
+Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, corbet@lwn.net, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
+ samuel.holland@sifive.com, linux-doc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250509_102957_771178_3F6A1FA4 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,28 +83,41 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Palmer Dabbelt <palmer@rivosinc.com>:
 
-On Thu, 10 Apr 2025 07:05:21 +0000 you wrote:
-> This series tries to optimize riscv uaccess by allowing the use of
-> user_access_begin() and user_access_end() which permits grouping user accesses
-> and avoiding the CSR write penalty for each access.
+On Fri, 18 Apr 2025 13:32:27 +0800 you wrote:
+> This patch set adds four vendor-specific ISA extensions from SiFive:
+> "xsfvqmaccdod", "xsfvqmaccqoq", "xsfvfnrclipxfqf", and "xsfvfwmaccqqq".
 > 
-> The error path can also be optimised using asm goto which patches 3 and 4
-> achieve. This will speed up jumping to labels by avoiding the need of an
-> intermediary error type variable within the uaccess macros
+> Additionally, a new hwprobe key, RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0,
+> has been added to query which SiFive vendor extensions are supported on
+> the current platform.
 > 
 > [...]
 
 Here is the summary with links:
-  - [v6,1/5] riscv: save the SR_SUM status over switches
-    https://git.kernel.org/riscv/c/788aa64c01f1
-  - [v6,2/5] riscv: implement user_access_begin() and families
-    https://git.kernel.org/riscv/c/19500c6dbc5c
-  - [v6,3/5] riscv: uaccess: use input constraints for ptr of __put_user()
-    https://git.kernel.org/riscv/c/62135bf660b2
-  - [v6,4/5] riscv: uaccess: use 'asm goto' for put_user()
-    https://git.kernel.org/riscv/c/cdf647e81714
-  - [v6,5/5] riscv: uaccess: use 'asm_goto_output' for get_user()
-    https://git.kernel.org/riscv/c/f6bff7827a48
+  - [01/12] dt-bindings: riscv: Add xsfvqmaccdod and xsfvqmaccqoq ISA extension description
+    https://git.kernel.org/riscv/c/0f733b5be965
+  - [02/12] riscv: Add SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
+    https://git.kernel.org/riscv/c/2d147d77ae6e
+  - [03/12] riscv: hwprobe: Document SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
+    https://git.kernel.org/riscv/c/e8fd215ed0eb
+  - [04/12] riscv: hwprobe: Add SiFive vendor extension support and probe for xsfqmaccdod and xsfqmaccqoq
+    https://git.kernel.org/riscv/c/1a6274f03534
+  - [05/12] dt-bindings: riscv: Add xsfvfnrclipxfqf ISA extension description
+    https://git.kernel.org/riscv/c/a5a15e07cbb9
+  - [06/12] riscv: Add SiFive xsfvfnrclipxfqf vendor extension
+    https://git.kernel.org/riscv/c/e84fffe21b74
+  - [07/12] riscv: hwprobe: Document SiFive xsfvfnrclipxfqf vendor extension
+    https://git.kernel.org/riscv/c/659d664f7df8
+  - [08/12] riscv: hwprobe: Add SiFive xsfvfnrclipxfqf vendor extension
+    https://git.kernel.org/riscv/c/1d91224394c9
+  - [09/12] dt-bindings: riscv: Add xsfvfwmaccqqq ISA extension description
+    https://git.kernel.org/riscv/c/d5ca02b25f5d
+  - [10/12] riscv: Add SiFive xsfvfwmaccqqq vendor extension
+    https://git.kernel.org/riscv/c/34e9b16b4b88
+  - [11/12] riscv: hwprobe: Document SiFive xsfvfwmaccqqq vendor extension
+    https://git.kernel.org/riscv/c/a3ca43dc5271
+  - [12/12] riscv: hwprobe: Add SiFive xsfvfwmaccqqq vendor extension
+    https://git.kernel.org/riscv/c/d9669e33c8fa
 
 You are awesome, thank you!
 -- 
