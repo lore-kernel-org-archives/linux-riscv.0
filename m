@@ -4,97 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7300CC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 10:37:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A07BC3ABBC
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 12:21:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BMrYiwKBfWylE6A0WhEm+xmhQahNVr+/CFUnUf1NMBQ=; b=dhJ4E7yY0nbi33
-	NJel84IxLcLKPVRegPX9PjVM7rY5hZc/8aielbts+L2VsFtudmIErFxafPyM4BuiNSa91CsNAlsmz
-	MyJhS1th4yBgBwxGBCI5dmmtGFMz7ZY/rwP7b3Wbat1z70C9DZR3XRGkJt6pQz7za4hLrPEAphLsC
-	0LBe+j+ertMFP7BIDgZ/x1fPKJuT/EdJlhGyJvHOPXwSXa8og61JKAAf07FgVj9AEr/5d1ckJ80/n
-	qcgf613lD36BP8ZebvpuRbi7YxNZhR3NuzJDasYchKEdWCoeqyJ+aQzcZS6/Cga1MGerZo42YFlDU
-	F7LyJpHD0jOcCqK1dnqw==;
+	List-Owner; bh=KZPR8aW1do48as2jQEQiiurwx5rmapJDg1kWI2PcYG4=; b=sYHHviHE1mYW5f
+	7tMFVVfXoRsqUnr+phWHDZJcCRe7/JzGUED5HAo0v7YOmzQiReiYr/VhAyUZPdwFz/GFTUEKQu4cQ
+	IHbHAwhxliK6viaqO5a7MoSX7okMYfibSTjZLASAcVOvhGLmMy5oTVMbvsR1hpjHxNUgM9fB2c56b
+	RwzalxhVnWbS8hrj6J+Lh6U347stFU5YoG8C6a9esz6i//hQkVLbkqgsCjQJaiEGt9etnhDrZRCsV
+	zIOMnMS8FDRZUtRjrXRTCdB/P31zGL5R7ri+tEMbgpbubs8EpdDujpIEqJ815v8sbq6EsJBeqQhOe
+	g55oCVgZaCshAJq0B5lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDL65-00000003IR1-0a5w;
-	Fri, 09 May 2025 10:36:53 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1uDMjP-00000003Z9p-1qZb;
+	Fri, 09 May 2025 12:21:35 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDKEf-000000038aE-3hnm
+	id 1uDLbk-00000003OEp-3Dj6
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 09:41:43 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-73972a54919so1997751b3a.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 02:41:41 -0700 (PDT)
+	Fri, 09 May 2025 11:09:39 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-ac2c663a3daso387082166b.2
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 04:09:35 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1746783701; x=1747388501; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1746788975; x=1747393775; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=dTYlTOXj1U7VnsAmcUnx1eYdk5rL5ZGZ7LNT8Q6B11E=;
-        b=PTpyu/DTZXBJ0jwdzF/pIYjuG7joM0/YjzFvifuzdwunhfXJh6JhwurR5zrO9tpAhp
-         EAv0h0PvZr34wBmQkORWPCjHX2Kysx7DuC1KZjKAEeTld2e/2a9CwgzP24U7Yw9gG/zY
-         f8Hv8GFgxYtW8eDJ+LWxNn+o9YViljZOZT/kofCG9hDO7dUfNLQRQoIbpK1wO8b8arak
-         Z+Iq046Wj5YV/arDIEENOudGFJNwCjSRmbI+l1AzDJoSW0SkQpA4+Pvoj1oxbUC9Dmfp
-         28GrReMdZyxNiQSvTdc9vUtKj7jzUYx+wGQ05RZsnpSOciI0/OUrbUB+3+tvnksH5QSd
-         bdaQ==
+        bh=IvCseEsNXn2YDR22ofVS1EjuRoUQXxujlI0mWYKfm9A=;
+        b=j1mwVy+t98SkdNX13GUOjfRssDXUo5/3x9VBPB2hpyQOkcUx6ooI1JEdhH9HDrul7k
+         E2jd4jmXh6jeLmYXAEvMVWwnz1NTU8bAO3KTPutZxHP+M85BcO1KtZw1rFGPRlL0bN7/
+         N3/50XSazmcmQ2s23iriw0xHo3KX4AVIDINdbLJRwOcuPy40c/4sTwXz2t7PlBvikPGL
+         tPugX7mnbjr4+DSywFzWYSRBUX3Dlx5PdAduV5L/D7jJGenYLTimyrhCcOPbxk37Yreq
+         jUIQufFyrlZzCZsho5jZBGbVksW37Pl1wYoYmRzgwTHNMKEpMk38rD2qScMDm5/8mq3P
+         WUkw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746783701; x=1747388501;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1746788975; x=1747393775;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=dTYlTOXj1U7VnsAmcUnx1eYdk5rL5ZGZ7LNT8Q6B11E=;
-        b=g/hzIt3OqPJEIbN04JkI5c2zDGpFoJCwPbONvKV0o8zIrjQ3BbDzvAB/6skp/qW9eM
-         bQVa7CIhfeYfW6fOuCdcxLIG6srBpEHFh3I4B+VtARLrT7u8mMbfVr7dS+bxVi5g4fBJ
-         wanTdDsFETkAy++WQWMI7e54N2eZHjyTS6K6Fi9iXUDHL1qiVqXPbihQgr4pkEcMgY7W
-         8z+/kYfsJ0VObgbzLSRsDXdlpxeGZhW1sELc6fDv/X3JIkXPzLigz2i9NgSQVZvRVZuQ
-         mP+XrxPZY+xryQh54tE5hzEodtzM54nBFoorL1vyKKBtmJNgMQEWwfkTC6LyIKZ+Fs/4
-         ZuRg==
-X-Forwarded-Encrypted: i=1; AJvYcCXE1Wg3cvRsl3ZKqAgQegZAC5YwhNfS/Koilditm+R3Hekah/rwuC0GUh65pEkNWsum/bp5cysNq/eWtA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzcSxSWPV47f/WSK4+6d+m5g3yzmJDlZbbSaO05lD+tRkiqr5H
-	G/IGll3XGl062b2U2z0eT2GpwLoiYIbC7itktR7E+1670qXWgCgYs0e1lUvxdag=
-X-Gm-Gg: ASbGncujoEf75QMZBX8Nmd7nprcxjWgsWQuWVI70EXEOmPp6fpWhsG591xnWpdGsvJ2
-	Al3FrdmhPonM6arjZ7xv6T6VmbCWwamiMp1GIxY3BT96lkIKd6AmOZ+nebo3LLUdM2sOTYCg4+g
-	tNrIBgzyzXkvSc8UgR9ahM2tpeaWmdst2AZylEKFEPIQuidNmcAYG4aiUDwku1z2YvCFZJcR1RX
-	7PY+M/JoFlfdHPUMOSL5pW8Jyuodx3Yc3MK8S7dLGUV8qV5Utb1Ac9l/+3uoywsZywZxJflW3f3
-	Itj1U/kyTaHPP7JVKWATf+WDfswmyR3SpDKJUVQR5M6vwevigOCZZWj18/Oc5fJ5x6VUf0lLWch
-	fcg==
-X-Google-Smtp-Source: AGHT+IH6CJp7geNRf/gfDN17FTLMQyKVaZTxIXnNcwyUwIxRi1b6xhJMl5CuSsuy0q5Q7sBCMcAAog==
-X-Received: by 2002:a17:902:f644:b0:224:a74:28d2 with SMTP id d9443c01a7336-22fc8b76ab5mr41666335ad.26.1746783701043;
-        Fri, 09 May 2025 02:41:41 -0700 (PDT)
-Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc8271c38sm13271035ad.119.2025.05.09.02.41.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 02:41:40 -0700 (PDT)
-From: Nylon Chen <nylon.chen@sifive.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: conor@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	samuel.holland@sifive.com,
-	Nylon Chen <nylon.chen@sifive.com>,
-	Zong Li <zong.li@sifive.com>,
-	Vincent Chen <vincent.chen@sifive.com>
-Subject: [PATCH v14 2/5] pwm: sifive: change the PWM algorithm
-Date: Fri,  9 May 2025 17:52:31 +0800
-Message-Id: <20250509095234.643890-3-nylon.chen@sifive.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250509095234.643890-1-nylon.chen@sifive.com>
-References: <20250509095234.643890-1-nylon.chen@sifive.com>
+        bh=IvCseEsNXn2YDR22ofVS1EjuRoUQXxujlI0mWYKfm9A=;
+        b=i8l13MVcKCEk6suNZiJrhBQS7bYpqaEQ7zN6RT1+SNfZWhVnO+ZlQgZo2XJvDbDA7e
+         DT28EVVAAw2mlgoy+57k/cjeBg4s3XgwARxP46ZG78DffnJBVyWSMuEXyMIIRcLx/T3c
+         kI7L8xzKfwKqTkmFPq7S9Sg/3/0wIlvZH2dACTBCbDgj7/rypAGIDaGudUnn/j8kQ7iK
+         j8q9cBjJdLK8thFa4uhzGXhf76YT2dxBP3AfvORXaTJOc5h78l62Iy6n13AMlj44VEyj
+         Dkcg+OvZitRpjcV8lyJlJzBgQLUMUgUQDil4FFoYG7k7xMZODYka/1BwJKL9SHEJ6VnD
+         JWGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXBEhIoB050KbQeKqgP5U4J+u/iVZb0oPZRGX0vcWj3mrXML+tdihl8w+CxTOwAyiJkubQhfqrrVz5akw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPVDk+FlSiCbiftP/0GOmXHy5gtOrlCUu2nr6kIs68cNf+JRem
+	79YGqPXAZLICRkCh2UVKqdO6MWMct4gWDu34zrp1k+ogWkzaiTBk54VeLWQ5UujpZQQdEImHgum
+	JZQFkfL0hwScYDP86loWAQKgqUOzKiQybwudvEQ==
+X-Gm-Gg: ASbGncsg2wrCU5ZOWhoZZAFk+/G+uwNQ+UrJRbpl1prcU79TYzEQ+4KYDCwEw4+BoR8
+	T7L+g6N+QlApko956iw56NlsR89Ll0SoYPrinKqgxWHW7APcVyrmA0lCiqRZkbHW3fHzbBlsVfu
+	jueV92hGbIDBOQu2yVOQJKjfmgaVJcC7UP4xDjGLcVq7igQDobp2k12g==
+X-Google-Smtp-Source: AGHT+IHolmFqWEGC4AyYal+IeZ3IwV5YHOWUsjQ6qySOfZum5CD2COEsMayA91FRo6y4k+ibRc9NvWuirdTrS8RhJ24=
+X-Received: by 2002:a17:907:724f:b0:acb:5343:e75 with SMTP id
+ a640c23a62f3a-ad2190afc7amr206746066b.34.1746788973864; Fri, 09 May 2025
+ 04:09:33 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250321130635.227011-1-alexghiti@rivosinc.com>
+ <4dd5d187-f977-4f27-9937-8608991797b5@ghiti.fr> <64409a13-1c07-42cd-b1ec-572042738f1b@arm.com>
+ <84cb893a-46e3-408a-ba0e-2eff0b44d2a1@ghiti.fr> <20250508123046.GA3706@willie-the-truck>
+In-Reply-To: <20250508123046.GA3706@willie-the-truck>
+From: Alexandre Ghiti <alexghiti@rivosinc.com>
+Date: Fri, 9 May 2025 13:09:22 +0200
+X-Gm-Features: AX0GCFtetDfDezkP8vUdVhHiVYD6YKsFtOYLD7hY4r0bKx1J-4Tcdfpu2fXv07A
+Message-ID: <CAHVXubjZB-riBLv+RGis6ErS8NvU4ijVTgvUO06fTxPhbEjXfA@mail.gmail.com>
+Subject: Re: [PATCH v5 0/9] Merge arm64/riscv hugetlbfs contpte support
+To: Will Deacon <will@kernel.org>, Lorenzo Stoakes <lstoakes@gmail.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Ryan Roberts <ryan.roberts@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Rutland <mark.rutland@arm.com>, 
+	Matthew Wilcox <willy@infradead.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-mm@kvack.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_024141_919647_4C7EF5D6 
-X-CRM114-Status: GOOD (  11.70  )
+X-CRM114-CacheID: sfid-20250509_040937_067611_945E5DFC 
+X-CRM114-Status: GOOD (  36.42  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +95,64 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The `frac` variable represents the pulse inactive time, and the result
-of this algorithm is the pulse active time. Therefore, we must reverse the result.
-
-The reference is SiFive FU740-C000 Manual[0]
-
-Link: https://sifive.cdn.prismic.io/sifive/1a82e600-1f93-4f41-b2d8-86ed8b16acba_fu740-c000-manual-v1p6.pdf [0]
-
-Co-developed-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
-Co-developed-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Vincent Chen <vincent.chen@sifive.com>
-Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
----
- drivers/pwm/pwm-sifive.c | 16 +++++++++-------
- 1 file changed, 9 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-index d5b647e6be78..bb9146267bc5 100644
---- a/drivers/pwm/pwm-sifive.c
-+++ b/drivers/pwm/pwm-sifive.c
-@@ -110,9 +110,10 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 				struct pwm_state *state)
- {
- 	struct pwm_sifive_ddata *ddata = pwm_sifive_chip_to_ddata(chip);
--	u32 duty, val;
-+	u32 duty, val, inactive;
- 
--	duty = readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-+	inactive = readl(ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-+	duty = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - inactive;
- 
- 	state->enabled = duty > 0;
- 
-@@ -123,7 +124,7 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	state->period = ddata->real_period;
- 	state->duty_cycle =
- 		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
--	state->polarity = PWM_POLARITY_INVERSED;
-+	state->polarity = PWM_POLARITY_NORMAL;
- 
- 	return 0;
- }
-@@ -137,9 +138,9 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	unsigned long long num;
- 	bool enabled;
- 	int ret = 0;
--	u32 frac;
-+	u32 frac, inactive;
- 
--	if (state->polarity != PWM_POLARITY_INVERSED)
-+	if (state->polarity != PWM_POLARITY_NORMAL)
- 		return -EINVAL;
- 
- 	cur_state = pwm->state;
-@@ -157,8 +158,9 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	 */
- 	num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
- 	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
--	/* The hardware cannot generate a 100% duty cycle */
-+	/* The hardware cannot generate a 0% duty cycle */
- 	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-+	inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
- 
- 	mutex_lock(&ddata->lock);
- 	if (state->period != ddata->approx_period) {
-@@ -190,7 +192,7 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 		}
- 	}
- 
--	writel(frac, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
-+	writel(inactive, ddata->regs + PWM_SIFIVE_PWMCMP(pwm->hwpwm));
- 
- 	if (!state->enabled)
- 		clk_disable(ddata->clk);
--- 
-2.34.1
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgV2lsbCwKCk9uIFRodSwgTWF5IDgsIDIwMjUgYXQgMjozMOKAr1BNIFdpbGwgRGVhY29uIDx3
+aWxsQGtlcm5lbC5vcmc+IHdyb3RlOgo+Cj4gSGkgZm9sa3MsCj4KPiBPbiBNb24sIE1heSAwNSwg
+MjAyNSBhdCAwNjowODo1MFBNICswMjAwLCBBbGV4YW5kcmUgR2hpdGkgd3JvdGU6Cj4gPiBPbiAy
+OS8wNC8yMDI1IDE2OjA5LCBSeWFuIFJvYmVydHMgd3JvdGU6Cj4gPiA+IE9uIDA3LzA0LzIwMjUg
+MTM6MDQsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPiA+ID4gPiBDYW4gc29tZW9uZSBmcm9tIGFy
+bTY0IHJldmlldyB0aGlzPyBJIHRoaW5rIGl0J3MgcHJlZmVyYWJsZSB0byBzaGFyZSB0aGUgc2Ft
+ZQo+ID4gPiA+IGltcGxlbWVudGF0aW9uIGJldHdlZW4gcmlzY3YgYW5kIGFybTY0Lgo+ID4gPiBJ
+J3ZlIGJlZW4gdGhpbmtpbmcgYWJvdXQgdGhpcyBmb3IgYSB3aGlsZSBhbmQgaGFkIHNvbWUgY29u
+dmVyc2F0aW9ucyBpbnRlcm5hbGx5Lgo+ID4gPiBUaGlzIHBhdGNoc2V0IGhhcyBib3RoIHByb3Mg
+YW5kIGNvbnMuCj4gPiA+Cj4gPiA+IEluIHRoZSBwcm9zIGNvbHVtbiwgaXQgaW5jcmVhc2VzIGNv
+ZGUgcmV1c2UgaW4gYW4gYXJlYSB0aGF0IGhhcyBoYWQgcXVpdGUgb2YgZmV3Cj4gPiA+IGJ1Z3Mg
+cG9wcGluZyB1cCBsYXRlbHk7IHNvIHRoaXMgd291bGQgYnJpbmcgbW9yZSBleWVzIGFuZCBob3Bl
+ZnVsbHkgaGlnaGVyCj4gPiA+IHF1YWxpdHkgaW4gdGhlIGxvbmcgcnVuLgo+ID4gPgo+ID4gPiBC
+dXQgaW4gdGhlIGNvbnMgY29sdW1uLCB3ZSBoYXZlIHNlZW4gSFcgZXJyYXRhIGluIHNpbWlsYXIg
+YXJlYXMgaW4gdGhlIHBhc3QgYW5kCj4gPiA+IEknbSBuZXJ2b3VzIHRoYXQgYnkgaG9pc3Rpbmcg
+dGhpcyBjb2RlIHRvIG1tLCB3ZSBtYWtlIGl0IGhhcmRlciB0byB3b3JrYXJvdW5kCj4gPiA+IGFu
+eSBmdXR1cmUgZXJyYXRhLiBBZGRpdGlvbmFsbHkgSSBjYW4gaW1hZ2luZSB0aGF0IHRoaXMgY2hh
+bmdlIGNvdWxkIG1ha2UgaXQKPiA+ID4gaGFyZGVyIHRvIHN1cHBvcnQgZnV0dXJlIEFybSBhcmNo
+aXRlY3R1cmUgZW5oYW5jZW1lbnRzLgo+ID4gPgo+ID4gPiBJIGFwcHJlY2lhdGUgdGhlIGNvbnMg
+YXJlIG5vdCBzdHJvbmcgKnRlY2huaWNhbCogYXJndW1lbnRzIGJ1dCBuZXZlcnRoZWxlc3MgdGhl
+eQo+ID4gPiBhcmUgd2lubmluZyBvdXQgaW4gdGhpcyBjYXNlOyBNeSBvcGluaW9uIGlzIHRoYXQg
+d2Ugc2hvdWxkIGtlZXAgdGhlIGFybTY0Cj4gPiA+IGltcGxlbWVudGF0aW9ucyBvZiBodWdlX3B0
+ZV8gKGFuZCBjb250cHRlXyB0b28gLSBJIGtub3cgeW91IGhhdmUgYSBzZXBhcmF0ZQo+ID4gPiBz
+ZXJpZXMgZm9yIHRoaXMpIHByaXZhdGUgdG8gYXJtNjQuCj4gPiA+Cj4gPiA+IFNvcnJ5IGFib3V0
+IHRoYXQuCj4gPiA+Cj4gPiA+ID4gVGhlIGVuZCBnb2FsIGlzIHRoZSBzdXBwb3J0IG9mIG1USFAg
+dXNpbmcgc3ZuYXBvdCBvbiByaXNjdiwgd2hpY2ggd2Ugd2FudCBzb29uLAo+ID4gPiA+IHNvIGlm
+IHRoYXQgcGF0Y2hzZXQgZG9lcyBub3QgZ2FpbiBhbnkgdHJhY3Rpb24sIEknbGwganVzdCBjb3B5
+L3Bhc3RlIHRoZSBhcm02NAo+ID4gPiA+IGltcGxlbWVudGF0aW9uIGludG8gcmlzY3YuCj4gPiA+
+IFRoaXMgY29weS9wYXN0ZSBhcHByb2FjaCB3b3VsZCBiZSBteSBwcmVmZXJlbmNlLgo+ID4KPiA+
+Cj4gPiBJIGhhdmUgdG8gYWRtaXQgdGhhdCBJIGRpc2FncmVlIHdpdGggdGhpcyBhcHByb2FjaCwg
+dGhlIHJpc2N2IGFuZCBhcm02NAo+ID4gaW1wbGVtZW50YXRpb25zIGFyZSAqZXhhY3RseSogdGhl
+IHNhbWUgc28gaXQgc291bmRzIHdlaXJkIHRvIGR1cGxpY2F0ZSBjb2RlLAo+ID4gdGhlIHByb3Mg
+eW91IG1lbnRpb24gb3V0d2VpZ2ggdGhlIGNvbnMuCj4gPgo+ID4gVW5sZXNzIEknbSBtaXNzaW5n
+IHNvbWV0aGluZyBhYm91dCB0aGUgZXJyYXRhcz8gVG8gbWUsIHRoYXQncyBlYXNpbHkgZml4ZWQK
+PiA+IGJ5IHByb3ZpZGluZyBhcmNoIHNwZWNpZmljIG92ZXJyaWRlcyBubz8gQ2FuIHlvdSBkZXNj
+cmliZSB3aGF0IHNvcnQgb2YKPiA+IGVycmF0YXMgd291bGQgbm90IGZpdCB0aGVuPwo+Cj4gSWYg
+d2Ugc3RhcnQgd2l0aCB0aGUgY29tbW9uIGltcGxlbWVudGF0aW9uIHlvdSBoYXZlIGhlcmUsIG5v
+dGhpbmcKPiBwcmV2ZW50cyB1cyBmcm9tIGZvcmtpbmcgdGhlIGNvZGUgaW4gZnV0dXJlIGlmIHRo
+ZSBhcmNoaXRlY3R1cmVzIGRpdmVyZ2UKPiBzbyBJJ2QgYmUgaW5jbGluZWQgdG8gbWVyZ2UgdGhp
+cyBzZXJpZXMgYW5kIHNlZSBob3cgd2UgZ2V0IG9uLiBIb3dldmVyLAo+IG9uZSB0aGluZyBJICpk
+byogdGhpbmsgd2UgbmVlZCB0byBlbnN1cmUgaXMgdGhhdCB0aGUgcmVsZXZhbnQgZm9sa3MgZnJv
+bQo+IGJvdGggYXJtNjQgKGkuZS4gUnlhbikgYW5kIHJpc2N2IChpLmUuIEFsZXhhbmRyZSkgYXJl
+IGNjJ2Qgb24gY2hhbmdlcyB0bwo+IHRoZSBjb21tb24gY29kZS4gT3RoZXJ3aXNlLCBpdCdzIGdv
+aW5nIHRvIGJlIGEgc3RlcCBiYWNrd2FyZHMgaW4gdGVybXMKPiBvZiBtYWludGFpbmFiaWxpdHku
+Cj4KPiBDb3VsZCB3ZSBhZGQgc29tZXRoaW5nIHRvIE1BSU5UQUlORVJTIHNvIHRoYXQgdGhlIG5l
+dyBmaWxlIHBpY2tzIHlvdSBib3RoCj4gdXAgYXMgcmV2aWV3ZXJzPwoKSSdtIGFkZGluZyBMb3Jl
+bnpvIGFzIGhlIGlzIGNsZWFuaW5nIHRoZSBtbSBNQUlOVEFJTkVSUyBlbnRyaWVzLgoKQExvcmVu
+em86IHNob3VsZCB3ZSBhZGQgYSBuZXcgc2VjdGlvbiAiQ09OVFBURSIgZm9yIHRoaXM/IEZZSSwg
+aHVnZXRsYgppcyB0aGUgZmlyc3QgcGF0Y2hzZXQsIEkgaGF2ZSBhbm90aGVyIHBhdGNoc2V0IHRv
+IG1lcmdlIFRIUCBjb250cHRlCnN1cHBvcnQgWzFdIGFzIHdlbGwgc28gdGhlICJIVUdFVExCIiBz
+ZWN0aW9uIGRvZXMgbm90IHNlZW0gdG8gYmUgYQpnb29kIGZpdC4KClsxXSBodHRwczovL2xvcmUu
+a2VybmVsLm9yZy9saW51eC1yaXNjdi8yMDI0MDUwODE5MTkzMS40NjA2MC0xLWFsZXhnaGl0aUBy
+aXZvc2luYy5jb20vCgpUaGFua3MsCgpBbGV4Cgo+Cj4gV2lsbAoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
