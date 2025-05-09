@@ -4,85 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0412AC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 18:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E55C3ABC9
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 18:23:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
-	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=B6RuFD2ysGuG/Okg5isZlEoDbfdRQo0dy9sR8hfvLFM=; b=Eg90YAM/8MpGEZ85l4ltHAZTtp
-	nRIFv+qcf3CihnnzwKZE/qqvNFR/pRK2G2Bl06WzJsDscfrkz/0pIq4QXYXwgESjHZ3M+CK3qYoEp
-	IZBj8L+92X6ASHdMASpudYIwYR99oLUmIVXgiev9acIJYX9CCglXlfoxcPxHWvKIYuNqviBQbAUWs
-	f60pLS1OBTRvkdKKWtifmjTKgY5kbSl+Qv+dCaRdzR46yFYMX6GipiLHOtBcLWgBkwUoqswaypKLR
-	Cva/5MtFysAF9z7ygpUorEnEzssP9+nWKNYZ/sXPzY4LXU6PPvOWBjacGq8Lx9aD6nP9MMVPlNqwX
-	26j1kPjA==;
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=uKYgtXrfC7wbKVZHjhFROhzikSlrSMECbqjhtcrS138=; b=sXJ
+	6deJw8G/NnLg2XZ+ySzyNv1lPf/MoRkfantTcucc/8rpNbmyjspgRJlr6a/XpuIIf+MElym6kQdXX
+	q3Rx0Y0JjSYQjaj/hMCf6BMTDBXM6UFj8kMNV42MsqCrxl3vzUdmjO0pqNT3sCNS6ZHMXR20c5Yr2
+	tjnWTLH7KXT+vjxTh5ivx/X7Rt9N9y2H0nJugFmqkZj5aaCTygkgEuRXl8i/Yi42Uz9caEOuJHkzO
+	Q6rCms/l5NalWUXpVOFDfNJ8jKLv/l6EAYwF0/gkWKJOwD9+dRHIvVaVXpTNyAR1dRN0BDKbtLuNL
+	BKq/D7hJXusIWnfRxIrbbenB23HUHUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDSNN-00000004Yoa-2zEH;
-	Fri, 09 May 2025 18:23:13 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uDSNO-00000004Yof-16Tz;
+	Fri, 09 May 2025 18:23:14 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQIN-00000004EDk-3HqR
+	id 1uDQJq-00000004EZo-3S71
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 16:09:57 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7376dd56eccso2493529b3a.0
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 09:09:55 -0700 (PDT)
+	Fri, 09 May 2025 16:11:28 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-741b3e37a1eso1757695b3a.1
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 09:11:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746806995; x=1747411795; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=QnWvRvLBiox5Bz9Lyem6f8SVAf49ycnR85XD0lPPJ4k=;
-        b=W1oDGb1xzkFBz/LX1PsCKtM5DuVpiboBpdmPvP4+34OVzNLlNAjA+a3f+Ds/F9PCxK
-         LJf7Uy8tepGA0TldrjGhGylJnX94T7RH9zQVt0H2ypj5RbbR4MZKLzKYYKviBj96HIGu
-         0JSv9qirJZw9xTl4UVKAFNlTMIcXEOp02pHgIOdMZNBIdau6D/nWPf9YqUb9iUdftl+f
-         lEj8J1uYulnZidQ4jMKldAfDZCC2C8I/tbRkbznZNQCQCgT/NaTVeRnlPTdDTNvC0zoW
-         nYyc6oiRBNCNqIo/fdSd6eogfXGzmKP/FVwoKeQjBlXDPaLPnjX9DYss7WHGEIA7d/MM
-         83sg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746806995; x=1747411795;
-        h=content-transfer-encoding:mime-version:message-id:to:from:cc
-         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1746807085; x=1747411885; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=QnWvRvLBiox5Bz9Lyem6f8SVAf49ycnR85XD0lPPJ4k=;
-        b=WSaU57yyAad3c9DQg9mxTWkyv6YlpzZzUQ9CRbMj2Ts/nT5pM+/MuIXfQ6HYZFQuRP
-         r7FzVRZd2E44nuCA+4EQlgKga4hHo9iHJX45XxOmqrRgxlYFdI2yB2BaB7rv+Wzv44jH
-         G/6kKg8BHDinyzMraPdlKN7my5vAS29JfB1sdB6jAmDuhD4+ncQvFNP0cth0uSlJqiKq
-         /32cE832hZjfgvOaZ2pF/74aanv30QbTpYe5t8cosApupWlO+x+u4MxST9arNC1CMbZP
-         /ODxrKx7ixVxW1OqKoKIZwLI5vpPU0x95DQIXUw7sgqwypP7aUuDuhOWRqpBd+e/g5ao
-         z6YA==
-X-Forwarded-Encrypted: i=1; AJvYcCUxPkUVTbB+wtsuqk0XqnNh93LJh5R9yybiCz6LAb3Sg2L2cNHFPzlNjiZNQmxm1GW44bSfpo+CK+zfkw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA1Ev+O4us+RXFcNf7Ehl0PTSBndJyrLvgzvuDarC+7s4Luhs1
-	j/V/rLOg8ba8ij6U2kK8Nd1dMLNbsOvh1PBKrMzt/DXpwkDV/zGvpRWmVrA/hzI=
-X-Gm-Gg: ASbGncsIalFyNk3bpaW2VczI/dnN+ljmo9ofS9wJBsnrEXBZeRv3rjGeD559b1pe06C
-	ZdAuXRMBAjfsG7rK6GfOD5jIaNPOZLSThOPyI4EQnOtyVeYgeu+xIfN+O2FLdQM8xDIQ+JJBbjc
-	c0USNQU4wUXZiNdgyFgsiPutJ59BaS+nqPBV6uT8VwLQ5dlTaRxvaJCt70D7TH1b0OC3f6Q6Gq+
-	NGgD+Lc6mHl4CnoX48wA7vh15Jas+lSXrGDO2rpa7GD1flVlqhTSYSmMwyePBYsmkctz39XOc9t
-	7GcfQ0DkFeUyacF+vmfWCBKyxWpE/b5oRw==
-X-Google-Smtp-Source: AGHT+IEaZucBNObFCPlL+hxe0V/lS5+Y6rCoZP8rip8WDQP4X8PU+EirWpJnUHe7qNQ+TAoVPn0hPg==
-X-Received: by 2002:a05:6a00:f0b:b0:737:6fdf:bb69 with SMTP id d2e1a72fcca58-7423be92b53mr5075987b3a.13.1746806994709;
-        Fri, 09 May 2025 09:09:54 -0700 (PDT)
+        bh=M0aOqCnvyo4Ljy+61VpgCipssWf0Ra8mXAaOhu5oDyc=;
+        b=1PC8wA1Y8J3F3vQgvTj0duVKvEYNG436RaNHi6WmgSzF5Dkv5LlP75rnT82wQN94b0
+         i4KJHNM4Y/viWAmZXwxHSXQ4rWFazo/2hRpnhPucLOPgn6enzeIsk02of4JLKc7lH6oK
+         TnHT0yBbboO/8gB0SL7DQPxeWHJifU0UgaaP4nv5DaiOcffayIT9K9jQx73QCx5scUxl
+         IBQct5OGRVbvHIQPstitvYW0MRxNVCtxkmyV91s997s9ve+xVc0VAFB/YDnSuHZzMpbN
+         gYSVnAPgm/8UFOHz0lZFYhX8/HKWL7yt1OIJSLaoi/i+ZxPybjjMvebRfh8Y5DbN/9tq
+         aSEQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746807085; x=1747411885;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=M0aOqCnvyo4Ljy+61VpgCipssWf0Ra8mXAaOhu5oDyc=;
+        b=xDCkqp4TiUQTbdLd04aFtdKB4qKFVZ6vNOpmcAP7A33eLj6+KvsHFb/KBJigpok5dH
+         GK7HRze2kJGt5pUpHeMh7JIviHvIw8rFl195C66/YyXK488yOLZAEF06N8z6F0+JPdBw
+         DIbw+bZCYKrV6EzBVVW5v3ibidL7lR4MyiJ4NnytNPgt8VQnL01raFfKnOjF7H3kN8E1
+         mRf3TYKdW3/IXYiOuRVnXDA0nF7Lvhq3UXbnfUPWbKlt0mlZe0OnatHeOKi8l3AfVz7x
+         HVQHrppF2MSbPhWISgyIUbr06d+it8eYITkpEI/khvbB6+6UV2vwpmtpC2rXZbw0EeSy
+         hCdw==
+X-Gm-Message-State: AOJu0YxmHdlBBPU0HPG8vNEYNV96zadASv8/uXhLKm4pVgfaHN4YEE3o
+	yMsNMxd0QxoMcWLc9HbIHAbl9PrGHJ69OW8d+9wYSPVAY1Ss9fpKdHLPyIQlEgSXnQZawcpKeM8
+	f
+X-Gm-Gg: ASbGnctet/5yAzA7bNpEJkeCnSJB29amui9A+YFJGX5NPsr7vflsUV4eypbJLFzUzIP
+	Zrg+Lg2IGFvGQN+hEM3xbNudsutXj+mcjTH2tCar9DgE13SaHTyAhg6W63mYqQGrVFLuRbU6sDw
+	gLvoqZBJh9UIi9jTmqAlY0YgV7YKbkhy8L1fRY7+mXZqTeSpu00w4lSkuVVcjiiA8fbPw7QBrza
+	MFsEAYhHqfTPe+k8ovdh4CYNUPC48N69Ih7I9rri3MjSLDiXmIEszgpgWhawy3npnl3fpfNnqko
+	XnIVh4i1eJcafKehFO5COPGeQ6s64KHnBAQ=
+X-Google-Smtp-Source: AGHT+IEaQvJ6cNeijm12GFun8Lse7HD+SQLVVMBCDaGkKmpgXK4wErI1P+ztFGBP7rqrmf4AzD++Rg==
+X-Received: by 2002:a05:6a00:17a3:b0:736:34ff:be7 with SMTP id d2e1a72fcca58-7423c059c37mr5277416b3a.15.1746807085226;
+        Fri, 09 May 2025 09:11:25 -0700 (PDT)
 Received: from localhost ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237a3cfeasm1935720b3a.140.2025.05.09.09.09.54
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237727a78sm1978937b3a.53.2025.05.09.09.11.24
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 09:09:54 -0700 (PDT)
-Date: Fri, 09 May 2025 09:09:54 -0700 (PDT)
-X-Google-Original-Date: Fri, 09 May 2025 09:09:50 PDT (-0700)
-Subject: Re: [PATCH] riscv: Disallow PR_GET_TAGGED_ADDR_CTRL without Supm
-In-Reply-To: <20250507180811.3CKhxtu0@linutronix.de>
-CC: samuel.holland@sifive.com, alex@ghiti.fr, linux-riscv@lists.infradead.org,
-  aou@eecs.berkeley.edu, bodonnel@redhat.com, Charlie Jenkins <charlie@rivosinc.com>,
-  Conor Dooley <conor.dooley@microchip.com>, joel.granados@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
-  cuiyunhui@bytedance.com, linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: namcao@linutronix.de
-Message-ID: <mhng-4654dddb-920a-456b-8fc9-2caaa80c4781@palmer-ri-x1c9a>
-Mime-Version: 1.0 (MHng)
+        Fri, 09 May 2025 09:11:24 -0700 (PDT)
+Date: Fri, 09 May 2025 09:11:24 -0700 (PDT)
+X-Google-Original-Date: Fri, 09 May 2025 09:11:22 PDT (-0700)
+Subject: [GIT PULL] RISC-V Fixes for 6.15-rc6
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@rivosinc.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-e96a9b93-7daf-4aa3-86f7-461467c1ad5b@palmer-ri-x1c9a>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_090956_086420_0BBC2870 
-X-CRM114-Status: GOOD (  24.81  )
+X-CRM114-CacheID: sfid-20250509_091126_988777_DAEA62F5 
+X-CRM114-Status: UNSURE (   8.20  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,68 +88,78 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============6303329485165463805=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, 07 May 2025 11:08:11 PDT (-0700), namcao@linutronix.de wrote:
-> On Wed, May 07, 2025 at 07:52:18AM -0700, Samuel Holland wrote:
->> When the prctl() interface for pointer masking was added, it did not
->> check that the pointer masking ISA extension was supported, only the
->> individual submodes. Userspace could still attempt to disable pointer
->> masking and query the pointer masking state. commit 81de1afb2dd1
->> ("riscv: Fix kernel crash due to PR_SET_TAGGED_ADDR_CTRL") disallowed
->> the former, as the senvcfg write could crash on older systems.
->> PR_GET_TAGGED_ADDR_CTRL state does not crash, because it reads only
->> kernel-internal state and not senvcfg, but it should still be disallowed
->> for consistency.
+--===============6303329485165463805==
+Content-Type: text/plain
 
-We talked some in the patchwork meeting about returning success for the 
-flavors of this that could be emulated in the kernel without hardware 
-support (ie, disabling pointer masking on systems that don't have it is 
-trivial).  The general consensus is that didn't really help any, as 
-userspace still needs to deal with systems where these will fail (old 
-kernels, Kconfig disabled, etc).
+The following changes since commit 92a09c47464d040866cf2b4cd052bc60555185fb:
 
-Happy to reconsider that if someone cares.  Either way this is going up 
-as a fix, as it just keeps the interface sane when taking 7f1c3de1370b 
-("riscv: Disallow PR_GET_TAGGED_ADDR_CTRL without Supm") into account.
+  Linux 6.15-rc5 (2025-05-04 13:55:04 -0700)
 
->> Fixes: 09d6775f503b ("riscv: Add support for userspace pointer masking")
->> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
->> ---
->>
->>  arch/riscv/kernel/process.c | 3 +++
->>  1 file changed, 3 insertions(+)
->>
->> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
->> index 7c244de77180..f7a1a887ae68 100644
->> --- a/arch/riscv/kernel/process.c
->> +++ b/arch/riscv/kernel/process.c
->> @@ -330,6 +330,9 @@ long get_tagged_addr_ctrl(struct task_struct *task)
->>  	struct thread_info *ti = task_thread_info(task);
->>  	long ret = 0;
->>
->> +	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
->> +		return -EINVAL;
->> +
->>  	if (is_compat_thread(ti))
->>  		return -EINVAL;
->
-> I think this matches what the man page says:
->
-> "If the arguments are invalid or this feature is disabled or unsupported by
-> the kernel, the call fails with EINVAL"
+are available in the Git repository at:
 
-Ya, it's also what we do when the Kconfig is disabled so it seems like 
-the way to go (we talked about that some too).
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.15-rc6
+merged tag 'riscv-fixes-6.15-rc6'
 
-> Reviewed-by: Nam Cao <namcao@linutronix.de>
+for you to fetch changes up to 01534f3e0dd75e27ed03e5542f0c7bf6aa7130f1:
 
-Thanks!
+  Merge tag 'riscv-fixes-6.15-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into fixes (2025-05-08 09:40:21 -0700)
+
+----------------------------------------------------------------
+RISC-V Fixes for 6.15-rc6
+
+* The compressed half-word misaligned access instructions (c.lhu, c.lh,
+  and c.sh) from the Zcb extension are now properly emulated.
+* A series of fixes to properly emulate permissions while handling
+  userspace misaligned accesses.
+* A pair of fixes for PR_GET_TAGGED_ADDR_CTRL to avoid accessing the
+  envcfg CSR on systems that don't support that CSR, and to report those
+  failures up to userspace.
+* The .rela.dyn section is no longer stripped from vmlinux, as it is
+  necessary to relocate the kernel under some conditions (including
+  kexec).
+
+----------------------------------------------------------------
+Alexandre Ghiti (1):
+      scripts: Do not strip .rela.dyn section
+
+Clément Léger (3):
+      riscv: misaligned: factorize trap handling
+      riscv: misaligned: enable IRQs while handling misaligned accesses
+      riscv: misaligned: use get_user() instead of __get_user()
+
+Nam Cao (1):
+      riscv: Fix kernel crash due to PR_SET_TAGGED_ADDR_CTRL
+
+Nylon Chen (1):
+      riscv: misaligned: Add handling for ZCB instructions
+
+Palmer Dabbelt (1):
+      Merge tag 'riscv-fixes-6.15-rc6' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into fixes
+
+Samuel Holland (1):
+      riscv: Disallow PR_GET_TAGGED_ADDR_CTRL without Supm
+
+ arch/riscv/kernel/process.c          |  6 ++++
+ arch/riscv/kernel/traps.c            | 64 +++++++++++++++++++++---------------
+ arch/riscv/kernel/traps_misaligned.c | 19 ++++++++++-
+ scripts/Makefile.vmlinux             |  2 +-
+ 4 files changed, 62 insertions(+), 29 deletions(-)
+
+
+--===============6303329485165463805==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============6303329485165463805==--
