@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CACC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 12:23:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5527CC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 12:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lW9HadnW3ISct7FxJQCIq92tdRch392jIK2A7igLrA8=; b=48iXa5g5VCA4T7
-	fQbbLiYVovjh3BjFQE8xGSB6CSaIbcKk7iWqL2/OPldPO5THlOFLcqcBzC2wIJPoCFMsR8d1hpOcv
-	9Y5uCzyhoG8mY2BUfTftyqSufkn+GuP3wMRB5JXqcZ3kInZlhavXnGMZq4YV34XjlqxWpw1HNR+Cb
-	uNv0+9pfsrjOwZ7wN8INN3G7lUt/c82RYFLhivvlSq7L+A281voiDR63k/39xqkFR4CbAlPIYYN+4
-	8EfEe2aKtSnBOdikfKLZMO6GXfhHOI+cT9PC8IwMQSVnGIpo9zWV/mrWZtwOxB8oNv41Uu48NqF6O
-	+KGtvcaSiU1P9ybumCIA==;
+	List-Owner; bh=b6yRNiv/JQSk8EiU8NvqiCbkDLAiLPcMgtrnjc11Ssg=; b=GwQ8z6OMF7/Vkh
+	Ed35WYShYUBqkXENY7/WAOtiXeR8eDQaPYkWnmkHOXnieXWvYAeKcxdi6MaV9v2lV8U+gbGH2OJqc
+	Sr0E3VLFzJOFOCW0GH122fDMVv4yqjtDdu2LuYH/xq6NkdoU4BsQckdKs2Ubg+u9wf8GKhA1glIRQ
+	iIwOwII6ZtKikM31eusv4M4TL0xmjhItNN4eAdkE01z8jdZpHvn7YCEaL+wsTP99QAqu1pAMvOyDH
+	wD8/3BKB1T5P4I/trIKxLNDv+tjqcE3mpdbAfaXY4RgXMiXvS8dy8Z2OfnZywdKTw4bNiFDKqyNeN
+	KsKXMtAqi94OVLl0gEUQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMlK-00000003ZOG-2xbj;
-	Fri, 09 May 2025 12:23:34 +0000
-Received: from mail-il1-x135.google.com ([2607:f8b0:4864:20::135])
+	id 1uDMlM-00000003ZPm-2Xid;
+	Fri, 09 May 2025 12:23:36 +0000
+Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLmR-00000003Pos-2Lda
+	id 1uDLmV-00000003Ppv-1UO8
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 11:20:40 +0000
-Received: by mail-il1-x135.google.com with SMTP id e9e14a558f8ab-3da74959554so5884375ab.2
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 04:20:39 -0700 (PDT)
+	Fri, 09 May 2025 11:20:44 +0000
+Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3d9327d0720so17858795ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 04:20:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746789638; x=1747394438; darn=lists.infradead.org;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746789642; x=1747394442; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=81a1v+nMC7nJeIGTMZQ54emwTNg/YN8dMbbTK1LgyT8=;
-        b=wk9eAdFkqi7yxJmXSmYhF+Kebt+xy+hknr360PgsQXg8hSAS9WQShxxCAs1TO4FTuK
-         zE6CAlkV2VsWwVqs5+M52Gyw/CVW23y3iDQJv5LeKw6MhEXB4Lp/GGbPZ7GeMlNwPvIe
-         Ta5xCYv3ehOE0G2hc0jNu4q17ifubQAfLmJiAc9xjj6394XgnXe6xFEOSY4pDgiJm0hn
-         qctCSKEoutgIDB737pqf21BE3e51CuVSyo6RUjV0/h1+BazptxkEjCOElvO5q2LibZoV
-         1S+7wY9fDOWjSmHjrgovyx0TWiefZp8MTcerERIFoDYVseFZOiq3unmVNDG3xspc6VNs
-         8HrQ==
+        bh=ALLcarQNFDeeiNyZCIkx4Oh+0h6y7K/lB/3yo0qpRaY=;
+        b=slVcL4TujyniTV6EJO2aByhzRWVSbS6jCGAJ9UmEu7UvC8v9xwRQc4GRlYfUNFUi6c
+         D6frDMSg2lJ5F652oi/kjsu2DbT2kRS9Gax9jWkJQpaAaPV0KhEN+CpjxqX3BQ+aUub/
+         2GpUiqPOosNh0MnJT7S6rwpNRWUtbIxF8vRxgn5m+HWLZLKG3reoTXhJNF6ScQpRk92I
+         fw/LKpskqf81x0AMxSAZ5bDhYZEWxdG31uytpkVxd/A7ZEXC8np6xkPC4pjOLWq2zhh+
+         AkOfbHaEw1BNhBja58j8UuRbNnLrvKtT0JH+Lqmr0d0M+qEJflJOYRSKRrbh3uo+Dabe
+         bOXw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746789638; x=1747394438;
+        d=1e100.net; s=20230601; t=1746789642; x=1747394442;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=81a1v+nMC7nJeIGTMZQ54emwTNg/YN8dMbbTK1LgyT8=;
-        b=sMA+fRXlR6PPT8yVPwrCmZJ5taAvkjG+l529ips+6Q122BDqgTY27clO1Owdvb17Yj
-         R34yubh1VkW1OL82+jUrinOJMLPQwtHCPvhVII4V93vutfxnnoVjYuemjCDTG/lcONvc
-         fHGGuk9W1AHZsLWS5cItDiBKp5XEfvw6848PZO6ya1yo3JwVmYz+l5FS261xMmF9rqM0
-         ClrQFVfxC7WsdS5suRJcbzYLWgl/30nrp3szR1TyKVuOrnpwm7Vh0Y1+mWfdvygIDZZz
-         YIyuJZjJK5lcgDCoYcXdXLzLbrij5b1MpHVD8B0ehXupbGeWzBu+lgilbQ5qglfQmO7U
-         ZOSw==
-X-Forwarded-Encrypted: i=1; AJvYcCUr1jC/inWOs2tKtjLpryZur5pG2O4WqKYCy2BhGhz20FjC8GadQIrqj7URNGA8mTXLjV3odWyO2VUtrQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwHaz2qBFLi5MY5+UL4AJXwVXCLx66kj4jXqpfIKDBf6AuLpiu
-	CgO7h/dJqDF6BrFWW7rXQIB/dm2ORZ4yLwZ4Mgr5AS2i+1D+DDIL5TpcGflap3M=
-X-Gm-Gg: ASbGncuCPoFvE9uBoEr76TG3CUubeiFWjFzdKa5y+R8VuJY+Y2uDDoPmzXWpS/dNLM6
-	2Nupi3VynIQu5JRts6BjMl8UJW2ZPaN6UzpqnyvTCZrJlTnhVw1aIiERv/5CPaAMVPKnbxIpKQk
-	lTciD1jCLT+zUvvOxxtgXORwbdhi0mafeWst0xVzwNZuB+TctdfP4Ugn9Bs0Hr4hGNXbAUmEyHI
-	ucfLRT/pByCCo2x7aqr/5MbyBF3sqa+ZSDXbC2Ka9wSXYSku/nbpjAvYmGjr/a0bz4TpKvn0GEk
-	KG38MEUcVcdpy5YFo4twI9a7bqEPJs2unNszrDV4xzW08w74JuMjxb0lNGhonUAWK/V8gOHHUSq
-	Mm1YRCnj3ZLlU4Q==
-X-Google-Smtp-Source: AGHT+IHIFOd9BxSrCUcPfDazC4FevD+g6jgrAHKlwXuPMXe2lOKzMYuF4zbA6JhgjJ+OgEiRD75umw==
-X-Received: by 2002:a05:6e02:216d:b0:3d4:36da:19a9 with SMTP id e9e14a558f8ab-3da7e210280mr31801165ab.15.1746789638269;
-        Fri, 09 May 2025 04:20:38 -0700 (PDT)
+        bh=ALLcarQNFDeeiNyZCIkx4Oh+0h6y7K/lB/3yo0qpRaY=;
+        b=U2vP+OKcUnZzi/0tjLhRHd0ViaFL93xwuLbTt7sgdE5d0VjRYiaZKgLEbW3SuyI8YC
+         EMlfGB5M5eNwPFxLj+wxGgIiiMw0vZeLY5VfzTIg0UnjEGS37GblHsXrOB4ZQKAKuK1v
+         Qq+OXLIEH0uyuagBfZnv52P2jQb2SKSjiFRHR4hwl+x3iukfEdHMXNxBwR15g1OA8fPZ
+         rj+Vpoe4Pi5ZOvHLPELQocZkEUqZcOkG9qGyaoF7k7mvgOJjm4U882al9Gdydpb4vmhv
+         CClLH5j/tavbl2vf6Vti+kZBH9+W0qx19TomxsaQ0O2O9X/5Cb/AiYw/B/3asRWu1f0w
+         CQ3g==
+X-Forwarded-Encrypted: i=1; AJvYcCU1UVV+GI8fU4xlOimiYzaZy6gqewSC2hRwrs1ubjJHYCSSsGQOKD4exf4ngMVJ1J4FDkIVQEG3lm9B7Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyJ/11HHUrTiOuhwzlY0IPTiPCMSEzo7pashPL6iu1z9AxBsdt
+	YSt5eonTXrTxeCAvJKBmO7km+s8mUO/f5hKMrppSgYEg10qjU5V/oJpF+OWCkec=
+X-Gm-Gg: ASbGncsKMPLVahS98L0ortArM+wn86GMSkZ7HSLIry6qspTcFgMJcSiqlMWvV8pv5qx
+	RWNke764ieyopsZryd/gB4hd8UTx3sFxeXTfv+jrWkNOe4NRv+pWBhl0/bbfj+mUw9yz1ZmM582
+	JM5SHvYlznw8KCU3pKaX4P31riuMsScF1dvADkj1sN1ZkVIEHqGAr38PeqrI/nS0UGHv0nTZCeP
+	PHCc9ZIZcBaMk/Yaaov7sTI1KKFsb9+t8JcdYj7eIg/iobobe0kKj/mF9r7Y0+09e4PgqMcCXWs
+	zonx9AHvPjQJxkg1w9qvzEQ8k1aeYwF50B5Lonh6k4TMJU6mXXn73vGNWHl2KP61XSQxtcTibxT
+	BVmuB9+qRGEUfBtcrrU1V9t42
+X-Google-Smtp-Source: AGHT+IGaOzNNGziKbcAaE+WJE3Mqb2ZE3yzP4LVo1rEGwpjX2+uYXY1PsrPJ0vfJTdsAfE1fkWsrfw==
+X-Received: by 2002:a05:6e02:1fc6:b0:3d8:2085:a188 with SMTP id e9e14a558f8ab-3da7e1e2709mr38555745ab.1.1746789642222;
+        Fri, 09 May 2025 04:20:42 -0700 (PDT)
 Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3da7e10549fsm5136325ab.23.2025.05.09.04.20.36
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3da7e10549fsm5136325ab.23.2025.05.09.04.20.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 04:20:37 -0700 (PDT)
+        Fri, 09 May 2025 04:20:41 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -88,18 +88,17 @@ Cc: heylenay@4d2.org,
 	linux-clk@vger.kernel.org,
 	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v8 1/6] dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
-Date: Fri,  9 May 2025 06:20:26 -0500
-Message-ID: <20250509112032.2980811-2-elder@riscstar.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v8 3/6] clk: spacemit: set up reset auxiliary devices
+Date: Fri,  9 May 2025 06:20:28 -0500
+Message-ID: <20250509112032.2980811-4-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250509112032.2980811-1-elder@riscstar.com>
 References: <20250509112032.2980811-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_042039_594362_92D9B23E 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250509_042043_393187_22EB47A2 
+X-CRM114-Status: GOOD (  23.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,234 +115,232 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-There are additional SpacemiT syscon CCUs whose registers control both
-clocks and resets:  RCPU, RCPU2, and APBC2. Unlike those defined
-previously, these will (initially) support only resets.  They do not
-incorporate power domain functionality.
+Add a new reset_name field to the spacemit_ccu_data structure.  If it is
+non-null, the CCU implements a reset controller, and the name will be
+used in the name for the auxiliary device that implements it.
 
-Previously the clock properties were required for all compatible nodes.
-Make that requirement only apply to the three existing CCUs (APBC, APMU,
-and MPMU), so that the new reset-only CCUs can go without specifying them.
+Define a new type to hold an auxiliary device as well as the regmap
+pointer that will be needed by CCU reset controllers.  Set up code to
+initialize and add an auxiliary device for any CCU that implements reset
+functionality.
 
-Define the index values for resets associated with all SpacemiT K1
-syscon nodes, including those with clocks already defined, as well as
-the new ones (without clocks).
+Make it optional for a CCU to implement a clock controller.  This
+doesn't apply to any of the existing CCUs but will for some new ones
+that will be added soon.
 
 Signed-off-by: Alex Elder <elder@riscstar.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +++-
- .../dt-bindings/clock/spacemit,k1-syscon.h    | 128 ++++++++++++++++++
- 2 files changed, 150 insertions(+), 7 deletions(-)
+v8: Allocate the auxiliary device using kzalloc(), not devm_kzalloc()
 
-diff --git a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-index 30aaf49da03d3..133a391ee68cd 100644
---- a/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-+++ b/Documentation/devicetree/bindings/soc/spacemit/spacemit,k1-syscon.yaml
-@@ -19,6 +19,9 @@ properties:
-       - spacemit,k1-syscon-apbc
-       - spacemit,k1-syscon-apmu
-       - spacemit,k1-syscon-mpmu
-+      - spacemit,k1-syscon-rcpu
-+      - spacemit,k1-syscon-rcpu2
-+      - spacemit,k1-syscon-apbc2
+ drivers/clk/spacemit/Kconfig     |  1 +
+ drivers/clk/spacemit/ccu-k1.c    | 90 ++++++++++++++++++++++++++++----
+ include/soc/spacemit/k1-syscon.h | 12 +++++
+ 3 files changed, 93 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/clk/spacemit/Kconfig b/drivers/clk/spacemit/Kconfig
+index 4c4df845b3cb2..3854f6ae6d0ea 100644
+--- a/drivers/clk/spacemit/Kconfig
++++ b/drivers/clk/spacemit/Kconfig
+@@ -3,6 +3,7 @@
+ config SPACEMIT_CCU
+ 	tristate "Clock support for SpacemiT SoCs"
+ 	depends on ARCH_SPACEMIT || COMPILE_TEST
++	select AUXILIARY_BUS
+ 	select MFD_SYSCON
+ 	help
+ 	  Say Y to enable clock controller unit support for SpacemiT SoCs.
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index 801150f4ff0f5..551df9d076859 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -5,12 +5,14 @@
+  */
  
-   reg:
-     maxItems: 1
-@@ -47,9 +50,6 @@ properties:
- required:
-   - compatible
-   - reg
--  - clocks
--  - clock-names
--  - "#clock-cells"
-   - "#reset-cells"
+ #include <linux/array_size.h>
++#include <linux/auxiliary_bus.h>
+ #include <linux/clk-provider.h>
+ #include <linux/delay.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/minmax.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <linux/slab.h>
+ #include <soc/spacemit/k1-syscon.h>
  
- allOf:
-@@ -57,13 +57,28 @@ allOf:
-       properties:
-         compatible:
-           contains:
--            const: spacemit,k1-syscon-apbc
-+            enum:
-+              - spacemit,k1-syscon-apmu
-+              - spacemit,k1-syscon-mpmu
-     then:
--      properties:
--        "#power-domain-cells": false
--    else:
-       required:
-         - "#power-domain-cells"
-+    else:
-+      properties:
-+        "#power-domain-cells": false
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - spacemit,k1-syscon-apbc
-+              - spacemit,k1-syscon-apmu
-+              - spacemit,k1-syscon-mpmu
-+    then:
-+      required:
-+        - clocks
-+        - clock-names
-+        - "#clock-cells"
+ #include "ccu_common.h"
+@@ -21,6 +23,7 @@
+ #include <dt-bindings/clock/spacemit,k1-syscon.h>
  
- additionalProperties: false
+ struct spacemit_ccu_data {
++	const char *reset_name;
+ 	struct clk_hw **hws;
+ 	size_t num;
+ };
+@@ -710,8 +713,9 @@ static struct clk_hw *k1_ccu_pll_hws[] = {
+ };
  
-diff --git a/include/dt-bindings/clock/spacemit,k1-syscon.h b/include/dt-bindings/clock/spacemit,k1-syscon.h
-index 35968ae982466..f5965dda3b905 100644
---- a/include/dt-bindings/clock/spacemit,k1-syscon.h
-+++ b/include/dt-bindings/clock/spacemit,k1-syscon.h
-@@ -78,6 +78,9 @@
- #define CLK_APB			31
- #define CLK_WDT_BUS		32
+ static const struct spacemit_ccu_data k1_ccu_pll_data = {
+-	.hws	= k1_ccu_pll_hws,
+-	.num	= ARRAY_SIZE(k1_ccu_pll_hws),
++	/* The PLL CCU implements no resets */
++	.hws		= k1_ccu_pll_hws,
++	.num		= ARRAY_SIZE(k1_ccu_pll_hws),
+ };
  
-+/* MPMU resets */
-+#define RESET_WDT		0
+ static struct clk_hw *k1_ccu_mpmu_hws[] = {
+@@ -751,8 +755,9 @@ static struct clk_hw *k1_ccu_mpmu_hws[] = {
+ };
+ 
+ static const struct spacemit_ccu_data k1_ccu_mpmu_data = {
+-	.hws	= k1_ccu_mpmu_hws,
+-	.num	= ARRAY_SIZE(k1_ccu_mpmu_hws),
++	.reset_name	= "mpmu-reset",
++	.hws		= k1_ccu_mpmu_hws,
++	.num		= ARRAY_SIZE(k1_ccu_mpmu_hws),
+ };
+ 
+ static struct clk_hw *k1_ccu_apbc_hws[] = {
+@@ -859,8 +864,9 @@ static struct clk_hw *k1_ccu_apbc_hws[] = {
+ };
+ 
+ static const struct spacemit_ccu_data k1_ccu_apbc_data = {
+-	.hws	= k1_ccu_apbc_hws,
+-	.num	= ARRAY_SIZE(k1_ccu_apbc_hws),
++	.reset_name	= "apbc-reset",
++	.hws		= k1_ccu_apbc_hws,
++	.num		= ARRAY_SIZE(k1_ccu_apbc_hws),
+ };
+ 
+ static struct clk_hw *k1_ccu_apmu_hws[] = {
+@@ -929,8 +935,9 @@ static struct clk_hw *k1_ccu_apmu_hws[] = {
+ };
+ 
+ static const struct spacemit_ccu_data k1_ccu_apmu_data = {
+-	.hws	= k1_ccu_apmu_hws,
+-	.num	= ARRAY_SIZE(k1_ccu_apmu_hws),
++	.reset_name	= "apmu-reset",
++	.hws		= k1_ccu_apmu_hws,
++	.num		= ARRAY_SIZE(k1_ccu_apmu_hws),
+ };
+ 
+ static int spacemit_ccu_register(struct device *dev,
+@@ -941,6 +948,10 @@ static int spacemit_ccu_register(struct device *dev,
+ 	struct clk_hw_onecell_data *clk_data;
+ 	int i, ret;
+ 
++	/* Nothing to do if the CCU does not implement any clocks */
++	if (!data->hws)
++		return 0;
 +
- /* APBC clocks */
- #define CLK_UART0		0
- #define CLK_UART2		1
-@@ -180,6 +183,59 @@
- #define CLK_TSEN_BUS		98
- #define CLK_IPC_AP2AUD_BUS	99
+ 	clk_data = devm_kzalloc(dev, struct_size(clk_data, hws, data->num),
+ 				GFP_KERNEL);
+ 	if (!clk_data)
+@@ -981,9 +992,63 @@ static int spacemit_ccu_register(struct device *dev,
+ 	return ret;
+ }
  
-+/* APBC resets */
-+#define RESET_UART0		0
-+#define RESET_UART2		1
-+#define RESET_UART3		2
-+#define RESET_UART4		3
-+#define RESET_UART5		4
-+#define RESET_UART6		5
-+#define RESET_UART7		6
-+#define RESET_UART8		7
-+#define RESET_UART9		8
-+#define RESET_GPIO		9
-+#define RESET_PWM0		10
-+#define RESET_PWM1		11
-+#define RESET_PWM2		12
-+#define RESET_PWM3		13
-+#define RESET_PWM4		14
-+#define RESET_PWM5		15
-+#define RESET_PWM6		16
-+#define RESET_PWM7		17
-+#define RESET_PWM8		18
-+#define RESET_PWM9		19
-+#define RESET_PWM10		20
-+#define RESET_PWM11		21
-+#define RESET_PWM12		22
-+#define RESET_PWM13		23
-+#define RESET_PWM14		24
-+#define RESET_PWM15		25
-+#define RESET_PWM16		26
-+#define RESET_PWM17		27
-+#define RESET_PWM18		28
-+#define RESET_PWM19		29
-+#define RESET_SSP3		30
-+#define RESET_RTC		31
-+#define RESET_TWSI0		32
-+#define RESET_TWSI1		33
-+#define RESET_TWSI2		34
-+#define RESET_TWSI4		35
-+#define RESET_TWSI5		36
-+#define RESET_TWSI6		37
-+#define RESET_TWSI7		38
-+#define RESET_TWSI8		39
-+#define RESET_TIMERS1		40
-+#define RESET_TIMERS2		41
-+#define RESET_AIB		42
-+#define RESET_ONEWIRE		43
-+#define RESET_SSPA0		44
-+#define RESET_SSPA1		45
-+#define RESET_DRO		46
-+#define RESET_IR		47
-+#define RESET_TSEN		48
-+#define RESET_IPC_AP2AUD	49
-+#define RESET_CAN0		50
++static void spacemit_cadev_release(struct device *dev)
++{
++	struct auxiliary_device *adev = to_auxiliary_dev(dev);
 +
- /* APMU clocks */
- #define CLK_CCI550		0
- #define CLK_CPU_C0_HI		1
-@@ -244,4 +300,76 @@
- #define CLK_V2D			60
- #define CLK_EMMC_BUS		61
++	kfree(to_spacemit_ccu_adev(adev));
++}
++
++static void spacemit_adev_unregister(void *data)
++{
++	struct auxiliary_device *adev = data;
++
++	auxiliary_device_delete(adev);
++	auxiliary_device_uninit(adev);
++}
++
++static int spacemit_ccu_reset_register(struct device *dev,
++				       struct regmap *regmap,
++				       const char *reset_name)
++{
++	struct spacemit_ccu_adev *cadev;
++	struct auxiliary_device *adev;
++	static u32 next_id;
++	int ret;
++
++	/* Nothing to do if the CCU does not implement a reset controller */
++	if (!reset_name)
++		return 0;
++
++	cadev = kzalloc(sizeof(*cadev), GFP_KERNEL);
++	if (!cadev)
++		return -ENOMEM;
++	cadev->regmap = regmap;
++
++	adev = &cadev->adev;
++	adev->name = reset_name;
++	adev->dev.parent = dev;
++	adev->dev.release = spacemit_cadev_release;
++	adev->dev.of_node = dev->of_node;
++	adev->id = next_id++;
++
++	ret = auxiliary_device_init(adev);
++	if (ret)
++		return ret;
++
++	ret = auxiliary_device_add(adev);
++	if (ret) {
++		auxiliary_device_uninit(adev);
++		return ret;
++	}
++
++	return devm_add_action_or_reset(dev, spacemit_adev_unregister, adev);
++}
++
+ static int k1_ccu_probe(struct platform_device *pdev)
+ {
+ 	struct regmap *base_regmap, *lock_regmap = NULL;
++	const struct spacemit_ccu_data *data;
+ 	struct device *dev = &pdev->dev;
+ 	int ret;
  
-+/* APMU resets */
-+#define RESET_CCIC_4X		0
-+#define RESET_CCIC1_PHY		1
-+#define RESET_SDH_AXI		2
-+#define RESET_SDH0		3
-+#define RESET_SDH1		4
-+#define RESET_SDH2		5
-+#define RESET_USBP1_AXI		6
-+#define RESET_USB_AXI		7
-+#define RESET_USB3_0		8
-+#define RESET_QSPI		9
-+#define RESET_QSPI_BUS		10
-+#define RESET_DMA		11
-+#define RESET_AES		12
-+#define RESET_VPU		13
-+#define RESET_GPU		14
-+#define RESET_EMMC		15
-+#define RESET_EMMC_X		16
-+#define RESET_AUDIO		17
-+#define RESET_HDMI		18
-+#define RESET_PCIE0		19
-+#define RESET_PCIE1		20
-+#define RESET_PCIE2		21
-+#define RESET_EMAC0		22
-+#define RESET_EMAC1		23
-+#define RESET_JPG		24
-+#define RESET_CCIC2PHY		25
-+#define RESET_CCIC3PHY		26
-+#define RESET_CSI		27
-+#define RESET_ISP_CPP		28
-+#define RESET_ISP_BUS		29
-+#define RESET_ISP		30
-+#define RESET_ISP_CI		31
-+#define RESET_DPU_MCLK		32
-+#define RESET_DPU_ESC		33
-+#define RESET_DPU_HCLK		34
-+#define RESET_DPU_SPIBUS	35
-+#define RESET_DPU_SPI_HBUS	36
-+#define RESET_V2D		37
-+#define RESET_MIPI		38
-+#define RESET_MC		39
+@@ -1012,11 +1077,16 @@ static int k1_ccu_probe(struct platform_device *pdev)
+ 					     "failed to get lock regmap\n");
+ 	}
+ 
+-	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap,
+-				    of_device_get_match_data(dev));
++	data = of_device_get_match_data(dev);
 +
-+/*	RCPU resets	*/
-+#define RESET_RCPU_SSP0		0
-+#define RESET_RCPU_I2C0		1
-+#define RESET_RCPU_UART1		2
-+#define RESET_RCPU_IR		3
-+#define RESET_RCPU_CAN		4
-+#define RESET_RCPU_UART0		5
-+#define RESET_RCPU_HDMI_AUDIO	6
++	ret = spacemit_ccu_register(dev, base_regmap, lock_regmap, data);
+ 	if (ret)
+ 		return dev_err_probe(dev, ret, "failed to register clocks\n");
+ 
++	ret = spacemit_ccu_reset_register(dev, base_regmap, data->reset_name);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to register resets\n");
 +
-+/*	RCPU2 resets	*/
-+#define RESET_RCPU2_PWM0		0
-+#define RESET_RCPU2_PWM1		1
-+#define RESET_RCPU2_PWM2		2
-+#define RESET_RCPU2_PWM3		3
-+#define RESET_RCPU2_PWM4		4
-+#define RESET_RCPU2_PWM5		5
-+#define RESET_RCPU2_PWM6		6
-+#define RESET_RCPU2_PWM7		7
-+#define RESET_RCPU2_PWM8		8
-+#define RESET_RCPU2_PWM9		9
+ 	return 0;
+ }
+ 
+diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
+index 039a448c51a07..53eff7691f33d 100644
+--- a/include/soc/spacemit/k1-syscon.h
++++ b/include/soc/spacemit/k1-syscon.h
+@@ -5,6 +5,18 @@
+ #ifndef __SOC_K1_SYSCON_H__
+ #define __SOC_K1_SYSCON_H__
+ 
++/* Auxiliary device used to represent a CCU reset controller */
++struct spacemit_ccu_adev {
++	struct auxiliary_device adev;
++	struct regmap *regmap;
++};
 +
-+/*	APBC2 resets	*/
-+#define RESET_APBC2_UART1	0
-+#define RESET_APBC2_SSP2	1
-+#define RESET_APBC2_TWSI3	2
-+#define RESET_APBC2_RTC		3
-+#define RESET_APBC2_TIMERS0	4
-+#define RESET_APBC2_KPC		5
-+#define RESET_APBC2_GPIO	6
++static inline struct spacemit_ccu_adev *
++to_spacemit_ccu_adev(struct auxiliary_device *adev)
++{
++	return container_of(adev, struct spacemit_ccu_adev, adev);
++}
 +
- #endif /* _DT_BINDINGS_SPACEMIT_CCU_H_ */
+ /* APBS register offset */
+ #define APBS_PLL1_SWCR1			0x100
+ #define APBS_PLL1_SWCR2			0x104
 -- 
 2.45.2
 
