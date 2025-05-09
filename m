@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34345C3ABC5
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 00:28:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D13CC3ABBE
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 02:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SW2QZ6xYL1luTf03txPBtlVgxXahN+pwScWVG6IKmVs=; b=q4X3P9UhmfRQvc
-	LEu1qYm9CZ2xOIsxobv8PcAPlwSg5gFU4YSKfS0/+crAJUNCDzszEs7tUkDWbD3iKqXGrezRXN/5e
-	wjJ9qBlwz2TPUquajv5y/uEBrt2xT6XD5F24kPrAI3joAArM22H2Tv1E2GVPA2v98RzfyQEKmEn+a
-	r8msJ3Nyln4SsHiGObgaFck5Tt39NksF9VSVFosvetN41y9wnfPn6m7itubu/ZHExn1k+brMntaBd
-	5kySP8WASIaRNSiSgQmExlN0v+sEVYD/rEQPfKLyvcYe6mPp3mgk4Cz06LzQRjPlYHkpnYEATNgFX
-	aKX1BggFuQdB81dfbYpg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=evoDibmLz9rn+uuXY70MvznkznBplQJH96k+iagEUUs=; b=zpl1NNRq9XwHpn
+	3Zy3vDqnel/F5S1nmZ3DlPggPit4HePp7Hfnw9o31OVaWSGvKGCkoVLfO/itH5kt84kHaD1ZlcK2p
+	/NgHUa77wUTdDxPPgmrToUtK/+HWZjAN9b4QJT7tef6lNyjlX7qWGtsipABxfnv0O7PQYO/qrgtgh
+	ztaaZ0HqcQTC/dm4cgE7v8nZNx2ZwBvaQ2ZSel16jJlBB9BZgcDUSMivOFaALee/2Zo7n+4/P3i3J
+	/VbgNbv//kV8avwe1mRwsefibAr4tMyYTb3Nik24BJVP+mAcZhajXKjwcVeLKrr8BOLWO1RPXwXwx
+	BQGtE3WGBIa8HTeo9qdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBbC-000000025rI-3mCR;
-	Fri, 09 May 2025 00:28:22 +0000
-Received: from out-172.mta0.migadu.com ([2001:41d0:1004:224b::ac])
+	id 1uDDJa-00000002Eaw-0jwq;
+	Fri, 09 May 2025 02:18:18 +0000
+Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDBb9-000000025o3-2nho
+	id 1uDDIw-00000002EUZ-26D9
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 00:28:21 +0000
-Message-ID: <736362de-d7b8-43f7-bffc-ccc65b1502ff@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1746750496;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xpDyd9m4f0VTtTwqCI5FJLDJbDxqQDx4DRnCSO33TkU=;
-	b=AIoIe5iLR0x6PodTEqjsX7siYT6h8X8eIyrcgi4FEeAW38xa0HOvnxgJgYH85Rqo6C8VcG
-	NhdmPGJ6BgEuo973WzHrbciKCCY5dVAodsfj97nSf+buOLWOegwZSYutB9mGCg3xmSavCf
-	+lKwl7t/GeIDVFsYsFg8gsSuq+AyP4c=
-Date: Thu, 8 May 2025 17:28:11 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v6 12/14] RISC-V: KVM: add SBI extension reset callback
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
- Andrew Jones <ajones@ventanamicro.com>, Deepak Gupta <debug@rivosinc.com>
-References: <20250424173204.1948385-1-cleger@rivosinc.com>
- <20250424173204.1948385-13-cleger@rivosinc.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250424173204.1948385-13-cleger@rivosinc.com>
-X-Migadu-Flow: FLOW_OUT
+	Fri, 09 May 2025 02:17:39 +0000
+Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-73bf1cef6ceso1757693b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 08 May 2025 19:17:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=sifive.com; s=google; t=1746757057; x=1747361857; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=COuwbILi4TOhg1B2xAx95PCBRZphUGdmgoB7CQvJQtM=;
+        b=ZNM+RfFgiwO+tUDUUZjwv0GLGpoB5U1yMR3mulX8K7cRwiAVcn02Qcd2JqVngDq7wd
+         cZmc0Un6eT9Rx+BSAJ5SM4+bq9+HJt3jxFMEkeZ2wZfkhVGLOdS8bYtnqbaz5U33NLL0
+         vc6TPUhpsXopeRtVtG/Z7U9dUNDC1TRAmcqbYlOa0O2Vb01xzShR1RHvNHWXcu6/kJEL
+         29g8sxuk9Nh5I3paupsGJLYOdxTf5dc2VSheQHZKHA8tW5b4gRtJ1h5X7kY5CSE1gpg7
+         dqO+ewYLPT0gVI2pWkR1exwiO45PwcSjGCR7pdailRDzFI+jOFAENzDdZEb1HJ6toGzY
+         r/tg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746757057; x=1747361857;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=COuwbILi4TOhg1B2xAx95PCBRZphUGdmgoB7CQvJQtM=;
+        b=XLV3Vz1b1Sc5VXlIShEdlnMVC1cZWwwuIk29VXS0Y1r6S1owW2VAJb6d3VVMeBh+QX
+         hZDE8dGvCSVllArE57bIAr+41OAoHX2XKl1OqoPsypM0oy58NeY+lgVM9Ins8c4Jc1qN
+         Ykz5pgu74aulifphsx2yI3BJyDsIHBr5TBb3gCHeDvfhjPwJxelLHIHRiKqbu0yvMLxN
+         MR0sRRzEaJfLiATm2KlqCstuG1wpNndeT7bHeLEYZXZm6fvngEBc0EYNzVrmcvd5h+UH
+         yw1gM5JnEJ4ImRSp8yHQU4PoduzKroOo/xxgM0eno6ju1kzQGmnansc4/tMjsW9C5it7
+         UIRA==
+X-Forwarded-Encrypted: i=1; AJvYcCWE5N2DDyZfXUIOg7qho7UVkzffdpgh+KQrNJ/6yZsvk/foouGEZrb1bGpQXJZCHYWCugMS81ArYkoo0A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQJXXu35S/uGmf3Lwj8pBzXrIEFwhDKKRW5KYSZV6QnI8NsfHe
+	vwaP8zLZ8VWbBeZFwomLHIxfJL324JjAXLqvSNI0hqZCEGtcBklEzA8PBCC+m7M=
+X-Gm-Gg: ASbGncuhYkV6gDVaj551FXoQt9n0OmXpOBDtuvH2AoJ/AJWwR1xIo8FYSPiCTz9zVAq
+	VLqsREWRdEaevqzYnwwhhQ+qpEvzSbK1F0Nv+zwFMNhar+/VzIezRcsjuNOYT7yPLgzURSN2ihA
+	poClcM4qKXZP/e4eW4baP4xJPjiL+VV1ybBb7ICsi8rsJkZws1NCCfWEr2epe3Jupee4oUkHOIY
+	5AQDjVJ1XlohYZG/2agZdDp+/BfkbIHto1dC+tTaDZ+mPmw00Rm4/TYupZh5LAIYUKJdtJmqUMZ
+	6pKEn2LBuk2KvadQ0Wgs/YgM+ofJtBANJxHgDV5Q/H2fadere4NfA1QI+XDp5zs=
+X-Google-Smtp-Source: AGHT+IHrxCZaQsfenVelF9R0H8Ri61vJWq7kBW24FBrc2xBa8NbB2J48U9ZpAcGWfdq7Mgah8BLxkQ==
+X-Received: by 2002:a05:6a20:6a13:b0:1f5:8179:4f47 with SMTP id adf61e73a8af0-215abb3816dmr1810793637.20.1746757057126;
+        Thu, 08 May 2025 19:17:37 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237a3dc09sm744688b3a.141.2025.05.08.19.17.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 08 May 2025 19:17:36 -0700 (PDT)
+From: Nick Hu <nick.hu@sifive.com>
+To: Cyan Yang <cyan.yang@sifive.com>,
+	Nick Hu <nick.hu@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>
+Subject: [PATCH] dt-bindings: power: Add SiFive Domain Management controllers
+Date: Fri,  9 May 2025 10:16:04 +0800
+Message-Id: <20250509021605.26764-1-nick.hu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250508_172819_989374_145E9767 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20250508_191738_562694_E2F06208 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,90 +95,127 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNC8yNC8yNSAxMDozMSBBTSwgQ2zDg8KpbWVudCBMw4PCqWdlciB3cm90ZToKPiBDdXJyZW50
-bHksIG9ubHkgdGhlIFNUQSBleHRlbnNpb24gbmVlZGVkIGEgcmVzZXQgZnVuY3Rpb24gYnV0IHRo
-YXQncwo+IGdvaW5nIHRvIGJlIHRoZSBjYXNlIGZvciBGV0ZUIGFzIHdlbGwuIEFkZCBhIHJlc2V0
-IGNhbGxiYWNrIHRoYXQgY2FuIGJlCj4gaW1wbGVtZW50ZWQgYnkgU0JJIGV4dGVuc2lvbnMuCj4g
-Cj4gU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgo+
-IFJldmlld2VkLWJ5OiBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPgo+IC0t
-LQo+ICAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1faG9zdC5oICAgICB8ICAxIC0KPiAgIGFy
-Y2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmggfCAgMiArKwo+ICAgYXJjaC9yaXNj
-di9rdm0vdmNwdS5jICAgICAgICAgICAgICAgICB8ICAyICstCj4gICBhcmNoL3Jpc2N2L2t2bS92
-Y3B1X3NiaS5jICAgICAgICAgICAgIHwgMjQgKysrKysrKysrKysrKysrKysrKysrKysrCj4gICBh
-cmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9zdGEuYyAgICAgICAgIHwgIDMgKystCj4gICA1IGZpbGVz
-IGNoYW5nZWQsIDI5IGluc2VydGlvbnMoKyksIDMgZGVsZXRpb25zKC0pCj4gCj4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaCBiL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20va3ZtX2hvc3QuaAo+IGluZGV4IDBlOWMyZmFiNjM3OC4uNGZhMDJlMDgyMTQyIDEwMDY0
-NAo+IC0tLSBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaAo+ICsrKyBiL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20va3ZtX2hvc3QuaAo+IEBAIC00MDcsNyArNDA3LDYgQEAgdm9pZCBf
-X2t2bV9yaXNjdl92Y3B1X3Bvd2VyX29uKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSk7Cj4gICB2b2lk
-IGt2bV9yaXNjdl92Y3B1X3Bvd2VyX29uKHN0cnVjdCBrdm1fdmNwdSAqdmNwdSk7Cj4gICBib29s
-IGt2bV9yaXNjdl92Y3B1X3N0b3BwZWQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPiAgIAo+IC12
-b2lkIGt2bV9yaXNjdl92Y3B1X3NiaV9zdGFfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsK
-PiAgIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfcmVjb3JkX3N0ZWFsX3RpbWUoc3RydWN0IGt2bV92Y3B1
-ICp2Y3B1KTsKPiAgIAo+ICAgI2VuZGlmIC8qIF9fUklTQ1ZfS1ZNX0hPU1RfSF9fICovCj4gZGlm
-ZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmggYi9hcmNoL3Jp
-c2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3NiaS5oCj4gaW5kZXggYmNiOTA3NTdiMTQ5Li5jYjY4
-YjNhNTdjOGYgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9z
-YmkuaAo+ICsrKyBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpLmgKPiBAQCAt
-NTcsNiArNTcsNyBAQCBzdHJ1Y3Qga3ZtX3ZjcHVfc2JpX2V4dGVuc2lvbiB7Cj4gICAJICovCj4g
-ICAJaW50ICgqaW5pdCkoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPiAgIAl2b2lkICgqZGVpbml0
-KShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUpOwo+ICsJdm9pZCAoKnJlc2V0KShzdHJ1Y3Qga3ZtX3Zj
-cHUgKnZjcHUpOwo+ICAgfTsKPiAgIAo+ICAgdm9pZCBrdm1fcmlzY3ZfdmNwdV9zYmlfZm9yd2Fy
-ZChzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHN0cnVjdCBrdm1fcnVuICpydW4pOwo+IEBAIC03OCw2
-ICs3OSw3IEBAIGJvb2wgcmlzY3ZfdmNwdV9zdXBwb3J0c19zYmlfZXh0KHN0cnVjdCBrdm1fdmNw
-dSAqdmNwdSwgaW50IGlkeCk7Cj4gICBpbnQga3ZtX3Jpc2N2X3ZjcHVfc2JpX2VjYWxsKHN0cnVj
-dCBrdm1fdmNwdSAqdmNwdSwgc3RydWN0IGt2bV9ydW4gKnJ1bik7Cj4gICB2b2lkIGt2bV9yaXNj
-dl92Y3B1X3NiaV9pbml0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSk7Cj4gICB2b2lkIGt2bV9yaXNj
-dl92Y3B1X3NiaV9kZWluaXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPiArdm9pZCBrdm1fcmlz
-Y3ZfdmNwdV9zYmlfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KTsKPiAgIAo+ICAgaW50IGt2
-bV9yaXNjdl92Y3B1X2dldF9yZWdfc2JpX3N0YShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsIHVuc2ln
-bmVkIGxvbmcgcmVnX251bSwKPiAgIAkJCQkgICB1bnNpZ25lZCBsb25nICpyZWdfdmFsKTsKPiBk
-aWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rdm0vdmNwdS5jIGIvYXJjaC9yaXNjdi9rdm0vdmNwdS5j
-Cj4gaW5kZXggODc3YmNjODVjMDY3Li41NDI3NDdlMmM3ZjUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9y
-aXNjdi9rdm0vdmNwdS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdS5jCj4gQEAgLTk0LDcg
-Kzk0LDcgQEAgc3RhdGljIHZvaWQga3ZtX3Jpc2N2X3Jlc2V0X3ZjcHUoc3RydWN0IGt2bV92Y3B1
-ICp2Y3B1KQo+ICAgCXZjcHUtPmFyY2guaGZlbmNlX3RhaWwgPSAwOwo+ICAgCW1lbXNldCh2Y3B1
-LT5hcmNoLmhmZW5jZV9xdWV1ZSwgMCwgc2l6ZW9mKHZjcHUtPmFyY2guaGZlbmNlX3F1ZXVlKSk7
-Cj4gICAKPiAtCWt2bV9yaXNjdl92Y3B1X3NiaV9zdGFfcmVzZXQodmNwdSk7Cj4gKwlrdm1fcmlz
-Y3ZfdmNwdV9zYmlfcmVzZXQodmNwdSk7Cj4gICAKPiAgIAkvKiBSZXNldCB0aGUgZ3Vlc3QgQ1NS
-cyBmb3IgaG90cGx1ZyB1c2VjYXNlICovCj4gICAJaWYgKGxvYWRlZCkKPiBkaWZmIC0tZ2l0IGEv
-YXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYyBiL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpLmMKPiBp
-bmRleCAzMTM5ZjE3MWMyMGYuLjUwYmUwNzliNTUyOCAxMDA2NDQKPiAtLS0gYS9hcmNoL3Jpc2N2
-L2t2bS92Y3B1X3NiaS5jCj4gKysrIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYwo+IEBAIC01
-MzYsMyArNTM2LDI3IEBAIHZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX2RlaW5pdChzdHJ1Y3Qga3Zt
-X3ZjcHUgKnZjcHUpCj4gICAJCWV4dC0+ZGVpbml0KHZjcHUpOwo+ICAgCX0KPiAgIH0KPiArCj4g
-K3ZvaWQga3ZtX3Jpc2N2X3ZjcHVfc2JpX3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAr
-ewo+ICsJc3RydWN0IGt2bV92Y3B1X3NiaV9jb250ZXh0ICpzY29udGV4dCA9ICZ2Y3B1LT5hcmNo
-LnNiaV9jb250ZXh0Owo+ICsJY29uc3Qgc3RydWN0IGt2bV9yaXNjdl9zYmlfZXh0ZW5zaW9uX2Vu
-dHJ5ICplbnRyeTsKPiArCWNvbnN0IHN0cnVjdCBrdm1fdmNwdV9zYmlfZXh0ZW5zaW9uICpleHQ7
-Cj4gKwlpbnQgaWR4LCBpOwo+ICsKPiArCWZvciAoaSA9IDA7IGkgPCBBUlJBWV9TSVpFKHNiaV9l
-eHQpOyBpKyspIHsKPiArCQllbnRyeSA9ICZzYmlfZXh0W2ldOwo+ICsJCWV4dCA9IGVudHJ5LT5l
-eHRfcHRyOwo+ICsJCWlkeCA9IGVudHJ5LT5leHRfaWR4Owo+ICsKPiArCQlpZiAoaWR4IDwgMCB8
-fCBpZHggPj0gQVJSQVlfU0laRShzY29udGV4dC0+ZXh0X3N0YXR1cykpCj4gKwkJCWNvbnRpbnVl
-Owo+ICsKPiArCQlpZiAoc2NvbnRleHQtPmV4dF9zdGF0dXNbaWR4XSAhPSBLVk1fUklTQ1ZfU0JJ
-X0VYVF9TVEFUVVNfRU5BQkxFRCB8fAo+ICsJCSAgICAhZXh0LT5yZXNldCkKPiArCQkJY29udGlu
-dWU7Cj4gKwo+ICsJCWV4dC0+cmVzZXQodmNwdSk7Cj4gKwl9Cj4gK30KPiArCj4gZGlmZiAtLWdp
-dCBhL2FyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX3N0YS5jIGIvYXJjaC9yaXNjdi9rdm0vdmNwdV9z
-Ymlfc3RhLmMKPiBpbmRleCA1ZjM1NDI3MTE0YzEuLmNjNmNiN2M4ZjBlNCAxMDA2NDQKPiAtLS0g
-YS9hcmNoL3Jpc2N2L2t2bS92Y3B1X3NiaV9zdGEuYwo+ICsrKyBiL2FyY2gvcmlzY3Yva3ZtL3Zj
-cHVfc2JpX3N0YS5jCj4gQEAgLTE2LDcgKzE2LDcgQEAKPiAgICNpbmNsdWRlIDxhc20vc2JpLmg+
-Cj4gICAjaW5jbHVkZSA8YXNtL3VhY2Nlc3MuaD4KPiAgIAo+IC12b2lkIGt2bV9yaXNjdl92Y3B1
-X3NiaV9zdGFfcmVzZXQoc3RydWN0IGt2bV92Y3B1ICp2Y3B1KQo+ICtzdGF0aWMgdm9pZCBrdm1f
-cmlzY3ZfdmNwdV9zYmlfc3RhX3Jlc2V0KHN0cnVjdCBrdm1fdmNwdSAqdmNwdSkKPiAgIHsKPiAg
-IAl2Y3B1LT5hcmNoLnN0YS5zaG1lbSA9IElOVkFMSURfR1BBOwo+ICAgCXZjcHUtPmFyY2guc3Rh
-Lmxhc3Rfc3RlYWwgPSAwOwo+IEBAIC0xNTYsNiArMTU2LDcgQEAgY29uc3Qgc3RydWN0IGt2bV92
-Y3B1X3NiaV9leHRlbnNpb24gdmNwdV9zYmlfZXh0X3N0YSA9IHsKPiAgIAkuZXh0aWRfZW5kID0g
-U0JJX0VYVF9TVEEsCj4gICAJLmhhbmRsZXIgPSBrdm1fc2JpX2V4dF9zdGFfaGFuZGxlciwKPiAg
-IAkucHJvYmUgPSBrdm1fc2JpX2V4dF9zdGFfcHJvYmUsCj4gKwkucmVzZXQgPSBrdm1fcmlzY3Zf
-dmNwdV9zYmlfc3RhX3Jlc2V0LAo+ICAgfTsKPiAgIAo+ICAgaW50IGt2bV9yaXNjdl92Y3B1X2dl
-dF9yZWdfc2JpX3N0YShzdHJ1Y3Qga3ZtX3ZjcHUgKnZjcHUsCgpMR1RNLgpSZXZpZXdlZC1ieTog
-QXRpc2ggUGF0cmEgPGF0aXNocEByaXZvc2luYy5jb20+CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+SiFive Domain Management controller includes the following components
+- SiFive Tile Management Controller
+- SiFive Cluster Management Controller
+- SiFive Core Complex Management Controller
+
+These controllers control the clock and power domain of the
+corresponding domain.
+
+Signed-off-by: Nick Hu <nick.hu@sifive.com>
+Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
+---
+ .../devicetree/bindings/power/sifive,tmc.yaml | 89 +++++++++++++++++++
+ 1 file changed, 89 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/power/sifive,tmc.yaml
+
+diff --git a/Documentation/devicetree/bindings/power/sifive,tmc.yaml b/Documentation/devicetree/bindings/power/sifive,tmc.yaml
+new file mode 100644
+index 000000000000..7ed4f290b94b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/sifive,tmc.yaml
+@@ -0,0 +1,89 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/sifive,tmc.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SiFive Domain Management Controller
++
++maintainers:
++  - Cyan Yang <cyan.yang@sifive.com>
++  - Nick Hu <nick.hu@sifive.com>
++  - Samuel Holland <samuel.holland@sifive.com>
++
++description: |
++  This is the device tree binding for the following SiFive Domain Management Controllers.
++  - Tile Management Controller
++      - TMC0
++      - TMC1
++      - TMC2
++      - TMC3
++  - Subsystem Management Controller
++      - SMC0
++      - SMC1
++      - SMC2
++      - SMC3
++  - Cluster Management Controller
++      - CMC2
++      - CMC3
++  SiFive Domain Management Controllers support the SiFive Quiet Interface
++  Protocol (SQIP) starting from the Version 1. The control method is
++  different from the Version 0, making them incompatible.
++
++allOf:
++  - $ref: power-domain.yaml#
++
++properties:
++  compatible:
++    oneOf:
++      - items:
++          - {}
++          - pattern: "^sifive,[ts]mc0$"
++      - items:
++          - {}
++          - pattern: "^sifive,[ts]mc3$"
++          - pattern: "^sifive,[ts]mc2$"
++          - pattern: "^sifive,[ts]mc1$"
++      - items:
++          - {}
++          - pattern: "^sifive,[ts]mc2$"
++          - pattern: "^sifive,[ts]mc1$"
++      - items:
++          - {}
++          - pattern: "^sifive,[ts]mc1$"
++      - items:
++          - {}
++          - const: sifive,cmc3
++          - const: sifive,cmc2
++      - items:
++          - {}
++          - const: sifive,cmc2
++
++  reg:
++    maxItems: 1
++
++  sifive,feature-level:
++    description: |
++      Supported power features. This property is absent if the full set of features
++      is supported
++    $ref: /schemas/types.yaml#/definitions/string
++    enum: ["nopg", "ceasepg", "runonlypg"]
++
++  "#power-domain-cells":
++    const: 0
++
++if:
++  not:
++    properties:
++      compatible:
++        contains:
++          pattern: "^sifive,[tsc]mc3$"
++then:
++  properties:
++    sifive,feature-level: false
++
++required:
++  - compatible
++  - reg
++
++additionalProperties: false
+-- 
+2.17.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
