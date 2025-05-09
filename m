@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1153EC3ABCB
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 18:08:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0412AC3ABBC
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 18:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iMJYA8g2cmNci8JE5WcFozhpjf5kZudXOWFnBnIyu0I=; b=T+cLoxd2ix7TSu4sXye6ac98I0
-	tuaebvmmzaoOKmPDRZcVlfVb/H5nESd/o/mkLaX2HRFclRBz43WxNPsF4OCMM3t1vTaK2lq1rBLoB
-	TviaTth6wtIlY0fn5tg06cxocVKToULe6kVk1XJ+6Ul1qH9ugbQFIhi1OMVwSwcXMd0NTw+tsTMLE
-	I7/tMxJOyhDDq8O9CooAngio6TX5bllLqdN/8q0iqoJ2d47CPw96FDRXYrWM1JilJq3Yj7rs03UAn
-	G8oHEavz9PoQm7f/t9E6r4Jy7x699+08i6f/NdPqEgbvSJHZMv+pplwSPllQy/sDU8iu4tTKEJBTS
-	7Awyo1HA==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=B6RuFD2ysGuG/Okg5isZlEoDbfdRQo0dy9sR8hfvLFM=; b=Eg90YAM/8MpGEZ85l4ltHAZTtp
+	nRIFv+qcf3CihnnzwKZE/qqvNFR/pRK2G2Bl06WzJsDscfrkz/0pIq4QXYXwgESjHZ3M+CK3qYoEp
+	IZBj8L+92X6ASHdMASpudYIwYR99oLUmIVXgiev9acIJYX9CCglXlfoxcPxHWvKIYuNqviBQbAUWs
+	f60pLS1OBTRvkdKKWtifmjTKgY5kbSl+Qv+dCaRdzR46yFYMX6GipiLHOtBcLWgBkwUoqswaypKLR
+	Cva/5MtFysAF9z7ygpUorEnEzssP9+nWKNYZ/sXPzY4LXU6PPvOWBjacGq8Lx9aD6nP9MMVPlNqwX
+	26j1kPjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDS8l-00000004WlL-1N0A;
-	Fri, 09 May 2025 18:08:07 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uDSNN-00000004Yoa-2zEH;
+	Fri, 09 May 2025 18:23:13 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDQ6H-00000004BYW-1gbE
+	id 1uDQIN-00000004EDk-3HqR
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 15:57:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2124444B3D;
-	Fri,  9 May 2025 15:57:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D72ABC4CEE4;
-	Fri,  9 May 2025 15:57:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1746806245;
-	bh=irAiBJ4YJtMSN3/kNYx23255IfNemC062kdIkHNceA0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YrcOu981Eb/JXWzNyJzuWf+rXY5JofO8oM07PIfEvNclk54RAnBV7ydFojLR9fhiS
-	 EErehOIrszMyu+nHhIMkdj4y+ioLuye3amVISPqasL0N5sIePwU4CcUlNaB5XPrYTl
-	 fm+lC3ZR/Ue5e6liQz7mOwtBCQATbQ0OGLQqC9IuBUsL9Kq2vkvgYyApfA7/esOx3W
-	 yAMSAPkFjl4UV+8SmyDjkM30VfARhfGat65dxHb0eAua+eaWMEXkvo5VYighC7f22t
-	 UQsQMa5XM9pAFDOhi5leKbM0aavrjtZneyCu/CLq7xMSHcT4z3003GSLwuJviL+iI3
-	 1+dkcNuznBH8w==
-Date: Fri, 9 May 2025 16:57:20 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Nick Hu <nick.hu@sifive.com>, Cyan Yang <cyan.yang@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>
-Subject: Re: [PATCH] dt-bindings: power: Add SiFive Domain Management
- controllers
-Message-ID: <20250509-subtract-caramel-08d47ed3281c@spud>
-References: <20250509021605.26764-1-nick.hu@sifive.com>
- <20250509-small-graceful-limpet-d0ea41@kuoka>
-MIME-Version: 1.0
-In-Reply-To: <20250509-small-graceful-limpet-d0ea41@kuoka>
+	Fri, 09 May 2025 16:09:57 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7376dd56eccso2493529b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 09:09:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1746806995; x=1747411795; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QnWvRvLBiox5Bz9Lyem6f8SVAf49ycnR85XD0lPPJ4k=;
+        b=W1oDGb1xzkFBz/LX1PsCKtM5DuVpiboBpdmPvP4+34OVzNLlNAjA+a3f+Ds/F9PCxK
+         LJf7Uy8tepGA0TldrjGhGylJnX94T7RH9zQVt0H2ypj5RbbR4MZKLzKYYKviBj96HIGu
+         0JSv9qirJZw9xTl4UVKAFNlTMIcXEOp02pHgIOdMZNBIdau6D/nWPf9YqUb9iUdftl+f
+         lEj8J1uYulnZidQ4jMKldAfDZCC2C8I/tbRkbznZNQCQCgT/NaTVeRnlPTdDTNvC0zoW
+         nYyc6oiRBNCNqIo/fdSd6eogfXGzmKP/FVwoKeQjBlXDPaLPnjX9DYss7WHGEIA7d/MM
+         83sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1746806995; x=1747411795;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QnWvRvLBiox5Bz9Lyem6f8SVAf49ycnR85XD0lPPJ4k=;
+        b=WSaU57yyAad3c9DQg9mxTWkyv6YlpzZzUQ9CRbMj2Ts/nT5pM+/MuIXfQ6HYZFQuRP
+         r7FzVRZd2E44nuCA+4EQlgKga4hHo9iHJX45XxOmqrRgxlYFdI2yB2BaB7rv+Wzv44jH
+         G/6kKg8BHDinyzMraPdlKN7my5vAS29JfB1sdB6jAmDuhD4+ncQvFNP0cth0uSlJqiKq
+         /32cE832hZjfgvOaZ2pF/74aanv30QbTpYe5t8cosApupWlO+x+u4MxST9arNC1CMbZP
+         /ODxrKx7ixVxW1OqKoKIZwLI5vpPU0x95DQIXUw7sgqwypP7aUuDuhOWRqpBd+e/g5ao
+         z6YA==
+X-Forwarded-Encrypted: i=1; AJvYcCUxPkUVTbB+wtsuqk0XqnNh93LJh5R9yybiCz6LAb3Sg2L2cNHFPzlNjiZNQmxm1GW44bSfpo+CK+zfkw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzA1Ev+O4us+RXFcNf7Ehl0PTSBndJyrLvgzvuDarC+7s4Luhs1
+	j/V/rLOg8ba8ij6U2kK8Nd1dMLNbsOvh1PBKrMzt/DXpwkDV/zGvpRWmVrA/hzI=
+X-Gm-Gg: ASbGncsIalFyNk3bpaW2VczI/dnN+ljmo9ofS9wJBsnrEXBZeRv3rjGeD559b1pe06C
+	ZdAuXRMBAjfsG7rK6GfOD5jIaNPOZLSThOPyI4EQnOtyVeYgeu+xIfN+O2FLdQM8xDIQ+JJBbjc
+	c0USNQU4wUXZiNdgyFgsiPutJ59BaS+nqPBV6uT8VwLQ5dlTaRxvaJCt70D7TH1b0OC3f6Q6Gq+
+	NGgD+Lc6mHl4CnoX48wA7vh15Jas+lSXrGDO2rpa7GD1flVlqhTSYSmMwyePBYsmkctz39XOc9t
+	7GcfQ0DkFeUyacF+vmfWCBKyxWpE/b5oRw==
+X-Google-Smtp-Source: AGHT+IEaZucBNObFCPlL+hxe0V/lS5+Y6rCoZP8rip8WDQP4X8PU+EirWpJnUHe7qNQ+TAoVPn0hPg==
+X-Received: by 2002:a05:6a00:f0b:b0:737:6fdf:bb69 with SMTP id d2e1a72fcca58-7423be92b53mr5075987b3a.13.1746806994709;
+        Fri, 09 May 2025 09:09:54 -0700 (PDT)
+Received: from localhost ([50.145.13.30])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237a3cfeasm1935720b3a.140.2025.05.09.09.09.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 09 May 2025 09:09:54 -0700 (PDT)
+Date: Fri, 09 May 2025 09:09:54 -0700 (PDT)
+X-Google-Original-Date: Fri, 09 May 2025 09:09:50 PDT (-0700)
+Subject: Re: [PATCH] riscv: Disallow PR_GET_TAGGED_ADDR_CTRL without Supm
+In-Reply-To: <20250507180811.3CKhxtu0@linutronix.de>
+CC: samuel.holland@sifive.com, alex@ghiti.fr, linux-riscv@lists.infradead.org,
+  aou@eecs.berkeley.edu, bodonnel@redhat.com, Charlie Jenkins <charlie@rivosinc.com>,
+  Conor Dooley <conor.dooley@microchip.com>, joel.granados@kernel.org, Paul Walmsley <paul.walmsley@sifive.com>,
+  cuiyunhui@bytedance.com, linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: namcao@linutronix.de
+Message-ID: <mhng-4654dddb-920a-456b-8fc9-2caaa80c4781@palmer-ri-x1c9a>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_085725_480173_10633D05 
-X-CRM114-Status: GOOD (  27.49  )
+X-CRM114-CacheID: sfid-20250509_090956_086420_0BBC2870 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,202 +94,68 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1766369315450803451=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, 07 May 2025 11:08:11 PDT (-0700), namcao@linutronix.de wrote:
+> On Wed, May 07, 2025 at 07:52:18AM -0700, Samuel Holland wrote:
+>> When the prctl() interface for pointer masking was added, it did not
+>> check that the pointer masking ISA extension was supported, only the
+>> individual submodes. Userspace could still attempt to disable pointer
+>> masking and query the pointer masking state. commit 81de1afb2dd1
+>> ("riscv: Fix kernel crash due to PR_SET_TAGGED_ADDR_CTRL") disallowed
+>> the former, as the senvcfg write could crash on older systems.
+>> PR_GET_TAGGED_ADDR_CTRL state does not crash, because it reads only
+>> kernel-internal state and not senvcfg, but it should still be disallowed
+>> for consistency.
 
---===============1766369315450803451==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="YcA62LszQ5ASIZ/7"
-Content-Disposition: inline
+We talked some in the patchwork meeting about returning success for the 
+flavors of this that could be emulated in the kernel without hardware 
+support (ie, disabling pointer masking on systems that don't have it is 
+trivial).  The general consensus is that didn't really help any, as 
+userspace still needs to deal with systems where these will fail (old 
+kernels, Kconfig disabled, etc).
 
+Happy to reconsider that if someone cares.  Either way this is going up 
+as a fix, as it just keeps the interface sane when taking 7f1c3de1370b 
+("riscv: Disallow PR_GET_TAGGED_ADDR_CTRL without Supm") into account.
 
---YcA62LszQ5ASIZ/7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+>> Fixes: 09d6775f503b ("riscv: Add support for userspace pointer masking")
+>> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
+>> ---
+>>
+>>  arch/riscv/kernel/process.c | 3 +++
+>>  1 file changed, 3 insertions(+)
+>>
+>> diff --git a/arch/riscv/kernel/process.c b/arch/riscv/kernel/process.c
+>> index 7c244de77180..f7a1a887ae68 100644
+>> --- a/arch/riscv/kernel/process.c
+>> +++ b/arch/riscv/kernel/process.c
+>> @@ -330,6 +330,9 @@ long get_tagged_addr_ctrl(struct task_struct *task)
+>>  	struct thread_info *ti = task_thread_info(task);
+>>  	long ret = 0;
+>>
+>> +	if (!riscv_has_extension_unlikely(RISCV_ISA_EXT_SUPM))
+>> +		return -EINVAL;
+>> +
+>>  	if (is_compat_thread(ti))
+>>  		return -EINVAL;
+>
+> I think this matches what the man page says:
+>
+> "If the arguments are invalid or this feature is disabled or unsupported by
+> the kernel, the call fails with EINVAL"
 
-On Fri, May 09, 2025 at 08:40:28AM +0200, Krzysztof Kozlowski wrote:
-> On Fri, May 09, 2025 at 10:16:04AM GMT, Nick Hu wrote:
-> > SiFive Domain Management controller includes the following components
-> > - SiFive Tile Management Controller
-> > - SiFive Cluster Management Controller
-> > - SiFive Core Complex Management Controller
-> >=20
-> > These controllers control the clock and power domain of the
-> > corresponding domain.
-> >=20
-> > Signed-off-by: Nick Hu <nick.hu@sifive.com>
-> > Reviewed-by: Samuel Holland <samuel.holland@sifive.com>
-> > ---
-> >  .../devicetree/bindings/power/sifive,tmc.yaml | 89 +++++++++++++++++++
->=20
-> Where is a patch with the driver (user of the binding)?
->=20
-> >  1 file changed, 89 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/power/sifive,tmc.=
-yaml
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/power/sifive,tmc.yaml b/=
-Documentation/devicetree/bindings/power/sifive,tmc.yaml
-> > new file mode 100644
-> > index 000000000000..7ed4f290b94b
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/power/sifive,tmc.yaml
-> > @@ -0,0 +1,89 @@
-> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/power/sifive,tmc.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: SiFive Domain Management Controller
-> > +
-> > +maintainers:
-> > +  - Cyan Yang <cyan.yang@sifive.com>
-> > +  - Nick Hu <nick.hu@sifive.com>
-> > +  - Samuel Holland <samuel.holland@sifive.com>
-> > +
-> > +description: |
-> > +  This is the device tree binding for the following SiFive Domain Mana=
-gement Controllers.
->=20
-> Explain the hardware, not that "binding is a binding for ...".
->=20
-> Also, wrap according to Linux coding style.
->=20
->=20
-> > +  - Tile Management Controller
-> > +      - TMC0
-> > +      - TMC1
-> > +      - TMC2
-> > +      - TMC3
-> > +  - Subsystem Management Controller
-> > +      - SMC0
-> > +      - SMC1
-> > +      - SMC2
-> > +      - SMC3
-> > +  - Cluster Management Controller
-> > +      - CMC2
-> > +      - CMC3
-> > +  SiFive Domain Management Controllers support the SiFive Quiet Interf=
-ace
-> > +  Protocol (SQIP) starting from the Version 1. The control method is
-> > +  different from the Version 0, making them incompatible.
-> > +
-> > +allOf:
-> > +  - $ref: power-domain.yaml#
-> > +
-> > +properties:
-> > +  compatible:
-> > +    oneOf:
-> > +      - items:
-> > +          - {}
-> > +          - pattern: "^sifive,[ts]mc0$"
-> > +      - items:
-> > +          - {}
-> > +          - pattern: "^sifive,[ts]mc3$"
-> > +          - pattern: "^sifive,[ts]mc2$"
-> > +          - pattern: "^sifive,[ts]mc1$"
-> > +      - items:
-> > +          - {}
-> > +          - pattern: "^sifive,[ts]mc2$"
-> > +          - pattern: "^sifive,[ts]mc1$"
-> > +      - items:
-> > +          - {}
-> > +          - pattern: "^sifive,[ts]mc1$"
-> > +      - items:
-> > +          - {}
-> > +          - const: sifive,cmc3
-> > +          - const: sifive,cmc2
-> > +      - items:
-> > +          - {}
-> > +          - const: sifive,cmc2
->=20
-> All of this is just unexpected. Why any compatible should come with
-> these?
+Ya, it's also what we do when the Kconfig is disabled so it seems like 
+the way to go (we talked about that some too).
 
-It's also not quite correct either, right? Or may not be correct at
-least. It permits "xxx", "tmc2", "smc1" and "xxx", "smc2", "tmc1"
-which mean that the smc and tmc must be identical in terms of
-programming model.
+> Reviewed-by: Nam Cao <namcao@linutronix.de>
 
-> You need to use SoC specific compatibles.
-
-I think there's some slack to provide here, sifive are upstreaming it in
-advance of there being customers (or customers ready to upstream) and this
-format allows us to accept bindings/drivers and the customer will have
-to add a soc-specific compatible in order to actually use these in a
-dts. I think it's better to accept something along these lines than
-stall out until a customer decides to upstream their user. That said, I
-would expect this to come (as you mentioned above) with the driver.
-
-> > +
-> > +  reg:
-> > +    maxItems: 1
-> > +
-> > +  sifive,feature-level:
-> > +    description: |
-> > +      Supported power features. This property is absent if the full se=
-t of features
-> > +      is supported
->=20
-> Compatible defines this. Drop.
->=20
->=20
-> > +    $ref: /schemas/types.yaml#/definitions/string
-> > +    enum: ["nopg", "ceasepg", "runonlypg"]
-> > +
-> > +  "#power-domain-cells":
-> > +    const: 0
-> > +
-> > +if:
-> > +  not:
-> > +    properties:
-> > +      compatible:
-> > +        contains:
-> > +          pattern: "^sifive,[tsc]mc3$"
-> > +then:
-> > +  properties:
-> > +    sifive,feature-level: false
-> > +
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +
-> > +additionalProperties: false
->=20
-> Missing example.
-
-You can't actually make an example that passes validation when the
-soc-specific compatibles are not added, so this would require adding
-some.
-
---YcA62LszQ5ASIZ/7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaB4l4AAKCRB4tDGHoIJi
-0u/WAQDc8Go2RA4WT2oOaA7PTcJU45RCSHFNuTC+pBcuZzUMKQD/Z+mLnHBPJzDI
-IByAjSLLyqcA/arq1lsOjTdZr80OvAY=
-=uK2r
------END PGP SIGNATURE-----
-
---YcA62LszQ5ASIZ/7--
-
-
---===============1766369315450803451==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Thanks!
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============1766369315450803451==--
-
