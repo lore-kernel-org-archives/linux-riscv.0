@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40D8EC3ABCC
-	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 12:23:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C89EDC3ABCD
+	for <linux-riscv@archiver.kernel.org>; Fri,  9 May 2025 12:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=/vzjuce2Z440w5Do9a3GpNc2bXVvqwBcxQKw6AU2bX0=; b=pAocR3+Xq517CP
-	67Ei0h5hCogdmSYEjBppfw9DAVTnqxOv9VDecQLqF+hV92DH7E+ffrw5pODy9lSW81uEbpEIoiGJi
-	9UKKHTpEPUZt/to4tmD/7Kw/Lxyh21wyfzcfArhFw9ZNp8p6rm5JHGWQdazikkXDnv5613fLEK2x3
-	unx6n/Q32Gkd6Oi5XtS9TmFnFs9SBrRCyqp3fDwgMwkl7w6QKbn33kj98+p2ywxUdc8ZWAJB5Gmuk
-	4u6rDrKgbih4cRoGOyHIBtwJpq+t5C9x4N4V0kiOmcifhHfN6GOJU+x9sHnrB2Il1XPQzlFU6Lioo
-	4NzmqxqxgX9GqBAVcG5Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=kLIgbT1jShN1rJcoCES4Z5E0svHBRw25H1HH6pTJgf0=; b=H8kRdPlKx2x5io
+	9ioU301qjUS+7T63qNXF43p8cCuSsfmpHEgBYDJwLhLEaG8NGg7llKvtiskmmwtTR7IS3pCLdDwgo
+	9GNqIk1T2JPmeVsWQIcRmZ3oUPzIc0zCb14UcX0iU4ZTD1868HZMP87aUgTfrHDG75tmnca/dspAN
+	xIXsQ2c+Jf4zND+kcUQHBXksS8cvH6bofKyAnW1PvZRRin1oUzD1Gduxq9zyJpuY3pUOtNub2G3C3
+	tlHZn3swKcVYaZZbNnbGGj2CaBBnY3kAIOKhHw0rI2/C0gUvUt0cpujiknGXw+IpOq/K540rtWjJZ
+	1BrRripx78yKoqR3A+GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDMlL-00000003ZOq-1L2O;
+	id 1uDMlL-00000003ZPD-3tl4;
 	Fri, 09 May 2025 12:23:35 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDLmR-00000003Por-12E0
+	id 1uDLmT-00000003PpQ-26Ye
 	for linux-riscv@lists.infradead.org;
-	Fri, 09 May 2025 11:20:41 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-85b4170f1f5so66941839f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 04:20:38 -0700 (PDT)
+	Fri, 09 May 2025 11:20:42 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3d7f4cb7636so6434105ab.3
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 04:20:41 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746789636; x=1747394436; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=NTSX0/tw8NEx2HZiz9FcVkfctrtBy+rS4Bs93fohJKY=;
-        b=jtogjFCOxidJ9lWa0jzv8Jctbm7k1qKDUDgkjnQ3ai7VLH8X7+3LQjQbxbt8V7OCtH
-         5WtJn9XqVZOm0u5taQvCY6xUQ8NY5JnQ11pKU5Y2IF5x/LiUU3tVM0pYJgKDoQJrLyJT
-         n7S4MAsWpRhgHoo0CNL0N5xh77LmD++jogflDk8FBiTk/+w1csFMfpj4KEK0Sb4YGoKp
-         fuW8zLRzypKWxTh5FXVbLgxGKFsxC1x2zOk2HYl/m2AKVsmbsr4xhr2OAXefCttN8JvU
-         37C6rgkSAAoiUqOG8yuJPzYDrwIPdEVlKgqXQ7ADHuOWtqkrkExOeCHN/bF+liAT/S6w
-         yRVA==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1746789640; x=1747394440; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sXwy5tVdImxDBRP1GRUSwr+2LcDIZym3hhNrDcTOG9Q=;
+        b=3E6uXnCzvTGnGH9gh7kx+l8+bSldY2tR7VFgEqtcZHnlWbxyVsdyuQUmLweC6a601N
+         auHYwawTZLgcwZrpUKZ8WToyR3uD73y4nFbThjmBcYyu8w03RRCvXD8Zo6qsDRr1nDrZ
+         xttDs6BKIWbg643TFMZxgGtU0trWXIOb0wfWVUgzPsa+eNrhWGa2O5LxSegU5FsYdGDr
+         aixqH2Rfbc+zZjiy/2LfWqIIanBTbx6BWwNuCQQxY4r6Ha4Fz4+WMUtDhuBc/FcFNwPO
+         yrNc3PCOnqSMplhsQ9pMoOZ9THt+j1+lruXdYdln9n/3OKGtQN1xed184IIjnl/DUiH/
+         AnLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746789636; x=1747394436;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=NTSX0/tw8NEx2HZiz9FcVkfctrtBy+rS4Bs93fohJKY=;
-        b=JD7Qi8WxruUHA5B60Y3lzUqbygMvoAvN5/B73BX0C0shIy8c4ul8n4nPR1elGM0/bk
-         3M2uLj52HaeceWNZu6lKKm5INw94z/RdPMSLlW49KvbQEToTSDof2ZyuXjOBr8OT8uzQ
-         wfyIvMSIeMje/ZRPB6TflkPOX0itUPZkia5Z5fOfThDodM0uF/cEvKeUnmLP9kKrdMFl
-         4SUUxT0M03E2omKvl0t4+NaHO5FiOf1fnW3FyJNaGb7F2Po9ZbYAS+jCFEwq9nSGGVjY
-         Liy6r+6IwjaluGtJuxL0i6JXB4mBTk1cLuQn7cgbMDZbB/F89nh+igomTD+FpuQKi5Mc
-         orTg==
-X-Forwarded-Encrypted: i=1; AJvYcCWAFLP2JVqw6qJOss/z54HizVey9JgPAhmUnPdZTHX8DnJxdVkNCMArFPcH9OZYNXuvDM2qR0K9ili9Jg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxqGGZR7LzCw79AxKty3VRg2C5q1EXYM58bZYOdT5l7Upucb9IH
-	LFAaIbP8cEtf4/3GzXcZHhcEfnQ8IJfglcp7izcc0Tmdaw0gt6D0j98g2XWMQJA=
-X-Gm-Gg: ASbGncvH8M1FW7Y3EdxZa1mnXJgX4QAXk4eEECqOOWguetg0F+UJs3R4hA8MJ/tWIrZ
-	PrF2OFQlj58EHsooFkMP5iLwgcQZCR+RFPRuRGQjIPKTfj1SC9c8zFYjW9VqTSuuFTNGfrgpDIp
-	nojGcPFJRjKA56sF4pjV2B6RkCOlEZ2tuxU9t8Gpn7gI7N653UHp24R1yu9Rg/lobyozf6wWhap
-	LpqoObSY2V5I83wfVGUlV+xVPNvU5pCbiRCE0synklZFd0ehjoW/XM9Bc6Nl+cEJAmZEMYepbEN
-	9GkvRyGUiungFzlidmn0loWVtwFqBP59kyWJT/Kq+qzpkNylYkYd4MorJZlggsoOY3Dy/hDsWWN
-	o2DNHRALgsqo0sg==
-X-Google-Smtp-Source: AGHT+IF05PBHHDZrwWQcLeXCbxDAB8MCaPu4N0jfY4wA0OvXddQCJwebAgEaZT9GlDpW3ltbOgzKXQ==
-X-Received: by 2002:a05:6e02:2489:b0:3da:6f46:5c1a with SMTP id e9e14a558f8ab-3da7e1e1b12mr36660425ab.2.1746789636400;
-        Fri, 09 May 2025 04:20:36 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1746789640; x=1747394440;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sXwy5tVdImxDBRP1GRUSwr+2LcDIZym3hhNrDcTOG9Q=;
+        b=uLK/cN9rtm76zBvKK2Mjp+MBAEU9XgATIVhYSVPWhQ+JwU0CzqB5UGfXcB5LcNEFKO
+         17nt8HqbneZCU9eahsaAWvkDN0fBiU0U7awkE8QU7qJ0f6ApS5XhSrtEI9MYlN1FAa1s
+         TfJ92igdirI1BcpzDL2FFfNC80yit9+JIUjVqjUXGVuxfRTz2EHvVv3PikCWj+BNIDYG
+         rrNUxo6zh/H9ouvaRn6WYdxonFXsKpH8IpQ2meX29Ul6BqW+3fbbWhAwIDorPlwNGYs5
+         VIFms/DEMJqwPqlZ5496vLph6pPQk3ivnM5tA6fF6pC0JgZgfthnd6HazlzHZ1I2etaL
+         3joA==
+X-Forwarded-Encrypted: i=1; AJvYcCWmdOVR9WmNdvgKGY75Nf5TsN4zxi7lfVKT6b1nDnXWZizlD5NDyJ8+Pc4zsOj7pv6Ec/VrTNIHCTJRcA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf/oepsI9WXVcVROxUqTuj5k5pconxEJfe79CSiPLB0em+lk+G
+	pKPaXbAJ0tWqr7OcB38jyg/57E2nDSFGIQ2NGVa+FKc/psxeHW/EXI4Z4CPKHMI=
+X-Gm-Gg: ASbGncvU4JRkmL+LmEQTO9wQX25TqivGdBvTOR/ApL/85Lk4+yybU8D2TsM2bBCbG0G
+	60O9YexSgmR4dcwZvtOtEWXQoKw4V0STJVReDyTv6LN5TmtgguMsjGiZfFjq3g+F07tif/t6aGy
+	zXLdPNXCp8piWwqhl/+Q5pV9Z6MxDBNhhr7jmrRr4NSluGpHJn25t9G+VSlINXyYOXoBX+vL+Oh
+	N2Yb1lDVePd2F24fHRM+WChO30iPjBkA5zWt1XL6tlxXf6NYGx9sbNzLT045RlgRPAheRvHAuU8
+	rXLfRsysb717UcXIQdLz2KXm8cZQNU0pZ5X3EpuP/DTs1NSFICPHGBH4oJa5DxmAvrdxcz31OWy
+	QViUsTWC+YKBUTqm0HRJvqhyu
+X-Google-Smtp-Source: AGHT+IER4ZveF4Y97sL5z+jYnaRdgDaHFSTFbz4jIMXbTH1u4Tx6NqxwD8nmnZwD5h0JGnRzdgJMIQ==
+X-Received: by 2002:a92:c26d:0:b0:3ce:4b12:fa17 with SMTP id e9e14a558f8ab-3da7e216475mr33354395ab.19.1746789640296;
+        Fri, 09 May 2025 04:20:40 -0700 (PDT)
 Received: from localhost.localdomain (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3da7e10549fsm5136325ab.23.2025.05.09.04.20.34
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-3da7e10549fsm5136325ab.23.2025.05.09.04.20.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 04:20:35 -0700 (PDT)
+        Fri, 09 May 2025 04:20:39 -0700 (PDT)
 From: Alex Elder <elder@riscstar.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -88,14 +89,16 @@ Cc: heylenay@4d2.org,
 	spacemit@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v8 0/6] reset: spacemit: add K1 reset support
-Date: Fri,  9 May 2025 06:20:25 -0500
-Message-ID: <20250509112032.2980811-1-elder@riscstar.com>
+Subject: [PATCH v8 2/6] soc: spacemit: create a header for clock/reset registers
+Date: Fri,  9 May 2025 06:20:27 -0500
+Message-ID: <20250509112032.2980811-3-elder@riscstar.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250509112032.2980811-1-elder@riscstar.com>
+References: <20250509112032.2980811-1-elder@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_042039_480846_DEB9E468 
-X-CRM114-Status: GOOD (  23.97  )
+X-CRM114-CacheID: sfid-20250509_042041_540214_A292A182 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,135 +115,270 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds reset controller support for the SpacemiT K1 SoC.
-A SpacemiT reset controller is implemented as an auxiliary device
-associated with a clock controller (CCU).  A new header file
-holds definitions used by both the clock and reset drivers.
+Move the definitions of register offsets and fields used by the SpacemiT
+K1 SoC CCUs into a separate header file, so that they can be shared by
+the reset driver that will be found under drivers/reset.
 
-This code builds upon the clock controller driver from Haylen Chu.
-
-The only difference from v7 is that the structure containing
-the auxiliary device struct is now allocated using kzalloc().
-Previously devm_kzalloc() was used, passing the parent device
-pointer as its first argument, and as Haylen pointed out, it
-was being (doubly) freed in the auxiliary device release
-function.  Everything else is essentially identical to v7.
-
-This series is based on the "for-next" branch in the SpacemiT
-repository:
-  https://github.com/spacemit-com/linux/tree/for-next
-
-All of these patches are available here:
-  https://github.com/riscstar/linux/tree/outgoing/reset-v8
-
-					-Alex
-
-Between version 7 and version 8:
-  - The structure containing the auxiliary device is now allocated
-    using kzalloc().  That means its lifetime is not tied to the
-    parent device, and auxiliary device's release function is
-    correct in freeing the structure.
-
-Here is version 7 of this series.
-  https://lore.kernel.org/lkml/20250508195409.2962633-1-elder@riscstar.com/
-
-Between version 6 and version 7:
-  - The new shared header file is now named "k1-syscon.h" (suggested
-    by Haylen Chu)
-  - The SPACEMIT_CCU_K1 config option has been removed (suggested
-    by Philipp Zabel)
-  - The SPACEMIT_CCU config option is now tristate, and selects
-    AUXILIARY_BUS (suggested by Haylen Chu)
-  - All code is concentrated into a single file "reset-spacemit.c"
-    rather than in a directory (suggested by Philipp Zabel)
-  - A bogus return value has been fixed, and a few irrelevant comments
-    have been removed (suggested by Philipp Zabel)
-  - MODULE_AUTHOR(), MODULE_DESCRIPTION(), and MODULE_LICENSE() are
-    now supplied (suggested by Haylen Chu)
-
-Here is version 6 of this series.
-  https://lore.kernel.org/lkml/20250506210638.2800228-1-elder@riscstar.com/
-
-Between version 5 and version 6:
-  - Reworked the code to use the auxiliary device framework.
-  - Moved the code supporting reset under drivers/reset/spacemit.
-  - Created a new header file shared by reset and clock.
-  - Separated generic from SoC-specific code in the reset driver.
-  - Dropped two Reviewed-by tags.
-
-Here is version 5 of this series.
-  https://lore.kernel.org/lkml/20250418145401.2603648-1-elder@riscstar.com/
-
-Between version 4 and version 5:
-  - Added Haylen's Reviewed-by on the second patch.
-  - Added Philipp's Reviewed-by on the third patch.
-  - In patch 4, added a const qualifier to some structures, and removed
-    parentheses surrounding integer constants, as suggested by Philipp
-  - Now based on the SpacemiT for-next branch
-
-Here is version 4 of this series.
-  https://lore.kernel.org/lkml/20250414191715.2264758-1-elder@riscstar.com/
-
-Between version 3 and version 4:
-  - Now based on Haylen Chu's v7 clock code, built on v6.15-rc2.
-  - Added Krzysztof's Reviewed-by on the first patch.
-
-Here is version 3 of this series.
-  https://lore.kernel.org/lkml/20250409211741.1171584-1-elder@riscstar.com/
-
-Between version 2 and version 3 there was no feedback, however:
-  - Haylen posted v6 of the clock series, and it included some changes
-    that affected the logic in this reset code.
-  - I was informed that defining CCU nodes without any clocks led to
-    warnings about "clocks" being a required property when running
-    "make dtbs_check".  For that reason, I made clock properties
-    optional for reset-only CCU nodes.
-  - This code is now based on v6.15-rc1, which includes a few commits
-    that were listed as dependencies previously.
-
-Here is version 2 of this series.
-  https://lore.kernel.org/lkml/20250328210233.1077035-1-elder@riscstar.com/
-
-Between version 1 and version 2:
-  - Added Rob's Reviewed-by tag on the first patch
-  - Renamed the of_match_data data type (and one or two other symbols) to
-    use "spacemit" rather than "k1".
-  - Replaced the abbreviated "rst" or "RST" in names of newly-defined
-    sympols with "reset" or "RESET" respectively.
-  - Eliminated rcdev_to_controller(), which was only used once.
-  - Changed a function that unsafely did a read/modify/write of a register
-    to use regmap_update_bits() instead as suggested by Haylen.
-  - Eliminated a null check for a pointer known to be non-null.
-  - Reordered the assignment of reset controller device fields.
-  - Added a "sentinel" comment as requested by Yixun.
-  - Updated to be based on Linux v6.14 final.
-
-Here is the first version of this series.
-  https://lore.kernel.org/lkml/20250321151831.623575-1-elder@riscstar.com/
-
-Alex Elder (6):
-  dt-bindings: soc: spacemit: define spacemit,k1-ccu resets
-  soc: spacemit: create a header for clock/reset registers
-  clk: spacemit: set up reset auxiliary devices
-  reset: spacemit: add support for SpacemiT CCU resets
-  reset: spacemit: define three more CCUs
-  riscv: dts: spacemit: add reset support for the K1 SoC
-
- .../soc/spacemit/spacemit,k1-syscon.yaml      |  29 +-
- arch/riscv/boot/dts/spacemit/k1.dtsi          |  18 ++
- drivers/clk/spacemit/Kconfig                  |   1 +
- drivers/clk/spacemit/ccu-k1.c                 | 225 +++++++------
- drivers/reset/Kconfig                         |   9 +
- drivers/reset/Makefile                        |   1 +
- drivers/reset/reset-spacemit.c                | 297 ++++++++++++++++++
- .../dt-bindings/clock/spacemit,k1-syscon.h    | 128 ++++++++
- include/soc/spacemit/k1-syscon.h              | 160 ++++++++++
- 9 files changed, 741 insertions(+), 127 deletions(-)
- create mode 100644 drivers/reset/reset-spacemit.c
+Signed-off-by: Alex Elder <elder@riscstar.com>
+---
+ drivers/clk/spacemit/ccu-k1.c    | 111 +----------------------------
+ include/soc/spacemit/k1-syscon.h | 118 +++++++++++++++++++++++++++++++
+ 2 files changed, 119 insertions(+), 110 deletions(-)
  create mode 100644 include/soc/spacemit/k1-syscon.h
 
-
-base-commit: cb9c3aeae509b36afbdf46942a7a0a0dfc856ce7
+diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+index cdde37a052353..801150f4ff0f5 100644
+--- a/drivers/clk/spacemit/ccu-k1.c
++++ b/drivers/clk/spacemit/ccu-k1.c
+@@ -11,6 +11,7 @@
+ #include <linux/minmax.h>
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
++#include <soc/spacemit/k1-syscon.h>
+ 
+ #include "ccu_common.h"
+ #include "ccu_pll.h"
+@@ -19,116 +20,6 @@
+ 
+ #include <dt-bindings/clock/spacemit,k1-syscon.h>
+ 
+-/* APBS register offset */
+-#define APBS_PLL1_SWCR1			0x100
+-#define APBS_PLL1_SWCR2			0x104
+-#define APBS_PLL1_SWCR3			0x108
+-#define APBS_PLL2_SWCR1			0x118
+-#define APBS_PLL2_SWCR2			0x11c
+-#define APBS_PLL2_SWCR3			0x120
+-#define APBS_PLL3_SWCR1			0x124
+-#define APBS_PLL3_SWCR2			0x128
+-#define APBS_PLL3_SWCR3			0x12c
+-
+-/* MPMU register offset */
+-#define MPMU_POSR			0x0010
+-#define  POSR_PLL1_LOCK			BIT(27)
+-#define  POSR_PLL2_LOCK			BIT(28)
+-#define  POSR_PLL3_LOCK			BIT(29)
+-#define MPMU_SUCCR			0x0014
+-#define MPMU_ISCCR			0x0044
+-#define MPMU_WDTPCR			0x0200
+-#define MPMU_RIPCCR			0x0210
+-#define MPMU_ACGR			0x1024
+-#define MPMU_APBCSCR			0x1050
+-#define MPMU_SUCCR_1			0x10b0
+-
+-/* APBC register offset */
+-#define APBC_UART1_CLK_RST		0x00
+-#define APBC_UART2_CLK_RST		0x04
+-#define APBC_GPIO_CLK_RST		0x08
+-#define APBC_PWM0_CLK_RST		0x0c
+-#define APBC_PWM1_CLK_RST		0x10
+-#define APBC_PWM2_CLK_RST		0x14
+-#define APBC_PWM3_CLK_RST		0x18
+-#define APBC_TWSI8_CLK_RST		0x20
+-#define APBC_UART3_CLK_RST		0x24
+-#define APBC_RTC_CLK_RST		0x28
+-#define APBC_TWSI0_CLK_RST		0x2c
+-#define APBC_TWSI1_CLK_RST		0x30
+-#define APBC_TIMERS1_CLK_RST		0x34
+-#define APBC_TWSI2_CLK_RST		0x38
+-#define APBC_AIB_CLK_RST		0x3c
+-#define APBC_TWSI4_CLK_RST		0x40
+-#define APBC_TIMERS2_CLK_RST		0x44
+-#define APBC_ONEWIRE_CLK_RST		0x48
+-#define APBC_TWSI5_CLK_RST		0x4c
+-#define APBC_DRO_CLK_RST		0x58
+-#define APBC_IR_CLK_RST			0x5c
+-#define APBC_TWSI6_CLK_RST		0x60
+-#define APBC_COUNTER_CLK_SEL		0x64
+-#define APBC_TWSI7_CLK_RST		0x68
+-#define APBC_TSEN_CLK_RST		0x6c
+-#define APBC_UART4_CLK_RST		0x70
+-#define APBC_UART5_CLK_RST		0x74
+-#define APBC_UART6_CLK_RST		0x78
+-#define APBC_SSP3_CLK_RST		0x7c
+-#define APBC_SSPA0_CLK_RST		0x80
+-#define APBC_SSPA1_CLK_RST		0x84
+-#define APBC_IPC_AP2AUD_CLK_RST		0x90
+-#define APBC_UART7_CLK_RST		0x94
+-#define APBC_UART8_CLK_RST		0x98
+-#define APBC_UART9_CLK_RST		0x9c
+-#define APBC_CAN0_CLK_RST		0xa0
+-#define APBC_PWM4_CLK_RST		0xa8
+-#define APBC_PWM5_CLK_RST		0xac
+-#define APBC_PWM6_CLK_RST		0xb0
+-#define APBC_PWM7_CLK_RST		0xb4
+-#define APBC_PWM8_CLK_RST		0xb8
+-#define APBC_PWM9_CLK_RST		0xbc
+-#define APBC_PWM10_CLK_RST		0xc0
+-#define APBC_PWM11_CLK_RST		0xc4
+-#define APBC_PWM12_CLK_RST		0xc8
+-#define APBC_PWM13_CLK_RST		0xcc
+-#define APBC_PWM14_CLK_RST		0xd0
+-#define APBC_PWM15_CLK_RST		0xd4
+-#define APBC_PWM16_CLK_RST		0xd8
+-#define APBC_PWM17_CLK_RST		0xdc
+-#define APBC_PWM18_CLK_RST		0xe0
+-#define APBC_PWM19_CLK_RST		0xe4
+-
+-/* APMU register offset */
+-#define APMU_JPG_CLK_RES_CTRL		0x020
+-#define APMU_CSI_CCIC2_CLK_RES_CTRL	0x024
+-#define APMU_ISP_CLK_RES_CTRL		0x038
+-#define APMU_LCD_CLK_RES_CTRL1		0x044
+-#define APMU_LCD_SPI_CLK_RES_CTRL	0x048
+-#define APMU_LCD_CLK_RES_CTRL2		0x04c
+-#define APMU_CCIC_CLK_RES_CTRL		0x050
+-#define APMU_SDH0_CLK_RES_CTRL		0x054
+-#define APMU_SDH1_CLK_RES_CTRL		0x058
+-#define APMU_USB_CLK_RES_CTRL		0x05c
+-#define APMU_QSPI_CLK_RES_CTRL		0x060
+-#define APMU_DMA_CLK_RES_CTRL		0x064
+-#define APMU_AES_CLK_RES_CTRL		0x068
+-#define APMU_VPU_CLK_RES_CTRL		0x0a4
+-#define APMU_GPU_CLK_RES_CTRL		0x0cc
+-#define APMU_SDH2_CLK_RES_CTRL		0x0e0
+-#define APMU_PMUA_MC_CTRL		0x0e8
+-#define APMU_PMU_CC2_AP			0x100
+-#define APMU_PMUA_EM_CLK_RES_CTRL	0x104
+-#define APMU_AUDIO_CLK_RES_CTRL		0x14c
+-#define APMU_HDMI_CLK_RES_CTRL		0x1b8
+-#define APMU_CCI550_CLK_CTRL		0x300
+-#define APMU_ACLK_CLK_CTRL		0x388
+-#define APMU_CPU_C0_CLK_CTRL		0x38C
+-#define APMU_CPU_C1_CLK_CTRL		0x390
+-#define APMU_PCIE_CLK_RES_CTRL_0	0x3cc
+-#define APMU_PCIE_CLK_RES_CTRL_1	0x3d4
+-#define APMU_PCIE_CLK_RES_CTRL_2	0x3dc
+-#define APMU_EMAC0_CLK_RES_CTRL		0x3e4
+-#define APMU_EMAC1_CLK_RES_CTRL		0x3ec
+-
+ struct spacemit_ccu_data {
+ 	struct clk_hw **hws;
+ 	size_t num;
+diff --git a/include/soc/spacemit/k1-syscon.h b/include/soc/spacemit/k1-syscon.h
+new file mode 100644
+index 0000000000000..039a448c51a07
+--- /dev/null
++++ b/include/soc/spacemit/k1-syscon.h
+@@ -0,0 +1,118 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++/* SpacemiT clock and reset driver definitions for the K1 SoC */
++
++#ifndef __SOC_K1_SYSCON_H__
++#define __SOC_K1_SYSCON_H__
++
++/* APBS register offset */
++#define APBS_PLL1_SWCR1			0x100
++#define APBS_PLL1_SWCR2			0x104
++#define APBS_PLL1_SWCR3			0x108
++#define APBS_PLL2_SWCR1			0x118
++#define APBS_PLL2_SWCR2			0x11c
++#define APBS_PLL2_SWCR3			0x120
++#define APBS_PLL3_SWCR1			0x124
++#define APBS_PLL3_SWCR2			0x128
++#define APBS_PLL3_SWCR3			0x12c
++
++/* MPMU register offset */
++#define MPMU_POSR			0x0010
++#define  POSR_PLL1_LOCK			BIT(27)
++#define  POSR_PLL2_LOCK			BIT(28)
++#define  POSR_PLL3_LOCK			BIT(29)
++#define MPMU_SUCCR			0x0014
++#define MPMU_ISCCR			0x0044
++#define MPMU_WDTPCR			0x0200
++#define MPMU_RIPCCR			0x0210
++#define MPMU_ACGR			0x1024
++#define MPMU_APBCSCR			0x1050
++#define MPMU_SUCCR_1			0x10b0
++
++/* APBC register offset */
++#define APBC_UART1_CLK_RST		0x00
++#define APBC_UART2_CLK_RST		0x04
++#define APBC_GPIO_CLK_RST		0x08
++#define APBC_PWM0_CLK_RST		0x0c
++#define APBC_PWM1_CLK_RST		0x10
++#define APBC_PWM2_CLK_RST		0x14
++#define APBC_PWM3_CLK_RST		0x18
++#define APBC_TWSI8_CLK_RST		0x20
++#define APBC_UART3_CLK_RST		0x24
++#define APBC_RTC_CLK_RST		0x28
++#define APBC_TWSI0_CLK_RST		0x2c
++#define APBC_TWSI1_CLK_RST		0x30
++#define APBC_TIMERS1_CLK_RST		0x34
++#define APBC_TWSI2_CLK_RST		0x38
++#define APBC_AIB_CLK_RST		0x3c
++#define APBC_TWSI4_CLK_RST		0x40
++#define APBC_TIMERS2_CLK_RST		0x44
++#define APBC_ONEWIRE_CLK_RST		0x48
++#define APBC_TWSI5_CLK_RST		0x4c
++#define APBC_DRO_CLK_RST		0x58
++#define APBC_IR_CLK_RST			0x5c
++#define APBC_TWSI6_CLK_RST		0x60
++#define APBC_COUNTER_CLK_SEL		0x64
++#define APBC_TWSI7_CLK_RST		0x68
++#define APBC_TSEN_CLK_RST		0x6c
++#define APBC_UART4_CLK_RST		0x70
++#define APBC_UART5_CLK_RST		0x74
++#define APBC_UART6_CLK_RST		0x78
++#define APBC_SSP3_CLK_RST		0x7c
++#define APBC_SSPA0_CLK_RST		0x80
++#define APBC_SSPA1_CLK_RST		0x84
++#define APBC_IPC_AP2AUD_CLK_RST		0x90
++#define APBC_UART7_CLK_RST		0x94
++#define APBC_UART8_CLK_RST		0x98
++#define APBC_UART9_CLK_RST		0x9c
++#define APBC_CAN0_CLK_RST		0xa0
++#define APBC_PWM4_CLK_RST		0xa8
++#define APBC_PWM5_CLK_RST		0xac
++#define APBC_PWM6_CLK_RST		0xb0
++#define APBC_PWM7_CLK_RST		0xb4
++#define APBC_PWM8_CLK_RST		0xb8
++#define APBC_PWM9_CLK_RST		0xbc
++#define APBC_PWM10_CLK_RST		0xc0
++#define APBC_PWM11_CLK_RST		0xc4
++#define APBC_PWM12_CLK_RST		0xc8
++#define APBC_PWM13_CLK_RST		0xcc
++#define APBC_PWM14_CLK_RST		0xd0
++#define APBC_PWM15_CLK_RST		0xd4
++#define APBC_PWM16_CLK_RST		0xd8
++#define APBC_PWM17_CLK_RST		0xdc
++#define APBC_PWM18_CLK_RST		0xe0
++#define APBC_PWM19_CLK_RST		0xe4
++
++/* APMU register offset */
++#define APMU_JPG_CLK_RES_CTRL		0x020
++#define APMU_CSI_CCIC2_CLK_RES_CTRL	0x024
++#define APMU_ISP_CLK_RES_CTRL		0x038
++#define APMU_LCD_CLK_RES_CTRL1		0x044
++#define APMU_LCD_SPI_CLK_RES_CTRL	0x048
++#define APMU_LCD_CLK_RES_CTRL2		0x04c
++#define APMU_CCIC_CLK_RES_CTRL		0x050
++#define APMU_SDH0_CLK_RES_CTRL		0x054
++#define APMU_SDH1_CLK_RES_CTRL		0x058
++#define APMU_USB_CLK_RES_CTRL		0x05c
++#define APMU_QSPI_CLK_RES_CTRL		0x060
++#define APMU_DMA_CLK_RES_CTRL		0x064
++#define APMU_AES_CLK_RES_CTRL		0x068
++#define APMU_VPU_CLK_RES_CTRL		0x0a4
++#define APMU_GPU_CLK_RES_CTRL		0x0cc
++#define APMU_SDH2_CLK_RES_CTRL		0x0e0
++#define APMU_PMUA_MC_CTRL		0x0e8
++#define APMU_PMU_CC2_AP			0x100
++#define APMU_PMUA_EM_CLK_RES_CTRL	0x104
++#define APMU_AUDIO_CLK_RES_CTRL		0x14c
++#define APMU_HDMI_CLK_RES_CTRL		0x1b8
++#define APMU_CCI550_CLK_CTRL		0x300
++#define APMU_ACLK_CLK_CTRL		0x388
++#define APMU_CPU_C0_CLK_CTRL		0x38C
++#define APMU_CPU_C1_CLK_CTRL		0x390
++#define APMU_PCIE_CLK_RES_CTRL_0	0x3cc
++#define APMU_PCIE_CLK_RES_CTRL_1	0x3d4
++#define APMU_PCIE_CLK_RES_CTRL_2	0x3dc
++#define APMU_EMAC0_CLK_RES_CTRL		0x3e4
++#define APMU_EMAC1_CLK_RES_CTRL		0x3ec
++
++#endif /* __SOC_K1_SYSCON_H__ */
 -- 
 2.45.2
 
