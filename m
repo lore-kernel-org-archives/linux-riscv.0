@@ -4,89 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B162C3ABBC
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 May 2025 00:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EA5C3ABBC
+	for <linux-riscv@archiver.kernel.org>; Sat, 10 May 2025 00:27:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ovrbTUA+m/DwMG0V+k4RQGuQNz5psoniO/JADavowNU=; b=MWH+8OklRudn1Z
-	rtR1GM0KnnD5rqdxVFfzCto30L89vM4fsLBl2YD6VnFNQBSITy16hoWCN3KJEvaHpH9Rxr0OJWJH0
-	NpmqZL4tck8hiUmzwNZFZ5og6Tq1awYEekZ7BVmnelb9Ke7qFL9XDUVO37t1miPlpw2orxsnkI9aF
-	5WuZK+OxlxFr9kY9qHczCG+JKNeJnOI9zYDfoqXtAgt8QCo0Y7vLdNqbIUqKTC2PoZ6OjDql9eVv2
-	SitQf/OGvdFqocWyODc9uFXQ56ffUt/jaLb32YZsVjVW8NK3RVtcKY/Md1okj+ZMZLPgjvTZG+QTN
-	a4fNswKTWYe20FEQoXYw==;
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=PCBNZFldyLwnOzya9iy+HE0R93swcMkblYj3JCzJ7nU=; b=fnD
+	+PRW4OcUVL7OaqIcKXVkwweowQl8ttimL3egIYCnnAj0kD7ZuYYgMHD7pXe8PG09Y6erPH5LbECA/
+	uLjHbo9iKN28/ZU2jgJoj4Mx+QahRf98XCbun/mNIkWY30D3fQMwn4HNgpN/vuu5oF/Yg5YNT/L01
+	khNh5WUx2zKhDvhUMKzfqgNklH13AMWP+p5cN117bbfeWTXGp1Z/UVW16rb/FNLrjn6dOkLqIs8tm
+	vSI/lrBcSNuv8NOQBMZCUxVrcdicdEt5ZjCj8Z7yYQzzTvEzj8H/67MungukAO6oo8sMHZu62+MaE
+	V6/n7GVJkztv945xLcyzZLLbda4e45w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDXt9-00000005BA3-2s67;
-	Sat, 10 May 2025 00:16:23 +0000
-Received: from mail-qk1-x730.google.com ([2607:f8b0:4864:20::730])
+	id 1uDY3n-00000005Bbh-0BzF;
+	Sat, 10 May 2025 00:27:23 +0000
+Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDXt7-00000005B9e-1KQO
+	id 1uDY3k-00000005Baq-3imR
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 May 2025 00:16:22 +0000
-Received: by mail-qk1-x730.google.com with SMTP id af79cd13be357-7c560c55bc1so333708585a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 17:16:20 -0700 (PDT)
+	Sat, 10 May 2025 00:27:22 +0000
+Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54e816aeca6so3730278e87.2
+        for <linux-riscv@lists.infradead.org>; Fri, 09 May 2025 17:27:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1746836180; x=1747440980; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=7SFtVXCVSeg1kTdZcyNbfJ4jRT+3FPuL4xzH9FGtq7M=;
-        b=XzdEd8KvX6SjW74n7UuDS2Tp3sFwDEUSFhksoSyUo37z/HNwxz4+X3kzXkppd6OnMK
-         PuORqj1k2k1dMTp7pUG3NTaOoZmJfAvCT+Tvai7w8b//1ReY4/wNiiMwXMbfjE9colLc
-         vOru1zBivXTuv/Onvjm+MD3JGgv70zElHM/EpCIBt9glhsP/F2FTW5YOqkcpum2GMBDb
-         MJXPMLnDJ0GrWGFtdakIoYBTNvvnMSwKUJQzi9yKZAvmPqCmFmTY8Sq/dD763XlkTlr+
-         sL62THoc9i+9kJ6/9Pb7ygAaMw9LcXhQxamuEvum1BNiEeqDRcXah4vJM++GvRFflYDq
-         qBag==
+        d=atishpatra.org; s=google; t=1746836838; x=1747441638; darn=lists.infradead.org;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3mVG1HeM3gdC8OZro3hpeCvElqs1hv0qRQHLs49i9jU=;
+        b=TZ52jrIK5E94vIBS7ZM2xfk9qPZPIqkiuewItaJzc2mkvbsOoTY5mqO6pkBDB7RWnn
+         7w4GbA0wSsGLJOILtwzAXhzlNEKxeKoxmFSO6gkYGfIEQdfl0EqWDvVAFWaUdelSNEgg
+         TLQECl+1I5Z5WC8+O5hjSMw/fbypKBmnvgIr4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746836180; x=1747440980;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7SFtVXCVSeg1kTdZcyNbfJ4jRT+3FPuL4xzH9FGtq7M=;
-        b=hNClj1VDatifJIjspZtw3/GUPAkguKCXfsAmnIOu/isxM5rQG8qXi0RTvGktaKLO5k
-         csk67GOXAd+DRlTTO7RF1kYCXxMwnb9xblIIQLrX12vOBJeOU0uPoWrw37vtopCdMWCy
-         FXgPLB9N5GRnN1JDn3CKUaM4nnKwKDImrLZyoaX+RxqFHRqmMuzFQ8wZNdYBNpZ3WtMQ
-         S0yZZZ7MSgKIO/ny+7/iv4EkYkf33hDKkYR45H0kpeQEXJhbyXJ/P5d7MkYjLesf7AiC
-         hVSZYvGb0tNUY1fJdie5MElh0kiLtTdvjACSY3a9aZLasHMA8QonOgil6aodpCge/HDE
-         moeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWJ9QXCISSkaidHvDC/xMqXUVwe2vOki3CBny+XbFgVpzn/TsTUiPW0ykcXGn5+hdBQSqyRBcQbPXCcPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVK2P/XH7buSKKsrmLUFxzsBFoefKrsOpVzAwtGJpNh4gACnWF
-	wuCaejdRwOMkd7FdXZeYH5TjbyOd/mncrZxAl3zDqQaOCgZC4KEd
-X-Gm-Gg: ASbGnctd0GIWokItRA5SLshN2s23JmnoqASfQLsUzqP1/kU1GbkeqlIlEsQaWSoELu9
-	QQs1IclqvjN+SNI6ydwxJP45/gr99sa/CurWQg0z8176Blg85CloOTf0KkOuGq2xdIoLEvBsbXI
-	amRddkRubq/p0/goFtswkTYo8agumn8qUH7hhiMPjTeWz8hkEGV2fgOO1hB+610AbHLqKmoZOkh
-	T68JOO/HaZhIMTxGjqryVHHCsfcVIPmwcc4KXaAm4KpEhWwrgUnk3dhutBdBkAmaKr7sKTSUmLp
-	n96389WmgOH5RYfJKpcTYO5qvmc=
-X-Google-Smtp-Source: AGHT+IGsj1/7ro2DBatzM79BSJawe4AwdDgbJzQySrStNjoHX1NPEW35OR2pnN03ieEV/qqsQHjKNg==
-X-Received: by 2002:a05:620a:2443:b0:7c7:b4ba:ebf9 with SMTP id af79cd13be357-7cd011053e0mr885707785a.22.1746836179840;
-        Fri, 09 May 2025 17:16:19 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cd00fe75fasm204706685a.93.2025.05.09.17.16.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 09 May 2025 17:16:19 -0700 (PDT)
-Date: Sat, 10 May 2025 08:15:52 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, sophgo@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] riscv: dts: sophgo: add ziccrse for sg2042
-Message-ID: <clgoceu52ecsdnb3motp6eciiisalwjxgi4msdisgtdy3rxsvn@5hh4lzd4mh7q>
-References: <cover.1746828006.git.rabenda.cn@gmail.com>
- <13d3da8f0979f50e561888164f1fbeba8cd11a3b.1746828006.git.rabenda.cn@gmail.com>
- <yan76lhmlemqxw4ytpinvwuiucgqgmqxrekiepsygjqcmpw3i3@k67zshipj273>
+        d=1e100.net; s=20230601; t=1746836838; x=1747441638;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3mVG1HeM3gdC8OZro3hpeCvElqs1hv0qRQHLs49i9jU=;
+        b=bGZzcP3f+JOXcngVtip5xhDmk+bjKC6X9nSZK67HyJGHZcO4uisERwFt5yPdQZbxqG
+         OGBfbrqyhVS6M9kpHe4LOm/+osGlyOObzfMGF8HyzcNGxtie71kzJ6L/SAHuft17kRgu
+         njLJ00lTU9Ko3WkDIj+U9fxMaw3UbiCup3+3LjnekpNTz1+pNohOCCuJGZZrbXQiDGxz
+         2zL5eQhW3izEx1f6r25vIkffctugpxNkUuavik05IxO20ZtVmKV2a74/RbN8oSesHM3g
+         Qyd2+AoY7SGbFElY8d+GU6Yibu64/7aP2yw+NW2q8VYQddAyu3CHdlrUwDXSHWyXzT/j
+         YmQA==
+X-Forwarded-Encrypted: i=1; AJvYcCVBgcF1No5bNXKB8uMZcNebq30WlG5FVnDU8uCIsyWepQ5g85y/da9kFwkiI85V76lIIAzm26HYZOYOrA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyy/BnkM0icLPTwB/a4rgh86/NQa/mTZnnerY17rJnIX1yATunN
+	xueQSNrIT25HBwb297wSkpQX8G+JnCVQI+vpcWmgzy7KoyV3qJRRFGq4wgo8twc9i7zuD1vJCBv
+	JT3fZCnS/SwS2QeFNapbhohoQVvxiWdVJYFL4
+X-Gm-Gg: ASbGncuzYBoHAeFE5snsxdD1bNXOn622vaJ47HQF+6J9eP4O1j1/XslzZVMu1LC9Dq2
+	5XlflemJ5iqRC+4me5V/NfykexRs1e88j6DpBzqgQBXeKYx7o4c25BmFSASnyfQ72w2+epjEUqI
+	X8C9DSgDZtCBJw/auHyPezmSRBGijigAEohOTMGMYv
+X-Google-Smtp-Source: AGHT+IHq1BR2RwD1OajhP+/YiGZ9fkf144EzsbbWtinB6VHcq7O/YUEpefqqQEj01YRC/lW7eaBIPZsS0NcfX52nkTg=
+X-Received: by 2002:a05:6512:10ca:b0:54c:348d:19b7 with SMTP id
+ 2adb3069b0e04-54fc67e34bcmr1853508e87.46.1746836837608; Fri, 09 May 2025
+ 17:27:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <yan76lhmlemqxw4ytpinvwuiucgqgmqxrekiepsygjqcmpw3i3@k67zshipj273>
+From: Atish Patra <atishp@atishpatra.org>
+Date: Fri, 9 May 2025 17:27:06 -0700
+X-Gm-Features: AX0GCFvBhojEPGxCv8S7ei1dcTB_JLnwOyhSbEHrwZ9C3QNaeRIjn699JP7VHCw
+Message-ID: <CAOnJCUJz6p6b0WK_7=qowe8_pCHnv5WJXNYMa-uzFy0PHc7Dvg@mail.gmail.com>
+Subject: Public Review : RISC-V Supervisor Binary Interface (SBI) version v3.0
+To: OpenSBI <opensbi@lists.infradead.org>, 
+	linux-riscv <linux-riscv@lists.infradead.org>, 
+	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, isa-dev@groups.riscv.org, 
+	"open list:RISC-V" <qemu-riscv@nongnu.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250509_171621_364220_9F05029A 
-X-CRM114-Status: GOOD (  12.50  )
+X-CRM114-CacheID: sfid-20250509_172721_191937_5C3EF1FE 
+X-CRM114-Status: UNSURE (   4.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,39 +89,47 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 10, 2025 at 06:42:02AM +0800, Inochi Amaoto wrote:
-> On Sat, May 10, 2025 at 06:11:23AM +0800, Han Gao wrote:
-> > sg2042 support Ziccrse ISA extension [1].
-> > 
-> > Link: https://lore.kernel.org/all/20241103145153.105097-12-alexghiti@rivosinc.com/ [1]
-> > 
-> > Signed-off-by: Han Gao <rabenda.cn@gmail.com>
-> > ---
-> >  arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi | 128 ++++++++++----------
-> >  1 file changed, 64 insertions(+), 64 deletions(-)
-> > 
-> > diff --git a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> > index 927e0260acbd..04a6875574bb 100644
-> > --- a/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> > +++ b/arch/riscv/boot/dts/sophgo/sg2042-cpus.dtsi
-> > @@ -259,7 +259,7 @@ cpu0: cpu@0 {
-> >  			riscv,isa = "rv64imafdc";
-> >  			riscv,isa-base = "rv64i";
-> >  			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
-> > -					       "zicntr", "zicsr", "zifencei",
-> > +					       "ziccrse", "zicntr", "zicsr", "zifencei",
-> >  					       "zihpm", "xtheadvector";
-> >  			thead,vlenb = <128>;
-> >  			reg = <0>;
-> 
-> I prefer to keep the maximum 74 chars per line. I suggest wrapping
-> the string. This apply to all the change of this file.
-> 
+We are excited to announce the public review of the RISC-V Supervisor
+Binary Interface (SBI) version 3.0. This 30-day review period begins
+today, 9 May 2025, and concludes on 8 June 2025.
 
-So, I mistake something, please wrap the line with max 80 chars.
+Specification Details:
+
+Downloadable PDF Version:
+https://github.com/riscv-non-isa/riscv-sbi-doc/releases/download/v3.0-rc7/riscv-sbi.pdf
+Source Code: https://github.com/riscv-non-isa/riscv-sbi-doc
+
+How to Give Feedback:
+Email your comments to one of the following mailing lists:
+
+public isa-dev mailing list(isa-dev@groups.riscv.org)
+PRS mailing list (tech-prs@lists.riscv.org).
+Open an Issue or Pull Request to SBI GitHub repository.
+
+Review and Ratification Process:
+
+During the review period, we will collect all feedback (comments,
+corrections, and suggestions) for consideration by the Platform
+Runtime Services Task Group (PRS TG). Minor corrections and
+non-controversial changes will be incorporated into the specification
+directly. Any unresolved issues or proposed modifications will be
+detailed in the public review summary report. Assuming no issues
+necessitate incompatible changes to the specification under review,
+the PRS TG will propose that the updated specifications be ratified by
+both the RISC-V Technical Steering Committee and the RISC-V Board of
+Directors.
+
+We extend our gratitude to all contributors for their dedicated efforts.
+
+Contact,
+Task Group: https://lists.riscv.org/g/tech-prs
+Task Group Chair: Atish Patra (atishp@rivosinc.com)
+Task Group Vice-chair: Sunil V L (sunilvl@ventanamicro.com)
+
 
 Regards,
-Inochi
+Atish
+On behalf of PRS TG
 
 _______________________________________________
 linux-riscv mailing list
