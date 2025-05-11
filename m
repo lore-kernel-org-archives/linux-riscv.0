@@ -4,93 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 151FBC3ABC3
-	for <linux-riscv@archiver.kernel.org>; Sat, 10 May 2025 15:10:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9AFAC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 11:23:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=JTUS9knPnjzXl0TqwacRVD5FNAERBFrk5ffq1N8Dquw=; b=hzreCSCmpkHrE7
-	tRnNoX2FdHrt93fgi5DlT9Wco0TiRADCYUzMLeO0llpdjN/FpzbtE4wN/jR+NWwfyDBOQKE1iAR19
-	esPmwlwijou4jQaRsoitjPEeO4tMdtfvZNqhPMLSx/MdLBjuIxgpxfei2hFx9iQyX1H7O7CLT/xrA
-	W1AfjAyf3qiBuBCQG77Z8KHmEVrfzLylqPjT/8XpSc7kC1ho1mhP2dRm3oVCC24lAtD3gqgzWdkfx
-	mTbuSl0fkHtfSWua/rYFhrEiWNfBLGxhAtVCwZw6e8ZNfs88m4QovB9/72cTNVxBAV63FH+xhJUcU
-	PwRRoGRTSaoJXGyasY5w==;
+	List-Owner; bh=tDsqoivUFrO6bc594z8ehSZ6qO2apyAcmCiaa+czmq0=; b=HanpIblUFW9YC6
+	8EbMV+SFdYlPA5sc9qtwg/a1GZuF85Y4smXdSUo6cSZn5GqswYSGZhrMWLYQ/ndEauK/MXxgm/185
+	E/jb56pHK1X6h0cOmhboGsaxKfV7CGAJ0rzyrgDCQpr2vFWLJYqjAzPM53bYJ1H98aEXFIJ3HDSuZ
+	blLbkTUo47+GWTfHm7NDJsxetPQtKDM5KDe8co7Ey4YJLKbCUjXyj+hr5I/DNA4R2b7rIUaiQxlJI
+	I9r1OnWZp0xDlCaTLdjVf9vAqg7x1bRgfBcyl4adLWUOHtQwrdLA7zALIV1CiUwTAMG3uj/vrLS7A
+	ewb0+/q19Vo00mXsbRjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDlqA-000000063uG-0hnq;
-	Sat, 10 May 2025 15:10:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uE4mS-000000079PW-3gjK;
+	Sun, 11 May 2025 11:23:40 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uDlq6-000000063sw-2U3V
+	id 1uE4mQ-000000079P2-2AIY
 	for linux-riscv@lists.infradead.org;
-	Sat, 10 May 2025 15:10:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1746889805;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LSp0XQpzSTcNL5A8tzPVsKcCl0AKeTrOu/sN2l5jc/g=;
-	b=hUGFeQvWzsMtw/PluX697JlnxJzgm59FgQsnZ0wO+vYVkgR2XIJ0ocOlO98vWlmtqaoOEx
-	Z3jWN7CXRTI0zUG4MdE2g6OwcuYrYKDpjtvPXRGolWMRg79NePHhVUoYuQaoAZQLcHvgY7
-	GeMW8xJoReQQBhQ1u4Wf9iKw0Qtmv+s=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-562-0JPHazARO5mxa9BtSV2-Zw-1; Sat, 10 May 2025 11:10:03 -0400
-X-MC-Unique: 0JPHazARO5mxa9BtSV2-Zw-1
-X-Mimecast-MFC-AGG-ID: 0JPHazARO5mxa9BtSV2-Zw_1746889802
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3a1fdf65ddfso337187f8f.1
-        for <linux-riscv@lists.infradead.org>; Sat, 10 May 2025 08:10:03 -0700 (PDT)
+	Sun, 11 May 2025 11:23:39 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3a0b9303998so1764373f8f.0
+        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 04:23:37 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1746962616; x=1747567416; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Rr62AM3KoGEBAH10wBbEzrU82okG3T/6xZVPR3kGFKE=;
+        b=DjfyI5vkMvDJDxRLkHoI4e9BOKZaIgDILRcfYoDYmyJR6clyMU8qTqYO/NX2j+VruM
+         V1cfOS8JoKHKUQAMyQObXEtv779sIqRmktuYTJE/ULEU2Y4myng70to7OezMS5GKCedF
+         n7CDj+Z+SGG5wT6Qn2YwMH97Til1oXjKOooxq1RHnarFRF91MyDX3FVD+o7Ff9uC0bcX
+         f9KJApGkCM7oA4TdNNDFMDBIdwxAODVA3YlAwRL2VPveJitBoDbhrLzWsfVHwfmGbRoN
+         fRtjZz0EWhaICGrkB/XIeDF5VwSuMiKVmGZsHtak0Cr5jgxSHfiOVnIzWVXrgp+u3P8K
+         hNAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746889802; x=1747494602;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1746962616; x=1747567416;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LSp0XQpzSTcNL5A8tzPVsKcCl0AKeTrOu/sN2l5jc/g=;
-        b=fxhiL6+ATs/dLNbelRkQEhdKjZgM+PpMaJdiI8PVjY9Fgx51jlwUW/zhYRnTHcKwXA
-         7PDFRliW5RcQPtqdXcvqo8if4QN1Fq74KompY5KGTCspn+iki2gcunqsYmj08fEI/SpN
-         ouKkKoh4pbZXwfvZ+L1Mtigj2GfuiV1gOrsRzuDFSIruDMpoJ8+2x9Miqtk4XM11Ultt
-         GkikbQmUiLWt7+9HS8T4dovv46FqkhL7hoeDVf9pGwBLOZ4GseeV0ERMDh8i3yuMp8nt
-         Z299zZ7UVS4jrEM/ciUm0tVBxQ7BPYxbGK94aAVS1zsuSjZlnoAf9MNkA0iGt1kkTuJ6
-         Jfxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXwjATJHbxSZ92CdcELE6h50z+1MtvpeEUCgx+yDXmO6Ro2r3lYyTLdnnVF0F5wguZ+PckvKgJrAFNJuA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSN0kdThLeCtz7hEC/k7cELZ3W6tG9L0Dx5/iZzcGs1CnTb+JP
-	HZb5vkeFG6FUO/2Rn1DW+9B/iJFzzjNRNZKiYVmJmjS+gTwSr4EMTtKKrlOkNPWKuf9Tr3mVTOf
-	m7UI44txzTEL6/koIE6mbwB7+XowDioIN2PgQSRxNz0ZAwU46iSZ7tNWlZ7LyPMum58vbnuxUId
-	VfW45/AaH4BLdsoI0fiflNeq1WaUuMcgG8fPfnglly
-X-Gm-Gg: ASbGnctzzDZwwSwdKXzLndJODqi7WR0FtUs2+HfhOPCk9/xxTWmjnimid84/pgttATx
-	depmT5Gl9H9VMGBq7KvPGwJ08uuseRU7bwkRYQJgWgUkZd4+bH2P0sqAUMHH/FzT8T3Jm
-X-Received: by 2002:adf:f44c:0:b0:3a1:f701:ea15 with SMTP id ffacd0b85a97d-3a1f701ea9bmr5340951f8f.55.1746889802390;
-        Sat, 10 May 2025 08:10:02 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGTrsQVFY/Fgr8ISgzK47J1kK+Yrt701ZSvnSrnrcZmClYr8VRCd08zVc7FFV0ODaXSCdq0pbsc9V1BsmPfAkY=
-X-Received: by 2002:adf:f44c:0:b0:3a1:f701:ea15 with SMTP id
- ffacd0b85a97d-3a1f701ea9bmr5340935f8f.55.1746889801993; Sat, 10 May 2025
- 08:10:01 -0700 (PDT)
+        bh=Rr62AM3KoGEBAH10wBbEzrU82okG3T/6xZVPR3kGFKE=;
+        b=cDDMw+n5zruEzP7eQM/QF9yLweD92qFjENWwe+8xr/5hUYxoF3YLdQRtdwr7C9isVA
+         /1yfHu0/zd9j3TDCQV+SCdZspXhYBtJU6oxl9yYqRZvyQec0KieirWoERW2jo42r0Lbx
+         Le3OfEIlhnxVqrUXoKN80k+GsKGc5t9c9+KwhAEOfyHUe2PmxvJMZD9YA2+kBbtzZYHV
+         kk4ih6SzG2F58Otqv5hcGD8fY/xADok/D42ROZaQChqqxqRzd4jmnKtyIwac3KKl6k7b
+         nK/uYhy8jKYlvXSG3toIv5rfe7c8Uz55DVXdlyqeUOsYiffn4EyElJ2UFTOzSUzrwQ/k
+         gOYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXN0P0UrFOfpw34kVON+FlEGz/FjV7VKj13Ur+mhhpWVsRc+1vBMn9+6BbQY7uzeukMsam1uDcqJQSQAg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSxotnesNvOlSrHRybWuAtiD7LxASeHMulZirHgbJI6EamJOzA
+	dBnBJ5S6VxYU0XKwny+ouOpXcrXCc0RWaR77zJlU7MPUWXxvUQ0XGu+IRg==
+X-Gm-Gg: ASbGncstkD7NYRtIrh62U+nbgyJcms18ReW+7oF4C7zg1Ag4MPf+5KRUE5P1Ft8NWB8
+	L/y6gpyEnmRY9Xse9MKGH7ZHDrPBeX4oupkQisFm4bnA0xLz4k+UsqciPh4sogV5xUmPWC2VWWq
+	iy8k6DCKAIRLiZvRD8U1Wh6bjqufmi30GPM440Qs+jgCXai1mYzajevLSs4Co0P+BBWbhswtsyi
+	qM1mTWCwQ0D81ZDEGb9ThNYw5DNLxdOKCXzMQ4Vmg2uU5L1z3ljFKyVFDhb0e8o24thLg81Ba+u
+	u8TAXK5aCNL+yUxwgxHjL0hv12nUvMPpgS8gCmeKD/2X0Wucukxo/e6HXITf6jSKnZGegAhfH2Y
+	y2I7aGFFNYyu+xAiCyrwnWJBQ
+X-Google-Smtp-Source: AGHT+IGqYzj25cJHQkUXe9+tpC/pNhXG07X1IG93ZPDwcMrzYGRzVt+SJJU2Lolx8RxeBWOFjdnGRQ==
+X-Received: by 2002:a05:6000:2dc7:b0:3a0:b84f:46de with SMTP id ffacd0b85a97d-3a0b9941bd0mr11326589f8f.21.1746962616029;
+        Sun, 11 May 2025 04:23:36 -0700 (PDT)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f5a2cf38sm8956991f8f.77.2025.05.11.04.23.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 04:23:35 -0700 (PDT)
+Date: Sun, 11 May 2025 12:23:28 +0100
+From: David Laight <david.laight.linux@gmail.com>
+To: Ignacio Encinas <ignacio@iencinas.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Alexandre Ghiti <alex@ghiti.fr>, Arnd Bergmann
+ <arnd@arndb.de>, Eric Biggers <ebiggers@kernel.org>,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-kernel-mentees@lists.linux.dev, skhan@linuxfoundation.org, Zhihang
+ Shao <zhihang.shao.iscas@gmail.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, linux-arch@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] include/uapi/linux/swab.h: move default
+ implementation for swab macros into asm-generic
+Message-ID: <20250511122328.79e9a2d4@pumpkin>
+In-Reply-To: <20250426-riscv-swab-v4-1-64201404a68c@iencinas.com>
+References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+	<20250426-riscv-swab-v4-1-64201404a68c@iencinas.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 MIME-Version: 1.0
-References: <CAAhSdy09tkokvdvACCQACLdvppTTQHDOR+O4jtkhVP4PaW_k7w@mail.gmail.com>
-In-Reply-To: <CAAhSdy09tkokvdvACCQACLdvppTTQHDOR+O4jtkhVP4PaW_k7w@mail.gmail.com>
-From: Paolo Bonzini <pbonzini@redhat.com>
-Date: Sat, 10 May 2025 17:09:50 +0200
-X-Gm-Features: AX0GCFtixaY2aut0ABjtOGBW3kol_5pEkPm5-SgtfoURVxZJrIE5ml20E7vbZQM
-Message-ID: <CABgObfY+2CpcBNc8ugsrvOKr9dR_P=KBuysgVN_cx3_ekQSR2Q@mail.gmail.com>
-Subject: Re: [GIT PULL] KVM/riscv fixes for 6.15 take #1
-To: Anup Patel <anup@brainfault.org>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>, Palmer Dabbelt <palmer@rivosinc.com>, 
-	Atish Patra <atishp@atishpatra.org>, Atish Patra <atishp@rivosinc.com>, 
-	Andrew Jones <ajones@ventanamicro.com>, KVM General <kvm@vger.kernel.org>, 
-	"open list:KERNEL VIRTUAL MACHINE FOR RISC-V (KVM/riscv)" <kvm-riscv@lists.infradead.org>, 
-	linux-riscv <linux-riscv@lists.infradead.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: DsWsBw-3cU1T8lgAVmnF3HYLhanpxFr21SBp4wJ065Q_1746889802
-X-Mimecast-Originator: redhat.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250510_081011_552254_7672228B 
-X-CRM114-Status: UNSURE (   6.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250511_042338_580551_18345D57 
+X-CRM114-Status: GOOD (  22.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,15 +101,145 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgMiwgMjAyNSBhdCA4OjUz4oCvQU0gQW51cCBQYXRlbCA8YW51cEBicmFpbmZh
-dWx0Lm9yZz4gd3JvdGU6Cj4KPiBIaSBQYW9sbywKPgo+IFdlIGhhdmUgb25lIGZpeCBmb3IgdGhl
-IDYuMTUga2VybmVsIHdoaWNoIGFkZHMgbWlzc2luZwo+IHJlc2V0IG9mIHNtc3RhdGVlbiBDU1Jz
-Lgo+Cj4gUGxlYXNlIHB1bGwuCgpEb25lLCB0aGFua3MuCgpQYW9sbwoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Sat, 26 Apr 2025 16:56:18 +0200
+Ignacio Encinas <ignacio@iencinas.com> wrote:
+
+> Move the default byteswap implementation into asm-generic so that it can
+> be included from arch code.
+> 
+> This is required by RISC-V in order to have a fallback implementation
+> without duplicating it.
+> 
+> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+> ---
+>  include/uapi/asm-generic/swab.h | 33 +++++++++++++++++++++++++++++++++
+>  include/uapi/linux/swab.h       | 33 +--------------------------------
+>  2 files changed, 34 insertions(+), 32 deletions(-)
+> 
+> diff --git a/include/uapi/asm-generic/swab.h b/include/uapi/asm-generic/swab.h
+> index f2da4e4fd4d1..232e81661dc5 100644
+> --- a/include/uapi/asm-generic/swab.h
+> +++ b/include/uapi/asm-generic/swab.h
+> @@ -3,6 +3,7 @@
+>  #define _ASM_GENERIC_SWAB_H
+>  
+>  #include <asm/bitsperlong.h>
+> +#include <linux/types.h>
+>  
+>  /*
+>   * 32 bit architectures typically (but not always) want to
+> @@ -16,4 +17,36 @@
+>  #endif
+>  #endif
+>  
+> +/*
+> + * casts are necessary for constants, because we never know how for sure
+> + * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
+
+I know you are just moving the code, but that comment just isn't right.
+Linux pretty much assumes that ULL is 64bit and U 32bit (UL varies).
+
+So the UL constants should just be U ones (int isn't going to be 16 bits).
+
+Not only that, but the code requires that the (__unn) casts don't
+truncate the values. Performing the maths on a larger type isn't
+going to change the value of the result.
+
+Then we get to the integer promotion that does an implicit conversion
+of the return of all the (__u16) casts back to signed integer.
+So it may be better to leave/make the result of swap16() unsigned int
+rather than casting it to __u16 and getting it promoted to int.
+
+The only plausibly necessary cast is a (__u32) one in the result
+of (except swap64()) to stop the compiler doing 64bit maths with the
+result when the constant has a 64bit type (and all the other casts are
+removed).
+
+	David
+
+> + */
+> +#define ___constant_swab16(x) ((__u16)(				\
+> +	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
+> +	(((__u16)(x) & (__u16)0xff00U) >> 8)))
+> +
+> +#define ___constant_swab32(x) ((__u32)(				\
+> +	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
+> +	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
+> +	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
+> +	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
+> +
+> +#define ___constant_swab64(x) ((__u64)(				\
+> +	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
+> +	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
+> +	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
+> +	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
+> +	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
+> +	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
+> +	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
+> +	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
+> +
+> +#define ___constant_swahw32(x) ((__u32)(			\
+> +	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
+> +	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
+> +
+> +#define ___constant_swahb32(x) ((__u32)(			\
+> +	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
+> +	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
+> +
+>  #endif /* _ASM_GENERIC_SWAB_H */
+> diff --git a/include/uapi/linux/swab.h b/include/uapi/linux/swab.h
+> index 01717181339e..ca808c492996 100644
+> --- a/include/uapi/linux/swab.h
+> +++ b/include/uapi/linux/swab.h
+> @@ -6,38 +6,7 @@
+>  #include <linux/stddef.h>
+>  #include <asm/bitsperlong.h>
+>  #include <asm/swab.h>
+> -
+> -/*
+> - * casts are necessary for constants, because we never know how for sure
+> - * how U/UL/ULL map to __u16, __u32, __u64. At least not in a portable way.
+> - */
+> -#define ___constant_swab16(x) ((__u16)(				\
+> -	(((__u16)(x) & (__u16)0x00ffU) << 8) |			\
+> -	(((__u16)(x) & (__u16)0xff00U) >> 8)))
+> -
+> -#define ___constant_swab32(x) ((__u32)(				\
+> -	(((__u32)(x) & (__u32)0x000000ffUL) << 24) |		\
+> -	(((__u32)(x) & (__u32)0x0000ff00UL) <<  8) |		\
+> -	(((__u32)(x) & (__u32)0x00ff0000UL) >>  8) |		\
+> -	(((__u32)(x) & (__u32)0xff000000UL) >> 24)))
+> -
+> -#define ___constant_swab64(x) ((__u64)(				\
+> -	(((__u64)(x) & (__u64)0x00000000000000ffULL) << 56) |	\
+> -	(((__u64)(x) & (__u64)0x000000000000ff00ULL) << 40) |	\
+> -	(((__u64)(x) & (__u64)0x0000000000ff0000ULL) << 24) |	\
+> -	(((__u64)(x) & (__u64)0x00000000ff000000ULL) <<  8) |	\
+> -	(((__u64)(x) & (__u64)0x000000ff00000000ULL) >>  8) |	\
+> -	(((__u64)(x) & (__u64)0x0000ff0000000000ULL) >> 24) |	\
+> -	(((__u64)(x) & (__u64)0x00ff000000000000ULL) >> 40) |	\
+> -	(((__u64)(x) & (__u64)0xff00000000000000ULL) >> 56)))
+> -
+> -#define ___constant_swahw32(x) ((__u32)(			\
+> -	(((__u32)(x) & (__u32)0x0000ffffUL) << 16) |		\
+> -	(((__u32)(x) & (__u32)0xffff0000UL) >> 16)))
+> -
+> -#define ___constant_swahb32(x) ((__u32)(			\
+> -	(((__u32)(x) & (__u32)0x00ff00ffUL) << 8) |		\
+> -	(((__u32)(x) & (__u32)0xff00ff00UL) >> 8)))
+> +#include <asm-generic/swab.h>
+>  
+>  /*
+>   * Implement the following as inlines, but define the interface using
+> 
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
