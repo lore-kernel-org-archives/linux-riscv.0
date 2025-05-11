@@ -4,87 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDA9C3ABC3
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 13:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5494C3ABCB
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 14:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fXFJFHp1kwCDcrSeOEZJ5xXBYzrbh17drhal60z6+9o=; b=jJaDvi+GCquTAr
-	6eZIt6LFoZvuoRQXSBAg0mni/c5KmoZJ1AZCxxDl5Ivjl7Gu7ov6Mv/het/chunxOSapTVNHtUW+q
-	ljw4ErYp/ngZtREOt83jq1tiSVUNappVL7giXX6D+82ve8meLG8/wwZIc3s7OPMlEZZ4JIOIf9F2/
-	hB8z+ZcgTQIWtO/KtlKw3BgB3BKV2HbOBf74rk90fECBppqjhIajCsRR/DDp7FHkG4ObwU9cI2UJX
-	iy8ZmSiJTKtfm2FS+ih811qqW0IATJYuve9QZDoGPHlmcjhqQZ36g0u66NQwYRP2g8L0LU+MyaHIc
-	3g8f8PQTbav3vWyEldqQ==;
+	List-Owner; bh=//g8OAwlyzsAH60WFAjCUvplulawttpYjdZDkuWZWM8=; b=jc3wqWxFdKccAP
+	iDM5zb14msQeAYK2Sxb8Oef6yse7vPNYIbyucE4lls2bvIYcPss/JCWS9qPIAuChgwfmf8/Gu1wTK
+	5qSlNwfSnDv4jVtJDpo0wK4pRz9Xyb63xKYYuazJpW+a3EfzmOznu9+lDEEtQF/FdtH4/9ETLVysd
+	9CLCHAr3/D+ZrczL6dnzbWDk/YeOOroO855U+oQgfqstFj9vfpuvzBkafsaG/PQ1CM4dkmv4FWHjv
+	3v07zITgtRXkXZC+spl5mJMryBuaXN1kO/uzVlssFlaofJ222T/+du39DbIPJpld2PmaT4yWwtocc
+	FCQCYxowila7Bg3TXsaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6y8-00000007Iol-3jbi;
-	Sun, 11 May 2025 13:43:52 +0000
-Received: from mail-il1-x134.google.com ([2607:f8b0:4864:20::134])
+	id 1uE7yz-00000007Ouy-2w3h;
+	Sun, 11 May 2025 14:48:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6y6-00000007Imi-0rVa
+	id 1uE6we-00000007ILc-206O
+	for linux-riscv@bombadil.infradead.org;
+	Sun, 11 May 2025 13:42:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=nGByiNcbOS4lR4Bfcs//4xBTg2VCmvMstvJytXn1tOs=; b=rfPH9dSfxoiu9SHn9gldQfrz4S
+	CZp4jjmi6QBQdadwR66BqHe0N+Ger0yk/2t0hEHrSwKf/73CS8ajFIH0ozUQT8Lk0SuB6l1lizJVf
+	9x0II+ZSEBG2TtcqXV72k/Ilx4MJjPMi4FnFfXK0DA78lYvwR/8Sunx8g7VbAe8y/jpdptYGJat9w
+	KiirXvki/Yp7+vBlTNNNcJY78ptPMlcHnYdeuqefsSQSunE6GqkTOkK/Ny10VpA63SE59fjI0Nqm7
+	ROYX3yhQrOOOQlmFYwwtoV8tNH4QMrwZwpWc1lEqNTtlV9pVZ3NsPeyuq685UA3kx03+H+KrHCTFE
+	ZfHPBgDQ==;
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uE6wa-0000000Gbzt-1ple
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 May 2025 13:43:51 +0000
-Received: by mail-il1-x134.google.com with SMTP id e9e14a558f8ab-3da852764f4so2517385ab.1
-        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 06:43:49 -0700 (PDT)
+	Sun, 11 May 2025 13:42:18 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-23035b3edf1so350995ad.3
+        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 06:42:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=brainfault-org.20230601.gappssmtp.com; s=20230601; t=1746971029; x=1747575829; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
+        d=ventanamicro.com; s=google; t=1746970932; x=1747575732; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=7tikqvcPSSM0+ie8ei00WO4p/o6p01PdEuZ4eNfazi4=;
-        b=1cSJaFvoD7OuQF71ygjJ2RUqEy3I/kdDpA/X6ZgGeFZxjHwMO/WfcpQ9wjmGI26cQx
-         k8XMGMLCdCNMSvDmf/T0bOCjbujaZRZXiQm8s8T7tOrkVYkssTt1mmJ8TUZVVYaJ/51N
-         cgXMFpLZse9KZYYbFP9ZNEGesFZ+k8jscb0EqdXGO4VjbPvkUWc47vn2f3v7RKOei40e
-         DfYZw3mH8gJndVpCV8G3+yN1M6wYFbL4H1R1nAxAFOiXhaSAf8Y40LtYA8rTUHjdKLzI
-         OfSdTFXrN56cGFfpUSs8S+9R7nhzqgiFLfptNwa/ttir1EeYn04BjGOxLJQ3TjebeYek
-         otbg==
+        bh=nGByiNcbOS4lR4Bfcs//4xBTg2VCmvMstvJytXn1tOs=;
+        b=fPvTbjaD7ibMW/Gt7i+TVj9/8YsvoaRhNbfSQGz9RWq0pXNRCb5FD9UZuz3b68H+41
+         B8u4+KFDYUS7oSs6ix5a97vnWkm4SmPjekOBfS0FigCt1QLk54bD1JSqjRXB2ONFsFuy
+         tjuy7Fz0+OQgy+n7739KQsv0ndFvnrmidpBcv/cWmvt5QI41ao7jqAG+xQJhoUyN5ph2
+         cTY6rFfENkNaBxeWUJGieXrw9fIkwkMMUgSNMUkUsaUh+2o19TtiGVnqBM8e9eH9/TVv
+         iRCG4ywUVvTzdjXMkHsI2YmSva6wtOTusge8wagcASG+gEdftBkwEeQ3SilEn+FxJ/jC
+         68kg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746971029; x=1747575829;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1746970932; x=1747575732;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=7tikqvcPSSM0+ie8ei00WO4p/o6p01PdEuZ4eNfazi4=;
-        b=e3bLMm44Qrt4NAUIvyqchIgDt0PEFXQ4z1QrtB5pzKGAtCL1M+0oUzjL5m/wfVi4a1
-         BEcy4HrYqvXBebBFIG11pFWG4uo3JUL9go9YHHHEGQJWFSti5SonbxRfxisoY5ntojku
-         x1Pg+TKRiy40d8sddmNfBbQ4RRNYH5AOYYF7IufynhTiCuXppSuJacCoqwWFEH8f2DwJ
-         9y5AIXdKEobFgJ+1bmpj8UyOzH59kt56qdiNndTE7SBEbirNReNZ4XcrJG7X9X4iDTwG
-         xEb+Mmht7nZqmD62mFIAELnPgOTvxdIh2GCgrcRGsGOZIqwBJ9Ety3xqCVxSsj9NzPnL
-         cGyg==
-X-Forwarded-Encrypted: i=1; AJvYcCW6UMOhxFiz8YrEdf5bjZHxNwK+J/TW+xvcqVKT4hhpbAOWV5uv0ui8fCPRjRYBe7J0ArenIyWJd1eV7Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxb0oR9ACIANFlD0YewV3kAEnUPhEoSeDxYnJEID28ynCNAM32Y
-	1wuqkbUzV0BnBztaEfI0Uq4FHwvOyY8e7GkcyD14U1mOec+1W0KNOxpzrRHrZhLBUFbbeIniPGh
-	YxFpb/vVTjCwp3l69YhEsLV6ZtC5mAAcF/fGHAA==
-X-Gm-Gg: ASbGncseUlZy2iIa4t2dSVl7ZjFDT08YwARpZ0f48DUZSF7e6TRq16P/TYRbh5YNbmX
-	vFd67lpL+UTARbMxhW5ymlZDQ9zvdFvbp5advKzfQviF3pWUW3kFKZEIiWsCDAz/rIMOsLGHmmR
-	JYnZIfRRsxIhB7XzuUJERUERVg44Mn5EM4
-X-Google-Smtp-Source: AGHT+IGyy1tvQ5e1+LwmeN6aMxyvc+Kf3eAUBMdPUntGYmvmLxOM06L/3VzGSjkoX8RjJISKXUhUmqEwo7e719ksem0=
-X-Received: by 2002:a05:6e02:1fc8:b0:3d0:26a5:b2c with SMTP id
- e9e14a558f8ab-3da7e34871amr88924955ab.8.1746971028558; Sun, 11 May 2025
- 06:43:48 -0700 (PDT)
+        bh=nGByiNcbOS4lR4Bfcs//4xBTg2VCmvMstvJytXn1tOs=;
+        b=TAQxVBRCmC9CdIaknbY2Ui7xvCx1lFAfNxqEbXOru14N21suQeKRjunwkWNdJwEi01
+         mya5Myxdjlb2TuVZ6RcsdFRDXJlzT2H8EjMbh1gwNPnHhXoGdilvBshoXSPWn5DrK+fm
+         1Ozfaba/u4tiWgnWYaRSyxcxLAvhZzzynz2VzXLT5To9fNzLH4Qvt9IzsTc7wInHe4OJ
+         TunnnwtBzo228ahq+BpNXlkcMro8rTlb8793uKql0ZazMEhn5yg/eiHHnyyaJ7yEIPpy
+         XtkE/FaCfKNueFXDkzn+Sow0wLywyYCLDks0P412CepxlbvqDWGm2jLCC2UpITHuN0D5
+         WgiA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0plQqDeJr58xokQJPGsIHgrOBD08J/CKRazWigK4bQcjBjOBFtkdaaGlv9jF2UgPejXvXmiXQoPoi3A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwMxh56x5nfPgCF/VqWKmx36+jIHiFcT+Ym7zVSLeMi1M9ddxza
+	r5RPwNzBAF0NWGIm4twgeVP9/mrh9/lQ/KV5jvWTHNIcymKoXrhqw2TKR9Ly0rY=
+X-Gm-Gg: ASbGncuKXAxafU5u51D7gEhbg6BdRIsk0+Um6CjAUDeJA/T/Ej9y1Vd6T/fLAxBsM4Y
+	+ZIhEUkcGGAibh/HwGRKwzr906yoH9MwgIeWtjG0+zybB5+85ycTrIHoQ9LEiysUAqCFXqfPyU/
+	SvBf6L09WvA2o/SgXERUW0jpGaYrdsOd+V6X/J5R2h15cYnO8O7tIugmOov+MKL0LUxsiYruuLe
+	pxbpbhRUg/gFMRzPTrQwoAWNutmHUyXCHx3ukSutj5BLuzwadORiK5Z21RrN/uacm4/NPp9V8Cs
+	o9Unvg+4DkFRBdrp5XPlXOp2sf+PAkF3Z9EpcIPOXpTVWcN9UlMwx5FqXduRQKsCnNBK7NqzaNy
+	QQ2FFGEZPFZ/GZg==
+X-Google-Smtp-Source: AGHT+IEVz2y4z8RabHXmB0ZMFkEbguqpeJ841vPD4v6JLrHHmpUprIGAeUTqvLaFFNsGdONbOeY4pA==
+X-Received: by 2002:a17:902:d4ca:b0:220:eade:d77e with SMTP id d9443c01a7336-22fc9185ef8mr159540425ad.40.1746970932037;
+        Sun, 11 May 2025 06:42:12 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([122.171.17.86])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc754785bsm46665805ad.20.2025.05.11.06.42.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 11 May 2025 06:42:11 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v3 15/23] ACPI: property: Add support for cells property
+Date: Sun, 11 May 2025 19:09:31 +0530
+Message-ID: <20250511133939.801777-16-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250511133939.801777-1-apatel@ventanamicro.com>
+References: <20250511133939.801777-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-References: <20250508142842.1496099-2-rkrcmar@ventanamicro.com>
- <20250508142842.1496099-4-rkrcmar@ventanamicro.com> <CAAhSdy2nOBndtJ46yHbdjc2f0cNoPV3kjXth-q57cXt8jZA6bQ@mail.gmail.com>
- <D9RHYLQHCFP1.24E5305A5VDZH@ventanamicro.com> <CAAhSdy2U_LsoVm=4jdZQWdOkPkCH8c2bk6rsts8rY+ZGKwVuUg@mail.gmail.com>
- <20250509-0811f32c1643d3db0ad04f63@orel> <CAAhSdy389g=cvi81e7SKAi=2KTC2y9bd17aHniTUr4RNY=Kokg@mail.gmail.com>
- <D9ROL5UEYYHX.1B1FE6LZJ9ESO@ventanamicro.com>
-In-Reply-To: <D9ROL5UEYYHX.1B1FE6LZJ9ESO@ventanamicro.com>
-From: Anup Patel <anup@brainfault.org>
-Date: Sun, 11 May 2025 19:13:37 +0530
-X-Gm-Features: AX0GCFs_ezw8XJlOzMkddRA3UmJgoXKaRdAdTo6LGXAA1hZrT5A6WwM3ss5-FXk
-Message-ID: <CAAhSdy3j0Uf52hs+_gRxkROTA4sjMkLk1sMtv=XZWsyv15TBSw@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] RISC-V: KVM: add KVM_CAP_RISCV_MP_STATE_RESET
-To: =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
-Cc: Andrew Jones <ajones@ventanamicro.com>, kvm-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Atish Patra <atishp@atishpatra.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_064350_400820_832F4F6D 
-X-CRM114-Status: GOOD (  24.78  )
+X-CRM114-CacheID: sfid-20250511_144216_680884_91776614 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,63 +119,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCBNYXkgOSwgMjAyNSBhdCA3OjI34oCvUE0gUmFkaW0gS3LEjW3DocWZIDxya3JjbWFy
-QHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+Cj4gMjAyNS0wNS0wOVQxNzo1OToyOCswNTozMCwg
-QW51cCBQYXRlbCA8YW51cEBicmFpbmZhdWx0Lm9yZz46Cj4gPiBPbiBGcmksIE1heSA5LCAyMDI1
-IGF0IDU6NDnigK9QTSBBbmRyZXcgSm9uZXMgPGFqb25lc0B2ZW50YW5hbWljcm8uY29tPiB3cm90
-ZToKPiA+PiBPbiBGcmksIE1heSAwOSwgMjAyNSBhdCAwNTozMzo0OVBNICswNTMwLCBBbnVwIFBh
-dGVsIHdyb3RlOgo+ID4+ID4gT24gRnJpLCBNYXkgOSwgMjAyNSBhdCAyOjE24oCvUE0gUmFkaW0g
-S3LEjW3DocWZIDxya3JjbWFyQHZlbnRhbmFtaWNyby5jb20+IHdyb3RlOgo+ID4+ID4gPiAyMDI1
-LTA1LTA5VDEyOjI1OjI0KzA1OjMwLCBBbnVwIFBhdGVsIDxhbnVwQGJyYWluZmF1bHQub3JnPjoK
-PiA+PiA+ID4gPiBPbiBUaHUsIE1heSA4LCAyMDI1IGF0IDg6MDHigK9QTSBSYWRpbSBLcsSNbcOh
-xZkgPHJrcmNtYXJAdmVudGFuYW1pY3JvLmNvbT4gd3JvdGU6Cj4gPj4gPiA+ID4+ICAqIFByZXNl
-cnZlIHRoZSB1c2Vyc3BhY2UgaW5pdGlhbGl6ZWQgVkNQVSBzdGF0ZSBvbiBzYmlfaGFydF9zdGFy
-dC4KPiA+PiA+ID4gPj4gICogUmV0dXJuIHRvIHVzZXJzcGFjZSBvbiBzYmlfaGFydF9zdG9wLgo+
-ID4+ID4gPiA+Cj4gPj4gPiA+ID4gVGhlcmUgaXMgbm8gdXNlcnNwYWNlIGludm9sdmVtZW50IHJl
-cXVpcmVkIHdoZW4gYSBHdWVzdCBWQ1BVCj4gPj4gPiA+ID4gc3RvcHMgaXRzZWxmIHVzaW5nIFNC
-SSBIU00gc3RvcCgpIGNhbGwgc28gU1RST05HIE5PIHRvIHRoaXMgY2hhbmdlLgo+ID4+ID4gPgo+
-ID4+ID4gPiBPaywgSSdsbCBkcm9wIGl0IGZyb20gdjMgLS0gaXQgY2FuIGJlIGhhbmRsZWQgYnkg
-ZnV0dXJlIHBhdGNoZXMgdGhhdAo+ID4+ID4gPiB0cmFwIFNCSSBjYWxscyB0byB1c2Vyc3BhY2Uu
-Cj4gPj4gPiA+Cj4gPj4gPiA+IFRoZSBsYWNrIG9mIHVzZXJzcGFjZSBpbnZvbHZlbWVudCBpcyB0
-aGUgaXNzdWUuICBLVk0gZG9lc24ndCBrbm93IHdoYXQKPiA+PiA+ID4gdGhlIGluaXRpYWwgc3Rh
-dGUgc2hvdWxkIGJlLgo+ID4+ID4KPiA+PiA+IFRoZSBTQkkgSFNNIHZpcnR1YWxpemF0aW9uIGRv
-ZXMgbm90IG5lZWQgYW55IEtWTSB1c2Vyc3BhY2UKPiA+PiA+IGludm9sdmVtZW50Lgo+ID4+ID4K
-PiA+PiA+IFdoZW4gYSBWQ1BVIHN0b3BzIGl0c2VsZiB1c2luZyBTQkkgSFNNIHN0b3AoKSwgdGhl
-IEd1ZXN0IGl0c2VsZgo+ID4+ID4gcHJvdmlkZXMgdGhlIGVudHJ5IGFkZHJlc3MgYW5kIGFyZ3Vt
-ZW50IHdoZW4gc3RhcnRpbmcgdGhlIFZDUFUKPiA+PiA+IHVzaW5nIFNCSSBIU00gc3RhcnQoKSB3
-aXRob3V0IGFueSBLVk0gdXNlcnNwYWNlIGludm9sdmVtZW50Lgo+ID4+ID4KPiA+PiA+IEluIGZh
-Y3QsIGV2ZW4gYXQgR3Vlc3QgYm9vdCB0aW1lIGFsbCBub24tYm9vdCBWQ1BVcyBhcmUgYnJvdWdo
-dC11cAo+ID4+ID4gdXNpbmcgU0JJIEhTTSBzdGFydCgpIGJ5IHRoZSBib290IFZDUFUgd2hlcmUg
-dGhlIEd1ZXN0IGl0c2VsZgo+ID4+ID4gcHJvdmlkZXMgZW50cnkgYWRkcmVzcyBhbmQgYXJndW1l
-bnQgd2l0aG91dCBhbnkgS1ZNIHVzZXJzcGFjZQo+ID4+ID4gaW52b2x2ZW1lbnQuCj4gPj4KPiA+
-PiBIU00gb25seSBzcGVjaWZpZXMgdGhlIHN0YXRlIG9mIGEgZmV3IHJlZ2lzdGVycyBhbmQgdGhl
-IElTQSBvbmx5IGEgZmV3Cj4gPj4gbW9yZS4gQWxsIG90aGVyIHJlZ2lzdGVycyBoYXZlIElNUERF
-RiByZXNldCB2YWx1ZXMuIFplcm9zLCBsaWtlIEtWTQo+ID4+IHNlbGVjdHMsIGFyZSBhIGdvb2Qg
-Y2hvaWNlIGFuZCB0aGUgYmVzdCBkZWZhdWx0LCBidXQgaWYgdGhlIFZNTSBkaXNhZ3JlZXMsCj4g
-Pj4gdGhlbiBpdCBzaG91bGQgYmUgYWxsb3dlZCB0byBzZWxlY3Qgd2hhdCBpdCBsaWtlcywgYXMg
-dGhlIFZNTS91c2VyIGlzIHRoZQo+ID4+IHBvbGljeSBtYWtlciBhbmQgS1ZNIGlzICJqdXN0IiB0
-aGUgYWNjZWxlcmF0b3IuCj4gPgo+ID4gVGlsbCBub3cgdGhlcmUgYXJlIG5vIHN1Y2ggSU1QREVG
-IHJlc2V0IHZhbHVlcyBleHBlY3RlZC4gV2Ugd2lsbAo+ID4gY3Jvc3MgdGhhdCBicmlkZ2Ugd2hl
-biBuZWVkZWQuIEFsdGhvdWdoLCBJIGRvdWJ0IHdlIHdpbGwgZXZlciBuZWVkIGl0Lgo+Cj4gVGhl
-IElNUERFRiBpc3N1ZSBhbHJlYWR5IGV4aXN0cy4gIEtWTSByZXNldHMgc2NvdW50ZXJlbiB0byA3
-LCBidXQKPiB1c2Vyc3BhY2Ugd2FudHMgaXQgdG8gYmUgZGlmZmVyZW50LCBsaWtlbHkgMC4KClRo
-ZSBzY291bnRlcmVuIHNldCB0byA3IGlzIHRlbXBvcmFyeSB3b3JrYXJvdW5kIHdoaWNoIGlzIHN1
-cHBvc2VkCnRvIGJlIHJlbW92ZWQgb25jZSBHdWVzdCBMaW51eCBpbml0aWFsaXplcyBzY291bnRl
-cmVuIGNvcnJlY3RseSBhdApib290IHRpbWUuIEF0IHRoaXMgcG9pbnQgaW4gdGltZSB3ZSBjYW4g
-cmVtb3ZlIHRoaXMgc2NvdW50ZXJlbgp3b3JrYXJvdW5kIGZyb20gS1ZNIGJlY2F1c2UgdGhlIFNC
-SSBQTVUgZHJpdmVyIGlzIGluaXRpYWxpemluZwpzY291bnRlcmVuIGNvcnJlY3RseSBzaW5jZSBt
-YW55IGtlcm5lbCByZWxlYXNlcy4KKFJlZmVyLCBwbXVfc2JpX3N0YXJ0aW5nX2NwdSgpIGluIGRy
-aXZlcnMvcGVyZi9yaXNjdl9wbXVfc2JpLmMpCgpJZiB3ZSBhYnNvbHV0ZWx5IG5lZWQgYSBtZWNo
-YW5pc20gZm9yIHVzZXJzcGFjZSB0byBwcm92aWRlIGN1c3RvbQpyZXNldCB2YWx1ZXMgb2YgQ1NS
-cyB0aGVuIHdlIHNob3VsZCB1c2UgdGhlIGV4aXN0aW5nIE9ORV9SRUcKaW50ZXJmYWNlIHRvIGRl
-ZmluZSBhIG5ldyB0eXBlIHVzaW5nIHdoaWNoIENTUiByZXNldCB2YWx1ZXMgY2FuIGJlCnNldCBh
-dCBWTSBjcmVhdGlvbiB0aW1lLiBCdXQsIEkgc3RpbGwgdGhpbmsgd2UgZG9uJ3QgbmVlZCBzdWNo
-IGEKbWVjaGFuaXNtIGltbWVkaWF0bHkuCgpSZWdhcmRzLApBbnVwCgpfX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
-bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
-Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+From: Sunil V L <sunilvl@ventanamicro.com>
+
+Currently, ACPI doesn't support cells property when
+fwnode_property_get_reference_args() is called. ACPI always expects the
+number of arguments to be passed. However,
+fwnode_property_get_reference_args() being a common interface for OF and
+ACPI, it is better to have single calling convention which works for
+both. Hence, add support for cells property on the reference device to
+get the number of arguments dynamically.
+
+Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+---
+ drivers/acpi/property.c | 15 +++++++++++++++
+ drivers/base/property.c |  2 +-
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
+index 364c58faf13f..51352bde617a 100644
+--- a/drivers/acpi/property.c
++++ b/drivers/acpi/property.c
+@@ -960,6 +960,13 @@ static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
+ 			if (!device)
+ 				return -EINVAL;
+ 
++			if (nargs_prop) {
++				if (!acpi_dev_get_property(device, nargs_prop,
++							   ACPI_TYPE_INTEGER, &obj)) {
++					args_count = obj->integer.value;
++				}
++			}
++
+ 			element++;
+ 
+ 			ret = acpi_get_ref_args(idx == index ? args : NULL,
+@@ -978,6 +985,14 @@ static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
+ 			if (!ref_fwnode)
+ 				return -EINVAL;
+ 
++			if (nargs_prop) {
++				device = to_acpi_device_node(ref_fwnode);
++				if (!acpi_dev_get_property(device, nargs_prop,
++							   ACPI_TYPE_INTEGER, &obj)) {
++					args_count = obj->integer.value;
++				}
++			}
++
+ 			element++;
+ 
+ 			ret = acpi_get_ref_args(idx == index ? args : NULL,
+diff --git a/drivers/base/property.c b/drivers/base/property.c
+index c1392743df9c..172dfb950328 100644
+--- a/drivers/base/property.c
++++ b/drivers/base/property.c
+@@ -578,7 +578,7 @@ EXPORT_SYMBOL_GPL(fwnode_property_match_property_string);
+  * @prop:	The name of the property
+  * @nargs_prop:	The name of the property telling the number of
+  *		arguments in the referred node. NULL if @nargs is known,
+- *		otherwise @nargs is ignored. Only relevant on OF.
++ *		otherwise @nargs is ignored.
+  * @nargs:	Number of arguments. Ignored if @nargs_prop is non-NULL.
+  * @index:	Index of the reference, from zero onwards.
+  * @args:	Result structure with reference and integer arguments.
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
