@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 663ACC3ABCB
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 21:18:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91F55C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 21:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fYPnVr6gLMrYrvJ+FeHDYb9nXxER0vY4976plFjH1XA=; b=bTJytzMTFa4+/H
-	tVd+UQuUW5FbCyqa83UJLAgqL5l2x4UlTCoi4Z9W2W+wfWXC+HjZznuwSEXuYgHjKfLf1hMBjQVnx
-	hyFs4+OorulZcSwfHj5cxWCw8ERzYNQ8NkQY9y0a/uGaMw5DSy/DvwxR/WBh4bJmj8RiLJXZ8RfWE
-	/4CsN0dWxYHaI/RhpIZ43wol4Mzw0ms7gUg728F/5SM7zFyywpBOg/X1Vp0Y4qfg/N5FizG0AVkIa
-	0AUqHY/aJKZi3UgtB8RqNI8KEAe03JRYZdsJfXWTtOA4F5l+H1uggHW6U7vJnVVP6fRm5kBVWU8g4
-	HKykCBjs7NDjfkcuN3Sw==;
+	List-Owner; bh=LUj0lYiCuX3LX2wmhjvnnhS+NdE80MBohCPde8sgQeg=; b=Ys0MihxPenqDuB
+	goLSKeRNT5GOX5wP4H3bpA9YWTGGXT0refSBBCZRlKKzIHoI+PqL4Qcjt00sFMubhsaiM8upVTsUu
+	F5xZINLz1GfJw4te+P3Y85/FQjW4JSPyDj3giS3+/wUJicUFwqYcASE5j674q7fWosSIjzsjKNAOR
+	B4jtc5RKnDVTEXPVdoXaBoG43tQ9LegMOeMGCb7y6CixF19KfsR8xQy7nZ2jsmhamMfnGUCSzSBao
+	ojHYLjrMNBDDEmctU3Oys2bEy49CFvUnYhOM2PuS1YEfreba7iTOdLxVohmwaj6yHGBdYN/DFjjBx
+	HmAskweIC+k6RL5qWKjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEE3t-00000007sDt-438H;
-	Sun, 11 May 2025 21:18:17 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uEE3w-00000007sGN-0utP;
+	Sun, 11 May 2025 21:18:20 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEE3o-00000007s7s-0i1o
+	id 1uEE3q-00000007s9J-1Skc
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 May 2025 21:18:14 +0000
+	Sun, 11 May 2025 21:18:15 +0000
 From: Nam Cao <namcao@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1746998290;
+	s=2020; t=1746998291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=B+ZSGPGR1f44374iB4VtgRiL39ZDvHo9xWVozgwsi6A=;
-	b=C8n56BwQkdOcM2T/ujlGMwbhhVjja4cdRNIJfbUNpfxyeTVhV7ZOg/LkrrEziEznjuPdbn
-	mZV43gA1D/Y7+oVN6nsJcBm57XJDOWzYKBYrUbRI5ncqZj/AHnzr3S636va3MvkvgsGoqx
-	wbBxy4dksn8Qe/gRhd5C8EBcUJergrCEVn6wxcQrsoCD59GkVIEMR/MMzJNZItYrOatuug
-	zD//vHfFb7mHmEFpcuT2HhVt82IuKYKZ/220+lKpx+8u1c8Wh74JjRD3/TAU0DN40XokFW
-	tkXIJX7gNN7sk6ULQhUhJrMluereYg4fQl/SLdiffvaP5mwzSAES5r7uhc4Vjw==
+	bh=cQXO+2w86UaaANetpNDoYy9jOymgZL7O24AgGpF2SFk=;
+	b=bX57btfVcuydNfuyd0bS+isHMlT5cqHTKRypA/k7l6x9dBqH4eyrM+w8WqsWco0GoWhFWl
+	6MBeEp1zYVc1uVqVwOdW6W/FGwbnJm8VmGiYlZZdGE4C12IQwoSv9TEm5qCFrQoV/9lVqD
+	tRu/bpF1TcE/S40evqg6EkhdkiwCgUlAhS0R2m7w5r7flhrtJYxiQCzwe2/szgT1TcB76L
+	1dXNoWb4BtSnkVHbd/hvQmITA57EYdFJB5mU9AGnjp6Zx8o6VI9VdjeHtGh2sfFn/J2aDb
+	e152pyFc774gu/ziSSMSYrNPOoXQLTDwUZQNW99qnCXD2rsWFc0GeUw6siJkgA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1746998290;
+	s=2020e; t=1746998291;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=B+ZSGPGR1f44374iB4VtgRiL39ZDvHo9xWVozgwsi6A=;
-	b=Wx2X3fXdRGH2Qz8zFXmmXNC9GnAg+b6EZ282vCoOxESZxHB5AyUlLSjYaK3HbaG+UQG/mU
-	5lKB7hbXt9P0KxCQ==
+	bh=cQXO+2w86UaaANetpNDoYy9jOymgZL7O24AgGpF2SFk=;
+	b=ikqp5HGKRJ5owMaPvaVESfntKsc2pbQcG1oKyxOIFpFdkz94WXYMcmFsiSvUDgsDVl2CWd
+	wxjnnjxrIBz+8zDQ==
 To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
@@ -56,15 +56,15 @@ To: Paul Walmsley <paul.walmsley@sifive.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org
 Cc: Nam Cao <namcao@linutronix.de>
-Subject: [PATCH 04/11] riscv: kprobes: Remove duplication of RV_EXTRACT_RS1_REG
-Date: Sun, 11 May 2025 23:17:56 +0200
-Message-Id: <0b74924c188537b7834c9aa98aeab7c4d76dee0b.1746997351.git.namcao@linutronix.de>
+Subject: [PATCH 07/11] riscv: kprobes: Remove duplication of RVC_EXTRACT_C2_RS1_REG
+Date: Sun, 11 May 2025 23:17:59 +0200
+Message-Id: <0c07ff8c9c61511e30200aa997d93612676d1a07.1746997351.git.namcao@linutronix.de>
 In-Reply-To: <cover.1746997351.git.namcao@linutronix.de>
 References: <cover.1746997351.git.namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_141812_361117_C172F27D 
-X-CRM114-Status: UNSURE (   6.24  )
+X-CRM114-CacheID: sfid-20250511_141814_536051_6117C773 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,45 +82,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use RV_EXTRACT_RS1_REG instead of reimplementing its code.
+Use RVC_EXTRACT_C2_RS1_REG, instead of reimplementing it in
+simulate_c_jr_jalr().
 
 Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
- arch/riscv/kernel/probes/simulate-insn.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ arch/riscv/kernel/probes/simulate-insn.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index b76a691d0d9a..625d514c4ada 100644
+index 5defbde4dd50..f5d64613dab5 100644
 --- a/arch/riscv/kernel/probes/simulate-insn.c
 +++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -66,7 +66,7 @@ bool __kprobes simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *reg
- 	unsigned long base_addr;
- 	u32 imm = (opcode >> 20) & 0xfff;
- 	u32 rd_index = (opcode >> 7) & 0x1f;
--	u32 rs1_index = (opcode >> 15) & 0x1f;
-+	u32 rs1_index = RV_EXTRACT_RS1_REG(opcode);
+@@ -188,7 +188,7 @@ static bool __kprobes simulate_c_jr_jalr(u32 opcode, unsigned long addr, struct
  
- 	ret = rv_insn_reg_get_val(regs, rs1_index, &base_addr);
- 	if (!ret)
-@@ -115,9 +115,6 @@ bool __kprobes simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *re
- 	return true;
- }
+ 	unsigned long jump_addr;
  
--#define branch_rs1_idx(opcode) \
--	(((opcode) >> 15) & 0x1f)
--
- #define branch_imm(opcode) \
- 	(((((opcode) >>  8) & 0xf ) <<  1) | \
- 	 ((((opcode) >> 25) & 0x3f) <<  5) | \
-@@ -147,7 +144,7 @@ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *r
- 	unsigned long rs1_val;
- 	unsigned long rs2_val;
+-	u32 rs1 = (opcode >> 7) & 0x1f;
++	u32 rs1 = RVC_EXTRACT_C2_RS1_REG(opcode);
  
--	if (!rv_insn_reg_get_val(regs, branch_rs1_idx(opcode), &rs1_val) ||
-+	if (!rv_insn_reg_get_val(regs, RV_EXTRACT_RS1_REG(opcode), &rs1_val) ||
- 	    !rv_insn_reg_get_val(regs, RV_EXTRACT_RS2_REG(opcode), &rs2_val))
+ 	if (rs1 == 0) /* C.JR is only valid when rs1 != x0 */
  		return false;
- 
 -- 
 2.39.5
 
