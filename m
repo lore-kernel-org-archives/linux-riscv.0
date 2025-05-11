@@ -4,110 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF669C3ABCB
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 14:49:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BA2C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 21:17:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=IvqkbXqcpI6r3sK5PPdbiFNsXhTGrS2rxj+WToDrMQY=; b=Fojj/ZX1dWsOQ+
-	6Wg5Y0Hm0q1r8NrN6N6srxogylY5fsbPMEbI85ry4XRS31mkbfjQjHySQSq4/t/uv0ttyYcsJsN8d
-	TFMAXvxoiQXjFHP5gpKIECni5y0dNj4EmgPsLccBkJItGSW0t6gs+8TNNha11OtxcrJPDheq5Km+L
-	IipdgTxEAxWixE4xTUUpZ6wqy6RFyLXBoVcH7q570wHtSMuAqrBxIy9PmDVIXPtfv3/PT8Y1F4fen
-	8SrV4O+9qS1J868//5vlYNh5woug3LBLaq5+11sQ1iX/ukUS/HdCb0Q/Ch5XRqnlI49zyORlMtl6E
-	yzdd3A1r+rkFLUjb4FDw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=bQcGXpjk+oS9stESG0iGpGweBsZ5x+Xwe9cBNxbvBBc=; b=oEcsLzGa6fWvkF
+	7O47XpSV0/Pqfho/LIR6pnYGvVzvlZcFFpUP6rqxjGY0xXvuTEi/5icvj/kzC7lKueb66m2zuMvlO
+	8J9+MSOo2mKccKqsZFn/mLXE1I66JNdHVSjUlgNsSyxzdKpWuUkTDKZa4gayTnfl3xucE2PVk7ZiS
+	NNsH79nF3Il4mAWa7Q6LTxknopNTLlyAj3iGJA47BstJeQ95IeVnb+CX4HCSkDwZSAEOq559UhUl0
+	I/Oqo+iWdnBdMRztdMcuoeVikhkCkWUgprnc5ZYvEdWMo43VwgYkXmXOxGjIHi2XSPczgBZwfaa9M
+	fdGgPMDqnuzWLQ/jijrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE7yz-00000007Ouk-0NJg;
-	Sun, 11 May 2025 14:48:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uEE3K-00000007s44-13Hg;
+	Sun, 11 May 2025 21:17:42 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6wW-00000007IJB-33lU
-	for linux-riscv@bombadil.infradead.org;
-	Sun, 11 May 2025 13:42:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=fCjUB/xHP3F4lexC15SuUPpKkgJMb+cdYU5YhyAWuJ0=; b=MOO8eB/elFQL8mmRjPXgwOq4Dt
-	MfXUO4FKRBIzlkufbMSXO6pDgJcblTMdootOxC0diOVBzPWexE0fhkkqPotJ+W4V+pYv7yUkEhZO5
-	5vcBH7VCPqYq69MtmcDY5BwTxYEZIvv7uvQsplhtTFjz70wpm31UoTxKzbeZx5W9byaNcw6Y1LSDc
-	tvA9LVIztYAaogHgs080NFrWTshePNyIzXN2kM6S+1RWZcVm0pX5zXImLfBayshOoE+mmDXDqHnCn
-	ccYLYTBphyGZSZSIfFyvROQp+OukOwSMVwLMtKhy0q6A714LVF6n6zPba2NKBlq/SVzcxQsvM6HFi
-	PJHPu1hw==;
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uE6wR-0000000Gbye-46G2
+	id 1uEE3H-00000007s3c-3q3Q
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 May 2025 13:42:11 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22e331215dbso35319925ad.1
-        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 06:42:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1746970924; x=1747575724; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fCjUB/xHP3F4lexC15SuUPpKkgJMb+cdYU5YhyAWuJ0=;
-        b=MXPcrNLoxbOLlO4ySQ/n+mfjFV217R099a4yNig3olNm4wwQj9MhhciIc1mB8rApdd
-         9Z3Fz2Gii1/vqPhcD2OLBDXY8yim0riygGgVKhAVTZRpcI0PvJxK3vv9rBHLSZkjIEn2
-         ruPg26RFMCkf2aoVv7Kf3XU/gFgDQDBFRo37SZPnlHQcDnaGSMFJsTFKzjKXRuw9VE34
-         O2YRLve3j+VloGUfu4Og1Nzx+MfUJKT8Oq08LVx1UMWcwDV70oakltTJ7ftNq2ca5IFe
-         5Qzxz7zGAU0BV7kHc6MndrJmgkgcEZZ4ImUUyDxjvu9gWd9hF8NDTyiqcNpYp9DDd6tK
-         WHkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746970924; x=1747575724;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fCjUB/xHP3F4lexC15SuUPpKkgJMb+cdYU5YhyAWuJ0=;
-        b=hWuFRzGtThjLjt0HWcupNP9k6+X7P5FotEKp0/ndeiU1guxp3/7lVdKkVrh5KnYPLb
-         NZUyvAl22ZVEj/jubQV7wN3LS4Q3WkAK606IRxDkammYQ5aIME7Kpw3YE8lKMFgtuLdg
-         CNweKZnu2mgkHNnKy19xRu1cFJVJtg2oY9QKDyhWE5n/z4DaCGSUftiY3lwKFFOnY0x7
-         WC08aWwp98MRGFrW1Zhn4LnlM5tTkaHT0QX4SZmi6mDcdKGB+cFySCC+6tA22ZgkdNaW
-         lc44M/i1inwuvPCf2YFttIzZGFFGSkQRp7RHZ4ZnobuBhvnOGAqGvS73ZwzdyEAz0B7y
-         AmQw==
-X-Forwarded-Encrypted: i=1; AJvYcCXG/yyLQ64HGtaNjkC1pHNURrxaLlcvlHhunTieoK/ePUgxrDrZ0u9D2HibOFZK0YfFJ9ixFVM9WWjVxA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy1EFfJBumPDSioocOvJ848gdeJS03Im4wQrmDd9qD/k6p+Odw4
-	BDqvD/z6sbQvCDaNIbQP0QgXnl6y5H5Br5jQC8O2wUr2YiNHAVd6U3M9JldMDzo=
-X-Gm-Gg: ASbGncu9RP1e5xghq2WWjo/5HqRMx8/l43DwO2qzaJIcKfgFAiU34SPxAClFI39tkl9
-	8Q8dbp5XCIfrHJreWYspaYoMK/gxNW7W3EUxzPSB7OZpAOSP7P+DpVwndZFXank+pc+N4cSmId6
-	XoQmw22ZdhAkagPW4qbywy9NM++RW28XtAX+w8oP/j5bvteGrakgytALzaCF+X2gTK2teTRxvxp
-	Xmc4MCMrqjiMK6aUPkbMUB3aXGvUfzZUfBSda3kupAtCtx9EXDBPz9XaaBww7G4KpjMSfYPkwuV
-	UZHqh3XFxB+pNoVQAAvV4juf+D1Ijbyc+dVCJIzYMOpPC82wSaAfOCDUt+6v75wqhy1y+K5vHvp
-	2XYkbJ7bdxKs7qqYrUaoUcmY1
-X-Google-Smtp-Source: AGHT+IFMx/VWg5T7jyPRxbypm5h/qHJrEm48g/FhkYBfFVU32uDFENhdL9cY2ghotviQvipOT7WehQ==
-X-Received: by 2002:a17:902:fc8d:b0:22e:457d:3989 with SMTP id d9443c01a7336-22e845bcb87mr224010915ad.0.1746970923496;
-        Sun, 11 May 2025 06:42:03 -0700 (PDT)
-Received: from anup-ubuntu-vm.localdomain ([122.171.17.86])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc754785bsm46665805ad.20.2025.05.11.06.41.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 06:42:02 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v3 14/23] ACPI: property: Refactor acpi_fwnode_get_reference_args()
-Date: Sun, 11 May 2025 19:09:30 +0530
-Message-ID: <20250511133939.801777-15-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250511133939.801777-1-apatel@ventanamicro.com>
-References: <20250511133939.801777-1-apatel@ventanamicro.com>
+	Sun, 11 May 2025 21:17:41 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1746998254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=21E9H8wywbFjukRX+38KQ5ON28VMwXm34IwhQh+akUc=;
+	b=w1P3fv9sRDf9nNBYGztfoRFbCtlyhczHJ64R23SKQYKysvqUxqXLPneTVBSiGdUHVTsJAr
+	xOoBuSYzArPTKdqiM8+9Fx/zB6ghubRe4+jLtL+gmvbpG8/tP6IKL9iL+FHt0dC9m9agMi
+	zaod56iIw9WM1GwoZW8ObFayo0dT+u0SXz6Vp206qEYX/UrmghMLxEC5++OtsrkLALGkyT
+	dL4rF3wlNo6MVXClxvbrFeYL5lB0FubDUQUM5G1N3jT5sP/K/FXjkGovlTPs+ptq7zwsYB
+	2qcT8H02zNSq+bIsnh1+ZfN+p3+r+aQqY/csys1XoFueUFfsbUetqVGrHCCZJg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1746998254;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=21E9H8wywbFjukRX+38KQ5ON28VMwXm34IwhQh+akUc=;
+	b=gZf7Edw7xmAKJv/KyrTZV8OPWgKDmqoVoRHc/VLGXAfliMzBrwAm6s6VsyKhid6MRxjQon
+	jSoR7KZx6B2JJPCw==
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>
+Subject: [PATCH] riscv: Add kprobes KUnit test
+Date: Sun, 11 May 2025 23:17:25 +0200
+Message-Id: <20250511211725.3200156-1-namcao@linutronix.de>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_144208_302818_8F779DA2 
-X-CRM114-Status: GOOD (  20.56  )
+X-CRM114-CacheID: sfid-20250511_141740_267917_EF005EEB 
+X-CRM114-Status: GOOD (  16.34  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,177 +72,406 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Sunil V L <sunilvl@ventanamicro.com>
+Add KUnit test for riscv kprobes, mostly for simulated instructions. The
+test install kprobes into multiple sample functions, and check that these
+functions still return the expected magic value.
 
-Currently acpi_fwnode_get_reference_args() calls the public function
-__acpi_node_get_property_reference() which ignores the nargs_prop
-parameter. To fix this, make __acpi_node_get_property_reference() to
-call the static acpi_fwnode_get_reference() so that callers of
-fwnode_get_reference_args() can still pass a valid property name to
-fetch the number of arguments.
+This test can detect some kprobe bugs reported in the past:
 
-Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
+https://lore.kernel.org/linux-riscv/20241119111056.2554419-1-namcao@linutronix.de/
+https://lore.kernel.org/stable/c7e463c0-8cad-4f4e-addd-195c06b7b6de@iscas.ac.cn/
+https://lore.kernel.org/linux-riscv/20230829182500.61875-1-namcaov@gmail.com/
+
+Signed-off-by: Nam Cao <namcao@linutronix.de>
 ---
- drivers/acpi/property.c | 103 ++++++++++++++++++++--------------------
- 1 file changed, 51 insertions(+), 52 deletions(-)
+ arch/riscv/kernel/tests/Kconfig.debug         |  11 +
+ arch/riscv/kernel/tests/Makefile              |   1 +
+ arch/riscv/kernel/tests/kprobes/Makefile      |   1 +
+ .../kernel/tests/kprobes/test-kprobes-asm.S   | 235 ++++++++++++++++++
+ .../riscv/kernel/tests/kprobes/test-kprobes.c |  56 +++++
+ .../riscv/kernel/tests/kprobes/test-kprobes.h |  24 ++
+ 6 files changed, 328 insertions(+)
+ create mode 100644 arch/riscv/kernel/tests/kprobes/Makefile
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.c
+ create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.h
 
-diff --git a/drivers/acpi/property.c b/drivers/acpi/property.c
-index 436019d96027..364c58faf13f 100644
---- a/drivers/acpi/property.c
-+++ b/drivers/acpi/property.c
-@@ -882,45 +882,10 @@ static struct fwnode_handle *acpi_parse_string_ref(const struct fwnode_handle *f
- 	return &dn->fwnode;
- }
+diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
+index 78cea5d2c270..af04159c9ea7 100644
+--- a/arch/riscv/kernel/tests/Kconfig.debug
++++ b/arch/riscv/kernel/tests/Kconfig.debug
+@@ -30,6 +30,17 @@ config RISCV_MODULE_LINKING_KUNIT
  
--/**
-- * __acpi_node_get_property_reference - returns handle to the referenced object
-- * @fwnode: Firmware node to get the property from
-- * @propname: Name of the property
-- * @index: Index of the reference to return
-- * @num_args: Maximum number of arguments after each reference
-- * @args: Location to store the returned reference with optional arguments
-- *	  (may be NULL)
-- *
-- * Find property with @name, verifify that it is a package containing at least
-- * one object reference and if so, store the ACPI device object pointer to the
-- * target object in @args->adev.  If the reference includes arguments, store
-- * them in the @args->args[] array.
-- *
-- * If there's more than one reference in the property value package, @index is
-- * used to select the one to return.
-- *
-- * It is possible to leave holes in the property value set like in the
-- * example below:
-- *
-- * Package () {
-- *     "cs-gpios",
-- *     Package () {
-- *        ^GPIO, 19, 0, 0,
-- *        ^GPIO, 20, 0, 0,
-- *        0,
-- *        ^GPIO, 21, 0, 0,
-- *     }
-- * }
-- *
-- * Calling this function with index %2 or index %3 return %-ENOENT. If the
-- * property does not contain any more values %-ENOENT is returned. The NULL
-- * entry must be single integer and preferably contain value %0.
-- *
-- * Return: %0 on success, negative error code on failure.
-- */
--int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
--	const char *propname, size_t index, size_t num_args,
--	struct fwnode_reference_args *args)
-+static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
-+					  const char *prop, const char *nargs_prop,
-+					  unsigned int args_count, unsigned int index,
-+					  struct fwnode_reference_args *args)
- {
- 	const union acpi_object *element, *end;
- 	const union acpi_object *obj;
-@@ -933,7 +898,7 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 	if (!data)
- 		return -ENOENT;
+          If unsure, say N.
  
--	ret = acpi_data_get_property(data, propname, ACPI_TYPE_ANY, &obj);
-+	ret = acpi_data_get_property(data, prop, ACPI_TYPE_ANY, &obj);
- 	if (ret)
- 		return ret == -EINVAL ? -ENOENT : -EINVAL;
- 
-@@ -999,7 +964,7 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
- 						acpi_fwnode_handle(device),
--						&element, end, num_args);
-+						&element, end, args_count);
- 			if (ret < 0)
- 				return ret;
- 
-@@ -1017,7 +982,7 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 			ret = acpi_get_ref_args(idx == index ? args : NULL,
- 						ref_fwnode, &element, end,
--						num_args);
-+						args_count);
- 			if (ret < 0)
- 				return ret;
- 
-@@ -1039,6 +1004,50 @@ int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
- 
- 	return -ENOENT;
- }
++config RISCV_KPROBES_KUNIT
++       bool "KUnit test for riscv kprobes" if !KUNIT_ALL_TESTS
++       depends on KUNIT
++       depends on KPROBES
++       default KUNIT_ALL_TESTS
++       help
++         Enable testing for riscv kprobes. Useful for riscv and/or kprobes
++         development.
 +
-+/**
-+ * __acpi_node_get_property_reference - returns handle to the referenced object
-+ * @fwnode: Firmware node to get the property from
-+ * @propname: Name of the property
-+ * @index: Index of the reference to return
-+ * @num_args: Maximum number of arguments after each reference
-+ * @args: Location to store the returned reference with optional arguments
-+ *	  (may be NULL)
-+ *
-+ * Find property with @name, verifify that it is a package containing at least
-+ * one object reference and if so, store the ACPI device object pointer to the
-+ * target object in @args->adev.  If the reference includes arguments, store
-+ * them in the @args->args[] array.
-+ *
-+ * If there's more than one reference in the property value package, @index is
-+ * used to select the one to return.
-+ *
-+ * It is possible to leave holes in the property value set like in the
-+ * example below:
-+ *
-+ * Package () {
-+ *     "cs-gpios",
-+ *     Package () {
-+ *        ^GPIO, 19, 0, 0,
-+ *        ^GPIO, 20, 0, 0,
-+ *        0,
-+ *        ^GPIO, 21, 0, 0,
-+ *     }
-+ * }
-+ *
-+ * Calling this function with index %2 or index %3 return %-ENOENT. If the
-+ * property does not contain any more values %-ENOENT is returned. The NULL
-+ * entry must be single integer and preferably contain value %0.
-+ *
-+ * Return: %0 on success, negative error code on failure.
-+ */
-+int __acpi_node_get_property_reference(const struct fwnode_handle *fwnode,
-+				       const char *propname, size_t index,
-+				       size_t num_args,
-+				       struct fwnode_reference_args *args)
++         If unsure, say N.
++
+ endif # RUNTIME_TESTING_MENU
+ 
+ endmenu # "arch/riscv/kernel runtime Testing"
+diff --git a/arch/riscv/kernel/tests/Makefile b/arch/riscv/kernel/tests/Makefile
+index 7d6c76cffe20..407e7e6c28dc 100644
+--- a/arch/riscv/kernel/tests/Makefile
++++ b/arch/riscv/kernel/tests/Makefile
+@@ -1 +1,2 @@
+ obj-$(CONFIG_RISCV_MODULE_LINKING_KUNIT)	+= module_test/
++obj-$(CONFIG_RISCV_KPROBES_KUNIT)		+= kprobes/
+diff --git a/arch/riscv/kernel/tests/kprobes/Makefile b/arch/riscv/kernel/tests/kprobes/Makefile
+new file mode 100644
+index 000000000000..4cb6c66a98e8
+--- /dev/null
++++ b/arch/riscv/kernel/tests/kprobes/Makefile
+@@ -0,0 +1 @@
++obj-y += test-kprobes.o test-kprobes-asm.o
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+new file mode 100644
+index 000000000000..e83f06fd7265
+--- /dev/null
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
+@@ -0,0 +1,235 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++
++#include <linux/linkage.h>
++#include <asm/asm.h>
++#include "test-kprobes.h"
++
++SYM_FUNC_START(test_kprobes_add)
++	li a1, KPROBE_TEST_MAGIC_UPPER
++	li a2, KPROBE_TEST_MAGIC_LOWER
++test_kprobes_add_addr1:
++	add a1, a1, a2
++test_kprobes_add_addr2:
++	add a0, a1, x0
++	ret
++SYM_FUNC_END(test_kprobes_add)
++
++SYM_FUNC_START(test_kprobes_jal)
++	li a0, 0
++	mv a1, ra
++	.option push
++	.option norvc
++test_kprobes_jal_addr1:
++	jal x0, 2f
++	ret
++	.option pop
++1:	li a0, KPROBE_TEST_MAGIC_UPPER
++	ret
++	.option push
++	.option norvc
++test_kprobes_jal_addr2:
++2:	jal 1b
++	.option pop
++	li a2, KPROBE_TEST_MAGIC_LOWER
++	add a0, a0, a2
++	jr a1
++SYM_FUNC_END(test_kprobes_jal)
++
++SYM_FUNC_START(test_kprobes_jalr)
++	la a0, 1f
++	mv a1, ra
++	.option push
++	.option norvc
++test_kprobes_jalr_addr:
++	jalr a0
++	.option pop
++	li t0, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, t0
++	jr a1
++1:	li a0, KPROBE_TEST_MAGIC_LOWER
++	ret
++SYM_FUNC_END(test_kprobes_jalr)
++
++SYM_FUNC_START(test_kprobes_auipc)
++test_kprobes_auipc_addr1:
++	auipc a0, %hi(4)
++test_kprobes_auipc_addr2:
++	auipc a1, 0
++test_kprobes_auipc_addr3:
++	auipc a2, %hi(-4)
++	addi a2, a2, %lo(-4)
++	addi a0, a0, %lo(4)
++	bne a0, a1, 1f
++	bne a0, a2, 1f
++	li a0, KPROBE_TEST_MAGIC
++1:	ret
++SYM_FUNC_END(test_kprobes_auipc)
++
++SYM_FUNC_START(test_kprobes_branch)
++	.option push
++	.option norvc
++	li a0, 0
++	li a1, 1
++	li a2, 2
++test_kprobes_branch_addr1:
++	beqz a0, 1f
++	ret
++1:
++test_kprobes_branch_addr2:
++	beqz a1, 3f
++test_kprobes_branch_addr3:
++	bnez a0, 3f
++test_kprobes_branch_addr4:
++	bnez a2, 1f
++	ret
++1:
++test_kprobes_branch_addr5:
++	bge a1, a2, 3f
++test_kprobes_branch_addr6:
++	bge a2, a1, 2f
++	ret
++1:
++	li t0, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, t0
++	ret
++2:
++test_kprobes_branch_addr7:
++	blt a2, a1, 3f
++	li a0, KPROBE_TEST_MAGIC_LOWER
++test_kprobes_branch_addr8:
++	blt a1, a2, 1b
++3:
++	li a0, 0
++	ret
++	.option pop
++SYM_FUNC_END(test_kprobes_branch)
++
++#ifdef CONFIG_RISCV_ISA_C
++
++SYM_FUNC_START(test_kprobes_c_j)
++	li a0, 0
++test_kprobes_branch_c_j_addr1:
++	c.j 2f
++1:
++	li a1, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, a1
++	ret
++2:	li a0, KPROBE_TEST_MAGIC_LOWER
++test_kprobes_branch_c_j_addr2:
++	c.j 1b
++SYM_FUNC_END(test_kprobes_c_j)
++
++SYM_FUNC_START(test_kprobes_c_jr)
++	la a0, 2f
++test_kprobes_c_jr_addr1:
++	c.jr a0
++	ret
++1:	li a1, KPROBE_TEST_MAGIC_LOWER
++	add a0, a0, a1
++	ret
++2:
++	li a0, KPROBE_TEST_MAGIC_UPPER
++	la a1, 1b
++test_kprobes_c_jr_addr2:
++	c.jr a1
++SYM_FUNC_END(test_kprobes_c_jr)
++
++SYM_FUNC_START(test_kprobes_c_jalr)
++	mv a1, ra
++	la a0, 1f
++test_kprobes_c_jalr_addr:
++	c.jalr a0
++	li a2, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, a2
++	jr a1
++1:	li a0, KPROBE_TEST_MAGIC_LOWER
++	ret
++SYM_FUNC_END(test_kprobes_c_jalr)
++
++SYM_FUNC_START(test_kprobes_c_beqz)
++	li a0, 0
++	li a1, 1
++test_kprobes_c_beqz_addr1:
++	c.beqz a0, 2f
++	ret
++1:	li a1, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, a1
++	ret
++test_kprobes_c_beqz_addr2:
++2:	c.beqz a1, 3f
++	li a0, KPROBE_TEST_MAGIC_LOWER
++	mv a1, x0
++test_kprobes_c_beqz_addr3:
++	c.beqz a1, 1b
++3:	li a0, 0
++	ret
++SYM_FUNC_END(test_kprobes_c_beqz)
++
++SYM_FUNC_START(test_kprobes_c_bnez)
++	li a0, 0
++	li a1, 1
++test_kprobes_c_bnez_addr1:
++	c.bnez a1, 2f
++	ret
++1:	li a1, KPROBE_TEST_MAGIC_UPPER
++	add a0, a0, a1
++	ret
++test_kprobes_c_bnez_addr2:
++2:	c.bnez a0, 3f
++	li a0, KPROBE_TEST_MAGIC_LOWER
++test_kprobes_c_bnez_addr3:
++	c.bnez a0, 1b
++3:	li a0, 0
++	ret
++SYM_FUNC_END(test_kprobes_c_bnez)
++
++#endif /* CONFIG_RISCV_ISA_C */
++
++SYM_DATA_START(test_kprobes_addresses)
++	RISCV_PTR test_kprobes_add_addr1
++	RISCV_PTR test_kprobes_add_addr2
++	RISCV_PTR test_kprobes_jal_addr1
++	RISCV_PTR test_kprobes_jal_addr2
++	RISCV_PTR test_kprobes_jalr_addr
++	RISCV_PTR test_kprobes_auipc_addr1
++	RISCV_PTR test_kprobes_auipc_addr2
++	RISCV_PTR test_kprobes_auipc_addr3
++	RISCV_PTR test_kprobes_branch_addr1
++	RISCV_PTR test_kprobes_branch_addr2
++	RISCV_PTR test_kprobes_branch_addr3
++	RISCV_PTR test_kprobes_branch_addr4
++	RISCV_PTR test_kprobes_branch_addr5
++	RISCV_PTR test_kprobes_branch_addr6
++	RISCV_PTR test_kprobes_branch_addr7
++	RISCV_PTR test_kprobes_branch_addr8
++#ifdef CONFIG_RISCV_ISA_C
++	RISCV_PTR test_kprobes_branch_c_j_addr1
++	RISCV_PTR test_kprobes_branch_c_j_addr2
++	RISCV_PTR test_kprobes_c_jr_addr1
++	RISCV_PTR test_kprobes_c_jr_addr2
++	RISCV_PTR test_kprobes_c_jalr_addr
++	RISCV_PTR test_kprobes_c_beqz_addr1
++	RISCV_PTR test_kprobes_c_beqz_addr2
++	RISCV_PTR test_kprobes_c_beqz_addr3
++	RISCV_PTR test_kprobes_c_bnez_addr1
++	RISCV_PTR test_kprobes_c_bnez_addr2
++	RISCV_PTR test_kprobes_c_bnez_addr3
++#endif /* CONFIG_RISCV_ISA_C */
++	RISCV_PTR 0
++SYM_DATA_END(test_kprobes_addresses)
++
++SYM_DATA_START(test_kprobes_functions)
++	RISCV_PTR test_kprobes_add
++	RISCV_PTR test_kprobes_jal
++	RISCV_PTR test_kprobes_jalr
++	RISCV_PTR test_kprobes_auipc
++	RISCV_PTR test_kprobes_branch
++#ifdef CONFIG_RISCV_ISA_C
++	RISCV_PTR test_kprobes_c_j
++	RISCV_PTR test_kprobes_c_jr
++	RISCV_PTR test_kprobes_c_jalr
++	RISCV_PTR test_kprobes_c_beqz
++	RISCV_PTR test_kprobes_c_bnez
++#endif /* CONFIG_RISCV_ISA_C */
++	RISCV_PTR 0
++SYM_DATA_END(test_kprobes_functions)
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.c b/arch/riscv/kernel/tests/kprobes/test-kprobes.c
+new file mode 100644
+index 000000000000..6f6cdfbf5a95
+--- /dev/null
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.c
+@@ -0,0 +1,56 @@
++// SPDX-License-Identifier: GPL-2.0+
++
++#include <linux/kernel.h>
++#include <linux/kprobes.h>
++#include <kunit/test.h>
++#include "test-kprobes.h"
++
++static int kprobe_dummy_handler(struct kprobe *kp, struct pt_regs *regs)
 +{
-+	return acpi_fwnode_get_reference_args(fwnode, propname, NULL, index, num_args, args);
++	return 0;
 +}
- EXPORT_SYMBOL_GPL(__acpi_node_get_property_reference);
- 
- static int acpi_data_prop_read_single(const struct acpi_device_data *data,
-@@ -1558,16 +1567,6 @@ acpi_fwnode_property_read_string_array(const struct fwnode_handle *fwnode,
- 				   val, nval);
- }
- 
--static int
--acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
--			       const char *prop, const char *nargs_prop,
--			       unsigned int args_count, unsigned int index,
--			       struct fwnode_reference_args *args)
--{
--	return __acpi_node_get_property_reference(fwnode, prop, index,
--						  args_count, args);
--}
--
- static const char *acpi_fwnode_get_name(const struct fwnode_handle *fwnode)
- {
- 	const struct acpi_device *adev;
++
++static void test_kprobe_riscv(struct kunit *test)
++{
++	unsigned int num_kprobe = 0;
++	long (*func)(void);
++	struct kprobe *kp;
++	int i;
++
++	while (test_kprobes_addresses[num_kprobe])
++		num_kprobe++;
++
++	kp = kcalloc(num_kprobe, sizeof(*kp), GFP_KERNEL);
++	KUNIT_EXPECT_TRUE(test, kp);
++	if (!kp)
++		return;
++
++	for (i = 0; i < num_kprobe; ++i) {
++		kp[i].addr = test_kprobes_addresses[i];
++		kp[i].pre_handler = kprobe_dummy_handler;
++		KUNIT_EXPECT_EQ(test, 0, register_kprobe(&kp[i]));
++	}
++
++	for (i = 0;; ++i) {
++		func = test_kprobes_functions[i];
++		if (!func)
++			break;
++		KUNIT_EXPECT_EQ_MSG(test, KPROBE_TEST_MAGIC, func(), "function %d broken", i);
++	}
++
++	for (i = 0; i < num_kprobe; ++i)
++		unregister_kprobe(&kp[i]);
++	kfree(kp);
++}
++
++static struct kunit_case kprobes_testcases[] = {
++	KUNIT_CASE(test_kprobe_riscv),
++	{}
++};
++
++static struct kunit_suite kprobes_test_suite = {
++	.name = "kprobes_test_riscv",
++	.test_cases = kprobes_testcases,
++};
++
++kunit_test_suites(&kprobes_test_suite);
+diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.h b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
+new file mode 100644
+index 000000000000..3886ab491ecb
+--- /dev/null
++++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0+ */
++#ifndef TEST_KPROBES_H
++#define TEST_KPROBES_H
++
++/*
++ * The magic value that all the functions in the test_kprobes_functions array return. The test
++ * installs kprobes into these functions, and verify that the functions still correctly return this
++ * value.
++ */
++#define KPROBE_TEST_MAGIC          0xcafebabe
++#define KPROBE_TEST_MAGIC_LOWER    0x0000babe
++#define KPROBE_TEST_MAGIC_UPPER    0xcafe0000
++
++#ifndef __ASSEMBLY__
++
++/* array of addresses to install kprobes */
++extern void *test_kprobes_addresses[];
++
++/* array of functions that return KPROBE_TEST_MAGIC */
++extern long (*test_kprobes_functions[])(void);
++
++#endif /* __ASSEMBLY__ */
++
++#endif /* TEST_KPROBES_H */
 -- 
-2.43.0
+2.39.5
 
 
 _______________________________________________
