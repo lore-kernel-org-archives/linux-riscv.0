@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E2BDC3ABC3
-	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 13:40:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F179C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Sun, 11 May 2025 13:40:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oNA3q2cBXTrGMtCmCE2R/8gztd6dYg08WJ26rpx8k10=; b=L5j/b/lPsfUXXO
-	u95dCXLbI9WvRlbKEHS6sbCsITOx3WXY8TMemJl9qXqXIJAjTMj2KG33At9LWbVzNHXYV+iCFjmsd
-	urNofsCDjL39lQnwsDc1IcCMzvMwa5I/uFZOYo8trHo+5ezDG1Rg1C0RVTO0E/qMaqt/yon/BUW4D
-	Ui55c6AiIKdlDNE5yjZaqtgIu6T6sFldyZN0yonv+3aGobNl1RRrKuWp1RneXqX+pjqDZLZjkZj1P
-	5ilx1qjLTfolK1v53Qv6/3iCWq6ihDZCgPyvUeYBNL0LYzQQr96aw5N+aVtSyyPxXIeCLMXOg9p8i
-	0yTxQuKF4D5x81JsDlnQ==;
+	List-Owner; bh=zb1+xVYl7TaAHMzNJ444KjIVzzJwc8PsscYNtYb6lmk=; b=c0YaE9li5adU6t
+	vTeBo/yQ1k4SGKQxHAocMJYU4dHuPu4Vp7AWdyi7zFthUUU57NYVSdLtGiPb99sxr1dMvJV0nFXgH
+	dAEfKudxshoDD2rD2GnTW5ILi+sCvLF2Tj4mOBNEfzPrX85Pj1fPNyEDmfcHW5BJsRn+EUiZVYeDp
+	SGzY4hG7YNmtBFokd6rCK1vLGUzAm6yg0uRy9pIMBt62WwGAJvdDSlMlS3Rg/yKWI/hMWLTw37klc
+	P3X2r7Yu+Cua2CcKhLQp4DwR/AoKtsM/JRsXkDVPfNQkhBcvwaW9ayxxC9X6yjDmqO80gyIcsLwFY
+	vyDsDUMrBgV1ygi+jPIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6uv-00000007HJQ-2hyE;
-	Sun, 11 May 2025 13:40:33 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1uE6v3-00000007HNi-11aZ;
+	Sun, 11 May 2025 13:40:41 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uE6us-00000007HHD-3ash
+	id 1uE6v1-00000007HM6-1lRG
 	for linux-riscv@lists.infradead.org;
-	Sun, 11 May 2025 13:40:32 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-22c33677183so31244385ad.2
-        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 06:40:30 -0700 (PDT)
+	Sun, 11 May 2025 13:40:40 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b1396171fb1so2352658a12.2
+        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 06:40:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1746970830; x=1747575630; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1746970838; x=1747575638; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=wrq/ed0KxjpyuTfPVgQBHoRGk1JS2/KTrIUQ+VEc4ns=;
-        b=PpAxx5txyUI8XozODEeR5RyMwIm9dh5ZdevN6Jq+Xr2COi9Uhj6V1F7rkV9r4hL+UI
-         kZVAk2QsBb+G4vt+Pec3m5qyQGajAME1ftp79L30TODTipAp0yknAwS5F8nbhOZw44Dg
-         AZVkiyBCYqVz1O1q0G8cPg2jvrahUPqsn9WufVaqtSQuJKOJUe/IzIxt/tEoUUf0OVbT
-         /fV2SKlXmWU8AD1/B7315UUnSqRfsXeyh5rHNbzg+5MiWlMvd9hdOEkFtSoj8hbT5irZ
-         OeV9tW0OrHePbLdE6fltXy/ZYYnGbzEKE0MrDNriWS6exxBZ8Vj4BEtwCWbBFR1MpB1e
-         mBCA==
+        bh=NxTPUwSNoQG9w3qR3LtIgBXvV+xInFFIHYJOltRLchg=;
+        b=d1YHiVuIo22jk6mN5egF+oCa73Fv8cJ07CZ/netjML+q1lWOxwzLKdcoO3vfpzddJW
+         mnnSQ0UwtbMEcMPxD/Otplv9QIJAuCZCW39gW/5Q2h3uGbFZ+NxCZsMTl0gyoN0LtiOM
+         KUf2jbI0jWv2kMrxk1bFLfCpz7UaZ+Bj5YAoVhDMAQTJ1sTNl3hIHSZj59jotI4PMizJ
+         qJBroOyg8cjszmfkoOArfhkt7l2esUct+AIxicJBzsHpJXBTmaDJ0rIwWPaVfyL5AZLt
+         Qi59JYb6h06MVzXzWDQ+fD/DO6SqUF4ir/cOWzlajn/b+QGejrDmyfLMXSXWYZKXUx+z
+         UdDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1746970830; x=1747575630;
+        d=1e100.net; s=20230601; t=1746970838; x=1747575638;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wrq/ed0KxjpyuTfPVgQBHoRGk1JS2/KTrIUQ+VEc4ns=;
-        b=ROR3GdedZ6Hp6yGmEXugmqmY08s4mt5IzdkDGrz0ZTBk8R3pONSImuKOfpTKdvNu5S
-         S5bmKne4LIaRflEFMd04ZIPIZQVqryh+3S6wEq8cyiPV4f6C7AAWvueHuqyr3FfZawmH
-         9YfFIacImcmNInWsF8qsfxYMeWkuvLNSTVNnLDl1RZc2oJdxeH/Lcxm8LX1blL8+RE8F
-         5EP4SOA6Dv7Oj36YGBQwYshgTxZEXPEIAbmoL5M/jmAI89wCF4jA0kGUhQDZdb9I8hs3
-         YeYaBep+8/3o92JTfDnu6pznQMulLrkCs3cSxcH6DmOf8zyvpmuZW6UKfugZr9CzfbLi
-         PSJw==
-X-Forwarded-Encrypted: i=1; AJvYcCWiY17mK+gdnW/ri1r2XOk3EG82oAyEkUowxH+nt54KgiTFwh4xfEbxNsrwz6W5FPEKFqeccW0tXuW0gg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXnHdxih46f7XQxsvr2vyVPouROZEmTjKe7zoxpXxO0dk0wdkd
-	5zpXsPbyG7oDVBhcCYLccD/BEesGOBo54eJuFLAMbqokiy2tN252iEtJOe58sec=
-X-Gm-Gg: ASbGncsIxgLFqoj8w5zdFD6AYFr3zXF+hQnjoRFbf1hBIgaYMFP28LXslcIlqMqZHIt
-	Th2jxgYqo5yaQNVKb96KDSkihwnPQ6ReaETu1OdQDDaOuMvkJZddW7HHaBabJmJFT439ABR3XSS
-	Dx9mfWLk7YomzUXimfMjdRUdj9uQ3o7my/29cRE+zYNv31tyS+Dg6jmyEDG66gTTQKLBzZpVeDz
-	HZJs6fCRI8zY4EU/5I0u79H8XQoS2GY+aFbD1VLRfyXYmcCwnv/XWCszsijPPhjvi29+3uJCrEP
-	LtTpI3KG6wsHsaF0zO9yiPVJ8H50Pcmw8BgtnP3h0+s18BNCSPInKPMFwKDcjRGl0oc8OdQxm2X
-	3lj8Y61vOtYEY1XM3GNy6LqHY
-X-Google-Smtp-Source: AGHT+IGPaG5lK9RQjMv7rrdrCjCY/xtoEPE2JRgHnbSEInfBFbrmMEp72jKw6YqleNzDHesrXYvq0A==
-X-Received: by 2002:a17:902:e94d:b0:224:1074:6393 with SMTP id d9443c01a7336-22fc918c44amr161896895ad.43.1746970829854;
-        Sun, 11 May 2025 06:40:29 -0700 (PDT)
+        bh=NxTPUwSNoQG9w3qR3LtIgBXvV+xInFFIHYJOltRLchg=;
+        b=d7G/TdzIOur8CFDfArdoViPybr+KvpL/BBBSNhf9iWwPXpqbPDsf7dUPW4TTklUZ6x
+         s8Oxa2RsZsJ/YsTzaIPmd+Q0KTm+NLe+P2Xij+GF4LKk1JNYV1DUtqgaYy0RHMkV6pmF
+         lutnOucunCOMsiBPHxkq8wJJi7YjoX9Ohw5dXdi0CGo7xp1ojdP6ZC7Ln33cTDbtYZME
+         aZe2+VRSt+1pLQ3ROux3EpCzOBBjwHX8GJIEh3FceTzVZmi56e/Qn7wAmRUjyzEYMAA2
+         C22Cdyh1yWCCP+KX/RLuKc5N2LJBwDbIPXjfdATQjFzg3mW/mE/+0yMWd4vkiYx0u4HH
+         6omg==
+X-Forwarded-Encrypted: i=1; AJvYcCVmodShtFCzw0Q3e9vevpceNnfdAaC7AVbA+T/aAoF2IstNB5LoMkc8sli6OuxjHP1RlHsC4ED/n3zEiw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxf0BdC5vQeRBkFg7Za8B/0rrU2bncaM7GH7p5ysn+QfrmHC2zz
+	NjEAZuHF/dfsAxkQuuVnUQcRK0cxUtR9kvRizfjwvxkHecm1hwrRbRmqv39r+Cg=
+X-Gm-Gg: ASbGncsM7JIVNEaVK1LPwnyE0FVLoypI6mDnBCkRouZG7afKFamgyBC1x4FL7qj0aza
+	3GSvqF75PyBIsZ3zXd92oqA8Ge1QOfcYVBU5Wgnamu4aV9oE3tqSmbhE/+f+YRaPO3v0SiRN76F
+	/GUkidssZpLbUofWiuzlMF1qg60glcV8lRroDi/SpptojCX+bqZKZxvaLR7Z+5LlD7ftK5P7xyd
+	c/obpwvVxBXMf4LbTartvcvBchTVqJFCCDpqyfmYUQEDxH5La4VAWp70wDSJILNNasqfQM+YJ+f
+	PysuArs7JTmc7pSejhPaY7xaLmfdTOYPcQyTR9XJUJvoOB0GriRqivvjfSDIofg8JmWA6dOfMw2
+	yLo1dabEFo9pMZg==
+X-Google-Smtp-Source: AGHT+IHA3PsXqyuN65sUtIV2Ta99+xXozSEhh2Q4R2ahfGnFgJSheXDWuFscswXV0+c2V15ebDTDaw==
+X-Received: by 2002:a17:902:d581:b0:21f:1549:a563 with SMTP id d9443c01a7336-22fc8b0cbbbmr134190455ad.2.1746970838172;
+        Sun, 11 May 2025 06:40:38 -0700 (PDT)
 Received: from anup-ubuntu-vm.localdomain ([122.171.17.86])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc754785bsm46665805ad.20.2025.05.11.06.40.21
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc754785bsm46665805ad.20.2025.05.11.06.40.30
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 11 May 2025 06:40:29 -0700 (PDT)
+        Sun, 11 May 2025 06:40:37 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	Linus Walleij <linus.walleij@linaro.org>,
 	Bartosz Golaszewski <brgl@bgdev.pl>,
 	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v3 03/23] dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
-Date: Sun, 11 May 2025 19:09:19 +0530
-Message-ID: <20250511133939.801777-4-apatel@ventanamicro.com>
+Subject: [PATCH v3 04/23] RISC-V: Add defines for the SBI message proxy extension
+Date: Sun, 11 May 2025 19:09:20 +0530
+Message-ID: <20250511133939.801777-5-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250511133939.801777-1-apatel@ventanamicro.com>
 References: <20250511133939.801777-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_064030_892962_B31A2F63 
-X-CRM114-Status: GOOD (  13.02  )
+X-CRM114-CacheID: sfid-20250511_064039_456468_175883AA 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,72 +110,94 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
-extension as a mailbox controller.
+Add defines for the new SBI message proxy extension which is part
+of the SBI v3.0 specification.
 
+Co-developed-by: Rahul Pathak <rpathak@ventanamicro.com>
+Signed-off-by: Rahul Pathak <rpathak@ventanamicro.com>
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 51 +++++++++++++++++++
- 1 file changed, 51 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+ arch/riscv/include/asm/sbi.h | 60 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-new file mode 100644
-index 000000000000..ad4c135e0510
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-@@ -0,0 +1,51 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
+index 4dd6aafb8468..d295c26a7c26 100644
+--- a/arch/riscv/include/asm/sbi.h
++++ b/arch/riscv/include/asm/sbi.h
+@@ -35,6 +35,7 @@ enum sbi_ext_id {
+ 	SBI_EXT_DBCN = 0x4442434E,
+ 	SBI_EXT_STA = 0x535441,
+ 	SBI_EXT_NACL = 0x4E41434C,
++	SBI_EXT_MPXY = 0x4D505859,
+ 
+ 	/* Experimentals extensions must lie within this range */
+ 	SBI_EXT_EXPERIMENTAL_START = 0x08000000,
+@@ -402,6 +403,65 @@ enum sbi_ext_nacl_feature {
+ #define SBI_NACL_SHMEM_SRET_X(__i)		((__riscv_xlen / 8) * (__i))
+ #define SBI_NACL_SHMEM_SRET_X_LAST		31
+ 
++enum sbi_ext_mpxy_fid {
++	SBI_EXT_MPXY_GET_SHMEM_SIZE,
++	SBI_EXT_MPXY_SET_SHMEM,
++	SBI_EXT_MPXY_GET_CHANNEL_IDS,
++	SBI_EXT_MPXY_READ_ATTRS,
++	SBI_EXT_MPXY_WRITE_ATTRS,
++	SBI_EXT_MPXY_SEND_MSG_WITH_RESP,
++	SBI_EXT_MPXY_SEND_MSG_WITHOUT_RESP,
++	SBI_EXT_MPXY_GET_NOTIFICATION_EVENTS,
++};
 +
-+title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
++enum sbi_mpxy_attribute_id {
++	/* Standard channel attributes managed by MPXY framework */
++	SBI_MPXY_ATTR_MSG_PROT_ID		= 0x00000000,
++	SBI_MPXY_ATTR_MSG_PROT_VER		= 0x00000001,
++	SBI_MPXY_ATTR_MSG_MAX_LEN		= 0x00000002,
++	SBI_MPXY_ATTR_MSG_SEND_TIMEOUT		= 0x00000003,
++	SBI_MPXY_ATTR_MSG_COMPLETION_TIMEOUT	= 0x00000004,
++	SBI_MPXY_ATTR_CHANNEL_CAPABILITY	= 0x00000005,
++	SBI_MPXY_ATTR_SSE_EVENT_ID		= 0x00000006,
++	SBI_MPXY_ATTR_MSI_CONTROL		= 0x00000007,
++	SBI_MPXY_ATTR_MSI_ADDR_LO		= 0x00000008,
++	SBI_MPXY_ATTR_MSI_ADDR_HI		= 0x00000009,
++	SBI_MPXY_ATTR_MSI_DATA			= 0x0000000A,
++	SBI_MPXY_ATTR_EVENTS_STATE_CONTROL	= 0x0000000B,
++	SBI_MPXY_ATTR_STD_ATTR_MAX_IDX,
++	/*
++	 * Message protocol specific attributes, managed by
++	 * the message protocol specification.
++	 */
++	SBI_MPXY_ATTR_MSGPROTO_ATTR_START	= 0x80000000,
++	SBI_MPXY_ATTR_MSGPROTO_ATTR_END		= 0xffffffff
++};
 +
-+maintainers:
-+  - Anup Patel <anup@brainfault.org>
++/* Possible values of MSG_PROT_ID attribute */
++enum sbi_mpxy_msgproto_id {
++	SBI_MPXY_MSGPROTO_RPMI_ID = 0x0,
++};
 +
-+description: |
-+  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
-+  software to send messages through the SBI implementation (M-mode
-+  firmware or HS-mode hypervisor). The underlying message protocol
-+  and message format used by the supervisor software could be some
-+  other standard protocol compatible with the SBI MPXY extension
-+  (such as RISC-V Platform Management Interface (RPMI) [2]).
++/** RPMI message protocol specific MPXY attributes */
++enum sbi_mpxy_rpmi_attribute_id {
++	SBI_MPXY_RPMI_ATTR_SERVICEGROUP_ID = SBI_MPXY_ATTR_MSGPROTO_ATTR_START,
++	SBI_MPXY_RPMI_ATTR_SERVICEGROUP_VERSION,
++	SBI_MPXY_RPMI_ATTR_MAX_ID,
++};
 +
-+  ===========================================
-+  References
-+  ===========================================
++/* Encoding of MSG_PROT_VER attribute */
++#define SBI_MPXY_MSG_PROT_VER_MAJOR(__ver)	(((__ver) >> 16) & 0xffff)
++#define SBI_MPXY_MSG_PROT_VER_MINOR(__ver)	((__ver) & 0xffff)
++#define SBI_MPXY_MSG_PROT_MKVER(__maj, __min)	(((__maj) << 16) | (__min))
 +
-+  [1] RISC-V Supervisor Binary Interface (SBI)
-+      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++/* Capabilities available through CHANNEL_CAPABILITY attribute */
++#define SBI_MPXY_CHAN_CAP_MSI			BIT(0)
++#define SBI_MPXY_CHAN_CAP_SSE			BIT(1)
++#define SBI_MPXY_CHAN_CAP_EVENTS_STATE		BIT(2)
++#define SBI_MPXY_CHAN_CAP_SEND_WITH_RESP	BIT(3)
++#define SBI_MPXY_CHAN_CAP_SEND_WITHOUT_RESP	BIT(4)
++#define SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS	BIT(5)
 +
-+  [2] RISC-V Platform Management Interface (RPMI)
-+      https://github.com/riscv-non-isa/riscv-rpmi/releases
-+
-+properties:
-+  compatible:
-+    const: riscv,sbi-mpxy-mbox
-+
-+  "#mbox-cells":
-+    const: 2
-+    description:
-+      The first cell specifies channel_id of the SBI MPXY channel,
-+      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
-+
-+required:
-+  - compatible
-+  - "#mbox-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    mailbox {
-+          compatible = "riscv,sbi-mpxy-mbox";
-+          #mbox-cells = <2>;
-+    };
+ /* SBI spec version fields */
+ #define SBI_SPEC_VERSION_DEFAULT	0x1
+ #define SBI_SPEC_VERSION_MAJOR_SHIFT	24
 -- 
 2.43.0
 
