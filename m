@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15F6FC3ABC3
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 14:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E153C3ABCB
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 14:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PSwfhVWucDxxqbW4GDgMKxy5CTDym3uujzY3pBuF7s4=; b=RdGjGBztwa+Pe6
-	PSWv3VhdmfmI3hU1um7pYvGquxLXMBKqZ4jxFvwmusYxURMMSBatueDE2C7AhmQgvCRp3tfQ2vw2Q
-	zCCY3NPBzSDOdW6cLp7Ri7zMjMfCqYMVmReB1MqLgjsL2dvHCMYUt7rvCWFxrg8id1SRNNAhjZarC
-	Y1YO4f++xLvy3AS1hyzCIIAX+rjh4BJalTDWfgY30y/2ODfe5FHf8JWdWkfJCIzIG5iG1zPjyb+AU
-	2qs7tVRNqMRKC12NkgOIDZUw7SE1Y+JmDCJsrHD5keItA5Ggqz8/GaCQYRoDc2Iq+tjeNxNkVOcxu
-	q6Oj+Qt2UfXDmmZOzfyg==;
+	List-Owner; bh=rZZjS/iS2gE6cQlS306vav0gais27U0D8nHl7p1pSU0=; b=U7ANlyMN4fhMKU
+	c+s26L3MiM2lhr7UrYATy23zADxUdHGsgnPi6zuX20YGWdDKjBpLz7isIJ3E8rG60ykmyjMgmwjIs
+	CyOegWwPFm2LgTOkHt1nIUfaXtxshAba2+/jvFSHs264x/at+z3dWZj5XocBLKgnHVIkEYn2KtIdG
+	MpFOxHBBNx88djW8jzBSPYMLgLAu9ih1hHncDWOb+ZsT8/sIzwb9PfuAkm/e2qeShq2eVkGziVUps
+	zUNpaMcaF3CwZWdPv5IC+XnXumKgBLttqQJ94vinDH6cKifKQclmMRM3OvyN7MKxzDzsor75T96My
+	DVr1hafrbKZbKIiTK9Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEU4n-00000009i19-1Tim;
-	Mon, 12 May 2025 14:24:17 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uEU4m-00000009i12-3AN1;
+	Mon, 12 May 2025 14:24:16 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uETWD-00000009c1G-05mi
+	id 1uETW9-00000009c0J-0o92
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 13:48:33 +0000
+	Mon, 12 May 2025 13:48:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 061C762A1F;
-	Mon, 12 May 2025 13:48:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5BA2BC4CEEF;
-	Mon, 12 May 2025 13:48:29 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 8A8B3A4D4B0;
+	Mon, 12 May 2025 13:48:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E428DC4CEEE;
+	Mon, 12 May 2025 13:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747057711;
-	bh=ZtcN5AbkC6JRxscSzpTZ6yhbH1um53//UF1LbMyQjx8=;
+	s=k20201202; t=1747057708;
+	bh=2eyQSXPPXqrOE9DTVZr2ptWdA53fkPCZ6kBRgliB/0Y=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dVcbS+6a89aPGN7YF1tPHEst6vPTmCaJEw3geIxrbuxAZY7qMMT6GEQHe2sm98oCn
-	 CmAdmkp5b5Y6ykcZrLjp6rKhEXOofLIuIs+L1HBAK9n5qmvok9JYtK4uucb3luySvX
-	 xenRAyO7edwT+3OD6NOxtRm1iyhdvKeUsBGr2NAgqOEGE5CNROG+5FpxA1L/E9xc4M
-	 hjUy5cP4/jXoVcCFcoYKSZnI6y3E9SpGJ0Zz5S5X2AuTbQ8CQ7pVtzsTMyg0H4dXc/
-	 c/YM3/oV4skQ38V57vibpr2kW3XX/6trfXQAEBdPQGrNhKu1fXSvZ8Elv5Y0dOjM76
-	 OhM+/+O1Kiw7g==
+	b=tVXfo23Z4KQVo8PSPZGABI8ItdK6NoPcZqmnretJ8YaxmOpzIUkC51mIZFSG6Qyol
+	 j4qTj2qjATwiOveKyUsVqsXpkVnbCQ8EM6H7G5I0H47r+HEVdLgYT5v4E/JEPMBQEC
+	 +gMF/IPOo+qvJ3lXkX8RpqSnoykk5u3ATGopac5U23vAuYOPgHZjNz6pWs2UHFzbNG
+	 aROjXfOkz+4L5BUif9Ot+HEDCtEQ7qJps84eZg0zI++YxI6HR2hyjIeW3P+3bU0YX7
+	 s2J8yRaP4AtAQpQzrCpkW9VNCQOnxf6EZG5jGRG0VhnSPJmdNG1Z/RMrINvORxcej7
+	 ADhCJFpi9syvQ==
 From: Conor Dooley <conor@kernel.org>
 To: linux-renesas-soc@vger.kernel.org
 Cc: conor@kernel.org,
@@ -55,15 +55,18 @@ Cc: conor@kernel.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 2/2] riscv: dts: renesas: add specific RZ/Five cache compatible
-Date: Mon, 12 May 2025 14:48:15 +0100
-Message-ID: <20250512-sphere-plenty-8ce4cd772745@spud>
+Subject: [PATCH v2 1/2] dt-bindings: cache: add specific RZ/Five compatible to ax45mp
+Date: Mon, 12 May 2025 14:48:14 +0100
+Message-ID: <20250512-sevenfold-yeah-d40078a9249e@spud>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250512-daily-saga-36a3a017dd42@spud>
 References: <20250512-daily-saga-36a3a017dd42@spud>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1260; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=ybCPqZEqw4uWvO05OQd8ua1QcdWR7/7pRvsx7RcK7bg=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBmKf2QnyJscNLaJb6tofyZ/7prgnseHPl9o4bW49FpbY Tn72WrpjlIWBjEOBlkxRZbE230tUuv/uOxw7nkLM4eVCWQIAxenAEzkWBDDX5FTBssymqYJrnuS 997tyvr+/fHndz+JcrBd4LfqYsKPLA6GfzorrtV+q2jR4S5c5nZoPueNJxoan99dPskQufvrvkn 2l1kB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1589; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=sAzgf7QxM5pm09G0aavl/SdXDXsl+gJHEI1v9VqIti0=; b=owGbwMvMwCFWscWwfUFT0iXG02pJDBmKf2Q7hCKrzzsZZgrs/jlntf5Jzra9E36WtH2d67zg8 amr6/aXdpSyMIhxMMiKKbIk3u5rkVr/x2WHc89bmDmsTCBDGLg4BWAi1eUM/6zCA2cp/oxkK4ha vf33pf9Xk3+dW7pi9/sNrVejP1VkuJgzMny5p7x3xcHUmt+Nh6cemOFoaRWo9Ex4U4/NhKaK24t WXOcFAA==
 X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250512_064829_297384_6336C44E 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,23 +96,31 @@ implementations of the cache controller.
 Acked-by: Ben Zong-You Xie <ben717@andestech.com>
 Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- arch/riscv/boot/dts/renesas/r9a07g043f.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ .../devicetree/bindings/cache/andestech,ax45mp-cache.yaml     | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-index e0ddf8f602c79..a8bcb26f42700 100644
---- a/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-+++ b/arch/riscv/boot/dts/renesas/r9a07g043f.dtsi
-@@ -143,7 +143,8 @@ plic: interrupt-controller@12c00000 {
- 	};
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+index d2cbe49f4e15f..82668d327344e 100644
+--- a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -28,6 +28,7 @@ select:
+ properties:
+   compatible:
+     items:
++      - const: renesas,r9a07g043f-ax45mp-cache
+       - const: andestech,ax45mp-cache
+       - const: cache
  
- 	l2cache: cache-controller@13400000 {
--		compatible = "andestech,ax45mp-cache", "cache";
-+		compatible = "renesas,r9a07g043f-ax45mp-cache", "andestech,ax45mp-cache",
-+			     "cache";
- 		reg = <0x0 0x13400000 0x0 0x100000>;
- 		interrupts = <SOC_PERIPHERAL_IRQ(476) IRQ_TYPE_LEVEL_HIGH>;
- 		cache-size = <0x40000>;
+@@ -70,7 +71,8 @@ examples:
+     #include <dt-bindings/interrupt-controller/irq.h>
+ 
+     cache-controller@13400000 {
+-        compatible = "andestech,ax45mp-cache", "cache";
++        compatible = "renesas,r9a07g043f-ax45mp-cache", "andestech,ax45mp-cache",
++                     "cache";
+         reg = <0x13400000 0x100000>;
+         interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
+         cache-line-size = <64>;
 -- 
 2.45.2
 
