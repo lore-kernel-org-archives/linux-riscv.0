@@ -4,108 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B52DC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 08:57:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24119C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 09:02:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VFFrAorL1VnbQLPWnUOvRs902kkyJZaDV78JyzbpSIg=; b=TeJwHSJCwsM567
-	9EyfZmLlJqpaF/g1xP7eCWH0wk97b16KZYWeEl7jXVeqKaOeqRvp04Z4piSlkoQJBpNIInsWU8qrg
-	CLFKCGNNwk7F6AFcUdFKdO1UGzjMpRROOIDPE+p/dBPilHtcJnSAZL1gA680NciYj5aLqswvOQ4/u
-	Bmgq01nmBPDRCiMpnMOPJCudSWCZ5MiWPeN9Tqg7ACI4Fc+eZFGhoURmGmttTbvmIc4COKAlv8ZI1
-	K377fFjk4f/Dq8xgCxPxeKOOz/IBSb4uGEWZXzCTafkuwYEqRCu8RM81on2qiQFD35OaOe9tQEBxK
-	dIPcBGIPpKFgVzln8zQw==;
+	List-Owner; bh=DnPDq9dSIplUOPe4sm19mJhqTWHBob0p5uW/QAaDosI=; b=FaX9ukVpDGNmNe
+	BWYheuADyFrINT+WgUMly9mbK7TJjpxlvAFhG4IvIJueFNCapxFm4BimkpJT/F9+gw/o8p4r/ZJZ8
+	9bWu+BJNwlNbH2MJBBLeBTEv9xRGnVS2HCo6GJVJ6CUkPEcjjhKr+WMqQty5I3DY+SISW1eZU3Lul
+	cdWxL/5FUyUf7MVJEr8hHWEoHXPb8eosTgdv+xrep73gIkvQ0PeaXiFw9MgkbaZUtzNZle4ALPb2p
+	AzQI4SCFRUwzI5OoFCtRGbdPRjdefwU88nCgkHQB33QvWKu/fmIojkPh1Qmn/BRbyth/DcO7YjM1e
+	ug0Sad6kmgiP1lZe8+KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOyQ-00000008qZz-2Znx;
-	Mon, 12 May 2025 08:57:22 +0000
-Received: from mail-pf1-x436.google.com ([2607:f8b0:4864:20::436])
+	id 1uEP2p-00000008rhu-2LGL;
+	Mon, 12 May 2025 09:01:55 +0000
+Received: from mail-ot1-f52.google.com ([209.85.210.52])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOyO-00000008qYm-2e1q
+	id 1uEP2m-00000008rgb-1zHL
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 08:57:21 +0000
-Received: by mail-pf1-x436.google.com with SMTP id d2e1a72fcca58-72d3b48d2ffso4216759b3a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 01:57:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1747040240; x=1747645040; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Sc3CqNV/8Mi2zP04knLd5VAdkGEl8lYzJxAs+HQXCEQ=;
-        b=Jfyr+3knRVjPCcu6N/PPkvzwH96m3AP4EUa6qjWb0Nv79OsFyNcWUktof6j55fs2Lu
-         /wJUUqvv3zyRBNGiYmLiDnvJEjiEE65/cmroZXRCVIOihB3ka1ixcu+d3A7x5WZdhRGC
-         GlR2FxuFta8DkdrB9uWE18fBuraHXytL2AmEzxvJHTG1PcU3EdxZwvt0YfZm4WoMWGqD
-         GYjX6Wc6HQ7+R7Hr6OmydikpKhUn7HgCKWN0mNwxwGLmBwwXU/ZZhTp6iqUntr5DljdH
-         QPf7h9XeivmviM+3h6p4MoGljdy8LWKFJEMkmRcKUHV2nPgW/jKM8GaeCyXG9TBXRtbg
-         PFNQ==
+	Mon, 12 May 2025 09:01:53 +0000
+Received: by mail-ot1-f52.google.com with SMTP id 46e09a7af769-72b7a53ceb6so2587404a34.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 02:01:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747040240; x=1747645040;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Sc3CqNV/8Mi2zP04knLd5VAdkGEl8lYzJxAs+HQXCEQ=;
-        b=V1e7WSb+c+6okxbXCyw94nrDdO+wNtwDQpqDNhhACgBfrZVy5h0pfEjdtN0VgZCHVZ
-         J5bEJCGus+79OWHctUv2paCbqawq7G+1t76XC8Zu9pJs8N+iJMTdf9TVQ7Ez22KM9weH
-         LgiD/rGFQ1g0HUBPFakrpb6LdTWisfMdafWALLYko0++Xz4H/bZwuKTxNdSsFf8pjAiJ
-         T3jRYH9XnHhvu7N7YjcASk9qeQWEErnk3zu/gxIoGrL6hYqrcWGl7pLUqkCpPbTgSiVp
-         s9QxSJ6g/9OCrW6+vzRjvwZ+nIeX+z4JGAgetv2oHkwbnu3xYtNmIHmITop1vijOtdNn
-         NQtw==
-X-Forwarded-Encrypted: i=1; AJvYcCXgkAZmapOoCGZjbarar50YICXy76BICb/MjYNYgaYUOtvqJ3vYhGPXtW0WNi4brUqcpK7699DvouQYgg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YytHelOaeN/G8JvlUGGaNTKLRkxGevPdvNm+/AeeJynSSqf2YH5
-	hbFWoBENh2BpuO5FLLOHNWV9ELo8q5jLn9ISf0la9FmLOeZ2Dcrx0zjZIpKosxQ=
-X-Gm-Gg: ASbGncuhtAQZvD1PgkFUZDJJ1EQm/FTj0ROP1K7NbEXThC232oGoG1AtaZ4BXLLPAwh
-	sh0jJo8Qa8290kVggLoLzDnCRUn5ichPLgjDrnY6J4k8QEOEqKkfWUjw8IYfkU2wIzmzMjRIvqr
-	3jFQ2m+uSyFu5+taN9KVwtwPIzDT9g0qUzT5H96gnwsC6Jj00fyY/NhrPkLyg/WyeGu0sqd9W+E
-	elPPdwYTHZkAf1nQj1FwzGeTEsN/6AIEtCG2HUqMdtLFN9fsQ8PLinhFdiENbIhKGua8YeziIQk
-	TVpK2WxJXq+hY0E1copdj5jojdvmP2vu1QB765qOt1XLxIywTEPwGw0RHrk=
-X-Google-Smtp-Source: AGHT+IFWgBjdZaW68l9bQibLY9baPAwDqAl5/2YWyRVkP0+/oKFF3fyXGC7vyJbnIM52riOnSv7fSQ==
-X-Received: by 2002:a05:6a20:8792:b0:215:d4be:b0ad with SMTP id adf61e73a8af0-215d4beb697mr3485599637.28.1747040239872;
-        Mon, 12 May 2025 01:57:19 -0700 (PDT)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b234a0b29casm4459423a12.28.2025.05.12.01.57.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 01:57:19 -0700 (PDT)
-Date: Mon, 12 May 2025 14:27:05 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 20/23] mailbox/riscv-sbi-mpxy: Add ACPI support
-Message-ID: <aCG34XoERpmESesO@sunil-laptop>
-References: <20250511133939.801777-1-apatel@ventanamicro.com>
- <20250511133939.801777-21-apatel@ventanamicro.com>
- <aCGjEdNVH3ughITd@smile.fi.intel.com>
- <aCGzFVXFBVRbMUKz@sunil-laptop>
- <aCG1kqi2w2EUKWyO@smile.fi.intel.com>
+        d=1e100.net; s=20230601; t=1747040511; x=1747645311;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rJ9B+L/0pxk/aAA36fM5U+1DbR7T5khcLMrOecJLuZE=;
+        b=IrwW47GMncgrEv1mjVmYr/u1YUgKCtOdfwEwyz3Z4A4sp+96iA+hSJHnbPxhioICNU
+         0MTq9QQcmO0xUPM1QIEgPk41HafOsU56YgR8MOSvBsnuyWKnUUCB1YP+pYTQOWBeK8TC
+         BDiG95VDW0zV/GvVHsyVEaYGiB2rjd0HCRE5lXSpUmj2vGpeaRtsOczBrhXlxNvIJLYC
+         tzA1hajr07xPkrBPJCuwxLiYy04eXODzX6pu51/hgLrrui2EKvK2UuvfpUYdXh1XZxzg
+         1s570RvtbDfzTQ9TuEFnXpdxTdH4xEmjXEvozJ6IsTZnz+R/5ek/iernpiSePsbgrdTm
+         YZIQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVsQzwOodX24GqC3WDfCtYjpx0a5tI036Mj25J1npOLuABqi1ydpsImgdkGzYEWnuvjCoNozwWcXY677w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyvvqh1ydd4kSD6fuHzwYyVtTfdHprkIUQ4t2SB2zCsy2Bb6yzL
+	2DDLLvdyzeZSAIGz5TKvn+RGWEf2hvVOn80hd/kqF9PhgJgEg65qfMVQPpaL
+X-Gm-Gg: ASbGncvAqum3p+BWrwHIAO3iCokwQW4x3avPg868aCOh/iIgG8WsNl062cxkVXHPuYp
+	Cy4sTBFL5iqDKL2SpphSvp/7E/NV5f7lugGaZkgV38d36N0fJDOUOJYaNk38Pir2u7Vw9OYpr7w
+	Q+rPjM8jGs7wYIIDERDm1LhHNmtNAU9HGYBFSmGQERhDKqtLFDUySBGJItRL3Pqhp1cjb8LMy9o
+	2gOIc4r5D8iU6XRV/rV4zuq/wPU2xwePpf+B4J6Tf/v9/xQXLno598cB5tzGREbEDYBXbbf7Psy
+	zm8dX1ocYrG36zbTBcXICphnpU4pgBeLfxAUgwpWeZsBARoLg8a1QyvOYKB0fgWZK7PXw9v8Cxf
+	04s7NODeqy4Vd7g==
+X-Google-Smtp-Source: AGHT+IFCRpwAhyA7Vqv4SQ0W15FoSowi8k1D9GKLdcpeN5FAunRoc6k4yTWMgYo2fMKzWFHKvlW1qQ==
+X-Received: by 2002:a05:6830:280a:b0:72b:88b0:d8dc with SMTP id 46e09a7af769-73256d35ad1mr5677687a34.5.1747040510744;
+        Mon, 12 May 2025 02:01:50 -0700 (PDT)
+Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com. [209.85.210.45])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-732264b4a69sm1472391a34.24.2025.05.12.02.01.49
+        for <linux-riscv@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 12 May 2025 02:01:50 -0700 (PDT)
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-730580b0de8so3118037a34.1
+        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 02:01:49 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXu5JgqhrRrEGXRNREG6bWjsNK45AjErnGOiV5+Ut6Tk4WE23HhE7xXG8sWF8fGTonBBGu9S3smoQ/olA==@lists.infradead.org
+X-Received: by 2002:a05:6122:4710:b0:52a:654e:bd98 with SMTP id
+ 71dfb90a1353d-52c43a928a5mr15501650e0c.0.1747040499288; Mon, 12 May 2025
+ 02:01:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aCG1kqi2w2EUKWyO@smile.fi.intel.com>
+References: <20250509-sapling-exhale-72815a023ac1@spud> <20250509-dwindle-remold-98b3d03d0631@spud>
+In-Reply-To: <20250509-dwindle-remold-98b3d03d0631@spud>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 12 May 2025 11:01:26 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVWznEm4Kg-MvgCT5+cBtdwGi9YrzFK6mBaoPJ+VK8S+Q@mail.gmail.com>
+X-Gm-Features: AX0GCFspRySgDb6ycd4xRu9GZUWvVUHvETzhZOkoOpahhaSVXdE-xy2cDcixKwI
+Message-ID: <CAMuHMdVWznEm4Kg-MvgCT5+cBtdwGi9YrzFK6mBaoPJ+VK8S+Q@mail.gmail.com>
+Subject: Re: [PATCH v1 1/2] dt-bindings: cache: add specific RZ/Five
+ compatible to ax45mp
+To: Conor Dooley <conor@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org, 
+	Conor Dooley <conor.dooley@microchip.com>, Ben Zong-You Xie <ben717@andestech.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Magnus Damm <magnus.damm@gmail.com>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_015720_667828_2A7EC7A6 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20250512_020152_510287_DFB7A303 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,34 +100,57 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 11:47:14AM +0300, Andy Shevchenko wrote:
-> On Mon, May 12, 2025 at 02:06:37PM +0530, Sunil V L wrote:
-> > On Mon, May 12, 2025 at 10:28:17AM +0300, Andy Shevchenko wrote:
-> > > On Sun, May 11, 2025 at 07:09:36PM +0530, Anup Patel wrote:
-> 
-> ...
-> 
-> > > > +#ifdef CONFIG_ACPI
-> > > > +	if (!acpi_disabled)
-> > > 
-> > > Hmm... Why do you need this check? What for?
-> > > 
-> > When we boot with DT, ACPI_COMPANION(dev) will return NULL which will
-> > cause a crash in acpi_dev_clear_dependencies(). Let me know if I am
-> > missing something.
-> 
-> Yes, just check that the companion is NULL, rather than the above.
-> 
-> 	struct acpi_device *adev;
-> 
-> 	adev = ACPI_COMPANION(dev);
-> 	if (adev)
-> 		acpi_dev_clear_dependencies(adev);
-> 
-Ah Ok. Sure. Will update.
+Hi Conor,
 
-Thanks!
-Sunil
+On Fri, 9 May 2025 at 17:39, Conor Dooley <conor@kernel.org> wrote:
+> From: Conor Dooley <conor.dooley@microchip.com>
+>
+> When the binding was originally written, it was assumed that all
+> ax45mp-caches had the same properties etc. This has turned out to be
+> incorrect, as the QiLai SoC has a different number of cache-sets.
+>
+> Add a specific compatible for the RZ/Five for property enforcement and
+> in case there turns out to be additional differences between these
+> implementations of the cache controller.
+>
+> Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+
+Thanks for your patch!
+
+> --- a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> +++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+> @@ -28,6 +28,7 @@ select:
+>  properties:
+>    compatible:
+>      items:
+> +      - const: renesas,r9a07g043f-cache
+
+This name looks a bit too generic to me, as this is not a generic
+cache on the R9A07G043F SoC, but specific to the CPU cores.
+
+>        - const: andestech,ax45mp-cache
+>        - const: cache
+>
+> @@ -70,7 +71,7 @@ examples:
+>      #include <dt-bindings/interrupt-controller/irq.h>
+>
+>      cache-controller@13400000 {
+> -        compatible = "andestech,ax45mp-cache", "cache";
+> +        compatible = "renesas,r9a07g043f-cache", "andestech,ax45mp-cache", "cache";
+>          reg = <0x13400000 0x100000>;
+>          interrupts = <508 IRQ_TYPE_LEVEL_HIGH>;
+>          cache-line-size = <64>;
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
