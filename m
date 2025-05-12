@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F068C3ABCB
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 18:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8D5FC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 18:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=SS2+sV/LciFZNB4IANJiSh18YhWGCEMaT9a1Vw6R14c=; b=qO5wNLBUgKXmgw
-	LGj3IUiIe9vMp7hX5B4afNwcgGvHdllRkjbJgYalOaaeUUIwh4RExl/GMJkUX1gVqZFvFy0kTjv4D
-	BdOvjqL3z+cPNBiN+1mDK4L+uay748AspvTILch+9HLXfIP5OM/+IzLL6tV1dv3emZeDSavOYH6xQ
-	TrCmdqxZgsBIx3siVxoyU2PUOPCuREoxbLwElRYArGlaL9DwexzlLVq5WJsYP6KfE/W/E+6SrKok3
-	Cf7wSzBXUWX1VZBWczGefeQoBsmvdC7zu0KZXF/JCK1Pe3/Dsoi/IbN07D+wR9Qi82VRvPOU0aKMe
-	GdzLTiy7OmEDsCwukFqA==;
+	List-Owner; bh=cYtwx28z6iJxlVKZI98ElmvmkvLzWw8vE+VE3gpiMfI=; b=F7xAJyAOZ6C/oT
+	xxWBD4qIJHU9Ni1dJFBrRYExwNVpiQ9Nsa407Qa/phryBNyD+CmvB3g0lHgtk0ELX59SW/OEgmtSF
+	trp0w4qeo1skmsEOPbCBBmd+DW/Mb5Hx1VwhJ3yffWSz5YO1uWO1oZK8RkjbfRCPvCfp/vJvT4ppB
+	hqWb3WJLGXVZq7K/Jrf+jBR1NBbvu2qCUMtuahvrCNovq9hqbOmwX7UEkRMQemzK1jr6dLy1vfxqA
+	ik7htBYDBXyEIOGXTqn74FKRhaVkfgsWfLeyJLSl61qzgbSiJrZyUYTmlSaU2s48w2iYYcsMTP+EM
+	Wnc2Mxw6LNjB3/Q6VVTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXg0-0000000AKI2-0QeJ;
-	Mon, 12 May 2025 18:14:56 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uEXk3-0000000ALP6-2Kif;
+	Mon, 12 May 2025 18:19:07 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXW2-0000000AHGs-3qTX
+	id 1uEXWB-0000000AHL5-17BU
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 18:04:40 +0000
+	Mon, 12 May 2025 18:04:48 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747073077;
+	s=mimecast20190719; t=1747073086;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Z2T7ycCKwqZIMsv2I6XJvuhGXIY81vCrox7I0j0GM+0=;
-	b=JljArnggOISaESXmRR0uhaVUqXXSOVLr4uwh4ytK0nrwQeBI6pswhP4pluV267vyJTADPh
-	45gMP5JatlozxyZEaRDLERkSMiq5BAywa/WpXtoknvsKuFn98rr0gJQtby1ZmhWuVJqw6D
-	7XR4+I7i+NH+kNsoGO5/rM8PTlHGNRo=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=g9ERlWy//d3vXfM6qe6RwNpiSNHM8JyZPnWWfaO2iUE=;
+	b=FuFnNH9mitAxxCNeVHQZJfHr+0USpo/jPRcUy1kgWVf8fTWB+487LxQdlOK9fGTaWRptnV
+	ISQXpWB8BQt0Qh7ZbMVu/zM9Heb4Fo0lhOW3oncgT8Bc02DQnz7ubU3728iI5WlD5awzGf
+	Ri8VxvZMNEqHmNjW65eR9FgYaTcIpss=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-418-bCO2M7_lMsCo5R7BHCagxQ-1; Mon,
- 12 May 2025 14:04:36 -0400
-X-MC-Unique: bCO2M7_lMsCo5R7BHCagxQ-1
-X-Mimecast-MFC-AGG-ID: bCO2M7_lMsCo5R7BHCagxQ_1747073066
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-515-9fb_4R8jOiSlXgEcXCHh-w-1; Mon,
+ 12 May 2025 14:04:44 -0400
+X-MC-Unique: 9fb_4R8jOiSlXgEcXCHh-w-1
+X-Mimecast-MFC-AGG-ID: 9fb_4R8jOiSlXgEcXCHh-w_1747073080
 Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 987FE1955D4A;
-	Mon, 12 May 2025 18:04:25 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6C0C18002A5;
+	Mon, 12 May 2025 18:04:39 +0000 (UTC)
 Received: from intellaptop.lan (unknown [10.22.80.5])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B654930001A1;
-	Mon, 12 May 2025 18:04:17 +0000 (UTC)
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 2C18530001A1;
+	Mon, 12 May 2025 18:04:33 +0000 (UTC)
 From: Maxim Levitsky <mlevitsk@redhat.com>
 To: kvm@vger.kernel.org
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
@@ -94,16 +94,16 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Ingo Molnar <mingo@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v5 1/6] locking/mutex: implement mutex_trylock_nested
-Date: Mon, 12 May 2025 14:04:02 -0400
-Message-ID: <20250512180407.659015-2-mlevitsk@redhat.com>
+Subject: [PATCH v5 3/6] KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+Date: Mon, 12 May 2025 14:04:04 -0400
+Message-ID: <20250512180407.659015-4-mlevitsk@redhat.com>
 In-Reply-To: <20250512180407.659015-1-mlevitsk@redhat.com>
 References: <20250512180407.659015-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_110439_071668_FF408AAE 
-X-CRM114-Status: GOOD (  20.01  )
+X-CRM114-CacheID: sfid-20250512_110447_386932_E2F43173 
+X-CRM114-Status: GOOD (  16.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,122 +120,119 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Despite the fact that several lockdep-related checks are skipped when
-calling trylock* versions of the locking primitives, for example
-mutex_trylock, each time the mutex is acquired, a held_lock is still
-placed onto the lockdep stack by __lock_acquire() which is called
-regardless of whether the trylock* or regular locking API was used.
+In a few cases, usually in the initialization code, KVM locks all vCPUs
+of a VM to ensure that userspace doesn't do funny things while KVM performs
+an operation that affects the whole VM.
 
-This means that if the caller successfully acquires more than
-MAX_LOCK_DEPTH locks of the same class, even when using mutex_trylock,
-lockdep will still complain that the maximum depth of the held lock stack
-has been reached and disable itself.
+Until now, all these operations were implemented using custom code,
+and all of them share the same problem:
 
-For example, the following error currently occurs in the ARM version
-of KVM, once the code tries to lock all vCPUs of a VM configured with more
-than MAX_LOCK_DEPTH vCPUs, a situation that can easily happen on modern
-systems, where having more than 48 CPUs is common, and it's also common to
-run VMs that have vCPU counts approaching that number:
+Lockdep can't cope with simultaneous locking of a large number of locks of
+the same class.
 
-[  328.171264] BUG: MAX_LOCK_DEPTH too low!
-[  328.175227] turning off the locking correctness validator.
-[  328.180726] Please attach the output of /proc/lock_stat to the bug report
-[  328.187531] depth: 48  max: 48!
-[  328.190678] 48 locks held by qemu-kvm/11664:
-[  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
-[  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-[  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+However if these locks are taken while another lock is already held,
+which is luckily the case, it is possible to take advantage of little known
+_nest_lock feature of lockdep which allows in this case to have an
+unlimited number of locks of same class to be taken.
 
-Luckily, in all instances that require locking all vCPUs, the
-'kvm->lock' is taken a priori, and that fact makes it possible to use
-the little known feature of lockdep, called a 'nest_lock', to avoid this
-warning and subsequent lockdep self-disablement.
+To implement this, create two functions:
+kvm_lock_all_vcpus() and kvm_trylock_all_vcpus()
 
-The action of 'nested lock' being provided to lockdep's lock_acquire(),
-causes the lockdep to detect that the top of the held lock stack contains
-a lock of the same class and then increment its reference counter instead
-of pushing a new held_lock item onto that stack.
+Both functions are needed because some code that will be replaced in
+the subsequent patches, uses mutex_trylock, instead of regular mutex_lock.
 
-See __lock_acquire for more information.
-
+Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
 Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
 ---
- include/linux/mutex.h  | 15 +++++++++++++++
- kernel/locking/mutex.c | 14 +++++++++++---
- 2 files changed, 26 insertions(+), 3 deletions(-)
+ include/linux/kvm_host.h |  4 +++
+ virt/kvm/kvm_main.c      | 59 ++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 63 insertions(+)
 
-diff --git a/include/linux/mutex.h b/include/linux/mutex.h
-index 2143d05116be..da4518cfd59c 100644
---- a/include/linux/mutex.h
-+++ b/include/linux/mutex.h
-@@ -193,7 +193,22 @@ extern void mutex_lock_io(struct mutex *lock);
-  *
-  * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
-  */
+diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
+index 1dedc421b3e3..a6140415c693 100644
+--- a/include/linux/kvm_host.h
++++ b/include/linux/kvm_host.h
+@@ -1015,6 +1015,10 @@ static inline struct kvm_vcpu *kvm_get_vcpu_by_id(struct kvm *kvm, int id)
+ 
+ void kvm_destroy_vcpus(struct kvm *kvm);
+ 
++int kvm_trylock_all_vcpus(struct kvm *kvm);
++int kvm_lock_all_vcpus(struct kvm *kvm);
++void kvm_unlock_all_vcpus(struct kvm *kvm);
 +
-+#ifdef CONFIG_DEBUG_LOCK_ALLOC
-+extern int _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
-+
-+#define mutex_trylock_nest_lock(lock, nest_lock)		\
-+(								\
-+	typecheck(struct lockdep_map *, &(nest_lock)->dep_map),	\
-+	_mutex_trylock_nest_lock(lock, &(nest_lock)->dep_map)	\
-+)
-+
-+#define mutex_trylock(lock) _mutex_trylock_nest_lock(lock, NULL)
-+#else
- extern int mutex_trylock(struct mutex *lock);
-+#define mutex_trylock_nest_lock(lock, nest_lock) mutex_trylock(lock)
-+#endif
-+
- extern void mutex_unlock(struct mutex *lock);
+ void vcpu_load(struct kvm_vcpu *vcpu);
+ void vcpu_put(struct kvm_vcpu *vcpu);
  
- extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
-diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
-index 555e2b3a665a..c75a838d3bae 100644
---- a/kernel/locking/mutex.c
-+++ b/kernel/locking/mutex.c
-@@ -1062,6 +1062,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
- 
- #endif
- 
-+#ifndef CONFIG_DEBUG_LOCK_ALLOC
- /**
-  * mutex_trylock - try to acquire the mutex, without waiting
-  * @lock: the mutex to be acquired
-@@ -1077,18 +1078,25 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
-  * mutex must be released by the same task that acquired it.
-  */
- int __sched mutex_trylock(struct mutex *lock)
-+{
-+	MUTEX_WARN_ON(lock->magic != lock);
-+	return __mutex_trylock(lock);
-+}
-+EXPORT_SYMBOL(mutex_trylock);
-+#else
-+int __sched _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock)
- {
- 	bool locked;
- 
- 	MUTEX_WARN_ON(lock->magic != lock);
--
- 	locked = __mutex_trylock(lock);
- 	if (locked)
--		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
-+		mutex_acquire_nest(&lock->dep_map, 0, 1, nest_lock, _RET_IP_);
- 
- 	return locked;
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index 69782df3617f..d660a7da3baa 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -1368,6 +1368,65 @@ static int kvm_vm_release(struct inode *inode, struct file *filp)
+ 	return 0;
  }
--EXPORT_SYMBOL(mutex_trylock);
-+EXPORT_SYMBOL(_mutex_trylock_nest_lock);
-+#endif
  
- #ifndef CONFIG_DEBUG_LOCK_ALLOC
- int __sched
++int kvm_trylock_all_vcpus(struct kvm *kvm)
++{
++	struct kvm_vcpu *vcpu;
++	unsigned long i, j;
++
++	lockdep_assert_held(&kvm->lock);
++
++	kvm_for_each_vcpu(i, vcpu, kvm)
++		if (!mutex_trylock_nest_lock(&vcpu->mutex, &kvm->lock))
++			goto out_unlock;
++	return 0;
++
++out_unlock:
++	kvm_for_each_vcpu(j, vcpu, kvm) {
++		if (i == j)
++			break;
++		mutex_unlock(&vcpu->mutex);
++	}
++	return -EINTR;
++}
++EXPORT_SYMBOL_GPL(kvm_trylock_all_vcpus);
++
++int kvm_lock_all_vcpus(struct kvm *kvm)
++{
++	struct kvm_vcpu *vcpu;
++	unsigned long i, j;
++	int r;
++
++	lockdep_assert_held(&kvm->lock);
++
++	kvm_for_each_vcpu(i, vcpu, kvm) {
++		r = mutex_lock_killable_nest_lock(&vcpu->mutex, &kvm->lock);
++		if (r)
++			goto out_unlock;
++	}
++	return 0;
++
++out_unlock:
++	kvm_for_each_vcpu(j, vcpu, kvm) {
++		if (i == j)
++			break;
++		mutex_unlock(&vcpu->mutex);
++	}
++	return r;
++}
++EXPORT_SYMBOL_GPL(kvm_lock_all_vcpus);
++
++void kvm_unlock_all_vcpus(struct kvm *kvm)
++{
++	struct kvm_vcpu *vcpu;
++	unsigned long i;
++
++	lockdep_assert_held(&kvm->lock);
++
++	kvm_for_each_vcpu(i, vcpu, kvm)
++		mutex_unlock(&vcpu->mutex);
++}
++EXPORT_SYMBOL_GPL(kvm_unlock_all_vcpus);
++
+ /*
+  * Allocation size is twice as large as the actual dirty bitmap size.
+  * See kvm_vm_ioctl_get_dirty_log() why this is needed.
 -- 
 2.46.0
 
