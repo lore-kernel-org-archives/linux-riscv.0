@@ -4,64 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 119C3C3ABC3
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 19:02:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02F6BC3ABCC
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 19:06:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
 	:In-Reply-To:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=y99/2CMOcTMrAcILB6ls3tIY8bta/lqQX6/9neX4LhI=; b=OUkSFxb2MiIMMi
-	w2ZdfPbROwHABJzur/YiCA4TZqHczjL+Ne3XiD6tNvHb/eBX7iSTs7hG1s1jKDn5OZfE+Hv3715vH
-	oG2flhRrujmQk1T82M+H23IKTBKOGS/z9XMjchE67PilrOPez2lYRGzmoPWwoDHsI+USCzom0W39k
-	QwMOQ6nN3s0hJRmGe9neCX0vM4l6PcGhK0+3dvPvoQJGGliVNzqam3UIIaj61zbY60mNBUY613d6F
-	nJS5KD492AY6n7aGyfGyVZTaCpi7AGIGswzTL3UM1a3RoDJaYYccvJfu9TZKBiRFnRoolkBTM4PBz
-	AvTx/OCtO10JCUTcO3vw==;
+	List-Owner; bh=BXg6ydABjNWErKeME60V6cIsfxxAp2uV8/GmfyrxNDs=; b=TLL0hDq24In4/s
+	baLLBo5b7QWggOc2ZLtvxj3G6REa59Bp0+wXoh3FGqTqtU+yvKSdv4FjK9KhxtB/MgeflbzeP/Ot7
+	xPDf4jNfXy/x5BlQC8REZXRGNdhjivyAtqdLk+40/xW3HBhBY7Tz94hLUiBg2Yt76Y+pYsI8G+bk5
+	KPjPVN5B+tc2ajws7V2RYov6VOyOkIw+H+bQGfmCNRHeoNlZbUc4le1wHD8qyTKO7WAKZcjvyeAdO
+	1u3Sy28rW8QCUyRHS9LGspkMyLVi+9oMP8e4vQtm5yac2yA1BMWMzlhG7zexOdIUcX93676d73CEp
+	sRc2tSfEajlPfmrjbLVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYQ5-0000000ATi3-2TBg;
-	Mon, 12 May 2025 19:02:33 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEYII-0000000ASnG-46tt
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 12 May 2025 18:54:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:Message-ID:
-	Date:References:In-Reply-To:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VltVeIv5GGxIG9RGHvKQLO3xUlUvGDSdlR7aKaJ6JdA=; b=gCeZlsAj/DfeIiM1JpOXJAlgSA
-	vX3eSGes/KAEDV/r0uVXWi+JHORO88uABUDTflwmwKVYOtEmsEcZmEtaVPpqwL8jdSvwT89YI0ivi
-	NouRJzmW8zmTZMG9lnjXirU0IH6CYL9QrtQt5HurZ8fCzzQWf8pDliJIfd/xXTP5QakgFgh+VufiL
-	I2msw3YIN7jP8i7UgjiL0fvrBar00ScOOZRY1RwHqki/bLZUAIOzZ+waTbEVgS1efbT4pWCZ6fnMP
-	/7AziV6gz54ylT/EvSD6/48CEx8ctC/6bG+4TGjsDub9XHEAe+yIVZmqfh7Fn5n6j+D0La07C6DOY
-	G50CFh6Q==;
+	id 1uEYU6-0000000AUJn-2gWE;
+	Mon, 12 May 2025 19:06:42 +0000
 Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uEYIG-0000000GoFZ-0qjh
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEYLi-0000000AT9K-1e6e
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 18:54:29 +0000
+	Mon, 12 May 2025 18:58:03 +0000
 From: Thomas Gleixner <tglx@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747076064;
+	s=2020; t=1747076281;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VltVeIv5GGxIG9RGHvKQLO3xUlUvGDSdlR7aKaJ6JdA=;
-	b=btrch/cEqr86dJRGQsEtfull/9m8ry+o3G9q0NtUrv/YMAUIYJqpFJM5bBQP0+LNvRD5a+
-	C9zptRY6IItC5UFhaUFOT8s3ez+IzUYAHs6ZQgWSt02DI1kgYbwhOczAqmaL0uGoDoQm6w
-	7uBm9/WgU/cORCvBkcKacZB0kAhj1W1rvxjrKOYnaspl2NXhz+47KRwoo0UwakyB3kMCJk
-	VMpY/uqL9C2fHGdlIsppX0Gm9XbQv6mQttIz2p7j05TRTFiB45EZ1TDa/kfZb+B5bbadQI
-	MvuExGR8ytiDNUIOtPG1yTw4pym7BROvJCMponID1E70wZhYEvKJ7ySRa8rqzA==
+	bh=It3ZkHrF/ybpGgsvf1rdjtabzTDxdApsEcKThmxYw7Q=;
+	b=b8gt1O+Ubizxvw2Y7EAMWPCcwCLx+KT8VQOEQpRB3EvAazfK305nMMrvh5ASb+h7es1++S
+	ZNV//+OoK4drZ2UUr1NXKNHCrdF5funXgqU4kgwBUKGRmbGz6mzzuHOagtRJLcwlXQsyE0
+	kywSlW9ysEuKZCpNx6EClRXlEEetSvz/hTfy+aQVvinXq94scSlvJSumRK8RqT2jtgw3b1
+	ZKJ/QrbWqgaIy4ERPNumhI9rxcC15FYxFqmeq3mBs/JTBEyu0lblB36ssUW/x+c0Mk+I/5
+	Rdsy2yLhc/z0EMtSW87iqU9vR/TD6/By7nkMGu7kQ8Z8+uktQW2BuWevKAuVig==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747076064;
+	s=2020e; t=1747076281;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=VltVeIv5GGxIG9RGHvKQLO3xUlUvGDSdlR7aKaJ6JdA=;
-	b=iVBNKaOLSUGLqgjfwTl9NiIJgJE83w1jasJXi/sW1/C9czlM5w3qvg6WUTwUmY9RAZOR33
-	6i5DbdKJNlgBBmDA==
+	bh=It3ZkHrF/ybpGgsvf1rdjtabzTDxdApsEcKThmxYw7Q=;
+	b=GqeDIyvt8XSPdNBmK6crbulLG7Eo1g4InPC38SDVZr0ZAaDfsB8Rx30LfMcntJlFopChS2
+	RMcD7XFZEA+9wECw==
 To: Anup Patel <apatel@ventanamicro.com>, Michael Turquette
  <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -71,17 +56,17 @@ To: Anup Patel <apatel@ventanamicro.com>, Michael Turquette
  <andriy.shevchenko@linux.intel.com>, Linus Walleij
  <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Uwe
  =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: Re: [PATCH v3 07/23] mailbox: Add RISC-V SBI message proxy (MPXY)
- based mailbox driver
-In-Reply-To: <20250511133939.801777-8-apatel@ventanamicro.com>
+Subject: Re: [PATCH v3 13/23] irqchip: Add driver for the RPMI system MSI
+ service group
+In-Reply-To: <20250511133939.801777-14-apatel@ventanamicro.com>
 References: <20250511133939.801777-1-apatel@ventanamicro.com>
- <20250511133939.801777-8-apatel@ventanamicro.com>
-Date: Mon, 12 May 2025 20:54:23 +0200
-Message-ID: <8734d9lkww.ffs@tglx>
+ <20250511133939.801777-14-apatel@ventanamicro.com>
+Date: Mon, 12 May 2025 20:58:00 +0200
+Message-ID: <87zffhk66f.ffs@tglx>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_195428_367373_C95966A8 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250512_115802_570909_4AFA87B9 
+X-CRM114-Status: GOOD (  16.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,50 +85,67 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On Sun, May 11 2025 at 19:09, Anup Patel wrote:
-> +
-> +static irqreturn_t mpxy_mbox_irq_event(int irq, void *dev_id)
+> +static int rpmi_sysmsi_probe(struct platform_device *pdev)
 > +{
-> +	/* We only have MSI for notification so just wakeup IRQ thread */
-> +	return IRQ_WAKE_THREAD;
-
-I was idly reading through this because I looked at the irq chip.
-
-This function is competely pointless.
-
-> +}
-> +
-> +static irqreturn_t mpxy_mbox_irq_thread(int irq, void *dev_id)
-> +{
-> +	mpxy_mbox_peek_data(dev_id);
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int mpxy_mbox_setup_msi(struct mbox_chan *chan,
-> +			       struct mpxy_mbox_channel *mchan)
-> +{
-> +	struct device *dev = mchan->mbox->dev;
+> +	struct device *dev = &pdev->dev;
+> +	struct rpmi_sysmsi_priv *priv;
 > +	int rc;
 > +
-> +	/* Do nothing if MSI not supported */
-> +	if (mchan->msi_irq == U32_MAX)
-> +		return 0;
+> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
+> +	if (!priv)
+> +		return -ENOMEM;
+> +	priv->dev = dev;
+> +	platform_set_drvdata(pdev, priv);
 > +
-> +	/* Fail if MSI already enabled */
-> +	if (mchan->attrs.msi_control)
-> +		return -EALREADY;
+> +	/* Setup mailbox client */
+> +	priv->client.dev		= priv->dev;
+> +	priv->client.rx_callback	= NULL;
+> +	priv->client.tx_block		= false;
+> +	priv->client.knows_txdone	= true;
+> +	priv->client.tx_tout		= 0;
 > +
-> +	/* Request channel MSI handler */
-> +	rc = request_threaded_irq(mchan->msi_irq,
-> +				  mpxy_mbox_irq_event,
-> +				  mpxy_mbox_irq_thread,
-> +				  0, dev_name(dev), chan);
+> +	/* Request mailbox channel */
+> +	priv->chan = mbox_request_channel(&priv->client, 0);
+> +	if (IS_ERR(priv->chan))
+> +		return PTR_ERR(priv->chan);
+> +
+> +	/* Get number of system MSIs */
+> +	rc = rpmi_sysmsi_get_num_msi(priv);
+> +	if (rc < 1) {
+> +		mbox_free_channel(priv->chan);
+> +		return dev_err_probe(dev, -ENODEV, "No system MSIs found\n");
+> +	}
+> +	priv->nr_irqs = rc;
+> +
+> +	/* Set the device MSI domain if not available */
+> +	if (!dev_get_msi_domain(dev)) {
+> +		/*
+> +		 * The device MSI domain for OF devices is only set at the
+> +		 * time of populating/creating OF device. If the device MSI
+> +		 * domain is discovered later after the OF device is created
+> +		 * then we need to set it explicitly before using any platform
+> +		 * MSI functions.
+> +		 */
+> +		if (is_of_node(dev_fwnode(dev)))
+> +			of_msi_configure(dev, to_of_node(dev_fwnode(dev)));
+> +
+> +		if (!dev_get_msi_domain(dev))
+> +			return -EPROBE_DEFER;
 
-Just do:
+This leaks the channel.
 
-	rc = request_threaded_irq(mchan->msi_irq, NULL, mpxy_mbox_irq_thread,
-				  0, dev_name(dev), chan);
+> +	}
+> +
+> +	if (!msi_create_device_irq_domain(dev, MSI_DEFAULT_DOMAIN,
+> +					  &rpmi_sysmsi_template,
+> +					  priv->nr_irqs, priv, priv))
+> +		return dev_err_probe(dev, -ENOMEM, "failed to create MSI irq domain\n");
 
-and be done with it. The core code will happily wake up your thread.
+Ditto.
+
+Thanks,
+
+        tglx
 
 _______________________________________________
 linux-riscv mailing list
