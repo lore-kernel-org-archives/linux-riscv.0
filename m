@@ -4,60 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 834FBC3ABCB
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 22:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E866DC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 23:35:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=L98k52Du2e5Rx67cFbeMmQz0pvI5hKWb4pt6vW2H86w=; b=sAqD7HrtY7invw
-	IDojbcqHmiZyFLILZvIvXUar+NFPvTwghXTmN4mAb4TgkXMWHV27iCrAoGb/MoKRvL3AvDbq+9fyY
-	FlV+nTZiD3k8bz++xrz4k7UNfRVWGf3zDZqt47W2NqnMDOLY77zmce3sotpfJsh5S+PFRLPviw7qF
-	ViU1Lq14X86OY7pEZ9sKivoBHHC1OQigrjrLy2VGcaZcTmQQB+af+CS1eO/LZUfojYx/avddetRUD
-	MwW+q9ZKgIxGR2JE9XvTYRQKt7P2EV6b/C09T6M2mD5XcibyMXa3b7Km1mi8LardEiLB5VMjc12AK
-	sWVzvVqAgj/0ppVTgXKg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Tycrael7o6sH9ltZI9I2NqoobTDlET5M/E1hPqrwpZg=; b=DPbp14NZCHyuODM6VcX98D/aTq
+	LMtRIXrZ79yRB5BCsN9YmcyO06ZovN0aulnQjiEgo+HACHdVwMEW5vBt01AGdXC8xN1DpYrv9jkrn
+	sda0Mvrkl9lylLYlYtvKt7zRgYb9wsF55hvZCMozoO3XzX6JC43RN41qSUHJ/PguaNZf7DMT1SHnk
+	3ps7dKi906iQtgNdT2efygo8Tmb50Mv2ikRVLdGkJVyEdoMVoVSc2BUKt9B6Z23jWkD6CnPqllJS7
+	BwoIfnfEAAPAVNACVAkGUMrrBS5LBwQY12PXJPTyIhCKeN/h/pH3WnkMQhdCRIY6T7tIXcFvo8mwk
+	y3AIFVdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEc6h-0000000At2c-0arP;
-	Mon, 12 May 2025 22:58:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEc4b-0000000Aspq-2SG3;
-	Mon, 12 May 2025 22:56:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 022FC150C;
-	Mon, 12 May 2025 15:56:24 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 666963F673;
-	Mon, 12 May 2025 15:56:32 -0700 (PDT)
-Date: Mon, 12 May 2025 23:56:19 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Aleksandr Shubin <privatesub2@gmail.com>
-Cc: linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Paul
- Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Philipp
- Zabel <p.zabel@pengutronix.de>, Cheo Fusi <fusibrandon13@gmail.com>,
- linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v12 1/3] dt-bindings: pwm: Add binding for Allwinner
- D1/T113-S3/R329 PWM controller
-Message-ID: <20250512235619.30cff739@minigeek.lan>
-In-Reply-To: <20250427142500.151925-2-privatesub2@gmail.com>
-References: <20250427142500.151925-1-privatesub2@gmail.com>
-	<20250427142500.151925-2-privatesub2@gmail.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1uEcfu-0000000Avat-3vO6;
+	Mon, 12 May 2025 23:35:10 +0000
+Received: from mail-centralindiaazolkn190110001.outbound.protection.outlook.com ([2a01:111:f403:d409::1] helo=PNZPR01CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uEcfr-0000000Ava6-3t9M
+	for linux-riscv@lists.infradead.org;
+	Mon, 12 May 2025 23:35:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t5TVJNgWXOk6GirCWxcOH9CpihPERo/Pr1visrDHc004/OaQggw/xxCXJLn0UZdVJNRGyZGmnVzO5s4H3HEMHsUGEkTHdfYkRdGS0wwX0TgM1ba5A+C814+SwyzU4UdsOMqxuC/KIJQ1gL5beW0zr3tWAaJ2PjVcNgVQs6eEYRVS23oEBwXPoXk/EvF9etXfVmjT8iXDAL3+RqLtP8NI0HcUoTRLiv79JE1kXGz1FpzAMxP4KGLR/sWiZPKoo8etolaiOKtTKuZNNTqTh0R1K6ZTtLfubcKOrda/BLcZi+zvmgF8Qw83F58cCtTvF4r/zhw7MzE6itYnRCtnbulH4g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ByQaxxVmotj32spGeQpF6syeRDepQ/CNJXIVMNiHDME=;
+ b=Q7jjXUbBWpDbF31pinjn8rQebUir0jNzERMi/y4BFzKRAIqcZoa2eBIAEhMZLN8e5M+jrBEQ1I6wDVRHJuHYSh0gylbZsKJziKxKG35FjlYW20o5cj3FgvK73EjtA2OrVRO+QapzeVrmhDj21qdc+Jm4JTd7mpKS5W0N6w/CKYMzykntDeJd2NjcfWmc7caBda6ClzebvtkloXxoJxsedwZGeaKPbvMw/rDcalRUdXkwanfNqLLwYN+9fG0VUj9Kyvs8fV8ot+Iu6kpVsof63qzJAd4W1YovzALV5YYm/F1FFiuPRuZ6Nz+1Fa7nWlW8R5sv1YlYM1sVXEJ1pc5cHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ByQaxxVmotj32spGeQpF6syeRDepQ/CNJXIVMNiHDME=;
+ b=ZCVjcz7KxWs6CbQBERj7q0mJiSOKauMu4lxba28Yq7NYzOVHzMdYGeF1DXuhXwD843mYkrT3wz20GgPPDxox45pHn2Z4IKQ8j6LMZa/gIPdDnLz7cEz84ZAy2hNiihMVyJC7ncDUYe6odBzTT6enMRHR+Ax9cXVsUt7zIsTbDLhnokrdvalW59sF5TAF4d/BmMeD60+KWJcyxx4ezBzi+/lGcT0XRqo2sl3DPH9/4arbV7h1GXbk633FRd1wN28NzRiKAkxK/Gap6vxcpkiTQ4GVBG9uZVF6vORe6jqrkcxkqM6jC+QPZD7UsyLl++s6Dt5/MwFGU4bzLWdwYfyKsw==
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
+ by PN3P287MB1798.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1a4::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Mon, 12 May
+ 2025 23:34:53 +0000
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4%5]) with mapi id 15.20.8722.027; Mon, 12 May 2025
+ 23:34:53 +0000
+Message-ID: <MA0P287MB22621824B2FD5E2A64006174FE97A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 13 May 2025 07:34:49 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: riscv: add Sophgo x8 EVB bindings
+To: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1746811744.git.rabenda.cn@gmail.com>
+ <59c175c7bccbd4b5ad241c39b66b0303e0facf81.1746811744.git.rabenda.cn@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <59c175c7bccbd4b5ad241c39b66b0303e0facf81.1746811744.git.rabenda.cn@gmail.com>
+X-ClientProxiedBy: TY4P286CA0024.JPNP286.PROD.OUTLOOK.COM
+ (2603:1096:405:2b0::8) To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:a01:100::6)
+X-Microsoft-Original-Message-ID: <5108e6af-5d35-41ff-ae0d-160dbcc09567@outlook.com>
 MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|PN3P287MB1798:EE_
+X-MS-Office365-Filtering-Correlation-Id: 54c753db-f05e-4e16-e17e-08dd91ad9851
+X-Microsoft-Antispam: BCL:0;ARA:14566002|8060799009|7092599006|19110799006|15080799009|5072599009|6090799003|461199028|3412199025|440099028|34005399003|10035399007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?T3NjM0ZxUm1YbUZBTTdJczZWSUZKcUVPYXU0YVN1cEJPMUhUdm1UL0F0R3lt?=
+ =?utf-8?B?UDZBaVJtSlc1N2Z5RHBCek5XRUkzOEQ3WHhRQTRnLzNraEFFa3l5MGttZENC?=
+ =?utf-8?B?Nmd6clNXblkvelBXeDVkSnBHQ001MFo0VWgwM0pjcUk0aXBIUkRFQTJVZWN6?=
+ =?utf-8?B?UmJKZ2FGUzZvOUgrc1dFOElOeFdzWUJ0SDA3Z1NobUsyQkQrTHFJQmpjUS9a?=
+ =?utf-8?B?V0VEbld3ZzlNc1pYbU0yZTlraEVUU1A2dlNnM0FNZnlWTFJGc0NxbVgyM0xH?=
+ =?utf-8?B?L2hoMGRMN1A3bWlHbVlycVdFSFcvb1Z6UGxlMUtlUHVRYW9ZOGxsTEJ6dW83?=
+ =?utf-8?B?RkIyZncvYmQ3QmphR0pzMFdwVW52M1k0SFVjbmRpUldEMWxxTEYxcVg5ck02?=
+ =?utf-8?B?eWYwb21rc1hzZW5BWXVGUnBHN1lzV2FnT2ZoaDB3R1pZZUQrTFRDaVhCT0ts?=
+ =?utf-8?B?TU55cjNDOW9xTkg0eDRyVFJXUlorRzNTUnJ4S2lBbWpibm5qeWxVdGVKUkxO?=
+ =?utf-8?B?V29ONWJVWlp6UHRxSmsraVBSazZ0NDVzUUtPN3ByNFNtR1J3THViZHVLbGF5?=
+ =?utf-8?B?OTdhODQzRWNWckVSUlRicTl5Ri84YSswZEpRV2NiUEIrUTlXT011VWNtRjBR?=
+ =?utf-8?B?T0lkRUlvNDZFWkkxSzNTTXVVNVJ4d0FGYlpaU0Nza1pnR2VuYzdRT2lBQ21Y?=
+ =?utf-8?B?OWFDRHNSbmVSZDRMUHFMNHpmdnVnQmhtdWRPZzRGRGFHSUZNZ1V5MXRCQTFX?=
+ =?utf-8?B?NW9wUnQxWW8yNlViek9QY0FWRmFRZ0ZqVTdGM0tFc01QeU1WUlhtRmJ3ejdj?=
+ =?utf-8?B?UTM4QVJMNUlNTVQ0cXFpTk1EWVpNWlB1eG1Zc2I3aEhXczhmdHlMeXV4MnUv?=
+ =?utf-8?B?TlFMdFpQUitLaENQUnp4Ynp0QVo5QUIwTmVpTUcyLzBBeVpucyszU2dETW5N?=
+ =?utf-8?B?aGFtTzVSR2FaU2V0ZWp2WlRudmRmZ2JFZkxWZEIybUhrQ09uZ2VZOFRDYTM2?=
+ =?utf-8?B?QkJlbDY1RnhPVmhqdnFuMkxOeGlsVnNiQjg4MkpSMldEZ0R0WkpCNjRadnVE?=
+ =?utf-8?B?SXJabjhwM0Q2TDBjVGpVWU9BeWxoWTdKL2kwdmtpa3gvTjhqaHJKU3FvcGI2?=
+ =?utf-8?B?NVNFWWUxclF4TjFCMzhuTUJsMFlRRnZCTGJVVytlWnB6ZjA2NlNaUmpneHlD?=
+ =?utf-8?B?M0trREwyQTlDczdjaXBEVGZWemMvMzVrQitUdmN1VDMyNWQvdkM2N0VEWSta?=
+ =?utf-8?B?ZzV6akkzdmpQYk5mTU1iSm1hRHN1d0hHK0g0Q3pYWUZzcFBOM3FraC81OGV3?=
+ =?utf-8?B?UmlYaGUrVUhTMlJldzNTMnM0YUZEMmdXNFZkakFjM25LQ1MxSlBVQWlGYVZV?=
+ =?utf-8?B?OTQyTXBuRGRrK1UzaHVyK0M3aGJ1UEtpMERsRGd4MkZKbkd0RitBTGxlU3BN?=
+ =?utf-8?B?T1VWUzA3ZnBoS0hheTRCSzE4UlA0SGVlV0dtVHQxNjMxTmNMcDJ0Q0lUZm5O?=
+ =?utf-8?B?WlJaRXBWeGtWeEU5MFdUVlRnK1BqVWhHazFLbjhpa2Ivckl4eURrRC90RzJE?=
+ =?utf-8?B?dllqbjF0QWxFVTNMTDlCbVNZeU4rS1E4MERhQ3lLSFo3SkdiZDJRRW05Mmlw?=
+ =?utf-8?Q?61DiQJL+zYhYtqlwY/9zmeQKUVrDP+ZYekoeULMzAIcI=3D?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?c1Y4WG96ZGRRK2dpY1RWZ3V6bERzTnlVWFBKN2FReUx1QndCdUhYZGduR1FV?=
+ =?utf-8?B?RFlBcW9GaGY1WHVRejQycVZJU1FpR0liY1hXV3VvdWVyamt6UEROWWdoSFE0?=
+ =?utf-8?B?VHU4cy9nWEdtc1l3MFpiUUZNV2NXa3ZHNTUyUzg5YUNHdE1JSXJPUzRFanZy?=
+ =?utf-8?B?RjloRUlOd01xVnJRVGhpSnRvVTBlclVCWW9EeW9NVnVEYm8rcE81ZGNDaUpj?=
+ =?utf-8?B?M3M0TkhyUXRnUlk5VTBLWVpUem94d2ZTMlNlWmNITEpiVXFvVE5GU0xQQU9W?=
+ =?utf-8?B?S1c0UDZ5MFBteEk1aWpwR3U4TzdCLzByam9FcUlqMHUzdHZqRVQvKzlsbENo?=
+ =?utf-8?B?Rk1iYys1Wmt6ZFhrUGtac1R6dVZqUjNhbXNWcTJFd3RhWEhnWGI5UlJLZS81?=
+ =?utf-8?B?SVdodUp5YW5uOEFGSUY5NGRGLzFQNXk2QytiUzFxVTdEdmQ5T3ZKaWJUMVBa?=
+ =?utf-8?B?Zmw4RnF6MHhPRnZWbnBzSW94YzdHaUF5cUhJeHcwTUJISnJUUHFoR3ZOOUFN?=
+ =?utf-8?B?aFg5UnVVYi91WUpiY2FtczVkZ3E1NUttcHlnbGVzSmV5NXExZjlYOWxHVnZh?=
+ =?utf-8?B?TTl3clg0MTlmMENLTFAvYzZlcEpKdmlLY0RPdWd2UU93Y1M5cm9JUTZyOGxK?=
+ =?utf-8?B?MndEYUNGc2JpVWhIckpMWmdoc20zY2ZiSkZ0VUJQTXliazJPeTREb1JLa3BO?=
+ =?utf-8?B?S1FpZ3RMK0RLY3FWaXBqRnVIekl6WXR2Tko4dlNNWFIrSHI3YktWdmcyWjA2?=
+ =?utf-8?B?ZEJncGYzcEpoSlpEUkpCZWtqNThDV0tQRGdzVzEzZU9NenlSb1UvckhiN0N0?=
+ =?utf-8?B?djhZVTB2WVVvb0llSHJ2SnQ2bmU4OExxSnFySGZDamVSUW9kRmVCZDltM0Fo?=
+ =?utf-8?B?U3pwa0hkSlpnWG5pTDZlZ2VTWEthUHZmL0dJOUs5cGI3WTFMRFBqbUFRQnRt?=
+ =?utf-8?B?aHB4d2RoSVdpdjdQc0o5YmF2SEdhQ2gzNCtWRGtTR29hTEVSTjRkcC9xazgw?=
+ =?utf-8?B?QWs0NC90UllyYTdUcUh1dGJMU2F3enFOU0Q4RUlsZ2VWcW9NRGhMTEpoVS9R?=
+ =?utf-8?B?ZTBhZ0ZDa05NWGlHU21uNHdZaE5GVTVDR25LTU9id3hFeEkvcjF6VjZKa091?=
+ =?utf-8?B?MklkRzJQWU4xUDJjc0NOQjJCOHBjd1N1YzA0K3BsLzlCbk5ubGdHdGtFTTZn?=
+ =?utf-8?B?Q0IxQS9pQlhNZUNmZG84NkUxMXlVQTRUTEJJdDlob2s4Q2Y1dEQrVm1pTXZm?=
+ =?utf-8?B?YWVVVFdkN0FMZUk1aEkyQ1hha3I5UDNIdXJac2NhamhYNzFMem13cWdTK0dE?=
+ =?utf-8?B?V1MvUHJPcWFqS1BRdDVSU2ZqMmhzOER1eTI0KzJ5bFpncmNnTm0rS24yVTZm?=
+ =?utf-8?B?QTArSm5uenhURnFmZW96UVZCUS9VRnNPRFpWc1ZTci9vMk1tN25HUTdVY2FV?=
+ =?utf-8?B?R1ZWeUUyVmhvOGJGQWFqL3NUdC91aHNaa2xMQlArMHBObkdpMm1SMnhOQW1j?=
+ =?utf-8?B?RG5OVG8vOGtibVU2elFDYy8wc0ZqYTBpQUQ5RzI1b3ZWS3hISktiV2RDd3M4?=
+ =?utf-8?B?WTE5V2FXUFViNVpZSzZTMzdPWUVxVU9IOExaSkxPWHYzYUk5UjBHMFYrWmRs?=
+ =?utf-8?B?bWhzV0hIYkdTSC81a2xkVUpCRDFOWjlveEF1KzQ2Q0t2LzdKeUJVQXkxbmhw?=
+ =?utf-8?B?M0pxeGdZVDRLcDNHdUtyNGUzYk91SlpDQTZlWjBRbG84TmF2OUFKcFV6R0Zz?=
+ =?utf-8?Q?nGBOjFxA6N+4AURiAeEWNmAbtxLddZJhUWYy1FV?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 54c753db-f05e-4e16-e17e-08dd91ad9851
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 May 2025 23:34:53.1823
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB1798
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_155637_816217_39DCB739 
-X-CRM114-Status: GOOD (  23.43  )
+X-CRM114-CacheID: sfid-20250512_163507_993923_5AAA2056 
+X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,152 +162,43 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, 27 Apr 2025 17:24:53 +0300
-Aleksandr Shubin <privatesub2@gmail.com> wrote:
 
-Hi,
-
-> Allwinner's D1, T113-S3 and R329 SoCs have a new pwm
-> controller witch is different from the previous pwm-sun4i.
-> 
-> The D1 and T113 are identical in terms of peripherals,
-> they differ only in the architecture of the CPU core, and
-> even share the majority of their DT. Because of that,
-> using the same compatible makes sense.
-> The R329 is a different SoC though, and should have
-> a different compatible string added, especially as there
-> is a difference in the number of channels.
-> 
-> D1 and T113s SoCs have one PWM controller with 8 channels.
-> R329 SoC has two PWM controllers in both power domains, one of
-> them has 9 channels (CPUX one) and the other has 6 (CPUS one).
-> 
-> Add a device tree binding for them.
-> 
-> Reviewed-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Aleksandr Shubin <privatesub2@gmail.com>
+On 2025/5/10 2:13, Han Gao wrote:
+> Add DT binding documentation for the Sophgo x8 EVB board [1].
+>
+> Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG2042-x8-EVB [1]
+>
+> Signed-off-by: Han Gao <rabenda.cn@gmail.com>
 > ---
->  .../bindings/pwm/allwinner,sun20i-pwm.yaml    | 84 +++++++++++++++++++
->  1 file changed, 84 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> new file mode 100644
-> index 000000000000..4b25e94a8e46
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/pwm/allwinner,sun20i-pwm.yaml
-> @@ -0,0 +1,84 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/pwm/allwinner,sun20i-pwm.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner D1, T113-S3 and R329 PWM
-> +
-> +maintainers:
-> +  - Aleksandr Shubin <privatesub2@gmail.com>
-> +  - Brandon Cheo Fusi <fusibrandon13@gmail.com>
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - const: allwinner,sun20i-d1-pwm
-> +      - items:
-> +          - const: allwinner,sun50i-r329-pwm
-> +          - const: allwinner,sun20i-d1-pwm
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#pwm-cells":
-> +    const: 3
-> +
-> +  clocks:
-> +    items:
-> +      - description: Bus clock
-> +      - description: 24 MHz oscillator
-> +      - description: APB clock
-> +
-> +  clock-names:
-> +    items:
-> +      - const: bus
-> +      - const: hosc
-> +      - const: apb
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  allwinner,npwms:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: The number of PWM channels configured for this instance
-> +    enum: [6, 8, 9]
+>   Documentation/devicetree/bindings/riscv/sophgo.yaml | 1 +
+>   1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> index a14cb10ff3f0..ee244c9f75cc 100644
+> --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
+> @@ -34,6 +34,7 @@ properties:
+>         - items:
+>             - enum:
+>                 - milkv,pioneer
+> +              - sophgo,sg2042-x8evb
 
-Do we really need to be so restrictive here? The IP has an
-"architectural" limit of 16 channels (due to the MMIO register layout
-and status/control bits usage in some registers), so can't we just leave
-this value to be anything between 1 and 16 here? If people configure
-this wrongly, it's their fault, I'd say? Without confining this further
-based on the respective compatible strings this enum is less useful
-anyway, I think. The Allwinner A523 uses the same IP, and supports all
-16 channels, the V853 implements 12, that's what I quickly found
-already, and there might be more examples in the future, so I'd rather
-open this up.
+I wonder the product name is x8evb or sg2042-x8evb?
 
-> +
-> +allOf:
-> +  - $ref: pwm.yaml#
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: allwinner,sun50i-r329-pwm
-> +
-> +    then:
-> +      required:
-> +        - allwinner,npwms
+The same question to x4evb.
 
-Can't we just simplify this by always requiring this property? As
-mentioned, there will be more SoCs with different values, so just
-omitting this for the D1 seems odd.
+Regards,
 
-Cheers,
-Andre
+Chen
 
-
-> +
-> +unevaluatedProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#pwm-cells"
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/clock/sun20i-d1-ccu.h>
-> +    #include <dt-bindings/reset/sun20i-d1-ccu.h>
-> +
-> +    pwm: pwm@2000c00 {
-> +      compatible = "allwinner,sun20i-d1-pwm";
-> +      reg = <0x02000c00 0x400>;
-> +      clocks = <&ccu CLK_BUS_PWM>, <&dcxo>, <&ccu CLK_APB0>;
-> +      clock-names = "bus", "hosc", "apb";
-> +      resets = <&ccu RST_BUS_PWM>;
-> +      #pwm-cells = <0x3>;
-> +    };
-> +
-> +...
-
+>             - const: sophgo,sg2042
+>   
+>   additionalProperties: true
 
 _______________________________________________
 linux-riscv mailing list
