@@ -4,69 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D113C3ABCC
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 16:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE30FC3ABCC
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 18:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fckgEzq4WbdEOOp2Jm36lcpJuuqMlJzFAUzdp7wSiwk=; b=o2yd7tx8V6vTpMVKnBIqUIFGrv
-	n9VFWEht/SA4iNWfzN0QV2FK4ORqP1CIOwi+OypcIzjRtUX/kVLE01CyX1jZefVGuBKRKcaC+JIcm
-	PvqpwiGdZ+gouM299Bm7yWNfFsJGvnukawCl5qSHJQ8aTu2eigauGgg9jAPJUzW50Irj/DdLYprp8
-	AgT0B3qtjCUM8PB2H5c75+b/To8oRCWCiawtzqzEVrVtpq0jpCzmLWeuA3wzu16G8KGtHYHZ5j9Zg
-	cqcdtoehVIrDjhR0/AGNn0udmbroQVMiAWK4St3jiYa8qI1UqAwKlib+xqtNeV0rF3BBXlvjD3ZIf
-	18by0vSg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Tsxgf2W0LwiEHkzQXP0X9w8GpY8QMueVbYXNBoTgMDk=; b=tu858E70ZIcRn/
+	HhA6kSl8oLM2a8xnMqXukAAQ65YuLEPjF9yIgJbJ5t5hE7jkuzGd6W7dk3B7ghnZdEdlvBHXCsIWG
+	2mBKKvdJBepTmgT7LZj1jI4QtUJFNlM3dCq7wZroPJXIutCAyZFsouFK+ssopcPcRmnu41Lv3cOIE
+	oBBfXoHn5uJZIAXix3QB+tK8HAaekVJnkEP6BT6ObCGGl6W3pN2ngIjir4NmO/gxP/p1B1MvFs5Ga
+	MfSv8Mf+PIDhnGGzNE65yXd/Wd6GKVf/d4uSC3DCKOZ+O8ApB4YhfOze2pw0varbPDog6jai5dnbf
+	PDJHehCqQRA0frvj2QLQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEWOx-0000000A7f1-3oD6;
-	Mon, 12 May 2025 16:53:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uEXdx-0000000AJhX-1hea;
+	Mon, 12 May 2025 18:12:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEW8H-0000000A4Du-3Skw
+	id 1uEXVu-0000000AHDm-0aQA
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 16:36:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8864649D95;
-	Mon, 12 May 2025 16:36:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47DF3C4CEE7;
-	Mon, 12 May 2025 16:35:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747067761;
-	bh=UutJlU+U+PC5vuoNA8XGRVHw2fxOnOzKGMbcX7lytaA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=SSyE2Rshzk/e7uG3PUwLrxTCh8AkVdBjpx8zmMElp5s2/yjKvmA21DCqT7ros70hC
-	 pbYTmPG8PCxKXvs6IH50TBkQMP/ANIPXjlmQZXxVKZySs+CuCQ8Pf3v1WdOX0ES8dl
-	 dzvSo+pa9CJ5f68urBDVTA7nkH71oVoUMO1hidWV59KzBw4OhxcS01bQhx5JJQUwxi
-	 SBNjxwuAdF0DtjnPmv0T6x2U5pgROpKx2cIB/dJd9algKOwgoJ9HWNzNfvyft6fQlF
-	 0j1JFPKPpogfZ/8Ozgz7QRk7/7ohynTL9Bptk+ycXlA4sfpUeOpoq8/wHmmCLyJwIJ
-	 ae5MElyQ/OTAg==
-Date: Mon, 12 May 2025 17:35:56 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	Mon, 12 May 2025 18:04:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747073069;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Jzez9beQL600E+agH2Z2p3TWupq3wuiKJM0KPUz5arQ=;
+	b=Oq+W8lz+0qFGdeY/yW1MzLEyssNDWjNY//QWWZjDfvRKmtgooGA4R1z4yKj3I8NQXF6HP5
+	ODUTGRiGvGbvxYjMOPiKL/DfRY0MifVrDluGoL7Phb8vvNCoGajgMNAL1j8X4NQOVfXiMG
+	2DjRtr/I6Ai21UDBuinaXPfrJFMwrK0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-617-Mc8z2qJpM0WcOmyyGPFIow-1; Mon,
+ 12 May 2025 14:04:25 -0400
+X-MC-Unique: Mc8z2qJpM0WcOmyyGPFIow-1
+X-Mimecast-MFC-AGG-ID: Mc8z2qJpM0WcOmyyGPFIow_1747073061
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7837C1800263;
+	Mon, 12 May 2025 18:04:17 +0000 (UTC)
+Received: from intellaptop.lan (unknown [10.22.80.5])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B909630002D4;
+	Mon, 12 May 2025 18:04:08 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
-	sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] dt-bindings: riscv: add Sophgo x4 EVB bindings
-Message-ID: <20250512-dugout-twenty-4eaf88653c5d@spud>
-References: <cover.1746811744.git.rabenda.cn@gmail.com>
- <4a9236b67a368423c1bb1a86720dfcd7593f0d1b.1746811744.git.rabenda.cn@gmail.com>
- <5hn5ywklwlc2cfjeesarg7hcf2knsujloxijzp46o26ox33yzo@6kuf3bkqqigf>
+	Alexander Potapenko <glider@google.com>,
+	kvmarm@lists.linux.dev,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	x86@kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	linux-riscv@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v5 0/6] KVM: lockdep improvements
+Date: Mon, 12 May 2025 14:04:01 -0400
+Message-ID: <20250512180407.659015-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
-In-Reply-To: <5hn5ywklwlc2cfjeesarg7hcf2knsujloxijzp46o26ox33yzo@6kuf3bkqqigf>
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_093601_892105_79751C72 
-X-CRM114-Status: GOOD (  14.86  )
+X-CRM114-CacheID: sfid-20250512_110430_258699_F8CD6346 
+X-CRM114-Status: UNSURE (   9.60  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,80 +113,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3373905411951492662=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This is	a continuation of my 'extract lock_all_vcpus/unlock_all_vcpus'
+patch series.
 
---===============3373905411951492662==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="VG9g93rQvIs17bvF"
-Content-Disposition: inline
+Implement the suggestion of using lockdep's "nest_lock" feature
+when locking all KVM vCPUs by adding mutex_trylock_nest_lock() and
+mutex_lock_killable_nest_lock() and use these functions	in the
+implementation of the
+kvm_trylock_all_vcpus()/kvm_lock_all_vcpus()/kvm_unlock_all_vcpus().
 
+Those changes allow removal of a custom workaround that was needed to
+silence the lockdep warning in the SEV code and also stop lockdep from
+complaining in case of ARM and RISC-V code which doesn't include the above
+mentioned workaround.
 
---VG9g93rQvIs17bvF
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Finally, it's worth noting that this patch series removes a fair
+amount of duplicate code by implementing the logic in one place.
 
-On Sat, May 10, 2025 at 06:37:00AM +0800, Inochi Amaoto wrote:
-> On Sat, May 10, 2025 at 02:13:29AM +0800, Han Gao wrote:
-> > Add DT binding documentation for the Sophgo x4 EVB board [1].
-> >=20
-> > Link: https://github.com/sophgo/sophgo-hardware/tree/master/SG2042/SG20=
-42-x4-EVB [1]
-> >=20
-> > Signed-off-by: Han Gao <rabenda.cn@gmail.com>
-> > ---
-> >  Documentation/devicetree/bindings/riscv/sophgo.yaml | 1 +
-> >  1 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Docu=
-mentation/devicetree/bindings/riscv/sophgo.yaml
-> > index ee244c9f75cc..0f93f4cbfc6c 100644
-> > --- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > +++ b/Documentation/devicetree/bindings/riscv/sophgo.yaml
-> > @@ -35,6 +35,7 @@ properties:
-> >            - enum:
-> >                - milkv,pioneer
-> >                - sophgo,sg2042-x8evb
-> > +              - sophgo,sg2042-x4evb
-> >            - const: sophgo,sg2042
-> > =20
-> >  additionalProperties: true
-> > --=20
-> > 2.47.2
-> >=20
->=20
-> Please keep alphabetical order.
+V5: addressed review feedback.
 
-Additionally, I think it'd be pretty reasonable to add both of these
-compatibles at the same time since they're variants p much.
+Best regards,
+	Maxim Levitsky
 
---VG9g93rQvIs17bvF
-Content-Type: application/pgp-signature; name="signature.asc"
+Maxim Levitsky (6):
+  locking/mutex: implement mutex_trylock_nested
+  locking/mutex: implement mutex_lock_killable_nest_lock
+  KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+  x86: KVM: SVM: use kvm_lock_all_vcpus instead of a custom
+    implementation
+  KVM: arm64: use kvm_trylock_all_vcpus when locking all vCPUs
+  RISC-V: KVM: use kvm_trylock_all_vcpus when locking all vCPUs
 
------BEGIN PGP SIGNATURE-----
+ arch/arm64/include/asm/kvm_host.h     |  3 --
+ arch/arm64/kvm/arch_timer.c           |  4 +-
+ arch/arm64/kvm/arm.c                  | 43 ----------------
+ arch/arm64/kvm/vgic/vgic-init.c       |  4 +-
+ arch/arm64/kvm/vgic/vgic-its.c        |  8 +--
+ arch/arm64/kvm/vgic/vgic-kvm-device.c | 12 ++---
+ arch/riscv/kvm/aia_device.c           | 34 +------------
+ arch/x86/kvm/svm/sev.c                | 72 ++-------------------------
+ include/linux/kvm_host.h              |  4 ++
+ include/linux/mutex.h                 | 32 ++++++++++--
+ kernel/locking/mutex.c                | 21 +++++---
+ virt/kvm/kvm_main.c                   | 59 ++++++++++++++++++++++
+ 12 files changed, 126 insertions(+), 170 deletions(-)
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaCIjbAAKCRB4tDGHoIJi
-0tR+AP9b1shg4Lu3AUTKYTsqnHrJDBmUrhh7PZoACkE4XpNE9gEAuE9hd5Hl+qrd
-3/aiIfboh3RAGHvZudETddxnf5DulwY=
-=GPQK
------END PGP SIGNATURE-----
-
---VG9g93rQvIs17bvF--
+-- 
+2.46.0
 
 
---===============3373905411951492662==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3373905411951492662==--
-
