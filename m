@@ -4,80 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 691AEC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 05:16:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC4BAC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 05:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ztXejFdyouGukvz6wsQ/36AZ9DnisEEKt+lZTEzZZ4E=; b=yi3GyAy18ny6fA
-	3Zh7VzpqsvvkhKe0nGLEcy1/YvU7n4xPfyhN2MnNm0pZmpTWK/QBtwhbx0wkhpYK7kPQIFe64XqF/
-	Hwm7ZsMZlJsM3e8FrtCN8MuIB3mWwPmfbAUhEHfsKGL4KPmRAPmJAq1HzyXiYk8S9Kvu3C+ndQGWA
-	jxVVVSoceJ8UeR4jlp/oR6aqzN0Dga604Ip33dDxP0J4YuMrSf0FiaNbHOtK6mOKRjn6EJuM++EI4
-	K+SR1p1QDq7s+DYwGgKuxk9uVBMC0Yf4CpSI1gS3Bg6+8jLUqW+d8FDLrDmrOJgtclcqJT2JannfA
-	HttOLvaGkr4tZOnuhFEg==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=dudafQAdSROXH3i4JBuQbWkCLPyaIGvP96P68RfkwAI=; b=E4GxsuufrjKGIg
+	6VHxcIouXHrZTVDJvJI/CkBvxNMrzPndGCzNhEjz34jnijAiF6sRojJpy86mmtFP18S9HvB81mSkp
+	Gv1XwzNPruMOK/+H2t0hRoHGeEa+n1d7e42Wt04FJP0wzPNHPahWAbcnziS1LS+Eu+4lmFlR+tRcA
+	fz3f8UL33vRd7YqjqKOOT0HXDAn0H7y9omjpvEIBHA54bpfcIIMXhocdd6s76i4aMSTB5+nRNCBgO
+	s+qj1Zn7tmjUTsbfHot6EvjH8gyEjwplOQS0CWgNQVynqRJV+x4Qc3WxjGr8yZRtQelShBPQTiaHx
+	8Azf9oeY/5eCIPlEP7Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uELWK-00000008OT4-2gyp;
-	Mon, 12 May 2025 05:16:08 +0000
-Received: from mail-qt1-x82c.google.com ([2607:f8b0:4864:20::82c])
+	id 1uEM1Q-00000008RTh-2avn;
+	Mon, 12 May 2025 05:48:16 +0000
+Received: from abb.hmeau.com ([144.6.53.87])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uELWG-00000008OSZ-41O4
-	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 05:16:06 +0000
-Received: by mail-qt1-x82c.google.com with SMTP id d75a77b69052e-47688ae873fso45486301cf.0
-        for <linux-riscv@lists.infradead.org>; Sun, 11 May 2025 22:16:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1747026960; x=1747631760; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=JB5Kuig9Ct+DdoXuLwf5DLRPBtpEPgDetACmtfHem3U=;
-        b=ExhuO8RN9Po3Py2HlGSgFr7Z0MSfozuUF6c7GmPE4A1IcF0F+KikANcwd6HO0PjeuE
-         /OO9M6QA+8SM9nRKogqgo83DuQGaQGBUHN4B8ykzkRifUeeTdryQbfrxM8hLxj6EBcRR
-         YmNhObACPxBVrYw0t3G1tGH5E4yFYI2tMDfD10FfC5/bl2rn9ouQfkIk/ZCfeOfn6KCD
-         GMs2WFSwyouHOnmJ12LOVdtEJOnLp0sHAt3BEh8cEvlQeetfLths+Fc0SBCualUAV4nE
-         qLTr7Ajl9iN5puPQ2DKXWMmxN9ZgUpR0AjnvOSCYEUnNddaCjAJ05boNbMjxFJ53yF4q
-         9rsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747026960; x=1747631760;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=JB5Kuig9Ct+DdoXuLwf5DLRPBtpEPgDetACmtfHem3U=;
-        b=v9Qh85DZMPQ3pR+5/LWpHF8WWWwc7dv5oek/1WeeCQ/DQgA7I/afr8PdqFlXbf7Rqu
-         Szu6T9y2LEI1vnPTTgF5q91sIz3tC3/iSfa5/o9XEVOFtHWQnppOMeEsXkELgC+9izra
-         Kqd8G7bhtRWeV358ivPbGV2HvKZZcn4baJwgWYmsrx52/W9h95LgcI1EpmqDm+CxLbZq
-         AFlSuHJgCGHuIvx/VOpv8LN3OTbSVL9FNIkidpAr0KNFXZjRk+ZRBV0gp71Xg2xJKWg5
-         UYQLIR+d+p7kXu8ju1shiaZSSXpzKpA5FjA1IPEClk9TG7LqgprZqD4AtbWXToPXtpvd
-         Ufvw==
-X-Gm-Message-State: AOJu0YxcW2wB32SE5Kgq3LVX9GEAUmVjVTaST6hge72HEMJLrQ1ZnNqD
-	cuGMkiTh30IM2q6ADlziGjSeonWMJ7/+eralO/74EvYPX6HOFSdhjRaZk64Vk24+aAIwu+1VENk
-	7AQknVzt1p3TKY5vICQ6KQsTUNabfpJPn7eomww==
-X-Gm-Gg: ASbGncuBSq/D9XJnC9F1MPa4UM0+rtsqug/Dlgm2PsvXj61/Ki4O/16Q3BTRgkOMrl7
-	sAJ1xMuQsPsVTJEwmNc3AbMmCfIxq486C3oVohLAgPOj6GxpKTn8gzXDdC2VWZXNWaPM+D5Q2O1
-	IBrIza/i+lh/vPycGmZlV0Iw75LGCBf12l2SsUZgfNrYRqmRCwOTj4LNLS0BO9H+bABg==
-X-Google-Smtp-Source: AGHT+IHw9OYmUFFaVOjKTmrAU8Lic8B4Zm4GrzDVHIbfeJPeFTDZ1sW5Du4kJ5q/UG3UgPC6JAvrwG/k/V+7WBd9EPg=
-X-Received: by 2002:a05:622a:2cf:b0:477:6ee2:18cd with SMTP id
- d75a77b69052e-49452714aa7mr173626351cf.5.1747026960004; Sun, 11 May 2025
- 22:16:00 -0700 (PDT)
+	id 1uELzJ-00000008RJZ-2FrS;
+	Mon, 12 May 2025 05:46:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=hmeau.com;
+	s=formenos; h=In-Reply-To:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
+	From:Date:Sender:Reply-To:Content-Transfer-Encoding:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:References:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=xxYezVCCW8thv+qLiUz6l9UAqKd/qP+JO8d98YSqd48=; b=S/s7t2pOkSMknAlt9Xo72xB+Xk
+	2BeBKd0JobLfzVY1rfopu4wpLQVmbiyoIyrKWNfw7fJElr2DnZf+2tHomWPWndlZcrQd/HdtxrhMo
+	tTihOowVp20dSE+SUvgkndWKyD9qKp1x0wWN4TQ/VwCRY6nFbhGy50FuzlO8OKpMeqYiggyoTmsLl
+	jQkWg8LN7KnZjUelc9rjFiuoTc8BIYX9Cd3aVWjMbysGB/o95Lhq3vAWZktaVIkqPbsqxzOxFvI26
+	OMBaBIB1PNbiIjiT0ucY5IFwu4MO/jlIIwZjeJxlcxvoVPc77KsOtexUw0YOl1fVZTXqXTY0jvh6h
+	Lula7ezA==;
+Received: from loth.rohan.me.apana.org.au ([192.168.167.2])
+	by formenos.hmeau.com with smtp (Exim 4.96 #2 (Debian))
+	id 1uELz5-005LnN-2T;
+	Mon, 12 May 2025 13:45:52 +0800
+Received: by loth.rohan.me.apana.org.au (sSMTP sendmail emulation); Mon, 12 May 2025 13:45:51 +0800
+Date: Mon, 12 May 2025 13:45:51 +0800
+From: Herbert Xu <herbert@gondor.apana.org.au>
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-bcachefs@vger.kernel.org,
+	Jason@zx2c4.com, tytso@mit.edu
+Subject: Re: [PATCH 0/4] crypto: lib/chacha - improve type safety
+Message-ID: <aCGLDzAkVn65P4n4@gondor.apana.org.au>
 MIME-Version: 1.0
-References: <20240222125059.13331-3-hchauhan@ventanamicro.com> <20250512033118.1071577-1-dqfext@gmail.com>
-In-Reply-To: <20250512033118.1071577-1-dqfext@gmail.com>
-From: Himanshu Chauhan <hchauhan@ventanamicro.com>
-Date: Mon, 12 May 2025 10:45:49 +0530
-X-Gm-Features: AX0GCFuxSrzsFyhJa4BfWv6ZpNuyEseIibTzFbBBdKXCjiAlaHx5IZ2hKcU0NFw
-Message-ID: <CAPd4WewhGXdE0KUzrnLGgK9cDjz35TFvr_fqYHc5yVzKTFCdHQ@mail.gmail.com>
-Subject: Re: [RFC PATCH 2/2] riscv: Introduce support for hardware break/watchpoints
-To: Qingfang Deng <dqfext@gmail.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Charlie Jenkins <charlie@rivosinc.com>, paul.walmsley@sifive.com, palmer@dabbelt.com, 
-	aou@eecs.berkeley.edu
+Content-Disposition: inline
+In-Reply-To: <20250505181824.647138-1-ebiggers@kernel.org>
+X-Newsgroups: apana.lists.os.linux.cryptoapi,apana.lists.os.linux.kernel
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250511_221605_028584_5080E965 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250511_224606_511055_D7851C56 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,57 +71,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUWluZ2ZhbmcsCgpUaGFua3MgZm9yIHBvaW50aW5nIGl0IG91dCEgVGhhdCBleHBsYWlucyB0
-aGUgZGlmZmVyZW5jZSBpbiBiZWhhdmlvdXIuCkkgd2lsbCBmaXggaXQuCgpSZWdhcmRzCkhpbWFu
-c2h1CgpPbiBNb24sIE1heSAxMiwgMjAyNSBhdCA5OjAx4oCvQU0gUWluZ2ZhbmcgRGVuZyA8ZHFm
-ZXh0QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiBIaSwgSGltYW5zaHUgYW5kIENoYXJsaWUsCj4KPiA+
-ICtzdGF0aWMgaW50IGFyY2hfc21wX3NldHVwX3NiaV9zaG1lbSh1bnNpZ25lZCBpbnQgY3B1KQo+
-ID4gK3sKPiA+ICsgICAgIHN0cnVjdCBzYmlfZGJ0cl9zaG1lbV9lbnRyeSAqZGJ0cl9zaG1lbTsK
-PiA+ICsgICAgIHVuc2lnbmVkIGxvbmcgc2htZW1fcGE7Cj4gPiArICAgICBzdHJ1Y3Qgc2JpcmV0
-IHJldDsKPiA+ICsgICAgIGludCByYzsKPiA+ICsKPiA+ICsgICAgIGRidHJfc2htZW0gPSBwZXJf
-Y3B1X3B0cihzYmlfZGJ0cl9zaG1lbSwgY3B1KTsKPiA+ICsgICAgIGlmICghZGJ0cl9zaG1lbSkg
-ewo+ID4gKyAgICAgICAgICAgICBwcl9lcnIoIkludmFsaWQgcGVyLWNwdSBzaGFyZWQgbWVtb3J5
-IGZvciBkZWJ1ZyB0cmlnZ2Vyc1xuIik7Cj4gPiArICAgICAgICAgICAgIHJldHVybiAtRU5PREVW
-Owo+ID4gKyAgICAgfQo+ID4gKwo+ID4gKyAgICAgc2htZW1fcGEgPSBfX3BhKGRidHJfc2htZW0p
-Owo+ID4gKwo+ID4gKyAgICAgcmV0ID0gc2JpX2VjYWxsKFNCSV9FWFRfREJUUiwgU0JJX0VYVF9E
-QlRSX1NFVFVQX1NITUVNLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICghTUVNX0xPKHNobWVt
-X3BhKSA/IDB4RkZGRkZGRkZVTCA6IE1FTV9MTyhzaG1lbV9wYSkpLAo+ID4gKyAgICAgICAgICAg
-ICAgICAgICAgICghTUVNX0hJKHNobWVtX3BhKSA/IDB4RkZGRkZGRkZVTCA6IE1FTV9ISShzaG1l
-bV9wYSkpLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAwLCAwLCAwLCAwKTsKPiA+ICsKPiA+
-ICsgICAgIGlmIChyZXQuZXJyb3IpIHsKPiA+ICsgICAgICAgICAgICAgc3dpdGNoKHJldC5lcnJv
-cikgewo+ID4gKyAgICAgICAgICAgICBjYXNlIFNCSV9FUlJfREVOSUVEOgo+ID4gKyAgICAgICAg
-ICAgICAgICAgICAgIHByX3dhcm4oIiVzOiBBY2Nlc3MgZGVuaWVkIGZvciBzaGFyZWQgbWVtb3J5
-IGF0ICVseFxuIiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fZnVuY19fLCBz
-aG1lbV9wYSk7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgcmMgPSAtRVBFUk07Cj4gPiArICAg
-ICAgICAgICAgICAgICAgICAgYnJlYWs7Cj4gPiArCj4gPiArICAgICAgICAgICAgIGNhc2UgU0JJ
-X0VSUl9JTlZBTElEX1BBUkFNOgo+ID4gKyAgICAgICAgICAgICBjYXNlIFNCSV9FUlJfSU5WQUxJ
-RF9BRERSRVNTOgo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHByX3dhcm4oIiVzOiBJbnZhbGlk
-IGFkZHJlc3MgcGFyYW1ldGVyICglbHUpXG4iLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgX19mdW5jX18sIHJldC5lcnJvcik7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgcmMg
-PSAtRUlOVkFMOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgIGJyZWFrOwo+ID4gKwo+ID4gKyAg
-ICAgICAgICAgICBjYXNlIFNCSV9FUlJfQUxSRUFEWV9BVkFJTEFCTEU6Cj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgcHJfd2FybigiJXM6IFNoYXJlZCBtZW1vcnkgaXMgYWxyZWFkeSBzZXRcbiIs
-Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX2Z1bmNfXyk7Cj4gPiArICAgICAg
-ICAgICAgICAgICAgICAgcmMgPSAtRUFERFJJTlVTRTsKPiA+ICsgICAgICAgICAgICAgICAgICAg
-ICBicmVhazsKPiA+ICsKPiA+ICsgICAgICAgICAgICAgY2FzZSBTQklfRVJSX0ZBSUxVUkU6Cj4g
-PiArICAgICAgICAgICAgICAgICAgICAgcHJfZXJyKCIlczogSW50ZXJuYWwgc2R0cmlnIHN0YXRl
-IGVycm9yXG4iLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICBfX2Z1bmNfXyk7Cj4g
-PiArICAgICAgICAgICAgICAgICAgICAgcmMgPSAtRU5YSU87Cj4gPiArICAgICAgICAgICAgICAg
-ICAgICAgYnJlYWs7Cj4gPiArCj4gPiArICAgICAgICAgICAgIGRlZmF1bHQ6Cj4gPiArICAgICAg
-ICAgICAgICAgICAgICAgcHJfd2FybigiJXM6IFVua25vd24gZXJyb3IgJWx1XG4iLCBfX2Z1bmNf
-XywgcmV0LmVycm9yKTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICByYyA9IC1FTlhJTzsKPiA+
-ICsgICAgICAgICAgICAgICAgICAgICBicmVhazsKPiA+ICsgICAgICAgICAgICAgfQo+ID4gKyAg
-ICAgfQo+ID4gKwo+ID4gKyAgICAgcHJfd2FybigiQ1BVICVkOiBIVyBCcmVha3BvaW50IHNoYXJl
-ZCBtZW1vcnkgcmVnaXN0ZXJlZC5cbiIsIGNwdSk7Cj4KPiBUaGlzIGlzIHByaW50ZWQgdW5jb25k
-aXRpb25hbGx5LCBldmVuIGlmIHRoZXJlIGlzIGFuIGVycm9yIGFib3ZlLgo+Cj4gPiArCj4gPiAr
-ICAgICByZXR1cm4gcmM7Cj4KPiBJZiByZXQuZXJyb3IgaXMgMCwgcmMgaXMgdW5pbml0aWFsaXpl
-ZCBoZXJlLCB3aGljaCBtYXkgZXhwbGFpbiB0aGUgZXJyb3IKPiB0aGF0IENoYXJsaWUgY2FtZSBh
-Y3Jvc3MuCj4KPiBSZWdhcmRzLAo+Cj4gLS0gUWluZ2ZhbmcKCl9fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
-eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
-aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Eric Biggers <ebiggers@kernel.org> wrote:
+> This series can also be retrieved from:
+> 
+>    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git chacha-prototypes-v1
+> 
+> This series improves type safety and clarity in the ChaCha functions by
+> strongly typing the state array and adding explicit array bounds for
+> other fixed-length arrays.  No functional changes.
+> 
+> Eric Biggers (4):
+>  crypto: lib/chacha - strongly type the ChaCha state
+>  crypto: lib/chacha - use struct assignment to copy state
+>  crypto: lib/chacha - add strongly-typed state zeroization
+>  crypto: lib/chacha - add array bounds to function prototypes
+> 
+> arch/arm/lib/crypto/chacha-glue.c             | 34 ++++----
+> arch/arm/lib/crypto/chacha-scalar-core.S      |  5 +-
+> arch/arm64/lib/crypto/chacha-neon-glue.c      | 27 ++++---
+> arch/mips/lib/crypto/chacha-glue.c            |  6 +-
+> arch/powerpc/lib/crypto/chacha-p10-glue.c     | 17 ++--
+> arch/powerpc/lib/crypto/chacha-p10le-8x.S     |  6 +-
+> arch/riscv/lib/crypto/chacha-riscv64-glue.c   |  9 ++-
+> arch/riscv/lib/crypto/chacha-riscv64-zvkb.S   | 10 +--
+> arch/s390/lib/crypto/chacha-glue.c            | 13 +--
+> arch/x86/lib/crypto/chacha_glue.c             | 62 ++++++++------
+> crypto/chacha.c                               | 20 ++---
+> drivers/char/random.c                         | 41 +++++-----
+> fs/bcachefs/checksum.c                        | 18 ++---
+> include/crypto/chacha.h                       | 80 ++++++++++++-------
+> lib/crypto/chacha.c                           | 40 +++++-----
+> lib/crypto/chacha20poly1305-selftest.c        |  8 +-
+> lib/crypto/chacha20poly1305.c                 | 53 ++++++------
+> lib/crypto/libchacha.c                        |  2 +-
+> .../crypto/chacha20-s390/test-cipher.c        | 10 +--
+> 19 files changed, 253 insertions(+), 208 deletions(-)
+> 
+> 
+> base-commit: 64745a9ca890ed60d78162ec511e1983e1946d73
+
+All applied.  Thanks.
+-- 
+Email: Herbert Xu <herbert@gondor.apana.org.au>
+Home Page: http://gondor.apana.org.au/~herbert/
+PGP Key: http://gondor.apana.org.au/~herbert/pubkey.txt
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
