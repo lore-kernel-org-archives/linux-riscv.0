@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669DAC3ABBC
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 07:28:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE44DC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 07:31:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+t6f/2ZGDhQofPpp/NgGo1o5/WWvDHpVVUAmtLZeqos=; b=XvN2sh9H/fHQcq
-	SPlqoBDK5ygAjev8xwbrXHMhNnXLUG0G2w44w02e8K6O1NON8FZaG/N8Afsw79AzowTYJCQ5VXYgE
-	Uyq3+L3QRJ0Y/qVco++TLzHwgVnkz8d6527oOaF9jjEXDl4ltqrmkL4GYRnnQSrwHdxPX2SGcW1p+
-	3LuoUdn5tSbZ+id9r39axveR5jwFG548LN9gkQzwMd5fKH3plPv4Q2SgmNUzj3mbXAV/XW6tu+foY
-	5xQP7Uy50fKZNeucbMyM+du6SupLLz9zUz5nBr1eTY403JdZhfQ54kHF0AFtUMQLJXz7BJlWKjnW6
-	WqrAF2KwalZ1dFfpyjMQ==;
+	List-Owner; bh=tk8aVKBtlJ/4A/afTsmAT+DY9A7e0Q526J6r9BRThN8=; b=Lcu73K0IW3+y7V
+	ROZ3eBNT58YGeWMR/kYjfFERzNGoq0C8kC6193tPvARWZ17IAvSG9eYpgF5wTraXr+zDIQ2CkrHeo
+	2Yj6T6Y9N+jChRYuxg08GgNHaGvY1to1TAxX22UyAmY7FxXGmqinw0ePUNLv6GVIjNmJmaRw/lkmd
+	qiT6m1EyIy9dGWAZkMVE/dPhxN95A4TfbGOq9LuG7GCLPLpBlW8wYV0rR9lktUzfQUa4Ao6zNWTZT
+	Uu0mBs1yFRqMgB28zqwKzAnBInGBK6Dt5lmjSAVRRZTUYMpkXry20ykaiwbQDH1nIIGyy8zPIADxD
+	6dBUaS2E3+A0ualqgnfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uENaS-00000008cgA-0Qne;
-	Mon, 12 May 2025 07:28:32 +0000
-Received: from mgamail.intel.com ([192.198.163.17])
+	id 1uENd7-00000008cyw-1hmy;
+	Mon, 12 May 2025 07:31:17 +0000
+Received: from mgamail.intel.com ([192.198.163.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uENaP-00000008cfp-3Dyf
+	id 1uENd5-00000008cyA-1LJs
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 07:28:30 +0000
+	Mon, 12 May 2025 07:31:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747034910; x=1778570910;
+  t=1747035075; x=1778571075;
   h=date:from:to:cc:subject:message-id:references:
    mime-version:in-reply-to;
-  bh=OpwhBIBLUR7KZYGf1JS5ByHHeMy5ALtXFWlVVlrs1UM=;
-  b=XT5gRSmexnimeQyPr+k9wXeDU2YDRnyih8AUfNjitJTGym6CrWl+XNir
-   PvP+D+gh8lz64A6qjxczQejzj7UaJ2h3dilMHo4xNih1My69hLn6encHc
-   LQURQKNdM5C45ZX1E1AXmUzdHW6yz8GFlDc6pQDt6I/p3sB3ctlXsnPHz
-   TI5pFP7cIIp8PY6S5Kzh3/ufrXMqL9TiiGy+Vy3FEe0jZJbpViqm77g4G
-   +FsurS9M4i8VXwQYYQJBxVCqwhQkHMzEZBcZA8S1t7Jib31hmxW0s1dsI
-   WLGKeLtaGg1o2nZYYtx/sOkYbwgHGx9gJ0MgIPiWmnjrtRC1BuN/RPIPI
+  bh=dpfuuOvYos686Fhw3YTd24pgbdRgiTmoR3WYG9xXogU=;
+  b=K/rKlA/oeC04m92agn4/J6D4cA2mTU9hltKr5fJlNhOiDhaUa6hzUm/c
+   v0ML7lsHVTK2e8Exsp8auol3sgk/co3MVskSjX9nPBWUQ9v+npXEI87oJ
+   OUKQePRwkWO5ROFC6EH8OOiK5l4E6wj67PNWqhH6FJ9+ncYdJxWy0g94a
+   J+W0YFjvuOcaavIV0sBDJlRZQ1TDhTeENpO+YCfLqV/P9lN+kcao8FAMe
+   A1oeVQ3yBVtNW4M6vVRKnyvFEbkCzLNdiB+eVKKCHk6Vroaxr4K905O/B
+   LDg1rDbHO6d6eTTSpuft6J6r2N+6AdQUX9yoNvrW8WY5jkgE133LFm+Ba
    A==;
-X-CSE-ConnectionGUID: R2AwfKIyS3mG2w2PENSa3w==
-X-CSE-MsgGUID: bN/Z+3AdSgebMPGiPO2DVw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11430"; a="48742598"
+X-CSE-ConnectionGUID: MQ33sYdzTK6pKbSho9eTww==
+X-CSE-MsgGUID: wjdEOeNDSOS+TyojdMtF9g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11430"; a="36445001"
 X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
-   d="scan'208";a="48742598"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 00:28:28 -0700
-X-CSE-ConnectionGUID: 5/o3CDCpRq2+Y+cxe+xc2g==
-X-CSE-MsgGUID: d8OohKBWTZ+rtZbLD8aoLQ==
+   d="scan'208";a="36445001"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 00:31:14 -0700
+X-CSE-ConnectionGUID: 5EgLtYGkTYGl62sK56r6pA==
+X-CSE-MsgGUID: V9z2TlQ/RWmDEmEo6ydWXg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
-   d="scan'208";a="142246382"
+   d="scan'208";a="137187634"
 Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 00:28:22 -0700
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 00:31:09 -0700
 Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
 	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uENaD-00000000qbV-3rOo;
-	Mon, 12 May 2025 10:28:17 +0300
-Date: Mon, 12 May 2025 10:28:17 +0300
+	id 1uENcv-00000000qeS-26L1;
+	Mon, 12 May 2025 10:31:05 +0300
+Date: Mon, 12 May 2025 10:31:05 +0300
 From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v3 20/23] mailbox/riscv-sbi-mpxy: Add ACPI support
-Message-ID: <aCGjEdNVH3ughITd@smile.fi.intel.com>
+Subject: Re: [PATCH v3 18/23] ACPI: RISC-V: Add support to update gsi range
+Message-ID: <aCGjuc9AmZaKBGg5@smile.fi.intel.com>
 References: <20250511133939.801777-1-apatel@ventanamicro.com>
- <20250511133939.801777-21-apatel@ventanamicro.com>
+ <20250511133939.801777-19-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250511133939.801777-21-apatel@ventanamicro.com>
+In-Reply-To: <20250511133939.801777-19-apatel@ventanamicro.com>
 Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_002829_833473_69E1A000 
-X-CRM114-Status: GOOD (  12.66  )
+X-CRM114-CacheID: sfid-20250512_003115_464565_6DA867A0 
+X-CRM114-Status: GOOD (  17.54  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,38 +89,64 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 11, 2025 at 07:09:36PM +0530, Anup Patel wrote:
+On Sun, May 11, 2025 at 07:09:34PM +0530, Anup Patel wrote:
 > From: Sunil V L <sunilvl@ventanamicro.com>
 > 
-> Add ACPI support for the RISC-V SBI message proxy (MPXY) based
-> mailbox driver.
+> Some RISC-V interrupt controllers like RPMI based system MSI interrupt
+> controllers do not have MADT entry defined. These interrupt controllers
+> exist only in the namespace. ACPI spec defines _GSB method to get the
+> GSI base of the interrupt controller, However, there is no such standard
+> method to get the GSI range. To support such interrupt controllers, set
+> the GSI range of such interrupt controllers to non-overlapping range and
+> provide API for interrupt controller driver to update it with proper
+> value.
 
 ...
 
-> -		if (is_of_node(dev_fwnode(dev)))
-> +		if (is_of_node(dev_fwnode(dev))) {
->  			of_msi_configure(dev, to_of_node(dev_fwnode(dev)));
-> +		} else {
+> +static inline int riscv_acpi_update_gsi_range(u32 gsi_base, u32 nr_irqs)
+> +{
+> +	return -1;
 
-You probably want to have this as
+Why not using the defined error code?
 
-		} else if (is_acpi_..._node()) { // you should decide if it is data, device or any type of ACPI node you match with
+> +}
 
-> +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-> +							      DOMAIN_BUS_PLATFORM_MSI);
-> +			dev_set_msi_domain(dev, msi_domain);
+...
+
+> +int riscv_acpi_update_gsi_range(u32 gsi_base, u32 nr_irqs)
+> +{
+> +	struct riscv_ext_intc_list *ext_intc_element;
+> +
+> +	list_for_each_entry(ext_intc_element, &ext_intc_list, list) {
+> +		if (gsi_base == ext_intc_element->gsi_base &&
+> +		    (ext_intc_element->flag & RISCV_ACPI_INTC_FLAG_PENDING)) {
+> +			ext_intc_element->nr_irqs = nr_irqs;
+> +			ext_intc_element->flag &= ~RISCV_ACPI_INTC_FLAG_PENDING;
+> +			return 0;
 > +		}
->  	}
+> +	}
+
+> +	return -1;
+
+Ditto.
+
+> +}
 
 ...
 
-> +#ifdef CONFIG_ACPI
-> +	if (!acpi_disabled)
+> +	/* If nr_irqs is zero, indicate it in flag and set to max range possible */
+> +	if (!nr_irqs) {
 
-Hmm... Why do you need this check? What for?
+Make conditional positive.
 
-> +		acpi_dev_clear_dependencies(ACPI_COMPANION(dev));
-> +#endif
+> +		ext_intc_element->flag |= RISCV_ACPI_INTC_FLAG_PENDING;
+> +		ext_intc_element->nr_irqs =  U32_MAX - ext_intc_element->gsi_base;
+
+One space too many.
+
+> +	} else {
+> +		ext_intc_element->nr_irqs = nr_irqs;
+> +	}
 
 -- 
 With Best Regards,
