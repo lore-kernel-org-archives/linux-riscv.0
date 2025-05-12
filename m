@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1F97C3ABCB
-	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 18:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F068C3ABCB
+	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 18:15:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5tAFf0kQyHUNteyJPdI6PT9F/7aPsgIm2y9Idhz97gI=; b=JoaP9yMI1XSRrV
-	9S8iYOXa+4ElaADkCZ0DL7f6UYeUZs/FmCqMXDKaDrqBymb60dnvwMPQFNYrJdankYosi5kw6iUYK
-	Qx4S+tg6LLK5TkHj0mBYcCziLQ8+swKkGd2if1MoziEIPDAfmdYpGzNwip5xZ9xbkLZGUgOcC0ngG
-	Don1q+0Q1it35AvXoWMdlCqIlLz74PFk4cjBh0MpN9i1iCrnD25Tc02w3xaCy7oudUHkZdLPmSF4X
-	iKs5oxKA5YYNmQR3ZBDuhZYwQMXht0AASQKc7irVmiMLSP8qXy9bDz7mDNxBLB2PTM7L7NeN41FZX
-	IOf9RJIxm40Pa0WPY5QA==;
+	List-Owner; bh=SS2+sV/LciFZNB4IANJiSh18YhWGCEMaT9a1Vw6R14c=; b=qO5wNLBUgKXmgw
+	LGj3IUiIe9vMp7hX5B4afNwcgGvHdllRkjbJgYalOaaeUUIwh4RExl/GMJkUX1gVqZFvFy0kTjv4D
+	BdOvjqL3z+cPNBiN+1mDK4L+uay748AspvTILch+9HLXfIP5OM/+IzLL6tV1dv3emZeDSavOYH6xQ
+	TrCmdqxZgsBIx3siVxoyU2PUOPCuREoxbLwElRYArGlaL9DwexzlLVq5WJsYP6KfE/W/E+6SrKok3
+	Cf7wSzBXUWX1VZBWczGefeQoBsmvdC7zu0KZXF/JCK1Pe3/Dsoi/IbN07D+wR9Qi82VRvPOU0aKMe
+	GdzLTiy7OmEDsCwukFqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXdw-0000000AJhJ-3HVx;
-	Mon, 12 May 2025 18:12:48 +0000
-Received: from out-174.mta0.migadu.com ([91.218.175.174])
+	id 1uEXg0-0000000AKI2-0QeJ;
+	Mon, 12 May 2025 18:14:56 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEXSC-0000000AGvI-0T1X
+	id 1uEXW2-0000000AHGs-3qTX
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 18:00:41 +0000
-Message-ID: <f27b0506-4841-4650-a0ee-0fe1643fdf37@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1747072827;
+	Mon, 12 May 2025 18:04:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1747073077;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ma5n1WWRt3IZMb/J5uvgHDAZKLn3T38CaI/Jo/Q76W4=;
-	b=hGlf2DxK/ll+4zVXxruxyenHniDCnXz8vzRbFapb8hUS/itdZEy/TPz0teFHV4TatUnnP5
-	BZv20ibsOKJy8hV5P8G/DZG5leGxmgDJH5uq+u9fW1PbSJFjurDRqz8BLE1IErge+GiHcI
-	Rumre5V3Jb6JPbLB6RELqbbucJ4f7ug=
-Date: Mon, 12 May 2025 11:00:21 -0700
+	bh=Z2T7ycCKwqZIMsv2I6XJvuhGXIY81vCrox7I0j0GM+0=;
+	b=JljArnggOISaESXmRR0uhaVUqXXSOVLr4uwh4ytK0nrwQeBI6pswhP4pluV267vyJTADPh
+	45gMP5JatlozxyZEaRDLERkSMiq5BAywa/WpXtoknvsKuFn98rr0gJQtby1ZmhWuVJqw6D
+	7XR4+I7i+NH+kNsoGO5/rM8PTlHGNRo=
+Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-418-bCO2M7_lMsCo5R7BHCagxQ-1; Mon,
+ 12 May 2025 14:04:36 -0400
+X-MC-Unique: bCO2M7_lMsCo5R7BHCagxQ-1
+X-Mimecast-MFC-AGG-ID: bCO2M7_lMsCo5R7BHCagxQ_1747073066
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 987FE1955D4A;
+	Mon, 12 May 2025 18:04:25 +0000 (UTC)
+Received: from intellaptop.lan (unknown [10.22.80.5])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B654930001A1;
+	Mon, 12 May 2025 18:04:17 +0000 (UTC)
+From: Maxim Levitsky <mlevitsk@redhat.com>
+To: kvm@vger.kernel.org
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexander Potapenko <glider@google.com>,
+	kvmarm@lists.linux.dev,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	x86@kernel.org,
+	Marc Zyngier <maz@kernel.org>,
+	Sean Christopherson <seanjc@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	linux-riscv@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Maxim Levitsky <mlevitsk@redhat.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: [PATCH v5 1/6] locking/mutex: implement mutex_trylock_nested
+Date: Mon, 12 May 2025 14:04:02 -0400
+Message-ID: <20250512180407.659015-2-mlevitsk@redhat.com>
+In-Reply-To: <20250512180407.659015-1-mlevitsk@redhat.com>
+References: <20250512180407.659015-1-mlevitsk@redhat.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v6 04/14] riscv: sbi: add FWFT extension interface
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
- Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
- linux-kselftest@vger.kernel.org
-Cc: Samuel Holland <samuel.holland@sifive.com>,
- Andrew Jones <ajones@ventanamicro.com>, Deepak Gupta <debug@rivosinc.com>
-References: <20250424173204.1948385-1-cleger@rivosinc.com>
- <20250424173204.1948385-5-cleger@rivosinc.com>
- <1c385a47-0a01-4be4-a34b-51a2f168e62d@linux.dev>
- <fe9d801b-007d-476d-97fe-96d0f3d218cd@rivosinc.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <fe9d801b-007d-476d-97fe-96d0f3d218cd@rivosinc.com>
-X-Migadu-Flow: FLOW_OUT
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_110040_442831_62B5AC17 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20250512_110439_071668_FF408AAE 
+X-CRM114-Status: GOOD (  20.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,93 +115,132 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Ck9uIDUvMTIvMjUgMToxNCBBTSwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+Cj4gT24gMDkvMDUv
-MjAyNSAwMjoxOCwgQXRpc2ggUGF0cmEgd3JvdGU6Cj4+IE9uIDQvMjQvMjUgMTA6MzEgQU0sIENs
-w4PCqW1lbnQgTMODwqlnZXIgd3JvdGU6Cj4+PiBUaGlzIFNCSSBleHRlbnNpb25zIGVuYWJsZXMg
-c3VwZXJ2aXNvciBtb2RlIHRvIGNvbnRyb2wgZmVhdHVyZSB0aGF0IGFyZQo+Pj4gdW5kZXIgTS1t
-b2RlIGNvbnRyb2wgKEZvciBpbnN0YW5jZSwgU3ZhZHUgbWVudmNmZyBBRFVFIGJpdCwgU3NkYmx0
-cnAKPj4+IERURSwgZXRjKS4gQWRkIGFuIGludGVyZmFjZSB0byBzZXQgbG9jYWwgZmVhdHVyZXMg
-Zm9yIGEgc3BlY2lmaWMgY3B1Cj4+PiBtYXNrIGFzIHdlbGwgYXMgZm9yIHRoZSBvbmxpbmUgY3B1
-IG1hc2suCj4+Pgo+Pj4gU2lnbmVkLW9mZi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2
-b3NpbmMuY29tPgo+Pj4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZlbnRhbmFt
-aWNyby5jb20+Cj4+PiAtLS0KPj4+ICDCoCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3NiaS5oIHwg
-MTcgKysrKysrKysrKysKPj4+ICDCoCBhcmNoL3Jpc2N2L2tlcm5lbC9zYmkuY8KgwqDCoMKgwqAg
-fCA1NyArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysKPj4+ICDCoCAyIGZpbGVz
-IGNoYW5nZWQsIDc0IGluc2VydGlvbnMoKykKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9zYmkuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgKPj4+IGlu
-ZGV4IDdlYzI0OWZlYTg4MC4uM2JiZWY1NmJjZWZjIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNj
-di9pbmNsdWRlL2FzbS9zYmkuaAo+Pj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmku
-aAo+Pj4gQEAgLTUwMyw2ICs1MDMsMjMgQEAgaW50IHNiaV9yZW1vdGVfaGZlbmNlX3Z2bWFfYXNp
-ZChjb25zdCBzdHJ1Y3QKPj4+IGNwdW1hc2sgKmNwdV9tYXNrLAo+Pj4gIMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyBhc2lkKTsKPj4+ICDCoCBsb25nIHNi
-aV9wcm9iZV9leHRlbnNpb24oaW50IGV4dCk7Cj4+PiAgwqAgK2ludCBzYmlfZndmdF9zZXQodTMy
-IGZlYXR1cmUsIHVuc2lnbmVkIGxvbmcgdmFsdWUsIHVuc2lnbmVkIGxvbmcKPj4+IGZsYWdzKTsK
-Pj4+ICtpbnQgc2JpX2Z3ZnRfc2V0X2NwdW1hc2soY29uc3QgY3B1bWFza190ICptYXNrLCB1MzIg
-ZmVhdHVyZSwKPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWduZWQgbG9uZyB2YWx1
-ZSwgdW5zaWduZWQgbG9uZyBmbGFncyk7Cj4+PiArLyoqCj4+PiArICogc2JpX2Z3ZnRfc2V0X29u
-bGluZV9jcHVzKCkgLSBTZXQgYSBmZWF0dXJlIG9uIGFsbCBvbmxpbmUgY3B1cwo+Pj4gKyAqIEBm
-ZWF0dXJlOiBUaGUgZmVhdHVyZSB0byBiZSBzZXQKPj4+ICsgKiBAdmFsdWU6IFRoZSBmZWF0dXJl
-IHZhbHVlIHRvIGJlIHNldAo+Pj4gKyAqIEBmbGFnczogRldGVCBmZWF0dXJlIHNldCBmbGFncwo+
-Pj4gKyAqCj4+PiArICogUmV0dXJuOiAwIG9uIHN1Y2Nlc3MsIGFwcHJvcHJpYXRlIGxpbnV4IGVy
-cm9yIGNvZGUgb3RoZXJ3aXNlLgo+Pj4gKyAqLwo+Pj4gK3N0YXRpYyBpbmxpbmUgaW50IHNiaV9m
-d2Z0X3NldF9vbmxpbmVfY3B1cyh1MzIgZmVhdHVyZSwgdW5zaWduZWQgbG9uZwo+Pj4gdmFsdWUs
-Cj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgdW5zaWdu
-ZWQgbG9uZyBmbGFncykKPj4+ICt7Cj4+PiArwqDCoMKgIHJldHVybiBzYmlfZndmdF9zZXRfY3B1
-bWFzayhjcHVfb25saW5lX21hc2ssIGZlYXR1cmUsIHZhbHVlLCBmbGFncyk7Cj4+PiArfQo+Pj4g
-Kwo+Pj4gIMKgIC8qIENoZWNrIGlmIGN1cnJlbnQgU0JJIHNwZWNpZmljYXRpb24gdmVyc2lvbiBp
-cyAwLjEgb3Igbm90ICovCj4+PiAgwqAgc3RhdGljIGlubGluZSBpbnQgc2JpX3NwZWNfaXNfMF8x
-KHZvaWQpCj4+PiAgwqAgewo+Pj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL3NiaS5j
-IGIvYXJjaC9yaXNjdi9rZXJuZWwvc2JpLmMKPj4+IGluZGV4IDFkNDRjMzUzMDVhOS4uZDU3ZTRk
-YWU3ZGFjIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvc2JpLmMKPj4+ICsrKyBi
-L2FyY2gvcmlzY3Yva2VybmVsL3NiaS5jCj4+PiBAQCAtMjk5LDYgKzI5OSw2MyBAQCBzdGF0aWMg
-aW50IF9fc2JpX3JmZW5jZV92MDIoaW50IGZpZCwgY29uc3Qgc3RydWN0Cj4+PiBjcHVtYXNrICpj
-cHVfbWFzaywKPj4+ICDCoMKgwqDCoMKgIHJldHVybiAwOwo+Pj4gIMKgIH0KPj4+ICDCoCArLyoq
-Cj4+PiArICogc2JpX2Z3ZnRfc2V0KCkgLSBTZXQgYSBmZWF0dXJlIG9uIHRoZSBsb2NhbCBoYXJ0
-Cj4+PiArICogQGZlYXR1cmU6IFRoZSBmZWF0dXJlIElEIHRvIGJlIHNldAo+Pj4gKyAqIEB2YWx1
-ZTogVGhlIGZlYXR1cmUgdmFsdWUgdG8gYmUgc2V0Cj4+PiArICogQGZsYWdzOiBGV0ZUIGZlYXR1
-cmUgc2V0IGZsYWdzCj4+PiArICoKPj4+ICsgKiBSZXR1cm46IDAgb24gc3VjY2VzcywgYXBwcm9w
-cmlhdGUgbGludXggZXJyb3IgY29kZSBvdGhlcndpc2UuCj4+PiArICovCj4+PiAraW50IHNiaV9m
-d2Z0X3NldCh1MzIgZmVhdHVyZSwgdW5zaWduZWQgbG9uZyB2YWx1ZSwgdW5zaWduZWQgbG9uZyBm
-bGFncykKPj4+ICt7Cj4+PiArwqDCoMKgIHJldHVybiAtRU9QTk9UU1VQUDsKPj4+ICt9Cj4+PiAr
-Cj4+PiArc3RydWN0IGZ3ZnRfc2V0X3JlcSB7Cj4+PiArwqDCoMKgIHUzMiBmZWF0dXJlOwo+Pj4g
-K8KgwqDCoCB1bnNpZ25lZCBsb25nIHZhbHVlOwo+Pj4gK8KgwqDCoCB1bnNpZ25lZCBsb25nIGZs
-YWdzOwo+Pj4gK8KgwqDCoCBhdG9taWNfdCBlcnJvcjsKPj4+ICt9Owo+Pj4gKwo+Pj4gK3N0YXRp
-YyB2b2lkIGNwdV9zYmlfZndmdF9zZXQodm9pZCAqYXJnKQo+Pj4gK3sKPj4+ICvCoMKgwqAgc3Ry
-dWN0IGZ3ZnRfc2V0X3JlcSAqcmVxID0gYXJnOwo+Pj4gK8KgwqDCoCBpbnQgcmV0Owo+Pj4gKwo+
-Pj4gK8KgwqDCoCByZXQgPSBzYmlfZndmdF9zZXQocmVxLT5mZWF0dXJlLCByZXEtPnZhbHVlLCBy
-ZXEtPmZsYWdzKTsKPj4+ICvCoMKgwqAgaWYgKHJldCkKPj4+ICvCoMKgwqDCoMKgwqDCoCBhdG9t
-aWNfc2V0KCZyZXEtPmVycm9yLCByZXQpOwo+PiBXaGF0IGhhcHBlbnMgd2hlbiBjcHVYIGV4ZWN1
-dGVkIGZpcnN0IHJlcG9ydGVkIGFuIGVycm9yIGJ1dCBjcHVZCj4+IGV4ZWN1dGVkIHRoaXMgZnVu
-Y3Rpb24gbGF0ZXIgYW5kIHJlcG9ydCBzdWNjZXNzLgo+Pgo+PiBUaGUgZXJyb3Igd2lsbCBiZSBt
-YXNrZWQgaW4gdGhhdCBjYXNlLgo+IFdlIGFjdHVhbGx5IG9ubHkgc2V0IHRoZSBiaXQgaWYgYW4g
-ZXJyb3IgaGFwcGVuZWQgKGNvbnNpZGVyIGl0IGFzIGEKPiBzdGlja3kgZXJyb3IgYml0KS4gU28g
-aWYgQ1BVeSByZXBvcnRzIHN1Y2Nlc3MsIGl0IHdvbid0IGNsZWFyIHRoZSBiaXQuCgpBaGggeWVz
-LiBJIG1pc3NlZCB0aGF0LgoKPiBUaGFua3MsCj4KPiBDbMOpbWVudAo+Cj4+PiArfQo+Pj4gKwo+
-Pj4gKy8qKgo+Pj4gKyAqIHNiaV9md2Z0X3NldF9jcHVtYXNrKCkgLSBTZXQgYSBmZWF0dXJlIGZv
-ciB0aGUgc3BlY2lmaWVkIGNwdW1hc2sKPj4+ICsgKiBAbWFzazogQ1BVIG1hc2sgb2YgY3B1cyB0
-aGF0IG5lZWQgdGhlIGZlYXR1cmUgdG8gYmUgc2V0Cj4+PiArICogQGZlYXR1cmU6IFRoZSBmZWF0
-dXJlIElEIHRvIGJlIHNldAo+Pj4gKyAqIEB2YWx1ZTogVGhlIGZlYXR1cmUgdmFsdWUgdG8gYmUg
-c2V0Cj4+PiArICogQGZsYWdzOiBGV0ZUIGZlYXR1cmUgc2V0IGZsYWdzCj4+PiArICoKPj4+ICsg
-KiBSZXR1cm46IDAgb24gc3VjY2VzcywgYXBwcm9wcmlhdGUgbGludXggZXJyb3IgY29kZSBvdGhl
-cndpc2UuCj4+PiArICovCj4+PiAraW50IHNiaV9md2Z0X3NldF9jcHVtYXNrKGNvbnN0IGNwdW1h
-c2tfdCAqbWFzaywgdTMyIGZlYXR1cmUsCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgdmFsdWUsIHVuc2lnbmVkIGxvbmcgZmxhZ3MpCj4+PiAr
-ewo+Pj4gK8KgwqDCoCBzdHJ1Y3QgZndmdF9zZXRfcmVxIHJlcSA9IHsKPj4+ICvCoMKgwqDCoMKg
-wqDCoCAuZmVhdHVyZSA9IGZlYXR1cmUsCj4+PiArwqDCoMKgwqDCoMKgwqAgLnZhbHVlID0gdmFs
-dWUsCj4+PiArwqDCoMKgwqDCoMKgwqAgLmZsYWdzID0gZmxhZ3MsCj4+PiArwqDCoMKgwqDCoMKg
-wqAgLmVycm9yID0gQVRPTUlDX0lOSVQoMCksCj4+PiArwqDCoMKgIH07Cj4+PiArCj4+PiArwqDC
-oMKgIGlmIChmZWF0dXJlICYgU0JJX0ZXRlRfR0xPQkFMX0ZFQVRVUkVfQklUKQo+Pj4gK8KgwqDC
-oMKgwqDCoMKgIHJldHVybiAtRUlOVkFMOwo+Pj4gKwo+Pj4gK8KgwqDCoCBvbl9lYWNoX2NwdV9t
-YXNrKG1hc2ssIGNwdV9zYmlfZndmdF9zZXQsICZyZXEsIDEpOwo+Pj4gKwo+Pj4gK8KgwqDCoCBy
-ZXR1cm4gYXRvbWljX3JlYWQoJnJlcS5lcnJvcik7Cj4+PiArfQo+Pj4gKwo+Pj4gIMKgIC8qKgo+
-Pj4gIMKgwqAgKiBzYmlfc2V0X3RpbWVyKCkgLSBQcm9ncmFtIHRoZSB0aW1lciBmb3IgbmV4dCB0
-aW1lciBldmVudC4KPj4+ICDCoMKgICogQHN0aW1lX3ZhbHVlOiBUaGUgdmFsdWUgYWZ0ZXIgd2hp
-Y2ggbmV4dCB0aW1lciBldmVudCBzaG91bGQgZmlyZS4KCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1y
-aXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Despite the fact that several lockdep-related checks are skipped when
+calling trylock* versions of the locking primitives, for example
+mutex_trylock, each time the mutex is acquired, a held_lock is still
+placed onto the lockdep stack by __lock_acquire() which is called
+regardless of whether the trylock* or regular locking API was used.
+
+This means that if the caller successfully acquires more than
+MAX_LOCK_DEPTH locks of the same class, even when using mutex_trylock,
+lockdep will still complain that the maximum depth of the held lock stack
+has been reached and disable itself.
+
+For example, the following error currently occurs in the ARM version
+of KVM, once the code tries to lock all vCPUs of a VM configured with more
+than MAX_LOCK_DEPTH vCPUs, a situation that can easily happen on modern
+systems, where having more than 48 CPUs is common, and it's also common to
+run VMs that have vCPU counts approaching that number:
+
+[  328.171264] BUG: MAX_LOCK_DEPTH too low!
+[  328.175227] turning off the locking correctness validator.
+[  328.180726] Please attach the output of /proc/lock_stat to the bug report
+[  328.187531] depth: 48  max: 48!
+[  328.190678] 48 locks held by qemu-kvm/11664:
+[  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
+[  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+[  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
+
+Luckily, in all instances that require locking all vCPUs, the
+'kvm->lock' is taken a priori, and that fact makes it possible to use
+the little known feature of lockdep, called a 'nest_lock', to avoid this
+warning and subsequent lockdep self-disablement.
+
+The action of 'nested lock' being provided to lockdep's lock_acquire(),
+causes the lockdep to detect that the top of the held lock stack contains
+a lock of the same class and then increment its reference counter instead
+of pushing a new held_lock item onto that stack.
+
+See __lock_acquire for more information.
+
+Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+---
+ include/linux/mutex.h  | 15 +++++++++++++++
+ kernel/locking/mutex.c | 14 +++++++++++---
+ 2 files changed, 26 insertions(+), 3 deletions(-)
+
+diff --git a/include/linux/mutex.h b/include/linux/mutex.h
+index 2143d05116be..da4518cfd59c 100644
+--- a/include/linux/mutex.h
++++ b/include/linux/mutex.h
+@@ -193,7 +193,22 @@ extern void mutex_lock_io(struct mutex *lock);
+  *
+  * Returns 1 if the mutex has been acquired successfully, and 0 on contention.
+  */
++
++#ifdef CONFIG_DEBUG_LOCK_ALLOC
++extern int _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock);
++
++#define mutex_trylock_nest_lock(lock, nest_lock)		\
++(								\
++	typecheck(struct lockdep_map *, &(nest_lock)->dep_map),	\
++	_mutex_trylock_nest_lock(lock, &(nest_lock)->dep_map)	\
++)
++
++#define mutex_trylock(lock) _mutex_trylock_nest_lock(lock, NULL)
++#else
+ extern int mutex_trylock(struct mutex *lock);
++#define mutex_trylock_nest_lock(lock, nest_lock) mutex_trylock(lock)
++#endif
++
+ extern void mutex_unlock(struct mutex *lock);
+ 
+ extern int atomic_dec_and_mutex_lock(atomic_t *cnt, struct mutex *lock);
+diff --git a/kernel/locking/mutex.c b/kernel/locking/mutex.c
+index 555e2b3a665a..c75a838d3bae 100644
+--- a/kernel/locking/mutex.c
++++ b/kernel/locking/mutex.c
+@@ -1062,6 +1062,7 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
+ 
+ #endif
+ 
++#ifndef CONFIG_DEBUG_LOCK_ALLOC
+ /**
+  * mutex_trylock - try to acquire the mutex, without waiting
+  * @lock: the mutex to be acquired
+@@ -1077,18 +1078,25 @@ __ww_mutex_lock_interruptible_slowpath(struct ww_mutex *lock,
+  * mutex must be released by the same task that acquired it.
+  */
+ int __sched mutex_trylock(struct mutex *lock)
++{
++	MUTEX_WARN_ON(lock->magic != lock);
++	return __mutex_trylock(lock);
++}
++EXPORT_SYMBOL(mutex_trylock);
++#else
++int __sched _mutex_trylock_nest_lock(struct mutex *lock, struct lockdep_map *nest_lock)
+ {
+ 	bool locked;
+ 
+ 	MUTEX_WARN_ON(lock->magic != lock);
+-
+ 	locked = __mutex_trylock(lock);
+ 	if (locked)
+-		mutex_acquire(&lock->dep_map, 0, 1, _RET_IP_);
++		mutex_acquire_nest(&lock->dep_map, 0, 1, nest_lock, _RET_IP_);
+ 
+ 	return locked;
+ }
+-EXPORT_SYMBOL(mutex_trylock);
++EXPORT_SYMBOL(_mutex_trylock_nest_lock);
++#endif
+ 
+ #ifndef CONFIG_DEBUG_LOCK_ALLOC
+ int __sched
+-- 
+2.46.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
