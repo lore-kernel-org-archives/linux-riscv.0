@@ -4,106 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 977F6C3ABC3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1A22C3ABBC
 	for <linux-riscv@archiver.kernel.org>; Mon, 12 May 2025 08:45:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dU5u6Jm5dk1VBDU7PWkl3er5U2yoe0YUewdDp8S1nlU=; b=tG+mpb4u1l6MRD
-	qDW6D3kXSNjzeewH5kjxc1K9WkCYQ2PnBkhnZyOTkK+MzZR/Ceq6im8phye4rdr/s1R5e4WDtr/kf
-	81VXM7TFuXiIXoSt33TjuG/S/g4t94K3tLLK96hbSayjzQ6nsZu3sDOcBVyYtd6oIalgDvmD9GjZW
-	I1Yv8QNsWdhSU+quzHsoNvgMqS74IZ9QXIuEDuZyPn99M5eb4vopXGvcBrkrZBJgop7fWq27bMdM6
-	v2gZBfjOBxLGTdKaJ0Hv9uzgRCA/PMu4BRx5EaF7hkF9RHNt7fZvfMKcCd+oIUWVh4ZyFJVdBVShZ
-	zucysXE+Htlfz4PssjSA==;
+	List-Owner; bh=M5eZ519EmLS2PUCPvZUUrFcRQa+2BkTh2jb0R9j8fnY=; b=39qCCITnJtCA/M
+	WIsMe6l/joJMZWjRc44LxMYZ3x9BGhUvGRc0BX2l2Rgo3mqyMHGn8nUGroQOrGXGkXn9jvk+9BIyP
+	znGz4uT81KpEKBzuCZTFy50ymQUYhFVtoELGC9RzMszQVkzNtRLUzaJvbvpzzpHTSfTPej9FVLKhP
+	ez2mEg3hdorzzG3DwBihE3ymPlUEnTLfOuEwy/o/tv9VbUEwKZWUwmBx8oPVVWVUYGkUT3hhgJYYN
+	Ke4ndHM7u5Mq06E2/HmLC53l+uo2TCOQWQUSKtOIot+LW6wihv/t/g0seGqcPyE5HMkWK9q9BhsRd
+	l+HzfzGb0/xgsEHWXvqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOn0-00000008oOT-0mWA;
+	id 1uEOn0-00000008oP0-3Tmr;
 	Mon, 12 May 2025 08:45:34 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEOkI-00000008nQ2-3VmQ
+	id 1uEOlY-00000008nhs-3fcP
 	for linux-riscv@lists.infradead.org;
-	Mon, 12 May 2025 08:42:49 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-7fd581c2bf4so3451086a12.3
-        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 01:42:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1747039366; x=1747644166; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X+5YGsytKao/1xj60NvbEzUS05YJXuIqDnMKPWIykv4=;
-        b=l473VVyDCh6TLj7sYQpo9nzhbf4BSh9nbikRNQZGpfynrRb6eDZeUq36aW+GztqApO
-         jWv8Pj6qHrc/kBwmtqj6J5lXb+H5aXi2q5O6cMWizOZWHCkI6iVRF4sOu3B0afvfQ9rY
-         hpwJkoK2tKJnahb+SWNoASsKOwXEWRMyO7d6/1zdkxl9fBJk1Js2T+x0fxKBZAC/MMjO
-         swk0wzikU0KqHfIkVCc7sJoL3GZHBSvcbiN1tlO7mCp09agTfdUd+D4vSAs1a/X7sp3V
-         V54NKGCmuQjjN4g4t7qe0KnuLVcVGiQCJ3Z/zsTKrY8636cjAJUlpQriz5wFRSR7nh+w
-         9Gsg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747039366; x=1747644166;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=X+5YGsytKao/1xj60NvbEzUS05YJXuIqDnMKPWIykv4=;
-        b=AGeCQ2wBtSNvO/u+lo6mKQ/VU+cM2a8NVwgS9jE3yRuJtW6oKhN2foR+mrzYxcg/Td
-         kXFOqH4GEdepK5scnLiAf/is6bBtqcUkBdCYwIu/uppblPKrH0yOfM9ccvV9ZWYotffq
-         T7GgaDGO62ONruETeThlAx3t4ywUcJ8Cunm3zoUw4JpKLqqPGKxSRYByGkSWPzDtOxXn
-         LNvbJzhL/jvPSH4/UxKX7UK18GFyfPFj/eS2jbY+0R2Sz4I6WsW9AmRaha0TQxlw5lRH
-         z7M1aYwIuQ1BvbafqDV+1ALSR2VeqIkE1Iwq16gt5CUdPIXXHRcrmIUDRnP7bJheh4el
-         QHKA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxbtgbBRld9ET6rxI5GA0+e1dagyhRTWJEuEnrqQwMHx9Uj1hjt/cNdfmgfh3Ud0tv2+2LhOMggJ4VxQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUa1t24gTbNjk57AmS8+9Ra/QuSgzPGo3TiOjaFAltMqDH/G8R
-	D4JqRe8/+krc7nKiJysernIICuSymL3Ilyt/jmwDGPrGKpeKGX0vFjcD8ml4kFY=
-X-Gm-Gg: ASbGncuSkl2T5uOyMfE0bkbLVOu0bYBcYQxWDRgGhiolH+lamBLdFSNrz1CA17sL8+F
-	+dzTM95U8vr/UdetldJD1hBJea3UDde1Qs1WShk2YFlqENGfX0CppWplUoHB4pb+mheInwT9jtb
-	+Ciw1IomvEvRAPnY8oDzVF7X0nk/Fe2j0dRMzFBqCXgJphXZQhL6C8RYSqTEDRCt54AhvYnEFMj
-	Omlg8uoQMN1M6X6llR2bVtVKVYDVVuFCe9QN9UxlD6VJ5fOfGEq6PrzhAANUjyP1L6nd7VBt2Qu
-	bYHPC+RFNtalJ6h+xYanB9vGh7W87mW9zuQDEsZQjcfZq5P7hPO2Kkn4GFtv5bk+S1GzTw==
-X-Google-Smtp-Source: AGHT+IEz7Q7VathijLmBODr/a+xLNbkuuG9lsRlC6Htr1xO5LtaIVMh8ToMMpvZPxZ7MXgvORUvBzQ==
-X-Received: by 2002:a17:903:166b:b0:224:c47:b6c3 with SMTP id d9443c01a7336-22fc8b0fa27mr146195415ad.6.1747039365955;
-        Mon, 12 May 2025 01:42:45 -0700 (PDT)
-Received: from sunil-laptop ([103.97.166.196])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7546aefsm58573605ad.37.2025.05.12.01.42.35
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 01:42:45 -0700 (PDT)
-Date: Mon, 12 May 2025 14:12:31 +0530
-From: Sunil V L <sunilvl@ventanamicro.com>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Anup Patel <apatel@ventanamicro.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Len Brown <lenb@kernel.org>,
-	Rahul Pathak <rpathak@ventanamicro.com>,
-	Leyfoon Tan <leyfoon.tan@starfivetech.com>,
-	Atish Patra <atish.patra@linux.dev>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 21/23] irqchip/riscv-rpmi-sysmsi: Add ACPI support
-Message-ID: <aCG0d3Lh9KwS5a9N@sunil-laptop>
+	Mon, 12 May 2025 08:44:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747039445; x=1778575445;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=aO0nrrJS8HORN2b0dkbOEnZb76TM/1Rz49FnYj/O6R4=;
+  b=IUp0IBgqWpQpPRkxkVT3VFolzu+GMmnOKZKxN0EZn10+3wK7c9tB80of
+   IQJC8dk3e2wMf2/2IpOneynGxeLBC8FcDWQMTOoD5Yb+NyBcJd14NG6ak
+   chdSqk4pE+XszP26nJF5xp5hNNjxAzHMoyOklEl+0iO0WqJpnNX1Me159
+   M0vn/myo/vuPEuF4f7J0UEShnbKJtuhRne+yHLrft2ndKQfjnjucna74b
+   ZGUZzyNwA7e9/YoD2pl1Smv7hnGVBc4nQy0HEl4hqUOCbWGSbgkqGOqXX
+   Q2Gj1cVNp7I0xvt4D6/6OXu7vBu4kGUpZ5XJA9NGid3tO+uUotokM5jTl
+   Q==;
+X-CSE-ConnectionGUID: +FyPjo8qTM+h6BUxvB+8Ew==
+X-CSE-MsgGUID: I32YzpyITjWQfmqTv8kgNw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11430"; a="48901673"
+X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
+   d="scan'208";a="48901673"
+Received: from fmviesa006.fm.intel.com ([10.60.135.146])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 01:44:04 -0700
+X-CSE-ConnectionGUID: sVxN3AVHRf2RESn32JKGZQ==
+X-CSE-MsgGUID: nsx9lkCuRn6kBHgYj8UcUA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,281,1739865600"; 
+   d="scan'208";a="137205262"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 May 2025 01:43:58 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uEOlO-00000000rhm-1X7N;
+	Mon, 12 May 2025 11:43:54 +0300
+Date: Mon, 12 May 2025 11:43:54 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v3 14/23] ACPI: property: Refactor
+ acpi_fwnode_get_reference_args()
+Message-ID: <aCG0ykZt-DcEG2kr@smile.fi.intel.com>
 References: <20250511133939.801777-1-apatel@ventanamicro.com>
- <20250511133939.801777-22-apatel@ventanamicro.com>
- <aCGkdqcLhPVXSSLq@smile.fi.intel.com>
+ <20250511133939.801777-15-apatel@ventanamicro.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aCGkdqcLhPVXSSLq@smile.fi.intel.com>
+In-Reply-To: <20250511133939.801777-15-apatel@ventanamicro.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_014246_883814_26FA5514 
-X-CRM114-Status: GOOD (  16.73  )
+X-CRM114-CacheID: sfid-20250512_014404_988849_99AA884E 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,70 +84,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 12, 2025 at 10:34:14AM +0300, Andy Shevchenko wrote:
-> On Sun, May 11, 2025 at 07:09:37PM +0530, Anup Patel wrote:
-> > 
-> > Add ACPI support for the RISC-V RPMI system MSI based irqchip driver.
+On Sun, May 11, 2025 at 07:09:30PM +0530, Anup Patel wrote:
 > 
-> ...
-> 
-> 	struct fwnode_handle *fwnode;
-> 	...
-> 	fwnode = dev_fwnode(dev);
-> 
-> > +	if (is_acpi_node(dev_fwnode(dev))) {
-> > +		u32 nr_irqs;
-> > +
-> > +		rc = riscv_acpi_get_gsi_info(dev_fwnode(dev), &priv->gsi_base, &id,
-> > +					     &nr_irqs, NULL);
-> 
-> 		...(fwnode, ...)
-> 
-> ...and so on...
-> 
-Sure.
+> Currently acpi_fwnode_get_reference_args() calls the public function
+> __acpi_node_get_property_reference() which ignores the nargs_prop
+> parameter. To fix this, make __acpi_node_get_property_reference() to
+> call the static acpi_fwnode_get_reference() so that callers of
+> fwnode_get_reference_args() can still pass a valid property name to
+> fetch the number of arguments.
 
-> > +		if (rc) {
-> > +			dev_err(dev, "failed to find GSI mapping\n");
-> > +			return rc;
-> > +		}
-> > +
-> > +		/* Update with actual GSI range */
-> > +		if (nr_irqs != priv->nr_irqs)
-> > +			riscv_acpi_update_gsi_range(priv->gsi_base, priv->nr_irqs);
-> > +	}
-> 
-> > -		if (is_of_node(dev_fwnode(dev)))
-> > +		if (is_of_node(dev_fwnode(dev))) {
-> >  			of_msi_configure(dev, to_of_node(dev_fwnode(dev)));
-> > +		} else {
-> 
-> 		} else if (is_acpi_..._node(...)) {
-> 
-Okay.
+...
 
-> > +			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
-> > +							      DOMAIN_BUS_PLATFORM_MSI);
-> > +			dev_set_msi_domain(dev, msi_domain);
-> > +		}
-> 
-> ...
-> 
-> > +#ifdef CONFIG_ACPI
-> > +	if (!acpi_disabled)
-> 
-> Why?
-> 
-Same code as in the other patch. I will update this in the next version
-in case any change required.
+> +static int acpi_fwnode_get_reference_args(const struct fwnode_handle *fwnode,
+> +					  const char *prop, const char *nargs_prop,
 
-Thanks,
-Sunil
+Why prop and not propname?
+
+> +					  unsigned int args_count, unsigned int index,
+> +					  struct fwnode_reference_args *args)
+
+...
+
+> -	ret = acpi_data_get_property(data, propname, ACPI_TYPE_ANY, &obj);
+> +	ret = acpi_data_get_property(data, prop, ACPI_TYPE_ANY, &obj);
+
+Ditto.
+
+Sounds like an unneeded churn.
+
+>  	if (ret)
+>  		return ret == -EINVAL ? -ENOENT : -EINVAL;
+
+-- 
+With Best Regards,
+Andy Shevchenko
+
+
 
 _______________________________________________
 linux-riscv mailing list
