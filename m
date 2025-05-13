@@ -4,60 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31AD2C3ABC3
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 09:52:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4355C3ABC9
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 10:08:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=g0gNkTEORRmzoTxoW32jl5MsQpOEqGnBfKzB4uVvIw0=; b=Vi2hFqPaK1TO0U
-	NoRHHtgsBoR7qrPtAMtHSootvnCja3plY03nqq15n8H5SxC2ktdFQtRBzILCHb7fahdGpzMqr8XmB
-	ZQLgQZAAkuPfl63T3sSfxQnYkT01N4B+alBxVe1M+N58WIQjVI2fie+4A67sdTgXCm2ZEy7YHL0t6
-	VUBlU37CGMXl5zWH1gcEs/DghPp1kW8SXz2JDNYUI4BtXSTAPXGhM/vrzhegtYTOzS3hZZL0zBZdS
-	ove05LC9p7wBpBlHoUn+PY9B40jE6huLoWI+u7LmeR70TH3dLT1CPJRp6NblwSzqH2qqVaJGXODBl
-	zwjFCvusZu35AvVJiMIg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JcXZgmyl/o1caYWAp70xzemLCYkUp3qy+H6xinH0AI8=; b=1MiZaeAHZqSuOcZwWGc56QNXRO
+	Hb9Ztarssjb0aFYnUkTvGZPe2nrJlMEngiM0cwz9FSOX6FqleYpJwYcV/tQZHa4EAmggOxGg2OGlY
+	sTaOhQ4+PMs3zxCzEAXt0f6+hV8bdfw0dpxwc2WDjm2boq3Zwh0L+huXmt+wfqIBQ7WRN8KOY95fI
+	TL1uDuXwn6QNoGacKPO+7gcRlCVE73X4lf/Jd3Ek7RL7K6lE9rPEWsNcH9tdArVJltPxGWSO2fbrl
+	UI4Opfsq/LCyr9iQhCrrUJQJHttB8jNHJmPeMB+4nmd25kuHC9QI/kaYuVS/mRhQ4O4E3AnycpH0y
+	QQmEBz1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmJ4-0000000ByFj-2VTe;
-	Tue, 13 May 2025 09:52:14 +0000
-Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
+	id 1uEmYy-0000000C1hn-1GuT;
+	Tue, 13 May 2025 10:08:40 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmHS-0000000Bxs5-3Z3A
+	id 1uEmQd-0000000C03y-1MK2
+	for linux-riscv@bombadil.infradead.org;
+	Tue, 13 May 2025 10:00:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Transfer-Encoding
+	:Content-Type:In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=6E8MvLMr2SfoOmNkHW64wbmwEJbY5tlcCW2mXjci+40=; b=fjgjYRv4Q6umYPJjaTY9waA8Wx
+	WwFN+69e8tbYZ3SzXYqYCk8V7zWO7bqp3+TTXFsXkjyBO83hvJBttgoIoFcK+nn6sTb6prmD44+cY
+	rcc5xoXOsHftoo9OvVdrLPD+XvO4EJHqXUTfyZZEFzsYMifM1owaMDEdA9EDvkMlCWwoqajO1NrDr
+	Co3cmN7S2hztaUJG5WmnQ9xBvNJeNR5jpYdRuiUIKxruFc4gUMgsVgaHdzPFabOcgRt2vMwyiLKrK
+	Yb9zF9jFZSnKFqsFl4HYRvZHYUvlJCM2XxVE0CNdN/WiLrNxHt+q+f/mBqgf8fHJeJYsvmsam680W
+	NLQW0zxg==;
+Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uEmQa-0000000GuhL-1Mm3
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 May 2025 09:50:37 +0000
-Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 54D9nkN6044809
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 13 May 2025 17:49:46 +0800 (+08)
-	(envelope-from ben717@andestech.com)
-Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
- (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 13 May 2025
- 17:49:46 +0800
-From: Ben Zong-You Xie <ben717@andestech.com>
-To: 
-CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
-        <alex@ghiti.fr>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <tglx@linutronix.de>,
-        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
-        Ben Zong-You Xie <ben717@andestech.com>
-Subject: [PATCH v3 2/9] dt-bindings: riscv: add Andes QiLai SoC and the Voyager board bindings
-Date: Tue, 13 May 2025 17:49:26 +0800
-Message-ID: <20250513094933.1631493-3-ben717@andestech.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250513094933.1631493-1-ben717@andestech.com>
-References: <20250513094933.1631493-1-ben717@andestech.com>
+	Tue, 13 May 2025 10:00:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gSuhugHdgY7btZBXVOpKbDOX1Kmp26r7IP6FJF+Yvuz2NmZJunyK81j9oBWmhcwqr2xIbZz+BtEDBqYCNOdTBrd1in6MhGmCMReqDt66tVd42LKGAoIYN8Y3x4SRPJ7GFTuM0WFyfMGc4Dhq1lk8uoQXPl7EKIL2PH0wyBSGn0sU9CZP0YBCs+yvBQ9y2Dcr5hLFlKPeMWPYStIOIITLv9KEnx+EqRzxvx6F6SeNBiERw6bdv3ilRmGK9BtXyvIKf8mVdWifqFHY+Kx/g501FwU+ZbaCDGGErNe8wCT3IMyl0118YgRbNnW8vvlhDgvqO1IaD83idaVwxrR7kwRI3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6E8MvLMr2SfoOmNkHW64wbmwEJbY5tlcCW2mXjci+40=;
+ b=foaag2//ljCO41rLTlIDr4YsT3F7eAovLek7uaNniywIgun+9FjDOnfHfIc7jNAn4mI8WUzX5hFYE0ZNQfHagTpuHHO2mU66iT2rXBncoDmDk4AOrjoohtlV6Uvb+P2yFxEw+fLjoPzegY9f35DQjx8j5z01crhXGsD8D+ykTpmY6S4ccYZvoPv+FOPqXCLQIBFdqfpz22CZTfEzoxDphhcwiQzIDSacXUuxCwuRuUy1EGj6T7fKphDJff37OXbRsRv5PXFDyDCtqkU4sBvSlpirY6yIQWNZDPYujPNQVMBl+9ShUKxulu6Scqi2/dFjj5gqxUNB958eU62XgxqdUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6E8MvLMr2SfoOmNkHW64wbmwEJbY5tlcCW2mXjci+40=;
+ b=YZRyJke0BDgofrOHfizA6oiLxDXYZ6UVdPhTFui7oSp1UqOsqxlvb55h20TiWnV4kgrbrLF05ss8GsCepvwnt1Hvnp0n4theIPI2IIi3LZzexeSEGsWKUMYnq2xrfdbdMDMYw8/DSK3ptMuLONJBG5XL+lWqGA+OfGjlSqVlqWJvpnyVOLQUtvwvZ5olyggboUjuoyuCpB/2N2rHzy1UM6f4sCtNPg273UE9ee7LArMkhtei+9m/ytmT7eyNuyLaqWQWC69B3aZ+AG4hPbPSDNC5gxddhvUm/0pLfizYh/W1sKgoJSsDbRL/HY5L34vwBNU07PoeujER8PEhmHFM5Q==
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
+ by PN3P287MB1381.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:193::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8722.30; Tue, 13 May
+ 2025 09:59:27 +0000
+Received: from MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4]) by MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+ ([fe80::ca81:3600:b1e4:fcf4%5]) with mapi id 15.20.8722.027; Tue, 13 May 2025
+ 09:59:26 +0000
+Message-ID: <MA0P287MB2262F586320C31A7F887B5CEFE96A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+Date: Tue, 13 May 2025 17:59:23 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: riscv: add Sophgo x8 EVB bindings
+To: Inochi Amaoto <inochiama@gmail.com>, Han Gao <rabenda.cn@gmail.com>,
+ devicetree@vger.kernel.org
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
+ <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Guo Ren <guoren@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <cover.1746811744.git.rabenda.cn@gmail.com>
+ <59c175c7bccbd4b5ad241c39b66b0303e0facf81.1746811744.git.rabenda.cn@gmail.com>
+ <MA0P287MB22621824B2FD5E2A64006174FE97A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+ <CAAT7Ki9=ROP47hsugf3BS1nXr9oOPHWgjQoGfjAZiwHnXS19Pw@mail.gmail.com>
+ <nrtzltuus47rjds3x54e72mtflvjh4najyqdjnagxq5etge5e7@vkikyxa5zf6k>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <nrtzltuus47rjds3x54e72mtflvjh4najyqdjnagxq5etge5e7@vkikyxa5zf6k>
+X-ClientProxiedBy: SGAP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b6::23)
+ To MA0P287MB2262.INDP287.PROD.OUTLOOK.COM (2603:1096:a01:100::6)
+X-Microsoft-Original-Message-ID: <29f9d65d-9c93-4fa0-8e47-e62cff7be0ed@outlook.com>
 MIME-Version: 1.0
-X-Originating-IP: [10.0.15.183]
-X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
-X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 54D9nkN6044809
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MA0P287MB2262:EE_|PN3P287MB1381:EE_
+X-MS-Office365-Filtering-Correlation-Id: 12252802-92ed-4ea8-c82d-08dd9204d85e
+X-MS-Exchange-SLBlob-MailProps: Cq7lScuPrnoSu68Y5FdRDlCPOBk43FEt+26GliOreA2ldnvtxRZskCdP6YSQ1AozMCvwcSgaYKVxRW9imP6zeE4toyOeQM5KuTIrEj8mJeKjE7Fp+mBxkp3rggEN/7LyOeY/LwvlNbbzfUWfb3XaLD0C+JgZre6Zqou6yjIWhOyvwg9qZZU6VBPxEvbzcfH7fCH+aT8zKOvzCOaeIaZUqRAU/riHfuFfVZLhm5lmDhqhR3nVo/f2GuiFrBuy1FcbnVATTSOT+oFFnZ1J97DEPHMx6UA/tFWoEn1lGwsFyDVzJnRfBGK0S+0JubAXmf+WbnEbvn3Gw4X7a3EZpG+TNs5QyolNuapaQg03gcW8l+qIeETPPZrwYJv0f5AMa2pGRFC8t13NkFNWfLKiNeRbR+ltQM5zlzy2fc15nzstFh6+ySH01gPAIuAQ/u5CS2yOK4Xg0X/MYqIKw+/v25YAhvoQg3tzAjoxd9zALajb059Ytv7liOuN6P0f4lXNk1EPTjm4M+ejgM4kHEF+phVSMt1jIzyFpYq7ydBm0BZVMjJTKqxKmSdHV//pIZ7fbHOp4q3CZlhbjLNSS1rPWuNwW0+T1adq4yHeAsyWo2bDbePTw/BGvyBGQGLGrS9bFojO6XCIt/Gc1IRydLWoR2A8EtiA7qCoNiMy2scYglKcyRLycSRuOCiV5mCE1fuAxGkeoHvVTC3EcR+qnOu3cSBUoVrPMY5CTLtoOjBPxZUV8boSkVNEeSmff2dEfXMWbl/x8yxztl9nJ2E=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|15080799009|461199028|6090799003|7092599006|8060799009|19110799006|5072599009|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VklUOFVGR1BpV2huUEIwbm02S0pzbE5FbFVNVFdVcGltS3hicGpjQ1E4bmhL?=
+ =?utf-8?B?cXNMMjBMNmdtRVFlbFdWQU5PbnhjdWVwK3dTb2k1eHpmWEliY1ZDMjhmNTdK?=
+ =?utf-8?B?bWVTRnRXU2xDM3YyMDhFSW1abjd1V2tlUDNSYkVKNHFUUmZVLzg3NXpnYmlw?=
+ =?utf-8?B?TkdnalFqaHo3NU55QytpL1liZXlBU2RWbktUSE9JZmZsQlcxZEtzN2J6RmJr?=
+ =?utf-8?B?ZXZWRVc4ZVZnam5zd0poZXVuY2kyTUJWL2lzb1FDTCsyRGJsODI2RUJVOEVt?=
+ =?utf-8?B?K0ZEQ1lkQzZwUktROVRyWXBOMXUzMFd0SUpuVUxLcVRHUDRzMFZXS0N3VXE2?=
+ =?utf-8?B?YWc2K0dEdEFIZWdFYkVjYTNSWE16ejRkeUZPSTRtVkdVTU5mWENteVdtaERY?=
+ =?utf-8?B?dEorbDFRZzU5aGFsYWtvLzgrZGg2MXk1TDA2ckZCMTZMQmQ4RFFmMmJUZTU0?=
+ =?utf-8?B?UGVWL0dlNlFVUWRQNkcvelVuaUJldkN2OWxydlkrWmUzcm91N0dqWlNnUVY1?=
+ =?utf-8?B?UmRDT1U2NHAwUlBSOXNaMk5oL2JsaE1Zc2pMeXlpZkk2WkxhbU9pQ2hrQXhw?=
+ =?utf-8?B?QllJK3RCaXZiQzZpNTloaU5XME84Y0tJVVZkbkJtR0oxaG9JS2tGeE5SWnkw?=
+ =?utf-8?B?U3REeUhPb0RucVgwTFBDNGNWOFhxWGVuMEtVNFlJVlBtNWNLdDk0eW1GOG83?=
+ =?utf-8?B?MlRBbytvc1U2Q3lDWnMwcDhJRUVFYmNFaWRqOFc1WURTVlhRRXU0UlBMRHVO?=
+ =?utf-8?B?bUx5NzRaaXRwczlEVEpqamRQRDhxVkFoWGFyRFpZQ09GSkxhS3pFbWdISUxu?=
+ =?utf-8?B?T25jSUZwa3FnZ2FyWE1XcjF2OHBuWUhLd1ZGMHZ4Wmk5M1FGM3VYaUk1Ry9V?=
+ =?utf-8?B?MUQvSEROQXNtWWVuRjZSQUN6c0lQbThCa2lKZ3N1N2RkdTU3LzlHZHNBcmI5?=
+ =?utf-8?B?U0ZyV3RrMitvaXIwdXdMOVpER3ZSME5RNEdickFtZFpsd3p5SHo4RGw4U3hD?=
+ =?utf-8?B?cC83a3plWkROTmUrNEQ3RytybHZtT2hSSEEzQ0hONldXcG14Rm5ZY09KR2VR?=
+ =?utf-8?B?S2NLTmV0ZGFxd09PWUxwUlhOSjRjTEpxRjA3dTVDaER4KzdPTlZoU2poNDMz?=
+ =?utf-8?B?OGlDSnI0TWlNaXNpbVBUYmVVNGhnQjRtaTJhK2lrbVplVzFCQmdCek5OOGcw?=
+ =?utf-8?B?R2tMQzJXVEZOeGxvaGo4SXhXSHZxQWxlQ3N1amxvRHFxTThmb1VXYnA3d1BH?=
+ =?utf-8?B?bFJNSittYUV6aE1VZm5XWGgrWm03SWd5a1lFdWtkTHhPQ29ob3laamQ3d2NF?=
+ =?utf-8?B?NTVGQVNleVV2bGRWYW01K1ZYUkFyS0phcWNPaHZsVGc0dWRoU3F0MnRadDBV?=
+ =?utf-8?B?WHRpd2M5VG9YMnlNOVlKeDdzVkNXOVVmTVQrSzA4Ymlnc0ZQUjdsalFxNXhu?=
+ =?utf-8?B?L2hMTG04dkN1ZkVYb0VnT2czN3JQMUthUUlONExYOXlKZldxVlpSVHhETkw5?=
+ =?utf-8?B?R3pwTEdVbVRrZlpsNTM4UjJUQVVrSzNodWUyVmh2dVZUOXRjQ2RGbGtVaGdz?=
+ =?utf-8?B?a3d4QT09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NlFucnJFZm1ybUljTjNSS2VYWE5oVCtHVHVpVWRNRFlrTG1ULzAwZnRtVkFK?=
+ =?utf-8?B?c0xEQlhtR3czcmU0SGFHUi9iaXdnSWhsUFptd2ZhM3YzK05oNmVUS3U1NnFH?=
+ =?utf-8?B?M3RzVlE4MlVxNlhXbE1uYnFVanRQaVZXekMrYzBqOHIxdGluaEt5bmoxN2Vy?=
+ =?utf-8?B?RzF3a0R2WWVUeGlSQm1SZlFOQlF5MTlycHduelhUTE94QTBoTmJqWHNzTDJJ?=
+ =?utf-8?B?REZsUUNQTmFEbkRYRlFtWFpZSWo1WWNRcW1zVVhic1VhRGxIbFNFeDRCdU9y?=
+ =?utf-8?B?S05kaGxENDZVWnNqRmk3NnBIMDZxdVZUYTBhT1FSZGdFZDNFVUgyTGFtWDRV?=
+ =?utf-8?B?b0FoeFlraXB2V3YwNksvYmVBWVhKQUFRQU94L1JSRkVWSFRlTXVzK29nc3JH?=
+ =?utf-8?B?YUxjV2xMemVRSWthb01haUVTaWU0U2k1a1lYbXJ2UDhXVFl1S096SmFxZVVu?=
+ =?utf-8?B?TFFrbEdnN2ZiM0w5dTBMNHZMc2JZMUEyUEd1QUZ2TnVUTDc2b1VtZlJMc3Bz?=
+ =?utf-8?B?QkFuaC9uRzBjY2JtUXRteTdrZ2RuK3ZKLytwcjRUZTNuWDlFQTh6UWorM0dy?=
+ =?utf-8?B?R2xUZ0lZQkE4UG8vSDM2em9nRWxwbGt4VWZycmhnZjZkOUVndllLelU4WThY?=
+ =?utf-8?B?RlFVZ1A2NUNBNDgwa3BuSHM1djY1eVJLbUlGQitNZkpRb2lNMG96RmphY00x?=
+ =?utf-8?B?ejVPaU0yMU4zdWFPZEw2OVpEaFRUd2ZPQktyWUVLbkY0LzcvNkt1OVlLaGRK?=
+ =?utf-8?B?b2c1M0lmUEg2QVRsZHZOOERXZkU3cnMvUEE3ZHM0VnRiMTlPRFZ0VnBOdEtz?=
+ =?utf-8?B?ZFFrSytSYlN1c0VVeEJxOW4vbHF0VVFRRWZ0YjkwU05pY3pqcituOUY3OUNx?=
+ =?utf-8?B?blh1YTJHQlBkYWhaVThkSzdPNGpDOGNPWGluQ3hGcnlkOVRPOHBTWlQxWkMx?=
+ =?utf-8?B?OFdYS2tmazZSeFdkSkUwZnRjSjBTWSt1b3FhY3VscytZSUZKa3Q3RzFvN29J?=
+ =?utf-8?B?TlFtdm0wUy9sN0ZZSDJXNVRsUkowOE01N292bi9LdjkyYUd2RWZqNmpFZStD?=
+ =?utf-8?B?SWNiTWw2ZlE1dlFESVo5ZjU1RkJiQmxGNnYzdlFhaFhLMmcrUmlqZ1NMbjBZ?=
+ =?utf-8?B?TVRBb0xtczRTeE9wWldISGlvYm5DY0VYbVdtaVpnR0kzcjFaYS9jMjlyczds?=
+ =?utf-8?B?cGpRS1M5Q3BpdklmdVJiYWJGR0loNS9rbDJaSmZBNzVaVnJ5TEN3RVRlY2pQ?=
+ =?utf-8?B?Nk91VzEyNDRBSzhkblMxamRqREwyQXRKV3o5aitWUGdwMmV6VDl0SWhobnl6?=
+ =?utf-8?B?T09DUjJzUGY2SU55U3FDK0V3UytVUnV0a3dxQVludW9FODIxc1l0WnJsWUpN?=
+ =?utf-8?B?OGxiZUVSV3IzTTBOMXI3NHJIRGZWOHp6bmNOc0JuMFRSdG56TzRSVkhqZXE0?=
+ =?utf-8?B?dldlT0gwb0R3S3hCVTJDTTk1cUp0cjNQQnhKTTI4dkhZM1dtTnkvUjhVZTNs?=
+ =?utf-8?B?OERnT1FuNllhN1JwSzQxdHh3WTJCdmFjMU41ampGSzhuR3ZoR1NvQkZQaUJu?=
+ =?utf-8?B?S1FRK2R2OTV6bEhyZzhRV2FyMGdMNWkzQXQ4MThOWTVGZHpKT2hLWHpHMEZ1?=
+ =?utf-8?B?azlZNlNzTTdYdG1JbGU1NkV6WVdBemwrTVlLV0JuR0lWWllBVUM0eG8rcHdE?=
+ =?utf-8?B?ZjRYeHFtNDVSNXlPUjVGcnAxdVlzMlFIUVhsbCtjQ0tqUnRIaEZYeGRYcEIv?=
+ =?utf-8?Q?8H73jM0rUzpBarwgwLbNVU9hHIkBBrx+UYxweKs?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 12252802-92ed-4ea8-c82d-08dd9204d85e
+X-MS-Exchange-CrossTenant-AuthSource: MA0P287MB2262.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 May 2025 09:59:26.8505
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PN3P287MB1381
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_025035_266495_3611C56B 
-X-CRM114-Status: GOOD (  11.15  )
+X-CRM114-CacheID: sfid-20250513_110000_582044_2D437948 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,71 +178,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add DT binding documentation for the Andes QiLai SoC and the
-Voyager development board.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
----
- .../devicetree/bindings/riscv/andes.yaml      | 25 +++++++++++++++++++
- MAINTAINERS                                   |  5 ++++
- 2 files changed, 30 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/riscv/andes.yaml
+On 2025/5/13 17:49, Inochi Amaoto wrote:
+> On Tue, May 13, 2025 at 02:48:44PM +0800, Han Gao wrote:
+>> I hope it is sg2042-x8evb.
+>>
+>> Sophgo is also making EVB boards for sg2044.
+>>
+>> I think a distinction needs to be made here.
+>>
+> SG2044 evb has a formal name like srd3-10, but I think it should
+> have a sg2044 prefix. as the name printing on the board has a
+> sg2042 prefix.
+sg2042 prefix? :)
+>
+> But there is something needed to be checked, like whether the "x8evb"
+> should be "evb-1.0" and "x4evb" should be "evb-2.0".
+>
+> Regards,
+> Inochi
 
-diff --git a/Documentation/devicetree/bindings/riscv/andes.yaml b/Documentation/devicetree/bindings/riscv/andes.yaml
-new file mode 100644
-index 000000000000..aa1edf1fdec7
---- /dev/null
-+++ b/Documentation/devicetree/bindings/riscv/andes.yaml
-@@ -0,0 +1,25 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/riscv/andes.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Andes SoC-based boards
-+
-+maintainers:
-+  - Ben Zong-You Xie <ben717@andestech.com>
-+
-+description:
-+  Andes SoC-based boards
-+
-+properties:
-+  $nodename:
-+    const: '/'
-+  compatible:
-+    oneOf:
-+      - items:
-+          - enum:
-+              - andestech,voyager
-+          - const: andestech,qilai
-+
-+additionalProperties: true
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 96b827049501..a0ccac1cca29 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20725,6 +20725,11 @@ F:	drivers/irqchip/irq-riscv-intc.c
- F:	include/linux/irqchip/riscv-aplic.h
- F:	include/linux/irqchip/riscv-imsic.h
+Agreed. To avoid confusion, it is best not to define the official 
+product name yourself, but to confirm with the vendor (here is sophgo) 
+or have them provide it, just like "srd3-10", we contacted sophgo's 
+marketing staff and they provided it.
 
-+RISC-V ANDES SoC Support
-+M:	Ben Zong-You Xie <ben717@andestech.com>
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/riscv/andes.yaml
-+
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
- M:	Palmer Dabbelt <palmer@dabbelt.com>
---
-2.34.1
+Chen
+
 
 _______________________________________________
 linux-riscv mailing list
