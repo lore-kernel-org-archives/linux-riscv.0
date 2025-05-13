@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46E44C3ABC9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B63C3ABDA
 	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 09:52:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=VWsQqZXHDbZYtlnfkkT+FKyn9lM7pCF6aqiw6ICypus=; b=kGkqrKqmbrri0L
-	cE0o2LIxFGZQUABdinRi5B0HaoV37T1nRa8iR1OsvuJh84ZCYpWN2unBOsxh/Pb89LKK2I5LK7PHA
-	G7wslHqGHwTTmVc+28bnIl5AUpq4XTy+oH2za0JV2pu8u52cnGl8z2XCFxy2zdbdZd7YhJhBGcoKt
-	8HrITq247HdWt5SnJfm8lWV5LJV7bbeUJGht23NuHxBUfXlCUrmLY0C3DqFkIdvdQu2+ZC59EqySy
-	CmmQDM0GdeLkLivbroZJk+7JNTR6ukoV8IkSEujy/010VTj4tJkWc6/bFO0hbGJusxJbFzEOXPTnc
-	NDlQVujMMJ7Kysi82TMw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Jb8itdZk5y+uHFdIigpFMQaTbXMLZMX4l11RSe1/zmQ=; b=u8LhUzha3Cd+zB
+	G7KaT6UcupBxsDxrphyr4TK3Uw3X9yxKjIv7ok3c78Njy4JDsp2poSECpP2l9l8uAgd/QIWKI5Slt
+	j1LwlXymbzkkMakXyyOtY7QCruhaqsR4L4R7tNS3Z2XAnIxVzqtB+cAMCiYvYt3VUoD/pxTo73gvq
+	vhJLk0FQtjBB18/qaVFUEz4/xfmLTQSToTF04QPVC3u72nJTzz91Tz9SyQ+JcJtSybG932dfZCq/y
+	mVy/8JjjdOls7ievu6R6MNInsZOkWoJWMK5lkrtrZ3eH9gEMBh1OMTiwgR1HujxyiX/qJNW5UHcme
+	iF/mTkYgnzgbZdKJxWhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmJ6-0000000ByI5-3Xum;
+	id 1uEmJ6-0000000ByHd-0cPI;
 	Tue, 13 May 2025 09:52:16 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEmHS-0000000Bxs7-3YPb
+	id 1uEmHS-0000000BxsP-3aSJ
 	for linux-riscv@lists.infradead.org;
 	Tue, 13 May 2025 09:50:38 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 54D9nZei044744
+	by Atcsqr.andestech.com with ESMTPS id 54D9njYE044800
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 13 May 2025 17:49:35 +0800 (+08)
+	Tue, 13 May 2025 17:49:45 +0800 (+08)
 	(envelope-from ben717@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 13 May 2025
- 17:49:35 +0800
+ 17:49:44 +0800
 From: Ben Zong-You Xie <ben717@andestech.com>
 To: 
 CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
@@ -44,18 +44,20 @@ CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
         Ben Zong-You Xie <ben717@andestech.com>
-Subject: [PATCH v3 0/9] add Voyager board support
-Date: Tue, 13 May 2025 17:49:24 +0800
-Message-ID: <20250513094933.1631493-1-ben717@andestech.com>
+Subject: [PATCH v3 1/9] riscv: add Andes SoC family Kconfig support
+Date: Tue, 13 May 2025 17:49:25 +0800
+Message-ID: <20250513094933.1631493-2-ben717@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250513094933.1631493-1-ben717@andestech.com>
+References: <20250513094933.1631493-1-ben717@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 54D9nZei044744
+X-MAIL: Atcsqr.andestech.com 54D9njYE044800
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_025035_264474_AE8306C0 
-X-CRM114-Status: GOOD (  14.26  )
+X-CRM114-CacheID: sfid-20250513_025035_270626_AA2594E5 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,66 +69,61 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIFZveWFnZXIgaXMgYSA5LjbigJ0geCA5LjbigJ0gTWljcm8gQVRYIGZvcm0gZmFjdG9yIGRl
-dmVsb3BtZW50IGJvYXJkCmluY2x1ZGluZyBBbmRlcyBRaUxhaSBTb0MuIFRoaXMgcGF0Y2ggc2Vy
-aWVzIGFkZHMgbWluaW1hbCBkZXZpY2UgdHJlZQpmaWxlcyBmb3IgdGhlIFFpTGFpIFNvQyBhbmQg
-dGhlIFZveWFnZXIgYm9hcmQgWzFdLgoKTm93IG9ubHkgc3VwcG9ydCBiYXNpYyB1YXJ0IGRyaXZl
-cnMgdG8gYm9vdCB1cCBpbnRvIGEgYmFzaWMgY29uc29sZS4gT3RoZXIKZmVhdHVyZXMgd2lsbCBi
-ZSBhZGRlZCBsYXRlci4KClsxXSBodHRwczovL3d3dy5hbmRlc3RlY2guY29tL2VuL3Byb2R1Y3Rz
-LXNvbHV0aW9ucy9hbmRlc2hhcGUtcGxhdGZvcm1zL3FpbGFpLWNoaXAvCi0tLQoKQ2hhbmdlbG9n
-IGZyb20gdjIgdG8gdjM6CiAgLSBSZWJhc2UgdGhlIHNlcmllcyBvbiBDb25vci9yaXNjdi1zb2Mt
-Zm9yLW5leHQKICAtIFJlZm9ybSBwYXRjaCA2IGFzIHN1Z2dlc3RlZCBieSBDb25vcgogIC0gTW9k
-aWZ5IGwyX2NhY2hlJ3MgY29tcGF0aWJsZSBpbiBxaWxhaS5kdHNpIGR1ZSB0byBwYXRjaCA2CiAg
-LSBBZGQgQ29ub3IncyBBY2tlZC1ieSB0YWcgdG8gcGF0Y2ggNAogIC0gQWRkIENvbm9yJ3MgQWNr
-ZWQtYnkgdGFnIHRvIHBhdGNoIDUKICAtIEFkZCBDb25vcidzIEFja2VkLWJ5IHRhZyB0byBwYXRj
-aCA5Cgp2MjogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNTAzMTUxODI5LjYwNTAw
-Ni01LWJlbjcxN0BhbmRlc3RlY2guY29tLwoKQ2hhbmdlbG9nIGZyb20gdjEgdG8gdjI6CiAgLSBB
-ZGQgZGV0YWlsZWQgZGVzY3JpcHRpb25zIHRvIFBMSUNfU1cgYW5kIFBMTVQwCiAgLSBNb3ZlIHRo
-ZSBhbGlhc2VzIG5vZGUgYW5kIG1lbW9yeSBub2RlIGZyb20gcWlsYWkuZHRzaSB0byBxaWxhaS12
-b3lhZ2VyLmR0cwogIC0gRHJvcCAic3RhdHVzID0gb2theSIgaW4gZWFjaCBDUFUgbm9kZSBzaW5j
-ZSB0aGUgc3RhdHVzIHByb3BlcnR5IGlzIGJ5CiAgICBkZWZhdWx0ICJva2F5IgogIC0gUmVvcmRl
-ciB0aGUgbm9kZXMgaW4gcWlsYWkuZHRzaSBieSB1bml0IGFkZHJlc3MgaW4gYXNjZW5kaW5nIG9y
-ZGVyCiAgLSBBZGQgbXlzZWxmIGFzIHRoZSBtYWludGFpbmVyIG9mIEFuZGVzJ3MgU29DIHRyZWUK
-ICAtIEFkZCBSb2IncyBSZXZpZXdlZC1ieSB0YWcgdG8gcGF0Y2ggMgogIC0gQWRkIFJvYidzIEFj
-a2VkLWJ5IHRhZyB0byBwYXRjaCAzCiAgLSBBZGQgUm9iJ3MgQWNrZWQtYnkgdGFnIHRvIHBhdGNo
-IDYuCgp2MTogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDA3MTA0OTM3LjMxNTc4
-My0xLWJlbjcxN0BhbmRlc3RlY2guY29tLwoKLS0tCkJlbiBab25nLVlvdSBYaWUgKDkpOgogIHJp
-c2N2OiBhZGQgQW5kZXMgU29DIGZhbWlseSBLY29uZmlnIHN1cHBvcnQKICBkdC1iaW5kaW5nczog
-cmlzY3Y6IGFkZCBBbmRlcyBRaUxhaSBTb0MgYW5kIHRoZSBWb3lhZ2VyIGJvYXJkIGJpbmRpbmdz
-CiAgZHQtYmluZGluZ3M6IGludGVycnVwdC1jb250cm9sbGVyOiBhZGQgQW5kZXMgUWlMYWkgUExJ
-QwogIGR0LWJpbmRpbmdzOiBpbnRlcnJ1cHQtY29udHJvbGxlcjogYWRkIEFuZGVzIG1hY2hpbmUt
-bGV2ZWwgc29mdHdhcmUKICAgIGludGVycnVwdCBjb250cm9sbGVyCiAgZHQtYmluZGluZ3M6IHRp
-bWVyOiBhZGQgQW5kZXMgbWFjaGluZSB0aW1lcgogIGR0LWJpbmRpbmdzOiBjYWNoZTogYWRkIFFp
-TGFpIGNvbXBhdGlibGUgdG8gYXg0NW1wCiAgcmlzY3Y6IGR0czogYW5kZXM6IGFkZCBRaUxhaSBT
-b0MgZGV2aWNlIHRyZWUKICByaXNjdjogZHRzOiBhbmRlczogYWRkIFZveWFnZXIgYm9hcmQgZGV2
-aWNlIHRyZWUKICByaXNjdjogZGVmY29uZmlnOiBlbmFibGUgQW5kZXMgU29DCgogLi4uL2NhY2hl
-L2FuZGVzdGVjaCxheDQ1bXAtY2FjaGUueWFtbCAgICAgICAgIHwgIDUyICsrKystCiAuLi4vYW5k
-ZXN0ZWNoLHBsaWNzdy55YW1sICAgICAgICAgICAgICAgICAgICAgfCAgNTQgKysrKysKIC4uLi9z
-aWZpdmUscGxpYy0xLjAuMC55YW1sICAgICAgICAgICAgICAgICAgICB8ICAgMSArCiAuLi4vZGV2
-aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9hbmRlcy55YW1sICAgICAgfCAgMjUgKysrCiAuLi4vYmlu
-ZGluZ3MvdGltZXIvYW5kZXN0ZWNoLHBsbXQwLnlhbWwgICAgICAgfCAgNTMgKysrKysKIE1BSU5U
-QUlORVJTICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgOSArCiBhcmNoL3Jp
-c2N2L0tjb25maWcuZXJyYXRhICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KIGFyY2gvcmlz
-Y3YvS2NvbmZpZy5zb2NzICAgICAgICAgICAgICAgICAgICAgICB8ICAgOSArCiBhcmNoL3Jpc2N2
-L2Jvb3QvZHRzL01ha2VmaWxlICAgICAgICAgICAgICAgICAgfCAgIDEgKwogYXJjaC9yaXNjdi9i
-b290L2R0cy9hbmRlcy9NYWtlZmlsZSAgICAgICAgICAgIHwgICAyICsKIGFyY2gvcmlzY3YvYm9v
-dC9kdHMvYW5kZXMvcWlsYWktdm95YWdlci5kdHMgICB8ICAyOCArKysKIGFyY2gvcmlzY3YvYm9v
-dC9kdHMvYW5kZXMvcWlsYWkuZHRzaSAgICAgICAgICB8IDE4NiArKysrKysrKysrKysrKysrKysK
-IGFyY2gvcmlzY3YvY29uZmlncy9kZWZjb25maWcgICAgICAgICAgICAgICAgICB8ICAgMSArCiAx
-MyBmaWxlcyBjaGFuZ2VkLCA0MTcgaW5zZXJ0aW9ucygrKSwgNiBkZWxldGlvbnMoLSkKIGNyZWF0
-ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaW50ZXJydXB0
-LWNvbnRyb2xsZXIvYW5kZXN0ZWNoLHBsaWNzdy55YW1sCiBjcmVhdGUgbW9kZSAxMDA2NDQgRG9j
-dW1lbnRhdGlvbi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Jpc2N2L2FuZGVzLnlhbWwKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBEb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvYW5kZXN0
-ZWNoLHBsbXQwLnlhbWwKIGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2Fu
-ZGVzL01ha2VmaWxlCiBjcmVhdGUgbW9kZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbmRl
-cy9xaWxhaS12b3lhZ2VyLmR0cwogY3JlYXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9k
-dHMvYW5kZXMvcWlsYWkuZHRzaQoKLS0KMi4zNC4xCgpfX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
-Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+The first SoC in the Andes series is QiLai. It includes a high-performance
+quad-core RISC-V AX45MP cluster and one NX27V vector processor.
+
+For further information, refer to [1].
+
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
+
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ arch/riscv/Kconfig.errata | 2 +-
+ arch/riscv/Kconfig.socs   | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e318119d570d..be76883704a6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
+ 
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && ARCH_R9A07G043
++	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index a9c3d2f6debc..1bf5637f2601 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,14 @@
+ menu "SoC selection"
+ 
++config ARCH_ANDES
++	bool "Andes SoCs"
++	depends on MMU && !XIP_KERNEL
++	select ERRATA_ANDES
++	select ERRATA_ANDES_CMO
++	select AX45MP_L2_CACHE
++	help
++	  This enables support for Andes SoC platform hardware.
++
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
