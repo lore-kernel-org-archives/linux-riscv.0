@@ -4,111 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7CBC3ABC9
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 04:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C127CC3ABC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 04:19:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VJ9IFmeVJeO1x6ygh+hD1BcqfRg0IBHZNDLH7aEHAJ8=; b=lkv5wGOzq52lG5
-	l8khrUbiwNn1TXK/kK89SMd0eGGAlObJ44hIl1ogrzg4KUHBWaCMtcE3AaK63DZEstCSO/sjDAQNB
-	0avTYDB4obmQDoy8XFMd0sN6AjKhmbd7TNzRS+FCy92HviKEO2k8XhgHH7DUq1KkHGT8IGZCoi3jb
-	OXx3P1IbBbbf20awGZt67tXGbbiOw6IL4zUHlL9npaKtv4j77VY7Cj+RrexM0F3BRX2mo1QSX5rbI
-	PXo3kBKGFBHBOHZO/iUKLzklWwGiURYcIy901GuD1WYQAPdO97OSqA4EcSEGSyW4SnrW9gC7ivTs6
-	Vi3V+Jb1QryvbFvAFelQ==;
+	List-Owner; bh=LGGeX/8jpeRhzLW498/wJKlypv/8RcwTKNCIGBmk444=; b=NZoB5yEcCkvM9h
+	zjhxf17O8mu9IZCssdDcdyu7TaHapJ89ho78r7pe27hvytz4XP9sjDx1KLGv+F9nx5h0FZ0yOaKh/
+	vo8raF6sH8zkJreJlYUMSKhI/Xg3NXiU5/CT7wmBSSRbEirOPhz3mDhOKhzrJwsnK7yoBM+UCXnBm
+	cH1pGKYVDTRxhRS0ccEgi/a8DVf/MOqhAgABLeB3l9ee94eiCKRRO5s7q2BQ7BlLWXjgsaS/2CFt1
+	TESGs49fC+Qjp7YUF+ZlI+4/EcgxODSTNbOURwgwduGnsq0MAw+JQPQneQ8rj0zs/ksYGOi/TFbFF
+	Axpv425hwKlKu1QDGylg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEh6n-0000000BIfL-2kyQ;
-	Tue, 13 May 2025 04:19:13 +0000
-Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
+	id 1uEh6r-0000000BIgd-0w4V;
+	Tue, 13 May 2025 04:19:17 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEh6k-0000000BIdO-3FNN
+	id 1uEh6n-0000000BIez-48Nm
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 May 2025 04:19:12 +0000
-Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-7c542ffec37so620744685a.2
-        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 21:19:10 -0700 (PDT)
+	Tue, 13 May 2025 04:19:15 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c54b651310so776576685a.0
+        for <linux-riscv@lists.infradead.org>; Mon, 12 May 2025 21:19:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747109949; x=1747714749; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1747109953; x=1747714753; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CbE8qOEQ8Cewj2pW9YzTwebuhpk4BnHjgjL+T/zo0qQ=;
-        b=UbTFPPWOU5XJVXAnlRoMN1asCY78TW+4Q/nMNZ9Am7oq167hqQPe9hgKgUgfSYcNK+
-         clWMxyMPmCtS8JTXXJMipM23A/df0OuXHEVaWlFOx18z3mJvnb7z6FLZbCt6vfagE5MO
-         ujuwtyp3izUqTNcXID6ubVcGVjGqrod4G1/rZemuldYONDuOmqFnsbeeG/sGJZcyQF/D
-         6H0TxD61ZTgo8VFuRvH38ZaksE3eLGnY5NcYMvpXllXuLSEfz5WlM5Cx4PKNDQCXy3UA
-         CCzcSlNvW4vd4Z9mpmm3YD3Osvxd0VZbawU+TNjgeeh1oHmL8db6WtXVkq4154vddPd+
-         HfFQ==
+        bh=SFbsTQE9tHKiV3IKABKjWIYDMs9C+L7n7mu7OXh8b2s=;
+        b=BlWA6f28p3BUdR2E9QVXvB0QFypqXu83UF5JDsVmHzTdFUcBdwTYxBusMKwTUQqxVp
+         UN8/xuqL/4ByqGD/P/Aw5ipze9wLIvamAy0vpw+HuENjUyFbHWZDZG9Z+hovt/b2baEy
+         wjp7Ku74WLPBdkxhn9nL9MXoa5XYFS5tVclSndWIsH+H50Bb71Bffibg9I+nsiVHgqRM
+         w28/vhLhp4+QcPvv7l6cQ4E/UDDzZWhwg03ZhZy2kANEVOd2pR3BHq+ZR9y6w5AJV5ea
+         QPLd0PMXE4QkJWFoTPKWxcDRcrBfl/AMCbAG8Ihc64N/c0rHHJhg9fyuNVIipqc2a2CR
+         Sw5Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747109949; x=1747714749;
+        d=1e100.net; s=20230601; t=1747109953; x=1747714753;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CbE8qOEQ8Cewj2pW9YzTwebuhpk4BnHjgjL+T/zo0qQ=;
-        b=cKNDT1y4i5tpctI2chP55KXgHwzJtCHqTtnmw00cmaXnGGqb2FfBFgqwylV4c0HGqE
-         GMROqrDQJTAbZde/bujPE56ij/BvZb2xhKAs4imV/FtcLvwqg5RcQQd87B+PnLQkyqE9
-         rq/SruElKiuPjqe8TYLJfIXSHJtg/VfCRdHhViQCgprRVfA78rrbVjZ6tVXofTGPxdJT
-         bmQPN5eaOGJmypgauuHxV2bX5DfzH5qRgoJPYzu9sEcOLr5GTGedVGw7mlNHsYrJ98I6
-         5y6fUtNOfz0M9Oic2sxorKAY+VpjiB/F1EnVrtKy8jCQfkPp7Nr5yU6hq+le994bY8Pb
-         6tIA==
-X-Forwarded-Encrypted: i=1; AJvYcCXxpKH7Xr7UWsSqIz5QVvw6oS/0zRaadb6PCNcZ1dCJXlyNtz4doueTtmk4W226/dEybbURnUrlgV9+mQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFdnuISO+qaZkLB301BF18FTAFZpGhxjuN3JYbvnNv1CFuRDMW
-	2VhqP6dN6s78DDSIvsTkU5KR856E6nxrOT9sMACpT4OCGddq9Y48
-X-Gm-Gg: ASbGncvjzshPzvziDpSp/it513oHdJyroecgvIYK4VhlFf+Yo6cgYO0sInd7oTB2VnG
-	9fr/BkfBR27+IMqRItLOfNmJsmYgblaBpRISmIeh1THVHOqmRjeR85iwdfhgua1mfh68oSNk/b6
-	nYCQEg5LrCNh/GC8BmcwTHEhLuhOsKn2YLIvpddWtZ3OpeZ+Ik4efztkgjXbIFtrFMDVfk6T9W0
-	LY45ET2SbSgJzXPKC3i6XipzJ0hcFpXhTAhc42UyIg90yjf7HyH/EFfnB/UWaYIezmMGB8tw6Qm
-	r0SwJeFtsRY/HhdYC0IeXjM85Jw=
-X-Google-Smtp-Source: AGHT+IGaGXEPNSY7gDD/YfTu/S9mOVv0B4S4N0WdSovqwATeGF5yrD8SEU/YDNwaJa71opCgKDqwWg==
-X-Received: by 2002:a05:620a:40cc:b0:7cd:1ebe:9ad8 with SMTP id af79cd13be357-7cd1ebe9b28mr177227385a.10.1747109949442;
-        Mon, 12 May 2025 21:19:09 -0700 (PDT)
+        bh=SFbsTQE9tHKiV3IKABKjWIYDMs9C+L7n7mu7OXh8b2s=;
+        b=baOq7oxUh4aQR42AAgl/3qq8I/u6spEshlp1Ar0tRdQFpwzIK3ibjAFhCDUk//QOmy
+         IGE3SH2VQEZcVFtLBeAxvog+ZOTEFukSMVMJNB4JJlfqd1Y2m10y4O5W92Woy1dqPJ7c
+         qxcoYSqDQHy08P9Bbiu+L5qHrbkkKFDL5/W2SCOCdHMYDZmawp3l92g10kB6Ey/BH0kN
+         z3mCaEgNtIXKCM2uJCberDONtpbOTiY5f7dNHdbETcMUTzcHgvyCpZRxWPOlOfRPVI46
+         Sq+yrwje+044gbzeRigolXzFb2iwQzxvTVptC/2ddhjpHWLpEzZsvHZ1BrNVYUiOEjGy
+         d4Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCWvMDWb0Rc6MjRV5CQL+WQ18/FNdMaVtDvZmWqlN0E7i7ZcNDrn5oomwbmFxfzFpKGf2kIR1oaWGAwZ8w==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw2QOTlQHFtZeGMOpgnxdTxacv21OEm8Wu1iR6U7vCA6MWTa/WS
+	ByMlEJMJ5lgk+ZvIPRuusAEK9GsvfBf3N7uLnZyW1DHkC1TL6o9RLo5/jQ==
+X-Gm-Gg: ASbGncvCFbZVgSSNIZCiSrJJXZOSEyfjoeFnhuJscnhehwK6WTgKSWUUoGNa8qrYXLf
+	N9T3SHs/D6HmN7eW1J+lJmyagVrmXcbrFeXP5zdmHnQ2CNkAxUNRVQp0WXqEUazrpaY7NLIwZBe
+	JaPTFQMGxu98R34bO5bzFayX4NUAlvcbmPVqVyvoTyj/lnJ7CGnFSFZUW5nWOmY6ZnCqYupsDIy
+	lJmdV5+098+pk302KcCxuED8KJJI/YQvRP+TmBW+BnrMNaTGl/eepC0BsNAQUdpOfzZNV8grZIr
+	f/EthqVhp/GAjUyjKJ7e+l6xcx4rAkVSxNl3uQ==
+X-Google-Smtp-Source: AGHT+IGS3DH141eF3XFbywTS59BbLhX/9gyOryljRpt7OKQZ/4+tNhx00bLdZ/bOFxGP5J/MjBr5Cg==
+X-Received: by 2002:a05:620a:1b88:b0:7c5:ad99:9e38 with SMTP id af79cd13be357-7cd01143dd6mr2694467085a.43.1747109952721;
+        Mon, 12 May 2025 21:19:12 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cd00f6423esm652274985a.30.2025.05.12.21.19.08
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7cd00fe620csm645540485a.97.2025.05.12.21.19.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 12 May 2025 21:19:09 -0700 (PDT)
+        Mon, 12 May 2025 21:19:12 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Chen Wang <unicorn_wang@outlook.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Ulf Hansson <ulf.hansson@linaro.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	Chao Wei <chao.wei@sophgo.com>,
+	Jeff Johnson <jeff.johnson@oss.qualcomm.com>,
 	Inochi Amaoto <inochiama@gmail.com>
-Cc: linux-hwmon@vger.kernel.org,
+Cc: linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
-	linux-mmc@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: Re: (subset) [PATCH v2 00/10] riscv: sophgo: Introduce SG2044 SRD3-10 board support
-Date: Tue, 13 May 2025 12:18:22 +0800
-Message-ID: <174710989164.597941.2410446871539052309.b4-ty@gmail.com>
+Subject: Re: (subset) [PATCH v2 0/3] riscv: sophgo: cv18xx: dts rework, part 2
+Date: Tue, 13 May 2025 12:18:23 +0800
+Message-ID: <174710989166.597941.2836952647121868068.b4-ty@gmail.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250413223507.46480-1-inochiama@gmail.com>
-References: <20250413223507.46480-1-inochiama@gmail.com>
+In-Reply-To: <20250504104553.1447819-1-inochiama@gmail.com>
+References: <20250504104553.1447819-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250512_211910_812430_562E05D5 
-X-CRM114-Status: GOOD (  10.72  )
+X-CRM114-CacheID: sfid-20250512_211914_021969_5D5D7100 
+X-CRM114-Status: UNSURE (   9.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,35 +117,25 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 14 Apr 2025 06:34:54 +0800, Inochi Amaoto wrote:
-> Sophgo SG2044 SRD3-10 is an ATX board bases on Sophgo SG2044 SoC.
-> This board includes 5 uart ports, 5 pcie x8 slots, 1 1G Ethernet port,
-> 1 microSD slot.
-> 
-> Introduce basic support for this board and Sophgo SG2044 SoC
+On Sun, 04 May 2025 18:45:49 +0800, Inochi Amaoto wrote:
+> The part 2 of dts rework replaces precise compatible for existed clock device
+> with old wildcard one.
 > 
 > Changed from v1:
-> - https://lore.kernel.org/all/20250407010616.749833-1-inochiama@gmail.com
-> 1. apply Rob's tag
-> 2. patch 1: new patch for grouping all similar compatible ids.
-> 3. patch 7: remove unnecessary compatible check
-> 4. patch 8: adapt for the new patch 1
-> 5. patch 9: fix copyright e-mail
+> - https://lore.kernel.org/all/20250430020932.307198-1-inochiama@gmail.com/
+> 1. patch 1: reused sophgo,sg2000-clk for sg2002.
+> 2. patch 1: mention sg2002 refer to a real device, not a wildcard one in
+>             commit message.
+> 3. patch 2: fix wrong data for sophgo,cv1812h-clk.
+> 4. patch 2: remove compatible sophgo,sg2002-clk.
+> 5. patch 3: adapt the change of patch 1,2.
 > 
 > [...]
 
 Applied to for-next, thanks!
 
-[02/10] dt-bindings: timer: Add Sophgo SG2044 ACLINT timer
-        https://github.com/sophgo/linux/commit/1e76b39eda76f7317ab75dacccaeda5a5b02c519
-[03/10] dt-bindings: interrupt-controller: Add Sophgo SG2044 CLINT mswi
-        https://github.com/sophgo/linux/commit/a3cc46f7925b6b48e80c70815e3f637abcda77b9
-[04/10] dt-bindings: interrupt-controller: Add Sophgo SG2044 PLIC
-        https://github.com/sophgo/linux/commit/a7470f20e271203494b4cd427e687c12649f0087
-[09/10] dt-bindings: riscv: sophgo: Add SG2044 compatible string
-        https://github.com/sophgo/linux/commit/9ee1f97cf3e1743591ae76324d96082c8fb496d8
-[10/10] riscv: dts: sophgo: Add initial device tree of Sophgo SRD3-10
-        https://github.com/sophgo/linux/commit/c8b1ca99c8485036cefa962aead3a0c57cb27d3f
+[3/3] riscv: dts: sophgo: switch precise compatible for existed clock device for CV18XX
+      https://github.com/sophgo/linux/commit/6493272ec02706dcb2a32a1c7b14e47432ce6d6a
 
 Thanks,
 Inochi
