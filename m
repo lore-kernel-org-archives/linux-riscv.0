@@ -4,69 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 082AFC3ABD9
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 09:21:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546E0C3ABC3
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 09:52:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/Y6/4qFC7tOs5ORLrjD/W0EAeAAWzO1xrHGhz7Cd/gY=; b=pfvJ6B/FJtZycv
-	qg99r6a20Bkakjl0Ysc+CXUa5yUl9jSHaL7pMh/Ir3MXZp2armx96NQWT5oI3uWZ7ARmCkhkWPsgV
-	sZjjJqLlCKQXi7cmpY0NSpY7Ltr1ZUKEM3+eR1nrk3s43tFg9bt3F5HdVGCYF47D2fVjWAepVRw8S
-	OA4mJDOngwBn7yaBqmNYdoIeHYGUrhXRhTEX3q5644v766AYN0W690zcGvZfEsVtZnQ1v3OcgWs71
-	Q06g0aQ2PGiWJziLf6iyHunc1GOTnCYqnnvDxqIf/d4Q9yUARG/lMi1SZDVTSlD8BmlgPakIKmBGZ
-	R68nTzJkbIjhGVsDpoiw==;
+	List-Owner; bh=6CRirY95WISq2UPXmm1csZN/ib1Mh1OfrZJQjLSI8FA=; b=Eh995Hh3nqu7P7
+	IUCmwnvPFCs1tGPw6q9312xkBWjMxksevdbnalnpYfZaMvzsvs8lW8En7xuBkvmKXnl4FSp+wDvwE
+	NvQ28a61Gd7h6OXy35+BRnyegESVZgdxIg13YVs75FAKQyggYf7QGsJb/1rTn7xu7UMiwJLZlVTFP
+	T9on0OlZInrm4OtX5D2AUah0qDcFWl0xuEw7Z2nspBvPeA/rwY6x/SKJrPDk4rjvACrwwO++8qymT
+	Q6Ugg/eWSyDVZdUpPgipESXJeuHDInVUbYTo+Y65ZHiGFnp4tSKW0urEiuhRjJ2UR2QXfPxw32eSt
+	9VQJWz/2rmXQ+ay5i97g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElpe-0000000BtMM-3SCk;
-	Tue, 13 May 2025 09:21:50 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1uEmJ2-0000000ByEq-27bQ;
+	Tue, 13 May 2025 09:52:12 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uElpJ-0000000BtG5-1xQH
+	id 1uEmHS-0000000Bxs6-3Yns
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 May 2025 09:21:31 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uElow-0008Gg-Bp; Tue, 13 May 2025 11:21:06 +0200
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uElot-002W0h-2r;
-	Tue, 13 May 2025 11:21:04 +0200
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1uElou-0004Y5-0o;
-	Tue, 13 May 2025 11:21:04 +0200
-Message-ID: <d25aa4b10e2ebefb36e0db03123b404044e71ec1.camel@pengutronix.de>
-Subject: Re: [PATCH v9 4/6] reset: spacemit: add support for SpacemiT CCU
- resets
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Alex Elder <elder@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org, 
- conor+dt@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr,  dlan@gentoo.org
-Cc: heylenay@4d2.org, inochiama@outlook.com, guodong@riscstar.com, 
- devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- spacemit@lists.linux.dev,  linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 13 May 2025 11:21:04 +0200
-In-Reply-To: <20250512183212.3465963-5-elder@riscstar.com>
-References: <20250512183212.3465963-1-elder@riscstar.com>
-	 <20250512183212.3465963-5-elder@riscstar.com>
-User-Agent: Evolution 3.46.4-2 
+	Tue, 13 May 2025 09:50:36 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 54D9nlSh044846
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 13 May 2025 17:49:47 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Tue, 13 May 2025
+ 17:49:47 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: 
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
+        Ben Zong-You Xie <ben717@andestech.com>
+Subject: [PATCH v3 3/9] dt-bindings: interrupt-controller: add Andes QiLai PLIC
+Date: Tue, 13 May 2025 17:49:27 +0800
+Message-ID: <20250513094933.1631493-4-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250513094933.1631493-1-ben717@andestech.com>
+References: <20250513094933.1631493-1-ben717@andestech.com>
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-riscv@lists.infradead.org
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 54D9nlSh044846
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_022129_500706_43B2A3DD 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250513_025035_244522_1345BA1C 
+X-CRM114-Status: UNSURE (   6.58  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,59 +75,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mo, 2025-05-12 at 13:32 -0500, Alex Elder wrote:
-> Implement reset support for SpacemiT CCUs.  A SpacemiT reset controller
-> device is an auxiliary device associated with a clock controller (CCU).
-> 
-> This initial patch defines the reset controllers for the MPMU, APBC, and
-> MPMU CCUs, which already define clock controllers.
-> 
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> ---
->  drivers/reset/Kconfig          |   9 ++
->  drivers/reset/Makefile         |   1 +
->  drivers/reset/reset-spacemit.c | 246 +++++++++++++++++++++++++++++++++
->  3 files changed, 256 insertions(+)
->  create mode 100644 drivers/reset/reset-spacemit.c
->
-[...]
-> diff --git a/drivers/reset/reset-spacemit.c b/drivers/reset/reset-spacemit.c
-> new file mode 100644
-> index 0000000000000..eff67bdc8adba
-> --- /dev/null
-> +++ b/drivers/reset/reset-spacemit.c
-> @@ -0,0 +1,246 @@
-[...]
-> +static int spacemit_reset_controller_register(struct device *dev,
-> +			       struct ccu_reset_controller *controller)
+Add a new compatible string for Andes QiLai PLIC.
 
-Align to open parenthesis, line length is fine.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ .../bindings/interrupt-controller/sifive,plic-1.0.0.yaml         | 1 +
+ 1 file changed, 1 insertion(+)
 
-> +{
-> +	struct reset_controller_dev *rcdev = &controller->rcdev;
-> +
-> +	rcdev->ops = &spacemit_reset_control_ops;
-> +	rcdev->owner = THIS_MODULE;
-> +	rcdev->of_node = dev->of_node;
-> +	rcdev->nr_resets = controller->data->count;
-> +
-> +	return devm_reset_controller_register(dev, &controller->rcdev);
-> +}
-> +
-> +static int spacemit_reset_probe(struct auxiliary_device *adev,
-> +				const struct auxiliary_device_id *id)
-> +{
-> +	struct spacemit_ccu_adev *rdev = to_spacemit_ccu_adev(adev);
-> +	const void *data = (void *)id->driver_data;
-
-Unnecessary (void *) detour. Just cast to (const struct
-ccu_reset_controller_data *) directly. Otherwise,
-
-Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
-
-
-regards
-Philipp
+diff --git a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+index 3dfe425909d1..7ae61518e9b7 100644
+--- a/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
++++ b/Documentation/devicetree/bindings/interrupt-controller/sifive,plic-1.0.0.yaml
+@@ -53,6 +53,7 @@ properties:
+     oneOf:
+       - items:
+           - enum:
++              - andestech,qilai-plic
+               - renesas,r9a07g043-plic
+           - const: andestech,nceplic100
+       - items:
+--
+2.34.1
 
 _______________________________________________
 linux-riscv mailing list
