@@ -4,90 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849C3C3ABCC
-	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 12:58:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8082C3ABD7
+	for <linux-riscv@archiver.kernel.org>; Tue, 13 May 2025 14:36:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OSRrxfV8lMgLQ2EeMChUOlL8neYdxtKj5Gn7pMP3ZoA=; b=SDMOfeB/B9H2ds
-	tX71zK5CJuF30jNR5rQM1v3GENq5ztwqA6haDbhwjd2wz01yEcmXWE3rWON78mLGKqT8ILqY2kFzp
-	wefAd+lElLzDUL41ynTiNJMbRSQNEDXphmvRJgzBj1nsjjZcaAPHrF5ADbut1COlb9frXiTpB9gV5
-	0HStOHLfYbqb2Opq2oOZEmgs0XTczbGsFo4Rf+m8NLb7ywmRf/UjcihqMj8Zjh3n4+/lIQOe6Ef86
-	s8nG19IKeuSX33xnETnoscRMBb2tlbkXe1MbEBb2Y/askPYB6FU+2HWK8kdBOcAzRErJAvuqcWdPf
-	Zd1Ypzm2fg4Xdq/PMAig==;
+	List-Owner; bh=NyjUsb0HQA/pGQVacB5ggOtk3YDKk4TMDEAc5k39O5w=; b=VV0XOnpGhftvhD
+	hruSJ5mqLqetRM5chzdSH/gNs/uBT+XaJHVrqnVYuh83sYYzevmr/11iIl5u7dZJnz3277CY9A/d9
+	KFHaHyJ1jWliRO+CXNBn5kMPPVpentvgeJ/ij51mJMh94sftx14iFORpjgpFi9dJkOCzCd3A8X3Yq
+	e6V+dCNuTBzjuB42safJmoyy2v18FJciPxBf1PhL59xdd9iaIq1/7pZi4pgBGuvFDXxGZvguKvOFF
+	lHyI5vizx61nDRm8l7NSYFoBGDp8axfpGDSkpIK9XGohOn1YMJ+BSqvQwqdG6eXorsvQumL1YZ/bu
+	orLnlBDhZGdiJtVcc+QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpDY-0000000CQUl-1IaO;
-	Tue, 13 May 2025 12:58:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1uEqkB-0000000Cd2j-3NyF;
+	Tue, 13 May 2025 14:36:31 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uEpDV-0000000CQTJ-480l
+	id 1uEqh7-0000000Cccv-42FX
 	for linux-riscv@lists.infradead.org;
-	Tue, 13 May 2025 12:58:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1747141121;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8bhI625R2lq98x6byIS+a4+3fiYeduBC/yC/mt8T8JY=;
-	b=Ppspl06hxrCGf6kJbdlqBu1r+rN0TPMoboilIkMiZMJjerCFOdI+WqO/3CPKPr1ifGxNbK
-	3qcmPEilU8kkFR42AeqZ11ZOYmNMXTH5TTONqMBzpoMBSb1BmRD2mgbIKWLa6kNdydcEFq
-	nhEhX3RA8RHF7AZKVolnLugo1vdSB+A=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-370-MN5QBmPYNfWlYczWyI3rMw-1; Tue,
- 13 May 2025 08:58:37 -0400
-X-MC-Unique: MN5QBmPYNfWlYczWyI3rMw-1
-X-Mimecast-MFC-AGG-ID: MN5QBmPYNfWlYczWyI3rMw_1747141114
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8E9CA180087B;
-	Tue, 13 May 2025 12:58:33 +0000 (UTC)
-Received: from fedora.redhat.com (unknown [10.45.225.16])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 51AB430001A1;
-	Tue, 13 May 2025 12:58:26 +0000 (UTC)
-From: Vitaly Kuznetsov <vkuznets@redhat.com>
-To: x86@kernel.org,
-	linux-efi@vger.kernel.org
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Ingo Molnar <mingo@redhat.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Peter Jones <pjones@redhat.com>,
-	Daniel Berrange <berrange@redhat.com>,
-	Emanuele Giuseppe Esposito <eesposit@redhat.com>,
-	Gerd Hoffmann <kraxel@redhat.com>,
-	Greg KH <gregkh@linuxfoundation.org>,
-	Luca Boccassi <bluca@debian.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Matthew Garrett <mjg59@srcf.ucam.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	Eric Snowberg <eric.snowberg@oracle.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
+	Tue, 13 May 2025 14:33:23 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-441d1ed82faso39910825e9.0
+        for <linux-riscv@lists.infradead.org>; Tue, 13 May 2025 07:33:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1747146800; x=1747751600; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=6C+eOPgBkYyfSbaSp3zhH361dNsffIyxJdkkZYVPmTA=;
+        b=Spcm/CueVechX2MuRf4kpf4SjauF+j+Fj88i0/G8OX/1vODeEaHrmHQE+N7UcZeiFt
+         6QTij4PRqPVnssA++06/nY5HXM7ATt0SOuBJgfArexoAhWGYt0dQtXy7O4DAIGgv5Rt7
+         /cKHtpnZmMWUuxNx2oOxoE2OBXBKTqz+8liTAcfke6yEFQBfJyCv43gov1y69Yh6qzXZ
+         1mVg5iPsDfTD3z5FXgGsRQ5K9N+e71XF/KFkSTV1MxUKMlFiylqvQ/mLdtzPHX/3Z3mQ
+         CIUo5jScnOWJcGx+NRyJwkT+TV6/FiQ/GpqyLs39w3kzDycyKZ0KIoobOeQo28F/a85M
+         tVzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747146800; x=1747751600;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6C+eOPgBkYyfSbaSp3zhH361dNsffIyxJdkkZYVPmTA=;
+        b=SbNvhxfgbcpCseVpmTDlkxGKTQ006k+7Yzq1LjncxRpkYZgab7kUkfZOycYe7IHYPP
+         WB5dpDb9fqrDPeAnbkQS5l8akNRNX5vwgoEYidaTRvHHk4+HKPypr6CqbMCwwjgPH3+h
+         R7hhqqC4T31lOKXRVlI3oVxDqTE970HPyIJFBSunNrxZ5IQacYxilx3A7rNhAxFuxi2/
+         w8n7cMbQAgCqaAdHAuUC8maQnnt5PR5oRa0NdYID4gGPihO7AyJGoM8iRXCTsXqbeuNu
+         CyHPC9mzBa534NhoHCsItNvpajq/jCwOA0G96M7svoUwID4Byjh74h4W7jNvnTXQ0oNC
+         regw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxwQ7TuBkIImuBz1OvZmfx+4jFBnarvv7cA7wQ5cF/MmY4Pag25gUwlFjNqhtalUCAXhllfbTBYeUNKg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5v2MmO90hFQ16beRcVcKK6UqxpmezmYd3toSSRKO0ES8O7XPo
+	kT1LYm5oWdfHlrODYQjp+wDoOPkd6ThkqSKzJpN0tdB0SMUNX2KIelzbHGl5LgsJiF+B+u8DRak
+	kMDtaUQ==
+X-Gm-Gg: ASbGnct6CdoQBWqJtakpScU/+fb5KXoBmZg62ghlc7FGMm/2/aduaEDdgv2EmiK9OzP
+	OsFjucfwz1KAWFT/yz+04EfMM6xGsZDq96Bf5VpJQoTz0m+kB7x0cQO5y2LWcj2lu+JvlbdtFrJ
+	poABuYpT4NbhPdhiJDimLXwmjmM03sAs2Mt5fKbflsXLwxK2XcqydAMQ22o9GKLUoqBJ6hAaOyZ
+	CqQ3ovkG0vseqdV3e1wDHx3UAHh9vmlLI9Bayqw82pk5D3K/1+rV8oGSP71bvHGq+0FrAkCW964
+	wh7YINkT0LILRspOzMtZ7Nxbnr+7eX1P6mljL5HLdB1NqNqlcUZu5w6Dna++y3Ko0H+Vl/9O26O
+	x8z1I01EDbk81+W04L5DcT6b3
+X-Google-Smtp-Source: AGHT+IEBNTH4zw64AEMKKTiN2s5UEu33251ThUx0I1Ms2D2DvDbTNPIeVXC3gTvYmyig2JEqJ5+Vcw==
+X-Received: by 2002:a5d:650b:0:b0:3a1:f655:c5b2 with SMTP id ffacd0b85a97d-3a1f655c5femr12440694f8f.39.1747146789207;
+        Tue, 13 May 2025 07:33:09 -0700 (PDT)
+Received: from mai.linaro.org (146725694.box.freepro.com. [130.180.211.218])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a1f58ecadfsm16357348f8f.22.2025.05.13.07.33.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 13 May 2025 07:33:08 -0700 (PDT)
+Date: Tue, 13 May 2025 16:33:06 +0200
+From: Daniel Lezcano <daniel.lezcano@linaro.org>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Andi Shyti <andi.shyti@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 2/2] x86/efi: Implement support for embedding SBAT data for x86
-Date: Tue, 13 May 2025 14:58:08 +0200
-Message-ID: <20250513125808.75510-3-vkuznets@redhat.com>
-In-Reply-To: <20250513125808.75510-1-vkuznets@redhat.com>
-References: <20250513125808.75510-1-vkuznets@redhat.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+	Jarkko Nikula <jarkko.nikula@linux.intel.com>,
+	Jisheng Zhang <jszhang@kernel.org>, Chao Wei <chao.wei@sophgo.com>,
+	linux-hwmon@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-i2c@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-mmc@vger.kernel.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v2 02/10] dt-bindings: timer: Add Sophgo SG2044 ACLINT
+ timer
+Message-ID: <aCNYItP6SWImMvFv@mai.linaro.org>
+References: <20250413223507.46480-1-inochiama@gmail.com>
+ <20250413223507.46480-3-inochiama@gmail.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+Content-Disposition: inline
+In-Reply-To: <20250413223507.46480-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_055842_096755_61147B90 
-X-CRM114-Status: GOOD (  18.58  )
+X-CRM114-CacheID: sfid-20250513_073322_003454_D54269CB 
+X-CRM114-Status: UNSURE (   8.61  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,156 +117,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Similar to zboot architectures, implement support for embedding SBAT data
-for x86. Put '.sbat' section in between '.data' and '.text' as the former
-also covers '.bss' and '.pgtable' and thus must be the last one in the
-file.
-
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Vitaly Kuznetsov <vkuznets@redhat.com>
----
- arch/x86/boot/Makefile                 |  2 +-
- arch/x86/boot/compressed/Makefile      |  5 +++++
- arch/x86/boot/compressed/sbat.S        |  7 ++++++
- arch/x86/boot/compressed/vmlinux.lds.S |  8 +++++++
- arch/x86/boot/header.S                 | 31 ++++++++++++++++++--------
- drivers/firmware/efi/Kconfig           |  2 +-
- 6 files changed, 44 insertions(+), 11 deletions(-)
- create mode 100644 arch/x86/boot/compressed/sbat.S
-
-diff --git a/arch/x86/boot/Makefile b/arch/x86/boot/Makefile
-index 81f55da81967..5f7b52f0e7f5 100644
---- a/arch/x86/boot/Makefile
-+++ b/arch/x86/boot/Makefile
-@@ -71,7 +71,7 @@ $(obj)/vmlinux.bin: $(obj)/compressed/vmlinux FORCE
- 
- SETUP_OBJS = $(addprefix $(obj)/,$(setup-y))
- 
--sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|z_.*\)$$/\#define ZO_\2 0x\1/p'
-+sed-zoffset := -e 's/^\([0-9a-fA-F]*\) [a-zA-Z] \(startup_32\|efi.._stub_entry\|efi\(32\)\?_pe_entry\|input_data\|kernel_info\|_end\|_ehead\|_text\|_e\?data\|_e\?sbat\|z_.*\)$$/\#define ZO_\2 0x\1/p'
- 
- quiet_cmd_zoffset = ZOFFSET $@
-       cmd_zoffset = $(NM) $< | sed -n $(sed-zoffset) > $@
-diff --git a/arch/x86/boot/compressed/Makefile b/arch/x86/boot/compressed/Makefile
-index fdbce022db55..1441435869cc 100644
---- a/arch/x86/boot/compressed/Makefile
-+++ b/arch/x86/boot/compressed/Makefile
-@@ -106,6 +106,11 @@ vmlinux-objs-$(CONFIG_UNACCEPTED_MEMORY) += $(obj)/mem.o
- 
- vmlinux-objs-$(CONFIG_EFI) += $(obj)/efi.o
- vmlinux-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+vmlinux-objs-$(CONFIG_EFI_SBAT) += $(obj)/sbat.o
-+
-+ifdef CONFIG_EFI_SBAT
-+$(obj)/sbat.o: $(CONFIG_EFI_SBAT_FILE)
-+endif
- 
- $(obj)/vmlinux: $(vmlinux-objs-y) $(vmlinux-libs-y) FORCE
- 	$(call if_changed,ld)
-diff --git a/arch/x86/boot/compressed/sbat.S b/arch/x86/boot/compressed/sbat.S
-new file mode 100644
-index 000000000000..838f70a997dd
---- /dev/null
-+++ b/arch/x86/boot/compressed/sbat.S
-@@ -0,0 +1,7 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+/*
-+ * Embed SBAT data in the kernel.
-+ */
-+	.pushsection ".sbat", "a", @progbits
-+	.incbin CONFIG_EFI_SBAT_FILE
-+	.popsection
-diff --git a/arch/x86/boot/compressed/vmlinux.lds.S b/arch/x86/boot/compressed/vmlinux.lds.S
-index 3b2bc61c9408..587ce3e7c504 100644
---- a/arch/x86/boot/compressed/vmlinux.lds.S
-+++ b/arch/x86/boot/compressed/vmlinux.lds.S
-@@ -43,6 +43,14 @@ SECTIONS
- 		*(.rodata.*)
- 		_erodata = . ;
- 	}
-+#ifdef CONFIG_EFI_SBAT
-+	.sbat : ALIGN(0x1000) {
-+		_sbat = . ;
-+		*(.sbat)
-+		_esbat = ALIGN(0x1000);
-+		. = _esbat;
-+	}
-+#endif
- 	.data :	ALIGN(0x1000) {
- 		_data = . ;
- 		*(.data)
-diff --git a/arch/x86/boot/header.S b/arch/x86/boot/header.S
-index b5c79f43359b..a1568a33561a 100644
---- a/arch/x86/boot/header.S
-+++ b/arch/x86/boot/header.S
-@@ -179,15 +179,11 @@ pecompat_fstart:
- #else
- 	.set	pecompat_fstart, setup_size
- #endif
--	.ascii	".text"
--	.byte	0
--	.byte	0
--	.byte	0
--	.long	ZO__data
--	.long	setup_size
--	.long	ZO__data			# Size of initialized data
--						# on disk
--	.long	setup_size
-+	.ascii	".text\0\0\0"
-+	.long	textsize            		# VirtualSize
-+	.long	setup_size			# VirtualAddress
-+	.long	textsize			# SizeOfRawData
-+	.long	setup_size			# PointerToRawData
- 	.long	0				# PointerToRelocations
- 	.long	0				# PointerToLineNumbers
- 	.word	0				# NumberOfRelocations
-@@ -196,6 +192,23 @@ pecompat_fstart:
- 		IMAGE_SCN_MEM_READ		| \
- 		IMAGE_SCN_MEM_EXECUTE		# Characteristics
- 
-+#ifdef CONFIG_EFI_SBAT
-+	.ascii	".sbat\0\0\0"
-+	.long	ZO__esbat - ZO__sbat            # VirtualSize
-+	.long	setup_size + ZO__sbat           # VirtualAddress
-+	.long	ZO__esbat - ZO__sbat            # SizeOfRawData
-+	.long	setup_size + ZO__sbat           # PointerToRawData
-+
-+	.long	0, 0, 0
-+	.long	IMAGE_SCN_CNT_INITIALIZED_DATA	| \
-+		IMAGE_SCN_MEM_READ		| \
-+		IMAGE_SCN_MEM_DISCARDABLE	# Characteristics
-+
-+	.set	textsize, ZO__sbat
-+#else
-+	.set	textsize, ZO__data
-+#endif
-+
- 	.ascii	".data\0\0\0"
- 	.long	ZO__end - ZO__data		# VirtualSize
- 	.long	setup_size + ZO__data		# VirtualAddress
-diff --git a/drivers/firmware/efi/Kconfig b/drivers/firmware/efi/Kconfig
-index db8c5c03d3a2..16baa038d412 100644
---- a/drivers/firmware/efi/Kconfig
-+++ b/drivers/firmware/efi/Kconfig
-@@ -286,7 +286,7 @@ config EFI_SBAT
- 
- config EFI_SBAT_FILE
- 	string "Embedded SBAT section file path"
--	depends on EFI_ZBOOT
-+	depends on EFI_ZBOOT || (EFI_STUB && X86)
- 	help
- 	  SBAT section provides a way to improve SecureBoot revocations of UEFI
- 	  binaries by introducing a generation-based mechanism. With SBAT, older
--- 
-2.49.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBBcHIgMTQsIDIwMjUgYXQgMDY6MzQ6NTZBTSArMDgwMCwgSW5vY2hpIEFtYW90byB3
+cm90ZToKPiBMaWtlIFNHMjA0MiwgU0cyMDQ0IGltcGxlbWVudHMgYW4gZW5oYW5jZWQgQUNMSU5U
+LCBzbyBhZGQgbmVjZXNzYXJ5Cj4gY29tcGF0aWJsZSBzdHJpbmcgZm9yIFNHMjA0NCBTb0MuCj4g
+Cj4gU2lnbmVkLW9mZi1ieTogSW5vY2hpIEFtYW90byA8aW5vY2hpYW1hQGdtYWlsLmNvbT4KPiBB
+Y2tlZC1ieTogUm9iIEhlcnJpbmcgKEFybSkgPHJvYmhAa2VybmVsLm9yZz4KPiAtLS0KCkFwcGxp
+ZWQgcGF0Y2ggMiwgdGhhbmtzIQoKLS0gCgogPGh0dHA6Ly93d3cubGluYXJvLm9yZy8+IExpbmFy
+by5vcmcg4pSCIE9wZW4gc291cmNlIHNvZnR3YXJlIGZvciBBUk0gU29DcwoKRm9sbG93IExpbmFy
+bzogIDxodHRwOi8vd3d3LmZhY2Vib29rLmNvbS9wYWdlcy9MaW5hcm8+IEZhY2Vib29rIHwKPGh0
+dHA6Ly90d2l0dGVyLmNvbS8jIS9saW5hcm9vcmc+IFR3aXR0ZXIgfAo8aHR0cDovL3d3dy5saW5h
+cm8ub3JnL2xpbmFyby1ibG9nLz4gQmxvZwoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
