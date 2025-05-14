@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AF5C3ABDE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41114C3ABD8
 	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 14:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
@@ -12,29 +12,28 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=mZgWWCj8olQxA/5s+y8QEICETAu1EnXAiy+5H6wdxo4=; b=RPsRlcABdi3a4V
-	zM/HkzhPXK+7/CldLSI4f62slhrdnFw7J6Vy5eC4UECOl4JcHzH9vc2ZoLY0InYVOdzQdRHXehVff
-	+4dNiAoNRIATo1hfIjsGQV+fhl+vY0jcqeyuahSTET0JjNvgiBg3uUXNfu4EsLri1RCv/mfHhvaIn
-	PYdapoH5pwe+7dc1W8XIoO+ETbYolIYmot9aVOVW++ujrsWoP3HnUmQbleQ2l5e+EtO47EfGdMDnA
-	HOGAWghAtjec6V9c/JXU7SHJHmj+Y4ZwN7mmyiRiNWd5wNcoU54MvNEv+8VLIfeDwtcNO0WcdlmhE
-	VtdyrWzJkJRA+8dmrhQg==;
+	List-Owner; bh=CZv6mGSotKunavoG3KeAXznX+GflwTMZCh7IFe4gQ2s=; b=X3xRz9xAyoA8Ux
+	+afWtGoV3/eV+JIE9UAkDV02Rz1pZQtfGjPGNNteSDFNiQdipd9nnKqJbikR5MOTsqcNdH/NaVMi0
+	E+Itxxo2UWEEm1/SugJUAGeHBOpzvQ3y+fh6AIE0rw5WIU0Gnd++JUyDbYbUPP51lk+6VAbJmrDVt
+	alIj0kMQ8zngWNkiS80i/2sRxNohAhcQ2qEx6c8HgygMhpA88lFXHx36DgUa1qSpHstHLg5GrMl1B
+	+/Cc8lOS3jsmXX9gFG2MfuyklqW5NSSp66TtlvX/rsSsNLYB7V+ngjtyzzIDU9k8nu/pzirzwu/E7
+	xRgOS2VQu6N2Iui76fjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFCiV-0000000FMGt-1t99;
-	Wed, 14 May 2025 14:04:15 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1uFCiU-0000000FMGM-2Anv;
+	Wed, 14 May 2025 14:04:14 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFAmp-0000000ExrK-49HT;
-	Wed, 14 May 2025 12:00:37 +0000
-Received: from [198.18.0.1] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [27.18.99.44])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 150636c0b;
-	Wed, 14 May 2025 20:00:28 +0800 (GMT+08:00)
-Message-ID: <95e8f8fd-d7ea-4d78-a794-72f73a3e19f3@whut.edu.cn>
-Date: Wed, 14 May 2025 20:00:28 +0800
+	id 1uFAh6-0000000Ex1y-22D9;
+	Wed, 14 May 2025 11:54:42 +0000
+Received: from [198.18.0.1] (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [27.18.99.44])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 150636ba0;
+	Wed, 14 May 2025 19:54:24 +0800 (GMT+08:00)
+Message-ID: <a9846381-96a1-436d-892d-79eecec2a272@whut.edu.cn>
+Date: Wed, 14 May 2025 19:54:24 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] phy: spacemit: add USB3 support for K1 PCIe/USB3
- combo PHY
+Subject: Re: [PATCH v2 3/4] phy: spacemit: support K1 USB2.0 PHY controller
 To: Vinod Koul <vkoul@kernel.org>
 Cc: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
  <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -43,23 +42,23 @@ Cc: Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring
  devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
  spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
 References: <20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn>
- <20250418-b4-k1-usb3-phy-v2-v2-4-b69e02da84eb@whut.edu.cn>
- <aCRaAEJSphC7uWY0@vaman>
+ <20250418-b4-k1-usb3-phy-v2-v2-3-b69e02da84eb@whut.edu.cn>
+ <aCRZfOQS0JTWKUdX@vaman>
 Content-Language: en-US
 From: Ze Huang <huangze@whut.edu.cn>
-In-Reply-To: <aCRaAEJSphC7uWY0@vaman>
+In-Reply-To: <aCRZfOQS0JTWKUdX@vaman>
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCH0tJVkhDGUIaSEIaSh0ZGVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVPT1lXWRYaDxIVHRRZQVlPS0hVSktISUxCS1VKS0tVSkJLS1
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDH0lJVk0YTU0aQ05NTRhKSlYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVPT1lXWRYaDxIVHRRZQVlPS0hVSktISk5MT1VKS0tVSkJLS1
 	kG
-X-HM-Tid: 0a96ceaae7d903a1kunm150636c0b
+X-HM-Tid: 0a96cea55a7a03a1kunm150636ba0
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NCo6Thw5CTEzPj4YTikiSTAq
-	LywKCS1VSlVKTE9MSUlPS0hITUNDVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VCQlVPT1lXWQgBWUFIQ01JNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6KzI6DDo4MjErFD4RNyk3Skso
+	H1EKCg9VSlVKTE9MSUlITU1CTEJPVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VCQlVPT1lXWQgBWUFCT0lLNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_050036_197929_ED45805B 
-X-CRM114-Status: GOOD (  13.84  )
+X-CRM114-CacheID: sfid-20250514_045440_739091_C241F030 
+X-CRM114-Status: GOOD (  24.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,115 +70,154 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 5/14/25 4:53 PM, Vinod Koul wrote:
-> On 18-04-25, 21:19, Ze Huang wrote:
->> Add support for USB 3.0 mode on the K1 PCIe/USB3 combo PHY. Currently,
->> only USB mode is supported; PCIe support is not included in this change.
->>
->> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
->> ---
-...
->> +#define COMBPHY_USB_LFPS_REG		0x58
->> +#define  COMBPHY_USB_LFPS_MASK		0x700
->> +#define  COMBPHY_USB_LFPS_THRES_DEFAULT	0x03
-> Same comment as other patch
-
->> +
->> +#define COMBPHY_MODE_SEL	BIT(3)
->> +#define COMBPHY_WAIT_TIMEOUT	1000
->> +
->> +struct spacemit_combphy_priv {
->> +	struct device *dev;
->> +	struct phy *phy;
->> +	struct reset_control *phy_rst;
->> +	void __iomem *phy_ctrl;
->> +	void __iomem *phy_sel;
->> +	bool rx_always_on;
->> +	u8 lfps_threshold;
->> +	u8 type;
->> +};
->> +
->> +static void spacemit_reg_update(void __iomem *reg, u32 offset, u32 mask, u32 val)
->> +{
->> +	u32 tmp;
->> +
->> +	tmp = readl(reg + offset);
->> +	tmp = (tmp & ~(mask)) | val;
->> +	writel(tmp, reg + offset);
->> +}
->> +
->> +static int spacemit_combphy_wait_ready(struct spacemit_combphy_priv *priv,
->> +				       u32 offset, u32 mask, u32 val)
->> +{
->> +	u32 reg_val;
->> +	int ret = 0;
-> Superfluous init, drop it pls
-
-OK
-
->
->> +
->> +	ret = read_poll_timeout(readl, reg_val, (reg_val & mask) == val,
->> +				1000, COMBPHY_WAIT_TIMEOUT * 1000, false,
->> +				priv->phy_ctrl + offset);
->> +
->> +	return ret;
-> why use local variable?
-
-Will drop it.
-
->
->> +}
->> +
->> +static int spacemit_combphy_set_mode(struct spacemit_combphy_priv *priv)
->> +{
->> +	int ret = 0;
->> +
->> +	switch (priv->type) {
->> +	case PHY_TYPE_USB3:
->> +		spacemit_reg_update(priv->phy_sel, 0, 0, COMBPHY_MODE_SEL);
->> +		break;
->> +	default:
->> +		dev_err(priv->dev, "PHY type %x not supported\n", priv->type);
->> +		ret = -EINVAL;
->> +		break;
->> +	}
->> +
->> +	return ret;
->> +}
-...
->> +static const struct of_device_id spacemit_combphy_of_match[] = {
->> +	{ .compatible = "spacemit,k1-combphy", },
->> +	{ /* sentinel */ }
->> +};
->> +MODULE_DEVICE_TABLE(of, spacemit_combphy_of_match);
->> +
->> +static struct platform_driver spacemit_combphy_driver = {
->> +	.probe	= spacemit_combphy_probe,
->> +	.driver = {
->> +		.name = "spacemit-k1-combphy",
->> +		.of_match_table = spacemit_combphy_of_match,
->> +	},
->> +};
->> +module_platform_driver(spacemit_combphy_driver);
->> +
->> +MODULE_DESCRIPTION("Spacemit PCIE/USB3.0 COMBO PHY driver");
->> +MODULE_LICENSE("GPL");
-> Could this be single driver with different init register sequences?
-
-Yes, on K1 SoC, the USB3 and PCIe Port A share the same COMBO PHY hardware.
-
-PHY can be initialized for PCIe as well via a different init sequence.
-In the future, we can extend the driver to support both modes based on 
-the DT property.
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNS8xNC8yNSA0OjUxIFBNLCBWaW5vZCBLb3VsIHdyb3RlOgo+IEhpLAo+Cj4gT24gMTgtMDQt
+MjUsIDIxOjE5LCBaZSBIdWFuZyB3cm90ZToKPj4gQWRkIHN1cHBvcnQgZm9yIFNwYWNlbWlUIEsx
+IFVTQjIuMCBQSFkuCj4gQ2FuIHlvdSBwbGVhc2UgYWRkIG1vcmUgZGV0YWlscyBvZiB0aGlzIGRl
+dmljZSwgd2hpY2ggU29DIGlzIHRoaXMsIGFuZAo+IHdoYXQgYXJlIHRoZSBjYXBhYmxpdGllcyBv
+ZiB0aGlzIHBoeQoKSGksIFZpbm9kLCB0aGFuayB5b3UgZm9yIHRoZSBjb21tZW50cyEKCkhvdyBh
+Ym91dCB0aGVzZToKCiDCoMKgwqAgVGhlIFNwYWNlbWlUIEsxIFNvQyBpbmNsdWRlcyB0aHJlZSBV
+U0IgcG9ydHM6CgogwqDCoMKgIC0gT25lIFVTQjIuMCBPVEcgcG9ydAogwqDCoMKgIC0gT25lIFVT
+QjIuMCBob3N0LW9ubHkgcG9ydAogwqDCoMKgIC0gT25lIFVTQjMuMCBwb3J0IHdpdGggYW4gaW50
+ZWdyYXRlZCBVU0IyLjAgRFJEIGludGVyZmFjZQoKIMKgwqDCoCBFYWNoIG9mIHRoZXNlIHBvcnRz
+IGlzIGNvbm5lY3RlZCB0byBhIFVTQjIuMCBQSFkgcmVzcG9uc2libGUgZm9yIApVU0IyIHRyYW5z
+bWlzc2lvbi4KCiDCoMKgwqAgVGhpcyBjb21taXQgYWRkcyBzdXBwb3J0IGZvciB0aGUgU3BhY2Vt
+aVQgSzEgVVNCMi4wIFBIWSwgd2hpY2ggaXMgCmNvbXBsaWFudAogwqDCoMKgIHdpdGggdGhlIFVT
+QiAyLjAgc3BlY2lmaWNhdGlvbiBhbmQgc3VwcG9ydHMgYm90aCA4LWJpdCA2ME1IeiBhbmQgCjE2
+LWJpdCAzME1IegogwqDCoMKgIHBhcmFsbGVsIGludGVyZmFjZXMuCgoKPj4gU2lnbmVkLW9mZi1i
+eTogWmUgSHVhbmcgPGh1YW5nemVAd2h1dC5lZHUuY24+Cj4+IC0tLQo+PiAgIGRyaXZlcnMvcGh5
+L0tjb25maWcgICAgICAgICAgICAgICAgfCAgIDEgKwo+PiAgIGRyaXZlcnMvcGh5L01ha2VmaWxl
+ICAgICAgICAgICAgICAgfCAgIDEgKwo+PiAgIGRyaXZlcnMvcGh5L3NwYWNlbWl0L0tjb25maWcg
+ICAgICAgfCAgMTMgKysrKwo+PiAgIGRyaXZlcnMvcGh5L3NwYWNlbWl0L01ha2VmaWxlICAgICAg
+fCAgIDIgKwo+PiAgIGRyaXZlcnMvcGh5L3NwYWNlbWl0L3BoeS1rMS11c2IyLmMgfCAxMzEgKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiAgIDUgZmlsZXMgY2hhbmdlZCwg
+MTQ4IGluc2VydGlvbnMoKykKPj4KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGh5L0tjb25maWcg
+Yi9kcml2ZXJzL3BoeS9LY29uZmlnCj4+IGluZGV4IDhkNThlZmU5OThlYzVmZDUwMDU0ZWVkMmM5
+MGQ2ZWNjZTZiZDVkZDguLmZjYTU4OWFhNzkyNmViNWJjZTE0ZTk5Nzg1Y2YzMmNmMDM5NTIwMmUg
+MTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvcGh5L0tjb25maWcKPj4gKysrIGIvZHJpdmVycy9waHkv
+S2NvbmZpZwo+PiBAQCAtMTE0LDYgKzExNCw3IEBAIHNvdXJjZSAiZHJpdmVycy9waHkvcmVuZXNh
+cy9LY29uZmlnIgo+PiAgIHNvdXJjZSAiZHJpdmVycy9waHkvcm9ja2NoaXAvS2NvbmZpZyIKPj4g
+ICBzb3VyY2UgImRyaXZlcnMvcGh5L3NhbXN1bmcvS2NvbmZpZyIKPj4gICBzb3VyY2UgImRyaXZl
+cnMvcGh5L3NvY2lvbmV4dC9LY29uZmlnIgo+PiArc291cmNlICJkcml2ZXJzL3BoeS9zcGFjZW1p
+dC9LY29uZmlnIgo+PiAgIHNvdXJjZSAiZHJpdmVycy9waHkvc3QvS2NvbmZpZyIKPj4gICBzb3Vy
+Y2UgImRyaXZlcnMvcGh5L3N0YXJmaXZlL0tjb25maWciCj4+ICAgc291cmNlICJkcml2ZXJzL3Bo
+eS9zdW5wbHVzL0tjb25maWciCj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL3BoeS9NYWtlZmlsZSBi
+L2RyaXZlcnMvcGh5L01ha2VmaWxlCj4+IGluZGV4IGUyODE0NDJhY2M3NTI4MjBmZTBiZDYzOGRm
+ZTM4OTg2YTM3YzJhNzguLjA1OTkzZmY4YTE1ZGFmN2UyNTgzYjVmOWI5YjM3YWM1ODRhMzA2MDkg
+MTAwNjQ0Cj4+IC0tLSBhL2RyaXZlcnMvcGh5L01ha2VmaWxlCj4+ICsrKyBiL2RyaXZlcnMvcGh5
+L01ha2VmaWxlCj4+IEBAIC0zNCw2ICszNCw3IEBAIG9iai15CQkJCQkrPSBhbGx3aW5uZXIvCVwK
+Pj4gICAJCQkJCSAgIHJvY2tjaGlwLwlcCj4+ICAgCQkJCQkgICBzYW1zdW5nLwlcCj4+ICAgCQkJ
+CQkgICBzb2Npb25leHQvCVwKPj4gKwkJCQkJICAgc3BhY2VtaXQvCVwKPj4gICAJCQkJCSAgIHN0
+LwkJXAo+PiAgIAkJCQkJICAgc3RhcmZpdmUvCVwKPj4gICAJCQkJCSAgIHN1bnBsdXMvCVwKPj4g
+ZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGh5L3NwYWNlbWl0L0tjb25maWcgYi9kcml2ZXJzL3BoeS9z
+cGFjZW1pdC9LY29uZmlnCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAuLjAxMzZhZWUyZThhMmY1ZjQ4NGRhMTM2
+YjI2ZjgwMTMwNzk0Yjk5MmMKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9kcml2ZXJzL3BoeS9z
+cGFjZW1pdC9LY29uZmlnCj4+IEBAIC0wLDAgKzEsMTMgQEAKPj4gKyMgU1BEWC1MaWNlbnNlLUlk
+ZW50aWZpZXI6IEdQTC0yLjAtb25seQo+PiArIwo+PiArIyBQaHkgZHJpdmVycyBmb3IgU3BhY2Vt
+aVQgcGxhdGZvcm1zCj4+ICsjCj4+ICtjb25maWcgUEhZX1NQQUNFTUlUX0sxX1VTQjIKPj4gKwl0
+cmlzdGF0ZSAiU3BhY2VtaVQgSzEgVVNCIDIuMCBQSFkgc3VwcG9ydCIKPj4gKwlkZXBlbmRzIG9u
+IChBUkNIX1NQQUNFTUlUIHx8IENPTVBJTEVfVEVTVCkgJiYgT0YKPj4gKwlkZXBlbmRzIG9uIENP
+TU1PTl9DTEsKPj4gKwlkZXBlbmRzIG9uIFVTQl9DT01NT04KPj4gKwlzZWxlY3QgR0VORVJJQ19Q
+SFkKPj4gKwloZWxwCj4+ICsJICBFbmFibGUgdGhpcyB0byBzdXBwb3J0IEsxIFVTQiAyLjAgUEhZ
+IGRyaXZlci4gVGhpcyBkcml2ZXIgdGFrZXMgY2FyZSBvZgo+PiArCSAgZW5hYmxpbmcgYW5kIGNs
+b2NrIHNldHVwIGFuZCB3aWxsIGJlIHVzZWQgYnkgSzEgdWRjL2VoY2kvb3RnL3hoY2kgZHJpdmVy
+Lgo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9waHkvc3BhY2VtaXQvTWFrZWZpbGUgYi9kcml2ZXJz
+L3BoeS9zcGFjZW1pdC9NYWtlZmlsZQo+PiBuZXcgZmlsZSBtb2RlIDEwMDY0NAo+PiBpbmRleCAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwLi5mZWMwYjQyNWE5NDg1NDFi
+MzliODE0Y2FlZjBiMDVlMWUwMDJkOTJmCj4+IC0tLSAvZGV2L251bGwKPj4gKysrIGIvZHJpdmVy
+cy9waHkvc3BhY2VtaXQvTWFrZWZpbGUKPj4gQEAgLTAsMCArMSwyIEBACj4+ICsjIFNQRFgtTGlj
+ZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wLW9ubHkKPj4gK29iai0kKENPTkZJR19QSFlfU1BBQ0VN
+SVRfSzFfVVNCMikJCSs9IHBoeS1rMS11c2IyLm8KPj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvcGh5
+L3NwYWNlbWl0L3BoeS1rMS11c2IyLmMgYi9kcml2ZXJzL3BoeS9zcGFjZW1pdC9waHktazEtdXNi
+Mi5jCj4+IG5ldyBmaWxlIG1vZGUgMTAwNjQ0Cj4+IGluZGV4IDAwMDAwMDAwMDAwMDAwMDAwMDAw
+MDAwMDAwMDAwMDAwMDAwMDAwMDAuLjRhNTY4NGYzMTg1ZjYxZjlkODY1YjBmYjUyNjQ0YmIyODA3
+NTZkMDAKPj4gLS0tIC9kZXYvbnVsbAo+PiArKysgYi9kcml2ZXJzL3BoeS9zcGFjZW1pdC9waHkt
+azEtdXNiMi5jCj4+IEBAIC0wLDAgKzEsMTMxIEBACj4+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRp
+ZmllcjogR1BMLTIuMC1vbmx5Cj4+ICsvKgo+PiArICogU3BhY2VtaVQgSzEgVVNCIDIuMCBQSFkg
+ZHJpdmVyCj4+ICsgKgo+PiArICogQ29weXJpZ2h0IChDKSAyMDI1IFNwYWNlbWlUIChIYW5nemhv
+dSkgVGVjaG5vbG9neSBDby4gTHRkCj4+ICsgKiBDb3B5cmlnaHQgKEMpIDIwMjUgWmUgSHVhbmcg
+PGh1YW5nemVAd2h1dC5lZHUuY24+Cj4+ICsgKi8KPj4gKwo+PiArI2luY2x1ZGUgPGxpbnV4L2Ns
+ay5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L2lvcG9sbC5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L3Bs
+YXRmb3JtX2RldmljZS5oPgo+PiArI2luY2x1ZGUgPGxpbnV4L3VzYi9vZi5oPgo+PiArCj4+ICsj
+ZGVmaW5lIFVTQjJfUEhZX1JFRzAxCQkJMHgwNAo+PiArI2RlZmluZSAgVVNCMl9QSFlfUkVHMDFf
+VkFMCQkweDYwZWYKPj4gKyNkZWZpbmUgIFVTQjJfUEhZX1JFRzAxX1BMTF9JU19SRUFEWQlCSVQo
+MCkKPj4gKyNkZWZpbmUgVVNCMl9QSFlfUkVHMDQJCQkweDEwCj4+ICsjZGVmaW5lICBVU0IyX1BI
+WV9SRUcwNF9BVVRPX0NMRUFSX0RJUwlCSVQoMikKPj4gKyNkZWZpbmUgVVNCMl9QSFlfUkVHMEQJ
+CQkweDM0Cj4+ICsjZGVmaW5lICBVU0IyX1BIWV9SRUcwRF9WQUwJCTB4MWMKPj4gKyNkZWZpbmUg
+VVNCMl9QSFlfUkVHMjYJCQkweDk4Cj4+ICsjZGVmaW5lICBVU0IyX1BIWV9SRUcyNl9WQUwJCTB4
+YmVjNAo+IFdoYXQgYXJlIHRoZXNlIHZhbHVlcyByZWZlcnJlZCB0bywgd2h5IGFyZSB5b3UgZGVm
+aW5pbmcgZml4ZWQgdmFsdWVzIGZvcgo+IGRyaXZlciB0byB1c2UgYW5kIG5vdCBzZXQgdGhlIHJl
+Z2lzdGVyIGJpdHM/CgpBdCB0aGUgbW9tZW50LCBkb2N1bWVudGF0aW9uWzFdIGZvciB0aGUgVVNC
+Mi4wL1VTQjMuMCBQSFkgaXMKaW5jb21wbGV0ZSBhbmQgZG9lcyBub3QgaW5jbHVkZSBkZXRhaWxl
+ZCByZWdpc3RlciBkZWZpbml0aW9ucy4KClRoZSBmaXhlZCB2YWx1ZXMgaGVyZSBhcmUgZGVyaXZl
+ZCBmcm9tIHRoZSB2ZW5kb3IgZHJpdmVyIGFuZApyZWZsZWN0IHRoZSByZXF1aXJlZCBpbml0aWFs
+aXphdGlvbiBmb3IgdGhlIFBIWSB0byBvcGVyYXRlIGNvcnJlY3RseSBvbiBLMS4KCgpMaW5rOiAK
+aHR0cHM6Ly9kZXZlbG9wZXIuc3BhY2VtaXQuY29tL2RvY3VtZW50YXRpb24/dG9rZW49QWpIRHdy
+Vzc4aWdBQUVraUhyYWNCSTlIblRiIApbMV0KCgo+PiArCj4+ICsjZGVmaW5lIFVTQjJEX0NUUkxf
+UkVTRVRfVElNRV9NUwk1MAo+PiArCj4+ICtzdHJ1Y3Qgc3BhY2VtaXRfdXNiMnBoeSB7Cj4+ICsJ
+c3RydWN0IHBoeQkqcGh5Owo+PiArCXN0cnVjdCBjbGsJKmNsazsKPj4gKwl2b2lkIF9faW9tZW0J
+KmJhc2U7Cj4+ICt9Owo+PiArCj4+ICtzdGF0aWMgaW50IHNwYWNlbWl0X3VzYjJwaHlfaW5pdChz
+dHJ1Y3QgcGh5ICpwaHkpCj4+ICt7Cj4+ICsJc3RydWN0IHNwYWNlbWl0X3VzYjJwaHkgKnNwaHkg
+PSBwaHlfZ2V0X2RydmRhdGEocGh5KTsKPj4gKwl2b2lkIF9faW9tZW0gKmJhc2UgPSBzcGh5LT5i
+YXNlOwo+PiArCXUzMiB2YWw7Cj4+ICsJaW50IHJldDsKPj4gKwo+PiArCXJldCA9IGNsa19wcmVw
+YXJlX2VuYWJsZShzcGh5LT5jbGspOwo+PiArCWlmIChyZXQpIHsKPj4gKwkJZGV2X2VycigmcGh5
+LT5kZXYsICJmYWlsZWQgdG8gZW5hYmxlIGNsb2NrXG4iKTsKPj4gKwkJcmV0dXJuIHJldDsKPj4g
+Kwl9Cj4+ICsKPj4gKwkvKgo+PiArCSAqIG1ha2Ugc3VyZSB0aGUgdXNiIGNvbnRyb2xsZXIgaXMg
+bm90IHVuZGVyIHJlc2V0IHByb2Nlc3MgYmVmb3JlCj4+ICsJICogYW55IGNvbmZpZ3VyYXRpb24K
+Pj4gKwkgKi8KPj4gKwl1c2xlZXBfcmFuZ2UoMTUwLCAyMDApOwo+PiArCXdyaXRlbChVU0IyX1BI
+WV9SRUcyNl9WQUwsIGJhc2UgKyBVU0IyX1BIWV9SRUcyNik7IC8qIDI0TSByZWYgY2xrICovCj4+
+ICsKPj4gKwlyZXQgPSByZWFkX3BvbGxfdGltZW91dChyZWFkbCwgdmFsLCAodmFsICYgVVNCMl9Q
+SFlfUkVHMDFfUExMX0lTX1JFQURZKSwKPj4gKwkJCQk1MDAsIFVTQjJEX0NUUkxfUkVTRVRfVElN
+RV9NUyAqIDEwMDAsIHRydWUsCj4+ICsJCQkJYmFzZSArIFVTQjJfUEhZX1JFRzAxKTsKPj4gKwlp
+ZiAocmV0KSB7Cj4+ICsJCWRldl9lcnIoJnBoeS0+ZGV2LCAid2FpdCBQSFlfUkVHMDFbUExMUkVB
+RFldIHRpbWVvdXRcbiIpOwo+PiArCQlyZXR1cm4gcmV0Owo+PiArCX0KPj4gKwo+PiArCS8qIHJl
+bGVhc2UgdXNiMiBwaHkgaW50ZXJuYWwgcmVzZXQgYW5kIGVuYWJsZSBjbG9jayBnYXRpbmcgKi8K
+Pj4gKwl3cml0ZWwoVVNCMl9QSFlfUkVHMDFfVkFMLCBiYXNlICsgVVNCMl9QSFlfUkVHMDEpOwo+
+PiArCXdyaXRlbChVU0IyX1BIWV9SRUcwRF9WQUwsIGJhc2UgKyBVU0IyX1BIWV9SRUcwRCk7Cj4+
+ICsKPj4gKwkvKiBhdXRvIGNsZWFyIGhvc3QgZGlzYyAqLwo+PiArCXZhbCA9IHJlYWRsKGJhc2Ug
+KyBVU0IyX1BIWV9SRUcwNCk7Cj4+ICsJdmFsIHw9IFVTQjJfUEhZX1JFRzA0X0FVVE9fQ0xFQVJf
+RElTOwo+PiArCXdyaXRlbCh2YWwsIGJhc2UgKyBVU0IyX1BIWV9SRUcwNCk7Cj4+ICsKPj4gKwly
+ZXR1cm4gMDsKPj4gK30KPj4gKwo+PiArc3RhdGljIGludCBzcGFjZW1pdF91c2IycGh5X2V4aXQo
+c3RydWN0IHBoeSAqcGh5KQo+PiArewo+PiArCXN0cnVjdCBzcGFjZW1pdF91c2IycGh5ICpzcGh5
+ID0gcGh5X2dldF9kcnZkYXRhKHBoeSk7Cj4+ICsKPj4gKwljbGtfZGlzYWJsZV91bnByZXBhcmUo
+c3BoeS0+Y2xrKTsKPj4gKwo+PiArCXJldHVybiAwOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgY29u
+c3Qgc3RydWN0IHBoeV9vcHMgc3BhY2VtaXRfdXNiMnBoeV9vcHMgPSB7Cj4+ICsJLmluaXQgPSBz
+cGFjZW1pdF91c2IycGh5X2luaXQsCj4+ICsJLmV4aXQgPSBzcGFjZW1pdF91c2IycGh5X2V4aXQs
+Cj4+ICsJLm93bmVyID0gVEhJU19NT0RVTEUsCj4+ICt9Owo+PiArCj4+ICtzdGF0aWMgaW50IHNw
+YWNlbWl0X3VzYjJwaHlfcHJvYmUoc3RydWN0IHBsYXRmb3JtX2RldmljZSAqcGRldikKPj4gK3sK
+Pj4gKwlzdHJ1Y3QgcGh5X3Byb3ZpZGVyICpwaHlfcHJvdmlkZXI7Cj4+ICsJc3RydWN0IGRldmlj
+ZSAqZGV2ID0gJnBkZXYtPmRldjsKPj4gKwlzdHJ1Y3Qgc3BhY2VtaXRfdXNiMnBoeSAqc3BoeTsK
+Pj4gKwo+PiArCXNwaHkgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKnNwaHkpLCBHRlBfS0VS
+TkVMKTsKPj4gKwlpZiAoIXNwaHkpCj4+ICsJCXJldHVybiAtRU5PTUVNOwo+PiArCj4+ICsJc3Bo
+eS0+Y2xrID0gZGV2bV9jbGtfZ2V0X3ByZXBhcmVkKCZwZGV2LT5kZXYsIE5VTEwpOwo+PiArCWlm
+IChJU19FUlIoc3BoeS0+Y2xrKSkKPj4gKwkJcmV0dXJuIGRldl9lcnJfcHJvYmUoZGV2LCBQVFJf
+RVJSKHNwaHktPmNsayksICJGYWlsZWQgdG8gZ2V0IGNsb2NrXG4iKTsKPj4gKwo+PiArCXNwaHkt
+PmJhc2UgPSBkZXZtX3BsYXRmb3JtX2lvcmVtYXBfcmVzb3VyY2UocGRldiwgMCk7Cj4+ICsJaWYg
+KElTX0VSUihzcGh5LT5iYXNlKSkKPj4gKwkJcmV0dXJuIFBUUl9FUlIoc3BoeS0+YmFzZSk7Cj4+
+ICsKPj4gKwlzcGh5LT5waHkgPSBkZXZtX3BoeV9jcmVhdGUoZGV2LCBOVUxMLCAmc3BhY2VtaXRf
+dXNiMnBoeV9vcHMpOwo+PiArCWlmIChJU19FUlIoc3BoeS0+cGh5KSkKPj4gKwkJcmV0dXJuIGRl
+dl9lcnJfcHJvYmUoZGV2LCBQVFJfRVJSKHNwaHktPnBoeSksICJGYWlsZWQgdG8gY3JlYXRlIHBo
+eVxuIik7Cj4+ICsKPj4gKwlwaHlfc2V0X2RydmRhdGEoc3BoeS0+cGh5LCBzcGh5KTsKPj4gKwlw
+aHlfcHJvdmlkZXIgPSBkZXZtX29mX3BoeV9wcm92aWRlcl9yZWdpc3RlcihkZXYsIG9mX3BoeV9z
+aW1wbGVfeGxhdGUpOwo+PiArCj4+ICsJcmV0dXJuIFBUUl9FUlJfT1JfWkVSTyhwaHlfcHJvdmlk
+ZXIpOwo+PiArfQo+PiArCj4+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2RldmljZV9pZCBzcGFj
+ZW1pdF91c2IycGh5X2R0X21hdGNoW10gPSB7Cj4+ICsJeyAuY29tcGF0aWJsZSA9ICJzcGFjZW1p
+dCxrMS11c2IyLXBoeSIsIH0sCj4+ICsJeyAvKiBzZW50aW5hbCAqLyB9Cj4+ICt9Owo+PiArTU9E
+VUxFX0RFVklDRV9UQUJMRShvZiwgc3BhY2VtaXRfdXNiMnBoeV9kdF9tYXRjaCk7Cj4+ICsKPj4g
+K3N0YXRpYyBzdHJ1Y3QgcGxhdGZvcm1fZHJpdmVyIHNwYWNlbWl0X3VzYjJfcGh5X2RyaXZlciA9
+IHsKPj4gKwkucHJvYmUJPSBzcGFjZW1pdF91c2IycGh5X3Byb2JlLAo+PiArCS5kcml2ZXIgPSB7
+Cj4+ICsJCS5uYW1lICAgPSAic3BhY2VtaXQtdXNiMi1waHkiLAo+PiArCQkub2ZfbWF0Y2hfdGFi
+bGUgPSBzcGFjZW1pdF91c2IycGh5X2R0X21hdGNoLAo+PiArCX0sCj4+ICt9Owo+PiArbW9kdWxl
+X3BsYXRmb3JtX2RyaXZlcihzcGFjZW1pdF91c2IyX3BoeV9kcml2ZXIpOwo+PiArCj4+ICtNT0RV
+TEVfREVTQ1JJUFRJT04oIlNwYWNlbWl0IFVTQiAyLjAgUEhZIGRyaXZlciIpOwo+PiArTU9EVUxF
+X0xJQ0VOU0UoIkdQTCIpOwo+Pgo+PiAtLSAKPj4gMi40OS4wCj4+Cj4+Cj4+IC0tIAo+PiBsaW51
+eC1waHkgbWFpbGluZyBsaXN0Cj4+IGxpbnV4LXBoeUBsaXN0cy5pbmZyYWRlYWQub3JnCj4+IGh0
+dHBzOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXBoeQoKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
+IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
+cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
