@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29D6C3ABDD
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 17:48:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5373C3ABDD
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 17:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/qN9I3HjPODhfhZ6Q/ojuU3UX0KPPBrU9DbUGL3lk0o=; b=MPuPo9Bn3mbv4N
-	rjcWDwXBXLGPAhzcn1WoXJNdym+cGrI8gdvXN4tCUGomxhwiMoCJ0/7g2p24ImuB+QYhAEs9i5HcO
-	/K4A59u/BSQg6ais5DNU0EpGSKD+rLn83ZeCwp8ok4fi2HuSJyyT5CfNOIszjQZjI7NcEai8ssVG+
-	RYqZI4xnEYXEGZBQvVHKs5D+emK4tstpHKTBGhvTqjAKUiwKEIyV93VFxKD22hHNifFRX8B1YFTua
-	oxxiiKtJdB1ANPW0jB9/IsgOzpYa12k+hEDEvkKBhOH04+Mqb5DX0EttMKJAfIY/ljarjM/PduBf6
-	4dllnDvuRtySqOsaNGRA==;
+	List-Owner; bh=KWYQ4n03+EtGnqCmMAEKI2SH+qLcDvZi2u57ut1jZDs=; b=EIwVI9VGRSkJKK
+	g8e7VD8AC5KSb1wW5OQjA0Za2AYuBpwvHwold8bOb/zrWp6RX0r2lPF8vJCU0V4SEXV3OfbwvNFiR
+	MUlqWIqt3VSud+0g+ZVhjVtXoxF5DpDzuwXVWqiNtLyXDRzNjAraFAx2aaiC6uLLBjkA8SA4DfJa5
+	FeS4I1g7REMaJiuWB58Lt40JF3ry2K3rFHpHLQuDZwJWOsXLqLw3WnfurfQcSVfVqS/P4jvObWBqk
+	ss+gzOzulqCe5MZN6hwhT/ou56zH77AjWv+vnakpWDwKCmpb8rtIIML0PEZ9//zthl2vrsO4rGs+V
+	TFg9CU5FbPv3F2MHFhvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFGD4-0000000FwFq-25jP;
-	Wed, 14 May 2025 17:48:02 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1uFGD7-0000000FwK7-2O6v;
+	Wed, 14 May 2025 17:48:05 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFF8O-0000000FmQw-3dfX;
-	Wed, 14 May 2025 16:39:11 +0000
+	id 1uFFBV-0000000Fn4J-33fe;
+	Wed, 14 May 2025 16:42:22 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1747240749; x=1778776749;
+  t=1747240942; x=1778776942;
   h=message-id:date:mime-version:subject:to:cc:references:
    from:in-reply-to:content-transfer-encoding;
-  bh=BQxpe1gKe+N60hkJWYTw2nQy3pGjcVIp7WcxAHzbnzc=;
-  b=gOoKzFqaGqIP5tvw+sTVyyRreemau6IV/NqaYvfvd0QaEauf0RV7pbOj
-   r1VZ/jDw1f/gvkw72ph2Dx7KaqSSqO/QIZk6X8nQfuVf4TM8amKXFM7hK
-   iRzQ3kGtkf+/c8rSyyk1Yqc74OgisCIYgAtnM5Oh7U8eOYZuoRq0nMV3V
-   8kJ7jLwwqCLAD9Bs3cngRR58MflJwb2iHcf7RNhmP4LmxFKSETfI8VJLB
-   +6NM737cbG56l7YC4oZcvE45sv0J2eoZuhFSAIaRIv0obD+cABai7Y6r5
-   uoLqKIjM2EwQchiazvQEsMyOVXdamgHqtXNiyDoCmByv8NoQj3YKAqoJ1
-   A==;
-X-CSE-ConnectionGUID: rCVbW9RRSyeUhpJEjSSRiQ==
-X-CSE-MsgGUID: 9vaPSy5RSUCD63rq8KRtMg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="49223603"
+  bh=3a/AGcV2Rv7gzIvog99Z8j2jxhg8+75lupWlsqOGDM0=;
+  b=Tk1wk66NiickztNvxpnaBNXlcocHEYYVtBcZp0KO8BNVTTc/ngo7Uw1e
+   DFfQzmg3DOFuAKAZpFTBvPASodl8ggB5qpvdC6jvxD+UQUPsUELpipg2C
+   juZZP1FJCqpW7KuPi+h4s7V3et1sSzuZKE++PB5tJolMMaJhgnEJBnnbI
+   OH3B0TIVNj8KcchHjTNQuRC00CaulEdwquq1nzFhatgXSe6kNNdHtHfsF
+   e49PQjAeEw2b49xIdxZy1JXJMQa+z+M49l94N77FyA3JkmtjVVQ4/mzgV
+   19OsvbB4lxG7WxAxB4O9clLqyDp7Nv/H8fxY6TDxQx5D89fbBhZd9OLH0
+   w==;
+X-CSE-ConnectionGUID: JdOzP++cTi6+tCsDUy/3Nw==
+X-CSE-MsgGUID: WNmHyeNdQh6FiFw24G2UuA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11433"; a="48262189"
 X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="49223603"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:07 -0700
-X-CSE-ConnectionGUID: dL1HJHziTNqYT0Ugnl+VeQ==
-X-CSE-MsgGUID: HT6VqRyKSneRimqS3nA3iA==
+   d="scan'208";a="48262189"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:42:20 -0700
+X-CSE-ConnectionGUID: v0zwh2NRShuM7ho+Ce271Q==
+X-CSE-MsgGUID: rxO74IssSCOLhS1RUO3Gjg==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.15,288,1739865600"; 
-   d="scan'208";a="138511665"
+   d="scan'208";a="138154268"
 Received: from mgoodin-mobl3.amr.corp.intel.com (HELO [10.124.222.100]) ([10.124.222.100])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:39:06 -0700
-Message-ID: <d46bd014-02d9-44ec-a29d-b925f268ee03@linux.intel.com>
-Date: Wed, 14 May 2025 09:39:05 -0700
+  by fmviesa007-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 May 2025 09:42:17 -0700
+Message-ID: <abe64cda-729e-44e2-bc1e-d43d3566980e@linux.intel.com>
+Date: Wed, 14 May 2025 09:42:16 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] PCI/ERR: Remove misleading TODO regarding kernel
- panic
+Subject: Re: [PATCH v4 2/5] PCI/ERR: Add support for resetting the slots in a
+ platform specific way
 To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
  Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
  Oliver O'Halloran <oohall@gmail.com>, Bjorn Helgaas <bhelgaas@google.com>,
@@ -75,13 +75,13 @@ Cc: dingwei@marvell.com, cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
  linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org
 References: <20250508-pcie-reset-slot-v4-0-7050093e2b50@linaro.org>
- <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+ <20250508-pcie-reset-slot-v4-2-7050093e2b50@linaro.org>
 Content-Language: en-US
 From: Sathyanarayanan Kuppuswamy <sathyanarayanan.kuppuswamy@linux.intel.com>
-In-Reply-To: <20250508-pcie-reset-slot-v4-1-7050093e2b50@linaro.org>
+In-Reply-To: <20250508-pcie-reset-slot-v4-2-7050093e2b50@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_093908_947825_3984FF74 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20250514_094221_781615_FD37D4C9 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +100,81 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 5/8/25 12:10 AM, Manivannan Sadhasivam wrote:
-> A PCI device is just another peripheral in a system. So failure to
-> recover it, must not result in a kernel panic. So remove the TODO which
-> is quite misleading.
+> Some host bridge devices require resetting the slots in a platform specific
+> way to recover them from error conditions such as Fatal AER errors, Link
+> Down etc... So introduce pci_host_bridge::reset_slot callback and call it
+> from pcibios_reset_secondary_bus() if available.
+>
+> The 'reset_slot' callback is responsible for resetting the given slot
+> referenced by the 'pci_dev' pointer in a platform specific way and bring it
+> back to the working state if possible. If any error occurs during the slot
+> reset operation, relevant errno should be returned.
 >
 > Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 > ---
 
+Looks good to me.
+
 Reviewed-by: Kuppuswamy Sathyanarayanan 
 <sathyanarayanan.kuppuswamy@linux.intel.com>
 
->   drivers/pci/pcie/err.c | 1 -
->   1 file changed, 1 deletion(-)
+>   drivers/pci/pci.c      | 12 ++++++++++++
+>   drivers/pci/pcie/err.c |  5 -----
+>   include/linux/pci.h    |  1 +
+>   3 files changed, 13 insertions(+), 5 deletions(-)
 >
+> diff --git a/drivers/pci/pci.c b/drivers/pci/pci.c
+> index 4d7c9f64ea24ec754a135a2585c99489cfa641a9..13709bb898a967968540826a2b7ee8ade6b7e082 100644
+> --- a/drivers/pci/pci.c
+> +++ b/drivers/pci/pci.c
+> @@ -4982,7 +4982,19 @@ void pci_reset_secondary_bus(struct pci_dev *dev)
+>   
+>   void __weak pcibios_reset_secondary_bus(struct pci_dev *dev)
+>   {
+> +	struct pci_host_bridge *host = pci_find_host_bridge(dev->bus);
+> +	int ret;
+> +
+> +	if (host->reset_slot) {
+> +		ret = host->reset_slot(host, dev);
+> +		if (ret)
+> +			pci_err(dev, "failed to reset slot: %d\n", ret);
+> +
+> +		return;
+> +	}
+> +
+>   	pci_reset_secondary_bus(dev);
+> +
+>   }
+>   
+>   /**
 > diff --git a/drivers/pci/pcie/err.c b/drivers/pci/pcie/err.c
-> index 31090770fffcc94e15ba6e89f649c6f84bfdf0d5..de6381c690f5c21f00021cdc7bde8d93a5c7db52 100644
+> index de6381c690f5c21f00021cdc7bde8d93a5c7db52..b834fc0d705938540d3d7d3d8739770c09fe7cf1 100644
 > --- a/drivers/pci/pcie/err.c
 > +++ b/drivers/pci/pcie/err.c
-> @@ -271,7 +271,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+> @@ -234,11 +234,6 @@ pci_ers_result_t pcie_do_recovery(struct pci_dev *dev,
+>   	}
 >   
->   	pci_uevent_ers(bridge, PCI_ERS_RESULT_DISCONNECT);
->   
-> -	/* TODO: Should kernel panic here? */
->   	pci_info(bridge, "device recovery failed\n");
->   
->   	return status;
+>   	if (status == PCI_ERS_RESULT_NEED_RESET) {
+> -		/*
+> -		 * TODO: Should call platform-specific
+> -		 * functions to reset slot before calling
+> -		 * drivers' slot_reset callbacks?
+> -		 */
+>   		status = PCI_ERS_RESULT_RECOVERED;
+>   		pci_dbg(bridge, "broadcast slot_reset message\n");
+>   		pci_walk_bridge(bridge, report_slot_reset, &status);
+> diff --git a/include/linux/pci.h b/include/linux/pci.h
+> index 0e8e3fd77e96713054388bdc82f439e51023c1bf..8d7d2a49b76cf64b4218b179cec495e0d69ddf6f 100644
+> --- a/include/linux/pci.h
+> +++ b/include/linux/pci.h
+> @@ -599,6 +599,7 @@ struct pci_host_bridge {
+>   	void (*release_fn)(struct pci_host_bridge *);
+>   	int (*enable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
+>   	void (*disable_device)(struct pci_host_bridge *bridge, struct pci_dev *dev);
+> +	int (*reset_slot)(struct pci_host_bridge *bridge, struct pci_dev *dev);
+>   	void		*release_data;
+>   	unsigned int	ignore_reset_delay:1;	/* For entire hierarchy */
+>   	unsigned int	no_ext_tags:1;		/* No Extended Tags */
 >
 -- 
 Sathyanarayanan Kuppuswamy
