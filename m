@@ -4,51 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29356C3ABDA
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 08:59:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A25C1C3ABCC
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:18:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s2mBkDTYrEPbP+lGC+U6YdxPgatgyy0vd6OqzdZQtnk=; b=AYAcT4rETgTOyJXc1T/DnaUbLP
-	t/0KsIVUHzoH1+UeM/s22YqdCWv1wvhxmwURobEg9pPAAwcimKTYhXOUrnzPBTWSIJ/i4abFUaEUZ
-	rMR+D4pYKGzB5NF/e5fWrJbDyTZ2scdH4dNLR12iJ043p8vQLzdteKAxK+IBYwvOHTBiPoi3tpyKX
-	TT5Oy3jWm27fribQGGy16rwDbDOzmjSKWlWkqsHe6RiOCri4mc1eS4DvcNmSVas0nHYzD9UYbc04n
-	JzKuDUUvD2pCX6mr8do6vcpVzDiQsUC0kLOFrBcpwlU0xxYWIxJrFRwnhNRCIGIT3LtF99ysni509
-	UbRubLRg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:
+	Message-Id:MIME-Version:Subject:Date:From:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=NzP0qOiHDfBztQC8kYaKhvbGaIRzaZfUCBJt1GV6ESA=; b=QCw94pjgNGjo+n
+	JqVfrmB3170zvZIVwf+ukI6OVCMfYocPxalzDnyQQwhNPIyFrr8Pg16cib3EwJIRQ2jqpSF1ibqpE
+	U2ZjEAE7nBrl3rRwaEbHaxT2Er/pi+97mYXdT/zg01UmTLXXKFTFQ7knooX6Jc+7qOA2sGe6f5mUH
+	Eig8/k3MV1Vxi7mqeXH5pv5rm0gt1g/tCPZufCrpmaKTEjdok4+qVypeQqLI7or9FDPQ7VGgCZXOZ
+	EACGEZVKxCLFnhjnMErqZurlgevVWR5x2vZLYbjSsnGVT00KIpzSpwpd8zRuKAixP/DUfDSzafXGR
+	Jw2XPrpfAwC1wwx2kZzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7xK-0000000EarP-2QJy;
-	Wed, 14 May 2025 08:59:14 +0000
-Received: from relay1-d.mail.gandi.net ([2001:4b98:dc4:8::221])
+	id 1uFB3Y-0000000Ezvm-474S;
+	Wed, 14 May 2025 12:17:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7NO-0000000EUBI-0ooX
+	id 1uF7qi-0000000EZaw-2x4X
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 May 2025 08:22:07 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D90FA432ED;
-	Wed, 14 May 2025 08:22:03 +0000 (UTC)
-Message-ID: <b6df6923-1028-4a6e-8cf4-e10e8fd55475@ghiti.fr>
-Date: Wed, 14 May 2025 10:22:03 +0200
+	Wed, 14 May 2025 08:52:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6DA275C6440;
+	Wed, 14 May 2025 08:50:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 67907C4CEEB;
+	Wed, 14 May 2025 08:52:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747212743;
+	bh=9yB4OvyC9KasBkPJiUrHXzNl1JQn8V2XAQTZqrBzgpk=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=E1mgVPuiJ1EpMvG3MAkTSOIuR33wREQosHm77PY3VYTkViUHsXnEBE5Eb4VK/P+p2
+	 4NSjRZJSoFPvSXN4e09Pu9dR6vsC4nLwZgZGHZM6y616Jt/M1e3PuVQmcQA1XBQrpu
+	 zArjpC7MsbgPNNP63lV3Fhg+tTFxXRoFLpbl0fXqOOLabOPbAvalaUfqq9HSu8kmEQ
+	 6BnHbjZP/RoPAwyFXRcUfXEI5T82yOdT9w4jwMsPhrYHFpIglquSurwi5vUjMg2GPC
+	 O/VUqqicvRgobqhJKxVAQiXPaqG9S9BAn/OciZ3O/5VABADoV/fpdSc5Qry1Sd4vQM
+	 93Z5qyRyE+J1w==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 5722DC3ABDE;
+	Wed, 14 May 2025 08:52:23 +0000 (UTC)
+From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
+Date: Wed, 14 May 2025 10:51:51 +0200
+Subject: [PATCH v4 2/2] Allow for riscv-clock to pick up mmio address.
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] riscv: Add kprobes KUnit test
-Content-Language: en-US
-To: Nam Cao <namcao@linutronix.de>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250513151631.3520793-1-namcao@linutronix.de>
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250513151631.3520793-1-namcao@linutronix.de>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdeftdeihedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepuedukedutddtfeefhfffgfdvgfevgeejgefhieduveefleejgfeikeekffegtddunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpthgvshhtqdhkphhrohgsvghsqdgrshhmrdhssgenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmedvrgekvdemvgegsgemudehvgegmeduvgejleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemvdgrkedvmegvgegsmeduhegvgeemudgvjeelpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmedvrgekvdemvgegsgemudehvgegmeduvgejlegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepiedprhgtphhtthhopehnrghmtggroheslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsi
- hhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: alex@ghiti.fr
+Message-Id: <20250514-riscv-time-mmio-v4-2-cb0cf2922d66@htecgroup.com>
+References: <20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com>
+In-Reply-To: <20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com>
+To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, 
+ Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
+ Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747212741; l=6255;
+ i=aleksa.paunovic@htecgroup.com; s=20250514; h=from:subject:message-id;
+ bh=EawChFO5r7TY/3C2xSsJ0RVQsku7ZmMDDOElYfUSB3g=;
+ b=q5UH5u4knfsYRuGxgnBE7P34wWO4ppjvrkYrN0sBI6X0CgAmUOp54pB9qBMbOxhSJbTErsUlJ
+ 5bml6qmvX4bAostjIRvE2Hnw9NUXM3JS4nUstQpsZXio10Cjupx4z3G
+X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
+ pk=gFVSVYLKAgJiS5qCnDyUMGOFuczv8C6o0UmRs+fgisA=
+X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250514
+ with auth_id=403
+X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_012206_516554_1E6E2DA0 
-X-CRM114-Status: GOOD (  26.09  )
+X-CRM114-CacheID: sfid-20250514_015224_865643_450BCC65 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -60,418 +88,225 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Reply-To: aleksa.paunovic@htecgroup.com
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 13/05/2025 17:16, Nam Cao wrote:
-> Add KUnit test for riscv kprobes, mostly for simulated instructions. The
-> test install kprobes into multiple sample functions, and check that these
-> functions still return the expected magic value.
->
-> This test can detect some kprobe bugs reported in the past (in Link:).
->
-> Link: https://lore.kernel.org/linux-riscv/20241119111056.2554419-1-namcao@linutronix.de/
-> Link: https://lore.kernel.org/stable/c7e463c0-8cad-4f4e-addd-195c06b7b6de@iscas.ac.cn/
-> Link: https://lore.kernel.org/linux-riscv/20230829182500.61875-1-namcaov@gmail.com/
-> Signed-off-by: Nam Cao <namcao@linutronix.de>
-> ---
-> v2: rewrite the auipc test so that clang can compile
->
->   arch/riscv/kernel/tests/Kconfig.debug         |  12 +
->   arch/riscv/kernel/tests/Makefile              |   1 +
->   arch/riscv/kernel/tests/kprobes/Makefile      |   1 +
->   .../kernel/tests/kprobes/test-kprobes-asm.S   | 229 ++++++++++++++++++
->   .../riscv/kernel/tests/kprobes/test-kprobes.c |  56 +++++
->   .../riscv/kernel/tests/kprobes/test-kprobes.h |  24 ++
->   6 files changed, 323 insertions(+)
->   create mode 100644 arch/riscv/kernel/tests/kprobes/Makefile
->   create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
->   create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.c
->   create mode 100644 arch/riscv/kernel/tests/kprobes/test-kprobes.h
->
-> diff --git a/arch/riscv/kernel/tests/Kconfig.debug b/arch/riscv/kernel/tests/Kconfig.debug
-> index 78cea5d2c270..5db4df44279e 100644
-> --- a/arch/riscv/kernel/tests/Kconfig.debug
-> +++ b/arch/riscv/kernel/tests/Kconfig.debug
-> @@ -30,6 +30,18 @@ config RISCV_MODULE_LINKING_KUNIT
->   
->            If unsure, say N.
->   
-> +config RISCV_KPROBES_KUNIT
-> +       bool "KUnit test for riscv kprobes" if !KUNIT_ALL_TESTS
-> +       depends on KUNIT
-> +       depends on KPROBES
-> +       default KUNIT_ALL_TESTS
-> +       help
-> +         Enable testing for riscv kprobes. Useful for riscv and/or kprobes
-> +         development. The test verifies that kprobes do not change the behaviour
-> +         of some sample functions.
-> +
-> +         If unsure, say N.
-> +
->   endif # RUNTIME_TESTING_MENU
->   
->   endmenu # "arch/riscv/kernel runtime Testing"
-> diff --git a/arch/riscv/kernel/tests/Makefile b/arch/riscv/kernel/tests/Makefile
-> index 7d6c76cffe20..407e7e6c28dc 100644
-> --- a/arch/riscv/kernel/tests/Makefile
-> +++ b/arch/riscv/kernel/tests/Makefile
-> @@ -1 +1,2 @@
->   obj-$(CONFIG_RISCV_MODULE_LINKING_KUNIT)	+= module_test/
-> +obj-$(CONFIG_RISCV_KPROBES_KUNIT)		+= kprobes/
-> diff --git a/arch/riscv/kernel/tests/kprobes/Makefile b/arch/riscv/kernel/tests/kprobes/Makefile
-> new file mode 100644
-> index 000000000000..4cb6c66a98e8
-> --- /dev/null
-> +++ b/arch/riscv/kernel/tests/kprobes/Makefile
-> @@ -0,0 +1 @@
-> +obj-y += test-kprobes.o test-kprobes-asm.o
-> diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-> new file mode 100644
-> index 000000000000..b951d0f12482
-> --- /dev/null
-> +++ b/arch/riscv/kernel/tests/kprobes/test-kprobes-asm.S
-> @@ -0,0 +1,229 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +
-> +#include <linux/linkage.h>
-> +#include <asm/asm.h>
-> +#include "test-kprobes.h"
-> +
-> +SYM_FUNC_START(test_kprobes_add)
-> +	li a1, KPROBE_TEST_MAGIC_UPPER
-> +	li a2, KPROBE_TEST_MAGIC_LOWER
-> +test_kprobes_add_addr1:
-> +	add a1, a1, a2
-> +test_kprobes_add_addr2:
-> +	add a0, a1, x0
-> +	ret
-> +SYM_FUNC_END(test_kprobes_add)
-> +
-> +SYM_FUNC_START(test_kprobes_jal)
-> +	li a0, 0
-> +	mv a1, ra
-> +	.option push
-> +	.option norvc
-> +test_kprobes_jal_addr1:
-> +	jal x0, 2f
-> +	ret
-> +	.option pop
-> +1:	li a0, KPROBE_TEST_MAGIC_UPPER
-> +	ret
-> +	.option push
-> +	.option norvc
-> +test_kprobes_jal_addr2:
-> +2:	jal 1b
-> +	.option pop
-> +	li a2, KPROBE_TEST_MAGIC_LOWER
-> +	add a0, a0, a2
-> +	jr a1
-> +SYM_FUNC_END(test_kprobes_jal)
-> +
-> +SYM_FUNC_START(test_kprobes_jalr)
-> +	la a0, 1f
-> +	mv a1, ra
-> +	.option push
-> +	.option norvc
-> +test_kprobes_jalr_addr:
-> +	jalr a0
-> +	.option pop
-> +	li t0, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, t0
-> +	jr a1
-> +1:	li a0, KPROBE_TEST_MAGIC_LOWER
-> +	ret
-> +SYM_FUNC_END(test_kprobes_jalr)
-> +
-> +SYM_FUNC_START(test_kprobes_auipc)
-> +test_kprobes_auipc_addr:
-> +	auipc a0, KPROBE_TEST_MAGIC_LOWER
-> +	la a1, test_kprobes_auipc_addr
-> +	sub a0, a0, a1
-> +	srli a0, a0, 12
-> +	li a1, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, a1
-> +	ret
-> +SYM_FUNC_END(test_kprobes_auipc)
-> +
-> +SYM_FUNC_START(test_kprobes_branch)
-> +	.option push
-> +	.option norvc
-> +	li a0, 0
-> +	li a1, 1
-> +	li a2, 2
-> +test_kprobes_branch_addr1:
-> +	beqz a0, 1f
-> +	ret
-> +1:
-> +test_kprobes_branch_addr2:
-> +	beqz a1, 3f
-> +test_kprobes_branch_addr3:
-> +	bnez a0, 3f
-> +test_kprobes_branch_addr4:
-> +	bnez a2, 1f
-> +	ret
-> +1:
-> +test_kprobes_branch_addr5:
-> +	bge a1, a2, 3f
-> +test_kprobes_branch_addr6:
-> +	bge a2, a1, 2f
-> +	ret
-> +1:
-> +	li t0, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, t0
-> +	ret
-> +2:
-> +test_kprobes_branch_addr7:
-> +	blt a2, a1, 3f
-> +	li a0, KPROBE_TEST_MAGIC_LOWER
-> +test_kprobes_branch_addr8:
-> +	blt a1, a2, 1b
-> +3:
-> +	li a0, 0
-> +	ret
-> +	.option pop
-> +SYM_FUNC_END(test_kprobes_branch)
-> +
-> +#ifdef CONFIG_RISCV_ISA_C
-> +
-> +SYM_FUNC_START(test_kprobes_c_j)
-> +	li a0, 0
-> +test_kprobes_branch_c_j_addr1:
-> +	c.j 2f
-> +1:
-> +	li a1, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, a1
-> +	ret
-> +2:	li a0, KPROBE_TEST_MAGIC_LOWER
-> +test_kprobes_branch_c_j_addr2:
-> +	c.j 1b
-> +SYM_FUNC_END(test_kprobes_c_j)
-> +
-> +SYM_FUNC_START(test_kprobes_c_jr)
-> +	la a0, 2f
-> +test_kprobes_c_jr_addr1:
-> +	c.jr a0
-> +	ret
-> +1:	li a1, KPROBE_TEST_MAGIC_LOWER
-> +	add a0, a0, a1
-> +	ret
-> +2:
-> +	li a0, KPROBE_TEST_MAGIC_UPPER
-> +	la a1, 1b
-> +test_kprobes_c_jr_addr2:
-> +	c.jr a1
-> +SYM_FUNC_END(test_kprobes_c_jr)
-> +
-> +SYM_FUNC_START(test_kprobes_c_jalr)
-> +	mv a1, ra
-> +	la a0, 1f
-> +test_kprobes_c_jalr_addr:
-> +	c.jalr a0
-> +	li a2, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, a2
-> +	jr a1
-> +1:	li a0, KPROBE_TEST_MAGIC_LOWER
-> +	ret
-> +SYM_FUNC_END(test_kprobes_c_jalr)
-> +
-> +SYM_FUNC_START(test_kprobes_c_beqz)
-> +	li a0, 0
-> +	li a1, 1
-> +test_kprobes_c_beqz_addr1:
-> +	c.beqz a0, 2f
-> +	ret
-> +1:	li a1, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, a1
-> +	ret
-> +test_kprobes_c_beqz_addr2:
-> +2:	c.beqz a1, 3f
-> +	li a0, KPROBE_TEST_MAGIC_LOWER
-> +	mv a1, x0
-> +test_kprobes_c_beqz_addr3:
-> +	c.beqz a1, 1b
-> +3:	li a0, 0
-> +	ret
-> +SYM_FUNC_END(test_kprobes_c_beqz)
-> +
-> +SYM_FUNC_START(test_kprobes_c_bnez)
-> +	li a0, 0
-> +	li a1, 1
-> +test_kprobes_c_bnez_addr1:
-> +	c.bnez a1, 2f
-> +	ret
-> +1:	li a1, KPROBE_TEST_MAGIC_UPPER
-> +	add a0, a0, a1
-> +	ret
-> +test_kprobes_c_bnez_addr2:
-> +2:	c.bnez a0, 3f
-> +	li a0, KPROBE_TEST_MAGIC_LOWER
-> +test_kprobes_c_bnez_addr3:
-> +	c.bnez a0, 1b
-> +3:	li a0, 0
-> +	ret
-> +SYM_FUNC_END(test_kprobes_c_bnez)
-> +
-> +#endif /* CONFIG_RISCV_ISA_C */
-> +
-> +SYM_DATA_START(test_kprobes_addresses)
-> +	RISCV_PTR test_kprobes_add_addr1
-> +	RISCV_PTR test_kprobes_add_addr2
-> +	RISCV_PTR test_kprobes_jal_addr1
-> +	RISCV_PTR test_kprobes_jal_addr2
-> +	RISCV_PTR test_kprobes_jalr_addr
-> +	RISCV_PTR test_kprobes_auipc_addr
-> +	RISCV_PTR test_kprobes_branch_addr1
-> +	RISCV_PTR test_kprobes_branch_addr2
-> +	RISCV_PTR test_kprobes_branch_addr3
-> +	RISCV_PTR test_kprobes_branch_addr4
-> +	RISCV_PTR test_kprobes_branch_addr5
-> +	RISCV_PTR test_kprobes_branch_addr6
-> +	RISCV_PTR test_kprobes_branch_addr7
-> +	RISCV_PTR test_kprobes_branch_addr8
-> +#ifdef CONFIG_RISCV_ISA_C
-> +	RISCV_PTR test_kprobes_branch_c_j_addr1
-> +	RISCV_PTR test_kprobes_branch_c_j_addr2
-> +	RISCV_PTR test_kprobes_c_jr_addr1
-> +	RISCV_PTR test_kprobes_c_jr_addr2
-> +	RISCV_PTR test_kprobes_c_jalr_addr
-> +	RISCV_PTR test_kprobes_c_beqz_addr1
-> +	RISCV_PTR test_kprobes_c_beqz_addr2
-> +	RISCV_PTR test_kprobes_c_beqz_addr3
-> +	RISCV_PTR test_kprobes_c_bnez_addr1
-> +	RISCV_PTR test_kprobes_c_bnez_addr2
-> +	RISCV_PTR test_kprobes_c_bnez_addr3
-> +#endif /* CONFIG_RISCV_ISA_C */
-> +	RISCV_PTR 0
-> +SYM_DATA_END(test_kprobes_addresses)
-> +
-> +SYM_DATA_START(test_kprobes_functions)
-> +	RISCV_PTR test_kprobes_add
-> +	RISCV_PTR test_kprobes_jal
-> +	RISCV_PTR test_kprobes_jalr
-> +	RISCV_PTR test_kprobes_auipc
-> +	RISCV_PTR test_kprobes_branch
-> +#ifdef CONFIG_RISCV_ISA_C
-> +	RISCV_PTR test_kprobes_c_j
-> +	RISCV_PTR test_kprobes_c_jr
-> +	RISCV_PTR test_kprobes_c_jalr
-> +	RISCV_PTR test_kprobes_c_beqz
-> +	RISCV_PTR test_kprobes_c_bnez
-> +#endif /* CONFIG_RISCV_ISA_C */
-> +	RISCV_PTR 0
-> +SYM_DATA_END(test_kprobes_functions)
-> diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.c b/arch/riscv/kernel/tests/kprobes/test-kprobes.c
-> new file mode 100644
-> index 000000000000..6f6cdfbf5a95
-> --- /dev/null
-> +++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.c
-> @@ -0,0 +1,56 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +
-> +#include <linux/kernel.h>
-> +#include <linux/kprobes.h>
-> +#include <kunit/test.h>
-> +#include "test-kprobes.h"
-> +
-> +static int kprobe_dummy_handler(struct kprobe *kp, struct pt_regs *regs)
-> +{
-> +	return 0;
-> +}
-> +
-> +static void test_kprobe_riscv(struct kunit *test)
-> +{
-> +	unsigned int num_kprobe = 0;
-> +	long (*func)(void);
-> +	struct kprobe *kp;
-> +	int i;
-> +
-> +	while (test_kprobes_addresses[num_kprobe])
-> +		num_kprobe++;
-> +
-> +	kp = kcalloc(num_kprobe, sizeof(*kp), GFP_KERNEL);
-> +	KUNIT_EXPECT_TRUE(test, kp);
-> +	if (!kp)
-> +		return;
-> +
-> +	for (i = 0; i < num_kprobe; ++i) {
-> +		kp[i].addr = test_kprobes_addresses[i];
-> +		kp[i].pre_handler = kprobe_dummy_handler;
-> +		KUNIT_EXPECT_EQ(test, 0, register_kprobe(&kp[i]));
+From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
 
+Allow faster rdtime access via GCR.U mtime shadow register on RISC-V
+devices. This feature can be enabled by setting GCRU_TIME_MMIO during configuration.
 
-Will kp be freed if the test fails?
+Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+---
+ arch/riscv/include/asm/timex.h    | 48 ++++++++++--------------------
+ drivers/clocksource/Kconfig       | 12 ++++++++
+ drivers/clocksource/timer-riscv.c | 61 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 88 insertions(+), 33 deletions(-)
 
+diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
+index a06697846e69521caceac2ae4d4e040d227d2ae7..2dea35fe32c0b080ff27587088bbbe01fad22ce6 100644
+--- a/arch/riscv/include/asm/timex.h
++++ b/arch/riscv/include/asm/timex.h
+@@ -7,31 +7,25 @@
+ #define _ASM_RISCV_TIMEX_H
+ 
+ #include <asm/csr.h>
++#include <asm/mmio.h>
++
++#include <linux/jump_label.h>
+ 
+ typedef unsigned long cycles_t;
+ 
++extern u64 __iomem *riscv_time_val;
++extern cycles_t (*get_cycles_ptr)(void);
++extern u32 (*get_cycles_hi_ptr)(void);
++
++#define riscv_time_val riscv_time_val
++
+ #ifdef CONFIG_RISCV_M_MODE
+ 
+ #include <asm/clint.h>
+ 
+-#ifdef CONFIG_64BIT
+-static inline cycles_t get_cycles(void)
+-{
+-	return readq_relaxed(clint_time_val);
+-}
+-#else /* !CONFIG_64BIT */
+-static inline u32 get_cycles(void)
+-{
+-	return readl_relaxed(((u32 *)clint_time_val));
+-}
+-#define get_cycles get_cycles
++#undef riscv_time_val
+ 
+-static inline u32 get_cycles_hi(void)
+-{
+-	return readl_relaxed(((u32 *)clint_time_val) + 1);
+-}
+-#define get_cycles_hi get_cycles_hi
+-#endif /* CONFIG_64BIT */
++#define riscv_time_val clint_time_val
+ 
+ /*
+  * Much like MIPS, we may not have a viable counter to use at an early point
+@@ -45,29 +39,17 @@ static inline unsigned long random_get_entropy(void)
+ 	return get_cycles();
+ }
+ #define random_get_entropy()	random_get_entropy()
++#endif
+ 
+-#else /* CONFIG_RISCV_M_MODE */
+-
+-static inline cycles_t get_cycles(void)
+-{
+-	return csr_read(CSR_TIME);
+-}
+-#define get_cycles get_cycles
+-
+-static inline u32 get_cycles_hi(void)
+-{
+-	return csr_read(CSR_TIMEH);
+-}
+-#define get_cycles_hi get_cycles_hi
+-
+-#endif /* !CONFIG_RISCV_M_MODE */
++#define get_cycles get_cycles_ptr
++#define get_cycles_hi get_cycles_ptr_hi
+ 
+ #ifdef CONFIG_64BIT
+ static inline u64 get_cycles64(void)
+ {
+ 	return get_cycles();
+ }
+-#else /* CONFIG_64BIT */
++#else /* !CONFIG_64BIT */
+ static inline u64 get_cycles64(void)
+ {
+ 	u32 hi, lo;
+diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
+index 487c8525996724fbf9c6e9726dabb478d86513b9..0f2bb75564c7d2bc9c450a7fb0eef353e5d27e69 100644
+--- a/drivers/clocksource/Kconfig
++++ b/drivers/clocksource/Kconfig
+@@ -661,6 +661,18 @@ config CLINT_TIMER
+ 	  This option enables the CLINT timer for RISC-V systems.  The CLINT
+ 	  driver is usually used for NoMMU RISC-V systems.
+ 
++config GCRU_TIME_MMIO
++	bool "GCR.U timer support for RISC-V platforms"
++	depends on !RISCV_M_MODE && RISCV
++	default n
++	help
++        Access GCR.U shadow copy of the RISC-V mtime register
++        on platforms that provide a compatible device, instead of
++        reading the time CSR. Since reading the time CSR
++        traps to M mode on certain platforms, this may be more efficient.
++
++        If you don't know what to do here, say n.
++
+ config CSKY_MP_TIMER
+ 	bool "SMP Timer for the C-SKY platform" if COMPILE_TEST
+ 	depends on CSKY
+diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
+index 4d7cf338824a3b21461c2756a002236dedc48f5f..1ccf2a95f5bcb28946dcee435f5bbea222c6fac3 100644
+--- a/drivers/clocksource/timer-riscv.c
++++ b/drivers/clocksource/timer-riscv.c
+@@ -22,6 +22,7 @@
+ #include <linux/io-64-nonatomic-lo-hi.h>
+ #include <linux/interrupt.h>
+ #include <linux/of_irq.h>
++#include <linux/of_address.h>
+ #include <linux/limits.h>
+ #include <clocksource/timer-riscv.h>
+ #include <asm/smp.h>
+@@ -32,6 +33,42 @@
+ static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
+ static bool riscv_timer_cannot_wake_cpu;
+ 
++u64 __iomem *riscv_time_val __ro_after_init;
++EXPORT_SYMBOL(riscv_time_val);
++
++#ifdef CONFIG_64BIT
++static cycles_t __maybe_unused mmio_get_cycles(void)
++{
++	return readq_relaxed(riscv_time_val);
++}
++#else /* !CONFIG_64BIT */
++static cycles_t __maybe_unused mmio_get_cycles(void)
++{
++	return readl_relaxed(((u32 *)riscv_time_val));
++}
++#endif /* CONFIG_64BIT */
++
++static cycles_t __maybe_unused get_cycles_csr(void)
++{
++	return csr_read(CSR_TIME);
++}
++
++static u32 __maybe_unused mmio_get_cycles_hi(void)
++{
++	return readl_relaxed(((u32 *)riscv_time_val) + 1);
++}
++
++static u32 __maybe_unused get_cycles_hi_csr(void)
++{
++	return csr_read(CSR_TIMEH);
++}
++
++cycles_t (*get_cycles_ptr)(void) = get_cycles_csr;
++EXPORT_SYMBOL(get_cycles_ptr);
++
++u32 (*get_cycles_hi_ptr)(void) = get_cycles_hi_csr;
++EXPORT_SYMBOL(get_cycles_hi_ptr);
++
+ static void riscv_clock_event_stop(void)
+ {
+ 	if (static_branch_likely(&riscv_sstc_available)) {
+@@ -209,6 +246,11 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ 	int cpuid, error;
+ 	unsigned long hartid;
+ 	struct device_node *child;
++#if defined(CONFIG_GCRU_TIME_MMIO)
++	u64 mmio_addr;
++	u64 mmio_size;
++	struct device_node *gcru;
++#endif
+ 
+ 	error = riscv_of_processor_hartid(n, &hartid);
+ 	if (error < 0) {
+@@ -226,6 +268,25 @@ static int __init riscv_timer_init_dt(struct device_node *n)
+ 	if (cpuid != smp_processor_id())
+ 		return 0;
+ 
++#if defined(CONFIG_GCRU_TIME_MMIO)
++	gcru = of_find_compatible_node(NULL, NULL, "mti,gcru");
++	if (gcru) {
++		if (!of_property_read_reg(gcru, 0, &mmio_addr, &mmio_size)) {
++			riscv_time_val = ioremap((long)mmio_addr, mmio_size);
++			if (riscv_time_val) {
++				pr_info("Using mmio time register at 0x%llx\n",
++					mmio_addr);
++				get_cycles_ptr = &mmio_get_cycles;
++				get_cycles_hi_ptr = &mmio_get_cycles_hi;
++			} else {
++				pr_warn("Unable to use mmio time at 0x%llx\n",
++					mmio_addr);
++			}
++			of_node_put(gcru);
++		}
++	}
++#endif
++
+ 	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
+ 	if (child) {
+ 		riscv_timer_cannot_wake_cpu = of_property_read_bool(child,
 
-> +	}
-> +
-> +	for (i = 0;; ++i) {
-> +		func = test_kprobes_functions[i];
-> +		if (!func)
-> +			break;
-> +		KUNIT_EXPECT_EQ_MSG(test, KPROBE_TEST_MAGIC, func(), "function %d broken", i);
-> +	}
-> +
-> +	for (i = 0; i < num_kprobe; ++i)
-> +		unregister_kprobe(&kp[i]);
-> +	kfree(kp);
-> +}
-> +
-> +static struct kunit_case kprobes_testcases[] = {
-> +	KUNIT_CASE(test_kprobe_riscv),
-> +	{}
-> +};
-> +
-> +static struct kunit_suite kprobes_test_suite = {
-> +	.name = "kprobes_test_riscv",
-> +	.test_cases = kprobes_testcases,
-> +};
-> +
-> +kunit_test_suites(&kprobes_test_suite);
-> diff --git a/arch/riscv/kernel/tests/kprobes/test-kprobes.h b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
-> new file mode 100644
-> index 000000000000..3886ab491ecb
-> --- /dev/null
-> +++ b/arch/riscv/kernel/tests/kprobes/test-kprobes.h
-> @@ -0,0 +1,24 @@
-> +/* SPDX-License-Identifier: GPL-2.0+ */
-> +#ifndef TEST_KPROBES_H
-> +#define TEST_KPROBES_H
-> +
-> +/*
-> + * The magic value that all the functions in the test_kprobes_functions array return. The test
-> + * installs kprobes into these functions, and verify that the functions still correctly return this
-> + * value.
-> + */
-> +#define KPROBE_TEST_MAGIC          0xcafebabe
-> +#define KPROBE_TEST_MAGIC_LOWER    0x0000babe
-> +#define KPROBE_TEST_MAGIC_UPPER    0xcafe0000
-> +
-> +#ifndef __ASSEMBLY__
-> +
-> +/* array of addresses to install kprobes */
-> +extern void *test_kprobes_addresses[];
-> +
-> +/* array of functions that return KPROBE_TEST_MAGIC */
-> +extern long (*test_kprobes_functions[])(void);
-> +
-> +#endif /* __ASSEMBLY__ */
-> +
-> +#endif /* TEST_KPROBES_H */
+-- 
+2.34.1
 
-
-Other than that, you can add:
-
-Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-I'll merge it for 6.16.
-
-Thanks for adding new tests, KUnit tests do not run yet in the CI but 
-I'll add them soon!
-
-Alex
 
 
 _______________________________________________
