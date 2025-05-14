@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF5B1C3ABCB
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 05:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A03C3ABC5
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 05:58:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9ZN9cWMPvyqnnn+eMiAWd/gir7U5VxeostxRm7051t0=; b=2WI/pT+dMR0/O5
-	amDbbwNlnEVrQp6g2xUCuU63prvCj1hnG/moANib14cK2yoX1DksAowgcv808zpkUqRR73yQH0+aw
-	OukEB5R3pSJsOtHgpRLxY3dWFmZJ74CW6LqN75J+WP4MicdY9mOIWF63MA/DfRw4uzy7Oo/1F1JXM
-	j81jOAA7BQAXlygOzHa2RTSn8ao8f45EawHvxD8FYLzPqG1Q261QBnNrIufw1tnfC8gZa4/LKRTbV
-	H4W3DVGRuUFx97pMbbYsr5xJr55D2aodh0gADjaRlRPKaafAOx450ppQJdeX0Jp24+D4NTMlYp2IQ
-	wlB/E5j/ErphDZFxOFqg==;
+	List-Owner; bh=x4s41NdDT0gkUrjsnqHmud6FUY4hdujtJkA0z6oe8cg=; b=CNys+qq+nriO/v
+	V2fbJPIUQFC0nNbgQFuM+7ls1EsBEvjGVpNXQ6UyxL2Hh4k7rhSbae8vWSDsXXT3fsXEV8E8OO+fC
+	lOtoABOnBEizV1LsF6j8HTaOf+VtivA4aIBvHW3Tgs3R/w2O5GHvDegDaMeME96aR7UMuLJprGSbd
+	0ACxqABOVG42cgeMGdCC6qpGxqrdnCtxpVODW8rJ7cvH4iqvEYYIipmyIstz9+rg80UsVg6yN+sW1
+	wY26Gx00z+qJ5G02yul0coP6H6e1nbaloxGsWTaWGBix/rV6VjHOHb53DD+6kBQFlozXwemC06y5S
+	EXfFBvBdtJP+4hIzCrOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF57q-0000000E7Nr-02a5;
-	Wed, 14 May 2025 05:57:54 +0000
-Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
+	id 1uF57u-0000000E7Py-2Q46;
+	Wed, 14 May 2025 05:57:58 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF57m-0000000E7Lz-3mHZ
+	id 1uF57s-0000000E7ON-0nwG
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 May 2025 05:57:52 +0000
-Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b1f7357b5b6so4111415a12.0
-        for <linux-riscv@lists.infradead.org>; Tue, 13 May 2025 22:57:50 -0700 (PDT)
+	Wed, 14 May 2025 05:57:57 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-af908bb32fdso384428a12.1
+        for <linux-riscv@lists.infradead.org>; Tue, 13 May 2025 22:57:55 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1747202270; x=1747807070; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1747202275; x=1747807075; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AnkjvbjcuENvVJ26saTSRizx+WjEaICu8Lhi+aJlcF8=;
-        b=aHrdJihNzD41Oj3ukrBVc36ATF46pmpBnt1HmRvITldQ6dgyoPp+8xaHSUUoHz4VLP
-         qn1OqqeB2qfiyOyrM/a9L3zGkJH3Hnk8Me8vjAYp0ZnUvsJuiuVY7tLeIaAV1Iq7xRXg
-         Q4HHgVEjJX1P8DvNnmCGmgFPH4Iyg9aJ2IM8xXDmFD+2Gj3gjS/RvzdQkFtGTHFR/dEg
-         FdjCH82AX8KE4sBGPwuGzmhg5kxmWPfbTggEGXtWxwS5RDVbXiJRHlfp1PUYdtP8X442
-         +lJvZ2E7OFa3ycPYTUNFbVc4/ZNolIoF0Y52nDaOKhMF6rR4fGwjikC2jn5LEYtVL3LE
-         liNQ==
+        bh=FbiDocnvP7/vIiwuy9W9uCrvaQAnUMotSiyx0gsvykM=;
+        b=Tt1jzhpVRRWveq7LzK8jR1rnvdE28KqODW/MkuDyazmiW5E5QMn0PB16tBVgGxcmnG
+         qYWskBXAKohO90pYiRMD4BOMWvE13eCfxT5+jGs0lEWCtWgBhjzEjoyqetufpUnDnZ0/
+         qCM+p66GLzbJDU8HvzAlyksvBt2sUXY9kmgLD/IM+aQaMS2hoykTug7eC4DEdUgHvfLG
+         4kRFr+eGqyA6FMFXx/za7OJYN1FapYAlWedlVEqbYFnUkyHe4PgFMMMxaVjIHMdPJcIT
+         D3ocuNocpQiKLjYxGVXX+d2pboW/fGFAOEZoPNv2SSFAZ9hne8m68eKV38ddVpnR6gUz
+         MOyg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747202270; x=1747807070;
+        d=1e100.net; s=20230601; t=1747202275; x=1747807075;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AnkjvbjcuENvVJ26saTSRizx+WjEaICu8Lhi+aJlcF8=;
-        b=uFgARZlNKrXuUkZYikwl+U/pYaZ7xdGtkZlgB3ZOMDXsZnqkng8nzSt409N3WLirmX
-         Gud309Zwt9g6aQTC3MNd6J6QNL0t4qTWA9zsftsrVE4RM1fYlwlJB+TqDG2disnAhTqo
-         n0lQod3o3YkftILVcp2PwtyNXk1m4NJOuJMM5DZ1iSxowBvKI3dxpZy2C79zwPhu2WQd
-         VHhFUm+Wsg8VXcIDKFZ32ht+DQ8nLFFqG8aquxGakjml640t/+5Is5HAlfiaEEFpsUS4
-         gKzm06D+tDtTL8ocNg2Cx5PoSK6jHIiyJwL+TN8062FbS+PQfJMNvs6zJQhioOS/rEtC
-         28RA==
-X-Forwarded-Encrypted: i=1; AJvYcCX825cRZ5i/3LrINnHYvcEAOb+QgGd8zGfoGkhYenYE3z/aTvFABjWoecavs7wIWKZA7fMKE4Gf2xy39w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYE8ffTvLs5k8OnSVc9/wtTP5vE1qPVD/f4HU7tXCj7ps/0qKe
-	tQR8s24lLsSyd7hQ8ahuB2Jq+ZKFL8RL/dC4pV30ljnp7KzKvKJKc7YI9G7zpIY=
-X-Gm-Gg: ASbGncv2yeg8PCdPB/sn9bKcgjhw9gRTYFG4pHmyPKuj1V0buoEBbm0TM1TDa+h5mk/
-	JErrMzn8Vb0igDIl1b/aYasAbmy/Y2zzBondOeWCxY/dWqghLG2n8LZLlxdtvRxPe526m0AGXNp
-	rLbIubyCD3/BWRstDe1X0z/hpmqwIwGnhzAsVG98DKG9VS6DQx0ReANJu51fR9FfovxY/VW6J/o
-	fcNrhk0naluZXFEAE9Rdy1mjQIL2diwau7l3DdihLYD1ZvUlWDXBm3t4MxZWa5kWsfqhHWQW4By
-	EPJWscse4C1MVc0MZ+6hms1MRpNpzcjMiBJG8xct1uGlmeFV2IdKvZnChuKXEg==
-X-Google-Smtp-Source: AGHT+IGOnxIH4YjGEW5GtZaYNs+W/C6hB2R8AaG0BsyNWrPx0B0lajN6mf6PqMko8vPxUuZYiIe5uA==
-X-Received: by 2002:a17:903:3ba3:b0:223:3396:15e8 with SMTP id d9443c01a7336-2319810114emr33089565ad.22.1747202270073;
-        Tue, 13 May 2025 22:57:50 -0700 (PDT)
+        bh=FbiDocnvP7/vIiwuy9W9uCrvaQAnUMotSiyx0gsvykM=;
+        b=nBwUAApTQQn1Bo2SscQvVMxSy21jC0PMOctfNttz2WYscvywmEbEDZ9yX2B5Q2XvA+
+         kQTPexJbMobeSUWP6AdHtlQ5qLPulRDqZP75wzJJCCABqDIkEq5VA9BbUEt+Lp4j/7G5
+         I0iJq3w2faFTMNjYENaDWgp6N7g9Ixy8w2RRdv3sXzLPhR6nCNDQvnTw4TN6+vZHLpCt
+         cnYYsXogV4sGgmLY8lv4T8i1+VMF0CB9UrLRqBoOLW6prOjcXwoIoF2tHxyBbGqgYIay
+         66naVgiSmO4FYUesoTxTIzkWLyEGVcjUjtvJUoRRbXNyPk/PSnf0RHqJGSs2eYJuz7Tb
+         vtwg==
+X-Forwarded-Encrypted: i=1; AJvYcCUsFZd3EOTZ2u7xyZoigbKMYxlDuKmxDxUa/aiSGjpKq+Qs0t5d8FVQ7LuMn9Bz5sDk5lya0tJqY54sSA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzitHczLatqmDztCAlE6W954kGUqggtCI30FKi9OstaJsPmvk73
+	ItL3FvEpIL0XhjaMapVYQfbCUF48/+ylrFBPNdnwkV9fmmF27vU3NzYf66O+kEc=
+X-Gm-Gg: ASbGncu3XpvpbvLMADYlYycFFiPBrw8Q8rKwTT5DBhgs19G4dZ9346KNsHiN9L2Ai44
+	FvJpr/h43jHfaiBsIlJskvrQKOocthASmi6n9rrS4eFoor56RVhPAYw+xnMTzrG5bR50RGVoSzf
+	iqOZF9qyKuLwT0cREjzWHnkEHVHyfBPAKRfQ/f1w1Jb0JzXnfoAPWvYMfcCvgDFujDzzjXGWvkA
+	uj4OByBqWmxb+FCGEvcxintJaG2zDyVpFPwvJre/XnJBBBolrHxAYHCpQoc0SJXnbxnNqgVHTXu
+	WfpSKjMWk+B1d9G5MesIsmQ4r8AtoQX440/Q2nz+CT1TVD51j8EnS1TWAEXf5w==
+X-Google-Smtp-Source: AGHT+IGgGwlhXhb97hz7G/rQ5hnEoBLy0AHEplWytso8kcAajszMRL1hQAHqjtumZAwOWQTJC9TsUw==
+X-Received: by 2002:a17:903:32d1:b0:223:807f:7f92 with SMTP id d9443c01a7336-2317cb4f087mr83654885ad.20.1747202275325;
+        Tue, 13 May 2025 22:57:55 -0700 (PDT)
 Received: from sunil-pc.Dlink ([106.51.196.253])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc8271c2dsm91721615ad.135.2025.05.13.22.57.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc8271c2dsm91721615ad.135.2025.05.13.22.57.50
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 13 May 2025 22:57:49 -0700 (PDT)
+        Tue, 13 May 2025 22:57:54 -0700 (PDT)
 From: Sunil V L <sunilvl@ventanamicro.com>
 To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-acpi@vger.kernel.org,
 	iommu@lists.linux.dev,
 	acpica-devel@lists.linux.dev
-Subject: [PATCH 3/4] ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
-Date: Wed, 14 May 2025 11:27:22 +0530
-Message-ID: <20250514055723.1328557-4-sunilvl@ventanamicro.com>
+Subject: [PATCH 4/4] iommu/riscv: Add ACPI support
+Date: Wed, 14 May 2025 11:27:23 +0530
+Message-ID: <20250514055723.1328557-5-sunilvl@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250514055723.1328557-1-sunilvl@ventanamicro.com>
 References: <20250514055723.1328557-1-sunilvl@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250513_225750_937381_1FCF2F5B 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250513_225756_229984_872FD077 
+X-CRM114-Status: GOOD (  19.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +101,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-acpi_iommu_configure_id() currently supports only IORT (ARM) and VIOT.
-Add support for RISC-V as well.
+RISC-V IO Mapping Table (RIMT) provides the information about the IOMMU
+to the OS in ACPI. Add support for ACPI in RISC-V IOMMU drivers by using
+RIMT data.
+
+The changes at high level are,
+
+a) Register the IOMMU with RIMT data structures.
+b) Enable probing of platform IOMMU in ACPI way using the ACPIID defined
+   for the RISC-V IOMMU in the BRS spec [1]. Configure the MSI domain if
+   the platform IOMMU uses MSIs.
+
+[1] - https://github.com/riscv-non-isa/riscv-brs/blob/main/acpi-id.adoc
 
 Signed-off-by: Sunil V L <sunilvl@ventanamicro.com>
 ---
- drivers/acpi/scan.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/iommu/riscv/iommu-platform.c | 17 ++++++++++++++++-
+ drivers/iommu/riscv/iommu.c          | 10 ++++++++++
+ 2 files changed, 26 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/acpi/scan.c b/drivers/acpi/scan.c
-index fb1fe9f3b1a3..70f57d58fd61 100644
---- a/drivers/acpi/scan.c
-+++ b/drivers/acpi/scan.c
-@@ -11,6 +11,7 @@
+diff --git a/drivers/iommu/riscv/iommu-platform.c b/drivers/iommu/riscv/iommu-platform.c
+index 725e919b97ef..83a28c83f991 100644
+--- a/drivers/iommu/riscv/iommu-platform.c
++++ b/drivers/iommu/riscv/iommu-platform.c
+@@ -10,6 +10,8 @@
+  *	Tomasz Jeznach <tjeznach@rivosinc.com>
+  */
+ 
++#include <linux/acpi.h>
++#include <linux/irqchip/riscv-imsic.h>
  #include <linux/kernel.h>
- #include <linux/acpi.h>
- #include <linux/acpi_iort.h>
+ #include <linux/msi.h>
+ #include <linux/of_irq.h>
+@@ -46,6 +48,7 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 	enum riscv_iommu_igs_settings igs;
+ 	struct device *dev = &pdev->dev;
+ 	struct riscv_iommu_device *iommu = NULL;
++	struct irq_domain *msi_domain;
+ 	struct resource *res = NULL;
+ 	int vec, ret;
+ 
+@@ -76,8 +79,13 @@ static int riscv_iommu_platform_probe(struct platform_device *pdev)
+ 	switch (igs) {
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_BOTH:
+ 	case RISCV_IOMMU_CAPABILITIES_IGS_MSI:
+-		if (is_of_node(dev->fwnode))
++		if (is_of_node(dev_fwnode(dev))) {
+ 			of_msi_configure(dev, to_of_node(dev->fwnode));
++		} else {
++			msi_domain = irq_find_matching_fwnode(imsic_acpi_get_fwnode(dev),
++							      DOMAIN_BUS_PLATFORM_MSI);
++			dev_set_msi_domain(dev, msi_domain);
++		}
+ 
+ 		if (!dev_get_msi_domain(dev)) {
+ 			dev_warn(dev, "failed to find an MSI domain\n");
+@@ -150,6 +158,12 @@ static const struct of_device_id riscv_iommu_of_match[] = {
+ 	{},
+ };
+ 
++static const struct acpi_device_id riscv_iommu_acpi_match[] = {
++	{ "RSCV0004", 0 },
++	{}
++};
++MODULE_DEVICE_TABLE(acpi, riscv_iommu_acpi_match);
++
+ static struct platform_driver riscv_iommu_platform_driver = {
+ 	.probe = riscv_iommu_platform_probe,
+ 	.remove = riscv_iommu_platform_remove,
+@@ -158,6 +172,7 @@ static struct platform_driver riscv_iommu_platform_driver = {
+ 		.name = "riscv,iommu",
+ 		.of_match_table = riscv_iommu_of_match,
+ 		.suppress_bind_attrs = true,
++		.acpi_match_table = riscv_iommu_acpi_match,
+ 	},
+ };
+ 
+diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+index 8f049d4a0e2c..e51af4ba54a8 100644
+--- a/drivers/iommu/riscv/iommu.c
++++ b/drivers/iommu/riscv/iommu.c
+@@ -12,6 +12,8 @@
+ 
+ #define pr_fmt(fmt) "riscv-iommu: " fmt
+ 
++#include <linux/acpi.h>
 +#include <linux/acpi_rimt.h>
- #include <linux/acpi_viot.h>
- #include <linux/iommu.h>
- #include <linux/signal.h>
-@@ -1628,8 +1629,12 @@ static int acpi_iommu_configure_id(struct device *dev, const u32 *id_in)
+ #include <linux/compiler.h>
+ #include <linux/crash_dump.h>
+ #include <linux/init.h>
+@@ -1650,6 +1652,14 @@ int riscv_iommu_init(struct riscv_iommu_device *iommu)
+ 		goto err_iodir_off;
  	}
  
- 	err = iort_iommu_configure_id(dev, id_in);
--	if (err && err != -EPROBE_DEFER)
--		err = viot_iommu_configure(dev);
-+	if (err && err != -EPROBE_DEFER) {
-+		err = rimt_iommu_configure_id(dev, id_in);
-+		if (err && err != -EPROBE_DEFER)
-+			err = viot_iommu_configure(dev);
++	if (!acpi_disabled) {
++		rc = rimt_iommu_register(iommu->dev);
++		if (rc) {
++			dev_err_probe(iommu->dev, rc, "cannot register iommu with RIMT\n");
++			goto err_remove_sysfs;
++		}
 +	}
 +
- 	mutex_unlock(&iommu_probe_device_lock);
- 
- 	return err;
+ 	rc = iommu_device_register(&iommu->iommu, &riscv_iommu_ops, iommu->dev);
+ 	if (rc) {
+ 		dev_err_probe(iommu->dev, rc, "cannot register iommu interface\n");
 -- 
 2.43.0
 
