@@ -4,68 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0102C3ABCC
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:19:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56FFCC3ABCC
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=+jFoS1EHJEVohIxWZIzdjrhMff4/KhjS5dPcabEWA5Y=; b=K7/OcrvSgMM9nZ
-	HdjGM6toheDFN3T0wfCjL/tOHefpUaKSxtNqbskYujmvYyzKXHSHwvQfuFMGo0pU5MH/AMoZml/tm
-	M+BVtfTbHE/tBSLzVJ+X0Y4Gg96p+z4AiDE6AaoVkkZ5lohc6y3b7EXxGdaMKzl+SfKlwBDWtYy+F
-	tUKgMgVvILmQbMeLrsuxsO8j63yUnjtdfvUJxe+lL4GFtGlmpQMRQugTcJJ0CbXhL/orV4Lxu5fyA
-	7mCe7pqdT4AdcDKsWjpb9hsrnHgeRVkKH9NvR3YgQpUjf+gZRxP/GxCsjvnlNzQyrCP+AoCHy3eF/
-	nyjqaQ1wqJ+aNI0WuA6A==;
+	List-Owner; bh=rfUxPObCgb5wz/WfpLmrv6OwQ8P3DH5F12u1s1edBk8=; b=3W9NF/DUtFRuXw
+	RUBDrDJFQe3wZJo5jG+dQ5DuyjkMDa3k/yqgFF1iCvQpkvMfcGuDet965X8ZmJ1CAjFFUIJZlxAj5
+	G6O1GqRrkXBiEXWmsJDvJQzbc7NJSfaauc98caLsH3PZQt3ULLCJmbBUStAU6r+FTJbgfu2V60xAg
+	ZV3111QGv+RAJLTTN/RNxMm58Y2Mn8f/jslUzZgJJE6SxALFD4ftf3vMHFLHil+0hHVIAPBXysULQ
+	RWXqRqWnHwp0iqRc8wSCQ5X5MUNSgSh8LgQIkcPzE7DFKcpxBdLPSLpEM+zTk0c1AYK77Ku60VeeF
+	3NXqWspDyKT3Z15GY3qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB51-0000000F2By-1bD7;
-	Wed, 14 May 2025 12:19:23 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uFB5O-0000000F2sr-0W6p;
+	Wed, 14 May 2025 12:19:46 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8Zq-0000000EhDE-2HrU
+	id 1uF8p8-0000000EjG5-0KSl
 	for linux-riscv@lists.infradead.org;
-	Wed, 14 May 2025 09:39:03 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1747215541;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K31BZ+j3XRd8vHo0dCxUnqdgWHJZ/Z7V6F2CPRYuCbE=;
-	b=DRvvYk6c/U8XNuYzayAq7PxEtAYweKvWNdyc99uyL2joXAAABOHAdOI3pRm5eOFVFVEgUR
-	MBSQGF63KB8eFq01XLppGYCSkBPzzqfCj+cW6DoMORslUFgaGCoun0dZ6MMqp4s2fTCfGi
-	lZCbLz9fvn6wBNTCo8nwHe5CHpIqtBhqnzndo3heuQ7DiKYXdXaC/PWgqAKODAodptbU0C
-	g/kf5t8cStoeBHG6ACz6Xt69cz0H86uA+sXA97VNFmDztTp39TzoxT+8w+f+HLpWzlftAl
-	+Gt4CkXT6orIZ+ShHxBVnoNb9hp7K1SRA+DZpQaLSWVaflO9dCtalG4FghwZlQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1747215541;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=K31BZ+j3XRd8vHo0dCxUnqdgWHJZ/Z7V6F2CPRYuCbE=;
-	b=d38MzEbN7AJxqLXq5RdEhXH154Ne6BMPE07o2CY8WmsywLpE0O7fi9iezjGRtFewNvDqXO
-	26244oroFV8C+HAw==
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Nam Cao <namcao@linutronix.de>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 11/11] riscv: kprobes: Remove duplication of RV_EXTRACT_ITYPE_IMM
-Date: Wed, 14 May 2025 11:38:50 +0200
-Message-Id: <8ae34e966c312ae5cf6c09a35ddc290cce942208.1747215274.git.namcao@linutronix.de>
-In-Reply-To: <cover.1747215274.git.namcao@linutronix.de>
-References: <cover.1747215274.git.namcao@linutronix.de>
+	Wed, 14 May 2025 09:54:51 +0000
+Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
+	by Atcsqr.andestech.com with ESMTPS id 54E9s0oU092463
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 14 May 2025 17:54:00 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
+ (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Wed, 14 May 2025
+ 17:54:00 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: 
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <geert+renesas@glider.be>, <magnus.damm@gmail.com>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
+        Ben Zong-You Xie <ben717@andestech.com>
+Subject: [PATCH v4 6/9] dt-bindings: cache: add QiLai compatible to ax45mp
+Date: Wed, 14 May 2025 17:53:47 +0800
+Message-ID: <20250514095350.3765716-7-ben717@andestech.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250514095350.3765716-1-ben717@andestech.com>
+References: <20250514095350.3765716-1-ben717@andestech.com>
 MIME-Version: 1.0
+X-Originating-IP: [10.0.15.183]
+X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 54E9s0oU092463
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_023902_719259_42412CB7 
-X-CRM114-Status: UNSURE (   7.41  )
+X-CRM114-CacheID: sfid-20250514_025450_462457_764B90DE 
+X-CRM114-Status: UNSURE (   8.21  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,29 +76,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Use RV_EXTRACT_ITYPE_IMM, instead of re-implementing it in simulate_jalr().
+Add a new compatible string for ax45mp-cache on QiLai SoC.
 
-Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Nam Cao <namcao@linutronix.de>
+Also, add allOf constraints to enforce specific cache-sets and cache-size
+values for qilai-ax45mp-cache.
+
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
 ---
- arch/riscv/kernel/probes/simulate-insn.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../bindings/cache/andestech,ax45mp-cache.yaml | 18 +++++++++++++++++-
+ 1 file changed, 17 insertions(+), 1 deletion(-)
 
-diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
-index 2b3cd69d6f8e..fa581590c1f8 100644
---- a/arch/riscv/kernel/probes/simulate-insn.c
-+++ b/arch/riscv/kernel/probes/simulate-insn.c
-@@ -64,7 +64,7 @@ bool __kprobes simulate_jalr(u32 opcode, unsigned long addr, struct pt_regs *reg
- 	 */
- 	bool ret;
- 	unsigned long base_addr;
--	u32 imm = (opcode >> 20) & 0xfff;
-+	u32 imm = RV_EXTRACT_ITYPE_IMM(opcode);
- 	u32 rd_index = RV_EXTRACT_RD_REG(opcode);
- 	u32 rs1_index = RV_EXTRACT_RS1_REG(opcode);
+diff --git a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+index df8bba14f758..cd08ea57b2d9 100644
+--- a/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
++++ b/Documentation/devicetree/bindings/cache/andestech,ax45mp-cache.yaml
+@@ -28,7 +28,9 @@ select:
+ properties:
+   compatible:
+     items:
+-      - const: renesas,r9a07g043f-ax45mp-cache
++      - enum:
++          - andestech,qilai-ax45mp-cache
++          - renesas,r9a07g043f-ax45mp-cache
+       - const: andestech,ax45mp-cache
+       - const: cache
  
+@@ -66,6 +68,20 @@ required:
+   - cache-size
+   - cache-unified
+ 
++allOf:
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: andestech,qilai-ax45mp-cache
++
++    then:
++      properties:
++        cache-sets:
++          const: 2048
++        cache-size:
++          const: 2097152
++
+ examples:
+   - |
+     #include <dt-bindings/interrupt-controller/irq.h>
 -- 
-2.39.5
+2.34.1
 
 
 _______________________________________________
