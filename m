@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3A06C3ABD9
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:20:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61EA4C3ABDE
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:20:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:CC
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=hNV02jGlA7gPzmbetli6lrFA/FdtpAHUIDEfnoVPkos=; b=IDQVmTOnxRd4MA
-	Ixx4kICK1XzkBg0xLP5mh9JKD6QDZ6vEyG5eUS2y17YDH0cJCEeWpFWk4bLGjPc83ay2KfsJAEdNy
-	yOwh9cFYo0K21pdJ6tk1uJ8Wk4o/P5Q4mXEkLGQSc4SbP1yyuuTQKcrWm+aB1kPfAtF+KyVrhpjyx
-	DR/P2wXdryO045+az3CzMNHgv0XjXd5y4TNyxaqHV+tlhyEnqBaFa1MowGUpqnB/czdZetVfluKMQ
-	RJmR+baU6CTSg2ic0A37W0V2kHzHoXoPSVaONZDevYL9DTZKyvYg2DedlmpwzLUhp4p7etS92g2pf
-	Gd/qBvPPncS/sTTD3lEA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=3oRNdIky0V8SxrLlruhgfxBuXdBZm4Gnf/4wRJhl+wE=; b=FRjd/B314aW4Xt
+	iJXqT5B7x5CkxjMwjRNWHpuPqUm3FFJRjZC0pj/Gtx6W236nMmxSJsCQ2Y1+xLBAJJKHXtsRSKWpb
+	KTYoi0D3HcuuyxvUFTIAknGTCHVBpLwQxwMJML0v44EtQvYwcEeM1AgXSnyfsNYWWU3v2zh1lge5G
+	/A/4m/+8UlzMbS5K6YvYsc3/3/evdaNzGalqyVtC19Hr6hUkmymm32mTjAVvUzQsnzv3l4nSax85B
+	9bK5ivc2wvfzah61Q+5l+1cS8iV9ExHFdueRZKcQ94Jdgw0Ao8v237ga2+ToiMd6hB1aKY43uJpym
+	NMKXeGljGdcZBDaDpOdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB5Y-0000000F3BQ-0OYD;
-	Wed, 14 May 2025 12:19:56 +0000
+	id 1uFB5a-0000000F3F2-2oy7;
+	Wed, 14 May 2025 12:19:58 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8p8-0000000EjFl-0L4S
+	id 1uF8p9-0000000EjHR-1A7j
 	for linux-riscv@lists.infradead.org;
 	Wed, 14 May 2025 09:54:53 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 54E9rpkt092294
+	by Atcsqr.andestech.com with ESMTPS id 54E9s1f5092465
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 14 May 2025 17:53:51 +0800 (+08)
+	Wed, 14 May 2025 17:54:01 +0800 (+08)
 	(envelope-from ben717@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Wed, 14 May 2025
- 17:53:51 +0800
+ 17:54:01 +0800
 From: Ben Zong-You Xie <ben717@andestech.com>
 To: 
 CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
@@ -45,18 +45,20 @@ CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
         Ben Zong-You Xie <ben717@andestech.com>
-Subject: [PATCH v4 0/9] add Voyager board support
-Date: Wed, 14 May 2025 17:53:41 +0800
-Message-ID: <20250514095350.3765716-1-ben717@andestech.com>
+Subject: [PATCH v4 7/9] riscv: dts: andes: add QiLai SoC device tree
+Date: Wed, 14 May 2025 17:53:48 +0800
+Message-ID: <20250514095350.3765716-8-ben717@andestech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250514095350.3765716-1-ben717@andestech.com>
+References: <20250514095350.3765716-1-ben717@andestech.com>
 MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 54E9rpkt092294
+X-MAIL: Atcsqr.andestech.com 54E9s1f5092465
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_025450_481336_47607CE8 
-X-CRM114-Status: GOOD (  14.10  )
+X-CRM114-CacheID: sfid-20250514_025451_618445_7D80014A 
+X-CRM114-Status: GOOD (  12.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,71 +70,237 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIFZveWFnZXIgaXMgYSA5LjbigJ0geCA5LjbigJ0gTWljcm8gQVRYIGZvcm0gZmFjdG9yIGRl
-dmVsb3BtZW50IGJvYXJkCmluY2x1ZGluZyBBbmRlcyBRaUxhaSBTb0MuIFRoaXMgcGF0Y2ggc2Vy
-aWVzIGFkZHMgbWluaW1hbCBkZXZpY2UgdHJlZQpmaWxlcyBmb3IgdGhlIFFpTGFpIFNvQyBhbmQg
-dGhlIFZveWFnZXIgYm9hcmQgWzFdLgoKTm93IG9ubHkgc3VwcG9ydCBiYXNpYyB1YXJ0IGRyaXZl
-cnMgdG8gYm9vdCB1cCBpbnRvIGEgYmFzaWMgY29uc29sZS4gT3RoZXIKZmVhdHVyZXMgd2lsbCBi
-ZSBhZGRlZCBsYXRlci4KClsxXSBodHRwczovL3d3dy5hbmRlc3RlY2guY29tL2VuL3Byb2R1Y3Rz
-LXNvbHV0aW9ucy9hbmRlc2hhcGUtcGxhdGZvcm1zL3FpbGFpLWNoaXAvCi0tLQoKQ2hhbmdlbG9n
-IGZyb20gdjMgdG8gdjQ6CiAgLSBSZXN0b3JlIHRoZSBtb2RpZmljYXRpb24gdG8gY2FjaGUtc2V0
-cyBhbmQgY2FjaGUtc2l6ZSBpbiBwYXRjaCA2CiAgLSBEbyBub3QgY29uc3RyYWluIHJlbmVzYXMs
-cjlhMDdnMDQzZi1heDQ1bXAtY2FjaGUgc2luY2UgaXQncyBpbmRlcGVuZGVudCB0bwogICAgdGhp
-cyBzZXJpZXMuCiAgLSBEZWxldGUgdGhlIHJlZHVuZGFudCBleGFtcGxlIGFkZGVkIGJ5IHBhdGNo
-IDYKCnYzOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTA1MTMwOTQ5MzMuMTYzMTQ5
-My0xLWJlbjcxN0BhbmRlc3RlY2guY29tLwoKQ2hhbmdlbG9nIGZyb20gdjIgdG8gdjM6CiAgLSBS
-ZWJhc2UgdGhlIHNlcmllcyBvbiBDb25vci9yaXNjdi1zb2MtZm9yLW5leHQKICAtIFJlZm9ybSBw
-YXRjaCA2IGFzIHN1Z2dlc3RlZCBieSBDb25vcgogIC0gTW9kaWZ5IGwyX2NhY2hlJ3MgY29tcGF0
-aWJsZSBpbiBxaWxhaS5kdHNpIGR1ZSB0byBwYXRjaCA2CiAgLSBBZGQgQ29ub3IncyBBY2tlZC1i
-eSB0YWcgdG8gcGF0Y2ggNAogIC0gQWRkIENvbm9yJ3MgQWNrZWQtYnkgdGFnIHRvIHBhdGNoIDUK
-ICAtIEFkZCBDb25vcidzIEFja2VkLWJ5IHRhZyB0byBwYXRjaCA5Cgp2MjogaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvYWxsLzIwMjUwNTAzMTUxODI5LjYwNTAwNi01LWJlbjcxN0BhbmRlc3RlY2gu
-Y29tLwoKQ2hhbmdlbG9nIGZyb20gdjEgdG8gdjI6CiAgLSBBZGQgZGV0YWlsZWQgZGVzY3JpcHRp
-b25zIHRvIFBMSUNfU1cgYW5kIFBMTVQwCiAgLSBNb3ZlIHRoZSBhbGlhc2VzIG5vZGUgYW5kIG1l
-bW9yeSBub2RlIGZyb20gcWlsYWkuZHRzaSB0byBxaWxhaS12b3lhZ2VyLmR0cwogIC0gRHJvcCAi
-c3RhdHVzID0gb2theSIgaW4gZWFjaCBDUFUgbm9kZSBzaW5jZSB0aGUgc3RhdHVzIHByb3BlcnR5
-IGlzIGJ5CiAgICBkZWZhdWx0ICJva2F5IgogIC0gUmVvcmRlciB0aGUgbm9kZXMgaW4gcWlsYWku
-ZHRzaSBieSB1bml0IGFkZHJlc3MgaW4gYXNjZW5kaW5nIG9yZGVyCiAgLSBBZGQgbXlzZWxmIGFz
-IHRoZSBtYWludGFpbmVyIG9mIEFuZGVzJ3MgU29DIHRyZWUKICAtIEFkZCBSb2IncyBSZXZpZXdl
-ZC1ieSB0YWcgdG8gcGF0Y2ggMgogIC0gQWRkIFJvYidzIEFja2VkLWJ5IHRhZyB0byBwYXRjaCAz
-CiAgLSBBZGQgUm9iJ3MgQWNrZWQtYnkgdGFnIHRvIHBhdGNoIDYuCgp2MTogaHR0cHM6Ly9sb3Jl
-Lmtlcm5lbC5vcmcvYWxsLzIwMjUwNDA3MTA0OTM3LjMxNTc4My0xLWJlbjcxN0BhbmRlc3RlY2gu
-Y29tLwoKLS0tCkJlbiBab25nLVlvdSBYaWUgKDkpOgogIHJpc2N2OiBhZGQgQW5kZXMgU29DIGZh
-bWlseSBLY29uZmlnIHN1cHBvcnQKICBkdC1iaW5kaW5nczogcmlzY3Y6IGFkZCBBbmRlcyBRaUxh
-aSBTb0MgYW5kIHRoZSBWb3lhZ2VyIGJvYXJkIGJpbmRpbmdzCiAgZHQtYmluZGluZ3M6IGludGVy
-cnVwdC1jb250cm9sbGVyOiBhZGQgQW5kZXMgUWlMYWkgUExJQwogIGR0LWJpbmRpbmdzOiBpbnRl
-cnJ1cHQtY29udHJvbGxlcjogYWRkIEFuZGVzIG1hY2hpbmUtbGV2ZWwgc29mdHdhcmUKICAgIGlu
-dGVycnVwdCBjb250cm9sbGVyCiAgZHQtYmluZGluZ3M6IHRpbWVyOiBhZGQgQW5kZXMgbWFjaGlu
-ZSB0aW1lcgogIGR0LWJpbmRpbmdzOiBjYWNoZTogYWRkIFFpTGFpIGNvbXBhdGlibGUgdG8gYXg0
-NW1wCiAgcmlzY3Y6IGR0czogYW5kZXM6IGFkZCBRaUxhaSBTb0MgZGV2aWNlIHRyZWUKICByaXNj
-djogZHRzOiBhbmRlczogYWRkIFZveWFnZXIgYm9hcmQgZGV2aWNlIHRyZWUKICByaXNjdjogZGVm
-Y29uZmlnOiBlbmFibGUgQW5kZXMgU29DCgogLi4uL2NhY2hlL2FuZGVzdGVjaCxheDQ1bXAtY2Fj
-aGUueWFtbCAgICAgICAgIHwgIDE4ICstCiAuLi4vYW5kZXN0ZWNoLHBsaWNzdy55YW1sICAgICAg
-ICAgICAgICAgICAgICAgfCAgNTQgKysrKysKIC4uLi9zaWZpdmUscGxpYy0xLjAuMC55YW1sICAg
-ICAgICAgICAgICAgICAgICB8ICAgMSArCiAuLi4vZGV2aWNldHJlZS9iaW5kaW5ncy9yaXNjdi9h
-bmRlcy55YW1sICAgICAgfCAgMjUgKysrCiAuLi4vYmluZGluZ3MvdGltZXIvYW5kZXN0ZWNoLHBs
-bXQwLnlhbWwgICAgICAgfCAgNTMgKysrKysKIE1BSU5UQUlORVJTICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICB8ICAgOSArCiBhcmNoL3Jpc2N2L0tjb25maWcuZXJyYXRhICAgICAg
-ICAgICAgICAgICAgICAgfCAgIDIgKy0KIGFyY2gvcmlzY3YvS2NvbmZpZy5zb2NzICAgICAgICAg
-ICAgICAgICAgICAgICB8ICAgOSArCiBhcmNoL3Jpc2N2L2Jvb3QvZHRzL01ha2VmaWxlICAgICAg
-ICAgICAgICAgICAgfCAgIDEgKwogYXJjaC9yaXNjdi9ib290L2R0cy9hbmRlcy9NYWtlZmlsZSAg
-ICAgICAgICAgIHwgICAyICsKIGFyY2gvcmlzY3YvYm9vdC9kdHMvYW5kZXMvcWlsYWktdm95YWdl
-ci5kdHMgICB8ICAyOCArKysKIGFyY2gvcmlzY3YvYm9vdC9kdHMvYW5kZXMvcWlsYWkuZHRzaSAg
-ICAgICAgICB8IDE4NiArKysrKysrKysrKysrKysrKysKIGFyY2gvcmlzY3YvY29uZmlncy9kZWZj
-b25maWcgICAgICAgICAgICAgICAgICB8ICAgMSArCiAxMyBmaWxlcyBjaGFuZ2VkLCAzODcgaW5z
-ZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkKIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0
-aW9uL2RldmljZXRyZWUvYmluZGluZ3MvaW50ZXJydXB0LWNvbnRyb2xsZXIvYW5kZXN0ZWNoLHBs
-aWNzdy55YW1sCiBjcmVhdGUgbW9kZSAxMDA2NDQgRG9jdW1lbnRhdGlvbi9kZXZpY2V0cmVlL2Jp
-bmRpbmdzL3Jpc2N2L2FuZGVzLnlhbWwKIGNyZWF0ZSBtb2RlIDEwMDY0NCBEb2N1bWVudGF0aW9u
-L2RldmljZXRyZWUvYmluZGluZ3MvdGltZXIvYW5kZXN0ZWNoLHBsbXQwLnlhbWwKIGNyZWF0ZSBt
-b2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2Jvb3QvZHRzL2FuZGVzL01ha2VmaWxlCiBjcmVhdGUgbW9k
-ZSAxMDA2NDQgYXJjaC9yaXNjdi9ib290L2R0cy9hbmRlcy9xaWxhaS12b3lhZ2VyLmR0cwogY3Jl
-YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvYW5kZXMvcWlsYWkuZHRzaQoKLS0K
-Mi4zNC4xCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Introduce the initial device tree support for the Andes QiLai SoC.
+
+For further information, you can refer to [1].
+
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
+
+Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
+---
+ MAINTAINERS                          |   2 +
+ arch/riscv/boot/dts/andes/qilai.dtsi | 186 +++++++++++++++++++++++++++
+ 2 files changed, 188 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/andes/qilai.dtsi
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d1e1b98dfe7b..fd3c2deed699 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20728,9 +20728,11 @@ F:	include/linux/irqchip/riscv-imsic.h
+ RISC-V ANDES SoC Support
+ M:	Ben Zong-You Xie <ben717@andestech.com>
+ S:	Maintained
++T:	git: https://github.com/ben717-linux/linux
+ F:	Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
+ F:	Documentation/devicetree/bindings/riscv/andes.yaml
+ F:	Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
++F:	arch/riscv/boot/dts/andes/
+ 
+ RISC-V ARCHITECTURE
+ M:	Paul Walmsley <paul.walmsley@sifive.com>
+diff --git a/arch/riscv/boot/dts/andes/qilai.dtsi b/arch/riscv/boot/dts/andes/qilai.dtsi
+new file mode 100644
+index 000000000000..de3de32f8c39
+--- /dev/null
++++ b/arch/riscv/boot/dts/andes/qilai.dtsi
+@@ -0,0 +1,186 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2025 Andes Technology Corporation. All rights reserved.
++ */
++
++/dts-v1/;
++
++#include <dt-bindings/interrupt-controller/irq.h>
++
++/ {
++	#address-cells = <2>;
++	#size-cells = <2>;
++
++	cpus {
++		#address-cells = <1>;
++		#size-cells = <0>;
++		timebase-frequency = <62500000>;
++
++		cpu0: cpu@0 {
++			compatible = "andestech,ax45mp", "riscv";
++			device_type = "cpu";
++			reg = <0>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "zicntr", "zicsr", "zifencei",
++					       "zihpm", "xandespmu";
++			mmu-type = "riscv,sv39";
++			clock-frequency = <100000000>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <256>;
++			i-cache-line-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <128>;
++			d-cache-line-size = <64>;
++			next-level-cache = <&l2_cache>;
++
++			cpu0_intc: interrupt-controller {
++				compatible = "andestech,cpu-intc", "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu1: cpu@1 {
++			compatible = "andestech,ax45mp", "riscv";
++			device_type = "cpu";
++			reg = <1>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "zicntr", "zicsr", "zifencei",
++					       "zihpm", "xandespmu";
++			mmu-type = "riscv,sv39";
++			clock-frequency = <100000000>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <256>;
++			i-cache-line-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <128>;
++			d-cache-line-size = <64>;
++			next-level-cache = <&l2_cache>;
++
++			cpu1_intc: interrupt-controller {
++				compatible = "andestech,cpu-intc",
++					     "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu2: cpu@2 {
++			compatible = "andestech,ax45mp", "riscv";
++			device_type = "cpu";
++			reg = <2>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "zicntr", "zicsr", "zifencei",
++					       "zihpm", "xandespmu";
++			mmu-type = "riscv,sv39";
++			clock-frequency = <100000000>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <256>;
++			i-cache-line-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <128>;
++			d-cache-line-size = <64>;
++			next-level-cache = <&l2_cache>;
++
++			cpu2_intc: interrupt-controller {
++				compatible = "andestech,cpu-intc",
++					     "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++
++		cpu3: cpu@3 {
++			compatible = "andestech,ax45mp", "riscv";
++			device_type = "cpu";
++			reg = <3>;
++			riscv,isa-base = "rv64i";
++			riscv,isa-extensions = "i", "m", "a", "f", "d", "c",
++					       "zicntr", "zicsr", "zifencei",
++					       "zihpm", "xandespmu";
++			mmu-type = "riscv,sv39";
++			clock-frequency = <100000000>;
++			i-cache-size = <0x8000>;
++			i-cache-sets = <256>;
++			i-cache-line-size = <64>;
++			d-cache-size = <0x8000>;
++			d-cache-sets = <128>;
++			d-cache-line-size = <64>;
++			next-level-cache = <&l2_cache>;
++
++			cpu3_intc: interrupt-controller {
++				compatible = "andestech,cpu-intc",
++					     "riscv,cpu-intc";
++				#interrupt-cells = <1>;
++				interrupt-controller;
++			};
++		};
++	};
++
++	soc {
++		compatible = "simple-bus";
++		ranges;
++		interrupt-parent = <&plic>;
++		#address-cells = <2>;
++		#size-cells = <2>;
++
++		plmt: timer@100000 {
++			compatible = "andestech,qilai-plmt", "andestech,plmt0";
++			reg = <0x0 0x00100000 0x0 0x100000>;
++			interrupts-extended = <&cpu0_intc 7>,
++					      <&cpu1_intc 7>,
++					      <&cpu2_intc 7>,
++					      <&cpu3_intc 7>;
++		};
++
++		l2_cache: cache-controller@200000 {
++			compatible = "andestech,qilai-ax45mp-cache",
++				     "andestech,ax45mp-cache", "cache";
++			reg = <0x0 0x00200000 0x0 0x100000>;
++			interrupts = <16 IRQ_TYPE_LEVEL_HIGH>;
++			cache-line-size = <64>;
++			cache-level = <2>;
++			cache-sets = <2048>;
++			cache-size = <0x200000>;
++			cache-unified;
++		};
++
++		plic_sw: interrupt-controller@400000 {
++			compatible = "andestech,qilai-plicsw",
++				     "andestech,plicsw";
++			reg = <0x0 0x00400000 0x0 0x400000>;
++			interrupts-extended = <&cpu0_intc 3>,
++					      <&cpu1_intc 3>,
++					      <&cpu2_intc 3>,
++					      <&cpu3_intc 3>;
++		};
++
++		plic: interrupt-controller@2000000 {
++			compatible = "andestech,qilai-plic",
++				     "andestech,nceplic100";
++			reg = <0x0 0x02000000 0x0 0x2000000>;
++			#address-cells = <0>;
++			#interrupt-cells = <2>;
++			interrupt-controller;
++			interrupts-extended = <&cpu0_intc 11>, <&cpu0_intc 9>,
++					      <&cpu1_intc 11>, <&cpu1_intc 9>,
++					      <&cpu2_intc 11>, <&cpu2_intc 9>,
++					      <&cpu3_intc 11>, <&cpu3_intc 9>;
++			riscv,ndev = <71>;
++		};
++
++		uart0: serial@30300000 {
++			compatible = "andestech,uart16550", "ns16550a";
++			reg = <0x0 0x30300000 0x0 0x100000>;
++			interrupts = <9 IRQ_TYPE_LEVEL_HIGH>;
++			clock-frequency = <50000000>;
++			reg-offset = <32>;
++			reg-shift = <2>;
++			reg-io-width = <4>;
++			no-loopback-test;
++		};
++	};
++};
+-- 
+2.34.1
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
