@@ -4,106 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A678C3ABD8
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:18:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 713E2C3ABCC
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:18:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=RUp1ZK/RDdg1LIdYHCiYNheliseCThEZxYGRWsDDWzs=; b=wgL4csypx50Fep
-	tLzBZjz47aA6BEkm6GI1vBwMYPjZszil3gO8jxfO6EzSMpx2JJZCbey3hdex86PeDPhRAp7x8xxSM
-	5kWuqdUP9qN6mEwg7M7TtiqI8KfFI1cqE5u3NTFpbqT0Tnkm+ZXfyJoEa+OqXAY9SaDBZtC8YtZ+S
-	4J95KUgqobGElsej3YUuOJ1N1M/meJDSksXRPcYc0ClQp9AuzeV45pGlZhrx4PTB+AO4T7Mwl9Ch6
-	Ms5sZ+UFvf07ug6T864adCVaFC7aeuH0rKbo83NCvqixqxbbebxrKJh3ZahdyQ2eTmxMgpwuv8Qn9
-	IYxpzRLP/dPiGj52m3/w==;
+	List-Owner; bh=g1zzwx5lFb4zCBAA/SZyxcsNzdYJTeHHaAOORqmZlFE=; b=l8mUQL1F/VU7qY
+	CLZx0+zzU1cHkphdVFmiwxRFh9E+BPNoMa1ihRDiuhnGpyKPFEk9U91Cb2CTPtIiaci8VzvBaZrAr
+	Dz21HSKYtbZEHkuKzBcKRjoOWRKEHpZjUcscYyr8mInrqjnIf5bZiHbgJNr3g4rS/rCcG1L04psJb
+	dKNDrxB5rv00ESOFPCLurq2C83elOOcbzGR32Anc8rj80M0ir7LlDUogtEKhZvlkcQ+QwcpOdRein
+	x/Frza4R57rsPRYYYetumjc1NHzGxXRNhUE80udD+9m2UXM2KQu5XvP1NlkcRKueCfqPQDeIHlaWV
+	bd3d8d2Dl/ez0vWoEzLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB4M-0000000F1BZ-1ZBA;
-	Wed, 14 May 2025 12:18:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uFB4V-0000000F1Sc-32mO;
+	Wed, 14 May 2025 12:18:51 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF8Wa-0000000Egbd-28Ef;
-	Wed, 14 May 2025 09:35:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A1AEEA4C7E5;
-	Wed, 14 May 2025 09:35:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CEC1C4CEE9;
-	Wed, 14 May 2025 09:35:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747215339;
-	bh=N2PyXM6FROVcSjSIaLYgCMb3dTsbrl7AJSDQN1U1u04=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=sdb0oWYGPRGVW14S3qNFZmDkY9UlrzgIiVO2KW3FIHise3aozpuClrVvg29x5PCuh
-	 sA8kwGptwEpyb7KayZQCIuStyDbL/xBbLe3pxmOPlZwWD6odYjxty0XwWKh+8un3LZ
-	 hVtwNKNkiPlVRZbFvrsa6Vg9WmK5sutPdaUztj/YtaRfyjDglPrnoLqtbB4+uL4/XA
-	 kffcDcNjRtEIwbIaA5yQU28F4FHBTdKqRG93lwktG1yguWMZl0Zrl8ig4FMknu9NFm
-	 a/rZx8I2ciedLFbT9r4p43cQCag6PXZlU6X1NpHcANKW/DWt2RkaWLgydaGgQMHMjN
-	 9R4o4hpyLrVmw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1uF8WW-00Ens4-VE;
-	Wed, 14 May 2025 10:35:37 +0100
-Date: Wed, 14 May 2025 10:35:36 +0100
-Message-ID: <86msbffsbb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Maxim Levitsky <mlevitsk@redhat.com>
-Cc: kvm@vger.kernel.org,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jing Zhang <jingzhangos@google.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Sebastian Ott <sebott@redhat.com>,
-	Shusen Li <lishusen2@huawei.com>,
-	Waiman Long <longman@redhat.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	linux-arm-kernel@lists.infradead.org,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Borislav Petkov <bp@alien8.de>,
-	Anup Patel <anup@brainfault.org>,
-	Will Deacon <will@kernel.org>,
+	id 1uF8Zm-0000000EhAe-2Bzs
+	for linux-riscv@lists.infradead.org;
+	Wed, 14 May 2025 09:38:59 +0000
+From: Nam Cao <namcao@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1747215537;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DmkEGbAndeVtTbYn7tYJisQDekeRo3+P4y3HvGXWKIM=;
+	b=oEsrci97PKBvmdtdmHuqf7heP96ZSnfAv/FhNq1ZSZ2osSholKRJ8B67leodBEv54EP68f
+	BmXPWDhMs6q8tsxFsdp8WQCqkYsqYXnQMrTEXjnGMyixJ7kOCVSW28fFHdCH1TOFjaGw3g
+	EHE1/F/MskzjUlf+A/14eV5gY0bvk+37yRtG6r69mt+h1ry6IY9epMmyvKWkZkm5D58CpG
+	WIGqAKasps2aPe8I6N4MqCgDmegA2NxysGtaeg+lKRUFMG25ZAUHv+VKh36oFcjgDubwWc
+	ubW2J0fhDN2fGqdytLHnTUL2M9zcSLIjHWJfnLBMXgeIritrmluIrWwu7ROJbA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1747215537;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=DmkEGbAndeVtTbYn7tYJisQDekeRo3+P4y3HvGXWKIM=;
+	b=H6se27k+mkC0UIQE18mLREaCc8vwNjoFyKRTm+Xxq25ozHqVReL/PM+l6y23QlAm+S4Kd/
+	JFWvwQErrw9+kCBg==
+To: Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Alexander Potapenko <glider@google.com>,
-	kvmarm@lists.linux.dev,
-	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Atish Patra <atishp@atishpatra.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	x86@kernel.org,
-	Sean Christopherson <seanjc@google.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Kunkun Jiang <jiangkunkun@huawei.com>,
-	linux-riscv@lists.infradead.org,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	kvm-riscv@lists.infradead.org,
-	Ingo Molnar <mingo@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: Re: [PATCH v5 5/6] KVM: arm64: use kvm_trylock_all_vcpus when locking all vCPUs
-In-Reply-To: <20250512180407.659015-6-mlevitsk@redhat.com>
-References: <20250512180407.659015-1-mlevitsk@redhat.com>
-	<20250512180407.659015-6-mlevitsk@redhat.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, suzuki.poulose@arm.com, jingzhangos@google.com, hpa@zytor.com, sebott@redhat.com, lishusen2@huawei.com, longman@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, bhelgaas@google.com, bp@alien8.de, anup@brainfault.org, will@kernel.org, palmer@dabbelt.com, glider@google.com, kvmarm@lists.linux.dev, keisuke.nishimura@inria.fr, yuzenghui@huawei.com, peterz@infradead.org, atishp@atishpatra.org, joey.gouly@arm.com, x86@kernel.org, seanjc@google.com, andre.przywara@arm.com, jiangkunkun@huawei.com, linux-riscv@lists.infradead.org, rdunlap@infradead.org, pbonzini@redhat.com, boqun.feng@gmail.com, catalin.marinas@arm.com, alex@ghiti.fr, linux-kernel@vger.kernel.org, dave.hansen@linux.intel.com, oliver.upton@linux.dev, kvm-riscv@lists.infradead.org, mingo@redhat.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Nam Cao <namcao@linutronix.de>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>
+Subject: [PATCH v2 02/11] riscv: kprobes: Move branch_funct3 to insn.h
+Date: Wed, 14 May 2025 11:38:41 +0200
+Message-Id: <200c29a26338f19d09963fa02562787e8cfa06f2.1747215274.git.namcao@linutronix.de>
+In-Reply-To: <cover.1747215274.git.namcao@linutronix.de>
+References: <cover.1747215274.git.namcao@linutronix.de>
+MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_023540_682162_39FF3E3B 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250514_023858_701570_1353E9AB 
+X-CRM114-Status: UNSURE (   8.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,42 +83,60 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 12 May 2025 19:04:06 +0100,
-Maxim Levitsky <mlevitsk@redhat.com> wrote:
-> 
-> Use kvm_trylock_all_vcpus instead of a custom implementation when locking
-> all vCPUs of a VM, to avoid triggering a lockdep warning, in the case in
-> which the VM is configured to have more than MAX_LOCK_DEPTH vCPUs.
-> 
-> This fixes the following false lockdep warning:
-> 
-> [  328.171264] BUG: MAX_LOCK_DEPTH too low!
-> [  328.175227] turning off the locking correctness validator.
-> [  328.180726] Please attach the output of /proc/lock_stat to the bug report
-> [  328.187531] depth: 48  max: 48!
-> [  328.190678] 48 locks held by qemu-kvm/11664:
-> [  328.194957]  #0: ffff800086de5ba0 (&kvm->lock){+.+.}-{3:3}, at: kvm_ioctl_create_device+0x174/0x5b0
-> [  328.204048]  #1: ffff0800e78800b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.212521]  #2: ffff07ffeee51e98 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.220991]  #3: ffff0800dc7d80b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.229463]  #4: ffff07ffe0c980b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.237934]  #5: ffff0800a3883c78 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> [  328.246405]  #6: ffff07fffbe480b8 (&vcpu->mutex){+.+.}-{3:3}, at: lock_all_vcpus+0x16c/0x2a0
-> 
-> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
-> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
+Similar to other instruction-processing macros/functions, branch_funct3
+should be in insn.h.
 
-Acked-by: Marc Zyngier <maz@kernel.org>
+Move it into insn.h as RV_EXTRACT_FUNCT3. This new name matches the style
+in insn.h.
 
-Paolo: if you are queuing this for 6.16, please put it on a stable
-branch so that I can merge it back in case of conflicts.
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Signed-off-by: Nam Cao <namcao@linutronix.de>
+---
+ arch/riscv/include/asm/insn.h            | 4 ++++
+ arch/riscv/kernel/probes/simulate-insn.c | 5 +----
+ 2 files changed, 5 insertions(+), 4 deletions(-)
 
-Thanks,
-
-	M.
-
+diff --git a/arch/riscv/include/asm/insn.h b/arch/riscv/include/asm/insn.h
+index 4a26cef3b5c0..ca9628c61885 100644
+--- a/arch/riscv/include/asm/insn.h
++++ b/arch/riscv/include/asm/insn.h
+@@ -447,6 +447,10 @@ static __always_inline bool riscv_insn_is_c_jalr(u32 code)
+ #define RVC_RS2(insn)		RV_X(insn, SH_RS2C, 5)
+ #define RVC_X(X, s, mask)	RV_X_mask(X, s, mask)
+ 
++#define RV_EXTRACT_FUNCT3(x) \
++	({typeof(x) x_ = (x); \
++	(RV_X_mask(x_, RV_INSN_FUNCT3_OPOFF, RV_INSN_FUNCT3_MASK >> RV_INSN_FUNCT3_OPOFF)); })
++
+ #define RV_EXTRACT_RS1_REG(x) \
+ 	({typeof(x) x_ = (x); \
+ 	(RV_X_mask(x_, RVG_RS1_OPOFF, RVG_RS1_MASK)); })
+diff --git a/arch/riscv/kernel/probes/simulate-insn.c b/arch/riscv/kernel/probes/simulate-insn.c
+index 77be381bb8b4..d5f74fadbc3a 100644
+--- a/arch/riscv/kernel/probes/simulate-insn.c
++++ b/arch/riscv/kernel/probes/simulate-insn.c
+@@ -121,9 +121,6 @@ bool __kprobes simulate_auipc(u32 opcode, unsigned long addr, struct pt_regs *re
+ #define branch_rs1_idx(opcode) \
+ 	(((opcode) >> 15) & 0x1f)
+ 
+-#define branch_funct3(opcode) \
+-	(((opcode) >> 12) & 0x7)
+-
+ #define branch_imm(opcode) \
+ 	(((((opcode) >>  8) & 0xf ) <<  1) | \
+ 	 ((((opcode) >> 25) & 0x3f) <<  5) | \
+@@ -158,7 +155,7 @@ bool __kprobes simulate_branch(u32 opcode, unsigned long addr, struct pt_regs *r
+ 		return false;
+ 
+ 	offset_tmp = branch_offset(opcode);
+-	switch (branch_funct3(opcode)) {
++	switch (RV_EXTRACT_FUNCT3(opcode)) {
+ 	case RVG_FUNCT3_BEQ:
+ 		offset = (rs1_val == rs2_val) ? offset_tmp : 4;
+ 		break;
 -- 
-Without deviation from the norm, progress is not possible.
+2.39.5
+
 
 _______________________________________________
 linux-riscv mailing list
