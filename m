@@ -4,82 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C25F4C3ABDE
-	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:18:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A830C3ABCC
+	for <linux-riscv@archiver.kernel.org>; Wed, 14 May 2025 12:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id
-	:Date:Subject:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=7lbIbA20QcX1cH6sFEEF6T898wtHDwWjtas9dNzjSSk=; b=cu+nyuBGuXUJSg
-	a5HUvWKzbvA1Nqkth4HwHeB0mioO9fTDkwwy6rZcZlLpLeEQOaQMn/wh5+qP9blIFCknAKsapfLXf
-	8zJWSkydtNxmHZlCa6cFBbBDyda3rNGx3dWLR2ccsR8/R/hdnQY6lqPX/GKf+sxgpfEI/AXkfWZog
-	pvmQK86MO4fro+N1lTELmFyDLeWEdlpNzpcA9ICZumOcbj52oq6OIrBYN+LDZoC1mJBQUAk8UK440
-	coG/IKw3IIVr+/LRGgbZfYgbpFOsmE8p6JE8j/u764ZOq1jBZx5mBIzfYDRZFo8XIFZEzEfZcUulM
-	xWy9hYETPhA/gpzb6JCg==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Subject:Cc:To:From:Message-ID:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7u8W/CG3gSf5woBAkiFKaWojc/enVjyXw0QmfzYrdeQ=; b=ofwJgUuuv3IzaF
+	rWwOb1zMmq241VWiDefVgsE8VlOpu/qJDkdwQGikLPsh8QtAkH3F3QZv57opqEbA3uXiZKZpmQjSE
+	Eux+u+VnzMuiSEyYQpWGidcZJUyomRHROdOUuakNZCPuBCdGQf0pn502p+TfLUKvKhSq9zBAFYJNi
+	6zgnAYtC34Wjr5qTYS8rGzDJFbX2Ma/KCYlkuThqrMbWCQ4V17MqnBPBnayIbfo41dMLq1fmQdSnd
+	oMIZ8KBzp5B8IIZ4JxsQd/13Cd9QXqeEPUgkKOI7fQA53nBt0axZio9yAT5ec/TYWSmLu3uJ2801V
+	qANpI3Qhl/AdX5b5f0JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFB3Y-0000000Ezva-1g5P;
-	Wed, 14 May 2025 12:17:52 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uFB4I-0000000F141-1YuJ;
+	Wed, 14 May 2025 12:18:38 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uF7qi-0000000EZau-2xD9
-	for linux-riscv@lists.infradead.org;
-	Wed, 14 May 2025 08:52:26 +0000
+	id 1uF8Ut-0000000EgDZ-0epl;
+	Wed, 14 May 2025 09:33:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 52B595C63ED;
-	Wed, 14 May 2025 08:50:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4E000C4CEE9;
-	Wed, 14 May 2025 08:52:23 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E5FB5C6443;
+	Wed, 14 May 2025 09:31:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45060C4CEE9;
+	Wed, 14 May 2025 09:33:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747212743;
-	bh=pn79s5/J/P9TNe+3hLy3s/qDtoOXGxNKcDbvTKLxHq0=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=uijrsK5MXZDqv5WghHiK0XdMjDfGlSwTTmKDKeXTdeHHnZLCQdV7oV7tpcI+wcP6h
-	 gxvNrKPAPRQE0N6JQ93jMB7xwIN2N8kCA1UIdllwoq3Px4d38feOv7lAdI+pqe43Yg
-	 cMk6xiP2RcnfrXNeLyBB7cjcG8eO49STacoteMoAnCpsHcydpCDal5zkTOUaeY1Ptt
-	 2/pnj170IpHuiUlRO50cj31kV+ajfGHZvvjZWgJFsNYN5I97LnpQmfRYWsnQ9Ug2zq
-	 njXIPoARiY1yiPMIRUWCUi3LtPq+g6rOnYslOC7lk1sTFGsDVUGRoO0cSLEiYFYN2B
-	 tDVOdwsvNFafg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 3D326C3ABD9;
-	Wed, 14 May 2025 08:52:23 +0000 (UTC)
-From: Aleksa Paunovic via B4 Relay <devnull+aleksa.paunovic.htecgroup.com@kernel.org>
-Subject: [PATCH v4 0/2] Use GCR.U timer device as clocksource
-Date: Wed, 14 May 2025 10:51:49 +0200
-Message-Id: <20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com>
-MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAKVZJGgC/x3MQQqAIBBA0avIrBsQ0ZCuEi3ExpqFGhoShHdPW
- r7F/y9UKkwVFvFCocaVcxrQkwB/unQQ8j4MSiojtdJYuPqGN0fCGDmjmZUlGbyzLsCorkKBn/+
- 4br1/N1+qi2EAAAA=
-X-Change-ID: 20250424-riscv-time-mmio-5628e0fca8af
-To: Daniel Lezcano <daniel.lezcano@linaro.org>, 
- Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-riscv@lists.infradead.org, 
- Djordje Todorovic <djordje.todorovic@htecgroup.com>, 
- Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1747212741; l=1393;
- i=aleksa.paunovic@htecgroup.com; s=20250514; h=from:subject:message-id;
- bh=pn79s5/J/P9TNe+3hLy3s/qDtoOXGxNKcDbvTKLxHq0=;
- b=rlPq6swwSQfvouul8tW+SJQHbhgJ9bLJXKSNximZEzgFJegjutl9e61P7ng8+xa0j9c7BERNl
- peYI8pd6S8tAMlHpGC/INhUOvEzV/JOrTCoHCBvvxYC+8x1rhWP5QuQ
-X-Developer-Key: i=aleksa.paunovic@htecgroup.com; a=ed25519;
- pk=gFVSVYLKAgJiS5qCnDyUMGOFuczv8C6o0UmRs+fgisA=
-X-Endpoint-Received: by B4 Relay for aleksa.paunovic@htecgroup.com/20250514
- with auth_id=403
-X-Original-From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
+	s=k20201202; t=1747215234;
+	bh=001qyor2xDVXczQ1I1uPsfetah7D3sKu1ILOVywqFnk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=oAqFqcpmzH/13hbR8m/oQ4XroGsKo3tle3aJJsWrsQtLYro2z+PLvjOsuG88n/OxJ
+	 34FvuHxK9/XH2rEkDkqevKA3Zm4RLx3TeYfuRmhdCmm/8LPM9f2joGVL1/H9yAQ2w7
+	 qw+hk6NEElGhiwaleELGFNnRJkOZ8sTl5xHlheBLypOX+6C8a5S5AV5fGR3Ea5F2Iz
+	 3/OiHuAPYPcgR16yDChngd6pC8mELRDahRp+jzf2AFxHuz/0wOYB28RUt92XcHMVGT
+	 V5A4ofsYMhlnn1DcsOUps8IUWyew4W6IuckFhHB5U55kOM/su9P9yW9kj58iy2KjS3
+	 ibRlwfrHxQdpg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1uF8Up-00Ennz-DL;
+	Wed, 14 May 2025 10:33:51 +0100
+Date: Wed, 14 May 2025 10:33:50 +0100
+Message-ID: <86o6vvfse9.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: kvm@vger.kernel.org,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Jing Zhang <jingzhangos@google.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Sebastian Ott <sebott@redhat.com>,
+	Shusen Li <lishusen2@huawei.com>,
+	Waiman Long <longman@redhat.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	linux-arm-kernel@lists.infradead.org,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Anup Patel <anup@brainfault.org>,
+	Will Deacon <will@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Alexander Potapenko <glider@google.com>,
+	kvmarm@lists.linux.dev,
+	Keisuke Nishimura <keisuke.nishimura@inria.fr>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Atish Patra <atishp@atishpatra.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	x86@kernel.org,
+	Sean Christopherson <seanjc@google.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Kunkun Jiang <jiangkunkun@huawei.com>,
+	linux-riscv@lists.infradead.org,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-kernel@vger.kernel.org,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	kvm-riscv@lists.infradead.org,
+	Ingo Molnar <mingo@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Albert Ou <aou@eecs.berkeley.edu>
+Subject: Re: [PATCH v5 3/6] KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+In-Reply-To: <20250512180407.659015-4-mlevitsk@redhat.com>
+References: <20250512180407.659015-1-mlevitsk@redhat.com>
+	<20250512180407.659015-4-mlevitsk@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mlevitsk@redhat.com, kvm@vger.kernel.org, suzuki.poulose@arm.com, jingzhangos@google.com, hpa@zytor.com, sebott@redhat.com, lishusen2@huawei.com, longman@redhat.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, bhelgaas@google.com, bp@alien8.de, anup@brainfault.org, will@kernel.org, palmer@dabbelt.com, glider@google.com, kvmarm@lists.linux.dev, keisuke.nishimura@inria.fr, yuzenghui@huawei.com, peterz@infradead.org, atishp@atishpatra.org, joey.gouly@arm.com, x86@kernel.org, seanjc@google.com, andre.przywara@arm.com, jiangkunkun@huawei.com, linux-riscv@lists.infradead.org, rdunlap@infradead.org, pbonzini@redhat.com, boqun.feng@gmail.com, catalin.marinas@arm.com, alex@ghiti.fr, linux-kernel@vger.kernel.org, dave.hansen@linux.intel.com, oliver.upton@linux.dev, kvm-riscv@lists.infradead.org, mingo@redhat.com, paul.walmsley@sifive.com, aou@eecs.berkeley.edu
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250514_015224_867918_26AE5F0F 
-X-CRM114-Status: UNSURE (   8.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250514_023355_278041_886038AA 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,46 +115,44 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: aleksa.paunovic@htecgroup.com
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds bindings for the GCR.U timer device and corresponding
-driver support. Accessing the memory mapped mtime register in the GCR.U
-region should be faster than trapping to M mode each time the timer
-needs to be read.
+On Mon, 12 May 2025 19:04:04 +0100,
+Maxim Levitsky <mlevitsk@redhat.com> wrote:
+> 
+> In a few cases, usually in the initialization code, KVM locks all vCPUs
+> of a VM to ensure that userspace doesn't do funny things while KVM performs
+> an operation that affects the whole VM.
+> 
+> Until now, all these operations were implemented using custom code,
+> and all of them share the same problem:
+> 
+> Lockdep can't cope with simultaneous locking of a large number of locks of
+> the same class.
+> 
+> However if these locks are taken while another lock is already held,
+> which is luckily the case, it is possible to take advantage of little known
+> _nest_lock feature of lockdep which allows in this case to have an
+> unlimited number of locks of same class to be taken.
+> 
+> To implement this, create two functions:
+> kvm_lock_all_vcpus() and kvm_trylock_all_vcpus()
+> 
+> Both functions are needed because some code that will be replaced in
+> the subsequent patches, uses mutex_trylock, instead of regular mutex_lock.
+> 
+> Suggested-by: Paolo Bonzini <pbonzini@redhat.com>
+> Signed-off-by: Maxim Levitsky <mlevitsk@redhat.com>
 
-Changes in v4:
-- Remove "select" from mti,gcru.yaml.
-- Refactor the driver to use function pointers instead of static keys.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Previous versions:
-v1: https://lore.kernel.org/lkml/20241227150056.191794-1-arikalo@gmail.com/#t
-v2: https://lore.kernel.org/linux-riscv/20250409143816.15802-1-aleksa.paunovic@htecgroup.com/
-v3: https://lore.kernel.org/linux-riscv/DU0PR09MB61968695A2A3146EE83B7708F6BA2@DU0PR09MB6196.eurprd09.prod.outlook.com/
+	M.
 
-Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
----
-Aleksa Paunovic (2):
-      dt-bindings: timer: mti,gcru
-      Allow for riscv-clock to pick up mmio address.
-
- .../devicetree/bindings/timer/mti,gcru.yaml        | 38 ++++++++++++++
- arch/riscv/include/asm/timex.h                     | 48 ++++++-----------
- drivers/clocksource/Kconfig                        | 12 +++++
- drivers/clocksource/timer-riscv.c                  | 61 ++++++++++++++++++++++
- 4 files changed, 126 insertions(+), 33 deletions(-)
----
-base-commit: 9c32cda43eb78f78c73aee4aa344b777714e259b
-change-id: 20250424-riscv-time-mmio-5628e0fca8af
-
-Best regards,
 -- 
-Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-
-
+Without deviation from the norm, progress is not possible.
 
 _______________________________________________
 linux-riscv mailing list
