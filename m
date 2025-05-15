@@ -4,91 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5DC1C3ABDD
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 10:10:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86E3FC3ABC9
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 12:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=2PSEzecrjuBlPHfPRDz1eIBcLr8bFrq3P4bmaoVq9l4=; b=lo8GTlCc4rBijj
-	rW9GR/aOltoEX1Js5HLLMAa/X05VPb/TIhPVwEV12F8yFcgLD0bztDaBzOzEX/nQ/Qc0ENc4vZUIl
-	/7FccGyLbfwk8vdJe1zWyeoWp1pcxNbucvjTPc7hLn7iBtFlo/PnQkEHSuW/pHRRXyBdxLnlKckpj
-	AS43Bbsrg4wdMv9POQR4jZxseAo1hzvfEI/mMVRNammq61L51rE1es8s9xnpCEAqiA9PhgNwxaqRy
-	6CQq2Df+BZWGicK2euPlJOEI0FkGF6LwTyDVAeU5cUD7/n/WfTs31E0I0stD3hEv1A39NmvU8VD/8
-	F2ow4hKg46ry9N1RbQ7g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hMoOd/2tsgqd1AY5lxfd+WIqxavY7rwiiPUfJlIlb88=; b=VlY9zxbIlGoFmV
+	l9UJIig+Lzn+I+pAw6LcyMRq1O2vOLaXFXi82pIEGHbQfosMG5eVLs+QKOKll1fqXciy5r0D0VBob
+	Dt4QcE7TXSA0GLW0coJ/+PqRMNNKNPwb9ov3uNvSQ7YvJozNZ4Ca0hFRhX8MfIua8kdMdwD5WbcHi
+	Zd6BFDCBdW5sSO3sYVMU/7zt46X20vSLhFnBsskP3RodB2tf4WYzb/Oa/rojQCpvu+t1tl7pas3TT
+	7HHZV1A7esCeI5vofeWDqZTXEGYqtQHI7O2ovh4WxR058cfwYV3ylfAuU8xEE+7P+9hQd7W6zo1Ww
+	ldETM8jn86z0IOWex/Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFVXL-00000000GE6-0X0r;
-	Thu, 15 May 2025 10:09:59 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uFXza-00000000bt4-0Ehj;
+	Thu, 15 May 2025 12:47:18 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFV8R-00000000Cj8-09zA
+	id 1uFXzY-00000000bra-0Lhe
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 May 2025 09:44:16 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-73c17c770a7so918233b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 02:44:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1747302250; x=1747907050; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=n6FV+5tXVPlvC+Cy3Z2x3GFn7teypKn9hvM6n9ipgsE=;
-        b=N3n895cphobOsVwGuL8vakbGFCBbpyISloCCgzTOPzmk0rMNfIblxoYAgvN/PixJ3n
-         AeLlvoeSXK1GfJLYiPdF8mRd3jN2ou5wBfAYy18WRg4iQbjLLQueXNXtoE1l400ftgOu
-         J4gdve/uSnordorrDiN3hoQBlZTU4nmOa1ltJluY59N8LMh0aRTjkMez/0a8Hn07gIji
-         RHbTJ7ct/UHZVaPqdYm9zE/CEEnKvjWNK77+jWWQQPo25TCLVqAUAUXWnVr3cKOt04bg
-         u0sZ67kz8bJgePW0YK2XTT6i8xLuYWHU2hMY/xftcuxr92kdB/aNZKTWCnvJm6FJJ3FL
-         2L+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747302250; x=1747907050;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=n6FV+5tXVPlvC+Cy3Z2x3GFn7teypKn9hvM6n9ipgsE=;
-        b=l0jiF9sii9/1OnGCN5Orx1cYmZsCmSHUOYtgLE6KgeWA19msBo5ENs8KNZqKiMetrK
-         Ff3j51sO9uXV2/RNWqwhIRcVqM/d6+DYv/NblosIDG2/+UHlHSUrxrFBnC+CFvEiBXVA
-         NfCGpPLgE9SQX2H8uaH0aIO2UP5U9HH+N9w17muGRNgOZCjTND+bhZ1fkP8Gm0/wjyN9
-         jgyW7Prt1VQw2IdQBRckYpc9xegHKs/1CBPf9I1fhizloHGLdClisz2Msv7TdQWCsaxY
-         tn0bPhKo1VmPyzRITwVwVYpMyUxU488tr+IZA4XvggXYZjnbj46wbDQ7SIY3+ZECcfff
-         yFeg==
-X-Forwarded-Encrypted: i=1; AJvYcCU7ho+hMLd9NoXu9CE4/kd2IaFvSSModqcgD75VeMdeDkvoyVIaNxKS7chK0nsppMVqXDS5deat0WBMiQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyNkTj6bzkP/SiKzVzZucODsnRq784CpsEZy3WB4JUYCbdg7xwP
-	y8Zje+YmQ+5Nt6Oiul58ghcVbALmDvytbPqZG+ZS4BtgUJGoG0JGk70TqERAv5k=
-X-Gm-Gg: ASbGncsz5fa263QM3n05Gbd0PY0F4TGLbJ/fdChRk/IovZb9h2A6HY6IEQltBnIXcKJ
-	AVX0HZq+LWB3jlmUZDfLWBCze69qmgbilP4gTJT92EUNw8OwQhramz2x6VBq1H2wsjoIFZ4bOex
-	Wf8h/bpE8Ighm/Y1zLkp2ehOF6JWTyYNJEiDQoIh5Y+TcWE07u0u9BHrg2Nbl6g7jH9NolvU+7H
-	wcr1BWp1z103852Vwj9MP1BwNsQCaXO6J8j/5zz/10ZUBnY3rvxD8Bn2dg0XA7mPlT0o1Zk/sz5
-	OlPeEGdx9OM9eudWHET6c1XWodaG0z6iaU8Mid2KPsev/lwE4TPb9vJdiOSKGZwQorjOhJxhhjP
-	GyW06S5Yq8D0y0nvE
-X-Google-Smtp-Source: AGHT+IEh2dxMPj7kTH/MLpVyfxHPA3w9CgIogon2Q5H7XcXm3dZOwAfa/YfCslxFD2QlnH7LR4V86w==
-X-Received: by 2002:a05:6a20:559c:b0:216:1476:f6c with SMTP id adf61e73a8af0-21614761195mr1115182637.13.1747302250378;
-        Thu, 15 May 2025 02:44:10 -0700 (PDT)
-Received: from L6YN4KR4K9.bytedance.net ([61.213.176.9])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b234941b886sm10299693a12.2.2025.05.15.02.44.07
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 15 May 2025 02:44:10 -0700 (PDT)
-From: Yunhui Cui <cuiyunhui@bytedance.com>
-To: sunilvl@ventanamicro.com,
-	rafael@kernel.org,
-	lenb@kernel.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	linux-acpi@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: [PATCH] ACPI: RISC-V: CPPC: Add CSR_CYCLE for CPPC FFH
-Date: Thu, 15 May 2025 17:43:01 +0800
-Message-Id: <20250515094301.40016-1-cuiyunhui@bytedance.com>
-X-Mailer: git-send-email 2.39.2 (Apple Git-143)
+	Thu, 15 May 2025 12:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6416FA4B93E;
+	Thu, 15 May 2025 12:47:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBECAC4CEEB;
+	Thu, 15 May 2025 12:47:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747313235;
+	bh=molGG3aPYi74hz9WVuXlbE1iJFE0MWmpVUKVIij8Ws4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=HexE5EejAosqid8JNqxH9pMJdNWnmOwh5C25ih8nPZirXfRTH5rFM+vh2twGdKLdL
+	 aDgn+QSpoPhRyZ3LaqK6Tj8HsarJT4LqlVL+Oq0WjZliiZT9BPsAsEfILBYKepZcIL
+	 09XZndnuz/sB8iaazKI/kGQ2avI6mjZY1hxWaXYTLYc4XNrbXJEL6mqcVF52vZFjKR
+	 sPFrqFqYyd1+Mjzr7KXVUb3hnX3tbDoLW4wreJaqvsFQh1W/WlbX4/Zqy9h+ZXLwDB
+	 5mIOJ7SDVdKWEKzUF4jPk+Wk1aTbuPU/VW5co2u75mTDNhwAP0mKnHYp3V/rdlUrbs
+	 nbbM4NX7VNCeA==
+From: Ingo Molnar <mingo@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Linus Torvalds <torvalds@linux-foundation.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	linux-arch@vger.kernel.org,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH 11/15] bugs/riscv: Pass in 'cond_str' to __BUG_FLAGS()
+Date: Thu, 15 May 2025 14:46:40 +0200
+Message-ID: <20250515124644.2958810-12-mingo@kernel.org>
+X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250515124644.2958810-1-mingo@kernel.org>
+References: <20250515124644.2958810-1-mingo@kernel.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_024415_410097_C84CB083 
-X-CRM114-Status: UNSURE (   9.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_054716_186973_55368CB7 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,37 +79,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the read of CSR_CYCLE to cppc_ffh_csr_read() to fix the
-warning message: "CPPC Cpufreq: cppc_scale_freq_wokrfn: failed
-to read perf counters".
+Pass in the condition string from __WARN_FLAGS() to __BUG_FLAGS(),
+but don't use it yet.
 
-Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>
+Cc: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org
+Cc: <linux-arch@vger.kernel.org>
 ---
- drivers/acpi/riscv/cppc.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/riscv/include/asm/bug.h | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/acpi/riscv/cppc.c b/drivers/acpi/riscv/cppc.c
-index 4cdff387deff6..c1acaeb18eac3 100644
---- a/drivers/acpi/riscv/cppc.c
-+++ b/drivers/acpi/riscv/cppc.c
-@@ -69,11 +69,14 @@ static void cppc_ffh_csr_read(void *read_data)
- 	struct sbi_cppc_data *data = (struct sbi_cppc_data *)read_data;
+diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+index b22ee4d2c882..feaf456d465b 100644
+--- a/arch/riscv/include/asm/bug.h
++++ b/arch/riscv/include/asm/bug.h
+@@ -50,7 +50,7 @@ typedef u32 bug_insn_t;
+ #endif
  
- 	switch (data->reg) {
--	/* Support only TIME CSR for now */
- 	case CSR_TIME:
- 		data->ret.value = csr_read(CSR_TIME);
- 		data->ret.error = 0;
- 		break;
-+	case CSR_CYCLE:
-+		data->ret.value = csr_read(CSR_CYCLE);
-+		data->ret.error = 0;
-+		break;
- 	default:
- 		data->ret.error = -EINVAL;
- 		break;
+ #ifdef CONFIG_GENERIC_BUG
+-#define __BUG_FLAGS(flags)					\
++#define __BUG_FLAGS(cond_str, flags)				\
+ do {								\
+ 	__asm__ __volatile__ (					\
+ 		"1:\n\t"					\
+@@ -66,17 +66,17 @@ do {								\
+ 		  "i" (sizeof(struct bug_entry)));              \
+ } while (0)
+ #else /* CONFIG_GENERIC_BUG */
+-#define __BUG_FLAGS(flags) do {					\
++#define __BUG_FLAGS(cond_str, flags) do {			\
+ 	__asm__ __volatile__ ("ebreak\n");			\
+ } while (0)
+ #endif /* CONFIG_GENERIC_BUG */
+ 
+ #define BUG() do {						\
+-	__BUG_FLAGS(0);						\
++	__BUG_FLAGS("", 0);					\
+ 	unreachable();						\
+ } while (0)
+ 
+-#define __WARN_FLAGS(cond_str, flags) __BUG_FLAGS(BUGFLAG_WARNING|(flags))
++#define __WARN_FLAGS(cond_str, flags) __BUG_FLAGS(cond_str, BUGFLAG_WARNING|(flags))
+ 
+ #define HAVE_ARCH_BUG
+ 
 -- 
-2.39.2
+2.45.2
 
 
 _______________________________________________
