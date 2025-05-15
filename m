@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADAFBC3ABC9
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 08:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D006C2D0CD
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 09:07:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KMDjJbcjCElI/MX11Qq1kx/0fqlnSjZ3SKf0zMcjBtA=; b=FGvDahMRpEN0Fi
-	W0r4ClmdkiJXgwiLCs3qOxQrSEU8impXrJo0Lq6E/gA2PnaXWO2t1MoyD5Bo+vIW768303XCURzA0
-	YMgkmVZhxA1p22yicZd9eYylOEJA/E644DnSnTAkt1th3qJAXPvWRDemRu4u7dCg9qQnMnUFtR70s
-	DqEV0Pus4dvRlEiv90J0+dWc3fDFw50B2thGskkjAsHRIPBWJWHH4OsRncvkIlC6Nj8p0ofmxWaXv
-	16d08Ufj3Octh8sfR0KoFEeCcMRamkDYNMzwVspBiGTY/lmBA0IyabKl4ojI+Zhtf3yNw3xAindT0
-	NdjRIP6jySl21SpQgIeg==;
+	List-Owner; bh=a97wUA64bpv08RIHGAMr7JuIo59f/3m89S7rTaykqvo=; b=KiDFeAX3XiUv/N
+	2cdz00nO5OXESUVYWx96uaQZ51QOwVL6ZFl08Tx6TIiO94PoqOyI2jnaXMUgnevaUoN9ZiX82egvx
+	kY9i0faKbhxBLJzkz2EjUwVQf82qA0l83G1cO88j77OJEvL4nrJRD69q9KgivWsGndIGBkhgtpMQZ
+	QglnHJ0uAjrEg8avDXXCWA1iZ4EMdmyaPvu3G7aYBzPByhKKVyXO4olG9Vz3xSpmSbgp38ybyV4+9
+	zvZvs83Z/P9j9Kd+BkjF2UvN2yw9XWYzQBTBMKkfXeljhFZUMnkU2ldSX/UTCrZEwHoKNOpvCPQWR
+	529T0PxlzU84YX6IX8+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUPK-0000000040z-27Jg;
-	Thu, 15 May 2025 08:57:38 +0000
+	id 1uFUZF-0000000068e-3tUq;
+	Thu, 15 May 2025 09:07:53 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFUDF-0000000023x-3rRb
+	id 1uFULG-000000003Ji-1fOv
 	for linux-riscv@bombadil.infradead.org;
-	Thu, 15 May 2025 08:45:10 +0000
+	Thu, 15 May 2025 08:53:26 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
 	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=VhHmyZbMTo2sbKx2W59Hr1f+gzuxwkICtc+JRuVj7a8=; b=JPPEAjy4WjLlB7Lx5gD965g2B1
-	SDElWmTyb5XlNrfS19EC2OGuCzrvdGa88Z822NjicQUGGvFaAjCqPzK/tqY3vw9wyZ7SKWJOrVWJL
-	W/IVMSqcrcKG9o8nwbuLY7kBYoZXbM+JRtS3ESbTQ094LKeEaSXQoDFb2ZNaAS1u89t4PjnAATvPb
-	ljY2mX/Kcf4+1tvK3yWsQI2o0m0GKS125ji+Pn8+DZ1L28h/FTquazU+pfkDl9LqooeMQEUmdUmVF
-	k7uT45tOeNAgbVB8zc5iNwd/4P263ICTR0+QTu7PmMoLlMLKUYxDqY2sCC3hs1YfmIQ18P7c7iOdG
-	o8NzYTBQ==;
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	bh=nOVoQnwWT25lQttWoZH7JoBjuOJGRtQg1frpngi8VzY=; b=Ro0CJB5paHW6p05Mi77lguiN00
+	PoM4kEpG26712N3v1uBGDbjAzDhPzWWHWg+8mxz8gwaYgiEo1xr91ZKnsm5KcbaN5HtAijJoARfbP
+	R2Q8NJbzmjTGXA1gZR0I0SHUksllTTv7oWDAWRyqb2HU67NzVkxFKhymVKoXXM7qZz9YmQYFtHAyP
+	ZOKHCiWrwN9gWjl60l89XfgwOaMDL4RvHuVLaSMi63n4T2BPbgd0GZL7LDAsUB5L6tKZKXrLYMgFy
+	AKusOGvcuvsZehVXHx5CvpJzqI8hAhG1xLlGuLRynXZzvvP5/et2TXNr3nnC7fzj+zKo4bvOqm6n/
+	mU6VxboA==;
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uFUDA-0000000HPS5-0pq1
+	id 1uFULD-0000000HQ0m-0tAd
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 May 2025 08:45:08 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-72d3b48d2ffso640978b3a.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 01:44:48 -0700 (PDT)
+	Thu, 15 May 2025 08:53:25 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-736c277331eso1605632b3a.1
+        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 01:53:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=inventec.com; s=google; t=1747298687; x=1747903487; darn=lists.infradead.org;
+        d=inventec.com; s=google; t=1747299201; x=1747904001; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VhHmyZbMTo2sbKx2W59Hr1f+gzuxwkICtc+JRuVj7a8=;
-        b=FjO9Y7CgBZnZS/HirjEnWPS3F9vT+ECoAuB6Eg/FLtYQP9wKHtEr6q3FIR9JQlzMN1
-         VuCdqOx+qsfntPPbqWd26Ounb1Br4lAaPwNmBQYFcV7CZN2P/o/Sxw123vXPKtW4UCE4
-         AUizuylRJAT3oAbyiKzwamBv+MhWhZDzSJr+DGlOsTZryVbs/srGepiT0ex1Qy0j14ZF
-         HLpUv9flLSEaXzfxyJxuMbB2GNHvW1RL52ta96pU9dw4V/GrnF4BbySSakmzDe3dxtK0
-         j1p8OT1kFtdZdrYUKNitmIysjMQFBDs7LsAs3SbaBEcMuwjgnNoaHK4rtxIXuW34Owtj
-         FxBg==
+        bh=nOVoQnwWT25lQttWoZH7JoBjuOJGRtQg1frpngi8VzY=;
+        b=YsQWGrpIDh9mLa75/l3luUuj4WoxGHZCRBTxkbmtiXyu2nrXu54+trMCT6i0RNzb8A
+         TtzZYL3lcliiHtCVWYywgxgFXyhWqPHxn4z0F1gc0FrjBmb/4xcPuZBpbjfD2n5qbLMs
+         6jYJLENIN6DQsU3GuyeEYizWCUELE3+nYy1rpC5Jbtocvyduv6I5xtmXgxq09Z/UsFj9
+         2nD8rAwgV7oRpBOtB0DI6Qkq5+ygQfpWMW3nPWgNYZBLl2A/qyhUj6BwfHtsirsnc2Xg
+         LqanLqhXGpwACR4a1IPcpUMFwFfi3TuY+AoLOJPsJSw1Pgj448jtw/7eXMK6VfJlPPX0
+         UXPA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747298687; x=1747903487;
+        d=1e100.net; s=20230601; t=1747299201; x=1747904001;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=VhHmyZbMTo2sbKx2W59Hr1f+gzuxwkICtc+JRuVj7a8=;
-        b=i0kdiDY4GKW6C5A2e3ds8Mzu3yRj3Xy48FpppoJa6ZT2G1YHVmlBfaDMRDmJ1Ub0dE
-         FA1hb9SkGfQwiGqzfDZN6KsCtGJsQkCnBQmRdhHP4/W4dFL+Pt2bdALlYauWueDJGRpf
-         dttedud1y4MyPZ5IArKxzJMph7O9cRlLsmfJIf0dltUpI2iVxDcd2NCu4NLqjlmqBlQy
-         ZxL6bmobruJr0Y2rgR20XwhrwB1sVkN4eQskEdJ+tR54vHe9Q5/L4j9FLDL3EAIMlMlS
-         rdplyXnMrSy3CVPjZSkiPAdGzuWNpw1qgV4AEvxFRUM8hwEupDkT1cfuI9Q+bRlRl02D
-         ByBA==
-X-Forwarded-Encrypted: i=1; AJvYcCWZgVFxpWoB5t3vrT+5vVbqMUjpy/L2793DzIiCTHQorYOBfXZ5XpHji1HU509XYryMPUfBLI6ZGeZT3w==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDmfhc6qjVc2I2FK1pV5XRx4Be/lNBpYOfSWfy0Q3c5uqGRkR7
-	e6KBCLysFI9mwTRjd1SmIqoBYObo19OLd6rhNDdHxi0eJ0NQUDg6lh7X0PisvpE=
-X-Gm-Gg: ASbGncvWteeuW2kq1qgAfGKMd5kx7ranNzCd9IKVeIkUVBQAiIZxbjPlBxJo3fDWFj/
-	GTEWw4V7Dg9Ug+sSo7sm0OaD/Ay+urzToKlgFB+bav9ElepdmPZSJjRsELefIuw03MQ7ciYB4Jw
-	tsc9CrU43/W7CDQVeFcht/sr8ky+V5YBY44QNUvfB0MX+jnRbp7nG74NrfMyboyFlJHQ63PuaXE
-	Qz6kTUdZpd7nC3vNufHSxhKjaTsbp2rlaHDj5XwcmMsCc66tb+SwepENjLK1lQ8qJPb9ceZOFh8
-	xExt0IRe73rZOjBFPEmRjmnk30PfbwGGoJbOUJlgtYq0C0BOd3Um2o3/AJCsdaKZr5dyyOjrLrC
-	ssu9D2jk9e50syYEyCK9WtLaSnbUMO/oxxA+UhWjc8oo=
-X-Google-Smtp-Source: AGHT+IFzUOEfaBvL5eMWUGGYP7iU4mKgWs84O9+M/gf+YEsnk0IJJ0j2jvVnRtfiBNyBkTU80DY2RA==
-X-Received: by 2002:a05:6a20:2d06:b0:1f5:7280:1cf2 with SMTP id adf61e73a8af0-2161152b045mr2161115637.12.1747298687202;
-        Thu, 15 May 2025 01:44:47 -0700 (PDT)
-Received: from localhost.localdomain (59-120-179-172.hinet-ip.hinet.net. [59.120.179.172])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-74237704025sm11234247b3a.13.2025.05.15.01.44.44
+        bh=nOVoQnwWT25lQttWoZH7JoBjuOJGRtQg1frpngi8VzY=;
+        b=KRLaP2gTg3/dtxC1lP3R1Z7/0/y07RvTg2h9LWb5g/XU/jNThlZHpZf/WHgz8YdaBR
+         KdrUauC2iHD/RByldQ84vEA7mKiiNgvo+P6xl9vlOg48q+Ncfy5yXEGQri4Rek6/FtEx
+         Bec4kKANHukosCL3eKmruBGn8LVtCXl8zebVzOI5ajRO45/S1UYBmEDJSWQ1ilNPFFLE
+         w9rhyiFUsEycmeGVBKZ7Eiq/KTSd0TJn17ys7R31d7PwOQN7wPYGuMN6c4KV7fWweeYT
+         Yhc82pbzpKNOzko6oQDF60OOf0zS2q0oPJj1qDYqVWEeqe2N9DqlOjzG6wfMLZ6wxwGv
+         oQag==
+X-Forwarded-Encrypted: i=1; AJvYcCXHRgr78qQe1x2ekL8fQogIs86vqy52DR4So76Y3sh9P9TtJmxYOXGTHWEwevcbmSJyy3sr/ikQjlUtdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxNwIm8rioJnSFE46s28oCHZWZbMBu/tnwE8NqSeQtfXF9Wyksq
+	Ttvbikx/qp7UIqshDhWjAoWVPAZhEDvw3BZBbUhfldzHXhh7PBHiDVEKqycZn4I=
+X-Gm-Gg: ASbGnct/Ehu+HDr8N8BIIlsrhv924JwqhJfOxuwAOufS2ak8DymTfj6YDzhoq5yRp14
+	Plze2/Kmvsm7WzDTXHQKFB4cTYLHdYbTG28x7SVW4DLCVMXxkSdc2PH90ln1HElnFyFQNwh4o7J
+	54MmT//fVk4nc7+kdhaRFfJwQN5BUBVNG3etAb0zlL+033WXWmGxehxQc6PF8jv2CYWv/7zm1wW
+	pzhhOksePmn8aOTLtVdl+2lG/A6Zs2fDxKzQfFJHPx1NtNDXNvzk4c+c8h22W0dCimDbGidYvwx
+	GzrxZm6xorNdCfqIdAPvBcqZLDPw37FgXHXQxkUNdHOwhcGgTu+kAk/91bRNqX6viDlLpE4xei8
+	b9Jh1NWNyUBa2MMbJcOhUQBW0TkZv+SbY
+X-Google-Smtp-Source: AGHT+IENsPZ/AMQVPFzwdzV24c1hYE73gMI1F84hexuGBFYoNLNqWR0VXSlco8GETzsjYyrN3LMd4Q==
+X-Received: by 2002:a17:903:1252:b0:21f:2e:4e4e with SMTP id d9443c01a7336-231b3970b19mr36155395ad.5.1747299200653;
+        Thu, 15 May 2025 01:53:20 -0700 (PDT)
+Received: from localhost.localdomain (60-250-242-163.hinet-ip.hinet.net. [60.250.242.163])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22fc7742f3csm111237665ad.99.2025.05.15.01.53.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 15 May 2025 01:44:46 -0700 (PDT)
+        Thu, 15 May 2025 01:53:20 -0700 (PDT)
 From: Chiang Brian <chiang.brian@inventec.com>
 To: chiang.brian@inventec.com
 Cc: alex@ghiti.fr,
@@ -98,15 +98,15 @@ Cc: alex@ghiti.fr,
 	palmer@dabbelt.com,
 	paul.walmsley@sifive.com
 Subject: Re: [PATCH v7 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
-Date: Thu, 15 May 2025 16:37:06 +0800
-Message-Id: <20250515083706.1554823-1-chiang.brian@inventec.com>
+Date: Thu, 15 May 2025 16:45:40 +0800
+Message-Id: <20250515084540.1558914-1-chiang.brian@inventec.com>
 X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250515081449.1433772-3-chiang.brian@inventec.com>
-References: <20250515081449.1433772-3-chiang.brian@inventec.com>
+In-Reply-To: <20250515083706.1554823-1-chiang.brian@inventec.com>
+References: <20250515083706.1554823-1-chiang.brian@inventec.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_094504_892583_F6A13C16 
-X-CRM114-Status: GOOD (  17.67  )
+X-CRM114-CacheID: sfid-20250515_095323_329078_0DE8D63B 
+X-CRM114-Status: GOOD (  16.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,759 +123,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 14/03/2025 07:11, Chiang Brian wrote:
->
-> On 14/03/2025 04:28, Chiang Brian wrote:
-> > Add undocumented tps53685 into compatible in dt-bindings
+On 15/05/2025 08:37 GMT, Chiang Brian wrote:
+> 
+> On 14/03/2025 07:11, Chiang Brian wrote:
 > > 
-> > Signed-off-by: Chiang Brian <chiang.brian@inventec.com>
-> > ---
-> >  Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
-> >  1 file changed, 2 insertions(+)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
-> > index fadbd3c041c8..c98d69facb48 100644
-> > --- a/Documentation/devicetree/bindings/trivial-devices.yaml
-> > +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
-> > @@ -380,6 +380,8 @@ properties:
-> >            - ti,tps53676
-> >              # TI Dual channel DCAP+ multiphase controller TPS53679
-> >            - ti,tps53679
-> > +            # TI Dual channel DCAP+ multiphase controller TPS53685 with AMD-SVI3
-> > +          - ti,tps53685
->
-> There is no user of such compatible, so how can it be undocumented?
+> > On 14/03/2025 04:28, Chiang Brian wrote:
+> > > Add undocumented tps53685 into compatible in dt-bindings
+> > > 
+> > > Signed-off-by: Chiang Brian <chiang.brian@inventec.com>
+> > >  Documentation/devicetree/bindings/trivial-devices.yaml | 2 ++
+> > >  1 file changed, 2 insertions(+)
+> > > 
+> > > diff --git a/Documentation/devicetree/bindings/trivial-devices.yaml b/Documentation/devicetree/bindings/trivial-devices.yaml
+> > > index fadbd3c041c8..c98d69facb48 100644
+> > > --- a/Documentation/devicetree/bindings/trivial-devices.yaml
+> > > +++ b/Documentation/devicetree/bindings/trivial-devices.yaml
+> > > @@ -380,6 +380,8 @@ properties:
+> > >            - ti,tps53676
+> > >              # TI Dual channel DCAP+ multiphase controller TPS53679
+> > >            - ti,tps53679
+> > > +            # TI Dual channel DCAP+ multiphase controller TPS53685 with AMD-SVI3
+> > > +          - ti,tps53685
+> >
+> > There is no user of such compatible, so how can it be undocumented?
+> 
+> The following link is the patch which I would like to add support tps53685,
+> and I think it is the user of the compatible:
+> https://lore.kernel.org/lkml/20250314033040.3190642-1-chiang.brian@inventec.com/
 
-The following link is the patch which I would like to add support tps53685,
-and I think it is the user of the compatible:
-https://lore.kernel.org/lkml/20250314033040.3190642-1-chiang.brian@inventec.com/
-
-On Thu, May 14, 2025 at 03:30:38AM GMT, Chiang Brian wrote:
-> v6 -> v7:
->	 1. Modify the type of device_id from u16 to char *
->	 2. Run make.cross with ARCH nios2, powerpc, and riscv
->	 - Link to v6: https://lore.kernel.org/all/20250424132538.2004510-2-chiang.brian@inventec.corp-partner.google.com/
-
-Here are the results of compiling with mentioned architectures
-
-nios2:
-~/linux$ COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-13.3.0 ~/lkp-tests/kbuild/make.cross W=1 O=build_dir ARCH=nios2 SHELL=/bin/bash drivers/hwmon/pmbus/
-Compiler will be installed in /home/docker-brian/0day
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-make --keep-going CONFIG_OF_ALL_DTBS=y CONFIG_DTC=y CROSS_COMPILE=/home/docker-brian/0day/gcc-13.3.0-nolibc/nios2-linux/bin/nios2-linux- --jobs=256 KCFLAGS= -Wno-error=return-type -Wreturn-type -funsigned-char -Wundef W=1 O=build_dir ARCH=nios2 SHELL=/bin/bash drivers/hwmon/pmbus/
-make[1]: Entering directory '/home/docker-brian/linux/build_dir'
-  SYNC    include/config/auto.conf.cmd
-  GEN     Makefile
-  GEN     Makefile
-  HOSTCC  scripts/dtc/dtc.o
-  HOSTCC  scripts/dtc/flattree.o
-  HOSTCC  scripts/dtc/fstree.o
-  HOSTCC  scripts/dtc/data.o
-  HOSTCC  scripts/dtc/livetree.o
-  HOSTCC  scripts/dtc/treesource.o
-  HOSTCC  scripts/dtc/srcpos.o
-  HOSTCC  scripts/dtc/checks.o
-  HOSTCC  scripts/dtc/util.o
-  LEX     scripts/dtc/dtc-lexer.lex.c
-  YACC    scripts/dtc/dtc-parser.tab.[ch]
-  HOSTCC  scripts/dtc/libfdt/fdt.o
-  HOSTCC  scripts/dtc/libfdt/fdt_ro.o
-  HOSTCC  scripts/dtc/libfdt/fdt_wip.o
-  HOSTCC  scripts/dtc/libfdt/fdt_sw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_rw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_strerror.o
-  HOSTCC  scripts/dtc/libfdt/fdt_empty_tree.o
-  HOSTCC  scripts/dtc/libfdt/fdt_addresses.o
-  HOSTCC  scripts/dtc/libfdt/fdt_overlay.o
-  HOSTCC  scripts/dtc/fdtoverlay.o
-  WRAP    arch/nios2/include/generated/uapi/asm/ucontext.h
-  WRAP    arch/nios2/include/generated/uapi/asm/auxvec.h
-  WRAP    arch/nios2/include/generated/uapi/asm/bitsperlong.h
-  WRAP    arch/nios2/include/generated/uapi/asm/bpf_perf_event.h
-  WRAP    arch/nios2/include/generated/uapi/asm/errno.h
-  WRAP    arch/nios2/include/generated/uapi/asm/fcntl.h
-  WRAP    arch/nios2/include/generated/uapi/asm/ioctl.h
-  WRAP    arch/nios2/include/generated/uapi/asm/ioctls.h
-  WRAP    arch/nios2/include/generated/uapi/asm/ipcbuf.h
-  WRAP    arch/nios2/include/generated/uapi/asm/mman.h
-  WRAP    arch/nios2/include/generated/uapi/asm/msgbuf.h
-  WRAP    arch/nios2/include/generated/uapi/asm/param.h
-  WRAP    arch/nios2/include/generated/uapi/asm/poll.h
-  WRAP    arch/nios2/include/generated/uapi/asm/posix_types.h
-  WRAP    arch/nios2/include/generated/uapi/asm/resource.h
-  WRAP    arch/nios2/include/generated/uapi/asm/sembuf.h
-  WRAP    arch/nios2/include/generated/uapi/asm/setup.h
-  UPD     include/generated/compile.h
-  WRAP    arch/nios2/include/generated/uapi/asm/shmbuf.h
-  WRAP    arch/nios2/include/generated/uapi/asm/siginfo.h
-  WRAP    arch/nios2/include/generated/uapi/asm/socket.h
-  WRAP    arch/nios2/include/generated/uapi/asm/sockios.h
-  WRAP    arch/nios2/include/generated/uapi/asm/stat.h
-  WRAP    arch/nios2/include/generated/uapi/asm/statfs.h
-  WRAP    arch/nios2/include/generated/uapi/asm/termbits.h
-  WRAP    arch/nios2/include/generated/uapi/asm/termios.h
-  WRAP    arch/nios2/include/generated/uapi/asm/types.h
-  SYSHDR  arch/nios2/include/generated/uapi/asm/unistd_32.h
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  WRAP    arch/nios2/include/generated/asm/cmpxchg.h
-  WRAP    arch/nios2/include/generated/asm/extable.h
-  WRAP    arch/nios2/include/generated/asm/kvm_para.h
-  WRAP    arch/nios2/include/generated/asm/mcs_spinlock.h
-  WRAP    arch/nios2/include/generated/asm/spinlock.h
-  WRAP    arch/nios2/include/generated/asm/user.h
-  WRAP    arch/nios2/include/generated/asm/text-patching.h
-  WRAP    arch/nios2/include/generated/asm/atomic.h
-  WRAP    arch/nios2/include/generated/asm/archrandom.h
-  WRAP    arch/nios2/include/generated/asm/barrier.h
-  WRAP    arch/nios2/include/generated/asm/bitops.h
-  WRAP    arch/nios2/include/generated/asm/bug.h
-  WRAP    arch/nios2/include/generated/asm/cfi.h
-  WRAP    arch/nios2/include/generated/asm/compat.h
-  WRAP    arch/nios2/include/generated/asm/current.h
-  WRAP    arch/nios2/include/generated/asm/device.h
-  WRAP    arch/nios2/include/generated/asm/div64.h
-  WRAP    arch/nios2/include/generated/asm/dma-mapping.h
-  WRAP    arch/nios2/include/generated/asm/dma.h
-  WRAP    arch/nios2/include/generated/asm/emergency-restart.h
-  WRAP    arch/nios2/include/generated/asm/exec.h
-  WRAP    arch/nios2/include/generated/asm/ftrace.h
-  WRAP    arch/nios2/include/generated/asm/futex.h
-  WRAP    arch/nios2/include/generated/asm/hardirq.h
-  WRAP    arch/nios2/include/generated/asm/hw_irq.h
-  WRAP    arch/nios2/include/generated/asm/irq_regs.h
-  WRAP    arch/nios2/include/generated/asm/irq_work.h
-  WRAP    arch/nios2/include/generated/asm/kdebug.h
-  WRAP    arch/nios2/include/generated/asm/kmap_size.h
-  WRAP    arch/nios2/include/generated/asm/kprobes.h
-  WRAP    arch/nios2/include/generated/asm/local.h
-  WRAP    arch/nios2/include/generated/asm/local64.h
-  WRAP    arch/nios2/include/generated/asm/mmiowb.h
-  WRAP    arch/nios2/include/generated/asm/module.h
-  WRAP    arch/nios2/include/generated/asm/module.lds.h
-  WRAP    arch/nios2/include/generated/asm/msi.h
-  WRAP    arch/nios2/include/generated/asm/pci.h
-  WRAP    arch/nios2/include/generated/asm/percpu.h
-  WRAP    arch/nios2/include/generated/asm/rqspinlock.h
-  WRAP    arch/nios2/include/generated/asm/preempt.h
-  WRAP    arch/nios2/include/generated/asm/runtime-const.h
-  WRAP    arch/nios2/include/generated/asm/rwonce.h
-  WRAP    arch/nios2/include/generated/asm/sections.h
-  WRAP    arch/nios2/include/generated/asm/serial.h
-  WRAP    arch/nios2/include/generated/asm/simd.h
-  WRAP    arch/nios2/include/generated/asm/softirq_stack.h
-  WRAP    arch/nios2/include/generated/asm/topology.h
-  WRAP    arch/nios2/include/generated/asm/trace_clock.h
-  WRAP    arch/nios2/include/generated/asm/vermagic.h
-  WRAP    arch/nios2/include/generated/asm/vga.h
-  WRAP    arch/nios2/include/generated/asm/word-at-a-time.h
-  WRAP    arch/nios2/include/generated/asm/video.h
-  WRAP    arch/nios2/include/generated/asm/xor.h
-  SYSTBL  arch/nios2/include/generated/asm/syscall_table_32.h
-  HOSTLD  scripts/dtc/fdtoverlay
-  HOSTLD  scripts/dtc/dtc
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/mod/mk_elfconfig
-  CC      scripts/mod/empty.o
-  CC      scripts/mod/devicetable-offsets.s
-  UPD     scripts/mod/devicetable-offsets.h
-  MKELF   scripts/mod/elfconfig.h
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/mod/symsearch.o
-  HOSTLD  scripts/mod/modpost
-  CC      kernel/bounds.s
-  CHKSHA1 ../include/linux/atomic/atomic-arch-fallback.h
-  CHKSHA1 ../include/linux/atomic/atomic-instrumented.h
-  CHKSHA1 ../include/linux/atomic/atomic-long.h
-  UPD     include/generated/bounds.h
-  CC      arch/nios2/kernel/asm-offsets.s
-  UPD     include/generated/asm-offsets.h
-  CALL    ../scripts/checksyscalls.sh
-  CC      drivers/hwmon/pmbus/pmbus_core.o
-  CC      drivers/hwmon/pmbus/adm1275.o
-  CC      drivers/hwmon/pmbus/adp1050.o
-  CC      drivers/hwmon/pmbus/bpa-rs600.o
-  CC      drivers/hwmon/pmbus/ina233.o
-  CC      drivers/hwmon/pmbus/inspur-ipsps.o
-  CC      drivers/hwmon/pmbus/ir35221.o
-  CC      drivers/hwmon/pmbus/ir36021.o
-  CC      drivers/hwmon/pmbus/isl68137.o
-  CC      drivers/hwmon/pmbus/lm25066.o
-  CC      drivers/hwmon/pmbus/ltc3815.o
-  CC      drivers/hwmon/pmbus/ltc4286.o
-  CC      drivers/hwmon/pmbus/max15301.o
-  CC      drivers/hwmon/pmbus/max16601.o
-  CC      drivers/hwmon/pmbus/max8688.o
-  CC      drivers/hwmon/pmbus/mp2856.o
-  CC      drivers/hwmon/pmbus/mp2888.o
-  CC      drivers/hwmon/pmbus/mp2891.o
-  CC      drivers/hwmon/pmbus/mp5023.o
-  CC      drivers/hwmon/pmbus/mp9941.o
-  CC      drivers/hwmon/pmbus/mpq7932.o
-  CC      drivers/hwmon/pmbus/mpq8785.o
-  CC      drivers/hwmon/pmbus/pm6764tr.o
-  CC      drivers/hwmon/pmbus/stpddc60.o
-  CC      drivers/hwmon/pmbus/tda38640.o
-  CC      drivers/hwmon/pmbus/tps25990.o
-  CC      drivers/hwmon/pmbus/tps40422.o
-  CC      drivers/hwmon/pmbus/tps53679.o
-  CC      drivers/hwmon/pmbus/tps546d24.o
-  CC      drivers/hwmon/pmbus/ucd9200.o
-  CC      drivers/hwmon/pmbus/xdp710.o
-  CC      drivers/hwmon/pmbus/xdpe152c4.o
-  CC      drivers/hwmon/pmbus/pim4328.o
-  CC      drivers/hwmon/pmbus/crps.o
-  AR      drivers/hwmon/pmbus/built-in.a
-make[1]: Leaving directory '/home/docker-brian/linux/build_dir'
-
-powerpc:
-~/linux$ COMPILER_INSTALL_PATH=$HOME/0day COMPILER=clang-21 ~/lkp-tests/kbuild/make.cross W=1 O=build_dir ARCH=powerpc SHELL=/bin/bash drivers/hwmon/pmbus/
-Compiler will be installed in /home/docker-brian/0day
-PATH=/home/docker-brian/0day/clang-21/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-make --keep-going CONFIG_OF_ALL_DTBS=y CONFIG_DTC=y LLVM=1 CROSS_COMPILE=powerpc64-linux- --jobs=256 KCFLAGS= -Wno-error=return-type -Wreturn-type -funsigned-char -Wundef W=1 O=build_dir ARCH=powerpc SHELL=/bin/bash drivers/hwmon/pmbus/
-make[1]: Entering directory '/home/docker-brian/linux/build_dir'
-  GEN     Makefile
-  HOSTCC  scripts/basic/fixdep
-  SYSHDR  arch/powerpc/include/generated/uapi/asm/unistd_32.h
-  SYSHDR  arch/powerpc/include/generated/uapi/asm/unistd_64.h
-  SYSTBL  arch/powerpc/include/generated/asm/syscall_table_32.h
-  SYSTBL  arch/powerpc/include/generated/asm/syscall_table_64.h
-  SYSTBL  arch/powerpc/include/generated/asm/syscall_table_spu.h
-  HOSTCC  scripts/dtc/dtc.o
-  HOSTCC  scripts/dtc/flattree.o
-  HOSTCC  scripts/dtc/fstree.o
-  HOSTCC  scripts/dtc/data.o
-  HOSTCC  scripts/dtc/livetree.o
-  HOSTCC  scripts/dtc/treesource.o
-  HOSTCC  scripts/dtc/srcpos.o
-  HOSTCC  scripts/dtc/checks.o
-  HOSTCC  scripts/dtc/util.o
-  LEX     scripts/dtc/dtc-lexer.lex.c
-  YACC    scripts/dtc/dtc-parser.tab.[ch]
-  HOSTCC  scripts/dtc/libfdt/fdt.o
-  HOSTCC  scripts/dtc/libfdt/fdt_ro.o
-  HOSTCC  scripts/dtc/libfdt/fdt_wip.o
-  HOSTCC  scripts/dtc/libfdt/fdt_sw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_rw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_strerror.o
-  HOSTCC  scripts/dtc/libfdt/fdt_empty_tree.o
-  HOSTCC  scripts/dtc/libfdt/fdt_addresses.o
-  HOSTCC  scripts/dtc/libfdt/fdt_overlay.o
-  HOSTCC  scripts/dtc/fdtoverlay.o
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  HOSTLD  scripts/dtc/fdtoverlay
-  HOSTLD  scripts/dtc/dtc
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/sorttable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/mod/mk_elfconfig
-  CC      scripts/mod/empty.o
-  CC      scripts/mod/devicetable-offsets.s
-  MKELF   scripts/mod/elfconfig.h
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/mod/symsearch.o
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTLD  scripts/mod/modpost
-  CC      kernel/bounds.s
-  CHKSHA1 ../include/linux/atomic/atomic-arch-fallback.h
-  CHKSHA1 ../include/linux/atomic/atomic-instrumented.h
-  CHKSHA1 ../include/linux/atomic/atomic-long.h
-  CC      arch/powerpc/kernel/asm-offsets.s
-  CALL    ../scripts/checksyscalls.sh
-  LDS     arch/powerpc/kernel/vdso/vdso32.lds
-  VDSO32A arch/powerpc/kernel/vdso/sigtramp32-32.o
-  VDSO32A arch/powerpc/kernel/vdso/gettimeofday-32.o
-  VDSO32A arch/powerpc/kernel/vdso/datapage-32.o
-  VDSO32A arch/powerpc/kernel/vdso/cacheflush-32.o
-  VDSO32A arch/powerpc/kernel/vdso/note-32.o
-  VDSO32A arch/powerpc/kernel/vdso/getcpu-32.o
-  VDSO32A arch/powerpc/kernel/vdso/getrandom-32.o
-  VDSO32A arch/powerpc/kernel/vdso/vgetrandom-chacha-32.o
-  VDSO32C arch/powerpc/kernel/vdso/vgettimeofday-32.o
-  VDSO32C arch/powerpc/kernel/vdso/vgetrandom-32.o
-  VDSO32A arch/powerpc/kernel/vdso/crtsavres-32.o
-  VDSO32L arch/powerpc/kernel/vdso/vdso32.so.dbg
-  VDSO32SYM include/generated/vdso32-offsets.h
-  LDS     arch/powerpc/kernel/vdso/vdso64.lds
-  VDSO64A arch/powerpc/kernel/vdso/sigtramp64-64.o
-  VDSO64A arch/powerpc/kernel/vdso/gettimeofday-64.o
-  VDSO64A arch/powerpc/kernel/vdso/datapage-64.o
-  VDSO64A arch/powerpc/kernel/vdso/cacheflush-64.o
-  VDSO64A arch/powerpc/kernel/vdso/note-64.o
-  VDSO64A arch/powerpc/kernel/vdso/getcpu-64.o
-  VDSO64A arch/powerpc/kernel/vdso/getrandom-64.o
-  VDSO64A arch/powerpc/kernel/vdso/vgetrandom-chacha-64.o
-  CC      arch/powerpc/kernel/vdso/vgettimeofday-64.o
-  CC      arch/powerpc/kernel/vdso/vgetrandom-64.o
-  VDSO64L arch/powerpc/kernel/vdso/vdso64.so.dbg
-  VDSO64SYM include/generated/vdso64-offsets.h
-  CC      drivers/hwmon/pmbus/pmbus_core.o
-  CC      drivers/hwmon/pmbus/adm1275.o
-  CC      drivers/hwmon/pmbus/adp1050.o
-  CC      drivers/hwmon/pmbus/bpa-rs600.o
-  CC      drivers/hwmon/pmbus/ina233.o
-  CC      drivers/hwmon/pmbus/inspur-ipsps.o
-  CC      drivers/hwmon/pmbus/ir35221.o
-  CC      drivers/hwmon/pmbus/ir36021.o
-  CC      drivers/hwmon/pmbus/isl68137.o
-  CC      drivers/hwmon/pmbus/lm25066.o
-  CC      drivers/hwmon/pmbus/ltc3815.o
-  CC      drivers/hwmon/pmbus/ltc4286.o
-  CC      drivers/hwmon/pmbus/max15301.o
-  CC      drivers/hwmon/pmbus/max16601.o
-  CC      drivers/hwmon/pmbus/max8688.o
-  CC      drivers/hwmon/pmbus/mp2856.o
-  CC      drivers/hwmon/pmbus/mp2888.o
-  CC      drivers/hwmon/pmbus/mp2891.o
-  CC      drivers/hwmon/pmbus/mp5023.o
-  CC      drivers/hwmon/pmbus/mp9941.o
-  CC      drivers/hwmon/pmbus/mpq7932.o
-  CC      drivers/hwmon/pmbus/mpq8785.o
-  CC      drivers/hwmon/pmbus/pm6764tr.o
-  CC      drivers/hwmon/pmbus/tda38640.o
-  CC      drivers/hwmon/pmbus/stpddc60.o
-  CC      drivers/hwmon/pmbus/tps25990.o
-  CC      drivers/hwmon/pmbus/tps40422.o
-  CC      drivers/hwmon/pmbus/tps53679.o
-  CC      drivers/hwmon/pmbus/tps546d24.o
-  CC      drivers/hwmon/pmbus/ucd9200.o
-  CC      drivers/hwmon/pmbus/xdp710.o
-  CC      drivers/hwmon/pmbus/xdpe152c4.o
-  CC      drivers/hwmon/pmbus/pim4328.o
-  CC      drivers/hwmon/pmbus/crps.o
-  AR      drivers/hwmon/pmbus/built-in.a
-make[1]: Leaving directory '/home/docker-brian/linux/build_dir'
-
-riscv:
-~/linux$ COMPILER_INSTALL_PATH=$HOME/0day COMPILER=gcc-8.5.0 ~/lkp-tests/kbuild/make.cross C=1 CF='-fdiagnostic-prefix -D__CHECK_ENDIAN__ -fmax-errors=unlimited -fmax-warnings=unlimited' O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/vendor_extensions/ drivers/acpi/apei/ drivers/hwmon/pmbus/ drivers/mfd/
-Compiler will be installed in /home/docker-brian/0day
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-make --keep-going CONFIG_OF_ALL_DTBS=y CONFIG_DTC=y CROSS_COMPILE=/home/docker-brian/0day/gcc-8.5.0-nolibc/riscv64-linux/bin/riscv64-linux- --jobs=256 KCFLAGS= -Wno-error=return-type -Wreturn-type -funsigned-char -Wundef C=1 CF=-fdiagnostic-prefix -D__CHECK_ENDIAN__ -fmax-errors=unlimited -fmax-warnings=unlimited O=build_dir ARCH=riscv SHELL=/bin/bash arch/riscv/kernel/vendor_extensions/ drivers/acpi/apei/ drivers/hwmon/pmbus/ drivers/mfd/
-make[1]: Entering directory '/home/docker-brian/linux/build_dir'
-  SYSHDR  arch/riscv/include/generated/uapi/asm/unistd_32.h
-  GEN     Makefile
-  SYSHDR  arch/riscv/include/generated/uapi/asm/unistd_64.h
-  HOSTCC  scripts/basic/fixdep
-  SYSTBL  arch/riscv/include/generated/asm/syscall_table_32.h
-  SYSTBL  arch/riscv/include/generated/asm/syscall_table_64.h
-  HOSTCC  scripts/dtc/dtc.o
-  HOSTCC  scripts/dtc/flattree.o
-  HOSTCC  scripts/dtc/fstree.o
-  HOSTCC  scripts/dtc/data.o
-  HOSTCC  scripts/dtc/livetree.o
-  HOSTCC  scripts/dtc/treesource.o
-  HOSTCC  scripts/dtc/srcpos.o
-  HOSTCC  scripts/dtc/checks.o
-  HOSTCC  scripts/dtc/util.o
-  LEX     scripts/dtc/dtc-lexer.lex.c
-  YACC    scripts/dtc/dtc-parser.tab.[ch]
-  HOSTCC  scripts/dtc/libfdt/fdt.o
-  HOSTCC  scripts/dtc/libfdt/fdt_ro.o
-  HOSTCC  scripts/dtc/libfdt/fdt_wip.o
-  HOSTCC  scripts/dtc/libfdt/fdt_sw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_rw.o
-  HOSTCC  scripts/dtc/libfdt/fdt_strerror.o
-  HOSTCC  scripts/dtc/libfdt/fdt_empty_tree.o
-  HOSTCC  scripts/dtc/libfdt/fdt_addresses.o
-  HOSTCC  scripts/dtc/libfdt/fdt_overlay.o
-  HOSTCC  scripts/dtc/fdtoverlay.o
-  HOSTCC  scripts/dtc/dtc-lexer.lex.o
-  HOSTCC  scripts/dtc/dtc-parser.tab.o
-  HOSTLD  scripts/dtc/fdtoverlay
-  HOSTLD  scripts/dtc/dtc
-  HOSTCC  scripts/kallsyms
-  HOSTCC  scripts/sorttable
-  HOSTCC  scripts/asn1_compiler
-  HOSTCC  scripts/mod/mk_elfconfig
-  CC      scripts/mod/empty.o
-  CC      scripts/mod/devicetable-offsets.s
-  CHECK   ../scripts/mod/empty.c
-  MKELF   scripts/mod/elfconfig.h
-  HOSTCC  scripts/mod/modpost.o
-  HOSTCC  scripts/mod/file2alias.o
-  HOSTCC  scripts/mod/sumversion.o
-  HOSTCC  scripts/mod/symsearch.o
-  HOSTLD  scripts/mod/modpost
-  CC      kernel/bounds.s
-  CHKSHA1 ../include/linux/atomic/atomic-arch-fallback.h
-  CHKSHA1 ../include/linux/atomic/atomic-instrumented.h
-  CHKSHA1 ../include/linux/atomic/atomic-long.h
-  CC      arch/riscv/kernel/asm-offsets.s
-  CALL    ../scripts/checksyscalls.sh
-  LDS     arch/riscv/kernel/vdso/vdso.lds
-  AS      arch/riscv/kernel/vdso/rt_sigreturn.o
-  CC      arch/riscv/kernel/vdso/vgettimeofday.o
-  AS      arch/riscv/kernel/vdso/getcpu.o
-  AS      arch/riscv/kernel/vdso/flush_icache.o
-  CC      arch/riscv/kernel/vdso/hwprobe.o
-  AS      arch/riscv/kernel/vdso/sys_hwprobe.o
-  AS      arch/riscv/kernel/vdso/note.o
-  CHECK   ../arch/riscv/kernel/vdso/vgettimeofday.c
-  CHECK   ../arch/riscv/kernel/vdso/hwprobe.c
-  VDSOLD  arch/riscv/kernel/vdso/vdso.so.dbg
-  VDSOSYM include/generated/vdso-offsets.h
-  LDS     arch/riscv/kernel/compat_vdso/compat_vdso.lds
-  VDSOAS  arch/riscv/kernel/compat_vdso/rt_sigreturn.o
-  VDSOAS  arch/riscv/kernel/compat_vdso/getcpu.o
-  VDSOAS  arch/riscv/kernel/compat_vdso/flush_icache.o
-  VDSOAS  arch/riscv/kernel/compat_vdso/note.o
-  VDSOLD  arch/riscv/kernel/compat_vdso/compat_vdso.so.dbg
-  VDSOSYM include/generated/compat_vdso-offsets.h
-make[4]: Nothing to be done for 'drivers/acpi/apei/'.
-  CC      drivers/mfd/88pm860x-core.o
-  CC      arch/riscv/kernel/vendor_extensions/andes.o
-  CC      arch/riscv/kernel/vendor_extensions/thead.o
-  CC      drivers/mfd/88pm860x-i2c.o
-  CC      arch/riscv/kernel/vendor_extensions/thead_hwprobe.o
-  CC      drivers/mfd/88pm800.o
-  CC      drivers/mfd/88pm80x.o
-  CC      drivers/mfd/88pm805.o
-  CC      drivers/hwmon/pmbus/pmbus_core.o
-  CC      drivers/hwmon/pmbus/adm1275.o
-  CC      drivers/mfd/88pm886.o
-  CC      drivers/hwmon/pmbus/adp1050.o
-  CC      drivers/mfd/act8945a.o
-  CC      drivers/hwmon/pmbus/bpa-rs600.o
-  CC      drivers/mfd/sm501.o
-  CC      drivers/hwmon/pmbus/ina233.o
-  CC      drivers/mfd/bcm590xx.o
-  CC      drivers/hwmon/pmbus/inspur-ipsps.o
-  CC      drivers/mfd/bd9571mwv.o
-  CC      drivers/hwmon/pmbus/ir35221.o
-  CC      drivers/mfd/cs42l43.o
-  CC      drivers/hwmon/pmbus/ir36021.o
-  CC      drivers/hwmon/pmbus/isl68137.o
-  CC      drivers/mfd/cs42l43-i2c.o
-  CC      drivers/hwmon/pmbus/lm25066.o
-  CC      drivers/mfd/exynos-lpass.o
-  CC      drivers/hwmon/pmbus/ltc3815.o
-  CC      drivers/hwmon/pmbus/ltc4286.o
-  CC      drivers/mfd/gateworks-gsc.o
-  CC      drivers/hwmon/pmbus/max15301.o
-  CC      drivers/mfd/lp87565.o
-  CC      drivers/hwmon/pmbus/max16601.o
-  CC      drivers/hwmon/pmbus/max8688.o
-  CC      drivers/mfd/ti_am335x_tscadc.o
-  CC      drivers/hwmon/pmbus/mp2856.o
-  CC      drivers/mfd/stmpe.o
-  CC      drivers/hwmon/pmbus/mp2888.o
-  CC      drivers/hwmon/pmbus/mp2891.o
-  CC      drivers/mfd/stmpe-i2c.o
-  CC      drivers/hwmon/pmbus/mp5023.o
-  CC      drivers/hwmon/pmbus/mp9941.o
-  CC      drivers/mfd/sun6i-prcm.o
-  CC      drivers/hwmon/pmbus/mpq7932.o
-  CC      drivers/mfd/tc3589x.o
-  CC      drivers/hwmon/pmbus/mpq8785.o
-  CC      drivers/hwmon/pmbus/pm6764tr.o
-  CC      drivers/hwmon/pmbus/stpddc60.o
-  CC      drivers/hwmon/pmbus/tda38640.o
-  CC      drivers/hwmon/pmbus/tps25990.o
-  CC      drivers/mfd/tqmx86.o
-  CC      drivers/hwmon/pmbus/tps40422.o
-  CC      drivers/hwmon/pmbus/tps53679.o
-  CC      drivers/hwmon/pmbus/tps546d24.o
-  CC      drivers/mfd/lochnagar-i2c.o
-  CC      drivers/hwmon/pmbus/ucd9200.o
-  CC      drivers/hwmon/pmbus/xdp710.o
-  CC      drivers/hwmon/pmbus/xdpe152c4.o
-  CC      drivers/hwmon/pmbus/pim4328.o
-  CC      drivers/mfd/arizona-core.o
-  CC      drivers/hwmon/pmbus/crps.o
-  CC      drivers/mfd/arizona-irq.o
-  CC      drivers/mfd/wm8997-tables.o
-  CC      drivers/mfd/arizona-spi.o
-  CC      drivers/mfd/wm8400-core.o
-  CC      drivers/mfd/wm831x-core.o
-  CC      drivers/mfd/wm831x-irq.o
-  CC      drivers/mfd/wm831x-otp.o
-  CC      drivers/mfd/wm831x-auxadc.o
-  CC      drivers/mfd/wm831x-i2c.o
-  CC      drivers/mfd/wm8350-core.o
-  CC      drivers/mfd/wm8350-regmap.o
-  CC      drivers/mfd/wm8350-gpio.o
-  CC      drivers/mfd/wm8350-irq.o
-  CC      drivers/mfd/wm8350-i2c.o
-  CC      drivers/mfd/madera-core.o
-  CC      drivers/mfd/cs47l85-tables.o
-  CC      drivers/mfd/cs47l90-tables.o
-  CC      drivers/mfd/cs47l92-tables.o
-  CC      drivers/mfd/madera-i2c.o
-  CHECK   ../arch/riscv/kernel/vendor_extensions/thead_hwprobe.c
-  CC      drivers/mfd/madera-spi.o
-  CC      drivers/mfd/tps6105x.o
-  CC      drivers/mfd/tps6507x.o
-  CC      drivers/mfd/tps65219.o
-  CHECK   ../arch/riscv/kernel/vendor_extensions/andes.c
-  CC      drivers/mfd/tps65910.o
-  CHECK   ../arch/riscv/kernel/vendor_extensions/thead.c
-  CC      drivers/mfd/tps65912-core.o
-  CC      drivers/mfd/tps65912-spi.o
-  CC      drivers/mfd/tps6594-core.o
-  CC      drivers/mfd/tps6594-i2c.o
-  CC      drivers/mfd/tps6594-spi.o
-  CC      drivers/mfd/fsl-imx25-tsadc.o
-  CC      drivers/mfd/mc13xxx-core.o
-  CC      drivers/mfd/mc13xxx-spi.o
-  CC      drivers/mfd/mfd-core.o
-  CC      drivers/mfd/da9052-irq.o
-  CC      drivers/mfd/da9052-core.o
-  CC      drivers/mfd/da9052-spi.o
-  CC      drivers/mfd/da9052-i2c.o
-  CC      drivers/mfd/lp8788.o
-  AR      arch/riscv/kernel/vendor_extensions/built-in.a
-  CC      drivers/mfd/lp8788-irq.o
-  CC      drivers/mfd/ti-lmu.o
-  CC      drivers/mfd/da9055-core.o
-  CC      drivers/mfd/da9055-i2c.o
-  CC      drivers/mfd/da9062-core.o
-  CC      drivers/mfd/da9063-core.o
-  CC      drivers/mfd/da9063-irq.o
-  CC      drivers/mfd/da9063-i2c.o
-  CC      drivers/mfd/max14577.o
-  CC      drivers/mfd/max77620.o
-  CC      drivers/mfd/max77650.o
-  CC      drivers/mfd/max77686.o
-  CC      drivers/mfd/max77693.o
-  CC      drivers/mfd/max77705.o
-  CC      drivers/mfd/max77843.o
-  CC      drivers/mfd/max8925-core.o
-  CC      drivers/mfd/max8925-i2c.o
-  CC      drivers/mfd/max8997.o
-  CC      drivers/mfd/max8997-irq.o
-  CC      drivers/mfd/mp2629.o
-  CC      drivers/mfd/mt6360-core.o
-  CC      drivers/mfd/mt6370.o
-  CC      drivers/mfd/rz-mtu3.o
-  CC      drivers/mfd/abx500-core.o
-  CC      drivers/mfd/adp5520.o
-  CC      drivers/mfd/adp5585.o
-  CC      drivers/mfd/kempld-core.o
-  CC      drivers/mfd/wl1273-core.o
-  CC      drivers/mfd/si476x-cmd.o
-  CC      drivers/mfd/si476x-prop.o
-  CC      drivers/mfd/si476x-i2c.o
-  CC      drivers/mfd/omap-usb-host.o
-  CC      drivers/mfd/omap-usb-tll.o
-  CC      drivers/mfd/qcom-pm8xxx.o
-  CC      drivers/mfd/ssbi.o
-  CC      drivers/mfd/atmel-smc.o
-  CC      drivers/mfd/ntxec.o
-  CC      drivers/mfd/rc5t583.o
-  CC      drivers/mfd/rc5t583-irq.o
-  CC      drivers/mfd/rk8xx-core.o
-  CC      drivers/mfd/rk8xx-i2c.o
-  CHECK   ../drivers/mfd/exynos-lpass.c
-  CHECK   ../drivers/mfd/sun6i-prcm.c
-  CC      drivers/mfd/rn5t618.o
-  CC      drivers/mfd/sec-core.o
-  CHECK   ../drivers/hwmon/pmbus/inspur-ipsps.c
-  CC      drivers/mfd/sec-irq.o
-  CHECK   ../drivers/hwmon/pmbus/max15301.c
-  CHECK   ../drivers/mfd/88pm805.c
-  CC      drivers/mfd/syscon.o
-  CHECK   ../drivers/mfd/stmpe-i2c.c
-  CHECK   ../drivers/hwmon/pmbus/ltc3815.c
-  CC      drivers/mfd/lm3533-core.o
-  CHECK   ../drivers/mfd/88pm80x.c
-  CHECK   ../drivers/hwmon/pmbus/ir36021.c
-  CHECK   ../drivers/mfd/88pm860x-i2c.c
-  CHECK   ../drivers/hwmon/pmbus/adp1050.c
-  CHECK   ../drivers/hwmon/pmbus/mpq7932.c
-  CHECK   ../drivers/hwmon/pmbus/crps.c
-  CHECK   ../drivers/mfd/act8945a.c
-  CHECK   ../drivers/hwmon/pmbus/max16601.c
-  CHECK   ../drivers/hwmon/pmbus/tps40422.c
-  CHECK   ../drivers/mfd/cs42l43-i2c.c
-  CHECK   ../drivers/hwmon/pmbus/mp9941.c
-  CHECK   ../drivers/mfd/88pm800.c
-  CHECK   ../drivers/hwmon/pmbus/ina233.c
-  CHECK   ../drivers/mfd/88pm886.c
-  CHECK   ../drivers/hwmon/pmbus/xdpe152c4.c
-  CHECK   ../drivers/mfd/bcm590xx.c
-  CHECK   ../drivers/hwmon/pmbus/ltc4286.c
-  CHECK   ../drivers/mfd/ti_am335x_tscadc.c
-  CHECK   ../drivers/hwmon/pmbus/lm25066.c
-  CHECK   ../drivers/mfd/bd9571mwv.c
-  CHECK   ../drivers/mfd/gateworks-gsc.c
-  CHECK   ../drivers/hwmon/pmbus/isl68137.c
-  CHECK   ../drivers/mfd/lp87565.c
-  CC      drivers/mfd/retu-mfd.o
-  CC      drivers/mfd/lm3533-ctrlbank.o
-  CHECK   ../drivers/mfd/sm501.c
-  CHECK   ../drivers/hwmon/pmbus/mp2888.c
-  CC      drivers/mfd/as3711.o
-  CHECK   ../drivers/hwmon/pmbus/bpa-rs600.c
-  CHECK   ../drivers/hwmon/pmbus/ir35221.c
-  CC      drivers/mfd/as3722.o
-  CHECK   ../drivers/hwmon/pmbus/max8688.c
-  CC      drivers/mfd/stw481x.o
-  CC      drivers/mfd/hi6421-spmi-pmic.o
-  CHECK   ../drivers/hwmon/pmbus/mp5023.c
-  CHECK   ../drivers/hwmon/pmbus/pm6764tr.c
-  CHECK   ../drivers/hwmon/pmbus/mpq8785.c
-  CHECK   ../drivers/hwmon/pmbus/tda38640.c
-  CHECK   ../drivers/hwmon/pmbus/stpddc60.c
-  CHECK   ../drivers/hwmon/pmbus/tps25990.c
-  CHECK   ../drivers/mfd/wm831x-i2c.c
-  CHECK   ../drivers/hwmon/pmbus/tps546d24.c
-  CHECK   ../drivers/mfd/wm8350-gpio.c
-  CHECK   ../drivers/hwmon/pmbus/xdp710.c
-  CHECK   ../drivers/hwmon/pmbus/mp2856.c
-  CHECK   ../drivers/mfd/wm8400-core.c
-  CHECK   ../drivers/mfd/wm831x-auxadc.c
-  CHECK   ../drivers/mfd/ti-lmu.c
-  CHECK   ../drivers/hwmon/pmbus/ucd9200.c
-  CHECK   ../drivers/hwmon/pmbus/pim4328.c
-  CHECK   ../drivers/mfd/tps65912-core.c
-  CC      drivers/mfd/hi655x-pmic.o
-  CC      drivers/mfd/dln2.o
-  CHECK   ../drivers/mfd/88pm860x-core.c
-  CC      drivers/mfd/rt4831.o
-  CHECK   ../drivers/hwmon/pmbus/tps53679.c
-  CHECK   ../drivers/mfd/lochnagar-i2c.c
-  CHECK   ../drivers/mfd/tqmx86.c
-  CHECK   ../drivers/mfd/wm8997-tables.c
-  CHECK   ../drivers/mfd/arizona-spi.c
-  CHECK   ../drivers/mfd/wm831x-core.c
-  CHECK   ../drivers/mfd/tc3589x.c
-  CHECK   ../drivers/mfd/wm831x-otp.c
-  CHECK   ../drivers/mfd/tps65912-spi.c
-  CC      drivers/mfd/rt5120.o
-  CC      drivers/mfd/sky81452.o
-  CC      drivers/mfd/stpmic1.o
-  CHECK   ../drivers/mfd/wm8350-irq.c
-  CC      drivers/mfd/sun4i-gpadc.o
-  CC      drivers/mfd/stm32-lptimer.o
-  CC      drivers/mfd/mxs-lradc.o
-  CHECK   ../drivers/mfd/wm8350-i2c.c
-  CHECK   ../drivers/mfd/tps6507x.c
-  CC      drivers/mfd/stm32-timers.o
-  CHECK   ../drivers/hwmon/pmbus/mp2891.c
-  CHECK   ../drivers/mfd/arizona-irq.c
-  CC      drivers/mfd/sprd-sc27xx-spi.o
-  CHECK   ../drivers/mfd/wm8350-core.c
-  CHECK   ../drivers/mfd/wm8350-regmap.c
-  CHECK   ../drivers/mfd/tps6594-core.c
-  CHECK   ../drivers/mfd/fsl-imx25-tsadc.c
-  CHECK   ../drivers/mfd/tps6594-spi.c
-  CHECK   ../drivers/mfd/da9052-irq.c
-  CHECK   ../drivers/mfd/da9052-spi.c
-  CHECK   ../drivers/mfd/da9055-core.c
-  CHECK   ../drivers/mfd/da9063-irq.c
-  CC      drivers/mfd/rohm-bd71828.o
-  CC      drivers/mfd/rohm-bd718x7.o
-  CC      drivers/mfd/rohm-bd96801.o
-../drivers/mfd/sm501.c:1148:29: sparse: warning: cast to non-scalar
-../drivers/mfd/sm501.c:1148:29: sparse: warning: cast from non-scalar
-../drivers/mfd/sm501.c:1152:29: sparse: warning: cast to non-scalar
-../drivers/mfd/sm501.c:1152:29: sparse: warning: cast from non-scalar
-  CHECK   ../drivers/hwmon/pmbus/adm1275.c
-  CC      drivers/mfd/khadas-mcu.o
-  CHECK   ../drivers/mfd/stmpe.c
-  CHECK   ../drivers/mfd/arizona-core.c
-  CHECK   ../drivers/mfd/madera-core.c
-  CHECK   ../drivers/mfd/tps6105x.c
-  CHECK   ../drivers/mfd/madera-spi.c
-  CHECK   ../drivers/mfd/da9052-core.c
-  CHECK   ../drivers/mfd/lp8788.c
-  CHECK   ../drivers/mfd/da9063-core.c
-  CHECK   ../drivers/mfd/atmel-smc.c
-  CC      drivers/mfd/qcom-pm8008.o
-  CC      drivers/mfd/simple-mfd-i2c.o
-  CC      drivers/mfd/smpro-core.o
-  CC      drivers/mfd/atc260x-core.o
-  CHECK   ../drivers/mfd/mc13xxx-core.c
-  CHECK   ../drivers/mfd/tps65219.c
-  CC      drivers/mfd/atc260x-i2c.o
-  CHECK   ../drivers/mfd/madera-i2c.c
-  CHECK   ../drivers/mfd/cs47l92-tables.c
-  CHECK   ../drivers/mfd/cs47l90-tables.c
-  CHECK   ../drivers/mfd/cs42l43.c
-  CHECK   ../drivers/mfd/tps65910.c
-  CHECK   ../drivers/mfd/wm831x-irq.c
-  CHECK   ../drivers/mfd/tps6594-i2c.c
-  CHECK   ../drivers/mfd/mc13xxx-spi.c
-  CHECK   ../drivers/mfd/lp8788-irq.c
-  CHECK   ../drivers/mfd/da9055-i2c.c
-  CHECK   ../drivers/mfd/da9063-i2c.c
-  CHECK   ../drivers/mfd/cs47l85-tables.c
-  CHECK   ../drivers/mfd/da9052-i2c.c
-  CHECK   ../drivers/mfd/da9062-core.c
-  CHECK   ../drivers/mfd/max77650.c
-  CHECK   ../drivers/mfd/kempld-core.c
-  CHECK   ../drivers/mfd/max14577.c
-  CHECK   ../drivers/mfd/mfd-core.c
-  CHECK   ../drivers/mfd/mp2629.c
-  CHECK   ../drivers/mfd/max77843.c
-  CHECK   ../drivers/mfd/max77705.c
-  CHECK   ../drivers/mfd/max77693.c
-  CHECK   ../drivers/mfd/max8925-i2c.c
-  CHECK   ../drivers/mfd/max77686.c
-  CHECK   ../drivers/mfd/rz-mtu3.c
-  CHECK   ../drivers/mfd/abx500-core.c
-  CHECK   ../drivers/mfd/ssbi.c
-  CHECK   ../drivers/mfd/max8997-irq.c
-  CHECK   ../drivers/mfd/mt6370.c
-  CHECK   ../drivers/mfd/wl1273-core.c
-  CHECK   ../drivers/mfd/max8997.c
-  CHECK   ../drivers/mfd/adp5585.c
-  CHECK   ../drivers/mfd/mt6360-core.c
-  CHECK   ../drivers/mfd/max77620.c
-  CHECK   ../drivers/mfd/adp5520.c
-  CHECK   ../drivers/mfd/omap-usb-tll.c
-  CHECK   ../drivers/mfd/max8925-core.c
-  CHECK   ../drivers/mfd/si476x-prop.c
-  CHECK   ../drivers/mfd/rc5t583-irq.c
-  CHECK   ../drivers/mfd/syscon.c
-  CHECK   ../drivers/mfd/qcom-pm8xxx.c
-  CHECK   ../drivers/mfd/sec-irq.c
-  CHECK   ../drivers/mfd/lm3533-ctrlbank.c
-  CHECK   ../drivers/mfd/rc5t583.c
-  CHECK   ../drivers/mfd/rn5t618.c
-  CHECK   ../drivers/mfd/rk8xx-core.c
-  CHECK   ../drivers/mfd/omap-usb-host.c
-  CHECK   ../drivers/mfd/si476x-i2c.c
-  CHECK   ../drivers/mfd/rk8xx-i2c.c
-  CHECK   ../drivers/hwmon/pmbus/pmbus_core.c
-../drivers/mfd/max77705.c:162:1: sparse: warning: symbol 'max77705_pm_ops' was not declared. Should it be static?
-  CHECK   ../drivers/mfd/ntxec.c
-  CHECK   ../drivers/mfd/hi6421-spmi-pmic.c
-  CHECK   ../drivers/mfd/stw481x.c
-  CHECK   ../drivers/mfd/lm3533-core.c
-  CHECK   ../drivers/mfd/mxs-lradc.c
-  CHECK   ../drivers/mfd/retu-mfd.c
-  CHECK   ../drivers/mfd/si476x-cmd.c
-  CHECK   ../drivers/mfd/as3711.c
-  CHECK   ../drivers/mfd/as3722.c
-  CHECK   ../drivers/mfd/sec-core.c
-  CHECK   ../drivers/mfd/stm32-lptimer.c
-  CHECK   ../drivers/mfd/rt5120.c
-  CHECK   ../drivers/mfd/stm32-timers.c
-  CHECK   ../drivers/mfd/hi655x-pmic.c
-  CHECK   ../drivers/mfd/sun4i-gpadc.c
-  AR      drivers/hwmon/pmbus/built-in.a
-  CHECK   ../drivers/mfd/khadas-mcu.c
-  CHECK   ../drivers/mfd/sky81452.c
-  CHECK   ../drivers/mfd/rohm-bd71828.c
-  CHECK   ../drivers/mfd/rt4831.c
-  CHECK   ../drivers/mfd/rohm-bd718x7.c
-  CHECK   ../drivers/mfd/atc260x-core.c
-  CHECK   ../drivers/mfd/atc260x-i2c.c
-  CHECK   ../drivers/mfd/dln2.c
-  CHECK   ../drivers/mfd/stpmic1.c
-  CHECK   ../drivers/mfd/smpro-core.c
-  CHECK   ../drivers/mfd/qcom-pm8008.c
-  CHECK   ../drivers/mfd/rohm-bd96801.c
-  CHECK   ../drivers/mfd/sprd-sc27xx-spi.c
-  CHECK   ../drivers/mfd/simple-mfd-i2c.c
-  AR      drivers/mfd/built-in.a
-make[1]: Leaving directory '/home/docker-brian/linux/build_dir'
+Sorry for the wrong post, and please ignore it.
+Thank you.
 
 Best Regards,
 Brian Chiang
