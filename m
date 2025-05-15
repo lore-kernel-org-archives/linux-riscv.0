@@ -4,8 +4,8 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9E41C2D0CD
-	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 17:11:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA001C3ABDD
+	for <linux-riscv@archiver.kernel.org>; Thu, 15 May 2025 17:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
@@ -13,86 +13,82 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
 	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
 	:Resent-Message-ID:List-Owner;
-	bh=4BVkjaNvwpBLFCaKS8QTmdfiGm81xRWUfHxsDEQRhwY=; b=JsZbxZQ+47Fmi88RldsM96smpe
-	iNA+gO7w9C85AKwmYjGsqUFy4eyJ1TReYHOT74yBHWIx4UOmyfbtxV9kDa+cWl0igqurghUCTQQ4a
-	N5AAW56p25E83tMnF8mZB83QORO2//PgUUrUUfnyOE1WhSxahkukA8nCetG5iJnxIo6Z+mWia69ui
-	RwE6dTVu2hcTBSUGN5AozIfH7VTUGp5OvFaoWEzmS5e5HG2ET1Agc/gqZ+zaFNo96KjmlLQql5kmm
-	lpFTDDrWKkMvBn5T6FmX5VzWXu8E4ZeFc8UCS7pXFpXu9LDW7Na61yQq8ZBUvSvGh3+mZZA1/bxVZ
-	oVdAhuOw==;
+	bh=zLhuXZIXiaScTUI1NCTazUe2c+s8un0yBBPZltHHxXM=; b=SfQLGeandvEGWyrIbbeXy2GCFm
+	ZXveEKt4myKEUpP7J28rYn91VlLmZi/DDRQeoB9w7Jw1krcHrK8nbfdqwFaYj00kxEVkCXmtFiV3p
+	dppFHJV+IYESI1l8onl4LNeufLEA8foYJ6HqXqJ9+4E8DWegW2T2qngpPXwl1ELZvpPwqIpXb1xHp
+	bUzlk+sYrfhG2/U8FfsUJkwU2Z2hQA9x0JGo1zZbHn2X1PlbxRpspRXzGHJ+lEJfXKo6noliyu5SL
+	V0iZ+0tdrundf+/Fqv9iiJciNAjmwTniKQd4miA/RU8l0qCfNtwNkKLWwR5hkQb7OvqfgktGsJA+l
+	Hhgpl3rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFc73-00000001NVl-1CTI;
-	Thu, 15 May 2025 17:11:17 +0000
+	id 1uFcbM-00000001SSF-0P1a;
+	Thu, 15 May 2025 17:42:36 +0000
 Received: from smtp-relay-internal-0.canonical.com ([185.125.188.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFc6z-00000001NTi-0qRW
+	id 1uFcbI-00000001SRf-3nyZ
 	for linux-riscv@lists.infradead.org;
-	Thu, 15 May 2025 17:11:16 +0000
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
+	Thu, 15 May 2025 17:42:34 +0000
+Received: from mail-oo1-f71.google.com (mail-oo1-f71.google.com [209.85.161.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id D94F6497A1
-	for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 17:11:11 +0000 (UTC)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 6FE87497A5
+	for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 17:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
-	s=20210705; t=1747329071;
-	bh=JtByJyVo62jw0XHnA95uqk/ce1yHYsp6TEnfnoc5j1w=;
+	s=20210705; t=1747330950;
+	bh=So1CFTxNLLyhmef/KyhBYu0LuKyl9nOCmDgIo++41wk=;
 	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
 	 To:Cc:Content-Type;
-	b=r/JoAS2Jb1wPrMmLcs69AI2+fuaDClffG3bFK6tg8psKkcDe+T5zdYBFLP/mv/y//
-	 MitmvYbZr8BXqljB3ZQ5WrpwgQThfi7yx9iCT0JPPCcvAHpQNCGI+fCHApq93djaZS
-	 s6Cuf/XbFSEqli2kwOid8vMAL8iU6WyCDhMmZPkZJ9DmAukMJLDamk6ihOlzUQ96/i
-	 ajZBFSzxTNpgHcfk3hHZMn5wuOGs3JwqsI7w7RmQgiDMZUCxeE6cj0zNit9ht2gYVG
-	 boz/mL/oTpX4ya6qXNJF96ziW3KaLs7AfbWi3EaKafR8Uo5tgyeUTLqgii7EqXHs4F
-	 bJWGZEATyhj1Q==
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-6f544cf3f6dso26414046d6.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 10:11:11 -0700 (PDT)
+	b=vL2cIm0q5H2SHZn2hxJ71bFfGAoXibms+Z1luCokxVfS78/XrgbI4ynN4FNoBEzrn
+	 s/yqTrgq3FWDqvB0O/e6kdkaPBOvzoBIqiSlLKyzGun/ajiC3OG9X3o/oxHlfOHsZH
+	 y/gyRyTUssP5f2tTrZ5obOx6GMtIMoL68PsfNq2lVUexqdp4FKwujBMOMy+uAlYZaa
+	 jqhlb83CXhrZmsTi5epcqHmn1PD3gAnJlbaYXEROyNRjTORiJ++CsIQZJ1FJENFy7o
+	 ogWLxyuOV/tuKpJgO3coMEg472S/VgbnG9Jc316iLwv3GoFbWPKZwAkMVoZfPvLEwU
+	 SmpMe8RzLyEBQ==
+Received: by mail-oo1-f71.google.com with SMTP id 006d021491bc7-609f0ff6da6so348850eaf.2
+        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 10:42:30 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747329071; x=1747933871;
+        d=1e100.net; s=20230601; t=1747330949; x=1747935749;
         h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
          :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=JtByJyVo62jw0XHnA95uqk/ce1yHYsp6TEnfnoc5j1w=;
-        b=QGaPjTQBDAc6uQ3LON/Sky1PilDvXj7mQJU5Na6xWCC+L8uMjJoKRp1QH5G8E2Vy7A
-         6WQWoBNj/GzjWX0eTKPTwY473GzCdv0jTdJDMzZBGTPaD78K+OFr1zYJF3tmPTurOy76
-         H8hFjDxmetYbd2oYBVZSq1u3bTyETRPldzlfowuAhmq+DUTqx2MaQKKzJTk6p9+tfGIY
-         hvqDSUO7C4v46Mct088OK3B8J5PtR0pd2TvhPNTktzZK66E0A7IKW13k0NR7ogx7yqdA
-         cJz6y39KE4QrpnOXOCwhPsPAnarwT/lL0aZXv41f6QXuhCXFzAVLNw+xcU2nJUeePH58
-         fKEA==
-X-Forwarded-Encrypted: i=1; AJvYcCWCn8zZUaJ0rHYKFUKqNpAC3T09z4GgY7OQTScmobDwqXHEjJM+Fi4jFehkDD7dQdTEbrePTyI9jD08cA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwxvlAc7vLW1+4zE31F0qO+l5p1b/JqIXNw29wJ2KiOOSF2guZS
-	KEGb6BVAg8d4+0LLMxacnkobiuuVQEohjAZObPQhY00fbs8XL+DZwR/rf4QOi5NmQGKhrqPX+HS
-	vypHz8fR6KZg5YLIYc/IMc92DUhSpGGNnFXkkKFwUuqXTs8kMeTo33gq3knS0Z7NrXTkT8qADG4
-	nv98fF41eWy+djUmecip2mHSzI8qqXxR+7mVHWNTBrhxnueMvtK3AJJXHyAmovhNUuKOonl7pF7
-	xVA
-X-Gm-Gg: ASbGnctvWvDRJ8q39IiZflOhpvRWj3YCiP+SzOO7gspM0ekBPB5s0Tk7HQCLO1NRIoq
-	mGToBOymrtro21EwYA9YOZEV6hfP+4z4xfZ+9IpsvE2J/yyySxyinLvwbVnV9ODcscJG34w==
-X-Received: by 2002:ad4:5cca:0:b0:6f2:d45c:4a35 with SMTP id 6a1803df08f44-6f8b08eb5fbmr10140476d6.37.1747329068751;
-        Thu, 15 May 2025 10:11:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHcaUH2N5muwkVDiIxEHWItA30nxiMYoNCDf2Wv2idVAmWCRr+uin/5sa1AilKtPRZiwiaH2QNVjHO7L9k7ddY=
-X-Received: by 2002:a05:6820:1841:b0:608:3ee9:13a4 with SMTP id
- 006d021491bc7-609f37a4c25mr127767eaf.5.1747329055811; Thu, 15 May 2025
- 10:10:55 -0700 (PDT)
+        bh=So1CFTxNLLyhmef/KyhBYu0LuKyl9nOCmDgIo++41wk=;
+        b=YWUre6IoPiF5KO+WX/+wRIjkWiYwrE74RmOvZPyk/KQN1+3OefcKbvoxQ7MbTNQVPM
+         BkYGXB7wtMDkJ+iYEpxtLryQnyiYNAN2JTtxr/07U8npAsvg+F7163Vkrlikz/qmfcUw
+         MidXEYxkAzsh99GP+9GShYUsdJn1pl3AP8Nm0SJkUyksanUFS32UkNXN+riM+jXEEXM2
+         OLSlW9Pqcgx3SHipPoPdahQmnBkrihRmmrST3GDvuiBZe7qlYrlKVL8II6ndQz5NGP2o
+         Gj/xxNEWQTItgLnqhXclV54ypEudYD5qMX2Yb7VuSUorhL+dZhVEWLPwQ80suTeOZ2D+
+         Z2oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXL0JmXgNQJ+bWISDV2hLTHJuoc2gtxlc/EPI70Uk+3BFONPrY8cMOnSN0LrBiY5SPZCFJu9EWZ7K8ClQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZ9SPgYTMYNkXrLdTGwrqCzn/f8Dl08LRQOeDkmZvT+5j5jDpu
+	tZ4gKw13jOYzx54LrlbqQFvmQY3OaSIFKnuBNG0rx38sTPbooCYRJpaHvQPhoUKrv0m4kBBWy4K
+	RfLTvrQXfemi565aIXPNLyUY+akgUgPHe8QT9O4Bl9d0paSqj71v2KCGHpYMFEQZCNSkwpac06+
+	trjBPsPC7z6xDt4oBZTgSVi4Y/4pmOksZ3eXuMbBcDHfF63cSkqNq3GVl1M9H4
+X-Gm-Gg: ASbGncuUlc2WewNcnG7Dc1TnNXs0wBW90pspR2yW0YBwWfH7opVw/GOlLW5ElQHdvN0
+	FYRNl/k8UiFp3z3zEXqh02dPZL/dPM5xe/aAGUcp+QC4p7f3ICv3W9mwiV2v3+Q1dICfY5Q==
+X-Received: by 2002:a05:6871:4001:b0:2cc:3d66:b6ea with SMTP id 586e51a60fabf-2e3c1fb2766mr261853fac.34.1747330948661;
+        Thu, 15 May 2025 10:42:28 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH/OAz819UIHR7o2qpAdFNcz3GjooPhXbSZIsnIvoJM8E3oMutbyhPZIRnkN9DpFMjxtLmZ0O/4DGUc5r1eDrE=
+X-Received: by 2002:a05:6871:4001:b0:2cc:3d66:b6ea with SMTP id
+ 586e51a60fabf-2e3c1fb2766mr261840fac.34.1747330948238; Thu, 15 May 2025
+ 10:42:28 -0700 (PDT)
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 May 2025 10:10:55 -0700
+ HTTPREST; Thu, 15 May 2025 10:42:26 -0700
 Received: from 348282803490 named unknown by gmailapi.google.com with
- HTTPREST; Thu, 15 May 2025 10:10:55 -0700
+ HTTPREST; Thu, 15 May 2025 10:42:26 -0700
 From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
-In-Reply-To: <20250502103101.957016-1-e@freeshell.de>
-References: <20250502103101.957016-1-e@freeshell.de>
+In-Reply-To: <20250424060605.638678-1-uwu@icenowy.me>
+References: <20250424060605.638678-1-uwu@icenowy.me>
 Mime-Version: 1.0
-Date: Thu, 15 May 2025 10:10:55 -0700
-X-Gm-Features: AX0GCFsMRCnrUVPh4GyhcmqGXz7TGDQn2DvhmQZjDAp9e_FqEd74NBSnaFQLito
-Message-ID: <CAJM55Z_ebHvpf=G9fMGctkPbAtVd6yco6joRNVbzcAtiEzD=ag@mail.gmail.com>
-Subject: Re: [PATCH v3 0/4] riscv: dts: starfive: jh7110-common: Sync
- downstream U-Boot changes
-To: E Shattow <e@freeshell.de>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
+Date: Thu, 15 May 2025 10:42:26 -0700
+X-Gm-Features: AX0GCFsKao7zo32U6hevQ8RxcB-ZJSuK65r6ZvSZhpxa-_wyIbzD26PrLzWWrI4
+Message-ID: <CAJM55Z_OZ6PSn3YQrrc2bz-PqKvfm76b3+dOjmuJrqGr+HZnQg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: dts: starfive: jh7110-common: use macros for MMC0 pins
+To: Icenowy Zheng <uwu@icenowy.me>, Emil Renner Berthing <kernel@esmil.dk>, Conor Dooley <conor@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_101113_369750_9AA87B3B 
-X-CRM114-Status: GOOD (  13.48  )
+X-CRM114-CacheID: sfid-20250515_104233_201418_C0ED3BF2 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,78 +105,74 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-E Shattow wrote:
-> U-Boot boot loader has adopted using the Linux dt-rebasing tree for dts
-> with StarFive VisionFive2 board target (and related JH7110 common boards).
-> Sync the minimum changes from jh7110-common.dtsi needed for boot so these
-> can be dropped from U-Boot.
+Icenowy Zheng wrote:
+> The pin names of MMC0 pinmux is defined in the pinctrl dt binding header
+> associated with starfive,jh7110-pinctrl .
 >
-> Changes since v2:
+> Include the header file and use these names instead of raw numbers for
+> defining MMC0 pinmux.
 >
-> - 1/5 -> 1/4: Do not replace assigned CPU core or PLL0 clock when adding new
->   assignments. Adjust patch name and commit message accordingly.
-> - 2/5 -> 2/4: Detail reason for qspi setting changes in commit message
-> - 3/5 -> Drop uart0 clock-frequency patch
-> - 4/5 -> 3/4: Add reviewed by tag (no change)
-> - 5/5 -> 4/4: Follow dts coding style sort order. Add bootph-pre-ram hint
->   for mmc interfaces
->
-> Note: mmc boot source modes of JH7110 loader on mask ROM are deprecated as
-> of StarFive JH7110 User Guide 1.2 revision. The loader expects data within
-> range of LBA 0 and LBA 1 in conflict with GUID Partition Table.
->
-> SD Card and eMMC boot media are prepared as follows:
->
-> # GPT partition SD Card or eMMC as
-> # 1: Secondary Program Loader @ 0x200000
-> # 2: Main payload area for use by SPL
-> # 3: EFI System Partition
-> sgdisk --clear \
->   --new=1:2M:+2M --typecode=1:2E54B353-1271-4842-806F-E436D6AF6985 \
->   --new=2:4M:+4M --typecode=2:5B193300-FC78-40CD-8002-E86C45580B47 \
->   --new=3:8M:+100M --typecode=3:EF00 /dev/sdX
->
-> # Write offset value in bytes of loader 'backup section' SPL as part1 @ 2M
-> python3 <<-EOF
-> with open("/dev/sdX", "r+b") as f:
->   f.seek(0x0004)
->   f.write((0x200000).to_bytes(4, "little"))
-> EOF
->
-> # Write invalid CRC to trigger 'Main section boot fail,use backup section'
-> python3 <<-EOF
-> with open("/dev/sdX", "r+b") as f:
->   f.seek(0x0290)
->   f.write((0x5A5A5A5A).to_bytes(4, "little"))
-> EOF
+> Signed-off-by: Icenowy Zheng <uwu@icenowy.me>
 
-This series looks good to me now. Thank you.
+This looks good to me:
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
+Looking at this doesn't the contents of
+arch/riscv/boot/dts/starfive/jh7110-pinfunc.h also belong in
+include/dt-bindings/pinctrl/starfive,jh7110-pinctrl.h
+or am I missing something?
 
 /Emil
-
+> ---
+> This is only a prettying commit. The resulting DTB files have the same
+> content with or without this patch (verified by doing sha256sum on
+> arch/riscv/boot/dts/starfive/jh7110-starfive-visionfive-2-v1.3b.dtb).
 >
-> E Shattow (4):
->   riscv: dts: starfive: jh7110-common: add CPU BUS PERH QSPI clocks to
->     syscrg
->   riscv: dts: starfive: jh7110-common: qspi flash setting read-delay 2
->     cycles max 100MHz
->   riscv: dts: starfive: jh7110-common: add eeprom node to i2c5
->   riscv: dts: starfive: jh7110-common: bootph-pre-ram hinting needed by
->     boot loader
+>  .../boot/dts/starfive/jh7110-common.dtsi      | 21 ++++++++++---------
+>  1 file changed, 11 insertions(+), 10 deletions(-)
 >
->  .../boot/dts/starfive/jh7110-common.dtsi      | 31 ++++++++++++++++---
->  1 file changed, 27 insertions(+), 4 deletions(-)
+> diff --git a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> index c2f70f5e2918f..a2c72b385a905 100644
+> --- a/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> +++ b/arch/riscv/boot/dts/starfive/jh7110-common.dtsi
+> @@ -8,6 +8,7 @@
+>  #include "jh7110.dtsi"
+>  #include "jh7110-pinfunc.h"
+>  #include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/pinctrl/starfive,jh7110-pinctrl.h>
 >
+>  / {
+>  	aliases {
+> @@ -428,16 +429,16 @@ GPOEN_ENABLE,
+>  		};
 >
-> base-commit: ebd297a2affadb6f6f4d2e5d975c1eda18ac762d
+>  		mmc-pins {
+> -			pinmux = <PINMUX(64, 0)>,
+> -				 <PINMUX(65, 0)>,
+> -				 <PINMUX(66, 0)>,
+> -				 <PINMUX(67, 0)>,
+> -				 <PINMUX(68, 0)>,
+> -				 <PINMUX(69, 0)>,
+> -				 <PINMUX(70, 0)>,
+> -				 <PINMUX(71, 0)>,
+> -				 <PINMUX(72, 0)>,
+> -				 <PINMUX(73, 0)>;
+> +			pinmux = <PINMUX(PAD_SD0_CLK, 0)>,
+> +				 <PINMUX(PAD_SD0_CMD, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA0, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA1, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA2, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA3, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA4, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA5, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA6, 0)>,
+> +				 <PINMUX(PAD_SD0_DATA7, 0)>;
+>  			bias-pull-up;
+>  			drive-strength = <12>;
+>  			input-enable;
 > --
 > 2.49.0
 >
->
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
 
 _______________________________________________
 linux-riscv mailing list
