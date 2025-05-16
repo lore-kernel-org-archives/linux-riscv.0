@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 273CAC3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 03:06:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6527AC2D0CD
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 03:06:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3OpyAIpiYaFXhVZTxeFqDSMpNObbd+tCPFLQmjDdI14=; b=XobdrsJu4Wx9Iz
-	+t5D4ghD4Kbdihevc5bDPtQ71izwZwCa1jQUO6Nr/vbH8XTnKJ8dWrhSMYUX4M40kd7DbuJHjWkER
-	+5OSLhGG+cH2odRJUBAgav1jIYXbIen/DN3KhwP8YXmBZ+4D8uGXbMB5BcX3gAugkabW5oc8iu+rc
-	nEXKXXcDIhPaUBYjRqntb1f/p2w1qRgVzNsT54k8aAePKtUoMp6VCzB1tk7jURbo5AvRISgJ56J2v
-	RkUXUKCFm2ES516Bm7entFfzy7JKHPeM5naEMESqkB+tsUCzHAtPIv1gc5NVBX4CpuahecqNOkO/f
-	cUtQCbT0vXGm5rUNHW1Q==;
+	List-Owner; bh=IFgIOjaywQBHNmY4idxL9VijRxbV7JSCba4SmmDaqRs=; b=jnmWr0xvEwubkg
+	2oT0jBGcf3KtBC8PD/g60FX8nqz2nTwHepWT5zzqu/Cxz9g9pDnXfgzxwFbByyKHehv1C8wbQlES/
+	OnYrQKOcs4E4pXeTm3yWnEV168E+ofol8PW74BJ+inEu4q6cR719C7LwztPAlzDXh72qNAp5hvHvE
+	9bMXt8kYCF1+gzW4McuAFSZy5G5p+wb3AIRXzrC1T1uMDAVutthKi+wR3W9qHPIHtQ5dG3t50GE49
+	W65ez5hoWoSpwu/MjTTev7d+5xxUwsOMiUWmB/x/Kt6EOiIPxytwp6XzlyDTJ+BAzjCZKYKjKXKa1
+	Gi00FhhtVbAGsxU60xwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFlOc-00000002K6n-3Yre;
-	Fri, 16 May 2025 03:06:02 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uFlOh-00000002KBM-1KdJ;
+	Fri, 16 May 2025 03:06:09 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFlOZ-00000002K2c-3uIz
+	id 1uFlOe-00000002K87-1qNp
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 May 2025 03:06:01 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22fa47d6578so15163535ad.2
-        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 20:05:58 -0700 (PDT)
+	Fri, 16 May 2025 03:06:05 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b2093aef78dso1671243a12.0
+        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 20:06:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1747364757; x=1747969557; darn=lists.infradead.org;
+        d=sifive.com; s=google; t=1747364763; x=1747969563; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=a5/PDhz3AlgX3PPZzfN/Kg9kUFezGYCGeqp5UVya4gU=;
-        b=j0eFmHGCnCc4K08lrb1tgMZwfMrvpoUmr1Dy7TTit7LzCsPVkbL7GKXzHOEXlBwCfk
-         GsWrwBJuVdzWzZEsbACPihAGbDOsUHpBReeYWIkpJpVjIjd9YRFpv/vrEDk4wNVH97UI
-         d30RXfjUbcXekBSFiV0BY+t11RYRHvyWvShzxnyaeK2vPKJuMF7QrZoscB3qHt9oTHkG
-         iDzXD39dg/p6MbPT+0IDt8eM78dEQQ7jZk5Zu+3KfiXF4l/ISlrCoZzR9rCHglf1X8eZ
-         eX169KyinQvzUjV/wsvWcjd6r5Z/bOladb/peif/yHwVLUqMV6tHZR3rEXXHQo1a2mqy
-         H6ow==
+        bh=weomedr6rI+xMErQTjwbgFjghxDoWxu8k2ihmuNB5oM=;
+        b=eeqrfk/4bFw9J9YQN+ryovbkAqELwAR3hGgDMGgCCfU+3EVQBMk5KYjIAbO+4bUDQq
+         Oo7krVwpsDV/wdOrxUOadOfinOepOeRFuhRQ5FFmr4UKIAaDkLohG+QwZJDVqrqchjko
+         qG3F1ZE5HJhiifHutOd+NMMTYKbsLk2dyD4RjdGnkvRF7YRkHW56besRY0eO9HEFcDZU
+         1X2W/55X+k1zexSmovild7RBmvWDGaW7DUw58Cr2jV3Hsw7ibSimTT8Q+JzCYQ5H8A2f
+         KmnLwmv9dt8BgW+NuRo4xjF/btQw24+BX/julxAaVVzzOkp2ldu6SjWAq8eJH7EQhl8C
+         136Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747364757; x=1747969557;
+        d=1e100.net; s=20230601; t=1747364763; x=1747969563;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=a5/PDhz3AlgX3PPZzfN/Kg9kUFezGYCGeqp5UVya4gU=;
-        b=DwPuoXVDgM5VTvk3fFR8EHgZVzHZusOT4lnd58AHnk/iMX7xLp487dn3J9n90JJAeC
-         489FDgsTHx40qNZGyoIV+hl3+FYf6s8QmSDlfTs+LzvxWtll0tdHTXZ9X2VznRd5Guoo
-         TdJLFDEhUoN733hm6z5gOXLu5lc8dBvffdgjA3aawz0RrZb1oihHu6QJiYdNCJzJjy9J
-         TgmKp1Fp5ogYanhPphxRiwg5jWUK2hUXqO9newyovt8oztwW5kynRyoE8wy2bWky7c6k
-         XiKLc+SI/DxYnT1YFOF8ePcFPHHPId1FqbeOhRIr8bQZtpLraUAYfkvLmJPeDuDtO/0n
-         VQLA==
-X-Forwarded-Encrypted: i=1; AJvYcCUnjDwfS20y4zsOV605Q12QHfpl+Efb7Ki24kyFdYRpjeen8c2FCTFqhRtU80GuvvwASZTdc4/mFZkLEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDVw9TL54EAXXV6oN65AhkiY32mTFTQSAEgYgE1/ouRSQ6o3ef
-	gb6fxhbAOrWGEmwxSGcnHSdOnpl1GrrNhuLY0s1cZp2ESQf/sF5cXtA+bDA5hSrNGNk=
-X-Gm-Gg: ASbGncvZpPBOcx0E4KIdwP65l33L5Ks/BvrhCr5wF/yR6D65Vty1GMEUoSLj/hv9Ivl
-	Y23d2oCKUt9BCgvrJ1xOg06FKlv4rThdXmfnVP9nQ1A7772krBZOpGHwNLHmIO/p4a8b4D8Rj6O
-	Yjbbo15FDi9jOaLzCRCRuXwYlhMM4FYBT+sogLY4dya8SdXtieMcW7JCftlqswwwaasJyx0pvqE
-	u8Kz16x89JHPNtZRVcTFcXLNoEH69T+VaO954leyY4Sk/Cu6rAiU4icw8APVu36TffxGWenCaNr
-	B+RiJWyQQ7B+yCYjEvf9lb4dXLamIbc/HQbdr+sKfmFdP2LcN/FI13OifMbheoDjsNHpg8AvU5Q
-	T9/B2ALDBSEI=
-X-Google-Smtp-Source: AGHT+IFJbPUK4tMDRuGc+co241YfBHz7E/gRc2tzvQ+RafzudJUC0EH4MsxgVnUHPIA3yanX+bcZ3A==
-X-Received: by 2002:a17:903:2306:b0:223:5124:a16e with SMTP id d9443c01a7336-231d438a1c6mr23919555ad.5.1747364757539;
-        Thu, 15 May 2025 20:05:57 -0700 (PDT)
+        bh=weomedr6rI+xMErQTjwbgFjghxDoWxu8k2ihmuNB5oM=;
+        b=ZbecD34XKQI0IbBSJGsuFjeaMf3zH9DaIOwmaqK2XX6hLZBxj+XYsPhJcF7xdFPajM
+         d+mKoMGmcB1SSueZ6tceXCvP89qZ0LQp+QFLmV3ZcGH6HmnDTWjm3rFLQBAKngOd9Wt5
+         Ztw9GZ354pU9NcLU/trd/DxmFUO1mgSeBzO84UUlBLMeIPdPGHwQhuF1Bs/HY40fl4oZ
+         pCTCGGVPZe8xu6cFUmrUe0SLczpIGtWtbA+tXJkLOEuBxhkRAU1ofmFKG5S/hn1MHmjN
+         EUaZV0sA6jP14bX2HGYIwO1C3uhfWDrRoxMu4Iyd47e6dWDX6HyhubNeRga4Oxj23y4A
+         tMvw==
+X-Forwarded-Encrypted: i=1; AJvYcCW9pXJqYsGwgDddWy6vnmbSKJpkw5HGCXvd5n0kHvP1840vNyzgS8BHqg4A+5X/07Qo++se0gJnWkmTHA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDD01GoatkdQasxDZ/BBpaINc9xRg6WQwjwnN8psBiGo7mgMd2
+	xLyRzYqVTfRva8AxjarsvdgZTGLtlLskX8+99NRjowNg7bWOXR5HxCM6Mjv3L0JuJZQ=
+X-Gm-Gg: ASbGncvjMKIdrzoGAnID2jhhSg6DvphKyDoP/2sVYoHx5j3ttOdeIHTa3LobMxfEhSk
+	GfDIAJPO+vjuParvOYqj8UKVRBB/goGfoaQOEH5frFUhjc/AsQySFO6HRdZY2nXtFbenLkba6Dv
+	Edppl3gBtC+BtrAFb4nRBWno37YLUp1CejaRrp281PNZK7bF9YSrPlsAJIy8eXe4Sprv0vk7e/X
+	JQqaD/i5Kmn5wRwz3DmI4C9xH+LDxeFJDu6TX5obynZgG58dQ78QzE81tSnvi9XxKCi5aH317BT
+	O9+MO+gi92op/KRQf0RH/J6BEomVgYBrKBmYVBbXRhmyiZA7tiFKnfkwWDUWwRfaePdXkzZ8brC
+	R7Cqu3ZLGIG8=
+X-Google-Smtp-Source: AGHT+IFhBAB1eXwbz44Tr8KVKAa/EYR58v7s/kJ7HdKTeaGSBrcNqWOoBWoIKH0YeOJevu/4lqzf3A==
+X-Received: by 2002:a17:903:46d0:b0:21f:f3d:d533 with SMTP id d9443c01a7336-231de351537mr10196975ad.2.1747364763529;
+        Thu, 15 May 2025 20:06:03 -0700 (PDT)
 Received: from cyan-mbp.internal.sifive.com ([136.226.240.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ebb084sm4804405ad.201.2025.05.15.20.05.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ebb084sm4804405ad.201.2025.05.15.20.06.00
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 15 May 2025 20:05:56 -0700 (PDT)
+        Thu, 15 May 2025 20:06:03 -0700 (PDT)
 From: Cyan Yang <cyan.yang@sifive.com>
 To: robh@kernel.org,
 	krzk+dt@kernel.org,
@@ -83,17 +83,18 @@ Cc: linux-doc@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Cyan Yang <cyan.yang@sifive.com>
-Subject: [PATCH v2 07/12] riscv: hwprobe: Document SiFive xsfvfnrclipxfqf vendor extension
-Date: Fri, 16 May 2025 11:03:05 +0800
-Message-Id: <20250516030310.16950-8-cyan.yang@sifive.com>
+	Cyan Yang <cyan.yang@sifive.com>,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v2 09/12] dt-bindings: riscv: Add xsfvfwmaccqqq ISA extension description
+Date: Fri, 16 May 2025 11:03:07 +0800
+Message-Id: <20250516030310.16950-10-cyan.yang@sifive.com>
 X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 In-Reply-To: <20250516030310.16950-1-cyan.yang@sifive.com>
 References: <20250516030310.16950-1-cyan.yang@sifive.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_200600_141266_DA1C4B59 
-X-CRM114-Status: UNSURE (   7.10  )
+X-CRM114-CacheID: sfid-20250515_200604_486461_6AB61DD6 
+X-CRM114-Status: UNSURE (   6.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,27 +112,32 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Document the support for SiFive vendor extensions for
-FP32-to-int8 Ranged Clip Instructions using
-RISCV_HWPROBE_VENDOR_EXT_XSFVFNRCLIPXFQF.
+Add "xsfvfwmaccqqq" ISA extension which is provided by SiFive for
+matrix multiply accumulate instructions support.
 
 Signed-off-by: Cyan Yang <cyan.yang@sifive.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- Documentation/arch/riscv/hwprobe.rst | 4 ++++
- 1 file changed, 4 insertions(+)
+ Documentation/devicetree/bindings/riscv/extensions.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/Documentation/arch/riscv/hwprobe.rst b/Documentation/arch/riscv/hwprobe.rst
-index 16085b2ee64e..e15405e12239 100644
---- a/Documentation/arch/riscv/hwprobe.rst
-+++ b/Documentation/arch/riscv/hwprobe.rst
-@@ -349,3 +349,7 @@ The following keys are defined:
-     * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVQMACCQOQ`: The Xsfqmaccqoq vendor
-         extension is supported in version 1.1 of SiFive Int8 Matrix Multiplication
- 	Instruction Extensions Specification.
+diff --git a/Documentation/devicetree/bindings/riscv/extensions.yaml b/Documentation/devicetree/bindings/riscv/extensions.yaml
+index be203df29eb8..ede6a58ccf53 100644
+--- a/Documentation/devicetree/bindings/riscv/extensions.yaml
++++ b/Documentation/devicetree/bindings/riscv/extensions.yaml
+@@ -681,6 +681,12 @@ properties:
+             See more details in
+             https://www.sifive.com/document-file/fp32-to-int8-ranged-clip-instructions
+ 
++        - const: xsfvfwmaccqqq
++          description:
++            SiFive Matrix Multiply Accumulate Instruction Extensions Specification.
++            See more details in
++            https://www.sifive.com/document-file/matrix-multiply-accumulate-instruction
 +
-+    * :c:macro:`RISCV_HWPROBE_VENDOR_EXT_XSFVFNRCLIPXFQF`: The Xsfvfnrclipxfqf
-+        vendor extension is supported in version 1.0 of SiFive FP32-to-int8 Ranged
-+	Clip Instructions Extensions Specification.
+         # T-HEAD
+         - const: xtheadvector
+           description:
 -- 
 2.39.5 (Apple Git-154)
 
