@@ -4,109 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA40DC54756
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 15:56:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BEEC54754
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 15:56:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:References
-	:In-Reply-To:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wHJgXyJT4CuezdIIT9kXJlTjbiBXY1aI5Fnw+D21TLc=; b=MbQncq/ePAUPhU
-	HRcix7j5i2t6+hEv/QJCVn8oA3aWMdcOa9wlwowVqvN9W97xK/Y2EdGMToabacjfTJD8BNwerBmvH
-	qO3IYQ6ussuuisfVC4XX8DKizj2L6g0sJmUgEikCGkaPLL2yXgcBBBSPT6y3DXiQoAKw7tQ0BeMoL
-	KVD/Lh6v6ZIUrCJcWn8RqM5WDzBR4gV8bcuxdFfdMzW6Tb1R8dp4C90AGwgFXrMJe6Y8+qIOWPYw7
-	oRSqRwHSBZORF1qWhCJ8mbFdqj/zz60+UxF3GaSxeIlHjPcoUyaIlhJq2jRYPuZTHseba+wiDiZTk
-	/JOPMJOEc4mtohTXnnqg==;
+	List-Owner; bh=wU+P9B1rOk0xW8K+CX+5IHFWZf2SrkcyQPNA06oxXCs=; b=l4yMwleG+BIe+w
+	AY0xiWrVMdsrSXazqNRGKNR5ZpWyh696UABudeShgC9MywbwD7ZfW0KDGTtYi8o1CLFzREyu0ts6Q
+	am+wAZNU92qnBzOjj+O3gRdAYCMQz9Sb2j6//EyNpgXsrvqeWF9RN2OaiXVt3JqkSbj25BnQEwYrP
+	+9kaYfSZnu4iNF0o+ZFFq98Ag3omRv2ZXfpLCKIZGCIxZsmQbwpRtwJ349K9khZQchtC3sdRTAzN+
+	W+dXOi9xS2SUQRv8Y0qDkRtKv58shXaoIUXgWAFvjYVqyKp0kpLetPEDZUQq0Nb6d1CT0BAcqm6yO
+	al9XUiHYu/L1RBuLx+DQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxQJ-00000003vK4-1kqw;
-	Fri, 16 May 2025 15:56:35 +0000
-Received: from smtp-fw-6001.amazon.com ([52.95.48.154])
+	id 1uFxQA-00000003v9o-3kos;
+	Fri, 16 May 2025 15:56:26 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwz7-00000003qn9-3SEi;
-	Fri, 16 May 2025 15:28:31 +0000
+	id 1uFwv3-00000003qBT-2yBL
+	for linux-riscv@lists.infradead.org;
+	Fri, 16 May 2025 15:24:19 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-739b3fe7ce8so2038586b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 16 May 2025 08:24:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazoncorp2;
-  t=1747409310; x=1778945310;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=/YGeJfXKIquYSt90tYMJ+el7wnECiC9xpMwa6JMR6os=;
-  b=cqlwxhDAHCaIeEtRHIlUvxHiiJHKJ9DfiaVR5mkgi/lldK+dsveVLzOf
-   b9usRXk/VVjRFKwq/v2MuhuTLoA9QWFLsBjJ6kiv+IAHi0ynsiE8bUej2
-   Hk16RTbIp2ZDHw3ZKli5LNcN5nzqqZJxoO8Wip/dAgpdbXYGQAAWdo7C1
-   bNfEVeNkAU7hl28n1PcYcbUKFZKciLgsNKt8LITU8ykpJKstris01ZCyx
-   IrsQLy/mFz4tcyj/vG3MrL5W+19aJkkJsLxj7cd7GqUjv5byOSXULRCsG
-   MOrdUqg1h7+X+y6f2oHN21FlcfMMAyWFvEk+CMnKYr4sWOpUk3RtgxzhI
-   w==;
-X-IronPort-AV: E=Sophos;i="6.15,294,1739836800"; 
-   d="scan'208";a="490816896"
-Received: from iad12-co-svc-p1-lb1-vlan2.amazon.com (HELO smtpout.prod.us-east-1.prod.farcaster.email.amazon.dev) ([10.43.8.2])
-  by smtp-border-fw-6001.iad6.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 May 2025 15:28:24 +0000
-Received: from EX19MTAEUC001.ant.amazon.com [10.0.43.254:48579]
- by smtpin.naws.eu-west-1.prod.farcaster.email.amazon.dev [10.0.40.19:2525] with esmtp (Farcaster)
- id 8875e536-5df1-4a46-a9d9-d4740a3f3911; Fri, 16 May 2025 15:28:23 +0000 (UTC)
-X-Farcaster-Flow-ID: 8875e536-5df1-4a46-a9d9-d4740a3f3911
-Received: from EX19D039EUA004.ant.amazon.com (10.252.50.95) by
- EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 16 May 2025 15:28:20 +0000
-Received: from EX19MTAUWA001.ant.amazon.com (10.250.64.204) by
- EX19D039EUA004.ant.amazon.com (10.252.50.95) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Fri, 16 May 2025 15:28:19 +0000
-Received: from email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com
- (10.25.36.214) by mail-relay.amazon.com (10.250.64.204) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Fri, 16 May 2025 15:28:18 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-iad-all-1a-6ea42a62.us-east-1.amazon.com (Postfix) with ESMTP id CD1C2401B0;
-	Fri, 16 May 2025 15:28:17 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id 89B166204; Fri, 16 May 2025 17:28:17 +0200 (CEST)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Mike Rapoport <rppt@kernel.org>
-CC: Andrew Morton <akpm@linux-foundation.org>, Alexander Gordeev
-	<agordeev@linux.ibm.com>, Andreas Larsson <andreas@gaisler.com>, "Andy
- Lutomirski" <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, "Arnd
- Bergmann" <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>, Brian Cain
-	<bcain@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Dave Hansen
-	<dave.hansen@linux.intel.com>, "David S. Miller" <davem@davemloft.net>, "Dinh
- Nguyen" <dinguyen@kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>, Guo Ren <guoren@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, "Huacai
- Chen" <chenhuacai@kernel.org>, Ingo Molnar <mingo@redhat.com>, Jiaxun Yang
-	<jiaxun.yang@flygoat.com>, Johannes Berg <johannes@sipsolutions.net>, "John
- Paul Adrian Glaubitz" <glaubitz@physik.fu-berlin.de>, Madhavan Srinivasan
-	<maddy@linux.ibm.com>, Mark Brown <broonie@kernel.org>, Matt Turner
-	<mattst88@gmail.com>, Max Filippov <jcmvbkbc@gmail.com>, Michael Ellerman
-	<mpe@ellerman.id.au>, Michal Simek <monstr@monstr.eu>, Palmer Dabbelt
-	<palmer@dabbelt.com>, Peter Zijlstra <peterz@infradead.org>, "Richard
- Weinberger" <richard@nod.at>, Russell King <linux@armlinux.org.uk>, "Stafford
- Horne" <shorne@gmail.com>, Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	Thomas Gleixner <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,
-	Vineet Gupta <vgupta@kernel.org>, Will Deacon <will@kernel.org>, "Praveen
- Kumar" <pravkmr@amazon.de>, <linux-alpha@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-snps-arc@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-csky@vger.kernel.org>,
-	<linux-hexagon@vger.kernel.org>, <loongarch@lists.linux.dev>,
-	<linux-m68k@lists.linux-m68k.org>, <linux-mips@vger.kernel.org>,
-	<linux-openrisc@vger.kernel.org>, <linux-parisc@vger.kernel.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-riscv@lists.infradead.org>,
-	<linux-s390@vger.kernel.org>, <linux-sh@vger.kernel.org>,
-	<sparclinux@vger.kernel.org>, <linux-um@lists.infradead.org>,
-	<linux-arch@vger.kernel.org>, <linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH v2 10/13] arch, mm: set high_memory in free_area_init()
-In-Reply-To: <20250313135003.836600-11-rppt@kernel.org>
-References: <20250313135003.836600-1-rppt@kernel.org>
-	<20250313135003.836600-11-rppt@kernel.org>
-Date: Fri, 16 May 2025 17:28:17 +0200
-Message-ID: <mafs05xi0o9ri.fsf@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747409057; x=1748013857; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UKbGApiEtkT8/WDx/Modbo6eDPhoN4O6DcMv04ORqek=;
+        b=LnrIlf2npslBvgrACH9IXuv1I9OIvZcDy+QNVhjNm2gQVtpoReN6pMgFkFs6zUgyqI
+         TBI7OtjqlDcCtlu7LwKZ9S4YodPYC9kLF5NgXO3sbOmwmI71IXkKRYrDeL88dAHU4HYM
+         J27rR0m3sONimdegcNBR5POwF9oQfkSsSPSITeZh/y7mKIlP1Nj7OGaDewaIF89Z6DbZ
+         9V1MdkIF2eVNEXa90AIhTTdDtoO53qGMVIv0kAcIcIQ7e2gGWmMtzrx3Im1lbx8a5BdK
+         fijM5HO1hpXl2sprjhKsR0m2wBR9ml2uQBuas+atO+J/cOFBOB/7lgYC/eMQfNuj11ad
+         5dQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747409057; x=1748013857;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UKbGApiEtkT8/WDx/Modbo6eDPhoN4O6DcMv04ORqek=;
+        b=oDYmgFgOvFai7wL8dwZwUbNdqHvSDMh2R1eP4ICAHegFx0k7YEx/Niq1vIQsFAzB6X
+         +4OJxISqMMzp7uimuslSjw2j/i7dg/nvRhqjB3JrKutDJcViIevn/NYFnyoDiVHfvClB
+         Jm8PUBYWb+bp1egQBpaSvF6xrukEyz8E5NLJdnsguKxTWizflN8uy/1ZQ9Swu1OqyLnu
+         ZJDRqR76pvkdkeKEJj7IRfoP6QDf+Wmw3jmPaIJj0joHXx0nGS86R3aYHWkWrvrQcvtU
+         izgJzHeGNy6KhpLzP+Rlja2XpnSGHkIe627UEEUvPYGAFXnZAMErRpBOuYDTjwogWaOi
+         XamQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUkosfLlErbvG1j+Z+vGVuqRtKWs7K3EG2CHSLMLTS6EMkVU8yNGnQEXTDDnxbX3UalzU5nHU/4Is9nSg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxDbZ7N8GdzU9Ec91Q5IQXw1aOSEX2w7O2DluPq0VdtFIidRx2I
+	IwmX1VXueExA6OFUXc7em+GMRliUVLp3C8puGjTFIMmbm4IBJlmSuYt55eFraYdDX5A=
+X-Gm-Gg: ASbGncuMQi4wXUMDIuG0XVeajI7leue8ekhHfFKA4rgv+zk6FY0aaBgTWCIjpbEFZTZ
+	Mqzrcr4blT2+z3UXxcpDPTpqIN1kiUcqxqc3a+Z0X2vYrR0EOdBSBICK9Zif+KuG4Uq2P/RXX8g
+	MDVzA8AqE7E6Rz0FkWOdgOh2HXc/oaU7Vp0EIVoaA9MF1y4lxd74nfVTc8CBRXBM3N4ETcVl0ia
+	ci6176cREipGULZh6wOohqFrNtHnJG9bApTA/XSBygG36j+6qfJvRvw9yE2RW200Ir1dRXXHLn7
+	u8HFBKy4aNPvJFmYKhGgL0b+VGWXr8pkSTipJ9KLZ2/Jno6GYIBCUOLfX5/MmXI=
+X-Google-Smtp-Source: AGHT+IEPys89YDQJYKU3/9Q96sLuGwipd4FD9peTZgU8hGsM8WzNmpqONcesktg1K7D9UT/m6i5B0Q==
+X-Received: by 2002:a05:6a20:12ca:b0:1f3:418c:6281 with SMTP id adf61e73a8af0-21621875ab8mr5817835637.4.1747409056778;
+        Fri, 16 May 2025 08:24:16 -0700 (PDT)
+Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96def68sm1666997b3a.30.2025.05.16.08.24.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 16 May 2025 08:24:16 -0700 (PDT)
+From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
+	Himanshu Chauhan <hchauhan@ventanamicro.com>,
+	Anup Patel <apatel@ventanamicro.com>,
+	Xu Lu <luxu.kernel@bytedance.com>,
+	Atish Patra <atishp@atishpatra.org>
+Subject: [PATCH v4 1/4] riscv: add SBI SSE extension definitions
+Date: Fri, 16 May 2025 17:23:39 +0200
+Message-ID: <20250516152355.560448-2-cleger@rivosinc.com>
+X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250516152355.560448-1-cleger@rivosinc.com>
+References: <20250516152355.560448-1-cleger@rivosinc.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_082830_021705_3EFD93B4 
-X-CRM114-Status: GOOD (  30.44  )
+X-CRM114-CacheID: sfid-20250516_082417_755236_CB3F84EC 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,177 +101,75 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Mike, Andrew,
-
-On Thu, Mar 13 2025, Mike Rapoport wrote:
-
-> From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->
-> high_memory defines upper bound on the directly mapped memory.
-> This bound is defined by the beginning of ZONE_HIGHMEM when a system has
-> high memory and by the end of memory otherwise.
->
-> All this is known to generic memory management initialization code that
-> can set high_memory while initializing core mm structures.
->
-> Add a generic calculation of high_memory to free_area_init() and remove
-> per-architecture calculation except for the architectures that set and
-> use high_memory earlier than that.
->
-> Acked-by: Dave Hansen <dave.hansen@linux.intel.com>	# x86
-> Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
->  arch/alpha/mm/init.c         |  1 -
->  arch/arc/mm/init.c           |  2 --
->  arch/arm64/mm/init.c         |  2 --
->  arch/csky/mm/init.c          |  1 -
->  arch/hexagon/mm/init.c       |  6 ------
->  arch/loongarch/kernel/numa.c |  1 -
->  arch/loongarch/mm/init.c     |  2 --
->  arch/microblaze/mm/init.c    |  2 --
->  arch/mips/mm/init.c          |  2 --
->  arch/nios2/mm/init.c         |  6 ------
->  arch/openrisc/mm/init.c      |  2 --
->  arch/parisc/mm/init.c        |  1 -
->  arch/riscv/mm/init.c         |  1 -
->  arch/s390/mm/init.c          |  2 --
->  arch/sh/mm/init.c            |  7 -------
->  arch/sparc/mm/init_32.c      |  1 -
->  arch/sparc/mm/init_64.c      |  2 --
->  arch/um/kernel/um_arch.c     |  1 -
->  arch/x86/kernel/setup.c      |  2 --
->  arch/x86/mm/init_32.c        |  3 ---
->  arch/x86/mm/numa_32.c        |  3 ---
->  arch/xtensa/mm/init.c        |  2 --
->  mm/memory.c                  |  8 --------
->  mm/mm_init.c                 | 30 ++++++++++++++++++++++++++++++
->  mm/nommu.c                   |  2 --
->  25 files changed, 30 insertions(+), 62 deletions(-)
-
-This patch causes a BUG() when built with CONFIG_DEBUG_VIRTUAL and
-passing in the cma= commandline parameter:
-
-    ------------[ cut here ]------------
-    kernel BUG at arch/x86/mm/physaddr.c:23!
-    ception 0x06 IP 10:ffffffff812ebbf8 error 0 cr2 0xffff88903ffff000
-    CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.15.0-rc6+ #231 PREEMPT(undef)
-    Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.16.3-1-1 04/01/2014
-    RIP: 0010:__phys_addr+0x58/0x60
-    Code: 01 48 89 c2 48 d3 ea 48 85 d2 75 05 e9 91 52 cf 00 0f 0b 48 3d ff ff ff 1f 77 0f 48 8b 05 20 54 55 01 48 01 d0 e9 78 52 cf 00 <0f> 0b 90 0f 1f 44 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90
-    RSP: 0000:ffffffff82803dd8 EFLAGS: 00010006 ORIG_RAX: 0000000000000000
-    RAX: 000000007fffffff RBX: 00000000ffffffff RCX: 0000000000000000
-    RDX: 000000007fffffff RSI: 0000000280000000 RDI: ffffffffffffffff
-    RBP: ffffffff82803e68 R08: 0000000000000000 R09: 0000000000000000
-    R10: ffffffff83153180 R11: ffffffff82803e48 R12: ffffffff83c9aed0
-    R13: 0000000000000000 R14: 0000001040000000 R15: 0000000000000000
-    FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
-    CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-    CR2: ffff88903ffff000 CR3: 0000000002838000 CR4: 00000000000000b0
-    Call Trace:
-     <TASK>
-     ? __cma_declare_contiguous_nid+0x6e/0x340
-     ? cma_declare_contiguous_nid+0x33/0x70
-     ? dma_contiguous_reserve_area+0x2f/0x70
-     ? setup_arch+0x6f1/0x870
-     ? start_kernel+0x52/0x4b0
-     ? x86_64_start_reservations+0x29/0x30
-     ? x86_64_start_kernel+0x7c/0x80
-     ? common_startup_64+0x13e/0x141
-
-The reason is that __cma_declare_contiguous_nid() does:
-
-    	highmem_start = __pa(high_memory - 1) + 1;
-
-If dma_contiguous_reserve_area() (or any other CMA declaration) is
-called before free_area_init(), high_memory is uninitialized. Without
-CONFIG_DEBUG_VIRTUAL, it will likely work but use the wrong value for
-highmem_start.
-
-Among the architectures this patch touches, the below call
-dma_contiguous_reserve_area() _before_ free_area_init():
-
-- x86
-- s390
-- mips
-- riscv
-- xtensa
-- loongarch
-- csky
-
-The below call it _after_ free_area_init():
-- arm64
-
-And the below don't call it at all:
-- sparc
-- nios2
-- openrisc
-- hexagon
-- sh
-- um
-- alpha
-
-One possible fix would be to move the calls to
-dma_contiguous_reserve_area() after free_area_init(). On x86, it would
-look like the diff below. The obvious downside is that moving the call
-later increases the chances of allocation failure. I'm not sure how much
-that actually matters, but at least on x86, that means crash kernel and
-hugetlb reservations go before DMA reservation. Also, adding a patch
-like that at rc7 is a bit risky.
-
-The other option would be to revert this. I tried a revert, but it isn't
-trivial. It runs into merge conflicts in pretty much all of the arch
-files. Maybe reverting patches 11, 12, and 13 as well would make it
-easier but I didn't try that.
-
-Which option should we take? If we want to move
-dma_contiguous_reserve_area() a bit further down the line then I can
-send a patch doing that on the rest of the architectures. Otherwise I
-can try my hand at the revert.
-
---- 8< ---
-diff --git a/arch/x86/kernel/setup.c b/arch/x86/kernel/setup.c
-index 9d2a13b37833..ca6928dde0c9 100644
---- a/arch/x86/kernel/setup.c
-+++ b/arch/x86/kernel/setup.c
-@@ -1160,7 +1160,6 @@ void __init setup_arch(char **cmdline_p)
- 	x86_flattree_get_config();
- 
- 	initmem_init();
--	dma_contiguous_reserve(max_pfn_mapped << PAGE_SHIFT);
- 
- 	if (boot_cpu_has(X86_FEATURE_GBPAGES)) {
- 		hugetlb_cma_reserve(PUD_SHIFT - PAGE_SHIFT);
-@@ -1178,6 +1177,8 @@ void __init setup_arch(char **cmdline_p)
- 
- 	x86_init.paging.pagetable_init();
- 
-+	dma_contiguous_reserve(max_pfn_mapped << PAGE_SHIFT);
-+
- 	kasan_init();
- 
- 	/*
-
--- 
-Regards,
-Pratyush Yadav
-
-
-
-Amazon Web Services Development Center Germany GmbH
-Tamara-Danz-Str. 13
-10243 Berlin
-Geschaeftsfuehrung: Christian Schlaeger, Jonathan Weiss
-Eingetragen am Amtsgericht Charlottenburg unter HRB 257764 B
-Sitz: Berlin
-Ust-ID: DE 365 538 597
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+QWRkIG5lZWRlZCBkZWZpbml0aW9ucyBmb3IgU0JJIFN1cGVydmlzb3IgU29mdHdhcmUgRXZlbnRz
+IGV4dGVuc2lvbiBbMV0uClRoaXMgZXh0ZW5zaW9uIGVuYWJsZXMgdGhlIFNCSSB0byBpbmplY3Qg
+ZXZlbnRzIGludG8gc3VwZXJ2aXNvciBzb2Z0d2FyZQptdWNoIGxpa2UgQVJNIFNERUkuCgpbMV0g
+aHR0cHM6Ly9saXN0cy5yaXNjdi5vcmcvZy90ZWNoLXBycy9tZXNzYWdlLzUxNQoKU2lnbmVkLW9m
+Zi1ieTogQ2zDqW1lbnQgTMOpZ2VyIDxjbGVnZXJAcml2b3NpbmMuY29tPgotLS0KIGFyY2gvcmlz
+Y3YvaW5jbHVkZS9hc20vc2JpLmggfCA2NSArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysr
+KysrKysKIDEgZmlsZSBjaGFuZ2VkLCA2NSBpbnNlcnRpb25zKCspCgpkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmgK
+aW5kZXggM2QyNTA4MjQxNzhiLi40ZDdmODFjNjIwZWYgMTAwNjQ0Ci0tLSBhL2FyY2gvcmlzY3Yv
+aW5jbHVkZS9hc20vc2JpLmgKKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9zYmkuaApAQCAt
+MzUsNiArMzUsNyBAQCBlbnVtIHNiaV9leHRfaWQgewogCVNCSV9FWFRfREJDTiA9IDB4NDQ0MjQz
+NEUsCiAJU0JJX0VYVF9TVEEgPSAweDUzNTQ0MSwKIAlTQklfRVhUX05BQ0wgPSAweDRFNDE0MzRD
+LAorCVNCSV9FWFRfU1NFID0gMHg1MzUzNDUsCiAKIAkvKiBFeHBlcmltZW50YWxzIGV4dGVuc2lv
+bnMgbXVzdCBsaWUgd2l0aGluIHRoaXMgcmFuZ2UgKi8KIAlTQklfRVhUX0VYUEVSSU1FTlRBTF9T
+VEFSVCA9IDB4MDgwMDAwMDAsCkBAIC00MDIsNiArNDAzLDY2IEBAIGVudW0gc2JpX2V4dF9uYWNs
+X2ZlYXR1cmUgewogI2RlZmluZSBTQklfTkFDTF9TSE1FTV9TUkVUX1goX19pKQkJKChfX3Jpc2N2
+X3hsZW4gLyA4KSAqIChfX2kpKQogI2RlZmluZSBTQklfTkFDTF9TSE1FTV9TUkVUX1hfTEFTVAkJ
+MzEKIAorZW51bSBzYmlfZXh0X3NzZV9maWQgeworCVNCSV9TU0VfRVZFTlRfQVRUUl9SRUFEID0g
+MCwKKwlTQklfU1NFX0VWRU5UX0FUVFJfV1JJVEUsCisJU0JJX1NTRV9FVkVOVF9SRUdJU1RFUiwK
+KwlTQklfU1NFX0VWRU5UX1VOUkVHSVNURVIsCisJU0JJX1NTRV9FVkVOVF9FTkFCTEUsCisJU0JJ
+X1NTRV9FVkVOVF9ESVNBQkxFLAorCVNCSV9TU0VfRVZFTlRfQ09NUExFVEUsCisJU0JJX1NTRV9F
+VkVOVF9TSUdOQUwsCisJU0JJX1NTRV9FVkVOVF9IQVJUX1VOTUFTSywKKwlTQklfU1NFX0VWRU5U
+X0hBUlRfTUFTSywKK307CisKK2VudW0gc2JpX3NzZV9zdGF0ZSB7CisJU0JJX1NTRV9TVEFURV9V
+TlVTRUQgICAgID0gMCwKKwlTQklfU1NFX1NUQVRFX1JFR0lTVEVSRUQgPSAxLAorCVNCSV9TU0Vf
+U1RBVEVfRU5BQkxFRCAgICA9IDIsCisJU0JJX1NTRV9TVEFURV9SVU5OSU5HICAgID0gMywKK307
+CisKKy8qIFNCSSBTU0UgRXZlbnQgQXR0cmlidXRlcy4gKi8KK2VudW0gc2JpX3NzZV9hdHRyX2lk
+IHsKKwlTQklfU1NFX0FUVFJfU1RBVFVTCQk9IDB4MDAwMDAwMDAsCisJU0JJX1NTRV9BVFRSX1BS
+SU8JCT0gMHgwMDAwMDAwMSwKKwlTQklfU1NFX0FUVFJfQ09ORklHCQk9IDB4MDAwMDAwMDIsCisJ
+U0JJX1NTRV9BVFRSX1BSRUZFUlJFRF9IQVJUCT0gMHgwMDAwMDAwMywKKwlTQklfU1NFX0FUVFJf
+RU5UUllfUEMJCT0gMHgwMDAwMDAwNCwKKwlTQklfU1NFX0FUVFJfRU5UUllfQVJHCQk9IDB4MDAw
+MDAwMDUsCisJU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX1NFUEMJPSAweDAwMDAwMDA2LAorCVNC
+SV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHUwk9IDB4MDAwMDAwMDcsCisJU0JJX1NTRV9BVFRS
+X0lOVEVSUlVQVEVEX0E2CT0gMHgwMDAwMDAwOCwKKwlTQklfU1NFX0FUVFJfSU5URVJSVVBURURf
+QTcJPSAweDAwMDAwMDA5LAorCisJU0JJX1NTRV9BVFRSX01BWAkJPSAweDAwMDAwMDBBCit9Owor
+CisjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfU1RBVEVfT0ZGU0VUCTAKKyNkZWZpbmUgU0JJ
+X1NTRV9BVFRSX1NUQVRVU19TVEFURV9NQVNLCQkweDMKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX1NU
+QVRVU19QRU5ESU5HX09GRlNFVAkyCisjZGVmaW5lIFNCSV9TU0VfQVRUUl9TVEFUVVNfSU5KRUNU
+X09GRlNFVAkzCisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX0NPTkZJR19PTkVTSE9UCSgxIDw8IDAp
+CisKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTX1NTVEFUVVNfU1BQCSgx
+IDw8IDApCisjZGVmaW5lIFNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHU19TU1RBVFVTX1NQ
+SUUJKDEgPDwgMSkKKyNkZWZpbmUgU0JJX1NTRV9BVFRSX0lOVEVSUlVQVEVEX0ZMQUdTX0hTVEFU
+VVNfU1BWCSgxIDw8IDIpCisjZGVmaW5lIFNCSV9TU0VfQVRUUl9JTlRFUlJVUFRFRF9GTEFHU19I
+U1RBVFVTX1NQVlAJKDEgPDwgMykKKworI2RlZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX0hJR0hf
+UFJJT19SQVMJMHgwMDAwMDAwMAorI2RlZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX0RPVUJMRV9U
+UkFQCQkweDAwMDAwMDAxCisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFMX0hJR0hfUFJJT19S
+QVMJMHgwMDAwODAwMAorI2RlZmluZSBTQklfU1NFX0VWRU5UX0xPQ0FMX1BNVV9PVkVSRkxPVwkw
+eDAwMDEwMDAwCisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfTE9DQUxfTE9XX1BSSU9fUkFTCTB4MDAx
+MDAwMDAKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9HTE9CQUxfTE9XX1BSSU9fUkFTCTB4MDAxMDgw
+MDAKKyNkZWZpbmUgU0JJX1NTRV9FVkVOVF9MT0NBTF9TT0ZUV0FSRV9JTkpFQ1RFRAkweGZmZmYw
+MDAwCisjZGVmaW5lIFNCSV9TU0VfRVZFTlRfR0xPQkFMX1NPRlRXQVJFX0lOSkVDVEVECTB4ZmZm
+ZjgwMDAKKworI2RlZmluZSBTQklfU1NFX0VWRU5UX1BMQVRGT1JNCQkoMSA8PCAxNCkKKyNkZWZp
+bmUgU0JJX1NTRV9FVkVOVF9HTE9CQUwJCSgxIDw8IDE1KQorCiAvKiBTQkkgc3BlYyB2ZXJzaW9u
+IGZpZWxkcyAqLwogI2RlZmluZSBTQklfU1BFQ19WRVJTSU9OX0RFRkFVTFQJMHgxCiAjZGVmaW5l
+IFNCSV9TUEVDX1ZFUlNJT05fTUFKT1JfU0hJRlQJMjQKQEAgLTQxOSw2ICs0ODAsOCBAQCBlbnVt
+IHNiaV9leHRfbmFjbF9mZWF0dXJlIHsKICNkZWZpbmUgU0JJX0VSUl9BTFJFQURZX1NUQVJURUQg
+LTcKICNkZWZpbmUgU0JJX0VSUl9BTFJFQURZX1NUT1BQRUQgLTgKICNkZWZpbmUgU0JJX0VSUl9O
+T19TSE1FTQktOQorI2RlZmluZSBTQklfRVJSX0lOVkFMSURfU1RBVEUJLTEwCisjZGVmaW5lIFNC
+SV9FUlJfQkFEX1JBTkdFCS0xMQogCiBleHRlcm4gdW5zaWduZWQgbG9uZyBzYmlfc3BlY192ZXJz
+aW9uOwogc3RydWN0IHNiaXJldCB7CkBAIC01MDUsNiArNTY4LDggQEAgc3RhdGljIGlubGluZSBp
+bnQgc2JpX2Vycl9tYXBfbGludXhfZXJybm8oaW50IGVycikKIAljYXNlIFNCSV9FUlJfREVOSUVE
+OgogCQlyZXR1cm4gLUVQRVJNOwogCWNhc2UgU0JJX0VSUl9JTlZBTElEX1BBUkFNOgorCWNhc2Ug
+U0JJX0VSUl9CQURfUkFOR0U6CisJY2FzZSBTQklfRVJSX0lOVkFMSURfU1RBVEU6CiAJCXJldHVy
+biAtRUlOVkFMOwogCWNhc2UgU0JJX0VSUl9JTlZBTElEX0FERFJFU1M6CiAJCXJldHVybiAtRUZB
+VUxUOwotLSAKMi40OS4wCgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJh
+ZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51
+eC1yaXNjdgo=
