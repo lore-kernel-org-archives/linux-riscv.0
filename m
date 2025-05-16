@@ -4,97 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8917C3DA4A
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 03:06:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E925C3DA4A
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 05:31:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WQKaRwC2Jo7G+Ar7cGe+u0A5MtilQZlxMjgJnVNM95U=; b=X5IvTykg+BfQow
-	fXXBlNtjXMxhwvzkg8YpmMmFhnzzx75lhmWOsba83R3Hsayroxo2CF0xYMSUpNMVHrtQUxns0W/UV
-	PXdG8v/hLVPx9EQvEYfKNqXacbvIOwGU3uAtzZ6YQL3tsqbmz7SK3qZH1nHFP81k94A3GFY+xWSRl
-	4bTBLWK3xE1a1iG9X83W+xuw3o7LSeIoGI9BHKAt2eZC31GFc0IViJ8L6bZ89ZOFKA7GMxBbraP+p
-	trXj1Cw6lAA625N2hmhxtK6NoUTXzOa2m8I9rd8EYgjMyvmNAy9wbHYxp0RP6t1HMGCL18nQxcuB9
-	QezS4YMBBG8bqAMM954A==;
+	List-Owner; bh=mrdovRXDppEd6vVZQR+/L98pIU/d85O6dg+lHQzzPHw=; b=B2JCRh5DbEWoSN
+	PfxJm07RSA3CXd3ZLiEHy9vu/GjhMOM85cb50mNk3zdvJLHu+HJuy0yzg3/NNWxTwfLbdhmbHdCw1
+	jFmVNtuD7l9lOn9XDhHFCgwtMa517LRwI64UBEZFc0q2tb3SFqnDz6pQxllLmDrOQvaLSiVwHZP3V
+	BYQ+ugnWZVjCo/kW2vAey5Uz6SBtt6lMc1WgTJCEFx0Ay9ASvZra3WlhYgQ8BS50bOpVjDoK9DRZT
+	a+R7pxjUBHsdrweORlgiD9L0numTvxHsdCDlL6LxyKm/lJhW60UheRVRSaLr9Fm9NdB034HNNgsG7
+	PrSTIb7qEtIsvg7Zfoew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFlOs-00000002KLA-0yRU;
-	Fri, 16 May 2025 03:06:18 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1uFnf9-00000002VlB-31sO;
+	Fri, 16 May 2025 05:31:15 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFlOn-00000002KEX-0nWx
+	id 1uFnf6-00000002Vjy-3pVi
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 May 2025 03:06:14 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b24f986674fso1613216a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 15 May 2025 20:06:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1747364772; x=1747969572; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YHR6GhsJ93bX5ZzvrljhM09iosbdwKgwllH+L65tMJE=;
-        b=jshGb5pDfFMF2UG8aPxJShuQjg/j81yOQ34IOOIGVl4yNcZwWVJYOIxlXVVDBXiDfI
-         TlXSPsjnZmGjsel9hxQ07SFwDnqYUbURoxGa6IboLpL0FU6b0XAQhzDWW6ALejH96pBz
-         uJ5Nx9W2XOK8XSLRAnvYwr/gU57+RSIU3ZPrBnYLso5WXXC197urLNkViI82ZWSjIvT+
-         7GDsA2ZUOfLxZ/bJhoC4TPZxJKlcpPfKoYkxPmPv9eFxPGJz9U0foAS8H27RyU5L1FB9
-         3D7k8HDOjGV7h+UCP+TwE45UYt25CXlYy2RHErh+xb/bt4c4qn7zK+shBkaXc8i6KFzh
-         ksRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747364772; x=1747969572;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YHR6GhsJ93bX5ZzvrljhM09iosbdwKgwllH+L65tMJE=;
-        b=RXCiOPQO1NwcfQLFf2ZkZYNV66aDbikpvskaYT1AdBazI19QWtwY0Mr1SxU1jgYU+F
-         +444qC1CT95Ot1Sv65tSEg5kapgyPfi/cTtvcx/ZIM86XvUcMyezWdge2OVlqpWhaor7
-         8WW4CMvGpoh8OPFEfbeU66hxLUStDJ+mjBTeOqd81hy4zz493UUDYswQHSDOOXuiJ/X4
-         rz56GPp0p4Ug4FgVJFtFhcuanrTbRQD3u15s27MOpHj0xWTxLJaQy1OvAUefJcdhkvnp
-         FnMeVPpfTlLlcHVv2PNjxEU9c7ML1rZahrrD4i3YoH5fDCKY6+Renx2MixB2QyebwLBO
-         tKEw==
-X-Forwarded-Encrypted: i=1; AJvYcCW/KV0eb4fWPGYhZutSg0+EFiY8bJJiaxCeXmTaUenWQJruWtNYHhL9Qb58cTNTT0Ie819l0GrN5wo/Eg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn/YCRWO97RTBBczpRUEik9wOt4gTnQhGcGxqQ0fDboi8bIe6P
-	fJmL58dez3B6aILdfHZwbzwI3OuSdWSn5DyFa3kHtianfQ+NKuS0G64bOWMKPqCMeck=
-X-Gm-Gg: ASbGncs571PKRUf7HO/xL5g6pKilqgS/UUWVKbuNKD73UpbVNZ05gpVVxJAyZi8uT/i
-	6emmkkMtwEPqd4scs2uskNh8yVruKRn70IKgKzP4c2ApmS+S5UiJgpRmZz1RVlWmlxSalRO5eIs
-	YXgdDEvF54+wyqjPEG+PTyynDq7ndecR/rGW3IyBxstm3tgXztaFnEBOkQmaK/lItZBpRkp/2qv
-	iq9TKi2Ohs7Ja1HkNXgviaokk/9589cuM1YZHkSPOlS95T05bYj3RsUNFTtnTSQQuVKr4e1YOO/
-	vJcEvwDnIim8XA9Xp8Un+OHRXamGANcPoJGXPN7ArhNeGhGPLiTB77/zHtKfN22N7aU0mYNbjCZ
-	9ClQWPtRqC68=
-X-Google-Smtp-Source: AGHT+IGrzLhyAYfRZnDxkA+4hDDWDsptQiEhouC6msgaCuEbtNMMMwi7Lg79hIno1E+iRF7n6KqiwA==
-X-Received: by 2002:a17:902:da91:b0:215:a303:24e9 with SMTP id d9443c01a7336-231d4ae1de4mr19300975ad.3.1747364772565;
-        Thu, 15 May 2025 20:06:12 -0700 (PDT)
-Received: from cyan-mbp.internal.sifive.com ([136.226.240.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ebb084sm4804405ad.201.2025.05.15.20.06.09
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 15 May 2025 20:06:11 -0700 (PDT)
-From: Cyan Yang <cyan.yang@sifive.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	corbet@lwn.net,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr,
-	samuel.holland@sifive.com
-Cc: linux-doc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Cyan Yang <cyan.yang@sifive.com>
-Subject: [PATCH v2 12/12] riscv: hwprobe: Add SiFive xsfvfwmaccqqq vendor extension
-Date: Fri, 16 May 2025 11:03:10 +0800
-Message-Id: <20250516030310.16950-13-cyan.yang@sifive.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
-In-Reply-To: <20250516030310.16950-1-cyan.yang@sifive.com>
-References: <20250516030310.16950-1-cyan.yang@sifive.com>
+	Fri, 16 May 2025 05:31:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1747373473; x=1778909473;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=toxGotdghsHUab1+RRGl3zwSsX4qzYDutwY3v4Z9C+g=;
+  b=NMLPbeFwGP65+kqIQq9OCh1T1VD7VXZgSZ+JjT7AaS1rl0Q3j7JQkLCQ
+   MTgghlwg6+s9M980ElANqj3s4fPX/sfXt1LLm4fccbofSuIbDSGAhEsvt
+   jb8UeB+5NeluNURqsIJrmTCqr0WQL46NmolpAUnX7E938gq8pUPCeEP5j
+   MpPe4XW3ete7L96jl45lQoNV9qs6ML5gzR5hRiyA2aieBVZQAE+i6AFfh
+   bKlin8OCEbW1t/idHtaEUACXjZIbMXdOwfgdgrRoBRbu8drf05knGNoAx
+   kMV8XG/b/1gOzGdLq62z8KQQmO378cGycFGSjgyaqRPItruLbJsAQH5hW
+   w==;
+X-CSE-ConnectionGUID: kn5du6YsSSqQSBxKHT/Btw==
+X-CSE-MsgGUID: 2/ytlIjoTICI4ofZyyoHiQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11434"; a="74734092"
+X-IronPort-AV: E=Sophos;i="6.15,293,1739865600"; 
+   d="scan'208";a="74734092"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 May 2025 22:31:08 -0700
+X-CSE-ConnectionGUID: XDTdNfeGSuG7gBpjsL5y9w==
+X-CSE-MsgGUID: m0RU7hrdT9K3M202SrKrLw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,293,1739865600"; 
+   d="scan'208";a="138979538"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa008.fm.intel.com with ESMTP; 15 May 2025 22:31:04 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uFnew-000J1T-0H;
+	Fri, 16 May 2025 05:31:02 +0000
+Date: Fri, 16 May 2025 13:30:33 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chiang Brian <chiang.brian@inventec.com>,
+	Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Chiang Brian <chiang.brian@inventec.com>,
+	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v7 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
+Message-ID: <202505161242.oQFhPxZ9-lkp@intel.com>
+References: <20250515081449.1433772-3-chiang.brian@inventec.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250515081449.1433772-3-chiang.brian@inventec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250515_200613_360859_99795847 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250515_223112_967736_67CBF783 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,37 +96,103 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add hwprobe for SiFive "xsfvfwmaccqqq" vendor extension.
+Hi Chiang,
 
-Signed-off-by: Cyan Yang <cyan.yang@sifive.com>
----
- arch/riscv/include/uapi/asm/vendor/sifive.h          | 1 +
- arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c | 1 +
- 2 files changed, 2 insertions(+)
+kernel test robot noticed the following build errors:
 
-diff --git a/arch/riscv/include/uapi/asm/vendor/sifive.h b/arch/riscv/include/uapi/asm/vendor/sifive.h
-index b772d4631284..9f3278a4b298 100644
---- a/arch/riscv/include/uapi/asm/vendor/sifive.h
-+++ b/arch/riscv/include/uapi/asm/vendor/sifive.h
-@@ -3,3 +3,4 @@
- #define	RISCV_HWPROBE_VENDOR_EXT_XSFVQMACCDOD		(1 << 0)
- #define	RISCV_HWPROBE_VENDOR_EXT_XSFVQMACCQOQ		(1 << 1)
- #define	RISCV_HWPROBE_VENDOR_EXT_XSFVFNRCLIPXFQF		(1 << 2)
-+#define	RISCV_HWPROBE_VENDOR_EXT_XSFVFWMACCQQQ		(1 << 3)
-diff --git a/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c b/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-index 2b9505079a9f..1f77f6309763 100644
---- a/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-+++ b/arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
-@@ -17,5 +17,6 @@ void hwprobe_isa_vendor_ext_sifive_0(struct riscv_hwprobe *pair, const struct cp
- 		VENDOR_EXT_KEY(XSFVQMACCDOD);
- 		VENDOR_EXT_KEY(XSFVQMACCQOQ);
- 		VENDOR_EXT_KEY(XSFVFNRCLIPXFQF);
-+		VENDOR_EXT_KEY(XSFVFWMACCQQQ);
- 	});
- }
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on groeck-staging/hwmon-next krzk-dt/for-next linus/master v6.15-rc6 next-20250515]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Chiang-Brian/hwmon-pmbus-tps53679-Add-support-for-TPS53685/20250515-171511
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250515081449.1433772-3-chiang.brian%40inventec.com
+patch subject: [PATCH v7 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
+config: i386-buildonly-randconfig-001-20250516 (https://download.01.org/0day-ci/archive/20250516/202505161242.oQFhPxZ9-lkp@intel.com/config)
+compiler: clang version 20.1.2 (https://github.com/llvm/llvm-project 58df0ef89dd64126512e4ee27b4ac3fd8ddf6247)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250516/202505161242.oQFhPxZ9-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505161242.oQFhPxZ9-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/hwmon/pmbus/tps53679.c:133:50: error: incompatible integer to pointer conversion passing 'int' to parameter of type 'char *' [-Wint-conversion]
+     133 |         ret = tps53679_identify_chip(client, pmbus_rev, device_id);
+         |                                                         ^~~~~~~~~
+   drivers/hwmon/pmbus/tps53679.c:90:26: note: passing argument to parameter 'id' here
+      90 |                                   u8 revision, char *id)
+         |                                                      ^
+>> drivers/hwmon/pmbus/tps53679.c:165:10: error: incompatible pointer to integer conversion passing 'char[2]' to parameter of type 'int' [-Wint-conversion]
+     165 |                                             TPS53681_DEVICE_ID);
+         |                                             ^~~~~~~~~~~~~~~~~~
+   drivers/hwmon/pmbus/tps53679.c:34:32: note: expanded from macro 'TPS53681_DEVICE_ID'
+      34 | #define TPS53681_DEVICE_ID     "\x81"
+         |                                ^~~~~~
+   drivers/hwmon/pmbus/tps53679.c:129:25: note: passing argument to parameter 'device_id' here
+     129 |                                         int pmbus_rev, int device_id)
+         |                                                            ^
+   2 errors generated.
+
+
+vim +133 drivers/hwmon/pmbus/tps53679.c
+
+53030bcc87e4a4b Guenter Roeck 2020-01-20  120  
+53030bcc87e4a4b Guenter Roeck 2020-01-20  121  /*
+53030bcc87e4a4b Guenter Roeck 2020-01-20  122   * Common identification function for chips with multi-phase support.
+53030bcc87e4a4b Guenter Roeck 2020-01-20  123   * Since those chips have special configuration registers, we want to have
+53030bcc87e4a4b Guenter Roeck 2020-01-20  124   * some level of reassurance that we are really talking with the chip
+53030bcc87e4a4b Guenter Roeck 2020-01-20  125   * being probed. Check PMBus revision and chip ID.
+53030bcc87e4a4b Guenter Roeck 2020-01-20  126   */
+53030bcc87e4a4b Guenter Roeck 2020-01-20  127  static int tps53679_identify_multiphase(struct i2c_client *client,
+53030bcc87e4a4b Guenter Roeck 2020-01-20  128  					struct pmbus_driver_info *info,
+53030bcc87e4a4b Guenter Roeck 2020-01-20  129  					int pmbus_rev, int device_id)
+53030bcc87e4a4b Guenter Roeck 2020-01-20  130  {
+53030bcc87e4a4b Guenter Roeck 2020-01-20  131  	int ret;
+53030bcc87e4a4b Guenter Roeck 2020-01-20  132  
+53030bcc87e4a4b Guenter Roeck 2020-01-20 @133  	ret = tps53679_identify_chip(client, pmbus_rev, device_id);
+53030bcc87e4a4b Guenter Roeck 2020-01-20  134  	if (ret < 0)
+53030bcc87e4a4b Guenter Roeck 2020-01-20  135  		return ret;
+53030bcc87e4a4b Guenter Roeck 2020-01-20  136  
+53030bcc87e4a4b Guenter Roeck 2020-01-20  137  	ret = tps53679_identify_mode(client, info);
+53030bcc87e4a4b Guenter Roeck 2020-01-20  138  	if (ret < 0)
+53030bcc87e4a4b Guenter Roeck 2020-01-20  139  		return ret;
+53030bcc87e4a4b Guenter Roeck 2020-01-20  140  
+53030bcc87e4a4b Guenter Roeck 2020-01-20  141  	return tps53679_identify_phases(client, info);
+53030bcc87e4a4b Guenter Roeck 2020-01-20  142  }
+53030bcc87e4a4b Guenter Roeck 2020-01-20  143  
+53030bcc87e4a4b Guenter Roeck 2020-01-20  144  static int tps53679_identify(struct i2c_client *client,
+53030bcc87e4a4b Guenter Roeck 2020-01-20  145  			     struct pmbus_driver_info *info)
+53030bcc87e4a4b Guenter Roeck 2020-01-20  146  {
+53030bcc87e4a4b Guenter Roeck 2020-01-20  147  	return tps53679_identify_mode(client, info);
+53030bcc87e4a4b Guenter Roeck 2020-01-20  148  }
+53030bcc87e4a4b Guenter Roeck 2020-01-20  149  
+340e957083852e1 Chiang Brian  2025-05-15  150  static int tps53685_identify(struct i2c_client *client,
+340e957083852e1 Chiang Brian  2025-05-15  151  				 struct pmbus_driver_info *info)
+340e957083852e1 Chiang Brian  2025-05-15  152  {
+340e957083852e1 Chiang Brian  2025-05-15  153  	info->func[1] |= PMBUS_HAVE_VIN | PMBUS_HAVE_IIN | PMBUS_HAVE_PIN |
+340e957083852e1 Chiang Brian  2025-05-15  154  			 PMBUS_HAVE_STATUS_INPUT;
+340e957083852e1 Chiang Brian  2025-05-15  155  	info->format[PSC_VOLTAGE_OUT] = linear;
+340e957083852e1 Chiang Brian  2025-05-15  156  	return tps53679_identify_chip(client, TPS53681_PMBUS_REVISION,
+340e957083852e1 Chiang Brian  2025-05-15  157  					   TPS53685_DEVICE_ID);
+340e957083852e1 Chiang Brian  2025-05-15  158  }
+340e957083852e1 Chiang Brian  2025-05-15  159  
+53030bcc87e4a4b Guenter Roeck 2020-01-20  160  static int tps53681_identify(struct i2c_client *client,
+53030bcc87e4a4b Guenter Roeck 2020-01-20  161  			     struct pmbus_driver_info *info)
+53030bcc87e4a4b Guenter Roeck 2020-01-20  162  {
+53030bcc87e4a4b Guenter Roeck 2020-01-20  163  	return tps53679_identify_multiphase(client, info,
+53030bcc87e4a4b Guenter Roeck 2020-01-20  164  					    TPS53681_PMBUS_REVISION,
+53030bcc87e4a4b Guenter Roeck 2020-01-20 @165  					    TPS53681_DEVICE_ID);
+53030bcc87e4a4b Guenter Roeck 2020-01-20  166  }
+53030bcc87e4a4b Guenter Roeck 2020-01-20  167  
+
 -- 
-2.39.5 (Apple Git-154)
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
