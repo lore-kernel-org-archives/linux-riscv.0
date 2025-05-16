@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79E8DC3ABC9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 14:57:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDFAC3ABC9
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 15:03:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hkLhjnu54nJiO8tcV/+k4gh5Q3WGv9KDiULOhiC1LL0=; b=vEJbr1hdTJ+VYQ
-	ZhHv219iLEQSAv2eeFPM6YsoScBVE17RrRpmRenrrVVsB+XNWKqGVFqmd8co36pI2DbRk8nBHpdBk
-	LmdVjVyKYHIKZ/d997xgLIFmaMuPSVwosc7B/Pzq4/pyA7US5lK8f/dg93YaQDPLpAYN9jMqJthGy
-	51g+AxZCeQFMrhPyKta/GuN6RY+pj2HqbMVbX5XezxvF6xIFYXL/5mCaLgZdNh+huCA76hKo5oS0d
-	BF6P39Yt8QX2DFNITAIoQryuxaa+6IxTlytmux73iFjJ7dFAbkJFFVKczbl35gtfs2eK5zs938v71
-	BBBFpWwLI+XFhWY4AI4A==;
+	List-Owner; bh=BtRWXSOh5monNCnisGTJnJd4cpvXgcP1zaj5aK524o4=; b=yIqfvnffj++fnr
+	2UgokQ0lZGa/HMkjTMGg77/a2IE2k5yWD/PAzbs8ctqcvmgx82eYA46Cbwi4nfJpVxu5/NOD1EUxo
+	XrG6O4UqyUFYDMvpye0MpVXFwnRJ6gqgJUcgrOUo3uCO+caVlUr9GZCmHLYOZnAh97HQkGj16T7O/
+	8pc4oVkluvg7tuYhiCP1WBJlu3Vw6pEOEjy6r4iczSkLDbLE43qH+BrT3+jovOGqiiCwLDhbM/RCr
+	KSTIJTxEQ9oS39NKnHn2HZbaO8A77ge3CegeA5vSgCWTxLfFK6JAIwDF25ZFKzuj6yzHtoxpFga7Q
+	cxwP4E7u4sqD2eNYIbSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwV6-00000003kOy-37PH;
-	Fri, 16 May 2025 14:57:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uFwb0-00000003m3p-1SHW;
+	Fri, 16 May 2025 15:03:34 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFvqw-00000003der-20Cb
+	id 1uFwBk-00000003gik-3ORh
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 May 2025 14:15:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6AA9B62A01
-	for <linux-riscv@lists.infradead.org>; Fri, 16 May 2025 14:15:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC242C4AF0C
-	for <linux-riscv@lists.infradead.org>; Fri, 16 May 2025 14:15:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747404955;
-	bh=JPP6PZVPCyPpBi7NX7odUW7qXIUoGkCGhRHKl7+rxGk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=dw1gTVs/jf57SCOW6Wymkm1DyWIU7m/KHmweRe48yAnCuwGNkrr+xIx9LK8fX1j0V
-	 7yFdIZnwEJ7TLBP8M+buGhUc+/6YNsrYA8yZnxcxY38ddJQSFb4ivK0M6ADp4Cs44W
-	 3i013u1Qd7zcOk1Tiu2IZDmJSRXNoL4ElfJTsIWgkVjeK0P+hZBgADKD4VjulusLQd
-	 a0nMqe5bBzYUcDa0j00Mkbk24yoVfzHVGNIM8msBTvyezmkC0zmvEzAHpBIr8PgJVI
-	 UQC30myGs6a9R3Js4QfEEmHKNRPoUT6nH5Z1U5WfP30NFfoswM/FFvYtL/xWIlSd2s
-	 B6d1r2+IW0Nag==
-Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-400fa6eafa9so1723599b6e.1
-        for <linux-riscv@lists.infradead.org>; Fri, 16 May 2025 07:15:55 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVTjIaVacMJKGOPJ8UVrlKBCP7qqXU3yDAJ7pVwihRNP6YVL45vcC0HkcwRx2bxFMbB7f+zrwJS2ASmUQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAvliBlRQCJp7+9fEYE3FdfnG6UwlDJCPB3QDXtNFmeT1JMPxz
-	YYnW85sVCNDxDft7wgrMGiq3vnAZq3pbXJqqgNYH0TTQIN+6Xu8ktoJT/qLpJJyNQP4ZIexD7Gc
-	0RoI7Y8tTztPYz7G+B0i8m6PH9IVn7Nw=
-X-Google-Smtp-Source: AGHT+IEifMgJi4I9KIB7g9la5wpxkudYHh/KMp5hArruRNgMVIpvFmFB7Kl/JfKlT61P+OJfapZDeIhIDy2BsGE64us=
-X-Received: by 2002:a05:6808:6a89:b0:402:862:93ae with SMTP id
- 5614622812f47-404d86e321bmr2322505b6e.16.1747404955135; Fri, 16 May 2025
- 07:15:55 -0700 (PDT)
+	Fri, 16 May 2025 14:37:30 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B98C143865;
+	Fri, 16 May 2025 14:37:20 +0000 (UTC)
+Message-ID: <57352cc0-420b-42e6-a493-2764794a5206@ghiti.fr>
+Date: Fri, 16 May 2025 16:37:20 +0200
 MIME-Version: 1.0
-References: <20250514055723.1328557-1-sunilvl@ventanamicro.com> <20250514055723.1328557-4-sunilvl@ventanamicro.com>
-In-Reply-To: <20250514055723.1328557-4-sunilvl@ventanamicro.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Fri, 16 May 2025 16:15:44 +0200
-X-Gmail-Original-Message-ID: <CAJZ5v0iVvDZJFxcHG6x23G4_88DE_A9JLx0o7ejypNv=M2Qg6g@mail.gmail.com>
-X-Gm-Features: AX0GCFtlXnPveldiowmA4mqsiA61H-XtjgSSx2COK0UFQUnxxpWloVNNJI4sskQ
-Message-ID: <CAJZ5v0iVvDZJFxcHG6x23G4_88DE_A9JLx0o7ejypNv=M2Qg6g@mail.gmail.com>
-Subject: Re: [PATCH 3/4] ACPI: scan: Add support for RISC-V in acpi_iommu_configure_id()
-To: Sunil V L <sunilvl@ventanamicro.com>
-Cc: linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-acpi@vger.kernel.org, iommu@lists.linux.dev, 
-	acpica-devel@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Tomasz Jeznach <tjeznach@rivosinc.com>, Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, 
-	Robin Murphy <robin.murphy@arm.com>, Atish Kumar Patra <atishp@rivosinc.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Andrew Jones <ajones@ventanamicro.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/2] Implement endianess swap macros for RISC-V
+Content-Language: en-US
+To: Ignacio Encinas <ignacio@iencinas.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
+ skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
+ =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
+ linux-arch@vger.kernel.org
+References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefudeftdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtohepihhgnhgrtghiohesihgvnhgtihhnrghsrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhto
+ hepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhdqmhgvnhhtvggvsheslhhishhtshdrlhhinhhugidruggvvh
+X-GND-Sasl: alex@ghiti.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250516_073729_003899_468687BB 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,37 +65,79 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gV2VkLCBNYXkgMTQsIDIwMjUgYXQgNzo1N+KAr0FNIFN1bmlsIFYgTCA8c3VuaWx2bEB2ZW50
-YW5hbWljcm8uY29tPiB3cm90ZToKPgo+IGFjcGlfaW9tbXVfY29uZmlndXJlX2lkKCkgY3VycmVu
-dGx5IHN1cHBvcnRzIG9ubHkgSU9SVCAoQVJNKSBhbmQgVklPVC4KPiBBZGQgc3VwcG9ydCBmb3Ig
-UklTQy1WIGFzIHdlbGwuCj4KPiBTaWduZWQtb2ZmLWJ5OiBTdW5pbCBWIEwgPHN1bmlsdmxAdmVu
-dGFuYW1pY3JvLmNvbT4KClRoaXMgaXMgZmluZSBieSBtZSwgc28KCkFja2VkLWJ5OiBSYWZhZWwg
-Si4gV3lzb2NraSA8cmFmYWVsLmoud3lzb2NraUBpbnRlbC5jb20+CgphbmQgcGxlYXNlIHJvdXRl
-IGl0IHZpYSBSSVNDLVYsIGJ1dCByZW1lbWJlciBhYm91dCB0aGUgZGVwZW5kZW5jeSBvbgp0aGUg
-bmV3IEFDUElDQSBjaGFuZ2UuCgo+IC0tLQo+ICBkcml2ZXJzL2FjcGkvc2Nhbi5jIHwgOSArKysr
-KysrLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDcgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkK
-Pgo+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2FjcGkvc2Nhbi5jIGIvZHJpdmVycy9hY3BpL3NjYW4u
-Ywo+IGluZGV4IGZiMWZlOWYzYjFhMy4uNzBmNTdkNThmZDYxIDEwMDY0NAo+IC0tLSBhL2RyaXZl
-cnMvYWNwaS9zY2FuLmMKPiArKysgYi9kcml2ZXJzL2FjcGkvc2Nhbi5jCj4gQEAgLTExLDYgKzEx
-LDcgQEAKPiAgI2luY2x1ZGUgPGxpbnV4L2tlcm5lbC5oPgo+ICAjaW5jbHVkZSA8bGludXgvYWNw
-aS5oPgo+ICAjaW5jbHVkZSA8bGludXgvYWNwaV9pb3J0Lmg+Cj4gKyNpbmNsdWRlIDxsaW51eC9h
-Y3BpX3JpbXQuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L2FjcGlfdmlvdC5oPgo+ICAjaW5jbHVkZSA8
-bGludXgvaW9tbXUuaD4KPiAgI2luY2x1ZGUgPGxpbnV4L3NpZ25hbC5oPgo+IEBAIC0xNjI4LDgg
-KzE2MjksMTIgQEAgc3RhdGljIGludCBhY3BpX2lvbW11X2NvbmZpZ3VyZV9pZChzdHJ1Y3QgZGV2
-aWNlICpkZXYsIGNvbnN0IHUzMiAqaWRfaW4pCj4gICAgICAgICB9Cj4KPiAgICAgICAgIGVyciA9
-IGlvcnRfaW9tbXVfY29uZmlndXJlX2lkKGRldiwgaWRfaW4pOwo+IC0gICAgICAgaWYgKGVyciAm
-JiBlcnIgIT0gLUVQUk9CRV9ERUZFUikKPiAtICAgICAgICAgICAgICAgZXJyID0gdmlvdF9pb21t
-dV9jb25maWd1cmUoZGV2KTsKPiArICAgICAgIGlmIChlcnIgJiYgZXJyICE9IC1FUFJPQkVfREVG
-RVIpIHsKPiArICAgICAgICAgICAgICAgZXJyID0gcmltdF9pb21tdV9jb25maWd1cmVfaWQoZGV2
-LCBpZF9pbik7Cj4gKyAgICAgICAgICAgICAgIGlmIChlcnIgJiYgZXJyICE9IC1FUFJPQkVfREVG
-RVIpCj4gKyAgICAgICAgICAgICAgICAgICAgICAgZXJyID0gdmlvdF9pb21tdV9jb25maWd1cmUo
-ZGV2KTsKPiArICAgICAgIH0KPiArCj4gICAgICAgICBtdXRleF91bmxvY2soJmlvbW11X3Byb2Jl
-X2RldmljZV9sb2NrKTsKPgo+ICAgICAgICAgcmV0dXJuIGVycjsKPiAtLQo+IDIuNDMuMAo+Cgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNj
-diBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlz
-dHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Arnd,
+
+Do you think we can merge that for 6.16? It is nice improvement for us.
+
+Thanks,
+
+Alex
+
+On 26/04/2025 16:56, Ignacio Encinas wrote:
+> Motivated by [1]. A couple of things to note:
+>
+> RISC-V needs a default implementation to fall back on. There is one
+> available in include/uapi/linux/swab.h but that header can't be included
+> from arch/riscv/include/asm/swab.h. Therefore, the first patch in this
+> series moves the default implementation into asm-generic.
+>
+> Tested with crc_kunit as pointed out here [2]. I can't provide
+> performance numbers as I don't have RISC-V hardware yet.
+>
+> [1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
+> [2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
+>
+> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
+> ---
+> Changes in v4:
+>
+> - Add missing include in the 1st patch, reported by
+>    https://lore.kernel.org/all/202504042300.it9RcOSt-lkp@intel.com/
+> - Rewrite the ARCH_SWAB macro as suggested by Arnd
+> - Define __arch_swab64 for CONFIG_32BIT (Ben)
+> - Link to v3: https://lore.kernel.org/r/20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com
+>
+> Arnd, I know you don't like Patch 1 but I tried your suggestions and
+> couldn't make them work. Please let me know if I missed anything [3] [4]
+>
+> [3] https://lore.kernel.org/linux-riscv/f5464e26-faa0-48f1-8585-9ce52c8c9f5f@iencinas.com/
+> [4] https://lore.kernel.org/linux-riscv/b3b59747-0484-4042-bdc4-c067688e3bfe@iencinas.com/
+>
+> Changes in v3:
+>
+> PATCH 2:
+>    Use if(riscv_has_extension_likely) instead of asm goto (Eric). It
+>    looks like both versions generate the same assembly. Perhaps we should
+>    do the same change in other places such as arch/riscv/include/asm/bitops.h
+> - Link to v2: https://lore.kernel.org/r/20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com
+>
+> Changes in v2:
+> - Introduce first patch factoring out the default implementation into
+>    asm-generic
+> - Remove blank line to make checkpatch happy
+> - Link to v1: https://lore.kernel.org/r/20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com
+>
+> ---
+> Ignacio Encinas (2):
+>        include/uapi/linux/swab.h: move default implementation for swab macros into asm-generic
+>        riscv: introduce asm/swab.h
+>
+>   arch/riscv/include/asm/swab.h   | 62 +++++++++++++++++++++++++++++++++++++++++
+>   include/uapi/asm-generic/swab.h | 33 ++++++++++++++++++++++
+>   include/uapi/linux/swab.h       | 33 +---------------------
+>   3 files changed, 96 insertions(+), 32 deletions(-)
+> ---
+> base-commit: a7f2e10ecd8f18b83951b0bab47ddaf48f93bf47
+> change-id: 20250307-riscv-swab-b81b94a9ac1b
+>
+> Best regards,
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
