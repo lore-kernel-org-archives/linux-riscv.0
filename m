@@ -4,62 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2759C3ABD8
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 16:13:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A6E9C54754
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 17:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CDvuKLW1D7p3/pK958hqyv4rtvX/O0u4I5uQ8e5P3I0=; b=lKX1S5y6bfhLke
-	amPd8aDo5xm01EjIDQ9k5y5IgepX5K0e4X+JJSE5VXTo2NHz1E40n1eUVOeRkyFjcfH9w2neXfX9V
-	s2shBPJuRpqRo8jfSlVb6aK8lrFHdp+yFwyHXC0/gwSX4nOEaQMA7wYa10ha+EG8y5IaPjZcUaj/M
-	wqIA+o89f8WHqgH+NYYyEtx36HSDLOurmUNz+AYX7EATuAZDeYQgiKW9U7fypwaY1c06cVY8O0tY7
-	iknVO1+EukH0PAkpbAVMktCXEmhuV6AKyUEtu17b7tmziOAQx/cVuGWVdINuRxOGRpZ/Fd/ws4XK+
-	pF2l0U/lpNxY3FJNG/Eg==;
+	List-Owner; bh=HA+XAVeEMqV7F46/1pAFMBa5y35b0hyKxtwGbS4vlqc=; b=hDKk3Ou53DUdUY
+	v1gerSyEkxAcBhY2HryoxHMa0pJwQEcMi2W1LP/ElPV7dSDgPa++3vCKvIawQ+BntkgEddXtTReXX
+	Pg9ONy2dsMp5g4y1MYMpr+tXQyNJ++Y9acoyEd5Hjke+OwMTWgATx9ptCWhKB+gz93UKFLiVD2PYs
+	6x4WsIzIDlj0Km1rfJ39ujDxALs92zFBZWtjdsfkTrTPwcAl0ZF8g6/lJGmb5qbE4oixrqY7p29DV
+	rkYFtf2okzXaj+Z1RRf/Y+q8Tx8gFayvN2Zb6JgU1hEp5Is/YBv3WpKoIr/KFE8LidOt897pe7CRC
+	NI0KemuRsY3HWem62a3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxg7-00000003yo3-1mG8;
-	Fri, 16 May 2025 16:12:55 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uFyhs-000000049Lc-3Tf3;
+	Fri, 16 May 2025 17:18:48 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFxFr-00000003trb-2wfe
-	for linux-riscv@lists.infradead.org;
-	Fri, 16 May 2025 15:45:47 +0000
+	id 1uFyRj-000000046WV-0tGF;
+	Fri, 16 May 2025 17:02:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E689C62A64;
-	Fri, 16 May 2025 15:45:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86432C4CEF0;
-	Fri, 16 May 2025 15:45:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 157604A5E3;
+	Fri, 16 May 2025 17:02:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0EECC4CEF0;
+	Fri, 16 May 2025 17:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747410346;
-	bh=IfcZCOVl2cZHsDX4T04yuRwLb2cGUd5JrIqFBLn0nwg=;
+	s=k20201202; t=1747414925;
+	bh=cqx2+cIJWTrHCV6/oR0Yq/5mBq5YQMLp47aAmVpBt3g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Y+14PxNfE0L1mwRb2/UUcId9ZR9psC9eFsVgvYi3wqboKHWHm9DQ7O0uPVdTemFma
-	 /RFaAVG4Cb/Ys2T7+QDDuHz65FNA8W/H9koCm34x6dEIyz+IJ3HBH4E4gt9oeQ6Kbd
-	 losyxjBUQ1ccb5RF2loDJByFk/5dmaBpAF3gI8o3RxZ/5rr5aqmqcqp44Sffl32PTC
-	 hO+wi/xP6d0K7SVya2aschjBqyBEyYPTuWFXRLJLuJ81rdtyeXSnQr/3GgfqhNsDJN
-	 FjtuKW1Z+/N7lon0efBeqqKbmElL6HJYQ1VhhDXPxi2otlLAhFXRS7qWuMWvucgHmr
-	 KdOK1kFglX+Zw==
-Date: Fri, 16 May 2025 17:45:41 +0200
-From: Ingo Molnar <mingo@kernel.org>
-To: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-kernel@vger.kernel.org,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Peter Zijlstra <peterz@infradead.org>, linux-arch@vger.kernel.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
+	b=lUDxZrq3AgKR6R/qdSD5KToNP2iDU/ZdgNHX0l93Wa0Usl43PM+Q69PCMJ+riC91+
+	 GzyY7EaqkfMTyfOZpKxurTSZjkJKwfcYAJzN479Jq1XY715ZFPSbZY5p+660Pml4WJ
+	 WVrtggr77MuENEy16G/Cm6GiEnYKWR+qy9NuUFUBtEWcY2PS4Dfe2fo7FR1Ix+D4Oi
+	 47TeVeOimVrXL3v1JgdHRttkQXduRx9X2VuGVrxf0Jjtgu8cmKYzsPNI0B6nhbhtkY
+	 it1pWXgcbOjzy34igpeFVY2tv6MHULnoGk6Vy5BS3lI1O4u50PgBdO3vKkRUd646yd
+	 GEf103TOWCZUw==
+Date: Fri, 16 May 2025 20:01:44 +0300
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <ptyadav@amazon.de>
+Cc: Andrew Morton <akpm@linux-foundation.org>,
+	Alexander Gordeev <agordeev@linux.ibm.com>,
+	Andreas Larsson <andreas@gaisler.com>,
+	Andy Lutomirski <luto@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Borislav Petkov <bp@alien8.de>,
+	Brian Cain <bcain@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Geert Uytterhoeven <geert@linux-m68k.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Guo Ren <guoren@kernel.org>, Heiko Carstens <hca@linux.ibm.com>,
+	Helge Deller <deller@gmx.de>, Huacai Chen <chenhuacai@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jiaxun Yang <jiaxun.yang@flygoat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Mark Brown <broonie@kernel.org>, Matt Turner <mattst88@gmail.com>,
+	Max Filippov <jcmvbkbc@gmail.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Michal Simek <monstr@monstr.eu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 12/15] bugs/riscv: Concatenate 'cond_str' with '__FILE__'
- in __BUG_FLAGS(), to extend WARN_ON/BUG_ON output
-Message-ID: <aCddpaKTVTTucMX9@gmail.com>
-References: <20250515124644.2958810-1-mingo@kernel.org>
- <20250515124644.2958810-13-mingo@kernel.org>
- <6886cf50-1a05-4ebd-bf8c-1afa652e8c89@ghiti.fr>
+	Peter Zijlstra <peterz@infradead.org>,
+	Richard Weinberger <richard@nod.at>,
+	Russell King <linux@armlinux.org.uk>,
+	Stafford Horne <shorne@gmail.com>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vasily Gorbik <gor@linux.ibm.com>, Vineet Gupta <vgupta@kernel.org>,
+	Will Deacon <will@kernel.org>, Praveen Kumar <pravkmr@amazon.de>,
+	linux-alpha@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-snps-arc@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-csky@vger.kernel.org,
+	linux-hexagon@vger.kernel.org, loongarch@lists.linux.dev,
+	linux-m68k@lists.linux-m68k.org, linux-mips@vger.kernel.org,
+	linux-openrisc@vger.kernel.org, linux-parisc@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org,
+	sparclinux@vger.kernel.org, linux-um@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v2 10/13] arch, mm: set high_memory in free_area_init()
+Message-ID: <aCdveN2w9ThjVhae@kernel.org>
+References: <20250313135003.836600-1-rppt@kernel.org>
+ <20250313135003.836600-11-rppt@kernel.org>
+ <mafs05xi0o9ri.fsf@amazon.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <6886cf50-1a05-4ebd-bf8c-1afa652e8c89@ghiti.fr>
+In-Reply-To: <mafs05xi0o9ri.fsf@amazon.de>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250516_100207_295433_B9D19E8F 
+X-CRM114-Status: GOOD (  40.27  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,71 +113,171 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Pratyush,
 
-* Alexandre Ghiti <alex@ghiti.fr> wrote:
-
-> Hi Ingo,
+On Fri, May 16, 2025 at 05:28:17PM +0200, Pratyush Yadav wrote:
+> Hi Mike, Andrew,
 > 
-> On 15/05/2025 14:46, Ingo Molnar wrote:
-> > Extend WARN_ON and BUG_ON style output from:
-> > 
-> >    WARNING: CPU: 0 PID: 0 at kernel/sched/core.c:8511 sched_init+0x20/0x410
-> > 
-> > to:
-> > 
-> >    WARNING: CPU: 0 PID: 0 at [idx < 0 && ptr] kernel/sched/core.c:8511 sched_init+0x20/0x410
-> > 
-> > Note that the output will be further reorganized later in this series.
-> > 
-> > Signed-off-by: Ingo Molnar <mingo@kernel.org>
-> > Cc: Paul Walmsley <paul.walmsley@sifive.com>
-> > Cc: Palmer Dabbelt <palmer@dabbelt.com>
-> > Cc: Albert Ou <aou@eecs.berkeley.edu>
-> > Cc: Alexandre Ghiti <alex@ghiti.fr>
-> > Cc: linux-riscv@lists.infradead.org
-> > Cc: <linux-arch@vger.kernel.org>
+> On Thu, Mar 13 2025, Mike Rapoport wrote:
+> 
+> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >
+> > high_memory defines upper bound on the directly mapped memory.
+> > This bound is defined by the beginning of ZONE_HIGHMEM when a system has
+> > high memory and by the end of memory otherwise.
+> >
+> > All this is known to generic memory management initialization code that
+> > can set high_memory while initializing core mm structures.
+> >
+> > Add a generic calculation of high_memory to free_area_init() and remove
+> > per-architecture calculation except for the architectures that set and
+> > use high_memory earlier than that.
+> >
+> > Acked-by: Dave Hansen <dave.hansen@linux.intel.com>	# x86
+> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
 > > ---
-> >   arch/riscv/include/asm/bug.h | 2 +-
-> >   1 file changed, 1 insertion(+), 1 deletion(-)
-> > 
-> > diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
-> > index feaf456d465b..da9b8e83934d 100644
-> > --- a/arch/riscv/include/asm/bug.h
-> > +++ b/arch/riscv/include/asm/bug.h
-> > @@ -61,7 +61,7 @@ do {								\
-> >   			".org 2b + %3\n\t"                      \
-> >   			".popsection"				\
-> >   		:						\
-> > -		: "i" (__FILE__), "i" (__LINE__),		\
-> > +		: "i" (WARN_CONDITION_STR(cond_str) __FILE__), "i" (__LINE__),	\
-> >   		  "i" (flags),					\
-> >   		  "i" (sizeof(struct bug_entry)));              \
-> >   } while (0)
+> >  arch/alpha/mm/init.c         |  1 -
+> >  arch/arc/mm/init.c           |  2 --
+> >  arch/arm64/mm/init.c         |  2 --
+> >  arch/csky/mm/init.c          |  1 -
+> >  arch/hexagon/mm/init.c       |  6 ------
+> >  arch/loongarch/kernel/numa.c |  1 -
+> >  arch/loongarch/mm/init.c     |  2 --
+> >  arch/microblaze/mm/init.c    |  2 --
+> >  arch/mips/mm/init.c          |  2 --
+> >  arch/nios2/mm/init.c         |  6 ------
+> >  arch/openrisc/mm/init.c      |  2 --
+> >  arch/parisc/mm/init.c        |  1 -
+> >  arch/riscv/mm/init.c         |  1 -
+> >  arch/s390/mm/init.c          |  2 --
+> >  arch/sh/mm/init.c            |  7 -------
+> >  arch/sparc/mm/init_32.c      |  1 -
+> >  arch/sparc/mm/init_64.c      |  2 --
+> >  arch/um/kernel/um_arch.c     |  1 -
+> >  arch/x86/kernel/setup.c      |  2 --
+> >  arch/x86/mm/init_32.c        |  3 ---
+> >  arch/x86/mm/numa_32.c        |  3 ---
+> >  arch/xtensa/mm/init.c        |  2 --
+> >  mm/memory.c                  |  8 --------
+> >  mm/mm_init.c                 | 30 ++++++++++++++++++++++++++++++
+> >  mm/nommu.c                   |  2 --
+> >  25 files changed, 30 insertions(+), 62 deletions(-)
 > 
-> I have added a dummy WARN_ON_ONCE(pgtable_l5_enabled == true) and I get the
-> following output:
+> This patch causes a BUG() when built with CONFIG_DEBUG_VIRTUAL and
+> passing in the cma= commandline parameter:
 > 
-> WARNING: [pgtable_l5_enabled == true] arch/riscv/kernel/setup.c:364 at
-> setup_arch+0x6c4/0x704, CPU#0: swapper/0
+>     ------------[ cut here ]------------
+>     kernel BUG at arch/x86/mm/physaddr.c:23!
+>     ception 0x06 IP 10:ffffffff812ebbf8 error 0 cr2 0xffff88903ffff000
+>     CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.15.0-rc6+ #231 PREEMPT(undef)
+>     Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.16.3-1-1 04/01/2014
+>     RIP: 0010:__phys_addr+0x58/0x60
+>     Code: 01 48 89 c2 48 d3 ea 48 85 d2 75 05 e9 91 52 cf 00 0f 0b 48 3d ff ff ff 1f 77 0f 48 8b 05 20 54 55 01 48 01 d0 e9 78 52 cf 00 <0f> 0b 90 0f 1f 44 00 00 90 90 90 90 90 90 90 90 90 90 90 90 90 90
+>     RSP: 0000:ffffffff82803dd8 EFLAGS: 00010006 ORIG_RAX: 0000000000000000
+>     RAX: 000000007fffffff RBX: 00000000ffffffff RCX: 0000000000000000
+>     RDX: 000000007fffffff RSI: 0000000280000000 RDI: ffffffffffffffff
+>     RBP: ffffffff82803e68 R08: 0000000000000000 R09: 0000000000000000
+>     R10: ffffffff83153180 R11: ffffffff82803e48 R12: ffffffff83c9aed0
+>     R13: 0000000000000000 R14: 0000001040000000 R15: 0000000000000000
+>     FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+>     CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+>     CR2: ffff88903ffff000 CR3: 0000000002838000 CR4: 00000000000000b0
+>     Call Trace:
+>      <TASK>
+>      ? __cma_declare_contiguous_nid+0x6e/0x340
+>      ? cma_declare_contiguous_nid+0x33/0x70
+>      ? dma_contiguous_reserve_area+0x2f/0x70
+>      ? setup_arch+0x6f1/0x870
+>      ? start_kernel+0x52/0x4b0
+>      ? x86_64_start_reservations+0x29/0x30
+>      ? x86_64_start_kernel+0x7c/0x80
+>      ? common_startup_64+0x13e/0x141
 > 
-> So you can add for riscv:
+> The reason is that __cma_declare_contiguous_nid() does:
 > 
-> Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
+>     	highmem_start = __pa(high_memory - 1) + 1;
+> 
+> If dma_contiguous_reserve_area() (or any other CMA declaration) is
+> called before free_area_init(), high_memory is uninitialized. Without
+> CONFIG_DEBUG_VIRTUAL, it will likely work but use the wrong value for
+> highmem_start.
+> 
+> Among the architectures this patch touches, the below call
+> dma_contiguous_reserve_area() _before_ free_area_init():
+> 
+> - x86
+> - s390
+> - mips
+> - riscv
+> - xtensa
+> - loongarch
+> - csky
 
-Thanks, I've updated the tags section of the riscv patches.
+For most of those this patch didn't really change anything because they
+initialized high_memory in mem_init() which is a part of free_area_init().
+In those cases cma just did
 
-BTW., if you tried the WIP.core/bugs tree it has a final (and silly) 
-WARN_ON_ONCE()-testing commit as well:
+	highmem_start = __pa(-1) + 1;
 
-   af0503e693cf ("bugs/core: Test WARN_ON_ONCE()")
+and everyone was happy :)
+ 
+> The below call it _after_ free_area_init():
+> - arm64
+> 
+> And the below don't call it at all:
+> - sparc
+> - nios2
+> - openrisc
+> - hexagon
+> - sh
+> - um
+> - alpha
+> 
+> One possible fix would be to move the calls to
+> dma_contiguous_reserve_area() after free_area_init(). On x86, it would
+> look like the diff below. The obvious downside is that moving the call
+> later increases the chances of allocation failure. I'm not sure how much
+> that actually matters, but at least on x86, that means crash kernel and
+> hugetlb reservations go before DMA reservation. Also, adding a patch
+> like that at rc7 is a bit risky.
 
-   +       WARN_ON_ONCE(ptr == 0 && 1);
+I don't think there's a risk of allocation failure, but moving things
+around in setup_arch() is always risky :)
+ 
+> The other option would be to revert this. I tried a revert, but it isn't
+> trivial. It runs into merge conflicts in pretty much all of the arch
+> files. Maybe reverting patches 11, 12, and 13 as well would make it
+> easier but I didn't try that.
 
-:-)
+What I think we can do is to add this to mm/cma.c (not even compile tested)
 
-Thanks,
+diff --git a/mm/cma.c b/mm/cma.c
+index 15632939f20a..c04be488b099 100644
+--- a/mm/cma.c
++++ b/mm/cma.c
+@@ -608,7 +608,10 @@ static int __init __cma_declare_contiguous_nid(phys_addr_t *basep,
+ 	 * complain. Find the boundary by adding one to the last valid
+ 	 * address.
+ 	 */
+-	highmem_start = __pa(high_memory - 1) + 1;
++	if (IS_ENABLED(CONFIG_HIGHMEM))
++		highmem_start = __pa(high_memory - 1) + 1;
++	else
++		highmem_start = memblock_end_of_DRAM();
+ 	pr_debug("%s(size %pa, base %pa, limit %pa alignment %pa)\n",
+ 		__func__, &size, &base, &limit, &alignment);
+ 
+so that highmem_start in __cma_declare_contiguous_nid() will be always
+correct for !HIGHMEM configs and then restore setting of highmem_start in
+mips::paging_init() as mips is the only architecture that actually set
+high_memory before free_area_init() before this patch.
 
-	Ingo
+(for 32 bit configs of x86 there alrady a fixup d893aca973c3 ("x86/mm: restore
+early initialization of high_memory for 32-bits"))
+
+-- 
+Sincerely yours,
+Mike.
 
 _______________________________________________
 linux-riscv mailing list
