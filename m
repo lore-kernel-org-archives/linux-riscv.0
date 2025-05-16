@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EDFAC3ABC9
-	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 15:03:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D8DBC3ABD8
+	for <linux-riscv@archiver.kernel.org>; Fri, 16 May 2025 15:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BtRWXSOh5monNCnisGTJnJd4cpvXgcP1zaj5aK524o4=; b=yIqfvnffj++fnr
-	2UgokQ0lZGa/HMkjTMGg77/a2IE2k5yWD/PAzbs8ctqcvmgx82eYA46Cbwi4nfJpVxu5/NOD1EUxo
-	XrG6O4UqyUFYDMvpye0MpVXFwnRJ6gqgJUcgrOUo3uCO+caVlUr9GZCmHLYOZnAh97HQkGj16T7O/
-	8pc4oVkluvg7tuYhiCP1WBJlu3Vw6pEOEjy6r4iczSkLDbLE43qH+BrT3+jovOGqiiCwLDhbM/RCr
-	KSTIJTxEQ9oS39NKnHn2HZbaO8A77ge3CegeA5vSgCWTxLfFK6JAIwDF25ZFKzuj6yzHtoxpFga7Q
-	cxwP4E7u4sqD2eNYIbSw==;
+	List-Owner; bh=weJEJB3k7+K5fT5CZa3PWxNLrGO0ZGCIiE/d3mIzxIM=; b=DDZFhBZ0wbgJKg
+	ouEhg5AhBRkRIkcwfiEuViqvPQlapsPlf3VXXIhRaqVQh/0ETe7GQOj0bFy8bw/uWQd3krMasa2NK
+	Y4rPyYBDI1/D8UtK4fZqeR0TD48W1mhLA4brZudqNcIGpWTmmkXVTMCcLjCjlTkJSnPLtcCo18P+k
+	3TjNR9s1BTCqyrl6H70sE0pJ3XSyIlOvqpQBbn/ABk9wE+K537yv0IOU5zrypzjTyzTf2+7W8cuBO
+	eK55OBJkSGcaVuPWPC41g7RlYwxqrfow3eSlGa+Ypuw+4foRUSAvOCiDPPWOgapTvMiJB/5ptDvBU
+	46wNocJiUlWgqcew06ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwb0-00000003m3p-1SHW;
-	Fri, 16 May 2025 15:03:34 +0000
-Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
+	id 1uFx1x-00000003rIQ-446k;
+	Fri, 16 May 2025 15:31:25 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uFwBk-00000003gik-3ORh
+	id 1uFwh5-00000003nN9-446K
 	for linux-riscv@lists.infradead.org;
-	Fri, 16 May 2025 14:37:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id B98C143865;
-	Fri, 16 May 2025 14:37:20 +0000 (UTC)
-Message-ID: <57352cc0-420b-42e6-a493-2764794a5206@ghiti.fr>
-Date: Fri, 16 May 2025 16:37:20 +0200
+	Fri, 16 May 2025 15:09:53 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 366ED43AE3;
+	Fri, 16 May 2025 15:09:47 +0000 (UTC)
+Message-ID: <6886cf50-1a05-4ebd-bf8c-1afa652e8c89@ghiti.fr>
+Date: Fri, 16 May 2025 17:09:46 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Implement endianess swap macros for RISC-V
+Subject: Re: [PATCH 12/15] bugs/riscv: Concatenate 'cond_str' with '__FILE__'
+ in __BUG_FLAGS(), to extend WARN_ON/BUG_ON output
 Content-Language: en-US
-To: Ignacio Encinas <ignacio@iencinas.com>,
+To: Ingo Molnar <mingo@kernel.org>, linux-kernel@vger.kernel.org
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+ Peter Zijlstra <peterz@infradead.org>, linux-arch@vger.kernel.org,
  Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Arnd Bergmann <arnd@arndb.de>
-Cc: Eric Biggers <ebiggers@kernel.org>, linux-riscv@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-kernel-mentees@lists.linux.dev,
- skhan@linuxfoundation.org, Zhihang Shao <zhihang.shao.iscas@gmail.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- linux-arch@vger.kernel.org
-References: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ linux-riscv@lists.infradead.org
+References: <20250515124644.2958810-1-mingo@kernel.org>
+ <20250515124644.2958810-13-mingo@kernel.org>
 From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250426-riscv-swab-v4-0-64201404a68c@iencinas.com>
+In-Reply-To: <20250515124644.2958810-13-mingo@kernel.org>
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefudeftdduucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpefhhfdutdevgeelgeegfeeltdduhfduledvteduhfegffffiefggfektefhjedujeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemsgeiugehmeegfhduleemiegrledumeejkehftdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddvpdhrtghpthhtohepihhgnhgrtghiohesihgvnhgtihhnrghsrdgtohhmpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhmpdhrtghpthhto
- hepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvgdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhdqmhgvnhhtvggvsheslhhishhtshdrlhhinhhugidruggvvh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdefudeftdejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegsieguheemgehfudelmeeirgeludemjeekfhdtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegsieguheemgehfudelmeeirgeludemjeekfhdtpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegsieguheemgehfudelmeeirgeludemjeekfhdtngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeelpdhrtghpthhtohepmhhinhhgoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhun
+ hgurghtihhonhdrohhrghdprhgtphhtthhopehpvghtvghriiesihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhgthhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughu
 X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250516_073729_003899_468687BB 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20250516_080952_145344_0BF01916 
+X-CRM114-Status: GOOD (  13.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,72 +70,60 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+Hi Ingo,
 
-Do you think we can merge that for 6.16? It is nice improvement for us.
+On 15/05/2025 14:46, Ingo Molnar wrote:
+> Extend WARN_ON and BUG_ON style output from:
+>
+>    WARNING: CPU: 0 PID: 0 at kernel/sched/core.c:8511 sched_init+0x20/0x410
+>
+> to:
+>
+>    WARNING: CPU: 0 PID: 0 at [idx < 0 && ptr] kernel/sched/core.c:8511 sched_init+0x20/0x410
+>
+> Note that the output will be further reorganized later in this series.
+>
+> Signed-off-by: Ingo Molnar <mingo@kernel.org>
+> Cc: Paul Walmsley <paul.walmsley@sifive.com>
+> Cc: Palmer Dabbelt <palmer@dabbelt.com>
+> Cc: Albert Ou <aou@eecs.berkeley.edu>
+> Cc: Alexandre Ghiti <alex@ghiti.fr>
+> Cc: linux-riscv@lists.infradead.org
+> Cc: <linux-arch@vger.kernel.org>
+> ---
+>   arch/riscv/include/asm/bug.h | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/arch/riscv/include/asm/bug.h b/arch/riscv/include/asm/bug.h
+> index feaf456d465b..da9b8e83934d 100644
+> --- a/arch/riscv/include/asm/bug.h
+> +++ b/arch/riscv/include/asm/bug.h
+> @@ -61,7 +61,7 @@ do {								\
+>   			".org 2b + %3\n\t"                      \
+>   			".popsection"				\
+>   		:						\
+> -		: "i" (__FILE__), "i" (__LINE__),		\
+> +		: "i" (WARN_CONDITION_STR(cond_str) __FILE__), "i" (__LINE__),	\
+>   		  "i" (flags),					\
+>   		  "i" (sizeof(struct bug_entry)));              \
+>   } while (0)
+
+I have added a dummy WARN_ON_ONCE(pgtable_l5_enabled == true) and I get 
+the following output:
+
+WARNING: [pgtable_l5_enabled == true] arch/riscv/kernel/setup.c:364 at 
+setup_arch+0x6c4/0x704, CPU#0: swapper/0
+
+So you can add for riscv:
+
+Tested-by: Alexandre Ghiti <alexghiti@rivosinc.com> # riscv
 
 Thanks,
 
 Alex
 
-On 26/04/2025 16:56, Ignacio Encinas wrote:
-> Motivated by [1]. A couple of things to note:
->
-> RISC-V needs a default implementation to fall back on. There is one
-> available in include/uapi/linux/swab.h but that header can't be included
-> from arch/riscv/include/asm/swab.h. Therefore, the first patch in this
-> series moves the default implementation into asm-generic.
->
-> Tested with crc_kunit as pointed out here [2]. I can't provide
-> performance numbers as I don't have RISC-V hardware yet.
->
-> [1] https://lore.kernel.org/all/20250302220426.GC2079@quark.localdomain/
-> [2] https://lore.kernel.org/all/20250216225530.306980-1-ebiggers@kernel.org/
->
-> Signed-off-by: Ignacio Encinas <ignacio@iencinas.com>
-> ---
-> Changes in v4:
->
-> - Add missing include in the 1st patch, reported by
->    https://lore.kernel.org/all/202504042300.it9RcOSt-lkp@intel.com/
-> - Rewrite the ARCH_SWAB macro as suggested by Arnd
-> - Define __arch_swab64 for CONFIG_32BIT (Ben)
-> - Link to v3: https://lore.kernel.org/r/20250403-riscv-swab-v3-0-3bf705d80e33@iencinas.com
->
-> Arnd, I know you don't like Patch 1 but I tried your suggestions and
-> couldn't make them work. Please let me know if I missed anything [3] [4]
->
-> [3] https://lore.kernel.org/linux-riscv/f5464e26-faa0-48f1-8585-9ce52c8c9f5f@iencinas.com/
-> [4] https://lore.kernel.org/linux-riscv/b3b59747-0484-4042-bdc4-c067688e3bfe@iencinas.com/
->
-> Changes in v3:
->
-> PATCH 2:
->    Use if(riscv_has_extension_likely) instead of asm goto (Eric). It
->    looks like both versions generate the same assembly. Perhaps we should
->    do the same change in other places such as arch/riscv/include/asm/bitops.h
-> - Link to v2: https://lore.kernel.org/r/20250319-riscv-swab-v2-0-d53b6d6ab915@iencinas.com
->
-> Changes in v2:
-> - Introduce first patch factoring out the default implementation into
->    asm-generic
-> - Remove blank line to make checkpatch happy
-> - Link to v1: https://lore.kernel.org/r/20250310-riscv-swab-v1-1-34652ef1ee96@iencinas.com
->
-> ---
-> Ignacio Encinas (2):
->        include/uapi/linux/swab.h: move default implementation for swab macros into asm-generic
->        riscv: introduce asm/swab.h
->
->   arch/riscv/include/asm/swab.h   | 62 +++++++++++++++++++++++++++++++++++++++++
->   include/uapi/asm-generic/swab.h | 33 ++++++++++++++++++++++
->   include/uapi/linux/swab.h       | 33 +---------------------
->   3 files changed, 96 insertions(+), 32 deletions(-)
-> ---
-> base-commit: a7f2e10ecd8f18b83951b0bab47ddaf48f93bf47
-> change-id: 20250307-riscv-swab-b81b94a9ac1b
->
-> Best regards,
+
+
 
 _______________________________________________
 linux-riscv mailing list
