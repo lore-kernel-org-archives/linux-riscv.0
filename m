@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8642FC54E92
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 09:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E4BC2D0CD
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 10:12:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GeuUvzQ/6g4KmVI0BOdCb+SUZCvnE27mOS1nH7FT0wQ=; b=ZPAx0pcgW5sI8l
-	5AoEKmm+w5slqLRk9potXhQs7H5hcBefgBrWYeS3b3h7fPirNpvwzjvWGZt54udCb2DRTb4xqxZCB
-	MZ4kPrNvnzuHhFg6irVax+vEl0PdlV12B4kuso9rcmjvh/Z2/G/loCFOrsIiCBbmdIyFLzj4mTMqd
-	7ZepNb9JPdpOZbT4dC5RP5qB9wqr6RMkP96VFmWClnV+BjutVHfQMJ81kt+cjLlFS9LUzhHkexm3H
-	oWYXaWzhqNhiSCUHKtR12zENFttl6n0jtXfRgv5bNSuPfqNH0iItzsxOItAipn1FkDezwm/pjjMGj
-	gn35YJ2rtS710dlD3NwQ==;
+	List-Archive:List-Unsubscribe:List-Id:To:From:Subject:Message-ID:Date:
+	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=z+lozsEi9jslfUrqHuceZGpW2Xa6HJTbhtudCWeF9oE=; b=U+x
+	d2zBS5F7u+cEBf49FaN8YmIEMjsRd74IBh1tAwz5ZnBa2wcEE64+v1y95BtfyYjDDLppCLoTlgzaJ
+	a9yP9w4Bf8BRNkWcolgVidHdXtB8sYpoxL2fOchBOCs/BLaX69mbCcn1tNGyVW2XgSUz/xX+W7fYf
+	qWoAzQhoj84tS1lCbLR+U7JMXF1SOkAEp7q+koia7tbB5Vfsh7x0VCVx4rbo70qEJIo8zxROZpwgl
+	QW9WKtz4RH4vjMS1b2BOWM1uDPXz70frv+F0ZyCdsksgbaU/f7PJ7ejP5BIgkQgw734S1lPPYq22r
+	JmXG/mmo1jtInLi4M7gL0EZT7fWjyfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGxEP-00000008grH-2QNT;
-	Mon, 19 May 2025 09:56:25 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uGxU6-00000008kRt-3BLb;
+	Mon, 19 May 2025 10:12:38 +0000
+Received: from mail-io1-f77.google.com ([209.85.166.77])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGwuC-00000008azR-42hO
+	id 1uGxU4-00000008kRP-14vM
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 May 2025 09:35:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BF109A4C9A1;
-	Mon, 19 May 2025 09:35:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 06403C4CEE4;
-	Mon, 19 May 2025 09:35:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747647331;
-	bh=UVHwCwbhEk9S/BpWQrXka90Hbx/pl/lsbqyIqSeOAsM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=porisN7g4peOMbggbjmKqMpoc1QKljXcxXGvUp5Jzdt73Ta55LC0YeWYnYSNu0mpk
-	 57av2F5rvk/kWI0/STwFWKjfCKFzH63U+KAu082fjeQCVLRDuBoxU15vZdyH7Sx19g
-	 UtaiEs5E5p5u1Q7MRmWnkQnjq4PU8oetECzuPPFwXrm+84qqQhS4Ok7zwnZMT66FG4
-	 8MzSrGret6009OwElZcC+U4PIRCH3tI0jOTNRrF5WpN8WXXtEKf/PHGwU4eqSw29nN
-	 E/Ro1ax3c+j2GW7z7sdKpMWzXnSfYxY2PJWrpXqjjvYxFvLsleNQ3Vf63tOZxl5c0F
-	 MF/HGcWtq1uhA==
-Date: Mon, 19 May 2025 11:35:28 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ze Huang <huangze@whut.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 1/3] dt-bindings: usb: dwc3: add support for SpacemiT
- K1
-Message-ID: <20250519-busy-expert-buffalo-2c01ea@kuoka>
-References: <20250518-b4-k1-dwc3-v3-v3-0-7609c8baa2a6@whut.edu.cn>
- <20250518-b4-k1-dwc3-v3-v3-1-7609c8baa2a6@whut.edu.cn>
+	Mon, 19 May 2025 10:12:37 +0000
+Received: by mail-io1-f77.google.com with SMTP id ca18e2360f4ac-8610d7ec4d3so680960039f.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 May 2025 03:12:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747649554; x=1748254354;
+        h=to:from:subject:message-id:date:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9Uzz1AxszAO+PF9ibC0zz8xp6JcJ1BC5ZEytJhZFUKk=;
+        b=bGg56T1JCom0VHlR+tv0FX+ySdt+g2L0DP/PgUI2hjjuu2zAZhndlHc/qbXszkUYLZ
+         K0Lgc2M6Wy+KgGpUDoqjw8ZbZPjKZOO4liRHYla6d5bXTi2LqidoDXmfHjQWKKHXYdyb
+         cFHPtFY/pGt2jjg3Z0ZiBiyB04Rps+LKs7IOf9hr6G8JVhXQC5iCTDa8pr/xa6++cGE6
+         s9pVZT4u5D1BbS6Zt8s8mGEJKsQup5dp5MEBc5KFIvLjqCU5iFo3XAros0h6DemmqaEC
+         kb2VBhXqm4ZP/Rxw/JAGOLH/c+iwCkhwSq7UeZc+87AwMTzWbUBgXPk7pKe7wVJwDRUT
+         MuwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU8g9e8QobQz9GJzaaOdfcWpKjnhr9Mv6GtXyPbQB/jci+zgb1r4IO/qKkLShql6/u9jwlf6LNfA5m+pg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywl7AJIkiSO24nScQ+K6Y5UzLBQTa1F7XDZVbMLChDMS3Cvydfv
+	wPiRlfWPXsQAJVuQTVVuxS+mPT5QNrC7zXK8HmudmhRbipBAOSH6VHcU62PP2rqN74nZvayLxkj
+	C3jJxi4wfiumjfSxgSNbkCzx28XNV1xEev439Ge+9/Ire1tahSAtR95yH3ko=
+X-Google-Smtp-Source: AGHT+IG2Y0u+RSiUdq+RUnS4edusSPDCIYfX3VwkA1by3DVqjfO2+y5isVYDZPvl5V2L2cxYCnKf2XMjBzdmiPaSH+d7VoQfjBzJ
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250518-b4-k1-dwc3-v3-v3-1-7609c8baa2a6@whut.edu.cn>
+X-Received: by 2002:a05:6602:380d:b0:864:4aa2:d796 with SMTP id
+ ca18e2360f4ac-86a231e19e9mr1507000039f.8.1747649554248; Mon, 19 May 2025
+ 03:12:34 -0700 (PDT)
+Date: Mon, 19 May 2025 03:12:34 -0700
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <682b0412.a70a0220.3849cf.00b1.GAE@google.com>
+Subject: [syzbot] riscv/fixes test error: can't ssh into the instance (2)
+From: syzbot <syzbot+2cae92ded758083f5bde@syzkaller.appspotmail.com>
+To: aou@eecs.berkeley.edu, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	syzkaller-bugs@googlegroups.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_023533_067717_1C318F98 
-X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-CacheID: sfid-20250519_031236_292800_1CC08645 
+X-CRM114-Status: UNSURE (   5.03  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,78 +78,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 18, 2025 at 03:19:19AM GMT, Ze Huang wrote:
-> +properties:
-> +  compatible:
-> +    const: spacemit,k1-dwc3
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  clock-names:
-> +    const: usbdrd30
-> +
+Hello,
 
-How many phys?
+syzbot found the following issue on:
 
-> +  resets:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interconnects:
+HEAD commit:    01534f3e0dd7 Merge tag 'riscv-fixes-6.15-rc6' of ssh://git..
+git tree:       git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git fixes
+console output: https://syzkaller.appspot.com/x/log.txt?x=158796f4580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=2c32351e59d854b7
+dashboard link: https://syzkaller.appspot.com/bug?extid=2cae92ded758083f5bde
+compiler:       riscv64-linux-gnu-gcc (Debian 12.2.0-13) 12.2.0, GNU ld (GNU Binutils for Debian) 2.40
+userspace arch: riscv64
 
-compatible, reg and then order by name: clocks +names, interconnects +
-names, interrupts, resets, vdd-supply.
+Downloadable assets:
+disk image (non-bootable): https://storage.googleapis.com/syzbot-assets/a741b348759c/non_bootable_disk-01534f3e.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/4ca1cbb891a9/vmlinux-01534f3e.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/5fb1db315d47/Image-01534f3e.xz
 
-> +    maxItems: 1
-> +    description:
-> +      On SpacemiT K1, USB performs DMA through bus other than parent DT node.
-> +      The 'interconnects' property explicitly describes this path, ensuring
-> +      correct address translation.
-> +
-> +  interconnect-names:
-> +    const: dma-mem
-> +
-> +  vbus-supply:
-> +    description: A phandle to the regulator supplying the VBUS voltage.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +  - resets
-> +  - interrupts
-> +  - interconnects
-> +  - interconnect-names
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    usb@c0a00000 {
-> +        compatible = "spacemit,k1-dwc3";
-> +        reg = <0xc0a00000 0x10000>;
-> +        clocks = <&syscon_apmu 16>;
-> +        clock-names = "usbdrd30";
-> +        resets = <&syscon_apmu 8>;
-> +        interrupt-parent = <&plic>;
-> +        interrupts = <125>;
-> +        interconnects = <&mbus0>;
-> +        interconnect-names = "dma-mem";
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+2cae92ded758083f5bde@syzkaller.appspotmail.com
 
-Feels like missing port or ports. Are you sure your example is complete?
 
-> +    };
-> 
-> -- 
-> 2.49.0
-> 
+
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
+
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
 
 _______________________________________________
 linux-riscv mailing list
