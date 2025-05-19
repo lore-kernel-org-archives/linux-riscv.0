@@ -4,86 +4,166 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48943C3ABD8
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 13:18:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE094C3ABDD
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 13:32:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date
-	:From:In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7W9YhGydu47gfnqUgExA3CReaizuI/4I5c8hDj9wywc=; b=4ljg4cn76AWORF
-	a4iBWkQ7Gper8F9eX9q6p4G/vH05JHGM1vJJnk5uSkqbPjN2tdBS2U4ycRQTy8jgSFPmPnPEMYQeS
-	F70AU4EC6hj1AZSHy0qTUFofZnmYP5PNy12BThoC/FjYtxI9LBKPOel+gUUtDXaJfzz6mso2YCMJS
-	d9+KV6epTaeinhINMoxoVGlFGfSMg4qWH7vI1J50WhETRdcEHfA/TP2yL8MKwZge3u2jkYS5QkdPo
-	NXp/GkPBT1zpcYQRzGgVuYDjzb+wVsWwAuYcYgWjlmwcaYKJnqnYBkSqB6/Z0JeutjHYbCHpmRzQJ
-	tfathH2ju3OR7RbK39tQ==;
+	List-Owner; bh=FOc1oDFXD7yEP2rq3Cq7Eo+9dKqSABbLRXVqLgiTyEY=; b=j/DoKiWjiIzu6E
+	BHve7JHB5KkJeOHmqi/vMG++yPuoAsm7UKIpcN+wx9djI9QRkogGrsEijRMbCF+FSuM1tebMhqGHa
+	Dme8SH5MW8SnpE5beIIldfD4K3+JEDPH+jAW99kf5C7GVAg0EQW9/ytgKzizndESyo/wL1NH5RMlR
+	My2DWdah4DT0XPTWvr+aAa+OKP24Nk7ZpxQPoOFrCuPiyPk1qfP5P96GICWq9yGHcg08GofMgTwI/
+	JYFN0C6VhL4FltY0m7vuD/NRuVSguD1QxW5tWpoTlZqTqtRoG5B2HWlX6W499oQASwr6RL6OKtc0K
+	nNFc9I6X4ecNYZdEvMjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0O6-00000009GlE-3Qpq;
-	Mon, 19 May 2025 13:18:38 +0000
-Received: from mail-lf1-f45.google.com ([209.85.167.45])
+	id 1uH0bj-00000009IO5-2Juz;
+	Mon, 19 May 2025 13:32:43 +0000
+Received: from mail-westusazlp170130003.outbound.protection.outlook.com ([2a01:111:f403:c000::3] helo=SJ2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uH0GW-00000009Fdv-3IaC;
-	Mon, 19 May 2025 13:10:50 +0000
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-54d98aa5981so6430746e87.0;
-        Mon, 19 May 2025 06:10:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747660244; x=1748265044;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :reply-to:in-reply-to:references:mime-version:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=JJw+hlbauIF+Woszu8rX7v1wJgbD5TwAMaCcWAZytfQ=;
-        b=xIcC1EqaTBJy7onp9kFm2E+inwLn3iQploLv4S+XZSixYovLf1tCw0PSlQcsnmkCD/
-         tKmqLmHjYufhAN8sSBXtaE+kRhbteUFKhAPFbbszc1G9yz6S9qVpwViIVpKq8lvZMh8j
-         D2BTfN1CsBNzvEB4YRfARzhb8nOo1IxwZoeC4V4q8cvURsMbHi21o+Ya+MM+AE4a6qNK
-         GBCAF7JzPEKOPyxAz9jpZ5e9A92tJPEP7jdrNU0rKwyNfUH2G/4nyTqqclCIrRotI/Qy
-         gwQhqei8rnvVMz4P0IGxUQ1T/sEcZsXf9eqhVtFIZdT6+nDqdvIeGvQ/vyPOb2vY6cOX
-         XOMg==
-X-Forwarded-Encrypted: i=1; AJvYcCVeQcEdN+h+h/tBhTWidsBgLGdPj9sytYAFsx8Y/pwj2gVmmMIK0EWRovtWm0yzVqb3L75pdzMWO7TPJJW216Et@lists.infradead.org, AJvYcCWugPv4qYEW3DBbTwmi2zAXWgr04V+6tTbJmGxm4vDWO8gPss/YCrw0exhh/dWzE8if6MAa7+iPncNai/c=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLymbA5j/C1DWs1R7dhTJyiBHilXAV6lUoZ5mhrXBOQaahyeU6
-	NWAupvy1vKMeo50KOBrAnRUZqjidyntIOZ34GWVflC7CSnl5Qcmu6fDzoklac6+kyRo=
-X-Gm-Gg: ASbGncsicm3tAqHTiTa/aFS+SAq7TEcXmWBfw336ADGEbi2PQ95sWoiikEoJcASc/VB
-	K5Xk97ka+JUOn1sbLQVb/tBdjxHuVc3QObOXhfH4SGUnUpagIVYpZPxPigs1NhVQKh5bKERoXEe
-	EUiA0BpHxl4LqCnTf8l/7B3BuxhsEpia6UY3hu+y7bkn82W2eyTyrCVruL54zwYeeBsqxf8n1/c
-	QzlZc6YRySyEjToYF/8Hua5AJ7jF0kIV6vt2GWFTdETtBOL5S3EP5sTR0bwgHwZ15sa1Gun8y68
-	JHRh7vO+cJGVDFB6QCXjN4TPVv1iXtMPtR8Lmfe39/DzXtATs5LMlblvoG7azVsTyI7zVXIJSB8
-	bT//7yax8
-X-Google-Smtp-Source: AGHT+IFkCZoSNCLEbvoei4RPwvmq0j8sJKQHZzyXq0M6+aYXJw3L2QqhkUeXcdPSTPUGSUrzwHlLxg==
-X-Received: by 2002:a05:6512:6805:b0:54b:ed9:2d06 with SMTP id 2adb3069b0e04-550e722b18bmr3192428e87.44.1747660243452;
-        Mon, 19 May 2025 06:10:43 -0700 (PDT)
-Received: from mail-lj1-f181.google.com (mail-lj1-f181.google.com. [209.85.208.181])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-550e703f89asm1834551e87.232.2025.05.19.06.10.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 19 May 2025 06:10:43 -0700 (PDT)
-Received: by mail-lj1-f181.google.com with SMTP id 38308e7fff4ca-327ff195303so36011471fa.1;
-        Mon, 19 May 2025 06:10:42 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUWhlTpEqd3ZvWmM7l3N0eXXjzn8Y8HCOjbvVxJXcRmY+9yUMulfCaADrUljyoc+9xqhQATO1dgH96j27DZMW+k@lists.infradead.org, AJvYcCWLA0AQNPAOnj4T1Vrhhh+dDT0I2rrLSjc166G5cuHTAXwWqEGrMyCBcvJ14rJ+bRh9j9QaD1FVCtksxuo=@lists.infradead.org
-X-Received: by 2002:a05:651c:421b:b0:30b:a20d:1c06 with SMTP id
- 38308e7fff4ca-328075fafd4mr32090081fa.0.1747660242500; Mon, 19 May 2025
- 06:10:42 -0700 (PDT)
+	id 1uH0bg-00000009IMg-37MF
+	for linux-riscv@lists.infradead.org;
+	Mon, 19 May 2025 13:32:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XcEJRCnKtRpB/O0+fR7b78yzk3DGvZsdfVrzuhIoFdv17AfZDdJNHbWyoVtM8+SiyFZ3rJ3zrjx4sjdh3ZTFfNpmKqu1gsohaTwjeVSUP4bLvwHQr8Y2Ox43ng5eEpMnHu/daCYmc0fHofdbvjIS5MpYAnBsSYE5uHoGcFaQ4iW/Z/k9j+XRCytJZza/hHWVdbmmLq46UZUzdOLS1kGNQFehNWHy7SqX+10RWCH+tmKpI6Ag3BFdYBX8i5dzyNnJF0kMUEnTEFohze9iAf+qo0xDLKVThOK0xK0vswIK1ADT2pLwXEHJW9qMjXlpWPanr8DF8NXSVhiGD7fQqc+pzw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pH9rp8uQDF8FuZx4uKQLz/lN8ac54E6uRyj3a6U6qzA=;
+ b=rXkxxvuRJlfDUp1XUaMV6dP675DY1XBheJEvuCNPJO/sRMb0M+4+L2qJ44Zv/XNur09JdWszAhddGCnKT0bspQN8gJYshSmtrHMp8EiOWA7LJG4jYDaOn03c9m4jGawuTjcCbyI7b9vNP1yZBep80G5qrZ6g+22qLCZ2j81mvi4RuUC8q0OWBLILWdtIHTKyb978PGal87YfRCmxJjon8/opqVJsbQXA4lQS30hki4rrnavcvfTQcoBfemjb1GkxZkqkgCiJGX32UdtIcoCWg/Vg8FcgjpObqKK98YGEW/U/GgdfOTd5ehyHvL6qc84F4irDnKTuR+mDr9brFOpkJQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=einfochips.com; dmarc=pass action=none
+ header.from=einfochips.com; dkim=pass header.d=einfochips.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=einfochips.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pH9rp8uQDF8FuZx4uKQLz/lN8ac54E6uRyj3a6U6qzA=;
+ b=fjJQcEu7bpytJ/8URioFY45KZr7YVpn7y6ntDffE2Y3HMSvoZ2VIN2uB2YknRvzcdhV3ZrUensbtTg0DzBHS3O5ePSspWT0QiKoKySqznTcn4MKSHvVLGBuHAVT2nddKg3PLNAuvobzp2+hATuf1xGWF4wu+h2yTyl2Gal++MGU=
+Received: from SA3PR04MB8931.namprd04.prod.outlook.com (2603:10b6:806:381::22)
+ by SA2PR04MB7705.namprd04.prod.outlook.com (2603:10b6:806:137::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8746.31; Mon, 19 May
+ 2025 13:32:33 +0000
+Received: from SA3PR04MB8931.namprd04.prod.outlook.com
+ ([fe80::f323:b482:8b18:af1d]) by SA3PR04MB8931.namprd04.prod.outlook.com
+ ([fe80::f323:b482:8b18:af1d%5]) with mapi id 15.20.8746.030; Mon, 19 May 2025
+ 13:32:33 +0000
+From: Pinkesh Vaghela <pinkesh.vaghela@einfochips.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+CC: Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Paul
+ Walmsley <paul.walmsley@sifive.com>, Samuel Holland
+	<samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Daniel Lezcano <daniel.lezcano@linaro.org>, Min Lin
+	<linmin@eswincomputing.com>, Pritesh Patel <pritesh.patel@einfochips.com>,
+	Yangyu Chen <cyy@cyyself.name>, Lad Prabhakar
+	<prabhakar.mahadev-lad.rj@bp.renesas.com>, Yu Chien Peter Lin
+	<peterlin@andestech.com>, Charlie Jenkins <charlie@rivosinc.com>, Kanak
+ Shilledar <kanakshilledar@gmail.com>, Darshan Prajapati
+	<darshan.prajapati@einfochips.com>, Neil Armstrong
+	<neil.armstrong@linaro.org>, Heiko Stuebner <heiko@sntech.de>, Aradhya Bhatia
+	<a-bhatia1@ti.com>, "rafal@milecki.pl" <rafal@milecki.pl>, Anup Patel
+	<anup@brainfault.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-riscv@lists.infradead.org"
+	<linux-riscv@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [External] Re: [PATCH v3 00/10] Basic device tree support for
+ ESWIN EIC7700 RISC-V SoC
+Thread-Topic: [External] Re: [PATCH v3 00/10] Basic device tree support for
+ ESWIN EIC7700 RISC-V SoC
+Thread-Index: AQHbqizJPEHzeCiWtEiadjJsSqcuNbO2G78AgCQSwuA=
+Date: Mon, 19 May 2025 13:32:33 +0000
+Message-ID: <SA3PR04MB8931011F9B1C3B54ED3ED463839CA@SA3PR04MB8931.namprd04.prod.outlook.com>
+References: <20250410152519.1358964-1-pinkesh.vaghela@einfochips.com>
+ <aAzugucziBi4Nr-y@xhacker>
+In-Reply-To: <aAzugucziBi4Nr-y@xhacker>
+Accept-Language: en-US, en-GB
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_ActionId=0dbc405e-138a-45a5-bc83-9d4d4dc4bb54;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_ContentBits=0;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Enabled=true;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Method=Standard;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Name=879e395e-e3b5-421f-8616-70a10f9451af;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_SetDate=2025-05-19T13:25:02Z;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_SiteId=0beb0c35-9cbb-4feb-99e5-589e415c7944;MSIP_Label_879e395e-e3b5-421f-8616-70a10f9451af_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=einfochips.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA3PR04MB8931:EE_|SA2PR04MB7705:EE_
+x-ms-office365-filtering-correlation-id: 8984f909-cfef-4a8d-5e92-08dd96d99c61
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?PKaqUiiO2FnHLOnqN+4NTlcH+3/fYOCw6E9y0D2vXiZoParOm8wQhIfAn+pe?=
+ =?us-ascii?Q?+MbLNqDjyDolN+zG/IWTAqwlVBbFs/CYkqY3tkjfxAUhzz4382xwTCDp2oQs?=
+ =?us-ascii?Q?rEoFEuKGudvJ+WWcHTQqiZ7nNejnLdJaw+lyuVmSUS6ANdJ2MdBo28T08aIQ?=
+ =?us-ascii?Q?aVG5CbiKuungsvJ72Nm+QuPJlrKW9QcGU6oMN3YTzdWWsPJmBWFuwC/BXs2T?=
+ =?us-ascii?Q?eu5QPWilXBc/C9H2kWln+RWEYog1BzIyMFUNGZtVSePGjPSUlMZxR3sJTgxA?=
+ =?us-ascii?Q?3fTkTmnzt8fhItKBYdkgnejTBfCprWV5VD+E3ltGwncm0186ZcdsoeVqONav?=
+ =?us-ascii?Q?LSZTQlyxxk6LDJbz0jQXw/CpJeRJvKGpJcN23oaaU+8TViVJxhYhkQW+z99x?=
+ =?us-ascii?Q?qeExGU4HQI2gf20uk2axggvAPcnzKpGworYNCRyVLDQUXCOlA99My2qJcG0R?=
+ =?us-ascii?Q?9oJ2A9Mf/sJwJzUl7mRGAHQYplHPJg5qzdP/NLRZd/vm9QtSTBh+3zGlQSJV?=
+ =?us-ascii?Q?qwj1C5qJzk5ITQL66ryMi/j4aq/JvyKqldYdFUEnw9kMF4IdF+PYYA292b3X?=
+ =?us-ascii?Q?PJYG5saKD16xpCq4FuAJMk6gLySYJKJXiO5fhZg3Z79WOG2DAxuVXMW+Qb8J?=
+ =?us-ascii?Q?MrwI9C3rY5TOVcyVvT0T6mk/I9RWvH/MNC2qg+ZfBFVHhAgh0K/jLDBW47T7?=
+ =?us-ascii?Q?PMBMIWHhE38uLsKOOGL2Ww6NMmhs3uPhExJDHJ6Mc3Tg/GBCxlh0Uams6Dh+?=
+ =?us-ascii?Q?Em6iGbY1wllTf6UBlnVdhebc1r/I1FMhulys0TxoMQWJtFN1slTOy1NVdOPe?=
+ =?us-ascii?Q?uLi/lvZrt4hdLK24alsm9+RJyWrw8OY/Pg5mkqHHnWEskKNmYIQ5Zr/Rg/YF?=
+ =?us-ascii?Q?t2OjFgjut+qxdAHNJI3axotfV1/CjMl9YtsOUpdyniUkCNmfriXLuo9ASP5R?=
+ =?us-ascii?Q?E3O1hCq7WF5t2l1qcL0Ub/gOwbmy/UDTGRQg9b8JF1irB7LgBuda275pvGma?=
+ =?us-ascii?Q?2l+ZyQn44sVgpNc7ZlklqKrb4VAmOsrjiycIIJyL2uLjo1wDbPlJ8cgSxq1V?=
+ =?us-ascii?Q?3VpGt9QGsKOEf/rUchdKlng3m7vyVFfbqreJO72onIbyOmG9Mi+SGvtzRwuz?=
+ =?us-ascii?Q?KibMM+R6+fKMH6rAweZV6rJeAkxhZeGq2/RbsJS/GSwewEFJCH4y4U4uc8Ij?=
+ =?us-ascii?Q?43ywDFZdcFRMEYSiPld9CA5bhhWwyDc6Y0eTHL7cpsvl6uzo3nAYj/CIXwKC?=
+ =?us-ascii?Q?Cq5k7F48wVV7vRxXSoO6Ougy6zQFXGSZ5qsqRESCXJsAobye8e7x9y70Mpvw?=
+ =?us-ascii?Q?xeUxCQTQQTW2xy5tFxEnj0xLpjgvQB/3TeS6WQ+LQpl6ZjtpkGXloyXIqK3K?=
+ =?us-ascii?Q?sbqfAZg2jsGXesEHhBSTH5tNalZg6H+a6gq/LgfruCXxEi7CyotBQo4PChdU?=
+ =?us-ascii?Q?nEoUQ7ArUnA=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA3PR04MB8931.namprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hK9fOCt+6T5+SQlTzj4LFvk8RL62owyso9o+nu1N7mIzNoAmDDzGdOlrXNu4?=
+ =?us-ascii?Q?Fwcp5juEqZQJrATyXuvA3CY3mgWlAxPmu9hh8EyhLRJyrYLLfFLM2JT2jJ+p?=
+ =?us-ascii?Q?iU1DR8fOnIXlN3vcJ/QYSla0F3AH/UCOlrlOxXw/mPgCQ+xD7hMKHjp9LX+g?=
+ =?us-ascii?Q?5yxm13p0DnUNLdLuhtSFu9MRMIgkTeJg8wDetNWmZw7UqJdrtTzjYsXbnKFS?=
+ =?us-ascii?Q?AteEOvJYgbWok/ka4HHfdE6PCPZj2TukA0c7CNM9v+K5cy2CK+sBkmo8Nr/k?=
+ =?us-ascii?Q?sohwadPXWTkzD0xMrDdMfHhuQATX3tq9HHUyS0LEokZ2j5Fnfa0B9jw8OuLy?=
+ =?us-ascii?Q?+mIU12sf8h4YGdbcweLE51NbwLH76NXJf4cAkABtft6Rr0x/QZ4mTAFRUcSV?=
+ =?us-ascii?Q?AsqHfzJ9Q466Ymka+5ME5Jc2+WYt/LYK0siVBJtg9MwnyGg/UewnwT7B7lR3?=
+ =?us-ascii?Q?BcdFIt8a09hzUXmx1y8xUWYRo9DI4nhMDRxYrbIPI3ZkVRITrEJfI4IG8tJU?=
+ =?us-ascii?Q?9RM80jtmhM7iuAw4N/xZVz+YYDGpqICBAU7CcWJvidBuezZJI6tRCahdkwwS?=
+ =?us-ascii?Q?6hmnIol2Beg/+PELsan5zFNUxIH3NQY6cmp4DiKeaI1kJ8yTBCpgC20xf1mS?=
+ =?us-ascii?Q?evGgFYvvWuHPhggAfb+Ef1q9jhif1GAt1Vu/l7zTen1SNMqp/ku4T8KWFGvV?=
+ =?us-ascii?Q?w06bzKC5ptNYngJ2WQvCUNqO0w67ZzkayOTJdIsS4FQvE0IRIq4uKo/9mnUh?=
+ =?us-ascii?Q?E4kpw6kf0U+i0tyotmrqtn6bnkDsDXvnhtMdoCuHuJFLOfDgxe5Xsef1uh17?=
+ =?us-ascii?Q?2KrQXfwdiwJB1Z0FWmtB4WZ6ozLYgEVClOFjGo31me9R1owC8Yjd/64oV5tz?=
+ =?us-ascii?Q?5846vHiaEa8YnZB/I9gb2Qs1iH/Y2WUQWBEOUmqYdwkPgVYfebQqLVox+4ii?=
+ =?us-ascii?Q?OXl8FY/urPd0/HzccdW4x6jZkqm/rPsyJ6x2vlRHYwHxXEx31pOA6vCVbjmW?=
+ =?us-ascii?Q?cDIBcjigwsC3Zm+VvIlLT/+scffhVcSHSdup8HxE78QEzFr2Mwke4ClWH1tF?=
+ =?us-ascii?Q?guam9XmVlbPuILNl7cKy9Ngya0Rz1J1IkvLQJta/GsJTT5G2xcDu1IvCVAzB?=
+ =?us-ascii?Q?HGlQ4HS9Wwzd6ZdJduqI+3rQEceqQIPPY5y0f/ju9/OCLDWH5+wRJmZwe1+x?=
+ =?us-ascii?Q?BOhdbBSS19bJ4eMAdxZ/fasnHp1CVOVAOn7HdHtUOHy5lycN+CygWaDX3sGK?=
+ =?us-ascii?Q?aLdrr4ad410FGz5fXD8SvHri/NcuuEJwa/k0AJSVT+riQxyvQhBdjMBkmA6a?=
+ =?us-ascii?Q?/GZ0mi3j7pJlSr0Kda26Vk8BGXI/5DnxKJDed0i123gVq79EC2DVEmc/XWsd?=
+ =?us-ascii?Q?uYavZB31P5B4oG8f9MIHavDYHynwR4hJjCJgoliHeI8S6IfKR65OcBaLwaZo?=
+ =?us-ascii?Q?Fuhrz/rOkHowkIoct2RKCy2Q9urjFEA+haAbCRI3jex61UnAuOYF9jEqrgD+?=
+ =?us-ascii?Q?8sAwJVtMgxEHOaM5wCiIQypAvO4SakbzyMTU0WYJi6TN9e/r+wA0pWcTQFEP?=
+ =?us-ascii?Q?wfrJ6GMNcqt683QQUEO6X2ERRgKVxMZSJqe/+TlwVzeuBZgW9DA45vUCdpr+?=
+ =?us-ascii?Q?eg=3D=3D?=
 MIME-Version: 1.0
-References: <20250519121512.5657-1-wsa+renesas@sang-engineering.com> <20250519121512.5657-8-wsa+renesas@sang-engineering.com>
-In-Reply-To: <20250519121512.5657-8-wsa+renesas@sang-engineering.com>
-From: Chen-Yu Tsai <wens@csie.org>
-Date: Mon, 19 May 2025 21:10:29 +0800
-X-Gmail-Original-Message-ID: <CAGb2v65FnoVMaoHYWWsWCcPZe-khw0G=jkt4MotnJemf2xPN+A@mail.gmail.com>
-X-Gm-Features: AX0GCFsxXp0f6XTIbmnJnSjvW3P0HJFBLSxCw1t28jUvhSs6_4fuwFkzC0zig3Y
-Message-ID: <CAGb2v65FnoVMaoHYWWsWCcPZe-khw0G=jkt4MotnJemf2xPN+A@mail.gmail.com>
-Subject: Re: [PATCH 7/7] riscv: dts: allwinner: use proper node names for GPIO
- based I2C busses
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-riscv@lists.infradead.org
+X-OriginatorOrg: einfochips.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA3PR04MB8931.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8984f909-cfef-4a8d-5e92-08dd96d99c61
+X-MS-Exchange-CrossTenant-originalarrivaltime: 19 May 2025 13:32:33.1896
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 0beb0c35-9cbb-4feb-99e5-589e415c7944
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 8pa3uBWo2jzeUSr3tiRx1ZO5MgxXWMEV2559l5TvhUL0T/9GZ6nA7HNvmcsdqrZv1D/Tn+iODYt7B6NLMYf84UtSP75s0G3zFNaFbJUykZI=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR04MB7705
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_061048_826069_8992EDCC 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250519_063240_813510_4D94B3A2 
+X-CRM114-Status: GOOD (  24.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,18 +175,158 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: wens@csie.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCBNYXkgMTksIDIwMjUgYXQgODoxNeKAr1BNIFdvbGZyYW0gU2FuZwo8d3NhK3JlbmVz
-YXNAc2FuZy1lbmdpbmVlcmluZy5jb20+IHdyb3RlOgo+Cj4gVGhlcmUgc2hhbGwgbm90IGJlIGEg
-Jy0nIGJlZm9yZSB0aGUgbnVtYmVyLgo+Cj4gU2lnbmVkLW9mZi1ieTogV29sZnJhbSBTYW5nIDx3
-c2ErcmVuZXNhc0BzYW5nLWVuZ2luZWVyaW5nLmNvbT4KCklmIHlvdSB3YW50IHRoZSBTb0MgbWFp
-bnRhaW5lcnMgdG8gdGFrZSBpdCBkaXJlY3RseSwKCkFja2VkLWJ5OiBDaGVuLVl1IFRzYWkgPHdl
-bnNAY3NpZS5vcmc+CgpPciBJIGNhbiB0YWtlIGl0IGFmdGVyIHRoZSB1cGNvbWluZyBtZXJnZSB3
-aW5kb3cuCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
-aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
-dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Jisheng,
+
+On Sat, Apr 26, 2025 at 08:03 PM, Jisheng Zhang wrote:
+> On Thu, Apr 10, 2025 at 08:55:09PM +0530, Pinkesh Vaghela wrote:
+> > Add support for ESWIN EIC7700 SoC consisting of SiFive Quad-Core
+> > P550 CPU cluster and the first development board that uses it, the
+> > SiFive HiFive Premier P550.
+> >
+> > This patch series adds initial device tree and also adds ESWIN
+> > architecture support.
+> 
+> Per past experience, new SoC needs at least pinctrl and clk tree ready.
+
+Patches for pinctrl [1] and clk [2] are already posted.
+
+[1] https://lore.kernel.org/lkml/20250515054524.390-1-luyulin@eswincomputing.com/
+[2] https://lore.kernel.org/lkml/20250514002233.187-1-dongxuyang@eswincomputing.com/
+
+Regards,
+Pinkesh
+
+> >
+> > Boot-tested using intiramfs with Linux 6.15.0-rc1 on HiFive Premier
+> > P550 board using U-Boot 2024.01 and OpenSBI 1.4.
+> >
+> > Changes in v3:
+> > - Rebased the patches to kernel 6.15.0-rc1
+> > - Added "Reviewed-by" tag of "Rob Herring" for Patch 4
+> > - Updated MAINTAINERS file
+> >   - Add GIT tree URL
+> > - Updated DTSI file
+> >   - Added "dma-noncoherent" property to soc node
+> >   - Updated GPIO node labels in DTSI file
+> > - Link to v2:
+> > https://nam04.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore
+> > .kernel.org%2Flkml%2F20250320105449.2094192-1-
+> pinkesh.vaghela%40einfoc
+> >
+> hips.com%2F&data=05%7C02%7Cpinkesh.vaghela%40einfochips.com%7Caf77
+> b3ac
+> >
+> 71d1493ae0ed08dd84d189fd%7C0beb0c359cbb4feb99e5589e415c7944%7C1
+> %7C0%7C
+> >
+> 638812757761987583%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOn
+> RydWUsIlY
+> >
+> iOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%
+> 7C0%
+> >
+> 7C%7C%7C&sdata=zD3XwzY2lc41amPRgFO%2Bz60qj68MC1Wf2Krr9G%2FEQ
+> wM%3D&rese
+> > rved=0
+> >
+> > Changes in v2:
+> > - Added "Acked-by" tag of "Conor Dooley" for Patches 1, 2, 3, 7 and 8
+> > - Added "Reviewed-by" tag of "Matthias Brugger" for Patch 4
+> > - Updated MAINTAINERS file
+> >   - Add the path for the eswin binding file
+> > - Updated sifive,ccache0.yaml
+> >   - Add restrictions for "cache-size" property based on the
+> >     compatible string
+> > - Link to v1:
+> > https://nam04.safelinks.protection.outlook.com/?url=https%3A%2F%2Flore
+> > .kernel.org%2Flkml%2F20250311073432.4068512-1-
+> pinkesh.vaghela%40einfoc
+> >
+> hips.com%2F&data=05%7C02%7Cpinkesh.vaghela%40einfochips.com%7Caf77
+> b3ac
+> >
+> 71d1493ae0ed08dd84d189fd%7C0beb0c359cbb4feb99e5589e415c7944%7C1
+> %7C0%7C
+> >
+> 638812757762011608%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOn
+> RydWUsIlY
+> >
+> iOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%
+> 7C0%
+> >
+> 7C%7C%7C&sdata=MIU%2Fh9VO2VYnJ5VwixXO0zU1%2Fr4AsWif1wwX31VeS
+> gw%3D&rese
+> > rved=0
+> >
+> > Darshan Prajapati (3):
+> >   dt-bindings: riscv: Add SiFive P550 CPU compatible
+> >   dt-bindings: interrupt-controller: Add ESWIN EIC7700 PLIC
+> >   dt-bindings: timer: Add ESWIN EIC7700 CLINT
+> >
+> > Min Lin (2):
+> >   riscv: dts: add initial support for EIC7700 SoC
+> >   riscv: dts: eswin: add HiFive Premier P550 board device tree
+> >
+> > Pinkesh Vaghela (2):
+> >   riscv: Add Kconfig option for ESWIN platforms
+> >   cache: sifive_ccache: Add ESWIN EIC7700 support
+> >
+> > Pritesh Patel (3):
+> >   dt-bindings: vendor-prefixes: add eswin
+> >   dt-bindings: riscv: Add SiFive HiFive Premier P550 board
+> >   dt-bindings: cache: sifive,ccache0: Add ESWIN EIC7700 SoC
+> >     compatibility
+> >
+> >  .../bindings/cache/sifive,ccache0.yaml        |  44 ++-
+> >  .../sifive,plic-1.0.0.yaml                    |   1 +
+> >  .../devicetree/bindings/riscv/cpus.yaml       |   1 +
+> >  .../devicetree/bindings/riscv/eswin.yaml      |  29 ++
+> >  .../bindings/timer/sifive,clint.yaml          |   1 +
+> >  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+> >  MAINTAINERS                                   |   9 +
+> >  arch/riscv/Kconfig.socs                       |   6 +
+> >  arch/riscv/boot/dts/Makefile                  |   1 +
+> >  arch/riscv/boot/dts/eswin/Makefile            |   2 +
+> >  .../dts/eswin/eic7700-hifive-premier-p550.dts |  29 ++
+> >  arch/riscv/boot/dts/eswin/eic7700.dtsi        | 345 ++++++++++++++++++
+> >  drivers/cache/sifive_ccache.c                 |   2 +
+> >  13 files changed, 469 insertions(+), 3 deletions(-)  create mode
+> > 100644 Documentation/devicetree/bindings/riscv/eswin.yaml
+> >  create mode 100644 arch/riscv/boot/dts/eswin/Makefile
+> >  create mode 100644
+> > arch/riscv/boot/dts/eswin/eic7700-hifive-premier-p550.dts
+> >  create mode 100644 arch/riscv/boot/dts/eswin/eic7700.dtsi
+> >
+> > --
+> > 2.25.1
+> >
+> >
+> > _______________________________________________
+> > linux-riscv mailing list
+> > linux-riscv@lists.infradead.org
+> > https://nam04.safelinks.protection.outlook.com/?url=http%3A%2F%2Flists
+> > .infradead.org%2Fmailman%2Flistinfo%2Flinux-
+> riscv&data=05%7C02%7Cpinke
+> >
+> sh.vaghela%40einfochips.com%7Caf77b3ac71d1493ae0ed08dd84d189fd%7C
+> 0beb0
+> >
+> c359cbb4feb99e5589e415c7944%7C1%7C0%7C638812757762025060%7CUnk
+> nown%7CT
+> >
+> WFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXa
+> W4zMiI
+> >
+> sIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=MzOvL50ZSC
+> DUcJd3Y
+> > 2Cnv7L3WjqX9UxIVW7JJ%2FQ%2BWd4%3D&reserved=0
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
