@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5011C2D0CD
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 11:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 257DCC3ABD8
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 11:44:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=urTpGamv1yR/KXbzf0VUloT0mtOClMTb0IO7weMfKXg=; b=B3DslLjprCL8gV
-	/YQLq6bV71RRyMjKjUCwRayhq35SbslmchEX5D0oDV+G3INr19BIEpR3QXnQI//AXQ1eDfON3npmr
-	RWxdjzxO+0FZqej0ND4nG/0STpHEpA6Dpp6kSX5dhWhsYK42zqSpcMJ5vHolCHFdN933ZjT3q2n9s
-	QCh0S82W3YwD8SA92sDuYBrjhD5xucUy+JK+i6VnxqwYFquGy0CBcxIUriJiDGSulz2qjCPJXz9lr
-	9KV79OMalSDly8ixCLbUIcXDvzBVazeoRvIPfKT5HcFp7il1/fcYa57hl9zWy7u2Jx+JGdslDGlgO
-	QuDDEiD3ElJ3S13WOJnw==;
+	List-Owner; bh=nRMpyQMALUibv5C6vaHmXcCbL0kI3lAkwod9KhqfUiw=; b=JWWxeHcqIiyQ5j
+	gZ+xroXyNFFCOmVJPZyqz8AXIGMXWtefyfhPMQhY0QNTAsdfPHDe9P/khu1XasQMrm30t/dJWYj/3
+	c9zpBzTZBZRvILlFIkBqcZ7gi1WoRERD3TFrCO0XGJrUJo+DEDtBXxSpTIKcjfrkipaVNjS5zD6lC
+	YbzP4vDlEniajfTuhPwvgKidAkVrFSheIzx3rWTgNMQEgmm/yFoUXY4zZrAhZMMfq/iNpehgeuabL
+	GYpqsw3aNyA2zvcCY2agHgVEsVWvHfwRK0bDUafuGgEM0KgzPxy2XM9f1oRyNYF2aLS/bw1mFBVCm
+	zLSNl8pfFHmZGnpOq5fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGysz-000000092Tp-0ck7;
-	Mon, 19 May 2025 11:42:25 +0000
-Received: from mail-yb1-xb2e.google.com ([2607:f8b0:4864:20::b2e])
+	id 1uGyv2-000000092wQ-1g68;
+	Mon, 19 May 2025 11:44:32 +0000
+Received: from mail-qv1-xf2b.google.com ([2607:f8b0:4864:20::f2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGysw-000000092Sl-3yOV
+	id 1uGyuU-000000092q8-32Wc
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 May 2025 11:42:24 +0000
-Received: by mail-yb1-xb2e.google.com with SMTP id 3f1490d57ef6-e7b4ba530feso3535611276.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 May 2025 04:42:22 -0700 (PDT)
+	Mon, 19 May 2025 11:44:00 +0000
+Received: by mail-qv1-xf2b.google.com with SMTP id 6a1803df08f44-6f8c0c8da93so38513786d6.0
+        for <linux-riscv@lists.infradead.org>; Mon, 19 May 2025 04:43:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1747654942; x=1748259742; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=xi4QP+tb++uj0FmPaNWal/Va1UBFazasXzcN4zOZKIQ=;
-        b=hOpUoPtZvKTvaTnMXI94Eh2foZaQb0CV3GSFcTWL6ozt0039cIKNynKrojN2Nz9b7W
-         nKSgCRpmcfLQu7REyYcSZG7jjJ40IKO6EDs0NWWKD6RwZ1jZWV+/aYoRcNi8DIA9lhHf
-         3WT48kb1SIjk1yoeR+hcWgqcZHYuzoUcsY/mnbOizj2STUsbA5Su6OUmpjWmNZ/d0YKI
-         YjqX1JcvNTvBUag+w5pEK6LBfv5Xe4D/l1MoeD5paq/qXA58PW0FzjZfiIewIJXl1/5s
-         NkmrukSmj+YIbNyFdsMgNjFfvQ/6E79pWfWR9/cB+l3ORvwwm3yJ45/P9cNxiPxjZsYC
-         hQzw==
+        d=gmail.com; s=20230601; t=1747655037; x=1748259837; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=DdHsq5COThnaz/kT2PepDjGRRqibq5HBjdI+te70JDw=;
+        b=ertCrBIYHo60qTvviG17WwqGzo1/i6kFJ9fK2TTx3mmdCwPkMz7D6Cw9lUj0pu+nvf
+         qrQAjX1PbhdbAraKV8jLjfczNDjp5Pp9ROK5pNLO3MXmaVBCAIBIP1HCINDvbueqecc9
+         GMGoboBdOHbOjhyz1hXDNX8GiCo9hryqjSxvYCGoY1K+cNT2yiVeVi5KWd7ilZfTBqoV
+         T4ecBr3GtP6gUEXITDk/3mraFVo+toC19Anm5Xm14lggLIKCDGAdgec2cRzVBRy4ETdN
+         Hq7tw1VSXSkvgdZfKvfmc+61RWj9Kt8Ujv9b0cXGttBHRLQSwkoE9xHib9jeX9BE7Gnh
+         515w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747654942; x=1748259742;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=xi4QP+tb++uj0FmPaNWal/Va1UBFazasXzcN4zOZKIQ=;
-        b=tWtopKwzV/c5uklHj+2u6d0Pg9PRJ6G+sLRGRHl6bUaC50v4ioqwLb/jZhopG4NHtS
-         i477UmBUIOgNMX6+OqU6Tq+C2KV4fTHpFiYicQOnRff14RW85qD0vKiqsRAgesFSADLG
-         lIfnek1jdeq7H2bQFW0Xnz8TyDHJFlI3gcLv1zKGxBl7HgDIzjzFtNq1FQBoH3Jh/qwf
-         TaDYZELeFNjv9g9GxVmQBGZanCu/x9zny+915QCjppp9bNlekObCKdTV02R01+Lx4ior
-         0nnij/+1lqguK0GuhUCJ4zWr1NKn8bMz8SlorLMm0o9fmURMBv5DGzxc2TJdB0+aDzqU
-         dcPw==
-X-Forwarded-Encrypted: i=1; AJvYcCUTNRXdAo0H8euEqZgGPI+u81fMXhUsCBjb6enOcvWyrjXTzyk5fTH12SLHtq2kYhmTKRDdYYuUxBOOtQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwRGRmzRqCYEBO0CqyWcOl3yWFsNdW6sowEuAwrH1MvnW6kODjU
-	XeiWPPYxG8X7Xe34foBfGCGodZgzKEDIsQMSPS6tdeA+ZXkHYE54Gp66LzivegqjN+vLy7dYmav
-	kIzuiJDxKzMQVj5Y50QygU2aiBtXMnTySUIPsP2CN1g==
-X-Gm-Gg: ASbGnctskqUnXg/5ZLY2en26nHHUU4Mz7WN+n+OOPqyqvIWjTEKSyvukSUmRlkRaqc7
-	4TJrD/uBbHixLLDeDvqix/8AUhLxSClS5i6wLHjp1y4vSs7JUQ384jmG6kzLoILZNDqOkdHfz8o
-	jTm49/2BGk0xqRcC8/Eg+cMAkoxUS8+n59lg==
-X-Google-Smtp-Source: AGHT+IFE9YTmql2J1EDYOQW1GURLdO1CuAEE1Qnz48P0JUcDipJN0t2wX+uqL9weWpYsYzTJL1jtg61xH036CqGhtyI=
-X-Received: by 2002:a05:6902:10c3:b0:e78:f2a8:a69b with SMTP id
- 3f1490d57ef6-e7b6d3dd2dfmr14389495276.17.1747654941775; Mon, 19 May 2025
- 04:42:21 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250509-20-k1-sdhci-v3-0-526c35feaa20@gentoo.org>
- <20250509-20-k1-sdhci-v3-2-526c35feaa20@gentoo.org> <4cee9284-8f71-4214-8bc2-48bcb4030e40@intel.com>
- <20250512075631-GYA517379@gentoo> <CAPDyKFpgCMsaP=CZx210Ov=gTCkez-fwEPMwKTGHrzF51p5_TA@mail.gmail.com>
-In-Reply-To: <CAPDyKFpgCMsaP=CZx210Ov=gTCkez-fwEPMwKTGHrzF51p5_TA@mail.gmail.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Mon, 19 May 2025 13:41:46 +0200
-X-Gm-Features: AX0GCFsB9fU8obeLDfkKRVtLEIl-4TRtUdQD79rwTQ1raKLz78xB0D2YGIo8yS4
-Message-ID: <CAPDyKFrtH9AeHCiyJLv+F+tdVKJkhxcvcFj+wgqmAqN2CoC0jA@mail.gmail.com>
-Subject: Re: [PATCH v3 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
-To: Yixun Lan <dlan@gentoo.org>
-Cc: Adrian Hunter <adrian.hunter@intel.com>, Rob Herring <robh@kernel.org>, 
+        d=1e100.net; s=20230601; t=1747655037; x=1748259837;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DdHsq5COThnaz/kT2PepDjGRRqibq5HBjdI+te70JDw=;
+        b=c35ZA8n8FHkJ2YodS/zLeu/gPkuTXnpG3hl8E14MTnE5O+3fQH8A/WlQuXaPanMoi8
+         pdslvxz2bUwLMi1+Xy7vEV6GxH+73Jwrxn9t5MbxwRfu8l06uzkN1MYGwj0wBWfqng7d
+         Q42NToVzMLF+Ng0xXKDYbY035HmsPNpySN8e6jmPxawUTQfzMsgdrgoB6l3EFzOyqY3A
+         oQ/ivoXqhUc7mvhKx+1hW3a6qcv3BKKBKSKxFZpJgHL0dXxzP+wVBk9eXCM/8p8vIwC8
+         0xuwDVWassrpCvpwek4ag3F8mQTWA/15wno8CFFy0kTWy2e5XAQuggufzGosyF7mbAVc
+         lanA==
+X-Forwarded-Encrypted: i=1; AJvYcCXgqAN64T5abuovYr8CLyCfZLf2630Q+f4ru1p+h1NaK0ulvmEPqGRRSlB7Rw+XvMHGewixBVB2YtC6tA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIi4gWD2kHt4y8oWcCFQY7Rr861pj0wdkduw8gtzRFbvLedbF8
+	X7KLfYOXZzTiI/coGxX9zrfSxNzzEZa7oI/baue+byZu7m8AlLS3hm2R+2EYz+I+
+X-Gm-Gg: ASbGncvjDLEA5dm1Xus6tWR17RmeYHDFtgxZvB/Op+CqItxoaGU1B1MinHTRPbM55+L
+	oNU74eWGpbmRbr+J7JzeyuKYP0jiYLLx+vsqTuJymFhXv7hJdVweNdrYGfPehiLkQ58Ood9esaX
+	UGTKKi2MKDFuWdMFbbq01CIfZJBEv41jxNSaTAhApF2hRk/BrsmUkt5ybH+zjJYXqUtf2qG0Jy/
+	Q9JBBGhdiNdmU2scSKd+KHAJyBELS0e2RVWJOjcxDI35vwVOnvEVVmPrmQqVrqiTGFeF/UaNoL6
+	2lWFt6brroFImTZqWYC6WORD8RRPCJKG4gfWqQ==
+X-Google-Smtp-Source: AGHT+IHzi+wH4LTGbbgm7Y4TjS58PZ5Nah+7v2/J250yJ8XpMnfpx1miscgVUqmQCndfLGxyKsFvKA==
+X-Received: by 2002:a05:6214:2344:b0:6f0:e2d3:66bb with SMTP id 6a1803df08f44-6f8b0887e10mr173576876d6.43.1747655037154;
+        Mon, 19 May 2025 04:43:57 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6f8b097a0absm55522516d6.100.2025.05.19.04.43.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 19 May 2025 04:43:56 -0700 (PDT)
+Date: Mon, 19 May 2025 19:43:17 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>, Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Alex Elder <elder@riscstar.com>, Inochi Amaoto <inochiama@gmail.com>, linux-mmc@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Niklas Cassel <cassel@kernel.org>, Johan Hovold <johan+linaro@kernel.org>, 
+	Shradha Todi <shradha.t@samsung.com>, Thippeswamy Havalige <thippeswamy.havalige@amd.com>, 
+	Shashank Babu Chinta Venkata <quic_schintav@quicinc.com>
+Cc: linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH v3 0/2] riscv: sophgo Add PCIe support to Sophgo SG2044
+ SoC
+Message-ID: <77tip2z2mmuucsi4ackwubfdbyzgg2soaosmvbyrfl3iwrmmp3@icjunp4bsske>
+References: <20250504004420.202685-1-inochiama@gmail.com>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250504004420.202685-1-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_044222_994515_2CCB33E8 
-X-CRM114-Status: GOOD (  20.47  )
+X-CRM114-CacheID: sfid-20250519_044358_762787_0C0E864F 
+X-CRM114-Status: GOOD (  18.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,50 +108,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, 19 May 2025 at 13:38, Ulf Hansson <ulf.hansson@linaro.org> wrote:
->
-> On Mon, 12 May 2025 at 09:56, Yixun Lan <dlan@gentoo.org> wrote:
-> >
-> > Hi Ulf,
-> >
-> > On 09:04 Mon 12 May     , Adrian Hunter wrote:
-> > > On 09/05/2025 16:22, Yixun Lan wrote:
-> > > > The SDHCI controller found in SpacemiT K1 SoC features SD,
-> > > > SDIO, eMMC support, such as:
-> > > >
-> > > > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
-> > > > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
-> > > > - Compatible for 8bit eMMC5.1, up to HS400
-> > > >
-> > > > Signed-off-by: Yixun Lan <dlan@gentoo.org>
-> > >
-> > > Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-> > >
-> >
-> > If this isn't too late (as v6.15-rc6 is tagged), I'd like to seek
-> > the opportunity to queue for v6.16 as no big changes during these
-> > two review cycles..
-> >
-> > I also know people who would expect to have a full rootfs support,
-> > and this driver is sufficient to bring eMMC up and will make their
-> > life of development easy..
-> >
-> > But if you have different opinion, then I'm totally fine to delay
-> > it to next merge window, thanks
->
-> I have been busy the last week, apoligize for the delay.
->
-> I just posted a few minor comments on an earlier version, I didn't see
-> v3 sorry. Anyway, should be pretty easy to address those comments. If
-> you manage to send another version within the next couple of days I
-> can certainly pick this up for v6.16.
+On Sun, May 04, 2025 at 08:44:17AM +0800, Inochi Amaoto wrote:
+> Sophgo's SG2044 SoC uses Synopsys Designware PCIe core
+> to implement RC mode.
+> 
+> For legacy interrupt, the PCIe controller on SG2044 implement
+> its own legacy interrupt controller. For MSI/MSI-X, it use an
+> external interrupt controller to handle.
+> 
+> The external MSI interrupt controller patch can be found on [1].
+> As SG2044 needs a mirror change to support the way to send MSI
+> message and different irq number.
+> 
+> [1] https://lore.kernel.org/all/20250413224922.69719-1-inochiama@gmail.com
+> 
+> Changed from v2:
+> - https://lore.kernel.org/all/20250304071239.352486-1-inochiama@gmail.com
+> 1. patch 1: remove "|+" for description
+> 2. patch 1: apply Rob's tag
+> 3. patch 2: remove empty irq_eoi and use handle_level_irq as the right
+> 	    irq handle function.
+> 
+> Changed from v1:
+> - https://lore.kernel.org/all/20250221013758.370936-1-inochiama@gmail.com
+> 1. patch 1: remove dma-coherent property
+> 2. patch 2: remove unused reset
+> 3. patch 2: fix Kconfig menu title and reorder the entry
+> 4. patch 2: use FIELD_GET/FIELD_PREP to simplify the code.
+> 5. patch 2: rename the irq handle function to match the irq_chip name
+> 
+> Inochi Amaoto (2):
+>   dt-bindings: pci: Add Sophgo SG2044 PCIe host
+>   PCI: sophgo-dwc: Add Sophgo SG2044 PCIe driver
+> 
+>  .../bindings/pci/sophgo,sg2044-pcie.yaml      | 122 +++++++++
+>  drivers/pci/controller/dwc/Kconfig            |  10 +
+>  drivers/pci/controller/dwc/Makefile           |   1 +
+>  drivers/pci/controller/dwc/pcie-dw-sophgo.c   | 258 ++++++++++++++++++
+>  4 files changed, 391 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/pci/sophgo,sg2044-pcie.yaml
+>  create mode 100644 drivers/pci/controller/dwc/pcie-dw-sophgo.c
+> 
+> --
+> 2.49.0
+> 
 
-Ehh, nevermind. I don't want to hold this back. I have picked this up for next.
+It is a long time for this series without any comment, I wonder
+that this patch could be picked for 6.16?
 
-Please address my comments on v2 as patches on top instead.
-
-Kind regards
-Uffe
+Regard,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
