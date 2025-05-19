@@ -4,87 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD588C54754
-	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 08:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20E3BC54756
+	for <linux-riscv@archiver.kernel.org>; Mon, 19 May 2025 09:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=FiK5MS3lIcWo++AzmK3mlqvnwKE4X/y5yaOo/DzuUBE=; b=EsCOcSAd8yuqY6
-	AYyBrLRiJOOxuRIRb34B15rzXtJRPyGxMLU0LmW70/o+Qj9rL3/y4Y8HZs8+tDtFQ57G5S5viqMLB
-	HPMXnzTmaZJUnVpaO9Lfudu74QMQn6L0kPLEr8r5NWv3Tyjp3sA7Gp5eJqnu4GeKw79g3fk4vXXTD
-	6Y30DtB7JaU/CjRpLBOTTf5gCKliSCkHkQN300uJTyDZJAnZgLLOPrlZYi62yQWvLhocDfJRMGc0D
-	9nudP2wdy9OeiJP+3OB4c6JcNSd499seaP+W4NoGxOqg76SqFYICLJ799wltEhc+X/PuAPO1UA+uJ
-	vQaLdBnGUvj1DzPyaiXg==;
+	List-Owner; bh=dXW0bHOMKcRqZsyB32YMnW147l1vR/4yaeOj5MvcZKo=; b=CEz+tHOxiY31c2
+	5ffN/IRa/OT9xcw2yoddW8fQQQ6ro+gRqwWe4jDO97aU6ofTYy6ANCPCIkMtmQu6J9iSna0zECjTd
+	Q16UL58VdF3/QOZ3hQtxx21CSbodrpRoUOzvgSKwh4NKVkHeJNmTo8gqisayKIzueecU9MwrFtLtC
+	aLNnBgEIO+Pk7FM3NvrqoHierSRiSKnquBka67jtOXGrqrYgO7X/RsXerAaByI1aYCNVk0AYZyCL8
+	9dq14+EeiUHeXQ6u2fQd7PElT9DO2rwaglVG7bav5GfTDo/bKvWlJaBQtgMOMEX2+H/3aKIfTlcT8
+	QJz/LdJ6H8efBybvYHWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvfc-00000008KAd-1fa2;
-	Mon, 19 May 2025 08:16:24 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1uGxEQ-00000008grq-1Qr6;
+	Mon, 19 May 2025 09:56:26 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uGvdU-00000008JnE-28rp
+	id 1uGwwA-00000008bUS-0MaR
 	for linux-riscv@lists.infradead.org;
-	Mon, 19 May 2025 08:14:13 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-32909637624so17475431fa.1
-        for <linux-riscv@lists.infradead.org>; Mon, 19 May 2025 01:14:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1747642450; x=1748247250; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fwwc7zz8RwpZE+tQomEO7USEBEct1RL32QmkFi3jFrk=;
-        b=k9cMFFiPG8MTAM02nVBOY8bwA3ipU1mNxw8irDesRKnsnTR1V5R7EARV7IAydccQzJ
-         NKm7iNib6aIzvbBGtmon23+fud7wLfVwFv8ftx0YUrax6MWYXpB6xs/nep+ERlhweyBG
-         kmXAI20TKIuMOL/Pjis+NQzrPkTcIPXapyZzEmvnPBZAMp9Pdan5jh1pM1bTHO/qqIIY
-         Kb6u7OdHYbnWqDywojpoMoOD9VlNphwY5WeMcpWXw1jAquVIU2m/pFu0RINZRNYcAqNv
-         nmwOUaFyqq/xlDgX0hL632vJ1QjjiWA60rmhKwAlLscWtkcwB/k6unGH+W7oRWouRR2i
-         fEjA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747642450; x=1748247250;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fwwc7zz8RwpZE+tQomEO7USEBEct1RL32QmkFi3jFrk=;
-        b=S4ZCsssYpiKLI1nKCQkaVG9bnvfbz6NEMSUb4JL/fAux6Ys2raec5KH8vhSnjh+v8N
-         TfsqbAFnqzoJjHmL8uQAds8BFMwqkhtPYUN8y+M4fJn71meDQom8CC+lWU5LFBbX3s+b
-         hU9lhcJbTjvLbB8dOj7VxRga+v5sX7wsxwnOWug3ydEcMtuxP//cl4CMs6Q71jWbrqpU
-         PuWUW3ebu/7NnfWrxnQEnRka3PTR/PpOUkIxG9UreGI/P8esP6EjQTS8EXhk3Pu7R0o6
-         E+DzAhVUDW1YerdSk5r9NYNURAiCwLpY0pkv4aJse/h+R+tTkUSac0bSxwhtXQmYKmNS
-         vsWA==
-X-Forwarded-Encrypted: i=1; AJvYcCVCKB+LshhL6aYqrl7yZmmHUrl8NZowMHBV2GyR8SaY+rUEtnBdzILfo1LPRcHblf58jqqZpHx0/NIrLQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHuysf6GzPNOOpMrAIdqS1aEKtcmlcp5HNg229Zi43pR7gdxbo
-	tHnE+WhtIYa8p7ZAK8sgo0Mm5yH6wmlxy9IkkE1cwgrmf9YfolzK50m7lju4Kw3UudGJ5Xv888V
-	IQZCbzya8rkTjN4NXipzGiqnvbAte5UA=
-X-Gm-Gg: ASbGncsvoPp5LRS9/2Yocr0HqWg9YJ4STz/ff5KLVnXBurHhpFsGd4UEE/+cyP8Xk/2
-	X/zu4Wqq+auo4Qhh1d9hq8sgw/8Tz3BIF56yuvEGNJuT6XyRkC0Bekku/qX2zrwPH0GL3JciLPP
-	qA4eLVV7hc57CKIzs7GnWsS6OC75WljOyI4g==
-X-Google-Smtp-Source: AGHT+IEUVdwigpKS0BPeqjXhcYtkYwGsYnqU1X9BSXzUgZ8PdV7fqujNcImjFC9c9smpDP23OqyzE8sMIyHm/q4DQX8=
-X-Received: by 2002:a05:651c:31c5:b0:30d:b366:d259 with SMTP id
- 38308e7fff4ca-32807700167mr31903171fa.10.1747642449683; Mon, 19 May 2025
- 01:14:09 -0700 (PDT)
+	Mon, 19 May 2025 09:37:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 20396614C0;
+	Mon, 19 May 2025 09:37:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14024C4CEE4;
+	Mon, 19 May 2025 09:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1747647452;
+	bh=KK0Hhs+WBueOymdkeSk3Ewwoz2Qmj7koc8wdTHn/t40=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uXSw8Ylnp3l4YbRv7jpAv1NfkXlFy7MFhirzfqpAMaqYV7a2DxaMrS7OIwIFMTj1t
+	 yYn97NZ7ffZe4XxtDOPIOt4XgRMNEDUqFxkbL9aeGkOsurI6qWL4GrEACo7tqDe4aE
+	 kQItnB6USHC0bFRe47ArDgyIG/k6fPR00L7t8j91BT62pMUlV9cP+4JAlQX3L8QAIl
+	 BKopGiWdhVrBTQtKRSj3Xw04Qm+pnhmAbBWZ2cXNux4HswAnJHr2h4aypkL+AzPwq2
+	 u0wtigdeyuNNkzDo3rXLCo04vr9Y8HDlGUIASg3AwFq6TQKVjBBkOAZMUaKTTkFJLe
+	 xtTu0mhNDiEwg==
+Date: Mon, 19 May 2025 11:37:30 +0200
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Ze Huang <huangze@whut.edu.cn>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] riscv: dts: spacemit: add usb3.0 support for K1
+Message-ID: <20250519-esoteric-pegasus-of-acumen-6ee8f8@kuoka>
+References: <20250518-b4-k1-dwc3-v3-v3-0-7609c8baa2a6@whut.edu.cn>
+ <20250518-b4-k1-dwc3-v3-v3-3-7609c8baa2a6@whut.edu.cn>
 MIME-Version: 1.0
-References: <20250409025202.201046-1-haibo1.xu@intel.com> <Z_hoH0fu_NnEUUfe@google.com>
-In-Reply-To: <Z_hoH0fu_NnEUUfe@google.com>
-From: Haibo Xu <xiaobo55x@gmail.com>
-Date: Mon, 19 May 2025 16:13:58 +0800
-X-Gm-Features: AX0GCFtx-eO_q_oMQHBumsX1dzxmSFeZMNLugF74KQnQU0QPQgysXvntx4WvZr4
-Message-ID: <CAJve8okP5wy-GNDCsDywgqPPmLSf0q1vGH573vXepxw7j-W8Qg@mail.gmail.com>
-Subject: Re: [PATCH] perf symbols: Ignore mapping symbols on riscv
-To: Namhyung Kim <namhyung@kernel.org>
-Cc: Haibo Xu <haibo1.xu@intel.com>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jiri Olsa <jolsa@kernel.org>, 
-	Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
-	"Liang, Kan" <kan.liang@linux.intel.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Stephen Brennan <stephen.s.brennan@oracle.com>, 
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250519_011412_546020_FEE96EF3 
-X-CRM114-Status: GOOD (  19.87  )
+Content-Disposition: inline
+In-Reply-To: <20250518-b4-k1-dwc3-v3-v3-3-7609c8baa2a6@whut.edu.cn>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,42 +71,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-a2luZGx5IHBpbmcuCgpSZWdhcmRzLApIYWlibwoKT24gRnJpLCBBcHIgMTEsIDIwMjUgYXQgODo1
-M+KAr0FNIE5hbWh5dW5nIEtpbSA8bmFtaHl1bmdAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBIZWxs
-bywKPgo+IE9uIFdlZCwgQXByIDA5LCAyMDI1IGF0IDEwOjUxOjU2QU0gKzA4MDAsIEhhaWJvIFh1
-IHdyb3RlOgo+ID4gUklTQ1YgRUxGIHVzZSBtYXBwaW5nIHN5bWJvbHMgd2l0aCBzcGVjaWFsIG5h
-bWVzICR4LCAkZCB0bwo+ID4gaWRlbnRpZnkgcmVnaW9ucyBvZiBSSVNDViBjb2RlIG9yIGNvZGUg
-d2l0aCBkaWZmZXJlbnQgSVNBc1sxXS4KPiA+IFRoZXNlIHN5bWJvbHMgZG9uJ3QgaWRlbnRpZnkg
-ZnVuY3Rpb25zLCBzbyB3aWxsIGNvbmZ1c2UgdGhlCj4gPiBwZXJmIG91dHB1dC4KPiA+Cj4gPiBU
-aGUgcGF0Y2ggZmlsdGVycyBvdXQgdGhlc2Ugc3ltYm9scyBhdCBsb2FkIHRpbWUsIHNpbWlsYXIg
-dG8KPiA+ICI0ODg2ZjJjYSBwZXJmIHN5bWJvbHM6IElnbm9yZSBtYXBwaW5nIHN5bWJvbHMgb24g
-YWFyY2g2NCIuCj4gPgo+ID4gWzFdIGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi1ub24taXNhL3Jp
-c2N2LWVsZi1wc2FiaS1kb2MvYmxvYi8KPiA+ICAgICBtYXN0ZXIvcmlzY3YtZWxmLmFkb2MjbWFw
-cGluZy1zeW1ib2wKPiA+Cj4gPiBTaWduZWQtb2ZmLWJ5OiBIYWlibyBYdSA8aGFpYm8xLnh1QGlu
-dGVsLmNvbT4KPgo+IEFja2VkLWJ5OiBOYW1oeXVuZyBLaW0gPG5hbWh5dW5nQGtlcm5lbC5vcmc+
-Cj4KPiBUaGFua3MsCj4gTmFtaHl1bmcKPgo+Cj4gPiAtLS0KPiA+ICB0b29scy9wZXJmL3V0aWwv
-c3ltYm9sLWVsZi5jIHwgNiArKysrKysKPiA+ICAxIGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25z
-KCspCj4gPgo+ID4gZGlmZiAtLWdpdCBhL3Rvb2xzL3BlcmYvdXRpbC9zeW1ib2wtZWxmLmMgYi90
-b29scy9wZXJmL3V0aWwvc3ltYm9sLWVsZi5jCj4gPiBpbmRleCBmYmY2ZDBmNzNhZjkuLjU1YjE0
-MDliMDU5MyAxMDA2NDQKPiA+IC0tLSBhL3Rvb2xzL3BlcmYvdXRpbC9zeW1ib2wtZWxmLmMKPiA+
-ICsrKyBiL3Rvb2xzL3BlcmYvdXRpbC9zeW1ib2wtZWxmLmMKPiA+IEBAIC0xNzMzLDYgKzE3MzMs
-MTIgQEAgZHNvX19sb2FkX3N5bV9pbnRlcm5hbChzdHJ1Y3QgZHNvICpkc28sIHN0cnVjdCBtYXAg
-Km1hcCwgc3RydWN0IHN5bXNyYyAqc3ltc19zcywKPiA+ICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIGNvbnRpbnVlOwo+ID4gICAgICAgICAgICAgICB9Cj4gPgo+ID4gKyAgICAgICAgICAg
-ICAvKiBSZWplY3QgUklTQ1YgRUxGICJtYXBwaW5nIHN5bWJvbHMiICovCj4gPiArICAgICAgICAg
-ICAgIGlmIChlaGRyLmVfbWFjaGluZSA9PSBFTV9SSVNDVikgewo+ID4gKyAgICAgICAgICAgICAg
-ICAgICAgIGlmIChlbGZfbmFtZVswXSA9PSAnJCcgJiYgc3RyY2hyKCJkeCIsIGVsZl9uYW1lWzFd
-KSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnRpbnVlOwo+ID4gKyAgICAg
-ICAgICAgICB9Cj4gPiArCj4gPiAgICAgICAgICAgICAgIGlmIChydW50aW1lX3NzLT5vcGRzZWMg
-JiYgc3ltLnN0X3NobmR4ID09IHJ1bnRpbWVfc3MtPm9wZGlkeCkgewo+ID4gICAgICAgICAgICAg
-ICAgICAgICAgIHUzMiBvZmZzZXQgPSBzeW0uc3RfdmFsdWUgLSBzeW1zX3NzLT5vcGRzaGRyLnNo
-X2FkZHI7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgdTY0ICpvcGQgPSBvcGRkYXRhLT5kX2J1
-ZiArIG9mZnNldDsKPiA+IC0tCj4gPiAyLjQzLjAKPiA+CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Sun, May 18, 2025 at 03:19:21AM GMT, Ze Huang wrote:
+> diff --git a/arch/riscv/boot/dts/spacemit/k1.dtsi b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> index 61f5ca250ded0da7b91cd4bbd55a5574a89c6ab0..164244fdb49f5d50a8abadb7b7e478cccc828087 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1.dtsi
+> @@ -4,6 +4,8 @@
+>   */
+>  
+>  #include <dt-bindings/clock/spacemit,k1-syscon.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/phy/phy.h>
+>  
+>  /dts-v1/;
+>  / {
+> @@ -346,6 +348,15 @@ soc {
+>  		dma-noncoherent;
+>  		ranges;
+>  
+> +		mbus0: dram-controller@0 {
+
+Missing compatible.
+
+> +			reg = <0x0 0x00000000 0x0 0x80000000>;
+> +			reg-names = "dram";
+
+Where are the bindings for this?
+
+> +			#address-cells = <2>;
+> +			#size-cells = <2>;
+
+Why are these needed?
+
+> +			dma-ranges = <0x0 0x00000000 0x0 0x00000000 0x0 0x80000000>;
+> +			#interconnect-cells = <0>;
+
+No, you cannot just add any properties to any custom node. You need ABI
+for all this.
+
+> +		};
+> +
+>  		syscon_rcpu: system-controller@c0880000 {
+>  			compatible = "spacemit,k1-syscon-rcpu";
+>  			reg = <0x0 0xc0880000 0x0 0x2048>;
+> @@ -358,6 +369,64 @@ syscon_rcpu2: system-controller@c0888000 {
+>  			#reset-cells = <1>;
+>  		};
+>  
+> +		usb_dwc3: usb@c0a00000 {
+> +			compatible = "spacemit,k1-dwc3";
+> +			reg = <0x0 0xc0a00000 0x0 0x10000>;
+> +			clocks = <&syscon_apmu CLK_USB30>;
+> +			clock-names = "usbdrd30";
+> +			resets = <&syscon_apmu RESET_USB3_0>;
+> +			interrupt-parent = <&plic>;
+> +			interrupts = <125>;
+> +			interconnects = <&mbus0>;
+> +			interconnect-names = "dma-mem";
+> +			phys = <&usbphy2>, <&combphy PHY_TYPE_USB3>;
+> +			phy-names = "usb2-phy", "usb3-phy";
+> +			dr_mode = "host";
+
+This does not look like property of the soc.
+
+> +			phy_type = "utmi";
+> +			snps,hsphy_interface = "utmi";
+> +			snps,dis_enblslpm_quirk;
+> +			snps,dis-u2-freeclk-exists-quirk;
+> +			snps,dis-del-phy-power-chg-quirk;
+> +			snps,dis_u2_susphy_quirk;
+> +			snps,dis_u3_susphy_quirk;
+> +			snps,dis_rxdet_inp3_quirk;
+> +			status = "disabled";
+> +		};
+> +
+> +		usbphy0: phy@c0940000 {
+> +			compatible = "spacemit,k1-usb2-phy";
+> +			reg = <0x0 0xc0940000 0x0 0x200>;
+> +			clocks = <&syscon_apmu CLK_USB_AXI>;
+> +			#phy-cells = <0>;
+> +			status = "disabled";
+
+What is missing here? Why is this node disabled?
+
+Best regards,
+Krzysztof
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
