@@ -4,88 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C47CC3ABDD
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 16:50:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E448C3DA6D
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 16:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tByZS5BkFmGvW0nFGlTwSxMDJ0Gjvj64DGviY9PIIkg=; b=tewhi9quWBq83KNtXkEn8I0pP4
-	o67xaYe0oz9czP15I20419zn4PVTf5yjvBqqWOB6gCVE2bSGXINsa4t05SPtQweSXOfRJtzSXvRpM
-	VC20phP0fbdK7hahtOaoJBKLWaJjQ2SC35ryIV+X+LZIRMQZM+ArGdzUbYGXHWBRVwWWdwZMK6Lu+
-	lb+5n+sYMb7qCsB4g9Nqt0QLqhDz2VVVkgj3fk2EGHDzvoBwMZuB1XTS37hKKCBmCNLSwhw5u9P6X
-	AvFgDUzTBnY7o8BWVLykid0p44B16WiNmQpuJ+1/a7mFIaSwDwilaYevPwXMxKFlUY5wUJrGoCeWS
-	wHWklp5Q==;
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=pwz0T24AQ71pQLZWCi0Bf0Isjmer/QR5AsajLrhriu0=; b=jUHuo98JQL5tUl
+	Y/i7sfb24zHzFmHaGU0pvpYysMif70oznNPL9DjbjETEH4s8x+pD1ccAS0cZhB1qYYTgxyu4aQpoU
+	VFG+348VlFr4TTRYscSUE7/i7xFfaWImL34Hc7SVoGMQx+EIrTwkX3999CIJdaOzRDeimsinNsKHj
+	+w492/gGIL5HLluYrByWs+9seeYj3pGQ+cwAxB+XRyKqjmGkfQkINuQS+K7dq2N1BMy4y2Ai6ar2+
+	X6EXryg01S958Xt0ssO5Z8jOWg4Y4SIuB1EjewtaoRBhgG/DS2I9jO5klOvJQYJgODtghH8uuL02L
+	uuUtPEdm0ZfCIgeCC9nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQAG-0000000Db9u-4A2f;
-	Tue, 20 May 2025 16:50:04 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uHQFp-0000000Dc4q-0ebg;
+	Tue, 20 May 2025 16:55:49 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQAE-0000000Db99-1zOA
+	id 1uHQFk-0000000Dc1k-00La
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 May 2025 16:50:04 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-231e011edfaso47987745ad.0
-        for <linux-riscv@lists.infradead.org>; Tue, 20 May 2025 09:50:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747759801; x=1748364601; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=1m7Go/pX/F7PMp+Ns8T8HB1Kq+qBJFWZaihZShIHSyw=;
-        b=vbSgLmr3pMY9UYqKwkVRj1F72s/StGSiE3kowsceGoc6onsf0YRUhcA6bKfo0biVuf
-         ky2iQZlwGBRuiDdH84SnjdrUikMGn6lqb7x0OD1+cxza/NSzUcW7EUHtE6KwnHPgqqhF
-         Lvs3VC4Ie9kzKb80rtPuPKvQKqnDADEq4RInyouX45gky0Sk6vWBz/8pIztb3UDHaGfu
-         qF87g5a7TOPb+Kejf1bIMZL9tNoQx+f8lcNZCkyyRZOoTAC89aqLybF8OCqVobGWmHXp
-         ilLAEugDf/3IR38VL+fPQo++S5tn8nIWYCNOuoeSokiMHpNv0mdjeg9AP+3OaxrHmJbQ
-         /amA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747759801; x=1748364601;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=1m7Go/pX/F7PMp+Ns8T8HB1Kq+qBJFWZaihZShIHSyw=;
-        b=tQqcFjVmoK2syJHDelaZ7ll3OXTf9TdnRwplLV32jUUYVzxzz0FsIRsqU9wcT+L+1T
-         IzBDiWFBwrzYD+fEcVpEg9XvyfFayR9iuVDsJBPvppGWpk9ctKKAH2eNHZSktzmBd388
-         Ku/aCIuhRF1HhUo11w9z8uqQI+om9+ccEt+3uRRvlqTJmHHayzZ3vOLPdzVOFkfJoEBA
-         yQrpGKp+ViguIHlfU6bZM6MhHJjj9qbSX3INulgCBGvksFdSRWTrcoT3q/b4ijLwcFyk
-         dQ0uBaIsJOO/T5eDm0C16/9Ep5pQ5/0Y9Ru4j5/zznk543FhLFZR5tdxU6N900Q5PPfw
-         LC2g==
-X-Forwarded-Encrypted: i=1; AJvYcCUB1TP/ehSPQjrk4VTjmSk9mdyvD+uPz8vE+gWTJBa96kOc+MveQv+2uQZSC592YI1haxn/cf9ZDMkvVw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyHPr/rY1FgDpVijI+DxOwhZOCz9JsT3IpVqPrgWVpHS9uhLTK3
-	dgf4mBg8kZ2TdqVbatucqsenhs/S6UDOl4M8sYBq/fXQzeYa7/iYjPNLW3cVcmO3ujk=
-X-Gm-Gg: ASbGncuaUdNnFRKs9EiwQ9sVj1jGfBqLLo9Ssva8T+N3ere/B2lNxz0cuvPxNXzZNKz
-	Yg7d/glHJYmYonw0mVBzIfygrd3B5QxKLyjwv88mKBJVijkrtz3mM8p9OC8aTsZKpkSsdGgVj4v
-	MP7VvkI1MicvNadTIQhq+KPFaAlHqfyAIkT0PyW2sIe1kn3yr+LUk+Wm7E2QPzwakhJc90Xa5MF
-	khQCuV90m9kjNLuETdCfAyAvOrFtWZ68aL01WJYrrfNNWXJ9+GJlJs7zM58hzBxF+fDIcVcr2pK
-	54lTUyeQNWw/Z3pMzEXbrs5W5JBGeHqOm9JYdZTsaqFPQaIFmDGpaMFXszALXg==
-X-Google-Smtp-Source: AGHT+IFnEAObM1BSjDDsKlqDToLOxOJWjUHHkhJdZPf/vLzU9gv46i8iYZlBBNwApuBYvvnazZFwbw==
-X-Received: by 2002:a17:903:b8f:b0:224:c76:5e57 with SMTP id d9443c01a7336-231d459bee3mr236232895ad.39.1747759801274;
-        Tue, 20 May 2025 09:50:01 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ac9551sm79167335ad.40.2025.05.20.09.50.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 20 May 2025 09:50:00 -0700 (PDT)
-Date: Tue, 20 May 2025 09:49:58 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Cyril Bur <cyrilbur@tenstorrent.com>
-Cc: palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
-	charlie@rivosinc.com, jrtc27@jrtc27.com, ben.dooks@codethink.co.uk,
-	alex@ghiti.fr, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, jszhang@kernel.org,
-	syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
-Subject: Re: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
-Message-ID: <aCyythZJ2u0SbXVb@debug.ba.rivosinc.com>
-References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
- <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
- <aAgfz69K7wSkKsyJ@debug.ba.rivosinc.com>
+	Tue, 20 May 2025 16:55:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id BDB4441C7D;
+	Tue, 20 May 2025 16:55:36 +0000 (UTC)
+Message-ID: <8faad7be-d7a5-4f71-b020-960ea443f751@ghiti.fr>
+Date: Tue, 20 May 2025 18:55:36 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aAgfz69K7wSkKsyJ@debug.ba.rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8] riscv: mm: Add support for Svinval extension
+To: Mayuresh Chitale <mchitale@ventanamicro.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+ alexghiti@rivosinc.com, samuel.holland@sifive.com, ajones@ventanamicro.com
+References: <20240702102637.9074-1-mchitale@ventanamicro.com>
+ <mhng-38c26ef6-8d45-4dd1-9c3a-f71f34f1ef81@palmer-ri-x1c9>
+ <CAN37VV6DMpsRWnH-1tN2AfT8HXbEFh2We4Yw0XYkuCNvF75o4w@mail.gmail.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <CAN37VV6DMpsRWnH-1tN2AfT8HXbEFh2We4Yw0XYkuCNvF75o4w@mail.gmail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdejheculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepteegiedvhfdvgfelffekveehjeetveehteeluedtffelfeeguedtvddugfeiheehnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpihhnvhgrlhdrihhrpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtiedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtiegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehmtghhihhtrghlvgesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrt
+ ghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepshgrmhhuvghlrdhhohhllhgrnhgusehsihhfihhvvgdrtghomh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_095002_772866_34A2EC36 
-X-CRM114-Status: GOOD (  21.15  )
+X-CRM114-CacheID: sfid-20250520_095544_188773_6827E0D8 
+X-CRM114-Status: GOOD (  23.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,143 +64,96 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I did give this patch my RB and had planned to come back to it to see
-if it impacts cfi related patches. Thanks to alex for brinigng to my
-attention again. As it stands today, it doesn't impact cfi related
-changes but I've some concerns.
-
-Overall I do agree we should reduce number of SSTATUS accesses.
-
-Couple of questions on introducing new `sstatus` field (inline)
-
-On Tue, Apr 22, 2025 at 04:01:35PM -0700, Deepak Gupta wrote:
->On Thu, Apr 10, 2025 at 07:05:22AM +0000, Cyril Bur wrote:
->>From: Ben Dooks <ben.dooks@codethink.co.uk>
->>
->>When threads/tasks are switched we need to ensure the old execution's
->>SR_SUM state is saved and the new thread has the old SR_SUM state
->>restored.
->>
->>The issue was seen under heavy load especially with the syz-stress tool
->>running, with crashes as follows in schedule_tail:
->>
->>Unable to handle kernel access to user memory without uaccess routines
->>at virtual address 000000002749f0d0
->>Oops [#1]
->>Modules linked in:
->>CPU: 1 PID: 4875 Comm: syz-executor.0 Not tainted
->>5.12.0-rc2-syzkaller-00467-g0d7588ab9ef9 #0
->>Hardware name: riscv-virtio,qemu (DT)
->>epc : schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
->>ra : task_pid_vnr include/linux/sched.h:1421 [inline]
->>ra : schedule_tail+0x70/0xb2 kernel/sched/core.c:4264
->>epc : ffffffe00008c8b0 ra : ffffffe00008c8ae sp : ffffffe025d17ec0
->>gp : ffffffe005d25378 tp : ffffffe00f0d0000 t0 : 0000000000000000
->>t1 : 0000000000000001 t2 : 00000000000f4240 s0 : ffffffe025d17ee0
->>s1 : 000000002749f0d0 a0 : 000000000000002a a1 : 0000000000000003
->>a2 : 1ffffffc0cfac500 a3 : ffffffe0000c80cc a4 : 5ae9db91c19bbe00
->>a5 : 0000000000000000 a6 : 0000000000f00000 a7 : ffffffe000082eba
->>s2 : 0000000000040000 s3 : ffffffe00eef96c0 s4 : ffffffe022c77fe0
->>s5 : 0000000000004000 s6 : ffffffe067d74e00 s7 : ffffffe067d74850
->>s8 : ffffffe067d73e18 s9 : ffffffe067d74e00 s10: ffffffe00eef96e8
->>s11: 000000ae6cdf8368 t3 : 5ae9db91c19bbe00 t4 : ffffffc4043cafb2
->>t5 : ffffffc4043cafba t6 : 0000000000040000
->>status: 0000000000000120 badaddr: 000000002749f0d0 cause:
->>000000000000000f
->>Call Trace:
->>[<ffffffe00008c8b0>] schedule_tail+0x72/0xb2 kernel/sched/core.c:4264
->>[<ffffffe000005570>] ret_from_exception+0x0/0x14
->>Dumping ftrace buffer:
->>  (ftrace buffer empty)
->>---[ end trace b5f8f9231dc87dda ]---
->>
->>The issue comes from the put_user() in schedule_tail
->>(kernel/sched/core.c) doing the following:
->>
->>asmlinkage __visible void schedule_tail(struct task_struct *prev)
->>{
->>...
->>       if (current->set_child_tid)
->>               put_user(task_pid_vnr(current), current->set_child_tid);
->>...
->>}
->>
->>the put_user() macro causes the code sequence to come out as follows:
->>
->>1:	__enable_user_access()
->>2:	reg = task_pid_vnr(current);
->>3:	*current->set_child_tid = reg;
->>4:	__disable_user_access()
->>
->>The problem is that we may have a sleeping function as argument which
->>could clear SR_SUM causing the panic above. This was fixed by
->>evaluating the argument of the put_user() macro outside the user-enabled
->>section in commit 285a76bb2cf5 ("riscv: evaluate put_user() arg before
->>enabling user access")"
->>
->>In order for riscv to take advantage of unsafe_get/put_XXX() macros and
->>to avoid the same issue we had with put_user() and sleeping functions we
->>must ensure code flow can go through switch_to() from within a region of
->>code with SR_SUM enabled and come back with SR_SUM still enabled. This
->>patch addresses the problem allowing future work to enable full use of
->>unsafe_get/put_XXX() macros without needing to take a CSR bit flip cost
->>on every access. Make switch_to() save and restore SR_SUM.
->>
->>Reported-by: syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
->>Signed-off-by: Ben Dooks <ben.dooks@codethink.co.uk>
->>Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
->>---
->>arch/riscv/include/asm/processor.h | 1 +
->>arch/riscv/kernel/asm-offsets.c    | 5 +++++
->>arch/riscv/kernel/entry.S          | 8 ++++++++
->>3 files changed, 14 insertions(+)
->>
->>diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
->>index 5f56eb9d114a..58fd11c89fe9 100644
->>--- a/arch/riscv/include/asm/processor.h
->>+++ b/arch/riscv/include/asm/processor.h
->>@@ -103,6 +103,7 @@ struct thread_struct {
->>	struct __riscv_d_ext_state fstate;
->>	unsigned long bad_cause;
->>	unsigned long envcfg;
->>+	unsigned long status;
-
-Do we really need a new member field in `thread_struct`. We already have
-`sstatus` in `pt_regs` which reflects overall execution environment situation
-for current thread. This gets saved and restored on trap entry and exit.
-
-If we put `status` in `thread_struct` it creates ambiguity in terms of which
-`status` to save to and pick from from future maintainibility purposes as the
-fields get introduced to this CSR.
-
-Why can't we access current trap frame's `sstatus` image in `__switch_to` to
-save and restore?
-
-Let me know if I am missing something obvious here. If there is a complication,
-I am missing here and we do end up using this member field, I would rename it
-to something like `status_kernel` to reflect that. So that future changes are
-cognizant of the fact that we have split `status`. One for kernel execution env
-per thread and one for controlling user execution env per thread.
-
-
->>	u32 riscv_v_flags;
->>	u32 vstate_ctrl;
->>	struct __riscv_v_ext_state vstate;
->>diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
->>index 16490755304e..969c65b1fe41 100644
->>--- a/arch/riscv/kernel/asm-offsets.c
->>+++ b/arch/riscv/kernel/asm-offsets.c
->>@@ -34,6 +34,7 @@ void asm_offsets(void)
->>	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
->>	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
->>	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWF5dXJlc2ghCgpPbiA3LzMwLzI0IDEwOjQzLCBNYXl1cmVzaCBDaGl0YWxlIHdyb3RlOgo+
+IE9uIFdlZCwgSnVsIDI0LCAyMDI0IGF0IDg6MjDigK9QTSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
+QGRhYmJlbHQuY29tPiB3cm90ZToKPj4gT24gVHVlLCAwMiBKdWwgMjAyNCAwMzoyNjozNyBQRFQg
+KC0wNzAwKSwgbWNoaXRhbGVAdmVudGFuYW1pY3JvLmNvbSB3cm90ZToKPj4+IFRoZSBTdmludmFs
+IGV4dGVuc2lvbiBzcGxpdHMgU0ZFTkNFLlZNQSBpbnN0cnVjdGlvbiBpbnRvIGZpbmVyLWdyYWlu
+ZWQKPj4+IGludmFsaWRhdGlvbiBhbmQgb3JkZXJpbmcgb3BlcmF0aW9ucyBhbmQgaXMgbWFuZGF0
+b3J5IGZvciBSVkEyM1M2NCBwcm9maWxlLgo+Pj4gV2hlbiBTdmludmFsIGlzIGVuYWJsZWQgdGhl
+IGxvY2FsX2ZsdXNoX3RsYl9yYW5nZV90aHJlc2hvbGRfYXNpZCBmdW5jdGlvbgo+Pj4gc2hvdWxk
+IHVzZSB0aGUgZm9sbG93aW5nIHNlcXVlbmNlIHRvIG9wdGltaXplIHRoZSB0bGIgZmx1c2hlcyBp
+bnN0ZWFkIG9mCj4+IERvIHlvdSBoYXZlIGFueSBwZXJmb3JtYW5jZSBudW1iZXJzIGZvciB0aGUg
+b3B0aW1pemF0aW9uPyAgQXMgcGVyIGhlcmUKPj4gPGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2Fs
+bC9taG5nLWY3OTliZDJiLTdmMjItNGMwMy1iZGIyLTkwM2ZhM2I1ZDUwOEBwYWxtZXItcmkteDFj
+OWEvPi4KPiBObywgY3VycmVudGx5IHRoZXJlIGFyZSBubyBudW1iZXJzIGF2YWlsYWJsZSBmb3Ig
+Y29tcGFyaXNvbiBidXQgdGhlCj4gcmF0aW9uYWxlIGZvciB0aGUgb3B0aW1pemF0aW9uIGlzIGRl
+c2NyaWJlZCBpbiB0aGUgc3BlYy4gVGhlIGV4dGVuc2lvbgo+IGlzIG1hbmRhdG9yeSBmb3IgdGhl
+IFJWQTIzUzY0IHByb2ZpbGUgYnV0IGFueSBwbGF0Zm9ybSB0aGF0IGRvZXNuJ3QKPiBzdXBwb3J0
+IHRoaXMgZXh0ZW5zaW9uIHdpbGwgbm90IGJlIGltcGFjdGVkIGFzIHRoZSBjb2RlIGV4ZWN1dGVz
+IG9ubHkKPiBpZiB0aGUgc3ZpbnZhbCBleHRlbnNpb24gaXMgZW5hYmxlZCBhdCB0aGUgYm9vdCB1
+cC4KCgpTbyBJIGZpbmFsbHkgaGF2ZSBzb21lIG51bWJlcnMhIEkgdGVzdGVkIHRoaXMgcGF0Y2hz
+ZXQgb24gdGhlIEJhbmFuYVBpOiAKSSBtZWFzdXJlZCB0aGUgbnVtYmVyIG9mIGN5Y2xlcyB3aGVu
+IGZsdXNoaW5nIDY0IGVudHJpZXMgKHdoaWNoIGlzIG91ciAKY3VycmVudCB0aHJlc2hvbGQpIGFu
+ZCBJIG1hZGUgc3VyZSB0byB0b3VjaCB0aGUgZW50cmllcyBiZWZvcmVoYW5kLgoKSGVyZSB0aGV5
+IGFyZToKCiogc3ZpbnZhbDoKCiNjeWNsZXM6IDM2NDkyMAojY3ljbGVzOiAzNjU4NTYKI2N5Y2xl
+czogMzY3OTkzCgoqICFzdmludmFsOgoKI2N5Y2xlczogNjYzNTg1CiNjeWNsZXM6IDY2MzEwNQoj
+Y3ljbGVzOiA2NjQwNzMKClNvIHRoYXQncyByb3VnaGx5IC8yIHVzaW5nIHN2aW52YWwuIFRvIG1l
+IHRoYXQncyBnb29kIGVub3VnaCB0byBtZXJnZSAKdGhhdCBmb3IgNi4xNiA6KQoKU29ycnkgZm9y
+IHRoZSB2ZXJ5IHZlcnkgbG9uZyBkZWxheSBhbmQgdGhhbmtzIGFnYWluIGZvciB0aGUgbXVsdGlw
+bGUgCnJldmlzaW9ucyEKCkFsZXgKCgo+Pj4gYSBzaW1wbGUgc2ZlbmNlLnZtYToKPj4+Cj4+PiBz
+ZmVuY2Uudy5pbnZhbAo+Pj4gc3ZpbnZhbC52bWEKPj4+ICAgIC4KPj4+ICAgIC4KPj4+IHN2aW52
+YWwudm1hCj4+PiBzZmVuY2UuaW52YWwuaXIKPj4+Cj4+PiBUaGUgbWF4aW11bSBudW1iZXIgb2Yg
+Y29uc2VjdXRpdmUgc3ZpbnZhbC52bWEgaW5zdHJ1Y3Rpb25zIHRoYXQKPj4+IGNhbiBiZSBleGVj
+dXRlZCBpbiBsb2NhbF9mbHVzaF90bGJfcmFuZ2VfdGhyZXNob2xkX2FzaWQgZnVuY3Rpb24KPj4+
+IGlzIGxpbWl0ZWQgdG8gNjQuIFRoaXMgaXMgcmVxdWlyZWQgdG8gYXZvaWQgc29mdCBsb2NrdXBz
+IGFuZCB0aGUKPj4+IGFwcHJvYWNoIGlzIHNpbWlsYXIgdG8gdGhhdCB1c2VkIGluIGFybTY0Lgo+
+Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IE1heXVyZXNoIENoaXRhbGUgPG1jaGl0YWxlQHZlbnRhbmFt
+aWNyby5jb20+Cj4+PiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1p
+Y3JvLmNvbT4KPj4+IC0tLQo+Pj4gQ2hhbmdlcyBpbiB2ODoKPj4+IC0gRml4IGxpbmUgd3JhcAo+
+Pj4gLSBBZGQgUkIgdGFnCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2NzoKPj4+IC0gVXNlIGV4aXN0aW5n
+IHN2aW52YWwgbWFjcm9zIGluIHRoZSBpbnNuLWRlZi5oCj4+PiAtIFJlbmFtZSBsb2NhbF9zaW52
+YWxfdm1hX2FzaWQgdG8gbG9jYWxfc2ludmFsX3ZtYQo+Pj4KPj4+IENoYW5nZXMgaW4gdjY6Cj4+
+PiAtIFJlYmFzZSBvbiBsYXRlc3QgdG9ydmFsZHMvbWFzdGVyCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2
+NToKPj4+IC0gUmVkdWNlIHRsYiBmbHVzaCB0aHJlc2hvbGQgdG8gNjQKPj4+IC0gSW1wcm92ZSBp
+bXBsZW1lbnRhdGlvbiBvZiBsb2NhbF9mbHVzaF90bGIqIGZ1bmN0aW9ucwo+Pj4KPj4+IENoYW5n
+ZXMgaW4gdjQ6Cj4+PiAtIFJlYmFzZSBhbmQgcmVmYWN0b3IgYXMgcGVyIGxhdGVzdCBjaGFuZ2Vz
+IG9uIHRvcnZhbGRzL21hc3Rlcgo+Pj4gLSBEcm9wIHBhdGNoIDEgaW4gdGhlIHNlcmllcwo+Pj4K
+Pj4+IENoYW5nZXMgaW4gdjM6Cj4+PiAtIEZpeCBpbmNvcnJlY3Qgdm1hIHVzZWQgZm9yIHNpbnZh
+bCBpbnN0cnVjdGlvbnMKPj4+IC0gVXNlIHVuaWZpZWQgc3RhdGljIGtleSBtZWNoYW5pc20gZm9y
+IHN2aW52YWwKPj4+IC0gUmViYXNlZCBvbiB0b3J2YWxkcy9tYXN0ZXIKPj4+Cj4+PiBDaGFuZ2Vz
+IGluIHYyOgo+Pj4gLSBSZWJhc2VkIG9uIDUuMTgtcmMzCj4+PiAtIHVwZGF0ZSByaXNjdl9maWxs
+X2h3Y2FwIHRvIHByb2JlIFN2aW52YWwgZXh0ZW5zaW9uCj4+Pgo+Pj4gICBhcmNoL3Jpc2N2L21t
+L3RsYmZsdXNoLmMgfCAzMiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+Pj4gICAx
+IGZpbGUgY2hhbmdlZCwgMzIgaW5zZXJ0aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNo
+L3Jpc2N2L21tL3RsYmZsdXNoLmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPj4+IGluZGV4
+IDliNmU4NmNlMzg2Ny4uNzgyMTQ3YTYzZjNiIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9t
+bS90bGJmbHVzaC5jCj4+PiArKysgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPj4+IEBAIC02
+LDYgKzYsMjcgQEAKPj4+ICAgI2luY2x1ZGUgPGxpbnV4L2h1Z2V0bGIuaD4KPj4+ICAgI2luY2x1
+ZGUgPGFzbS9zYmkuaD4KPj4+ICAgI2luY2x1ZGUgPGFzbS9tbXVfY29udGV4dC5oPgo+Pj4gKyNp
+bmNsdWRlIDxhc20vY3B1ZmVhdHVyZS5oPgo+Pj4gKwo+Pj4gKyNkZWZpbmUgaGFzX3N2aW52YWwo
+KSAgICAgICAgcmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0FfRVhUX1NWSU5W
+QUwpCj4+PiArCj4+PiArc3RhdGljIGlubGluZSB2b2lkIGxvY2FsX3NmZW5jZV9pbnZhbF9pcih2
+b2lkKQo+Pj4gK3sKPj4+ICsgICAgIGFzbSB2b2xhdGlsZShTRkVOQ0VfSU5WQUxfSVIoKSA6Ojog
+Im1lbW9yeSIpOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgaW5saW5lIHZvaWQgbG9jYWxfc2Zl
+bmNlX3dfaW52YWwodm9pZCkKPj4+ICt7Cj4+PiArICAgICBhc20gdm9sYXRpbGUoU0ZFTkNFX1df
+SU5WQUwoKSA6OjogIm1lbW9yeSIpOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgaW5saW5lIHZv
+aWQgbG9jYWxfc2ludmFsX3ZtYSh1bnNpZ25lZCBsb25nIHZtYSwgdW5zaWduZWQgbG9uZyBhc2lk
+KQo+Pj4gK3sKPj4+ICsgICAgIGlmIChhc2lkICE9IEZMVVNIX1RMQl9OT19BU0lEKQo+Pj4gKyAg
+ICAgICAgICAgICBhc20gdm9sYXRpbGUoU0lOVkFMX1ZNQSglMCwgJTEpIDogOiAiciIgKHZtYSks
+ICJyIiAoYXNpZCkgOiAibWVtb3J5Iik7Cj4+PiArICAgICBlbHNlCj4+PiArICAgICAgICAgICAg
+IGFzbSB2b2xhdGlsZShTSU5WQUxfVk1BKCUwLCB6ZXJvKSA6IDogInIiICh2bWEpIDogIm1lbW9y
+eSIpOwo+Pj4gK30KPj4+Cj4+PiAgIC8qCj4+PiAgICAqIEZsdXNoIGVudGlyZSBUTEIgaWYgbnVt
+YmVyIG9mIGVudHJpZXMgdG8gYmUgZmx1c2hlZCBpcyBncmVhdGVyCj4+PiBAQCAtMjYsNiArNDcs
+MTYgQEAgc3RhdGljIHZvaWQgbG9jYWxfZmx1c2hfdGxiX3JhbmdlX3RocmVzaG9sZF9hc2lkKHVu
+c2lnbmVkIGxvbmcgc3RhcnQsCj4+PiAgICAgICAgICAgICAgICByZXR1cm47Cj4+PiAgICAgICAg
+fQo+Pj4KPj4+ICsgICAgIGlmIChoYXNfc3ZpbnZhbCgpKSB7Cj4+PiArICAgICAgICAgICAgIGxv
+Y2FsX3NmZW5jZV93X2ludmFsKCk7Cj4+PiArICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBu
+cl9wdGVzX2luX3JhbmdlOyArK2kpIHsKPj4+ICsgICAgICAgICAgICAgICAgICAgICBsb2NhbF9z
+aW52YWxfdm1hKHN0YXJ0LCBhc2lkKTsKPj4+ICsgICAgICAgICAgICAgICAgICAgICBzdGFydCAr
+PSBzdHJpZGU7Cj4+PiArICAgICAgICAgICAgIH0KPj4+ICsgICAgICAgICAgICAgbG9jYWxfc2Zl
+bmNlX2ludmFsX2lyKCk7Cj4+PiArICAgICAgICAgICAgIHJldHVybjsKPj4+ICsgICAgIH0KPj4+
+ICsKPj4+ICAgICAgICBmb3IgKGkgPSAwOyBpIDwgbnJfcHRlc19pbl9yYW5nZTsgKytpKSB7Cj4+
+PiAgICAgICAgICAgICAgICBsb2NhbF9mbHVzaF90bGJfcGFnZV9hc2lkKHN0YXJ0LCBhc2lkKTsK
+Pj4+ICAgICAgICAgICAgICAgIHN0YXJ0ICs9IHN0cmlkZTsKPiBfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+
+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFk
+Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
+cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
+bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
