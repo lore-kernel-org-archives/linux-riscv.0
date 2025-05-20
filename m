@@ -4,55 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E448C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 16:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAD5EC54756
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 17:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pwz0T24AQ71pQLZWCi0Bf0Isjmer/QR5AsajLrhriu0=; b=jUHuo98JQL5tUl
-	Y/i7sfb24zHzFmHaGU0pvpYysMif70oznNPL9DjbjETEH4s8x+pD1ccAS0cZhB1qYYTgxyu4aQpoU
-	VFG+348VlFr4TTRYscSUE7/i7xFfaWImL34Hc7SVoGMQx+EIrTwkX3999CIJdaOzRDeimsinNsKHj
-	+w492/gGIL5HLluYrByWs+9seeYj3pGQ+cwAxB+XRyKqjmGkfQkINuQS+K7dq2N1BMy4y2Ai6ar2+
-	X6EXryg01S958Xt0ssO5Z8jOWg4Y4SIuB1EjewtaoRBhgG/DS2I9jO5klOvJQYJgODtghH8uuL02L
-	uuUtPEdm0ZfCIgeCC9nw==;
+	List-Owner; bh=D1jXJj4fx7HmnyLrZ+8UAtdUrC4iu777lIQdUFRDZBU=; b=btHw/ASifEpeBc
+	imMnQH5Qxw+AxwsBfGmE0ubIgt3zMSpQxOCMLTPMX8g8R0fu6tsSewS5NwsphusSd7qEQQrkjevQ9
+	UE0mPki2BprieL6N6r6iwvJ+QLNgE7PBZna4vf4QPrE11j1W80w0XIuOPuaZcdpqMwB1pOVZOPG8m
+	E/C/s+uvJX93q8kUEOUz9hIxT/3NyjI6ay1xFRLsaga8iDbHSDCckBGbAIkx8/MjyBnv0M579bZeI
+	q9SzAY/u+jkPRWEOiXEZug2ITb4gZyaMfj86KvY4BcyeOcT3bok6lp6WICiKf9rtKAfRqN2pirhyE
+	/5j4eT4vYCfUVZNltQ6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQFp-0000000Dc4q-0ebg;
-	Tue, 20 May 2025 16:55:49 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1uHQU2-0000000DeNp-4BzC;
+	Tue, 20 May 2025 17:10:31 +0000
+Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHQFk-0000000Dc1k-00La
+	id 1uHQRz-0000000DdwL-1ZU6
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 May 2025 16:55:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id BDB4441C7D;
-	Tue, 20 May 2025 16:55:36 +0000 (UTC)
-Message-ID: <8faad7be-d7a5-4f71-b020-960ea443f751@ghiti.fr>
-Date: Tue, 20 May 2025 18:55:36 +0200
+	Tue, 20 May 2025 17:08:25 +0000
+Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-742af84818cso3450950b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 20 May 2025 10:08:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747760902; x=1748365702; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=DDjRFmO/FlIqGEtWUGUmfdfKllur189aWobDQoyjRQs=;
+        b=YPcLxDXJYQwckavrHXEShc6253VEbwlRtz5hz5mIbZvuKWckpe7Ma+3RtSJVvulE0t
+         g8tyUM2WYEhxy3LWK9woZAV3+NfVPOAw4uFOzJ2b9lRuu5hrPj2De6AejHCwpJXkF1zs
+         Ui2BNjr+8m8KXlcAITGt9ARC1zlKJpWEIYwa3U5kJBr4TIr9u2DV/Q0sJF7bPOFB5/eP
+         rXm7fdH5o97QRlQX1KF9FGlYOPjVAvw1kJR6d84Qm/y4n6AfiYOEgGvYNNzD1Bq2gNUv
+         rciXkuC6F0M5u5xw/PXhb8GG09lPe1D7vSIVORuCMv7g94xUziV7dkPvd03nHtP/KdT0
+         Z5NA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747760902; x=1748365702;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=DDjRFmO/FlIqGEtWUGUmfdfKllur189aWobDQoyjRQs=;
+        b=EkoGwPvnjm11FteqwAqihM9s/dkSLt4PVPRLxwHclwTFjmj04xmWHBHm30RjXmsxIo
+         KB4osKk8bKGEEsa9qt+zCzL+eidBRROfZ2AfuxoOnihKwM713/bAX7UmdbVzJP6TFDIK
+         qnrx2UWW10cc0LgxFXljB7ySdI2XBkZvUZvEaT6wqFj9Q7flqWBzg64YQt04W4hrUpNf
+         yAzqRXpoDXqHFRa5km7wml6gKMmZuAqdRPWj8uACwSufZgR2zsSS4GcAYGzRIyktYIVh
+         Xe3s2l+SAMnoCF6rxJ4ckff+QS4T7jDDjmzPBBLqG01KlMzy5O14EpHGhMWqjf9cY5ML
+         pnKg==
+X-Forwarded-Encrypted: i=1; AJvYcCXFo0VOoTlSow0QBGUkRkLPbCvZIrtordq4/6a9QJ3PnfAu+MDQrQwpgsarFU+et5AWv6jAnNxbdr/HhQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzlKOtkjaXwG2AmxFjGNe4l4I6dLL0ZBuZEx5J+YvZPSZQv1ew1
+	B+LXm8/ihqT9tgHfJOf3I5DjQFuvl0hKnKxXLv1V6OiimPHvXqc1IyUceDVwcRzKuug=
+X-Gm-Gg: ASbGncsvET0/AOX/g1eu+mPrv8PiaLnJBLuXb0aaKoRTvd0KNF9Zs0JPbeISautm0z2
+	u+cyQWVDJ2LeR/+yp61P/64Ey6eE1kbeoo/BxgNLYVmnutGhuQ3dMPiMWaivbILuqf7Mq9MEezM
+	o7ADx3SpO2KJHP/iFxIYV6xvUu5yeDwRj4u9PU/vnqS/HawI+GxPsRo/iFSo5EMnihmZ5XDvE0G
+	BmX+D45ic8KrUqgS1mCKZtiUiBZTZc5IuYpQHj3RwL5IZu/Bhks1n5OiT3m/nb7/p4lDRpShQfg
+	sBwxHWy355LjEVuQMwKxALBBtE9lLT9xS0Fg9iYWutv6Egg=
+X-Google-Smtp-Source: AGHT+IHuT79L0+UrgKSwtY58fOb+r5axNp9Bh0rhvhNRM5zmWiTrh0ZXIgCZQR8QM+4Pdq9KGT4FDg==
+X-Received: by 2002:a05:6a20:2d07:b0:1ee:a914:1d64 with SMTP id adf61e73a8af0-216219bd3a5mr27575586637.28.1747760902322;
+        Tue, 20 May 2025 10:08:22 -0700 (PDT)
+Received: from ghost ([2601:647:6700:64d0:17b4:8663:3229:f2dd])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b26eaf96573sm8189882a12.43.2025.05.20.10.08.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 20 May 2025 10:08:21 -0700 (PDT)
+Date: Tue, 20 May 2025 10:08:19 -0700
+From: Charlie Jenkins <charlie@rivosinc.com>
+To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Anup Patel <anup@brainfault.org>,
+	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+	linux-kselftest@vger.kernel.org,
+	Samuel Holland <samuel.holland@sifive.com>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Deepak Gupta <debug@rivosinc.com>
+Subject: Re: [PATCH v7 09/14] riscv: misaligned: move emulated access
+ uniformity check in a function
+Message-ID: <aCy3A6uUbnWoO9uC@ghost>
+References: <20250515082217.433227-1-cleger@rivosinc.com>
+ <20250515082217.433227-10-cleger@rivosinc.com>
+ <aCu_ce-kVQsyjrh5@ghost>
+ <126762fc-17ca-4e9d-94d0-3aed1ae321ff@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v8] riscv: mm: Add support for Svinval extension
-To: Mayuresh Chitale <mchitale@ventanamicro.com>,
- Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
- alexghiti@rivosinc.com, samuel.holland@sifive.com, ajones@ventanamicro.com
-References: <20240702102637.9074-1-mchitale@ventanamicro.com>
- <mhng-38c26ef6-8d45-4dd1-9c3a-f71f34f1ef81@palmer-ri-x1c9>
- <CAN37VV6DMpsRWnH-1tN2AfT8HXbEFh2We4Yw0XYkuCNvF75o4w@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAN37VV6DMpsRWnH-1tN2AfT8HXbEFh2We4Yw0XYkuCNvF75o4w@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdejheculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepteegiedvhfdvgfelffekveehjeetveehteeluedtffelfeeguedtvddugfeiheehnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpihhnvhgrlhdrihhrpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtiedphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemkeeksghfmegvsgeltdemkedtrgefmegsiedtiegnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepledprhgtphhtthhopehmtghhihhtrghlvgesvhgvnhhtrghnrghmihgtrhhordgtohhmpdhrt
- ghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepshgrmhhuvghlrdhhohhllhgrnhgusehsihhfihhvvgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <126762fc-17ca-4e9d-94d0-3aed1ae321ff@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_095544_188773_6827E0D8 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250520_100823_426389_2D67D096 
+X-CRM114-Status: GOOD (  36.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,96 +106,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgTWF5dXJlc2ghCgpPbiA3LzMwLzI0IDEwOjQzLCBNYXl1cmVzaCBDaGl0YWxlIHdyb3RlOgo+
-IE9uIFdlZCwgSnVsIDI0LCAyMDI0IGF0IDg6MjDigK9QTSBQYWxtZXIgRGFiYmVsdCA8cGFsbWVy
-QGRhYmJlbHQuY29tPiB3cm90ZToKPj4gT24gVHVlLCAwMiBKdWwgMjAyNCAwMzoyNjozNyBQRFQg
-KC0wNzAwKSwgbWNoaXRhbGVAdmVudGFuYW1pY3JvLmNvbSB3cm90ZToKPj4+IFRoZSBTdmludmFs
-IGV4dGVuc2lvbiBzcGxpdHMgU0ZFTkNFLlZNQSBpbnN0cnVjdGlvbiBpbnRvIGZpbmVyLWdyYWlu
-ZWQKPj4+IGludmFsaWRhdGlvbiBhbmQgb3JkZXJpbmcgb3BlcmF0aW9ucyBhbmQgaXMgbWFuZGF0
-b3J5IGZvciBSVkEyM1M2NCBwcm9maWxlLgo+Pj4gV2hlbiBTdmludmFsIGlzIGVuYWJsZWQgdGhl
-IGxvY2FsX2ZsdXNoX3RsYl9yYW5nZV90aHJlc2hvbGRfYXNpZCBmdW5jdGlvbgo+Pj4gc2hvdWxk
-IHVzZSB0aGUgZm9sbG93aW5nIHNlcXVlbmNlIHRvIG9wdGltaXplIHRoZSB0bGIgZmx1c2hlcyBp
-bnN0ZWFkIG9mCj4+IERvIHlvdSBoYXZlIGFueSBwZXJmb3JtYW5jZSBudW1iZXJzIGZvciB0aGUg
-b3B0aW1pemF0aW9uPyAgQXMgcGVyIGhlcmUKPj4gPGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2Fs
-bC9taG5nLWY3OTliZDJiLTdmMjItNGMwMy1iZGIyLTkwM2ZhM2I1ZDUwOEBwYWxtZXItcmkteDFj
-OWEvPi4KPiBObywgY3VycmVudGx5IHRoZXJlIGFyZSBubyBudW1iZXJzIGF2YWlsYWJsZSBmb3Ig
-Y29tcGFyaXNvbiBidXQgdGhlCj4gcmF0aW9uYWxlIGZvciB0aGUgb3B0aW1pemF0aW9uIGlzIGRl
-c2NyaWJlZCBpbiB0aGUgc3BlYy4gVGhlIGV4dGVuc2lvbgo+IGlzIG1hbmRhdG9yeSBmb3IgdGhl
-IFJWQTIzUzY0IHByb2ZpbGUgYnV0IGFueSBwbGF0Zm9ybSB0aGF0IGRvZXNuJ3QKPiBzdXBwb3J0
-IHRoaXMgZXh0ZW5zaW9uIHdpbGwgbm90IGJlIGltcGFjdGVkIGFzIHRoZSBjb2RlIGV4ZWN1dGVz
-IG9ubHkKPiBpZiB0aGUgc3ZpbnZhbCBleHRlbnNpb24gaXMgZW5hYmxlZCBhdCB0aGUgYm9vdCB1
-cC4KCgpTbyBJIGZpbmFsbHkgaGF2ZSBzb21lIG51bWJlcnMhIEkgdGVzdGVkIHRoaXMgcGF0Y2hz
-ZXQgb24gdGhlIEJhbmFuYVBpOiAKSSBtZWFzdXJlZCB0aGUgbnVtYmVyIG9mIGN5Y2xlcyB3aGVu
-IGZsdXNoaW5nIDY0IGVudHJpZXMgKHdoaWNoIGlzIG91ciAKY3VycmVudCB0aHJlc2hvbGQpIGFu
-ZCBJIG1hZGUgc3VyZSB0byB0b3VjaCB0aGUgZW50cmllcyBiZWZvcmVoYW5kLgoKSGVyZSB0aGV5
-IGFyZToKCiogc3ZpbnZhbDoKCiNjeWNsZXM6IDM2NDkyMAojY3ljbGVzOiAzNjU4NTYKI2N5Y2xl
-czogMzY3OTkzCgoqICFzdmludmFsOgoKI2N5Y2xlczogNjYzNTg1CiNjeWNsZXM6IDY2MzEwNQoj
-Y3ljbGVzOiA2NjQwNzMKClNvIHRoYXQncyByb3VnaGx5IC8yIHVzaW5nIHN2aW52YWwuIFRvIG1l
-IHRoYXQncyBnb29kIGVub3VnaCB0byBtZXJnZSAKdGhhdCBmb3IgNi4xNiA6KQoKU29ycnkgZm9y
-IHRoZSB2ZXJ5IHZlcnkgbG9uZyBkZWxheSBhbmQgdGhhbmtzIGFnYWluIGZvciB0aGUgbXVsdGlw
-bGUgCnJldmlzaW9ucyEKCkFsZXgKCgo+Pj4gYSBzaW1wbGUgc2ZlbmNlLnZtYToKPj4+Cj4+PiBz
-ZmVuY2Uudy5pbnZhbAo+Pj4gc3ZpbnZhbC52bWEKPj4+ICAgIC4KPj4+ICAgIC4KPj4+IHN2aW52
-YWwudm1hCj4+PiBzZmVuY2UuaW52YWwuaXIKPj4+Cj4+PiBUaGUgbWF4aW11bSBudW1iZXIgb2Yg
-Y29uc2VjdXRpdmUgc3ZpbnZhbC52bWEgaW5zdHJ1Y3Rpb25zIHRoYXQKPj4+IGNhbiBiZSBleGVj
-dXRlZCBpbiBsb2NhbF9mbHVzaF90bGJfcmFuZ2VfdGhyZXNob2xkX2FzaWQgZnVuY3Rpb24KPj4+
-IGlzIGxpbWl0ZWQgdG8gNjQuIFRoaXMgaXMgcmVxdWlyZWQgdG8gYXZvaWQgc29mdCBsb2NrdXBz
-IGFuZCB0aGUKPj4+IGFwcHJvYWNoIGlzIHNpbWlsYXIgdG8gdGhhdCB1c2VkIGluIGFybTY0Lgo+
-Pj4KPj4+IFNpZ25lZC1vZmYtYnk6IE1heXVyZXNoIENoaXRhbGUgPG1jaGl0YWxlQHZlbnRhbmFt
-aWNyby5jb20+Cj4+PiBSZXZpZXdlZC1ieTogQW5kcmV3IEpvbmVzIDxham9uZXNAdmVudGFuYW1p
-Y3JvLmNvbT4KPj4+IC0tLQo+Pj4gQ2hhbmdlcyBpbiB2ODoKPj4+IC0gRml4IGxpbmUgd3JhcAo+
-Pj4gLSBBZGQgUkIgdGFnCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2NzoKPj4+IC0gVXNlIGV4aXN0aW5n
-IHN2aW52YWwgbWFjcm9zIGluIHRoZSBpbnNuLWRlZi5oCj4+PiAtIFJlbmFtZSBsb2NhbF9zaW52
-YWxfdm1hX2FzaWQgdG8gbG9jYWxfc2ludmFsX3ZtYQo+Pj4KPj4+IENoYW5nZXMgaW4gdjY6Cj4+
-PiAtIFJlYmFzZSBvbiBsYXRlc3QgdG9ydmFsZHMvbWFzdGVyCj4+Pgo+Pj4gQ2hhbmdlcyBpbiB2
-NToKPj4+IC0gUmVkdWNlIHRsYiBmbHVzaCB0aHJlc2hvbGQgdG8gNjQKPj4+IC0gSW1wcm92ZSBp
-bXBsZW1lbnRhdGlvbiBvZiBsb2NhbF9mbHVzaF90bGIqIGZ1bmN0aW9ucwo+Pj4KPj4+IENoYW5n
-ZXMgaW4gdjQ6Cj4+PiAtIFJlYmFzZSBhbmQgcmVmYWN0b3IgYXMgcGVyIGxhdGVzdCBjaGFuZ2Vz
-IG9uIHRvcnZhbGRzL21hc3Rlcgo+Pj4gLSBEcm9wIHBhdGNoIDEgaW4gdGhlIHNlcmllcwo+Pj4K
-Pj4+IENoYW5nZXMgaW4gdjM6Cj4+PiAtIEZpeCBpbmNvcnJlY3Qgdm1hIHVzZWQgZm9yIHNpbnZh
-bCBpbnN0cnVjdGlvbnMKPj4+IC0gVXNlIHVuaWZpZWQgc3RhdGljIGtleSBtZWNoYW5pc20gZm9y
-IHN2aW52YWwKPj4+IC0gUmViYXNlZCBvbiB0b3J2YWxkcy9tYXN0ZXIKPj4+Cj4+PiBDaGFuZ2Vz
-IGluIHYyOgo+Pj4gLSBSZWJhc2VkIG9uIDUuMTgtcmMzCj4+PiAtIHVwZGF0ZSByaXNjdl9maWxs
-X2h3Y2FwIHRvIHByb2JlIFN2aW52YWwgZXh0ZW5zaW9uCj4+Pgo+Pj4gICBhcmNoL3Jpc2N2L21t
-L3RsYmZsdXNoLmMgfCAzMiArKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+Pj4gICAx
-IGZpbGUgY2hhbmdlZCwgMzIgaW5zZXJ0aW9ucygrKQo+Pj4KPj4+IGRpZmYgLS1naXQgYS9hcmNo
-L3Jpc2N2L21tL3RsYmZsdXNoLmMgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPj4+IGluZGV4
-IDliNmU4NmNlMzg2Ny4uNzgyMTQ3YTYzZjNiIDEwMDY0NAo+Pj4gLS0tIGEvYXJjaC9yaXNjdi9t
-bS90bGJmbHVzaC5jCj4+PiArKysgYi9hcmNoL3Jpc2N2L21tL3RsYmZsdXNoLmMKPj4+IEBAIC02
-LDYgKzYsMjcgQEAKPj4+ICAgI2luY2x1ZGUgPGxpbnV4L2h1Z2V0bGIuaD4KPj4+ICAgI2luY2x1
-ZGUgPGFzbS9zYmkuaD4KPj4+ICAgI2luY2x1ZGUgPGFzbS9tbXVfY29udGV4dC5oPgo+Pj4gKyNp
-bmNsdWRlIDxhc20vY3B1ZmVhdHVyZS5oPgo+Pj4gKwo+Pj4gKyNkZWZpbmUgaGFzX3N2aW52YWwo
-KSAgICAgICAgcmlzY3ZfaGFzX2V4dGVuc2lvbl91bmxpa2VseShSSVNDVl9JU0FfRVhUX1NWSU5W
-QUwpCj4+PiArCj4+PiArc3RhdGljIGlubGluZSB2b2lkIGxvY2FsX3NmZW5jZV9pbnZhbF9pcih2
-b2lkKQo+Pj4gK3sKPj4+ICsgICAgIGFzbSB2b2xhdGlsZShTRkVOQ0VfSU5WQUxfSVIoKSA6Ojog
-Im1lbW9yeSIpOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgaW5saW5lIHZvaWQgbG9jYWxfc2Zl
-bmNlX3dfaW52YWwodm9pZCkKPj4+ICt7Cj4+PiArICAgICBhc20gdm9sYXRpbGUoU0ZFTkNFX1df
-SU5WQUwoKSA6OjogIm1lbW9yeSIpOwo+Pj4gK30KPj4+ICsKPj4+ICtzdGF0aWMgaW5saW5lIHZv
-aWQgbG9jYWxfc2ludmFsX3ZtYSh1bnNpZ25lZCBsb25nIHZtYSwgdW5zaWduZWQgbG9uZyBhc2lk
-KQo+Pj4gK3sKPj4+ICsgICAgIGlmIChhc2lkICE9IEZMVVNIX1RMQl9OT19BU0lEKQo+Pj4gKyAg
-ICAgICAgICAgICBhc20gdm9sYXRpbGUoU0lOVkFMX1ZNQSglMCwgJTEpIDogOiAiciIgKHZtYSks
-ICJyIiAoYXNpZCkgOiAibWVtb3J5Iik7Cj4+PiArICAgICBlbHNlCj4+PiArICAgICAgICAgICAg
-IGFzbSB2b2xhdGlsZShTSU5WQUxfVk1BKCUwLCB6ZXJvKSA6IDogInIiICh2bWEpIDogIm1lbW9y
-eSIpOwo+Pj4gK30KPj4+Cj4+PiAgIC8qCj4+PiAgICAqIEZsdXNoIGVudGlyZSBUTEIgaWYgbnVt
-YmVyIG9mIGVudHJpZXMgdG8gYmUgZmx1c2hlZCBpcyBncmVhdGVyCj4+PiBAQCAtMjYsNiArNDcs
-MTYgQEAgc3RhdGljIHZvaWQgbG9jYWxfZmx1c2hfdGxiX3JhbmdlX3RocmVzaG9sZF9hc2lkKHVu
-c2lnbmVkIGxvbmcgc3RhcnQsCj4+PiAgICAgICAgICAgICAgICByZXR1cm47Cj4+PiAgICAgICAg
-fQo+Pj4KPj4+ICsgICAgIGlmIChoYXNfc3ZpbnZhbCgpKSB7Cj4+PiArICAgICAgICAgICAgIGxv
-Y2FsX3NmZW5jZV93X2ludmFsKCk7Cj4+PiArICAgICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBu
-cl9wdGVzX2luX3JhbmdlOyArK2kpIHsKPj4+ICsgICAgICAgICAgICAgICAgICAgICBsb2NhbF9z
-aW52YWxfdm1hKHN0YXJ0LCBhc2lkKTsKPj4+ICsgICAgICAgICAgICAgICAgICAgICBzdGFydCAr
-PSBzdHJpZGU7Cj4+PiArICAgICAgICAgICAgIH0KPj4+ICsgICAgICAgICAgICAgbG9jYWxfc2Zl
-bmNlX2ludmFsX2lyKCk7Cj4+PiArICAgICAgICAgICAgIHJldHVybjsKPj4+ICsgICAgIH0KPj4+
-ICsKPj4+ICAgICAgICBmb3IgKGkgPSAwOyBpIDwgbnJfcHRlc19pbl9yYW5nZTsgKytpKSB7Cj4+
-PiAgICAgICAgICAgICAgICBsb2NhbF9mbHVzaF90bGJfcGFnZV9hc2lkKHN0YXJ0LCBhc2lkKTsK
-Pj4+ICAgICAgICAgICAgICAgIHN0YXJ0ICs9IHN0cmlkZTsKPiBfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+
-IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgt
-cmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWls
-bWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+On Tue, May 20, 2025 at 10:19:47AM +0200, Cl=E9ment L=E9ger wrote:
+> =
+
+> =
+
+> On 20/05/2025 01:32, Charlie Jenkins wrote:
+> > On Thu, May 15, 2025 at 10:22:10AM +0200, Cl=E9ment L=E9ger wrote:
+> >> Split the code that check for the uniformity of misaligned accesses
+> >> performance on all cpus from check_unaligned_access_emulated_all_cpus()
+> >> to its own function which will be used for delegation check. No
+> >> functional changes intended.
+> >>
+> >> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> >> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> >> ---
+> >>  arch/riscv/kernel/traps_misaligned.c | 20 ++++++++++++++------
+> >>  1 file changed, 14 insertions(+), 6 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/=
+traps_misaligned.c
+> >> index e551ba17f557..287ec37021c8 100644
+> >> --- a/arch/riscv/kernel/traps_misaligned.c
+> >> +++ b/arch/riscv/kernel/traps_misaligned.c
+> >> @@ -647,6 +647,18 @@ bool __init check_vector_unaligned_access_emulate=
+d_all_cpus(void)
+> >>  }
+> >>  #endif
+> >>  =
+
+> >> +static bool all_cpus_unaligned_scalar_access_emulated(void)
+> >> +{
+> >> +	int cpu;
+> >> +
+> >> +	for_each_online_cpu(cpu)
+> >> +		if (per_cpu(misaligned_access_speed, cpu) !=3D
+> > =
+
+> > misaligned_access_speed is only defined when
+> > CONFIG_RISCV_SCALAR_MISALIGNED. This function should return false when
+> > !CONFIG_RISCV_SCALAR_MISALIGNED and only use this logic otherwise.
+> =
+
+> Hi Charlie,
+> =
+
+> misaligned_access_speed is defined in unaligned_access_speed.c which is
+> compiled based on CONFIG_RISCV_MISALIGNED (ditto for trap_misaligned.c)
+> =
+
+> obj-$(CONFIG_RISCV_MISALIGNED)	+=3D unaligned_access_speed.o
+> =
+
+> However, the declaration for it in the header cpu-feature.h however is
+> under a CONFIG_RISCV_SCALAR_MISALIGNED ifdef. So either the declaration
+> or the definition is wrong but the ifdefery soup makes it quite
+> difficult to understand what's going on.
+> =
+
+> I would suggest to move the DECLARE_PER_CPU under
+> CONFIG_RISCV_MISALIGNED so that it reduces ifdef in traps_misaligned as
+> well.
+
+Here is the patch I am using locally for testing purposes, but if there
+is a way to reduce the number of ifdefs that is probably the better way to =
+go:
+
+From 18f9a056d3b597934c931abdf72fb6e775ccb714 Mon Sep 17 00:00:00 2001
+From: Charlie Jenkins <charlie@rivosinc.com>
+Date: Mon, 19 May 2025 16:35:51 -0700
+Subject: [PATCH] fixup! riscv: misaligned: move emulated access uniformity
+ check in a function
+
+---
+ arch/riscv/kernel/traps_misaligned.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/traps=
+_misaligned.c
+index f3ab84bc4632..1449c6a4ac21 100644
+--- a/arch/riscv/kernel/traps_misaligned.c
++++ b/arch/riscv/kernel/traps_misaligned.c
+@@ -647,6 +647,10 @@ bool __init check_vector_unaligned_access_emulated_all=
+_cpus(void)
+ }
+ #endif
+ =
+
++#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
++
++static bool unaligned_ctl __read_mostly;
++
+ static bool all_cpus_unaligned_scalar_access_emulated(void)
+ {
+ 	int cpu;
+@@ -659,10 +663,6 @@ static bool all_cpus_unaligned_scalar_access_emulated(=
+void)
+ 	return true;
+ }
+ =
+
+-#ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+-
+-static bool unaligned_ctl __read_mostly;
+-
+ static void check_unaligned_access_emulated(void *arg __always_unused)
+ {
+ 	int cpu =3D smp_processor_id();
+@@ -716,6 +716,10 @@ bool unaligned_ctl_available(void)
+ 	return unaligned_ctl;
+ }
+ #else
++static bool all_cpus_unaligned_scalar_access_emulated(void)
++{
++	return false;
++}
+ bool __init check_unaligned_access_emulated_all_cpus(void)
+ {
+ 	return false;
+-- =
+
+2.43.0
+
+
+- Charlie
+
+> =
+
+> Thanks,
+>
+> Cl=E9ment
+> =
+
+> > =
+
+> > - Charlie
+> > =
+
+> >> +		    RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
+> >> +			return false;
+> >> +
+> >> +	return true;
+> >> +}
+> >> +
+> >>  #ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+> >>  =
+
+> >>  static bool unaligned_ctl __read_mostly;
+> >> @@ -685,8 +697,6 @@ static int cpu_online_check_unaligned_access_emula=
+ted(unsigned int cpu)
+> >>  =
+
+> >>  bool __init check_unaligned_access_emulated_all_cpus(void)
+> >>  {
+> >> -	int cpu;
+> >> -
+> >>  	/*
+> >>  	 * We can only support PR_UNALIGN controls if all CPUs have misalign=
+ed
+> >>  	 * accesses emulated since tasks requesting such control can run on =
+any
+> >> @@ -694,10 +704,8 @@ bool __init check_unaligned_access_emulated_all_c=
+pus(void)
+> >>  	 */
+> >>  	on_each_cpu(check_unaligned_access_emulated, NULL, 1);
+> >>  =
+
+> >> -	for_each_online_cpu(cpu)
+> >> -		if (per_cpu(misaligned_access_speed, cpu)
+> >> -		    !=3D RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
+> >> -			return false;
+> >> +	if (!all_cpus_unaligned_scalar_access_emulated())
+> >> +		return false;
+> >>  =
+
+> >>  	unaligned_ctl =3D true;
+> >>  	return true;
+> >> -- =
+
+> >> 2.49.0
+> >>
+> >>
+> >> _______________________________________________
+> >> linux-riscv mailing list
+> >> linux-riscv@lists.infradead.org
+> >> http://lists.infradead.org/mailman/listinfo/linux-riscv
+> =
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
