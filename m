@@ -4,88 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE23AC3DA6D
-	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 07:30:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A790DC54799
+	for <linux-riscv@archiver.kernel.org>; Tue, 20 May 2025 07:47:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=1CpdMPtW5pNH8c/4G03DlHyXEyhuQP172PKo0BjhBsw=; b=kSk1wVQ9EfTQcy
-	nqMc1zEyX85wRb3r+35NMuwuFRI/rmsvnU4kAwFk9jQodZqo8B/aoh5oYPru40U4j24k7jP4aNaEH
-	Zo+WzJWy+ZTx8H5azVPfBUTfx4vIP4GL73AKWly6vGZ2yi96QLwbxZKTyM6K1gfEKaXIo0+KCqINd
-	+o+8+Q3EYF/4n6ZJGg/WUOh5Aw2IYFVKRnCHQfpHXFuYhChFK444cqvjXizvAvwNkD5qRtcq7whaF
-	vWe4wOYrCKVqSkQtHEx2SeZc571boe5ajMlB/ZDVQ10EbajLEFqX2QCSUztSXLSAoCDo22ETy7OaM
-	4Zk1cnlR8/xHCV6K07ow==;
+	List-Owner; bh=759b4ucZrcsWaIvT0wPIMdeiEOOqDnVxnSiBfKHMrAc=; b=yc8mG7tEwABeEu
+	8g+pRZZx3wt9AcVvaRJ15hnO9lclCToyvbjqDoFUfLiv3CRxaWVd9WPAPq3Cx5+uj1PyY/vXJkZZx
+	HHHPQMGbShdoiaWeBEFk9u67WxKExgZ/yuGI3d2eAKLPlJmSqHCVTJSmKlRZDCpqqjSzSxHpUJxdA
+	nU+cneLq/Q37g7f+re9LeHLbYia+STKZY4xeRu3N3N2dmG30sd+MtVmsPwbAj3WjElnZwm5RzRWlY
+	JPtE8K4IdbMWo6FKqwJcjzbixoYIHd+vbuCA/4pHGEJMn49xci58994gKRjWPF+F35vunn7DfY5su
+	dud0svDTyg9QXgHj0MrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHQt-0000000BrG2-3bgW;
-	Tue, 20 May 2025 07:30:39 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1uHHhG-0000000BuT6-3I8s;
+	Tue, 20 May 2025 07:47:34 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHHQr-0000000BrFY-2XHM
+	id 1uHHfb-0000000Bu0l-2k9r
 	for linux-riscv@lists.infradead.org;
-	Tue, 20 May 2025 07:30:39 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a365a6804eso1717825f8f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 20 May 2025 00:30:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747726236; x=1748331036; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=e3qswn+G99rbqDQpaXIRa087THbvFCZjRiHzDhv5wt4=;
-        b=I+o7DZ0XTinzy1kpqjY9GWur4WgbEF0CWPXACiIbsl83dfrTolx8x5T+DXEyqlPie0
-         XkQXnkZMVbn59RAVPxduMrmP9Xlk17G4uOF/z+7wOxffnb7YLd0Qbr+SZrN98+4VChEf
-         iW3XuR1zAfM8mtsVDsNlhcq8/pYU1Iz2N/G6AH+CUF275Q4Wo3BcjS7PQcZXslJitK9q
-         ZzX7c9POFdB2RVfHxJVveCQ0ALKv16jp0pj2UbBzfbtXBz580vEa5bXd69NKCatlg1rh
-         4v5q4b8pb9X3KDNDixQJDwD7pQ1Z79lUT+/1pdrd3ujL8bqjPFbAhf7myXcy2GYYupTL
-         j/Pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747726236; x=1748331036;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=e3qswn+G99rbqDQpaXIRa087THbvFCZjRiHzDhv5wt4=;
-        b=tBdQJrD7fzng3xGh298u4HCnXV30NDPHXh2wMfzxlIl3H/qVc4BRBOnL/F1o7jY7oB
-         zNoJT1hIxiPHLt//kPt7X/Aewr60a/7YJDEF5a5bJxOosUgBHJxlBmoo+vQLwQ9VDArh
-         ZmiySmXl1O8zF7mjqIkfHUK/c4BFuBYPGfPHJgsQldc7aEQUqQ0P9nqSn8vm17A4migJ
-         zLg81sgpbhvI7j7WDqmEeeoxV3zQyh+/Iyv/0eEB9e4ZveD/HbhZBHofL7OA2iyUiD50
-         tT6jK4NDALXJijAYPeGGddW40XFNxHHU7/zPahUmWKVBwfPGLp7RLpfOPkgCL/evO05u
-         Ki+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWoLtRaq5Pq7rITWbZM5d7NpdyqYBXvLFtyGORvwmcVzMYwFw/gidhB6HKfoRHkKPBcVL98OOUseSLGVQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YySGSu9u405JjsZlf1l79jJUOwUSRwgOMtY08CItmoAyAf+i1J5
-	YxEL7s3SANr41JYVfWKOXyzOQC0hdQZpNiDq7mz11ZsoecRm1EeVuSLK268GagZxYx4=
-X-Gm-Gg: ASbGncvHLmef2qUgrjNg/e9GVpR5bLzRmj2SYoeeZfDhSEeCtVIZ+7pmBBsRXrPwvlI
-	t7COqTK51+LXXon1W0scrlx09fSKwylQXkG3u/nPTrygHbAFRDJ8Ytv42Cdw1CVoehoVULc1J8M
-	M6JIfTZzPA6dfcxP5YZd+l/cixgBQ+444JKSJEWjPUqviA5Fs8fWWgYzcnZMh6BrnsHL1qhJCoX
-	hJHIg0xZyN+UU9ldzHZb5FTP9QS2VnxM4TPK0vZALFBVDaaR7ehcuRGP5Z0UdbiCh+ajHRu13Vs
-	83XniB9PtEETRFqN3C+y0cS17FglA1ximSbEZJzjDox2qqOzJM4mroe2slj9warO1xhrroRAuDf
-	6LAolMLhDMxT0kW3mC6zR
-X-Google-Smtp-Source: AGHT+IE7M7YrbGv+YQMV10HvQ6Ad5tKgxn2KtdlbNumHCeyaZHz91SLpMw+pxgF7ovN92izPKynuwA==
-X-Received: by 2002:a05:6000:240b:b0:3a3:7310:d490 with SMTP id ffacd0b85a97d-3a37310d4eemr4285693f8f.16.1747726235736;
-        Tue, 20 May 2025 00:30:35 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a35ca4d1basm15612017f8f.15.2025.05.20.00.30.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 20 May 2025 00:30:35 -0700 (PDT)
-Message-ID: <3f1c4a0e-aaba-4adf-a6c3-421def945400@rivosinc.com>
-Date: Tue, 20 May 2025 09:30:34 +0200
+	Tue, 20 May 2025 07:45:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747727140; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=TPBmOYPy0eMIaOKMNcAnT9e82FTL1VLNrOc3E589goMuJ7/GQc3ZytQ0TmL5QPJw+DESC3597Gbffeg1eBCi5rNSGDbL7d2Bx11mlP+c//Il+oZo+CTnYOoRsqV0thFap70mwcp5Krco1EXkBaaZQDc9PG9g6fKUlInJOFdSDRg=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747727140; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jn3uOBcDY2q1MgCXeLp3Q0HzCg0IJCGajPJa/7QWSSA=; 
+	b=O7g70/eRaw5y4RoooE1vjMaCn16lkUwryB9kPpYj2MllhxtVgLqsYJDNFsDw9lZERlTMYJ4Is0/nCZN38LLaOV303AxnjVEtDsFa1nXmUwfyVSUvVlAAbCS4rZqzm+iy146nwrHesuwR/jZ27iBN0hj5CiKqEFZtiDcKKfAf6as=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747727140;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=jn3uOBcDY2q1MgCXeLp3Q0HzCg0IJCGajPJa/7QWSSA=;
+	b=VmF8Xvjuf/Klb7n3XHLi0A29WO4U5a/9BWYfJlqBhpbmJ7zGsJV6b/E8mknG0J3A
+	NOS9gw0JLRYi9CaD15wU1e5m+hLLCB/dfxCS4L0bp5T+RlkpNuWOGa1c1bQHO1CPX9e
+	Yehh+sdPEzanuZQ8xtkZXvWnDG/EmKKAYOhqsYuc=
+Received: by mx.zohomail.com with SMTPS id 1747727138759542.4562492623348;
+	Tue, 20 May 2025 00:45:38 -0700 (PDT)
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+Date: Tue, 20 May 2025 15:44:24 +0800
+Subject: [PATCH v4 2/2] mailbox: sophgo: add mailbox driver for CV18XX
+ series SoC
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC] Making sense of RISCV_HWPROBE_EXT_* (new flags in version
- 6.15)
-To: Tsukasa OI <research_trasio@irq.a4lg.com>,
- linux-riscv <linux-riscv@lists.infradead.org>,
- =?UTF-8?Q?Miquel_Sabat=C3=A9_Sol=C3=A0?= <mikisabate@gmail.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>
-References: <5967b18f-37bb-42c9-b8cc-6abf0e0bee3a@irq.a4lg.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <5967b18f-37bb-42c9-b8cc-6abf0e0bee3a@irq.a4lg.com>
+Message-Id: <20250520-cv18xx-mbox-v4-2-fd4f1c676d6e@pigmoral.tech>
+References: <20250520-cv18xx-mbox-v4-0-fd4f1c676d6e@pigmoral.tech>
+In-Reply-To: <20250520-cv18xx-mbox-v4-0-fd4f1c676d6e@pigmoral.tech>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
+ Inochi Amaoto <inochiama@gmail.com>, Yuntao Dai <d1581209858@live.com>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-riscv@lists.infradead.org
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747727085; l=8014;
+ i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
+ bh=a0cR+fhvbwMEYXPvZAtsXSXc4eeCzygWnJG9I9aL5Ak=;
+ b=R9SPTMpzh7smVi5B4VdXQuujLsleWoLh+ro2ewg04+zA+vmsEWAuEz4mYk7CLWr7ceGptRvo+
+ UfMIFlel6I+Cg3fjipboHqHzup//iXTPYAxM/0+zY7uz41bjAgc5Ozr
+X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
+ pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250520_003037_894236_D46BCE67 
-X-CRM114-Status: GOOD (  44.41  )
+X-CRM114-CacheID: sfid-20250520_004551_760616_9945A1F9 
+X-CRM114-Status: GOOD (  22.46  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,147 +88,290 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMC8wNS8yMDI1IDA3OjI1LCBUc3VrYXNhIE9JIHdyb3RlOgo+IEhlbGxvIENsw6ltZW50
-LCBNaXF1ZWwgYW5kIGFsbC4KPiAKPiBJdCdzIHRvbyBsYXRlIHRvIG1ha2UgY2hhbmdlcyBmb3Ig
-dGhlIExpbnV4IGtlcm5lbCB2ZXJzaW9uIDYuMTUgYnV0IGF0Cj4gbGVhc3Qgd2UgbmVlZCB0byBj
-bGFyaWZ5IHNvbWV0aGluZy4gIEkgd291bGQgbGlrZSB0byBoZWFyIGZyb20gQ2zDqW1lbnQKPiBh
-bmQgTWlxdWVsIGFib3V0IHlvdXIgb3JpZ2luYWwgaW50ZW50IG9mIHlvdXIgY2hhbmdlcyBhbmQg
-aGVhciBmcm9tIGFsbAo+IGFib3V0IHlvdXIgdGhvdWdodHMgYWJvdXQgdGhlIGFyZ3VtZW50IGJl
-bG93Lgo+IAo+IAo+IEJhY2tncm91bmQKPiA9PT09PT09PT09PQo+IAo+IFdoaWxlIEkgYW0gcHJl
-cGFyaW5nIGZvciB0aGUgcmlzY3ZfaHdwcm9iZSBzdXBwb3J0IGluIHRoZSBSdXN0IHN0YW5kYXJk
-Cj4gbGlicmFyeSAoZm9yIHRhcmdldCBmZWF0dXJlIGRldGVjdGlvbikgbG9va2luZyBhdCB0aGUg
-bWFzdGVyIGJyYW5jaCBvZgo+IExpbnV4LCBJIGZvdW5kIHRocmVlIGV4dGVuc2lvbnMgaW4gdGhl
-IFJJU0NWX0hXUFJPQkVfS0VZX0lNQV9FWFRfMCBrZXkKPiB0aGF0IHdvdWxkIGJlIHJlZHVuZGFu
-dCBpZiB3ZSByZWFkIHRoZSBkb2N1bWVudGF0aW9uIHBlZGFudGljYWxseS4KPiAKPiBjZi4gT3Jp
-Z2luYWwgcmlzY3ZfaHdwcm9iZSBzdXBwb3J0IGZvciB0aGUgUnVzdCBzdGFuZGFyZCBsaWJyYXJ5
-Cj4gKHN1cHBvcnRzIGFsbCBmbGFncyBhcyBvZiBMaW51eCA2LjE0IGV4Y2VwdCBPUy1kZXBlbmRl
-bnQgIlN1cG0iKToKPiA8aHR0cHM6Ly9naXRodWIuY29tL3J1c3QtbGFuZy9zdGRhcmNoL3B1bGwv
-MTc3MD4KPiAKPiBIZXJlJ3MgdGhlIGxpc3QgKGFsbCBvZiB0aGVtIHdpbGwgYmUgbmV3IGluIDYu
-MTUpOgo+IAo+IENvbW1pdCA0NDU4YjhmNjhkYzdhYjgzMDkyOTFmMTY2NzE1N2QwMjUwOTM4Mjkx
-IChieSBNaXF1ZWwpOgo+IDEuICBaaWNudHIKPiAoWmlocG0gaXMgZXhjbHVkZWQgYmVjYXVzZSB0
-aGUgYXJndW1lbnQgYmVsb3cgZG9lcyBub3QgYXBwbHkpLgo+IAo+IENvbW1pdCA5ZDQ1ZDFmZjkw
-YTY4ODhmNjEzOGViN2UxZjI2MTllZjQyNzgzMWQzIChieSBDbMOpbWVudCk6Cj4gMi4gIFphbHJz
-Ywo+IDMuICBaYWFtbwo+IAo+IAo+IEJhc2UgRmFjdHMKPiA9PT09PT09PT09PQo+IAo+IFRoZSBS
-SVNDLVYgaHdwcm9iZSBkb2N1bWVudGF0aW9uIHN0YXRlcyB0aGF0Cj4gUklTQ1ZfSFdQUk9CRV9C
-QVNFX0JFSEFWSU9SX0lNQSBpcyBlaXRoZXIgUlYzMklNQS9SVjY0SU1BICh1c2VyIElTQQo+IHZl
-cnNpb24gMi4yIGFuZCBwcml2aWxlZ2VkIElTQSB2ZXJzaW9uIDEuMTAgd2l0aCBhIGZldyBleGNl
-cHRpb25zKSBhbmQKPiBSSVNDVl9IV1BST0JFX0tFWV9JTUFfRVhUXzAgbGlzdHMgZXh0ZW5zaW9u
-cyB0aGF0IGFyZSBjb21wYXRpYmxlIHdpdGgKPiB0aGUgUklTQ1ZfSFdQUk9CRV9CQVNFX0JFSEFW
-SU9SX0lNQSBiYXNlIHN5c3RlbSBiZWhhdmlvciAoSSdsbCBjYWxsIHRoaXMKPiB0aGUgSU1BIGJh
-c2UgYmVoYXZpb3IgZnJvbSBub3cgb24pLgo+IAo+IGNmLiA8aHR0cHM6Ly9kb2NzLmtlcm5lbC5v
-cmcvYXJjaC9yaXNjdi9od3Byb2JlLmh0bWw+Cj4gCj4gCj4gMS4gWmljbnRyCj4gPT09PT09PT09
-PQo+IAo+IFRoZSB1c2VyIElTQSB2ZXJzaW9uIDIuMiBoYXMgUlYzMkkgLyBSVjY0SSAoIkkiKSBi
-YXNlIElTQXMsIHZlcnNpb24gMi4wLgo+IEhvd2V2ZXIsICJJIiBiYXNlIElTQXMgYXQgdGhhdCB0
-aW1lIGNvbnRhaW4gZmVhdHVyZXMgbm93IHJhdGlmaWVkIGFzIHRoZQo+ICJaaWNudHIiIGV4dGVu
-c2lvbi4gIFRvIGJlIHNwZWNpZmljLCB0aGUgIkkiIGJhc2UgSVNBcyBpbiB0aGUgdXNlciBJU0EK
-PiB2ZXJzaW9uIDIuMiBoYXZlIGNoYW5nZWQgYXMgZm9sbG93cyAod2l0aCBzb21lIGV4dHJhcyk6
-Cj4gCj4gVXNlciBJU0EgdmVyc2lvbiAyLjI6Cj4gKiAgIFJWMzJJIC8gUlY2NEkgKCJJIikgdmVy
-c2lvbiAyLjAKPiAKPiBVc2VyIElTQSB2ZXJzaW9uIDIwMTkwNjA4Ogo+ICogICBSVjMySSAvIFJW
-NjRJICgiSSIpIHZlcnNpb24gMi4xCj4gKiAgIFRoZSAiWmljc3IiIGV4dGVuc2lvbiwgdmVyc2lv
-biAyLjAKPiAqICAgVGhlICJaaWZlbmNlaSIgZXh0ZW5zaW9uLCB2ZXJzaW9uIDIuMAo+ICogICBO
-b24tZXh0ZW5zaW9uOiBDb3VudGVycwo+ICAgICAqICAgMyBjb3VudGVycyBvcmlnaW5hbGx5IGF2
-YWlsYWJsZSBpbiAiSSIgdjIuMCAobGF0ZXIgIlppY250ciIpCj4gICAgICogICBORVc6IEFkZGl0
-aW9uYWwgdXAgdG8gMjkgY291bnRlcnMgKGxhdGVyICJaaWhwbSIpCj4gCj4gVXNlciBJU0EgdmVy
-c2lvbiAyMDI0MDQxMToKPiAqICAgUlYzMkkgLyBSVjY0SSAoIkkiKSB2ZXJzaW9uIDIuMQo+ICog
-ICBUaGUgIlppY3NyIiBleHRlbnNpb24sIHZlcnNpb24gMi4wCj4gKiAgIFRoZSAiWmlmZW5jZWki
-IGV4dGVuc2lvbiwgdmVyc2lvbiAyLjAKPiAqICAgVGhlICJaaWNudHIiIGV4dGVuc2lvbiwgdmVy
-c2lvbiAyLjAgKE5ldyBhcyBhbiBleHRlbnNpb24pCj4gKiAgIFRoZSAiWmlocG0iIGV4dGVuc2lv
-biwgdmVyc2lvbiAyLjAgKE5ldyBhcyBhbiBleHRlbnNpb24pCj4gCj4gSW4gb3RoZXIgd29yZHMs
-ICJJIiB2ZXJzaW9uIDIuMCBpcyByb3VnaGx5IGVxdWl2YWxlbnQgdG86Cj4gKiAgIFJWMzJJIC8g
-UlY2NEkgKCJJIikgdmVyc2lvbiAyLjEKPiAqICAgVGhlICJaaWNzciIgZXh0ZW5zaW9uLCB2ZXJz
-aW9uIDIuMAo+ICogICBUaGUgIlppZmVuY2VpIiBleHRlbnNpb24sIHZlcnNpb24gMi4wCj4gKiAg
-IFRoZSAiWmljbnRyIiBleHRlbnNpb24sIHZlcnNpb24gMi4wCj4gCj4gU28gaWYgd2UgdGhpbmsg
-cGVkYW50aWNhbGx5LCB0aGUgZmxhZyBjb250YWluaW5nICJaaWNudHIiIG1ha2VzIG5vCj4gc2Vu
-c2UuICBPZiBjb3Vyc2UsIHRoZXJlIGFyZSBhIGZldyBjYXNlcyB3aGVyZSB0aGlzIGZsYWcgYmVj
-b21lcyB2YWxpZDoKPiAKPiAxLiAgSU1BIGJhc2UgYmVoYXZpb3Igc2hvdWxkIGhhdmUgYmVlbiBj
-aGFuZ2VkCj4gICAgIChhIGRvY3VtZW50YXRpb24gZml4IHdpbGwgYmUgcmVxdWlyZWQgdG8ganVz
-dGlmeSB0aGlzKQo+IDIuICBEZW5vdGVzIHRoYXQgbmF0aXZlIGhhcmR3YXJlIHN1cHBvcnQgb2Yg
-YmFzaWMgaGFyZHdhcmUgY291bnRlcnMKPiAKPiBJbiBlaXRoZXIgY2FzZSwgd2Ugd2lsbCBuZWVk
-IHRvIGNsYXJpZnkgc29tZXdoZXJlLgo+IAo+IAo+IDIvMy4gWmFscnNjIC8gWmFhbW8KPiA9PT09
-PT09PT09PT09PT09PT09PQo+IAo+IFRoaXMgaXMgZWFzaWVyIHRvIHRlbGwgYnV0IGhhcmRlciB0
-byBqdXN0aWZ5IGZsYWdzJyBleGlzdGVuY2UuCj4gCj4gMS4gIFRoZSBJTUEgYmFzZSBiZWhhdmlv
-ciBjb250YWlucyB0aGUgIkEiIGV4dGVuc2lvbi4KPiAyLiAgQm90aCAiWmFscnNjIiBhbmQgIlph
-YW1vIiBleHRlbnNpb25zIGFyZSBzdWJzZXRzIG9mICJBIgo+ICAgICAoaW4gZmFjdCwgQSA9PSBa
-YWxyc2MgKyBaYWFtbykKPiAzLiAgSXMgdGhlcmUgYW55IGNhc2Ugd2hlcmUgdGhlIElNQSBiYXNl
-IGJlaGF2aW9yIGlzIGF2YWlsYWJsZSBidXQKPiAgICAgbGFja3MgYSBwYXJ0IG9mIGZ1bGwgIkEi
-IGV4dGVuc2lvbj8KPiAKPiBGb3IgbWUsIGl0IGp1c3QgbG9va3MgUklTQ1ZfSFdQUk9CRV9FWFRf
-WkFBTU8gYW5kCj4gUklTQ1ZfSFdQUk9CRV9FWFRfWkFMUlNDIGFyZSBhbHdheXMtb24gZmxhZ3Mu
-ICBJZiB0aGUgdmFsdWUgY29udGFpbmluZwo+IHRoZXNlIGJpdHMgKGtleSBSSVNDVl9IV1BST0JF
-X0tFWV9JTUFfRVhUXzApIGp1c3QgbGlzdHMgZXh0ZW5zaW9ucyAod2l0aAo+IG5vIGNvbmRpdGlv
-bnMpLCB0aGF0IHdvdWxkIGJlIG1lYW5pbmdmdWwgaWYgdGhlIExpbnV4IGtlcm5lbCBpcyBjaGFu
-Z2VkCj4gc28gdGhhdCB0aGUgZnVsbCAiQSIgZXh0ZW5zaW9uIGlzIG5vIGxvbmdlciBuZWVkZWQu
-ICBCdXQgYmVjYXVzZSB0aGUga2V5Cj4gUklTQ1ZfSFdQUk9CRV9LRVlfSU1BX0VYVF8wIGxpc3Rz
-IGV4dGVuc2lvbnMgKmNvbXBhdGlibGUgdG8qIHRoZSBJTUEKPiBiYXNlIGJlaGF2aW9yLCBqdXN0
-aWZ5aW5nIHRoaXMgaXMgcHJldHR5IGhhcmQuCj4gCj4gSWYgdGhlcmUgaXMgYSBjYXNlIHdoZXJl
-IHRoZXNlIGZsYWdzIGNhbiBiZSB0dXJuZWQgb2ZmIGFuZCBzdGlsbCB2YWxpZCwKPiBJJ20gaGFw
-cHkgdG8gc2VlIGFuIGV4YW1wbGUgYW5kIGxlYXJuLgoKV2hpbGUgbm90IHRlY2huaWNhbGx5IHJl
-cXVpcmVkIHJpZ2h0IG5vdywgdGhlcmUgaGFzIGJlZW4gYSBzZXJpZXMgdG8gdXNlClpBTFJTQyB0
-byBpbXBsZW1lbnQgQU1PIChmcm9tIE1JUFMpIFsxXSBhbmQgdGh1cyByZW1vdmUgdGhlIGtlcm5l
-bApkZXBlbmRlbmN5IG9uIHRoZSBmdWxsICJBIiBleHRlbnNpb25zLiBUaGUgZ29hbCBvZiBhZGRp
-bmcgWkFBTU8vWkFMUlNDCndhcyB0byBoYXZlIGEgY29tcHJlaGVuc2l2ZSBzdXBwb3J0IG9mIFJJ
-U0MtViBleHRlbnNpb25zIHRoYXQgbWlnaHQgYmUKdXNlZnVsIGZvciB0aGUgdXNlcnNwYWNlLiBS
-YXRpb25hbGUgd2FzIGFsc28gdGhhdCBpdCB3YXMgYmV0dGVyIHRvCmV4cHJlc3MgYWxsIHRoZSBk
-ZXBlbmRlbmNpZXMgcmF0aGVyIHRoYW4gbGV0dGluZyB0aGUgdXNlcnNwYWNlIG1ha2Ugc29tZQph
-c3N1bXB0aW9ucyB0aGF0IHdvdWxkIGJlIGhhcmQgdG8gcmVtb3ZlIGxhdGVyLgoKQlRXLCB0aGVy
-ZSBhcmUgYSBmZXcgbWVjaGFuaXNtcyB0aGF0IGFyZSB1bmxpa2VseSB0byBiZSB1c2VkIGFzIHdl
-bGwgaW4KaHdwcm9iZSAocGVyLWNwdSBleHRlbnNpb25zIGZvciBpbnN0YW5jZSwgSSBkbyBub3Qg
-dGhpbmsgd2UgeWV0IGhhdmUKc2VlbiBzdWNoIGhhcmR3YXJlIHlldCA/KS4gRGl0dG8gZm9yIHBl
-ci1jcHUgbWlzYWxpZ25lZCBhY2Nlc3Mgc3VwcG9ydC4KV2hpbGUgcG90ZW50aWFsbHkgbm90IHBv
-cHVsYXIsIHdlIHRyeSB0byBjb3ZlciB0aGUgbWFqb3JpdHkgb2YgdGhlIHVzZQpjYXNlcywgUklT
-Qy1WIGhhcmR3YXJlIGJlaW5nLCBieSBuYXR1cmUsIGZsZXhpYmxlLgoKVGhhbmtzLAoKQ2zDqW1l
-bnQKCkxpbms6Cmh0dHBzOi8vcGF0Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1yaXNj
-di9wYXRjaC8yMDI0MTIyNTA4MjQxMi4zNjcyNy0xLWFyaWthbG9AZ21haWwuY29tLyMyNjE5MjIy
-OApbMV0KCj4gCj4gCj4gUnVzdCAodXNlcmxhbmQpIEJlaGF2aW9yIG9uIHZlcnNpb24gMS44OCBv
-ciBsYXRlcgo+ID09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09
-PT09Cj4gCj4gRnJvbSBSdXN0IDEuODggKGN1cnJlbnRseSBpbiBiZXRhIGFuZCB3aWxsIGJlIHJl
-bGVhc2VkIG9uIHRoZSBlbmQgb2YKPiBKdW5lKSwgdGhlIFJJU0MtViBmZWF0dXJlIGRldGVjdGlv
-biBsb2dpYyAoYmFja2VuZCBmb3IgdGhlCj4gaXNfcmlzY3ZfZmVhdHVyZV9kZXRlY3RlZCBtYWNy
-bykgd2lsbCBzdGFydCB0byB1c2UgdGhlIHJpc2N2X2h3cHJvYmUKPiBzeXN0ZW0gY2FsbCBvbiBM
-aW51eCAoYmVmb3JlIHRoYXQsIG9ubHkgYXV4aWxpYXJ5IHZlY3RvciBpcyB1c2VkKS4KPiAKPiBj
-Zi4KPiA8aHR0cHM6Ly9kb2MucnVzdC1sYW5nLm9yZy9iZXRhL3N0ZC9hcmNoL21hY3JvLmlzX3Jp
-c2N2X2ZlYXR1cmVfZGV0ZWN0ZWQuaHRtbD4KPiAKPiBDdXJyZW50bHksIHRoZXNlIGZsYWdzIGFy
-ZSBub3QgcmVhZCBieSB0aGUgUnVzdCBzdGFuZGFyZCBsaWJyYXJ5Cj4gKGJlY2F1c2UgTGludXgg
-a2VybmVsIHZlcnNpb24gNi4xNSBoYXNuJ3QgcmVsZWFzZWQgeWV0KSBidXQgdGhlIGJlaGF2aW9y
-Cj4gaXMgZGV0ZXJtaW5lZCBjb25zaWRlcmluZyBleGlzdGVuY2Ugb2YgdGhlc2UgZmxhZ3MgKG5l
-dyBpbiA2LjE1KToKPiAKPiBJZiB0aGUgSU1BIGJhc2UgYmVoYXZpb3IgaXMgZGV0ZWN0ZWQsIGZv
-bGxvd2luZyBSdXN0IHRhcmdldCBmZWF0dXJlcyBhcmUKPiBlbmFibGVkOgo+IAo+IDEuICBFaXRo
-ZXIgInJ2MzJpIiBvciAicnY2NGkiCj4gICAgIFRoZSBJTUEgYmFzZSBiZWhhdmlvciBjb250YWlu
-cyAiSSIgYmFzZSBhbmQgZXh0ZW5zaW9ucyAiTSIgYW5kICJBIi4KPiAyLiAgInppY3NyIgo+ICAg
-ICBUaGlzIGlzIGluZmVycmVkIGZyb20gdGhlIGZhY3QgSSBleHBsYWluZWQgaW4gdGhlICJaaWNu
-dHIiIHNlY3Rpb24KPiAgICAgYWJvdmUuICBJdCBpcyBhbHNvIGp1c3RpZmllZCBieSB0aGUgZmFj
-dCB0aGF0IExpbnV4IHJlcXVpcmVzCj4gICAgIHRoZSBwcml2aWxlZ2VkIGFyY2hpdGVjdHVyZSwg
-d2hpY2ggZGVwZW5kcyBvbiB0aGUgWmljc3IgZXh0ZW5zaW9uLgo+IDMuICAiemlmZW5jZWkiCj4g
-ICAgIFRoaXMgaXMgaW5mZXJyZWQgZnJvbSB0aGUgZmFjdCBJIGV4cGxhaW5lZCBpbiB0aGUgIlpp
-Y250ciIgc2VjdGlvbgo+ICAgICBhYm92ZS4gIExpbnV4IGFsc28gaGFzIHRoZSBDTU9EWCBmZWF0
-dXJlIHdoaWNoIG1ha2VzIHRoZSBaaWZlbmNlaQo+ICAgICBleHRlbnNpb24gaW4gdGhlIHVzZXJs
-YW5kIHZhbGlkIGJ1dCByaXNjdl9od3Byb2JlIGRvZXNuJ3QgcHJvdmlkZQo+ICAgICBhIGZsYWcg
-Zm9yIHRoZSBaaWZlbmNlaSBleHRlbnNpb24uCj4gNC4gICJtIgo+ICAgICBUaGUgSU1BIGJhc2Ug
-YmVoYXZpb3IgY29udGFpbnMgIkkiIGJhc2UgYW5kIGV4dGVuc2lvbnMgIk0iIGFuZCAiQSIuCj4g
-ICAgIEl0IGltcGxpZXMgdGhlIFptbXVsIGV4dGVuc2lvbiBidXQgdGhpcyBvbmUgaXMgbm90IHN1
-cHBvcnRlZCBieQo+ICAgICB0aGUgUnVzdCdzIGZlYXR1cmUgaGFuZGxpbmcgc3lzdGVtIHlldC4K
-PiA1LiAgImEiCj4gICAgIFRoZSBJTUEgYmFzZSBiZWhhdmlvciBjb250YWlucyAiSSIgYmFzZSBh
-bmQgZXh0ZW5zaW9ucyAiTSIgYW5kICJBIi4KPiA2LiAgInphbHJzYyIKPiAgICAgVGhpcyBleHRl
-bnNpb24gaXMgc3VwcG9ydGVkIGJ5IFJ1c3QgYW5kIGltcGxpZWQgZnJvbSAiYSIsCj4gICAgIG1h
-a2luZyBSSVNDVl9IV1BST0JFX0VYVF9aQUxSU0MgaW5lZmZlY3RpdmUuCj4gNy4gICJ6YWFtbyIK
-PiAgICAgVGhpcyBleHRlbnNpb24gaXMgc3VwcG9ydGVkIGJ5IFJ1c3QgYW5kIGltcGxpZWQgZnJv
-bSAiYSIsCj4gICAgIG1ha2luZyBSSVNDVl9IV1BST0JFX0VYVF9aQUFNTyBpbmVmZmVjdGl2ZS4K
-PiAKPiBCdXQgdGhlIElNQSBiYXNlIGJlaGF2aW9yIGFsb25lIGRvZXMgTk9UIGVuYWJsZToKPiAK
-PiAxLiAgInppY250ciIKPiAgICAgSSBpbXBsZW1lbnRlZCB0aGUgUklTQy1WIGZlYXR1cmUgZGV0
-ZWN0aW9uIGxvZ2ljIGluIFJ1c3QgbW9yZQo+ICAgICBjb25zZXJ2YXRpdmVseSB0aGFuIHRoZSBk
-b2N1bWVudGF0aW9uIHN1Z2dlc3RzLgo+ICAgICBJdCBtYXkgbWFrZSBSSVNDVl9IV1BST0JFX0VY
-VF9aSUNOVFIgZWZmZWN0aXZlIG9uIFJ1c3QgZGVwZW5kaW5nCj4gICAgIG9uIGhvdyBmdXR1cmUg
-dmVyc2lvbnMgb2YgdGhlIHN0YW5kYXJkIGxpYnJhcnkgaXMgaW1wbGVtZW50ZWQKPiAgICAgKHBv
-c3NpYmx5IFJ1c3QgdmVyc2lvbiAxLjkwIG9yIGxhdGVyKS4KPiAKPiAKPiBSZWl0ZXJhdGluZyBS
-RkMKPiA9PT09PT09PT09PT09PT09Cj4gCj4gMS4gIChUbyBDbMOpbWVudCBhbmQgTWlxdWVsKQo+
-ICAgICBJJ2QgbGlrZSB0byBoZWFyIHRoZSBvcmlnaW5hbCBpbnRlbnQgb2YgeW91ciBjaGFuZ2Vz
-Lgo+IDIuICAoVG8gYWxsKQo+ICAgICBIb3cgZG8gd2UgaGFuZGxlIHRoaXMgc2l0dWF0aW9uPwo+
-IAo+IAo+IEJlc3QgcmVnYXJkcywKPiBUc3VrYXNhCj4gCj4gcC5zLgo+IEp1c3QgaW4gY2FzZSwg
-SSdtIHRhbGtpbmcgTk9USElORyBhYm91dCBSdXN0IG9uIExpbnV4IChrZXJuZWwgbW9kZSkuCgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+From: Yuntao Dai <d1581209858@live.com>
+
+Add mailbox controller driver for CV18XX SoCs, which provides 8 channels
+and each channel has an 8-byte FIFO.
+
+Signed-off-by: Yuntao Dai <d1581209858@live.com>
+Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
+---
+ drivers/mailbox/Kconfig          |  10 ++
+ drivers/mailbox/Makefile         |   2 +
+ drivers/mailbox/cv1800-mailbox.c | 220 +++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 232 insertions(+)
+
+diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
+index ed52db272f4d059ff60d608f40e3845411bc63f7..fd3f28d705bc00166028c372d3398f2e225aa8a7 100644
+--- a/drivers/mailbox/Kconfig
++++ b/drivers/mailbox/Kconfig
+@@ -36,6 +36,16 @@ config ARM_MHU_V3
+ 	  that provides different means of transports: supported extensions
+ 	  will be discovered and possibly managed at probe-time.
+ 
++config CV1800_MBOX
++	tristate "cv1800 mailbox"
++	depends on ARCH_SOPHGO || COMPILE_TEST
++	help
++	  Mailbox driver implementation for Sophgo CV18XX SoCs. This driver
++	  can be used to send message between different processors in SoC. Any
++	  processer can write data in a channel, and set co-responding register
++	  to raise interrupt to notice another processor, and it is allowed to
++	  send data to itself.
++
+ config EXYNOS_MBOX
+ 	tristate "Exynos Mailbox"
+ 	depends on ARCH_EXYNOS || COMPILE_TEST
+diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
+index 9a1542b55539c673af874c5c37fbb3d438fd05d3..13a3448b327115add5ebb8c4f116e68dedd755cb 100644
+--- a/drivers/mailbox/Makefile
++++ b/drivers/mailbox/Makefile
+@@ -11,6 +11,8 @@ obj-$(CONFIG_ARM_MHU_V2)	+= arm_mhuv2.o
+ 
+ obj-$(CONFIG_ARM_MHU_V3)	+= arm_mhuv3.o
+ 
++obj-$(CONFIG_CV1800_MBOX)	+= cv1800-mailbox.o
++
+ obj-$(CONFIG_EXYNOS_MBOX)	+= exynos-mailbox.o
+ 
+ obj-$(CONFIG_IMX_MBOX)	+= imx-mailbox.o
+diff --git a/drivers/mailbox/cv1800-mailbox.c b/drivers/mailbox/cv1800-mailbox.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..4761191acf782654c1724df2c9cc619e1d7c985c
+--- /dev/null
++++ b/drivers/mailbox/cv1800-mailbox.c
+@@ -0,0 +1,220 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (C) 2024 Sophgo Technology Inc.
++ * Copyright (C) 2024 Yuntao Dai <d1581209858@live.com>
++ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
++ */
++
++#include <linux/bits.h>
++#include <linux/device.h>
++#include <linux/err.h>
++#include <linux/interrupt.h>
++#include <linux/io.h>
++#include <linux/kfifo.h>
++#include <linux/mailbox_client.h>
++#include <linux/mailbox_controller.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/slab.h>
++
++#define RECV_CPU		1
++
++#define MAILBOX_MAX_CHAN	8
++#define MAILBOX_MSG_LEN		8
++
++#define MBOX_EN_REG(cpu)	(cpu << 2)
++#define MBOX_DONE_REG(cpu)	((cpu << 2) + 2)
++#define MBOX_SET_CLR_REG(cpu)	(0x10 + (cpu << 4))
++#define MBOX_SET_INT_REG(cpu)	(0x18 + (cpu << 4))
++#define MBOX_SET_REG		0x60
++
++#define MAILBOX_CONTEXT_OFFSET	0x0400
++#define MAILBOX_CONTEXT_SIZE	0x0040
++
++#define MBOX_CONTEXT_BASE_INDEX(base, index) \
++	((u64 __iomem *)(base + MAILBOX_CONTEXT_OFFSET) + index)
++
++/**
++ * struct cv1800_mbox_chan_priv - cv1800 mailbox channel private data
++ * @idx: index of channel
++ * @cpu: send to which processor
++ */
++struct cv1800_mbox_chan_priv {
++	int idx;
++	int cpu;
++};
++
++struct cv1800_mbox {
++	struct mbox_controller mbox;
++	struct cv1800_mbox_chan_priv priv[MAILBOX_MAX_CHAN];
++	struct mbox_chan chans[MAILBOX_MAX_CHAN];
++	u64 __iomem *content[MAILBOX_MAX_CHAN];
++	void __iomem *mbox_base;
++	int recvid;
++};
++
++static irqreturn_t cv1800_mbox_isr(int irq, void *dev_id)
++{
++	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
++	size_t i;
++	u64 msg;
++	int ret = IRQ_NONE;
++
++	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
++		if (mbox->content[i] && mbox->chans[i].cl) {
++			memcpy_fromio(&msg, mbox->content[i], MAILBOX_MSG_LEN);
++			mbox->content[i] = NULL;
++			mbox_chan_received_data(&mbox->chans[i], (void *)&msg);
++			ret = IRQ_HANDLED;
++		}
++	}
++
++	return ret;
++}
++
++static irqreturn_t cv1800_mbox_irq(int irq, void *dev_id)
++{
++	struct cv1800_mbox *mbox = (struct cv1800_mbox *)dev_id;
++	u8 set, valid;
++	size_t i;
++	int ret = IRQ_NONE;
++
++	set = readb(mbox->mbox_base + MBOX_SET_INT_REG(RECV_CPU));
++
++	if (!set)
++		return ret;
++
++	for (i = 0; i < MAILBOX_MAX_CHAN; i++) {
++		valid = set & BIT(i);
++		if (valid) {
++			mbox->content[i] =
++				MBOX_CONTEXT_BASE_INDEX(mbox->mbox_base, i);
++			writeb(valid, mbox->mbox_base +
++				      MBOX_SET_CLR_REG(RECV_CPU));
++			writeb(~valid, mbox->mbox_base + MBOX_EN_REG(RECV_CPU));
++			ret = IRQ_WAKE_THREAD;
++		}
++	}
++
++	return ret;
++}
++
++static int cv1800_mbox_send_data(struct mbox_chan *chan, void *data)
++{
++	struct cv1800_mbox_chan_priv *priv =
++		(struct cv1800_mbox_chan_priv *)chan->con_priv;
++	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
++	int idx = priv->idx;
++	int cpu = priv->cpu;
++	u8 en, valid;
++
++	memcpy_toio(MBOX_CONTEXT_BASE_INDEX(mbox->mbox_base, idx),
++		    data, MAILBOX_MSG_LEN);
++
++	valid = BIT(idx);
++	writeb(valid, mbox->mbox_base + MBOX_SET_CLR_REG(cpu));
++	en = readb(mbox->mbox_base + MBOX_EN_REG(cpu));
++	writeb(en | valid, mbox->mbox_base + MBOX_EN_REG(cpu));
++	writeb(valid, mbox->mbox_base + MBOX_SET_REG);
++
++	return 0;
++}
++
++static bool cv1800_last_tx_done(struct mbox_chan *chan)
++{
++	struct cv1800_mbox_chan_priv *priv =
++		(struct cv1800_mbox_chan_priv *)chan->con_priv;
++	struct cv1800_mbox *mbox = dev_get_drvdata(chan->mbox->dev);
++	u8 en;
++
++	en = readb(mbox->mbox_base + MBOX_EN_REG(priv->cpu));
++
++	return !(en & BIT(priv->idx));
++}
++
++static const struct mbox_chan_ops cv1800_mbox_chan_ops = {
++	.send_data = cv1800_mbox_send_data,
++	.last_tx_done = cv1800_last_tx_done,
++};
++
++static struct mbox_chan *cv1800_mbox_xlate(struct mbox_controller *mbox,
++					   const struct of_phandle_args *spec)
++{
++	struct cv1800_mbox_chan_priv *priv;
++
++	int idx = spec->args[0];
++	int cpu = spec->args[1];
++
++	if (idx >= mbox->num_chans)
++		return ERR_PTR(-EINVAL);
++
++	priv = mbox->chans[idx].con_priv;
++	priv->cpu = cpu;
++
++	return &mbox->chans[idx];
++}
++
++static const struct of_device_id cv1800_mbox_of_match[] = {
++	{ .compatible = "sophgo,cv1800b-mailbox", },
++	{},
++};
++MODULE_DEVICE_TABLE(of, cv1800_mbox_of_match);
++
++static int cv1800_mbox_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct cv1800_mbox *mb;
++	int irq, idx, err;
++
++	mb = devm_kzalloc(dev, sizeof(*mb), GFP_KERNEL);
++	if (!mb)
++		return -ENOMEM;
++
++	mb->mbox_base = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(mb->mbox_base))
++		return dev_err_probe(dev, PTR_ERR(mb->mbox_base),
++				     "Failed to map resource\n");
++
++	mb->mbox.dev = dev;
++	mb->mbox.chans = mb->chans;
++	mb->mbox.txdone_poll = true;
++	mb->mbox.ops = &cv1800_mbox_chan_ops;
++	mb->mbox.num_chans = MAILBOX_MAX_CHAN;
++	mb->mbox.of_xlate = cv1800_mbox_xlate;
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq < 0)
++		return irq;
++
++	err = devm_request_threaded_irq(dev, irq, cv1800_mbox_irq,
++					cv1800_mbox_isr, IRQF_ONESHOT,
++					dev_name(&pdev->dev), mb);
++	if (err < 0)
++		return dev_err_probe(dev, err, "Failed to register irq\n");
++
++	for (idx = 0; idx < MAILBOX_MAX_CHAN; idx++) {
++		mb->priv[idx].idx = idx;
++		mb->mbox.chans[idx].con_priv = &mb->priv[idx];
++	}
++
++	platform_set_drvdata(pdev, mb);
++
++	err = devm_mbox_controller_register(dev, &mb->mbox);
++	if (err)
++		return dev_err_probe(dev, err, "Failed to register mailbox\n");
++
++	return 0;
++}
++
++static struct platform_driver cv1800_mbox_driver = {
++	.driver = {
++		.name = "cv1800-mbox",
++		.of_match_table = cv1800_mbox_of_match,
++	},
++	.probe	= cv1800_mbox_probe,
++};
++
++module_platform_driver(cv1800_mbox_driver);
++
++MODULE_DESCRIPTION("cv1800 mailbox driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
