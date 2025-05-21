@@ -4,58 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3E2C2D0CD
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 May 2025 10:43:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5C1C54E65
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 May 2025 10:47:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QC5z4x9gQIiiv+qzj8CLLaY98r4rtESV/3tD152qCK0=; b=Rc/vQUP2Zf9OWX
-	K6CYy/vZr3hhZhW++I1I3Dm+PizTRDF5qr7NSzYnSdSWODjpa8Z7Yv3Aoo8ZhH558wYkmUrvkJxLv
-	YJgww/o9eqw2nyawGuUupEcIkTHDR/QpUIxVcLbtT5WEbpEzQFaYRzBtgKEWolznKzOZQ2VZBE8gm
-	8IaQ3w0ItX8HX9mgprW9pP5s48mNPOHgolZLL1zWv7wGS6ClxBP1KrNhi6msRXzddkoJ0RQs8JiTC
-	pN6GHl/4NM3hc2El9yfMaZXeFZUBnDg9k8LA4PMdimQf5MNk9Fe+/SYeucgkA3xxpNZeczmFMnP1F
-	doG+HVj0q7JwME49NuPQ==;
+	List-Owner; bh=sanHGLSxrf82bfMQI7zgh6b3Nnce7Ikbom8Ad4PoXCs=; b=RS0UbPsv65qbvP
+	vfgBrP+t2RynP6zPppajT4xyQH2MBj6O2Vu0SDs5j3AQqGBloBdzzO0wuxfW5QXTdj3cJX7s5glsb
+	2a3I6IkbzXyRy0yVpLqKX5BYpF5IuG8jqiCCgyGtm3v316MX8ZesfXlQwv0DLP5onlOeQ1NRqSSXp
+	cbxyKvhTXzUtz8IaA7cu8CQqNb+nutKBeNu+DDq8MDfmmPGm8Fi5ru+9eF82ugD0c0k4DZILEXoXV
+	mhumXrKvh+bLoVbEU6ZkbVmvW6Y9YGx+sfCHJSPJqPBsFUND5SxuVXri13YB+JpiwYA1mCH8tuHGS
+	mGr5VK2jx7+C4r4VWMFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgvL-0000000FWyx-1PHp;
-	Wed, 21 May 2025 10:43:47 +0000
-Received: from relay9-d.mail.gandi.net ([217.70.183.199])
+	id 1uHgyz-0000000FXim-454D;
+	Wed, 21 May 2025 10:47:33 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHgvJ-0000000FWy2-0aRn
+	id 1uHgyx-0000000FXi9-1ZEq
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 May 2025 10:43:46 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A90C943967;
-	Wed, 21 May 2025 10:43:39 +0000 (UTC)
-Message-ID: <be461744-8a74-4ee6-9029-d3aa5e69b0f1@ghiti.fr>
-Date: Wed, 21 May 2025 12:43:39 +0200
+	Wed, 21 May 2025 10:47:33 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a365a68057so3639870f8f.0
+        for <linux-riscv@lists.infradead.org>; Wed, 21 May 2025 03:47:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747824449; x=1748429249; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GuPh8lUlczaY3BGjlWUSLoXDI89Tgqqt75TgaRLFcUw=;
+        b=uAouAl5jMKSHNkvWSRezJ2k3gP1ZLYTKl0TACh61S+zc/CMUk2qPC3EERAxie71igN
+         +Wl4E6DYiuTKC2EZzLE25WsoWd4/EURcEoqblLGyCQTCqA+CIG88mWqkCYSNL2QDx2Lu
+         fS1v2iiHO0z/rBrMZ5NB3AyZc2lIeKuxriTXAhdcaKMY344IH0O+GQo8j6kX929MNpTe
+         4jscXJSEh8iJAdbYBl3myirE838DP4fviT9rzVOPS9ab6Jqs73lJhV+FKeTQVjdo3Azn
+         Dgpzq+zn6V1CEeiAOupu2l9R/vH/G/PqWazjnpFQKzgglIHX4fOfYFWbeDEPe8+hkdtS
+         XQ4Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747824449; x=1748429249;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=GuPh8lUlczaY3BGjlWUSLoXDI89Tgqqt75TgaRLFcUw=;
+        b=gpDNWBEqeW95bcqcqAW4o0PeawnFIOVND2riEKWxT9X7z2kZmioM7BVORw2TVKhWtn
+         npRjKS9i5VQLXv2mSS85pvUXKQucjCBaUVHJAJoTWHKBMBxyMw14KaXwXzH/9dJhOHyg
+         tspgj3aJgKQmTl8u1ystbB+y/Fhjw3xzk/afMoLZj411bQ2DbvmlcKfzZy0W7TmVVVSr
+         zIivte5wmKOEEl8UJms/GdV58ycDWA4hK8/bIq8HPKJ/j/b4tv2oqWNAtEzJ+5d2mcMo
+         1TtNnHHpM/tD0xILECUx3RLH748pA3D7WZ3zjBYAWQ+O+KEocZhHT900OipT9wQTrvl1
+         a0wQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWqa7eHNqOflVTWvUfHL8BEnNx8Vc3r4XTmLpCHaQtM7IQrbuZsRm3szWBUUK11wV/A/a2hmXCr2cR+8A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yydt4BKn4ZhU4L0RCNbm6buapCutA+0mnCX8beOk60AngnJ7uSd
+	3lelAq/0fuk1MPcI0olFK0jUQs6gko/uR0aJBjdHdY1MNS/ey0CX+zBKztIhC6XSQQVAyQAYrZ1
+	ypjvBYBCC9CBmUTLYIMZwH/5+itsm7yrVcLT8SXNVrQ==
+X-Gm-Gg: ASbGnctVSMdVmJE0mB0VXUcG312D1QpiKCT/LVKPwFOn7SL3/GNu0RXlzdgXEH0Rbh2
+	x7wnFqaeo5knreEUdheAR9is7U/a2t3rf5KN+ylnjyNtSJK1fHEHjCftTqV5isuY41RGi+O9Wdh
+	0B3IK0Rj/ReEQxR8bVAlPHGtv0pFo87NIr2ppiQoPJkSDkn+cvEnvrfqQHLo27BS4KRA==
+X-Google-Smtp-Source: AGHT+IGWLqIKvXp7uTTelzRMHmTQzbuuwrui/N/uxywbrLDDyPwY7Oe/OpLTj407ZB5WzuCvFYwjCBz9VDD0W0w8LJM=
+X-Received: by 2002:a05:6000:420c:b0:3a3:7709:3038 with SMTP id
+ ffacd0b85a97d-3a3770931fdmr7245809f8f.38.1747824449047; Wed, 21 May 2025
+ 03:47:29 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 2/2] Allow for riscv-clock to pick up mmio address.
-To: aleksa.paunovic@htecgroup.com, Daniel Lezcano
- <daniel.lezcano@linaro.org>, Thomas Gleixner <tglx@linutronix.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- Albert Ou <aou@eecs.berkeley.edu>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org,
- Djordje Todorovic <djordje.todorovic@htecgroup.com>
-References: <20250514-riscv-time-mmio-v4-0-cb0cf2922d66@htecgroup.com>
- <20250514-riscv-time-mmio-v4-2-cb0cf2922d66@htecgroup.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250514-riscv-time-mmio-v4-2-cb0cf2922d66@htecgroup.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddvkeejucdltddurdegfedvrddttddmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthejredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedthfelfeejgeehveegleejleelgfevhfekieffkeeujeetfedvvefhledvgeegieenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegtugdvgeemlegsleehmeefudejsgemtgefudgrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegtugdvgeemlegsleehmeefudejsgemtgefudgrpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegtugdvgeemlegsleehmeefudejsgemtgefudgrngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopegrlhgvkhhsrgdrphgruhhnohhvihgtsehhthgvtghgrhhouhhprdgtohhmpdhrtghpthhtohepuggrnhhivghlrdhlvgiitggrnhhosehlihhnrghrohdrohhrghdprhgtphhtt
- hhopehtghhlgieslhhinhhuthhrohhnihigrdguvgdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+References: <20250116230955.867152-1-rkanwal@rivosinc.com> <20250116230955.867152-2-rkanwal@rivosinc.com>
+ <CAP-5=fU9ovvb-JopPqQfNaj6xtL=u_WZO-b56RdhBmUw4mY0ZA@mail.gmail.com> <CAECbVCvX8St8sXh9pTnyO_94-cJT_DB4MyggtS_-PXqWNtXDXw@mail.gmail.com>
+In-Reply-To: <CAECbVCvX8St8sXh9pTnyO_94-cJT_DB4MyggtS_-PXqWNtXDXw@mail.gmail.com>
+From: Rajnesh Kanwal <rkanwal@rivosinc.com>
+Date: Wed, 21 May 2025 11:47:18 +0100
+X-Gm-Features: AX0GCFuAJ7CTZOCLEIx1J9F8NwWg5BFa7WW9XLKJsd7oIYnChaTtfUeId9q8_es
+Message-ID: <CAECbVCui6ZgHBXBr3LdVGd16ERe0GgAnA1zy_zOQZVTU3bPoWw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/7] perf: Increase the maximum number of samples to 256.
+To: Ian Rogers <irogers@google.com>, ak@linux.intel.com
+Cc: "Liang, Kan" <kan.liang@linux.intel.com>, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	adrian.hunter@intel.com, alexander.shishkin@linux.intel.com, 
+	ajones@ventanamicro.com, anup@brainfault.org, acme@kernel.org, 
+	atishp@rivosinc.com, beeman@rivosinc.com, brauner@kernel.org, 
+	conor@kernel.org, heiko@sntech.de, mingo@redhat.com, james.clark@arm.com, 
+	renyu.zj@linux.alibaba.com, jolsa@kernel.org, jisheng.teoh@starfivetech.com, 
+	palmer@dabbelt.com, will@kernel.org, kaiwenxue1@gmail.com, 
+	vincent.chen@sifive.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_034345_443447_3F6B27CA 
-X-CRM114-Status: GOOD (  29.91  )
+X-CRM114-CacheID: sfid-20250521_034731_682897_12194652 
+X-CRM114-Status: GOOD (  41.26  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,258 +97,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Aleksa,
-
-First, you commit title should be prefixed with "riscv:".
-
-On 5/14/25 10:51, Aleksa Paunovic via B4 Relay wrote:
-> From: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
->
-> Allow faster rdtime access via GCR.U mtime shadow register on RISC-V
-> devices. This feature can be enabled by setting GCRU_TIME_MMIO during configuration.
-
-
-What's GCR.U? I can't find anything online. Conor asked something 
-similar in v2 btw.
-
-
->
-> Signed-off-by: Aleksa Paunovic <aleksa.paunovic@htecgroup.com>
-> ---
->   arch/riscv/include/asm/timex.h    | 48 ++++++++++--------------------
->   drivers/clocksource/Kconfig       | 12 ++++++++
->   drivers/clocksource/timer-riscv.c | 61 +++++++++++++++++++++++++++++++++++++++
->   3 files changed, 88 insertions(+), 33 deletions(-)
->
-> diff --git a/arch/riscv/include/asm/timex.h b/arch/riscv/include/asm/timex.h
-> index a06697846e69521caceac2ae4d4e040d227d2ae7..2dea35fe32c0b080ff27587088bbbe01fad22ce6 100644
-> --- a/arch/riscv/include/asm/timex.h
-> +++ b/arch/riscv/include/asm/timex.h
-> @@ -7,31 +7,25 @@
->   #define _ASM_RISCV_TIMEX_H
->   
->   #include <asm/csr.h>
-> +#include <asm/mmio.h>
-> +
-> +#include <linux/jump_label.h>
->   
->   typedef unsigned long cycles_t;
->   
-> +extern u64 __iomem *riscv_time_val;
-> +extern cycles_t (*get_cycles_ptr)(void);
-> +extern u32 (*get_cycles_hi_ptr)(void);
-> +
-> +#define riscv_time_val riscv_time_val
-
-
-As already mentioned by Daniel, this is weird ^, why don't you just 
-initialize riscv_time_val with the mmio address?
-
-
-> +
->   #ifdef CONFIG_RISCV_M_MODE
->   
->   #include <asm/clint.h>
->   
-> -#ifdef CONFIG_64BIT
-> -static inline cycles_t get_cycles(void)
-> -{
-> -	return readq_relaxed(clint_time_val);
-> -}
-> -#else /* !CONFIG_64BIT */
-> -static inline u32 get_cycles(void)
-> -{
-> -	return readl_relaxed(((u32 *)clint_time_val));
-> -}
-> -#define get_cycles get_cycles
-> +#undef riscv_time_val
->   
-> -static inline u32 get_cycles_hi(void)
-> -{
-> -	return readl_relaxed(((u32 *)clint_time_val) + 1);
-> -}
-> -#define get_cycles_hi get_cycles_hi
-> -#endif /* CONFIG_64BIT */
-> +#define riscv_time_val clint_time_val
-
-
-Yes, I would remove that too.
-
-
->   
->   /*
->    * Much like MIPS, we may not have a viable counter to use at an early point
-> @@ -45,29 +39,17 @@ static inline unsigned long random_get_entropy(void)
->   	return get_cycles();
->   }
->   #define random_get_entropy()	random_get_entropy()
-> +#endif
->   
-> -#else /* CONFIG_RISCV_M_MODE */
-> -
-> -static inline cycles_t get_cycles(void)
-> -{
-> -	return csr_read(CSR_TIME);
-> -}
-> -#define get_cycles get_cycles
-> -
-> -static inline u32 get_cycles_hi(void)
-> -{
-> -	return csr_read(CSR_TIMEH);
-> -}
-> -#define get_cycles_hi get_cycles_hi
-> -
-> -#endif /* !CONFIG_RISCV_M_MODE */
-> +#define get_cycles get_cycles_ptr
-> +#define get_cycles_hi get_cycles_ptr_hi
->   
->   #ifdef CONFIG_64BIT
->   static inline u64 get_cycles64(void)
->   {
->   	return get_cycles();
->   }
-> -#else /* CONFIG_64BIT */
-> +#else /* !CONFIG_64BIT */
->   static inline u64 get_cycles64(void)
->   {
->   	u32 hi, lo;
-> diff --git a/drivers/clocksource/Kconfig b/drivers/clocksource/Kconfig
-> index 487c8525996724fbf9c6e9726dabb478d86513b9..0f2bb75564c7d2bc9c450a7fb0eef353e5d27e69 100644
-> --- a/drivers/clocksource/Kconfig
-> +++ b/drivers/clocksource/Kconfig
-> @@ -661,6 +661,18 @@ config CLINT_TIMER
->   	  This option enables the CLINT timer for RISC-V systems.  The CLINT
->   	  driver is usually used for NoMMU RISC-V systems.
->   
-> +config GCRU_TIME_MMIO
-> +	bool "GCR.U timer support for RISC-V platforms"
-> +	depends on !RISCV_M_MODE && RISCV
-
-
-Here you depend on dt (Conor asked for this change in v2).
-
-
-> +	default n
-> +	help
-> +        Access GCR.U shadow copy of the RISC-V mtime register
-> +        on platforms that provide a compatible device, instead of
-> +        reading the time CSR. Since reading the time CSR
-> +        traps to M mode on certain platforms, this may be more efficient.
-> +
-> +        If you don't know what to do here, say n.
-> +
->   config CSKY_MP_TIMER
->   	bool "SMP Timer for the C-SKY platform" if COMPILE_TEST
->   	depends on CSKY
-> diff --git a/drivers/clocksource/timer-riscv.c b/drivers/clocksource/timer-riscv.c
-> index 4d7cf338824a3b21461c2756a002236dedc48f5f..1ccf2a95f5bcb28946dcee435f5bbea222c6fac3 100644
-> --- a/drivers/clocksource/timer-riscv.c
-> +++ b/drivers/clocksource/timer-riscv.c
-> @@ -22,6 +22,7 @@
->   #include <linux/io-64-nonatomic-lo-hi.h>
->   #include <linux/interrupt.h>
->   #include <linux/of_irq.h>
-> +#include <linux/of_address.h>
->   #include <linux/limits.h>
->   #include <clocksource/timer-riscv.h>
->   #include <asm/smp.h>
-> @@ -32,6 +33,42 @@
->   static DEFINE_STATIC_KEY_FALSE(riscv_sstc_available);
->   static bool riscv_timer_cannot_wake_cpu;
->   
-> +u64 __iomem *riscv_time_val __ro_after_init;
-> +EXPORT_SYMBOL(riscv_time_val);
-> +
-> +#ifdef CONFIG_64BIT
-> +static cycles_t __maybe_unused mmio_get_cycles(void)
-> +{
-> +	return readq_relaxed(riscv_time_val);
-> +}
-> +#else /* !CONFIG_64BIT */
-> +static cycles_t __maybe_unused mmio_get_cycles(void)
-> +{
-> +	return readl_relaxed(((u32 *)riscv_time_val));
-> +}
-> +#endif /* CONFIG_64BIT */
-> +
-> +static cycles_t __maybe_unused get_cycles_csr(void)
-> +{
-> +	return csr_read(CSR_TIME);
-> +}
-> +
-> +static u32 __maybe_unused mmio_get_cycles_hi(void)
-> +{
-> +	return readl_relaxed(((u32 *)riscv_time_val) + 1);
-> +}
-> +
-> +static u32 __maybe_unused get_cycles_hi_csr(void)
-> +{
-> +	return csr_read(CSR_TIMEH);
-> +}
-> +
-> +cycles_t (*get_cycles_ptr)(void) = get_cycles_csr;
-> +EXPORT_SYMBOL(get_cycles_ptr);
-> +
-> +u32 (*get_cycles_hi_ptr)(void) = get_cycles_hi_csr;
-> +EXPORT_SYMBOL(get_cycles_hi_ptr);
-> +
->   static void riscv_clock_event_stop(void)
->   {
->   	if (static_branch_likely(&riscv_sstc_available)) {
-> @@ -209,6 +246,11 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->   	int cpuid, error;
->   	unsigned long hartid;
->   	struct device_node *child;
-> +#if defined(CONFIG_GCRU_TIME_MMIO)
-> +	u64 mmio_addr;
-> +	u64 mmio_size;
-> +	struct device_node *gcru;
-> +#endif
->   
->   	error = riscv_of_processor_hartid(n, &hartid);
->   	if (error < 0) {
-> @@ -226,6 +268,25 @@ static int __init riscv_timer_init_dt(struct device_node *n)
->   	if (cpuid != smp_processor_id())
->   		return 0;
->   
-> +#if defined(CONFIG_GCRU_TIME_MMIO)
-> +	gcru = of_find_compatible_node(NULL, NULL, "mti,gcru");
-> +	if (gcru) {
-> +		if (!of_property_read_reg(gcru, 0, &mmio_addr, &mmio_size)) {
-> +			riscv_time_val = ioremap((long)mmio_addr, mmio_size);
-> +			if (riscv_time_val) {
-> +				pr_info("Using mmio time register at 0x%llx\n",
-> +					mmio_addr);
-> +				get_cycles_ptr = &mmio_get_cycles;
-> +				get_cycles_hi_ptr = &mmio_get_cycles_hi;
-> +			} else {
-> +				pr_warn("Unable to use mmio time at 0x%llx\n",
-> +					mmio_addr);
-> +			}
-> +			of_node_put(gcru);
-> +		}
-> +	}
-> +#endif
-> +
->   	child = of_find_compatible_node(NULL, NULL, "riscv,timer");
->   	if (child) {
->   		riscv_timer_cannot_wake_cpu = of_property_read_bool(child,
-
-
-And you have a bunch of kernel test robot failures to fix too :)
-
-Thanks,
-
-Alex
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBBcHIgMTcsIDIwMjUgYXQgMTo1MeKAr1BNIFJham5lc2ggS2Fud2FsIDxya2Fud2Fs
+QHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4KPiArIEFkZGluZyBBbmRpIEtsZWVuLgo+Cj4gT24gVGh1
+LCBGZWIgMjAsIDIwMjUgYXQgNjo1MeKAr1BNIElhbiBSb2dlcnMgPGlyb2dlcnNAZ29vZ2xlLmNv
+bT4gd3JvdGU6Cj4gPgo+ID4gT24gVGh1LCBKYW4gMTYsIDIwMjUgYXQgMzoxMOKAr1BNIFJham5l
+c2ggS2Fud2FsIDxya2Fud2FsQHJpdm9zaW5jLmNvbT4gd3JvdGU6Cj4gPiA+Cj4gPiA+IFJJU0NW
+IENUUiBleHRlbnNpb24gc3VwcG9ydCBhIG1heGltdW0gZGVwdGggb2YgMjU2IGxhc3QgYnJhbmNo
+IHJlY29yZHMuCj4gPiA+IFRoZSAxMjcgZW50cmllcyBsaW1pdCByZXN1bHRzIGluIGNvcnJ1cHRp
+bmcgQ1RSIGVudHJpZXMgZm9yIFJJU0MtViBpZgo+ID4gPiBjb25maWd1cmVkIHRvIGJlIDI1NiBl
+bnRyaWVzLiBUaGlzIHdpbGwgbm90IGltcGFjdCBhbnkgb3RoZXIgYXJjaGl0ZWN0dXJlcwo+ID4g
+PiBhcyBpdCBpcyBqdXN0IGluY3JlYXNpbmcgbWF4aW11bSBsaW1pdCBvZiBwb3NzaWJsZSBlbnRy
+aWVzLgo+ID4KPiA+IEkgd29uZGVyIGlmIHJhdGhlciB0aGFuIGEgY29uc3RhbnQgdGhpcyBjb2Rl
+IHNob3VsZCBqdXN0IHVzZSB0aGUgYXV0bwo+ID4gcmVzaXppbmcgaGFzaG1hcCBjb2RlPwo+ID4g
+aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdG9ydmFsZHMv
+bGludXguZ2l0L3RyZWUvdG9vbHMvcGVyZi91dGlsL2hhc2htYXAuaAo+ID4KPiA+IEkgYXNzdW1l
+IHRoZSB2YWx1ZSBvZiAxMjcgY29tZXMgZnJvbSBwZXJmX2V2ZW50LmgncyBQRVJGX01BWF9TVEFD
+S19ERVBUSDoKPiA+IGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwv
+Z2l0L3RvcnZhbGRzL2xpbnV4LmdpdC90cmVlL2luY2x1ZGUvdWFwaS9saW51eC9wZXJmX2V2ZW50
+LmgjbjEyNTIKPiA+Cj4gPiBQZXJoYXBzIHRoZXNlIGNvbnN0YW50cyBzaG91bGRuJ3QgZXhpc3Qu
+IFRoZSBwZXJmLXJlY29yZCBtYW4gcGFnZSBtZW50aW9uczoKPiA+IHN5c2N0bC5rZXJuZWwucGVy
+Zl9ldmVudF9tYXhfc3RhY2sKPiA+IHdoaWNoIEkgYmVsaWV2ZSBnZXRzIGEgdmFsdWUgZnJvbQo+
+ID4gL3Byb2Mvc3lzL2tlcm5lbC9wZXJmX2V2ZW50X21heF9zdGFjaywgc28gbWF5YmUgdGhlc2Ug
+c2hvdWxkIGJlCj4gPiBydW50aW1lIGRldGVybWluZWQgY29uc3RhbnRzIHJhdGhlciB0aGFuIGNv
+bXBpbGUgdGltZS4KCldoaWxlIHdvcmtpbmcgb24gdGhpcywgSSBjYW1lIGFjcm9zcyB0aGUgZm9s
+bG93aW5nIHR3byBwYXRjaGVzLiBJdApsb29rcyBsaWtlIHdoYXQKeW91IGhhdmUgc3VnZ2VzdGVk
+LCBpdCB3YXMgdHJpZWQgYmVmb3JlIGJ1dCBsYXRlciBvbiBBcm5hbGRvIHJldmVydGVkIHRoZSBj
+aGFuZ2UKZnJvbSByZXBvcnQgYW5kIHNjcmlwdCBjbWRzIGR1ZSB0byByZWFzb25zIG1lbnRpb25l
+ZCBpbiB0aGUgc2Vjb25kIHBhdGNoLgoKaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGttbC8xNDYx
+NzY3NDcyLTg4MjctMzEtZ2l0LXNlbmQtZW1haWwtYWNtZUBrZXJuZWwub3JnLwpodHRwczovL2xv
+cmUua2VybmVsLm9yZy9sa21sLzE0NjM2OTY0OTMtMjc1MjgtOC1naXQtc2VuZC1lbWFpbC1hY21l
+QGtlcm5lbC5vcmcvCgpSZWdhcmRzClJham5lc2gKCgo+ID4KPgo+IFRoYW5rcyBJYW4gZm9yIHlv
+dXIgZmVlZGJhY2suIEkgYW0gbm90IHN1cmUgaWYgaXQncyBmZWFzaWJsZSB0byB1c2UgYXV0bwo+
+IHJlc2l6aW5nIGhhc2htYXAgaGVyZS4gT24gZWFjaCBzYW1wbGUgb2YgMjU2IGVudHJpZXMgd2Ug
+d2lsbCBiZSBkb2luZwo+IDYgY2FsbG9jcyBhbmQgdHJhbnNmZXJyaW5nIGEgd2hvbGUgbG90IG9m
+IGVudHJpZXMgaW4gaGFzaG1hcF9ncm93LiBXZQo+IGNhbid0IHJldXNlIG9sZCBoYXNobWFwIGFz
+IHdlbGwuIE9uIGVhY2ggc2FtcGxlIHdlIGJlYXIgdGhlIHNhbWUgY29zdAo+Cj4gQnV0IEkgZG8g
+YWdyZWUgdGhpcyBzaG91bGQgYmUgbW9yZSBkeW5hbWljIGJ1dCB0aGUgbWF4aW11bSBudW1iZXIK
+PiBvZiBlbnRyaWVzIHJlbW92ZV9sb29wcyBjYW4gcHJvY2VzcyBpcyBsaW1pdGVkIGJ5IHRoZSB0
+eXBlIG9mIGNoYXNoIGFycmF5Cj4gaGVyZS4gSSBjYW4gY2hhbmdlIGl0IGFuZCByZWxhdGVkIGxv
+Z2ljIHRvIHVzZSB1aW50MTZfdCBvciBoaWdoZXIgYnV0IHdlCj4gd2lsbCBzdGlsbCBoYXZlIGEg
+Y2FwIG9uIHRoZSBudW1iZXIgb2YgZW50cmllcy4KPgo+IFBFUkZfTUFYX0JSQU5DSF9ERVBUSCBz
+ZWVtcyB0byBiZSBkZW5vdGluZyB3aGF0IHJlbW92ZV9sb29wcwo+IGNhbiBwcm9jZXNzLiBUaGlz
+IGlzIGJlaW5nIHVzZWQgYnkgdGhyZWFkX19yZXNvbHZlX2NhbGxjaGFpbl9zYW1wbGUgdG8KPiBj
+aGVjayBpZiB0aGUgc2FtcGxlIGlzIHByb2Nlc3NhYmxlIGJlZm9yZSBjYWxsaW5nIHJlbW92ZV9s
+b29wcy4gSSB0aGluawo+IHRoaXMgY2FuJ3QgYmUgY2hhbmdlZCB0byB1c2UgcGVyZl9ldmVudF9t
+YXhfc3RhY2suIEJ1dCBJIGNhbiByZW5hbWUKPiB0aGlzIG1hY3JvIHRvIGF2b2lkIGNvbmZ1c2lv
+bi4KPgo+IEkgZGlkbid0IG5vdGljZSBQRVJGX01BWF9TVEFDS19ERVBUSC4gVGhpcyBzZWVtcyB0
+byBiZSBkZWZpbmVkIGluCj4gbXVsdGlwbGUgcGxhY2VzIGFuZCB0b3VjaGVzIGJwZiBhcyB3ZWxs
+LiBJIGFncmVlIHRoYXQgd2Ugc2hvdWxkIGF2b2lkCj4gdXNpbmcgdGhpcyBtYWNybyBhbmQgdXNl
+IHJ1bnRpbWUgZGV0ZXJtaW5lZCB2YWx1ZSBpbnN0ZWFkLiBUYmggSSBkb24ndAo+IGhhdmUgc3Vw
+ZXIgaW4tZGVwdGggcGVyZiB1bmRlcnN0YW5kaW5nLiBJIHdpbGwgZ2l2ZSB0aGlzIGEgdHJ5IGFu
+ZCBzZW5kIGEKPiBwYXRjaCBpbiB0aGUgbmV4dCB1cGRhdGUuIEl0IHdvdWxkIGJlIGhlbHBmdWwg
+aWYgeW91IGNhbiByZXZpZXcgaXQuCj4KPiBUaGFua3MKPiAtUmFqbmVzaAo+Cj4gPiBUaGFua3Ms
+Cj4gPiBJYW4KPiA+Cj4gPiA+IFNpZ25lZC1vZmYtYnk6IFJham5lc2ggS2Fud2FsIDxya2Fud2Fs
+QHJpdm9zaW5jLmNvbT4KPiA+ID4gLS0tCj4gPiA+ICB0b29scy9wZXJmL3V0aWwvbWFjaGluZS5j
+IHwgMjEgKysrKysrKysrKysrKystLS0tLS0tCj4gPiA+ICAxIGZpbGUgY2hhbmdlZCwgMTQgaW5z
+ZXJ0aW9ucygrKSwgNyBkZWxldGlvbnMoLSkKPiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL3Rvb2xz
+L3BlcmYvdXRpbC9tYWNoaW5lLmMgYi90b29scy9wZXJmL3V0aWwvbWFjaGluZS5jCj4gPiA+IGlu
+ZGV4IDI3ZDUzNDVkMmIzMC4uZjJlYjNjMjAyNzRlIDEwMDY0NAo+ID4gPiAtLS0gYS90b29scy9w
+ZXJmL3V0aWwvbWFjaGluZS5jCj4gPiA+ICsrKyBiL3Rvb2xzL3BlcmYvdXRpbC9tYWNoaW5lLmMK
+PiA+ID4gQEAgLTIxNzQsMjUgKzIxNzQsMzIgQEAgc3RhdGljIHZvaWQgc2F2ZV9pdGVyYXRpb25z
+KHN0cnVjdCBpdGVyYXRpb25zICppdGVyLAo+ID4gPiAgICAgICAgICAgICAgICAgaXRlci0+Y3lj
+bGVzICs9IGJlW2ldLmZsYWdzLmN5Y2xlczsKPiA+ID4gIH0KPiA+ID4KPiA+ID4gLSNkZWZpbmUg
+Q0hBU0hTWiAxMjcKPiA+ID4gLSNkZWZpbmUgQ0hBU0hCSVRTIDcKPiA+ID4gLSNkZWZpbmUgTk9f
+RU5UUlkgMHhmZgo+ID4gPiArI2RlZmluZSBDSEFTSEJJVFMgOAo+ID4gPiArI2RlZmluZSBOT19F
+TlRSWSAweGZmVQo+ID4gPgo+ID4gPiAtI2RlZmluZSBQRVJGX01BWF9CUkFOQ0hfREVQVEggMTI3
+Cj4gPiA+ICsjZGVmaW5lIFBFUkZfTUFYX0JSQU5DSF9ERVBUSCAyNTYKPiA+ID4KPiA+ID4gIC8q
+IFJlbW92ZSBsb29wcy4gKi8KPiA+ID4gKy8qIE5vdGU6IExhc3QgZW50cnkgKGk9PWZmKSB3aWxs
+IG5ldmVyIGJlIGNoZWNrZWQgYWdhaW5zdCBOT19FTlRSWQo+ID4gPiArICogc28gaXQncyBzYWZl
+IHRvIGhhdmUgYW4gdW5zaWduZWQgY2hhciBhcnJheSB0byBwcm9jZXNzIDI1NiBlbnRyaWVzCj4g
+PiA+ICsgKiB3aXRob3V0IGNhdXNpbmcgY2xhc2ggYmV0d2VlbiBsYXN0IGVudHJ5IGFuZCBOT19F
+TlRSWSB2YWx1ZS4KPiA+ID4gKyAqLwo+ID4gPiAgc3RhdGljIGludCByZW1vdmVfbG9vcHMoc3Ry
+dWN0IGJyYW5jaF9lbnRyeSAqbCwgaW50IG5yLAo+ID4gPiAgICAgICAgICAgICAgICAgICAgICAg
+ICBzdHJ1Y3QgaXRlcmF0aW9ucyAqaXRlcikKPiA+ID4gIHsKPiA+ID4gICAgICAgICBpbnQgaSwg
+aiwgb2ZmOwo+ID4gPiAtICAgICAgIHVuc2lnbmVkIGNoYXIgY2hhc2hbQ0hBU0hTWl07Cj4gPiA+
+ICsgICAgICAgdW5zaWduZWQgY2hhciBjaGFzaFtQRVJGX01BWF9CUkFOQ0hfREVQVEhdOwo+ID4g
+Pgo+ID4gPiAgICAgICAgIG1lbXNldChjaGFzaCwgTk9fRU5UUlksIHNpemVvZihjaGFzaCkpOwo+
+ID4gPgo+ID4gPiAtICAgICAgIEJVR19PTihQRVJGX01BWF9CUkFOQ0hfREVQVEggPiAyNTUpOwo+
+ID4gPiArICAgICAgIEJVR19PTihQRVJGX01BWF9CUkFOQ0hfREVQVEggPiAyNTYpOwo+ID4gPgo+
+ID4gPiAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBucjsgaSsrKSB7Cj4gPiA+IC0gICAgICAgICAg
+ICAgICBpbnQgaCA9IGhhc2hfNjQobFtpXS5mcm9tLCBDSEFTSEJJVFMpICUgQ0hBU0hTWjsKPiA+
+ID4gKyAgICAgICAgICAgICAgIC8qIFJlbWFpbmRlciBkaXZpc2lvbiBieSBQRVJGX01BWF9CUkFO
+Q0hfREVQVEggaXMgbm90Cj4gPiA+ICsgICAgICAgICAgICAgICAgKiBuZWVkZWQgYXMgaGFzaF82
+NCB3aWxsIGFueXdheSBsaW1pdCB0aGUgaGFzaAo+ID4gPiArICAgICAgICAgICAgICAgICogdG8g
+Q0hBU0hCSVRTCj4gPiA+ICsgICAgICAgICAgICAgICAgKi8KPiA+ID4gKyAgICAgICAgICAgICAg
+IGludCBoID0gaGFzaF82NChsW2ldLmZyb20sIENIQVNIQklUUyk7Cj4gPiA+Cj4gPiA+ICAgICAg
+ICAgICAgICAgICAvKiBubyBjb2xsaXNpb24gaGFuZGxpbmcgZm9yIG5vdyAqLwo+ID4gPiAgICAg
+ICAgICAgICAgICAgaWYgKGNoYXNoW2hdID09IE5PX0VOVFJZKSB7Cj4gPiA+IC0tCj4gPiA+IDIu
+MzQuMQo+ID4gPgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
+cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
+dgo=
