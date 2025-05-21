@@ -4,58 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2791DC54E65
-	for <linux-riscv@archiver.kernel.org>; Wed, 21 May 2025 07:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D43F6C54E65
+	for <linux-riscv@archiver.kernel.org>; Wed, 21 May 2025 08:32:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WXz3PwnN3XaV6elTVIL7NxgxikSOy2bFSGKZsnFueDA=; b=rQi0RCatUL6fU+
-	WyDyKcXl6OOcYk/M7eu7C5AAZcPBpMrJXrOFOTcJwpTuArHOia0xMeVk4F7iklHTJMVwtu3stD7xX
-	Lsd8VvyYYPB3o+jc9Zc+lzZvgB81YrKnK6AoYQerJPWghnHYQNPK5eWOtgBCxb4IyV88fj8bvpsMx
-	QSjzYO+/pmlMrruuceWb4+zu6au0L6wkxSsOPUC2Yehi9RCxzq5JVCsxzF3E7NIxHa1lFOYGX1uy+
-	LhBeroRuV6mEWsGLPI5Xc1jsGXWSvif+f6PfBiLTb0XOGpOYVfkKgBg1j35HwxcHd1lLKE8moHNyz
-	j4viKuX/3iHOn9DYRciA==;
+	List-Owner; bh=ZP4XWPr3sk3UMSAkd9P1V9Ckh7l88CUTXL86PK0jq1k=; b=eNvguJUVPYjk82
+	OgV1J127zQJFyRN4rxCCH1VD8ieVDG8FSc+lW5TvHcxW/fH7sEJfa+YA6l7SuU9NlfGYEjOVl2Js9
+	TLvFsNcQ6nNfS3ZrZHlojBZiL6WSXFR3bVrfDMGWk3svh2jy75d6/JRe6PIdJfSbB2t0WjNSKni3c
+	EcilcUKKPri9HMVRYzgwG+c8leVFUovpt/HZek66L0y+u2qA3PBHb3VzCEV+ZwdCXe/KeE8NdqI0W
+	3fCNHYyWiIitZlgtA81mTnXujp5UiXLuAWNerLKC4G/aRgV+4zpiByZrKZtAJjVj5mH3w6bqD0OcA
+	MOG1gdDB0Lbkg59w5VNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHeFs-0000000F6gg-2wxa;
-	Wed, 21 May 2025 07:52:48 +0000
-Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
+	id 1uHerg-0000000FAEd-0lVw;
+	Wed, 21 May 2025 08:31:52 +0000
+Received: from imap4.hz.codethink.co.uk ([188.40.203.114])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uHeFr-0000000F6fY-0UGt
+	id 1uHemK-0000000F9cD-0ky6
 	for linux-riscv@lists.infradead.org;
-	Wed, 21 May 2025 07:52:48 +0000
-Received: from localhost (unknown [116.232.18.143])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id AC0563430E9;
-	Wed, 21 May 2025 07:52:44 +0000 (UTC)
-Date: Wed, 21 May 2025 07:52:35 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: wangjingwei@iscas.ac.cn
-Cc: linux-riscv@lists.infradead.org,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Tsukasa OI <research_trasio@irq.a4lg.com>
-Subject: Re: [PATCH] riscv: hwprobe: Fix stale vDSO data for late-initialized
- keys at boot
-Message-ID: <20250521075235-GYA30582@gentoo>
-References: <20250521052754.185231-1-wangjingwei@iscas.ac.cn>
+	Wed, 21 May 2025 08:26:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=codethink.co.uk; s=imap4-20230908; h=Sender:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=unY4ZkkFJvMvzpRLBpHRrQvWzW6DFaqYnyjHyxE82Yk=; b=f0kP9C9pbk5QepmdxX7LsfuN/C
+	97Tur95xdAkqqpgmOzWxOU6tiNaFGxvuLGp3gJ+OodpUleMfqAz4Mw5Ub4J9bDYZH+OzuBBC+xAGE
+	ji4tBK69AG4TWEEzsijBnQnc1DdW/9VMDxXZVRWLwq07oEi1sQ0bgnjTiGybaQlgiQT1c1uGcru3x
+	xdZR6Q8cdxPGZLMauLxnUrH6yGbMzviVvMq+PXAq7yJ0WZD1TX5RYP/IKupyS+OvZibxbcAkk0Yy8
+	ybVUv4b/FKJfjjeNUt5ccF/mK91bIkpZcqXAx6l9LghMrl/R9yd8gpFDDDYNSM+Uy0L5Q3flh7qhb
+	JDGabJ4Q==;
+Received: from [167.98.27.226] (helo=[10.35.6.194])
+	by imap4.hz.codethink.co.uk with esmtpsa  (Exim 4.94.2 #2 (Debian))
+	id 1uHemB-00FE3X-F6; Wed, 21 May 2025 09:26:12 +0100
+Message-ID: <145b6e37-bbb3-47ec-b9dc-3450a7f3da2b@codethink.co.uk>
+Date: Wed, 21 May 2025 09:26:10 +0100
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250521052754.185231-1-wangjingwei@iscas.ac.cn>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 1/5] riscv: save the SR_SUM status over switches
+To: Alexandre Ghiti <alex@ghiti.fr>, Cyril Bur <cyrilbur@tenstorrent.com>,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, paul.walmsley@sifive.com,
+ charlie@rivosinc.com, jrtc27@jrtc27.com
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ jszhang@kernel.org, syzbot+e74b94fe601ab9552d69@syzkaller.appspotmail.com
+References: <20250410070526.3160847-1-cyrilbur@tenstorrent.com>
+ <20250410070526.3160847-2-cyrilbur@tenstorrent.com>
+ <d09e80c2-024c-4fe0-b71e-6af88e239ea9@ghiti.fr>
+Content-Language: en-GB
+From: Ben Dooks <ben.dooks@codethink.co.uk>
+Organization: Codethink Limited.
+In-Reply-To: <d09e80c2-024c-4fe0-b71e-6af88e239ea9@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250521_005247_186606_60576D5C 
-X-CRM114-Status: GOOD (  29.33  )
+X-CRM114-CacheID: sfid-20250521_012620_450143_3AAD1D1A 
+X-CRM114-Status: GOOD (  26.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,145 +73,136 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Jingwei,
-
-On 13:27 Wed 21 May     , wangjingwei@iscas.ac.cn wrote:
-> From: Jingwei Wang <wangjingwei@iscas.ac.cn>
-> 
-> The riscv_hwprobe vDSO data is populated by init_hwprobe_vdso_data(),
-> an arch_initcall_sync. However, underlying data for some keys, like
-> RISCV_HWPROBE_KEY_MISALIGNED_VECTOR_PERF, is determined asynchronously.
-> 
-> Specifically, the per_cpu(vector_misaligned_access, cpu) values are set
-> by the vec_check_unaligned_access_speed_all_cpus kthread. This kthread
-> is spawned by an earlier arch_initcall (check_unaligned_access_all_cpus)
-> and may complete its benchmark *after* init_hwprobe_vdso_data() has
-> already populated the vDSO with default/stale values.
-> 
-> This patch introduces riscv_hwprobe_vdso_sync(sync_key). This function
-> is now called by the vec_check_unaligned_access_speed_all_cpus kthread
-> upon its completion. It re-evaluates the specified key using current kernel
-> state (including the finalized per-CPU data) via hwprobe_one_pair()
-> and updates the corresponding entry in vdso_k_arch_data.
-> 
-Personally, it's unnecessary to explain the patch line by line, 
-giving a high level summary would be great
-
-> This ensures the vDSO accurately reflects the final boot-time values
-> for keys determined by such asynchronous boot tasks, resolving observed
-> inconsistencies when userspace starts.
-> 
-> Test by comparing vDSO and syscall results for affected keys
-> (e.g., MISALIGNED_VECTOR_PERF), which now match their final
-> boot-time values.
-> 
-> Reported-by: Tsukasa OI <research_trasio@irq.a4lg.com>
-> Closes: https://lore.kernel.org/linux-riscv/760d637b-b13b-4518-b6bf-883d55d44e7f@irq.a4lg.com/
-As you give a Closes tag here, so I'd ask
-
-Can you check which commit introduced this problem? it might warrant
-a Fixes tag, please also CC stable if needed
-
-(Check the kernel commit log for what's format of Fixes tag,
- 12 charactors for hash + full commit title)
-
-> Signed-off-by: Jingwei Wang <wangjingwei@iscas.ac.cn>
-> ---
->  arch/riscv/include/asm/hwprobe.h           |  4 ++++
->  arch/riscv/kernel/sys_hwprobe.c            | 16 ++++++++++++++++
->  arch/riscv/kernel/unaligned_access_speed.c |  4 +++-
->  3 files changed, 23 insertions(+), 1 deletion(-)
-> 
-> diff --git a/arch/riscv/include/asm/hwprobe.h b/arch/riscv/include/asm/hwprobe.h
-> index 1f690fea0e03de6a..02c34f03d8b9bc83 100644
-> --- a/arch/riscv/include/asm/hwprobe.h
-> +++ b/arch/riscv/include/asm/hwprobe.h
-> @@ -40,4 +40,8 @@ static inline bool riscv_hwprobe_pair_cmp(struct riscv_hwprobe *pair,
->  	return pair->value == other_pair->value;
->  }
->  
-> +#ifdef CONFIG_MMU
-> +void riscv_hwprobe_vdso_sync(s64 sync_key);
-> +#endif /* CONFIG_MMU */
-> +
-we usually try to avoid repeat "#ifdef CONFIG_MMU" in header & c file (unaligned_access_speed.c)
-so, you can do
-
-#ifdef CONFIG_MMU
-void riscv_hwprobe_vdso_sync(s64 sync_key);
-#else
-static inline void riscv_hwprobe_vdso_sync(s64 sync_key) { };
-#endif /* CONFIG_MMU */
-
-
->  #endif
-> diff --git a/arch/riscv/kernel/sys_hwprobe.c b/arch/riscv/kernel/sys_hwprobe.c
-> index 249aec8594a92a80..c2593bd766055d35 100644
-> --- a/arch/riscv/kernel/sys_hwprobe.c
-> +++ b/arch/riscv/kernel/sys_hwprobe.c
-> @@ -17,6 +17,7 @@
->  #include <asm/vector.h>
->  #include <asm/vendor_extensions/thead_hwprobe.h>
->  #include <vdso/vsyscall.h>
-> +#include <vdso/datapage.h>
->  
->  
->  static void hwprobe_arch_id(struct riscv_hwprobe *pair,
-> @@ -500,6 +501,21 @@ static int __init init_hwprobe_vdso_data(void)
->  
->  arch_initcall_sync(init_hwprobe_vdso_data);
->  
-> +void riscv_hwprobe_vdso_sync(s64 sync_key)
-> +{
-> +	struct vdso_arch_data *avd = vdso_k_arch_data;
-> +	struct riscv_hwprobe pair;
-> +
-> +	pair.key = sync_key;
-> +	hwprobe_one_pair(&pair, cpu_online_mask);
-> +	/*
-> +	 * Update vDSO data for the given key.
-> +	 * Currently for non-ID key updates (e.g. MISALIGNED_VECTOR_PERF),
-> +	 * so 'homogeneous_cpus' is not re-evaluated here.
-> +	 */
-> +	avd->all_cpu_hwprobe_values[sync_key] = pair.value;
-> +}
-> +
->  #endif /* CONFIG_MMU */
->  
->  SYSCALL_DEFINE5(riscv_hwprobe, struct riscv_hwprobe __user *, pairs,
-> diff --git a/arch/riscv/kernel/unaligned_access_speed.c b/arch/riscv/kernel/unaligned_access_speed.c
-> index 585d2dcf2dab1ccb..7194aee3bf3234e5 100644
-> --- a/arch/riscv/kernel/unaligned_access_speed.c
-> +++ b/arch/riscv/kernel/unaligned_access_speed.c
-> @@ -375,7 +375,9 @@ static void check_vector_unaligned_access(struct work_struct *work __always_unus
->  static int __init vec_check_unaligned_access_speed_all_cpus(void *unused __always_unused)
->  {
->  	schedule_on_each_cpu(check_vector_unaligned_access);
-> -
-> +#ifdef CONFIG_MMU
-> +	riscv_hwprobe_vdso_sync(RISCV_HWPROBE_KEY_MISALIGNED_VECTOR_PERF);
-> +#endif
->  	return 0;
->  }
->  #else /* CONFIG_RISCV_PROBE_VECTOR_UNALIGNED_ACCESS */
-> -- 
-> 2.49.0
-> 
-> 
-> _______________________________________________
-> linux-riscv mailing list
-> linux-riscv@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-riscv
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gMjIvMDQvMjAyNSAxMToyMiwgQWxleGFuZHJlIEdoaXRpIHdyb3RlOgo+IEhpIEN5cmlsLAo+
+IAo+IE9uIDEwLzA0LzIwMjUgMDk6MDUsIEN5cmlsIEJ1ciB3cm90ZToKPj4gRnJvbTogQmVuIERv
+b2tzIDxiZW4uZG9va3NAY29kZXRoaW5rLmNvLnVrPgo+Pgo+PiBXaGVuIHRocmVhZHMvdGFza3Mg
+YXJlIHN3aXRjaGVkIHdlIG5lZWQgdG8gZW5zdXJlIHRoZSBvbGQgZXhlY3V0aW9uJ3MKPj4gU1Jf
+U1VNIHN0YXRlIGlzIHNhdmVkIGFuZCB0aGUgbmV3IHRocmVhZCBoYXMgdGhlIG9sZCBTUl9TVU0g
+c3RhdGUKPj4gcmVzdG9yZWQuCj4+Cj4+IFRoZSBpc3N1ZSB3YXMgc2VlbiB1bmRlciBoZWF2eSBs
+b2FkIGVzcGVjaWFsbHkgd2l0aCB0aGUgc3l6LXN0cmVzcyB0b29sCj4+IHJ1bm5pbmcsIHdpdGgg
+Y3Jhc2hlcyBhcyBmb2xsb3dzIGluIHNjaGVkdWxlX3RhaWw6Cj4+Cj4+IFVuYWJsZSB0byBoYW5k
+bGUga2VybmVsIGFjY2VzcyB0byB1c2VyIG1lbW9yeSB3aXRob3V0IHVhY2Nlc3Mgcm91dGluZXMK
+Pj4gYXQgdmlydHVhbCBhZGRyZXNzIDAwMDAwMDAwMjc0OWYwZDAKPj4gT29wcyBbIzFdCj4+IE1v
+ZHVsZXMgbGlua2VkIGluOgo+PiBDUFU6IDEgUElEOiA0ODc1IENvbW06IHN5ei1leGVjdXRvci4w
+IE5vdCB0YWludGVkCj4+IDUuMTIuMC1yYzItc3l6a2FsbGVyLTAwNDY3LWcwZDc1ODhhYjllZjkg
+IzAKPj4gSGFyZHdhcmUgbmFtZTogcmlzY3YtdmlydGlvLHFlbXUgKERUKQo+PiBlcGMgOiBzY2hl
+ZHVsZV90YWlsKzB4NzIvMHhiMiBrZXJuZWwvc2NoZWQvY29yZS5jOjQyNjQKPj4gwqAgcmEgOiB0
+YXNrX3BpZF92bnIgaW5jbHVkZS9saW51eC9zY2hlZC5oOjE0MjEgW2lubGluZV0KPj4gwqAgcmEg
+OiBzY2hlZHVsZV90YWlsKzB4NzAvMHhiMiBrZXJuZWwvc2NoZWQvY29yZS5jOjQyNjQKPj4gZXBj
+IDogZmZmZmZmZTAwMDA4YzhiMCByYSA6IGZmZmZmZmUwMDAwOGM4YWUgc3AgOiBmZmZmZmZlMDI1
+ZDE3ZWMwCj4+IMKgIGdwIDogZmZmZmZmZTAwNWQyNTM3OCB0cCA6IGZmZmZmZmUwMGYwZDAwMDAg
+dDAgOiAwMDAwMDAwMDAwMDAwMDAwCj4+IMKgIHQxIDogMDAwMDAwMDAwMDAwMDAwMSB0MiA6IDAw
+MDAwMDAwMDAwZjQyNDAgczAgOiBmZmZmZmZlMDI1ZDE3ZWUwCj4+IMKgIHMxIDogMDAwMDAwMDAy
+NzQ5ZjBkMCBhMCA6IDAwMDAwMDAwMDAwMDAwMmEgYTEgOiAwMDAwMDAwMDAwMDAwMDAzCj4+IMKg
+IGEyIDogMWZmZmZmZmMwY2ZhYzUwMCBhMyA6IGZmZmZmZmUwMDAwYzgwY2MgYTQgOiA1YWU5ZGI5
+MWMxOWJiZTAwCj4+IMKgIGE1IDogMDAwMDAwMDAwMDAwMDAwMCBhNiA6IDAwMDAwMDAwMDBmMDAw
+MDAgYTcgOiBmZmZmZmZlMDAwMDgyZWJhCj4+IMKgIHMyIDogMDAwMDAwMDAwMDA0MDAwMCBzMyA6
+IGZmZmZmZmUwMGVlZjk2YzAgczQgOiBmZmZmZmZlMDIyYzc3ZmUwCj4+IMKgIHM1IDogMDAwMDAw
+MDAwMDAwNDAwMCBzNiA6IGZmZmZmZmUwNjdkNzRlMDAgczcgOiBmZmZmZmZlMDY3ZDc0ODUwCj4+
+IMKgIHM4IDogZmZmZmZmZTA2N2Q3M2UxOCBzOSA6IGZmZmZmZmUwNjdkNzRlMDAgczEwOiBmZmZm
+ZmZlMDBlZWY5NmU4Cj4+IMKgIHMxMTogMDAwMDAwYWU2Y2RmODM2OCB0MyA6IDVhZTlkYjkxYzE5
+YmJlMDAgdDQgOiBmZmZmZmZjNDA0M2NhZmIyCj4+IMKgIHQ1IDogZmZmZmZmYzQwNDNjYWZiYSB0
+NiA6IDAwMDAwMDAwMDAwNDAwMDAKPj4gc3RhdHVzOiAwMDAwMDAwMDAwMDAwMTIwIGJhZGFkZHI6
+IDAwMDAwMDAwMjc0OWYwZDAgY2F1c2U6Cj4+IDAwMDAwMDAwMDAwMDAwMGYKPj4gQ2FsbCBUcmFj
+ZToKPj4gWzxmZmZmZmZlMDAwMDhjOGIwPl0gc2NoZWR1bGVfdGFpbCsweDcyLzB4YjIga2VybmVs
+L3NjaGVkL2NvcmUuYzo0MjY0Cj4+IFs8ZmZmZmZmZTAwMDAwNTU3MD5dIHJldF9mcm9tX2V4Y2Vw
+dGlvbisweDAvMHgxNAo+PiBEdW1waW5nIGZ0cmFjZSBidWZmZXI6Cj4+IMKgwqDCoCAoZnRyYWNl
+IGJ1ZmZlciBlbXB0eSkKPj4gLS0tWyBlbmQgdHJhY2UgYjVmOGY5MjMxZGM4N2RkYSBdLS0tCj4+
+Cj4+IFRoZSBpc3N1ZSBjb21lcyBmcm9tIHRoZSBwdXRfdXNlcigpIGluIHNjaGVkdWxlX3RhaWwK
+Pj4gKGtlcm5lbC9zY2hlZC9jb3JlLmMpIGRvaW5nIHRoZSBmb2xsb3dpbmc6Cj4+Cj4+IGFzbWxp
+bmthZ2UgX192aXNpYmxlIHZvaWQgc2NoZWR1bGVfdGFpbChzdHJ1Y3QgdGFza19zdHJ1Y3QgKnBy
+ZXYpCj4+IHsKPj4gLi4uCj4+IMKgwqDCoMKgwqDCoMKgwqAgaWYgKGN1cnJlbnQtPnNldF9jaGls
+ZF90aWQpCj4+IMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHB1dF91c2VyKHRhc2tf
+cGlkX3ZucihjdXJyZW50KSwgY3VycmVudC0+c2V0X2NoaWxkX3RpZCk7Cj4+IC4uLgo+PiB9Cj4+
+Cj4+IHRoZSBwdXRfdXNlcigpIG1hY3JvIGNhdXNlcyB0aGUgY29kZSBzZXF1ZW5jZSB0byBjb21l
+IG91dCBhcyBmb2xsb3dzOgo+Pgo+PiAxOsKgwqDCoCBfX2VuYWJsZV91c2VyX2FjY2VzcygpCj4+
+IDI6wqDCoMKgIHJlZyA9IHRhc2tfcGlkX3ZucihjdXJyZW50KTsKPj4gMzrCoMKgwqAgKmN1cnJl
+bnQtPnNldF9jaGlsZF90aWQgPSByZWc7Cj4+IDQ6wqDCoMKgIF9fZGlzYWJsZV91c2VyX2FjY2Vz
+cygpCj4+Cj4+IFRoZSBwcm9ibGVtIGlzIHRoYXQgd2UgbWF5IGhhdmUgYSBzbGVlcGluZyBmdW5j
+dGlvbiBhcyBhcmd1bWVudCB3aGljaAo+PiBjb3VsZCBjbGVhciBTUl9TVU0gY2F1c2luZyB0aGUg
+cGFuaWMgYWJvdmUuIFRoaXMgd2FzIGZpeGVkIGJ5Cj4+IGV2YWx1YXRpbmcgdGhlIGFyZ3VtZW50
+IG9mIHRoZSBwdXRfdXNlcigpIG1hY3JvIG91dHNpZGUgdGhlIHVzZXItZW5hYmxlZAo+PiBzZWN0
+aW9uIGluIGNvbW1pdCAyODVhNzZiYjJjZjUgKCJyaXNjdjogZXZhbHVhdGUgcHV0X3VzZXIoKSBh
+cmcgYmVmb3JlCj4+IGVuYWJsaW5nIHVzZXIgYWNjZXNzIikiCj4+Cj4+IEluIG9yZGVyIGZvciBy
+aXNjdiB0byB0YWtlIGFkdmFudGFnZSBvZiB1bnNhZmVfZ2V0L3B1dF9YWFgoKSBtYWNyb3MgYW5k
+Cj4+IHRvIGF2b2lkIHRoZSBzYW1lIGlzc3VlIHdlIGhhZCB3aXRoIHB1dF91c2VyKCkgYW5kIHNs
+ZWVwaW5nIGZ1bmN0aW9ucyB3ZQo+PiBtdXN0IGVuc3VyZSBjb2RlIGZsb3cgY2FuIGdvIHRocm91
+Z2ggc3dpdGNoX3RvKCkgZnJvbSB3aXRoaW4gYSByZWdpb24gb2YKPj4gY29kZSB3aXRoIFNSX1NV
+TSBlbmFibGVkIGFuZCBjb21lIGJhY2sgd2l0aCBTUl9TVU0gc3RpbGwgZW5hYmxlZC4gVGhpcwo+
+PiBwYXRjaCBhZGRyZXNzZXMgdGhlIHByb2JsZW0gYWxsb3dpbmcgZnV0dXJlIHdvcmsgdG8gZW5h
+YmxlIGZ1bGwgdXNlIG9mCj4+IHVuc2FmZV9nZXQvcHV0X1hYWCgpIG1hY3JvcyB3aXRob3V0IG5l
+ZWRpbmcgdG8gdGFrZSBhIENTUiBiaXQgZmxpcCBjb3N0Cj4+IG9uIGV2ZXJ5IGFjY2Vzcy4gTWFr
+ZSBzd2l0Y2hfdG8oKSBzYXZlIGFuZCByZXN0b3JlIFNSX1NVTS4KPj4KPj4gUmVwb3J0ZWQtYnk6
+IHN5emJvdCtlNzRiOTRmZTYwMWFiOTU1MmQ2OUBzeXprYWxsZXIuYXBwc3BvdG1haWwuY29tCj4+
+IFNpZ25lZC1vZmYtYnk6IEJlbiBEb29rcyA8YmVuLmRvb2tzQGNvZGV0aGluay5jby51az4KPj4g
+U2lnbmVkLW9mZi1ieTogQ3lyaWwgQnVyIDxjeXJpbGJ1ckB0ZW5zdG9ycmVudC5jb20+Cj4+IC0t
+LQo+PiDCoCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oIHwgMSArCj4+IMKgIGFy
+Y2gvcmlzY3Yva2VybmVsL2FzbS1vZmZzZXRzLmPCoMKgwqAgfCA1ICsrKysrCj4+IMKgIGFyY2gv
+cmlzY3Yva2VybmVsL2VudHJ5LlPCoMKgwqDCoMKgwqDCoMKgwqAgfCA4ICsrKysrKysrCj4+IMKg
+IDMgZmlsZXMgY2hhbmdlZCwgMTQgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJj
+aC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS8gCj4+
+IGFzbS9wcm9jZXNzb3IuaAo+PiBpbmRleCA1ZjU2ZWI5ZDExNGEuLjU4ZmQxMWM4OWZlOSAxMDA2
+NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9wcm9jZXNzb3IuaAo+PiArKysgYi9h
+cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Byb2Nlc3Nvci5oCj4+IEBAIC0xMDMsNiArMTAzLDcgQEAg
+c3RydWN0IHRocmVhZF9zdHJ1Y3Qgewo+PiDCoMKgwqDCoMKgIHN0cnVjdCBfX3Jpc2N2X2RfZXh0
+X3N0YXRlIGZzdGF0ZTsKPj4gwqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIGJhZF9jYXVzZTsKPj4g
+wqDCoMKgwqDCoCB1bnNpZ25lZCBsb25nIGVudmNmZzsKPj4gK8KgwqDCoCB1bnNpZ25lZCBsb25n
+IHN0YXR1czsKPj4gwqDCoMKgwqDCoCB1MzIgcmlzY3Zfdl9mbGFnczsKPj4gwqDCoMKgwqDCoCB1
+MzIgdnN0YXRlX2N0cmw7Cj4+IMKgwqDCoMKgwqAgc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUg
+dnN0YXRlOwo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9mZnNldHMuYyBi
+L2FyY2gvcmlzY3Yva2VybmVsL2FzbS0gCj4+IG9mZnNldHMuYwo+PiBpbmRleCAxNjQ5MDc1NTMw
+NGUuLjk2OWM2NWIxZmU0MSAxMDA2NDQKPj4gLS0tIGEvYXJjaC9yaXNjdi9rZXJuZWwvYXNtLW9m
+ZnNldHMuYwo+PiArKysgYi9hcmNoL3Jpc2N2L2tlcm5lbC9hc20tb2Zmc2V0cy5jCj4+IEBAIC0z
+NCw2ICszNCw3IEBAIHZvaWQgYXNtX29mZnNldHModm9pZCkKPj4gwqDCoMKgwqDCoCBPRkZTRVQo
+VEFTS19USFJFQURfUzksIHRhc2tfc3RydWN0LCB0aHJlYWQuc1s5XSk7Cj4+IMKgwqDCoMKgwqAg
+T0ZGU0VUKFRBU0tfVEhSRUFEX1MxMCwgdGFza19zdHJ1Y3QsIHRocmVhZC5zWzEwXSk7Cj4+IMKg
+wqDCoMKgwqAgT0ZGU0VUKFRBU0tfVEhSRUFEX1MxMSwgdGFza19zdHJ1Y3QsIHRocmVhZC5zWzEx
+XSk7Cj4+ICvCoMKgwqAgT0ZGU0VUKFRBU0tfVEhSRUFEX1NUQVRVUywgdGFza19zdHJ1Y3QsIHRo
+cmVhZC5zdGF0dXMpOwo+PiDCoMKgwqDCoMKgIE9GRlNFVChUQVNLX1RJX0NQVSwgdGFza19zdHJ1
+Y3QsIHRocmVhZF9pbmZvLmNwdSk7Cj4+IMKgwqDCoMKgwqAgT0ZGU0VUKFRBU0tfVElfUFJFRU1Q
+VF9DT1VOVCwgdGFza19zdHJ1Y3QsIAo+PiB0aHJlYWRfaW5mby5wcmVlbXB0X2NvdW50KTsKPj4g
+QEAgLTM0Niw2ICszNDcsMTAgQEAgdm9pZCBhc21fb2Zmc2V0cyh2b2lkKQo+PiDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgIG9mZnNldG9mKHN0cnVjdCB0YXNrX3N0cnVjdCwgdGhyZWFkLnNbMTFdKQo+
+PiDCoMKgwqDCoMKgwqDCoMKgwqAgLSBvZmZzZXRvZihzdHJ1Y3QgdGFza19zdHJ1Y3QsIHRocmVh
+ZC5yYSkKPj4gwqDCoMKgwqDCoCApOwo+PiArwqDCoMKgIERFRklORShUQVNLX1RIUkVBRF9TVEFU
+VVNfUkEsCj4+ICvCoMKgwqDCoMKgwqDCoMKgwqAgb2Zmc2V0b2Yoc3RydWN0IHRhc2tfc3RydWN0
+LCB0aHJlYWQuc3RhdHVzKQo+PiArwqDCoMKgwqDCoMKgwqAgLSBvZmZzZXRvZihzdHJ1Y3QgdGFz
+a19zdHJ1Y3QsIHRocmVhZC5yYSkKPj4gK8KgwqDCoCApOwo+PiDCoMKgwqDCoMKgIERFRklORShU
+QVNLX1RIUkVBRF9GMF9GMCwKPj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvZmZzZXRvZihzdHJ1
+Y3QgdGFza19zdHJ1Y3QsIHRocmVhZC5mc3RhdGUuZlswXSkKPj4gZGlmZiAtLWdpdCBhL2FyY2gv
+cmlzY3Yva2VybmVsL2VudHJ5LlMgYi9hcmNoL3Jpc2N2L2tlcm5lbC9lbnRyeS5TCj4+IGluZGV4
+IDMzYTVhOWYyYTBkNC4uMDBiZDBkZTlmYWEyIDEwMDY0NAo+PiAtLS0gYS9hcmNoL3Jpc2N2L2tl
+cm5lbC9lbnRyeS5TCj4+ICsrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2VudHJ5LlMKPj4gQEAgLTM5
+Nyw5ICszOTcsMTcgQEAgU1lNX0ZVTkNfU1RBUlQoX19zd2l0Y2hfdG8pCj4+IMKgwqDCoMKgwqAg
+UkVHX1MgczkswqAgVEFTS19USFJFQURfUzlfUkEoYTMpCj4+IMKgwqDCoMKgwqAgUkVHX1MgczEw
+LCBUQVNLX1RIUkVBRF9TMTBfUkEoYTMpCj4+IMKgwqDCoMKgwqAgUkVHX1MgczExLCBUQVNLX1RI
+UkVBRF9TMTFfUkEoYTMpCj4+ICsKPj4gK8KgwqDCoCAvKiBzYXZlIHRoZSB1c2VyIHNwYWNlIGFj
+Y2VzcyBmbGFnICovCj4+ICvCoMKgwqAgbGnCoMKgwqAgczAsIFNSX1NVTQo+IAo+IAo+IFRoaXMg
+aXMgbm90IG5lZWRlZCBhbnltb3JlIF4gYnV0IEknbGwgcmVtb3ZlIGl0IHdoZW4gbWVyZ2luZyB5
+b3VyIHBhdGNoc2V0Lgo+IAoKQ291bGQgeW91IGJlIG1vcmUgc3BlY2lmaWMgYWJvdXQgd2hhdCAi
+dGhpcyIgaXM/CgpJZiB3ZSBkb24ndCBzYXZlL3Jlc3RvcmUgdGhlIFNSX1NVTSBiaXQgSSB0aGlu
+ayBvdXIgb2xkIGZyaWVuZAp0aGUgc2NoZWRfdGFpbCBidWcgd2lsbCBqdXN0IHJldHVybi4KCgo+
+PiArwqDCoMKgIGNzcnLCoCBzMSwgQ1NSX1NUQVRVUwo+PiArwqDCoMKgIFJFR19TIHMxLCBUQVNL
+X1RIUkVBRF9TVEFUVVNfUkEoYTMpCj4+ICsKPj4gwqDCoMKgwqDCoCAvKiBTYXZlIHRoZSBrZXJu
+ZWwgc2hhZG93IGNhbGwgc3RhY2sgcG9pbnRlciAqLwo+PiDCoMKgwqDCoMKgIHNjc19zYXZlX2N1
+cnJlbnQKPj4gwqDCoMKgwqDCoCAvKiBSZXN0b3JlIGNvbnRleHQgZnJvbSBuZXh0LT50aHJlYWQg
+Ki8KPj4gK8KgwqDCoCBSRUdfTCBzMCzCoCBUQVNLX1RIUkVBRF9TVEFUVVNfUkEoYTQpCj4+ICvC
+oMKgwqAgY3Nyc8KgIENTUl9TVEFUVVMsIHMwCj4+IMKgwqDCoMKgwqAgUkVHX0wgcmEswqAgVEFT
+S19USFJFQURfUkFfUkEoYTQpCj4+IMKgwqDCoMKgwqAgUkVHX0wgc3AswqAgVEFTS19USFJFQURf
+U1BfUkEoYTQpCj4+IMKgwqDCoMKgwqAgUkVHX0wgczAswqAgVEFTS19USFJFQURfUzBfUkEoYTQp
+Cj4gCj4gUmV2aWV3ZWQtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdoaXRpQHJpdm9zaW5jLmNv
+bT4KPiAKPiBUaGFua3MgZm9yIHRoZSBtdWx0aXBsZSByZXZpc2lvbnMhCj4gCj4gQWxleAo+IAo+
+IAo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gbGlu
+dXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4gbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwo+
+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+PiAKCgotLSAKQmVuIERvb2tzCQkJCWh0dHA6Ly93d3cuY29kZXRoaW5rLmNvLnVrLwpTZW5pb3Ig
+RW5naW5lZXIJCQkJQ29kZXRoaW5rIC0gUHJvdmlkaW5nIEdlbml1cwoKaHR0cHM6Ly93d3cuY29k
+ZXRoaW5rLmNvLnVrL3ByaXZhY3kuaHRtbAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxp
+c3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0
+aW5mby9saW51eC1yaXNjdgo=
