@@ -4,93 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3711C54E90
-	for <linux-riscv@archiver.kernel.org>; Thu, 22 May 2025 09:58:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFAAAC54E90
+	for <linux-riscv@archiver.kernel.org>; Thu, 22 May 2025 11:03:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fidnP1SeqeRdqSgNdkSXkxUalLnCu8HtID7MDbZWGjg=; b=JlRnLB6I90M+yf
-	Pdye2LlZyR3iFgU/q3UvwgkxeR2Xa98fhYM7VG3cwKpl7dYX+gT1qR31fJhldDi7NwoxMXJmJBWKB
-	MfUPnmtAsrSp6FEBOCO2NC0ACSnkE+x2v2+CKk/J/8rpJwEkdFNgLXMdtb2Xi/uLTz5gjhrdXVEnM
-	Z4h65Db8Kxwzs1w/t86PdcdagG9+y4zwgADa0yBwl2oRt81lDwpHXnQxnsQ483bfs6sdd6r91mLcS
-	64Bd0eXIZqpr8VRN5rzxSragKNU6e4ByChgTH8n9NePOn2o4D71of99b3OYMjBVBh5h6EVTMh8HTI
-	hBM1PiaN90DYvuDM83Vg==;
+	List-Owner; bh=UDN+U//AVzHw4mZETmkIbyrYtQVLbVuwD60r6y4j2Fg=; b=AiryNMxg4hp4O0
+	FAX/gZmljyKPHnat23tgH4c/rUNM9Bs0YpZYZ4gmY9Kb021jUdeIra08FuTpudw1smf6Nrb4IK6B7
+	ykWBK86cqV1Cj7gJdj3ecIC82sxMzRpGmWBPAAHKdByl8b3tq8jEas4FSzMWDiu5rmQqwbYgbfNuE
+	Yz3mhEdSTaMoONisDowcRi4zswdlh32ZygR9ycIPVBUA2MlETrJ4rD0EP5hMaiO/K3kIbJqvSrnRc
+	8yk63Qji+wGU6ghUFBZLSwqKx+k1AbCRDaalTLwWRqD5kMC/ilIPvrYyxPM2w62WHpcoSzpzUaW1C
+	eDey0nocpJiMTDEq/o4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2go-00000000b8A-36f8;
-	Thu, 22 May 2025 09:58:14 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1uI3iI-00000000n6V-39j2;
+	Thu, 22 May 2025 11:03:50 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uI2eB-00000000aUw-44RT
+	id 1uI3iG-00000000n5e-0bSn
 	for linux-riscv@lists.infradead.org;
-	Thu, 22 May 2025 09:55:33 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43cfba466b2so86033395e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 22 May 2025 02:55:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747907730; x=1748512530; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=N85CK9sWp6+mFnqAqGxmA0vF6xRLZ1OY4Jq5uN3nns0=;
-        b=V+iHKCXqsB5vwu/K579lY4waA8nLjCHISHJ4lzmOl34J0NzuFe35vPbE73UMxGIhkM
-         phRUETVUlTUsh/g5YIVDo0905BnFddDa2GOpYinJgcScumuuV9lgzPAJ4LHMWqbF2s+X
-         37PXep8RGpnuMHP3vZZUPA0nFQXgzVwjhVRYs8VeFELXBEHJYolcFzM4IFrXfCMmk9qO
-         jIwmIgaEgi88Df1jS7fPN/w+YfgQEksmJuSTHiI9zfQsW975Yh2mjT9A30gBerOXOJ/q
-         OaHiLqCx1/YvH0Jt4fX/TBl05jfHHKFv8NgSDXbfSfHG8G2Q5ViDKWfYpFOFfZaj29/s
-         FhbQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1747907730; x=1748512530;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=N85CK9sWp6+mFnqAqGxmA0vF6xRLZ1OY4Jq5uN3nns0=;
-        b=vqXRD9FJwMVYEqwHt/rnrvDiFCM2iIGbO0wUBEp+4TqW2ipBskH1X/h2lUlkjdwcsg
-         SbaH+MUWtLodRDr2Tjl3PFG4egbvisTH6AWLEWvUBGkWvCyeyEqJDpoFTN8fzaO0CV2C
-         tVw6LVYBx4Tv+u3jSi82VJVPLGseXK4qMAodibZUJeJ7qrs7H4GwbKTop2wO1lZCsYir
-         0VQPNW89VMjTswNzitT2lXxbOpXDXDejZrEQm1fO4hmbj925P0VlFYt6cr23RP8nGCP3
-         rgY/sWDwOjvy3h3+nGxNDF7Ah+zr3PK2O/2BB+s/iNF929ANE/zCkOQjEwxLYpvFyd30
-         By4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWfX4tdhwts8MUd6LetEGqXzRIXwaJ5WjZiA/NHj9Cu3B6OYNKAWS7aY6VjNN+28l+I3o+eqJzAcHKQbA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvKhakIXYPgUDO6IfMLYCS1JTd+S+ByFJGh8UUr4+SB7VXk1cy
-	XWJgcB9h+zolbvfS+n/7uivwRlJW7yG1jHoFzud0lAocS9xuWDGMq4Q+zEogViamzn8=
-X-Gm-Gg: ASbGncuAaMI3qp0UW05LmQ+xpjeRfywZ7KglNg71Iu1iP7+cO1O6n+/vYeC/tzYqNFF
-	yvO75wJQ7rCsbAxnUlXZPgwvyk66WkcbbGwSl0uM5EGw4SJJjkWBWEfS8NwJMoOqKcBD40H6zv+
-	sKO3GXYjN4R53TeR/FrAl/8SmyJA65LcJ9AE6Ca7kpdmCyEUvJsrl6s8u8ZfBEebRMSc5blIRsm
-	QHTajpywLy8WjQDmL+xe/OHziBn5XCxgU7yGItM6SDXVSxlQX+AE9sG3PixxZAlvt+Q1smY+Fn/
-	f6FcI6eLDxJaWGe1wOsUfxejXRfzFljGNuIniD/QM3vchzO7YXDY2w9pyNzqednifY8PDcberVA
-	/BUseEVZgq+g2qmESd8YZ
-X-Google-Smtp-Source: AGHT+IGlBdPQ4Ket+t0Pzwh3J2o3hjvlvuhgKqsoA4ERFUZXVz8H96bSIMPAXq+HQL+iX73vE7/+8w==
-X-Received: by 2002:a05:600c:c059:20b0:43c:fb95:c752 with SMTP id 5b1f17b1804b1-442ffc60edemr147130325e9.3.1747907730316;
-        Thu, 22 May 2025 02:55:30 -0700 (PDT)
-Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-447f23bfdd9sm96314495e9.18.2025.05.22.02.55.29
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 22 May 2025 02:55:29 -0700 (PDT)
-Message-ID: <3c8474fb-75fd-4ea1-887a-53f625e4eadf@rivosinc.com>
-Date: Thu, 22 May 2025 11:55:29 +0200
+	Thu, 22 May 2025 11:03:49 +0000
+Received: from localhost (unknown [116.232.18.143])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 3B7F63430BD;
+	Thu, 22 May 2025 11:03:44 +0000 (UTC)
+Date: Thu, 22 May 2025 11:03:33 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Alex Elder <elder@riscstar.com>, linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] mmc: sdhci-of-k1: add support for SpacemiT K1 SoC
+Message-ID: <20250522110333-GYA30672@gentoo>
+References: <20250501-20-k1-sdhci-v2-0-3e7005fae29b@gentoo.org>
+ <20250501-20-k1-sdhci-v2-2-3e7005fae29b@gentoo.org>
+ <CAPDyKFoDWS6DWdKOaxTDEYeKv3hjVDoR7XGi19nESVssc-RG8g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/4] drivers: firmware: add riscv SSE support
-To: Qingfang Deng <dqfext@gmail.com>, Paul Walmsley
- <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Cc: Himanshu Chauhan <hchauhan@ventanamicro.com>,
- Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>,
- Atish Patra <atishp@atishpatra.org>,
- Conor Dooley <conor.dooley@microchip.com>
-References: <20250516152355.560448-4-cleger@rivosinc.com>
- <20250516152355.560448-1-cleger@rivosinc.com>
- <20250521074627.4042832-1-dqfext@gmail.com>
-Content-Language: en-US
-From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-In-Reply-To: <20250521074627.4042832-1-dqfext@gmail.com>
+Content-Disposition: inline
+In-Reply-To: <CAPDyKFoDWS6DWdKOaxTDEYeKv3hjVDoR7XGi19nESVssc-RG8g@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_025532_006327_2C2A8EB0 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250522_040348_206952_61E0570F 
+X-CRM114-Status: GOOD (  22.56  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,31 +65,137 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-CgpPbiAyMS8wNS8yMDI1IDA5OjQ2LCBRaW5nZmFuZyBEZW5nIHdyb3RlOgo+IEhpIENsw6ltZW50
-LAo+IAo+IE9uIEZyaSwgMTYgTWF5IDIwMjUgMTc6MjM6NDEgKzAyMDAsIENsw6ltZW50IEzDqWdl
-ciB3cm90ZToKPj4gK3N0YXRpYyBzdHJ1Y3Qgc3NlX2V2ZW50ICpzc2VfZXZlbnRfZ2V0KHUzMiBl
-dnQpCj4+ICt7Cj4+ICsJc3RydWN0IHNzZV9ldmVudCAqZXZlbnQgPSBOVUxMLCAqdG1wOwo+PiAr
-Cj4+ICsJc2NvcGVkX2d1YXJkKHNwaW5sb2NrLCAmZXZlbnRzX2xpc3RfbG9jaykgewo+PiArCQls
-aXN0X2Zvcl9lYWNoX2VudHJ5KHRtcCwgJmV2ZW50cywgbGlzdCkgewo+PiArCQkJaWYgKHRtcC0+
-ZXZ0X2lkID09IGV2dCkKPj4gKwkJCQlyZXR1cm4gZXZlbnQ7Cj4gCj4gYGV2ZW50YCBpcyBub3Qg
-YmVpbmcgdXBkYXRlZCBieSB0aGUgbG9vcCBhbmQgdGhlcmVmb3JlIGlzIGFsd2F5cyBOVUxMLgo+
-IERpZCB5b3UgbWVhbiB0byByZXR1cm4gYHRtcGA/CgpIaSBRaW5nZmFuZywKCkluZGVlZCwgdGhh
-dCdzIGEgbWlzdGFrZSBJIG1hZGUgd2hpbGUgcmVuYW1pbmcgdGhlIGV2dC9ldmVudCBzdHVmZi4g
-SQpkaWRuJ3Qgc2F3IHRoYXQgc2luY2UgaXQgaXMgb25seSB1c2VkIHRvIGNoZWNrIHRoYXQgd2Ug
-ZG9uJ3QgcmVnaXN0ZXIgYW4KZXZlbnQgdHdpY2UuIEdvb2QgY2F0Y2guCgo+IAo+PiArCQl9Cj4+
-ICsJfQo+PiArCj4+ICsJcmV0dXJuIE5VTEw7Cj4+ICt9Cj4gCj4gPHNuaXA+Cj4gCj4+ICtzdGF0
-aWMgaW50IF9faW5pdCBzc2VfaW5pdCh2b2lkKQo+PiArewo+PiArCWludCBjcHUsIHJldDsKPj4g
-Kwo+PiArCWlmIChzYmlfcHJvYmVfZXh0ZW5zaW9uKFNCSV9FWFRfU1NFKSA8PSAwKSB7Cj4+ICsJ
-CXByX2VycigiTWlzc2luZyBTQkkgU1NFIGV4dGVuc2lvblxuIik7Cj4+ICsJCXJldHVybiAtRU9Q
-Tk9UU1VQUDsKPj4gKwl9Cj4+ICsJcHJfaW5mbygiU0JJIFNTRSBleHRlbnNpb24gZGV0ZWN0ZWRc
-biIpOwo+PiArCj4+ICsJZm9yX2VhY2hfcG9zc2libGVfY3B1KGNwdSkKPj4gKwkJSU5JVF9MSVNU
-X0hFQUQoJmV2ZW50cyk7Cj4gCj4gYGV2ZW50c2AgaXMgYWxyZWFkeSBpbml0aWFsaXplZC4KClll
-cyBpbmRlZWQsCgpUaGFua3MsCgpDbMOpbWVudAoKPiAKPiBRaW5nZmFuZwoKCl9fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
-bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
-YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+Hi Ulf,
+
+On 13:34 Mon 19 May     , Ulf Hansson wrote:
+> On Thu, 1 May 2025 at 10:51, Yixun Lan <dlan@gentoo.org> wrote:
+> >
+> > The SDHCI controller found in SpacemiT K1 SoC features SD,
+> > SDIO, eMMC support, such as:
+> >
+> > - Compatible for 4-bit SDIO 3.0 UHS-I protocol, up to SDR104
+> > - Compatible for 4-bit SD 3.0 UHS-I protocol, up to SDR104
+> > - Compatible for 8bit eMMC5.1, up to HS400
+> >
+> > Signed-off-by: Yixun Lan <dlan@gentoo.org>
+> > ---
+> >  drivers/mmc/host/Kconfig       |  14 ++
+> >  drivers/mmc/host/Makefile      |   1 +
+> >  drivers/mmc/host/sdhci-of-k1.c | 306 +++++++++++++++++++++++++++++++++++++++++
+> >  3 files changed, 321 insertions(+)
+> >
+> > [...]
+> > +
+> > +#include "sdhci.h"
+> > +#include "sdhci-pltfm.h"
+> > +
+> > +#define SDHC_MMC_CTRL_REG              0x114
+I will add 'SPACEMIT_' prefix for the register definitions,
+AFAIK, vendor will continue to reuse this IP for their next generation SoC
+
+> > +#define  MISC_INT_EN                   BIT(1)
+> > +#define  MISC_INT                      BIT(2)
+for BITs definition, it's also quite generic.. I could add
+'SDHC_' prefix to make them slightly unique, and as all those registers
+fall into SDHC category..
+
+> 
+> These define-names look a bit too generic to me. Please add some
+> additional prefixes so it becomes more clear what they are.
+> 
+Initially, I've followed the datasheet closely for creating those naming..
+
+https://developer.spacemit.com/documentation?token=WZNvwFDkYinYx0k9jzPcMK5WnIe#12.5.4.36-sdhc_mmc_ctrl_reg-register
+
+> This applies to all the others below too.
+> 
+> > +#define  ENHANCE_STROBE_EN             BIT(8)
+> > +#define  MMC_HS400                     BIT(9)
+> > +#define  MMC_HS200                     BIT(10)
+> > +#define  MMC_CARD_MODE                 BIT(12)
+> > +
+> > +#define SDHC_TX_CFG_REG                        0x11C
+> > +#define  TX_INT_CLK_SEL                        BIT(30)
+> > +#define  TX_MUX_SEL                    BIT(31)
+> > +
+> > +#define SDHC_PHY_CTRL_REG              0x160
+> > +#define  PHY_FUNC_EN                   BIT(0)
+> > +#define  PHY_PLL_LOCK                  BIT(1)
+> > +#define  HOST_LEGACY_MODE              BIT(31)
+> > +
+> > +#define SDHC_PHY_FUNC_REG              0x164
+> > +#define  PHY_TEST_EN                   BIT(7)
+> > +#define  HS200_USE_RFIFO               BIT(15)
+> > +
+> > +#define SDHC_PHY_DLLCFG                        0x168
+> > +#define  DLL_PREDLY_NUM                        GENMASK(3, 2)
+> > +#define  DLL_FULLDLY_RANGE             GENMASK(5, 4)
+> > +#define  DLL_VREG_CTRL                 GENMASK(7, 6)
+> > +#define  DLL_ENABLE                    BIT(31)
+> > +
+> > +#define SDHC_PHY_DLLCFG1               0x16C
+> > +#define  DLL_REG1_CTRL                 GENMASK(7, 0)
+> > +#define  DLL_REG2_CTRL                 GENMASK(15, 8)
+> > +#define  DLL_REG3_CTRL                 GENMASK(23, 16)
+> > +#define  DLL_REG4_CTRL                 GENMASK(31, 24)
+> > +
+> > +#define SDHC_PHY_DLLSTS                        0x170
+> > +#define  DLL_LOCK_STATE                        BIT(0)
+> > +
+> > +#define SDHC_PHY_PADCFG_REG            0x178
+> > +#define  PHY_DRIVE_SEL                 GENMASK(2, 0)
+> > +#define  RX_BIAS_CTRL                  BIT(5)
+> 
+> [...]
+> 
+> > +
+> > +static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
+> > +{
+> > +       struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +       spacemit_sdhci_setbits(host, MMC_HS400, SDHC_MMC_CTRL_REG);
+> > +       host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
+> 
+> At least this deserves a comment. Isn't MMC_CAP_WAIT_WHILE_BUSY
+> working for all cases?
+> 
+I mostly copy the logic from vendor driver while refactoring the code,
+and again check the logic, it sounds a little bit weird that the flag
+is enabled in pre_select_hs400(), then disabled in post_select_hs400(),
+I really don't understand the logic behind this, or even any quirk?..
+
+while, I've tested both cases of enabling or disabling the flag globally,
+they both works fine as result.. so to be conservative, I plan to drop
+this "enable-and-disable" logic, and would revisit them once adding
+"SD card/SDIO" support in the future
+
+> > +
+> > +       return 0;
+> > +}
+> > +
+> > +static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
+> > +{
+> > +       struct sdhci_host *host = mmc_priv(mmc);
+> > +
+> > +       spacemit_sdhci_phy_dll_init(host);
+> > +       host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
+> 
+> Dito.
+> 
+> [...]
+> 
+> Kind regards
+> Uffe
+
+-- 
+Yixun Lan (dlan)
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
