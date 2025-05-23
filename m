@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCFC0C54ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 15:09:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8869AC54ED0
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 15:34:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:References:
+	In-Reply-To:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pcPGoGaHcEnG41rUcQ+Gd4YeCEc2f+rLexVg2qilmyc=; b=MYz6EphUMmEgpa
-	fd/Mv0zKwHUO1UuPNoBvfrmEn7Zs1XNvfpUv3ese0INoZe731uklQn4ZrD8cWGg82VZAX1GC7cJFP
-	STEahWeGPNFrkU/d9EZfLETM0ucvyLQFrbl9k055NzDrrrjCy8DZsuty6zz46BI7qjwynIr+kv8W2
-	MyhUefFpwno5Js6kMrQfgjHDn62ra9iP3LK6jLRHNnew0zl7LoTyQy8XeutWY8pO9WdKUP1U/rS1g
-	T9/EwxB4VuOWXXgkZH5t55IOuz12PxjhxMJGsb7yVWBYyWxnGhxnEkNNlBacboWkLvqNFsmbKJPfx
-	nWrqL9KDu8fb//rZk6fg==;
+	List-Owner; bh=SCfrxySdaHdu8c5PgdDgmkpNDOLw5awTc0oGO+0KngQ=; b=xHKGifsMaXAPHr
+	pM+nZRtgNVlbqwYaVQYlDHzPfT5+K3EZHCWwtJlZrt4Ljs1FkDS6K2+kUZrK/oFPZ7fXwcEf3u/wI
+	zL3Zf+wVuBJCWK379pXrbZv4Jci4OijTDh+KP/xeAvsQaMyFM70b2kb90w4DkPTAw0vV9LQIh6wTD
+	A1Aaqy9BeSkkUJUeygRIUoBs6VGUtGWQ3LtnLMNh1WPlc2d+ec9egpzkC2ioMvH/lhg9Tsu1VrkzY
+	UhZ3eW1/Z8DwvIliMOtU4MQL/b1JGtpmWbYudPS7GAXS7J9oszA9l8q+ACpTOY5DSoQtFCOj7CK6N
+	qD91uNuq4qL9V2kTAWBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIU1s-00000004CHD-07BK;
-	Fri, 23 May 2025 15:09:48 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uIUPh-00000004GNJ-2KJU;
+	Fri, 23 May 2025 15:34:25 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITgG-000000048WT-43wF
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 14:47:30 +0000
-Received: from [127.0.0.1] (unknown [116.232.18.143])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 77F9B343270;
-	Fri, 23 May 2025 14:47:23 +0000 (UTC)
-From: Yixun Lan <dlan@gentoo.org>
-Date: Fri, 23 May 2025 22:46:32 +0800
-Subject: [PATCH 2/2] mmc: sdhci-of-k1: disable HW busy detection
+	id 1uIU7n-00000004DpY-0u0i;
+	Fri, 23 May 2025 15:15:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3B52E5C5DCC;
+	Fri, 23 May 2025 15:13:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C994AC4CEE9;
+	Fri, 23 May 2025 15:15:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748013353;
+	bh=XWCE6jqKFyONnv3rqRo5aIekZYBw6AYzIcZy4RKLG3w=;
+	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
+	b=HX8ckC8AMTt3FFPZ5hRUKl69FZBqaXO6fLB2Y7SpVFP65PAO1kjsi8SJWon7Y8VAL
+	 5AlZGipDmdwo6ASrUJHjlZWt23IWVhtZ8w28sd2J+3k/5KL0Ds5/1Kd8fX92L9NeSK
+	 djeiHI1ul7E3zdbl/W4YgmZQN1kHFHTDKeqsu/HEEZ+Cnkla1/YwztmITvG8ynuDgE
+	 JgYg8/t8HUSDfYIDhxSbHCCufsrGiAF7Z4dT97PjU3++rt/osFUnAzdC53SPsceP8v
+	 LTwB//5TEGvRiD/yhKtzXkNNBxvtdGzOsRy/8HOt85jlnfIqIfWPNhzlqEZfOF+w9l
+	 PDqA51dZv9e7g==
+Date: Fri, 23 May 2025 08:15:49 -0700
+From: Kees Cook <kees@kernel.org>
+To: Andrew Donnellan <ajd@linux.ibm.com>, Arnd Bergmann <arnd@arndb.de>
+CC: Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Naveen N Rao <naveen@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>,
+ Andrew Morton <akpm@linux-foundation.org>, linuxppc-dev@lists.ozlabs.org,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>,
+ Andrey Ryabinin <ryabinin.a.a@gmail.com>, Ard Biesheuvel <ardb@kernel.org>,
+ Masahiro Yamada <masahiroy@kernel.org>,
+ Nathan Chancellor <nathan@kernel.org>,
+ Nicolas Schier <nicolas.schier@linux.dev>,
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>,
+ linux-kernel@vger.kernel.org, x86@kernel.org, kasan-dev@googlegroups.com,
+ linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-s390@vger.kernel.org, linux-efi@vger.kernel.org,
+ linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ sparclinux@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline mismatches
+User-Agent: K-9 Mail for Android
+In-Reply-To: <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
+References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-8-kees@kernel.org> <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
+Message-ID: <6E407BC0-4D84-4420-AE07-EF85EBA1AB1C@kernel.org>
 MIME-Version: 1.0
-Message-Id: <20250523-21-k1-sdhci-v1-2-9f293116a7e7@gentoo.org>
-References: <20250523-21-k1-sdhci-v1-0-9f293116a7e7@gentoo.org>
-In-Reply-To: <20250523-21-k1-sdhci-v1-0-9f293116a7e7@gentoo.org>
-To: Adrian Hunter <adrian.hunter@intel.com>, 
- Ulf Hansson <ulf.hansson@linaro.org>
-Cc: linux-mmc@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
- Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1167; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=ci51TN0zWIkUuCtREvFuALW7XcksRaibdd6IoD9Sm2g=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoMIpyusZ8D6qbB+Gs/i5nVYuZsa0KAy+jE6sr9
- 4Jzp4cyFhWJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaDCKcl8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277agdD/9arIG33iPsRPT10E
- r3siK0Jzx331n/x1wWBEQpcPdFVnkYdMUh5FMmG0XN4zXPFjii2T82PJDM4F8i/thQ2dex9mPrV
- puQPBg0tEVJs4UABj4N4KSuA9bmCEH76BB44+XSMvBrWejUmQfP+DN5wrDWihXJL0RPL+z7ziT5
- XGGj2FIrCPoWnLvrF1WwD4EUbJtxgrROXKB3qW8AFUMYHSwjOzvec795itMAI1XrlFXT35HSsEm
- U64F4k2OpbL3qnfgSdkhs/qakKo8WImxyLNwuE9TkRaAo73DSOhiZ8ZYUh4y/aY+ci0uORQSvSd
- xWTYf0CsymAI/eDKAWMTdTjeXCkBxgbfteujZbpcbAa7l9PJd5cC4RFQUixKfC5YgQCY0r4aktD
- n4uV1ZTqiQEbaACGgrqaNK5EoP+MxvbbEN8PwZ1yccSsljkMpDs5xzN7f3kBZE/bAAvz/W6fb/x
- afcWfLOu+o/2Lo+vk/qqAmCIOnkpSx0ACcm9apH/G9Xfzc0fvQ9m8U+0r8d4zl7iXZj+nLSxdWY
- vBZRfdDEGtvwC+C0ByqWKPEMHr7HV2EiTPwS7Tdvdki6Je1SZNaD2DjPHDcUJd716dbOjtt5LaY
- xNup/HkQEje5HbDRzK2fojE9p80l9ao32RWPw1RGPxrU/zf0xaiOPe3bGin4BDA6YZSg==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_074729_040003_A3DFEB64 
-X-CRM114-Status: UNSURE (   7.92  )
+X-CRM114-CacheID: sfid-20250523_081555_295151_6E567CBC 
+X-CRM114-Status: UNSURE (   8.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,39 +93,24 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-It doesn't make sense to enable HW busy detection in pre_select_hs400(),
-while disable it later in post_select_hs400(). And the reason behind this
-isn't clear. Therefore, let's disable it for now.
 
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
- drivers/mmc/host/sdhci-of-k1.c | 2 --
- 1 file changed, 2 deletions(-)
 
-diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
-index 1e1e012cdff9143a7dffa4e00bd9baac2a2dff2d..89f37f147a8a12cc80978d637cd31b9ecc0e9eac 100644
---- a/drivers/mmc/host/sdhci-of-k1.c
-+++ b/drivers/mmc/host/sdhci-of-k1.c
-@@ -178,7 +178,6 @@ static int spacemit_sdhci_pre_select_hs400(struct mmc_host *mmc)
- 	struct sdhci_host *host = mmc_priv(mmc);
- 
- 	spacemit_sdhci_setbits(host, SDHC_MMC_HS400, SPACEMIT_SDHC_MMC_CTRL_REG);
--	host->mmc->caps |= MMC_CAP_WAIT_WHILE_BUSY;
- 
- 	return 0;
- }
-@@ -188,7 +187,6 @@ static void spacemit_sdhci_post_select_hs400(struct mmc_host *mmc)
- 	struct sdhci_host *host = mmc_priv(mmc);
- 
- 	spacemit_sdhci_phy_dll_init(host);
--	host->mmc->caps &= ~MMC_CAP_WAIT_WHILE_BUSY;
- }
- 
- static void spacemit_sdhci_pre_hs400_to_hs200(struct mmc_host *mmc)
+On May 22, 2025 10:24:30 PM PDT, Andrew Donnellan <ajd@linux.ibm.com> wrote:
+>On Thu, 2025-05-22 at 21:39 -0700, Kees Cook wrote:
+>> When KCOV is enabled all functions get instrumented, unless
+>> the __no_sanitize_coverage attribute is used. To prepare for
+>> __no_sanitize_coverage being applied to __init functions, we have to
+>> handle differences in how GCC's inline optimizations get resolved.
+>> For
+>> s390 this requires forcing a couple functions to be inline with
+>
+>I assume you mean powerpc here, though I'm sure my employer is happy
+>that you're at least confusing us with IBM's other architecture :)
+
+Whoops! Yes. Paste-o on my part. The rest of the sentence was updated correctly though. :)
 
 -- 
-2.49.0
-
+Kees Cook
 
 _______________________________________________
 linux-riscv mailing list
