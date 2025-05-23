@@ -4,101 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6843FC54F30
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 14:42:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F045C54ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 14:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ShCU+q8M0SEqhrH4xueJY7hBp66RKMLWng6X2UUyMqs=; b=bDMnjnCDUTRoHN
-	C86rBcXUHqAGYqn3y27S6pB5J5SIisDl4550SQlWnFghGqnLQ6ukyp8DheZMv3dAZkPiibkBe10FC
-	dojGp5yxnTPoJOl+AqpbeLC9+XC/MRv3Mcf55lMKzzDdPo9Tn6UoFYRK7JiU2/nqzsnBEPQxopzrM
-	NyIYsyuFyNOLwvj6tHP8PwQTWmr5QlBUFLqjfmCprY/tCYT6beA6oCnJaZ6THUSRFzATZR0RL0MYJ
-	t/JebwQKW+uAzgRXRQ67LLgpjE/z5IO8gHHwpZSAtgtbafKxyMjGxQ3H9pDUQu3q8P0DAkF0h5uaf
-	/rQGSE58t+ltDymU+t3A==;
+	List-Owner; bh=euFYW6r5X2SWrfwhAwOQPmhCxMxqtV6HfAXpLpqrI3Q=; b=LvWXXpVKHIMHfU
+	sNXC5GNI77WKidaVcfjAHxPH5Zgccn2Xt06tdbbST55fDVGw54CIZTuYE49fH8KLi858toG5vX1/T
+	blQFYARA7ToDMjndVpsWQu4pWVrP+VKjdrq3PzOCVPwEJIET1WS4GVz+/gJVv9WItTOf+wEptJYzl
+	vCrHBge5m84GFK5OzmI3YGrIqEDHRDrKv0g1FcA3Gmzn6E/At/ayHxhE4+g52PuG6H2k61rHVkAfU
+	Iwla881aG9cFGOCn8aGSVsLFpUoCYtSXY4JzLno6OZcXu5F+5cxLA0WauA+oX9/Ih3QrP12n/r/da
+	fyGI9U6ibuiRSX/vxYng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbB-000000045cR-1lcL;
-	Fri, 23 May 2025 14:42:13 +0000
-Received: from mail-pg1-x52f.google.com ([2607:f8b0:4864:20::52f])
+	id 1uITbM-000000045po-2f3k;
+	Fri, 23 May 2025 14:42:24 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISUS-00000003xfu-3BFb;
-	Fri, 23 May 2025 13:31:14 +0000
-Received: by mail-pg1-x52f.google.com with SMTP id 41be03b00d2f7-b271f3ae786so3569696a12.3;
-        Fri, 23 May 2025 06:31:12 -0700 (PDT)
+	id 1uISe4-00000003zOJ-1VXt
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 23 May 2025 13:41:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=; b=lhVrpy5nqr/zRntl5mZUt9S8wi
+	FSeLlAuO+AHrs0nSrQJYSlICF/Jkx+nqW9K1CuZeCfF8VckRhkAHwbvNrSylycWfkeSt9Ryz+c/oG
+	bVR1LrUEVpRHhWPcY5fWlctV0ZkEtE6MohDAwlA+7Yk3uU7KtAjE8etOJ+HDARkDWoFzj6DannF4G
+	3+2rSk5ExmiwJa+54YuQ0n4XZU9y5mUQZTsE2BxOjHCnWLcajCCaMWmvEin4lUg1lusbQgKi8tAEX
+	g0IBtmcGWO7RfkGFbhSZ0KCYIvgAiypbk16U3LfSag4vi65yRdXu1FCOmHpayoykYexRTtf/Rvsox
+	OmPVwqtg==;
+Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uISe1-00000001Klw-2UIF
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 May 2025 13:41:07 +0000
+Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-60236e3d093so4791495a12.3
+        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 06:41:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748007072; x=1748611872; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UHviDmj3xu42QGU1Ib9f7zk1dVsPa60dS0RLUI16fXE=;
-        b=YA+dIOn6GkQDo5V5hjhUmfezx2r/rC0NsrCf++u/3DveXHn2/FCbo9i+4T7SKFOHMx
-         czTqiNPQ7jtmNikrMcwsdYnXp4zFMur57gopVAFtKZEFm5oBn+gHg58QSxNhRjBWYoM3
-         bqAaY/5mgIHCPIryrjF7q9s9q0VI+b8apM9noSBXShd3lhYfG6QSAVIKuXQf21dsy1fB
-         FQ6WzxAH6E8pEP7IOmq04VmumJ0JBrIhaMcPe3D1dQIsGFZtp43fZQESAdJVlr2VN1ZJ
-         UIZirmdKuYlhJqR/lVaQS1uuk34fTgGdnkkL4hgXpZBCTwuvSSFGZ9jooXZIhmykw1Bh
-         H9zw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007072; x=1748611872;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=linaro.org; s=google; t=1748007663; x=1748612463; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UHviDmj3xu42QGU1Ib9f7zk1dVsPa60dS0RLUI16fXE=;
-        b=a85mQNRzkzVQdHwmKzdoYQeWgETi1qQJsx2KpQ4KH09FBBBnVGJFu9VgoaZwPY5fII
-         skkASiVjhjFdq1OgJgnLu/y2S7j7TrsqErB5dQOBHT/fTCaldjaJXKYkNYK2DjeacTDb
-         ZOnM4MBP/LnJgaHIIwFYI5SsHdp5lH5zjMkaWcLo9sR2f7Sabe9vEBqKg2BPrCaU1p7H
-         uqrnYW2TcgQAAcu48Rv8XVOu+S9EVkaHh98zSwQqkjDaICs0RMnkArlWL6nxYlIHdvFj
-         48wVeG7AMGSVFisHlewpBVzKRfHt6UZ324XNTQgRlrrabK/y3VMp9Eo2sJEV2AIS75VK
-         URPA==
-X-Forwarded-Encrypted: i=1; AJvYcCW9qup6VS/G6hyxJJuaSTYKYIVv+2KCGClxUmZU0pD3SrdDL67BvHbBiz3SGjVu9xoXKlNtfzRJvRcLuw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOWQI0Xt8fVzUS0faXMmyYHK19mOlaI/jqoVTar4WJ96axSNpd
-	XLn0AtJPXGF1jaYUP9MbOSAxqxMKUMVEWM1V4Xd4XIAj68Zr0rDW9Fe6
-X-Gm-Gg: ASbGncsakURb+lCkRKjxNV7t/8zvaNzMQD9qYK9/waEuzyNagX/GIVnwSAo4I6Gfjjm
-	l5FzL+tJp3K8IyXnkp/L5+VqA4iKwL61OCu0HSUJ+3kunHCtIuvwHHfJSxuOvUj12kpmhC6BHSv
-	0Mx6BeWwYml+MDvvqIQKRYvqRPJL4oupf74oNgNvPQjenuM0dVAOIXqixOZq/Hwli972Iq4mgVg
-	bdWYVO/M0aHbSG448JsrTKM64EMxb1fFSR8rxpjg62fslBgY8mmDKEOBRlUKDcxWfjlLUJe1Zq5
-	0MvbaWYgRCsU0AX2R6Z2U2RiJbn0ISXBhMr6pOyQ
-X-Google-Smtp-Source: AGHT+IGLbgtx4Af3Q4/lm93aVPuKQYWmNhIgnWUD8AgPn231XjLOFnnKcHeakMtqv3fSR76ZQS0WhQ==
-X-Received: by 2002:a17:903:18d:b0:224:c47:cbd with SMTP id d9443c01a7336-231d3257fc6mr419336045ad.0.1748007071336;
-        Fri, 23 May 2025 06:31:11 -0700 (PDT)
-Received: from localhost ([2001:250:5800:1000::3fc8])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-b26ecfc85e9sm12505536a12.11.2025.05.23.06.31.09
+        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
+        b=r2KaPC1nb4idGQqgtnlJiA0sfPC5i/Mi5b5/IUntoxx+XT2Wt9syWTrSRgeJto9O8d
+         dBKwWt2PgWUKCZ4EJU3Tq5ow1pDfzpdOBInR899+br0IlYwUIkKaegrMS+eMup225RAQ
+         +82lSHPna9zDQdeCso3+O1VYMuJbt+I4p4IFGnHB6yCCUDGX5jg0jWM3ebFiXOUMZiCx
+         JXLXTFNHGadFTCZZgaaonbpmBWvck5CvYqATBLkzSJwE9pXTJwEXvwDBHs8AdJSu8C+l
+         1HPJ34oYdAAKdmjcS3nhlS5Hm+eYTy06ScfQGGWyo/XHlSY44/iWSVkxwK0iS7+oIiif
+         eJzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748007663; x=1748612463;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
+        b=c+9uQ5iRJkL8cbXCCiIyJQLnXELy4haPPuWZoWejoUxCGeNpA/vr3b9Q6Zsekt6o0r
+         bPexoMcf14xJ5WQJgoGV+KZTWFfPlDk1zI5kigpha1RLMdNG5/yiPtg4fycPMDIzOrus
+         Pcd0cuSzvQ8n0mShJN1md9AFPbMnhwvOv0UZAod2BPNn6h/mhHrr0/iFd9IK/AGgziMS
+         8l7SQEVCXh/J9VqgJttrAq4v3f9YTphCOePcu+8J8eYhLAxIe1xRj5Rm/hS1JnoO0igo
+         fEcjf/uuZ/ksyc7An7j5lBsp/mWTsmna//RlWyAUG2G4FuJhM8BJqq8HWr/ewFI07Dx5
+         5dVA==
+X-Forwarded-Encrypted: i=1; AJvYcCUl+wjaXhaOPsoTvsq4vXcCdA7Ij+VnexMd0uMZLOFB+3oZg360l9TAvOZNym3vMbVxUFYzh1kdIxejzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUzXjA5Dqwv8GBPMtIN8ubr57q4PBMVF731Ir3ifCEL4dEoA7M
+	hSiCqq37ZguJ4B9mLanqER+8/pzGOPthJt1wAKIFXgiXIdRh248gqDSxA4vE4Upn7xPBKzaBDcX
+	M02gQJq4=
+X-Gm-Gg: ASbGnctH3R/ZpEoO2jOS8RShseEaHYRvY2b0KyV2gNll4VWmlunNb4xcNp0nxgYNzZj
+	6tXlZH4NPPpYvUcCpA/1ktOr69E7jMJ+iWj6MSXagElaskzcgM5TEXTC2RuwGLrMU/7xxbCPSc/
+	4xWQgfbB9nJ/PzU7GPY8YVL8SmgyLjBvMHyDz3XMxe6dVAaTk1bZWSfur/Jz0aq6G7un1OyHBFk
+	QctjqJPwzlVnO1uQEkyjVliuhruC1B0dyom+Vn9bm8gQCwfdXJcuOX+jm1BpKqCeJeP0h+qQvdE
+	GuT9Jz4kYNHnYljT8JpybZD4gXIDb1vlVvJqbMqF59JHM7TyPFMvSgvH82on++XczjH/B5fwY/i
+	beHlT4eVMNNs8Tz1VvLq22s4FKg==
+X-Google-Smtp-Source: AGHT+IEHCYkYuWzR0+7rN1lJlnWJY9YunsWGOeHigvX1kOvGZwTPmtXZLbWPxdIRTzInet0tBxzveg==
+X-Received: by 2002:a05:6512:3d1d:b0:54e:90ce:3c34 with SMTP id 2adb3069b0e04-55216ebe5a0mr842172e87.55.1748007652469;
+        Fri, 23 May 2025 06:40:52 -0700 (PDT)
+Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:31:10 -0700 (PDT)
-Date: Fri, 23 May 2025 21:31:07 +0800
-From: Zixian Zeng <sycamoremoon376@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Michael Walle <mwalle@kernel.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Longbin Li <looong.bin@gmail.com>
-Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-spi@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org,
-	dlan@gentoo.org, ziyao@disroot.org
-Subject: Re: [PATCH 1/3] dt-bindings: spi: Add bindings for SOPHGO SG2042
-Message-ID: <aDB4m6THbV19qjwP@calculate>
-References: <20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com>
- <20250523-sfg-spifmc-v1-1-4cf16cf3fd2a@gmail.com>
- <5ce44ff6-831b-4128-9fab-7658ffae550f@kernel.org>
+        Fri, 23 May 2025 06:40:51 -0700 (PDT)
+From: Ulf Hansson <ulf.hansson@linaro.org>
+To: Saravana Kannan <saravanak@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	linux-pm@vger.kernel.org
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Michael Grzeschik <m.grzeschik@pengutronix.de>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Abel Vesa <abel.vesa@linaro.org>,
+	Peng Fan <peng.fan@oss.nxp.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Johan Hovold <johan@kernel.org>,
+	Maulik Shah <maulik.shah@oss.qualcomm.com>,
+	Michal Simek <michal.simek@amd.com>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <anup@brainfault.org>,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v2 08/21] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
+Date: Fri, 23 May 2025 15:40:05 +0200
+Message-ID: <20250523134025.75130-9-ulf.hansson@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
+References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <5ce44ff6-831b-4128-9fab-7658ffae550f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_063112_795756_6BE48431 
-X-CRM114-Status: GOOD (  17.06  )
+X-CRM114-CacheID: sfid-20250523_144105_782312_14E5487A 
+X-CRM114-Status: GOOD (  12.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,40 +133,53 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 01:33:13PM +0200, Krzysztof Kozlowski wrote:
-> On 23/05/2025 12:54, Zixian Zeng wrote:
-> > Add bindings for the SOPHGO SG2042 SPI-NOR flash controller,
-> > which is compatible with SOPHGO SG2044.
-> > 
-> 1. This wasn't tested.
-> 2. Breaks existing boards, so you did not test DTS either. Do not
-> reviewers but machine for such trivialities.
-> 
-Sorry, This is my bad. I admit this is a pretty stupid mistake and
-I should have run a full dt_bindings check rather than the platform I
-am testing currently.
-Sorry for taking up your time, I'm sure this is the last time for such
-kind of mistake.
-> 3. A nit, subject: drop second/last, redundant "bindings". The
-> "dt-bindings" prefix is already stating that these are bindings.
-> See also:
-> https://elixir.bootlin.com/linux/v6.7-rc8/source/Documentation/devicetree/bindings/submitting-patches.rst#L18
-> 
-Thank you, I will remove the redundant "bindings" next time.
-> 4. Please use subject prefixes matching the subsystem. You can get them
-> for example with `git log --oneline -- DIRECTORY_OR_FILE` on the
-> directory your patch is touching. For bindings, the preferred subjects
-> are explained here:
-> https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html#i-for-patch-submitters
-> 
-Ok, I will do it in next revision.
-> Best regards,
-> Krzysztof
+The riscv-sbi-domain implements its own specific ->sync_state() callback.
+Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
 
-Thank you again for your detailed revieiws and links
+Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
+power off unused PM domains.
 
-Best regards,
-Zixian
+Cc: Anup Patel <anup@brainfault.org>
+Cc: linux-riscv@lists.infradead.org
+Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+---
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
+index 0fe1ece9fbdc..83d58d00872f 100644
+--- a/drivers/cpuidle/cpuidle-riscv-sbi.c
++++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
+@@ -347,11 +347,16 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
+ 
+ static void sbi_cpuidle_domain_sync_state(struct device *dev)
+ {
++	struct sbi_pd_provider *pd_provider;
++
+ 	/*
+ 	 * All devices have now been attached/probed to the PM domain
+ 	 * topology, hence it's fine to allow domain states to be picked.
+ 	 */
+ 	sbi_cpuidle_pd_allow_domain_state = true;
++
++	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
++		of_genpd_sync_state(pd_provider->node);
+ }
+ 
+ #ifdef CONFIG_DT_IDLE_GENPD
+@@ -396,7 +401,8 @@ static int sbi_pd_init(struct device_node *np)
+ 	if (!pd_provider)
+ 		goto free_pd;
+ 
+-	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
++	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
++		     GENPD_FLAG_NO_SYNC_STATE;
+ 
+ 	/* Allow power off when OSI is available. */
+ 	if (sbi_cpuidle_use_osi)
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
