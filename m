@@ -4,108 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782ADC54ED0
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 18:53:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A84C54ED0
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 19:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PU+OKdn9ttnzlSP3qxhl/VPhC+SKEBv8VdRWDI4nbj0=; b=n83T9ef7oR39Hp
-	jdtONYcos9+eW1AwVhT6KDEc6hYReyaOTFg+z/ZqJr+NN3zFHaqdMs6UL+wHxKq7YB2JUwSmrXJ2w
-	kTVF2TcgFd7MeWX2y7qf4S0W6uzDppEt2GoSHZt7I6FquXAh0AMx0N04wX2lGtqnA5VPatojcrefG
-	Fw/aEyY75GS8TTpXaOULHzvUuFRymii9X1efuTuEj9W3Hc63uOydMIDWF0UBsuTz4UQ51EYNfNSLc
-	3i5WDuTGIKluXP2lAhmGHiUGkVrEHWpLPvhywgsr+/i8Jkp88C1lBXVatCBcs7dShPPKcQr+V/A+q
-	1RUj+VRjkLoy4BnEOAYw==;
+	List-Owner; bh=BqWVeMuPGMspBOyzbOzN0XqIuTSo0tf2dT9VhzMXfhU=; b=C8yiK24toQjYWx
+	+hlxr+BE5ovGDPRDg64s7BFxMnc6h5ZuzTLRTy6UjOYEb3tYOZNrIGel0qoXt2HPhBh9syPtHcQCH
+	Et+HUlRQ+Bxb6lMDxpgDaqKI2WdKi8cKgdcm15ti37+MKBjMQ7+ERSitf54jbD81FIGMEG1LmHXY6
+	DRgrkvMit6dzg+6Q+jASWZNr0ACwjUwmDZNaHdwwqsbygB3xPk34hziwDCQ+TxzFTpbXentQWQEsx
+	CoSTnp0PNbpzQqjT/E9dpJ4HVoyyrFG2ncyq1fztmw48sH93P7wjkr/iwT0g1k55WStBa5R4SNxQA
+	QfSV8KB161kUdmbV33Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXWI-00000004jcm-2587;
-	Fri, 23 May 2025 18:53:26 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIY3E-00000004nLU-3j0W;
+	Fri, 23 May 2025 19:27:28 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIWVV-00000004bar-28Hv;
-	Fri, 23 May 2025 17:48:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=KUOgezIAuTP1FsPgpShaTif5k3
-	Jd3vYtYfQFwe/Xdkb/b44YCX3pZOja00jj/yAP2fol5mfx0Zd4Mxs2/A8dnSAX0QxWcNLv50FW4Lc
-	48IrfHWQXR+MTV/q1DbTlSTczMmK7J3HlqHaiMT8/MFdYvaUWbVO9RXvLVLEVDMKt18+fD4+qDYd5
-	brpykbEBeslyGuqrpkcdJ3K0uzPe95lDLyNkOAtCCQFlbWC9uIzt9lqrCQRQnDTIhKCnBQSvQoTrZ
-	dM2FTuxMXtyNYev9p0GdUCP2u8nfkorpqkoJNzp8fa85qasr6s8p6/HWNWABX+L4UzLs22LScG6AB
-	Kc75ZvyA==;
-Received: from mgamail.intel.com ([192.198.163.16])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIWVR-00000001MHs-1grv;
-	Fri, 23 May 2025 17:48:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748022509; x=1779558509;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AqUynDC3Sw8C6ZtTMriTAeGFMTNBji4jXiQmc/rbw2o=;
-  b=EkFdnqv1ophR1OH0doEciObnAjIK6MORKCWmpzyxoFq1EjUedSDnRoUz
-   W6hkchZs4QWae6rnH5vGoxtuwPMHa41dV/i+drvL4+YDtJtFUpyQibpXr
-   09coju7HstH5bo8ZMarkjEJko34x9hIv4SNyvORtj1zCdBKfEacLS9Qym
-   qaWY1J1rYYz1VefBZHk+i3+U36XL/JhFrZgIpla+uzh8VGb/nd3QKmNvX
-   Kt5LmIu873PHXBMPMmTL/qKG9tacG1VZO45b0bcJb0ZyDUk2aRC5rWwA2
-   BKwsAyYZM9ZiHn/7FM+VpxySEHKWnhb2RhfHGhXzNvEqBRIyq43n540sL
-   A==;
-X-CSE-ConnectionGUID: CLhbDKMNSKCev2WBnSw+Mg==
-X-CSE-MsgGUID: MdwNu1DUQYOc8F8sOl2YBg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="37712261"
-X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
-   d="scan'208";a="37712261"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 10:48:24 -0700
-X-CSE-ConnectionGUID: lJrSde5yS5yz0+ah3FyjYQ==
-X-CSE-MsgGUID: VO9IXjEZT1W8X0PcYRPbOw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
-   d="scan'208";a="141740316"
-Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
-  by fmviesa010.fm.intel.com with ESMTP; 23 May 2025 10:48:18 -0700
-Received: from kbuild by 1992f890471c with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uIWVD-000QdI-2N;
-	Fri, 23 May 2025 17:48:15 +0000
-Date: Sat, 24 May 2025 01:48:04 +0800
-From: kernel test robot <lkp@intel.com>
-To: Rajnesh Kanwal <rkanwal@rivosinc.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Atish Kumar Patra <atishp@rivosinc.com>,
-	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Beeman Strong <beeman@rivosinc.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Rajnesh Kanwal <rkanwal@rivosinc.com>
-Subject: Re: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer
- Records Ext.
-Message-ID: <202505240131.OJkUGGvA-lkp@intel.com>
-References: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
+	id 1uIXxz-00000004mm2-3re0
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 May 2025 19:22:05 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7399838db7fso294372b3a.0
+        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 12:22:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748028123; x=1748632923; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Ral+N2d0KfCW37vBolJovFgnCe0tWP7reKx7tiu0DfE=;
+        b=EqR1igOX7YZrlSSuieKE+bpB0ftsoX9gPNqOwegbaxnvySzqvquck2bvgCEue+//r6
+         Tjb8aJLXPvjF0g2vYd0hRS0sKYOVYq0gio0PnWXojOJ4A4al7Hhku1fBIkxG0RoOEtna
+         DD2ZJ8zP7af32ESW2jVL7qslbgBmsAcW7rhTDLaU/dxaMPGQky3y5aSpyzEly/PkiRHA
+         stF76LqxTLmPAHWsMJl++8wLXx8yMcL58x81cVLqAPd891Q2wLBcQecRs6wHomcvinsS
+         dL4wsdcLIccj+2YiMNM/TT2YHewSJuIpGoG0iINM9AKXyTkuPNjMathHEflkOUp8B2mk
+         i9GA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748028123; x=1748632923;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ral+N2d0KfCW37vBolJovFgnCe0tWP7reKx7tiu0DfE=;
+        b=WqYvcwrtIhIONMsN078Mf6rV3yDHkMjzYg8v9h7YdhkCkwRYhqIP8UFwG8PMwOM8zK
+         uAgCapy5agzaxLW1zzFH297/a6VolHyN0Og00eEDBaEO0+e67tYB4ZUc4CDqGu2XcbX3
+         WW+9kQH5vSs9dsarQ64ZiDY5nS5qfQKEojOE/sIoSdxwjgSscjFNZjjp/uWcJ70etwXA
+         bEMDShA+azOj7DRSgD7eAmVVthxTHEgt/dkNnA/uPcfIyW4h5zCvtr/GaYrMiBPe/X45
+         /gnNF+tQBODFYKO3wWfcPwUzsCzXkLvcIT/96vMCUYrSryCeJm+0JrYUikZu6q8H5qHz
+         fCGQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWeDTNQrnuh+G4ROA+xThKMpLujnrt044lh/gwf55OYV9C+Zyi2d2Yy6gVpqx5OVLz1/yW7yq5T12Twjw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRgMfTq0mA3vFMygRI2XLPpSCqCPCf4lmX4BwNuyT7Bau9P1xB
+	BA4+lKwbCiX/Id5P5rUb+tK9ojKPFrhFv27Le/TaD7EmdRhfqxpt7T/wB0M2WOmaNTU=
+X-Gm-Gg: ASbGnctVhPWTGZ3x2PhWOwf0agINFxMjMTqmybGMxnYFhkh70ny0n3WX2alP0ecVwe+
+	74R8ALB6AkFoK0LP6/9YY6h9Q0NMlf5EuFI7/k5FAlumkjnrPI/VqCq9E79+pjEibRUxGEqJP/I
+	4oPNJMIahWdAI2YGu07N13mNjBZyhGnmYZoxRtKV16Y+/fiCvT0nP7MAluj3gzBIgiYsDua01h4
+	MioP05iE2jsK+JT6h41+Jg/ffdGSiVaXJjfrl1e1fjUcY+qPmX/PGeAuveplHCof5u66PexL/Er
+	oZMOuoOiZw0t8kTSjjoWsgbaHgsWO10L1y0tme3wcTN4cwYWCmgChdRhNiVOYh9iPw+dLDuN0jA
+	Tg+CjhzBXI27g5Pe+YPOa
+X-Google-Smtp-Source: AGHT+IFZ/6OL3e/+nBzCYIYloiMUYM//2VK/chpXTyoMI+nuh1v5hqPREUkHkrHrx1lhvJEatv4h8w==
+X-Received: by 2002:a05:6a00:391e:b0:742:ae7e:7da1 with SMTP id d2e1a72fcca58-745fdb50dfamr1094649b3a.0.1748028123175;
+        Fri, 23 May 2025 12:22:03 -0700 (PDT)
+Received: from ?IPV6:2a01:e0a:e17:9700:16d2:7456:6634:9626? ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a98770cdsm13178352b3a.151.2025.05.23.12.21.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 23 May 2025 12:22:02 -0700 (PDT)
+Message-ID: <b2afb9c7-a3d2-4bf6-bfaa-d804358ccd88@rivosinc.com>
+Date: Fri, 23 May 2025 21:21:51 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 09/14] riscv: misaligned: move emulated access
+ uniformity check in a function
+To: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Anup Patel <anup@brainfault.org>,
+ Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-kselftest@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>,
+ Andrew Jones <ajones@ventanamicro.com>, Deepak Gupta <debug@rivosinc.com>
+References: <20250523101932.1594077-1-cleger@rivosinc.com>
+ <20250523101932.1594077-10-cleger@rivosinc.com> <aDC-0qe5STR7ow4m@ghost>
+Content-Language: en-US
+From: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+In-Reply-To: <aDC-0qe5STR7ow4m@ghost>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_184830_084494_74703BDF 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20250523_122203_959316_076D8BBB 
+X-CRM114-Status: GOOD (  19.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,84 +103,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Rajnesh,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on e0200e37637e573cd68f522ecd550be87e304c6c]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Rajnesh-Kanwal/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20250523-073341
-base:   e0200e37637e573cd68f522ecd550be87e304c6c
-patch link:    https://lore.kernel.org/r/20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c%40rivosinc.com
-patch subject: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer Records Ext.
-config: riscv-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/config)
-compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202505240131.OJkUGGvA-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   In file included from arch/riscv/kernel/asm-offsets.c:12:
-   In file included from arch/riscv/include/asm/kvm_host.h:23:
-   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
->> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
-     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-         |                                                                            ^
-   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
-     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
-     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   3 warnings generated.
---
-   In file included from arch/riscv/kernel/asm-offsets.c:12:
-   In file included from arch/riscv/include/asm/kvm_host.h:23:
-   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
->> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
-     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-         |                                                                            ^
-   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
-     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
-     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
-         |             ^~~~~~~~~~~~~~~~~
-   3 warnings generated.
-
-
-vim +156 include/linux/perf/riscv_pmu.h
-
-   152	
-   153	static inline bool riscv_pmu_ctr_valid(struct perf_event *event) { return false; }
-   154	static inline void riscv_pmu_ctr_consume(struct cpu_hw_events *cpuc,
-   155					      struct perf_event *event) { }
- > 156	static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
-   157						    bool sched_in) { }
-   158	static void riscv_pmu_ctr_add(struct perf_event *event) { }
-   159	static void riscv_pmu_ctr_del(struct perf_event *event) { }
-   160	static inline void riscv_pmu_ctr_enable(struct perf_event *event) { }
-   161	static inline void riscv_pmu_ctr_disable(struct perf_event *event) { }
-   162	static inline void riscv_pmu_ctr_dying_cpu(void) { }
-   163	static inline void riscv_pmu_ctr_starting_cpu(void) { }
-   164	static inline int riscv_pmu_ctr_init(struct riscv_pmu *riscv_pmu) { return 0; }
-   165	static inline void riscv_pmu_ctr_finish(struct riscv_pmu *riscv_pmu) { }
-   166	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiAyMy8wNS8yMDI1IDIwOjMwLCBDaGFybGllIEplbmtpbnMgd3JvdGU6Cj4gT24gRnJpLCBN
+YXkgMjMsIDIwMjUgYXQgMTI6MTk6MjZQTSArMDIwMCwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+
+PiBTcGxpdCB0aGUgY29kZSB0aGF0IGNoZWNrIGZvciB0aGUgdW5pZm9ybWl0eSBvZiBtaXNhbGln
+bmVkIGFjY2Vzc2VzCj4+IHBlcmZvcm1hbmNlIG9uIGFsbCBjcHVzIGZyb20gY2hlY2tfdW5hbGln
+bmVkX2FjY2Vzc19lbXVsYXRlZF9hbGxfY3B1cygpCj4+IHRvIGl0cyBvd24gZnVuY3Rpb24gd2hp
+Y2ggd2lsbCBiZSB1c2VkIGZvciBkZWxlZ2F0aW9uIGNoZWNrLiBObwo+PiBmdW5jdGlvbmFsIGNo
+YW5nZXMgaW50ZW5kZWQuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6IENsw6ltZW50IEzDqWdlciA8Y2xl
+Z2VyQHJpdm9zaW5jLmNvbT4KPj4gUmV2aWV3ZWQtYnk6IEFuZHJldyBKb25lcyA8YWpvbmVzQHZl
+bnRhbmFtaWNyby5jb20+Cj4+IC0tLQo+PiAgYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxp
+Z25lZC5jIHwgMjAgKysrKysrKysrKysrKystLS0tLS0KPj4gIDEgZmlsZSBjaGFuZ2VkLCAxNCBp
+bnNlcnRpb25zKCspLCA2IGRlbGV0aW9ucygtKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNj
+di9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jIGIvYXJjaC9yaXNjdi9rZXJuZWwvdHJhcHNfbWlz
+YWxpZ25lZC5jCj4+IGluZGV4IGYxYjJhZjUxNTU5Mi4uN2VjYWE4MTAzZmU3IDEwMDY0NAo+PiAt
+LS0gYS9hcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmMKPj4gKysrIGIvYXJjaC9y
+aXNjdi9rZXJuZWwvdHJhcHNfbWlzYWxpZ25lZC5jCj4+IEBAIC02NDUsNiArNjQ1LDE4IEBAIGJv
+b2wgX19pbml0IGNoZWNrX3ZlY3Rvcl91bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2FsbF9jcHVz
+KHZvaWQpCj4+ICB9Cj4+ICAjZW5kaWYKPj4gIAo+PiArc3RhdGljIGJvb2wgYWxsX2NwdXNfdW5h
+bGlnbmVkX3NjYWxhcl9hY2Nlc3NfZW11bGF0ZWQodm9pZCkKPj4gK3sKPj4gKwlpbnQgY3B1Owo+
+PiArCj4+ICsJZm9yX2VhY2hfb25saW5lX2NwdShjcHUpCj4+ICsJCWlmIChwZXJfY3B1KG1pc2Fs
+aWduZWRfYWNjZXNzX3NwZWVkLCBjcHUpICE9Cj4+ICsJCSAgICBSSVNDVl9IV1BST0JFX01JU0FM
+SUdORURfU0NBTEFSX0VNVUxBVEVEKQo+PiArCQkJcmV0dXJuIGZhbHNlOwo+PiArCj4+ICsJcmV0
+dXJuIHRydWU7Cj4+ICt9Cj4gCj4gVGhpcyBlbmRzIHVwIHdhc3RpbmcgdGltZSB3aGVuICFDT05G
+SUdfUklTQ1ZfU0NBTEFSX01JU0FMSUdORUQgc2luY2UgaXQKPiB3aWxsIGFsd2F5cyByZXR1cm4g
+ZmFsc2UgaW4gdGhhdCBjYXNlLiBNYXliZSB0aGVyZSBpcyBhIHdheSB0byBzaW1wbGlmeQo+IHRo
+ZSBpZmRlZnMgYW5kIHN0aWxsIGhhdmUgcGVyZm9ybWFudCBjb2RlLCBidXQgSSBkb24ndCB0aGlu
+ayB0aGlzIGlzIGEKPiBiaWcgZW5vdWdoIHByb2JsZW0gdG8gcHJldmVudCB0aGlzIHBhdGNoIGZy
+b20gbWVyZ2luZy4KClllYWggSSB0aG91Z2ggb2YgdGhhdCBhcyB3ZWxsIGJ1dCB0aGUgYW1vdW50
+IG9mIGNhbGwgdG8gdGhpcyBmdW5jdGlvbiBpcwpwcm9iYWJseSB3ZWxsIGJlbG93IDEwIHRpbWVz
+IHNvIEkgZ3Vlc3MgaXQgZG9lcyBub3QgcmVhbGx5IG1hdHRlcnMgaW4KdGhhdCBjYXNlIHRvIGp1
+c3RpZnkgeWV0IGFub3RoZXIgaWZkZWYgPwoKPiAKPiBSZXZpZXdlZC1ieTogQ2hhcmxpZSBKZW5r
+aW5zIDxjaGFybGllQHJpdm9zaW5jLmNvbT4KPiBUZXN0ZWQtYnk6IENoYXJsaWUgSmVua2lucyA8
+Y2hhcmxpZUByaXZvc2luYy5jb20+CgpUaGFua3MsCgpDbMOpbWVudAoKPiAKPj4gKwo+PiAgI2lm
+ZGVmIENPTkZJR19SSVNDVl9TQ0FMQVJfTUlTQUxJR05FRAo+PiAgCj4+ICBzdGF0aWMgYm9vbCB1
+bmFsaWduZWRfY3RsIF9fcmVhZF9tb3N0bHk7Cj4+IEBAIC02ODMsOCArNjk1LDYgQEAgc3RhdGlj
+IGludCBjcHVfb25saW5lX2NoZWNrX3VuYWxpZ25lZF9hY2Nlc3NfZW11bGF0ZWQodW5zaWduZWQg
+aW50IGNwdSkKPj4gIAo+PiAgYm9vbCBfX2luaXQgY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVs
+YXRlZF9hbGxfY3B1cyh2b2lkKQo+PiAgewo+PiAtCWludCBjcHU7Cj4+IC0KPj4gIAkvKgo+PiAg
+CSAqIFdlIGNhbiBvbmx5IHN1cHBvcnQgUFJfVU5BTElHTiBjb250cm9scyBpZiBhbGwgQ1BVcyBo
+YXZlIG1pc2FsaWduZWQKPj4gIAkgKiBhY2Nlc3NlcyBlbXVsYXRlZCBzaW5jZSB0YXNrcyByZXF1
+ZXN0aW5nIHN1Y2ggY29udHJvbCBjYW4gcnVuIG9uIGFueQo+PiBAQCAtNjkyLDEwICs3MDIsOCBA
+QCBib29sIF9faW5pdCBjaGVja191bmFsaWduZWRfYWNjZXNzX2VtdWxhdGVkX2FsbF9jcHVzKHZv
+aWQpCj4+ICAJICovCj4+ICAJb25fZWFjaF9jcHUoY2hlY2tfdW5hbGlnbmVkX2FjY2Vzc19lbXVs
+YXRlZCwgTlVMTCwgMSk7Cj4+ICAKPj4gLQlmb3JfZWFjaF9vbmxpbmVfY3B1KGNwdSkKPj4gLQkJ
+aWYgKHBlcl9jcHUobWlzYWxpZ25lZF9hY2Nlc3Nfc3BlZWQsIGNwdSkKPj4gLQkJICAgICE9IFJJ
+U0NWX0hXUFJPQkVfTUlTQUxJR05FRF9TQ0FMQVJfRU1VTEFURUQpCj4+IC0JCQlyZXR1cm4gZmFs
+c2U7Cj4+ICsJaWYgKCFhbGxfY3B1c191bmFsaWduZWRfc2NhbGFyX2FjY2Vzc19lbXVsYXRlZCgp
+KQo+PiArCQlyZXR1cm4gZmFsc2U7Cj4+ICAKPj4gIAl1bmFsaWduZWRfY3RsID0gdHJ1ZTsKPj4g
+IAlyZXR1cm4gdHJ1ZTsKPj4gLS0gCj4+IDIuNDkuMAo+PgoKCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51
+eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21h
+aWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
