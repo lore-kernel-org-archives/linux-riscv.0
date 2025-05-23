@@ -4,90 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE77C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:20:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 246DCC3DA6D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:27:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eKcs8w7DJihSgIYWVts6HfQVQz69aw4293h9d4dgiuo=; b=cb3ykqOu+MYz1i
-	spBhErllQTL687s4pJynwll/MPeKeczaI8tlLhzmdICsAg0A5+k6vBMkR9eQdVJAvbHdscpq0O/7I
-	kFemS4NJq34rtlojXmc7EPtmqRfPeSEMljODgLjl8KJhLY5InBVrt2ku5byGS19b5UCfA2GKW9Xim
-	cywfSyuCAb/YpsBw0ujEKGzKx/4fBFFHTNPD6yqjCeAX/RSQZshUKBimS+iKNLmmfHDhP/n7T3xMy
-	oErIf+ITwzFTGXG66KBYUejucYZ1Gein/DFc9Zlpu4MX1FRhrXLEkZIatQAvIK/1J2rPNTbNkAepw
-	yQGgzf977yUi2IzcNKeg==;
+	List-Owner; bh=NdW4B1Po5vGiyXErjw+fgWR9CTNyRXpfMmu7/Kijjhc=; b=WQU1tGTLK2wS1F
+	T19xkiQgEUezGhUpPv5o2xMMBe2gNxL0qdqPemQ2nb+RpEIChU8ZJ8n4OWCsOsUiDrvB7EBPMRaJW
+	4Jc6Nx4Rq6V2o331G8pTQZ1B2g5QSRo/K/BeQ6feFqr3+irbB3TA53fXkihsTShmLxxJHn1fD2YMP
+	unUmISMRZUlZnjjmvNmH1QNrg/y53mfmv93VNA44vagwCRI0DzPVoxg3DhJASfJ/EcUPlT0azWdKa
+	5r8U3/Bofs59wMydZvQCUFk2w6p5z2PJ1iHmkPmok+ztFaDQfpjF/oDTLdj55VWEPFteIl4FffJbR
+	V4TzzXCuDfwGquBUCgtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKpj-00000002z1G-10XE;
-	Fri, 23 May 2025 05:20:39 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uIKwH-00000002zXZ-40U9;
+	Fri, 23 May 2025 05:27:25 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKph-00000002z14-066w
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 23 May 2025 05:20:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=; b=GN5rs+ocFdLyfZ+njrWUovefwf
-	bruGiLIZVGsoGvbqLkSo2zThk/bJy++KLy8jrM//5r6aIv7clDZSWEneKIS/oh+YNh9XQEbO+A/pr
-	z9gDnpQo7NNWj1r5fpywfpoGIQMAUkdI4Paqqc8m6QGtrnXlDkIoXZoQ+agr/bOEGimvn9P504fLQ
-	ptkWme+n3Ldx4C19t65lYRwBgy4X6KNPIcb62ZoxHDwh1Kqi/8aucQXqK6Zsjviht4krtgJso7v3K
-	hTfMZsNDxYAaQZvEGM7v0CPSiwoy5em99rKGpDaVBGyzuheGLKvTFl6byIuZz9wvdbcsylwf7KJwu
-	bBCacPlw==;
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIKpb-000000018J5-2VsM
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 05:20:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1747977610; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fOE5uyU2V/jZxzefVCjXKHOUHJCfQgnt0W0OO1meL7UBd8Re66uahxFvUtMxmnABG04rUOrMqcUaVZSD+VrUcGzHX7U67ejhxbZZzVtAe+pNrqEK92nJFvohdoZedJSwseRecZrdE+DdU/AU9uHYhh7nJytjWFUwtVnrrb9Z00k=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1747977610; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=; 
-	b=LaeToclatgWRmuMFTk7N/W1Ge6PuoBaxI2R7IaU0IdGl0LKSP29FYK0xe6LOJMFhY8n7STOer6elRBZME82i4Ls4QrHv1BdCrFwY0z+8RhuZyga0Q9lQPG13a9LLKWDTz0rXC3GqDDh4xLZOBOKBZ4w2npelp6t6fcsBqQu9I8E=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747977610;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=;
-	b=K2DAXGHX0Fn7/A/6EFwDCQCHQ1V/HMoiQm+xsvD2UOi1acN28Lk16y6ewNDF8aeT
-	9okkm5f6TdlU3s6qQRKV02lKeR4d/9HVR44dpBE2KwgbW0hf4o15PN7iVzbiZ/FTCON
-	+wBB0gigPyGSJBu1SzIC9Wg5TMLnRrqkIhZqKVW0=
-Received: by mx.zohomail.com with SMTPS id 1747977608258134.90960394346882;
-	Thu, 22 May 2025 22:20:08 -0700 (PDT)
-Message-ID: <4750f2c6-221f-4b2e-ab9c-31d707404a4e@pigmoral.tech>
-Date: Fri, 23 May 2025 13:20:00 +0800
+	id 1uIKu4-00000002zI1-3tdy;
+	Fri, 23 May 2025 05:25:10 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54MNWEn5006420;
+	Fri, 23 May 2025 05:24:43 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=T9QR0v
+	Rv/b0B11JDYax3wCR+tNiJcsp+EMocfpzOxi8=; b=gkPzzSJS3ymffrtpxcB5vm
+	v0s0Gt+0xedPFAF4Q0SBMgwUo01yMH5OqoDNtugNOwneyxcvMf5JVIm1y0T08Re7
+	EmJ6QdZ6GthLPsjQ11Y8uXW7sj+Eeyb8WqKlexTBXqcCpntaCyNC/X7hKpXH2JUj
+	tiWuD0uZqTjnvmBQRioWrY0breTha8OmZHdV8IDZEYMicTaNWm94EHTL/osOLYVd
+	iuLvSdTpZmyAtPpzaNMZw/bBFpt41IbV5Ua0ZuIpLPTk4wDsHISYTDhuqr1lanD2
+	vG9gQ6KwGs17vxJDgNiDQL5N9JmAxrZi3uqj2fVPEF8IGqrxh/bDnF+01ZlmwWWQ
+	==
+Received: from pps.reinject (localhost [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t9m7t7sq-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 05:24:43 +0000 (GMT)
+Received: from m0360072.ppops.net (m0360072.ppops.net [127.0.0.1])
+	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54N5Ogd1008988;
+	Fri, 23 May 2025 05:24:42 GMT
+Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t9m7t7sh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 05:24:42 +0000 (GMT)
+Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
+	by ppma12.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54N1ugL2015431;
+	Fri, 23 May 2025 05:24:41 GMT
+Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
+	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 46rwnnn2at-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Fri, 23 May 2025 05:24:41 +0000
+Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
+	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54N5OdfJ51446136
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 23 May 2025 05:24:40 GMT
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DFC2C20043;
+	Fri, 23 May 2025 05:24:39 +0000 (GMT)
+Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6FB4920040;
+	Fri, 23 May 2025 05:24:39 +0000 (GMT)
+Received: from ozlabs.au.ibm.com (unknown [9.63.197.14])
+	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
+	Fri, 23 May 2025 05:24:39 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (haven.au.ibm.com [9.63.198.114])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by ozlabs.au.ibm.com (Postfix) with ESMTPSA id A792F60213;
+	Fri, 23 May 2025 15:24:35 +1000 (AEST)
+Message-ID: <e50abba6c962772c73342bacf20fb87dc99dd542.camel@linux.ibm.com>
+Subject: Re: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline
+ mismatches
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
+Cc: Madhavan Srinivasan <maddy@linux.ibm.com>,
+        Michael Ellerman	
+ <mpe@ellerman.id.au>,
+        Nicholas Piggin <npiggin@gmail.com>,
+        Christophe Leroy
+	 <christophe.leroy@csgroup.eu>,
+        Naveen N Rao <naveen@kernel.org>,
+        "Ritesh
+ Harjani (IBM)" <ritesh.list@gmail.com>,
+        "Aneesh Kumar K.V"
+ <aneesh.kumar@linux.ibm.com>,
+        Andrew Morton	 <akpm@linux-foundation.org>,
+        linuxppc-dev@lists.ozlabs.org,
+        "Gustavo A. R. Silva"
+ <gustavoars@kernel.org>,
+        Christoph Hellwig <hch@lst.de>, Marco Elver
+ <elver@google.com>,
+        Andrey Konovalov <andreyknvl@gmail.com>,
+        Andrey
+ Ryabinin <ryabinin.a.a@gmail.com>,
+        Ard Biesheuvel <ardb@kernel.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan Chancellor
+ <nathan@kernel.org>,
+        Nicolas Schier	 <nicolas.schier@linux.dev>,
+        Nick
+ Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling
+ <morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+        x86@kernel.org, kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+        linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+        linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org,
+        linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org,
+        linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+        llvm@lists.linux.dev
+Date: Fri, 23 May 2025 15:24:30 +1000
+In-Reply-To: <20250523043935.2009972-8-kees@kernel.org>
+References: <20250523043251.it.550-kees@kernel.org>
+	 <20250523043935.2009972-8-kees@kernel.org>
+User-Agent: Evolution 3.56.1 (3.56.1-1.fc42) 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] riscv: dts: sophgo: add reset generator for Sophgo
- CV1800 series SoC
-To: Inochi Amaoto <inochiama@gmail.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Inochi Amaoto <inochiama@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
- Jisheng Zhang <jszhang@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
- Longbin Li <looong.bin@gmail.com>
-References: <20250209122936.2338821-1-inochiama@gmail.com>
- <20250209122936.2338821-4-inochiama@gmail.com>
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-In-Reply-To: <20250209122936.2338821-4-inochiama@gmail.com>
-X-ZohoMailClient: External
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=SMZCVPvH c=1 sm=1 tr=0 ts=6830069b cx=c_pps a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17 a=IkcTkHD0fZMA:10 a=dt9VzEwgFbYA:10 a=VnNF1IyMAAAA:8 a=REYBSQJbgk_QW_Jsg8sA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: oQb5v6M7wutfrMtk1qvZQMEXsUNMAS6C
+X-Proofpoint-ORIG-GUID: 5IyYPtP_M7W6sx6jcc6-H4GkEZFAEAEb
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA0MyBTYWx0ZWRfX8CeyVmgZNEOz 8pmB+9RdT5ZsQ98qxplPqvRkrNpOOYwsSTFPDm5ofvI1Vh4bbudIby6HA8NmTGhtWKTGCbPb+Vc ncpDniBcH8eQ2V6TvH4/WOR7hWwc72H7W3tmeVLVHUbkift9S50W47R4EZG5vRt+eQh2UiWAsBK
+ iE2vMgtZCKgIB8ryEScHd2O4ZVBu+fZQ71R6KP7ZepPiveo0szKoP5GtVDvnlETC92QyKZ6dJPA 9F354NXkUaazXC5GwoeLMpIeHZomJ+1xdeYZUMVAtJ78BfchmFk42UaDhV8BLvtV9oREWNDxTxG /JkwdDWhrq02gBuo/giLPxFbLNIIh1tgMIxMCWOWwczwEbDPV9zml+heRweY+Jd/oul5iu2Dl1O
+ bQSsYl9qhOX4fnuFfAi63sra+qJkyo0qkV3/wv1tj0wVD9FBgFyh3pEhli53wYP0l6epaDcF
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-05-23_02,2025-05-22_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 priorityscore=1501
+ mlxlogscore=480 suspectscore=0 bulkscore=0 clxscore=1011 adultscore=0
+ phishscore=0 mlxscore=0 impostorscore=0 spamscore=0 lowpriorityscore=0
+ malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2505160000
+ definitions=main-2505230043
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_062032_831255_418A52C0 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20250522_222509_090085_BB4A9C11 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,168 +153,25 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Inochi,
+On Thu, 2025-05-22 at 21:39 -0700, Kees Cook wrote:
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we have to
+> handle differences in how GCC's inline optimizations get resolved.
+> For
+> s390 this requires forcing a couple functions to be inline with
 
-Thanks for your patch. While testing remoteproc with it, I noticed some
-issues that need correction:
-
-On 2025/2/9 20:29, Inochi Amaoto wrote:
-> Add reset generator node for all CV18XX series SoC.
->
-> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> ---
->   arch/riscv/boot/dts/sophgo/cv18xx-reset.h | 98 +++++++++++++++++++++++
->   arch/riscv/boot/dts/sophgo/cv18xx.dtsi    |  7 ++
->   2 files changed, 105 insertions(+)
->   create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-reset.h
->
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-reset.h b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
-> new file mode 100644
-> index 000000000000..3d9aa9ec7e90
-> --- /dev/null
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
-> @@ -0,0 +1,98 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-> +/*
-> + * Copyright (C) 2025 Inochi Amaoto <inochiama@outlook.com>
-> + */
-> +
-> +#ifndef _SOPHGO_CV18XX_RESET
-> +#define _SOPHGO_CV18XX_RESET
-> +
-> +#define RST_DDR				2
-> +#define RST_H264C			3
-> +#define RST_JPEG			4
-> +#define RST_H265C			5
-> +#define RST_VIPSYS			6
-> +#define RST_TDMA			7
-> +#define RST_TPU				8
-> +#define RST_TPUSYS			9
-> +#define RST_USB				11
-> +#define RST_ETH0			12
-> +#define RST_ETH1			13
-> +#define RST_NAND			14
-> +#define RST_EMMC			15
-> +#define RST_SD0				16
-> +#define RST_SDMA			18
-> +#define RST_I2S0			19
-> +#define RST_I2S1			20
-> +#define RST_I2S2			21
-> +#define RST_I2S3			22
-> +#define RST_UART0			23
-> +#define RST_UART1			24
-> +#define RST_UART2			25
-> +#define RST_UART3			26
-> +#define RST_I2C0			27
-> +#define RST_I2C1			28
-> +#define RST_I2C2			29
-> +#define RST_I2C3			30
-> +#define RST_I2C4			31
-> +#define RST_PWM0			32
-> +#define RST_PWM1			33
-> +#define RST_PWM2			34
-> +#define RST_PWM3			35
-> +#define RST_SPI0			40
-> +#define RST_SPI1			41
-> +#define RST_SPI2			42
-> +#define RST_SPI3			43
-> +#define RST_GPIO0			44
-> +#define RST_GPIO1			45
-> +#define RST_GPIO2			46
-> +#define RST_EFUSE			47
-> +#define RST_WDT				48
-> +#define RST_AHB_ROM			49
-> +#define RST_SPIC			50
-> +#define RST_TEMPSEN			51
-> +#define RST_SARADC			52
-> +#define RST_COMBO_PHY0			58
-> +#define RST_SPI_NAND			61
-> +#define RST_SE				62
-> +#define RST_UART4			74
-> +#define RST_GPIO3			75
-> +#define RST_SYSTEM			76
-> +#define RST_TIMER			77
-> +#define RST_TIMER0			78
-> +#define RST_TIMER1			79
-> +#define RST_TIMER2			80
-> +#define RST_TIMER3			81
-> +#define RST_TIMER4			82
-> +#define RST_TIMER5			83
-> +#define RST_TIMER6			84
-> +#define RST_TIMER7			85
-> +#define RST_WGN0			86
-> +#define RST_WGN1			87
-> +#define RST_WGN2			88
-> +#define RST_KEYSCAN			89
-> +#define RST_AUDDAC			91
-> +#define RST_AUDDAC_APB			92
-> +#define RST_AUDADC			93
-> +#define RST_VCSYS			95
-> +#define RST_ETHPHY			96
-> +#define RST_ETHPHY_APB			97
-> +#define RST_AUDSRC			98
-> +#define RST_VIP_CAM0			99
-> +#define RST_WDT1			100
-> +#define RST_WDT2			101
-> +#define RST_AUTOCLEAR_CPUCORE0		128
-
-
-I think here should start from 256.
-
-> +#define RST_AUTOCLEAR_CPUCORE1		129
-> +#define RST_AUTOCLEAR_CPUCORE2		130
-> +#define RST_AUTOCLEAR_CPUCORE3		131
-> +#define RST_AUTOCLEAR_CPUSYS0		132
-> +#define RST_AUTOCLEAR_CPUSYS1		133
-> +#define RST_AUTOCLEAR_CPUSYS2		134
-> +#define RST_CPUCORE0			160
-
-And here should start from 288.
-
-> +#define RST_CPUCORE1			161
-> +#define RST_CPUCORE2			162
-> +#define RST_CPUCORE3			163
-> +#define RST_CPUSYS0			164
-> +#define RST_CPUSYS1			165
-> +#define RST_CPUSYS2			166
-> +
-> +#endif /* _SOPHGO_CV18XX_RESET */
-> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> index c18822ec849f..9aa28ade73a4 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
-> @@ -7,6 +7,7 @@
->   #include <dt-bindings/clock/sophgo,cv1800.h>
->   #include <dt-bindings/gpio/gpio.h>
->   #include <dt-bindings/interrupt-controller/irq.h>
-> +#include "cv18xx-reset.h"
->   
->   / {
->   	#address-cells = <1>;
-> @@ -61,6 +62,12 @@ clk: clock-controller@3002000 {
->   			#clock-cells = <1>;
->   		};
->   
-> +		rst: reset-controller@3003000 {
-> +			compatible = "sophgo,cv1800b-reset";
-> +			reg = <0x3003000 0x1000>;
-> +			#reset-cells = <1>;
-> +		};
-> +
->   		gpio0: gpio@3020000 {
->   			compatible = "snps,dw-apb-gpio";
->   			reg = <0x3020000 0x1000>;
-
+I assume you mean powerpc here, though I'm sure my employer is happy
+that you're at least confusing us with IBM's other architecture :)
 
 -- 
-Best regards,
-Junhui Liu
-
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
 _______________________________________________
 linux-riscv mailing list
