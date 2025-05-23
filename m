@@ -4,48 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C92C3C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:00:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C060CC54ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:04:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UmIzGao0cAKtjP5bQWgW9cGM77H2XTd8yvDcd6lQIBw=; b=B/j3kp20vqJD/Q
-	OuSMjhf7g5oiGBU/EvWN/+9haS5pxUPjalYl/PHyH27SUlUZy8ED4DVFdPqGTGCjt8c8GPusLGpeT
-	FcVNZVp8vHppo7IYgoa8xoT5Gr5H4W3PU3ypxiEBelPTAgWdaSJ4BPoP5eUcv/zvo0swf8HrlQi+S
-	RlrTFAYusGCs9ZqyQA096+rkbBf15BU0hqRI5BolChv2g90+sAkOSmx2i1g8QWLVyAnKrc/e9ub0j
-	0ITA5Q+B2p5fo0pIWBMdSCkO5ZQ1Cbad7M93cWa+OtPnCdQvDFFzAOhkhCwvqHTfNNsI3wy1KBSwu
-	L9SVGx84K3h3ZXcSuYCQ==;
+	List-Owner; bh=fyMMrRiGfkO8jJ58T+RdowMNC5yeTZpQVLC+m2s3mmI=; b=FHHH8ZUK2vDqrm
+	6g74P1v9+eoYz/VaC0djJDCNM0+9ech9YwHvOptw5ZhJoTrucgYHmNdl+/d+BVV7fVKw3B1Rtw1HK
+	SQwlAQb76oELLgQaKbP09S7fQfsDGdWxZLmagTNhzUOehnBxgDVxraLcAF3DxlLbSMna2Ow6kjaVq
+	A9z71mwnOOR9McjSdBERBYtnKwUA1TqJxvxUGekf7vEt0c0LeTuqswcpiQa3ylOYBuFpI04FBNYN7
+	IHIrgE1GBq0zXEYKwWbeMEhSZrfmFFpIcXzTBWsuwtEKYkUp+qGNjZMgPi9n52oSyfbKrAC3d/+6c
+	nKZ3NbpvTH00syX0Hs2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKVu-00000002xVx-1q5w;
-	Fri, 23 May 2025 05:00:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uIKaE-00000002xtL-0YZM;
+	Fri, 23 May 2025 05:04:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKC5-00000002tzF-39PY;
-	Fri, 23 May 2025 04:39:45 +0000
+	id 1uIKCL-00000002uBd-3SB0;
+	Fri, 23 May 2025 04:39:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=OlTZo2YHN4mUSlk4pxkhvoD5faV7hXNmgVvajUQvWZ4=; b=O1nL5WS+mh3Eqczva6cxU1ucxC
+	w3l8VMT+Q222VRHP9+VrwqFo8eoua4GMIHxkhFkRZp0ZKiqWqQpQDlaDdQBYvI1yuC5HbL/I3TsUc
+	MA0cjY4/h+Vlttl0KqSiMbZ4CmtbrcOvn/79b2C0FtghlQVkEdxpwhbqgGkytRKboMeQs/VrI9eI4
+	IkmA7X6gyCBv/MrZCYGNwhIkrZSUF8c6lNr/uj2MFHkpOF5lhw+hyTWFSdwUzkddXmsBzeDFaMHz1
+	bcJ8XYm8d/2kFshdOGIwQwaGg5vStMw1hiR/h4grx78AUWLQkSjxbNeUyuPige9BqO1jXqyDUI867
+	9PYltV9w==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIKCC-000000017tl-3BMc;
+	Fri, 23 May 2025 04:39:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FB234A968;
+	by nyc.source.kernel.org (Postfix) with ESMTP id 802AAA4ED23;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 45D20C4CEF6;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3784AC4CEF2;
 	Fri, 23 May 2025 04:39:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1747975181;
-	bh=Jd/sB6oZ8iltvnfrQDqGbUKjd0Ro3QNhdkLI+vDUogY=;
+	bh=snrRkduazq+CuYpLqIIgLSyyFGO/4xQDvfJjkALfmd4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uE7AaIXpwC5UwsMRJ69CQY6UitGX9wnySf5tVkqGdVEf3R8NkbsWcogYuMzwCIPjU
-	 PKOIlhjPY7eZqWnbn23WMH4eVsoeXc2gpbWtUYAl5lScvcTQhwCu+WHQ/weTwqFkY1
-	 MKtNJT1gy9Ua87vncd628DzNyGV+pLo4o1GRdtLgYU4s0pK+yl1CFQL8tjutl60QfX
-	 UIedCQqD0fEMZOR1fqZKF/lfM5q1EcIFwL7VMYlAEDzsOkmVJtO4+AOBJmSkAdh3q9
-	 IX5DyMtDuEsfAVFqKg+pGrxwAZJxoDombtDDeetPTNkmjyHD7gtG+v5lDEGWWpUAoR
-	 uheAXE53E4XBw==
+	b=op8RRRGe2/JON5AhouRE1uGu/0MQ6MJngswUtwTUCqRtXYGhN+/KMwsfK+InxrS/j
+	 qVBI5FPdfZQsdd15OTbv5MfokKIPn3Jom9SYvVFRlUvJM+6byXz8hpvJnEUDE/eoC2
+	 Fykfqq9R8Bgz7OPXG2c8og+uXdyuym0+B8zll4KTL4MLpoPnoSmk1fzWge/iYDnFwT
+	 RpNM3JYC/cn/dKAymuALJKhBi5GY0ejseIQ9zPqp4Y4TLqiI49u5fGaBLSNpGn9dI9
+	 1EiGxhtXGhxc6+9u34GU/yztyCegScP3oRdaK54o2i08c44La6Bv2YXhmPUOSt6Ojj
+	 ExTH5vB4iW4Yg==
 From: Kees Cook <kees@kernel.org>
 To: Arnd Bergmann <arnd@arndb.de>
 Cc: Kees Cook <kees@kernel.org>,
-	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	linux-mips@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Gavin Shan <gshan@redhat.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	James Morse <james.morse@arm.com>,
+	Oza Pawandeep <quic_poza@quicinc.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Christoph Hellwig <hch@lst.de>,
 	Marco Elver <elver@google.com>,
@@ -62,7 +83,6 @@ Cc: Kees Cook <kees@kernel.org>,
 	x86@kernel.org,
 	kasan-dev@googlegroups.com,
 	linux-doc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	kvmarm@lists.linux.dev,
 	linux-riscv@lists.infradead.org,
 	linux-s390@vger.kernel.org,
@@ -73,18 +93,18 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	sparclinux@vger.kernel.org,
 	llvm@lists.linux.dev
-Subject: [PATCH v2 09/14] mips: Handle KCOV __init vs inline mismatches
-Date: Thu, 22 May 2025 21:39:19 -0700
-Message-Id: <20250523043935.2009972-9-kees@kernel.org>
+Subject: [PATCH v2 06/14] arm64: Handle KCOV __init vs inline mismatches
+Date: Thu, 22 May 2025 21:39:16 -0700
+Message-Id: <20250523043935.2009972-6-kees@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250523043251.it.550-kees@kernel.org>
 References: <20250523043251.it.550-kees@kernel.org>
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1052; i=kees@kernel.org; h=from:subject; bh=Jd/sB6oZ8iltvnfrQDqGbUKjd0Ro3QNhdkLI+vDUogY=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v3/Zi0kce6axcl3IlGXXv7dekvhyRPSBTort1tP1K SyVtX0ZHaUsDGJcDLJiiixBdu5xLh5v28Pd5yrCzGFlAhnCwMUpABOZysfIsPL2U8Z//9ZLv1JP aV33p2xj+sPc5oXl284XsjnqZc1ZtpPhf9Cv8pC7KxeE36nZ/nr2m3tGE9NjZ03f/PFc35H9N+K yTLkB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1393; i=kees@kernel.org; h=from:subject; bh=snrRkduazq+CuYpLqIIgLSyyFGO/4xQDvfJjkALfmd4=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v3/OeF2xrGn/ecfjBwO7efZdOCt4+rf88t0n3N4wb Z+3/dJegY5SFgYxLgZZMUWWIDv3OBePt+3h7nMVYeawMoEMYeDiFICJ3LzFyHBy2+63G546VX1g 0Vi7P+DmOWnH15LfT2QGVG0KzD0V33ie4Z+ZkuwqZaEtna8zJ9x43F2j86WpmZGvafXnHuZ8IQF la24A
 X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_213941_912838_A1134BF0 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20250523_053950_664544_353D91B3 
+X-CRM114-Status: GOOD (  11.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,31 +123,39 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 When KCOV is enabled all functions get instrumented, unless
 the __no_sanitize_coverage attribute is used. To prepare for
-__no_sanitize_coverage being applied to __init functions, we have to
-handle differences in how GCC's inline optimizations get resolved. For
-mips this requires forcing a function to be inline with __always_inline.
+__no_sanitize_coverage being applied to __init functions, we
+have to handle differences in how GCC's inline optimizations get
+resolved. For arm64 this requires forcing one function to be inline
+with __always_inline.
 
 Signed-off-by: Kees Cook <kees@kernel.org>
 ---
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>
-Cc: <linux-mips@vger.kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Cc: Gavin Shan <gshan@redhat.com>
+Cc: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: James Morse <james.morse@arm.com>
+Cc: Oza Pawandeep <quic_poza@quicinc.com>
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: <linux-arm-kernel@lists.infradead.org>
 ---
- arch/mips/include/asm/time.h | 2 +-
+ arch/arm64/include/asm/acpi.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/mips/include/asm/time.h b/arch/mips/include/asm/time.h
-index e855a3611d92..044cff0e0764 100644
---- a/arch/mips/include/asm/time.h
-+++ b/arch/mips/include/asm/time.h
-@@ -55,7 +55,7 @@ static inline int mips_clockevent_init(void)
-  */
- extern int init_r4k_clocksource(void);
+diff --git a/arch/arm64/include/asm/acpi.h b/arch/arm64/include/asm/acpi.h
+index a407f9cd549e..c07a58b96329 100644
+--- a/arch/arm64/include/asm/acpi.h
++++ b/arch/arm64/include/asm/acpi.h
+@@ -150,7 +150,7 @@ acpi_set_mailbox_entry(int cpu, struct acpi_madt_generic_interrupt *processor)
+ {}
+ #endif
  
--static inline int init_mips_clocksource(void)
-+static __always_inline int init_mips_clocksource(void)
+-static inline const char *acpi_get_enable_method(int cpu)
++static __always_inline const char *acpi_get_enable_method(int cpu)
  {
- #ifdef CONFIG_CSRC_R4K
- 	return init_r4k_clocksource();
+ 	if (acpi_psci_present())
+ 		return "psci";
 -- 
 2.34.1
 
