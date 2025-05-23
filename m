@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F045C54ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 14:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB922C54ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 14:42:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=euFYW6r5X2SWrfwhAwOQPmhCxMxqtV6HfAXpLpqrI3Q=; b=LvWXXpVKHIMHfU
-	sNXC5GNI77WKidaVcfjAHxPH5Zgccn2Xt06tdbbST55fDVGw54CIZTuYE49fH8KLi858toG5vX1/T
-	blQFYARA7ToDMjndVpsWQu4pWVrP+VKjdrq3PzOCVPwEJIET1WS4GVz+/gJVv9WItTOf+wEptJYzl
-	vCrHBge5m84GFK5OzmI3YGrIqEDHRDrKv0g1FcA3Gmzn6E/At/ayHxhE4+g52PuG6H2k61rHVkAfU
-	Iwla881aG9cFGOCn8aGSVsLFpUoCYtSXY4JzLno6OZcXu5F+5cxLA0WauA+oX9/Ih3QrP12n/r/da
-	fyGI9U6ibuiRSX/vxYng==;
+	List-Owner; bh=ZQGWOOUlmzkzTP7DtX0GmpanbeJ2Tas2996XIQg8ico=; b=ETr2P5iNOafjcM
+	8fnuhCd9ohFRGKn6quYHwzURhS4VgF/aF0pyJMFkraISHr600kcRKLSLLhDseIXeN5S+vvZwL9Vnq
+	j1fLjiF9xNh/iQq8VVDKdfCxrs9axP/RZTKP0PEPDFayEaH3riRT9+ieVdKlXFWj6YZCpUmXTB1Ll
+	dV5VgvlvRchysugKxQLi5ijT9Q7w0Fm5ehQXxBZM1Ou/zbBqgLdSGGir/L8O7bhDjD+vLEXMkxKcT
+	wIwwqmenSTMWh0PU6NYCx6S2UFmOnCei/lyWrokXWp54NA53QJmrBveNK22utA0tDYCCr/916hlG/
+	Tcge3NUmakAVSw95O+7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uITbM-000000045po-2f3k;
-	Fri, 23 May 2025 14:42:24 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uITbY-000000046Bx-40nN;
+	Fri, 23 May 2025 14:42:36 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uISe4-00000003zOJ-1VXt
-	for linux-riscv@bombadil.infradead.org;
-	Fri, 23 May 2025 13:41:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=; b=lhVrpy5nqr/zRntl5mZUt9S8wi
-	FSeLlAuO+AHrs0nSrQJYSlICF/Jkx+nqW9K1CuZeCfF8VckRhkAHwbvNrSylycWfkeSt9Ryz+c/oG
-	bVR1LrUEVpRHhWPcY5fWlctV0ZkEtE6MohDAwlA+7Yk3uU7KtAjE8etOJ+HDARkDWoFzj6DannF4G
-	3+2rSk5ExmiwJa+54YuQ0n4XZU9y5mUQZTsE2BxOjHCnWLcajCCaMWmvEin4lUg1lusbQgKi8tAEX
-	g0IBtmcGWO7RfkGFbhSZ0KCYIvgAiypbk16U3LfSag4vi65yRdXu1FCOmHpayoykYexRTtf/Rvsox
-	OmPVwqtg==;
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
-	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uISe1-00000001Klw-2UIF
+	id 1uISeA-00000003zQg-1aiF
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 13:41:07 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-60236e3d093so4791495a12.3
-        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 06:41:04 -0700 (PDT)
+	Fri, 23 May 2025 13:41:16 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-551f0072119so1145147e87.0
+        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 06:41:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748007663; x=1748612463; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748007673; x=1748612473; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
-        b=r2KaPC1nb4idGQqgtnlJiA0sfPC5i/Mi5b5/IUntoxx+XT2Wt9syWTrSRgeJto9O8d
-         dBKwWt2PgWUKCZ4EJU3Tq5ow1pDfzpdOBInR899+br0IlYwUIkKaegrMS+eMup225RAQ
-         +82lSHPna9zDQdeCso3+O1VYMuJbt+I4p4IFGnHB6yCCUDGX5jg0jWM3ebFiXOUMZiCx
-         JXLXTFNHGadFTCZZgaaonbpmBWvck5CvYqATBLkzSJwE9pXTJwEXvwDBHs8AdJSu8C+l
-         1HPJ34oYdAAKdmjcS3nhlS5Hm+eYTy06ScfQGGWyo/XHlSY44/iWSVkxwK0iS7+oIiif
-         eJzg==
+        bh=HGyEwCJhPN1ZKDIimFxnLW+xEyMfXf8H84gi9aCiP1o=;
+        b=qxpxBZTGsA1s5/ZTZOQge4FnDq2wyZMKnpMmY3yeF1eTbjJvmQTtm8dMrON/mXhvbH
+         8RX4DdJA/7kkw7vDHbfKlt3LKMCO0usMOGXYXsXsYa3CE8s1mjLhAIq16SkDyBddVKRN
+         aQ67YlAG6blc+Ym9ePFUDvj4iXI0IRHZINJScHoSGuqQX3vMzZN6nPQ5kN0Ld4aMw/Un
+         YWherm++RHY1WtRnpZuDX5ag/i4a65Pm3QIgziIt9wsNO8sHv93MXyTYNp4iqbWl4kXL
+         L3IaPprO4BeePVMoz0MF23WFaiThikrfnNyAhbxLUx+jOTGbVcTiYTxJx048ZX7/H2c1
+         7vBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748007663; x=1748612463;
+        d=1e100.net; s=20230601; t=1748007673; x=1748612473;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hUC/L//rK2/TTSf1Dzin38jZuZ6dxi7JPqJ0cw7AoiA=;
-        b=c+9uQ5iRJkL8cbXCCiIyJQLnXELy4haPPuWZoWejoUxCGeNpA/vr3b9Q6Zsekt6o0r
-         bPexoMcf14xJ5WQJgoGV+KZTWFfPlDk1zI5kigpha1RLMdNG5/yiPtg4fycPMDIzOrus
-         Pcd0cuSzvQ8n0mShJN1md9AFPbMnhwvOv0UZAod2BPNn6h/mhHrr0/iFd9IK/AGgziMS
-         8l7SQEVCXh/J9VqgJttrAq4v3f9YTphCOePcu+8J8eYhLAxIe1xRj5Rm/hS1JnoO0igo
-         fEcjf/uuZ/ksyc7An7j5lBsp/mWTsmna//RlWyAUG2G4FuJhM8BJqq8HWr/ewFI07Dx5
-         5dVA==
-X-Forwarded-Encrypted: i=1; AJvYcCUl+wjaXhaOPsoTvsq4vXcCdA7Ij+VnexMd0uMZLOFB+3oZg360l9TAvOZNym3vMbVxUFYzh1kdIxejzg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUzXjA5Dqwv8GBPMtIN8ubr57q4PBMVF731Ir3ifCEL4dEoA7M
-	hSiCqq37ZguJ4B9mLanqER+8/pzGOPthJt1wAKIFXgiXIdRh248gqDSxA4vE4Upn7xPBKzaBDcX
-	M02gQJq4=
-X-Gm-Gg: ASbGnctH3R/ZpEoO2jOS8RShseEaHYRvY2b0KyV2gNll4VWmlunNb4xcNp0nxgYNzZj
-	6tXlZH4NPPpYvUcCpA/1ktOr69E7jMJ+iWj6MSXagElaskzcgM5TEXTC2RuwGLrMU/7xxbCPSc/
-	4xWQgfbB9nJ/PzU7GPY8YVL8SmgyLjBvMHyDz3XMxe6dVAaTk1bZWSfur/Jz0aq6G7un1OyHBFk
-	QctjqJPwzlVnO1uQEkyjVliuhruC1B0dyom+Vn9bm8gQCwfdXJcuOX+jm1BpKqCeJeP0h+qQvdE
-	GuT9Jz4kYNHnYljT8JpybZD4gXIDb1vlVvJqbMqF59JHM7TyPFMvSgvH82on++XczjH/B5fwY/i
-	beHlT4eVMNNs8Tz1VvLq22s4FKg==
-X-Google-Smtp-Source: AGHT+IEHCYkYuWzR0+7rN1lJlnWJY9YunsWGOeHigvX1kOvGZwTPmtXZLbWPxdIRTzInet0tBxzveg==
-X-Received: by 2002:a05:6512:3d1d:b0:54e:90ce:3c34 with SMTP id 2adb3069b0e04-55216ebe5a0mr842172e87.55.1748007652469;
-        Fri, 23 May 2025 06:40:52 -0700 (PDT)
+        bh=HGyEwCJhPN1ZKDIimFxnLW+xEyMfXf8H84gi9aCiP1o=;
+        b=ADR1sadoqHQjyVEtJRvMfUEPIR+r+a15pCRiZzFWlTz4w7ZG3hygTPUHlWcw7LKElS
+         7fClzv0RxNRUi1uXs1i1l9YsM7IEhlLlQqVAXeQfNnh8/Gw4yJf34eslz2AlhNScLhcT
+         nVCy9WHI2esdmtt8bbCpEpiiia4F1/D6RkHKT2NRPgA0dz4naFvetG66nMPx4vrLq/PT
+         DSMWGtXh02wN7Ght2z+KIW8pM++HtC+hWyEaZ+KHrQu+l9GlJyP8uKWrUqQHhhiw4v/s
+         he4QwuntdBQXGNqqqVLJQIcNiTULLnNXZqOSSc/NKBJqCvMKDWgJDIEqvqDt7r3jj63c
+         izMA==
+X-Forwarded-Encrypted: i=1; AJvYcCX0Qejr54wrxU8uvYVM9AU+lTt/4nqryUtKMqz8Nh6bxYhsTQKpOO6/owrTtyM6Gunp0ArVPQ6uCzxksQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzL39n++4nxU7vtg5YMuxg2v8RiedLcd7XwnFd7wmUaWiYVbN+3
+	ixBEQpfZd7mN8n2StOQaye6H0EGrx05npgOluuzIo0vOF3tlrpGmvSnlIbdoOyxOKbA=
+X-Gm-Gg: ASbGnctkiJT9Sqi2N28rvtkcTtbPAEvYQeIitw72aGC2G7bFpk5/UPA6GHMs8HTw3HD
+	5+lB5JJmDoe7Cn5toBOh0iMDPP2N+4A8VI0NQYzSuH0wFXWcWmoYFsV7uGTaapGhe3Kdb382qzd
+	45saPRmuSmFdfGJ9bLeGFyprCR9rqtpmBdZ6mgsiXi9ymMmkTPFx1d1y4kuL87b/EW0EjXyhG7M
+	Ca7JeaebF8iSmIwKTlQ1Z9Pi9YH4LvH5VcVlCCqptZF97DEAshQZMAd9O0quR9C2mX7D/iqg9c0
+	BJrOwtaGgwZIkAauSV3P4CCy0Up9ww9K88wdcMYfGoG8gpl2WhGSoh2VtCNRseQSRG5u1AnNA0y
+	fZjDfoz1F2zi3mb2SIVlABlSN4w==
+X-Google-Smtp-Source: AGHT+IGPyCQFUdzHIALfteU0vTerPpV7oILLzxQIlLInZMqH94Tb+MaxZdvt9CEg2iCH7sWV6l9Bng==
+X-Received: by 2002:a05:6512:3ba7:b0:54f:c1cc:1241 with SMTP id 2adb3069b0e04-552156cc6a3mr1224907e87.25.1748007672736;
+        Fri, 23 May 2025 06:41:12 -0700 (PDT)
 Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.40.51
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-551fc0d473bsm1950609e87.244.2025.05.23.06.41.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 06:40:51 -0700 (PDT)
+        Fri, 23 May 2025 06:41:12 -0700 (PDT)
 From: Ulf Hansson <ulf.hansson@linaro.org>
 To: Saravana Kannan <saravanak@google.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -107,16 +91,16 @@ Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <anup@brainfault.org>,
 	linux-riscv@lists.infradead.org
-Subject: [PATCH v2 08/21] cpuidle: riscv-sbi: Opt-out from genpd's common ->sync_state() support
-Date: Fri, 23 May 2025 15:40:05 +0200
-Message-ID: <20250523134025.75130-9-ulf.hansson@linaro.org>
+Subject: [PATCH v2 21/21] cpuidle: riscv-sbi: Drop redundant sync_state support
+Date: Fri, 23 May 2025 15:40:18 +0200
+Message-ID: <20250523134025.75130-22-ulf.hansson@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250523134025.75130-1-ulf.hansson@linaro.org>
 References: <20250523134025.75130-1-ulf.hansson@linaro.org>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_144105_782312_14E5487A 
-X-CRM114-Status: GOOD (  12.05  )
+X-CRM114-CacheID: sfid-20250523_064114_420461_7242C218 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,50 +117,82 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The riscv-sbi-domain implements its own specific ->sync_state() callback.
-Let's set the GENPD_FLAG_NO_SYNC_STATE to inform genpd about it.
+The recent updates to the genpd core, can entirely manage the sync_state
+support for the cpuidle-riscv-sbi-domain. More precisely, genpd prevents
+our ->power_off() callback from being invoked, until all of our consumers
+are ready for it.
 
-Moreover, let's call of_genpd_sync_state() to make sure genpd tries to
-power off unused PM domains.
+Let's therefore drop the sync_state support for the
+cpuidle-riscv-sbi-domain as it has become redundant.
 
 Cc: Anup Patel <anup@brainfault.org>
 Cc: linux-riscv@lists.infradead.org
 Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 ---
- drivers/cpuidle/cpuidle-riscv-sbi.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/cpuidle/cpuidle-riscv-sbi.c | 22 +---------------------
+ 1 file changed, 1 insertion(+), 21 deletions(-)
 
 diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0fe1ece9fbdc..83d58d00872f 100644
+index 83d58d00872f..a360bc4d20b7 100644
 --- a/drivers/cpuidle/cpuidle-riscv-sbi.c
 +++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -347,11 +347,16 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
+@@ -44,7 +44,6 @@ static DEFINE_PER_CPU_READ_MOSTLY(struct sbi_cpuidle_data, sbi_cpuidle_data);
+ static DEFINE_PER_CPU(struct sbi_domain_state, domain_state);
+ static bool sbi_cpuidle_use_osi;
+ static bool sbi_cpuidle_use_cpuhp;
+-static bool sbi_cpuidle_pd_allow_domain_state;
  
- static void sbi_cpuidle_domain_sync_state(struct device *dev)
+ static inline void sbi_set_domain_state(u32 state)
  {
-+	struct sbi_pd_provider *pd_provider;
-+
- 	/*
- 	 * All devices have now been attached/probed to the PM domain
- 	 * topology, hence it's fine to allow domain states to be picked.
- 	 */
- 	sbi_cpuidle_pd_allow_domain_state = true;
-+
-+	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
-+		of_genpd_sync_state(pd_provider->node);
+@@ -345,20 +344,6 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
+ 	return ret;
  }
  
+-static void sbi_cpuidle_domain_sync_state(struct device *dev)
+-{
+-	struct sbi_pd_provider *pd_provider;
+-
+-	/*
+-	 * All devices have now been attached/probed to the PM domain
+-	 * topology, hence it's fine to allow domain states to be picked.
+-	 */
+-	sbi_cpuidle_pd_allow_domain_state = true;
+-
+-	list_for_each_entry(pd_provider, &sbi_pd_providers, link)
+-		of_genpd_sync_state(pd_provider->node);
+-}
+-
  #ifdef CONFIG_DT_IDLE_GENPD
-@@ -396,7 +401,8 @@ static int sbi_pd_init(struct device_node *np)
+ 
+ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
+@@ -369,9 +354,6 @@ static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
+ 	if (!state->data)
+ 		return 0;
+ 
+-	if (!sbi_cpuidle_pd_allow_domain_state)
+-		return -EBUSY;
+-
+ 	/* OSI mode is enabled, set the corresponding domain state. */
+ 	pd_state = state->data;
+ 	sbi_set_domain_state(*pd_state);
+@@ -401,8 +383,7 @@ static int sbi_pd_init(struct device_node *np)
  	if (!pd_provider)
  		goto free_pd;
  
--	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
-+	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
-+		     GENPD_FLAG_NO_SYNC_STATE;
+-	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN |
+-		     GENPD_FLAG_NO_SYNC_STATE;
++	pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
  
  	/* Allow power off when OSI is available. */
  	if (sbi_cpuidle_use_osi)
+@@ -570,7 +551,6 @@ static struct platform_driver sbi_cpuidle_driver = {
+ 	.probe = sbi_cpuidle_probe,
+ 	.driver = {
+ 		.name = "sbi-cpuidle",
+-		.sync_state = sbi_cpuidle_domain_sync_state,
+ 	},
+ };
+ 
 -- 
 2.43.0
 
