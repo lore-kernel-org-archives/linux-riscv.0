@@ -4,61 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DE9C54ED0
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 20:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DC61C54ED1
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 20:32:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WmAaNDggYS5oRHV6P+bRofNvclkveclr5g548+bbQD4=; b=OXEl7daHCjk750
-	8/SuobQ1MSNALkY/TkY3VV+9SRDl9gdqCegrKXH53chcm218Wbf3qnzWWN8+w0+A87f68HrhHBguc
-	YFAS0XajyWjw/E+qNuQUv+jD13ln6/HRpFmZ+5j9Y+qX1/o4X4Cq1LaIWrO+86B55pGPr7VwF6xEl
-	nJX/KsoFfJ/dEdbTG/pAbpeAUOqO0rHKypg8CRtqeoEV9tRjGdfsxahGEftKiGPAH7AGOIe6Wsngi
-	zsy/ICPaHji+sBF/i7D+NbyjXO0IutjBEdvlLFw9ALfO5fwLPVTNrTftqkmfWU3OMARY3pivJiG8K
-	joOQHe5RtWvRXfXKnaoQ==;
+	List-Owner; bh=i7u0+rGBpgz0k8btPKYblvMabCB1DvpUmCFHR3KyQH8=; b=PgPwN1gDEGnIFI
+	PCsA6mZWT4NsHJ0KQgePht71bQX9LF9FfphCWL8mlMvFCGZSIDmv3VOrnNkped7OuPSyxzg9xUpNX
+	r8zRodkNrqkrOLCWL0U+WYUb8RtbC43EK0ExszDoVITebYKA0KHSTywyYnCFrjHdFEFDhSWOVOXiV
+	l1Oe6g7v13nOdxFR/mW/tq8lEfpiCe3RTqaryAnRRyTYtehRETwnwt0XbppBa4SsmKCujKny41Kep
+	ag0XdbMhRUu6r5qw3CpVp33eaeoRo4irMgClpgyuYYlkGfKOviJ1KN301e/4UPYzkp0THtSobouI9
+	PwfqIzpkxBQ8hhKk4atA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYa5-00000004qci-1Vkz;
-	Fri, 23 May 2025 20:01:25 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1uIZ4T-00000004sec-0e9g;
+	Fri, 23 May 2025 20:32:49 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIYa2-00000004qbl-2462
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 20:01:24 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id A969C43987;
-	Fri, 23 May 2025 20:01:17 +0000 (UTC)
-Message-ID: <f12632df-927e-4bdd-930e-5724e142af77@ghiti.fr>
-Date: Fri, 23 May 2025 22:01:16 +0200
+	id 1uIZ0L-00000004sDD-1vo6;
+	Fri, 23 May 2025 20:28:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A175F45078;
+	Fri, 23 May 2025 20:28:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74E60C4CEEF;
+	Fri, 23 May 2025 20:28:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748032111;
+	bh=mCqS/Kijb63hfjRogkIoo1V9a7plAKd5pBatsPb3zS4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cKCTWrMOz8QGFkwtap37uEMcxPQVostPEoFPh+liJpGoIZm7yUbph01VSxYIZ9Mnu
+	 Xp2SFx8fCFcAMCn/ELInspiWG36xJF3J7d0jPlVxo6aeh9oNz5+dzf8Kq3g/Xe/so1
+	 mYCrUnXAuBAVZPsZr7ruImlYVc+gipnIRXGuB54FA2ds4IMAQQ3eh1QLM/4b0qJj2M
+	 gTr/IjcVsa0wubmGcNRixgHZajZrPNsHowCdWXY/LC03W+Pu6hAChB6eWCEPXnK99u
+	 2vaA5rFoq3M2ELAJVxf64ufJ8UJLD7jY5t0UU+6I6+n7SgWhzCzujvRIpD5lc47LG4
+	 +IQz87qYLaslQ==
+Date: Fri, 23 May 2025 13:28:28 -0700
+From: Kees Cook <kees@kernel.org>
+To: Sean Christopherson <seanjc@google.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+	Michal Wilczynski <michal.wilczynski@intel.com>,
+	Juergen Gross <jgross@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Roger Pau Monne <roger.pau@citrix.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
+	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
+	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-mm@kvack.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
+	linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2 04/14] x86: Handle KCOV __init vs inline mismatches
+Message-ID: <202505231327.3FA45E4B@keescook>
+References: <20250523043251.it.550-kees@kernel.org>
+ <20250523043935.2009972-4-kees@kernel.org>
+ <aDCHl0RBMgNzGu6j@google.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drivers: acpi: Fix platform profile driver on !acpi
- platforms
-To: "Rafael J. Wysocki" <rafael@kernel.org>
-Cc: Armin Wolf <W_Armin@gmx.de>, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Len Brown <lenb@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
- <ilpo.jarvinen@linux.intel.com>,
- Mario Limonciello <mario.limonciello@amd.com>,
- Mark Pearson <mpearson-lenovo@squebb.ca>, Arnd Bergmann <arnd@arndb.de>,
- linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org
-References: <20250522141410.31315-1-alexghiti@rivosinc.com>
- <91458376-dfc7-46fc-8523-aa176907d703@gmx.de>
- <83e02a52-86ad-45e5-ba87-6c17dc6f59b5@ghiti.fr>
- <CAJZ5v0iPVx0KXB5qQ46iQ7CKG6KJC1CnXogQ=e8or24vZuytrw@mail.gmail.com>
- <CAJZ5v0iwH3p_A=f0g7+EsPbP7KBJS_LbT9+_gXNLBbXqW8vMFg@mail.gmail.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <CAJZ5v0iwH3p_A=f0g7+EsPbP7KBJS_LbT9+_gXNLBbXqW8vMFg@mail.gmail.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdeljeeiucdltddurdegfedvrddttddmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfevfhfhjggtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeduffeugedvtdegleeuhfeuteetueegfeefkefhheffvdduhfegvdehuddukeffgeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemvgeljedvmegutgdumeejvdduugemiedtsgdtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegvleejvdemuggtudemjedvudgumeeitdgstddphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemvgeljedvmegutgdumeejvdduugemiedtsgdtngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopehrrghfrggvlheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohephggptehrmhhinhesghhmgidru
- ggvpdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheplhgvnhgssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehilhhpohdrjhgrrhhvihhnvghnsehlihhnuhigrdhinhhtvghlrdgtohhmpdhrtghpthhtohepmhgrrhhiohdrlhhimhhonhgtihgvlhhlohesrghmugdrtghomhdprhgtphhtthhopehmphgvrghrshhonhdqlhgvnhhovhhosehsqhhuvggssgdrtggrpdhrtghpthhtoheprghrnhgusegrrhhnuggsrdguvg
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <aDCHl0RBMgNzGu6j@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_130122_665299_FFE0D418 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250523_132833_541590_89BEFC2D 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,71 +107,36 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgUmFmYWVsLAoKT24gNS8yMy8yNSAxNjo0NiwgUmFmYWVsIEouIFd5c29ja2kgd3JvdGU6Cj4g
-T24gRnJpLCBNYXkgMjMsIDIwMjUgYXQgMTI6NTDigK9QTSBSYWZhZWwgSi4gV3lzb2NraSA8cmFm
-YWVsQGtlcm5lbC5vcmc+IHdyb3RlOgo+PiBPbiBGcmksIE1heSAyMywgMjAyNSBhdCAxMjoxMeKA
-r1BNIEFsZXhhbmRyZSBHaGl0aSA8YWxleEBnaGl0aS5mcj4gd3JvdGU6Cj4+PiBPbiA1LzIyLzI1
-IDIyOjA0LCBBcm1pbiBXb2xmIHdyb3RlOgo+Pj4+IEFtIDIyLjA1LjI1IHVtIDE2OjEzIHNjaHJp
-ZWIgQWxleGFuZHJlIEdoaXRpOgo+Pj4+Cj4+Pj4+IFRoZSBwbGF0Zm9ybSBwcm9maWxlIGRyaXZl
-ciBpcyBsb2FkZWQgZXZlbiBvbiBwbGF0Zm9ybXMgdGhhdCBkbyBub3QgaGF2ZQo+Pj4+PiBhY3Bp
-IGVuYWJsZWQuIFRoZSBpbml0aWFsaXphdGlvbiBvZiB0aGUgc3lzZnMgZW50cmllcyB3YXMgcmVj
-ZW50bHkgbW92ZWQKPj4+Pj4gZnJvbSBwbGF0Zm9ybV9wcm9maWxlX3JlZ2lzdGVyKCkgdG8gdGhl
-IG1vZHVsZSBpbml0IGNhbGwsIGFuZCB0aG9zZQo+Pj4+PiBlbnRyaWVzIG5lZWQgYWNwaV9rb2Jq
-IHRvIGJlIGluaXRpYWxpemVkIHdoaWNoIGlzIG5vdCB0aGUgY2FzZSB3aGVuIGFjcGkKPj4+Pj4g
-aXMgZGlzYWJsZWQuCj4+Pj4+Cj4+Pj4+IFRoaXMgcmVzdWx0cyBpbiB0aGUgZm9sbG93aW5nIHdh
-cm5pbmc6Cj4+Pj4+Cj4+Pj4+ICAgIFdBUk5JTkc6IENQVTogNSBQSUQ6IDEgYXQgZnMvc3lzZnMv
-Z3JvdXAuYzoxMzEKPj4+Pj4gaW50ZXJuYWxfY3JlYXRlX2dyb3VwKzB4YTIyLzB4ZGQ4Cj4+Pj4+
-ICAgIE1vZHVsZXMgbGlua2VkIGluOgo+Pj4+PiAgICBDUFU6IDUgVUlEOiAwIFBJRDogMSBDb21t
-OiBzd2FwcGVyLzAgVGFpbnRlZDogRyBXCj4+Pj4+IDYuMTUuMC1yYzctZGlydHkgIzYgUFJFRU1Q
-VAo+Pj4+PiAgICBUYWludGVkOiBbV109V0FSTgo+Pj4+PiAgICBIYXJkd2FyZSBuYW1lOiByaXNj
-di12aXJ0aW8scWVtdSAoRFQpCj4+Pj4+ICAgIGVwYyA6IGludGVybmFsX2NyZWF0ZV9ncm91cCsw
-eGEyMi8weGRkOAo+Pj4+PiAgICAgcmEgOiBpbnRlcm5hbF9jcmVhdGVfZ3JvdXArMHhhMjIvMHhk
-ZDgKPj4+Pj4KPj4+Pj4gICAgQ2FsbCBUcmFjZToKPj4+Pj4KPj4+Pj4gICAgaW50ZXJuYWxfY3Jl
-YXRlX2dyb3VwKzB4YTIyLzB4ZGQ4Cj4+Pj4+ICAgIHN5c2ZzX2NyZWF0ZV9ncm91cCsweDIyLzB4
-MmUKPj4+Pj4gICAgcGxhdGZvcm1fcHJvZmlsZV9pbml0KzB4NzQvMHhiMgo+Pj4+PiAgICBkb19v
-bmVfaW5pdGNhbGwrMHgxOTgvMHhhOWUKPj4+Pj4gICAga2VybmVsX2luaXRfZnJlZWFibGUrMHg2
-ZDgvMHg3ODAKPj4+Pj4gICAga2VybmVsX2luaXQrMHgyOC8weDI0Ywo+Pj4+PiAgICByZXRfZnJv
-bV9mb3JrKzB4ZS8weDE4Cj4+Pj4+Cj4+Pj4+IEZpeCB0aGlzIGJ5IGNoZWNraW5nIGlmIGFjcGkg
-aXMgZW5hYmxlZCBiZWZvcmUgdHJ5aW5nIHRvIGNyZWF0ZSBzeXNmcwo+Pj4+PiBlbnRyaWVzLgo+
-Pj4+IEkgYWxyZWFkeSBzdWJtaXR0ZWQgYSBwYXRjaCBmb3IgdGhpcyBwcm9ibGVtIChzZWUKPj4+
-PiBodHRwczovL2xvcmUua2VybmVsLm9yZy9saW51eC1hY3BpL2E2ZDkyY2RkLTRkYzMtNDA4MC05
-ZWQ5LTViMWYwMmYyNDdlMEBnbXguZGUvVC8pCj4+Pj4gdGhhdCBvbmx5IGRpc2FibGVzIHRoZSBs
-ZWdhY3kgc3lzZnMgaW50ZXJmYWNlIHdoaWxlIGtlZXBpbmcgdGhlCj4+Pj4gY2xhc3MtYmFzZWQg
-aW50ZXJmYWNlIGZ1bmN0aW9uYWwKPj4+PiBhcyBpdCBkb2VzIG5vdCBkZXBlbmQgb24gQUNQSSBh
-dCBhbGwuCj4+Pgo+Pj4gR3JlYXQsIEkgdW5kZXJzdGFuZCBpZiB5b3VyIHBhdGNoc2V0IGlzIG5v
-dCBtZXJnZWQgZm9yIHJjMSBidXQgaXQgd291bGQKPj4+IGJlIG5pY2UgdG8gaGF2ZSBpdCBtZXJn
-ZWQgaW4gNi4xNiB0aG91Z2ggdG8gZml4IHJpc2N2IHN5emthbGxlcgo+Pj4gaW5zdGFuY2UuIFBl
-cmhhcHMgeW91IGNvdWxkIGFkZCB0aGUgRml4ZXMgdGFnIHRoYXQgQXJuZCBtZW50aW9uZWQgdG9v
-Pwo+PiBJIGFjdHVhbGx5IHByZWZlciB5b3VyIHBhdGNoIHRvIHRoZSBBcm1pbidzIG9uZSBiZWNh
-dXNlIHRoZXJlIGFyZQo+PiBxdWVzdGlvbnMgcmVnYXJkaW5nIHRoZSBsYXR0ZXIgKHNlZSB0aGUg
-bW9zdCByZWNlbnQgbWVzc2FnZSBmcm9tIEFybmQKPj4gaW4gdGhpcyB0aHJlYWQpLgo+IEFuZCBz
-byBpdCBoYXMgYmVlbiBhcHBsaWVkIGFzIDYuMTYgbWF0ZXJpYWwgbm93LCB0aGFua3MhCgoKVGhh
-bmsgeW91IHZlcnkgbXVjaCEKCkFsZXgKCgo+Cj4+Pj4+IEZpeGVzOiA3N2JlNWNhY2IyYzIgKCJB
-Q1BJOiBwbGF0Zm9ybV9wcm9maWxlOiBDcmVhdGUgY2xhc3MgZm9yIEFDUEkKPj4+Pj4gcGxhdGZv
-cm0gcHJvZmlsZSIpCj4+Pj4+IFNpZ25lZC1vZmYtYnk6IEFsZXhhbmRyZSBHaGl0aSA8YWxleGdo
-aXRpQHJpdm9zaW5jLmNvbT4KPj4+Pj4gLS0tCj4+Pj4+ICAgIGRyaXZlcnMvYWNwaS9wbGF0Zm9y
-bV9wcm9maWxlLmMgfCAzICsrKwo+Pj4+PiAgICAxIGZpbGUgY2hhbmdlZCwgMyBpbnNlcnRpb25z
-KCspCj4+Pj4+Cj4+Pj4+IGRpZmYgLS1naXQgYS9kcml2ZXJzL2FjcGkvcGxhdGZvcm1fcHJvZmls
-ZS5jCj4+Pj4+IGIvZHJpdmVycy9hY3BpL3BsYXRmb3JtX3Byb2ZpbGUuYwo+Pj4+PiBpbmRleCBm
-ZmJmZDMyZjRjZjEuLmI0M2Y0NDU5YTRmNiAxMDA2NDQKPj4+Pj4gLS0tIGEvZHJpdmVycy9hY3Bp
-L3BsYXRmb3JtX3Byb2ZpbGUuYwo+Pj4+PiArKysgYi9kcml2ZXJzL2FjcGkvcGxhdGZvcm1fcHJv
-ZmlsZS5jCj4+Pj4+IEBAIC02ODgsNiArNjg4LDkgQEAgc3RhdGljIGludCBfX2luaXQgcGxhdGZv
-cm1fcHJvZmlsZV9pbml0KHZvaWQpCj4+Pj4+ICAgIHsKPj4+Pj4gICAgICAgIGludCBlcnI7Cj4+
-Pj4+ICAgICsgICAgaWYgKGFjcGlfZGlzYWJsZWQpCj4+Pj4+ICsgICAgICAgIHJldHVybiAtRU9Q
-Tk9UU1VQUDsKPj4+Pj4gKwo+Pj4+PiAgICAgICAgZXJyID0gY2xhc3NfcmVnaXN0ZXIoJnBsYXRm
-b3JtX3Byb2ZpbGVfY2xhc3MpOwo+Pj4+PiAgICAgICAgaWYgKGVycikKPj4+Pj4gICAgICAgICAg
-ICByZXR1cm4gZXJyOwo+Pj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCj4+Pj4gbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cj4+Pj4gbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwo+Pj4+IGh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxt
-YW4vbGlzdGluZm8vbGludXgtcmlzY3YKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2
-QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
-L2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
-aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
-L2xpbnV4LXJpc2N2Cg==
+On Fri, May 23, 2025 at 07:35:03AM -0700, Sean Christopherson wrote:
+> On Thu, May 22, 2025, Kees Cook wrote:
+> > diff --git a/arch/x86/kernel/kvm.c b/arch/x86/kernel/kvm.c
+> > index 921c1c783bc1..72f13d643fca 100644
+> > --- a/arch/x86/kernel/kvm.c
+> > +++ b/arch/x86/kernel/kvm.c
+> > @@ -420,7 +420,7 @@ static u64 kvm_steal_clock(int cpu)
+> >  	return steal;
+> >  }
+> >  
+> > -static inline void __set_percpu_decrypted(void *ptr, unsigned long size)
+> > +static __always_inline void __set_percpu_decrypted(void *ptr, unsigned long size)
+> 
+> I'd rather drop the "inline" and explicitly mark this "__init".  There's value
+> in documenting and enforcing that memory is marked decrypted/shared only during
+> boot.
+
+Sure! I will swap this around. Thanks!
+
+-Kees
+
+-- 
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
