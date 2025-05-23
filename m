@@ -4,68 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A20ACC54ED0
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 11:17:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B324FC54F2E
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 11:22:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
-	:List-Id:In-Reply-To:References:Subject:To:From:Cc:Message-Id:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=STv7u6DiBOcDJzdAYjh/NpHzLG4oIlN0TvHHzYGQiVc=; b=EszbjRWW2Tug/Xk6i2zQEzA5VA
-	iPG9YZnUWXj5piB5TbiuDjQ/l0+217IEyR3Cv93H6WsiF4Fd+IAbt9Yq86Oj1mctDK8vJOUxil6P6
-	ie7VLjswWtPEGqQeT14WIqn7GnuMMe2LSpQN3T2ShavL8Xq/WAB0BR/N28LSiNOla3LDq3zioI+ar
-	gokIYGVmv3yMEEprkw/GPsHXOpaTLl8VLjW7qK1Y6JjZpfPbHEDzdv1ACgQM109lbKFRW7RvMxjia
-	wqxzNcDIEziPTYEaYnGE8vFZnavxYjS8MVME1FVR0osJ7qEk8Uhl2mtAX9FnWxzRzmCCzr9fEJxxa
-	8MIv6FKw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=aGG1+zvWb+2b/ECMOdmcfdCHW2GQ+T1DtVs3Gs1j+Y0=; b=4+SYwYM2GT5k7H
+	l+J8Wz7Gn+KJ0z6eWqr/Q9BnODxKMUPuc8ecewC4wReDN0oyMiRIjhkeUz8gBogVa1tMVmNH/4Khe
+	xFVTDhxG7H2wOReS7idYUf85cN4HWCgaG66F9LxVGPY1N57WWFWBvudro/31O/Js+LC+M8ik2ilhd
+	zI+MHjuNVs1wqxOOya+UlIEtku8eEgPlMXycmv07uBZhi4RijiQRZ468iOLAO1S90hRMpFfmSnyTC
+	viiVIssyDOv/GfFCVrX9pEUB7bLXD75VBl2cQAO67arUA0RYt+iP2BnBDAAwEqU5FcGh+7bnHlWlc
+	pFlh6CukvYr/fcpaU8rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQOZ-00000003gTZ-2WGN;
-	Fri, 23 May 2025 11:16:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uIQTy-00000003h6h-0sT9;
+	Fri, 23 May 2025 11:22:34 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQOW-00000003gSK-17wi;
-	Fri, 23 May 2025 11:16:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 111884475A;
-	Fri, 23 May 2025 11:16:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BFBDC4CEE9;
-	Fri, 23 May 2025 11:16:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747999014;
-	bh=B/LXczBMwATATQAdxc5lRKz9Xr6ZFT04LNvWjtBMxkU=;
-	h=Date:Cc:From:To:Subject:References:In-Reply-To:From;
-	b=cxHPdvBe2B7S2ZMSHJgNTjL3niskBzJjgW2RKIktdRkiXOOXsgYaVYgz/y8IfZFJg
-	 cpxIfXGjW1+p0BGT7XheLQnrlcgVyvIlwio4KdPxhCG7ECnZklvNOlabzR2uYDx2jZ
-	 5ual7045iX2BvdMF88W8VIvAnIdoxr9nlned5tW8wAkgSEi7ESnw96okwxP2ZjOtfX
-	 Tg8+4lEjUlcOOu835mjBeq7Z3rJ+BVwFhHBf0YW+t539i9z/ACoqPxvo+/Li216m9c
-	 WWxB/Fyv8COc5sDmwWX0aMsTxW5R5Rim1sj9aSchy5nHOXCV49CXnbJIDnTh22flsl
-	 OnO+m062AH1Gg==
-Date: Fri, 23 May 2025 13:16:50 +0200
-Message-Id: <DA3HXNN7HTD2.2NUKORU5V6CS2@kernel.org>
-Cc: <linux-mtd@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <sophgo@lists.linux.dev>, <linux-spi@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
- <dlan@gentoo.org>, <ziyao@disroot.org>
-From: "Michael Walle" <mwalle@kernel.org>
-To: "Zixian Zeng" <sycamoremoon376@gmail.com>, "Tudor Ambarus"
- <tudor.ambarus@linaro.org>, "Pratyush Yadav" <pratyush@kernel.org>, "Miquel
- Raynal" <miquel.raynal@bootlin.com>, "Richard Weinberger" <richard@nod.at>,
- "Vignesh Raghavendra" <vigneshr@ti.com>, "Chen Wang"
- <unicorn_wang@outlook.com>, "Inochi Amaoto" <inochiama@gmail.com>, "Mark
- Brown" <broonie@kernel.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Paul Walmsley" <paul.walmsley@sifive.com>, "Palmer Dabbelt"
- <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>, "Alexandre
- Ghiti" <alex@ghiti.fr>, "Longbin Li" <looong.bin@gmail.com>
-Subject: Re: [PATCH 2/3] mtd: spi-nor: Add GD25LB512ME GigaDevice flash_info
-X-Mailer: aerc 0.16.0
-References: <20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com>
- <20250523-sfg-spifmc-v1-2-4cf16cf3fd2a@gmail.com>
-In-Reply-To: <20250523-sfg-spifmc-v1-2-4cf16cf3fd2a@gmail.com>
+	id 1uIQRn-00000003grG-0ftT;
+	Fri, 23 May 2025 11:20:20 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54NBJc1K2086996;
+	Fri, 23 May 2025 06:19:38 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1747999178;
+	bh=G3eBoRI6ajKzQj7PIYgoVul0HEV9Bq6GwjJIxWdrMvs=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=pGrh4cl5UNwlzQb/0t74988xZoSrBH7x4348QMBKDmfEIEnMxH8v3P122scZKOLoq
+	 WcvICifTw0IpvVBp7SlgqxN1dmooOa4XIXH6VEXHmwzZMIPuwOd/B/40p6zsECZIL9
+	 nKV7oX048/6bbOEblbgcqX9fFjhONqR8xG9NOzpE=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54NBJcAC023157
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Fri, 23 May 2025 06:19:38 -0500
+Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
+ May 2025 06:19:37 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE101.ent.ti.com
+ (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 23 May 2025 06:19:37 -0500
+Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54NBJblW1172257;
+	Fri, 23 May 2025 06:19:37 -0500
+Date: Fri, 23 May 2025 06:19:37 -0500
+From: Nishanth Menon <nm@ti.com>
+To: Kees Cook <kees@kernel.org>
+CC: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
+        Daniel Lezcano <daniel.lezcano@linaro.org>,
+        Thomas Gleixner
+	<tglx@linutronix.de>,
+        Santosh Shilimkar <ssantosh@kernel.org>, Lee Jones
+	<lee@kernel.org>,
+        Allison Randal <allison@lohutok.net>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+        Christoph Hellwig
+	<hch@lst.de>, Marco Elver <elver@google.com>,
+        Andrey Konovalov
+	<andreyknvl@gmail.com>,
+        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+        Ard
+ Biesheuvel <ardb@kernel.org>,
+        Masahiro Yamada <masahiroy@kernel.org>,
+        Nathan
+ Chancellor <nathan@kernel.org>,
+        Nicolas Schier <nicolas.schier@linux.dev>,
+        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+        Bill Wendling
+	<morbo@google.com>,
+        Justin Stitt <justinstitt@google.com>, <linux-kernel@vger.kernel.org>,
+        <x86@kernel.org>, <kasan-dev@googlegroups.com>,
+        <linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
+        <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
+        <linux-efi@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
+        <linux-kbuild@vger.kernel.org>,
+        <linux-security-module@vger.kernel.org>,
+        <linux-kselftest@vger.kernel.org>, <sparclinux@vger.kernel.org>,
+        <llvm@lists.linux.dev>
+Subject: Re: [PATCH v2 05/14] arm: Handle KCOV __init vs inline mismatches
+Message-ID: <20250523111937.f2fqhoshqevdoxcl@snowbird>
+References: <20250523043251.it.550-kees@kernel.org>
+ <20250523043935.2009972-5-kees@kernel.org>
+MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250523043935.2009972-5-kees@kernel.org>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_041656_348072_CE9AF3AD 
-X-CRM114-Status: GOOD (  15.11  )
+X-CRM114-CacheID: sfid-20250523_042019_289101_505C0560 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,114 +110,46 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="===============9167711900091781757=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
---===============9167711900091781757==
-Content-Type: multipart/signed;
- boundary=a4437fa9bafb8d487087985596b0399ee9f18bc31a0f1c2284c38ec0a1e9;
- micalg=pgp-sha384; protocol="application/pgp-signature"
-
---a4437fa9bafb8d487087985596b0399ee9f18bc31a0f1c2284c38ec0a1e9
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-
-Hi,
-
-> Add GD25LB512ME SPI-NOR flash information
-
-Please have a look at [1].
-
-This flash supports SFDP, do you really need a new entry in the
-flashdb? Could you try without it?
-
-In any case, could you please dump the SFDP see [1], too.
-
-[1] https://docs.kernel.org/driver-api/mtd/spi-nor.html
-
-> Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+On 21:39-20250522, Kees Cook wrote:
+> When KCOV is enabled all functions get instrumented, unless
+> the __no_sanitize_coverage attribute is used. To prepare for
+> __no_sanitize_coverage being applied to __init functions, we have to
+> handle differences in how GCC's inline optimizations get resolved. For
+> arm this exposed several places where __init annotations were missing
+> but ended up being "accidentally correct". Fix these cases and force
+> several functions to be inline with __always_inline.
+> 
+> Signed-off-by: Kees Cook <kees@kernel.org>
 > ---
->  drivers/mtd/spi-nor/gigadevice.c | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
->
-> diff --git a/drivers/mtd/spi-nor/gigadevice.c b/drivers/mtd/spi-nor/gigad=
-evice.c
-> index ef1edd0add70e6ca501620798a779d621d6bb00d..223b2f598ecd651ce8df6789d=
-fbaf938c534f94f 100644
-> --- a/drivers/mtd/spi-nor/gigadevice.c
-> +++ b/drivers/mtd/spi-nor/gigadevice.c
-> @@ -33,6 +33,15 @@ static const struct spi_nor_fixups gd25q256_fixups =3D=
- {
->  	.post_bfpt =3D gd25q256_post_bfpt,
->  };
-> =20
-> +static void gd25lb512me_default_init(struct spi_nor *nor)
-> +{
-> +	nor->params->quad_enable =3D spi_nor_sr1_bit6_quad_enable;
-
-Should be automatically set, by SFDP.
-
-> +}
-> +
-> +static const struct spi_nor_fixups gd25lb512me_fixups =3D {
-> +	.default_init =3D gd25lb512me_default_init,
-> +};
-> +
->  static const struct flash_info gigadevice_nor_parts[] =3D {
->  	{
->  		.id =3D SNOR_ID(0xc8, 0x40, 0x15),
-> @@ -82,6 +91,14 @@ static const struct flash_info gigadevice_nor_parts[] =
-=3D {
->  		.size =3D SZ_16M,
->  		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
->  		.no_sfdp_flags =3D SECT_4K | SPI_NOR_DUAL_READ | SPI_NOR_QUAD_READ,
-> +	}, {
-> +		.id =3D SNOR_ID(0xc8, 0x67, 0x1a),
-> +		.name =3D "gd25lb512me",
-
-No name,
-
-> +		.size =3D SZ_64M,
-> +		.flags =3D SPI_NOR_HAS_LOCK | SPI_NOR_HAS_TB,
-> +		.no_sfdp_flags =3D SECT_4K | SPI_NOR_QUAD_READ,
-No, no_sfdp_flags, as this flash supports SFDP.
-
-> +		.fixups =3D &gd25lb512me_fixups,
-> +		.fixup_flags =3D SPI_NOR_4B_OPCODES,
->  	},
->  };
-> =20
-
--michael
-
---a4437fa9bafb8d487087985596b0399ee9f18bc31a0f1c2284c38ec0a1e9
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKgEABMJADAWIQTIVZIcOo5wfU/AngkSJzzuPgIf+AUCaDBZIxIcbXdhbGxlQGtl
-cm5lbC5vcmcACgkQEic87j4CH/hOXgGA5IPK+ocEhmNsajncGUWdZqEDgOAiOPNY
-CQW2nV3PFOOnnsYFRw7BDqyotkT0/9LqAYDBeTthHnuuXXJT8EiGX7W7fi4j+3e8
-tqMR/EiYNuB4aDB+iAsc1btzQhSq0gwCl/E=
-=Cu9o
------END PGP SIGNATURE-----
-
---a4437fa9bafb8d487087985596b0399ee9f18bc31a0f1c2284c38ec0a1e9--
-
-
---===============9167711900091781757==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+[...]
+> diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
+> index dfdff186c805..dc52a2197d24 100644
+> --- a/drivers/soc/ti/pm33xx.c
+> +++ b/drivers/soc/ti/pm33xx.c
+> @@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
+>  	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
+>  }
+>  
+> -static int __init am43xx_map_gic(void)
+> +static int am43xx_map_gic(void)
+>  {
+>  	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
+>  
+> -- 
+> 2.34.1
+> 
+Acked-by: Nishanth Menon <nm@ti.com>
+-- 
+Regards,
+Nishanth Menon
+Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============9167711900091781757==--
-
