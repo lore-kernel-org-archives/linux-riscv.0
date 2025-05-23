@@ -4,109 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD1C9C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 06:25:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64372C3DA6D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 06:38:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xJf/vsdzBrA+ddBLXzF3xNM3bIKls9QBO5xxhL7dB0g=; b=QiHOObK2kuihkg
-	p3hEu1lfTf01QCxkuNh9AMhqLqT/MDBbf4YbRAm3H7UAwxq9DhdjMTsYYB1p+g9Q/KtoY5Gzl6Aul
-	MLxvZQbY89i3lW1Kliu4X2AFQvjMtWQRA8DzZxD/ha0dX62GxJsBKeepP+iDJqgV+Ic2xoCfgXcw1
-	gjvva0T64H4xeABJrhuL+QlkbgA35/jpx+BhvKhg+HU16iCps6bLjXEUyw4lCwLw1rjUJQBO/ficn
-	++RPJmguuAwo9HNSEPUehUgirPO71+ZmFXjdos5u6rzCPHzSdPVok8DsfiQyMHfUHNLVOL9/4q3ju
-	2Q2bVIlnaB2pxwr3jKjA==;
+	List-Owner; bh=mC3vhOXnZcaGuPIuOOodQnOAY9DkBzqO03LZJV94UvE=; b=TK8DldhRVtOuiT
+	1jajXV2ft4CYfXE1BX3/L/AQz2/K3zHGBrgieESY0eCwSrE7i1/tQM5byHQXz+HmVSex6EHMdhoQv
+	1sKcCFxz0fSMN0GE3JQ4iXFBjo3JofYRtcrLMUeUAbj2J0K4iUbev8XG4L49/JGo5ipwZV2QKqhMb
+	mxtRWwxVsR4yl5xwL1MW+NLPo7dUBl/fzSv9OWh4en7dOnmDXVux0HveshkkEDcoqvryvWJp959Pj
+	nEO6ZX61iIAQMeW3s8NwAX/M8oXeqGcq75c9kHYQHcm5CtTsfOjE1jnnkUAKxF+7fqGBLKKoHXxZm
+	UTTkt8LBd7KVVsvgsdkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uILqm-000000036RF-0MUL;
-	Fri, 23 May 2025 06:25:48 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uIM2u-000000037QO-18Aj;
+	Fri, 23 May 2025 06:38:20 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uILqi-000000036Qm-20hl
+	id 1uIL01-00000002zrK-116n
 	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 06:25:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9C6A1A4EECC;
-	Fri, 23 May 2025 06:25:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE2EBC4CEE9;
-	Fri, 23 May 2025 06:25:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747981543;
-	bh=JGpCq/ZRP8rK458O/7RLMNDdUkcfnrplMiNOlT76Sug=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jw7XbDEnEoEWgt/RlCOWLC409AxZoZDKA0qV4AkpvOaYpgZNKSkccQ3fJUSBs0oTP
-	 XhxdxKD9vPvir1bpaOSxi8Q8cKCSH+ik3LfRFWRKEM3OYY/HIR/esFVvf6XFwcjE62
-	 5gAlPMATNaoQ5OkUxD4fcLAEJiXV7n8QBbBhw1rLzuZln26P5NZyAhotnCknVm7xep
-	 yTn0DNP0HiruVc/cyi+1hkNUYcvdbMoJfUoBLS9fzO/6imB+oIfVmNzHJhYFljnEri
-	 5IfS13gTv5H397ehqkYXliYqh5cgaoKhi6yVxSMI56296wuP/m84ExFYONCLw2HRPX
-	 mzAIyBbnXfeaQ==
-Message-ID: <655ea20d-ed2a-4727-b7c1-65fd69d3c027@kernel.org>
-Date: Fri, 23 May 2025 08:25:38 +0200
+	Fri, 23 May 2025 05:31:18 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-742c3d06de3so6762368b3a.0
+        for <linux-riscv@lists.infradead.org>; Thu, 22 May 2025 22:31:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1747978276; x=1748583076; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7X54j1g90psIDWU5pz15Bdf5E+ehG4+aRIqU9eaNKxE=;
+        b=HC1ZbAr4GjWeC0y6IBFR11ANm/7MF0xZBYhi/ZGSP6+1zxHpVP6+KRIiEWboCZhYuj
+         ETGowxTse7DvER58Xp31IFK6EkmeSxF9FmooeJ+530atosbjVYXgF7Z7z6oefgjgrPyG
+         oMsVO2Z1ET65w8JTM2Tg0HHoqN/0ysnxYDrfTNuxjiQMvwNZgmuM4I2b+hNyYEB404KF
+         pR1McBvwth47YnE3CUGGGj05OSxIdHWT0PU/DZhk8pAM2HMsBwoisHXcJ6mbWTF+mOAu
+         xIbhiMAKuoFvh4SxoPN3ZgoKj6QpodJYw8GpIi6j91l9KmYH0q3x2mQfEsqeIlsDbAVw
+         v+gQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747978276; x=1748583076;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=7X54j1g90psIDWU5pz15Bdf5E+ehG4+aRIqU9eaNKxE=;
+        b=DPwGN63qK925iN8LzWz17eFk9c2yNg8v7RPwogWa7NIVY6wrKd90BowgYRcrpk9XUB
+         3godHxEnWSZo3NVJv13ATTfttePfLBJBfcHD6fMIrRnsF6ZkbDq9bGPJ1sspiLj4+IBt
+         w1W1qotS+UTX3+0ZL6Dy0ay/3WcaryEN+NvJd0dvA5UZGOkoEDmSpIgHlwensX0U7zqb
+         7KDeSbVoWdvZ2Xb2Mun2tmCjX7WP7O7PpTyTEvirP+RpfHtkBrNrr001VaKxTua8CD7V
+         TnKu6SfR4pigi2yCzy1222VxulSbjJMr/B7iU8MzLPhb1yxsAWFBjBOqAzHdtqI5NbJx
+         GOwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUxYBBTAxtgoCYPi0RBOa0ZxKSUZLzmY2FAbepDmTmCuQ63Sf1gUHI/19tVFRogwqHY32HCLnSiPdnrRg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7/3tkmY+VN9BeHeun4VI2PGMpFtckNBK/YZj7Jm7jWbbJRzkD
+	Ylh3aWx7xRy6BDoAQg6csFie8qDqceRJnr09NdJCdK0Ew0ovrTKoSsLNfo1kzvFOYf0=
+X-Gm-Gg: ASbGncvmA24i/OcXWm3V4AzF0IikdLQpMH0CsXEInvZ4sFmAi9fxpEJLgGCxEyAT1ig
+	zYiRHzjrLTqmRMxVzC9mR+xbZNOo6D+XMBcoLZ+F3JhfY7V2YWekLfhFljwIW9L3coSavlTa+7p
+	7+xvQH9FR6xX2hGykFLo9WK+C3yPTJ5XaR19Rj2iWb2OL0VamJuXb9UAXBJb8Q9bXXvQH/3+UaL
+	WN3Agd+7TH3Gmnm6QENH37PyjxobPybSQtolvJHOMITjWRxBQF1ZjcQLOPYj4jrjnnoykLQhWOz
+	040xvX95N/ecWDHNjT592+Sjw2KOFlRPe8njHcSPmcliY1EK1Cam3VIpTryxRA==
+X-Google-Smtp-Source: AGHT+IHuvJwexFOpqMWZgmqCHklA7GJFd11ULqc5C7xPX4e1BtVUWPbvc7kB7Fax2t5Kt7WHcMzvcQ==
+X-Received: by 2002:a05:6a00:3492:b0:742:9bd3:cd1f with SMTP id d2e1a72fcca58-742acd728eamr36423560b3a.23.1747978276169;
+        Thu, 22 May 2025 22:31:16 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a982a0a4sm12474336b3a.101.2025.05.22.22.31.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 22 May 2025 22:31:15 -0700 (PDT)
+From: Deepak Gupta <debug@rivosinc.com>
+Date: Thu, 22 May 2025 22:31:04 -0700
+Subject: [PATCH v16 01/27] mm: VM_SHADOW_STACK definition for riscv
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [GIT PULL] clk: thead: Updates for v6.16
-To: Drew Fustini <drew@pdp7.com>, Stephen Boyd <sboyd@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
- Michael Turquette <mturquette@baylibre.com>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, Fu Wei
- <wefu@redhat.com>, Guo Ren <guoren@kernel.org>,
- Jisheng Zhang <jszhang@kernel.org>, Palmer Dabbelt <palmer@rivosinc.com>,
- Michal Wilczynski <m.wilczynski@samsung.com>
-References: <aBus+Yc7kf/H2HE5@x1>
- <018214f410632eb3dc6c6bd6ab58cba1@kernel.org> <aC+mJ560HbscG38R@x1>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <aC+mJ560HbscG38R@x1>
+Message-Id: <20250522-v5_user_cfi_series-v16-1-64f61a35eee7@rivosinc.com>
+References: <20250522-v5_user_cfi_series-v16-0-64f61a35eee7@rivosinc.com>
+In-Reply-To: <20250522-v5_user_cfi_series-v16-0-64f61a35eee7@rivosinc.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
+ x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
+ Andrew Morton <akpm@linux-foundation.org>, 
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
+ Vlastimil Babka <vbabka@suse.cz>, 
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
+ Christian Brauner <brauner@kernel.org>, 
+ Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
+ Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
+ Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
+ Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <benno.lossin@proton.me>, 
+ Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
+ Trevor Gross <tmgross@umich.edu>
+Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
+ linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
+ andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
+ atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
+ alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
+ rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
+ Zong Li <zong.li@sifive.com>, David Hildenbrand <david@redhat.com>, 
+ Deepak Gupta <debug@rivosinc.com>
+X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250522_232544_664952_3CCBEDBA 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20250522_223117_287608_9F012A29 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -124,27 +129,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 23/05/2025 00:33, Drew Fustini wrote:
-> On Thu, May 22, 2025 at 03:24:02PM -0700, Stephen Boyd wrote:
->> Quoting Drew Fustini (2025-05-07 11:56:57)
->>> The following changes since commit 0af2f6be1b4281385b618cb86ad946eded089ac8:
->>>
->>>   Linux 6.15-rc1 (2025-04-06 13:11:33 -0700)
->>>
->>> are available in the Git repository at:
->>>
->>>   git@github.com:pdp7/linux.git tags/thead-clk-for-v6.16
->>
->> I changed this to https://github.com/pdp7/linux.git but please fix it
->> next time.
-> 
-> Sorry about that. I'll use https in the future.
-This should be kernel.org. I remember Drew we meet few times and you
-never asked for signing your key. Just get in touch next time on a
-conference to get it signed (and bring printed fingerprints).
+VM_HIGH_ARCH_5 is used for riscv
 
-Best regards,
-Krzysztof
+Reviewed-by: Zong Li <zong.li@sifive.com>
+Reviewed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+---
+ include/linux/mm.h | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/include/linux/mm.h b/include/linux/mm.h
+index b7f13f087954..3487f28fa0bf 100644
+--- a/include/linux/mm.h
++++ b/include/linux/mm.h
+@@ -352,6 +352,13 @@ extern unsigned int kobjsize(const void *objp);
+ # define VM_SHADOW_STACK	VM_HIGH_ARCH_6
+ #endif
+ 
++#if defined(CONFIG_RISCV_USER_CFI)
++/*
++ * Following x86 and picking up the same bitpos.
++ */
++# define VM_SHADOW_STACK	VM_HIGH_ARCH_5
++#endif
++
+ #ifndef VM_SHADOW_STACK
+ # define VM_SHADOW_STACK	VM_NONE
+ #endif
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
