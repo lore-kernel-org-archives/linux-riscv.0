@@ -4,106 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4AC6C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:06:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EE77C3DA6D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 05:20:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kZ3e1zdCk2RrMFYSJvpdMBzHceIOLniIxrSkYLWWi/I=; b=v+A76lZu+ZdO6C
-	SmArE4gy/pLTAltn3HrVvqY7Abgc1Z8Sd3Uqwty9sbGIMlA9SJg+ECYZ0FZLu+kqU4L7kgotqDUKR
-	Ip1YTA8w0l0vv8LNxbrEacQjOEAtNGcAb2soriwHKi3Y7+0Bu13bJodrU7xHlsu5UKKYbdJuUc4az
-	YInfO2FFyUGdS4DauE+AOXwOI2hkjV5hbgIYPvpvVWti0q1SoJGCxlt2x0amzZ+shFN5XK4w65o0w
-	hALMZx8WT2efMdeFyhrAQs3cjjRfss3kd32exgRIofDhcoEeSUKwDwqqHceI+A2BbGzexE95NzuFG
-	lXf1ilDt1hp2Hsni8zCQ==;
+	List-Owner; bh=eKcs8w7DJihSgIYWVts6HfQVQz69aw4293h9d4dgiuo=; b=cb3ykqOu+MYz1i
+	spBhErllQTL687s4pJynwll/MPeKeczaI8tlLhzmdICsAg0A5+k6vBMkR9eQdVJAvbHdscpq0O/7I
+	kFemS4NJq34rtlojXmc7EPtmqRfPeSEMljODgLjl8KJhLY5InBVrt2ku5byGS19b5UCfA2GKW9Xim
+	cywfSyuCAb/YpsBw0ujEKGzKx/4fBFFHTNPD6yqjCeAX/RSQZshUKBimS+iKNLmmfHDhP/n7T3xMy
+	oErIf+ITwzFTGXG66KBYUejucYZ1Gein/DFc9Zlpu4MX1FRhrXLEkZIatQAvIK/1J2rPNTbNkAepw
+	yQGgzf977yUi2IzcNKeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKcP-00000002yBL-286x;
-	Fri, 23 May 2025 05:06:53 +0000
+	id 1uIKpj-00000002z1G-10XE;
+	Fri, 23 May 2025 05:20:39 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIKCM-00000002uCa-3ize;
-	Fri, 23 May 2025 04:39:59 +0000
+	id 1uIKph-00000002z14-066w
+	for linux-riscv@bombadil.infradead.org;
+	Fri, 23 May 2025 05:20:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=pSjMR1x9fxvd3CNHCT9Z5p4pNb/EakIO+LJLpVc6pwE=; b=mgHXOrPMwwuIE5ZDWkVlUeLZLf
-	cPhPXZvYWjQ7h3o21EdE+y3gFe9yzaEeSH5MJVg4DDUN5mK2GR5RNGWwsSa0TAQUyaY3OrdZ8MwlD
-	4Zl7rSDRjyi7gfJwPnG1e2t+tjC1RXl5Ekn/mMgcbgDwkGd6KXroITu8hLm64V8G10mAyYLiDqWxY
-	DizX3SxHN9jkRpiVdv17bSXRjkLa8qGBmI2oyUxJuzgW4EtTnXIJMtsO1yyibX1wWPmhDMSpi9XjC
-	qjKJCYVKVqIWkSfROSYLK0uHalrBAi4FVGqVLactnsgS0dFKwa5kq7sz6k6VCM6nJnod2RO8/HILb
-	5nD14UsA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=; b=GN5rs+ocFdLyfZ+njrWUovefwf
+	bruGiLIZVGsoGvbqLkSo2zThk/bJy++KLy8jrM//5r6aIv7clDZSWEneKIS/oh+YNh9XQEbO+A/pr
+	z9gDnpQo7NNWj1r5fpywfpoGIQMAUkdI4Paqqc8m6QGtrnXlDkIoXZoQ+agr/bOEGimvn9P504fLQ
+	ptkWme+n3Ldx4C19t65lYRwBgy4X6KNPIcb62ZoxHDwh1Kqi/8aucQXqK6Zsjviht4krtgJso7v3K
+	hTfMZsNDxYAaQZvEGM7v0CPSiwoy5em99rKGpDaVBGyzuheGLKvTFl6byIuZz9wvdbcsylwf7KJwu
+	bBCacPlw==;
+Received: from sender4-op-o15.zoho.com ([136.143.188.15])
 	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1uIKCD-000000017td-0srB;
-	Fri, 23 May 2025 04:39:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6FE4B4A969;
-	Fri, 23 May 2025 04:39:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 420A4C4CEF3;
-	Fri, 23 May 2025 04:39:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1747975181;
-	bh=ukIvmUzCX4cqw7NZIKavKwcJ5OLiJ4po8qig+DsNSjY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uUwE0i0mzO0Zz+j7Us+A/yzvLL8wesT1b29aGk+XzYhm3jnxB0QmFL1bW3NDq2VBF
-	 mM/v6TzQA3enBRrrnZE8Gxfnke3DBVYhp8AJ54Jc49RzwDSVZJ2g2twPNnbe9bKjny
-	 WgMEbYki7U05FMp8iUIvdHvsYvY8fEkcjZxwO6cTEVw5NeusAprtjcombRsjl98E56
-	 Z7OsPJA2T4UOircixEEDM0HVPN8rL+TqdWgfWY8HXgPYU27uI1LsGRnihkuFz2JiQ1
-	 qTyO+NKnSW1jgPs/kwVYKXqqXGF2jO1cR+P0Cx0S7RMCBY+Zt1y19Z/2Tf8HdBUg5d
-	 55EgoqgS825Zg==
-From: Kees Cook <kees@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Nishanth Menon <nm@ti.com>,
-	Santosh Shilimkar <ssantosh@kernel.org>,
-	Lee Jones <lee@kernel.org>,
-	Allison Randal <allison@lohutok.net>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-arm-kernel@lists.infradead.org,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Marco Elver <elver@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Nathan Chancellor <nathan@kernel.org>,
-	Nicolas Schier <nicolas.schier@linux.dev>,
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-	Bill Wendling <morbo@google.com>,
-	Justin Stitt <justinstitt@google.com>,
-	linux-kernel@vger.kernel.org,
-	x86@kernel.org,
-	kasan-dev@googlegroups.com,
-	linux-doc@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	linux-riscv@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-efi@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-security-module@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	sparclinux@vger.kernel.org,
-	llvm@lists.linux.dev
-Subject: [PATCH v2 05/14] arm: Handle KCOV __init vs inline mismatches
-Date: Thu, 22 May 2025 21:39:15 -0700
-Message-Id: <20250523043935.2009972-5-kees@kernel.org>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250523043251.it.550-kees@kernel.org>
-References: <20250523043251.it.550-kees@kernel.org>
+	id 1uIKpb-000000018J5-2VsM
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 May 2025 05:20:35 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1747977610; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fOE5uyU2V/jZxzefVCjXKHOUHJCfQgnt0W0OO1meL7UBd8Re66uahxFvUtMxmnABG04rUOrMqcUaVZSD+VrUcGzHX7U67ejhxbZZzVtAe+pNrqEK92nJFvohdoZedJSwseRecZrdE+DdU/AU9uHYhh7nJytjWFUwtVnrrb9Z00k=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1747977610; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=; 
+	b=LaeToclatgWRmuMFTk7N/W1Ge6PuoBaxI2R7IaU0IdGl0LKSP29FYK0xe6LOJMFhY8n7STOer6elRBZME82i4Ls4QrHv1BdCrFwY0z+8RhuZyga0Q9lQPG13a9LLKWDTz0rXC3GqDDh4xLZOBOKBZ4w2npelp6t6fcsBqQu9I8E=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1747977610;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=UHj/1B2qrE4XAy5Qp0M4DBa9t1YMp5Gwm4zi+DP2Rfs=;
+	b=K2DAXGHX0Fn7/A/6EFwDCQCHQ1V/HMoiQm+xsvD2UOi1acN28Lk16y6ewNDF8aeT
+	9okkm5f6TdlU3s6qQRKV02lKeR4d/9HVR44dpBE2KwgbW0hf4o15PN7iVzbiZ/FTCON
+	+wBB0gigPyGSJBu1SzIC9Wg5TMLnRrqkIhZqKVW0=
+Received: by mx.zohomail.com with SMTPS id 1747977608258134.90960394346882;
+	Thu, 22 May 2025 22:20:08 -0700 (PDT)
+Message-ID: <4750f2c6-221f-4b2e-ab9c-31d707404a4e@pigmoral.tech>
+Date: Fri, 23 May 2025 13:20:00 +0800
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3494; i=kees@kernel.org; h=from:subject; bh=ukIvmUzCX4cqw7NZIKavKwcJ5OLiJ4po8qig+DsNSjY=; b=owGbwMvMwCVmps19z/KJym7G02pJDBn6v3/+eOy6cc/2RIGpN/7obJr+t2bVlidcXIkfP8xQ1 a3nOnpNqKOUhUGMi0FWTJElyM49zsXjbXu4+1xFmDmsTCBDGLg4BWAiy0QYGTon/Tmgw7nhdvo/ wRdnq6bd8LbuWrrlwoINcV8Xz6/XsQln+KeoVfztP/+eh4En7ucZ6kupZIYzLLs4sX6mv1rXt5y ayWwA
-X-Developer-Key: i=kees@kernel.org; a=openpgp; fpr=A5C3F68F229DD60F723E6E138972F4DFDC6DC026
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/4] riscv: dts: sophgo: add reset generator for Sophgo
+ CV1800 series SoC
+To: Inochi Amaoto <inochiama@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Inochi Amaoto <inochiama@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Jisheng Zhang <jszhang@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+ Longbin Li <looong.bin@gmail.com>
+References: <20250209122936.2338821-1-inochiama@gmail.com>
+ <20250209122936.2338821-4-inochiama@gmail.com>
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+In-Reply-To: <20250209122936.2338821-4-inochiama@gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_053951_872353_BEE6BC1F 
+X-CRM114-CacheID: sfid-20250523_062032_831255_418A52C0 
 X-CRM114-Status: GOOD (  14.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,105 +99,167 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-When KCOV is enabled all functions get instrumented, unless
-the __no_sanitize_coverage attribute is used. To prepare for
-__no_sanitize_coverage being applied to __init functions, we have to
-handle differences in how GCC's inline optimizations get resolved. For
-arm this exposed several places where __init annotations were missing
-but ended up being "accidentally correct". Fix these cases and force
-several functions to be inline with __always_inline.
+Hi Inochi,
 
-Signed-off-by: Kees Cook <kees@kernel.org>
----
-Cc: Russell King <linux@armlinux.org.uk>
-Cc: Daniel Lezcano <daniel.lezcano@linaro.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Nishanth Menon <nm@ti.com>
-Cc: Santosh Shilimkar <ssantosh@kernel.org>
-Cc: Lee Jones <lee@kernel.org>
-Cc: Allison Randal <allison@lohutok.net>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: <linux-arm-kernel@lists.infradead.org>
----
- include/linux/mfd/dbx500-prcmu.h  | 2 +-
- arch/arm/mm/cache-feroceon-l2.c   | 2 +-
- arch/arm/mm/cache-tauros2.c       | 2 +-
- drivers/clocksource/timer-orion.c | 2 +-
- drivers/soc/ti/pm33xx.c           | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+Thanks for your patch. While testing remoteproc with it, I noticed some
+issues that need correction:
 
-diff --git a/include/linux/mfd/dbx500-prcmu.h b/include/linux/mfd/dbx500-prcmu.h
-index 98567623c9df..828362b7860c 100644
---- a/include/linux/mfd/dbx500-prcmu.h
-+++ b/include/linux/mfd/dbx500-prcmu.h
-@@ -213,7 +213,7 @@ struct prcmu_fw_version {
- 
- #if defined(CONFIG_UX500_SOC_DB8500)
- 
--static inline void prcmu_early_init(void)
-+static inline void __init prcmu_early_init(void)
- {
- 	db8500_prcmu_early_init();
- }
-diff --git a/arch/arm/mm/cache-feroceon-l2.c b/arch/arm/mm/cache-feroceon-l2.c
-index 25dbd84a1aaf..2bfefb252ffd 100644
---- a/arch/arm/mm/cache-feroceon-l2.c
-+++ b/arch/arm/mm/cache-feroceon-l2.c
-@@ -295,7 +295,7 @@ static inline u32 read_extra_features(void)
- 	return u;
- }
- 
--static inline void write_extra_features(u32 u)
-+static inline void __init write_extra_features(u32 u)
- {
- 	__asm__("mcr p15, 1, %0, c15, c1, 0" : : "r" (u));
- }
-diff --git a/arch/arm/mm/cache-tauros2.c b/arch/arm/mm/cache-tauros2.c
-index b1e1aba602f7..bfe166ccace0 100644
---- a/arch/arm/mm/cache-tauros2.c
-+++ b/arch/arm/mm/cache-tauros2.c
-@@ -177,7 +177,7 @@ static inline void __init write_actlr(u32 actlr)
- 	__asm__("mcr p15, 0, %0, c1, c0, 1\n" : : "r" (actlr));
- }
- 
--static void enable_extra_feature(unsigned int features)
-+static void __init enable_extra_feature(unsigned int features)
- {
- 	u32 u;
- 
-diff --git a/drivers/clocksource/timer-orion.c b/drivers/clocksource/timer-orion.c
-index 49e86cb70a7a..61f1e27fc41e 100644
---- a/drivers/clocksource/timer-orion.c
-+++ b/drivers/clocksource/timer-orion.c
-@@ -43,7 +43,7 @@ static struct delay_timer orion_delay_timer = {
- 	.read_current_timer = orion_read_timer,
- };
- 
--static void orion_delay_timer_init(unsigned long rate)
-+static void __init orion_delay_timer_init(unsigned long rate)
- {
- 	orion_delay_timer.freq = rate;
- 	register_current_timer_delay(&orion_delay_timer);
-diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
-index dfdff186c805..dc52a2197d24 100644
---- a/drivers/soc/ti/pm33xx.c
-+++ b/drivers/soc/ti/pm33xx.c
-@@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
- 	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
- }
- 
--static int __init am43xx_map_gic(void)
-+static int am43xx_map_gic(void)
- {
- 	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
- 
+On 2025/2/9 20:29, Inochi Amaoto wrote:
+> Add reset generator node for all CV18XX series SoC.
+>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>   arch/riscv/boot/dts/sophgo/cv18xx-reset.h | 98 +++++++++++++++++++++++
+>   arch/riscv/boot/dts/sophgo/cv18xx.dtsi    |  7 ++
+>   2 files changed, 105 insertions(+)
+>   create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-reset.h
+>
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-reset.h b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
+> new file mode 100644
+> index 000000000000..3d9aa9ec7e90
+> --- /dev/null
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
+> @@ -0,0 +1,98 @@
+> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
+> +/*
+> + * Copyright (C) 2025 Inochi Amaoto <inochiama@outlook.com>
+> + */
+> +
+> +#ifndef _SOPHGO_CV18XX_RESET
+> +#define _SOPHGO_CV18XX_RESET
+> +
+> +#define RST_DDR				2
+> +#define RST_H264C			3
+> +#define RST_JPEG			4
+> +#define RST_H265C			5
+> +#define RST_VIPSYS			6
+> +#define RST_TDMA			7
+> +#define RST_TPU				8
+> +#define RST_TPUSYS			9
+> +#define RST_USB				11
+> +#define RST_ETH0			12
+> +#define RST_ETH1			13
+> +#define RST_NAND			14
+> +#define RST_EMMC			15
+> +#define RST_SD0				16
+> +#define RST_SDMA			18
+> +#define RST_I2S0			19
+> +#define RST_I2S1			20
+> +#define RST_I2S2			21
+> +#define RST_I2S3			22
+> +#define RST_UART0			23
+> +#define RST_UART1			24
+> +#define RST_UART2			25
+> +#define RST_UART3			26
+> +#define RST_I2C0			27
+> +#define RST_I2C1			28
+> +#define RST_I2C2			29
+> +#define RST_I2C3			30
+> +#define RST_I2C4			31
+> +#define RST_PWM0			32
+> +#define RST_PWM1			33
+> +#define RST_PWM2			34
+> +#define RST_PWM3			35
+> +#define RST_SPI0			40
+> +#define RST_SPI1			41
+> +#define RST_SPI2			42
+> +#define RST_SPI3			43
+> +#define RST_GPIO0			44
+> +#define RST_GPIO1			45
+> +#define RST_GPIO2			46
+> +#define RST_EFUSE			47
+> +#define RST_WDT				48
+> +#define RST_AHB_ROM			49
+> +#define RST_SPIC			50
+> +#define RST_TEMPSEN			51
+> +#define RST_SARADC			52
+> +#define RST_COMBO_PHY0			58
+> +#define RST_SPI_NAND			61
+> +#define RST_SE				62
+> +#define RST_UART4			74
+> +#define RST_GPIO3			75
+> +#define RST_SYSTEM			76
+> +#define RST_TIMER			77
+> +#define RST_TIMER0			78
+> +#define RST_TIMER1			79
+> +#define RST_TIMER2			80
+> +#define RST_TIMER3			81
+> +#define RST_TIMER4			82
+> +#define RST_TIMER5			83
+> +#define RST_TIMER6			84
+> +#define RST_TIMER7			85
+> +#define RST_WGN0			86
+> +#define RST_WGN1			87
+> +#define RST_WGN2			88
+> +#define RST_KEYSCAN			89
+> +#define RST_AUDDAC			91
+> +#define RST_AUDDAC_APB			92
+> +#define RST_AUDADC			93
+> +#define RST_VCSYS			95
+> +#define RST_ETHPHY			96
+> +#define RST_ETHPHY_APB			97
+> +#define RST_AUDSRC			98
+> +#define RST_VIP_CAM0			99
+> +#define RST_WDT1			100
+> +#define RST_WDT2			101
+> +#define RST_AUTOCLEAR_CPUCORE0		128
+
+
+I think here should start from 256.
+
+> +#define RST_AUTOCLEAR_CPUCORE1		129
+> +#define RST_AUTOCLEAR_CPUCORE2		130
+> +#define RST_AUTOCLEAR_CPUCORE3		131
+> +#define RST_AUTOCLEAR_CPUSYS0		132
+> +#define RST_AUTOCLEAR_CPUSYS1		133
+> +#define RST_AUTOCLEAR_CPUSYS2		134
+> +#define RST_CPUCORE0			160
+
+And here should start from 288.
+
+> +#define RST_CPUCORE1			161
+> +#define RST_CPUCORE2			162
+> +#define RST_CPUCORE3			163
+> +#define RST_CPUSYS0			164
+> +#define RST_CPUSYS1			165
+> +#define RST_CPUSYS2			166
+> +
+> +#endif /* _SOPHGO_CV18XX_RESET */
+> diff --git a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> index c18822ec849f..9aa28ade73a4 100644
+> --- a/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/cv18xx.dtsi
+> @@ -7,6 +7,7 @@
+>   #include <dt-bindings/clock/sophgo,cv1800.h>
+>   #include <dt-bindings/gpio/gpio.h>
+>   #include <dt-bindings/interrupt-controller/irq.h>
+> +#include "cv18xx-reset.h"
+>   
+>   / {
+>   	#address-cells = <1>;
+> @@ -61,6 +62,12 @@ clk: clock-controller@3002000 {
+>   			#clock-cells = <1>;
+>   		};
+>   
+> +		rst: reset-controller@3003000 {
+> +			compatible = "sophgo,cv1800b-reset";
+> +			reg = <0x3003000 0x1000>;
+> +			#reset-cells = <1>;
+> +		};
+> +
+>   		gpio0: gpio@3020000 {
+>   			compatible = "snps,dw-apb-gpio";
+>   			reg = <0x3020000 0x1000>;
+
+
 -- 
-2.34.1
+Best regards,
+Junhui Liu
 
 
 _______________________________________________
