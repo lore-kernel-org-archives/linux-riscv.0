@@ -4,124 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76A88C3DA6D
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 09:38:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BBFEC54F30
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 09:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=iIvHyn2U3YKctXdgt7jIidaOkgWBCw56oYpVRSR6Twk=; b=E3y27Ak4b0dmxs
-	Q8xxR+0uB7RWB8ypv1oGhMw06HDj4K+iKT/1LZdt4Tk4Th/B8WcZ2p2a96edlqg0Kisev/qFBdZ8g
-	vnvXwyy2WkjVm9/jsk7x537naJfRNIC00ivFKIEELznA9R92dHIZJGbRg2vccUAKK6q0YWf64RKuQ
-	nGr4qYeXPnnbNwK25hJXmIQzxV2Azpk7AwylUfUeRSF2MiOllxKe20YedMJ3ZhzgH+dz6ve+lm/Tx
-	31bxGKu+1Ll0F/fY9Q51X+RTRAHXUPbcb7oqiChiUhdiSiu48/es2UQkpPiIpUSZKO35neWBqzyaX
-	8TXzLtsp619FY448UF8Q==;
+	List-Owner; bh=CU1riqGkSNPztYeuvE86Ot4csrUz3jZB19yvieiyu9U=; b=hvf24CTjTNm53c
+	6RvFZtpcsXc0SCQI0kUKuKcjuhxqMtGZnHPou++CG4xuAmxQzfLbsYQ00yu7Fvk3rDTxiajQIyfRL
+	eulx37znULHvIgITgd2he9xty1mjy8omBEefAL/jt7C8au8hECT131d9lyoWLAcsOupdLDey4nXYN
+	mSD/0E2SJPoBFQvooMT8UOM54JknYMLXSlHyNfJjauGNZjxZ3QhKQZvdzEMIRYYqOk4XDsjV7FoId
+	4wq818c74FYEudz9AkIId0clTA+SEkDqv+X8XSi42rG1snkdIY5Ea9xm8wkFIzIlTcTtg19tViL3r
+	r5RTCTsWf0y7irB4UlqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOrM-00000003SLb-0fbd;
-	Fri, 23 May 2025 09:38:36 +0000
-Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
+	id 1uIP2t-00000003UO8-2XSo;
+	Fri, 23 May 2025 09:50:31 +0000
+Received: from mail-vs1-xe33.google.com ([2607:f8b0:4864:20::e33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIOpA-00000003S5j-2nyI;
-	Fri, 23 May 2025 09:36:22 +0000
-Received: from pps.filterd (m0356516.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 54MNWFqO004792;
-	Fri, 23 May 2025 09:35:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pp1; bh=vMybJrVOxCi72E1Pt60pMqYpdyjf6S
-	s0XPZB55xj29M=; b=R3CkCkzBXxxe/KYe1HZxSJvJw7yMOWqLIb1q9Fi1+dx9HB
-	lzrW5uC2D+o8DDUmBu0XM/PAJmqmuHehdBrEVMHqfoUhcHLi6ToYHjCmmhOlgfpT
-	TQwI7DqaMRONrgRWKiGKDFCg4cmfGAVkPkHI9lynHES6VI4ywZ1JOR5QZTqGu76w
-	l7XrHGeY+Mdy+bNlQw3PXcMHZHCcVz5cFIIGqdwXcz8+J5jIoQ3qIK8Fq943SHuV
-	uKIOU7g/2MkYBPKsPCpXWeosqUVJ5uPlb0FmkK8RcqZ/FUkJllqmSvNDLeiC6gz6
-	jIMSQ2cId1paOBWJTP7lt+mEa75GUm/RTw1LZivA==
-Received: from pps.reinject (localhost [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t14jp33r-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 09:35:57 +0000 (GMT)
-Received: from m0356516.ppops.net (m0356516.ppops.net [127.0.0.1])
-	by pps.reinject (8.18.0.8/8.18.0.8) with ESMTP id 54N9Ub2D019284;
-	Fri, 23 May 2025 09:35:56 GMT
-Received: from ppma13.dal12v.mail.ibm.com (dd.9e.1632.ip4.static.sl-reverse.com [50.22.158.221])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 46t14jp33p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 09:35:56 +0000 (GMT)
-Received: from pps.filterd (ppma13.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma13.dal12v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 54N65XYR020693;
-	Fri, 23 May 2025 09:35:55 GMT
-Received: from smtprelay03.fra02v.mail.ibm.com ([9.218.2.224])
-	by ppma13.dal12v.mail.ibm.com (PPS) with ESMTPS id 46rwkq5x35-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 23 May 2025 09:35:55 +0000
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay03.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 54N9ZqFH47186204
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 23 May 2025 09:35:52 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 0B10D2004D;
-	Fri, 23 May 2025 09:35:52 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 47DD220043;
-	Fri, 23 May 2025 09:35:50 +0000 (GMT)
-Received: from osiris (unknown [9.111.71.83])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Fri, 23 May 2025 09:35:50 +0000 (GMT)
-Date: Fri, 23 May 2025 11:35:48 +0200
-From: Heiko Carstens <hca@linux.ibm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: Arnd Bergmann <arnd@arndb.de>, Vasily Gorbik <gor@linux.ibm.com>,
-        Alexander Gordeev <agordeev@linux.ibm.com>,
-        Christian Borntraeger <borntraeger@linux.ibm.com>,
-        Sven Schnelle <svens@linux.ibm.com>,
-        Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-        Gaosheng Cui <cuigaosheng1@huawei.com>, linux-s390@vger.kernel.org,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
-        Andrey Konovalov <andreyknvl@gmail.com>,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Ard Biesheuvel <ardb@kernel.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan Chancellor <nathan@kernel.org>,
-        Nicolas Schier <nicolas.schier@linux.dev>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling <morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org,
-        x86@kernel.org, kasan-dev@googlegroups.com, linux-doc@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-        linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
-        linux-hardening@vger.kernel.org, linux-kbuild@vger.kernel.org,
-        linux-security-module@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        sparclinux@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v2 07/14] s390: Handle KCOV __init vs inline mismatches
-Message-ID: <20250523093548.9524A8b-hca@linux.ibm.com>
-References: <20250523043251.it.550-kees@kernel.org>
- <20250523043935.2009972-7-kees@kernel.org>
+	id 1uIOzW-00000003Trb-478h
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 May 2025 09:47:04 +0000
+Received: by mail-vs1-xe33.google.com with SMTP id ada2fe7eead31-4dfa0f38fcdso3010055137.3
+        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 02:47:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747993621; x=1748598421; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mG/X9C8yLKGrCYYF7Sr7M9bc4WrV25ayjzMFPl4s38o=;
+        b=dU6n5fcJm5x23dvIveTzazw993VxR/6d5seHwOky4ZN1NY6kvd6h6e9LOY2rWpKLKf
+         2HROQX7lCUqRwYHGvxYPb4XZYqneRGc7gqi89LdOTsSWtf20FXIwDM3vCcfZf+con/2U
+         V9ZjWoiHc+NUsYFYMJVmXnj6aoJm7OqK9qFqs2hExD/FMwHSolT2xKIujorKTfB3fI2x
+         vUDmehNlAsPDqrLQuuaiVNWeSmNzcGMmbAtCZ8xkAVq2ssap4EPCpTa8bIPeCk6l7OX0
+         dA7yizsuk4llgieQnyqIsFpOFJ8BPVp6RdWvSTFFmSEvBAs9qnqa7v8R8+p0Bu+SNnZc
+         oViQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747993621; x=1748598421;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mG/X9C8yLKGrCYYF7Sr7M9bc4WrV25ayjzMFPl4s38o=;
+        b=n+Jr/GooP91PAPVC9Blzx2+pJxosLKB/uoJ9syEgDhQ9vvYa2eu/2qsVw69om4DlQn
+         A1P7AbcgjzoXcmzcDCRTYoH534NADV6blAX2bxKi6NbxyGOyp5tAv2K3Vu2QyWw19/vD
+         qjaQXhPs633IafkYLpylD6oVIV1u4MWU2lh+N7T3L4gg7TC5VoUB2bHrWYHL4LGkd1tv
+         6HNEfsnT8y1Y/krBvvmdiGb51HZlG9HuYMva3QLQSMxB16Waauve1ZGIh/GvC/2RImsf
+         3+8oE/JcjTspb+ktVSSPI0RoAFWzYbSFmjZLw5Rs4HoaiucNmX8mkxxfcvi3dEukvl+M
+         8vXA==
+X-Gm-Message-State: AOJu0Yyy337Q72KC5VugPbHz/8ScJHK1yJKDz4KVfc880KrogoiVLfu1
+	aB7bbC+t6lNhgnHhE2zeb9hwEQiijkIyqxSdsMmZE5WGSDFSwgUNXcS9jgbzzH6DWs+cziPLvkM
+	AGK5oZmww99SGQ+IqoJU72qeGsVqHbzzp13MHhBsgfPGj
+X-Gm-Gg: ASbGncva4vICA3fjEYvR3g3ZVCMYGX8HmU5mP4/yatRRovUzkeDMIOQclaD/XBWRHUQ
+	dLjb3AXrn3m0P+0+CK7kZknjPB7uBUpIgG7aC95Ycdn9Q+vp821DPlvW1hFCpR5gbQMR1m/OtWL
+	VoQsrt9Ud+T7vpYBLn7mFYtg/xgnRSMreLzQ==
+X-Google-Smtp-Source: AGHT+IHAYdMEYRC8z0rbKLDfqHoHryyGMy92RPuCzpxv8FFDn4mHzgqK5lJyEjBbQ67ikR/UAYHuhSL5IbJNpdX2yIo=
+X-Received: by 2002:a05:6102:8005:b0:4dd:ad20:a334 with SMTP id
+ ada2fe7eead31-4e049d57331mr26626257137.7.1747993621363; Fri, 23 May 2025
+ 02:47:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250523043935.2009972-7-kees@kernel.org>
-X-TM-AS-GCONF: 00
-X-Proofpoint-ORIG-GUID: KqDaZI-N24qPBCncGoId1M5821jvyXiL
-X-Authority-Analysis: v=2.4 cv=XOkwSRhE c=1 sm=1 tr=0 ts=6830417d cx=c_pps a=AfN7/Ok6k8XGzOShvHwTGQ==:117 a=AfN7/Ok6k8XGzOShvHwTGQ==:17 a=kj9zAlcOel0A:10 a=dt9VzEwgFbYA:10 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8 a=i0EeH86SAAAA:8 a=ZhbCrNo_nw5myWupG0oA:9
- a=CjuIK1q_8ugA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNTIzMDA4NCBTYWx0ZWRfX0w0P9E3aDLPl xKkdIDIhLiwjTmqVc2SrRDCWVWFZrVDCFjUtGWXwGKiqzPx3aH1H3kR3L9ztCvCTG2dYW5CKwL9 sICNUHibIsoUXe9IU/++4/n8wIvLqcN/lTpzb6AwUj21nwbHo2PrdccpN7uJ5neULr3iZ+x0IDO
- cp9vaJXECGONZX36cRDNAuI3GEBAklLQu6bmjDNQyoWpyWcL52i8nxzjSMmMG12/PXn7Ht4o/I9 rKz7HWr8sXVyui6OGhJ6oXDcKWfiiMUq3fRRvh9CBFKWIWsQnUS30/UPfY4kp/wqVcXw92l9rKW 3UN+JfNQzPqTmiL+lKipax/ZfWe+uKv2lFByzGPt8jex7JX31DFbbxTGQxDZdrqyBmdG3LASN+L
- ff1/Bps89M6t1nUW1d6VQ0r0f4R0IG0qDcI6J5H3ztJ8TgF0KLAewZp36812jwJ9B/V82K6H
-X-Proofpoint-GUID: FAZQIEfWbNoED4pzflxHiaQq3RMT7Za1
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-05-23_03,2025-05-22_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 malwarescore=0
- mlxlogscore=586 bulkscore=0 mlxscore=0 lowpriorityscore=0 adultscore=0
- impostorscore=0 suspectscore=0 priorityscore=1501 spamscore=0 phishscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2505160000
- definitions=main-2505230084
+References: <c221c98dc2369ea691e3eb664bf084dc909496f6.1747934680.git.rabenda.cn@gmail.com>
+ <cad644ea-a2c9-490d-ab41-160c73425169@ghiti.fr>
+In-Reply-To: <cad644ea-a2c9-490d-ab41-160c73425169@ghiti.fr>
+From: Han Gao <rabenda.cn@gmail.com>
+Date: Fri, 23 May 2025 17:46:50 +0800
+X-Gm-Features: AX0GCFtrmKXe53zw37RzsAhs7ISafqXR93CpDlieunRkAwGVKhVAexNUbzdpcBw
+Message-ID: <CAAT7Ki8Z5O61j8bS3OkdYMbcnfJBY18zxJe=qZeJWCpYTibReg@mail.gmail.com>
+Subject: Re: [PATCH] riscv: vector: fix xtheadvector save/restore
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: linux-riscv@lists.infradead.org, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Charlie Jenkins <charlie@rivosinc.com>, Jesse Taube <jesse@rivosinc.com>, 
+	Andy Chiu <andybnac@gmail.com>, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_023620_826077_89AED64B 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250523_024703_020530_5A7A6CD3 
+X-CRM114-Status: GOOD (  15.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,39 +91,53 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025 at 09:39:17PM -0700, Kees Cook wrote:
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved. For
-> s390 this exposed a place where the __init annotation was missing but
-> ended up being "accidentally correct". Fix this cases and force a couple
-> functions to be inline with __always_inline.
-> 
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-> Cc: Heiko Carstens <hca@linux.ibm.com>
-> Cc: Vasily Gorbik <gor@linux.ibm.com>
-> Cc: Alexander Gordeev <agordeev@linux.ibm.com>
-> Cc: Christian Borntraeger <borntraeger@linux.ibm.com>
-> Cc: Sven Schnelle <svens@linux.ibm.com>
-> Cc: Gerald Schaefer <gerald.schaefer@linux.ibm.com>
-> Cc: Gaosheng Cui <cuigaosheng1@huawei.com>
-> Cc: <linux-s390@vger.kernel.org>
-> ---
->  arch/s390/hypfs/hypfs.h      | 2 +-
->  arch/s390/hypfs/hypfs_diag.h | 2 +-
->  arch/s390/mm/init.c          | 2 +-
->  3 files changed, 3 insertions(+), 3 deletions(-)
-
-Acked-by: Heiko Carstens <hca@linux.ibm.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SSB3aWxsIHJlbGVhc2UgdjIgbGF0ZXIgdG8gYWRkIGV4cGxhbmF0aW9uIGFuZCBhZGQgZml4IHRh
+ZwoKVGhhbmtzLAoKSGFuCgpPbiBGcmksIE1heSAyMywgMjAyNSBhdCA0OjU04oCvUE0gQWxleGFu
+ZHJlIEdoaXRpIDxhbGV4QGdoaXRpLmZyPiB3cm90ZToKPgo+IEhpIEhhbiwKPgo+IE9uIDUvMjIv
+MjUgMTk6MjcsIEhhbiBHYW8gd3JvdGU6Cj4gPiBGaXggWzFdIHNhdmUvcmVzdG9yZSB2ZWN0b3Ig
+cmVnaXN0ZXIgZXJyb3IKPiA+Cj4gPiBMaW5rOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwv
+MjAyNDExMTMteHRoZWFkdmVjdG9yLXYxMS05LTIzNmMyMjc5MWVmOUByaXZvc2luYy5jb20vIFsx
+XQo+Cj4KPiBXb3VsZCB5b3UgbWluZCByZXBocmFzaW5nIHRoZSBsb2c/IEl0IHNob3VsZCBleHBs
+YWluIHdoYXQgd2FzIHdyb25nIGFuZAo+IGhvdyB5b3UgZml4ZWQgaXQuCj4KPiBUaGFua3MsCj4K
+PiBBbGV4Cj4KPgo+ID4KPiA+IFNpZ25lZC1vZmYtYnk6IEhhbiBHYW8gPHJhYmVuZGEuY25AZ21h
+aWwuY29tPgo+ID4gLS0tCj4gPiAgIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmggfCAx
+MiArKysrKystLS0tLS0KPiA+ICAgMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygrKSwgNiBk
+ZWxldGlvbnMoLSkKPiA+Cj4gPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92
+ZWN0b3IuaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmVjdG9yLmgKPiA+IGluZGV4IGU4YTgz
+ZjU1YmUyYi4uN2RmNjM1NTAyM2EzIDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRl
+L2FzbS92ZWN0b3IuaAo+ID4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZWN0b3IuaAo+
+ID4gQEAgLTIwMCwxMSArMjAwLDExIEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBfX3Jpc2N2X3ZfdnN0
+YXRlX3NhdmUoc3RydWN0IF9fcmlzY3Zfdl9leHRfc3RhdGUgKnNhdmVfdG8sCj4gPiAgICAgICAg
+ICAgICAgICAgICAgICAgVEhFQURfVlNFVFZMSV9UNFgwRThNOEQxCj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgVEhFQURfVlNCX1ZfVjBUMAo+ID4gICAgICAgICAgICAgICAgICAgICAgICJhZGQg
+ICAgICAgICAgICB0MCwgdDAsIHQ0XG5cdCIKPiA+IC0gICAgICAgICAgICAgICAgICAgICBUSEVB
+RF9WU0JfVl9WMFQwCj4gPiArICAgICAgICAgICAgICAgICAgICAgVEhFQURfVlNCX1ZfVjhUMAo+
+ID4gICAgICAgICAgICAgICAgICAgICAgICJhZGQgICAgICAgICAgICB0MCwgdDAsIHQ0XG5cdCIK
+PiA+IC0gICAgICAgICAgICAgICAgICAgICBUSEVBRF9WU0JfVl9WMFQwCj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgVEhFQURfVlNCX1ZfVjE2VDAKPiA+ICAgICAgICAgICAgICAgICAgICAgICAi
+YWRkICAgICAgICAgICAgdDAsIHQwLCB0NFxuXHQiCj4gPiAtICAgICAgICAgICAgICAgICAgICAg
+VEhFQURfVlNCX1ZfVjBUMAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIFRIRUFEX1ZTQl9WX1Yy
+NFQwCj4gPiAgICAgICAgICAgICAgICAgICAgICAgOiA6ICJyIiAoZGF0YXApIDogIm1lbW9yeSIs
+ICJ0MCIsICJ0NCIpOwo+ID4gICAgICAgfSBlbHNlIHsKPiA+ICAgICAgICAgICAgICAgYXNtIHZv
+bGF0aWxlICgKPiA+IEBAIC0yMzYsMTEgKzIzNiwxMSBAQCBzdGF0aWMgaW5saW5lIHZvaWQgX19y
+aXNjdl92X3ZzdGF0ZV9yZXN0b3JlKHN0cnVjdCBfX3Jpc2N2X3ZfZXh0X3N0YXRlICpyZXN0b3Jl
+Xwo+ID4gICAgICAgICAgICAgICAgICAgICAgIFRIRUFEX1ZTRVRWTElfVDRYMEU4TThEMQo+ID4g
+ICAgICAgICAgICAgICAgICAgICAgIFRIRUFEX1ZMQl9WX1YwVDAKPiA+ICAgICAgICAgICAgICAg
+ICAgICAgICAiYWRkICAgICAgICAgICAgdDAsIHQwLCB0NFxuXHQiCj4gPiAtICAgICAgICAgICAg
+ICAgICAgICAgVEhFQURfVkxCX1ZfVjBUMAo+ID4gKyAgICAgICAgICAgICAgICAgICAgIFRIRUFE
+X1ZMQl9WX1Y4VDAKPiA+ICAgICAgICAgICAgICAgICAgICAgICAiYWRkICAgICAgICAgICAgdDAs
+IHQwLCB0NFxuXHQiCj4gPiAtICAgICAgICAgICAgICAgICAgICAgVEhFQURfVkxCX1ZfVjBUMAo+
+ID4gKyAgICAgICAgICAgICAgICAgICAgIFRIRUFEX1ZMQl9WX1YxNlQwCj4gPiAgICAgICAgICAg
+ICAgICAgICAgICAgImFkZCAgICAgICAgICAgIHQwLCB0MCwgdDRcblx0Igo+ID4gLSAgICAgICAg
+ICAgICAgICAgICAgIFRIRUFEX1ZMQl9WX1YwVDAKPiA+ICsgICAgICAgICAgICAgICAgICAgICBU
+SEVBRF9WTEJfVl9WMjRUMAo+ID4gICAgICAgICAgICAgICAgICAgICAgIDogOiAiciIgKGRhdGFw
+KSA6ICJtZW1vcnkiLCAidDAiLCAidDQiKTsKPiA+ICAgICAgIH0gZWxzZSB7Cj4gPiAgICAgICAg
+ICAgICAgIGFzbSB2b2xhdGlsZSAoCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
