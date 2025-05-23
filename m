@@ -4,107 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F99C54ED0
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 11:53:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AFCAC3DA6D
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 12:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Subject:References:In-Reply-To:
-	Message-Id:To:From:Date:MIME-Version:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=OERaKi8bgFLAoHtUWedt5Kw77PKlGXtJBaPt+1/7WcA=; b=RMh3nd0Sl6ndriStxKG3S/j4Ff
-	7iC5Gn0ygeg4Vdaf8s3ZmHxPeYRxBQbTvvFZ1bJuroBk6Ky90jdvFMQbHKyJW2nGKnJHI7U0SFYm2
-	ItKCEf4gur5mr6L3UvPnvzmg9g9r60XVMMyPdZo5vn2YcGUGKSznPuIVaX7A8QLOpanCTRMBc0qby
-	Bw768D55I81FIOwP37TEdIRnONCt7nuw5PQARdS8dKljKxbYSNag0nLwno6GHdy2Ei4OwhnIVZ+xf
-	GjVu14D3Jrcb0M0hTl3hLjBTWSF7jC9CiKmTgFDJSyFfesGSAn/7VOcZsEvp6gL7Jof71rfcGJlB+
-	Siis22eA==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7Ux03/DobOas+wzxA/nHYtGwDk57XQZ5YuJGRBq6ikQ=; b=m+Y8eBEUe4Rhih
+	DFaAMk2lET27NkF/tKpa7Hock+BdzeVY49IU56qpkmSOFG2joJOheemm4rK9x/6pGcYLK/qD5MAg5
+	adcHNu4X86vF+XPenNA/g9jROWSdsSuFD3+OKp4MDN1TtECB7n0sGX+IiWNAmieByqj6BodsdyBFf
+	U25XOEG1R6SrGMU114RaDJIAcPqM+OujSIDVvLKv5XCA4GHt8Zq4gCWM8+FzHA0wbMdFXruGFEQlE
+	OCVU06G0wlR14P9pusVzxzpqR90MZclG2FUEyzIkJdo5pU7butbZcd5mGDDZyPNWE2s5DmysuqKrA
+	ZSeaHhE8nk3XBSRLwJGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQxo-00000003kkc-0Eq1;
-	Fri, 23 May 2025 11:53:24 +0000
-Received: from fout-b8-smtp.messagingengine.com ([202.12.124.151])
+	id 1uIRCJ-00000003m61-0lHj;
+	Fri, 23 May 2025 12:08:23 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIPtm-00000003czi-16ko
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 10:45:12 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfout.stl.internal (Postfix) with ESMTP id 723F1114013B;
-	Fri, 23 May 2025 06:45:08 -0400 (EDT)
-Received: from phl-imap-12 ([10.202.2.86])
-  by phl-compute-05.internal (MEProxy); Fri, 23 May 2025 06:45:08 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1747997108;
-	 x=1748083508; bh=Y81e2LvO0vLhZIXHKU9Um3avzr/8nqz2ybjBlLZu/vI=; b=
-	ImUeMeDrVo5WEB6TzbS3e4dogqfeJoqSBQV8qf1zgCxU+1kivr69gvO1AnWqnop2
-	qb0TrsUcToTRB76TQxcSx+g9/IoXlkJi7MVrGU6cnOY1eHXqrua8beIfOLfp6VgE
-	kJ66NiAGYZlsOvhBK6F0dMSaHXjsYkJzrb/FbhdqqMZtYZAGdY5OEKlSqyqe2tzf
-	L5ynOYM46Pz1tYlBlrV1QgvlpVZRbspohwnN5J5usxgZAOJV1Vu3g+zfKO0j3ELv
-	GGgfN9LntiQ+O0kh+XelMtVvEAAcv5e9mSSHF4nyBiORc2OuWENgToy5yBFOAKaR
-	4qT/YfMikneT2MS7QE877Q==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm3; t=1747997108; x=1748083508; bh=Y
-	81e2LvO0vLhZIXHKU9Um3avzr/8nqz2ybjBlLZu/vI=; b=B+Fb1BTIYt3sXc7g4
-	cztE/HtJJKQq99qO8iLskBT3dMeCpbqec2i69ICwQttKaErwMm9K5L8HaNCoMbnP
-	/ud0qo6JT0RGMyKue80HRWieb9KzugiLgI4mKp04rqtSkgv5wH+n7iFvJgdmN7Lq
-	bZbDOxOFsdd1i5KWtEa8AsyTEvGVj+xz4axrz/Wafuw4S9M9AzsXu2+1Wu5Ap+/U
-	mjflV/nZ+BRNJcDf7Vy8nV2Vy2f73eStx5ROs5C31C8PDE1NIQ7JVkAVYUGXjxed
-	IfstodzqF/M8dYYjE7Sqxpu/HuxSFM57yXmewjdzMdiA98lWuctQgNf7fU5IerV5
-	Jp+pw==
-X-ME-Sender: <xms:s1EwaENFjOZSZSANJ_xSGgjoTbMNAk27rBS4Cv4uLWxC_yZDyLtqxA>
-    <xme:s1EwaK_LrWsRGLoV3VEyGzwBGFOEgqxFg1Gg66IMfFqYRR5aX9-xW0zOJTQF_GqlZ
-    EWfD3zcX7AiprPLoak>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdekieehucdltddurdegfedvrddttd
-    dmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgf
-    nhhsuhgsshgtrhhisggvpdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttd
-    enucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepofggfffhvffkjghf
-    ufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcuuegvrhhgmhgrnhhnfdcuoe
-    grrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrhhnpeektefgueefhfekhfej
-    gefffeetffevuefhvdeijedtfedvteehfedtjeduffdvheenucffohhmrghinhepkhgvrh
-    hnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhf
-    rhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepuddtpdhmohguvg
-    epshhmthhpohhuthdprhgtphhtthhopehmrghrihhordhlihhmohhntghivghllhhosegr
-    mhgurdgtohhmpdhrtghpthhtohepfigprghrmhhinhesghhmgidruggvpdhrtghpthhtoh
-    eplhgvnhgssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrrghfrggvlheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepihhlphhordhjrghrvhhinhgvnheslhhinhhugidrih
-    hnthgvlhdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhi
-    nhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhosh
-    hinhgtrdgtohhmpdhrtghpthhtohepmhhpvggrrhhsohhnqdhlvghnohhvohesshhquhgv
-    sggsrdgtrgdprhgtphhtthhopehlihhnuhigqdgrtghpihesvhhgvghrrdhkvghrnhgvlh
-    drohhrgh
-X-ME-Proxy: <xmx:s1EwaLRLs3yc3EmwQAGnUuberBf2Mjb5nl6yH5rqM4PUoONA5_kLyQ>
-    <xmx:s1EwaMtfLlV39O4d5X80twJEMpwOYKMuDogh7uycYHmOhNodrtqxlg>
-    <xmx:s1EwaMfvNoThepEUYXlIBEhSXMSSRt1PEOXAVD628akT2l5q-dZykg>
-    <xmx:s1EwaA1-K8Xsyja336JjMOxN5G-0G4XtOgVBwC0QmSmkVhEbueM-xw>
-    <xmx:tFEwaFhjMgRjqJ5c5MAy9cXE0mFpY5m09n9fY12ujUvtu3nqbWIx7OhX>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CDEF41060060; Fri, 23 May 2025 06:45:07 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1uIQ3M-00000003eKY-3bz0;
+	Fri, 23 May 2025 10:55:05 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-74019695377so6539299b3a.3;
+        Fri, 23 May 2025 03:55:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1747997704; x=1748602504; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Jn/O3K1DYv29m3uWPUXSAZ2bq2VSrL80s8QgFG0aSI0=;
+        b=WClqrCDuWyyuJyllzl+ajAV41tMtoHjizy1LI6IOe7a/D340q8MGLOEHarE1B0yZ72
+         oQwucR2QJNESnj6N3JLo0z2gYAAjRSI7lM456Ep9YPlgD4GeITfryL9v9Xr9Ws+bw9JQ
+         lyJA0G2IP0QKb2OZZ0CeFY6XwgB7+bC+trPkzP2nUqXwLhiY5CZSXImUgInQxLBsQj7Z
+         5jS5wWdJWGXFmTzVPMEaAxBUNg61PYq4hq+VrC6ptrEszjqgLk5Un83PHx87iW6Q76Wp
+         JMMWK8yFJZLZMKALsSl+5yWXYX4uqnb0AHXGJkBT4DAhhf01mBBKFEczk4rtc9djy1mE
+         eXXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1747997704; x=1748602504;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Jn/O3K1DYv29m3uWPUXSAZ2bq2VSrL80s8QgFG0aSI0=;
+        b=GlxUukseIUPq3u0ieyzZDNHV8Tg42wYj+ukYIOumU71lcNftaupEYKtQr1w3NTJa04
+         RxsigTtYJdjFHnoFMEtCDzYR9n0trfnyKvd5bxxDYyoRN+nE4s0XbI4q/D+q1HhPGbGK
+         oxZSlPfycbJsap4aeW5wMvu9iuWQcvpHykYPILdDaddRoDLhJIVcXz9mYBGxgLd+sxCw
+         dTbj3gqoesFSPDgbqX9ugjh7EEJKZMxU0mROOZBStFu/6EEL+5WmpERPQi7npLI/7fi/
+         FIGhfMxw2gUYKvrsstU0UqoB89hnISuOmEFnvOAlwb17sSVcMoPX0OMeIpTZtUsppcQE
+         EPxw==
+X-Forwarded-Encrypted: i=1; AJvYcCVTktHv2NNnMmzIrdptoV6mw+cQmd9733NoKQI9KjcQGCEufbWDN9cK5jSJk/GvdZDIZ8y4gJ0iDW2icQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSyLfmTXmz/pxyZzZIRuxkrFaEXxrm3FPkuKxmgzuOE5grN2Xd
+	DA4AdxW+ZYa325lgG3GdUvftSgoEFqfSDitqgJgBWEFeKUT25imKsWQQ
+X-Gm-Gg: ASbGncvxMbjkKtdpZbJsCAwkdMRZdAWjQKCbCdOV4CVsQukdBFwsE/+lpqHKBW1okda
+	GiX4PhatEZf0VHGJ1oWQGguOR3Cha3afPgPQ7X9dRTF2tXqUmkFLo43nxLQji4RxZRgrxUE/6+X
+	Jm7DPlewTHZurtnnQfbNsEEiYv/J8MDLiatPQESC0vpDrl4jxCwlXr01KSaux55vlUyTIp+uAf6
+	amLq4F6nuHQuafmZb/AyEeO0Y+LYToVQK5CWBbEBvt1IN8dubU29nOCl35CDf4t8VFYe3/AlnL0
+	iuy0eeA1PtloQRjcH2CyErWmEqjkmM4/XTXImZXRX90=
+X-Google-Smtp-Source: AGHT+IGb/whdK5OVcrGLs3cyAdkZSpq6Qu930wT4pSb23mGATkPV/R5AcFIK2e65lJrScVQ63J616A==
+X-Received: by 2002:a05:6a00:4648:b0:742:a0cf:7753 with SMTP id d2e1a72fcca58-745ed842a10mr3899729b3a.3.1747997703789;
+        Fri, 23 May 2025 03:55:03 -0700 (PDT)
+Received: from [127.0.0.1] ([2001:250:5800:1000::3fc8])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a9739cdesm12623687b3a.82.2025.05.23.03.54.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 23 May 2025 03:55:03 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Date: Fri, 23 May 2025 18:54:49 +0800
+Subject: [PATCH 1/3] dt-bindings: spi: Add bindings for SOPHGO SG2042
 MIME-Version: 1.0
-X-ThreadId: Tdd7d737077c6d117
-Date: Fri, 23 May 2025 12:44:47 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Armin Wolf" <W_Armin@gmx.de>, "Alexandre Ghiti" <alexghiti@rivosinc.com>,
- "Rafael J . Wysocki" <rafael@kernel.org>, "Len Brown" <lenb@kernel.org>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- "Mario Limonciello" <mario.limonciello@amd.com>,
- "Mark Pearson" <mpearson-lenovo@squebb.ca>, linux-acpi@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
-Message-Id: <9fd12267-bfba-4f94-a132-b20c5be601b0@app.fastmail.com>
-In-Reply-To: <91458376-dfc7-46fc-8523-aa176907d703@gmx.de>
-References: <20250522141410.31315-1-alexghiti@rivosinc.com>
- <91458376-dfc7-46fc-8523-aa176907d703@gmx.de>
-Subject: Re: [PATCH] drivers: acpi: Fix platform profile driver on !acpi platforms
+Message-Id: <20250523-sfg-spifmc-v1-1-4cf16cf3fd2a@gmail.com>
+References: <20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com>
+In-Reply-To: <20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com>
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Longbin Li <looong.bin@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ dlan@gentoo.org, ziyao@disroot.org, Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1747997691; l=966;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=B1L+ns3J9BEA46JOnVmHJRQ+0e4FHF2prsHtqzS74ao=;
+ b=5V4GegDuuILrVGuFqa9Oq5IP1YPnTcqKDhaZEcKM4DPE7MLjCwzBI7L8guAOu8jPUW7VeG0A6
+ DYYBa4K4hzZBp+BBJVsdr7nXYCILxF0QkTqDrfu3c77sijBT/HVcNQp
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_034510_768928_ECB25EB4 
-X-CRM114-Status: UNSURE (   9.69  )
+X-CRM114-CacheID: sfid-20250523_035504_916094_0C614F7F 
+X-CRM114-Status: UNSURE (   8.87  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -122,25 +117,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 22, 2025, at 22:04, Armin Wolf wrote:
-> Am 22.05.25 um 16:13 schrieb Alexandre Ghiti:
->
-> I already submitted a patch for this problem (see 
-> https://lore.kernel.org/linux-acpi/a6d92cdd-4dc3-4080-9ed9-5b1f02f247e0@gmx.de/T/)
-> that only disables the legacy sysfs interface while keeping the 
-> class-based interface functional
-> as it does not depend on ACPI at all.
+Add bindings for the SOPHGO SG2042 SPI-NOR flash controller,
+which is compatible with SOPHGO SG2044.
 
-Just for my understanding: what users of the platform profile are
-there that work without ACPI? I see that CONFIG_ACPI_PLATFORM_PROFILE
-is hidden under CONFIG_ACPI and cannot be selected in configurations
-that turn off ACPI, so if that is an intended usecase, there is
-probably still something wrong in Kconfig.
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
+---
+ Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-Should the driver be moved out of drivers/acpi to drivers/platform
-in order to let non-ACPI platforms use it?
+diff --git a/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml b/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
+index 948ff7a096433a8c3c64cba13fc1339d18f6c19d..e083362e8f76f7a7582fd7b98c0b7a36f61577cc 100644
+--- a/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-sg2044-nor.yaml
+@@ -14,7 +14,11 @@ allOf:
+ 
+ properties:
+   compatible:
+-    const: sophgo,sg2044-spifmc-nor
++    description: Compatible strings for SOPHGO SPI NOR controller
++    items:
++      - enum:
++        - sophgo,sg2042-spifmc-nor
++      - const: sophgo,sg2044-spifmc-nor
+ 
+   reg:
+     maxItems: 1
 
-     Arnd
+-- 
+2.49.0
+
 
 _______________________________________________
 linux-riscv mailing list
