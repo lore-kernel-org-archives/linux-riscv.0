@@ -4,101 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B324FC54F2E
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 11:22:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E72C54F30
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 11:23:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aGG1+zvWb+2b/ECMOdmcfdCHW2GQ+T1DtVs3Gs1j+Y0=; b=4+SYwYM2GT5k7H
-	l+J8Wz7Gn+KJ0z6eWqr/Q9BnODxKMUPuc8ecewC4wReDN0oyMiRIjhkeUz8gBogVa1tMVmNH/4Khe
-	xFVTDhxG7H2wOReS7idYUf85cN4HWCgaG66F9LxVGPY1N57WWFWBvudro/31O/Js+LC+M8ik2ilhd
-	zI+MHjuNVs1wqxOOya+UlIEtku8eEgPlMXycmv07uBZhi4RijiQRZ468iOLAO1S90hRMpFfmSnyTC
-	viiVIssyDOv/GfFCVrX9pEUB7bLXD75VBl2cQAO67arUA0RYt+iP2BnBDAAwEqU5FcGh+7bnHlWlc
-	pFlh6CukvYr/fcpaU8rA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/1Sqq20EWSIm/l9Qedu+NCR1av77zRagy8SQlRMgcps=; b=oQDJ4i1cDslU4mQP/vgfR4UVJ9
+	jGDoNTRVKm1Bd84CTrvxf3SLh7QVYC659GBZZ/2C7TEP0e2Jh+COkKdwjN+xoSjx4eFujTb7Wdk21
+	Y3EFFb5Cv/X/FW2TIM4R9vwhxMzLzuPKfvGSK1yaD9wqPjmcUIrrbfqjb3uElLVuHJRkihOJSbvUR
+	MHsLUVaKjpaUz2jEjMrC2a1CASfm0NS6ah8J3SVPGvH4MYyjBd5E6q4QOfTPj36GB1dV1kIw8CWeF
+	feNfuTWlF/0qgs50JpNN85kLFBj0YgSTjJbR5LQBdtSrkVDE/+0RYrRAojPUZHZ5A5urXNUjJueV3
+	412OnLiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQTy-00000003h6h-0sT9;
-	Fri, 23 May 2025 11:22:34 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1uIQUo-00000003hJf-1pVO;
+	Fri, 23 May 2025 11:23:26 +0000
+Received: from relay1-d.mail.gandi.net ([217.70.183.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIQRn-00000003grG-0ftT;
-	Fri, 23 May 2025 11:20:20 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 54NBJc1K2086996;
-	Fri, 23 May 2025 06:19:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1747999178;
-	bh=G3eBoRI6ajKzQj7PIYgoVul0HEV9Bq6GwjJIxWdrMvs=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=pGrh4cl5UNwlzQb/0t74988xZoSrBH7x4348QMBKDmfEIEnMxH8v3P122scZKOLoq
-	 WcvICifTw0IpvVBp7SlgqxN1dmooOa4XIXH6VEXHmwzZMIPuwOd/B/40p6zsECZIL9
-	 nKV7oX048/6bbOEblbgcqX9fFjhONqR8xG9NOzpE=
-Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 54NBJcAC023157
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 23 May 2025 06:19:38 -0500
-Received: from DFLE101.ent.ti.com (10.64.6.22) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 23
- May 2025 06:19:37 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 23 May 2025 06:19:37 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 54NBJblW1172257;
-	Fri, 23 May 2025 06:19:37 -0500
-Date: Fri, 23 May 2025 06:19:37 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Kees Cook <kees@kernel.org>
-CC: Arnd Bergmann <arnd@arndb.de>, Russell King <linux@armlinux.org.uk>,
-        Daniel Lezcano <daniel.lezcano@linaro.org>,
-        Thomas Gleixner
-	<tglx@linutronix.de>,
-        Santosh Shilimkar <ssantosh@kernel.org>, Lee Jones
-	<lee@kernel.org>,
-        Allison Randal <allison@lohutok.net>,
-        Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        "Gustavo A. R. Silva" <gustavoars@kernel.org>,
-        Christoph Hellwig
-	<hch@lst.de>, Marco Elver <elver@google.com>,
-        Andrey Konovalov
-	<andreyknvl@gmail.com>,
-        Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-        Ard
- Biesheuvel <ardb@kernel.org>,
-        Masahiro Yamada <masahiroy@kernel.org>,
-        Nathan
- Chancellor <nathan@kernel.org>,
-        Nicolas Schier <nicolas.schier@linux.dev>,
-        Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
-        Bill Wendling
-	<morbo@google.com>,
-        Justin Stitt <justinstitt@google.com>, <linux-kernel@vger.kernel.org>,
-        <x86@kernel.org>, <kasan-dev@googlegroups.com>,
-        <linux-doc@vger.kernel.org>, <kvmarm@lists.linux.dev>,
-        <linux-riscv@lists.infradead.org>, <linux-s390@vger.kernel.org>,
-        <linux-efi@vger.kernel.org>, <linux-hardening@vger.kernel.org>,
-        <linux-kbuild@vger.kernel.org>,
-        <linux-security-module@vger.kernel.org>,
-        <linux-kselftest@vger.kernel.org>, <sparclinux@vger.kernel.org>,
-        <llvm@lists.linux.dev>
-Subject: Re: [PATCH v2 05/14] arm: Handle KCOV __init vs inline mismatches
-Message-ID: <20250523111937.f2fqhoshqevdoxcl@snowbird>
-References: <20250523043251.it.550-kees@kernel.org>
- <20250523043935.2009972-5-kees@kernel.org>
+	id 1uIPNS-00000003YD3-0qEJ
+	for linux-riscv@lists.infradead.org;
+	Fri, 23 May 2025 10:11:47 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 8D03D439F0;
+	Fri, 23 May 2025 10:11:42 +0000 (UTC)
+Message-ID: <83e02a52-86ad-45e5-ba87-6c17dc6f59b5@ghiti.fr>
+Date: Fri, 23 May 2025 12:11:42 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250523043935.2009972-5-kees@kernel.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drivers: acpi: Fix platform profile driver on !acpi
+ platforms
+To: Armin Wolf <W_Armin@gmx.de>, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Mario Limonciello <mario.limonciello@amd.com>,
+ Mark Pearson <mpearson-lenovo@squebb.ca>, Arnd Bergmann <arnd@arndb.de>,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-riscv@lists.infradead.org
+References: <20250522141410.31315-1-alexghiti@rivosinc.com>
+ <91458376-dfc7-46fc-8523-aa176907d703@gmx.de>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <91458376-dfc7-46fc-8523-aa176907d703@gmx.de>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdekheekucdltddurdegfedvrddttddmucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefkffggfgfuvfhfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepheevhfevteehhefhueekiedtheeuvdfgieetteetudffgeegieegieeitdevgeelnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpihhnfhhrrgguvggrugdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegvleejvdemuggtudemjedvudgumeeitdgstdenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemvgeljedvmegutgdumeejvdduugemiedtsgdtpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegvleejvdemuggtudemjedvudgumeeitdgstdgnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepuddupdhrtghpthhtohephggptehrmhhinhesghhmgidruggvpdhrtghpthhtoheprghlvgigghhhihhtihesrhhivhhoshhin
+ hgtrdgtohhmpdhrtghpthhtoheprhgrfhgrvghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlvghnsgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepihhlphhordhjrghrvhhinhgvnheslhhinhhugidrihhnthgvlhdrtghomhdprhgtphhtthhopehmrghrihhordhlihhmohhntghivghllhhosegrmhgurdgtohhmpdhrtghpthhtohepmhhpvggrrhhsohhnqdhlvghnohhvohesshhquhgvsggsrdgtrgdprhgtphhtthhopegrrhhnugesrghrnhgusgdruggv
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_042019_289101_505C0560 
-X-CRM114-Status: GOOD (  14.65  )
+X-CRM114-CacheID: sfid-20250523_031146_372817_0567488C 
+X-CRM114-Status: GOOD (  21.03  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,46 +66,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 21:39-20250522, Kees Cook wrote:
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved. For
-> arm this exposed several places where __init annotations were missing
-> but ended up being "accidentally correct". Fix these cases and force
-> several functions to be inline with __always_inline.
-> 
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-[...]
-> diff --git a/drivers/soc/ti/pm33xx.c b/drivers/soc/ti/pm33xx.c
-> index dfdff186c805..dc52a2197d24 100644
-> --- a/drivers/soc/ti/pm33xx.c
-> +++ b/drivers/soc/ti/pm33xx.c
-> @@ -145,7 +145,7 @@ static int am33xx_do_sram_idle(u32 wfi_flags)
->  	return pm_ops->cpu_suspend(am33xx_do_wfi_sram, wfi_flags);
->  }
->  
-> -static int __init am43xx_map_gic(void)
-> +static int am43xx_map_gic(void)
->  {
->  	gic_dist_base = ioremap(AM43XX_GIC_DIST_BASE, SZ_4K);
->  
-> -- 
-> 2.34.1
-> 
-Acked-by: Nishanth Menon <nm@ti.com>
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNS8yMi8yNSAyMjowNCwgQXJtaW4gV29sZiB3cm90ZToKPiBBbSAyMi4wNS4yNSB1bSAxNjox
+MyBzY2hyaWViIEFsZXhhbmRyZSBHaGl0aToKPgo+PiBUaGUgcGxhdGZvcm0gcHJvZmlsZSBkcml2
+ZXIgaXMgbG9hZGVkIGV2ZW4gb24gcGxhdGZvcm1zIHRoYXQgZG8gbm90IGhhdmUKPj4gYWNwaSBl
+bmFibGVkLiBUaGUgaW5pdGlhbGl6YXRpb24gb2YgdGhlIHN5c2ZzIGVudHJpZXMgd2FzIHJlY2Vu
+dGx5IG1vdmVkCj4+IGZyb20gcGxhdGZvcm1fcHJvZmlsZV9yZWdpc3RlcigpIHRvIHRoZSBtb2R1
+bGUgaW5pdCBjYWxsLCBhbmQgdGhvc2UKPj4gZW50cmllcyBuZWVkIGFjcGlfa29iaiB0byBiZSBp
+bml0aWFsaXplZCB3aGljaCBpcyBub3QgdGhlIGNhc2Ugd2hlbiBhY3BpCj4+IGlzIGRpc2FibGVk
+Lgo+Pgo+PiBUaGlzIHJlc3VsdHMgaW4gdGhlIGZvbGxvd2luZyB3YXJuaW5nOgo+Pgo+PiDCoCBX
+QVJOSU5HOiBDUFU6IDUgUElEOiAxIGF0IGZzL3N5c2ZzL2dyb3VwLmM6MTMxIAo+PiBpbnRlcm5h
+bF9jcmVhdGVfZ3JvdXArMHhhMjIvMHhkZDgKPj4gwqAgTW9kdWxlcyBsaW5rZWQgaW46Cj4+IMKg
+IENQVTogNSBVSUQ6IDAgUElEOiAxIENvbW06IHN3YXBwZXIvMCBUYWludGVkOiBHIFfCoMKgwqDC
+oMKgwqDCoMKgwqDCoCAKPj4gNi4xNS4wLXJjNy1kaXJ0eSAjNiBQUkVFTVBUCj4+IMKgIFRhaW50
+ZWQ6IFtXXT1XQVJOCj4+IMKgIEhhcmR3YXJlIG5hbWU6IHJpc2N2LXZpcnRpbyxxZW11IChEVCkK
+Pj4gwqAgZXBjIDogaW50ZXJuYWxfY3JlYXRlX2dyb3VwKzB4YTIyLzB4ZGQ4Cj4+IMKgwqAgcmEg
+OiBpbnRlcm5hbF9jcmVhdGVfZ3JvdXArMHhhMjIvMHhkZDgKPj4KPj4gwqAgQ2FsbCBUcmFjZToK
+Pj4KPj4gwqAgaW50ZXJuYWxfY3JlYXRlX2dyb3VwKzB4YTIyLzB4ZGQ4Cj4+IMKgIHN5c2ZzX2Ny
+ZWF0ZV9ncm91cCsweDIyLzB4MmUKPj4gwqAgcGxhdGZvcm1fcHJvZmlsZV9pbml0KzB4NzQvMHhi
+Mgo+PiDCoCBkb19vbmVfaW5pdGNhbGwrMHgxOTgvMHhhOWUKPj4gwqAga2VybmVsX2luaXRfZnJl
+ZWFibGUrMHg2ZDgvMHg3ODAKPj4gwqAga2VybmVsX2luaXQrMHgyOC8weDI0Ywo+PiDCoCByZXRf
+ZnJvbV9mb3JrKzB4ZS8weDE4Cj4+Cj4+IEZpeCB0aGlzIGJ5IGNoZWNraW5nIGlmIGFjcGkgaXMg
+ZW5hYmxlZCBiZWZvcmUgdHJ5aW5nIHRvIGNyZWF0ZSBzeXNmcwo+PiBlbnRyaWVzLgo+Cj4gSSBh
+bHJlYWR5IHN1Ym1pdHRlZCBhIHBhdGNoIGZvciB0aGlzIHByb2JsZW0gKHNlZSAKPiBodHRwczov
+L2xvcmUua2VybmVsLm9yZy9saW51eC1hY3BpL2E2ZDkyY2RkLTRkYzMtNDA4MC05ZWQ5LTViMWYw
+MmYyNDdlMEBnbXguZGUvVC8pCj4gdGhhdCBvbmx5IGRpc2FibGVzIHRoZSBsZWdhY3kgc3lzZnMg
+aW50ZXJmYWNlIHdoaWxlIGtlZXBpbmcgdGhlIAo+IGNsYXNzLWJhc2VkIGludGVyZmFjZSBmdW5j
+dGlvbmFsCj4gYXMgaXQgZG9lcyBub3QgZGVwZW5kIG9uIEFDUEkgYXQgYWxsLgoKCkdyZWF0LCBJ
+IHVuZGVyc3RhbmQgaWYgeW91ciBwYXRjaHNldCBpcyBub3QgbWVyZ2VkIGZvciByYzEgYnV0IGl0
+IHdvdWxkIApiZSBuaWNlIHRvIGhhdmUgaXQgbWVyZ2VkIGluIDYuMTYgdGhvdWdoIHRvIGZpeCBy
+aXNjdiBzeXprYWxsZXIgCmluc3RhbmNlLiBQZXJoYXBzIHlvdSBjb3VsZCBhZGQgdGhlIEZpeGVz
+IHRhZyB0aGF0IEFybmQgbWVudGlvbmVkIHRvbz8KClRoYW5rcywKCkFsZXgKCgo+Cj4gVGhhbmss
+Cj4gQXJtaW4gV29sZgo+Cj4+IEZpeGVzOiA3N2JlNWNhY2IyYzIgKCJBQ1BJOiBwbGF0Zm9ybV9w
+cm9maWxlOiBDcmVhdGUgY2xhc3MgZm9yIEFDUEkgCj4+IHBsYXRmb3JtIHByb2ZpbGUiKQo+PiBT
+aWduZWQtb2ZmLWJ5OiBBbGV4YW5kcmUgR2hpdGkgPGFsZXhnaGl0aUByaXZvc2luYy5jb20+Cj4+
+IC0tLQo+PiDCoCBkcml2ZXJzL2FjcGkvcGxhdGZvcm1fcHJvZmlsZS5jIHwgMyArKysKPj4gwqAg
+MSBmaWxlIGNoYW5nZWQsIDMgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvZHJpdmVy
+cy9hY3BpL3BsYXRmb3JtX3Byb2ZpbGUuYyAKPj4gYi9kcml2ZXJzL2FjcGkvcGxhdGZvcm1fcHJv
+ZmlsZS5jCj4+IGluZGV4IGZmYmZkMzJmNGNmMS4uYjQzZjQ0NTlhNGY2IDEwMDY0NAo+PiAtLS0g
+YS9kcml2ZXJzL2FjcGkvcGxhdGZvcm1fcHJvZmlsZS5jCj4+ICsrKyBiL2RyaXZlcnMvYWNwaS9w
+bGF0Zm9ybV9wcm9maWxlLmMKPj4gQEAgLTY4OCw2ICs2ODgsOSBAQCBzdGF0aWMgaW50IF9faW5p
+dCBwbGF0Zm9ybV9wcm9maWxlX2luaXQodm9pZCkKPj4gwqAgewo+PiDCoMKgwqDCoMKgIGludCBl
+cnI7Cj4+IMKgICvCoMKgwqAgaWYgKGFjcGlfZGlzYWJsZWQpCj4+ICvCoMKgwqDCoMKgwqDCoCBy
+ZXR1cm4gLUVPUE5PVFNVUFA7Cj4+ICsKPj4gwqDCoMKgwqDCoCBlcnIgPSBjbGFzc19yZWdpc3Rl
+cigmcGxhdGZvcm1fcHJvZmlsZV9jbGFzcyk7Cj4+IMKgwqDCoMKgwqAgaWYgKGVycikKPj4gwqDC
+oMKgwqDCoMKgwqDCoMKgIHJldHVybiBlcnI7Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4
+LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
+bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
+c3RpbmZvL2xpbnV4LXJpc2N2Cg==
