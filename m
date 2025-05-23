@@ -4,95 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E60DFC54ED1
-	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 18:39:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 782ADC54ED0
+	for <linux-riscv@archiver.kernel.org>; Fri, 23 May 2025 18:53:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Lh3q7kY2kI9qINZ+qBqItrL6KetVSJ+8at4EyJIorDw=; b=lLXmPv56fD2Jjg
-	yerxeAYH7Tw0CWxIhce1+ymgLI04qICvUKL2Ln/Ij5QdBu5i4iNRH0v+uv1O1E8EzdOIExbjfnuSw
-	NBXL20O9Jl44GGbIryZafKuAqiZudWGpusKlV7PfQZ0Et3ttcjq1G2DXMBFbFFupbikFDMXkLXPxq
-	j3aiciYsAn+b83DUcvpUjqYiwvVNd9R5oF3A/o7DcANjsJnzqKsjSrtk9Gg/vmkGIZlN2EbHLYBet
-	IypNaYnPzOzs0lRGLxm2ltS2IJDJukAWaoJEBvj9xhReL8RxJi1/BEUqnAwdEYVFoJyYOh95a0muq
-	wBBR7QJvYCBsdXEf7tTw==;
+	List-Owner; bh=PU+OKdn9ttnzlSP3qxhl/VPhC+SKEBv8VdRWDI4nbj0=; b=n83T9ef7oR39Hp
+	jdtONYcos9+eW1AwVhT6KDEc6hYReyaOTFg+z/ZqJr+NN3zFHaqdMs6UL+wHxKq7YB2JUwSmrXJ2w
+	kTVF2TcgFd7MeWX2y7qf4S0W6uzDppEt2GoSHZt7I6FquXAh0AMx0N04wX2lGtqnA5VPatojcrefG
+	Fw/aEyY75GS8TTpXaOULHzvUuFRymii9X1efuTuEj9W3Hc63uOydMIDWF0UBsuTz4UQ51EYNfNSLc
+	3i5WDuTGIKluXP2lAhmGHiUGkVrEHWpLPvhywgsr+/i8Jkp88C1lBXVatCBcs7dShPPKcQr+V/A+q
+	1RUj+VRjkLoy4BnEOAYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXIR-00000004i8w-2eic;
-	Fri, 23 May 2025 18:39:07 +0000
-Received: from mail-pg1-x535.google.com ([2607:f8b0:4864:20::535])
+	id 1uIXWI-00000004jcm-2587;
+	Fri, 23 May 2025 18:53:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIXIP-00000004i8H-3oDL
-	for linux-riscv@lists.infradead.org;
-	Fri, 23 May 2025 18:39:06 +0000
-Received: by mail-pg1-x535.google.com with SMTP id 41be03b00d2f7-b1fd59851baso98679a12.0
-        for <linux-riscv@lists.infradead.org>; Fri, 23 May 2025 11:39:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748025545; x=1748630345; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Brp4+tqBANTAovFCP7pOokKjsZ8jKRtxHJAFYCZnyiw=;
-        b=bmyY9PsbDeXFEYVygXPlDmZGNM1KAx9LXny3P8JC7RZUKvtRf3EiBagjswie0YiyAG
-         wmEPPplXDhZyppIcXhT75qvJhhSy8O1C3Uoft/Px5pZCBvtalk9QX0Ue2cTqlw3Mydg/
-         X0X0cKIspy1WmXfpyW6xXgIJreN3PbP0xfWKR0mCSYns6pYmI28CKNwKdjgVBDuAlRwu
-         bJv33v6QEBR4Sy4qaIXjCJYwph8rlL7cRYPo5q6M5f19n0Uw0t2tTE09mte8qa8AKaH9
-         ws4Z1jfwwnMXM2YkciM+jTjh1JxU09qp5woCpG34iwwobRY4qoK91GC3su1gU9uvBkXv
-         kyVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748025545; x=1748630345;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Brp4+tqBANTAovFCP7pOokKjsZ8jKRtxHJAFYCZnyiw=;
-        b=PXJPRLWNHa6uMqwAdQ6rRmIw7DFQZX2ttmSmoaGPnl5jTPetFP0U5ORBuj/E4rKMw1
-         qbpJTlrOEaPjekaZrtcqCEAyKAYvgTuCGUDYLLvaaGbeH5R/rv0/URRn6JWvZHTb2uUt
-         UU32czvM1XoQN9N1Vw1cTFFxzwTrTLT+cNNdbENfdPi+2wDTkbjD2qWgiAMgSM4ovM2i
-         gfGtb330YQGIBEC8W3oc/wS3ZzioaM+wgpXAoOEvOCBLjKpSwn+i7+Yq5w3QMpegGkHl
-         2XUnAzYjF7AeWgWEsTCCwTO9h45cUsOiFcg6iZn7SJ4X1pnC8vjGNEYYGO4HXoyP5EkX
-         txZw==
-X-Forwarded-Encrypted: i=1; AJvYcCWXu0UPmWVREhcJZOiGFlByUcb/vJhcP9HIuQsVQrssju91DwBAweGoXYfPZ2pfKquplpSAre+J5SkAIA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyhYKQ2Fm7sVGsSy6nzEUbqMwdvZrodzYZo8+jjRCflL0HtAWtq
-	hWW3CQtRL7lyoRHP7k88QupWGpgZTmgICoglyn7ixNsXQ++Hzt7rkNZa8HDOwC1W6VY=
-X-Gm-Gg: ASbGncsVSuJYq62UjQBbBloNyU0GGj5dlUa7U9bbKXODBAih75NBgKaHt+gUiMO214B
-	1BBuy8Sd7AbEvwRZPihsJVXDCM3Ma7XfdrATQUrqA44yKqN65Hj15rCFzU8HruTXT8vfLNQQ2Fv
-	c789UhOe6HwVPkQC30uu4x21Gp+gEWVIbWaDH+O4o+NSOoJrdxL6Q44xb3Hlx3tlhpDKwsibgQ7
-	GesBBjNTDcoG944IAFrScrU+RNmX7BiXDburH6/XmX/SN5ui/biPDHndWA73g7HxXP4Ep2Pzn/W
-	vT7No9XbAC3C0JjmpvATS/a1rgSI7JXwUuOm/rjJp4/MOh4=
-X-Google-Smtp-Source: AGHT+IF/W7rgN2cGONT1rL6VsHTy6gKpmlK8jFDydK2LaE8qLgbyfqjrk3Jd1cMhblWh+YfsU/FBoQ==
-X-Received: by 2002:a17:903:b8d:b0:224:93e:b5d7 with SMTP id d9443c01a7336-23414fb2593mr7004755ad.34.1748025544999;
-        Fri, 23 May 2025 11:39:04 -0700 (PDT)
-Received: from ghost ([2601:647:6700:64d0:bb2c:c7d9:9014:13ab])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-231d4ed2508sm127432885ad.221.2025.05.23.11.39.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 23 May 2025 11:39:04 -0700 (PDT)
-Date: Fri, 23 May 2025 11:39:02 -0700
-From: Charlie Jenkins <charlie@rivosinc.com>
-To: =?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	id 1uIWVV-00000004bar-28Hv;
+	Fri, 23 May 2025 17:48:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=pFLJ5GlXWyaVpKGcaOJizAWoSbXS7Xq7IH8LyXRYBis=; b=KUOgezIAuTP1FsPgpShaTif5k3
+	Jd3vYtYfQFwe/Xdkb/b44YCX3pZOja00jj/yAP2fol5mfx0Zd4Mxs2/A8dnSAX0QxWcNLv50FW4Lc
+	48IrfHWQXR+MTV/q1DbTlSTczMmK7J3HlqHaiMT8/MFdYvaUWbVO9RXvLVLEVDMKt18+fD4+qDYd5
+	brpykbEBeslyGuqrpkcdJ3K0uzPe95lDLyNkOAtCCQFlbWC9uIzt9lqrCQRQnDTIhKCnBQSvQoTrZ
+	dM2FTuxMXtyNYev9p0GdUCP2u8nfkorpqkoJNzp8fa85qasr6s8p6/HWNWABX+L4UzLs22LScG6AB
+	Kc75ZvyA==;
+Received: from mgamail.intel.com ([192.198.163.16])
+	by desiato.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
+	id 1uIWVR-00000001MHs-1grv;
+	Fri, 23 May 2025 17:48:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748022509; x=1779558509;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=AqUynDC3Sw8C6ZtTMriTAeGFMTNBji4jXiQmc/rbw2o=;
+  b=EkFdnqv1ophR1OH0doEciObnAjIK6MORKCWmpzyxoFq1EjUedSDnRoUz
+   W6hkchZs4QWae6rnH5vGoxtuwPMHa41dV/i+drvL4+YDtJtFUpyQibpXr
+   09coju7HstH5bo8ZMarkjEJko34x9hIv4SNyvORtj1zCdBKfEacLS9Qym
+   qaWY1J1rYYz1VefBZHk+i3+U36XL/JhFrZgIpla+uzh8VGb/nd3QKmNvX
+   Kt5LmIu873PHXBMPMmTL/qKG9tacG1VZO45b0bcJb0ZyDUk2aRC5rWwA2
+   BKwsAyYZM9ZiHn/7FM+VpxySEHKWnhb2RhfHGhXzNvEqBRIyq43n540sL
+   A==;
+X-CSE-ConnectionGUID: CLhbDKMNSKCev2WBnSw+Mg==
+X-CSE-MsgGUID: MdwNu1DUQYOc8F8sOl2YBg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11441"; a="37712261"
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="37712261"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 May 2025 10:48:24 -0700
+X-CSE-ConnectionGUID: lJrSde5yS5yz0+ah3FyjYQ==
+X-CSE-MsgGUID: VO9IXjEZT1W8X0PcYRPbOw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,309,1739865600"; 
+   d="scan'208";a="141740316"
+Received: from lkp-server01.sh.intel.com (HELO 1992f890471c) ([10.239.97.150])
+  by fmviesa010.fm.intel.com with ESMTP; 23 May 2025 10:48:18 -0700
+Received: from kbuild by 1992f890471c with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1uIWVD-000QdI-2N;
+	Fri, 23 May 2025 17:48:15 +0000
+Date: Sat, 24 May 2025 01:48:04 +0800
+From: kernel test robot <lkp@intel.com>
+To: Rajnesh Kanwal <rkanwal@rivosinc.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Anup Patel <anup@brainfault.org>,
-	Atish Patra <atishp@atishpatra.org>, Shuah Khan <shuah@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>, linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
-	linux-kselftest@vger.kernel.org,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Andrew Jones <ajones@ventanamicro.com>,
-	Deepak Gupta <debug@rivosinc.com>
-Subject: Re: [PATCH v8 10/14] riscv: misaligned: add a function to check
- misalign trap delegability
-Message-ID: <aDDAxugIa6XhLSSv@ghost>
-References: <20250523101932.1594077-1-cleger@rivosinc.com>
- <20250523101932.1594077-11-cleger@rivosinc.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Atish Kumar Patra <atishp@rivosinc.com>,
+	Anup Patel <anup@brainfault.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Beeman Strong <beeman@rivosinc.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	Rajnesh Kanwal <rkanwal@rivosinc.com>
+Subject: Re: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer
+ Records Ext.
+Message-ID: <202505240131.OJkUGGvA-lkp@intel.com>
+References: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250523101932.1594077-11-cleger@rivosinc.com>
+In-Reply-To: <20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250523_113905_946991_055FA0FB 
-X-CRM114-Status: GOOD (  18.92  )
+X-CRM114-CacheID: sfid-20250523_184830_084494_74703BDF 
+X-CRM114-Status: GOOD (  12.84  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,103 +117,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Fri, May 23, 2025 at 12:19:27PM +0200, Cl=E9ment L=E9ger wrote:
-> Checking for the delegability of the misaligned access trap is needed
-> for the KVM FWFT extension implementation. Add a function to get the
-> delegability of the misaligned trap exception.
-> =
+Hi Rajnesh,
 
-> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
-> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+kernel test robot noticed the following build warnings:
 
-Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
-Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+[auto build test WARNING on e0200e37637e573cd68f522ecd550be87e304c6c]
 
-> ---
->  arch/riscv/include/asm/cpufeature.h  |  6 ++++++
->  arch/riscv/kernel/traps_misaligned.c | 17 +++++++++++++++--
->  2 files changed, 21 insertions(+), 2 deletions(-)
-> =
+url:    https://github.com/intel-lab-lkp/linux/commits/Rajnesh-Kanwal/perf-Increase-the-maximum-number-of-branches-remove_loops-can-process/20250523-073341
+base:   e0200e37637e573cd68f522ecd550be87e304c6c
+patch link:    https://lore.kernel.org/r/20250523-b4-ctr_upstream_v3-v3-5-ad355304ba1c%40rivosinc.com
+patch subject: [PATCH v3 5/7] riscv: pmu: Add driver for Control Transfer Records Ext.
+config: riscv-randconfig-002-20250523 (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/config)
+compiler: clang version 17.0.6 (https://github.com/llvm/llvm-project 6009708b4367171ccdbf4b5905cb6a803753fe18)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250524/202505240131.OJkUGGvA-lkp@intel.com/reproduce)
 
-> diff --git a/arch/riscv/include/asm/cpufeature.h b/arch/riscv/include/asm=
-/cpufeature.h
-> index 2bfa4ef383ed..fbd0e4306c93 100644
-> --- a/arch/riscv/include/asm/cpufeature.h
-> +++ b/arch/riscv/include/asm/cpufeature.h
-> @@ -81,6 +81,12 @@ static inline bool unaligned_ctl_available(void)
->  =
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202505240131.OJkUGGvA-lkp@intel.com/
 
->  #if defined(CONFIG_RISCV_MISALIGNED)
->  DECLARE_PER_CPU(long, misaligned_access_speed);
-> +bool misaligned_traps_can_delegate(void);
-> +#else
-> +static inline bool misaligned_traps_can_delegate(void)
-> +{
-> +	return false;
-> +}
->  #endif
->  =
+All warnings (new ones prefixed by >>):
 
->  bool __init check_vector_unaligned_access_emulated_all_cpus(void);
-> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/tra=
-ps_misaligned.c
-> index 7ecaa8103fe7..93043924fe6c 100644
-> --- a/arch/riscv/kernel/traps_misaligned.c
-> +++ b/arch/riscv/kernel/traps_misaligned.c
-> @@ -724,10 +724,10 @@ static int cpu_online_check_unaligned_access_emulat=
-ed(unsigned int cpu)
->  }
->  #endif
->  =
+   In file included from arch/riscv/kernel/asm-offsets.c:12:
+   In file included from arch/riscv/include/asm/kvm_host.h:23:
+   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
+>> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
+     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+         |                                                                            ^
+   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
+     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
+     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   3 warnings generated.
+--
+   In file included from arch/riscv/kernel/asm-offsets.c:12:
+   In file included from arch/riscv/include/asm/kvm_host.h:23:
+   In file included from arch/riscv/include/asm/kvm_vcpu_pmu.h:12:
+>> include/linux/perf/riscv_pmu.h:156:76: warning: omitting the parameter name in a function definition is a C2x extension [-Wc2x-extensions]
+     156 | static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+         |                                                                            ^
+   include/linux/perf/riscv_pmu.h:158:13: warning: unused function 'riscv_pmu_ctr_add' [-Wunused-function]
+     158 | static void riscv_pmu_ctr_add(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   include/linux/perf/riscv_pmu.h:159:13: warning: unused function 'riscv_pmu_ctr_del' [-Wunused-function]
+     159 | static void riscv_pmu_ctr_del(struct perf_event *event) { }
+         |             ^~~~~~~~~~~~~~~~~
+   3 warnings generated.
 
-> -#ifdef CONFIG_RISCV_SBI
-> -
->  static bool misaligned_traps_delegated;
->  =
 
-> +#ifdef CONFIG_RISCV_SBI
-> +
->  static int cpu_online_sbi_unaligned_setup(unsigned int cpu)
->  {
->  	if (sbi_fwft_set(SBI_FWFT_MISALIGNED_EXC_DELEG, 1, 0) &&
-> @@ -763,6 +763,7 @@ static int cpu_online_sbi_unaligned_setup(unsigned in=
-t cpu __always_unused)
->  {
->  	return 0;
->  }
-> +
->  #endif
->  =
+vim +156 include/linux/perf/riscv_pmu.h
 
->  int cpu_online_unaligned_access_init(unsigned int cpu)
-> @@ -775,3 +776,15 @@ int cpu_online_unaligned_access_init(unsigned int cp=
-u)
->  =
+   152	
+   153	static inline bool riscv_pmu_ctr_valid(struct perf_event *event) { return false; }
+   154	static inline void riscv_pmu_ctr_consume(struct cpu_hw_events *cpuc,
+   155					      struct perf_event *event) { }
+ > 156	static inline void riscv_pmu_ctr_sched_task(struct perf_event_pmu_context *,
+   157						    bool sched_in) { }
+   158	static void riscv_pmu_ctr_add(struct perf_event *event) { }
+   159	static void riscv_pmu_ctr_del(struct perf_event *event) { }
+   160	static inline void riscv_pmu_ctr_enable(struct perf_event *event) { }
+   161	static inline void riscv_pmu_ctr_disable(struct perf_event *event) { }
+   162	static inline void riscv_pmu_ctr_dying_cpu(void) { }
+   163	static inline void riscv_pmu_ctr_starting_cpu(void) { }
+   164	static inline int riscv_pmu_ctr_init(struct riscv_pmu *riscv_pmu) { return 0; }
+   165	static inline void riscv_pmu_ctr_finish(struct riscv_pmu *riscv_pmu) { }
+   166	
 
->  	return cpu_online_check_unaligned_access_emulated(cpu);
->  }
-> +
-> +bool misaligned_traps_can_delegate(void)
-> +{
-> +	/*
-> +	 * Either we successfully requested misaligned traps delegation for all
-> +	 * CPUs, or the SBI does not implement the FWFT extension but delegated
-> +	 * the exception by default.
-> +	 */
-> +	return misaligned_traps_delegated ||
-> +	       all_cpus_unaligned_scalar_access_emulated();
-> +}
-> +EXPORT_SYMBOL_GPL(misaligned_traps_can_delegate);
-> -- =
-
-> 2.49.0
-> =
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
 _______________________________________________
 linux-riscv mailing list
