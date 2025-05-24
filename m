@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 869C4C54F30
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 11:19:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8225FC54FC6
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 15:55:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:Message-ID:Date
-	:In-Reply-To:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=uvjoWo1oNATtbUWlOqq6enQRw/NeeaQtLSQf+2PicuM=; b=wFGSsKmGOSshkD
-	O8vUcp3BgdHFAPPAjpFJT4mnsAZO1GRgMO9s+k0hNVfLF7MDa6KEGvXMqP1ASaXQhBLwtSm7nm7+W
-	0mTZSTgT4fHSvEm1WCDIRazhGy2ULP1B4aaZZOCmUlKLkJaAOfTvNKuDFnIgvOtXYETBuQpILE7Wv
-	eOcNvi3WyujrjA4zcmBvGLH9nVrwcjqHShPmzsBspJ+zJpDISUQUvymgIZX5ONl79aFzq+0Djosd5
-	PX0JbflIw49Nlu546aiNu1KPGQMEL9tcQXBQIWtk3kBR0+1c8UE4Ulioddt4E+/ElSaUVHBVfvcyv
-	pbgMT3EGm90OTwlPuSBg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=xc/mpd9/CAedbq3D4/+jXfsX0R4JNTILgXvSpW9ip0c=; b=03jN5T1oBvm2Sy
+	UckmCwgVy05QP4K1AuTLTSdfbIW0pQBNUZXV6RWDar14dwOj5YnXEdp1PwkFCgirzlgETgi+ULw85
+	EmSIBarzAaWHXkoVtK2X+7hYAcO3bLrfqYtfhjfBD+sBjOC457zcGu+GtVRB7mtCXTpl81SNds+j1
+	Z9uXYZfvtVwPBSukcdhBE+izTmK7JdEjDB+TJ7BhvNLh6EI1MzLcgeQ5Kz5J+Q9034dFuk4yGcixU
+	w6BPA3OeiVoF4fka7tQp7/ONZlE8aIK4pftjnU7rgw5InJBWfq+IxAXgTnbE/wNWavA1D9ziqBbyh
+	GdHvVik47fTzzelQ6qtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uImuO-00000005moq-0Vja;
-	Sat, 24 May 2025 11:19:20 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uIrDp-00000005yEl-2HV8;
+	Sat, 24 May 2025 15:55:41 +0000
+Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uImuL-00000005mo3-2rDn;
-	Sat, 24 May 2025 11:19:19 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7399838db7fso605976b3a.0;
-        Sat, 24 May 2025 04:19:16 -0700 (PDT)
+	id 1uIrDm-00000005yEB-31ZC
+	for linux-riscv@lists.infradead.org;
+	Sat, 24 May 2025 15:55:40 +0000
+Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-231bf5851b7so5474285ad.0
+        for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 08:55:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748085556; x=1748690356; darn=lists.infradead.org;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=rScpXVbASUqjAgnv8asCUXuGu69m7xK2h2FjiRqoUxs=;
-        b=Wd4C+sKp8R9UuCZeiu8JqjcpQBHTQyypP/IoA14pNH18Fy0kgex+EKN7oA7e5r0fsx
-         U50zmOh7t1bx9U2Dq4T97IgkvzYURJA6dK0f0dfbu+w9FTihSBfDUWrhcerFxu3xNd7J
-         BiRjmM8S4UCqzi6B2s8pu3FvMd0paVa1S7E3m9LEaImDq1R8qJtSqbr955jcUlUHnMco
-         kgP6iU0ifl1z1zABEr+WOq+x/jim5ftu+7VOyZdPw+69N5tG5sf3e8CU2YzXWcuVHOui
-         Lx+YNPoBRZgMZVxPjQgpmj9TEySPAry5NKSsjRMfJCmVc+7jSMyJUo6TH4ZLlA2fboHo
-         fgKg==
+        d=gmail.com; s=20230601; t=1748102137; x=1748706937; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=f5NzQXNu49XBtQeENiXLHMtGN2kWzF78ktALbXii2Y0=;
+        b=IeF8GpP3afNVBY+XVqjR9cCYHEXN+oTZnvM0EVFO5j+1Tsvds+4AKhr1hAa+CJeFWm
+         +Y1xjj47sbjyLuRHOetDY9bncPZ8D/UTAn7U2ytgT7P4iXjCd/wymBQfViSVLF+rxGj5
+         AgbUKoyiBi4+a8eiTR0mkI4DcovpecPqp3JOnYKlPy03fv9+EQhezUwygzwgKs8nG9/C
+         ew8IFIv6GPoOL96/BPQhhFXPDD1GPX+FvrBuaS4UMCu21KzthJFQ15jLPAG1brrjEQsd
+         xZxedvPC4L3dnSvqB+MsAbj2mzKOI0DNhGdWHOSlaHS87n8nLmJMZHtjOYEPj7oe+GQh
+         FHYQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748085556; x=1748690356;
-        h=mime-version:references:message-id:date:in-reply-to:subject:cc:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rScpXVbASUqjAgnv8asCUXuGu69m7xK2h2FjiRqoUxs=;
-        b=MVwbWbgJoL81G9BR4bzD9RPAWUQ51KtmdVVPUjDZcrLeGwHCXpUtF2qMrgTxLVJgYH
-         VhoBmlm8mVjD3nM14vkNrMe957XF1ar3A+XddjMMo0NeRC2vfIfeAuzlrba0fOAXZrIU
-         i49I0LM9Ezwd24HocMtbp5YjBsxblQmUV67XfJSvldivB4R/0pzhxfcArYZzFB7OIPgs
-         sT7MiHY0abBdokKqreIFFpkLxKXWXrp3wvBHdV9uJyeGtz+NvKlbPeMxCvLA23buKAa1
-         XFBqJAsaUS9Y4JhYa1s8WX2+CA3NaVFZDM8pQ2Vs/gii0EmZGg9gFusnv2q93RqbgPXK
-         SmsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUu/SdgeinLUGLo57JDsOqtnPuVOCnRb9J1JMI8uhSq+ZrojGvq7zygDIGENxCFVHY2fAG6MZfmHi+cX4E=@lists.infradead.org, AJvYcCWpDESxwD2mwb3YtDkigbcQB09cEm2GryX+IXVtud0uzxZiMASSDWXxXLBOvHYhl3oc//ki0uL7CDDSfw+pksMC@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywk9a/g73alsIQN+ZmqXRsSLRQlImB0YzYqrJE0ZXyl3JNbem+C
-	Un1nR0+wH0oOZhMMAs7ZuSzhi96UwP0v+gzES0KGJLiVkGD+VfqIa0L7
-X-Gm-Gg: ASbGncvRvR7SZdESqJ4e6kOA4v5miTuEktTdKTM5BGxmLQEWNKdexoS2Nn7EcpWn1zw
-	qSF2BguQ1V/JHk2i+CNZQTYo43bA4u4uNYBk4TT0eDZ1bMGXUBXVk77+TWseDuKUjgFm5RRQl3S
-	t8lOvUDtnlgJ9tFetzRLAXySVqKW5z+woRpWNFNWVZILSzVZnhNzlQcO6VXhltCb4kXiQp5LCX0
-	CI7HuCqGUyjv5CQED4Goss7dS3Ji+o35Es/vgQ0CWsIJfcihSgYWQP5HjxOhBfj1idN+W9Iqjhp
-	ub0yjFj6bsMQvsvopX5Sv+ii+ChI+9CUDuixQdExHEAa1699vXiOExE=
-X-Google-Smtp-Source: AGHT+IHzgyF4RMk4/VcB/ult2huesDrd3BktU05/6T5tjhGyNb1hL3EGlpy4BVyGxnMoNfwEQoYJDQ==
-X-Received: by 2002:a05:6a00:1903:b0:73e:2367:c914 with SMTP id d2e1a72fcca58-745fe068d61mr3795551b3a.7.1748085556260;
-        Sat, 24 May 2025 04:19:16 -0700 (PDT)
-Received: from dw-tp ([49.205.218.89])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a96dfacesm14024380b3a.5.2025.05.24.04.19.06
+        d=1e100.net; s=20230601; t=1748102137; x=1748706937;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f5NzQXNu49XBtQeENiXLHMtGN2kWzF78ktALbXii2Y0=;
+        b=HLdua+8P62cSaMz4/MyhL+EW53HL6VLSIBiNKQbvOPIAqa/QlLAu5NDDYQsOdOxkzb
+         kw0pRbsLssu58nDk3OLu/zeD4MhjIPAIKgKvq5CIJNroNfDqQppI07Ul00QrTFtUoVju
+         je3HG+PUQEk7HNy0I0nd22qNhrRG4ZDXNcI5dnRjno4jS09o31OCax/lauKKUnYNmwRE
+         wJajVl0Cj82a2LDT1G8XYCjws86WzkIsWo4t8JCiO6WPIqqAGtCPCkkCHyvGtl2C419Z
+         ZiZLYm/nCjTl71huNfiWipr26Gzrf09cbropqqy1ijCe4vUFopa45Es0O+mrnzm1c4tu
+         JdrQ==
+X-Gm-Message-State: AOJu0Yzpua+TSA1z+XvUou9pG4cJZQRC+mHrRwJFB2kJ1jaOpfYGRahn
+	1m2bXdO3odZwsClvBODyq4+04n7nAmIZX34WXXyGIex3NFyMaz97gy9c
+X-Gm-Gg: ASbGncsatKRN0bdt75bWoQ73sBNAL0vVznfDgOD7QsBlYDqXeZHyhwjVgPIu7NzclbH
+	H3xUYLPKogqOKrEBeWEvgW7/RVJkpZHQDN8SPr0WXpwZV2QnkB/MTyDU57fjUFnlX7IGBRXR/Ev
+	P32LIoW6+JQ3Ys4lAdf50OlqP6vmYdJwSO5U4PNhSO+qZt4KjWs/VcmEMxudvlHy7R2Y4RIK4BZ
+	FjFZfQCAsrlzFzqLKWa2Adbal9QJbdnmaOooZhPNJQHxuvMV52z5AHLa21tQKfeBTkLa883bcI2
+	Pn4VyfAMVCW1y2b4c/mL/nyGntG8enMbar+QgB4Eedf91PYfaXRSrnJx132z2rUlyO5Ju1z1SEa
+	jll+qwA==
+X-Google-Smtp-Source: AGHT+IHb1auLczNBxaTokKxKT8OTNVUuMgd7gpT41ZORQNU8eQ5rzK5+ef4IEIxT0hdT8elE8OmEcQ==
+X-Received: by 2002:a17:903:22c6:b0:234:1df:4409 with SMTP id d9443c01a7336-23414f61b86mr49644245ad.16.1748102137007;
+        Sat, 24 May 2025 08:55:37 -0700 (PDT)
+Received: from visitorckw-System-Product-Name.. ([140.113.216.168])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234396eaf62sm1200745ad.9.2025.05.24.08.55.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 May 2025 04:19:15 -0700 (PDT)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>
-Cc: Kees Cook <kees@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>, 
-	Christophe Leroy <christophe.leroy@csgroup.eu>, Naveen N Rao <naveen@kernel.org>, 
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	linuxppc-dev@lists.ozlabs.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
-	Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Ard Biesheuvel <ardb@kernel.org>, 
-	Masahiro Yamada <masahiroy@kernel.org>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas.schier@linux.dev>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Justin Stitt <justinstitt@google.com>, linux-kernel@vger.kernel.org, x86@kernel.org, 
-	kasan-dev@googlegroups.com, linux-doc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
-	linux-efi@vger.kernel.org, linux-hardening@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org, 
-	llvm@lists.linux.dev
-Subject: Re: [PATCH v2 08/14] powerpc: Handle KCOV __init vs inline mismatches
-In-Reply-To: <20250523043935.2009972-8-kees@kernel.org>
-Date: Sat, 24 May 2025 16:13:02 +0530
-Message-ID: <87jz662ssp.fsf@gmail.com>
-References: <20250523043251.it.550-kees@kernel.org> <20250523043935.2009972-8-kees@kernel.org>
+        Sat, 24 May 2025 08:55:36 -0700 (PDT)
+From: Kuan-Wei Chiu <visitorckw@gmail.com>
+To: paul.walmsley@sifive.com,
+	palmer@dabbelt.com,
+	aou@eecs.berkeley.edu,
+	alex@ghiti.fr,
+	akpm@linux-foundation.org
+Cc: linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	jserv@ccns.ncku.edu.tw,
+	Kuan-Wei Chiu <visitorckw@gmail.com>,
+	Yu-Chun Lin <eleanor15x@gmail.com>
+Subject: [PATCH v2 0/3] Optimize GCD performance on RISC-V by selecting implementation at runtime
+Date: Sat, 24 May 2025 23:55:16 +0800
+Message-Id: <20250524155519.1142570-1-visitorckw@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_041917_749829_66478323 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20250524_085538_762064_48C64323 
+X-CRM114-Status: GOOD (  11.76  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,161 +102,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kees Cook <kees@kernel.org> writes:
+The current implementation of gcd() selects between the binary GCD and
+the odd-even GCD algorithm at compile time, depending on whether
+CONFIG_CPU_NO_EFFICIENT_FFS is set. On platforms like RISC-V, however,
+this compile-time decision can be misleading: even when the compiler
+emits ctz instructions based on the assumption that they are efficient
+(as is the case when CONFIG_RISCV_ISA_ZBB is enabled), the actual
+hardware may lack support for the Zbb extension. In such cases, ffs()
+falls back to a software implementation at runtime, making the binary
+GCD algorithm significantly slower than the odd-even variant.
 
-> When KCOV is enabled all functions get instrumented, unless
-> the __no_sanitize_coverage attribute is used. To prepare for
-> __no_sanitize_coverage being applied to __init functions, we have to
-> handle differences in how GCC's inline optimizations get resolved. For
-> s390 this requires forcing a couple functions to be inline with
-> __always_inline.
->
-> Signed-off-by: Kees Cook <kees@kernel.org>
-> ---
-> Cc: Madhavan Srinivasan <maddy@linux.ibm.com>
-> Cc: Michael Ellerman <mpe@ellerman.id.au>
-> Cc: Nicholas Piggin <npiggin@gmail.com>
-> Cc: Christophe Leroy <christophe.leroy@csgroup.eu>
-> Cc: Naveen N Rao <naveen@kernel.org>
-> Cc: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-> Cc: "Aneesh Kumar K.V" <aneesh.kumar@linux.ibm.com>
-> Cc: Andrew Morton <akpm@linux-foundation.org>
-> Cc: <linuxppc-dev@lists.ozlabs.org>
-> ---
->  arch/powerpc/mm/book3s64/hash_utils.c    | 2 +-
->  arch/powerpc/mm/book3s64/radix_pgtable.c | 2 +-
->  2 files changed, 2 insertions(+), 2 deletions(-)
->
-> diff --git a/arch/powerpc/mm/book3s64/hash_utils.c b/arch/powerpc/mm/book3s64/hash_utils.c
-> index 5158aefe4873..93f1e1eb5ea6 100644
-> --- a/arch/powerpc/mm/book3s64/hash_utils.c
-> +++ b/arch/powerpc/mm/book3s64/hash_utils.c
-> @@ -409,7 +409,7 @@ static DEFINE_RAW_SPINLOCK(linear_map_kf_hash_lock);
->  
->  static phys_addr_t kfence_pool;
->  
-> -static inline void hash_kfence_alloc_pool(void)
-> +static __always_inline void hash_kfence_alloc_pool(void)
->  {
->  	if (!kfence_early_init_enabled())
->  		goto err;
-> diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-> index 9f764bc42b8c..3238e9ed46b5 100644
-> --- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-> +++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-> @@ -363,7 +363,7 @@ static int __meminit create_physical_mapping(unsigned long start,
->  }
->  
->  #ifdef CONFIG_KFENCE
-> -static inline phys_addr_t alloc_kfence_pool(void)
-> +static __always_inline phys_addr_t alloc_kfence_pool(void)
->  {
->  	phys_addr_t kfence_pool;
->  
+To address this, we introduce a static key to allow runtime selection
+between the binary and odd-even GCD implementations. On RISC-V, the
+kernel now checks for Zbb support during boot. If Zbb is unavailable,
+the static key is disabled so that gcd() consistently uses the more
+efficient odd-even algorithm in that scenario. Additionally, to further
+reduce code size, we select CONFIG_CPU_NO_EFFICIENT_FFS automatically
+when CONFIG_RISCV_ISA_ZBB is not enabled, avoiding compilation of the
+unused binary GCD implementation entirely on systems where it would
+never be executed.
 
-I remember seeing a warning msg around .init.text section. Let me dig
-that...
+This series ensures that the most efficient GCD algorithm is used in
+practice and avoids compiling unnecessary code based on hardware
+capabilities and kernel configuration.
 
-... Here it is: https://lore.kernel.org/oe-kbuild-all/202504190552.mnFGs5sj-lkp@intel.com/
+Co-developed-by: Yu-Chun Lin <eleanor15x@gmail.com>
+Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
+Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
 
-I am not sure why it only complains for hash_debug_pagealloc_alloc_slots().
-I believe there should me more functions to mark with __init here.
-Anyways, here is the patch of what I had in mind.. I am not a compiler expert,
-so please let me know your thoughts on this.
-
--ritesh
-
-
-From 59d64dc0014ccb4ae13ed08ab596738628ee23b1 Mon Sep 17 00:00:00 2001
-Message-Id: <59d64dc0014ccb4ae13ed08ab596738628ee23b1.1748084756.git.ritesh.list@gmail.com>
-From: "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>
-Date: Sat, 24 May 2025 16:14:08 +0530
-Subject: [RFC] powerpc/mm/book3s64: Move few kfence & debug_pagealloc
- related calls to __init section
-
-Move few kfence and debug_pagealloc related functions in hash_utils.c
-and radix_pgtable.c to __init sections since these are only invoked once
-by an __init function during system initialization.
-
-i.e.
-- hash_debug_pagealloc_alloc_slots()
-- hash_kfence_alloc_pool()
-- hash_kfence_map_pool()
-  The above 3 functions only gets called by __init htab_initialize().
-
-- alloc_kfence_pool()
-- map_kfence_pool()
-  The above 2 functions only gets called by __init radix_init_pgtable()
-
-This should also help fix warning msgs like:
-
->> WARNING: modpost: vmlinux: section mismatch in reference:
-hash_debug_pagealloc_alloc_slots+0xb0 (section: .text) ->
-memblock_alloc_try_nid (section: .init.text)
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202504190552.mnFGs5sj-lkp@intel.com/
-Signed-off-by: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
 ---
- arch/powerpc/mm/book3s64/hash_utils.c    | 6 +++---
- arch/powerpc/mm/book3s64/radix_pgtable.c | 4 ++--
- 2 files changed, 5 insertions(+), 5 deletions(-)
+This series has been tested on QEMU to verify that the correct GCD
+implementation is used both with and without Zbb support.
 
-diff --git a/arch/powerpc/mm/book3s64/hash_utils.c b/arch/powerpc/mm/book3s64/hash_utils.c
-index 5158aefe4873..4693c464fc5a 100644
---- a/arch/powerpc/mm/book3s64/hash_utils.c
-+++ b/arch/powerpc/mm/book3s64/hash_utils.c
-@@ -343,7 +343,7 @@ static inline bool hash_supports_debug_pagealloc(void)
- static u8 *linear_map_hash_slots;
- static unsigned long linear_map_hash_count;
- static DEFINE_RAW_SPINLOCK(linear_map_hash_lock);
--static void hash_debug_pagealloc_alloc_slots(void)
-+static __init void hash_debug_pagealloc_alloc_slots(void)
- {
- 	if (!hash_supports_debug_pagealloc())
- 		return;
-@@ -409,7 +409,7 @@ static DEFINE_RAW_SPINLOCK(linear_map_kf_hash_lock);
- 
- static phys_addr_t kfence_pool;
- 
--static inline void hash_kfence_alloc_pool(void)
-+static __init void hash_kfence_alloc_pool(void)
- {
- 	if (!kfence_early_init_enabled())
- 		goto err;
-@@ -445,7 +445,7 @@ static inline void hash_kfence_alloc_pool(void)
- 	disable_kfence();
- }
- 
--static inline void hash_kfence_map_pool(void)
-+static __init void hash_kfence_map_pool(void)
- {
- 	unsigned long kfence_pool_start, kfence_pool_end;
- 	unsigned long prot = pgprot_val(PAGE_KERNEL);
-diff --git a/arch/powerpc/mm/book3s64/radix_pgtable.c b/arch/powerpc/mm/book3s64/radix_pgtable.c
-index 311e2112d782..ed226ee1569a 100644
---- a/arch/powerpc/mm/book3s64/radix_pgtable.c
-+++ b/arch/powerpc/mm/book3s64/radix_pgtable.c
-@@ -363,7 +363,7 @@ static int __meminit create_physical_mapping(unsigned long start,
- }
- 
- #ifdef CONFIG_KFENCE
--static inline phys_addr_t alloc_kfence_pool(void)
-+static __init phys_addr_t alloc_kfence_pool(void)
- {
- 	phys_addr_t kfence_pool;
- 
-@@ -393,7 +393,7 @@ static inline phys_addr_t alloc_kfence_pool(void)
- 	return 0;
- }
- 
--static inline void map_kfence_pool(phys_addr_t kfence_pool)
-+static __init void map_kfence_pool(phys_addr_t kfence_pool)
- {
- 	if (!kfence_pool)
- 		return;
+v1 -> v2:
+- Use a static key to select the GCD implementation at runtime.
+
+v1: https://lore.kernel.org/lkml/20250217013708.1932496-1-visitorckw@gmail.com/
+---
+
+Kuan-Wei Chiu (3):
+  lib/math/gcd: Use static key to select implementation at runtime
+  riscv: Optimize gcd() code size when CONFIG_RISCV_ISA_ZBB is disabled
+  riscv: Optimize gcd() performance on RISC-V without Zbb extension
+
+ arch/riscv/Kconfig        |  1 +
+ arch/riscv/kernel/setup.c |  6 ++++++
+ lib/math/gcd.c            | 25 ++++++++++++++++---------
+ 3 files changed, 23 insertions(+), 9 deletions(-)
+
 -- 
-2.39.5
+2.34.1
 
 
 _______________________________________________
