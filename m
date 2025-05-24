@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CCDC54FB3
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 21:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45ABC54F30
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 21:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xMbAVyLMw2af5p5GHCqoS1a/w6Kxz2CgTqd4RW3dvnM=; b=yGsldCVBWPMoNi
-	XpRFPlrRL848UOHcgcgLqMbs7IUfGtDUz/a5gHEYCNpAckljYAinoe/DBS2Nr/XsXmG6V7TrFGloy
-	gQ6FUwfsQH/Wtw84A80+uYJ2DLEyRanpJfQU+TeHxaIupHineWUU/gcbunvz/spoww6PchYYDv4Bp
-	+cwH4VCcFpQfgJwG5Jmoxoqwlg6JXpImEKjwEm5o1hYZ0DfcyGspZCbjZ8G3PzxPhWZaGXVLAgcAN
-	4gm1cxdzvSE37iAHHPZo1bgk+OS5Go894YBomzXQsmtmPbE34oLewsJoIdRg+tsGq1o0BFo7+J1aQ
-	PqZKEx0OmSQXq0yM7/iw==;
+	List-Owner; bh=7BlRkNZPKpBqDCNITETwO7K+VDW+pVoqzq3lqJH94zk=; b=rw1UXu/wcZ8cs7
+	Vkl+W+clNwKmxa5JZCEEp1ck3vxjND8xHOzV331FFwG2SDbvb13j4Bld9I315Ie8xPRk8WVkLM1k1
+	+5czjtDlUCMae0LFylIMmPVZhpgMx70LMzrnNDQ+2lLR8XmkX5+0i8roRb1RpVkX+aaDssFXLIj++
+	GwFiFsXB/Ah1WEizXXC4fWfkF8IOY35i/dNU7g/3CzDrmb8kNRnCRCYtu50zHkvTzs4OhyS9/lvid
+	F1KVtqDRJz83q9ti8JPRlWFReTp0K96KzmTUeFFljqT3DxYsr7FTAWZsON9yFGDb9KuNUzLSvysoF
+	D+d4B2Mys2g+EWc1urUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIwDP-00000006HBr-0j1g;
-	Sat, 24 May 2025 21:15:35 +0000
+	id 1uIwDM-00000006HBA-3wiX;
+	Sat, 24 May 2025 21:15:32 +0000
 Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIwDH-00000006H9D-3aYD
+	id 1uIwDH-00000006H9H-4C7v
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 May 2025 21:15:33 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250524211525euoutp018723cb8d0827af5c44bcf375bf19fee9~CkxVokoqP2968329683euoutp01C
-	for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 21:15:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250524211525euoutp018723cb8d0827af5c44bcf375bf19fee9~CkxVokoqP2968329683euoutp01C
+	Sat, 24 May 2025 21:15:31 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250524211526euoutp01b554a87c95923b8e89a244a99416000c~CkxWvXYlH2399223992euoutp01n
+	for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 21:15:26 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250524211526euoutp01b554a87c95923b8e89a244a99416000c~CkxWvXYlH2399223992euoutp01n
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1748121325;
-	bh=2NOPyMWTWiFmeUoJJtW57RkmSgf3zZf1wFf9qv0a94I=;
+	s=mail20170921; t=1748121326;
+	bh=yfvKCTmfOP4CWdfGBbUZQUNp1klySpsoF9Jq3fSXylU=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=q1MW/LElhRmQeLtjGtbKEgXxrXQ9cqR5o72ZBRLnZ0aV9e5yDaQd9B3PIKbYMjKfA
-	 I24PyLQhNE9eq6ScylTZoS4v1+o5o/BAlQXFZAqLIRet6BjtxGCWUcArs7rDjZ+oFe
-	 3uzeS70dYogYU37DKjUULCqflLeJos7r/Jt2KARE=
+	b=nSm3fbbfvmaQ155OoLC6sr+nk9MyenEntwZXc0mn/AR3mYzoyzKBxtGP+WRW5mXzW
+	 458OGCg7WWmQFysVdBR+7y6p2b21WXf8INdDHMaPm0T9xtWsZ5L34DQIdkw/aokp2i
+	 ot9FTrKYQJmixP9JaChbKdt8EAEYvuCwpLOGBIJs=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250524211524eucas1p27d56c24a9950a79086f8f4c7d5fa003f~CkxUTZEN02408724087eucas1p2q;
-	Sat, 24 May 2025 21:15:24 +0000 (GMT)
+	20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01~CkxVawh_W3006630066eucas1p2a;
+	Sat, 24 May 2025 21:15:25 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250524211522eusmtip2e428d2ec6420649127fc6ba7ffbeb63b~CkxTRe5te0676606766eusmtip2p;
-	Sat, 24 May 2025 21:15:22 +0000 (GMT)
+	20250524211524eusmtip24bdbb3baffcbfe4e6512d3af9c1aa682~CkxUXCNLs0676606766eusmtip2q;
+	Sat, 24 May 2025 21:15:24 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Sat, 24 May 2025 23:14:58 +0200
-Subject: [PATCH RFC 4/6] riscv: dts: thead: Add PWM controller node
+Date: Sat, 24 May 2025 23:14:59 +0200
+Subject: [PATCH RFC 5/6] riscv: dts: thead: Add PVT node
 MIME-Version: 1.0
-Message-Id: <20250524-rust-next-pwm-working-fan-for-sending-v1-4-bdd2d5094ff7@samsung.com>
+Message-Id: <20250524-rust-next-pwm-working-fan-for-sending-v1-5-bdd2d5094ff7@samsung.com>
 In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -69,16 +69,16 @@ Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250524211524eucas1p27d56c24a9950a79086f8f4c7d5fa003f
+X-CMS-MailID: 20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01
 X-Msg-Generator: CA
-X-RootMTR: 20250524211524eucas1p27d56c24a9950a79086f8f4c7d5fa003f
+X-RootMTR: 20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01
 X-EPHeader: CA
-X-CMS-RootMailID: 20250524211524eucas1p27d56c24a9950a79086f8f4c7d5fa003f
+X-CMS-RootMailID: 20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01
 References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
-	<CGME20250524211524eucas1p27d56c24a9950a79086f8f4c7d5fa003f@eucas1p2.samsung.com>
+	<CGME20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_141529_339270_9ED95B50 
-X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-CacheID: sfid-20250524_141529_310175_88AC0C1A 
+X-CRM114-Status: UNSURE (   8.60  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,31 +96,35 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the Device Tree node for the T-HEAD TH1520 SoC's PWM controller.
+Add PVT DT node for thermal sensor.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index 527336417765d8470426f2985e1bc22eeafb31aa..f24e12d7259fabcfbdc2dfa966d759db06684ab4 100644
+index f24e12d7259fabcfbdc2dfa966d759db06684ab4..faf5c3aaf209b24cd99ddc377a88e08a8cce24fe 100644
 --- a/arch/riscv/boot/dts/thead/th1520.dtsi
 +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -482,6 +482,13 @@ uart2: serial@ffec010000 {
- 			status = "disabled";
+@@ -648,6 +648,17 @@ padctrl_aosys: pinctrl@fffff4a000 {
+ 			thead,pad-group = <1>;
  		};
  
-+		pwm: pwm@ffec01c000 {
-+			compatible = "thead,th1520-pwm";
-+			reg = <0xff 0xec01c000 0x0 0x4000>;
-+			clocks = <&clk CLK_PWM>;
-+			#pwm-cells = <3>;
++		pvt: pvt@fffff4e000 {
++			compatible = "moortec,mr75203";
++			reg = <0xff 0xfff4e000 0x0 0x80>,
++			      <0xff 0xfff4e080 0x0 0x100>,
++			      <0xff 0xfff4e180 0x0 0x680>,
++			      <0xff 0xfff4e800 0x0 0x600>;
++			reg-names = "common", "ts", "pd", "vm";
++			clocks = <&aonsys_clk>;
++			#thermal-sensor-cells = <1>;
 +		};
 +
- 		clk: clock-controller@ffef010000 {
- 			compatible = "thead,th1520-clk-ap";
- 			reg = <0xff 0xef010000 0x0 0x1000>;
+ 		gpio@fffff52000 {
+ 			compatible = "snps,dw-apb-gpio";
+ 			reg = <0xff 0xfff52000 0x0 0x1000>;
 
 -- 
 2.34.1
