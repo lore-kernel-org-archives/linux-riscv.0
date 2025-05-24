@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8225FC54FC6
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 15:55:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982D0C54ED1
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 15:55:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=xc/mpd9/CAedbq3D4/+jXfsX0R4JNTILgXvSpW9ip0c=; b=03jN5T1oBvm2Sy
-	UckmCwgVy05QP4K1AuTLTSdfbIW0pQBNUZXV6RWDar14dwOj5YnXEdp1PwkFCgirzlgETgi+ULw85
-	EmSIBarzAaWHXkoVtK2X+7hYAcO3bLrfqYtfhjfBD+sBjOC457zcGu+GtVRB7mtCXTpl81SNds+j1
-	Z9uXYZfvtVwPBSukcdhBE+izTmK7JdEjDB+TJ7BhvNLh6EI1MzLcgeQ5Kz5J+Q9034dFuk4yGcixU
-	w6BPA3OeiVoF4fka7tQp7/ONZlE8aIK4pftjnU7rgw5InJBWfq+IxAXgTnbE/wNWavA1D9ziqBbyh
-	GdHvVik47fTzzelQ6qtg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=R+Wo+xuZ7XxKWy8wSSsWt46DBB8Y6o5l6dOn2WTpfJs=; b=InPcAoHHggkzE3
+	t6lsBsitbcw2vS33I6oUI0/0m0IdPKcFAamKGaDru+tHfrNxO0mOon7Z5nbALEGIn7Dn66WwoyM28
+	yTa4CshlkojRBtkeGXRKy2mJFDbSovWMaX9M0pjzxmkQGeG2mRY+p9NVlNXIE9UT1qVutVfTyF4Qf
+	4JgFIbs3gIJ+jW30ulpDEf5iXhEpwL7SIeAtj6iWgMOT6jQeVGYuTRNEtMgvoW5ocaclBkZ1fwsUH
+	4VWkjlJJInWESi8MYenfGOArVT+4vq1M3f8beFY84ydCpNqStMEt9qVrYjXyMIMN7ieNfDJ5totE0
+	LKIkKg+5Mjbq88sGMYyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIrDp-00000005yEl-2HV8;
-	Sat, 24 May 2025 15:55:41 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1uIrDv-00000005yGu-3BiF;
+	Sat, 24 May 2025 15:55:47 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIrDm-00000005yEB-31ZC
+	id 1uIrDs-00000005yFf-3dyH
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 May 2025 15:55:40 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-231bf5851b7so5474285ad.0
-        for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 08:55:37 -0700 (PDT)
+	Sat, 24 May 2025 15:55:45 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b26f01c638fso689885a12.1
+        for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 08:55:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748102137; x=1748706937; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=f5NzQXNu49XBtQeENiXLHMtGN2kWzF78ktALbXii2Y0=;
-        b=IeF8GpP3afNVBY+XVqjR9cCYHEXN+oTZnvM0EVFO5j+1Tsvds+4AKhr1hAa+CJeFWm
-         +Y1xjj47sbjyLuRHOetDY9bncPZ8D/UTAn7U2ytgT7P4iXjCd/wymBQfViSVLF+rxGj5
-         AgbUKoyiBi4+a8eiTR0mkI4DcovpecPqp3JOnYKlPy03fv9+EQhezUwygzwgKs8nG9/C
-         ew8IFIv6GPoOL96/BPQhhFXPDD1GPX+FvrBuaS4UMCu21KzthJFQ15jLPAG1brrjEQsd
-         xZxedvPC4L3dnSvqB+MsAbj2mzKOI0DNhGdWHOSlaHS87n8nLmJMZHtjOYEPj7oe+GQh
-         FHYQ==
+        d=gmail.com; s=20230601; t=1748102144; x=1748706944; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1FT74bOydnUw1XVZ+DksJusFTfOc0V0/ESQZbybugO8=;
+        b=Czw0syeCf6RZR2GljJdh2ZwzIZKylhY3uMMwpBKxieMKc44nVDhX3Qng1dEgMRITmN
+         soZq5e/jXTawvO5MM0O9MjgJrvzfvyT4fHuBABlWe3LD71BUigfGuwmPNsiU0Y2eTf1c
+         UZyVAnpfccligwSMG970+lSHh2aZziLma6qRO2AB11JWAefVH27IVCohDH0rIY8QR113
+         UzmlxotMPhW/nPL2cVm3WW6eFBDhuoDoeGSdEOO9dLjTwLgKga5xdDe6ulpJMjO7hB6U
+         T+6JsIKL2lzxAS1k80trP9PtopHyt9Et3uRkgwxSOi8saByEh2c8yRX9sLkpL87S609x
+         MTPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748102137; x=1748706937;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=f5NzQXNu49XBtQeENiXLHMtGN2kWzF78ktALbXii2Y0=;
-        b=HLdua+8P62cSaMz4/MyhL+EW53HL6VLSIBiNKQbvOPIAqa/QlLAu5NDDYQsOdOxkzb
-         kw0pRbsLssu58nDk3OLu/zeD4MhjIPAIKgKvq5CIJNroNfDqQppI07Ul00QrTFtUoVju
-         je3HG+PUQEk7HNy0I0nd22qNhrRG4ZDXNcI5dnRjno4jS09o31OCax/lauKKUnYNmwRE
-         wJajVl0Cj82a2LDT1G8XYCjws86WzkIsWo4t8JCiO6WPIqqAGtCPCkkCHyvGtl2C419Z
-         ZiZLYm/nCjTl71huNfiWipr26Gzrf09cbropqqy1ijCe4vUFopa45Es0O+mrnzm1c4tu
-         JdrQ==
-X-Gm-Message-State: AOJu0Yzpua+TSA1z+XvUou9pG4cJZQRC+mHrRwJFB2kJ1jaOpfYGRahn
-	1m2bXdO3odZwsClvBODyq4+04n7nAmIZX34WXXyGIex3NFyMaz97gy9c
-X-Gm-Gg: ASbGncsatKRN0bdt75bWoQ73sBNAL0vVznfDgOD7QsBlYDqXeZHyhwjVgPIu7NzclbH
-	H3xUYLPKogqOKrEBeWEvgW7/RVJkpZHQDN8SPr0WXpwZV2QnkB/MTyDU57fjUFnlX7IGBRXR/Ev
-	P32LIoW6+JQ3Ys4lAdf50OlqP6vmYdJwSO5U4PNhSO+qZt4KjWs/VcmEMxudvlHy7R2Y4RIK4BZ
-	FjFZfQCAsrlzFzqLKWa2Adbal9QJbdnmaOooZhPNJQHxuvMV52z5AHLa21tQKfeBTkLa883bcI2
-	Pn4VyfAMVCW1y2b4c/mL/nyGntG8enMbar+QgB4Eedf91PYfaXRSrnJx132z2rUlyO5Ju1z1SEa
-	jll+qwA==
-X-Google-Smtp-Source: AGHT+IHb1auLczNBxaTokKxKT8OTNVUuMgd7gpT41ZORQNU8eQ5rzK5+ef4IEIxT0hdT8elE8OmEcQ==
-X-Received: by 2002:a17:903:22c6:b0:234:1df:4409 with SMTP id d9443c01a7336-23414f61b86mr49644245ad.16.1748102137007;
-        Sat, 24 May 2025 08:55:37 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748102144; x=1748706944;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1FT74bOydnUw1XVZ+DksJusFTfOc0V0/ESQZbybugO8=;
+        b=Wgu5rrH3qVc+VH8eZ+0Z+r11uqNe5T6FfhdYN19XJaD3ergmQ08Q1NsmuglcDSCd7h
+         yfJnqQx4ba7A7Wo69FsfHpKKyDJ9xKkNZhx+51Xk0xIrfcBxlfxivVnmm4AfoVcrtjuQ
+         VKvf/WD4Tgy5d5F6oS2d0ornJXgVD9tgyYzG+xoQaLIKU0C1JWLcV2q6yVdHAaG+qgA1
+         Uo3jS06VeGWCVyg31ZxNWpKrfE1SgaNC8MzuHUfHhYz9AEPjXQNEs8s9sGjMgT29B0bi
+         tdLPXk07Bz4f0GQo7qHLIZsmVaRpRrMDsouc2lIsW4aZ/3ZNOb90UZy0KjTroX+v7mUX
+         yXLA==
+X-Gm-Message-State: AOJu0YzZazbXlrjdDGXxxuAYqf5rt0y+j1W4sruOenwpxv/FWjPwldkR
+	0leJZTtmZX9//4DWfP4UO/lnAol6OEndGj5wB+Y0ZwJ+UpJIpGNOkCnJ
+X-Gm-Gg: ASbGncvZgCoKIawXx/e7gnXuQsQ8RPxvpcbMKA2vbXk0mQro4whoE3DyrU9w+FALEvE
+	lXQIYfZPEeKpiY3NN7kInLWRbiyhZsasYm18fjqku1mlf5x7ulCxdSJgT12UKUa3QFFElDcryUf
+	/1+7y14Fe/FcEJvHi/KFpHz/qL0aDD2tGWMD3PYsZaJruVRYCvFelLLlWPGIU5Zpyob4wfYybgU
+	WQPqKaOHFNvGl+jfFYWeZutlmOtX5npwhA3MrYrIaJQXngmmI9aLSCDC8YET9Kt7/Fdb6BYsGku
+	J+/tEo1OgqsQ2j9uvZphvKWWx/Pp3ErmjYaLLWW02HQthw/G0StrpqkEnuFuFql2uu3uoefQeSI
+	cIy3PZQ==
+X-Google-Smtp-Source: AGHT+IEMc+IyJuKkp4oh/MfbC7nxhyOBDtktmANYUsWS5HqqsjVoXbsdcZhXdFZe8Q2T0aebh8oAAA==
+X-Received: by 2002:a17:902:ef43:b0:231:c99b:9fd7 with SMTP id d9443c01a7336-23414f6e667mr51686015ad.19.1748102143957;
+        Sat, 24 May 2025 08:55:43 -0700 (PDT)
 Received: from visitorckw-System-Product-Name.. ([140.113.216.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234396eaf62sm1200745ad.9.2025.05.24.08.55.34
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234396eaf62sm1200745ad.9.2025.05.24.08.55.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 May 2025 08:55:36 -0700 (PDT)
+        Sat, 24 May 2025 08:55:43 -0700 (PDT)
 From: Kuan-Wei Chiu <visitorckw@gmail.com>
 To: paul.walmsley@sifive.com,
 	palmer@dabbelt.com,
@@ -78,14 +79,17 @@ Cc: linux-riscv@lists.infradead.org,
 	jserv@ccns.ncku.edu.tw,
 	Kuan-Wei Chiu <visitorckw@gmail.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH v2 0/3] Optimize GCD performance on RISC-V by selecting implementation at runtime
-Date: Sat, 24 May 2025 23:55:16 +0800
-Message-Id: <20250524155519.1142570-1-visitorckw@gmail.com>
+Subject: [PATCH v2 2/3] riscv: Optimize gcd() code size when CONFIG_RISCV_ISA_ZBB is disabled
+Date: Sat, 24 May 2025 23:55:18 +0800
+Message-Id: <20250524155519.1142570-3-visitorckw@gmail.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250524155519.1142570-1-visitorckw@gmail.com>
+References: <20250524155519.1142570-1-visitorckw@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_085538_762064_48C64323 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250524_085544_908976_684F4CAD 
+X-CRM114-Status: UNSURE (   8.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,54 +106,40 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The current implementation of gcd() selects between the binary GCD and
-the odd-even GCD algorithm at compile time, depending on whether
-CONFIG_CPU_NO_EFFICIENT_FFS is set. On platforms like RISC-V, however,
-this compile-time decision can be misleading: even when the compiler
-emits ctz instructions based on the assumption that they are efficient
-(as is the case when CONFIG_RISCV_ISA_ZBB is enabled), the actual
-hardware may lack support for the Zbb extension. In such cases, ffs()
-falls back to a software implementation at runtime, making the binary
-GCD algorithm significantly slower than the odd-even variant.
+The binary GCD implementation depends on efficient ffs(), which on
+RISC-V requires hardware support for the Zbb extension. When
+CONFIG_RISCV_ISA_ZBB is not enabled, the kernel will never use binary
+GCD, as runtime logic will always fall back to the odd-even
+implementation.
 
-To address this, we introduce a static key to allow runtime selection
-between the binary and odd-even GCD implementations. On RISC-V, the
-kernel now checks for Zbb support during boot. If Zbb is unavailable,
-the static key is disabled so that gcd() consistently uses the more
-efficient odd-even algorithm in that scenario. Additionally, to further
-reduce code size, we select CONFIG_CPU_NO_EFFICIENT_FFS automatically
-when CONFIG_RISCV_ISA_ZBB is not enabled, avoiding compilation of the
-unused binary GCD implementation entirely on systems where it would
-never be executed.
+To avoid compiling unused code and reduce code size, select
+CONFIG_CPU_NO_EFFICIENT_FFS when CONFIG_RISCV_ISA_ZBB is not set.
 
-This series ensures that the most efficient GCD algorithm is used in
-practice and avoids compiling unnecessary code based on hardware
-capabilities and kernel configuration.
+$ ./scripts/bloat-o-meter ./lib/math/gcd.o.old ./lib/math/gcd.o.new
+add/remove: 0/0 grow/shrink: 0/1 up/down: 0/-274 (-274)
+Function                                     old     new   delta
+gcd                                          360      86    -274
+Total: Before=384, After=110, chg -71.35%
 
 Co-developed-by: Yu-Chun Lin <eleanor15x@gmail.com>
 Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
 Signed-off-by: Kuan-Wei Chiu <visitorckw@gmail.com>
-
 ---
-This series has been tested on QEMU to verify that the correct GCD
-implementation is used both with and without Zbb support.
+ arch/riscv/Kconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-v1 -> v2:
-- Use a static key to select the GCD implementation at runtime.
-
-v1: https://lore.kernel.org/lkml/20250217013708.1932496-1-visitorckw@gmail.com/
----
-
-Kuan-Wei Chiu (3):
-  lib/math/gcd: Use static key to select implementation at runtime
-  riscv: Optimize gcd() code size when CONFIG_RISCV_ISA_ZBB is disabled
-  riscv: Optimize gcd() performance on RISC-V without Zbb extension
-
- arch/riscv/Kconfig        |  1 +
- arch/riscv/kernel/setup.c |  6 ++++++
- lib/math/gcd.c            | 25 ++++++++++++++++---------
- 3 files changed, 23 insertions(+), 9 deletions(-)
-
+diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
+index bbec87b79309..f085adc6f573 100644
+--- a/arch/riscv/Kconfig
++++ b/arch/riscv/Kconfig
+@@ -95,6 +95,7 @@ config RISCV
+ 	select CLINT_TIMER if RISCV_M_MODE
+ 	select CLONE_BACKWARDS
+ 	select COMMON_CLK
++	select CPU_NO_EFFICIENT_FFS if !RISCV_ISA_ZBB
+ 	select CPU_PM if CPU_IDLE || HIBERNATION || SUSPEND
+ 	select EDAC_SUPPORT
+ 	select FRAME_POINTER if PERF_EVENTS || (FUNCTION_TRACER && !DYNAMIC_FTRACE)
 -- 
 2.34.1
 
