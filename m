@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C168C5AE59
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 21:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E043C5B542
+	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 21:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EV+LwiQpQElCPBLGSXfGekF+RzQKO0INZkr4NyDVd58=; b=aRy4RM9knyd0Bb
-	iWsCnn5aN+0Sp0jEmCTSr3L1R+zK1DwmJQ6j8209233KutgN3Ckx6omAr94u9xC3T7qmGDe2XDVAY
-	tDvX1HYM5pW74OHqEcnu7sV86zSFfVtRYQQly/fTyCkzsu+vxE+StPNxt6lHvnkbM4kRCp/Rb2UNC
-	61WDcsjm+vQXGOfTcbWMmSlbDy/L8gQ2qgeFBt17evRH9nziilxp4LGpRs9gy1sXFVCA96oJW0AEV
-	Xm0OKdPmtD13vvJ8ueCpVIno9IFgVYpgSqFoAr3Xe2t/PVpi8GD/7sEFP6kCTvMTR4RYuxGgQDBtO
-	3cJCh5+bS2G+InfGf2vw==;
+	List-Owner; bh=INVeQXiGg5XfhMW/d+r7kvo+rkMwf+ujZVIKdVxFp7E=; b=Bv2DsQs2186RWb
+	BIpkEryS5bcgGxs7s/SI+G7r0FBYxqRlfhEl4WnWPBgboWunt3AKdIUg/omJHtIWCgCCWV1OruAhW
+	VFJvS55oNglNMQ7qvzfth4xiJLq05rLd0kjNEzOmrYeo9pS75cvZJ71ZG/kZPpvdP4dmM2IakQdzH
+	Jta8XQELU2n6Z9hbpOhPPPdUlKl1NOntRy5xm/saCHoKL0Sm+myyP5Esl01Auhy/V/XIHuRRSqvNa
+	hawDEQ19kGK+l1cPAQwpSnosL5LtIr5PvwpxK3pEGOPHD6OLNZgljUg335TiEtDI7h062iQsLhDQI
+	0U+nH14uQlkda7AZyWsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIwDR-00000006HDQ-2CBT;
-	Sat, 24 May 2025 21:15:37 +0000
+	id 1uIwDQ-00000006HCD-1KdK;
+	Sat, 24 May 2025 21:15:36 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIwDH-00000006H99-3ahp
+	id 1uIwDI-00000006H9J-3rIb
 	for linux-riscv@lists.infradead.org;
 	Sat, 24 May 2025 21:15:33 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250524211522euoutp0231a33031e110950955445444ba9c4cc7~CkxSbfdxt2963229632euoutp02J
-	for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 21:15:22 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250524211522euoutp0231a33031e110950955445444ba9c4cc7~CkxSbfdxt2963229632euoutp02J
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250524211527euoutp02ef08513c58c07c927ba599a4b2f11520~CkxXrCApa2567925679euoutp02q
+	for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 21:15:27 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250524211527euoutp02ef08513c58c07c927ba599a4b2f11520~CkxXrCApa2567925679euoutp02q
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1748121322;
-	bh=Ae98N3tSGBe/h/f96a5r9JmrlJMUez7PRPitsnGiQz8=;
+	s=mail20170921; t=1748121327;
+	bh=Thc/4MnT4r5I8ag38cbivyQhpbuX345C1nEB0lzCSSU=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=rWgmd3bgWpNYobN0S4SvDtY6THgMGNr7Y/oW4jUFn/ms9eGm81puzqyLl6BBxZk8l
-	 LuSVcGSQkpwnmI/GAlymBzUWtAEBy8fqknAMdbRLWRxwA6ZYr2uAABlUvgqzcka+oh
-	 OG4WHRsINXe143dqT3SzLx5CekyFapVbKCxaKpoc=
+	b=GkDsiOnkqC+nijHgrhf8+HIxiu3fld84CstiSZaTHcijADsH2dACLGJmmQ6E/6ZFX
+	 PsMMoBemlinUpSQqHyUDbc+vwjvpB/xkm1iWemsSP9yA19NkLpWrFKSjeGYHlXxJTF
+	 AXHPxhN/Zo88WuJ99BM/R7fV5qBns7FYOTvjiHSY=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c~CkxRGXwhV0341603416eucas1p16;
-	Sat, 24 May 2025 21:15:20 +0000 (GMT)
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250524211526eucas1p22d608c2baca2908ea62d9e47263b3aec~CkxWc5Euv2217222172eucas1p2j;
+	Sat, 24 May 2025 21:15:26 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250524211519eusmtip2c1bebceb9d217c8f6b37932636320e1a~CkxQEOTFj0676606766eusmtip2m;
-	Sat, 24 May 2025 21:15:19 +0000 (GMT)
+	20250524211525eusmtip2bbbad26fe39b7770cb2a2b89091f4cca~CkxVeYWJR0676606766eusmtip2r;
+	Sat, 24 May 2025 21:15:25 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Sat, 24 May 2025 23:14:55 +0200
-Subject: [PATCH RFC 1/6] rust: Add basic PWM abstractions
+Date: Sat, 24 May 2025 23:15:00 +0200
+Subject: [PATCH RFC 6/6] riscv: dts: thead: Add PWM fan and thermal control
 MIME-Version: 1.0
-Message-Id: <20250524-rust-next-pwm-working-fan-for-sending-v1-1-bdd2d5094ff7@samsung.com>
+Message-Id: <20250524-rust-next-pwm-working-fan-for-sending-v1-6-bdd2d5094ff7@samsung.com>
 In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
 To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
 	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
@@ -69,16 +69,17 @@ Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
 	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
 	devicetree@vger.kernel.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c
+X-CMS-MailID: 20250524211526eucas1p22d608c2baca2908ea62d9e47263b3aec
 X-Msg-Generator: CA
-X-RootMTR: 20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c
+X-RootMTR: 20250524211526eucas1p22d608c2baca2908ea62d9e47263b3aec
 X-EPHeader: CA
-X-CMS-RootMailID: 20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c
+X-CMS-RootMailID: 20250524211526eucas1p22d608c2baca2908ea62d9e47263b3aec
 References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
-	<CGME20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c@eucas1p1.samsung.com>
+	<CGME20250524211526eucas1p22d608c2baca2908ea62d9e47263b3aec@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_141529_340294_8CB1D6D6 
-X-CRM114-Status: GOOD (  23.68  )
+X-CRM114-CacheID: sfid-20250524_141529_325062_1987715B 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,520 +96,98 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Introduce initial Rust abstractions for the Linux PWM subsystem. These
-abstractions provide safe wrappers around the core C data structures and
-functions, enabling the development of PWM chip drivers in Rust.
+Add Device Tree nodes to enable a PWM controlled fan and it's associated
+thermal management for the Lichee Pi 4A board.
 
-The main components added are:
-- A Kconfig option RUST_PWM_ABSTRACTIONS
-- C helper functions in rust/helpers/pwm.c to provide stable callable
-  interfaces for Rust, for pwmchip_parent, pwmchip_get_drvdata, and
-  pwmchip_set_drvdata
-- A new Rust module rust/kernel/pwm.rs containing:
-    - Safe wrappers for struct pwm_chip, struct pwm_device,
-      struct pwm_state, and struct pwm_args
-    - An enum Polarity for type safe polarity handling
-    - Functions devm_chip_alloc and devm_chip_add which wrap the
-      kernel's device-managed APIs for PWM chip allocation and
-      registration.
-    - A PwmOps trait and create_pwm_ops function to allow Rust
-      drivers to define their PWM operations, initially supporting the
-      .apply callback.
-
-This foundational layer will be used by subsequent patches to implement
-a specific PWM chip driver in Rust. It focuses on the pwm_chip provider
-APIs necessary for such a driver.
+This enables temperature-controlled active cooling for the Lichee Pi 4A
+board based on SoC temperature.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- MAINTAINERS                     |   6 +
- drivers/pwm/Kconfig             |   8 +
- rust/bindings/bindings_helper.h |   1 +
- rust/helpers/helpers.c          |   1 +
- rust/helpers/pwm.c              |  20 +++
- rust/kernel/lib.rs              |   2 +
- rust/kernel/pwm.rs              | 376 ++++++++++++++++++++++++++++++++++++++++
- 7 files changed, 414 insertions(+)
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts | 67 +++++++++++++++++++++++
+ 1 file changed, 67 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b6126bccf17c899cbbf5b729e1f426ff38d04a8e..2b080e8f3d873b1e401b3a2fe1207c224c4591fc 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19678,6 +19678,12 @@ F:	include/linux/pwm.h
- F:	include/linux/pwm_backlight.h
- K:	pwm_(config|apply_might_sleep|apply_atomic|ops)
+diff --git a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+index 4020c727f09e8e2286fdc7fecd79dbd8eba69556..c58c2085ca92a3234f1350500cedae4157f0c35f 100644
+--- a/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
++++ b/arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts
+@@ -28,9 +28,76 @@ aliases {
+ 	chosen {
+ 		stdout-path = "serial0:115200n8";
+ 	};
++
++	thermal-zones {
++		cpu-thermal {
++			polling-delay = <1000>;
++			polling-delay-passive = <1000>;
++			thermal-sensors = <&pvt 0>;
++
++			trips {
++				fan_config0: fan-trip0 {
++					temperature = <39000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
++
++				fan_config1: fan-trip1 {
++					temperature = <50000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
++
++				fan_config2: fan-trip2 {
++					temperature = <60000>;
++					hysteresis = <5000>;
++					type = "active";
++				};
++			};
++
++			cooling-maps {
++				map-active-0 {
++					cooling-device = <&fan 1 1>;
++					trip = <&fan_config0>;
++				};
++
++				map-active-1 {
++					cooling-device = <&fan 2 2>;
++					trip = <&fan_config1>;
++				};
++
++				map-active-2 {
++					cooling-device = <&fan 3 3>;
++					trip = <&fan_config2>;
++				};
++			};
++		};
++	};
++
++	fan: pwm-fan {
++		pinctrl-names = "default";
++		pinctrl-0 = <&fan_pins>;
++		compatible = "pwm-fan";
++		#cooling-cells = <2>;
++		pwms = <&pwm 1 10000000 0>;
++		cooling-levels = <0 66 196 255>;
++	};
++
+ };
  
-+PWM SUBSYSTEM BINDINGS [RUST]
-+M:	Michal Wilczynski <m.wilczynski@samsung.com>
-+S:	Maintained
-+F:	rust/helpers/pwm.c
-+F:	rust/kernel/pwm.rs
+ &padctrl0_apsys {
++	fan_pins: fan-0 {
++		pwm1-pins {
++			pins = "GPIO3_3"; /* PWM1 */
++			function = "pwm";
++			bias-disable;
++			drive-strength = <25>;
++			input-disable;
++			input-schmitt-disable;
++			slew-rate = <0>;
++		};
++	};
 +
- PXA GPIO DRIVER
- M:	Robert Jarzmik <robert.jarzmik@free.fr>
- L:	linux-gpio@vger.kernel.org
-diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-index 4731d5b90d7edcc61138e4a5bf7e98906953ece4..b5bd5c13b3a5e5a575a0fbfb2e285f5665b7a671 100644
---- a/drivers/pwm/Kconfig
-+++ b/drivers/pwm/Kconfig
-@@ -755,4 +755,12 @@ config PWM_XILINX
- 	  To compile this driver as a module, choose M here: the module
- 	  will be called pwm-xilinx.
- 
-+ config RUST_PWM_ABSTRACTIONS
-+	bool "Rust PWM abstractions support"
-+	depends on RUST
-+	depends on PWM=y
-+	help
-+	  Adds support needed for PWM drivers written in Rust. It provides a
-+          wrapper around the C pwm core.
-+
- endif
-diff --git a/rust/bindings/bindings_helper.h b/rust/bindings/bindings_helper.h
-index 43aabecc1d6161398acf3bb402d1f67b48bfcd6f..24a2498f17a2fc56f5dc012a20d621007be28b5e 100644
---- a/rust/bindings/bindings_helper.h
-+++ b/rust/bindings/bindings_helper.h
-@@ -32,6 +32,7 @@
- #include <linux/platform_device.h>
- #include <linux/poll.h>
- #include <linux/property.h>
-+#include <linux/pwm.h>
- #include <linux/refcount.h>
- #include <linux/sched.h>
- #include <linux/security.h>
-diff --git a/rust/helpers/helpers.c b/rust/helpers/helpers.c
-index 34f040e5f260b892fc421a6e55de32cbf90c8c22..7dda45d1794c957d83227362d9483eb90543f053 100644
---- a/rust/helpers/helpers.c
-+++ b/rust/helpers/helpers.c
-@@ -26,6 +26,7 @@
- #include "platform.c"
- #include "pci.c"
- #include "pid_namespace.c"
-+#include "pwm.c"
- #include "rbtree.c"
- #include "rcu.c"
- #include "refcount.c"
-diff --git a/rust/helpers/pwm.c b/rust/helpers/pwm.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..d75c588863685d3990b525bb1b84aa4bc35ac397
---- /dev/null
-+++ b/rust/helpers/pwm.c
-@@ -0,0 +1,20 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Copyright (c) 2025 Samsung Electronics Co., Ltd.
-+// Author: Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+#include <linux/pwm.h>
-+
-+struct device *rust_helper_pwmchip_parent(const struct pwm_chip *chip)
-+{
-+	return pwmchip_parent(chip);
-+}
-+
-+void *rust_helper_pwmchip_get_drvdata(struct pwm_chip *chip)
-+{
-+	return pwmchip_get_drvdata(chip);
-+}
-+
-+void rust_helper_pwmchip_set_drvdata(struct pwm_chip *chip, void *data)
-+{
-+	pwmchip_set_drvdata(chip, data);
-+}
-diff --git a/rust/kernel/lib.rs b/rust/kernel/lib.rs
-index 1b0b6790a7f33c30af16a056d6afcca3d15a2a0d..72b60afe5f51d8a62b3c95b1b320a48386d14e61 100644
---- a/rust/kernel/lib.rs
-+++ b/rust/kernel/lib.rs
-@@ -92,6 +92,8 @@
- pub mod seq_file;
- pub mod sizes;
- mod static_assert;
-+#[cfg(CONFIG_RUST_PWM_ABSTRACTIONS)]
-+pub mod pwm;
- #[doc(hidden)]
- pub mod std_vendor;
- pub mod str;
-diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
-new file mode 100644
-index 0000000000000000000000000000000000000000..357fda46faa99c4462149658951ec53bf9cc2d1e
---- /dev/null
-+++ b/rust/kernel/pwm.rs
-@@ -0,0 +1,376 @@
-+// SPDX-License-Identifier: GPL-2.0
-+// Copyright (c) 2025 Samsung Electronics Co., Ltd.
-+// Author: Michal Wilczynski <m.wilczynski@samsung.com>
-+
-+//! PWM (Pulse Width Modulator) abstractions.
-+//!
-+//! This module provides safe Rust abstractions for working with the Linux
-+//! kernel's PWM subsystem, leveraging types generated by `bindgen`
-+//! from `<linux/pwm.h>` and `drivers/pwm/core.c`.
-+
-+use crate::{
-+    bindings,
-+    device::Device as CoreDevice,
-+    error::*,
-+    prelude::*,
-+    str::CStr,
-+    types::{ForeignOwnable, Opaque},
-+};
-+use core::marker::PhantomData;
-+
-+/// PWM polarity. Mirrors `enum pwm_polarity`.
-+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
-+pub enum Polarity {
-+    /// Normal polarity (duty cycle defines the high period of the signal)
-+    Normal,
-+    /// Inversed polarity (duty cycle defines the low period of the signal)
-+    Inversed,
-+}
-+
-+impl From<bindings::pwm_polarity> for Polarity {
-+    fn from(polarity: bindings::pwm_polarity) -> Self {
-+        match polarity {
-+            bindings::pwm_polarity_PWM_POLARITY_NORMAL => Polarity::Normal,
-+            bindings::pwm_polarity_PWM_POLARITY_INVERSED => Polarity::Inversed,
-+            _ => {
-+                pr_warn!(
-+                    "Unknown pwm_polarity value {}, defaulting to Normal\n",
-+                    polarity
-+                );
-+                Polarity::Normal
-+            }
-+        }
-+    }
-+}
-+
-+impl From<Polarity> for bindings::pwm_polarity {
-+    fn from(polarity: Polarity) -> Self {
-+        match polarity {
-+            Polarity::Normal => bindings::pwm_polarity_PWM_POLARITY_NORMAL,
-+            Polarity::Inversed => bindings::pwm_polarity_PWM_POLARITY_INVERSED,
-+        }
-+    }
-+}
-+
-+/// Wrapper for board-dependent PWM arguments (`struct pwm_args`).
-+#[repr(transparent)]
-+pub struct Args(Opaque<bindings::pwm_args>);
-+
-+impl Args {
-+    /// Creates an `Args` wrapper from the C struct reference.
-+    fn from_c_ref(c_args: &bindings::pwm_args) -> Self {
-+        // SAFETY: Pointer is valid, construct Opaque wrapper. We copy the data.
-+        Args(Opaque::new(*c_args))
-+    }
-+
-+    /// Returns the period of the PWM signal in nanoseconds.
-+    pub fn period(&self) -> u64 {
-+        // SAFETY: Reading from the valid pointer obtained by `get()`.
-+        unsafe { (*self.0.get()).period }
-+    }
-+
-+    /// Returns the polarity of the PWM signal.
-+    pub fn polarity(&self) -> Polarity {
-+        // SAFETY: Reading from the valid pointer obtained by `get()`.
-+        Polarity::from(unsafe { (*self.0.get()).polarity })
-+    }
-+}
-+
-+/// Wrapper for PWM state (`struct pwm_state`).
-+#[repr(transparent)]
-+pub struct State(Opaque<bindings::pwm_state>);
-+
-+impl State {
-+    /// Creates a new zeroed `State`.
-+    pub fn new() -> Self {
-+        State(Opaque::new(bindings::pwm_state::default()))
-+    }
-+
-+    /// Creates a `State` wrapper around a copy of a C `pwm_state`.
-+    pub(crate) fn from_c(c_state: bindings::pwm_state) -> Self {
-+        State(Opaque::new(c_state))
-+    }
-+
-+    /// Creates a `State` wrapper around a reference to a C `pwm_state`.
-+    fn from_c_ref(c_state: &bindings::pwm_state) -> &Self {
-+        // SAFETY: Pointer is valid, lifetime tied to input ref. Cast pointer type.
-+        unsafe { &*(c_state as *const bindings::pwm_state as *const Self) }
-+    }
-+
-+    /// Gets the period of the PWM signal in nanoseconds.
-+    pub fn period(&self) -> u64 {
-+        unsafe { (*self.0.get()).period }
-+    }
-+
-+    /// Sets the period of the PWM signal in nanoseconds.
-+    pub fn set_period(&mut self, period_ns: u64) {
-+        unsafe {
-+            (*self.0.get()).period = period_ns;
-+        }
-+    }
-+
-+    /// Gets the duty cycle of the PWM signal in nanoseconds.
-+    pub fn duty_cycle(&self) -> u64 {
-+        unsafe { (*self.0.get()).duty_cycle }
-+    }
-+
-+    /// Sets the duty cycle of the PWM signal in nanoseconds.
-+    pub fn set_duty_cycle(&mut self, duty_ns: u64) {
-+        unsafe {
-+            (*self.0.get()).duty_cycle = duty_ns;
-+        }
-+    }
-+
-+    /// Returns `true` if the PWM signal is enabled.
-+    pub fn enabled(&self) -> bool {
-+        unsafe { (*self.0.get()).enabled }
-+    }
-+
-+    /// Sets the enabled state of the PWM signal.
-+    pub fn set_enabled(&mut self, enabled: bool) {
-+        unsafe {
-+            (*self.0.get()).enabled = enabled;
-+        }
-+    }
-+
-+    /// Gets the polarity of the PWM signal.
-+    pub fn polarity(&self) -> Polarity {
-+        Polarity::from(unsafe { (*self.0.get()).polarity })
-+    }
-+
-+    /// Sets the polarity of the PWM signal.
-+    pub fn set_polarity(&mut self, polarity: Polarity) {
-+        unsafe {
-+            (*self.0.get()).polarity = polarity.into();
-+        }
-+    }
-+
-+    /// Returns `true` if the PWM signal is configured for power usage hint.
-+    pub fn usage_power(&self) -> bool {
-+        unsafe { (*self.0.get()).usage_power }
-+    }
-+
-+    /// Sets the power usage hint for the PWM signal.
-+    pub fn set_usage_power(&mut self, usage_power: bool) {
-+        unsafe {
-+            (*self.0.get()).usage_power = usage_power;
-+        }
-+    }
-+}
-+
-+/// Wrapper for a PWM device/channel (`struct pwm_device`).
-+#[repr(transparent)]
-+pub struct Device(Opaque<bindings::pwm_device>);
-+
-+impl Device {
-+    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_device) -> &'a mut Self {
-+        unsafe { &mut *ptr.cast::<Self>() }
-+    }
-+
-+    fn as_ptr(&self) -> *mut bindings::pwm_device {
-+        self.0.get()
-+    }
-+
-+    /// Gets the hardware PWM index for this device within its chip.
-+    pub fn hwpwm(&self) -> u32 {
-+        unsafe { (*self.as_ptr()).hwpwm }
-+    }
-+
-+    /// Gets a reference to the parent `Chip` that this device belongs to.
-+    pub fn chip(&self) -> &Chip {
-+        unsafe { Chip::from_ptr((*self.as_ptr()).chip) }
-+    }
-+
-+    /// Gets the label for this PWM device, if any.
-+    pub fn label(&self) -> Option<&CStr> {
-+        let label_ptr = unsafe { (*self.as_ptr()).label };
-+        if label_ptr.is_null() {
-+            None
-+        } else {
-+            Some(unsafe { CStr::from_char_ptr(label_ptr) })
-+        }
-+    }
-+
-+    /// Gets a copy of the board-dependent arguments for this PWM device.
-+    pub fn args(&self) -> Args {
-+        Args::from_c_ref(unsafe { &(*self.as_ptr()).args })
-+    }
-+
-+    /// Gets a copy of the current state of this PWM device.
-+    pub fn state(&self) -> State {
-+        State::from_c(unsafe { (*self.as_ptr()).state })
-+    }
-+
-+    /// Returns `true` if the PWM signal is currently enabled based on its state.
-+    pub fn is_enabled(&self) -> bool {
-+        self.state().enabled()
-+    }
-+}
-+
-+/// Wrapper for a PWM chip/controller (`struct pwm_chip`).
-+#[repr(transparent)]
-+pub struct Chip(Opaque<bindings::pwm_chip>);
-+
-+impl Chip {
-+    /// Creates a `Chip` reference from a raw pointer. (Safety notes apply)
-+    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_chip) -> &'a mut Self {
-+        unsafe { &mut *ptr.cast::<Self>() }
-+    }
-+
-+    /// Returns a raw pointer to the underlying `pwm_chip`.
-+    pub(crate) fn as_ptr(&self) -> *mut bindings::pwm_chip {
-+        self.0.get()
-+    }
-+
-+    /// Gets the number of PWM channels (hardware PWMs) on this chip.
-+    pub fn npwm(&self) -> u32 {
-+        unsafe { (*self.as_ptr()).npwm }
-+    }
-+
-+    /// Returns `true` if the chip supports atomic operations for configuration.
-+    pub fn is_atomic(&self) -> bool {
-+        unsafe { (*self.as_ptr()).atomic }
-+    }
-+
-+    /// Returns a reference to the embedded `struct device` abstraction (`CoreDevice`).
-+    pub fn device(&self) -> &CoreDevice {
-+        // SAFETY: `dev` field exists and points to the embedded device.
-+        let dev_ptr = unsafe { &(*self.as_ptr()).dev as *const _ as *mut bindings::device };
-+        unsafe { &*(dev_ptr as *mut CoreDevice) }
-+    }
-+
-+    /// Returns a reference to the parent device (`struct device`) of this PWM chip's device.
-+    pub fn parent_device(&self) -> Option<&CoreDevice> {
-+        // SAFETY: Accessing fields via assumed-valid pointer and bindgen layout.
-+        let parent_ptr = unsafe { bindings::pwmchip_parent(self.as_ptr()) };
-+        if parent_ptr.is_null() {
-+            None
-+        } else {
-+            // SAFETY: Pointer is non-null, assume valid device managed by kernel.
-+            Some(unsafe { &*(parent_ptr as *mut CoreDevice) })
-+        }
-+    }
-+
-+    /// Gets the *typed* driver-specific data associated with this chip's embedded device.
-+    pub fn get_drvdata<T: 'static>(&self) -> Option<&T> {
-+        let ptr = unsafe { bindings::pwmchip_get_drvdata(self.as_ptr()) };
-+        if ptr.is_null() {
-+            None
-+        } else {
-+            unsafe { Some(&*(ptr as *const T)) }
-+        }
-+    }
-+
-+    /// Sets the *typed* driver-specific data associated with this chip's embedded device.
-+    pub fn set_drvdata<T: 'static + ForeignOwnable>(&mut self, data: T) {
-+        unsafe { bindings::pwmchip_set_drvdata(self.as_ptr(), data.into_foreign() as _) }
-+    }
-+}
-+
-+/// Allocates a PWM chip structure using device resource management. Mirrors `devm_pwmchip_alloc`.
-+pub fn devm_chip_alloc<'a>(
-+    parent: &'a CoreDevice,
-+    npwm: u32,
-+    sizeof_priv: usize,
-+) -> Result<&'a mut Chip> {
-+    // SAFETY: `devm_pwmchip_alloc` called with valid args. Returns valid ptr or ERR_PTR.
-+    let parent_ptr = parent as *const CoreDevice as *mut bindings::device;
-+    let chip_ptr = unsafe { bindings::devm_pwmchip_alloc(parent_ptr, npwm, sizeof_priv) };
-+    if unsafe { bindings::IS_ERR(chip_ptr as *const core::ffi::c_void) } {
-+        let err = unsafe { bindings::PTR_ERR(chip_ptr as *const core::ffi::c_void) };
-+        pr_err!("devm_pwmchip_alloc failed: {}\n", err);
-+        Err(Error::from_errno(err as i32))
-+    } else {
-+        // SAFETY: `chip_ptr` valid, lifetime managed by `devm` tied to `parent`.
-+        Ok(unsafe { &mut *(chip_ptr as *mut Chip) })
-+    }
-+}
-+
-+/// Registers a PWM chip with the PWM subsystem. Mirrors `__pwmchip_add`.
-+pub fn chip_add(chip: &mut Chip, ops: &'static PwmOpsVTable) -> Result {
-+    // SAFETY: Pointers are valid. `__pwmchip_add` requires ops to be set.
-+    unsafe {
-+        let chip_ptr = chip.as_ptr();
-+        // Assign the ops pointer directly to the C struct field
-+        (*chip_ptr).ops = ops.as_ptr();
-+        to_result(bindings::__pwmchip_add(
-+            chip_ptr,
-+            core::ptr::null_mut()
-+        ))
-+    }
-+}
-+
-+/// Registers a PWM chip using device resource management. Mirrors `__devm_pwmchip_add`.
-+pub fn devm_chip_add(parent: &CoreDevice, chip: &mut Chip, ops: &'static PwmOpsVTable) -> Result {
-+    // SAFETY: Pointers are valid. `__devm_pwmchip_add` requires ops to be set.
-+    unsafe {
-+        let chip_ptr = chip.as_ptr();
-+        // Assign the ops pointer directly to the C struct field
-+        (*chip_ptr).ops = ops.as_ptr();
-+        let parent_ptr = parent as *const CoreDevice as *mut bindings::device;
-+        to_result(bindings::__devm_pwmchip_add(
-+            parent_ptr,
-+            chip_ptr,
-+            core::ptr::null_mut()
-+        ))
-+    }
-+}
-+
-+/// Trait defining the operations for a PWM driver. Mirrors relevant parts of `struct pwm_ops`.
-+pub trait PwmOps: 'static {
-+    /// Atomically apply a new state to the PWM device. Mirrors `pwm_ops->apply`.
-+    fn apply(chip: &mut Chip, pwm: &mut Device, state: &State) -> Result;
-+
-+    // TODO: Add other ops like request, free, capture, waveform ops if needed.
-+}
-+
-+/// Holds the vtable for PwmOps implementations.
-+struct Adapter<T: PwmOps> {
-+    _p: PhantomData<T>,
-+}
-+
-+impl<T: PwmOps> Adapter<T> {
-+    // Trampoline for `apply`.
-+    unsafe extern "C" fn apply_callback(
-+        chip: *mut bindings::pwm_chip,
-+        pwm: *mut bindings::pwm_device,
-+        state: *const bindings::pwm_state, // Input state is const
-+    ) -> core::ffi::c_int {
-+        // SAFETY: Pointers from core are valid. Create temporary wrappers.
-+        let chip_ref = unsafe { Chip::from_ptr(chip) };
-+        let pwm_ref = unsafe { Device::from_ptr(pwm) };
-+        // Use the reference wrapper for the const C state
-+        let state_ref = State::from_c_ref(unsafe { &*state });
-+
-+        match T::apply(chip_ref, pwm_ref, state_ref) {
-+            Ok(()) => 0,
-+            Err(e) => e.to_errno(),
-+        }
-+    }
-+}
-+
-+/// VTable structure wrapper for PWM operations. Mirrors `struct pwm_ops`.
-+#[repr(transparent)]
-+pub struct PwmOpsVTable(Opaque<bindings::pwm_ops>);
-+
-+// SAFETY: Holds function pointers, no accessible mutable state via &self.
-+unsafe impl Sync for PwmOpsVTable {}
-+
-+impl PwmOpsVTable {
-+    /// Returns a raw pointer to the underlying `pwm_ops` struct.
-+    pub(crate) fn as_ptr(&self) -> *const bindings::pwm_ops {
-+        self.0.get()
-+    }
-+}
-+
-+/// Creates a PWM operations vtable for a type `T` that implements `PwmOps`.
-+///
-+/// This is used to bridge Rust trait implementations to the C `struct pwm_ops`
-+/// expected by the kernel.
-+pub const fn create_pwm_ops<T: PwmOps>() -> PwmOpsVTable {
-+    let mut ops: bindings::pwm_ops = unsafe { core::mem::zeroed() };
-+
-+    ops.apply = Some(Adapter::<T>::apply_callback);
-+
-+    PwmOpsVTable(Opaque::new(ops))
-+}
+ 	uart0_pins: uart0-0 {
+ 		tx-pins {
+ 			pins = "UART0_TXD";
 
 -- 
 2.34.1
