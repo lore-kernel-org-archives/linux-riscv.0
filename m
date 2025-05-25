@@ -4,103 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3980FC54ED1
-	for <linux-riscv@archiver.kernel.org>; Sat, 24 May 2025 22:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F570C54ED0
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 May 2025 08:47:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=j68By6inwFdwLZV6uBMVVXDQFCYQhcBiD6dTDfD+8I0=; b=VQTeEhhgMjoR/U
-	uk3+nEVRulDEeFNvLCssRJE6YAG436gjCyi+38dzm18V65w/F4uElBQbZx3pKGtfKRm+SBDgjXBPT
-	BathiFPdBDuPHgNyQwWqnb6ufEtyGFlD9jd0sHZgFk5fsX8YONSrnxPschDlZYwhQUwOf8Ege2/za
-	VoctVDSkU0fIf5kOcWiSIVQ7vRG2QteYoojVZjw/5knpQx8XStbCEd2cfwHfSR88alIV88FH36D3A
-	afavjlkxOR83vQqGeHbiBgk9H6fjOk8P3eogoSZoBNHgmBFdqm5QEVDmqkOgHZYIeyIydL/4VJqq/
-	Zwguk4NS8R29il1HjIiw==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=sajAGYXlPzdJE7xoZyeYl2HKZ6cQKYUhd6RlS0H37d8=; b=cqKyRVG34or1TG
+	Rr8Ljen3XXqaNKAVeFuY7BJCQROvUDTqT5LnMuTmlTa5u95dMLZQvOm0wOn9PYR/s4OfbxGMh14hH
+	PsaqxhDDOBPljT2gs17KZqxktOwEbOUSTOd1Kk3gcCI2RBa55n/HHeSq5he4JMxvzQbsF9zoLr5Sa
+	FvtCQ52CVNsEwoyCFl6JdirHTStNr2NAsiNVxdkMccJSYl05B8b6zNZ2iq6jdfVeXArePkDh06bZA
+	0+B77Xah4yil3ZanEQDuDiDU1WNdKCHkLaivBDkn59XTBs9i4iL0YSf6APoTuHzoy3U/0cpDoceM3
+	zxfnkZVx4pH6e/D+2FYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIxFf-00000006Kev-2xNs;
-	Sat, 24 May 2025 22:21:59 +0000
-Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
+	id 1uJ712-00000006mD2-0oZB;
+	Sun, 25 May 2025 08:47:32 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uIxFd-00000006KeY-0w7B
+	id 1uJ70y-00000006mCV-2Zzo
 	for linux-riscv@lists.infradead.org;
-	Sat, 24 May 2025 22:21:58 +0000
-Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-74019695377so704768b3a.3
-        for <linux-riscv@lists.infradead.org>; Sat, 24 May 2025 15:21:56 -0700 (PDT)
+	Sun, 25 May 2025 08:47:29 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-742b614581dso1216171b3a.3
+        for <linux-riscv@lists.infradead.org>; Sun, 25 May 2025 01:47:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748125316; x=1748730116; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=t/gfY91nGDE+0RHxKKLvxKyOlcgQwxa07VE2VttyjsQ=;
-        b=TWvxW5QsTCsMrOv+hKs9eqEMybtesICo7vZFtr7qL5YbrHQZXaANx0Ioza87k7i83h
-         uytD4KKEcogu0bQ8aGOh3pvsnGOxQi/lZCPEmK11UnGTDgcd5Cz7obCHHeow4sUw1N0o
-         6C89/Bpco12/u36mbKDpSwKGK7XLhNewCVehbRtXj40gwC30g9dNyI9EPT3Jcxu2j3iT
-         mpXPOptc1mEd+ZhXbWPOs+DJe1TwjceUAOO4/WT1lnLMnlo83nwh1qbZ9hzWQr66Yu3s
-         lYtg/yGmO4/TcaF3+xCisiFbYX+oIQRXdBD0f+WNd+j+LwlSr6zLNWTKdlkPs0autr+U
-         /w5A==
+        d=ventanamicro.com; s=google; t=1748162847; x=1748767647; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ao7Q/xXijY5fH5cbAIEqBGx+ybN0Ql0QjcAKqCvWttA=;
+        b=JkwDGpZJdQqLoIzJ3nGlINKXbBvTg+9z97I47p5+eFjW442nhZvOI532uaWOsfwkOz
+         ue08l6GVyM4z0Ydu6jQ1n0wgHbbdw6lPbO7QzEwsGyZmZ1NW1pFVZQ/cXO2R9U+OVQG4
+         W9oAJMRgDyGg820+3EIuN5pnxewdmwc259T+wg74jT9itMaZ4b251h11jzTV0+0lO1s3
+         LBpB6Jng4i/CYtqAgVzoUQhQeo7EUrqfFWkxh+B7Y5IUxnQws3J5hx0VWQZbK8ocAD6a
+         lW7UbIQale22qmMgLgQ3qrAZbdnLwQa17G/m/HJG5fItF2HW8+WUETqbhGZQ+ptd3kf2
+         urzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748125316; x=1748730116;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t/gfY91nGDE+0RHxKKLvxKyOlcgQwxa07VE2VttyjsQ=;
-        b=lFLD5VD6S7P32heotPVTt1Z7VOeCvmM9uQirhEk+7WEIUPBdLX2jzJQ9H8bbbPPDRH
-         wmBDiVbALxnyQmrKSnJpPjfgE5Nzx/BVyYdnpHMmGU7aN7fFcLtoaMGcecnFzYz2sGOG
-         PNn68MJWq5pKr8HwaheLDbkbdgQQm1PComcpwGYj0mWMNh5ThjCe4DYp9ZqRMm79R4lS
-         ojztzyI+Gl8PsXylaQ5sEkWQSCcP6dsDh3ywgf6VyK2e0IFulboX3kbGFsSln+s4YQKl
-         lXGE6dWkFlzTBf/yDrscQnXwyUw8qWL9UoLub1tvW9J/MOmbAR+rtZyYpVMfCFiB6qyt
-         L33g==
-X-Forwarded-Encrypted: i=1; AJvYcCWgcxif6o2yGJVePVxFs0EsxGrfmlpadiatbBiXaWK6F/z3VZEsCXojxHGQ/PbJYUQpbayC16eIwsoEsw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuwXnK73DLthyKWaGxkS3VuJWKaEUWkLF5LtlwHx5bb/jG+Vpe
-	aEC60LMxhAAz35h53gXOT1g2hRhvTZpH8lW3fMKGizrIBD86D5YkXaUiESWRshBZ
-X-Gm-Gg: ASbGncsTA9EihUxvc/wiUxEUlhJdSzSj3WINl8yx0gJ44BPA3kG+YKU1Vx+du02rSh3
-	q6vV8oZ79dYKs5JPRKFha4uYAJ+70ctMuvGRf24VW31h1uhDvxL9uR5VDh0W7MTpZeT02psC5Ai
-	smq24K6EK/GgRhgxzTB6OXIaVATkNvA3LRP5XkucV9KpJ44TNtkIAd1NhSzeKDfhL0iGxWNBWBo
-	jVx7tYFxTWfOMIFsMpZjnZyY3yiiQ6/bQRrYHg6mN771Qlo4nbC9AeILJr0hGGFhW/yFNR4dZHZ
-	FXJ+7+Lhyq5nXV/jAbLhBOQ7DnVTtDvKVhTj3ac4Jm6dWoyRF1b0agCu6xdXAvy70bmrXw==
-X-Google-Smtp-Source: AGHT+IHEUxETV0pocM5atEPYdJlqffDPIUlgr2gOFmaZoXDKfwNisfSk+PUUDevzM5Z0StSlaes5OQ==
-X-Received: by 2002:a05:6a00:3d15:b0:742:b3a6:db10 with SMTP id d2e1a72fcca58-745fe083538mr7389041b3a.18.1748125315849;
-        Sat, 24 May 2025 15:21:55 -0700 (PDT)
-Received: from x1 (97-120-251-212.ptld.qwest.net. [97.120.251.212])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-742a9829b9dsm14653654b3a.88.2025.05.24.15.21.54
+        d=1e100.net; s=20230601; t=1748162847; x=1748767647;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Ao7Q/xXijY5fH5cbAIEqBGx+ybN0Ql0QjcAKqCvWttA=;
+        b=hh5P0FPS6kG6BPxuPj9PZulu5N431+ZIdTiXZdc3pqfT9Vt6s9NHh/RTLAAO+Q0qZr
+         KdbjyuMQx3UbFtnmXULTuvCzPbgXHQCJQeXzZh2Qxcv8PKKIqptQBLvH/3kdc+LppvXB
+         C1is2g36/RmPEA6UJasF8loK/2EIn7KeTyhbMHVSWifDtFsc88vNkUsIVFmJT+xHA2o+
+         NIhGpJ+td7srkljVY8NRuOQ4mBTga7D8tuSxFKn3FGUuIlIHFL5yFzhkIxcIs1HUlcnS
+         fGU1QZnlS9lEJ/1A1qZScfdd8/6C7uTfqRch+aN2aff2x685VTYp+WKvQ906URjWpJnr
+         zSFA==
+X-Forwarded-Encrypted: i=1; AJvYcCWR5laX1cSgCE+ovHBKnpy8XlFdN74dC37Smb29Hj1k9Ai11ASeonY97AQXNRiG0XorZ00OBP3erYVpiw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcMh/itD+doxwNs3AYhkPlDcXzESxECUTwG6IEzT3aT/FIG/yA
+	u0rEUjI9G1qt90ZjCVQVAHU6b9vkk9yiMdNyirb7uvN6PZFYPi70u7YzCsNcPyIvyLs=
+X-Gm-Gg: ASbGnctSTKscVnP0pTyBVUSa5t6eqi4/BZDhb0ibwJfDP7VSM5e+zw+krFC0GYYuGuJ
+	zH8zlH7Gg5Vf8851+EQM1kD1wUUtPom1i7V9iFIC6AkSzUL+9C04u4cQ/lSiEYnHyWFSEVtsNqy
+	rDjdbKfgUiuyC0ZP2lw2Lfr9qwNENLZb4o5VsGTqLgjYSXWlOESb+/wIoxE+pwGF1gXx3DtLaDl
+	SiCbN7dBKUBrH3Dc5nbTTLk4helv8m2C2TlDSVTk6OkmOyCBQ2LQZz9ZZluHYES4IxSlt15kRlJ
+	BegzUY54XaFZEkg8b3ADXFJXUtLc+addKRfZ4fSV47nDpN005YmsjsUzWvVt6W3TDwSvkQIZ+Dy
+	CRFYDcybm
+X-Google-Smtp-Source: AGHT+IEc8vlNlubdM7ZcFtUpfAvKcv5TgPvrM2RuQ5WgOI01LJtb0pSWzaY2oJXu3hrpj45QwRe5xA==
+X-Received: by 2002:a05:6a21:4592:b0:1f5:8e54:9f10 with SMTP id adf61e73a8af0-2188c374058mr10629850637.34.1748162847430;
+        Sun, 25 May 2025 01:47:27 -0700 (PDT)
+Received: from localhost.localdomain ([122.171.22.180])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b26eaf6dd83sm15250627a12.18.2025.05.25.01.47.19
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 24 May 2025 15:21:54 -0700 (PDT)
-Date: Sat, 24 May 2025 15:21:52 -0700
-From: Drew Fustini <pdp7pdp7@gmail.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>,
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,
+        Sun, 25 May 2025 01:47:26 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC 0/6] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-Message-ID: <aDJGgLZ9tITwGBxq@x1>
-References: <CGME20250524211519eucas1p218997c69b98b14d3af2eb6bf4e9d3187@eucas1p2.samsung.com>
- <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v4 00/23] Linux SBI MPXY and RPMI drivers
+Date: Sun, 25 May 2025 14:16:47 +0530
+Message-ID: <20250525084710.1665648-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250524_152157_266023_79DC1361 
-X-CRM114-Status: GOOD (  24.97  )
+X-CRM114-CacheID: sfid-20250525_014728_660296_E34C62CE 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,87 +101,139 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 24, 2025 at 11:14:54PM +0200, Michal Wilczynski wrote:
-> This patch series introduces Rust support for the T-HEAD TH1520 PWM
-> controller and demonstrates its use for fan control on the Sipeed Lichee
-> Pi 4A board.
-> 
-> The primary goal of this patch series is to introduce a basic set of
-> Rust abstractions for the Linux PWM subsystem. As a first user and
-> practical demonstration of these abstractions, the series also provides
-> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
-> of its PWM channels and ultimately enables temperature controlled fan
-> support for the Lichee Pi 4A board. This work aims to explore the use of
-> Rust for PWM drivers and lay a foundation for potential future
-> Rust based PWM drivers.
-> 
-> The series is structured as follows:
-> 
-> Patch 1/6: Introduce basic PWM abstractions
-> This patch lays the groundwork by adding a Kconfig option for Rust PWM
-> abstractions, necessary C helper functions, and a new Rust module
-> (rust/kernel/pwm.rs). This module provides initial safe wrappers for
-> core PWM data structures (Chip, Device, State, Args, Polarity) and
-> functions (devm_chip_alloc, devm_chip_add), along with a basic PwmOps
-> trait focusing on the .apply callback needed by PWM chip providers.
-> 
-> Patch 2/6: Add PWM driver for TH1520 SoC
-> This introduces the Rust based PWM driver for the T-HEAD TH1520 SoC.
-> It implements the PwmOps trait using the abstractions from the first
-> patch and handles the specifics of the TH1520 hardware for configuring
-> period, duty cycle, and polarity. Resource management leverages devm
-> for the PWM chip and Rust DevRes for I/O memory, and RAII for clock
-> handling.
-> 
-> Patch 3/6: dt-bindings: Add PWM T-HEAD controller dt-binding
-> This patch adds the Device Tree binding documentation for the T-HEAD
-> TH1520 PWM controller.
-> 
-> Patch 4/6: riscv: dts: thead:: Add PWM controller node
-> This patch adds the actual Device Tree node for the TH1520 PWM controller.
-> 
-> Patch 5/6: riscv: dts: thead: Add PVT node
-> Add pvt node for thermal sensor.
-> 
-> Patch 6/6: riscv: dts: thead: Add PWM fan and thermal control
-> This final patch adds the Device Tree configuration for a PWM controlled
-> fan to the Sipeed Lichee Pi 4A board DTS file. 
-> 
-> Testing:
-> Tested on the TH1520 SoC. The fan works correctly.
-> 
-> Points for Discussion:
-> The rust/kernel/pwm.rs abstraction layer is currently minimal,
-> focusing on the immediate needs of this driver. Feedback on its design,
-> scope, and potential for generalization would be highly appreciated.
-> General feedback on the Rust implementation, FFI wrapping patterns, and
-> adherence to kernel development practices is very welcome.
-> 
-> The patches are based on rust-next, with some dependencies which are not
-> merged yet - platform Io support [1] and clk abstractions [2]. 
-> 
-> Reference repository with all the patches together can be found on
-> github [3].
-> 
-> [1] - https://lore.kernel.org/rust-for-linux/20250509-topics-tyr-platform_iomem-v8-0-e9f1725a40da@collabora.com/
-> [2] - https://lore.kernel.org/rust-for-linux/0ec0250c1170a8a6efb2db7a6cb49ae974d7ce05.1747634382.git.viresh.kumar@linaro.org/ 
-> [3] - https://github.com/mwilczy/linux/commits/rust-next-pwm-working-fan-for-sending/
+The SBI v3.0 (MPXY extension) [1] and RPMI v1.0 [2] specifications
+are frozen and in public review at the RISC-V International.
 
-Thanks for the patch series. It will be great to have PWM working
-upstream.
+Currently, most of the RPMI and MPXY drivers are in OpenSBI whereas
+Linux only has SBI MPXY mailbox controller driver, RPMI clock driver
+and RPMI system MSI driver This series also includes ACPI support
+for SBI MPXY mailbox controller and RPMI system MSI drivers.
 
-I've not built Linux with Rust before, so I'm going through the quick
-start [1]. I've also never built Linux with LLVM before but clang seems
-like the best compiler to use for Rust. Are you using LLVM?
+These patches can be found in the riscv_sbi_mpxy_mailbox_v4 branch
+at: https://github.com/avpatel/linux.git
 
-Drew
+To test these patches, boot Linux on "virt,rpmi=on,aia=aplic-imsic"
+machine with OpenSBI and QEMU from the dev-upstream branch at:
+https://github.com/ventanamicro/opensbi.git
+https://github.com/ventanamicro/qemu.git
 
-[1] https://docs.kernel.org/rust/quick-start.html
+[1] https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+[2] https://github.com/riscv-non-isa/riscv-rpmi/releases
+
+Changes since v3:
+ - Rebased the series on Linux-6.15-rc7
+ - Updated PATCH2 DT bindings as-per Rob's suggestion
+ - Improved request_threaded_irq() usage in PATCH7
+ - Updated PATCH10 clk-rpmi driver as-per commments from Andy
+ - Updated PATCH13 irq-riscv-rpmi-sysmsi driver as-per comments
+   from Andy and Tglx
+ - Addressed ACPI related comments in PATCH14, PATCH15, PATCH18,
+   PATCH20 and PATCH21
+
+Changes since v2:
+ - Dropped the "RFC" tag from series since the SBI v3.0 and
+   RPMI v1.0 specifications are now frozen
+ - Rebased the series on Linux-6.15-rc5
+ - Split PATCH8 of v2 into two patches adding separate DT
+   bindings for "riscv,rpmi-mpxy-clock" and "riscv,rpmi-clock"
+ - Split PATCH10 of v2 into two patches adding separate DT
+   bindings for "riscv,rpmi-mpxy-system-msi" and
+   "riscv,rpmi-system-msi"
+ - Addressed comments from TGLX on PATCH11 of v2 adding irqchip
+   driver for RPMI system MSI
+ - Addressed ACPI related comments in PATCH15 and PATCH16 of v2
+ - New PATCH17 and PATCH18 in this series
+
+Changes since v1:
+ - Addressed DT bindings related comments in PATCH2, PATCH3, and
+   PATCH7 of v1 series
+ - Addressed comments in PATCH6 and PATCH8 of v1 series
+ - New PATCH6 in v2 series to allow fwnode based mailbox channel
+   request
+ - New PATCH10 and PATCH11 to add RPMI system MSI based interrupt
+   controller driver
+ - New PATCH12 to PATCH16 which adds ACPI support in SBI MPXY
+   mailbox driver and RPMI system MSI driver
+ - New PATCH17 to enable required kconfig option to allow graceful
+   shutdown on QEMU virt machine
+
+Anup Patel (14):
+  riscv: Add new error codes defined by SBI v3.0
+  dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+  dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+  RISC-V: Add defines for the SBI message proxy extension
+  mailbox: Add common header for RPMI messages sent via mailbox
+  mailbox: Allow controller specific mapping using fwnode
+  mailbox: Add RISC-V SBI message proxy (MPXY) based mailbox driver
+  dt-bindings: clock: Add RPMI clock service message proxy bindings
+  dt-bindings: clock: Add RPMI clock service controller bindings
+  dt-bindings: Add RPMI system MSI message proxy bindings
+  dt-bindings: Add RPMI system MSI interrupt controller bindings
+  irqchip: Add driver for the RPMI system MSI service group
+  RISC-V: Enable GPIO keyboard and event device in RV64 defconfig
+  MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
+
+Rahul Pathak (1):
+  clk: Add clock driver for the RISC-V RPMI clock service group
+
+Sunil V L (8):
+  ACPI: property: Refactor acpi_fwnode_get_reference_args()
+  ACPI: property: Add support for cells property
+  ACPI: scan: Update honor list for RPMI System MSI
+  ACPI: RISC-V: Create interrupt controller list in sorted order
+  ACPI: RISC-V: Add support to update gsi range
+  ACPI: RISC-V: Add RPMI System MSI to GSI mapping
+  mailbox/riscv-sbi-mpxy: Add ACPI support
+  irqchip/riscv-rpmi-sysmsi: Add ACPI support
+
+ .../bindings/clock/riscv,rpmi-clock.yaml      |   61 +
+ .../bindings/clock/riscv,rpmi-mpxy-clock.yaml |   64 ++
+ .../riscv,rpmi-mpxy-system-msi.yaml           |   67 ++
+ .../riscv,rpmi-system-msi.yaml                |   74 ++
+ .../mailbox/riscv,rpmi-shmem-mbox.yaml        |  124 ++
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml |   51 +
+ MAINTAINERS                                   |   15 +
+ arch/riscv/configs/defconfig                  |    2 +
+ arch/riscv/include/asm/irq.h                  |    6 +
+ arch/riscv/include/asm/sbi.h                  |   72 ++
+ drivers/acpi/property.c                       |  123 +-
+ drivers/acpi/riscv/irq.c                      |   80 +-
+ drivers/acpi/scan.c                           |    2 +
+ drivers/base/property.c                       |    2 +-
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-rpmi.c                        |  589 ++++++++++
+ drivers/irqchip/Kconfig                       |    7 +
+ drivers/irqchip/Makefile                      |    1 +
+ drivers/irqchip/irq-riscv-rpmi-sysmsi.c       |  324 ++++++
+ drivers/mailbox/Kconfig                       |   11 +
+ drivers/mailbox/Makefile                      |    2 +
+ drivers/mailbox/mailbox.c                     |   47 +-
+ drivers/mailbox/riscv-sbi-mpxy-mbox.c         | 1003 +++++++++++++++++
+ include/linux/mailbox/riscv-rpmi-message.h    |  233 ++++
+ include/linux/mailbox_controller.h            |    3 +
+ include/linux/wordpart.h                      |    8 +
+ 27 files changed, 2905 insertions(+), 75 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+ create mode 100644 drivers/clk/clk-rpmi.c
+ create mode 100644 drivers/irqchip/irq-riscv-rpmi-sysmsi.c
+ create mode 100644 drivers/mailbox/riscv-sbi-mpxy-mbox.c
+ create mode 100644 include/linux/mailbox/riscv-rpmi-message.h
+
+-- 
+2.43.0
+
 
 _______________________________________________
 linux-riscv mailing list
