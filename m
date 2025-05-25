@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8660BC54E90
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 May 2025 10:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DED24C54E90
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 May 2025 11:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OikhvkuKwpDVQvPqSIxdhaVRpIykFQp0R9PakVoTd1k=; b=AfEJM7+2hvuE6A
-	B8ZOswU74dYijXG7ZfJhUyDHEUgE/ej7xxOXTkmU6LYVkhWGgQ8ByAD/HN5AU16XqSXo3n+87TfRM
-	r9z1dSObwDHyzCCnEaCfEdYQQLtq7EiomhmIoER2olj5+Zxh48qh7DbgDIXx71zDLn2pDvnNtUhok
-	zWSiwUB9vmxGe7ubriurkFCzXMP+swpoZz+G87GOJsr5wfJznMnnJTrh6KHXxgcYn5yPjTwLdgE7x
-	CXpa196uqStbZmtbF0c4ElWIj0ilrWZHziyITE9WoEAfIpBEMi2d/WRaIe1PVa8K7XvBbaLNOfifB
-	4N8C1YDqBlQ+mQdV/yyQ==;
+	List-Owner; bh=yfG1JjLUBhtPmj+RosWwSETeqFuJeQVdFP8q4L3KGOU=; b=Q3ZcD+8MS0hUnk
+	geMyZY7YpIOi8AJlj4yfCkxacUYaCuZ48XhZh+UppEre4SXeZi/FXlbTTcws+WjhvQNJidSK+AUNs
+	RTH0ffbYLgxwwSY2Duoa0nnPNCX5Yl/cWXzqJX0/7Lo8wSHQHVllBZkIhPMUWIAqDMeWDhhX2bhXB
+	YWBQUiGsHLISu2h5z53s0VHHidwhhJyDawy5BIAHT9desX5EaygNG8V/Y2Wr3VQH8oGEV+dRvbYSE
+	gKLDdzgdXYzP6ecF/FIWEZB3Om3+gB6XoEthdRjmfz25hFWrvV72ZguUkKdY2sBu+POQjiA7/BHp0
+	BrEiDMh19xnIm6gHlWkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ8D3-00000006vLK-3HKW;
-	Sun, 25 May 2025 10:04:01 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uJ9qs-000000071yh-3y6u;
+	Sun, 25 May 2025 11:49:14 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJ73y-00000006nUV-1m0z
+	id 1uJ9qp-000000071y9-3ovy
 	for linux-riscv@lists.infradead.org;
-	Sun, 25 May 2025 08:50:35 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-23428770e1fso4484505ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 May 2025 01:50:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1748163033; x=1748767833; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=cHC1UEZymw9wnnpkV/BuwvpiaSVPH0/q81+93KLNW1U=;
-        b=XwCcMNYlOa5TY+hgFQXygEsTcPu7DtdLqTbR5CHqdfnUfGZbyP2i70+n5wiT47ILdW
-         W/Tv4XGW7DZhgPp4F1bIGAiWCyIFExsmMHZQWxfJXH4ty0gUXPrWcyKu20aKf7lhdakK
-         y3XCEYk4tn3W0trzo9pi1PmXNpcyoyxxxPXMm++jPXGBccg1/AK9fvLTYsxEFN7HI9gp
-         P2jk2AZzcCrL1nXTE6/ctmGapjAckYDfutJ9epgLHDMuA57ZR4u4CIkxojrKtmFQNuQQ
-         TrIFhhzlvQAR34WABSHvejIuCcwJe7fLGI7OuJae0wT1HHAs6oEixLoCA05dXabdNlU3
-         AXYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748163033; x=1748767833;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=cHC1UEZymw9wnnpkV/BuwvpiaSVPH0/q81+93KLNW1U=;
-        b=u2FiPVhpsipsAhGSZu1KxE5r3ABZOsbwzGLaCqq040ScpMBYHjGx2CaE2apV0fKVtm
-         IAxM1VlRIu4kcGgAW6KyYy/RYdySt+37tsfZ1XBcQoHhMW1NHBKpYKMc56tkWT9y9V+T
-         pYNvnRnsIpt6g9yquLY7mgRVF+djaj0IyV1/QFIP9ayaZlUiESn6L6NASvc2KTilNSlg
-         NcYn7+V+CCGHhXLq4StWf524EfPrzlv+ybvxDrDqOCoNYe5aUEldKMDYKodpz4i1uKBy
-         gPjkBXP2kjC0DkaC5+cMjYIXMPozWC4dTFX/fdas2O5LciQujejS9/dqNaj8/fwsQX9s
-         n7lQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXX416lhEZAXyqFDLcbvLUz8xe6mvXIoTsjUpgz9KMzX+UfqR63++f9iBu8d65hfVmGZ8FKJyaq2WYMZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCQq9hsSdSnqxDgOPZyV/CIn4rrvcilIPyO08qqn365oO/8a3M
-	mh4sPeIveq24Br5kUrnOH1/V19de8lD2UGKqMm9eqisvHBUvo1kFfDo90hDUFKe+lxI=
-X-Gm-Gg: ASbGncs/PnfoBxWtDPt6MTNYsdQpYd+wwKCn+gGUm0KbRsdZfuRoTf/3Tcj+LCrFk7x
-	Bq9K2u51heWWcpbvesPNJq8rDU8KB+ZeQoCc3Q2AN7aMi+m80ls/QoYZZD6d0jSHWiuLFJgHsx3
-	YdaY7ETUnFjdXel+IFddXBOhzhkAShOAOGXgT46V/Pnh2CAwaxKn8a7/dR67eD9ETDH+EzQiLEC
-	wMJf+03Rg+K5P2NeM+/fXFJWKyox0oJXeqw3D3m9SG1YoiH5P937ZYQxg35RceG8F8I+BAw1hgt
-	7wXKGTFL8NsCHvGC6lGqUVBwZSjMcr3ReJDbHh2GuASIzZL6BLUr+HNmsnb4Xnm2Hp3UTCYSeNr
-	lZGeEAF4P
-X-Google-Smtp-Source: AGHT+IEZvm0nbOinSt/PdP1ymjs9KkhXXFgMyCQpgodAAZI4iEJHOoECkEhtpUUCnZco52yWUXVFNQ==
-X-Received: by 2002:a17:902:ce8b:b0:223:5c77:7ef1 with SMTP id d9443c01a7336-23414f7036dmr90752035ad.21.1748163033368;
-        Sun, 25 May 2025 01:50:33 -0700 (PDT)
-Received: from localhost.localdomain ([122.171.22.180])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b26eaf6dd83sm15250627a12.18.2025.05.25.01.50.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 May 2025 01:50:32 -0700 (PDT)
-From: Anup Patel <apatel@ventanamicro.com>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Rob Herring <robh@kernel.org>,
+	Sun, 25 May 2025 11:49:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 43167A471A5;
+	Sun, 25 May 2025 11:49:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84F9C4CEEA;
+	Sun, 25 May 2025 11:49:03 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748173748;
+	bh=vmZvAnTbI4REH3iJUSPyeWOhaBBgHAufw1jfnjCgFr0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=HFvK4JBW0AVjqKcpmbCDREG5eFNX3tv7Zxny+go4h/8gv/fbcb9i2A7LPwZjP5iYz
+	 OC2lmIhmqCn6NCWcPUjqA4MaoVH4bjzHCdKX/xMSzb/S/rG7inAaJRpfal6R4M3leB
+	 KhRqif8LrmarWsRCFl3o5kGW/vY2MMQvVuYYTJ3wQZvg0WAfaKIewH9kVx+i3aH2fV
+	 iLTlIyV4p6lrnwke2d4EzVpOleswd4+1Fx+1o+5rqSXciRPph+6MMEMOXn+Iu0Bbxv
+	 l0cA8K/uSvJgbEkToGJpXoreh3Oe2mmq7TQVyklHE/hdHsgTZyCWz2sgL6+gpgqH/l
+	 if5HzlratbVNQ==
+Date: Sun, 25 May 2025 13:49:01 +0200
+From: Danilo Krummrich <dakr@kernel.org>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Jassi Brar <jassisinghbrar@gmail.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	"Rafael J . Wysocki" <rafael@kernel.org>,
-	Mika Westerberg <mika.westerberg@linux.intel.com>,
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Subject: [PATCH v4 23/23] MAINTAINERS: Add entry for RISC-V RPMI and MPXY drivers
-Date: Sun, 25 May 2025 14:17:10 +0530
-Message-ID: <20250525084710.1665648-24-apatel@ventanamicro.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250525084710.1665648-1-apatel@ventanamicro.com>
-References: <20250525084710.1665648-1-apatel@ventanamicro.com>
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH RFC 1/6] rust: Add basic PWM abstractions
+Message-ID: <aDMDrT7WIDc-yD0p@pollux.localdomain>
+References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
+ <CGME20250524211520eucas1p1378fbab27f4b1ae8808706c074fa217c@eucas1p1.samsung.com>
+ <20250524-rust-next-pwm-working-fan-for-sending-v1-1-bdd2d5094ff7@samsung.com>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-1-bdd2d5094ff7@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_015034_456795_FDA6804B 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250525_044912_090584_1DAB5D53 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,48 +86,367 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add Rahul and myself as maintainers for RISC-V RPMI and MPXY drivers.
+Hi Michal,
 
-Signed-off-by: Anup Patel <apatel@ventanamicro.com>
----
- MAINTAINERS | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+On Sat, May 24, 2025 at 11:14:55PM +0200, Michal Wilczynski wrote:
+> diff --git a/rust/kernel/pwm.rs b/rust/kernel/pwm.rs
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..357fda46faa99c4462149658951ec53bf9cc2d1e
+> --- /dev/null
+> +++ b/rust/kernel/pwm.rs
+> @@ -0,0 +1,376 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (c) 2025 Samsung Electronics Co., Ltd.
+> +// Author: Michal Wilczynski <m.wilczynski@samsung.com>
+> +
+> +//! PWM (Pulse Width Modulator) abstractions.
+> +//!
+> +//! This module provides safe Rust abstractions for working with the Linux
+> +//! kernel's PWM subsystem, leveraging types generated by `bindgen`
+> +//! from `<linux/pwm.h>` and `drivers/pwm/core.c`.
+> +
+> +use crate::{
+> +    bindings,
+> +    device::Device as CoreDevice,
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d48dd6726fe6..f09b865a697e 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20963,6 +20963,21 @@ F:	drivers/perf/riscv_pmu.c
- F:	drivers/perf/riscv_pmu_legacy.c
- F:	drivers/perf/riscv_pmu_sbi.c
- 
-+RISC-V RPMI AND MPXY DRIVERS
-+M:	Rahul Pathak <rahul@summations.net>
-+M:	Anup Patel <anup@brainfault.org>
-+L:	linux-riscv@lists.infradead.org
-+F:	Documentation/devicetree/bindings/clock/riscv,rpmi-clock.yaml
-+F:	Documentation/devicetree/bindings/clock/riscv,rpmi-mpxy-clock.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
-+F:	Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-system-msi.yaml
-+F:	Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
-+F:	Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
-+F:	drivers/clk/clk-rpmi.c
-+F:	drivers/irqchip/irq-riscv-rpmi-sysmsi.c
-+F:	drivers/mailbox/riscv-sbi-mpxy-mbox.c
-+F:	include/linux/mailbox/riscv-rpmi-message.h
-+
- RISC-V SPACEMIT SoC Support
- M:	Yixun Lan <dlan@gentoo.org>
- L:	linux-riscv@lists.infradead.org
--- 
-2.43.0
+I recommend referring the the base device as just device::Device, like we do it
+everywhere else where we have this name conflict.
 
+I'm not a huge fan of such aliases, since it's confusing when looking at patches
+that do not have the alias as context later on.
+
+> +    error::*,
+> +    prelude::*,
+> +    str::CStr,
+> +    types::{ForeignOwnable, Opaque},
+> +};
+> +use core::marker::PhantomData;
+> +
+> +/// PWM polarity. Mirrors `enum pwm_polarity`.
+> +#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+> +pub enum Polarity {
+> +    /// Normal polarity (duty cycle defines the high period of the signal)
+> +    Normal,
+> +    /// Inversed polarity (duty cycle defines the low period of the signal)
+> +    Inversed,
+> +}
+> +
+> +impl From<bindings::pwm_polarity> for Polarity {
+> +    fn from(polarity: bindings::pwm_polarity) -> Self {
+> +        match polarity {
+> +            bindings::pwm_polarity_PWM_POLARITY_NORMAL => Polarity::Normal,
+> +            bindings::pwm_polarity_PWM_POLARITY_INVERSED => Polarity::Inversed,
+> +            _ => {
+> +                pr_warn!(
+> +                    "Unknown pwm_polarity value {}, defaulting to Normal\n",
+> +                    polarity
+> +                );
+> +                Polarity::Normal
+
+Either Polarity::Normal is the correct thing to return in such a case, but then
+we do not need the pr_warn!(), or it is not, but then this should be a TryFrom
+impl instead.
+
+> +            }
+> +        }
+> +    }
+> +}
+> +
+> +impl From<Polarity> for bindings::pwm_polarity {
+> +    fn from(polarity: Polarity) -> Self {
+> +        match polarity {
+> +            Polarity::Normal => bindings::pwm_polarity_PWM_POLARITY_NORMAL,
+> +            Polarity::Inversed => bindings::pwm_polarity_PWM_POLARITY_INVERSED,
+> +        }
+> +    }
+> +}
+> +
+> +/// Wrapper for board-dependent PWM arguments (`struct pwm_args`).
+> +#[repr(transparent)]
+> +pub struct Args(Opaque<bindings::pwm_args>);
+> +
+> +impl Args {
+> +    /// Creates an `Args` wrapper from the C struct reference.
+> +    fn from_c_ref(c_args: &bindings::pwm_args) -> Self {
+
+I'd make this a pointer type instead, rather than having conversion to a
+reference at the caller's side.
+
+> +        // SAFETY: Pointer is valid, construct Opaque wrapper. We copy the data.
+> +        Args(Opaque::new(*c_args))
+> +    }
+> +
+> +    /// Returns the period of the PWM signal in nanoseconds.
+> +    pub fn period(&self) -> u64 {
+> +        // SAFETY: Reading from the valid pointer obtained by `get()`.
+
+Here and below, you should explain why this pointer is guaranteed to be valid
+instead.
+
+> +        unsafe { (*self.0.get()).period }
+> +    }
+> +
+> +    /// Returns the polarity of the PWM signal.
+> +    pub fn polarity(&self) -> Polarity {
+> +        // SAFETY: Reading from the valid pointer obtained by `get()`.
+> +        Polarity::from(unsafe { (*self.0.get()).polarity })
+> +    }
+> +}
+> +
+> +/// Wrapper for PWM state (`struct pwm_state`).
+> +#[repr(transparent)]
+> +pub struct State(Opaque<bindings::pwm_state>);
+> +
+> +impl State {
+> +    /// Creates a new zeroed `State`.
+> +    pub fn new() -> Self {
+> +        State(Opaque::new(bindings::pwm_state::default()))
+> +    }
+> +
+> +    /// Creates a `State` wrapper around a copy of a C `pwm_state`.
+> +    pub(crate) fn from_c(c_state: bindings::pwm_state) -> Self {
+> +        State(Opaque::new(c_state))
+> +    }
+
+You probably don't need Opaque here, given that you have instances of
+bindings::pwm_state already.
+
+> +
+> +    /// Creates a `State` wrapper around a reference to a C `pwm_state`.
+> +    fn from_c_ref(c_state: &bindings::pwm_state) -> &Self {
+> +        // SAFETY: Pointer is valid, lifetime tied to input ref. Cast pointer type.
+> +        unsafe { &*(c_state as *const bindings::pwm_state as *const Self) }
+> +    }
+> +
+> +    /// Gets the period of the PWM signal in nanoseconds.
+> +    pub fn period(&self) -> u64 {
+> +        unsafe { (*self.0.get()).period }
+
+This and all the methods below lack SAFETY comments, did you compile with
+CLIPPY=1? You should get lots of warnings reminding you to add them.
+
+<snip>
+
+> +
+> +/// Wrapper for a PWM device/channel (`struct pwm_device`).
+> +#[repr(transparent)]
+> +pub struct Device(Opaque<bindings::pwm_device>);
+> +
+> +impl Device {
+> +    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_device) -> &'a mut Self {
+
+We usually call this kind of function as_ref(), it'd be nice to stick to that
+for consistency.
+
+> +        unsafe { &mut *ptr.cast::<Self>() }
+
+A mutable reference -- why?
+
+<snip>
+
+> +/// Wrapper for a PWM chip/controller (`struct pwm_chip`).
+> +#[repr(transparent)]
+> +pub struct Chip(Opaque<bindings::pwm_chip>);
+> +
+> +impl Chip {
+> +    /// Creates a `Chip` reference from a raw pointer. (Safety notes apply)
+> +    pub(crate) unsafe fn from_ptr<'a>(ptr: *mut bindings::pwm_chip) -> &'a mut Self {
+
+Same here, for the name...
+
+> +        unsafe { &mut *ptr.cast::<Self>() }
+
+and the mutability.
+
+> +    }
+> +
+> +    /// Returns a raw pointer to the underlying `pwm_chip`.
+> +    pub(crate) fn as_ptr(&self) -> *mut bindings::pwm_chip {
+> +        self.0.get()
+> +    }
+> +
+> +    /// Gets the number of PWM channels (hardware PWMs) on this chip.
+> +    pub fn npwm(&self) -> u32 {
+> +        unsafe { (*self.as_ptr()).npwm }
+> +    }
+> +
+> +    /// Returns `true` if the chip supports atomic operations for configuration.
+> +    pub fn is_atomic(&self) -> bool {
+> +        unsafe { (*self.as_ptr()).atomic }
+> +    }
+> +
+> +    /// Returns a reference to the embedded `struct device` abstraction (`CoreDevice`).
+> +    pub fn device(&self) -> &CoreDevice {
+> +        // SAFETY: `dev` field exists and points to the embedded device.
+> +        let dev_ptr = unsafe { &(*self.as_ptr()).dev as *const _ as *mut bindings::device };
+> +        unsafe { &*(dev_ptr as *mut CoreDevice) }
+
+Missing SAFETY comment, also please use cast() and cast_{const,mut}() instead.
+
+> +    }
+> +
+> +    /// Returns a reference to the parent device (`struct device`) of this PWM chip's device.
+> +    pub fn parent_device(&self) -> Option<&CoreDevice> {
+> +        // SAFETY: Accessing fields via assumed-valid pointer and bindgen layout.
+> +        let parent_ptr = unsafe { bindings::pwmchip_parent(self.as_ptr()) };
+> +        if parent_ptr.is_null() {
+> +            None
+> +        } else {
+> +            // SAFETY: Pointer is non-null, assume valid device managed by kernel.
+> +            Some(unsafe { &*(parent_ptr as *mut CoreDevice) })
+> +        }
+
+This can just be
+
+	self.device().parent() // [1]
+
+which lands through the DRM tree in the upcoming merge window.
+
+[1] https://gitlab.freedesktop.org/drm/kernel/-/blob/drm-next/rust/kernel/device.rs?ref_type=heads#L72
+
+> +    /// Gets the *typed* driver-specific data associated with this chip's embedded device.
+> +    pub fn get_drvdata<T: 'static>(&self) -> Option<&T> {
+
+I will soon send a patch series that adds drvdata accessors to the generic
+Device abstraction.
+
+Anyways, no need for you to wait for this.
+
+> +        let ptr = unsafe { bindings::pwmchip_get_drvdata(self.as_ptr()) };
+
+Obviously, the C side calls this pwmchip_get_drvdata() and dev_get_drvdata(),
+however, I suggest not to use get_drvdata() as a method name, since 'get' is
+used in the context of reference counting (get/put) instead, and hence may be
+confusing. Let's just name this drvdata().
+
+> +        if ptr.is_null() {
+> +            None
+> +        } else {
+> +            unsafe { Some(&*(ptr as *const T)) }
+> +        }
+> +    }
+> +
+> +    /// Sets the *typed* driver-specific data associated with this chip's embedded device.
+> +    pub fn set_drvdata<T: 'static + ForeignOwnable>(&mut self, data: T) {
+> +        unsafe { bindings::pwmchip_set_drvdata(self.as_ptr(), data.into_foreign() as _) }
+> +    }
+> +}
+> +
+> +/// Allocates a PWM chip structure using device resource management. Mirrors `devm_pwmchip_alloc`.
+> +pub fn devm_chip_alloc<'a>(
+
+This should be a function of pwm::Chip rather than standalone.
+
+> +    parent: &'a CoreDevice,
+
+Since you're using devres, this must be a bound device, i.e. the parameter must
+be &'a device::Device<device::Bound>, see also [2], which lands in the upcoming
+merge window through the driver-core tree.
+
+But I think this shouldn't use devm_pwmchip_alloc() anyways, see below.
+
+[2] https://git.kernel.org/pub/scm/linux/kernel/git/driver-core/driver-core.git/tree/rust/kernel/device.rs?h=driver-core-next#n237
+
+> +    npwm: u32,
+> +    sizeof_priv: usize,
+> +) -> Result<&'a mut Chip> {
+
+Besides the above, this solution seems a bit half-baked, since it means that you
+can only ever access the pwm::Chip as long as you have the &Device<Bound>,
+which, given that you call this function typically from probe(), not beyond the
+scope of probe().
+
+This is because you return a reference which you can't save in the driver's
+private data.
+
+Instead you should use pwmchip_alloc() instead and make this return a real
+instance of pwm::Chip and implement AlwaysRefCounted [3] for pwm::Chip.
+
+You can then store the pwm::Chip instance in the Driver's private data, which
+will only live until the driver is unbound, so it gives the same guarantees.
+
+[3] https://rust.docs.kernel.org/kernel/types/trait.AlwaysRefCounted.html
+
+> +    // SAFETY: `devm_pwmchip_alloc` called with valid args. Returns valid ptr or ERR_PTR.
+> +    let parent_ptr = parent as *const CoreDevice as *mut bindings::device;
+> +    let chip_ptr = unsafe { bindings::devm_pwmchip_alloc(parent_ptr, npwm, sizeof_priv) };
+> +    if unsafe { bindings::IS_ERR(chip_ptr as *const core::ffi::c_void) } {
+> +        let err = unsafe { bindings::PTR_ERR(chip_ptr as *const core::ffi::c_void) };
+> +        pr_err!("devm_pwmchip_alloc failed: {}\n", err);
+
+You have the parent device, please use dev_err!(). But I don't think this needs
+to error print at all.
+
+> +        Err(Error::from_errno(err as i32))
+> +    } else {
+> +        // SAFETY: `chip_ptr` valid, lifetime managed by `devm` tied to `parent`.
+> +        Ok(unsafe { &mut *(chip_ptr as *mut Chip) })
+> +    }
+> +}
+> +
+> +/// Registers a PWM chip with the PWM subsystem. Mirrors `__pwmchip_add`.
+> +pub fn chip_add(chip: &mut Chip, ops: &'static PwmOpsVTable) -> Result {
+> +    // SAFETY: Pointers are valid. `__pwmchip_add` requires ops to be set.
+> +    unsafe {
+> +        let chip_ptr = chip.as_ptr();
+> +        // Assign the ops pointer directly to the C struct field
+> +        (*chip_ptr).ops = ops.as_ptr();
+> +        to_result(bindings::__pwmchip_add(
+> +            chip_ptr,
+> +            core::ptr::null_mut()
+> +        ))
+> +    }
+> +}
+
+How do you ensure to unregister the chip, once it was registered through this
+function? I think this can cause UAF bugs. Instead you should wrap this in a
+'Registration' structure, like we do everywhere else, see for example [4].
+
+The structure should look like this:
+
+	pub struct Registration(ARef<Chip>);
+
+Registration::new() should register the chip and Registration::drop() should
+unregister the chip.
+
+[4] https://gitlab.freedesktop.org/drm/kernel/-/blob/drm-next/rust/kernel/drm/driver.rs?ref_type=heads#L121
+
+> +/// Registers a PWM chip using device resource management. Mirrors `__devm_pwmchip_add`.
+> +pub fn devm_chip_add(parent: &CoreDevice, chip: &mut Chip, ops: &'static PwmOpsVTable) -> Result {
+> +    // SAFETY: Pointers are valid. `__devm_pwmchip_add` requires ops to be set.
+> +    unsafe {
+> +        let chip_ptr = chip.as_ptr();
+> +        // Assign the ops pointer directly to the C struct field
+> +        (*chip_ptr).ops = ops.as_ptr();
+> +        let parent_ptr = parent as *const CoreDevice as *mut bindings::device;
+> +        to_result(bindings::__devm_pwmchip_add(
+> +            parent_ptr,
+> +            chip_ptr,
+> +            core::ptr::null_mut()
+> +        ))
+> +    }
+> +}
+
+This won't work anymore when creating a real pwm::Chip instance, since you can't
+guarantee that the pwm::Chip still exists when devres will clean this up.
+
+If you want devres to clean this up, you should make Registration::new() return
+a Result<Devres<Registration>> instance.
+
+This way the Registration keeps a reference to the pwm::Chip (giving the
+guarantee of no potential UAF), and the Devres container ensures to drop the
+Registration when the parent device is unbound internally.
+
+If you want the exact same semantics as your current devm_chip_add(), but
+without potential UAF, there is also Devres::new_foreign_owned() [5]. This way
+Registration::new() will only return a Result.
+
+[5] https://rust.docs.kernel.org/kernel/devres/struct.Devres.html#method.new_foreign_owned
 
 _______________________________________________
 linux-riscv mailing list
