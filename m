@@ -4,94 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 54A83C54FB3
-	for <linux-riscv@archiver.kernel.org>; Sun, 25 May 2025 14:47:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6522AC54E90
+	for <linux-riscv@archiver.kernel.org>; Sun, 25 May 2025 14:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=m/maDY1cu2G69ItBHREVLZ78mOLVfmHUjO1BhWkbhmM=; b=GdZ8iXeF05H6sY
-	KuAf1b3I1qCPw9VN+UzJRyQXpCQCdIIlBFZrE2pF6MBJEPmY03URYF4FmC9G/s5uJmgm7bk+1xCnQ
-	G4eC74dyRODO45spfKWdTDisQCY7BQl0/PwaH87jaupLoTHRtpHSnfs9MvxjCQ2Jl7WIHISjL0UbZ
-	KyN3HcdL+3p+/MDhbPDPxeAFudYqxTtMUOCKwp+VIUqhPTvS6LbOXL/mFj8oXlzMDG97nASGLTM0l
-	yT02DQwYi/yQ4MH6Rbb8z0TEkp4d4u21YwLrvUg1mBQZAxHqsGZOvZE/6xmdKAoxwgKsk/Pit1/GQ
-	V6sbfzNPn6vVN93qgZZw==;
+	List-Owner; bh=Fdv9UDC5t+VgeoflHBOxeeXrk2SaNUeEU7u4Dt1xsvk=; b=nHjNuyarnmCU28
+	B5gHdM4G8oeknz2HA2g3x7D39orn2U1fHMLYcW0yPFKhZF7OdC38HDvP6kWqZLs8xZICQyy8IHakR
+	9cr7hR1wnRI6dSKKokJNZOlLtG/Pm3QwWxDxfXZcLzqmbtPTInAGtihLvlo0+8pe+5q2q4azP3b8/
+	QQwz7ArzbGb3EjF6DqztzPW/jZGryrHlOI+Tviid7m8RXDhuZ8SyfBeM2pjojs9PbAby0L/pRqnF6
+	Mchg/inapjRw+lR+5LMa0s9E9iXAq/fdNlQDnKv5FHarc5cyBCkT7sy8xkf5u7P13RusU9BRDhLWi
+	XnMKVyfgum67dCo5mVLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJCcx-00000007D2t-0DNp;
-	Sun, 25 May 2025 14:47:03 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uJCp7-00000007E4f-29N8;
+	Sun, 25 May 2025 14:59:37 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJCcv-00000007D16-0yF8
-	for linux-riscv@lists.infradead.org;
-	Sun, 25 May 2025 14:47:02 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22e09f57ed4so19037255ad.0
-        for <linux-riscv@lists.infradead.org>; Sun, 25 May 2025 07:47:00 -0700 (PDT)
+	id 1uJCp4-00000007E3s-2mMW;
+	Sun, 25 May 2025 14:59:35 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-23461842024so1084295ad.0;
+        Sun, 25 May 2025 07:59:33 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748184420; x=1748789220; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=mUBZLDan2eHNaNoZcWdVDsVnGQBcMSxMokkMwlfK4G4=;
-        b=OqwW7q9aph3P2OZ82f0Fh6Qf5bL7pFi3PVS9sTZQMdkiMuO6LbbduZ0U1j/lv8G6rC
-         DEYfP5fyanyG3xjo1i36wjIWy8sdTAUQTskp/yG91YimNFrTP5YHVDfn5O9MMn+u7Noy
-         1qFp1DGHWHYvF39DchMe+Cc1uYSNw5bm15C05ToeIRcjFyAJ4JCIu75/ceuA2mVkw/Sz
-         wyKCMyDoQQ8mUvRX3D73OmiY2xZE8MWiGD8Fvz1r1eH/Cw77X7KMYDu7yVi4U4B+8qH9
-         ub6Me4Yb1tuM4HT9HCuqTcLgHM8KsbAklC8yIYW9iKbsXF3X05z1WO0DYkp8OSezGn0E
-         AUsQ==
+        d=gmail.com; s=20230601; t=1748185173; x=1748789973; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=FJSZqhft8oN88RWw/icnXyxnygR+ybrApsl+WofewtM=;
+        b=fJuC/WYdRb7IZmbqWve11HIXz/Wpb2A/CCUJdYMsIiRkPk87kDkk46NyPt5986C0wT
+         k3NSU1W6zDzr0QFXZlP9IN8r/k5Z774pMDWt3xoHv+HJHspos63FZQyo1EUtr+6wP+cC
+         TEDeA22lg6c9FvozBtdJ/69mD3y8x3v2QEA+cPAbVT1z83edSiuKNSG+NxewzdYeI01r
+         WrKG6o8XCvJEm09bK1MLEKIfPM7bNGp5IRhsTcmCKVcHcSQ/CoERtaO4gqNjGrb3Z6ws
+         k+PdZTJ3sCm2U3lCYEYzZB1bSa4mMjufOyOykkg3jBnlZwWogWougBkvgvjFm4NEWR9q
+         QeXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748184420; x=1748789220;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1748185173; x=1748789973;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=mUBZLDan2eHNaNoZcWdVDsVnGQBcMSxMokkMwlfK4G4=;
-        b=MFVVKl23lZd+E/ugEHnvzUo1SWAt4xl/MIc8zjJ29clFnDaoLX9wvIwJxTo04s+ArF
-         0meF1vOpIS/uoYC88omKGxKH5EY+Jctls9nRQO9GRVbGpeWhx/ZVqsl0iWl0i4VuYYlo
-         bJ5BM69ndWtheNttgTF9UtFaMLnb6aTpY56SKNJ+8WelDp9CSdwBnmHjiXcs42LJkccn
-         9he1hK+x0RhX4hiKozOZhMve96szrN228BezPQ4ersFYxTk+E/xk9UmTB4QYfZIWde9Q
-         OeC7jRA1RF0AiiXUSwd5+Y6TBwT6B3qHa8bR+cJprbvJdD0p035gqX6uVylPnRtKFLI1
-         UZlg==
-X-Forwarded-Encrypted: i=1; AJvYcCXrNHjr8Z9uAq0c86mFXE8dg2++BZh6UBPRTYP6WUpXoVSk6aFHcu46+YeHqEr5E1jXo2GoDLP6x2Hmuw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy5v6pjJfB9m+XrpnRKbUgnkL39tXmz8On6hMumnkjwDMvGHXDH
-	7uWcI9VSUIYq+R3imlmxRHpk2x2wGz3z5HKDLIGLz8Gxmp3ut0ajCXJw
-X-Gm-Gg: ASbGnctDAiGXp8y7M8jGdhMqL4szaYryUZWNHgztgsisBzGo+9eDVO1rA5dj5VOy245
-	Ppy4PXysRzClhu2zL8m2h2TUQhR/qOlic3fJZxf5tHAgkSuUUA7Jf47U/kKwm7JJBxYs+mRGCUm
-	7lZNXxeceVDy70t+BdKkJxLnT6X9BO+tzbobrKrfwEveelurhsSIYixt2lm0zMZ8jujMfy1/rTk
-	6DQRqfZHlQQoNLeWI/5URZ5+uV2WEGyYcTedsMzonFCyT1rOUVA7kp1rZ2+YQugQfh87j+PBUqY
-	UYtVfy5sV7SivBgbZRV/fLChl8jOUYHqfECJJW7pLdb+PcQcsBjSTNfy
-X-Google-Smtp-Source: AGHT+IHZ4ZVvOSCTSKofCdJ6GvvfD60Ebge+g2JstzGYgmfkSNm08awAgjeBbuyIeU+QYdMtvOSe3A==
-X-Received: by 2002:a17:903:2b03:b0:234:557d:a4cb with SMTP id d9443c01a7336-234557da6f4mr15822185ad.20.1748184419704;
-        Sun, 25 May 2025 07:46:59 -0700 (PDT)
-Received: from eleanor-wkdl.. ([140.116.96.205])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2341b732b58sm25121925ad.180.2025.05.25.07.46.56
+        bh=FJSZqhft8oN88RWw/icnXyxnygR+ybrApsl+WofewtM=;
+        b=R4EvyA11D2bK3j2WdjjXr4CxUZTmzit8Uh5VMKaU1y9P78BaZWxCmWfpOkEIgqcX5U
+         JdfbQSitSJVcBY5Vj66T31pSjKjBi8kWXMfNG/+TbCkZMWnNO2rrKsL6+GKZDAFtOYRm
+         BM73inMaPLJ8lb0e15/x047OXCBv25QeABGDcSvTvEOGhEgJplX8PTOWOUtZ/ggpzxvl
+         yZjsJQm5CKcl8mOs57/+lh3q2YtOxkT5gzUouJuBFzjkncOkJMfnuDvenNOImE+3pzAu
+         czFdsfUY1brCAMyQe/xAScEv2o4Z/G0ZJIYJpEtMPJQ5BQEVTXFfLpKSzd69AwFM5xpp
+         V/RQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVhOTWHYWkXMJea6aL4Ap0tLUnI7h7xfzJx5yNdnwkW1y54a1663TWXjkjBi8RMPksfv/UjjqwGBGABvg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwukJ8FzlV6k+yCKy1D70boCn6aweb0jzbb7VOwfNW94hUjV/Sb
+	udKyv+blowPSscQ5WB+WdOABynO4RBdNt8d6VO1yi2e5bTo/N3LGREZE
+X-Gm-Gg: ASbGncv098LYfV/KNH5/sT8VXe+xCw+OXXzxxk+qoYwOmBr0tknOH+SwvtC+9FRAprU
+	tLqilyCtuf13boJuqYtqX5upQQxhQ9rAF0QCW8edhkMVvCQzP9YzZ88OEVuLbqtvjlckdjAcyJI
+	UO15nAFoYowdXSObeodv6RDoUjiZQyewyicRcLdTmuOeA1Lql3s27SqJ7ELhuoes238ASw+8k3v
+	clvkdJ23/xziiekIvKAR5PaK84kkgMQvq4rS+nhWESUXm+QXj1FdvD3v0ApijNjkuTFIr9vM0iJ
+	AX6Br2O4Ene/espzMO4AVWOpETLvhSc+AJSf8FenoDFu+AxwD42kYA==
+X-Google-Smtp-Source: AGHT+IGMA891Z9QcMnUNy37nLhB0qBQRarrDsxvWe011CA95ftR2WVjmKQaGn9yEpFYZJ8bwv7RwvQ==
+X-Received: by 2002:a17:903:32c3:b0:220:c34c:5760 with SMTP id d9443c01a7336-23414fd3f1fmr80933825ad.51.1748185172627;
+        Sun, 25 May 2025 07:59:32 -0700 (PDT)
+Received: from [127.0.0.1] ([2001:250:5800:1000::3fc8])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2343f8e2fbesm12204845ad.250.2025.05.25.07.59.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 25 May 2025 07:46:59 -0700 (PDT)
-From: Yu-Chun Lin <eleanor15x@gmail.com>
-To: thierry.reding@gmail.com,
-	mperttunen@nvidia.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	jonathanh@nvidia.com,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu,
-	alex@ghiti.fr
-Cc: dri-devel@lists.freedesktop.org,
-	linux-tegra@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	jserv@ccns.ncku.edu.tw,
-	visitorckw@gmail.com,
-	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH] drm: tegra: Fix undefined behavior in left shift operation
-Date: Sun, 25 May 2025 22:46:50 +0800
-Message-ID: <20250525144650.2365704-1-eleanor15x@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sun, 25 May 2025 07:59:32 -0700 (PDT)
+From: Zixian Zeng <sycamoremoon376@gmail.com>
+Subject: [PATCH v2 0/3] spi: sophgo: Add SPI NOR controller for SG2042
+Date: Sun, 25 May 2025 22:58:40 +0800
+Message-Id: <20250525-sfg-spifmc-v2-0-a3732b6f5ab4@gmail.com>
 MIME-Version: 1.0
+X-B4-Tracking: v=1; b=H4sIACAwM2gC/23MywrDIBCF4VcJs+4UNZdiV3mPkoWY0QzUJGiRl
+ uC712bd5X/gfAckikwJ7s0BkTIn3tYa6tKAXczqCXmuDUqoXvSqxeQ8pp1dsHgzWgqlBemhg3r
+ YIzl+n9hjqr1wem3xc9pZ/ta/TJYosLNODta1blZm9MHw82q3AFMp5Qsn912RpAAAAA==
+X-Change-ID: 20250523-sfg-spifmc-7a910290e964
+To: Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Pratyush Yadav <pratyush@kernel.org>, Michael Walle <mwalle@kernel.org>, 
+ Miquel Raynal <miquel.raynal@bootlin.com>, 
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
+ Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Longbin Li <looong.bin@gmail.com>
+Cc: linux-mtd@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ sophgo@lists.linux.dev, linux-spi@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ Zixian Zeng <sycamoremoon376@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748185167; l=1277;
+ i=sycamoremoon376@gmail.com; s=20250113; h=from:subject:message-id;
+ bh=5Rf+XH7wYeHA/1Ip4R0wdkjAiYWlYPDMcrHiaZwX1Ls=;
+ b=w3J+SqKPY7joyY5psDMZB+uFx1T6KaYC9OLGQsA2Thu53R2RBdIYrBT7sOAQn4ef7ZzEtCD6V
+ eLvSJDWaMGPAXW6EgcdiNWwkHqxEtfQ79HoahVSQP1t4TRogUPsN1fz
+X-Developer-Key: i=sycamoremoon376@gmail.com; a=ed25519;
+ pk=OYfH6Z2Nx3aU1r0UZdvhskmddV6KC6V1nyFjsQQt4J8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250525_074701_272835_C670BECB 
-X-CRM114-Status: GOOD (  11.07  )
+X-CRM114-CacheID: sfid-20250525_075934_702747_CF9AE682 
+X-CRM114-Status: UNSURE (   7.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,195 +118,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-According to the C11 standard (ISO/IEC 9899:2011, 6.5.7):
-"If E1 has a signed type and E1 x 2^E2 is not representable in the result
-type, the behavior is undefined."
+Add support SPI NOR flash memory controller for SG2042, using upstreamed
+SG2044 SPI NOR driver.
 
-Shifting 1 << 31 causes signed integer overflow, which leads to undefined
-behavior.
+Tested on SG2042 Pioneer Box, read, write operations.
 
-Fix this by explicitly using 'BIT(31)' to ensure the shift operates on an
-unsigned type, avoiding undefined behavior.
-
-Signed-off-by: Yu-Chun Lin <eleanor15x@gmail.com>
+Signed-off-by: Zixian Zeng <sycamoremoon376@gmail.com>
 ---
-Compile test only
+Changes in v2:
+- patch1: Accept devicetree nodes whose compatible contains only
+  "sophgo,sg2044-spifmc-nor" to avoid breaking existing devicetrees.
+- patch1: Improve the commit subject message.
+- patch2: Dump the SFDP information to commit message.
+- Link to v1: https://lore.kernel.org/r/20250523-sfg-spifmc-v1-0-4cf16cf3fd2a@gmail.com
 
- drivers/gpu/drm/tegra/dc.c    |  2 +-
- drivers/gpu/drm/tegra/hdmi.c  |  8 ++++----
- drivers/gpu/drm/tegra/hdmi.h  |  8 ++++----
- drivers/gpu/drm/tegra/riscv.c |  2 +-
- drivers/gpu/drm/tegra/sor.h   | 14 +++++++-------
- 5 files changed, 17 insertions(+), 17 deletions(-)
+---
+Zixian Zeng (3):
+      spi: dt-bindings: spi-sg2044-nor: Add SOPHGO SG2042
+      mtd: spi-nor: Add GD25LB512ME GigaDevice flash_info
+      riscv: dts: sophgo: Add SPI NOR node for SG2042
 
-diff --git a/drivers/gpu/drm/tegra/dc.c b/drivers/gpu/drm/tegra/dc.c
-index 430b2eededb2..3047a380bb83 100644
---- a/drivers/gpu/drm/tegra/dc.c
-+++ b/drivers/gpu/drm/tegra/dc.c
-@@ -2171,7 +2171,7 @@ static void tegra_crtc_atomic_enable(struct drm_crtc *crtc,
- 		u32 syncpt = host1x_syncpt_id(dc->syncpt), enable;
- 
- 		if (dc->soc->has_nvdisplay)
--			enable = 1 << 31;
-+			enable = BIT(31);
- 		else
- 			enable = 1 << 8;
- 
-diff --git a/drivers/gpu/drm/tegra/hdmi.c b/drivers/gpu/drm/tegra/hdmi.c
-index e705f8590c13..524b46a297be 100644
---- a/drivers/gpu/drm/tegra/hdmi.c
-+++ b/drivers/gpu/drm/tegra/hdmi.c
-@@ -1719,7 +1719,7 @@ static const struct tegra_hdmi_config tegra20_hdmi_config = {
- 	.tmds = tegra20_tmds_config,
- 	.num_tmds = ARRAY_SIZE(tegra20_tmds_config),
- 	.fuse_override_offset = HDMI_NV_PDISP_SOR_LANE_DRIVE_CURRENT,
--	.fuse_override_value = 1 << 31,
-+	.fuse_override_value = BIT(31),
- 	.has_sor_io_peak_current = false,
- 	.has_hda = false,
- 	.has_hbr = false,
-@@ -1729,7 +1729,7 @@ static const struct tegra_hdmi_config tegra30_hdmi_config = {
- 	.tmds = tegra30_tmds_config,
- 	.num_tmds = ARRAY_SIZE(tegra30_tmds_config),
- 	.fuse_override_offset = HDMI_NV_PDISP_SOR_LANE_DRIVE_CURRENT,
--	.fuse_override_value = 1 << 31,
-+	.fuse_override_value = BIT(31),
- 	.has_sor_io_peak_current = false,
- 	.has_hda = true,
- 	.has_hbr = false,
-@@ -1739,7 +1739,7 @@ static const struct tegra_hdmi_config tegra114_hdmi_config = {
- 	.tmds = tegra114_tmds_config,
- 	.num_tmds = ARRAY_SIZE(tegra114_tmds_config),
- 	.fuse_override_offset = HDMI_NV_PDISP_SOR_PAD_CTLS0,
--	.fuse_override_value = 1 << 31,
-+	.fuse_override_value = BIT(31),
- 	.has_sor_io_peak_current = true,
- 	.has_hda = true,
- 	.has_hbr = true,
-@@ -1749,7 +1749,7 @@ static const struct tegra_hdmi_config tegra124_hdmi_config = {
- 	.tmds = tegra124_tmds_config,
- 	.num_tmds = ARRAY_SIZE(tegra124_tmds_config),
- 	.fuse_override_offset = HDMI_NV_PDISP_SOR_PAD_CTLS0,
--	.fuse_override_value = 1 << 31,
-+	.fuse_override_value = BIT(31),
- 	.has_sor_io_peak_current = true,
- 	.has_hda = true,
- 	.has_hbr = true,
-diff --git a/drivers/gpu/drm/tegra/hdmi.h b/drivers/gpu/drm/tegra/hdmi.h
-index 8deb04223c18..57727703779b 100644
---- a/drivers/gpu/drm/tegra/hdmi.h
-+++ b/drivers/gpu/drm/tegra/hdmi.h
-@@ -119,7 +119,7 @@
- 
- #define ACR_SUBPACK_CTS(x) (((x) & 0xffffff) << 8)
- #define ACR_SUBPACK_N(x)   (((x) & 0xffffff) << 0)
--#define ACR_ENABLE         (1 << 31)
-+#define ACR_ENABLE         BIT(31)
- 
- #define HDMI_NV_PDISP_HDMI_CTRL					0x44
- #define HDMI_CTRL_REKEY(x)         (((x) & 0x7f) <<  0)
-@@ -130,7 +130,7 @@
- #define HDMI_NV_PDISP_HDMI_VSYNC_WINDOW				0x46
- #define VSYNC_WINDOW_END(x)   (((x) & 0x3ff) <<  0)
- #define VSYNC_WINDOW_START(x) (((x) & 0x3ff) << 16)
--#define VSYNC_WINDOW_ENABLE   (1 << 31)
-+#define VSYNC_WINDOW_ENABLE   BIT(31)
- 
- #define HDMI_NV_PDISP_HDMI_GCP_CTRL				0x47
- #define HDMI_NV_PDISP_HDMI_GCP_STATUS				0x48
-@@ -158,8 +158,8 @@
- #define SOR_PWR_SAFE_STATE_PD       (0 << 16)
- #define SOR_PWR_SAFE_STATE_PU       (1 << 16)
- #define SOR_PWR_SETTING_NEW_DONE    (0 << 31)
--#define SOR_PWR_SETTING_NEW_PENDING (1 << 31)
--#define SOR_PWR_SETTING_NEW_TRIGGER (1 << 31)
-+#define SOR_PWR_SETTING_NEW_PENDING BIT(31)
-+#define SOR_PWR_SETTING_NEW_TRIGGER BIT(31)
- 
- #define HDMI_NV_PDISP_SOR_TEST					0x56
- #define HDMI_NV_PDISP_SOR_PLL0					0x57
-diff --git a/drivers/gpu/drm/tegra/riscv.c b/drivers/gpu/drm/tegra/riscv.c
-index 6580416408f8..a5941239b194 100644
---- a/drivers/gpu/drm/tegra/riscv.c
-+++ b/drivers/gpu/drm/tegra/riscv.c
-@@ -19,7 +19,7 @@
- #define RISCV_BCR_CTRL_CORE_SELECT_RISCV		(1 << 4)
- #define RISCV_BCR_DMACFG				0x466c
- #define RISCV_BCR_DMACFG_TARGET_LOCAL_FB		(0 << 0)
--#define RISCV_BCR_DMACFG_LOCK_LOCKED			(1 << 31)
-+#define RISCV_BCR_DMACFG_LOCK_LOCKED			BIT(31)
- #define RISCV_BCR_DMAADDR_PKCPARAM_LO			0x4670
- #define RISCV_BCR_DMAADDR_PKCPARAM_HI			0x4674
- #define RISCV_BCR_DMAADDR_FMCCODE_LO			0x4678
-diff --git a/drivers/gpu/drm/tegra/sor.h b/drivers/gpu/drm/tegra/sor.h
-index 00e09d5dca30..4f404f22dd04 100644
---- a/drivers/gpu/drm/tegra/sor.h
-+++ b/drivers/gpu/drm/tegra/sor.h
-@@ -74,7 +74,7 @@
- #define SOR_CAP 0x14
- 
- #define SOR_PWR 0x15
--#define  SOR_PWR_TRIGGER			(1 << 31)
-+#define  SOR_PWR_TRIGGER			BIT(31)
- #define  SOR_PWR_MODE_SAFE			(1 << 28)
- #define  SOR_PWR_NORMAL_STATE_PU		(1 << 0)
- 
-@@ -154,7 +154,7 @@
- #define  SOR_SEQ_CTL_PU_PC(x)		(((x) & 0xf) <<  0)
- 
- #define SOR_LANE_SEQ_CTL 0x21
--#define  SOR_LANE_SEQ_CTL_TRIGGER		(1 << 31)
-+#define  SOR_LANE_SEQ_CTL_TRIGGER		BIT(31)
- #define  SOR_LANE_SEQ_CTL_STATE_BUSY		(1 << 28)
- #define  SOR_LANE_SEQ_CTL_SEQUENCE_UP		(0 << 20)
- #define  SOR_LANE_SEQ_CTL_SEQUENCE_DOWN		(1 << 20)
-@@ -163,7 +163,7 @@
- #define  SOR_LANE_SEQ_CTL_DELAY(x)		(((x) & 0xf) << 12)
- 
- #define SOR_SEQ_INST(x) (0x22 + (x))
--#define  SOR_SEQ_INST_PLL_PULLDOWN (1 << 31)
-+#define  SOR_SEQ_INST_PLL_PULLDOWN BIT(31)
- #define  SOR_SEQ_INST_POWERDOWN_MACRO (1 << 30)
- #define  SOR_SEQ_INST_ASSERT_PLL_RESET (1 << 29)
- #define  SOR_SEQ_INST_BLANK_V (1 << 28)
-@@ -192,7 +192,7 @@
- #define  SOR_PWM_DIV_MASK			0xffffff
- 
- #define SOR_PWM_CTL 0x33
--#define  SOR_PWM_CTL_TRIGGER			(1 << 31)
-+#define  SOR_PWM_CTL_TRIGGER			BIT(31)
- #define  SOR_PWM_CTL_CLK_SEL			(1 << 30)
- #define  SOR_PWM_CTL_DUTY_CYCLE_MASK		0xffffff
- 
-@@ -261,7 +261,7 @@
- #define  SOR_LANE_POSTCURSOR_LANE0(x) (((x) & 0xff) << 0)
- 
- #define SOR_DP_CONFIG0 0x58
--#define SOR_DP_CONFIG_DISPARITY_NEGATIVE	(1 << 31)
-+#define SOR_DP_CONFIG_DISPARITY_NEGATIVE	BIT(31)
- #define SOR_DP_CONFIG_ACTIVE_SYM_ENABLE		(1 << 26)
- #define SOR_DP_CONFIG_ACTIVE_SYM_POLARITY	(1 << 24)
- #define SOR_DP_CONFIG_ACTIVE_SYM_FRAC_MASK	(0xf << 16)
-@@ -370,7 +370,7 @@
- #define  SOR_HDMI_ACR_SUBPACK_LOW_SB1(x) (((x) & 0xff) << 24)
- 
- #define SOR_HDMI_ACR_0320_SUBPACK_HIGH 0xb3
--#define  SOR_HDMI_ACR_SUBPACK_HIGH_ENABLE (1 << 31)
-+#define  SOR_HDMI_ACR_SUBPACK_HIGH_ENABLE BIT(31)
- 
- #define SOR_HDMI_ACR_0441_SUBPACK_LOW 0xb4
- #define SOR_HDMI_ACR_0441_SUBPACK_HIGH 0xb5
-@@ -382,7 +382,7 @@
- #define  SOR_HDMI_CTRL_REKEY(x) (((x) & 0x7f) << 0)
- 
- #define SOR_HDMI_SPARE 0xcb
--#define  SOR_HDMI_SPARE_ACR_PRIORITY_HIGH (1 << 31)
-+#define  SOR_HDMI_SPARE_ACR_PRIORITY_HIGH BIT(31)
- #define  SOR_HDMI_SPARE_CTS_RESET(x) (((x) & 0x7) << 16)
- #define  SOR_HDMI_SPARE_HW_CTS_ENABLE (1 << 0)
- 
+ .../devicetree/bindings/spi/spi-sg2044-nor.yaml    |  7 ++++++-
+ .../riscv/boot/dts/sophgo/sg2042-milkv-pioneer.dts | 18 ++++++++++++++++
+ arch/riscv/boot/dts/sophgo/sg2042.dtsi             | 24 ++++++++++++++++++++++
+ drivers/mtd/spi-nor/gigadevice.c                   | 17 +++++++++++++++
+ 4 files changed, 65 insertions(+), 1 deletion(-)
+---
+base-commit: bd8ad2bcb8ff8e7af8d35273a8194104ca9ba5c0
+change-id: 20250523-sfg-spifmc-7a910290e964
+
+Best regards,
 -- 
-2.43.0
+Zixian Zeng <sycamoremoon376@gmail.com>
 
 
 _______________________________________________
