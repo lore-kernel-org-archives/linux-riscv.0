@@ -4,42 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04D3DC54FB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 14:40:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91980C54FB3
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 14:40:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
-	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=OevERVrECY1d+VcnMwVF6Kib5rLDY3dyP+XqoZDuD1o=; b=fh1cOi67hs80y8
-	K485QCDbZtvKBqFvGTNo82BERj2zw6CKDgwANIYEmKnl/J03cbW83PpSAs0Dl9Mu7tBZrnrL0+aRE
-	AfRLfaVEd3uhnwVLgvzH7zFqGZF2G+eDQgyApqCn5FewG2mA4BUueLmHtMNFOdj7TYniO95l8yCET
-	zBvVoiNIomVrvDsbqfb3UfAIMyz4lhoGZNmJK8MRSu+H1wvxqnrd/lsQorPGAP9mTPQF5Z6MlglRF
-	XPq+pdAMY6X69o0pJhkWEUkJ6M5K6pq4rFAR5PwMeAZ6+Ax96pkSglPves2mtElhHfzsKJd5j8lwL
-	b+gy/oFm0Icov7blcdzw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=irN0Fm1eyWnUplOlx1Aum7DCqcQM/AhPWZCSm5Ynyss=; b=YNuZE8sHM7zFJm
+	l7ZxhJoeLiYNLw6ueoz3aRDdHBxtqcFYMsH7mIWag/MSATMMyCAjSDei8Y7x8WVTPmFekmTtWc+a1
+	HpYGB3MZZ1rUuKvPPhxLkzTr/yp4jykHgADeD3pjY6gWSzfcN9AomcX88/vI5Z0VZliskznLcjBWn
+	gU/QeBdta6Wl4EYhftD4KNtXTTtFMxOb3lxJPxQJtK48GSQvT0yTK9MO7rzratbcGbSrLpclgyRZf
+	eiKPWQDjyB+flY+PkjIQfaUd5sZQA0JeAUaR+1hNrxVDWKCpLh31dUpET939azLgE3x1dwdxiDhgT
+	SBjrBla+5YQk7BrP6RmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJZ0F-000000093Fb-3Qg1;
-	Mon, 26 May 2025 14:40:35 +0000
+	id 1uJZ0M-000000093I5-1gws;
+	Mon, 26 May 2025 14:40:42 +0000
 Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJZ0C-000000093Dv-1zuH
+	id 1uJZ0J-000000093GL-2t6H
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 May 2025 14:40:33 +0000
+	Mon, 26 May 2025 14:40:41 +0000
 Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-3-entmail-virt135.gy.ntes [27.18.99.37])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 16709a31a;
-	Mon, 26 May 2025 22:40:23 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id 16709a323;
+	Mon, 26 May 2025 22:40:30 +0800 (GMT+08:00)
 From: Ze Huang <huangze@whut.edu.cn>
-Subject: [PATCH v4 0/4] Add SpacemiT K1 USB3.0 host controller support
-Date: Mon, 26 May 2025 22:40:16 +0800
-Message-Id: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
+Date: Mon, 26 May 2025 22:40:17 +0800
+Subject: [PATCH v4 1/4] dt-bindings: usb: dwc3: add support for SpacemiT K1
 MIME-Version: 1.0
-X-B4-Tracking: v=1; b=H4sIAFB9NGgC/12OQW6DMBBFr4JmXUfGGI/JKveoshjbQ7GqQGIDa
- RVx9zokq0qzeSP9p/eAzClyhmP1gMRrzHEaC+iPCvxA4xeLGAqDkqqVbY3CafFdi3D3jVgb0Sp
- pSUqFyhKUzTVxH3923+f5xYlvS9HOryc4yiz8dLnE+ViRM8F3ZDyq2ivmYA36ukWtEY0mNrbvO
- 4cMT9cQ8zyl3z11bXbZu8r+qyonBRrZeeuIFJnTfVjmA4fl4Ec4b9v2B7jy5tz4AAAA
-X-Change-ID: 20250517-b4-k1-dwc3-v3-5208a002728a
+Message-Id: <20250526-b4-k1-dwc3-v3-v4-1-63e4e525e5cb@whut.edu.cn>
+References: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
+In-Reply-To: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
@@ -52,24 +49,24 @@ Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
  linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1748270423; l=3206;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748270423; l=3650;
  i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
- bh=UwYs87yRsBWeAWhjsFHInESFLeGByLOKRNJA8pL/8tA=;
- b=VKhvsm5zyaoz+pOknrfYlyH+CSJHZUmJn4KRjwnhQm3gtswdUiMWtwRYa/PZcZFjqn0ibmCn1
- FMAG47sUzAHBen03n+EY+t1jemAzpmRu1L+H+tXCEDv1enfjEuAIhCZ
+ bh=bwc4ehrUUb5yMr61UXhl319IcCCrFAV6pb82Pcs8dqI=;
+ b=4WUvEDLz9hoMoYvR0A1q4dM0FNou2Q5lu6Ek6vmgD1+ATlDBk7yfp6NCgACDGnB60kk7VvTRG
+ eaVF9rrPeW1Cq09qfQ6iamBFp4Q5HTDKSZKZ8w7Xk2le1X3N/dTs4ZM
 X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
  pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZHkwfVh5OTkhOGENLTxkeGVYeHw5VEwETFhoSFy
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZH0gaVktCTUlPGR0eQkJLTVYeHw5VEwETFhoSFy
 	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVITFlXWRYaDxIVHRRZQVlPS0hVSktJQk1KSlVKS0tVS1kG
-X-HM-Tid: 0a970d099e7703a1kunm5f56ec4c12d97
+X-HM-Tid: 0a970d09b8fc03a1kunm5f56ec4c12e05
 X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PyI6KQw4GjE*TQwsGisLFQMv
-	AjEKFBVVSlVKTE9DSUxLT0hLSkNMVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKQ1VCQlVITFlXWQgBWUFPQkhNNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MTI6GDo4TzE3PgwWGisYFDk2
+	PzgwChZVSlVKTE9DSUxLT0hNQ0tLVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VCQlVITFlXWQgBWUFOSkxPNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_074032_738709_4EB04BCA 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250526_074040_037211_1CE46D07 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,66 +78,149 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIFVTQiAzLjAgY29udHJvbGxlciBmb3VuZCBpbiB0aGUgU3BhY2VtaVQgSzEgU29DWzFdIHN1
-cHBvcnRzIGJvdGggVVNCMy4wCkhvc3QgYW5kIFVTQjIuMCBEdWFsLVJvbGUgRGV2aWNlIChEUkQp
-LiBUaGUgUEhZIGludGVyZmFjZXMgcmVxdWlyZWQgZm9yIHRoZQpLMSBVU0Igc3Vic3lzdGVtIOKA
-lCBQSVBFMyAoZm9yIFVTQiAzLjApIGFuZCBVVE1JKyAoZm9yIFVTQiAyLjApIOKAlCBoYXZlCmFs
-cmVhZHkgYmVlbiBzdXBwb3J0ZWQgaW4gYSBzZXBhcmF0ZSBwYXRjaHNldCBbMl0uCgpUaGlzIGNv
-bnRyb2xsZXIgaXMgY29tcGF0aWJsZSB3aXRoIERlc2lnbldhcmUgQ29yZSBVU0IgMyAoRFdDMykg
-ZHJpdmVyLgpIb3dldmVyLCBjb25zdHJhaW50cyBpbiB0aGUgc25wcyxkd2MzIGJpbmRpbmcgbGlt
-aXQgdGhlIGFiaWxpdHkgdG8gZXh0ZW5kCnByb3BlcnRpZXMgdG8gZGVzY3JpYmUgaGFyZHdhcmUg
-dmFyaWF0aW9ucy4gVGhlIGV4aXN0aW5nIGdlbmVyaWMgRFdDMyBkcml2ZXIsCmR3YzMtb2Ytc2lt
-cGxlLCBzdGlsbCBmdW5jdGlvbnMgYXMgYSBnbHVlIGxheWVyLgoKVG8gYWRkcmVzcyB0aGlzIGFu
-ZCBwcm9tb3RlIHRyYXNpdGlvbiB0byBmbGF0dGVuZWQgZHdjIG5vZGUsIHRoaXMgcGF0Y2gKaW50
-cm9kdWNlcyBkd2MzLWNvbW1vbiwgYnVpbGRpbmcgdXBvbiBwcmlvciB3b3JrIHRoYXQgZXhwb3Nl
-ZCB0aGUgRFdDMyBjb3JlCmRyaXZlciBbM10uCgpUaGlzIHBhdGNoc2V0IGlzIGJhc2VkIG9uIHVz
-Yi1uZXh0ICg2LjE1LXJjNikgYW5kIGhhcyBiZWVuIHRlc3RlZCBvbiBCYW5hbmFQaSBhbmQgSnVw
-aXRlciBkZXZlbG9wbWVudCBib2FyZHMuCgpMaW5rOiBodHRwczovL2RldmVsb3Blci5zcGFjZW1p
-dC5jb20vZG9jdW1lbnRhdGlvbj90b2tlbj1BakhEd3JXNzhpZ0FBRWtpSHJhY0JJOUhuVGIgWzFd
-Ckxpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjUwNDE4LWI0LWsx
-LXVzYjMtcGh5LXYyLXYyLTAtYjY5ZTAyZGE4NGViQHdodXQuZWR1LmNuIFsyXQpMaW5rOiBodHRw
-czovL2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTA0MTQtZHdjMy1yZWZhY3Rvci12Ny0zLWYwMTVi
-MzU4NzIyZEBvc3MucXVhbGNvbW0uY29tIFszXQoKU2lnbmVkLW9mZi1ieTogWmUgSHVhbmcgPGh1
-YW5nemVAd2h1dC5lZHUuY24+Ci0tLQpDaGFuZ2VzIGluIHY0OgotIGR0LWJpbmRpbmdzIHNwYWNl
-bWl0LGsxLWR3YzoKICAtIHJlb3JkZXIgcHJvcGVydGllcwogIC0gYWRkIHByb3BlcnRpZXMgb2Yg
-cGh5cyAmIHBoeS1uYW1lcwogIC0gYWRkIHVzYiBodWIgbm9kZXMgaW4gZXhhbXBsZSBkdAotIGFk
-ZCBzdXBwb3J0IGZvciBzcGFjZW1pdCxrMS1tYnVzCi0gZHdjMyBnZW5lcmljIHBsYXQgZHJpdmVy
-OgogIC0gcmVuYW1lIGR3YzMtY29tbW9uLmMgdG8gZHdjMy1nZW5lcmljLXBsYXQuYwogIC0gdXNl
-IFNZU1RFTV9TTEVFUF9QTV9PUFMgbWFjcm9zIGFuZCBkcm9wIFBNIGd1YXJkcwotIGR0czoKICAt
-IHJlb3JkZXIgZHRzIHByb3BlcnRpZXMgb2YgdXNiIGR3YzMgbm9kZQogIC0gbW92ZSAiZHJfbW9k
-ZSIgb2YgZHdjMyBmcm9tIGR0c2kgdG8gZHRzCi0gTGluayB0byB2MzogaHR0cHM6Ly9sb3JlLmtl
-cm5lbC5vcmcvci8yMDI1MDUxOC1iNC1rMS1kd2MzLXYzLXYzLTAtNzYwOWM4YmFhMmE2QHdodXQu
-ZWR1LmNuCgpDaGFuZ2VzIGluIHYzOgotIGludHJvZHVjZSBkd2MzLWNvbW1vbiBmb3IgZ2VuZXJp
-YyBkd2MzIGhhcmR3YXJlCi0gZml4IHdhcm5pbmdzIGluIHVzYiBob3N0IGR0LWJpbmRpbmdzCi0g
-Zml4IGVycm9ycyBpbiBkdHMKLSBMaW5rIHRvIHYyOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9y
-LzIwMjUwNDI4LWI0LWsxLWR3YzMtdjItdjEtMC03Y2IwNjFhYmQ2MTlAd2h1dC5lZHUuY24KCkNo
-YW5nZXMgaW4gdjI6Ci0gZHQtYmluZGluZ3M6CiAgLSBhZGQgbWlzc2luZyAnbWF4SXRlbXMnCiAg
-LSByZW1vdmUgJ3N0YXR1cycgcHJvcGVydHkgaW4gZXhtYXBsZQogIC0gZm9sZCBkd2MzIG5vZGUg
-aW50byBwYXJlbnQKLSBkcm9wIGR3YzMgZ2x1ZSBkcml2ZXIgYW5kIHVzZSBzbnBzLGR3YzMgZHJp
-dmVyIGRpcmVjdGx5Ci0gcmVuYW1lIGR0cyBub2RlcyBhbmQgcmVvcmRlciBwcm9wZXJ0aWVzIHRv
-IGZpdCBjb2Rpbmcgc3R5bGUKLSBMaW5rIHRvIHYxOiBodHRwczovL2xvcmUua2VybmVsLm9yZy9h
-bGwvMjAyNTA0MDctYjQtazEtdXNiMy12My0yLXYxLTAtYmYwYmNjNDFjOWJhQHdodXQuZWR1LmNu
-CgotLS0KWmUgSHVhbmcgKDQpOgogICAgICBkdC1iaW5kaW5nczogdXNiOiBkd2MzOiBhZGQgc3Vw
-cG9ydCBmb3IgU3BhY2VtaVQgSzEKICAgICAgZHQtYmluZGluZ3M6IHNvYzogc3BhY2VtaXQ6IEFk
-ZCBLMSBNQlVTIGNvbnRyb2xsZXIKICAgICAgdXNiOiBkd2MzOiBhZGQgZ2VuZXJpYyBkcml2ZXIg
-dG8gc3VwcG9ydCBmbGF0dGVuZWQgRFQKICAgICAgcmlzY3Y6IGR0czogc3BhY2VtaXQ6IGFkZCB1
-c2IzLjAgc3VwcG9ydCBmb3IgSzEKCiAuLi4vYmluZGluZ3Mvc29jL3NwYWNlbWl0L3NwYWNlbWl0
-LGsxLW1idXMueWFtbCAgICB8ICA1NSArKysrKysKIC4uLi9kZXZpY2V0cmVlL2JpbmRpbmdzL3Vz
-Yi9zcGFjZW1pdCxrMS1kd2MzLnlhbWwgIHwgMTE2ICsrKysrKysrKysrKysKIGFyY2gvcmlzY3Yv
-Ym9vdC9kdHMvc3BhY2VtaXQvazEtYmFuYW5hcGktZjMuZHRzICAgIHwgIDUxICsrKysrKwogYXJj
-aC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS5kdHNpICAgICAgICAgICAgICAgfCAgNjcgKysr
-KysrKysKIGRyaXZlcnMvdXNiL2R3YzMvS2NvbmZpZyAgICAgICAgICAgICAgICAgICAgICAgICAg
-IHwgICA5ICsKIGRyaXZlcnMvdXNiL2R3YzMvTWFrZWZpbGUgICAgICAgICAgICAgICAgICAgICAg
-ICAgIHwgICAxICsKIGRyaXZlcnMvdXNiL2R3YzMvZHdjMy1nZW5lcmljLXBsYXQuYyAgICAgICAg
-ICAgICAgIHwgMTg5ICsrKysrKysrKysrKysrKysrKysrKwogNyBmaWxlcyBjaGFuZ2VkLCA0ODgg
-aW5zZXJ0aW9ucygrKQotLS0KYmFzZS1jb21taXQ6IGFiNmRjOWE2YzcyMWMyZWVkODY3YzE1NzQ0
-Nzc2NGFlNjhmZjliN2UKY2hhbmdlLWlkOiAyMDI1MDUxNy1iNC1rMS1kd2MzLXYzLTUyMDhhMDAy
-NzI4YQoKQmVzdCByZWdhcmRzLAotLSAKWmUgSHVhbmcgPGh1YW5nemVAd2h1dC5lZHUuY24+CgoK
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlz
-Y3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xp
-c3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
+Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
+in the SpacemiT K1 SoC. The controller is based on the Synopsys
+DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
+DRD mode.
+
+Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+---
+ .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 116 +++++++++++++++++++++
+ 1 file changed, 116 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..bba3fc1c020500383b1256a97648be3f626c7602
+--- /dev/null
++++ b/Documentation/devicetree/bindings/usb/spacemit,k1-dwc3.yaml
+@@ -0,0 +1,116 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/usb/spacemit,k1-dwc3.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: SpacemiT K1 SuperSpeed DWC3 USB SoC Controller
++
++maintainers:
++  - Ze Huang <huangze9015@gmail.com>
++
++description: |
++  The SpacemiT K1 embeds a DWC3 USB IP Core which supports Host functions
++  for USB 3.0 and DRD for USB 2.0.
++
++  Key features:
++  - USB3.0 SuperSpeed and USB2.0 High/Full/Low-Speed support
++  - Supports low-power modes (USB2.0 suspend, USB3.0 U1/U2/U3)
++  - Internal DMA controller and flexible endpoint FIFO sizing
++
++  Communication Interface:
++  - Use of PIPE3 (125MHz) interface for USB3.0 PHY
++  - Use of UTMI+ (30/60MHz) interface for USB2.0 PHY
++
++allOf:
++  - $ref: snps,dwc3-common.yaml#
++
++properties:
++  compatible:
++    const: spacemit,k1-dwc3
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  clock-names:
++    const: usbdrd30
++
++  interconnects:
++    maxItems: 1
++    description:
++      On SpacemiT K1, USB performs DMA through bus other than parent DT node.
++      The 'interconnects' property explicitly describes this path, ensuring
++      correct address translation.
++
++  interconnect-names:
++    const: dma-mem
++
++  interrupts:
++    maxItems: 1
++
++  phys:
++    items:
++      - description: phandle to USB2/HS PHY
++      - description: phandle to USB3/SS PHY
++
++  phy-names:
++    items:
++      - const: usb2-phy
++      - const: usb3-phy
++
++  resets:
++    maxItems: 1
++
++  vbus-supply:
++    description: A phandle to the regulator supplying the VBUS voltage.
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - clock-names
++  - interconnects
++  - interconnect-names
++  - interrupts
++  - phys
++  - phy-names
++  - resets
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    usb@c0a00000 {
++        compatible = "spacemit,k1-dwc3";
++        reg = <0xc0a00000 0x10000>;
++        clocks = <&syscon_apmu 16>;
++        clock-names = "usbdrd30";
++        interconnects = <&mbus0>;
++        interconnect-names = "dma-mem";
++        interrupts = <125>;
++        phys = <&usb2phy>, <&usb3phy>;
++        phy-names = "usb2-phy", "usb3-phy";
++        resets = <&syscon_apmu 8>;
++        vbus-supply = <&usb3_vbus>;
++        #address-cells = <1>;
++        #size-cells = <0>;
++
++        hub_2_0: hub@1 {
++            compatible = "usb2109,2817";
++            reg = <1>;
++            vdd-supply = <&usb3_vhub>;
++            peer-hub = <&hub_3_0>;
++            reset-gpios = <&gpio 3 28 1>;
++        };
++
++        hub_3_0: hub@2 {
++            compatible = "usb2109,817";
++            reg = <2>;
++            vdd-supply = <&usb3_vhub>;
++            peer-hub = <&hub_2_0>;
++            reset-gpios = <&gpio 3 28 1>;
++        };
++    };
+
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
