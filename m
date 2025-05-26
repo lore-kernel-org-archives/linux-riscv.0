@@ -4,84 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBCEDC5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 08:25:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03038C54FB3
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 08:41:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QU/JGShLaAPnrN2T4IttmvaZQkemXkTRvVNS3HC0r64=; b=baCQ/PAgL6410Y
-	hdUtG4WuU45oN9qhGc/+ejUjhk6VmtzDuQoHKmg4m/H1ujYCJhk38PC1Z7xrJWlPKYYU+p6MVKjie
-	3mmV6P9Ho5uk5UrnnrYWo4UJOyp1oQ5uUD+UHVOCMpNiyyRY/TWqHNs/ZrCSeAs9zDYnoEuzObTeF
-	g0bvwFrplZZippuq/lMLnLX3ic63cRiFDwagLN8l1DcWkn6x2s3cerjMdqbOmJGKYcjS7KtuFGSb2
-	Ya+hA4S/sV7Ve/4QIzST16YyQ6+Op7QOzQTh1S/pmzFxuPwQ7Jdg1bDrrO4eWAWNStmGh7MovU+Pl
-	2FYI3Wvsva4ckRi782GQ==;
+	List-Owner; bh=4rZ3sYfIEAuIPbuemU77zPaBd2g3MGP73XQ9TzQszqk=; b=lZSXmJPSCFZFwi
+	wytbaX5RWV0wEeiAnk1YBDJuMRvYCoNdWDFja3clp2oixBK66Km2Diz8521lK60V1ANaK+iCKw4f6
+	8qfDhgH0spDkz0KP89uxbOdfY+qXBZYy/HnIywdt988gQH6b4GqgYLdF74Xu7TCPuEFzR7szY84Ts
+	I7kdYoqzdo6zpYz5z1MClCefBV3H1rKK4GO2dEST1AYYEYZtHOn7++rDVxtaMc9UFQt49/VgQsizM
+	BYIUx8at1VdAv334YyswZ+fTmMQJc/LFnkagaDDJQoQUgFN2qbg4Seqcu4QJ/1/ra/Z8l6v1Yzg0u
+	LlLw/4rL82rZ2wy+WrRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJT99-00000008Nqx-1Ywx;
-	Mon, 26 May 2025 08:25:23 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uJTOt-00000008PeC-45mt;
+	Mon, 26 May 2025 08:41:39 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJT6v-00000008NaG-1oCP
+	id 1uJTOr-00000008Pcn-16RY
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 May 2025 08:23:09 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250526082300euoutp01be373c960ea918112694e174f729b565~DBhf4TZdx0891608916euoutp01h
-	for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 08:23:00 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250526082300euoutp01be373c960ea918112694e174f729b565~DBhf4TZdx0891608916euoutp01h
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1748247780;
-	bh=yq9eUkHNh2SHLTI8CnZfNyE1BKVwTGaK17l/Xp0Hbxc=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=lx0L9q3lMgOSLW69WE+VDgyRsn8eVEYdNXxO8uBjbEd/fPcgEk5TW6lZ2nJUiG5ef
-	 Lbp8YRobMp2FIyeD9GVpuWTj9oCoj6JqR1zZPMzyNn5DhaglMXWXAgOLHX9sWgrou7
-	 y4ZFNGd1xiTz2crSyWj4QFIqrcMnSTcw9PiX39ts=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250526082259eucas1p143075f090b60860195f47e547f8c4e5f~DBhfKhplY1082510825eucas1p1o;
-	Mon, 26 May 2025 08:22:59 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250526082258eusmtip15c42b44a218a5904b5cf08dcfe50c7da~DBheGz27J3227532275eusmtip1K;
-	Mon, 26 May 2025 08:22:58 +0000 (GMT)
-Message-ID: <b5f4af17-05ef-453d-8f04-283590ae5b87@samsung.com>
-Date: Mon, 26 May 2025 10:22:58 +0200
+	Mon, 26 May 2025 08:41:38 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-60477f1a044so1277839a12.0
+        for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 01:41:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1748248895; x=1748853695; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lgi+BI+UxQxxje7YEG6nl3Jn6VhfFhFL9BZoJyhkgXs=;
+        b=mPYrVOXK9HtkBdOjLT+5lR86OVvN2ZNTRm7jIfFYFVxt3CMIatMXupb7d0Iey5FJc7
+         t2/hhonGLsVprnmxolc0Zl9CkGhQALaZDTcu0wENlhalSF3qRTeSfMGhJu/j6tUkvUSd
+         gHsGTeXyI30WlN4K7+qMKl64kLJaHh5ENmQraF4pETaVipdEbUVFiC1V+NdoLqMt3FYZ
+         jOsgTYN8vQkyffHE6UH4h1D4B9GV81gEtrFFe/ezbIERcdpg0p+KaqRw/xhBbgaHC4Bl
+         mYum7UzC6TbUPfNix5qGSJMuIdHi2C9fNbQiNFm4eaXD9UiXpxbWbKsKZhxOBhSohjpW
+         /1fg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748248895; x=1748853695;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lgi+BI+UxQxxje7YEG6nl3Jn6VhfFhFL9BZoJyhkgXs=;
+        b=WUk4tQqpQUaiM5UpKL0tFHV99tEXYGMpP2HikzzkL1wXfP6Vt/XO2rZdj/AKmrzxip
+         CwApLQSy1ErtXd8YaHGFV+Bne7SC8G+gfHqFBGYL3R0DMBhkEnEjlNfQV7CQmwxiLM1+
+         xf2eXFFNYds5+XtlpCui/rtm7D0+4AlYtnYqtTazQOHpYIZ1TKvQZySMM16k6cNu1spA
+         eM7yWqGTBR+GrpA8ZR+6PjJhLM9noqaxVJwBJaIG1ynBEhgEqWLN+P26ED0zC4+s2xN6
+         W5SrAUvSHhgHYihKSoBEbjE4+JnfLWVED2JnI2TTZMInRdMvGLzpNG8pche3LTgXnwQc
+         /hrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWTD5Yl7zeNv/59VxNmAxej36MF9pHzN9sCku3+NV0nDcVNtb3L0s/So+WJ5++YIroPioS7XnokKkIleA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyska015uFGLXDK7g2rMXJA9bVgRGgP2PDBxt1IHwy0bdqZRcLf
+	UZ/rPqLaQ38BGx7EnR/uo6JLgBGjcCVgBMLGac22DF6IRWOogsSAC6DUjUxm9HpMdN4=
+X-Gm-Gg: ASbGnctCnQozbyPmIA6O0ouHMjFrgMQbHAVYjnS81+9kYKQFPfPnZ8z9Po7zRCoNEna
+	McaK4GAESXunHRUt2ztB2V0hsY4K9G9wQ/QwC9lXO5xTeYEgIt11qst7EYDCnJRIezpC8pCh+yR
+	ynzDiOMSf4LpTuMkeaV50huIHmTGdAbC9EXs+uqUwnissvahZsCz5s7mOqhOZJnlVRMJOPn9mce
+	i/CI0Cyrv04xi7HImg8ZyA5U8nhyXEsNLvX++bqg9JQnuK/wMQnRsKZ3axMmqkErc5K1U8jlvU2
+	uyoCgKCLA/JR7fGfn5i0wpZ/ElQZxq9Fe2w1gY2lAcVUYgkNttBJ4Uo3I+TkKFLRBao5LBweZyh
+	SJsbF
+X-Google-Smtp-Source: AGHT+IG8/VYDbfxt/MCOP+EaLwsXzbrnjfrXlbSUZYq06meSDTM4WfgPl2nsylybH23Wd9Lf5xvIZg==
+X-Received: by 2002:a05:6402:4404:b0:602:1b8b:2902 with SMTP id 4fb4d7f45d1cf-602d9bf086amr6150523a12.15.1748248894652;
+        Mon, 26 May 2025 01:41:34 -0700 (PDT)
+Received: from localhost (cst2-173-28.cust.vodafone.cz. [31.30.173.28])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-604b79dc22fsm1148466a12.14.2025.05.26.01.41.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 26 May 2025 01:41:34 -0700 (PDT)
+Date: Mon, 26 May 2025 10:41:33 +0200
+From: Andrew Jones <ajones@ventanamicro.com>
+To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
+Cc: Charlie Jenkins <charlie@rivosinc.com>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Anup Patel <anup@brainfault.org>, Atish Patra <atishp@atishpatra.org>, 
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org, linux-kselftest@vger.kernel.org, 
+	Samuel Holland <samuel.holland@sifive.com>, Deepak Gupta <debug@rivosinc.com>
+Subject: Re: [PATCH v8 09/14] riscv: misaligned: move emulated access
+ uniformity check in a function
+Message-ID: <20250526-baaca3f03adcac2b6488f040@orel>
+References: <20250523101932.1594077-1-cleger@rivosinc.com>
+ <20250523101932.1594077-10-cleger@rivosinc.com>
+ <aDC-0qe5STR7ow4m@ghost>
+ <b2afb9c7-a3d2-4bf6-bfaa-d804358ccd88@rivosinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/6] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-To: Drew Fustini <pdp7pdp7@gmail.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Benno Lossin
-	<benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, Alice
-	Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, Danilo
-	Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
-	Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <aDJGgLZ9tITwGBxq@x1>
-X-CMS-MailID: 20250526082259eucas1p143075f090b60860195f47e547f8c4e5f
-X-Msg-Generator: CA
-X-RootMTR: 20250524211519eucas1p218997c69b98b14d3af2eb6bf4e9d3187
-X-EPHeader: CA
-X-CMS-RootMailID: 20250524211519eucas1p218997c69b98b14d3af2eb6bf4e9d3187
-References: <CGME20250524211519eucas1p218997c69b98b14d3af2eb6bf4e9d3187@eucas1p2.samsung.com>
-	<20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
-	<aDJGgLZ9tITwGBxq@x1>
+Content-Disposition: inline
+In-Reply-To: <b2afb9c7-a3d2-4bf6-bfaa-d804358ccd88@rivosinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_012306_050579_53FB4585 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20250526_014137_309246_43E8E87F 
+X-CRM114-Status: GOOD (  31.91  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,111 +103,134 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Fri, May 23, 2025 at 09:21:51PM +0200, Cl=E9ment L=E9ger wrote:
+> =
 
+> =
 
-On 5/25/25 00:21, Drew Fustini wrote:
-> On Sat, May 24, 2025 at 11:14:54PM +0200, Michal Wilczynski wrote:
->> This patch series introduces Rust support for the T-HEAD TH1520 PWM
->> controller and demonstrates its use for fan control on the Sipeed Lichee
->> Pi 4A board.
->>
->> The primary goal of this patch series is to introduce a basic set of
->> Rust abstractions for the Linux PWM subsystem. As a first user and
->> practical demonstration of these abstractions, the series also provides
->> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
->> of its PWM channels and ultimately enables temperature controlled fan
->> support for the Lichee Pi 4A board. This work aims to explore the use of
->> Rust for PWM drivers and lay a foundation for potential future
->> Rust based PWM drivers.
->>
->> The series is structured as follows:
->>
->> Patch 1/6: Introduce basic PWM abstractions
->> This patch lays the groundwork by adding a Kconfig option for Rust PWM
->> abstractions, necessary C helper functions, and a new Rust module
->> (rust/kernel/pwm.rs). This module provides initial safe wrappers for
->> core PWM data structures (Chip, Device, State, Args, Polarity) and
->> functions (devm_chip_alloc, devm_chip_add), along with a basic PwmOps
->> trait focusing on the .apply callback needed by PWM chip providers.
->>
->> Patch 2/6: Add PWM driver for TH1520 SoC
->> This introduces the Rust based PWM driver for the T-HEAD TH1520 SoC.
->> It implements the PwmOps trait using the abstractions from the first
->> patch and handles the specifics of the TH1520 hardware for configuring
->> period, duty cycle, and polarity. Resource management leverages devm
->> for the PWM chip and Rust DevRes for I/O memory, and RAII for clock
->> handling.
->>
->> Patch 3/6: dt-bindings: Add PWM T-HEAD controller dt-binding
->> This patch adds the Device Tree binding documentation for the T-HEAD
->> TH1520 PWM controller.
->>
->> Patch 4/6: riscv: dts: thead:: Add PWM controller node
->> This patch adds the actual Device Tree node for the TH1520 PWM controller.
->>
->> Patch 5/6: riscv: dts: thead: Add PVT node
->> Add pvt node for thermal sensor.
->>
->> Patch 6/6: riscv: dts: thead: Add PWM fan and thermal control
->> This final patch adds the Device Tree configuration for a PWM controlled
->> fan to the Sipeed Lichee Pi 4A board DTS file. 
->>
->> Testing:
->> Tested on the TH1520 SoC. The fan works correctly.
->>
->> Points for Discussion:
->> The rust/kernel/pwm.rs abstraction layer is currently minimal,
->> focusing on the immediate needs of this driver. Feedback on its design,
->> scope, and potential for generalization would be highly appreciated.
->> General feedback on the Rust implementation, FFI wrapping patterns, and
->> adherence to kernel development practices is very welcome.
->>
->> The patches are based on rust-next, with some dependencies which are not
->> merged yet - platform Io support [1] and clk abstractions [2]. 
->>
->> Reference repository with all the patches together can be found on
->> github [3].
->>
->> [1] - https://lore.kernel.org/rust-for-linux/20250509-topics-tyr-platform_iomem-v8-0-e9f1725a40da@collabora.com/
->> [2] - https://lore.kernel.org/rust-for-linux/0ec0250c1170a8a6efb2db7a6cb49ae974d7ce05.1747634382.git.viresh.kumar@linaro.org/ 
->> [3] - https://protect2.fireeye.com/v1/url?k=53ce9a1b-32458f21-53cf1154-74fe4860008a-0c44c7bcb0c6b2a5&q=1&e=b41cbed0-2556-4543-be6a-a1333ab74001&u=https%3A%2F%2Fgithub.com%2Fmwilczy%2Flinux%2Fcommits%2Frust-next-pwm-working-fan-for-sending%2F
-> 
-> Thanks for the patch series. It will be great to have PWM working
-> upstream.
-> 
-> I've not built Linux with Rust before, so I'm going through the quick
-> start [1]. I've also never built Linux with LLVM before but clang seems
-> like the best compiler to use for Rust. Are you using LLVM?
+> On 23/05/2025 20:30, Charlie Jenkins wrote:
+> > On Fri, May 23, 2025 at 12:19:26PM +0200, Cl=E9ment L=E9ger wrote:
+> >> Split the code that check for the uniformity of misaligned accesses
+> >> performance on all cpus from check_unaligned_access_emulated_all_cpus()
+> >> to its own function which will be used for delegation check. No
+> >> functional changes intended.
+> >>
+> >> Signed-off-by: Cl=E9ment L=E9ger <cleger@rivosinc.com>
+> >> Reviewed-by: Andrew Jones <ajones@ventanamicro.com>
+> >> ---
+> >>  arch/riscv/kernel/traps_misaligned.c | 20 ++++++++++++++------
+> >>  1 file changed, 14 insertions(+), 6 deletions(-)
+> >>
+> >> diff --git a/arch/riscv/kernel/traps_misaligned.c b/arch/riscv/kernel/=
+traps_misaligned.c
+> >> index f1b2af515592..7ecaa8103fe7 100644
+> >> --- a/arch/riscv/kernel/traps_misaligned.c
+> >> +++ b/arch/riscv/kernel/traps_misaligned.c
+> >> @@ -645,6 +645,18 @@ bool __init check_vector_unaligned_access_emulate=
+d_all_cpus(void)
+> >>  }
+> >>  #endif
+> >>  =
 
-Hi Drew,
-You're correct, Clang is the way to go for Rust in the kernel. I also
-followed the official quick start guide. To answer your question
-directly: yes, I'm using LLVM. This is the exact command I use for
-cross-compilation:
+> >> +static bool all_cpus_unaligned_scalar_access_emulated(void)
+> >> +{
+> >> +	int cpu;
+> >> +
+> >> +	for_each_online_cpu(cpu)
+> >> +		if (per_cpu(misaligned_access_speed, cpu) !=3D
+> >> +		    RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
+> >> +			return false;
+> >> +
+> >> +	return true;
+> >> +}
+> > =
 
-make ARCH=riscv LLVM=1
+> > This ends up wasting time when !CONFIG_RISCV_SCALAR_MISALIGNED since it
+> > will always return false in that case. Maybe there is a way to simplify
+> > the ifdefs and still have performant code, but I don't think this is a
+> > big enough problem to prevent this patch from merging.
+> =
 
-CROSS_COMPILATION variable seems to be unnecessary for the LLVM
-toolchain.
+> Yeah I though of that as well but the amount of call to this function is
+> probably well below 10 times so I guess it does not really matters in
+> that case to justify yet another ifdef ?
 
-After the build, I load the kernel binary onto my Lichee Pi 4A board
-(running Debian Trixie) via TFTP, which is the same process I used with
-the GNU toolchain.
+Would it need an ifdef? Or can we just do
 
-> 
-> Drew
-> 
-> [1] https://docs.kernel.org/rust/quick-start.html
-> 
+ if (!IS_ENABLED(CONFIG_RISCV_SCALAR_MISALIGNED))
+    return false;
 
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+at the top of the function?
+
+While the function wouldn't waste much time since it's not called much and
+would return false on the first check done in the loop, since it's a
+static function, adding the IS_ENABLED() check would likely allow the
+compiler to completely remove it and all the branches depending on it.
+
+Thanks,
+drew
+
+> =
+
+> > =
+
+> > Reviewed-by: Charlie Jenkins <charlie@rivosinc.com>
+> > Tested-by: Charlie Jenkins <charlie@rivosinc.com>
+> =
+
+> Thanks,
+> =
+
+> Cl=E9ment
+> =
+
+> > =
+
+> >> +
+> >>  #ifdef CONFIG_RISCV_SCALAR_MISALIGNED
+> >>  =
+
+> >>  static bool unaligned_ctl __read_mostly;
+> >> @@ -683,8 +695,6 @@ static int cpu_online_check_unaligned_access_emula=
+ted(unsigned int cpu)
+> >>  =
+
+> >>  bool __init check_unaligned_access_emulated_all_cpus(void)
+> >>  {
+> >> -	int cpu;
+> >> -
+> >>  	/*
+> >>  	 * We can only support PR_UNALIGN controls if all CPUs have misalign=
+ed
+> >>  	 * accesses emulated since tasks requesting such control can run on =
+any
+> >> @@ -692,10 +702,8 @@ bool __init check_unaligned_access_emulated_all_c=
+pus(void)
+> >>  	 */
+> >>  	on_each_cpu(check_unaligned_access_emulated, NULL, 1);
+> >>  =
+
+> >> -	for_each_online_cpu(cpu)
+> >> -		if (per_cpu(misaligned_access_speed, cpu)
+> >> -		    !=3D RISCV_HWPROBE_MISALIGNED_SCALAR_EMULATED)
+> >> -			return false;
+> >> +	if (!all_cpus_unaligned_scalar_access_emulated())
+> >> +		return false;
+> >>  =
+
+> >>  	unaligned_ctl =3D true;
+> >>  	return true;
+> >> -- =
+
+> >> 2.49.0
+> >>
+> =
+
 
 _______________________________________________
 linux-riscv mailing list
