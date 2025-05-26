@@ -4,62 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD2E4C54FB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 17:22:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02BE0C5AD49
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 20:14:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kEDghNJSnHhv7N9srU++SLPXhQfhaGF2t6n8sQzXwQY=; b=t2jcyWYpV3I0w+wOBhELLGhWTF
-	2Y7WLjw4hN7R/bnU/66XaxhoYaZBK4SNq26dL1OEOauUAMgGhMLbTAyolJ4wdmOv5UK3LdYiqp88l
-	W/uf5tgCT5ZYSCzNLdl+hhWRv4NWiLTteU+ApJBs5T9vuzVPaVIe9NT9WlcCMXAIZ4DH3MuagaAje
-	zu6Ihj4yJj1SxIm0cs6HEdnCT/MWiCIcUqXpyqF0kdzE7BKaOgH3FWnijX4OGQ3vNtJMTnj0y5x60
-	YhweVj3xGlNtYHLIikM4bgndWaEaEbcH7gJjjXn8p8yHZ7f71uHdiUmwAHpQRI5fKYVSw1t9PYFjd
-	08rBLz2Q==;
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XS6CPkc3S4wEUcFSLp7bGaX8yyuu3w3XpLNJ+ZF5bsE=; b=dqzNzjq3+ZE9wR
+	DdZSNgjEKzCMAQMc1OP9xWt+sw9Yjyq7wAMPEy/vrSn815Wq4AXrIeEUcq2hsIV66aKu5awZ07rKG
+	vOPgnIBfkhTfBpeciokf3U+FvcsyqVxpqxryepwLYxXm5ZiTleNeWmGQgm/fCkjbxOEt6qL8m/Qyv
+	+W1NtgXESdji7xcU2X/raH9/1c7RML2nIOmb3Gq1ELfH/cv1OFtcdqG7GhRAvs/PZImcKWC35VELX
+	0syteFpXfF5UQaPmRcmaJXcOKHOiRpuTkLRlW8Am0JRANMpFLTpvHyMhVnzhpJxcMjLPCLB61QUHY
+	GTXWZlOwuKtsriCahoVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJbX1-00000009JWZ-0LSR;
-	Mon, 26 May 2025 17:22:35 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uJeCq-00000009Srr-180J;
+	Mon, 26 May 2025 20:13:56 +0000
+Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJbWy-00000009JVp-2vjG
+	id 1uJeCn-00000009SrD-2PJL
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 May 2025 17:22:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id F4212A4F4BC;
-	Mon, 26 May 2025 17:22:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18E24C4CEE7;
-	Mon, 26 May 2025 17:22:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748280151;
-	bh=rR0L3LQFJl5lnuDlkm5fGXdF8rlpXRpdN7zYcCMT5tM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WCn0el/OQuUV5N4jWDVcQWObrc8/FZmxWKlyOSKLkxlBs2K4fOkzUda5X+0Kam+OT
-	 a4U7iSSqbk2PUqCHkmuDCSFsK1117VLQQOP3oMoetKAlRNGda2daoD9xj0G7dJLitA
-	 dw/uWtNgMXU5zhLg1sFQntHkJ27qbI3KYPv9HTlWeFWxpj+3/5jV+EcddRbpj0JdPh
-	 VBeFgw2tUhn0NNt3pZRJKUcIJ4DqhWU9zmGgWFdZzSRsebqKPrfnTybif0TWu2DLW1
-	 BzinUUgkIO5rttYtNfljchPqcRrApGlGbHAf4oG03LwY/2ailyMqgMsUKCLMJ/81rB
-	 BQan3t6wGdUWw==
-Date: Mon, 26 May 2025 19:22:29 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
-	dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, inochiama@gmail.com, 
-	geert+renesas@glider.be, heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com, 
-	unicorn_wang@outlook.com, duje.mihanovic@skole.hr, heikki.krogerus@linux.intel.com, 
-	elder@riscstar.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH v3 0/6] pwm: Update PWM_PXA driver for SpacemiT K1
-Message-ID: <lgjntm2v4qtp3uwccriodxdefdc4vqydzl4dmula4avhws4zfi@xevkgzfuhyhl>
-References: <20250429085048.1310409-1-guodong@riscstar.com>
+	Mon, 26 May 2025 20:13:55 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C7A1C439F6;
+	Mon, 26 May 2025 20:13:48 +0000 (UTC)
+Message-ID: <99ade7e4-47e8-4d44-9cf7-4c7b211d64f2@ghiti.fr>
+Date: Mon, 26 May 2025 22:13:48 +0200
 MIME-Version: 1.0
-In-Reply-To: <20250429085048.1310409-1-guodong@riscstar.com>
+User-Agent: Mozilla Thunderbird
+Content-Language: en-US
+To: Palmer Dabbelt <palmer@dabbelt.com>, linux-riscv@lists.infradead.org
+From: Alexandre Ghiti <alex@ghiti.fr>
+Subject: [GIT PULL] RISC-V Patches for the 6.16 Merge Window, Part 2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddukeegheculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfvffhufgtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpedvleevkedvhfegleeijefhteegudetkefhueehffejudeigfdtgfdtledtfedtudenucffohhmrghinhepkhgvrhhnvghlrdhorhhgpdhgihhthhhusgdrtghomhdpthhsrdhnvghtnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemsgdtieemleeikehfmeekrgegieemledvtggrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegstdeimeelieekfhemkegrgeeimeelvdgtrgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemsgdtieemleeikehfmeekrgegieemledvtggrngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedvpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtv
+ heslhhishhtshdrihhnfhhrrgguvggrugdrohhrgh
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_102232_867347_27B3B268 
-X-CRM114-Status: GOOD (  19.18  )
+X-CRM114-CacheID: sfid-20250526_131353_761827_3478421D 
+X-CRM114-Status: UNSURE (   9.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,99 +57,115 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============4401294811123316634=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
---===============4401294811123316634==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="yljumz2plxfqhz5x"
-Content-Disposition: inline
-
-
---yljumz2plxfqhz5x
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 0/6] pwm: Update PWM_PXA driver for SpacemiT K1
-MIME-Version: 1.0
-
-Hello,
-
-On Tue, Apr 29, 2025 at 04:50:42PM +0800, Guodong Xu wrote:
-> This patchset adds support for the SpacemiT K1 SoC in the PWM_PXA driver
-> and updates related device tree bindings. The changes enable PWM
-> functionality on the K1 platform through driver enhancements,
-> configuration updates, and device tree additions.
->=20
-> Functionality has been verified on the Banana Pi BPI-F3 board using PWM14,
-> configured as a pwm-backlight. Per community feedback, the actual
-> pwm-backlight node is not included in this patchset but can be found in
-> patch 7 of the v1 series, with modification of pwms property to 4-cell
-> format to match updated binding (#pwm-cells =3D <3>) since v3.
->=20
-> +		pwms =3D <&pwm14 0 2000 0>;
->=20
-> This patchset is based on [spacemit/for-next]
->   base: https://github.com/spacemit-com/linux for-next
->=20
-> Plus the following dependencies:
-> 1. Clock controller driver, posted by Heylen Chu (v8), with most of it has
->    been accepted:
-> https://lore.kernel.org/all/20250416135406.16284-1-heylenay@4d2.org/
-> 2. Reset controller driver, posted by Alex Elder (v5):
-> https://lore.kernel.org/all/20250418145401.2603648-1-elder@riscstar.com/
-
-It's not clear to me if I have to look into this github tree and the
-listed dependencies. My impression is that it can go in on without these
-changes. Maybe it only starts working when these are also applied, but
-that shouldn't stop me applying this series, right?
-
-There is a patch in pwm/for-6.16-rc1 (namely commit df08fff8add2 ("pwm:
-pxa: Improve using dev_err_probe()")) that conflicts with this series.
-I applied patches 1, 2 and 5 on top of my pwm/for-nexxt branch resolving
-that conflict and rewording the commit log of patch 5. The result was
-pushed to
-
-	https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/pxa=
--spacemit
-
-=2E If you confirm that you're happy with my modifications and it's
-correct to apply them without the listed dependencies I will add the
-patches to my queue for 6.17-rc1.
-
-Best regards
-Uwe
-
---yljumz2plxfqhz5x
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEyBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg0o1EACgkQj4D7WH0S
-/k4bgAf4o7db7SVDkKQD9FGqsTvIBAmE7TuWOKwRkL5saF9VkLJjDmgdOVZO3Hf/
-Y4uPkJPTAa3bOzVFbL7Eftrjkslzs7Kv6mniyoMuo5X1ggGrfTLcNA7Y3NwArC9l
-WUIiGKX84b20aHuYN9FXLAnAF4JtoXCc8gEI/m5nj0iGWi5UCFarRlIKCbKTXsXk
-MEDl2vL8OUUutk00El5zEdWQeyDiifhJfXA8nHj3YX1ghBkom8J8UTUhltviYwi2
-wZYWvs67N1uFChzLxAZrK8iJI+O5UeUevjGNlF4S7DymPNL6EAvOUY/9+QgALC2L
-Ac3leHKJIYqVMeU1E4K33CqmhpVQ
-=GSJk
------END PGP SIGNATURE-----
-
---yljumz2plxfqhz5x--
-
-
---===============4401294811123316634==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============4401294811123316634==--
-
+VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCAwOGY4YWMyMjY2ZDllZGUyYmYyYWJj
+Nzc2M2I1MjYxZjk3ZmRhZmU5OgoKIMKgIHJpc2N2OiBJbXByb3ZlIEtjb25maWcgaGVscCBmb3Ig
+UklTQ1ZfSVNBX1ZfUFJFRU1QVElWRSAoMjAyNS0wNS0xNCAKMDQ6NTg6NDkgKzAwMDApCgphcmUg
+YXZhaWxhYmxlIGluIHRoZSBHaXQgcmVwb3NpdG9yeSBhdDoKCiDCoCBnaXQ6Ly9naXQua2VybmVs
+Lm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvYWxleGdoaXRpL2xpbnV4IAp0YWdzL3Jpc2N2
+LW13Mi02LjE2LXJjMQoKZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2VzIHVwIHRvIGRjNTI0MGYwOWJj
+YTdiNWZjNzJhZDg4OTRkNmI5MzIxYmNlNTExMzk6CgogwqAgUklTQy1WOiB2RFNPOiBXaXJlIHVw
+IGdldHJhbmRvbSgpIHZEU08gaW1wbGVtZW50YXRpb24gKDIwMjUtMDUtMjMgCjEyOjUzOjE4ICsw
+MDAwKQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLQpyaXNjdiBwYXRjaGVzIGZvciA2LjE2LXJjMSwgcGFydCAyCgoqIFBlcmZv
+cm1hbmNlIGltcHJvdmVtZW50cwogwqAgLSBBZGQgc3VwcG9ydCBmb3IgdmRzbyBnZXRyYW5kb20K
+IMKgIC0gSW1wbGVtZW50IHJhaWQ2IGNhbGN1bGF0aW9ucyB1c2luZyB2ZWN0b3JzCiDCoCAtIElu
+dHJvZHVjZSBzdmludmFsIHRsYiBpbnZhbGlkYXRpb24KCiogQ2xlYW51cAogwqAgLSBBIGJ1bmNo
+IG9mIGRlZHVwbGljYXRpb24gb2YgdGhlIG1hY3JvcyB3ZSB1c2UgZm9yIG1hbmlwdWxhdGluZyAK
+aW5zdHJ1Y3Rpb25zCgoqIE1pc2MKIMKgIC0gSW50cm9kdWNlIGEga3VuaXQgdGVzdCBmb3Iga3By
+b2JlcwogwqAgLSBBZGQgc3VwcG9ydCBmb3IgbXNlYWwgYXMgcmlzY3YgZml0cyB0aGUgcmVxdWly
+ZW1lbnRzICh0aGFua3MgdG8gCkxvcmVuem8gZm9yIG1ha2luZyBzdXJlIG9mIHRoYXQgOikpCgot
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tCgpBbGwgdGhlIHBhdGNoZXMgaGF2ZSBiZWVuIHRlc3RlZCBvbiBvdXIgZ2l0aHViIENJ
+IGFuZCBubyByZWdyZXNzaW9ucyAKd2VyZSBmb3VuZCBhZ2FpbnN0IDYuMTUtcmM2IAooaHR0cHM6
+Ly9naXRodWIuY29tL2xpbnV4LXJpc2N2L2xpbnV4L3B1bGwvNDM1L2NoZWNrcyB3aG9zZSByZXN1
+bHRzIGNhbiAKYmUgc2VlbiBoZXJlIApodHRwczovL21hemFyaW5lbi50YWlsMWM2MjMudHMubmV0
+L3Jpc2N2LWxpbnV4L2xpbnV4LWFsbC9idWlsZC92Ni4xNS1yYzYtNTMtZzc2NWM3Zjc1OTk5Yjgv
+KS4gCgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLQoKQWxleGFuZHJlIEdoaXRpICg1KToKIMKgwqDCoMKgwqAgcmlzY3Y6IEZp
+eCB0eXBvIEVYUkFDVCAtPiBFWFRSQUNUCiDCoMKgwqDCoMKgIHJpc2N2OiBTdHJlbmd0aGVuIGR1
+cGxpY2F0ZSBhbmQgaW5jb25zaXN0ZW50IGRlZmluaXRpb24gb2YgUlZfWCgpCiDCoMKgwqDCoMKg
+IHJpc2N2OiBNb3ZlIGFsbCBkdXBsaWNhdGUgaW5zbiBwYXJzaW5nIG1hY3JvcyBpbnRvIGFzbS9p
+bnNuLmgKIMKgwqDCoMKgwqAgTWVyZ2UgcGF0Y2ggc2VyaWVzICJNb3ZlIGR1cGxpY2F0ZWQgaW5z
+dHJ1Y3Rpb25zIG1hY3JvcyBpbnRvIAphc20vaW5zbi5oIgogwqDCoMKgwqDCoCBNZXJnZSBwYXRj
+aCBzZXJpZXMgInJpc2N2OiBrcHJvYmVzOiBDbGVhbiB1cCBpbnN0cnVjdGlvbiBzaW11bGF0aW9u
+IgoKQ2h1bnlhbiBaaGFuZyAoMSk6CiDCoMKgwqDCoMKgIHJhaWQ2OiBBZGQgUklTQy1WIFNJTUQg
+c3luZHJvbWUgYW5kIHJlY292ZXJ5IGNhbGN1bGF0aW9ucwoKSmlzaGVuZyBaaGFuZyAoMSk6CiDC
+oMKgwqDCoMKgIHJpc2N2OiBlbmFibGUgbXNlYWwgc3lzbWFwIGZvciBSVjY0CgpNYXl1cmVzaCBD
+aGl0YWxlICgxKToKIMKgwqDCoMKgwqAgcmlzY3Y6IG1tOiBBZGQgc3VwcG9ydCBmb3IgU3ZpbnZh
+bCBleHRlbnNpb24KCk5hbSBDYW8gKDEyKToKIMKgwqDCoMKgwqAgcmlzY3Y6IGtwcm9iZXM6IE1v
+dmUgYnJhbmNoX3JzMl9pZHggdG8gaW5zbi5oCiDCoMKgwqDCoMKgIHJpc2N2OiBrcHJvYmVzOiBN
+b3ZlIGJyYW5jaF9mdW5jdDMgdG8gaW5zbi5oCiDCoMKgwqDCoMKgIHJpc2N2OiBrcHJvYmVzOiBS
+ZW1vdmUgZHVwbGljYXRpb24gb2YgUlZfRVhUUkFDVF9KVFlQRV9JTU0KIMKgwqDCoMKgwqAgcmlz
+Y3Y6IGtwcm9iZXM6IFJlbW92ZSBkdXBsaWNhdGlvbiBvZiBSVl9FWFRSQUNUX1JTMV9SRUcKIMKg
+wqDCoMKgwqAgcmlzY3Y6IGtwcm9iZXM6IFJlbW92ZSBkdXBsaWNhdGlvbiBvZiBSVl9FWFRSQUNU
+X0JUWVBFX0lNTQogwqDCoMKgwqDCoCByaXNjdjoga3Byb3ZlczogUmVtb3ZlIGR1cGxpY2F0aW9u
+IG9mIFJWQ19FWFRSQUNUX0pUWVBFX0lNTQogwqDCoMKgwqDCoCByaXNjdjoga3Byb2JlczogUmVt
+b3ZlIGR1cGxpY2F0aW9uIG9mIFJWQ19FWFRSQUNUX0MyX1JTMV9SRUcKIMKgwqDCoMKgwqAgcmlz
+Y3Y6IGtwcm9iZXM6IFJlbW92ZSBkdXBsaWNhdGlvbiBvZiBSVkNfRVhUUkFDVF9CVFlQRV9JTU0K
+IMKgwqDCoMKgwqAgcmlzY3Y6IGtwcm9iZXM6IFJlbW92ZSBkdXBsaWNhdGlvbiBvZiBSVl9FWFRS
+QUNUX1JEX1JFRwogwqDCoMKgwqDCoCByaXNjdjoga3Byb2JlczogUmVtb3ZlIGR1cGxpY2F0aW9u
+IG9mIFJWX0VYVFJBQ1RfVVRZUEVfSU1NCiDCoMKgwqDCoMKgIHJpc2N2OiBrcHJvYmVzOiBSZW1v
+dmUgZHVwbGljYXRpb24gb2YgUlZfRVhUUkFDVF9JVFlQRV9JTU0KIMKgwqDCoMKgwqAgcmlzY3Y6
+IEFkZCBrcHJvYmVzIEtVbml0IHRlc3QKClhpIFJ1b3lhbyAoMSk6CiDCoMKgwqDCoMKgIFJJU0Mt
+VjogdkRTTzogV2lyZSB1cCBnZXRyYW5kb20oKSB2RFNPIGltcGxlbWVudGF0aW9uCgogwqBhcmNo
+L3Jpc2N2L0tjb25maWfCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgwqAgMiArCiDCoGFyY2gvcmlzY3YvaW5jbHVkZS9h
+c20vaW5zbi5owqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAy
+MTUgKysrKysrKysrLQogwqBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmjC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDMwICsrCiDCoGFyY2gvcmlzY3Yva2VybmVsL21h
+Y2hpbmVfa2V4ZWNfZmlsZS5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgwqAgMiArLQog
+wqBhcmNoL3Jpc2N2L2tlcm5lbC9wcm9iZXMvc2ltdWxhdGUtaW5zbi5jwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfMKgwqAgOTQgKy0tLS0KIMKgYXJjaC9yaXNjdi9rZXJuZWwvdGVzdHMvS2NvbmZpZy5k
+ZWJ1Z8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEyICsKIMKgYXJjaC9yaXNjdi9r
+ZXJuZWwvdGVzdHMvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
+fMKgwqDCoCAxICsKIMKgYXJjaC9yaXNjdi9rZXJuZWwvdGVzdHMva3Byb2Jlcy9NYWtlZmlsZcKg
+wqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgwqAgMSArCiDCoGFyY2gvcmlzY3Yva2VybmVsL3Rlc3Rz
+L2twcm9iZXMvdGVzdC1rcHJvYmVzLWFzbS5TIHzCoCAyMjkgKysrKysrKysrKwogwqBhcmNoL3Jp
+c2N2L2tlcm5lbC90ZXN0cy9rcHJvYmVzL3Rlc3Qta3Byb2Jlcy5jwqDCoMKgwqAgfMKgwqAgNTYg
+KysrCiDCoGFyY2gvcmlzY3Yva2VybmVsL3Rlc3RzL2twcm9iZXMvdGVzdC1rcHJvYmVzLmjCoMKg
+wqDCoCB8wqDCoCAyNCArKwogwqBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVkLmPC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoCAxNDQgKy0tLS0tLQogwqBhcmNoL3Jpc2N2
+L2tlcm5lbC92ZHNvLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHzCoMKgwqAgMiArLQogwqBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL01ha2VmaWxl
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgwqAgMTMgKwogwqBhcmNo
+L3Jpc2N2L2tlcm5lbC92ZHNvL2dldHJhbmRvbS5jwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqAgfMKgwqAgMTAgKwogwqBhcmNoL3Jpc2N2L2tlcm5lbC92ZHNvL3Zkc28ubGRzLlPCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgwqAgMyArCiDCoGFyY2gvcmlzY3Yv
+a2VybmVsL3Zkc28vdmdldHJhbmRvbS1jaGFjaGEuU8KgwqDCoMKgwqDCoMKgwqAgfMKgIDI0OSAr
+KysrKysrKysrKwogwqBhcmNoL3Jpc2N2L2tlcm5lbC92ZWN0b3IuY8KgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoMKgIDIgKy0KIMKgYXJjaC9yaXNj
+di9rdm0vdmNwdV9pbnNuLmPCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgfMKgIDEyOCArLS0tLS0KIMKgYXJjaC9yaXNjdi9tbS90bGJmbHVzaC5jwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCAzMSAr
+KwogwqBpbmNsdWRlL2xpbnV4L3JhaWQvcHEuaMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoMKgIDUgKwogwqBsaWIvcmFpZDYvTWFrZWZp
+bGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgIHzCoMKgwqAgMSArCiDCoGxpYi9yYWlkNi9hbGdvcy5jwqDCoMKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKg
+wqAgOSArCiDCoGxpYi9yYWlkNi9yZWNvdl9ydnYuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfMKgIDIyOSArKysrKysrKysrCiDCoGxp
+Yi9yYWlkNi9ydnYuY8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgfCAxMjEyIAorKysrKysrKysrKysrKysrKysrKysr
+KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwogwqBsaWIvcmFpZDYvcnZ2LmjCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIHzCoMKgIDM5ICsrCiDCoHRvb2xzL3Rlc3Rpbmcvc2VsZnRlc3RzL3ZEU08vdmdldHJh
+bmRvbS1jaGFjaGEuU8KgwqAgfMKgwqDCoCAyICsKIMKgMjcgZmlsZXMgY2hhbmdlZCwgMjM3NSBp
+bnNlcnRpb25zKCspLCAzNzAgZGVsZXRpb25zKC0pCiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNo
+L3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmgKIMKgY3JlYXRlIG1vZGUgMTAwNjQ0
+IGFyY2gvcmlzY3Yva2VybmVsL3Rlc3RzL2twcm9iZXMvTWFrZWZpbGUKIMKgY3JlYXRlIG1vZGUg
+MTAwNjQ0IGFyY2gvcmlzY3Yva2VybmVsL3Rlc3RzL2twcm9iZXMvdGVzdC1rcHJvYmVzLWFzbS5T
+CiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC90ZXN0cy9rcHJvYmVzL3Rl
+c3Qta3Byb2Jlcy5jCiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2L2tlcm5lbC90ZXN0
+cy9rcHJvYmVzL3Rlc3Qta3Byb2Jlcy5oCiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
+L2tlcm5lbC92ZHNvL2dldHJhbmRvbS5jCiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBhcmNoL3Jpc2N2
+L2tlcm5lbC92ZHNvL3ZnZXRyYW5kb20tY2hhY2hhLlMKIMKgY3JlYXRlIG1vZGUgMTAwNjQ0IGxp
+Yi9yYWlkNi9yZWNvdl9ydnYuYwogwqBjcmVhdGUgbW9kZSAxMDA2NDQgbGliL3JhaWQ2L3J2di5j
+CiDCoGNyZWF0ZSBtb2RlIDEwMDY0NCBsaWIvcmFpZDYvcnZ2LmgKCgpfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QK
+bGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9y
+Zy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
