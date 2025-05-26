@@ -4,62 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BA10C5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 16:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA5AC5AD49
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 16:55:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=J9ZaduDj0gaLwaauaKtLIT2w242XPyzZnvvalp4KGKM=; b=D/+ijMfixsaVab
-	rhOsVGLz0t2HWKbwpjS8c4EFSV57jjHLq5NhOM+AJeNnObIZN4b/jkzL1PK1BLhZynoOgCJrpAw+n
-	pGWT//ByUKqm8EmmCdBdRJM9NrZ+7uFt20JmjLVmC6FBgq33CUizXU1spb8M1dytE4w3pMYZN02Xj
-	dcIz0IQjGRXtqukp2sCxcssuqtQabmFxxx0Aae2GGLU9zrJwOmlKXuQT+v/NrXvs9itB2qxYtZliT
-	iiyOaKpD33nc0leeAaQ/R6wRAjM+/xrulV8hEi3/6RJPLtgp1plg3f+UzfROyFGyLm5v0QVA0Fkb3
-	ieU/Cpm4P9PTsd7W80yA==;
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FvmbpYz3dCNmmZsZpmHysFQJ4/eAe40WxMcZdFfMBJQ=; b=4jFX8Ax/vUmklX9t3d8Fnm7Q4Z
+	A4tF4znM3f2J7hfUqjGvfT0elGVrvB/bT+7JAjAKS89SEcbBadAzjCtaIaJVSlHkTos5asv3H1jsW
+	OCAjUEQERtnfJ32QLLoXBJ19YSzUnZfIyqCvEUI0+JyKxxMA8DwVmk4EdE9MKh7xm1/hAUQYM8tbS
+	JL3L44qDxTwoeqjHiS1tfWI4zSFs4JlLWoMkRhqlXkMpay8v7JozCGzSvWLLRw0IRQwg81rcqbZFy
+	BzFUn/e0YkkE/KnHJvrgGHMpW+UTJO9OtW5MKivGWkbW1eDbYqqWtsqeFFMAiSYVBrJURDhA2WzCQ
+	hy130OVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJaSM-00000009CyJ-1l5G;
-	Mon, 26 May 2025 16:13:42 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1uJb6K-00000009GAS-2Q85;
+	Mon, 26 May 2025 16:55:00 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJaSE-00000009CwU-1WBd;
-	Mon, 26 May 2025 16:13:41 +0000
-Received: from [198.18.0.1] (gy-adaptive-ssl-proxy-4-entmail-virt151.gy.ntes [113.57.237.88])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 16718ef7d;
-	Tue, 27 May 2025 00:13:22 +0800 (GMT+08:00)
-Message-ID: <0a90fb41-6e24-464f-bf2b-cdd76bfb7f08@whut.edu.cn>
-Date: Tue, 27 May 2025 00:13:22 +0800
+	id 1uJb6H-00000009G9z-3g8Y
+	for linux-riscv@lists.infradead.org;
+	Mon, 26 May 2025 16:54:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 22BF9449A9;
+	Mon, 26 May 2025 16:54:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E162C4CEE7;
+	Mon, 26 May 2025 16:54:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748278494;
+	bh=lBm90pZvZ+UoOxLMSy6TVhe9roiPZ8LaELnS6zZuHww=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UnWclTp+ovOobfxziqbCaFoppus1w1swSUgBUAGMwnV6zUv+jhpbZze9RZH129Y7m
+	 +rBgYCFh056fteBEXupwrfYHPmVKIwTAYQnOwK5y6hnZv0ZRSTeIzSWS16YZZN1nRD
+	 5iPfE4dnVudevPF2feoFUNvFzjtA0G40OVTAqvHmlF+byXTvkTDcvh0CT866a5alox
+	 spVzf+e4rJ+X2YbRj5V3YgW4yIa5YVvjaATkcfUlK4xetO+MfgLuLsR2K5PMxoxdg7
+	 ESZsUBa0qkD5X2Kz5kVVZB7pb922zVoOaNxm3xY9O6HaSqC+SS3xazMbqaPYlIopme
+	 ixzInJUpR3JgQ==
+Date: Mon, 26 May 2025 18:54:51 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Guodong Xu <guodong@riscstar.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, 
+	dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, inochiama@gmail.com, 
+	geert+renesas@glider.be, heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com, 
+	unicorn_wang@outlook.com, duje.mihanovic@skole.hr, heikki.krogerus@linux.intel.com, 
+	elder@riscstar.com, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH v3 4/6] riscv: dts: spacemit: add pwm14_1 pinctrl setting
+Message-ID: <paasmwjel652r25nxobidydtpxfjy7emerilmwqhvhtgrrtg6v@gowpzqdzvlfz>
+References: <20250429085048.1310409-1-guodong@riscstar.com>
+ <20250429085048.1310409-5-guodong@riscstar.com>
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH v4 3/4] phy: spacemit: support K1 USB2.0 PHY controller
-To: Neil Armstrong <neil.armstrong@linaro.org>, Vinod Koul
- <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org
-References: <20250526-b4-k1-usb3-phy-v2-v4-0-eca668fc16a2@whut.edu.cn>
- <20250526-b4-k1-usb3-phy-v2-v4-3-eca668fc16a2@whut.edu.cn>
- <39e6b2e7-2aae-4f11-8cb0-2e911c2d7793@linaro.org>
-Content-Language: en-US
-From: Ze Huang <huangze@whut.edu.cn>
-In-Reply-To: <39e6b2e7-2aae-4f11-8cb0-2e911c2d7793@linaro.org>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaTRhKVhodHU5CSB0ZSk9MH1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkhVTkxVSUhMVUNDWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
-	tLWQY+
-X-HM-Tid: 0a970d5ebe4303a1kunmdb12c2341c809
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Pwg6Dyo6FzE6Pgw6GDQ4SywU
-	PRIwC0pVSlVKTE9DSUxNS0tMTk9OVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlK
-	SkhVTkxVSUhMVUNDWVdZCAFZQUlCTk83Bg++
+In-Reply-To: <20250429085048.1310409-5-guodong@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_091334_656330_200F0BC7 
-X-CRM114-Status: GOOD (  13.15  )
+X-CRM114-CacheID: sfid-20250526_095457_937929_E31C4624 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,42 +72,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: multipart/mixed; boundary="===============7114131921197358430=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNS8yNi8yNSAxMTo1MSBQTSwgbmVpbC5hcm1zdHJvbmdAbGluYXJvLm9yZyB3cm90ZToKPiBI
-aSwKPgo+IE9uIDI2LzA1LzIwMjUgMTY6MzEsIFplIEh1YW5nIHdyb3RlOgo+PiBUaGUgU3BhY2Vt
-aVQgSzEgU29DIGluY2x1ZGVzIHRocmVlIFVTQiBwb3J0czoKPj4KPj4gLSBPbmUgVVNCMi4wIE9U
-RyBwb3J0Cj4+IC0gT25lIFVTQjIuMCBob3N0LW9ubHkgcG9ydAo+PiAtIE9uZSBVU0IzLjAgcG9y
-dCB3aXRoIGFuIGludGVncmF0ZWQgVVNCMi4wIERSRCBpbnRlcmZhY2UKPj4KPj4gRWFjaCBvZiB0
-aGVzZSBwb3J0cyBpcyBjb25uZWN0ZWQgdG8gYSBVU0IyLjAgUEhZIHJlc3BvbnNpYmxlIGZvciBV
-U0IyCj4+IHRyYW5zbWlzc2lvbi4KPj4KPj4gVGhpcyBjb21taXQgYWRkcyBzdXBwb3J0IGZvciB0
-aGUgU3BhY2VtaVQgSzEgVVNCMi4wIFBIWSwgd2hpY2ggaXMKPj4gY29tcGxpYW50IHdpdGggdGhl
-IFVTQiAyLjAgc3BlY2lmaWNhdGlvbiBhbmQgc3VwcG9ydHMgYm90aCA4LWJpdCA2ME1Iego+PiBh
-bmQgMTYtYml0IDMwTUh6IHBhcmFsbGVsIGludGVyZmFjZXMuCj4+Cj4+IFNpZ25lZC1vZmYtYnk6
-IFplIEh1YW5nIDxodWFuZ3plQHdodXQuZWR1LmNuPgo+PiAtLS0KPj4gwqAgZHJpdmVycy9waHkv
-S2NvbmZpZ8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCB8wqDCoCAxICsKPj4gwqAgZHJp
-dmVycy9waHkvTWFrZWZpbGXCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIHzCoMKgIDEgKwo+
-PiDCoCBkcml2ZXJzL3BoeS9zcGFjZW1pdC9LY29uZmlnwqDCoMKgwqDCoMKgIHzCoCAxMyArKysr
-Cj4+IMKgIGRyaXZlcnMvcGh5L3NwYWNlbWl0L01ha2VmaWxlwqDCoMKgwqDCoCB8wqDCoCAyICsK
-Pj4gwqAgZHJpdmVycy9waHkvc3BhY2VtaXQvcGh5LWsxLXVzYjIuYyB8IDEzMSAKPj4gKysrKysr
-KysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKwo+PiDCoCA1IGZpbGVzIGNoYW5nZWQsIDE0
-OCBpbnNlcnRpb25zKCspCj4+Ci4uLgo+PiArCj4+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG9mX2Rl
-dmljZV9pZCBzcGFjZW1pdF91c2IycGh5X2R0X21hdGNoW10gPSB7Cj4+ICvCoMKgwqAgeyAuY29t
-cGF0aWJsZSA9ICJzcGFjZW1pdCxrMS11c2IyLXBoeSIsIH0sCj4+ICvCoMKgwqAgeyAvKiBzZW50
-aW5hbCAqLyB9Cj4KPiA9PiBzZW50aW5lbAoKVGhhbmtzIQoKPgo+PiArfTsKPj4gK01PRFVMRV9E
-RVZJQ0VfVEFCTEUob2YsIHNwYWNlbWl0X3VzYjJwaHlfZHRfbWF0Y2gpOwo+PiArCj4+ICtzdGF0
-aWMgc3RydWN0IHBsYXRmb3JtX2RyaXZlciBzcGFjZW1pdF91c2IyX3BoeV9kcml2ZXIgPSB7Cj4+
-ICvCoMKgwqAgLnByb2JlwqDCoMKgID0gc3BhY2VtaXRfdXNiMnBoeV9wcm9iZSwKPj4gK8KgwqDC
-oCAuZHJpdmVyID0gewo+PiArwqDCoMKgwqDCoMKgwqAgLm5hbWXCoMKgID0gInNwYWNlbWl0LXVz
-YjItcGh5IiwKPj4gK8KgwqDCoMKgwqDCoMKgIC5vZl9tYXRjaF90YWJsZSA9IHNwYWNlbWl0X3Vz
-YjJwaHlfZHRfbWF0Y2gsCj4+ICvCoMKgwqAgfSwKPj4gK307Cj4+ICttb2R1bGVfcGxhdGZvcm1f
-ZHJpdmVyKHNwYWNlbWl0X3VzYjJfcGh5X2RyaXZlcik7Cj4+ICsKPj4gK01PRFVMRV9ERVNDUklQ
-VElPTigiU3BhY2VtaXQgVVNCIDIuMCBQSFkgZHJpdmVyIik7Cj4+ICtNT0RVTEVfTElDRU5TRSgi
-R1BMIik7Cj4+Cj4KPiBJdCBsb29rcyBmaW5lLCBidXQgd2h5IGRpZG4ndCBhbHNvIGNvbnZlcnQg
-dGhpZCBkcml2ZXIgdG8gcmVnbWFwID8KCldpbGwgZG8KCj4KPiBUaGFua3MsCj4gTmVpbAo+Cj4K
-PgoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4
-LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6
-Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+
+--===============7114131921197358430==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="og4jf76cno5lbodv"
+Content-Disposition: inline
+
+
+--og4jf76cno5lbodv
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Subject: Re: [PATCH v3 4/6] riscv: dts: spacemit: add pwm14_1 pinctrl setting
+MIME-Version: 1.0
+
+On Tue, Apr 29, 2025 at 04:50:46PM +0800, Guodong Xu wrote:
+> diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> index 283663647a86..195eb8874f3c 100644
+> --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> @@ -20,4 +20,11 @@ uart0-2-pins {
+>  			drive-strength = <32>;
+>  		};
+>  	};
+> +	pwm14_1_cfg: pwm14-1-cfg {
+> +		pwm14-1-pins {
+> +			pinmux = <K1_PADCONF(44, 4)>;
+> +			bias-pull-up = <0>;
+> +			drive-strength = <32>;
+> +		};
+> +	};
+
+There is a newline expected before the pwm14-1-cfg node, isn't there?
+
+Best regards
+Uwe
+
+--og4jf76cno5lbodv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg0nNgACgkQj4D7WH0S
+/k4F9Af/Zpy8tXv2q3vdClmG4OFmDlQUd6y7BYw45X1lE4OtNCQADFVZsyy6WU6l
+Xtwwi1fftGGiPz+7BWuZWzSlRKLDryGktzeQI/GYoO/4mRDESCNCG+qI8hGjmVAC
+kX2TmSxV6PQUSszOdWBGUYI3YiK3Wy4T4LcMM0JuAIhehj1zwBNL5YFvmlmgf9r/
+zq7fUmV0h0+TiLERutwSOfZUUmEp6Z3LPS2pDKSoGbF0JYE+mOHJtYaa70jH/QHX
+C3RaQgQZ+ENrMf5DGs33pB/QulhfAm/aUUIXLycp+mm8rYnVu1t7GiTRLSfwmp+U
+35w4lolFUSrs1hzShLHpE4spKswutQ==
+=Bsm/
+-----END PGP SIGNATURE-----
+
+--og4jf76cno5lbodv--
+
+
+--===============7114131921197358430==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============7114131921197358430==--
+
