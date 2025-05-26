@@ -4,53 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6E9C54FB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 20:39:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 990FBC5AD49
+	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 21:53:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7BE07k7Ou8sgvqiW8Ai6GQzxwoL0S3bhTlP6Hn+MLzQ=; b=vMcJLE4Ixwn12n
-	fh/nVmRIn8+Q7luaSKIpL7igpxaLK8b30XbVXzbXHAItmx/UQSNGH1oQT59GCwxhLdcWhjzz4Ee5O
-	BGD4ngpuEdZDuacdIMxW0yro947JhSsfCvCUPwlPX+XgisjoPPde+r3iZ9oQE5VABRC3olqO/SGjR
-	l5FZiOFYP4cTrTnomCSdg5IJkE5zIuW8c6Rn1rk3ZWpt4mdeROtCS48QreJ3JRxJbWjss3m2odvtB
-	yVVg0BlFhEZcuTZCODKJ2u50TiVzf2ZDm1oVmz25Z1fZG8Q3w27xe1bJRk5KLofNy+hUa8JD3EDED
-	WxSCTpv6kEM/c7tORFpA==;
+	List-Owner; bh=Rc97uK6DzGdpUP+2NtwokLy/X6jliq6M9KKAfq2eYyo=; b=BpIhsjUrBX2+JT
+	plqinHDKrt4FuaGpJDDE9nAh5+UjLovGbeNLuWd4YrA31IMRd5kRtRwmCl93hLeurCMK6dC90Gif2
+	2kue+wFPUTOWVBfLGpTV3m/P6HcSQzpUruEMf6NYwq1MJYZKW8g3VL4ZtlSS/5KpMh91mMDmyhzt5
+	U/THsTDM84EZn0EM0hnQkMNFo78flTIk9gI3kKedL/h9vk3LDsayUSnmnZYyQWY0j+/I5bU5u4Pul
+	QChKo/HY6+YVgh6SZ/N/lKiJ+h/hb9kVeb4UJEpN1oH/fWvYhOHCwLmkNoySYghcY1mgaM6Jlre1P
+	jA/5wnrsGeo1EN1BUKvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJebq-00000009UUR-1GDK;
-	Mon, 26 May 2025 20:39:46 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1uJfkc-00000009Yrw-1sMv;
+	Mon, 26 May 2025 21:52:54 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJebm-00000009UTy-0gB4
+	id 1uJfkZ-00000009YrZ-1tYi
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 May 2025 20:39:44 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 00E29444DA;
-	Mon, 26 May 2025 20:39:35 +0000 (UTC)
-Message-ID: <2c07d65e-0641-42a0-9eb4-9e42d9325ff2@ghiti.fr>
-Date: Mon, 26 May 2025 22:39:35 +0200
+	Mon, 26 May 2025 21:52:52 +0000
+Received: from localhost (unknown [116.232.18.143])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id F30B7342FB5;
+	Mon, 26 May 2025 21:52:47 +0000 (UTC)
+Date: Mon, 26 May 2025 21:52:43 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>
+Cc: Guodong Xu <guodong@riscstar.com>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+	drew@pdp7.com, inochiama@gmail.com, geert+renesas@glider.be,
+	heylenay@4d2.org, tglx@linutronix.de, hal.feng@starfivetech.com,
+	unicorn_wang@outlook.com, duje.mihanovic@skole.hr,
+	heikki.krogerus@linux.intel.com, elder@riscstar.com,
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev
+Subject: Re: [PATCH v3 4/6] riscv: dts: spacemit: add pwm14_1 pinctrl setting
+Message-ID: <20250526215243-GYA53128@gentoo>
+References: <20250429085048.1310409-1-guodong@riscstar.com>
+ <20250429085048.1310409-5-guodong@riscstar.com>
+ <paasmwjel652r25nxobidydtpxfjy7emerilmwqhvhtgrrtg6v@gowpzqdzvlfz>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] riscv: uaccess: Only restore the CSR_STATUS SUM bit
-To: Cyril Bur <cyrilbur@tenstorrent.com>, samuel.holland@sifive.com,
- ben.dooks@codethink.co.uk, palmer@dabbelt.com, linux-kernel@vger.kernel.org
-Cc: jszhang@kernel.org, paul.walmsley@sifive.com, charlie@rivosinc.com,
- jrtc27@jrtc27.com, aou@eecs.berkeley.edu, linux-riscv@lists.infradead.org,
- Andy Chiu <andybnac@gmail.com>, Deepak Gupta <debug@rivosinc.com>
-References: <20250522160954.429333-1-cyrilbur@tenstorrent.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <20250522160954.429333-1-cyrilbur@tenstorrent.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgddukeehtdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepteekfeetveffgfehgfeiieefvedukeejtdevhffgudfffeevieeigffhudeuueetnecuffhomhgrihhnpegvnhhtrhihrdhssgdpkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemsgdtieemleeikehfmeekrgegieemledvtggrnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegstdeimeelieekfhemkegrgeeimeelvdgtrgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemsgdtieemleeikehfmeekrgegieemledvtggrngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopedufedprhgtphhtthhopegthihrihhlsghurhesthgvnhhsthhorhhrvghnthdrtghomhdprhgtphhtthhopehsrghmuhgvlhdrhhhol
- hhlrghnugesshhifhhivhgvrdgtohhmpdhrtghpthhtohepsggvnhdrughoohhkshestghouggvthhhihhnkhdrtghordhukhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehjshiihhgrnhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopegthhgrrhhlihgvsehrihhvohhsihhntgdrtghomh
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <paasmwjel652r25nxobidydtpxfjy7emerilmwqhvhtgrrtg6v@gowpzqdzvlfz>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_133942_337397_A81555B1 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250526_145251_516721_7C6017AD 
+X-CRM114-Status: GOOD (  11.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,70 +69,42 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-+cc linux-riscv, Andy, Deepak
+Hi Guodong, Uwe,
 
-On 5/22/25 18:09, Cyril Bur wrote:
-> During switch to csrs will OR the value of the register into the
-> corresponding csr. In this case we're only interested in restoring the
-> SUM bit not the entire register.
->
-> Fixes: 788aa64c0 ("riscv: save the SR_SUM status over switches")
-> Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
-> ---
-> I've put the Fixes tag in but I assume this will get squashed into the
-> patch. Either way I hope this works to fix the immediate issue.
->
->   arch/riscv/kernel/entry.S | 12 ++++++++----
->   1 file changed, 8 insertions(+), 4 deletions(-)
->
-> diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-> index 00bd0de9faa2..6ed3bd80903d 100644
-> --- a/arch/riscv/kernel/entry.S
-> +++ b/arch/riscv/kernel/entry.S
-> @@ -399,14 +399,18 @@ SYM_FUNC_START(__switch_to)
->   	REG_S s11, TASK_THREAD_S11_RA(a3)
->   
->   	/* save the user space access flag */
-> -	li    s0, SR_SUM
-> -	csrr  s1, CSR_STATUS
-> -	REG_S s1, TASK_THREAD_STATUS_RA(a3)
-> +	csrr  s0, CSR_STATUS
-> +	REG_S s0, TASK_THREAD_STATUS_RA(a3)
->   
->   	/* Save the kernel shadow call stack pointer */
->   	scs_save_current
-> -	/* Restore context from next->thread */
-> +	/*
-> +	 * Restore context from next->thread. csrs will OR the bits from s0 and
-> +	 * only want to restore the SR_SUM bit
-> +	 */
->   	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
-> +	li    s1,  SR_SUM
-> +	and   s0,  s0, s1
->   	csrs  CSR_STATUS, s0
->   	REG_L ra,  TASK_THREAD_RA_RA(a4)
->   	REG_L sp,  TASK_THREAD_SP_RA(a4)
+On 18:54 Mon 26 May     , Uwe Kleine-K=F6nig wrote:
+> On Tue, Apr 29, 2025 at 04:50:46PM +0800, Guodong Xu wrote:
+> > diff --git a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi b/arch/riscv/=
+boot/dts/spacemit/k1-pinctrl.dtsi
+> > index 283663647a86..195eb8874f3c 100644
+> > --- a/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> > +++ b/arch/riscv/boot/dts/spacemit/k1-pinctrl.dtsi
+> > @@ -20,4 +20,11 @@ uart0-2-pins {
+> >  			drive-strength =3D <32>;
+> >  		};
+> >  	};
+> > +	pwm14_1_cfg: pwm14-1-cfg {
+> > +		pwm14-1-pins {
+> > +			pinmux =3D <K1_PADCONF(44, 4)>;
+> > +			bias-pull-up =3D <0>;
+> > +			drive-strength =3D <32>;
+> > +		};
+> > +	};
+> =
 
-To conclude the discussion we had here 
-https://lore.kernel.org/linux-riscv/aDCtATl2N21fBsyT@debug.ba.rivosinc.com/#t, 
-in addition to Cyril's patch above, to me we only have to rename the 
-status field into sum and we're good to go. @Andy, @Deepak @Samuel Do 
-you agree?
+> There is a newline expected before the pwm14-1-cfg node, isn't there?
+> =
 
-As this is an important fix (along with 2 other fixes, one for thead 
-vector and vdso static values), I'd like to send another PR soon for 
-inclusion in 6.16-rc1, I did not want to delay the second PR any longer.
+Right, I could amend this and fix it while applying this patch
+(so if there is no other serious issue, no need to resend)
 
-Thanks for your feedbacks,
+-- =
 
-Alex
-
-
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
