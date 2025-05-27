@@ -4,87 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05EAAC54FB3
-	for <linux-riscv@archiver.kernel.org>; Mon, 26 May 2025 22:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACFDFC54FB3
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 01:33:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=zzPEbtmbfhmJGoHrOCPenu+5gAuPTipZM+7ngRl0uN0=; b=N9MLaeQW5xVQl9
-	ZT1J8LSB1ciAXoo6u91vJJ57LmxpxEY261DbUv4j6s016yeT3Gzm5Xr8YYFh+IwZEtjD9fiCetbe+
-	iZ73+TCYzhRSySGpgh8U00UBiOm6mS2m6HmpcjiuuH4W+4aZxXnjYEgt5vHZRtSZQOrFkROBjK7O3
-	FS0VzbvcFFtb+AwS7Pwc/CImxk8T8gSnc1yfDpBV9K6lUz/Av13niFpcRNBxkXZGhhzRbqkEeuoON
-	/GzQULcxZ8evjI2ExPLbatxr7EEMy2R3Fhpd+ZsqnwJslgV3j9sC+OqfC2AAms8LN/VIs8yiYwQZf
-	gcaZC6o98Fu9EH8Cqb8g==;
+	List-Owner; bh=OUd6Fdu74wYFKa8ZE7+yry8J6L5w0XgNxQgb1mAqegY=; b=2pEHbQb0Qti9sv
+	tWhSArWd7GiBLJAa7GQbsN0vulDPkw1+8lW88WbUSNRDwXDduK3qC2V0v6iwYM2OQvS/PGeLTjpMU
+	6P0n1P2ChhDiMDBhavArBEy0bPmow4kPmqvQhowOKsIxQAzvTeHY8gxChxBDzsvdJF3DMfVm0IZ1u
+	fokk2o5OCOSOxuZDjDGg6iln0tmF15OxHsTJ+tujhn6ikR+aJ3J/y5VVtX/OJt/n1D/dfYn/7E7EY
+	TvD4VYfUQ/PPeFu/A4A96cAlHLx+7gRBgEglp+zBaNdblE/qR0HcMY9p8x7KECl2Y8g79zCcWAjF2
+	df7uv3jNJoH5TcvEo0Jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJgcu-00000009ba1-2nFm;
-	Mon, 26 May 2025 22:49:00 +0000
-Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
+	id 1uJjC3-00000009iIx-0n7q;
+	Tue, 27 May 2025 01:33:27 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJgcr-00000009bZf-0OtM
+	id 1uJjC0-00000009iIT-0pon
 	for linux-riscv@lists.infradead.org;
-	Mon, 26 May 2025 22:48:59 +0000
-Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7c5e39d1db2so146085585a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 15:48:56 -0700 (PDT)
+	Tue, 27 May 2025 01:33:25 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-311714cc316so1022323a91.2
+        for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 18:33:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748299735; x=1748904535; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=DxU+IS3NoOt3HdLFHXPgdhqzIwbodDbspZNewqvS2bY=;
-        b=E/fDPUkfLb8HE5DJxvYfLqav+/i3iktuRHsRnSVCZdNjnIpa1AkM/zOmw2rjMMO+Ge
-         kvUTvgXKcvYOoohUwU3RQ1aRNPUumh/I0Nekhu5rCuCzcEC53HwcZl83zW2EuRL4MA2k
-         nyTKfUJJHeoxCEqRrjkK4wPthYv3/flK8o+rVVIvCOnqskJkoIy6ZdbQ+4Er2n81cyn3
-         r1Pa8uNIjmIEQN4i2aAjM1tyVa/GqID8GCZVe/z0gdJLN7Jr3k8mlMAJN4O4OIaxxgfr
-         R1S1enO2R9YwWhTXsguyHC3AUcY5b0h9ZN79bHx09qNAUz7cZifIM37lLqM8T18J7i6H
-         +Grg==
+        d=gmail.com; s=20230601; t=1748309603; x=1748914403; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=OvJ3qRY7vvlwo6L+qtgNdDTxVIpt1gweYQIVKsNpVWw=;
+        b=mZDMqMOy3Td9kRd5WCttZJaWCe8Pd33cFE2HK3j0pfc5Pfm/sK0vyimzbfeTOpzLs1
+         CGNiN1sIqwTu23UDDF4gJCP7qGFmF/aGdYp5dY/+UTFAJ+vKbokBlTz1jyQ87DpYP3hy
+         KiS9BsrsZGW3aLq55ViyjWbL8ogTntal7eDMNXXbxpEFJMw/hVVosEOhDawvXRvOYmRl
+         acjZ0Pbn2xqVjBObSjJd8i2DU+01GbRpou3Au3PKFFwZh7f8iG8AN/YwVcfMNqnVGbgl
+         b8vAElvrLFYqDsFsDaCze0KfgqWVgfh70wlei1CABXePCqdi/7/LfYyrmXVab8FYRwPy
+         g+IQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748299735; x=1748904535;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DxU+IS3NoOt3HdLFHXPgdhqzIwbodDbspZNewqvS2bY=;
-        b=DmIL1/htAvokmXFXHq4A23R4g9QZ2L8dYikuu+nx8+jg4XdWf8R0TORCcNn4afFQ55
-         X2ohrmetCj4btZSMx0mWHMsJVaHbxnvrzGjTSrz2TkQAWdelN06K3vmPTiciqx3E1oR8
-         jUQl8WZxAIQrsomPFGl31W8ZxbxRulmaxQyijZ1KzFpbnOwVgqwBj5ROQg+9NFGdpW+2
-         H+euPu+J4Yeufg7WdvFRV9xDas6tPdUa45m4TUB+nPae1CpPThiND9DEEO00iqYZhKnW
-         IPx+rxPgHOkqdMoCmiRwo5JLCtaJEjp7rHiyMd2MFaGj3YfQI4mpQEFReRjfyeZ2KKzW
-         wfww==
-X-Forwarded-Encrypted: i=1; AJvYcCWFhKg6BjNn41SCHLaCwtawFwkIRYjW2L/Es2tQcTap22Rz4CuEmGtsWRGtEN4vY39j9aZpPIl6K6cwiA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8vzsGdSOeqwNfX2SeEj5H9F6WvOZaYA+zzqF2VVVlw2xag32A
-	PWmFT6zIVvN2RKM85rN6USrUxLO9MwBRRT+kYR+YCBr4dHqaSOAFzQ7i
-X-Gm-Gg: ASbGncsKDX63x+GjBsJNom2Uib0sjtfvyLVbmW792WPEFk+mh3YIEIKz7oRS4L5gU4Z
-	lw41FOrlrawP70bCoKq8tlx4B0XIay9aeZ2vyNDFrdzsZMDPayO5W9X2xkj5xox1AW4uXgil0Qy
-	nKvKbsVWvu/J82rgrL6pXemZClVweVFUHAP+y1+IshpuwTtwqdt5UE36GT4f0Gb02vVxJJgdphg
-	AwpSLmE/JaU7Y0VjSqMtwV/r+2XWmaCV2o2a5RsgO0UeNOgPYxp7KtXGUtn1pcyJsuB1ewkT7KA
-	Cd9b1dNN8rWzbUQhWademk7370s=
-X-Google-Smtp-Source: AGHT+IGb426KXAna7tUbXhwL2CIur79DWxmDcI/E5an7rbk9SRJUL7gdvaP3a93TzMAL6SvIIh8Q5w==
-X-Received: by 2002:ad4:4ea2:0:b0:6f5:41b8:47ed with SMTP id 6a1803df08f44-6fa9ce38689mr191223316d6.0.1748299735279;
-        Mon, 26 May 2025 15:48:55 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6faa050c0b8sm36106276d6.74.2025.05.26.15.48.54
+        d=1e100.net; s=20230601; t=1748309603; x=1748914403;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OvJ3qRY7vvlwo6L+qtgNdDTxVIpt1gweYQIVKsNpVWw=;
+        b=NLRWZ3bSeHGAbgt3v0kyVZyRJJTk2pwO/oQl9/H84uk4QNKqrGsG75uxoVBFfBZslZ
+         CD2Av1mKh7uSIhplhtnvk9uAh10ykP85rUJ4IE+QAQW0tZrfvoFvJ5DRClhzxEaWBaQ6
+         HKEqNBRmXYt4nClfQMNGttV5UjhIUzGAQK3Yy6RWZxQgTgpxnhz93t3Ewgf1No2zpnNE
+         YUMjIXI0FLbRNx3pwLBcwcAAbUVhQc9WgBrlgLUkKqye/JTSYetr2yAJghoB7BzAt5ZB
+         jKws92VENKGz4QS6owgDCtJW60LzAy7gdnlvdQEsp9v7BBTbF/pmo3jOGGJWfHOPcezQ
+         WnBg==
+X-Forwarded-Encrypted: i=1; AJvYcCVn6q93lcKdBqeaEhZ0LVOEumquMebR730GeWqKhKhbVDlVYMiDQo9jRDBlqlni5bT0ayEsJHdEv0mSgQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfXl/y4aMuHq60tXBZw1gxZr1lacck6WvziSyIW0fVN5vlmqMA
+	6PlUKsTmvjbCvu6ho/CXRsC1dL0EbWSQoM8OWBKQzo5QgVnhMjevb25F
+X-Gm-Gg: ASbGncuWPa2Ryquhu59UQGWVov3TM4l5azCjhtTfzFKTtHq0cZRalWxVJiVtAheVBD0
+	F6ISJ56P8C4qTxUI96fXE0dzHcKK9vwup4HglUtTE/hhJM6NOhLJcY5e278zAeX5FO8F1IJOl11
+	a9TlSrxNWw4xPFL7C0kbt+lHLHOuM+QolLEgzMTKOimUDxRcz+wZ2Dc1Ukg+MP/vcwDkBwAkEdy
+	/hZgys/nan0ifkPOs2cXNKRLINqnlWzhyT4MjBmuQvxy2BYtyRqrlybbilTwrYAXZppmkFKAZrB
+	cibFyWsXD9GCl5ZNM4o4w4w0njAF558QWL77y89KWVWVdDOUpq/s
+X-Google-Smtp-Source: AGHT+IHIY+p1U9yGcxp85neZDiVtg1+leRzLjswY7T3Ox7/Uj83JLq+1T9pQYqyo3NpX7Ybgyie4yg==
+X-Received: by 2002:a17:90b:5110:b0:311:9c9a:58e5 with SMTP id 98e67ed59e1d1-3119c9a5d30mr4363503a91.24.1748309602855;
+        Mon, 26 May 2025 18:33:22 -0700 (PDT)
+Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-311a3f2eb6esm629071a91.22.2025.05.26.18.33.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 15:48:54 -0700 (PDT)
-Date: Tue, 27 May 2025 06:48:08 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, sophgo@lists.linux.dev
+        Mon, 26 May 2025 18:33:22 -0700 (PDT)
+Date: Tue, 27 May 2025 09:33:20 +0800
+From: Longbin Li <looong.bin@gmail.com>
+To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
 Cc: Rob Herring <robh@kernel.org>, 
 	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
 	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] riscv: dts: sophgo: cv18xx: Add RTCSYS device node
-Message-ID: <ykswyhohgty646c5s7pow46dn5gjvgvpq7vq46kbh2gf2f5hub@xabjhqv7pzfn>
-References: <20250513203128.620731-1-alexander.sverdlin@gmail.com>
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-pwm@vger.kernel.org, 
+	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 3/3] pwm: sophgo: add driver for SG2044
+Message-ID: <xgk2ac6zkfs34coefjcrol3aklob7sn7ob6qerhzf7yfa3dqdo@b54syid35obp>
+References: <20250428013501.6354-1-looong.bin@gmail.com>
+ <20250428013501.6354-4-looong.bin@gmail.com>
+ <jo4ustzbkswmeive5s4tepwhzeoeswa4knfihkzh6eylujeid4@dj2a2nzp2a5v>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250513203128.620731-1-alexander.sverdlin@gmail.com>
+In-Reply-To: <jo4ustzbkswmeive5s4tepwhzeoeswa4knfihkzh6eylujeid4@dj2a2nzp2a5v>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_154857_136047_B53A7E4D 
-X-CRM114-Status: GOOD (  18.42  )
+X-CRM114-CacheID: sfid-20250526_183324_239849_C57A0506 
+X-CRM114-Status: GOOD (  34.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,56 +100,199 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, May 13, 2025 at 10:31:25PM +0200, Alexander Sverdlin wrote:
-> Add the RTCSYS MFD node: in Cvitek CV18xx and its successors RTC Subsystem
-> is quite advanced and provides SoC power management functions as well.
-> 
-> The SoC family also contains DW8051 block (Intel 8051 compatible CPU core)
-> and an associated SRAM. The corresponding control registers are mapped into
-> RTCSYS address space as well.
-> 
-> Link: https://github.com/sophgo/sophgo-doc/tree/main/SG200X/TRM
-> Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
-> ---
->  arch/riscv/boot/dts/sophgo/cv180x.dtsi | 12 ++++++++++++
->  1 file changed, 12 insertions(+)
-> 
+On Mon, May 26, 2025 at 05:06:25PM +0200, Uwe Kleine-K=F6nig wrote:
+> On Mon, Apr 28, 2025 at 09:34:50AM +0800, Longbin Li wrote:
+> > Add PWM controller for SG2044 on base of SG2042.
+> > =
 
-I am happy to see the rtc driver is merged. So I will queue this
-patch for the next rc1. If you need a rebase, please let me know.
+> > Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+> > ---
+> >  drivers/pwm/pwm-sophgo-sg2042.c | 89 ++++++++++++++++++++++++++++++++-
+> >  1 file changed, 87 insertions(+), 2 deletions(-)
+> > =
 
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+> > diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-s=
+g2042.c
+> > index 23a83843ba53..5bb92c910540 100644
+> > --- a/drivers/pwm/pwm-sophgo-sg2042.c
+> > +++ b/drivers/pwm/pwm-sophgo-sg2042.c
+> > @@ -13,6 +13,9 @@
+> >   *   the running period.
+> >   * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
+> >   *   be stopped and the output is pulled to high.
+> > + * - SG2044 support polarity while SG2042 does not. When PWMSTART is
+> > + *   false, POLARITY being NORMAL will make output being low,
+> > + *   POLARITY being INVERSED will make output being high.
+> =
 
-> diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> index ed06c3609fb2..280c45bd3b3d 100644
-> --- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> +++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-> @@ -307,5 +307,17 @@ dmac: dma-controller@4330000 {
->  			snps,data-width = <2>;
->  			status = "disabled";
->  		};
-> +
-> +		rtc@5025000 {
-> +			compatible = "sophgo,cv1800b-rtc", "syscon";
-> +			reg = <0x5025000 0x2000>;
-> +			interrupts = <SOC_PERIPHERAL_IRQ(1) IRQ_TYPE_LEVEL_HIGH>,
-> +				     <SOC_PERIPHERAL_IRQ(2) IRQ_TYPE_LEVEL_HIGH>,
-> +				     <SOC_PERIPHERAL_IRQ(3) IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "alarm", "longpress", "vbat";
-> +			clocks = <&clk CLK_RTC_25M>,
-> +				 <&clk CLK_SRC_RTC_SYS_0>;
-> +			clock-names = "rtc", "mcu";
-> +		};
->  	};
->  };
-> -- 
-> 2.49.0
-> 
+> Without detailed knowledge about the hardware this isn't understandable.
+> What is PWMSTART? I think this can just read:
+> =
+
+> 	SG2044 supports both polarities, SG2042 only normal polarity.
+> =
+
+> The rest is an implementation detail.
+>
+
+I will modify that, thanks.
+ =
+
+> >   * See the datasheet [1] for more details.
+> >   * [1]:https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
+> =
+
+> This only describes SG2042, right? Can you please add a link for the new
+> variant?
+> =
+
+
+Sorry, there is no public document for SG2044.
+
+> >   */
+> > @@ -26,6 +29,10 @@
+> >  #include <linux/pwm.h>
+> >  #include <linux/reset.h>
+> > =
+
+> > +#define SG2044_PWM_POLARITY		0x40
+> > +#define SG2044_PWM_PWMSTART		0x44
+> > +#define SG2044_PWM_OE			0xd0
+> > +
+> >  #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
+> >  #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
+> > =
+
+> > @@ -72,8 +79,8 @@ static void pwm_set_dutycycle(struct pwm_chip *chip, =
+struct pwm_device *pwm,
+> >  	period_ticks =3D min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->p=
+eriod, NSEC_PER_SEC), U32_MAX);
+> >  	hlperiod_ticks =3D min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state-=
+>duty_cycle, NSEC_PER_SEC), U32_MAX);
+> > =
+
+> > -	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=3D%u, HLPERIOD=3D%u\n=
+",
+> > -		pwm->hwpwm, period_ticks, hlperiod_ticks);
+> > +	dev_dbg(pwmchip_parent(chip), "chan[%u]: ENABLE=3D%u, PERIOD=3D%u, HL=
+PERIOD=3D%u, POLARITY=3D%u\n",
+> > +		pwm->hwpwm, state->enabled, period_ticks, hlperiod_ticks, state->pol=
+arity);
+> > =
+
+> >  	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
+> >  }
+> > @@ -123,6 +130,74 @@ static int pwm_sg2042_get_state(struct pwm_chip *c=
+hip, struct pwm_device *pwm,
+> >  	return 0;
+> >  }
+> > =
+
+> > +static void pwm_sg2044_set_start(struct sg2042_pwm_ddata *ddata, struc=
+t pwm_device *pwm,
+> > +				 bool enabled)
+> > +{
+> > +	u32 pwm_value;
+> > +
+> > +	pwm_value =3D readl(ddata->base + SG2044_PWM_PWMSTART);
+> =
+
+> Please use a variable name that matches the register this is used for.
+> =
+
+
+I will fix that.
+
+> > +	if (enabled)
+> > +		pwm_value |=3D BIT(pwm->hwpwm);
+> > +	else
+> > +		pwm_value &=3D ~BIT(pwm->hwpwm);
+> > +
+> > +	writel(pwm_value, ddata->base + SG2044_PWM_PWMSTART);
+> > +}
+> > +
+> > +static void pwm_sg2044_set_outputdir(struct sg2042_pwm_ddata *ddata, s=
+truct pwm_device *pwm,
+> > +				     bool enabled)
+> > +{
+> > +	u32 pwm_value;
+> > +
+> > +	pwm_value =3D readl(ddata->base + SG2044_PWM_OE);
+> > +
+> > +	if (enabled)
+> > +		pwm_value |=3D BIT(pwm->hwpwm);
+> > +	else
+> > +		pwm_value &=3D ~BIT(pwm->hwpwm);
+> > +
+> > +	writel(pwm_value, ddata->base + SG2044_PWM_OE);
+> > +}
+> > +
+> > +static void pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, st=
+ruct pwm_device *pwm,
+> > +				    const struct pwm_state *state)
+> > +{
+> > +	u32 pwm_value;
+> > +
+> > +	pwm_value =3D readl(ddata->base + SG2044_PWM_POLARITY);
+> > +
+> > +	if (state->polarity =3D=3D PWM_POLARITY_NORMAL)
+> > +		pwm_value &=3D ~BIT(pwm->hwpwm);
+> > +	else
+> > +		pwm_value |=3D BIT(pwm->hwpwm);
+> > +
+> > +	writel(pwm_value, ddata->base + SG2044_PWM_POLARITY);
+> > +}
+> > +
+> > +static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *=
+pwm,
+> > +			    const struct pwm_state *state)
+> > +{
+> > +	struct sg2042_pwm_ddata *ddata =3D pwmchip_get_drvdata(chip);
+> > +
+> > +	pwm_sg2044_set_polarity(ddata, pwm, state);
+> > +
+> > +	pwm_set_dutycycle(chip, pwm, state);
+> > +
+> > +	/*
+> > +	 * re-enable PWMSTART to refresh the register period
+> > +	 */
+> > +	pwm_sg2044_set_start(ddata, pwm, false);
+> =
+
+> I don't understand the effect of the START register. =
+
+> =
+
+
+PWMSTART[3:0] enable the output of the corresponding channel. Must re-enable
+it to refresh the register period when changed the duty cycle. I will find =
+
+a better name, thanks.
+
+> > +	if (!state->enabled)
+> > +		return 0;
+> > +
+> > +	pwm_sg2044_set_outputdir(ddata, pwm, true);
+> > +	pwm_sg2044_set_start(ddata, pwm, true);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> >  static const struct sg2042_chip_data sg2042_chip_data =3D {
+> >  	.ops =3D {
+> >  		.apply =3D pwm_sg2042_apply,
+> =
+
+> Best regards
+> Uwe
+
+
 
 _______________________________________________
 linux-riscv mailing list
