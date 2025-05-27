@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE2D0C54F30
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0E27C5B549
 	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 07:09:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,59 +12,44 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Qlj/xQ94e7SDpuMKEhF/AU/KtbAMEo5iuxaCW629DHc=; b=vxZshsz3d3pTrA
-	fMFmjkWuirNmhRq6FKQPAkIR4nNhcEwurHPZiLycwGapAHPrg0AyoJbMFIeGIcrSBcpQTr5+pcFC2
-	e1f0IHUuIvlhIu9ioOdnLhhno+7vDFQNmG/hv2syL1Bwk2zXOL2wnvjWS9dA7pchwD2GBNKsO4zZ/
-	F8//1qO0lBuZJeRkfzbKfZH/PvEWzDuWAqN1sGv9OI7Tkw0kkyd16bYJptRtvPvQMm/rOTPrJ6qdk
-	mdTg+TTaBo/K+lieAGRs+P3JfzTW4UrjTZvryNTSz8D55uKY6x8fZC/VIzo39JlCWiAlt0vxUbyq+
-	5hXBv56pHfEv9OsOzsSQ==;
+	List-Owner; bh=8l1Pfj0jYZM7XJXUwa4AgnI2+nQ8p51pdixtSQHlxZ0=; b=pr77MMWEKg4z8g
+	JYtAUyFucvY0mE3CEi904k8n2xyu2Nv60egTJ7uJETq0+Mnw4DyKL2QMMKo+LNULMMFCoaxfri8Dr
+	kfSxMkTUbG1JHQnWlDYMmvi+0vyNuntAhrvV1Ld+ga6lwrEqq9vdfeWorNxl0AdhZQSzB/MJl2i/9
+	S6ggVhZfR4kzbP9ScLGgkfj++tTsnwoXkrw5oO+wvb2Y1u9LFA9AWsIzXqIs6GFkKkDsG2DT0mvi/
+	eehgQD9ub8/j4Hn6fg3X+4Mg2KN+dxC4BPNaPqh8ocNvAWedQMORSsaI/zEbCWFGB9Nx+YQ2wt5xV
+	YE1TQbAImx8H2cmtRgvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJoQl-0000000A7IS-1rbJ;
-	Tue, 27 May 2025 07:08:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uJoQp-0000000A7KH-0XT0;
+	Tue, 27 May 2025 07:09:03 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJo67-0000000A4Ks-0voS
+	id 1uJoGu-0000000A5yj-1bBP
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 May 2025 06:47:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8DF3E5C4BA8;
-	Tue, 27 May 2025 06:45:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACC02C4CEEA;
-	Tue, 27 May 2025 06:47:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748328457;
-	bh=/pstASAAdU5HMcN6gKRnngJO2l7aRoiRmGIw04Yt6CA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qdO6IYtnl/A0QJHyrMkXYCudtVIAs0GvVdFdvYWhIeFJKbwhNy3CE7zuRM1PX3tqN
-	 oXXVxyUHqzExPCwnAjvm3Wfj2PPVUaoRMlp/+aBilqBkuBYf487nHOuWE01D5LriHu
-	 NdS4Eg3vzyMgTzVRa9r0Ih1hzVS3KwrJWMztztKEsMcUmeCVi0lxEjv60IBvxwQlLN
-	 hmtAiWIDvZV8BuDJxXhKREJs6/Wb1Hz4YIdzkqJL7kaavH8shfkue2i/YVFwzJqaA9
-	 fhQSXvDjFJFBfuuEFjJJv3GlYYHJ+/5OOmnA7G125tD94GEcsizwM8WqqHNv+QmYdE
-	 c+3yfpTSAOWqw==
-Date: Tue, 27 May 2025 08:47:34 +0200
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Ze Huang <huangze@whut.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-usb@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 1/4] dt-bindings: usb: dwc3: add support for SpacemiT
- K1
-Message-ID: <20250527-amazing-hedgehog-of-opposition-bc968b@kuoka>
-References: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
- <20250526-b4-k1-dwc3-v3-v4-1-63e4e525e5cb@whut.edu.cn>
+	Tue, 27 May 2025 06:58:50 +0000
+Received: from localhost (unknown [116.232.18.143])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 54030343086;
+	Tue, 27 May 2025 06:58:46 +0000 (UTC)
+Date: Tue, 27 May 2025 06:58:41 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>, linux-mmc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+	spacemit@lists.linux.dev, kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] mmc: sdhci-of-k1: Fix error code in probe()
+Message-ID: <20250527065841-GYB55693@gentoo>
+References: <aDVTtQdXVtRhxOrb@stanley.mountain>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250526-b4-k1-dwc3-v3-v4-1-63e4e525e5cb@whut.edu.cn>
+In-Reply-To: <aDVTtQdXVtRhxOrb@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_234739_305409_677BFFE3 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250526_235848_459974_09FAB61E 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,22 +66,41 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 10:40:17PM GMT, Ze Huang wrote:
-> Add support for the USB 3.0 Dual-Role Device (DRD) controller embedded
-> in the SpacemiT K1 SoC. The controller is based on the Synopsys
-> DesignWare Core USB 3 (DWC3) IP, supporting USB3.0 host mode and USB 2.0
-> DRD mode.
+Hi Dan,
+
+On 08:55 Tue 27 May     , Dan Carpenter wrote:
+> If spacemit_sdhci_get_clocks() fails, then propagate the error code.
+> Don't return success.
 > 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+> Fixes: e5502d15b0f3 ("mmc: sdhci-of-k1: add support for SpacemiT K1 SoC")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 > ---
->  .../devicetree/bindings/usb/spacemit,k1-dwc3.yaml  | 116 +++++++++++++++++++++
->  1 file changed, 116 insertions(+)
+>  drivers/mmc/host/sdhci-of-k1.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-of-k1.c b/drivers/mmc/host/sdhci-of-k1.c
+> index 6880d3e9ab62..2e5da7c5834c 100644
+> --- a/drivers/mmc/host/sdhci-of-k1.c
+> +++ b/drivers/mmc/host/sdhci-of-k1.c
+> @@ -276,7 +276,8 @@ static int spacemit_sdhci_probe(struct platform_device *pdev)
+>  
+>  	host->mmc->caps |= MMC_CAP_NEED_RSP_BUSY;
+>  
+> -	if (spacemit_sdhci_get_clocks(dev, pltfm_host))
+> +	ret = spacemit_sdhci_get_clocks(dev, pltfm_host);
+> +	if (ret)
+>  		goto err_pltfm;
+>  
+>  	ret = sdhci_add_host(host);
+> -- 
+> 2.47.2
+> 
+Thanks for catching this..
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Yixun Lan <dlan@gentoo.org>
 
-Best regards,
-Krzysztof
-
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
