@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5DC4C54FB3
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 03:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E079C54FB3
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 03:31:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MPET385/+//oi2YHEv2ZYT8xBzJieCMMvw4GsrbrhTM=; b=TPA3JDNlCP1F6P
-	Cej5qcyAIHCiUDlThqlbG8laNQsZZObl1vfSRr36A0okd7Gjn4r6n4lYr7gKhasHs8i2bWLnP8gMe
-	JEaryLSLvg5544kDJWfJwOWpxALQAOMc9wFTqmRENSxQVdPBzDWSJXwJ7QicLwK4xJARE9HhRdUNz
-	mIUrgW07Ztk3+Nzh3mk3O3kwH1gaITsUNZkdLI14n/k5dkukhpHESpTl19R8qosPPXyOW0mH7kmXu
-	pNGc7cuclVFOZMJ6mA6ooS8mFwtFM+M7vneHP/oHu7DniU9Ma5YdgbWx391s9FXE7uh/UM+uxFJ+0
-	GVTNzfmLxdiZB3idThqg==;
+	List-Owner; bh=b0h/JQoEdH0AdEzhorgzFkcXiaFRcgdVfuJRZicbZBo=; b=SMqym/jigFunqt
+	SbcjfxKaGK35OzRHn1RSRzQlSZeIAoSiY3yiO8bc/OSs4l1UUFebIEHm6NLF8CsvbiF0cCJofzWBb
+	JwuCgrUZVqa7i92b4eTHhgPEqEhwimsIYKTuauTA/iDfOsQrnYjrSDuGhUXzNdYzutXiK9uftkU8/
+	sSM4T3ERQdDCiIMMmaJYLm0URInu4fYSyOKS5i9bAhS0nAOJQLBNqK62xx2x1lAv7SnNhVTGC1G4Y
+	QA5hhLfFJTH4D+uCrmrL3l9foaW+tQtA4BSGSMumXAELqYnrslzfCxxwtSaTXAymJQ1OwQ94UBfXg
+	MydsdVNgBpdLLfWMoMqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJky9-00000009p8s-0kwV;
-	Tue, 27 May 2025 03:27:13 +0000
-Received: from woodpecker.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uJl1n-00000009pU1-18Jv;
+	Tue, 27 May 2025 03:30:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJky6-00000009p89-0tCw
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 May 2025 03:27:11 +0000
-Received: from localhost (unknown [116.232.18.143])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 19E4B340C76;
-	Tue, 27 May 2025 03:27:06 +0000 (UTC)
-Date: Tue, 27 May 2025 03:27:01 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
-	alex@ghiti.fr, p.zabel@pengutronix.de, drew@pdp7.com,
-	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org,
-	tglx@linutronix.de, hal.feng@starfivetech.com,
-	unicorn_wang@outlook.com, duje.mihanovic@skole.hr,
-	heikki.krogerus@linux.intel.com, elder@riscstar.com,
-	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
-	spacemit@lists.linux.dev
-Subject: Re: [PATCH v3 4/6] riscv: dts: spacemit: add pwm14_1 pinctrl setting
-Message-ID: <20250527032701-GYA55693@gentoo>
-References: <20250429085048.1310409-1-guodong@riscstar.com>
- <20250429085048.1310409-5-guodong@riscstar.com>
- <paasmwjel652r25nxobidydtpxfjy7emerilmwqhvhtgrrtg6v@gowpzqdzvlfz>
- <20250526215243-GYA53128@gentoo>
- <CAH1PCMZhS4_u3nTdAQDfTTRVJ_61n-OYjmMuv2m4DHYDzGE0XA@mail.gmail.com>
+	id 1uJl1l-00000009pTc-1jUR;
+	Tue, 27 May 2025 03:30:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3A5BE6113B;
+	Tue, 27 May 2025 03:30:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4DDFC4CEEB;
+	Tue, 27 May 2025 03:30:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748316655;
+	bh=4+1dYOsA3kHiY8rIfLnjAgd8wOHuIeN0O4AklhVQ26M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=PDpCasocKfbRpFVO+Gva5E2erDIv83oOIdsyR75Vq2GGa56oNa5MOdQa5qay1G54y
+	 S3D805nuKzNhvN1MGkOcNzDYg75XhUCqp/yL2uAtapUbK1S3n1G1UqKFxjn4ntxa2t
+	 CxK7rnXc/L95iZlTUmMOfPm+tWQHp0eHX8ylQn1MLkMLwWEVbEIqOGdVT8vlbCWjXx
+	 1q7/F23sOsIArXHlRGvPt/BGFksZoRCqKz9JnzG/1PYvusJQ1vfQN1bIMcZcy537wE
+	 EtK8ERnZ0Vf1prle9VJ/upLUeNrvka0s29uYXbrEKAL1WDGe39ZbtoexMTV0Oi8rty
+	 ACZ9lz8fPa0vg==
+Date: Mon, 26 May 2025 20:30:52 -0700
+From: Kees Cook <kees@kernel.org>
+To: Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Cc: Arnd Bergmann <arnd@arndb.de>, Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>, x86@kernel.org,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Vitaly Kuznetsov <vkuznets@redhat.com>,
+	Henrique de Moraes Holschuh <hmh@hmh.eng.br>,
+	Hans de Goede <hdegoede@redhat.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Masami Hiramatsu <mhiramat@kernel.org>,
+	Ard Biesheuvel <ardb@kernel.org>, Mike Rapoport <rppt@kernel.org>,
+	Michal Wilczynski <michal.wilczynski@intel.com>,
+	Juergen Gross <jgross@suse.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>,
+	Roger Pau Monne <roger.pau@citrix.com>,
+	David Woodhouse <dwmw@amazon.co.uk>,
+	Usama Arif <usama.arif@bytedance.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Thomas Huth <thuth@redhat.com>, Brian Gerst <brgerst@gmail.com>,
+	kvm@vger.kernel.org, ibm-acpi-devel@lists.sourceforge.net,
+	platform-driver-x86@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, linux-efi@vger.kernel.org,
+	linux-mm@kvack.org, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Christoph Hellwig <hch@lst.de>, Marco Elver <elver@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	LKML <linux-kernel@vger.kernel.org>, kasan-dev@googlegroups.com,
+	linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-hardening@vger.kernel.org,
+	linux-kbuild@vger.kernel.org, linux-security-module@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, sparclinux@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v2 04/14] x86: Handle KCOV __init vs inline mismatches
+Message-ID: <202505262028.E5B7A7E8@keescook>
+References: <20250523043251.it.550-kees@kernel.org>
+ <20250523043935.2009972-4-kees@kernel.org>
+ <ba4f4fd0-1bcf-3d84-c08e-ba0dd040af16@linux.intel.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <CAH1PCMZhS4_u3nTdAQDfTTRVJ_61n-OYjmMuv2m4DHYDzGE0XA@mail.gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_202710_306608_7673068B 
-X-CRM114-Status: GOOD (  17.54  )
+In-Reply-To: <ba4f4fd0-1bcf-3d84-c08e-ba0dd040af16@linux.intel.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,38 +103,105 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgR3VvZG9uZywKCk9uIDEwOjQ4IFR1ZSAyNyBNYXkgICAgICwgR3VvZG9uZyBYdSB3cm90ZToK
-PiBPbiBUdWUsIE1heSAyNywgMjAyNSBhdCA1OjUy4oCvQU0gWWl4dW4gTGFuIDxkbGFuQGdlbnRv
-by5vcmc+IHdyb3RlOgo+ID4KPiA+IEhpIEd1b2RvbmcsIFV3ZSwKPiA+Cj4gPiBPbiAxODo1NCBN
-b24gMjYgTWF5ICAgICAsIFV3ZSBLbGVpbmUtS8O2bmlnIHdyb3RlOgo+ID4gPiBPbiBUdWUsIEFw
-ciAyOSwgMjAyNSBhdCAwNDo1MDo0NlBNICswODAwLCBHdW9kb25nIFh1IHdyb3RlOgo+ID4gPiA+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLXBpbmN0cmwuZHRz
-aSBiL2FyY2gvcmlzY3YvYm9vdC9kdHMvc3BhY2VtaXQvazEtcGluY3RybC5kdHNpCj4gPiA+ID4g
-aW5kZXggMjgzNjYzNjQ3YTg2Li4xOTVlYjg4NzRmM2MgMTAwNjQ0Cj4gPiA+ID4gLS0tIGEvYXJj
-aC9yaXNjdi9ib290L2R0cy9zcGFjZW1pdC9rMS1waW5jdHJsLmR0c2kKPiA+ID4gPiArKysgYi9h
-cmNoL3Jpc2N2L2Jvb3QvZHRzL3NwYWNlbWl0L2sxLXBpbmN0cmwuZHRzaQo+ID4gPiA+IEBAIC0y
-MCw0ICsyMCwxMSBAQCB1YXJ0MC0yLXBpbnMgewo+ID4gPiA+ICAgICAgICAgICAgICAgICAgICAg
-ZHJpdmUtc3RyZW5ndGggPSA8MzI+Owo+ID4gPiA+ICAgICAgICAgICAgIH07Cj4gPiA+ID4gICAg
-IH07Cj4gPiA+ID4gKyAgIHB3bTE0XzFfY2ZnOiBwd20xNC0xLWNmZyB7Cj4gPiA+ID4gKyAgICAg
-ICAgICAgcHdtMTQtMS1waW5zIHsKPiA+ID4gPiArICAgICAgICAgICAgICAgICAgIHBpbm11eCA9
-IDxLMV9QQURDT05GKDQ0LCA0KT47Cj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICBiaWFzLXB1
-bGwtdXAgPSA8MD47Cj4gPiA+ID4gKyAgICAgICAgICAgICAgICAgICBkcml2ZS1zdHJlbmd0aCA9
-IDwzMj47Cj4gPiA+ID4gKyAgICAgICAgICAgfTsKPiA+ID4gPiArICAgfTsKPiA+ID4KPiA+ID4g
-VGhlcmUgaXMgYSBuZXdsaW5lIGV4cGVjdGVkIGJlZm9yZSB0aGUgcHdtMTQtMS1jZmcgbm9kZSwg
-aXNuJ3QgdGhlcmU/Cj4gPiA+Cj4gPiBSaWdodCwgSSBjb3VsZCBhbWVuZCB0aGlzIGFuZCBmaXgg
-aXQgd2hpbGUgYXBwbHlpbmcgdGhpcyBwYXRjaAo+ID4gKHNvIGlmIHRoZXJlIGlzIG5vIG90aGVy
-IHNlcmlvdXMgaXNzdWUsIG5vIG5lZWQgdG8gcmVzZW5kKQo+ID4KPiAKPiBUaGFua3MsIFlpeHVu
-Lgo+IAo+IEJ5IHRoZSB3YXksIGRvIHlvdSBwbGFuIHRvIHRha2UgcGF0Y2hlcyAzIGFuZCA0IG9m
-IHRoaXMgc2VyaWVzIGludG8KPiB5b3VyIHRyZWU/IFRoZXkgb25seSBhcHBseSBpZiB0aGUgU3Bh
-Y2VtaVQgcmVzZXQgcGF0Y2hzZXQgaXMgYXBwbGllZAo+IGZpcnN0Lgo+IApZZXMsIGV4YWN0bHku
-IFRoZSBkdHMgcGF0Y2ggd2lsbCBnbyB0aHJvdWdoIFNwYWNlbWlUIFNvQyB0cmVlLCBhbmQgd2UK
-aGF2ZSB0byB3YWl0IHVudGlsbCByZXNldCBwYXRjaCBzZXJpZXMgYXBwbGllZC4KCi0tIApZaXh1
-biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFk
-Lm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2Cg==
+On Mon, May 26, 2025 at 12:53:13AM +0300, Ilpo J=E4rvinen wrote:
+> On Thu, 22 May 2025, Kees Cook wrote:
+> =
+
+> > When KCOV is enabled all functions get instrumented, unless the
+> > __no_sanitize_coverage attribute is used. To prepare for
+> > __no_sanitize_coverage being applied to __init functions, we have to
+> > handle differences in how GCC's inline optimizations get resolved. For
+> > x86 this means forcing several functions to be inline with
+> > __always_inline.
+> > =
+
+> > Signed-off-by: Kees Cook <kees@kernel.org>
+> > ---
+> > Cc: Thomas Gleixner <tglx@linutronix.de>
+> > Cc: Ingo Molnar <mingo@redhat.com>
+> > Cc: Borislav Petkov <bp@alien8.de>
+> > Cc: Dave Hansen <dave.hansen@linux.intel.com>
+> > Cc: <x86@kernel.org>
+> > Cc: "H. Peter Anvin" <hpa@zytor.com>
+> > Cc: Paolo Bonzini <pbonzini@redhat.com>
+> > Cc: Vitaly Kuznetsov <vkuznets@redhat.com>
+> > Cc: Henrique de Moraes Holschuh <hmh@hmh.eng.br>
+> > Cc: Hans de Goede <hdegoede@redhat.com>
+> > Cc: "Ilpo J=E4rvinen" <ilpo.jarvinen@linux.intel.com>
+> > Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+> > Cc: Len Brown <lenb@kernel.org>
+> > Cc: Masami Hiramatsu <mhiramat@kernel.org>
+> > Cc: Ard Biesheuvel <ardb@kernel.org>
+> > Cc: Mike Rapoport <rppt@kernel.org>
+> > Cc: Michal Wilczynski <michal.wilczynski@intel.com>
+> > Cc: Juergen Gross <jgross@suse.com>
+> > Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+> > Cc: "Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+> > Cc: Roger Pau Monne <roger.pau@citrix.com>
+> > Cc: David Woodhouse <dwmw@amazon.co.uk>
+> > Cc: Usama Arif <usama.arif@bytedance.com>
+> > Cc: "Guilherme G. Piccoli" <gpiccoli@igalia.com>
+> > Cc: Thomas Huth <thuth@redhat.com>
+> > Cc: Brian Gerst <brgerst@gmail.com>
+> > Cc: <kvm@vger.kernel.org>
+> > Cc: <ibm-acpi-devel@lists.sourceforge.net>
+> > Cc: <platform-driver-x86@vger.kernel.org>
+> > Cc: <linux-acpi@vger.kernel.org>
+> > Cc: <linux-trace-kernel@vger.kernel.org>
+> > Cc: <linux-efi@vger.kernel.org>
+> > Cc: <linux-mm@kvack.org>
+> > ---
+> =
+
+> > diff --git a/drivers/platform/x86/thinkpad_acpi.c b/drivers/platform/x8=
+6/thinkpad_acpi.c
+> > index e7350c9fa3aa..0518d5b1f4ec 100644
+> > --- a/drivers/platform/x86/thinkpad_acpi.c
+> > +++ b/drivers/platform/x86/thinkpad_acpi.c
+> > @@ -559,12 +559,12 @@ static unsigned long __init tpacpi_check_quirks(
+> >  	return 0;
+> >  }
+> >  =
+
+> > -static inline bool __pure __init tpacpi_is_lenovo(void)
+> > +static __always_inline bool __pure tpacpi_is_lenovo(void)
+> >  {
+> >  	return thinkpad_id.vendor =3D=3D PCI_VENDOR_ID_LENOVO;
+> >  }
+> >  =
+
+> > -static inline bool __pure __init tpacpi_is_ibm(void)
+> > +static __always_inline bool __pure tpacpi_is_ibm(void)
+> >  {
+> >  	return thinkpad_id.vendor =3D=3D PCI_VENDOR_ID_IBM;
+> >  }
+> =
+
+> Hi Kees,
+> =
+
+> What's your plan on upstreaming route/timeline for this? I'd prefer to =
+
+> retain full control over this file as we were planning on some =
+
+> reorganization of files into lenovo/ subdir.
+
+I'm not in a big rush. I'm hoping to have this all in place for v6.17,
+but the Clang feature won't be in a released compiler version until
+September. :) I can send this bit separately for your tree.
+
+Thanks for taking a look!
+
+-- =
+
+Kees Cook
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
