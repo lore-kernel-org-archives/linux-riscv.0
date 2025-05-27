@@ -4,103 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBC11C54F30
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 08:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22875C54ED1
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 08:47:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qDx1QRe6ni2r1gNATcvvALXqnZz76PDW8i7KJ1r1R0w=; b=xIWpL0cbNI0XUQ
-	vMS9oEA2l+adKqz23TrmSsYoQE6fljRLlzssU012NpLWvFnukQXoJkvCXtplcnXdiFqQRjagwXj3T
-	a8eLtqwPf6ri4yQa2mVUfJiXGeolSjLdl5yHv3qZltSjZbuJ8/kxEO07mSUtLMmszxw0ZYJhbuKVj
-	fRkDRPhTC0bsKmhZ7bKOeQyyCvZhecx+2U1zIJTfdIM2+0Q6sIt6Q1WFl4WqTeZpwHfbTQMXwsDiF
-	wK9wVqWbAZEer6AI20BlfHwsxZ/CuCwTI5PXUG7piofDN5Yh4DBOkhmCkodNXGAE13bfAxS8vnsWu
-	cPqnxQbKCIEv4ZzHKGXg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hmImraURRdqmv2Bqd1wOJsTSWo9k7KMsu5M3LfiDnd4=; b=UW3Zwqon2GvoJ04lc5/33BmitO
+	DOZSpmqDHUznjvu5jykjzJcXIxMMTCsXUioCZ/E/GM0JcmnmaMPusA6c+eIYpnWW00WmSMi1YL0Sy
+	yq0TOJZyYV6xXKTzqBIb6FZ5O2uw/KWKG1vJRkx+y1N6TdJwjJ8iEKbJkD6Fs1SaLMqnSh2yqG1OV
+	VgKomaNhO23Ou0el+IbxGNmKuofwWNuuNDpKI7A6p+ks2BhWvW0SCL3M4JxcJ/rpgVN0vMQ6r1VVY
+	Q2J6gM4B2rTk9czu+Pc0ZKuacMRt+sRCsikLQ2qQtt4l4ls9mIajqsywUe2yoktx2JKlVrTPL2InR
+	TqdOaJMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpEQ-0000000AClH-3XOF;
-	Tue, 27 May 2025 08:00:18 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uJpy1-0000000AIKo-11MK;
+	Tue, 27 May 2025 08:47:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJpEN-0000000ACku-3QEc
+	id 1uJpxa-0000000AI79-3WLs
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 May 2025 08:00:17 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2347b7d6aeeso13762125ad.2
-        for <linux-riscv@lists.infradead.org>; Tue, 27 May 2025 01:00:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1748332814; x=1748937614; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=69mSzDBjctUjkk/D5FpImgqRo3X987asQpikl13S/kU=;
-        b=2+judXSvZ/abQzGDlJANaHxF7zR9AA7x0XEaHg70I63linBqx1+xuQMkY0VmNXqIkz
-         LuCZl3205Z0kiHJqUYo9scox9lj1kAHra3saXlg10FdDXLEiHoap8KCSDimPhTJvCdcs
-         wC+W2/5dvCD4C4VyJQovj0QrsdaqrKKC38ZOHGx4v1pzyL9O9SU9Fwq1iWWpMAZsAbo1
-         4vslSWVZ9YZqAM4T1Ep64Q6cGuEhi6dTRmmRBQEQDvWRqQdzRK/MAKk68GpiEJ2O2USZ
-         xSJP2Su2aMQV0tZIYTvmOE/6KXhrba/UzJ0aU0a+NF8IKCYzfh3LLe/aHOetB0PSdats
-         /Zyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748332814; x=1748937614;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=69mSzDBjctUjkk/D5FpImgqRo3X987asQpikl13S/kU=;
-        b=bvQcx2VeKU+dug2m4pztT9vRQfJi7BaysesV2ll5CScsKJG0tuo1CpsvTkbrVMH/Ze
-         2GElgGqrCO9UXfTEjutkqVwDNjlmuce2P+WnAA0wyVyXtlNPE6EZmaiZ+s6nxI6P/9IN
-         /Gc6v8zYMet/FlfC/tvBre7SMQ/fS8jSyGmdwOMHPrAJHRBGjHayw7kJJc/c75PcCAQ9
-         ex4Z0jBnEzB2gDlTGfBCZQlH7PT1n3EtCpU4YyDk0dR5A60jGUebwI1yS4vbwxhssNHP
-         qwijGrvVLbR8I8IjoSIzZaelD0PR+V7vSuCDkFCukPkBoAGQVrXKdl9i6m19PnW3ANGv
-         JFLQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHysUS6FOsCjptKmowyDgYpKGpX4R74vMk8Hy6W0RKfEXiFFtNAtTX4WizZ37+sDNoFgOOr8BHEhkoLw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLrJR19f8yUKs9KIK3houxkXWk3EDe6mEWJ00lLOAfyLmZ9hA4
-	6Pd3UfVHeS1i+CgqluNsEFE06iDrkv/nLa0wbw0BTP6rejcl3hh9IjgQkx1yWHIU2Mo=
-X-Gm-Gg: ASbGnctR7gEkV4DM1sRKx0e8JpBHYb79WFpc6EVF/S4A+WyKrWIS8wzUDXIcK06b6rz
-	Z8xDJDn5Q6CQv2oADbCBZtQzZJc//Qzaoq63Mct9drTRa94EOve2l2yeVs486tzpNww5z/sBXdi
-	q7wG7cKHgUVLEYr63fWOi3PmQfdY3zDw6A5YIE9Y/WZJgkix6PcXxLkyrszJxT5Z7JC12/XlrxV
-	cLGYpJJxUnkpJ00dicdeODUlyOgf9tDQeZkxCNu5EZuNx0WVFYc/9pfpTsz4BaiMeXk9HYT8vp3
-	LRx2hsRHMEpJDc/UsYjeunEcGGruiHvVvhnm9qpir7YLE/yh3OxxQkFh94+BAwaeowhGJ5vQxg=
-	=
-X-Google-Smtp-Source: AGHT+IG/9w9RYy8XeVSB35Aj2XQw0SQ1Z8HiupqD9XgJZnnAgEoB0hzA2HUmbCT1F6TH9+lzKYQesg==
-X-Received: by 2002:a17:903:1a45:b0:224:23be:c569 with SMTP id d9443c01a7336-23414f80419mr226841935ad.22.1748332814563;
-        Tue, 27 May 2025 01:00:14 -0700 (PDT)
-Received: from x1 (97-120-251-212.ptld.qwest.net. [97.120.251.212])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-233f8b2dc89sm65321825ad.114.2025.05.27.01.00.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 27 May 2025 01:00:14 -0700 (PDT)
-Date: Tue, 27 May 2025 01:00:12 -0700
-From: Drew Fustini <drew@pdp7.com>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
-	Miguel Ojeda <ojeda@kernel.org>,
-	Alex Gaynor <alex.gaynor@gmail.com>,
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
-	Benno Lossin <benno.lossin@proton.me>,
-	Andreas Hindborg <a.hindborg@kernel.org>,
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
-	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Tue, 27 May 2025 08:47:00 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 21EA65C4923;
+	Tue, 27 May 2025 08:44:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84FECC4CEE9;
+	Tue, 27 May 2025 08:46:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748335617;
+	bh=YOGK1VmvbqAqWyUgyv7t5StT15fjnicbsSQZQ/DjEnQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=LezB19kxUYfug+WyMrY/E70eavFNjV08U5WB0wM17SQ+XYcD+GOCtkmx+gIdaSOE9
+	 WUfBXJKp+zEJjjmG2TEhyzQtfU7EWPeHYe3xUroA77xZUjDFPbGvvUYIBtw/L0e2cP
+	 J2LgCE8AY02F/RSvq2TcFbHz5hE42141EUEt8J8rKEFXaOuqzxpxHl+feTt3JF4LTA
+	 4iYceX95wI1SyxTAFJBnmU+fWhSkgjUDJ2SlBCkVyr27PLafUxLtG91da79TIJf4OK
+	 tD0rgsdkHIz16ShXvMc6QOdKWiM8+iuMZpR69XvpF1TIW9mmHz/VcRJfZ4JIrhjire
+	 tD/odwPl9iqSA==
+Date: Tue, 27 May 2025 09:46:52 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Conor Dooley <conor.dooley@microchip.com>
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Daire McNamara <daire.mcnamara@microchip.com>,
+	pierre-henry.moussay@microchip.com,
+	valentina.fernandezalanis@microchip.com,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>, Lee Jones <lee@kernel.org>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC 5/6] riscv: dts: thead: Add PVT node
-Message-ID: <aDVxDJi0KkWXiPCK@x1>
-References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
- <CGME20250524211525eucas1p244963b69e0531c95a9052e4a7a1d1e01@eucas1p2.samsung.com>
- <20250524-rust-next-pwm-working-fan-for-sending-v1-5-bdd2d5094ff7@samsung.com>
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [RFC PATCH v2 8/9] clk: divider, gate: create regmap-backed
+ copies of gate and divider clocks
+Message-ID: <20250527-decimeter-ferment-c9b82914a463@spud>
+References: <20250321-cuddly-hazily-d0ab1e1747b5@spud>
+ <20250321-dandelion-canola-c10f5934434b@spud>
+ <20250501-deafening-obtain-ab689094972d@wendy>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-5-bdd2d5094ff7@samsung.com>
+In-Reply-To: <20250501-deafening-obtain-ab689094972d@wendy>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_010016_058649_09749BEE 
-X-CRM114-Status: GOOD (  16.26  )
+X-CRM114-CacheID: sfid-20250527_014659_251509_2B6E9C8A 
+X-CRM114-Status: GOOD (  34.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,58 +80,870 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============1943728937320758499=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, May 24, 2025 at 11:14:59PM +0200, Michal Wilczynski wrote:
-> Add PVT DT node for thermal sensor.
-> 
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  arch/riscv/boot/dts/thead/th1520.dtsi | 11 +++++++++++
->  1 file changed, 11 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-> index f24e12d7259fabcfbdc2dfa966d759db06684ab4..faf5c3aaf209b24cd99ddc377a88e08a8cce24fe 100644
-> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
-> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-> @@ -648,6 +648,17 @@ padctrl_aosys: pinctrl@fffff4a000 {
->  			thead,pad-group = <1>;
->  		};
->  
-> +		pvt: pvt@fffff4e000 {
-> +			compatible = "moortec,mr75203";
-> +			reg = <0xff 0xfff4e000 0x0 0x80>,
-> +			      <0xff 0xfff4e080 0x0 0x100>,
-> +			      <0xff 0xfff4e180 0x0 0x680>,
-> +			      <0xff 0xfff4e800 0x0 0x600>;
-> +			reg-names = "common", "ts", "pd", "vm";
-> +			clocks = <&aonsys_clk>;
-> +			#thermal-sensor-cells = <1>;
-> +		};
-> +
->  		gpio@fffff52000 {
->  			compatible = "snps,dw-apb-gpio";
->  			reg = <0xff 0xfff52000 0x0 0x1000>;
-> 
-> -- 
-> 2.34.1
-> 
 
-I found that on my lpi4a that boot while hang after applying this patch.
-I think that it is related to clocks as boot finished okay when using
-clk_ignore_unused on the kernel cmdline. Do you happen have that in your
-kernel cmdline?
+--===============1943728937320758499==
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="5xM3vR9gf+YHhvQz"
+Content-Disposition: inline
 
-I need to investigate further to understand which clocks are causing the
-problem.
+
+--5xM3vR9gf+YHhvQz
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+Stephen,
+On Thu, May 01, 2025 at 09:51:48AM +0100, Conor Dooley wrote:
+> On Fri, Mar 21, 2025 at 05:22:41PM +0000, Conor Dooley wrote:
+> > From: Conor Dooley <conor.dooley@microchip.com>
+> >=20
+> > Implement regmap-backed copies of gate and divider clocks by replacing
+> > the iomem pointer to the clock registers with a regmap and offset
+> > within.
+>=20
+> Is this the sort of implementation you were looking for in your comments
+> on the previous version of this series?
+> (https://lore.kernel.org/linux-clk/20250220-iciness-mobilize-94a027ff52ce=
+@spud/)
+
+Any chance of taking a look at this approach and letting me know if it
+is what you wanted me to do?
 
 Thanks,
-Drew
+Conor.
+
+> > Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+> > ---
+> >  drivers/clk/Kconfig              |   8 +
+> >  drivers/clk/Makefile             |   2 +
+> >  drivers/clk/clk-divider-regmap.c | 270 +++++++++++++++++++++++++++++++
+> >  drivers/clk/clk-gate-regmap.c    | 253 +++++++++++++++++++++++++++++
+> >  drivers/clk/clk-gate.c           |   5 +-
+> >  include/linux/clk-provider.h     | 120 ++++++++++++++
+> >  6 files changed, 656 insertions(+), 2 deletions(-)
+> >  create mode 100644 drivers/clk/clk-divider-regmap.c
+> >  create mode 100644 drivers/clk/clk-gate-regmap.c
+> >=20
+> > diff --git a/drivers/clk/Kconfig b/drivers/clk/Kconfig
+> > index 713573b6c86c..c700b6ef4f34 100644
+> > --- a/drivers/clk/Kconfig
+> > +++ b/drivers/clk/Kconfig
+> > @@ -33,6 +33,14 @@ menuconfig COMMON_CLK
+> > =20
+> >  if COMMON_CLK
+> > =20
+> > +config COMMON_CLK_DIVIDER_REGMAP
+> > +	bool
+> > +	select REGMAP
+> > +
+> > +config COMMON_CLK_GATE_REGMAP
+> > +	bool
+> > +	select REGMAP
+> > +
+> >  config COMMON_CLK_WM831X
+> >  	tristate "Clock driver for WM831x/2x PMICs"
+> >  	depends on MFD_WM831X
+> > diff --git a/drivers/clk/Makefile b/drivers/clk/Makefile
+> > index bf4bd45adc3a..c57f72af5db9 100644
+> > --- a/drivers/clk/Makefile
+> > +++ b/drivers/clk/Makefile
+> > @@ -20,11 +20,13 @@ clk-test-y			:=3D clk_test.o \
+> >  				   kunit_clk_assigned_rates_zero_consumer.dtbo.o \
+> >  				   kunit_clk_parent_data_test.dtbo.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-divider.o
+> > +obj-$(CONFIG_COMMON_CLK_DIVIDER_REGMAP)	+=3D clk-divider-regmap.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-fixed-factor.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-fixed-rate.o
+> >  obj-$(CONFIG_CLK_FIXED_RATE_KUNIT_TEST)	+=3D clk-fixed-rate-test.o
+> >  clk-fixed-rate-test-y		:=3D clk-fixed-rate_test.o kunit_clk_fixed_rate=
+_test.dtbo.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-gate.o
+> > +obj-$(CONFIG_COMMON_CLK_GATE_REGMAP)	+=3D clk-gate-regmap.o
+> >  obj-$(CONFIG_CLK_GATE_KUNIT_TEST) +=3D clk-gate_test.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-multiplier.o
+> >  obj-$(CONFIG_COMMON_CLK)	+=3D clk-mux.o
+> > diff --git a/drivers/clk/clk-divider-regmap.c b/drivers/clk/clk-divider=
+-regmap.c
+> > new file mode 100644
+> > index 000000000000..2906130a2b47
+> > --- /dev/null
+> > +++ b/drivers/clk/clk-divider-regmap.c
+> > @@ -0,0 +1,270 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/device.h>
+> > +#include <linux/slab.h>
+> > +
+> > +static inline u32 clk_div_regmap_readl(struct clk_divider_regmap *divi=
+der)
+> > +{
+> > +	u32 val;
+> > +
+> > +	regmap_read(divider->regmap, divider->map_offset, &val);
+> > +
+> > +	return val;
+> > +}
+> > +
+> > +static inline void clk_div_regmap_writel(struct clk_divider_regmap *di=
+vider, u32 val)
+> > +{
+> > +	regmap_write(divider->regmap, divider->map_offset, val);
+> > +
+> > +}
+> > +
+> > +static unsigned long clk_divider_regmap_recalc_rate(struct clk_hw *hw,
+> > +		unsigned long parent_rate)
+> > +{
+> > +	struct clk_divider_regmap *divider =3D to_clk_divider_regmap(hw);
+> > +	unsigned int val;
+> > +
+> > +	val =3D clk_div_regmap_readl(divider) >> divider->shift;
+> > +	val &=3D clk_div_mask(divider->width);
+> > +
+> > +	return divider_recalc_rate(hw, parent_rate, val, divider->table,
+> > +				   divider->flags, divider->width);
+> > +}
+> > +
+> > +static long clk_divider_regmap_round_rate(struct clk_hw *hw, unsigned =
+long rate,
+> > +				unsigned long *prate)
+> > +{
+> > +	struct clk_divider_regmap *divider =3D to_clk_divider_regmap(hw);
+> > +
+> > +	/* if read only, just return current value */
+> > +	if (divider->flags & CLK_DIVIDER_READ_ONLY) {
+> > +		u32 val;
+> > +
+> > +		val =3D clk_div_regmap_readl(divider) >> divider->shift;
+> > +		val &=3D clk_div_mask(divider->width);
+> > +
+> > +		return divider_ro_round_rate(hw, rate, prate, divider->table,
+> > +					     divider->width, divider->flags,
+> > +					     val);
+> > +	}
+> > +
+> > +	return divider_round_rate(hw, rate, prate, divider->table,
+> > +				  divider->width, divider->flags);
+> > +}
+> > +
+> > +static int clk_divider_regmap_determine_rate(struct clk_hw *hw,
+> > +				      struct clk_rate_request *req)
+> > +{
+> > +	struct clk_divider_regmap *divider =3D to_clk_divider_regmap(hw);
+> > +
+> > +	/* if read only, just return current value */
+> > +	if (divider->flags & CLK_DIVIDER_READ_ONLY) {
+> > +		u32 val;
+> > +
+> > +		val =3D clk_div_regmap_readl(divider) >> divider->shift;
+> > +		val &=3D clk_div_mask(divider->width);
+> > +
+> > +		return divider_ro_determine_rate(hw, req, divider->table,
+> > +						 divider->width,
+> > +						 divider->flags, val);
+> > +	}
+> > +
+> > +	return divider_determine_rate(hw, req, divider->table, divider->width,
+> > +				      divider->flags);
+> > +}
+> > +
+> > +static int clk_divider_regmap_set_rate(struct clk_hw *hw, unsigned lon=
+g rate,
+> > +				unsigned long parent_rate)
+> > +{
+> > +	struct clk_divider_regmap *divider =3D to_clk_divider_regmap(hw);
+> > +	int value;
+> > +	unsigned long flags =3D 0;
+> > +	u32 val;
+> > +
+> > +	value =3D divider_get_val(rate, parent_rate, divider->table,
+> > +				divider->width, divider->flags);
+> > +	if (value < 0)
+> > +		return value;
+> > +
+> > +	if (divider->lock)
+> > +		spin_lock_irqsave(divider->lock, flags);
+> > +	else
+> > +		__acquire(divider->lock);
+> > +
+> > +	if (divider->flags & CLK_DIVIDER_HIWORD_MASK) {
+> > +		val =3D clk_div_mask(divider->width) << (divider->shift + 16);
+> > +	} else {
+> > +		val =3D clk_div_regmap_readl(divider);
+> > +		val &=3D ~(clk_div_mask(divider->width) << divider->shift);
+> > +	}
+> > +	val |=3D (u32)value << divider->shift;
+> > +	clk_div_regmap_writel(divider, val);
+> > +
+> > +	if (divider->lock)
+> > +		spin_unlock_irqrestore(divider->lock, flags);
+> > +	else
+> > +		__release(divider->lock);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +const struct clk_ops clk_divider_regmap_ops =3D {
+> > +	.recalc_rate =3D clk_divider_regmap_recalc_rate,
+> > +	.round_rate =3D clk_divider_regmap_round_rate,
+> > +	.determine_rate =3D clk_divider_regmap_determine_rate,
+> > +	.set_rate =3D clk_divider_regmap_set_rate,
+> > +};
+> > +EXPORT_SYMBOL_GPL(clk_divider_regmap_ops);
+> > +
+> > +const struct clk_ops clk_divider_regmap_ro_ops =3D {
+> > +	.recalc_rate =3D clk_divider_regmap_recalc_rate,
+> > +	.round_rate =3D clk_divider_regmap_round_rate,
+> > +	.determine_rate =3D clk_divider_regmap_determine_rate,
+> > +};
+> > +EXPORT_SYMBOL_GPL(clk_divider_regmap_ro_ops);
+> > +
+> > +struct clk_hw *__clk_hw_register_divider_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock)
+> > +{
+> > +	struct clk_divider_regmap *div;
+> > +	struct clk_hw *hw;
+> > +	struct clk_init_data init =3D {};
+> > +	int ret;
+> > +
+> > +	if (clk_divider_flags & CLK_DIVIDER_HIWORD_MASK) {
+> > +		if (width + shift > 16) {
+> > +			pr_warn("divider value exceeds LOWORD field\n");
+> > +			return ERR_PTR(-EINVAL);
+> > +		}
+> > +	}
+> > +
+> > +	/* allocate the divider */
+> > +	div =3D kzalloc(sizeof(*div), GFP_KERNEL);
+> > +	if (!div)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	init.name =3D name;
+> > +	if (clk_divider_flags & CLK_DIVIDER_READ_ONLY)
+> > +		init.ops =3D &clk_divider_regmap_ro_ops;
+> > +	else
+> > +		init.ops =3D &clk_divider_regmap_ops;
+> > +	init.flags =3D flags;
+> > +	init.parent_names =3D parent_name ? &parent_name : NULL;
+> > +	init.parent_hws =3D parent_hw ? &parent_hw : NULL;
+> > +	init.parent_data =3D parent_data;
+> > +	if (parent_name || parent_hw || parent_data)
+> > +		init.num_parents =3D 1;
+> > +	else
+> > +		init.num_parents =3D 0;
+> > +
+> > +	/* struct clk_divider assignments */
+> > +	div->regmap =3D regmap;
+> > +	div->map_offset =3D map_offset;
+> > +	div->shift =3D shift;
+> > +	div->width =3D width;
+> > +	div->flags =3D clk_divider_flags;
+> > +	div->lock =3D lock;
+> > +	div->hw.init =3D &init;
+> > +	div->table =3D table;
+> > +
+> > +	/* register the clock */
+> > +	hw =3D &div->hw;
+> > +	ret =3D clk_hw_register(dev, hw);
+> > +	if (ret) {
+> > +		kfree(div);
+> > +		hw =3D ERR_PTR(ret);
+> > +	}
+> > +
+> > +	return hw;
+> > +}
+> > +EXPORT_SYMBOL_GPL(__clk_hw_register_divider_regmap);
+> > +
+> > +struct clk *clk_register_divider_regmap_table(struct device *dev, cons=
+t char *name,
+> > +		const char *parent_name, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock)
+> > +{
+> > +	struct clk_hw *hw;
+> > +
+> > +	hw =3D  __clk_hw_register_divider_regmap(dev, NULL, name, parent_name=
+, NULL,
+> > +					       NULL, flags, regmap, map_offset,
+> > +					       shift, width, clk_divider_flags,
+> > +					       table, lock);
+> > +	if (IS_ERR(hw))
+> > +		return ERR_CAST(hw);
+> > +	return hw->clk;
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_register_divider_regmap_table);
+> > +
+> > +void clk_unregister_divider_regmap(struct clk *clk)
+> > +{
+> > +	struct clk_divider_regmap *div;
+> > +	struct clk_hw *hw;
+> > +
+> > +	hw =3D __clk_get_hw(clk);
+> > +	if (!hw)
+> > +		return;
+> > +
+> > +	div =3D to_clk_divider_regmap(hw);
+> > +
+> > +	clk_unregister(clk);
+> > +	kfree(div);
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_unregister_divider_regmap);
+> > +
+> > +/**
+> > + * clk_hw_unregister_divider_regmap - unregister a clk divider
+> > + * @hw: hardware-specific clock data to unregister
+> > + */
+> > +void clk_hw_unregister_divider_regmap(struct clk_hw *hw)
+> > +{
+> > +	struct clk_divider_regmap *div;
+> > +
+> > +	div =3D to_clk_divider_regmap(hw);
+> > +
+> > +	clk_hw_unregister(hw);
+> > +	kfree(div);
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_hw_unregister_divider_regmap);
+> > +
+> > +static void devm_clk_hw_release_divider_regmap(struct device *dev, voi=
+d *res)
+> > +{
+> > +	clk_hw_unregister_divider_regmap(*(struct clk_hw **)res);
+> > +}
+> > +
+> > +struct clk_hw *__devm_clk_hw_register_divider_regmap(struct device *de=
+v,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock)
+> > +{
+> > +	struct clk_hw **ptr, *hw;
+> > +
+> > +	ptr =3D devres_alloc(devm_clk_hw_release_divider_regmap, sizeof(*ptr)=
+, GFP_KERNEL);
+> > +	if (!ptr)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	hw =3D __clk_hw_register_divider_regmap(dev, np, name, parent_name, p=
+arent_hw,
+> > +					      parent_data, flags, regmap, map_offset,
+> > +					      shift, width, clk_divider_flags, table,
+> > +					      lock);
+> > +
+> > +	if (!IS_ERR(hw)) {
+> > +		*ptr =3D hw;
+> > +		devres_add(dev, ptr);
+> > +	} else {
+> > +		devres_free(ptr);
+> > +	}
+> > +
+> > +	return hw;
+> > +}
+> > +EXPORT_SYMBOL_GPL(__devm_clk_hw_register_divider_regmap);
+> > diff --git a/drivers/clk/clk-gate-regmap.c b/drivers/clk/clk-gate-regma=
+p.c
+> > new file mode 100644
+> > index 000000000000..cf9e48407971
+> > --- /dev/null
+> > +++ b/drivers/clk/clk-gate-regmap.c
+> > @@ -0,0 +1,253 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +
+> > +#include <linux/clk-provider.h>
+> > +#include <linux/device.h>
+> > +#include <linux/module.h>
+> > +#include <linux/slab.h>
+> > +#include <linux/io.h>
+> > +#include <linux/err.h>
+> > +#include <linux/string.h>
+> > +
+> > +/**
+> > + * DOC: basic gatable clock which can gate and ungate its output
+> > + *
+> > + * Traits of this clock:
+> > + * prepare - clk_(un)prepare only ensures parent is (un)prepared
+> > + * enable - clk_enable and clk_disable are functional & control gating
+> > + * rate - inherits rate from parent.  No clk_set_rate support
+> > + * parent - fixed parent.  No clk_set_parent support
+> > + */
+> > +
+> > +static inline u32 clk_gate_regmap_readl(struct clk_gate_regmap *gate)
+> > +{
+> > +	u32 val;
+> > +
+> > +	regmap_read(gate->map, gate->map_offset, &val);
+> > +
+> > +	return val;
+> > +}
+> > +
+> > +static inline void clk_gate_regmap_writel(struct clk_gate_regmap *gate=
+, u32 val)
+> > +{
+> > +	regmap_write(gate->map, gate->map_offset, val);
+> > +
+> > +}
+> > +
+> > +/*
+> > + * It works on following logic:
+> > + *
+> > + * For enabling clock, enable =3D 1
+> > + *	set2dis =3D 1	-> clear bit	-> set =3D 0
+> > + *	set2dis =3D 0	-> set bit	-> set =3D 1
+> > + *
+> > + * For disabling clock, enable =3D 0
+> > + *	set2dis =3D 1	-> set bit	-> set =3D 1
+> > + *	set2dis =3D 0	-> clear bit	-> set =3D 0
+> > + *
+> > + * So, result is always: enable xor set2dis.
+> > + */
+> > +static void clk_gate_regmap_endisable(struct clk_hw *hw, int enable)
+> > +{
+> > +	struct clk_gate_regmap *gate =3D to_clk_gate_regmap(hw);
+> > +	int set =3D gate->flags & CLK_GATE_SET_TO_DISABLE ? 1 : 0;
+> > +	unsigned long flags;
+> > +	u32 reg;
+> > +
+> > +	set ^=3D enable;
+> > +
+> > +	if (gate->lock)
+> > +		spin_lock_irqsave(gate->lock, flags);
+> > +	else
+> > +		__acquire(gate->lock);
+> > +
+> > +	if (gate->flags & CLK_GATE_HIWORD_MASK) {
+> > +		reg =3D BIT(gate->bit_idx + 16);
+> > +		if (set)
+> > +			reg |=3D BIT(gate->bit_idx);
+> > +	} else {
+> > +		reg =3D clk_gate_regmap_readl(gate);
+> > +
+> > +		if (set)
+> > +			reg |=3D BIT(gate->bit_idx);
+> > +		else
+> > +			reg &=3D ~BIT(gate->bit_idx);
+> > +	}
+> > +
+> > +	clk_gate_regmap_writel(gate, reg);
+> > +
+> > +	if (gate->lock)
+> > +		spin_unlock_irqrestore(gate->lock, flags);
+> > +	else
+> > +		__release(gate->lock);
+> > +}
+> > +
+> > +static int clk_gate_regmap_enable(struct clk_hw *hw)
+> > +{
+> > +	clk_gate_regmap_endisable(hw, 1);
+> > +
+> > +	return 0;
+> > +}
+> > +
+> > +static void clk_gate_regmap_disable(struct clk_hw *hw)
+> > +{
+> > +	clk_gate_regmap_endisable(hw, 0);
+> > +}
+> > +
+> > +int clk_gate_regmap_is_enabled(struct clk_hw *hw)
+> > +{
+> > +	u32 reg;
+> > +	struct clk_gate_regmap *gate =3D to_clk_gate_regmap(hw);
+> > +
+> > +	reg =3D clk_gate_regmap_readl(gate);
+> > +
+> > +	/* if a set bit disables this clk, flip it before masking */
+> > +	if (gate->flags & CLK_GATE_SET_TO_DISABLE)
+> > +		reg ^=3D BIT(gate->bit_idx);
+> > +
+> > +	reg &=3D BIT(gate->bit_idx);
+> > +
+> > +	return reg ? 1 : 0;
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_gate_regmap_is_enabled);
+> > +
+> > +const struct clk_ops clk_gate_regmap_ops =3D {
+> > +	.enable =3D clk_gate_regmap_enable,
+> > +	.disable =3D clk_gate_regmap_disable,
+> > +	.is_enabled =3D clk_gate_regmap_is_enabled,
+> > +};
+> > +EXPORT_SYMBOL_GPL(clk_gate_regmap_ops);
+> > +
+> > +struct clk_hw *__clk_hw_register_gate_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data,
+> > +		unsigned long flags,
+> > +		struct regmap *map, u8 map_offset, u8 bit_idx,
+> > +		u8 clk_gate_flags, spinlock_t *lock)
+> > +{
+> > +	struct clk_gate_regmap *gate;
+> > +	struct clk_hw *hw;
+> > +	struct clk_init_data init =3D {};
+> > +	int ret =3D -EINVAL;
+> > +
+> > +	if (clk_gate_flags & CLK_GATE_HIWORD_MASK) {
+> > +		if (bit_idx > 15) {
+> > +			pr_err("gate bit exceeds LOWORD field\n");
+> > +			return ERR_PTR(-EINVAL);
+> > +		}
+> > +	}
+> > +
+> > +	/* allocate the gate */
+> > +	gate =3D kzalloc(sizeof(*gate), GFP_KERNEL);
+> > +	if (!gate)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	init.name =3D name;
+> > +	init.ops =3D &clk_gate_regmap_ops;
+> > +	init.flags =3D flags;
+> > +	init.parent_names =3D parent_name ? &parent_name : NULL;
+> > +	init.parent_hws =3D parent_hw ? &parent_hw : NULL;
+> > +	init.parent_data =3D parent_data;
+> > +	if (parent_name || parent_hw || parent_data)
+> > +		init.num_parents =3D 1;
+> > +	else
+> > +		init.num_parents =3D 0;
+> > +
+> > +	/* struct clk_gate_regmap assignments */
+> > +	gate->map =3D map;
+> > +	gate->map_offset =3D map_offset;
+> > +	gate->bit_idx =3D bit_idx;
+> > +	gate->flags =3D clk_gate_flags;
+> > +	gate->lock =3D lock;
+> > +	gate->hw.init =3D &init;
+> > +
+> > +	hw =3D &gate->hw;
+> > +	if (dev || !np)
+> > +		ret =3D clk_hw_register(dev, hw);
+> > +	else if (np)
+> > +		ret =3D of_clk_hw_register(np, hw);
+> > +	if (ret) {
+> > +		kfree(gate);
+> > +		hw =3D ERR_PTR(ret);
+> > +	}
+> > +
+> > +	return hw;
+> > +
+> > +}
+> > +EXPORT_SYMBOL_GPL(__clk_hw_register_gate_regmap);
+> > +
+> > +struct clk *clk_register_gate_regmap(struct device *dev, const char *n=
+ame,
+> > +		const char *parent_name, unsigned long flags, struct regmap *map,
+> > +		u8 map_offset, u8 bit_idx, u8 clk_gate_flags, spinlock_t *lock)
+> > +{
+> > +	struct clk_hw *hw;
+> > +
+> > +	hw =3D __clk_hw_register_gate_regmap(dev, NULL, name, parent_name, NU=
+LL,
+> > +					   NULL, flags, map, map_offset, bit_idx,
+> > +					   clk_gate_flags, lock);
+> > +	if (IS_ERR(hw))
+> > +		return ERR_CAST(hw);
+> > +	return hw->clk;
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_register_gate_regmap);
+> > +
+> > +void clk_unregister_gate_regmap(struct clk *clk)
+> > +{
+> > +	struct clk_gate_regmap *gate;
+> > +	struct clk_hw *hw;
+> > +
+> > +	hw =3D __clk_get_hw(clk);
+> > +	if (!hw)
+> > +		return;
+> > +
+> > +	gate =3D to_clk_gate_regmap(hw);
+> > +
+> > +	clk_unregister(clk);
+> > +	kfree(gate);
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_unregister_gate_regmap);
+> > +
+> > +void clk_hw_unregister_gate_regmap(struct clk_hw *hw)
+> > +{
+> > +	struct clk_gate_regmap *gate;
+> > +
+> > +	gate =3D to_clk_gate_regmap(hw);
+> > +
+> > +	clk_hw_unregister(hw);
+> > +	kfree(gate);
+> > +}
+> > +EXPORT_SYMBOL_GPL(clk_hw_unregister_gate_regmap);
+> > +
+> > +static void devm_clk_hw_release_gate_regmap(struct device *dev, void *=
+res)
+> > +{
+> > +	clk_hw_unregister_gate_regmap(*(struct clk_hw **)res);
+> > +}
+> > +
+> > +struct clk_hw *__devm_clk_hw_register_gate_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data,
+> > +		unsigned long flags, struct regmap *map,
+> > +		u8 map_offset, u8 bit_idx,
+> > +		u8 clk_gate_flags, spinlock_t *lock)
+> > +{
+> > +	struct clk_hw **ptr, *hw;
+> > +
+> > +	ptr =3D devres_alloc(devm_clk_hw_release_gate_regmap, sizeof(*ptr), G=
+FP_KERNEL);
+> > +	if (!ptr)
+> > +		return ERR_PTR(-ENOMEM);
+> > +
+> > +	hw =3D __clk_hw_register_gate_regmap(dev, np, name, parent_name, pare=
+nt_hw,
+> > +					   parent_data, flags, map, map_offset,
+> > +					   bit_idx, clk_gate_flags, lock);
+> > +
+> > +	if (!IS_ERR(hw)) {
+> > +		*ptr =3D hw;
+> > +		devres_add(dev, ptr);
+> > +	} else {
+> > +		devres_free(ptr);
+> > +	}
+> > +
+> > +	return hw;
+> > +}
+> > +EXPORT_SYMBOL_GPL(__devm_clk_hw_register_gate_regmap);
+> > diff --git a/drivers/clk/clk-gate.c b/drivers/clk/clk-gate.c
+> > index 68e585a02fd9..1e3f21a249ca 100644
+> > --- a/drivers/clk/clk-gate.c
+> > +++ b/drivers/clk/clk-gate.c
+> > @@ -34,10 +34,11 @@ static inline u32 clk_gate_readl(struct clk_gate *g=
+ate)
+> > =20
+> >  static inline void clk_gate_writel(struct clk_gate *gate, u32 val)
+> >  {
+> > -	if (gate->flags & CLK_GATE_BIG_ENDIAN)
+> > +	if (gate->flags & CLK_GATE_BIG_ENDIAN) {
+> >  		iowrite32be(val, gate->reg);
+> > -	else
+> > +	} else {
+> >  		writel(val, gate->reg);
+> > +	}
+> >  }
+> > =20
+> >  /*
+> > diff --git a/include/linux/clk-provider.h b/include/linux/clk-provider.h
+> > index 2e6e603b7493..6f5cf6670b48 100644
+> > --- a/include/linux/clk-provider.h
+> > +++ b/include/linux/clk-provider.h
+> > @@ -8,6 +8,7 @@
+> > =20
+> >  #include <linux/of.h>
+> >  #include <linux/of_clk.h>
+> > +#include <linux/regmap.h>
+> > =20
+> >  /*
+> >   * flags used across common struct clk.  these flags should only affec=
+t the
+> > @@ -526,6 +527,7 @@ void of_fixed_clk_setup(struct device_node *np);
+> >  struct clk_gate {
+> >  	struct clk_hw hw;
+> >  	void __iomem	*reg;
+> > +	u8		map_offset;
+> >  	u8		bit_idx;
+> >  	u8		flags;
+> >  	spinlock_t	*lock;
+> > @@ -538,6 +540,37 @@ struct clk_gate {
+> >  #define CLK_GATE_BIG_ENDIAN		BIT(2)
+> > =20
+> >  extern const struct clk_ops clk_gate_ops;
+> > +
+> > +#ifdef CONFIG_COMMON_CLK_GATE_REGMAP
+> > +/**
+> > + * struct clk_gate_regmap - gating clock via regmap
+> > + *
+> > + * @hw:		handle between common and hardware-specific interfaces
+> > + * @map:	regmap controlling gate
+> > + * @map_offset:	register offset within the regmap controlling gate
+> > + * @bit_idx:	single bit controlling gate
+> > + * @flags:	hardware-specific flags
+> > + * @lock:	register lock
+> > + *
+> > + * Clock which can gate its output.  Implements .enable & .disable
+> > + *
+> > + * Flags:
+> > + * See clk_gate
+> > + */
+> > +struct clk_gate_regmap {
+> > +	struct clk_hw hw;
+> > +	struct regmap	*map;
+> > +	u8		map_offset;
+> > +	u8		bit_idx;
+> > +	u8		flags;
+> > +	spinlock_t	*lock;
+> > +};
+> > +
+> > +#define to_clk_gate_regmap(_hw) container_of(_hw, struct clk_gate_regm=
+ap, hw)
+> > +
+> > +extern const struct clk_ops clk_gate_regmap_ops;
+> > +#endif
+> > +
+> >  struct clk_hw *__clk_hw_register_gate(struct device *dev,
+> >  		struct device_node *np, const char *name,
+> >  		const char *parent_name, const struct clk_hw *parent_hw,
+> > @@ -663,6 +696,31 @@ void clk_unregister_gate(struct clk *clk);
+> >  void clk_hw_unregister_gate(struct clk_hw *hw);
+> >  int clk_gate_is_enabled(struct clk_hw *hw);
+> > =20
+> > +#ifdef CONFIG_COMMON_CLK_GATE_REGMAP
+> > +struct clk_hw *__clk_hw_register_gate_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data,
+> > +		unsigned long flags,
+> > +		struct regmap *map, u8 map_offset, u8 bit_idx,
+> > +		u8 clk_gate_flags, spinlock_t *lock);
+> > +struct clk_hw *__devm_clk_hw_register_gate_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data,
+> > +		unsigned long flags,
+> > +		struct regmap *map, u8 map_offset, u8 bit_idx,
+> > +		u8 clk_gate_flags, spinlock_t *lock);
+> > +struct clk *clk_register_gate_regmap(struct device *dev, const char *n=
+ame,
+> > +		const char *parent_name, unsigned long flags,
+> > +		struct regmap *map, u8 map_offset, u8 bit_idx,
+> > +		u8 clk_gate_flags, spinlock_t *lock);
+> > +
+> > +void clk_unregister_gate_regmap(struct clk *clk);
+> > +void clk_hw_unregister_gate_regmap(struct clk_hw *hw);
+> > +int clk_gate_regmap_is_enabled(struct clk_hw *hw);
+> > +#endif
+> > +
+> >  struct clk_div_table {
+> >  	unsigned int	val;
+> >  	unsigned int	div;
+> > @@ -736,6 +794,41 @@ struct clk_divider {
+> >  extern const struct clk_ops clk_divider_ops;
+> >  extern const struct clk_ops clk_divider_ro_ops;
+> > =20
+> > +#ifdef CONFIG_COMMON_CLK_DIVIDER_REGMAP
+> > +/**
+> > + * struct clk_divider_regmap - adjustable divider clock via regmap
+> > + *
+> > + * @hw:		handle between common and hardware-specific interfaces
+> > + * @map:	regmap containing the divider
+> > + * @map_offset:	register offset within the regmap containing the divid=
+er
+> > + * @shift:	shift to the divider bit field
+> > + * @width:	width of the divider bit field
+> > + * @table:	array of value/divider pairs, last entry should have div =
+=3D 0
+> > + * @lock:	register lock
+> > + *
+> > + * Clock with an adjustable divider affecting its output frequency.  I=
+mplements
+> > + * .recalc_rate, .set_rate and .round_rate
+> > + *
+> > + * @flags:
+> > + * See clk_divider
+> > + */
+> > +struct clk_divider_regmap {
+> > +	struct clk_hw	hw;
+> > +	struct regmap	*regmap;
+> > +	u8		map_offset;
+> > +	u8		shift;
+> > +	u8		width;
+> > +	u8		flags;
+> > +	const struct clk_div_table	*table;
+> > +	spinlock_t	*lock;
+> > +};
+> > +
+> > +#define to_clk_divider_regmap(_hw) container_of(_hw, struct clk_divide=
+r_regmap, hw)
+> > +
+> > +extern const struct clk_ops clk_divider_regmap_ops;
+> > +extern const struct clk_ops clk_divider_regmap_ro_ops;
+> > +#endif
+> > +
+> >  unsigned long divider_recalc_rate(struct clk_hw *hw, unsigned long par=
+ent_rate,
+> >  		unsigned int val, const struct clk_div_table *table,
+> >  		unsigned long flags, unsigned long width);
+> > @@ -972,6 +1065,33 @@ struct clk *clk_register_divider_table(struct dev=
+ice *dev, const char *name,
+> >  void clk_unregister_divider(struct clk *clk);
+> >  void clk_hw_unregister_divider(struct clk_hw *hw);
+> > =20
+> > +#ifdef CONFIG_COMMON_CLK_DIVIDER_REGMAP
+> > +struct clk_hw *__clk_hw_register_divider_regmap(struct device *dev,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock);
+> > +
+> > +struct clk_hw *__devm_clk_hw_register_divider_regmap(struct device *de=
+v,
+> > +		struct device_node *np, const char *name,
+> > +		const char *parent_name, const struct clk_hw *parent_hw,
+> > +		const struct clk_parent_data *parent_data, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock);
+> > +
+> > +struct clk *clk_register_divider_regmap_table(struct device *dev,
+> > +		const char *name, const char *parent_name, unsigned long flags,
+> > +		struct regmap *regmap, u8 map_offset, u8 shift, u8 width,
+> > +		u8 clk_divider_flags, const struct clk_div_table *table,
+> > +		spinlock_t *lock);
+> > +
+> > +void clk_unregister_divider_regmap(struct clk *clk);
+> > +void clk_hw_unregister_divider_regmap(struct clk_hw *hw);
+> > +#endif
+> > +
+> >  /**
+> >   * struct clk_mux - multiplexer clock
+> >   *
+> > --=20
+> > 2.45.2
+> >=20
+
+
+
+--5xM3vR9gf+YHhvQz
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaDV7/AAKCRB4tDGHoIJi
+0m+3AQDj+GhrsI3UL5rK3r9p0tcjq1YVuVd44hkOroQfiKgwfQEAuiEW2pa81Ety
+4nsnXZ+5SPq5Of0dY57hsXO3uqNbbwo=
+=E8Gp
+-----END PGP SIGNATURE-----
+
+--5xM3vR9gf+YHhvQz--
+
+
+--===============1943728937320758499==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============1943728937320758499==--
+
