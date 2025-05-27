@@ -4,75 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FAE9C54F30
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 11:43:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17FC2C54ED1
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 12:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5RtQVxcAOtNo0PfxIfXV8X+AMmpfqx4wkuZso0IgXuM=; b=Zmj+Oj7rM+ViVB
-	dlq0u950thWHt+1bGK+osqgJQkf0FL0v4Znh5PF15dhtW1D6CcKhApwDsePak5V6SkfrkVcP2oIz6
-	vGupdd00y+EguIA0U5nrMzSJzwT2Gj532lK4w5qwsQz1jJ3oWm1WT6IY/GqNjvwfAYSUCxJWeD1G7
-	9JST8KIoOQS6kPX9Cb51hIA1Q5qwN2E/A49SZx0RaBaclJJVQwbq99EBURx+TQhJAwjYNI+NyXrbD
-	bfHv+mdzagUUWgtORejADj0mUAP4vdLH1lh3HJWWAQrMqU0xk9HPHD4qbXY5X8l+gETrB9CTCAUSq
-	FFC4C7ZMMjZ939AHGFvw==;
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:MIME-Version:Message-Id:Date:
+	Subject:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=R6iztWGZzGFtwfrT3PJZ1NIjnMVStMX5hkcy83w8kDg=; b=LIYUTJYm3u/vQk
+	Jz/wfH9Zgy/eH3BHs25nsODCaL/DHDHZLHqzLhsX1EJ673JMHrkhKaJjVBUVXiLXynqxU1xqnBM4P
+	FS6J9rIcCljj6c3dvKI/rbYtDop8JdIaKLlR+EwrhWTD1UmAG/gmH4PtpTaV5UGZrZWhMstULJR6c
+	VZDb0poY5qBWPT/zANMcER2VbOmWEu6Qk13KTokLEL48y+u+UL58UhMs33lZnPCleQXZtkVLkxTyK
+	0311oORzOPkmwfQfkxzLO7/P3sS8iDUy3nG6LKXfDU2WO5b1iNR+fKPMXurRJPhnkGy/pEFXL+VJo
+	zlMRbecOQnYYj1xC2T+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsif-0000000AbpL-0T0G;
-	Tue, 27 May 2025 11:43:45 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uJt00-0000000AeGX-3ylc;
+	Tue, 27 May 2025 12:01:40 +0000
+Received: from mail-m49198.qiye.163.com ([45.254.49.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJsga-0000000AbdO-12Dt
-	for linux-riscv@lists.infradead.org;
-	Tue, 27 May 2025 11:41:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748346096; x=1779882096;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=W5E3Xu6pVeg4WGDqRtohIYctx/gK/C6GG/OwK5hM5A4=;
-  b=BbuyqjympMNyPwv2MjJ+Y0uT24Zjuqe27Er6nWmWLUy4W2Xnx7RAecrT
-   JmTVqm9OkhGwps1/MW3r+iNUjdZkcGbTFgauoQx5PYbUf+VcFwqZgHnwz
-   hUQKEE3QQNc3lJnYKCFGgY9vSb4rr/k0GcKATRcDqbgmsr+XWgNb3rkMh
-   W55PvZULxrc4wQY+IlIqrPuBrrD40rY0TXzYS9Dtz+0axDuyEIEbdSJtI
-   rMTcWGCnOCEO8/gOmsaKykm9186BEEFt+pZzxFFHGiaS29ZkhFN4933Mt
-   5F6Z0wk9QpH/hD4D21vlbtIE+V4P5HhCgOK91NkFCRXuwXfnyPu2+vZYr
-   g==;
-X-CSE-ConnectionGUID: eiYn7WmwSOefzOnph2RUMg==
-X-CSE-MsgGUID: t4SEVvSSRJm8Jd4LZViuEg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11445"; a="61385810"
-X-IronPort-AV: E=Sophos;i="6.15,318,1739865600"; 
-   d="scan'208";a="61385810"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2025 04:41:35 -0700
-X-CSE-ConnectionGUID: Bs/edGu0Tde6lrxtkstj2A==
-X-CSE-MsgGUID: XtLu7GQ6T3+4Ynx8hbYSEw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,318,1739865600"; 
-   d="scan'208";a="143749122"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by fmviesa009.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 May 2025 04:41:30 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uJsgQ-000000019Z8-21f1;
-	Tue, 27 May 2025 14:41:26 +0300
-Date: Tue, 27 May 2025 14:41:26 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v4 06/23] mailbox: Allow controller specific mapping
- using fwnode
-Message-ID: <aDWk5kIN3lkB0Jw2@smile.fi.intel.com>
-References: <20250525084710.1665648-1-apatel@ventanamicro.com>
- <20250525084710.1665648-7-apatel@ventanamicro.com>
+	id 1uJszu-0000000AeDf-0uME;
+	Tue, 27 May 2025 12:01:35 +0000
+Received: from [127.0.0.1] (gy-adaptive-ssl-proxy-1-entmail-virt204.gy.ntes [27.18.99.37])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 169309524;
+	Tue, 27 May 2025 20:01:25 +0800 (GMT+08:00)
+From: Ze Huang <huangze@whut.edu.cn>
+Subject: [PATCH v5 0/4] Add USB2.0 PHY and USB3.0 PHY support for SpacemiT
+ K1
+Date: Tue, 27 May 2025 20:01:14 +0800
+Message-Id: <20250527-b4-k1-usb3-phy-v2-v5-0-2d366b0af999@whut.edu.cn>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250525084710.1665648-7-apatel@ventanamicro.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+X-B4-Tracking: v=1; b=H4sIAIqpNWgC/23OzU7DMAwH8FepcsZVPk27E+8x7ZCkLo3Q2pG0g
+ Wnqu5N1SICo5Mvfsn/2jSWKgRI7VDcWKYcUprEE81QxP9jxlSB0JTPJpeFaPIPT8CZgSU7BZbh
+ CltA7QVo0uuW6ZWXvEqkPn5t5PD1ypPel0POjyZxNBH46n8N8qDLWwkD0gt2Hh5DmKV63f7Lcp
+ r9PNzunS3Fw2BKXnW00uZePYZlr6pbaj5uX1Y9hdt/PqhjE0RgUygpU/w39y5C4Z+i74S1i03u
+ BVv411nX9AsNrsIppAQAA
+X-Change-ID: 20250417-b4-k1-usb3-phy-v2-fb1e41849049
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+ linux-riscv@lists.infradead.org, spacemit@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, Ze Huang <huangze@whut.edu.cn>, 
+ Junzhong Pan <junzhong.pan@spacemit.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1748347285; l=2936;
+ i=huangze@whut.edu.cn; s=20250325; h=from:subject:message-id;
+ bh=SLIbpdBPLAqb/54sjGm0rka8fMCLwCtOyD5tlCd6OnY=;
+ b=erMhzmXgAgrdDShcZphQGvZ0V3vXC8JPL39vXOUUO/u7Es5nkVCQfiD50M6pSSMHSHqMlccLu
+ 0UHKtwXozOcC0inSKJvH6IaLVLSxh0VvABY8zEHmZS5T7M4FhCayyPg
+X-Developer-Key: i=huangze@whut.edu.cn; a=ed25519;
+ pk=C3zfn/kH6oMJickaXBa8dxTZO68EBiD93F+tAenboRA=
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZGE0eVk1OSRkfGh5IHhgfTFYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlJTFVKQ1VCQlVITFlXWRYaDxIVHRRZQVlPS0hVSktJQk1KSlVKS0tVS1kG
+X-HM-Tid: 0a97119e6f2b03a1kunm8e523759adeeb
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Ogw6PTo6KjExHFYvUT0NPzYz
+	E1ZPCVZVSlVKTE9DSE9MSUJKQ0JIVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
+	TFVKQ1VCQlVITFlXWQgBWUFPTUhDNwY+
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250527_044136_324817_D20B5D9F 
-X-CRM114-Status: GOOD (  18.29  )
+X-CRM114-CacheID: sfid-20250527_050134_487949_71693713 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,108 +82,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 25, 2025 at 02:16:53PM +0530, Anup Patel wrote:
-> Introduce optional fw_node() callback which allows a mailbox controller
-> driver to provide controller specific mapping using fwnode.
-> 
-> The Linux OF framework already implements fwnode operations for the
-> Linux DD framework so the fw_xlate() callback works fine with device
-> tree as well.
+This patch series introduces support for the USB2.0 PHY and PCIe/USB3.0
+Combo PHY on the SpacemiT K1 SoC. The implementation has been tested on the
+Milk-V Jupiter and BananaPi-f3.
 
-...
+K1 includes three USB ports as follows[1]:
+- A USB2.0 OTG Port
+- A USB2.0 Host Only Port
+- A USB3.0 Port with a USB2.0 DRD interface
 
->  struct mbox_chan *mbox_request_channel(struct mbox_client *cl, int index)
->  {
-> +	struct fwnode_reference_args fwspec;
+USB3.0 PHY for USB3.0 Port is shared with PCIe port A, meaning that only one of
+these interfaces (PCIe or USB3.0) can be active at a given time.
 
-+ property.h (if not done yet)
+Link: https://developer.spacemit.com/documentation?token=AjHDwrW78igAAEkiHracBI9HnTb#part5 [1]
 
-> -	int ret;
-> +	int i, ret;
+Signed-off-by: Ze Huang <huangze@whut.edu.cn>
+---
+Changes in v5:
+- phy driver for usb2:
+  - convert readl/writel to regmap
+  - fix typo: sentinal -> sentinel
+- Link to v4: https://lore.kernel.org/r/20250526-b4-k1-usb3-phy-v2-v4-0-eca668fc16a2@whut.edu.cn
 
-Why is 'i' signed?
+Changes in v4:
+- combphy driver:
+  - add in-code comments to indicate that PCIe mode is not yet supported.
+  - replace custom spacemit_reg_update() with standard regmap API.
+  - drop spacemit_combphy_wait_ready helper function as only used once.
+  - Fix PHY init timeout handling: ensure proper error reporting when PLL
+    lock fails during USB3 PHY initialization
+- Link to v3: https://lore.kernel.org/r/20250517-b4-k1-usb3-phy-v2-v3-0-e0655613a163@whut.edu.cn
 
-> -	if (!dev || !dev->of_node) {
-> -		pr_debug("%s: No owner device node\n", __func__);
-> +	if (!dev || !dev->fwnode) {
+Changes in v3:
+- improve commit message, provide more info about phy hardware
+- drop superfluous local variable in `spacemit_combphy_wait_ready`
+- replace devm_reset_control_get with devm_reset_control_get_exclusive
+- Link to v2: https://lore.kernel.org/r/20250418-b4-k1-usb3-phy-v2-v2-0-b69e02da84eb@whut.edu.cn
 
-Do not dereference fwnode directly. Use dev_fwnode.
+Changes in v2:
+- combphy dt-bindings:
+  - fix reg-names
+  - describe reg
+  - describe #phy-cells argument
+- drop stale ".owner" in driver struct
+- add support for usb lfps_thres in combphy
+- fix Kconfig depends on
+- Link to v1: https://lore.kernel.org/all/20250407-b4-k1-usb3-v3-2-v1-0-bf0bcc41c9ba@whut.edu.cn
 
-> +		pr_debug("%s: No owner %s\n", __func__, !dev ? "device" : "fwnode");
+---
+Ze Huang (4):
+      dt-bindings: phy: spacemit: add K1 USB2 PHY
+      dt-bindings: phy: spacemit: add K1 PCIe/USB3 combo PHY
+      phy: spacemit: support K1 USB2.0 PHY controller
+      phy: spacemit: add USB3 support for K1 PCIe/USB3 combo PHY
 
-Use positive conditional.
+ .../bindings/phy/spacemit,k1-combphy.yaml          |  72 ++++++
+ .../devicetree/bindings/phy/spacemit,usb2-phy.yaml |  40 ++++
+ drivers/phy/Kconfig                                |   1 +
+ drivers/phy/Makefile                               |   1 +
+ drivers/phy/spacemit/Kconfig                       |  21 ++
+ drivers/phy/spacemit/Makefile                      |   3 +
+ drivers/phy/spacemit/phy-k1-combphy.c              | 266 +++++++++++++++++++++
+ drivers/phy/spacemit/phy-k1-usb2.c                 | 144 +++++++++++
+ 8 files changed, 548 insertions(+)
+---
+base-commit: 64e9fdfc89a76fed38d8ddeed72d42ec71957ed9
+change-id: 20250417-b4-k1-usb3-phy-v2-fb1e41849049
 
-__func__ is redundant it debug messages. With Dynamic Debug enabled it may be
-switched at run-time.
-
->  		return ERR_PTR(-ENODEV);
->  	}
->  
-> -	ret = of_parse_phandle_with_args(dev->of_node, "mboxes", "#mbox-cells",
-> -					 index, &spec);
-> +	ret = fwnode_property_get_reference_args(dev->fwnode, "mboxes",
-
-	struct fwnode_handle *fwnode = dev_fwnode(dev);
-
-> +						 "#mbox-cells", 0, index, &fwspec);
->  	if (ret) {
->  		dev_dbg(dev, "%s: can't parse \"mboxes\" property\n", __func__);
->  		return ERR_PTR(ret);
->  	}
-
-> +	memset(&spec, 0, sizeof(spec));
-> +	if (dev->of_node) {
-
-What is this check for?
-
-> +		spec.np = to_of_node(fwspec.fwnode);
-> +		spec.args_count = fwspec.nargs;
-> +		for (i = 0; i < spec.args_count; i++)
-> +			spec.args[i] = fwspec.args[i];
-> +	}
-> +
->  	mutex_lock(&con_mutex);
->  
->  	chan = ERR_PTR(-EPROBE_DEFER);
-> -	list_for_each_entry(mbox, &mbox_cons, node)
-> -		if (mbox->dev->of_node == spec.np) {
-> +	list_for_each_entry(mbox, &mbox_cons, node) {
-> +		if (mbox->fw_xlate && mbox->dev->fwnode == fwspec.fwnode) {
-> +			chan = mbox->fw_xlate(mbox, &fwspec);
-> +			if (!IS_ERR(chan))
-> +				break;
-> +		} else if (mbox->of_xlate && mbox->dev->of_node == spec.np) {
->  			chan = mbox->of_xlate(mbox, &spec);
->  			if (!IS_ERR(chan))
->  				break;
->  		}
-
-
-		if (!IS_ERR(...))
-			break;
-
-is common.
-
-
-> +	}
-
-...
-
-> +fw_mbox_index_xlate(struct mbox_controller *mbox,
-> +		    const struct fwnode_reference_args *sp)
-
-One line?
-
+Best regards,
 -- 
-With Best Regards,
-Andy Shevchenko
-
+Ze Huang <huangze@whut.edu.cn>
 
 
 _______________________________________________
