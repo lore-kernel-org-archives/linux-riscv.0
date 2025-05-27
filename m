@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0703C5AE59
-	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 01:39:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6658C54FB3
+	for <linux-riscv@archiver.kernel.org>; Tue, 27 May 2025 02:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HihIPip7+sCJqqV+hPT6FpTynfdzaByIlF9Vo1PBaag=; b=Tigqa3gFkzNx9i
-	YefiaBHm0N+JAaDNUfW/qSxhMe2micMiJoLeQunqrf645mtsFpLg/zcHiKFbCyBbyLFIQDph6SreI
-	MnM0VO+866TIENmHbPj3l0PIfXVNIvU55Rr9zTDZcSLfnX2DOf9iFlfiXG+SxJrlr8U/w3JRfH8Fr
-	CmPYXyGxgAhI/WA2bja16Xgbuiexy0wb8rU3maqhU3/Hjiot7HRT2YO+3GElOtUz3qL+m0M09PRRR
-	PS9SYUAYvrBmIYG3h/ukyp/uDGsN/LJcd8vGGjpLj/BmX97FtVNWc012vSh1en7giozRoU6eGebYa
-	FOji2zOnhsWg6TNLJivA==;
+	List-Owner; bh=+PoOREAO0foe2aFf2+ZvuGDhvlMYm8hhv8sA2WTZOqM=; b=K3yPTqpOWmwNFX
+	83JG3/XltvUSyJQ+aGH36pk7z4HUwomBn/41LhEUiYV6jHZuBYMUVJ5bGVTzQn25DGsRdqRivldrt
+	NTeHQtmQpU5sDBsXbNUC7uMfWihon2X+5knuc7v3iOUYxO8jBgEzxYAXgLND5L0HLccV1IvQUcfhe
+	9h7LCH30lhi0nFM3mtmQmqwofrlb5IthnAvQRFh5neZea++Q9K6DPgHQs0mQX621fL2+1GGED1mIO
+	tJCClmB3CkTmrJSYAjarAm8HP84lpoqrAwPvXaQ9+tZspLbbYWRNG5j2IeMFD/lDsbCxRp3XlgnzN
+	sUHC8k3XxfOLpgtJVOFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJjHx-00000009if2-14rl;
-	Tue, 27 May 2025 01:39:33 +0000
-Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
+	id 1uJkG8-00000009mHZ-1Q4p;
+	Tue, 27 May 2025 02:41:44 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uJjHv-00000009ieh-0qSd
+	id 1uJkG5-00000009mGS-34lv
 	for linux-riscv@lists.infradead.org;
-	Tue, 27 May 2025 01:39:32 +0000
-Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b26d7ddbfd7so2286200a12.0
-        for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 18:39:30 -0700 (PDT)
+	Tue, 27 May 2025 02:41:43 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-ad1f6aa2f84so565974166b.0
+        for <linux-riscv@lists.infradead.org>; Mon, 26 May 2025 19:41:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748309970; x=1748914770; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=VDNozsrR2jSMsPeRLEsbQiSRT/gvBoqtxW9ncqMDN1c=;
-        b=PEsbuJ7GwFwp7yHelRi3S6RKw8lAqD8bbb10h+hM0hvlttO2rv6/nTcUEzmxIq8kkd
-         y5dnpniw/iyDUDUt0zFHsSb6UJR58BwGtvYi1eblobOI9fCkn5oeGGQNSp82kSv6tz57
-         5sOfy//f+k0DXI4UB1nNnmIaphPrmcUov6Wit5Vg/K9VKdG7AkUlP+q6WVeBDwdXe73T
-         v5JDnAvyLRrsGfPKoWF3rxOSXsUXsLSGLqDikwyRFUMB4W3yWY7aP37SYmSvmP4CKG2D
-         KDGNhtOIMM3slTP17GSKBeJ4UDHArE0mjTDEK/VadudHS2nCxCbmQcIUZsjZ0pNNsqYK
-         iFuA==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1748313699; x=1748918499; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6ZERauyRIXerSc9GUNUPNmoyTTV2jjjUNrho3ew4khU=;
+        b=RvD9KaG2ewwOHl41Er/jtgf7H7t02JAcG8gYYBAcMnhzC+2PWWCi8VC49honiSQ6ox
+         8pMATpXZYH2PjlgX78cNexaNI7g7QJGdi0ZWeY30K9Y4pEfnnNHlnd+oE2SgqWqxKLC/
+         SfNSQp9Zi8bTL6MdjOBxfEJT8WXj5HbTQs8QGlHLipu2S0jiNZLY7D62mJjJlkiyDqXg
+         vQ39dIaUlx0uq9JNYZS8wWGt4kWkTzcVfIu2/80yF75RJZTnGQvZdxYQn8kkNsMuMHB2
+         oBqtv86+nJnlRR0boUtmC5qH75ogYge9O2Ti/YKr4Xlqsrx9gAKKAkhpkabdqEyzv4E+
+         JlBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748309970; x=1748914770;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VDNozsrR2jSMsPeRLEsbQiSRT/gvBoqtxW9ncqMDN1c=;
-        b=Bg+IiGz6fTADCvLeBEUlF4/IZODwmCFOxcRM1tRqUWQLsr0vgZdFx94jxdhbEC95Qz
-         0pLE6wr2kOCz4+0KXt0VjQnj/yD72of8is69aiWk+ihgf9rqvg40zTpIz+LJXyWUVfug
-         9dy9SvWHYifXrPXChsIGh4Jmo2XXeHMmE0CR36WOwrrZ2dlzkA0D+xKHAkn8voo01g6W
-         nBjBbleK7yS2XRnMZvULDv0IfTx7M5U4P1HH9gxAp6MbkdpHkUQmT6c10KRGN3RRAWsa
-         Xt4+9rZ8DK5qawKDeuTSk/R4EZE2G1vmA9zKzTRDWvs2phEjOSYEWokqfhFWPztemL7t
-         TQRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUlQqjwcI/fjWFX03qXksmxt6BcPubFDL657qTCcRalJfcYR4NrWTmBwcyKY7UgpCeLlxAXjW0437Zcqw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwB7O/UpX4bk15LUxaDz+KEaagQNfFi/RrCONDyaAJN9YyYHNbk
-	sjbzd0vlLBv1PByMl88MmOOsFkWTU7Cu6r9ADmHC5srSKU3QNxubs9GP
-X-Gm-Gg: ASbGnctm+XTLNBEmyrN7ZCwADr7A19e5+CRCBwFsnIxH3NvcOEoq0hmtCn26wRBRbIP
-	qFL8cs9UbJcvz8tXrJVy+rUpGnXdQz28/uy9g653aL+aFNtTZdvrlIvnUUlqzfENFLnnYdvIvrU
-	lN0j8tQq+elJ4KSon8zxAcn64lQ6pDXAq6qqGFxBbAVl8vpWbyjhmrPO/KKR7vlqQh0euhdlTxi
-	A36hW9OlKW4G89GVSVs7lol4MjmPeVdWT9BA4rYurfRy3N7RwYDN2kF53Ft2k9iAi8HC/Jp4fPC
-	46wUsG/QRouQuuwswxPxqn8EoPtE9h5ZnaCiCvvI1nC/wwX3IdSu
-X-Google-Smtp-Source: AGHT+IGzgYNAetOKbrBA2x3zjBOyZOtZdfZqboKJVQp5aeYbfVjV0GoXSJ34C2w9Vc7NbtGJRSMbww==
-X-Received: by 2002:a17:90b:19c6:b0:311:9c9a:58dd with SMTP id 98e67ed59e1d1-3119c9a5c6cmr2714876a91.13.1748309970134;
-        Mon, 26 May 2025 18:39:30 -0700 (PDT)
-Received: from localhost ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-30f365f3487sm12933296a91.42.2025.05.26.18.39.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 26 May 2025 18:39:29 -0700 (PDT)
-Date: Tue, 27 May 2025 09:39:27 +0800
-From: Longbin Li <looong.bin@gmail.com>
-To: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v4 2/3] pwm: sophgo: reorganize the code structure
-Message-ID: <srj5sbjuxrbbdyl7rk553ya2jm7icujdxvn3ecrcdh5enu74ze@daedkuqpc2g5>
-References: <20250428013501.6354-1-looong.bin@gmail.com>
- <20250428013501.6354-3-looong.bin@gmail.com>
- <l57yh42pb7cfbnk5z4zo473vb5pac6t4hnpg36m3iph3og4wom@kmd35myokcgp>
+        d=1e100.net; s=20230601; t=1748313699; x=1748918499;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6ZERauyRIXerSc9GUNUPNmoyTTV2jjjUNrho3ew4khU=;
+        b=vch/J33tA8iolOE2H2T9Zk8bo8shBOcw5AlEYqFJ8zPH7NFdqKooFCHScbo7aPIKLe
+         Am3PEZsMz1efMhiC9Tu9lp2HNmTkrhSMBCKYP+PwJXXdV4Ij6HVoyzACVuRuKIm+xjIS
+         k2FuHGvDjfyN4u5j6HHL8I4cZOybqUpX88lY6TNejbvBJXBnf/7rGKapCNveDRzOl9nY
+         1SnXqzB+7jZWJ8yZ6tY1J+BiypSKIrHRYRA870zWfCGEW0FrUR0YBcBpomz15tvPg2cE
+         5prclScTB7XTVd6n8iweRgfDdUQ3Eh4dq0UG+cVwhU6Iyi3RdPk9Py81R3p+J4B0TWz0
+         M7NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX0D+n4lI7n0+ELNlIFvdGbjmJBxs0vNZFFiOhyG+x6Mpd0iC8FiVUPgk9Sgbjuro7elCKMbm7HdD3cew==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyReVKe/TPxEmUSgve4pSVrgR6wHMybduyGdvx/UPOrK1wY3BLK
+	r3JrNOTNVYQ2vjQz04CjqS2gd+CZEBmpZGZDImyWU2lccb53fyKTyS2MkZfN7KS/o3FXwXUeATP
+	0XRbrQVln3WCKB3tWnmmhMqphZ2l2I8auXxIiekC5VQ==
+X-Gm-Gg: ASbGncs2WX9loXWBnx1wyfzzuavnWj6J8uXKUYsndYrBItqpJBQtBeGnj6J4XLAKTRq
+	kcL/WqGiRahQQcZIX4eZz/bi0ROHg6LP9wcxaE7lClL1qgHwwmUPh1WxaqXhN6E86S2ggjEqiUR
+	JSHHHQNxubO276Vp50zH7vWXdO2fI/Qmim/Q==
+X-Google-Smtp-Source: AGHT+IEwDBoO6fPNQbhz18OXkU1emYXVf9ol8i2RRW8+CYwMWPShuzxk64vRiGzkPz9segng6DJBOqMGPdvXU6MevTk=
+X-Received: by 2002:a17:907:3ea9:b0:ad2:2fdb:b0ab with SMTP id
+ a640c23a62f3a-ad859b5436emr1083211866b.29.1748313699251; Mon, 26 May 2025
+ 19:41:39 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <l57yh42pb7cfbnk5z4zo473vb5pac6t4hnpg36m3iph3og4wom@kmd35myokcgp>
+References: <20250429085048.1310409-1-guodong@riscstar.com> <lgjntm2v4qtp3uwccriodxdefdc4vqydzl4dmula4avhws4zfi@xevkgzfuhyhl>
+In-Reply-To: <lgjntm2v4qtp3uwccriodxdefdc4vqydzl4dmula4avhws4zfi@xevkgzfuhyhl>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Tue, 27 May 2025 10:41:20 +0800
+X-Gm-Features: AX0GCFtJk0m16OgxkbmqVbr299LwditdBcOLPf3TQyBjUg1Ado6GD-l3Ru51kO0
+Message-ID: <CAH1PCMZBBmDibwSLUAhDAyjAORgpS+D-U5_kfLJkbZ2r=XpFDA@mail.gmail.com>
+Subject: Re: [PATCH v3 0/6] pwm: Update PWM_PXA driver for SpacemiT K1
+To: =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu, 
+	alex@ghiti.fr, dlan@gentoo.org, p.zabel@pengutronix.de, drew@pdp7.com, 
+	inochiama@gmail.com, geert+renesas@glider.be, heylenay@4d2.org, 
+	tglx@linutronix.de, hal.feng@starfivetech.com, unicorn_wang@outlook.com, 
+	duje.mihanovic@skole.hr, heikki.krogerus@linux.intel.com, elder@riscstar.com, 
+	linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250526_183931_249328_4A5FC7CE 
-X-CRM114-Status: GOOD (  27.40  )
+X-CRM114-CacheID: sfid-20250526_194142_034915_6CFFF87E 
+X-CRM114-Status: GOOD (  29.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,157 +96,62 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Mon, May 26, 2025 at 04:59:34PM +0200, Uwe Kleine-K=F6nig wrote:
-> Hello,
-> =
-
-> On Mon, Apr 28, 2025 at 09:34:49AM +0800, Longbin Li wrote:
-> > As the driver logic can be used in both SG2042 and SG2044, it
-> > will be better to reorganize the code structure.
-> > =
-
-> > Signed-off-by: Longbin Li <looong.bin@gmail.com>
-> > Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> > ---
-> >  drivers/pwm/pwm-sophgo-sg2042.c | 62 +++++++++++++++++++--------------
-> >  1 file changed, 35 insertions(+), 27 deletions(-)
-> > =
-
-> > diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-s=
-g2042.c
-> > index ff4639d849ce..23a83843ba53 100644
-> > --- a/drivers/pwm/pwm-sophgo-sg2042.c
-> > +++ b/drivers/pwm/pwm-sophgo-sg2042.c
-> > @@ -26,18 +26,6 @@
-> >  #include <linux/pwm.h>
-> >  #include <linux/reset.h>
-> > =
-
-> > -/*
-> > - * Offset RegisterName
-> > - * 0x0000 HLPERIOD0
-> > - * 0x0004 PERIOD0
-> > - * 0x0008 HLPERIOD1
-> > - * 0x000C PERIOD1
-> > - * 0x0010 HLPERIOD2
-> > - * 0x0014 PERIOD2
-> > - * 0x0018 HLPERIOD3
-> > - * 0x001C PERIOD3
-> > - * Four groups and every group is composed of HLPERIOD & PERIOD
-> > - */
-> =
-
-> This seems to be still correct? Why remove it then?
-> =
-
-
-The following "#define" has already expressd it. For clarity,
-i will add it back.
-
-> >  #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
-> >  #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
-> > =
-
-> > @@ -53,6 +41,10 @@ struct sg2042_pwm_ddata {
-> >  	unsigned long clk_rate_hz;
-> >  };
-> > =
-
-> > +struct sg2042_chip_data {
-> > +	const struct pwm_ops ops;
-> > +};
-> > +
-> >  /*
-> >   * period_ticks: PERIOD
-> >   * hlperiod_ticks: HLPERIOD
-> > @@ -66,21 +58,13 @@ static void pwm_sg2042_config(struct sg2042_pwm_dda=
-ta *ddata, unsigned int chan,
-> >  	writel(hlperiod_ticks, base + SG2042_PWM_HLPERIOD(chan));
-> >  }
-> > =
-
-> > -static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *=
-pwm,
-> > -			    const struct pwm_state *state)
-> > +static void pwm_set_dutycycle(struct pwm_chip *chip, struct pwm_device=
- *pwm,
-> =
-
-> This is not a global pwm API function, so please stick to the pwm_sg2042
-> prefix.
-> =
-
-
-I will modify that, thanks.
-
-> > +			      const struct pwm_state *state)
-> >  {
-> >  	struct sg2042_pwm_ddata *ddata =3D pwmchip_get_drvdata(chip);
-> >  	u32 hlperiod_ticks;
-> >  	u32 period_ticks;
-> > =
-
-> > -	if (state->polarity =3D=3D PWM_POLARITY_INVERSED)
-> > -		return -EINVAL;
-> > -
-> > -	if (!state->enabled) {
-> > -		pwm_sg2042_config(ddata, pwm->hwpwm, 0, 0);
-> > -		return 0;
-> > -	}
-> > -
-> >  	/*
-> >  	 * Duration of High level (duty_cycle) =3D HLPERIOD x Period_of_input=
-_clk
-> >  	 * Duration of One Cycle (period) =3D PERIOD x Period_of_input_clk
-> > [...]
-> > @@ -123,13 +123,16 @@ static int pwm_sg2042_get_state(struct pwm_chip *=
-chip, struct pwm_device *pwm,
-> >  	return 0;
-> >  }
-> > =
-
-> > -static const struct pwm_ops pwm_sg2042_ops =3D {
-> > -	.apply =3D pwm_sg2042_apply,
-> > -	.get_state =3D pwm_sg2042_get_state,
-> > +static const struct sg2042_chip_data sg2042_chip_data =3D {
-> > +	.ops =3D {
-> > +		.apply =3D pwm_sg2042_apply,
-> > +		.get_state =3D pwm_sg2042_get_state,
-> > +	}
-> >  };
-> > =
-
-> >  static const struct of_device_id sg2042_pwm_ids[] =3D {
-> > -	{ .compatible =3D "sophgo,sg2042-pwm" },
-> > +	{ .compatible =3D "sophgo,sg2042-pwm",
-> > +	  .data =3D &sg2042_chip_data },
-> =
-
-> I would have expected that checkpatch doesn't like that. At least I
-> don't. Please make this
-> =
-
-> 	{
-> 		.compatible =3D ...;
-> 		.data =3D ...;
-> 	},
-> =
-
-
-I will check that, thanks.
-
-> >  	{ }
-> >  };
-> >  MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
-
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMjcsIDIwMjUgYXQgMToyMuKAr0FNIFV3ZSBLbGVpbmUtS8O2bmlnIDx1a2xl
+aW5la0BrZXJuZWwub3JnPiB3cm90ZToKPgo+IEhlbGxvLAo+Cj4gT24gVHVlLCBBcHIgMjksIDIw
+MjUgYXQgMDQ6NTA6NDJQTSArMDgwMCwgR3VvZG9uZyBYdSB3cm90ZToKPiA+IFRoaXMgcGF0Y2hz
+ZXQgYWRkcyBzdXBwb3J0IGZvciB0aGUgU3BhY2VtaVQgSzEgU29DIGluIHRoZSBQV01fUFhBIGRy
+aXZlcgo+ID4gYW5kIHVwZGF0ZXMgcmVsYXRlZCBkZXZpY2UgdHJlZSBiaW5kaW5ncy4gVGhlIGNo
+YW5nZXMgZW5hYmxlIFBXTQo+ID4gZnVuY3Rpb25hbGl0eSBvbiB0aGUgSzEgcGxhdGZvcm0gdGhy
+b3VnaCBkcml2ZXIgZW5oYW5jZW1lbnRzLAo+ID4gY29uZmlndXJhdGlvbiB1cGRhdGVzLCBhbmQg
+ZGV2aWNlIHRyZWUgYWRkaXRpb25zLgo+ID4KPiA+IEZ1bmN0aW9uYWxpdHkgaGFzIGJlZW4gdmVy
+aWZpZWQgb24gdGhlIEJhbmFuYSBQaSBCUEktRjMgYm9hcmQgdXNpbmcgUFdNMTQsCj4gPiBjb25m
+aWd1cmVkIGFzIGEgcHdtLWJhY2tsaWdodC4gUGVyIGNvbW11bml0eSBmZWVkYmFjaywgdGhlIGFj
+dHVhbAo+ID4gcHdtLWJhY2tsaWdodCBub2RlIGlzIG5vdCBpbmNsdWRlZCBpbiB0aGlzIHBhdGNo
+c2V0IGJ1dCBjYW4gYmUgZm91bmQgaW4KPiA+IHBhdGNoIDcgb2YgdGhlIHYxIHNlcmllcywgd2l0
+aCBtb2RpZmljYXRpb24gb2YgcHdtcyBwcm9wZXJ0eSB0byA0LWNlbGwKPiA+IGZvcm1hdCB0byBt
+YXRjaCB1cGRhdGVkIGJpbmRpbmcgKCNwd20tY2VsbHMgPSA8Mz4pIHNpbmNlIHYzLgo+ID4KPiA+
+ICsgICAgICAgICAgICAgcHdtcyA9IDwmcHdtMTQgMCAyMDAwIDA+Owo+ID4KPiA+IFRoaXMgcGF0
+Y2hzZXQgaXMgYmFzZWQgb24gW3NwYWNlbWl0L2Zvci1uZXh0XQo+ID4gICBiYXNlOiBodHRwczov
+L2dpdGh1Yi5jb20vc3BhY2VtaXQtY29tL2xpbnV4IGZvci1uZXh0Cj4gPgo+ID4gUGx1cyB0aGUg
+Zm9sbG93aW5nIGRlcGVuZGVuY2llczoKPiA+IDEuIENsb2NrIGNvbnRyb2xsZXIgZHJpdmVyLCBw
+b3N0ZWQgYnkgSGV5bGVuIENodSAodjgpLCB3aXRoIG1vc3Qgb2YgaXQgaGFzCj4gPiAgICBiZWVu
+IGFjY2VwdGVkOgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDE2MTM1NDA2
+LjE2Mjg0LTEtaGV5bGVuYXlANGQyLm9yZy8KPiA+IDIuIFJlc2V0IGNvbnRyb2xsZXIgZHJpdmVy
+LCBwb3N0ZWQgYnkgQWxleCBFbGRlciAodjUpOgo+ID4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
+YWxsLzIwMjUwNDE4MTQ1NDAxLjI2MDM2NDgtMS1lbGRlckByaXNjc3Rhci5jb20vCj4KPiBJdCdz
+IG5vdCBjbGVhciB0byBtZSBpZiBJIGhhdmUgdG8gbG9vayBpbnRvIHRoaXMgZ2l0aHViIHRyZWUg
+YW5kIHRoZQo+IGxpc3RlZCBkZXBlbmRlbmNpZXMuIE15IGltcHJlc3Npb24gaXMgdGhhdCBpdCBj
+YW4gZ28gaW4gb24gd2l0aG91dCB0aGVzZQo+IGNoYW5nZXMuIE1heWJlIGl0IG9ubHkgc3RhcnRz
+IHdvcmtpbmcgd2hlbiB0aGVzZSBhcmUgYWxzbyBhcHBsaWVkLCBidXQKPiB0aGF0IHNob3VsZG4n
+dCBzdG9wIG1lIGFwcGx5aW5nIHRoaXMgc2VyaWVzLCByaWdodD8KPgoKVGhhbmtzIFV3ZSBmb3Ig
+dGhlIHJldmlldy4KClRoZSBkZXBlbmRlbmN5IGlzIGluIHBhdGNoIDMsIHdoZXJlIEkgYWRkZWQg
+dGhlIFBXTSBub2RlcyAocHdtMC1wd20xOSkgdG8KazEuZHRzaS4gVGhlc2Ugbm9kZXMgcmVmZXJl
+bmNlIFJFU0VUX1BXTTAgdG8gUkVTRVRfUFdNMTksIHdoaWNoIGFyZSBvbmx5CmRlZmluZWQgYWZ0
+ZXIgYXBwbHlpbmcgdGhlIHNwYWNlbWl0IHJlc2V0IHBhdGNoc2V0IChQYXRjaCAxLzYpLAphdmFp
+bGFibGUgaGVyZToKCmh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDUxMzIxNTM0NS4z
+NjMxNTkzLTItZWxkZXJAcmlzY3N0YXIuY29tLwoKWW91J3JlIHJpZ2h0IHRoYXQgcGF0Y2hlcyAx
+LCAyLCBhbmQgNSBkbyBub3QgZGVwZW5kIG9uIHRoYXQgcmVzZXQgc2VyaWVzCmFuZCBjYW4gYmUg
+YXBwbGllZCBpbmRlcGVuZGVudGx5LgoKPiBUaGVyZSBpcyBhIHBhdGNoIGluIHB3bS9mb3ItNi4x
+Ni1yYzEgKG5hbWVseSBjb21taXQgZGYwOGZmZjhhZGQyICgicHdtOgo+IHB4YTogSW1wcm92ZSB1
+c2luZyBkZXZfZXJyX3Byb2JlKCkiKSkgdGhhdCBjb25mbGljdHMgd2l0aCB0aGlzIHNlcmllcy4K
+PiBJIGFwcGxpZWQgcGF0Y2hlcyAxLCAyIGFuZCA1IG9uIHRvcCBvZiBteSBwd20vZm9yLW5leHh0
+IGJyYW5jaCByZXNvbHZpbmcKPiB0aGF0IGNvbmZsaWN0IGFuZCByZXdvcmRpbmcgdGhlIGNvbW1p
+dCBsb2cgb2YgcGF0Y2ggNS4gVGhlIHJlc3VsdCB3YXMKPiBwdXNoZWQgdG8KPgo+ICAgICAgICAg
+aHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2NtL2xpbnV4L2tlcm5lbC9naXQvdWtsZWluZWsv
+bGludXguZ2l0IHB3bS9weGEtc3BhY2VtaXQKPgoKSSd2ZSByZXZpZXdlZCB0aGUgdGhyZWUgcGF0
+Y2hlcyBpbiBwd20vcHhhLXNwYWNlbWl0LCBhbmQgdGhleSBsb29rIGdvb2QKdG8gbWUuCgpUaGFu
+a3MgYWdhaW4gZm9yIGhhbmRsaW5nIHRoZSBjb25mbGljdCBhbmQgcmV3b3JkaW5nIHRoZSBjb21t
+aXQgbG9nLgoKPiAuIElmIHlvdSBjb25maXJtIHRoYXQgeW91J3JlIGhhcHB5IHdpdGggbXkgbW9k
+aWZpY2F0aW9ucyBhbmQgaXQncwo+IGNvcnJlY3QgdG8gYXBwbHkgdGhlbSB3aXRob3V0IHRoZSBs
+aXN0ZWQgZGVwZW5kZW5jaWVzIEkgd2lsbCBhZGQgdGhlCj4gcGF0Y2hlcyB0byBteSBxdWV1ZSBm
+b3IgNi4xNy1yYzEuCj4KClllYWguIEFuZCBJIGNvbmZpcm0gdGhhdCB0aGV5IGNhbiBiZSBhcHBs
+aWVkIHdpdGhvdXQgdGhlIHJlc2V0CmRlcGVuZGVuY2llcy4KClRoYW5rcy4KCkJSLApHdW9kb25n
+Cgo+IEJlc3QgcmVnYXJkcwo+IFV3ZQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3Rz
+LmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5m
+by9saW51eC1yaXNjdgo=
