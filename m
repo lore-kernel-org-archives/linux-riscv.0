@@ -4,95 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED072C5AD49
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292A8C5AD49
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:21:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wtZOdoENSK+n6MccctygieEloh7wLvLEC68vbz15kNs=; b=SYy6kBvwZ5F2L8
-	te0EAB+6u7eS/JRcDPFSGHAmaJjPiJn20uxLMqsR+Sb8SNXML623lzQPKwco9Bl0KOJ0JSSyuOaV5
-	MCteNBo9BXmo6U8nC3rCO1D0LE1D3h69vC/uB4yjVyEHlpjaATuo5rHdavRkQTMmn9278WGgutg+h
-	7/wNu571iBH9KdiUXcU0UN+EmTAH4CK/AIRyZw/tT69UzzRiCiLUnODQ87WPDJ+A1NbrDkTogOslq
-	4GiMIyS9Dg701OBXovOoZrsI6AfSOvUylrIV+ZNPF86RfwS2P9CGv8mRmQUnrnXGwIvGU2n6drP8U
-	rEQbzQbtDJ9m9stymBrQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XMXbs+aJN/zuqpkBO3lyVAR9ZGDQd4EZsDnSI1W00Vk=; b=qzN+1UGhlLu1Pi6sFS6WcirHgt
+	0dL51Bmk0uOGFnj1ceU4LvfimSs3Rzt/zp0zXY1Rcpq0hwQrwGZ8BWqwRLA2IDjX3+qq6YsaXSvtp
+	f51N6KskU/65Rf+/p10D7OAF9Y2oXEr9saZKcgNwh/IJ/Q6cGFAUrGTCaBUEnag5iMKryATMzlnyM
+	g8ovCoKThJEUWaOwvpJTxLbRi+jVsFYwcehzALhULmIccFYqe1pUi6jcyNSyZjxjIjrZ+sBk0ZbI3
+	YYqPRy55RmouNRSIkUw+Jonj/a4EevHXftOZB3yVHcmE+fz0YKnz8wUZ1HJFB8tnVzDffhrvlataI
+	93cmdGBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDtS-0000000CpT0-1E3q;
-	Wed, 28 May 2025 10:20:18 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1uKDux-0000000Cpu2-3uAF;
+	Wed, 28 May 2025 10:21:51 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDlI-0000000CoSv-2PFP
+	id 1uKDuv-0000000Cpss-1xuy
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 10:11:53 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-23476a0a7c0so5400355ad.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:11:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748427111; x=1749031911; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=u1/Vt2mp73cleoni8AtXiYI0r+BUVH7GhRhyE5d0M3E=;
-        b=H/fiKVBTgRhV9Kg2/RDH9M16MUBa8Yy+H9/VEzN46VZGyNfUc9Tlembiz3EiHSNbq4
-         EsZF+qhjHxhyxVoZcKA9gUmINvUD467jDYqA0hiY1ohelKxPfzeyQnbv77YNDA9z/tNd
-         3I0eE8t+cm9/nUxyU0rWGkzwcLaq1u5DMbGiLw22YNxegM97Sf74J6lGnX7eN0y5gipk
-         Utx5TiUJewAq9fkOwPib8xKCBkUiHdcMgc7uYxDAsUd27M/Lw5rWN58lXNd2pSOPx8t5
-         wDLOHSuEHs3MuHR9qP8bYcxpMHl7t3bL+DFfc4qmcZlHDeDGbrZbdSZgqj5CwnDUhu5t
-         V2aA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748427111; x=1749031911;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=u1/Vt2mp73cleoni8AtXiYI0r+BUVH7GhRhyE5d0M3E=;
-        b=stp9SmXB+8HetuV/bRk0OCnA0T/fFCwB+WXOssqg4Ij3iNQieL5ANxbl5jTH958iys
-         hV14TBguNpoxCkivi5+cJTBTj50irCzYyQ2MiZFYAdPuRx6ai09EOWuE1ce1qgqwNf1E
-         y1R4V9GQq5MNCKvy1eBgvGcEaihDNIZbHva+W5UbbbjWVzmiQ/tsebu202GcRiqvy7Kk
-         iviMH1HlosaWuvLnV9cw7lvF2AKzq4C8472J+0Q/Rya17/stz2SL/8dnBbEag8//guo3
-         SOdOjliySi03ObQtDWZIJO1z9CeVqgLUQ7q4MZVfQBiOxSW6JJATTXj/bMnVfh5UhEci
-         W0Pw==
-X-Forwarded-Encrypted: i=1; AJvYcCUaaInUpjW/x2AiiRsOgv4UsMI/Dw5Ig8BaCsth68KAWu8mNr+oRzBK4GXSvrfHHsOO9MZVKLWA4pmAwg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyqjken27UbQA4cZRtOrjQwrKaIj+/EmPDiKswsnPyNT+aH4O6u
-	d/ePJM7yYD7uwInseNLUZHnVBUSzOiH/CoqKLYEuicjPv4a8YjV8G7+L
-X-Gm-Gg: ASbGncsotaN5Wuy1/3tRYYPpH6IYRXuPSNsKnVDgjBCw0ZZZ9QFls6/Z8N0ss7kuXmF
-	aJ56wJUf/FP9mfHcG1OTuaS3sxpXSpjoUVwkdcgvjdgeDZ+ONES8Z899wm5rvcZpXFo4baMbPZf
-	p87NaHOBjB0jn/WqKLgT/bBqEMKaxZjOhn/cNJaINs6xrvGyqZAgWBAvQvjwzrK8gahn2pjGfEO
-	oUN0Cduoe2x2ukfnrXNXB48NpCoxCaTmttG6UMHohEYUBBTOyhGruk7dV1v2GhAEMp3SvKpvgZb
-	iQy/KwAK0ARscVujknVOuLS7BpN/XQM/FrbNH1hFrT1rcySmIUmZOGES
-X-Google-Smtp-Source: AGHT+IFZgXlqFr/nZJIbvYhr8VBnFB2u+fgWRkPoYOa2czSx/AkDylcuc63qHSavCUSvhb5c85NwtQ==
-X-Received: by 2002:a17:902:f693:b0:234:325:500b with SMTP id d9443c01a7336-234b74f4119mr68932215ad.22.1748427111266;
-        Wed, 28 May 2025 03:11:51 -0700 (PDT)
-Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234d358f118sm8453595ad.138.2025.05.28.03.11.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 03:11:50 -0700 (PDT)
-From: Longbin Li <looong.bin@gmail.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Longbin Li <looong.bin@gmail.com>
-Cc: linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 0/3] riscv: pwm: sophgo: add pwm support for SG2044
-Date: Wed, 28 May 2025 18:11:35 +0800
-Message-ID: <20250528101139.28702-1-looong.bin@gmail.com>
-X-Mailer: git-send-email 2.49.0
+	Wed, 28 May 2025 10:21:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4D565A4F876;
+	Wed, 28 May 2025 10:21:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 626A6C4CEEB;
+	Wed, 28 May 2025 10:21:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748427708;
+	bh=MarkZ8utDfJEEqG+ZwLpK8d+OC45TaBkZgBFc7qet+U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=U4QFFQUIcZimiPD3SX9jXdRRX77wR2TsQWYRGBAm7B+x66WD6mXbTPY8CFWaatNzT
+	 BHpRSl9D0m0FV3dyChup6xal++HQlK+ocxtllMOk59zPyM1hOM43W45usPV/a1cF15
+	 hqroARrL1RjBAtB8rh/GjU3BNsCaSW7Ozrpg3opRCsOtJEpuffjm413yrnP5/HeANG
+	 Wpw0cqfAbUqjZ10TiqhukNRnJPqjA387wshfZqS4ipF3XJOSA9LSYIKkWHLOL4wgqI
+	 CP7gtUj2HsLSfbQ92/w4Ckam3mMIwyeNIY1f6UzHUl6nk1Sdj130C9sV/AusB0V8Tp
+	 ZucM4V6myOcTg==
+Date: Wed, 28 May 2025 12:21:45 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: Nylon Chen <nylon.chen@sifive.com>, Conor Dooley <conor@kernel.org>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
+Cc: devicetree@vger.kernel.org, linux-pwm@vger.kernel.org, 
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, robh@kernel.org, 
+	krzk+dt@kernel.org, paul.walmsley@sifive.com, samuel.holland@sifive.com
+Subject: Re: [PATCH v14 0/5] Change PWM-controlled LED pin active mode and
+ algorithm
+Message-ID: <crcfskukqifse6gqrydx2iezargv5frv6dguj3iqdkfm7xxbqh@4v2dvo4zcmbz>
+References: <20250509095234.643890-1-nylon.chen@sifive.com>
 MIME-Version: 1.0
+In-Reply-To: <20250509095234.643890-1-nylon.chen@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_031152_616359_014C98C5 
-X-CRM114-Status: UNSURE (   8.30  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250528_032149_574340_6F10A846 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,60 +69,81 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============5123284266277200161=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This patch adds PWM controller support for four independent
-PWM channel outputs.
 
----
+--===============5123284266277200161==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="q3beuwyz772xtchz"
+Content-Disposition: inline
 
-Changes in v5:
 
-  - Rename function and variables for clarity.
-  - Modify code style.
+--q3beuwyz772xtchz
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v14 0/5] Change PWM-controlled LED pin active mode and
+ algorithm
+MIME-Version: 1.0
 
-Changes in v4:
-  You can simply review or test the patches at the link [4].
+Hello,
 
-  - add tags for mail.
+patches 1 and 2 ideally go in together, right? @Conor, does your Ack
+mean that you're OK with me taking the dts change via my pwm tree?
 
-Changes in v3:
-  You can simply review or test the patches at the link [3].
+On Fri, May 09, 2025 at 05:52:29PM +0800, Nylon Chen wrote:
+> Nylon Chen (5):
+>   riscv: dts: sifive: unleashed/unmatched: Remove PWM controlled LED's
+>     active-low properties
+>   pwm: sifive: change the PWM algorithm
+>   pwm: sifive: Fix the error in the idempotent test within the
+>     pwm_apply_state_debug function
+>   pwm: sifive: Fix rounding issues in apply and get_state functions
+>   pwm: sifive: clarify inverted compare logic in comments
 
-  - Rename macro definitions to unify naming.
-  - Modify code style.
+The objective of patches #3 and #4 is the same, right? Both prevent that
+=2Eapply =E2=88=98 .get_state is idempotent, right?
 
-Changes in v2:
-  You can simply review or test the patches at the link [2].
+And I'd also squash patches #2 and #5 to have the comments updated
+together with the respective code changes.
 
-  - Modify variable naming and code logic.
-  - update "MODULE_AUTHOR".
+I think the algorithm implemented in this driver is more complicated
+than it should be, but this is not this series's fault, so I tend to
+apply it with the above mentioned squashes.
 
-Changes in v1:
-  You can simply review or test the patches at the link [1].
+Best regards
+Uwe
 
-Link: https://lore.kernel.org/linux-riscv/20250407072056.8629-1-looong.bin@gmail.com/ [1]
-Link: https://lore.kernel.org/linux-riscv/20250418022948.22853-1-looong.bin@gmail.com/ [2]
-Link: https://lore.kernel.org/linux-riscv/20250424012335.6246-1-looong.bin@gmail.com/ [3]
-Link: https://lore.kernel.org/linux-riscv/20250428013501.6354-1-looong.bin@gmail.com/ [4]
----
+--q3beuwyz772xtchz
+Content-Type: application/pgp-signature; name="signature.asc"
 
-Longbin Li (3):
-  pwm: sophgo: reorganize the code structure
-  pwm: sophgo: add driver for SG2044
-  dt-bindings: pwm: sophgo: add pwm controller for SG2044
+-----BEGIN PGP SIGNATURE-----
 
- .../bindings/pwm/sophgo,sg2042-pwm.yaml       |   4 +-
- drivers/pwm/pwm-sophgo-sg2042.c               | 141 +++++++++++++++---
- 2 files changed, 127 insertions(+), 18 deletions(-)
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg247UACgkQj4D7WH0S
+/k6YPwf8CPS53gGarqxZhus1KnVvEiNi//eZnxRpZNoAwKCuMXf3nZ87lDGFDOpr
+ZafvQskHAPQK6E5WffbH33HJyr+8sFLhHWPFLWBmpHbi4pNdUDYfYWPhgwcU0roH
+j3J0ihE2ysD3hq8AnYFjM/O5wqZDkXQQ+Qgk1XUuLp3SywIQDYmsVt5+Gqy7LXRd
+BcYv7fWURROIeLL4XnKEZghjYDJUXIk50ue3UYqeYDv6jhWdoJOn6Acc7KdUXDYQ
+hO99harJgO772boFRxa7+c9edXfNpCHzeVMFJbqoqvWu8msq7SpvZqJKz1aUQOMN
+EPaRoaY8tdFY4qPbwrka8VfubM395A==
+=dm+D
+-----END PGP SIGNATURE-----
 
---
-2.49.0
+--q3beuwyz772xtchz--
+
+
+--===============5123284266277200161==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============5123284266277200161==--
+
