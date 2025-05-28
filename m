@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03BFC5AE59
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:20:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6448C5B552
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pZIB4R3h1kNF45A6MxImVnmEqLbNFFlRmvAiTyep/1A=; b=PIhZd+ITO38fih
-	onb1Paby07Sg/pj5PxiKy2fn+ugzHUY7qzwJV39K0M5U2LblaFV540TEAemBuZCQLD4REMAERkC5P
-	PB/vygkdCWANFDZghFZmljo2jueWlDrm2hCIdnr8VnE6L9bURq3I8WvnpjzFFfYVAWWjYTEWdZU6g
-	M40rfwx0a5Ki89hDAndZJGVF1HvFQxCtzJS82KMEVrKb5iDDhSU7ux7YZhr5GLDvTOjKbrODsyBpt
-	jsKxIU16goZx9CGYRsTEBSrm8ucUeuONvYIReSOXIw4lSSlTK4noQI9RH0PZbAb/3wmx1v9xOV0cD
-	Wca3RwqmDZeC4hQ/PxqA==;
+	List-Owner; bh=o0QozWiH80+6ej4sVr54GevHwMvnk8L9cEt8yFdRE08=; b=064X02tATZPDAQ
+	yqpqhgMD1KaWiYRQcENyOG94Xo2qgkWt3fkbrf9PwKAnnjF1nFUBXuiWLYaRTFdRIKEN6SXS99srY
+	KW39bhILPkvahhm1BhHZeRPq1EL/LT5chJo1YmUJDR3fUlmHZ3oiwiaQI8iWQmFVNaXsWknZyYZnd
+	FHwdSqGoCv48WleZDaTMU+LhCT298f6qU0jNDZGgwKnKQPQohG0EQEQ4B0/lUHrPSAXSLdkduAx5v
+	/wKs89VaOA/xiO7tHbGZ4s376nbjj5JKYaCK+QUPXi9jLxNbDkdL2vZ2Uy63MsNiXO9Zstm9OVth7
+	GUoSb8TOdkSPgY/f0rEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDtS-0000000CpTI-3x7r;
-	Wed, 28 May 2025 10:20:18 +0000
-Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
+	id 1uKDtT-0000000CpTT-2M8n;
+	Wed, 28 May 2025 10:20:19 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDla-0000000CoXo-2Xnn
+	id 1uKDlh-0000000CoZm-3xwV
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 10:12:11 +0000
-Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6faa543d8bcso36526406d6.3
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:12:10 -0700 (PDT)
+	Wed, 28 May 2025 10:12:19 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6faa543d8bcso36527516d6.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:12:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748427129; x=1749031929; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748427137; x=1749031937; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pHBvgY1YVP5MIQkksIw+XJJlNkG/WcVVicP7k946nis=;
-        b=A7mAU8hz3R7tUkGZgNv088h87TtvFzzcU7tJPmGB8z3uUHaKeR5HUMYT7IsteF2dAu
-         Lf59f32MCSHC5jUCYfu/PM2eCXgQIyZWbm+lVsa7ia647a/w9jTtJXkzsCDhkmXoSg4J
-         6JhU8TNRbNqfkWSCs4y3GOxvPlHEw0RiY2dAM5y6NXF+TJQiYDCHqpR9TdCPbknTtwrr
-         WKkFhsZiUCrZ3MspcnUJtwkApHpfKqPMtIKamdaTMITnFeZYHAsJR+L09QGg7Av24HrY
-         LvyAOi4/cpp5zG0woO7CijlhTvrWzGoloU67lW4kVQqR6kARaC50932zMH9Vy0P4c3Sm
-         guRA==
+        bh=zZIuoUuOKk0C9c3zdfmp4xS8a8OdfkLmfezVI5NFdqE=;
+        b=THFfNob4t5VQ32jloMSrbZ/RGxgT7H6XUImPTMA4Xsd3y2Ij5XQQYZJgZB9eLK1Zhm
+         MhAWkxhqksyy/2wihTkoqjfqvtQZfGL7h2I2a9z4nx0Fl2uB/wGllooznsU35Sw5ocir
+         mXCMtaGwztenSWN1EibuSPQSpde02ZfuUHP+pp2yRRaLLisoTbqdFsGt6qd3EbLghX/T
+         kSooVe0lrdar6S1/X8frZAL7aIYcBXmWTg6HIA+FAyd9vztCu9IoBwmnn7AQKFPs1kaH
+         61RHGweJaZscJOeVEMSuKcSw6YhJvlPNFyXDKPANJ4By362SFXrnmEx0Io11BoDrKzFV
+         +COQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748427129; x=1749031929;
+        d=1e100.net; s=20230601; t=1748427137; x=1749031937;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pHBvgY1YVP5MIQkksIw+XJJlNkG/WcVVicP7k946nis=;
-        b=bkJEKxS8UwnAEYbMN2LV3dLUovndp9B2h3t/bpeTwcb7S70WWfVCx97lJYz6XKDeHB
-         o0RviW6TPH2FVRO58BhxxMXX8QkxmjQRikDWwIR8qixcDfD/j/wfaHLFebA/lGGgtYYN
-         sQFp0IJqdSrMSee+zrHHLCUxsbsgEY8Spq9oPZkBKjUkQr0+PtMJvBEj9vdQ39+8lwX+
-         LZ5/3Ira9YsvJd2CIALcls+KBJH4ZKj4c7JH7CteM6UF8Q1QPWwUGpeFpEW4maVpPIzl
-         iILHZTXbqvREP4ixKbBW8Ojr3ml6ARG6JnU+koH9kqotiAu7Bg3eiI3mGEepSee9J2i0
-         HSCg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhsUWiTg4a01FO9wPir2zMPF3pwk2PrtWa3xeXKtmu6cQgTHcoAIs4NaKSBkvb59bhcY+2GcjqtJymRQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLB6OyN6j+0LRO00DGh9HuwlFOMkaxNZ7KNvpUE1O/BMiNtlHk
-	pbjIqB6LgB6nJIuCiEROI6g8Ymoro6tlgHHrLSy5jxghqyGRhcfsUxn7ilsN/w==
-X-Gm-Gg: ASbGncsG84+cLfFWic9GTTSUW9MX98o00AZMFGHYVi6QPCaUQCVsdmLhmabSKfkirJR
-	VkEE2+PN4BUpVTImmMI9O16NhfmZzkC2982Wb6YTkpiPNBfnF8qvxtY+jfErBI2FZk9KbaV8Dia
-	xzreBMODk8wibySobaotortaZ+WrSwlizO4CXZcp0NiVoLI7ObDRpaj3TUZtUE8cC0J5Ubcpw4l
-	9wKy2tUaLAXyJ2EqkrI/htil1bqgtMOJgVWOFj3YaY/o1EHoD4BFtgs48adjv1BrUkb/GqfK98C
-	8nTTy0fRm/GZdj6UcXxFtmNTi/iPCCMTvewA7xZ7YdPPHw==
-X-Google-Smtp-Source: AGHT+IFtudEecNzRLHvC5Zt8E0tk2TyAeIGxp30jdo8UAfABBjjMtWvXU6go6Qz89iGaprdGhLkqmQ==
-X-Received: by 2002:a17:903:2f92:b0:234:d7b2:2aab with SMTP id d9443c01a7336-234d7b22ba9mr17655095ad.14.1748427118714;
-        Wed, 28 May 2025 03:11:58 -0700 (PDT)
+        bh=zZIuoUuOKk0C9c3zdfmp4xS8a8OdfkLmfezVI5NFdqE=;
+        b=UCqN6Ze/GNqfCOJ98Fb6RwZ4OMiJTOOsX5pP1kj0yiOjBjqU6RtXGXA8XUv+H2qFCw
+         OlXOBQmd9OJzRxZs+im2+MGOKK6OS6fqSAE9vmFuK5jEVX2W+hrSAfvBpEW3y07XQ5dT
+         dTtDcO7FDcsx8OMwQnlAEbndTVP2SnPqHNHZp/wvQb1ROD1VHHxyRasth4rFNvRAilgm
+         b8o39SHeC4BX6yvj1nWb862vvwKZDvyED6QSDiXf6mWlKT5ubEdI5KloZUbaHu2pVhtc
+         GGoYS2pyFSEEA6yYbgsuRenlBmHDWc9iOOTDg7y+o4g/4EPBMDvj0SFBd3LVcSA09zYI
+         V8JA==
+X-Forwarded-Encrypted: i=1; AJvYcCV1P8fsqDqa71cAI5bdQadZFhwjp8tl11xci6tRI2Fl3//UgQj9b+JRnUaLMJLIMDx/ZJfwheKbz2J6Jw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yymfd4ZEsR7R5YxUt5MWQ1124gRPQ75l9wcWTvdgwREcn1yVgrY
+	UlhRIyCoshSY3ObhvpggmQxT7IvjnCPnlyDF/YlbUHWs26Yvs0YZagDxMtjw7A==
+X-Gm-Gg: ASbGnctM+LAQU2WoSwOGDS09J67aS6xZUM9O0XQLQlEf2MReXSmGHRGV6E50LoKbQ36
+	WU/q7cC89P6vHw2SpVeLY2o7d+SioBLo/EBb/dsDRERDLrs/F9ksGfsJGJJI4CmcVzALd8B8O/v
+	hLWgllcGy4TcRJpXyrOAGeCkXWa6u++ynLnOoEd/Bt+TUDyv+6mJWOEGYDdi/+ENK7qM0AfeFRQ
+	lRrNGVr7zuwwPjl8FKRxSYuIAjWouS19zu2JXDFJzPGYRKeyKC4HeBmEtMkWEF57BN5CG6co7uC
+	jcIyfP2LepXL5ln7N4cySPF6pca4SlULI/kaFv9LgTWl4Q==
+X-Google-Smtp-Source: AGHT+IFWPOwlvnziJrU1SXRbxNHI5NCoM7BJbMrItu4d5oRPG+SLE6qRrjKuSLB0YMT8eQPS4/wi0g==
+X-Received: by 2002:a17:903:2403:b0:234:8a16:d62b with SMTP id d9443c01a7336-2348a16d6damr97040175ad.12.1748427125955;
+        Wed, 28 May 2025 03:12:05 -0700 (PDT)
 Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234d358f118sm8453595ad.138.2025.05.28.03.11.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234d358f118sm8453595ad.138.2025.05.28.03.12.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 03:11:58 -0700 (PDT)
+        Wed, 28 May 2025 03:12:05 -0700 (PDT)
 From: Longbin Li <looong.bin@gmail.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -84,19 +84,17 @@ Cc: linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v5 1/3] dt-bindings: pwm: sophgo: add pwm controller for SG2044
-Date: Wed, 28 May 2025 18:11:36 +0800
-Message-ID: <20250528101139.28702-2-looong.bin@gmail.com>
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v5 2/3] pwm: sophgo: reorganize the code structure
+Date: Wed, 28 May 2025 18:11:37 +0800
+Message-ID: <20250528101139.28702-3-looong.bin@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250528101139.28702-1-looong.bin@gmail.com>
 References: <20250528101139.28702-1-looong.bin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_031210_645835_36AE1471 
-X-CRM114-Status: UNSURE (   8.67  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250528_031217_994597_581D90AE 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,31 +111,128 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add compatible string for PWM controller on SG2044.
+As the driver logic can be used in both SG2042 and SG2044, it
+will be better to reorganize the code structure.
 
 Signed-off-by: Longbin Li <looong.bin@gmail.com>
-Tested-by: Chen Wang <unicorn_wang@outlook.com>
 Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Tested-by: Chen Wang <unicorn_wang@outlook.com>
 ---
- Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ drivers/pwm/pwm-sophgo-sg2042.c | 52 +++++++++++++++++++++++----------
+ 1 file changed, 37 insertions(+), 15 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
-index bbb6326d47d7..e0e91aa237ec 100644
---- a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
-+++ b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
-@@ -17,7 +17,9 @@ allOf:
+diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
+index ff4639d849ce..da1c75b9c8f5 100644
+--- a/drivers/pwm/pwm-sophgo-sg2042.c
++++ b/drivers/pwm/pwm-sophgo-sg2042.c
+@@ -53,6 +53,10 @@ struct sg2042_pwm_ddata {
+ 	unsigned long clk_rate_hz;
+ };
 
- properties:
-   compatible:
--    const: sophgo,sg2042-pwm
-+    enum:
-+      - sophgo,sg2042-pwm
-+      - sophgo,sg2044-pwm
++struct sg2042_chip_data {
++	const struct pwm_ops ops;
++};
++
+ /*
+  * period_ticks: PERIOD
+  * hlperiod_ticks: HLPERIOD
+@@ -66,21 +70,13 @@ static void pwm_sg2042_config(struct sg2042_pwm_ddata *ddata, unsigned int chan,
+ 	writel(hlperiod_ticks, base + SG2042_PWM_HLPERIOD(chan));
+ }
 
-   reg:
-     maxItems: 1
+-static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+-			    const struct pwm_state *state)
++static void pwm_sg2042_set_dutycycle(struct pwm_chip *chip, struct pwm_device *pwm,
++				     const struct pwm_state *state)
+ {
+ 	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
+ 	u32 hlperiod_ticks;
+ 	u32 period_ticks;
+
+-	if (state->polarity == PWM_POLARITY_INVERSED)
+-		return -EINVAL;
+-
+-	if (!state->enabled) {
+-		pwm_sg2042_config(ddata, pwm->hwpwm, 0, 0);
+-		return 0;
+-	}
+-
+ 	/*
+ 	 * Duration of High level (duty_cycle) = HLPERIOD x Period_of_input_clk
+ 	 * Duration of One Cycle (period) = PERIOD x Period_of_input_clk
+@@ -92,6 +88,22 @@ static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 		pwm->hwpwm, period_ticks, hlperiod_ticks);
+
+ 	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
++}
++
++static int pwm_sg2042_apply(struct pwm_chip *chip, struct pwm_device *pwm,
++			    const struct pwm_state *state)
++{
++	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
++
++	if (state->polarity == PWM_POLARITY_INVERSED)
++		return -EINVAL;
++
++	if (!state->enabled) {
++		pwm_sg2042_config(ddata, pwm->hwpwm, 0, 0);
++		return 0;
++	}
++
++	pwm_sg2042_set_dutycycle(chip, pwm, state);
+
+ 	return 0;
+ }
+@@ -123,13 +135,18 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	return 0;
+ }
+
+-static const struct pwm_ops pwm_sg2042_ops = {
+-	.apply = pwm_sg2042_apply,
+-	.get_state = pwm_sg2042_get_state,
++static const struct sg2042_chip_data sg2042_chip_data = {
++	.ops = {
++		.apply = pwm_sg2042_apply,
++		.get_state = pwm_sg2042_get_state,
++	}
+ };
+
+ static const struct of_device_id sg2042_pwm_ids[] = {
+-	{ .compatible = "sophgo,sg2042-pwm" },
++	{
++		.compatible = "sophgo,sg2042-pwm",
++		.data = &sg2042_chip_data
++	},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
+@@ -137,12 +154,17 @@ MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
+ static int pwm_sg2042_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
++	const struct sg2042_chip_data *chip_data;
+ 	struct sg2042_pwm_ddata *ddata;
+ 	struct reset_control *rst;
+ 	struct pwm_chip *chip;
+ 	struct clk *clk;
+ 	int ret;
+
++	chip_data = device_get_match_data(dev);
++	if (!chip_data)
++		return -ENODEV;
++
+ 	chip = devm_pwmchip_alloc(dev, SG2042_PWM_CHANNELNUM, sizeof(*ddata));
+ 	if (IS_ERR(chip))
+ 		return PTR_ERR(chip);
+@@ -170,7 +192,7 @@ static int pwm_sg2042_probe(struct platform_device *pdev)
+ 	if (IS_ERR(rst))
+ 		return dev_err_probe(dev, PTR_ERR(rst), "Failed to get reset\n");
+
+-	chip->ops = &pwm_sg2042_ops;
++	chip->ops = &chip_data->ops;
+ 	chip->atomic = true;
+
+ 	ret = devm_pwmchip_add(dev, chip);
 --
 2.49.0
 
