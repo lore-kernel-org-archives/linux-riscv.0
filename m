@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F387EC5B54E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F03BFC5AE59
 	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:20:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,62 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=OnBQU5Y08n1bvTzDiANimpIuYdLp56w0h4KT3MnsvIE=; b=GoFMz94iWMIfz+
-	9DtxDfOqMcuBt7BaugkFI1ZrjxUSvgpnb6AUUI0so9sKnF2+RYPu5+vdKFfsEviI8KUBCQZ4LVzxs
-	WwzgYu4TwaMa6ZfYSobdkhTCAGK/l8ZENy2ohugvqfw/yHhcGyhLBDD07J8YOc5IkDq68+fL4Buya
-	diwnUPQ3bvsOsbwbVoYnax9ogxVYb7zwKRoxSXwBZyZcZGxXxlgq0Dfdh7nyzR0nbL1jY5T2kRWfV
-	rvWZUwMtAN0jF0OXUwpNd7DBXhG1fUJbsyznP4b1SNeobDSRImBXfPGZpmd6NL8Zcjgei/O+d33Rt
-	k7PjKWaY7idlKIIMXiDA==;
+	List-Owner; bh=pZIB4R3h1kNF45A6MxImVnmEqLbNFFlRmvAiTyep/1A=; b=PIhZd+ITO38fih
+	onb1Paby07Sg/pj5PxiKy2fn+ugzHUY7qzwJV39K0M5U2LblaFV540TEAemBuZCQLD4REMAERkC5P
+	PB/vygkdCWANFDZghFZmljo2jueWlDrm2hCIdnr8VnE6L9bURq3I8WvnpjzFFfYVAWWjYTEWdZU6g
+	M40rfwx0a5Ki89hDAndZJGVF1HvFQxCtzJS82KMEVrKb5iDDhSU7ux7YZhr5GLDvTOjKbrODsyBpt
+	jsKxIU16goZx9CGYRsTEBSrm8ucUeuONvYIReSOXIw4lSSlTK4noQI9RH0PZbAb/3wmx1v9xOV0cD
+	Wca3RwqmDZeC4hQ/PxqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDtU-0000000CpTa-0q31;
-	Wed, 28 May 2025 10:20:20 +0000
-Received: from mail-oi1-x236.google.com ([2607:f8b0:4864:20::236])
+	id 1uKDtS-0000000CpTI-3x7r;
+	Wed, 28 May 2025 10:20:18 +0000
+Received: from mail-qv1-xf2e.google.com ([2607:f8b0:4864:20::f2e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKDln-0000000CobQ-36BQ
+	id 1uKDla-0000000CoXo-2Xnn
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 10:12:25 +0000
-Received: by mail-oi1-x236.google.com with SMTP id 5614622812f47-3fa6c54cc1aso2523577b6e.1
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:12:23 -0700 (PDT)
+	Wed, 28 May 2025 10:12:11 +0000
+Received: by mail-qv1-xf2e.google.com with SMTP id 6a1803df08f44-6faa543d8bcso36526406d6.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:12:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1748427143; x=1749031943; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1748427129; x=1749031929; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=M9UzaJZDvKRNmn4BJ2b4hvJbdoSm7qg3xJXdaBQvCs4=;
-        b=bUpw8XVVGooZBdhXcsEIULox8v/Ux6n0si3aC1CTqt0bmHiuUTqiHNyrHeYIx/fpoo
-         cfS6xFWqVPZqmMPiVutt8ZLSUNJ3Zt1Hh+LsLrOwr3Jyeyo+NVwkkNKoROBD1YRhQ2AU
-         dhu9N+Mmg8udagno9G7th3fxiShjXVKT96zlbAekl+MhdMw3SSI/nK41KxgQ1l5ow3yQ
-         ZRRYn9cY9tYfGlkaVBXf74MR+gIPUAySyc4APWVr0TJ9bCgURVRza+MK429IckfD3YOd
-         pQ077ggVBsHDlk0UOesUaFgbvWiNMJLseBDHViflJ/WkYbhDoJ8YqCMOwraCHWdRJOkv
-         ZP9w==
+        bh=pHBvgY1YVP5MIQkksIw+XJJlNkG/WcVVicP7k946nis=;
+        b=A7mAU8hz3R7tUkGZgNv088h87TtvFzzcU7tJPmGB8z3uUHaKeR5HUMYT7IsteF2dAu
+         Lf59f32MCSHC5jUCYfu/PM2eCXgQIyZWbm+lVsa7ia647a/w9jTtJXkzsCDhkmXoSg4J
+         6JhU8TNRbNqfkWSCs4y3GOxvPlHEw0RiY2dAM5y6NXF+TJQiYDCHqpR9TdCPbknTtwrr
+         WKkFhsZiUCrZ3MspcnUJtwkApHpfKqPMtIKamdaTMITnFeZYHAsJR+L09QGg7Av24HrY
+         LvyAOi4/cpp5zG0woO7CijlhTvrWzGoloU67lW4kVQqR6kARaC50932zMH9Vy0P4c3Sm
+         guRA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748427143; x=1749031943;
+        d=1e100.net; s=20230601; t=1748427129; x=1749031929;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=M9UzaJZDvKRNmn4BJ2b4hvJbdoSm7qg3xJXdaBQvCs4=;
-        b=dc4fITCurh3CtbmoZuisHGHv4lg/Nl3t7UWUFCJRmIL1PQPUyi3wSyZlVG+osZFNL4
-         RaxMxVYlDqh/H38a6kbHPqWXqj6EJum9Sg3vQisO9SFz+72tGAHiPx4+TiU13z8tqa3A
-         Y3TZhUBLBMOPTFCzXBRvCZWBOMGYUCDTxuLy+On5mD/fzH06zzd//Amhvzx7ygqJNPAB
-         ykAXDc0vupKx5Kp0M4H7AnuWTx+bHm4JxEAz6z/QhtZThrlCxSdQKc2LgIHVsTY/iAE3
-         Op4K58707xN8K+y9YA26PtpWkCD84fM1ztXYmIpPQ4f/jT+OYR3PMaOiiHwPyznw0nFk
-         XjqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXILZunm87ZKQunhB+XIH9IwXVgHamaVybk5L4u1J6Wtv7o1aOP613IBag9duh5plM5kMMWRH1HGTt78g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpU3Dlu2bhPYktIcDiOF1UM/14gBXsyaJ372DLTQw89gm6U2vQ
-	wwBRSYcrGPio6o1i65VEw6Dzz8ysYkCHYv36ZgB81DHD3pgPFixsTqBFpXjMlw==
-X-Gm-Gg: ASbGncv3EQgteWlb5sVE8NMRvYQWbZsu+4JmSunuf7YAdmJ1MAq3Kz9zsItxFefxBcR
-	myW1SqIw6J6RdEMSHfmcg/zCn3XO32IquFrNRPaGHnXAhOz52iNvbPMB3A+vRGZCCZKiEjd+L6I
-	Pzr9Q1KcCaEhwYmezR5LCeFX4rjMa1wsVr8oyW+MinjzBhwH4MqVJ3hdFFtBHaPJ5vRxx61udo0
-	z4a7U6j1d90s4Vnq3GJlJgoniwSEeT/NxCfo9n5/aElFc77JN+pQ79bQYqWfxUDGP/kIszz1YPQ
-	1zgJf+mL0Wetl6QfA6MBhyfvOElJ4/KsjRsDm12SUbU9ow==
-X-Google-Smtp-Source: AGHT+IEjHqDXErb8LHY+YXueka86+j+atlpa5otAATrNzDLyo6C+uNeLDmOMpvofRqGSXrlPBv+XBQ==
-X-Received: by 2002:a17:902:f544:b0:220:c164:6ee1 with SMTP id d9443c01a7336-23414feac2bmr246739315ad.32.1748427132449;
-        Wed, 28 May 2025 03:12:12 -0700 (PDT)
+        bh=pHBvgY1YVP5MIQkksIw+XJJlNkG/WcVVicP7k946nis=;
+        b=bkJEKxS8UwnAEYbMN2LV3dLUovndp9B2h3t/bpeTwcb7S70WWfVCx97lJYz6XKDeHB
+         o0RviW6TPH2FVRO58BhxxMXX8QkxmjQRikDWwIR8qixcDfD/j/wfaHLFebA/lGGgtYYN
+         sQFp0IJqdSrMSee+zrHHLCUxsbsgEY8Spq9oPZkBKjUkQr0+PtMJvBEj9vdQ39+8lwX+
+         LZ5/3Ira9YsvJd2CIALcls+KBJH4ZKj4c7JH7CteM6UF8Q1QPWwUGpeFpEW4maVpPIzl
+         iILHZTXbqvREP4ixKbBW8Ojr3ml6ARG6JnU+koH9kqotiAu7Bg3eiI3mGEepSee9J2i0
+         HSCg==
+X-Forwarded-Encrypted: i=1; AJvYcCWhsUWiTg4a01FO9wPir2zMPF3pwk2PrtWa3xeXKtmu6cQgTHcoAIs4NaKSBkvb59bhcY+2GcjqtJymRQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLB6OyN6j+0LRO00DGh9HuwlFOMkaxNZ7KNvpUE1O/BMiNtlHk
+	pbjIqB6LgB6nJIuCiEROI6g8Ymoro6tlgHHrLSy5jxghqyGRhcfsUxn7ilsN/w==
+X-Gm-Gg: ASbGncsG84+cLfFWic9GTTSUW9MX98o00AZMFGHYVi6QPCaUQCVsdmLhmabSKfkirJR
+	VkEE2+PN4BUpVTImmMI9O16NhfmZzkC2982Wb6YTkpiPNBfnF8qvxtY+jfErBI2FZk9KbaV8Dia
+	xzreBMODk8wibySobaotortaZ+WrSwlizO4CXZcp0NiVoLI7ObDRpaj3TUZtUE8cC0J5Ubcpw4l
+	9wKy2tUaLAXyJ2EqkrI/htil1bqgtMOJgVWOFj3YaY/o1EHoD4BFtgs48adjv1BrUkb/GqfK98C
+	8nTTy0fRm/GZdj6UcXxFtmNTi/iPCCMTvewA7xZ7YdPPHw==
+X-Google-Smtp-Source: AGHT+IFtudEecNzRLHvC5Zt8E0tk2TyAeIGxp30jdo8UAfABBjjMtWvXU6go6Qz89iGaprdGhLkqmQ==
+X-Received: by 2002:a17:903:2f92:b0:234:d7b2:2aab with SMTP id d9443c01a7336-234d7b22ba9mr17655095ad.14.1748427118714;
+        Wed, 28 May 2025 03:11:58 -0700 (PDT)
 Received: from cu.. ([2001:19f0:ac00:4eb8:5400:5ff:fe30:7df3])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234d358f118sm8453595ad.138.2025.05.28.03.12.07
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-234d358f118sm8453595ad.138.2025.05.28.03.11.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 03:12:12 -0700 (PDT)
+        Wed, 28 May 2025 03:11:58 -0700 (PDT)
 From: Longbin Li <looong.bin@gmail.com>
 To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
 	Rob Herring <robh@kernel.org>,
@@ -84,17 +84,19 @@ Cc: linux-pwm@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v5 3/3] pwm: sophgo: add driver for SG2044
-Date: Wed, 28 May 2025 18:11:38 +0800
-Message-ID: <20250528101139.28702-4-looong.bin@gmail.com>
+	linux-riscv@lists.infradead.org,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v5 1/3] dt-bindings: pwm: sophgo: add pwm controller for SG2044
+Date: Wed, 28 May 2025 18:11:36 +0800
+Message-ID: <20250528101139.28702-2-looong.bin@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250528101139.28702-1-looong.bin@gmail.com>
 References: <20250528101139.28702-1-looong.bin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_031223_780220_D8CCF50C 
-X-CRM114-Status: GOOD (  17.16  )
+X-CRM114-CacheID: sfid-20250528_031210_645835_36AE1471 
+X-CRM114-Status: UNSURE (   8.67  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,154 +113,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add PWM controller for SG2044 on base of SG2042.
+Add compatible string for PWM controller on SG2044.
 
 Signed-off-by: Longbin Li <looong.bin@gmail.com>
-Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
 Tested-by: Chen Wang <unicorn_wang@outlook.com>
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/pwm/pwm-sophgo-sg2042.c | 89 ++++++++++++++++++++++++++++++++-
- 1 file changed, 87 insertions(+), 2 deletions(-)
+ Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/pwm/pwm-sophgo-sg2042.c b/drivers/pwm/pwm-sophgo-sg2042.c
-index da1c75b9c8f5..d71d2a66b722 100644
---- a/drivers/pwm/pwm-sophgo-sg2042.c
-+++ b/drivers/pwm/pwm-sophgo-sg2042.c
-@@ -13,6 +13,7 @@
-  *   the running period.
-  * - When PERIOD and HLPERIOD is set to 0, the PWM wave output will
-  *   be stopped and the output is pulled to high.
-+ * - SG2044 supports both polarities, SG2042 only normal polarity.
-  * See the datasheet [1] for more details.
-  * [1]:https://github.com/sophgo/sophgo-doc/tree/main/SG2042/TRM
-  */
-@@ -41,6 +42,10 @@
- #define SG2042_PWM_HLPERIOD(chan) ((chan) * 8 + 0)
- #define SG2042_PWM_PERIOD(chan) ((chan) * 8 + 4)
+diff --git a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+index bbb6326d47d7..e0e91aa237ec 100644
+--- a/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
++++ b/Documentation/devicetree/bindings/pwm/sophgo,sg2042-pwm.yaml
+@@ -17,7 +17,9 @@ allOf:
 
-+#define SG2044_PWM_POLARITY		0x40
-+#define SG2044_PWM_PWMSTART		0x44
-+#define SG2044_PWM_OE			0xd0
-+
- #define SG2042_PWM_CHANNELNUM	4
+ properties:
+   compatible:
+-    const: sophgo,sg2042-pwm
++    enum:
++      - sophgo,sg2042-pwm
++      - sophgo,sg2044-pwm
 
- /**
-@@ -84,8 +89,8 @@ static void pwm_sg2042_set_dutycycle(struct pwm_chip *chip, struct pwm_device *p
- 	period_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->period, NSEC_PER_SEC), U32_MAX);
- 	hlperiod_ticks = min(mul_u64_u64_div_u64(ddata->clk_rate_hz, state->duty_cycle, NSEC_PER_SEC), U32_MAX);
-
--	dev_dbg(pwmchip_parent(chip), "chan[%u]: PERIOD=%u, HLPERIOD=%u\n",
--		pwm->hwpwm, period_ticks, hlperiod_ticks);
-+	dev_dbg(pwmchip_parent(chip), "chan[%u]: ENABLE=%u, PERIOD=%u, HLPERIOD=%u, POLARITY=%u\n",
-+		pwm->hwpwm, state->enabled, period_ticks, hlperiod_ticks, state->polarity);
-
- 	pwm_sg2042_config(ddata, pwm->hwpwm, period_ticks, hlperiod_ticks);
- }
-@@ -135,6 +140,74 @@ static int pwm_sg2042_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 	return 0;
- }
-
-+static void pwm_sg2044_set_outputen(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				    bool enabled)
-+{
-+	u32 pwmstart;
-+
-+	pwmstart = readl(ddata->base + SG2044_PWM_PWMSTART);
-+
-+	if (enabled)
-+		pwmstart |= BIT(pwm->hwpwm);
-+	else
-+		pwmstart &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwmstart, ddata->base + SG2044_PWM_PWMSTART);
-+}
-+
-+static void pwm_sg2044_set_outputdir(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				     bool enabled)
-+{
-+	u32 pwm_oe;
-+
-+	pwm_oe = readl(ddata->base + SG2044_PWM_OE);
-+
-+	if (enabled)
-+		pwm_oe |= BIT(pwm->hwpwm);
-+	else
-+		pwm_oe &= ~BIT(pwm->hwpwm);
-+
-+	writel(pwm_oe, ddata->base + SG2044_PWM_OE);
-+}
-+
-+static void pwm_sg2044_set_polarity(struct sg2042_pwm_ddata *ddata, struct pwm_device *pwm,
-+				    const struct pwm_state *state)
-+{
-+	u32 pwm_polarity;
-+
-+	pwm_polarity = readl(ddata->base + SG2044_PWM_POLARITY);
-+
-+	if (state->polarity == PWM_POLARITY_NORMAL)
-+		pwm_polarity &= ~BIT(pwm->hwpwm);
-+	else
-+		pwm_polarity |= BIT(pwm->hwpwm);
-+
-+	writel(pwm_polarity, ddata->base + SG2044_PWM_POLARITY);
-+}
-+
-+static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pwm,
-+			    const struct pwm_state *state)
-+{
-+	struct sg2042_pwm_ddata *ddata = pwmchip_get_drvdata(chip);
-+
-+	pwm_sg2044_set_polarity(ddata, pwm, state);
-+
-+	pwm_sg2042_set_dutycycle(chip, pwm, state);
-+
-+	/*
-+	 * re-enable PWMSTART to refresh the register period
-+	 */
-+	 pwm_sg2044_set_outputen(ddata, pwm, false);
-+
-+	if (!state->enabled)
-+		return 0;
-+
-+	pwm_sg2044_set_outputdir(ddata, pwm, true);
-+	pwm_sg2044_set_outputen(ddata, pwm, true);
-+
-+	return 0;
-+}
-+
- static const struct sg2042_chip_data sg2042_chip_data = {
- 	.ops = {
- 		.apply = pwm_sg2042_apply,
-@@ -142,11 +215,22 @@ static const struct sg2042_chip_data sg2042_chip_data = {
- 	}
- };
-
-+static const struct sg2042_chip_data sg2044_chip_data = {
-+	.ops = {
-+		.apply = pwm_sg2044_apply,
-+		.get_state = pwm_sg2042_get_state,
-+	}
-+};
-+
- static const struct of_device_id sg2042_pwm_ids[] = {
- 	{
- 		.compatible = "sophgo,sg2042-pwm",
- 		.data = &sg2042_chip_data
- 	},
-+	{
-+		.compatible = "sophgo,sg2044-pwm",
-+		.data = &sg2044_chip_data
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sg2042_pwm_ids);
-@@ -212,5 +296,6 @@ static struct platform_driver pwm_sg2042_driver = {
- module_platform_driver(pwm_sg2042_driver);
-
- MODULE_AUTHOR("Chen Wang");
-+MODULE_AUTHOR("Longbin Li <looong.bin@gmail.com>");
- MODULE_DESCRIPTION("Sophgo SG2042 PWM driver");
- MODULE_LICENSE("GPL");
+   reg:
+     maxItems: 1
 --
 2.49.0
 
