@@ -4,136 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD359C5AD49
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:42:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75570C3ABB2
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 10:53:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=037tJwr9b1jnwC51iXcO0DHgSIlYVLFxR+xxWFKdRXU=; b=gWJ5/S1PEItneN
-	deiQo7mcW4hE1I83io+e+viHogALnYZkH6AdLpMLB0CHwk3WhEhzl8lfs3TH09Q6IpR/KRVZ+IA5B
-	Nvz/FlN1EeabADB7gy4/eAaWUNjf2Q8mYbkO4CQZoOPNASVG/rq+tOQHvDoMSgK2BjgJjKgCEv0I4
-	sXYhg3DthdGOL9akoVddsRbf+v8SknSz+0/QKdOPVjYq5PwbUFMmMMqqONnBiN2BIG7aJnejO6yIj
-	LCedfB702CD3qn85EHEaKHT051CoB2d7x9d7b8WjGjus1m52iaTVh8PCG/ruvJPVXiIbr5wIy5Sgo
-	z/KzpXNb2mraLv0gZ13w==;
+	List-Owner; bh=hRrv9ZToK3dQH0GKwQcFmFrkaLTVOrK2M2jEdZLjrKg=; b=rdNldJm6TY5sDv
+	CdRIIBRdeAcy1CA2OkbqRisY5FZqWxKqhKjLlZR/ZFJC/bHpVReV3lYytTSwWJeNJn0mlXMz+arip
+	2lbZZt8jQ2e3Oe9tOu4Lekf3v+cVLrspT+LFv2IGAx8/Ol7hp+K6ljsdCMSqvvSS385HPEFANAtFV
+	H2RDY7rFDsbTqV0/uG8F7OOkKufwE0Q40UACa76zDvgYaUGKrty9PenZsIeyhrQtp9ZhYiyr4AzAQ
+	aatmWvcUPS6rKwGYXWWdQuiS2WVScjdKn+GGa/KQyHzsCWEJUZCiZrLaV8PtyJMSxjKJDM2qJiL+p
+	lVQ5qDTZcFoV3zN4pm+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKEFA-0000000CtC5-0LCv;
-	Wed, 28 May 2025 10:42:44 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uKEPC-0000000Cv3P-3z3M;
+	Wed, 28 May 2025 10:53:06 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKEEe-0000000Cscl-1ipm
+	id 1uKEPA-0000000Cv2q-01RO
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 10:42:15 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cfe99f2a7so5846875e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:42:12 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748428931; x=1749033731; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=qdA/ig8nlywJbkEyEpBGSWcEGO8vU+oGS07oZJY25lE=;
-        b=tT2TNM0P6NoPgEB+tkKJPZIabSZP2CAJ9q6kS0kg8Z4aNftlWA+rt4s1cWD0WGBrp1
-         6p6oV2LcJSs83R+w3idwLKv8LJ2ZsKNVVsUWl13hSW4O4Mzjpjd59uVpKrOIVElZfkDk
-         9amCuvaPX5rwxlFiqTroCBHOTwCib8oYDo9AMh4GQX+INr8SS7s+jrPuQfH7gHY0iwjd
-         quyCDPX5v1SiBciDxkieSH3803X7hQUa+JD9bxe/vWegNxi08fdf2T/jHPEhOe01ORFE
-         0VWMdz3fhWsUI5PHOyt4Vh+HzKNFBsn+VyExZgoZc/EbJBkLxbhoJn846NgiIJIgnjE6
-         f8Cw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748428931; x=1749033731;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qdA/ig8nlywJbkEyEpBGSWcEGO8vU+oGS07oZJY25lE=;
-        b=oIwfdziQ/Fwa9vSFbeLHBZv3cHQr0RB6NWfcEdB0px9eMeaI6K3cbKK+cvwNllHa9I
-         ARTqdkrU6BFvpJ8i7yY77olV9410uqz7d7kSmiGJE1mLA0iRV80Ybwj32VXNRPYNpOf9
-         TMwE+BCBGxEyQqgzl4YFgYwlFhjFc5sZDGCHBf965NN6o0UriDsHXsfBjqV+fC8j+kgT
-         Cnp7UGkBZlbyMhLI4RHZogsS65TeGNYVLQ3tJ9TnU9+V/kZjAWM+h7c8fK7YKV4r7/vw
-         PklSdzyntqesHXRw8YVZAyy4hCKIymnUYBLHe7t75uWk9UROZ5/QytnsPzrhRrr4Zom1
-         YFFw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+cV+sU0RcWmRhNDKFsCTNc2NxeDB7SN0G6gZd8kEKUdzBQGSwsSzcQRLOwQQHIXMogmARTOWUD1CiPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUsOMBlsIOaETfQoyuQlvwTpAISWVQifvCHGpfPxvWM40OyHcl
-	y7Xr8n6OvykHVyyFbQBGLy/MUWkbJdacp2ji6fNTUNt/Gi2uA7WwGW/PhRfB9y99kOM=
-X-Gm-Gg: ASbGncs8+Y3YN4xRuzjpB8UGeMt6bbhi4fAoRyRm3JBUH04fRNu6CIdNR7AjpRNFwHP
-	zv/3bZSlbPguZwzFMbDRzafKBdBlaLPb7zLHTxozZsu0jApYe+oK/0yLa51pRIfARtqOcvEhWxB
-	j5mGOsqdn/RAtkwKAjgpcwK1vtuxgFSiy9zq2JU5YXN8De0HIxpTZ/8JNR6/lBgYptqTetv17i+
-	V4faTIxgGeKMStE0ICS80MQsV2QSy/kzyM4+EXZzZxYvG/FjcMnIQBHoLjFuL7+Dr4TSsQwdoD1
-	0I9dzrwvyMrGzn+nDPPHJjNeUsjc4Z/lLjfl8719dBxTD+eypDBK3c6Ve0fNod8Kho2z6L6fbLw
-	iU5EXpA==
-X-Google-Smtp-Source: AGHT+IHdcQ9yFIlwP3zJEBCO4eEnwvHp4vt7sag5E+m0p9zZBnLpwpM4OjjEhLuG3z+TywmxNPkmLg==
-X-Received: by 2002:a05:600c:4f0c:b0:439:a30f:2e49 with SMTP id 5b1f17b1804b1-44ff407200bmr6539815e9.5.1748428930677;
-        Wed, 28 May 2025 03:42:10 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450064add8bsm17331595e9.17.2025.05.28.03.42.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 03:42:10 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 28 May 2025 12:41:08 +0200
-Subject: [PATCH 12/17] pinctrl: max77620: Move fixed assignments to
- 'pinctrl_desc' definition
+	Wed, 28 May 2025 10:53:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1748429584; x=1779965584;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NAQa13db1BCPMZRo+1ORViw4igtX5oFCHLsMQq5GQkc=;
+  b=AaNcpXfzfLmocPq1j3phH00sOeMUOg/JHpNwSdIqbuDU4oxB45c1lZYB
+   V3/naKsg1RjxFeNrsbvjO8uVcEyuuSaNkEZ/FvWEgk3Sjcn7zNWG9VN0d
+   BpetlcWe6peEa9EOOyyxCrQGZMv9m2jkodN1H/ce5hM6dl625K+bD003v
+   QOdQqQZL/o/Qf4G1uqCyqMbpyWC1q8ofT4WLNt2RxSaIUdVvxj7ELDJ2F
+   EP3VjqAwpDxw/Yl9OHfwg61EyOeard3dBp7ec/pot4CYfYtYJHhfM3vqk
+   0jUxjyJHQSTo303YE0xp6Y3YMuakS5YpDmSaHZ6LIXQZhgLFQz410dwm4
+   Q==;
+X-CSE-ConnectionGUID: 3doxRW40S4SLWkWhMIQTHg==
+X-CSE-MsgGUID: nKf/sXPdS12B3xIrZQ7ZwQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11446"; a="50606321"
+X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
+   d="scan'208";a="50606321"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 03:53:02 -0700
+X-CSE-ConnectionGUID: LyqcDhdHSYOoQV332uUgFA==
+X-CSE-MsgGUID: twjzfp7dR5G/KyU02as1yg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
+   d="scan'208";a="143237950"
+Received: from smile.fi.intel.com ([10.237.72.52])
+  by orviesa009.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 03:52:56 -0700
+Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
+	(envelope-from <andriy.shevchenko@linux.intel.com>)
+	id 1uKEOy-00000001QBJ-2Avs;
+	Wed, 28 May 2025 13:52:52 +0300
+Date: Wed, 28 May 2025 13:52:52 +0300
+From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
+To: Anup Patel <apatel@ventanamicro.com>
+Subject: Re: [PATCH v4 07/23] mailbox: Add RISC-V SBI message proxy (MPXY)
+ based mailbox driver
+Message-ID: <aDbrBFcgaJxgBRVZ@smile.fi.intel.com>
+References: <20250525084710.1665648-1-apatel@ventanamicro.com>
+ <20250525084710.1665648-8-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Message-Id: <20250528-pinctrl-const-desc-v1-12-76fe97899945@linaro.org>
-References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
-In-Reply-To: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Jesper Nilsson <jesper.nilsson@axis.com>, 
- Lars Persson <lars.persson@axis.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Damien Le Moal <dlemoal@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>, 
- Michal Simek <michal.simek@amd.com>, Emil Renner Berthing <kernel@esmil.dk>, 
- Jianlong Huang <jianlong.huang@starfivetech.com>, 
- Hal Feng <hal.feng@starfivetech.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
- linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
- linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1581;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=vXeTXdr0B9QOQoZjEzmtipvrdS/pdMRjTxQFNr/h+bw=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoNuhT4xTFSLShiMHGrzurn8k/RWLwBOEg/kTfX
- 2gUx5kqw3WJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDboUwAKCRDBN2bmhouD
- 119uEACKrgBEySfxytMKjgXas+UOwi3IzZ36tTWGAtahy8quwEaS8yKLMXGH3UR5R/xfiE/qxgT
- K0j8KZQkSSoxJgxu/1dPpRloEO6KFrgMS1JNvrxc535yglaGGAF6dztV4S0X8Zw47lxNkSI3oCf
- kmg6Jop17f+7Kjbsu3oNHrrdaoyBSECGDQxfjPrG1OK1828Xa1Gs20NH8vBU0CQOtNFmjAg4W1q
- rCrbcRJkrSV7L68wgkZcewjkW+uCHpp8xfiuky/X+XA3LrnVkt3ZWvvtx5EVrBotsW3c605oGMm
- aIh39HoF2i+U+c1KA9+kRRkUESeOM0m/NNik+1C01XMxfvb6mtTvGtL474OCtItf1zazpXvoj9T
- ygvQC/oprYke1uID4uognq5UNn/OdoNvQJk6tbxBkAwR2epz1lboNXHXIe1MMdo+aFjl0220apS
- E2bXflnrkOr9/PrUbwkSiJxaLcUHqAJCywLcj/t0mPNa791g/BPtMYNr8rDFfZ7XmZyrEPbEJKp
- 5XT8mZQD9JIEGYwbw0cQH/vz9kgOs7p47hN4UApEPGZ0HzG/37d9kmNp+Q9mNDbTUfAr5OPTT0V
- Bv9d8JMKPn9VoDFIrtdM3+11ONR/OmTdCfKgP1pqzLvz0HwoQl9QvT6II0t/70s7GaWP8Umrwo8
- X7EdXcYJodX39FA==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
+Content-Disposition: inline
+In-Reply-To: <20250525084710.1665648-8-apatel@ventanamicro.com>
+Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_034212_490155_C08F633F 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250528_035304_100160_01670D93 
+X-CRM114-Status: GOOD (  37.18  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,50 +84,427 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Assign 'struct pinctrl_desc' .pins, .npins and other members in
-definition to make clear that number of pins is fixed and have less code
-in the probe.
+On Sun, May 25, 2025 at 02:16:54PM +0530, Anup Patel wrote:
+> Add a mailbox controller driver for the new SBI message proxy extension
+> which is part of the SBI v3.0 specification.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
----
- drivers/pinctrl/pinctrl-max77620.c | 9 ++++-----
- 1 file changed, 4 insertions(+), 5 deletions(-)
+...
 
-diff --git a/drivers/pinctrl/pinctrl-max77620.c b/drivers/pinctrl/pinctrl-max77620.c
-index d236daa7c13ebbcaf7c4a8d1a8bed751aa111c0f..acb945a2574368b2e34659a902c34df8aad193d7 100644
---- a/drivers/pinctrl/pinctrl-max77620.c
-+++ b/drivers/pinctrl/pinctrl-max77620.c
-@@ -543,6 +543,10 @@ static struct pinctrl_desc max77620_pinctrl_desc = {
- 	.pctlops = &max77620_pinctrl_ops,
- 	.pmxops = &max77620_pinmux_ops,
- 	.confops = &max77620_pinconf_ops,
-+	.pins = max77620_pins_desc,
-+	.npins = ARRAY_SIZE(max77620_pins_desc),
-+	.num_custom_params = ARRAY_SIZE(max77620_cfg_params),
-+	.custom_params = max77620_cfg_params,
- };
- 
- static int max77620_pinctrl_probe(struct platform_device *pdev)
-@@ -569,11 +573,6 @@ static int max77620_pinctrl_probe(struct platform_device *pdev)
- 	platform_set_drvdata(pdev, mpci);
- 
- 	max77620_pinctrl_desc.name = dev_name(&pdev->dev);
--	max77620_pinctrl_desc.pins = max77620_pins_desc;
--	max77620_pinctrl_desc.npins = ARRAY_SIZE(max77620_pins_desc);
--	max77620_pinctrl_desc.num_custom_params =
--				ARRAY_SIZE(max77620_cfg_params);
--	max77620_pinctrl_desc.custom_params = max77620_cfg_params;
- 
- 	for (i = 0; i < MAX77620_PIN_NUM; ++i) {
- 		mpci->fps_config[i].active_fps_src = -1;
+> +#include <asm/sbi.h>
+
+asm/* usually goes after generic linux/* ones. Why here?
+
+> +#include <linux/cpu.h>
+> +#include <linux/err.h>
+> +#include <linux/init.h>
+> +#include <linux/jump_label.h>
+
+> +#include <linux/kernel.h>
+
+What for?
+
+> +#include <linux/mailbox_controller.h>
+> +#include <linux/mailbox/riscv-rpmi-message.h>
+> +#include <linux/mm.h>
+> +#include <linux/module.h>
+> +#include <linux/msi.h>
+> +#include <linux/of_irq.h>
+> +#include <linux/percpu.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/smp.h>
+
+Please, double check that you follow IWYU (Include What You Use) principle and
+have no "proxy" headers.
+
+(E.g., types.h is missing here, but it got included via one of the above, like
+kernel.h)
+
+...
+
+> +
+> +	get_cpu();
+> +
+> +	/* Get the remaining and returned fields to calculate total */
+> +	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
+> +			 0, 0, 0, 0, 0, 0);
+> +	if (!sret.error) {
+
+Can it be standard pattern?
+
+	if (error)
+		goto err_put_cpu;
+
+Ditto for other similar cases.
+
+> +		remaining = le32_to_cpu(sdata->remaining);
+> +		returned = le32_to_cpu(sdata->returned);
+> +		*channel_count = remaining + returned;
+> +	}
+> +
+> +	put_cpu();
+> +	return sbi_err_map_linux_errno(sret.error);
+> +}
+
+...
+
+> +static int mpxy_get_channel_ids(u32 channel_count, u32 *channel_ids)
+> +{
+> +	u32 remaining, returned, sidx, start_index = 0, cidx = 0;
+> +	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
+> +	struct sbi_mpxy_channel_ids_data *sdata = mpxy->shmem;
+> +	struct sbiret sret;
+> +
+> +	if (!mpxy->shmem_active)
+> +		return -ENODEV;
+> +	if (!channel_count || !channel_ids)
+> +		return -EINVAL;
+> +
+> +	get_cpu();
+> +
+> +	do {
+> +		sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_GET_CHANNEL_IDS,
+> +				 start_index, 0, 0, 0, 0, 0);
+> +		if (sret.error)
+> +			goto done;
+> +
+> +		remaining = le32_to_cpu(sdata->remaining);
+> +		returned = le32_to_cpu(sdata->returned);
+> +
+> +		for (sidx = 0; sidx < returned && cidx < channel_count; sidx++) {
+> +			channel_ids[cidx] = le32_to_cpu(sdata->channel_array[sidx]);
+> +			cidx += 1;
+> +		}
+> +
+> +		start_index = cidx;
+> +
+> +	} while (remaining);
+> +
+> +done:
+
+It sounds to me like an 'err_put_cpu' for the name.
+
+> +	put_cpu();
+> +	return sbi_err_map_linux_errno(sret.error);
+> +}
+
+> +static int mpxy_write_attrs(u32 channel_id, u32 base_attrid, u32 attr_count,
+> +			    u32 *attrs_buf)
+> +{
+> +	struct mpxy_local *mpxy = this_cpu_ptr(&mpxy_local);
+> +	struct sbiret sret;
+> +	u32 i;
+> +
+> +	if (!mpxy->shmem_active)
+> +		return -ENODEV;
+> +	if (!attr_count || !attrs_buf)
+> +		return -EINVAL;
+> +
+> +	get_cpu();
+> +
+> +	for (i = 0; i < attr_count; i++)
+> +		((__le32 *)mpxy->shmem)[i] = cpu_to_le32(attrs_buf[i]);
+
+Don't we have helpers for this? They are suffixed with _array.
+https://elixir.bootlin.com/linux/v6.15-rc6/source/include/linux/byteorder/generic.h#L168
+Don't forget to have asm/byteorder.h being included.
+
+Ditto for the similar case(s).
+
+> +	sret = sbi_ecall(SBI_EXT_MPXY, SBI_EXT_MPXY_WRITE_ATTRS,
+> +			 channel_id, base_attrid, attr_count, 0, 0, 0);
+> +
+> +	put_cpu();
+> +	return sbi_err_map_linux_errno(sret.error);
+> +}
+
+...
+
+> +	msg->error = rc;
+> +	return 0;
+
+What's the point of having int and not void function?
+
+...
+
+> +			       sizeof(mchan->rpmi_attrs) / sizeof(u32),
+> +			       (u32 *)&mchan->rpmi_attrs);
+
+Why casting? What about alignment?
+
+...
+
+> +	while (1) {
+
+Do it as do {} while, it will give an idea that the loop will run at least once
+(without looking into condition), ideally it shouldn't be infinite loop, but it
+might be harder to realise.
+
+> +		rc = mpxy_get_notifications(mchan->channel_id, notif, &data_len);
+> +		if (rc || !data_len)
+> +			break;
+> +
+> +		if (mchan->attrs.msg_proto_id == SBI_MPXY_MSGPROTO_RPMI_ID)
+> +			mpxy_mbox_peek_rpmi_data(chan, mchan, notif, data_len);
+> +
+> +		have_notifications = true;
+> +	}
+
+...
+
+> +static void mpxy_mbox_cleanup_events(struct mpxy_mbox_channel *mchan)
+> +{
+> +	struct device *dev = mchan->mbox->dev;
+> +	int rc;
+> +
+> +	/* Do nothing if events state not supported */
+> +	if (!mchan->have_events_state)
+> +		return;
+> +
+> +	/* Do nothing if events state already disabled */
+> +	if (!mchan->attrs.events_state_ctrl)
+> +		return;
+> +
+> +	/* Disable channel events state */
+> +	mchan->attrs.events_state_ctrl = 0;
+> +	rc = mpxy_write_attrs(mchan->channel_id, SBI_MPXY_ATTR_EVENTS_STATE_CONTROL,
+> +			      1, &mchan->attrs.events_state_ctrl);
+
+> +	if (rc) {
+> +		dev_err(dev, "disable events state failed for MPXY channel 0x%x\n",
+> +			mchan->channel_id);
+> +	}
+
+Redundant {}.
+
+> +}
+
+...
+
+> +static int mpxy_mbox_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev = &pdev->dev;
+> +	struct mpxy_mbox_channel *mchan;
+> +	struct mpxy_mbox *mbox;
+> +	int i, msi_idx, rc;
+
+Why is 'i' signed? Also make sure either they use POD (like unsigned int) or
+exact data type the upper limit does or API where you pass it in.
+
+> +	u32 *channel_ids;
+> +
+> +	/*
+> +	 * Initialize MPXY shared memory only once. This also ensures
+> +	 * that SBI MPXY mailbox is probed only once.
+> +	 */
+> +	if (mpxy_shmem_init_done) {
+> +		dev_err(dev, "SBI MPXY mailbox already initialized\n");
+> +		return -EALREADY;
+> +	}
+> +
+> +	/* Probe for SBI MPXY extension */
+> +	if (sbi_spec_version < sbi_mk_version(1, 0) ||
+> +	    sbi_probe_extension(SBI_EXT_MPXY) <= 0) {
+> +		dev_info(dev, "SBI MPXY extension not available\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	/* Find-out shared memory size */
+> +	mpxy_shmem_size = mpxy_get_shmem_size();
+> +
+> +	/*
+> +	 * Setup MPXY shared memory on each CPU
+> +	 *
+> +	 * Note: Don't cleanup MPXY shared memory upon CPU power-down
+> +	 * because the RPMI System MSI irqchip driver needs it to be
+> +	 * available when migrating IRQs in CPU power-down path.
+> +	 */
+> +	cpuhp_setup_state(CPUHP_AP_ONLINE_DYN, "riscv/sbi-mpxy-shmem",
+> +			  mpxy_setup_shmem, NULL);
+> +
+> +	/* Mark as MPXY shared memory initialization done */
+> +	mpxy_shmem_init_done = true;
+> +
+> +	/* Allocate mailbox instance */
+> +	mbox = devm_kzalloc(dev, sizeof(*mbox), GFP_KERNEL);
+> +	if (!mbox)
+> +		return -ENOMEM;
+> +	mbox->dev = dev;
+> +	platform_set_drvdata(pdev, mbox);
+> +
+> +	/* Find-out of number of channels */
+> +	rc = mpxy_get_channel_count(&mbox->channel_count);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "failed to get number of MPXY channels\n");
+> +	if (!mbox->channel_count)
+> +		dev_err_probe(dev, -ENODEV, "no MPXY channels available\n");
+> +
+> +	/* Allocate and fetch all channel IDs */
+> +	channel_ids = devm_kcalloc(dev, mbox->channel_count,
+> +				   sizeof(*channel_ids), GFP_KERNEL);
+> +	if (!channel_ids)
+> +		return -ENOMEM;
+> +	rc = mpxy_get_channel_ids(mbox->channel_count, channel_ids);
+> +	if (rc)
+> +		return dev_err_probe(dev, rc, "failed to MPXY channel IDs\n");
+> +
+> +	/* Populate all channels */
+> +	mbox->channels = devm_kcalloc(dev, mbox->channel_count,
+> +				      sizeof(*mbox->channels), GFP_KERNEL);
+> +	if (!mbox->channels)
+> +		return -ENOMEM;
+> +	for (i = 0; i < mbox->channel_count; i++) {
+> +		mchan = &mbox->channels[i];
+> +		mchan->mbox = mbox;
+> +		mchan->channel_id = channel_ids[i];
+> +
+> +		rc = mpxy_read_attrs(mchan->channel_id, SBI_MPXY_ATTR_MSG_PROT_ID,
+> +				     sizeof(mchan->attrs) / sizeof(u32),
+> +				     (u32 *)&mchan->attrs);
+> +		if (rc) {
+> +			return dev_err_probe(dev, rc,
+> +					     "MPXY channel 0x%x read attrs failed\n",
+> +					     mchan->channel_id);
+> +		}
+> +
+> +		if (mchan->attrs.msg_proto_id == SBI_MPXY_MSGPROTO_RPMI_ID) {
+> +			rc = mpxy_mbox_read_rpmi_attrs(mchan);
+> +			if (rc) {
+> +				return dev_err_probe(dev, rc,
+> +						     "MPXY channel 0x%x read RPMI attrs failed\n",
+> +						     mchan->channel_id);
+> +			}
+> +		}
+> +
+> +		mchan->notif = devm_kzalloc(dev, mpxy_shmem_size, GFP_KERNEL);
+> +		if (!mchan->notif)
+> +			return -ENOMEM;
+> +
+> +		mchan->max_xfer_len = min(mpxy_shmem_size, mchan->attrs.msg_max_len);
+> +
+> +		if ((mchan->attrs.capability & SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS) &&
+> +		    (mchan->attrs.capability & SBI_MPXY_CHAN_CAP_EVENTS_STATE))
+> +			mchan->have_events_state = true;
+> +
+> +		if ((mchan->attrs.capability & SBI_MPXY_CHAN_CAP_GET_NOTIFICATIONS) &&
+> +		    (mchan->attrs.capability & SBI_MPXY_CHAN_CAP_MSI))
+> +			mchan->msi_index = mbox->msi_count++;
+> +		else
+> +			mchan->msi_index = U32_MAX;
+> +		mchan->msi_irq = U32_MAX;
+> +	}
+
+> +	/* Free-up channel IDs */
+> +	devm_kfree(dev, channel_ids);
+
+Just no. This is most likely (99.9%) wrong use of managed resources. This is
+the biggest issue with this patch so far.
+
+> +	/* Initialize mailbox controller */
+> +	mbox->controller.txdone_irq = false;
+> +	mbox->controller.txdone_poll = false;
+> +	mbox->controller.ops = &mpxy_mbox_ops;
+> +	mbox->controller.dev = dev;
+> +	mbox->controller.num_chans = mbox->channel_count;
+> +	mbox->controller.fw_xlate = mpxy_mbox_fw_xlate;
+> +	mbox->controller.chans = devm_kcalloc(dev, mbox->channel_count,
+> +					      sizeof(*mbox->controller.chans),
+> +					      GFP_KERNEL);
+> +	if (!mbox->controller.chans)
+> +		return -ENOMEM;
+> +	for (i = 0; i < mbox->channel_count; i++)
+> +		mbox->controller.chans[i].con_priv = &mbox->channels[i];
+> +
+> +	/* Set the MSI domain if not available */
+> +	if (!dev_get_msi_domain(dev)) {
+> +		/*
+> +		 * The device MSI domain for OF devices is only set at the
+> +		 * time of populating/creating OF device. If the device MSI
+> +		 * domain is discovered later after the OF device is created
+> +		 * then we need to set it explicitly before using any platform
+> +		 * MSI functions.
+> +		 */
+> +		if (is_of_node(dev_fwnode(dev)))
+> +			of_msi_configure(dev, to_of_node(dev_fwnode(dev)));
+> +	}
+> +
+> +	/* Setup MSIs for mailbox (if required) */
+> +	if (mbox->msi_count) {
+> +		mbox->msi_index_to_channel = devm_kcalloc(dev, mbox->msi_count,
+> +							  sizeof(*mbox->msi_index_to_channel),
+> +							  GFP_KERNEL);
+> +		if (!mbox->msi_index_to_channel)
+> +			return -ENOMEM;
+> +
+> +		for (msi_idx = 0; msi_idx < mbox->msi_count; msi_idx++) {
+> +			for (i = 0; i < mbox->channel_count; i++) {
+> +				mchan = &mbox->channels[i];
+> +				if (mchan->msi_index == msi_idx) {
+> +					mbox->msi_index_to_channel[msi_idx] = mchan;
+> +					break;
+> +				}
+> +			}
+> +		}
+> +
+> +		rc = platform_device_msi_init_and_alloc_irqs(dev, mbox->msi_count,
+> +							     mpxy_mbox_msi_write);
+> +		if (rc) {
+> +			return dev_err_probe(dev, rc, "Failed to allocate %d MSIs\n",
+> +					     mbox->msi_count);
+> +		}
+> +
+> +		for (i = 0; i < mbox->channel_count; i++) {
+> +			mchan = &mbox->channels[i];
+> +			if (mchan->msi_index == U32_MAX)
+> +				continue;
+> +			mchan->msi_irq = msi_get_virq(dev, mchan->msi_index);
+> +		}
+> +	}
+> +
+> +	/* Register mailbox controller */
+> +	rc = devm_mbox_controller_register(dev, &mbox->controller);
+> +	if (rc) {
+> +		dev_err_probe(dev, rc, "Registering SBI MPXY mailbox failed\n");
+> +		if (mbox->msi_count)
+> +			platform_device_msi_free_irqs_all(dev);
+> +		return rc;
+> +	}
+> +
+> +	dev_info(dev, "mailbox registered with %d channels\n",
+> +		 mbox->channel_count);
+> +	return 0;
+> +}
+
+...
+
+> +	if (mbox->msi_count)
+
+Is this check really needed?
+
+> +		platform_device_msi_free_irqs_all(mbox->dev);
+> +}
+
+...
+
+> +static const struct of_device_id mpxy_mbox_of_match[] = {
+> +	{.compatible = "riscv,sbi-mpxy-mbox", },
+> +	{},
+
+No comma for the terminator entry.
+You should apply the reviewers' comments on all of your code, not just where it
+was commented.
+
+> +};
 
 -- 
-2.45.2
+With Best Regards,
+Andy Shevchenko
+
 
 
 _______________________________________________
