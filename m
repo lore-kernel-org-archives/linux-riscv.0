@@ -4,75 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF8A7C5B543
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C20FCC3ABB2
 	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 12:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=DVetphSWEhxonS+KX8JLcADsRj0UB94hvJkYxNilXSk=; b=y1eYswKLPI+Rwz
-	Z721nlUug+J027W6S0m2sKB0B8MSTy5e4We9rWik/rSpw40wrjoLUssU2sK5ZciuYD+IAmTdOx3cg
-	32sY43n5oQEHz30FhBYZfccPGcKRV9ZO2tEtK+P/BdC5Q1PNPDLAB34ahTC3I5fIdpx6ruFk+MoQb
-	yI0OjopW1Efxyw6pZAhJ6ba0kwv83U1ZBAWUb3RdCoVuP4k+tDrgETiX0g9j6Plhu1E537AOH5u+0
-	BHB+ZYGZVR29Klbm6krpDE8JrY4hr5xLOGr0mEsD+5fh4BliJ4vbOiJkJiLQkuOec03Iu1IA83xT6
-	Me0QpPAlPTpYFhTjWUeQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nGLrxKTsWo9IeAYv/FtCxHobRGoF6VPfpnBqYMAWGXM=; b=UDXYE58khocRrCu+vlZqpBzsGx
+	Io5foZnt3VObuYiUrqZGdWRWC+rmIQsu5bsPjimpY5KOcG6eWnYJm5qDT5sAZCr/YyBwBZl6wMxM1
+	GGgnuE6gb03r6VhuZHdGmwvBjsT++CubfrGHgdUVYUamK9+FIpBu4l52SHkNAyiyknZQ5bn0iIU0D
+	Qw0mK/beeIs+Qm6FIJ0JALAG94zo4vIwibLD+Nn25dEQRIRbz/lPk6SG7rvMAbU5fdBkQFoyPPjPO
+	G82h2COh3/zhECzNUNYnzaMDPjVVAXTjuqcurM3gy7iIHqw3z3Rx300n76rqdDq53XC1A9aJiUQ1L
+	prX3x+pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFkr-0000000D5WB-0SgK;
-	Wed, 28 May 2025 12:19:39 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1uKFl0-0000000D5bK-0keE;
+	Wed, 28 May 2025 12:19:43 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKEbT-0000000CwIG-3kXH
-	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 11:05:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1748430348; x=1779966348;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ToQEsJtK6Rkp6PB1avzmO5rYbaGHvKv6ChVjnjuWW+Q=;
-  b=OIpV+zmTe4lulThsr7kX7lVTlDXlDLPGBRKq7c22JZKF2Pmabad2YTKW
-   s7psPfWLT966i2DiSS7aj5qTwL5+R1cpnJV037tLaC+a/JurlArzhv4Qi
-   YXWAleKYexICDdeqXDQ8NpRbVvd+vfRGTpbYV90AHJvKfTv8aJZs7gzXA
-   KO5DeB/ZFSjXrD5UTPjTbWtdyoFFnPgmf8CEPAxvmv+oqSkxFMbhQX9rI
-   oKhHPRZcp8mogw5+UcAuUYlJXm9nNB82AKooe8vS+2Ii/uJ5y+8zYr5VM
-   F8WKSVRU/ATI4GLmQZOwYdjdIJqqGzE8SQ3pB9fnWce+DNePcpBuaO4iA
-   g==;
-X-CSE-ConnectionGUID: qViZlSupQRy3m5CzO0px6Q==
-X-CSE-MsgGUID: CEmJY/XmTxKNWrDiBJFqvg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11446"; a="61507827"
-X-IronPort-AV: E=Sophos;i="6.15,321,1739865600"; 
-   d="scan'208";a="61507827"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 04:05:47 -0700
-X-CSE-ConnectionGUID: 8iPiFFdzQFCUu9mW66glIw==
-X-CSE-MsgGUID: tz6rZrWDSXmyTaQ0KyywyQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.15,320,1739865600"; 
-   d="scan'208";a="174206027"
-Received: from smile.fi.intel.com ([10.237.72.52])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 28 May 2025 04:05:41 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98.2)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1uKEbJ-00000001QJz-0DBv;
-	Wed, 28 May 2025 14:05:37 +0300
-Date: Wed, 28 May 2025 14:05:36 +0300
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Anup Patel <apatel@ventanamicro.com>
-Subject: Re: [PATCH v4 17/23] ACPI: RISC-V: Create interrupt controller list
- in sorted order
-Message-ID: <aDbuABrlO30TIrx1@smile.fi.intel.com>
-References: <20250525084710.1665648-1-apatel@ventanamicro.com>
- <20250525084710.1665648-18-apatel@ventanamicro.com>
+	id 1uKEeL-0000000Cwbp-1aCD;
+	Wed, 28 May 2025 11:08:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CEA55614B3;
+	Wed, 28 May 2025 11:08:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F219AC4CEE7;
+	Wed, 28 May 2025 11:08:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1748430524;
+	bh=vs9C+yM7jX/8lBqahjesUiVEoedayFKv4eRr8WPo1Z8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BTAu1Tjew7E5vCuzuLnwXVsjhaJk4oq4cIksA970ux59BFH+zbRzt1E1a9TzFsyOG
+	 xEdwj6FCowDGIzbsGCACPUzH+f4UfPvUUXkflpf7Soagv2DC3m3UpFLZ7SEMBGZ5IT
+	 yOIoWZctn0xSy1MInbuUzfU8rL063kyt3UFj9qEUmhTmGXPmk9JkXmVM49xsCDUtFz
+	 UxF22UnKNzhzGi0OabAhcsiJMQDsWCI7+ZHjZ0pE3YsnmijTp/vRQ/R99jXW+rCEsT
+	 +Fa55E+B2opUBxi0dVMKxgHvc5Iq/v836GAtrRgmqAuihWEZ0yCwwE4/HLKXU1FcQP
+	 qnh4rhbBUvi6A==
+Date: Wed, 28 May 2025 13:08:40 +0200
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+To: =?utf-8?B?0JDQu9C10LrRgdCw0L3QtNGAINCo0YPQsdC40L0=?= <privatesub2@gmail.com>
+Cc: Andre Przywara <andre.przywara@arm.com>, linux-kernel@vger.kernel.org, 
+	Brandon Cheo Fusi <fusibrandon13@gmail.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-pwm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+Message-ID: <hetih6ul7hdj3kflhy2s2zkkh3r7pcupgwde3xnwmjzs6cujp3@vcw4pde76bdb>
+References: <20250427142500.151925-1-privatesub2@gmail.com>
+ <20250427142500.151925-3-privatesub2@gmail.com>
+ <20250512233944.06bc1cb7@minigeek.lan>
+ <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250525084710.1665648-18-apatel@ventanamicro.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_040547_984278_9184B7E6 
-X-CRM114-Status: GOOD (  12.02  )
+In-Reply-To: <CAF4idN=Kwp8bDYVyjM52eUwVEEZcPM9YyK9KiqUzyf8Dm=cXTQ@mail.gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,43 +72,223 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/mixed; boundary="===============2665041208744502290=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sun, May 25, 2025 at 02:17:04PM +0530, Anup Patel wrote:
-> 
-> Currently, the interrupt controller list is created without any order.
-> Create the list sorted with the GSI base of the interrupt controllers.
 
-...
-
-> -	list_add_tail(&ext_intc_element->list, &ext_intc_list);
-> +	if (list_empty(&ext_intc_list)) {
-> +		list_add(&ext_intc_element->list, &ext_intc_list);
-> +		return 0;
-> +	}
-
-With the below done the above can be optimized (hopefully).
-
-> +	list_for_each_entry(node, &ext_intc_list, list) {
-> +		if (node->gsi_base < ext_intc_element->gsi_base)
-> +			break;
-> +	}
-> +
-> +	__list_add(&ext_intc_element->list, node->list.prev, &node->list);
-
-Is this reimplementation of list_add_tail()? And why list debug is excluded here?
-
--- 
-With Best Regards,
-Andy Shevchenko
+--===============2665041208744502290==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="j6nnrxchndqyddxe"
+Content-Disposition: inline
 
 
+--j6nnrxchndqyddxe
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 2/3] pwm: Add Allwinner's D1/T113-S3/R329 SoCs PWM
+ support
+MIME-Version: 1.0
+
+Hello,
+
+On Sat, May 24, 2025 at 12:07:28PM +0300, =D0=90=D0=BB=D0=B5=D0=BA=D1=81=D0=
+=B0=D0=BD=D0=B4=D1=80 =D0=A8=D1=83=D0=B1=D0=B8=D0=BD wrote:
+> =D0=B2=D1=82, 13 =D0=BC=D0=B0=D1=8F 2025=E2=80=AF=D0=B3. =D0=B2 01:39, An=
+dre Przywara <andre.przywara@arm.com>:
+> >
+> > On Sun, 27 Apr 2025 17:24:54 +0300
+> > Aleksandr Shubin <privatesub2@gmail.com> wrote:
+> > > +              */
+> > > +             use_bus_clk =3D false;
+> > > +             val =3D mul_u64_u64_div_u64(state->period, hosc_rate, N=
+SEC_PER_SEC);
+> > > +             /*
+> > > +              * If the calculated value is =E2=89=A4 1, the period i=
+s too short
+> > > +              * for proper PWM operation
+> > > +              */
+> > > +             if (val <=3D 1) {
+> >
+> > So if I get the code correctly, it prefers HOSC over APB? Is that
+> > really the best way? Shouldn't it be the other way around: we use the
+> > faster clock, since this will not limit the sibling channel?
+> >
+> > And another thing to consider are rounding errors due to integer
+> > division: certain period rates might be better achievable with one or
+> > the other source clock: 3 MHz works best as 24MHz/8, 3.125MHz as
+> > 100MHz/32.
+> > So shall we calculate the values and compare the errors instead?
+> > Oh, and also we need to consider bypassing, I feel like this should be
+> > checked first.
+> >
+> > In any case I think there should be a comment describing the strategy
+> > and give some rationale, I think.
+>=20
+> I like the idea of comparing the quantization error for each clock source
+> (i.e. computing the actual period for both APB and HOSC and choosing
+> whichever is closer to the requested period).
+> I can try to implement that error-minimization approach in the next
+> series of patches and add a comment explaining the strategy.
+
+Consumers have different needs. Some might prefer a better match for
+period, but in my experience most would go for a fine-grained selection
+of duty_cycle, so prefering the faster clock sounds sane.
+
+I don't say minimizing the error is wrong, but if it's unclear that
+this matches what a consumer wants I object to make the procedure to
+select the hardware settings considerably more complicated and run-time
+intensive.
+
+> > > +static int sun20i_pwm_probe(struct platform_device *pdev)
+> > > +{
+> > > +     struct pwm_chip *chip;
+> > > +     struct sun20i_pwm_chip *sun20i_chip;
+> > > +     struct clk *clk_bus;
+> > > +     struct reset_control *rst;
+> > > +     u32 npwm;
+> > > +     int ret;
+> > > +
+> > > +     ret =3D of_property_read_u32(pdev->dev.of_node, "allwinner,npwm=
+s", &npwm);
+> > > +     if (ret < 0)
+> > > +             npwm =3D 8; /* Default value */
+> > > +
+> > > +     if (npwm > 16) {
+> > > +             dev_info(&pdev->dev, "Limiting number of PWM lines from=
+ %u to 16", npwm);
+> >
+> > I don't think we should proceed if the firmware information is clearly
+> > wrong. Just bail out with -EINVAL or so here, so that gets fixed in the
+> > DT.
+
+To me it's not obvious that the "firmware information is clearly wrong".
+Maybe the next Allwinner SoC will have 24 outputs and the problem is
+only that this driver isn't prepared to cope for that number of outputs?
+
+If that really happens it's arguable if it's better to refuse completely
+or just cope for the 16 outputs that the driver is able to. IMHO it's
+better to continue because a partially workable pwmchip is better than
+no chip at all. But I'd upgrade the message to dev_warn().
+
+> > > +             npwm =3D 16;
+> > > +     }
+> > > +
+> > > +     chip =3D devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*sun20i_ch=
+ip));
+> > > +     if (IS_ERR(chip))
+> > > +             return PTR_ERR(chip);
+> > > +     sun20i_chip =3D to_sun20i_pwm_chip(chip);
+> > > +
+> > > +     sun20i_chip->base =3D devm_platform_ioremap_resource(pdev, 0);
+> > > +     if (IS_ERR(sun20i_chip->base))
+> > > +             return PTR_ERR(sun20i_chip->base);
+> > > +
+> > > +     clk_bus =3D devm_clk_get_enabled(&pdev->dev, "bus");
+> > > +     if (IS_ERR(clk_bus))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(clk_bus),
+> > > +                                  "Failed to get bus clock\n");
+> > > +
+> > > +     sun20i_chip->clk_hosc =3D devm_clk_get_enabled(&pdev->dev, "hos=
+c");
+> > > +     if (IS_ERR(sun20i_chip->clk_hosc))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->c=
+lk_hosc),
+> > > +                                  "Failed to get hosc clock\n");
+> > > +
+> > > +     ret =3D devm_clk_rate_exclusive_get(&pdev->dev, sun20i_chip->cl=
+k_hosc);
+> >
+> > Just ignoring for a bit that the 24 MHz oscillator is a fixed clock
+> > anyway, but why would we want exclusivity already at probe time? Isn't
+> > that too limiting, as no one might ever use any PWM channels, but it
+> > would still "belong to us"?
+
+That's a soft concept of "belong to us". Other consumers can still use
+it and even also call clk_rate_exclusive_get(). IMHO it's a good idea to
+call clk_rate_exclusive_get() for each clock that a driver relies on not
+to change. You could make the driver more flexible and only call that
+when the rate is actually relied on, but that's again a compromise with
+complexity of the driver. And if the clock rate is fixed anyhow, it
+doesn't hurt to do it here, right?
+
+> > > +     if (ret)
+> > > +             return dev_err_probe(&pdev->dev, ret,
+> > > +                                  "Failed to get hosc exclusive rate=
+\n");
+> > > +
+> > > +     sun20i_chip->clk_apb =3D devm_clk_get_enabled(&pdev->dev, "apb"=
+);
+> > > +     if (IS_ERR(sun20i_chip->clk_apb))
+> > > +             return dev_err_probe(&pdev->dev, PTR_ERR(sun20i_chip->c=
+lk_apb),
+> > > +                                  "Failed to get apb clock\n");
+> > > +
+> > > +     ret =3D devm_clk_rate_exclusive_get(&pdev->dev, sun20i_chip->cl=
+k_apb);
+> >
+> > Just for the records: APB is practically also a fixed clock, set up
+> > once in firmware and never changed, since it drives a lot of other
+> > peripherals.
+> > But same question as above, why do we lock its rate already here?
+>=20
+> That step was actually recommended by Uwe Kleine-K=C3=B6nig,
+> so the decision on whether to keep or drop exclusive reservation
+> is really a question for him=E2=80=94please coordinate with Uwe
+> to agree on how best to proceed here.
+
+Same as above. Iff the driver relies on the rate of this clock to keep
+constant, calling clk_rate_exclusive_get() is right.
+
+> > > +     if (ret)
+> > > +             return dev_err_probe(&pdev->dev, ret,
+> > > +                                  "Failed to get apb exclusive rate\=
+n");
+> > > +
+> > > +     if (clk_get_rate(sun20i_chip->clk_apb) <=3D clk_get_rate(sun20i=
+_chip->clk_hosc))
+> > > +             dev_info(&pdev->dev, "APB clock must be greater than ho=
+sc clock");
+> >
+> > Why this check? Does the code make any assumptions about this relation?
+> > If yes, we must surely deny this and bail out.
+> > If not (and I feel we should handle it this way), we can just ignore
+> > this and not print anything.
+
+ack.
+
+Best regards
+Uwe
+
+--j6nnrxchndqyddxe
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg27rUACgkQj4D7WH0S
+/k7eMQf+MFh+WPOSnrL0ChmTNdZTkd/HHROpjXJFoKvZp8zcSHMTplW1nj2woA1/
+Va88dWGfc9SB3t8CtiIDNa5+Uqe1TKApG1dH+Wa85exLeIamnSGMlmr2UrslLX+Z
+U4CO0QmYVZGBjQtwEulMwGIfhZr/v4xBCLhwB0NoHqn2R1S1rxDjK6LHQFBj1RHl
+IqvMLUGJ0XSg5bzLiS3OqRH0FpHKyAggpEoqJPYOBBc7yjhxklvLN+u5Gb6riPaT
+pm7nwLkH/qBqpTgJfHxGf92AuW23qp/PcytQABrRXlsGNhFJBilXQPcFjN16JthK
+FxuATRizXxGVnnfFjeGzHSc9RoSOvw==
+=DLbu
+-----END PGP SIGNATURE-----
+
+--j6nnrxchndqyddxe--
+
+
+--===============2665041208744502290==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============2665041208744502290==--
+
