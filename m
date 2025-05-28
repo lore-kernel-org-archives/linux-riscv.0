@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31FF6C3ABB2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDE96C5AD49
 	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 11:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,68 +12,68 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4+XHdSJZfxbN6eZljHtF4XPd6ZyZCth0Y67k2enEyms=; b=NXnaAMYqb/NINs
-	OYZTY6jqpHWYAW2ZcCuVhlidZqNvgRjwo/o2v2en+7P4kK6A9s5NMZtM4IBnvCcDdqKYEHK/9sM/1
-	q2ThlHwkP2KKKz8eNvImNaocEcnlW3LZcZTHGkdh4TCSDeY65YkZhYpB9UwGgdyur2Q06bQ/v5u4D
-	kB1/tSxu1nQjlVue3wsnRANsavkdstIdPsFzTYElB6YdYjOrwXCyFf+PpR6xSFMdaxq93MLv25yYh
-	ya3ZtDom1BOgkQD5nB2W+s3Y9PK3WLmVd9qxViwYWxKlBhhGR0Y8NxD8hbJYfIq5TWtvtfS2Inanz
-	UvJmqAmfTlacajzkb2GA==;
+	List-Owner; bh=wvCUBLLBTt+XrMVu2L8fa6dxoTmfo4rg1ubPnpXnP84=; b=UoQ77HpajQPqUf
+	IOYck7IWbHNS8koAxYK1acyo57nIithAxpSUNZ/wGLoB1LEPrH+e9iOAHoj+616wViItXK6eT0Eom
+	RVz9yAlbGEtxbuiLZy9WuNRoROky1lEV3Gf4YuOJPh1Dhjqx7LubE0tepyVI4miGIB48tVzW/taSD
+	OCmvIxAcirbp+xImITQOnQQc8ewHwZnKnyktySDLQNp8qgbb1ILsglRMiMO9gvnZ2yqg3vUjzN+ak
+	88txDwua+lcaRYrrejVIo3Q/661aPmzU/LBSDWvY3Y+Ii0++1/UbbyL5C05JuiH1OcOA+29ZaY6vl
+	CCPaddnuKHGv+jbSW6dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKFJX-0000000D1RL-3XxS;
-	Wed, 28 May 2025 11:51:19 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1uKFJZ-0000000D1SV-35Tr;
+	Wed, 28 May 2025 11:51:21 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKEEh-0000000Csfi-14wm
+	id 1uKEEk-0000000CskB-2DGS
 	for linux-riscv@lists.infradead.org;
-	Wed, 28 May 2025 10:42:17 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-442f4d40152so5987795e9.2
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:42:15 -0700 (PDT)
+	Wed, 28 May 2025 10:42:23 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-450ca8e6d05so148605e9.3
+        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 03:42:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1748428934; x=1749033734; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1748428937; x=1749033737; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=sCzXGrMy4mrth9Y9XnnMqTwemBq/IlPbQZ3QBo3OiYA=;
-        b=WSy1UybyqlKuxs5fEtpjW4x/a9A/7qyRoxk+AOaseRWckjiuVU6zlCjRkJPNRkuywx
-         Z5kWzHgENyuWA2JNF/DavxJwFbhvm7yDwkt+mV171DY1uqwCvM3mfx/OQpLft/nmqclh
-         a/bcWbnuwjqefESOAY1KmOxor1EgsxJIVNJniEQ78k7Btu/Em2g7ge8iGUMKKZ4DMV+o
-         cGXAzXA2Mrd1/J1Bwg2DlDSaUD+UQ7uAPcBfc/sTHextkQ5pYnngyJ0xjXH1TqKrvP88
-         KwUx8j9YI48CErLJOGiJqDzihjSsoQp6Ikbp+VQshkE5HwRZKh7JvCPQWiMQ+/fE0q9q
-         BP+A==
+        bh=ubJ7uuc4KLABL05ikGhsnFP3O+LGDAGrddoVdCFQ7aE=;
+        b=CqL4Jl3Qn2BKmW5Q60ohQLWkNL9sxHBfIwYa7VxaccHcMp1Z9MHDp/tCpiBOkSO9/m
+         eIAWfSFmLSLSKpqCrBQPWdM/jwAj45MTpJnQ8YCzTOlTT/J49X+NiZe0Yutak3A5Yp8v
+         LBy0LS7eHGzLniQr8BShPXtzOOYrb8Gs6kqmhShxKa3vz3nkYbGrBqtUeHNR+QA8mEMM
+         c+9mn5JfRgYp3bk+DgVIO50vBBVSmm80xwzHP0APIgLJqUa5jPhQHIGlbyejlNWPDrrd
+         clYgDsC7Ssou9AwVKc7g4wgi0YNkGQS4t6WljQxLH7dqEdtsw9U4r+2OWXKyAZsMymBd
+         ubPw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748428934; x=1749033734;
+        d=1e100.net; s=20230601; t=1748428937; x=1749033737;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=sCzXGrMy4mrth9Y9XnnMqTwemBq/IlPbQZ3QBo3OiYA=;
-        b=kbTODwtg9v1L4SdW6Gb3qF68iYwV+ZNOJJA+yf/SXdDEBJulXQhOyD+MUeiSR6Z9JS
-         JQ8M8cYoTu58ZXGQTnlGUCqo4bfXv9gA8F4PeZt93Ian3uRoT8uPQHgNALPl0X6CcB7H
-         66FZ5M3Ot7FTzHkbTG7/gEsRWhps6jIXgzPW9xr6Zw6u52puSPf9kyRUDbtsUZE/7DCQ
-         EJ5JpbdVL23zjYy8weUYjALmIWggMeIgHpektGE/jqw1R47ITwRBHX2DNmmfHczspRch
-         pGQEY9ReKhsXrhh8jPTtd2IElkN63Ffxixt1Sg1PRiyf01XGutX+ptSKLE1GSNmFrDmR
-         9tBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUJQAfSzu3irx1zsHaEX2msoPlpTeObFBiPAsPZlrXXxcXVsG0SoD3chF2KiKbkqpjtjlZ3AljTBlvDPQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxKWpC7tgHnKoBzSvf+0wKbdq5wdfP2xPxROJaX/YdZ6bi/xQKW
-	Zgy5Cd4THDIIN+b/mLXXKXOFdnbShOdiFhW0vvt8I+dQaEZsnkSZZUJAmATbPLkaS9U=
-X-Gm-Gg: ASbGncs5MdqIrvL33lsGU+5d8IwSxt04ubB7pyQ1dd27vchEovmi8Ft++IMwXZMrahu
-	skOssGmeOqZ2xw58Uwq9AqxCE2SZjvJVXnPQs0ACSkkgMnBQSDAgP6JbaKvJfnXvwLd2e9ISWo6
-	9A0tTpn+PVXbCOxinasFWTg++yUVbNYvzW1gvjfuxlzW4yQla20dOnWRXMT2fbgvmlGGfepvFMi
-	Csk6hC070dprHMtj6IzrGXZUy4o7qS5LlHSiLiAwpw6CnDpVB7llaE4P/GcCEQEWylcg3cU/2Xx
-	Bqf0510ZbVDxq8j5ZtMOrbotDZ/9NcXFzQLbxoA7CeEiW1Z11b3pk6s5hQqJmJGuhwIHn8o=
-X-Google-Smtp-Source: AGHT+IEezznZ4tc//+iyg9VgEejs2PqgHy+UHoiBZ9D2eixnIzEPRTC2rWF2EYyDVV6zOvpBJosC8Q==
-X-Received: by 2002:a05:600c:1385:b0:43e:94fa:4aef with SMTP id 5b1f17b1804b1-44c93cae9acmr51123845e9.8.1748428933700;
-        Wed, 28 May 2025 03:42:13 -0700 (PDT)
+        bh=ubJ7uuc4KLABL05ikGhsnFP3O+LGDAGrddoVdCFQ7aE=;
+        b=wfqKvYUvpV2BalQRfGIGpZk3ESmWTwhEJGZCL74OXEIKLmawGnisT/nNasBsz6hHM1
+         fPAcgPJOh6v4DnCxSFcdzqMa8Encl/9yHqt0jxibLkPF2dIu6uCMebgzzPpRmrn6jXbf
+         rKSTH1jSHaa9/Qc1qE18NK5naf10OPs1+I47X9RENMxeP3H5YBEL9nry2fyn5oPaJijY
+         LCV76ToY9HICyZxz6wiEGBULJ6Y/1ARKYqnA+Xw9olXzXXh+tQDTTczfg8ZS9g0qWZed
+         ja93T6lLKYfulHXVmp/13pj/yy/DKia93o2Pi3pIq0TEHdlcDeESCrOip2uplRPOoBTR
+         jNrw==
+X-Forwarded-Encrypted: i=1; AJvYcCVenFQ1BqApawkXcrE89OjjQTkL6cUoPsvzdaizAK5Qfk5LcMcTE+3BypRc/DpghlKcppNgHCKNoMO+Fw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxrmCs4pyxKqfTiZjDer3QXGUmGB3bM84aygAcAPNgzUztYnawV
+	P/W7Lo23w9q8IDmYsnS2mTxw5G2pRquawJnAchwzAaX6cPoDvCvUvFLRW1JGIhsDhYc=
+X-Gm-Gg: ASbGnculEcKIrxTrRuaQU/UkNrQ3anFly7W7SLwg0huAm9Yd8TBrQbciXdZ1ReSYFf6
+	EjCzu1UV0zq4zhswGJ7/Tr3HkiWJgEcBFeBvNcS/6Eddox9jKld/WAI3MrjrNkbIf6Jl3Z+w2Gr
+	GKqxzVYcqdQPXTNCIYh/RDwxkFzHaNWuwlCNCUEblhnseFa6a/Eu2jwFc5MZ0XwMQzCHH1FQaCe
+	6/kXrSLHs6Nt4mYYZNmes6PDg61RbxbCSFiNnbDoOJ9Pvq0z4IfKacFqICWRIr6ZpaPT35gdKD/
+	WOZpzE9dPJSZzCBGSJmoyKGTDH/DoqrzvDjMnB7a7L7Ykq1B4lf4OY/o5rrAQrZKhMvfOCg=
+X-Google-Smtp-Source: AGHT+IGUEkMw3AazYidVlvlcKxjjPcFl/fdYDePDntNbpwN9JsZRSDdk3Hds7gIIRpwHgP+c7VnBhQ==
+X-Received: by 2002:a05:600c:511f:b0:442:e608:12a6 with SMTP id 5b1f17b1804b1-44c91dc9fd0mr51871135e9.1.1748428936730;
+        Wed, 28 May 2025 03:42:16 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450064add8bsm17331595e9.17.2025.05.28.03.42.10
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450064add8bsm17331595e9.17.2025.05.28.03.42.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 03:42:13 -0700 (PDT)
+        Wed, 28 May 2025 03:42:16 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 28 May 2025 12:41:09 +0200
-Subject: [PATCH 13/17] pinctrl: palmas: Move fixed assignments to
+Date: Wed, 28 May 2025 12:41:10 +0200
+Subject: [PATCH 14/17] pinctrl: renesas: Move fixed assignments to
  'pinctrl_desc' definition
 MIME-Version: 1.0
-Message-Id: <20250528-pinctrl-const-desc-v1-13-76fe97899945@linaro.org>
+Message-Id: <20250528-pinctrl-const-desc-v1-14-76fe97899945@linaro.org>
 References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
 In-Reply-To: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -113,26 +113,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1235;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1221;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=dTmy1ylBupLBEHMWc/Z23V5px0USEJlmCJKSN1EAvfE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoNuhUPwoRAjJQz5PFO5DfSHTMd24hsqTzRr2IB
- 0jOv1r3k8mJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDboVAAKCRDBN2bmhouD
- 1ynAD/49mYORosdid1df8HmR8x/OWiv0Zm6goccLiqpVflRmzsFrLN+cLFMbhxRMl34fM3yuPci
- b71Zx42gtn/VEKIdJ4nLISvF28thcNbAG/plhINy2OOwfUm060Kcfaafl/ZP4AiXH0q3u3BS5cs
- fRHQErxwUgQBlHIgCJL61LeQp1Whs8/m3ImG8NPjZwnPdezu9Oczth6hm/aG0Og6NB4QdZkVhtO
- 5xyGBrnkXFjRo2HmrUPl2PTYkNrTEjBPv4EZH2uCaBsHPSd+ND4J/ajWESZ3Vh0wXEyzTcd3/jl
- dCsZE4KBxpy/+gWzMFnXBN0HYTkqwqwVnkosUS0jsWofWTu/7iijgYxr0xF9ikcr3aYdlxgxGE8
- kkh76EFKdrmG1NbdijJPiOC50b+vAChB+zRdWvfXUBnmWsm0/uJC0Z+ttf7Nxbq4uFdgZVfD95d
- z6ZimmSBL0cf2VB2RBfUdZPPyT2hWvFdDUyrrSsugiugcfo/m1MciUEAKpSK2bk6d7S6K/ZP+Ie
- ydztgCpY5oH2z4aXxETIgUcH2X5Zx4g5H+iwFhMME8VjfrLHe+T6xEeRsGvuWg4C7Ij2NMquouc
- skaEKK7orgbEC9jAJSV1kP4K0sFWd0Zdc431k7p0EaxblWY7N6iELiPx21AVf6/XJYBh9eoI0r1
- RBtd9sQPwZc6f+g==
+ bh=wdAVjz1g2LnOLK8YIe+sx2i+Wtxy0b2lB+2wyeAsJM8=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoNuhVOUmo7glA0KmdvgZw8r0O4XKNab7bHjew6
+ T+RsAWcuh+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaDboVQAKCRDBN2bmhouD
+ 12JBEACByGYIJrWmeVaNuGhfgErqLrs8juvgq1he1oiyCbsIYgTgEq+hkshpq5p167n8sAXxqs+
+ 6iBVk16DcEYvSI0f8eCwat8zII1LkA4/ev5fMWjxd2Z3FzJswscCWFRIcarUCeBg5Ed+JZ9ZJb/
+ sN0DzMJHT590OM6XRyVM/p3h3tnUQvwdzoqV9s5W0m9+2com84VzLAOKGdwYycuo+JYsD5GJuCi
+ ueDuDOOW04JWSbUxMO5jxxZLXltdZb9B+y09j/dA+vEAU4rLYngyjux8/zx7evW5JMkCosH02FQ
+ s8fr+Qw8tSf0/SeZOU/aJeUXpYvGrvaQefJaFh4YdCEA+bAj6pyNvYMWsIfwWvWaE4uawUoQ5Gp
+ TJAyZt161KRilFdsJdPhEEcLzR1oML7mLl8Rx6++k0mb7HwaPoSudr64ZzDrwr/2o40pTX2dALR
+ xcX4+WF5UWmuN6JwMHP4Pe92IW5urSZ80lzzkkV0kNpzmkBRmr2RmLNe1hcbRvVAO3T7zQ1Ji2V
+ 2O21d5pDtSNiPIS3BtOOFEf6m5aKJyk3wg64Ze7CTiqUj3VPHlbpMT0VrAMdmrjlY/4h/Xo8axA
+ Zo9kbbNMJl2+zQofVcJ2at2Y4TaN2qo9C6H5+FzFTRhJ9EQpHJdf8J7TMx2fib06ZHvXH+XMnBf
+ rJwlspjRton9X2A==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_034215_364946_4BA8B37A 
-X-CRM114-Status: GOOD (  12.73  )
+X-CRM114-CacheID: sfid-20250528_034222_232482_AD81ED77 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -154,31 +154,31 @@ make clear that number of pins is fixed and have less code in the probe.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/pinctrl/pinctrl-palmas.c | 4 ++--
+ drivers/pinctrl/renesas/pinctrl-rzn1.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/pinctrl-palmas.c b/drivers/pinctrl/pinctrl-palmas.c
-index 9e272f9deb4f8c49f91d2f09c2c100018a7617f8..d69f114e46426c345d9ffe7567a326eecdd91bb5 100644
---- a/drivers/pinctrl/pinctrl-palmas.c
-+++ b/drivers/pinctrl/pinctrl-palmas.c
-@@ -956,6 +956,8 @@ static struct pinctrl_desc palmas_pinctrl_desc = {
- 	.pmxops = &palmas_pinmux_ops,
- 	.confops = &palmas_pinconf_ops,
+diff --git a/drivers/pinctrl/renesas/pinctrl-rzn1.c b/drivers/pinctrl/renesas/pinctrl-rzn1.c
+index d442d4f9981c908389407275522b936dbce294d3..fb874867dbfb9877b012988543ecbfd1bfb11270 100644
+--- a/drivers/pinctrl/renesas/pinctrl-rzn1.c
++++ b/drivers/pinctrl/renesas/pinctrl-rzn1.c
+@@ -680,6 +680,8 @@ static struct pinctrl_desc rzn1_pinctrl_desc = {
+ 	.pmxops = &rzn1_pmx_ops,
+ 	.confops = &rzn1_pinconf_ops,
  	.owner = THIS_MODULE,
-+	.pins = palmas_pins_desc,
-+	.npins = ARRAY_SIZE(palmas_pins_desc),
++	.pins = rzn1_pins,
++	.npins = ARRAY_SIZE(rzn1_pins),
  };
  
- struct palmas_pinctrl_data {
-@@ -1023,8 +1025,6 @@ static int palmas_pinctrl_probe(struct platform_device *pdev)
- 	}
+ static int rzn1_pinctrl_parse_groups(struct device_node *np,
+@@ -878,8 +880,6 @@ static int rzn1_pinctrl_probe(struct platform_device *pdev)
  
- 	palmas_pinctrl_desc.name = dev_name(&pdev->dev);
--	palmas_pinctrl_desc.pins = palmas_pins_desc;
--	palmas_pinctrl_desc.npins = ARRAY_SIZE(palmas_pins_desc);
- 	pci->pctl = devm_pinctrl_register(&pdev->dev, &palmas_pinctrl_desc,
- 					  pci);
- 	if (IS_ERR(pci->pctl)) {
+ 	ipctl->dev = &pdev->dev;
+ 	rzn1_pinctrl_desc.name = dev_name(&pdev->dev);
+-	rzn1_pinctrl_desc.pins = rzn1_pins;
+-	rzn1_pinctrl_desc.npins = ARRAY_SIZE(rzn1_pins);
+ 
+ 	ret = rzn1_pinctrl_probe_dt(pdev, ipctl);
+ 	if (ret) {
 
 -- 
 2.45.2
