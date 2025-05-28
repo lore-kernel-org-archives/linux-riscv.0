@@ -4,104 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 163E2C3ABB2
-	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 13:01:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C14C9C5AD49
+	for <linux-riscv@archiver.kernel.org>; Wed, 28 May 2025 14:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pMYyEWBVmHd025smIbhG9QzDbSgwvq8jRwjHqa6uPk0=; b=ReeK/g3CFBPwfl
-	nzLLzDfUzahrnL5A9TjPirQGgYscH9kcCIN8rr5UTJ0QyVUqiz35TW+/FNgeLuJVbAUAYV5XFO7m0
-	kmkJWklOUKD/WmrQPJBzhswVFUuzpzjNJky14s2BnZQbcVo7EUzdAP2W39fhb5EyOckDGAsx7bJwA
-	9oN9O3lWa3ua+mgAmpjUFcrLFhFcYY7HfwtbNe4XkbytdpZVw0u3MeHa3AN/0kPMPQBJTJkRonALA
-	xX45ZJOxq61riWIizNga+girfzR4T59/+NWpmo0JFVdz/ZkNrzufdA3nfasAxqscXegnjXStUQF14
-	ZqgN74i7cujs7OJnVavA==;
+	List-Owner; bh=1TN3/YYirIYbt7u8t8SXDGmjMUNZ980j9d+vfjaZCsc=; b=QXKgv7nBnVLcAC
+	jDgrTdKX6BY8UGFO23907/h5sUXV0vhZKzKoNJEHDZeEkBn4uP9WtbI2GJyBvd5NyAasgJwbe+gNt
+	aZ1fOVUcLGSIYAgf76D2z+taN1HaaaLfIovthBHkFth9SKCYTOG8SJi0rkdFa4+1b26/nQWM/2EPU
+	QzbN6dRuMrESYzLg/OIUG5ye8Mr/oxCmlIM31zzWuPnHuTVz40Wy8zP+dPbvttpRo1yKPniHRySdN
+	sYanXIgzIWlLizRzfrK6TsSeEh8ffPMaJ9N3TwPV+aS1H6LqKHr2EuX/Vrdyit/FEoyXBtIChtiyi
+	BFgQZ3WkFK7gJNIwyCXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGPd-0000000DBl6-1D5B;
-	Wed, 28 May 2025 13:01:41 +0000
-Received: from mail-qk1-f182.google.com ([209.85.222.182])
+	id 1uKHlu-0000000DOwg-3eSF;
+	Wed, 28 May 2025 14:28:46 +0000
+Received: from out-170.mta0.migadu.com ([91.218.175.170])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKGPa-0000000DBkY-2fAk;
-	Wed, 28 May 2025 13:01:39 +0000
-Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-7cadd46ea9aso556950585a.1;
-        Wed, 28 May 2025 06:01:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748437297; x=1749042097;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IbSvaL2uho5iBNc6UnxSmb8ikoxZVNAuMK5QOEf9/rc=;
-        b=tNa5AeSWH2KlyA4vgDLFRZRBis0O3UodssAEoFnv8Ffj2fVqQdI0lI3MRAscueVqJ9
-         NS5ZWjaDvVhGqmk5Hk/o2Guj25gNj9KvaGcvmPisTI3HwWbtJjmm6Kg2VAbfJ/A/aU8r
-         sqeyT5IMcidMWSlevW1nMk1Ti6jOJcMHqFPqjYy7tVMoNoIC/oZ94DFAcLaEkI5I1T0i
-         jp5ENOcrfKi/kmwpeLudoOW8SsboAZdmTuYad1IS8qFitHpxuhC4AP6Kn0dZBZI88K6r
-         6DcijC4z+NHRmIeU0pO9XN2edgwiS+J0gFYBvK+Szs19DWcEo3tfBkjsjq1kL+ePznNS
-         2ePQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWl88gyr2150wLPA8HUdEeHU4eMUC8k5jyTvw7ImqhgNsjYC+SdmM2PnBsVoUlKn1Cd5S1jp8L9Y7pmovA=@lists.infradead.org, AJvYcCXGejM+EjsWAO7JQP+d0+sLL9GukhzJcaZKKErkslXnG9dJOu4ZznsSKHG4qhvq8Zay8G9X95NrnUIRzstin8o=@lists.infradead.org, AJvYcCXXkIcOnJ5Wzcp/mIybn8ajdeUfS8+JYOXoLFJaDr0jl/hdY5CYqlMJYzxZ5+YtdTds2KLrnQq+Oy9RAgZSTi/G@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+nV5K1UsycHOegz8+7WMNloUYi4peaDZkn4wFO+efw7hav0y6
-	rkxrEQH94EnaT6WTZjaiE2yzBGSGjqwnqBSrkzxGmHSE4PlClNrg5DMekdGV1mN6
-X-Gm-Gg: ASbGncs7oIS8Dhhi184JEhnvzLIVwE+BGyMs8HkygNhq0bxlvJKppSrr7rSFmur1Twj
-	2628V7QonIuH6RmHBDneee2HCbYQWsfJFPSPQcs/t9oDAUXxLDFaRIfGUwpG3NnNaj17qju9iC4
-	omZA9sKFjpxgB0HJ+9zCUn0k6cPfmvafoXEEJJc+NP+FIBZg4hfsblEZjjmOwqC3Me/nyfywm0m
-	UsjCBusQSCrCjJiaH14r3AUz32vC83qpSWgEZ7BUTxQvggXcVfWPhPfrLLZbX2exqOCYI0Q0QET
-	EhWLg7/+2+m0BJTO4j2p6WlfwXyD6kvkmhOW1ONk8drdXjEb5738ENQ+p6MpogcygbJbpORD+uj
-	E1qnB0PC14S1Rhw==
-X-Google-Smtp-Source: AGHT+IGO3HXAwtjCd4NFPEJCB1PebjTaoOPupruCEvfYDK2aFcOMQy4FAAhunxteDaCNlLKGg9dtSw==
-X-Received: by 2002:a05:620a:4244:b0:7c5:46d0:a77f with SMTP id af79cd13be357-7ceecbd3af8mr2134518485a.16.1748437296996;
-        Wed, 28 May 2025 06:01:36 -0700 (PDT)
-Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com. [209.85.219.51])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7cfac770512sm68169285a.0.2025.05.28.06.01.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 28 May 2025 06:01:36 -0700 (PDT)
-Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-6f5373067b3so48646316d6.2;
-        Wed, 28 May 2025 06:01:36 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU8P8ztfp1s0JJOBj6IsEp/K9Km2dU3QMAdtYFITWtt+2IVbjsGM6XdPOTLyukxd2stuXrzebkDq00/otNyv2o=@lists.infradead.org, AJvYcCVOQHaiRJNn4kiARQMGMqQNAYC2mbwelO++02JKtwqUF6tOheQXM4xcU7QrZC5G1zfXSxjE/rLVb7zGLsU=@lists.infradead.org, AJvYcCXaCdTmc2zPy/xLOT6bAcnVbgqmdfYiCPe1bWLvSRtzn8pjKOGBWuh1ME4HOIRltuRNBYowqz6saUwcS1jWZCWY@lists.infradead.org
-X-Received: by 2002:a05:6102:2911:b0:4df:93e0:fb7 with SMTP id
- ada2fe7eead31-4e42419b8c0mr12541235137.25.1748436893682; Wed, 28 May 2025
- 05:54:53 -0700 (PDT)
+	id 1uKHa3-0000000DLe8-3L6L;
+	Wed, 28 May 2025 14:16:33 +0000
+Message-ID: <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1748441779;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=c5mLYhkH15cgSjxuuv6l4kYe/fzzBQUwpR9u2pfZOy8=;
+	b=qjpKfob7Z9nwJXoxx5GUB/npEZom5q2cVoX+WSrhUvhCp38miksFI15n7HED2ElCpa+Gzh
+	rMarA3QV5uYksrG/9PUOkqwZt07frFarx52lcp28KkCgCK6TwCddvcYR3TQi0qP59jouqi
+	jrs60IDKyBiuILyERrfCfy38ldk8MHk=
+Date: Wed, 28 May 2025 07:16:11 -0700
 MIME-Version: 1.0
-References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org> <20250528-pinctrl-const-desc-v1-14-76fe97899945@linaro.org>
-In-Reply-To: <20250528-pinctrl-const-desc-v1-14-76fe97899945@linaro.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Wed, 28 May 2025 14:54:41 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdUGDf5n_Fg7pwiPumm95nPUXyH15geAy2ULwY3U+OtZJA@mail.gmail.com>
-X-Gm-Features: AX0GCFu5yojjEPsbiWTwjJJQ5khyE5KBTwGS5B0aqZkGtvZvOhYOGPRkjlMB-4Q
-Message-ID: <CAMuHMdUGDf5n_Fg7pwiPumm95nPUXyH15geAy2ULwY3U+OtZJA@mail.gmail.com>
-Subject: Re: [PATCH 14/17] pinctrl: renesas: Move fixed assignments to
- 'pinctrl_desc' definition
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
-	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
-	Joel Stanley <joel@jms.id.au>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
-	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
-	Sean Wang <sean.wang@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, 
-	Lars Persson <lars.persson@axis.com>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Damien Le Moal <dlemoal@kernel.org>, 
-	Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
-	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
-	Hal Feng <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
-	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
-	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@axis.com, linux-riscv@lists.infradead.org, 
-	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version to
+ 3.0
+To: Andrew Jones <ajones@ventanamicro.com>,
+ =?UTF-8?B?UmFkaW0gS3LEjW3DocWZ?= <rkrcmar@ventanamicro.com>
+Cc: Atish Patra <atish.patra@linux.dev>, Anup Patel <anup@brainfault.org>,
+ Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Mayuresh Chitale <mchitale@ventanamicro.com>,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Palmer Dabbelt <palmer@rivosinc.com>,
+ kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+ linux-riscv <linux-riscv-bounces@lists.infradead.org>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
+ <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
+ <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
+ <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
+ <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+ <20250526-224478e15ee50987124a47ac@orel>
+Content-Language: en-US
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <20250526-224478e15ee50987124a47ac@orel>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_060138_675118_6C842D17 
-X-CRM114-Status: GOOD (  21.21  )
+X-CRM114-CacheID: sfid-20250528_071631_978249_CB787BD7 
+X-CRM114-Status: GOOD (  20.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,63 +76,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, 28 May 2025 at 12:42, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
-> Assign 'struct pinctrl_desc' .pins and .npins members in definition to
-> make clear that number of pins is fixed and have less code in the probe.
->
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Acked-by: Geert Uytterhoeven <geert+renesas@glider.be>
-
-> --- a/drivers/pinctrl/renesas/pinctrl-rzn1.c
-> +++ b/drivers/pinctrl/renesas/pinctrl-rzn1.c
-> @@ -680,6 +680,8 @@ static struct pinctrl_desc rzn1_pinctrl_desc = {
-
-This structure could be made const...
-
->         .pmxops = &rzn1_pmx_ops,
->         .confops = &rzn1_pinconf_ops,
->         .owner = THIS_MODULE,
-> +       .pins = rzn1_pins,
-> +       .npins = ARRAY_SIZE(rzn1_pins),
->  };
->
->  static int rzn1_pinctrl_parse_groups(struct device_node *np,
-> @@ -878,8 +880,6 @@ static int rzn1_pinctrl_probe(struct platform_device *pdev)
->
->         ipctl->dev = &pdev->dev;
->         rzn1_pinctrl_desc.name = dev_name(&pdev->dev);
-
-... if you would replace this assignment by a hardcoded name
-like "pinctrl-rzn1".
-
-> -       rzn1_pinctrl_desc.pins = rzn1_pins;
-> -       rzn1_pinctrl_desc.npins = ARRAY_SIZE(rzn1_pins);
->
->         ret = rzn1_pinctrl_probe_dt(pdev, ipctl);
->         if (ret) {
-
-Gr{oetje,eeting}s,
-
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gNS8yNi8yNSA0OjEzIEFNLCBBbmRyZXcgSm9uZXMgd3JvdGU6Cj4gT24gTW9uLCBNYXkgMjYs
+IDIwMjUgYXQgMTE6MDA6MzBBTSArMDIwMCwgUmFkaW0gS3LEjW3DocWZIHdyb3RlOgo+PiAyMDI1
+LTA1LTIzVDEwOjE2OjExLTA3OjAwLCBBdGlzaCBQYXRyYSA8YXRpc2gucGF0cmFAbGludXguZGV2
+PjoKPj4+IE9uIDUvMjMvMjUgNjozMSBBTSwgUmFkaW0gS3LEjW3DocWZIHdyb3RlOgo+Pj4+IDIw
+MjUtMDUtMjJUMTI6MDM6NDMtMDc6MDAsIEF0aXNoIFBhdHJhIDxhdGlzaHBAcml2b3NpbmMuY29t
+PjoKPj4+Pj4gVXBncmFkZSB0aGUgU0JJIHZlcnNpb24gdG8gdjMuMCBzbyB0aGF0IGNvcnJlc3Bv
+bmRpbmcgZmVhdHVyZXMKPj4+Pj4gY2FuIGJlIGVuYWJsZWQgaW4gdGhlIGd1ZXN0Lgo+Pj4+Pgo+
+Pj4+PiBTaWduZWQtb2ZmLWJ5OiBBdGlzaCBQYXRyYSA8YXRpc2hwQHJpdm9zaW5jLmNvbT4KPj4+
+Pj4gLS0tCj4+Pj4+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1
+X3NiaS5oIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9rdm1fdmNwdV9zYmkuaAo+Pj4+PiAtI2Rl
+ZmluZSBLVk1fU0JJX1ZFUlNJT05fTUFKT1IgMgo+Pj4+PiArI2RlZmluZSBLVk1fU0JJX1ZFUlNJ
+T05fTUFKT1IgMwo+Pj4+IEkgdGhpbmsgaXQncyB0aW1lIHRvIGFkZCB2ZXJzaW9uaW5nIHRvIEtW
+TSBTQkkgaW1wbGVtZW50YXRpb24uCj4+Pj4gVXNlcnNwYWNlIHNob3VsZCBiZSBhYmxlIHRvIHNl
+bGVjdCB0aGUgZGVzaXJlZCBTQkkgdmVyc2lvbiBhbmQgS1ZNIHdvdWxkCj4+Pj4gdGVsbCB0aGUg
+Z3Vlc3QgdGhhdCBuZXdlciBmZWF0dXJlcyBhcmUgbm90IHN1cHBvcnRlZC4KPiAKPiBXZSBuZWVk
+IG5ldyBjb2RlIGZvciB0aGlzLCBidXQgaXQncyBhIGdvb2QgaWRlYS4KPiAKPj4+Cj4+PiBXZSBj
+YW4gYWNoaWV2ZSB0aGF0IHRocm91Z2ggb25lcmVnIGludGVyZmFjZSBieSBkaXNhYmxpbmcgaW5k
+aXZpZHVhbCBTQkkKPj4+IGV4dGVuc2lvbnMuCj4+PiBXZSBjYW4gZXh0ZW5kIHRoZSBleGlzdGlu
+ZyBvbmVyZWcgaW50ZXJmYWNlIHRvIGRpc2FibGUgYSBzcGVjaWZpYyBTQkkKPj4+IHZlcnNpb24g
+ZGlyZWN0bHkKPj4+IGluc3RlYWQgb2YgaW5kaXZpZHVhbCBvbmVzIHRvIHNhdmUgdGhvc2UgSU9D
+VEwgYXMgd2VsbC4KPj4KPj4gWWVzLCBJIGFtIGFsbCBpbiBmYXZvciBvZiBsZXR0aW5nIHVzZXJz
+cGFjZSBwcm92aWRlIGFsbCB2YWx1ZXMgaW4gdGhlCj4+IEJBU0UgZXh0ZW5zaW9uLgo+IAoKV2Ug
+YWxyZWFkeSBzdXBwb3J0IHZlbmRvcmlkL2FyY2hpZC9pbXBpZCB0aHJvdWdoIG9uZSByZWcuIEkg
+dGhpbmsgd2UgCmp1c3QgbmVlZCB0byBhZGQgdGhlIFNCSSB2ZXJzaW9uIHN1cHBvcnQgdG8gdGhh
+dCBzbyB0aGF0IHVzZXIgc3BhY2UgY2FuIApzZXQgaXQuCgo+IFRoaXMgaXMgY292ZXJlZCBieSB5
+b3VyIHJlY2VudCBwYXRjaCB0aGF0IHByb3ZpZGVzIHVzZXJzcGFjZV9zYmkuCgpXaHkgZG8gd2Ug
+bmVlZCB0byBpbnZlbnQgbmV3IElPQ1RMIGZvciB0aGlzID8gT25jZSB0aGUgdXNlciBzcGFjZSBz
+ZXRzIAp0aGUgU0JJIHZlcnNpb24sIEtWTSBjYW4gZW5mb3JjZSBpdC4KCj4gV2l0aCB0aGF0LCB1
+c2Vyc3BhY2UgY2FuIGRpc2FibGUgYWxsIGV4dGVuc2lvbnMgdGhhdCBhcmVuJ3QKPiBzdXBwb3J0
+ZWQgYnkgYSBnaXZlbiBzcGVjIHZlcnNpb24sIGRpc2FibGUgQkFTRSBhbmQgdGhlbiBwcm92aWRl
+Cj4gYSBCQVNFIHRoYXQgYWR2ZXJ0aXNlcyB0aGUgdmVyc2lvbiBpdCB3YW50cy4gVGhlIG5ldyBj
+b2RlIGlzIG5lZWRlZAo+IGZvciBleHRlbnNpb25zIHRoYXQgdXNlcnNwYWNlIHN0aWxsIHdhbnRz
+IEtWTSB0byBhY2NlbGVyYXRlLCBidXQgdGhlbgo+IEtWTSBuZWVkcyB0byBiZSBpbmZvcm1lZCBp
+dCBzaG91bGQgZGVueSBhbGwgZnVuY3Rpb25zIG5vdCBpbmNsdWRlZCBpbgo+IHRoZSBzZWxlY3Rl
+ZCBzcGVjIHZlcnNpb24uCj4gCj4gVGhhbmtzLAo+IGRyZXcKPiAKPiBfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKPiBodHRwOi8vbGlzdHMuaW5mcmFk
+ZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2CgoKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0Cmxp
+bnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcv
+bWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
