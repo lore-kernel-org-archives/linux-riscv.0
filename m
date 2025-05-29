@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 625B1C5B555
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 22:24:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7467C5B543
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 22:24:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=GIGipPL4mjoqnFohJNK6pKHPv79Hm1epa71ZwDdoQ4Q=; b=rE5vKVPgU5jrrg
-	bNXL159meRF3lsRdxHgMZVp52hbfLppOYAj7UujMEcKfPN1r5nHG9qqVLE/HGn7qlbdz0byweemX/
-	4jqHMiR9SiHczDVmOuYpu63ILbZCdhzUKJ3H0dZ2vvNSJw2wxPxBExV7BIbHvv3zEn55QdyJH4dsH
-	WFHTxNDb9K3sua8aRHs3zyewGR2JQvL9uoieDSbQsqDa5kbv53Id73PBxhSZkSGpfEqEHts4cURfz
-	eyErsCgdaDLpDICUU7r5OO7mdYvRzeJI5ovqVK8gXSJB9fsFSVbpJH2KqphxJ3Cvx7qr2Voc6CThF
-	d39wvTTJi+1uCzkJwwug==;
+	List-Owner; bh=O2x00E14n1gxplftS6AdFE8Ozov25QbzxCjBn8Kq9Hc=; b=FL4p2bT3vuQyRH
+	sLp1/c+wnx9H1kEeA/Oi8NRUMZWf+afc7q2X/vUwMdB436bWzRkAykT2CaK+5oINIlmO8QYoOyX49
+	Z+URBUoQujQIlkEAvuAVma3T2HCWRr68m9IWWqNtoU4hKco9OqP3ayLdluy29o++k/K4fHyKih6lv
+	TQInoq2+g5KGE6GJp1Z/L610BsUABHFGCp8gH0FjOfSJNEn35lTOjdsQyL+M4DQ2Do9fk9W0vtofL
+	+Ugfg2c1M7cY2F4wDxu5zayJBrrMZA6N12aIDP9RnU20FDPN9aG8YQwkKgzg7JMl7oEyMXq2SXaBf
+	y1UNwXrqbSBpCwCLbYDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKlfc-0000000GdXn-1OpW;
-	Thu, 29 May 2025 22:24:16 +0000
+	id 1uKlff-0000000GdZs-2wtA;
+	Thu, 29 May 2025 22:24:19 +0000
 Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKlfX-0000000GdTz-1wuJ
+	id 1uKlfZ-0000000GdV0-0UCJ
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 May 2025 22:24:13 +0000
+	Thu, 29 May 2025 22:24:14 +0000
 Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250529222410euoutp024648e363ece2500d5414f3cf599c463e~EH7ycbyLR2697926979euoutp02c
-	for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 22:24:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250529222410euoutp024648e363ece2500d5414f3cf599c463e~EH7ycbyLR2697926979euoutp02c
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250529222411euoutp02ccf004601b97274a8f6d676487352b18~EH7zbUhyk2213722137euoutp028
+	for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 22:24:11 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250529222411euoutp02ccf004601b97274a8f6d676487352b18~EH7zbUhyk2213722137euoutp028
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1748557450;
-	bh=iDKUS4/W4anCMc9efhu9LJv9bqq+RveQHjm6X16x1K4=;
+	s=mail20170921; t=1748557451;
+	bh=1ZbpOJ5cqo6u8v/Cxt565zQQp/mhmNI7EweztDD0hgk=;
 	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
-	b=dCo4LnRWzbECCNOWoukauv0ANlBhHJGWGXYMXYvikk5a8fbpA1qqD2GfAAXzBWOys
-	 rsr1Zpl2JWu8UR1d44jOInxEDiWWpMxh+NJogCbgflXUJkfHDhKcGj7luBt/iHCwvY
-	 VfsgcaTRGxvXbIj4WJKpF2+BzBGZc854MbzVF70Q=
+	b=INdOF+RfEFSSDdxXgb03n5NwmRKgpVTgTK1/EZwCkw21jLWXJeTO6RjCvGPAByNJz
+	 QDRrPbGT3nTCdAd/wdI1p1xCKYSg5s4bErbmLPLvbH9yVjlTkRxfpw8yeLNV9fa7r1
+	 QDwBcalGIRk1fXDlz5/TWi7pQnFsSNJyYQBtRlHk=
 Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
 	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333~EH7xQ4-m70456404564eucas1p2V;
-	Thu, 29 May 2025 22:24:08 +0000 (GMT)
+	20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944~EH7yOiEY10077600776eucas1p28;
+	Thu, 29 May 2025 22:24:10 +0000 (GMT)
 Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
 	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250529222408eusmtip20e45fce43476667b7407ee8364f8de8a~EH7wV181P2867928679eusmtip2V;
-	Thu, 29 May 2025 22:24:07 +0000 (GMT)
+	20250529222409eusmtip208fc59df153696657f5efe1ccf7cdbaa~EH7xUl_h23031530315eusmtip2N;
+	Thu, 29 May 2025 22:24:09 +0000 (GMT)
 From: Michal Wilczynski <m.wilczynski@samsung.com>
-Date: Fri, 30 May 2025 00:23:53 +0200
-Subject: [PATCH v3 6/8] riscv: dts: thead: Add GPU power sequencer node
+Date: Fri, 30 May 2025 00:23:54 +0200
+Subject: [PATCH v3 7/8] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU node
 MIME-Version: 1.0
-Message-Id: <20250530-apr_14_for_sending-v3-6-83d5744d997c@samsung.com>
+Message-Id: <20250530-apr_14_for_sending-v3-7-83d5744d997c@samsung.com>
 In-Reply-To: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
 To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
 	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
@@ -68,16 +68,16 @@ Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
 	dri-devel@lists.freedesktop.org
 X-Mailer: b4 0.15-dev
-X-CMS-MailID: 20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333
+X-CMS-MailID: 20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944
 X-Msg-Generator: CA
-X-RootMTR: 20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333
+X-RootMTR: 20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944
 X-EPHeader: CA
-X-CMS-RootMailID: 20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333
+X-CMS-RootMailID: 20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944
 References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
-	<CGME20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333@eucas1p2.samsung.com>
+	<CGME20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_152411_773500_FB8E468D 
-X-CRM114-Status: GOOD (  10.39  )
+X-CRM114-CacheID: sfid-20250529_152413_436372_E7597142 
+X-CRM114-Status: GOOD (  12.67  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +94,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the device tree node for the T-HEAD TH1520 GPU power sequencer
-(gpu_pwrseq) to the th1520.dtsi file.
+Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
+TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
+the GPU using the drm/imagination driver.
 
-This node instantiates the thead,th1520-gpu-pwrseq driver, which
-is responsible for managing the GPU's power-on/off sequence. The node
-specifies the gpu-clkgen reset, which is one of the resources
-controlled by this sequencer.
+By adding this node, the kernel can recognize and initialize the GPU,
+providing graphics acceleration capabilities on the Lichee Pi 4A and
+other boards based on the TH1520 SoC.
+
+Add fixed clock gpu_mem_clk, as the MEM clock on the T-HEAD SoC can't be
+controlled programatically.
 
 Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
 ---
- arch/riscv/boot/dts/thead/th1520.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/riscv/boot/dts/thead/th1520.dtsi | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
 
 diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
-index bdbb1b985b0b76cf669a9bf40c6ec37258329056..6170eec79e919b606a2046ac8f52db07e47ef441 100644
+index 6170eec79e919b606a2046ac8f52db07e47ef441..ee937bbdb7c08439a70306f035b1cc82ddb4bae2 100644
 --- a/arch/riscv/boot/dts/thead/th1520.dtsi
 +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
-@@ -238,6 +238,12 @@ aon: aon {
- 		#power-domain-cells = <1>;
+@@ -225,6 +225,13 @@ aonsys_clk: clock-73728000 {
+ 		#clock-cells = <0>;
  	};
  
-+	gpu_pwrseq: pwrseq {
-+		compatible = "thead,th1520-gpu-pwrseq";
-+		resets = <&rst TH1520_RESET_ID_GPU_CLKGEN>;
-+		reset-names = "gpu-clkgen";
++	gpu_mem_clk: mem-clk {
++		compatible = "fixed-clock";
++		clock-frequency = <0>;
++		clock-output-names = "gpu_mem_clk";
++		#clock-cells = <0>;
 +	};
 +
- 	soc {
- 		compatible = "simple-bus";
- 		interrupt-parent = <&plic>;
+ 	stmmac_axi_config: stmmac-axi-config {
+ 		snps,wr_osr_lmt = <15>;
+ 		snps,rd_osr_lmt = <15>;
+@@ -504,6 +511,21 @@ clk: clock-controller@ffef010000 {
+ 			#clock-cells = <1>;
+ 		};
+ 
++		gpu: gpu@ffef400000 {
++			compatible = "thead,th1520-gpu", "img,img-bxm-4-64",
++				     "img,img-rogue";
++			reg = <0xff 0xef400000 0x0 0x100000>;
++			interrupt-parent = <&plic>;
++			interrupts = <102 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&clk_vo CLK_GPU_CORE>,
++				 <&gpu_mem_clk>,
++				 <&clk_vo CLK_GPU_CFG_ACLK>;
++			clock-names = "core", "mem", "sys";
++			power-domains = <&aon TH1520_GPU_PD>;
++			power-domain-names = "a";
++			resets = <&rst TH1520_RESET_ID_GPU>;
++		};
++
+ 		rst: reset-controller@ffef528000 {
+ 			compatible = "thead,th1520-reset";
+ 			reg = <0xff 0xef528000 0x0 0x4f>;
 
 -- 
 2.34.1
