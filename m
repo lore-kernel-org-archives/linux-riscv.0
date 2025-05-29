@@ -4,96 +4,165 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C3A4C5AE59
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 03:43:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12486C5AE59
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 06:26:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=2tweLIvOEMxfIu5SRR2RLS882CTVsxipdEmsRGg/iwg=; b=mQpTYoPa2kidFk
-	nBxM9zJbcayqvmQ7sU6HMJ/1J1HWd5DS7+WEzrdgjXceuM2iQ7UN6WMlzAiiVOhyfgvNJFASeTg/l
-	epH4BmHIwR4LKh7jcftxh9odjhhw3CeGF2ivGMyCcEdq7NXNn+3LPqmeGI8GNrYNWo59YNRAUCNqr
-	4t1fY+EYhzT0wTeR8WLZL6etQjdXA4QOgmA391EpK/UJhIX9Zl0gT8L4dCUpiLwDulEUjg7qL3RR/
-	eIjxBU45pMDs0VaSZ2icrFeZ3hy1zw13T10in2P923+LlR3zurVGzrZqrkaDdN6A1jU9K1E/ZI5UP
-	NMZKhL3RGXR/uzbpcM7w==;
+	List-Owner; bh=vLmqdqzsPqXS9dnnfso2W7x8diYMr9GlClxUEELwmok=; b=Q6r55Z/nxcT9rX
+	tQ7o/ykO5wbcJDUSjE+ax+oQ0Up6xPAnpF1GD36uQj9yxN7aivo/75hOxgxSdz0/4HmuKVMbp2nBc
+	58Bz6g+vwmlqf3tGZJ14nt6PyW34vB4xk8O5dR02BbhjxehaDHVSBIjkc8RCOjJI4tyS8XxyR3IUv
+	Bjqywk3c1GZu3G1k36gLjtliCvulbqN9DdrShwv827NEDRT+/CJzsFwHQB9ckPEKzeg2Ks/lsvsYF
+	8nVxBASkGoN4xmBQ/mPin0i9oA6T9jTJ11xpgWF1DEOBPeRy/OvjyhXo5wQyZHnezTuFCMTnkP42k
+	Q1WjgXlJlUyZsQL11IrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKUAu-0000000EpuN-3yHZ;
-	Thu, 29 May 2025 03:43:24 +0000
-Received: from mail-pl1-x644.google.com ([2607:f8b0:4864:20::644])
+	id 1uKWim-0000000F47v-1eIN;
+	Thu, 29 May 2025 06:26:32 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKUAs-0000000Epsm-0CZS
+	id 1uKWij-0000000F46j-1sxH
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 May 2025 03:43:23 +0000
-Received: by mail-pl1-x644.google.com with SMTP id d9443c01a7336-23508d30142so1290485ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 20:43:21 -0700 (PDT)
+	Thu, 29 May 2025 06:26:31 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ad8942cc6faso2808966b.2
+        for <linux-riscv@lists.infradead.org>; Wed, 28 May 2025 23:26:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1748490201; x=1749095001; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=E7f3IyERhfqlZ+9BGF7A4Kt5h9pzQNTOt7gsFORfraM=;
-        b=XV72oXx9NZoXyy5ix1gzuJfMqzHCKz6P1IOv4k3fPzUak13daHeWQ/buoQ+YFTJtM6
-         ml1n4cC/ROOfUVgTP3oX4vyHEKwa6wqb6ZHpfCj+jD3TRyABQAdah3aOBxvBvwquQYQn
-         27/RA+y6Ac67IA2kmuSJex2zGENmi/2/NwXTVKbG1wlUGHQFXW0c9vYXfToZXeOtTt1P
-         AntyXCxI0hMVfwyajXqffv1WRu7BJQHVB/7jIELM+doeglZACmSgonOrhsCWem2066OV
-         bT/B+UAm/ppf/8F2v0WYh3GKTGVYCXYs+C7EKiGVC5UknjeWDsVuvdONHobtoOoGOJxS
-         aQZw==
+        d=linaro.org; s=google; t=1748499987; x=1749104787; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=+2SWtTNE3E49MOlHnO8uVeg5xT5IQxhtgIcjK83+ABU=;
+        b=F9oAZ2cxcMsnNe4b1TQEqbtjPVTlChKd2Q3xDD5CYuliAnO3eqT+r4y1fp0CitdedE
+         foFasEZtMzJ9/m+DHifbxPjcy8ZFR5s1sXEkw0xfx3Ewvwk761SBXI/vUNkLirnAThBu
+         g/JPX8tpK268paVw1P4YpRIvrCCmUiJpTG/CCFr2/C1rVz/npEFVMQh9XkusFCqlILPD
+         RF2nzVyBsXGJyGWxBcG9Sms02Nd7EZyHFJikRGTF6cvizQCqueAs3qj2SOIpvMHkNGNo
+         eaeVR+JuK3We2W0tcl6/hFCFvVDvuDSHfO37Hy37sKE7dVseZCCHsVnvgIy0fT2aQJzK
+         529w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748490201; x=1749095001;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=E7f3IyERhfqlZ+9BGF7A4Kt5h9pzQNTOt7gsFORfraM=;
-        b=hE0pbHH+Ir0N92nJxbzQLkAlG6ByYU0Vy/FJBfB95eyXN0z4krVp6ONO+1O8n1CxHC
-         SvVTeRnFP2Aswi7/vAaVE0X5niw8a5quyUcRthUTicMyEooIvGcDw/7bquGIc5VKZiAF
-         7Fr9ww28JIgaoOVznw/YvLPvjJoDfna3swbvtNPGIt9L2hUxfsRw9Jnv0CxUzyYUQSBy
-         9DVx4e2TeroB4deTBUARp2ENcXFe5OW62Bq2kNpbZxmT8wu9tCaNnuOYR/5o6OJ7AVbc
-         pYvqvh3OB0pQ7X3V1O6Kcbaa0C3keL+7pDAoQbN07ROiK+a5+VGjO62jJ/7PCwduy2Pm
-         AYmA==
-X-Gm-Message-State: AOJu0YymGeVBA7x6unOccrDr4rTZgFDXU3e1XR2K9ar8kqehqm2ZWD9b
-	oMtCFyjdHZ9cxUKlJ271eimuIN4qC9OY0llDgXX2Y3TTy4rVbNhkjppzXvNbKxhesD4=
-X-Gm-Gg: ASbGncs72mEciqdrZKT96oLnq/cYfWvPvkUturBbNW0XM2Uidfk40VQdEcEIba2/X6+
-	Z19frc5C2N0Bxt9+iJCninXosAJ+G0heHvNNZODJaFp44S/yRyoxh3w5hyTMtI+zIsQwdUCPkhK
-	02GQkjFgCqtVsBLtxbamr9E16M0CCDlc6bLar+i4IJG4WTFZ2ixcDNWt3zdP78Zwmf7ouer8CVr
-	KhqQKtqaN91fpw/YpVAGx0aFGtLYdooR6HtjtDKHMAwNpEGVZCCDmcjFDoxVPyLhQTRSXq6WcbV
-	c69TqmMUuK8Hpg6Nnkn5lRiVghHeKtcGIRzVMBZRR5407bdxSS7sQmBCzKdJwQO6Isf7C8dMGhl
-	bg0BU2L2Un1Cu
-X-Google-Smtp-Source: AGHT+IH5Y8EDMppSiMya4T548VEwYkSKhJqKlchdDU2Hj4M6cj23ihri+hOVMR8Z2nfo6I1IKGtyrQ==
-X-Received: by 2002:a17:903:4283:b0:234:bfcb:5c1d with SMTP id d9443c01a7336-234bfcb5cd4mr70545935ad.40.1748490201163;
-        Wed, 28 May 2025 20:43:21 -0700 (PDT)
-Received: from hsinchu36-syssw02.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd92c7sm3425905ad.62.2025.05.28.20.43.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 28 May 2025 20:43:20 -0700 (PDT)
-From: Nylon Chen <nylon.chen@sifive.com>
-To: Conor Dooley <conor@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-Cc: linux-riscv@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org,
-	Nylon Chen <nylon.chen@sifive.com>,
-	kernel test robot <lkp@intel.com>,
-	Zong Li <zong.li@sifive.com>
-Subject: [PATCH v15 3/3] pwm: sifive: fix rounding and idempotency issues in apply and get_state
-Date: Thu, 29 May 2025 11:53:41 +0800
-Message-Id: <20250529035341.51736-4-nylon.chen@sifive.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250529035341.51736-1-nylon.chen@sifive.com>
-References: <20250529035341.51736-1-nylon.chen@sifive.com>
+        d=1e100.net; s=20230601; t=1748499987; x=1749104787;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+2SWtTNE3E49MOlHnO8uVeg5xT5IQxhtgIcjK83+ABU=;
+        b=i4TnJ7wHKxE9xwcEEpwB0Slga9SMPS6sNxgUSO6rg38cVc0c2JR7oZknT2gJAPB4un
+         zNaCyb32zYq142gz5hFsQXXlvZIlt6HKujPg7NDVpXCEElsRTmsF3AoU/mMWAEIeGUbI
+         BYJfvQ4vUWK113jvXqDTUj7lmRlAh9kCgqVR31ZJw9msUCjBxtbcuMXY6f774ST+Xqig
+         ZkcAnDCfuq/4ZQ1J73t48Mpe6ibKAkDdIX3+/PhmWZYCgzOEedmiS7Easvb8kQ2DI5fh
+         Mhob85LOURJUCafCwrVM2cSpulsihKlzMPB2QMlAEwxujFuYSw5CLEgD1gItVJEesTd2
+         Flog==
+X-Forwarded-Encrypted: i=1; AJvYcCXOQRIWzmq9JMGitRLXij26Clav/onuVBAgDxtNwqUKYk057DIDaLWF1Q2SSZAIqjAxzDNs3YlqB/x7lw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw1qRyTH+IetdHh02YGGc0AZrP/1VWGU8hR/KzgSgL/NTa2/WQc
+	HKqBTB8LHR79bNcjPiGH2n4o3KNbKqaMQRlpELiu8Rr4ldB5c/8SCykg77wwGdpcbgU=
+X-Gm-Gg: ASbGncv46OmQU5GPF+/iM5eWtL7FnN+VffCscKg8M7ekZ35Upy8ih3qQvEB8DfCoZi9
+	qFRfztId6StRKCrCb4mX4Jiw+Svyr4X+oRYXAzF55WTa5PJ60iBPrhKtnT03AU3i4coTzsrO8Kf
+	gSGm0jo46PKZVhJMjuLpjehL2V1+nLK8Ii3aFXxBsEpdW5Kl7E///e2EA57hDRQCVXihjm+8u8f
+	UGlNtSbtICc8GULGcMslF5BY4Z+ford35aHK9Y0unmjd7t+WymSg1gyeerhfmW+/kdWD3/1HYNW
+	9d1NQNyamNXQBLnd1OlPUTU1bdtiX7c5wsn4s+AeefjpH6ri2BV5ge5yE5S5rMf02zsdgps=
+X-Google-Smtp-Source: AGHT+IGlMDzn+QG/07M9P/X4G1UkWeHWA61AWrk71VubiDANJ+WF35EJENPRBZsOw8VSgdWIr7Porg==
+X-Received: by 2002:a17:907:2724:b0:ad8:882e:39a with SMTP id a640c23a62f3a-ad8882e03ddmr319125766b.8.1748499985639;
+        Wed, 28 May 2025 23:26:25 -0700 (PDT)
+Received: from [192.168.1.29] ([178.197.223.125])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada6ad6aaf5sm79818366b.183.2025.05.28.23.26.22
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 28 May 2025 23:26:24 -0700 (PDT)
+Message-ID: <6bb4f8f7-ef95-4f10-ad94-027fa18dada3@linaro.org>
+Date: Thu, 29 May 2025 08:26:21 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 02/17] pinctrl: Allow compile testing for K210, TB10X and
+ ZYNQ
+To: Linus Walleij <linus.walleij@linaro.org>,
+ Basavaraj Natikar <Basavaraj.Natikar@amd.com>,
+ Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
+ Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
+ Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
+ Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
+ Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
+ =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+ =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Geert Uytterhoeven <geert+renesas@glider.be>,
+ David Rhodes <david.rhodes@cirrus.com>,
+ Richard Fitzgerald <rf@opensource.cirrus.com>,
+ Charles Keepax <ckeepax@opensource.cirrus.com>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>,
+ Jesper Nilsson <jesper.nilsson@axis.com>,
+ Lars Persson <lars.persson@axis.com>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Damien Le Moal <dlemoal@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>,
+ Michal Simek <michal.simek@amd.com>, Emil Renner Berthing <kernel@esmil.dk>,
+ Jianlong Huang <jianlong.huang@starfivetech.com>,
+ Hal Feng <hal.feng@starfivetech.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ linux-sound@vger.kernel.org, patches@opensource.cirrus.com,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com,
+ linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
+ <20250528-pinctrl-const-desc-v1-2-76fe97899945@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ 2+47PN9NZAOyb771QoVr8A==
+In-Reply-To: <20250528-pinctrl-const-desc-v1-2-76fe97899945@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250528_204322_087532_0725AF04 
-X-CRM114-Status: GOOD (  12.53  )
+X-CRM114-CacheID: sfid-20250528_232629_508795_EF8232C4 
+X-CRM114-Status: GOOD (  12.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,79 +179,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This fix ensures consistent rounding and avoids mismatches
-between applied and reported PWM values that could trigger false
-idempotency failures in debug checks
+On 28/05/2025 12:40, Krzysztof Kozlowski wrote:
+> Pinctrl drivers for K210, TB10X and ZYNQ do not reference any machine
+> headers, thus can be compile tested for increased build coverage.
+> 
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  drivers/pinctrl/Kconfig | 8 ++++----
+>  1 file changed, 4 insertions(+), 4 deletions(-)
+> 
+> diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
+> index 33db9104df178e5a3148b60c3c6bd153113385d3..77a5d13e899f8c5251987c2c74df1d05dbd59128 100644
+> --- a/drivers/pinctrl/Kconfig
+> +++ b/drivers/pinctrl/Kconfig
+> @@ -269,7 +269,7 @@ config PINCTRL_INGENIC
+>  
+>  config PINCTRL_K210
+>  	bool "Pinctrl driver for the Canaan Kendryte K210 SoC"
+> -	depends on RISCV && SOC_CANAAN_K210 && OF
+> +	depends on RISCV && SOC_CANAAN_K210 && OF || COMPILE_TEST
+>  	select GENERIC_PINMUX_FUNCTIONS
+LKP reported here issue, so there will be v2 of this.
 
-This change ensures:
-- real_period is now calculated using DIV_ROUND_UP_ULL() to avoid underestimation.
-- duty_cycle is rounded up to match the fractional computation in apply()
-- apply() truncates the result to compensate for get_state's rounding up logic
 
-These fixes resolve issues like:
-.apply is supposed to round down duty_cycle (requested: 360/504000, applied: 361/504124)
-.apply is not idempotent (ena=1 pol=0 1739692/4032985) -> (ena=1 pol=0 1739630/4032985)
-
-Reported-by: kernel test robot <lkp@intel.com>
-Closes: https://lore.kernel.org/oe-kbuild-all/202505080303.dBfU5YMS-lkp@intel.com/
-Co-developed-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Nylon Chen <nylon.chen@sifive.com>
----
- drivers/pwm/pwm-sifive.c | 15 +++++++++------
- 1 file changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/pwm/pwm-sifive.c b/drivers/pwm/pwm-sifive.c
-index f3694801d3ee..4a07315b0744 100644
---- a/drivers/pwm/pwm-sifive.c
-+++ b/drivers/pwm/pwm-sifive.c
-@@ -118,7 +118,7 @@ static void pwm_sifive_update_clock(struct pwm_sifive_ddata *ddata,
- 
- 	/* As scale <= 15 the shift operation cannot overflow. */
- 	num = (unsigned long long)NSEC_PER_SEC << (PWM_SIFIVE_CMPWIDTH + scale);
--	ddata->real_period = div64_ul(num, rate);
-+	ddata->real_period = DIV_ROUND_UP_ULL(num, rate);
- 	dev_dbg(ddata->parent,
- 		"New real_period = %u ns\n", ddata->real_period);
- }
-@@ -143,8 +143,8 @@ static int pwm_sifive_get_state(struct pwm_chip *chip, struct pwm_device *pwm,
- 		state->enabled = false;
- 
- 	state->period = ddata->real_period;
--	state->duty_cycle =
--		(u64)duty * ddata->real_period >> PWM_SIFIVE_CMPWIDTH;
-+	state->duty_cycle = DIV_ROUND_UP_ULL((u64)duty * ddata->real_period,
-+					     (1U << PWM_SIFIVE_CMPWIDTH));
- 	state->polarity = PWM_POLARITY_NORMAL;
- 
- 	return 0;
-@@ -159,7 +159,8 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	unsigned long long num;
- 	bool enabled;
- 	int ret = 0;
--	u32 frac, inactive;
-+	u64 frac;
-+	u32 inactive;
- 
- 	if (state->polarity != PWM_POLARITY_NORMAL)
- 		return -EINVAL;
-@@ -178,9 +179,11 @@ static int pwm_sifive_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	 * consecutively
- 	 */
- 	num = (u64)duty_cycle * (1U << PWM_SIFIVE_CMPWIDTH);
--	frac = DIV64_U64_ROUND_CLOSEST(num, state->period);
-+	frac = num;
-+	do_div(frac, state->period);
- 	/* The hardware cannot generate a 0% duty cycle */
--	frac = min(frac, (1U << PWM_SIFIVE_CMPWIDTH) - 1);
-+	frac = min(frac, (u64)(1U << PWM_SIFIVE_CMPWIDTH) - 1);
-+	/* pwmcmp register must be loaded with the inactive(invert the duty) */
- 	inactive = (1U << PWM_SIFIVE_CMPWIDTH) - 1 - frac;
- 
- 	mutex_lock(&ddata->lock);
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
 _______________________________________________
 linux-riscv mailing list
