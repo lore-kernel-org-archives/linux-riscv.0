@@ -4,96 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1ED68C5AD49
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 20:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAE23C5AD49
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 20:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=O4buJAy7PM8TJnDYDUBpOVfT1et8ry2HwQjwHtVm9ec=; b=R+sFm4XgCUig4P
-	aox/82DQrrkbkNqfxTnly80Dy7eJbORYMODyBoj21SKlJKSXf95ise/TaoXfqNGm7nUnVWYJuoyeR
-	XkficXmJdoWwLcWnQyPnrcY2bldUXF12jFN1Q74rJxtCshOYWsa7LjXg9x5eUyO/Un16RzqjYYunG
-	PPG42REXNYPGX6R+TvDn25lqQavSicvBhj2cjhPkYJACLb/xFRaZYL9ekc57oh01yoxKfrLc8jC1c
-	ZfUZe+uNT5TtO43dkeh14kR9ua0cMaZKAFOTFPN/4mEM31oGObAH2kcIn9hDDwkuVnO4+3yDi5Igb
-	whdd/GmWA/V2CaXcvn7w==;
+	List-Owner; bh=LlzXtOGLFycb/nGMxU5rBHooFy2ZjCghW0olbOESlbI=; b=1a9AZ7RFdphufB
+	9g5Zgkxzhb7uPjLTcNwh/Jw2mmgFpLiMWa1/HYAwAoFxmxvUNvEHGJAc0cGDCN0sxEPyemQ3l0tvW
+	630gtZuoNyvkZOyjmp7r5rV3LO0E25eTaKm7WA4Q9kqcH2FD9PNvLQ8t7PCa1jtQ0pxJbz0CXBaQd
+	9KvdRnMLXhcTiY+GbjnYHX8FefWX1dJhnexqVn42ah199BRNMSWxTqFBn9F6Ad1oOik0jiBSbd/QR
+	791IL3kX2lz0wUhXQTgTa4ICa/nBjikIeaf02XrMmZNn7fM+h2XY38DjdlCZPpNt8LDcm5+NW2DSt
+	DG21OFtdkE9RIuwaBdQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKjeP-0000000GTmq-3DhB;
-	Thu, 29 May 2025 20:14:53 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1uKkB3-0000000GWKi-1VxJ;
+	Thu, 29 May 2025 20:48:37 +0000
+Received: from mail-pj1-x1030.google.com ([2607:f8b0:4864:20::1030])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKjeN-0000000GTmA-1hsn
+	id 1uKk8s-0000000GW2M-2wQH
 	for linux-riscv@lists.infradead.org;
-	Thu, 29 May 2025 20:14:52 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-ad89ee255easo231588266b.3
-        for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 13:14:50 -0700 (PDT)
+	Thu, 29 May 2025 20:46:24 +0000
+Received: by mail-pj1-x1030.google.com with SMTP id 98e67ed59e1d1-3123eda2a1dso247778a91.1
+        for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 13:46:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1748549689; x=1749154489; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=HVSRhT5MS1pvdu2dqLDEs9T4cWr5CB+FRQ66tAe+RVE=;
-        b=KLXI5KNDVpVdaWJ+1MWCd1yH34gV9rdyVyz0l81LDHvGBTznz/ZG81ajC1xgHt+06J
-         8eQlKJorylEHLubJitLb9GG9+mbvRreNoicQCtmI6M3Oi7QfLYOvtGyYDzosf2Trh6EO
-         MXy5sMRTjrjB/BGTy4dUR/9myj/3WPRZL/wdk=
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748551581; x=1749156381; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6TtaMd1HywfsuyRcNH/42AXM3iz/qus8mLnXbozVUkA=;
+        b=dFjq2NiEPa1X5/bqSSOd6mWIbuLalfC2PpJYw2cED5pRguLkl7EjaX1LRnWE6aaNP/
+         AYo4CiK28/U5j1cP4al3TDlx+dm1KJCJ0+UyW3BLO+py1ergg28tAKE984fKpbzmeJyd
+         nTleKsnvpeHtHdWgPHUgE0sf6+hw9Y0f3TTWuK841ExFeX5FY5z46k3qSX197gSrGkJO
+         +dHYtz/Gn/pU7Wyf56zsh9mp4FKEGrMR6N4KenHSQ3JyotkUrVmI5HhbFSBCWiroj8Lj
+         4XRXiCjlZcflwv3Tk+OTZ8OTTZ27NKkAR1qJpRr4KL31uJ7QtUZbnkzXtcQKd6M+BNaL
+         bHsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748549689; x=1749154489;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=HVSRhT5MS1pvdu2dqLDEs9T4cWr5CB+FRQ66tAe+RVE=;
-        b=kNKQ/lpv2UFj3+BmK8zn3bcSFmLuqK/GPDDcnkZ/5P9T7jZWTNulOO4eZyz/P/ZC4+
-         I4Pcc2IucGyACA9ZU3F5OmAInrrxnDoeuH56E8oQ7MMv+EmfbK6mbmuHQatqIzv1OAE3
-         E7dpvObXn29vYGbqsoTqFodGBS8NGwrEfyGwMJJe1CIjyTH9B1g2SL1ju3BacJJqg5WP
-         DF+IMjOUP8CJRbAWKIRul/zn7LQ4lTYy6BgBJYCY0NFkVsEynU+xjk01w5gW3anH2k7r
-         6sROD6uPjtLQ05kzp5f7hcy+E24jT9dh5pimjOwRQvnn+00/xZpAWYt1bfdPqd585qhB
-         8H3w==
-X-Forwarded-Encrypted: i=1; AJvYcCX/UutLYt1z2xEhb1DFbnXu3URtnPdQbKT6SEhx/mGmq79bK5QCvMh+fPjZnZqaQQZD8W0+XB04z49kxQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXyvSRAfMlvLaasO1UdAguvIE8WUagO3E7eo66c89yMcn//rA0
-	dgv1pExXCBmA5uaPXCLfSd1HWb2t6z319cMB7BYKHnlPWYZhxyWFeQ8wOhHQW8LnghDVJL/iUNj
-	SpV/b7CI=
-X-Gm-Gg: ASbGnctRpWPL8woDB/9wOVTE7/KQaugsQCT0tBUIUR4tG3J7MgXeXLt4hhP+JXNcV+W
-	Q1m6ctXYi01WyZ3svZ5dZP/VWNaxucfzz5JuyvmEjq5XKZ2ZtC/1EbwQ7GlPmvzm5p/nsJRYE/D
-	ixYQMujlhXVAOHDVBpBl68T1tnrQM2DpUOZYYIOqBBSwvN6ZgEZtSjPw9tKwJpLjsy+kwd5QI+V
-	5SUXc3IXl5/d4PTwEbkFBasVpwrYLPxPsaymDGLYmSmK4hAVfEyd5Ht4IFtbf953pGRxCxQH6QF
-	dAP+SXqFF7fKWXBJZpUF05uCxXfMaWxqdmyCW1uWO+M/xY+Hwcanvx9bffLJwBBeN60maypPGDH
-	/UUqmo/J4fmH7YFb0GgjRhTuE1A==
-X-Google-Smtp-Source: AGHT+IEejgtUhTSox6IHwZXf3EN4FYfyq0noStd3qwhmTncqI5LS6LyXKO3mRgWPRCkaF1eilS9ksg==
-X-Received: by 2002:a17:907:2d12:b0:ad2:2d75:d7fb with SMTP id a640c23a62f3a-adb322fa1c2mr73662266b.55.1748549689060;
-        Thu, 29 May 2025 13:14:49 -0700 (PDT)
-Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com. [209.85.208.41])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ada6ad394b9sm196804066b.132.2025.05.29.13.14.48
-        for <linux-riscv@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 29 May 2025 13:14:48 -0700 (PDT)
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-604bf67b515so2389637a12.0
-        for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 13:14:48 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWLNRtHtUOpXA1rW5w2zusZa+T+ePEI8FC9JKGKzjfxIDaqpP4tuZJ/19DrBpMCYJIdebtiq3a4eGia5Q==@lists.infradead.org
-X-Received: by 2002:a05:6402:2346:b0:602:1d01:2883 with SMTP id
- 4fb4d7f45d1cf-6056db10b4emr581444a12.1.1748549687775; Thu, 29 May 2025
- 13:14:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1748551581; x=1749156381;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6TtaMd1HywfsuyRcNH/42AXM3iz/qus8mLnXbozVUkA=;
+        b=qn0WNWm7MqlgOvHe2wsfhUg1WoOBlVLHz7rFqK20bgLOkovdpOOLP21Vo8c2NIWCPC
+         WkJckKIAmtK0hf1ta/SPE+QSQsCUZwoLmpLv1Aicayw6ciNJlNTGkSh/3SM5hwhddGKN
+         AJNi8s0OIZMmTP6n7hrXdKzPC12lhntVLJYRd45EGCA8Wr2+cfuCIGLc46BNOz+J1uMQ
+         9JdHvbuKnvfYDF1jXnuVzLpreExiZre69yBiPRhqp8DncpiCsr/+XRWPcc1bH6sHMD9Y
+         kNXTmhU0TkWFr4K5ot7Y6XQkDLhOR2NETK8EPEYpCDXTFWIHZXODQfYlz+tHiqBmgWpu
+         /h8g==
+X-Forwarded-Encrypted: i=1; AJvYcCUeTV26WVtAdSvdHfFOOVfVPsJ1VubJK6Ku/p99RF6zs9vVaCexRD47saM6J0ZajF9xJ49q6vIcQQ0SPQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxiLNNMEvNjgrGa6V1cJeMtZZ9GoqDy4+SRXW2+npb4l9IYxd/M
+	C56ICYDaQChjqzNatuVTpSmFm25wz75AJnfGC5KLp/coFY57jWLq5H/oW4+NipxZahM=
+X-Gm-Gg: ASbGncsOhhJuhDFQCnvA70ZtYgzYPtakuRXTPTbr/j/p5mdH/bhf2TsKpJcCez+vY4g
+	9qNrtF06CGJQumL+fghQY2MpPqQ9zwZITsW5+7/flxHGsMT/DBH8xI3qY9cvNDOG32Z/6+IrsZE
+	a1A6RhXiFqHHCTsEX9yFfemwHMraq8STR2V5kRZ3Ot5WaCwleWzn4w+CSGosA6j2gXj1HdE4lso
+	Ejgy1TaM2XUNhQmdwmNDEiezbfkhQAfQdTbtXGYtDbrJ71ndpKuSygoZmYqlf4+8d3uY/mFjjgV
+	hqq2fzzwFef3MsqmZ7XSJImkJ+xVOLW9coXFSeRvyIoXQOqmqs4qSno2tHxOJOswtXm8Tg==
+X-Google-Smtp-Source: AGHT+IEO8HwssTrnrLL8DGNfi7UDT2JfkJIUURFRStahz0gCmflYidew8g3m8w3QvBPF+GZDsBP2sw==
+X-Received: by 2002:a17:90b:1d89:b0:311:f99e:7f51 with SMTP id 98e67ed59e1d1-312415329famr1432137a91.18.1748551581341;
+        Thu, 29 May 2025 13:46:21 -0700 (PDT)
+Received: from tjeznach.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd9486sm16245345ad.67.2025.05.29.13.46.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 29 May 2025 13:46:20 -0700 (PDT)
+Date: Thu, 29 May 2025 13:46:17 -0700
+From: Tomasz Jeznach <tjeznach@rivosinc.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>, Kevin Tian <kevin.tian@intel.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org, linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-s390@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Neal Gompa <neal@gompa.dev>, Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Clark <robdclark@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, virtualization@lists.linux.dev,
+	Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>, patches@lists.linux.dev
+Subject: Re: [PATCH 3/7] iommu: Remove ops.pgsize_bitmap from drivers that
+ don't use it
+Message-ID: <aDjHmR7ZVTbsSITO@tjeznach.ba.rivosinc.com>
+References: <0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
+ <3-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
 MIME-Version: 1.0
-References: <20250428170040.423825-1-ebiggers@kernel.org> <20250428170040.423825-9-ebiggers@kernel.org>
- <20250529110526.6d2959a9.alex.williamson@redhat.com> <20250529173702.GA3840196@google.com>
-In-Reply-To: <20250529173702.GA3840196@google.com>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 29 May 2025 13:14:31 -0700
-X-Gmail-Original-Message-ID: <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
-X-Gm-Features: AX0GCFuiJcryO_X7sE1ePk8yCEY5HNa9j_jPT14Gm93VGY22kOHLk2kIn44ZkWY
-Message-ID: <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
-Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library instead
- of shash
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: Alex Williamson <alex.williamson@redhat.com>, linux-crypto@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org, 
-	sparclinux@vger.kernel.org, linux-s390@vger.kernel.org, x86@kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>
+Content-Disposition: inline
+In-Reply-To: <3-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_131451_564294_4AA1CD9C 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250529_134623_015312_BC65F9AA 
+X-CRM114-Status: GOOD (  17.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,75 +133,37 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, 29 May 2025 at 10:37, Eric Biggers <ebiggers@kernel.org> wrote:
->
-> Long-term, I'd like to find a clean way to consolidate the library code for each
-> algorithm into a single module.
+On Tue, Apr 29, 2025 at 11:34:13AM -0300, Jason Gunthorpe wrote:
+> These drivers all set the domain->pgsize_bitmap in their
+> domain_alloc_paging() functions, so the ops value is never used. Delete
+> it.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+> ---
+>  drivers/iommu/apple-dart.c       | 1 -
+>  drivers/iommu/intel/iommu.c      | 1 -
+>  drivers/iommu/iommufd/selftest.c | 1 -
+>  drivers/iommu/riscv/iommu.c      | 1 -
+>  drivers/iommu/virtio-iommu.c     | 6 ++----
+>  5 files changed, 2 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/iommu/riscv/iommu.c b/drivers/iommu/riscv/iommu.c
+> index bb57092ca90110..2d0d31ba28860a 100644
+> --- a/drivers/iommu/riscv/iommu.c
+> +++ b/drivers/iommu/riscv/iommu.c
+> @@ -1533,7 +1533,6 @@ static void riscv_iommu_release_device(struct device *dev)
+>  }
+>  
+>  static const struct iommu_ops riscv_iommu_ops = {
+> -	.pgsize_bitmap = SZ_4K,
+>  	.of_xlate = riscv_iommu_of_xlate,
+>  	.identity_domain = &riscv_iommu_identity_domain,
+>  	.blocked_domain = &riscv_iommu_blocking_domain,
 
-No, while I think the current situation isn't great, I think the "make
-it one single module" is even worse.
+Reviewed-by: Tomasz Jeznach <tjeznach@rivosinc.com> # for RISC-V
 
-For most architectures - including s390 - you end up being in the
-situation that these kinds of hw accelerated crypto things depend on
-some CPU capability, and aren't necessarily statically always
-available.
-
-So these things end up having stupid extra overhead due to having some
-conditional.
-
-That extra overhead is then in turn minimized with tricks like static
-branches, but that's all just just piling more ugly hacks on top
-because it picked a bad choice to begin with.
-
-So what's the *right* thing to do?
-
-The right thing to do is to just link the right routine in the first
-place, and *not* have static branch hackery at all. Because you didn't
-need it.
-
-And we already do runtime linking at module loading time. So if it's a
-module, if the hardware acceleration doesn't exist, the module load
-should just fail, and the loader should go on to load the next option.
-
-Not any silly "one module to rule them all" hackery that only results
-in worse code. Just a simple "if this module loads successfully,
-you'll link the optimal hw acceleration".
-
-Now, the problem with this all is the *non*modular case.
-
-For modules, we already have the optimal solution in the form of
-init-module error handling and runtime linking.
-
-So I think the module case is "solved" (except the solution is not
-what we actually do).
-
-For the non-module case, the problem is that "I linked this
-unconditionally, and now it turns out I run on hardware that doesn't
-have the capability to run this".
-
-And that's when you need to do things like static_call_update() to
-basically do runtime re-linking of a static decision.
-
-And currently we very much do this wrong. See how s390 and x86-64 (and
-presumably others) basically have the *exact* same problems, but they
-then mix static branches and static calls (in the case of x86-64) and
-just have non-optimal code in general.
-
-What I think the generic code should do (for the built-in case) is just have
-
-        DEFINE_STATIC_CALL(sha256_blocks_fn, sha256_blocks_generic);
-
-and do
-
-        static_call(sha256_blocks_fn)(args..);
-
-and then architecture code can do the static_call_update() to set
-their optimal version.
-
-And yeah, we'd presumably need multiple versions, since there's the
-whole "is simd usable" thing. Although maybe that's going away?
-
-                   Linus
+Sorry for the delayed response.
+- Tomasz
 
 _______________________________________________
 linux-riscv mailing list
