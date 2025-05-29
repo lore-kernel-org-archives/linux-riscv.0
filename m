@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1CE0C54FB3
-	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 21:19:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1455EC5B543
+	for <linux-riscv@archiver.kernel.org>; Thu, 29 May 2025 22:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:In-Reply-To:Message-Id
+	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=aLnOfLX3m6XELxj6Jwd+668q/h/knXJye8QdjjlUPo4=; b=0J6cisCyMobLmB
-	MOzUpwnpEgA+De7qKOB5k2MjbiHN8YROctyRKnBhO1dFK/jko44eU6an01gKft5vdY/KDNeqEXHyX
-	T8QQykvyQ5BoNWKp/NspSkmTregynMv3rYT0fXM6O5BZK47dWKUKmwqr8Saxv+npYUaSuKpmffhJK
-	M2lk5mU+ZwMflmef+vK84BbqDLvZx7UB4yzmZ4wSlAS1axOIKJYUe5aRkzkog0U2lSH3pUVOdgVHV
-	Eb9XvNHkoRwGxLjPCaMRLcFsLYaQXaN4G004eno3eTN8iMJ4XeFnSGTGaC93avaSNnTnpLTrWyPOJ
-	hw85fLyE6SNSHKvpogtw==;
+	List-Owner; bh=37VIYGRSYtKfovjDkf2OuPy4ec9NZBnUwfXl4TEuzj0=; b=CtxDcGEl0s9TrA
+	B3DVwPz795GXM3V/G1QFb3Ca+uzQZT2msED6xWkpYwC5r63EQeo2ot6Zwj9YzjAJ+pSYdstQAnkO/
+	RA+IGyPbEXGTibtjirm5MwEiravA5DSofOLzTioXhHJqOqnfWAffoG4gXaquP9+wHXTu6LeiyDFu3
+	jU+MFHygV3upyN0WLUbWbtyHIFNfa14PN/9Pv31fNcYRp4mmU27gQuBVjnQoXLELHRZCw+GazjGAV
+	zCvvAiGDgH3C9i7SmKSf65wh0hz15PVyRQd8aXdWhUVle+8wp59NPrfMFov/wUSXWox5g2gIfPcGw
+	hdMCR56YA+zS24WJgtvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKkec-0000000GYXW-3rbF;
-	Thu, 29 May 2025 21:19:10 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uKlfa-0000000GdWa-3nKM;
+	Thu, 29 May 2025 22:24:14 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKkcT-0000000GYHZ-3zTo;
-	Thu, 29 May 2025 21:16:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D0A95A4FCA7;
-	Thu, 29 May 2025 21:16:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1369DC4CEE7;
-	Thu, 29 May 2025 21:16:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748553416;
-	bh=XwSNpCLmOFYgZlT+vqB/zkYXZoNvF9LKBVo7R5SnQvU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=QE8FafhOJkbO0j8ajuGRE3oOAuSmqOSe7+1Bbv1xaRWE+GEqFHoQqKjHSPvlNvh8X
-	 xaUXj42tdidF41Kr/O4VBBHdBcT46ME5JSAvysORACebdBaYt/za2ZLB9918zp+HG/
-	 MnTpyOhxty75uU+RXJ/hyhZ6ZnSbvFM0C/SEeS/SzucQNcldj5qInocL0jscgQrZRV
-	 HhOFx1gcMCLB7GCwEsyACsRzhuz4ZFAVektyXrTVvZu3lyC0ag9CwrjioZ4ERbFnpv
-	 2HihaHdw1NUs7EO0PJ+YiMAi46LzXEFvynTHxRPB6/YcS/xwivV8yxQqvqZb39Kokc
-	 VTl+yzDZkdWRA==
-Date: Thu, 29 May 2025 14:16:39 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Alex Williamson <alex.williamson@redhat.com>,
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, sparclinux@vger.kernel.org,
-	linux-s390@vger.kernel.org, x86@kernel.org,
-	Ard Biesheuvel <ardb@kernel.org>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>
-Subject: Re: [PATCH v4 08/13] crypto: s390/sha256 - implement library instead
- of shash
-Message-ID: <20250529211639.GD23614@sol>
-References: <20250428170040.423825-1-ebiggers@kernel.org>
- <20250428170040.423825-9-ebiggers@kernel.org>
- <20250529110526.6d2959a9.alex.williamson@redhat.com>
- <20250529173702.GA3840196@google.com>
- <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
+	id 1uKlfW-0000000GdT1-1NQm
+	for linux-riscv@lists.infradead.org;
+	Thu, 29 May 2025 22:24:12 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250529222405euoutp0283865faadc5cd4762df0bf707811335c~EH7uCLdH92213722137euoutp02t
+	for <linux-riscv@lists.infradead.org>; Thu, 29 May 2025 22:24:05 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250529222405euoutp0283865faadc5cd4762df0bf707811335c~EH7uCLdH92213722137euoutp02t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1748557445;
+	bh=YWgZEAPcMH46NIGH2/oSKhwnvWs2dOgmME8UVmfVxfk=;
+	h=From:Date:Subject:In-Reply-To:To:Cc:References:From;
+	b=PdlwNPOP7Bq6mAnKXwUUKOtMzeH42uNn7zWl+n5xLfLi4AmEtVSivsrBSDR/3kAhM
+	 wPFrUy503C1TVlyEuXqJo/BRIgCHm1/2YKxlRUOQZCbGwPP0QsecSm0y7i1Yh2DE0p
+	 JJuXDfCPTdFS49H/jNLU1o7vwoAnJHKiRfzaaqA8=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250529222403eucas1p1923fe09240be34e3bbadf16822574d75~EH7sXLUlv2958729587eucas1p1j;
+	Thu, 29 May 2025 22:24:03 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250529222402eusmtip2d7d50774a6c6e15081addf3fce030b9c~EH7reGp5Y3031530315eusmtip2K;
+	Thu, 29 May 2025 22:24:02 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Date: Fri, 30 May 2025 00:23:48 +0200
+Subject: [PATCH v3 1/8] dt-bindings: power: Add T-HEAD TH1520 GPU power
+ sequencer
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <CAHk-=whCp-nMWyLxAot4e6yVMCGANTUCWErGfvmwqNkEfTQ=Sw@mail.gmail.com>
+Message-Id: <20250530-apr_14_for_sending-v3-1-83d5744d997c@samsung.com>
+In-Reply-To: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+To: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,  Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>,  Bartosz Golaszewski <brgl@bgdev.pl>,
+	Philipp Zabel <p.zabel@pengutronix.de>,  Frank Binns
+	<frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,  Maarten
+	Lankhorst <maarten.lankhorst@linux.intel.com>,  Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,  David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,  Paul Walmsley
+	<paul.walmsley@sifive.com>,  Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>,  Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson
+	<ulf.hansson@linaro.org>,  Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250529222403eucas1p1923fe09240be34e3bbadf16822574d75
+X-Msg-Generator: CA
+X-RootMTR: 20250529222403eucas1p1923fe09240be34e3bbadf16822574d75
+X-EPHeader: CA
+X-CMS-RootMailID: 20250529222403eucas1p1923fe09240be34e3bbadf16822574d75
+References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+	<CGME20250529222403eucas1p1923fe09240be34e3bbadf16822574d75@eucas1p1.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250529_141658_148068_B0BB1B74 
-X-CRM114-Status: GOOD (  39.72  )
+X-CRM114-CacheID: sfid-20250529_152410_637262_77DE90A1 
+X-CRM114-Status: GOOD (  15.61  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +95,87 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 01:14:31PM -0700, Linus Torvalds wrote:
-> On Thu, 29 May 2025 at 10:37, Eric Biggers <ebiggers@kernel.org> wrote:
-> >
-> > Long-term, I'd like to find a clean way to consolidate the library code for each
-> > algorithm into a single module.
-> 
-> No, while I think the current situation isn't great, I think the "make
-> it one single module" is even worse.
-> 
-> For most architectures - including s390 - you end up being in the
-> situation that these kinds of hw accelerated crypto things depend on
-> some CPU capability, and aren't necessarily statically always
-> available.
-> 
-> So these things end up having stupid extra overhead due to having some
-> conditional.
-> 
-> That extra overhead is then in turn minimized with tricks like static
-> branches, but that's all just just piling more ugly hacks on top
-> because it picked a bad choice to begin with.
-> 
-> So what's the *right* thing to do?
-> 
-> The right thing to do is to just link the right routine in the first
-> place, and *not* have static branch hackery at all. Because you didn't
-> need it.
-> 
-> And we already do runtime linking at module loading time. So if it's a
-> module, if the hardware acceleration doesn't exist, the module load
-> should just fail, and the loader should go on to load the next option.
+Introduce device tree bindings for a new power sequencer provider
+dedicated to the T-HEAD TH1520 SoC's GPU.
 
-So using crc32c() + ext4 + x86 as an example (but SHA-256 would be very
-similar), the current behavior is that ext4.ko depends on the crc32c_arch()
-symbol.  That causes crc32-x86.ko to be loaded, which then depends on the
-crc32c_base() symbol as a fallback, which causes crc32.ko to be loaded too.  My
-idea is to consolidate the two crc32 modules into one (they always go together,
-after all), keeping the same symbols.  The main challenge is just the current
-directory structure.
+The thead,th1520-gpu-pwrseq compatible designates a node that will
+manage the complex power-up and power-down sequence for the GPU. This
+sequencer requires a handle to the GPU's clock generator reset line
+(gpu-clkgen), which is specified in its device tree node.
 
-Your suggestion sounds like: ext4.ko would depend on the crc32c() symbol, which
-would be defined in *both* crc32-x86.ko and crc32.ko.  The module loader would
-try to load crc32-x86.ko first.  If the CPU does not support any of the x86
-accelerated CRC32 code, then loading that module would fail.  The module loader
-would then load crc32.ko instead.
+This binding will be used by a new pwrseq driver to abstract the
+SoC specific power management details from the generic GPU driver.
 
-Does any of the infrastructure to handle "this symbol is in multiple modules and
-they must be loaded in this particular order" actually exist, though?
+Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+---
+ .../bindings/power/thead,th1520-pwrseq.yaml        | 42 ++++++++++++++++++++++
+ MAINTAINERS                                        |  1 +
+ 2 files changed, 43 insertions(+)
 
-And how do we avoid the issues the crypto API often has where the accelerated
-modules don't get loaded, causing slow generic code to unnecessarily be used?
+diff --git a/Documentation/devicetree/bindings/power/thead,th1520-pwrseq.yaml b/Documentation/devicetree/bindings/power/thead,th1520-pwrseq.yaml
+new file mode 100644
+index 0000000000000000000000000000000000000000..4c302abfb76fb9e243946f4eefa333c6b02e59d3
+--- /dev/null
++++ b/Documentation/devicetree/bindings/power/thead,th1520-pwrseq.yaml
+@@ -0,0 +1,42 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/power/thead,th1520-pwrseq.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: T-HEAD TH1520 GPU Power Sequencer
++
++maintainers:
++  - Michal Wilczynski <m.wilczynski@samsung.com>
++
++description: |
++  This binding describes the power sequencer for the T-HEAD TH1520 GPU.
++  This sequencer handles the specific power-up and power-down sequences
++  required by the GPU, including managing clocks and resets from both the
++  sequencer and the GPU device itself.
++
++properties:
++  compatible:
++    const: thead,th1520-gpu-pwrseq
++
++  resets:
++    description: A phandle to the GPU clock generator reset.
++    maxItems: 1
++
++  reset-names:
++    const: gpu-clkgen
++
++required:
++  - compatible
++  - resets
++  - reset-names
++
++additionalProperties: false
++
++examples:
++  - |
++    gpu_pwrseq: pwrseq {
++        compatible = "thead,th1520-gpu-pwrseq";
++        resets = <&rst 0>;
++        reset-names = "gpu-clkgen";
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 0d59a5910e632350a4d72a761c6c5ce1d3a1bc34..78e3067df1152929de638244b03264733d08556e 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -21355,6 +21355,7 @@ F:	Documentation/devicetree/bindings/firmware/thead,th1520-aon.yaml
+ F:	Documentation/devicetree/bindings/mailbox/thead,th1520-mbox.yaml
+ F:	Documentation/devicetree/bindings/net/thead,th1520-gmac.yaml
+ F:	Documentation/devicetree/bindings/pinctrl/thead,th1520-pinctrl.yaml
++F:	Documentation/devicetree/bindings/power/thead,th1520-pwrseq.yaml
+ F:	Documentation/devicetree/bindings/reset/thead,th1520-reset.yaml
+ F:	arch/riscv/boot/dts/thead/
+ F:	drivers/clk/thead/clk-th1520-ap.c
 
-IMO this sounds questionable compared to just using static keys and/or branches,
-which we'd need anyway to support the non-modular case.
+-- 
+2.34.1
 
-> Not any silly "one module to rule them all" hackery that only results
-> in worse code. Just a simple "if this module loads successfully,
-> you'll link the optimal hw acceleration".
-> 
-> Now, the problem with this all is the *non*modular case.
-> 
-> For modules, we already have the optimal solution in the form of
-> init-module error handling and runtime linking.
-> 
-> So I think the module case is "solved" (except the solution is not
-> what we actually do).
-> 
-> For the non-module case, the problem is that "I linked this
-> unconditionally, and now it turns out I run on hardware that doesn't
-> have the capability to run this".
-> 
-> And that's when you need to do things like static_call_update() to
-> basically do runtime re-linking of a static decision.
-> 
-> And currently we very much do this wrong. See how s390 and x86-64 (and
-> presumably others) basically have the *exact* same problems, but they
-> then mix static branches and static calls (in the case of x86-64) and
-> just have non-optimal code in general.
-> 
-> What I think the generic code should do (for the built-in case) is just have
-> 
->         DEFINE_STATIC_CALL(sha256_blocks_fn, sha256_blocks_generic);
-> 
-> and do
-> 
->         static_call(sha256_blocks_fn)(args..);
-> 
-> and then architecture code can do the static_call_update() to set
-> their optimal version.
-> 
-> And yeah, we'd presumably need multiple versions, since there's the
-> whole "is simd usable" thing. Although maybe that's going away?
-
-Moving the static_call into the generic code might make sense.  I don't think
-it's a win in all cases currently, though.  Only x86 and PPC32 actually have a
-real static_call implementation; everywhere else it's an indirect call which is
-slower than a static branch.  Also, some arch code is just usable
-unconditionally without any CPU feature check, e.g. the MIPS ChaCha code.  That
-doesn't use (or need to use) a static call or branch at all.
-
-Also, while the centralized static_call would *allow* for the generic code to be
-loaded while the arch code is not, in the vast majority of cases that would be a
-bug, not a feature.  The generic crypto infrastructure has that bug, and this
-has caused a huge amount of pain over the years.  People have to go out of the
-way to ensure that the arch-optimized crypto code gets loaded.  And they often
-forget, resulting in the slow generic code being used unnecessarily...
-
-Making the arch-optimized code be loaded through a direct symbol dependency
-solves that problem.
-
-- Eric
 
 _______________________________________________
 linux-riscv mailing list
