@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F1A7C5B543
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 21:21:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37BAC5AD49
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 21:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=QD3ThViigAxWLu87eWTzf+RU5C+8K66qoILX/Aet29s=; b=OYYx3K6RnBseHI
-	+x22DuLZgrclWWaUHNGtwobBEKeY1ejVrZoqwzJaU4rHB7pyXXovpvnpDZlPDdI4xlkRup0uJarpL
-	YLEPiSqeDS0drQGYRTy9RB4ScJ+pOi4h4DFRyvLaNrNCXMCdP1VMOK4IlN6t/QM5BEjQa4oqM+tD5
-	o2NDQGUWTs7wKWK8VEmrIcxMs4xWszwWYoTXUN2bgM7DfNZq7IptsALdb6dVefKjSL+9tyEAH2KEu
-	l/cHIsQiE7UprM3vjd+wRUWhqbFC8j4eV8EXXNgUdyvkDj/KUJddAJSdaz4DWXfBRQFY9Bo5sVOx8
-	epKZjcztxzqRLeax67dw==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=1LT4zTQRYwfqmvLEekQgYiKXf8kQHUrnTlbx4jspaa8=; b=XDBesH9mych1Jv
+	DAnh/2NM4/k9NBiSb8XEq3U/CKwJZUxLSAdPEns9UGRfYxXGg1PoTLaLPVUh6hWfYM4KM41vAmyfJ
+	tm1vvS89RTBWIxtVqXGvsJVcf+DaZtCjCIBRIlYaSGSSznU6+NprkDbRw9xgDgKgW+IiV0SG3Rvbe
+	EUUpQEMYAkj/9bJ5p1L9aTYwyRiQljcry/uMURy6Qia5G8gke2LD3xbCsBQbbs9CxO8mUaVZNVeqi
+	Zc0zISOnjx9ppKwezidA6EfggZKykb4ZhvXRUmUVwGq9LLH6AIqoZRjs+FWQHqyoFXGG+dvZXztku
+	Zx0bXCahyZt47dKBX5Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7AD-00000001udV-0rZE;
-	Fri, 30 May 2025 21:21:17 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uL7T2-00000001xPF-3YZm;
+	Fri, 30 May 2025 21:40:44 +0000
+Received: from h8.fbrelay.privateemail.com ([162.0.218.231])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7AA-00000001ud8-2lwL
+	id 1uL7Sz-00000001xOL-20IE
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 May 2025 21:21:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748640073;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Qhq9bo/wYck9cizayDHbjF7+ytasiyxC81vAjAy8SFw=;
-	b=g/o/w0Opebz8EbAFDsX8jGD3Q4xqfD41IA1VfafwReraa4DPvMAExiIpz3SLz+RSzCu/ID
-	5DKWqWbs553ZBohWrt9kqq8L5KtmT7o3rEWjTcQgfzSN+e54WDOvfWG4BQMMRNPFPoVacx
-	p4GR97s9ajhBFxVKPc4igyTcjI6R+Do=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-245-v6Y8huZnP7mj5vdh46LkQg-1; Fri,
- 30 May 2025 17:14:33 -0400
-X-MC-Unique: v6Y8huZnP7mj5vdh46LkQg-1
-X-Mimecast-MFC-AGG-ID: v6Y8huZnP7mj5vdh46LkQg_1748639672
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	Fri, 30 May 2025 21:40:43 +0000
+Received: from MTA-13-4.privateemail.com (mta-13-1.privateemail.com [198.54.122.107])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9B68A180035F;
-	Fri, 30 May 2025 21:14:32 +0000 (UTC)
-Received: from laptop.mht.redhat.com (unknown [10.17.17.210])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D94E730001B7;
-	Fri, 30 May 2025 21:14:30 +0000 (UTC)
-From: Charles Mirabile <cmirabil@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	linux-riscv@lists.infradead.org (open list:RISC-V ARCHITECTURE),
-	Charles Mirabile <cmirabil@redhat.com>
-Subject: [PATCH v1 1/1] riscv: fix runtime constant support for nommu kernels
-Date: Fri, 30 May 2025 17:14:22 -0400
-Message-ID: <20250530211422.784415-2-cmirabil@redhat.com>
-In-Reply-To: <20250530211422.784415-1-cmirabil@redhat.com>
-References: <20250530211422.784415-1-cmirabil@redhat.com>
+	by h7.fbrelay.privateemail.com (Postfix) with ESMTPSA id 4b8Gqr4xLZz2xhH
+	for <linux-riscv@lists.infradead.org>; Fri, 30 May 2025 17:40:24 -0400 (EDT)
+Received: from mta-13.privateemail.com (localhost [127.0.0.1])
+	by mta-13.privateemail.com (Postfix) with ESMTP id 4b8Gqm0p6Zz3hhV5;
+	Fri, 30 May 2025 17:40:20 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mebeim.net; s=default;
+	t=1748641220; bh=7lb1FFg18GTRLJVBweMVfm5eQwotwrlkGXDCWnnD0l4=;
+	h=Date:From:To:Cc:Subject:From;
+	b=OOCw6xSmO9LD6CwNjWss9stCFFhVivb54UCb6MWHCYpUQ+gUT0b9tPBz5rahJl+Z6
+	 VE5cCUvzjfdY78TsjPd/1gW0zOqFUPREWNxAnBbq9CCCPx6r8R1+O9sVOHlDg5e+33
+	 MuXPSAuJxVtsrtF/J1s7cnyul8Bq4pB+o4gtSPi2f7iMcJkGTSLFXHBwj2lFtD35fs
+	 aBN4WSY3TBOorS3kY/esLy9KSJ0z7iGSnBKbdsyGVJAFhI/6pjLuOAMuRP+kblWXxW
+	 S4QcEmF0hh9nFZNzzVwQUUZH0gQ8/Q+NV/sIus3Y4x/CmbJ5kruRhiTJNpOE+BaKkr
+	 PiEzRODJCSnGg==
+Received: from APP-18 (unknown [10.50.14.242])
+	by mta-13.privateemail.com (Postfix) with ESMTPA;
+	Fri, 30 May 2025 17:40:10 -0400 (EDT)
+Date: Fri, 30 May 2025 23:40:10 +0200 (CEST)
+From: Marco Bonelli <marco@mebeim.net>
+To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "terrelln@fb.com" <terrelln@fb.com>,
+	"rostedt@goodmis.org" <rostedt@goodmis.org>,
+	"mhiramat@kernel.org" <mhiramat@kernel.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>,
+	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+Message-ID: <960240908.630790.1748641210849@privateemail.com>
+Subject: Broken 32-bit riscv debug build with ZSTD and FTRACE
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+X-Priority: 3
+Importance: Normal
+X-Mailer: Open-Xchange Mailer v7.10.6-Rev75
+X-Originating-Client: open-xchange-appsuite
+X-Virus-Scanned: ClamAV using ClamSMTP
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_142114_997659_4095B453 
-X-CRM114-Status: GOOD (  17.29  )
+X-CRM114-CacheID: sfid-20250530_144041_825688_F6DAD610 
+X-CRM114-Status: UNSURE (   9.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,47 +88,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-the `__runtime_fixup_32` function does not handle the case where `val` is
-zero correctly (as might occur when patching a nommu kernel and referring
-to a physical address below the 4GiB boundary whose upper 32 bits are all
-zero) because nothing in the existing logic prevents the code from taking
-the `else` branch of both nop-checks and emitting two `nop` instructions.
+I am building v6.15 for 32-bit riscv and I have noticed that modpost fails with
+a ton of errors and warnings (tens of thousands). I am on a Debian 12 x86-64
+host using the riscv32-linux-gcc from mirrors.edge.kernel.org [1]. I can
+reproduce with different GCC versions (I tested with 10.1.0, 14.2.0, 15.1.0).
+For whatever reason though, only when targeting riscv 32-bit.
 
-This leaves random garbage in the register that is supposed to receive the
-upper 32 bits of the pointer instead of zero that when combined with the
-value for the lower 32 bits yields an invalid pointer and causes a kernel
-panic when that pointer is eventually accessed.
+Steps to reproduce:
 
-The author clearly considered the fact that if the `lui` is converted into
-a `nop` that the second instruction needs to be adjusted to become an `li`
-instead of an `addi`, hence introducing the `addi_insn_mask` variable, but
-didn't follow that logic through fully to the case where the `else` branch
-executes. To fix it just adjust the logic to ensure that the second `else`
-branch is not taken if the first instruction will be patched to a `nop`.
+    export ARCH=riscv CROSS_COMPILE=riscv32-linux-
+    make distclean
+    make defconfig
+    make 32-bit.config
+    ./scripts/config \
+        -e DEBUG_KERNEL \
+        -e DEBUG_INFO \
+        -e DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
+        -d DEBUG_INFO_NONE \
+        -d DEBUG_INFO_REDUCED
+    make olddefconfig
+    make -j vmlinux
 
-Fixes: a44fb5722199 ("riscv: Add runtime constant support")
+Build output:
 
-Signed-off-by: Charles Mirabile <cmirabil@redhat.com>
----
- arch/riscv/include/asm/runtime-const.h | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+    ...
+    MODPOST vmlinux.symvers
+    WARNING: modpost: vmlinux: section mismatch in reference: tcp_write_timer_handler+0xa4 (section: .text) -> register_kernel_offset_dumper (section: .init.text)
+    ...
+    ERROR: modpost: vmlinux: local symbol 'find_get_pid' was exported
+    ...
+    ERROR: modpost: __ex_table+0x17e8 references non-executable section '.debug_str'
+    ...
+    make[2]: *** [scripts/Makefile.modpost:147: vmlinux.symvers] Error 1
+    make[1]: *** [/mnt/m2data/linux/Makefile:1958: modpost] Error 2
+    make: *** [Makefile:248: __sub-make] Error 2
 
-diff --git a/arch/riscv/include/asm/runtime-const.h b/arch/riscv/include/asm/runtime-const.h
-index 451fd76b8811..d766e2b9e6df 100644
---- a/arch/riscv/include/asm/runtime-const.h
-+++ b/arch/riscv/include/asm/runtime-const.h
-@@ -206,7 +206,7 @@ static inline void __runtime_fixup_32(__le16 *lui_parcel, __le16 *addi_parcel, u
- 		addi_insn_mask &= 0x07fff;
- 	}
- 
--	if (lower_immediate & 0x00000fff) {
-+	if (lower_immediate & 0x00000fff || lui_insn == RISCV_INSN_NOP4) {
- 		/* replace upper 12 bits of addi with lower 12 bits of val */
- 		addi_insn &= addi_insn_mask;
- 		addi_insn |= (lower_immediate & 0x00000fff) << 20;
--- 
-2.49.0
+There are thousands of warnings/errors like the three above, complaining
+about "section mismatch in reference", "local symbol xxx was exported" and
+"references non-executable section".
 
+I did a bisect run on torvalds/linux and narrowed it down to:
+
+    e61f33273ca755b3e2ebee4520a76097199dc7a8 Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
+
+I was also able to reproduce on next/linux-next tag next-20250530. 
+Looking at the merge from github.com/terrelln/linux it seems to be a single
+commit [2].
+
+Through trial and error I noticed that the build only seems to fail when
+*all* the following conditions are met:
+
+1. Building for 32-bit riscv (ARCH=riscv + defconfig + 32-bit.config)
+2. FTRACE=y
+3. ZSTD_COMPRESS=y
+4. Debug info enabled
+
+With ZSTD_COMPRESS=m (selecting SECURITY_APPARMOR_EXPORT_BINARY=n) or
+ZSTD_COMPRESS=n (selecting also BTRFS_FS=n), modpost goes through fine.
+With FTRACE=n or disabling debug info modpost also goes through fine.
+
+So it seems to be a combination of factors, but I am unsure how exactly
+these things can interact/interfere with each other. Any clue?
+
+Full bisect run log:
+
+    # bad: [0ff41df1cb268fc69e703a08a57ee14ae967d0ca] Linux 6.15
+    # good: [38fec10eb60d687e30c8c6b5420d86e8149f7557] Linux 6.14
+    git bisect start 'v6.15' 'v6.14'
+    # bad: [390513642ee6763c7ada07f0a1470474986e6c1c] io_uring: always do atomic put from iowq
+    git bisect bad 390513642ee6763c7ada07f0a1470474986e6c1c
+    # good: [9b960d8cd6f712cb2c03e2bdd4d5ca058238037f] Merge tag 'for-6.15/block-20250322' of git://git.kernel.dk/linux
+    git bisect good 9b960d8cd6f712cb2c03e2bdd4d5ca058238037f
+    # good: [023b1e9d265ca0662111a9df23d22b4632717a8a] Merge git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net
+    git bisect good 023b1e9d265ca0662111a9df23d22b4632717a8a
+    # bad: [3a90a72aca0a98125f0c7350ffb7cc63665f8047] Merge tag 'asm-generic-6.15-2' of git://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic
+    git bisect bad 3a90a72aca0a98125f0c7350ffb7cc63665f8047
+    # good: [3ef47a0436219359a0838d74bb353caa6aad3fc0] Merge tag 'at91-dt-6.15' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/dt
+    git bisect good 3ef47a0436219359a0838d74bb353caa6aad3fc0
+    # bad: [1a9239bb4253f9076b5b4b2a1a4e8d7defd77a95] Merge tag 'net-next-6.15' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next
+    git bisect bad 1a9239bb4253f9076b5b4b2a1a4e8d7defd77a95
+    # good: [ffd6c179286daf31ea0d6413228bbc2a3c7ee1de] Merge patch series "scsi: ufs: renesas: Add support for R-Car S4-8 ES1.2"
+    git bisect good ffd6c179286daf31ea0d6413228bbc2a3c7ee1de
+    # good: [22df63a23a9e53d06ff2c67f863e9ce1640b73cb] Merge branches 'apple/dart', 'arm/smmu/updates', 'arm/smmu/bindings', 'rockchip', 's390', 'core', 'intel/vt-d' and 'amd/amd-vi' into next
+    git bisect good 22df63a23a9e53d06ff2c67f863e9ce1640b73cb
+    # good: [29fa7d7934216e0a93102a930ef28e2a6ae852b1] selftests/sysctl: fix wording of help messages
+    git bisect good 29fa7d7934216e0a93102a930ef28e2a6ae852b1
+    # good: [22093997ac9220d3c606313efbf4ce564962d095] Merge tag 'ata-6.15-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/libata/linux
+    git bisect good 22093997ac9220d3c606313efbf4ce564962d095
+    # good: [a018d1cf990d0c339fe0e29b762ea5dc10567d67] scsi: st: Fix array overflow in st_setup()
+    git bisect good a018d1cf990d0c339fe0e29b762ea5dc10567d67
+    # good: [336b4dae6dfecc9aa53a3a68c71b9c1c1d466388] Merge tag 'iommu-updates-v6.15' of git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux
+    git bisect good 336b4dae6dfecc9aa53a3a68c71b9c1c1d466388
+    # good: [65d1f5507ed2c78c64fce40e44e5574a9419eb09] zstd: Import upstream v1.5.7
+    git bisect good 65d1f5507ed2c78c64fce40e44e5574a9419eb09
+    # bad: [e61f33273ca755b3e2ebee4520a76097199dc7a8] Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
+    git bisect bad e61f33273ca755b3e2ebee4520a76097199dc7a8
+    # good: [592329e5e94e26080f4815c6cc6cd0f487a91064] Merge tag 'sysctl-6.15-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/sysctl/sysctl
+    git bisect good 592329e5e94e26080f4815c6cc6cd0f487a91064
+    # first bad commit: [e61f33273ca755b3e2ebee4520a76097199dc7a8] Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
+
+[1]: https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/14.2.0/
+[2]: https://github.com/terrelln/linux/commit/65d1f5507ed2c78c64fce40e44e5574a9419eb09
+
+--
+Marco Bonelli
 
 _______________________________________________
 linux-riscv mailing list
