@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2244C5B549
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 09:42:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73DB4C5B549
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 09:44:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Fk3aqts45eSUcZeDO+dLZoA6qakv9y8XeBpitqd9KiM=; b=g0kbBWbS1P4be9
-	JDscQIs0m+Z2MtuUBJZdqXsy7JDklZTPDWiAK/Uecz2Ezn1mYIoko6EBASBdEVE4gYkyyCm2zj+FL
-	osm0dEq5kpL+8K7SzwHbBtGepuJIvMU1uStoN8Wt6P7lsX5tOocRX1JtDX9z7PwEnolED1gIa2ZMi
-	RwEzfvpZcu8ENNMtjCDJ5xWdJ4CZWqLv7WfVQXhLW7uxuXPHjmLefacFDARQKR94IhPVwBK0ayvyx
-	Mpy7yW1Y22AQRJWmskm6PT7iHqNuEaqQyV7zLcJPwxyX1awuGYHM6u9goseQ5DfrFvQjTkMrLsyL5
-	GsCOsrIOQGPqZ6oTRUfA==;
+	List-Owner; bh=jpO6MBQi4x/eiDGzkBtU5CDtOd1RRwmta68Wfs/S52c=; b=oqBRoox8FbNqS9
+	DBCEJeolmgyQqXBaDp9F9+SyhlxtGeLyj+H+hfsV7bQ0THq4OKnbcn+fGMbNSZj5CuHalyTylfi/A
+	QhBktxaPWaR05VRagaWa69woUxMRN5br5UV2Nh869ZN73jgZJ5vMGsacocpDnZtJ1WSG4UCTDqlIz
+	OYrzpNE4gmbY7sqL9lOk7khhEMXPTbMPB5vkTviudXsSFqBugguconAvIOYRTjgDsDZ8RDMDP/KNt
+	cl+tdrKDoQVxj9D4lr7RzhWeusYfSPG7GSMwCGiTWHMIFu+JhyhXMJHSRX0tN1UF3bsv3fw9oHZkA
+	8QVslYrDw9/Nx0Xz59pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKwFr-00000000BaM-2eEg;
-	Fri, 30 May 2025 09:42:23 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1uKwHz-00000000CBq-0NPX;
+	Fri, 30 May 2025 09:44:35 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKw7b-000000008zl-3F5M
+	id 1uKwGN-00000000Blb-3oz5
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 May 2025 09:33:53 +0000
+	Fri, 30 May 2025 09:42:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1748597631;
+	s=mimecast20190719; t=1748598174;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=3HsXX6R0HPP/biqLepMPHpr/VTNhNhquA8c3ePXroJI=;
-	b=OsOA5HEF2k818s0fAygUVueKPJTmp+zsbpd/ZoHS6GfaAqroUa1jcLQlQJKk82VfAvv/Jz
-	oTCx1D2XsmATDBAQMqENQvdvZoVUIlP+MwRlroKwmRsbWTu44OUZcBSy9TxRFv5YDqxOUT
-	UhN0Hyu1m1LJWBcsOeeRKjny2u6RYwQ=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+	bh=zWtS7BX4jv3Md6oma03aZLTPAuckL46QoolFrxWb6FY=;
+	b=Xy9siocLka+h+1OEd2m1Jn8Xf5oDrHB2xcKtClGkcunvOIYdtEluAjqBhWKVab36je8gUw
+	XOeyyJ2y261lCyutyHfw54JoczHoyOWdl/X2YcS1Xb9h9Je/v1EuyqEZVqC/thsgiF038w
+	qBWNj06r/oIGUb6fOiy1++axKycQwmY=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-345-eQhHaHnPNiiEFSWYu-z2Sw-1; Fri, 30 May 2025 05:33:49 -0400
-X-MC-Unique: eQhHaHnPNiiEFSWYu-z2Sw-1
-X-Mimecast-MFC-AGG-ID: eQhHaHnPNiiEFSWYu-z2Sw_1748597628
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3a4cceb558aso879470f8f.3
-        for <linux-riscv@lists.infradead.org>; Fri, 30 May 2025 02:33:49 -0700 (PDT)
+ us-mta-8-Hp9RhnNKNY-LCGnEfCufRg-1; Fri, 30 May 2025 05:42:53 -0400
+X-MC-Unique: Hp9RhnNKNY-LCGnEfCufRg-1
+X-Mimecast-MFC-AGG-ID: Hp9RhnNKNY-LCGnEfCufRg_1748598172
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-450d50eacafso6785195e9.3
+        for <linux-riscv@lists.infradead.org>; Fri, 30 May 2025 02:42:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748597628; x=1749202428;
+        d=1e100.net; s=20230601; t=1748598172; x=1749202972;
         h=content-transfer-encoding:in-reply-to:organization:autocrypt
          :content-language:from:references:cc:to:subject:user-agent
          :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=3HsXX6R0HPP/biqLepMPHpr/VTNhNhquA8c3ePXroJI=;
-        b=ZFUq+nZGyTvgS8KcnZ9jizdYj5Auu9XCLKq8zMjdFz98AEdwadI/9yAzXTQjSo/dkp
-         3aqfeti2O9TzdajmD4JNOwLDPMjLHbwnYKtlZXeAiauxPKiunc4FnCGSfLgX5ONQSMgz
-         mZNqMgozdcWrInVLPMEWg6fsl9/UFO/eALvhflxsJad/R7BlF6tcYf4MCAbliF+hypOI
-         cpBrmCuI6yPaCqXSGf7CBl69XDIWchQqswkBvCAbgu7L+vwqHUT0TcQ8kUFrCkf/qaRT
-         jWHHJmB3vM+Il0Jv5a++GIFRAvErDLR3Z6HGmX07yO1L9fkc+L8W4qD5r7SzNe0QfvA7
-         c47A==
-X-Forwarded-Encrypted: i=1; AJvYcCVwn2GBaoi/jhCilQ1/bAZ6filuubdjpD1Cx+UmBgfSTo9DylbnmFM8YReoZhbyrmILqMTdipDjiFpYTg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmFOxhLAe3PDvqB1wgZgjsV7aEKn2D5YRfR1TwGRbQ89ttK2sN
-	2LQhoNqdtxNFRWPv9c3OYvA7MevffVcg6g1FdJYw/6SH4nIez1FeWYEY0lFubAbUOgVSunf9+2A
-	YG+LtKiBRm9yD0+E9swyWNIMDDb9Y1xVHwa7lVjnwhmEE1WOwVtTyWaSbJlSi79LbiObQWw==
-X-Gm-Gg: ASbGncue6b0xcO/AhBJ3VtutLp9hYo4clbo17Yc8YRpx7g6AsfXpBNXfwDp98f2xBtM
-	o3ARwBB8aEXGv+mEsEbEt/tPDjwYXLE2V/L8Ro6fKtHBuNpE8Y4p6h6CJ8b4v4vkrUML1sBESLh
-	s5S5hclkprjBgLUda0r3my1YxPCGDjRfTOl4vhzc0OQSdGu9qFGPI9aDIIHqp/I3nFZNzFkArwV
-	Ka4K2+kZMvZaIdWGTLvxSdAQQ+OpdWYiIC/l08qmgIx9ID/nHgYyO2lndm/4oiGGZY0j5f5Uf+2
-	YQSIc1VbfaMW/aYHz7pY9epgp1fMOAKo41s6nS+BrIL9390RXZrOE0aKqUqvanQi9W4o1PH7WWQ
-	RNTUWoFjS3ASTzoyogGZChV3lcoc12GpmXi70KrM=
-X-Received: by 2002:a05:6000:188b:b0:3a4:e393:11e2 with SMTP id ffacd0b85a97d-3a4f7a366bbmr2070872f8f.34.1748597628382;
-        Fri, 30 May 2025 02:33:48 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFPLwoEcfpG65ruS1QubjzGQLrQH9J6REe/EFj1LtU5rHML/KjwauHHFCNN+LVLagp2fysdSQ==
-X-Received: by 2002:a05:6000:188b:b0:3a4:e393:11e2 with SMTP id ffacd0b85a97d-3a4f7a366bbmr2070847f8f.34.1748597627996;
-        Fri, 30 May 2025 02:33:47 -0700 (PDT)
+        bh=zWtS7BX4jv3Md6oma03aZLTPAuckL46QoolFrxWb6FY=;
+        b=ZbUiioavNw2mSHLN1AbSuckywab6TGLX5/VxaWPePHKPHXXdY2pFP2g2UEk9Yfzymj
+         fadNvneBLOWas9ltiFgX1EeOKBZDRoW4kPlDLWF4xvChTdHA7BtInna8gl0BS51tULzM
+         9h48iyuUjppkyGE7s94JRc38dYj7UfoYhVzF2PoVwSxPfhQ/Ca3rOsyQ2/uSmvDbjsC9
+         QB+vmDcrQ4J5g8m2U4AGTtxB5L9gdqv+cBd2SO7UVoGuy3g0YjsLA95d5dclwuUbPBiX
+         k/x207Cbh6wXDh72tWGSJwU7mjbw+U6Ptz7ZBNBDgoIqEpYNB+BuOxXcB46JO8cn//jM
+         pCCw==
+X-Forwarded-Encrypted: i=1; AJvYcCUJeE+/Wr7fuFEC5wTuiguKBNr1chMSKFP4qMJPMvDTdBcZamPpTXp/qaCCpnyVCYcphgN2UQkssPHphA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwEsS1M3yXBKYQDo2xBkxqVOl4l9G6NS9fTdGcMdY2ZKU+qlYiB
+	EeW7LRHRVM4/YKwzx0KyxuLyGt4vSgljHslnjFe25uTIere49uem6jr9R+5WfgaDAF13K+atuKZ
+	kRXXCCbDtA/bpd0ap1fzyKPDPRLGloYtmAq9gOC78Wr9NK/Jba+mmay2AoHR4u0CCMS32VA==
+X-Gm-Gg: ASbGncvf1zRNCtI7XEbmC4QnGEXofM2ARuv1uAABjJXDKrZoMF9ZQSrbcMS7gtqK+OF
+	EgNkp2pJ/bX0SpCgu/9FIrfoJPxA61hen30UXCjYZMTjJdAdhj4k+Jh3QeDOlDm8C6nVl7of57G
+	JWLmYT4Ro1lmsgFHFucSANsDI5aAaUPtiZuLsoYooqUa4rDqVx+BV0LT99SSbJ5hjcrdvZNYjdg
+	5ghCBP78ZbhPEZWpdE/5pmUHHmPZCpd5fP92MV4YZlJnTUDYY9ZDO2Ol8z02J1bMzfrs51qYBOK
+	w70ZuuAwQVx1utKnfDfdZknzlCbdAUhCVLcSejZ/vJttLFC/xZA3QoDc3eaf+awGzL2WyHJK85D
+	bCm5ThsWfSmljIdPU33VaRQmic9S7hVJxFU14PfY=
+X-Received: by 2002:a05:6000:1ac6:b0:39f:175b:a68d with SMTP id ffacd0b85a97d-3a4f7a3e745mr1997139f8f.11.1748598172264;
+        Fri, 30 May 2025 02:42:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEE2cC4rOgIu1Bk0E4HwZEgbfvuVj5Yx/rDkAqlZuc3fKNMuN3WR3Ck+7U4WmY934x7i63eYg==
+X-Received: by 2002:a05:6000:1ac6:b0:39f:175b:a68d with SMTP id ffacd0b85a97d-3a4f7a3e745mr1997108f8f.11.1748598171812;
+        Fri, 30 May 2025 02:42:51 -0700 (PDT)
 Received: from ?IPV6:2003:d8:2f03:5b00:f549:a879:b2d3:73ee? (p200300d82f035b00f549a879b2d373ee.dip0.t-ipconnect.de. [2003:d8:2f03:5b00:f549:a879:b2d3:73ee])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4f00972d9sm4415633f8f.64.2025.05.30.02.33.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7fc24d7sm13138915e9.36.2025.05.30.02.42.50
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 30 May 2025 02:33:47 -0700 (PDT)
-Message-ID: <bbb19f59-54bc-4399-a387-1df9713fc621@redhat.com>
-Date: Fri, 30 May 2025 11:33:45 +0200
+        Fri, 30 May 2025 02:42:51 -0700 (PDT)
+Message-ID: <473e974b-39a1-4ee1-b321-58f6a74c0155@redhat.com>
+Date: Fri, 30 May 2025 11:42:49 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/12] mm: Remove PFN_MAP, PFN_SG_CHAIN and PFN_SG_LAST
+Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
 To: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
 Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
  willy@infradead.org, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
@@ -93,7 +93,7 @@ Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
  linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
  linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <cb45fa705b2eefa1228e262778e784e9b3646827.1748500293.git-series.apopple@nvidia.com>
+ <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
 From: David Hildenbrand <david@redhat.com>
 Autocrypt: addr=david@redhat.com; keydata=
  xsFNBFXLn5EBEAC+zYvAFJxCBY9Tr1xZgcESmxVNI/0ffzE/ZQOiHJl6mGkmA1R7/uUpiCjJ
@@ -140,15 +140,14 @@ Autocrypt: addr=david@redhat.com; keydata=
  jPrnvUsUUsjRoRNJjKKA/REq+sAnhkNPPZ/NNMjaZ5b8Tovi8C0tmxiCHaQYqj7G2rgnT0kt
  WNyWQQ==
 Organization: Red Hat
-In-Reply-To: <cb45fa705b2eefa1228e262778e784e9b3646827.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: u_vnsudXvVzkeGpDGVBPOlfmi0ZEFcNAQ81fgFKdHfA_1748597628
+X-Mimecast-MFC-PROC-ID: 7aZAphgqwkZDtVUVTSlj0VibjvbmNcYucFBZQnPnuJA_1748598172
 X-Mimecast-Originator: redhat.com
 Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_023351_880868_2265D644 
-X-CRM114-Status: UNSURE (   7.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250530_024256_025712_1E3423F8 
+X-CRM114-Status: GOOD (  14.88  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,17 +165,47 @@ Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 On 29.05.25 08:32, Alistair Popple wrote:
-> The PFN_MAP flag is no longer used for anything, so remove it. The
-> PFN_SG_CHAIN and PFN_SG_LAST flags never appear to have been used so
-> also remove them.
+> Previously dax pages were skipped by the pagewalk code as pud_special() or
+> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
+> refcounted normally that is no longer the case, so add explicit checks to
+> skip them.
+
+Is this really what we want, though? If these are now just "normal" 
+pages, they shall be handled as being normal.
+
+I would assume that we want to check that in the callers instead.
+
+E.g., in get_mergeable_page() we already have a folio_is_zone_device() 
+check.
+
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> Reviewed-by: Christoph Hellwig <hch@lst.de>
 > ---
+>   include/linux/memremap.h | 11 +++++++++++
+>   mm/pagewalk.c            | 12 ++++++++++--
+>   2 files changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/include/linux/memremap.h b/include/linux/memremap.h
+> index 4aa1519..54e8b57 100644
+> --- a/include/linux/memremap.h
+> +++ b/include/linux/memremap.h
+> @@ -198,6 +198,17 @@ static inline bool folio_is_fsdax(const struct folio *folio)
+>   	return is_fsdax_page(&folio->page);
+>   }
+>   
+> +static inline bool is_devdax_page(const struct page *page)
+> +{
+> +	return is_zone_device_page(page) &&
+> +		page_pgmap(page)->type == MEMORY_DEVICE_GENERIC;
+> +}
+> +
+> +static inline bool folio_is_devdax(const struct folio *folio)
+> +{
+> +	return is_devdax_page(&folio->page);
+> +}
 
-With SPECIAL mentioned as well
+Hm, nobody uses folio_is_devdax() in this patch :)
 
-Acked-by: David Hildenbrand <david@redhat.com>
 
 -- 
 Cheers,
