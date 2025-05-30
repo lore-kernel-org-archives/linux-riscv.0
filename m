@@ -4,63 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AC9FC5B552
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 08:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3587C5B549
+	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 08:25:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4blP2ZycZ2k7Xt7Nx7yk+ashhNLJe/If4LYUuWCJDi0=; b=YamSyScd0Qp6b8r5p0veJJP543
-	7WlUt16/5iYrqp9JnaG2Gy0ELNFvTmogJPQIsQGNo5BWaVo5JnjGPPfWM58dl8YwKWgg79FT1h82D
-	K5VKHNkcFBaZavFHbKraX0Naz4GCUJ5Bi2N4v5m4IreSjiZl9BJr3qQg5so5mSDGxOVRkUvzKoVCq
-	lYX7oUI3jk2aVYMym4173TBV/GvRLo+mY6Lqp49LIF/3dBzRpZk2YwCKyUuPl0w2IZpiUpqtTlG3c
-	DcVcRv6252vSPr+JlylTc4aEkNYAARbIrd7Ta9KCPngWvExBjIbf1Zh0bSNhcOH5CoCBXZ2AZMiXr
-	V4AhExdA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=2VVfWScTobc3vQMwhBp8ibd7/cooFI1OZIJt6l9qsiw=; b=V/+zBVUiy0Zd9Z
+	qm7q6KN7cNWBdT3iwO6rhmMscm/JZvxyip2W4bxlWaFEWLf5BDVg1nFFljULghJzinbslefIozkuv
+	SxBnRb4TyK5yj6onz53Jbal8GnIiKpKOM5ouVOA5XuUZxreerayR9ml/5niDpQuUxqAxSG6WZeiwG
+	iQnsFIwcQTOY96Srk8oIt+47jgs10IUb4JlY4jSh51z7TXjn93ZdJb7CbEC4EJdo1joSpD6N7zl5t
+	GNzg6+k+poDRSn0PsBkOjBjf2jJuPA+EoTKl9aAkD681zcnWiFrE3XpIBcGs6aqsxlrlum71QK8rD
+	UIvWMJAZDAichY+9vorg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuuV-0000000HZwt-327u;
-	Fri, 30 May 2025 08:16:15 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uKv2v-0000000HatP-06Kt;
+	Fri, 30 May 2025 08:24:57 +0000
+Received: from mail-oi1-f179.google.com ([209.85.167.179])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uKuVZ-0000000HVjT-0Nas
-	for linux-riscv@lists.infradead.org;
-	Fri, 30 May 2025 07:50:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 665184A15F;
-	Fri, 30 May 2025 07:50:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ADBCBC4CEE9;
-	Fri, 30 May 2025 07:50:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748591428;
-	bh=R/xRZCH14sMPQAqiO3CcAxy1OeVARVf6uPlM2WeOh40=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XtVKjHMvVjeZipMH2I69ghfgUOEMm0PtMSWpQ1BlDghOBjTmu6w5V/KDYw4wKb8fA
-	 eMm4pGiksMyCd+Bzxnkbv/TZRxD0NMPQWUDbH9V4ihh3EtbbPRtKJQiziMFSFL9vZO
-	 JjMpX7ob2hTwv1htsjnoWhFd9G3GNEWxPpuku9BnCZXP7vZbcWSsdobvKMB4CeFkOy
-	 pkZF8hOgXadFTwF1XFfdcS3oTFBXAQ1pjTpiKh+bIgSwj5Mw/tGf3HvEBqv99dm8Af
-	 YpJcPU68lNkyt9dqmwhYSP9MVZkz+E5QrbLC0NK6AEftuFamYhZlydWTUyKxCbQdNb
-	 V87xroUjne0dg==
-Date: Fri, 30 May 2025 09:50:25 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Longbin Li <looong.bin@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, linux-pwm@vger.kernel.org, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH v5 3/3] pwm: sophgo: add driver for SG2044
-Message-ID: <azf5lzfkegr6wt3mratxra2mlfah45dc3comtkjbrbdzf4x5xc@tlzxp7oqtcfl>
-References: <20250528101139.28702-1-looong.bin@gmail.com>
- <20250528101139.28702-4-looong.bin@gmail.com>
+	id 1uKura-0000000HZRZ-1Rj2;
+	Fri, 30 May 2025 08:13:15 +0000
+Received: by mail-oi1-f179.google.com with SMTP id 5614622812f47-3f8ae3ed8f4so1171859b6e.3;
+        Fri, 30 May 2025 01:13:13 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748592793; x=1749197593;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UODADZBFNNuhdOjNi7w1d1lWaPaCSwIUX58mKie6mVI=;
+        b=bt3e3W0iSfTtEB/yrf4nP0EmiIXMC90PWd1AeKMte7LyhyM6YbBzlrSUkxtCg2gS1p
+         5O0jZpaLxgc+BRas97Ie8BlX18BskPHd/Odm6oNshXHVie3/eYZFtVHZmocuiya2rsAY
+         k1LK+cvOoGAtbyZB3dBMsK3ZaqM/sdpOfX5gTcLllkJUTJdKOZXExxHWtfjXWNVQOUG6
+         3ZnvzKCrTV2mGWO6I0Cv61GpCQ8QEOf4aPyAGOZZY7PqKXzyvXmhfWcCSNLWrf6MiiLT
+         /Kiy4hYcY13Nfj4nvtH0eueb91C4L/36G1tkaJ4Hf0wsbMIO0+hO/hxYW1i64lzx7kMF
+         cmbw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/Yk2HvQvIggDh5UILdbTSQrSkmXXcIEe8/9x4ufjpsyGf+Od1oNrnv38hN3Op24T9NV6eNQAmhHE6FXX9snYL@lists.infradead.org, AJvYcCVz4ct41yjw58oxsvhr+3qNQ3JQlXMHzrXIyVlg8GY4A1afUw1RUj61qYtR63yWk0mcKaG8B96wwOV4Ah0=@lists.infradead.org, AJvYcCW4RC1i+2Sj3AVxvDHUQsg++vXdcLr+pxztUsDMYsGJ/ITxYcybVXLTyqjz3uoI+EnWeJggO8ek8Rfh3J2Xa5A=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwP3ZycOfSi3zlGqKvJtnxh0m9LAHIKGXR0XU+ficrAtAPP+Pcw
+	NHvJkfpPmbXYcd+pyl8RzuatSTpzbVBtOZ0ZDhj4GIJmyRKiN7PQOz8OhylA4Oho
+X-Gm-Gg: ASbGncuYL1fVfedevGlojRRfrP2pF/VmthZnq1AGDPmjfNsdd1dI6yKA9Hv4wfTdwDW
+	zmFPH8KQqOYXjDiwyJHPd8P2KDUiQQOWyOgxKdis/xGfOA35o4IXpNwlIbclWDUqITGUtay3aAx
+	V8DY26tUz80pe61/8Tkkg00Qo4+VdRNGhZArJ5UwO0pa5fYFuVK3IbabUTSTThYDgvzxIuPBU/1
+	/0BzWA0Ll1DocYG/m6x+N80/nHl+11ceMn7UYf7T+sBwZEJE6VlSdb4GM5dzXa+64TmyxibvG4/
+	VqnQC2U0CVvBlIAi+oJKu09WRkm2i7FuT3EUStyo5k+IxhsWbQMhH/D0lAVvHGLOdazf0V4rK6x
+	qb3eW74uSj3iQsYSSv4lO4FgvMK2O
+X-Google-Smtp-Source: AGHT+IGLrEicfQYSQPcX2fcNrvbNfh+KRnAhkN7QgH7gXLkApSnIA9v9MkD1/ZDVc5mdQ2icW9p07g==
+X-Received: by 2002:a05:6808:6b8b:b0:403:3673:65f0 with SMTP id 5614622812f47-40679733143mr1349138b6e.31.1748592792879;
+        Fri, 30 May 2025 01:13:12 -0700 (PDT)
+Received: from mail-oi1-f178.google.com (mail-oi1-f178.google.com. [209.85.167.178])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-40678c1b622sm319297b6e.11.2025.05.30.01.13.11
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 30 May 2025 01:13:12 -0700 (PDT)
+Received: by mail-oi1-f178.google.com with SMTP id 5614622812f47-3f8ae3ed8f4so1171838b6e.3;
+        Fri, 30 May 2025 01:13:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCW6kv4Y1Ptsqm/znvHpQDfa6kyYDMCcOTIajnQBBye9SZV6UlFhkpggADLxhBOw58Fi3LoJtkQaUvMK77c=@lists.infradead.org, AJvYcCWRnBO/gBPXh94Ng2fZHg5VUSqj2M+kMpowZokiC1WwlH7ZnBjhKnIMPT+OIcO3xGmuo6pIbn3eGrH494wFrXE=@lists.infradead.org, AJvYcCXvDjhvMoknEs+nvPFBJLdJVbsN+LymfYBl5SclLJqnXVeeHvS5prgsXVzaibTBUpbX+kchlvKMD607FalzsXWn@lists.infradead.org
+X-Received: by 2002:a05:6122:17aa:b0:530:677b:1e93 with SMTP id
+ 71dfb90a1353d-53080df1088mr2012964e0c.0.1748592388616; Fri, 30 May 2025
+ 01:06:28 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <20250528101139.28702-4-looong.bin@gmail.com>
+References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
+ <20250528-pinctrl-const-desc-v1-14-76fe97899945@linaro.org>
+ <CAMuHMdUGDf5n_Fg7pwiPumm95nPUXyH15geAy2ULwY3U+OtZJA@mail.gmail.com> <b6b7fb61-878e-4407-b964-564efb3524b1@linaro.org>
+In-Reply-To: <b6b7fb61-878e-4407-b964-564efb3524b1@linaro.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 30 May 2025 10:06:16 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdUHyLYk0oSN8XDNCXUvLQLe2u0k0noVJLbR+pYWDTB4+w@mail.gmail.com>
+X-Gm-Features: AX0GCFuCNZIpijI8V-LFtD11RdEuCtx09JrM6Rph_c1WT65W3SrLJtlImd30cUI
+Message-ID: <CAMuHMdUHyLYk0oSN8XDNCXUvLQLe2u0k0noVJLbR+pYWDTB4+w@mail.gmail.com>
+Subject: Re: [PATCH 14/17] pinctrl: renesas: Move fixed assignments to
+ 'pinctrl_desc' definition
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
+	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Joel Stanley <joel@jms.id.au>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Sean Wang <sean.wang@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, 
+	Lars Persson <lars.persson@axis.com>, 
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Damien Le Moal <dlemoal@kernel.org>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-aspeed@lists.ozlabs.org, 
+	openbmc@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org, 
+	linux-renesas-soc@vger.kernel.org, linux-sound@vger.kernel.org, 
+	patches@opensource.cirrus.com, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@axis.com, linux-riscv@lists.infradead.org, 
+	linux-rtc@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_005029_172559_7C3873F8 
-X-CRM114-Status: GOOD (  17.63  )
+X-CRM114-CacheID: sfid-20250530_011314_386114_8B4F929B 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,114 +116,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7964164944594617731=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
---===============7964164944594617731==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ekb2tmeniacut2mz"
-Content-Disposition: inline
+CC wsa
 
+On Wed, 28 May 2025 at 19:55, Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+> On 28/05/2025 14:54, Geert Uytterhoeven wrote:
+> >>         .pmxops = &rzn1_pmx_ops,
+> >>         .confops = &rzn1_pinconf_ops,
+> >>         .owner = THIS_MODULE,
+> >> +       .pins = rzn1_pins,
+> >> +       .npins = ARRAY_SIZE(rzn1_pins),
+> >>  };
+> >>
+> >>  static int rzn1_pinctrl_parse_groups(struct device_node *np,
+> >> @@ -878,8 +880,6 @@ static int rzn1_pinctrl_probe(struct platform_device *pdev)
+> >>
+> >>         ipctl->dev = &pdev->dev;
+> >>         rzn1_pinctrl_desc.name = dev_name(&pdev->dev);
+> >
+> > ... if you would replace this assignment by a hardcoded name
+> > like "pinctrl-rzn1".
+>
+> I saw it, but this would not be equivalent. dev_name includes platform
+> bus id, e.g. pinctrl-rzn1.0 which might matter here - conflict of names.
+> Are you sure this would work fine?
 
---ekb2tmeniacut2mz
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 3/3] pwm: sophgo: add driver for SG2044
-MIME-Version: 1.0
+There can be only one anyway.
+Most drivers used a fixed name:
 
-Hello,
+drivers/pinctrl/renesas/pinctrl-rza1.c: rza1_pctl->desc.name = DRIVER_NAME;
+drivers/pinctrl/renesas/pinctrl-rza2.c: priv->desc.name = DRIVER_NAME;
+drivers/pinctrl/renesas/pinctrl-rzg2l.c: pctrl->desc.name = DRV_NAME;
+drivers/pinctrl/renesas/pinctrl-rzn1.c: rzn1_pinctrl_desc.name =
+dev_name(&pdev->dev);
+drivers/pinctrl/renesas/pinctrl-rzt2h.c: desc->name = DRV_NAME;
+drivers/pinctrl/renesas/pinctrl-rzv2m.c: pctrl->desc.name = DRV_NAME;
+drivers/pinctrl/renesas/pinctrl.c: pmx->pctl_desc.name = DRV_NAME;
 
-On Wed, May 28, 2025 at 06:11:38PM +0800, Longbin Li wrote:
-> Add PWM controller for SG2044 on base of SG2042.
->=20
-> Signed-off-by: Longbin Li <looong.bin@gmail.com>
-> Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
-> Tested-by: Chen Wang <unicorn_wang@outlook.com>
+It might change the path in debugfs (/sys/kernel/debug/pinctrl/) though.
+Wolfram?
 
-Nitpick: Make your S-o-b line the last line. This way you document that
-it was you who added the tags for Chen Wang.
+Gr{oetje,eeting}s,
 
-> [...]
-> +static int pwm_sg2044_apply(struct pwm_chip *chip, struct pwm_device *pw=
-m,
-> +			    const struct pwm_state *state)
-> +{
-> +	struct sg2042_pwm_ddata *ddata =3D pwmchip_get_drvdata(chip);
-> +
-> +	pwm_sg2044_set_polarity(ddata, pwm, state);
-> +
-> +	pwm_sg2042_set_dutycycle(chip, pwm, state);
-> +
-> +	/*
-> +	 * re-enable PWMSTART to refresh the register period
-> +	 */
-> +	 pwm_sg2044_set_outputen(ddata, pwm, false);
+                        Geert
 
-I'm astonished that checkpatch doesn't spot the wrong indention here.
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
-> +
-> +	if (!state->enabled)
-> +		return 0;
-> +
-> +	pwm_sg2044_set_outputdir(ddata, pwm, true);
-> +	pwm_sg2044_set_outputen(ddata, pwm, true);
-> +
-> +	return 0;
-> +}
-> +
->  static const struct sg2042_chip_data sg2042_chip_data =3D {
->  	.ops =3D {
->  		.apply =3D pwm_sg2042_apply,
-> @@ -142,11 +215,22 @@ static const struct sg2042_chip_data sg2042_chip_da=
-ta =3D {
->  	}
->  };
->=20
-> +static const struct sg2042_chip_data sg2044_chip_data =3D {
-> +	.ops =3D {
-> +		.apply =3D pwm_sg2044_apply,
-> +		.get_state =3D pwm_sg2042_get_state,
-> +	}
-
-Missing , after }.
-
-If you're ok, I'll pick up this version and fixup the two code changes
-and the order of the tags in the commit log.
-
-Best regards
-Uwe
-
---ekb2tmeniacut2mz
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmg5Yz4ACgkQj4D7WH0S
-/k6d8gf9EA6hIB2KVuUHwQKu4wMvhPhW35TEI1CVTR9L04YSgFP6CudQ407fy/Aa
-IYUnsov4TI+hKOpz0/Tb05+czeAgWU6wBoi2OSBEAB3nszVZ2xQq1PcYd2l/xtHg
-ifvgWm9LWghQRH4lwb9VvHyxowfKejMZpVTeysRB6B4mcTKOUt4VFLX6mktCdHFc
-pUedFaagWDocC+OuToPxA1f9havIw9hu56PBVJUFmq3RZ9m02QBjRs2PkOTVcMJQ
-ydtu4p+MtY+s7qYAsxBqEZlrM/CCrrRFeoBmRF22OhWOOzzNOIqcJZ19BC1uowum
-YglxYBkxgm8pY8XGGJkIkAVa3rktDw==
-=oO4S
------END PGP SIGNATURE-----
-
---ekb2tmeniacut2mz--
-
-
---===============7964164944594617731==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============7964164944594617731==--
-
