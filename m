@@ -4,74 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A37BAC5AD49
-	for <linux-riscv@archiver.kernel.org>; Fri, 30 May 2025 21:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 897E7C5AD49
+	for <linux-riscv@archiver.kernel.org>; Sat, 31 May 2025 01:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:Message-ID:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=1LT4zTQRYwfqmvLEekQgYiKXf8kQHUrnTlbx4jspaa8=; b=XDBesH9mych1Jv
-	DAnh/2NM4/k9NBiSb8XEq3U/CKwJZUxLSAdPEns9UGRfYxXGg1PoTLaLPVUh6hWfYM4KM41vAmyfJ
-	tm1vvS89RTBWIxtVqXGvsJVcf+DaZtCjCIBRIlYaSGSSznU6+NprkDbRw9xgDgKgW+IiV0SG3Rvbe
-	EUUpQEMYAkj/9bJ5p1L9aTYwyRiQljcry/uMURy6Qia5G8gke2LD3xbCsBQbbs9CxO8mUaVZNVeqi
-	Zc0zISOnjx9ppKwezidA6EfggZKykb4ZhvXRUmUVwGq9LLH6AIqoZRjs+FWQHqyoFXGG+dvZXztku
-	Zx0bXCahyZt47dKBX5Ig==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=8gpe/DmQXJKM8dnhQuUwY9r687EXnnjbcbupTceIJTg=; b=TYyha3hDTdoGRB
+	wTyLjfWH3IPv952NmO0cAfMlB6sPILafIDMf/0kCBUyGUZxl4TnQv8isKz46P+yKAjQnX9pOAzW3W
+	ZUY51OVXBxUSOEH2Xz05a/L1BNYDEgkUHOM0PLAKG6R7G0N8r1UTo8UB/7k8EbEOG7420TLxX2R2w
+	dpvkYhD24rnt8omawRplhZ5HJTNRx7+uirFWcdxZBJnRB4Pc2ca3JGt1AmEI8wxD55B1GpuuFH+R7
+	7WGmEdd5nPhGL9vgTQj86CKWuvdVvpPVDk3x+5gJan4vmC364m/S6qO7V/z6VO0Va7YIo7NYnjXg+
+	vHW2g9aDNiHk2YSAhngA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7T2-00000001xPF-3YZm;
-	Fri, 30 May 2025 21:40:44 +0000
-Received: from h8.fbrelay.privateemail.com ([162.0.218.231])
+	id 1uLB7s-00000002viN-3Z3D;
+	Sat, 31 May 2025 01:35:08 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uL7Sz-00000001xOL-20IE
+	id 1uLB7p-00000002vhc-3nVN
 	for linux-riscv@lists.infradead.org;
-	Fri, 30 May 2025 21:40:43 +0000
-Received: from MTA-13-4.privateemail.com (mta-13-1.privateemail.com [198.54.122.107])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits))
-	(No client certificate requested)
-	by h7.fbrelay.privateemail.com (Postfix) with ESMTPSA id 4b8Gqr4xLZz2xhH
-	for <linux-riscv@lists.infradead.org>; Fri, 30 May 2025 17:40:24 -0400 (EDT)
-Received: from mta-13.privateemail.com (localhost [127.0.0.1])
-	by mta-13.privateemail.com (Postfix) with ESMTP id 4b8Gqm0p6Zz3hhV5;
-	Fri, 30 May 2025 17:40:20 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mebeim.net; s=default;
-	t=1748641220; bh=7lb1FFg18GTRLJVBweMVfm5eQwotwrlkGXDCWnnD0l4=;
-	h=Date:From:To:Cc:Subject:From;
-	b=OOCw6xSmO9LD6CwNjWss9stCFFhVivb54UCb6MWHCYpUQ+gUT0b9tPBz5rahJl+Z6
-	 VE5cCUvzjfdY78TsjPd/1gW0zOqFUPREWNxAnBbq9CCCPx6r8R1+O9sVOHlDg5e+33
-	 MuXPSAuJxVtsrtF/J1s7cnyul8Bq4pB+o4gtSPi2f7iMcJkGTSLFXHBwj2lFtD35fs
-	 aBN4WSY3TBOorS3kY/esLy9KSJ0z7iGSnBKbdsyGVJAFhI/6pjLuOAMuRP+kblWXxW
-	 S4QcEmF0hh9nFZNzzVwQUUZH0gQ8/Q+NV/sIus3Y4x/CmbJ5kruRhiTJNpOE+BaKkr
-	 PiEzRODJCSnGg==
-Received: from APP-18 (unknown [10.50.14.242])
-	by mta-13.privateemail.com (Postfix) with ESMTPA;
-	Fri, 30 May 2025 17:40:10 -0400 (EDT)
-Date: Fri, 30 May 2025 23:40:10 +0200 (CEST)
-From: Marco Bonelli <marco@mebeim.net>
-To: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "terrelln@fb.com" <terrelln@fb.com>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"mhiramat@kernel.org" <mhiramat@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Message-ID: <960240908.630790.1748641210849@privateemail.com>
-Subject: Broken 32-bit riscv debug build with ZSTD and FTRACE
+	Sat, 31 May 2025 01:35:07 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6fab467aacdso26156566d6.2
+        for <linux-riscv@lists.infradead.org>; Fri, 30 May 2025 18:35:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1748655304; x=1749260104; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=TEpkKf/rbRGMaCZnUiCqTPwyLbk3NZOTi/tOjvkQknU=;
+        b=ReClnoiXTXVsqCDLmS5xgTmGvyQMYj8D6wVTMJczCFDfon4basTOH+XxpZGZThgHl2
+         AEUbw15tQ4kwJqK4/dSjFXM8LM5yWkxLCTcsnK97Cr0pVy58/EVlHqv8kdpBLV1Pbl5y
+         NC4riFI/QH3x/WAyH+Z8xj27eXlShE2Md28ci3J8/Pk3TevYFV/tGOO/Am3qXFv01F9K
+         xNJHKVOVh9alxCOw8+z6egRk6Qz1CTIjPkZszCXmdwQ9UBFSxPrgARoR+GuTu9x9uMO/
+         pmZIv0vuddonGbFRbsbYicfAu8d4zk6LMfS6XSdxDUbpi2GS7/w0vX1dX0MCiAT40sb+
+         R5KA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748655304; x=1749260104;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=TEpkKf/rbRGMaCZnUiCqTPwyLbk3NZOTi/tOjvkQknU=;
+        b=ZmW38pmYQyVvz+2EiL85C4ErHUX1V3R3Clxkyfvo/kXVGQwkGr2dDO9+Iqwz/EHWfA
+         QOuGZdMD4aV9icD3Ls9K88Kp9WJyWAGJfD151sLAO3c/1JkSEUpVXCKThB4tS0WqhEZr
+         3tGiQWcNIg6lQnNyBgUaOMcacjDGHOgd0h1VBlQJAZaYFDQ+J1AL5qB3KVlPOOI0ie8I
+         vtbQ2GysvN5I4BUFaQC1BAavVQVTBQXydJXr/+5obLczKoElKw5dXeB0swYwu8EazGOc
+         mLmeot1ZW+mLEW1emghFP6yzZZZoEvO3NXDFcmVi5KNlVdeYrWBhklMNED0Bd4ZFc4xX
+         PezA==
+X-Forwarded-Encrypted: i=1; AJvYcCVyByUk73R+8F6VcyqBU6HtSKRriIxXG89nZ4jDsLMtULLRHZJT1aX3yY9Kb15z+0A6+qPFb8YwObuSFA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo6Zg6TSGPsAgTCfd20wlAvwZarNrUMZCcWcXm9JbrLgrhMCyj
+	UIK/TykACZ19oQZxrHLkkaVl7ldVBS8wpKa1oOqwoZWIK3qjkZV+WHYh
+X-Gm-Gg: ASbGncu/buTUzMop3I5KsRA5QfX+yUEqcDKslsjANZhE7Qt7EX6rhJB5mJ07aG2nnTn
+	da9pLmkDEO8n96uscGK+IH6gjYfv01d4tx8FeDzglicfQKCegw9yP6SAXaIrwPImQd5U055ELoQ
+	vIOL3bEBxHVaWFYEzE9lbsfiRdC2Dn9paJI2qNXFmcUqtPsLfuptKJpEmLLeDC3sUZAKDDcgGQp
+	bjHNxce2HZd9iXr3VOz5I6G1vrZ8QPepG6qvAf6e70Ry7d/dhtArRvbHV8iQpv2B/NLCu3uMQf7
+	u8BGNsi3I1rydFzp9I0RTxKgDh36bHOr2N67pg==
+X-Google-Smtp-Source: AGHT+IFzbQoEp2+Ph+a2o8b88ePR2Du44O7ta02t6SISNBZax8aMd+4dqDWmuWAErYq9CBhmxc893Q==
+X-Received: by 2002:a05:6214:d02:b0:6fa:c5be:dac7 with SMTP id 6a1803df08f44-6facebcf4bdmr111200496d6.18.1748655304161;
+        Fri, 30 May 2025 18:35:04 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d09a1a793esm324888785a.111.2025.05.30.18.35.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 30 May 2025 18:35:03 -0700 (PDT)
+Date: Sat, 31 May 2025 09:34:10 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Chen Wang <unicorn_wang@outlook.com>, Han Gao <rabenda.cn@gmail.com>
+Cc: devicetree@vger.kernel.org, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Inochi Amaoto <inochiama@gmail.com>, linux-riscv@lists.infradead.org, sophgo@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] riscv: dts: sophgo: add zfh for sg2042
+Message-ID: <4vuneynwhmsyokkuw3wlabxij6kobl6j7bbbcymlcmsdc2hhb7@u5mhb7je74km>
+References: <cover.1747235487.git.rabenda.cn@gmail.com>
+ <104dde6002c268a39fab6fcf469adc26d49ba364.1747235487.git.rabenda.cn@gmail.com>
+ <MA0P287MB226290B908D3209E5C890BFAFE90A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
+ <CAAT7Ki-33DcA7xeBzzv1hm0wR_ebcVdux5fQxGVrLs45RbGM9A@mail.gmail.com>
+ <MA0P287MB226265FFA15A808221629848FE64A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
 MIME-Version: 1.0
-X-Priority: 3
-Importance: Normal
-X-Mailer: Open-Xchange Mailer v7.10.6-Rev75
-X-Originating-Client: open-xchange-appsuite
-X-Virus-Scanned: ClamAV using ClamSMTP
+Content-Disposition: inline
+In-Reply-To: <MA0P287MB226265FFA15A808221629848FE64A@MA0P287MB2262.INDP287.PROD.OUTLOOK.COM>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250530_144041_825688_F6DAD610 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250530_183505_952600_46183618 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,117 +101,45 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I am building v6.15 for 32-bit riscv and I have noticed that modpost fails with
-a ton of errors and warnings (tens of thousands). I am on a Debian 12 x86-64
-host using the riscv32-linux-gcc from mirrors.edge.kernel.org [1]. I can
-reproduce with different GCC versions (I tested with 10.1.0, 14.2.0, 15.1.0).
-For whatever reason though, only when targeting riscv 32-bit.
-
-Steps to reproduce:
-
-    export ARCH=riscv CROSS_COMPILE=riscv32-linux-
-    make distclean
-    make defconfig
-    make 32-bit.config
-    ./scripts/config \
-        -e DEBUG_KERNEL \
-        -e DEBUG_INFO \
-        -e DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
-        -d DEBUG_INFO_NONE \
-        -d DEBUG_INFO_REDUCED
-    make olddefconfig
-    make -j vmlinux
-
-Build output:
-
-    ...
-    MODPOST vmlinux.symvers
-    WARNING: modpost: vmlinux: section mismatch in reference: tcp_write_timer_handler+0xa4 (section: .text) -> register_kernel_offset_dumper (section: .init.text)
-    ...
-    ERROR: modpost: vmlinux: local symbol 'find_get_pid' was exported
-    ...
-    ERROR: modpost: __ex_table+0x17e8 references non-executable section '.debug_str'
-    ...
-    make[2]: *** [scripts/Makefile.modpost:147: vmlinux.symvers] Error 1
-    make[1]: *** [/mnt/m2data/linux/Makefile:1958: modpost] Error 2
-    make: *** [Makefile:248: __sub-make] Error 2
-
-There are thousands of warnings/errors like the three above, complaining
-about "section mismatch in reference", "local symbol xxx was exported" and
-"references non-executable section".
-
-I did a bisect run on torvalds/linux and narrowed it down to:
-
-    e61f33273ca755b3e2ebee4520a76097199dc7a8 Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
-
-I was also able to reproduce on next/linux-next tag next-20250530. 
-Looking at the merge from github.com/terrelln/linux it seems to be a single
-commit [2].
-
-Through trial and error I noticed that the build only seems to fail when
-*all* the following conditions are met:
-
-1. Building for 32-bit riscv (ARCH=riscv + defconfig + 32-bit.config)
-2. FTRACE=y
-3. ZSTD_COMPRESS=y
-4. Debug info enabled
-
-With ZSTD_COMPRESS=m (selecting SECURITY_APPARMOR_EXPORT_BINARY=n) or
-ZSTD_COMPRESS=n (selecting also BTRFS_FS=n), modpost goes through fine.
-With FTRACE=n or disabling debug info modpost also goes through fine.
-
-So it seems to be a combination of factors, but I am unsure how exactly
-these things can interact/interfere with each other. Any clue?
-
-Full bisect run log:
-
-    # bad: [0ff41df1cb268fc69e703a08a57ee14ae967d0ca] Linux 6.15
-    # good: [38fec10eb60d687e30c8c6b5420d86e8149f7557] Linux 6.14
-    git bisect start 'v6.15' 'v6.14'
-    # bad: [390513642ee6763c7ada07f0a1470474986e6c1c] io_uring: always do atomic put from iowq
-    git bisect bad 390513642ee6763c7ada07f0a1470474986e6c1c
-    # good: [9b960d8cd6f712cb2c03e2bdd4d5ca058238037f] Merge tag 'for-6.15/block-20250322' of git://git.kernel.dk/linux
-    git bisect good 9b960d8cd6f712cb2c03e2bdd4d5ca058238037f
-    # good: [023b1e9d265ca0662111a9df23d22b4632717a8a] Merge git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net
-    git bisect good 023b1e9d265ca0662111a9df23d22b4632717a8a
-    # bad: [3a90a72aca0a98125f0c7350ffb7cc63665f8047] Merge tag 'asm-generic-6.15-2' of git://git.kernel.org/pub/scm/linux/kernel/git/arnd/asm-generic
-    git bisect bad 3a90a72aca0a98125f0c7350ffb7cc63665f8047
-    # good: [3ef47a0436219359a0838d74bb353caa6aad3fc0] Merge tag 'at91-dt-6.15' of https://git.kernel.org/pub/scm/linux/kernel/git/at91/linux into soc/dt
-    git bisect good 3ef47a0436219359a0838d74bb353caa6aad3fc0
-    # bad: [1a9239bb4253f9076b5b4b2a1a4e8d7defd77a95] Merge tag 'net-next-6.15' of git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next
-    git bisect bad 1a9239bb4253f9076b5b4b2a1a4e8d7defd77a95
-    # good: [ffd6c179286daf31ea0d6413228bbc2a3c7ee1de] Merge patch series "scsi: ufs: renesas: Add support for R-Car S4-8 ES1.2"
-    git bisect good ffd6c179286daf31ea0d6413228bbc2a3c7ee1de
-    # good: [22df63a23a9e53d06ff2c67f863e9ce1640b73cb] Merge branches 'apple/dart', 'arm/smmu/updates', 'arm/smmu/bindings', 'rockchip', 's390', 'core', 'intel/vt-d' and 'amd/amd-vi' into next
-    git bisect good 22df63a23a9e53d06ff2c67f863e9ce1640b73cb
-    # good: [29fa7d7934216e0a93102a930ef28e2a6ae852b1] selftests/sysctl: fix wording of help messages
-    git bisect good 29fa7d7934216e0a93102a930ef28e2a6ae852b1
-    # good: [22093997ac9220d3c606313efbf4ce564962d095] Merge tag 'ata-6.15-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/libata/linux
-    git bisect good 22093997ac9220d3c606313efbf4ce564962d095
-    # good: [a018d1cf990d0c339fe0e29b762ea5dc10567d67] scsi: st: Fix array overflow in st_setup()
-    git bisect good a018d1cf990d0c339fe0e29b762ea5dc10567d67
-    # good: [336b4dae6dfecc9aa53a3a68c71b9c1c1d466388] Merge tag 'iommu-updates-v6.15' of git://git.kernel.org/pub/scm/linux/kernel/git/iommu/linux
-    git bisect good 336b4dae6dfecc9aa53a3a68c71b9c1c1d466388
-    # good: [65d1f5507ed2c78c64fce40e44e5574a9419eb09] zstd: Import upstream v1.5.7
-    git bisect good 65d1f5507ed2c78c64fce40e44e5574a9419eb09
-    # bad: [e61f33273ca755b3e2ebee4520a76097199dc7a8] Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
-    git bisect bad e61f33273ca755b3e2ebee4520a76097199dc7a8
-    # good: [592329e5e94e26080f4815c6cc6cd0f487a91064] Merge tag 'sysctl-6.15-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/sysctl/sysctl
-    git bisect good 592329e5e94e26080f4815c6cc6cd0f487a91064
-    # first bad commit: [e61f33273ca755b3e2ebee4520a76097199dc7a8] Merge tag 'zstd-linus-v6.15-rc1' of https://github.com/terrelln/linux
-
-[1]: https://mirrors.edge.kernel.org/pub/tools/crosstool/files/bin/x86_64/14.2.0/
-[2]: https://github.com/terrelln/linux/commit/65d1f5507ed2c78c64fce40e44e5574a9419eb09
-
---
-Marco Bonelli
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBNYXkgMjcsIDIwMjUgYXQgMDY6MjI6MDVQTSArMDgwMCwgQ2hlbiBXYW5nIHdyb3Rl
+Ogo+IAo+IE9uIDIwMjUvNS8yNyAxNzozNCwgSGFuIEdhbyB3cm90ZToKPiA+IE9uIFRodSwgTWF5
+IDE1LCAyMDI1IGF0IDk6MzPigK9BTSBDaGVuIFdhbmcgPHVuaWNvcm5fd2FuZ0BvdXRsb29rLmNv
+bT4gd3JvdGU6Cj4gPiA+IAo+ID4gPiBPbiAyMDI1LzUvMTQgMjM6MTUsIEhhbiBHYW8gd3JvdGU6
+Cj4gPiA+ID4gc2cyMDQyIHN1cHBvcnQgWmZoIElTQSBleHRlbnNpb24gWzFdLgo+ID4gPiA+IAo+
+ID4gPiA+IExpbms6IGh0dHBzOi8vb2NjLW9zcy1wcm9kLm9zcy1jbi1oYW5nemhvdS5hbGl5dW5j
+cy5jb20vcmVzb3VyY2UvLzE3Mzc3MjE4Njk0NzIvJUU3JThFJTg0JUU5JTkzJTgxQzkxMCVFNCVC
+OCU4RUM5MjBSMVM2JUU3JTk0JUE4JUU2JTg4JUI3JUU2JTg5JThCJUU1JTg2JThDJTI4eHJ2bSUy
+OV8yMDI1MDEyNC5wZGYgWzFdCj4gPiA+ID4gCj4gPiA+ID4gU2lnbmVkLW9mZi1ieTogSGFuIEdh
+byA8cmFiZW5kYS5jbkBnbWFpbC5jb20+Cj4gPiA+ID4gLS0tCj4gPiA+ID4gICAgYXJjaC9yaXNj
+di9ib290L2R0cy9zb3BoZ28vc2cyMDQyLWNwdXMuZHRzaSB8IDI1NiArKysrKysrKysrLS0tLS0t
+LS0tLQo+ID4gPiA+ICAgIDEgZmlsZSBjaGFuZ2VkLCAxMjggaW5zZXJ0aW9ucygrKSwgMTI4IGRl
+bGV0aW9ucygtKQo+ID4gPiA+IAo+ID4gPiA+IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2Jvb3Qv
+ZHRzL3NvcGhnby9zZzIwNDItY3B1cy5kdHNpIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28v
+c2cyMDQyLWNwdXMuZHRzaQo+ID4gPiA+IGluZGV4IGY0ODNmNjJhYjBjNC4uOGRkMWEzYzYwYmM0
+IDEwMDY0NAo+ID4gPiA+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc29waGdvL3NnMjA0Mi1j
+cHVzLmR0c2kKPiA+ID4gPiArKysgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9zZzIwNDIt
+Y3B1cy5kdHNpCj4gPiA+ID4gQEAgLTI1NiwxMSArMjU2LDExIEBAIGNvcmUzIHsKPiA+ID4gPiAg
+ICAgICAgICAgICAgICBjcHUwOiBjcHVAMCB7Cj4gPiA+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICBjb21wYXRpYmxlID0gInRoZWFkLGM5MjAiLCAicmlzY3YiOwo+ID4gPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgZGV2aWNlX3R5cGUgPSAiY3B1IjsKPiA+ID4gPiAtICAgICAgICAgICAgICAg
+ICAgICAgcmlzY3YsaXNhID0gInJ2NjRpbWFmZGMiOwo+ID4gPiA+ICsgICAgICAgICAgICAgICAg
+ICAgICByaXNjdixpc2EgPSAicnY2NGltYWZkY196ZmgiOwo+ID4gPiBOZWVkIG5vdCB0b3VjaCB0
+aGlzLiAicmlzY3YsaXNhIiBpcyBkZXByZWNhdGVkIGFuZCByZXBsYWNlZCBieQo+ID4gPiAicmlz
+Y3YsaXNhLWJhc2UiICYgInJpc2N2LGlzYS1leHRlbnNpb25zIi4KPiA+ID4gCj4gPiA+IEFuZCBv
+bmx5IGFkZGluZyB6ZmggZm9yIHRoaXMgbG9va3MgYSBiaXQgd2VyaWQuCj4gPiA+IAo+ID4gPiBB
+Y3R1YWxseSwgSSBwbGFuIHRvIHJlbW92ZSAicmlzY3YsaXNhIiBsYXRlciwgc28gcGxlYXNlIGRv
+bid0IHRvdWNoIHRoaXMKPiA+ID4gZnJvbSBub3cgb24uCj4gPiBJIHRoaW5rIHRoYXQgc2luY2Ug
+dGhlIGxpbnV4IGtlcm5lbCBpcyB0aGUgdXBzdHJlYW0gZm9yIGRldmljZXRyZWUsIGl0Cj4gPiBj
+YW5ub3QgeWV0IHJlbW92ZSByaXNjdiwgaXNhIG5lZWRzIHRvIG1haW50YWluIGNvbXBhdGliaWxp
+dHkuCj4gCj4gT0ssIG1heWJlIGl0J3Mgbm90IGdvb2QgdG8gcmVtb3ZlICJyaXNjdixpc2EiLgo+
+IAo+IENhbiB0aGlzIHBhdGNoIG5vdCBtb2RpZnkgInJpc2N2LGlzYSIsIGJ1dCBvbmx5IGFkZCBz
+b21ldGhpbmcgZm9yCj4gInJpc2N2LGlzYS1leHRlbnNpb25zIj8KPiAKCkkgY2FuIHJlbW92ZSB0
+aGlzIHdoaWxlIG1lcmdpbmcgdGhlIHBhdGNoLCBpcyBpdCBPSyBmb3IgeW91PwoKUmVnYXJkcywK
+SW5vY2hpCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwps
+aW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpo
+dHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
