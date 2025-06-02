@@ -4,91 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 366A6C5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 20:12:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2982C5AD49
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 20:29:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CnT2HP3TwYBNK43cinjtl6jT7Z4sfWXr63SlzM++7ZQ=; b=zKNC/aQpMuBRZN
-	LGEs0VYsUeSwURyr3qvukH6K7fcdDFYVoUvEsjoL1BP2q2LjrbSKZj3QAlYe51nTfU6c5chSWTNSh
-	Qm9dX6vbyW7ohJxwb/12+KxePcDfc5mxPdiRmkECEdKmSq5H6PZHLyR8XvDsYv9LytDZrUkehlLT6
-	KHVDmCI7s9Y5KSt6WqeUjYSFBQ9zwp1u4j7/bx5VGyD7nvzpyiPRRH85HthwHRtK9GD9iW+2aBf7P
-	Gt1QqEeCOAIbpsnLp8j58+0A0UXNeHWXWB+yo+CWg3Kavelr0O2hQbkTM/avRFDOnaArbDMhB8cj4
-	8SGDb3+ukXfHvCVL8iAw==;
+	List-Owner; bh=Gc8TAbaMRIT/n1IfD4L+lQ6tNYtLQ8VsPt6Q29BKTQw=; b=CTzKxOFv3iKVID
+	2qLTmdEPn9Xz7wafprLAQt6cLU9slEPRHO5oTZ4/FQuCk50hcX2vNg1/GaJhrkLYFJbV/mnnzE2xg
+	BNr1Rl1KzAzJ0nzA4FuDkpH0C4e+7M7QcWGETxxl8cq6hwPUGdRxWS13f8Q1paPb/5VOzkm9XgNan
+	MeNmUe/GtdBj2OzNs71VMi/MXA9VMlhSAQoooXRatzcxvIcphU2CkG847bNS/9F7IOAc+zTwI7tSq
+	H+KlyjQWAuK7zKJ9CeKER8gdDoSEVIrbp/m2loudQmKRefYTmI1xvAjAOleCbO3re8Gc7ECAN92FN
+	MQqADp0RYEnrRurPcGmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMBVy-00000008gyu-02Zs;
-	Mon, 02 Jun 2025 20:12:10 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1uMBmg-00000008kiX-1CuE;
+	Mon, 02 Jun 2025 20:29:26 +0000
+Received: from mailout2.w1.samsung.com ([210.118.77.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMB5D-00000008Zhr-2Xhg
+	id 1uMBmb-00000008kdm-3sig
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 19:44:32 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2352400344aso33296555ad.2
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Jun 2025 12:44:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748893471; x=1749498271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Zur8vnBL/aIBIBT0v6Ls3k2PGwSe6i2tzuRUsrSMGvQ=;
-        b=GzIUYh03rE+vZpJIFoQOo+mrc7MFvqW+g6updh976+5rB/ihF+smWiDqXLMwANsJxO
-         Bei+B1NPizujT+wLwPBEhN/oHeMlQ9/RYAC9gQymVs6qAwZqv+Ouy6SMu4uRnHViqvZy
-         BsFpDFaw1QiGKA7upJuu87miQIAuywJGagdH7Lb3G1QGJzWzLqRJ5g7n51xl9MDzhlws
-         TA6sNYJP0BbFBT7Hw1Wct1qsS3yEBlqHb/FnuEoBOH2ROYCbNN9LFqiVeBSvzAjC6/Gd
-         zgVgCRJOGKhP5EzOBwL1XiLvQGeE5Yl+yaNrLwsHAdM9mNi+GnUEND8k0BJmNFSel5/8
-         LSJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748893471; x=1749498271;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Zur8vnBL/aIBIBT0v6Ls3k2PGwSe6i2tzuRUsrSMGvQ=;
-        b=h+nxogIvs1XDdQGy33EKoLyybolEqnvVvUHRkTPlyFAPam1kQ7Dq//+6q10M2WT5lH
-         7fs0fPtd1O0ATz3bx6UXsCdMbJzknYKCMOhiT+LF4FsH1Y65ZVDxjoVNZy8caFeQYmwq
-         cx1YCtWFHD0wAtUmoHmSXkrVkwcM54KFj/ozWMS/HHAaXlRQfIi6D8R3wgXC0MNA979E
-         IqYOcMxMUNrlFFl1X+rTMhDw0KM3UNTzQZGMLQjswPfd+cl4l3NroFRLMf0UNf+zkP3G
-         7icZx1t6TrJ3D2hpQFebFv6Qp+vAUzc9mdYSKNvxBWvImGW2J5u8UAZZNsNEAieysWIb
-         CiwA==
-X-Gm-Message-State: AOJu0YzHaBDdRfmOK8Ietz9cZRG4iqYD/DAO28k1Vsw41OQaDzezQxmX
-	Q+M2FLYb08DV9ws2AtPCnpEMnhKJ8wwON5K+7AUFG4/pNhgM8Dc2f0gSKmZNiPIID8EkEejXvIA
-	/RLCuDwk=
-X-Gm-Gg: ASbGncuntGop6Du/TxxYl8hLYlpSKK/bb5yxPSIXTtAc9h0Zg4B/WbqD4Kxg+JHXtTE
-	pkrrOiQ+Usam4u6a9JJSXT4UELitCEUBILd/PfWOBPliJAMdFRk1ASGzBFOFyLGdRWbMBCn+xAk
-	C02NuRBiOnTjpXIeKPogK5CQPp4hDgtlcQLNQJeql1MixPL/DIc5ZK8OuOHmfJz52+ar5hDz4WK
-	cIhNBClImJgAbki6MCuFcZIxzytI0cofziPIp2jrWIbW9w3aQtViLiWOiqv59GjQrOIHUeOTGJz
-	sHU9eMhS/OeltMKwEw6ZxZFDnBprZyrOCYwvA/uefBGtJGbej+3/
-X-Google-Smtp-Source: AGHT+IGGiWE+FvM3qtu3me1rB36Kwx5uGw0pOGBY7v2J71v6g26D+49dy3A/NTvFDvJEI5GYayYmlg==
-X-Received: by 2002:a17:902:ea08:b0:234:a063:e2ac with SMTP id d9443c01a7336-23528fedd7bmr219553865ad.2.1748893470551;
-        Mon, 02 Jun 2025 12:44:30 -0700 (PDT)
-Received: from carbon-x1.. ([2a01:e0a:e17:9700:16d2:7456:6634:9626])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506bd974asm74589615ad.97.2025.06.02.12.44.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Jun 2025 12:44:29 -0700 (PDT)
-From: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>
-To: linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <cleger@rivosinc.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	"Maciej W . Rozycki" <macro@orcam.me.uk>,
-	David Laight <david.laight.linux@gmail.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2 1/3] riscv: make unsafe user copy routines use existing assembly routines
-Date: Mon,  2 Jun 2025 21:39:14 +0200
-Message-ID: <20250602193918.868962-2-cleger@rivosinc.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250602193918.868962-1-cleger@rivosinc.com>
-References: <20250602193918.868962-1-cleger@rivosinc.com>
+	Mon, 02 Jun 2025 20:29:24 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250602202916euoutp02510878dd2d396bc6d5d3fdc9e49472a5~FU8m6yAT22034020340euoutp02A
+	for <linux-riscv@lists.infradead.org>; Mon,  2 Jun 2025 20:29:16 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250602202916euoutp02510878dd2d396bc6d5d3fdc9e49472a5~FU8m6yAT22034020340euoutp02A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1748896156;
+	bh=LuhVx3O/KQGQRsU4OiisGNAVlHn1IT4eSr0XOaKuRxg=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=dQWGK9I5Kymf2Oxbg083v5CScrK9gSjZ6LDDnbqgKc+GEtquZvl0xvNiffNHXllue
+	 J9ElVWxIBMYAp1IQkKn25cNMD39Txt060JVHBkQP3HXc0bNWvfKFM5PcBcVYZo7077
+	 8jSf9m0ScDbDtmphg4onBnUWGf+6HRAfxuyr6avA=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250602202914eucas1p1246d0c3c93222b9f80224b994573a31b~FU8lmjGhp1197511975eucas1p1Z;
+	Mon,  2 Jun 2025 20:29:14 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250602202913eusmtip29f78e7b1758034d46ee105342391380b~FU8kkyi-L0590905909eusmtip2D;
+	Mon,  2 Jun 2025 20:29:13 +0000 (GMT)
+Message-ID: <4519844e-b1c0-40a7-b856-a6e4a80c6334@samsung.com>
+Date: Mon, 2 Jun 2025 22:29:13 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/8] dt-bindings: power: Add T-HEAD TH1520 GPU power
+ sequencer
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Philipp Zabel
+	<p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, Matt Coster
+	<matt.coster@imgtec.com>, Maarten Lankhorst
+	<maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>, Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>, Marek
+	Szyprowski <m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <CAMRc=Me9cWfe2mL=Q6JQbAFjpd55MOBZuAWC793Us0criiQr4Q@mail.gmail.com>
+X-CMS-MailID: 20250602202914eucas1p1246d0c3c93222b9f80224b994573a31b
+X-Msg-Generator: CA
+X-RootMTR: 20250529222403eucas1p1923fe09240be34e3bbadf16822574d75
+X-EPHeader: CA
+X-CMS-RootMailID: 20250529222403eucas1p1923fe09240be34e3bbadf16822574d75
+References: <CGME20250529222403eucas1p1923fe09240be34e3bbadf16822574d75@eucas1p1.samsung.com>
+	<20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+	<20250530-apr_14_for_sending-v3-1-83d5744d997c@samsung.com>
+	<CAMRc=Me9cWfe2mL=Q6JQbAFjpd55MOBZuAWC793Us0criiQr4Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_124431_650879_73932002 
-X-CRM114-Status: GOOD (  15.61  )
+X-CRM114-CacheID: sfid-20250602_132922_541493_14C4C736 
+X-CRM114-Status: GOOD (  22.87  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,245 +92,82 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-
-The current implementation is underperforming and in addition, it
-triggers misaligned access traps on platforms which do not handle
-misaligned accesses in hardware.
-
-Use the existing assembly routines to solve both problems at once.
-
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
- arch/riscv/include/asm/asm-prototypes.h |  2 +-
- arch/riscv/include/asm/uaccess.h        | 33 ++++------------
- arch/riscv/lib/riscv_v_helpers.c        | 11 ++++--
- arch/riscv/lib/uaccess.S                | 50 +++++++++++++++++--------
- arch/riscv/lib/uaccess_vector.S         | 15 ++++++--
- 5 files changed, 63 insertions(+), 48 deletions(-)
-
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index cd627ec289f1..5d10edde6d17 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -12,7 +12,7 @@ long long __ashlti3(long long a, int b);
- #ifdef CONFIG_RISCV_ISA_V
- 
- #ifdef CONFIG_MMU
--asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n);
-+asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n, bool enable_sum);
- #endif /* CONFIG_MMU  */
- 
- void xor_regs_2_(unsigned long bytes, unsigned long *__restrict p1,
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index 87d01168f80a..046de7ced09c 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -450,35 +450,18 @@ static inline void user_access_restore(unsigned long enabled) { }
- 	(x) = (__force __typeof__(*(ptr)))__gu_val;			\
- } while (0)
- 
--#define unsafe_copy_loop(dst, src, len, type, op, label)		\
--	while (len >= sizeof(type)) {					\
--		op(*(type *)(src), (type __user *)(dst), label);	\
--		dst += sizeof(type);					\
--		src += sizeof(type);					\
--		len -= sizeof(type);					\
--	}
-+unsigned long __must_check __asm_copy_to_user_sum_enabled(void __user *to,
-+	const void *from, unsigned long n);
-+unsigned long __must_check __asm_copy_from_user_sum_enabled(void *to,
-+	const void __user *from, unsigned long n);
- 
- #define unsafe_copy_to_user(_dst, _src, _len, label)			\
--do {									\
--	char __user *__ucu_dst = (_dst);				\
--	const char *__ucu_src = (_src);					\
--	size_t __ucu_len = (_len);					\
--	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u64, unsafe_put_user, label);	\
--	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u32, unsafe_put_user, label);	\
--	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u16, unsafe_put_user, label);	\
--	unsafe_copy_loop(__ucu_dst, __ucu_src, __ucu_len, u8, unsafe_put_user, label);	\
--} while (0)
-+	if (__asm_copy_to_user_sum_enabled(_dst, _src, _len))		\
-+		goto label;
- 
- #define unsafe_copy_from_user(_dst, _src, _len, label)			\
--do {									\
--	char *__ucu_dst = (_dst);					\
--	const char __user *__ucu_src = (_src);				\
--	size_t __ucu_len = (_len);					\
--	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u64, unsafe_get_user, label);	\
--	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u32, unsafe_get_user, label);	\
--	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u16, unsafe_get_user, label);	\
--	unsafe_copy_loop(__ucu_src, __ucu_dst, __ucu_len, u8, unsafe_get_user, label);	\
--} while (0)
-+	if (__asm_copy_from_user_sum_enabled(_dst, _src, _len))		\
-+		goto label;
- 
- #else /* CONFIG_MMU */
- #include <asm-generic/uaccess.h>
-diff --git a/arch/riscv/lib/riscv_v_helpers.c b/arch/riscv/lib/riscv_v_helpers.c
-index be38a93cedae..7bbdfc6d4552 100644
---- a/arch/riscv/lib/riscv_v_helpers.c
-+++ b/arch/riscv/lib/riscv_v_helpers.c
-@@ -16,8 +16,11 @@
- #ifdef CONFIG_MMU
- size_t riscv_v_usercopy_threshold = CONFIG_RISCV_ISA_V_UCOPY_THRESHOLD;
- int __asm_vector_usercopy(void *dst, void *src, size_t n);
-+int __asm_vector_usercopy_sum_enabled(void *dst, void *src, size_t n);
- int fallback_scalar_usercopy(void *dst, void *src, size_t n);
--asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
-+int fallback_scalar_usercopy_sum_enabled(void *dst, void *src, size_t n);
-+asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n,
-+				     bool enable_sum)
- {
- 	size_t remain, copied;
- 
-@@ -26,7 +29,8 @@ asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
- 		goto fallback;
- 
- 	kernel_vector_begin();
--	remain = __asm_vector_usercopy(dst, src, n);
-+	remain = enable_sum ? __asm_vector_usercopy(dst, src, n) :
-+			      __asm_vector_usercopy_sum_enabled(dst, src, n);
- 	kernel_vector_end();
- 
- 	if (remain) {
-@@ -40,6 +44,7 @@ asmlinkage int enter_vector_usercopy(void *dst, void *src, size_t n)
- 	return remain;
- 
- fallback:
--	return fallback_scalar_usercopy(dst, src, n);
-+	return enable_sum ? fallback_scalar_usercopy(dst, src, n) :
-+			    fallback_scalar_usercopy_sum_enabled(dst, src, n);
- }
- #endif
-diff --git a/arch/riscv/lib/uaccess.S b/arch/riscv/lib/uaccess.S
-index 6a9f116bb545..4efea1b3326c 100644
---- a/arch/riscv/lib/uaccess.S
-+++ b/arch/riscv/lib/uaccess.S
-@@ -17,14 +17,43 @@ SYM_FUNC_START(__asm_copy_to_user)
- 	ALTERNATIVE("j fallback_scalar_usercopy", "nop", 0, RISCV_ISA_EXT_ZVE32X, CONFIG_RISCV_ISA_V)
- 	REG_L	t0, riscv_v_usercopy_threshold
- 	bltu	a2, t0, fallback_scalar_usercopy
--	tail enter_vector_usercopy
-+	li	a3, 1
-+	tail 	enter_vector_usercopy
- #endif
--SYM_FUNC_START(fallback_scalar_usercopy)
-+SYM_FUNC_END(__asm_copy_to_user)
-+EXPORT_SYMBOL(__asm_copy_to_user)
-+SYM_FUNC_ALIAS(__asm_copy_from_user, __asm_copy_to_user)
-+EXPORT_SYMBOL(__asm_copy_from_user)
- 
-+SYM_FUNC_START(fallback_scalar_usercopy)
- 	/* Enable access to user memory */
--	li t6, SR_SUM
--	csrs CSR_STATUS, t6
-+	li	t6, SR_SUM
-+	csrs 	CSR_STATUS, t6
-+	mv 	t6, ra
- 
-+	call 	fallback_scalar_usercopy_sum_enabled
-+
-+	/* Disable access to user memory */
-+	mv 	ra, t6
-+	li 	t6, SR_SUM
-+	csrc 	CSR_STATUS, t6
-+	ret
-+SYM_FUNC_END(fallback_scalar_usercopy)
-+
-+SYM_FUNC_START(__asm_copy_to_user_sum_enabled)
-+#ifdef CONFIG_RISCV_ISA_V
-+	ALTERNATIVE("j fallback_scalar_usercopy_sum_enabled", "nop", 0, RISCV_ISA_EXT_ZVE32X, CONFIG_RISCV_ISA_V)
-+	REG_L	t0, riscv_v_usercopy_threshold
-+	bltu	a2, t0, fallback_scalar_usercopy_sum_enabled
-+	li	a3, 0
-+	tail 	enter_vector_usercopy
-+#endif
-+SYM_FUNC_END(__asm_copy_to_user_sum_enabled)
-+SYM_FUNC_ALIAS(__asm_copy_from_user_sum_enabled, __asm_copy_to_user_sum_enabled)
-+EXPORT_SYMBOL(__asm_copy_from_user_sum_enabled)
-+EXPORT_SYMBOL(__asm_copy_to_user_sum_enabled)
-+
-+SYM_FUNC_START(fallback_scalar_usercopy_sum_enabled)
- 	/*
- 	 * Save the terminal address which will be used to compute the number
- 	 * of bytes copied in case of a fixup exception.
-@@ -178,23 +207,12 @@ SYM_FUNC_START(fallback_scalar_usercopy)
- 	bltu	a0, t0, 4b	/* t0 - end of dst */
- 
- .Lout_copy_user:
--	/* Disable access to user memory */
--	csrc CSR_STATUS, t6
- 	li	a0, 0
- 	ret
--
--	/* Exception fixup code */
- 10:
--	/* Disable access to user memory */
--	csrc CSR_STATUS, t6
- 	sub a0, t5, a0
- 	ret
--SYM_FUNC_END(__asm_copy_to_user)
--SYM_FUNC_END(fallback_scalar_usercopy)
--EXPORT_SYMBOL(__asm_copy_to_user)
--SYM_FUNC_ALIAS(__asm_copy_from_user, __asm_copy_to_user)
--EXPORT_SYMBOL(__asm_copy_from_user)
--
-+SYM_FUNC_END(fallback_scalar_usercopy_sum_enabled)
- 
- SYM_FUNC_START(__clear_user)
- 
-diff --git a/arch/riscv/lib/uaccess_vector.S b/arch/riscv/lib/uaccess_vector.S
-index 7c45f26de4f7..03b5560609a2 100644
---- a/arch/riscv/lib/uaccess_vector.S
-+++ b/arch/riscv/lib/uaccess_vector.S
-@@ -24,7 +24,18 @@ SYM_FUNC_START(__asm_vector_usercopy)
- 	/* Enable access to user memory */
- 	li	t6, SR_SUM
- 	csrs	CSR_STATUS, t6
-+	mv	t6, ra
- 
-+	call 	__asm_vector_usercopy_sum_enabled
-+
-+	/* Disable access to user memory */
-+	mv 	ra, t6
-+	li 	t6, SR_SUM
-+	csrc	CSR_STATUS, t6
-+	ret
-+SYM_FUNC_END(__asm_vector_usercopy)
-+
-+SYM_FUNC_START(__asm_vector_usercopy_sum_enabled)
- loop:
- 	vsetvli iVL, iNum, e8, ELEM_LMUL_SETTING, ta, ma
- 	fixup vle8.v vData, (pSrc), 10f
-@@ -36,8 +47,6 @@ loop:
- 
- 	/* Exception fixup for vector load is shared with normal exit */
- 10:
--	/* Disable access to user memory */
--	csrc	CSR_STATUS, t6
- 	mv	a0, iNum
- 	ret
- 
-@@ -49,4 +58,4 @@ loop:
- 	csrr	t2, CSR_VSTART
- 	sub	iNum, iNum, t2
- 	j	10b
--SYM_FUNC_END(__asm_vector_usercopy)
-+SYM_FUNC_END(__asm_vector_usercopy_sum_enabled)
--- 
-2.49.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+CgpPbiA2LzIvMjUgMTY6NDYsIEJhcnRvc3ogR29sYXN6ZXdza2kgd3JvdGU6Cj4gT24gRnJpLCBN
+YXkgMzAsIDIwMjUgYXQgMTI6MjTigK9BTSBNaWNoYWwgV2lsY3p5bnNraQo+IDxtLndpbGN6eW5z
+a2lAc2Ftc3VuZy5jb20+IHdyb3RlOgo+Pgo+PiBJbnRyb2R1Y2UgZGV2aWNlIHRyZWUgYmluZGlu
+Z3MgZm9yIGEgbmV3IHBvd2VyIHNlcXVlbmNlciBwcm92aWRlcgo+PiBkZWRpY2F0ZWQgdG8gdGhl
+IFQtSEVBRCBUSDE1MjAgU29DJ3MgR1BVLgo+Pgo+PiBUaGUgdGhlYWQsdGgxNTIwLWdwdS1wd3Jz
+ZXEgY29tcGF0aWJsZSBkZXNpZ25hdGVzIGEgbm9kZSB0aGF0IHdpbGwKPj4gbWFuYWdlIHRoZSBj
+b21wbGV4IHBvd2VyLXVwIGFuZCBwb3dlci1kb3duIHNlcXVlbmNlIGZvciB0aGUgR1BVLiBUaGlz
+Cj4+IHNlcXVlbmNlciByZXF1aXJlcyBhIGhhbmRsZSB0byB0aGUgR1BVJ3MgY2xvY2sgZ2VuZXJh
+dG9yIHJlc2V0IGxpbmUKPj4gKGdwdS1jbGtnZW4pLCB3aGljaCBpcyBzcGVjaWZpZWQgaW4gaXRz
+IGRldmljZSB0cmVlIG5vZGUuCj4+Cj4+IFRoaXMgYmluZGluZyB3aWxsIGJlIHVzZWQgYnkgYSBu
+ZXcgcHdyc2VxIGRyaXZlciB0byBhYnN0cmFjdCB0aGUKPj4gU29DIHNwZWNpZmljIHBvd2VyIG1h
+bmFnZW1lbnQgZGV0YWlscyBmcm9tIHRoZSBnZW5lcmljIEdQVSBkcml2ZXIuCj4+Cj4+IFNpZ25l
+ZC1vZmYtYnk6IE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5za2lAc2Ftc3VuZy5jb20+Cj4+
+IC0tLQo+PiAgLi4uL2JpbmRpbmdzL3Bvd2VyL3RoZWFkLHRoMTUyMC1wd3JzZXEueWFtbCAgICAg
+ICAgfCA0MiArKysrKysrKysrKysrKysrKysrKysrCj4+ICBNQUlOVEFJTkVSUyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAxICsKPj4gIDIgZmlsZXMgY2hhbmdlZCwg
+NDMgaW5zZXJ0aW9ucygrKQo+Pgo+PiBkaWZmIC0tZ2l0IGEvRG9jdW1lbnRhdGlvbi9kZXZpY2V0
+cmVlL2JpbmRpbmdzL3Bvd2VyL3RoZWFkLHRoMTUyMC1wd3JzZXEueWFtbCBiL0RvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9wb3dlci90aGVhZCx0aDE1MjAtcHdyc2VxLnlhbWwKPj4g
+bmV3IGZpbGUgbW9kZSAxMDA2NDQKPj4gaW5kZXggMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAw
+MDAwMDAwMDAwMDAwMC4uNGMzMDJhYmZiNzZmYjllMjQzOTQ2ZjRlZWZhMzMzYzZiMDJlNTlkMwo+
+PiAtLS0gL2Rldi9udWxsCj4+ICsrKyBiL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
+cy9wb3dlci90aGVhZCx0aDE1MjAtcHdyc2VxLnlhbWwKPj4gQEAgLTAsMCArMSw0MiBAQAo+PiAr
+IyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb25seSBPUiBCU0QtMi1DbGF1c2Up
+Cj4+ICslWUFNTCAxLjIKPj4gKy0tLQo+PiArJGlkOiBodHRwczovL3Byb3RlY3QyLmZpcmVleWUu
+Y29tL3YxL3VybD9rPTU1Y2EzYTc3LTM0YjdkMjBmLTU1Y2JiMTM4LTc0ZmU0ODVmZmZiMS00ZGE5
+OTI4NGFhZjViZGYyJnE9MSZlPTA4NWZmYzY5LTIxYWQtNGFiZC05MTQ3LTk3MGEzMDhjODgxOCZ1
+PWh0dHAlM0ElMkYlMkZkZXZpY2V0cmVlLm9yZyUyRnNjaGVtYXMlMkZwb3dlciUyRnRoZWFkJTJD
+dGgxNTIwLXB3cnNlcS55YW1sJTIzCj4+ICskc2NoZW1hOiBodHRwczovL3Byb3RlY3QyLmZpcmVl
+eWUuY29tL3YxL3VybD9rPThlOWI5MDFjLWVmZTY3ODY0LThlOWExYjUzLTc0ZmU0ODVmZmZiMS1j
+OTY0NDcxYTY2NTU3MTZlJnE9MSZlPTA4NWZmYzY5LTIxYWQtNGFiZC05MTQ3LTk3MGEzMDhjODgx
+OCZ1PWh0dHAlM0ElMkYlMkZkZXZpY2V0cmVlLm9yZyUyRm1ldGEtc2NoZW1hcyUyRmNvcmUueWFt
+bCUyMwo+PiArCj4+ICt0aXRsZTogVC1IRUFEIFRIMTUyMCBHUFUgUG93ZXIgU2VxdWVuY2VyCj4+
+ICsKPj4gK21haW50YWluZXJzOgo+PiArICAtIE1pY2hhbCBXaWxjenluc2tpIDxtLndpbGN6eW5z
+a2lAc2Ftc3VuZy5jb20+Cj4+ICsKPj4gK2Rlc2NyaXB0aW9uOiB8Cj4+ICsgIFRoaXMgYmluZGlu
+ZyBkZXNjcmliZXMgdGhlIHBvd2VyIHNlcXVlbmNlciBmb3IgdGhlIFQtSEVBRCBUSDE1MjAgR1BV
+Lgo+PiArICBUaGlzIHNlcXVlbmNlciBoYW5kbGVzIHRoZSBzcGVjaWZpYyBwb3dlci11cCBhbmQg
+cG93ZXItZG93biBzZXF1ZW5jZXMKPj4gKyAgcmVxdWlyZWQgYnkgdGhlIEdQVSwgaW5jbHVkaW5n
+IG1hbmFnaW5nIGNsb2NrcyBhbmQgcmVzZXRzIGZyb20gYm90aCB0aGUKPj4gKyAgc2VxdWVuY2Vy
+IGFuZCB0aGUgR1BVIGRldmljZSBpdHNlbGYuCj4+ICsKPj4gK3Byb3BlcnRpZXM6Cj4+ICsgIGNv
+bXBhdGlibGU6Cj4+ICsgICAgY29uc3Q6IHRoZWFkLHRoMTUyMC1ncHUtcHdyc2VxCj4+ICsKPiAK
+PiBCZWZvcmUgSSByZXZpZXcgdGhlIHJlc3Q6IGlzIHRoaXMgYWN0dWFsbHkgYSBwaHlzaWNhbCBk
+ZXZpY2UgdGhhdAo+IHRha2VzIGNhcmUgb2YgdGhlIHBvd2VyIHNlcXVlbmNpbmc/IFNvbWUga2lu
+ZCBvZiBhIHBvd2VyIG1hbmFnZW1lbnQKPiB1bml0IGZvciB0aGUgR1BVPyBJZiBzbywgSSBiZXQg
+aXQncyBub3QgY2FsbGVkICJwb3dlciBzZXF1ZW5jZXIiIHNvCj4gbGV0J3MgdXNlIGl0cyBhY3R1
+YWwgbmFtZSBhcyBwZXIgdGhlIGRhdGFzaGVldD8KCkhpIEJhcnQsClRoYW5rcyBmb3IgeW91ciBm
+ZWVkYmFjay4gCgpUaGUgaGFyZHdhcmUgYmxvY2sgcmVzcG9uc2libGUgZm9yIHBvd2VyaW5nIHVw
+IHRoZSBjb21wb25lbnRzIGluIHRoZQpUSDE1MjAgU29DIGRhdGFzaGVldCBpcyBjYWxsZWQgQU9O
+IChBbHdheXMgT24pLiBIb3dldmVyLCB3ZSBhbHJlYWR5IGhhdmUKYSBEVCBub2RlIG5hbWVkIGFv
+biB0aGF0IHNlcnZlcyBhcyBhIHBvd2VyIGRvbWFpbiBwcm92aWRlcgooRG9jdW1lbnRhdGlvbi9k
+ZXZpY2V0cmVlL2JpbmRpbmdzL2Zpcm13YXJlL3RoZWFkLHRoMTUyMC1hb24ueWFtbCkuCgpGb2xs
+b3dpbmcgdGhlIGRpc2N1c3Npb24gWzFdIGFib3V0IG5lZWRpbmcgYSBzZXBhcmF0ZSBEVCBub2Rl
+IGZvciB0aGUKcG93ZXIgc2VxdWVuY2luZyBjYXBhYmlsaXRpZXMgb2YgdGhpcyBBT04gYmxvY2ss
+IGFuZCB0aGlua2luZyBmdXJ0aGVyCmFib3V0IGl0LCBJIHRoaW5rIHRoZSBiaW5kaW5nIHNob3Vs
+ZCBiZSBtb3JlIGdlbmVyaWMuIFRoZSBBT04gYmxvY2sgY2FuCm1hbmFnZSBwb3dlciBzZXF1ZW5j
+ZXMgZm9yIG1vcmUgdGhhbiBqdXN0IHRoZSBHUFUgKGUuZy4gTlBVLCBBVURJTywKRFNQKS4KClRo
+ZSBjb21wYXRpYmxlIHN0cmluZyBjb3VsZCBiZSB1cGRhdGVkIGxpa2Ugc286CiJ0aGVhZCx0aDE1
+MjAtYW9uLXB3cnNlcSIKCkFuZCB0aGUgZGVzY3JpcHRpb246CiIKICBUaGlzIGJpbmRpbmcgZGVz
+Y3JpYmVzIHRoZSBoYXJkd2FyZSBjYXBhYmlsaXRpZXMgd2l0aGluIHRoZSBBbHdheXMtT24KICAo
+QU9OKSBibG9jayBvZiB0aGUgVC1IRUFEIFRIMTUyMCBTb0MgcmVzcG9uc2libGUgZm9yIGNvbnRy
+b2xsaW5nIGFuZAogIHNlcXVlbmNpbmcgdGhlIHBvd2VyIHN1cHBseSB0byB2YXJpb3VzIGludGVn
+cmF0ZWQgcGVyaXBoZXJhbHMsIHN1Y2ggYXMKICB0aGUgR1BVLCBOUFUsIEF1ZGlvLCBhbmQgRFNQ
+LgoiCgpUaGUgZXhhY3QgcG93ZXIgYXJjaGl0ZWN0dXJlIG9mIHRoZSBTb0MgaXMgZGVzY3JpYmVk
+IGluIHRoZSBjaGFwdGVyCjYuMy4yIChQb3dlciBBcmNoaXRlY3R1cmUpIFsyXS4gVGhlICJWREVD
+L05QVS9WRU5DL0dQVS9EU1AgUG93ZXIgVXAvClBvd2VyIERvd24iIGlzIGRlc2NyaWJlZCBpbiBj
+aGFwdGVyIDYuNC4yLjMuCgpbMV0gLSBodHRwczovL2xvcmUua2VybmVsLm9yZy9hbGwvQ0FQRHlL
+RnBpNl9DRCsrYTlzYkdCdkpDdUJTUVM2WWNwTnR0a1JRaFFNVFd5MXl5clJnQG1haWwuZ21haWwu
+Y29tLwpbMl0gLSBodHRwczovL2dpdC5iZWFnbGVib2FyZC5vcmcvYmVhZ2xldi1haGVhZC9iZWFn
+bGV2LWFoZWFkLy0vYmxvYi9tYWluL2RvY3MvVEgxNTIwJTIwU3lzdGVtJTIwVXNlciUyME1hbnVh
+bC5wZGYKCj4gCj4gQmFydAo+IAoKQmVzdCByZWdhcmRzLAotLSAKTWljaGFsIFdpbGN6eW5za2kg
+PG0ud2lsY3p5bnNraUBzYW1zdW5nLmNvbT4KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
+aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
+dGluZm8vbGludXgtcmlzY3YK
