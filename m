@@ -4,56 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD071C5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 15:41:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83568C54FB3
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 16:49:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7JQCr37W1Zu6BZfArk4y5LMqVqY1RnlQC+gQJSkbKjo=; b=3F8nhrmZBQm5sm
-	W+ONeY+dtkNJjb4OTPwYJbztBlstTrz5U0xMZEW+znb4KvRilg3UGa0h9DVpc0UTTJ+K7yTFv/AHr
-	10zHWS9WM+6xUgsSMvp5J25E5ZNJ/7KdgVOEUhgPK38rqz8vh+78H7XcXxxq2TkYQXEqxgCyftyni
-	euT4p3uT35ApVZDWwSkFH+mlyAmbrrHOYriDmYmFW4ouvtt8SC/IA+4IECooNuqaY74Ds3kS4yrYJ
-	VaPjWIyAAbxiKWVhwo7o8mZ4qYKlP06TQeLyrHND63FleOARK+OlVKp7NSqUQfZUu+EYXz/qth12c
-	BhVXGLDswkEJ7yJDhfqg==;
+	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pyZThLpalv7e6iyUyi0wV9RJvXtELxsGcf/YF+c6+l4=; b=OxIeyOqH7/f3Fn4g4UBYTLddiT
+	zlg0sEPxEendu1iTqUvhsw2JBFJqaRotizEaIxCRizseowKbgZnyVwwT1UeXMt0Fkg4h1ONyLzyo6
+	bMoMYkLKhpds71upkdX3oNqZqYBoXq58Q3U7E1yiEVJ/24VSPf91NyHDbMov2q6s7KY4SSvMU/z4f
+	W2u55a4YCe4OTvjI4ax3rxnv92WPRQ9ks5px+kYm/KkvOm0SXssPgTkGeBuMKzjfm0WinR/afzkbG
+	sMhrMgqN7lCUxvQaRfLvNxnxdvOdV3Lb2DByKqnElEm+s5wvmrOIlXx4fElF8LfVB46Vpnt0ZuZvI
+	Oc67txzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM7IJ-00000007nTo-1O7E;
-	Mon, 02 Jun 2025 15:41:47 +0000
-Received: from relay7-d.mail.gandi.net ([217.70.183.200])
+	id 1uM8MB-00000007vrR-3sSi;
+	Mon, 02 Jun 2025 16:49:51 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM6zk-00000007kbi-3pc9
+	id 1uM8M9-00000007vqS-3VvZ
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 15:22:38 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 3635E4393F;
-	Mon,  2 Jun 2025 15:22:29 +0000 (UTC)
-Message-ID: <c6d4e881-d258-41f2-a7c3-d993caf892ae@ghiti.fr>
-Date: Mon, 2 Jun 2025 17:22:29 +0200
+	Mon, 02 Jun 2025 16:49:51 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-2349282084bso56763145ad.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jun 2025 09:49:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748882988; x=1749487788; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=SJtLmJ1+ZA9gGTeiAdVPiVyS3gmJ2S4O+OKpjfVOgGU=;
+        b=OJefbkDEpNLViWDPLDqOkUEChNP46Lv/uIo4VeVoZe6vHWTOmZvhjya+/25iyUwr9a
+         co1fLK9plSrXlnvMcEkh/EcvDqSTP39YELE6AqVgoDxbr+ctAvTtl9vlHEdBmq+oYai8
+         8RSMdhwfz5/S+047mHM9zWep3KxsrawREevZTjT3SWT3TAmGiCU8Y9AMIF2UHdOpjJka
+         Bukuz6V68QLTrHH2UD/PT2lzrrl/ym9vx4oOQZNKvx9aDu5zwyUs4jd8UrhLwe8lclfr
+         mYYzML4G4r/XSm2RsJnHq/hxciZ9qOWko0R8ZNQp65YExoPyNBDDMrcS4FbseShBPoYu
+         KDOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748882988; x=1749487788;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SJtLmJ1+ZA9gGTeiAdVPiVyS3gmJ2S4O+OKpjfVOgGU=;
+        b=SR5uDBMschYSAMbzMlItntxrzATSpu2Mtz5QVeq09xCXhfPTgDzB6qHEV6cC8yZTZW
+         mvbG2o06nP0nhZlFxDnLjgFueoItmGdMfKg1odga+MwE9lSrDnfh0cGYjdsz1YkBxtDo
+         MuabSasrdlgGuvxUIsBNUqh8ATC5uZOQ9lH2w+dZSbSNV+Rhf+fYXYlnO0SIIT+JDF8G
+         fZuzKeR5MqNYff+G2p6H++SIl3DuMsrlC2na02yNqW+R8iMn/amo4i4HGEWmjVXgn27T
+         5GZaHZ/vv0gFl3CwCpKuKVwzYWRGFPbODw29MU0Bwihs1r1sqiXGm9woBFtrxAEEcxq5
+         KEqw==
+X-Forwarded-Encrypted: i=1; AJvYcCXQD711qCUB1Dj1lGaDuiNtDn3qLy/sqJyHVhciC/SXEITTVq8UPU17dK+0ZvQNzuywj5pzGBHbjMJ+WA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxV8fT9qUBvBrd35a5t2QBThCSRCERqySqvCOz4O0O/+d+JwgKA
+	A5ChvOLjoJ2iu0cSXHdbbe9Di18d0rAb5waH3vX9hWl0H15aiAFmaL3VtJati0CUnzw=
+X-Gm-Gg: ASbGnctRtuEQ+9+mVhZLR7MBPqyAvz5hxFj5xWPC62QUoMj5Jp2tmb/F8Tlbvv05S6I
+	pxiRaqHYz/s2EeQ6qHwqJFrHHYVwrWUjeXSvTBBdlt9HmxvxH+TGDSz6zAoxHTnVeAPBPb9h4GZ
+	WPECJdpzjGQHKadVlvOfQ6d64Mwm6wyHL6dv7+aWInEsUa8tiTKuj/w7g6wRxEh5ueLwv3QB2nB
+	s5FxAXjGl0XmErHIEqlKir5UTp99X3nnctoQnXl7VBXZpvQCMVGu3SeupyZ8cYGt0Y1OPxBoSxB
+	XOuocjLNCO3SPVb4oJooTp0YdDFAxDYognWhhbPNBhKz5sj8dVsIidtQngCoj6sMXKBsp9Pm
+X-Google-Smtp-Source: AGHT+IHf3hxMDA11sY8CrqFCsHaPToaLCZdH89rX8lG5jyAges8FHHXEJxrLZzMcA5pRD8YHrbMtkg==
+X-Received: by 2002:a17:902:ce84:b0:234:a992:96d8 with SMTP id d9443c01a7336-23528ef7a17mr232511875ad.19.1748882988548;
+        Mon, 02 Jun 2025 09:49:48 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23506cd75c7sm73327845ad.113.2025.06.02.09.49.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Jun 2025 09:49:48 -0700 (PDT)
+Date: Mon, 2 Jun 2025 09:49:46 -0700
+From: Deepak Gupta <debug@rivosinc.com>
+To: Zong Li <zong.li@sifive.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] riscv: traps: handle uprobe event in software-check
+ exception
+Message-ID: <aD3WKnyp_ffk60oF@debug.ba.rivosinc.com>
+References: <20250314092614.27372-1-zong.li@sifive.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] riscv: uaccess: do not do misaligned accesses in
- get/put_user()
-To: =?UTF-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>
-References: <20250530205658.624195-1-cleger@rivosinc.com>
- <20250530205658.624195-3-cleger@rivosinc.com>
- <718fb1d7-9f0c-4637-abe8-5a34305c3ae2@ghiti.fr>
- <cea8cdf2-4b1e-4628-a5df-249adf4387b5@rivosinc.com>
-Content-Language: en-US
-From: Alexandre Ghiti <alex@ghiti.fr>
-In-Reply-To: <cea8cdf2-4b1e-4628-a5df-249adf4387b5@rivosinc.com>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddtgdefkedtvdculddtuddrgeefvddrtddtmdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepuefffedvleetleetjefhjeehudejteetvedtvddvtdfhieetffelvdffgefgieeinecuffhomhgrihhnpehinhhfrhgruggvrggurdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemfeeifhdvmeeijeehgeemvdeiieekmegsieeksgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemfeeifhdvmeeijeehgeemvdeiieekmegsieeksgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemfeeifhdvmeeijeehgeemvdeiieekmegsieeksggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepiedprhgtphhtthhopegtlhgvghgvrhesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtoheplhhinhhugidqrhhishgtvheslhhishhtshdri
- hhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtphhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughu
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20250314092614.27372-1-zong.li@sifive.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_082237_083895_0323C192 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20250602_094950_096155_C867F253 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,105 +93,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-SGkgQ2zDqW1lbnQsCgpPbiA2LzIvMjUgMDk6MzcsIENsw6ltZW50IEzDqWdlciB3cm90ZToKPgo+
-IE9uIDMxLzA1LzIwMjUgMTQ6MzUsIEFsZXhhbmRyZSBHaGl0aSB3cm90ZToKPj4gT24gNS8zMC8y
-NSAyMjo1NiwgQ2zDqW1lbnQgTMOpZ2VyIHdyb3RlOgo+Pj4gRG9pbmcgbWlzYWxpZ25lZCBhY2Nl
-c3MgdG8gdXNlcnNwYWNlIG1lbW9yeSB3b3VsZCBtYWtlIGEgdHJhcCBvbgo+Pj4gcGxhdGZvcm0g
-d2hlcmUgaXQgaXMgZW11bGF0ZWQuIExhdGVzdCBmaXhlcyByZW1vdmVkIHRoZSBrZXJuZWwKPj4+
-IGNhcGFiaWxpdHkgdG8gZG8gdW5hbGlnbmVkIGFjY2Vzc2VzIHRvIHVzZXJzcGFjZSBtZW1vcnkg
-c2FmZWx5IHNpbmNlCj4+PiBpbnRlcnJ1cHRzIGFyZSBrZXB0IGRpc2FibGVkIGF0IGFsbCB0aW1l
-IGR1cmluZyB0aGF0LiBUaHVzIGRvaW5nIHNvCj4+PiB3b3VsZCBjcmFzaCB0aGUga2VybmVsLgo+
-Pj4KPj4+IFN1Y2ggYmVoYXZpb3Igd2FzIGRldGVjdGVkIHdpdGggR0VUX1VOQUxJR05fQ1RMKCkg
-dGhhdCB3YXMgZG9pbmcKPj4+IGEgcHV0X3VzZXIoKSB3aXRoIGFuIHVuc2lnbmVkIGxvbmcqIGFk
-ZHJlc3MgdGhhdCBzaG91bGQgaGF2ZSBiZWVuIGFuCj4+PiB1bnNpZ25lZCBpbnQqLiBSZWVuYWJs
-aW5nIGtlcm5lbCBtaXNhbGlnbmVkIGFjY2VzcyBlbXVsYXRpb24gaXMgYSBiaXQKPj4+IHJpc2t5
-IGFuZCBpdCB3b3VsZCBhbHNvIGRlZ3JhZGUgcGVyZm9ybWFuY2VzLiBSYXRoZXIgdGhhbiBkb2lu
-ZyB0aGF0LAo+Pj4gd2Ugd2lsbCB0cnkgdG8gYXZvaWQgYW55IG1pc2FsaWduZWQgYWNjZXNzZWQg
-YnkgdXNpbmcgY29weV9mcm9tL3RvX3VzZXIoKQo+Pj4gd2hpY2ggZG9lcyBub3QgZG8gYW55IG1p
-c2FsaWduZWQgYWNjZXNzZXMuIFRoaXMgY2FuIGJlIGRvbmUgb25seSBmb3IKPj4+ICFDT05GSUdf
-SEFWRV9FRkZJQ0lFTlRfVU5BTElHTkVEX0FDQ0VTUyBhbmQgdGh1cyBhbGxvd3MgdG8gb25seSBn
-ZW5lcmF0ZQo+Pj4gYSBiaXQgbW9yZSBjb2RlIGZvciB0aGlzIGNvbmZpZy4KPj4+Cj4+PiBTaWdu
-ZWQtb2ZmLWJ5OiBDbMOpbWVudCBMw6lnZXIgPGNsZWdlckByaXZvc2luYy5jb20+Cj4+PiAtLS0K
-Pj4+ICDCoCBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3VhY2Nlc3MuaCB8IDI4ICsrKysrKysrKysr
-KysrKysrKysrKystLS0tLS0KPj4+ICDCoCAxIGZpbGUgY2hhbmdlZCwgMjIgaW5zZXJ0aW9ucygr
-KSwgNiBkZWxldGlvbnMoLSkKPj4+Cj4+PiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRl
-L2FzbS91YWNjZXNzLmggYi9hcmNoL3Jpc2N2L2luY2x1ZGUvCj4+PiBhc20vdWFjY2Vzcy5oCj4+
-PiBpbmRleCAwNDZkZTdjZWQwOWMuLmI1NDJjMDVmMzk0ZiAxMDA2NDQKPj4+IC0tLSBhL2FyY2gv
-cmlzY3YvaW5jbHVkZS9hc20vdWFjY2Vzcy5oCj4+PiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUv
-YXNtL3VhY2Nlc3MuaAo+Pj4gQEAgLTE2OSw4ICsxNjksMjEgQEAgZG8ge8KgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+ICDC
-oCDCoCAjZW5kaWYgLyogQ09ORklHXzY0QklUICovCj4+PiAgwqAgK3Vuc2lnbmVkIGxvbmcgX19t
-dXN0X2NoZWNrIF9fYXNtX2NvcHlfdG9fdXNlcih2b2lkIF9fdXNlciAqdG8sCj4+PiArwqDCoMKg
-IGNvbnN0IHZvaWQgKmZyb20sIHVuc2lnbmVkIGxvbmcgbik7Cj4+PiArdW5zaWduZWQgbG9uZyBf
-X211c3RfY2hlY2sgX19hc21fY29weV9mcm9tX3VzZXIodm9pZCAqdG8sCj4+PiArwqDCoMKgIGNv
-bnN0IHZvaWQgX191c2VyICpmcm9tLCB1bnNpZ25lZCBsb25nIG4pOwo+Pj4gKwo+Pj4gIMKgICNk
-ZWZpbmUgX19nZXRfdXNlcl9ub2NoZWNrKHgsIF9fZ3VfcHRyLCBsYWJlbCnCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIFwKPj4+ICDCoCBkbyB7wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4gK8KgwqDCoCBpZiAoIUlTX0VOQUJM
-RUQoQ09ORklHX0hBVkVfRUZGSUNJRU5UX1VOQUxJR05FRF9BQ0NFU1MpKQo+Pj4ge8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgXAo+Pj4gK8KgwqDCoMKgwqDCoMKgIGlmICghSVNfQUxJR05FRCgodWlu
-dHB0cl90KV9fZ3VfcHRyLCBzaXplb2YoKl9fZ3VfcHRyKSkpCj4+PiB7wqDCoMKgwqDCoMKgwqAg
-XAo+Pgo+PiBOaXQ6IEkgd291bGQgdXNlICYmIGluc3RlYWQgb2YgMiBpZnMuCj4+Cj4+Cj4+PiAr
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpZiAoX19hc21fY29weV9mcm9tX3VzZXIoJih4KSwgX19n
-dV9wdHIsCj4+PiBzaXplb2YoKl9fZ3VfcHRyKSkpwqDCoMKgIFwKPj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqAgZ290byBsYWJlbDvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+
-ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGVsc2XCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoCBcCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGJyZWFrO8Kg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Cj4+IEhlcmUgSSB3b3VsZCByZW1vdmUg
-dGhlIGVsc2UKPiBIaSBBbGV4LAo+Cj4gVGhlICJlbHNlIiBpcyBuZWVkZWQgdG8gYnJlYWsgZnJv
-bSB0aGUgb3V0ZXIgZG8vd2hpbGUgbG9vcCBvciBpdCB3aWxsIGdvCj4gdGhvdWdoIHRoZSBuZXh0
-IHN3aXRjaCBjYXNlIChhbmQgaXQgd2lsbCBjcmFzaCBkdWUgdG8gbWlzYWxpZ25lZCBhY2Nlc3Nl
-cykuCgoKSSBtZWFudCBvbmx5IHRoZSAiZWxzZSIsIG5vdCB0aGUgImJyZWFrIiEKClRoYW5rcywK
-CkFsZXgKCgo+Cj4+Cj4+PiArwqDCoMKgwqDCoMKgwqAgfcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4gK8KgwqDCoCB9wqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+ICDCoMKgwqDCoMKgIHN3
-aXRjaCAoc2l6ZW9mKCpfX2d1X3B0cikpIHvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAg
-XAo+Pj4gIMKgwqDCoMKgwqAgY2FzZSAxOsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiAgwqDCoMKgwqDCoMKgwqDCoMKgIF9fZ2V0X3Vz
-ZXJfYXNtKCJsYiIsICh4KSwgX19ndV9wdHIsIGxhYmVsKTvCoMKgwqAgXAo+Pj4gQEAgLTI5Nyw2
-ICszMTAsMTUgQEAgZG8ge8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+ICDCoCDCoCAjZGVmaW5lIF9fcHV0X3VzZXJfbm9j
-aGVjayh4LCBfX2d1X3B0ciwgbGFiZWwpwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiAgwqAg
-ZG8ge8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIFwKPj4+ICvCoMKgwqAgaWYgKCFJU19FTkFCTEVEKENPTkZJR19IQVZFX0VGRklD
-SUVOVF9VTkFMSUdORURfQUNDRVNTKSkKPj4+IHvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIFwKPj4+
-ICvCoMKgwqDCoMKgwqDCoCBpZiAoIUlTX0FMSUdORUQoKHVpbnRwdHJfdClfX2d1X3B0ciwgc2l6
-ZW9mKCpfX2d1X3B0cikpKQo+Pj4ge8KgwqDCoMKgwqDCoMKgIFwKPj4+ICvCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIHVuc2lnbmVkIGxvbmcgdmFsID0gKHVuc2lnbmVkIGxvbmcpKHgpO8KgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+Cj4+IEhlcmUgaXQgc2VtcyBsaWtlIF9faW50dHlw
-ZSgqKF9fZ3VfcHRyKSkgaXMgbW9yZSBhY2N1cmF0ZSB0aGFuIHVuc2lnbmVkCj4+IGxvbmcsIGV2
-ZW4gdGhvdWdoIEkgdGhpbmsgdW5zaWduZWQgbG9uZyB3b3JrcyBmaW5lIHRvby4KPiBXYXNuJ3Qg
-YXdhcmUgb2YgX19pbnR0eXBlLCBidXQgaXQgc291bmRzIGdvb2QuCj4KPiBUaGFua3MsCj4KPiBD
-bMOpbWVudAo+Cj4+Cj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBpZiAoX19hc21fY29weV90
-b191c2VyKF9fZ3VfcHRyLCAmKHZhbCksCj4+PiBzaXplb2YoKl9fZ3VfcHRyKSkpwqDCoMKgIFwK
-Pj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgZ290byBsYWJlbDvCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgIFwKPj4+ICvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIGVsc2XCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiArwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgIGJyZWFrO8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBcCj4+PiArwqDC
-oMKgwqDCoMKgwqAgfcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqAgXAo+Pj4gK8KgwqDCoCB9wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgIFwKPj4+ICDCoMKgwqDCoMKgIHN3aXRjaCAoc2l6ZW9mKCpfX2d1X3B0
-cikpIHvCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgXAo+Pj4gIMKgwqDCoMKgwqAgY2Fz
-ZSAxOsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCBcCj4+PiAgwqDCoMKgwqDCoMKgwqDCoMKgIF9fcHV0X3VzZXJfYXNtKCJzYiIsICh4KSwgX19n
-dV9wdHIsIGxhYmVsKTvCoMKgwqAgXAo+Pj4gQEAgLTM4NSwxMiArNDA3LDYgQEAgZXJyX2xhYmVs
-OsKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBc
-Cj4+PiAgwqDCoMKgwqDCoMKgwqDCoMKgIC1FRkFVTFQ7wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqAgXAo+Pj4gIMKgIH0pCj4+PiAgwqAgLQo+Pj4gLXVuc2lnbmVkIGxvbmcg
-X19tdXN0X2NoZWNrIF9fYXNtX2NvcHlfdG9fdXNlcih2b2lkIF9fdXNlciAqdG8sCj4+PiAtwqDC
-oMKgIGNvbnN0IHZvaWQgKmZyb20sIHVuc2lnbmVkIGxvbmcgbik7Cj4+PiAtdW5zaWduZWQgbG9u
-ZyBfX211c3RfY2hlY2sgX19hc21fY29weV9mcm9tX3VzZXIodm9pZCAqdG8sCj4+PiAtwqDCoMKg
-IGNvbnN0IHZvaWQgX191c2VyICpmcm9tLCB1bnNpZ25lZCBsb25nIG4pOwo+Pj4gLQo+Pj4gIMKg
-IHN0YXRpYyBpbmxpbmUgdW5zaWduZWQgbG9uZwo+Pj4gIMKgIHJhd19jb3B5X2Zyb21fdXNlcih2
-b2lkICp0bywgY29uc3Qgdm9pZCBfX3VzZXIgKmZyb20sIHVuc2lnbmVkIGxvbmcgbikKPj4+ICDC
-oCB7Cj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+
-IGxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdAo+IGxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKPiBodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJp
-c2N2CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51
-eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRw
-Oi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Hi Zong,
+
+Thanks for taking the initiative for making cfi work with uprobe.
+And sorry for not noticing the patch earlier.
+Few comments inline.
+
+
+On Fri, Mar 14, 2025 at 05:26:14PM +0800, Zong Li wrote:
+>Handle the uprobe event first before handling the CFI violation in
+>software-check exception handler. Because when the landing pad is
+>activated, if the uprobe point is set at the lpad instruction at
+>the beginning of a function, the system triggers a software-check
+>exception instead of an ebreak exception due to the exception
+>priority, then uprobe can't work successfully.
+>
+>Co-developed-by: Deepak Gupta <debug@rivosinc.com>
+>Signed-off-by: Deepak Gupta <debug@rivosinc.com>
+>Signed-off-by: Zong Li <zong.li@sifive.com>
+>---
+>
+>This patch is based on top of the following series
+>[PATCH v11 00/27] riscv control-flow integrity for usermode
+>
+> arch/riscv/kernel/traps.c | 9 ++++++---
+> 1 file changed, 6 insertions(+), 3 deletions(-)
+>
+>diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
+>index 3f7709f4595a..ef5a92111ee1 100644
+>--- a/arch/riscv/kernel/traps.c
+>+++ b/arch/riscv/kernel/traps.c
+>@@ -386,9 +386,12 @@ asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *
+> 	if (user_mode(regs)) {
+> 		irqentry_enter_from_user_mode(regs);
+>
+>-		/* not a cfi violation, then merge into flow of unknown trap handler */
+>-		if (!handle_user_cfi_violation(regs))
+>-			do_trap_unknown(regs);
+>+		/* handle uprobe event frist */
+>+		if (!probe_breakpoint_handler(regs)) {
+
+If task has uprobe enabled and there is a cfi violation due to mismatch in
+return address on shadow stack and regular stack, then it would be a cfi
+bypass, right?
+Perhaps we should be doing this only when we match that sw check exception
+is due to forward cfi violation?
+
+Do you agree?
+
+>+			/* not a cfi violation, then merge into flow of unknown trap handler */
+>+			if (!handle_user_cfi_violation(regs))
+>+				do_trap_unknown(regs);
+>+		}
+>
+> 		irqentry_exit_to_user_mode(regs);
+> 	} else {
+>-- 
+>2.17.1
+>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
