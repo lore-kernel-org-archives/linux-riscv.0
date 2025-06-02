@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E59C5B549
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77475C5B559
 	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 22:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,52 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=X11bqw/1XxDY6zuWQ+VuDrip1OwShSrdUhwuC5rSeeM=; b=vckAiU+hijRzdo
-	w9ul3Fd9Z6szgHGXKrukv4W/4X5qo5S1gf2fCP4hVTv0Au6oW+jnIlgmI1DGAAb461pqUizSqjymr
-	4F/72e+XRfAaaK6ae6cAv+2qFdZo0NjTnu84XmE8HJ2m9/JNhW7Sga7V1tXhoi6VRnd4WizvVA3YV
-	VZxarXx4zbLq62MlFcI1GArNb4WQyHyHj91IyhefBl+1y3j8h8K1X4vcqHJMumBLOKeO4ocCRZaRH
-	Ji0mcThnKehnZX1v29TFplNK6l5ULoihjv67fjOm1aZQml9QEsIeiHUEUicK6aqX2j+bBXypTLqab
-	v+wBfTZqq8ethNbZsu4w==;
+	List-Owner; bh=bzqZQ2/1yaVlOTyaHGBPdzUArqfBf3zhQ5anAGXpd1I=; b=3MEBbYRjAtVwxj
+	fIALG9y8DXY4BbthlWS7jIKRqtxR2QMLaowlPG90C2DCMsTUONmIIyb5pUwMqZhNc1TE8Pqei7r5J
+	G7e1jO8r++QVFO2MfvdSvP+S9kUfX8DU2Aw+fJY8J4HTMti9oYg72A11v9S89X8P2e8Lm5d9LTiIc
+	euv76TXwbwHUlmzrTpSqscCaLGmTwdyXfCKdEHNVoG8bBdd681du0RIzoy0RvE3PSqu1Kcj0BcSPb
+	HYJbcJ1CTBjW2eG3ElVD4nMYI6H6bWZoy3PwONNF+0l1TfvXIabYLX5DmhH8PQxJozIm4iw/GjnS8
+	8LyFB+zdQqFRe5Anb4LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDO7-000000099i5-03Va;
-	Mon, 02 Jun 2025 22:12:11 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uMDO6-000000099hy-1jpv;
+	Mon, 02 Jun 2025 22:12:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDO3-000000099fc-2BW8
+	id 1uMDO3-000000099fb-1tqn
 	for linux-riscv@lists.infradead.org;
 	Mon, 02 Jun 2025 22:12:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 79B90A50437;
-	Mon,  2 Jun 2025 22:12:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287DBC4CEEE;
-	Mon,  2 Jun 2025 22:12:06 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 06F3342B9E;
+	Mon,  2 Jun 2025 22:12:05 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D85C9C4CEEB;
+	Mon,  2 Jun 2025 22:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748902326;
-	bh=rsZx61t60Jc54DaNK6EBwyF5d20S6nRe5Uf1+PLgEfU=;
+	s=k20201202; t=1748902324;
+	bh=7ygqIY0hkxuONzbgzQUnvO6isdISsOfjdB10LcXkx2U=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=ZoNFcWrac7Dpr5Il7/P0vOiPnRMCNXXlmlHQto8kbJ5Fa7koUu91+nR46VUmeNEz4
-	 fbURMllcifXrxFyQQZkcS+V66PAmjR1zjHNuGCEL7WWn6Xptp8WoOo3N+hMTDLYxkI
-	 5UIVp2HHD1goF/xvsNrB462+7BDTf1Wco3vefuEUcucixxl78i+2MwVyfG7av0ORDy
-	 cuYJlX8oBovEewxmrlkbdFSQ8QvAMl+VPGcU7QjhCoLNDExplhqTjHIyWGYVaCtNJp
-	 IjMYt4ii4/lmY8f2uP9kceTiRhBlrAzP6dOPk5aeiq2fyqQRkf6xbFC899r1oNEGs6
-	 6KRTybvoKAplw==
+	b=q6oJHWR2HZ9jbQXZh1SXuu8ud1e/g8On/Y0e3YTzF3iYh4P/gIenWRsNRbVHp5KVu
+	 tdkPJ2qP7eEt4LTQbm6bL44ABi33nKENR5hFrLnSi0dmHxloK3W/DDSriX15Gm7up4
+	 a8vBKICmNAYITyQNEIfQK3PLtHQ7wyXTTze8DS5UvNlFHf6roeBXvbOY+1PSsKgvXm
+	 tmH2hjeRkag4lZUL1IMEGxJ1H7X4RIlg3Mvzj84jQ2NoyO0ypizG7FZLLibp2drw+X
+	 vEaw/tv+AU9bDQGmobE7xT+Nrwt7XN55LvdB8YygnlaA+200dS+b9XGUi0lSz08h+b
+	 mQh7C8I+85l+g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB038380AAD0;
-	Mon,  2 Jun 2025 22:12:39 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADECA380AAD0;
+	Mon,  2 Jun 2025 22:12:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 0/4] riscv: Add Zicbop & prefetchw support
+Subject: Re: [PATCH] riscv: Make regs_irqs_disabled() more clear
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174890235873.925497.2365799693882283939.git-patchwork-notify@kernel.org>
-Date: Mon, 02 Jun 2025 22:12:38 +0000
-References: <20250421142441.395849-1-alexghiti@rivosinc.com>
-In-Reply-To: <20250421142441.395849-1-alexghiti@rivosinc.com>
-To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Message-Id: <174890235755.925497.16281060573681784649.git-patchwork-notify@kernel.org>
+Date: Mon, 02 Jun 2025 22:12:37 +0000
+References: <20250422113156.25742-1-yangtiezhu@loongson.cn>
+In-Reply-To: <20250422113156.25742-1-yangtiezhu@loongson.cn>
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
- palmer@dabbelt.com, alex@ghiti.fr, linux-kernel@vger.kernel.org
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, chenhuacai@loongson.cn,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_151207_625248_90016F5A 
-X-CRM114-Status: GOOD (  13.05  )
+X-CRM114-CacheID: sfid-20250602_151207_513212_8F8B719C 
+X-CRM114-Status: UNSURE (   9.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +78,22 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
-by Alexandre Ghiti <alexghiti@rivosinc.com>:
+This patch was applied to riscv/linux.git (for-next)
+by Palmer Dabbelt <palmer@dabbelt.com>:
 
-On Mon, 21 Apr 2025 16:24:37 +0200 you wrote:
-> I found this lost series developed by Guo so here is a respin with the
-> comments on v2 applied.
+On Tue, 22 Apr 2025 19:31:56 +0800 you wrote:
+> The return value of regs_irqs_disabled() is true or false, so change
+> its type to reflect that and also make it always inline.
 > 
-> This patch series adds Zicbop support and then enables the Linux
-> prefetch features.
-> 
-> Changelog:
-> V3:
->  - Fix typo (Drew)
->  - Split first patch (Drew)
->  - Ensure that the bits [0:4] of the prefetch insns are zeroed
->  - Move PREFETCHW_ASM out of ifdef (Guo)
->  - Remove CBO_ prefix for prefetching insn
->  - Add prefetch (Drew)
-> 
-> [...]
+> Suggested-by: Huacai Chen <chenhuacai@loongson.cn>
+> Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
+> ---
+>  arch/riscv/include/asm/ptrace.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
 Here is the summary with links:
-  - [v3,1/4] riscv: Introduce Zicbop instructions
-    https://git.kernel.org/riscv/c/b81f148e583b
-  - [v3,2/4] riscv: Add support for Zicbop
-    https://git.kernel.org/riscv/c/120068a68961
-  - [v3,3/4] riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
-    https://git.kernel.org/riscv/c/46a47d7a42bb
-  - [v3,4/4] riscv: xchg: Prefetch the destination word for sc.w
-    https://git.kernel.org/riscv/c/993d2e054b05
+  - riscv: Make regs_irqs_disabled() more clear
+    https://git.kernel.org/riscv/c/91a072f84c2d
 
 You are awesome, thank you!
 -- 
