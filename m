@@ -4,91 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85A2AC5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 12:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B05EC5B549
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 12:21:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=yaNG/XeWfz6dfClYjwHhYyuUtIXcsj/oZIYQbEBhceU=; b=hfE5DXomlBE9qz
-	HCKgJXdQjJMJ7WKfdhH3xSdMQnZJ1yvjrt4iA9vhq6ywPMTrT4FvguJ3mrCWM2Ulh/xVygKvFiT8T
-	+Dp1A6esPtTv3c2KuGaPtwg1RCgI+DNkd7sannmrhacOZsv1R/HBSk3x5Iu3ok8aGgTav+YI1yhLr
-	ZXIXa4yqcYAkwMZqihUFq9dTyGechr21Kxa04vmd4gg1hii/2T62yZOIIEOFtDIxgbCXLCCx6bVxB
-	oJ2Vd8LvFXmrNdeVlxZkQ3vNnHv61UBu9EKcepaEedSG+aoF/9V6EwF1P+oSY+EpTmO6EPzemsI+h
-	78+jgirBJLqUBoTgiLjQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:References:Cc:To:From:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1WNFq8jNyAI0pD6ojC/HPIbZneT6EIa3MfOg6Ekj9qU=; b=PbQgCEsS1Al9mh
+	deYiqGKn0kCFqHd1OoAHWPP+e4v91KnBqDSyfThPpD3eH+nivIb0vn1fpcrtu9kNYLQEqFSGAh91s
+	ZuAg07vN9BHcSfIcDMVWWP+7yZnQx6GM06KOKIcgf8DxmiE9V6iDnJQ3ojAOz7ukNfBFs1pwp86i1
+	fStVlEHxj4tBCEsyPSF9l9uyBqcwCmxb13apfVO6Xk+yel2yYXt5qgVszCZe1EAx26Ulls/24Zcrt
+	9/hbUBN6GM7+AJo8ADA1BIUDn2xy1hSbRKrPCMLOpk/x7sYEQG/eElUw1IuqtaFIB3tQicNYB0S8q
+	XNkSDnih77+pQ7HrJtYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM454-00000007LJO-07zz;
-	Mon, 02 Jun 2025 12:15:54 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1uM4A0-00000007Lmf-3nLG;
+	Mon, 02 Jun 2025 12:21:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uM451-00000007LIg-0VXl
+	id 1uM49y-00000007Lm5-3HWy
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 12:15:52 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-742c9563fd9so3468360b3a.3
-        for <linux-riscv@lists.infradead.org>; Mon, 02 Jun 2025 05:15:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1748866549; x=1749471349; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=GDaX+Ms/JxaHPiO5VVVHhufwbnzZiaWoNqvnoO02z4M=;
-        b=sqffABrR4dyPNs9UJl0QRW+20LIF3FazBf+x5x5+yWkRgGPQKHqOwlMG9pFwqENqZL
-         C6xA/J/XABviCRxkFOGLqwvNM8pJnL2cCqx2x+AyyrSCnIiJtXhpcp2DMg/+C3vY9lIv
-         W9U6ZTao5QgM9Mwu9IFcaaZ3vHVIg3Acjj89FY62cOtEZP2qDOFlqUNf8TP4KDvx/LGB
-         JmPRxIhLgjxOZPVF0Kvqit/py3BJ2fzkz42qLZn0f77rgUT4RONgfsjpqf9HqF+75cGU
-         EfrJWY6ZH7AI3UQl6HB84Z4LJ5TQ1syAx8R7yp7wpWOCQI1ws0ug4SCWuXlIqjlF3jg0
-         tkcQ==
+	Mon, 02 Jun 2025 12:21:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1748866857;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=fha/wYALl1qC/d0EpO8TYe7+VBeqcFERTe14lUW/UoM=;
+	b=jFTVmOcEdkHOe6QFmUCh7tsTjuy/pRtP5++Ylk7EgFBXMc44O43PKANSnkrKxyXZBUXdXT
+	8TGjKVTfknlU8j2UqsCaK4oVcw6cK10L2qe77zKPIZ8YHzeq5UVlJr5kHI/fvI7ohe+mle
+	9P/gZGW6+A6sAKSz3aFWX+legvPMpRo=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-620-BG33TmhFMFmZ4-gF6fjJXQ-1; Mon, 02 Jun 2025 08:20:56 -0400
+X-MC-Unique: BG33TmhFMFmZ4-gF6fjJXQ-1
+X-Mimecast-MFC-AGG-ID: BG33TmhFMFmZ4-gF6fjJXQ_1748866855
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-450df53d461so17899595e9.1
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jun 2025 05:20:56 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748866549; x=1749471349;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=GDaX+Ms/JxaHPiO5VVVHhufwbnzZiaWoNqvnoO02z4M=;
-        b=j2hS5OIpsMF/fTVLw3EzlAZC0hGiT6oMfm2DwngMo1buXn9nC+sYXsCLctAZaHTdnQ
-         01MfaJ9qySYe19Gybc5UsDWc//91Zfa19WlbI/umNNsLI3QcOCi7M1CHSx09/8r6HU95
-         XgPGrAhuKWKfixin4is0QHakOHgoSIqtAd0+DoX/o0zVeH3N+5Bhn5vIx6VVCf+tzU7l
-         bikkrgBZoPQh2TQqVL5WSu3XQFua2PfPB+Et7nNE2eABZheS/EoNjO8B2IKv4FaDtQDW
-         VY/PWlana6ST9JqMELNRwpVqWdzs3UgQ+SJaBt7+dj7G+cuZrDpAI5m4bkwJgG9pwHTN
-         KLtg==
-X-Forwarded-Encrypted: i=1; AJvYcCUyGk0xYIVPfvD/v2lKYTLsFhp46LClf563RhXR1e2jkRskALuh58pO9HzmTmGAa2dr7RGnBt0N2I32uA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyblxKAZW3VDYd3DFP84hj2pACxGW4vwmgEJVVZe3TWUMdDFp85
-	5lBCw18uDDfa5iHM1rWG0guVug493MQpSg/+2mqiENustAoyouJz7YUlXWmYXf8E+0M=
-X-Gm-Gg: ASbGncutjpI0Ih/b9UzCJ9VCcLX84mYH08fJrR24HNB8QwPgVF0Q9Hi90MA4a7M1AbD
-	9nGbRR4VJbXqIxhqzE5j9eA/Talx/M4cVHG3/P/U1r5sVOAJzo++zeViHHbzezc0t+5sUcCh9av
-	2Uc5Ou5njpY9HDE3zoW963dytVtJ0FqTNEfO4aNeRL+I4SDBFicI/ISq6lJYiI6rzxtv9sNmzBF
-	yzLaf68NHcotgc+OhcT1ekOoYEMdBcQYAhGI5CmJB8xVGsKZQlHQg54ljWpKkNblAqW4VTIsQ2O
-	76RRV7EnU34Rk2JiBsh+o/c62R8f4f/LoAD4p5B+gVUWAhmL6lWZXX8yhoQOxrm7D10jMuoG13d
-	anLjwOeRUFoZrIy8BbI4BP9vsRrmPBnvVIA==
-X-Google-Smtp-Source: AGHT+IE3ZZ9XZVrG6e5pbAOnOlFdHoHvNeeSOVeQA16FfBQLzHeudQW2FyoTDts8Gqcjz/FT+Fd4nw==
-X-Received: by 2002:a05:6a20:6a21:b0:215:db66:2a33 with SMTP id adf61e73a8af0-21adff6bccfmr17082491637.16.1748866549492;
-        Mon, 02 Jun 2025 05:15:49 -0700 (PDT)
-Received: from alexghiti.ba.rivosinc.com (alexghiti.eu.rivosinc.com. [141.95.202.232])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-747afeabb13sm7717558b3a.62.2025.06.02.05.15.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 02 Jun 2025 05:15:48 -0700 (PDT)
-From: Alexandre Ghiti <alexghiti@rivosinc.com>
-To: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Cyril Bur <cyrilbur@tenstorrent.com>,
-	Andy Chiu <andybnac@gmail.com>,
-	Deepak Gupta <debug@rivosinc.com>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Alexandre Ghiti <alexghiti@rivosinc.com>
-Subject: [PATCH v2] riscv: uaccess: Only restore the CSR_STATUS SUM bit
-Date: Mon,  2 Jun 2025 12:15:43 +0000
-Message-Id: <20250602121543.1544278-1-alexghiti@rivosinc.com>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20230601; t=1748866855; x=1749471655;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:references:cc:to:from:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fha/wYALl1qC/d0EpO8TYe7+VBeqcFERTe14lUW/UoM=;
+        b=gz+BAGfGm0BUqtozMb/Bbp7C7+03YGVLVnJ7FeSrOC/Vz/IHeVgZ3pnd7Pfz1JqkNf
+         1qP5AJDcF8WoCRhWamgZoOco0cm5EG7NOFrb/Xoo8cRGOogM2tLHulOMqAin3BJZxNq3
+         Ut/Y2vdVBuz7bxnpubvEChQpslRcwaLLX649BpyDViyoe0bp7Dtss8V+YdoVU5xsUE4l
+         80/QacAqhWraIYUSaprhpVriEigqiAKjLEY3aasc2XDw6a+J4UtDvQ9a5+8bLKDKteNm
+         fI1MwNAV285B+A2/NnCGMF5yEguQnsK0HVCZU5td1WbrbLoz3GIya83ShzUWa2pc1WM7
+         SH3A==
+X-Forwarded-Encrypted: i=1; AJvYcCVDi73znaZT6Eo9THoCqpEHmlNTJCVlDpUDB0p9xBmt+T1IRgu7Fz0WqHdXoFHStdLm5szJofCsd6OBzg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdZBT+ymwekMwqMsaV+qkyTymwVBCzT3DHUseEpbccYq/HMSE6
+	QLQgorPjWhtOkvK35+AMz7AwHiAIqfTD7lR1+URPxC8uaPPJWLELR/vt6LHoeKjdPaQ5+ZjRzNM
+	cBvRZWoSCouD3BXJQr/3KkKz+xuEdD4g7eWWp2jewGowcawP0xFVcxY4eO2v0UygNgls/6Q==
+X-Gm-Gg: ASbGncvxnlri4Ch/FgckWG9geOhqusB+J094D0OSkdjM6bgUGOm4/z2Nk9MtEDbFXwr
+	fVUtkUVbuXC4vUX3dmJqKb06GAgTODEYxe62OmKWe4rtdKs2R7qyAx2Zy2YaJ5xBNcRDUOy87ih
+	O7AiJc/fynUrmdFIypLRj3UYV98uomx7BGR9u5BV91bBcPjvtqVcTOm4L7Dycv3pUa1ZJOfLH6r
+	r5KQNGm8L+F500yF0psgrma5ljJzNdxWkWPeuEoAj0CSY1tPlUIdUnxzaapOW9euPhAi0YpVc+M
+	kyZxnweubE3J3Ij9pyMnN3MUnhUtGsWB7IAcQTRpYhuD731MBZNx0anV94b24GPOCkW0Oyr9cKe
+	6/CXcJBBwoRPJCEY6DXWB2GY5AfeJispQpbvViTA=
+X-Received: by 2002:a05:600c:608a:b0:43d:3df:42d8 with SMTP id 5b1f17b1804b1-450d87fd857mr103237785e9.6.1748866854935;
+        Mon, 02 Jun 2025 05:20:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEIX1lEBcvIjIUWzMHUVHY0RO1zDGA/tS4Yya6bs5LYBrcaJXLO7aiOIgpY/seevYUJEdu6Rg==
+X-Received: by 2002:a05:600c:608a:b0:43d:3df:42d8 with SMTP id 5b1f17b1804b1-450d87fd857mr103237275e9.6.1748866854547;
+        Mon, 02 Jun 2025 05:20:54 -0700 (PDT)
+Received: from ?IPV6:2003:d8:2f34:a300:1c2c:f35e:e8e5:488e? (p200300d82f34a3001c2cf35ee8e5488e.dip0.t-ipconnect.de. [2003:d8:2f34:a300:1c2c:f35e:e8e5:488e])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-450d7f8edf9sm120150665e9.3.2025.06.02.05.20.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 02 Jun 2025 05:20:54 -0700 (PDT)
+Message-ID: <799691d6-d9dd-43fd-805e-7dce6efff3e6@redhat.com>
+Date: Mon, 2 Jun 2025 14:20:52 +0200
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3042; i=alexghiti@rivosinc.com; h=from:subject; bh=QR8/6bas1i5/uuucvXOTT2dS9uCkrhYuqeChIu397zo=; b=owGbwMvMwCGWYr9pz6TW912Mp9WSGDJsp+7xv/FpyfOAyAnx+5OMt+/98OSGzSqedU4xBxXyo 5Wby3k7OkpZGMQ4GGTFFFkUzBO6WuzP1s/+c+k9zBxWJpAhDFycAjARt7cM/9O2tifwbXyTkmtz 9+b3FbHNsYuPnG9dGuKhfeGWlMOdN74M/2Nk7k89Zhv07Zbim+9Lnxz4HH3p1Ub2nULFb+QzyyX 3ObMDAA==
-X-Developer-Key: i=alexghiti@rivosinc.com; a=openpgp; fpr=DC049C97114ED82152FE79A783E4BA75438E93E3
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 07/12] mm: Remove redundant pXd_devmap calls
+From: David Hildenbrand <david@redhat.com>
+To: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org
+Cc: gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca,
+ willy@infradead.org, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
+ balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@Groves.net
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <2ee5a64581d2c78445e5c4180d7eceed085825ca.1748500293.git-series.apopple@nvidia.com>
+ <9c465b24-8775-4852-9618-0873cbf2aaf7@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <9c465b24-8775-4852-9618-0873cbf2aaf7@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zF8Tftxq_R8BugznPJ1CwPLT0_SOVKabGRGMHhS0s9A_1748866855
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_051551_313121_4DE55D8B 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250602_052058_901876_8AE124B7 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +160,65 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Cyril Bur <cyrilbur@tenstorrent.com>
+On 02.06.25 11:33, David Hildenbrand wrote:
+>> --- a/mm/huge_memory.c
+>> +++ b/mm/huge_memory.c
+>> @@ -1398,10 +1398,7 @@ static int insert_pfn_pmd(struct vm_area_struct *vma, unsigned long addr,
+>>    	}
+>>    
+>>    	entry = pmd_mkhuge(pfn_t_pmd(pfn, prot));
+>> -	if (pfn_t_devmap(pfn))
+>> -		entry = pmd_mkdevmap(entry);
+>> -	else
+>> -		entry = pmd_mkspecial(entry);
+>> +	entry = pmd_mkspecial(entry);
+>>    	if (write) {
+> 
+> 
+> I just stumbled over this, and I think there is something off here in
+> the PMD/PUD case.
+> 
+> vmf_insert_folio_pmd() does a folio_get() + folio_add_file_rmap_pmd().
+> 
+> But then, we go ahead and turn this into a special mapping by setting it
+> pmd_mkdevmap()/pmd_mkspecial().
+> 
+> Consequently, vm_normal_page_pmd() would ignore them, not following the
+> rules documented for vm_normal_page() and behaving differently than
+> vmf_insert_page_mkwrite()->insert_page().
+> 
+> 
+> folio_add_file_rmap_pmd() should never set these things special/devmap
+> in the first place :/
+> 
+> What am I missing?
+> 
+> Note that fs/dax.c calls vmf_insert_folio_pmd() for PMDs and
+> vmf_insert_page_mkwrite() for PTEs.
+> 
+> Consequently, PTEs will never be marked special (corner case, shared
+> zeropage), but PMDs would always.
+> 
+> Hm?
 
-During switch to csrs will OR the value of the register into the
-corresponding csr. In this case we're only interested in restoring the
-SUM bit not the entire register.
+What an ugly piece of crap this pmd handling code is.
 
-Fixes: 788aa64c0c01 ("riscv: save the SR_SUM status over switches")
-Signed-off-by: Cyril Bur <cyrilbur@tenstorrent.com>
-Link: https://lore.kernel.org/r/20250522160954.429333-1-cyrilbur@tenstorrent.com
-Co-developed-by: Alexandre Ghiti <alexghiti@rivosinc.com>
-Signed-off-by: Alexandre Ghiti <alexghiti@rivosinc.com>
----
+Just noting because I stumbled over that myself:
 
-Changes in v2:
- - Rename status field
- - Remove a comment
- - Fix Fixes tag
+pmd_mkdevmap() does *not* imply pmd_special().
 
- arch/riscv/include/asm/processor.h | 2 +-
- arch/riscv/kernel/asm-offsets.c    | 6 +++---
- arch/riscv/kernel/entry.S          | 9 +++++----
- 3 files changed, 9 insertions(+), 8 deletions(-)
+... in contrast to pte_mkdevmap(), which will imply pte_special().
 
-diff --git a/arch/riscv/include/asm/processor.h b/arch/riscv/include/asm/processor.h
-index 7bcbb908798f2..05eb65fe95789 100644
---- a/arch/riscv/include/asm/processor.h
-+++ b/arch/riscv/include/asm/processor.h
-@@ -111,7 +111,7 @@ struct thread_struct {
- 	struct __riscv_d_ext_state fstate;
- 	unsigned long bad_cause;
- 	unsigned long envcfg;
--	unsigned long status;
-+	unsigned long sum;
- 	u32 riscv_v_flags;
- 	u32 vstate_ctrl;
- 	struct __riscv_v_ext_state vstate;
-diff --git a/arch/riscv/kernel/asm-offsets.c b/arch/riscv/kernel/asm-offsets.c
-index 3aa5f56a84e9a..e4d55126dc3eb 100644
---- a/arch/riscv/kernel/asm-offsets.c
-+++ b/arch/riscv/kernel/asm-offsets.c
-@@ -34,7 +34,7 @@ void asm_offsets(void)
- 	OFFSET(TASK_THREAD_S9, task_struct, thread.s[9]);
- 	OFFSET(TASK_THREAD_S10, task_struct, thread.s[10]);
- 	OFFSET(TASK_THREAD_S11, task_struct, thread.s[11]);
--	OFFSET(TASK_THREAD_STATUS, task_struct, thread.status);
-+	OFFSET(TASK_THREAD_SUM, task_struct, thread.sum);
- 
- 	OFFSET(TASK_TI_CPU, task_struct, thread_info.cpu);
- 	OFFSET(TASK_TI_PREEMPT_COUNT, task_struct, thread_info.preempt_count);
-@@ -351,8 +351,8 @@ void asm_offsets(void)
- 		  offsetof(struct task_struct, thread.s[11])
- 		- offsetof(struct task_struct, thread.ra)
- 	);
--	DEFINE(TASK_THREAD_STATUS_RA,
--		  offsetof(struct task_struct, thread.status)
-+	DEFINE(TASK_THREAD_SUM_RA,
-+		  offsetof(struct task_struct, thread.sum)
- 		- offsetof(struct task_struct, thread.ra)
- 	);
- 
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index d3cb515fb1596..77e334f7cbe4b 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -427,14 +427,15 @@ SYM_FUNC_START(__switch_to)
- 	REG_S s11, TASK_THREAD_S11_RA(a3)
- 
- 	/* save the user space access flag */
--	li    s0, SR_SUM
--	csrr  s1, CSR_STATUS
--	REG_S s1, TASK_THREAD_STATUS_RA(a3)
-+	csrr  s0, CSR_STATUS
-+	REG_S s0, TASK_THREAD_SUM_RA(a3)
- 
- 	/* Save the kernel shadow call stack pointer */
- 	scs_save_current
- 	/* Restore context from next->thread */
--	REG_L s0,  TASK_THREAD_STATUS_RA(a4)
-+	REG_L s0,  TASK_THREAD_SUM_RA(a4)
-+	li    s1,  SR_SUM
-+	and   s0,  s0, s1
- 	csrs  CSR_STATUS, s0
- 	REG_L ra,  TASK_THREAD_RA_RA(a4)
- 	REG_L sp,  TASK_THREAD_SP_RA(a4)
+
 -- 
-2.34.1
+Cheers,
+
+David / dhildenb
 
 
 _______________________________________________
