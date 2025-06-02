@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CBA3C5B559
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 06:09:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45C4AC5B549
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 06:09:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=H0T0AA63VixmCF5nUb4/FA2+k1E9KKCpBHc4cL3jJvQ=; b=pI2mMie0M97UBX
-	7+bMJsA5Mg9smlx9ExCKSRUILy6YP+depnR6QekQoy3VEvQbxeM0Z8yl6NqDDiIdyxMufA3mT3zjO
-	pNY6xVUHtWsaeS5dTSDZ17NoLIbuAtpRSVYPrT6ZUsgWrjeTsznfny2vpmRRPhamKpmEae44XNX0T
-	gYc8h+JQ4oJLFV5jQq3huoeY9x8tgd5M6xag6CbcWim3f1fCfIiZUZbols1mxaIm2OY10b2Bal/qW
-	gw9KIbocsxLB2Gjw48VXqwfBHI38BUPrZ1aF4bOfMrTM1wEOq1rT8PXraGErLmM1W4WiStYBQdhya
-	2os6aYl04lHmo+544IKQ==;
+	List-Owner; bh=6nybmCnqHFu7XKe/Rchmz/qUnsu3ttJhZQ+PWC5jhcM=; b=eD2FvOZSIXM7Qr
+	+ab1LEg/3VyyuxhZgyfrPT2hihRxpgYPH4ZOsz8Y0OU9tBS6hMcZIxIIyDYuXoJXSe6TYzOL9+88C
+	gN7hkbUUQsQ5zROUUdyjGGKjihuzcHjNob315YCMt4G5Fz3Nv2oleLU5/ceanIRau+bbuNgE1KOww
+	fGRtE56HNKStFgn5JSDo3Q5hqZBE8o23q+rjs80jNgj+ne6Z+OrgQwBTSPYP1EWMQ1HAx4wB+ep3D
+	JCEqsRvGEbqQbQE+jFXtokNpjuEK7yFSceytbhzHIikwtFsoXHVgeA8uEYyUUD+q1b2SUGDmOQK3Y
+	BZ2rjFONjOE6IUPmr3qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLyLz-00000006o9s-1WLH;
-	Mon, 02 Jun 2025 06:08:59 +0000
+	id 1uLyLv-00000006o6v-2zrW;
+	Mon, 02 Jun 2025 06:08:55 +0000
 Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uLyLr-00000006o2C-1Fl7
+	id 1uLyLr-00000006o26-1HKu
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 06:08:55 +0000
+	Mon, 02 Jun 2025 06:08:54 +0000
 Received: from mail.andestech.com (ATCPCS31.andestech.com [10.0.1.89])
-	by Atcsqr.andestech.com with ESMTPS id 55267xHI096216
+	by Atcsqr.andestech.com with ESMTPS id 55267s7I096125
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 2 Jun 2025 14:07:59 +0800 (+08)
+	Mon, 2 Jun 2025 14:07:54 +0800 (+08)
 	(envelope-from ben717@andestech.com)
 Received: from swlinux02.andestech.com (10.0.15.183) by ATCPCS31.andestech.com
  (10.0.1.89) with Microsoft SMTP Server id 14.3.498.0; Mon, 2 Jun 2025
- 14:07:59 +0800
+ 14:07:54 +0800
 From: Ben Zong-You Xie <ben717@andestech.com>
 To: 
 CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
@@ -43,12 +43,10 @@ CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
         <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
         <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
         <linux-kernel@vger.kernel.org>, <tim609@andestech.com>,
-        Ben Zong-You Xie <ben717@andestech.com>,
-        Conor Dooley
-	<conor.dooley@microchip.com>
-Subject: [PATCH v5 5/8] dt-bindings: timer: add Andes machine timer
-Date: Mon, 2 Jun 2025 14:07:44 +0800
-Message-ID: <20250602060747.689824-6-ben717@andestech.com>
+        Ben Zong-You Xie <ben717@andestech.com>
+Subject: [PATCH v5 1/8] riscv: add Andes SoC family Kconfig support
+Date: Mon, 2 Jun 2025 14:07:40 +0800
+Message-ID: <20250602060747.689824-2-ben717@andestech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250602060747.689824-1-ben717@andestech.com>
 References: <20250602060747.689824-1-ben717@andestech.com>
@@ -56,10 +54,10 @@ MIME-Version: 1.0
 X-Originating-IP: [10.0.15.183]
 X-DKIM-Results: atcpcs31.andestech.com; dkim=none;
 X-DNSRBL: 
-X-MAIL: Atcsqr.andestech.com 55267xHI096216
+X-MAIL: Atcsqr.andestech.com 55267s7I096125
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250601_230851_692908_5CEDB64E 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250601_230851_684751_D1626DA5 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,96 +74,54 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add the DT binding documentation for Andes machine timer.
+The first SoC in the Andes series is QiLai. It includes a high-performance
+quad-core RISC-V AX45MP cluster and one NX27V vector processor.
 
-The RISC-V architecture defines a machine timer that provides a real-time
-counter and generates timer interrupts. Andes machiner timer (PLMT0) is
-the implementation of the machine timer, and it contains memory-mapped
-registers (mtime and mtimecmp). This device supports up to 32 cores.
+For further information, refer to [1].
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+[1] https://www.andestech.com/en/products-solutions/andeshape-platforms/qilai-chip/
+
 Signed-off-by: Ben Zong-You Xie <ben717@andestech.com>
 ---
-This patch depends on patch 2 and patch 4
----
- .../bindings/timer/andestech,plmt0.yaml       | 53 +++++++++++++++++++
- MAINTAINERS                                   |  1 +
- 2 files changed, 54 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
+ arch/riscv/Kconfig.errata | 2 +-
+ arch/riscv/Kconfig.socs   | 9 +++++++++
+ 2 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml b/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
-new file mode 100644
-index 000000000000..90b612096004
---- /dev/null
-+++ b/Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
-@@ -0,0 +1,53 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/timer/andestech,plmt0.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/riscv/Kconfig.errata b/arch/riscv/Kconfig.errata
+index e318119d570d..be76883704a6 100644
+--- a/arch/riscv/Kconfig.errata
++++ b/arch/riscv/Kconfig.errata
+@@ -12,7 +12,7 @@ config ERRATA_ANDES
+ 
+ config ERRATA_ANDES_CMO
+ 	bool "Apply Andes cache management errata"
+-	depends on ERRATA_ANDES && ARCH_R9A07G043
++	depends on ERRATA_ANDES && (ARCH_R9A07G043 || ARCH_ANDES)
+ 	select RISCV_DMA_NONCOHERENT
+ 	default y
+ 	help
+diff --git a/arch/riscv/Kconfig.socs b/arch/riscv/Kconfig.socs
+index 8b503e54fa1b..2f1626daaad1 100644
+--- a/arch/riscv/Kconfig.socs
++++ b/arch/riscv/Kconfig.socs
+@@ -1,5 +1,14 @@
+ menu "SoC selection"
+ 
++config ARCH_ANDES
++	bool "Andes SoCs"
++	depends on MMU && !XIP_KERNEL
++	select ERRATA_ANDES
++	select ERRATA_ANDES_CMO
++	select AX45MP_L2_CACHE
++	help
++	  This enables support for Andes SoC platform hardware.
 +
-+title: Andes machine-level timer
-+
-+description:
-+  The Andes machine-level timer device (PLMT0) provides machine-level timer
-+  functionality for a set of HARTs on a RISC-V platform. It has a single
-+  fixed-frequency monotonic time counter (MTIME) register and a time compare
-+  register (MTIMECMP) for each HART connected to the PLMT0. A timer interrupt is
-+  generated if MTIME >= MTIMECMP.
-+
-+maintainers:
-+  - Ben Zong-You Xie <ben717@andestech.com>
-+
-+properties:
-+  compatible:
-+    items:
-+      - enum:
-+          - andestech,qilai-plmt
-+      - const: andestech,plmt0
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts-extended:
-+    minItems: 1
-+    maxItems: 32
-+    description:
-+      Specifies which harts are connected to the PLMT0. Each item must points
-+      to a riscv,cpu-intc node, which has a riscv cpu node as parent. The
-+      PLMT0 supports 1 hart up to 32 harts.
-+
-+additionalProperties: false
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts-extended
-+
-+examples:
-+  - |
-+    interrupt-controller@100000 {
-+      compatible = "andestech,qilai-plmt", "andestech,plmt0";
-+      reg = <0x100000 0x100000>;
-+      interrupts-extended = <&cpu0intc 7>,
-+                            <&cpu1intc 7>,
-+                            <&cpu2intc 7>,
-+                            <&cpu3intc 7>;
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b79cdd43fe37..57a4b3789ef8 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -20952,6 +20952,7 @@ M:	Ben Zong-You Xie <ben717@andestech.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/interrupt-controller/andestech,plicsw.yaml
- F:	Documentation/devicetree/bindings/riscv/andes.yaml
-+F:	Documentation/devicetree/bindings/timer/andestech,plmt0.yaml
-
- RISC-V ARCHITECTURE
- M:	Paul Walmsley <paul.walmsley@sifive.com>
---
+ config ARCH_MICROCHIP_POLARFIRE
+ 	def_bool ARCH_MICROCHIP
+ 
+-- 
 2.34.1
+
 
 _______________________________________________
 linux-riscv mailing list
