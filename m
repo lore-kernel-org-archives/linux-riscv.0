@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD51C5B549
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 22:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4CEC5B549
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 22:28:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=9QelF5QOZOb05WnXC+HmrFv+U5jyUaQ1JpjX2OopEJY=; b=1uveUJ71JPHyXA
-	Va9X6nGMTq2Ti8o7k+Y15c+YMudIN4Ep1kOlwg4SEEodGZlaq5q89g+Ju606jJUYkjBvx0I/oTcaQ
-	voChmLsz1lI3rHLTcSjNfWmkExnDj5AEz8ym3zkHgk6BX/SEwQg/hzSzLi2xF4z4GHY2ltQiaoiwX
-	JdMxDF9eygO/0QkjfHvtf3h6ShGyUKFaysZ25k3B5bqGB5Yj6QKOaZqK48v9mQFMUN2iF/rZsABNc
-	IqVwBCW6Pa1HJHOZp0vXFU9N4slaVOwk/D/GKUjbQu57ekz0dLwbrHX8MpFbujraqiA+Q5ThkPukL
-	BHMXzcK7lSJCvV11AKLA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=/pjw0wnJesBKWfslaNo1mNGNANZGU3oIRpdLXPhPXCQ=; b=jT7bsK6IeN56sG
+	xI6k+/TW004uNZfI780osYbyZjCPmo+MTLrbRu1IEyONmXMtAU46dfVyKdJ/4JAKpwp3i6lSrgJ2T
+	mFmzo+rf3ivZ6l0UuC0UaKKVtXTclfZ4zmoyUdZ+ncPaUgBScaHhhrRfRzb9d5Fr+fnKqIlynFbzf
+	Bhm6P4z04FU/Oper5YK0Fq1oJ7vO1zU8t38r2VztjjJQrnvYkKcH8wUY+PZe0bGRin3JEQFyELN0T
+	BvjiBg0ixl2k+5jCroqFQtiwG+1UlTkExSMzCAIqvPoSHwdGMx3e+NMsKXOA3xCZImTvgj8XeKqx2
+	ZTvtGFqt96IA1KpzeQtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDO8-000000099iQ-1NDj;
-	Mon, 02 Jun 2025 22:12:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uMDdo-00000009DAQ-3NnP;
+	Mon, 02 Jun 2025 22:28:24 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDO5-000000099hO-3hYQ
-	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 22:12:11 +0000
+	id 1uMCZP-00000008y1S-0vLP;
+	Mon, 02 Jun 2025 21:19:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D0B54AA38;
-	Mon,  2 Jun 2025 22:12:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E513C4CEEB;
-	Mon,  2 Jun 2025 22:12:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 88DF243C9D;
+	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3319DC4CEEB;
+	Mon,  2 Jun 2025 21:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748902329;
-	bh=Yqcn4giQRzb9AQrWT1Ez4PS7LHxSwznVJasaR+yuL0M=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=UwqjB+F3PqOV7iKXoJ5tx1uBjdvtybjceIA3+8bSoFfQBULCVMHWD75LEKXATdfUc
-	 Kfjs4zZpyIMKc/V4gYa5+0/nvDbWJBo32NrCsOVIOrNVXiyW7riVyjQKGgmqhyBFag
-	 gTN5e5vWUAwkeNgXmbFBHKoy5E6KPSwCYhUsn5XXnH5+XXeuzJF+L7VRqHAehQdMG8
-	 EUA8eeCZTfmcR9HsUHknf+blaCXgg8Xq/NTaGoFeI1gZVL/mufWse4MeZ2Fooi0Xut
-	 l6u1OfW37Kp6SGp1EEnc08U0d7PWm30iQi1g+4NCLoH7qvlyocyk+T33SP/IGL/gFt
-	 w0LTz4aaxrQGw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB0F0380AAD0;
-	Mon,  2 Jun 2025 22:12:42 +0000 (UTC)
+	s=k20201202; t=1748899186;
+	bh=6mj/BlYXhWA2zqQmobSnww4HV6I3qNHM38OyJ0T6thY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=IfLj37KIEU0Jy+o62Y0/R/gpmCidEqsAZWzdxwnL5HG85g62rUbIrFSLo1ASjyW0E
+	 y087JbYvyqH6P0sxoL5Qky0xSKuJSHtn/j8nE76kFXO/pv8Yvty3tt8qc7yiB5Xyfw
+	 oR7816Es3kjDy+NpaxUuATsG/9yz3l6s0Mcf5TX3TWFDvUxPJHfYJve1DpFDrl5/TD
+	 aTidwE3xAY+YwOXO+C4kxAEjuR3zzU0LFIplBOpp/6XKnqvxU1wpzdPOrFATsTLkVs
+	 9KPt/oUZvn0rRo5D+EdjpdLuaozVtiIt7kB8psup46KAwCEAani/+R9Zz46DS9un6V
+	 bN+Em+YzTa7Vg==
+Date: Mon, 2 Jun 2025 16:19:44 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Mahesh J Salgaonkar <mahesh@linux.ibm.com>,
+	Oliver O'Halloran <oohall@gmail.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Zhou Wang <wangzhou1@hisilicon.com>,
+	Will Deacon <will@kernel.org>, Robert Richter <rric@kernel.org>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Marc Zyngier <maz@kernel.org>,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Daire McNamara <daire.mcnamara@microchip.com>, dingwei@marvell.com,
+	cassel@kernel.org, Lukas Wunner <lukas@wunner.de>,
+	Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>,
+	linuxppc-dev@lists.ozlabs.org, linux-pci@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v4 4/5] PCI: host-common: Add link down handling for host
+ bridges
+Message-ID: <20250602211944.GA150795@bhelgaas>
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 1/3] riscv: module: Fix out-of-bounds relocation access
-From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174890236147.925497.13173014055651849610.git-patchwork-notify@kernel.org>
-Date: Mon, 02 Jun 2025 22:12:41 +0000
-References: <20250409171526.862481-1-samuel.holland@sifive.com>
-In-Reply-To: <20250409171526.862481-1-samuel.holland@sifive.com>
-To: Samuel Holland <samuel.holland@sifive.com>
-Cc: linux-riscv@lists.infradead.org, palmer@dabbelt.com, alex@ghiti.fr,
- ajones@ventanamicro.com, pinkesh.vaghela@einfochips.com,
- pritesh.patel@einfochips.com, darshan.prajapati@einfochips.com,
- aou@eecs.berkeley.edu, lixiaoyun@binary-semi.com, charlie@rivosinc.com,
- cleger@rivosinc.com, ruanjinjie@huawei.com, mcgrof@kernel.org,
- fido_max@inbox.ru, rppt@kernel.org, paul.walmsley@sifive.com,
- linux-kernel@vger.kernel.org
+Content-Disposition: inline
+In-Reply-To: <20250508-pcie-reset-slot-v4-4-7050093e2b50@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_151209_949842_0D8495A1 
-X-CRM114-Status: UNSURE (   8.29  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250602_141947_300635_78DDB566 
+X-CRM114-Status: GOOD (  17.33  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,35 +86,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Thu, May 08, 2025 at 12:40:33PM +0530, Manivannan Sadhasivam wrote:
+> The PCI link, when down, needs to be recovered to bring it back. But that
+> cannot be done in a generic way as link recovery procedure is specific to
+> host bridges. So add a new API pci_host_handle_link_down() that could be
+> called by the host bridge drivers when the link goes down.
 
-This series was applied to riscv/linux.git (for-next)
-by Palmer Dabbelt <palmer@dabbelt.com>:
+IIUC you plumbed this into the reset path so the standard entries
+(pci_reset_function() and the sysfs "reset" files) work can now work
+for Root Ports on DT systems just like they do for ACPI systems
+(assuming the ACPI systems supply an _RST method for the ports).  That
+all sounds good.
 
-On Wed,  9 Apr 2025 10:14:49 -0700 you wrote:
-> The current code allows rel[j] to access one element past the end of the
-> relocation section. Simplify to num_relocations which is equivalent to
-> the existing size expression.
-> 
-> Fixes: 080c4324fa5e ("riscv: optimize ELF relocation function in riscv")
-> Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-> 
-> [...]
+> The API will iterate through all the slots and calls the pcie_do_recovery()
+> function with 'pci_channel_io_frozen' as the state. This will result in the
+> execution of the AER Fatal error handling code. Since the link down
+> recovery is pretty much the same as AER Fatal error handling,
+> pcie_do_recovery() helper is reused here. First the AER error_detected
+> callback will be triggered for the bridge and the downstream devices. Then,
+> pci_host_reset_slot() will be called for the slot, which will reset the
+> slot using 'reset_slot' callback to recover the link. Once that's done,
+> resume message will be broadcasted to the bridge and the downstream devices
+> indicating successful link recovery.
 
-Here is the summary with links:
-  - [v2,1/3] riscv: module: Fix out-of-bounds relocation access
-    (no matching commit)
-  - [v2,2/3] riscv: module: Allocate PLT entries for R_RISCV_PLT32
-    (no matching commit)
-  - [v2,3/3] riscv: module: Optimize PLT/GOT entry counting
-    https://git.kernel.org/riscv/c/e9aa38ea39b2
+We have standard PCIe mechanisms to learn about "link down" events,
+e.g., AER Surprise Down error reporting and the Data Link Layer State
+Changed events for hot-plug capable ports.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+How does this controller-specific "link down" notification relate to
+those?  Is this for controllers that don't support those AER or
+hotplug mechanisms?  Or is this a different scenario that wouldn't be
+covered by them?
 
+If AER is enabled, do we get both the AER interrupt and the controller
+"link down" interrupt?
 
+> In case if the AER support is not enabled in the kernel, only
+> pci_bus_error_reset() will be called for each slots as there is no way we
+> could inform the drivers about link recovery.
 
 _______________________________________________
 linux-riscv mailing list
