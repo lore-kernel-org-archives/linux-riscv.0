@@ -4,86 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A08E4C5AD49
-	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 22:12:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31E59C5B549
+	for <linux-riscv@archiver.kernel.org>; Mon,  2 Jun 2025 22:12:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=eM/AMejK34gEUbvWBA8BCWZin1FSlYWstGVlpQlxK98=; b=RR7212jtGCdSff
-	WgbROsrWMixD23xckIIwx24lrIZaP5Fz/bbCIhkWZhgDNoQbFbJCZdfUp27DK+1I44BMqjR4l87Bt
-	NLmRyhEUsNyfXUatQn0KSFI4yQjmEi+967zymI7CwyItld2Ocjf2pgM0PhveeycEi2uFk6V937P/q
-	vaP7hxJeS1vMSonNLMdB1XN4MhaDX7f5WJcetlMsfUiw+h0+eCvhPqfxhhHdpyfQGOb3M5ZL9TJGq
-	5U23YlBd/tKOlal6lbhYfTzxrCTSJO1yWmBELpbz1uMHQ+/OToRDMrQUfryS2Rgu19+5pwThSvquy
-	VgEMb9+33aavjsZ/lmng==;
+	List-Owner; bh=X11bqw/1XxDY6zuWQ+VuDrip1OwShSrdUhwuC5rSeeM=; b=vckAiU+hijRzdo
+	w9ul3Fd9Z6szgHGXKrukv4W/4X5qo5S1gf2fCP4hVTv0Au6oW+jnIlgmI1DGAAb461pqUizSqjymr
+	4F/72e+XRfAaaK6ae6cAv+2qFdZo0NjTnu84XmE8HJ2m9/JNhW7Sga7V1tXhoi6VRnd4WizvVA3YV
+	VZxarXx4zbLq62MlFcI1GArNb4WQyHyHj91IyhefBl+1y3j8h8K1X4vcqHJMumBLOKeO4ocCRZaRH
+	Ji0mcThnKehnZX1v29TFplNK6l5ULoihjv67fjOm1aZQml9QEsIeiHUEUicK6aqX2j+bBXypTLqab
+	v+wBfTZqq8ethNbZsu4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDOF-000000099mN-0TOn;
-	Mon, 02 Jun 2025 22:12:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uMDO7-000000099i5-03Va;
+	Mon, 02 Jun 2025 22:12:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDOE-000000099lb-1zNY
-	for linux-riscv@bombadil.infradead.org;
-	Mon, 02 Jun 2025 22:12:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:Date:
-	Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:Content-Type:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Lsi+3NUgruFdOKOljXw48FLaGUPljT6iBd+vUE7fsl4=; b=coGlD3EQIfZZgUdE3rW7RlYm+b
-	L8lZDb1JuLZeMNyX+uVrw66NezNhjtyjpXtY1N7mZIZh/+K7eBpzydbICqVOFeQV6pyRPV5uSJ9sV
-	K5FqF/Jkj2BMhnBLVxUlhrmAqayYFVhGMu9yec3Rgfbf85dvR3B+7lWktSMVHvjkylU9YOTI0/ckP
-	xTWVTjO2mtCqItcX4BI9TWS993gz8qLtW95wdFYAkhbKc3m6HbxRx9FQ57euCNGgmkGsP4Aa++VDo
-	VF1f5UMJWs5rAhaXUQWqGmAbESjQGdOivctsxmJiIePQrMaTbTFhHx5wBYwqVegalZT8HA5wHTJCV
-	srl4sOrw==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMDOA-00000000gDq-37sF
+	id 1uMDO3-000000099fc-2BW8
 	for linux-riscv@lists.infradead.org;
-	Mon, 02 Jun 2025 22:12:17 +0000
+	Mon, 02 Jun 2025 22:12:08 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B60F049FFA;
-	Mon,  2 Jun 2025 22:12:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 951DBC4CEEB;
-	Mon,  2 Jun 2025 22:12:10 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 79B90A50437;
+	Mon,  2 Jun 2025 22:12:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 287DBC4CEEE;
+	Mon,  2 Jun 2025 22:12:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1748902330;
-	bh=aBzjsMEEhXVIe1zVGvGDXk9sXhqzdXCVIPE36+jRrbQ=;
+	s=k20201202; t=1748902326;
+	bh=rsZx61t60Jc54DaNK6EBwyF5d20S6nRe5Uf1+PLgEfU=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=RaIxgnmYx+7sNvyNz2IzcnpY39HOM+PAHCo0MTt+d318KLoaxtOwfO3dWMQB1SGuY
-	 8txcIQm8bYZIcSSdQGkcPP9GqXMUhsCm5PpV9FTRrVhHSzvGke+qCuLTqu7dXeOovw
-	 7nAlh+Iz8wjYWyq7xv2TWeWprir2BXqST761RayqIvZ0PjdI3nGyvmLN4hOSs8uFnL
-	 00R1KU56O21XsYY/3fGbN4u45YZc3oeoJZ7YlT9CCF9pSIrvT2IV5YojWuzndq9B1Q
-	 vEBXl9soSu5nujHVR8jb1BzIt7FrN6f7ammbVJNI11LIoC96AYl+5FLg8RV+6EfToF
-	 +15LBv/4dVxwg==
+	b=ZoNFcWrac7Dpr5Il7/P0vOiPnRMCNXXlmlHQto8kbJ5Fa7koUu91+nR46VUmeNEz4
+	 fbURMllcifXrxFyQQZkcS+V66PAmjR1zjHNuGCEL7WWn6Xptp8WoOo3N+hMTDLYxkI
+	 5UIVp2HHD1goF/xvsNrB462+7BDTf1Wco3vefuEUcucixxl78i+2MwVyfG7av0ORDy
+	 cuYJlX8oBovEewxmrlkbdFSQ8QvAMl+VPGcU7QjhCoLNDExplhqTjHIyWGYVaCtNJp
+	 IjMYt4ii4/lmY8f2uP9kceTiRhBlrAzP6dOPk5aeiq2fyqQRkf6xbFC899r1oNEGs6
+	 6KRTybvoKAplw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CA8380AAD0;
-	Mon,  2 Jun 2025 22:12:44 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB038380AAD0;
+	Mon,  2 Jun 2025 22:12:39 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v4 01/12] riscv: ftrace: support fastcc in Clang for
- WITH_ARGS
+Subject: Re: [PATCH v3 0/4] riscv: Add Zicbop & prefetchw support
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174890236299.925497.5731685320676689356.git-patchwork-notify@kernel.org>
-Date: Mon, 02 Jun 2025 22:12:42 +0000
-References: <20250407180838.42877-1-andybnac@gmail.com>
-In-Reply-To: <20250407180838.42877-1-andybnac@gmail.com>
-To: Andy Chiu <andybnac@gmail.com>
-Cc: linux-riscv@lists.infradead.org, alexghiti@rivosinc.com,
- palmer@dabbelt.com, andy.chiu@sifive.com, e.shatokhin@yadro.com,
- nathan@kernel.org, bjorn@rivosinc.com, palmer@rivosinc.com,
- puranjay@kernel.org, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, llvm@lists.linux.dev,
- mark.rutland@arm.com, alex@ghiti.fr, nick.desaulniers+lkml@gmail.com,
- morbo@google.com, justinstitt@google.com, puranjay12@gmail.com,
- paul.walmsley@sifive.com, greentime.hu@sifive.com, nick.hu@sifive.com,
- nylon.chen@sifive.com, eric.lin@sifive.com, vicent.chen@sifive.com,
- zong.li@sifive.com, yongxuan.wang@sifive.com, samuel.holland@sifive.com,
- olivia.chu@sifive.com, c2232430@gmail.com
+Message-Id: <174890235873.925497.2365799693882283939.git-patchwork-notify@kernel.org>
+Date: Mon, 02 Jun 2025 22:12:38 +0000
+References: <20250421142441.395849-1-alexghiti@rivosinc.com>
+In-Reply-To: <20250421142441.395849-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, alex@ghiti.fr, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_231215_236373_B498B4BB 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250602_151207_625248_90016F5A 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,41 +79,33 @@ Hello:
 This series was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Tue,  8 Apr 2025 02:08:25 +0800 you wrote:
-> From: Andy Chiu <andy.chiu@sifive.com>
+On Mon, 21 Apr 2025 16:24:37 +0200 you wrote:
+> I found this lost series developed by Guo so here is a respin with the
+> comments on v2 applied.
 > 
-> Some caller-saved registers which are not defined as function arguments
-> in the ABI can still be passed as arguments when the kernel is compiled
-> with Clang. As a result, we must save and restore those registers to
-> prevent ftrace from clobbering them.
+> This patch series adds Zicbop support and then enables the Linux
+> prefetch features.
+> 
+> Changelog:
+> V3:
+>  - Fix typo (Drew)
+>  - Split first patch (Drew)
+>  - Ensure that the bits [0:4] of the prefetch insns are zeroed
+>  - Move PREFETCHW_ASM out of ifdef (Guo)
+>  - Remove CBO_ prefix for prefetching insn
+>  - Add prefetch (Drew)
 > 
 > [...]
 
 Here is the summary with links:
-  - [v4,01/12] riscv: ftrace: support fastcc in Clang for WITH_ARGS
-    https://git.kernel.org/riscv/c/7cecf4f30c33
-  - [v4,02/12] riscv: ftrace factor out code defined by !WITH_ARG
-    https://git.kernel.org/riscv/c/2efa234f5e0c
-  - [v4,03/12] riscv: ftrace: align patchable functions to 4 Byte boundary
-    https://git.kernel.org/riscv/c/cced570c2c0c
-  - [v4,04/12] kernel: ftrace: export ftrace_sync_ipi
-    (no matching commit)
-  - [v4,05/12] riscv: ftrace: prepare ftrace for atomic code patching
-    (no matching commit)
-  - [v4,06/12] riscv: ftrace: do not use stop_machine to update code
-    (no matching commit)
-  - [v4,07/12] riscv: vector: Support calling schedule() for preemptible Vector
-    https://git.kernel.org/riscv/c/e2a8cbdbe932
-  - [v4,08/12] riscv: add a data fence for CMODX in the kernel mode
-    https://git.kernel.org/riscv/c/29b59e3bbb6e
-  - [v4,09/12] riscv: ftrace: support PREEMPT
-    https://git.kernel.org/riscv/c/f48ba55bb8a8
-  - [v4,10/12] riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
-    (no matching commit)
-  - [v4,11/12] riscv: ftrace: support direct call using call_ops
-    https://git.kernel.org/riscv/c/7ef9ae7457c0
-  - [v4,12/12] riscv: Documentation: add a description about dynamic ftrace
-    https://git.kernel.org/riscv/c/0e07200b2af6
+  - [v3,1/4] riscv: Introduce Zicbop instructions
+    https://git.kernel.org/riscv/c/b81f148e583b
+  - [v3,2/4] riscv: Add support for Zicbop
+    https://git.kernel.org/riscv/c/120068a68961
+  - [v3,3/4] riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
+    https://git.kernel.org/riscv/c/46a47d7a42bb
+  - [v3,4/4] riscv: xchg: Prefetch the destination word for sc.w
+    https://git.kernel.org/riscv/c/993d2e054b05
 
 You are awesome, thank you!
 -- 
