@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E576CC5B549
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 02:51:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EA9C5AE59
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 03:49:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=MdfA+5eZNtvjejMJrp6R0+usr3oqfwvjR2G5JGjXI4o=; b=b4nr+3qRCC5/SS
-	BqBC5uRfEFicI3Q6XacoS8eMny5spafgDp6McXKdn+8OIjJBPz0rMSHZH4CRcYalCpVfv1xRshkTX
-	CgfWrlb7es0u+qJFEA3iXUtou1DDRla6FVhZDWwOmh+cPrrgHMuGirDEnM46zXm8kAJN4k1rq6xaj
-	4jLnh1BN+qsDLRugf+KGOTPR2IqSKf2+Sn77stKFzgH/jOvA5pgalAInjma6Hkhzj2KCrNBZ4sIUy
-	si0mRNgNBcNcGI/2Q4CJuj4/4pMWFGFq6EL+Fko5RMKMHLiVGdF8kwoxJx+hmnV97GneDjyhXvAxN
-	CopsyujGwVDc6YgneXZw==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
+	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=S/zBhbL3uDzD7mdjbBDW7hS+CHCyodLI8CwZdU0z1wM=; b=tne0dREMk0eodM
+	AATQKzsUmAvHm+iFd+2p11JlXF3/sqfSR18ECv4BV8lfNhg4ey2zTmhZL7Nc0CeP5vxtCy1cGhX3G
+	XTK8MHBjSYoQBW6uLKoBmCXmHnX0RBPWNQ9wce1Ymjdit7fyA+uY/JhUPl9S5150Hn78ZauiijZq9
+	qAhk+32BS2tDzi0reuNdezAK2OkVy7Fx8NjaiUdNWD4ZiiU9+a4EevgRumXNgnKhMajWPEBDriXZG
+	ZuSBRH7SsRT9qLlVLGNPChwANnA7OcnGIA9J1uePYfWSgivuxAGCMFGb+WxkiVbNxdZ+iKaUa81f4
+	AdBaLT/20uHpDW+O5bmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMHkZ-00000009YAk-3mkE;
-	Tue, 03 Jun 2025 02:51:39 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1uMIdz-00000009bBo-2Y1d;
+	Tue, 03 Jun 2025 03:48:55 +0000
+Received: from mail-oo1-f41.google.com ([209.85.161.41])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMHkW-00000009YA7-3o7R
+	id 1uMIdw-00000009bBS-3yjc
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Jun 2025 02:51:38 +0000
-Received: from localhost (gy-adaptive-ssl-proxy-2-entmail-virt205.gy.ntes [27.17.176.245])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 174b4f471;
-	Tue, 3 Jun 2025 10:51:27 +0800 (GMT+08:00)
-Date: Tue, 3 Jun 2025 10:51:27 +0800
-From: Ze Huang <huangze@whut.edu.cn>
-To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Ze Huang <huangze@whut.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yixun Lan <dlan@gentoo.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"spacemit@lists.linux.dev" <spacemit@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v4 3/4] usb: dwc3: add generic driver to support
- flattened DT
-Message-ID: <aD5jL5DK6S8ii-DT@jean.localdomain>
-References: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
- <20250526-b4-k1-dwc3-v3-v4-3-63e4e525e5cb@whut.edu.cn>
- <20250603012029.4agja77rdoneeyrl@synopsys.com>
+	Tue, 03 Jun 2025 03:48:54 +0000
+Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-60bef8e7bb3so2299253eaf.2
+        for <linux-riscv@lists.infradead.org>; Mon, 02 Jun 2025 20:48:52 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748922530; x=1749527330;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZdL6Pc63Mfaws2Erg/4lSldp2avlQyahxxSrxGNP9Ww=;
+        b=EUONT2JLfH/n6cHI8o32ANkyMqFeWZzeivlubZVO22CQzy0Vw0sxtC87cZ/iuM0xrI
+         JC9sE7BFolNltS40jTPmubgHhq0vGlNtarBCYOTwqicYt7UbyxaIlDvEhupXBvVCjvr9
+         FBhoCLDmaZswkeqnDS1XwpZhbHfL5NTBQhMBaCZLeNNrPDHEYnapzaEQgupsfEMlx+7y
+         Tglv4OJ7hQO+ktXTLvmAoKK1XIFF1pdr9cAdyO3saXPcewd1TMGDbxvY8xiUrWjgtOTn
+         jLPw8rkMZ/x52LRkAEai7uPfaCHoJntEemjLMfLsWT/HMCa80Pl5mErwkbIakeIL4jOD
+         p4jw==
+X-Gm-Message-State: AOJu0YwWq/7rJ3189APjHjDGejvhc7TFerPhYiJqYs3xgC7Zi5IiP2mi
+	F/6JJR+KIRiQESJYGX7uMP/aeSm0DdrZEBwIrcBA7r/a+axYYXS9nNrG
+X-Gm-Gg: ASbGnctTHFg7x1AvRi2CFNZcZk2WDdzuET2S3Q+FVM0y+lWeFgWJXCOmkIjZ7izFnib
+	UJUKOXT4SDU+KwLOPbk6gLw4+Ja/8zQ4hn4ZuZJ8OpKmCFU09n2KxthCkMiBGMJx991CGXyr5AV
+	+IxHnOOPuajoZV544QYs2ai8bgtSm4fXX02ixGrO+lfn4IU19cjDbGo1QgO1OjJ2PiT/bPbIlcZ
+	9H0J8mST/E3ho1jyHK1VeFjwksMcciCtpWBwZ7Kw9xL4HiP1bS5zAMt1D1Rz4JMQssrKdzZzNbw
+	TIdE1cDV5y46GNpWRluTFY+Qn8sgtKd/c5f6X4H7vPsJ7vRVfI8F9aUPvJ7YH189kzTP9tZJQrG
+	kd4lvjG2KTKEOl3U=
+X-Google-Smtp-Source: AGHT+IFJ0a0/7zpdoajtkBcLg0pJalyYk1624WDxYssQNRcHtUpuFOsvwX5Z/G9JDfUurD4GyikbgQ==
+X-Received: by 2002:a05:6820:2782:b0:60b:aeb2:988c with SMTP id 006d021491bc7-60d52db217dmr7757340eaf.1.1748922530242;
+        Mon, 02 Jun 2025 20:48:50 -0700 (PDT)
+Received: from localhost (37-72-172-174.static.hvvc.us. [37.72.172.174])
+        by smtp.gmail.com with ESMTPSA id 006d021491bc7-60c14c7122bsm1740655eaf.14.2025.06.02.20.48.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 02 Jun 2025 20:48:49 -0700 (PDT)
+From: Fangrui Song <i@maskray.me>
+Date: Mon, 02 Jun 2025 20:48:44 -0700
+Subject: [PATCH] riscv: vdso: Exclude .rodata from the PT_DYNAMIC segment
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250603012029.4agja77rdoneeyrl@synopsys.com>
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTx0aVhoaQ04dShhOGUsZQ1YeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJTFVKTFVKTE1VSU9OWVdZFhoPEhUdFFlBWU9LSFVKS0hKTkxOVUpLS1VKQk
-	tLWQY+
-X-HM-Tid: 0a9733b3704a03a1kunmed4d47e729eccc
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NVE6DDo4MjEwHzcRHBchDzA5
-	PT0KChBVSlVKTE9DQkpCS0NDSUNKVTMWGhIXVRMOGhUcAR47DBMOD1UeHw5VGBVFWVdZEgtZQVlJ
-	TFVKTFVKTE1VSU9OWVdZCAFZQU1NS0s3Bg++
+Message-Id: <20250602-riscv-vdso-v1-1-0620cf63cff0@maskray.me>
+X-B4-Tracking: v=1; b=H4sIAJtwPmgC/x3MTQqAIBBA4avIrBP8q0VXiRaiY81GwwEJxLsnL
+ b/Fex0YKyHDLjpUbMRU8oReBITb5wslxWkwyqxqU0ZW4tBki1yktpgionXeOJjBUzHR+8+Oc4w
+ P+u4HylwAAAA=
+X-Change-ID: 20250602-riscv-vdso-13efdee34a24
+To: Paul Walmsley <paul.walmsley@sifive.com>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, Fangrui Song <i@maskray.me>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250602_195137_182942_FF74F1CF 
-X-CRM114-Status: GOOD (  27.21  )
+X-CRM114-CacheID: sfid-20250602_204853_034741_BC047A7F 
+X-CRM114-Status: GOOD (  10.40  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,160 +92,50 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 03, 2025 at 01:20:35AM +0000, Thinh Nguyen wrote:
-> On Mon, May 26, 2025, Ze Huang wrote:
-> > To support flattened dwc3 dt model and drop the glue layer, introduce the
-> > `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
-> > and offers an alternative to the existing glue driver `dwc3-of-simple`.
-> > 
-> > Signed-off-by: Ze Huang <huangze@whut.edu.cn>
-> > ---
-> >  drivers/usb/dwc3/Kconfig             |   9 ++
-> >  drivers/usb/dwc3/Makefile            |   1 +
-> >  drivers/usb/dwc3/dwc3-generic-plat.c | 189 +++++++++++++++++++++++++++++++++++
-> >  3 files changed, 199 insertions(+)
-> > 
-> > diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> > index 310d182e10b50b253d7e5a51674806e6ec442a2a..082627f39c9726ee4e0c5f966c5bc454f5541c9a 100644
-> > --- a/drivers/usb/dwc3/Kconfig
-> > +++ b/drivers/usb/dwc3/Kconfig
-> > @@ -118,6 +118,15 @@ config USB_DWC3_OF_SIMPLE
-> >  	  Currently supports Xilinx and Qualcomm DWC USB3 IP.
-> >  	  Say 'Y' or 'M' if you have one such device.
-> >  
-> > +config USB_DWC3_GENERIC_PLAT
-> > +       tristate "DWC3 Generic Platform Driver"
-> > +       depends on OF && COMMON_CLK
-> > +       default USB_DWC3
-> > +       help
-> > +         Support USB3 functionality in simple SoC integrations.
-> > +         Currently supports SpacemiT DWC USB3 IP.
-> > +         Say 'Y' or 'M' if you have one such device.
-> > +
-> >  config USB_DWC3_ST
-> >  	tristate "STMicroelectronics Platforms"
-> >  	depends on (ARCH_STI || COMPILE_TEST) && OF
-> > diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> > index 830e6c9e5fe073c1f662ce34b6a4a2da34c407a2..96469e48ff9d189cc8d0b65e65424eae2158bcfe 100644
-> > --- a/drivers/usb/dwc3/Makefile
-> > +++ b/drivers/usb/dwc3/Makefile
-> > @@ -57,3 +57,4 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
-> >  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
-> >  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
-> >  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> > +obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
-> > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-...
-> > +
-> > +static void dwc3_generic_remove(struct platform_device *pdev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = platform_get_drvdata(pdev);
-> > +
-> > +	dwc3_core_remove(&dwc3->dwc);
-> > +
-> > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > +	clk_bulk_put_all(dwc3->num_clocks, dwc3->clks);
-> > +
-> > +	reset_control_assert(dwc3->resets);
-> > +}
-> > +
-> > +static int __maybe_unused dwc3_generic_suspend(struct device *dev)
-> 
-> We shouldn't need __maybe_unused attr with the new PM macros.
-> 
+.rodata is implicitly included in the PT_DYNAMIC segment due to
+inheriting the segment of the preceding .dynamic section (in both GNU ld
+and LLD).  When the .rodata section's size is not a multiple of 16
+bytes on riscv64, llvm-readelf will report a "PT_DYNAMIC dynamic table
+is invalid" warning.  Note: in the presence of the .dynamic section, GNU
+readelf and llvm-readelf's -d option decodes the dynamic section using
+the section.
 
-Will drop these attr
+This issue arose after commit 8f8c1ff879fab60f80f3a7aec3000f47e5b03ba9
+("riscv: vdso.lds.S: remove hardcoded 0x800 .text start addr"), which
+placed .rodata directly after .dynamic by removing .eh_frame.
 
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +	int ret;
-> > +
-> > +	ret = dwc3_pm_suspend(&dwc3->dwc);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int __maybe_unused dwc3_generic_resume(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +	int ret;
-> > +
-> > +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	ret = dwc3_pm_resume(&dwc3->dwc);
-> > +	if (ret)
-> > +		return ret;
-> > +
-> > +	return 0;
-> > +}
-> > +
-> > +static int __maybe_unused dwc3_generic_runtime_suspend(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_suspend(&dwc3->dwc);
-> > +}
-> > +
-> > +static int __maybe_unused dwc3_generic_runtime_resume(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_resume(&dwc3->dwc);
-> > +}
-> > +
-> > +static int __maybe_unused dwc3_generic_runtime_idle(struct device *dev)
-> > +{
-> > +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> > +
-> > +	return dwc3_runtime_idle(&dwc3->dwc);
-> > +}
-> > +
-> > +static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
-> > +	SET_SYSTEM_SLEEP_PM_OPS(dwc3_generic_suspend, dwc3_generic_resume)
-> > +	SET_RUNTIME_PM_OPS(dwc3_generic_runtime_suspend, dwc3_generic_runtime_resume,
-> > +			   dwc3_generic_runtime_idle)
-> > +};
-> > +
-> > +static const struct of_device_id dwc3_generic_of_match[] = {
-> > +	{ .compatible = "spacemit,k1-dwc3", },
-> > +	{ /* sentinel */ }
-> > +};
-> > +MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
-> > +
-> > +static struct platform_driver dwc3_generic_driver = {
-> > +	.probe		= dwc3_generic_probe,
-> > +	.remove		= dwc3_generic_remove,
-> > +	.driver		= {
-> > +		.name	= "dwc3-generic-plat",
-> > +		.of_match_table = dwc3_generic_of_match,
-> > +#ifdef CONFIG_PM_SLEEP
-> 
-> Use the new pm_ptr/pm_sleep_ptr.
-> 
+This patch resolves the implicit inclusion into PT_DYNAMIC by explicitly
+specifying the :text output section phdr.
 
-Thanks for pointing it out, I missed this part. I will fix it
+Reported-by: Nathan Chancellor <nathan@kernel.org>
+Closes: https://github.com/ClangBuiltLinux/linux/issues/2093
+Signed-off-by: Fangrui Song <i@maskray.me>
+---
+ arch/riscv/kernel/vdso/vdso.lds.S | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-> Thanks,
-> Thinh
-> 
-> > +		.pm	= &dwc3_generic_dev_pm_ops,
-> > +#endif /* CONFIG_PM_SLEEP */
-> > +	},
-> > +};
-> > +module_platform_driver(dwc3_generic_driver);
-> > +
-> > +MODULE_LICENSE("GPL");
-> > +MODULE_DESCRIPTION("DesignWare USB3 generic platform driver");
-> > 
-> > -- 
-> > 2.49.0
-> > 
+diff --git a/arch/riscv/kernel/vdso/vdso.lds.S b/arch/riscv/kernel/vdso/vdso.lds.S
+index abc69cda0445b1f500a89b47deefa31349103f08..62e0410f69f09e2bbf27101c000d604193f525cb 100644
+--- a/arch/riscv/kernel/vdso/vdso.lds.S
++++ b/arch/riscv/kernel/vdso/vdso.lds.S
+@@ -30,7 +30,7 @@ SECTIONS
+ 		*(.data .data.* .gnu.linkonce.d.*)
+ 		*(.dynbss)
+ 		*(.bss .bss.* .gnu.linkonce.b.*)
+-	}
++	}						:text
+ 
+ 	.note		: { *(.note.*) }		:text	:note
+ 
+
+---
+base-commit: 1a3f6980889df3fc90ad3e4a525061d2c138adba
+change-id: 20250602-riscv-vdso-13efdee34a24
+
+Best regards,
+-- 
+Fangrui Song <i@maskray.me>
+
 
 _______________________________________________
 linux-riscv mailing list
