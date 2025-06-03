@@ -4,51 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFEC9C5AD49
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 08:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A36C5B559
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 08:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:To:From:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=f9O0Tv09P4zpHGZmPz9SsxWQQ8nlg6s3NtTgeRH+aCw=; b=iq7nauXuLdL0u1
-	/PjmjzbSST9u4vUVSWJTkrv5u5uazFiKi1luJU62/p9gvJD0zvHJTG9tj517sUb6UWSXhlt8yxLxg
-	Hh+GQu/F2qVt9neijWe24OMPHYYXu8GEfEL1APQ0x2bF88CrknUnSd0kq777H1Ie3NOC+XAEKpYYL
-	JNmL1cgulwpzwMRxVON0Od4ww0rPKvhpWn6jxcT+Z8uXpVwde+LDDgPPwLjCXw66rl0Rzfrz2l6cB
-	gndcXnYmVq+PQvTIMzfoir2r+5D9YNmQxa+QiRvDYzC9RjVkKKTpQkq8/kKhpvPNMojTXp2v8eFFW
-	5eaey53vV+S1aXOG9etg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=5oMzjiSki+d2p1zJspFN4DIp5mNHx0x9n7YPyXy9Hlg=; b=HDKUdMBEmyZ89d
+	LaUB0JC++6GJSE1NsL830ZNomyP7ST1icBsrUWDx3MhpWpofKlS3iT52evYLEGi97f5PtqbJFXK2g
+	bOXPJf5SF1hPqLJof9lQZ1f5qoc+6g1ACzUz0Vlow0Op+tGfzujMRyLIGqTKfu7I4eLMKKihu/Vdi
+	RmOnw3nWGhYm+Rxd67y+1Xq02QJnpDyQ645pd8V5pQKAmD6/Oe2fxCIz6kEw9Vf0JDuvuB5yKR9+e
+	Hnf19WRRBScThX2x5eBVvefPeUr2+BDqrN4GvftIwppVx486EdMjC6hvgQIQf7KLF00vKJqvH2Vwo
+	u/VEZmbsV5rH5ROShPRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMMac-0000000AEuO-1ASl;
-	Tue, 03 Jun 2025 08:01:42 +0000
-Received: from mail.biznator.pl ([162.19.205.13])
+	id 1uMNK5-0000000AOE6-3r9j;
+	Tue, 03 Jun 2025 08:48:41 +0000
+Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMMX7-0000000AEDk-3axg
-	for linux-riscv@lists.infradead.org;
-	Tue, 03 Jun 2025 07:58:08 +0000
-Received: by mail.biznator.pl (Postfix, from userid 1002)
-	id 530C227801; Tue,  3 Jun 2025 09:55:25 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=biznator.pl; s=mail;
-	t=1748937345; bh=DjNALEe96gRlzA4ffLINmOD2oI1cqzpVK/E4I+uckvQ=;
-	h=Date:From:To:Subject:From;
-	b=N3TWyZY0VDXwe6T2VKbwkMhc527w0tamZzKmR84LC/gMWuloYApeQhXrRQ7mVGSZF
-	 KgWZE4/gnn7nwAcvls8fn5tH2loU8rqReZnNmD+geRM3gA9f/p1lBJjbVPoBPZ4nFp
-	 zbgX57HRfnfBvLutkCQ5RbF324Nb49eF8mMktAy1IG6ex3vTdfOntGNux80ErkGUNv
-	 bNQViMrACCNYkiZ6nc9aMxgrf+wyFpoJv4nw+nK7utNOtkc5+V4akXv952xOliZWuD
-	 +VvnxoEN9SVqefDYoA+CVH3d0MgCpVf398Scj4QwwBZnqtExz2CSoWsw8J3hr5KTey
-	 0B6IMEHqN3fcg==
-Received: by mail.biznator.pl for <linux-riscv@lists.infradead.org>; Tue,  3 Jun 2025 07:55:11 GMT
-Message-ID: <20250603084500-0.1.hn.unv6.0.a7289docab@biznator.pl>
-Date: Tue,  3 Jun 2025 07:55:11 GMT
-From: "Wojciech Mroczka" <wojciech.mroczka@biznator.pl>
-To: <linux-riscv@lists.infradead.org>
-Subject: Instalacja pv
-X-Mailer: mail.biznator.pl
+	id 1uMNJC-0000000ANwN-06K5;
+	Tue, 03 Jun 2025 08:47:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
+	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
+	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
+	Resent-Cc:Resent-Message-ID; bh=ll9HQg8JHducpOZaqvXxVZxIxZ1+gNQW3g36PYXusgc=;
+	t=1748940464; x=1750150064; b=kjwtRzhfzQgmwHrbnjMLjG0b7aTSwY2Ton8MclKxW4sLZr8
+	zxFfnuy3e6WuwJXN5gj1jeERjCRoKgRcGrbwuJNhonNKZICBAJX5alrx94XD4sShMB4S3WOQUEapN
+	pkUMmC75w7YvBecHePFvIhEaZOcqK6Nbjet/vJTjt3EDtNkxSPM2brCNeJw+8mfCG4CZDmcOtFlyM
+	xRsyz9PWny42OhEpSTtOMtEH7uYuoGPv/pNaKyBPtoIW/Jpmn8i6UW7f4QNRq6orp9UahMHJHeyIl
+	vuuJ6ZK5t8gVhTOzM5EvlgS/2iTveuxoURJOLoQzTwhCdFKW6PAqVZwVBfdjCqhg==;
+Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.98.2)
+	(envelope-from <johannes@sipsolutions.net>)
+	id 1uMNIR-00000009mC8-119O;
+	Tue, 03 Jun 2025 10:46:59 +0200
+Message-ID: <b4fe62d12be677dc047ee2fce4a65284a5f915e8.camel@sipsolutions.net>
+Subject: Re: [PATCH 2/2] arch: use always-$(KBUILD_BUILTIN) for vmlinux.lds
+From: Johannes Berg <johannes@sipsolutions.net>
+To: Masahiro Yamada <masahiroy@kernel.org>, linux-kbuild@vger.kernel.org
+Cc: Albert Ou <aou@eecs.berkeley.edu>, Alexander Gordeev	
+ <agordeev@linux.ibm.com>, Alexandre Ghiti <alex@ghiti.fr>, Andreas Larsson	
+ <andreas@gaisler.com>, Anton Ivanov <anton.ivanov@cambridgegreys.com>, 
+ Borislav Petkov	 <bp@alien8.de>, Brian Cain <bcain@kernel.org>, Catalin
+ Marinas	 <catalin.marinas@arm.com>, Chris Zankel <chris@zankel.net>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>, Christophe Leroy
+ <christophe.leroy@csgroup.eu>, Dave Hansen	 <dave.hansen@linux.intel.com>,
+ "David S. Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>,
+ Geert Uytterhoeven <geert@linux-m68k.org>, Guo Ren	 <guoren@kernel.org>,
+ "H. Peter Anvin" <hpa@zytor.com>, Heiko Carstens	 <hca@linux.ibm.com>,
+ Helge Deller <deller@gmx.de>, Huacai Chen	 <chenhuacai@kernel.org>, Ingo
+ Molnar <mingo@redhat.com>, "James E.J. Bottomley"	
+ <James.Bottomley@HansenPartnership.com>, John Paul Adrian Glaubitz	
+ <glaubitz@physik.fu-berlin.de>, Jonas Bonn <jonas@southpole.se>, Madhavan
+ Srinivasan <maddy@linux.ibm.com>, Matt Turner <mattst88@gmail.com>, Max
+ Filippov <jcmvbkbc@gmail.com>,  Michael Ellerman <mpe@ellerman.id.au>,
+ Michal Simek <monstr@monstr.eu>, Naveen N Rao <naveen@kernel.org>, Nicholas
+ Piggin <npiggin@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul
+ Walmsley	 <paul.walmsley@sifive.com>, Rich Felker <dalias@libc.org>,
+ Richard Henderson	 <richard.henderson@linaro.org>, Richard Weinberger
+ <richard@nod.at>, Russell King <linux@armlinux.org.uk>, Stafford Horne
+ <shorne@gmail.com>, Stefan Kristiansson	
+ <stefan.kristiansson@saunalahti.fi>, Sven Schnelle <svens@linux.ibm.com>, 
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+ <tglx@linutronix.de>, Vasily Gorbik <gor@linux.ibm.com>,  Vineet Gupta
+ <vgupta@kernel.org>, WANG Xuerui <kernel@xen0n.name>, Will Deacon
+ <will@kernel.org>,  Yoshinori Sato <ysato@users.sourceforge.jp>,
+ linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-csky@vger.kernel.org, linux-hexagon@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-m68k@lists.linux-m68k.org, 
+	linux-mips@vger.kernel.org, linux-openrisc@vger.kernel.org, 
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-s390@vger.kernel.org, linux-sh@vger.kernel.org, 
+	linux-snps-arc@lists.infradead.org, linux-um@lists.infradead.org, 
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
+	sparclinux@vger.kernel.org, x86@kernel.org
+Date: Tue, 03 Jun 2025 10:46:57 +0200
+In-Reply-To: <20250602181256.529033-2-masahiroy@kernel.org>
+References: <20250602181256.529033-1-masahiroy@kernel.org>
+	 <20250602181256.529033-2-masahiroy@kernel.org>
+User-Agent: Evolution 3.54.3 (3.54.3-1.fc41) 
 MIME-Version: 1.0
+X-malware-bazaar: not-scanned
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_005806_609263_D4A98754 
-X-CRM114-Status: UNSURE (   0.38  )
+X-CRM114-CacheID: sfid-20250603_014746_079824_9A246565 
+X-CRM114-Status: UNSURE (   7.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -61,19 +103,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-RHppZcWEIGRvYnJ5LAoKY3p5IHPEhSBQYcWEc3R3byBvdHdhcmNpIG5hIG5pZXpvYm93acSFenVq
-xIVjxIUgcm96bW93xJkgbmEgdGVtYXQgZm90b3dvbHRhaWtpPwoKSmFrbyBmaXJtYSBzcGVjamFs
-aXp1asSFY2Egc2nEmSB3IGluc3RhbGFjamkgaSBzZXJ3aXNpZSBuYWpsZXBzenljaCBqYWtvxZtj
-aW93byBwYW5lbGkgc8WCb25lY3pueWNoIG5hIHJ5bmt1IGNoY2lhxYJieW0gcHJ6ZWRzdGF3acSH
-IHByb3BvenljasSZLCBqYWvEhSB3c3DDs2xuaWUgeiB6ZXNwb8WCZW0gcHJ6eWdvdG93YWxpxZtt
-eSBkbGEgUGHFhHN0d2Egb2JpZWt0dS4KCkLEmWTEmSB3ZHppxJljem55IHphIHdpYWRvbW/Fm8SH
-IG9kIFBhxYRzdHdhIGN6eSBtb8W8ZW15IHBvcm96bWF3aWHEhwoKClBvemRyYXdpYW0KV29qY2ll
-Y2ggTXJvY3prYQoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X18KbGludXgtcmlzY3YgbWFpbGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5v
-cmcKaHR0cDovL2xpc3RzLmluZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNj
-dgo=
+On Tue, 2025-06-03 at 03:12 +0900, Masahiro Yamada wrote:
+> The extra-y syntax is deprecated. Instead, use always-$(KBUILD_BUILTIN),
+> which behaves equivalently.
+
+OK, whatever you say ;-)
+
+>  arch/um/kernel/Makefile         | 2 +-
+
+Acked-by: Johannes Berg <johannes@sipsolutions.net>
+
+johannes
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
