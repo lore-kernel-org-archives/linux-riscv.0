@@ -4,167 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A9AFC5AE59
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 09:41:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CEEEC5AE59
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 11:40:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:Cc:Subject:
+	From:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=srDQ2NhF/EQxqXalPrA0DS32UWUrSrzh2PAblPRHkcs=; b=0xm9HCBVbxJdQb
-	C94ecx3JVxkPsC8XR2UcHavBs6IfsVj4/WKcM6DpD2E8kG1NLqBieaLKHeAJaQdzQ/3oPdt7kjgAd
-	zniJYjTxZMq0YeXc1rPgTNvWYF97+YdZS4kHgcsgJ2d2n7Eqj23kYB23zJgIsRCtaaxFUhOFC2SsB
-	iSAwQeKSCimmljk0VCe0YQ5/eZPdRurZuLmcwsEFVxWvZCF+SdSRRJlbxHaV73wY4n6ZzLixSb5G8
-	z111gVeiOgUMl9U1H2ZqzN7N9VNkvVbw9+4OhPo9ngDClFuaCU4SSIXvjhIOXaJi1XaAqqLggaDv/
-	RAoVajHRtpfArLcFOafQ==;
+	List-Owner; bh=KGGHGxn5JkTG8+7wpcnJV914HICyEyLQS2yi92wi3co=; b=zwMBUAY0c5RiGQ
+	lhCzZsjxTRo72um2aIHp4+/soq/+mp7ReX/bE6b772n2JmLWohrlNGyUPvbazju61FcbtA5/z1Tnm
+	i0VBP81bW30r8WppGa7K/JWv3NUSs37GltQGzP47JytFiMnnhzfLqCoJSnLwYnUsrcOI7CnxGVlkK
+	geYSO9x5eK9TMwj2l0RCloPG6cS14TQfB3lT4jbDVUrvqrfz1sKRg50bVuL94206qbm1QFB9Qh9qN
+	l31XgLs+WFKF8X68qUN3QOQudZmbO1a3/wh6LmTmBNmxJDWtSJLkTQETIH/L/aKgN9Bwmb6KLlnYX
+	mok5B1UDjokOtMNa4wWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMO9V-0000000AZJ5-0WQl;
-	Tue, 03 Jun 2025 09:41:49 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1uMQ0R-0000000AoYR-2Mf0;
+	Tue, 03 Jun 2025 11:40:35 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMO8r-0000000AZ7u-0XXg;
-	Tue, 03 Jun 2025 09:41:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UNoSY5yRtfDl8CpT8qVsGCx0Z8QRS7q6/T/e6bCGsxmBB1P9Sc5nv2hKk5lcXYh8mgRaHAwepXdBsq6LFjKfTByV16p63t1Fb+lQCnNkxl9sql5n/PWkDxul78u8bV6MwWE47v0PITwxOdj1GHRhevoE28xMI9V4JlluNvPidIWtNeN8gv8imJFqamyJ6NfSk1IE2ICmw1WbUvzrcjrbkT87fmNutgrIY50tNLaEf+2Fz8zGsPmYE6PgiHB4EmcfUfX/wLQEXlupUeUSYBd3FQtxRQwzbqts2Uv99ertCPmha0PtXk2hgTLiRkoeNyafn7kvCNvJLrI2ocSnOelk0A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+6m543ia5fr8oJocIBbCjFksGHXNBZLjfQLcdlYZZBw=;
- b=Um4dWEvy1XnqSvBae6mmdAJeHNzIAnNS/5j4qeBwZLSdy2kJHSYWuu2l3ymdp0Ba6sNOcZTLbeuLdFLswGEmXEKTBtY0O11YTHXVUfB4FOwQpA7Sj3SNYAKDLOOFR/NEuQHdt3ODCkc24aZmsmweSwT5HH0tNdjuTKbFHygG6e1bg5fnmIgZ9CmIrA5b5SmP3gbrR3yszMYhW41ggtI9Mrv+fVrivx5txL6RPSoyWCvxfl/sQ0vzuFymbBHhQNyMwLWGnE8F+zSq3NcX8J6IzDd3BOL7VDnPCegHIXVAEqQMvT2Fnoq+BTvQNi2aHu7Jwtzs1XzkDUDMPN2h0cSOiQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=amd.com smtp.mailfrom=axis.com; dmarc=pass
- (p=none sp=none pct=100) action=none header.from=axis.com; dkim=none (message
- not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+6m543ia5fr8oJocIBbCjFksGHXNBZLjfQLcdlYZZBw=;
- b=cQbuwTpm9QWtwgvur8WTcs1U/yyW1zreOuuohmt6HFCFMLVbn9QDAzPJe4mWammjNn41XV7ksMJriC+uxFsAEK0fG34EHa29vpnxHC7nT74gw32rFIX6eD7sgdRn0FV1Z4TXco/LejJ1vN+6ybGjqDQ7IKw4CHV6d7ET6UT20cg=
-Received: from DUZPR01CA0259.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4b9::7) by GV1PR02MB8514.eurprd02.prod.outlook.com
- (2603:10a6:150:9a::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.23; Tue, 3 Jun
- 2025 09:41:01 +0000
-Received: from DU6PEPF0000B620.eurprd02.prod.outlook.com
- (2603:10a6:10:4b9:cafe::d9) by DUZPR01CA0259.outlook.office365.com
- (2603:10a6:10:4b9::7) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8792.24 via Frontend Transport; Tue,
- 3 Jun 2025 09:40:57 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
- smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- DU6PEPF0000B620.mail.protection.outlook.com (10.167.8.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8792.29 via Frontend Transport; Tue, 3 Jun 2025 09:41:00 +0000
-Received: from SE-MAIL21W.axis.com (10.20.40.16) by se-mail01w.axis.com
- (10.20.40.7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 3 Jun
- 2025 11:40:59 +0200
-Received: from se-mail02w.axis.com (10.20.40.8) by SE-MAIL21W.axis.com
- (10.20.40.16) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Tue, 3 Jun
- 2025 11:40:59 +0200
-Received: from se-intmail02x.se.axis.com (10.4.0.28) by se-mail02w.axis.com
- (10.20.40.8) with Microsoft SMTP Server id 15.1.2507.44 via Frontend
- Transport; Tue, 3 Jun 2025 11:40:59 +0200
-Received: from pc36611-1939.se.axis.com (pc36611-1939.se.axis.com [10.88.125.175])
-	by se-intmail02x.se.axis.com (Postfix) with ESMTP id 17C26F86;
-	Tue,  3 Jun 2025 11:40:59 +0200 (CEST)
-Received: by pc36611-1939.se.axis.com (Postfix, from userid 363)
-	id 13AE262A92; Tue,  3 Jun 2025 11:40:59 +0200 (CEST)
-Date: Tue, 3 Jun 2025 11:40:59 +0200
-From: Jesper Nilsson <jesper.nilsson@axis.com>
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-CC: Linus Walleij <linus.walleij@linaro.org>, Basavaraj Natikar
-	<Basavaraj.Natikar@amd.com>, Shyam Sundar S K <Shyam-sundar.S-k@amd.com>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>,
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>,
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>,
-	Jonathan =?iso-8859-1?Q?Neusch=E4fer?= <j.neuschaefer@gmx.net>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, "Broadcom internal
- kernel review list" <bcm-kernel-feedback-list@broadcom.com>, Ray Jui
-	<rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, "Geert
- Uytterhoeven" <geert+renesas@glider.be>, David Rhodes
-	<david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>,
-	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi
-	<lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, Jesper Nilsson
-	<jesper.nilsson@axis.com>, Lars Persson <lars.persson@axis.com>, "Manivannan
- Sadhasivam" <manivannan.sadhasivam@linaro.org>, Damien Le Moal
-	<dlemoal@kernel.org>, Vladimir Zapolskiy <vz@mleia.com>, Michal Simek
-	<michal.simek@amd.com>, Emil Renner Berthing <kernel@esmil.dk>, "Jianlong
- Huang" <jianlong.huang@starfivetech.com>, Hal Feng
-	<hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	<linux-gpio@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-aspeed@lists.ozlabs.org>, <openbmc@lists.ozlabs.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-renesas-soc@vger.kernel.org>,
-	<linux-sound@vger.kernel.org>, <patches@opensource.cirrus.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-arm-kernel@axis.com>,
-	<linux-riscv@lists.infradead.org>, <linux-rtc@vger.kernel.org>,
-	<linux-stm32@st-md-mailman.stormreply.com>
-Subject: Re: [PATCH 16/17] pinctrl: Constify static 'pinctrl_desc'
-Message-ID: <aD7DK5V7WV5YOfX2@axis.com>
-References: <20250528-pinctrl-const-desc-v1-0-76fe97899945@linaro.org>
- <20250528-pinctrl-const-desc-v1-16-76fe97899945@linaro.org>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250528-pinctrl-const-desc-v1-16-76fe97899945@linaro.org>
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000B620:EE_|GV1PR02MB8514:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2428eb23-537a-4ff3-456d-08dda282c026
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nnYMCJxzoDCQcS6nCpvjhaZmrnjP64M0FLb9LGa6l8VXtWEfUAelIF7sch0V?=
- =?us-ascii?Q?ZljCL2dH6Fwx9pWx6Z3wnuMYNuMdP1TlppVaBqqf7Is/41DySTXszX6AKHZ6?=
- =?us-ascii?Q?ubU0JWs4nxClsUj8DtmI6c3+hmvaNkY1WXZfTJaBSTOAIESUj6NBWQSiQKP5?=
- =?us-ascii?Q?jwbbHklkxE7vNKBuFmYi/XW6izqvIvs4j9S313Bu0+BD+iBbm6XW6lFqeALP?=
- =?us-ascii?Q?xPyQqNeoF4+oS9zZwgPF7KV+ahVMVul0kHH+1QmvXHYXBLfFnPxlGQ8dootF?=
- =?us-ascii?Q?VQMx7Xu0xkUPRBnf9IUwECb6e4rhXM6Ru8nBVqFgx4sXiARvBkHKJD6EBKuE?=
- =?us-ascii?Q?mu4q0j0n6extG5ohXi6bu8WkgFls2r03lqgThEbHMN58FrWz0G0mG/bJxBhO?=
- =?us-ascii?Q?Y63hLXdKSZynXvu1eFoGjF9dsdy6epYhcXN2EevK3KSkY7kn2FvOl+0pMyP+?=
- =?us-ascii?Q?IJphA69w3x0GiSChmMfzWCCPxqqPQKY4bizYfqjQgVR0sNxpO3WIPUwWnVbz?=
- =?us-ascii?Q?dEYge8fLpjoe4/C+DQm+GzbIa5KWvk6aMSdQ0Sz2389mWqLljesi7HAJx1ce?=
- =?us-ascii?Q?xSViNzMuodIb9bLDfolfLlek20MflM02Fam2yFkY38qvi+eM1l+xvDvF9NOu?=
- =?us-ascii?Q?kAYQXbxeiiuJs1bfFUmv4XUDWbQJ2edyfgw/28za+2ONxC99fDAWcDID91iD?=
- =?us-ascii?Q?bgdAjX1DwEYoxZM1fPC725KrdxrnZ9oNyFYddu1Z+0beVjurQBOdXCFCw28m?=
- =?us-ascii?Q?B5H36TMELodh6+DAcNt4PHaeMuX769uVxJCFAdgWX4j+fe/DH23GRQKl5M/8?=
- =?us-ascii?Q?PmcGT+DS3+IneNXP5ym9m02QKU9iO4MoEOToKw0YpwfLKFekEHsDV9MRv2JB?=
- =?us-ascii?Q?0T5C3kMH4uo421aqn44uhBUFyozzcYElZC9KigFrP3W+QT2EhdCjtDV6La/n?=
- =?us-ascii?Q?qjlbCnEpe6TYROMyCU4tiUA5vZioZAsJb277tM12AooMqtrx356HxauHcdp7?=
- =?us-ascii?Q?8nQXIPDsotnr/j2TfKy8HVncvghlUC2imZ9tUXesdIVmyMsUBhfKZJYoqKKQ?=
- =?us-ascii?Q?sPfldn+9LartxNqPZj2gUUBLYqYB1GimurkZHTmL+8Y4tWT4QyGH7IkMEajs?=
- =?us-ascii?Q?6pt56NKm58cXuVGR4jKCJPGrvsxfyufSJEEG94lL+QjKwOh9kzkT/1WCatHa?=
- =?us-ascii?Q?lHUglkqjJWtSVE4EWeKghjpXY0SPE33LNhDeGsPhoBoBZRwQgqpPYVR+5LvE?=
- =?us-ascii?Q?7Km/3miVXFI0tvHnE7qO24+A9gR+L5cZaIaj7o//mvemWICRYHRxYFuilC/a?=
- =?us-ascii?Q?QBEeGCztj4pbiKcFWP2TOa4qrcLdGpgprFZdwZVjmc4RrKb+6XxXzJKokhCr?=
- =?us-ascii?Q?8kbpbwQvTGKbCznmsQ0kytXCheXr4f164MEKW/2BZ4ya89kXrqURU7hoVY4p?=
- =?us-ascii?Q?DEJk/fd0prvVAGPR7eAzUFCnL25HQStkqUht4PlNPqt+uRTWDILXetPWygl0?=
- =?us-ascii?Q?6u+pbgOxRfrT2lstBKblz/qOs4tfeOprl1Mw?=
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Jun 2025 09:41:00.9134
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2428eb23-537a-4ff3-456d-08dda282c026
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B620.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR02MB8514
+	id 1uMQ0P-0000000AoX1-3DG1
+	for linux-riscv@lists.infradead.org;
+	Tue, 03 Jun 2025 11:40:34 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a4ebfaa623so767929f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jun 2025 04:40:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1748950832; x=1749555632; darn=lists.infradead.org;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-transfer-encoding:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MqVabgXFstwYrAYyfsH8IvHqrVwku7JGFF8O9u+W/Po=;
+        b=jPzShYnA0DLbo53xM4ZskTOjSo3afdnzUTB+ihr/ZeyNLrdj81htO35pcUKpHjp89G
+         8b5rVvZTRHg67z43WAbrVwnR2ah5uaJccYyVfe672oJQVme2GIFwVN4jSItgi5Vet8UE
+         pOiY5bekaFGLv4Hdp/UxNXjzNZkM0kj6evPHCNcHCEmdJZ23NUObGJqtq3HdfcFGHMsC
+         NQDtDnt57iKKvE6aZ8uAsnJlezfwI6H+UHj8+r6sV7Vh97R8njJlwdJgn4uuFSit/Dn+
+         /EZeBlASmvmKXTRhmiPtVsMSEryNvUH8tAqGT2vNYL2vCyOnLbCeFMoRYepEUBP0DU4C
+         VWRg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1748950832; x=1749555632;
+        h=in-reply-to:references:to:cc:subject:from:message-id:date
+         :content-transfer-encoding:mime-version:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=MqVabgXFstwYrAYyfsH8IvHqrVwku7JGFF8O9u+W/Po=;
+        b=WyQQoLnA1PNO3e9/JcP6wfGxw7aneZX7RbbHARLhAtRaorQ1NkaMNZpmveVy3ahZns
+         97pFX37YNeN6KKJr5FjLVS1g6CN9MlAulsU5C19N89o68m9qvdqHy5S7G7xO6n7/2qLL
+         k/yU92stmkXowHhzwnJifl4SlJexoOAzWBRn3yxaPUqh2R8gXtJ1z2AgUADda/Pxqxr3
+         YQOf04HGBJMitN3MGYStXkZ6nVKdeS+HXPyS0F8kXqHXv6sPA0GfK7on+4ZaUcNrBatw
+         QIT9Q7hWRTRC0MTeKmabRLdetoal2CdKZDkzLGZh9/HgY6rdDcJQU+zd/neE1NJ+PPtq
+         RVUw==
+X-Forwarded-Encrypted: i=1; AJvYcCUecnT7nmsLhEwTrLXLi0VHY4lac3An4/siy01qNxlFzKNqpZGNzuJrjcJ4YLjp9ddEIJH3XlK1xuOWhg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvYWcKAByaSoeNVmOH613aDRJSoVuu9CJAl4lmZBpEOrXiR6Gm
+	/41ab0xSDrFmMTWtSTMEv8V8OxgXeWeEQ+ZM1tZvsLP+WzyfkovqxQ0s0kgyG8Z078A=
+X-Gm-Gg: ASbGnctOU6nW1SBfNjd1KvW1UdHz2R1gzprffuKEyth002YzIOojNAJI2N2TquFDw/H
+	0YNltIIUVLBTBudsASZotZMSxG2tC3uFQJFpamVOTwkddUDAEhZu2f/zJ51Z87TE721p5+j/iMX
+	sxusrRXFKzzacXa2cQjSn0i7pKrqcN767wk5qXWEm2FRLbhY3MhVUCMItCcIPL3crg/GAsYgMjE
+	o2CeQi3aGwXWM7wcFdXRmGmH17BqHqGB5EtnNbsm07MMIe+q2ia1BtwZi4cPRbJ7u9LnjtPQhXO
+	WR14sXVqxGQ4j5hqspnC9GJxkjt804y1YP7NSKkzOLnZvjybkRDO8VRkFPI=
+X-Google-Smtp-Source: AGHT+IGFDhiWKgjK9Y+TCcxKDa8nUqu/n2RN/MNtIHJIhQEdhoO4uixfNqx5KKNaUAuRzy9bZilwyQ==
+X-Received: by 2002:a05:6000:230d:b0:3a0:782e:9185 with SMTP id ffacd0b85a97d-3a4f895f857mr4292350f8f.2.1748950831495;
+        Tue, 03 Jun 2025 04:40:31 -0700 (PDT)
+Received: from localhost ([2a02:8308:a00c:e200:37e0:4ec0:b6ec:ef2a])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a4f0097210sm17962177f8f.73.2025.06.03.04.40.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 03 Jun 2025 04:40:30 -0700 (PDT)
+Mime-Version: 1.0
+Date: Tue, 03 Jun 2025 13:40:30 +0200
+Message-Id: <DACVBRLJ5MMV.1COZ83HBMUD6A@ventanamicro.com>
+From: =?utf-8?q?Radim_Kr=C4=8Dm=C3=A1=C5=99?= <rkrcmar@ventanamicro.com>
+Subject: Re: [PATCH v3 9/9] RISC-V: KVM: Upgrade the supported SBI version
+ to 3.0
+Cc: "Anup Patel" <anup@brainfault.org>, "Will Deacon" <will@kernel.org>,
+ "Mark Rutland" <mark.rutland@arm.com>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>,
+ "Mayuresh Chitale" <mchitale@ventanamicro.com>,
+ <linux-riscv@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>, <kvm@vger.kernel.org>,
+ <kvm-riscv@lists.infradead.org>, "linux-riscv"
+ <linux-riscv-bounces@lists.infradead.org>
+To: "Atish Patra" <atish.patra@linux.dev>, "Andrew Jones"
+ <ajones@ventanamicro.com>
+References: <20250522-pmu_event_info-v3-0-f7bba7fd9cfe@rivosinc.com>
+ <20250522-pmu_event_info-v3-9-f7bba7fd9cfe@rivosinc.com>
+ <DA3KSSN3MJW5.2CM40VEWBWDHQ@ventanamicro.com>
+ <61627296-6f94-45ea-9410-ed0ea2251870@linux.dev>
+ <DA5YWWPPVCQW.22VHONAQHOCHE@ventanamicro.com>
+ <20250526-224478e15ee50987124a47ac@orel>
+ <ace8be22-3dba-41b0-81f0-bf6d661b4343@linux.dev>
+ <20250528-ff9f6120de39c3e4eefc5365@orel>
+ <1169138f-8445-4522-94dd-ad008524c600@linux.dev>
+ <DA8KL716NTCA.2QJX4EW2OI6AL@ventanamicro.com>
+ <2bac252c-883c-4f8a-9ae1-283660991520@linux.dev>
+ <DA9G60UI0ZLC.1KIWBXCTX0427@ventanamicro.com>
+ <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
+In-Reply-To: <0dcd01cd-419f-4225-b22c-cbaf82718235@linux.dev>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_024109_187458_4F687F0A 
-X-CRM114-Status: UNSURE (   8.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_044033_797831_BDE32CA3 
+X-CRM114-Status: GOOD (  17.07  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -176,26 +112,58 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, May 28, 2025 at 12:41:12PM +0200, Krzysztof Kozlowski wrote
-> The local static 'struct pinctrl_desc' is not modified, so can be made
-> const for code safety.
-> 
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-For artpec6:
-
-Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
-
-/^JN - Jesper Nilsson
--- 
-               Jesper Nilsson -- jesper.nilsson@axis.com
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+MjAyNS0wNS0zMFQxMjoyOTozMC0wNzowMCwgQXRpc2ggUGF0cmEgPGF0aXNoLnBhdHJhQGxpbnV4
+LmRldj46Cj4gT24gNS8zMC8yNSA0OjA5IEFNLCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4+IDIw
+MjUtMDUtMjlUMTE6NDQ6MzgtMDc6MDAsIEF0aXNoIFBhdHJhIDxhdGlzaC5wYXRyYUBsaW51eC5k
+ZXY+Ogo+Pj4gT24gNS8yOS8yNSAzOjI0IEFNLCBSYWRpbSBLcsSNbcOhxZkgd3JvdGU6Cj4+Pj4g
+SSBvcmlnaW5hbGx5IGdhdmUgdXAgb24gdGhlIGlkZWEsIGJ1dCBJIGZlZWwga2luZGEgYmFkIGZv
+ciBEcmV3IG5vdywgc28KPj4+PiB0cnlpbmcgYWdhaW46Cj4+PiBJIGFtIHNvcnJ5IGlmIHNvbWUg
+b2YgbXkgcmVwbGllcyBjYW1lIGFjcm9zcyBpbiB0aGUgd3Jvbmcgd2F5LiBUaGF0IHdhcwo+Pj4g
+bmV2ZXIKPj4+IHRoZSBpbnRlbnRpb24uCj4+IEkgZGlkbid0IG1lYW4gdG8gYWNjdXNlIHlvdSwg
+bXkgYXBvbG9naWVzLiAgSSBhZ3JlZSB3aXRoIERyZXcncwo+PiBwb3NpdGlvbnMsIHNvIHRvIGV4
+cGFuZCBvbiBhIHF1ZXN0aW9uIHRoYXQgd2Fzbid0IHRvdWNoZWQgaW4gaGlzIG1haWw6Cj4+Cj4+
+Pj4gRXZlbiBpZiB1c2Vyc3BhY2Ugd2FudHMgU0JJIGZvciB0aGUgTS1tb2RlIGludGVyZmFjZSwg
+c2VjdXJpdHkgbWluZGVkCj4+PiBUaGlzIGlzIHByb2JhYmx5IGEgM3JkIG9uZSA/IFdoeSB3ZSB3
+YW50IE0tbW9kZSBpbnRlcmZhY2UgaW4gdGhlIHVzZXIKPj4+IHNwYWNlID8KPj4gSXQgaXMgYWJv
+dXQgdHVybmluZyBLVk0gaW50byBhbiBJU0EgYWNjZWxlcmF0b3IuCj4+Cj4+IEEgZ3Vlc3QgdGhp
+bmtzIGl0IGlzIHJ1bm5pbmcgaW4gUy9IUy1tb2RlLgo+PiBUaGUgZWNhbGwgaW5zdHJ1Y3Rpb24g
+dHJhcHMgdG8gTS1tb2RlLiAgUklTQy1WIEggZXh0ZW5zaW9uIGRvZXNuJ3QKPj4gYWNjZWxlcmF0
+ZSBNLW1vZGUsIHNvIHdlIGhhdmUgdG8gZW11bGF0ZSB0aGUgdHJhcCBpbiBzb2Z0d2FyZS4KPiBX
+ZSBkb24ndCBuZWVkIHRvIGFjY2VsZXJhdGUgTS1tb2RlLiBUaGF0J3MgdGhlIGJlYXV0eSBvZiB0
+aGUgUklTQy1WIEggCj4gZXh0ZW5zaW9uLgoKKEl0IGlzIGEgZ2FwIHRvIG1lLiA6XSkKCj4gVGhl
+IElTQSBpcyBkZXNpZ25lZCBpbiBzdWNoIGEgd2F5IHRoYXQgdGhlIFNCSSBpcyB0aGUgaW50ZXJm
+YWNlIGJldHdlZW4gCj4gdGhlIHN1cGVydmlzb3IgZW52aXJvbm1lbnQgKFZTL0hTKQo+IGFuZCB0
+aGUgc3VwZXJ2aXNvciBleGVjdXRpb24gZW52aXJvbm1lbnQgKEhTL00pLgoKVGhlIElTQSBzYXlz
+IG5vdGhpbmcgYWJvdXQgdGhlIGltcGxlbWVudGF0aW9uIG9mIHNhaWQgaW50ZXJmYWNlLgoKUmV0
+dXJuaW5nIDQyIGluIHgyMSBhcyBhIHJlc3BvbnNlIHRvIGFuIGVjYWxsIHdpdGggMHgxMCBpbiBh
+NyBhbmQgMHgzIGluCmE2IGlzIHBlcmZlY3RseSB2YWxpZCBSSVNDLVYgaW1wbGVtZW50YXRpb24g
+dGhhdCBLVk0gY3VycmVudGx5IGNhbm5vdAp2aXJ0dWFsaXplLgoKPj4gVGhlIElTQSBkb2Vzbid0
+IHNheSB0aGF0IE0tbW9kZSBtZWFucyBTQkkuICBXZSB0cnkgcmVhbGx5IGhhcmQgdG8gaGF2ZQo+
+PiBTQkkgb24gYWxsIFJJU0MtViwgYnV0IEkgdGhpbmsgS1ZNIGlzIHRha2luZyBpdCBhIGJpdCB0
+b28gZmFyLgo+Pgo+PiBXZSBjYW4gZGlzY3VzcyBob3cgYmVzdCB0byBkZXNjcmliZSBTQkksIHNv
+IHVzZXJzcGFjZSBjYW4gY2hvb3NlIHRvCj4+IGFjY2VsZXJhdGUgdGhlIE0tbW9kZSBpbiBLVk0s
+IGJ1dCBJIHRoaW5rIHRoYXQgdGhlIGFiaWxpdHkgdG8gZW11bGF0ZQo+PiBNLW1vZGUgaW4gdXNl
+cnNwYWNlIHNob3VsZCBiZSBwcm92aWRlZC4KPiBJIGFtIHN0aWxsIHRyeWluZyB0byB1bmRlcnN0
+YW5kIHRoZSBhZHZhbnRhZ2VzIG9mIGVtdWxhdGluZyB0aGUgTS1tb2RlIAo+IGluIHRoZSB1c2Vy
+IHNwYWNlLgo+IENhbiB5b3UgcGxlYXNlIGVsYWJvcmF0ZSA/CgpUaGlzIHRocmVhZCBhbHJlYWR5
+IGhhcyBhIGxvdCBvZiB0aGVtLCBzbyB0byBhdm9pZCByZXBlYXRpbmcgdGhlbSwgSQpoYXZlIHRv
+IGdvIGludG8gcXVpdGUgbmljaGUgdXNlLWNhc2VzOgpXaGVuIGRldmVsb3BpbmcgTS1tb2RlIHNv
+ZnR3YXJlIG9uIFJJU0MtViAod2hlbiBSSVNDLVYgaGFzIG1vcmUgdXNlZnVsCmltcGxlbWVudGF0
+aW9ucyB0aGFuIFFFTVUpLCBhIGRldmVsb3BlciBtaWdodCB3YW50IHRvIGFjY2VsZXJhdGUgdGhl
+ClMvVS1tb2RlcyBpbiBLVk0uCkl0IGlzIGFsc28gc2ltcGxlciB0byBpbXBsZW1lbnQgYW4gb2xk
+IFNCSSBpbnRlcmZhY2UgKGVzcGVjaWFsbHkgd2l0aApidWdzL3F1aXJrcykgaWYgdmlydHVhbGl6
+YXRpb24ganVzdCBleGVjdXRlcyB0aGUgb2xkIE0tbW9kZSBiaW5hcnkuCgpXaHkgbXVzdCBLVk0g
+cHJldmVudCB1c2Vyc3BhY2UgZnJvbSB2aXJ0dWFsaXppbmcgUklTQy1WPwoKPiBJIGFtIGFzc3Vt
+aW5nIHlvdSBhcmUgbm90IGhpbnRpbmcgTmVzdGVkIHZpcnR1YWxpemF0aW9uIHdoaWNoIGNhbiBi
+ZSAKPiBhY2hpZXZlZCB3aXRoIGV4aXN0aW5nCj4gSVNBIHByb3ZpZGVkIG1lY2hhbmlzbXMgYW5k
+IGFjY2VsZXJhdGVkIGJ5IFNCSSBOQUNMLgoKUmlnaHQsIEkgYW0gdGFsa2luZyBhYm91dCB2aXJ0
+dWFsaXphdGlvbiBvZiBSSVNDLVYsIGJlY2F1c2UgSSBkb24ndCBoYXZlCmEgY3J5c3RhbCBiYWxs
+IHRvIGZpZ3VyZSBvdXQgd2hhdCB1c2VycyB3aWxsIHdhbnQuCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGlu
+dXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9t
+YWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
