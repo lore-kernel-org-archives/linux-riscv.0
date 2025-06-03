@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AFC8FC5AE59
-	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 14:12:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 689CCC5AE59
+	for <linux-riscv@archiver.kernel.org>; Tue,  3 Jun 2025 14:43:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=xZjfmvqCX4Bi9AeaLDfd99HUlTRn4sztvttt9bM05oE=; b=Ce3eFTWuOlJkFI
-	5lgTy3z4dAAQQkSQq67lrvl3qePSQh3K4bcSrq4hvUFL2oPyMy0Wtr6c8Wei5uVK8JFVBYmSXu9SC
-	Cxz1YueSzd+pl8sftJGvhEp3y69qvrR8J39Uze1I7F2YMiit2nezN88Asi1osDro5mVhXJPkleVLd
-	EVvp1wvuwszPXQEU+Uw2ENGXwcww9sxAcD8kBhxrxjpkdy/1GoSwxKZtBD9gRIQXbj8T4I3rZPjXk
-	jcM4NjtKXMXxa0PN1aR6TD4Ez48cciPsfPB7d1yR1tRCyn0OZQP1rd2hSH4q3MKV6A4MevB6lbD7R
-	xyjLWGwyucL+Ux7pKxPA==;
+	List-Owner; bh=NE3P8hbNeWSR8FJefK/PbcyIG4MElj/325ddSkr+Ghg=; b=IMaS3LNykItMYI
+	7KmQufSUoqJG90MpwcByuZ8PQIqKecCIkthFS+ekWM/Rkla4WEIo5N0Nj9Ry7pU5leXwJpkbHnWco
+	96TluXJUhH3cpXSB7OnasxQ2jSKz0DWEWtsOdxLGj2xspbIeZa8c0dltI4TNkzdDgcv0T+REkSh+d
+	YMi6ZPwtCH/MXXN1yDR5My56nja+l499xwveFQdjDlaEan3um7XCR+25T525n2M9/fi//Ss4DuLt7
+	WGqaql5smSkDR8sfRqSrrBPPWf/P1HbfQ9gN8UuLX/Zc3FcDbR3QivXCVzmwMhJeHIvZ2/nIizzHF
+	x3KkPx9i/QCgpPcg0STg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMSNf-0000000B8yJ-2jUE;
-	Tue, 03 Jun 2025 14:12:43 +0000
-Received: from mail-qt1-x833.google.com ([2607:f8b0:4864:20::833])
+	id 1uMSrT-0000000BBXi-1WV1;
+	Tue, 03 Jun 2025 14:43:31 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMS32-0000000B62p-2yju
+	id 1uMRpm-0000000B3fz-3Koz
 	for linux-riscv@lists.infradead.org;
-	Tue, 03 Jun 2025 13:51:26 +0000
-Received: by mail-qt1-x833.google.com with SMTP id d75a77b69052e-48d71b77cc0so65881541cf.1
-        for <linux-riscv@lists.infradead.org>; Tue, 03 Jun 2025 06:51:24 -0700 (PDT)
+	Tue, 03 Jun 2025 13:37:44 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4a589b7dd5fso35498141cf.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jun 2025 06:37:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1748958684; x=1749563484; darn=lists.infradead.org;
+        d=ziepe.ca; s=google; t=1748957861; x=1749562661; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
-        b=N5xviOmG313kcD4OglnXOUTK/FF6Ai0vY30PeNj5HhkGushOMMhI9uQtYYp4f2sEZo
-         6wSF+5Wh0k9/JY9ywaC7/jwCDboQal8HRE79ubWBY5e+WuRWrkzuwOZLY9yfaB1u91Gk
-         n/zfhTGyfdoteCTizx4i+BHY9pEyfDWVFyvUnSjhOinREAqtp3k2ZqCLL82duI040mxC
-         tM1T+BqaQh3U/ZvU6nZC3sej0nnccWgiGpK0YguONqUsVfdg1MR2nd1M6sPaRcZv9LQC
-         A/xx4WRiLnfoxafHv8vohw8zrwVxf7KXs9IMjyNqeB5DtD7/zj8bPBWnyOce0LWVf5t2
-         pm2Q==
+        bh=UoX6ZYAbWcKDR6KFcgyyRoqI5kTXzqc7rOw8qvSUCMg=;
+        b=IOWkGIyApe4s8HuMFWOVTaqGO/1SHICkDPjfmBa0gYgJR1gdN4sg+62+7eBqtdtaXI
+         K+OeSjhVCYLmnnPPl2OcxKctIobxaDKsfpl5m6SG8nU1SPIKI2vwG8u41myq6F/uN145
+         NyPx7O/8ZjWUhbS1U8yu7+qyLE3W6FQ2dYoN87+3PE6+/6aikbm0a27c/6fM4Z+7ZK29
+         h5J8OsxBLb5k1frhDECsCt30E2fIFF8jaUlHVeNbYKVrrgs36wa47/SF1tkC9c4O8p6q
+         rYHeyqiZZb7PaBhR4bIL0w/J7b92C7KMEH/n0+Cont34ue8St5KnFLKyvcI5LP2Ej8P9
+         SBsg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1748958684; x=1749563484;
+        d=1e100.net; s=20230601; t=1748957861; x=1749562661;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=VzY+cZCL0448RY0GID08t4arF/zf+2+XaBNqbHYkIpY=;
-        b=tYhHVA/hEJwYCuTrq7LMkwC83HWz0JsQt4vm9YWxbi+wYnAob/HF+DjRBGHpRorM7c
-         kstC8LvM8D5WDCZkfCWJ12s4VzqBnd1/CTsd4Tse7NoLN4+3Kwdu5DVkKgYYEuUP89su
-         2iK4lcA4JWfmPCzMc2FqrRMlIntlAAgeZxCy8UzsjWNhf9bczdQxSAfqB3/FWgWyU7KY
-         Y/J9/8ylKaS8QcbbI3PZh84/EYrJIW4wf8Io9UOPwpN/HeMsu09tsdJl55uf0sl7gEdy
-         LaHLuBJU1TbkP+18gxmb5557H4+wfvmvk9KDI1lbcv7MeoJKGXlB2off2A18/S6mlag4
-         WIuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUT8YKYtiwSs7JFB6OfWJJ0GyhsnyjQjpjzLOKMPBDYT5DH5EiRmC2pti86vVYSxUbkrcvCPXVYPfMWnA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFWHYDir3x+Dg7redR9VeSWvG4ClXQHFwLeYXvF1FLLQeP03+I
-	WXR3y3z1+AhVnLPHda9Gi8FDy2nznwWlEXgIpn/vAnYwbmdVMgFVBq2RCkZzZcraSi03n7z/wXF
-	vs+Nl
-X-Gm-Gg: ASbGncuZe0P6NCINP5yV3VFu1MCabranpPyu3f4J74Qu1+o+SOeGppahmNC+feNsfGZ
-	5Dne9+Ipk/JwLj2Bqf7LBKyxENkNcNlDwIB9rVktZsFdfwNnEOOTkocd2dtcOhBCFM/vktJEbNM
-	DDeCL+fJrixATqcj8+iLLZfJgwKXHlGVTpnqvaBDVzk6udjwOt8PsuSJKmQ/z5biA3SmipMDtOG
-	LAK9QgAxRXr4ueB0exQQcXxj/mpevkYRCMpadI7C67ImtBSgJBp7KvlP3njwG17UANn9B4KgIab
-	KsI0jaEPqR7qbPtiih0DhKcV3dR18Zf0khknjrZ9kxC+0n1Oc8H6FDo+YRcrFyRdbhL7qkR4eln
-	sj4t/hHQJVWIQjW5f7cCzdc+d9OQ=
-X-Google-Smtp-Source: AGHT+IFvqH9ubcC6dbv0UqQGW5DGDtp+BZ9QNaQHwHo+bs9Vg0oCfSh3AzQ5xeJI5fTattmwccxXPg==
-X-Received: by 2002:a05:6214:2aa3:b0:6fa:caa2:19bc with SMTP id 6a1803df08f44-6fad916605amr159392986d6.44.1748958672893;
-        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
+        bh=UoX6ZYAbWcKDR6KFcgyyRoqI5kTXzqc7rOw8qvSUCMg=;
+        b=AyOfsGnYYq8WS9HQ9SrX3LHLH+VHKdNB8Qdvs+duH2gt/WfLAdZcG9auJ6zOueQl6S
+         ms1cO37vmfhEXcepOTvrAWVBWHKR1vVOS0326FS41kBd6/muh5UnlGNazy76goHxMH4y
+         XRKZ/Y7cS8wIKRocjq/zog3CcqzUZIyJYTINbtA7d6mlDxxHemO0p1tdwFsa9m+HvoFJ
+         4mnWO2x1b7N0gd6ziajA1s46nIkmiypjvMEOol1ZXfCRHln0crPxaqAYqXFpTsojTDQj
+         rMIFnTo/JMFj4PR1qScI728FIsTBLh7J97103EiYBNYNcVWIZDcFDQotPxOaQrxrEwbc
+         xP/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCULc5URdlWsbGhLX1n2uZmvWymeDUAmOU600lR82NjnL5wM+rsmQVI68MbH/dhwRszpSD3HWNGQZS0z2g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCC6CUCIdrcJ/h+T457HwUlo82AweR6CfCcCWCM3rzGeJlNPm/
+	KdzJU2ItoTpUDxVbtn4DKjfQisaFIsEdLDGkze6r6Xn9BWP7tbqW5y/cLrE3MTD94os=
+X-Gm-Gg: ASbGnctRxY7uz8VPOo5nIgJFZnROpB+Y31ZIuLkcV4CAhc+pGQCaWubTq2EFLdDQwuQ
+	JNGmCOoBBdGlNdW8oOPm9K8j3jmPn6tDVFVaTWR2SXOrt8W6kpMDDv8YSknntiqRoihmkuAYy3w
+	8x9/Og1dn+Gc4n2RMpAnQ3B5Y7dX2iQMMXfgs4IfakxShFwQhAwBDduiORDz9QbOoZcC7XT52Od
+	O2sGOAFW/xeFX6rJ6GakKStfHF9XixtgI7hyz0VoYNhwGFO64USDV6FjwnD9ChCOnBxl07Z/xRs
+	UcpLdbKopdBmm4UXYK1C+aZ4fvPoPKcFkEFFPCRyXq5H/EgVKMm1QIamkZxoOarTS4xNe208hb9
+	Y8STUVXcKFwqobgpZ+diE8kXI7ayl86qFQJ1KhA==
+X-Google-Smtp-Source: AGHT+IHIja21FGplZEuqybwyfzBxoI5k6ggct08qhelvg2n2Sr3vDQGi+qZrCCr84f/KmAHse8r0Yw==
+X-Received: by 2002:a05:622a:4c16:b0:4a4:2e99:3a92 with SMTP id d75a77b69052e-4a443f2d1a2mr265367291cf.38.1748957861491;
+        Tue, 03 Jun 2025 06:37:41 -0700 (PDT)
 Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fad0495cf2sm68040826d6.39.2025.06.03.06.51.12
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4a435a36e1bsm73924021cf.62.2025.06.03.06.37.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 03 Jun 2025 06:51:12 -0700 (PDT)
+        Tue, 03 Jun 2025 06:37:40 -0700 (PDT)
 Received: from jgg by wakko with local (Exim 4.97)
 	(envelope-from <jgg@ziepe.ca>)
-	id 1uMS2p-00000001hDX-3xh9;
-	Tue, 03 Jun 2025 10:51:11 -0300
-Date: Tue, 3 Jun 2025 10:51:11 -0300
+	id 1uMRpk-00000001h5v-1tYD;
+	Tue, 03 Jun 2025 10:37:40 -0300
+Date: Tue, 3 Jun 2025 10:37:40 -0300
 From: Jason Gunthorpe <jgg@ziepe.ca>
 To: Alistair Popple <apopple@nvidia.com>
 Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
@@ -87,17 +86,17 @@ Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
 	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
 	linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	John@groves.net
-Subject: Re: [PATCH 12/12] mm/memremap: Remove unused devmap_managed_key
-Message-ID: <20250603135111.GM386142@ziepe.ca>
+Subject: Re: [PATCH 04/12] mm: Convert vmf_insert_mixed() from using
+ pte_devmap to pte_special
+Message-ID: <20250603133740.GE386142@ziepe.ca>
 References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
+ <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <112f77932e2dc6927ee77017533bf8e0194c96da.1748500293.git-series.apopple@nvidia.com>
+In-Reply-To: <171c8ae407198160c434797a96fe56d837cdc1cd.1748500293.git-series.apopple@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_065124_755213_29DEF842 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250603_063742_835358_5C7E2F66 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,13 +113,27 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:13PM +1000, Alistair Popple wrote:
-> It's no longer used so remove it.
+On Thu, May 29, 2025 at 04:32:05PM +1000, Alistair Popple wrote:
+> DAX no longer requires device PTEs as it always has a ZONE_DEVICE page
+> associated with the PTE that can be reference counted normally. Other users
+> of pte_devmap are drivers that set PFN_DEV when calling vmf_insert_mixed()
+> which ensures vm_normal_page() returns NULL for these entries.
+> 
+> There is no reason to distinguish these pte_devmap users so in order to
+> free up a PTE bit use pte_special instead for entries created with
+> vmf_insert_mixed(). This will ensure vm_normal_page() will continue to
+> return NULL for these pages.
+> 
+> Architectures that don't support pte_special also don't support pte_devmap
+> so those will continue to rely on pfn_valid() to determine if the page can
+> be mapped.
 > 
 > Signed-off-by: Alistair Popple <apopple@nvidia.com>
 > ---
->  mm/memremap.c | 27 ---------------------------
->  1 file changed, 27 deletions(-)
+>  mm/hmm.c    |  3 ---
+>  mm/memory.c | 20 ++------------------
+>  mm/vmscan.c |  2 +-
+>  3 files changed, 3 insertions(+), 22 deletions(-)
 
 Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
