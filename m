@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75966C5B543
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCDC4C5B559
 	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 14:32:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,54 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Vr68eWx3lJ0rSq9uJa3L1A1IskY7ks0e1LHeqgyzyMA=; b=nIYMITHW5MHsLd
-	EejMIOi03uom5NDNZzWKybTnfz8kO5OqIrdzknPZhRCWm7Z0oMmtLk9lE/YmzMe6DaUo9eT6Z9tjG
-	sLueqhO8WsuIhqmMJwKZAAbO0g0gTnVewEryIeX10MS+ddHkLYAR7BMoTz83emd9ms0bOF68e/pGE
-	T+T2AjFvQxQr23g982X8Hatkz0UW3P67n+CcgAJgLFyXbkyJN890hn+1CyXHeo2CTV+VZGOWWvQ66
-	kMIgX0yhljNC++lsZa6/aCseUA9fpyFgoyq0cTLHgl7U190hFSOvtaYr92BcjHgU6xlC7y67W6foD
-	Y8jDPzO6o8gT02QDqOtQ==;
+	List-Owner; bh=+R1+LSCNnt1iKqsrkTh0cpXfbDoAgLPjjEdiY0u8mnY=; b=eiuesMzFez2iES
+	rh5HfsF+NUe3jWEVzQukNC/yhT3UpwoVrQktVb14fN7BkTsXZT21CjK+Mjcy8crX273jsqJoIyhpt
+	N/c/D3iVd+nIDYRmXRixzcEJ3OUQ30VOCWsjHsuuuP6B6i5lFnPyzYsfEjNzphjfylUEwa7z70ZPV
+	wu+sKf8cjiRzVpiZiyKDd7GAk7FE6Bac+7DFMlHjysjeY263ScXbNs8SoHSmiAe1mSvjmnxjmDjBs
+	RGiFaOwV2l3rG+VzEV6oPIShn+l6Mjyi8VL7LNWRGbcREq05xHGrxJWOm0IKb9BvRK6pRBY9slvUM
+	2h2X8JRfl0nKHkYQjwww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpAV-0000000DZkd-0PZH;
-	Wed, 04 Jun 2025 14:32:39 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMpAS-0000000DZj1-0bxt
-	for linux-riscv@lists.infradead.org;
+	id 1uMpAT-0000000DZjq-23FN;
 	Wed, 04 Jun 2025 14:32:37 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uMpAQ-0000000DZiF-26fG
+	for linux-riscv@lists.infradead.org;
+	Wed, 04 Jun 2025 14:32:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8032F5C588B;
-	Wed,  4 Jun 2025 14:30:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 065C9C4CEE7;
-	Wed,  4 Jun 2025 14:32:35 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id AB45C4A7D2;
+	Wed,  4 Jun 2025 14:32:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 879DFC4CEE4;
+	Wed,  4 Jun 2025 14:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749047555;
-	bh=0cex6vSsXIzLr3HCp6pdJwaZEIj6tYWrRSJ+A1mcFLI=;
+	s=k20201202; t=1749047553;
+	bh=+BmWJhOFbq1yXe1Nt/YU+m0g8RpyqPG0fIDFEzDZhBg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=FcU55DcLd27Gzr3kTtCD7R0h8Y+7t99/1qb67kVtT7VJmq2VsTlx8WVfgKCaUzAY7
-	 s6639hu3xKMWeHBGHX4FqKRT2crjgv9FG1p/XNFds2H6apBCBqPplBZCsv06+GEZER
-	 QOu2AjNw+jItngyM8zBYXR9vuNIZfz7PAPUTWhfXir7EvPccAuOC9oCO2JmcwJN9/F
-	 Cbqho20ofD7DtdUsKULcNQKAVgMG4MlA+Q3V4G2OJbIvTK8Hg67MzZofyiZaL8+isR
-	 pX6eB+05poNoSy4eiUs7UZ08J5KgQ3fzkccK6+t5/DcZCAETw8VNQXQxL7fUK6xO2F
-	 HvqIc64Kpmt8g==
+	b=JWT3MXzVFlIS3uSrmzj5udbBT2PzmFj3TIl28DjMtnGbDMcJ9F8/0wNQWTJGjaB4U
+	 ZShUOG7n8i8l/dlz8G2r500/IgDmpQ2KVCRV59rDXWECayp1drz0BYrCaHRZb8RCe1
+	 Wo2bkeu5/9QQEEw/yNTIcrhVA69Yq+upeGRAjLBwUh1O+RWiHd1sAoyjGsr+pbKJlM
+	 5qy27JTzXh31dtrjVbiNYs0f6U5w2hdeYedufW8rnut88Vf2TsRTy7Z8bdXjj1g5ab
+	 CPiP9FJ8cCERBVQOq2MenLUtD1u0ZbDhIVXqnQcCUBDkucuQVFbM4y9gzbWTLmemWb
+	 NTrIanRPH7Fhw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70BC438111E5;
-	Wed,  4 Jun 2025 14:33:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD6838111E5;
+	Wed,  4 Jun 2025 14:33:06 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 00/11] riscv: kprobes: Clean up instruction simulation
+Subject: Re: [PATCH] riscv: enable mseal sysmap for RV64
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174904758698.2309006.9940004806769596353.git-patchwork-notify@kernel.org>
-Date: Wed, 04 Jun 2025 14:33:06 +0000
-References: <cover.1747215274.git.namcao@linutronix.de>
-In-Reply-To: <cover.1747215274.git.namcao@linutronix.de>
-To: Nam Cao <namcao@linutronix.de>
+Message-Id: <174904758575.2309006.1787281436678591425.git-patchwork-notify@kernel.org>
+Date: Wed, 04 Jun 2025 14:33:05 +0000
+References: <20250426135954.5614-1-jszhang@kernel.org>
+In-Reply-To: <20250426135954.5614-1-jszhang@kernel.org>
+To: Jisheng Zhang <jszhang@kernel.org>
 Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
  palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- linux-kernel@vger.kernel.org
+ linux-kernel@vger.kernel.org, jeffxu@chromium.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_073236_223898_32C2C10F 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20250604_073234_561504_08AB9BFA 
+X-CRM114-Status: UNSURE (   7.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,43 +78,24 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This series was applied to riscv/linux.git (for-next)
+This patch was applied to riscv/linux.git (for-next)
 by Alexandre Ghiti <alexghiti@rivosinc.com>:
 
-On Wed, 14 May 2025 11:38:39 +0200 you wrote:
-> Hi,
+On Sat, 26 Apr 2025 21:59:54 +0800 you wrote:
+> Provide support for CONFIG_MSEAL_SYSTEM_MAPPINGS for RV64, covering the
+> vdso, vvar.
 > 
-> There is some instruction-processing code in kprobes simulate code. These
-> code should be insn.h. In fact, most of them is duplicating insn.h.
+> Passed sysmap_is_sealed and mseal_test self tests.
+> Passed booting a buildroot rootfs image and a cli debian rootfs image.
 > 
-> This series remove the duplicated bits and make use of macros already
-> defined in insn.h. The non-duplicated bits are moved into insn.h.
+> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> Cc: Jeff Xu <jeffxu@chromium.org>
 > 
 > [...]
 
 Here is the summary with links:
-  - [v2,01/11] riscv: kprobes: Move branch_rs2_idx to insn.h
-    https://git.kernel.org/riscv/c/d29656bab74c
-  - [v2,02/11] riscv: kprobes: Move branch_funct3 to insn.h
-    https://git.kernel.org/riscv/c/da6de46c2eed
-  - [v2,03/11] riscv: kprobes: Remove duplication of RV_EXTRACT_JTYPE_IMM
-    https://git.kernel.org/riscv/c/6d47d903b18f
-  - [v2,04/11] riscv: kprobes: Remove duplication of RV_EXTRACT_RS1_REG
-    https://git.kernel.org/riscv/c/5cefc323f32a
-  - [v2,05/11] riscv: kprobes: Remove duplication of RV_EXTRACT_BTYPE_IMM
-    https://git.kernel.org/riscv/c/a285674909ae
-  - [v2,06/11] riscv: kproves: Remove duplication of RVC_EXTRACT_JTYPE_IMM
-    https://git.kernel.org/riscv/c/c7196c136e29
-  - [v2,07/11] riscv: kprobes: Remove duplication of RVC_EXTRACT_C2_RS1_REG
-    https://git.kernel.org/riscv/c/768007ca3fe8
-  - [v2,08/11] riscv: kprobes: Remove duplication of RVC_EXTRACT_BTYPE_IMM
-    https://git.kernel.org/riscv/c/f2c715fff676
-  - [v2,09/11] riscv: kprobes: Remove duplication of RV_EXTRACT_RD_REG
-    https://git.kernel.org/riscv/c/284ca2a100de
-  - [v2,10/11] riscv: kprobes: Remove duplication of RV_EXTRACT_UTYPE_IMM
-    https://git.kernel.org/riscv/c/a60c2933ec74
-  - [v2,11/11] riscv: kprobes: Remove duplication of RV_EXTRACT_ITYPE_IMM
-    https://git.kernel.org/riscv/c/ee4c45f5cbeb
+  - riscv: enable mseal sysmap for RV64
+    https://git.kernel.org/riscv/c/053ea0a6a070
 
 You are awesome, thank you!
 -- 
