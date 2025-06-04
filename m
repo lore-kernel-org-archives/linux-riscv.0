@@ -4,121 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F0D4C5B543
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 06:36:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DABBDC5B552
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 06:36:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YL/cKZ579Po/gI+qcxbaB9oFBnC6MGHNKBGYFQDHvOs=; b=B7dWf58MNMqt05
-	Cyi1Cper7P2nQHkNB16B1aqjTkTUut/77iYXODLHT6Gjj1AdZqjX8Ou06Vt9NnsRoN8ZWJ7wIAy3B
-	xfQbLKi45tk/H6+JyHo88/qd+rN1NaKIhZAEjc44oApPxiRlLKZLn1oiIFlyN9zaZl25Mv2/Y5+yA
-	eUzGAFChfGdJYDN7G7BT4VMCGXSXXMssR4JWLcPqhY5rPqLNQGXKaQ2AhZQ/GfvglnANDc2E8f5L8
-	GduIgcmYaX7pirgE+jiA0j1TVlgc2FCU7gCV5Jj4pRwAuqezglZz1CXwuCQS8RLNMJA7rTemZKfjh
-	HgePt+SRifJlKzW3j8ug==;
+	List-Owner; bh=aGwItWcsoEqnlfVX80mAaCofdl1LDa3DkC8VZORK2o8=; b=fX2AD8pRWwXq8J
+	o5ZXGCgABYERZk8BxDmfyBy1XsbpDQQqg9cPc7gNa/P23fuu3avt48Jc6gML6ksbt6Q+wKxKF8ST1
+	UAxIW4WQYji+rw9IQvdkPs+UkSyj5CxgzkfRhtKZ/Vubulccgdir0YTnSOrHGIPBaBgNU26lxGt33
+	McZ5GMKIGKG5OEi1atHt/2p6p2qcR+mw10Laca8r4rShBy5OK4IvOXhQiLR0L40wyrlTlpQkQqJeH
+	0rlQJZCKGbtln6fPgrnaB4xgVMRUWguHsWAS1zVuays4fsEVBSLdYiEHzhhzr+DG6HMZeRCkn1sby
+	H6Y5AaQtFTq+U3cdin4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMhja-0000000CgaD-26iX;
-	Wed, 04 Jun 2025 06:36:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1uMhjs-0000000Cgfq-0VY6;
+	Wed, 04 Jun 2025 06:36:40 +0000
+Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMhjX-0000000CgY6-4BXj
+	id 1uMhjn-0000000Cgcn-1MXi
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Jun 2025 06:36:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CDEA15C313E;
-	Wed,  4 Jun 2025 06:34:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDDAFC4CEE7;
-	Wed,  4 Jun 2025 06:36:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749018978;
-	bh=bhVWW6u1VwoNFF8oGjxaEO25JBnpNeTh2XOUnTfA374=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iHYL7Tve2yc3ulZn8/+vs8rScSYJoNA/KWexam3w/7uLZeT0/KHiVcSkGOYZsXtpm
-	 3Cv4QQIIohMlCfZesFb3vLCXgaQ2y9GbaupkcSBGc9xhx3syJgmkQTrjSOd9EbGgXI
-	 5UoFG2CiqlYsjcnzHr9QooIvtowE2igZt9xHnWuzWBHrL3JfiygPwBdKXzsOFU0hAm
-	 yCICn+wshNnu6O42vL9jVZAW/hgwbctOyoEL26c8GQZHX1VNm+F08kGmK0wusQYxbx
-	 0jpmUmlzuKohVrcgxCVrmlUiK0fNcPmRfi745j3HU0KiGMO7BKodGDLS3DrPecigLR
-	 FRtCIyPcQHEDQ==
-Message-ID: <e5a0bee2-ff74-47cf-ad2c-0c78b57ae6cf@kernel.org>
-Date: Wed, 4 Jun 2025 08:36:10 +0200
+	Wed, 04 Jun 2025 06:36:38 +0000
+Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-54e7967cf67so7557090e87.0
+        for <linux-riscv@lists.infradead.org>; Tue, 03 Jun 2025 23:36:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749018991; x=1749623791; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=D9K32ZU1XZ7DXPyePnHI+L2d3Xh8pDC7EJ8l3Ins/TM=;
+        b=IvLRLRO4/PpJdI+UWn3pk91buNDdlKNnmSTPIDLAddX3yq02VkUc6BonuiHMoqlE++
+         9xbas23heyyV64hI8/dRgwKBLB+05Fw0mp+nZf9ZGDmu6EW93/10bTSW+DKPlRkMXKvU
+         i4kFyFxajmJqDkTlSvurKOXnx0z94vWrskpdLYSmxRBllqlyPeX6Etj64VCfcfxn7QNL
+         TdatPC4RT5K5EY063u1UNcVdnWtwDWhsNwt5vLgrYWDRFxwSGD6IX2QQ50aP75Dlqh/I
+         JT/adKlPlMMt/w5QcL0IsvKUF6EDMkOQ+GHzcWTKOONFtPjAQqDTGJIQYWUw1hczJzWT
+         UUcQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749018991; x=1749623791;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=D9K32ZU1XZ7DXPyePnHI+L2d3Xh8pDC7EJ8l3Ins/TM=;
+        b=CcFqhJWePqHfMcTmkZ4GYe36PYvmSLz46I+6nhqhrPRYI89RCpRozVOnB78ZCA4cpo
+         j1Ty2GnLhDF6/ajwMxttYrqMK8USFK2XGOiLtiPp7ONr0t2JDYsPOit8+UI+xd8aKGR5
+         xJ6N7eBh4BwDXW+7Ayj3TQf6RoEpI0aXT8PPg8F9/fmovLOG3jxHYUv0YxhmlK8+nk+i
+         CIj2JQydpIjiXSvJHWncDFAD/4r9rM0YBverEMOv4liYvj0oiznR05JixjLWd3XGFp44
+         IiLOFXUyh0+93VpEqApzCPt7oM388CWvD8YEAlRGiX/cu85WVtRUMCF43tpaYNWYfQhX
+         FHRw==
+X-Forwarded-Encrypted: i=1; AJvYcCWBxS7Vbmu5vhfty5ugx0eUwnLTebo5o7VDlCBvffYvNSEaDHxNO+pt2f+iSgw+/ky1qEK+LzzqZO2Xqw==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy/qOeJSLlrZYm8wlv/vSAhwwR3bicL9rcxU+3JTQc56o2S6AwE
+	CfyLAuZYpfcPBXv5+Z3eFC08xDDRdZPns5Ai6aeMZhH1dmvIOtzggaXhsQOznBD6I5CtyDwPGRN
+	jNHFc2MzfmgwQiErQEORQoKZj31YbFTMyA9NVW7/Oag==
+X-Gm-Gg: ASbGncupQrgMGW5Nu6LLUepbDtwpc420xAc3CPJTd4REo05+4ynA4EEjXI0CPyMzfwg
+	GB0MXN43qrrez3VX4/usFkEVigjMEbzqbieZLh9HbB6LrOwU8dhwodGKx5/XUszVlXDTC0dFT/v
+	PkNbXS43cJud4Go/J/Jpar7XO3tU+CQFX9qkylkdqSBkbOovpZ5Eqgq63Z0EodTTNq21IQxNqRg
+	6E=
+X-Google-Smtp-Source: AGHT+IGNn5KBz1XRTjIkzj6b6e6ObvNtG1QhrXiTlXPwZa2NH6Gn7Xw0y4y87hgGMzhfMTB1WYM8NYUps+Cmt6+hJMs=
+X-Received: by 2002:a05:6512:1192:b0:553:2ed2:15b5 with SMTP id
+ 2adb3069b0e04-55356df2fe7mr504394e87.57.1749018991176; Tue, 03 Jun 2025
+ 23:36:31 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] drm/imagination: Use pwrseq for TH1520 GPU power
- management
+References: <CGME20250529222403eucas1p1923fe09240be34e3bbadf16822574d75@eucas1p1.samsung.com>
+ <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+ <20250530-apr_14_for_sending-v3-1-83d5744d997c@samsung.com>
+ <CAMRc=Me9cWfe2mL=Q6JQbAFjpd55MOBZuAWC793Us0criiQr4Q@mail.gmail.com>
+ <4519844e-b1c0-40a7-b856-a6e4a80c6334@samsung.com> <20250603-cuddly-certain-mussel-4fbe96@kuoka>
+ <CAMRc=MfXashaEscE1vF_P6cs9iOCBerfNFiB4yC+TX76fZ87nA@mail.gmail.com> <05aa1fad-acf6-4cea-9a20-e54a2a4669b7@samsung.com>
+In-Reply-To: <05aa1fad-acf6-4cea-9a20-e54a2a4669b7@samsung.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 4 Jun 2025 08:36:20 +0200
+X-Gm-Features: AX0GCFusZW-oAOcE0lriS1jLbCdqE2F5QAmjvVg87YP8T3XsEwEGxH56sPN1Z7A
+Message-ID: <CAMRc=McDb13ZOM5v5gYBAT40Z6eNd8am6gy=FysWU72cG1172w@mail.gmail.com>
+Subject: Re: [PATCH v3 1/8] dt-bindings: power: Add T-HEAD TH1520 GPU power sequencer
 To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>,
- Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
- Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns
- <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Ulf Hansson <ulf.hansson@linaro.org>,
- Marek Szyprowski <m.szyprowski@samsung.com>,
- linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org,
- dri-devel@lists.freedesktop.org
-References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
- <CGME20250529222405eucas1p18ed1254bf1b2d78468734656fec537e1@eucas1p1.samsung.com>
- <20250530-apr_14_for_sending-v3-3-83d5744d997c@samsung.com>
- <20250603-whispering-jaybird-of-thunder-f87867@kuoka>
- <d42a8c49-7ad2-49ef-bd9c-1e3d9981b58e@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <d42a8c49-7ad2-49ef-bd9c-1e3d9981b58e@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
+	Matt Coster <matt.coster@imgtec.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250603_233620_126596_F2F7FAE9 
-X-CRM114-Status: GOOD (  13.83  )
+X-CRM114-CacheID: sfid-20250603_233635_849129_ADFBBBD3 
+X-CRM114-Status: GOOD (  20.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,48 +105,38 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 03/06/2025 21:43, Michal Wilczynski wrote:
->>> +	 * and resets. Otherwise, we fall back to managing them ourselves.
->>> +	 */
->>> +	pvr_dev->pwrseq = devm_pwrseq_get(dev, "gpu-power");
->>> +	if (IS_ERR(pvr_dev->pwrseq)) {
->>> +		int pwrseq_err = PTR_ERR(pvr_dev->pwrseq);
->>> +
->>> +		/*
->>> +		 * If the error is -EPROBE_DEFER, it's because the
->>> +		 * optional sequencer provider is not present
->>> +		 * and it's safe to fall back on manual power-up.
->>
->> It is safe but why it is desirable? The rule is rather to defer the
->> probe, assuming this is probe path.
-> 
-> Yeah this is probe path.
-> 
-> The GPU node will depend on the AON node, which will be the sole
-> provider for the 'gpu-power' sequencer (based on the discussion in patch
-> 1).
-> 
-> Therefore, if the AON/pwrseq driver has already completed its probe, and
-> devm_pwrseq_get() in the GPU driver subsequently returns -EPROBE_DEFER
-> (because pwrseq_get found 'no match' on the bus for 'gpu-power'), the
-> interpretation is that the AON driver did not register this optional
-> sequencer. Since AON is the only anticipated source, it implies the
-> sequencer won't become available later from its designated provider.
-
-I don't understand why you made this assumption. AON could be a module
-and this driver built-in. AON will likely probe later.
-
-
-
-Best regards,
-Krzysztof
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMywgMjAyNSBhdCA4OjI04oCvUE0gTWljaGFsIFdpbGN6eW5za2kKPG0ud2ls
+Y3p5bnNraUBzYW1zdW5nLmNvbT4gd3JvdGU6Cj4gPgo+ID4gQWdyZWVkLiBBbmQgYXMgZmFyIGFz
+IGltcGxlbWVudGF0aW9uIGdvZXMsIHlvdSBjYW4gaGF2ZSB0aGUgc2FtZQo+ID4gZHJpdmVyIGJl
+IGEgUE0gZG9tYWluIEFORCBwd3JzZXEgcHJvdmlkZXIuIEl0IGp1c3QgaGFzIHRvIGJpbmQgdG8g
+dGhlCj4gPiBkZXZpY2Ugbm9kZSB0aGF0IHJlcHJlc2VudHMgYW4gYWN0dWFsIGNvbXBvbmVudCwg
+bm90IGEgbWFkZS11cAo+ID4gImNvbnZlbmllbmNlIiBub2RlLgo+Cj4gU3VyZSAtIHRoaXMgY2Fu
+IGJlIGRvbmUgdXNpbmcgZXhpc3RpbmcgQU9OIG5vZGUuCj4KPiBUbyBrZWVwIHRoZSBwd3JzZXEg
+Y29kZSBvcmdhbml6ZWQgaW4gZHJpdmVycy9wb3dlci9zZXF1ZW5jaW5nLywgYQo+IHNpbWlsYXIg
+YXBwcm9hY2ggdG8gb3VyIHRoMTUyMC1wZCBkcml2ZXIgaW50ZXJmYWNpbmcgd2l0aCB0aGUgQU9O
+Cj4gZmlybXdhcmUgbGlicmFyeSAoZHJpdmVycy9maXJtd2FyZS90aGVhZCx0aDE1MjAtYW9uLmMp
+IGNvdWxkIHdvcmsuCj4KPiBUaGUgaWRlYSB3b3VsZCBiZSB0byB0cmVhdCBjb2RlIGxpa2UgcHdy
+c2VxLXRoZWFkLWFvbi5jIChjaGFuZ2VkIGZyb20gYQo+IGN1cnJlbnQgcHdyc2VxLXRoZWFkLWdw
+dS5jKSBhcyBhIGxpYnJhcnkuIEl0IHdvdWxkIGV4cG9ydCBpdHMgbmVjZXNzYXJ5Cj4gZnVuY3Rp
+b25zIChlLmcuLCBmb3Igc3BlY2lmaWMgc2VxdWVuY2UgaW5pdC9kZWluaXQgc3RlcHMpIHVzaW5n
+Cj4gRVhQT1JUX1NZTUJPTF9HUEwuIFRoZSBtYWluIEFPTiBkcml2ZXIgd291bGQgdGhlbiBjYWxs
+IHRoZXNlIHRvIHByb3ZpZGUKPiB0aGUgcHdyc2VxIGZ1bmN0aW9uYWxpdHkuCj4KPiBUaGlzIHdp
+bGwgaW50cm9kdWNlIGEgY29tcGlsZS10aW1lIGRlcGVuZGVuY3ksIGFzIGV4cGVjdGVkLgo+Cj4g
+QW4gYWx0ZXJuYXRpdmUgd291bGQgYmUgdG8ga2VlcCB0aGUgZHJpdmVyIGluIGRyaXZlcnMvcG93
+ZXIvc2VxdWVuY2luZy8KPiBhcyBhIHBsYXRmb3JtIGRyaXZlciBhbmQgc3RhcnQgaXQgdXAgdXNp
+bmcsIGZvciBleGFtcGxlLCBhbiBhdXhpbGlhcnkKPiBidXMuIFRoaXMgaXMgc2ltaWxhciB0byB3
+aGF0IHRoZSBKSDcxMTAgY2xvY2sgZHJpdmVyCj4gKGRyaXZlcnMvY2xrL3N0YXJmaXZlL2Nsay1z
+dGFyZml2ZS1qaDcxMTAtc3lzLmMpIGlzIGRvaW5nIHdpdGggYSByZXNldAo+IGRyaXZlci4gVGhp
+cyBjb3VsZCBvZmZlciBhIGNsZWFuZXIgc2VwYXJhdGlvbiBvZiByb2xlcyBpZiB0aGF0J3MKPiBw
+cmVmZXJyZWQuCj4KPiBQbGVhc2UgbGV0IG1lIGtub3cgd2hpY2ggd2F5IHdvdWxkIGJlIHByZWZl
+cnJlZC4KCkkgZm9yZ290IHRoZSBhdXhpbGlhcnkgYnVzIGlzIGEgdGhpbmcuIFllYWgsIGRlZmlu
+aXRlbHkgdXNlIHRoYXQsIGl0J3MKbW9yZSBlbGVnYW50IHRoYW4gYSBsaWJyYXJ5IGZ1bmN0aW9u
+IElNTy4KCkJhcnQKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQu
+b3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlz
+Y3YK
