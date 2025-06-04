@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC95EC5B549
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 18:28:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4738FC67861
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 18:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=WwSsO1xdTozoAT27pO4Xh1/EsjLy7yPQixobkqJWDqE=; b=HgJFyT2FgzelQ3
-	JjPYqo8PzoPKUNYdX0AVK1OiAhsqkg1GMQ2kxbYFaszg1VRSsMM2gQDTlQdeTuNq+8qPj+SwDzc1t
-	njZoJiz9/Nb3P43vQEy8OL2iCVq0vJfqNhIjS3ig6ZQmeSgwtrakfh4plgOJ2io+2O2tCyAGIHdp/
-	k44yjLEBYZMMQ9qdBR9rfqQFgYeHWE0vGQ4iNoyOapRpO4QhG7AIpYUnUP6a67e8Fe5TshtYELv/R
-	/aqAiG8iYLOG4ZRHNcFRyJS5TpJp/iDfLkiRvni5LBCALmHw45s4WxYlIXlEAuhZoft6AlgOtpAWx
-	w58C7f05tab+OwIQPIWQ==;
+	List-Owner; bh=/Kn+U3snsxnkpvM23vHjxkFCR50pfrETHhce1spKEfM=; b=eTtS79fWWYayiT
+	nOOkaP7kk4l6v4nujgGmHg7nZccn3hNyv3IaGf4GTeQcQCufzNtieM7VPfLHsg2rAQpO9XX4UNfg/
+	cqV/3y1U0jCHii3vRMBC7Y64r+8Z+5lts3sXFww5Ga/ADoJ6Th9xyi1amZcPjX3Wj4tBGAkZI1ggw
+	emy3Ly7fQWwbms7IPTpEQqaQ91L0aIaS8aUbS0KuISL+mDREA8s/HhpEsFZOiF8tqy2DenyusI/vW
+	BSa/+JxpTQaceOCoR2+iyHQqbx8q+PZdjVdBAu5w8/gfpAqYpMJKh3xuT6I7+sazxmWNKoqxCduer
+	CYrHEKznGGEiFAM5zXFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMsqt-0000000E0yF-3xlF;
-	Wed, 04 Jun 2025 18:28:39 +0000
-Received: from mail-pl1-x62e.google.com ([2607:f8b0:4864:20::62e])
+	id 1uMsqw-0000000E0zs-0r22;
+	Wed, 04 Jun 2025 18:28:42 +0000
+Received: from mail-pg1-x536.google.com ([2607:f8b0:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrjS-0000000DsnS-33gS
+	id 1uMrjy-0000000DtHw-0U6u
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Jun 2025 17:16:56 +0000
-Received: by mail-pl1-x62e.google.com with SMTP id d9443c01a7336-234d2d914bcso611185ad.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 10:16:54 -0700 (PDT)
+	Wed, 04 Jun 2025 17:17:27 +0000
+Received: by mail-pg1-x536.google.com with SMTP id 41be03b00d2f7-b26f5f47ba1so19363a12.1
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 10:17:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749057414; x=1749662214; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749057445; x=1749662245; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=Wqa+EnEmqD/WcxsFXdACBzGsJGhuUJWdKCVGNJwyc08=;
-        b=tHh5ghdxyjuXfmKDVZ6yZ/fnoMeHCmITglt9TGMWEpSKTY3U2FJWztW0dwanlpbRWw
-         xymf5jJt6YCIl94GwiRfYFRZr5lX37BXWSDbSbl2cvjOS88i0CEsurpSHvQkGn1yN2FO
-         +eWcAQ7KL3YoDGudRaeXdrZ4YlhDDP0oHs0VKW9W7IiRP7tQct27/FAnodlUmlNgANAF
-         inAHyjL9svv/TV5hWuONTtOFfcLIn0I67f1GDBmO51lS5ESQ/o16gx20364UqI5rSPUZ
-         uJC/+OT8zTXrijpnoiweNzF0W/t5AurFsQT3EnbImfALPGX6Z+FJdaMyPtHYTUEu03lR
-         e59g==
+        bh=H0Lpssa4FFZpcPHQwOt7vFOEiyyUWWrWhSwc1jf+7uw=;
+        b=tRtryH1DG62Oh+Os1nEHaTkZ+xRS/yBp5o92hflqng6BwiPc1kPZy9vcjYxLK0R9Re
+         kL+bu9eUaLa8CR9SQUh68Hy0SuLPBeWTAtahj78rpnR6JnofnrAO8H0F5ZgF++IPxeYz
+         BqswOviunfP9is0mtB2s88rXuY5uK0uP3/PqK5TR3Zjww/0Y2hhIN4JfKo4LLQX9OK0i
+         DJMQhOGc/zS56ALnH6T191if4p4iMeYhKnJUULGl4558WwlHN5NMyyNWDxXrVGp9Ovda
+         VshK/cLC7vE+bTr+UtqHwmhFYjTM9sa7azFgRu5b6IIdhiGRLTwDzQKIdPwED89aiYCi
+         rxTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749057414; x=1749662214;
+        d=1e100.net; s=20230601; t=1749057445; x=1749662245;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Wqa+EnEmqD/WcxsFXdACBzGsJGhuUJWdKCVGNJwyc08=;
-        b=I8yyQVJzHnBpJhR+FIZfYMZCJC5gdYjGkceK26UYoyK/+dhfq5N7rDrhbYejkY+LHd
-         Z8E0lI19qEMOu+dLtkG+iP2KdvNAox3FcS8v8uLP/idABMt+aWaWTT8H+fMW0g4okQa8
-         9lnyOvL/1YM3fey+yG/JRRVJiAGnGPjm/chz6Y0B9xmY6eOT1Y5H7lsmx1z7u7VbwEH0
-         xHd9SYOdZyi7XhYShrGuPQTYxg9067XRx7I/hVdaTdCLqqlgAZbPvFGUhb7v6BitTHw2
-         ma8Dmds05MpUjzY2y3ci3BulcboztM6ilaspa9WlpWolLGEBtUx0aNADE4CIiYbXOdGQ
-         Xczw==
-X-Forwarded-Encrypted: i=1; AJvYcCWkv6ZBhm+4XwJ6L2PM7XxxdZHOpUIpRrDVwMOCI4dEx5lJsOuhouT+0Wki9mkz77cm+0xDc+Ss1tGgLA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX4f478c8CQr41m1WblwuMeybt6okQ84NaX2Vq/p2kVguwNiZL
-	K2G1XBKojrWdRYRyCHRxgMwnwD3OfJl0qkkXXkU8B1wuufe/wI53QABPxeFSqvh8V80=
-X-Gm-Gg: ASbGnctsyJ+En0i76g8q0iqv/CCLWpLPsuQCYfo2O2nvLwOJS1riDTY1vDZUvfK2CLc
-	F/mLlJjYvWrPtVPavzCqkPkGnFSqV6Q1WTWWGwQgdnte+mN1ywbMmi2e5l35geAcn+5GYihYiNr
-	OQQ/FoQretXOzF0bnI0ItAwIVdjXiY/4YBbjMGveSaSwWswy1jLyhyq4ZfNBBWWd3h9SmpVTURJ
-	nG9oWCfGmoM/HL3VmhfkqHs6X98NZneQOFGpjtihYwrUWm3dC/Km9yd9y23kxz1wk8088CWxSKF
-	snk4n3AgXPtd+wsTCraFGlOiTEuGA432Bs7GD/WSPwRe5ecEU/7M0OzmvkY4mQ==
-X-Google-Smtp-Source: AGHT+IGAN+V+Sjgw1p4+7njSBeXUK/t726mOXFn2wI3bqeVGLlQXdIKh+krwjWfYFwDLqrz6odtP6w==
-X-Received: by 2002:a17:90b:17c4:b0:311:c93b:3ca2 with SMTP id 98e67ed59e1d1-31310fc4faamr4399376a91.6.1749057413670;
-        Wed, 04 Jun 2025 10:16:53 -0700 (PDT)
+        bh=H0Lpssa4FFZpcPHQwOt7vFOEiyyUWWrWhSwc1jf+7uw=;
+        b=VVIBGZT8v9GmJy3VcZxOz522ssPVbDdWkbmrbHE/spr/UIzvxPMcLALMQMml6g/RKx
+         IcehUAJh85WfcRZowrDILlEmU5xA3cquXBZhGBDFaE4J4vIyGOkHD734PiogS5kCEm2y
+         JDDXnuP0fX+L+okE60QcidPMlv60CTJT6ITAxuc6cu90DV3pzkZdoK18l2UWTz5Rwa0K
+         ZRN1yGMGkI5zNhjTLKbdfqVTtaIge790IX7qrj9zQPvv5y+NRNeJqGAzycQhMr+kJGRB
+         BKDfNCVFDq7YfwxPrFZFXXWQui3tfYlq1so4RcJRKJRjOJL/qCynt+bv6QES+2A/+fmY
+         d6AA==
+X-Forwarded-Encrypted: i=1; AJvYcCWLXDxs7PPTVuoTRjyQtVC8CZffiFkOL9KDH90qepZ3j2w0W8gOoZ7L3THDIdbZ8eeL+Oj2T5bRXt1Wig==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxwTLVp/u3H5KJN1eyyC2w/zhSnr/vRk6bNKLTcqTcVyHwvUIPB
+	vzv/DzjF0ITesEwKR2KbK1eLP3P3Apjfe940EbZbnlDvXFHWHEB7GtwslTGRwaJEu10=
+X-Gm-Gg: ASbGnctMvpY9nqYmy8dnznOfpuBe3Xo6uGhLyPfVfAVSYFXc/CbrLdRfoq1COgdo5Qv
+	iTuLCeSU8LWfEEjzeembaSnmLm+b1Ip+nv7sbFjC1w9N/05YQpyNqJGq5Wyq4Yod0KxATTFWxOi
+	GJ3qdPNH9b/FbM7uBZDP3nbhwXMnNR03iX5obFu0lQnCw8nOrEJi9ZT4xHnA3lX4aV47hHFywIJ
+	g5x0RRYTbknAEEFNC+uJeeH2MKZ9iq3mPEgtyvLR0Q1SlRrqvZTmhPtUOqgsOlmmInrlbE0Uoli
+	MaP1XdDSkl71HS5KsToDkljEfYKZeR2MdaGvfFbY3LB5a35LeRLzz0HpndIMnw==
+X-Google-Smtp-Source: AGHT+IHtnJUflTu1uvvucB6Ee3tNMuV0H6i/cc/cNNLd9oBxeeqr3LHx3B28lleNPgDKQ5dpFxUxRA==
+X-Received: by 2002:a17:90b:350c:b0:313:27b2:f729 with SMTP id 98e67ed59e1d1-31327b2f8fdmr894157a91.23.1749057444796;
+        Wed, 04 Jun 2025 10:17:24 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9c9fsm9178972a91.30.2025.06.04.10.16.50
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9c9fsm9178972a91.30.2025.06.04.10.17.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 10:16:53 -0700 (PDT)
+        Wed, 04 Jun 2025 10:17:24 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Wed, 04 Jun 2025 10:15:37 -0700
-Subject: [PATCH v17 13/27] prctl: arch-agnostic prctl for indirect branch
- tracking
+Date: Wed, 04 Jun 2025 10:15:47 -0700
+Subject: [PATCH v17 23/27] arch/riscv: compile vdso with landing pad
 MIME-Version: 1.0
-Message-Id: <20250604-v5_user_cfi_series-v17-13-4565c2cf869f@rivosinc.com>
+Message-Id: <20250604-v5_user_cfi_series-v17-23-4565c2cf869f@rivosinc.com>
 References: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
 In-Reply-To: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -110,8 +109,8 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_101654_785124_9A317D78 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250604_101726_154120_DC9C54AC 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,141 +127,216 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Three architectures (x86, aarch64, riscv) have support for indirect branch
-tracking feature in a very similar fashion. On a very high level, indirect
-branch tracking is a CPU feature where CPU tracks branches which uses
-memory operand to perform control transfer in program. As part of this
-tracking on indirect branches, CPU goes in a state where it expects a
-landing pad instr on target and if not found then CPU raises some fault
-(architecture dependent)
+From: Jim Shu <jim.shu@sifive.com>
 
-x86 landing pad instr - `ENDBRANCH`
-arch64 landing pad instr - `BTI`
-riscv landing instr - `lpad`
+user mode tasks compiled with zicfilp may call indirectly into vdso (like
+hwprobe indirect calls). Add landing pad compile support in vdso. vdso
+with landing pad in it will be nop for tasks which have not enabled
+landing pad.
+This patch allows to run user mode tasks with cfi eanbled and do no harm.
 
-Given that three major arches have support for indirect branch tracking,
-This patch makes `prctl` for indirect branch tracking arch agnostic.
+Future work can be done on this to do below
+ - labeled landing pad on vdso functions (whenever labeling support shows
+   up in gnu-toolchain)
+ - emit shadow stack instructions only in vdso compiled objects as part of
+   kernel compile.
 
-To allow userspace to enable this feature for itself, following prtcls are
-defined:
- - PR_GET_INDIR_BR_LP_STATUS: Gets current configured status for indirect
-   branch tracking.
- - PR_SET_INDIR_BR_LP_STATUS: Sets a configuration for indirect branch
-   tracking.
-   Following status options are allowed
-       - PR_INDIR_BR_LP_ENABLE: Enables indirect branch tracking on user
-         thread.
-       - PR_INDIR_BR_LP_DISABLE; Disables indirect branch tracking on user
-         thread.
- - PR_LOCK_INDIR_BR_LP_STATUS: Locks configured status for indirect branch
-   tracking for user thread.
-
-Reviewed-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Jim Shu <jim.shu@sifive.com>
 Reviewed-by: Zong Li <zong.li@sifive.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- include/linux/cpu.h        |  4 ++++
- include/uapi/linux/prctl.h | 27 +++++++++++++++++++++++++++
- kernel/sys.c               | 30 ++++++++++++++++++++++++++++++
- 3 files changed, 61 insertions(+)
+ arch/riscv/Makefile                   |  5 +++-
+ arch/riscv/include/asm/assembler.h    | 44 +++++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/vdso/Makefile       |  6 +++++
+ arch/riscv/kernel/vdso/flush_icache.S |  4 ++++
+ arch/riscv/kernel/vdso/getcpu.S       |  4 ++++
+ arch/riscv/kernel/vdso/rt_sigreturn.S |  4 ++++
+ arch/riscv/kernel/vdso/sys_hwprobe.S  |  4 ++++
+ 7 files changed, 70 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/cpu.h b/include/linux/cpu.h
-index e3049543008b..ea8b351b5bc5 100644
---- a/include/linux/cpu.h
-+++ b/include/linux/cpu.h
-@@ -204,4 +204,8 @@ static inline bool cpu_mitigations_auto_nosmt(void)
- }
- #endif
+diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
+index 539d2aef5cab..c2dd09bb9db3 100644
+--- a/arch/riscv/Makefile
++++ b/arch/riscv/Makefile
+@@ -88,9 +88,12 @@ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZACAS) := $(riscv-march-y)_zacas
+ # Check if the toolchain supports Zabha
+ riscv-march-$(CONFIG_TOOLCHAIN_HAS_ZABHA) := $(riscv-march-y)_zabha
  
-+int arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status);
-+int arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status);
-+int arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long status);
++KBUILD_BASE_ISA = -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
++export KBUILD_BASE_ISA
 +
- #endif /* _LINUX_CPU_H_ */
-diff --git a/include/uapi/linux/prctl.h b/include/uapi/linux/prctl.h
-index 15c18ef4eb11..2e09b19317a3 100644
---- a/include/uapi/linux/prctl.h
-+++ b/include/uapi/linux/prctl.h
-@@ -364,4 +364,31 @@ struct prctl_mm_map {
- # define PR_TIMER_CREATE_RESTORE_IDS_ON		1
- # define PR_TIMER_CREATE_RESTORE_IDS_GET	2
+ # Remove F,D,V from isa string for all. Keep extensions between "fd" and "v" by
+ # matching non-v and non-multi-letter extensions out with the filter ([^v_]*)
+-KBUILD_CFLAGS += -march=$(shell echo $(riscv-march-y) | sed -E 's/(rv32ima|rv64ima)fd([^v_]*)v?/\1\2/')
++KBUILD_CFLAGS += $(KBUILD_BASE_ISA)
  
-+/*
-+ * Get the current indirect branch tracking configuration for the current
-+ * thread, this will be the value configured via PR_SET_INDIR_BR_LP_STATUS.
-+ */
-+#define PR_GET_INDIR_BR_LP_STATUS      78
+ KBUILD_AFLAGS += -march=$(riscv-march-y)
+ 
+diff --git a/arch/riscv/include/asm/assembler.h b/arch/riscv/include/asm/assembler.h
+index 44b1457d3e95..a058ea5e9c58 100644
+--- a/arch/riscv/include/asm/assembler.h
++++ b/arch/riscv/include/asm/assembler.h
+@@ -80,3 +80,47 @@
+ 	.endm
+ 
+ #endif	/* __ASM_ASSEMBLER_H */
 +
-+/*
-+ * Set the indirect branch tracking configuration. PR_INDIR_BR_LP_ENABLE will
-+ * enable cpu feature for user thread, to track all indirect branches and ensure
-+ * they land on arch defined landing pad instruction.
-+ * x86 - If enabled, an indirect branch must land on `ENDBRANCH` instruction.
-+ * arch64 - If enabled, an indirect branch must land on `BTI` instruction.
-+ * riscv - If enabled, an indirect branch must land on `lpad` instruction.
-+ * PR_INDIR_BR_LP_DISABLE will disable feature for user thread and indirect
-+ * branches will no more be tracked by cpu to land on arch defined landing pad
-+ * instruction.
-+ */
-+#define PR_SET_INDIR_BR_LP_STATUS      79
-+# define PR_INDIR_BR_LP_ENABLE		   (1UL << 0)
++#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
++.macro vdso_lpad
++lpad 0
++.endm
++#else
++.macro vdso_lpad
++.endm
++#endif
 +
 +/*
-+ * Prevent further changes to the specified indirect branch tracking
-+ * configuration.  All bits may be locked via this call, including
-+ * undefined bits.
++ * This macro emits a program property note section identifying
++ * architecture features which require special handling, mainly for
++ * use in assembly files included in the VDSO.
 + */
-+#define PR_LOCK_INDIR_BR_LP_STATUS      80
++#define NT_GNU_PROPERTY_TYPE_0  5
++#define GNU_PROPERTY_RISCV_FEATURE_1_AND 0xc0000000
 +
- #endif /* _LINUX_PRCTL_H */
-diff --git a/kernel/sys.c b/kernel/sys.c
-index c434968e9f5d..91a1dc093c2a 100644
---- a/kernel/sys.c
-+++ b/kernel/sys.c
-@@ -2340,6 +2340,21 @@ int __weak arch_lock_shadow_stack_status(struct task_struct *t, unsigned long st
- 	return -EINVAL;
- }
++#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP      (1U << 0)
++#define GNU_PROPERTY_RISCV_FEATURE_1_ZICFISS      (1U << 1)
++
++#if defined(CONFIG_RISCV_USER_CFI) && (__riscv_xlen == 64)
++#define GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT \
++	(GNU_PROPERTY_RISCV_FEATURE_1_ZICFILP)
++#endif
++
++#ifdef GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
++.macro emit_riscv_feature_1_and, feat = GNU_PROPERTY_RISCV_FEATURE_1_DEFAULT
++	.pushsection .note.gnu.property, "a"
++	.p2align        3
++	.word           4
++	.word           16
++	.word           NT_GNU_PROPERTY_TYPE_0
++	.asciz          "GNU"
++	.word           GNU_PROPERTY_RISCV_FEATURE_1_AND
++	.word           4
++	.word           \feat
++	.word           0
++	.popsection
++.endm
++#else
++.macro emit_riscv_feature_1_and, feat = 0
++.endm
++#endif
+diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Makefile
+index ad73607abc28..441c5431d27e 100644
+--- a/arch/riscv/kernel/vdso/Makefile
++++ b/arch/riscv/kernel/vdso/Makefile
+@@ -13,12 +13,18 @@ vdso-syms += flush_icache
+ vdso-syms += hwprobe
+ vdso-syms += sys_hwprobe
  
-+int __weak arch_get_indir_br_lp_status(struct task_struct *t, unsigned long __user *status)
-+{
-+	return -EINVAL;
-+}
++ifdef CONFIG_RISCV_USER_CFI
++LPAD_MARCH = _zicfilp_zicfiss -fcf-protection=full
++endif
 +
-+int __weak arch_set_indir_br_lp_status(struct task_struct *t, unsigned long status)
-+{
-+	return -EINVAL;
-+}
-+
-+int __weak arch_lock_indir_br_lp_status(struct task_struct *t, unsigned long status)
-+{
-+	return -EINVAL;
-+}
-+
- #define PR_IO_FLUSHER (PF_MEMALLOC_NOIO | PF_LOCAL_THROTTLE)
+ # Files to link into the vdso
+ obj-vdso = $(patsubst %, %.o, $(vdso-syms)) note.o
  
- #ifdef CONFIG_ANON_VMA_NAME
-@@ -2820,6 +2835,21 @@ SYSCALL_DEFINE5(prctl, int, option, unsigned long, arg2, unsigned long, arg3,
- 			return -EINVAL;
- 		error = posixtimer_create_prctl(arg2);
- 		break;
-+	case PR_GET_INDIR_BR_LP_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_get_indir_br_lp_status(me, (unsigned long __user *)arg2);
-+		break;
-+	case PR_SET_INDIR_BR_LP_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_set_indir_br_lp_status(me, arg2);
-+		break;
-+	case PR_LOCK_INDIR_BR_LP_STATUS:
-+		if (arg3 || arg4 || arg5)
-+			return -EINVAL;
-+		error = arch_lock_indir_br_lp_status(me, arg2);
-+		break;
- 	default:
- 		trace_task_prctl_unknown(option, arg2, arg3, arg4, arg5);
- 		error = -EINVAL;
+ ccflags-y := -fno-stack-protector
+ ccflags-y += -DDISABLE_BRANCH_PROFILING
+ ccflags-y += -fno-builtin
++ccflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
++asflags-y += $(KBUILD_BASE_ISA)$(LPAD_MARCH)
+ 
+ ifneq ($(c-gettimeofday-y),)
+   CFLAGS_vgettimeofday.o += -fPIC -include $(c-gettimeofday-y)
+diff --git a/arch/riscv/kernel/vdso/flush_icache.S b/arch/riscv/kernel/vdso/flush_icache.S
+index 8f884227e8bc..e4c56970905e 100644
+--- a/arch/riscv/kernel/vdso/flush_icache.S
++++ b/arch/riscv/kernel/vdso/flush_icache.S
+@@ -5,11 +5,13 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/unistd.h>
++#include <asm/assembler.h>
+ 
+ 	.text
+ /* int __vdso_flush_icache(void *start, void *end, unsigned long flags); */
+ SYM_FUNC_START(__vdso_flush_icache)
+ 	.cfi_startproc
++	vdso_lpad
+ #ifdef CONFIG_SMP
+ 	li a7, __NR_riscv_flush_icache
+ 	ecall
+@@ -20,3 +22,5 @@ SYM_FUNC_START(__vdso_flush_icache)
+ 	ret
+ 	.cfi_endproc
+ SYM_FUNC_END(__vdso_flush_icache)
++
++emit_riscv_feature_1_and
+diff --git a/arch/riscv/kernel/vdso/getcpu.S b/arch/riscv/kernel/vdso/getcpu.S
+index 9c1bd531907f..5c1ecc4e1465 100644
+--- a/arch/riscv/kernel/vdso/getcpu.S
++++ b/arch/riscv/kernel/vdso/getcpu.S
+@@ -5,14 +5,18 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/unistd.h>
++#include <asm/assembler.h>
+ 
+ 	.text
+ /* int __vdso_getcpu(unsigned *cpu, unsigned *node, void *unused); */
+ SYM_FUNC_START(__vdso_getcpu)
+ 	.cfi_startproc
++	vdso_lpad
+ 	/* For now, just do the syscall. */
+ 	li a7, __NR_getcpu
+ 	ecall
+ 	ret
+ 	.cfi_endproc
+ SYM_FUNC_END(__vdso_getcpu)
++
++emit_riscv_feature_1_and
+diff --git a/arch/riscv/kernel/vdso/rt_sigreturn.S b/arch/riscv/kernel/vdso/rt_sigreturn.S
+index 3dc022aa8931..e82987dc3739 100644
+--- a/arch/riscv/kernel/vdso/rt_sigreturn.S
++++ b/arch/riscv/kernel/vdso/rt_sigreturn.S
+@@ -5,12 +5,16 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/unistd.h>
++#include <asm/assembler.h>
+ 
+ 	.text
+ SYM_FUNC_START(__vdso_rt_sigreturn)
+ 	.cfi_startproc
+ 	.cfi_signal_frame
++	vdso_lpad
+ 	li a7, __NR_rt_sigreturn
+ 	ecall
+ 	.cfi_endproc
+ SYM_FUNC_END(__vdso_rt_sigreturn)
++
++emit_riscv_feature_1_and
+diff --git a/arch/riscv/kernel/vdso/sys_hwprobe.S b/arch/riscv/kernel/vdso/sys_hwprobe.S
+index 77e57f830521..f1694451a60c 100644
+--- a/arch/riscv/kernel/vdso/sys_hwprobe.S
++++ b/arch/riscv/kernel/vdso/sys_hwprobe.S
+@@ -3,13 +3,17 @@
+ 
+ #include <linux/linkage.h>
+ #include <asm/unistd.h>
++#include <asm/assembler.h>
+ 
+ .text
+ SYM_FUNC_START(riscv_hwprobe)
+ 	.cfi_startproc
++	vdso_lpad
+ 	li a7, __NR_riscv_hwprobe
+ 	ecall
+ 	ret
+ 
+ 	.cfi_endproc
+ SYM_FUNC_END(riscv_hwprobe)
++
++emit_riscv_feature_1_and
 
 -- 
 2.43.0
