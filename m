@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86F4C5B559
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 12:33:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A7FC5B543
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 12:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
+	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=qixMHSmypdRt+FSJcp77MV5k8fw8L6o1WQvdpNHFe6s=; b=258v0yxjxPPE8U
-	vppj4f09+NJ9vXvXSs/YxTd1a2dOu/baGxSNWL+E6cD2ZFU0HaWH4HrrupZaQgpKYnQXRtlyZyinN
-	rtNysO7bK1YGLWRG6Js/WXvr9FvaYabxYeK7JO6FOSDCVyYWpdsntc0UNqMfJGN5DIOGCAgy9Rt57
-	oRtH18G5fV82K1b+TKF3LZWKvlLVxjgPZoDIIVH0rCQjER6Q8/TumzCeGYqEKg/WjXbmxQAUwn1vq
-	H/721hi8MdtpW1BBJy2VejjoomcEjk1fsuuZs8tDgazgvL5QelJNw26ncR7Y2ybx+NByO09L2spIR
-	WINFOcWpoMd9hmf7JVCA==;
+	List-Owner; bh=AMLuSJGsGxHxidvsVrChCKvhYPS2uj6NOPdeiR3JYuc=; b=DWxzI46aHQHekU
+	Bzi09Y1Zh5kctwSgjRMvgRT0l9VSqo6PmBDccwuxULfMQkeLnMRwuliob/9t9HTt4yHyxqDaxzVvc
+	mnxcyzrH0/MKwAFLnKTDCOV7OuuYmORPSPx+e/R378Gk69ORFlaZktSiQlkDSDnLZkakjgyw6j881
+	UuXNsYIBbXj5PkGKLNDkrPvx/f2dohj8pqmIDyyuMkqOEoKfDD1i5lheqrMDQx5+wBg76x0Y4m9Dg
+	syzMwVDnb/Y6GjzNrx6mRutUHI3MJWqfv5va5AxYasKpbCjuERWgGXHVomgAzIVNOdJj6TJz/4p3W
+	/MjQvDpbP3bU/OyFIQpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMnIy-0000000DLEO-2WVA;
-	Wed, 04 Jun 2025 12:33:16 +0000
-Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
+	id 1uMnQL-0000000DMYT-055G;
+	Wed, 04 Jun 2025 12:40:53 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMnIv-0000000DLDX-40ef
+	id 1uMnQH-0000000DMWZ-1XaD
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Jun 2025 12:33:15 +0000
-Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-553245cad29so6537396e87.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 05:33:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749040392; x=1749645192; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=40H+9TTXhZnTaMd2EZ6HBT4RNOeVTmMt2oQhHbe4EDQ=;
-        b=Py6xTaX+r2yYungj9LX83h2ULK764V6R4HmwuGWfle4jKZ6OmIFyp7/OZ1hCXYd5k3
-         Xa7q8k+eqDJNR+LBr7BTMzvl5oUatrOWgQr+wimUBhxNMybx0zx9CSZLFiUcjyG+zLAm
-         qIzDmyGnAuCb12BCoaSKV3b8gXzQio3VwO3yZK4pud67mg80mNWVRGCGHOH8WXSQAPtt
-         xUYy7hLxVzPp1+1H9ZVp4EuLhywdOJpjBt6An+N0CgT3NWPEau8hUp/7GaQuW+svGfH0
-         DwKcjubIGplRpckVKA/tkXneZK6oBzkpFxuJpjzpXjhQ1shMwi0GdaNT6bwQkPwx7Ohd
-         6Tcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749040392; x=1749645192;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=40H+9TTXhZnTaMd2EZ6HBT4RNOeVTmMt2oQhHbe4EDQ=;
-        b=pJOSbfFgMGYEZWNx735nVIEjZi3+QZi9cw2FvWjabMwbwwkKgTbSnKH9UyKQwvYL+c
-         enmBHQsDe4nZRhaEvp/J1BVNrGHYo0291QgxFTt+DUGFAGzUzAdvaOEpxNjvB0GrDVeo
-         GBpILh3Opudk/UkRBhhMpxzzE1JAMBqZpYRvxEkzEX06sUhzvsjr4Tv/S/7yJPdF/lwD
-         rbVfXD844jFJTRQZu8Qp3AfrxjVVhJEUXbxB7NYYXF7EKQTUk5z2lKRdNu0qxKOQ3qh1
-         pVCY3cNf2LgdAK4UIXGnWhU/AyxxwuwNj9UgEMft3kZ2DWoiUpfDcFgGHiytL63+yM7y
-         CDNA==
-X-Forwarded-Encrypted: i=1; AJvYcCW1wwLQzwDxKklfieAs23cgbxOHPIVGPJGyQA52TXo3GPTAk1xdaMd006xEbWhebjEzkmwa9olv/5mcCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwN4EP2KZbfvCcbXDRFOjeytux+zBwHnPZA1mY5KqG5OOdw3rBI
-	ln7qqZWCS88HdSiQ7MBW8KrhU7AA9GswIeyUpktzJuZS6BZZN8ZaQ4aNFW6HvnRzWA4r4Y/ECl6
-	ufKH/QGIstB7XEIE+cRwHKmjYAXRDZD3Dby9+fH/Wzg==
-X-Gm-Gg: ASbGncsEAyeAHqxZ7quBym6WjqaI0qPJ2XY51LaWTZ/AXbnziuNsEAaU4yG9F2fgkdP
-	xtv050KTLVtTfCgiUSykfG49W5OL7LK8yCGu3QD4ljSNmXmgLABpTkzgC9iE/X9nfnT3Z9wLg70
-	STF97gPvWx+GdE4aARvoZTRKxUKyx35HCUIpD4JvbLB1ZVBbur0Sc0wamAlCjKQBR7
-X-Google-Smtp-Source: AGHT+IFq6pmnr37tc/Op7F/Fey62yojVdrF7s5RRVTPIUfG0sHj3PJlgFBWhtvoFugeUVElYakwUgAd29fPyfsZ3DLg=
-X-Received: by 2002:a05:6512:3e20:b0:553:252f:adf8 with SMTP id
- 2adb3069b0e04-55356ae0e10mr766979e87.9.1749040391631; Wed, 04 Jun 2025
- 05:33:11 -0700 (PDT)
+	Wed, 04 Jun 2025 12:40:51 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250604124043euoutp01e613986c57db4ff552a34b9b273e55e1~F12FYVVc-1443914439euoutp01n
+	for <linux-riscv@lists.infradead.org>; Wed,  4 Jun 2025 12:40:43 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250604124043euoutp01e613986c57db4ff552a34b9b273e55e1~F12FYVVc-1443914439euoutp01n
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1749040843;
+	bh=kAukIWR6u4Jom32Pa8uBS4iyUUF+BImaglA4PV9oEzQ=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=a4gbI2uKh9qSnXTOnisyHBycy4qQuffoUBlkfZVmQG43tehnzN4fdakk6Y0isqje/
+	 tqqU+P3e1u06PJ0Qzx2wVKoxUwR9kowkZGrAOL+XMoBDH2Qq7UffB8MS3ZIZBPjRpy
+	 olmcUWBNOqbeovuk1A1whOHyaiVBG+9DqWHXci+E=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250604124042eucas1p18959bb4cf78c93c05cdaad2ee125c276~F12Eqw0oR1319513195eucas1p1z;
+	Wed,  4 Jun 2025 12:40:42 +0000 (GMT)
+Received: from [192.168.1.44] (unknown [106.210.136.40]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250604124041eusmtip29c8ca08943a9ca4c8ebeb77dd5466bfd~F12DrZDyv0267302673eusmtip2e;
+	Wed,  4 Jun 2025 12:40:41 +0000 (GMT)
+Message-ID: <a68e3bee-f4ad-4d73-a5a8-e39772c41711@samsung.com>
+Date: Wed, 4 Jun 2025 14:40:41 +0200
 MIME-Version: 1.0
-References: <20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
- <CGME20250529222408eucas1p20f62cea4c9c64bb5dda6db1fd38fb333@eucas1p2.samsung.com>
- <20250530-apr_14_for_sending-v3-6-83d5744d997c@samsung.com>
- <20250603-gleaming-mammoth-of-kindness-538add@kuoka> <c49ae9f2-3c3c-4253-be85-8fe5bbb4b42e@samsung.com>
-In-Reply-To: <c49ae9f2-3c3c-4253-be85-8fe5bbb4b42e@samsung.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 4 Jun 2025 14:33:00 +0200
-X-Gm-Features: AX0GCFuJQtZdn8gggvUkoP6l-v_fzn9vXleutgIfablo4CyL1FqiXWHXgL-Yqpk
-Message-ID: <CAMRc=Me75aGMic-GZuqCe+v=8MmmK8DCyfVZj=ELR4VuG-_qDQ@mail.gmail.com>
-Subject: Re: [PATCH v3 6/8] riscv: dts: thead: Add GPU power sequencer node
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, 
-	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Frank Binns <frank.binns@imgtec.com>, 
-	Matt Coster <matt.coster@imgtec.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Ulf Hansson <ulf.hansson@linaro.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 7/8] riscv: dts: thead: th1520: Add IMG BXM-4-64 GPU
+ node
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Drew Fustini <drew@pdp7.com>, Guo Ren <guoren@kernel.org>, Fu Wei
+	<wefu@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Bartosz
+	Golaszewski <brgl@bgdev.pl>, Philipp Zabel <p.zabel@pengutronix.de>, Frank
+	Binns <frank.binns@imgtec.com>, Matt Coster <matt.coster@imgtec.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard
+	<mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, David Airlie
+	<airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Paul Walmsley
+	<paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou
+	<aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, Marek Szyprowski
+	<m.szyprowski@samsung.com>, linux-riscv@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pm@vger.kernel.org, dri-devel@lists.freedesktop.org
+Content-Language: en-US
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+In-Reply-To: <CAPDyKFpYfZNthdRN=pCv4FEdFCzrKEH4aFBy4ew-xLKtpbJ5Tg@mail.gmail.com>
+X-CMS-MailID: 20250604124042eucas1p18959bb4cf78c93c05cdaad2ee125c276
+X-Msg-Generator: CA
+X-RootMTR: 20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944
+X-EPHeader: CA
+X-CMS-RootMailID: 20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944
+References: <CGME20250529222410eucas1p2e1d41a2fc717caef1aed51367a7db944@eucas1p2.samsung.com>
+	<20250530-apr_14_for_sending-v3-0-83d5744d997c@samsung.com>
+	<20250530-apr_14_for_sending-v3-7-83d5744d997c@samsung.com>
+	<CAPDyKFpYfZNthdRN=pCv4FEdFCzrKEH4aFBy4ew-xLKtpbJ5Tg@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_053314_233307_91C363D2 
-X-CRM114-Status: GOOD (  25.27  )
+X-CRM114-CacheID: sfid-20250604_054050_012640_4227D76C 
+X-CRM114-Status: GOOD (  18.92  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,58 +92,88 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gVHVlLCBKdW4gMywgMjAyNSBhdCA4OjQ14oCvUE0gTWljaGFsIFdpbGN6eW5za2kKPG0ud2ls
-Y3p5bnNraUBzYW1zdW5nLmNvbT4gd3JvdGU6Cj4KPgo+Cj4gT24gNi8zLzI1IDE1OjIyLCBLcnp5
-c3p0b2YgS296bG93c2tpIHdyb3RlOgo+ID4gT24gRnJpLCBNYXkgMzAsIDIwMjUgYXQgMTI6MjM6
-NTNBTSBHTVQsIE1pY2hhbCBXaWxjenluc2tpIHdyb3RlOgo+ID4+IEFkZCB0aGUgZGV2aWNlIHRy
-ZWUgbm9kZSBmb3IgdGhlIFQtSEVBRCBUSDE1MjAgR1BVIHBvd2VyIHNlcXVlbmNlcgo+ID4+IChn
-cHVfcHdyc2VxKSB0byB0aGUgdGgxNTIwLmR0c2kgZmlsZS4KPiA+Pgo+ID4+IFRoaXMgbm9kZSBp
-bnN0YW50aWF0ZXMgdGhlIHRoZWFkLHRoMTUyMC1ncHUtcHdyc2VxIGRyaXZlciwgd2hpY2gKPiA+
-Cj4gPiBFeHBsYWluIHRoZSBoYXJkd2FyZSwgbm90IHdoYXQgZHJpdmVycyBkby4KPiA+Cj4gPj4g
-aXMgcmVzcG9uc2libGUgZm9yIG1hbmFnaW5nIHRoZSBHUFUncyBwb3dlci1vbi9vZmYgc2VxdWVu
-Y2UuIFRoZSBub2RlCj4gPj4gc3BlY2lmaWVzIHRoZSBncHUtY2xrZ2VuIHJlc2V0LCB3aGljaCBp
-cyBvbmUgb2YgdGhlIHJlc291cmNlcwo+ID4+IGNvbnRyb2xsZWQgYnkgdGhpcyBzZXF1ZW5jZXIu
-Cj4gPj4KPiA+PiBTaWduZWQtb2ZmLWJ5OiBNaWNoYWwgV2lsY3p5bnNraSA8bS53aWxjenluc2tp
-QHNhbXN1bmcuY29tPgo+ID4+IC0tLQo+ID4+ICBhcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3Ro
-MTUyMC5kdHNpIHwgNiArKysrKysKPiA+PiAgMSBmaWxlIGNoYW5nZWQsIDYgaW5zZXJ0aW9ucygr
-KQo+ID4+Cj4gPj4gZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvdGhlYWQvdGgxNTIw
-LmR0c2kgYi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3RoZWFkL3RoMTUyMC5kdHNpCj4gPj4gaW5kZXgg
-YmRiYjFiOTg1YjBiNzZjZjY2OWE5YmY0MGM2ZWMzNzI1ODMyOTA1Ni4uNjE3MGVlYzc5ZTkxOWI2
-MDZhMjA0NmFjOGY1MmRiMDdlNDdlZjQ0MSAxMDA2NDQKPiA+PiAtLS0gYS9hcmNoL3Jpc2N2L2Jv
-b3QvZHRzL3RoZWFkL3RoMTUyMC5kdHNpCj4gPj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy90
-aGVhZC90aDE1MjAuZHRzaQo+ID4+IEBAIC0yMzgsNiArMjM4LDEyIEBAIGFvbjogYW9uIHsKPiA+
-PiAgICAgICAgICAgICAgI3Bvd2VyLWRvbWFpbi1jZWxscyA9IDwxPjsKPiA+PiAgICAgIH07Cj4g
-Pj4KPiA+PiArICAgIGdwdV9wd3JzZXE6IHB3cnNlcSB7Cj4gPgo+ID4gTm9kZSBuYW1lcyBzaG91
-bGQgYmUgZ2VuZXJpYy4gU2VlIGFsc28gYW4gZXhwbGFuYXRpb24gYW5kIGxpc3Qgb2YKPiA+IGV4
-YW1wbGVzIChub3QgZXhoYXVzdGl2ZSkgaW4gRFQgc3BlY2lmaWNhdGlvbjoKPiA+IGh0dHBzOi8v
-cHJvdGVjdDIuZmlyZWV5ZS5jb20vdjEvdXJsP2s9YTUzZWE1ZDMtYzQ0MzRmNTAtYTUzZjJlOWMt
-NzRmZTQ4NjAwMTU4LWM4MTA5MjQ3NWVmNDE2YjMmcT0xJmU9ZDMzM2QwNmItMGIwNi00OTNlLWEz
-NTgtZTI5Y2E1NDJkZmU3JnU9aHR0cHMlM0ElMkYlMkZkZXZpY2V0cmVlLXNwZWNpZmljYXRpb24u
-cmVhZHRoZWRvY3MuaW8lMkZlbiUyRmxhdGVzdCUyRmNoYXB0ZXIyLWRldmljZXRyZWUtYmFzaWNz
-Lmh0bWwlMjNnZW5lcmljLW5hbWVzLXJlY29tbWVuZGF0aW9uCj4gPgo+ID4+ICsgICAgICAgICAg
-ICBjb21wYXRpYmxlID0gInRoZWFkLHRoMTUyMC1ncHUtcHdyc2VxIjsKPiA+PiArICAgICAgICAg
-ICAgcmVzZXRzID0gPCZyc3QgVEgxNTIwX1JFU0VUX0lEX0dQVV9DTEtHRU4+Owo+ID4+ICsgICAg
-ICAgICAgICByZXNldC1uYW1lcyA9ICJncHUtY2xrZ2VuIjsKPiA+Cj4gPiBXaGF0IGlzIHRoZSBw
-b2ludCBvZiBwd3JzZXEgaWYgdGhlcmUgaXMgbm8gY29uc3VtZXIvdXNlciBvZiBpdD8gTG9va3MK
-PiA+IGxpa2Ugc2ltcGxlIHBsYWNlaG9sZGVyIGFuZCBhbnl3YXkgbWF5YmUgdGhlIGZ1dHVyZSBj
-b25zdW1lciBzaG91bGQganVzdAo+ID4gdXNlIHJlc2V0IGRpcmVjdGx5Lgo+Cj4gWWVhaCBJIHRo
-aW5rIHlvdSdyZSByaWdodCwgSSB3YW50ZWQgdG8gZXhwbG9yZSBhZGRpbmcgdGhlIHB3cnNlcQo+
-IHByb3ZpZGVyIGluIHNlcGFyYXRlIG5vZGUgcGVyIGRpc2N1c3Npb24gaW4gdjIgWzFdLiBCdXQg
-Zm9yIHRoZSB2NCBJCj4gdGhpbmsgSSdsbCByZXZlcnQgdG8gdGhlIHYyIHdheSBvZiBoYW5kbGlu
-ZyB0aGlzIHJlc2V0IFsyXS4KPgo+IFsxXSAtIGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC9D
-QVBEeUtGcGk2X0NEKythOXNiR0J2SkN1QlNRUzZZY3BOdHRrUlFoUU1UV3kxeXlyUmdAbWFpbC5n
-bWFpbC5jb20vCj4gWzJdIC0gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvYWxsLzIwMjUwNDE0LWFw
-cl8xNF9mb3Jfc2VuZGluZy12Mi0yLTcwYzVhZjJhZjk2Y0BzYW1zdW5nLmNvbS8KPgoKSSB0aGlu
-ayB5b3Ugc3RpbGwgbmVlZCB0byBjb25uZWN0IHRoZSBHUFUgbm9kZSB3aXRoIGl0cyBwd3JzZXEK
-cHJvdmlkZXIgKHdoaWNoIHdpbGwgYmUgdGhlIGFvbiBub2RlIGluIHRoaXMgY2FzZSkuIEJ1dCB5
-b3UgYWxyZWFkeQpoYXZlIHRoaXMgbGluayAtIHRoZSBhb24gcG93ZXIgZG9tYWluLiBZb3UgY2Fu
-IHBhcnNlIGl0IGluIHRoZSBwd3JzZXEKbWF0Y2ggY2FsbGJhY2sgdG8gZGV0ZXJtaW5lIHdoaWNo
-IEdQVSBpcyBwb3dlcmVkIGJ5IHdoaWNoIEFPTiBtb2R1bGUuCgpCYXJ0CgpfX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxp
-c3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFk
-Lm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+
+
+On 6/3/25 14:27, Ulf Hansson wrote:
+> On Fri, 30 May 2025 at 00:24, Michal Wilczynski
+> <m.wilczynski@samsung.com> wrote:
+>>
+>> Add a device tree node for the IMG BXM-4-64 GPU present in the T-HEAD
+>> TH1520 SoC used by the Lichee Pi 4A board. This node enables support for
+>> the GPU using the drm/imagination driver.
+>>
+>> By adding this node, the kernel can recognize and initialize the GPU,
+>> providing graphics acceleration capabilities on the Lichee Pi 4A and
+>> other boards based on the TH1520 SoC.
+>>
+>> Add fixed clock gpu_mem_clk, as the MEM clock on the T-HEAD SoC can't be
+>> controlled programatically.
+>>
+>> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
+>> ---
+>>  arch/riscv/boot/dts/thead/th1520.dtsi | 22 ++++++++++++++++++++++
+>>  1 file changed, 22 insertions(+)
+>>
+>> diff --git a/arch/riscv/boot/dts/thead/th1520.dtsi b/arch/riscv/boot/dts/thead/th1520.dtsi
+>> index 6170eec79e919b606a2046ac8f52db07e47ef441..ee937bbdb7c08439a70306f035b1cc82ddb4bae2 100644
+>> --- a/arch/riscv/boot/dts/thead/th1520.dtsi
+>> +++ b/arch/riscv/boot/dts/thead/th1520.dtsi
+>> @@ -225,6 +225,13 @@ aonsys_clk: clock-73728000 {
+>>                 #clock-cells = <0>;
+>>         };
+>>
+>> +       gpu_mem_clk: mem-clk {
+>> +               compatible = "fixed-clock";
+>> +               clock-frequency = <0>;
+>> +               clock-output-names = "gpu_mem_clk";
+>> +               #clock-cells = <0>;
+>> +       };
+>> +
+>>         stmmac_axi_config: stmmac-axi-config {
+>>                 snps,wr_osr_lmt = <15>;
+>>                 snps,rd_osr_lmt = <15>;
+>> @@ -504,6 +511,21 @@ clk: clock-controller@ffef010000 {
+>>                         #clock-cells = <1>;
+>>                 };
+>>
+>> +               gpu: gpu@ffef400000 {
+>> +                       compatible = "thead,th1520-gpu", "img,img-bxm-4-64",
+>> +                                    "img,img-rogue";
+>> +                       reg = <0xff 0xef400000 0x0 0x100000>;
+>> +                       interrupt-parent = <&plic>;
+>> +                       interrupts = <102 IRQ_TYPE_LEVEL_HIGH>;
+>> +                       clocks = <&clk_vo CLK_GPU_CORE>,
+>> +                                <&gpu_mem_clk>,
+>> +                                <&clk_vo CLK_GPU_CFG_ACLK>;
+>> +                       clock-names = "core", "mem", "sys";
+>> +                       power-domains = <&aon TH1520_GPU_PD>;
+>> +                       power-domain-names = "a";
+> 
+> If the power-domain-names are really needed, please pick a
+> useful/descriptive name.
+
+Yeah they are required. Even though this convention doesn't seem to be
+enforced by the dt-binding it seems like it's hard-coded into the driver
+330e76d31697 ("drm/imagination: Add power domain control"). So I don't
+think I have any choice here.
+
+> 
+> [...]
+> 
+> Kind regards
+> Uffe
+> 
+
+Best regards,
+-- 
+Michal Wilczynski <m.wilczynski@samsung.com>
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
