@@ -4,128 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 392E8C5B549
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 17:19:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BA2CC5B549
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 18:02:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=kIX+++vJf/wz0zXjAC6t6n8VgsczeWxjfCgn0XMbJjo=; b=cbmpszeUb/HAwh
-	kJgBs8AuuKPn4bd3b3mr+RipAStJ1t6LG0JFo5UJzoPTYyFDjELWK1uH3Yq0DsGv7pQhZHlednrw+
-	cUwHlUw8pTv5H8Raua5zJLtpT+9n+nY7sQ9fxkS7oZV/Tk0sToh5zNuHdx9LCIRv/99YJRGJJ9hwY
-	fje5DQNeAjR9/RaYTgFXKKKpeXsYHLnGJm8rq1cbwaJUwLPKM+OS4cFdC7hY4Rf8PqSrDonxJ7Y2y
-	c67pJDo5F34Ok6w+qc6o3COMHJz/hYXrzqpJvOEotywBpk5iR2gj1sKK92aetVqDzYIC8Hutlsyc/
-	2HU/kAO3tzp36G9KQZRQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=N7W84SPWH1Z3tmAomPr0COlxjOUgbO/6pTnFQGckJUc=; b=O8Yuolh+UfyTY3joDo90UJTw6B
+	oDN40jSsSLy1V5C+GdAVirHASHbMoW1rz9jCFt1XjiDMH4TSr5ulFm4sGKuqUw/M+2cwpJV+o1rT4
+	OMB/l3pe4YJvl8tcCgmXZjAgcOc2v8KKp02BucRDzIrI1x86sW43hZUuqu/iZctKH9Hnq6qUMNfN2
+	2RZsv7flgCBCBNlGiqrxbl7Oy2oV+UVGSm5FQrFuNSJAbvbuUtMxAEp9yQYGvL8dssahfD4zh2O9D
+	uCWpZJ9pLiHEGBbIJSGTcdDlc5iAba/3pxisKLb94CRCRidmBvsvziO2/nl5wY20ZVb2OUXPQ6rP7
+	XZXPxWYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrlb-0000000Du0r-2fFO;
-	Wed, 04 Jun 2025 17:19:07 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uMsRm-0000000Dz45-2blZ;
+	Wed, 04 Jun 2025 18:02:42 +0000
+Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrkH-0000000DtZe-3QUx
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 04 Jun 2025 17:17:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=tiO9C5CKCCKloBn/52mfoKbE3jtuDM2WhM6jV239TRE=; b=ilWBRxweqCgnuqdE628U3X3Vwp
-	qJpsqEdIrDXZPi4+cgLkAxGH52LZJyN4BF0oI1v8fyXwB8CHuGskPZP6lBL9ureMxHCsiduppK2/h
-	4VSuo1hkUNRJdMAKs+kpbVR8sv/2ltw7mgxVM/3/iF9J3fKlgj1fx/o+5sG7RVQPMzQUviWq3Q7B2
-	Ql4usVZEIaQqGo1R6nD/2JEoKqd6FW2TQ9424wG+J+DW/R7nd1s1hdX/dCCz7dxJyey3x8MJmRnWE
-	VL/qpixvEtPTOCHr4PpprMc3B20TjRBT2h+SxfIWLatkC6g7cX0C4jHQyrphA7TX4oBfqgmscFuad
-	du6gqBpQ==;
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrkB-00000000vJE-2TPA
+	id 1uMsRi-0000000Dz3K-2WHl
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Jun 2025 17:17:44 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-3114c943367so94140a91.1
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 10:17:39 -0700 (PDT)
+	Wed, 04 Jun 2025 18:02:40 +0000
+Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b1396171fb1so49872a12.2
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 11:02:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749057458; x=1749662258; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749060157; x=1749664957; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=tiO9C5CKCCKloBn/52mfoKbE3jtuDM2WhM6jV239TRE=;
-        b=mVDfTL5/c9Wnukwz8I5gFC299v7LiD7+hF1bFw9o1yZgg1JHKV8nRULTxHu11RXRvM
-         IoLTT6UOO4wH+tvb27k6LjQuTH18P5V0lJGqBiKAewxlaUKOIBWf78k0d8fMYaKJTWNF
-         dn25WTWiGDc1Loj7gy89MThcYBCPhK9/m1QFVSKD8PLYIoA5TSXJT3KAXB4TF7y7cmyf
-         We1DkYD1vnFwrlaaV2gALtoVm6NpQC6/Npl2siOl7ZTf4HflEVFjJwuae+3xtSKK7Tj6
-         AD/4olxaAc8uzKe7+LNLwOc5DJIKtmg6KCHirLAeNbkrigWNnTtWHEwE3B9Em6XIiZpD
-         F35A==
+        bh=4sb9NtYIBm94y/rjJYszo90EtKu9XX4CPTVA/wAKQT8=;
+        b=hLSHpqwaYNnE4bI+w79VSYrgLePdkZx9pwFG1EmNzf2WY/ei5I1BnHF5Txnh8sd+Sr
+         oDLN/9t0aWE8PWQwjlVDMDrGH3vkisWN2rUmsz3nz0X0Q2dFtqr6Or5sXSJSJt89hzRN
+         E74qeMJHz0S+gvDtXLz+rbsPVTk9XM87awiLDr1beRWFCp7sqGGkzOpP/8QJqaBWwm4x
+         vmLo4DbrjH0SvPZtLC9Tg/ITtNJ+Rqf+KiU3gybWZx8d4DxH87ajfv32hyQKyUI8s37r
+         +NNhgqqhhocK7Jv3+NUSKYBTtC4FqGBghgOlPYFclQQXXyc4zOUQ0vjVmGH4zXPRTwvy
+         WNBA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749057458; x=1749662258;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tiO9C5CKCCKloBn/52mfoKbE3jtuDM2WhM6jV239TRE=;
-        b=VeSaA9YcbT/bdovSQbP4hMt5lz3sIpEp6Feg1O6n3UnM+y41INaSErrKYlQbSU0H1R
-         e+ewq1z2pGi2u2SxoB1CjiGEdO89AlhrL1aQpW+4T6bAyvmUfW6jRyM9M4F4nk+kw12w
-         k+d8byy0d5Lq1ca1WJSWDOcwABhGhmncE8yZoZUft0yMuIywJqXpiOD83BiLCO+F2OKf
-         Sa3AEUA14uXDj5lJ5FiNsYFVzeLfe8iKwPVIZiRxLD+gRXTUyOrj1XT/46H4awYzdaOm
-         5XPTngI2M7VYNmGf5DY1EV85B5h+4An0dcGvMiPp6Rj80AdgeV3i85Qcwp4yFdxoAec3
-         WlAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUNQ7tMSdIkkmfx6HJL/XaBXn6w+fIi3Q2Y89EEd0yjWL+jR1ENlJDiUNJ/ZsZgHUbnXcKx4DrhyBDX2Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0YweL1GSEJbz4NJ5Xo2XCIRlBSpc7YmDmbyBMnjHViRkNwyhp6Kj
-	24F+AETMXmaWR/Owkz4z8UZl7uv5SWJ9WAc0Joi6O4Q8vWL5E8T1jqiaBBfrc5gfpGM=
-X-Gm-Gg: ASbGncu1hesik8MAIVEwYAcRcfEVE1TyD0GiaBosBt8Irna6ps1p5Wqj38KYsJTxgmt
-	OX/mSfFsFr1+5PnYhTre/XEyh3BJyj7VxL4HUDqz6a3U8JNLCa3m0NahabYBoym+oF9KawvrxuF
-	cg1cYOh6l8+Aa9CmiMufqwMJ3Cqooi5dK4an9zeRHT3GjdSfjvHucaypZLUawAUOX8CXeGrBXze
-	AEHtTdkKy4r0bgYFREuW6G0rURMhngOR32TXbibG0yCQAZN1rJZPMdWFcKrDgdsXJyNzdPIiaDE
-	0G/kU/CudxpC4TCMz+sXaelCQwfTJfZZdcc1MozEA1JT4ZJoDQBGESpx2cia2g==
-X-Google-Smtp-Source: AGHT+IH3lb1edbHE+L3Gk6Q20glo2l/nLk5wLjQUyCdVPBQUGywzTKbsc9/qo5o/+v+5E3I7+kdJAw==
-X-Received: by 2002:a17:90b:52c6:b0:312:1d2d:18df with SMTP id 98e67ed59e1d1-3130cd67f87mr4979657a91.23.1749057457652;
-        Wed, 04 Jun 2025 10:17:37 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9c9fsm9178972a91.30.2025.06.04.10.17.34
+        d=1e100.net; s=20230601; t=1749060157; x=1749664957;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4sb9NtYIBm94y/rjJYszo90EtKu9XX4CPTVA/wAKQT8=;
+        b=HAztJPH1APDfgT1NhS0aZjfQ4JJhtz/IvhRf4LsTBgpUzwy4SVytkF2YHNzldB6jqo
+         Dc9o2uM1KKWL9yzrXT2NQx4ZxFRzFceBvfgzV+e47efOkOcHKUQafEGGwaFvV92JMyiq
+         /Bcl9oNSIzZ7Ng8PQoURrWsKenjBbG3d6EtNuGJcexHEaMZzSSaC7OjOBF1YnGY5l3E2
+         QQeVZ6mdNKPtlSUr3CfrJg5i6oP2ESdJyPE+1w2xM/eQV0PVodmqAfvqCFuBeRMhXUJL
+         Lrv/WkUUUOcoSgQ5N+9o/uOx9HT/cDWAjQLIKg9N1Kn/6+qqwvCeQB3UoCFRylxAm/5/
+         yRrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXUeJV+ebDJtRTEddNFo35WmCxIibfiGWqgilHYjfnKpyAKU/Cxb2Rzj8n2JGNrQ06eYJro650fj/3r9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyw69GyPSheJifv+9Ox2OjzL64BxYT0MvIACHGAmKMfC8AO8E/i
+	86sFqJu0pkvCYmMayBr2GtKpp3fAm03FxDp/qYO/vWV12ZEB7gArerPH+grexqEs+Eo=
+X-Gm-Gg: ASbGncvFUbz0B3zy+HT4FHzmzq+PWWR7vTMLAOsrdWZl+SGmFo8QzLFKxKN37X0ls+q
+	rWkKfWjnDqTUUz4w2KklW4cbprkiNm0Fo9eEUAQ2smbGRGEG6pChEKYfTK2zjL3r0efzihr0gI2
+	7YRFSqwGd2Gs3j/B0oZl+BzFPL1LWY2AIze9BzzbD0dOcjHnrYHHS2RtE9WerYbTiOjKvKIF+Hg
+	0lyqWWu+lOKIdj/PFP/h4ddshYOHGJIMJn8Q4lv0RJEQP5EeFSTJyAMh751BPzg+uARlQx4BqCN
+	iW+on7mNgHpXyJQEyiTppMEkRwSmthGfiNBVyS/+E9n+W0AoWJnJEM8=
+X-Google-Smtp-Source: AGHT+IGzoLjlPGLsxX/VcQAibjCHSuGjPNjwdnzeCXTcDSgTlXsCpPwGWWh1fCsXTwlbhq/KM2w0wQ==
+X-Received: by 2002:a05:6a21:48f:b0:1fd:f4df:96ed with SMTP id adf61e73a8af0-21d22ce22c7mr5169223637.26.1749060156608;
+        Wed, 04 Jun 2025 11:02:36 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::4:3cec])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-747afff72bcsm11485461b3a.166.2025.06.04.11.02.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 10:17:37 -0700 (PDT)
-From: Deepak Gupta <debug@rivosinc.com>
-Date: Wed, 04 Jun 2025 10:15:51 -0700
-Subject: [PATCH v17 27/27] kselftest/riscv: kselftest for user mode cfi
-MIME-Version: 1.0
-Message-Id: <20250604-v5_user_cfi_series-v17-27-4565c2cf869f@rivosinc.com>
-References: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
-In-Reply-To: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, 
- x86@kernel.org, "H. Peter Anvin" <hpa@zytor.com>, 
- Andrew Morton <akpm@linux-foundation.org>, 
- "Liam R. Howlett" <Liam.Howlett@oracle.com>, 
- Vlastimil Babka <vbabka@suse.cz>, 
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Conor Dooley <conor@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
- Christian Brauner <brauner@kernel.org>, 
- Peter Zijlstra <peterz@infradead.org>, Oleg Nesterov <oleg@redhat.com>, 
- Eric Biederman <ebiederm@xmission.com>, Kees Cook <kees@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>, 
- Jann Horn <jannh@google.com>, Conor Dooley <conor+dt@kernel.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
- Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <benno.lossin@proton.me>, 
- Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
- Trevor Gross <tmgross@umich.edu>
-Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- linux-mm@kvack.org, linux-riscv@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-arch@vger.kernel.org, 
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- alistair.francis@wdc.com, richard.henderson@linaro.org, jim.shu@sifive.com, 
- andybnac@gmail.com, kito.cheng@sifive.com, charlie@rivosinc.com, 
- atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
- alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
- rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Deepak Gupta <debug@rivosinc.com>
-X-Mailer: b4 0.13.0
+        Wed, 04 Jun 2025 11:02:35 -0700 (PDT)
+Date: Wed, 04 Jun 2025 11:02:35 -0700 (PDT)
+X-Google-Original-Date: Wed, 04 Jun 2025 11:02:33 PDT (-0700)
+Subject: Re: [PATCH v8 00/14] riscv: add SBI FWFT misaligned exception delegation support
+In-Reply-To: <20250523101932.1594077-1-cleger@rivosinc.com>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, anup@brainfault.org,
+  atishp@atishpatra.org, shuah@kernel.org, corbet@lwn.net, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
+  linux-kselftest@vger.kernel.org, cleger@rivosinc.com, samuel.holland@sifive.com, ajones@ventanamicro.com,
+  debug@rivosinc.com, Charlie Jenkins <charlie@rivosinc.com>
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: cleger@rivosinc.com
+Message-ID: <mhng-C1CE13EE-C4E6-490D-ABF4-CE7BD84737C3@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_181739_883850_AC2A0035 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20250604_110238_887363_CF49D07D 
+X-CRM114-Status: GOOD (  32.13  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,803 +95,208 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Adds kselftest for RISC-V control flow integrity implementation for user
-mode. There is not a lot going on in kernel for enabling landing pad for
-user mode. cfi selftest are intended to be compiled with zicfilp and
-zicfiss enabled compiler. Thus kselftest simply checks if landing pad /
-shadow stack for the process are enabled or not and executes ptrace
-selftests on cfi. selftest then register a signal handler for SIGSEGV.
-Any control flow violation are reported as SIGSEGV with si_code =
-SEGV_CPERR. Test will fail on receiving any SEGV_CPERR. Shadow stack part
-has more changes in kernel and thus there are separate tests for that
-
-- Exercise `map_shadow_stack` syscall
-- `fork` test to make sure COW works for shadow stack pages
-- gup tests
-  Kernel uses FOLL_FORCE when access happens to memory via
-  /proc/<pid>/mem. Not breaking that for shadow stack.
-- signal test. Make sure signal delivery results in token creation on
-  shadow stack and consumes (and verifies) token on sigreturn
-- shadow stack protection test. attempts to write using regular store
-  instruction on shadow stack memory must result in access faults
-- ptrace test: adds landing pad violation, clears ELP and continues
-
-In case toolchain doesn't support cfi extension, cfi kselftest wont
-get built.
-
-Test outut
-==========
-
-"""
-TAP version 13
-1..5
-  This is to ensure shadow stack is indeed enabled and working
-  This is to ensure shadow stack is indeed enabled and working
-ok 1 shstk fork test
-ok 2 map shadow stack syscall
-ok 3 shadow stack gup tests
-ok 4 shadow stack signal tests
-ok 5 memory protections of shadow stack memory
-"""
-
-Signed-off-by: Deepak Gupta <debug@rivosinc.com>
-Suggested-by: Charlie Jenkins <charlie@rivosinc.com>
----
- tools/testing/selftests/riscv/Makefile             |   2 +-
- tools/testing/selftests/riscv/cfi/.gitignore       |   3 +
- tools/testing/selftests/riscv/cfi/Makefile         |  16 +
- tools/testing/selftests/riscv/cfi/cfi_rv_test.h    |  82 +++++
- tools/testing/selftests/riscv/cfi/riscv_cfi_test.c | 173 +++++++++
- tools/testing/selftests/riscv/cfi/shadowstack.c    | 385 +++++++++++++++++++++
- tools/testing/selftests/riscv/cfi/shadowstack.h    |  27 ++
- 7 files changed, 687 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/riscv/Makefile b/tools/testing/selftests/riscv/Makefile
-index 099b8c1f46f8..5671b4405a12 100644
---- a/tools/testing/selftests/riscv/Makefile
-+++ b/tools/testing/selftests/riscv/Makefile
-@@ -5,7 +5,7 @@
- ARCH ?= $(shell uname -m 2>/dev/null || echo not)
- 
- ifneq (,$(filter $(ARCH),riscv))
--RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector
-+RISCV_SUBTARGETS ?= abi hwprobe mm sigreturn vector cfi
- else
- RISCV_SUBTARGETS :=
- endif
-diff --git a/tools/testing/selftests/riscv/cfi/.gitignore b/tools/testing/selftests/riscv/cfi/.gitignore
-new file mode 100644
-index 000000000000..82545863bac6
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/.gitignore
-@@ -0,0 +1,3 @@
-+cfitests
-+riscv_cfi_test
-+shadowstack
-diff --git a/tools/testing/selftests/riscv/cfi/Makefile b/tools/testing/selftests/riscv/cfi/Makefile
-new file mode 100644
-index 000000000000..55165a93845f
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/Makefile
-@@ -0,0 +1,16 @@
-+CFLAGS += -I$(top_srcdir)/tools/include
-+
-+CFLAGS += -march=rv64gc_zicfilp_zicfiss -fcf-protection=full
-+
-+ifeq ($(shell $(CC) $(CFLAGS) -nostdlib -xc /dev/null -o /dev/null > /dev/null 2>&1; echo $$?),0)
-+TEST_GEN_PROGS := cfitests
-+
-+include ../../lib.mk
-+
-+$(OUTPUT)/cfitests: riscv_cfi_test.c shadowstack.c
-+	$(CC) -o$@ $(CFLAGS) $(LDFLAGS) $^
-+else
-+include ../../lib.mk
-+
-+$(shell echo "Toolchain doesn't support CFI, skipping CFI kselftest." >&2)
-+endif
-diff --git a/tools/testing/selftests/riscv/cfi/cfi_rv_test.h b/tools/testing/selftests/riscv/cfi/cfi_rv_test.h
-new file mode 100644
-index 000000000000..1c8043f2b778
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/cfi_rv_test.h
-@@ -0,0 +1,82 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef SELFTEST_RISCV_CFI_H
-+#define SELFTEST_RISCV_CFI_H
-+#include <stddef.h>
-+#include <sys/types.h>
-+#include "shadowstack.h"
-+
-+#define CHILD_EXIT_CODE_SSWRITE		10
-+#define CHILD_EXIT_CODE_SIG_TEST	11
-+
-+#define my_syscall5(num, arg1, arg2, arg3, arg4, arg5)			\
-+({									\
-+	register long _num  __asm__ ("a7") = (num);			\
-+	register long _arg1 __asm__ ("a0") = (long)(arg1);		\
-+	register long _arg2 __asm__ ("a1") = (long)(arg2);		\
-+	register long _arg3 __asm__ ("a2") = (long)(arg3);		\
-+	register long _arg4 __asm__ ("a3") = (long)(arg4);		\
-+	register long _arg5 __asm__ ("a4") = (long)(arg5);		\
-+									\
-+	__asm__ volatile(						\
-+		"ecall\n"						\
-+		: "+r"							\
-+		(_arg1)							\
-+		: "r"(_arg2), "r"(_arg3), "r"(_arg4), "r"(_arg5),	\
-+		  "r"(_num)						\
-+		: "memory", "cc"					\
-+	);								\
-+	_arg1;								\
-+})
-+
-+#define my_syscall3(num, arg1, arg2, arg3)				\
-+({									\
-+	register long _num  __asm__ ("a7") = (num);			\
-+	register long _arg1 __asm__ ("a0") = (long)(arg1);		\
-+	register long _arg2 __asm__ ("a1") = (long)(arg2);		\
-+	register long _arg3 __asm__ ("a2") = (long)(arg3);		\
-+									\
-+	__asm__ volatile(						\
-+		"ecall\n"						\
-+		: "+r" (_arg1)						\
-+		: "r"(_arg2), "r"(_arg3),				\
-+		  "r"(_num)						\
-+		: "memory", "cc"					\
-+	);								\
-+	_arg1;								\
-+})
-+
-+#ifndef __NR_prctl
-+#define __NR_prctl 167
-+#endif
-+
-+#ifndef __NR_map_shadow_stack
-+#define __NR_map_shadow_stack 453
-+#endif
-+
-+#define CSR_SSP 0x011
-+
-+#ifdef __ASSEMBLY__
-+#define __ASM_STR(x)    x
-+#else
-+#define __ASM_STR(x)    #x
-+#endif
-+
-+#define csr_read(csr)							\
-+({									\
-+	register unsigned long __v;					\
-+	__asm__ __volatile__ ("csrr %0, " __ASM_STR(csr)		\
-+				: "=r" (__v) :				\
-+				: "memory");				\
-+	__v;								\
-+})
-+
-+#define csr_write(csr, val)						\
-+({									\
-+	unsigned long __v = (unsigned long)(val);			\
-+	__asm__ __volatile__ ("csrw " __ASM_STR(csr) ", %0"		\
-+				: : "rK" (__v)				\
-+				: "memory");				\
-+})
-+
-+#endif
-diff --git a/tools/testing/selftests/riscv/cfi/riscv_cfi_test.c b/tools/testing/selftests/riscv/cfi/riscv_cfi_test.c
-new file mode 100644
-index 000000000000..486a2e779053
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/riscv_cfi_test.c
-@@ -0,0 +1,173 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include "../../kselftest.h"
-+#include <sys/signal.h>
-+#include <asm/ucontext.h>
-+#include <linux/prctl.h>
-+#include <errno.h>
-+#include <linux/ptrace.h>
-+#include <sys/wait.h>
-+#include <linux/elf.h>
-+#include <sys/uio.h>
-+#include <asm-generic/unistd.h>
-+
-+#include "cfi_rv_test.h"
-+
-+/* do not optimize cfi related test functions */
-+#pragma GCC push_options
-+#pragma GCC optimize("O0")
-+
-+void sigsegv_handler(int signum, siginfo_t *si, void *uc)
-+{
-+	struct ucontext *ctx = (struct ucontext *)uc;
-+
-+	if (si->si_code == SEGV_CPERR) {
-+		ksft_print_msg("Control flow violation happened somewhere\n");
-+		ksft_print_msg("PC where violation happened %lx\n", ctx->uc_mcontext.gregs[0]);
-+		exit(-1);
-+	}
-+
-+	/* all other cases are expected to be of shadow stack write case */
-+	exit(CHILD_EXIT_CODE_SSWRITE);
-+}
-+
-+bool register_signal_handler(void)
-+{
-+	struct sigaction sa = {};
-+
-+	sa.sa_sigaction = sigsegv_handler;
-+	sa.sa_flags = SA_SIGINFO;
-+	if (sigaction(SIGSEGV, &sa, NULL)) {
-+		ksft_print_msg("Registering signal handler for landing pad violation failed\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+long ptrace(int request, pid_t pid, void *addr, void *data);
-+
-+bool cfi_ptrace_test(void)
-+{
-+	pid_t pid;
-+	int status, ret = 0;
-+	unsigned long ptrace_test_num = 0, total_ptrace_tests = 2;
-+
-+	struct user_cfi_state cfi_reg;
-+	struct iovec iov;
-+
-+	pid = fork();
-+
-+	if (pid == -1) {
-+		ksft_exit_fail_msg("%s: fork failed\n", __func__);
-+		exit(1);
-+	}
-+
-+	if (pid == 0) {
-+		/* allow to be traced */
-+		ptrace(PTRACE_TRACEME, 0, NULL, NULL);
-+		raise(SIGSTOP);
-+		asm volatile (
-+		"la a5, 1f\n"
-+		"jalr a5 \n"
-+		"nop \n"
-+		"nop \n"
-+		"1: nop\n"
-+		: : : "a5");
-+		exit(11);
-+		/* child shouldn't go beyond here */
-+	}
-+
-+	/* parent's code goes here */
-+	iov.iov_base = &cfi_reg;
-+	iov.iov_len = sizeof(cfi_reg);
-+
-+	while (ptrace_test_num < total_ptrace_tests) {
-+		memset(&cfi_reg, 0, sizeof(cfi_reg));
-+		waitpid(pid, &status, 0);
-+		if (WIFSTOPPED(status)) {
-+			errno = 0;
-+			ret = ptrace(PTRACE_GETREGSET, pid, (void *)NT_RISCV_USER_CFI, &iov);
-+			if (ret == -1 && errno)
-+				ksft_exit_fail_msg("%s: PTRACE_GETREGSET failed\n", __func__);
-+		} else
-+			ksft_exit_fail_msg("%s: child didn't stop, failed\n", __func__);
-+
-+		switch (ptrace_test_num) {
-+#define CFI_ENABLE_MASK (PTRACE_CFI_LP_EN_STATE |	\
-+			PTRACE_CFI_SS_EN_STATE |	\
-+			PTRACE_CFI_SS_PTR_STATE)
-+		case 0:
-+			if ((cfi_reg.cfi_status.cfi_state & CFI_ENABLE_MASK) != CFI_ENABLE_MASK)
-+				ksft_exit_fail_msg("%s: ptrace_getregset failed, %llu\n", __func__,
-+				cfi_reg.cfi_status.cfi_state);
-+			if (!cfi_reg.shstk_ptr)
-+				ksft_exit_fail_msg("%s: NULL shadow stack pointer, test failed\n",
-+				__func__);
-+			break;
-+		case 1:
-+			if (!(cfi_reg.cfi_status.cfi_state & PTRACE_CFI_ELP_STATE))
-+				ksft_exit_fail_msg("%s: elp must have been set\n", __func__);
-+			/* clear elp state. not interested in anything else */
-+			cfi_reg.cfi_status.cfi_state = 0;
-+
-+			ret = ptrace(PTRACE_SETREGSET, pid, (void *)NT_RISCV_USER_CFI, &iov);
-+			if (ret == -1 && errno)
-+				ksft_exit_fail_msg("%s: PTRACE_GETREGSET failed\n", __func__);
-+			break;
-+		default:
-+			ksft_exit_fail_msg("%s: unreachable switch case\n", __func__);
-+			break;
-+		}
-+		ptrace(PTRACE_CONT, pid, NULL, NULL);
-+		ptrace_test_num++;
-+	}
-+
-+	waitpid(pid, &status, 0);
-+	if (WEXITSTATUS(status) != 11)
-+		ksft_print_msg("%s, bad return code from child\n", __func__);
-+
-+	ksft_print_msg("%s, ptrace test succeeded\n", __func__);
-+	return true;
-+}
-+
-+int main(int argc, char *argv[])
-+{
-+	int ret = 0;
-+	unsigned long lpad_status = 0, ss_status = 0;
-+
-+	ksft_print_header();
-+
-+	ksft_print_msg("Starting risc-v tests\n");
-+
-+	/*
-+	 * Landing pad test. Not a lot of kernel changes to support landing
-+	 * pad for user mode except lighting up a bit in senvcfg via a prctl
-+	 * Enable landing pad through out the execution of test binary
-+	 */
-+	ret = my_syscall5(__NR_prctl, PR_GET_INDIR_BR_LP_STATUS, &lpad_status, 0, 0, 0);
-+	if (ret)
-+		ksft_exit_fail_msg("Get landing pad status failed with %d\n", ret);
-+
-+	if (!(lpad_status & PR_INDIR_BR_LP_ENABLE))
-+		ksft_exit_fail_msg("Landing pad is not enabled, should be enabled via glibc\n");
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &ss_status, 0, 0, 0);
-+	if (ret)
-+		ksft_exit_fail_msg("Get shadow stack failed with %d\n", ret);
-+
-+	if (!(ss_status & PR_SHADOW_STACK_ENABLE))
-+		ksft_exit_fail_msg("Shadow stack is not enabled, should be enabled via glibc\n");
-+
-+	if (!register_signal_handler())
-+		ksft_exit_fail_msg("Registering signal handler for SIGSEGV failed\n");
-+
-+	ksft_print_msg("Landing pad and shadow stack are enabled for binary\n");
-+	cfi_ptrace_test();
-+
-+	execute_shadow_stack_tests();
-+
-+	return 0;
-+}
-+
-+#pragma GCC pop_options
-diff --git a/tools/testing/selftests/riscv/cfi/shadowstack.c b/tools/testing/selftests/riscv/cfi/shadowstack.c
-new file mode 100644
-index 000000000000..53387dbd9cf5
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/shadowstack.c
-@@ -0,0 +1,385 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include "../../kselftest.h"
-+#include <sys/wait.h>
-+#include <signal.h>
-+#include <fcntl.h>
-+#include <asm-generic/unistd.h>
-+#include <sys/mman.h>
-+#include "shadowstack.h"
-+#include "cfi_rv_test.h"
-+
-+static struct shadow_stack_tests shstk_tests[] = {
-+	{ "shstk fork test\n", shadow_stack_fork_test },
-+	{ "map shadow stack syscall\n", shadow_stack_map_test },
-+	{ "shadow stack gup tests\n", shadow_stack_gup_tests },
-+	{ "shadow stack signal tests\n", shadow_stack_signal_test},
-+	{ "memory protections of shadow stack memory\n", shadow_stack_protection_test }
-+};
-+
-+#define RISCV_SHADOW_STACK_TESTS ARRAY_SIZE(shstk_tests)
-+
-+/* do not optimize shadow stack related test functions */
-+#pragma GCC push_options
-+#pragma GCC optimize("O0")
-+
-+void zar(void)
-+{
-+	unsigned long ssp = 0;
-+
-+	ssp = csr_read(CSR_SSP);
-+	ksft_print_msg("Spewing out shadow stack ptr: %lx\n"
-+			"  This is to ensure shadow stack is indeed enabled and working\n",
-+			ssp);
-+}
-+
-+void bar(void)
-+{
-+	zar();
-+}
-+
-+void foo(void)
-+{
-+	bar();
-+}
-+
-+void zar_child(void)
-+{
-+	unsigned long ssp = 0;
-+
-+	ssp = csr_read(CSR_SSP);
-+	ksft_print_msg("Spewing out shadow stack ptr: %lx\n"
-+			"  This is to ensure shadow stack is indeed enabled and working\n",
-+			ssp);
-+}
-+
-+void bar_child(void)
-+{
-+	zar_child();
-+}
-+
-+void foo_child(void)
-+{
-+	bar_child();
-+}
-+
-+typedef void (call_func_ptr)(void);
-+/*
-+ * call couple of functions to test push pop.
-+ */
-+int shadow_stack_call_tests(call_func_ptr fn_ptr, bool parent)
-+{
-+	ksft_print_msg("dummy calls for sspush and sspopchk in context of %s\n",
-+		       parent ? "parent" : "child");
-+
-+	(fn_ptr)();
-+
-+	return 0;
-+}
-+
-+/* forks a thread, and ensure shadow stacks fork out */
-+bool shadow_stack_fork_test(unsigned long test_num, void *ctx)
-+{
-+	int pid = 0, child_status = 0, parent_pid = 0, ret = 0;
-+	unsigned long ss_status = 0;
-+
-+	ksft_print_msg("Exercising shadow stack fork test\n");
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &ss_status, 0, 0, 0);
-+	if (ret) {
-+		ksft_exit_skip("Shadow stack get status prctl failed with errorcode %d\n", ret);
-+		return false;
-+	}
-+
-+	if (!(ss_status & PR_SHADOW_STACK_ENABLE))
-+		ksft_exit_skip("Shadow stack is not enabled, should be enabled via glibc\n");
-+
-+	parent_pid = getpid();
-+	pid = fork();
-+
-+	if (pid) {
-+		ksft_print_msg("Parent pid %d and child pid %d\n", parent_pid, pid);
-+		shadow_stack_call_tests(&foo, true);
-+	} else {
-+		shadow_stack_call_tests(&foo_child, false);
-+	}
-+
-+	if (pid) {
-+		ksft_print_msg("Waiting on child to finish\n");
-+		wait(&child_status);
-+	} else {
-+		/* exit child gracefully */
-+		exit(0);
-+	}
-+
-+	if (pid && WIFSIGNALED(child_status)) {
-+		ksft_print_msg("Child faulted, fork test failed\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/* exercise `map_shadow_stack`, pivot to it and call some functions to ensure it works */
-+#define SHADOW_STACK_ALLOC_SIZE 4096
-+bool shadow_stack_map_test(unsigned long test_num, void *ctx)
-+{
-+	unsigned long shdw_addr;
-+	int ret = 0;
-+
-+	ksft_print_msg("Exercising shadow stack map test\n");
-+
-+	shdw_addr = my_syscall3(__NR_map_shadow_stack, NULL, SHADOW_STACK_ALLOC_SIZE, 0);
-+
-+	if (((long)shdw_addr) <= 0) {
-+		ksft_print_msg("map_shadow_stack failed with error code %d\n",
-+			       (int)shdw_addr);
-+		return false;
-+	}
-+
-+	ret = munmap((void *)shdw_addr, SHADOW_STACK_ALLOC_SIZE);
-+
-+	if (ret) {
-+		ksft_print_msg("munmap failed with error code %d\n", ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/*
-+ * shadow stack protection tests. map a shadow stack and
-+ * validate all memory protections work on it
-+ */
-+bool shadow_stack_protection_test(unsigned long test_num, void *ctx)
-+{
-+	unsigned long shdw_addr;
-+	unsigned long *write_addr = NULL;
-+	int ret = 0, pid = 0, child_status = 0;
-+
-+	ksft_print_msg("Exercising shadow stack protection test (WPT)\n");
-+
-+	shdw_addr = my_syscall3(__NR_map_shadow_stack, NULL, SHADOW_STACK_ALLOC_SIZE, 0);
-+
-+	if (((long)shdw_addr) <= 0) {
-+		ksft_print_msg("map_shadow_stack failed with error code %d\n",
-+			       (int)shdw_addr);
-+		return false;
-+	}
-+
-+	write_addr = (unsigned long *)shdw_addr;
-+	pid = fork();
-+
-+	/* no child was created, return false */
-+	if (pid == -1)
-+		return false;
-+
-+	/*
-+	 * try to perform a store from child on shadow stack memory
-+	 * it should result in SIGSEGV
-+	 */
-+	if (!pid) {
-+		/* below write must lead to SIGSEGV */
-+		*write_addr = 0xdeadbeef;
-+	} else {
-+		wait(&child_status);
-+	}
-+
-+	/* test fail, if 0xdeadbeef present on shadow stack address */
-+	if (*write_addr == 0xdeadbeef) {
-+		ksft_print_msg("Shadow stack WPT failed\n");
-+		return false;
-+	}
-+
-+	/* if child reached here, then fail */
-+	if (!pid) {
-+		ksft_print_msg("Shadow stack WPT failed: child reached unreachable state\n");
-+		return false;
-+	}
-+
-+	/* if child exited via signal handler but not for write on ss */
-+	if (WIFEXITED(child_status) &&
-+	    WEXITSTATUS(child_status) != CHILD_EXIT_CODE_SSWRITE) {
-+		ksft_print_msg("Shadow stack WPT failed: child wasn't signaled for write\n");
-+		return false;
-+	}
-+
-+	ret = munmap(write_addr, SHADOW_STACK_ALLOC_SIZE);
-+	if (ret) {
-+		ksft_print_msg("Shadow stack WPT failed: munmap failed, error code %d\n",
-+			       ret);
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+#define SS_MAGIC_WRITE_VAL 0xbeefdead
-+
-+int gup_tests(int mem_fd, unsigned long *shdw_addr)
-+{
-+	unsigned long val = 0;
-+
-+	lseek(mem_fd, (unsigned long)shdw_addr, SEEK_SET);
-+	if (read(mem_fd, &val, sizeof(val)) < 0) {
-+		ksft_print_msg("Reading shadow stack mem via gup failed\n");
-+		return 1;
-+	}
-+
-+	val = SS_MAGIC_WRITE_VAL;
-+	lseek(mem_fd, (unsigned long)shdw_addr, SEEK_SET);
-+	if (write(mem_fd, &val, sizeof(val)) < 0) {
-+		ksft_print_msg("Writing shadow stack mem via gup failed\n");
-+		return 1;
-+	}
-+
-+	if (*shdw_addr != SS_MAGIC_WRITE_VAL) {
-+		ksft_print_msg("GUP write to shadow stack memory failed\n");
-+		return 1;
-+	}
-+
-+	return 0;
-+}
-+
-+bool shadow_stack_gup_tests(unsigned long test_num, void *ctx)
-+{
-+	unsigned long shdw_addr = 0;
-+	unsigned long *write_addr = NULL;
-+	int fd = 0;
-+	bool ret = false;
-+
-+	ksft_print_msg("Exercising shadow stack gup tests\n");
-+	shdw_addr = my_syscall3(__NR_map_shadow_stack, NULL, SHADOW_STACK_ALLOC_SIZE, 0);
-+
-+	if (((long)shdw_addr) <= 0) {
-+		ksft_print_msg("map_shadow_stack failed with error code %d\n", (int)shdw_addr);
-+		return false;
-+	}
-+
-+	write_addr = (unsigned long *)shdw_addr;
-+
-+	fd = open("/proc/self/mem", O_RDWR);
-+	if (fd == -1)
-+		return false;
-+
-+	if (gup_tests(fd, write_addr)) {
-+		ksft_print_msg("gup tests failed\n");
-+		goto out;
-+	}
-+
-+	ret = true;
-+out:
-+	if (shdw_addr && munmap(write_addr, SHADOW_STACK_ALLOC_SIZE)) {
-+		ksft_print_msg("munmap failed with error code %d\n", ret);
-+		ret = false;
-+	}
-+
-+	return ret;
-+}
-+
-+volatile bool break_loop;
-+
-+void sigusr1_handler(int signo)
-+{
-+	break_loop = true;
-+}
-+
-+bool sigusr1_signal_test(void)
-+{
-+	struct sigaction sa = {};
-+
-+	sa.sa_handler = sigusr1_handler;
-+	sa.sa_flags = 0;
-+	sigemptyset(&sa.sa_mask);
-+	if (sigaction(SIGUSR1, &sa, NULL)) {
-+		ksft_print_msg("Registering signal handler for SIGUSR1 failed\n");
-+		return false;
-+	}
-+
-+	return true;
-+}
-+
-+/*
-+ * shadow stack signal test. shadow stack must be enabled.
-+ * register a signal, fork another thread which is waiting
-+ * on signal. Send a signal from parent to child, verify
-+ * that signal was received by child. If not test fails
-+ */
-+bool shadow_stack_signal_test(unsigned long test_num, void *ctx)
-+{
-+	int pid = 0, child_status = 0, ret = 0;
-+	unsigned long ss_status = 0;
-+
-+	ksft_print_msg("Exercising shadow stack signal test\n");
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &ss_status, 0, 0, 0);
-+	if (ret) {
-+		ksft_print_msg("Shadow stack get status prctl failed with errorcode %d\n", ret);
-+		return false;
-+	}
-+
-+	if (!(ss_status & PR_SHADOW_STACK_ENABLE))
-+		ksft_print_msg("Shadow stack is not enabled, should be enabled via glibc\n");
-+
-+	/* this should be caught by signal handler and do an exit */
-+	if (!sigusr1_signal_test()) {
-+		ksft_print_msg("Registering sigusr1 handler failed\n");
-+		exit(-1);
-+	}
-+
-+	pid = fork();
-+
-+	if (pid == -1) {
-+		ksft_print_msg("Signal test: fork failed\n");
-+		goto out;
-+	}
-+
-+	if (pid == 0) {
-+		while (!break_loop)
-+			sleep(1);
-+
-+		exit(11);
-+		/* child shouldn't go beyond here */
-+	}
-+
-+	/* send SIGUSR1 to child */
-+	kill(pid, SIGUSR1);
-+	wait(&child_status);
-+
-+out:
-+
-+	return (WIFEXITED(child_status) &&
-+		WEXITSTATUS(child_status) == 11);
-+}
-+
-+int execute_shadow_stack_tests(void)
-+{
-+	int ret = 0;
-+	unsigned long test_count = 0;
-+	unsigned long shstk_status = 0;
-+	bool test_pass = false;
-+
-+	ksft_print_msg("Executing RISC-V shadow stack self tests\n");
-+	ksft_set_plan(RISCV_SHADOW_STACK_TESTS);
-+
-+	ret = my_syscall5(__NR_prctl, PR_GET_SHADOW_STACK_STATUS, &shstk_status, 0, 0, 0);
-+
-+	if (ret != 0)
-+		ksft_exit_fail_msg("Get shadow stack status failed with %d\n", ret);
-+
-+	/*
-+	 * If we are here that means get shadow stack status succeeded and
-+	 * thus shadow stack support is baked in the kernel.
-+	 */
-+	while (test_count < RISCV_SHADOW_STACK_TESTS) {
-+		test_pass = (*shstk_tests[test_count].t_func)(test_count, NULL);
-+		ksft_test_result(test_pass, shstk_tests[test_count].name);
-+		test_count++;
-+	}
-+
-+	ksft_finished();
-+
-+	return 0;
-+}
-+
-+#pragma GCC pop_options
-diff --git a/tools/testing/selftests/riscv/cfi/shadowstack.h b/tools/testing/selftests/riscv/cfi/shadowstack.h
-new file mode 100644
-index 000000000000..0be510167de3
---- /dev/null
-+++ b/tools/testing/selftests/riscv/cfi/shadowstack.h
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
-+
-+#ifndef SELFTEST_SHADOWSTACK_TEST_H
-+#define SELFTEST_SHADOWSTACK_TEST_H
-+#include <stddef.h>
-+#include <linux/prctl.h>
-+
-+/*
-+ * a cfi test returns true for success or false for fail
-+ * takes a number for test number to index into array and void pointer.
-+ */
-+typedef bool (*shstk_test_func)(unsigned long test_num, void *);
-+
-+struct shadow_stack_tests {
-+	char *name;
-+	shstk_test_func t_func;
-+};
-+
-+bool shadow_stack_fork_test(unsigned long test_num, void *ctx);
-+bool shadow_stack_map_test(unsigned long test_num, void *ctx);
-+bool shadow_stack_protection_test(unsigned long test_num, void *ctx);
-+bool shadow_stack_gup_tests(unsigned long test_num, void *ctx);
-+bool shadow_stack_signal_test(unsigned long test_num, void *ctx);
-+
-+int execute_shadow_stack_tests(void);
-+
-+#endif
-
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpLCAyMyBNYXkgMjAyNSAwMzoxOToxNyBQRFQgKC0wNzAwKSwgY2xlZ2VyQHJpdm9zaW5j
+LmNvbSB3cm90ZToKPiBUaGUgU0JJIEZpcm13YXJlIEZlYXR1cmUgZXh0ZW5zaW9uIGFsbG93cyB0
+aGUgUy1tb2RlIHRvIHJlcXVlc3Qgc29tZQo+IHNwZWNpZmljIGZlYXR1cmVzIChlaXRoZXIgaGFy
+ZHdhcmUgb3Igc29mdHdhcmUpIHRvIGJlIGVuYWJsZWQuIFRoaXMKPiBzZXJpZXMgdXNlcyB0aGlz
+IGV4dGVuc2lvbiB0byByZXF1ZXN0IG1pc2FsaWduZWQgYWNjZXNzIGV4Y2VwdGlvbgo+IGRlbGVn
+YXRpb24gdG8gUy1tb2RlIGluIG9yZGVyIHRvIGxldCB0aGUga2VybmVsIGhhbmRsZSBpdC4gSXQg
+YWxzbyBhZGRzCj4gc3VwcG9ydCBmb3IgdGhlIEtWTSBGV0ZUIFNCSSBleHRlbnNpb24gYmFzZWQg
+b24gdGhlIG1pc2FsaWduZWQgYWNjZXNzCj4gaGFuZGxpbmcgaW5mcmFzdHJ1Y3R1cmUuCj4KPiBG
+V0ZUIFNCSSBleHRlbnNpb24gaXMgcGFydCBvZiB0aGUgU0JJIFYzLjAgc3BlY2lmaWNhdGlvbnMg
+WzFdLiBJdCBjYW4gYmUKPiB0ZXN0ZWQgdXNpbmcgdGhlIHFlbXUgcHJvdmlkZWQgYXQgWzJdIHdo
+aWNoIGNvbnRhaW5zIHRoZSBzZXJpZXMgZnJvbQo+IFszXS4gVXBzdHJlYW0ga3ZtLXVuaXQtdGVz
+dHMgY2FuIGJlIHVzZWQgaW5zaWRlIGt2bSB0byB0ZXN0cyB0aGUgY29ycmVjdAo+IGRlbGVnYXRp
+b24gb2YgbWlzYWxpZ25lZCBleGNlcHRpb25zLiBVcHN0cmVhbSBPcGVuU0JJIGNhbiBiZSB1c2Vk
+Lgo+Cj4gTm90ZTogU2luY2UgU0JJIFYzLjAgaXMgbm90IHlldCByYXRpZmllZCwgRldGVCBleHRl
+bnNpb24gQVBJIGlzIHNwbGl0Cj4gYmV0d2VlbiBpbnRlcmZhY2Ugb25seSBhbmQgaW1wbGVtZW50
+YXRpb24sIGFsbG93aW5nIHRvIHBpY2sgb25seSB0aGUKPiBpbnRlcmZhY2Ugd2hpY2ggZG8gbm90
+IGhhdmUgaGFyZCBkZXBlbmRlbmNpZXMgb24gU0JJLgo+Cj4gVGhlIHRlc3RzIGNhbiBiZSBydW4g
+dXNpbmcgdGhlIGtzZWxmdGVzdCBmcm9tIHNlcmllcyBbNF0uCj4KPiAkIHFlbXUtc3lzdGVtLXJp
+c2N2NjQgXAo+IAktY3B1IHJ2NjQsdHJhcC1taXNhbGlnbmVkLWFjY2Vzcz10cnVlLHY9dHJ1ZSBc
+Cj4gCS1NIHZpcnQgXAo+IAktbSAxMDI0TSBcCj4gCS1iaW9zIGZ3X2R5bmFtaWMuYmluIFwKPiAJ
+LWtlcm5lbCBJbWFnZQo+ICAuLi4KPgo+ICAjIC4vbWlzYWxpZ25lZAo+ICBUQVAgdmVyc2lvbiAx
+Mwo+ICAxLi4yMwo+ICAjIFN0YXJ0aW5nIDIzIHRlc3RzIGZyb20gMSB0ZXN0IGNhc2VzLgo+ICAj
+ICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2xoIC4uLgo+ICAjICAgICAgICAgICAgT0sg
+IGdsb2JhbC5ncF9sb2FkX2xoCj4gIG9rIDEgZ2xvYmFsLmdwX2xvYWRfbGgKPiAgIyAgUlVOICAg
+ICAgICAgICBnbG9iYWwuZ3BfbG9hZF9saHUgLi4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFs
+LmdwX2xvYWRfbGh1Cj4gIG9rIDIgZ2xvYmFsLmdwX2xvYWRfbGh1Cj4gICMgIFJVTiAgICAgICAg
+ICAgZ2xvYmFsLmdwX2xvYWRfbHcgLi4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xv
+YWRfbHcKPiAgb2sgMyBnbG9iYWwuZ3BfbG9hZF9sdwo+ICAjICBSVU4gICAgICAgICAgIGdsb2Jh
+bC5ncF9sb2FkX2x3dSAuLi4KPiAgIyAgICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9sd3UK
+PiAgb2sgNCBnbG9iYWwuZ3BfbG9hZF9sd3UKPiAgIyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3Bf
+bG9hZF9sZCAuLi4KPiAgIyAgICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9sZAo+ICBvayA1
+IGdsb2JhbC5ncF9sb2FkX2xkCj4gICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfY19s
+dyAuLi4KPiAgIyAgICAgICAgICAgIE9LICBnbG9iYWwuZ3BfbG9hZF9jX2x3Cj4gIG9rIDYgZ2xv
+YmFsLmdwX2xvYWRfY19sdwo+ICAjICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2NfbGQg
+Li4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfY19sZAo+ICBvayA3IGdsb2Jh
+bC5ncF9sb2FkX2NfbGQKPiAgIyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3BfbG9hZF9jX2xkc3Ag
+Li4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfY19sZHNwCj4gIG9rIDggZ2xv
+YmFsLmdwX2xvYWRfY19sZHNwCj4gICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfc2gg
+Li4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfc2gKPiAgb2sgOSBnbG9iYWwu
+Z3BfbG9hZF9zaAo+ICAjICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX3N3IC4uLgo+ICAj
+ICAgICAgICAgICAgT0sgIGdsb2JhbC5ncF9sb2FkX3N3Cj4gIG9rIDEwIGdsb2JhbC5ncF9sb2Fk
+X3N3Cj4gICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfc2QgLi4uCj4gICMgICAgICAg
+ICAgICBPSyAgZ2xvYmFsLmdwX2xvYWRfc2QKPiAgb2sgMTEgZ2xvYmFsLmdwX2xvYWRfc2QKPiAg
+IyAgUlVOICAgICAgICAgICBnbG9iYWwuZ3BfbG9hZF9jX3N3IC4uLgo+ICAjICAgICAgICAgICAg
+T0sgIGdsb2JhbC5ncF9sb2FkX2Nfc3cKPiAgb2sgMTIgZ2xvYmFsLmdwX2xvYWRfY19zdwo+ICAj
+ICBSVU4gICAgICAgICAgIGdsb2JhbC5ncF9sb2FkX2Nfc2QgLi4uCj4gICMgICAgICAgICAgICBP
+SyAgZ2xvYmFsLmdwX2xvYWRfY19zZAo+ICBvayAxMyBnbG9iYWwuZ3BfbG9hZF9jX3NkCj4gICMg
+IFJVTiAgICAgICAgICAgZ2xvYmFsLmdwX2xvYWRfY19zZHNwIC4uLgo+ICAjICAgICAgICAgICAg
+T0sgIGdsb2JhbC5ncF9sb2FkX2Nfc2RzcAo+ICBvayAxNCBnbG9iYWwuZ3BfbG9hZF9jX3Nkc3AK
+PiAgIyAgUlVOICAgICAgICAgICBnbG9iYWwuZnB1X2xvYWRfZmx3IC4uLgo+ICAjICAgICAgICAg
+ICAgT0sgIGdsb2JhbC5mcHVfbG9hZF9mbHcKPiAgb2sgMTUgZ2xvYmFsLmZwdV9sb2FkX2Zsdwo+
+ICAjICBSVU4gICAgICAgICAgIGdsb2JhbC5mcHVfbG9hZF9mbGQgLi4uCj4gICMgICAgICAgICAg
+ICBPSyAgZ2xvYmFsLmZwdV9sb2FkX2ZsZAo+ICBvayAxNiBnbG9iYWwuZnB1X2xvYWRfZmxkCj4g
+ICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmZwdV9sb2FkX2NfZmxkIC4uLgo+ICAjICAgICAgICAg
+ICAgT0sgIGdsb2JhbC5mcHVfbG9hZF9jX2ZsZAo+ICBvayAxNyBnbG9iYWwuZnB1X2xvYWRfY19m
+bGQKPiAgIyAgUlVOICAgICAgICAgICBnbG9iYWwuZnB1X2xvYWRfY19mbGRzcCAuLi4KPiAgIyAg
+ICAgICAgICAgIE9LICBnbG9iYWwuZnB1X2xvYWRfY19mbGRzcAo+ICBvayAxOCBnbG9iYWwuZnB1
+X2xvYWRfY19mbGRzcAo+ICAjICBSVU4gICAgICAgICAgIGdsb2JhbC5mcHVfc3RvcmVfZnN3IC4u
+Lgo+ICAjICAgICAgICAgICAgT0sgIGdsb2JhbC5mcHVfc3RvcmVfZnN3Cj4gIG9rIDE5IGdsb2Jh
+bC5mcHVfc3RvcmVfZnN3Cj4gICMgIFJVTiAgICAgICAgICAgZ2xvYmFsLmZwdV9zdG9yZV9mc2Qg
+Li4uCj4gICMgICAgICAgICAgICBPSyAgZ2xvYmFsLmZwdV9zdG9yZV9mc2QKPiAgb2sgMjAgZ2xv
+YmFsLmZwdV9zdG9yZV9mc2QKPiAgIyAgUlVOICAgICAgICAgICBnbG9iYWwuZnB1X3N0b3JlX2Nf
+ZnNkIC4uLgo+ICAjICAgICAgICAgICAgT0sgIGdsb2JhbC5mcHVfc3RvcmVfY19mc2QKPiAgb2sg
+MjEgZ2xvYmFsLmZwdV9zdG9yZV9jX2ZzZAo+ICAjICBSVU4gICAgICAgICAgIGdsb2JhbC5mcHVf
+c3RvcmVfY19mc2RzcCAuLi4KPiAgIyAgICAgICAgICAgIE9LICBnbG9iYWwuZnB1X3N0b3JlX2Nf
+ZnNkc3AKPiAgb2sgMjIgZ2xvYmFsLmZwdV9zdG9yZV9jX2ZzZHNwCj4gICMgIFJVTiAgICAgICAg
+ICAgZ2xvYmFsLmdlbl9zaWdidXMgLi4uCj4gIFsxMjc5Ny45ODg2NDddIG1pc2FsaWduZWRbNjE4
+XTogdW5oYW5kbGVkIHNpZ25hbCA3IGNvZGUgMHgxIGF0IDB4MDAwMDAwMDAwMDAxNGRjMCBpbiBt
+aXNhbGlnbmVkWzRkYzAsMTAwMDArNzYwMDBdCj4gIFsxMjc5Ny45ODg5OTBdIENQVTogMCBVSUQ6
+IDAgUElEOiA2MTggQ29tbTogbWlzYWxpZ25lZCBOb3QgdGFpbnRlZCA2LjEzLjAtcmM2LTAwMDA4
+LWc0ZWM0NDY4OTY3YzktZGlydHkgIzUxCj4gIFsxMjc5Ny45ODkxNjldIEhhcmR3YXJlIG5hbWU6
+IHJpc2N2LXZpcnRpbyxxZW11IChEVCkKPiAgWzEyNzk3Ljk4OTI2NF0gZXBjIDogMDAwMDAwMDAw
+MDAxNGRjMCByYSA6IDAwMDAwMDAwMDAwMTRkMDAgc3AgOiAwMDAwN2ZmZmUxNjVkMTAwCj4gIFsx
+Mjc5Ny45ODk0MDddICBncCA6IDAwMDAwMDAwMDAwOGY2ZTggdHAgOiAwMDAwMDAwMDAwMDk1NzYw
+IHQwIDogMDAwMDAwMDAwMDAwMDAwOAo+ICBbMTI3OTcuOTg5NTQ0XSAgdDEgOiAwMDAwMDAwMDAw
+MDk2NWQ4IHQyIDogMDAwMDAwMDAwMDA4ZTgzMCBzMCA6IDAwMDA3ZmZmZTE2NWQxNjAKPiAgWzEy
+Nzk3Ljk4OTY5Ml0gIHMxIDogMDAwMDAwMDAwMDAwMDAxYSBhMCA6IDAwMDAwMDAwMDAwMDAwMDAg
+YTEgOiAwMDAwMDAwMDAwMDAwMDAyCj4gIFsxMjc5Ny45ODk4MzFdICBhMiA6IDAwMDAwMDAwMDAw
+MDAwMDAgYTMgOiAwMDAwMDAwMDAwMDAwMDAwIGE0IDogZmZmZmZmZmZkZWFkYmVlZgo+ICBbMTI3
+OTcuOTg5OTY0XSAgYTUgOiAwMDAwMDAwMDAwMDhlZjYxIGE2IDogNjI2NzY5NzM1ZjZlMDAwMCBh
+NyA6IGZmZmZmZmZmZmZmZmYwMDAKPiAgWzEyNzk3Ljk5MDA5NF0gIHMyIDogMDAwMDAwMDAwMDAw
+MDAwMSBzMyA6IDAwMDA3ZmZmZTE2NWQ4MzggczQgOiAwMDAwN2ZmZmUxNjVkODQ4Cj4gIFsxMjc5
+Ny45OTAyMzhdICBzNSA6IDAwMDAwMDAwMDAwMDAwMWEgczYgOiAwMDAwMDAwMDAwMDEwNDQyIHM3
+IDogMDAwMDAwMDAwMDAxMDIwMAo+ICBbMTI3OTcuOTkwMzkxXSAgczggOiAwMDAwMDAwMDAwMDAw
+MDNhIHM5IDogMDAwMDAwMDAwMDA5NDUwOCBzMTA6IDAwMDAwMDAwMDAwMDAwMDAKPiAgWzEyNzk3
+Ljk5MDUyNl0gIHMxMTogMDAwMDU1NTU2NzQ2MDY2OCB0MyA6IDAwMDA3ZmZmZTE2NWQwNzAgdDQg
+OiAwMDAwMDAwMDAwMDk2NWQwCj4gIFsxMjc5Ny45OTA2NTZdICB0NSA6IGZlZmVmZWZlZmVmZWZl
+ZmYgdDYgOiAwMDAwMDAwMDAwMDAwMDczCj4gIFsxMjc5Ny45OTA3NTZdIHN0YXR1czogMDAwMDAw
+MDIwMDAwNDAyMCBiYWRhZGRyOiAwMDAwMDAwMDAwMDhlZjYxIGNhdXNlOiAwMDAwMDAwMDAwMDAw
+MDA2Cj4gIFsxMjc5Ny45OTA5MTFdIENvZGU6IDg3OTMgODc5MSAzNDIzIGZjZjQgMzc4MyBmYzg0
+IGM3MzcgZGVhZCAwNzEzIGVlZjcgKGMzOTgpIDAwMDEKPiAgIyAgICAgICAgICAgIE9LICBnbG9i
+YWwuZ2VuX3NpZ2J1cwo+ICBvayAyMyBnbG9iYWwuZ2VuX3NpZ2J1cwo+ICAjIFBBU1NFRDogMjMg
+LyAyMyB0ZXN0cyBwYXNzZWQuCj4gICMgVG90YWxzOiBwYXNzOjIzIGZhaWw6MCB4ZmFpbDowIHhw
+YXNzOjAgc2tpcDowIGVycm9yOjAKPgo+IFdpdGgga3ZtLXRvb2xzOgo+Cj4gICMgbGt2bSBydW4g
+LWsgc2JpLmZsYXQgLW0gMTI4Cj4gICBJbmZvOiAjIGxrdm0gcnVuIC1rIHNiaS5mbGF0IC1tIDEy
+OCAtYyAxIC0tbmFtZSBndWVzdC05Nwo+ICAgSW5mbzogUmVtb3ZlZCBnaG9zdCBzb2NrZXQgZmls
+ZSAiL3Jvb3QvLmxrdm0vL2d1ZXN0LTk3LnNvY2siLgo+Cj4gICMjIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjCj4g
+ICMgICAga3ZtLXVuaXQtdGVzdHMKPiAgIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMj
+IyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMKPgo+ICAuLi4gW3Rlc3Qg
+bWVzc2FnZXMgZWxpZGVkXQo+ICBQQVNTOiBzYmk6IGZ3ZnQ6IEZXRlQgZXh0ZW5zaW9uIHByb2Jp
+bmcgbm8gZXJyb3IKPiAgUEFTUzogc2JpOiBmd2Z0OiBnZXQvc2V0IHJlc2VydmVkIGZlYXR1cmUg
+MHg2IGVycm9yID09IFNCSV9FUlJfREVOSUVECj4gIFBBU1M6IHNiaTogZndmdDogZ2V0L3NldCBy
+ZXNlcnZlZCBmZWF0dXJlIDB4M2ZmZmZmZmYgZXJyb3IgPT0gU0JJX0VSUl9ERU5JRUQKPiAgUEFT
+Uzogc2JpOiBmd2Z0OiBnZXQvc2V0IHJlc2VydmVkIGZlYXR1cmUgMHg4MDAwMDAwMCBlcnJvciA9
+PSBTQklfRVJSX0RFTklFRAo+ICBQQVNTOiBzYmk6IGZ3ZnQ6IGdldC9zZXQgcmVzZXJ2ZWQgZmVh
+dHVyZSAweGJmZmZmZmZmIGVycm9yID09IFNCSV9FUlJfREVOSUVECj4gIFBBU1M6IHNiaTogZndm
+dDogbWlzYWxpZ25lZF9kZWxlZzogR2V0IG1pc2FsaWduZWQgZGVsZWcgZmVhdHVyZSBubyBlcnJv
+cgo+ICBQQVNTOiBzYmk6IGZ3ZnQ6IG1pc2FsaWduZWRfZGVsZWc6IFNldCBtaXNhbGlnbmVkIGRl
+bGVnIGZlYXR1cmUgaW52YWxpZCB2YWx1ZSBlcnJvcgo+ICBQQVNTOiBzYmk6IGZ3ZnQ6IG1pc2Fs
+aWduZWRfZGVsZWc6IFNldCBtaXNhbGlnbmVkIGRlbGVnIGZlYXR1cmUgaW52YWxpZCB2YWx1ZSBl
+cnJvcgo+ICBQQVNTOiBzYmk6IGZ3ZnQ6IG1pc2FsaWduZWRfZGVsZWc6IFNldCBtaXNhbGlnbmVk
+IGRlbGVnIGZlYXR1cmUgdmFsdWUgbm8gZXJyb3IKPiAgUEFTUzogc2JpOiBmd2Z0OiBtaXNhbGln
+bmVkX2RlbGVnOiBTZXQgbWlzYWxpZ25lZCBkZWxlZyBmZWF0dXJlIHZhbHVlIDAKPiAgUEFTUzog
+c2JpOiBmd2Z0OiBtaXNhbGlnbmVkX2RlbGVnOiBTZXQgbWlzYWxpZ25lZCBkZWxlZyBmZWF0dXJl
+IHZhbHVlIG5vIGVycm9yCj4gIFBBU1M6IHNiaTogZndmdDogbWlzYWxpZ25lZF9kZWxlZzogU2V0
+IG1pc2FsaWduZWQgZGVsZWcgZmVhdHVyZSB2YWx1ZSAxCj4gIFBBU1M6IHNiaTogZndmdDogbWlz
+YWxpZ25lZF9kZWxlZzogVmVyaWZ5IG1pc2FsaWduZWQgbG9hZCBleGNlcHRpb24gdHJhcCBpbiBz
+dXBlcnZpc29yCj4gIFNVTU1BUlk6IDUwIHRlc3RzLCAyIHVuZXhwZWN0ZWQgZmFpbHVyZXMsIDEy
+IHNraXBwZWQKPgo+IFRoaXMgc2VyaWVzIGlzIGF2YWlsYWJsZSBhdCBbNV0uCj4KPiBMaW5rOiBo
+dHRwczovL2dpdGh1Yi5jb20vcmlzY3Ytbm9uLWlzYS9yaXNjdi1zYmktZG9jL3JlbGVhc2VzL2Rv
+d25sb2FkL3Z2My4wLXJjMi9yaXNjdi1zYmkucGRmIFsxXQo+IExpbms6IGh0dHBzOi8vZ2l0aHVi
+LmNvbS9yaXZvc2luYy9xZW11L3RyZWUvZGV2L2NsZWdlci9taXNhbGlnbmVkIFsyXQo+IExpbms6
+IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI0MTIxMTIxMTkzMy4xOTg3OTItMy1ma29u
+cmFkQGFtZC5jb20vVC8gWzNdCj4gTGluazogaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgt
+cmlzY3YvMjAyNTA0MTQxMjM1NDMuMTYxNTQ3OC0xLWNsZWdlckByaXZvc2luYy5jb20gWzRdCj4g
+TGluazogaHR0cHM6Ly9naXRodWIuY29tL3Jpdm9zaW5jL2xpbnV4L3RyZWUvZGV2L2NsZWdlci9m
+d2Z0IFs1XQo+IC0tLQo+Cj4gVjg6Cj4gIC0gTW92ZSBtaXNhbGlnbmVkX2FjY2Vzc19zcGVlZCB1
+bmRlciBDT05GSUdfUklTQ1ZfTUlTQUxJR05FRCBhbmQgYWRkIGEKPiAgICBzZXBhcmF0ZSBjb21t
+aXQgZm9yIHRoYXQuCj4KPiBWNzoKPiAgLSBGaXggaWZkZWZlcnkgYnVpbGQgcHJvYmxlbXMKPiAg
+LSBNb3ZlIHNiaV9md2Z0X2lzX3N1cHBvcnRlZCB3aXRoIGZ3ZnRfc2V0X3JlcSBzdHJ1Y3QKPiAg
+LSBBZGRlZCBBdGlzaCBSZXZpZXdlZC1ieQo+ICAtIFVwZGF0ZWQgS1ZNIHZjcHUgY2ZnIGhlZGVs
+ZWcgdmFsdWUgaW4gc2V0X2RlbGVnYXRpb24KPiAgLSBDaGFuZ2VkIFNCSSBFVElNRSBlcnJvciBt
+YXBwaW5nIHRvIEVUSU1FRE9VVAo+ICAtIEZpeGVkIGEgZmV3IHR5cG8gcmVwb3J0ZWQgYnkgQWxv
+awo+Cj4gVjY6Cj4gIC0gUmVuYW1lIEZXRlQgaW50ZXJmYWNlIHRvIHJlbW92ZSAiX2xvY2FsIgo+
+ICAtIEZpeCB0ZXN0IGZvciBNRURFTEVHIHZhbHVlcyBpbiBLVk0gRldGVCBzdXBwb3J0Cj4gIC0g
+QWRkIF9faW5pdCBmb3IgdW5hbGlnbmVkX2FjY2Vzc19pbml0KCkKPiAgLSBSZWJhc2VkIG9uIG1h
+c3Rlcgo+Cj4gVjU6Cj4gIC0gUmV0dXJuIEVSQU5HRSBhcyBtYXBwaW5nIGZvciBTQklfRVJSX0JB
+RF9SQU5HRQo+ICAtIFJlbW92ZWQgdW51c2VkIHNiaV9md2Z0X2dldCgpCj4gIC0gRml4IGtlcm5l
+bCBmb3Igc2JpX2Z3ZnRfbG9jYWxfc2V0X2NwdW1hc2soKQo+ICAtIEZpeCBpbmRlbnRhdGlvbiBm
+b3Igc2JpX2Z3ZnRfbG9jYWxfc2V0KCkKPiAgLSBSZW1vdmUgc3B1cmlvdXMgc3BhY2UgaW4ga3Zt
+X3NiaV9md2Z0X29wcy4KPiAgLSBSZWJhc2VkIG9uIG9yaWdpbi9tYXN0ZXIKPiAgLSBSZW1vdmUg
+Zml4ZXMgY29tbWl0cyBhbmQgc2VudCB0aGVtIGFzIGEgc2VwYXJhdGUgc2VyaWVzIFs0XQo+Cj4g
+VjQ6Cj4gIC0gQ2hlY2sgU0JJIHZlcnNpb24gMy4wIGluc3RlYWQgb2YgMi4wIGZvciBGV0ZUIHBy
+ZXNlbmNlCj4gIC0gVXNlIGxvbmcgZm9yIGt2bV9zYmlfZndmdCBvcGVyYXRpb24gcmV0dXJuIHZh
+bHVlCj4gIC0gSW5pdCBLVk0gc2JpIGV4dGVuc2lvbiBldmVuIGlmIGRlZmF1bHRfZGlzYWJsZWQK
+PiAgLSBSZW1vdmUgcmV2ZXJ0X29uX2ZhaWwgcGFyYW1ldGVyIGZvciBzYmlfZndmdF9mZWF0dXJl
+X3NldCgpLgo+ICAtIEZpeCBjb21tZW50cyBmb3Igc2JpX2Z3ZnRfc2V0L2dldCgpCj4gIC0gT25s
+eSBoYW5kbGUgbG9jYWwgZmVhdHVyZXMgKHRoZXJlIGFyZSBubyBnbG9iYWxzIHlldCBpbiB0aGUg
+c3BlYykKPiAgLSBBZGQgbmV3IFNCSSBlcnJvcnMgdG8gc2JpX2Vycl9tYXBfbGludXhfZXJybm8o
+KQo+Cj4gVjM6Cj4gIC0gQWRkZWQgY29tbWVudCBhYm91dCBrdm0gc2JpIGZ3ZnQgc3VwcG9ydGVk
+L3NldC9nZXQgY2FsbGJhY2sKPiAgICByZXF1aXJlbWVudHMKPiAgLSBNb3ZlIHN0cnVjdCBrdm1f
+c2JpX2Z3ZnRfZmVhdHVyZSBpbiBrdm1fc2JpX2Z3ZnQuYwo+ICAtIEFkZCBhIEZXRlQgaW50ZXJm
+YWNlCj4KPiBWMjoKPiAgLSBBZGRlZCBLc2VsZnRlc3QgZm9yIG1pc2FsaWduZWQgdGVzdGluZwo+
+ICAtIEFkZGVkIGdldF91c2VyKCkgdXNhZ2UgaW5zdGVhZCBvZiBfX2dldF91c2VyKCkKPiAgLSBS
+ZWVuYWJsZSBpbnRlcnJ1cHQgd2hlbiBwb3NzaWJsZSBpbiBtaXNhbGlnbmVkIGFjY2VzcyBoYW5k
+bGluZwo+ICAtIERvY3VtZW50IHRoYXQgcmlzY3Ygc3VwcG9ydHMgdW5hbGlnbmVkLXRyYXBzCj4g
+IC0gRml4IEtWTSBleHRlbnNpb24gc3RhdGUgd2hlbiBhbiBpbml0IGZ1bmN0aW9uIGlzIHByZXNl
+bnQKPiAgLSBSZXdvcmsgU0JJIG1pc2FsaWduZWQgYWNjZXNzZXMgdHJhcCBkZWxlZ2F0aW9uIGNv
+ZGUKPiAgLSBBZGRlZCBzdXBwb3J0IGZvciBDUFUgaG90cGx1Z2dpbmcKPiAgLSBBZGRlZCBLVk0g
+U0JJIHJlc2V0IGNhbGxiYWNrCj4gIC0gQWRkZWQgcmVzZXQgZm9yIEtWTSBTQkkgRldGVCBsb2Nr
+Cj4gIC0gUmV0dXJuIFNCSV9FUlJfREVOSUVEX0xPQ0tFRCB3aGVuIExPQ0sgZmxhZyBpcyBzZXQK
+Pgo+IENsw6ltZW50IEzDqWdlciAoMTQpOgo+ICAgcmlzY3Y6IHNiaTogYWRkIEZpcm13YXJlIEZl
+YXR1cmUgKEZXRlQpIFNCSSBleHRlbnNpb25zIGRlZmluaXRpb25zCj4gICByaXNjdjogc2JpOiBy
+ZW1vdmUgdXNlbGVzcyBwYXJlbnRoZXNpcwo+ICAgcmlzY3Y6IHNiaTogYWRkIG5ldyBTQkkgZXJy
+b3IgbWFwcGluZ3MKPiAgIHJpc2N2OiBzYmk6IGFkZCBGV0ZUIGV4dGVuc2lvbiBpbnRlcmZhY2UK
+PiAgIHJpc2N2OiBzYmk6IGFkZCBTQkkgRldGVCBleHRlbnNpb24gY2FsbHMKPiAgIHJpc2N2OiBt
+aXNhbGlnbmVkOiByZXF1ZXN0IG1pc2FsaWduZWQgZXhjZXB0aW9uIGZyb20gU0JJCj4gICByaXNj
+djogbWlzYWxpZ25lZDogdXNlIG9uX2VhY2hfY3B1KCkgZm9yIHNjYWxhciBtaXNhbGlnbmVkIGFj
+Y2Vzcwo+ICAgICBwcm9iaW5nCj4gICByaXNjdjogbWlzYWxpZ25lZDogZGVjbGFyZSBtaXNhbGln
+bmVkX2FjY2Vzc19zcGVlZCB1bmRlcgo+ICAgICBDT05GSUdfUklTQ1ZfTUlTQUxJR05FRAo+ICAg
+cmlzY3Y6IG1pc2FsaWduZWQ6IG1vdmUgZW11bGF0ZWQgYWNjZXNzIHVuaWZvcm1pdHkgY2hlY2sg
+aW4gYSBmdW5jdGlvbgo+ICAgcmlzY3Y6IG1pc2FsaWduZWQ6IGFkZCBhIGZ1bmN0aW9uIHRvIGNo
+ZWNrIG1pc2FsaWduIHRyYXAgZGVsZWdhYmlsaXR5Cj4gICBSSVNDLVY6IEtWTTogYWRkIFNCSSBl
+eHRlbnNpb24gaW5pdCgpL2RlaW5pdCgpIGZ1bmN0aW9ucwo+ICAgUklTQy1WOiBLVk06IGFkZCBT
+QkkgZXh0ZW5zaW9uIHJlc2V0IGNhbGxiYWNrCj4gICBSSVNDLVY6IEtWTTogYWRkIHN1cHBvcnQg
+Zm9yIEZXRlQgU0JJIGV4dGVuc2lvbgo+ICAgUklTQy1WOiBLVk06IGFkZCBzdXBwb3J0IGZvciBT
+QklfRldGVF9NSVNBTElHTkVEX0RFTEVHCj4KPiAgYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9jcHVm
+ZWF0dXJlLmggICAgICAgIHwgIDE0ICstCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX2hv
+c3QuaCAgICAgICAgICB8ICAgNSArLQo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1
+X3NiaS5oICAgICAgfCAgMTIgKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2t2bV92Y3B1X3Ni
+aV9md2Z0LmggfCAgMjkgKysrCj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vc2JpLmggICAgICAg
+ICAgICAgICB8ICA2MCArKysrKwo+ICBhcmNoL3Jpc2N2L2luY2x1ZGUvdWFwaS9hc20va3ZtLmgg
+ICAgICAgICAgfCAgIDEgKwo+ICBhcmNoL3Jpc2N2L2tlcm5lbC9zYmkuYyAgICAgICAgICAgICAg
+ICAgICAgfCAgODEgKysrKysrLQo+ICBhcmNoL3Jpc2N2L2tlcm5lbC90cmFwc19taXNhbGlnbmVk
+LmMgICAgICAgfCAxMTIgKysrKysrKystCj4gIGFyY2gvcmlzY3Yva2VybmVsL3VuYWxpZ25lZF9h
+Y2Nlc3Nfc3BlZWQuYyB8ICAgOCArLQo+ICBhcmNoL3Jpc2N2L2t2bS9NYWtlZmlsZSAgICAgICAg
+ICAgICAgICAgICAgfCAgIDEgKwo+ICBhcmNoL3Jpc2N2L2t2bS92Y3B1LmMgICAgICAgICAgICAg
+ICAgICAgICAgfCAgIDQgKy0KPiAgYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmkuYyAgICAgICAgICAg
+ICAgICAgIHwgIDU0ICsrKysrCj4gIGFyY2gvcmlzY3Yva3ZtL3ZjcHVfc2JpX2Z3ZnQuYyAgICAg
+ICAgICAgICB8IDI1NyArKysrKysrKysrKysrKysrKysrKysKPiAgYXJjaC9yaXNjdi9rdm0vdmNw
+dV9zYmlfc3RhLmMgICAgICAgICAgICAgIHwgICAzICstCj4gIDE0IGZpbGVzIGNoYW5nZWQsIDYy
+MCBpbnNlcnRpb25zKCspLCAyMSBkZWxldGlvbnMoLSkKPiAgY3JlYXRlIG1vZGUgMTAwNjQ0IGFy
+Y2gvcmlzY3YvaW5jbHVkZS9hc20va3ZtX3ZjcHVfc2JpX2Z3ZnQuaAo+ICBjcmVhdGUgbW9kZSAx
+MDA2NDQgYXJjaC9yaXNjdi9rdm0vdmNwdV9zYmlfZndmdC5jCgpTb3JyeSBJJ20gc3RpbGwga2lu
+ZCBvZiBvdXQgb2YgaXQgaGVyZSwgYnV0IEkgdGhpbmsgQWxleCB3YXMgc2F5aW5nIHRoaXMgCmhh
+cyBkZXBlbmRlbmNpZXMgaW4gdGhlIHBhdGNod29yayBjYWxsIHRoaXMgbW9ybmluZz8KCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
