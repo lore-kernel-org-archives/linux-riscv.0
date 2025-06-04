@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2953FC61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 17:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C437C5B555
+	for <linux-riscv@archiver.kernel.org>; Wed,  4 Jun 2025 17:19:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Q/unvtbucP4feZT8XW6wmmhQO4LZ5uJQTI1rPxq9v2M=; b=xOF0uz+1BtZi1E
-	/p4aLaimjyYYCHZjkQlsAwZwRbsjD4YImLpryYutSTWMt4S+IUSsc7hPa1r4kll5e+3Q3b0Kffa2e
-	HJhsW3Ddan2G3pj44UvTmwEeUgeKAqtO9C3ZkcK63xxOcnUj3UoDVeS5ljZgR10TiqHrS4jziXCWE
-	aWwusBl4Bjd9y35RzhDXaO0jAyE0J91yah380sitLZSWqhQM5iUBwd6CmvOzPK2epbCAoZv9rsU8l
-	u9RmNK4G6C8MXDGq7lVtk+JoGbXu5+AhW5pqi8HdAIXDvgQZlN97n1fZO2ZMyLzDe/BiI59hLOkAK
-	VwoDp8PcV19xhiiz1NTw==;
+	List-Owner; bh=pNPWFlvWm+ggCxw4cI2UQFh9Amo7uN15xroUlUB9joI=; b=UKu2k6Boygny6b
+	W0oF+EHSvVYaD//m3weMIb68k8yESopkBNzajlLgKUKjv6TCdjYX9pqAZUkYCMdTLSj3CpZi0E9NP
+	QOZ3qnEtZpgZ6VDxpMkNHUnpSDKFzmgd00CtsAMXoQuI8/DghrIExho7ec9xABWFomKkUstkFERTu
+	GIH9xf6AHhZ6YQPGQ6W/qXAsX2d0P/jU1Dp/S4ApJOYXOQriZ3quKi3y5mewKCQja+GHN9mW/U4pM
+	kYFL1//6A/InzYokOcItUABwumDIxouaWUMGC2LWbvIF9qzLCJ4nya5Vy6BaD060jGI+qOOhhSn/C
+	gvZ2PD8weCd1TMFGjdzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrlW-0000000Dtur-1XrX;
-	Wed, 04 Jun 2025 17:19:02 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uMrlX-0000000DtwX-3rVh;
+	Wed, 04 Jun 2025 17:19:03 +0000
+Received: from mail-pj1-f42.google.com ([209.85.216.42])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrje-0000000Dt1t-2C62
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 04 Jun 2025 17:17:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4Ps8NKTexRvfBcPPDMVIyCvPCvYZAn4HwKLuefOdoqE=; b=HCSisCxsMp9GuAGymK2i1yVlqY
-	TI1T7azdjloj6RFYLfZ4BQnJT7hpZfuljVC7kthnkBE/io4314Kj1CGx6Es+bYXpf1fnmnz24Lsi7
-	ogEES6V96fUxEM8cD89xlM+afmCFt3DbTUeEwoyQWp2ym7O5TwxR1yDKqxKTh8SDsnHqYOJsrDJub
-	+fRFbzudaA2P0GjCZAhaFpXZrXqEueci/3DPoa9CLhUW4EglLGACzb8DayQZFz4hZwLPYkO6KwdQT
-	LAm2D8HX9vw4Zhzet9gWruyfZcR9cv6w73GUTgydTneD0bybt3Ztcd4udu5+91iJigwTCbj4BrT8S
-	Ue/rjU4g==;
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uMrjb-00000000v7Q-31FF
+	id 1uMrjf-0000000Dt2e-1VeZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 04 Jun 2025 17:17:05 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-312b0d83a10so77944a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 10:17:01 -0700 (PDT)
+	Wed, 04 Jun 2025 17:17:08 +0000
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-306b6ae4fb2so94291a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 10:17:07 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749057420; x=1749662220; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749057426; x=1749662226; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=4Ps8NKTexRvfBcPPDMVIyCvPCvYZAn4HwKLuefOdoqE=;
-        b=P06j+498y7CRqHipMZ21SdjlA5sNWMrmIeo7cE2gBgcpw8+rS+E2af0piy5edsnvia
-         jzX6jdhVQ7tkw1ru+TinZmgMG33Lsuoy1dfUEUMjR0eIBQmchx0CSVqwJnbI0J7ioRro
-         ZicB2M0/LFP1qAJKaamxFXtW15SpTio3/tFpjC/APoJJTHM8WPEQRmMz2Ect/j0s+pMB
-         sfzL28nR9Ct3+mQGb1qNXE8oVobzZNj+hTZUeT30CpwupdIzRFIUU/5uj4lvVzI9OFcK
-         8Vwxi3rduK2bMdGn96n9wDi7fiRcn3fts67J9q3Mn7UAuZTpEXr2i5IzcSJtVg93JtXA
-         PTVQ==
+        bh=NiyUtsRc4plmi7vohRqdQjzwfkHQI38tOt31f5L5qaY=;
+        b=VCA4m7z2hGXIjcvm1/7piZUDqDp54dzFVzPe58TGNvztlmig8xlepbN7dz5+AoQ/3e
+         H0BgczBvFeYCzdvh3NNeeKvJvhtBzoN+B6g0d296cRJQ0cAJmPOw2EgpGNkMYttzUKU9
+         Z/go/czrSC0+6V5jyxuRuIJROtAnrNrJZ6Bf0cD2SsLvOeSRQ3yfoqZeHtOoZGiRVZD0
+         FlBybvqXlmebduf4ZNKmnSVV9/a8pHSsqG+bRDZlfzQN0weXMoD3M66KSizS2wU3avYf
+         9oPhRyjxZeG4YD6LYCJMkENfrGp/sDKpkY82uG3kwIkkDcJpBHhABNGWQG7VcBjhMp0F
+         lFCg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749057420; x=1749662220;
+        d=1e100.net; s=20230601; t=1749057426; x=1749662226;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4Ps8NKTexRvfBcPPDMVIyCvPCvYZAn4HwKLuefOdoqE=;
-        b=CKGVyvVNJk8Tvrqvhiq0V3eMHNIqnoG9xqNX5kmVorsiEsdPTUjQtK0eCMrSDUZ95R
-         OMHGqoED5PUrQF4bL+c7xKpGRWM5tQ9YBZataVI9yZ9ykM8W0OFBOV1ciKF3og34ICNm
-         qCmHYMDy2WHOXUF22tsR8hGXDB2qABgDzm92LfYFeLLHyojRJ4PcAtAeKKB1xpAhaH/o
-         /94krtfWXjNWInx63JZjgfPB1xQEaVhl1ZtRsJ12sv1pNq/yeEaamDZV7gyrPM1wTT05
-         2GbaSst8Jv0PcyQv7U3AX7idlYWauAlp2pXk0UXN/cpOofeRDgx6WnvksV31KLfvrTbw
-         26fg==
-X-Forwarded-Encrypted: i=1; AJvYcCWfpetU94Hh+hTaQHachxIxwVLfiWyhQi7oksVL91bcKMJxQhXvG+2x5qOzqm5lq4a7T/w3V732ncyRWQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwYUIrVo91+YjMG8/Sx8+nxAIPzbqatsE4VhYaKP+Q/KO1AFl//
-	pqsYwPbwPvASdGXJpbNJ/F8UMj3bD7E/4aWteJPvYqGvhFTzXvVnvaZmcHfUXLdO4BE=
-X-Gm-Gg: ASbGncsTkUFCKVt3YzIxXZinWK/UL3mKtqt0tEyFAJw5r5mlc39W725fnBTWIZtiutR
-	pJSmWowGG6NM+6HuAvVOzs+pCw2FA3oJbVmKz2b72S7vwFd4Wb9l3ls/kvT65jM5VdWgIfBnzzG
-	Hu2epIhRyFKTTJEQ6S8b4w2T8E/UCu6wwwrqtYyYOkcMIPat3DlLl7lyQ9I5GC1BNRYuPv/IaQZ
-	p4nUIdwrF9yfI8wFULGkslQI1ft06wpzKM4QC+BmfH9345GYjVzQg5V3dIP3hv12im+fEOmLSXc
-	bwz2NoWs3wmXGPF44Kh9xCV47v9eJrcTjVmzkcrQmXGgiYxmW5n/jnYYOpFxkCQx6SVUp14Z
-X-Google-Smtp-Source: AGHT+IEP2bk43fPAFF7uUJX75rcN5qw/Z+TfMZHF8o/fNykZeh+3oEly2k/Cb3HM5oBmyE9aSHSFyQ==
-X-Received: by 2002:a17:90b:2681:b0:311:a314:c2dc with SMTP id 98e67ed59e1d1-3130ccbf58fmr5616146a91.14.1749057419811;
-        Wed, 04 Jun 2025 10:16:59 -0700 (PDT)
+        bh=NiyUtsRc4plmi7vohRqdQjzwfkHQI38tOt31f5L5qaY=;
+        b=rwUCDmr8riw95dMBCprEszDnkow6Wr9KYSkH5iX2b7ktaylbyemkDDxjHTHXTv19pj
+         VgZI2icEYM3m5+ZxkT8yZW9gtg5/FbXBaRZ1xFNcpzzBCsGc8vlXi3C4BJFjFPDP/c/D
+         KoeCmU/RO/gHyPShEhTLQ2+s7YDXfUDnQ4B4gAruxxbUFYM4qKiZsFI096KnLSJaCCZF
+         5YJcXwRGmxy8jo8wY/mcPQ2gGWu1UZiwwvVjkDOwsJ+kAobQNNw5x/5BvKm6UObGnmMd
+         blEugSsJZhNiRNG7ublkEnspWcG3+Ab7vhG7jnoSEwYR70apzx7PGP7Ae6SPO77n0leS
+         sV3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXDE5RbNC5RH1+GPgND+5lAutOYjdagv9dKVMQhlXmScyPC269kzkLJaJw3UYwGGV4ZgbJJSknHCsnKxg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyODla6vxBmJRGzTaOvLwpMSD6w939G/CMD2Nvl4Tr3Lazg4we9
+	Cm/ZLAHy3BTlRKVLKT39xZ8gQnJbHBlxJWR9fpIAtWgk1+UvHAjHQUJYA3w0tGmTi4A=
+X-Gm-Gg: ASbGncvd0mhx64DwmRT3aimWzu9M+n9xWiIa/ZrfAQ2pl2rvKFWnYN4ICYBa0a1sQ/2
+	3mLykxqZQ5MawSnGL48XM4RP52wTkBDhtoiUclPp2lDHQ6VX8+8NkCDjY3gNSpt3CfxHWQ3bYhF
+	MjtLCZRv+R61CCvn7Ke0U7VznRx9CFiS1TXY2z1n79EyJs0kSDdpC0pXAgFFTyK3xXjTMCCv5w8
+	isIj0oKlkyBEU9PqjYbEbQKMtoKE3pp3HorsvdmVk4F1VsyOhGRG7MYQA935Pc8bS5o0hJZ08XK
+	TCpw3fqfltHn0vgXMRv8/sSwirz6iu5mfzU2ExA/TmB3mN7N34uOPHOBzoJ1SQ==
+X-Google-Smtp-Source: AGHT+IENsceiydaczLF85CA2pd1BqERPQ7DevIEbnP76ZOR4Nrejne4EaY7oK0TZKe3L1vdtAjnIzw==
+X-Received: by 2002:a17:90b:268f:b0:311:ba32:164f with SMTP id 98e67ed59e1d1-3130cd14f29mr5260557a91.8.1749057425950;
+        Wed, 04 Jun 2025 10:17:05 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9c9fsm9178972a91.30.2025.06.04.10.16.56
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3124e2e9c9fsm9178972a91.30.2025.06.04.10.17.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 10:16:59 -0700 (PDT)
+        Wed, 04 Jun 2025 10:17:05 -0700 (PDT)
 From: Deepak Gupta <debug@rivosinc.com>
-Date: Wed, 04 Jun 2025 10:15:39 -0700
-Subject: [PATCH v17 15/27] riscv/traps: Introduce software check exception
- and uprobe handling
+Date: Wed, 04 Jun 2025 10:15:41 -0700
+Subject: [PATCH v17 17/27] riscv/signal: save and restore of shadow stack
+ for signal
 MIME-Version: 1.0
-Message-Id: <20250604-v5_user_cfi_series-v17-15-4565c2cf869f@rivosinc.com>
+Message-Id: <20250604-v5_user_cfi_series-v17-17-4565c2cf869f@rivosinc.com>
 References: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
 In-Reply-To: <20250604-v5_user_cfi_series-v17-0-4565c2cf869f@rivosinc.com>
 To: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
@@ -122,11 +107,11 @@ Cc: linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org,
  atishp@rivosinc.com, evan@rivosinc.com, cleger@rivosinc.com, 
  alexghiti@rivosinc.com, samitolvanen@google.com, broonie@kernel.org, 
  rick.p.edgecombe@intel.com, rust-for-linux@vger.kernel.org, 
- Zong Li <zong.li@sifive.com>, Deepak Gupta <debug@rivosinc.com>
+ Deepak Gupta <debug@rivosinc.com>, Andy Chiu <andybnac@gmail.com>
 X-Mailer: b4 0.13.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_181703_873873_F0299927 
-X-CRM114-Status: GOOD (  20.90  )
+X-CRM114-CacheID: sfid-20250604_101707_420107_651E2F55 
+X-CRM114-Status: GOOD (  24.81  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,137 +128,313 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-zicfiss / zicfilp introduces a new exception to priv isa `software check
-exception` with cause code = 18. This patch implements software check
-exception.
+Save shadow stack pointer in sigcontext structure while delivering signal.
+Restore shadow stack pointer from sigcontext on sigreturn.
 
-Additionally it implements a cfi violation handler which checks for code
-in xtval. If xtval=2, it means that sw check exception happened because of
-an indirect branch not landing on 4 byte aligned PC or not landing on
-`lpad` instruction or label value embedded in `lpad` not matching label
-value setup in `x7`. If xtval=3, it means that sw check exception happened
-because of mismatch between link register (x1 or x5) and top of shadow
-stack (on execution of `sspopchk`).
+As part of save operation, kernel uses `ssamoswap` to save snapshot of
+current shadow stack on shadow stack itself (can be called as a save
+token). During restore on sigreturn, kernel retrieves token from top of
+shadow stack and validates it. This allows that user mode can't arbitrary
+pivot to any shadow stack address without having a token and thus provide
+strong security assurance between signaly delivery and sigreturn window.
 
-In case of cfi violation, SIGSEGV is raised with code=SEGV_CPERR.
-SEGV_CPERR was introduced by x86 shadow stack patches.
+Use ABI compatible way of saving/restoring shadow stack pointer into
+signal stack. This follows what Vector extension, where extra registers
+are placed in a form of extension header + extension body in the stack.
+The extension header indicates the size of the extra architectural
+states plus the size of header itself, and a magic identifier of the
+extension. Then, the extensions body contains the new architectural
+states in the form defined by uapi.
 
-To keep uprobes working, handle the uprobe event first before reporting
-the CFI violation in software-check exception handler. Because when the
-landing pad is activated, if the uprobe point is set at the lpad
-instruction at the beginning of a function, the system triggers a software
--check exception instead of an ebreak exception due to the exception
-priority, then uprobe can't work successfully.
-
-Co-developed-by: Zong Li <zong.li@sifive.com>
-Reviewed-by: Zong Li <zong.li@sifive.com>
-Signed-off-by: Zong Li <zong.li@sifive.com>
+Signed-off-by: Andy Chiu <andy.chiu@sifive.com>
 Signed-off-by: Deepak Gupta <debug@rivosinc.com>
 ---
- arch/riscv/include/asm/asm-prototypes.h |  1 +
- arch/riscv/include/asm/entry-common.h   |  2 ++
- arch/riscv/kernel/entry.S               |  3 ++
- arch/riscv/kernel/traps.c               | 51 +++++++++++++++++++++++++++++++++
- 4 files changed, 57 insertions(+)
+ arch/riscv/include/asm/usercfi.h         | 10 ++++
+ arch/riscv/include/uapi/asm/ptrace.h     |  4 ++
+ arch/riscv/include/uapi/asm/sigcontext.h |  1 +
+ arch/riscv/kernel/signal.c               | 86 ++++++++++++++++++++++++++++++++
+ arch/riscv/kernel/usercfi.c              | 56 +++++++++++++++++++++
+ 5 files changed, 157 insertions(+)
 
-diff --git a/arch/riscv/include/asm/asm-prototypes.h b/arch/riscv/include/asm/asm-prototypes.h
-index cd627ec289f1..5a27cefd7805 100644
---- a/arch/riscv/include/asm/asm-prototypes.h
-+++ b/arch/riscv/include/asm/asm-prototypes.h
-@@ -51,6 +51,7 @@ DECLARE_DO_ERROR_INFO(do_trap_ecall_u);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_s);
- DECLARE_DO_ERROR_INFO(do_trap_ecall_m);
- DECLARE_DO_ERROR_INFO(do_trap_break);
-+DECLARE_DO_ERROR_INFO(do_trap_software_check);
+diff --git a/arch/riscv/include/asm/usercfi.h b/arch/riscv/include/asm/usercfi.h
+index 98820d93c6e1..54add512a4dc 100644
+--- a/arch/riscv/include/asm/usercfi.h
++++ b/arch/riscv/include/asm/usercfi.h
+@@ -8,6 +8,7 @@
+ #ifndef __ASSEMBLY__
+ #include <linux/types.h>
+ #include <linux/prctl.h>
++#include <linux/errno.h>
  
- asmlinkage void handle_bad_stack(struct pt_regs *regs);
- asmlinkage void do_page_fault(struct pt_regs *regs);
-diff --git a/arch/riscv/include/asm/entry-common.h b/arch/riscv/include/asm/entry-common.h
-index b28ccc6cdeea..34ed149af5d1 100644
---- a/arch/riscv/include/asm/entry-common.h
-+++ b/arch/riscv/include/asm/entry-common.h
-@@ -40,4 +40,6 @@ static inline int handle_misaligned_store(struct pt_regs *regs)
- }
- #endif
+ struct task_struct;
+ struct kernel_clone_args;
+@@ -34,6 +35,9 @@ bool is_shstk_locked(struct task_struct *task);
+ bool is_shstk_allocated(struct task_struct *task);
+ void set_shstk_lock(struct task_struct *task);
+ void set_shstk_status(struct task_struct *task, bool enable);
++unsigned long get_active_shstk(struct task_struct *task);
++int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr);
++int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr);
+ bool is_indir_lp_enabled(struct task_struct *task);
+ bool is_indir_lp_locked(struct task_struct *task);
+ void set_indir_lp_status(struct task_struct *task, bool enable);
+@@ -71,6 +75,12 @@ void set_indir_lp_lock(struct task_struct *task);
  
-+bool handle_user_cfi_violation(struct pt_regs *regs);
+ #define set_indir_lp_lock(task) do {} while (0)
+ 
++#define restore_user_shstk(tsk, shstk_ptr) -EINVAL
 +
- #endif /* _ASM_RISCV_ENTRY_COMMON_H */
-diff --git a/arch/riscv/kernel/entry.S b/arch/riscv/kernel/entry.S
-index 978115567bca..8d25837a9384 100644
---- a/arch/riscv/kernel/entry.S
-+++ b/arch/riscv/kernel/entry.S
-@@ -474,6 +474,9 @@ SYM_DATA_START_LOCAL(excp_vect_table)
- 	RISCV_PTR do_page_fault   /* load page fault */
- 	RISCV_PTR do_trap_unknown
- 	RISCV_PTR do_page_fault   /* store page fault */
-+	RISCV_PTR do_trap_unknown /* cause=16 */
-+	RISCV_PTR do_trap_unknown /* cause=17 */
-+	RISCV_PTR do_trap_software_check /* cause=18 is sw check exception */
- SYM_DATA_END_LABEL(excp_vect_table, SYM_L_LOCAL, excp_vect_table_end)
++#define save_user_shstk(tsk, saved_shstk_ptr) -EINVAL
++
++#define get_active_shstk(task) 0UL
++
+ #endif /* CONFIG_RISCV_USER_CFI */
  
- #ifndef CONFIG_MMU
-diff --git a/arch/riscv/kernel/traps.c b/arch/riscv/kernel/traps.c
-index 8ff8e8b36524..64388370e1ad 100644
---- a/arch/riscv/kernel/traps.c
-+++ b/arch/riscv/kernel/traps.c
-@@ -354,6 +354,57 @@ void do_trap_ecall_u(struct pt_regs *regs)
+ #endif /* __ASSEMBLY__ */
+diff --git a/arch/riscv/include/uapi/asm/ptrace.h b/arch/riscv/include/uapi/asm/ptrace.h
+index a38268b19c3d..659ea3af5680 100644
+--- a/arch/riscv/include/uapi/asm/ptrace.h
++++ b/arch/riscv/include/uapi/asm/ptrace.h
+@@ -127,6 +127,10 @@ struct __riscv_v_regset_state {
+  */
+ #define RISCV_MAX_VLENB (8192)
  
++struct __sc_riscv_cfi_state {
++	unsigned long ss_ptr;   /* shadow stack pointer */
++};
++
+ #endif /* __ASSEMBLY__ */
+ 
+ #endif /* _UAPI_ASM_RISCV_PTRACE_H */
+diff --git a/arch/riscv/include/uapi/asm/sigcontext.h b/arch/riscv/include/uapi/asm/sigcontext.h
+index cd4f175dc837..f37e4beffe03 100644
+--- a/arch/riscv/include/uapi/asm/sigcontext.h
++++ b/arch/riscv/include/uapi/asm/sigcontext.h
+@@ -10,6 +10,7 @@
+ 
+ /* The Magic number for signal context frame header. */
+ #define RISCV_V_MAGIC	0x53465457
++#define RISCV_ZICFISS_MAGIC		0x9487
+ #define END_MAGIC	0x0
+ 
+ /* The size of END signal context header. */
+diff --git a/arch/riscv/kernel/signal.c b/arch/riscv/kernel/signal.c
+index a5e3d54fe54b..1bcda11e0680 100644
+--- a/arch/riscv/kernel/signal.c
++++ b/arch/riscv/kernel/signal.c
+@@ -22,11 +22,13 @@
+ #include <asm/vector.h>
+ #include <asm/csr.h>
+ #include <asm/cacheflush.h>
++#include <asm/usercfi.h>
+ 
+ unsigned long signal_minsigstksz __ro_after_init;
+ 
+ extern u32 __user_rt_sigreturn[2];
+ static size_t riscv_v_sc_size __ro_after_init;
++static size_t riscv_zicfiss_sc_size __ro_after_init;
+ 
+ #define DEBUG_SIG 0
+ 
+@@ -140,6 +142,62 @@ static long __restore_v_state(struct pt_regs *regs, void __user *sc_vec)
+ 	return copy_from_user(current->thread.vstate.datap, datap, riscv_v_vsize);
  }
  
-+#define CFI_TVAL_FCFI_CODE	2
-+#define CFI_TVAL_BCFI_CODE	3
-+/* handle cfi violations */
-+bool handle_user_cfi_violation(struct pt_regs *regs)
++static long save_cfiss_state(struct pt_regs *regs, void __user *sc_cfi)
 +{
-+	unsigned long tval = csr_read(CSR_TVAL);
-+	bool is_fcfi = (tval == CFI_TVAL_FCFI_CODE && cpu_supports_indirect_br_lp_instr());
-+	bool is_bcfi = (tval == CFI_TVAL_BCFI_CODE && cpu_supports_shadow_stack());
++	struct __sc_riscv_cfi_state __user *state = sc_cfi;
++	unsigned long ss_ptr = 0;
++	long err = 0;
++
++	if (!is_shstk_enabled(current))
++		return 0;
 +
 +	/*
-+	 * Handle uprobe event first. The probe point can be a valid target
-+	 * of indirect jumps or calls, in this case, forward cfi violation
-+	 * will be triggered instead of breakpoint exception.
++	 * Save a pointer to shadow stack itself on shadow stack as a form of token.
++	 * A token on shadow gives following properties
++	 * - Safe save and restore for shadow stack switching. Any save of shadow stack
++	 *   must have had saved a token on shadow stack. Similarly any restore of shadow
++	 *   stack must check the token before restore. Since writing to shadow stack with
++	 *   address of shadow stack itself is not easily allowed. A restore without a save
++	 *   is quite difficult for an attacker to perform.
++	 * - A natural break. A token in shadow stack provides a natural break in shadow stack
++	 *   So a single linear range can be bucketed into different shadow stack segments. Any
++	 *   sspopchk will detect the condition and fault to kernel as sw check exception.
 +	 */
-+	if (is_fcfi && probe_breakpoint_handler(regs))
-+		return true;
++	err |= save_user_shstk(current, &ss_ptr);
++	err |= __put_user(ss_ptr, &state->ss_ptr);
++	if (unlikely(err))
++		return -EFAULT;
 +
-+	if (is_fcfi || is_bcfi) {
-+		do_trap_error(regs, SIGSEGV, SEGV_CPERR, regs->epc,
-+			      "Oops - control flow violation");
-+		return true;
++	return riscv_zicfiss_sc_size;
++}
++
++static long __restore_cfiss_state(struct pt_regs *regs, void __user *sc_cfi)
++{
++	struct __sc_riscv_cfi_state __user *state = sc_cfi;
++	unsigned long ss_ptr = 0;
++	long err;
++
++	/*
++	 * Restore shadow stack as a form of token stored on shadow stack itself as a safe
++	 * way to restore.
++	 * A token on shadow gives following properties
++	 * - Safe save and restore for shadow stack switching. Any save of shadow stack
++	 *   must have had saved a token on shadow stack. Similarly any restore of shadow
++	 *   stack must check the token before restore. Since writing to shadow stack with
++	 *   address of shadow stack itself is not easily allowed. A restore without a save
++	 *   is quite difficult for an attacker to perform.
++	 * - A natural break. A token in shadow stack provides a natural break in shadow stack
++	 *   So a single linear range can be bucketed into different shadow stack segments.
++	 *   sspopchk will detect the condition and fault to kernel as sw check exception.
++	 */
++	err = __copy_from_user(&ss_ptr, &state->ss_ptr, sizeof(unsigned long));
++
++	if (unlikely(err))
++		return err;
++
++	return restore_user_shstk(current, ss_ptr);
++}
++
+ struct arch_ext_priv {
+ 	__u32 magic;
+ 	long (*save)(struct pt_regs *regs, void __user *sc_vec);
+@@ -150,6 +208,10 @@ struct arch_ext_priv arch_ext_list[] = {
+ 		.magic = RISCV_V_MAGIC,
+ 		.save = &save_v_state,
+ 	},
++	{
++		.magic = RISCV_ZICFISS_MAGIC,
++		.save = &save_cfiss_state,
++	},
+ };
+ 
+ const size_t nr_arch_exts = ARRAY_SIZE(arch_ext_list);
+@@ -202,6 +264,12 @@ static long restore_sigcontext(struct pt_regs *regs,
+ 
+ 			err = __restore_v_state(regs, sc_ext_ptr);
+ 			break;
++		case RISCV_ZICFISS_MAGIC:
++			if (!is_shstk_enabled(current) || size != riscv_zicfiss_sc_size)
++				return -EINVAL;
++
++			err = __restore_cfiss_state(regs, sc_ext_ptr);
++			break;
+ 		default:
+ 			return -EINVAL;
+ 		}
+@@ -223,6 +291,16 @@ static size_t get_rt_frame_size(bool cal_all)
+ 			total_context_size += riscv_v_sc_size;
+ 	}
+ 
++	if (is_shstk_enabled(current))
++		total_context_size += riscv_zicfiss_sc_size;
++
++	/*
++	 * Preserved a __riscv_ctx_hdr for END signal context header if an
++	 * extension uses __riscv_extra_ext_header
++	 */
++	if (total_context_size)
++		total_context_size += sizeof(struct __riscv_ctx_hdr);
++
+ 	frame_size += total_context_size;
+ 
+ 	frame_size = round_up(frame_size, 16);
+@@ -359,6 +437,11 @@ static int setup_rt_frame(struct ksignal *ksig, sigset_t *set,
+ #ifdef CONFIG_MMU
+ 	regs->ra = (unsigned long)VDSO_SYMBOL(
+ 		current->mm->context.vdso, rt_sigreturn);
++
++	/* if bcfi is enabled x1 (ra) and x5 (t0) must match. not sure if we need this? */
++	if (is_shstk_enabled(current))
++		regs->t0 = regs->ra;
++
+ #else
+ 	/*
+ 	 * For the nommu case we don't have a VDSO.  Instead we push two
+@@ -487,6 +570,9 @@ void __init init_rt_signal_env(void)
+ {
+ 	riscv_v_sc_size = sizeof(struct __riscv_ctx_hdr) +
+ 			  sizeof(struct __sc_riscv_v_state) + riscv_v_vsize;
++
++	riscv_zicfiss_sc_size = sizeof(struct __riscv_ctx_hdr) +
++			  sizeof(struct __sc_riscv_cfi_state);
+ 	/*
+ 	 * Determine the stack space required for guaranteed signal delivery.
+ 	 * The signal_minsigstksz will be populated into the AT_MINSIGSTKSZ entry
+diff --git a/arch/riscv/kernel/usercfi.c b/arch/riscv/kernel/usercfi.c
+index 2ebe789caa6b..8bc3e1e3f712 100644
+--- a/arch/riscv/kernel/usercfi.c
++++ b/arch/riscv/kernel/usercfi.c
+@@ -52,6 +52,11 @@ void set_active_shstk(struct task_struct *task, unsigned long shstk_addr)
+ 	task->thread_info.user_cfi_state.user_shdw_stk = shstk_addr;
+ }
+ 
++unsigned long get_active_shstk(struct task_struct *task)
++{
++	return task->thread_info.user_cfi_state.user_shdw_stk;
++}
++
+ void set_shstk_status(struct task_struct *task, bool enable)
+ {
+ 	if (!cpu_supports_shadow_stack())
+@@ -169,6 +174,57 @@ static int create_rstor_token(unsigned long ssp, unsigned long *token_addr)
+ 	return 0;
+ }
+ 
++/*
++ * Save user shadow stack pointer on shadow stack itself and return pointer to saved location
++ * returns -EFAULT if operation was unsuccessful
++ */
++int save_user_shstk(struct task_struct *tsk, unsigned long *saved_shstk_ptr)
++{
++	unsigned long ss_ptr = 0;
++	unsigned long token_loc = 0;
++	int ret = 0;
++
++	if (saved_shstk_ptr == NULL)
++		return -EINVAL;
++
++	ss_ptr = get_active_shstk(tsk);
++	ret = create_rstor_token(ss_ptr, &token_loc);
++
++	if (!ret) {
++		*saved_shstk_ptr = token_loc;
++		set_active_shstk(tsk, token_loc);
 +	}
 +
-+	return false;
++	return ret;
 +}
 +
 +/*
-+ * software check exception is defined with risc-v cfi spec. Software check
-+ * exception is raised when:-
-+ * a) An indirect branch doesn't land on 4 byte aligned PC or `lpad`
-+ *    instruction or `label` value programmed in `lpad` instr doesn't
-+ *    match with value setup in `x7`. reported code in `xtval` is 2.
-+ * b) `sspopchk` instruction finds a mismatch between top of shadow stack (ssp)
-+ *    and x1/x5. reported code in `xtval` is 3.
++ * Restores user shadow stack pointer from token on shadow stack for task `tsk`
++ * returns -EFAULT if operation was unsuccessful
 + */
-+asmlinkage __visible __trap_section void do_trap_software_check(struct pt_regs *regs)
++int restore_user_shstk(struct task_struct *tsk, unsigned long shstk_ptr)
 +{
-+	if (user_mode(regs)) {
-+		irqentry_enter_from_user_mode(regs);
++	unsigned long token = 0;
 +
-+		/* not a cfi violation, then merge into flow of unknown trap handler */
-+		if (!handle_user_cfi_violation(regs))
-+			do_trap_unknown(regs);
++	token = amo_user_shstk((unsigned long __user *)shstk_ptr, 0);
 +
-+		irqentry_exit_to_user_mode(regs);
-+	} else {
-+		/* sw check exception coming from kernel is a bug in kernel */
-+		die(regs, "Kernel BUG");
++	if (token == -1)
++		return -EFAULT;
++
++	/* invalid token, return EINVAL */
++	if ((token - shstk_ptr) != SHSTK_ENTRY_SIZE) {
++		pr_info_ratelimited(
++			"%s[%d]: bad restore token in %s: pc=%p sp=%p, token=%p, shstk_ptr=%p\n",
++			tsk->comm, task_pid_nr(tsk), __func__, (void *)(task_pt_regs(tsk)->epc),
++			(void *)(task_pt_regs(tsk)->sp), (void *)token, (void *)shstk_ptr);
++		return -EINVAL;
 +	}
++
++	/* all checks passed, set active shstk and return success */
++	set_active_shstk(tsk, token);
++	return 0;
 +}
 +
- #ifdef CONFIG_MMU
- asmlinkage __visible noinstr void do_page_fault(struct pt_regs *regs)
+ static unsigned long allocate_shadow_stack(unsigned long addr, unsigned long size,
+ 					   unsigned long token_offset, bool set_tok)
  {
 
 -- 
