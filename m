@@ -4,57 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B6EC5B543
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 15:01:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EB87C5AE59
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 16:22:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7KF9m4HHkUiw0pTGjRz7/5zUlDWIFfCtg32rssl0Wy8=; b=N6I/1Pc9Meeu99
-	71czjWLbUDh7DkACkGDIHNTPk/MyNYTVvyyAKl2+gq3C0em5Og6hGvVy1VlaDvOUXYvdmgBaGtbH1
-	muLgxzgK+LPzBaBfmnUcNZIc+K766YZOLD8wtSPDv0iW4aHC6jwOYwf9R+gaxd24jpjzsPTBb9JUn
-	B/vp7YrQvRo0uZomBDHePbxmqXQthJcuzV8IP4ybIe3f1GNzEVNtaqvpCA1EbkeVH8+BNgaDiZz+7
-	uNdbsPNYdVyd71/oWvxsrR+QN0PweD0dXpLeExOW/W1yHuS7fIqBxly9x0Jvc4h1LDV7LIobSP0HB
-	v7uBZ8/TU9tosX8hBu3Q==;
+	List-Owner; bh=0Z2rVpsnSPhpt2X6Kdf/SVToFYAE7TxAp+qixRSdsMY=; b=N8c6IZ/IXvblS9
+	ifRIgciNc3ay0WDYBLGfCnaES1hXdM6bdyagZDU/3V2C/GLUaLi4sfrBH8l+Q9Js4C+s0a4xBJJpK
+	J3HdbzlpLh6PBQw3WO2dInzU37e8WeHNSck40JbPE2Iuv9qPU58z1+P8V4paQrbH82XqUQ8Dy1bdB
+	mLBwkvAeZgbQ1J/4WDHgkXyG8B+3cuWam/pwxSTb9d7Z8rTRc2jNhPa1JGlThbbD4cVy/jlCgmOuq
+	+qzUGpB8yrJOfuPkS6teZYyHYoIw9K4tdHcB8TF9lEBikInL/gOPYih3oHNIx5f9WVud7bmO1qfgB
+	xfq94+xy+1BGTxsSXmcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNC6C-0000000FqTM-1EbR;
-	Thu, 05 Jun 2025 15:01:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uNDLn-0000000G0RE-2QSf;
+	Thu, 05 Jun 2025 16:21:55 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNC6A-0000000FqTD-3lRa
-	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 15:01:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 14EA0614B8;
-	Thu,  5 Jun 2025 15:01:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F4E9C4CEE7;
-	Thu,  5 Jun 2025 15:01:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749135701;
-	bh=33MiDYgglWLdm/t9kBa/LdDf63XX8q2ecYMOJYL6yiA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bqSyr2/H+vCDiQO/xRrlqnSK67vX6aw2gP2CeM3y1/WyeBttsArBXJWnBSjiD/cRj
-	 NZky2VwLgVKbJaLnmx+M4ZIFwodPcfA4ira+crB+X6tnZIoPs1y30Iss9wEAE54iFh
-	 +duIJ5aJEixGU3aKjLDyUVOxLrKeZ7wHT0SzyHi7qow1fTvKp3TyOsaNdq6Wc05yYT
-	 uaioFEIN1tz59267aiGsOCOw/1kvSzJNY3+/hX/B66nBe0QHFCjPaZGh+7FCFsSwjb
-	 kTRadaV1xtywQNSN2FY/o8xrXQ3NaiZWGokuK9Whvw5byhjQw2bY8a/osz2M+yqOuK
-	 VDhkvgVn12lxg==
-Date: Thu, 5 Jun 2025 15:01:39 +0000
-From: Eric Biggers <ebiggers@kernel.org>
-To: zhihang.shao.iscas@gmail.com
-Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
-	herbert@gondor.apana.org.au, paul.walmsley@sifive.com,
-	ou@eecs.berkeley.edu, alex@ghiti.fr, appro@cryptogams.org
-Subject: Re: [PATCH] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
- implementation
-Message-ID: <20250605150139.GA945328@google.com>
-References: <20250605145634.1075-1-zhihang.shao.iscas@gmail.com>
-MIME-Version: 1.0
+	id 1uNDLk-0000000G0QV-3zxL;
+	Thu, 05 Jun 2025 16:21:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1749140513; x=1780676513;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=Mo6gYCsg6PbFbaJzqsp02+Il/XmKTHyHLfWMKyussZI=;
+  b=U5hkYO7Sqtv4n21tW3yh8pzNkFbui0DAao334ETYZSoQAklRofRlkDhS
+   3/nWwTJewIhhSmz+v8jgADBSAVED6frkA5h8o0a3bl63KHORf4hxTXSVt
+   I2wgSAGNNE3mxTJs5Qt8zjF1R91z+O/f87CW+tj8pbuISmoShtZqO3OKz
+   imznV+4tIaCDS/suhBeWvDzucfxONFiiS9XTqEYxp+/jC945M8IkhYzOt
+   dbcw/wbcRhjmGPf111bSTwrmPkeRzumF3n4VB3hubLiFszIGo67TWhuRv
+   ASOq5qRlaEjlii03XoFOzk2oWa6mKT3KHmJkqIDq1wpBimkfyH8aaU7hY
+   w==;
+X-CSE-ConnectionGUID: FGWOP/ZuRFmffXhcFRFi7g==
+X-CSE-MsgGUID: xcvO4v93QyOrsnDYmtkNmA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11455"; a="51365487"
+X-IronPort-AV: E=Sophos;i="6.16,212,1744095600"; 
+   d="scan'208";a="51365487"
+Received: from fmviesa010.fm.intel.com ([10.60.135.150])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2025 09:21:50 -0700
+X-CSE-ConnectionGUID: w7MUDIoNS7+m7TGMIP45yA==
+X-CSE-MsgGUID: EGehxEZ5TXCtMScxR8cC0Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.16,212,1744095600"; 
+   d="scan'208";a="146054511"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa010.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Jun 2025 09:21:50 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 5 Jun 2025 09:21:49 -0700
+Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25 via Frontend Transport; Thu, 5 Jun 2025 09:21:49 -0700
+Received: from NAM10-MW2-obe.outbound.protection.outlook.com (40.107.94.87) by
+ edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.25; Thu, 5 Jun 2025 09:21:48 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BkI130YhGFsN8OXCfFSKQ79+t5EfcWWgUs4MzL+SGIvqkLxsn8grW//o4CpnCyiNcTfe1Tn372ULMQ5x8XvPse15ogZG1z3cRLWhyyVsByrV5Bz4Shs39HbdLrjYWu0THZQZh6hkeQAxndcC0+QZfB0mJ4nbZPZovmBCcKaHoGNzJgqVvSi/zKQdogLPFXewSBfNsoCB9gkGhUA53zbvANZ5oSjFd92OPhU4oP+ZP9/Z1v+luEd6fXA1dNCZzZeGC3P95GLBZrN46oXE8Kv2EIp5dJdnTqR2na0hnP3yKSubVSbgnznYFudOflhwA9IQ9fpMaDQ0xkTle3BzQNN+SQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GoRz3nK3OOG9aBH5vRi8TVAoZbM9WvCRmedPJp4ROxA=;
+ b=ddE+yxBqBvyKQK1GTXb0JAROgKfwSwne9RsOADswPqC0FYfk9K/lrri2uvMDAPFyKI5kXz/KVZMpowOwkb3undWX+1SPLO3nVJ5EJh2vZNAIeY+3MS1LeljQpCyu3LzT76G3u7pRjzm9ARjiv6rwu4/Cbz1afmTBt/CvwcyuddpkVHCGVxW4te4WemuizZVdCx/wfgOw2JrZX+RNFFZ6+d88t5lfkPSairXG1NvP+/rrQu8JxYEVwKXbtD54sy3T5/3yUA6TwoX3huDYtpuFvVL3d3W2lQRDFsNQlaUuI1aqU1jnP1rPQG2B56pOXaBCdPDuT07VJE6F3+jOT5VeXw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com (2603:10b6:510:256::6)
+ by SJ1PR11MB6130.namprd11.prod.outlook.com (2603:10b6:a03:45f::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.20; Thu, 5 Jun
+ 2025 16:21:33 +0000
+Received: from PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8]) by PH8PR11MB8107.namprd11.prod.outlook.com
+ ([fe80::6b05:74cf:a304:ecd8%6]) with mapi id 15.20.8813.021; Thu, 5 Jun 2025
+ 16:21:33 +0000
+Date: Thu, 5 Jun 2025 09:21:28 -0700
+From: Dan Williams <dan.j.williams@intel.com>
+To: David Hildenbrand <david@redhat.com>, Christoph Hellwig <hch@lst.de>, "Dan
+ Williams" <dan.j.williams@intel.com>
+CC: Alistair Popple <apopple@nvidia.com>, <linux-mm@kvack.org>,
+	<gerald.schaefer@linux.ibm.com>, <jgg@ziepe.ca>, <willy@infradead.org>,
+	<linux-kernel@vger.kernel.org>, <nvdimm@lists.linux.dev>,
+	<linux-fsdevel@vger.kernel.org>, <linux-ext4@vger.kernel.org>,
+	<linux-xfs@vger.kernel.org>, <jhubbard@nvidia.com>, <zhang.lyra@gmail.com>,
+	<debug@rivosinc.com>, <bjorn@kernel.org>, <balbirs@nvidia.com>,
+	<lorenzo.stoakes@oracle.com>, <linux-arm-kernel@lists.infradead.org>,
+	<loongarch@lists.linux.dev>, <linuxppc-dev@lists.ozlabs.org>,
+	<linux-riscv@lists.infradead.org>, <linux-cxl@vger.kernel.org>,
+	<dri-devel@lists.freedesktop.org>, <John@groves.net>
+Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
+Message-ID: <6841c408e85d3_249110075@dwillia2-xfh.jf.intel.com.notmuch>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
+ <6840f9ed3785a_249110084@dwillia2-xfh.jf.intel.com.notmuch>
+ <20250605074637.GA7727@lst.de>
+ <b064c820-1735-47db-96e3-6f2b00300c67@redhat.com>
 Content-Disposition: inline
-In-Reply-To: <20250605145634.1075-1-zhihang.shao.iscas@gmail.com>
+In-Reply-To: <b064c820-1735-47db-96e3-6f2b00300c67@redhat.com>
+X-ClientProxiedBy: BY3PR05CA0016.namprd05.prod.outlook.com
+ (2603:10b6:a03:254::21) To PH8PR11MB8107.namprd11.prod.outlook.com
+ (2603:10b6:510:256::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH8PR11MB8107:EE_|SJ1PR11MB6130:EE_
+X-MS-Office365-Filtering-Correlation-Id: baf00b6c-75e6-4203-3a06-08dda44d0913
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?krIsw8gi15b9919h06oFrgf/3R24lRZejDwlFZNnuyFrg3hznVVlhR/yp3+b?=
+ =?us-ascii?Q?ktTRV1pveONrzAea/6Gvz4FFkQnbuLJLE/Q/gtw4f8/TUPA/jpKusmMwIdf9?=
+ =?us-ascii?Q?CMpWq7EUJ7aD5ZVCr6v0Y1h8sRMzoS5KUn1jcLjR5ipkqD5yk1amWiCxdk4t?=
+ =?us-ascii?Q?mU1H4Bo/PJCrepCePi1Mj71vje3kYzW4oTtvn4Nwrf3O72l7nsK+zkUKTGly?=
+ =?us-ascii?Q?RutkAiron6GIbKyj4lCemHttMRsy9Xo9yg1AuibOsXY9dOPl/SnEI7OlwIBu?=
+ =?us-ascii?Q?DiWVtUO92yNAopg8oLFn7qlYOJ0wA+YMv5Oy4lyvPzIoaODnHZ0yEKx0KPxG?=
+ =?us-ascii?Q?Z0wlP+9XqO8lyZkJ58SdzMCCT0hd+mK5Tj/leNdFK51PL0qzHoNAomDVs20v?=
+ =?us-ascii?Q?eHUq3Ucg1vsbjDW3WHN21pBXdlW32P52KnO0EhfXDaCrx6CfuM7rhCs+g8jq?=
+ =?us-ascii?Q?6gbyTHk7BXoEpUqZ+GoIS+89vcJuUdecm5la8QENE7JIRPkMDIp/OLQ9/0so?=
+ =?us-ascii?Q?MEkhsr/nMYgju07lWTFmNWKFARPOvOkYCDAwg1+EHtCyR6gZ5WhtIR2h0pQ8?=
+ =?us-ascii?Q?21UddYE/7JWyqQV3QptUSBS7jrheNPUPYGp6phSMhP995ussQslc+/tOYyrB?=
+ =?us-ascii?Q?6e3MrjOF3X9OchBz0SKuJ7whxy/5eMvVd3hQQ3PI3yqWRdCUtGXUIkGUpcT8?=
+ =?us-ascii?Q?EmV1w1OsYyZ0fxM7c76MIOzoXKiahAuOmFmL6viaVz0eVypCtXJGObVFjfx5?=
+ =?us-ascii?Q?gHDedPvZCG1W8jWB+vec+++G3It2Gy1UhlLd0jx9AK8qAJ7wFA1HscFAVgqW?=
+ =?us-ascii?Q?Xlp8CdSEswY9guSpYiv/F1WSrzLbdFNdaXlO7TTp34EWURyRE8VLlz+DfnUa?=
+ =?us-ascii?Q?ogN9allB3FWPGk7OULPPctBBRKjBjjoDSxByAxi3ilg0Z2dJk/Rbyl1heRQ0?=
+ =?us-ascii?Q?nsU7VhY6/RPgC/st5e5S0GlefnXKTJxXdH+p2y/mxlsjUY2gcQQbgUBlyX/Y?=
+ =?us-ascii?Q?yqBidCeTT+IYPd6vbyD70B6ZdUJuq354AEnIXMdxVh4xFItMfWnNGOr6y3s0?=
+ =?us-ascii?Q?AARGETKUovchGG7BCXLIHK91Uefkzr8YsAsuisT7jhEFXU0jHmZxKTIDmXKB?=
+ =?us-ascii?Q?3L376jtSbAibLo8YcXQ4SlSV7BBj7Up+tbJBPEHc8B8ksZ1OayuvwzLPqfwF?=
+ =?us-ascii?Q?98taxmDv4uoq9BY2QQmvLfGC5bnku73RhYYWb5i6R4R+vDS8wewB8pOZ4chT?=
+ =?us-ascii?Q?4Lsb8GtfMDqMLfalfiaQve2MruEHMlTq7hBhFwz18HrWkSP3HIKhn753MU6R?=
+ =?us-ascii?Q?8BkCqVWmPAwsE0Upmn92qLI3qXEXyUJ5yRxg5Cxy8yRKLpr6ksSD/edcfUKm?=
+ =?us-ascii?Q?PbTNJqrzxepzb7HyBSeMFynX84XVq0OgriIDGVPqjz15hn89PEitGue8+vg5?=
+ =?us-ascii?Q?Pn29BcEECrg=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH8PR11MB8107.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?T4RThw2fA4HYus9JfB7RA7aJcQ7qJaiWByOycySuFptsoqhkFAWx5jyYVAhh?=
+ =?us-ascii?Q?29pBOiio+gzcTOB+PfphbgzFvTZoYVwxUK6IStSWfDcWUEbpdjsSCgvInKp+?=
+ =?us-ascii?Q?gNiW7eWfEAEH0ZHpBTa52RPkQGWJqiZkTjok8I4Cy6RTk5+jozwuvj/AmTjb?=
+ =?us-ascii?Q?OuTneKS0gsaboYf0DB4m0LbLUiC2EYE+XZe3jjBvQt7yZ5G/gFPuEEfYrDaa?=
+ =?us-ascii?Q?6UNJzWnghZg+1+d2qXoJEKX3i93EkKf5CCUnGwbfyC0LCzvatSRL5loHHT3n?=
+ =?us-ascii?Q?EoVFYUudsDdE3l8eNg8s9I30jTXe5DUXIgQr5kpuSUOYy1jCSwf/F6BwlI+A?=
+ =?us-ascii?Q?UBwIhu6Zao/7OVPXS9/1RQl8MqVhclOpbEKH6jST86sdGMypJLtav/7yj/7p?=
+ =?us-ascii?Q?g07fbdNhiKLP3cXJ0V1JI0K7S7f+F10KzOBgNa6Mno3N3LsjO5kmNN15HokD?=
+ =?us-ascii?Q?UPVXd8gTemJTLiGXZUjLQFoIY6fQKTMma4P9haSJF3AeAeHaHscJ9TH0dx6A?=
+ =?us-ascii?Q?FVQvmP9YxA/LDhuZSWNHhRcafJb2POEuVnl7/i6ptbT4lKDgu5H9M7Pvgml5?=
+ =?us-ascii?Q?1q0AOAXu9aUtrh9/vfsCf6uyIhFH7dzDlGu7ISs9+4HUu2v8aftRpmT+jMR+?=
+ =?us-ascii?Q?6UEu4ZDYDFlSOE82ra2s4zq1E6yV8eYi5B28z1kxgSzyVK6gPUpYnYfpT71d?=
+ =?us-ascii?Q?kMNlu4l7a6PPbw2FAeHSTKVo1mD64nmZPPs4nWLYqj7YdtjoASid4F6L5eNs?=
+ =?us-ascii?Q?EjeihHmfVKBp4FqZRVRNh2eGMCkz+1d5tRhMmCxBicc3gIImugbLM5vApT6w?=
+ =?us-ascii?Q?SPkwBdxcUL59ofafO555x/CQkqpunwmVHRbgucPeMuF7t//tQh7gWrIA9xCe?=
+ =?us-ascii?Q?k/IhzPcSR74Ug4QHhOOD8Q2DhvkFGCWxI9cco0u5xmlMbqGanPU8NOpMVTvn?=
+ =?us-ascii?Q?6rpm3Ca5g55eYUOvtXw8onq9e0sMa0o9MZN+WZeaJ+qn7OzzLX629SS/goSC?=
+ =?us-ascii?Q?ROEuP53MpZJubfeNTSvonFB+FIt7GKUNPGHRmL0NI6rcESgvez70q/kt38Iq?=
+ =?us-ascii?Q?Q8/5sBhCSEl9Zkuhb0sWlql71BFnHz+pKHL5W4oNezwLA9qi6vxg/6Fu/f4V?=
+ =?us-ascii?Q?6BBN6cBzWW9NLFieEHGjG0Ftiu6vFCi9RYffdwe/V4SdZM4vZVjvgJ8FqUza?=
+ =?us-ascii?Q?Ew8B//S07FDQ7RsD1I9ULMxfJmQbafjnOraqs+CToLaIh7EUCN3ejc2PI5xv?=
+ =?us-ascii?Q?xGds0l3Divu5y+kkofrdZSriSles+8HDUxFkLnttt/hWPDn1BMQMC63cbU+j?=
+ =?us-ascii?Q?Rz/hsRj6y8FwDQVNUG3CiHFC2T+Yx8yhraX6cMIvyctkpi15C0GU7iGInWpZ?=
+ =?us-ascii?Q?wZ2NaP9w1IwPvkSuuj17QVNO7qpgrJ1BEF9Np6uubNpY0bSnLsXcg8cF9onM?=
+ =?us-ascii?Q?ddEh4UpaUzeK8h8Uu9aJ/g2ZP2fqJg4vAquLjLd9whGDn1DzHGq0t7NuXgk7?=
+ =?us-ascii?Q?WuVS5KUK+ubsAAXnZRxHWyTtxRAhj24v0IkiBr2jvLx9ZRkE7gxp/UmTb40T?=
+ =?us-ascii?Q?yJI+/IsAspWVxvNI2gYHp+u++BiIg20c/gi/3DoyEggn5KSnhM3CLeQR4VaN?=
+ =?us-ascii?Q?bg=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: baf00b6c-75e6-4203-3a06-08dda44d0913
+X-MS-Exchange-CrossTenant-AuthSource: PH8PR11MB8107.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Jun 2025 16:21:32.9680
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5EqeLNGTcArPNKsa5xcMv17a3Aw27H8NRJr9PtHbcPp0QnRiOHezw7uBEKZuprGpj16ekyHPOin8hfLGPQlYh0FcVLx+/jvt2g/pPF2Z37Q=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6130
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250605_092152_998222_F0B37571 
+X-CRM114-Status: GOOD (  14.68  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,71 +204,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, Jun 05, 2025 at 10:56:34PM +0800, zhihang.shao.iscas@gmail.com wrote:
-> From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+David Hildenbrand wrote:
+> On 05.06.25 09:46, Christoph Hellwig wrote:
+> > On Wed, Jun 04, 2025 at 06:59:09PM -0700, Dan Williams wrote:
+> >> +/* return normal pages backed by the page allocator */
+> >> +static inline struct page *vm_normal_gfp_pmd(struct vm_area_struct *vma,
+> >> +					     unsigned long addr, pmd_t pmd)
+> >> +{
+> >> +	struct page *page = vm_normal_page_pmd(vma, addr, pmd);
+> >> +
+> >> +	if (!is_devdax_page(page) && !is_fsdax_page(page))
+> >> +		return page;
+> >> +	return NULL;
+> > 
+> > If you go for this make it more straight forward by having the
+> > normal path in the main flow:
+> > 
+> > 	if (is_devdax_page(page) || is_fsdax_page(page))
+> > 		return NULL;
+> > 	return page;
 > 
-> This is a straight import of the OpenSSL/CRYPTOGAMS Poly1305
-> implementation for riscv authored by Andy Polyakov.
-> The file 'poly1305-riscv.pl' is taken straight from this upstream
-> GitHub repository [0] at commit 33fe84bc21219a16825459b37c825bf4580a0a7b,
-> and this commit fixed a bug in riscv 64bit implementation.
-> Also, this patch passed extra run-time self tests.
+> +1
 > 
-> [0] https://github.com/dot-asm/cryptogams
-> 
-> Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-> ---
->  arch/riscv/crypto/Kconfig           |  10 +
->  arch/riscv/crypto/Makefile          |  17 +
->  arch/riscv/crypto/poly1305-glue.c   | 202 +++++++
->  arch/riscv/crypto/poly1305-riscv.pl | 797 ++++++++++++++++++++++++++++
->  drivers/net/Kconfig                 |   1 +
->  lib/crypto/Kconfig                  |   2 +-
->  6 files changed, 1028 insertions(+), 1 deletion(-)
->  create mode 100644 arch/riscv/crypto/poly1305-glue.c
->  create mode 100644 arch/riscv/crypto/poly1305-riscv.pl
-> 
-> diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-> index c67095a3d669..228bb3c6940d 100644
-> --- a/arch/riscv/crypto/Kconfig
-> +++ b/arch/riscv/crypto/Kconfig
-> @@ -38,6 +38,16 @@ config CRYPTO_GHASH_RISCV64
->  	  Architecture: riscv64 using:
->  	  - Zvkg vector crypto extension
->  
-> +config CRYPTO_POLY1305_RISCV
-> +	tristate "Hash functions: Poly1305"
-> +	select CRYPTO_HASH
-> +	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-> +	help
-> +	  Poly1305 authenticator algorithm (RFC7539)
-> +
-> +	  Architecture: riscv using:
-> +	  - V vector extension
-> +
->  config CRYPTO_SHA256_RISCV64
->  	tristate "Hash functions: SHA-224 and SHA-256"
->  	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-> diff --git a/arch/riscv/crypto/Makefile b/arch/riscv/crypto/Makefile
-> index 247c7bc7288c..0c96bd9a61b3 100644
-> --- a/arch/riscv/crypto/Makefile
-> +++ b/arch/riscv/crypto/Makefile
-> @@ -10,6 +10,10 @@ chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
->  obj-$(CONFIG_CRYPTO_GHASH_RISCV64) += ghash-riscv64.o
->  ghash-riscv64-y := ghash-riscv64-glue.o ghash-riscv64-zvkg.o
->  
-> +obj-$(CONFIG_CRYPTO_POLY1305_RISCV) += poly1305-riscv.o
-> +poly1305-riscv-y := poly1305-core.o poly1305-glue.o
-> +AFLAGS_poly1305-core.o += -Dpoly1305_init=poly1305_init_riscv
-> +
->  obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
->  sha256-riscv64-y := sha256-riscv64-glue.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
+> But I'd defer introducing that for now if avoidable. I find the naming 
+> rather ... suboptimal :)
 
-Please rebase onto mainline and port your change to arch/riscv/lib/crypto/.
-Poly1305 is now available only through the library API, not the crypto_shash
-API.
-
-- Eric
+Agree, that was a "for lack of a better term" suggestion, but the
+suggestion is indeed lacking.
 
 _______________________________________________
 linux-riscv mailing list
