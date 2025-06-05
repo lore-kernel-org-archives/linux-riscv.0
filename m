@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A662FC5B543
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 06:15:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AAA6C5B552
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 06:15:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UxaN7KuxeFyeQMJL2zvnJGwcdl1+GAIdJ1l1yEiqK+Y=; b=PA/fESL0PVLkgn
-	9lWlhVlaPR7qocvMwUSrZ3rPrCWdEzyrcodzUQefFX8eEfp4NpR1NiWTh3NF7Tx1QV9SOjaPlADLs
-	sTCcYEp3HjKTItv4JNdnr64YIhEPGsz2Jhc+zyCR9RBwIN/+iVR2XHJbA8qpks4/3/nXcscjLeDU6
-	ySNtB9V2JZab4W3422LdUHpX2zXiLYA4f+XR2InOyijsbzjM5iNJu1RA0R+GeK6xO7zFmLXz4cDyR
-	ECZTdDpfG/zYRiP9bz3kzX1fdeY584vOav1eJ+mApYIl86MMARNsx6W3sm+GkGNRUK37S9am6xl34
-	V8Hvuihi7BevLlK4EtIA==;
+	List-Owner; bh=DVpVoIn1HklME1fNkPdYFOLAduwvZcmZkc8XHdT+zhE=; b=iA7USK3z0OO1rc
+	3ar04+BThryK7UJNr7dX0NdKpMuGHo2Kgy31DKh5vqPkF3vxk/MkAUkD3F7PIotwBBBWCUiUjjdzZ
+	ZQpfrlpQiLTldCfpe1RTSMIz/QN+7P+O1GMq3WysJ1xhC2eLlLHaXNxZ6jnRiBLZsVidqrXDVZ6cl
+	bxEjbus4mSxUmAsOo48bulS9km/ehC7/471iBlnMbr7sDM2yODduDxEzrKooxR5lSou3tRLWRZP7p
+	SnjS8Y4/Ju3N/xcRE+5uK70tTP4DrcNiRxmGVzPdP852v4jMUoiV/2uaziX01Iexru3sax5KfY3LE
+	QWtsAmNRdoXGFEYe4Bsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3t5-0000000EpB3-1FPu;
-	Thu, 05 Jun 2025 06:15:39 +0000
-Received: from mail-pj1-x1029.google.com ([2607:f8b0:4864:20::1029])
+	id 1uN3t8-0000000EpFO-2s79;
+	Thu, 05 Jun 2025 06:15:42 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3sy-0000000Ep3D-3jcm
+	id 1uN3t3-0000000Ep7G-0M5x
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 06:15:38 +0000
-Received: by mail-pj1-x1029.google.com with SMTP id 98e67ed59e1d1-3121aed2435so650043a91.2
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 23:15:32 -0700 (PDT)
+	Thu, 05 Jun 2025 06:15:41 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-312a62055d0so651598a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 23:15:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749104132; x=1749708932; darn=lists.infradead.org;
+        d=ventanamicro.com; s=google; t=1749104136; x=1749708936; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=297HQlUGPdF+XZ67B7Ks8toSmyeODGGOfBIq41lD5gM=;
-        b=A9ofncOWPPk4FqmPyziugPJb5GuMYRRTeNiXD0ibGCP2m1x0OalJWYOw4jgsdxD3Z+
-         M6NWNe96l8z0MCOt3D4t8aB48wM9cEbMBxtrlZnOXozkLf74hTwtI9ZpryyBaYMCyQ5H
-         caoPpMYESr80jpXTZovhrAs1enmZIMPH34+xjy8SGGoIKZZLnqPZvITZYFB21BPsej3s
-         yFwFqnalq1oks96YkQAH+mXr+/9arw1+Fofjsju2AhEkp6yYPuk+vOCUqy0w1U8ptNKh
-         Sfs/c4eol+2vBwkfYd7bdNlm6jTwo03w4rPFRx6FpHI3Vq/9qqQmiCWFZiW7WR49h4Zk
-         KBAQ==
+        bh=PBw4EHffUTV31O6B+TCgyeA+gw4sP4Qg6j7rVTIEdxU=;
+        b=gjEbppLbVa6F/Dy6SrnUV+iJyjSjw13nF1xxRvRTSuvkFLVnsjXJgEpWlc24ilT69t
+         oLKm1goDuaYphz4yzKnH+tJPViVcwVKOlNS3j2nWXX70pCr7ejdqGVFnMceTDyAuhxNv
+         JNb3wqqTBw2zr9wXAFf3jYC0Ro8ZROuJqGvn24cpvjGwHZY1ue7Ow+NsHEaZZ2Br6VK4
+         eJ0/k94IMlC+5yKV+amg6jnU/n0dzW8vKi74d4hm6QwF3EqywWxDHj14aRZjzYd26nKF
+         LDs2wcaf+6wfR+VPNdE2T+o8D2PBQ8w3+oyvf7QOC/wtOL2JpyvRf6p4lbWYVIVHdbi8
+         FWIw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749104132; x=1749708932;
+        d=1e100.net; s=20230601; t=1749104136; x=1749708936;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=297HQlUGPdF+XZ67B7Ks8toSmyeODGGOfBIq41lD5gM=;
-        b=gkBFtxt6XdDGqEEGvIS4GYNo0VexcRgQh2qqM2NnU/HXj7UxFxAVlhn+hFod2EmVzr
-         7rifR1JrPCy/9pbIHRQvhkUkF6u+NDUaJI7VWNA/+ok06sG7Xby/ojAKMm2i8lzwWhH4
-         U7AuDBM3uyXH/y8SZtLPdfl39C+ycNh5xVxvm8ye8/Ind12Jhugl8Xm2dkcVRHjyakcE
-         5I/xjQ5jXAoSjd0WyCMnOGzLr7ifQ3YOmuCQ3WcSfIKDLYK3UOGBHiKzR9OQKRlC69uA
-         0N7SGppPyJdN9RY9ARPXu6xtCmReyJfoRhxU2Wt1kHv4gGhojwggbv1QxzKuP/LMA5T5
-         U2/A==
-X-Forwarded-Encrypted: i=1; AJvYcCUXdD6nrmQfAclpM30yKmHGf1Un5mHJ6Yzv2KJyYJcWouLQNk9ODtVRPOs5k/I0sS/vtctclhPOH9RxDA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoB7f2tAnuUWaFKliUELH+bXEY2/7YbMv5CCfZetG7htHOCZUT
-	C98gFGPxecBMS7kNHusm6PKss7OsvstjP3fVl6XZ1ybT6ACpWar3YgHiIItlIqmVkQw=
-X-Gm-Gg: ASbGncuzbwCWYk1lMW/uLGSdIuURg0wEEboGSYb8yyyvPZ3XF+TBgiHMSkcHW9ZnyZ2
-	aC11jJRG9HijSrFJf3XoHQlRWyFyGiyipIJhEov1oznO84DIlPjH+/+XfCLlbj/2rDDgpifN+KA
-	OVqisaKrOc0HGRlh/ZUnIDcPNrb98ff3aT4zC0WSOgOPWXwybpSsmDazQTXqPd0GILyb2c5NPvS
-	aE99YRA73G4GiNSPwj+zRhxDamUfC61Lu2BC/EwycesJGg7JH4BDgeim4c1bSfYxR7+cee9uo2c
-	X1E/Xl3NVeJtV8XlzYQPV/dI4MUE3bZLrlJxRXGv9Lm37pYdPLzyHg6s8tk+9rQw35Om2usJHVT
-	HTB1uTg==
-X-Google-Smtp-Source: AGHT+IGaQDp4t9Rc9PacdM1BZZoSLCIgCU7kc4zabKe3J73B2NovkDFU1CUL1ahoIxkagRn4o+A2cg==
-X-Received: by 2002:a17:90b:2641:b0:311:9c1f:8516 with SMTP id 98e67ed59e1d1-3130cd2c648mr8923161a91.15.1749104132103;
-        Wed, 04 Jun 2025 23:15:32 -0700 (PDT)
+        bh=PBw4EHffUTV31O6B+TCgyeA+gw4sP4Qg6j7rVTIEdxU=;
+        b=A2GpS7AVRUMq00pVmvrLHvTEwbIbuR7bKDwm/ZwsERM1VLRRJLjgaufMbPf+kYvJyM
+         14gGRsx86V2778gTAFf0JvZ5wXW9F4VJWWCbh7aTAcA0fZmTkazJsFQnmrnWRy6QLTo+
+         xTvV+sGcrjRr7uZF04S/wU8hJbClG9cCOSeqj+0VjexOMTxnoiIzyfACFIXMpTkCll90
+         kFAkQeXuNspOApr+0nGgW2kdKWVj0jm45RwYCAOE9vRt/j4mYgw7d2OFpIiG03bunal5
+         aoe7YP78/NMW8umJuxNgCFU0SVGIjoOP+0IXv/H+wkHSoCuSDboD1Rb5hgOUVy1mqltj
+         kPSw==
+X-Forwarded-Encrypted: i=1; AJvYcCWpN5eLPDA72cWTiezj9/sMmGq5IabOOGv3TY+yrGe8LMGQVD6J/cADk4WubSn2eOhXrPbeL42d0La5UQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2Xnrjxhuqa6WGruerUIz8cXlOur3D7P7XSj8EFUjHsNLr0G0c
+	hpHhNQnh6POoCrowXv5O6BOhxCEsYZoS+jc/RkMIe4LyUO4BqIqZeNY8aTmSdD0kLIs=
+X-Gm-Gg: ASbGncsVRg83ngnx8eg3Jh76Buk9nRwGuclzp2H4+JSRYO2HdxaLQuk2Ys3A//i+y7i
+	jh3tcC4lL+hSodP9o3Qi6uTD1xcJpfjqIMv/UFxKMCgX7gp+Bv8Mn9qHx7vM53hZiNWPYZlrZoK
+	9XOPHhjpzGVOBJ4N7eYWBmzRQs8j7ysX/0d/SgtkeHxxyJJ+HZbLbrXMVkhRd0dI0FaoEyDvxfr
+	u84QX8ISQYaYKZREkbmFFTovwZ0oZRc9rJ0WxfDr2fCLI4/nWXUlekQl8pLdE2kiEW32g8LwOZO
+	XiQkJ0ApEyYv9qLXN8g6p7bLX8qiYBe2eznahUiSznDB0uqFdn3gphshn3FbTlAsH4+UXaZpUED
+	dIROfYjEW7qSUhr+DIoxqYQkt9lg=
+X-Google-Smtp-Source: AGHT+IFD6i36g3dYe1k+gDLGsx1D0hcp/ZxtNU3y3iDfAyRruAl8oD12KxZBz84WYVYtRaZXIXAJqw==
+X-Received: by 2002:a17:90b:3ec7:b0:311:9c9a:58da with SMTP id 98e67ed59e1d1-3130cd12ba3mr8390187a91.8.1749104135972;
+        Wed, 04 Jun 2025 23:15:35 -0700 (PDT)
 Received: from localhost.localdomain ([14.141.91.70])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3132c0bedc7sm716026a91.49.2025.06.04.23.15.28
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3132c0bedc7sm716026a91.49.2025.06.04.23.15.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 04 Jun 2025 23:15:31 -0700 (PDT)
+        Wed, 04 Jun 2025 23:15:35 -0700 (PDT)
 From: Anup Patel <apatel@ventanamicro.com>
 To: Atish Patra <atish.patra@linux.dev>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
@@ -81,16 +81,16 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Anup Patel <apatel@ventanamicro.com>
-Subject: [PATCH 07/13] RISC-V: KVM: Don't flush TLB in gstage_set_pte() when PTE is unchanged
-Date: Thu,  5 Jun 2025 11:44:52 +0530
-Message-ID: <20250605061458.196003-8-apatel@ventanamicro.com>
+Subject: [PATCH 08/13] RISC-V: KVM: Implement kvm_arch_flush_remote_tlbs_range()
+Date: Thu,  5 Jun 2025 11:44:53 +0530
+Message-ID: <20250605061458.196003-9-apatel@ventanamicro.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250605061458.196003-1-apatel@ventanamicro.com>
 References: <20250605061458.196003-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_231532_931200_94C0D05D 
-X-CRM114-Status: GOOD (  10.05  )
+X-CRM114-CacheID: sfid-20250604_231537_163225_61D2671B 
+X-CRM114-Status: GOOD (  11.23  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +107,63 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The gstage_set_pte() should flush remote TLB only when a leaf PTE
-changes so that unnecessary remote TLB flushes can be avoided.
+The kvm_arch_flush_remote_tlbs_range() expected by KVM core can be
+easily implemented for RISC-V using kvm_riscv_hfence_gvma_vmid_gpa()
+hence provide it.
+
+Also with kvm_arch_flush_remote_tlbs_range() available for RISC-V, the
+mmu_wp_memory_region() can happily use kvm_flush_remote_tlbs_memslot()
+instead of kvm_flush_remote_tlbs().
 
 Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- arch/riscv/kvm/mmu.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ arch/riscv/include/asm/kvm_host.h | 2 ++
+ arch/riscv/kvm/mmu.c              | 2 +-
+ arch/riscv/kvm/tlb.c              | 8 ++++++++
+ 3 files changed, 11 insertions(+), 1 deletion(-)
 
+diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+index afaf25f2c5ab..b9e241c46209 100644
+--- a/arch/riscv/include/asm/kvm_host.h
++++ b/arch/riscv/include/asm/kvm_host.h
+@@ -42,6 +42,8 @@
+ 	KVM_ARCH_REQ_FLAGS(5, KVM_REQUEST_WAIT | KVM_REQUEST_NO_WAKEUP)
+ #define KVM_REQ_STEAL_UPDATE		KVM_ARCH_REQ(6)
+ 
++#define __KVM_HAVE_ARCH_FLUSH_REMOTE_TLBS_RANGE
++
+ #define KVM_HEDELEG_DEFAULT		(BIT(EXC_INST_MISALIGNED) | \
+ 					 BIT(EXC_BREAKPOINT)      | \
+ 					 BIT(EXC_SYSCALL)         | \
 diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-index 1087ea74567b..d4eb1999b794 100644
+index d4eb1999b794..834d855b0478 100644
 --- a/arch/riscv/kvm/mmu.c
 +++ b/arch/riscv/kvm/mmu.c
-@@ -167,9 +167,11 @@ static int gstage_set_pte(struct kvm *kvm, u32 level,
- 		ptep = &next_ptep[gstage_pte_index(addr, current_level)];
- 	}
- 
--	set_pte(ptep, *new_pte);
--	if (gstage_pte_leaf(ptep))
--		gstage_remote_tlb_flush(kvm, current_level, addr);
-+	if (pte_val(*ptep) != pte_val(*new_pte)) {
-+		set_pte(ptep, *new_pte);
-+		if (gstage_pte_leaf(ptep))
-+			gstage_remote_tlb_flush(kvm, current_level, addr);
-+	}
- 
- 	return 0;
+@@ -342,7 +342,7 @@ static void gstage_wp_memory_region(struct kvm *kvm, int slot)
+ 	spin_lock(&kvm->mmu_lock);
+ 	gstage_wp_range(kvm, start, end);
+ 	spin_unlock(&kvm->mmu_lock);
+-	kvm_flush_remote_tlbs(kvm);
++	kvm_flush_remote_tlbs_memslot(kvm, memslot);
  }
+ 
+ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
+diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+index da98ca801d31..f46a27658c2e 100644
+--- a/arch/riscv/kvm/tlb.c
++++ b/arch/riscv/kvm/tlb.c
+@@ -403,3 +403,11 @@ void kvm_riscv_hfence_vvma_all(struct kvm *kvm,
+ 	make_xfence_request(kvm, hbase, hmask, KVM_REQ_HFENCE_VVMA_ALL,
+ 			    KVM_REQ_HFENCE_VVMA_ALL, NULL);
+ }
++
++int kvm_arch_flush_remote_tlbs_range(struct kvm *kvm, gfn_t gfn, u64 nr_pages)
++{
++	kvm_riscv_hfence_gvma_vmid_gpa(kvm, -1UL, 0,
++				       gfn << PAGE_SHIFT, nr_pages << PAGE_SHIFT,
++				       PAGE_SHIFT);
++	return 0;
++}
 -- 
 2.43.0
 
