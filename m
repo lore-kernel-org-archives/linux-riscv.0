@@ -4,86 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949B1C5B543
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 16:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A84AC5AE59
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 17:05:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=BJFRVIfo0X/DYgaYHGQuvRE5mliw50WntD90pc1Q7Ug=; b=MKDkk8EegRBFWh
-	eNeBwg22PhncJT+q9L8KbBd1XeDKlDsQ8F2bDqUdjYi4mPEr+WVmbeq6EdiS+QgrByjsQMqdG4Dgk
-	SccYgVSoev3092LvLaUONIMErcq2jL72D6uPaUPYrDSmwvNcAevDittQS+25sOqR+Dll7cNQjJorS
-	z1DW2rAslFIkTbzvJVaNatGg6g/kK93liEh0G4r8/nWheR7NIllWSPtdBg5WzYR4Yw/5w+KFpi15n
-	oJ7/AYma6Rr0AFyJbAxk+uPSOpoSlq4HNvREzqIawtKECNAmVcXFzuWLfETZxCGHe+8cCbHVUhVmC
-	UfoG+cXw53VF5fdSvnbw==;
+	List-Owner; bh=6r66J3W12qbKrfbBPo6Ouaj6+To/vayz9NXgKXPDYhA=; b=SGrJybI2sLHdd+
+	RaxEpWgjAtX0Sy3faCmiE/JX4CtFtiRESW3nGaujxo9FaeOjYTUjZRAC2DNAyYzaBrv23CfAGJIWq
+	rCcapIK+xmsmMM51bGok7DOeMGaiOxLqQJIq+r7zAij9pQuKEHaXlndQ/ds1U63tBhA9mZIQez4o9
+	peXuEO5+2oxurfvLUAfplCLxW0t9eaWxARCokHnKGKx/FcA1QZyLDYXI26B9pvban7eGWlMjj2kxV
+	kg9Nr6koFnleW0x84CR+OX9v3H2zf2Y8ZP7yb9JCWR14s9ybfYDNToqhKhVwIO5mFqgRk2RaUvRoa
+	EOWaHyj8JrNgcMj45ntg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDfc-0000000G3Ot-0Aio;
-	Thu, 05 Jun 2025 16:42:24 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1uNE1R-0000000G6E0-2eCM;
+	Thu, 05 Jun 2025 17:04:57 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNDfY-0000000G3NS-3Ddv
+	id 1uNE1O-0000000G6Cg-38qf
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 16:42:22 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-54c0fa6d455so1273700e87.1
-        for <linux-riscv@lists.infradead.org>; Thu, 05 Jun 2025 09:42:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cryptogams.org; s=gmail; t=1749141738; x=1749746538; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=PFO6uqE3omBPZMM2RRJAUzPXA8e6WjqOavvxq7pzHeU=;
-        b=W6esxUMYcctnQu2u4CnVM2RQv3a6TDlbTvmJaKlr/zfpygjOZ87Tgop8o+YA4gGj+n
-         BPxocCFJHLJGi+/yHaN5VbgRzMPmLsgrg+u9KnQJMU5IVuvfXivE8HvcGt5SGA0CJz/3
-         n5DsD+ZGZEdu16UaZM4HUGwoInSuNEc8LcRJyVSUJo7s+0wNpNobPysXU55IZccVaPCO
-         fPT1YO0AMJD7PVRYLLDgx0z9rszmowucNPwXL7QklWXtWo44aWP1RU8w0iZPFD/nFTQc
-         nWFFviUIODwnPDPMvDKiJmtOw7msd3i6q6WpmK7klBlY0xkq5towQN6lf5ef04yPF31K
-         A5iw==
+	Thu, 05 Jun 2025 17:04:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1749143093;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=mpvfIUXNy+0YI+niMZHhnnE2dkA26uyrgOmKrnHQckE=;
+	b=irttrjNo4uZAbzuJrhqaPlRP7rdBMRKsmadZ1yc+YUCoQS35qn9eODRo5z/MZfaDJaFK2y
+	bY3W95yCCi/3++JTF7o+k3lQ42CzTJ8QC7meYVCzZDwrqAPP/DdUWt4p/Ra3hmG0JO+l3c
+	gA4RaYPocfS6nOBnhLtDj+wPHbRYarQ=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-257-pvkWPJ53OL27AJlTio-Kdw-1; Thu, 05 Jun 2025 13:04:52 -0400
+X-MC-Unique: pvkWPJ53OL27AJlTio-Kdw-1
+X-Mimecast-MFC-AGG-ID: pvkWPJ53OL27AJlTio-Kdw_1749143091
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-450cb902173so6993175e9.1
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Jun 2025 10:04:52 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749141738; x=1749746538;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=PFO6uqE3omBPZMM2RRJAUzPXA8e6WjqOavvxq7pzHeU=;
-        b=ZcMFklQfYzZaIUJgrZZkESwV3UtZa9DKAOdPQph38G1QUd3nn4japD3CxSEBG+DVpC
-         7IsPobdf6CVwISxWh3aICyrlv1+nm7LbUIXdkwdcALfXo9logRhr1Zf6Hkx/nx+xTF/r
-         TIHmwlZ33KfwtgQ9x4N850xZx3WwdKf+rBHmA5vy5PuulykRXMDR9siwcB/B24dJO8vG
-         4KMCqk9cLXGpofrFv2P+PxwJ0fEKAu5ECDvCDNp0q/NKFwLuQQGryQ8cUvYnMsG9UbYs
-         PUGU+JfFZEickQJOk3KD5cvMxfstYaCgcq7jwAlscQPs5bdmprZiIlJp15/+m5NULsZM
-         8EYw==
-X-Gm-Message-State: AOJu0YxIUbyXOoHPZLWsARgB6JuCaOkkI2XXCiTho3zbQfdZc5Z3oMI5
-	3uV6jGveSfWUiNaCwRnHW3q/hCStmuqXPZvrsepB8JE9+Qfl25vxWlWYLtKT6R7wIJ4=
-X-Gm-Gg: ASbGnct6fezJCfHR99MmAoFgJH8I/PXN9W8mftP18VTttRD0cVmIkpCSbYmImC9foX2
-	1g/sRfGrQDq1beKZdGL1vL9ypM5419S1WrWbNgy1zXdVT46qqQaosmnqUcbW6mO2HBTlL3ayuDi
-	+WX8gNo5xEH5moreANgYF+U/2bEsbg7q/h1e3H/rE6x+OoJ5T/AGM7jEHK1Zs23EF4zlycyRnrO
-	ECSQhqswBFBKv+hYyqrDb+XV3ez5W9/oogtV/snHN0GbRR7SKbAAzeY6ldTjnUvYYqOIjXuCaec
-	KGh8eZR+kpduz53W2+AtWsizY+VGE9ITs6ImysrXwc/LkJs6CvAUxx+5tH1SFVcy8TsSxxioluM
-	TUfE6RzllCHHS6sbYYYs=
-X-Google-Smtp-Source: AGHT+IH8iucMLKyB72iZJRp6Ja13mId54J+CJ3jYG3RVj0yucpe7n56kB9LK1qIF4RKWk44WVICr0g==
-X-Received: by 2002:a05:6512:3e21:b0:553:2e82:400d with SMTP id 2adb3069b0e04-55357bacabbmr1937536e87.25.1749141738230;
-        Thu, 05 Jun 2025 09:42:18 -0700 (PDT)
-Received: from [10.0.1.129] (c-92-32-241-79.bbcust.telenor.se. [92.32.241.79])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-553378b2684sm2648588e87.106.2025.06.05.09.42.17
+        d=1e100.net; s=20230601; t=1749143091; x=1749747891;
+        h=content-transfer-encoding:in-reply-to:organization:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=mpvfIUXNy+0YI+niMZHhnnE2dkA26uyrgOmKrnHQckE=;
+        b=X5VNOfTpwWT2D55Zwmch03qNE0xDPui5iNeS43vnXQ2nlp8NQpUKO3uxvWNTKzvoIG
+         2vAOVzqMYGpfMnW4FFzdYcVCUgbJvWvcIeyB97yp4BTHgJ7O2qMkEHvQ2OI9g3Jwj+B/
+         vNRX+StlYw11RaBFDZ60gwid1AMF4H9F2w87mdaOGFakaurCHycAi+tENb5APoR7OjgS
+         iVd2emfUiChKdxP7no9kTQ7GF0tZmNEw4Qsrm8/rhNzrstQJchTMADTc3teif4UjZE4Y
+         4Gwh6Julq/6JKxED5V84LSIATzA2vqggyNJJBdl1btemvE3S3498EbsKx8IMI7mMSK5o
+         RHKA==
+X-Forwarded-Encrypted: i=1; AJvYcCXFNvS0HDWhCgvgktvMhXhdUPi3ajMl05xKLJHTKYEYy6JnbUFFBzCLRyvxvDbGt1WfJPn45WTaPv7EUw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzyhUJNersMCmJVMr4XdlOkyTvMP11HSCiJqZ1OR1ZpZuOFSAf
+	Z1EU5AOM/C3yMlPgje8S0bmyZ807hcYfPAMyb8FxViP/fKkgshJnngo21xanoE4O/GM/0yes1+6
+	D7YKMN27Fkkr30qIsJfgsePbcseeReerdoIPWeFiW010Gn6HMp8IMR9gIbBU+2oEeggi7Xw==
+X-Gm-Gg: ASbGncvpRtx5a2EFaToPaoJHTQGmuUGnKOCpwG2Hr2T2os6Ys2mjK3mo/iFjWjEqYKy
+	7rCPdFvjJ7Js3KteP6ybmsmUghVqky8OQ6szDsuIU8nrmHF/N1EQfesfDjgdlSkzCQvDDCCB5JT
+	2k5+PdPHN5rQhRkYhEzu5sw9Bc1ahdiYzdd0refGL1I/KOagXtn4/6uOrWNDk51y+Wja2EEHMjE
+	0PpjafaPp41vdAdGbMdbl8yrTjkVmqJUQTPk1ayACf/7dBajq/RpV/JfVoMygvbjFAdBm1fsRaP
+	DtGjq9MF9xkojGek8icItkmK5GMuosENiXf/sJxirdw=
+X-Received: by 2002:a05:600c:628e:b0:442:f861:3536 with SMTP id 5b1f17b1804b1-451f8875262mr47786585e9.7.1749143090818;
+        Thu, 05 Jun 2025 10:04:50 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGVQE089ry3sB9Y7MBF2Kawt3CRt9isls3pFu6UKzMYUnWY0Ft7AZGjD26+zCdRTOtAOs+xQg==
+X-Received: by 2002:a05:600c:628e:b0:442:f861:3536 with SMTP id 5b1f17b1804b1-451f8875262mr47785945e9.7.1749143090353;
+        Thu, 05 Jun 2025 10:04:50 -0700 (PDT)
+Received: from [192.168.3.141] (p4fe0f5ef.dip0.t-ipconnect.de. [79.224.245.239])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-451f9919648sm30388695e9.31.2025.06.05.10.04.49
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 05 Jun 2025 09:42:17 -0700 (PDT)
-Message-ID: <5dfc623d-eca6-45f7-aacf-8f775d03267a@cryptogams.org>
-Date: Thu, 5 Jun 2025 18:42:16 +0200
+        Thu, 05 Jun 2025 10:04:49 -0700 (PDT)
+Message-ID: <79f75185-ac45-47c6-8f56-2ffa1e4815b0@redhat.com>
+Date: Thu, 5 Jun 2025 19:04:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
- implementation
-To: zhihang.shao.iscas@gmail.com, linux-crypto@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org, herbert@gondor.apana.org.au,
- paul.walmsley@sifive.com, ou@eecs.berkeley.edu, alex@ghiti.fr
-References: <20250605145634.1075-1-zhihang.shao.iscas@gmail.com>
+Subject: Re: [PATCH 07/12] mm: Remove redundant pXd_devmap calls
+To: Dan Williams <dan.j.williams@intel.com>, Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org,
+ gerald.schaefer@linux.ibm.com, willy@infradead.org,
+ linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
+ linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
+ linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
+ zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
+ balbirs@nvidia.com, lorenzo.stoakes@oracle.com,
+ linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+ linux-cxl@vger.kernel.org, dri-devel@lists.freedesktop.org, John@groves.net
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <2ee5a64581d2c78445e5c4180d7eceed085825ca.1748500293.git-series.apopple@nvidia.com>
+ <6841026c50e57_249110022@dwillia2-xfh.jf.intel.com.notmuch>
+ <20250605120909.GA44681@ziepe.ca>
+ <897590f7-99a5-4053-8566-76623b929c7c@redhat.com>
+ <6841c63b3cb25_249110060@dwillia2-xfh.jf.intel.com.notmuch>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ WNyWQQ==
+Organization: Red Hat
+In-Reply-To: <6841c63b3cb25_249110060@dwillia2-xfh.jf.intel.com.notmuch>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zX3ucDngJr0U39NVNPjAjiYT_tHbHrIkfjm3x0il8rk_1749143091
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Andy Polyakov <appro@cryptogams.org>
-In-Reply-To: <20250605145634.1075-1-zhihang.shao.iscas@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_094220_814261_46B7D9F7 
-X-CRM114-Status: GOOD (  20.43  )
+X-CRM114-CacheID: sfid-20250605_100455_076333_4A682649 
+X-CRM114-Status: GOOD (  16.22  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,96 +168,67 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-> This is a straight import of the OpenSSL/CRYPTOGAMS Poly1305
-> implementation for riscv authored by Andy Polyakov.
-> The file 'poly1305-riscv.pl' is taken straight from this upstream
-> GitHub repository [0] at commit 33fe84bc21219a16825459b37c825bf4580a0a7b,
-> and this commit fixed a bug in riscv 64bit implementation.
-
-Just in case for reference, the commit fixed a bug in the 32-bit code 
-path when it's compiled for 64-bit architecture. For better/adequate 
-performance on a 64-bit system the 64-bit code path should be used. And 
-it was fine all along. It even passed an algorithmic verification, in 
-other words confidence level goes beyond the unit tests.
-
-> Also, this patch passed extra run-time self tests.
+On 05.06.25 18:30, Dan Williams wrote:
+> David Hildenbrand wrote:
+>> On 05.06.25 14:09, Jason Gunthorpe wrote:
+>>> On Wed, Jun 04, 2025 at 07:35:24PM -0700, Dan Williams wrote:
+>>>
+>>>> If all dax pages are special, then vm_normal_page() should never find
+>>>> them and gup should fail.
+>>>>
+>>>> ...oh, but vm_normal_page_p[mu]d() is not used in the gup path, and
+>>>> 'special' is not set in the pte path.
+>>>
+>>> That seems really suboptimal?? Why would pmd and pte be different?
+>>>
+>>>> I think for any p[mu]d where p[mu]d_page() is ok to use should never set
+>>>> 'special', right?
+>>>
+>>> There should be dedicated functions for installing pages and PFNs,
+>>> only the PFN one would set the special bit.
+>>>
+>>> And certainly your tests *should* be failing as special entries should
+>>> never ever be converted to struct page.
+>>
+>> Worth reviewing [1] where I clean that up and describe the current
+>> impact. ;)
 > 
-> [0] https://github.com/dot-asm/cryptogams
+> Will do.
 > 
-> Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-> ---
->   arch/riscv/crypto/Kconfig           |  10 +
->   arch/riscv/crypto/Makefile          |  17 +
->   arch/riscv/crypto/poly1305-glue.c   | 202 +++++++
->   arch/riscv/crypto/poly1305-riscv.pl | 797 ++++++++++++++++++++++++++++
->   drivers/net/Kconfig                 |   1 +
->   lib/crypto/Kconfig                  |   2 +-
->   6 files changed, 1028 insertions(+), 1 deletion(-)
->   create mode 100644 arch/riscv/crypto/poly1305-glue.c
->   create mode 100644 arch/riscv/crypto/poly1305-riscv.pl
+>> What's even worse about this pte_devmap()/pmd_devmap()/... shit (sorry!
+>> but it's absolute shit) is that some pte_mkdev() set the pte special,
+>> while others ... don't.
 > 
-> diff --git a/arch/riscv/crypto/Kconfig b/arch/riscv/crypto/Kconfig
-> index c67095a3d669..228bb3c6940d 100644
-> --- a/arch/riscv/crypto/Kconfig
-> +++ b/arch/riscv/crypto/Kconfig
-> @@ -38,6 +38,16 @@ config CRYPTO_GHASH_RISCV64
->   	  Architecture: riscv64 using:
->   	  - Zvkg vector crypto extension
->   
-> +config CRYPTO_POLY1305_RISCV
-> +	tristate "Hash functions: Poly1305"
-> +	select CRYPTO_HASH
-> +	select CRYPTO_ARCH_HAVE_LIB_POLY1305
-> +	help
-> +	  Poly1305 authenticator algorithm (RFC7539)
-> +
-> +	  Architecture: riscv using:
-> +	  - V vector extension
+> As the person who started the turd rolling into this pile that Alistair
+> is heroically cleaning up, I approve this characterization.
+> 
+>> E.g., loongarch
+>>
+>> static inline pte_t pte_mkdevmap(pte_t pte)	{ pte_val(pte) |=
+>> _PAGE_DEVMAP; return pte; }
+>>
+>> I don't even know how it can (could) survive vm_normal_page().
+> 
+> Presently "can" because dax switched away from vmf_insert_mixed() to
+> vmf_insert_page(), "could" in the past was the devmap hack to avoid
+> treating VM_MIXEDMAP as !vm_normal_page().
 
-Implementation in question doesn't use RISC-V vector extension, only 
-Integer Multiplication extension.
+The thing is, in vm_normal_page() if we have CONFIG_ARCH_HAS_PTE_SPECIAL 
+-- which loongarch sets -- if we don't see pte_special(), we will assume 
+that it is refcounted.
 
-> +static void riscv64_poly1305_blocks(struct poly1305_desc_ctx *dctx, const u8 *src,
-> +				 u32 len, u32 hibit)
-> +{
-> +	if (unlikely(!dctx->sset)) {
-> +		if (!dctx->rset) {
-> +			poly1305_init_riscv(&dctx->h, src);
-> +			src += POLY1305_BLOCK_SIZE;
-> +			len -= POLY1305_BLOCK_SIZE;
-> +			dctx->rset = 1;
-> +		}
-> +		if (len >= POLY1305_BLOCK_SIZE) {
-> +			dctx->s[0] = get_unaligned_le32(src +  0);
-> +			dctx->s[1] = get_unaligned_le32(src +  4);
-> +			dctx->s[2] = get_unaligned_le32(src +  8);
-> +			dctx->s[3] = get_unaligned_le32(src + 12);
-> +			src += POLY1305_BLOCK_SIZE;
-> +			len -= POLY1305_BLOCK_SIZE;
-> +			dctx->sset = true;
-> +		}
-> +		if (len < POLY1305_BLOCK_SIZE)
-> +			return;
-> +	}
-> +
-> +	len &= ~(POLY1305_BLOCK_SIZE - 1);
-> +
-> +	poly1305_blocks(&dctx->h, src, len, hibit);
-> +}
+	if (likely(!pte_special(pte))
+		goto check_pfn;
 
-This interface doesn't make sense. It looks like it's supposed to 
-accommodate concatenated key, nonce and data input of arbitrary length. 
-However the data length is truncated to the multiples of poly1305 
-blocks, in which case |hibit| is supposed to be 1 unconditionally. Or in 
-other words, considered in isolation this subroutine shouldn't have 
-|hibit| as a parameter, but simply pass 1 as the last argument to 
-poly1305_blocks.
+So if pte_mkdevmap() does not set pte_special(), then ... 
+vm_normal_page() would detect it as normal, although it isn't normal?
 
-On a general note. The poly1305 implementation in question supports both 
-32- and 64-bit architectures, so maybe riscv_ prefixes would be more 
-appropriate. As opposed to riscv64_ that is :-)
+But maybe I am missing something important.
 
-Cheers.
+-- 
+Cheers,
+
+David / dhildenb
 
 
 _______________________________________________
