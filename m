@@ -4,130 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11B2DC5AE59
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 04:34:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538D1C5B543
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 06:13:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8IgjBk4ceAbN3PO26eUxlY8XhWtLJSL1DJpjqq0XbMA=; b=b4GYR/F1QzrB0s
-	XpGuIMK6zEH27AUYEna227rWmpUsETujW96PTBBa4/eK9+QJcmAK77mLcxc10omURU9gyJBhpoBA/
-	8HXmq2ta7kkoaKUdZmM1DuRpcrKdSZjrfnL8fJ36cHpppmx0GygG0UIwg75AoO2cIIgor2f+BJnK+
-	FMLt7ZckZNfOlt26qfMuhD+4xwubceBTNB49jWFvF5egjbtXYJV9qi0e5/vn581coUTJzYBRxwR6O
-	g7knt2xiMIIqghgVRr6Nf3OKJGAP5uKnXZPj5R3kcrdJ9bVhJxYS+kZYwjUO58baRVNTdTCmjlKxl
-	xqX/htm1nuAkDEgBzMWg==;
+	List-Owner; bh=h3iOd4Lv/6IfCHkdbczwtuX9kHa6BohGc6s4Y0nIyaY=; b=XOeQhhaiViZRFa
+	dLZJoDq9EEzMJ1+bZUPkZxqM1+G4hFYDI40zguXJMfuXghxdCfMuOlVpQ0jgUz81DYl4Q0C7Dn3Qb
+	1OLOtm1dlZ4xL7A7bM+/eUqrUV++korIurz3kb57O5n2tbZfctnfiwbo+HpNfIUJi6bVs2i0QYWqM
+	NzzyVgn5ps/NWBU2r+rd7c0q1oRXprf2QBXPvpcsfZtNn90qnhNX1KO38UFH+fUnRjBd0hOAy/fx/
+	HTf3PLUzb1PMqAJaEth66JYxc4VP1pbq0Ae4pwj1ha1oN7UJ9HJlt3C9mhgoHUugURzU/MlO8YGDI
+	BgqyAzLREqDLkaYyVw6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN2JG-0000000Ei9c-3adU;
-	Thu, 05 Jun 2025 04:34:34 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1uN3rH-0000000EoV4-2QPP;
+	Thu, 05 Jun 2025 06:13:47 +0000
+Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN2JE-0000000Ei99-14Xi
+	id 1uN3rD-0000000EoTq-128U
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 04:34:33 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 7A10B211B8;
-	Thu,  5 Jun 2025 04:34:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749098070; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vhg/BSQkQq1b9VFsC44xsekkKzQTY9ISghkCrgC0U1c=;
-	b=j4BsejGmsGIart99M2DYOoBQRNrxndzoLe0uY67fCL+DfJ0mKiVsqYYkqtXe6TUoSP4RCN
-	OBqU5Xq6N3FWBLDUCzTXBXHfVUfBL//MihaCCFhZPq5VLy/Pp+YfVnxXur7lpmwbyF+R7S
-	Oe2FhipjgZrzJoIZhn0/QQce+fyosNI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749098070;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vhg/BSQkQq1b9VFsC44xsekkKzQTY9ISghkCrgC0U1c=;
-	b=ImT1PK+usPgp6EFG7l/JQOANOn7kVpf/m9BBX94NrCn59BYc5biRXmJyp34SnwjsK5hvbF
-	ArQ1+zPywDQOLSDQ==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1749098070; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vhg/BSQkQq1b9VFsC44xsekkKzQTY9ISghkCrgC0U1c=;
-	b=j4BsejGmsGIart99M2DYOoBQRNrxndzoLe0uY67fCL+DfJ0mKiVsqYYkqtXe6TUoSP4RCN
-	OBqU5Xq6N3FWBLDUCzTXBXHfVUfBL//MihaCCFhZPq5VLy/Pp+YfVnxXur7lpmwbyF+R7S
-	Oe2FhipjgZrzJoIZhn0/QQce+fyosNI=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1749098070;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Vhg/BSQkQq1b9VFsC44xsekkKzQTY9ISghkCrgC0U1c=;
-	b=ImT1PK+usPgp6EFG7l/JQOANOn7kVpf/m9BBX94NrCn59BYc5biRXmJyp34SnwjsK5hvbF
-	ArQ1+zPywDQOLSDQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 22774137FE;
-	Thu,  5 Jun 2025 04:34:29 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id ViaJBVUeQWirdwAAD6G6ig
-	(envelope-from <osalvador@suse.de>); Thu, 05 Jun 2025 04:34:29 +0000
-Date: Thu, 5 Jun 2025 06:34:23 +0200
-From: Oscar Salvador <osalvador@suse.de>
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Barry Song <baohua@kernel.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Liam R . Howlett" <Liam.Howlett@oracle.com>,
-	Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	WANG Xuerui <kernel@xen0n.name>, Jonas Bonn <jonas@southpole.se>,
-	Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
-	Stafford Horne <shorne@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	Jann Horn <jannh@google.com>, loongarch@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-openrisc@vger.kernel.org,
-	linux-riscv@lists.infradead.org, linux-mm@kvack.org
+	Thu, 05 Jun 2025 06:13:45 +0000
+Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-312028c644bso497767a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 23:13:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1749104018; x=1749708818; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Hn7NBr5TJWjNI8T2dY/UzcUhiHMyl/nutXcvd+GUfmM=;
+        b=KMlx5FWJF48dOAHLFLOzCTf6Z3sIuQoyJaVqcBI8kgx9sTrTlVyDt+CP+JlYdeG/IA
+         cyhMkOAktDpn+Icr6DMMwweWjfbSU5aTnD9PcqbjdhO5nDZM6nDTQvyrSRBk8JZQggeg
+         t2sC8atgELWhS3w+QuPYkvkqajHdrLotgYMglcUCyM/JYg6PuTFTsl7fRqUwuyUJ6DUQ
+         Asf2bczkSd49gXzs/Xz8ocsBUxd2OmNBh2shHKwu3PGHdNMzvKf+Ym90M0WleLtDc+Ge
+         H+K48CLM6vqJiVf4vWms/i20dUSsteD93bcVThZ0gGiMcKmAzZP2e3XFJ0Y2zQ5WLzBk
+         CqFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749104018; x=1749708818;
+        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
+         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Hn7NBr5TJWjNI8T2dY/UzcUhiHMyl/nutXcvd+GUfmM=;
+        b=eAxl9/DCK41GXCE7dhiAkZwewiE7eZukbuHVc+hMTG4TvcFK5SlEHjohsLmZUr7b7I
+         FG3oIWbIeOXpjl69Gt9XJxr0p2KaW5MOt2C9IHbNR1OHdV7l/2aMXEMs0H2sW0Q+zBY4
+         qtUcgS8PASeKwLNHLlKnbJELH59HE6rNLvg3IrsvUGf2rRW1vFs+cuP2V+35wLIhnYh0
+         OeMQbXR3L6Alu5fcyy1i6dXPoc8SB8hIM43liZuzzE7zSdaSGVizaTKEhjbPPfR4VlRN
+         b7jLaCtrvMl5N99nM23IK2eexuSaGVIwT+lpwbzNA19PFK1ICCE60Pvcfs14bXYfiybm
+         DkhA==
+X-Forwarded-Encrypted: i=1; AJvYcCW/mhcX/GlzEzPxct2DFXZ5Btfu/rYk5kov4MSqZ5H3JEyYmF387AhSB9mbiUz3gNkdS0s8Ue4H9VKuRA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzP8Wy3UkFEleATgr0VgkziOIMwNPT1+X2G9OORXJAqT9VlOpvp
+	u3hfePjTqgWoSA6jS+jtG9hKidgaJwjTVogk7qh2xYFnR1SJfoKSYxkwrOT5Xdfy7WY=
+X-Gm-Gg: ASbGncsZgSRJaEDHycCqPU7sLDIhFJkMT2/7L+nVYp26Wx0GmfIjjbvjW37DFP6907r
+	alc4nOZuKTYRsqKj9VlkQu9Gi29o0i0zPl+zqe4Ne6ET5IUzx+HTpH2MKqmPVt2ObRomDjXiWH0
+	trdc0W/KHWvbSUIPVOFDCEd1JytljorzbN0wpmPzLaO/MAjGC8QBqUUaV60Jsec7tyOl/XrOfi9
+	KuJxMBERToI7A0TiW5JNGwvYORBHYpNrt1SMc67g2ZACQzvNVkJ8wB6vtfqWLFHu68+wM/jrSIY
+	yOUhV8UiKBkv335D+ICx9seoA9hH9MJYN16/2h50Ui0saUSyLGX2h44PR4mWo13LkocnJk896t4
+	=
+X-Google-Smtp-Source: AGHT+IHDy86FEw+vzJcbrf39p87S4pydRZ7lyu+1r5y5V92k7PKGXeaSlNE+WkPTO7jTgdMiiqKipg==
+X-Received: by 2002:a17:90b:5290:b0:311:9c9a:58c5 with SMTP id 98e67ed59e1d1-3130cd146e2mr10841635a91.12.1749104018411;
+        Wed, 04 Jun 2025 23:13:38 -0700 (PDT)
+Received: from [10.68.122.90] ([63.216.146.178])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313319020e0sm477078a91.12.2025.06.04.23.13.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 04 Jun 2025 23:13:37 -0700 (PDT)
+Message-ID: <1fd82421-90ad-4952-8fc0-77859f861570@bytedance.com>
+Date: Thu, 5 Jun 2025 14:13:27 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2] mm/pagewalk: split walk_page_range_novma() into
  kernel/user parts
-Message-ID: <aEEeT2zyafbHzSyy@localhost.localdomain>
+To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Cc: Barry Song <baohua@kernel.org>, David Hildenbrand <david@redhat.com>,
+ "Liam R . Howlett" <Liam.Howlett@oracle.com>,
+ Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
+ Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
+ Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Jonas Bonn <jonas@southpole.se>,
+ Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
+ Stafford Horne <shorne@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Jann Horn <jannh@google.com>,
+ loongarch@lists.linux.dev, linux-kernel@vger.kernel.org,
+ linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+ linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>
 References: <20250604141958.111300-1-lorenzo.stoakes@oracle.com>
-MIME-Version: 1.0
-Content-Disposition: inline
+From: Qi Zheng <zhengqi.arch@bytedance.com>
 In-Reply-To: <20250604141958.111300-1-lorenzo.stoakes@oracle.com>
-X-Spamd-Result: default: False [-4.29 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-0.99)[-0.989];
-	NEURAL_HAM_SHORT(-0.20)[-0.997];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_TLS_ALL(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	ARC_NA(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[25];
-	MISSING_XM_UA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[linux-foundation.org,kernel.org,redhat.com,oracle.com,suse.cz,google.com,suse.com,linux.dev,xen0n.name,southpole.se,saunalahti.fi,gmail.com,sifive.com,dabbelt.com,eecs.berkeley.edu,ghiti.fr,lists.linux.dev,vger.kernel.org,lists.infradead.org,kvack.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,imap1.dmz-prg2.suse.org:helo]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_213432_447398_6309936B 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250604_231343_619829_E0105D38 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,12 +107,14 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 04, 2025 at 03:19:58PM +0100, Lorenzo Stoakes wrote:
+
+
+On 6/4/25 10:19 PM, Lorenzo Stoakes wrote:
 > The walk_page_range_novma() function is rather confusing - it supports two
 > modes, one used often, the other used only for debugging.
 > 
@@ -181,13 +151,41 @@ On Wed, Jun 04, 2025 at 03:19:58PM +0100, Lorenzo Stoakes wrote:
 > 
 > Signed-off-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
 > Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> ---
+> v2:
+> * Renamed walk_page_range_novma() to walk_page_range_debug() as per David.
+> * Moved walk_page_range_debug() definition to mm/internal.h as per Mike.
+> * Renamed walk_page_range_kernel() to walk_kernel_page_table_range() as
+>    per David.
+> 
+> v1 resend:
+> * Actually cc'd lists...
+> * Fixed mistake in walk_page_range_novma() not handling kernel mappings and
+>    update commit message to referene.
+> * Added Mike's off-list Acked-by.
+> * Fixed up comments as per Mike.
+> * Add some historic flavour to the commit message as per Mike.
+> https://lore.kernel.org/all/20250603192213.182931-1-lorenzo.stoakes@oracle.com/
+> 
+> v1:
+> (accidentally sent off-list due to error in scripting)
+> 
+>   arch/loongarch/mm/pageattr.c |  2 +-
+>   arch/openrisc/kernel/dma.c   |  4 +-
+>   arch/riscv/mm/pageattr.c     |  8 +--
+>   include/linux/pagewalk.h     |  7 ++-
+>   mm/hugetlb_vmemmap.c         |  2 +-
+>   mm/internal.h                |  4 ++
+>   mm/pagewalk.c                | 98 ++++++++++++++++++++++++------------
+>   mm/ptdump.c                  |  3 +-
+>   8 files changed, 82 insertions(+), 46 deletions(-)
+> 
 
-Reviewed-by: Oscar Salvador <osalvador@suse.de>
+Acked-by: Qi Zheng <zhengqi.arch@bytedance.com>
+
+Thanks.
 
 
--- 
-Oscar Salvador
-SUSE Labs
 
 _______________________________________________
 linux-riscv mailing list
