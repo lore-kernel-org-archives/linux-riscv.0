@@ -4,98 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 538D1C5B543
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 06:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3EABC5B543
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 06:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=h3iOd4Lv/6IfCHkdbczwtuX9kHa6BohGc6s4Y0nIyaY=; b=XOeQhhaiViZRFa
-	dLZJoDq9EEzMJ1+bZUPkZxqM1+G4hFYDI40zguXJMfuXghxdCfMuOlVpQ0jgUz81DYl4Q0C7Dn3Qb
-	1OLOtm1dlZ4xL7A7bM+/eUqrUV++korIurz3kb57O5n2tbZfctnfiwbo+HpNfIUJi6bVs2i0QYWqM
-	NzzyVgn5ps/NWBU2r+rd7c0q1oRXprf2QBXPvpcsfZtNn90qnhNX1KO38UFH+fUnRjBd0hOAy/fx/
-	HTf3PLUzb1PMqAJaEth66JYxc4VP1pbq0Ae4pwj1ha1oN7UJ9HJlt3C9mhgoHUugURzU/MlO8YGDI
-	BgqyAzLREqDLkaYyVw6Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=akZK4BQhEstZr6fSLIDNil4MBjOVAzSeqwcIVPmA3Gw=; b=C8qB+L08lYGzhd
+	bHFP+I+qmFGOMxQhtQd7bpu56iP9LNhSWYy28UJc/b2OlJw3HRaitJPErh5gTzlHosHa+6d80hmpG
+	rLBqbsDnSsWvx5cy9m5sjdToBLy4Rynbyd/qHsVhnWGU8rAUgUpKnfbATWxSIoYNQOpHEC6thb9WI
+	DbYiCnEliNKDrm3d9Ne0XAp0uXOsGX36LWvrHrHFwggjxGmJRy09oqvbs6NdZ5otqXSzSNNebaYtc
+	fTXTUXMbpIbYbUtJxfNTElCVRlzbwhBO+Y0lcGFDAQ9MUnjlbuiIytkyJD+qHEkxtXgPCoHQg7oLi
+	F9NwpsQZWWCpX4ZLMCsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3rH-0000000EoV4-2QPP;
-	Thu, 05 Jun 2025 06:13:47 +0000
-Received: from mail-pj1-x102c.google.com ([2607:f8b0:4864:20::102c])
+	id 1uN3sd-0000000EokE-16SW;
+	Thu, 05 Jun 2025 06:15:11 +0000
+Received: from mail-pj1-x1033.google.com ([2607:f8b0:4864:20::1033])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN3rD-0000000EoTq-128U
+	id 1uN3sZ-0000000Eois-0H4c
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 06:13:45 +0000
-Received: by mail-pj1-x102c.google.com with SMTP id 98e67ed59e1d1-312028c644bso497767a91.0
-        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 23:13:39 -0700 (PDT)
+	Thu, 05 Jun 2025 06:15:10 +0000
+Received: by mail-pj1-x1033.google.com with SMTP id 98e67ed59e1d1-3127cc662e2so612460a91.0
+        for <linux-riscv@lists.infradead.org>; Wed, 04 Jun 2025 23:15:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bytedance.com; s=google; t=1749104018; x=1749708818; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Hn7NBr5TJWjNI8T2dY/UzcUhiHMyl/nutXcvd+GUfmM=;
-        b=KMlx5FWJF48dOAHLFLOzCTf6Z3sIuQoyJaVqcBI8kgx9sTrTlVyDt+CP+JlYdeG/IA
-         cyhMkOAktDpn+Icr6DMMwweWjfbSU5aTnD9PcqbjdhO5nDZM6nDTQvyrSRBk8JZQggeg
-         t2sC8atgELWhS3w+QuPYkvkqajHdrLotgYMglcUCyM/JYg6PuTFTsl7fRqUwuyUJ6DUQ
-         Asf2bczkSd49gXzs/Xz8ocsBUxd2OmNBh2shHKwu3PGHdNMzvKf+Ym90M0WleLtDc+Ge
-         H+K48CLM6vqJiVf4vWms/i20dUSsteD93bcVThZ0gGiMcKmAzZP2e3XFJ0Y2zQ5WLzBk
-         CqFw==
+        d=ventanamicro.com; s=google; t=1749104106; x=1749708906; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=IYCdKhY8aW9URe8Blmx5TcE5ZqYHha77HAw4jeob92E=;
+        b=lbBLOG+5CLTTykyRWxk3O7m/7Ib0SHSEwnWM3tvCOj0VYKhaUBDQJQLag40DYPyORM
+         tQuYO/Gbw/h4Jd35n5+w4VpzFpdyzC9r7LlbnhGPbaqYmvTwfRPyQmx8GnuyjIMrwHNT
+         CFrI2xPOj8eYsuMmmTLXLgpmccqmPbMpwEUmepjCsVQw2I7XGehySypx7xN/YBTSKGdm
+         8zd7fcsmBXRZfNpY1DKkGJlcEFkldWCShJuutW9NfSDz7UzmzHIrLO9D+oIwgRUoJ3BS
+         pmegGSSIduQRyArHAwNcT40RVJFtdMpr0obMmAhMTpodez7pX7ssD0O072gQmUjT6EHb
+         kngQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749104018; x=1749708818;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to:subject
-         :user-agent:mime-version:date:message-id:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Hn7NBr5TJWjNI8T2dY/UzcUhiHMyl/nutXcvd+GUfmM=;
-        b=eAxl9/DCK41GXCE7dhiAkZwewiE7eZukbuHVc+hMTG4TvcFK5SlEHjohsLmZUr7b7I
-         FG3oIWbIeOXpjl69Gt9XJxr0p2KaW5MOt2C9IHbNR1OHdV7l/2aMXEMs0H2sW0Q+zBY4
-         qtUcgS8PASeKwLNHLlKnbJELH59HE6rNLvg3IrsvUGf2rRW1vFs+cuP2V+35wLIhnYh0
-         OeMQbXR3L6Alu5fcyy1i6dXPoc8SB8hIM43liZuzzE7zSdaSGVizaTKEhjbPPfR4VlRN
-         b7jLaCtrvMl5N99nM23IK2eexuSaGVIwT+lpwbzNA19PFK1ICCE60Pvcfs14bXYfiybm
-         DkhA==
-X-Forwarded-Encrypted: i=1; AJvYcCW/mhcX/GlzEzPxct2DFXZ5Btfu/rYk5kov4MSqZ5H3JEyYmF387AhSB9mbiUz3gNkdS0s8Ue4H9VKuRA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP8Wy3UkFEleATgr0VgkziOIMwNPT1+X2G9OORXJAqT9VlOpvp
-	u3hfePjTqgWoSA6jS+jtG9hKidgaJwjTVogk7qh2xYFnR1SJfoKSYxkwrOT5Xdfy7WY=
-X-Gm-Gg: ASbGncsZgSRJaEDHycCqPU7sLDIhFJkMT2/7L+nVYp26Wx0GmfIjjbvjW37DFP6907r
-	alc4nOZuKTYRsqKj9VlkQu9Gi29o0i0zPl+zqe4Ne6ET5IUzx+HTpH2MKqmPVt2ObRomDjXiWH0
-	trdc0W/KHWvbSUIPVOFDCEd1JytljorzbN0wpmPzLaO/MAjGC8QBqUUaV60Jsec7tyOl/XrOfi9
-	KuJxMBERToI7A0TiW5JNGwvYORBHYpNrt1SMc67g2ZACQzvNVkJ8wB6vtfqWLFHu68+wM/jrSIY
-	yOUhV8UiKBkv335D+ICx9seoA9hH9MJYN16/2h50Ui0saUSyLGX2h44PR4mWo13LkocnJk896t4
-	=
-X-Google-Smtp-Source: AGHT+IHDy86FEw+vzJcbrf39p87S4pydRZ7lyu+1r5y5V92k7PKGXeaSlNE+WkPTO7jTgdMiiqKipg==
-X-Received: by 2002:a17:90b:5290:b0:311:9c9a:58c5 with SMTP id 98e67ed59e1d1-3130cd146e2mr10841635a91.12.1749104018411;
-        Wed, 04 Jun 2025 23:13:38 -0700 (PDT)
-Received: from [10.68.122.90] ([63.216.146.178])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-313319020e0sm477078a91.12.2025.06.04.23.13.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 04 Jun 2025 23:13:37 -0700 (PDT)
-Message-ID: <1fd82421-90ad-4952-8fc0-77859f861570@bytedance.com>
-Date: Thu, 5 Jun 2025 14:13:27 +0800
+        d=1e100.net; s=20230601; t=1749104106; x=1749708906;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=IYCdKhY8aW9URe8Blmx5TcE5ZqYHha77HAw4jeob92E=;
+        b=cBMz1Kyp/Fz9wQuhS4SjSb03Z7eXipGdWrxXHflED6SsoMNYs+iCEfhBnizIAhLB4d
+         3T6Eu0IVp6X+/JbOGpiYDFU9kGrQDQgMKY2HE1rCKXRILV5xh2j8zIJGrFjpBphW9bic
+         wb0Z7caPdMhiSjsZkLGkkeOtT+7VamsOg8757nt97lHUveUPqIIpGfeoQ5W/9wgk+c1x
+         8csiScQNA7kp5MjKAkbFNJ+c3V8dTIGzlRexG4T3VvNE1EGoem7GxqVwelXsUwvKkbyl
+         Yd7wy9hP6Nc3k7o42iAxjZycGDiBJIqrHzWLjGA06YLYG3sScZL0Uks6/U8Sq88i1vGY
+         wxAA==
+X-Forwarded-Encrypted: i=1; AJvYcCUl5acowJvq8vqGszicG6It+VneKZIlCX7WkQwFH+HucEMmvhaAGkZ4tXO7VMSsbOeZr1qnMZ1j/q7iAQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxhrzLi0dgK2y1noyulo1MiQUcbSsJm2PqXSrcNb2rKcP4aQUOF
+	4vtrwZN9DJ40nTfk5vXOTWXHsECa8MUFQow6+ttExid4nJXi5mySQfjO2IN2b1JmnPk=
+X-Gm-Gg: ASbGncvxXN71BYgFEjcQewOPugGCUsdn20uoAy8VqO5tuQg58pJMi5yCo/LZo9YhwH6
+	bfu75LzCY9vdQct/Vwp5cTxjjtrtqK0lhKgnHJvoE4jx2NxbhjENGjZo8nA1BABjZhczyVfFVGJ
+	8ppkPuOumZ2pRCf4ImoWQ7Da70m1GGQTG7llfSOnqqaezWELVG/4KPHi5muwTvxorQjK9eDyyoU
+	9Q3HGryjxA8Q/Jvo7xjZ/Z/UitNiytElvWaHv/+Es1IqjTTcQdKsH9LDzfOjhxDk+CMv7qgIsWU
+	7aluj+1iJD7WOtjN/KY52WcckEptE3bjJ02aeVxjmU07fLPJJoPZQqRbO/kCP4SEQgCv09lqPai
+	DsbRMQw==
+X-Google-Smtp-Source: AGHT+IEERT0Tj/0eAgp/ef6xa8y7k+Vq1PulNXuIhfC0x9NWeX6p07jWalxiSI7B9LR8eu0ziMDdUA==
+X-Received: by 2002:a17:90b:1d07:b0:310:8d4a:4a97 with SMTP id 98e67ed59e1d1-3132903824dmr3193484a91.15.1749104105532;
+        Wed, 04 Jun 2025 23:15:05 -0700 (PDT)
+Received: from localhost.localdomain ([14.141.91.70])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3132c0bedc7sm716026a91.49.2025.06.04.23.15.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 04 Jun 2025 23:15:04 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Atish Patra <atish.patra@linux.dev>
+Cc: Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Andrew Jones <ajones@ventanamicro.com>,
+	Anup Patel <anup@brainfault.org>,
+	kvm@vger.kernel.org,
+	kvm-riscv@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Anup Patel <apatel@ventanamicro.com>
+Subject: [PATCH 00/13] MMU related improvements for KVM RISC-V
+Date: Thu,  5 Jun 2025 11:44:45 +0530
+Message-ID: <20250605061458.196003-1-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] mm/pagewalk: split walk_page_range_novma() into
- kernel/user parts
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Barry Song <baohua@kernel.org>, David Hildenbrand <david@redhat.com>,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>,
- Vlastimil Babka <vbabka@suse.cz>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Muchun Song <muchun.song@linux.dev>, Oscar Salvador <osalvador@suse.de>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Jonas Bonn <jonas@southpole.se>,
- Stefan Kristiansson <stefan.kristiansson@saunalahti.fi>,
- Stafford Horne <shorne@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Jann Horn <jannh@google.com>,
- loongarch@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-openrisc@vger.kernel.org, linux-riscv@lists.infradead.org,
- linux-mm@kvack.org, Andrew Morton <akpm@linux-foundation.org>
-References: <20250604141958.111300-1-lorenzo.stoakes@oracle.com>
-From: Qi Zheng <zhengqi.arch@bytedance.com>
-In-Reply-To: <20250604141958.111300-1-lorenzo.stoakes@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250604_231343_619829_E0105D38 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20250604_231507_101794_2AB3F13F 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,84 +99,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+This series primarily has various MMU improvements for KVM RISC-V
+and it also serves as a preparatory series for the upcoming nested
+virtualization support.
 
+PATCH1 to PATCH2: SBI spec related fixes in SBI RFENCE extension
+PATCH3 to PATCH6: Few cosmetic improvements
+PATCH7 to PATCH8: TLB maintenance related improvements
+PATCH9 to PATCH13: MMU related preparatory work for nested virtualization
 
-On 6/4/25 10:19 PM, Lorenzo Stoakes wrote:
-> The walk_page_range_novma() function is rather confusing - it supports two
-> modes, one used often, the other used only for debugging.
-> 
-> The first mode is the common case of traversal of kernel page tables, which
-> is what nearly all callers use this for.
-> 
-> Secondly it provides an unusual debugging interface that allows for the
-> traversal of page tables in a userland range of memory even for that memory
-> which is not described by a VMA.
-> 
-> It is far from certain that such page tables should even exist, but perhaps
-> this is precisely why it is useful as a debugging mechanism.
-> 
-> As a result, this is utilised by ptdump only. Historically, things were
-> reversed - ptdump was the only user, and other parts of the kernel evolved
-> to use the kernel page table walking here.
-> 
-> Since we have some complicated and confusing locking rules for the novma
-> case, it makes sense to separate the two usages into their own functions.
-> 
-> Doing this also provide self-documentation as to the intent of the caller -
-> are they doing something rather unusual or are they simply doing a standard
-> kernel page table walk?
-> 
-> We therefore establish two separate functions - walk_page_range_debug() for
-> this single usage, and walk_kernel_page_table_range() for general kernel
-> page table walking.
-> 
-> We additionally make walk_page_range_debug() internal to mm.
-> 
-> Note that ptdump uses the precise same function for kernel walking as a
-> convenience, so we permit this but make it very explicit by having
-> walk_page_range_novma() invoke walk_kernel_page_table_range() in this case.
-> 
-> Signed-off-by: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-> Acked-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> ---
-> v2:
-> * Renamed walk_page_range_novma() to walk_page_range_debug() as per David.
-> * Moved walk_page_range_debug() definition to mm/internal.h as per Mike.
-> * Renamed walk_page_range_kernel() to walk_kernel_page_table_range() as
->    per David.
-> 
-> v1 resend:
-> * Actually cc'd lists...
-> * Fixed mistake in walk_page_range_novma() not handling kernel mappings and
->    update commit message to referene.
-> * Added Mike's off-list Acked-by.
-> * Fixed up comments as per Mike.
-> * Add some historic flavour to the commit message as per Mike.
-> https://lore.kernel.org/all/20250603192213.182931-1-lorenzo.stoakes@oracle.com/
-> 
-> v1:
-> (accidentally sent off-list due to error in scripting)
-> 
->   arch/loongarch/mm/pageattr.c |  2 +-
->   arch/openrisc/kernel/dma.c   |  4 +-
->   arch/riscv/mm/pageattr.c     |  8 +--
->   include/linux/pagewalk.h     |  7 ++-
->   mm/hugetlb_vmemmap.c         |  2 +-
->   mm/internal.h                |  4 ++
->   mm/pagewalk.c                | 98 ++++++++++++++++++++++++------------
->   mm/ptdump.c                  |  3 +-
->   8 files changed, 82 insertions(+), 46 deletions(-)
-> 
+These patches can also be found in the riscv_kvm_mmu_imp_v1 branch
+at: https://github.com/avpatel/linux.git
 
-Acked-by: Qi Zheng <zhengqi.arch@bytedance.com>
+Anup Patel (13):
+  RISC-V: KVM: Fix the size parameter check in SBI SFENCE calls
+  RISC-V: KVM: Don't treat SBI HFENCE calls as NOPs
+  RISC-V: KVM: Check kvm_riscv_vcpu_alloc_vector_context() return value
+  RISC-V: KVM: Drop the return value of kvm_riscv_vcpu_aia_init()
+  RISC-V: KVM: Rename and move kvm_riscv_local_tlb_sanitize()
+  RISC-V: KVM: Replace KVM_REQ_HFENCE_GVMA_VMID_ALL with
+    KVM_REQ_TLB_FLUSH
+  RISC-V: KVM: Don't flush TLB in gstage_set_pte() when PTE is unchanged
+  RISC-V: KVM: Implement kvm_arch_flush_remote_tlbs_range()
+  RISC-V: KVM: Factor-out MMU related declarations into separate headers
+  RISC-V: KVM: Introduce struct kvm_gstage_mapping
+  RISC-V: KVM: Add vmid field to struct kvm_riscv_hfence
+  RISC-V: KVM: Factor-out g-stage page table management
+  RISC-V: KVM: Pass VMID as parameter to kvm_riscv_hfence_xyz() APIs
 
-Thanks.
+ arch/riscv/include/asm/kvm_aia.h    |   2 +-
+ arch/riscv/include/asm/kvm_gstage.h |  72 ++++
+ arch/riscv/include/asm/kvm_host.h   | 103 +-----
+ arch/riscv/include/asm/kvm_mmu.h    |  21 ++
+ arch/riscv/include/asm/kvm_tlb.h    |  84 +++++
+ arch/riscv/include/asm/kvm_vmid.h   |  27 ++
+ arch/riscv/kvm/Makefile             |   1 +
+ arch/riscv/kvm/aia_device.c         |   6 +-
+ arch/riscv/kvm/aia_imsic.c          |  12 +-
+ arch/riscv/kvm/gstage.c             | 336 +++++++++++++++++++
+ arch/riscv/kvm/main.c               |   3 +-
+ arch/riscv/kvm/mmu.c                | 499 ++++++----------------------
+ arch/riscv/kvm/tlb.c                | 110 +++---
+ arch/riscv/kvm/vcpu.c               |  27 +-
+ arch/riscv/kvm/vcpu_exit.c          |   7 +-
+ arch/riscv/kvm/vcpu_sbi_replace.c   |  25 +-
+ arch/riscv/kvm/vcpu_sbi_v01.c       |  25 +-
+ arch/riscv/kvm/vm.c                 |   7 +-
+ arch/riscv/kvm/vmid.c               |  25 ++
+ 19 files changed, 791 insertions(+), 601 deletions(-)
+ create mode 100644 arch/riscv/include/asm/kvm_gstage.h
+ create mode 100644 arch/riscv/include/asm/kvm_mmu.h
+ create mode 100644 arch/riscv/include/asm/kvm_tlb.h
+ create mode 100644 arch/riscv/include/asm/kvm_vmid.h
+ create mode 100644 arch/riscv/kvm/gstage.c
 
+-- 
+2.43.0
 
 
 _______________________________________________
