@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F24D6C5AE59
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 10:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1087C5B543
+	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 12:09:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKZQzsIQm4fXpupEzKQrPPkfQDT+RG/KKMDE4lUKEhQ=; b=iUS6q3h6qS2vmdoeEOlgEPryV9
-	QjRzLyWnX3sKy88UTH9W0c3pZrBRWMd7rpJQksDWENOp9xjCa3IisOiqqL0tvXvuvUqqsnOnJRi07
-	Q2Q/rMw6UWLxuI1HhkUli2FK+5tYgzKFAuoRqZRf0exurGsXeeruayg1cBMH8Dz2qwo5fHyaglUuN
-	hmJYh3noFP0p96x+me/1z3ZljQr+hmcRYEH5lAWDuA0EdARoDP73w99WSWgkYJfs79QZ97JkNBEzj
-	qzypBln5BsMNCdD3WnYg4xToHnt/Oxdkp0569YnoWuTeEXXD42AtNMmzGbQypOLubAdh3Fbrs3q+6
-	o6PhORLw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1t62eoC3zZjc93A2EX5SEHsqCGo4B5iReu0o1JPk0BM=; b=F1aa5F1TWp+bnL
+	Q/FJfU0ReIhJakF2tpm3TfdWYgGsf3GOOT/hhLHJn0GSIWOXOx/yz5qLbMUdI5m0sl708rOFosDGp
+	II1kh9n426Q97aq9oOPCG3r3/bfzBp8Xotf1/fnn5SneH1iCsUxmuB5E5gPVf1Hhr+BBqKltN/UxP
+	3ZG++sOM2f4R/+m0iOH7jzJK8DcpAV+Pw8GIcyFL/4G6KqpC5seA/LqMt38dM/X50dEv2TIExon34
+	yiETr67Oh5fnKe/J/ssn7QHKYtOTByd/xbUfD3shbg+8sqIZO4vX7VpMvNcfHOxhYJrDPnKH7FAx8
+	v132gGNOyEgZ3ZcFpCTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN8B6-0000000FIQk-24fT;
-	Thu, 05 Jun 2025 10:50:32 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1uN9PP-0000000FRtl-2zmB;
+	Thu, 05 Jun 2025 12:09:23 +0000
+Received: from mail-qv1-xf2a.google.com ([2607:f8b0:4864:20::f2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uN80E-0000000FGz2-1pGJ
+	id 1uN9PM-0000000FRsL-1Q5E
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 10:39:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 83D985C5D29;
-	Thu,  5 Jun 2025 10:37:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D4C6C4CEE7;
-	Thu,  5 Jun 2025 10:39:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749119957;
-	bh=7OhA0PovjsmvN9Ea8pjicG1JaTKuYtzo56D5nmggPkU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Ua9Z62JTbGBwyF7nkPI9iUc5Lu6bHbSiOu05EB1wU24/vXt6tLEJpTaTLZlTBhDBy
-	 nZ4zpxoPDwdIe/BcX9n1otNSJe3fi+t1ChyT89C1kmf5c5n2yliUMsuO9oXgV/QZ2E
-	 3HIDyWcQwc1jLgyUje1d037D5dqyi5HQEJ3tfGeNFkAKAkfP6Ol5+QqRR+M1U6vK4W
-	 N3siwD8vc/H/pXwVMmEd++AttR+sBGmg8g85Kcdz9EY2/g4hkjARLn96FKs87nsTfv
-	 ffklBq1zBtNhqOlipgFbTzxq9u10nYsQHUwO77ELFSD/tXijCR6VaR+g7uHanXmHc4
-	 BVLq2DrXd6T+w==
-Date: Thu, 5 Jun 2025 12:39:14 +0200
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Michal Wilczynski <m.wilczynski@samsung.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, 
-	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
-	=?utf-8?B?QmrDtnJu?= Roy Baron <bjorn3_gh@protonmail.com>, Benno Lossin <benno.lossin@proton.me>, 
-	Andreas Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, 
-	Trevor Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Drew Fustini <drew@pdp7.com>, 
-	Guo Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Marek Szyprowski <m.szyprowski@samsung.com>, linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org, 
-	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH RFC 2/6] pwm: Add Rust driver for T-HEAD TH1520 SoC
-Message-ID: <q6dkihyfosi3k4mtrvyff54nbsjpovmujdbmoqhapo7daznpja@of2p5gtmcq2m>
-References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com>
- <CGME20250524211521eucas1p1929a51901c91d1a37e9f4c2da86ff7b0@eucas1p1.samsung.com>
- <20250524-rust-next-pwm-working-fan-for-sending-v1-2-bdd2d5094ff7@samsung.com>
+	Thu, 05 Jun 2025 12:09:21 +0000
+Received: by mail-qv1-xf2a.google.com with SMTP id 6a1803df08f44-6fad8b4c927so8103956d6.0
+        for <linux-riscv@lists.infradead.org>; Thu, 05 Jun 2025 05:09:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1749125358; x=1749730158; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=UNA1AqJPiuiUBzCeRC8bK1nu38f0qCHlYuwt9uDWl+g=;
+        b=Fglb3hjAkgYUxbhomFDkBolLbydEAbEqNk6m0QMleWMAqlNDxS7aU2VF6fqE76dDAX
+         dVO+qeaNd1PIvq9voeg2HxM78vaosQHvOLLETaK/Pi23XTrzTFqnI/bXToJ4H7uOjBV4
+         /gD0MtL7oN5616Yp5GCloBAQ3P7fTwECatocxtFnmY8NPheORQBSofSZDQBweOBJLuJg
+         YjvHnCfTmlcFkaQ0iZ6PG06gHi53JnAEI+C98Qj9FwbUA/Qi/gWPg9PjqDf7Q07ObdzF
+         C93FLtboP1ZMj7V31Bgg36fxrNmd2MxfuJPD6X+A2R5ZLi9IV5r33UciLD49Wan0aRpM
+         FAYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749125358; x=1749730158;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UNA1AqJPiuiUBzCeRC8bK1nu38f0qCHlYuwt9uDWl+g=;
+        b=ZbkXxeh2AgHBkd3U6xgLp3h024KwsXRMDSd7fcRCIvZ+E/5nZDoWQeiQgbKOLfw9W7
+         vcU4klhNEYG9wzG4ZxoiT+Ye9VKBJgNFNOz5TZkENT4pRDFCwp7HmMlhcWYGsZkJl5ia
+         ZuRmftWY/6FbYZfskOiYYq4YuMV4sTyABmKDt+zbjmWoEeZilFiuHC7Qpc4eZevez3ON
+         QdE2FbazPjXJId58yGg/p3Rx5O1+5XzqzgbpQC0wIA23T7miuHYLTaWMw3RG13rn7OFu
+         qZ68nfM9S/egLM0dXofsAc7f+/gUUNerrEa9wkAjabPL+MprFs+Ma35ho0Ew9QZZp1KT
+         Au0w==
+X-Forwarded-Encrypted: i=1; AJvYcCU1lkqS/A2e/u4dxOh3JZHx7nmSYbcKEDBgwIyVOoxNrpx7h3vwiSxVLkK3UyL6WfeGOWjdAfC9qopveg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5EYmnDZ0i5nWPsZ83EKAhb9aAvVVDwTBGMtgxooee/KwBggCN
+	WiDv7h5WLmI1BMBV3IGbL7UctHuiJV1Eogs8XX+7qogb9X03acJ4RYWBOadkdr9+Iu8=
+X-Gm-Gg: ASbGnctq2Rn9Y91vi5k29/8VJjcYisEpP6RuLhUz8HTbQ+jh9ssjTnTbVSVlkto5JrJ
+	6Hr0pg2XYKMEgFkvUlVixF7WkcuQK6VJGou+7NAf9xrJKgZxW+RoN96ZTLP8XNTsPfc9Wa+GWcS
+	8c/A5hy1cd+hll9x++r1ODR/gOAl/VXLv2rk/IcIjAl13O+7LYEE8mmzsOxq577MnGJ3wnTsDgC
+	pEDjTrMQL/0mfr1YlRp25owe7/5yG2YCGn9NQd2artaJWad0dPkszRLQf40r5S2ZGmk5VffXfQb
+	OanqtE97UULNwjXN79JVDSnOqWVFE9J+nUM0x3qGRvoERJhArBtCiZUGGGT4IolDB3jSqf3Y/eU
+	7ADLncg7hipJbE5nbulKUhMBueqE=
+X-Google-Smtp-Source: AGHT+IGoKm/5U4/UM2uM64qO2HBitYJapsKbuDFJlmk9byEyE/W8ROsmev/IR9V9jeal6LfHAI1O8g==
+X-Received: by 2002:a05:6214:224d:b0:6fa:c512:c401 with SMTP id 6a1803df08f44-6faf70163f2mr115317766d6.37.1749125350351;
+        Thu, 05 Jun 2025 05:09:10 -0700 (PDT)
+Received: from ziepe.ca (hlfxns017vw-142-167-56-70.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.167.56.70])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fac6d4c7d8sm120604836d6.36.2025.06.05.05.09.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 05 Jun 2025 05:09:09 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1uN9PB-00000000EdT-18gz;
+	Thu, 05 Jun 2025 09:09:09 -0300
+Date: Thu, 5 Jun 2025 09:09:09 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Dan Williams <dan.j.williams@intel.com>
+Cc: Alistair Popple <apopple@nvidia.com>, linux-mm@kvack.org,
+	gerald.schaefer@linux.ibm.com, willy@infradead.org,
+	david@redhat.com, linux-kernel@vger.kernel.org,
+	nvdimm@lists.linux.dev, linux-fsdevel@vger.kernel.org,
+	linux-ext4@vger.kernel.org, linux-xfs@vger.kernel.org,
+	jhubbard@nvidia.com, hch@lst.de, zhang.lyra@gmail.com,
+	debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com,
+	lorenzo.stoakes@oracle.com, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, John@groves.net
+Subject: Re: [PATCH 07/12] mm: Remove redundant pXd_devmap calls
+Message-ID: <20250605120909.GA44681@ziepe.ca>
+References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
+ <2ee5a64581d2c78445e5c4180d7eceed085825ca.1748500293.git-series.apopple@nvidia.com>
+ <6841026c50e57_249110022@dwillia2-xfh.jf.intel.com.notmuch>
 MIME-Version: 1.0
-In-Reply-To: <20250524-rust-next-pwm-working-fan-for-sending-v1-2-bdd2d5094ff7@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <6841026c50e57_249110022@dwillia2-xfh.jf.intel.com.notmuch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_033918_563202_14D24AA8 
-X-CRM114-Status: GOOD (  34.44  )
+X-CRM114-CacheID: sfid-20250605_050920_423836_12BFAA84 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,460 +108,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0705169737007466047=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 04, 2025 at 07:35:24PM -0700, Dan Williams wrote:
 
---===============0705169737007466047==
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ilvp5okyjxiiq75c"
-Content-Disposition: inline
+> If all dax pages are special, then vm_normal_page() should never find
+> them and gup should fail.
+> 
+> ...oh, but vm_normal_page_p[mu]d() is not used in the gup path, and
+> 'special' is not set in the pte path.
 
+That seems really suboptimal?? Why would pmd and pte be different?
 
---ilvp5okyjxiiq75c
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH RFC 2/6] pwm: Add Rust driver for T-HEAD TH1520 SoC
-MIME-Version: 1.0
+> I think for any p[mu]d where p[mu]d_page() is ok to use should never set
+> 'special', right?
 
-Hello,
+There should be dedicated functions for installing pages and PFNs,
+only the PFN one would set the special bit.
 
-I don't speak Rust, so please double-check all my feedback if it really
-applies.
+And certainly your tests *should* be failing as special entries should
+never ever be converted to struct page.
 
-On Sat, May 24, 2025 at 11:14:56PM +0200, Michal Wilczynski wrote:
-> Introduce a PWM driver for the T-HEAD TH1520 SoC written in Rust. It
-> utilizes the Rust PWM abstractions added in the previous commit.
->=20
-> The driver implements the standard PwmOps for the PWM framework,
-> supporting configuration of period, duty cycle, and polarity for the
-> TH1520's PWM channels. It uses devm managed resources for the PWM chip
-> itself and Rust DevRes for I/O memory. Clock management is handled using
-> Rust's RAII pattern.
->=20
-> Signed-off-by: Michal Wilczynski <m.wilczynski@samsung.com>
-> ---
->  MAINTAINERS               |   1 +
->  drivers/pwm/Kconfig       |   6 +
->  drivers/pwm/Makefile      |   1 +
->  drivers/pwm/pwm_th1520.rs | 272 ++++++++++++++++++++++++++++++++++++++++=
-++++++
->  4 files changed, 280 insertions(+)
->=20
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 2b080e8f3d873b1e401b3a2fe1207c224c4591fc..0cfac73aea65076c5ccb50a25=
-ea686fb86b472b8 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -20986,6 +20986,7 @@ F:	drivers/mailbox/mailbox-th1520.c
->  F:	drivers/net/ethernet/stmicro/stmmac/dwmac-thead.c
->  F:	drivers/pinctrl/pinctrl-th1520.c
->  F:	drivers/pmdomain/thead/
-> +F:	drivers/pwm/pwm_th1520.rs
->  F:	include/dt-bindings/clock/thead,th1520-clk-ap.h
->  F:	include/dt-bindings/power/thead,th1520-power.h
->  F:	include/linux/firmware/thead/thead,th1520-aon.h
-> diff --git a/drivers/pwm/Kconfig b/drivers/pwm/Kconfig
-> index b5bd5c13b3a5e5a575a0fbfb2e285f5665b7a671..796fcd8343b7c8e30f62edc2e=
-0fecf0e9b1ae20e 100644
-> --- a/drivers/pwm/Kconfig
-> +++ b/drivers/pwm/Kconfig
-> @@ -684,6 +684,12 @@ config PWM_TEGRA
->  	  To compile this driver as a module, choose M here: the module
->  	  will be called pwm-tegra.
-> =20
-> +config PWM_TH1520_RUST
-> +	tristate "TH1520 PWM support (Rust)"
-> +	depends on RUST_PWM_ABSTRACTIONS
-> +	help
-> +	  Generic PWM framework driver for TH1520 SoC.
-> +
->  config PWM_TIECAP
->  	tristate "ECAP PWM support"
->  	depends on ARCH_OMAP2PLUS || ARCH_DAVINCI_DA8XX || ARCH_KEYSTONE || ARC=
-H_K3 || COMPILE_TEST
-> diff --git a/drivers/pwm/Makefile b/drivers/pwm/Makefile
-> index 539e0def3f82fcb866ab83a0346a15f7efdd7127..6890f860ada6f1a6ed43dd3a3=
-a9584cd2fa877f3 100644
-> --- a/drivers/pwm/Makefile
-> +++ b/drivers/pwm/Makefile
-> @@ -70,3 +70,4 @@ obj-$(CONFIG_PWM_TWL_LED)	+=3D pwm-twl-led.o
->  obj-$(CONFIG_PWM_VISCONTI)	+=3D pwm-visconti.o
->  obj-$(CONFIG_PWM_VT8500)	+=3D pwm-vt8500.o
->  obj-$(CONFIG_PWM_XILINX)	+=3D pwm-xilinx.o
-> +obj-$(CONFIG_PWM_TH1520_RUST)	+=3D pwm_th1520.o
-> diff --git a/drivers/pwm/pwm_th1520.rs b/drivers/pwm/pwm_th1520.rs
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..4665e293e8d0bdc1a62a4e295=
-cdaf4d47b3dd134
-> --- /dev/null
-> +++ b/drivers/pwm/pwm_th1520.rs
-> @@ -0,0 +1,272 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (c) 2025 Samsung Electronics Co., Ltd.
-> +// Author: Michal Wilczynski <m.wilczynski@samsung.com>
-> +
-> +//! Rust T-HEAD TH1520 PWM driver
-> +use kernel::{c_str, clk::Clk, device, io::mem::IoMem, of, platform, prel=
-ude::*, pwm, time};
-> +
-> +const MAX_PWM_NUM: u32 =3D 6;
-> +
-> +const fn th1520_pwm_chn_base(n: u32) -> u32 {
-> +    n * 0x20
-> +}
-> +const fn th1520_pwm_ctrl(n: u32) -> u32 {
-> +    th1520_pwm_chn_base(n) + 0x00
-> +}
-> +const fn th1520_pwm_per(n: u32) -> u32 {
-> +    th1520_pwm_chn_base(n) + 0x08
-> +}
-> +const fn th1520_pwm_fp(n: u32) -> u32 {
-> +    th1520_pwm_chn_base(n) + 0x0c
-> +}
-> +
-> +const PWM_START: u32 =3D 1 << 0;
-> +const PWM_CFG_UPDATE: u32 =3D 1 << 2;
-> +const PWM_CONTINUOUS_MODE: u32 =3D 1 << 5;
-> +const PWM_FPOUT: u32 =3D 1 << 8;
-> +const PWM_INFACTOUT: u32 =3D 1 << 9;
-> +
-> +struct Th1520PwmChipData {
-> +    clk: Clk,
-> +    iomem: kernel::devres::Devres<IoMem<0>>,
-> +}
-> +
-> +impl Th1520PwmChipData {
-> +    fn _config(
-> +        &self,
-> +        hwpwm: u32,
-> +        duty_ns: u64,
-> +        period_ns: u64,
-> +        target_polarity: pwm::Polarity,
-
-Why "target_polarity"? duty_ns and period_ns also don't contain
-"target_"?
-
-> +    ) -> Result<u32> {
-> +        let regs =3D self.iomem.try_access().ok_or_else(|| {
-> +            pr_err!("PWM-{}: Failed to access I/O memory in _config\n", =
-hwpwm);
-> +            EBUSY
-> +        })?;
-> +
-> +        // Calculate cycle values
-> +        let rate_hz_u64 =3D self.clk.rate().as_hz() as u64;
-> +
-> +        if duty_ns > period_ns {
-> +            pr_err!(
-> +                "PWM-{}: Duty {}ns > period {}ns\n",
-> +                hwpwm,
-> +                duty_ns,
-> +                period_ns
-> +            );
-> +            return Err(EINVAL);
-> +        }
-> +        if period_ns =3D=3D 0 {
-> +            pr_err!("PWM-{}: Period is zero\n", hwpwm);
-> +            return Err(EINVAL);
-> +        }
-
-You don't need to check for period_ns =3D=3D 0 explicitly. This case then
-hits period_cycle =3D=3D 0 below.
-
-> +
-> +        let mut period_cycle =3D mul_div_u64(period_ns, rate_hz_u64, tim=
-e::NSEC_PER_SEC as u64);
-
-if period_ns is big and rate_hz_u64 > NSEC_PER_SEC this might overflow.
-
-Typically refuse to probe if rate_hz_u64 > NSEC_PER_SEC and call
-clk_rate_exclusive_get().
-
-> +        if period_cycle > u32::MAX as u64 {
-> +            period_cycle =3D u32::MAX as u64;
-> +        }
-> +        if period_cycle =3D=3D 0 {
-> +            pr_err!(
-> +                "PWM-{}: Calculated period_cycle is zero, not allowed by=
- HW\n",
-> +                hwpwm
-> +            );
-> +            return Err(EINVAL);
-> +        }
-> +
-> +        let mut duty_cycle =3D mul_div_u64(duty_ns, rate_hz_u64, time::N=
-SEC_PER_SEC as u64);
-> +        if duty_cycle > u32::MAX as u64 {
-> +            duty_cycle =3D u32::MAX as u64;
-> +        }
-> +
-> +        let mut base_ctrl_val =3D PWM_INFACTOUT | PWM_CONTINUOUS_MODE;
-> +        if target_polarity =3D=3D pwm::Polarity::Normal {
-> +            // FPOUT=3D1 for Normal
-> +            base_ctrl_val |=3D PWM_FPOUT;
-> +        } else {
-> +            // Inversed, FPOUT=3D0
-> +            base_ctrl_val &=3D !PWM_FPOUT;
-> +        }
-> +        regs.try_write32(base_ctrl_val, th1520_pwm_ctrl(hwpwm) as usize)=
-?;
-> +        pr_debug!(
-> +            "PWM-{}: _config: Initial CTRL write (polarity, mode): 0x{:x=
-}\n",
-> +            hwpwm,
-> +            base_ctrl_val
-> +        );
-> +
-> +        // Write period and duty registers
-> +        regs.try_write32(period_cycle as u32, th1520_pwm_per(hwpwm) as u=
-size)?;
-> +        regs.try_write32(duty_cycle as u32, th1520_pwm_fp(hwpwm) as usiz=
-e)?;
-> +        pr_debug!(
-> +            "PWM-{}: _config: Period_cyc=3D{}, Duty_cyc=3D{}\n",
-> +            hwpwm,
-> +            period_cycle,
-> +            duty_cycle
-> +        );
-> +
-> +        // Apply period/duty by toggling CFG_UPDATE from 0 to 1.
-> +        // The `base_ctrl_val` (just written to HW) has CFG_UPDATE=3D0. =
-Now set it.
-> +        let ctrl_val_for_update =3D base_ctrl_val | PWM_CFG_UPDATE;
-> +        regs.try_write32(ctrl_val_for_update, th1520_pwm_ctrl(hwpwm) as =
-usize)?;
-> +        pr_debug!(
-> +            "PWM-{}: _config: CTRL write with CFG_UPDATE: 0x{:x}\n",
-> +            hwpwm,
-> +            ctrl_val_for_update
-> +        );
-> +
-> +        Ok(ctrl_val_for_update)
-> +    }
-> +
-> +    fn _enable(&self, hwpwm: u32, ctrl_val_after_config: u32) -> Result {
-> +        let regs =3D self.iomem.try_access().ok_or_else(|| {
-> +            pr_err!("PWM-{}: Failed to access I/O memory in _enable\n", =
-hwpwm);
-> +            EBUSY
-> +        })?;
-> +
-> +        // ctrl_val_after_config already has mode, polarity, and CFG_UPD=
-ATE correctly set.
-> +        // Now add the START bit. START bit auto-clears.
-> +        let ctrl_to_start =3D ctrl_val_after_config | PWM_START;
-> +        regs.try_write32(ctrl_to_start, th1520_pwm_ctrl(hwpwm) as usize)=
-?;
-> +        pr_debug!(
-> +            "PWM-{}: _enable: CTRL write with START: 0x{:x}\n",
-> +            hwpwm,
-> +            ctrl_to_start
-> +        );
-> +        Ok(())
-> +    }
-> +
-> +    fn _disable(&self, hwpwm: u32) -> Result<()> {
-> +        let regs =3D self.iomem.try_access().ok_or_else(|| {
-> +            pr_err!("PWM-{}: Failed to access I/O memory in _disable\n",=
- hwpwm);
-> +            EINVAL
-> +        })?;
-> +
-> +        let mut ctrl_val =3D regs.try_read32(th1520_pwm_ctrl(hwpwm) as u=
-size)?;
-> +        pr_debug!("PWM-{}: _disable: Read CTRL: 0x{:x}\n", hwpwm, ctrl_v=
-al);
-> +
-> +        // Ensure CFG_UPDATE is 0 before updating duty (Limitation #4)
-> +        if (ctrl_val & PWM_CFG_UPDATE) !=3D 0 {
-> +            ctrl_val &=3D !PWM_CFG_UPDATE;
-> +            regs.try_write32(ctrl_val, th1520_pwm_ctrl(hwpwm) as usize)?;
-> +            pr_debug!(
-> +                "PWM-{}: _disable: Cleared CFG_UPDATE, wrote CTRL: 0x{:x=
-}\n",
-> +                hwpwm,
-> +                ctrl_val
-> +            );
-> +        }
-> +
-> +        // Set duty cycle to 0
-> +        regs.try_write32(0, th1520_pwm_fp(hwpwm) as usize)?;
-> +        pr_debug!("PWM-{}: _disable: Wrote 0 to DUTY (FP) register\n", h=
-wpwm);
-> +
-> +        // Apply the 0% duty by toggling CFG_UPDATE from 0 to 1
-> +        // Use the ctrl_val that has CFG_UPDATE cleared (or was already =
-clear)
-> +        ctrl_val |=3D PWM_CFG_UPDATE;
-> +        regs.try_write32(ctrl_val, th1520_pwm_ctrl(hwpwm) as usize)?;
-> +        pr_debug!(
-> +            "PWM-{}: _disable: Set CFG_UPDATE, wrote CTRL: 0x{:x}\n",
-> +            hwpwm,
-> +            ctrl_val
-> +        );
-> +
-> +        Ok(())
-> +    }
-> +}
-> +
-> +impl pwm::PwmOps for Th1520PwmChipData {
-> +    // This driver implements get_state
-
-I don't spot the get_state implementation?!
-
-> +    fn apply(
-> +        pwm_chip_ref: &mut pwm::Chip,
-> +        pwm_dev: &mut pwm::Device,
-> +        target_state: &pwm::State,
-
-In C code I like these variables be called "chip", "pwm" and "state"
-respectively. Is that possible here, too?
-
-> +    ) -> Result {
-> +        let data: &Th1520PwmChipData =3D pwm_chip_ref.get_drvdata().ok_o=
-r(EINVAL)?;
-> +        let hwpwm =3D pwm_dev.hwpwm();
-> +
-> +        if !target_state.enabled() {
-> +            if pwm_dev.state().enabled() {
-> +                data._disable(hwpwm)?;
-> +            }
-> +
-> +            return Ok(());
-> +        }
-> +
-> +        // Configure period, duty, and polarity.
-> +        // This function also latches period/duty with CFG_UPDATE.
-> +        // It returns the control value that was written with CFG_UPDATE=
- set.
-> +        let ctrl_val_after_config =3D data._config(
-> +            hwpwm,
-> +            target_state.duty_cycle(),
-> +            target_state.period(),
-> +            target_state.polarity(),
-> +        )?;
-> +
-> +        // Enable by setting START bit if it wasn't enabled before this =
-apply call
-> +        if !pwm_dev.state().enabled() {
-> +            data._enable(hwpwm, ctrl_val_after_config)?;
-> +        }
-> +
-> +        Ok(())
-> +    }
-> +}
-> +
-> +impl Drop for Th1520PwmChipData {
-> +    fn drop(&mut self) {
-> +        self.clk.disable_unprepare();
-> +    }
-> +}
-> +
-> +fn mul_div_u64(a: u64, b: u64, c: u64) -> u64 {
-> +    if c =3D=3D 0 {
-> +        return 0;
-> +    }
-> +    a.wrapping_mul(b) / c
-> +}
-
-Is this save if a * b > U64_MAX? I would have expected such a function
-to already exist in generic code.
-
-> +static TH1520_PWM_OPS: pwm::PwmOpsVTable =3D pwm::create_pwm_ops::<Th152=
-0PwmChipData>();
-> +
-> +struct Th1520PwmPlatformDriver;
-> +
-> +kernel::of_device_table!(
-> +    OF_TABLE,
-> +    MODULE_OF_TABLE,
-> +    <Th1520PwmPlatformDriver as platform::Driver>::IdInfo,
-> +    [(of::DeviceId::new(c_str!("thead,th1520-pwm")), ())]
-> +);
-> +
-> +impl platform::Driver for Th1520PwmPlatformDriver {
-> +    type IdInfo =3D ();
-> +    const OF_ID_TABLE: Option<of::IdTable<Self::IdInfo>> =3D Some(&OF_TA=
-BLE);
-> +
-> +    fn probe(
-> +        pdev: &platform::Device<device::Core>,
-> +        _id_info: Option<&Self::IdInfo>,
-> +    ) -> Result<Pin<KBox<Self>>> {
-> +        let resource =3D pdev.resource(0).ok_or(ENODEV)?;
-> +        let iomem =3D pdev.ioremap_resource(&resource)?;
-> +
-> +        let clk =3D Clk::get(pdev.as_ref(), None)?;
-> +
-> +        clk.prepare_enable()?;
-
-Is there something like devm_clk_get_enabled() such that the drop
-function becomes redundant?
-
-> +        let driver_data =3D KBox::new(Th1520PwmChipData { clk, iomem }, =
-GFP_KERNEL)?;
-> +        let pwm_chip =3D pwm::devm_chip_alloc(pdev.as_ref(), MAX_PWM_NUM=
-, 0)?;
-> +
-> +        let result =3D pwm::devm_chip_add(pdev.as_ref(), pwm_chip, &TH15=
-20_PWM_OPS);
-> +        if result.is_err() {
-> +            pr_err!("Failed to add PWM chip: {:?}\n", result);
-> +            return Err(EIO);
-> +        }
-> +
-> +        pwm_chip.set_drvdata(driver_data);
-> +        pr_info!("T-HEAD TH1520 PWM probed correctly\n");
-
-Please degrade to pr_debug. Each driver emitting a message is an
-annoyance.
-
-> +        Ok(KBox::new(Self, GFP_KERNEL)?.into())
-> +    }
-> +}
-> +
-> +kernel::module_platform_driver! {
-> +    type: Th1520PwmPlatformDriver,
-> +    name: "pwm_th1520",
-> +    author: "Michal Wilczynski",
-> +    description: "T-HEAD TH1520 PWM driver",
-> +    license: "GPL v2",
-> +}
-
-Best regards
-Uwe
-
---ilvp5okyjxiiq75c
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmhBc88ACgkQj4D7WH0S
-/k6MCwgAmH6luE1Gvacr9B2cr0B5Oc37cNczAiM0g5LXlECg/MAyxvMyLJZU39Ty
-NfypdYP4HVJ7fbaySzY8yridWfaK08J0Hlfq0oCCwBaSZ0wnV/2i1ZuJbO76PJ8I
-m0JuyT5w6cQIfnUZKAfEjLGGXi/sTQoJVc/5wHbFfVA2vb398y13/cmgiu7DHqOZ
-5Sec8L9rm+v5pLZN5PcdxrETfKGcFVuIWz3Un9g7wYTP/ASrXoJhZ4M1ctliAfB1
-scOblaUEn4o5/SDE9NEmN56BUvUYoBMA8KsYZ1pIyDRMLwQ7CGEsw6LiDyhcAigZ
-remDwm6kqooeF/7QZCPz/Bh+iYSK2g==
-=WleQ
------END PGP SIGNATURE-----
-
---ilvp5okyjxiiq75c--
-
-
---===============0705169737007466047==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Jason
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============0705169737007466047==--
-
