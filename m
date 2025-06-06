@@ -4,91 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AEF8C61CE7
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 22:01:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25AA6C5AD49
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 22:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=UjJWtmo2HsKIHdDpsh19ypBt01F+RuXQqImXHcZG4nI=; b=nocPWovM5Ta1RH
-	NBN7L/a6zSR1qNKN1nLVzLX3jAiT8McvpBWT5XVjDxCaxnh7rYlmkapnc5sJj0r6aUjWc9/Tjtv39
-	K3pnr8e7PL5vzEv+yL/BpR9/q51Q2E/LwrPbj1WW79pUqewJhWl9w8x3ULCsk0u3rndof5dT9xj9e
-	jy9Gcq9ILzqehjqaRXIQG3G/54CNdMeSTiXysq/xUhllyHvIjkrgZUHrL77HcV5yGfMB38ghVJ1ej
-	mBv9WK14YHCH49YAXAJIFzGbaKTh6omUC43IStWfHPOTG3tThqfe/pmFi8mxUdKkR9jiLrChL2fS1
-	y8HJcYl+PDwNgvRh687Q==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
+	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lq1QE8U/VmshA4vM6mm4tg7SnZdJmkSRm19MY8N1ZjM=; b=vQG59Bt+Rml5GJUxbb9KGOKC46
+	OkkrMkxNgR4gi+8p2sa0KDrOxf8EqTOZnUkGYJUjdfZEUEDctakf+h/3kuE25TmwDWcJQArE5ah3C
+	3p5a9Z7XTRCTsZ854gBgyuhyuWa8GhyvApuIG7JsZ/Ig3tdxFrm2UOe/xtdGUqjIF24cDOjgANxS/
+	rgxJvRXfbfT4+zQIRDDji34jTKsNixJTIG5irrHFmlmCgcd7REdP5FIS1poK/aPHYZgi6lbNBHY6W
+	78KvKzq4MrX69JCKTDqEYD1qrxpj7fB7Ad8I4EE7swJF/EbvM5eI4CyYbsp0nXros8gd/47SK8+09
+	8fzoEBDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNf81-000000013Qq-3QmB;
-	Fri, 06 Jun 2025 22:01:33 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1uNg2C-0000000166d-3216;
+	Fri, 06 Jun 2025 22:59:36 +0000
+Received: from out-183.mta0.migadu.com ([91.218.175.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNf7z-000000013QR-0jCL
+	id 1uNg28-00000001665-3a5l
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 22:01:32 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-73bf5aa95e7so2027587b3a.1
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Jun 2025 15:01:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749247290; x=1749852090; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ttz69yCGjmx1eoS6euDZxmboEjtbtLBmCyAJgWTUfxI=;
-        b=Og/mwNTETcO8reAWf1k8ppkg3MtelEDKo/NWbB/XI/4ivlaOS3wDT3gFXXiuAV/ap1
-         YQPYmq6w3zCsBKNGr8RQGzEBX8ZZzhZPUzruK7zzBRTGpld5ig0ctOJYPgh1aJFOLtXp
-         FERY0Sl0OtDrjajBX5Tp4ctfT50hoXM7CXBEpnJthS4pxh8pHg6iNaOFidlhor07zlUk
-         tUIbxO0l00MpbBEP29l17Rj73KRdihbL7UUoxHFvHDi8wTxPvIfesUiXs1XaBouus44p
-         ft+9dMDX1Ls9kNM5aOZkSCQQnuIqyP25OG7uvVRV1JgGod9RZy5pygk2a3avmT1snCtw
-         nx1Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749247290; x=1749852090;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ttz69yCGjmx1eoS6euDZxmboEjtbtLBmCyAJgWTUfxI=;
-        b=uYHvi9vCewxs2qPqmoEwd353Q+xQFQhvX/1DP3I3SAAne07VFhgf8r3K+ce3UVa1LW
-         Kht/XFPJqZkpEHpuib4RQzxNvE3n8DyZ59JQcnVP2L2n4lhhvDfPp+romCYVYcRcVDKS
-         kNWL0UHt9cui1xbUmw5fyfZvbxq36N+zKgJyiKmjdkI3m0zmv4odsY9Djx2IH+uFh+GS
-         VCKqsTeyGSUxAPE9JT6/6pSRClv/WoJNNlZ5BB0bc05ay8JORlIpEqxWpCpUF2IpYuJJ
-         jCVeD4Ot6Lrw83wrYygwzl+OGQVxc1UwUJtdUPjdoCSh5bKASDotdp2rTNFULUmV7dm+
-         rRyA==
-X-Forwarded-Encrypted: i=1; AJvYcCXrFYTvyBmPo0LKtqoFFVRNokxac5JSyjV44o8snpqNGsI5WGoOcFny+jEDoRvPmkMOPvBP7jB+0tttGA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxniAfpqa7+UMB5cJl+puf5plkiKObPiJa6dzH0nABkJN1ZLY4+
-	NbM2MWDPaSK52N7JW7Ma0hS4SBF+ruzCIeqLD4p5mNUYI4p5CbheafTFBUiIX5NFpDg=
-X-Gm-Gg: ASbGncuk0z/rKgmmNKwI8P2YLAdSIxJeGGvpFVA80prMgYQgVPhz6MXszzMaVOC0TMc
-	NV7esoY/BfIX5BuM9xnnhUlcJNr6mhv+VuhaJeoHjxC/DJqool6yThtsop2NUs+2X0g3wXYOKI5
-	V+JPcjret74EgBw6OdT6NjhMHX+0jJFbzcAFXJ2gzkTSFBDoH8qZmDGKAP7qw4FrsR4p0QnMiQi
-	EFYpHje/djBA88WrwRMvntTrxk6zJjnLMYq3httW//DxNGWBdBk4+YKMusdVsTus5VSpEPpfiI8
-	13zWyQRlBBvEwSfTFl+YueIh6hjXbWBsxlUdk4KCjRy16vrxxAcN
-X-Google-Smtp-Source: AGHT+IEj0bI/X4A5eYGCGK7otcSqbGkj9CDQTq42iS/whU8gXRUwR+/Nu3j77R8mBiu+iyqv60iFhw==
-X-Received: by 2002:a05:6a20:430c:b0:21a:de8e:44b4 with SMTP id adf61e73a8af0-21ee25555eamr6427245637.16.1749247289679;
-        Fri, 06 Jun 2025 15:01:29 -0700 (PDT)
-Received: from [10.0.16.165] ([50.145.13.30])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2f5ed58e9bsm1632595a12.10.2025.06.06.15.01.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 06 Jun 2025 15:01:29 -0700 (PDT)
-Message-ID: <94f9af73-0b2d-484c-ba1d-d4435908336b@rivosinc.com>
-Date: Fri, 6 Jun 2025 15:01:27 -0700
+	Fri, 06 Jun 2025 22:59:35 +0000
+Message-ID: <b355406d-c79f-4d81-bc36-a8889b54aa03@linux.dev>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749250768;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9RomQS92hBA9eqkdzWe6rSqjDgfbgT2iRuNEC7vRw7I=;
+	b=crxR5hkSHPAgjkpSnkO2hc8eEWkclBTknO2F7yBROybPqI5nKCjHgKwa0V02tyc5LGBXzL
+	atH+6hcgCQr7eVoQgYmiOj60nzwcJVjzGOYkkdTdz0l3tJ3Nv1pJ+BkxoQQAAdDK2rriO0
+	3s00piolPkq0+wq/zV8s6TI/FqnwTLM=
+Date: Fri, 6 Jun 2025 15:59:19 -0700
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] RISC-V: vDSO: Correct inline assembly constraints in
- the getrandom syscall wrapper
-To: Xi Ruoyao <xry111@xry111.site>, Alexandre Ghiti <alex@ghiti.fr>,
- =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Nathan Chancellor <nathan@kernel.org>
-Cc: "Jason A . Donenfeld" <Jason@zx2c4.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250605091112-7cd6b3bd-a466-486a-aebc-7bf0b2a8ac31@linutronix.de>
- <20250606092443.73650-2-xry111@xry111.site>
-From: Vineet Gupta <vineetg@rivosinc.com>
+Subject: Re: [PATCH v4 11/23] dt-bindings: Add RPMI system MSI message proxy
+ bindings
+To: Anup Patel <apatel@ventanamicro.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Thomas Gleixner <tglx@linutronix.de>, "Rafael J . Wysocki"
+ <rafael@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
+ <brgl@bgdev.pl>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+References: <20250525084710.1665648-1-apatel@ventanamicro.com>
+ <20250525084710.1665648-12-apatel@ventanamicro.com>
 Content-Language: en-US
-In-Reply-To: <20250606092443.73650-2-xry111@xry111.site>
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Atish Patra <atish.patra@linux.dev>
+In-Reply-To: <20250525084710.1665648-12-apatel@ventanamicro.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_150131_455335_4352609A 
-X-CRM114-Status: GOOD (  18.07  )
+X-CRM114-CacheID: sfid-20250606_155933_657826_A0DFCE87 
+X-CRM114-Status: GOOD (  18.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,64 +73,110 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gNi82LzI1IDAyOjI0LCBYaSBSdW95YW8gd3JvdGU6Cj4gQXMgcmVjZW50bHkgcG9pbnRlZCBv
-dXQgYnkgVGhvbWFzLCBpZiBhIHJlZ2lzdGVyIGlzIGZvcmNlZCBmb3IgdHdvCj4gZGlmZmVyZW50
-IHJlZ2lzdGVyIHZhcmlhYmxlcywgYW1vbmcgdGhlbSBvbmUgaXMgdXNlZCBhcyAiKyIgKGJvdGgg
-aW5wdXQKPiBhbmQgb3V0cHV0KSBhbmQgYW5vdGhlciBpcyBvbmx5IHVzZWQgYXMgaW5wdXQsIENs
-YW5nIHdvdWxkIHRyZWF0IHRoZQo+IGNvbmZsaWN0aW5nIGlucHV0IHBhcmFtZXRlcnMgYXMgdW5k
-ZWZpbmVkIGJlaGF2aW91ciBhbmQgb3B0aW1pemUgYXdheQo+IHRoZSBhcmd1bWVudCBhc3NpZ25t
-ZW50Lgo+Cj4gUGVyIGFuIGV4YW1wbGUgaW4gdGhlIEdDQyBkb2N1bWVudGF0aW9uLCBmb3IgdGhp
-cyBwdXJwb3NlIHdlIGNhbiB1c2UgIj0iCj4gKG9ubHkgb3V0cHV0KSBmb3IgdGhlIG91dHB1dCwg
-YW5kICIwIiBmb3IgdGhlIGlucHV0IGZvciB0aGF0IHdlIG11c3QKPiByZXVzZSB0aGUgc2FtZSBy
-ZWdpc3RlciBhcyB0aGUgb3V0cHV0LiAgQW5kIEdDQyBkZXZlbG9wZXJzIGhhdmUKPiBjb25maXJt
-ZWQgdXNpbmcgYSBzaW1wbGUgInIiICh0aGF0IHdlIHVzZSBmb3IgbW9zdCB2RFNPIGltcGxlbWVu
-dGF0aW9ucykKPiBpbnN0ZWFkIG9mICIwIiBpcyBhbHNvIGZpbmUuCj4KPiBMaW5rOiBodHRwczov
-L2xvcmUua2VybmVsLm9yZy9hbGwvMjAyNTA2MDMtbG9vbmdhcmNoLXZkc28tc3lzY2FsbC12MS0x
-LTZkMTJkNmRmYmRkMEBsaW51dHJvbml4LmRlLwo+IExpbms6IGh0dHBzOi8vZ2NjLmdudS5vcmcv
-b25saW5lZG9jcy9nY2MtMTUuMS4wL2djYy9Mb2NhbC1SZWdpc3Rlci1WYXJpYWJsZXMuaHRtbAo+
-IExpbms6IGh0dHBzOi8vZ2NjLmdudS5vcmcvcGlwZXJtYWlsL2djYy1oZWxwLzIwMjUtSnVuZS8x
-NDQyNjYuaHRtbAo+IENjOiBUaG9tYXMgV2Vpw59zY2h1aCA8dGhvbWFzLndlaXNzc2NodWhAbGlu
-dXRyb25peC5kZT4KPiBDYzogTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhhbkBrZXJuZWwub3JnPgo+
-IFNpZ25lZC1vZmYtYnk6IFhpIFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRlPgo+IC0tLQo+Cj4g
-djEgLT4gdjI6IEtlZXAgdXNpbmcgInIiIGZvciBidWZmZXIgdG8gZm9sbG93IHRoZSBleGlzdGlu
-ZyBjb252ZW50aW9uCj4gKHRoYXQgdGhlIEdDQyBkZXZlbG9wZXJzIGhhdmUgY29uZmlybWVkIGZp
-bmUpLgo+Cj4gIGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCB8IDIgKy0K
-PiAgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4KPiBkaWZm
-IC0tZ2l0IGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHJhbmRvbS5oIGIvYXJjaC9y
-aXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHJhbmRvbS5oCj4gaW5kZXggOGRjOTI0NDE3MDJhLi5j
-NmQ2Njg5NWMxZjUgMTAwNjQ0Cj4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dl
-dHJhbmRvbS5oCj4gKysrIGIvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHJhbmRvbS5o
-Cj4gQEAgLTE4LDcgKzE4LDcgQEAgc3RhdGljIF9fYWx3YXlzX2lubGluZSBzc2l6ZV90IGdldHJh
-bmRvbV9zeXNjYWxsKHZvaWQgKl9idWZmZXIsIHNpemVfdCBfbGVuLCB1bnMKPiAgCXJlZ2lzdGVy
-IHVuc2lnbmVkIGludCBmbGFncyBhc20oImEyIikgPSBfZmxhZ3M7Cj4gIAo+ICAJYXNtIHZvbGF0
-aWxlICgiZWNhbGxcbiIKPiAtCQkgICAgICA6ICIrciIgKHJldCkKPiArCQkgICAgICA6ICI9ciIg
-KHJldCkKPiAgCQkgICAgICA6ICJyIiAobnIpLCAiciIgKGJ1ZmZlciksICJyIiAobGVuKSwgInIi
-IChmbGFncykKPiAgCQkgICAgICA6ICJtZW1vcnkiKTsKCk15IDIgY2VudHMgYXMgSSd2ZSBkYWJi
-bGVkIGludG8gdGhpcyBmb3IgQVJDIGdsaWJjIHN5c2NhbGwgbWFjcm9zIFsxXSB3aGVyZSByMApp
-cyBib3RoIHRoZSBmaXJzdCBzeXNjYWxsL2Z1bmN0aW9uIGFyZyBhbmQgYWxzbyB0aGUgZnVuY3Rp
-b24vc3lzY2FsbCByZXR1cm4uCgpUaGUgdjIgYXBwcm9hY2ggc3RpbGwga2VlcHMgMiBkaWZmZXJl
-bnQgdmFyaWFibGVzIGluIHNhbWUgbG9jYWwgcmVnIHdoaWNoIGhhcwpwb3RlbnRpYWwgZm9yIGFu
-eSBmdXR1cmUgY29tcGlsZXIgc2hlbmFuaWdhbnMuClNlZ2hlcidzIGV4YW1wbGUgYXZvaWRlZCBz
-cGVjaWZ5aW5nIHRoZSBzYW1lIHJlZy4KV2hhdCBhYm91dCBzb21ldGhpbmcgbGlrZSB0aGUgZm9s
-bG93aW5nOiBzZWVtcyB0byBnZW5lcmF0ZSB0aGUgcmlnaHQgY29kZSAod2l0aApnY2MgMTUpCgrC
-oMKgwqDCoMKgwqAgcmVnaXN0ZXIgbG9uZyByZXQgYXNtKCJhMCIpOwrCoMKgwqDCoMKgwqAgcmVn
-aXN0ZXIgbG9uZyBuciBhc20oImE3IikgPSBfX05SX2dldHJhbmRvbTsKwqDCoMKgwqDCoMKgIHJl
-Z2lzdGVyIHNpemVfdCBsZW4gYXNtKCJhMSIpID0gX2xlbjsKwqDCoMKgwqDCoMKgIHJlZ2lzdGVy
-IHVuc2lnbmVkIGludCBmbGFncyBhc20oImEyIikgPSBfZmxhZ3M7CsKgwqDCoMKgwqDCoCByZXQg
-PSAodW5zaWduZWQgbG9uZykgX2J1ZmZlcjsKCsKgwqDCoMKgwqDCoCBhc20gdm9sYXRpbGUgKCJl
-Y2FsbFxuIgrCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDogIityIiAo
-cmV0KcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqAgLy8ga2VlcCAiK3IiCmZvciBpbnB1dCBfYnVmZmVyIC8gb3V0cHV0IHJldArC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgIDogInIiIChuciksICJyIiAo
-bGVuKSwgInIiIChmbGFncykKwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oCA6ICJtZW1vcnkiKTsKCsKgwqDCoMKgwqDCoCByZXR1cm4gcmV0OwoKVGh4LAotVmluZWV0Cgpb
-MV0gaHR0cHM6Ly9naXRodWIuY29tL2JtaW5vci9nbGliYy9ibG9iL21hc3Rlci9zeXNkZXBzL3Vu
-aXgvc3lzdi9saW51eC9hcmMvc3lzZGVwLmgKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBs
-aXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlz
-dGluZm8vbGludXgtcmlzY3YK
+
+On 5/25/25 1:46 AM, Anup Patel wrote:
+> Add device tree bindings for the RPMI system MSI service group
+> based message proxy implemented by the SBI implementation (machine
+> mode firmware or hypervisor).
+>
+> The RPMI system MSI service group is defined by the RISC-V
+> platform management interface (RPMI) specification.
+>
+> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
+> ---
+>   .../riscv,rpmi-mpxy-system-msi.yaml           | 67 +++++++++++++++++++
+>   1 file changed, 67 insertions(+)
+>   create mode 100644 Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+> new file mode 100644
+> index 000000000000..26dd13731350
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,rpmi-mpxy-system-msi.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: RISC-V RPMI system MSI service group based message proxy
+> +
+> +maintainers:
+> +  - Anup Patel <anup@brainfault.org>
+> +
+> +description: |
+> +  The RISC-V Platform Management Interface (RPMI) [1] defines a
+> +  messaging protocol which is modular and extensible. The supervisor
+> +  software can send/receive RPMI messages via SBI MPXY extension [2]
+> +  or some dedicated supervisor-mode RPMI transport.
+> +
+> +  The RPMI specification [1] defines system MSI service group which
+> +  allow application processors to receive MSIs upon system events
+> +  such as P2A doorbell, graceful shutdown/reboot request, CPU hotplug
+> +  event, memory hotplug event, etc from the platform microcontroller.
+> +  The SBI implementation machine mode firmware or hypervisor) can
+nit:
+The SBI implementation in machine mode
+> +  implement an SBI MPXY channel to allow RPMI system MSI service
+> +  group access to the supervisor software.
+> +
+> +  ===========================================
+> +  References
+> +  ===========================================
+> +
+> +  [1] RISC-V Platform Management Interface (RPMI)
+> +      https://github.com/riscv-non-isa/riscv-rpmi/releases
+> +
+> +  [2] RISC-V Supervisor Binary Interface (SBI)
+> +      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
+> +
+nit: Refer the latest frozen version of the spec ?
+> +properties:
+> +  compatible:
+> +    description:
+> +      Intended for use by the SBI implementation.
+> +    const: riscv,rpmi-mpxy-system-msi
+> +
+> +  mboxes:
+> +    maxItems: 1
+> +    description:
+> +      Mailbox channel of the underlying RPMI transport.
+> +
+> +  riscv,sbi-mpxy-channel-id:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    description:
+> +      The SBI MPXY channel id to be used for providing RPMI access to
+> +      the supervisor software.
+> +
+> +required:
+> +  - compatible
+> +  - mboxes
+> +  - riscv,sbi-mpxy-channel-id
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    interrupt-controller {
+> +        compatible = "riscv,rpmi-mpxy-system-msi";
+> +        mboxes = <&rpmi_shmem_mbox 0x2>;
+> +        riscv,sbi-mpxy-channel-id = <0x2000>;
+> +    };
+> +...
+
+Otherwise, lgtm.
+
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
