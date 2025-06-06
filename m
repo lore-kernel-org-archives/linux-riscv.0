@@ -4,43 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B963C5B543
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 00:53:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43AF5C5B555
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 01:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
 	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ZuLzoojzNzhVyIsLf6xqHv+XLZFxjjW3HqTkMorWDYw=; b=z0WVspdoVAbU1K
-	GXL3Bz78NcmS7EeXxZZifJ7uSQHIo/DgK16Ai0ZTLRnGEyKJEMPNydeVc1HjDk4bs481W+t03DpLc
-	9A5410KqzeNjcE38urrPuKRQ6ey75mF9i8+uIvuc1seIZMDAX4I+rldTLWxijDwr4etbQv6lli4g0
-	zzkzjsDLsJ7+hpN3jo8Y2QMnOS0DI1Bry/fqTITs09Oug5ILHe1oXdvW2l1ZhhTcMC5MO6/CQhOyD
-	fufAOdqiEphwmu+me2a4eKSxwH3XI1mHeaRAp/g6/M8Kwq/mzzW8ebDXzmW9XNldQz4Vz+4A224Eq
-	6vw2UAoMo4ngMJnh/hPg==;
+	List-Owner; bh=aRMjeAfGiSc/w0+pMO2jtLD2ZFTj5tIu6LVRD4KPgAg=; b=kcVe1sxEzygIw4
+	dtPyyzRQRwjxcwhsFGbWTIpniYRody9c5JvLhjzG2TsRGJCKdBGOAYYndVUydr19+DkslMjQvAMTG
+	oo3Oqv8m9DeOgXx2BLHiOY0NN1AyisQn0jk5kucb4z21h06xX2xzEu/VF/rbfNDRh78dC+jyuBgC6
+	bUrEtutceh8ye0aX3N4sjLoM+d99UD3HFhYuIllgJ3b23mmr/8c+Dx7rRB/v2aBG2sdcz28eDa25l
+	eJ00bhAXxjXggVA3p3jslT2s0hBHrNMmQrL6US0comGhCKKEVdC3SDCdATqJ8rkwPO8glkF/qD6qk
+	FOFc0oEBvjPoWw+e7NDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNLKb-0000000Gs2G-0Ysk;
-	Fri, 06 Jun 2025 00:53:13 +0000
-Received: from out-188.mta1.migadu.com ([2001:41d0:203:375::bc])
+	id 1uNLlq-0000000GtIh-17Z6;
+	Fri, 06 Jun 2025 01:21:22 +0000
+Received: from out-177.mta0.migadu.com ([2001:41d0:1004:224b::b1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNLKY-0000000Gs14-0D6O;
-	Fri, 06 Jun 2025 00:53:11 +0000
-Message-ID: <8ca50309-fad7-438a-86d6-947cd39355fa@linux.dev>
+	id 1uNLlm-0000000GtII-3Opx
+	for linux-riscv@lists.infradead.org;
+	Fri, 06 Jun 2025 01:21:20 +0000
+Message-ID: <54c9651f-47ee-4b0d-8df4-2a0da679b2c3@linux.dev>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1749171185;
+	t=1749172875;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=kY1Yhf2Ta16lGAfQpv9nl7Dl6/dZF2m3DEDTNJAsF5Y=;
-	b=EMie37qYZzEs8Rjw9lzqRaIyG0BkrIKeZAJmJltSqgZlWHSoD3LrX5cznfshPhNPFrabI7
-	OSLfNETKU251DBYbeFMpyzHpsDkkJPr/iZ7F2qHFaI2nvnKeM2nzLr2xHOncUVAXLwZSI4
-	tO0xRD2vfiqsbX6LUjiLm0p4c3MDyAA=
-Date: Thu, 5 Jun 2025 17:52:55 -0700
+	bh=pDGaaLcSzuIeoOSHuJpYzbEv+9LO2YuTG7IVWKH//Q8=;
+	b=ffuQcmh7yCa/+CRsdD0k+UqoNRh8L0BnFQJKzRE3+ZlNWTibag47VUBlXpzf4hSKL3ZF+Y
+	+U6IJSaXz3u3gjh1Axg1AF9zLLd8ntsozD8EgTkMSC3de6O98FlwTvPWvPAc0fsofGCX3T
+	0/lt4OwWfAoz/SNWlNVJMrzbYkMpQhk=
+Date: Thu, 5 Jun 2025 18:21:10 -0700
 MIME-Version: 1.0
-Subject: Re: [PATCH 04/13] RISC-V: KVM: Drop the return value of
- kvm_riscv_vcpu_aia_init()
+Subject: Re: [PATCH 05/13] RISC-V: KVM: Rename and move
+ kvm_riscv_local_tlb_sanitize()
 To: Anup Patel <apatel@ventanamicro.com>
 Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  Paul Walmsley <paul.walmsley@sifive.com>, Alexandre Ghiti <alex@ghiti.fr>,
@@ -48,15 +49,15 @@ Cc: Palmer Dabbelt <palmer@dabbelt.com>,
  kvm@vger.kernel.org, kvm-riscv@lists.infradead.org,
  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20250605061458.196003-1-apatel@ventanamicro.com>
- <20250605061458.196003-5-apatel@ventanamicro.com>
+ <20250605061458.196003-6-apatel@ventanamicro.com>
 Content-Language: en-US
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250605061458.196003-5-apatel@ventanamicro.com>
+In-Reply-To: <20250605061458.196003-6-apatel@ventanamicro.com>
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_175310_663939_C4A56F8C 
-X-CRM114-Status: GOOD (  13.75  )
+X-CRM114-CacheID: sfid-20250605_182119_201396_64743158 
+X-CRM114-Status: GOOD (  19.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,74 +76,129 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 
 On 6/4/25 11:14 PM, Anup Patel wrote:
-> The kvm_riscv_vcpu_aia_init() does not return any failure so drop
-> the return value which is always zero.
+> The kvm_riscv_local_tlb_sanitize() deals with sanitizing current
+> VMID related TLB mappings when a VCPU is moved from one host CPU
+> to another.
+>
+> Let's move kvm_riscv_local_tlb_sanitize() to VMID management
+> sources and rename it to kvm_riscv_gstage_vmid_sanitize().
 >
 > Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 > ---
->   arch/riscv/include/asm/kvm_aia.h | 2 +-
->   arch/riscv/kvm/aia_device.c      | 6 ++----
->   arch/riscv/kvm/vcpu.c            | 4 +---
->   3 files changed, 4 insertions(+), 8 deletions(-)
+>   arch/riscv/include/asm/kvm_host.h |  3 +--
+>   arch/riscv/kvm/tlb.c              | 23 -----------------------
+>   arch/riscv/kvm/vcpu.c             |  4 ++--
+>   arch/riscv/kvm/vmid.c             | 23 +++++++++++++++++++++++
+>   4 files changed, 26 insertions(+), 27 deletions(-)
 >
-> diff --git a/arch/riscv/include/asm/kvm_aia.h b/arch/riscv/include/asm/kvm_aia.h
-> index 3b643b9efc07..0a0f12496f00 100644
-> --- a/arch/riscv/include/asm/kvm_aia.h
-> +++ b/arch/riscv/include/asm/kvm_aia.h
-> @@ -147,7 +147,7 @@ int kvm_riscv_vcpu_aia_rmw_ireg(struct kvm_vcpu *vcpu, unsigned int csr_num,
+> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
+> index 85cfebc32e4c..134adc30af52 100644
+> --- a/arch/riscv/include/asm/kvm_host.h
+> +++ b/arch/riscv/include/asm/kvm_host.h
+> @@ -327,8 +327,6 @@ void kvm_riscv_local_hfence_vvma_gva(unsigned long vmid,
+>   				     unsigned long order);
+>   void kvm_riscv_local_hfence_vvma_all(unsigned long vmid);
 >   
->   int kvm_riscv_vcpu_aia_update(struct kvm_vcpu *vcpu);
->   void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu);
-> -int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu);
-> +void kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu);
->   void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu);
->   
->   int kvm_riscv_aia_inject_msi_by_id(struct kvm *kvm, u32 hart_index,
-> diff --git a/arch/riscv/kvm/aia_device.c b/arch/riscv/kvm/aia_device.c
-> index 43e472ff3e1a..5b7ed2d987db 100644
-> --- a/arch/riscv/kvm/aia_device.c
-> +++ b/arch/riscv/kvm/aia_device.c
-> @@ -539,12 +539,12 @@ void kvm_riscv_vcpu_aia_reset(struct kvm_vcpu *vcpu)
->   	kvm_riscv_vcpu_aia_imsic_reset(vcpu);
->   }
->   
-> -int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
-> +void kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
->   {
->   	struct kvm_vcpu_aia *vaia = &vcpu->arch.aia_context;
->   
->   	if (!kvm_riscv_aia_available())
-> -		return 0;
-> +		return;
->   
->   	/*
->   	 * We don't do any memory allocations over here because these
-> @@ -556,8 +556,6 @@ int kvm_riscv_vcpu_aia_init(struct kvm_vcpu *vcpu)
->   	/* Initialize default values in AIA vcpu context */
->   	vaia->imsic_addr = KVM_RISCV_AIA_UNDEF_ADDR;
->   	vaia->hart_index = vcpu->vcpu_idx;
+> -void kvm_riscv_local_tlb_sanitize(struct kvm_vcpu *vcpu);
 > -
-> -	return 0;
+>   void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu);
+>   void kvm_riscv_hfence_gvma_vmid_all_process(struct kvm_vcpu *vcpu);
+>   void kvm_riscv_hfence_vvma_all_process(struct kvm_vcpu *vcpu);
+> @@ -376,6 +374,7 @@ unsigned long kvm_riscv_gstage_vmid_bits(void);
+>   int kvm_riscv_gstage_vmid_init(struct kvm *kvm);
+>   bool kvm_riscv_gstage_vmid_ver_changed(struct kvm_vmid *vmid);
+>   void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu);
+> +void kvm_riscv_gstage_vmid_sanitize(struct kvm_vcpu *vcpu);
+>   
+>   int kvm_riscv_setup_default_irq_routing(struct kvm *kvm, u32 lines);
+>   
+> diff --git a/arch/riscv/kvm/tlb.c b/arch/riscv/kvm/tlb.c
+> index 2f91ea5f8493..b3461bfd9756 100644
+> --- a/arch/riscv/kvm/tlb.c
+> +++ b/arch/riscv/kvm/tlb.c
+> @@ -156,29 +156,6 @@ void kvm_riscv_local_hfence_vvma_all(unsigned long vmid)
+>   	csr_write(CSR_HGATP, hgatp);
 >   }
 >   
->   void kvm_riscv_vcpu_aia_deinit(struct kvm_vcpu *vcpu)
+> -void kvm_riscv_local_tlb_sanitize(struct kvm_vcpu *vcpu)
+> -{
+> -	unsigned long vmid;
+> -
+> -	if (!kvm_riscv_gstage_vmid_bits() ||
+> -	    vcpu->arch.last_exit_cpu == vcpu->cpu)
+> -		return;
+> -
+> -	/*
+> -	 * On RISC-V platforms with hardware VMID support, we share same
+> -	 * VMID for all VCPUs of a particular Guest/VM. This means we might
+> -	 * have stale G-stage TLB entries on the current Host CPU due to
+> -	 * some other VCPU of the same Guest which ran previously on the
+> -	 * current Host CPU.
+> -	 *
+> -	 * To cleanup stale TLB entries, we simply flush all G-stage TLB
+> -	 * entries by VMID whenever underlying Host CPU changes for a VCPU.
+> -	 */
+> -
+> -	vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
+> -	kvm_riscv_local_hfence_gvma_vmid_all(vmid);
+> -}
+> -
+>   void kvm_riscv_fence_i_process(struct kvm_vcpu *vcpu)
+>   {
+>   	kvm_riscv_vcpu_pmu_incr_fw(vcpu, SBI_PMU_FW_FENCE_I_RCVD);
 > diff --git a/arch/riscv/kvm/vcpu.c b/arch/riscv/kvm/vcpu.c
-> index 6a1914b21ec3..f98a1894d55b 100644
+> index f98a1894d55b..cc7d00bcf345 100644
 > --- a/arch/riscv/kvm/vcpu.c
 > +++ b/arch/riscv/kvm/vcpu.c
-> @@ -160,9 +160,7 @@ int kvm_arch_vcpu_create(struct kvm_vcpu *vcpu)
->   	kvm_riscv_vcpu_pmu_init(vcpu);
+> @@ -961,12 +961,12 @@ int kvm_arch_vcpu_ioctl_run(struct kvm_vcpu *vcpu)
+>   		}
 >   
->   	/* Setup VCPU AIA */
-> -	rc = kvm_riscv_vcpu_aia_init(vcpu);
-> -	if (rc)
-> -		return rc;
-> +	kvm_riscv_vcpu_aia_init(vcpu);
+>   		/*
+> -		 * Cleanup stale TLB enteries
+> +		 * Sanitize VMID mappings cached (TLB) on current CPU
+>   		 *
+>   		 * Note: This should be done after G-stage VMID has been
+>   		 * updated using kvm_riscv_gstage_vmid_ver_changed()
+>   		 */
+> -		kvm_riscv_local_tlb_sanitize(vcpu);
+> +		kvm_riscv_gstage_vmid_sanitize(vcpu);
 >   
->   	/*
->   	 * Setup SBI extensions
+>   		trace_kvm_entry(vcpu);
+>   
+> diff --git a/arch/riscv/kvm/vmid.c b/arch/riscv/kvm/vmid.c
+> index ddc98714ce8e..92c01255f86f 100644
+> --- a/arch/riscv/kvm/vmid.c
+> +++ b/arch/riscv/kvm/vmid.c
+> @@ -122,3 +122,26 @@ void kvm_riscv_gstage_vmid_update(struct kvm_vcpu *vcpu)
+>   	kvm_for_each_vcpu(i, v, vcpu->kvm)
+>   		kvm_make_request(KVM_REQ_UPDATE_HGATP, v);
+>   }
+> +
+> +void kvm_riscv_gstage_vmid_sanitize(struct kvm_vcpu *vcpu)
+> +{
+> +	unsigned long vmid;
+> +
+> +	if (!kvm_riscv_gstage_vmid_bits() ||
+> +	    vcpu->arch.last_exit_cpu == vcpu->cpu)
+> +		return;
+> +
+> +	/*
+> +	 * On RISC-V platforms with hardware VMID support, we share same
+> +	 * VMID for all VCPUs of a particular Guest/VM. This means we might
+> +	 * have stale G-stage TLB entries on the current Host CPU due to
+> +	 * some other VCPU of the same Guest which ran previously on the
+> +	 * current Host CPU.
+> +	 *
+> +	 * To cleanup stale TLB entries, we simply flush all G-stage TLB
+> +	 * entries by VMID whenever underlying Host CPU changes for a VCPU.
+> +	 */
+> +
+> +	vmid = READ_ONCE(vcpu->kvm->arch.vmid.vmid);
+> +	kvm_riscv_local_hfence_gvma_vmid_all(vmid);
+> +}
 
 
+Reviewed-by: Atish Patra <atishp@rivosinc.com>
 
 
 _______________________________________________
