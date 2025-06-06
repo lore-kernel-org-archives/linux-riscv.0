@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28BB3C5AD49
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 16:58:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39F86C61CE7
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 17:24:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
 	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sAtctizWcFiq47FFyR+s7vb8HgvKJwPTUxG/CAW4m7g=; b=vtZYohoVAdVaVnTahVmqqxXXmZ
-	RvtMj9FlRjzPjif4LmjIpOpQiq/11y6JFE9LBljryGAoh7TsrjWJr7eIQEDoiXpV3Rh6WZ7VG9Jnr
-	zPLhzG3pg488I5aTFvJxxyNmIMrty4343Z9sjtRZIucR2G9GBbCeKm9UQta5ZIEQ/YLjh6G1OvHGd
-	wTMLHjSjXc3xriVgx3SWfYoqUGZRgRLEtClOSODRmYnEYE65ES/QYalT1vGMZmU664/+97lGlkue5
-	i0atmB6vKyPdDBB+9xZe0n1sWp/OGOIOBR67J7cNjPlSAaUC3nFsHzyxeyY+uov657jJ8CitZhKmt
-	qHHfkQ6Q==;
+	bh=PlXBnLhP/Gv7Fu3cEQNM3TJJIIcpNARULxyDN7UiG0E=; b=tbNBMdTrxKDqM4zACZGtaG19wS
+	Jmq5ZfWQmkTW/B4q4XStVukxKYoMD8YX9udUelkn75aWBWhoyZ94c+DpAitW2sPOdh+792Z2cuG7F
+	LIzcQ3k8VzxyJps1Gsf5FVgZflMP4ZZkaXf1T6+bfdsMsB4oXdJbonLlqHEzYhD3eqG1d1enqYZQH
+	QLSXHdrqs9At49mJUeEX+VuwqPj+V4Nrl/uyuXxlb56N7sdznV0ZFV1g++Ws8pEkCOYrIz4MuH/cW
+	OjBUbnQJQw7bf2oPl39AMVOhsGQa60hP/oPuRQhl+dctD4RCUpV4YJDfoiqnNvwrO4rKjzJFc5htp
+	zsZIuwzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaOc-00000000gTA-1GAt;
-	Fri, 06 Jun 2025 16:58:22 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1uNaoD-00000000io6-1khP;
+	Fri, 06 Jun 2025 17:24:49 +0000
+Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNaOZ-00000000gSh-3Nw2
+	id 1uNaoA-00000000ink-2Wpc
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 16:58:21 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-234c5b57557so22202295ad.3
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Jun 2025 09:58:19 -0700 (PDT)
+	Fri, 06 Jun 2025 17:24:47 +0000
+Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-311c95ddfb5so1807723a91.2
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jun 2025 10:24:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749229099; x=1749833899; darn=lists.infradead.org;
+        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749230686; x=1749835486; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=BcxjZScvM2lKpgQY852iFru4i2EtNEedlu5deP8M4Ro=;
-        b=WXS/bh5eCzPsFOeoCbBBF47VRfN2Vgez6nkHoxEEhMocxavb0QT9jy0HV30mFTRe1i
-         DobRpPkCCTIK3VFOvEgcrgkQDbjxxBWA/WqxoKVlvQe6T2TMLhYBhYl201LbuCrvRK96
-         dLA1a1B/2FMlQ/HqqPx7jfepMFAphznxZ6glsPVQcftEFFNC+oCk7S0Q7ggOvEYtVhMh
-         Ba2MPWeLvo2VaojJCyLtPjYRc8r3l2wjgEpFzQlcVfIDdzYYZL+oFZUaqsMaZJZHsvPt
-         zVTAi37WZbP2z+4iwnkbOC+QlaVXDgPL6NYwZVtECKuKqM8ZPUmLYzyH+KxXu/BmVP+E
-         2itA==
+        bh=lRmqKOZp4D3Po4Bjw8bM54XRDD+6MB8FGn9lAZKiGFc=;
+        b=RopwwyMMz4r5owg5P5gU/HB1jpoK6P8T6rx9TmRa+x7uVcho0pINIKQubeZigvqsC1
+         7Y7F29CcQbUxkL8dxheQp8soBnTomVompMwLtOeV50Lb7QCVfZfzJ3rH6ahcklUDw1i9
+         s9ZvlEp6kAeunQi4PE07KhvoLx9QzlipDRgo2zfrjHDzveJA1VGzC7D0RoGxviR3ndCj
+         PzWGBnmw5u+/ogkqDxWHtT8gY5sj6HjDdqzz5Ea4CO2d4f2giM1lGbV0p/t0jyHORHg0
+         yMoEkXwd61Kelr+CIoJXEFekos699HxlxLUFdlxiTZWi5kw4hhx6hcSgW6b6lK9784Ur
+         VHHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749229099; x=1749833899;
+        d=1e100.net; s=20230601; t=1749230686; x=1749835486;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BcxjZScvM2lKpgQY852iFru4i2EtNEedlu5deP8M4Ro=;
-        b=JoGa1V1vkX7vn83IpWwDd3LRGXcGzgK3F1T/Uu9TRtOgRSwbSIp3QixSJf6TJ23cFr
-         IUUVagiF/eDnxmWitzBgIflrmFj72XLSZbgf/cTxwfiM2aLdfeeQuAxZYRWO2iCz0ohe
-         VXnnGoPC5bYJxUW5TIqsariU1ATTD5oXYNu8jgsJadRHNaGEWFcthdoah8DC5ZUsxl42
-         Cg4I3a4x/83qyP+UArjq72u8TJcX2JgNLlSI8v3hhziUHkvC7JUTCSO17PBAtZgQCnNt
-         71tgrZ4HBeS2YdhaJWZqUgvK/p6A9CT+8Ptpe8y6Hh38QgNOIBt9L+zZVJQ17zHCGwHD
-         4xYw==
-X-Forwarded-Encrypted: i=1; AJvYcCWquVO+ceCd6M5IOGpCo87NUPY+cWmrAs/0uoyp+GoN/b7M+6NZu337Q74pjW9x5PlRaKWFO7tuNWR2jQ==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxw/+85BwTryMc827VFGnnJK7O4/g9M0TGfIaHDczFdXW0sJ3ic
-	XtV+IWDxEd0dnLV1X38nOIRDiypsx5wWYNmaSoAwmgiB+OduBjR91pXzsPtaPgK9yZI=
-X-Gm-Gg: ASbGncu4MBJd1+oWzULScWy72iy6fazlgajHIcMSW32Oew4K1vDxrfYbCUywI9t+U/j
-	mOSoslKKHj/XXkH3jOzFgMPlm/qbNB6aX+5AUQlxe46eCEBUmJABSlnvUhzaQbSUYYu+1129zjT
-	wdO9fTxJZ7X76xvTmiQZLn41w3VX7CfmZPw8c7laCoCHTvL0f3TfzwpFpIz9TAeiGwNfaYHJTRk
-	r0GSNe3HlQh88K4xl25vDPyE2pJc3UdEvc7pICiagNhZ3rqfSzRIyu/xxSSraxAVxf1fnRD2gr7
-	KSyzP9mj9CXIl9ZA64ty3AJwSx1KT8mH2mKvRRCiSGQNDzBHc2KZoR6StAxi+g==
-X-Google-Smtp-Source: AGHT+IEFbEqDfqUF5m1o5ZSy4azWIZls70KNFStC8E9KnYlaEsLemZ77jdHc6KP24GJveCrVcgRxfw==
-X-Received: by 2002:a17:903:32cf:b0:235:6f7:b918 with SMTP id d9443c01a7336-23601d225cdmr62084635ad.28.1749229098693;
-        Fri, 06 Jun 2025 09:58:18 -0700 (PDT)
+        bh=lRmqKOZp4D3Po4Bjw8bM54XRDD+6MB8FGn9lAZKiGFc=;
+        b=pC8QtK7g4OemEgXO8bRFa3E5PLzxIsuKFwFwSZv6m21luCNf249ItulzsYZgtzwHOv
+         XV9m05TwpY9JY8YWEMKeht1mnlF3oZm50TvCy/dVbcg3hfhbae0rHz62m64JpKLGJ03T
+         vd9wGWNZMFNy42SZXhodu8F4Hq7ZCZVmvEoHRTx9LRSGmujtllCNecOtfdBatQVRFagd
+         mfopQ7JgJdORihK1LvcLddyvaN+Pnd4fcsI1ibMfZkFnaFKfhq4UDVKwuQDz/5cw/BQx
+         2nxSqDMgv1Snct+n9WqJKhEjiU8TlCEO8Et6Dh83gwG5C9/8+cJ8gBY0jjUmDYLH2FFq
+         qwQg==
+X-Forwarded-Encrypted: i=1; AJvYcCW3Q14nRk4fH0jDCrWEaBAYw0gNpihXGt2mQ2mJCuXZzzKLlfJG403l2tqvQDrr1xUXhYalRIleIANAyQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwhWBVMsTdZSI5pcN74+yqmPOohXVzsBLSKqZoXEfOvYjaIepTU
+	IGeLSslgtmbJdS/GRPBev9VtqPDz4RNo4X+0Hfpc3jZDrn2qwU39kmuZpG7ICcHfSuQ=
+X-Gm-Gg: ASbGncuDKEGs2SWSymbRxaA+JkX8yIGlmi+E+RQEsrzI3yMgFlTHiQhTaV6+4chjc05
+	jXr1mBPn6fEGSTos1wMGX71z8As8afdogNioq6nGymk6L7Ced0YeOS52Ms/6C6NBOYSOnsgpja8
+	gN5tDo8kg2cKsYMARiNlMth0sq+IWEzvHWQw17gbC0HnuGkH1VIROGIPCvg+es08pM1lXlcqimu
+	UBy91gpuiOYT3EuMPOT8BqAsKUNWcjk/bAekzzsEQqz9zQqjzXlujOFFmE3hJ8X5nHWcpljVyXz
+	24tbBL8nzh11dltt8/waHYXJ6fUh47GAdJUWvYcHQUnXrghT3AEAHn2mDztNGQ==
+X-Google-Smtp-Source: AGHT+IGIK8Erhji21niUWFPogzt6iDf0VsC6RhJImYChHCMhfsalLAttwAM/hAjBUM+rRasFiPUl/w==
+X-Received: by 2002:a17:90b:2252:b0:312:25dd:1c86 with SMTP id 98e67ed59e1d1-3134730af09mr7057432a91.18.1749230685624;
+        Fri, 06 Jun 2025 10:24:45 -0700 (PDT)
 Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236032ff216sm14585925ad.111.2025.06.06.09.58.17
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-31349f17c04sm1725087a91.8.2025.06.06.10.24.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 09:58:18 -0700 (PDT)
-Date: Fri, 6 Jun 2025 09:58:16 -0700
+        Fri, 06 Jun 2025 10:24:45 -0700 (PDT)
+Date: Fri, 6 Jun 2025 10:24:43 -0700
 From: Deepak Gupta <debug@rivosinc.com>
 To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 Cc: Paul Walmsley <paul.walmsley@sifive.com>,
@@ -77,17 +77,17 @@ Cc: Paul Walmsley <paul.walmsley@sifive.com>,
 	Alexandre Ghiti <alex@ghiti.fr>, Ved Shanbhogue <ved@rivosinc.com>,
 	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
 	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH RFC v7 1/3] riscv: Add RISC-V Svrsw60t59b extension
+Subject: Re: [PATCH RFC v7 2/3] riscv: mm: Add soft-dirty page tracking
  support
-Message-ID: <aEMeKIBDKUTUI3B1@debug.ba.rivosinc.com>
+Message-ID: <aEMkW8py61njmNLo@debug.ba.rivosinc.com>
 References: <20250409095320.224100-1-zhangchunyan@iscas.ac.cn>
- <20250409095320.224100-2-zhangchunyan@iscas.ac.cn>
+ <20250409095320.224100-3-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250409095320.224100-2-zhangchunyan@iscas.ac.cn>
+In-Reply-To: <20250409095320.224100-3-zhangchunyan@iscas.ac.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_095819_846320_A76D9363 
-X-CRM114-Status: GOOD (  11.49  )
+X-CRM114-CacheID: sfid-20250606_102446_640917_5CC5BAE4 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,68 +104,194 @@ Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 05:53:18PM +0800, Chunyan Zhang wrote:
->The Svrsw60t59b extension allows to free the PTE reserved bits 60
->and 59 for software to use.
+On Wed, Apr 09, 2025 at 05:53:19PM +0800, Chunyan Zhang wrote:
+>The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
+>for software, this patch uses bit 59 for soft-dirty.
+>
+>To add swap PTE soft-dirty tracking, we borrow bit 3 which is available
+>for swap PTEs on RISC-V systems.
 >
 >Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
 >---
-> arch/riscv/Kconfig             | 13 +++++++++++++
-> arch/riscv/include/asm/hwcap.h |  1 +
-> arch/riscv/kernel/cpufeature.c |  1 +
-> 3 files changed, 15 insertions(+)
+> arch/riscv/Kconfig                    |  1 +
+> arch/riscv/include/asm/pgtable-bits.h | 19 +++++++
+> arch/riscv/include/asm/pgtable.h      | 71 ++++++++++++++++++++++++++-
+> 3 files changed, 89 insertions(+), 2 deletions(-)
 >
 >diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->index bbec87b79309..332fc00243ad 100644
+>index 332fc00243ad..652e2bbfb702 100644
 >--- a/arch/riscv/Kconfig
 >+++ b/arch/riscv/Kconfig
->@@ -842,6 +842,19 @@ config RISCV_ISA_ZICBOZ
+>@@ -139,6 +139,7 @@ config RISCV
+> 	select HAVE_ARCH_MMAP_RND_COMPAT_BITS if COMPAT
+> 	select HAVE_ARCH_RANDOMIZE_KSTACK_OFFSET
+> 	select HAVE_ARCH_SECCOMP_FILTER
+>+	select HAVE_ARCH_SOFT_DIRTY if 64BIT && MMU && RISCV_ISA_SVRSW60T59B
+> 	select HAVE_ARCH_STACKLEAK
+> 	select HAVE_ARCH_THREAD_STRUCT_WHITELIST
+> 	select HAVE_ARCH_TRACEHOOK
+>diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
+>index a8f5205cea54..a6fa871dc19e 100644
+>--- a/arch/riscv/include/asm/pgtable-bits.h
+>+++ b/arch/riscv/include/asm/pgtable-bits.h
+>@@ -20,6 +20,25 @@
 >
-> 	   If you don't know what to do here, say Y.
->
->+config RISCV_ISA_SVRSW60T59B
->+	bool "Svrsw60t59b extension support for using PTE bits 60 and 59"
->+	depends on RISCV_ALTERNATIVE
+> #define _PAGE_SPECIAL   (1 << 8)    /* RSW: 0x1 */
+> #define _PAGE_DEVMAP    (1 << 9)    /* RSW, devmap */
+>+
+>+#ifdef CONFIG_MEM_SOFT_DIRTY
+>+
+>+/* ext_svrsw60t59b: bit 59 for software dirty tracking */
+>+#define _PAGE_SOFT_DIRTY						\
+>+	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
+>+	 (1UL << 59) : 0)
+>+/*
+>+ * Bit 3 is always zero for swap entry computation, so we
+>+ * can borrow it for swap page soft-dirty tracking.
+>+ */
+>+#define _PAGE_SWP_SOFT_DIRTY						\
+>+	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
+>+	 _PAGE_EXEC : 0)
+>+#else
+>+#define _PAGE_SOFT_DIRTY	0
+>+#define _PAGE_SWP_SOFT_DIRTY	0
+>+#endif /* CONFIG_MEM_SOFT_DIRTY */
+>+
 
-depends on MMU && 64BIT as well.
+Above can be done like this
 
->+	default y
->+	help
->+	  Adds support to dynamically detect the presence of the SVRSW60T59B
->+	  extension and enable its usage.
->+
->+	  The Svrsw60t59b extension allows to free the PTE reserved bits 60
->+	  and 59 for software to use.
->+
->+	  If you don't know what to do here, say Y.
->+
-> config TOOLCHAIN_NEEDS_EXPLICIT_ZICSR_ZIFENCEI
-> 	def_bool y
-> 	# https://sourceware.org/git/?p=binutils-gdb.git;a=commit;h=aed44286efa8ae8717a77d94b51ac3614e2ca6dc
->diff --git a/arch/riscv/include/asm/hwcap.h b/arch/riscv/include/asm/hwcap.h
->index e3cbf203cdde..985f6dfc80ed 100644
->--- a/arch/riscv/include/asm/hwcap.h
->+++ b/arch/riscv/include/asm/hwcap.h
->@@ -105,6 +105,7 @@
-> #define RISCV_ISA_EXT_ZVFBFWMA		96
-> #define RISCV_ISA_EXT_ZAAMO		97
-> #define RISCV_ISA_EXT_ZALRSC		98
->+#define RISCV_ISA_EXT_SVRSW60T59B	99
++
++#ifdef CONFIG_MEM_SOFT_DIRTY && RISCV_ISA_EXT_SVRSW60T59B
++
++/* ext_svrsw60t59b: bit 59 for software dirty tracking */
++#define _PAGE_SOFT_DIRTY (1UL << 59)
++/*
++ * Bit 3 is always zero for swap entry computation, so we
++ * can borrow it for swap page soft-dirty tracking.
++ */
++#define _PAGE_SWP_SOFT_DIRTY _PAGE_EXEC
++#else
++#define _PAGE_SOFT_DIRTY       0
++#define _PAGE_SWP_SOFT_DIRTY   0
++#endif /* CONFIG_MEM_SOFT_DIRTY */
+
+> #define _PAGE_TABLE     _PAGE_PRESENT
 >
-> #define RISCV_ISA_EXT_XLINUXENVCFG	127
+> /*
+>diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
+>index 428e48e5f57d..14461ffe6321 100644
+>--- a/arch/riscv/include/asm/pgtable.h
+>+++ b/arch/riscv/include/asm/pgtable.h
+>@@ -436,7 +436,7 @@ static inline pte_t pte_mkwrite_novma(pte_t pte)
+
+Shouldn't "static inline int pte_dirty(pte_t pte)" be updated as well
+
+static inline int pte_dirty(pte_t pte)
+{
+	return pte_val(pte) & (_PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+}
+
+Perhaps have a macro which includes both dirty together and then use together.
+
+
 >
->diff --git a/arch/riscv/kernel/cpufeature.c b/arch/riscv/kernel/cpufeature.c
->index 2054f6c4b0ae..0f0f3027d400 100644
->--- a/arch/riscv/kernel/cpufeature.c
->+++ b/arch/riscv/kernel/cpufeature.c
->@@ -523,6 +523,7 @@ const struct riscv_isa_ext_data riscv_isa_ext[] = {
-> 	__RISCV_ISA_EXT_DATA(svnapot, RISCV_ISA_EXT_SVNAPOT),
-> 	__RISCV_ISA_EXT_DATA(svpbmt, RISCV_ISA_EXT_SVPBMT),
-> 	__RISCV_ISA_EXT_DATA(svvptc, RISCV_ISA_EXT_SVVPTC),
->+	__RISCV_ISA_EXT_DATA(svrsw60t59b, RISCV_ISA_EXT_SVRSW60T59B),
-> };
+> static inline pte_t pte_mkdirty(pte_t pte)
+> {
+>-	return __pte(pte_val(pte) | _PAGE_DIRTY);
+>+	return __pte(pte_val(pte) | _PAGE_DIRTY | _PAGE_SOFT_DIRTY);
+> }
 >
-> const size_t riscv_isa_ext_count = ARRAY_SIZE(riscv_isa_ext);
+> static inline pte_t pte_mkclean(pte_t pte)
+>@@ -469,6 +469,38 @@ static inline pte_t pte_mkhuge(pte_t pte)
+> 	return pte;
+> }
+>
+>+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+>+static inline bool pte_soft_dirty(pte_t pte)
+>+{
+>+	return !!(pte_val(pte) & _PAGE_SOFT_DIRTY);
+>+}
+>+
+>+static inline pte_t pte_mksoft_dirty(pte_t pte)
+>+{
+>+	return __pte(pte_val(pte) | _PAGE_SOFT_DIRTY);
+>+}
+>+
+>+static inline pte_t pte_clear_soft_dirty(pte_t pte)
+>+{
+>+	return __pte(pte_val(pte) & ~(_PAGE_SOFT_DIRTY));
+>+}
+>+
+>+static inline bool pte_swp_soft_dirty(pte_t pte)
+>+{
+>+	return !!(pte_val(pte) & _PAGE_SWP_SOFT_DIRTY);
+>+}
+>+
+>+static inline pte_t pte_swp_mksoft_dirty(pte_t pte)
+>+{
+>+	return __pte(pte_val(pte) | _PAGE_SWP_SOFT_DIRTY);
+>+}
+>+
+>+static inline pte_t pte_swp_clear_soft_dirty(pte_t pte)
+>+{
+>+	return __pte(pte_val(pte) & ~(_PAGE_SWP_SOFT_DIRTY));
+>+}
+>+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
+>+
+> #ifdef CONFIG_RISCV_ISA_SVNAPOT
+> #define pte_leaf_size(pte)	(pte_napot(pte) ?				\
+> 					napot_cont_size(napot_cont_order(pte)) :\
+>@@ -821,6 +853,40 @@ static inline pud_t pud_mkspecial(pud_t pud)
+> }
+> #endif
+>
+>+#ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
+>+static inline bool pmd_soft_dirty(pmd_t pmd)
+>+{
+>+	return pte_soft_dirty(pmd_pte(pmd));
+>+}
+>+
+>+static inline pmd_t pmd_mksoft_dirty(pmd_t pmd)
+>+{
+>+	return pte_pmd(pte_mksoft_dirty(pmd_pte(pmd)));
+>+}
+>+
+>+static inline pmd_t pmd_clear_soft_dirty(pmd_t pmd)
+>+{
+>+	return pte_pmd(pte_clear_soft_dirty(pmd_pte(pmd)));
+>+}
+>+
+>+#ifdef CONFIG_ARCH_ENABLE_THP_MIGRATION
+>+static inline bool pmd_swp_soft_dirty(pmd_t pmd)
+>+{
+>+	return pte_swp_soft_dirty(pmd_pte(pmd));
+>+}
+>+
+>+static inline pmd_t pmd_swp_mksoft_dirty(pmd_t pmd)
+>+{
+>+	return pte_pmd(pte_swp_mksoft_dirty(pmd_pte(pmd)));
+>+}
+>+
+>+static inline pmd_t pmd_swp_clear_soft_dirty(pmd_t pmd)
+>+{
+>+	return pte_pmd(pte_swp_clear_soft_dirty(pmd_pte(pmd)));
+>+}
+>+#endif /* CONFIG_ARCH_ENABLE_THP_MIGRATION */
+>+#endif /* CONFIG_HAVE_ARCH_SOFT_DIRTY */
+>+
+> static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+> 				pmd_t *pmdp, pmd_t pmd)
+> {
+>@@ -910,7 +976,8 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
+>  *
+>  * Format of swap PTE:
+>  *	bit            0:	_PAGE_PRESENT (zero)
+>- *	bit       1 to 3:       _PAGE_LEAF (zero)
+>+ *	bit       1 to 2:	(zero)
+>+ *	bit            3:	_PAGE_SWP_SOFT_DIRTY
+>  *	bit            5:	_PAGE_PROT_NONE (zero)
+>  *	bit            6:	exclusive marker
+>  *	bits      7 to 11:	swap type
 >-- 
 >2.34.1
 >
