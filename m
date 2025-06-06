@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7EBCC61CE7
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 19:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522A4C61CE7
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 20:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:Cc:To:From:Date:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=HUvXzl7X91TglKbqp9F4V2oZzs6S0u6zjm+Qas1xTQk=; b=KQJUPHQI8KOuk76iRKQ9C7849M
-	oXYR/e+1Aln2rpJ6gjNXuz9RGia26/NmOdQAY8YwIrZHW5vcYf/g9zgDf5MPC9AZ0XxgPIq4aIp/S
-	nViUNhJ8iR2bI21xIcC8/hXUX+KfPC5/iWEc8DnQU4TSTAKhsmffE886WMKMB8BkOGc/sa4tpPgaZ
-	zfbJiNosVWSev0MLYHvjP0TgKoA1PUCl+ra0JTdMQxodA3x6pY0MolsNv8AzEGtijpDjgtWuynTEl
-	OBgcfLxDE9lE9MYw9/NgZNavL/96ACJrrdnQZqhQk3hfJ4dgFBDd73vuHA+Ir2U0Ezn7CpHUx9hNl
-	HRnwGWbA==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:From:Subject:
+	Cc:Message-Id:Date:Mime-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=YM6a++LFesan/+GLs37Q6kD9WGgDoFuPbztqfdNJOAI=; b=Ki+9v/WxYby9r/
+	jnzgyeRrf0tzp93zxwlrBYaBlujmVpi+fW3u6cp+Z1FFKe0CV9CTPzK3oHQULiaWawXGvGaeiMApc
+	vkp33GKGX5JShv4CYEuiCZv2jqGX1lI7YcxF/sTfXCavH+ofgtcsk+6V9BkpZ/LpaZ28aBjIg2C8+
+	XsCaFcy5NUZ+jqUTGyCf7vmgNlO9FUP74agkhprHR7EXiRHtg2Oo54M0Zg0UyiPVOI4s+r/hEj26G
+	RDoqgzeGmFn8evnEZmtijMMrApKuRLSVzFLDpYqfOCbl3biDYfDcvNuP0GzwOqCEeuGYPOUF+2wCS
+	latCJVf7h/Ol4Rx4q7+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNcxs-00000000tfV-1nK2;
-	Fri, 06 Jun 2025 19:42:56 +0000
-Received: from mta-13-4.privateemail.com ([198.54.127.109])
+	id 1uNdNy-00000000vOL-13hU;
+	Fri, 06 Jun 2025 20:09:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNcxp-00000000teq-47oz
+	id 1uNdNv-00000000vNr-1eFI
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 19:42:55 +0000
-Received: from mta-13.privateemail.com (localhost [127.0.0.1])
-	by mta-13.privateemail.com (Postfix) with ESMTP id 4bDWtk1fWVz3hhhd;
-	Fri,  6 Jun 2025 15:42:38 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=mebeim.net; s=default;
-	t=1749238958; bh=f/ZG7FzFsllKeCY4kWY41SHT1xEBrgdADFi7P3Tq+Y8=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject:From;
-	b=B9TYwjG8CE3vwgX0/Lz90Hrtrhq9bCeXEavuCbkZ9jmcnkF9k9Y1am6Dir+rDCnUD
-	 qxVkI9Fac5CpADN6kGrSxYdoU97UE2Ptx/8ubWWKj3ZdvBiDsQDQCNQw6xsAQDjUBD
-	 tzuLmKwxVrZmvqyygCyvGAYRTzzVqJoiW5Af/VjmgewD8+PPpiHmpOyCZFFNL2SSrS
-	 kl/LYS8qiOpixS+ScjVPIiL1H9cFl6VXa+w+X+ajJ71fthhOWcJh8KYRAGtD3XxNV/
-	 7tStNop7MJQnxMg6qmRGpZl2GMqpqluKZOkJngalKlwcu35YmRt5LXa5Hdt41B98on
-	 cLbzOrqlrwTSg==
-Received: from APP-18 (unknown [10.50.14.242])
-	by mta-13.privateemail.com (Postfix) with ESMTPA;
-	Fri,  6 Jun 2025 15:42:27 -0400 (EDT)
-Date: Fri, 6 Jun 2025 21:42:27 +0200 (CEST)
-From: Marco Bonelli <marco@mebeim.net>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Cc: "terrelln@fb.com" <terrelln@fb.com>,
-	"rostedt@goodmis.org" <rostedt@goodmis.org>,
-	"mhiramat@kernel.org" <mhiramat@kernel.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
-Message-ID: <191074362.1248877.1749238947947@privateemail.com>
-In-Reply-To: <1338988468.1011577.1749045125350@privateemail.com>
-References: <960240908.630790.1748641210849@privateemail.com>
- <1552795452.650306.1748692371190@privateemail.com>
- <c239ee1b-f201-4e7b-80f8-03a7fb02b666@ghiti.fr>
- <1338988468.1011577.1749045125350@privateemail.com>
-Subject: Re: Broken 32-bit riscv debug build with ZSTD and FTRACE
-MIME-Version: 1.0
-X-Priority: 3
-Importance: Normal
-X-Mailer: Open-Xchange Mailer v7.10.6-Rev75
-X-Originating-Client: open-xchange-appsuite
-X-Virus-Scanned: ClamAV using ClamSMTP
+	Fri, 06 Jun 2025 20:09:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 008F0434C5;
+	Fri,  6 Jun 2025 20:09:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFC0CC4CEF4;
+	Fri,  6 Jun 2025 20:09:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749240588;
+	bh=47Vf4nOQZwM+Abm7uLMkrK0JA175p8GjRRjIrpt2/tY=;
+	h=Date:Cc:Subject:From:To:References:In-Reply-To:From;
+	b=NSSCp/2x9jKNKnDQuj3wSudUxox2HuBaWGf3Pdb94Oae9y8Gh5N16NNc472FNNdo8
+	 NkZvocAojxPvQj4YU006T/RuCoMnYXwqMJphIHxpPwCq0iRXVIo+MLvnAJuWPygzlI
+	 6jL/FkFtlvrLMXWKJet7kVfP5CP32YgCspcHKOa8eL9bauSJkNgr7kqg4PKhjhWUbS
+	 p6AfHIJHY0OTaJREXSFjHySAZ7gBjUyXWgyZ/riUHJCKa+2DiBOiQUJBookm+JnWjt
+	 qlNOiFqzDHybRpL80rXTJluxCQ+WUeYv0G/27oBFcaVdsgl3J2E3+8yhGGaUgHaWmb
+	 fH2VWXebOIrgA==
+Mime-Version: 1.0
+Date: Fri, 06 Jun 2025 22:09:42 +0200
+Message-Id: <DAFQ19RBBSQL.3OGUXOQ0PA9YH@kernel.org>
+Cc: "Drew Fustini" <drew@pdp7.com>, "Guo Ren" <guoren@kernel.org>, "Fu Wei"
+ <wefu@redhat.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof Kozlowski"
+ <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>, "Paul Walmsley"
+ <paul.walmsley@sifive.com>, "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert
+ Ou" <aou@eecs.berkeley.edu>, "Alexandre Ghiti" <alex@ghiti.fr>, "Marek
+ Szyprowski" <m.szyprowski@samsung.com>, <linux-kernel@vger.kernel.org>,
+ <linux-pwm@vger.kernel.org>, <rust-for-linux@vger.kernel.org>,
+ <linux-riscv@lists.infradead.org>, <devicetree@vger.kernel.org>
+Subject: Re: [PATCH RFC 2/6] pwm: Add Rust driver for T-HEAD TH1520 SoC
+From: "Benno Lossin" <lossin@kernel.org>
+To: "Michal Wilczynski" <m.wilczynski@samsung.com>,
+ =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, "Miguel Ojeda"
+ <ojeda@kernel.org>, "Alex Gaynor" <alex.gaynor@gmail.com>, "Boqun Feng"
+ <boqun.feng@gmail.com>, "Gary Guo" <gary@garyguo.net>,
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, "Benno Lossin"
+ <benno.lossin@proton.me>, "Andreas Hindborg" <a.hindborg@kernel.org>,
+ "Alice Ryhl" <aliceryhl@google.com>, "Trevor Gross" <tmgross@umich.edu>,
+ "Danilo Krummrich" <dakr@kernel.org>
+X-Mailer: aerc 0.20.1
+References: <20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com> <CGME20250524211521eucas1p1929a51901c91d1a37e9f4c2da86ff7b0@eucas1p1.samsung.com> <20250524-rust-next-pwm-working-fan-for-sending-v1-2-bdd2d5094ff7@samsung.com> <q6dkihyfosi3k4mtrvyff54nbsjpovmujdbmoqhapo7daznpja@of2p5gtmcq2m> <b1c4792e-f997-4eba-a8ed-d2e3f76e3fdd@samsung.com>
+In-Reply-To: <b1c4792e-f997-4eba-a8ed-d2e3f76e3fdd@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_124254_070609_FCE32B4F 
-X-CRM114-Status: UNSURE (   4.80  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250606_130951_469256_14F28AD9 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,45 +80,37 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-I was able to also reproduce without ZSTD (i.e. both ZSTD_COMPRESS=n
-and ZSTD_DECOMPRESS=n) like this:
-
-	export ARCH=riscv CROSS_COMPILE=riscv32-linux-
-	make distclean
-	make defconfig
-	make 32-bit.config
-	./scripts/config \
-		-e FTRACE \
-		-e CONFIG_DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT \
-		-d RD_ZSTD \
-		-d SECURITY_APPARMOR_INTROSPECT_POLICY \
-		-d BTRFS_FS
-	make olddefconfig
-	make -j vmlinux
-
-Did another bisect run between v6.14 and v6.15 with the above commands
-in a bash script and got:
-
-	494e7fe591bf834d57c6607cdc26ab8873708aa7 Merge tag 'bpf_res_spin_lock' of git://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next
-
-This leaves me more puzzled than before honestly. Not sure whether it is
-a real bug or a problem on my end at this point? The fact that I can repro
-in a Docker makes me think of the former, but the fact that I was able to
-bisect it down to two different commits depending on ZSTD vs no ZSTD is
-weird.
-
-Alex (or anyone else really): are you able to reproduce with my Dockerfile
-or config I provided in my last mail by any chance?
-
---
-Marco Bonelli
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gRnJpIEp1biA2LCAyMDI1IGF0IDQ6MDggUE0gQ0VTVCwgTWljaGFsIFdpbGN6eW5za2kgd3Jv
+dGU6Cj4gT24gNi81LzI1IDEyOjM5LCBVd2UgS2xlaW5lLUvDtm5pZyB3cm90ZToKPj4gT24gU2F0
+LCBNYXkgMjQsIDIwMjUgYXQgMTE6MTQ6NTZQTSArMDIwMCwgTWljaGFsIFdpbGN6eW5za2kgd3Jv
+dGU6Cj4+PiAraW1wbCBEcm9wIGZvciBUaDE1MjBQd21DaGlwRGF0YSB7Cj4+PiArICAgIGZuIGRy
+b3AoJm11dCBzZWxmKSB7Cj4+PiArICAgICAgICBzZWxmLmNsay5kaXNhYmxlX3VucHJlcGFyZSgp
+Owo+Pj4gKyAgICB9Cj4+PiArfQo+Pj4gKwo+Pj4gK2ZuIG11bF9kaXZfdTY0KGE6IHU2NCwgYjog
+dTY0LCBjOiB1NjQpIC0+IHU2NCB7Cj4+PiArICAgIGlmIGMgPT0gMCB7Cj4+PiArICAgICAgICBy
+ZXR1cm4gMDsKPj4+ICsgICAgfQo+Pj4gKyAgICBhLndyYXBwaW5nX211bChiKSAvIGMKPj4+ICt9
+Cj4+IAo+PiBJcyB0aGlzIHNhdmUgaWYgYSAqIGIgPiBVNjRfTUFYPyBJIHdvdWxkIGhhdmUgZXhw
+ZWN0ZWQgc3VjaCBhIGZ1bmN0aW9uCj4+IHRvIGFscmVhZHkgZXhpc3QgaW4gZ2VuZXJpYyBjb2Rl
+Lgo+Cj4gWW91J3JlIHJpZ2h0LCB0aGFuayB5b3UuIFRoZSB3cmFwcGluZ19tdWwgaXMgdW5zYWZl
+IGR1ZSB0byB0aGUgb3ZlcmZsb3cKPiByaXNrIHlvdSBwb2ludGVkIG91dC4KCmB3cmFwcGluZ19t
+dWxgIGlzIG5vdCBgdW5zYWZlYCwgYnV0IHRoZSBhYm92ZSBjb2RlIHdpbGwgcmVzdWx0IGluIGFu
+CmluY29ycmVjdCByZXN1bHQgaWYgYGEgKiBiYCBvdmVyZmxvd3MgKGl0IHdvbid0IGJlIFVCLCBz
+aW5jZQpgd3JhcHBpbmdfbXVsYCBqdXN0IHdyYXBzIGFyb3VuZCB0byAwKS4KCj4gVGhlIGlkZWFs
+IHNvbHV0aW9uIHdvdWxkIGJlIHRvIHVzZSB0aGUga2VybmVsJ3Mgb3duIG11bF91NjRfdTY0X2Rp
+dl91NjQKPiBoZWxwZXIgZnVuY3Rpb24uCj4KPiBSdXN0IG1haW50YWluZXJzOiBUaGlzIGJpbmRp
+bmcgZG9lc24ndCBzZWVtIHRvIGJlIGF2YWlsYWJsZSB5ZXQuIFdvdWxkIGEKPiBwcmVwYXJhdG9y
+eSBwYXRjaCBpbnRyb2R1Y2luZyBhIG1pbmltYWwgcnVzdC9rZXJuZWwvbWF0aC5ycyB3aXRoICBv
+bmx5Cj4gdGhpcyBiaW5kaW5nIGJlIHRoZSBiZXN0IHdheSB0byBwcm9jZWVkPyBJdCBzZWVtcyBs
+aWtlIGEgdXNlZnVsIHV0aWxpdHkKPiBmb3IgbW9yZSB0aGFuIGp1c3QgdGhpcyBkcml2ZXIuCgpT
+b3VuZHMgZ29vZCwgYnV0IEkgd291bGQgc2VwYXJhdGUgaXQgaW50byBpdHMgb3duIHBhdGNoIHNl
+cmllcywgc2luY2UKdGhlbiB5b3UgY2FuIGl0ZXJhdGUgb24gYm90aCBhdCB0aGUgc2FtZSB0aW1l
+LgoKQXJlIHRoZXJlIGFsc28gc2ltaWxhciBmdW5jdGlvbnMgZm9yIHNpZ25lZCBhbmQgb3RoZXIg
+c2l6ZXM/IElmIHllcywKdGhlbiB3ZSBzaG91bGQgYWRkIHRoZW0gdmlhIGFuIGV4dGVuc2lvbiB0
+cmFpdCBvbiB0aGUgcHJpbWl0aXZlIHR5cGVzLgoKLS0tCkNoZWVycywKQmVubm8KCl9fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxp
+bmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZy
+YWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
