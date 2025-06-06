@@ -4,89 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F6BC5AD49
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 17:31:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA345C5AD49
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 18:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=db41qiOsn5AQ/C41bDsABkZ//0vD8Dk0MryrtUQzIZk=; b=XuWVc0oX9WMy9XSsYvhV7chtxd
-	ODztb8+dGmeBavm0sqKNpnIuJ2s7PZT3HVFjJM2gYid9cZKaBfKuWl81Oo4lmTYKaGGEnO1moo9u1
-	sbcuWLJQIg6cINVjCAa7wSO8TlgMlbUUo/c1j11G9vcllvNouKN3/aMT8l3nyICjoN2NHJrDM2o2q
-	7g8idN3uG8oWhGVMc1oAH5hTmM9TET9yUva/yvREPtYe6JtV8EBxTKKzOFECv4JUiv/AZTcOyLW61
-	FnPLk1OJgV5j4KMIVj9LvG+jVTKanJ8ahQPZ+NwlJjkw+Dax5rn2UWkHB/6KofDMy50qUO7HBElS9
-	hiP945dw==;
+	MIME-Version:List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe
+	:List-Id:Message-ID:To:From:CC:Subject:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	References:List-Owner; bh=Qppcuuc2phXVUHTuOyJzZ83hCmcguBUfkBkdhWfR+4M=; b=kok
+	bpgatcsoY686EoG2x314pCg24LlqlY3XEacUbHOBiORCpDakibTo/Tf51B2WVhebQA3KTUMbvrOEz
+	mzxclMmbImEii5gSovXex+x8FRdbbHRO3Xphdr3aTIT4aQXfQQUDfvG6BUKOPLtH5YCQZSPhZ7xJr
+	2lBv92C9uRIFfEqWhJ9FMpfyNDUKOzoMzNhnRFaSSLS80p+puywkRjI0emfgT9fzF/8tdB2qVEsnK
+	kv4NGgSmN+SsNl1R0bEDcp1xcTiIjwdrf0Bafl8sVHJUqpGxpG0WFgh4Y6FiksE9qsPnD/R9Nkud9
+	k5yQySbP92OQ9mFeWFlyUSxNivTcOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNau6-00000000jFw-1qyi;
-	Fri, 06 Jun 2025 17:30:54 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1uNbWd-00000000mOL-33Qc;
+	Fri, 06 Jun 2025 18:10:43 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNau4-00000000jFZ-08pg
+	id 1uNbWa-00000000mNx-013u
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 17:30:53 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-747c2cc3419so1784353b3a.2
-        for <linux-riscv@lists.infradead.org>; Fri, 06 Jun 2025 10:30:51 -0700 (PDT)
+	Fri, 06 Jun 2025 18:10:41 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-22e09f57ed4so32349015ad.0
+        for <linux-riscv@lists.infradead.org>; Fri, 06 Jun 2025 11:10:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc-com.20230601.gappssmtp.com; s=20230601; t=1749231051; x=1749835851; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=X2PQ67BFWU56/gkiZ9MusCHT/JwVeFrtJgEOKPncvwI=;
-        b=pejc+JzWUg85wEWHXaV/HlQ4by4BZHjb+irkiOnevvpLWSeibOQQn+Ccil6tEu8cSv
-         ifNQdIlXxianKIRcUFzAQlWqwxDpdYh1sfEAiSMqupXwYQWVPN4VaFAd5177ZQoAURH9
-         vWh3fq+4HT97hIEz/4bAfYeLf5UxyCaB6yQwwY6PXccA47qROVOntc7d5EzyBNIY1QJJ
-         QfTxKlYWY6Dl9wwh/rg+MMBUNKP1hxun3XgV6spSuD/+6dnORvrKtbeHVnrqM1PO0LIz
-         u6L1AVOD7mDms1YHiEEGoMqdtZDrMcHJOyDth8VpJzkBi2NI2DNvHxX247hFKcqdv1vp
-         7OkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749231051; x=1749835851;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749233438; x=1749838238; darn=lists.infradead.org;
+        h=message-id:to:from:cc:subject:date:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X2PQ67BFWU56/gkiZ9MusCHT/JwVeFrtJgEOKPncvwI=;
-        b=xDyvw6que3xG9BBsmGLeHBSD2vRtbznSH7lW5EOdqlRVEpY0CrnykIvxNx2quME2Xm
-         wceoW7yyJMZvmSc8+XqQtssDhbD701z2tOPv6wo+UGoUovdd7qUj0ImhRKfqA/uAqg58
-         FFpw3b0bjE+9JUtpU8M36iC9N4vbNYA5LpgZnirOly5M9dCl6gQb61/x0vJYbY4MEZ3Q
-         PURZys61Z2TQQZdrmi5d/+mE8G6PrLvI1F7y45dLvfWFEBro5EMpptE3VzbZ6FVmqlPO
-         5TwMiftKIQqI/wIa+/Jj7EodvcmyAG2tLNFC3ZzXGZmRvjsXh8hc6eMzi1sNieHIcXRY
-         9GaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUk90AqNFNZtMHC13LcbFpxfyAgv7MckCkvrwTWnm6jn7WvWtGmumGP/SFNOCBrdiTvmtboF9FFxsyy/Q==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3rc8leqoooatgdEXCSc+6Rz6tPyOIZ8DrTN57/9BKKu0BTMyx
-	Fs8vCokPfJLHG7ne+dHMiUhnUZWOxqBxdwDoQ/4Ikr4qh++jNctzBPKJ5pw8RpmrQ+Q=
-X-Gm-Gg: ASbGnctcSl4kI+Frx2O8NwWs2XBhFwJ+JsPMadLyg1Uw9SWJF4ApNd+FGdlkhmXAtxw
-	3G2kXFoQtC2hTVBm/WVbHCdON4WcFNrGgLtvtgpwgctpHI9erbHxk4S28AlvH73oc7Z9QTWLcwP
-	icRLF699vZgGTYrOOSYG8FoCnwG3tw61VzMiqRRJ2Q9sd38ZkZhF3YVZQ4YghPPA6TRzs40wpUR
-	W92T1PvaEnt9xk1E7kb3X8HLKPmpwfMLfuUkE8pcwwj2anChnvQVFXD7NjfWo8Fcbv1SGTcDV3P
-	/owldQwzVYJPjwyfKCRImJy/8iPhlIFlCsuMAE1zFUXupXtqQNAwrXI7iw7JeA==
-X-Google-Smtp-Source: AGHT+IHgMy5gdkBqvTbfaUQGR2qvVQaW9QlO1x9bJKi+Q4H2O89s0ff1Q5OBkCzHauPpSkT1Z14DRg==
-X-Received: by 2002:a05:6a21:2d4a:b0:215:d457:ca6d with SMTP id adf61e73a8af0-21ee43e18e5mr6073980637.40.1749231051059;
-        Fri, 06 Jun 2025 10:30:51 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482b0836d4sm1517910b3a.85.2025.06.06.10.30.50
+        bh=3aEAN0z0rEb6MTT6tFdFj4VAFXSdmMFatRAaXMJXGjw=;
+        b=Hg1U0DpncvQ0AwvGX93JMUtdJlKQM1D9YpTD6VhZMvwh4MOYcmaXd8zMIC3SIK1rjv
+         h0f6IgIuMMe7kkp8zFGcLKkJdpUuazs/tS/DOd+ChfehImuDSiksp3rgfyfJagDfoltS
+         wVL1KZcQeHLEFwCHTeuZGcr/ApNNvp9z2aq1MDGRi/fiUPGi+4kr1+8qX70puOprAiaa
+         xu9XxtvEspoQhf460rMuETjWbzW2ZMRay9cMlF9uB75ObKIv+/eLmoP+azN2v4egeQBG
+         gr1kn8hAJ8Mr4uxxAPOeREc/+b2KkpXbTa+ab610gv8O21bhgBnE21I8lsMQVMwnsY73
+         QKbQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749233438; x=1749838238;
+        h=message-id:to:from:cc:subject:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3aEAN0z0rEb6MTT6tFdFj4VAFXSdmMFatRAaXMJXGjw=;
+        b=L9K6yf3xYw8qhPZ0aGK2FxYSkrXL35S0fy+sPRnvQVadgRCNphfeB1LdxmMXTkvDTE
+         gud9Uc7hmj6/hxgQyucbzpSA7hd5linU3Zg6T5WuzOaDQCerNbKTK14v50OYEt1U9HZt
+         MsUEX0cahljZBcKWtDPI8VklqUN6Vc8/57L2z3oJTGgdywIs+rP+s3X/CR3l3LCdyVpi
+         /hhyc5eLxNoiRdB3MR6ZJobbhTPGW095cLhNxa/SkIcqB0/oc05Z/odtEQ51gmVMPVIh
+         PVIoWGLcZWPXz5x6DT0E2Oivp6UQiCwxGHDMhEv50IF6S1azsdjB7m9iWI+pi8fkqu+E
+         dGuA==
+X-Gm-Message-State: AOJu0YxJMZ7RtwCwLFfd39mlv5Z7TVF+oryu3EOymyix9YVopPQ54uYZ
+	DlZkIMSj+Rzr4tLVPzh8t/E5z49ywMjYYbgSyd36tHgpyta5ErjXcDHG91vn6TtybyMZUT+Dnyh
+	sf/Be
+X-Gm-Gg: ASbGncsq/t6gQvDr7fW65fEoDsiEIhvNwrKxNpheMZ2a7qvdjSyg9Mc4qyHqmtmPFTH
+	yp1bgAFP/+QvWro+SOXZNIY9pndfGZcEhSJeLPr590NQHcYYPlpBvhdJXyCmvodM0pAOffqnE65
+	ks+Ip7F7SNThJ+omXyXNludpENiM1jVLzbuXC1tHKd88WVMcTI2ZS/xQVyNzpr9LeZ5Ua/wSoSy
+	lCYlgPQvmFoJwdCo6cNA0Lm+s1vqX+nbh7J9UtaxWASuFS3LVw/zRdv5IzE0pB2A+NnngRulR9o
+	cpUzsb/bjS6C8WbS9dtAEg9jkWYim9ebJbIVghiDkjjpevVgtZVvwHg=
+X-Google-Smtp-Source: AGHT+IGFC9wJPGy9w9zM4lQbeHkV4J++XWAD0duAQoWFoAKPpYUeIdoLVDuFGCHBWcITLHWBGnstPQ==
+X-Received: by 2002:a17:903:234d:b0:231:e413:986c with SMTP id d9443c01a7336-23612451420mr970445ad.11.1749233438355;
+        Fri, 06 Jun 2025 11:10:38 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::7:2724])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2360340605csm15254075ad.164.2025.06.06.11.10.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 06 Jun 2025 10:30:50 -0700 (PDT)
-Date: Fri, 6 Jun 2025 10:30:48 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Alexandre Ghiti <alex@ghiti.fr>, Ved Shanbhogue <ved@rivosinc.com>,
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Subject: Re: [PATCH RFC v7 3/3] riscv: mm: Add uffd write-protect support
-Message-ID: <aEMlyNf-NN6moeFb@debug.ba.rivosinc.com>
-References: <20250409095320.224100-1-zhangchunyan@iscas.ac.cn>
- <20250409095320.224100-4-zhangchunyan@iscas.ac.cn>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250409095320.224100-4-zhangchunyan@iscas.ac.cn>
+        Fri, 06 Jun 2025 11:10:37 -0700 (PDT)
+Date: Fri, 06 Jun 2025 11:10:37 -0700 (PDT)
+X-Google-Original-Date: Fri, 06 Jun 2025 11:09:56 PDT (-0700)
+Subject: [GIT PULL] RISC-V Patches for the 6.16 Merge Window, Part 1
+CC: linux-riscv@lists.infradead.org,        linux-kernel@vger.kernel.org
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Linus Torvalds <torvalds@linux-foundation.org>
+Message-ID: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_103052_072104_ADB12480 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250606_111040_294394_9EE5A313 
+X-CRM114-Status: GOOD (  20.20  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,166 +87,281 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="===============3644825746804802641=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Apr 09, 2025 at 05:53:20PM +0800, Chunyan Zhang wrote:
->The Svrsw60t59b extension allows to free the PTE reserved bits 60 and 59
->for software, this patch uses bit 60 for uffd-wp tracking
->
->Additionally for tracking the uffd-wp state as a PTE swap bit, we borrow
->bit 4 which is not involved into swap entry computation.
->
->Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
->---
-> arch/riscv/Kconfig                    |  1 +
-> arch/riscv/include/asm/pgtable-bits.h | 18 ++++++++
-> arch/riscv/include/asm/pgtable.h      | 65 +++++++++++++++++++++++++++
-> 3 files changed, 84 insertions(+)
->
->diff --git a/arch/riscv/Kconfig b/arch/riscv/Kconfig
->index 652e2bbfb702..cafdfbe4412b 100644
->--- a/arch/riscv/Kconfig
->+++ b/arch/riscv/Kconfig
->@@ -145,6 +145,7 @@ config RISCV
-> 	select HAVE_ARCH_TRACEHOOK
-> 	select HAVE_ARCH_TRANSPARENT_HUGEPAGE if 64BIT && MMU
-> 	select HAVE_ARCH_USERFAULTFD_MINOR if 64BIT && USERFAULTFD
->+	select HAVE_ARCH_USERFAULTFD_WP if 64BIT && MMU && USERFAULTFD && RISCV_ISA_SVRSW60T59B
-> 	select HAVE_ARCH_VMAP_STACK if MMU && 64BIT
-> 	select HAVE_ASM_MODVERSIONS
-> 	select HAVE_CONTEXT_TRACKING_USER
->diff --git a/arch/riscv/include/asm/pgtable-bits.h b/arch/riscv/include/asm/pgtable-bits.h
->index a6fa871dc19e..a953a582cd75 100644
->--- a/arch/riscv/include/asm/pgtable-bits.h
->+++ b/arch/riscv/include/asm/pgtable-bits.h
->@@ -39,6 +39,24 @@
-> #define _PAGE_SWP_SOFT_DIRTY	0
-> #endif /* CONFIG_MEM_SOFT_DIRTY */
->
->+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
->+
->+/* ext_svrsw60t59b: Bit(60) for uffd-wp tracking */
->+#define _PAGE_UFFD_WP							\
->+	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
->+	 (1UL << 60) : 0)
->+/*
->+ * Bit 4 is not involved into swap entry computation, so we
->+ * can borrow it for swap page uffd-wp tracking.
->+ */
->+#define _PAGE_SWP_UFFD_WP						\
->+	((riscv_has_extension_unlikely(RISCV_ISA_EXT_SVRSW60T59B)) ?	\
->+	 _PAGE_USER : 0)
->+#else
->+#define _PAGE_UFFD_WP		0
->+#define _PAGE_SWP_UFFD_WP	0
->+#endif
->+
+--===============3644825746804802641==
+Content-Type: text/plain
 
-Same comment as previous patch on above. Have `RISCV_ISA_EXT_SVRSW60T59B`
-with the "#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP"
+The following changes since commit 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3:
+
+  Linux 6.15-rc6 (2025-05-11 14:54:11 -0700)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.16-mw1
+
+for you to fetch changes up to 51f1b16367dfde89a4ef5bee2270f6a4d523ef3b:
+
+  Merge patch series "riscv: add SBI FWFT misaligned exception delegation support" (2025-06-05 14:03:19 -0700)
+
+----------------------------------------------------------------
+RISC-V Patches for the 6.16 Merge Window, Part 1
+
+* Support for the FWFT SBI extension, which is part of SBI 3.0 and a
+  dependency for many new SBI and ISA extensions.
+* Support for getrandom() in the VDSO.
+* Support for mseal.
+* Optimized routines for raid6 syndrome and recovery calculations.
+* kexec_file() supports loading Image-formatted kernel binaries.
+* Improvements to the instruction patching framework to allow for atomic
+  instruction patching, along with rules as to how systems need to
+  behave in order to function correctly.
+* Support for a handful of new ISA extensions: Svinval, Zicbop, Zabha,
+  some SiFive vendor extensions.
+* Various fixes and cleanups, including: misaligned access handling, perf
+  symbol mangling, module loading, PUD THPs, and improved uaccess
+  routines.
+
+----------------------------------------------------------------
+I don't plan on sending a part 2, it's way too late already.
+
+Apologies in advance if something has gone off the rails here: between changing
+jobs and some tree-related chaos there's been a lot of git surgery here.  I
+poked around and think I managed to get things sane, but I've screwed that up
+in the past.
+
+The tests are all clean on my end for this one, both pre and post merge, and I
+don't have anything from the bots overnight.
+
+----------------------------------------------------------------
+Alexandre Ghiti (7):
+      riscv: Introduce Zicbop instructions
+      riscv: Add support for Zicbop
+      riscv: Add support for PUD THP
+      Merge patch series "riscv: ftrace: atmoic patching and preempt improvements"
+      riscv: hwprobe: export Zabha extension
+      riscv: make unsafe user copy routines use existing assembly routines
+      Merge patch series "riscv: Add Zicbop & prefetchw support"
+
+Andy Chiu (11):
+      riscv: ftrace: support fastcc in Clang for WITH_ARGS
+      riscv: ftrace factor out code defined by !WITH_ARG
+      riscv: ftrace: align patchable functions to 4 Byte boundary
+      kernel: ftrace: export ftrace_sync_ipi
+      riscv: ftrace: prepare ftrace for atomic code patching
+      riscv: ftrace: do not use stop_machine to update code
+      riscv: vector: Support calling schedule() for preemptible Vector
+      riscv: add a data fence for CMODX in the kernel mode
+      riscv: ftrace: support PREEMPT
+      riscv: ftrace: support direct call using call_ops
+      riscv: Documentation: add a description about dynamic ftrace
+
+Atish Patra (1):
+      MAINTAINERS: Update Atish's email address
+
+Ben Dooks (1):
+      riscv: save the SR_SUM status over switches
+
+Chunyan Zhang (1):
+      raid6: Add RISC-V SIMD syndrome and recovery calculations
+
+Clément Léger (12):
+      riscv: sbi: add Firmware Feature (FWFT) SBI extensions definitions
+      riscv: sbi: remove useless parenthesis
+      riscv: sbi: add new SBI error mappings
+      riscv: sbi: add FWFT extension interface
+      riscv: sbi: add SBI FWFT extension calls
+      riscv: misaligned: request misaligned exception from SBI
+      riscv: misaligned: use on_each_cpu() for scalar misaligned access probing
+      riscv: misaligned: declare misaligned_access_speed under CONFIG_RISCV_MISALIGNED
+      riscv: misaligned: move emulated access uniformity check in a function
+      riscv: misaligned: add a function to check misalign trap delegability
+      riscv: process: use unsigned int instead of unsigned long for put_user()
+      riscv: uaccess: do not do misaligned accesses in get/put_user()
+
+Cyan Yang (12):
+      dt-bindings: riscv: Add xsfvqmaccdod and xsfvqmaccqoq ISA extension description
+      riscv: Add SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
+      riscv: hwprobe: Document SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
+      riscv: hwprobe: Add SiFive vendor extension support and probe for xsfqmaccdod and xsfqmaccqoq
+      dt-bindings: riscv: Add xsfvfnrclipxfqf ISA extension description
+      riscv: Add SiFive xsfvfnrclipxfqf vendor extension
+      riscv: hwprobe: Document SiFive xsfvfnrclipxfqf vendor extension
+      riscv: hwprobe: Add SiFive xsfvfnrclipxfqf vendor extension
+      dt-bindings: riscv: Add xsfvfwmaccqqq ISA extension description
+      riscv: Add SiFive xsfvfwmaccqqq vendor extension
+      riscv: hwprobe: Document SiFive xsfvfwmaccqqq vendor extension
+      riscv: hwprobe: Add SiFive xsfvfwmaccqqq vendor extension
+
+Cyril Bur (1):
+      riscv: uaccess: Only restore the CSR_STATUS SUM bit
+
+Guo Ren (2):
+      riscv: Add ARCH_HAS_PREFETCH[W] support with Zicbop
+      riscv: xchg: Prefetch the destination word for sc.w
+
+Haibo Xu (1):
+      perf symbols: Ignore mapping symbols on riscv
+
+Jisheng Zhang (5):
+      riscv: implement user_access_begin() and families
+      riscv: uaccess: use input constraints for ptr of __put_user()
+      riscv: uaccess: use 'asm goto' for put_user()
+      riscv: uaccess: use 'asm_goto_output' for get_user()
+      riscv: enable mseal sysmap for RV64
+
+Joel Stanley (1):
+      riscv: defconfig: Remove EXPERT
+
+Mayuresh Chitale (1):
+      riscv: mm: Add support for Svinval extension
+
+Miquel Sabaté Solà (1):
+      riscv: Improve Kconfig help for RISCV_ISA_V_PREEMPTIVE
+
+Nylon Chen (2):
+      riscv: misaligned: fix sleeping function called during misaligned access handling
+      riscv: misaligned: Add handling for ZCB instructions
+
+Palmer Dabbelt (10):
+      Merge patch series "riscv: misaligned: Add ZCB handling and fix sleeping function"
+      Merge patch series "riscv: uaccess: optimisations"
+      Merge patch series "riscv: Add vendor extensions support for SiFive"
+      Revert "RISC-V: vDSO: Wire up getrandom() vDSO implementation"
+      Merge patch series "riscv: kexec_file: Support loading Image binary file"
+      Merge tag 'riscv-mw1-6.16-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into for-next
+      RISC-V: Documentation: Add enough title underlines to CMODX
+      Merge tag 'riscv-mw2-6.16-rc1' of git://git.kernel.org/pub/scm/linux/kernel/git/alexghiti/linux into for-next
+      Merge patch series "riscv: misaligned: fix misaligned accesses handling in put/get_user()"
+      Merge patch series "riscv: add SBI FWFT misaligned exception delegation support"
+
+Puranjay Mohan (1):
+      riscv: Implement HAVE_DYNAMIC_FTRACE_WITH_CALL_OPS
+
+Samuel Holland (1):
+      riscv: module: Optimize PLT/GOT entry counting
+
+Song Shuai (2):
+      riscv: kexec_file: Split the loading of kernel and others
+      riscv: kexec_file: Support loading Image binary file
+
+Tiezhu Yang (1):
+      riscv: Make regs_irqs_disabled() more clear
+
+Xi Ruoyao (3):
+      RISC-V: vDSO: Wire up getrandom() vDSO implementation
+      riscv: vDSO: Remove --hash-style=both
+      RISC-V: vDSO: Wire up getrandom() vDSO implementation
+
+Yao Zi (1):
+      riscv/kexec_file: Fix comment in purgatory relocator
+
+谢致邦 (XIE Zhibang) (1):
+      RISC-V: Kconfig: Fix help text of CMDLINE_EXTEND
+
+ .mailmap                                           |    3 +-
+ Documentation/arch/riscv/cmodx.rst                 |   46 +-
+ Documentation/arch/riscv/hwprobe.rst               |   26 +
+ .../devicetree/bindings/riscv/extensions.yaml      |   25 +
+ MAINTAINERS                                        |    4 +-
+ arch/riscv/Kconfig                                 |   38 +-
+ arch/riscv/Kconfig.vendor                          |   13 +
+ arch/riscv/Makefile                                |    4 +-
+ arch/riscv/configs/defconfig                       |   24 +-
+ arch/riscv/include/asm/asm-prototypes.h            |    2 +-
+ arch/riscv/include/asm/barrier.h                   |    5 -
+ arch/riscv/include/asm/cacheflush.h                |    1 +
+ arch/riscv/include/asm/cmpxchg.h                   |    4 +-
+ arch/riscv/include/asm/cpufeature.h                |   14 +-
+ arch/riscv/include/asm/ftrace.h                    |   62 +-
+ arch/riscv/include/asm/hwcap.h                     |    1 +
+ arch/riscv/include/asm/hwprobe.h                   |    3 +-
+ arch/riscv/include/asm/image.h                     |    2 +
+ arch/riscv/include/asm/insn-def.h                  |   66 ++
+ arch/riscv/include/asm/kexec.h                     |    6 +
+ arch/riscv/include/asm/pgtable-64.h                |    5 +-
+ arch/riscv/include/asm/pgtable.h                   |   97 ++
+ arch/riscv/include/asm/processor.h                 |   31 +-
+ arch/riscv/include/asm/ptrace.h                    |    2 +-
+ arch/riscv/include/asm/sbi.h                       |   60 +
+ arch/riscv/include/asm/tlbflush.h                  |    2 +
+ arch/riscv/include/asm/uaccess.h                   |  218 +++-
+ arch/riscv/include/asm/vdso/getrandom.h            |   30 +
+ arch/riscv/include/asm/vector.h                    |   22 +-
+ arch/riscv/include/asm/vendor_extensions/sifive.h  |   16 +
+ .../include/asm/vendor_extensions/sifive_hwprobe.h |   19 +
+ arch/riscv/include/uapi/asm/hwprobe.h              |    2 +
+ arch/riscv/include/uapi/asm/vendor/sifive.h        |    6 +
+ arch/riscv/kernel/Makefile                         |    2 +-
+ arch/riscv/kernel/asm-offsets.c                    |   18 +
+ arch/riscv/kernel/cpufeature.c                     |   21 +
+ arch/riscv/kernel/elf_kexec.c                      |  485 --------
+ arch/riscv/kernel/entry.S                          |    9 +
+ arch/riscv/kernel/ftrace.c                         |  242 ++--
+ arch/riscv/kernel/kexec_elf.c                      |  144 +++
+ arch/riscv/kernel/kexec_image.c                    |   96 ++
+ arch/riscv/kernel/machine_kexec_file.c             |  361 ++++++
+ arch/riscv/kernel/mcount-dyn.S                     |  117 +-
+ arch/riscv/kernel/module-sections.c                |   81 +-
+ arch/riscv/kernel/process.c                        |    2 +-
+ arch/riscv/kernel/sbi.c                            |   81 +-
+ arch/riscv/kernel/sys_hwprobe.c                    |    6 +
+ arch/riscv/kernel/traps_misaligned.c               |  116 +-
+ arch/riscv/kernel/unaligned_access_speed.c         |    8 +-
+ arch/riscv/kernel/vdso.c                           |    2 +-
+ arch/riscv/kernel/vdso/Makefile                    |   15 +-
+ arch/riscv/kernel/vdso/getrandom.c                 |   10 +
+ arch/riscv/kernel/vdso/vdso.lds.S                  |    3 +
+ arch/riscv/kernel/vdso/vgetrandom-chacha.S         |  249 ++++
+ arch/riscv/kernel/vendor_extensions.c              |   10 +
+ arch/riscv/kernel/vendor_extensions/Makefile       |    2 +
+ arch/riscv/kernel/vendor_extensions/sifive.c       |   21 +
+ .../kernel/vendor_extensions/sifive_hwprobe.c      |   22 +
+ arch/riscv/lib/riscv_v_helpers.c                   |   11 +-
+ arch/riscv/lib/uaccess.S                           |   50 +-
+ arch/riscv/lib/uaccess_vector.S                    |   15 +-
+ arch/riscv/mm/cacheflush.c                         |   29 +-
+ arch/riscv/mm/pgtable.c                            |   10 +
+ arch/riscv/mm/tlbflush.c                           |   38 +
+ include/linux/ftrace.h                             |    2 +
+ include/linux/raid/pq.h                            |    5 +
+ kernel/trace/ftrace.c                              |    2 +-
+ lib/raid6/Makefile                                 |    1 +
+ lib/raid6/algos.c                                  |    9 +
+ lib/raid6/recov_rvv.c                              |  229 ++++
+ lib/raid6/rvv.c                                    | 1212 ++++++++++++++++++++
+ lib/raid6/rvv.h                                    |   39 +
+ tools/perf/util/symbol-elf.c                       |    6 +
+ tools/testing/selftests/vDSO/vgetrandom-chacha.S   |    2 +
+ 74 files changed, 3787 insertions(+), 855 deletions(-)
+ create mode 100644 arch/riscv/include/asm/vdso/getrandom.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/sifive.h
+ create mode 100644 arch/riscv/include/asm/vendor_extensions/sifive_hwprobe.h
+ create mode 100644 arch/riscv/include/uapi/asm/vendor/sifive.h
+ delete mode 100644 arch/riscv/kernel/elf_kexec.c
+ create mode 100644 arch/riscv/kernel/kexec_elf.c
+ create mode 100644 arch/riscv/kernel/kexec_image.c
+ create mode 100644 arch/riscv/kernel/vdso/getrandom.c
+ create mode 100644 arch/riscv/kernel/vdso/vgetrandom-chacha.S
+ create mode 100644 arch/riscv/kernel/vendor_extensions/sifive.c
+ create mode 100644 arch/riscv/kernel/vendor_extensions/sifive_hwprobe.c
+ create mode 100644 lib/raid6/recov_rvv.c
+ create mode 100644 lib/raid6/rvv.c
+ create mode 100644 lib/raid6/rvv.h
 
 
-> #define _PAGE_TABLE     _PAGE_PRESENT
->
-> /*
->diff --git a/arch/riscv/include/asm/pgtable.h b/arch/riscv/include/asm/pgtable.h
->index 14461ffe6321..ee0fbca28a76 100644
->--- a/arch/riscv/include/asm/pgtable.h
->+++ b/arch/riscv/include/asm/pgtable.h
->@@ -425,6 +425,38 @@ static inline pte_t pte_wrprotect(pte_t pte)
-> 	return __pte(pte_val(pte) & ~(_PAGE_WRITE));
-> }
->
->+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
->+static inline bool pte_uffd_wp(pte_t pte)
->+{
->+	return !!(pte_val(pte) & _PAGE_UFFD_WP);
->+}
->+
->+static inline pte_t pte_mkuffd_wp(pte_t pte)
->+{
->+	return pte_wrprotect(__pte(pte_val(pte) | _PAGE_UFFD_WP));
->+}
->+
->+static inline pte_t pte_clear_uffd_wp(pte_t pte)
->+{
->+	return __pte(pte_val(pte) & ~(_PAGE_UFFD_WP));
->+}
->+
->+static inline bool pte_swp_uffd_wp(pte_t pte)
->+{
->+	return !!(pte_val(pte) & _PAGE_SWP_UFFD_WP);
->+}
->+
->+static inline pte_t pte_swp_mkuffd_wp(pte_t pte)
->+{
->+	return __pte(pte_val(pte) | _PAGE_SWP_UFFD_WP);
->+}
->+
->+static inline pte_t pte_swp_clear_uffd_wp(pte_t pte)
->+{
->+	return __pte(pte_val(pte) & ~(_PAGE_SWP_UFFD_WP));
->+}
->+#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
->+
-> /* static inline pte_t pte_mkread(pte_t pte) */
->
-> static inline pte_t pte_mkwrite_novma(pte_t pte)
->@@ -853,6 +885,38 @@ static inline pud_t pud_mkspecial(pud_t pud)
-> }
-> #endif
->
->+#ifdef CONFIG_HAVE_ARCH_USERFAULTFD_WP
->+static inline bool pmd_uffd_wp(pmd_t pmd)
->+{
->+	return pte_uffd_wp(pmd_pte(pmd));
->+}
->+
->+static inline pmd_t pmd_mkuffd_wp(pmd_t pmd)
->+{
->+	return pte_pmd(pte_mkuffd_wp(pmd_pte(pmd)));
->+}
->+
->+static inline pmd_t pmd_clear_uffd_wp(pmd_t pmd)
->+{
->+	return pte_pmd(pte_clear_uffd_wp(pmd_pte(pmd)));
->+}
->+
->+static inline bool pmd_swp_uffd_wp(pmd_t pmd)
->+{
->+	return pte_swp_uffd_wp(pmd_pte(pmd));
->+}
->+
->+static inline pmd_t pmd_swp_mkuffd_wp(pmd_t pmd)
->+{
->+	return pte_pmd(pte_swp_mkuffd_wp(pmd_pte(pmd)));
->+}
->+
->+static inline pmd_t pmd_swp_clear_uffd_wp(pmd_t pmd)
->+{
->+	return pte_pmd(pte_swp_clear_uffd_wp(pmd_pte(pmd)));
->+}
->+#endif /* CONFIG_HAVE_ARCH_USERFAULTFD_WP */
->+
-> #ifdef CONFIG_HAVE_ARCH_SOFT_DIRTY
-> static inline bool pmd_soft_dirty(pmd_t pmd)
-> {
->@@ -978,6 +1042,7 @@ extern pmd_t pmdp_collapse_flush(struct vm_area_struct *vma,
->  *	bit            0:	_PAGE_PRESENT (zero)
->  *	bit       1 to 2:	(zero)
->  *	bit            3:	_PAGE_SWP_SOFT_DIRTY
->+ *	bit            4:	_PAGE_SWP_UFFD_WP
->  *	bit            5:	_PAGE_PROT_NONE (zero)
->  *	bit            6:	exclusive marker
->  *	bits      7 to 11:	swap type
->-- 
->2.34.1
->
+--===============3644825746804802641==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
+
+--===============3644825746804802641==--
