@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A32AC5AD49
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 09:40:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 129EDC5B559
+	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 09:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=3NvMxrilADizng7tc4gXAKdUsQQZhKsmVWHxfI0BPsE=; b=RI2EmhkLly8Q2J
-	ytnZ4IF/jKzbx60SmVeyBElma4vw1vd4KuxnO5KYe/a/2ysZNGLvk+ILa8XID3QEu8tz5vsEGe39D
-	qwh4L08K9NmNuOiswfZyB2jOYC8gwgwLE5vi4z88fV1Wh8VZJr0fUnwidjDTqntF5rPCURbSXDD6v
-	t29Sr09/w5c+Fzqp206aDELyST7APVeF1h7WvplhExCL+Zb7Qle43V/vapyUejbB8uqJr/MtUjD3s
-	ApZ1prMGYw6qpB/HgnQpy3VLryfEZMs9Zbvj5s2xZyTQxI2jX7Y9OjrBQIkmjCVFYhC1Yv5Bki8Sk
-	WzxbY66ornDkQpQQdvfQ==;
+	List-Owner; bh=4b3gsqX9SdnrQvHpsnUJMROiGszusSvXDcgDeBFRVPU=; b=tdzYKgZ9VZbmtl
+	IMgZTka9I+ouXLtUd/PjFqlMdoN0+NbbLv6MFrWKO67vUzHhZmidL3cEG0qHgnyyfr5thpoWrV9Lq
+	sCgab5pkF2xWLGJ9RzUu9X+L73i+jwUVy2Npo6DarN+nzaRRxEGpzSrXn/HzBZhx50YwSlb44wa94
+	KFduG0eIKlncS8g+n3QUXvYXlEjCa/JvJr9MBFEb0DPHUWbwJJ+gBUEcbIl96hOmvsqPsc9EFvwz/
+	HeAf5VD6bjLNAkIv0xUrtrj+Bd+FcP5g0SwKOE21NyjQoUHneoCzH48XaLy5z4soC/4uTxmie8lpg
+	FDANVGy+yLpRnKTDDwZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNTYg-0000000HYJO-2uCj;
-	Fri, 06 Jun 2025 09:40:18 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1uNTnJ-0000000Hacc-15tl;
+	Fri, 06 Jun 2025 09:55:25 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNTKC-0000000HWeR-35D6
+	id 1uNTiU-0000000Ha5p-0W2i
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 09:25:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1749201916;
-	bh=7KRt2HEAfw/QBgPweBInY7JAo1KxrGLTcf3nOhyjppw=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=j78M4blQyuDMZi/77ULjiVFRXBNYmihmFbvvGrUR/B76MB7mrcwxkWfW9kqmQO1BH
-	 2MfZ5X/TiSQsmiG33p1FFcYDNKXaQKOv4TLD5dsG1s6tGrWl6pTwzOjZAjtUCseJ9w
-	 QzGV0D0poPJXgwN3JDEI7zAo78IJLROfuUkRtv7w=
-Received: from stargazer.. (unknown [113.200.174.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id BF41E65992;
-	Fri,  6 Jun 2025 05:25:14 -0400 (EDT)
-From: Xi Ruoyao <xry111@xry111.site>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	=?UTF-8?q?Thomas=20Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>
-Cc: "Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Guo Ren <guoren@kernel.org>,
-	linux-riscv@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Xi Ruoyao <xry111@xry111.site>
-Subject: [PATCH v2] RISC-V: vDSO: Correct inline assembly constraints in the getrandom syscall wrapper
-Date: Fri,  6 Jun 2025 17:24:44 +0800
-Message-ID: <20250606092443.73650-2-xry111@xry111.site>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250605091112-7cd6b3bd-a466-486a-aebc-7bf0b2a8ac31@linutronix.de>
+	Fri, 06 Jun 2025 09:50:27 +0000
+Date: Fri, 6 Jun 2025 11:50:21 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749203421;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GLSdIgeVQP7vdahEotSJRsbMUWrTn+A4o1VzdMavb+Q=;
+	b=qfI9canoTrdbiweyImkK8+XQqUokGbKt6yF73hV5xAPELJjJCwXWYMaClVYXCpgoRJQLdn
+	uxngu1G/tD3VZ8m8GD4GT5FwACvglpJj7uHIsXi19E3UyFja1IlyTcK1IfIY02Epv2B2TU
+	FCy4xQMKM+Dfez69y+W3b7XyaPZz4CneNK0Ysr+Lqml13Tccp6+XBCgnhPsAP4lXRhsUAG
+	8bozl8DE6wKKHeYwNxNdpJNbDhJR2Kp11QD9I2BKtZrE1jpwNpqCWnNDYHZPjRvaw8higO
+	rv0EFtRUEPi3/5aWI1qRlw519K8/5HazlwQeDbUhEsnDhtxRtv+GU24rmR8ukw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749203421;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GLSdIgeVQP7vdahEotSJRsbMUWrTn+A4o1VzdMavb+Q=;
+	b=GIm3ZBAV/7x2LRtcycM/uSg7k41ZFVb9zA79HjVHngC7UurtpeqbV+h+P/KogITcjgi8lX
+	D2Wb+zEjr8Bv8uCQ==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Xi Ruoyao <xry111@xry111.site>
+Cc: Alexandre Ghiti <alex@ghiti.fr>, Nathan Chancellor <nathan@kernel.org>, 
+	"Jason A . Donenfeld" <Jason@zx2c4.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2] RISC-V: vDSO: Correct inline assembly constraints in
+ the getrandom syscall wrapper
+Message-ID: <20250606112858-abbbff06-c6cb-4c23-b58b-c69b0719e1a7@linutronix.de>
 References: <20250605091112-7cd6b3bd-a466-486a-aebc-7bf0b2a8ac31@linutronix.de>
+ <20250606092443.73650-2-xry111@xry111.site>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250606092443.73650-2-xry111@xry111.site>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_022520_800028_06A550A9 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20250606_025026_302248_6C031CB5 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,43 +77,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-QXMgcmVjZW50bHkgcG9pbnRlZCBvdXQgYnkgVGhvbWFzLCBpZiBhIHJlZ2lzdGVyIGlzIGZvcmNl
-ZCBmb3IgdHdvCmRpZmZlcmVudCByZWdpc3RlciB2YXJpYWJsZXMsIGFtb25nIHRoZW0gb25lIGlz
-IHVzZWQgYXMgIisiIChib3RoIGlucHV0CmFuZCBvdXRwdXQpIGFuZCBhbm90aGVyIGlzIG9ubHkg
-dXNlZCBhcyBpbnB1dCwgQ2xhbmcgd291bGQgdHJlYXQgdGhlCmNvbmZsaWN0aW5nIGlucHV0IHBh
-cmFtZXRlcnMgYXMgdW5kZWZpbmVkIGJlaGF2aW91ciBhbmQgb3B0aW1pemUgYXdheQp0aGUgYXJn
-dW1lbnQgYXNzaWdubWVudC4KClBlciBhbiBleGFtcGxlIGluIHRoZSBHQ0MgZG9jdW1lbnRhdGlv
-biwgZm9yIHRoaXMgcHVycG9zZSB3ZSBjYW4gdXNlICI9Igoob25seSBvdXRwdXQpIGZvciB0aGUg
-b3V0cHV0LCBhbmQgIjAiIGZvciB0aGUgaW5wdXQgZm9yIHRoYXQgd2UgbXVzdApyZXVzZSB0aGUg
-c2FtZSByZWdpc3RlciBhcyB0aGUgb3V0cHV0LiAgQW5kIEdDQyBkZXZlbG9wZXJzIGhhdmUKY29u
-ZmlybWVkIHVzaW5nIGEgc2ltcGxlICJyIiAodGhhdCB3ZSB1c2UgZm9yIG1vc3QgdkRTTyBpbXBs
-ZW1lbnRhdGlvbnMpCmluc3RlYWQgb2YgIjAiIGlzIGFsc28gZmluZS4KCkxpbms6IGh0dHBzOi8v
-bG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDYwMy1sb29uZ2FyY2gtdmRzby1zeXNjYWxsLXYxLTEt
-NmQxMmQ2ZGZiZGQwQGxpbnV0cm9uaXguZGUvCkxpbms6IGh0dHBzOi8vZ2NjLmdudS5vcmcvb25s
-aW5lZG9jcy9nY2MtMTUuMS4wL2djYy9Mb2NhbC1SZWdpc3Rlci1WYXJpYWJsZXMuaHRtbApMaW5r
-OiBodHRwczovL2djYy5nbnUub3JnL3BpcGVybWFpbC9nY2MtaGVscC8yMDI1LUp1bmUvMTQ0MjY2
-Lmh0bWwKQ2M6IFRob21hcyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4
-LmRlPgpDYzogTmF0aGFuIENoYW5jZWxsb3IgPG5hdGhhbkBrZXJuZWwub3JnPgpTaWduZWQtb2Zm
-LWJ5OiBYaSBSdW95YW8gPHhyeTExMUB4cnkxMTEuc2l0ZT4KLS0tCgp2MSAtPiB2MjogS2VlcCB1
-c2luZyAiciIgZm9yIGJ1ZmZlciB0byBmb2xsb3cgdGhlIGV4aXN0aW5nIGNvbnZlbnRpb24KKHRo
-YXQgdGhlIEdDQyBkZXZlbG9wZXJzIGhhdmUgY29uZmlybWVkIGZpbmUpLgoKIGFyY2gvcmlzY3Yv
-aW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCB8IDIgKy0KIDEgZmlsZSBjaGFuZ2VkLCAxIGlu
-c2VydGlvbigrKSwgMSBkZWxldGlvbigtKQoKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3YvaW5jbHVk
-ZS9hc20vdmRzby9nZXRyYW5kb20uaCBiL2FyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXRy
-YW5kb20uaAppbmRleCA4ZGM5MjQ0MTcwMmEuLmM2ZDY2ODk1YzFmNSAxMDA2NDQKLS0tIGEvYXJj
-aC9yaXNjdi9pbmNsdWRlL2FzbS92ZHNvL2dldHJhbmRvbS5oCisrKyBiL2FyY2gvcmlzY3YvaW5j
-bHVkZS9hc20vdmRzby9nZXRyYW5kb20uaApAQCAtMTgsNyArMTgsNyBAQCBzdGF0aWMgX19hbHdh
-eXNfaW5saW5lIHNzaXplX3QgZ2V0cmFuZG9tX3N5c2NhbGwodm9pZCAqX2J1ZmZlciwgc2l6ZV90
-IF9sZW4sIHVucwogCXJlZ2lzdGVyIHVuc2lnbmVkIGludCBmbGFncyBhc20oImEyIikgPSBfZmxh
-Z3M7CiAKIAlhc20gdm9sYXRpbGUgKCJlY2FsbFxuIgotCQkgICAgICA6ICIrciIgKHJldCkKKwkJ
-ICAgICAgOiAiPXIiIChyZXQpCiAJCSAgICAgIDogInIiIChuciksICJyIiAoYnVmZmVyKSwgInIi
-IChsZW4pLCAiciIgKGZsYWdzKQogCQkgICAgICA6ICJtZW1vcnkiKTsKIAoKYmFzZS1jb21taXQ6
-IGRjNTI0MGYwOWJjYTdiNWZjNzJhZDg4OTRkNmI5MzIxYmNlNTExMzkKLS0gCjIuNDkuMAoKCl9f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2
-IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0
-cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Fri, Jun 06, 2025 at 05:24:44PM +0800, Xi Ruoyao wrote:
+> As recently pointed out by Thomas, if a register is forced for two
+> different register variables, among them one is used as "+" (both input
+> and output) and another is only used as input, Clang would treat the
+> conflicting input parameters as undefined behaviour and optimize away
+> the argument assignment.
+> =
+
+> Per an example in the GCC documentation, for this purpose we can use "=3D"
+> (only output) for the output, and "0" for the input for that we must
+> reuse the same register as the output.  And GCC developers have
+> confirmed using a simple "r" (that we use for most vDSO implementations)
+> instead of "0" is also fine.
+
+The wording is a bit confusing. Maybe this is better:
+
+	Instead use "=3Dr" (only output) for the output parameter and "r" (only in=
+put)
+	for the input parameter.
+	While the example from the GCC documentation uses "0" for the input parame=
+ter,
+	this is not necessary as confirmed by the GCC developers and "r"
+	matches what the other architectures' vDSO implementations are using.
+
+> Link: https://lore.kernel.org/all/20250603-loongarch-vdso-syscall-v1-1-6d=
+12d6dfbdd0@linutronix.de/
+> Link: https://gcc.gnu.org/onlinedocs/gcc-15.1.0/gcc/Local-Register-Variab=
+les.html
+> Link: https://gcc.gnu.org/pipermail/gcc-help/2025-June/144266.html
+> Cc: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+
+In any case, thanks and
+
+Reviewed-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Xi Ruoyao <xry111@xry111.site>
+> ---
+> =
+
+> v1 -> v2: Keep using "r" for buffer to follow the existing convention
+> (that the GCC developers have confirmed fine).
+> =
+
+>  arch/riscv/include/asm/vdso/getrandom.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> =
+
+> diff --git a/arch/riscv/include/asm/vdso/getrandom.h b/arch/riscv/include=
+/asm/vdso/getrandom.h
+> index 8dc92441702a..c6d66895c1f5 100644
+> --- a/arch/riscv/include/asm/vdso/getrandom.h
+> +++ b/arch/riscv/include/asm/vdso/getrandom.h
+> @@ -18,7 +18,7 @@ static __always_inline ssize_t getrandom_syscall(void *=
+_buffer, size_t _len, uns
+>  	register unsigned int flags asm("a2") =3D _flags;
+>  =
+
+>  	asm volatile ("ecall\n"
+> -		      : "+r" (ret)
+> +		      : "=3Dr" (ret)
+>  		      : "r" (nr), "r" (buffer), "r" (len), "r" (flags)
+>  		      : "memory");
+>  =
+
+> =
+
+> base-commit: dc5240f09bca7b5fc72ad8894d6b9321bce51139
+> -- =
+
+> 2.49.0
+> =
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
