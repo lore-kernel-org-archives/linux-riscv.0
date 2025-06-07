@@ -4,63 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5037C61CE7
-	for <linux-riscv@archiver.kernel.org>; Fri,  6 Jun 2025 23:51:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF9ACC5AD49
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jun 2025 01:17:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:Cc:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:To:Subject:MIME-Version:
-	Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HnNzzs9x+PPkZa6qZLYyCRdcs3U33cV9I+XjblopvY4=; b=rAPdl6WuTMcU8pms4GfgTWdVYR
-	3wUEGwm5XD394+EfnArIjc92dZc+Drm71j4GEFE1Gsqg5SAcdoIKNckzEq5l2xl8SFkhbdsqGXr+y
-	73Y4ZOV+qLMDb7grNdlwvOMk69O26PPOBwlB5v19nn2ze9BpwtyFpXNo/zGEa+1P5t4P2UmSV50+j
-	L2BL8CXRU6LFHjyFBfGF9yz7a223qFt7BCIrtHJDbLbSvTrvw4kinTo/JjOPY0G71aAfBdEb3rDXe
-	JP+MGmfGhpKdiFFR82LxEfivjxBFt6xBOepm0XvkgjUtz3JOyGG1d16m9KFqzgkepOx7lzaJgb63f
-	OZ2UQkcA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hgAIvaUw0+09f2FdDti8T8l0qhUE56JqjvSbj+0TiTk=; b=z3xF31YJyCl5+r
+	tTG5JXqPC+0KQgDgwcrz1U5YPZQoHGffWDl3iJ8i/lm4V8MBK8wG0BmgdWTdfnG5CvpROtHjTOUFU
+	wRDVQ/+qBlMECcLhxtrp4PLdxmaclS0TZRohFa28C5qVG4B+TcE0JdoFxrWPGv7D0ESYGiBIAq9z7
+	JTLIcAOKxYRsRH3ucstCIynhGjLhc9hWm/QfoyJgRk/WtE33exCM6QQxAO3Przzeb2bB9UtjSemji
+	TfuVlYShxP9tgbu0X+sN9BYrQUNXonl4i6AWAMyfAcWNvNiKZrRINvyHocqZd+JyCG+HNZ48H/x1O
+	VYP8tDtMwV/xzLBkj/IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNgqQ-000000018mh-358Z;
-	Fri, 06 Jun 2025 23:51:30 +0000
-Received: from out-181.mta0.migadu.com ([91.218.175.181])
+	id 1uNiBi-00000001DMB-0zvf;
+	Sat, 07 Jun 2025 01:17:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNgqO-000000018mI-1WI2
+	id 1uNiBf-00000001DLY-031l
 	for linux-riscv@lists.infradead.org;
-	Fri, 06 Jun 2025 23:51:29 +0000
-Message-ID: <53abb1fc-6236-4266-a6e7-25023e27e160@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1749253883;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=+/HbOR3EULs8XvSveJScVmCrHyMz65f+FWPAjqqZByU=;
-	b=rlmoatxG+JMkL4LudZ4tc7daT4pNnwe5v8xYZa+Qyn4DVhMnaMRP3sWlgVDx+YIsuRQrOe
-	7coND2Tv40rO/vqnsmgO8kY3u+6+M+0QmNwqwyHv1nB8cdTZCjEkvzsiqjKWFSruTO56IS
-	dNRlqi/gQQR0b2pruhclZtRxs/ctqyA=
-Date: Fri, 6 Jun 2025 16:51:14 -0700
-MIME-Version: 1.0
-Subject: Re: [PATCH v4 01/23] riscv: Add new error codes defined by SBI v3.0
-To: Anup Patel <apatel@ventanamicro.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Thomas Gleixner <tglx@linutronix.de>, "Rafael J . Wysocki"
- <rafael@kernel.org>, Mika Westerberg <mika.westerberg@linux.intel.com>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski
- <brgl@bgdev.pl>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-References: <20250525084710.1665648-1-apatel@ventanamicro.com>
- <20250525084710.1665648-2-apatel@ventanamicro.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Atish Patra <atish.patra@linux.dev>
-In-Reply-To: <20250525084710.1665648-2-apatel@ventanamicro.com>
-X-Migadu-Flow: FLOW_OUT
+	Sat, 07 Jun 2025 01:17:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7B0BD5C5B25;
+	Sat,  7 Jun 2025 01:15:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5200C4CEEB;
+	Sat,  7 Jun 2025 01:17:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749259048;
+	bh=v08Aw7fkhkxP9lYqVv4zou5EaTiB647fWqJLhmsAXxc=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=p6dgme4ujY0zqsyQE/TdMcPz4kDXeOdT3gY73FapXi/DRRn04vOvCrzqfDdeblzUm
+	 t7Af2lZOhitLpf/b3W+ylwyQ7bltSkI0i1qj5vKBj0/UVbNppjBZBlR9UITsFrTuSn
+	 rO3kvOkyQKLgF8qLt70KdCEDgEkM3MsYDMh64v3opJB4XBh+qsgb4F2xtCFhK5eCCS
+	 HOUnx/tTZFa4A6G8GZLTsAgS8H+LEavD/DHQ1oN81ycaYrfyGBlr4lRPPv4a2YKseK
+	 D0x+Xs95zgnp8nOoNJXF61cWLam+NT2yHRdn/7bwJrRfFHLYhNkl1KQCPSDavMP3Bq
+	 kp9hJ1ccF4ojw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADCAE3822E05;
+	Sat,  7 Jun 2025 01:18:01 +0000 (UTC)
+Subject: Re: [GIT PULL] RISC-V Patches for the 6.16 Merge Window, Part 1
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
+References: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
+X-PR-Tracked-List-Id: <linux-riscv.lists.infradead.org>
+X-PR-Tracked-Message-Id: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.16-mw1
+X-PR-Tracked-Commit-Id: 51f1b16367dfde89a4ef5bee2270f6a4d523ef3b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 119b1e61a769aa98e68599f44721661a4d8c55f3
+Message-Id: <174925908025.4051830.16595083287705873176.pr-tracker-bot@kernel.org>
+Date: Sat, 07 Jun 2025 01:18:00 +0000
+To: Palmer Dabbelt <palmer@dabbelt.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250606_165128_619450_6970134D 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250606_181731_087353_3DF1B072 
+X-CRM114-Status: UNSURE (   3.15  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,63 +75,24 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+The pull request you sent on Fri, 06 Jun 2025 11:10:37 -0700 (PDT):
 
-On 5/25/25 1:46 AM, Anup Patel wrote:
-> The SBI v3.0 defines new error codes so add these new error codes
-> to the asm/sbi.h for use by newer SBI extensions.
+> git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.16-mw1
 
-This patch can be dropped as it is part of the FWFT series with minor 
-modifications in error mappings.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/119b1e61a769aa98e68599f44721661a4d8c55f3
 
-https://lore.kernel.org/linux-riscv/20250523101932.1594077-4-cleger@rivosinc.com/
+Thank you!
 
-
-> Signed-off-by: Anup Patel <apatel@ventanamicro.com>
-> ---
->   arch/riscv/include/asm/sbi.h | 12 ++++++++++++
->   1 file changed, 12 insertions(+)
->
-> diff --git a/arch/riscv/include/asm/sbi.h b/arch/riscv/include/asm/sbi.h
-> index 3d250824178b..4dd6aafb8468 100644
-> --- a/arch/riscv/include/asm/sbi.h
-> +++ b/arch/riscv/include/asm/sbi.h
-> @@ -419,6 +419,11 @@ enum sbi_ext_nacl_feature {
->   #define SBI_ERR_ALREADY_STARTED -7
->   #define SBI_ERR_ALREADY_STOPPED -8
->   #define SBI_ERR_NO_SHMEM	-9
-> +#define SBI_ERR_INVALID_STATE	-10
-> +#define SBI_ERR_BAD_RANGE	-11
-> +#define SBI_ERR_TIMEOUT		-12
-> +#define SBI_ERR_IO		-13
-> +#define SBI_ERR_DENIED_LOCKED	-14
->   
->   extern unsigned long sbi_spec_version;
->   struct sbiret {
-> @@ -503,11 +508,18 @@ static inline int sbi_err_map_linux_errno(int err)
->   	case SBI_SUCCESS:
->   		return 0;
->   	case SBI_ERR_DENIED:
-> +	case SBI_ERR_DENIED_LOCKED:
->   		return -EPERM;
->   	case SBI_ERR_INVALID_PARAM:
-> +	case SBI_ERR_INVALID_STATE:
-> +	case SBI_ERR_BAD_RANGE:
->   		return -EINVAL;
->   	case SBI_ERR_INVALID_ADDRESS:
->   		return -EFAULT;
-> +	case SBI_ERR_TIMEOUT:
-> +		return -ETIMEDOUT;
-> +	case SBI_ERR_IO:
-> +		return -EIO;
->   	case SBI_ERR_NOT_SUPPORTED:
->   	case SBI_ERR_FAILURE:
->   	default:
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
 _______________________________________________
 linux-riscv mailing list
