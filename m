@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 846A4C61CE7
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jun 2025 14:24:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 430A4C61CE8
+	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jun 2025 20:09:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=bbb2ae5YtjyEEaftWawihT8bkXNtDfWXjOCcoqhpDH0=; b=Et+opaoxYmXoj0
-	sjVgNjNYaKi/E9M0E14Jw9whMwDaRt/rkhxlQrppLXVGHGYAitsdrY3gO+QwLtRTmcsFnrVCg77FX
-	OG5dRsfFijE6M+m9Ige6j7IIjSnRuedxuN9hsB9d6qcLzZY8qOl6bUAatkME6x66iKDv5GOzpdjWg
-	aaUxFoFh6Bydr4B0sUE2YzYqckt+PpyU3L0XkNBRG73mJt9a6sq7OXDFS20s8mGe9fiBm41iMBlWJ
-	15OC8UtkHNB+q5iyqYBdt6de/2ARRpJEjp9TDBFwM0haMfzqVAmFlOIj6JRq5+MU07oG0tDquyEKe
-	s57nX7kHSwlIIvn82qEQ==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DhcKzCMD6F0+cAbM0o2O2q6NnXIMAk/UCh2ni8RkcmU=; b=Hi/6w2Yt4Id5KW
+	h3UD7ZFM/aqAEzPJWNllJb9bM10AIMF+irZlVWyGYBbmr+727NO7CAxEp0Nvd+FCO98SRZ7UFSLqu
+	VPmYCN9BHTc/p4xYNCkJ4RkLKjRyObq0HzgNLEP8sO7sWv9ptQsy8P8e2wCETrD/eGCpornq5PyDc
+	5X0ovf/dA1KFpSqVmPKm6aYFeWo+i4fNHRjGlfp+FJ+50jFfqqqMXoqgUPiZ2mDvuYyIB2WDK0+kx
+	S8J3AU52RxLgASZFGZ7SAFHTjLrGmgXBJ6Jw/XCbbmPJdipp/eAKAActt8HCmfeJsj6j1DgaDc6/r
+	nUPF7n2yijat8cKXYmgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNuTY-00000001lD6-43OO;
-	Sat, 07 Jun 2025 14:24:48 +0000
-Received: from xry111.site ([89.208.246.23])
+	id 1uNzrP-000000022GZ-4444;
+	Sat, 07 Jun 2025 20:09:47 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNuLh-00000001kiN-1zQy
-	for linux-riscv@lists.infradead.org;
-	Sat, 07 Jun 2025 14:16:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=xry111.site;
-	s=default; t=1749305799;
-	bh=JWEOaaLt4BDnVdW8Y37Y6nzHvOr5CYTYqnL4sURAwu8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References:From;
-	b=PeG+dtO+FStFd8BBtOFfJzSwzCx2XDnw5DNnQaeg2A/I3tfjzfW41TSAxLB0IG6Mv
-	 fJy/nRJ53oIWpjPaIa2aeT1yKyXhiJmP9sA5fMx2239cDgeFtaEOVl2Mf5s3pllC/S
-	 b/7+oAQ33E9CG+EaEap0pOSaxfSBeGE2I/kZlHqw=
-Received: from [192.168.124.38] (unknown [113.200.174.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (secp384r1) server-digest SHA384)
-	(Client did not present a certificate)
-	(Authenticated sender: xry111@xry111.site)
-	by xry111.site (Postfix) with ESMTPSA id 7913065F62;
-	Sat,  7 Jun 2025 10:16:37 -0400 (EDT)
-Message-ID: <6163d55a1e7910f89dda114a2ee52c9df5235dad.camel@xry111.site>
-Subject: Re: [PATCH v2] RISC-V: vDSO: Correct inline assembly constraints in
- the getrandom syscall wrapper
-From: Xi Ruoyao <xry111@xry111.site>
-To: Vineet Gupta <vineetg@rivosinc.com>, Alexandre Ghiti <alex@ghiti.fr>, 
- Thomas =?ISO-8859-1?Q?Wei=DFschuh?=
-	 <thomas.weissschuh@linutronix.de>, Nathan Chancellor <nathan@kernel.org>
-Cc: "Jason A . Donenfeld" <Jason@zx2c4.com>, Paul Walmsley
-	 <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Guo Ren
-	 <guoren@kernel.org>, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Date: Sat, 07 Jun 2025 22:16:34 +0800
-In-Reply-To: <94f9af73-0b2d-484c-ba1d-d4435908336b@rivosinc.com>
-References: <20250605091112-7cd6b3bd-a466-486a-aebc-7bf0b2a8ac31@linutronix.de>
-	 <20250606092443.73650-2-xry111@xry111.site>
-	 <94f9af73-0b2d-484c-ba1d-d4435908336b@rivosinc.com>
-User-Agent: Evolution 3.56.2 
+	id 1uNzpC-000000021UW-2MAP;
+	Sat, 07 Jun 2025 20:07:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B802961154;
+	Sat,  7 Jun 2025 20:07:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AED56C4CEE4;
+	Sat,  7 Jun 2025 20:07:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749326848;
+	bh=8ysByzQduGckfXH5YPNhqS7N079XpguFcwm0rjzocS8=;
+	h=From:To:Cc:Subject:Date:From;
+	b=gRoV1HUb3mHoY0NTYNASmp068PIC0+XHH58cJ1J/iml3lxpURVeKEZfPdxsgVO5/E
+	 TK3DERbIu0ad4NpJR3YGEuSRMtm8k0KjsQ/e1B6ndkfW21OCXr4gvOkwsYwPuN7LH/
+	 4julzDjZZsQKV+2RON+e5sGErNlrupPxAURkSYaOM2C+BkrgAr2ludEhiDvmARNi+k
+	 OIE8uM5VlwuktsCf7eeazyazLOd7RJ842W1OKAjSs1loeQcPjLgsXntgyAhj96Wgjf
+	 gAb3yMih0ZFeI3XRHtMjOILX48N06wdtI+yfb6G24YVDu7SeDfBtRilpxHm1LhCGKV
+	 HbiZlzB1oy8aA==
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev,
+	linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	sparclinux@vger.kernel.org,
+	x86@kernel.org,
+	linux-arch@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is integrated
+Date: Sat,  7 Jun 2025 13:04:42 -0700
+Message-ID: <20250607200454.73587-1-ebiggers@kernel.org>
+X-Mailer: git-send-email 2.49.0
 MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_071641_538941_FC7FB230 
-X-CRM114-Status: GOOD (  21.05  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,72 +72,221 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTA2LTA2IGF0IDE1OjAxIC0wNzAwLCBWaW5lZXQgR3VwdGEgd3JvdGU6Cj4g
-T24gNi82LzI1IDAyOjI0LCBYaSBSdW95YW8gd3JvdGU6Cj4gPiBBcyByZWNlbnRseSBwb2ludGVk
-IG91dCBieSBUaG9tYXMsIGlmIGEgcmVnaXN0ZXIgaXMgZm9yY2VkIGZvciB0d28KPiA+IGRpZmZl
-cmVudCByZWdpc3RlciB2YXJpYWJsZXMsIGFtb25nIHRoZW0gb25lIGlzIHVzZWQgYXMgIisiIChi
-b3RoIGlucHV0Cj4gPiBhbmQgb3V0cHV0KSBhbmQgYW5vdGhlciBpcyBvbmx5IHVzZWQgYXMgaW5w
-dXQsIENsYW5nIHdvdWxkIHRyZWF0IHRoZQo+ID4gY29uZmxpY3RpbmcgaW5wdXQgcGFyYW1ldGVy
-cyBhcyB1bmRlZmluZWQgYmVoYXZpb3VyIGFuZCBvcHRpbWl6ZSBhd2F5Cj4gPiB0aGUgYXJndW1l
-bnQgYXNzaWdubWVudC4KPiA+IAo+ID4gUGVyIGFuIGV4YW1wbGUgaW4gdGhlIEdDQyBkb2N1bWVu
-dGF0aW9uLCBmb3IgdGhpcyBwdXJwb3NlIHdlIGNhbiB1c2UgIj0iCj4gPiAob25seSBvdXRwdXQp
-IGZvciB0aGUgb3V0cHV0LCBhbmQgIjAiIGZvciB0aGUgaW5wdXQgZm9yIHRoYXQgd2UgbXVzdAo+
-ID4gcmV1c2UgdGhlIHNhbWUgcmVnaXN0ZXIgYXMgdGhlIG91dHB1dC7CoCBBbmQgR0NDIGRldmVs
-b3BlcnMgaGF2ZQo+ID4gY29uZmlybWVkIHVzaW5nIGEgc2ltcGxlICJyIiAodGhhdCB3ZSB1c2Ug
-Zm9yIG1vc3QgdkRTTyBpbXBsZW1lbnRhdGlvbnMpCj4gPiBpbnN0ZWFkIG9mICIwIiBpcyBhbHNv
-IGZpbmUuCj4gPiAKPiA+IExpbms6IGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2FsbC8yMDI1MDYw
-My1sb29uZ2FyY2gtdmRzby1zeXNjYWxsLXYxLTEtNmQxMmQ2ZGZiZGQwQGxpbnV0cm9uaXguZGUv
-Cj4gPiBMaW5rOiBodHRwczovL2djYy5nbnUub3JnL29ubGluZWRvY3MvZ2NjLTE1LjEuMC9nY2Mv
-TG9jYWwtUmVnaXN0ZXItVmFyaWFibGVzLmh0bWwKPiA+IExpbms6IGh0dHBzOi8vZ2NjLmdudS5v
-cmcvcGlwZXJtYWlsL2djYy1oZWxwLzIwMjUtSnVuZS8xNDQyNjYuaHRtbAo+ID4gQ2M6IFRob21h
-cyBXZWnDn3NjaHVoIDx0aG9tYXMud2Vpc3NzY2h1aEBsaW51dHJvbml4LmRlPgo+ID4gQ2M6IE5h
-dGhhbiBDaGFuY2VsbG9yIDxuYXRoYW5Aa2VybmVsLm9yZz4KPiA+IFNpZ25lZC1vZmYtYnk6IFhp
-IFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRlPgo+ID4gLS0tCj4gPiAKPiA+IHYxIC0+IHYyOiBL
-ZWVwIHVzaW5nICJyIiBmb3IgYnVmZmVyIHRvIGZvbGxvdyB0aGUgZXhpc3RpbmcgY29udmVudGlv
-bgo+ID4gKHRoYXQgdGhlIEdDQyBkZXZlbG9wZXJzIGhhdmUgY29uZmlybWVkIGZpbmUpLgo+ID4g
-Cj4gPiDCoGFyY2gvcmlzY3YvaW5jbHVkZS9hc20vdmRzby9nZXRyYW5kb20uaCB8IDIgKy0KPiA+
-IMKgMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gPiAKPiA+
-IGRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmggYi9h
-cmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmgKPiA+IGluZGV4IDhkYzkyNDQx
-NzAyYS4uYzZkNjY4OTVjMWY1IDEwMDY0NAo+ID4gLS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS92ZHNvL2dldHJhbmRvbS5oCj4gPiArKysgYi9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL3Zkc28v
-Z2V0cmFuZG9tLmgKPiA+IEBAIC0xOCw3ICsxOCw3IEBAIHN0YXRpYyBfX2Fsd2F5c19pbmxpbmUg
-c3NpemVfdCBnZXRyYW5kb21fc3lzY2FsbCh2b2lkICpfYnVmZmVyLCBzaXplX3QgX2xlbiwgdW5z
-Cj4gPiDCoAlyZWdpc3RlciB1bnNpZ25lZCBpbnQgZmxhZ3MgYXNtKCJhMiIpID0gX2ZsYWdzOwo+
-ID4gwqAKPiA+IMKgCWFzbSB2b2xhdGlsZSAoImVjYWxsXG4iCj4gPiAtCQnCoMKgwqDCoMKgIDog
-IityIiAocmV0KQo+ID4gKwkJwqDCoMKgwqDCoCA6ICI9ciIgKHJldCkKPiA+IMKgCQnCoMKgwqDC
-oMKgIDogInIiIChuciksICJyIiAoYnVmZmVyKSwgInIiIChsZW4pLCAiciIgKGZsYWdzKQo+ID4g
-wqAJCcKgwqDCoMKgwqAgOiAibWVtb3J5Iik7Cj4gCj4gTXkgMiBjZW50cyBhcyBJJ3ZlIGRhYmJs
-ZWQgaW50byB0aGlzIGZvciBBUkMgZ2xpYmMgc3lzY2FsbCBtYWNyb3MgWzFdIHdoZXJlIHIwCj4g
-aXMgYm90aCB0aGUgZmlyc3Qgc3lzY2FsbC9mdW5jdGlvbiBhcmcgYW5kIGFsc28gdGhlIGZ1bmN0
-aW9uL3N5c2NhbGwgcmV0dXJuLgo+IAo+IFRoZSB2MiBhcHByb2FjaCBzdGlsbCBrZWVwcyAyIGRp
-ZmZlcmVudCB2YXJpYWJsZXMgaW4gc2FtZSBsb2NhbCByZWcgd2hpY2ggaGFzCj4gcG90ZW50aWFs
-IGZvciBhbnkgZnV0dXJlIGNvbXBpbGVyIHNoZW5hbmlnYW5zLgo+IFNlZ2hlcidzIGV4YW1wbGUg
-YXZvaWRlZCBzcGVjaWZ5aW5nIHRoZSBzYW1lIHJlZy4KPiBXaGF0IGFib3V0IHNvbWV0aGluZyBs
-aWtlIHRoZSBmb2xsb3dpbmc6IHNlZW1zIHRvIGdlbmVyYXRlIHRoZSByaWdodCBjb2RlICh3aXRo
-Cj4gZ2NjIDE1KQo+IAo+IMKgwqDCoMKgwqDCoCByZWdpc3RlciBsb25nIHJldCBhc20oImEwIik7
-CgpUaGVuIGl0IHdvdWxkIGJlIGJldHRlciB0byByZW5hbWUgdGhpcyB2YXJpYWJsZSB0byBqdXN0
-ICJhMCIuICBBbmQgSQpndWVzcyBUaG9tYXMgZG9lc24ndCB3YW50IGEgbmV3IGNvbnZlbnRpb24g
-ZGlmZmVyZW50IGZyb20gYWxsIG90aGVyCnN5c2NhbGwgd3JhcHBlcnMgaW4gdkRTTy4uLgoKPiDC
-oMKgwqDCoMKgwqAgcmVnaXN0ZXIgbG9uZyBuciBhc20oImE3IikgPSBfX05SX2dldHJhbmRvbTsK
-PiDCoMKgwqDCoMKgwqAgcmVnaXN0ZXIgc2l6ZV90IGxlbiBhc20oImExIikgPSBfbGVuOwo+IMKg
-wqDCoMKgwqDCoCByZWdpc3RlciB1bnNpZ25lZCBpbnQgZmxhZ3MgYXNtKCJhMiIpID0gX2ZsYWdz
-Owo+IMKgwqDCoMKgwqDCoCByZXQgPSAodW5zaWduZWQgbG9uZykgX2J1ZmZlcjsKPiAKPiDCoMKg
-wqDCoMKgwqAgYXNtIHZvbGF0aWxlICgiZWNhbGxcbiIKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgIDogIityIiAocmV0KcKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqAgLy8ga2VlcCAiK3IiCj4gZm9y
-IGlucHV0IF9idWZmZXIgLyBvdXRwdXQgcmV0Cj4gwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoCA6ICJyIiAobnIpLCAiciIgKGxlbiksICJyIiAoZmxhZ3MpCj4gwqDCoMKg
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCA6ICJtZW1vcnkiKTsKPiAKPiDCoMKg
-wqDCoMKgwqAgcmV0dXJuIHJldDsKPiAKPiBUaHgsCj4gLVZpbmVldAo+IAo+IFsxXSBodHRwczov
-L2dpdGh1Yi5jb20vYm1pbm9yL2dsaWJjL2Jsb2IvbWFzdGVyL3N5c2RlcHMvdW5peC9zeXN2L2xp
-bnV4L2FyYy9zeXNkZXAuaAoKLS0gClhpIFJ1b3lhbyA8eHJ5MTExQHhyeTExMS5zaXRlPgpTY2hv
-b2wgb2YgQWVyb3NwYWNlIFNjaWVuY2UgYW5kIFRlY2hub2xvZ3ksIFhpZGlhbiBVbml2ZXJzaXR5
-CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
-aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
-bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
+This series is also available at:
+
+    git fetch https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git lib-crc-arch-v2
+
+This series improves how lib/crc supports arch-optimized code.  First,
+instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
+will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
+crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
+functions (e.g. crc32c_base()) will now be part of a single module for
+each CRC type, allowing better inlining and dead code elimination.  The
+second change is made possible by the first.
+
+As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
+crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
+were already coupled together and always both got loaded together via
+direct symbol dependency, so the separation provided no benefit.
+
+Note: later I'd like to apply the same design to lib/crypto/ too, where
+often the API functions are out-of-line so this will work even better.
+In those cases, for each algorithm we currently have 3 modules all
+coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
+sha256-x86.ko.  We should have just one, inline things properly, and
+rely on the compiler's dead code elimination to decide the inclusion of
+the generic code instead of manually setting it via kconfig.
+
+Having arch-specific code outside arch/ was somewhat controversial when
+Zinc proposed it back in 2018.  But I don't think the concerns are
+warranted.  It's better from a technical perspective, as it enables the
+improvements mentioned above.  This model is already successfully used
+in other places in the kernel such as lib/raid6/.  The community of each
+architecture still remains free to work on the code, even if it's not in
+arch/.  At the time there was also a desire to put the library code in
+the same files as the old-school crypto API, but that was a mistake; now
+that the library is separate, that's no longer a constraint either.
+
+Changed in v2:
+   - Fixed build warning on architectures without any optimized CRC code
+   - Fixed build warning in sparc/crc32.h by removing pr_fmt
+   - Moved fallback definitions of crc32*_arch back into arch files
+   - Remove ARCH_HAS_CRC* symbols at end of series instead of beginning,
+     so that they're not removed until they're no longer being selected
+   - Slightly improved some commit messages
+   - Rebased onto other pending lib/crc changes
+
+Eric Biggers (12):
+  lib/crc: move files into lib/crc/
+  lib/crc: prepare for arch-optimized code in subdirs of lib/crc/
+  lib/crc/arm: migrate arm-optimized CRC code into lib/crc/
+  lib/crc/arm64: migrate arm64-optimized CRC code into lib/crc/
+  lib/crc/loongarch: migrate loongarch-optimized CRC code into lib/crc/
+  lib/crc/mips: migrate mips-optimized CRC code into lib/crc/
+  lib/crc/powerpc: migrate powerpc-optimized CRC code into lib/crc/
+  lib/crc/riscv: migrate riscv-optimized CRC code into lib/crc/
+  lib/crc/s390: migrate s390-optimized CRC code into lib/crc/
+  lib/crc/sparc: migrate sparc-optimized CRC code into lib/crc/
+  lib/crc/x86: migrate x86-optimized CRC code into lib/crc/
+  lib/crc: remove ARCH_HAS_* kconfig symbols
+
+ Documentation/core-api/kernel-api.rst         |  14 +--
+ MAINTAINERS                                   |   4 +-
+ arch/arm/Kconfig                              |   2 -
+ arch/arm/lib/Makefile                         |   6 -
+ arch/arm64/Kconfig                            |   2 -
+ arch/arm64/lib/Makefile                       |   6 -
+ arch/loongarch/Kconfig                        |   1 -
+ arch/loongarch/lib/Makefile                   |   2 -
+ arch/mips/Kconfig                             |   1 -
+ arch/mips/lib/Makefile                        |   2 -
+ arch/powerpc/Kconfig                          |   2 -
+ arch/powerpc/lib/Makefile                     |   6 -
+ arch/riscv/Kconfig                            |   3 -
+ arch/riscv/lib/Makefile                       |   6 -
+ arch/s390/Kconfig                             |   1 -
+ arch/s390/lib/Makefile                        |   3 -
+ arch/sparc/Kconfig                            |   1 -
+ arch/sparc/lib/Makefile                       |   2 -
+ arch/x86/Kconfig                              |   3 -
+ arch/x86/lib/Makefile                         |  10 --
+ include/linux/crc-t10dif.h                    |  10 +-
+ include/linux/crc32.h                         |  30 +----
+ include/linux/crc64.h                         |  22 +---
+ lib/Kconfig                                   |  87 +------------
+ lib/Kconfig.debug                             |  21 ----
+ lib/Makefile                                  |  32 +----
+ lib/crc/.gitignore                            |   5 +
+ lib/crc/Kconfig                               | 118 ++++++++++++++++++
+ lib/crc/Makefile                              |  63 ++++++++++
+ .../arm/lib => lib/crc/arm}/crc-t10dif-core.S |   0
+ .../crc-t10dif.c => lib/crc/arm/crc-t10dif.h  |  23 +---
+ {arch/arm/lib => lib/crc/arm}/crc32-core.S    |   0
+ arch/arm/lib/crc32.c => lib/crc/arm/crc32.h   |  38 ++----
+ .../lib => lib/crc/arm64}/crc-t10dif-core.S   |   0
+ .../crc/arm64/crc-t10dif.h                    |  22 +---
+ .../arm64/lib => lib/crc/arm64}/crc32-core.S  |   0
+ .../lib/crc32.c => lib/crc/arm64/crc32.h      |  19 +--
+ lib/{ => crc}/crc-ccitt.c                     |   3 -
+ lib/{ => crc}/crc-itu-t.c                     |   0
+ lib/{crc-t10dif.c => crc/crc-t10dif-main.c}   |  37 ++++--
+ lib/{ => crc}/crc16.c                         |   0
+ lib/{crc32.c => crc/crc32-main.c}             |  69 ++++++++--
+ lib/{ => crc}/crc4.c                          |   0
+ lib/{crc64.c => crc/crc64-main.c}             |  47 +++++--
+ lib/{ => crc}/crc7.c                          |   0
+ lib/{ => crc}/crc8.c                          |   0
+ lib/{ => crc}/gen_crc32table.c                |   4 +-
+ lib/{ => crc}/gen_crc64table.c                |  11 +-
+ .../crc/loongarch/crc32.h                     |  32 +----
+ .../lib/crc32-mips.c => lib/crc/mips/crc32.h  |  33 +----
+ .../crc/powerpc/crc-t10dif.h                  |  20 +--
+ .../crc/powerpc}/crc-vpmsum-template.S        |   0
+ .../lib/crc32.c => lib/crc/powerpc/crc32.h    |  38 ++----
+ .../crc/powerpc}/crc32c-vpmsum_asm.S          |   0
+ .../crc/powerpc}/crct10dif-vpmsum_asm.S       |   0
+ .../lib => lib/crc/riscv}/crc-clmul-consts.h  |   0
+ .../crc/riscv}/crc-clmul-template.h           |   0
+ {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h |   0
+ .../crc/riscv/crc-t10dif.h                    |   8 +-
+ {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c |   0
+ .../lib/crc32.c => lib/crc/riscv/crc32.h      |  17 +--
+ {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c |   0
+ {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c |   0
+ .../lib/crc64.c => lib/crc/riscv/crc64.h      |  11 +-
+ {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c |   0
+ {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c |   0
+ {arch/s390/lib => lib/crc/s390}/crc32-vx.h    |   0
+ arch/s390/lib/crc32.c => lib/crc/s390/crc32.h |  16 +--
+ {arch/s390/lib => lib/crc/s390}/crc32be-vx.c  |   0
+ {arch/s390/lib => lib/crc/s390}/crc32le-vx.c  |   0
+ .../lib/crc32.c => lib/crc/sparc/crc32.h      |  42 ++-----
+ .../sparc/lib => lib/crc/sparc}/crc32c_asm.S  |   0
+ lib/crc/tests/Makefile                        |   2 +
+ lib/{ => crc}/tests/crc_kunit.c               |   0
+ .../lib => lib/crc/x86}/crc-pclmul-consts.h   |   0
+ .../lib => lib/crc/x86}/crc-pclmul-template.S |   0
+ .../lib => lib/crc/x86}/crc-pclmul-template.h |   0
+ .../crc-t10dif.c => lib/crc/x86/crc-t10dif.h  |  18 +--
+ .../lib => lib/crc/x86}/crc16-msb-pclmul.S    |   0
+ {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S  |   0
+ arch/x86/lib/crc32.c => lib/crc/x86/crc32.h   |  30 +----
+ {arch/x86/lib => lib/crc/x86}/crc32c-3way.S   |   0
+ {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S  |   0
+ arch/x86/lib/crc64.c => lib/crc/x86/crc64.h   |  21 +---
+ lib/tests/Makefile                            |   1 -
+ 85 files changed, 406 insertions(+), 621 deletions(-)
+ create mode 100644 lib/crc/.gitignore
+ create mode 100644 lib/crc/Kconfig
+ create mode 100644 lib/crc/Makefile
+ rename {arch/arm/lib => lib/crc/arm}/crc-t10dif-core.S (100%)
+ rename arch/arm/lib/crc-t10dif.c => lib/crc/arm/crc-t10dif.h (70%)
+ rename {arch/arm/lib => lib/crc/arm}/crc32-core.S (100%)
+ rename arch/arm/lib/crc32.c => lib/crc/arm/crc32.h (69%)
+ rename {arch/arm64/lib => lib/crc/arm64}/crc-t10dif-core.S (100%)
+ rename arch/arm64/lib/crc-t10dif.c => lib/crc/arm64/crc-t10dif.h (70%)
+ rename {arch/arm64/lib => lib/crc/arm64}/crc32-core.S (100%)
+ rename arch/arm64/lib/crc32.c => lib/crc/arm64/crc32.h (81%)
+ rename lib/{ => crc}/crc-ccitt.c (98%)
+ rename lib/{ => crc}/crc-itu-t.c (100%)
+ rename lib/{crc-t10dif.c => crc/crc-t10dif-main.c} (78%)
+ rename lib/{ => crc}/crc16.c (100%)
+ rename lib/{crc32.c => crc/crc32-main.c} (58%)
+ rename lib/{ => crc}/crc4.c (100%)
+ rename lib/{crc64.c => crc/crc64-main.c} (66%)
+ rename lib/{ => crc}/crc7.c (100%)
+ rename lib/{ => crc}/crc8.c (100%)
+ rename lib/{ => crc}/gen_crc32table.c (95%)
+ rename lib/{ => crc}/gen_crc64table.c (81%)
+ rename arch/loongarch/lib/crc32-loongarch.c => lib/crc/loongarch/crc32.h (71%)
+ rename arch/mips/lib/crc32-mips.c => lib/crc/mips/crc32.h (82%)
+ rename arch/powerpc/lib/crc-t10dif.c => lib/crc/powerpc/crc-t10dif.h (75%)
+ rename {arch/powerpc/lib => lib/crc/powerpc}/crc-vpmsum-template.S (100%)
+ rename arch/powerpc/lib/crc32.c => lib/crc/powerpc/crc32.h (64%)
+ rename {arch/powerpc/lib => lib/crc/powerpc}/crc32c-vpmsum_asm.S (100%)
+ rename {arch/powerpc/lib => lib/crc/powerpc}/crct10dif-vpmsum_asm.S (100%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-consts.h (100%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul-template.h (100%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc-clmul.h (100%)
+ rename arch/riscv/lib/crc-t10dif.c => lib/crc/riscv/crc-t10dif.h (62%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc16_msb.c (100%)
+ rename arch/riscv/lib/crc32.c => lib/crc/riscv/crc32.h (66%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc32_lsb.c (100%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc32_msb.c (100%)
+ rename arch/riscv/lib/crc64.c => lib/crc/riscv/crc64.h (65%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc64_lsb.c (100%)
+ rename {arch/riscv/lib => lib/crc/riscv}/crc64_msb.c (100%)
+ rename {arch/s390/lib => lib/crc/s390}/crc32-vx.h (100%)
+ rename arch/s390/lib/crc32.c => lib/crc/s390/crc32.h (81%)
+ rename {arch/s390/lib => lib/crc/s390}/crc32be-vx.c (100%)
+ rename {arch/s390/lib => lib/crc/s390}/crc32le-vx.c (100%)
+ rename arch/sparc/lib/crc32.c => lib/crc/sparc/crc32.h (60%)
+ rename {arch/sparc/lib => lib/crc/sparc}/crc32c_asm.S (100%)
+ create mode 100644 lib/crc/tests/Makefile
+ rename lib/{ => crc}/tests/crc_kunit.c (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-consts.h (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc-pclmul-template.h (100%)
+ rename arch/x86/lib/crc-t10dif.c => lib/crc/x86/crc-t10dif.h (56%)
+ rename {arch/x86/lib => lib/crc/x86}/crc16-msb-pclmul.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc32-pclmul.S (100%)
+ rename arch/x86/lib/crc32.c => lib/crc/x86/crc32.h (76%)
+ rename {arch/x86/lib => lib/crc/x86}/crc32c-3way.S (100%)
+ rename {arch/x86/lib => lib/crc/x86}/crc64-pclmul.S (100%)
+ rename arch/x86/lib/crc64.c => lib/crc/x86/crc64.h (61%)
+
+
+base-commit: 464e77d8417003dfa3b0f556eba0297169483249
+-- 
+2.49.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
