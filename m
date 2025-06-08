@@ -4,81 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3486CC5B543
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 02:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7CCC5B543
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 02:46:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EnqIkT8iDhsGoCSSWpoV2rvVPMo4h2DpGJzQOjQKeG8=; b=ELtRGCrakjrMRR
-	p4mcocUssaSmvN5v5z9/ShUVFGo1NBkOpATd7B/iNWkLdowmCg7q+9D6hGN8tGPCE/ezvl0qpmJJ4
-	ebgCeFost4u+0yj17Oj501SvIk6YoWF0lf0RoKTHfb5CbC/GkaPMhYcHe0zXBhgXbdxyoACjAEp53
-	Rqd403l1WvfaTibzFryazwbw/jh7FCtZm4vMNTf2s9/99/CCOB3V4WpWoz8Ft9F4lfQrphEl6yJzF
-	hHW0xmsKUanOf6vEUBVZVmLvRP61Br12XOKdyYHCQ3Xjsi2DDgDTn/TLikCtdmKAJBUIVBj5itKDe
-	tIxbe/NjjJglGkHRejAA==;
+	List-Owner; bh=KU3Ti8HX4MeWGvGWB+UZLhDmMuyZBlgGoremrroP3vg=; b=kwVc8dKzuTXKap
+	+O2LiTq0uUe3BQ0Od4CqJzZ21mfLLS6d+CZKXHcWfz1ChqIvCpy7KOC9qBAfO9QzqsjYI73veCkrH
+	TiWIcPr9NC9TomFLt9IsrH3r1UvRiIMFSaQ/zWoe6bF+im6QXtJBo1nneUHC0OZlB1/WJLUXCTLUp
+	CvuQSbQsPniWRoaXENn9gBiBuILBYE1DmsNK5Ev+OfXKUuict9Z6EVQ6oc1Jx0i51YlCSGRc7WA5B
+	FZ9Brj4iP6OiElFltFVMqf1it1oGgh87qimuE7WPdMwflkXs2SJwPy9l9jaK09CaR/+dK7lJU8l/4
+	ydYnNLf1s8DgZgjm7flA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO5xU-00000002Hu6-3E0H;
-	Sun, 08 Jun 2025 02:40:28 +0000
-Received: from sender4-op-o15.zoho.com ([136.143.188.15])
+	id 1uO633-00000002IU8-3PAt;
+	Sun, 08 Jun 2025 02:46:13 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO5xR-00000002Hta-0uvQ
+	id 1uO62w-00000002ITj-3KWm
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Jun 2025 02:40:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1749350411; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=GDy9IPf77FiO1LI7giALtV5drf2MsrqBbcKotNNYi1SU9E6LHbIo8RhZabjNQ7dPwf9gmFD8WT9Uoe7LFxExnnRbif9JHacOvaQoyBnluDYZG8AjujJa/orHIICR1FUnEIM4uJ4n07+lVitDNH/4A5Z2iV2hNaFRJDRefuPjCD4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1749350411; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=5svXE7DFLiNA8Y0yUzTPzpzC0QbCj9kAVIbvj+Nw1Uw=; 
-	b=nMTUNn1krYlvmYefSZK2MVhcAgIi9+q5xCQP2eMcHDeYlJfl73ugJRFuJj5WQDvn4HFgU5y6oO7jn060fY7Me3KIR8deVmXUyZHs9+eMZPJALReFrJWpAlTAEPSMze+iL4m7ymcr70JP164Xg5Vmo0/B7NPTGuMglnlWI8jh138=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749350410;
-	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=5svXE7DFLiNA8Y0yUzTPzpzC0QbCj9kAVIbvj+Nw1Uw=;
-	b=KMtZEeQfGOBwJjzk9ZS+Xwc4+qTJHvhj8ClgXYdY+6ATbZSgnoLOxF2kP88G0JeA
-	xvSbjpTlmTfQ2MQQSlXdAn95r1ucgXj8ge1mgcbkP+WSvD3wtbKPvC3ruCT4MxZe0Mm
-	pTvKRRWShOlMpGAxpX3ju3tPjDVIVulXmuh3KxOE=
-Received: by mx.zohomail.com with SMTPS id 1749350408370445.01029448573786;
-	Sat, 7 Jun 2025 19:40:08 -0700 (PDT)
-From: Junhui Liu <junhui.liu@pigmoral.tech>
-Date: Sun, 08 Jun 2025 10:37:40 +0800
-Subject: [PATCH 2/2] drivers: remoteproc: Add C906L controller for Sophgo
- CV1800B SoC
+	Sun, 08 Jun 2025 02:46:12 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3ddc9872e69so10025605ab.1
+        for <linux-riscv@lists.infradead.org>; Sat, 07 Jun 2025 19:46:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749350766; x=1749955566; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=T6iIhbceoQuwTeHmSeghxdQElE23Mh4WO7mr5HdlCAY=;
+        b=v7ENi+pup8stMZWM0WQeo4lbR09bKOt+hiOHEvKcW9WKYZea38MaWefHu6hPYRFKdo
+         F9r/zmuC/422L5w34uKh8WsV+zoJyKC11vn/5m0YA0Is+MtRHduBs1odmb4DX4QlDlz6
+         daRHaWnjffktXlIZq737hw5GEMaFx9owSDTCqXblI7cGergKIGuXyq5utvgOkGxklmOp
+         MFyf5U3knuaRFaGASguOlbjaX8vGqEV9tShuXqi3B306Lin96LzMb7ENjBa4rPhJ/67c
+         uWVSZv5hcrHyYdz5CVewsWFO6IBB49Q867h4JlnppOl0ie+7hAQa23UdgBOeH2FFvA/R
+         aAjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749350766; x=1749955566;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=T6iIhbceoQuwTeHmSeghxdQElE23Mh4WO7mr5HdlCAY=;
+        b=sRusCCNN194C02IMP3TNeoqaeCZfppZiq9qZoWGFS/+fK2hjUee480bgplmUpzMb+X
+         XIQVEiHwBX8Zv6gDg0X1jcGapMP0M2n8QENConXNyvFrKULKK5tegJWYwo2Z2BsldfQN
+         MJnCdcl2VxKlanEgxJnO5kvrBWsdazNy3TvbCSWE/a1G7oIXXcTQVR2jHfJI85ecOQ57
+         kfpfYO9/BXXIyfraj/8efOSA+Uq9PmiNSspXAienI6s0oXkugWcb+K9pXlO8Rx1Cv47R
+         3DjRIA1mtbyrMeNbztBJA3Smle35p7CFHZalND/BvhysLNaBMGwOt56tkwvhksXwy7j7
+         DmMg==
+X-Forwarded-Encrypted: i=1; AJvYcCXgaUuum3PV8gRTJ7Q5AMaAVThXaNspyBvussXBIkhKuBv/3MSYup8R3Jot/TDGQBf67HSlGPi3GLxGkg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyJqhAvp7Dg1w255ri2ynEBT/zqGQxb/fwS7UnoAyATmSsJdSz
+	UpMYLt9RqMHUzESc7kwV0I0YGNi6WpQ2l94iduNapZ8JOMJS6qzQH0xuWKoszoanXOQ=
+X-Gm-Gg: ASbGncsqKs7yUaKqoph6gzpyViWbcTMZRdAJyMOC9u5i+qqNGg0bLn1/R3mN0i4xKGC
+	F7H+HEywuu/yQxGelCws7RCPNeftt+DtOE4r8U0+devQhALdxxSWSB5K9hmHwJlVKXZdY2YG5xw
+	SSQ320jOaq36wXYiQUXUlfhaVX69yqJ6vS+aTQufu9UXAgWwH/2uF4O2GpEgfYD2AoFQuT8bJs1
+	mRUAxRy/bQNJAE9han2lGUx4GEH3t0FKN7Y2yfLUuNt3ESaGxR3z7No5953NrDYwYsagKn5YWry
+	omUvJ5EpK15VeK3OKEvosnz9AyK7UCltdefSggTjQind/8Adbfd+JfkWFJGN707hb/xRh/jV/xQ
+	8I37oa//XOt8yzveGX26dqh2Qd4o6sA==
+X-Google-Smtp-Source: AGHT+IHwCjCm36e79bC5Bu1U8XdSHZuI9qJZLbLDC5YMdrmL4eFKJnEgWTECu5fJD8WyGogJaem5yg==
+X-Received: by 2002:a05:6e02:1c0f:b0:3dd:a13c:b663 with SMTP id e9e14a558f8ab-3ddce495e82mr79030935ab.14.1749350765662;
+        Sat, 07 Jun 2025 19:46:05 -0700 (PDT)
+Received: from [10.211.55.5] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-500df420439sm1193111173.32.2025.06.07.19.46.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sat, 07 Jun 2025 19:46:05 -0700 (PDT)
+Message-ID: <52c27139-20aa-4995-b3b5-290df13f1ec9@riscstar.com>
+Date: Sat, 7 Jun 2025 21:46:03 -0500
 MIME-Version: 1.0
-Message-Id: <20250608-cv1800-rproc-v1-2-57cf66cdf6a3@pigmoral.tech>
-References: <20250608-cv1800-rproc-v1-0-57cf66cdf6a3@pigmoral.tech>
-In-Reply-To: <20250608-cv1800-rproc-v1-0-57cf66cdf6a3@pigmoral.tech>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Mathieu Poirier <mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>, 
- Inochi Amaoto <inochiama@gmail.com>, Junhui Liu <junhui.liu@pigmoral.tech>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org, 
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1749350360; l=8606;
- i=junhui.liu@pigmoral.tech; s=20250507; h=from:subject:message-id;
- bh=pxVyFbX/Ddch/pyVx11kvYV760D2OOpkNd/hBW4z5g8=;
- b=28L4UDoddAB1Pp72y1g0749z/wuM67fjIcJCF32t9P7X+qWjhplVXgogCNNcKdpMECBvsqMbg
- 71k20X+qPeECO9vDJ0keJBUqJq8RitILS2BfeaA0U/Y9HtR+j/kDlAO
-X-Developer-Key: i=junhui.liu@pigmoral.tech; a=ed25519;
- pk=d3i4H2mg9LUn4SQemoLAjLRQy0nTcyknIv6zgKMwiBA=
-X-ZohoMailClient: External
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] clk: spacemit: mark K1 pll1_d8 as critical
+To: Yixun Lan <dlan@gentoo.org>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, heylenay@4d2.org,
+ inochiama@outlook.com, linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Guodong Xu <guodong@riscstar.com>
+References: <20250607202759.4180579-1-elder@riscstar.com>
+ <20250608002453-GYA108101@gentoo>
+Content-Language: en-US
+From: Alex Elder <elder@riscstar.com>
+In-Reply-To: <20250608002453-GYA108101@gentoo>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_194025_311028_2027827F 
-X-CRM114-Status: GOOD (  21.44  )
+X-CRM114-CacheID: sfid-20250607_194607_084581_F71EA634 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,302 +98,200 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add initial support for the C906L remote processor found in the Sophgo
-CV1800B SoC. The C906L is an asymmetric core typically used to run an
-RTOS. This driver enables firmware loading and start/stop control of the
-C906L processor via the remoteproc framework.
+On 6/7/25 7:24 PM, Yixun Lan wrote:
+> Hi Alex,
+> 
+> On 15:27 Sat 07 Jun     , Alex Elder wrote:
+>> The pll1_d8 clock is enabled by the boot loader, and is ultimately a
+>> parent for numerous clocks.  Guodong Xu was recently testing DMA,
+>              ~~~~~~~~~this is still vague, numerous isn't equal to critical
 
-The C906L and the main application processor can communicate through
-mailboxes [1]. Support for mailbox-based functionality will be added in
-a separate patch.
+I will give you a full explanation of what I observed, below.
 
-Link: https://lore.kernel.org/linux-riscv/20250520-cv18xx-mbox-v4-0-fd4f1c676d6e@pigmoral.tech/ [1]
-Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
----
- drivers/remoteproc/Kconfig                |   9 ++
- drivers/remoteproc/Makefile               |   1 +
- drivers/remoteproc/sophgo_cv1800b_c906l.c | 233 ++++++++++++++++++++++++++++++
- 3 files changed, 243 insertions(+)
+>> adding a reset property, and discovered that the needed reset was
+>> not yet ready during initial probe.  It dropped its clock reference,
+>> which dropped parent references, and along the way it dropped the sole
+>> reference to pll1_d8 (from its prior clk_get()).  Clock pll1_d8 got
+>> disabled, which resulted in a non-functioning system.
+>>
+> So, I'm trying to understand the problem, and would like to evaluate if
+> the "critical" flag is necessary..
+> 
+> It occurs to me, the DMA driver should request and enable clock first,
+> then request and issue a reset, it probably could be solved by proper
 
-diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
-index 83962a114dc9fdb3260e6e922602f2da53106265..7b09a8f00332605ee528ff7c21c31091c10c2bf5 100644
---- a/drivers/remoteproc/Kconfig
-+++ b/drivers/remoteproc/Kconfig
-@@ -299,6 +299,15 @@ config RCAR_REMOTEPROC
- 	  This can be either built-in or a loadable module.
- 	  If compiled as module (M), the module name is rcar_rproc.
- 
-+config SOPHGO_CV1800B_C906L
-+	tristate "Sophgo CV1800B C906L remoteproc support"
-+	depends on ARCH_SOPHGO || COMPILE_TEST
-+	help
-+	  Say y here to support CV1800B C906L remote processor via the remote
-+	  processor framework.
-+
-+	  It's safe to say N here.
-+
- config ST_REMOTEPROC
- 	tristate "ST remoteproc support"
- 	depends on ARCH_STI
-diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
-index 1c7598b8475d6057a3e044b41e3515103b7aa9f1..3c1e9387491cedc9dda8219f1e9130a84538156f 100644
---- a/drivers/remoteproc/Makefile
-+++ b/drivers/remoteproc/Makefile
-@@ -33,6 +33,7 @@ obj-$(CONFIG_QCOM_WCNSS_PIL)		+= qcom_wcnss_pil.o
- qcom_wcnss_pil-y			+= qcom_wcnss.o
- qcom_wcnss_pil-y			+= qcom_wcnss_iris.o
- obj-$(CONFIG_RCAR_REMOTEPROC)		+= rcar_rproc.o
-+obj-$(CONFIG_SOPHGO_CV1800B_C906L)	+= sophgo_cv1800b_c906l.o
- obj-$(CONFIG_ST_REMOTEPROC)		+= st_remoteproc.o
- obj-$(CONFIG_ST_SLIM_REMOTEPROC)	+= st_slim_rproc.o
- obj-$(CONFIG_STM32_RPROC)		+= stm32_rproc.o
-diff --git a/drivers/remoteproc/sophgo_cv1800b_c906l.c b/drivers/remoteproc/sophgo_cv1800b_c906l.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..f3c8d8fd4f796d0cf64f8ab0dd797e017b8e8be7
---- /dev/null
-+++ b/drivers/remoteproc/sophgo_cv1800b_c906l.c
-@@ -0,0 +1,233 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
-+ */
-+
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of_device.h>
-+#include <linux/of_reserved_mem.h>
-+#include <linux/platform_device.h>
-+#include <linux/remoteproc.h>
-+#include <linux/reset.h>
-+#include <linux/regmap.h>
-+
-+#include "remoteproc_internal.h"
-+
-+#define CV1800B_SYS_C906L_CTRL_REG	0x04
-+#define   CV1800B_SYS_C906L_CTRL_EN	BIT(13)
-+
-+#define CV1800B_SYS_C906L_BOOTADDR_REG	0x20
-+
-+/**
-+ * struct cv1800b_c906l - C906L remoteproc structure
-+ * @dev: private pointer to the device
-+ * @reset: reset control handle
-+ * @rproc: the remote processor handle
-+ * @syscon: regmap for accessing security system registers
-+ */
-+struct cv1800b_c906l {
-+	struct device *dev;
-+	struct reset_control *reset;
-+	struct rproc *rproc;
-+	struct regmap *syscon;
-+};
-+
-+static int cv1800b_c906l_mem_alloc(struct rproc *rproc,
-+				   struct rproc_mem_entry *mem)
-+{
-+	void *va;
-+
-+	va = ioremap_wc(mem->dma, mem->len);
-+	if (IS_ERR_OR_NULL(va))
-+		return -ENOMEM;
-+
-+	/* Update memory entry va */
-+	mem->va = va;
-+
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_mem_release(struct rproc *rproc,
-+				     struct rproc_mem_entry *mem)
-+{
-+	iounmap(mem->va);
-+
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_add_carveout(struct rproc *rproc)
-+{
-+	struct device *dev = rproc->dev.parent;
-+	struct device_node *np = dev->of_node;
-+	struct of_phandle_iterator it;
-+	struct rproc_mem_entry *mem;
-+	struct reserved_mem *rmem;
-+
-+	/* Register associated reserved memory regions */
-+	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
-+	while (of_phandle_iterator_next(&it) == 0) {
-+		rmem = of_reserved_mem_lookup(it.node);
-+		if (!rmem) {
-+			of_node_put(it.node);
-+			return -EINVAL;
-+		}
-+
-+		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)rmem->base,
-+					   rmem->size, rmem->base,
-+					   cv1800b_c906l_mem_alloc,
-+					   cv1800b_c906l_mem_release,
-+					   it.node->name);
-+
-+		if (!mem) {
-+			of_node_put(it.node);
-+			return -ENOMEM;
-+		}
-+
-+		rproc_add_carveout(rproc, mem);
-+	}
-+
-+	return 0;
-+}
-+
-+static int cv1800b_c906l_prepare(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+	int ret;
-+
-+	ret = cv1800b_c906l_add_carveout(rproc);
-+	if (ret)
-+		return ret;
-+
-+	/*
-+	 * This control bit must be set to enable the C906L remote processor.
-+	 * Note that once the remote processor is running, merely clearing
-+	 * this bit will not stop its execution.
-+	 */
-+	return regmap_update_bits(priv->syscon, CV1800B_SYS_C906L_CTRL_REG,
-+				  CV1800B_SYS_C906L_CTRL_EN,
-+				  CV1800B_SYS_C906L_CTRL_EN);
-+}
-+
-+static int cv1800b_c906l_start(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+	u32 bootaddr[2];
-+	int ret;
-+
-+	bootaddr[0] = lower_32_bits(rproc->bootaddr);
-+	bootaddr[1] = upper_32_bits(rproc->bootaddr);
-+
-+	ret = regmap_bulk_write(priv->syscon, CV1800B_SYS_C906L_BOOTADDR_REG,
-+				bootaddr, ARRAY_SIZE(bootaddr));
-+	if (ret)
-+		return ret;
-+
-+	return reset_control_deassert(priv->reset);
-+}
-+
-+static int cv1800b_c906l_stop(struct rproc *rproc)
-+{
-+	struct cv1800b_c906l *priv = rproc->priv;
-+
-+	return reset_control_assert(priv->reset);
-+}
-+
-+static int cv1800b_c906l_parse_fw(struct rproc *rproc,
-+				  const struct firmware *fw)
-+{
-+	int ret;
-+
-+	ret = rproc_elf_load_rsc_table(rproc, fw);
-+	if (ret == -EINVAL) {
-+		dev_info(&rproc->dev, "No resource table in elf\n");
-+		ret = 0;
-+	}
-+
-+	return ret;
-+}
-+
-+static const struct rproc_ops cv1800b_c906l_ops = {
-+	.prepare = cv1800b_c906l_prepare,
-+	.start = cv1800b_c906l_start,
-+	.stop = cv1800b_c906l_stop,
-+	.load = rproc_elf_load_segments,
-+	.parse_fw = cv1800b_c906l_parse_fw,
-+	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
-+	.sanity_check = rproc_elf_sanity_check,
-+	.get_boot_addr = rproc_elf_get_boot_addr,
-+};
-+
-+static int cv1800b_c906l_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	struct cv1800b_c906l *priv;
-+	struct rproc *rproc;
-+	const char *fw_name;
-+	int ret;
-+
-+	ret = rproc_of_parse_firmware(dev, 0, &fw_name);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "No firmware filename given\n");
-+
-+	rproc = devm_rproc_alloc(dev, dev_name(dev), &cv1800b_c906l_ops,
-+				 fw_name, sizeof(*priv));
-+	if (!rproc)
-+		return dev_err_probe(dev, -ENOMEM,
-+				     "unable to allocate remoteproc\n");
-+
-+	rproc->has_iommu = false;
-+
-+	priv = rproc->priv;
-+	priv->dev = dev;
-+	priv->rproc = rproc;
-+
-+	priv->syscon = syscon_regmap_lookup_by_phandle(np, "sophgo,syscon");
-+	if (IS_ERR(priv->syscon))
-+		return PTR_ERR(priv->syscon);
-+
-+	priv->reset = devm_reset_control_get_exclusive(dev, NULL);
-+	if (IS_ERR(priv->reset))
-+		return dev_err_probe(dev, PTR_ERR(priv->reset),
-+				     "failed to get reset control handle\n");
-+
-+	platform_set_drvdata(pdev, rproc);
-+
-+	ret = devm_rproc_add(dev, rproc);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "rproc_add failed\n");
-+
-+	return 0;
-+}
-+
-+static void cv1800b_c906l_remove(struct platform_device *pdev)
-+{
-+	struct rproc *rproc = platform_get_drvdata(pdev);
-+
-+	if (atomic_read(&rproc->power) > 0)
-+		rproc_shutdown(rproc);
-+
-+	rproc_del(rproc);
-+}
-+
-+static const struct of_device_id cv1800b_c906l_of_match[] = {
-+	{ .compatible = "sophgo,cv1800b-c906l" },
-+	{ /* sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, cv1800b_c906l_of_match);
-+
-+static struct platform_driver cv1800b_c906l_driver = {
-+	.probe = cv1800b_c906l_probe,
-+	.remove = cv1800b_c906l_remove,
-+	.driver = {
-+		.name = "cv1800b-c906l",
-+		.of_match_table = cv1800b_c906l_of_match,
-+	},
-+};
-+
-+module_platform_driver(cv1800b_c906l_driver);
-+
-+MODULE_AUTHOR("Junhui Liu <junhui.liu@pigmoral.tech>");
-+MODULE_DESCRIPTION("Sophgo CV1800B C906L remote processor control driver");
-+MODULE_LICENSE("GPL");
+No, that is not the issue.  The reset is never deasserted.
 
--- 
-2.49.0
+> order? so what's the real problem here? is DMA or reset? dropped the
+> clock? or does driver fail to request a reset before clock is ready?
+
+The problem is with the pll1_d8 clock.  That clock is enabled
+successfully.  However the reset isn't ready, so the clock
+gets disabled, and its parent (and other ancestors) also get
+disabled while recovering from that.
+
+I'll give you a high-level summary, then will lay out a ton of
+detail.
+
+In the DMA driver probe function, several initial things happen
+and then, a clock is requested (enabled):
+   <&syscon_apmu CLK_DMA>
+That succeeds.
+
+Next, a reset is requested:
+   <&syscon_apmu RESET_DMA>
+But that fails, because the reset driver probe function hasn't
+been called yet.  The request gets -EPROBE_DEFER as its result,
+and the DMA driver starts unwinding everything so that it can
+be probed again later.  Dropping the clock reference results
+in parent clocks dropping references.  And because pll1_div8
+initially had a reference count of 0 (despite being on),
+dropping this single reference means it gets disabled.  Then
+we're stuck.
+
+
+Here is how the DMA clock is supplied (at boot time):
+
+pll1 -> pll1_d8 -> pll1_d8_307p2 -> pmua_aclk -> dma_clk
+
+pll1 and pll1_d8 are enabled by the boot loader, but at this
+time the drivers for various hardware that require them aren't
+"getting" and enabling them (yet).
+
+devm_clk_get_optional_enabled() causes clk_prepare_enable()
+to be called on the target clock (pll1_d8).  That simply calls
+clk_prepare() and clk_enable().  Let's focus on the latter.
+     clk_enable(dma_clk)
+       clk_core_enable_lock()
+
+So now the clock enable lock is held.  The target clock's
+enable_count for pll1_d8 is 0.
+
+   clk_core_enable(dma_clk)
+     clk_core_enable(parent = pmua_aclk)
+     ...
+     enable_count++ (on dma_clk)
+
+The parent gets enabled (I'm fairly certain pmua_clk's
+enable_count is also 0).
+
+   clk_core_enable(pmua_aclk)
+     clk_core_enable(parent = pll1_d8_307p2)
+     ...
+     enable_count++ (on pmua_clk)
+
+And so on.  When the clk_enable(dma_clk) completes, we have
+these enable counts:
+   dma_clk:		1
+   pmua_clk:		1
+   pll1_d8_307p2:	1
+   pll1_d8:		1
+   pll1:			1? (I don't recall)
+
+The -EPROBE_DEFER causes the  devm_clk_get_optional_enabled()
+for dma_clk to get undone.  That means clk_disable_unprepare()
+gets called on dma_clk.  Let's just focus on clk_disable().
+
+   clk_disable(dma_clk)
+     clk_core_disable_lock(dma_clk)
+       (takes clk_enable lock)
+       clk_core_disable()
+         --enable_count becomes 0 (on dma_clk)
+         (disables dma_clk)
+         clk_core_disable(core->parent = pmua_aclk)
+
+   clk_core_disable(pmua_aclk)
+     --enable_count becomes 0 (on pmua_clk)
+     (disables pmua_clk)
+     clk_core_dissable(core->parent = pll1_d8_307p2)
+
+   clk_core_disable(pll1_d8_307p2)
+     --enable_count becomes 0 (on pll1_d8_307p2)
+     (disables pll1_d8_307p2)
+     clk_core_dissable(core->parent = pll1_d8)
+
+   clk_core_disable(pll1_d8\)
+     --enable_count becomes 0 (on pll1)
+     (disables pll1_d8)
+     BOOM
+
+I hope this is clear.
+
+					-Alex
+
+
+>> Mark that clock critical so it doesn't get turned off in this case.
+>> We might be able to turn this flag off someday, but for now it
+>> resolves the problem Guodong encountered.
+>>
+>> Define a new macro CCU_FACTOR_GATE_DEFINE() to allow clock flags to
+>> be supplied for a CCU_FACTOR_GATE clock.
+>>
+>> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+>> Signed-off-by: Alex Elder <elder@riscstar.com>
+>> Tested-by: Guodong Xu <guodong@riscstar.com>
+>> ---
+>>   drivers/clk/spacemit/ccu-k1.c  |  3 ++-
+>>   drivers/clk/spacemit/ccu_mix.h | 21 +++++++++++++--------
+>>   2 files changed, 15 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+>> index cdde37a052353..df65009a07bb1 100644
+>> --- a/drivers/clk/spacemit/ccu-k1.c
+>> +++ b/drivers/clk/spacemit/ccu-k1.c
+>> @@ -170,7 +170,8 @@ CCU_FACTOR_GATE_DEFINE(pll1_d4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(3), 4,
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d5, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(4), 5, 1);
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d6, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(5), 6, 1);
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d7, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(6), 7, 1);
+>> -CCU_FACTOR_GATE_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1);
+>> +CCU_FACTOR_GATE_FLAGS_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1,
+>> +		CLK_IS_CRITICAL);
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d11_223p4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(15), 11, 1);
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d13_189, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(16), 13, 1);
+>>   CCU_FACTOR_GATE_DEFINE(pll1_d23_106p8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(20), 23, 1);
+>> diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
+>> index 51d19f5d6aacb..668c8139339e1 100644
+>> --- a/drivers/clk/spacemit/ccu_mix.h
+>> +++ b/drivers/clk/spacemit/ccu_mix.h
+>> @@ -101,16 +101,21 @@ static struct ccu_mix _name = {							\
+>>   	}									\
+>>   }
+>>   
+>> +#define CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+>> +			       _mul, _flags)					\
+>> +struct ccu_mix _name = {							\
+>> +	.gate	= CCU_GATE_INIT(_mask_gate),					\
+>> +	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+>> +	.common = {								\
+>> +		.reg_ctrl	= _reg_ctrl,					\
+>> +		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, _flags)	\
+>> +	}									\
+>> +}
+>> +
+>>   #define CCU_FACTOR_GATE_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+>>   			       _mul)						\
+>> -static struct ccu_mix _name = {							\
+>> -	.gate	= CCU_GATE_INIT(_mask_gate),					\
+>> -	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+>> -	.common = {								\
+>> -		.reg_ctrl	= _reg_ctrl,					\
+>> -		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, 0)	\
+>> -	}									\
+>> -}
+>> +	CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+>> +			       _mul, 0)
+>>   
+>>   #define CCU_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl, _shift, _width,		\
+>>   			    _mask_gate, _flags)					\
+>> -- 
+>> 2.45.2
+>>
+> 
 
 
 _______________________________________________
