@@ -4,101 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81B87C5AD49
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:23:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D07C5AD49
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CwqtFAiG6eAYqO/+yC0//fN2F9B05HjAE8kHmRwI9Uw=; b=hRkHBZBAZKna2D
-	yhFouAL8+6kdiAH8tkRVXOqFA3rwWb/8ctdUS+g/gZ8+kPmsap8Srz/ny/IXVET7MoLIV0yIjHvIG
-	qRYIN86Fe0fRIWxV49EKcG/+mnFgJ0MXPgwrKLkYFu9Bm+PSWTOR1JuFjKG9G6Fd4cF6MNCXZor5X
-	8CLSi8Zp1xo93q1R4TAqYTfsdhKkHf+7yurZ1ITo80LDima2vjcUceXvZLxWUsFyoGN2XzILIRZeB
-	XILaLZgpE3KwGfCqv2bWx4Ffnw50mrpzHuttk47GowYbWHExu1Ht6SRtvGn0ZueBzxrF04VAR4Zfj
-	xlwibn3vKlY20TgEhlTA==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=Jd3UmKtBnXnv0QYYejwOProFwdU5faKyRDog6kQvtig=; b=DbWsD1HmVu5Z8W
+	GR8aZo97Lx/CeHM0qJj3su35WICSDliAHlV/388ppx/Neo37GtPIerOHk+oOsfyycG/9mtvOPNDSX
+	JHj35ygD32gOwsezty8lqVlvF970rizto/EhmScmpu0FVQEwDzJ5B5VESJNc/11X4uwUkibVdcQ74
+	hD8XkFIkTEGRsjTNEius5yskO46ov2GJBvVDGc2dl0DX7UxZFyeoj31MJGTP6L5JcCR4Ct8Q1EtOo
+	Pv7/QRPiS6Bkh70bFucu37HCnCTXZaQ7h/Ox+XWD8KwCCH5BzOAI34aaQZiG4VDnhh1yLyc1mCvFq
+	farzVyX/caPwjmckFw8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPMh-000000036as-1im9;
-	Sun, 08 Jun 2025 23:23:47 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1uOPST-000000037Be-1yQZ;
+	Sun, 08 Jun 2025 23:29:45 +0000
+Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPMe-000000036Zu-28Bk
+	id 1uOPSR-000000037BK-2gMK
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Jun 2025 23:23:45 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-6fabb948e5aso40657836d6.1
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Jun 2025 16:23:44 -0700 (PDT)
+	Sun, 08 Jun 2025 23:29:44 +0000
+Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6fabb948e5aso40678566d6.1
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Jun 2025 16:29:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749425023; x=1750029823; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f80/rTjexX6kZx0F6zMPRlo3NF3zV6bgMpBVAmghpHA=;
-        b=SJDv6nfpksfMNWzaqIRKRlvYuqB3xFGYcn7X4LHvbB7nv5tOeoxcV9Ffl/tx/WtftE
-         oDeDOFpU813cBXF4ARjjl3/iP8mXwSF0RRGgygCRjoMt85a9Q8K8IK8bnwe9eFzrGKet
-         PEP4pdcV2KFE2WfCLJ7hDbk/824uzJeEBt/2t6W1IhH/IdKHqsLNEdIJ8n8BYQJXMvnr
-         OIu1DmbnoCGyZeKpyLyGijc3GAOvSi/EDQuluezcJO74tRD2XpzNjUKYnm3bXzZUIMqI
-         Ihx2tZNRzBa64kTuvrDkk1tY0BdaVDGbH7VGd9l5YqvSoB/Y43qqZIpYfj6Si8S5gGV3
-         aI9Q==
+        d=gmail.com; s=20230601; t=1749425382; x=1750030182; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SU8RawjSZdNZIx5mCZErc6Hx9E5djpvdZZjZt5itdtY=;
+        b=IgEQrhj7MLrP9To4s402u3gcm0MuyAosE2vE5cA5EPYr5teGgCkO6YHNtmO2q2elXw
+         PJX764VkQ09BejtOJJFOfju91QHXBlva5QIfZfLyAMxowZwRSnUncjYwxU5K8TsGAm1b
+         YZQxzz8viEY0pY6FdMmYsCfCIUW4RpH2CdSpP+YysmTOhBc30Ys0mIU+2W4epRfjmUkg
+         tsmKrrkYnCMI5E+eiQUJwGFmpjSdzxP7mElr8dSTPfVEbwNEnlqims344IHdWZV0NkH0
+         TOyf9j9GmpOXpv3tchdPDrNsDD8zRlDNg86Rci9MO8xnDGUFfSHs2oT9ymC72UvXifDE
+         5sfg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749425023; x=1750029823;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f80/rTjexX6kZx0F6zMPRlo3NF3zV6bgMpBVAmghpHA=;
-        b=Qa3Jd1YkZ0ZN9VHfxh33h70KZoLBZJJjfKpBQe2gkqT070dVK6sYUdrE4qgaSL947O
-         /YjFrfAzphLxa7feRvAzhBMnENB3YjoCtkwsa4hXFlAnP/jr3avaZPxsld+MFSHTRcXg
-         AxIOki4Bv9JxTCqGrEIvwELAgRtnIjBoLOAJtrwkRbYvih8X9uxL9I3fubn3ThXj6Qt0
-         LcSMMsD82ZBneXUGWcCcqoe7kn9vl4dQbK80lp6R6/gQ3iCxkuoObpDGCVp9Io+alLJb
-         A5sMR4yfGPQ805NrU7weWFMthJxmWVZZnbadCyImBZJAXXEqyAwcCR4gQY/X79INjlvv
-         yNTw==
-X-Forwarded-Encrypted: i=1; AJvYcCVAkaPNYTun2clLwdGL0TNdGEo7pAVGhSKTecYebzO9i7/UOzREGOeXIUsuVVXhzxgpIJOqNBP3v+l7VA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw//1ap3INAhgyD/ximJSkwoXJbUaC39i/rb+5tvOCRYwRYyQwB
-	HagwW8NiVentNzARrapuB+kO/fVdDJZJSoOVuT5YeSc5YDc0mBmLOpk9pUQMin8A
-X-Gm-Gg: ASbGnct2P3IbatGw+gDNoW4QAj5ltuJb5dnYpTn2bL02B8DK9S88S1sZTxpXA0Fq6sJ
-	ELz9vSmgM/gAvEBzkBDg69EsJDCcGiZEJ9Uhz9xH+O6eznEGwkuKJb3TpmbrQJJt4R7xLMjHdme
-	i1iY8IRvoMoRXxu3xvT5gQG7byVncP1JzjlnIgNl2bnPYAGq9FkKrafBhD590+6lcPXBvqlohAS
-	MBfwuxvGYoYkt/d7M3m+LGQSVEHqVhBzJtubGfm7cQFFciMIg0j0kAMOIoa5MU51Z7zbLBaFqR5
-	f6qxHG6ix6o4keNhS2H6IyjoGlKZPqCrTY1dmQ==
-X-Google-Smtp-Source: AGHT+IGDR5vCzjnRiL5Bd9DmHdP239tGw9TK/2w6p5uhxMHd8d9XEN7rTINOxss4Gjf2OI+0cHYNfw==
-X-Received: by 2002:a05:6214:5017:b0:6f9:51b5:45b4 with SMTP id 6a1803df08f44-6fb08fdc76fmr172715016d6.12.1749425023356;
-        Sun, 08 Jun 2025 16:23:43 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749425382; x=1750030182;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=SU8RawjSZdNZIx5mCZErc6Hx9E5djpvdZZjZt5itdtY=;
+        b=Ild0gKDB1TZfxHc9AH9qcms7tmqW9ev+lQZJ+cZzQUygdcM577q6soGdLWrSHMaWz4
+         tBsOQmwaMV4kMoPdWe1IRqJNyp0Y2eGa4HtnA71xdPEY4znO+seo6YScm3ILuhX8zolM
+         6R+Zd+r7l0jNm7hgCfmvD1b6F0L3Xxk+mWus8ZmOYGBK0S/59nnCPAWy89ePETevLQeG
+         XciEhQ9ol0v2q329gi2yeDLBri/DrdIw49Rcf84zhI8RJsZ8IwUJkq4fnh+hsdG6Go5H
+         G9hPf/7WGJiVmCWhiQn/uxRfjwaru1poEQBlXwa20JonT7ZwAlnwPXnjx6gsKSQW7oKy
+         ECVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXU/93xTsN9t/QtKMlf32eXVRtU9fWtiq08JiWtJobZvRqHdArxdpYDy565+bTM+pAXt/M+LRnkzkVDdw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMxCvdvGwAmiIFWNi7NpVqvcqAMigNI2iY4PznoffasQEsy4hW
+	O8j+5VBF6tZ1leXit8kp+55zerKR9PXDUG6IrupT8ZKe+dvlzc4QIkEb
+X-Gm-Gg: ASbGncu2qNbPkcVHEUMfwV1adDDM1gR0vEJwGWJ4YPUmxVP6BJJUZD2dDVwItvg+9PQ
+	WT/sIg8ap8K4bnzWvWGjWnG/hSNA4c1rBcJ5DFrAAY3dySVN8xRsjtX0F4L+5YdAn2V5SPqhj7n
+	dGICMV1DimEVCYG7KVm6Yl+1JQoi04vuFaggOzBXvEi8J26qI3z+jyUH2c3smAPMm4dxZyKu63R
+	RfjmoPwo1FQIUsG3qx3SI0lDu80t9ZH+oCtVTRB6+W/6zwhYGCG3lZCo64UjfXgEbOMg2jo3muv
+	i+46OUAsUbVkQLgx1cvYdgf00mM2pu89FP1jRg==
+X-Google-Smtp-Source: AGHT+IGptkGsilp0rjRsjr4k4/JNTYB2bLGg6xQxJeSBP2iNfrPSLopfC8ZXQso4Bk3xGJqa+Kzo+A==
+X-Received: by 2002:ad4:5ded:0:b0:6fa:fc96:d10a with SMTP id 6a1803df08f44-6fb08ff86f4mr198607016d6.27.1749425382538;
+        Sun, 08 Jun 2025 16:29:42 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09b36759sm44140746d6.121.2025.06.08.16.23.41
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09ac85a8sm43748866d6.35.2025.06.08.16.29.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Jun 2025 16:23:43 -0700 (PDT)
+        Sun, 08 Jun 2025 16:29:42 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
 	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Ze Huang <huangze@whut.edu.cn>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@gmail.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Longbin Li <looong.bin@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>,
 	devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v2 4/4] riscv: dts: sophgo: add reset configuration for Sophgo CV1800 series SoC
-Date: Mon,  9 Jun 2025 07:22:10 +0800
-Message-ID: <20250608232214.771855-5-inochiama@gmail.com>
+	netdev@vger.kernel.org,
+	Yixun Lan <dlan@gentoo.org>
+Subject: [PATCH 00/11] riscv: sophgo: sg2044: add DTS support for all available devices
+Date: Mon,  9 Jun 2025 07:28:24 +0800
+Message-ID: <20250608232836.784737-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250608232214.771855-1-inochiama@gmail.com>
-References: <20250608232214.771855-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_162344_546658_2B42C5CA 
-X-CRM114-Status: UNSURE (   7.63  )
+X-CRM114-CacheID: sfid-20250608_162943_698741_071FD04D 
+X-CRM114-Status: UNSURE (   6.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,162 +111,29 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add known reset configuration for existed device.
+As the clock driver for SG2044 got merged, it is possible to add
+dts node for all support devices of SG2044.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- arch/riscv/boot/dts/sophgo/cv180x.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+Inochi Amaoto (9):
+  riscv: dts: sophgo: sg2044: Add system controller device
+  riscv: dts: sophgo: sg2044: Add clock controller device
+  riscv: dts: sophgo: sg2044: Add GPIO device
+  riscv: dts: sophgo: sg2044: Add I2C device
+  riscv: dts: sophgo: sg2044: add DMA controller device
+  riscv: dts: sophgo: sg2044: Add MMC controller device
+  riscv: dts: sophgo: sophgo-srd3-10: add HWMON MCU device
+  riscv: dts: sophgo: sg2044: Add ethernet control device
+  riscv: dts: sophgo: sg2044: Add pinctrl device
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-index 4c3d16764131..e91bb512b099 100644
---- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-@@ -36,6 +36,7 @@ gpio0: gpio@3020000 {
- 			reg = <0x3020000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			resets = <&rst RST_GPIO0>;
- 
- 			porta: gpio-controller@0 {
- 				compatible = "snps,dw-apb-gpio-port";
-@@ -54,6 +55,7 @@ gpio1: gpio@3021000 {
- 			reg = <0x3021000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			resets = <&rst RST_GPIO1>;
- 
- 			portb: gpio-controller@0 {
- 				compatible = "snps,dw-apb-gpio-port";
-@@ -72,6 +74,7 @@ gpio2: gpio@3022000 {
- 			reg = <0x3022000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			resets = <&rst RST_GPIO2>;
- 
- 			portc: gpio-controller@0 {
- 				compatible = "snps,dw-apb-gpio-port";
-@@ -90,6 +93,7 @@ gpio3: gpio@3023000 {
- 			reg = <0x3023000 0x1000>;
- 			#address-cells = <1>;
- 			#size-cells = <0>;
-+			resets = <&rst RST_GPIO3>;
- 
- 			portd: gpio-controller@0 {
- 				compatible = "snps,dw-apb-gpio-port";
-@@ -133,6 +137,7 @@ i2c0: i2c@4000000 {
- 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C0>;
- 			clock-names = "ref", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(33) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_I2C0>;
- 			status = "disabled";
- 		};
- 
-@@ -144,6 +149,7 @@ i2c1: i2c@4010000 {
- 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C1>;
- 			clock-names = "ref", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(34) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_I2C1>;
- 			status = "disabled";
- 		};
- 
-@@ -155,6 +161,7 @@ i2c2: i2c@4020000 {
- 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C2>;
- 			clock-names = "ref", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(35) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_I2C2>;
- 			status = "disabled";
- 		};
- 
-@@ -166,6 +173,7 @@ i2c3: i2c@4030000 {
- 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C3>;
- 			clock-names = "ref", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(36) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_I2C3>;
- 			status = "disabled";
- 		};
- 
-@@ -177,6 +185,7 @@ i2c4: i2c@4040000 {
- 			clocks = <&clk CLK_I2C>, <&clk CLK_APB_I2C4>;
- 			clock-names = "ref", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(37) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_I2C4>;
- 			status = "disabled";
- 		};
- 
-@@ -188,6 +197,7 @@ uart0: serial@4140000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
-+			resets = <&rst RST_UART0>;
- 			status = "disabled";
- 		};
- 
-@@ -199,6 +209,7 @@ uart1: serial@4150000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
-+			resets = <&rst RST_UART1>;
- 			status = "disabled";
- 		};
- 
-@@ -210,6 +221,7 @@ uart2: serial@4160000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
-+			resets = <&rst RST_UART2>;
- 			status = "disabled";
- 		};
- 
-@@ -221,6 +233,7 @@ uart3: serial@4170000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
-+			resets = <&rst RST_UART3>;
- 			status = "disabled";
- 		};
- 
-@@ -232,6 +245,7 @@ spi0: spi@4180000 {
- 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI0>;
- 			clock-names = "ssi_clk", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(38) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPI0>;
- 			status = "disabled";
- 		};
- 
-@@ -243,6 +257,7 @@ spi1: spi@4190000 {
- 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI1>;
- 			clock-names = "ssi_clk", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(39) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPI1>;
- 			status = "disabled";
- 		};
- 
-@@ -254,6 +269,7 @@ spi2: spi@41a0000 {
- 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI2>;
- 			clock-names = "ssi_clk", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(40) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPI2>;
- 			status = "disabled";
- 		};
- 
-@@ -265,6 +281,7 @@ spi3: spi@41b0000 {
- 			clocks = <&clk CLK_SPI>, <&clk CLK_APB_SPI3>;
- 			clock-names = "ssi_clk", "pclk";
- 			interrupts = <SOC_PERIPHERAL_IRQ(41) IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&rst RST_SPI3>;
- 			status = "disabled";
- 		};
- 
-@@ -276,6 +293,7 @@ uart4: serial@41c0000 {
- 			clock-names = "baudclk", "apb_pclk";
- 			reg-shift = <2>;
- 			reg-io-width = <4>;
-+			resets = <&rst RST_UART4>;
- 			status = "disabled";
- 		};
- 
--- 
+Longbin Li (2):
+  riscv: dts: sophgo: add SG2044 SPI NOR controller driver
+  riscv: dts: sophgo: add pwm controller for SG2044
+
+ .../boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  48 +++
+ arch/riscv/boot/dts/sophgo/sg2044.dtsi        | 313 ++++++++++++++++++
+ 2 files changed, 361 insertions(+)
+
+--
 2.49.0
 
 
