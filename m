@@ -4,66 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898A1C5B543
-	for <linux-riscv@archiver.kernel.org>; Sat,  7 Jun 2025 23:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF57C5B543
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 00:25:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=lf4I6e5geT3Gi7SXRgNFfPkjywaMcGEqQLAxiyTyZAE=; b=xc/4JnnC6NPWtB
-	apWfTZrxlb8rmkNkXZ4uplhM4LU2QOR0DdNkSiDsOqgi+Lozr90n81QMh5vtMomGOOS3qJHb+dCn+
-	u00pxw1C3HtkbfvZN2UBzJC7ZnDkiYuJZWkD3vKNjKoaQqw98sFTSoPK8px3p/iGhRrnwGXCTzaKu
-	Hcso53S0tcoKGt9kXrbQIAOp5a4EXjTtlBuccbpy9aPgqo6+64tW5k3emFiIP/t2bgjMmjbrF31Dm
-	4SyPIWb/2u8F4xHOOoA0rr2kaOG7HuJJYPs3Yi5vowY4z1DXWLxn5sxB2wmtdpzr1wOmYGCmBCTSL
-	zvzXYOPEu7KMprqw0lsg==;
+	List-Owner; bh=8glWNBaWuTtLIZ3KG4IYCs6nDp9zooORGtqoYdOouSY=; b=DjLPNuxG5Aaipg
+	Zbum3AgJBnW0sB3r5mkJe04wxLF+2iProINEjOsAwo5TLLPt5ddKG4VQPoXkfu2zNmN/2blko7O+R
+	msYZ3CzPOHsrL2UDkTrm9CUS+pMYgpxuzyas+dWF+pQ5hyrH41EuPh5T2NB4XYG5F68X8xMC3piIC
+	nVZNlpmLHSnJMgSVwA1HAtMFkTe1lrjWqC8TPF7+/Gf+Xw2G0LI7ojCLnP43yuQ4kJxtfglHxQdZW
+	nvLtonKVMdO8tNcvo0tDXLOeFEWkIYrLI7lofyR+9FBQswKIPEqDBvDZZqjitfgPWs0PV/l3vpoTQ
+	/vy4fUKCoOuak1p8dUWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO3I0-00000002DOC-1DZV;
-	Sat, 07 Jun 2025 23:49:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uO3qY-00000002ERt-0rsH;
+	Sun, 08 Jun 2025 00:25:10 +0000
+Received: from smtp.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uO3Fn-00000002DHA-25M3;
-	Sat, 07 Jun 2025 23:47:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 333DAA40311;
-	Sat,  7 Jun 2025 23:47:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE6DC4CEE4;
-	Sat,  7 Jun 2025 23:47:07 +0000 (UTC)
-Authentication-Results: smtp.kernel.org;
-	dkim=pass (1024-bit key) header.d=zx2c4.com header.i=@zx2c4.com header.b="jsPgU/cc"
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zx2c4.com; s=20210105;
-	t=1749340025;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9BLd3zVhm1uyr2zWfOpGUqAHdfaRE3TGpoHRN6aaMSk=;
-	b=jsPgU/ccygnXS60vh3VCJ8IeDnGtsomv+dciNUeunJ0SO8LqmCcTqPcJBkB2QFrLru1ll1
-	E9OF1lkNEqMRShrw2za9BAoJsJQKmF9rvzmtd3v/rLI1EduGNSPRtry+Kyl+tncxIkS+aK
-	UrU1VhYkP4pcQtnNoKmPvrZIA/DIb6Q=
-Received: by mail.zx2c4.com (ZX2C4 Mail Server) with ESMTPSA id 669734c3 (TLSv1.3:TLS_AES_256_GCM_SHA384:256:NO);
-	Sat, 7 Jun 2025 23:47:04 +0000 (UTC)
-Date: Sat, 7 Jun 2025 17:47:02 -0600
-From: "Jason A. Donenfeld" <Jason@zx2c4.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
- integrated
-Message-ID: <aETPdvg8qXv18MDu@zx2c4.com>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
+	id 1uO3qV-00000002ERX-2EMk
+	for linux-riscv@lists.infradead.org;
+	Sun, 08 Jun 2025 00:25:08 +0000
+Received: from localhost (unknown [116.232.147.71])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: dlan)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id 8F8BA335D15;
+	Sun, 08 Jun 2025 00:25:04 +0000 (UTC)
+Date: Sun, 8 Jun 2025 00:24:53 +0000
+From: Yixun Lan <dlan@gentoo.org>
+To: Alex Elder <elder@riscstar.com>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, heylenay@4d2.org,
+	inochiama@outlook.com, linux-clk@vger.kernel.org,
+	spacemit@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Guodong Xu <guodong@riscstar.com>
+Subject: Re: [PATCH] clk: spacemit: mark K1 pll1_d8 as critical
+Message-ID: <20250608002453-GYA108101@gentoo>
+References: <20250607202759.4180579-1-elder@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
+In-Reply-To: <20250607202759.4180579-1-elder@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250607_164711_835299_F3726C59 
-X-CRM114-Status: GOOD (  14.05  )
+X-CRM114-CacheID: sfid-20250607_172507_609066_6AA54D1A 
+X-CRM114-Status: GOOD (  22.83  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,22 +66,96 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Sat, Jun 07, 2025 at 01:04:42PM -0700, Eric Biggers wrote:
-> Having arch-specific code outside arch/ was somewhat controversial when
-> Zinc proposed it back in 2018.  But I don't think the concerns are
-> warranted.  It's better from a technical perspective, as it enables the
-> improvements mentioned above.  This model is already successfully used
-> in other places in the kernel such as lib/raid6/.  The community of each
-> architecture still remains free to work on the code, even if it's not in
-> arch/.  At the time there was also a desire to put the library code in
-> the same files as the old-school crypto API, but that was a mistake; now
-> that the library is separate, that's no longer a constraint either.
+Hi Alex,
 
-I can't express how happy I am to see this revived. It's clearly the
-right way forward and makes it a lot simpler for us to dispatch to
-various arch implementations and also is organizationally simpler.
+On 15:27 Sat 07 Jun     , Alex Elder wrote:
+> The pll1_d8 clock is enabled by the boot loader, and is ultimately a
+> parent for numerous clocks.  Guodong Xu was recently testing DMA,
+            ~~~~~~~~~this is still vague, numerous isn't equal to critical
+     
+> adding a reset property, and discovered that the needed reset was
+> not yet ready during initial probe.  It dropped its clock reference,
+> which dropped parent references, and along the way it dropped the sole
+> reference to pll1_d8 (from its prior clk_get()).  Clock pll1_d8 got
+> disabled, which resulted in a non-functioning system.
+> 
+So, I'm trying to understand the problem, and would like to evaluate if
+the "critical" flag is necessary..
 
-Jason
+It occurs to me, the DMA driver should request and enable clock first,
+then request and issue a reset, it probably could be solved by proper
+order? so what's the real problem here? is DMA or reset? dropped the 
+clock? or does driver fail to request a reset before clock is ready?
+
+> Mark that clock critical so it doesn't get turned off in this case.
+> We might be able to turn this flag off someday, but for now it
+> resolves the problem Guodong encountered.
+> 
+> Define a new macro CCU_FACTOR_GATE_DEFINE() to allow clock flags to
+> be supplied for a CCU_FACTOR_GATE clock.
+> 
+> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> Signed-off-by: Alex Elder <elder@riscstar.com>
+> Tested-by: Guodong Xu <guodong@riscstar.com>
+> ---
+>  drivers/clk/spacemit/ccu-k1.c  |  3 ++-
+>  drivers/clk/spacemit/ccu_mix.h | 21 +++++++++++++--------
+>  2 files changed, 15 insertions(+), 9 deletions(-)
+> 
+> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> index cdde37a052353..df65009a07bb1 100644
+> --- a/drivers/clk/spacemit/ccu-k1.c
+> +++ b/drivers/clk/spacemit/ccu-k1.c
+> @@ -170,7 +170,8 @@ CCU_FACTOR_GATE_DEFINE(pll1_d4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(3), 4,
+>  CCU_FACTOR_GATE_DEFINE(pll1_d5, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(4), 5, 1);
+>  CCU_FACTOR_GATE_DEFINE(pll1_d6, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(5), 6, 1);
+>  CCU_FACTOR_GATE_DEFINE(pll1_d7, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(6), 7, 1);
+> -CCU_FACTOR_GATE_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1);
+> +CCU_FACTOR_GATE_FLAGS_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1,
+> +		CLK_IS_CRITICAL);
+>  CCU_FACTOR_GATE_DEFINE(pll1_d11_223p4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(15), 11, 1);
+>  CCU_FACTOR_GATE_DEFINE(pll1_d13_189, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(16), 13, 1);
+>  CCU_FACTOR_GATE_DEFINE(pll1_d23_106p8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(20), 23, 1);
+> diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
+> index 51d19f5d6aacb..668c8139339e1 100644
+> --- a/drivers/clk/spacemit/ccu_mix.h
+> +++ b/drivers/clk/spacemit/ccu_mix.h
+> @@ -101,16 +101,21 @@ static struct ccu_mix _name = {							\
+>  	}									\
+>  }
+>  
+> +#define CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+> +			       _mul, _flags)					\
+> +struct ccu_mix _name = {							\
+> +	.gate	= CCU_GATE_INIT(_mask_gate),					\
+> +	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+> +	.common = {								\
+> +		.reg_ctrl	= _reg_ctrl,					\
+> +		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, _flags)	\
+> +	}									\
+> +}
+> +
+>  #define CCU_FACTOR_GATE_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+>  			       _mul)						\
+> -static struct ccu_mix _name = {							\
+> -	.gate	= CCU_GATE_INIT(_mask_gate),					\
+> -	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+> -	.common = {								\
+> -		.reg_ctrl	= _reg_ctrl,					\
+> -		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, 0)	\
+> -	}									\
+> -}
+> +	CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+> +			       _mul, 0)
+>  
+>  #define CCU_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl, _shift, _width,		\
+>  			    _mask_gate, _flags)					\
+> -- 
+> 2.45.2
+> 
+
+-- 
+Yixun Lan (dlan)
 
 _______________________________________________
 linux-riscv mailing list
