@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D07C5AD49
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:29:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 350BEC61CE8
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:29:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=Jd3UmKtBnXnv0QYYejwOProFwdU5faKyRDog6kQvtig=; b=DbWsD1HmVu5Z8W
-	GR8aZo97Lx/CeHM0qJj3su35WICSDliAHlV/388ppx/Neo37GtPIerOHk+oOsfyycG/9mtvOPNDSX
-	JHj35ygD32gOwsezty8lqVlvF970rizto/EhmScmpu0FVQEwDzJ5B5VESJNc/11X4uwUkibVdcQ74
-	hD8XkFIkTEGRsjTNEius5yskO46ov2GJBvVDGc2dl0DX7UxZFyeoj31MJGTP6L5JcCR4Ct8Q1EtOo
-	Pv7/QRPiS6Bkh70bFucu37HCnCTXZaQ7h/Ox+XWD8KwCCH5BzOAI34aaQZiG4VDnhh1yLyc1mCvFq
-	farzVyX/caPwjmckFw8g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=7P//kXkL3vQbS6cDvs+skAqsC3YvL6mHBk65uU5VBAA=; b=cMZlAmCNOQ3L4E
+	jkLjClHJB9Lk7zczdqh83hYW/43vtqEJ1I/yWqf7G++tJMlu3slbHd6tJ4/bN8g6GmAg2CZn608rT
+	KPvM+lS8gsey0O4czYxWD10qrH7Z8mOVOM3yPn9sXh+rZfGhDe57HD/sHIfSoFZ0p3ZwJo6cc9bgq
+	8N8s421PlafVZjl9BHPt3aT3Nmtde49vCiKU4seIKFtrF/3x+8UfI2dFYBwmENGc6p3rvvbfIrPu3
+	3KEgVgOl+3cC5uwEiQBIOQ5NUh2laqb8SfOyT7+3bfQcBaXvPJwO3I/FGX4rPAXUPgSfkvkSzktDS
+	FsuXBsNqpKaPeX2gumzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPST-000000037Be-1yQZ;
-	Sun, 08 Jun 2025 23:29:45 +0000
-Received: from mail-qv1-xf29.google.com ([2607:f8b0:4864:20::f29])
+	id 1uOPSX-000000037Cv-081j;
+	Sun, 08 Jun 2025 23:29:49 +0000
+Received: from mail-qk1-x736.google.com ([2607:f8b0:4864:20::736])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPSR-000000037BK-2gMK
+	id 1uOPSV-000000037CJ-0Wk6
 	for linux-riscv@lists.infradead.org;
-	Sun, 08 Jun 2025 23:29:44 +0000
-Received: by mail-qv1-xf29.google.com with SMTP id 6a1803df08f44-6fabb948e5aso40678566d6.1
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Jun 2025 16:29:43 -0700 (PDT)
+	Sun, 08 Jun 2025 23:29:48 +0000
+Received: by mail-qk1-x736.google.com with SMTP id af79cd13be357-7d38b84984dso201645785a.0
+        for <linux-riscv@lists.infradead.org>; Sun, 08 Jun 2025 16:29:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749425382; x=1750030182; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=SU8RawjSZdNZIx5mCZErc6Hx9E5djpvdZZjZt5itdtY=;
-        b=IgEQrhj7MLrP9To4s402u3gcm0MuyAosE2vE5cA5EPYr5teGgCkO6YHNtmO2q2elXw
-         PJX764VkQ09BejtOJJFOfju91QHXBlva5QIfZfLyAMxowZwRSnUncjYwxU5K8TsGAm1b
-         YZQxzz8viEY0pY6FdMmYsCfCIUW4RpH2CdSpP+YysmTOhBc30Ys0mIU+2W4epRfjmUkg
-         tsmKrrkYnCMI5E+eiQUJwGFmpjSdzxP7mElr8dSTPfVEbwNEnlqims344IHdWZV0NkH0
-         TOyf9j9GmpOXpv3tchdPDrNsDD8zRlDNg86Rci9MO8xnDGUFfSHs2oT9ymC72UvXifDE
-         5sfg==
+        d=gmail.com; s=20230601; t=1749425386; x=1750030186; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bCb6v/f0HspzS243Pz/dNvSdYY/W6vQ50DJnwXfCQFM=;
+        b=gAwrdZL3fvtDcsIF4g4MvXOPBiubiLsCIfe0FtWx2k6B4rRSeRr8S1O9VWOl1XQKux
+         npmcLmp3gJIamC50qb5KNNnzV01w1Zb9eD11ahoXm5hZq9qOb08QR4bG4rI8FLI1VXT9
+         dTlpPMJgYkrGooyPqPqpK1vtSQDInIg2lQmQ6ljYNSNZGJLkBNGuTv+1C5l3N0BzX0m7
+         UTaWN7ggVNDgxzJQn7yyD+FSKn7gZqsC8EC198VBQq+6WBsenBtUdNeFmyeTZNmVrh6i
+         gVb6XXF7CwcY/3gM+asHC+dh2WIi/NrS14hM1aNr2UoIxSmjAYc4FcOaD6OJR75LwdSv
+         Lndw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749425382; x=1750030182;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=SU8RawjSZdNZIx5mCZErc6Hx9E5djpvdZZjZt5itdtY=;
-        b=Ild0gKDB1TZfxHc9AH9qcms7tmqW9ev+lQZJ+cZzQUygdcM577q6soGdLWrSHMaWz4
-         tBsOQmwaMV4kMoPdWe1IRqJNyp0Y2eGa4HtnA71xdPEY4znO+seo6YScm3ILuhX8zolM
-         6R+Zd+r7l0jNm7hgCfmvD1b6F0L3Xxk+mWus8ZmOYGBK0S/59nnCPAWy89ePETevLQeG
-         XciEhQ9ol0v2q329gi2yeDLBri/DrdIw49Rcf84zhI8RJsZ8IwUJkq4fnh+hsdG6Go5H
-         G9hPf/7WGJiVmCWhiQn/uxRfjwaru1poEQBlXwa20JonT7ZwAlnwPXnjx6gsKSQW7oKy
-         ECVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXU/93xTsN9t/QtKMlf32eXVRtU9fWtiq08JiWtJobZvRqHdArxdpYDy565+bTM+pAXt/M+LRnkzkVDdw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzMxCvdvGwAmiIFWNi7NpVqvcqAMigNI2iY4PznoffasQEsy4hW
-	O8j+5VBF6tZ1leXit8kp+55zerKR9PXDUG6IrupT8ZKe+dvlzc4QIkEb
-X-Gm-Gg: ASbGncu2qNbPkcVHEUMfwV1adDDM1gR0vEJwGWJ4YPUmxVP6BJJUZD2dDVwItvg+9PQ
-	WT/sIg8ap8K4bnzWvWGjWnG/hSNA4c1rBcJ5DFrAAY3dySVN8xRsjtX0F4L+5YdAn2V5SPqhj7n
-	dGICMV1DimEVCYG7KVm6Yl+1JQoi04vuFaggOzBXvEi8J26qI3z+jyUH2c3smAPMm4dxZyKu63R
-	RfjmoPwo1FQIUsG3qx3SI0lDu80t9ZH+oCtVTRB6+W/6zwhYGCG3lZCo64UjfXgEbOMg2jo3muv
-	i+46OUAsUbVkQLgx1cvYdgf00mM2pu89FP1jRg==
-X-Google-Smtp-Source: AGHT+IGptkGsilp0rjRsjr4k4/JNTYB2bLGg6xQxJeSBP2iNfrPSLopfC8ZXQso4Bk3xGJqa+Kzo+A==
-X-Received: by 2002:ad4:5ded:0:b0:6fa:fc96:d10a with SMTP id 6a1803df08f44-6fb08ff86f4mr198607016d6.27.1749425382538;
-        Sun, 08 Jun 2025 16:29:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749425386; x=1750030186;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bCb6v/f0HspzS243Pz/dNvSdYY/W6vQ50DJnwXfCQFM=;
+        b=AR3af+fzOBZPX+d6AvimI6HdW/EM9KRiAQT8qb1Wt4VRvuZbtPS9amTrwhaGF2UhMq
+         3E5URKFkTEJM5qv4YMnkcz/+35c1iiZCToBSiy4p7Ckfq1vQKN1O0xJAEDY4toxNtd+3
+         eQXJWgf4oKyIdHQjKrRTldSHvd1ACYlZ4g7nzgZeo60a6iBssOFrRATHrtOfgJGVoE7V
+         j2nvEAvDF861n13EViMasUpMoJwO6ze9nQXEir6bs+cKH9h9Ho2Rpinn1wKCYfQaHdca
+         dC1HuObic6sm63EmY2K96HbcuqHS4Y228U4K6A97z7L/bq07I+uPDw8qk/gDcHmoy/vD
+         ZCpg==
+X-Forwarded-Encrypted: i=1; AJvYcCUshk6dYIImfZOJeZ7QhS90IfP1KQ91JdBME5ONbTOcztQ376hU/rc+mU7mXuwg36rvgxPMGy76n9iiyg==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3fOkEMU2QWc8ZfXslv1on/ra/GgB1q+uJO1wEZhs80NW19UBJ
+	fQfssf0RrOnGEnhcjPOvhrs23IoOeADinj/hQ5cnYor5QE+kpDPgBTmR
+X-Gm-Gg: ASbGncv+RaU6wLHhptDXmy9E/Gac3afegr6/LRJz5nCalcsF/QOYe+4b27S2EMCMCq3
+	yevIlgBS3LHWHha4PP3rzxIQMhJcUefqN0tOBtw9qJuGY8mg9XER+DXhODdNJqtbgWNXzmJ9ast
+	7w/h12VDRECVQFUF35RFfqCJRxc0rfwSJ9BSoqPoy/CfD/SBVqaF5rMbxX4O5NiqT3g6X0Ztmd3
+	msYehfx8iD5QuZN12JSFGoeG+p3hu8z8XIfaceldB82uJwZNnsD+iGmoQKwJpNevnCUZdJPpUfM
+	PkXA/y965uPBaMGzFEU5WTnq/swr37xKGKH4Ag==
+X-Google-Smtp-Source: AGHT+IF1BKK0uFTInialGKijH/6k16MniaxLSvYp4PMRIjXYhZYA5hYo3Y7cvlg6UD8+EGsy2nqTeg==
+X-Received: by 2002:a05:620a:1a8b:b0:7c9:1523:3f17 with SMTP id af79cd13be357-7d2298ed2edmr1567583185a.57.1749425386115;
+        Sun, 08 Jun 2025 16:29:46 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09ac85a8sm43748866d6.35.2025.06.08.16.29.41
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d25a535794sm465946885a.26.2025.06.08.16.29.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Jun 2025 16:29:42 -0700 (PDT)
+        Sun, 08 Jun 2025 16:29:45 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -86,14 +87,16 @@ Cc: Han Gao <rabenda.cn@gmail.com>,
 	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH 00/11] riscv: sophgo: sg2044: add DTS support for all available devices
-Date: Mon,  9 Jun 2025 07:28:24 +0800
-Message-ID: <20250608232836.784737-1-inochiama@gmail.com>
+Subject: [PATCH 01/11] riscv: dts: sophgo: sg2044: Add system controller device
+Date: Mon,  9 Jun 2025 07:28:25 +0800
+Message-ID: <20250608232836.784737-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250608232836.784737-1-inochiama@gmail.com>
+References: <20250608232836.784737-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_162943_698741_071FD04D 
-X-CRM114-Status: UNSURE (   6.93  )
+X-CRM114-CacheID: sfid-20250608_162947_164891_45088DB6 
+X-CRM114-Status: UNSURE (   8.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -111,29 +114,33 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-As the clock driver for SG2044 got merged, it is possible to add
-dts node for all support devices of SG2044.
+The TOP system controller device is necessary for the SG2044 clock
+controller. Add it to the SoC device tree.
 
-Inochi Amaoto (9):
-  riscv: dts: sophgo: sg2044: Add system controller device
-  riscv: dts: sophgo: sg2044: Add clock controller device
-  riscv: dts: sophgo: sg2044: Add GPIO device
-  riscv: dts: sophgo: sg2044: Add I2C device
-  riscv: dts: sophgo: sg2044: add DMA controller device
-  riscv: dts: sophgo: sg2044: Add MMC controller device
-  riscv: dts: sophgo: sophgo-srd3-10: add HWMON MCU device
-  riscv: dts: sophgo: sg2044: Add ethernet control device
-  riscv: dts: sophgo: sg2044: Add pinctrl device
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ arch/riscv/boot/dts/sophgo/sg2044.dtsi | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-Longbin Li (2):
-  riscv: dts: sophgo: add SG2044 SPI NOR controller driver
-  riscv: dts: sophgo: add pwm controller for SG2044
-
- .../boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  48 +++
- arch/riscv/boot/dts/sophgo/sg2044.dtsi        | 313 ++++++++++++++++++
- 2 files changed, 361 insertions(+)
-
---
+diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+index d67e45f77d6e..a0c13d8d26af 100644
+--- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
++++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+@@ -76,6 +76,13 @@ uart3: serial@7030003000 {
+ 			status = "disabled";
+ 		};
+ 
++		syscon: syscon@7050000000 {
++			compatible = "sophgo,sg2044-top-syscon", "syscon";
++			reg = <0x70 0x50000000 0x0 0x1000>;
++			#clock-cells = <1>;
++			clocks = <&osc>;
++		};
++
+ 		rst: reset-controller@7050003000 {
+ 			compatible = "sophgo,sg2044-reset",
+ 				     "sophgo,sg2042-reset";
+-- 
 2.49.0
 
 
