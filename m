@@ -4,100 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C51DC61CE7
-	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8AD2AC5AD49
+	for <linux-riscv@archiver.kernel.org>; Sun,  8 Jun 2025 23:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AeJE9GcHiDWvWK+R1kuPafM9p20kFoCFFQ86uS1Cj6I=; b=kY4F7qQNFxWRhu
-	RJqYb/JbYjcaaN0X7I1RhINXLF2D4mu6HvXetzcVlCMp9EL3qvg6kOglppWqTqvRkzmsIza23FrKY
-	pemHwZNtKhUO+McSakeedQlEoR0UigC25LocEQ+kecSZ+J4Elhb68F4fUNkenPydJ7i0rzEhDrIid
-	yKdWpv5u4Hak7sKDedMbSR9PGW9qbXfCaEMz4zqYt8Kq9Q7DQ/rp8nWB+akarWwphzWJVWSCrVkvy
-	8DnJXCPANLXgIVxUSHxRJ5GBy6OSbtxmO2xPPPKdPTNm9l+D10E06H0rhl4T3FRrm/c/JEqFBFALC
-	7/bzFL6MAAdhrZGA413w==;
+	List-Owner; bh=JtJFl46d02Wg8EfBKVLFYVapzQzp52Zq5m3IStfIvmE=; b=FrhTeDChF+H0po
+	NhZIQYMX1kJB1ydxvNFaLalzVpAxhtNHAwICPRHQuK4ggmapjCZXjrBa5MUASb/ySfuGroIQYM4MA
+	GAHJX+4hzSv5dtAXqCiBLXBew3KEjmr6YyNkXslZqtmJQXJDUZoJH+R4Puk5Twot+r1TEAVaIevZy
+	uXAeoMwdFDjVCRFiTN27kCEtM8x1TeQ9xCi9Kjgx95y7xwhw1N0pCD0dNwWL8/sKn1E0w87b8in6V
+	/x+QVGBHwr2Vyc42amT+LSKfp8GiGwOs2vAFEnJZmE7xz3x0B/lLCiAmBqeQh8BdrRAZOzcKndsBR
+	FXaxVhtZl6Z4z7XfHz4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPSz-000000037W2-07FT;
-	Sun, 08 Jun 2025 23:30:17 +0000
-Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
+	id 1uOPlR-000000039X1-2XsD;
+	Sun, 08 Jun 2025 23:49:21 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOPSw-000000037Sl-08rQ
-	for linux-riscv@lists.infradead.org;
-	Sun, 08 Jun 2025 23:30:15 +0000
-Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4a58ebece05so43611071cf.1
-        for <linux-riscv@lists.infradead.org>; Sun, 08 Jun 2025 16:30:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749425413; x=1750030213; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=dF4yjXSJrUcpYvv+fh7N1bp9yrQ9N5XG6Cs9FRn2x8Y=;
-        b=VnPdiJSBiu4ROki5zZ8YHJJXD3veCTXyYmLR3cah5vzMhOMu9LZTdfp0buIUeDiqw+
-         4Uocp2bCT3Anr/Z2xOy5dqS2S4GphvC0ZZLqL4GD1csMPES+hAtMwPq2HcZqg7Psd12c
-         UQsbLjR9jWvWyEvJHIofqxHYmGEy1V/oYrnbhb5d+J/AKceWHRZT9bnp4NJif5bzyxeF
-         1wPazFQhl4cRoxWCd4oWktCHIGmVUcFoCqP7WvuPkawcVbwFoC2Ydbt27zS4SvrrgUfO
-         mmbEH0W0vtd5qjlT0wAP9y9NgMaqsunlXcsU2AYQEN35d+whpq2hVb1h2M8Eoep+C7V3
-         7UJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749425413; x=1750030213;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=dF4yjXSJrUcpYvv+fh7N1bp9yrQ9N5XG6Cs9FRn2x8Y=;
-        b=nVc39XoUpzZMvbQmyQTeHKwJ811p/fvhZlNPwbwD1UaL3NoqaPyF7LkNdvJ41d0sWD
-         Dx7AnVMq8/1jKMp/yNl2e4Uf3z7sMG+3ABJt3l3N7c1XOhaoagFIBSs0qEeZeLoRUBFB
-         mkH3hpdWZcQGcLoVoiHWTBEuwEkK0saKGfqD2Ne0dmnZRMgA6Coru+SCLWT8xU51yZps
-         iFHMh8bb6Xgb7YWWDihXVH+iW6xAdWFG1Lq7zVax5+buIQoQYK4CUNjqlNTNSiYsA3my
-         KkEjhRHF/ENJ6Zri5OVR+uTlWXcXDYeJOYqc53OYDi0I4a1TeKoq5NVI01uRLwBSntW6
-         ccgg==
-X-Forwarded-Encrypted: i=1; AJvYcCVdlg5XHxwXxW3amtSzFAinycKwePids4rw+VETv7ubLxo7Dfk3O3vy5RFfLsi+wl88gNbanEirs2BvMw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyq0Xk/+9K9lNP5zfe6PPpxymxGasdGz56DqtDcUzXlkKQg+SMg
-	h8DTEs7lCp3Y64eCIDOn2Kj42wAikIbXBDUunakU4m/3KGHy+HGb3QKH
-X-Gm-Gg: ASbGncsdAukuXbVwmkzsXSykn1YMnBp+SWlAZLVojgl4CWT3A0eL/fd6YBuY+cgMR+/
-	YqtWz9DqAVMcOznYMB2qlxWiEw1AIPURJ9gTd4JlE+ZO1bxLIKjvptdHJvpsRJc3ETsDSd7r8S2
-	QA7mI6pOfdKPjtrVaU4VStUe3FhMSQJZmmR1OWXJYgYZj093unXDu9rf9yCMEKz57ixBbXhP8Rt
-	cuU26e4wssMH04IhMat11GYMeYCQ6VFZUY4fV+7aDuFH0m9Ty8bZ83YtliCYcy/8DWeG6tyAiSp
-	kc4LuAXNyllhFNzvCRUQRe43Kh58j/Uu7Rg1Ug==
-X-Google-Smtp-Source: AGHT+IFJtdD36SLKzA4s4tQ2l6v6xrhKbEE2YacMHc2B6BFbqlcLwe3sQC6STy67hHJv2b5IpjtjiA==
-X-Received: by 2002:ac8:530e:0:b0:4a6:ef6d:d608 with SMTP id d75a77b69052e-4a6ef6dd6f2mr102198141cf.38.1749425413058;
-        Sun, 08 Jun 2025 16:30:13 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4a61115000bsm48297391cf.1.2025.06.08.16.30.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 08 Jun 2025 16:30:12 -0700 (PDT)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Longbin Li <looong.bin@gmail.com>
-Cc: Han Gao <rabenda.cn@gmail.com>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	sophgo@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Yixun Lan <dlan@gentoo.org>
-Subject: [PATCH 09/11] riscv: dts: sophgo: sg2044: Add pinctrl device
-Date: Mon,  9 Jun 2025 07:28:33 +0800
-Message-ID: <20250608232836.784737-10-inochiama@gmail.com>
-X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250608232836.784737-1-inochiama@gmail.com>
-References: <20250608232836.784737-1-inochiama@gmail.com>
+	id 1uOPjJ-000000039I4-0uOV;
+	Sun, 08 Jun 2025 23:47:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5C5A0A4F6B4;
+	Sun,  8 Jun 2025 23:47:08 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8491AC4CEEE;
+	Sun,  8 Jun 2025 23:47:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749426428;
+	bh=He/qqF7BxEbAQ+KhVIwOAYIjY3DpawZEJHr+Xte/K6Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=EPyWCyBVPXpu72efvExgg8gLAw9penLyFzlo1qRsspsqyd4JZoFxW7hHQvlnEtIIa
+	 1BxGaS04c9RuFEve+dtCt1LEb2SSISR2VgjLm0WYXRDHNt8nXsOorMQAj8PjQpmAB0
+	 F5rfSxl/09kNUJny72FkrWqXDDqrWHkySwoyI3r23w9s9UZxhxYgVcxmIH21znQLYr
+	 RAY4VaCbmTRnWUl2bEewz1enz7kzJYX9fFC9W66bUVBifTQ9wgF652vwOiRoE9mHCR
+	 SyixTBnJQbaXXeJQKz8gWyl2YRqW1kNgBMYmIhv1mCruOadbFAPFkGtBFHhXGzcMB6
+	 +EWaHxDKp/9YA==
+Date: Sun, 8 Jun 2025 16:46:46 -0700
+From: Eric Biggers <ebiggers@kernel.org>
+To: linux-kernel@vger.kernel.org
+Cc: linux-crypto@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-mips@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, sparclinux@vger.kernel.org,
+	x86@kernel.org, linux-arch@vger.kernel.org,
+	Ard Biesheuvel <ardb@kernel.org>,
+	"Jason A . Donenfeld " <Jason@zx2c4.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>
+Subject: Re: [PATCH 00/13] lib/crc: improve how arch-optimized code is
+ integrated
+Message-ID: <20250608234646.GE1259@sol>
+References: <20250601224441.778374-1-ebiggers@kernel.org>
 MIME-Version: 1.0
+Content-Disposition: inline
+In-Reply-To: <20250601224441.778374-1-ebiggers@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250608_163014_077445_508F5563 
-X-CRM114-Status: UNSURE (   7.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250608_164709_382683_91B00703 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,40 +78,52 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add pinctrl DT node and configuration for SG2044.
+On Sun, Jun 01, 2025 at 03:44:28PM -0700, Eric Biggers wrote:
+> This series improves how lib/crc supports arch-optimized code.  First,
+> instead of the arch-optimized CRC code being in arch/$(SRCARCH)/lib/, it
+> will now be in lib/crc/$(SRCARCH)/.  Second, the API functions (e.g.
+> crc32c()), arch-optimized functions (e.g. crc32c_arch()), and generic
+> functions (e.g. crc32c_base()) will now be part of a single module for
+> each CRC type, allowing better inlining and dead code elimination.  The
+> second change is made possible by the first.
+> 
+> As an example, consider CONFIG_CRC32=m on x86.  We'll now have just
+> crc32.ko instead of both crc32-x86.ko and crc32.ko.  The two modules
+> were already coupled together and always both got loaded together via
+> direct symbol dependency, so the separation provided no benefit.
+> 
+> Note: later I'd like to apply the same design to lib/crypto/ too, where
+> often the API functions are out-of-line so this will work even better.
+> In those cases, for each algorithm we currently have 3 modules all
+> coupled together, e.g. libsha256.ko, libsha256-generic.ko, and
+> sha256-x86.ko.  We should have just one, inline things properly, and
+> rely on the compiler's dead code elimination to decide the inclusion of
+> the generic code instead of manually setting it via kconfig.
+> 
+> Having arch-specific code outside arch/ was somewhat controversial when
+> Zinc proposed it back in 2018.  But I don't think the concerns are
+> warranted.  It's better from a technical perspective, as it enables the
+> improvements mentioned above.  This model is already successfully used
+> in other places in the kernel such as lib/raid6/.  The community of each
+> architecture still remains free to work on the code, even if it's not in
+> arch/.  At the time there was also a desire to put the library code in
+> the same files as the old-school crypto API, but that was a mistake; now
+> that the library is separate, that's no longer a constraint either.
+> 
+> Patches 1 and 2, which I previously sent out by themselves, are
+> prerequisites because they eliminate the need for the CRC32 library API
+> to expose the generic functions.
+> 
+> Eric Biggers (13):
+>   crypto/crc32: register only one shash_alg
+>   crypto/crc32c: register only one shash_alg
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- arch/riscv/boot/dts/sophgo/sg2044.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+Applied the first 2 patches to
+https://git.kernel.org/pub/scm/linux/kernel/git/ebiggers/linux.git/log/?h=crc-next
 
-diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-index bbf4191fb87d..be20efd8e2ac 100644
---- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
-@@ -7,6 +7,7 @@
- #include <dt-bindings/clock/sophgo,sg2044-clk.h>
- #include <dt-bindings/interrupt-controller/irq.h>
- #include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/pinctrl/pinctrl-sg2044.h>
- 
- #include "sg2044-cpus.dtsi"
- #include "sg2044-reset.h"
-@@ -329,6 +330,11 @@ syscon: syscon@7050000000 {
- 			clocks = <&osc>;
- 		};
- 
-+		pinctrl: pinctrl@7050001000 {
-+			compatible = "sophgo,sg2044-pinctrl";
-+			reg = <0x70 0x50001000 0x0 0x1000>;
-+		};
-+
- 		clk: clock-controller@7050002000 {
- 			compatible = "sophgo,sg2044-clk";
- 			reg = <0x70 0x50002000 0x0 0x1000>;
--- 
-2.49.0
+The remaining patches have new versions in the v2 series.
 
+- Eric
 
 _______________________________________________
 linux-riscv mailing list
