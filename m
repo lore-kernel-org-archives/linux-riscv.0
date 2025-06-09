@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6C06C677C4
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 13:56:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3569BC5B552
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 13:56:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=dawoPUZ/gGpe26cbBSGIy5WqamiIKQdBf9nlD8b68DI=; b=Pd86KgDUvkdV52
-	ioDuFRCl/zADBfghC7dFbGDdxHahX2vd0WgaGrIMAlx4lxxkAhZUBYAObkqI1SH5D3Y1qeZZXXcXh
-	wShVZfFEUlYR0SmjS0kqLedeo7+hbHdVw3CFJLYAJMQfli0H18sKhsMuGFVvhpXZzKQdMu8tYme3O
-	mAkuKIA8dwuI12WYbzrL2QokVzWQXlJMjtpGrl9eAEU64hgLv7DFiD87bw+o4+HieO7NARBAeKFhN
-	pCItsL6N7pFjdab24yVECVtIV20f0x40WeVrZmHUAhBSw/BLMvca+3g+7ldJ0CcAXYawThsB0bRQp
-	dFV1Ot2ZDeTDJNnVW27g==;
+	List-Owner; bh=wQfBA92WWJKMAKEbWssVifDoOojJIi2FM0iCfMkqQIU=; b=hT3j4zBipljpc1
+	yH5hJ9P6sF+AbiBmivS53Lxi7SED1gAzFjSrNwSl7jPNN1W7N39LTegLaJKvmaYaO8QbmJvjwVwbg
+	g2kkmzbxhV/0i+qf/2KqrW4lzW3ueAl0ZkIWDldsmokSW0IejSPnapTIckoVkYb14e5ax5vb1vzbf
+	473r2STR+rVwQGNla9OD3lTl5jzNDmCSyamuKF1V1zz2ejvrIgGdusM5qcVWNY7GhZzKVSJXPU7Z3
+	m6awF/HNtKJw8Odmvh4HKgbwTw/MwqPVk3nAYyTbpR5BMtbW4xtR+4HiNS8boYkUSv+RVSFNH5gMl
+	bzd25kSsNi3Y0MhT4z7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcyy-00000004JU8-3TQz;
-	Mon, 09 Jun 2025 13:56:12 +0000
+	id 1uOcz0-00000004JUs-32ak;
+	Mon, 09 Jun 2025 13:56:14 +0000
 Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcr5-00000004HoX-3qrB
+	id 1uOcr8-00000004HoX-23Bl
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Jun 2025 13:48:06 +0000
+	Mon, 09 Jun 2025 13:48:08 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1749476884; x=1781012884;
+  t=1749476886; x=1781012886;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=quT+zdVX2EifVoeKNBY4FQXcJ7pHShHmcCxaW2+fMIg=;
-  b=Ltv8so1nSf3d/XayNr8u3NPp17Ld5ond0LH6aQTSC2Y90dYEMF1b4Ygb
-   R0XjPK40dydHYtywJdGB7v7aAnAzCgzMsuWzNNTT0LRALMPeN0SFxF2xp
-   94GshWKl5WQRNVrIkzSl17SLC5ym8+Wm2ESntrsw5Y/lgKsr2ej4vo9kf
-   iTXiyQeb+v9g+G83hbqT0E34iyE5SnjUZyx1f4UW/RaLhwB0XV+vr0s1k
-   KKAiBalCA0K7c1srJaZ2gALnUN4ZMoRIr4yU0jwvQ/wy1MNUP2hlkFabT
-   5OJaEI7WQ9bB5mwgH879AZcvYBPNH8v7m6nbOhNaQzGPEUY8llPhcABCk
-   A==;
-X-CSE-ConnectionGUID: +eXgQ67wRbqUmyF24JYANQ==
-X-CSE-MsgGUID: cUaNuTLbRHe0YBpb0Zp7hg==
+  bh=tu5z8u1lDe/kUWmMU3P/i61oS/ojU9qnxLRE5DvBUns=;
+  b=V/zQ1hTAhWn6Au70PFtmQfrMq8fZ/4+R9gKshOItyv7JE+DLKEOIrK1x
+   hUgCstgKJfsHkvtJSD1fh+nE/XYkv13bSsQMZIoYxf2aPvgq5ECXjrMW4
+   N07aLwMIFe07ONkEH4/FG+ZCIaYoS8m8YeY9WBcKm63kS4CmyaHcKYQjv
+   DWf4ROgn1beheEdxFG8MXtbLAYIkYoAHmNUH+S2URKGR26ZdBdBMyaoIX
+   bG/4SfSlVlXINnVDNIVmHQYXJGjvWZQ+v1hVRytoNtVVeLs65XV6CRVi0
+   a4cNm9/F+R14SNJ1vX8JaQtpi3USlkraAOEpjMuNSpw/ea/ONVHlPyqQn
+   Q==;
+X-CSE-ConnectionGUID: FUCrYnvsRDOTGtVd6qky3A==
+X-CSE-MsgGUID: pcEx0tIaSbmtB5oZYmjwlA==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 16:47:59 +0300
-X-CSE-ConnectionGUID: A36+pBebRuCoXNOEMTYJuQ==
-X-CSE-MsgGUID: lxlF6r/DTae52yps/JiiTg==
-Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.6])
-  by ces03_data.me-corp.lan with SMTP; 09 Jun 2025 16:47:56 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 09 Jun 2025 16:47:57 +0300
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 16:48:02 +0300
+X-CSE-ConnectionGUID: OXAvsiJLSAaiXtw1PDsdmg==
+X-CSE-MsgGUID: zhNKjDfDQJicecnKCsumyw==
+Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.1])
+  by ces01_data.me-corp.lan with SMTP; 09 Jun 2025 16:48:00 +0300
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 09 Jun 2025 16:48:00 +0300
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -71,15 +71,15 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH v1 1/7] riscv: helper to parse hart index
-Date: Mon,  9 Jun 2025 16:47:43 +0300
-Message-ID: <20250609134749.1453835-2-vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v1 4/7] irqchip: introduce generic Risc-V aclint-sswi
+Date: Mon,  9 Jun 2025 16:47:46 +0300
+Message-ID: <20250609134749.1453835-5-vladimir.kondratiev@mobileye.com>
 In-Reply-To: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
 References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_064804_265190_80D7D85B 
-X-CRM114-Status: GOOD (  18.44  )
+X-CRM114-CacheID: sfid-20250609_064806_833668_DCC57CAA 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,77 +91,270 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-UklTQy1WIEFQTElDIHNwZWNpZmljYXRpb24gZGVmaW5lcyAiaGFydCBpbmRleCIgaW4gWzFdCkFu
-ZCBzaW1pbGFyIGRlZmluaXRpb25zIGZvdW5kIGZvciBBQ0xJTlQgaW4gWzJdCgpRdW90ZSBmcm9t
-IFsxXToKCldpdGhpbiBhIGdpdmVuIGludGVycnVwdCBkb21haW4sIGVhY2ggb2YgdGhlIGRvbWFp
-buKAmXMgaGFydHMgaGFzIGEgdW5pcXVlCmluZGV4IG51bWJlciBpbiB0aGUgcmFuZ2UgMCB0byAy
-XjE0IOKIkiAxICg9IDE2LDM4MykuIFRoZSBpbmRleCBudW1iZXIgYQpkb21haW4gYXNzb2NpYXRl
-cyB3aXRoIGEgaGFydCBtYXkgb3IgbWF5IG5vdCBoYXZlIGFueSByZWxhdGlvbnNoaXAgdG8gdGhl
-CnVuaXF1ZSBoYXJ0IGlkZW50aWZpZXIgKOKAnGhhcnQgSUTigJ0pIHRoYXQgdGhlIFJJU0MtViBQ
-cml2aWxlZ2VkCkFyY2hpdGVjdHVyZSBhc3NpZ25zIHRvIHRoZSBoYXJ0LiBUd28gZGlmZmVyZW50
-IGludGVycnVwdCBkb21haW5zIG1heQplbXBsb3kgZW50aXJlbHkgZGlmZmVyZW50IGluZGV4IG51
-bWJlcnMgZm9yIHRoZSBzYW1lIHNldCBvZiBoYXJ0cy4KCkZ1cnRoZXIsIFsxXSBzYXlzIGluICI0
-LjUgTWVtb3J5LW1hcHBlZCBjb250cm9sIHJlZ2lvbiBmb3IgYW4KaW50ZXJydXB0IGRvbWFpbiI6
-CgpUaGUgYXJyYXkgb2YgSURDIHN0cnVjdHVyZXMgbWF5IGluY2x1ZGUgc29tZSBmb3IgcG90ZW50
-aWFsIGhhcnQgaW5kZXgKbnVtYmVycyB0aGF0IGFyZSBub3QgYWN0dWFsIGhhcnQgaW5kZXggbnVt
-YmVycyBpbiB0aGUgZG9tYWluLgpGb3IgZXhhbXBsZSwgdGhlIGZpcnN0IElEQyBzdHJ1Y3R1cmUg
-aXMgYWx3YXlzIGZvciBoYXJ0IGluZGV4IDAsIGJ1dCAwIGlzCm5vdCBuZWNlc3NhcmlseSBhIHZh
-bGlkIGluZGV4IG51bWJlciBmb3IgYW55IGhhcnQgaW4gdGhlIGRvbWFpbi4KClN1cHBvcnQgYXJi
-aXRyYXJ5IGhhcnQgaW5kaWNlcyBzcGVjaWZpZWQgaW4gYW4gb3B0aW9uYWwgcHJvcGVydHkKInJp
-c2N2LGhhcnQtaW5kZXhlcyIgd2hpY2ggaXMgc3BlY2lmaWVkIGFzIGFuIGFycmF5IG9mIHUzMiBl
-bGVtZW50cywgb25lCnBlciBpbnRlcnJ1cHQgdGFyZ2V0LCBsaXN0aW5nIGhhcnQgaW5kZXhlcyBp
-biB0aGUgc2FtZSBvcmRlciBhcyBpbgoiaW50ZXJydXB0cy1leHRlbmRlZCIuIElmIHRoaXMgcHJv
-cGVydHkgaXMgbm90IHNwZWNpZmllZCwgZmFsbGJhY2sgdG8gdXNlCmxvZ2ljYWwgaGFydCBpbmRp
-Y2VzIHdpdGhpbiB0aGUgZG9tYWluLgoKSWYgcHJvcGVydHkgbm90IGV4aXN0LCBmYWxsIGJhY2sg
-dG8gbG9naWNhbCBoYXJ0IGluZGV4ZXMKCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdi9y
-aXNjdi1haWEgWzFdCkxpbms6IGh0dHBzOi8vZ2l0aHViLmNvbS9yaXNjdmFyY2hpdmUvcmlzY3Yt
-YWNsaW50IFsyXQpTaWduZWQtb2ZmLWJ5OiBWbGFkaW1pciBLb25kcmF0aWV2IDx2bGFkaW1pci5r
-b25kcmF0aWV2QG1vYmlsZXllLmNvbT4KLS0tCiBhcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5o
-IHwgIDIgKysKIGFyY2gvcmlzY3Yva2VybmVsL2lycS5jICAgICAgfCAzNCArKysrKysrKysrKysr
-KysrKysrKysrKysrKysrKysrKysrCiAyIGZpbGVzIGNoYW5nZWQsIDM2IGluc2VydGlvbnMoKykK
-CmRpZmYgLS1naXQgYS9hcmNoL3Jpc2N2L2luY2x1ZGUvYXNtL2lycS5oIGIvYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9pcnEuaAppbmRleCA3YjAzOGYzYjdjYjAuLjU5Yzk3NWY3NTBjOSAxMDA2NDQK
-LS0tIGEvYXJjaC9yaXNjdi9pbmNsdWRlL2FzbS9pcnEuaAorKysgYi9hcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL2lycS5oCkBAIC0yMiw2ICsyMiw4IEBAIHZvaWQgYXJjaF90cmlnZ2VyX2NwdW1hc2tf
-YmFja3RyYWNlKGNvbnN0IGNwdW1hc2tfdCAqbWFzaywgaW50IGV4Y2x1ZGVfY3B1KTsKIHZvaWQg
-cmlzY3Zfc2V0X2ludGNfaHdub2RlX2ZuKHN0cnVjdCBmd25vZGVfaGFuZGxlICooKmZuKSh2b2lk
-KSk7CiAKIHN0cnVjdCBmd25vZGVfaGFuZGxlICpyaXNjdl9nZXRfaW50Y19od25vZGUodm9pZCk7
-CitpbnQgcmlzY3ZfZ2V0X2hhcnRfaW5kZXgoc3RydWN0IGZ3bm9kZV9oYW5kbGUgKmZ3bm9kZSwg
-dTMyIGxvZ2ljYWxfaW5kZXgsCisJCQkgdTMyICpoYXJ0X2luZGV4KTsKIAogI2lmZGVmIENPTkZJ
-R19BQ1BJCiAKZGlmZiAtLWdpdCBhL2FyY2gvcmlzY3Yva2VybmVsL2lycS5jIGIvYXJjaC9yaXNj
-di9rZXJuZWwvaXJxLmMKaW5kZXggOWNlZGEwMjUwN2NhLi5lZmRmNTA1YmI3NzYgMTAwNjQ0Ci0t
-LSBhL2FyY2gvcmlzY3Yva2VybmVsL2lycS5jCisrKyBiL2FyY2gvcmlzY3Yva2VybmVsL2lycS5j
-CkBAIC0zMiw2ICszMiw0MCBAQCBzdHJ1Y3QgZndub2RlX2hhbmRsZSAqcmlzY3ZfZ2V0X2ludGNf
-aHdub2RlKHZvaWQpCiB9CiBFWFBPUlRfU1lNQk9MX0dQTChyaXNjdl9nZXRfaW50Y19od25vZGUp
-OwogCisvKioKKyAqIHJpc2N2X2dldF9oYXJ0X2luZGV4KCkgLSBnZXQgaGFydCBpbmRleCBmb3Ig
-aW50ZXJydXB0IGRlbGl2ZXJ5CisgKiBAZndub2RlOiBpbnRlcnJ1cHQgY29udHJvbGxlciBub2Rl
-CisgKiBAbG9naWNhbF9pbmRleDogaW5kZXggd2l0aGluIHRoZSAiaW50ZXJydXB0cy1leHRlbmRl
-ZCIgcHJvcGVydHkKKyAqIEBoYXJ0X2luZGV4OiBmaWxsZWQgd2l0aCB0aGUgaGFydCBpbmRleCB0
-byB1c2UKKyAqCisgKiBSaXNjLVYgdXNlcyB0ZXJtICJoYXJ0IGluZGV4IiBmb3IgaXRzIGludGVy
-cnVwdCBjb250cm9sbGVycywgZm9yIHRoZQorICogcHVycG9zZSBvZiB0aGUgaW50ZXJydXB0IHJv
-dXRpbmcgdG8gZGVzdGluYXRpb24gaGFydHMuCisgKiBJdCBtYXkgYmUgYXJiaXRyYXJ5IG51bWJl
-cnMgYXNzaWduZWQgdG8gZWFjaCBkZXN0aW5hdGlvbiBoYXJ0IGluIGNvbnRleHQKKyAqIG9mIHRo
-ZSBwYXJ0aWN1bGFyIGludGVycnVwdCBkb21haW4uCisgKgorICogVGhlc2UgbnVtYmVycyBlbmNv
-ZGVkIGluIHRoZSBvcHRpb25hbCBwcm9wZXJ0eSAicmlzY3YsaGFydC1pbmRleGVzIgorICogdGhh
-dCBzaG91bGQgY29udGFpbiBoYXJ0IGluZGV4IGZvciBlYWNoIGludGVycnVwdCBkZXN0aW5hdGlv
-biBpbiB0aGUgc2FtZQorICogb3JkZXIgYXMgaW4gdGhlICJpbnRlcnJ1cHRzLWV4dGVuZGVkIiBw
-cm9wZXJ0eS4gSWYgdGhpcyBwcm9wZXJ0eQorICogbm90IGV4aXN0LCBpdCBhc3N1bWVkIGVxdWFs
-IHRvIHRoZSBsb2dpY2FsIGluZGV4LCBpLmUuIGluZGV4IHdpdGhpbiB0aGUKKyAqICJpbnRlcnJ1
-cHRzLWV4dGVuZGVkIiBwcm9wZXJ0eS4KKyAqCisgKiBSZXR1cm46IGVycm9yIGNvZGUKKyAqLwor
-aW50IHJpc2N2X2dldF9oYXJ0X2luZGV4KHN0cnVjdCBmd25vZGVfaGFuZGxlICpmd25vZGUsIHUz
-MiBsb2dpY2FsX2luZGV4LAorCQkJIHUzMiAqaGFydF9pbmRleCkKK3sKKwlzdGF0aWMgY29uc3Qg
-Y2hhciAqcHJvcF9oYXJ0X2luZGV4ID0gInJpc2N2LGhhcnQtaW5kZXhlcyI7CisJc3RydWN0IGRl
-dmljZV9ub2RlICpucCA9IHRvX29mX25vZGUoZndub2RlKTsKKworCWlmICghbnAgfHwgIW9mX3By
-b3BlcnR5X3ByZXNlbnQobnAsIHByb3BfaGFydF9pbmRleCkpIHsKKwkJKmhhcnRfaW5kZXggPSBs
-b2dpY2FsX2luZGV4OworCQlyZXR1cm4gMDsKKwl9CisKKwlyZXR1cm4gb2ZfcHJvcGVydHlfcmVh
-ZF91MzJfaW5kZXgobnAsIHByb3BfaGFydF9pbmRleCwKKwkJCQkJICBsb2dpY2FsX2luZGV4LCBo
-YXJ0X2luZGV4KTsKK30KKwogI2lmZGVmIENPTkZJR19JUlFfU1RBQ0tTCiAjaW5jbHVkZSA8YXNt
-L2lycV9zdGFjay5oPgogCi0tIAoyLjQzLjAKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZA
-bGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xp
-c3RpbmZvL2xpbnV4LXJpc2N2Cg==
+Refactor Thead specific implementation of the ACLINT-SSWI
+irqchip, providing generic one, according to the Risc-V spec [1]
+
+Preserve Thead-specific version, do it as a customized
+variant of the generic one.
+
+Link: https://github.com/riscvarchive/riscv-aclint [1]
+
+Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+---
+ drivers/irqchip/Kconfig                       | 12 +++
+ drivers/irqchip/Makefile                      |  2 +-
+ ...d-c900-aclint-sswi.c => irq-aclint-sswi.c} | 91 +++++++++++++------
+ 3 files changed, 76 insertions(+), 29 deletions(-)
+ rename drivers/irqchip/{irq-thead-c900-aclint-sswi.c => irq-aclint-sswi.c} (68%)
+
+diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
+index 0d196e447142..c1132dad238e 100644
+--- a/drivers/irqchip/Kconfig
++++ b/drivers/irqchip/Kconfig
+@@ -634,12 +634,24 @@ config STARFIVE_JH8100_INTC
+ 
+ 	  If you don't know what to do here, say Y.
+ 
++config RISCV_ACLINT_SSWI
++	bool "RISC-V ACLINT S-mode IPI Interrupt Controller"
++	depends on RISCV
++	depends on SMP
++	select IRQ_DOMAIN_HIERARCHY
++	select GENERIC_IRQ_IPI_MUX
++	help
++	  This enables support for generic ACLINT SSWI device
++
++	  If you don't know what to do here, say Y.
++
+ config THEAD_C900_ACLINT_SSWI
+ 	bool "THEAD C9XX ACLINT S-mode IPI Interrupt Controller"
+ 	depends on RISCV
+ 	depends on SMP
+ 	select IRQ_DOMAIN_HIERARCHY
+ 	select GENERIC_IRQ_IPI_MUX
++	select RISCV_ACLINT_SSWI
+ 	help
+ 	  This enables support for T-HEAD specific ACLINT SSWI device
+ 	  support.
+diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
+index 23ca4959e6ce..1168ec92376e 100644
+--- a/drivers/irqchip/Makefile
++++ b/drivers/irqchip/Makefile
+@@ -105,7 +105,7 @@ obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
+ obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
+ obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
+ obj-$(CONFIG_STARFIVE_JH8100_INTC)	+= irq-starfive-jh8100-intc.o
+-obj-$(CONFIG_THEAD_C900_ACLINT_SSWI)	+= irq-thead-c900-aclint-sswi.o
++obj-$(CONFIG_RISCV_ACLINT_SSWI)		+= irq-aclint-sswi.o
+ obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
+ obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
+ obj-$(CONFIG_IMX_MU_MSI)		+= irq-imx-mu-msi.o
+diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
+similarity index 68%
+rename from drivers/irqchip/irq-thead-c900-aclint-sswi.c
+rename to drivers/irqchip/irq-aclint-sswi.c
+index 8ff6e7a1363b..dfba34f712ff 100644
+--- a/drivers/irqchip/irq-thead-c900-aclint-sswi.c
++++ b/drivers/irqchip/irq-aclint-sswi.c
+@@ -3,7 +3,7 @@
+  * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
+  */
+ 
+-#define pr_fmt(fmt) "thead-c900-aclint-sswi: " fmt
++#define pr_fmt(fmt) "aclint-sswi: " fmt
+ #include <linux/cpu.h>
+ #include <linux/interrupt.h>
+ #include <linux/io.h>
+@@ -21,56 +21,51 @@
+ #include <asm/sbi.h>
+ #include <asm/vendorid_list.h>
+ 
+-#define THEAD_ACLINT_xSWI_REGISTER_SIZE		4
+-
+-#define THEAD_C9XX_CSR_SXSTATUS			0x5c0
+-#define THEAD_C9XX_SXSTATUS_CLINTEE		BIT(17)
+-
+ static int sswi_ipi_virq __ro_after_init;
+ static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
+ 
+-static void thead_aclint_sswi_ipi_send(unsigned int cpu)
++static void aclint_sswi_ipi_send(unsigned int cpu)
+ {
+ 	writel(0x1, per_cpu(sswi_cpu_regs, cpu));
+ }
+ 
+-static void thead_aclint_sswi_ipi_clear(void)
++static void aclint_sswi_ipi_clear(void)
+ {
+ 	writel_relaxed(0x0, this_cpu_read(sswi_cpu_regs));
+ }
+ 
+-static void thead_aclint_sswi_ipi_handle(struct irq_desc *desc)
++static void aclint_sswi_ipi_handle(struct irq_desc *desc)
+ {
+ 	struct irq_chip *chip = irq_desc_get_chip(desc);
+ 
+ 	chained_irq_enter(chip, desc);
+ 
+ 	csr_clear(CSR_IP, IE_SIE);
+-	thead_aclint_sswi_ipi_clear();
++	aclint_sswi_ipi_clear();
+ 
+ 	ipi_mux_process();
+ 
+ 	chained_irq_exit(chip, desc);
+ }
+ 
+-static int thead_aclint_sswi_starting_cpu(unsigned int cpu)
++static int aclint_sswi_starting_cpu(unsigned int cpu)
+ {
+ 	enable_percpu_irq(sswi_ipi_virq, irq_get_trigger_type(sswi_ipi_virq));
+ 
+ 	return 0;
+ }
+ 
+-static int thead_aclint_sswi_dying_cpu(unsigned int cpu)
++static int aclint_sswi_dying_cpu(unsigned int cpu)
+ {
+-	thead_aclint_sswi_ipi_clear();
++	aclint_sswi_ipi_clear();
+ 
+ 	disable_percpu_irq(sswi_ipi_virq);
+ 
+ 	return 0;
+ }
+ 
+-static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+-					      void __iomem *reg)
++static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
++					void __iomem *reg)
+ {
+ 	struct of_phandle_args parent;
+ 	unsigned long hartid;
+@@ -97,7 +92,7 @@ static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+ 
+ 		cpu = riscv_hartid_to_cpuid(hartid);
+ 
+-		per_cpu(sswi_cpu_regs, cpu) = reg + i * THEAD_ACLINT_xSWI_REGISTER_SIZE;
++		per_cpu(sswi_cpu_regs, cpu) = reg + hart_index * 4;
+ 	}
+ 
+ 	pr_info("%pfwP: register %u CPU%s\n", fwnode, contexts, str_plural(contexts));
+@@ -105,17 +100,12 @@ static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+ 	return 0;
+ }
+ 
+-static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
++static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
+ {
+ 	struct irq_domain *domain;
+ 	void __iomem *reg;
+ 	int virq, rc;
+ 
+-	/* If it is T-HEAD CPU, check whether SSWI is enabled */
+-	if (riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
+-	    !(csr_read(THEAD_C9XX_CSR_SXSTATUS) & THEAD_C9XX_SXSTATUS_CLINTEE))
+-		return -ENOTSUPP;
+-
+ 	if (!is_of_node(fwnode))
+ 		return -EINVAL;
+ 
+@@ -124,7 +114,7 @@ static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
+ 		return -ENOMEM;
+ 
+ 	/* Parse SSWI setting */
+-	rc = thead_aclint_sswi_parse_irq(fwnode, reg);
++	rc = aclint_sswi_parse_irq(fwnode, reg);
+ 	if (rc < 0)
+ 		return rc;
+ 
+@@ -146,22 +136,66 @@ static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
+ 	}
+ 
+ 	/* Register SSWI irq and handler */
+-	virq = ipi_mux_create(BITS_PER_BYTE, thead_aclint_sswi_ipi_send);
++	virq = ipi_mux_create(BITS_PER_BYTE, aclint_sswi_ipi_send);
+ 	if (virq <= 0) {
+ 		pr_err("unable to create muxed IPIs\n");
+ 		irq_dispose_mapping(sswi_ipi_virq);
+ 		return virq < 0 ? virq : -ENOMEM;
+ 	}
+ 
+-	irq_set_chained_handler(sswi_ipi_virq, thead_aclint_sswi_ipi_handle);
++	irq_set_chained_handler(sswi_ipi_virq, aclint_sswi_ipi_handle);
+ 
+ 	cpuhp_setup_state(CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
+-			  "irqchip/thead-aclint-sswi:starting",
+-			  thead_aclint_sswi_starting_cpu,
+-			  thead_aclint_sswi_dying_cpu);
++			  "irqchip/aclint-sswi:starting",
++			  aclint_sswi_starting_cpu,
++			  aclint_sswi_dying_cpu);
+ 
+ 	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
+ 
++	return 0;
++}
++
++/* generic variant */
++static int __init generic_aclint_sswi_probe(struct fwnode_handle *fwnode)
++{
++	int rc;
++
++	rc = aclint_sswi_probe(fwnode);
++	if (rc)
++		return rc;
++
++	/* Announce that SSWI is providing IPIs */
++	pr_info("providing IPIs using ACLINT SSWI\n");
++
++	return 0;
++}
++
++static int __init generic_aclint_sswi_early_probe(struct device_node *node,
++						  struct device_node *parent)
++{
++	return generic_aclint_sswi_probe(&node->fwnode);
++}
++IRQCHIP_DECLARE(generic_aclint_sswi, "riscv,aclint-sswi", generic_aclint_sswi_early_probe);
++
++#if defined(CONFIG_THEAD_C900_ACLINT_SSWI)
++
++#define THEAD_C9XX_CSR_SXSTATUS			0x5c0
++#define THEAD_C9XX_SXSTATUS_CLINTEE		BIT(17)
++
++/* THEAD variant */
++static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
++{
++	int rc;
++
++	/* If it is T-HEAD CPU, check whether SSWI is enabled */
++	if (riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
++	    !(csr_read(THEAD_C9XX_CSR_SXSTATUS) & THEAD_C9XX_SXSTATUS_CLINTEE))
++		return -ENOTSUPP;
++
++	rc = aclint_sswi_probe(fwnode);
++	if (rc)
++		return rc;
++
+ 	/* Announce that SSWI is providing IPIs */
+ 	pr_info("providing IPIs using THEAD ACLINT SSWI\n");
+ 
+@@ -174,3 +208,4 @@ static int __init thead_aclint_sswi_early_probe(struct device_node *node,
+ 	return thead_aclint_sswi_probe(&node->fwnode);
+ }
+ IRQCHIP_DECLARE(thead_aclint_sswi, "thead,c900-aclint-sswi", thead_aclint_sswi_early_probe);
++#endif /* CONFIG_THEAD_C900_ACLINT_SSWI */
+-- 
+2.43.0
+
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
