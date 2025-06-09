@@ -4,188 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CC3DC5B552
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 20:43:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1222FC5B552
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 21:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=m47A/GltmVMT+xSt8E4chD4E6wvjxNpkFQPANrscADs=; b=qnHptesd8A8eiz
-	/HPvwduDhnGHktQ+X1JWS9kEroOzqq5iTzyx38zG/USlVjzk2vYaxpzAYHdFAb8woEf8JeZSpnR41
-	9/Puw1Iu2yp/8oJ/FmxEvcuNTzQAQB5r4CKgGAlslt2lfGKsQdAiJ+YiOrxIHnQByiv3SK04r90iV
-	zRI4Nmn3vsVPu52G83qZpFysAsSUc9FXIeCkon3Z4MDDvFx0HuYQdBacbFuC24fndHHYKH1s5vCk4
-	/FSUlSz2IbwzF946+y5HWqb6gOrgvE06hdOV2KwnEZJOL2hUCuCWQokLNNqL1meVjuKbuaMyJbz/j
-	y21R6GsydczRCl7f9hIA==;
+	List-Owner; bh=tHrHMaEyq0ye6Ek4JS63su3dF+v0VhYwBxfPsb55uEM=; b=009ZQTMAYG7eTu
+	ovkofixe2YHc6xg5qvSLF9omEGnt2Vl50x7QdxFuy/d/pHIX3tRHt87p/Muoraf+kGa2N78cA5o11
+	OXa1q6+pSIe697prAo80NSUdwMXz1Ytz/uHlKuIt9F8As4wUrtCMpgDDUQEU9ecKS3tzCGqlrI87S
+	eUsBANruvGR3iZA+in1YyMscRN8CEhlBo1VJ+vnCuVO1oPk2Xda9U3BwyIvtK2fSGK/lQgHXhuFkd
+	QRMKp096PXydnYKNZfR8G6Yk7VkpL4vgfIk8fS8Fa2P6d8NQDrFSOEeitCMaT3fr8utpJImmTEVPc
+	LKugzELhZ4Nm4uJ7cCyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjLF-00000005Beh-32Pv;
-	Mon, 09 Jun 2025 20:43:37 +0000
-Received: from mail-mw2nam10on20626.outbound.protection.outlook.com ([2a01:111:f403:2412::626] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
+	id 1uOkIW-00000005Hta-3dTO;
+	Mon, 09 Jun 2025 21:44:52 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOjJR-00000005B08-46YO;
-	Mon, 09 Jun 2025 20:41:47 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PkOUQwOS6aoZcuO2wg8/ZAN9hgM2RX0JOjN2cvuyrXhbT2sgkaRWEZ88E93qAtafsBw4fN9k1ry13FYCfwhpSA0fO/+4oZBP2mfL2jo37AHmIjkKYUAbn7+zhRwWBRGagFOlfOVPfiWlg2TVZZvymjoJvBoD2bDBwKGmfX7rrU+7mY3qnNPLt+e+qstA+EiwdwgXBXzryJDE+tX/EIvBW1b8MBgVMTgn6pSurhpMz8RJ+P81X8u3ywVDtm3y3A2J2Osz1XwPf/n74t2EkGMLNeEASvuK4wBH6iuX5TebCBMCqf9jJbkmphaVY+jjs1eyvI1djj0+OwuZyXsaENzJ9Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bRf9pnmWVtpmgEfF8PC715zRF2ZAAd5qugyBa/u9KC0=;
- b=NGt7PhR6MRmIWnoS193d3l95iANWf+tXmXlG9c61RHA2CzW26zUDbVvDOJU3yqgYuWwAxvxHu22ylfWZuiPxjgndmgX8ZvF13MK14q0XMZ9ulAh7+y0EqQNdfUQ5cE6uzZFdpAp9HUsvWV5ij/i3/KUkJzhhZhGmLS7qEJFFdU7xi6GlOv98YKBsybr0Gahu3uP1rjQIdgN2uV0DP7FsA5GAcojzHwJxJ1sCsNGO3cZBX1/gyCYE5X/ZCn0nvE3Pj/3SrX/kHWQaBaADrbOBmUfp2BQGQh1RImvjla6pdZp1mmELkBSQDccJolaA1ZiFbb44ieMrk9qLbRTPf8F0zQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bRf9pnmWVtpmgEfF8PC715zRF2ZAAd5qugyBa/u9KC0=;
- b=Tj8bsBKGx6rUMVOLLYwnq/k7d604BQG07r9qmqKEl5rQIPoKq1mXLY4FMyYjIPUxQDTa59cJLr7ufmFUom8KXkx7UwZHXQhlZ/IAQ7qh+ARl2wD7BulgwAIqBzYqB0j6yjronALhJi9toGZBjkxLGVyVFUAPNCXa2lYhC2afCGwR8bzS0WdtwBu6NruhgGWVxeh/OP+VT3cNwoOYEmmxn46EKHYKEG8Da0JHqHq5ZYef6m1gSkycW2/5u4zU/ux9G12BmbeiauR/hUP2Z4oWZzGvgH/HKd9zZuN7ubF2qu8YPjGvAXNSbg1Xvu9dbG8t6ISLusHIS/Fhi87V2JDdrA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
- by CH1PPF73CDB1C12.namprd12.prod.outlook.com (2603:10b6:61f:fc00::615) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.30; Mon, 9 Jun
- 2025 20:41:35 +0000
-Received: from CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
- ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8792.038; Mon, 9 Jun 2025
- 20:41:35 +0000
-From: Jason Gunthorpe <jgg@nvidia.com>
-To: Alexandre Ghiti <alex@ghiti.fr>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	asahi@lists.linux.dev,
-	Baolin Wang <baolin.wang@linux.alibaba.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
-	Heiko Stuebner <heiko@sntech.de>,
-	iommu@lists.linux.dev,
-	Janne Grunau <j@jannau.net>,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jonathan Hunter <jonathanh@nvidia.com>,
-	Joerg Roedel <joro@8bytes.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-s390@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-tegra@vger.kernel.org,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Matthew Rosato <mjrosato@linux.ibm.com>,
-	Neal Gompa <neal@gompa.dev>,
-	Orson Zhai <orsonzhai@gmail.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
+	id 1uOkIU-00000005Hsu-0dvn
+	for linux-riscv@lists.infradead.org;
+	Mon, 09 Jun 2025 21:44:51 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b1396171fb1so2468943a12.2
+        for <linux-riscv@lists.infradead.org>; Mon, 09 Jun 2025 14:44:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1749505489; x=1750110289; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/hTRjO+/iO4nm56OljGgthZtGT2JgGw2007wQVtYCLE=;
+        b=RRZ5UjHHOI3f3JryK1uCaee0i5oehvjlgzsszeq7saW/InJ9Y4NgSquevIwodn7lKu
+         Ghj3h+qzKxe3TUOXMo8U18LBpecivFBDbZdZ7+lxfipNeWM9f1jRCdftmMmbbvdZCJZu
+         Felr6Vpp+RQj1Rv5qKsDIcWyxSqlxIIjNgilFQEy+HPCWrwLjaCI6w8F2+8tZ34SxcQG
+         YvRWRj4p65jZGVhgejSkTpTUGnM5ZGFZ95fANEd979rK67/m0eGr70HOm6SNoxr9NBeM
+         uM0Lc1/H4PObyOQ4d7EiI8Mv4gLlZYWIp7trQLdYzbjcFmr+NF12ZtrClmLgA5iJx0a0
+         bD/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749505489; x=1750110289;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/hTRjO+/iO4nm56OljGgthZtGT2JgGw2007wQVtYCLE=;
+        b=Td0nCN6sIMxndSBY+BLIBOasUi4/ZJiphXQ8ixy1WPKJs2M0CP0Z3PEJjrbq2kodLU
+         Zs236GkhdSO+meZa7SH7EpNIQLO/5ayrbgHywbW9BRTgMF7TQOtTCPhBJrxheaOr1BVL
+         yt33jVFHprGW7gTSC8baquDLFlGUqRUAGrA6+Xzjbc8GNDbLhXjVG9uywsshzYeG9dBo
+         3bMyAiQNJONEQrWdpkim+FUB/b8ijFp78wqnQV1SxuqgyMyyW3NxmRGP+JJjDRFXqBTD
+         mpURJVL+TCNM0s+sEcuIuv5kDo2gKeNdWDSnWQmOL/9NV2dBWONpTjPvc4GujEOKZBdQ
+         lO3g==
+X-Forwarded-Encrypted: i=1; AJvYcCUF9hIOjKWYZW3gHlZg79kJ/JWeYYMNdSzItYg+n31HrCfK+4F+v8VGcb6jB/CP2IPWtHovFLSnx72zEA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy5J5++R7I2kGB/Z8WfvyrH8Cnw6U6ofK8zr5TWV1ASiolsaHbz
+	L9yrwcVYGZDMtATylRWftmTkwE0y7Tuodwx4Kre6dm7LiNamH0ovneri
+X-Gm-Gg: ASbGncvYBCdOwncQYe5ytl1reMnLea4r0+M40KzZgy83wTKZQcapG9illUgy54hEniD
+	5G3+sOqaRsMU1/x/WGlUoYvxrI888wEYr3gH9r+2rOHpZjV+51KoyJv3pm7FA8qEu6IVxgcmS70
+	Yi6i7GdqGm9V3TwI3qvi6g76iZTzX2/p5ie4bSghwPDCqf1C3hUbCYUYlouONlEIua0HHLqLj9i
+	WgnW9acvu53D7Qzkmy9DaPDKWaJnCbDfFsx/1Hilc3fygFgHjeaktvuAgVpDWj42BDLNcXQ8MyY
+	dnZqiY4VZvZS/6PX8Z0US+MJ9PVaS/jO31vKKzkpono6+XPt/iGudeD3Tr8jpcsh9dZWZy97dh4
+	Iu6UKBAT5BA==
+X-Google-Smtp-Source: AGHT+IFIhIRlu7H7GRIM5kBMPGnoyOA+Q6qRh2XJheD4Aw8wYGONksyoiadJyqU5st/9HYNDVMedvA==
+X-Received: by 2002:a17:90b:50:b0:312:f0d0:bb0 with SMTP id 98e67ed59e1d1-31347302a8emr25430172a91.12.1749505489349;
+        Mon, 09 Jun 2025 14:44:49 -0700 (PDT)
+Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3134b044ef2sm6155649a91.3.2025.06.09.14.44.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 09 Jun 2025 14:44:48 -0700 (PDT)
+Date: Mon, 9 Jun 2025 14:44:47 -0700
+From: Guenter Roeck <linux@roeck-us.net>
+To: Chiang Brian <chiang.brian@inventec.com>
+Cc: Jean Delvare <jdelvare@suse.com>, Jonathan Corbet <corbet@lwn.net>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Sven Peter <sven@kernel.org>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Krishna Reddy <vdumpa@nvidia.com>,
-	virtualization@lists.linux.dev,
-	Chen-Yu Tsai <wens@csie.org>,
-	Will Deacon <will@kernel.org>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Chunyan Zhang <zhang.lyra@gmail.com>
-Cc: Lu Baolu <baolu.lu@linux.intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	patches@lists.linux.dev,
-	Niklas Schnelle <schnelle@linux.ibm.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Tomasz Jeznach <tjeznach@rivosinc.com>
-Subject: [PATCH v2 6/7] iommu/qcom: Remove iommu_ops pgsize_bitmap
-Date: Mon,  9 Jun 2025 17:41:30 -0300
-Message-ID: <6-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
-In-Reply-To: <0-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
-References: 
-X-ClientProxiedBy: YT4PR01CA0210.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:ad::13) To CH3PR12MB8659.namprd12.prod.outlook.com
- (2603:10b6:610:17c::13)
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	linux-hwmon@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org
+Subject: Re: [PATCH v8 2/2] hwmon: (pmbus/tps53679) Add support for TPS53685
+Message-ID: <156dc4d6-071b-4cc5-bea9-4579c140b2f9@roeck-us.net>
+References: <20250602042454.184643-1-chiang.brian@inventec.com>
+ <20250602042454.184643-3-chiang.brian@inventec.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH1PPF73CDB1C12:EE_
-X-MS-Office365-Filtering-Correlation-Id: b25eb4b6-1e57-4c81-2525-08dda7960551
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?zrJBm1G+ASzgzFM8ndCNTL8LsURcT2PLDgaMpxkQddXugFeM1dkDE0pQVloi?=
- =?us-ascii?Q?gewikwZ+h6EwBJ+pynJ9Msp+rTcwktRI9ErZVeW+DDCZoLybMYS7M5eCgsrD?=
- =?us-ascii?Q?/8qW1CGD7gqpvlEIEraTgXgPxI8YHhV4ti4dEFxsYwJK2f+DLdQ4nYRLA1Ds?=
- =?us-ascii?Q?DKVo5rp/EUBIu4lmr/9rAAeAFfHyryGlXydtCBGGVPQLQMID16EvydTKaScp?=
- =?us-ascii?Q?RJN4tQo/yAoPKKFwQD7WpUhqbak/oPsXGf1Zln7Ys5Xk7YLKY0X6lyauCW5U?=
- =?us-ascii?Q?WM5N8e6oLDmwqHQ8PaHWhHCfb6RYw6K6c50yiIosLtk56aMf+ODmv6zZx0BO?=
- =?us-ascii?Q?+12xcd1VHvIR/a4qxppOIIM2I92H5OvlNvzUoLJXFuX2NXbe2J/sn8vNASsV?=
- =?us-ascii?Q?++JfVYWzFf2RH5EucXNrIu0VCOGF+3+9O+OiM5Z413UujreKv9sQGg3rpZmq?=
- =?us-ascii?Q?8He/HZSuSujeFxDKPHPMIfVWlF8WFOM6tmILZYsFO7H7Z/eGRq6ozUOlKkDk?=
- =?us-ascii?Q?y4dPLWGNuHAz3CVRRB7R1M/QgEwhH3x9rCQvmP/NUegdQ6+wKFfnhHWQ5EkO?=
- =?us-ascii?Q?8foT9cx43Yqt41dx8hGTyQZ5KXRq2GXfh66sJiI36WxFGmwhRjwGRMGUt4c9?=
- =?us-ascii?Q?S2anQPBsmndu9lbnO/tbRDkrqF8c++aS48LUmLxViQrsK3w3RpHmzu/s9oyk?=
- =?us-ascii?Q?1Qxny56+kI2R5qWBsF9o6vbuy1iho2OYR3aidju4LPKJnYyi90/b9oWrJ7U/?=
- =?us-ascii?Q?1t3j80GtifJBdlozK/9Sd8Dms/9qrJKUr9aoqJ6naQpdRl4wF9lE3yif+Dqn?=
- =?us-ascii?Q?A8NLCExywkoKt5ZXRfQU+sfuNFGBOFPU2bGs0MjUN8xhPkmwss06cs+MRVGg?=
- =?us-ascii?Q?bJk+LP/ZwK+71P2nkgpcnaCaBGJRXePSAeYxxoh/SGAEWAq16u7JwTnLOe+9?=
- =?us-ascii?Q?nV7g7B7HBSdKgE0Do/8f0dNNfs3y76KiIkB3b5rXuYtmvcc7VezGaM6oHHOx?=
- =?us-ascii?Q?WeGEPZmRRYEPK7L2iQkpZKakves3g/0ilziH8I7CPFTAjs46D4d+AdoE5flV?=
- =?us-ascii?Q?8Sqx3qk8vzX+Js2txn0nuR577y9fTmZJaGuJWjx94EGcSTXir4bokBROQ5Ny?=
- =?us-ascii?Q?0Lcx1dcpyPQOVMnkS1gkE6DQNHL63Tcpg+RlOPtMTjEN5jlECovjVzxZQHJr?=
- =?us-ascii?Q?SGO2gWchVM7SPhf/X2RZWDsHf3393hv6AS5l4bkyZLX4MARlgU4jCVJ7qBUt?=
- =?us-ascii?Q?AiyhN0jhCU2X2MyEFWZ2BZsjvFoesQPmlTOdjpTgykrei1Kj11UbGvmI7q5R?=
- =?us-ascii?Q?e2tvlHklDKWrhrOpDUIuH9qNcwKt802cmA8goY+bnK02sp2Fm9uovfkPrkvF?=
- =?us-ascii?Q?ROW2ljYbTnmaDG9TBpyADpPLrKOgdcMZYZ/vfuj6+0t6E/OhiAGl8w1Qd0sv?=
- =?us-ascii?Q?NCOoNujRg6W6zOQ2frDixxfojnkczyj7KNfkK7xYp/Q2cjrwJHgNnQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CcK2ppLk71X5ADbHLEj08N6ifSs8MnCwMIkyKxqDpYLLdhPu+UlYTVePVeNb?=
- =?us-ascii?Q?Z72oAj2AOde7hlxoAf5ECDiv5MV0pzE9b47MU2+gFlGiA4l3JsgCp63bV/mI?=
- =?us-ascii?Q?k94HFDqL1pW2nCVp4faP2LJYEQCJspn8POd55iNsi1AzTeJenrTV8s7xcc2W?=
- =?us-ascii?Q?4gGA0sMeVyJysgb4uMtwqIwvLxvM7Gmng30QeZlCJ48YWTrzGL20c9baR5ya?=
- =?us-ascii?Q?QalW9HxEkeqQ9famRoP0lMw8vF/G2AyjG/kPcUFXVggJGm58NXcRHxH418Y1?=
- =?us-ascii?Q?qJljFV9jo5SnwGKz71+DNcA72MDuJPeLy/4KV+kaJVahKO6R2oFfwznJzegs?=
- =?us-ascii?Q?ARYeN+b94P7Uvi+k/exDaxPRx0SeBPvu8mUzTCrA4+r6bv5EVsHtEpMbg2c6?=
- =?us-ascii?Q?Y/57k8/sOrQ7u2Nj9YWqrkQnbNNKj1/GO5aqSaqIf8XUgg1jibH/22buSWqi?=
- =?us-ascii?Q?Jvb5xgABmNe0SetvXkDjpX3ylk2Ymg2JvDZ7Gjjyk+YdHgW4Px7ciAPDPKB5?=
- =?us-ascii?Q?qIiDjDd32X/D8i1Z+XtICejkV2ec33nhLRdSIbU296KMqFPABoHA+WjgAlij?=
- =?us-ascii?Q?2qIa2sVbh7hn6ouWv6E4rtaNV64iJ+QU7rJi3M7XtcEz1KWn/xbKgYcw5oIH?=
- =?us-ascii?Q?FcSodkXBdIvVX076fyRUsy2BkpGBxVOMXTTYbVw7+SrEkB8TW0qwq0nd3/nT?=
- =?us-ascii?Q?dx6knD0CXN5ka3bnyfmOXCtlz58AsSp/UQvFc8ufgpt3xncUV3YOc5PW6oZZ?=
- =?us-ascii?Q?ojcEAOrQVtrm0cci/c4juF6PHyLgJeDM0FRLmC9htQWrcPbtamaHQmPxIZLT?=
- =?us-ascii?Q?QBeM7pzB9aD5eicmy918NBJ4PJu+7RF59ilQ77KIS9Zb3dtgoMp/+3t9xyY7?=
- =?us-ascii?Q?M/O/y+grn5nUIxFJiqm/NI7On3Gob3rj8MLld9ILmLyyuESlYZeBws3v6suw?=
- =?us-ascii?Q?GafSn8XUFF9iHPbVlQwChmFtPNJeHCVOvCJX1JScrS9WAFnbA/Ql+hb0NQus?=
- =?us-ascii?Q?uCewLeQwCAfS1YvR+Elc+qcepSSqGWEQzlGRVnZa9Gp+T72dpMGil5EwiyIe?=
- =?us-ascii?Q?3IEhPDEaVPytj7kC99ThB7hCjsCVIvA7crffo9ztvbXWyu/SKknmWnedb66h?=
- =?us-ascii?Q?gjeU+BaNkZ6NsdTYSKgDnJiG+wfwGECv0NSAkyhCLRR66NI/K+kHghFDDMO2?=
- =?us-ascii?Q?HwebfWSO+JDdaNTxTgxhCBsiJKF9MIUi0EevFD5+bJa79Nvz6/1csflbFmIw?=
- =?us-ascii?Q?OWXvn53GFSBGRIHtolhXKVIF20kc/HxQi0SnWxmLCapau0Z5otZjB3w1XGrs?=
- =?us-ascii?Q?h448gIG9oZGF0lS4baNS6MsO30FuK7P5PsnGMtTTJZtAzCl8++I6mTcpWqco?=
- =?us-ascii?Q?3dcBYzSoALgI6oATi5JfZLSwDdCnqaOosdD4Jtghc8coRj8NjPXMmcM4xx1l?=
- =?us-ascii?Q?huJgHeIc0ods2weKgxVuY2FFE7wetxQLM9PENbf53B2BEDnkoOMu31Xi23G1?=
- =?us-ascii?Q?LCsieM4S1pRcfsG6towEgjHpziNF1gAmrCxO+4WRJyFxjbo8ys4X8EGYZFDP?=
- =?us-ascii?Q?8zhwxAivLcQtnApxTHQU7y3aVirQSmlAsVuQrNUs?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b25eb4b6-1e57-4c81-2525-08dda7960551
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 20:41:33.4774
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NPR5ig5RLc+EPZH4LuEaEWF0mybK+BMfE/JhYOh1poAGU+qFCmW9ngjIf6aAJlto
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF73CDB1C12
+Content-Disposition: inline
+In-Reply-To: <20250602042454.184643-3-chiang.brian@inventec.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_134146_027874_55476444 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250609_144450_194868_28739F5A 
+X-CRM114-Status: GOOD (  13.58  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,56 +104,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This driver just uses a constant, put it in domain_alloc_paging
-and use the domain's value instead of ops during init_domain.
+On Mon, Jun 02, 2025 at 12:24:54PM +0800, Chiang Brian wrote:
+> The TPS53685 is a fully AMD SVI3 compliant step down
+> controller with trans-inductor voltage regulator
+> (TLVR) topology support, dual channels, built-in
+> non-volatile memory (NVM), PMBus interface, and
+> full compatible with TI NexFET smart power
+> stages.
+> Add support for it to the tps53679 driver.
+> 
+> Signed-off-by: Chiang Brian <chiang.brian@inventec.com>
 
-Reviewed-by: Kevin Tian <kevin.tian@intel.com>
-Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
----
- drivers/iommu/arm/arm-smmu/qcom_iommu.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+I was not copied on the first patch os the series, so I guess the idea
+is that it is applied through a devicetree branch.
+Ok, with me, but I get
 
-diff --git a/drivers/iommu/arm/arm-smmu/qcom_iommu.c b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-index 3907924646a20c..d599f778e9f47b 100644
---- a/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-+++ b/drivers/iommu/arm/arm-smmu/qcom_iommu.c
-@@ -229,7 +229,7 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
- 		goto out_unlock;
- 
- 	pgtbl_cfg = (struct io_pgtable_cfg) {
--		.pgsize_bitmap	= qcom_iommu_ops.pgsize_bitmap,
-+		.pgsize_bitmap	= domain->pgsize_bitmap,
- 		.ias		= 32,
- 		.oas		= 40,
- 		.tlb		= &qcom_flush_ops,
-@@ -246,8 +246,6 @@ static int qcom_iommu_init_domain(struct iommu_domain *domain,
- 		goto out_clear_iommu;
- 	}
- 
--	/* Update the domain's page sizes to reflect the page table format */
--	domain->pgsize_bitmap = pgtbl_cfg.pgsize_bitmap;
- 	domain->geometry.aperture_end = (1ULL << pgtbl_cfg.ias) - 1;
- 	domain->geometry.force_aperture = true;
- 
-@@ -337,6 +335,7 @@ static struct iommu_domain *qcom_iommu_domain_alloc_paging(struct device *dev)
- 
- 	mutex_init(&qcom_domain->init_mutex);
- 	spin_lock_init(&qcom_domain->pgtbl_lock);
-+	qcom_domain->domain.pgsize_bitmap = SZ_4K | SZ_64K | SZ_1M | SZ_16M;
- 
- 	return &qcom_domain->domain;
- }
-@@ -598,7 +597,6 @@ static const struct iommu_ops qcom_iommu_ops = {
- 	.probe_device	= qcom_iommu_probe_device,
- 	.device_group	= generic_device_group,
- 	.of_xlate	= qcom_iommu_of_xlate,
--	.pgsize_bitmap	= SZ_4K | SZ_64K | SZ_1M | SZ_16M,
- 	.default_domain_ops = &(const struct iommu_domain_ops) {
- 		.attach_dev	= qcom_iommu_attach_dev,
- 		.map_pages	= qcom_iommu_map,
--- 
-2.43.0
+CHECK: Alignment should match open parenthesis
+#260: FILE: drivers/hwmon/pmbus/tps53679.c:151:
++static int tps53685_identify(struct i2c_client *client,
++				 struct pmbus_driver_info *info)
 
+WARNING: DT compatible string "ti,tps53685" appears un-documented -- check ./Documentation/devicetree/bindings/
+#295: FILE: drivers/hwmon/pmbus/tps53679.c:316:
++	{.compatible = "ti,tps53685", .data = (void *)tps53685},
+
+That means I'll have to wait until the deveicetree patch is available.
+
+Other than that, please fix the alignment and, while at it, reduce the
+number of lines in the description. Line breaks should be at ~75 columns,
+not ~50 columns.
+
+Thanks,
+Guenter
 
 _______________________________________________
 linux-riscv mailing list
