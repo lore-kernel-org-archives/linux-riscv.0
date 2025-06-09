@@ -4,88 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B522C61CE8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 20:14:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9206C61CE8
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 20:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=pMgo2M+i9RgThn08KXiyxlvqpKfrFsuMl7GJBz3JR2k=; b=UbHaLsVd7m0oyf
-	365B+9nx3Vvym9BYXu6YiFZ7VODWBpZFsNF6Hf5Sym6U0OkFMh6n8phoQr5aeWB9VOknZEtOda/Jd
-	eSlFTa3m001qQbAqUaNrkgx9ZxMS+PKecLAsB+jvBh89TPSluLrDjGswAa7zAO16WKSLYzkxbhfWd
-	SXKegHkBsc/HuUgjQMo8bL65VeTGSD1oUrC3rvKMXWWAwnVZ1wdmGtfuZD63VEGEmG69CQYV+WTTj
-	ClqHE3B8Sl2RtRREyR+RTKj9AETp6H3LEnLGVC3BRotilSl595Zpc81+pDBkV5dDXx0t4CxgwSRxT
-	yxeLjeZ7iCGSyvKC9HPw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=ycLeHM2qi1KxvXF5JHGh1hpiEqPCjwe79dS2NUVxE/I=; b=klskBp93O5dfiq
+	NECR+Etc62uec2Y9EfyGZ0xwZiNFfLUXSQGux6hAiPRj2E2RV1Dv3DwLqjcLqmQBQIwBrena/WuK+
+	N7d5UurgOwKFSStrF/zEpcbpZtBdP767gIJeuRQAUc+GlJ70wqC8gP69UEB/9mdDBypBxiEIq/t3Y
+	Q9MkX0LC7ji08OB6eSIK/DPDc9McDrETm1Ta/nGDeIXhB2uqQWodB89mjHiL1m+Fm1h0Sm1FsSdDk
+	j6Lqs4Y0d7tG6eSJRji+ai+DAeDjadpIQgtdiupdU9oZf09gy0O7zDmMLHdHtsjRvV0/MQM2h5S+X
+	8B+yFMOqVSb1Qyq93BCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOit5-000000058hF-0TKT;
-	Mon, 09 Jun 2025 20:14:31 +0000
-Received: from mail-qv1-xf2d.google.com ([2607:f8b0:4864:20::f2d])
+	id 1uOjL1-00000005BLD-1cPD;
+	Mon, 09 Jun 2025 20:43:23 +0000
+Received: from mail-mw2nam10on20626.outbound.protection.outlook.com ([2a01:111:f403:2412::626] helo=NAM10-MW2-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOit2-000000058gi-32yO
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Jun 2025 20:14:30 +0000
-Received: by mail-qv1-xf2d.google.com with SMTP id 6a1803df08f44-6faf66905baso72778756d6.2
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jun 2025 13:14:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749500068; x=1750104868; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=bFj+rnVnwrli61+RW3pW0hp2hmvQPvdmAdNSR40r1ZE=;
-        b=rfumsMdLwV5MwMObgkt0RjUOaMFEhA5t3vBernrgMtDONlomn52kDjyi05P7cm4dIg
-         yUo7zUuX+lPeMKRk/Z4Km5z5pg5IhhPMsHXD+txLM8QYhr+mRzlf3peEFcZK2oncDczQ
-         vNpQtFLbz59SttWyli4ruI1tib9Er7NQ7LHgKEAfv4VLmWQYU11addhPJ8wwrEbWIKK4
-         0etGb941wZDPnl/SdrfcptAULD2d47tdb5L5h+vOhG66lygAthB1vtuoPPlTUSvTtXn8
-         ywPF3UsYA139/Wb28sSXLG8LzjwIvDSPQrXdhkAocOPYrjE+206S+Pjimash6c5x+LYT
-         11/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749500068; x=1750104868;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=bFj+rnVnwrli61+RW3pW0hp2hmvQPvdmAdNSR40r1ZE=;
-        b=LXzmfj+hr/4Ck4swLH22j6wDJEsi3DCEHEiIvjH+oCU5LkRrnFNMOwibiNqerH1ogH
-         c/JRZaoL57s0qnjJad0G+cS25K9ys8uN/GjaNNF6mf6Z9QvaJaXLqu9hBKI3OxEIf4s0
-         CJ7qgdSRrpKjQulXxakLXt1jnx+M1bRMWeb7uatNJ8F/8Av1WroFm4hmKO+UVW4JV+C7
-         iXX6kYEptcuW4tb7Dp+OPldvyip/N3RaWC6ojpUNtyqPW5jz5///vkfVF2IdWZQSrYYD
-         FMjI6+fLDfDVZ4UWMbl9XYBuXtf5g+fYCGAvn2v+snfhmBl9LvI12tfPutKGh6h9gTUu
-         EZRA==
-X-Forwarded-Encrypted: i=1; AJvYcCVcIMJAWfjIvGrRsuJKA60cNULEXktEda7BpyXneleGBLSLw7h4uedadS6IWmbKps1D9TQWHr+nYFWLGg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxManG7XKFkDGoQ2PJI7yEi8+ohUIwPBNkqn3KC/rYXNkqTRYPl
-	j50/TkoebBlGTy5iw0yTIVoBhqcujvHUf8EJf7vmpWG5DwrceCDQcCrl5fJOqn8UhfI=
-X-Gm-Gg: ASbGncuqdSW5Uv+QdQ/Iq1P1OkLe22giQYO6O++m510PryxTNHtft8rTdkadweZXY73
-	le2w0aZqyWxwXyBBHdfjntR8DiQaQLHGqm1DNWzrEIV5smokrydEjAhSq/+XjNOBLg3bboEqnFO
-	UYNaPIBk+LUIOu/9wv4z8qupC7Y2C66ft+XPqeWYWM0C3AfiL8yNgZwx+7bbZolmh/R9QMTwgYa
-	ASI7q0r7OswMoSvrBMmzHeBNBdl2r2z7q8q8yJqOT66ojsmKSHp1MnBE2ZlM9wITvxrh46rEwrJ
-	T311HQf77EIzciuPs/HoQbPZlEZJS5Jjmjhab1elXBUrz8l4w1Qz7kpNXELrA1Xbw/Bro/R52wj
-	9hdeQO4LnpXtXmf7wajTCzvzcDjRs/0og+2dR
-X-Google-Smtp-Source: AGHT+IEoxsMyfv1zl4Eq2z6OuyNYN5zJiRV3axkBglw2RaCBqnFhaHAJb4H6tYu0A3sn+TFxdgVaMQ==
-X-Received: by 2002:a05:6214:1256:b0:6fb:14:5e89 with SMTP id 6a1803df08f44-6fb08fe7f6fmr255840366d6.19.1749500067642;
-        Mon, 09 Jun 2025 13:14:27 -0700 (PDT)
-Received: from [172.22.22.28] (c-73-228-159-35.hsd1.mn.comcast.net. [73.228.159.35])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6fb09ac8415sm56510096d6.27.2025.06.09.13.14.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 09 Jun 2025 13:14:27 -0700 (PDT)
-Message-ID: <17a7ab55-aa1a-4d1d-b8f6-27bbe51fe761@riscstar.com>
-Date: Mon, 9 Jun 2025 15:14:26 -0500
+	id 1uOjJM-00000005B08-0NrX;
+	Mon, 09 Jun 2025 20:41:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=mHefazfi6o2uIRu8O67EGePpn+jdqVKutcaebZ7fCKXZb+Dm/asCvQ8Ac8129IUDuLf6kDRnNXTqEYwUWCvPyLQPPJutEf1kdYwGByFWk18EYyy7u8hZRuzMiF3G6IjDgaHOwGp2uMWz4NzTZN+CkD+o9viYxdZohyo8kr06piCcGpOSaUagQyUi1xxLQjeA1gD7A5joB/seidH5ztrORrbGm0p97vjAtyXQMqKhfB99PIqwHS6GDxdEetACOc8aIMTInw3suvF5nZKZ6TdQVmZdM1twc+dKEF0cqfaowpDRi9QMFCn2syY6A/9cfhVIigHwt2fBqv2I69GjVQth8g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Kx5LS+jbtF0xO0NSo2irfJcLQxwTYzkKaI+WMnOwz4M=;
+ b=bx/yfVq+fZGzz2x1zhEBBFm7azsd1NX9xBo7MWwP/xEQS4H/2eDeMO81y3XTU9k0JI+brqEBzkHmzgs4KDexqOLwQ7/OkO3wH79ZO8g+5QlQYBEqHYQwscbv1eBG01eE38SL439dS7I3RgScI3JgdjSI+fRbKTa6Ueg+yrZbMF9oYqQ2+5MVB0tcJ0Uy5QVPNTE7Jqz/TIn3PAoEiUKbkbcUSi9sk+Rf6GmZzOs0goj1RPMu0VHpmm2q7LTks7su6OzbBt5GUygpkmEFoLvA3OVaHTrcCO/oQAabbjrRN/bAHfW0udYf1KS18oogqn+QqK7c6p7AIqtcWK3f4ybWXQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Kx5LS+jbtF0xO0NSo2irfJcLQxwTYzkKaI+WMnOwz4M=;
+ b=CT7815zL0oAmxstAnmhCRFE+CpYliIPcParIHRCOBFjW7QAvbUO/3oflDSJroA+mjcF97I0UMpz8nhsx+RW4ktd83aNh7RZ5NpzM6PIMvS2GpIzuBHVGlBYifYmaO1Tdwd7e/yMsTZZy/YgndK8fGb7gaDKDB4BR8sCW9GJrIjk0BX/HSKjeS+VCVep8gmxSaI80XVbG8B2a+iC0LaB2VPzIicw2IMqZ09Uj1yQL3DBHM1HimdxSZ6VdjaaQ8L7lkC+aSDXvslMB64H9Jlb6rJSa8Z8GRVvdZgsGv2sXvWc67obMpNd+TfEDkm4LcR+ieE5TlvN+T8lXo5PifoOP0A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com (2603:10b6:610:17c::13)
+ by CH1PPF73CDB1C12.namprd12.prod.outlook.com (2603:10b6:61f:fc00::615) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8678.30; Mon, 9 Jun
+ 2025 20:41:32 +0000
+Received: from CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732]) by CH3PR12MB8659.namprd12.prod.outlook.com
+ ([fe80::6eb6:7d37:7b4b:1732%6]) with mapi id 15.20.8792.038; Mon, 9 Jun 2025
+ 20:41:32 +0000
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Alexandre Ghiti <alex@ghiti.fr>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	asahi@lists.linux.dev,
+	Baolin Wang <baolin.wang@linux.alibaba.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Gerald Schaefer <gerald.schaefer@linux.ibm.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	iommu@lists.linux.dev,
+	Janne Grunau <j@jannau.net>,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-s390@vger.kernel.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Matthew Rosato <mjrosato@linux.ibm.com>,
+	Neal Gompa <neal@gompa.dev>,
+	Orson Zhai <orsonzhai@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Sven Peter <sven@kernel.org>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Krishna Reddy <vdumpa@nvidia.com>,
+	virtualization@lists.linux.dev,
+	Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Cc: Lu Baolu <baolu.lu@linux.intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	patches@lists.linux.dev,
+	Niklas Schnelle <schnelle@linux.ibm.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>
+Subject: [PATCH v2 0/7] Remove ops.pgsize_bitmap
+Date: Mon,  9 Jun 2025 17:41:24 -0300
+Message-ID: <0-v2-68a2e1ba507c+1fb-iommu_rm_ops_pgsize_jgg@nvidia.com>
+X-ClientProxiedBy: YT4PR01CA0494.CANPRD01.PROD.OUTLOOK.COM
+ (2603:10b6:b01:10c::25) To CH3PR12MB8659.namprd12.prod.outlook.com
+ (2603:10b6:610:17c::13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] clk: spacemit: mark K1 pll1_d8 as critical
-To: mturquette@baylibre.com, sboyd@kernel.org
-Cc: dlan@gentoo.org, heylenay@4d2.org, inochiama@outlook.com,
- linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
- Guodong Xu <guodong@riscstar.com>
-References: <20250609200822.468482-1-elder@riscstar.com>
-Content-Language: en-US
-From: Alex Elder <elder@riscstar.com>
-In-Reply-To: <20250609200822.468482-1-elder@riscstar.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR12MB8659:EE_|CH1PPF73CDB1C12:EE_
+X-MS-Office365-Filtering-Correlation-Id: 19bbee59-7bc9-4443-0af5-08dda79604b5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|366016|376014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?aiKWimER35T9rrbeuvo5NkIhpuqU2lmL6d4yBzsPHln7WsB8f6jkc+z8WwBx?=
+ =?us-ascii?Q?b/u5WrIuhOMhoBTL9A0XYbafs0DcvshHNlV0ZhGy76FOvUy52rIMbLYz+H1z?=
+ =?us-ascii?Q?uZmhaqoPf5DJW+mv6nBvbXdUiYSSHLwqH3jjIZtvUhYKti/wbCXYSqX4qsAY?=
+ =?us-ascii?Q?fpK+koZDHFMaWc98WPp4v6Rni3RCPIOoYck2ZQgjAhnMms/cVGyqu6J7VRLa?=
+ =?us-ascii?Q?4DZiuL3LabZXZDApswk8x2uA/c0uqE6iy+7SEuaizjAUxiGLRlFQ5wairtV/?=
+ =?us-ascii?Q?3657PpQz7RmzQ7eMIc+j8MwXx0UI10B4wK7UrFnZuyaYlGnerFA9omwMnYLt?=
+ =?us-ascii?Q?Mi26vmnlywTr493HZPN1Wcj5rjwhLIitt62+lsRXg7V08RWI5/PMyYdOB/LC?=
+ =?us-ascii?Q?8LRlnT+NuasL9eDdMNnB4t8ZU14K0BzS0HZeml6q3SpwuC7DaMCiYuXYNnGO?=
+ =?us-ascii?Q?Ak9Gxl0+pVJm9j9z7+JDyRuEztUFXvkQsf/qHNPYERNVqbekey1JmeynYP7f?=
+ =?us-ascii?Q?y6LgSx2b4AaVC1czH1R+mhpnZT3QOAy0jVx41O4s5pE+T2re+vDwQnTC/Uma?=
+ =?us-ascii?Q?0zXop2kuPkLlg1GxCNxdElZzZa6KbTR8Q4QRo++LHwuIXLmuf6sADWNgUmRX?=
+ =?us-ascii?Q?0GjRpUJ1o648dJJGIbpAPfBeC1f+8dOMCmcqXwhRPlRxzyj5Q2p4KyW5KqR1?=
+ =?us-ascii?Q?aqivQOKzSm7gVQngIN7J/iTSNKAyqJXguJ5t4doGqV4K2JCbvEbg4OgkpqFp?=
+ =?us-ascii?Q?DYyjw31FRJkisilPfnu1CZiYJ3TrOIlCfKlHFRyQbnUBHVtryjwDivvt/7Ng?=
+ =?us-ascii?Q?+kpwc1e8uo86RbPI5EWYCRueN/wS/PjJZU/AKUIGSHyIPDWZfoDP2dtRgEaZ?=
+ =?us-ascii?Q?W5ZH65V8tCjmB7O5E+qqr4yAiry214XHTF3uo7aMNHPuIte7/hZpgUH5SN2E?=
+ =?us-ascii?Q?uZru1ERGq5qm0uXmgFYeQ+JtubwoG+UcPS/60g2phrsAJvWeB3bals6IYnhC?=
+ =?us-ascii?Q?G8xpJroAgifLRGUXOz+1IEEmPBdoJP1B6DunLxSIZyZp2CsSlClNLvfmopLL?=
+ =?us-ascii?Q?sPE5Gw8IJIPmqZlv+9sA1QaK9isAG8qLmLqC8942BVljxF4e/uworjwLcxqm?=
+ =?us-ascii?Q?9WvRAZCpqzM8Np1xSr4uUUzkEzMiAdvLmaS0PBag/LOity9e96EizWZI+CR0?=
+ =?us-ascii?Q?a8erm/898MbQREKyRYAvsmBR7+d4VjLMcGcNDeqD41xwDcn/1/MqCRrHo7aB?=
+ =?us-ascii?Q?FzndgGl3tnXqLsWl+IHdx+CdwYTcDPuuDOAw/TGBZpXVAyrNolVZm8MCxM43?=
+ =?us-ascii?Q?uaCRjbN3+GUU0brs51tmrKu6kRe7j8zXG03Tm6EM+shSWulwix2NnvFLxILC?=
+ =?us-ascii?Q?pRuIRjELy32sL3kniGVdgCstgKXf75OHNfXM+bDNuh/Ye1alDo3Vpn9rt+Az?=
+ =?us-ascii?Q?aa7Yod7x1uyUmQMSMFo9HcKEtPTTcqJBm/xIsfBxdzkkInihhXXqbw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR12MB8659.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(366016)(376014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?B31tcBH2Qbpn8c6ZGBpWRlIZtbj/7CeVKbnW6O2EDT2jrxqp/Ct7+HTlJVmS?=
+ =?us-ascii?Q?owFtM3N4GqGSSEWKc3hJIvFzqCw3HSAFRuW/I5ume8v4yEZViLTmdaNNn9WM?=
+ =?us-ascii?Q?JsSKNoR8h49zUZMVsVMPvKSRCdk3WVq4GRhj5PWpp+z/wqpnqMh5lH59g6Br?=
+ =?us-ascii?Q?s7WLgGeJhv9GuhkP/0ilxD/pKsXDj9yAwlPyaTB3Ogsvv9/MG+Cha60MMF3D?=
+ =?us-ascii?Q?Ty5eDV3hJ/7i8G6P7F4T87L9ub3xEM4hsTmt/pnpvuaw55hTh/j+oNA86JIU?=
+ =?us-ascii?Q?y4bcYEbMm+OFk7gMj6quaGB2wvO4V4CLNDui5I5kcBo6GfWvHRbMpfoR4shS?=
+ =?us-ascii?Q?VHETOHTQYjwMOXwOHMnB75WTrmxNMKistkCucA/xydZaboJJSpwm254hxsJY?=
+ =?us-ascii?Q?1u3G4HzgXM0e8IAM0e46v4Zxpf2F+h6JU/tb14WoonY93BuAAKBG33B9+nPU?=
+ =?us-ascii?Q?m5Lo6JGmScFjJQdjJ1wDTZZdT7ldiv3hrh1JoxgR9dLri4ePLzcy390dCj8P?=
+ =?us-ascii?Q?QysglRvtce9EZrlIlIyYq3zmZynDgBiZjMZeYhNQ01uIYVKDEBKizIe8lgng?=
+ =?us-ascii?Q?Q3z4MXmCAWWDhO11wc+XGqK9WnydW/7sbS7CyNxiHpXkU/3sRq1oo62gh1jn?=
+ =?us-ascii?Q?FZoRzGDgL6Z85bokX5WIKFQcEbV288j/KvHaTeO62m4fPJry73fmuKKihgjF?=
+ =?us-ascii?Q?5M/AeJerhRY0pQP7RkWdFrGp6YV68gDEn16UI++5Vc72W9uoVOK4KM87AIxR?=
+ =?us-ascii?Q?54aVBbH/tdHbHKT3ouIt7LG73cLz8LB3z+sTz9UdrOCpGm62gbS/zOxf/aSp?=
+ =?us-ascii?Q?HA5VPN+RP/jMLQqKKq+ixBi17oOqS63eRtLvJfKPYx6iYFDlYjQBj3nFYTue?=
+ =?us-ascii?Q?CX+hS+vUkwFtL7oVk4hI6AkT4eBeDaJkw3nNk2Q+vJSud8KjKC4r0hlnbc7+?=
+ =?us-ascii?Q?jJ4TWqhWogEe1SopBGI2lVtT59nnqhXz2DBEBBeFEHlFAbJQlCrfK2scIWh4?=
+ =?us-ascii?Q?rVIunn1wLORQxL77bb9Nudu8ybuP2XBLvBIHqjfG3j3Ri/dhO3tJb5JeRJla?=
+ =?us-ascii?Q?muH+ehyvwfDTvwMRjKPz3rrve3FQMKuYafQjPe23TFgyk30EAp8KwENGW3I9?=
+ =?us-ascii?Q?ewxW9ECiNrVNm9QvAF+56ohOYbJlc9JxlctDdxIMHs18TkIZZeFHgiOnE6dl?=
+ =?us-ascii?Q?wxfYjJU8z8QF5EVuhS+GGtj3JQ22Akytp8mkXrq0BEuIvO+zWsMneAEvG101?=
+ =?us-ascii?Q?HQmBbrqfdB3QM4ADWPMhtoKOWzzPSu/xUOi1r5N3FJ8mkQobyYDmf0F6h0+l?=
+ =?us-ascii?Q?8ieGSuZFpUeYlq/XiRWE2pAiT7THB2J94jfw1gHactgYzedHcDwc7esqNX8C?=
+ =?us-ascii?Q?Me2HXr+E6DbmVguYhw2GQvEQGKtPY/DG4nY4fSFL70sKK9mxJTcN/o4yi72c?=
+ =?us-ascii?Q?CC+WhEZWaQsG0DEnMSf83GbdxCx9/ZcJgx87YGiPKzTfO++ywimezDMu5unK?=
+ =?us-ascii?Q?LgMBDwB+N6oASZQYRNsykuBZTNVdywFmAim+wEA+DvsMwLTM9fzutIDm9MJE?=
+ =?us-ascii?Q?AaIkGXhDeM1imvFxz7Yu/BBa3+aOUjIV8YCC7pZ0?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 19bbee59-7bc9-4443-0af5-08dda79604b5
+X-MS-Exchange-CrossTenant-AuthSource: CH3PR12MB8659.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Jun 2025 20:41:32.5134
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CA0Ma1JkBavvbpoxTy6SnJfoWIy6EMZeOO1pvM2z/kPgh23t87Dj7pps5jIWFiF7
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH1PPF73CDB1C12
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_131428_771421_A1D0A783 
-X-CRM114-Status: GOOD (  18.00  )
+X-CRM114-CacheID: sfid-20250609_134140_146402_3D1F7B3A 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,95 +195,77 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 6/9/25 3:08 PM, Alex Elder wrote:
-> The pll1_d8 clock is enabled by the boot loader, and is ultimately a
-> parent for numerous clocks, including those used by APB and AXI buses.
-> Guodong Xu discovered that this clock got disabled while responding to
-> getting -EPROBE_DEFER when requesting a reset controller.
-> 
-> The needed clock (CLK_DMA, along with its parents) had already been
-> enabled.  To respond to the probe deferral return, the CLK_DMA clock
-> was disabled, and this led to parent clocks also reducing their enable
-> count.  When the enable count for pll1_d8 was decremented it became 0,
-> which caused it to be disabled.  This led to a system hang.
-> 
-> Marking that clock critical resolves this by preventing it from being
-> disabled.
-> 
-> Define a new macro CCU_FACTOR_GATE_DEFINE() to allow clock flags to
-> be supplied for a CCU_FACTOR_GATE clock.
-> 
-> Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
-> Signed-off-by: Alex Elder <elder@riscstar.com>
-> Tested-by: Guodong Xu <guodong@riscstar.com>
+Now that all drivers are using domain_alloc_paging() and dev is never
+NULL, we can have all drivers correctly set domain.pgsize_bitmap during
+their allocation function.
 
-I'm very sorry, this path is v2 and I neglected to indicate that
-in the subject line.  Here is v1:
-   https://lore.kernel.org/lkml/20250607202759.4180579-1-elder@riscstar.com/
+There are a few oddities that have accumulated here over past changes:
 
-					-Alex
-> ---
-> v2: Reworded the description to provide better detail
-> 
->   drivers/clk/spacemit/ccu-k1.c  |  3 ++-
->   drivers/clk/spacemit/ccu_mix.h | 21 +++++++++++++--------
->   2 files changed, 15 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
-> index cdde37a052353..df65009a07bb1 100644
-> --- a/drivers/clk/spacemit/ccu-k1.c
-> +++ b/drivers/clk/spacemit/ccu-k1.c
-> @@ -170,7 +170,8 @@ CCU_FACTOR_GATE_DEFINE(pll1_d4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(3), 4,
->   CCU_FACTOR_GATE_DEFINE(pll1_d5, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(4), 5, 1);
->   CCU_FACTOR_GATE_DEFINE(pll1_d6, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(5), 6, 1);
->   CCU_FACTOR_GATE_DEFINE(pll1_d7, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(6), 7, 1);
-> -CCU_FACTOR_GATE_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1);
-> +CCU_FACTOR_GATE_FLAGS_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1,
-> +		CLK_IS_CRITICAL);
->   CCU_FACTOR_GATE_DEFINE(pll1_d11_223p4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(15), 11, 1);
->   CCU_FACTOR_GATE_DEFINE(pll1_d13_189, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(16), 13, 1);
->   CCU_FACTOR_GATE_DEFINE(pll1_d23_106p8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(20), 23, 1);
-> diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
-> index 51d19f5d6aacb..668c8139339e1 100644
-> --- a/drivers/clk/spacemit/ccu_mix.h
-> +++ b/drivers/clk/spacemit/ccu_mix.h
-> @@ -101,16 +101,21 @@ static struct ccu_mix _name = {							\
->   	}									\
->   }
->   
-> +#define CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
-> +			       _mul, _flags)					\
-> +struct ccu_mix _name = {							\
-> +	.gate	= CCU_GATE_INIT(_mask_gate),					\
-> +	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
-> +	.common = {								\
-> +		.reg_ctrl	= _reg_ctrl,					\
-> +		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, _flags)	\
-> +	}									\
-> +}
-> +
->   #define CCU_FACTOR_GATE_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
->   			       _mul)						\
-> -static struct ccu_mix _name = {							\
-> -	.gate	= CCU_GATE_INIT(_mask_gate),					\
-> -	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
-> -	.common = {								\
-> -		.reg_ctrl	= _reg_ctrl,					\
-> -		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, 0)	\
-> -	}									\
-> -}
-> +	CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
-> +			       _mul, 0)
->   
->   #define CCU_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl, _shift, _width,		\
->   			    _mask_gate, _flags)					\
-> 
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+ - Some drivers always set domain.pgsize_bitmap during their
+   domain_alloc_paging() call but still provide a value in ops. This is dead
+   code, delete it.
+
+ - Some drivers calculate a system global pgsize_bitmap in the ops, but
+   it is now trivial to use the per-instance value instead. In several
+   cases this is dead code, delete it. This also allows
+   constifying the ops in these drivers as a hardening measure
+
+ - Some drivers have a fixed pgsize_bitmap, put it next to setting up the
+   geometry in their domain_alloc_paging() functions.
+
+ - Finally a few drivers still use ops because they have a delayed
+   finalize operation. Set the constant pgsize_bitmap in the
+   domain_alloc_paging().
+
+Then remove ops.pgsize_bitmap.
+
+This is based on iommu next, and must go after the virtio
+domain_alloc_paging() conversion.
+
+v2:
+ - Rebase on v6.16-rc1
+v1: https://patch.msgid.link/r/0-v1-7c5282b0c334+2db-iommu_rm_ops_pgsize_jgg@nvidia.com
+
+Jason Gunthorpe (7):
+  qiommu/arm-smmu-v3: Remove iommu_ops pgsize_bitmap
+  iommu/arm-smmu: Remove iommu_ops pgsize_bitmap
+  iommu: Remove ops.pgsize_bitmap from drivers that don't use it
+  iommu: Remove iommu_ops pgsize_bitmap from simple drivers
+  iommu/mtk: Remove iommu_ops pgsize_bitmap
+  iommu/qcom: Remove iommu_ops pgsize_bitmap
+  iommu: Remove ops->pgsize_bitmap
+
+ drivers/iommu/apple-dart.c                  |  1 -
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 10 ++--------
+ drivers/iommu/arm/arm-smmu/arm-smmu.c       | 12 +++++-------
+ drivers/iommu/arm/arm-smmu/qcom_iommu.c     |  6 ++----
+ drivers/iommu/exynos-iommu.c                |  3 ++-
+ drivers/iommu/intel/iommu.c                 |  1 -
+ drivers/iommu/iommu.c                       |  7 -------
+ drivers/iommu/iommufd/selftest.c            |  1 -
+ drivers/iommu/ipmmu-vmsa.c                  |  4 ++--
+ drivers/iommu/mtk_iommu.c                   |  9 +++------
+ drivers/iommu/mtk_iommu_v1.c                |  3 ++-
+ drivers/iommu/omap-iommu.c                  |  3 ++-
+ drivers/iommu/riscv/iommu.c                 |  1 -
+ drivers/iommu/rockchip-iommu.c              |  3 ++-
+ drivers/iommu/s390-iommu.c                  |  2 +-
+ drivers/iommu/sprd-iommu.c                  |  3 ++-
+ drivers/iommu/sun50i-iommu.c                |  3 ++-
+ drivers/iommu/tegra-smmu.c                  |  3 ++-
+ drivers/iommu/virtio-iommu.c                |  6 ++----
+ include/linux/iommu.h                       |  2 --
+ 20 files changed, 31 insertions(+), 52 deletions(-)
+
+
+base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
+-- 
+2.43.0
 
 
 _______________________________________________
