@@ -4,85 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C75FEC5B552
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 07:53:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D67C677C4
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 08:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rSECJ52oM3u+YTraks67s3/FHWFpJOjf6Ao/UGAxZ2I=; b=ou7XYxZD0L7BPs
-	Rwkd5dv4uu1QqQDFa+0dkhDh4bmJ54pK3erkAyN4qKsmUpGXHGtCbkGdG8dJ+hXmsXAwAe37aSnVL
-	h8jEYRxc/sFm/LbpallCnp7BLzDF1JlVEYCl1MrzelNYWOlU1O9p42afl8Yr8AwbZCiLC/unAAaZx
-	j9uVb4IdbiOMb86yzluRGr7yXpzvI0Al3v6+ltcQPIiRbJnJvV/fqaacrZow/7jMf/zWhkFE0BTRV
-	RKa4/wt+nLp40BrovYa/bz5MGhoVzPZx87mKLtkHcygaV7W8Lhnq9S9j6scZOZqod2805CBwfqX1e
-	r2nUXDVV4M6Sl020bbKg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Hicp1f+Dc7+I/XKiiQ0Pb5VzCUoU/dgobyPd/bXIe+4=; b=3Iyg44rEBIJ/Al
+	SMB5ThqbxPUpwwTCBB7a5YZ48zC3V933D8wk5wB+55NwSo4zqJLRxMmB3IUAy3o/rNiNWIVYV0F5T
+	3x4wAg6426s7oSIEnJuVXgKyfz7UR6/wzdYua6CAiaPnUQN9SFB8X6TMs5aLWRSRtaJ3VmpkDP8cE
+	rZHdrsGH5I9ygIlt05EbTnp17fvubH1oFEpLujlxq07oBfVa2VD16Gd1j0YmQclGYQclJWSAn/q92
+	PULV8BeHfR9NbAq8tVZFfKlYOqXmmmYEFBAWMBHxKRJL3I+9jxsRghjmy3c+nyAFSebdeFUWoH3Yg
+	xDgpyeVK+vLbS3QAtlvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOXKC-00000003c7p-41lG;
-	Mon, 09 Jun 2025 07:53:44 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1uOXhX-00000003eOn-22Lm;
+	Mon, 09 Jun 2025 08:17:51 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOXKA-00000003c6t-0j8y
-	for linux-riscv@lists.infradead.org;
-	Mon, 09 Jun 2025 07:53:43 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-231e98e46c0so36756595ad.3
-        for <linux-riscv@lists.infradead.org>; Mon, 09 Jun 2025 00:53:41 -0700 (PDT)
+	id 1uOXfP-00000003eCc-0kUa;
+	Mon, 09 Jun 2025 08:15:40 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4a44b9b2af8so24062851cf.3;
+        Mon, 09 Jun 2025 01:15:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749455621; x=1750060421; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ss2nidFmlZHJGygobtDbgzbOZEouJDNfVrVf4+pmuik=;
-        b=HkPFD3dA6N21amnYEI+y92KZnE0fs85ywhdm/emfOcnDLxeHIjSq70MlgI4OfM5akL
-         C0f17vpmM7TOxu5Etg6gyPPg/FAMIgTblOfhhi6vcV8T92ws6XpYqBWGSJON1clKw2qn
-         4eMMTre2PcMqq6PvtDzkKsCtJ7i/ZAN0eD/sSI/LXv/vXoVA7bTL1BP92J0/kBqaCVSN
-         X4MbR3FoQhue9+MivUMMthFwKA+4gkYQsXoYjboniU+iAvoZJa24AMvIsbaX/jf4Igcu
-         yt5STfCA68abZKm94XU2ovpOWK8PCC3NcuFzrOC08+A03SNqkYYVmZEzxoxwPoOhoKix
-         u8SQ==
+        d=gmail.com; s=20230601; t=1749456937; x=1750061737; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=avUZtz3QyLzrtWeLJ2NgcAc7qvPmPgbfgTpeZiYZBXg=;
+        b=SMts9hkabMXcQzpHPZrZBCa/dAKmouK8/xf+8QHjuDXCJ7U+a5PG6JfmWwBt/2N3WI
+         tms8nsnlT+FCeY7ThjHn+i3OlLg20JDBymScjoXLSH+d0z3XTh/Fzddjdp21AxHrHbeK
+         NLUxOArRARMNybxmM+aGMe2vGhMKIR6QLMDqJZUD/XiZkgYpnZkn9VSf2452KL31L2SR
+         vcIHxVz7+S2kBsCXkUiSCOqkaYfxnTbNzRUgoTm8kMyFpkvdBnEKswQgR026NqlFRaNO
+         rZxBOqM0Y/w986YFHErq53qgNDeVtDwB9X8QaGmJ3Gl0Ce/q6jlXIsNNMSFxizzxSv0l
+         xs4g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749455621; x=1750060421;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Ss2nidFmlZHJGygobtDbgzbOZEouJDNfVrVf4+pmuik=;
-        b=EafeQh/qWDjfbJeKtV0V++VKf8JPwgLyeDaEMW0RffyQgpCP7/KADIaUZ/+LsmlD7l
-         ipOC1vJmmEAduk1VBOVeHrMHiDu6KdD+BMqjZw5lDtoEyPQ+WPeGC3Y8CDncOb7uslEP
-         HCOU3RrrLDtjQJOu41pmxRdpIWm0SSlj2WvACcjP5KOPeM73pxEqY9ojmXbZN47qzY00
-         b/3x8tCB4Ajoc46H6Ip+/YCGYhv7UXI/BwTsxoeDbcwfP6ttOVsucnPgS2lytoGF90yF
-         gEzqC82XIymNduDGCg+p2mfXWAAtJXYLGCPy6ahXZauy2B+s2qHQ7oQFXulKFlTT5WDf
-         R+6A==
-X-Gm-Message-State: AOJu0YzXCInpJt0xlvQaafOgjRC0JO0cp5EmZA5blEnduW/DAt1vqjAM
-	R6bWkMurwpOiBI6/NrhZchNNYbMk//05YjYBMnixthIzo13hd2Rxdbqe
-X-Gm-Gg: ASbGnctlRj6kAsUTHkCXcDKwhxyrkq2qxyDFq82PJ2U0OIW2sO8Tk/0OPW8zSmSRfVl
-	RhtB0tdWjh6sMjH5kCnfwlELaqOm/7OZAY1hjZvfbQffzSuHhHJFRgcswxzwEoNjmCN6bduET+W
-	d+/Q5aOKY8Qjk7pOtdbwjvb6zZ995X48qvc0Azh7YKz5WAh0VmRk6Fnc0NklMqtb/qvpeABEJRb
-	5Hq+LQEWG03T/51Kb3T/wvkwlUAQJDxmDI8fbLQtEeU0Gp+8keAirv2O8YIOV0PzWrmpjD0++HE
-	w5WCDPCjbokjq56fqMmlqYkC5K63c4erzLlmHpPQdyBG1QckihIpI6/mNE4=
-X-Google-Smtp-Source: AGHT+IGaXSkgqPZJJlsFA0TjN8eAhRBhV/jH/VjxatjZPwvlgYbZVLImphPuQBh9gMu820I3YOq/+g==
-X-Received: by 2002:a17:902:d48d:b0:234:e655:a62e with SMTP id d9443c01a7336-23601cf0e88mr167893715ad.9.1749455621109;
-        Mon, 09 Jun 2025 00:53:41 -0700 (PDT)
-Received: from localhost ([209.9.201.203])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236035147ddsm49023045ad.251.2025.06.09.00.53.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 00:53:40 -0700 (PDT)
-From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-X-Google-Original-From: Zhihang Shao
-To: linux-crypto@vger.kernel.org
-Cc: linux-riscv@lists.infradead.org,
-	herbert@gondor.apana.org.au,
-	paul.walmsley@sifive.com,
-	alex@ghiti.fr,
-	appro@cryptogams.org,
-	zhang.lyra@gmail.com
-Subject: [PATCH v3] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS implementation
-Date: Mon,  9 Jun 2025 15:46:57 +0800
-Message-ID: <20250609074655.203572-3-zhihang.shao.iscas@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1749456937; x=1750061737;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=avUZtz3QyLzrtWeLJ2NgcAc7qvPmPgbfgTpeZiYZBXg=;
+        b=CRfU+sS+DmjHS1zx4Ui0/Yg4kVn2+uEQUqzM+4UF3m8niMwk1doNTgX82Q9L77BnGh
+         fDeQHOmnRtEGRdDDqlifgeqBk0rK6Fx4qCUenWpmp3ndhK0lJbyt3QicGyIzdlsGeiP7
+         zXTdQwKwAQ0P1xb+G4lJnMRcvbqB3AJn96t3yZoKTnrrvpSigWwr1a0R1Grpv518eyHD
+         Qw2yFfpzeIdeHBytEPZB16iQryTPzS7s08lhiJ7AglZ+luiBKxz9OvfqMjAMxyTIqOgj
+         11TaTMbbzOY/rxdnZfvpYXeFxsI5/vMs6ES9rcGDFyY6zqkLydPc5yMTHREx9+IVeEhX
+         oIeg==
+X-Forwarded-Encrypted: i=1; AJvYcCUdU3hlaLv+8Hlhmf51CXyRYBP1v8xMzW4XIJacYEfuRyXqC/UmLKM6sFNs7cbHdLCnthiyF9lJ1sLid2w=@lists.infradead.org, AJvYcCWnhGZb/Hd+eNwhOw+lxIxlazZXiF3QJpmnW2gy0wpA1sPejWtBPTcRN4Z7QP/NydC3rcEbKkDC9RkxW+x3q5sp@lists.infradead.org
+X-Gm-Message-State: AOJu0YyU8jWvsNS6l0aYoyrQBGkAXcnlfCyzvX5NZwzNkQP3BkbG+f3T
+	WTRoh8GCJDZnV5hhAMU9bksvHhyPOcNYMpzcei49Z3PtNT3Lg24Frr+dlQtuoOVwIA8EZDmTm6d
+	l4HGPbC2gj6A65Hq7IUzr1/bexFh1BBQ=
+X-Gm-Gg: ASbGncvZYNdm4WnWLj+4Vprbykqy4UbkTkwXt+UMSGI/ycGTTzZs6PnsAs+PLCet/sx
+	6aWpxDun/VBpV/JmwxPPk5CXCn6oDw9cK2Yf36/CB5bcb5dJBVfegoLkijamDiDnTDduttfruzT
+	G8bew+0Hcs+jnitMAngdEJ7xSxE3iiGctP
+X-Google-Smtp-Source: AGHT+IH9me4CEdVFtIOCuIg1XAKf5VF3TkyjvnvcV85fkEmF6RBw78F2p/ZOsZjFija3GtR5SXP0ijToaYQxk0VMGhA=
+X-Received: by 2002:ad4:5f09:0:b0:6fa:c81a:6204 with SMTP id
+ 6a1803df08f44-6fb08f50942mr228433326d6.10.1749456937558; Mon, 09 Jun 2025
+ 01:15:37 -0700 (PDT)
 MIME-Version: 1.0
+References: <20250607200454.73587-1-ebiggers@kernel.org>
+In-Reply-To: <20250607200454.73587-1-ebiggers@kernel.org>
+From: Julian Calaby <julian.calaby@gmail.com>
+Date: Mon, 9 Jun 2025 18:15:24 +1000
+X-Gm-Features: AX0GCFtpUUxU8yEaZey6YSh4XuBhQlOITIBZOiB21tfxDGQbnIThjp-0HFxjxHQ
+Message-ID: <CAGRGNgV_4X3O-qo3XFGexi9_JqJXK9Mf82=p8CQ4BoD3o-Hypw@mail.gmail.com>
+Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is integrated
+To: Eric Biggers <ebiggers@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org, 
+	sparclinux@vger.kernel.org, x86@kernel.org, linux-arch@vger.kernel.org, 
+	Ard Biesheuvel <ardb@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>, 
+	Linus Torvalds <torvalds@linux-foundation.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_005342_220832_8F130C78 
-X-CRM114-Status: GOOD (  17.87  )
+X-CRM114-CacheID: sfid-20250609_011539_220370_E62FA96B 
+X-CRM114-Status: GOOD (  23.10  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,955 +93,60 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-
-This is a straight import of the OpenSSL/CRYPTOGAMS Poly1305
-implementation for riscv authored by Andy Polyakov.
-The file 'poly1305-riscv.pl' is taken straight from this upstream
-GitHub repository [0] at commit 33fe84bc21219a16825459b37c825bf4580a0a7b,
-and this commit fixed a bug in riscv 64bit implementation.
-
-[0] https://github.com/dot-asm/cryptogams
-
-Signed-off-by: Zhihang Shao <zhihang.shao.iscas@gmail.com>
----
-v3:
-- remove redundant functions. (Herbert)
----
-v2:
-- rebase onto mainline and port change to arch/riscv/lib/crypto. (Eric)
-- fix problems in code according to Andy's guidance. (Andy)
----
- arch/riscv/lib/crypto/Kconfig           |   5 +
- arch/riscv/lib/crypto/Makefile          |  17 +
- arch/riscv/lib/crypto/poly1305-glue.c   |  44 ++
- arch/riscv/lib/crypto/poly1305-riscv.pl | 797 ++++++++++++++++++++++++
- lib/crypto/Kconfig                      |   2 +-
- 5 files changed, 864 insertions(+), 1 deletion(-)
- create mode 100644 arch/riscv/lib/crypto/poly1305-glue.c
- create mode 100644 arch/riscv/lib/crypto/poly1305-riscv.pl
-
-diff --git a/arch/riscv/lib/crypto/Kconfig b/arch/riscv/lib/crypto/Kconfig
-index 47c99ea97ce2..8f94cad872c6 100644
---- a/arch/riscv/lib/crypto/Kconfig
-+++ b/arch/riscv/lib/crypto/Kconfig
-@@ -7,6 +7,11 @@ config CRYPTO_CHACHA_RISCV64
- 	select CRYPTO_ARCH_HAVE_LIB_CHACHA
- 	select CRYPTO_LIB_CHACHA_GENERIC
- 
-+config CRYPTO_POLY1305_RISCV
-+	tristate
-+	default CRYPTO_LIB_POLY1305
-+    select CRYPTO_ARCH_HAVE_LIB_POLY1305
-+
- config CRYPTO_SHA256_RISCV64
- 	tristate
- 	depends on 64BIT && RISCV_ISA_V && TOOLCHAIN_HAS_VECTOR_CRYPTO
-diff --git a/arch/riscv/lib/crypto/Makefile b/arch/riscv/lib/crypto/Makefile
-index b7cb877a2c07..bc8e61e681b7 100644
---- a/arch/riscv/lib/crypto/Makefile
-+++ b/arch/riscv/lib/crypto/Makefile
-@@ -3,5 +3,22 @@
- obj-$(CONFIG_CRYPTO_CHACHA_RISCV64) += chacha-riscv64.o
- chacha-riscv64-y := chacha-riscv64-glue.o chacha-riscv64-zvkb.o
- 
-+obj-$(CONFIG_CRYPTO_POLY1305_RISCV) += poly1305-riscv.o
-+poly1305-riscv-y := poly1305-core.o poly1305-glue.o
-+AFLAGS_poly1305-core.o += -Dpoly1305_init=poly1305_block_init_arch
-+AFLAGS_poly1305-core.o += -Dpoly1305_emit=poly1305_emit_arch
-+
- obj-$(CONFIG_CRYPTO_SHA256_RISCV64) += sha256-riscv64.o
- sha256-riscv64-y := sha256.o sha256-riscv64-zvknha_or_zvknhb-zvkb.o
-+
-+ifeq ($(CONFIG_64BIT),y)
-+PERLASM_ARCH := 64
-+else
-+PERLASM_ARCH := void
-+endif
-+
-+quiet_cmd_perlasm = PERLASM $@
-+      cmd_perlasm = $(PERL) $(<) $(PERLASM_ARCH) $(@)
-+
-+$(obj)/%-core.S: $(src)/%-riscv.pl
-+	$(call cmd,perlasm)
-diff --git a/arch/riscv/lib/crypto/poly1305-glue.c b/arch/riscv/lib/crypto/poly1305-glue.c
-new file mode 100644
-index 000000000000..f0e2e81908ae
---- /dev/null
-+++ b/arch/riscv/lib/crypto/poly1305-glue.c
-@@ -0,0 +1,44 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * OpenSSL/Cryptogams accelerated Poly1305 transform for riscv
-+ *
-+ * Copyright (C) 2025 Institute of Software, CAS.
-+ */
-+
-+#include <asm/hwcap.h>
-+#include <asm/simd.h>
-+#include <crypto/internal/poly1305.h>
-+#include <linux/cpufeature.h>
-+#include <linux/jump_label.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/unaligned.h>
-+
-+asmlinkage void poly1305_block_init_arch(
-+	struct poly1305_block_state *state,
-+	const u8 raw_key[POLY1305_BLOCK_SIZE]);
-+EXPORT_SYMBOL_GPL(poly1305_block_init_arch);
-+asmlinkage void poly1305_blocks(struct poly1305_block_state *state,
-+				const u8 *src, u32 len, u32 hibit);
-+asmlinkage void poly1305_emit_arch(const struct poly1305_state *state,
-+				   u8 digest[POLY1305_DIGEST_SIZE],
-+				   const u32 nonce[4]);
-+EXPORT_SYMBOL_GPL(poly1305_emit_arch);
-+
-+void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
-+			  unsigned int len, u32 padbit)
-+{
-+	len = round_down(len, POLY1305_BLOCK_SIZE);
-+	poly1305_blocks(state, src, len, 1);
-+}
-+EXPORT_SYMBOL_GPL(poly1305_blocks_arch);
-+
-+bool poly1305_is_arch_optimized(void)
-+{
-+	/* We always can use since only Integer Multiplication extension is used. */
-+	return true;
-+}
-+EXPORT_SYMBOL(poly1305_is_arch_optimized);
-+
-+MODULE_DESCRIPTION("Poly1305 authenticator (RISC-V accelerated)");
-+MODULE_LICENSE("GPL");
-\ No newline at end of file
-diff --git a/arch/riscv/lib/crypto/poly1305-riscv.pl b/arch/riscv/lib/crypto/poly1305-riscv.pl
-new file mode 100644
-index 000000000000..315ccc328fd9
---- /dev/null
-+++ b/arch/riscv/lib/crypto/poly1305-riscv.pl
-@@ -0,0 +1,797 @@
-+#!/usr/bin/env perl
-+# SPDX-License-Identifier: GPL-1.0+ OR BSD-3-Clause
-+#
-+# ====================================================================
-+# Written by Andy Polyakov, @dot-asm, initially for use with OpenSSL.
-+# ====================================================================
-+#
-+# Poly1305 hash for RISC-V.
-+#
-+# February 2019
-+#
-+# In the essence it's pretty straightforward transliteration of MIPS
-+# module [without big-endian option].
-+#
-+# 3.9 cycles per byte on U74, ~60% faster than compiler-generated code.
-+# 1.9 cpb on C910, ~75% improvement. 2.3 cpb on JH7110 (U74 with
-+# apparently better multiplier), ~69% faster, 3.3 on Spacemit X60,
-+# ~69% improvement.
-+#
-+# June 2024.
-+#
-+# Add CHERI support.
-+#
-+######################################################################
-+#
-+($zero,$ra,$sp,$gp,$tp)=map("x$_",(0..4));
-+($t0,$t1,$t2,$t3,$t4,$t5,$t6)=map("x$_",(5..7,28..31));
-+($a0,$a1,$a2,$a3,$a4,$a5,$a6,$a7)=map("x$_",(10..17));
-+($s0,$s1,$s2,$s3,$s4,$s5,$s6,$s7,$s8,$s9,$s10,$s11)=map("x$_",(8,9,18..27));
-+#
-+######################################################################
-+
-+$flavour = shift || "64";
-+
-+for (@ARGV) {   $output=$_ if (/\w[\w\-]*\.\w+$/);   }
-+open STDOUT,">$output";
-+
-+if ($flavour =~ /64/) {{{
-+######################################################################
-+# 64-bit code path...
-+#
-+my ($ctx,$inp,$len,$padbit) = ($a0,$a1,$a2,$a3);
-+my ($in0,$in1,$tmp0,$tmp1,$tmp2,$tmp3,$tmp4) = ($a4,$a5,$a6,$a7,$t0,$t1,$t2);
-+
-+$code.=<<___;
-+#if __riscv_xlen == 64
-+# if __SIZEOF_POINTER__ == 16
-+#  define PUSH	csc
-+#  define POP	clc
-+# else
-+#  define PUSH	sd
-+#  define POP	ld
-+# endif
-+#else
-+# error "unsupported __riscv_xlen"
-+#endif
-+
-+.option	pic
-+.text
-+
-+.globl	poly1305_init
-+.type	poly1305_init,\@function
-+poly1305_init:
-+	sd	$zero,0($ctx)
-+	sd	$zero,8($ctx)
-+	sd	$zero,16($ctx)
-+
-+	beqz	$inp,.Lno_key
-+
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	andi	$tmp0,$inp,7		# $inp % 8
-+	andi	$inp,$inp,-8		# align $inp
-+	slli	$tmp0,$tmp0,3		# byte to bit offset
-+#endif
-+	ld	$in0,0($inp)
-+	ld	$in1,8($inp)
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	beqz	$tmp0,.Laligned_key
-+
-+	ld	$tmp2,16($inp)
-+	neg	$tmp1,$tmp0		# implicit &63 in sll
-+	srl	$in0,$in0,$tmp0
-+	sll	$tmp3,$in1,$tmp1
-+	srl	$in1,$in1,$tmp0
-+	sll	$tmp2,$tmp2,$tmp1
-+	or	$in0,$in0,$tmp3
-+	or	$in1,$in1,$tmp2
-+
-+.Laligned_key:
-+#endif
-+	li	$tmp0,1
-+	slli	$tmp0,$tmp0,32		# 0x0000000100000000
-+	addi	$tmp0,$tmp0,-63		# 0x00000000ffffffc1
-+	slli	$tmp0,$tmp0,28		# 0x0ffffffc10000000
-+	addi	$tmp0,$tmp0,-1		# 0x0ffffffc0fffffff
-+
-+	and	$in0,$in0,$tmp0
-+	addi	$tmp0,$tmp0,-3		# 0x0ffffffc0ffffffc
-+	and	$in1,$in1,$tmp0
-+
-+	sd	$in0,24($ctx)
-+	srli	$tmp0,$in1,2
-+	sd	$in1,32($ctx)
-+	add	$tmp0,$tmp0,$in1	# s1 = r1 + (r1 >> 2)
-+	sd	$tmp0,40($ctx)
-+
-+.Lno_key:
-+	li	$a0,0			# return 0
-+	ret
-+.size	poly1305_init,.-poly1305_init
-+___
-+{
-+my ($h0,$h1,$h2,$r0,$r1,$rs1,$d0,$d1,$d2) =
-+   ($s0,$s1,$s2,$s3,$t3,$t4,$in0,$in1,$t2);
-+my ($shr,$shl) = ($t5,$t6);		# used on R6
-+
-+$code.=<<___;
-+.globl	poly1305_blocks
-+.type	poly1305_blocks,\@function
-+poly1305_blocks:
-+	andi	$len,$len,-16		# complete blocks only
-+	beqz	$len,.Lno_data
-+
-+	caddi	$sp,$sp,-4*__SIZEOF_POINTER__
-+	PUSH	$s0,3*__SIZEOF_POINTER__($sp)
-+	PUSH	$s1,2*__SIZEOF_POINTER__($sp)
-+	PUSH	$s2,1*__SIZEOF_POINTER__($sp)
-+	PUSH	$s3,0*__SIZEOF_POINTER__($sp)
-+
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	andi	$shr,$inp,7
-+	andi	$inp,$inp,-8		# align $inp
-+	slli	$shr,$shr,3		# byte to bit offset
-+	neg	$shl,$shr		# implicit &63 in sll
-+#endif
-+
-+	ld	$h0,0($ctx)		# load hash value
-+	ld	$h1,8($ctx)
-+	ld	$h2,16($ctx)
-+
-+	ld	$r0,24($ctx)		# load key
-+	ld	$r1,32($ctx)
-+	ld	$rs1,40($ctx)
-+
-+	add	$len,$len,$inp		# end of buffer
-+
-+.Loop:
-+	ld	$in0,0($inp)		# load input
-+	ld	$in1,8($inp)
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	beqz	$shr,.Laligned_inp
-+
-+	ld	$tmp2,16($inp)
-+	srl	$in0,$in0,$shr
-+	sll	$tmp3,$in1,$shl
-+	srl	$in1,$in1,$shr
-+	sll	$tmp2,$tmp2,$shl
-+	or	$in0,$in0,$tmp3
-+	or	$in1,$in1,$tmp2
-+
-+.Laligned_inp:
-+#endif
-+	caddi	$inp,$inp,16
-+
-+	andi	$tmp0,$h2,-4		# modulo-scheduled reduction
-+	srli	$tmp1,$h2,2
-+	andi	$h2,$h2,3
-+
-+	add	$d0,$h0,$in0		# accumulate input
-+	 add	$tmp1,$tmp1,$tmp0
-+	sltu	$tmp0,$d0,$h0
-+	add	$d0,$d0,$tmp1		# ... and residue
-+	sltu	$tmp1,$d0,$tmp1
-+	add	$d1,$h1,$in1
-+	add	$tmp0,$tmp0,$tmp1
-+	sltu	$tmp1,$d1,$h1
-+	add	$d1,$d1,$tmp0
-+
-+	 add	$d2,$h2,$padbit
-+	 sltu	$tmp0,$d1,$tmp0
-+	mulhu	$h1,$r0,$d0		# h0*r0
-+	mul	$h0,$r0,$d0
-+
-+	 add	$d2,$d2,$tmp1
-+	 add	$d2,$d2,$tmp0
-+	mulhu	$tmp1,$rs1,$d1		# h1*5*r1
-+	mul	$tmp0,$rs1,$d1
-+
-+	mulhu	$h2,$r1,$d0		# h0*r1
-+	mul	$tmp2,$r1,$d0
-+	 add	$h0,$h0,$tmp0
-+	 add	$h1,$h1,$tmp1
-+	 sltu	$tmp0,$h0,$tmp0
-+
-+	 add	$h1,$h1,$tmp0
-+	 add	$h1,$h1,$tmp2
-+	mulhu	$tmp1,$r0,$d1		# h1*r0
-+	mul	$tmp0,$r0,$d1
-+
-+	 sltu	$tmp2,$h1,$tmp2
-+	 add	$h2,$h2,$tmp2
-+	mul	$tmp2,$rs1,$d2		# h2*5*r1
-+
-+	 add	$h1,$h1,$tmp0
-+	 add	$h2,$h2,$tmp1
-+	mul	$tmp3,$r0,$d2		# h2*r0
-+	 sltu	$tmp0,$h1,$tmp0
-+	 add	$h2,$h2,$tmp0
-+
-+	add	$h1,$h1,$tmp2
-+	sltu	$tmp2,$h1,$tmp2
-+	add	$h2,$h2,$tmp2
-+	add	$h2,$h2,$tmp3
-+
-+	bne	$inp,$len,.Loop
-+
-+	sd	$h0,0($ctx)		# store hash value
-+	sd	$h1,8($ctx)
-+	sd	$h2,16($ctx)
-+
-+	POP	$s0,3*__SIZEOF_POINTER__($sp)		# epilogue
-+	POP	$s1,2*__SIZEOF_POINTER__($sp)
-+	POP	$s2,1*__SIZEOF_POINTER__($sp)
-+	POP	$s3,0*__SIZEOF_POINTER__($sp)
-+	caddi	$sp,$sp,4*__SIZEOF_POINTER__
-+
-+.Lno_data:
-+	ret
-+.size	poly1305_blocks,.-poly1305_blocks
-+___
-+}
-+{
-+my ($ctx,$mac,$nonce) = ($a0,$a1,$a2);
-+
-+$code.=<<___;
-+.globl	poly1305_emit
-+.type	poly1305_emit,\@function
-+poly1305_emit:
-+	ld	$tmp2,16($ctx)
-+	ld	$tmp0,0($ctx)
-+	ld	$tmp1,8($ctx)
-+
-+	andi	$in0,$tmp2,-4		# final reduction
-+	srl	$in1,$tmp2,2
-+	andi	$tmp2,$tmp2,3
-+	add	$in0,$in0,$in1
-+
-+	add	$tmp0,$tmp0,$in0
-+	sltu	$in1,$tmp0,$in0
-+	 addi	$in0,$tmp0,5		# compare to modulus
-+	add	$tmp1,$tmp1,$in1
-+	 sltiu	$tmp3,$in0,5
-+	sltu	$tmp4,$tmp1,$in1
-+	 add	$in1,$tmp1,$tmp3
-+	add	$tmp2,$tmp2,$tmp4
-+	 sltu	$tmp3,$in1,$tmp3
-+	 add	$tmp2,$tmp2,$tmp3
-+
-+	srli	$tmp2,$tmp2,2		# see if it carried/borrowed
-+	neg	$tmp2,$tmp2
-+
-+	xor	$in0,$in0,$tmp0
-+	xor	$in1,$in1,$tmp1
-+	and	$in0,$in0,$tmp2
-+	and	$in1,$in1,$tmp2
-+	xor	$in0,$in0,$tmp0
-+	xor	$in1,$in1,$tmp1
-+
-+	lwu	$tmp0,0($nonce)		# load nonce
-+	lwu	$tmp1,4($nonce)
-+	lwu	$tmp2,8($nonce)
-+	lwu	$tmp3,12($nonce)
-+	slli	$tmp1,$tmp1,32
-+	slli	$tmp3,$tmp3,32
-+	or	$tmp0,$tmp0,$tmp1
-+	or	$tmp2,$tmp2,$tmp3
-+
-+	add	$in0,$in0,$tmp0		# accumulate nonce
-+	add	$in1,$in1,$tmp2
-+	sltu	$tmp0,$in0,$tmp0
-+	add	$in1,$in1,$tmp0
-+
-+	srli	$tmp0,$in0,8		# write mac value
-+	srli	$tmp1,$in0,16
-+	srli	$tmp2,$in0,24
-+	sb	$in0,0($mac)
-+	srli	$tmp3,$in0,32
-+	sb	$tmp0,1($mac)
-+	srli	$tmp0,$in0,40
-+	sb	$tmp1,2($mac)
-+	srli	$tmp1,$in0,48
-+	sb	$tmp2,3($mac)
-+	srli	$tmp2,$in0,56
-+	sb	$tmp3,4($mac)
-+	srli	$tmp3,$in1,8
-+	sb	$tmp0,5($mac)
-+	srli	$tmp0,$in1,16
-+	sb	$tmp1,6($mac)
-+	srli	$tmp1,$in1,24
-+	sb	$tmp2,7($mac)
-+
-+	sb	$in1,8($mac)
-+	srli	$tmp2,$in1,32
-+	sb	$tmp3,9($mac)
-+	srli	$tmp3,$in1,40
-+	sb	$tmp0,10($mac)
-+	srli	$tmp0,$in1,48
-+	sb	$tmp1,11($mac)
-+	srli	$tmp1,$in1,56
-+	sb	$tmp2,12($mac)
-+	sb	$tmp3,13($mac)
-+	sb	$tmp0,14($mac)
-+	sb	$tmp1,15($mac)
-+
-+	ret
-+.size	poly1305_emit,.-poly1305_emit
-+.string	"Poly1305 for RISC-V, CRYPTOGAMS by \@dot-asm"
-+___
-+}
-+}}} else {{{
-+######################################################################
-+# 32-bit code path
-+#
-+
-+my ($ctx,$inp,$len,$padbit) = ($a0,$a1,$a2,$a3);
-+my ($in0,$in1,$in2,$in3,$tmp0,$tmp1,$tmp2,$tmp3) =
-+   ($a4,$a5,$a6,$a7,$t0,$t1,$t2,$t3);
-+
-+$code.=<<___;
-+#if __riscv_xlen == 32
-+# if __SIZEOF_POINTER__ == 8
-+#  define PUSH	csc
-+#  define POP	clc
-+# else
-+#  define PUSH	sw
-+#  define POP	lw
-+# endif
-+# define MULX(hi,lo,a,b)	mulhu hi,a,b; mul lo,a,b
-+# define srlw	srl
-+# define sllw	sll
-+# define addw	add
-+# define addiw	addi
-+# define mulw	mul
-+#elif __riscv_xlen == 64
-+# if __SIZEOF_POINTER__ == 16
-+#  define PUSH	csc
-+#  define POP	clc
-+# else
-+#  define PUSH	sd
-+#  define POP	ld
-+# endif
-+# define MULX(hi,lo,a,b)	slli b,b,32; srli b,b,32; mul hi,a,b; addiw lo,hi,0; srai hi,hi,32
-+#else
-+# error "unsupported __riscv_xlen"
-+#endif
-+
-+.option	pic
-+.text
-+
-+.globl	poly1305_init
-+.type	poly1305_init,\@function
-+poly1305_init:
-+	sw	$zero,0($ctx)
-+	sw	$zero,4($ctx)
-+	sw	$zero,8($ctx)
-+	sw	$zero,12($ctx)
-+	sw	$zero,16($ctx)
-+
-+	beqz	$inp,.Lno_key
-+
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	andi	$tmp0,$inp,3		# $inp % 4
-+	sub	$inp,$inp,$tmp0		# align $inp
-+	sll	$tmp0,$tmp0,3		# byte to bit offset
-+#endif
-+	lw	$in0,0($inp)
-+	lw	$in1,4($inp)
-+	lw	$in2,8($inp)
-+	lw	$in3,12($inp)
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	beqz	$tmp0,.Laligned_key
-+
-+	lw	$tmp2,16($inp)
-+	sub	$tmp1,$zero,$tmp0
-+	srlw	$in0,$in0,$tmp0
-+	sllw	$tmp3,$in1,$tmp1
-+	srlw	$in1,$in1,$tmp0
-+	or	$in0,$in0,$tmp3
-+	sllw	$tmp3,$in2,$tmp1
-+	srlw	$in2,$in2,$tmp0
-+	or	$in1,$in1,$tmp3
-+	sllw	$tmp3,$in3,$tmp1
-+	srlw	$in3,$in3,$tmp0
-+	or	$in2,$in2,$tmp3
-+	sllw	$tmp2,$tmp2,$tmp1
-+	or	$in3,$in3,$tmp2
-+.Laligned_key:
-+#endif
-+
-+	lui	$tmp0,0x10000
-+	addi	$tmp0,$tmp0,-1		# 0x0fffffff
-+	and	$in0,$in0,$tmp0
-+	addi	$tmp0,$tmp0,-3		# 0x0ffffffc
-+	and	$in1,$in1,$tmp0
-+	and	$in2,$in2,$tmp0
-+	and	$in3,$in3,$tmp0
-+
-+	sw	$in0,20($ctx)
-+	sw	$in1,24($ctx)
-+	sw	$in2,28($ctx)
-+	sw	$in3,32($ctx)
-+
-+	srlw	$tmp1,$in1,2
-+	srlw	$tmp2,$in2,2
-+	srlw	$tmp3,$in3,2
-+	addw	$in1,$in1,$tmp1		# s1 = r1 + (r1 >> 2)
-+	addw	$in2,$in2,$tmp2
-+	addw	$in3,$in3,$tmp3
-+	sw	$in1,36($ctx)
-+	sw	$in2,40($ctx)
-+	sw	$in3,44($ctx)
-+.Lno_key:
-+	li	$a0,0
-+	ret
-+.size	poly1305_init,.-poly1305_init
-+___
-+{
-+my ($h0,$h1,$h2,$h3,$h4, $r0,$r1,$r2,$r3, $rs1,$rs2,$rs3) =
-+   ($s0,$s1,$s2,$s3,$s4, $s5,$s6,$s7,$s8, $t0,$t1,$t2);
-+my ($d0,$d1,$d2,$d3) =
-+   ($a4,$a5,$a6,$a7);
-+my $shr = $ra;		# used on R6
-+
-+$code.=<<___;
-+.globl	poly1305_blocks
-+.type	poly1305_blocks,\@function
-+poly1305_blocks:
-+	andi	$len,$len,-16		# complete blocks only
-+	beqz	$len,.Labort
-+
-+	caddi	$sp,$sp,-__SIZEOF_POINTER__*12
-+	PUSH	$ra, __SIZEOF_POINTER__*11($sp)
-+	PUSH	$s0, __SIZEOF_POINTER__*10($sp)
-+	PUSH	$s1, __SIZEOF_POINTER__*9($sp)
-+	PUSH	$s2, __SIZEOF_POINTER__*8($sp)
-+	PUSH	$s3, __SIZEOF_POINTER__*7($sp)
-+	PUSH	$s4, __SIZEOF_POINTER__*6($sp)
-+	PUSH	$s5, __SIZEOF_POINTER__*5($sp)
-+	PUSH	$s6, __SIZEOF_POINTER__*4($sp)
-+	PUSH	$s7, __SIZEOF_POINTER__*3($sp)
-+	PUSH	$s8, __SIZEOF_POINTER__*2($sp)
-+
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	andi	$shr,$inp,3
-+	andi	$inp,$inp,-4		# align $inp
-+	slli	$shr,$shr,3		# byte to bit offset
-+#endif
-+
-+	lw	$h0,0($ctx)		# load hash value
-+	lw	$h1,4($ctx)
-+	lw	$h2,8($ctx)
-+	lw	$h3,12($ctx)
-+	lw	$h4,16($ctx)
-+
-+	lw	$r0,20($ctx)		# load key
-+	lw	$r1,24($ctx)
-+	lw	$r2,28($ctx)
-+	lw	$r3,32($ctx)
-+	lw	$rs1,36($ctx)
-+	lw	$rs2,40($ctx)
-+	lw	$rs3,44($ctx)
-+
-+	add	$len,$len,$inp		# end of buffer
-+
-+.Loop:
-+	lw	$d0,0($inp)		# load input
-+	lw	$d1,4($inp)
-+	lw	$d2,8($inp)
-+	lw	$d3,12($inp)
-+#ifndef	__CHERI_PURE_CAPABILITY__
-+	beqz	$shr,.Laligned_inp
-+
-+	lw	$t4,16($inp)
-+	sub	$t5,$zero,$shr
-+	srlw	$d0,$d0,$shr
-+	sllw	$t3,$d1,$t5
-+	srlw	$d1,$d1,$shr
-+	or	$d0,$d0,$t3
-+	sllw	$t3,$d2,$t5
-+	srlw	$d2,$d2,$shr
-+	or	$d1,$d1,$t3
-+	sllw	$t3,$d3,$t5
-+	srlw	$d3,$d3,$shr
-+	or	$d2,$d2,$t3
-+	sllw	$t4,$t4,$t5
-+	or	$d3,$d3,$t4
-+
-+.Laligned_inp:
-+#endif
-+	srli	$t3,$h4,2		# modulo-scheduled reduction
-+	andi	$t4,$h4,-4
-+	andi	$h4,$h4,3
-+
-+	addw	$d0,$d0,$h0		# accumulate input
-+	 addw	$t4,$t4,$t3
-+	sltu	$h0,$d0,$h0
-+	addw	$d0,$d0,$t4		# ... and residue
-+	sltu	$t4,$d0,$t4
-+
-+	addw	$d1,$d1,$h1
-+	 addw	$h0,$h0,$t4		# carry
-+	sltu	$h1,$d1,$h1
-+	addw	$d1,$d1,$h0
-+	sltu	$h0,$d1,$h0
-+
-+	addw	$d2,$d2,$h2
-+	 addw	$h1,$h1,$h0		# carry
-+	sltu	$h2,$d2,$h2
-+	addw	$d2,$d2,$h1
-+	sltu	$h1,$d2,$h1
-+
-+	addw	$d3,$d3,$h3
-+	 addw	$h2,$h2,$h1		# carry
-+	sltu	$h3,$d3,$h3
-+	addw	$d3,$d3,$h2
-+
-+	MULX	($h1,$h0,$r0,$d0)	# d0*r0
-+
-+	 sltu	$h2,$d3,$h2
-+	 addw	$h3,$h3,$h2		# carry
-+
-+	MULX	($t4,$t3,$rs3,$d1)	# d1*s3
-+
-+	 addw	$h4,$h4,$padbit
-+	 caddi	$inp,$inp,16
-+	 addw	$h4,$h4,$h3
-+
-+	MULX	($t6,$a3,$rs2,$d2)	# d2*s2
-+	 addw	$h0,$h0,$t3
-+	 addw	$h1,$h1,$t4
-+	 sltu	$t3,$h0,$t3
-+	 addw	$h1,$h1,$t3
-+
-+	MULX	($t4,$t3,$rs1,$d3)	# d3*s1
-+	 addw	$h0,$h0,$a3
-+	 addw	$h1,$h1,$t6
-+	 sltu	$a3,$h0,$a3
-+	 addw	$h1,$h1,$a3
-+
-+
-+	MULX	($h2,$a3,$r1,$d0)	# d0*r1
-+	 addw	$h0,$h0,$t3
-+	 addw	$h1,$h1,$t4
-+	 sltu	$t3,$h0,$t3
-+	 addw	$h1,$h1,$t3
-+
-+	MULX	($t4,$t3,$r0,$d1)	# d1*r0
-+	 addw	$h1,$h1,$a3
-+	 sltu	$a3,$h1,$a3
-+	 addw	$h2,$h2,$a3
-+
-+	MULX	($t6,$a3,$rs3,$d2)	# d2*s3
-+	 addw	$h1,$h1,$t3
-+	 addw	$h2,$h2,$t4
-+	 sltu	$t3,$h1,$t3
-+	 addw	$h2,$h2,$t3
-+
-+	MULX	($t4,$t3,$rs2,$d3)	# d3*s2
-+	 addw	$h1,$h1,$a3
-+	 addw	$h2,$h2,$t6
-+	 sltu	$a3,$h1,$a3
-+	 addw	$h2,$h2,$a3
-+
-+	mulw	$a3,$rs1,$h4		# h4*s1
-+	 addw	$h1,$h1,$t3
-+	 addw	$h2,$h2,$t4
-+	 sltu	$t3,$h1,$t3
-+	 addw	$h2,$h2,$t3
-+
-+
-+	MULX	($h3,$t3,$r2,$d0)	# d0*r2
-+	 addw	$h1,$h1,$a3
-+	 sltu	$a3,$h1,$a3
-+	 addw	$h2,$h2,$a3
-+
-+	MULX	($t6,$a3,$r1,$d1)	# d1*r1
-+	 addw	$h2,$h2,$t3
-+	 sltu	$t3,$h2,$t3
-+	 addw	$h3,$h3,$t3
-+
-+	MULX	($t4,$t3,$r0,$d2)	# d2*r0
-+	 addw	$h2,$h2,$a3
-+	 addw	$h3,$h3,$t6
-+	 sltu	$a3,$h2,$a3
-+	 addw	$h3,$h3,$a3
-+
-+	MULX	($t6,$a3,$rs3,$d3)	# d3*s3
-+	 addw	$h2,$h2,$t3
-+	 addw	$h3,$h3,$t4
-+	 sltu	$t3,$h2,$t3
-+	 addw	$h3,$h3,$t3
-+
-+	mulw	$t3,$rs2,$h4		# h4*s2
-+	 addw	$h2,$h2,$a3
-+	 addw	$h3,$h3,$t6
-+	 sltu	$a3,$h2,$a3
-+	 addw	$h3,$h3,$a3
-+
-+
-+	MULX	($t6,$a3,$r3,$d0)	# d0*r3
-+	 addw	$h2,$h2,$t3
-+	 sltu	$t3,$h2,$t3
-+	 addw	$h3,$h3,$t3
-+
-+	MULX	($t4,$t3,$r2,$d1)	# d1*r2
-+	 addw	$h3,$h3,$a3
-+	 sltu	$a3,$h3,$a3
-+	 addw	$t6,$t6,$a3
-+
-+	MULX	($a3,$d3,$r0,$d3)	# d3*r0
-+	 addw	$h3,$h3,$t3
-+	 addw	$t6,$t6,$t4
-+	 sltu	$t3,$h3,$t3
-+	 addw	$t6,$t6,$t3
-+
-+	MULX	($t4,$t3,$r1,$d2)	# d2*r1
-+	 addw	$h3,$h3,$d3
-+	 addw	$t6,$t6,$a3
-+	 sltu	$d3,$h3,$d3
-+	 addw	$t6,$t6,$d3
-+
-+	mulw	$a3,$rs3,$h4		# h4*s3
-+	 addw	$h3,$h3,$t3
-+	 addw	$t6,$t6,$t4
-+	 sltu	$t3,$h3,$t3
-+	 addw	$t6,$t6,$t3
-+
-+
-+	mulw	$h4,$r0,$h4		# h4*r0
-+	 addw	$h3,$h3,$a3
-+	 sltu	$a3,$h3,$a3
-+	 addw	$t6,$t6,$a3
-+	addw	$h4,$t6,$h4
-+
-+	li	$padbit,1		# if we loop, padbit is 1
-+
-+	bne	$inp,$len,.Loop
-+
-+	sw	$h0,0($ctx)		# store hash value
-+	sw	$h1,4($ctx)
-+	sw	$h2,8($ctx)
-+	sw	$h3,12($ctx)
-+	sw	$h4,16($ctx)
-+
-+	POP	$ra, __SIZEOF_POINTER__*11($sp)
-+	POP	$s0, __SIZEOF_POINTER__*10($sp)
-+	POP	$s1, __SIZEOF_POINTER__*9($sp)
-+	POP	$s2, __SIZEOF_POINTER__*8($sp)
-+	POP	$s3, __SIZEOF_POINTER__*7($sp)
-+	POP	$s4, __SIZEOF_POINTER__*6($sp)
-+	POP	$s5, __SIZEOF_POINTER__*5($sp)
-+	POP	$s6, __SIZEOF_POINTER__*4($sp)
-+	POP	$s7, __SIZEOF_POINTER__*3($sp)
-+	POP	$s8, __SIZEOF_POINTER__*2($sp)
-+	caddi	$sp,$sp,__SIZEOF_POINTER__*12
-+.Labort:
-+	ret
-+.size	poly1305_blocks,.-poly1305_blocks
-+___
-+}
-+{
-+my ($ctx,$mac,$nonce,$tmp4) = ($a0,$a1,$a2,$a3);
-+
-+$code.=<<___;
-+.globl	poly1305_emit
-+.type	poly1305_emit,\@function
-+poly1305_emit:
-+	lw	$tmp4,16($ctx)
-+	lw	$tmp0,0($ctx)
-+	lw	$tmp1,4($ctx)
-+	lw	$tmp2,8($ctx)
-+	lw	$tmp3,12($ctx)
-+
-+	srli	$ctx,$tmp4,2		# final reduction
-+	andi	$in0,$tmp4,-4
-+	andi	$tmp4,$tmp4,3
-+	addw	$ctx,$ctx,$in0
-+
-+	addw	$tmp0,$tmp0,$ctx
-+	sltu	$ctx,$tmp0,$ctx
-+	 addiw	$in0,$tmp0,5		# compare to modulus
-+	addw	$tmp1,$tmp1,$ctx
-+	 sltiu	$in1,$in0,5
-+	sltu	$ctx,$tmp1,$ctx
-+	 addw	$in1,$in1,$tmp1
-+	addw	$tmp2,$tmp2,$ctx
-+	 sltu	$in2,$in1,$tmp1
-+	sltu	$ctx,$tmp2,$ctx
-+	 addw	$in2,$in2,$tmp2
-+	addw	$tmp3,$tmp3,$ctx
-+	 sltu	$in3,$in2,$tmp2
-+	sltu	$ctx,$tmp3,$ctx
-+	 addw	$in3,$in3,$tmp3
-+	addw	$tmp4,$tmp4,$ctx
-+	 sltu	$ctx,$in3,$tmp3
-+	 addw	$ctx,$ctx,$tmp4
-+
-+	srl	$ctx,$ctx,2		# see if it carried/borrowed
-+	sub	$ctx,$zero,$ctx
-+
-+	xor	$in0,$in0,$tmp0
-+	xor	$in1,$in1,$tmp1
-+	xor	$in2,$in2,$tmp2
-+	xor	$in3,$in3,$tmp3
-+	and	$in0,$in0,$ctx
-+	and	$in1,$in1,$ctx
-+	and	$in2,$in2,$ctx
-+	and	$in3,$in3,$ctx
-+	xor	$in0,$in0,$tmp0
-+	xor	$in1,$in1,$tmp1
-+	xor	$in2,$in2,$tmp2
-+	xor	$in3,$in3,$tmp3
-+
-+	lw	$tmp0,0($nonce)		# load nonce
-+	lw	$tmp1,4($nonce)
-+	lw	$tmp2,8($nonce)
-+	lw	$tmp3,12($nonce)
-+
-+	addw	$in0,$in0,$tmp0		# accumulate nonce
-+	sltu	$ctx,$in0,$tmp0
-+
-+	addw	$in1,$in1,$tmp1
-+	sltu	$tmp1,$in1,$tmp1
-+	addw	$in1,$in1,$ctx
-+	sltu	$ctx,$in1,$ctx
-+	addw	$ctx,$ctx,$tmp1
-+
-+	addw	$in2,$in2,$tmp2
-+	sltu	$tmp2,$in2,$tmp2
-+	addw	$in2,$in2,$ctx
-+	sltu	$ctx,$in2,$ctx
-+	addw	$ctx,$ctx,$tmp2
-+
-+	addw	$in3,$in3,$tmp3
-+	addw	$in3,$in3,$ctx
-+
-+	srl	$tmp0,$in0,8		# write mac value
-+	srl	$tmp1,$in0,16
-+	srl	$tmp2,$in0,24
-+	sb	$in0, 0($mac)
-+	sb	$tmp0,1($mac)
-+	srl	$tmp0,$in1,8
-+	sb	$tmp1,2($mac)
-+	srl	$tmp1,$in1,16
-+	sb	$tmp2,3($mac)
-+	srl	$tmp2,$in1,24
-+	sb	$in1, 4($mac)
-+	sb	$tmp0,5($mac)
-+	srl	$tmp0,$in2,8
-+	sb	$tmp1,6($mac)
-+	srl	$tmp1,$in2,16
-+	sb	$tmp2,7($mac)
-+	srl	$tmp2,$in2,24
-+	sb	$in2, 8($mac)
-+	sb	$tmp0,9($mac)
-+	srl	$tmp0,$in3,8
-+	sb	$tmp1,10($mac)
-+	srl	$tmp1,$in3,16
-+	sb	$tmp2,11($mac)
-+	srl	$tmp2,$in3,24
-+	sb	$in3, 12($mac)
-+	sb	$tmp0,13($mac)
-+	sb	$tmp1,14($mac)
-+	sb	$tmp2,15($mac)
-+
-+	ret
-+.size	poly1305_emit,.-poly1305_emit
-+.string	"Poly1305 for RISC-V, CRYPTOGAMS by \@dot-asm"
-+___
-+}
-+}}}
-+
-+foreach (split("\n", $code)) {
-+    if ($flavour =~ /^cheri/) {
-+	s/\(x([0-9]+)\)/(c$1)/ and s/\b([ls][bhwd]u?)\b/c$1/;
-+	s/\b(PUSH|POP)(\s+)x([0-9]+)/$1$2c$3/ or
-+	s/\b(ret|jal)\b/c$1/;
-+	s/\bcaddi?\b/cincoffset/ and s/\bx([0-9]+,)/c$1/g or
-+	m/\bcmove\b/ and s/\bx([0-9]+)/c$1/g;
-+    } else {
-+	s/\bcaddi?\b/add/ or
-+	s/\bcmove\b/mv/;
-+    }
-+    print $_, "\n";
-+}
-+
-+close STDOUT;
-\ No newline at end of file
-diff --git a/lib/crypto/Kconfig b/lib/crypto/Kconfig
-index 1ec1466108cc..0d425f8ce90f 100644
---- a/lib/crypto/Kconfig
-+++ b/lib/crypto/Kconfig
-@@ -100,7 +100,7 @@ config CRYPTO_LIB_DES
- 
- config CRYPTO_LIB_POLY1305_RSIZE
- 	int
--	default 2 if MIPS
-+	default 2 if MIPS || RISCV
- 	default 11 if X86_64
- 	default 9 if ARM || ARM64
- 	default 1
--- 
-2.43.0
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgRXJpYywKCk9uIFN1biwgSnVuIDgsIDIwMjUgYXQgNjowN+KAr0FNIEVyaWMgQmlnZ2VycyA8
+ZWJpZ2dlcnNAa2VybmVsLm9yZz4gd3JvdGU6Cj4KPiBUaGlzIHNlcmllcyBpcyBhbHNvIGF2YWls
+YWJsZSBhdDoKPgo+ICAgICBnaXQgZmV0Y2ggaHR0cHM6Ly9naXQua2VybmVsLm9yZy9wdWIvc2Nt
+L2xpbnV4L2tlcm5lbC9naXQvZWJpZ2dlcnMvbGludXguZ2l0IGxpYi1jcmMtYXJjaC12Mgo+Cj4g
+VGhpcyBzZXJpZXMgaW1wcm92ZXMgaG93IGxpYi9jcmMgc3VwcG9ydHMgYXJjaC1vcHRpbWl6ZWQg
+Y29kZS4gIEZpcnN0LAo+IGluc3RlYWQgb2YgdGhlIGFyY2gtb3B0aW1pemVkIENSQyBjb2RlIGJl
+aW5nIGluIGFyY2gvJChTUkNBUkNIKS9saWIvLCBpdAo+IHdpbGwgbm93IGJlIGluIGxpYi9jcmMv
+JChTUkNBUkNIKS8uICBTZWNvbmQsIHRoZSBBUEkgZnVuY3Rpb25zIChlLmcuCj4gY3JjMzJjKCkp
+LCBhcmNoLW9wdGltaXplZCBmdW5jdGlvbnMgKGUuZy4gY3JjMzJjX2FyY2goKSksIGFuZCBnZW5l
+cmljCj4gZnVuY3Rpb25zIChlLmcuIGNyYzMyY19iYXNlKCkpIHdpbGwgbm93IGJlIHBhcnQgb2Yg
+YSBzaW5nbGUgbW9kdWxlIGZvcgo+IGVhY2ggQ1JDIHR5cGUsIGFsbG93aW5nIGJldHRlciBpbmxp
+bmluZyBhbmQgZGVhZCBjb2RlIGVsaW1pbmF0aW9uLiAgVGhlCj4gc2Vjb25kIGNoYW5nZSBpcyBt
+YWRlIHBvc3NpYmxlIGJ5IHRoZSBmaXJzdC4KPgo+IEFzIGFuIGV4YW1wbGUsIGNvbnNpZGVyIENP
+TkZJR19DUkMzMj1tIG9uIHg4Ni4gIFdlJ2xsIG5vdyBoYXZlIGp1c3QKPiBjcmMzMi5rbyBpbnN0
+ZWFkIG9mIGJvdGggY3JjMzIteDg2LmtvIGFuZCBjcmMzMi5rby4gIFRoZSB0d28gbW9kdWxlcwo+
+IHdlcmUgYWxyZWFkeSBjb3VwbGVkIHRvZ2V0aGVyIGFuZCBhbHdheXMgYm90aCBnb3QgbG9hZGVk
+IHRvZ2V0aGVyIHZpYQo+IGRpcmVjdCBzeW1ib2wgZGVwZW5kZW5jeSwgc28gdGhlIHNlcGFyYXRp
+b24gcHJvdmlkZWQgbm8gYmVuZWZpdC4KPgo+IE5vdGU6IGxhdGVyIEknZCBsaWtlIHRvIGFwcGx5
+IHRoZSBzYW1lIGRlc2lnbiB0byBsaWIvY3J5cHRvLyB0b28sIHdoZXJlCj4gb2Z0ZW4gdGhlIEFQ
+SSBmdW5jdGlvbnMgYXJlIG91dC1vZi1saW5lIHNvIHRoaXMgd2lsbCB3b3JrIGV2ZW4gYmV0dGVy
+Lgo+IEluIHRob3NlIGNhc2VzLCBmb3IgZWFjaCBhbGdvcml0aG0gd2UgY3VycmVudGx5IGhhdmUg
+MyBtb2R1bGVzIGFsbAo+IGNvdXBsZWQgdG9nZXRoZXIsIGUuZy4gbGlic2hhMjU2LmtvLCBsaWJz
+aGEyNTYtZ2VuZXJpYy5rbywgYW5kCj4gc2hhMjU2LXg4Ni5rby4gIFdlIHNob3VsZCBoYXZlIGp1
+c3Qgb25lLCBpbmxpbmUgdGhpbmdzIHByb3Blcmx5LCBhbmQKPiByZWx5IG9uIHRoZSBjb21waWxl
+cidzIGRlYWQgY29kZSBlbGltaW5hdGlvbiB0byBkZWNpZGUgdGhlIGluY2x1c2lvbiBvZgo+IHRo
+ZSBnZW5lcmljIGNvZGUgaW5zdGVhZCBvZiBtYW51YWxseSBzZXR0aW5nIGl0IHZpYSBrY29uZmln
+Lgo+Cj4gSGF2aW5nIGFyY2gtc3BlY2lmaWMgY29kZSBvdXRzaWRlIGFyY2gvIHdhcyBzb21ld2hh
+dCBjb250cm92ZXJzaWFsIHdoZW4KPiBaaW5jIHByb3Bvc2VkIGl0IGJhY2sgaW4gMjAxOC4gIEJ1
+dCBJIGRvbid0IHRoaW5rIHRoZSBjb25jZXJucyBhcmUKPiB3YXJyYW50ZWQuICBJdCdzIGJldHRl
+ciBmcm9tIGEgdGVjaG5pY2FsIHBlcnNwZWN0aXZlLCBhcyBpdCBlbmFibGVzIHRoZQo+IGltcHJv
+dmVtZW50cyBtZW50aW9uZWQgYWJvdmUuICBUaGlzIG1vZGVsIGlzIGFscmVhZHkgc3VjY2Vzc2Z1
+bGx5IHVzZWQKPiBpbiBvdGhlciBwbGFjZXMgaW4gdGhlIGtlcm5lbCBzdWNoIGFzIGxpYi9yYWlk
+Ni8uICBUaGUgY29tbXVuaXR5IG9mIGVhY2gKPiBhcmNoaXRlY3R1cmUgc3RpbGwgcmVtYWlucyBm
+cmVlIHRvIHdvcmsgb24gdGhlIGNvZGUsIGV2ZW4gaWYgaXQncyBub3QgaW4KPiBhcmNoLy4gIEF0
+IHRoZSB0aW1lIHRoZXJlIHdhcyBhbHNvIGEgZGVzaXJlIHRvIHB1dCB0aGUgbGlicmFyeSBjb2Rl
+IGluCj4gdGhlIHNhbWUgZmlsZXMgYXMgdGhlIG9sZC1zY2hvb2wgY3J5cHRvIEFQSSwgYnV0IHRo
+YXQgd2FzIGEgbWlzdGFrZTsgbm93Cj4gdGhhdCB0aGUgbGlicmFyeSBpcyBzZXBhcmF0ZSwgdGhh
+dCdzIG5vIGxvbmdlciBhIGNvbnN0cmFpbnQgZWl0aGVyLgoKUXVpY2sgcXVlc3Rpb24sIGFuZCBh
+cG9sb2dpZXMgaWYgdGhpcyBoYXMgYmVlbiBjb3ZlcmVkIGVsc2V3aGVyZS4KCldoeSBub3QganVz
+dCB1c2UgY2hvaWNlIGJsb2NrcyBpbiBLY29uZmlnIHRvIGNob29zZSB0aGUgY29tcGlsZWQtaW4K
+Y3JjMzIgdmFyaWFudCBpbnN0ZWFkIG9mIHRoaXMgc29tZXdoYXQgaW5kaXJlY3Qgc2NoZW1lPwoK
+VGhpcyB3b3VsZCBrZWVwIHRoZSBkZXBlbmRlbmNpZXMgZ3JvdXBlZCBieSBhcmNoIGFuZCBwcm92
+aWRlIGEgc2luZ2xlCnBsYWNlIHRvIGNob29zZSB3aGV0aGVyIHRoZSBnZW5lcmljIG9yIGFyY2gt
+c3BlY2lmaWMgbWV0aG9kIGlzIHVzZWQuCgpJdCB3b3VsZCBhbHNvIGFsbG93IGZvciBhbHRlcm5h
+dGl2ZXMgaWYgdGhhdCBldmVyIGJlY29tZXMgYSB0aGluZyBhbmQKY29tcGlsZSB0ZXN0aW5nIG9m
+IHRoZSBhcmNoLXNwZWNpZmljIHZhcmlhbnRzIGlmIHRoYXQgZXZlbiBvZmZlcnMgYW55CmFjdHVh
+bCB2YWx1ZS4KClRoYW5rcywKCi0tIApKdWxpYW4gQ2FsYWJ5CgpFbWFpbDoganVsaWFuLmNhbGFi
+eUBnbWFpbC5jb20KUHJvZmlsZTogaHR0cDovL3d3dy5nb29nbGUuY29tL3Byb2ZpbGVzL2p1bGlh
+bi5jYWxhYnkvCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+XwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9y
+ZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2
+Cg==
