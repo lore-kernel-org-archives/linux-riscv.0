@@ -4,62 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D701C5B552
-	for <linux-riscv@archiver.kernel.org>; Thu,  5 Jun 2025 13:57:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0EDC61DB2
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 04:22:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/3d1GMDKMxnDhH/HLw2lA+ovopOMo7UDzVrcK6DlbDI=; b=KjA9rsAk4odQX/
-	4zMvYEpeHIW/rv9orWDD81BUj1MhpVqbJOfBrRHRfUCPP9IWn6iHrfTUcuafBVNCxcwMYXkDXn/13
-	wI8K/6Uo2ZiJV99ykG1ccdndL1NL26gGWmdiU+Y8BYRo3yvefpy9ngOAtStyAuvfBWwAFLM+Qk/pl
-	gsGKqMsRk5LwoMQ41MLTtu4fMvbZ3BtrWHGqWNlvMsTFGcDL3q7TptBdjoC5EMmkmlZnQgjwJap/9
-	wRE5U4jVBwusggJgqcrWXklaeKR5mIoltx6bcc5+ptGrspwbxLrrK9wuwI7z+Jbej4I/YJNk+8vmV
-	0En5UAe1wekSgysU9UHQ==;
+	List-Owner; bh=hlQeGOj1RqS2f8Rerkhfkrj/NlepHkVPIUf1nkMT8t0=; b=h4v4XxR5pdCziM
+	AT9BFI+fLinsseOtshjpKBtWiWRj/22HNzu3RdYEJX1RiF7MgefYQTnH+BVBgrnK467c0Z8/V6CT6
+	eUNTei8+QdfcDRjmimv934+nVgNHvqQU0A8rIFxWT8kNAqvvzVDnWqy5u17xUxBsl2AqUuMQCVuni
+	mw3BUaROEQ4+4GjMVEPiUsp2HjGhvyt1YzGDiKV48RvMDjkaJ/psMmC1j+ABjntIfKuhAzEg5vKeu
+	LJgY7uT3rn34At/jwq+gpsWfPMAV2nD3eOG7FoKFqNOON4T/gPuzptdNSpaQJeJMkiHcAcUMJjGaD
+	JjFlIsIx70BYejapwf2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNB6N-0000000FiQt-33If;
-	Thu, 05 Jun 2025 13:57:51 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uOU1B-00000003OG1-0W1h;
+	Mon, 09 Jun 2025 04:21:53 +0000
+Received: from bayard.4d2.org ([155.254.16.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uNAjv-0000000Ff6M-24Jl
+	id 1uOU18-00000003OFe-2NPO
 	for linux-riscv@lists.infradead.org;
-	Thu, 05 Jun 2025 13:34:40 +0000
-Received: from localhost (unknown [IPv6:240e:45b:7e90:d32d:3a26:ba44:aeb4:61b0])
+	Mon, 09 Jun 2025 04:21:52 +0000
+Received: from bayard.4d2.org (bayard.4d2.org [127.0.0.1])
+	by bayard.4d2.org (Postfix) with ESMTP id 7995812FB41C;
+	Sun, 08 Jun 2025 21:21:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1749442908; bh=jS0cEzQw8X9ASmmTWmyjGvXq7CYOImtqUSmMlKYOQ7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=wpF99Ev9a1i3kYzbIH8xr9WdebuCDfK5QA0LVjIOfyUqwwfetuWYZf1d4C2miIIbt
+	 vwI0K65ufIRSKKDBuEDxTmDYJ/f7xqPrfZJxQ491KFwC5LJ1TeaBaxUXGYB180MWTb
+	 /SDBJCEWCFz49iIyzlGuHieYs+YvOlTzDR4ivA2TjsNtYdwXSkhJ1DaeAfjm82FM16
+	 SqS67RH0O3eBwbpUjwk0ieSrnIwiAB2no+uHSoekILYWJa3ScUJTaCxz/M+uJUOvvM
+	 ztlKorjuRtkLdXQJwjzGA0AR3NFFlkyw/H3KRofWxs5owqTmvqxJaYOzZuzEfaW9Ab
+	 dD0y0aJuHVkhw==
+X-Virus-Scanned: amavisd-new at 4d2.org
+Received: from bayard.4d2.org ([127.0.0.1])
+ by bayard.4d2.org (bayard.4d2.org [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id Q-z2SKhicKqm; Sun,  8 Jun 2025 21:21:45 -0700 (PDT)
+Received: from ketchup (unknown [183.217.80.254])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange x25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 54FDD3430F0;
-	Thu, 05 Jun 2025 13:34:38 +0000 (UTC)
-Date: Thu, 5 Jun 2025 13:34:27 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Ze Huang <huangze@whut.edu.cn>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/4] usb: dwc3: add generic driver to support
- flattened DT
-Message-ID: <20250605133427.GYA18884.dlan.gentoo>
-References: <20250526-b4-k1-dwc3-v3-v4-0-63e4e525e5cb@whut.edu.cn>
- <20250526-b4-k1-dwc3-v3-v4-3-63e4e525e5cb@whut.edu.cn>
+	(Authenticated sender: heylenay@4d2.org)
+	by bayard.4d2.org (Postfix) with ESMTPSA id 1082D12FB401;
+	Sun, 08 Jun 2025 21:21:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=4d2.org; s=mail;
+	t=1749442905; bh=jS0cEzQw8X9ASmmTWmyjGvXq7CYOImtqUSmMlKYOQ7k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=zbaw+kg3PaM6bHrS+UWUsB27CpmMy8q0fPqD4qLEwRWvYm2ovPE8+PC0AcRKgVvMJ
+	 HALTz+cSrlxDOrYDOlplmYc3qUovcSrjGtJcP5ubfO/X5IE1A6fah+Y13qeKBH1LZP
+	 5d6xQKArlcgrC+uFnqEMCvkQVBa1Rlvvgychc+5hwt5B2JJ9s/LC916wU6Bqz0tBTP
+	 /0lIGkjH3aUbEztmUtIRTkzvTtT5K9zArUEMIBEFb5HxCPNKYmd5/XA9Fj4WXvlvqq
+	 foGBgGl0qLo7mOVvhs4CLgTja3MbhLYvdmxksv4IDPafiBWdM14FPMxV/EQ5zrlzp8
+	 Qwi0l8o7HDkDw==
+Date: Mon, 9 Jun 2025 04:21:39 +0000
+From: Haylen Chu <heylenay@4d2.org>
+To: Alex Elder <elder@riscstar.com>, Yixun Lan <dlan@gentoo.org>
+Cc: mturquette@baylibre.com, sboyd@kernel.org, inochiama@outlook.com,
+	linux-clk@vger.kernel.org, spacemit@lists.linux.dev,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Guodong Xu <guodong@riscstar.com>
+Subject: Re: [PATCH] clk: spacemit: mark K1 pll1_d8 as critical
+Message-ID: <aEZhU5kk7pMnl7F9@ketchup>
+References: <20250607202759.4180579-1-elder@riscstar.com>
+ <20250608002453-GYA108101@gentoo>
+ <52c27139-20aa-4995-b3b5-290df13f1ec9@riscstar.com>
+ <aEUVwvKHCu4hr6xs@ketchup>
+ <ef696db8-20ca-4710-b642-8d22263d4ffe@riscstar.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250526-b4-k1-dwc3-v3-v4-3-63e4e525e5cb@whut.edu.cn>
+In-Reply-To: <ef696db8-20ca-4710-b642-8d22263d4ffe@riscstar.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250605_063439_562705_828DBFBD 
-X-CRM114-Status: GOOD (  28.39  )
+X-CRM114-CacheID: sfid-20250608_212150_992949_A239F06F 
+X-CRM114-Status: GOOD (  66.29  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,256 +95,289 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Ze,
+On Sun, Jun 08, 2025 at 01:31:42PM -0500, Alex Elder wrote:
+> On 6/7/25 11:46 PM, Haylen Chu wrote:
+> > On Sat, Jun 07, 2025 at 09:46:03PM -0500, Alex Elder wrote:
+> 
+> I respond below.  I'm leaving all the context for now.
+> 
+> > > On 6/7/25 7:24 PM, Yixun Lan wrote:
+> > > > Hi Alex,
+> > > > 
+> > > > On 15:27 Sat 07 Jun     , Alex Elder wrote:
+> > > > > The pll1_d8 clock is enabled by the boot loader, and is ultimately a
+> > > > > parent for numerous clocks.  Guodong Xu was recently testing DMA,
+> > > >               ~~~~~~~~~this is still vague, numerous isn't equal to critical
+> > > 
+> > > I will give you a full explanation of what I observed, below.
+> > > 
+> > > > > adding a reset property, and discovered that the needed reset was
+> > > > > not yet ready during initial probe.  It dropped its clock reference,
+> > > > > which dropped parent references, and along the way it dropped the sole
+> > > > > reference to pll1_d8 (from its prior clk_get()).  Clock pll1_d8 got
+> > > > > disabled, which resulted in a non-functioning system.
+> > > > > 
+> > > > So, I'm trying to understand the problem, and would like to evaluate if
+> > > > the "critical" flag is necessary..
+> > > > 
+> > > > It occurs to me, the DMA driver should request and enable clock first,
+> > > > then request and issue a reset, it probably could be solved by proper
+> > > 
+> > > No, that is not the issue.  The reset is never deasserted.
+> > > 
+> > > > order? so what's the real problem here? is DMA or reset? dropped the
+> > > > clock? or does driver fail to request a reset before clock is ready?
+> > > 
+> > > The problem is with the pll1_d8 clock.  That clock is enabled
+> > > successfully.  However the reset isn't ready, so the clock
+> > > gets disabled, and its parent (and other ancestors) also get
+> > > disabled while recovering from that.
+> > > 
+> > > I'll give you a high-level summary, then will lay out a ton of
+> > > detail.
+> > > 
+> > > In the DMA driver probe function, several initial things happen
+> > > and then, a clock is requested (enabled):
+> > >    <&syscon_apmu CLK_DMA>
+> > > That succeeds.
+> > > 
+> > > Next, a reset is requested:
+> > >    <&syscon_apmu RESET_DMA>
+> > > But that fails, because the reset driver probe function hasn't
+> > > been called yet.  The request gets -EPROBE_DEFER as its result,
+> > > and the DMA driver starts unwinding everything so that it can
+> > > be probed again later.  Dropping the clock reference results
+> > > in parent clocks dropping references.  And because pll1_div8
+> > > initially had a reference count of 0 (despite being on),
+> > > dropping this single reference means it gets disabled.  Then
+> > > we're stuck.
+> > > 
+> > > 
+> > > Here is how the DMA clock is supplied (at boot time):
+> > > 
+> > > pll1 -> pll1_d8 -> pll1_d8_307p2 -> pmua_aclk -> dma_clk
+> > > 
+> > > pll1 and pll1_d8 are enabled by the boot loader, but at this
+> > > time the drivers for various hardware that require them aren't
+> > > "getting" and enabling them (yet).
+> > > 
+> > > devm_clk_get_optional_enabled() causes clk_prepare_enable()
+> > > to be called on the target clock (pll1_d8).  That simply calls
+> > > clk_prepare() and clk_enable().  Let's focus on the latter.
+> > >      clk_enable(dma_clk)
+> > >        clk_core_enable_lock()
+> > > 
+> > > So now the clock enable lock is held.  The target clock's
+> > > enable_count for pll1_d8 is 0.
+> > > 
+> > >    clk_core_enable(dma_clk)
+> > >      clk_core_enable(parent = pmua_aclk)
+> > >      ...
+> > >      enable_count++ (on dma_clk)
+> > > 
+> > > The parent gets enabled (I'm fairly certain pmua_clk's
+> > > enable_count is also 0).
+> > > 
+> > >    clk_core_enable(pmua_aclk)
+> > >      clk_core_enable(parent = pll1_d8_307p2)
+> > >      ...
+> > >      enable_count++ (on pmua_clk)
+> > > 
+> > > And so on.  When the clk_enable(dma_clk) completes, we have
+> > > these enable counts:
+> > >    dma_clk:		1
+> > >    pmua_clk:		1
+> > >    pll1_d8_307p2:	1
+> > >    pll1_d8:		1
+> > >    pll1:			1? (I don't recall)
+> > > 
+> > > The -EPROBE_DEFER causes the  devm_clk_get_optional_enabled()
+> > > for dma_clk to get undone.  That means clk_disable_unprepare()
+> > > gets called on dma_clk.  Let's just focus on clk_disable().
+> > > 
+> > >    clk_disable(dma_clk)
+> > >      clk_core_disable_lock(dma_clk)
+> > >        (takes clk_enable lock)
+> > >        clk_core_disable()
+> > >          --enable_count becomes 0 (on dma_clk)
+> > >          (disables dma_clk)
+> > >          clk_core_disable(core->parent = pmua_aclk)
+> > > 
+> > >    clk_core_disable(pmua_aclk)
+> > >      --enable_count becomes 0 (on pmua_clk)
+> > >      (disables pmua_clk)
+> > >      clk_core_dissable(core->parent = pll1_d8_307p2)
+> > > 
+> > >    clk_core_disable(pll1_d8_307p2)
+> > >      --enable_count becomes 0 (on pll1_d8_307p2)
+> > >      (disables pll1_d8_307p2)
+> > >      clk_core_dissable(core->parent = pll1_d8)
+> > > 
+> > >    clk_core_disable(pll1_d8\)
+> > >      --enable_count becomes 0 (on pll1)
+> > >      (disables pll1_d8)
+> > >      BOOM
+> > 
+> > Yeah, I got the reason that pll1_d8 is disabled, but I don't still
+> > understand why it matters: pll1_d8 is a simple factor gate, though being
+> > parent of various peripheral clocks, it's okay to enable it again later
+> > if some peripherals decide to use it or one of its child, isn't it?
+> 
+> When it gets disabled, the system becomes non-functional.  What that
+> means is that everything stops, no more output, and even when I
+> enabled KDB it did not drop into KDB.  *Something* depends on it,
+> but there is no driver that properly enables the clock (yet).
+> This means--for now--it seems to be a critical clock.
+> 
+> > I could come up with several scenarios where disabling the clock really
+> > causes problems,
+> > 
+> > 1. Some essential SoC components are actually supplied by pll1_d8 or one
+> >     of its children, but isn't described in devicetree or the driver,
+> >     thus disabling pll1_d8 leads to an SoC hang. We should mark the
+> 
+> This is what I believe is happening.  So my fix marks the one clock
+> as critical in the driver.  I would not want to mark it critical
+> in DT.
 
-On 22:40 Mon 26 May     , Ze Huang wrote:
-> To support flattened dwc3 dt model and drop the glue layer, introduce the
-> `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
-> and offers an alternative to the existing glue driver `dwc3-of-simple`.
-> 
-> Signed-off-by: Ze Huang <huangze@whut.edu.cn>
-> ---
->  drivers/usb/dwc3/Kconfig             |   9 ++
->  drivers/usb/dwc3/Makefile            |   1 +
->  drivers/usb/dwc3/dwc3-generic-plat.c | 189 +++++++++++++++++++++++++++++++++++
->  3 files changed, 199 insertions(+)
-> 
-> diff --git a/drivers/usb/dwc3/Kconfig b/drivers/usb/dwc3/Kconfig
-> index 310d182e10b50b253d7e5a51674806e6ec442a2a..082627f39c9726ee4e0c5f966c5bc454f5541c9a 100644
-> --- a/drivers/usb/dwc3/Kconfig
-> +++ b/drivers/usb/dwc3/Kconfig
-> @@ -118,6 +118,15 @@ config USB_DWC3_OF_SIMPLE
->  	  Currently supports Xilinx and Qualcomm DWC USB3 IP.
->  	  Say 'Y' or 'M' if you have one such device.
->  
-> +config USB_DWC3_GENERIC_PLAT
-> +       tristate "DWC3 Generic Platform Driver"
-> +       depends on OF && COMMON_CLK
-> +       default USB_DWC3
-> +       help
-> +         Support USB3 functionality in simple SoC integrations.
-> +         Currently supports SpacemiT DWC USB3 IP.
-> +         Say 'Y' or 'M' if you have one such device.
-> +
->  config USB_DWC3_ST
->  	tristate "STMicroelectronics Platforms"
->  	depends on (ARCH_STI || COMPILE_TEST) && OF
-> diff --git a/drivers/usb/dwc3/Makefile b/drivers/usb/dwc3/Makefile
-> index 830e6c9e5fe073c1f662ce34b6a4a2da34c407a2..96469e48ff9d189cc8d0b65e65424eae2158bcfe 100644
-> --- a/drivers/usb/dwc3/Makefile
-> +++ b/drivers/usb/dwc3/Makefile
-> @@ -57,3 +57,4 @@ obj-$(CONFIG_USB_DWC3_IMX8MP)		+= dwc3-imx8mp.o
->  obj-$(CONFIG_USB_DWC3_XILINX)		+= dwc3-xilinx.o
->  obj-$(CONFIG_USB_DWC3_OCTEON)		+= dwc3-octeon.o
->  obj-$(CONFIG_USB_DWC3_RTK)		+= dwc3-rtk.o
-> +obj-$(CONFIG_USB_DWC3_GENERIC_PLAT)	+= dwc3-generic-plat.o
-> diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..8ff4626d324c40ecb52e115832c803fed7d38354
-> --- /dev/null
-> +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
-> @@ -0,0 +1,189 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * dwc3-generic-plat.c - DesignWare USB3 generic platform driver
-> + *
-> + * Copyright (C) 2025 Ze Huang <huangze9015@gmail.com>
-> + *
-> + * Inspired by dwc3-qcom.c and dwc3-of-simple.c
-> + */
-> +
-> +#include <linux/clk.h>
-> +#include <linux/delay.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/of_address.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/reset.h>
-> +#include "glue.h"
-> +
-> +struct dwc3_generic {
-> +	struct device		*dev;
-> +	struct dwc3		dwc;
-> +	struct clk_bulk_data	*clks;
-> +	int			num_clocks;
-> +	struct reset_control	*resets;
-> +};
-> +
-> +static int dwc3_generic_probe(struct platform_device *pdev)
-> +{
-> +	struct dwc3_probe_data probe_data = {};
-> +	struct device *dev = &pdev->dev;
-> +	struct dwc3_generic *dwc3;
-> +	struct resource *res;
-> +	int ret;
-> +
-> +	dwc3 = devm_kzalloc(dev, sizeof(*dwc3), GFP_KERNEL);
-> +	if (!dwc3)
-> +		return -ENOMEM;
-> +
-> +	dwc3->dev = dev;
-> +
-> +	platform_set_drvdata(pdev, dwc3);
-> +
-> +	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> +	if (!res) {
-> +		dev_err(&pdev->dev, "missing memory resource\n");
-> +		return -ENODEV;
-> +	}
-> +
-> +	dwc3->resets = of_reset_control_array_get_optional_exclusive(dev->of_node);
-> +	if (IS_ERR(dwc3->resets))
-> +		return dev_err_probe(dev, PTR_ERR(dwc3->resets), "failed to get reset\n");
-> +
-> +	ret = reset_control_assert(dwc3->resets);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to assert reset\n");
-> +
-> +	usleep_range(10, 1000);
-> +
-> +	ret = reset_control_deassert(dwc3->resets);
-> +	if (ret) {
-> +		dev_err(dev, "failed to deassert reset\n");
-> +		goto reset_assert;
-> +	}
-> +
-> +	ret = clk_bulk_get_all(dwc3->dev, &dwc3->clks);
-can you check if able to use devres api for reset/clock here?
-(functions start devm_ prefix)
+Okay. Then please make it more explicit in the commit message, "pll1_d8
+seems to supply critical SoC components" describes the situation more
+precisely than "Clock pll1_d8 got disabled, which resulted in a
+non-functioning system".
 
-> +	if (ret < 0) {
-> +		dev_err(dev, "failed to get clocks\nt");
-> +		goto reset_assert;
-> +	}
-> +
-> +	dwc3->num_clocks = ret;
-> +
-> +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> +	if (ret) {
-> +		dev_err(dev, "failed to enable clocks\n");
-> +		goto reset_assert;
-> +	}
-> +
-> +	dwc3->dwc.dev = dev;
-> +	probe_data.dwc = &dwc3->dwc;
-> +	probe_data.res = res;
-> +	probe_data.ignore_clocks_and_resets = true;
-> +	ret = dwc3_core_probe(&probe_data);
-> +	if (ret)  {
-> +		dev_err(dev, "failed to register DWC3 Core\n");
-> +		goto clk_disable;
-> +	}
-> +
-> +	return 0;
-> +
-> +clk_disable:
-> +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> +	clk_bulk_put_all(dwc3->num_clocks, dwc3->clks);
-> +
-> +reset_assert:
-> +	reset_control_assert(dwc3->resets);
-> +
-> +	return ret;
-> +}
-> +
-> +static void dwc3_generic_remove(struct platform_device *pdev)
-> +{
-> +	struct dwc3_generic *dwc3 = platform_get_drvdata(pdev);
-> +
-> +	dwc3_core_remove(&dwc3->dwc);
-> +
-> +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> +	clk_bulk_put_all(dwc3->num_clocks, dwc3->clks);
-> +
-> +	reset_control_assert(dwc3->resets);
-> +}
-> +
-> +static int __maybe_unused dwc3_generic_suspend(struct device *dev)
-> +{
-> +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = dwc3_pm_suspend(&dwc3->dwc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	clk_bulk_disable_unprepare(dwc3->num_clocks, dwc3->clks);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused dwc3_generic_resume(struct device *dev)
-> +{
-> +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	ret = clk_bulk_prepare_enable(dwc3->num_clocks, dwc3->clks);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = dwc3_pm_resume(&dwc3->dwc);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused dwc3_generic_runtime_suspend(struct device *dev)
-> +{
-> +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> +
-> +	return dwc3_runtime_suspend(&dwc3->dwc);
-> +}
-> +
-> +static int __maybe_unused dwc3_generic_runtime_resume(struct device *dev)
-> +{
-> +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> +
-> +	return dwc3_runtime_resume(&dwc3->dwc);
-> +}
-> +
-> +static int __maybe_unused dwc3_generic_runtime_idle(struct device *dev)
-> +{
-> +	struct dwc3_generic *dwc3 = dev_get_drvdata(dev);
-> +
-> +	return dwc3_runtime_idle(&dwc3->dwc);
-> +}
-> +
-> +static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
-> +	SET_SYSTEM_SLEEP_PM_OPS(dwc3_generic_suspend, dwc3_generic_resume)
-> +	SET_RUNTIME_PM_OPS(dwc3_generic_runtime_suspend, dwc3_generic_runtime_resume,
-> +			   dwc3_generic_runtime_idle)
-> +};
-> +
-> +static const struct of_device_id dwc3_generic_of_match[] = {
-> +	{ .compatible = "spacemit,k1-dwc3", },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
-> +
-> +static struct platform_driver dwc3_generic_driver = {
-> +	.probe		= dwc3_generic_probe,
-> +	.remove		= dwc3_generic_remove,
-> +	.driver		= {
-> +		.name	= "dwc3-generic-plat",
-> +		.of_match_table = dwc3_generic_of_match,
-> +#ifdef CONFIG_PM_SLEEP
-> +		.pm	= &dwc3_generic_dev_pm_ops,
-> +#endif /* CONFIG_PM_SLEEP */
-> +	},
-> +};
-> +module_platform_driver(dwc3_generic_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("DesignWare USB3 generic platform driver");
+> >     precise clock that being essential as critcal, instead of setting
+> >     pll1_d8 as critical to work around the problem.
 > 
-> -- 
-> 2.49.0
-> 
+> I provided the chain of clocks leading to the dma_clk.  Disabling
+> the dma_clk did not cause harm; disabling pmua_aclk did not cause
+> harm; disabling pll1_d8_307p2 did not cause harm.  Only when pll1_d8
+> was disabled did the machine become unusable.
 
--- 
-Yixun Lan (dlan)
-Gentoo Linux Developer
-GPG Key ID AABEFD55
+I don't think this is an evidence strong enough to prove pll1_d8 itself
+is critical.
+
+pll1_d8 supplies not only pll1_d8_307p2 and its children, but also
+pll1_d16_153p6, pll1_d24_102p4 and many more. It's totally possible that
+not pll1_d8 but actually pll1_d16_153p6 or pll1_d24_102p4 is critical
+for SoC operation: in a normal functioning system with a working UART,
+these two clocks are always enabled since they (indirectly) supply UART
+bus and func clocks, hidding the problem.
+
+In your case, when DMA driver reverts the enable operation, the UART
+driver don't seem to be probed yet (or enable count of pll1_d8 won't
+decrease to zero). Disabling the parent may cause an SoC hang as well if
+pll1_d16_153p6 or pll1_d24_102p4 is critcal in fact.
+
+> > 2. There're bugs in our clock driver, thus it fails to bring pll1_d8
+> >     (or maybe also its children) back to a sound state. If so we should
+> >     fix the driver.
+> 
+> No, I found that pll1_d8 had an enable count of 1 after dma_clk
+> was enabled.  And then the set of disables that resulted from the
+> -EPROBE_DEFER discovered its enable count was zero, and therefore
+> disabled pll1_d8 (after dma_clk, pmua_aclk, and pll1_d8_307p2 were
+> disabled).  I do not suspect the clock *driver* is at fault.
+
+A correct enable count doesn't mean the hardware is configured
+correctly.
+
+> > Unless you could confirm pll1_d8 (not its child) really supplies some
+> > essential SoC components, I don't think simply marking pll1_d8 as
+> > critical is the correct solution.
+> 
+> I did confirm this.  The child gets disabled before the parent in
+> clk_core_disable().
+> 
+> > And, I don't even know what "non-functioning system" behaves like. Could
+> > you please provide more information, like soC behaviours or dmesg when
+> > disabling pll1_d8 causes problems? Thanks.
+> 
+> Maybe you could, as an experiment, pretend <&syscon_apmu CLK_DMA>
+> is a clock for something and get it during probe, using
+> devm_clk_get_optional_enabled().  Then just return -EPROBE_DEFER
+> after that, and I think you'll reproduce the issue.  In fact,
+> you might hit the issue more quickly if you used CLK_PLL1_D8.
+> 
+> 					-Alex
+
+Thanks,
+Haylen Chu
+
+> > > I hope this is clear.
+> > > 
+> > > 					-Alex
+> > 
+> > Regards,
+> > Haylen Chu
+> > 
+> > > 
+> > > > > Mark that clock critical so it doesn't get turned off in this case.
+> > > > > We might be able to turn this flag off someday, but for now it
+> > > > > resolves the problem Guodong encountered.
+> > > > > 
+> > > > > Define a new macro CCU_FACTOR_GATE_DEFINE() to allow clock flags to
+> > > > > be supplied for a CCU_FACTOR_GATE clock.
+> > > > > 
+> > > > > Fixes: 1b72c59db0add ("clk: spacemit: Add clock support for SpacemiT K1 SoC")
+> > > > > Signed-off-by: Alex Elder <elder@riscstar.com>
+> > > > > Tested-by: Guodong Xu <guodong@riscstar.com>
+> > > > > ---
+> > > > >    drivers/clk/spacemit/ccu-k1.c  |  3 ++-
+> > > > >    drivers/clk/spacemit/ccu_mix.h | 21 +++++++++++++--------
+> > > > >    2 files changed, 15 insertions(+), 9 deletions(-)
+> > > > > 
+> > > > > diff --git a/drivers/clk/spacemit/ccu-k1.c b/drivers/clk/spacemit/ccu-k1.c
+> > > > > index cdde37a052353..df65009a07bb1 100644
+> > > > > --- a/drivers/clk/spacemit/ccu-k1.c
+> > > > > +++ b/drivers/clk/spacemit/ccu-k1.c
+> > > > > @@ -170,7 +170,8 @@ CCU_FACTOR_GATE_DEFINE(pll1_d4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(3), 4,
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d5, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(4), 5, 1);
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d6, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(5), 6, 1);
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d7, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(6), 7, 1);
+> > > > > -CCU_FACTOR_GATE_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1);
+> > > > > +CCU_FACTOR_GATE_FLAGS_DEFINE(pll1_d8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(7), 8, 1,
+> > > > > +		CLK_IS_CRITICAL);
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d11_223p4, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(15), 11, 1);
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d13_189, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(16), 13, 1);
+> > > > >    CCU_FACTOR_GATE_DEFINE(pll1_d23_106p8, CCU_PARENT_HW(pll1), APBS_PLL1_SWCR2, BIT(20), 23, 1);
+> > > > > diff --git a/drivers/clk/spacemit/ccu_mix.h b/drivers/clk/spacemit/ccu_mix.h
+> > > > > index 51d19f5d6aacb..668c8139339e1 100644
+> > > > > --- a/drivers/clk/spacemit/ccu_mix.h
+> > > > > +++ b/drivers/clk/spacemit/ccu_mix.h
+> > > > > @@ -101,16 +101,21 @@ static struct ccu_mix _name = {							\
+> > > > >    	}									\
+> > > > >    }
+> > > > > +#define CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+> > > > > +			       _mul, _flags)					\
+> > > > > +struct ccu_mix _name = {							\
+> > > > > +	.gate	= CCU_GATE_INIT(_mask_gate),					\
+> > > > > +	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+> > > > > +	.common = {								\
+> > > > > +		.reg_ctrl	= _reg_ctrl,					\
+> > > > > +		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, _flags)	\
+> > > > > +	}									\
+> > > > > +}
+> > > > > +
+> > > > >    #define CCU_FACTOR_GATE_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+> > > > >    			       _mul)						\
+> > > > > -static struct ccu_mix _name = {							\
+> > > > > -	.gate	= CCU_GATE_INIT(_mask_gate),					\
+> > > > > -	.factor	= CCU_FACTOR_INIT(_div, _mul),					\
+> > > > > -	.common = {								\
+> > > > > -		.reg_ctrl	= _reg_ctrl,					\
+> > > > > -		CCU_MIX_INITHW(_name, _parent, spacemit_ccu_factor_gate_ops, 0)	\
+> > > > > -	}									\
+> > > > > -}
+> > > > > +	CCU_FACTOR_GATE_FLAGS_DEFINE(_name, _parent, _reg_ctrl, _mask_gate, _div,	\
+> > > > > +			       _mul, 0)
+> > > > >    #define CCU_MUX_GATE_DEFINE(_name, _parents, _reg_ctrl, _shift, _width,		\
+> > > > >    			    _mask_gate, _flags)					\
+> > > > > -- 
+> > > > > 2.45.2
+> > > > > 
+> > > > 
+> > > 
+> 
 
 _______________________________________________
 linux-riscv mailing list
