@@ -4,57 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50197C61CE8
-	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 16:33:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 357BBC5B552
+	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 17:21:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
 	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ae5ipZPwMkrfiXUHvylbRSDLt+EVR69nVvB99CumXVo=; b=nWVugpFEbwqDotq3K87d2DUBDJ
-	W96WyfO+gwciz9Mpe8fKuuslr5SsPe3Ja01yxbHDx4YDrNTTl556vueeEqISvf6u3d/cA0OEILeYD
-	NteHpu7p2AyT0FhcvG2PZ6O9yOxUW6tLi2zy1kqLkEWSEYkp32H1xpVz2D0JXkrkc2ZENSdWlJerp
-	hqS/0Cet8NhTmFeuL7Xq4xdUaBtYp4s+Mq54zwEe1pWaMa0xToakBhCXKbircCEH3wajnnum3QXrG
-	+Lv3KejHKreczdiveplvnoMGrPNP9ABjtsrM1fetitcasSEkLcw5SeQWwjPWY4Mn+i3S+K5fSTgwe
-	KcNlbYSg==;
+	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
+	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bFgsvJgrIGW0I9xi9pCg4G62vzVVNLR7Drfgsbv8EWQ=; b=UMkLl7SclKlFRFcDUWwWlwjaq7
+	yL+vuY7NWPrYPalrHSIYQM+1/gD8GfXkLFEQXB8CiBRQRcA6tsymuSsGVz96Lvs2DD1/nh49TEEjJ
+	QSB/pNvEXP4S2sFlh8cCNfHDF1yFtSGUYFN0veiRIIiDS4LO8fJnuS+AfTMnmhcyfqVrzm0xF4SMk
+	9XuX4gayNmx4vD3L9hEyYVot2IdiVUlSr7IXAwOElhbKy9St6PkqUb4+oEjOnGajS7dwHgfr909L5
+	gNM1vBsBBlMtqO/DeAxvTiWQO8k0vPTO3h+U8PYX7m2Mfb56tg9wxjIliqnKpOBBBHJmG1bS8JV+N
+	Q+ZRlK/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOfRG-00000004gPC-3Okl;
-	Mon, 09 Jun 2025 16:33:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uOgBt-00000004nOI-0Rkw;
+	Mon, 09 Jun 2025 17:21:45 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOevt-00000004bBn-2FM5
+	id 1uOfBD-00000004dYn-1GZU
 	for linux-riscv@lists.infradead.org;
-	Mon, 09 Jun 2025 16:01:12 +0000
+	Mon, 09 Jun 2025 16:17:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AC4F644F2A;
-	Mon,  9 Jun 2025 16:01:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 215E7C4CEEF;
-	Mon,  9 Jun 2025 16:01:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 0DB724A03C;
+	Mon,  9 Jun 2025 16:16:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2198EC4CEEB;
+	Mon,  9 Jun 2025 16:16:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749484868;
-	bh=4UANBXEFzzWNDjzkZyhCusk/3Ln3IBad0owyMaZA9s8=;
+	s=k20201202; t=1749485818;
+	bh=BDt+EnSMyugovQvGy6Ubv/cuTr+b0OgRnccv/d6A2/0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BwLoh8juJpB1j2JIPMu6yve9smAo41URpJXx8TMaktX+DpqaR3bMltvW/NELsNxaq
-	 /mOBn3syLkiglEqEFPXGQMRzsZ/M06DsQHc8b9Ui2VopZpmtcZ17jIccv0bkmr3khZ
-	 0Uye/8ScstG1DK4cE4r6vXnzrRRdBsxpcSJB9JFtk8LdTjBHfNw+qjEkkkTP9gk4ww
-	 23hgllO3bCkLvr5N5rIDf3HC3kKju/R9jmEydgiKNdGuhd0jSDCSSZ4k1Ucb751j2t
-	 XXBHgain3C8Z+mHZHr5kZcQomNJ8940/QnTIpHW+jUx4wapbkMTnNQVpQy3Wugsr4d
-	 bk2BHaMbaKVww==
-Date: Mon, 9 Jun 2025 17:01:02 +0100
+	b=KshWZfNMecvaiHnkIONsQ50d9Yp5Qe+bnB8MKfIB/q5aURqIFP3bjcUTeNxjGErt9
+	 K+htwKahgSnFQaU8QGtS5ABs5RLYweIQd+Zt1neCy15lWSYdtfuInB/uvzAXqTIj29
+	 7kSRDAF5ZEHFIdaoivavseD1gw/u0AGS7nmpWN2igTcS+I/YVqe41PB1kyUeumUhAA
+	 jFHaqNEOcpHdVx5fBu7C/KWrYFITvXYNCfPsHafgbXosLAc06Rct3i/1GxPOkRc23W
+	 YMTT7eyLnNF+SRTHAbdkTr8uz+0gDXNVDGnKaIKpGFy2SIwoXesIcoqy6EN+y4vt1t
+	 jMowmX8qLG2vw==
+Date: Mon, 9 Jun 2025 17:16:54 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH v1 3/7] dt-bindings: interrupt-controller: add generic
- Risc-v aclint-sswi
-Message-ID: <20250609-rejoice-disclose-b677f617f2de@spud>
-References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
- <20250609134749.1453835-4-vladimir.kondratiev@mobileye.com>
+To: Ben Zong-You Xie <ben717@andestech.com>
+Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+	alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, tglx@linutronix.de, daniel.lezcano@linaro.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com, devicetree@vger.kernel.org,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	tim609@andestech.com
+Subject: Re: [PATCH v5 0/8] add Voyager board support
+Message-ID: <20250609-donut-oozy-4dcc8b8a292d@spud>
+References: <20250602060747.689824-1-ben717@andestech.com>
+ <20250606-booth-icky-b416c1827a43@spud>
+ <aEbOLztcBsKs84pn@atctrx.andestech.com>
 MIME-Version: 1.0
-In-Reply-To: <20250609134749.1453835-4-vladimir.kondratiev@mobileye.com>
+In-Reply-To: <aEbOLztcBsKs84pn@atctrx.andestech.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_090109_618750_4CA592F5 
-X-CRM114-Status: GOOD (  23.06  )
+X-CRM114-CacheID: sfid-20250609_091659_390870_E7F20C52 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,176 +72,85 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Anup Patel <anup@brainfault.org>, Chen Wang <unicorn_wang@outlook.com>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, sophgo@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Ryo Takakura <takakura@valinux.co.jp>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Content-Type: multipart/mixed; boundary="===============9166071655740035477=="
+Content-Type: multipart/mixed; boundary="===============8945646356773426850=="
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
 
---===============9166071655740035477==
+--===============8945646356773426850==
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="0bO5XdsS6ddgc29+"
+	protocol="application/pgp-signature"; boundary="iCuGkXnhoBvf8BTy"
 Content-Disposition: inline
 
 
---0bO5XdsS6ddgc29+
-Content-Type: text/plain; charset=us-ascii
+--iCuGkXnhoBvf8BTy
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Jun 09, 2025 at 04:47:45PM +0300, Vladimir Kondratiev wrote:
-> Add generic, Risc-V spec compliant (see [1]) aclint-sswi binding
+On Mon, Jun 09, 2025 at 08:06:07PM +0800, Ben Zong-You Xie wrote:
+> On Fri, Jun 06, 2025 at 05:00:06PM +0100, Conor Dooley wrote:
+> > [EXTERNAL MAIL]
 >=20
-> Thead specific binding preserved, and converted to variant of the
-> generic aclint-sswi
+> > Date: Fri, 6 Jun 2025 17:00:06 +0100
+> > From: Conor Dooley <conor@kernel.org>
+> > To: Ben Zong-You Xie <ben717@andestech.com>
+> > Cc: paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+> >  alex@ghiti.fr, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.or=
+g,
+> >  tglx@linutronix.de, daniel.lezcano@linaro.org,
+> >  prabhakar.mahadev-lad.rj@bp.renesas.com, devicetree@vger.kernel.org,
+> >  linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+> >  tim609@andestech.com
+> > Subject: Re: [PATCH v5 0/8] add Voyager board support
+> >=20
+> > On Mon, Jun 02, 2025 at 02:07:39PM +0800, Ben Zong-You Xie wrote:
+> > > The Voyager is a 9.6=E2=80=9D x 9.6=E2=80=9D Micro ATX form factor de=
+velopment board
+> > > including Andes QiLai SoC. This patch series adds minimal device tree
+> > > files for the QiLai SoC and the Voyager board [1].
+> > >=20
+> > > Now only support basic uart drivers to boot up into a basic console. =
+Other
+> > > features will be added later.
+> > >=20
+> > > [1] https://www.andestech.com/en/products-solutions/andeshape-platfor=
+ms/qilai-chip/
+> >=20
+> > Ball is in your court now, after rc1 make a tree and get it in
+> > linux-next, and then send a pr to soc@kernel.org with this new content.
+> > Perhaps the defconfig should go separately, I can take that one if you
+> > want.
+> >=20
+> > Cheers,
+> > Conor.
 >=20
-> Link: https://github.com/riscvarchive/riscv-aclint [1]
-
-What is the ratification status of this spec?
-
+> Hi Conor,
 >=20
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-> ---
->  .../riscv,aclint-sswi.yaml                    | 89 +++++++++++++++++++
->  .../thead,c900-aclint-sswi.yaml               | 58 ------------
->  2 files changed, 89 insertions(+), 58 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
-r/riscv,aclint-sswi.yaml
->  delete mode 100644 Documentation/devicetree/bindings/interrupt-controlle=
-r/thead,c900-aclint-sswi.yaml
+> Thanks for your guidance on these patches. I will send a PR to
+> soc@kernel.org as you suggested.
 >=20
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/riscv=
-,aclint-sswi.yaml b/Documentation/devicetree/bindings/interrupt-controller/=
-riscv,aclint-sswi.yaml
-> new file mode 100644
-> index 000000000000..cffddfcfcfea
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/riscv,aclint=
--sswi.yaml
-> @@ -0,0 +1,89 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/interrupt-controller/riscv,aclint-ssw=
-i.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Risc-V ACLINT Supervisor-level Software Interrupt Device
+> For the defconfig patch, I'm happy for you to handle it. Just let me
+> know if there's anything specific you'd like me to include.
 
-s/Risc-V/RISC-V/g
+Okay, I picked it up on the basis that you'll send this all to Arnd for
+6.17
 
-> +
-> +maintainers:
-> +  - Inochi Amaoto <inochiama@outlook.com>
-> +
-> +description:
-> +  The SSWI device is a part of the Risc-V ACLINT device. It provides
-> +  supervisor-level IPI functionality for a set of HARTs on a THEAD
-> +  platform. It provides a register to set an IPI (SETSSIP) for each
-> +  HART connected to the SSWI device. See specification
-> +  https://github.com/riscvarchive/riscv-aclint
-> +
-> +  T-HEAD C900 ACLINT is a variant of the ACLINT, using dedicated
-> +  compatible string
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - items:
-> +          - enum:
-> +              - sophgo,sg2044-aclint-sswi
-> +          - const: thead,c900-aclint-sswi
-> +      - items:
-> +          - const: riscv,aclint-sswi
-
-You need a specific compatible for your implementation.
-Whether or not this compatible is viable depends on the answer to the
-ratification status and/or plan for the spec.
-
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  "#interrupt-cells":
-> +    const: 0
-> +
-> +  interrupt-controller: true
-> +
-> +  interrupts-extended:
-> +    minItems: 1
-> +    maxItems: 4095
-> +
-> +  riscv,hart-indexes:
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    minItems: 1
-> +    maxItems: 16384
-
-maxItems is 4x what is allowed for interrupts-extended. Why?
-
-> +    description:
-> +      A list of hart indexes that APLIC should use to address each hart
-> +      that is mentioned in the "interrupts-extended"
-
-Please constrain this property to only be permitted on !thead.
-
-> +
-> +additionalProperties: false
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#interrupt-cells"
-> +  - interrupt-controller
-> +  - interrupts-extended
-> +
-> +examples:
-> +  - |
-> +    //Example 1
-> +    interrupt-controller@94000000 {
-> +      compatible =3D "sophgo,sg2044-aclint-sswi", "thead,c900-aclint-ssw=
-i";
-> +      reg =3D <0x94000000 0x00004000>;
-> +      #interrupt-cells =3D <0>;
-> +      interrupt-controller;
-> +      interrupts-extended =3D <&cpu1intc 1>,
-> +                            <&cpu2intc 1>,
-> +                            <&cpu3intc 1>,
-> +                            <&cpu4intc 1>;
-> +    };
-> +
-> +  - |
-> +    //Example 2
-> +    interrupt-controller@94000000 {
-> +      compatible =3D "riscv,aclint-sswi";
-> +      reg =3D <0x94000000 0x00004000>;
-> +      #interrupt-cells =3D <0>;
-> +      interrupt-controller;
-> +      interrupts-extended =3D <&cpu1intc 1>,
-> +                            <&cpu2intc 1>,
-> +                            <&cpu3intc 1>,
-> +                            <&cpu4intc 1>;
-> +      riscv,hart-indexes =3D <0 1 0x10 0x11>;
-
-Please be consistent. Hex or decimal, but not both.
-
-Cheers,
-Conor.
-
---0bO5XdsS6ddgc29+
+--iCuGkXnhoBvf8BTy
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEcFPgAKCRB4tDGHoIJi
-0syLAQCKcAg5MoUg65x8c8wmRQ4jrRHsbMrQwMf6m1ZzX/hBTQEA1/TVJcYfSH3+
-tw9Ntl2G7mMGqeR1bjZWhBGDnH0mxgE=
-=zT3n
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEcI9QAKCRB4tDGHoIJi
+0v76AQChF8SXV3tPX9YUO2D246RCtAdeJqY1xijoKS4uH+krRwD+PdF1c5ekrJ8O
+9gc3f3JiiaRzFrvpTMdcP+Li/L8lSAg=
+=sY/T
 -----END PGP SIGNATURE-----
 
---0bO5XdsS6ddgc29+--
+--iCuGkXnhoBvf8BTy--
 
 
---===============9166071655740035477==
+--===============8945646356773426850==
 Content-Type: text/plain; charset="us-ascii"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
@@ -246,5 +161,5 @@ linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
 
---===============9166071655740035477==--
+--===============8945646356773426850==--
 
