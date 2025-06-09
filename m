@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57AC8C5B552
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E73CC677C4
 	for <linux-riscv@archiver.kernel.org>; Mon,  9 Jun 2025 13:58:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VQtuwKAj1nBsyTaW5WZZcqxgJN6fI8PNhChIdYWuRLI=; b=P0Ar+GAZokBK1b
-	Po5cq+6qGUkN/y/guxB7z8OIAnzf9hfN3yL4DF6nw+bjZyE3eT2U/l6Dv2+YaUF8Okyiqtk5d9ycn
-	6Ip3l+hJ2tvQXsV4rbFQvjaaPMQM5UBgHFHdGgLjODczNF1Edsk9rH3Q9kc4dxWzzt9gbZMtMvIVo
-	kg43JsffDJp3wySYVrNxLMfUQkTZzfvp9wNf7Opgaghu3uC6JywmA9KA3y1N8mjkOz4d0yXNHcmex
-	6npi2ufa3bYvz8IWU2HHkPj/6tSSk+RmD8ee2vTSNMt6SmRHSUWUAG2Ll9nxKcupqNYWQMx1QLduN
-	we/K938xiU6ziTWCG9BQ==;
+	List-Owner; bh=j1BSZk1AApbb+XsB7yQZsUa5XmAWvk4Y+tnn2WZfnpQ=; b=TdC9VY2MhxJpLz
+	IBvp4Ykx5mKCCzrdalYUkYztBq84NH+iAOC4Hij9ZmcS3XOmPU0oVg5q5cX0KojdreCl8IKUlIi0G
+	jYwXrA2Z8nh30ftN/wIjGh2zKwlu/D/y321vVw/W5EDxIEDHA9NkVkOyK/YNcPQDyYolAGI9EAz7m
+	S2R0VhtzeAOV/uCE+40p4GG7hZwwP/wmvZGku3wmIZeD77mRPkRrN6K++Wq0+LTiJI4joq9HQuHr5
+	dNQOoCEVq9B5paVcvDd3AoGnI9c5s1S6j38p7qKb1ftt/S8Gr+y6nt8JhXP4MM0hPolKArOIE9ZyA
+	dt3V9/mTRyzQCHNIPBCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOd1A-00000004KHa-0w1D;
+	id 1uOd1A-00000004KHw-3bxM;
 	Mon, 09 Jun 2025 13:58:28 +0000
 Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOcr9-00000004HoK-0LQQ
+	id 1uOcrA-00000004Hoj-1ZPI
 	for linux-riscv@lists.infradead.org;
 	Mon, 09 Jun 2025 13:48:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1749476887; x=1781012887;
+  t=1749476888; x=1781012888;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=TtHw7OI3yp0+TB8iaEUmdvg7kVXB+STgSN9bNkoKV3s=;
-  b=TQuLngzX0cFCHbAXBlRDQGYrqHI+LDUuwpES3Az5fkD75TGhJiKmsCHk
-   u2aB7u8XM7+MmagW++OzYtPcvVyYFRLu7UorizNEjJTnacTaPnJFK0RVp
-   dBEYGT185eEOJQpMiez3eLELnDzyzjQB9RSTDZNiqJkPDwZ5SV1iNMP5r
-   yTTI4rj+7aswMYC2hT5SgbOD3ZSwzUWvUmKZ9Ycqxb5phOUuH+pQuXZgQ
-   ah2/sjY4PTkzOEl92Bk3GxDHJwbyI9i1PJkoOr1eFrGq35n/z3YLdGHAY
-   DTGq0HY6km7u/xxqSiME0r2xM/+mQj7NWDBifJ6aekmV7UkJYocJTGAad
-   g==;
-X-CSE-ConnectionGUID: +eXgQ67wRbqUmyF24JYANQ==
-X-CSE-MsgGUID: sfeoSfm5SRKit5r84T2m3A==
+  bh=6Nh0BgWjlfbVva8flxENTWTA3JDu+LJ9JIi1F50J/Rk=;
+  b=b7reKp4swZURaFefQMdy0IVhvqkqxlEroIK5E9dUydrmtd2HiBRYpnLw
+   PI2sRMGwoeYRZ6HmPVGwiIhqqB7iVf5jRdWUQaSiCfWAX97JbQlA5aJev
+   pbMHeQywq4PQ2FwobuldlUYx0/cwFdN0C3T9h6vvovfBhWSzsDtM0LGJ7
+   u08nsHmeko52g3uOtJgFaJChgknekftPIP+MdM4s0weWCpbN2YBZGyXVE
+   64QUuuAOlUo+eYwKwdbkx8mdQzHf+F3BmkBpg5wewViKYGIl3kkEyhB8T
+   opwIfYRzx+sR3G6qL4LJ7yJHhylJC5y64pNnAJ2TcBi5+U6s1mnmKFpHe
+   w==;
+X-CSE-ConnectionGUID: AAAvlnACQq6rHu3XuFhSVw==
+X-CSE-MsgGUID: bC2Tfu/HTtuqmdh3ZNucYQ==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 16:48:03 +0300
-X-CSE-ConnectionGUID: Xpmc6IOFTGmH62gimrgRZw==
-X-CSE-MsgGUID: 1z6d7FmXTyyo1QNV8T1xeQ==
+Received: from unknown (HELO ces02_data.me-corp.lan) ([146.255.191.134])
+  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Jun 2025 16:48:04 +0300
+X-CSE-ConnectionGUID: 1XcxbeCbRB6oDqvIEWDlfA==
+X-CSE-MsgGUID: OvgSC2WfTua6fFF0uQRAxA==
 Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.6])
-  by ces03_data.me-corp.lan with SMTP; 09 Jun 2025 16:48:01 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 09 Jun 2025 16:48:02 +0300
+  by ces02_data.me-corp.lan with SMTP; 09 Jun 2025 16:48:02 +0300
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Mon, 09 Jun 2025 16:48:03 +0300
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -71,15 +71,15 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH v1 5/7] irqchip: aslint-sswi: resolve hart index
-Date: Mon,  9 Jun 2025 16:47:47 +0300
-Message-ID: <20250609134749.1453835-6-vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v1 6/7] irqchip: aclint-sswi: reduce data scope
+Date: Mon,  9 Jun 2025 16:47:48 +0300
+Message-ID: <20250609134749.1453835-7-vladimir.kondratiev@mobileye.com>
 In-Reply-To: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
 References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_064807_425217_6A0A2FC0 
-X-CRM114-Status: GOOD (  10.83  )
+X-CRM114-CacheID: sfid-20250609_064808_703287_6D8C0BCA 
+X-CRM114-Status: GOOD (  13.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,39 +96,44 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Resolve hart index according to assignment in the
-"riscv,hart-indexes" property as defined in [1]
+Move variables to the innermost scope where it is used
 
-Link: https://github.com/riscvarchive/riscv-aclint [1]
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
- drivers/irqchip/irq-aclint-sswi.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+ drivers/irqchip/irq-aclint-sswi.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/drivers/irqchip/irq-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
-index dfba34f712ff..7ff43f685e92 100644
+index 7ff43f685e92..92237fb44855 100644
 --- a/drivers/irqchip/irq-aclint-sswi.c
 +++ b/drivers/irqchip/irq-aclint-sswi.c
-@@ -71,6 +71,7 @@ static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
- 	unsigned long hartid;
- 	u32 contexts, i;
- 	int rc, cpu;
-+	u32 hart_index;
+@@ -67,11 +67,7 @@ static int aclint_sswi_dying_cpu(unsigned int cpu)
+ static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+ 					void __iomem *reg)
+ {
+-	struct of_phandle_args parent;
+-	unsigned long hartid;
+-	u32 contexts, i;
+-	int rc, cpu;
+-	u32 hart_index;
++	u32 contexts;
  
  	contexts = of_irq_count(to_of_node(fwnode));
  	if (!(contexts)) {
-@@ -92,6 +93,11 @@ static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
- 
- 		cpu = riscv_hartid_to_cpuid(hartid);
- 
-+		rc = riscv_get_hart_index(fwnode, i, &hart_index);
-+		if (rc) {
-+			pr_warn("%pfwP: hart index [%d] not found\n", fwnode, i);
-+			return -EINVAL;
-+		}
- 		per_cpu(sswi_cpu_regs, cpu) = reg + hart_index * 4;
+@@ -79,7 +75,12 @@ static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
+ 		return -EINVAL;
  	}
  
+-	for (i = 0; i < contexts; i++) {
++	for (u32 i = 0; i < contexts; i++) {
++		struct of_phandle_args parent;
++		unsigned long hartid;
++		int rc, cpu;
++		u32 hart_index;
++
+ 		rc = of_irq_parse_one(to_of_node(fwnode), i, &parent);
+ 		if (rc)
+ 			return rc;
 -- 
 2.43.0
 
