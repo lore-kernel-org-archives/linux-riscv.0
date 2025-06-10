@@ -4,59 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD48C678DA
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:49:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A47BC677C4
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Wlq0d6vCLm71HN5wPVZ2HVmdATFN8HZCKJextiMsMc0=; b=F/vFiBlAEVynpb
-	9IxV0K4yRBPzyJqtEfkb9INXEE1NUqmsfANuwDx0Fab3QBsLCEVj6jpxBRweB8aJULKIwB+VBiwZs
-	HtuUn0Fp0BBMBd4KzCU+sMK2lNGiQufrx/dJVzO+IGNJs5gg3zU6r1vZXq3e/JFgKcASwGckbPb/z
-	zCHkaLXjc79QciH43yNH06l69Rneg/nozsZNVPQ4f2vMx5PXJn137oxLMZ2/UbPJV9eCc2Ume3nyw
-	VUwnoJs2P+BWcVDC99Y4OWDXGlHGtGf5cpkN9qbqVQJGb8aFr75/LaNFmU5MM0kF9Wc/lj72nDkem
-	B9Mc4kiXAbfVM6RTo/0w==;
+	List-Owner; bh=MYM+Twy71yZ5i4H9vDWeZWcCZOSYPVQHSRM+bGvIZpU=; b=BTrIANtsZqUpRu
+	Z0ZsO1eSEZf/DekUUuFJcMOwAtdOtEs0EDGUvmGTzvprUsofPaUuGswPfIbPuw4Hx+ycRiems0blp
+	TDpeP/5l9LFFejCLHKLJDsmqyiSFdFwk7tbnWb0goJ48YAdt+cEcFv4WXJ/ApbfZjz6rcpOr96Gxe
+	JFjaex8njnAojSnA1uQ55/SxXyX0S0MovoJNdpYLwQ3k5EEkNGVG5VeyfKlobabxtw7005+cG8s7s
+	+b3diPdd6FNdof71huhLQk2W1iF9hFy3laxjUy+3o6fxYA5udHFIvESD7s+kjUXB+Gp4GzRe9F6PB
+	5MY6AXGEExtbcKPBgrkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7mU-00000008GxR-2SlD;
-	Tue, 10 Jun 2025 22:49:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1uP7mW-00000008H0c-25Cm;
+	Tue, 10 Jun 2025 22:49:24 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4Xl-00000007uc3-15rd
+	id 1uP4ZE-00000007ukJ-1vg3
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 19:21:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 67D5C629C8;
-	Tue, 10 Jun 2025 19:21:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB41C4CEED;
-	Tue, 10 Jun 2025 19:21:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749583316;
-	bh=MvY65196OkKGiQelyzXqMzmcV5/FC5X0KU+wsmCw2F4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=MwljCyWYyc8YtDsnvhBJ9wOOCxFpAopoKjI6sf7A7Wyb9RY4m84YGhhMqWyZM4/XK
-	 5VZA+L/9/rkc0/UWOZR9lB9xiZ8yHz1gj4gA5XXKbn79to1O/nsjXd0TKNmn9xMotg
-	 /yJcY3eyxkx7kmYsiOhYMcpBvjEFTawUqOyMfgdGElaMIWH9krgZRCgzLWGSwY8LVu
-	 4SobJYaZskufh0q8t+Rg61TTIEcXnOf7noRIKEPB9b6JPNKezv47wZojtYBfpNdiMO
-	 M5+GmFrYqClQCn9MRMiS2UDcT4CPFnzABcCQICxWEiISQM2jbc3IWhwjjGJY77ef1P
-	 +pqmqVO/nvcCw==
-Date: Tue, 10 Jun 2025 12:21:32 -0700
-From: Eric Biggers <ebiggers@kernel.org>
-To: Zhihang Shao <zhihang.shao.iscas@gmail.com>
-Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
-	herbert@gondor.apana.org.au, paul.walmsley@sifive.com,
-	alex@ghiti.fr, appro@cryptogams.org, zhang.lyra@gmail.com
-Subject: Re: [PATCH v3] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
- implementation
-Message-ID: <20250610192132.GE1649@sol>
-References: <20250609074655.203572-3-zhihang.shao.iscas@gmail.com>
- <20250609201306.GD1255@sol>
- <EC8AB5A0-D5C9-4D18-A986-DE66BE46E09A@gmail.com>
+	Tue, 10 Jun 2025 19:23:30 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 50479441D4;
+	Tue, 10 Jun 2025 19:23:19 +0000 (UTC)
+Message-ID: <d052f010-410a-4405-9ae6-f679649851ea@ghiti.fr>
+Date: Tue, 10 Jun 2025 21:23:18 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <EC8AB5A0-D5C9-4D18-A986-DE66BE46E09A@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/4] Fix a segmentation fault also add raid6test for
+ RISC-V support
+To: Chunyan Zhang <zhangchunyan@iscas.ac.cn>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Charlie Jenkins <charlie@rivosinc.com>, Song Liu <song@kernel.org>,
+ Yu Kuai <yukuai3@huawei.com>
+Cc: linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Chunyan Zhang <zhang.lyra@gmail.com>
+References: <20250610101234.1100660-1-zhangchunyan@iscas.ac.cn>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <20250610101234.1100660-1-zhangchunyan@iscas.ac.cn>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdduudduhecutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtjeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhephffhuddtveegleeggeefledtudfhudelvdetudfhgeffffeigffgkeethfejudejnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmegtgeduugemfedukeeimedvugdvvdemugehvdgtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmegtgeduugemfedukeeimedvugdvvdemugehvdgtpdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmegtgeduugemfedukeeimedvugdvvdemugehvdgtngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopeiihhgrnhhgtghhuhhnhigrnhesihhstggrshdrrggtrdgtnhdprhgtphhtthhopehprghulhdrfigrlhhmshhlvgihsehsihhfihhvvgdrtghomhdprhgtp
+ hhtthhopehprghlmhgvrhesuggrsggsvghlthdrtghomhdprhgtphhtthhopegrohhusegvvggtshdrsggvrhhkvghlvgihrdgvughupdhrtghpthhtoheptghhrghrlhhivgesrhhivhhoshhinhgtrdgtohhmpdhrtghpthhtohepshhonhhgsehkvghrnhgvlhdrohhrghdprhgtphhtthhopeihuhhkuhgrihefsehhuhgrfigvihdrtghomhdprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhg
+X-GND-Sasl: alex@ghiti.fr
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250610_122328_652943_A69D5B9D 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,35 +65,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 02:57:29PM +0800, Zhihang Shao wrote:
-> 
-> >> +void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
-> >> +  unsigned int len, u32 padbit)
-> >> +{
-> >> + len = round_down(len, POLY1305_BLOCK_SIZE);
-> >> + poly1305_blocks(state, src, len, 1);
-> >> +}
-> >> +EXPORT_SYMBOL_GPL(poly1305_blocks_arch);
-> > 
-> > This is ignoring the padbit and forcing it to 1, so this will compute the wrong
-> > Poly1305 value for messages with length not a multiple of 16 bytes.
-> 
-> So Does this mean here the argument of poly1305_blocks should be fixed as poly1305_blocks(state, src, len, padbit)?
-> But since the padbit is set to 1 in poly1305_blocks_arch according to the implementation in lib/crypto/poly1305.c, 
-> it seems to be no difference here.
-> 
-> Looking forward to your reply.
+Hi Chunyan,
 
-While the common case is padbit=1, poly1305_final() passes padbit=0 in the case
-where the message ends with a partial block.  So both values have to be
-supported.
+On 6/10/25 12:12, Chunyan Zhang wrote:
+> The first two patches are fixes.
+> The last two are for userspace raid6test support on RISC-V.
+>
+> The issue fixed in patch 2/4 was probably the same which was spotted by
+> Charlie [1], I couldn't reproduce it at that time.
+>
+> When running raid6test in userspace on RISC-V, I saw a segmentation fault,
+> I used gdb command to print pointer p, it was an unaccessible address.
 
-- Eric
+
+Can you give me your config, kernel and toolchain versions? I can't 
+reproduce the segfault on my machine.
+
+Thanks for the fixes and the test, I'll take a look this week.
+
+Alex
+
+
+>
+> With patch 2/4, the issue didn't appear anymore.
+>
+> [1] https://lore.kernel.org/lkml/Z5gJ35pXI2W41QDk@ghost/
+>
+> Chunyan Zhang (4):
+>    raid6: riscv: clean up unused header file inclusion
+>    raid6: riscv: Fix NULL pointer dereference issue
+>    raid6: riscv: Allow code to be compiled in userspace
+>    raid6: test: add support for RISC-V
+>
+>   lib/raid6/recov_rvv.c   |  9 +-----
+>   lib/raid6/rvv.c         | 62 +++++++++++++++++++++--------------------
+>   lib/raid6/rvv.h         | 15 ++++++++++
+>   lib/raid6/test/Makefile |  8 ++++++
+>   4 files changed, 56 insertions(+), 38 deletions(-)
+>
 
 _______________________________________________
 linux-riscv mailing list
