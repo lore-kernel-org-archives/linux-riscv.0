@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D305C61DB2
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A589C678DA
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Gyq1uPVazJaLxojuXLwrOwK2svcDnxAiEMZljpayV2U=; b=AZ6QE8uadsFbBA
-	JY3p26+0HHh6Ws+Ufqn07R673TfvADeaOOzMpiQbzZk7l6My2ETZ4h67+bvCtKO8TT5Q0DW6WmT96
-	X2B1JliGkhAno0QxqNj+OqMsqb4icL+Ml2zr9NcBCXoxbU41g4kn009auV3VD+Wsy0o0AJ3ek6Z6G
-	nI8+YCW+91YJ1BvXqn/NTxBHRsjnlLmUKrA2qRzzDvQcfOgeDjMDogPaB19tIGUwqk6eoL08TEqJT
-	gBr2rBpMM8i4YpCiBnctuvOsvFTK0cbcIJvFSgJh9ncBByag9TVaiHfbkZEk0tpXIU0P6AlQDcyaw
-	a1jqlDRLWZMzN7O506Gg==;
+	List-Owner; bh=XV7GecD4by7dn/rqWoUhCXrTuY9lmXByRXERYUUQoKs=; b=UkOpxFuczW4CaS
+	dCVGTCXMxrRP2ul3ALz4+Lf1gypL7AvVZf23gkZqYx1lAZ37pAfmB9rZZOuEVgxU/kQZqvaI+0A7C
+	NBHNF/jE5FaP6A0KTMzssLabXwALYEc8f0sIAN9uZmXD4DbZZ5bvyhG8XcrrOSStAHHqnYOtxDO/q
+	Oha8ETMKInwG8QvcV46ldaGi+IkyeLGQCg1cghkIr0OylCzpb2iZrqECyv8a5HQQO2gvNTCgindVu
+	xkeiib8cD+7D5rbpyfRWLkfwJ1he0xtFERAk0OMqC4RfXZR9GjeH9GV1U4672jPGvnpDjL/PykYng
+	Ni8mgKLSA87j1iIuym4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7n9-00000008I5O-0g8z;
-	Tue, 10 Jun 2025 22:50:03 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1uP7nD-00000008ICC-1yN2;
+	Tue, 10 Jun 2025 22:50:07 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP5Kt-000000080jW-30o4;
-	Tue, 10 Jun 2025 20:12:44 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3a35c894313so5202767f8f.2;
-        Tue, 10 Jun 2025 13:12:43 -0700 (PDT)
+	id 1uP5Kw-000000080k2-2THy;
+	Tue, 10 Jun 2025 20:12:47 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-451e2f0d9c2so1845545e9.1;
+        Tue, 10 Jun 2025 13:12:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749586362; x=1750191162; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749586365; x=1750191165; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=lPm0e/JJXYmTtXoApki92fg4KK/rnmg1MG8vP8qKKeI=;
-        b=bOvyEjV3/wnMCYhYttcubcr22Q7y932XAq6UAMa0pezYV0nkNrrMum4u/md5LzOpAr
-         5WZIJtqy5nnZslek1auC2VYDV+VN3xT8awdO7AB5uYWtYyn54x6o1qr3BnWqyaSMitK9
-         lWtFJSdBL0R98jx4y47Mv59j4O/1lhlA8LNmpsWglipixTYGC4wLuCyAFIG+oA4BTV7F
-         AdGZKyFw03s3nxKro9nXx8RuDOiQjv6uhFtRsLmQHuMM89WIvIEnck/g9uj17kZDc9oG
-         L6/9w4auYeUjlzMqtnhTdiYjD2dFkiGFq1QywHY5xuAHy7WcXcvmmYJ+9Lxe2Qz9TosJ
-         RPZA==
+        bh=O1WSJKtNh06L1CyP8FQkWQEN6wo4ZLtufwHyPn7x8ns=;
+        b=U2V3yr3YmDIF3ZPdsUpCaNM8BiPkX1SG/U0Lxn9hNmXd/2IjcMVlAFT+Du2VA7UEjb
+         xUOb54xcDgIlIKQaA3Jg1OGuxSlXDBQtDOF0Axp3LFLnGpJ2c1qfrRy74jjgNCjU+1sk
+         iFlEfug6ZlHIFsThCOyU08gRfOKPKSxE5s8uNRnId0Buii78EGO4meXcMC6XP+XfSQSt
+         ZT732vDGmtv9foVvReWJDjhhLXS9BP4fbteb8H1+sCITkRFkha8tCQiIFMvlsLp/Wbri
+         F1lodIEIH4g0O97829ZPGnouolRNv9MhBlKoCDOcXep7OsfLTeitvLEbaLNKrXdes0Sn
+         p6PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749586362; x=1750191162;
+        d=1e100.net; s=20230601; t=1749586365; x=1750191165;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=lPm0e/JJXYmTtXoApki92fg4KK/rnmg1MG8vP8qKKeI=;
-        b=l6D6VP/Cc4rk0x5ktFNw7E8zSeAG8/s44Tv2nTYv2VbdFqjX5cDeEziY1iwylcyYCL
-         u9zoDxNjUQmIwJL/mcePec0ZAkhY+YVlvgHejpJ1hR0iImNaAhRF5YH1o4MxOpMSY/Ma
-         ybkKlDNK2LK/U5ZP0ZGWTAKYpQ0kKuV3coGKqV3EWFx1fn1L9/3tkiogKL/Q+kdxf0Ma
-         U1IWk+RLh5afTjU8DFHg91hcgLC+IhCgfTcr/5/CvkxyD17DqFz9YTtMUaO03UvOe4dF
-         ABCgl4oInuT9KSyYsMq3HsD4LqyXgV8fFTVRUC4JSiD4oAUubv+voRzyRlJo0EM6A/Ta
-         /+vw==
-X-Forwarded-Encrypted: i=1; AJvYcCVfjdGYq4FtFvA0SsWw7R9GC6OAeMlgIBfPfasAb0h3iABYwBxcK8WLsRv7dU/wQ8LVblTMiigQGbHZA/oI6wjL@lists.infradead.org, AJvYcCX8VMuZZUKzpcwzYd/vJ8bQIGKTSY+KRB7hWinNR0OMftSdXDEfSwdu99ZZkC90LxbW4U8nqO8AmHvRVp8=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHL5EAWZN9MphjpDnZeSD2CSkz28BAlvVnsvfzkrIA/FUEi5B2
-	zUanQ+yL4JV9XBqS71vKXBJJscyArlp6h2F+0MELYpLgcGpJ1ocCjU7b
-X-Gm-Gg: ASbGncvZQeAKkNKuulvP2EZMVvUNT8+t6lB+5AIon/wOZeOWVMVVf6JF9g0PkV3SzJ6
-	NZcfsHyUF0sCS8NVMngDFnMsJSZSx8IlYRenJq5PYlHuIQ/y/cUQAnCajwbHmF9KpS5xPJl/iUt
-	6LGeQN9z+BhKyjSnoRqiXciiEpCZzkwW2fJlqHlp0ZjvWxL8PdGZ1hvuUmfLyyjTTMok9iAUt2Z
-	E9wssWkridK9OTvezlPeMFeaVDjNyLXcwhpCBOA4dMNaBWudRFw3vGR8kiNcUnKU84nBEyioISQ
-	GS9Y7CHqPfHQ50VRKNOmJh+U0DxHqH0w+JHyB+lk3JU07ANHwbyscPbuzDEinjR6AH+8NvrAkNE
+        bh=O1WSJKtNh06L1CyP8FQkWQEN6wo4ZLtufwHyPn7x8ns=;
+        b=SJiipcm1E2S2zDwcYKA5k14OkaHzxZdNoIOvgSh00jl0L2zODd9Xx5aRXOyF8OtWv/
+         blIYa0HpBodDUtm+5IKMawxTHYChl/sHf5FG9ujqgut9znh5gB5m7Q1udmGzXgmnsmOQ
+         jqvK8at9z/2KihrYKmEskwpgRvS0Ky9bizlltWRbCIL7LBthv9lOYwA7hA2+KcHYdnKE
+         V1wbVJl0O0rQLJAaPv/eJx0EMOQdyzJZjoJ2JfGm5/LKMZVks0kuOHEd8E86s+hhcKJ4
+         GROMrreoB3jLnhcEsb71bpKl8GpzpbhxpviHPiNlA7KWcG/V0KvJFkWpEXfgOn/HMJcH
+         nH3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU46UWHkzfCWMRaf+PmagWEnIePK6fyeCG04+JXlGiMGpIxJGlqccvaiqoFpIa62GUFsQlwcbDGzqIkck4=@lists.infradead.org, AJvYcCXWMnurZ+evj3pdj0uRsHc9mEH7CP0Lzui5hyVG1HQaIBGPIja+PS/1eKyRgKJRO+aH2XHtCC6ooAzlWYVd8lfi@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCAWkO/mzRb0sdI5T5C9aVJyUs/iY5rrvZO8m2Oc7lzetRSioa
+	MlL9wCPOD9e/5HEN8sk6frp9gF2knvYaDly/sySE2BZleJ35LyyECXhv
+X-Gm-Gg: ASbGnctLNdLvtFLJLfrdpgaOnt+OyyVYbgJ1qUNaEAsM/sE2w8F08a6eWy0hLlZ07vB
+	zr4d8L6oqanD94cdr8HrB3G7E0jPE+R183WIbdVlNTAzv+ib6XJfjqceno/YBHpucRMM/NudKfX
+	hufN9ROaLYTCQlrBSaLidFTWmpiElv+8gJHzXKtwCC3Kt3k2PTAo7Wi4MsnuwJbnxHmEoLmLUaW
+	v/3GsjwNMbjRlr6pU8jJMVNuqbDxzDNgA+ShXlp0mgv5F3DwiUV2eQZ9N+5s4RZyZjzRPoVoGaM
+	cJ5MxePt6pHERMzpO0PtTtNFSS9hWOOdczNM5S62o7wWpI1kWw0dY7j6tZ4YnlpJFME+ivLUWzc
 	=
-X-Google-Smtp-Source: AGHT+IGeIgB5Jm3zvzqrQCQ5YAuHI//D5pyuMaTvzBfMR1wJ2aI2COqR2XOMS3IGrHzzEanCXEJOQQ==
-X-Received: by 2002:a05:6000:430b:b0:3a4:f71e:d2e with SMTP id ffacd0b85a97d-3a558a27aabmr309671f8f.56.1749586362120;
-        Tue, 10 Jun 2025 13:12:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHineQrgugs25LCya85uBq6rIjv937s6Fj4YMPKEhIETsihHbGjyPMBhZchKD/YHDl/HXkiFw==
+X-Received: by 2002:a05:600c:314c:b0:439:4b23:9e8e with SMTP id 5b1f17b1804b1-453240b0e39mr7125885e9.3.1749586364752;
+        Tue, 10 Jun 2025 13:12:44 -0700 (PDT)
 Received: from giga-mm.. ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a532462d93sm13434970f8f.91.2025.06.10.13.12.40
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a532462d93sm13434970f8f.91.2025.06.10.13.12.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 13:12:41 -0700 (PDT)
+        Tue, 10 Jun 2025 13:12:44 -0700 (PDT)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: sophgo@lists.linux.dev,
 	soc@lists.linux.dev
@@ -91,16 +91,16 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v7 3/6] arm64: dts: sophgo: Add Duo Module 01
-Date: Tue, 10 Jun 2025 22:12:16 +0200
-Message-ID: <20250610201241.730983-4-alexander.sverdlin@gmail.com>
+Subject: [PATCH v7 4/6] arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
+Date: Tue, 10 Jun 2025 22:12:17 +0200
+Message-ID: <20250610201241.730983-5-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
 References: <20250610201241.730983-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_131243_753714_205E2F4C 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250610_131246_625338_1A9F4C24 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,107 +117,76 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The Duo Module 01 is a compact module with integrated SG2000,
-WI-FI6/BTDM5.4, and eMMC.
-Add only support for UART and SDHCI.
+Duo Module 01 Evaluation Board contains Sophgo Duo Module 01
+SMD SoM, Ethernet+USB switch, microSD slot, etc...
+Add only support for UART0 (console) and microSD slot.
 
 Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
 Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
- .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++++
- 1 file changed, 85 insertions(+)
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+ arch/arm64/boot/dts/Makefile                  |  1 +
+ arch/arm64/boot/dts/sophgo/Makefile           |  2 ++
+ .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++++++++++++++
+ 3 files changed, 34 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
+ create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
 
-diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
+diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
+index 79b73a21ddc2..3a32b157ac8c 100644
+--- a/arch/arm64/boot/dts/Makefile
++++ b/arch/arm64/boot/dts/Makefile
+@@ -28,6 +28,7 @@ subdir-y += realtek
+ subdir-y += renesas
+ subdir-y += rockchip
+ subdir-y += socionext
++subdir-y += sophgo
+ subdir-y += sprd
+ subdir-y += st
+ subdir-y += synaptics
+diff --git a/arch/arm64/boot/dts/sophgo/Makefile b/arch/arm64/boot/dts/sophgo/Makefile
 new file mode 100644
-index 000000000000..bb52cdad990a
+index 000000000000..94f52cd7d994
 --- /dev/null
-+++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
-@@ -0,0 +1,85 @@
++++ b/arch/arm64/boot/dts/sophgo/Makefile
+@@ -0,0 +1,2 @@
++# SPDX-License-Identifier: GPL-2.0
++dtb-$(CONFIG_ARCH_SOPHGO) += sg2000-milkv-duo-module-01-evb.dtb
+diff --git a/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
+new file mode 100644
+index 000000000000..b1f8a5787861
+--- /dev/null
++++ b/arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
+@@ -0,0 +1,31 @@
 +// SPDX-License-Identifier: (GPL-2.0 OR MIT)
 +
-+#include <dt-bindings/pinctrl/pinctrl-sg2000.h>
-+#include "sg2000.dtsi"
++/dts-v1/;
++
++#include "sg2000-milkv-duo-module-01.dtsi"
 +
 +/ {
-+	model = "Milk-V Duo Module 01";
-+	compatible = "milkv,duo-module-01", "sophgo,sg2000";
++	model = "Milk-V Duo Module 01 Evaluation Board";
++	compatible = "milkv,duo-module-01-evb", "milkv,duo-module-01", "sophgo,sg2000";
 +
-+	aliases {
-+		serial0 = &uart0;
-+		serial1 = &uart1;
-+		serial2 = &uart2;
-+		serial3 = &uart3;
-+		serial4 = &uart4;
++	chosen {
++		stdout-path = "serial0:115200n8";
 +	};
 +};
 +
-+&osc {
-+	clock-frequency = <25000000>;
-+};
-+
-+&pinctrl {
-+	sdhci0_cfg: sdhci0-cfg {
-+		sdhci0-cd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-clk-pins {
-+			pinmux = <PINMUX(PIN_SD0_CLK, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <16100>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-cmd-pins {
-+			pinmux = <PINMUX(PIN_SD0_CMD, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+
-+		sdhci0-data-pins {
-+			pinmux = <PINMUX(PIN_SD0_D0, 0)>,
-+				 <PINMUX(PIN_SD0_D1, 0)>,
-+				 <PINMUX(PIN_SD0_D2, 0)>,
-+				 <PINMUX(PIN_SD0_D3, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+
-+	uart0_cfg: uart0-cfg {
-+		uart0-pins {
-+			pinmux = <PINMUX(PIN_UART0_TX, 0)>,
-+				 <PINMUX(PIN_UART0_RX, 0)>;
-+			bias-pull-up;
-+			drive-strength-microamp = <10800>;
-+			power-source = <3300>;
-+		};
-+	};
-+};
-+
-+&emmc {
-+	bus-width = <4>;
-+	no-1-8-v;
-+	cap-mmc-hw-reset;
-+	no-sd;
-+	no-sdio;
-+	non-removable;
++&uart0 {
++	pinctrl-0 = <&uart0_cfg>;
++	pinctrl-names = "default";
 +	status = "okay";
 +};
 +
-+/* Wi-Fi */
-+&sdhci1 {
++&sdhci0 {
 +	bus-width = <4>;
-+	cap-sdio-irq;
++	no-1-8-v;
 +	no-mmc;
-+	no-sd;
-+	non-removable;
++	no-sdio;
++	disable-wp;
++	pinctrl-0 = <&sdhci0_cfg>;
++	pinctrl-names = "default";
++	status = "okay";
 +};
 -- 
 2.49.0
