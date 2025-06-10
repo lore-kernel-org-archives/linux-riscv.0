@@ -4,121 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F921C5B552
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6828C71131
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 15:24:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IMuB8s9TM1G0qJSD0qkykHbQJ5TaOvn9lEKAOjRBxL8=; b=rNO2A5u7mpuOozsglExue8ekSA
-	ZMS3dlnVbKG5ZZ2RDeVM3Z1H5vYYncw86xKcS3fCf/Rbf2lxktd8JhRoid+zm9TU8/cDEX5b/0TSq
-	Ysk3HcJWHhwowteh5dWriwmDg1CnJ2aibGyZAZEFEonB/YGp5t5gm4uLerpms3iFsDdZZXok9pDyJ
-	C9dXUMXQYEZN2WfmxrqbynX8awWlNXKU/RRnRYl1kXsjZrSjNu/ehMzQNAla4VMe2CMLZnf1XSsyJ
-	ZPojYNUfr9iYv8XEobnw+YzjcH1Lsm4gsIfkkkeCpNw4qNktC4b4X+px3Etz/gTyqchz9JvU8y8gR
-	CPh7h2Qg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=Tg+OBrZ/1x3sxSW6DF9Z+qUwBlA359BTecRUNaSWAME=; b=KQn/6k8BeNeWBv
+	gARZSscmgvSgIi+LL/873NFqDNjo6+1vHOD6KJbqPBEhzaqDg2zjobRACGHzJWstTrrB50msvyxjX
+	QSpBmLX/v218ETsGs4/zP+2ooUXR3fLtI50HBCOLZKFpVdB5RIW7kZH34IKIQI4WJK/hD4NrY4D4k
+	K+7G1Q1HD3UrnTeNfZYd5jQm2qlV9ACLskVS6y1vMFq2KImuvhRzPt8omJQm/Z0RNahmRHLYBMwe6
+	Tcifnby6ARef+8VspAfVMnFgWDa2DT2gyBEuB8yOejJyfS3s9ApH/Hwmi8+HQPMsdMiAUsTdUfvV/
+	Xj9MYSqAeEMZkTLlPw0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP0pR-00000007IHd-43ID;
-	Tue, 10 Jun 2025 15:23:57 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uP0pT-00000007IIi-1Tra;
+	Tue, 10 Jun 2025 15:23:59 +0000
+Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwxF-00000006dDu-0K9E
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 10 Jun 2025 11:15:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UxiKx3fQ2UN0TdQSGe7J2LZQJpdb1R/YSkx1+hJ6ixs=; b=ibkfFJtj0irkH91+k9zf1lNSUT
-	Nd0SOC1PUwb0+MSdHmzK15+lZMr8/g6nVsr/yQz6KtE8JVsV7KBU/olCOusBTtdXAQORUF9/gLotx
-	u/jH4myRtQQ9a+ZSCZ1Nplr6KQSaoNzjKJKxEqHV7l6JvVPsS6z4QH1WCfWqwgSyTJ97I7QO4LjYv
-	r+N2sDB5IPsb5JoYqQUPKsQJwjDxEO23Ys3XwfqBE1+WCIYa9VdRPqpWnfoGlAuRZGPRyElL0aasV
-	No6bGM6ZJwtLfXWYZiKPi7FWZ0yWzuJY+9SdQ2IFWPp45X2q3cU8tyfjAxLc4zVmbdMDmrljiWjcs
-	6mDOJ1XQ==;
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwxC-00000001m7x-39eg
+	id 1uOx2n-00000006dhW-42Np
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 11:15:44 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-3a4f78ebec8so3172838f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 04:15:40 -0700 (PDT)
+	Tue, 10 Jun 2025 11:21:31 +0000
+Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-6fadd3ad18eso53746556d6.2
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 04:21:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749554139; x=1750158939; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749554489; x=1750159289; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UxiKx3fQ2UN0TdQSGe7J2LZQJpdb1R/YSkx1+hJ6ixs=;
-        b=b2CuJetpW3vij0N3VBwe36immgRP0q4od+nmFEogBTIB9cq5Oj/PjpKVi5c4McIGSQ
-         BVFuCuS3TjbIJ3sM9jvmdMmsoHCwYVpiGFgs5EJa6D+Jt5f6l7rw6SVtuUg74ht2/UPk
-         jfOubQWm4JfuapDx3XQXe12/UGAMTLCPvFKhxUet/rhrEA1Q1DfG0oPehNLIXWYw66Cd
-         157h5eDCfC99RGavQC9/bwBzOk9eHis0R9kuLCUJ7vzIIHd1hI9UnvYpqBMIwXsSh9lw
-         Pxaef0CypX52X1pR2MOEkyaoh7yiSFoTr8xUOO5hfEt7LSYANd9ImDpSvBiEhNCaI2qO
-         NmNw==
+        bh=szmKV8/hLRD/BfhCLVO1JNR0megTPDNxGFTPqcHtGK4=;
+        b=BL2u3U3hMj3hxr91qFTB2UwlpIp/LEgA+/ADKVAOmx3G1yjsmbg8B9dBrDE0VVvRFL
+         FJBngxCII2d6j+g1b/6ujlr5ky9DbpECdL0qcZKHZDQefKOLBw2mK6xme+MFMsEgHUPf
+         cs0A8zjwin2V1DxLmiotAAlBvIWQUtLPypLCqve92eE6NXrXCCFj/bS84flRfl6V6SbL
+         LJbi+uvN7SK2nXEnJyNufALY0YYrk3JPqKNrQEJGTlVnbQAF0j59WKuxKLFWAnX+W+Z2
+         stSC7Had66QkxlPt/kw5dwwh8TVzGc9dUqq5z1m/Zuibnbgbee5BTn9p1bF5JDWRm9gR
+         pvDw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749554139; x=1750158939;
+        d=1e100.net; s=20230601; t=1749554489; x=1750159289;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UxiKx3fQ2UN0TdQSGe7J2LZQJpdb1R/YSkx1+hJ6ixs=;
-        b=Xq7Mo6/R6Xav8wMj+zS5388IA9wokxvQ6p6GC4fkCW0V9a8KmjsE6Zv83WWvAnOSgX
-         ZdgHLko/8kNuCMw6MFKvSCsYdqYUWmEreoFVsjrPeseB8yyUQMRWkQ6QqVYGTkFPwlzv
-         zjSAdOZScnwpdw9pbKaw1hZ4jn138RuUv/ebf4H9bkhfl8Vhn4Y73CfO75TjO0HrghHj
-         R5GaWW8YlkUomLXF1IFxzZ29uKlYXser5QHBP2XxPROrbplr/gItrso9Y37lgT5fAgpl
-         ebDQorTK7OnT4al61tf6C2DTsRzHjJiNNDxezDJ8oyAP/9KXZUO92jjBk/87MavU6ge1
-         icjg==
-X-Forwarded-Encrypted: i=1; AJvYcCUNYlsV7NgAU/Fs5JiLDYLY9uPo8/AdKqmtPsfNApSJUGNCphfAA2NB8DJok44FhApbAfajvbj1kbvtYg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdWH6ofQ3in/StuPgjQ4oj7dzm/KVmzJ8Dbq3pxbh95SZNUY1c
-	FrYHZp7nthBsjjOLMs4ioUf5q0pFwpjZr8zHR685Vdg3VGRd5k7iG7JR
-X-Gm-Gg: ASbGnctUcDo9esuE30c0thLLJCBTB4EsHq8X4+RFEx48zVP7bGZquk9oDbHVc7EOdcT
-	BtFPOTfcSL0zhePxYSqXgSDgbHtTRBKzJ8e1Z/mww8fNXoJUwxWCFmQJ/7WBR4nRyVWsVmHKq77
-	T14wzXn4TEUb6HMZqzAPnetJgfSHO6Qb9Etdr25EiFSBtwcfrmAdvSUnBisZneXu3zw5B6Z6liC
-	k031WM3LqQOZ5k52kpvk+ORkc5urooiZq6EigEgtskuCA8nzlXrhQhMDLxnFsZ+XYZz9gAE72kS
-	GeQQm7/NF+P/OLa/NL+9QOIoPdJI4t/sj8ejR3YEeOZWp2CjdzzbYEKOIIzAKvV/wX26TBiYdBN
-	eb1RcXWmR5avNuf8z24ctZuthA1pcdSpuVhDpudCJWJIB2bgF
-X-Google-Smtp-Source: AGHT+IEq5h6QpOWbOPcXEokI/1kkApz0WSZPNMsqb+qTO25Obu6S4fRERowIAa6crf+gSKsbxpYBWg==
-X-Received: by 2002:a05:6000:2891:b0:3a5:2b75:56cc with SMTP id ffacd0b85a97d-3a531cac39cmr14409541f8f.23.1749554139143;
-        Tue, 10 Jun 2025 04:15:39 -0700 (PDT)
-Received: from orome (p200300e41f281b00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:1b00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a5323ad414sm12186802f8f.31.2025.06.10.04.15.36
+        bh=szmKV8/hLRD/BfhCLVO1JNR0megTPDNxGFTPqcHtGK4=;
+        b=iIleNO/qBUjoRiIU37EdzA9WfY/wrAAmnLZHeTGOk1tNw2QjoIV8nL8hTFMN3t18GJ
+         94QeMby8TK4S9ic8vaT5BZ/vGpBC6/NFC7mss6/Fk4YpUOyJzUlk/zJnN8i5EuDJmhe9
+         LN2JVaB1kObBLHa4qIzRTmZYr0G+4lmUPog1Ct7LD8Sn3jp21VjtZgDbgER9Y2s7Po7I
+         /h1r+NuU1lNj3mUig5EkmDlFKQOR5fTb+rVxNeEVDwj4Bp4525iKsGekxh/y9A72OZaP
+         aoJ459ulCwOEe2PJvYchHXcx4rEBsgGVN4QNFkN8KPp/UrVaD0xSBvI6leUYW1BlrZBv
+         a0bQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU0WZtadLUZ3Kep8lxnLxCIiI+JU4gWJuJhftY2EsPZ4tfBQizYnJ/K3Fcyn/vmytealReHARNKg+Vu1g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZd693fJN8le1WV5+7qpNI8VfW9JvfFRMOeZbUvhXHHaaNNNt3
+	caRsAfGmqHZrjf/ziECiZwm6CZx95NCf8ZcAiwgJU9eQWxXpJsJ8qFsw
+X-Gm-Gg: ASbGncuIkhERifCNEKFxPJMV3wpAD678Q1PROosgFjtsPf/OGLAIskgEh6KrzJoCej8
+	HAXgKXgZQs2k9ut2RHlSM6Mgsyefu99nZe/Dxcujg0FJksIdqA9ge9wHJ+1pJZRqb/A86sDqdNf
+	jzR3xQ/klliTZbzBvKjhNFmvH5DsEoO1glwiJSr8kCPaaAcy4AoBWRUtKyGEVAnuUHyirtukR/f
+	PGseOYBsjpMOFGW6KvpNjlguAY3RCPaHL0GOqY0QPgH6U7t746FRRIRIhEdAZBpNYdznpMrFb/I
+	2RvFN+UWPMbxVYO08ERPcpOjiJcEzVk5W5/qMg==
+X-Google-Smtp-Source: AGHT+IFY5rvDpdmdyeaeDG/4L19R5LPs+YWIFLKwWB5tjYm4meLynLzPKZHGYa0vfPuvDWlt/nZlZg==
+X-Received: by 2002:ad4:5f4e:0:b0:6f9:201a:c05d with SMTP id 6a1803df08f44-6fb24cabc19mr37122406d6.33.1749554488907;
+        Tue, 10 Jun 2025 04:21:28 -0700 (PDT)
+Received: from localhost ([2001:da8:7001:11::cb])
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09b1cb6fsm64260546d6.79.2025.06.10.04.21.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 04:15:37 -0700 (PDT)
-Date: Tue, 10 Jun 2025 13:15:35 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Binbin Zhou <zhoubinbin@loongson.cn>
-Cc: Binbin Zhou <zhoubb.aaron@gmail.com>, 
-	Huacai Chen <chenhuacai@loongson.cn>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Adrian Hunter <adrian.hunter@intel.com>, Huacai Chen <chenhuacai@kernel.org>, linux-mmc@vger.kernel.org, 
-	Andrew Jeffery <andrew@codeconstruct.com.au>, Taichi Sugaya <sugaya.taichi@socionext.com>, 
-	Takao Orito <orito.takao@socionext.com>, Ben Dooks <ben-linux@fluff.org>, 
-	Jaehoon Chung <jh80.chung@samsung.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
-	Kamal Dasu <kamal.dasu@broadcom.com>, Al Cooper <alcooperx@gmail.com>, Haibo Chen <haibo.chen@nxp.com>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, imx@lists.linux.dev, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, openbmc@lists.ozlabs.org, Michal Simek <michal.simek@amd.com>, 
-	Joel Stanley <joel@jms.id.au>, linux-aspeed@lists.ozlabs.org, 
-	Aubin Constans <aubin.constans@microchip.com>, Eugen Hristev <eugen.hristev@linaro.org>, 
-	Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni <alexandre.belloni@bootlin.com>, 
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>, Yixun Lan <dlan@gentoo.org>, linux-riscv@lists.infradead.org, 
-	spacemit@lists.linux.dev, Jacky Huang <ychuang3@nuvoton.com>, 
-	Shan-Chun Hung <schung@nuvoton.com>, Steen Hegelund <Steen.Hegelund@microchip.com>, 
-	Daniel Machon <daniel.machon@microchip.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Patrice Chotard <patrice.chotard@foss.st.com>, Jonathan Hunter <jonathanh@nvidia.com>, 
-	linux-tegra@vger.kernel.org, Hu Ziji <huziji@marvell.com>
-Subject: Re: [PATCH v3 01/35] mmc: sdhci: Use devm_mmc_alloc_host() helper
-Message-ID: <72va4ohv5djerrqe6jwtas6j2yg5f4xkcfxpsmadclh25mhjlh@2zwl3d52ubvy>
-References: <cover.1749127796.git.zhoubinbin@loongson.cn>
- <dcfce3ddf980563c590f82c1b4e8840c29497887.1749127796.git.zhoubinbin@loongson.cn>
- <t5caqkvguurw2dwzn7wkbjo5ryv3jp3eppjzhdwgx6q6vro2q2@onqqr6v3whdo>
- <6ab83033-1349-4d5e-8d1f-8a13d851abf4@loongson.cn>
+        Tue, 10 Jun 2025 04:21:28 -0700 (PDT)
+Date: Tue, 10 Jun 2025 19:20:21 +0800
+From: Inochi Amaoto <inochiama@gmail.com>
+To: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>, 
+	Inochi Amaoto <inochiama@gmail.com>, Thomas Gleixner <tglx@linutronix.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Alexandre Ghiti <alex@ghiti.fr>, Anup Patel <anup@brainfault.org>, 
+	Chen Wang <unicorn_wang@outlook.com>, Sunil V L <sunilvl@ventanamicro.com>, 
+	"Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, Ryo Takakura <takakura@valinux.co.jp>
+Cc: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, "sophgo@lists.linux.dev" <sophgo@lists.linux.dev>
+Subject: Re: [PATCH v2 4/7] irqchip: MIPS P800 variant of aclint-sswi
+Message-ID: <qsxwdfgrn2wsho3cgqbkfrmzngwbnt3mymem5rf23xpu7s44mm@mc7bzri26sfn>
+References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
+ <20250610100540.2834044-1-vladimir.kondratiev@mobileye.com>
+ <20250610100540.2834044-5-vladimir.kondratiev@mobileye.com>
+ <iewyo4h3yiqnyn6qrgmckwcaalovpv2udf46jwpor4s5ni5bvu@eg2ikgmswcbg>
+ <AS2PR09MB6296822D5ADAEAECCC06F976946AA@AS2PR09MB6296.eurprd09.prod.outlook.com>
+ <r5sdm4vs5wayictlhx2zfui76ksrei7bq7wpd55eo5o6ommkhm@lsx2mqsldlu5>
+ <AS2PR09MB62968E478451D6D4480A8FCE946AA@AS2PR09MB6296.eurprd09.prod.outlook.com>
 MIME-Version: 1.0
-In-Reply-To: <6ab83033-1349-4d5e-8d1f-8a13d851abf4@loongson.cn>
+Content-Disposition: inline
+In-Reply-To: <AS2PR09MB62968E478451D6D4480A8FCE946AA@AS2PR09MB6296.eurprd09.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_121542_827336_CD4A68CF 
-X-CRM114-Status: GOOD (  29.66  )
+X-CRM114-CacheID: sfid-20250610_042129_999486_C2604D2F 
+X-CRM114-Status: GOOD (  15.45  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,114 +106,33 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============8375350577264229700=="
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Tue, Jun 10, 2025 at 11:09:26AM +0000, Vladimir Kondratiev wrote:
+> >I think all should be removed and it is OK to use old >THEAD_C900_ACLINT_SSWI
+> >as driver config. At least for now, I see no similar case about using defined.
+> >Maybe the subsystem maintainer can give some more meaningful advice.
+> 
+> OK, I see. Then, in the Kconfig for THEAD_C900_ACLINT_SSWI say it
+> selects both THEAD and MIPS variants? I am a bit not comfortable
+> keeping THEAD specific option for non-THEAD stuff. Here it is indeed
+> good to see what subsystem maintainer will say. If I remove logic added to
+> the Kconfig, maybe I need to rename a single config option to just
+> ACLINT_SSWI and list supported variants in help text? If going this way, your
+> input is important.
+> 
 
---===============8375350577264229700==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="k45u4zwumvcsy4c2"
-Content-Disposition: inline
+IIRC, I was asked to use vendor specific prefix for a vendor driver. I
+am not sure how it can be changed when another vendor comes, so let's
+wait and see whether there is some advice to improve this.
 
-
---k45u4zwumvcsy4c2
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v3 01/35] mmc: sdhci: Use devm_mmc_alloc_host() helper
-MIME-Version: 1.0
-
-On Tue, Jun 10, 2025 at 06:21:27PM +0800, Binbin Zhou wrote:
-> Hi Thierry:
->=20
-> On 2025/6/10 17:42, Thierry Reding wrote:
-> > On Sat, Jun 07, 2025 at 03:33:34PM +0800, Binbin Zhou wrote:
-> > > Use new function devm_mmc_alloc_host() to simplify the code.
-> > >=20
-> > > Although sdhci_free_host() is no longer needed, to avoid drivers that=
- still
-> > > use this function from failing to compile, sdhci_free_host() is tempo=
-rarily
-> > > set to empty. Finally, it will be removed when there are no more call=
-ers.
-> > >=20
-> > > Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
-> > > ---
-> > >   drivers/mmc/host/sdhci.c | 3 +--
-> > >   1 file changed, 1 insertion(+), 2 deletions(-)
-> > >=20
-> > > diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
-> > > index 32fa0b2bb912..ee5a5ae4db31 100644
-> > > --- a/drivers/mmc/host/sdhci.c
-> > > +++ b/drivers/mmc/host/sdhci.c
-> > > @@ -4076,7 +4076,7 @@ struct sdhci_host *sdhci_alloc_host(struct devi=
-ce *dev,
-> > >   	WARN_ON(dev =3D=3D NULL);
-> > > -	mmc =3D mmc_alloc_host(sizeof(struct sdhci_host) + priv_size, dev);
-> > > +	mmc =3D devm_mmc_alloc_host(dev, sizeof(struct sdhci_host) + priv_s=
-ize);
-> > >   	if (!mmc)
-> > >   		return ERR_PTR(-ENOMEM);
-> > > @@ -5002,7 +5002,6 @@ EXPORT_SYMBOL_GPL(sdhci_remove_host);
-> > >   void sdhci_free_host(struct sdhci_host *host)
-> > >   {
-> > > -	mmc_free_host(host->mmc);
-> > >   }
-> > Is there any point in keeping the sdhci_free_host() function around now?
-> > I only see patches 1 and 31, so not sure if anything happens in between.
->=20
-> To minimize email delivery failures, I handle each driver patch by sending
-> it to the relevant person, while sending patches 0 and 1 to everyone.
->=20
-> Keeping sdhci_free_host() as suggested by Adrian[1] is to minimize
-> disruption to the compilation process. We first set sdhci_free_host() to
-> empty, and once all callers have been cleaned up, we will remove it[2].
->=20
-> Of course, perhaps I should also CC the final patch[2] to everyone, which
-> would make the entire process clearer.
-
-Makes sense, and no worries. There's no great solution to this. Either
-you send to everyone and you get complaints, or you send to too few
-people and you get complaints.
-
-Thanks for clarifying.
-
-Thierry
-
---k45u4zwumvcsy4c2
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCAAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmhIE9cACgkQ3SOs138+
-s6GQBA//Uwo2UNmg6Kz2FmjupP6jInce88oeU0wuRA2eXLJxily+e6i9k6VcnYrB
-FwkVmYo7qNRUixAA6TkZuDe74mN5rUrDAgMaF8pLMvQ2tFXS8BO+02jTedHffhet
-v6GXZJ4hARWlGL6EY5jGfWa7PIMtlXGyPiRmCH8gXSW3qoo6O5mfLLdWi6brHhts
-lX3z6DxsSVN52Pa/95zoQQQ8eyQtdcYDWHqeTivi5Y82gDy6P24+1BLWiTfCTzEw
-D2Cl3DgKUu1qKrMwG9V0gQyc6bmNFdJuS3BLA37hKPFOMrD0zS7SQsX2pt+yoMxO
-zKjO5P3kkQFTJJhP6gDoXscax9d80EsHUgKOOdkLVp+3SmGLZ039rI94BGhHc1by
-78S5I+HpQKr3B+WlwRBQqoQtTDDFB8lP2D0LRClGyW50bIDHwHU087JYcoCck13W
-xHDXXMIsVCU3NKmXT8bI5GFF4WVlI8oAcHEtRTZRJy8IcSZa7fn8QYdIDwOmTjM7
-Y5SY2/GHPYmcfHeUaGACsFGB8vCCdVi9qVCQtw9M3OjORZ3Hu6wCQ3BpQesJsJO+
-CHX7XcTnKxG/o9LGeeimJMjqHK/oA4HU9/HXoqJgmlIDDr0nI3N6EVOPDL3CNATV
-L81QfkNDQ+ORICzcQsgi8Q5Rbi5P7fOsmRpdcEck9u4NZGbgD4M=
-=tny8
------END PGP SIGNATURE-----
-
---k45u4zwumvcsy4c2--
-
-
---===============8375350577264229700==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+Regards,
+Inochi
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============8375350577264229700==--
-
