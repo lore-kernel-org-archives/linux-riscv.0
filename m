@@ -4,82 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 474EBC61DB2
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:51:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B21AC61DB2
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:To:From:Cc:MIME-Version:Message-Id:Date
-	:Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=fVz8g8G4oxZhV5A9EB+mDgQ6oPVX75GI1ZJvGYcVVoo=; b=cr8jaHfQkPTcpx
-	JE43TjYMn52tbO2t4l1B/Au370r/tC0mg/sSd0aRX8L8GcjKLYMDRMlzD6l6VXty7RtrV1F1kw/id
-	xQWnEMeJvewq5GGQpZFxtZiAfe8WbDMO8+t0x22H+anzwn083LVGmXin9JO7/3ZX0uYcMxr7OgFu2
-	NSaG6glDZ0GcHCplRcGBRGOLsSe47ViPckJ8w+roHQ0ZddQbO1do2zrhcpIc/NIuKm0eWvCDMlxaZ
-	JSB2TQZq+//SNW2jZw81gGY0kyiNXHiM4VKqsu9CwuzAGNYXQzizxNlCFa3F0102W7e4wwj9M/elL
-	W4cyCcLCwd8jAo+hwptg==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
+	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=UYJJxS5gbLS3Qqa61GrCJ1InimR6TaJ3DodxHa1wewU=; b=Fs/V3xboz1rNcR
+	yvl7As5rP3cwXu60v+RmvekZ9q+JWDcGC9p2d+FJWGN+yZgKgqPDYd/r/xn+HwFjwRVXSBhJU84oj
+	9IiGsJjuA69VOxA47+7XJkI09/pwLdNdv0nGtBsuGbmy3GqEy9dJiT31AtgB9Pa3m5kujC/TvxsZO
+	M8U+DC6DGhQKWq3sXnpU8mMExsUJSagjwNB3GmXiM/H1oW4tKiIZbZ7XcgIBEBNrIOE3wgJfW0chO
+	sP7VVWCxDEv47y8oi6V8OhtRuBKSZJdaHzVyPWYr/u/xSvyxRd2EwkNSB2MR6n3M0dCyfEE+pUPOt
+	HkNDUHCFWHv/T4sp2trw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7nw-00000008JTd-1EWs;
-	Tue, 10 Jun 2025 22:50:52 +0000
-Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
+	id 1uP7o0-00000008JZZ-2N5e;
+	Tue, 10 Jun 2025 22:50:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP6de-000000087eB-1Hi0
+	id 1uP6hW-000000087oH-2dyX
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 21:36:11 +0000
-Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-739b3fe7ce8so4686980b3a.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 14:36:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749591369; x=1750196169; darn=lists.infradead.org;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:to:cc:subject:date:message-id:reply-to;
-        bh=KaHHQEiupZ06D+yq5AKLPI1+m/XTQ4+XHbDcRMw88EU=;
-        b=KPnVLL3cj6m1x3vLAFbW965Z7L0YRXKXnaxkJ5w1fYUrAkvErrlF6a0kq5bAwUu9Lq
-         X5cLhMMgVtvya5Su6yIP1mWnMeIJd0p0155GE7oOjkAchnhhrwgLgr/cbN1USnKtnMJ2
-         MiPYeNF2+CMGVKb4L7vow/dlfI5bdcm01CTdZS8F9fXGJWjZ188GW97lxMCDU7Qg6t23
-         1Dxglu6FsbiIsA3SmS2FGckYH1ozBoscc2UG6kmJNRkMa28rRVCsbfQ207o0hFnRm8Kh
-         TiG15jfH0usxvHNM3rwIPkkg8+G4hiSEy61aNCeBCS9Ho2/EYQro1Cl/enjHWCwddW77
-         gcgg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749591369; x=1750196169;
-        h=to:from:cc:content-transfer-encoding:mime-version:message-id:date
-         :subject:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KaHHQEiupZ06D+yq5AKLPI1+m/XTQ4+XHbDcRMw88EU=;
-        b=Hf4a6ybQAzKjHcfQ60Il0hyVWnS9LzjO1dQSego0X1GtVEMffg5I3tC8v4F7j5kEbc
-         bq8LKDD2C+VP0YYTodfcTCOJmfp/ksTvo7fWv62hIKeMdULFrJivfCN+8jaQG+D6+Jvr
-         RZl79y6p0PJZa1X+12I2X9dZDRnLVq3ZDQZaLjG+/GfVXE9flwJW0MPQVBoAL48ifizx
-         dNLVZrB26ttctQNiC7wSzgG3EESLOS8eSCVbs0jIJaamsrQSsBfZgG0qcf8OjDQVEqiC
-         JCB8PzYSTWfVTauL/qElaIPFB8Nf+5MNrbtlkpVf9AqnUepRWrPTjcu5WqLC98IxY4z0
-         gLSw==
-X-Gm-Message-State: AOJu0YzEhxbUJ89ZvebDFYkxHa562L7y0k2hbBFHwCt9O0JXpgD0cD/M
-	VRmZzpsGdK8yuELUk1eqIla1hW3o9R8mVFz654FeAT0fYD8CAOwpy5ytB1F0rwOywyw=
-X-Gm-Gg: ASbGncvTkWtUog3MBXbTKr+ELjzdD+hxRi+hqRy/9iJ5S4+qNs7oCDamIDPhQXJi0Gj
-	NMInZnC8oG8xRkD1EWR+ECbfa2UEaD/tkkOwmhsOdGBicFnJEGs7MC/gwjytnklpqa87mlpoXvu
-	Q6ooXBOEAtIB8VPcmxEJrHXoA9sDRkFoH4l0+SHlQi9sY5SNlk0EcwMl6zhZzv7diaKHhzYpxSd
-	1UxFU+n7JDIKgasbhLe+JhM97uXPirEspbUy0uulg5Jp5zaWdwBolvoDtZQlnUnV6l2D6Q8QcL/
-	G3Xp75/QGFG8zQmyMbls6UKXaK7SUdANLGTs1Cd6wM/GoKkocBidIU9AhknT
-X-Google-Smtp-Source: AGHT+IFYYIeiPz9kpoQxtEx9N1kGD9o1EkK/pKiuLs1MruLC/T69Bnqe3L89R/Uj9Yt0DTdGl5i/7g==
-X-Received: by 2002:a17:90b:4a85:b0:311:f30b:c18 with SMTP id 98e67ed59e1d1-313af0f8588mr1387259a91.4.1749591369214;
-        Tue, 10 Jun 2025 14:36:09 -0700 (PDT)
-Received: from localhost ([2620:10d:c090:500::7:116a])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-313b1ff0fa8sm78207a91.8.2025.06.10.14.36.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 14:36:08 -0700 (PDT)
-Subject: [PATCH] RISC-V: uaccess: Wrap the get_user_8 uaccess macro
-Date: Tue, 10 Jun 2025 14:30:58 -0700
-Message-Id: <20250610213058.24852-1-palmer@dabbelt.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+	Tue, 10 Jun 2025 21:40:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ADCCC629FE;
+	Tue, 10 Jun 2025 21:40:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F691C4CEED;
+	Tue, 10 Jun 2025 21:40:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1749591609;
+	bh=I3C23c35LbTCjt3P42E0c8wnjRpx2wGHYe3hD72e8gc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=NL9DGDTlaARUaLJZZTn7ksNOX+zLB3+6FZ+AuN5PSd86X7zQ8On4907vZTWM9G0kD
+	 A1hDfAPf+tfosN0GVSnu/Lw2fW8IJnwIY3bkiqZQ5S3A4yZHbSfvbjAbLsf6bqYQWz
+	 hpr0bRl8lt0MaPgDefcXl4fNqCDL52addHhmcGgGDeTAzH9/s4cEqxgMTy/jYNpIPn
+	 4jduecNRiW8ELZw7yN15z0soD2Xd064nZD+kWXwl323ASe/AICzANp/b8AqzfoURVx
+	 LHwhyiEb8uw6+2YoY1GEiOWwWYl/KI9A7mV29dnZ8ir8jo6Rxt1qzQFeR/9NPbeZAt
+	 mHpwnfzFniUlA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAEFC38111E3;
+	Tue, 10 Jun 2025 21:40:40 +0000 (UTC)
 MIME-Version: 1.0
-Cc: Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>,
-  aou@eecs.berkeley.edu, Alexandre Ghiti <alex@ghiti.fr>, cyrilbur@tenstorrent.com, jszhang@kernel.org,
-  cleger@rivosinc.com, samuel.holland@sifive.com, linux-riscv@lists.infradead.org,
-  linux-kernel@vger.kernel.org
-From: Palmer Dabbelt <palmer@dabbelt.com>
-To: linux-riscv@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_143610_346012_4DB634AB 
-X-CRM114-Status: GOOD (  11.98  )
+Subject: Re: [PATCH] riscv: vdso: Exclude .rodata from the PT_DYNAMIC segment
+From: patchwork-bot+linux-riscv@kernel.org
+Message-Id: <174959163949.2619474.5121888722070978371.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Jun 2025 21:40:39 +0000
+References: <20250602-riscv-vdso-v1-1-0620cf63cff0@maskray.me>
+In-Reply-To: <20250602-riscv-vdso-v1-1-0620cf63cff0@maskray.me>
+To: Fangrui Song <i@maskray.me>
+Cc: linux-riscv@lists.infradead.org, paul.walmsley@sifive.com,
+ palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr, nathan@kernel.org,
+ nick.desaulniers+lkml@gmail.com, morbo@google.com, justinstitt@google.com,
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,60 +73,31 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Palmer Dabbelt <palmer@dabbelt.com>
+Hello:
 
-I must have lost this rebasing things during the merge window, I know I
-got it at some point but it's not here now.  Without this I get warnings
-along the lines of
+This patch was applied to riscv/linux.git (fixes)
+by Palmer Dabbelt <palmer@dabbelt.com>:
 
-    include/linux/fs.h:3975:15: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
-     3975 |         if (unlikely(get_user(c, path)))
-          |                      ^
-    arch/riscv/include/asm/uaccess.h:274:3: note: expanded from macro 'get_user'
-      274 |                 __get_user((x), __p) :                          \
-          |                 ^
-    arch/riscv/include/asm/uaccess.h:244:2: note: expanded from macro '__get_user'
-      244 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-          |         ^
-    arch/riscv/include/asm/uaccess.h:207:2: note: expanded from macro '__get_user_error'
-      207 |         __ge  LD [M]  net/802/psnap.ko
-    t_user_nocheck(x, ptr, __gu_failed);                        \
-          |         ^
-    arch/riscv/include/asm/uaccess.h:196:3: note: expanded from macro '__get_user_nocheck'
-      196 |                 __get_user_8((x), __gu_ptr, label);             \
-          |                 ^
-    arch/riscv/include/asm/uaccess.h:130:2: note: expanded from macro '__get_user_8'
-      130 |         u32 __user *__ptr = (u32 __user *)(ptr);                \
-          |         ^
+On Mon, 02 Jun 2025 20:48:44 -0700 you wrote:
+> .rodata is implicitly included in the PT_DYNAMIC segment due to
+> inheriting the segment of the preceding .dynamic section (in both GNU ld
+> and LLD).  When the .rodata section's size is not a multiple of 16
+> bytes on riscv64, llvm-readelf will report a "PT_DYNAMIC dynamic table
+> is invalid" warning.  Note: in the presence of the .dynamic section, GNU
+> readelf and llvm-readelf's -d option decodes the dynamic section using
+> the section.
+> 
+> [...]
 
-Signed-off-by: Palmer Dabbelt <palmer@dabbelt.com>
----
- arch/riscv/include/asm/uaccess.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Here is the summary with links:
+  - riscv: vdso: Exclude .rodata from the PT_DYNAMIC segment
+    https://git.kernel.org/riscv/c/e0eb1b6b0cd2
 
-diff --git a/arch/riscv/include/asm/uaccess.h b/arch/riscv/include/asm/uaccess.h
-index d472da4450e6..525e50db24f7 100644
---- a/arch/riscv/include/asm/uaccess.h
-+++ b/arch/riscv/include/asm/uaccess.h
-@@ -127,6 +127,7 @@ do {								\
- 
- #ifdef CONFIG_CC_HAS_ASM_GOTO_OUTPUT
- #define __get_user_8(x, ptr, label)				\
-+do {								\
- 	u32 __user *__ptr = (u32 __user *)(ptr);		\
- 	u32 __lo, __hi;						\
- 	asm_goto_output(					\
-@@ -141,7 +142,7 @@ do {								\
- 		: : label);                                     \
- 	(x) = (__typeof__(x))((__typeof__((x) - (x)))(		\
- 		(((u64)__hi << 32) | __lo)));			\
--
-+} while (0)
- #else /* !CONFIG_CC_HAS_ASM_GOTO_OUTPUT */
- #define __get_user_8(x, ptr, label)				\
- do {								\
+You are awesome, thank you!
 -- 
-2.39.5 (Apple Git-154)
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
 _______________________________________________
