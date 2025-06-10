@@ -4,103 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 961F4C61DB2
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 00:28:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60025C677C4
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 00:54:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hzE6y2Xmg+ISWZJ5HA0/NtA2KekKTAjlLtUOTmF0NZQ=; b=q3WGpng4Y+ZAXF
-	vOi+UdOsJT7bOnQqI4mROQmqz0J71gZggreqiQfj3KMV03hHXCumg7s/MJVlQdp7SUSPs5ULE288F
-	YPZ7O5IUP1ySDAlLIMspFypJ27K6J+3TI9PsUtzVyDFssCe52zd5gFsO3RzsX1BoMRK1BsIxrd7Gf
-	+THRpU3y5Hhd6scPbikN7z0ei70dNgYM0/Exk6WHmW5EwL4UVQE2Cj7AClcCCov7M9b5MzQz59CDt
-	Nki+8TspLj0PxKwT4+4hlbI9Id3PfhsFpQa6jjQZzpum/4Aew6jonh8Dzgfm479aAb12zf/HV5VZR
-	olkClOnozUJcGCVCRYQA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=2QGm2CHRJGyEpM7f7llRAaKFkxe1M7c9AqRqMxPKPAY=; b=epNlGTNEgtZ/cYGkSUwwjydTAZ
+	QPbmf82fD8lqTYSOEzDmG04bXQQNNT5UgC3dYTHX4rywftHN9Rsv3qFoxxK+6f13U9p6Q8PnpZ+/z
+	7dJGPhA2Wm57fttCYy/z9Xq8L3kP5DjSlg43jmGt1PMljrtQtomC7PX1D1alKbvlHTvaxqDALl/4A
+	jb1CY/k291iUk9Wsm3KJXlGsNE81aZ9nSc76ICPH3NykJH5qWQMYYnfT4NkIzHAHlo2w1hDAD++t8
+	U1dB73u+hD1mqpq0R4jEYbwhHNlT97vsHEBnRuoOaGeLvjvOrne7e8g4zXLvo8PJIZBgCamBCV8tf
+	H/1JFZYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP9KN-00000008UAF-0w4W;
-	Wed, 11 Jun 2025 00:28:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uP9j9-00000008VbZ-0r6O;
+	Wed, 11 Jun 2025 00:54:03 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP93W-00000008SFM-3x86
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 00:11:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:Sender:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=VlZgeHA644QawbjAzxLvevk+0CPgkFNL80WvPP4oWa8=; b=Pe4XpWdzTQ+1aWHwAWnzkVnTyv
-	ofr4PGFe4+MXB2dDjfGlnvhna9YqFVF1TD8B7nrOVaUUxYNb5AMKgxSbL+OSr1n4lBPXN6NP6UpQQ
-	9vUtn+Mq8MVKXQ2d0rnGeWq3RUScuHfKXEF1wOKWBF4A9TZwUkb9QIoaM5eJax4xf9fu79trDzGoi
-	Nhm1skkn5+qhcRQSH7d8RPRrBAlD10Y278ON33mUqruvjX62jBBAqNoACOOigMBfZqC4wum2O4L+0
-	Wfub6PA0h2DJcOJgNJ9FE8maGRFJ7kVnc9EQ54w+spmT7pOOC/P62hjDTVYbx7giIgDlDkGKg+kSj
-	HCKIK20Q==;
-Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP93U-000000022UH-30ia
+	id 1uP715-000000089y6-0i2D
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 00:11:02 +0000
-Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b2f02cd1daeso4050522a12.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 17:10:58 -0700 (PDT)
+	Tue, 10 Jun 2025 22:00:24 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2350fc2591dso2765085ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 15:00:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749600657; x=1750205457; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=VlZgeHA644QawbjAzxLvevk+0CPgkFNL80WvPP4oWa8=;
-        b=toDodBwHOgmoWdmI9T0U/bcaQ00c6ii2Dh1HxcPH79y6LZyKmplIjIFqnYTxU8Qus7
-         VfTa7jY5UkACe3m4mwtQ2cN28HpzCZqzHqEFn/zEM9FU18yn6trnI09D1SSW63JxwU5q
-         jb8lcnglUWHSggJc9kUIFD30nUqCUgYxQU5Mlv6Y06Z8Z/9PU3OpgBvja5F/bkqLCMVT
-         rXMBfs0DLlZ5HB16NPLvHugI89kb8jcxbmMWNE7M52RKy5CtY7h5Xi72PX7ZFM8XkslS
-         bPUUM3BurFrLh5AzTIkDLZ6YlvOmuzcO/qNnzf4I1bpcbTdFK34DpdIU2FxiZxSMKoxY
-         PIxQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749600657; x=1750205457;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749592822; x=1750197622; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=VlZgeHA644QawbjAzxLvevk+0CPgkFNL80WvPP4oWa8=;
-        b=HEYXy2p211Rjxvr2hm+Dl+tRkbEL1V8zeR/9oMFS+TWth0yymXu614GBZzb3ZasH70
-         klFO3nduvS5lBvJLChP0+eiTynJzKYMxiXnj5l+ntACv6BoH24IIFgIu6b8uiQk5Andz
-         4QtwBjqC6EEbg4msL3hBVDtZ4wC5StNFTywYgd6UupSiVJIwxAqOCiR7dWN4EDnSwgA0
-         hVCtBVAvG8ut7qYE+GUhruDlqW2ialQZOEAV/veDWGDDfBdC8a+mzhrZytN9+BkbfH9i
-         nrqFQdGk000T7osER/C9GIMcoCut0HyhDldjDFcbMuON4BvRChBmSvNGorlnVLt8sx8J
-         Jl7w==
-X-Forwarded-Encrypted: i=1; AJvYcCUJcheoQOwfxLudlilKVEXrUF3IN0+wNM+EQJehB+TFxCYMFS1BxRBzTtwCTF9Pbu+aglHvXbnOa+NQTw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLJcrMZJJn9QkCTuzlRpkJ1Ly0WTSJq9E+eH7/CmyxCGTbDmqq
-	gH4qLtXqhJui0uTTCofr+eLrGkpzOvRXfgF7xTbQ82pydGs3BBwdXpKA2AWg7iTOIe9I+OcxWIn
-	oYzoMGg==
-X-Google-Smtp-Source: AGHT+IEo+A1iKKp/d15/c3Y8CK62vwTvYQUmq5gUOhKzuXVKftWt1+9sRfxp1GZ6dnQl+d5j2tHzGoYEsqQ=
-X-Received: from pjboh5.prod.google.com ([2002:a17:90b:3a45:b0:2fb:fa85:1678])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2643:b0:312:29e:9ec9
- with SMTP id 98e67ed59e1d1-313af1dd043mr2232849a91.24.1749600657225; Tue, 10
- Jun 2025 17:10:57 -0700 (PDT)
-Date: Tue, 10 Jun 2025 17:10:41 -0700
-In-Reply-To: <20250611001042.170501-1-seanjc@google.com>
-Mime-Version: 1.0
-References: <20250611001042.170501-1-seanjc@google.com>
-X-Mailer: git-send-email 2.50.0.rc0.642.g800a2b2222-goog
-Message-ID: <20250611001042.170501-8-seanjc@google.com>
-Subject: [PATCH 7/8] KVM: s390: Stop adding virt/kvm to the arch include path
-From: Sean Christopherson <seanjc@google.com>
-To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
-	Huacai Chen <chenhuacai@kernel.org>, Madhavan Srinivasan <maddy@linux.ibm.com>, 
-	Anup Patel <anup@brainfault.org>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Christian Borntraeger <borntraeger@linux.ibm.com>, Janosch Frank <frankja@linux.ibm.com>, 
-	Claudio Imbrenda <imbrenda@linux.ibm.com>, Sean Christopherson <seanjc@google.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, loongarch@lists.linux.dev, linux-mips@vger.kernel.org, 
-	linuxppc-dev@lists.ozlabs.org, kvm-riscv@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Anish Ghulati <aghulati@google.com>, Colton Lewis <coltonlewis@google.com>, 
-	Thomas Huth <thuth@redhat.com>
+        bh=4G2dsRaNLfs2nkgAzSn0O1Z1VlS3VRtVJRLvHcMgFCE=;
+        b=agQMnroRw4QJtVfbJ0KkoCP+DL1Npev+y+rYURFXzOTd1nKpKff4Uxghmw7xyDNPSM
+         PoG3dLaGjOHDPQsvyGeooNtf4AhjAcTZzJUtFKhzkSONiDKFHUhar2PoEOh+rQXP7/xU
+         Yc515o3YTv3PDqI9ipzn/GIdntkKMMTQ5KnDTa9mWUmcO2W8Q3sezhQQE3WYKdrk8cE/
+         w9OQhE3ZvthzmQEpWCmtG+upmEIBZeaTz7K8BFwuGIVNwlHRzMGhiT17cdkzj1McKjtw
+         8jyUtKF+klg1n3/ePejZRU2reyDlJ9LmamzNe8DcN0akWuuWYF6UoFHiEOY0AKRpJs4a
+         Ht3Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749592822; x=1750197622;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4G2dsRaNLfs2nkgAzSn0O1Z1VlS3VRtVJRLvHcMgFCE=;
+        b=UXqLE9Dyu7if4NQE0HPkGBZgrNSZZLMv7sjgNgx5B7qQqIRBE2umClOXVbWcANmrms
+         rnkO5XreaS5S9Bsw/4S/hDDoa38V/qtKSCKSH8NCWK+It6WJz+9ribMh41LCKsDTquv2
+         Um+u82G5p51v/oysKFNkJbd6kL3y9jRRt1X6UBHPGrkHLZBRLi22GtJHWGu5raEEt+e8
+         g7N8tC+Bnr3+BrwyFoxPnBzPZXLoh+AsUxaSyCpLXeNapr1ag8NJ7u4lBp2tGAVxxGV7
+         iuSEXIsLTrwmxl37PZpapoR10S+9bGzn8vecPm9Z/Nh4NVUmFRS01puOWnnxEaOC7zG2
+         JwPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXTMMurz+fPCvUXv6HI+UsGu+vOtt94iJLGXAsBzrRReku3dPYuFXeuqpqs1upiysn7+xcuNV/d2XclKw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsKm1y3zoIJUa6JFGpCTRrrx88DXThxLWJ0MBLywcfJvPohGGe
+	O4fBF48nze0u80ApFH1zB7XGtmhClol+PeDsGU6nlvPv4wgI4kHl0BWkIx6hiRyrVD0=
+X-Gm-Gg: ASbGnct3DIvCTYhF25FW1t0DV3ok5FZ1xkItmrQ4Mxeg2mslUPwBH9J4V13nJIPeZtB
+	CLNkizJXANmtAveYiwOqDV0fqGAWFUS+nWp/iARWYExS7icbnxMBhnzlih2zfIKcO3nwYHQiwuH
+	pMAY/WDIU5nInu3TtQ/wGltbzVdlnjmtDO325/sF0rUNi5hDquKU61c2yHpbyCxousTfXWiVC6M
+	usLZiTTXQoPAfTsZlXnMwJh7EW9mtID+MBA7xxwSe6ERddBS3YwP6yYbllp2XlJ14tP+mWTR/db
+	l2JA+Um/Lrm232va7zbmpZXe1qLWMg0YlltgKbmypZbOJlcClgDngCrVSqQ9
+X-Google-Smtp-Source: AGHT+IEHygQuRQmcpm3Zn4j4pduojeokahmiVVQJDy8o56yodyMF2rjdCCK/u2RBqmQlMoaKDuzeog==
+X-Received: by 2002:a17:902:f54e:b0:235:eca0:12e8 with SMTP id d9443c01a7336-2364169ef07mr10412215ad.4.1749592821979;
+        Tue, 10 Jun 2025 15:00:21 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::7:116a])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-236030789cdsm75361745ad.11.2025.06.10.15.00.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 15:00:21 -0700 (PDT)
+Date: Tue, 10 Jun 2025 15:00:21 -0700 (PDT)
+X-Google-Original-Date: Tue, 10 Jun 2025 14:57:09 PDT (-0700)
+Subject: Re: [PATCH 2/4] raid6: riscv: Fix NULL pointer dereference issue
+In-Reply-To: <20250610101234.1100660-3-zhangchunyan@iscas.ac.cn>
+CC: Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu,
+  Alexandre Ghiti <alex@ghiti.fr>, Charlie Jenkins <charlie@rivosinc.com>, song@kernel.org, yukuai3@huawei.com,
+  linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org, linux-kernel@vger.kernel.org, zhang.lyra@gmail.com
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: zhangchunyan@iscas.ac.cn
+Message-ID: <mhng-8AD2A457-504F-4EF6-AB17-2CF316DFF6A0@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_011100_855301_88D3D122 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250610_150023_209061_A2FAA31C 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,45 +93,240 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Reply-To: Sean Christopherson <seanjc@google.com>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Don't add virt/kvm to KVM s390's include path, the headers in virt/kvm are
-intended to be used only by other code in virt/kvm, i.e. are "private" to
-the core KVM code.  It's not clear that s390 *ever* included a header from
-virt/kvm, i.e. odds are good the "-Ivirt/kvm" was copied from a x86's
-Makefile when s390 support was first added.
+On Tue, 10 Jun 2025 03:12:32 PDT (-0700), zhangchunyan@iscas.ac.cn wrote:
+> When running the raid6 user-space test program on RISC-V QEMU, there's a
+> segmentation fault which seems caused by accessing a NULL pointer,
+> which is the pointer variable p/q in raid6_rvv*_gen/xor_syndrome_real(),
+> p/q should have been equal to dptr[x], but when I use GDB command to
+> see its value, which was 0x10 like below:
+>
+> "
+> Program received signal SIGSEGV, Segmentation fault.
+> 0x0000000000011062 in raid6_rvv2_xor_syndrome_real (disks=<optimized out>, start=0, stop=<optimized out>, bytes=4096, ptrs=<optimized out>) at rvv.c:386
+> (gdb) p p
+> $1 = (u8 *) 0x10 <error: Cannot access memory at address 0x10>
+> "
+>
+> The issue was found to be related with:
+> 1) Compile optimization
+>    There's no segmentation fault if compiling the raid6test program with
+>    the optimization flag -O0.
+> 2) The RISC-V vector command vsetvli
+>    If not used t0 as the first parameter in vsetvli, there's no
+>    segmentation fault either.
+>
+> This patch selects the 2nd solution to fix the issue.
 
-The only headers in virt/kvm at the time were the x86 specific ioapic.h,
-and iodev.h, neither of which shows up as an #include in the diff for the
-commit range 37817f2982d0f..e976a2b997fc4.
+This code is super fragile, it's got a bunch of vector asm blocks in 
+there that aren't declaring their cobbers.  At a bare minimum we should 
+have something like
 
-Acked-by: Claudio Imbrenda <imbrenda@linux.ibm.com>
-Reviewed-by: Thomas Huth <thuth@redhat.com>
-Signed-off-by: Sean Christopherson <seanjc@google.com>
----
- arch/s390/kvm/Makefile | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+    diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
+    index 99dfa16d37c7..3c9b3fd9f2ed 100644
+    --- a/lib/raid6/rvv.c
+    +++ b/lib/raid6/rvv.c
+    @@ -17,6 +17,10 @@
+     #define NSIZE  16
+     #endif
+    
+    +#ifdef __riscv_vector
+    +#error "This code must be built without compiler support for vector"
+    +#endif
+    +
+     static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+     {
+     	u8 **dptr = (u8 **)ptrs;
 
-diff --git a/arch/s390/kvm/Makefile b/arch/s390/kvm/Makefile
-index 9a723c48b05a..b742e08c036b 100644
---- a/arch/s390/kvm/Makefile
-+++ b/arch/s390/kvm/Makefile
-@@ -5,7 +5,7 @@
- 
- include $(srctree)/virt/kvm/Makefile.kvm
- 
--ccflags-y := -Ivirt/kvm -Iarch/s390/kvm
-+ccflags-y := -Iarch/s390/kvm
- 
- kvm-y += kvm-s390.o intercept.o interrupt.o priv.o sigp.o
- kvm-y += diag.o gaccess.o guestdbg.o vsie.o pv.o gmap-vsie.o
--- 
-2.50.0.rc0.642.g800a2b2222-goog
+because it just won't work when built with a compiler that can use 
+vector instructions.
 
+> Fixes: 6093faaf9593 ("raid6: Add RISC-V SIMD syndrome and recovery calculations")
+> Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+> ---
+>  lib/raid6/rvv.c | 48 ++++++++++++++++++++++++++++--------------------
+>  1 file changed, 28 insertions(+), 20 deletions(-)
+>
+> diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
+> index bf7d5cd659e0..b193ea176d5d 100644
+> --- a/lib/raid6/rvv.c
+> +++ b/lib/raid6/rvv.c
+> @@ -23,9 +23,9 @@ static int rvv_has_vector(void)
+>  static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+> -	unsigned long d;
+> -	int z, z0;
+>  	u8 *p, *q;
+> +	unsigned long vl, d;
+> +	int z, z0;
+>
+>  	z0 = disks - 3;		/* Highest data disk */
+>  	p = dptr[z0 + 1];		/* XOR parity */
+> @@ -33,8 +33,9 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	 /* v0:wp0, v1:wq0, v2:wd0/w20, v3:w10 */
+> @@ -96,7 +97,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+>  	u8 *p, *q;
+> -	unsigned long d;
+> +	unsigned long vl, d;
+>  	int z, z0;
+>
+>  	z0 = stop;		/* P/Q right side optimization */
+> @@ -105,8 +106,9 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/* v0:wp0, v1:wq0, v2:wd0/w20, v3:w10 */
+> @@ -192,9 +194,9 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
+>  static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+> -	unsigned long d;
+> -	int z, z0;
+>  	u8 *p, *q;
+> +	unsigned long vl, d;
+> +	int z, z0;
+>
+>  	z0 = disks - 3;		/* Highest data disk */
+>  	p = dptr[z0 + 1];		/* XOR parity */
+> @@ -202,8 +204,9 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
+> @@ -284,7 +287,7 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+>  	u8 *p, *q;
+> -	unsigned long d;
+> +	unsigned long vl, d;
+>  	int z, z0;
+>
+>  	z0 = stop;		/* P/Q right side optimization */
+> @@ -293,8 +296,9 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
+> @@ -410,9 +414,9 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
+>  static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+> -	unsigned long d;
+> -	int z, z0;
+>  	u8 *p, *q;
+> +	unsigned long vl, d;
+> +	int z, z0;
+>
+>  	z0 = disks - 3;	/* Highest data disk */
+>  	p = dptr[z0 + 1];	/* XOR parity */
+> @@ -420,8 +424,9 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
+> @@ -536,7 +541,7 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+>  	u8 *p, *q;
+> -	unsigned long d;
+> +	unsigned long vl, d;
+>  	int z, z0;
+>
+>  	z0 = stop;		/* P/Q right side optimization */
+> @@ -545,8 +550,9 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
+> @@ -718,9 +724,9 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
+>  static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+> -	unsigned long d;
+> -	int z, z0;
+>  	u8 *p, *q;
+> +	unsigned long vl, d;
+> +	int z, z0;
+>
+>  	z0 = disks - 3;	/* Highest data disk */
+>  	p = dptr[z0 + 1];	/* XOR parity */
+> @@ -728,8 +734,9 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
+> @@ -912,7 +919,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+>  {
+>  	u8 **dptr = (u8 **)ptrs;
+>  	u8 *p, *q;
+> -	unsigned long d;
+> +	unsigned long vl, d;
+>  	int z, z0;
+>
+>  	z0 = stop;		/* P/Q right side optimization */
+> @@ -921,8 +928,9 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
+>
+>  	asm volatile (".option	push\n"
+>  		      ".option	arch,+v\n"
+> -		      "vsetvli	t0, x0, e8, m1, ta, ma\n"
+> +		      "vsetvli	%0, x0, e8, m1, ta, ma\n"
+>  		      ".option	pop\n"
+> +		      : "=&r" (vl)
+>  	);
+>
+>  	/*
 
 _______________________________________________
 linux-riscv mailing list
