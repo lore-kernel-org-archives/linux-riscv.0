@@ -4,114 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A58DC5B543
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 14:39:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BA1C5B552
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 15:19:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:References:Cc:To:MIME-Version:
+	Message-Id:Date:Subject:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=oyPay/oCpJe34a9axhPPBdh91PBDzcYaqL/oyHCN4Ac=; b=hjBSQBXdR6iLIB
-	brdYTEG4BYapxJ152YxfJLVZGftvcPWGgZg9ed+4ITyNwBpyMkXa4j1cTNuggt2+VX1uXbLk60mgA
-	lU8FzM0utbS9NXqzK1qTTIHG+M8RqZGsQ+ON9jlInJ2skb+jdIHE3dioS2U4r8sYnkTvMdxtxeL+i
-	VaI9ws41vgej6Cn3s4ggyzL/bsxgTwd+NrHN8jxWy5pX9Anmq1GWsVeg+CD3BNcwOOvh8IBm5oiyh
-	som4PZrlnxGbJ83RjpnCZR8pU33zZ+9KMWdDm6lRnT103AJAsmv2AWaEvjqGaWSGe4zgufMx0HHs8
-	QTzPUsBPuqgTwoyrXwzQ==;
+	In-Reply-To:List-Owner; bh=N5ug2mJS3dQaeS8v4/ZPVEYkivJF1a5NpJxLIyke5L0=; b=xT
+	IKWOfaju3oLjdKX7JY7FpFP/0SP+CD9v2XfG3Uq+S6x6NnEgRu6Gkz4MM8cmlJtqIuXq2unfiJrJG
+	e1xCnoWmjMkoHjhou6j9jxtMVg4fqML955HRixzixcZe1uvnbmXoAAP1ISlqXeglMcSywt+n2npqx
+	tEpMTMWj3cJtdTEaWQx4QPz1BoCcBPZLcMdhqAuP/sFxzoi/3fGioiDRHrYwSfprzKgIVbsZg66ye
+	oqyee8FsvKvKOcJAMErU0uYIdIHrwqU2p56ia/zGHLTFJB2E8V8CA2u1ikBydp/dVHJWgAXt7rR7X
+	0nlXvPuD/XU54JChS6jB2zX8OT7INfEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP07t-0000000795T-0TRe;
-	Tue, 10 Jun 2025 14:38:57 +0000
-Received: from mail-wm1-f50.google.com ([209.85.128.50])
+	id 1uP0lU-00000007Gow-0PiS;
+	Tue, 10 Jun 2025 15:19:52 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOyAQ-00000006mJz-296m
+	id 1uOyTy-00000006qYx-2aFG
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 12:33:27 +0000
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-453066fad06so19263385e9.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 05:33:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1749558805; x=1750163605; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=KaZhNfmNZvFczCK3uYFfm4lqI7dzagVSWDi4ZRPJnwI=;
-        b=oFM1RNxZaHy8aNHdrHxPRb/r1SWJglK8SLM1TBgs3oPsWfUjzk8ubMt1U55wOab28U
-         OfHNfkraYrEmrFLxde+jmlef+GeDdrM/K92rILWCeN3Z2xT8jOpdR1qsuSE12q7NNiVv
-         9AaDDCnAfrp4jTizEfJ4okID0GXfg/mPC0s6NdHyKAGfp9MG+A697Jmc3pU7Nlqgusq0
-         mEcCgDX7dAuITJQ0pf4NreBU36f5roM82APG3mfjZjzXaVjVQmQNm3xhtAfsiBmmT3XW
-         PI6wIZ9n50eFPbZQXkiBpIWYUWbXfHaez5zAjIz9SymFNQTvDMAIRhPhofK8xQ/1fEns
-         ZGtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749558805; x=1750163605;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KaZhNfmNZvFczCK3uYFfm4lqI7dzagVSWDi4ZRPJnwI=;
-        b=HvllbmJGXfVIplBlpbTPWzb0+Saw1WKpTR2YrKGORsV+zh5Cx9+apOoIK1WM2sHdAq
-         9XtIFFNU3j1AqQMi23quEuLEZ1WcYYJCheVCc4pUTlzGxHihzf/Sei9qwnZk5+gbwaxo
-         5XYF3Nnp3k2xYrOu5w3s7BIC21tmSJ3lr8aaqW2BQb/octlQ0CyRdKDXkywFl9TRHxaU
-         YSfAePSSTULjEtyUspiysTUKLbSSJ1IYZdr/IElZ/uGIDWUpdzjwS2G0aQIHZ6Bp739O
-         OYCvqHk+AdI65K9zdRVoKN0qvh6VbfTTAQAQ3K5eV1yob+SQ36Cxfux5GfBTnXsrCT62
-         QxjA==
-X-Forwarded-Encrypted: i=1; AJvYcCX7yzBDnFqgf2tMtgIMPNE/XRB0qUsl5Su9C5SLn0O3jRPRgL1saF3/OGudjYHY8DWru9H31i0HjjJwrg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy75uKTxzw+u3otJVbtszXnFpypI2M5nVi7msbyaD4G1JeQH75r
-	6b5utIFpBRL7WtJmK479HPwnh5ZJwJFELT0O1oJOOYxA4/vmLS5029imULhlePsh2NI=
-X-Gm-Gg: ASbGncuhr8eqEgv8cmdiqlU8uafYzrDan3N7z4IhhUlqWhXdu8otmLUWyxyzSU5HopB
-	hZXavhVTuUBfyALTdjHqlnEaF12TrOwsx0D4THonoUvZObMAC+jiDI1cUUUFBGIYfk72gIwODJW
-	arQKXU3j4U8sznTNMXuWO3Wj7savcwyKpQVrovxXN2d7Qc7uFLhYm44lfuVI5o8FNhpnmyTO5Ee
-	l0Zop1k8FYPb5onaUJvjsKLYPHbvbb8D3EqLw7wO5CaY3S+RKkvu5ytaQGem2IpKJ5oOLwR1vu1
-	6rk+u34hKyXMIEyMBQDpenaP6hQ2bDT2ZG5zC/k6wNvgk6xh6Cgi0A==
-X-Google-Smtp-Source: AGHT+IFSBusLtZEhcB35bdsLhsIDJKEdI0B2x6nuBuQEbHF1Ukz5MK6AfplwzfpXypgWmTNJf64szw==
-X-Received: by 2002:a05:6000:2283:b0:3a4:ef2c:2e03 with SMTP id ffacd0b85a97d-3a5318a90cbmr15138062f8f.33.1749558804571;
-        Tue, 10 Jun 2025 05:33:24 -0700 (PDT)
-Received: from [127.0.1.1] ([2a01:cb1d:dc:7e00:4d:e52b:812d:eb7c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53243661csm12290668f8f.53.2025.06.10.05.33.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 05:33:24 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 10 Jun 2025 14:33:12 +0200
-Subject: [PATCH 02/12] gpio: mm-lantiq: use new GPIO line value setter
- callbacks
+	Tue, 10 Jun 2025 12:53:42 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250610125331euoutp016825e2cb864805f8d2e12ee1dde07c97~Hr4_KQ7Na1190211902euoutp01b
+	for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 12:53:31 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250610125331euoutp016825e2cb864805f8d2e12ee1dde07c97~Hr4_KQ7Na1190211902euoutp01b
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1749560011;
+	bh=5jkDNM40mTwv8+zOl9nXA5sZSf4SwXnlr2AR06+Yrkk=;
+	h=From:Subject:Date:To:Cc:References:From;
+	b=SxCZlUF6Pus0tzUWSzcbnLT6zzJs4rPkcbAyXs5fM+I+6JgLyVEBi5jcBzXxRG5v7
+	 LlaGrZCuYh6sdHntHf5TVNQDDc+dtJ5Ag1UUEFU8dPkPYMp7BsnThM8mQkwsCGjA34
+	 +z5CYiwfBZHbxh6qB3wgifAa2CbJq3z0hBcSKgI4=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9~Hr49nKOym1183211832eucas1p24;
+	Tue, 10 Jun 2025 12:53:30 +0000 (GMT)
+Received: from AMDC4942.eu.corp.samsungelectronics.net (unknown
+	[106.210.136.40]) by eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250610125329eusmtip1ff1aeefd8b667cc1406dd4f764a5c237~Hr48aYX0q0363103631eusmtip1N;
+	Tue, 10 Jun 2025 12:53:29 +0000 (GMT)
+From: Michal Wilczynski <m.wilczynski@samsung.com>
+Subject: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520 PWM
+ driver
+Date: Tue, 10 Jun 2025 14:52:48 +0200
+Message-Id: <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
 MIME-Version: 1.0
-Message-Id: <20250610-gpiochip-set-rv-gpio-v1-2-3a9a3c1472ff@linaro.org>
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <brgl@bgdev.pl>, 
- =?utf-8?q?Marek_Beh=C3=BAn?= <kabel@kernel.org>, 
- Conor Dooley <conor.dooley@microchip.com>, 
- Daire McNamara <daire.mcnamara@microchip.com>, 
- Daniel Palmer <daniel@thingy.jp>, Romain Perier <romain.perier@gmail.com>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- Grygorii Strashko <grygorii.strashko@ti.com>, 
- Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- openbmc@lists.ozlabs.org, linux-omap@vger.kernel.org, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1909;
- i=bartosz.golaszewski@linaro.org; h=from:subject:message-id;
- bh=h//lpMqxpm+YSvksV4b6ru3A6OjJcjH0LPneHhPANFI=;
- b=owEBbQKS/ZANAwAKARGnLqAUcddyAcsmYgBoSCYOyVxQ6f3OBK/aG05w0mHNnvJLnDT+orDrz
- CyfWJIjJ4KJAjMEAAEKAB0WIQQWnetsC8PEYBPSx58Rpy6gFHHXcgUCaEgmDgAKCRARpy6gFHHX
- ciHSEACbAaLEpy3rIEg/INTnqZRSZcKjIFtdWlKQuLFDeybOyeiSxsXh2wVCKE9HyLBM4Pe4aOe
- VeJn1Gr92epXjzFOgr9ljMI5XuvfDKiUaJ+rYkq7/Zs0doHxU2JdVUOZ56W/ksVaQRwyC8wCRBr
- 1Wli4N7JwPdD4t/y88MkdyHuplV05Azu8GK/HebhanaJmAdKsKGHxR/A4RYuWfrffEarVVAQ688
- yj7fctEZEtajQVjw+qCP5GBjsONGyfRiTciEzFZk2Eo6IIQCZEYQq3wc8Gd6b/7f7x1mHHGRecY
- DySlDOvl/blSxGU/19Rk59Ji7N0jIHlFGoRdOlEfDYsyxYcQ1YGhBm/EWbwy7C7TVwwmYmhRHjQ
- 6U0crUDECD+RHZf8ESHp1fzD0gQD6M87Z2n5Qqj/iXDfT7F3+/E0NCfX2MGjJEoG9D+gFkzNSqN
- ovpcvq/yrRt4BiP+N/+81NwzARAgmNtA4arZxeyh5i4OqTMZtaMMgDsKwlZxHweLeCJzeHU2c01
- Gd0uc8Rd+iWf1vbf/mnnIHTHyTaSYWwYmVxa/FJSj98NsXYkeE2f9VoTVKzBj/b4ltLuEiTBWHq
- cm2Kz0AGsiu4qJ7PmhkesDqXdEvXX8g0I9jum1a/5pvlAwYSlfyl1w9eyBKPjCur8y1vx+5atSV
- t1BHqk4gNTPA4rA==
-X-Developer-Key: i=bartosz.golaszewski@linaro.org; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
+X-B4-Tracking: v=1; b=H4sIAKAqSGgC/5XNTQ6CMBCG4auQWTumrTQGV97DsCi0hcbQmhn+D
+	OHuFm7g8v0W37MBOwqO4VFsQG4OHFLMoS4FtL2JncNgc4MSSgutSqSJR4xuHfGzDLgkeofYoTc
+	RfSJkF+3RWitjlZWNrG6Qvz7kfFhP51Xn7gOPib4nO8tj/VeYJQpsbEa0qErv7082A0+xu7Zpg
+	Hrf9x+Baqxm3AAAAA==
+X-Change-ID: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
+To: =?utf-8?q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,  Miguel Ojeda
+	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>,  Boqun Feng
+	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>, 
+	=?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>,  Andreas
+	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>,  Trevor
+	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>,  Michal
+	Wilczynski <m.wilczynski@samsung.com>, Drew Fustini <drew@pdp7.com>,  Guo
+	Ren <guoren@kernel.org>, Fu Wei <wefu@redhat.com>,  Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+	<conor+dt@kernel.org>,  Paul Walmsley <paul.walmsley@sifive.com>,  Palmer
+	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,  Alexandre
+	Ghiti <alex@ghiti.fr>,  Marek Szyprowski <m.szyprowski@samsung.com>,  Benno
+	Lossin <lossin@kernel.org>,  Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Benno Lossin <lossin@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-pwm@vger.kernel.org,
+	rust-for-linux@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org
+X-Mailer: b4 0.15-dev
+X-CMS-MailID: 20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9
+X-Msg-Generator: CA
+X-RootMTR: 20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9
+X-EPHeader: CA
+X-CMS-RootMailID: 20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9
+References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_053326_544470_9CEC5A45 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250610_055338_964306_F1EE0CA7 
+X-CRM114-Status: GOOD (  22.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,65 +100,110 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+This patch series introduces Rust support for the T-HEAD TH1520 PWM
+controller and demonstrates its use for fan control on the Sipeed Lichee
+Pi 4A board.
 
-struct gpio_chip now has callbacks for setting line values that return
-an integer, allowing to indicate failures. Convert the driver to using
-them.
+The primary goal of this patch series is to introduce a basic set of
+Rust abstractions for the Linux PWM subsystem. As a first user and
+practical demonstration of these abstractions, the series also provides
+a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
+of its PWM channels and ultimately enables temperature controlled fan
+support for the Lichee Pi 4A board. This work aims to explore the use of
+Rust for PWM drivers and lay a foundation for potential future
+Rust based PWM drivers.
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+The core of this series is a new rust/kernel/pwm.rs module that provides
+abstractions for writing PWM chip provider drivers in Rust. This has
+been significantly reworked from v1 based on extensive feedback. The key
+features of the new abstraction layer include:
+
+ - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
+   by ARef, correctly tying its lifetime to its embedded struct device
+   reference counter. Chip registration is handled by a pwm::Registration
+   RAII guard, which guarantees that pwmchip_add is always paired with
+   pwmchip_remove, preventing resource leaks.
+
+ - Modern and Safe API: The PwmOps trait is now based on the modern
+   waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
+   by the subsystem maintainer. It is generic over a driver's
+   hardware specific data structure, moving all unsafe serialization logic
+   into the abstraction layer and allowing drivers to be written in 100%
+   safe Rust.
+
+ - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
+   types (State, Args, Device, etc.) and uses standard kernel error
+   handling patterns.
+
+The series is structured as follows:
+ - Rust PWM Abstractions: The new safe abstraction layer.
+ - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
+   top of the new abstractions.
+ - Clock Fix: A necessary fix to the TH1520 clock driver to ensure bus
+   clocks remain enabled.
+ - Device Tree Bindings & Nodes: The remaining patches add the necessary
+   DT bindings and nodes for the TH1520 PWM controller, a thermal
+   sensor, and the PWM fan configuration for the Lichee Pi 4A board.
+
+Testing:
+Tested on the TH1520 SoC. The fan works correctly. The duty/period
+calculaties are correct. Fan starts slow when the chip is not hot and
+gradually increases the speed when PVT reports higher temperatures.
+
+The patches are based on mainline, with some dependencies which are not
+merged yet - platform Io support [1] and math wrapper [2].
+
+Reference repository with all the patches together can be found on
+github [3].
+
+[1] - https://lore.kernel.org/rust-for-linux/20250509-topics-tyr-platform_iomem-v8-0-e9f1725a40da@collabora.com/
+[2] - https://lore.kernel.org/all/20250609-math-rust-v1-v1-1-285fac00031f@samsung.com/
+[3] - https://github.com/mwilczy/linux/commits/rust-next-pwm-working-fan-for-sending-v4
+
 ---
- drivers/gpio/gpio-mm-lantiq.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
+Changes in v2:
+ - Reworked the PWM abstraction layer based on extensive feedback.
+ - Replaced initial devm allocation with a proper ARef<Chip> lifetime model
+   using AlwaysRefCounted.
+ - Implemented a Registration RAII guard to ensure safe chip add/remove.
+ - Migrated the PwmOps trait from the legacy .apply callback to the modern
+   waveform API.
+ - Refactored the TH1520 driver to use the new, safer abstractions.
+ - Added a patch to mark essential bus clocks as CLK_IGNORE_UNUSED to fix
+   boot hangs when the PWM and thermal sensors are enabled.
+- Link to v1: https://lore.kernel.org/r/20250524-rust-next-pwm-working-fan-for-sending-v1-0-bdd2d5094ff7@samsung.com
 
-diff --git a/drivers/gpio/gpio-mm-lantiq.c b/drivers/gpio/gpio-mm-lantiq.c
-index 14ae257834381186faba94446ea326cb3be99ca2..897a1e004681c085217bcf295bd971f3424011b1 100644
---- a/drivers/gpio/gpio-mm-lantiq.c
-+++ b/drivers/gpio/gpio-mm-lantiq.c
-@@ -55,9 +55,9 @@ static void ltq_mm_apply(struct ltq_mm *chip)
-  * @gpio:   GPIO signal number.
-  * @val:    Value to be written to specified signal.
-  *
-- * Set the shadow value and call ltq_mm_apply.
-+ * Set the shadow value and call ltq_mm_apply. Always returns 0.
-  */
--static void ltq_mm_set(struct gpio_chip *gc, unsigned offset, int value)
-+static int ltq_mm_set(struct gpio_chip *gc, unsigned int offset, int value)
- {
- 	struct ltq_mm *chip = gpiochip_get_data(gc);
- 
-@@ -66,6 +66,8 @@ static void ltq_mm_set(struct gpio_chip *gc, unsigned offset, int value)
- 	else
- 		chip->shadow &= ~(1 << offset);
- 	ltq_mm_apply(chip);
-+
-+	return 0;
- }
- 
- /**
-@@ -78,9 +80,7 @@ static void ltq_mm_set(struct gpio_chip *gc, unsigned offset, int value)
-  */
- static int ltq_mm_dir_out(struct gpio_chip *gc, unsigned offset, int value)
- {
--	ltq_mm_set(gc, offset, value);
--
--	return 0;
-+	return ltq_mm_set(gc, offset, value);
- }
- 
- /**
-@@ -111,7 +111,7 @@ static int ltq_mm_probe(struct platform_device *pdev)
- 
- 	chip->mmchip.gc.ngpio = 16;
- 	chip->mmchip.gc.direction_output = ltq_mm_dir_out;
--	chip->mmchip.gc.set = ltq_mm_set;
-+	chip->mmchip.gc.set_rv = ltq_mm_set;
- 	chip->mmchip.save_regs = ltq_mm_save_regs;
- 
- 	/* store the shadow value if one was passed by the devicetree */
+---
+Michal Wilczynski (7):
+      rust: Add basic PWM abstractions
+      pwm: Add Rust driver for T-HEAD TH1520 SoC
+      clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
+      dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
+      riscv: dts: thead: Add PWM controller node
+      riscv: dts: thead: Add PVT node
+      riscv: dts: thead: Add PWM fan and thermal control
 
+ .../devicetree/bindings/pwm/thead,th1520-pwm.yaml  |  48 ++
+ MAINTAINERS                                        |   8 +
+ arch/riscv/boot/dts/thead/th1520-lichee-pi-4a.dts  |  67 ++
+ arch/riscv/boot/dts/thead/th1520.dtsi              |  18 +
+ drivers/clk/thead/clk-th1520-ap.c                  |   5 +-
+ drivers/pwm/Kconfig                                |  23 +
+ drivers/pwm/Makefile                               |   1 +
+ drivers/pwm/pwm_th1520.rs                          | 287 +++++++
+ rust/bindings/bindings_helper.h                    |   1 +
+ rust/helpers/helpers.c                             |   1 +
+ rust/helpers/pwm.c                                 |  20 +
+ rust/kernel/lib.rs                                 |   2 +
+ rust/kernel/pwm.rs                                 | 864 +++++++++++++++++++++
+ 13 files changed, 1343 insertions(+), 2 deletions(-)
+---
+base-commit: f153d0d0221f9d3d31872c934800d271ae8a3767
+change-id: 20250524-rust-next-pwm-working-fan-for-sending-552ad2d1b193
+
+Best regards,
 -- 
-2.48.1
+Michal Wilczynski <m.wilczynski@samsung.com>
 
 
 _______________________________________________
