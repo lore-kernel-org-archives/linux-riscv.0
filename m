@@ -4,66 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC22C678DA
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:49:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFD48C678DA
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ADw9mtc2lCqvlH60GtiRYpZOCEmFnLgBib65lOulnuE=; b=xrzTBJYzh9yVSu
-	F0JXcPwFokAyqK4Opn1iptSsA0JR8H9v/2fekl/vCYxcYSc7u56Ac2v4iM33rwkpDBYV2Oe21FnFJ
-	qRrX4qTz3dDZfqFbiOzjwD4tclPRCluqJiBZi3EwQaTjaqDfeJ33rJz2fFkom9/gls/B+ZHHSuQp8
-	E7DF3xj8LH5pt+Klw1wnrUTnsea//zerOdq0mH+eXr8hJH7y/V0S2y3NBtGQ2mCvcGnLzVkFK4lh4
-	IWV3ERCYtDLlVRIdV0n/h77EvQdRvEe/nHNQpcO9y/VDI3om2FTwnGbGU9OxC5Gs66U7W3qMblSrf
-	Y/grLUDQQl11TbqRoVAw==;
+	List-Owner; bh=Wlq0d6vCLm71HN5wPVZ2HVmdATFN8HZCKJextiMsMc0=; b=F/vFiBlAEVynpb
+	9IxV0K4yRBPzyJqtEfkb9INXEE1NUqmsfANuwDx0Fab3QBsLCEVj6jpxBRweB8aJULKIwB+VBiwZs
+	HtuUn0Fp0BBMBd4KzCU+sMK2lNGiQufrx/dJVzO+IGNJs5gg3zU6r1vZXq3e/JFgKcASwGckbPb/z
+	zCHkaLXjc79QciH43yNH06l69Rneg/nozsZNVPQ4f2vMx5PXJn137oxLMZ2/UbPJV9eCc2Ume3nyw
+	VUwnoJs2P+BWcVDC99Y4OWDXGlHGtGf5cpkN9qbqVQJGb8aFr75/LaNFmU5MM0kF9Wc/lj72nDkem
+	B9Mc4kiXAbfVM6RTo/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7mK-00000008Gdt-1CO1;
-	Tue, 10 Jun 2025 22:49:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uP7mU-00000008GxR-2SlD;
+	Tue, 10 Jun 2025 22:49:22 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP4Oe-00000007tZ2-3xz8;
-	Tue, 10 Jun 2025 19:12:34 +0000
+	id 1uP4Xl-00000007uc3-15rd
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Jun 2025 19:21:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A9C5644B79;
-	Tue, 10 Jun 2025 19:12:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18FAEC4CEED;
-	Tue, 10 Jun 2025 19:12:32 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 67D5C629C8;
+	Tue, 10 Jun 2025 19:21:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAB41C4CEED;
+	Tue, 10 Jun 2025 19:21:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749582752;
-	bh=eJzXTcGjqeHES133w/mCLelMBBcBENx890a5ygHX1H0=;
+	s=k20201202; t=1749583316;
+	bh=MvY65196OkKGiQelyzXqMzmcV5/FC5X0KU+wsmCw2F4=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VaI2+LQhuUUCHinnXIKNJGDX1SFqmIEkgM49ZG9mFtgdSJtyidxE5kSPaTUdtIRoe
-	 x8gwG8h5JFpcv2x49bFujV90PS+vJ0dv/ZdkpuflWTUErcb97YgGQv2W6l9qVPbl16
-	 v8SyhbEe0m3HO6534SqykjGShxll+Ne/4t8f1iJYheRExnhSX55A4hNPQKnkRcYq5L
-	 hc0Tmlxcb6hRLqfqF7Unr6UlRwwPll4NW5PiZ7zHf35KF4TOdiyOcT86XrweAAiuH8
-	 NHMgbbCpwoQbMy2vS7ZoKum77mLaoScoDb3mUTDNNDNTl+qp1ZRyBmI7CkispOKzd9
-	 LnPbDInTrzhvw==
-Date: Tue, 10 Jun 2025 12:12:08 -0700
+	b=MwljCyWYyc8YtDsnvhBJ9wOOCxFpAopoKjI6sf7A7Wyb9RY4m84YGhhMqWyZM4/XK
+	 5VZA+L/9/rkc0/UWOZR9lB9xiZ8yHz1gj4gA5XXKbn79to1O/nsjXd0TKNmn9xMotg
+	 /yJcY3eyxkx7kmYsiOhYMcpBvjEFTawUqOyMfgdGElaMIWH9krgZRCgzLWGSwY8LVu
+	 4SobJYaZskufh0q8t+Rg61TTIEcXnOf7noRIKEPB9b6JPNKezv47wZojtYBfpNdiMO
+	 M5+GmFrYqClQCn9MRMiS2UDcT4CPFnzABcCQICxWEiISQM2jbc3IWhwjjGJY77ef1P
+	 +pqmqVO/nvcCw==
+Date: Tue, 10 Jun 2025 12:21:32 -0700
 From: Eric Biggers <ebiggers@kernel.org>
-To: "Jason A. Donenfeld" <Jason@zx2c4.com>
-Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
-	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
-	sparclinux@vger.kernel.org, x86@kernel.org,
-	linux-arch@vger.kernel.org, Ard Biesheuvel <ardb@kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>
-Subject: Re: [PATCH v2 00/12] lib/crc: improve how arch-optimized code is
- integrated
-Message-ID: <20250610191208.GD1649@sol>
-References: <20250607200454.73587-1-ebiggers@kernel.org>
- <aETPdvg8qXv18MDu@zx2c4.com>
- <20250608234817.GG1259@sol>
- <aEhtyvBajGE80_2Z@zx2c4.com>
+To: Zhihang Shao <zhihang.shao.iscas@gmail.com>
+Cc: linux-crypto@vger.kernel.org, linux-riscv@lists.infradead.org,
+	herbert@gondor.apana.org.au, paul.walmsley@sifive.com,
+	alex@ghiti.fr, appro@cryptogams.org, zhang.lyra@gmail.com
+Subject: Re: [PATCH v3] crypto: riscv/poly1305 - import OpenSSL/CRYPTOGAMS
+ implementation
+Message-ID: <20250610192132.GE1649@sol>
+References: <20250609074655.203572-3-zhihang.shao.iscas@gmail.com>
+ <20250609201306.GD1255@sol>
+ <EC8AB5A0-D5C9-4D18-A986-DE66BE46E09A@gmail.com>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <aEhtyvBajGE80_2Z@zx2c4.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_121233_025485_5A4F7F01 
-X-CRM114-Status: GOOD (  31.01  )
+In-Reply-To: <EC8AB5A0-D5C9-4D18-A986-DE66BE46E09A@gmail.com>
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,75 +73,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 11:39:22AM -0600, Jason A. Donenfeld wrote:
-> On Sun, Jun 08, 2025 at 04:48:17PM -0700, Eric Biggers wrote:
-> > On Sat, Jun 07, 2025 at 05:47:02PM -0600, Jason A. Donenfeld wrote:
-> > > On Sat, Jun 07, 2025 at 01:04:42PM -0700, Eric Biggers wrote:
-> > > > Having arch-specific code outside arch/ was somewhat controversial when
-> > > > Zinc proposed it back in 2018.  But I don't think the concerns are
-> > > > warranted.  It's better from a technical perspective, as it enables the
-> > > > improvements mentioned above.  This model is already successfully used
-> > > > in other places in the kernel such as lib/raid6/.  The community of each
-> > > > architecture still remains free to work on the code, even if it's not in
-> > > > arch/.  At the time there was also a desire to put the library code in
-> > > > the same files as the old-school crypto API, but that was a mistake; now
-> > > > that the library is separate, that's no longer a constraint either.
-> > > 
-> > > I can't express how happy I am to see this revived. It's clearly the
-> > > right way forward and makes it a lot simpler for us to dispatch to
-> > > various arch implementations and also is organizationally simpler.
-> > > 
-> > > Jason
+On Tue, Jun 10, 2025 at 02:57:29PM +0800, Zhihang Shao wrote:
+> 
+> >> +void poly1305_blocks_arch(struct poly1305_block_state *state, const u8 *src,
+> >> +  unsigned int len, u32 padbit)
+> >> +{
+> >> + len = round_down(len, POLY1305_BLOCK_SIZE);
+> >> + poly1305_blocks(state, src, len, 1);
+> >> +}
+> >> +EXPORT_SYMBOL_GPL(poly1305_blocks_arch);
 > > 
-> > Thanks!  Can I turn that into an Acked-by?
+> > This is ignoring the padbit and forcing it to 1, so this will compute the wrong
+> > Poly1305 value for messages with length not a multiple of 16 bytes.
 > 
-> Took me a little while longer to fully review it. Sure,
+> So Does this mean here the argument of poly1305_blocks should be fixed as poly1305_blocks(state, src, len, padbit)?
+> But since the padbit is set to 1 in poly1305_blocks_arch according to the implementation in lib/crypto/poly1305.c, 
+> it seems to be no difference here.
 > 
->     Acked-by: Jason A. Donenfeld <Jason@zx2c4.com>
-> 
-> Side note: I wonder about eventually turning some of the static branches
-> into static calls.
+> Looking forward to your reply.
 
-Yes, Linus was wondering the same thing earlier.  It does run into a couple
-issues.  First, only x86 and powerpc implement static_call properly; everywhere
-else it's just an indirect call.  Second, there's often some code shared above
-the level at which we'd like to do the dispatch.  For example, consider crc32_le
-on x86.  If we expand the CRC_PCLMUL macro and inline crc32_le_arch and
-crc32_le_base as the compiler does, crc32_le ends up as:
-
-    u32 crc32_le(u32 crc, const u8 *p, size_t len)
-    {
-            if (len >= 16 && static_branch_likely(&have_pclmulqdq) &&
-                crypto_simd_usable()) {
-                    const void *consts_ptr;
-
-                    consts_ptr = crc32_lsb_0xedb88320_consts.fold_across_128_bits_consts;
-                    kernel_fpu_begin();
-                    crc = static_call(crc32_lsb_pclmul)(crc, p, len, consts_ptr);
-                    kernel_fpu_end();
-                    return crc;
-            }
-            while (len--)
-                    crc = (crc >> 8) ^ crc32table_le[(crc & 255) ^ *p++];
-            return crc;
-    }
-
-The existing static_call selects between 3 different assembly functions, all of
-which require a kernel-mode FPU section and only support len >= 16.
-
-We could instead unconditionally do a static_call upon entry to the function,
-with 4 possible targets.  But then we'd have to duplicate the kernel FPU
-begin/end sequence in 3 different functions.  Also, it would add an extra
-function call for the case where 'len < 16', which is a common case and is
-exactly the case where per-call overhead matters the most.
-
-However, if we could actually inline the static call into the *callers* of
-crc32_le(), that would make it more worthwhile.  I'm not sure that's possible,
-though, especially considering that this code is tristate.
-
-Anyway, this is tangential to this patchset.  Though the new way the code is
-organized does make it more feasible to have e.g. a centralized static_call in
-the future if we choose to go in that direction.
+While the common case is padbit=1, poly1305_final() passes padbit=0 in the case
+where the message ends with a partial block.  So both values have to be
+supported.
 
 - Eric
 
