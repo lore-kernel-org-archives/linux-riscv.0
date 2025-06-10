@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A802C71136
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E076C71133
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 19:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,55 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=VbMG+2Nj+j7e5BMrchW+yn6BqipZZfukKHB1VxOlPIM=; b=jsX/9+e5rFTLAV
-	J4vx031UvibaAIVm9OtsnnP3NJYojyLar8nVVJNO8+2eLrsom7KicxRWzYr8KCCz+LtvxMXVWkFzI
-	2a3bDBRCY+Tdl2P81na3FkrpTl3G7bdIMqb1jrugnXV0uPc4MVAYsMxme1wvGFHdrzIf76gMDr85r
-	0mwh2rE5oxYEV+thoSd0p+zHXonr0Xcua0Lz/FuK/TTvNCK4drMtptPJVZgEPW/htrQMnAc1lr+uO
-	lH3Um95ddqSMeM7fnOZPtrRrETPjvDSUTGthh9sZ8Mot6RNC6rXVDXcS4sPRT245CQUO0MadbK7+m
-	Z0BEPVdhP0g7UHxRiBzg==;
+	List-Owner; bh=Htm8FS9EKSZOrHDFRPTJrvS37AbK+gItqkRcXH/sQ/A=; b=RvbO1ZxbNjqRVJ
+	bbTOBd+T7cggpTEk2TOONFQzWgbwy9GZ7ufEhnr7DGAa4LacRvsVIMcD68jd6245dq5fUB5ES3p9w
+	Dz8GLKSiRKJeHAy/6iZkD04FBKf2SYYEjLgGamQNZiuVC147zhE+y+AgYkoiKhQ93nYh0QBvxUApP
+	wxUdKCKOD7iaD8fRbmFIouqyYy8ykfRHPDqT31SxjuP6UZruOYe8bsco0JzhCGWnCpO1UNKca3gLu
+	d7axL9XMiRbEykTwYd91V5XGYchx5c1B14gPl7sWJy7dHB7GhY+YTalHoCJLvk2DfL2Uij9dOBLc3
+	i2ZuhKPviqNRZe4xKyIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP57I-00000007z2D-3czX;
-	Tue, 10 Jun 2025 19:58:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1uP57H-00000007z17-2bPD;
+	Tue, 10 Jun 2025 19:58:39 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1pS-00000007T4N-3peS
-	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 16:28:04 +0000
+	id 1uP1pQ-00000007T2x-20Gc;
+	Tue, 10 Jun 2025 16:28:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 23214A5149B;
-	Tue, 10 Jun 2025 16:28:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEA8CC4CEED;
-	Tue, 10 Jun 2025 16:28:01 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9FD36A51461;
+	Tue, 10 Jun 2025 16:27:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40E8CC4CEED;
+	Tue, 10 Jun 2025 16:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749572881;
-	bh=XpKG6U7SUEDx6WcwKev1QZDTNBiTYhfWnKPEGgxnf44=;
+	s=k20201202; t=1749572879;
+	bh=M7AR7P2Hp2v576w27gcBYA1QJAA51vBNSHPVxtZiM1s=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=dIGC3Ft0E6fUFpwr5EO0a3vwKR/NPZcxmwIAFd++UTG7xF2tN8FNLwHMN13cM/jHH
-	 5U4ujPKj92PwceN5B04bQA3Diedc6LEKja3TlErcKgrHoqSEX/IEXNJSGOePMS904m
-	 9P4EKz+t4O7CjXuLpMTIA99/iaxMWrgvcyv0EgNyqhsw4kiBXJTCws/KV3RJHBmqOr
-	 h6fJ6t8o0E5+Gkv8h7SumAxho0F6pWXhbf9qWtRhy7Mja6ouSNVbgxTEzLOpC5nzmz
-	 pctGAzAajYZLL2jJoUiPnZNV0Z1xy8HkHBFYw7PClnQdPxIMIctEcFy8YNKu5LfBjr
-	 JQM4OCFhIxDlw==
+	b=KFMK9QrgISSTDvxGudz6a85hexiOz9fN02iUkdTutBUXfp7ygyrWlMCX3ccpZPK2W
+	 KyPJaujZxGXU/fxxfBo/GpgldljWm/oRCN+O6S47EHw+r0x70PqoUq9KAHaNbp2vgH
+	 QQoBfMnMCwXLwDBYn3M1n3up7KpBSFu/QvhRU5FRX/3xQbnu3H7cvecri1C+npthOt
+	 Su3nbFFwtWfwq+nxld3jUukygNRn8ezdtekIXeYAIcMcqDdHn8gI8LwuRS0QLfghMo
+	 5vSD15iZiyo1+4z9QrEtDAAgTvZ8fD8H+kyKRr0AKuKh+U5M+miqArQa7nYKoSpz6g
+	 +BSqSPYz8Jykg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70B1C39D6540;
-	Tue, 10 Jun 2025 16:28:33 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADC139D6540;
+	Tue, 10 Jun 2025 16:28:30 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/2] dt-bindings: Remove obsolete cpu-topology.txt
+Subject: Re: [PATCH v5 0/6] KVM: lockdep improvements
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174957291224.2454024.11937218792717571483.git-patchwork-notify@kernel.org>
-Date: Tue, 10 Jun 2025 16:28:32 +0000
-References: <20250410201325.962203-1-robh@kernel.org>
-In-Reply-To: <20250410201325.962203-1-robh@kernel.org>
-To: Rob Herring (Arm) <robh@kernel.org>
-Cc: linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
- alex@ghiti.fr, samuel.holland@sifive.com, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Message-Id: <174957290974.2454024.11071746229021073521.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Jun 2025 16:28:29 +0000
+References: <20250512180407.659015-1-mlevitsk@redhat.com>
+In-Reply-To: <20250512180407.659015-1-mlevitsk@redhat.com>
+To: Maxim Levitsky <mlevitsk@redhat.com>
+Cc: linux-riscv@lists.infradead.org, kvm@vger.kernel.org,
+ suzuki.poulose@arm.com, jingzhangos@google.com, hpa@zytor.com,
+ sebott@redhat.com, lishusen2@huawei.com, longman@redhat.com,
+ tglx@linutronix.de, linux-arm-kernel@lists.infradead.org,
+ bhelgaas@google.com, bp@alien8.de, anup@brainfault.org, will@kernel.org,
+ palmer@dabbelt.com, glider@google.com, kvmarm@lists.linux.dev,
+ keisuke.nishimura@inria.fr, yuzenghui@huawei.com, peterz@infradead.org,
+ atishp@atishpatra.org, joey.gouly@arm.com, x86@kernel.org, maz@kernel.org,
+ seanjc@google.com, andre.przywara@arm.com, jiangkunkun@huawei.com,
+ rdunlap@infradead.org, pbonzini@redhat.com, boqun.feng@gmail.com,
+ catalin.marinas@arm.com, alex@ghiti.fr, linux-kernel@vger.kernel.org,
+ dave.hansen@linux.intel.com, oliver.upton@linux.dev,
+ kvm-riscv@lists.infradead.org, mingo@redhat.com, paul.walmsley@sifive.com,
+ aou@eecs.berkeley.edu
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_092803_021910_EAB46599 
-X-CRM114-Status: UNSURE (   9.08  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_092800_583084_5C64514A 
+X-CRM114-Status: GOOD (  10.52  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,23 +88,33 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Rob Herring (Arm) <robh@kernel.org>:
+by Paolo Bonzini <pbonzini@redhat.com>:
 
-On Thu, 10 Apr 2025 15:13:22 -0500 you wrote:
-> The cpu topology binding is now covered by the dtschema cpu-map.yaml
-> schema with all the relevant descriptions moved to it.
+On Mon, 12 May 2025 14:04:01 -0400 you wrote:
+> This is	a continuation of my 'extract lock_all_vcpus/unlock_all_vcpus'
+> patch series.
 > 
-> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> ---
->  .../devicetree/bindings/cpu/cpu-topology.txt  | 553 ------------------
->  1 file changed, 553 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
+> Implement the suggestion of using lockdep's "nest_lock" feature
+> when locking all KVM vCPUs by adding mutex_trylock_nest_lock() and
+> mutex_lock_killable_nest_lock() and use these functions	in the
+> implementation of the
+> kvm_trylock_all_vcpus()/kvm_lock_all_vcpus()/kvm_unlock_all_vcpus().
+> 
+> [...]
 
 Here is the summary with links:
-  - [1/2] dt-bindings: Remove obsolete cpu-topology.txt
-    https://git.kernel.org/riscv/c/3fb7bebcb6e5
-  - [2/2] dt-bindings: Remove obsolete numa.txt
-    https://git.kernel.org/riscv/c/540994337d47
+  - [v5,1/6] locking/mutex: implement mutex_trylock_nested
+    https://git.kernel.org/riscv/c/c5b6ababd21a
+  - [v5,2/6] locking/mutex: implement mutex_lock_killable_nest_lock
+    https://git.kernel.org/riscv/c/fb49f07ba1d9
+  - [v5,3/6] KVM: add kvm_lock_all_vcpus and kvm_trylock_all_vcpus
+    https://git.kernel.org/riscv/c/e4a454ced74c
+  - [v5,4/6] x86: KVM: SVM: use kvm_lock_all_vcpus instead of a custom implementation
+    https://git.kernel.org/riscv/c/c560bc9286e6
+  - [v5,5/6] KVM: arm64: use kvm_trylock_all_vcpus when locking all vCPUs
+    https://git.kernel.org/riscv/c/b586c5d21954
+  - [v5,6/6] RISC-V: KVM: use kvm_trylock_all_vcpus when locking all vCPUs
+    https://git.kernel.org/riscv/c/8f56770d114b
 
 You are awesome, thank you!
 -- 
