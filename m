@@ -4,99 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 287DEC61DB2
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 07FE7C5B552
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 12:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
-	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KbTzzayvKzAh50YkOw1cWuixbsluFI4TSJ9YFp/sm6k=; b=xNhUUP722VV7Yk
-	/U/q2LkSpgt2+EqUBA0TsDVmQANoboUKEBhhDP2n2yZfMpq8i9H22V9gyqTkuoqc8O1ZWIIP7c9KH
-	l9diAhMt0bYkkv1PrqzzHo9/RMzcf2jBQEW9wc/AmnhCn0A4FlGBn/MZ9mTFrt1twsuPDT5p+Wu+8
-	YRj0/eyAog4VdzB2p+McFI4pX3tK+lYzN+hEQn1jBM59iTaovvQhAtucLj/y6raOA50WAQwL9jolF
-	xzhvNZI1x4iSEpn2WFf96ncC2hFIFhCeHW5fxTTPvbMXtLq3vOIsCKVbvz6IqVQua7DXEYdcZD3h6
-	ECdOBWs5LcBNoYCql3vw==;
+	List-Owner; bh=GravI5ayyU9nj+324Ycbprgk/U2hsaj0SG2o/J3+tzU=; b=JgF+1oXm0zjfG5
+	4bPUHjc1kNbIW9fCk0Jn0MKPSTRKLu0TXZy+ktkw77pV8c4YWJH7kRNVj+oMmTQ3WOH8WNw0qPYc2
+	XSn8cmgMurmC2zL6qlFpaIl8vTLWh3qISQDln9pARWuva3yErl54FGKzFarQF0aiMfKYCu8TwCxr4
+	uR4BezVFfp1nQyZWtMsO7CuDmB4g/J6NUnFaObpjqIn+gQQfiiZ8eIjhZocHfiXt97XHUUGIYDglz
+	gTB0omECaGmJ4Ph/WuFdHfW4een+yoLE9fNiKbf3dCrOcwC2y+vByqHXMdcPFx1r60BlxBjw9GwhW
+	kJu9AhiOscBR6NW0KChQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOxmi-00000006ip4-2nia;
-	Tue, 10 Jun 2025 12:08:56 +0000
-Received: from mail.loongson.cn ([114.242.206.163])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOw74-00000006TyZ-2Wuz
+	id 1uOxmh-00000006ioZ-2Rzs;
+	Tue, 10 Jun 2025 12:08:55 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uOvya-00000006T7f-3ZwX
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 10:21:52 +0000
-Received: from loongson.cn (unknown [223.64.69.3])
-	by gateway (Coremail) with SMTP id _____8DxCeEyB0hoP5gSAQ--.4994S3;
-	Tue, 10 Jun 2025 18:21:38 +0800 (CST)
-Received: from [127.0.0.1] (unknown [223.64.69.3])
-	by front1 (Coremail) with SMTP id qMiowMDxOcQoB0hoWTcUAQ--.17S2;
-	Tue, 10 Jun 2025 18:21:34 +0800 (CST)
-Message-ID: <6ab83033-1349-4d5e-8d1f-8a13d851abf4@loongson.cn>
-Date: Tue, 10 Jun 2025 18:21:27 +0800
+	Tue, 10 Jun 2025 10:13:09 +0000
+Received: from ubt.. (unknown [210.73.43.2])
+	by APP-05 (Coremail) with SMTP id zQCowADXJRQjBUhoCfqKBQ--.1934S5;
+	Tue, 10 Jun 2025 18:12:52 +0800 (CST)
+From: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+To: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Song Liu <song@kernel.org>,
+	Yu Kuai <yukuai3@huawei.com>
+Cc: linux-riscv@lists.infradead.org,
+	linux-raid@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Chunyan Zhang <zhang.lyra@gmail.com>
+Subject: [PATCH 3/4] raid6: riscv: Allow code to be compiled in userspace
+Date: Tue, 10 Jun 2025 18:12:33 +0800
+Message-Id: <20250610101234.1100660-4-zhangchunyan@iscas.ac.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250610101234.1100660-1-zhangchunyan@iscas.ac.cn>
+References: <20250610101234.1100660-1-zhangchunyan@iscas.ac.cn>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 01/35] mmc: sdhci: Use devm_mmc_alloc_host() helper
-To: Thierry Reding <thierry.reding@gmail.com>
-Cc: Binbin Zhou <zhoubb.aaron@gmail.com>, Huacai Chen
- <chenhuacai@loongson.cn>, Ulf Hansson <ulf.hansson@linaro.org>,
- Adrian Hunter <adrian.hunter@intel.com>, Huacai Chen
- <chenhuacai@kernel.org>, linux-mmc@vger.kernel.org,
- Andrew Jeffery <andrew@codeconstruct.com.au>,
- Taichi Sugaya <sugaya.taichi@socionext.com>,
- Takao Orito <orito.takao@socionext.com>, Ben Dooks <ben-linux@fluff.org>,
- Jaehoon Chung <jh80.chung@samsung.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Kamal Dasu <kamal.dasu@broadcom.com>, Al Cooper <alcooperx@gmail.com>,
- Haibo Chen <haibo.chen@nxp.com>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
- imx@lists.linux.dev, Avi Fishman <avifishman70@gmail.com>,
- Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>,
- Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>,
- Benjamin Fair <benjaminfair@google.com>, openbmc@lists.ozlabs.org,
- Michal Simek <michal.simek@amd.com>, Joel Stanley <joel@jms.id.au>,
- linux-aspeed@lists.ozlabs.org, Aubin Constans
- <aubin.constans@microchip.com>, Eugen Hristev <eugen.hristev@linaro.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, Yixun Lan <dlan@gentoo.org>,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- Jacky Huang <ychuang3@nuvoton.com>, Shan-Chun Hung <schung@nuvoton.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- Daniel Machon <daniel.machon@microchip.com>,
- Vignesh Raghavendra <vigneshr@ti.com>,
- Patrice Chotard <patrice.chotard@foss.st.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org,
- Hu Ziji <huziji@marvell.com>
-References: <cover.1749127796.git.zhoubinbin@loongson.cn>
- <dcfce3ddf980563c590f82c1b4e8840c29497887.1749127796.git.zhoubinbin@loongson.cn>
- <t5caqkvguurw2dwzn7wkbjo5ryv3jp3eppjzhdwgx6q6vro2q2@onqqr6v3whdo>
-From: Binbin Zhou <zhoubinbin@loongson.cn>
-In-Reply-To: <t5caqkvguurw2dwzn7wkbjo5ryv3jp3eppjzhdwgx6q6vro2q2@onqqr6v3whdo>
-X-CM-TRANSID: qMiowMDxOcQoB0hoWTcUAQ--.17S2
-X-CM-SenderInfo: p2kr3uplqex0o6or00hjvr0hdfq/
-X-Coremail-Antispam: 1Uk129KBj93XoW7WFWxKr47tF1xXryUXw13Awc_yoW8uw1rpa
-	15Za48Cr4UWF45KrZrA3WjkFyvqw40qrWUK34fXw1rZF4jyryqqFZxCFWjvFn8Cr1UKa4I
-	vF4kWF15CFy8AabCm3ZEXasCq-sJn29KB7ZKAUJUUUUJ529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9Eb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1Y6r17M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1ln4kS14v26r1q6r43M2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2
-	x26I8E6xACxx1l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1q6rW5
-	McIj6I8E87Iv67AKxVW8JVWxJwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41lc7
-	CjxVAaw2AFwI0_GFv_Wryl42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l
-	4IxYO2xFxVAFwI0_Jw0_GFylx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxV
-	WUGVWUWwC2zVAF1VAY17CE14v26rWY6r4UJwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE
-	14v26r4j6ryUMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAIw20EY4v20x
-	vaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Gr0_Cr1lIxAIcVC2z280aVCY1x0267AKxVW8
-	JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IUeVpB3UUUUU==
+X-CM-TRANSID: zQCowADXJRQjBUhoCfqKBQ--.1934S5
+X-Coremail-Antispam: 1UD129KBjvJXoW7ZrWfXr15Gr47Xw13AF1DZFb_yoW8Zw13pF
+	yDAF43Jr13KF1Svas3ZF18WFZ8Ja4IvryUCr47C34UZry3KrykArWkZry0yry3WrWFqFWx
+	u34UXr1fCw4Ut3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUmqb7Iv0xC_Cr1lb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28IrcIa0xkI8VA2jI
+	8067AKxVWUWwA2048vs2IY020Ec7CjxVAFwI0_Xr0E3s1l8cAvFVAK0II2c7xJM28CjxkF
+	64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcV
+	CY1x0267AKxVWxJVW8Jr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIE
+	c7CjxVAFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I
+	8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26F8l6FkdMcvjeVCF
+	s4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x
+	0262kKe7AKxVWUtVW8ZwCY02Avz4vE14v_Gw1l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC
+	6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWw
+	C2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_
+	JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJV
+	WUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIY
+	CTnIWIevJa73UjIFyTuYvjxU7UGYDUUUU
+X-Originating-IP: [210.73.43.2]
+X-CM-SenderInfo: x2kd0wxfkx051dq6x2xfdvhtffof0/1tbiCQ8JB2hH3wrH1QAAsg
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_032150_950291_9C0721C0 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250610_031305_274208_C53ADA23 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,71 +84,94 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
-Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Thierry:
+To support userspace raid6test, this patch adds __KERNEL__ ifdef for kernel
+header inclusions also userspace wrapper definitions to allow code to be
+compiled in userspace.
 
-On 2025/6/10 17:42, Thierry Reding wrote:
-> On Sat, Jun 07, 2025 at 03:33:34PM +0800, Binbin Zhou wrote:
->> Use new function devm_mmc_alloc_host() to simplify the code.
->>
->> Although sdhci_free_host() is no longer needed, to avoid drivers that still
->> use this function from failing to compile, sdhci_free_host() is temporarily
->> set to empty. Finally, it will be removed when there are no more callers.
->>
->> Signed-off-by: Binbin Zhou <zhoubinbin@loongson.cn>
->> ---
->>   drivers/mmc/host/sdhci.c | 3 +--
->>   1 file changed, 1 insertion(+), 2 deletions(-)
->>
->> diff --git a/drivers/mmc/host/sdhci.c b/drivers/mmc/host/sdhci.c
->> index 32fa0b2bb912..ee5a5ae4db31 100644
->> --- a/drivers/mmc/host/sdhci.c
->> +++ b/drivers/mmc/host/sdhci.c
->> @@ -4076,7 +4076,7 @@ struct sdhci_host *sdhci_alloc_host(struct device *dev,
->>   
->>   	WARN_ON(dev == NULL);
->>   
->> -	mmc = mmc_alloc_host(sizeof(struct sdhci_host) + priv_size, dev);
->> +	mmc = devm_mmc_alloc_host(dev, sizeof(struct sdhci_host) + priv_size);
->>   	if (!mmc)
->>   		return ERR_PTR(-ENOMEM);
->>   
->> @@ -5002,7 +5002,6 @@ EXPORT_SYMBOL_GPL(sdhci_remove_host);
->>   
->>   void sdhci_free_host(struct sdhci_host *host)
->>   {
->> -	mmc_free_host(host->mmc);
->>   }
-> Is there any point in keeping the sdhci_free_host() function around now?
-> I only see patches 1 and 31, so not sure if anything happens in between.
+Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+---
+ lib/raid6/recov_rvv.c |  7 +------
+ lib/raid6/rvv.c       | 11 ++++-------
+ lib/raid6/rvv.h       | 15 +++++++++++++++
+ 3 files changed, 20 insertions(+), 13 deletions(-)
 
-To minimize email delivery failures, I handle each driver patch by 
-sending it to the relevant person, while sending patches 0 and 1 to 
-everyone.
-
-Keeping sdhci_free_host() as suggested by Adrian[1] is to minimize 
-disruption to the compilation process. We first set sdhci_free_host() to 
-empty, and once all callers have been cleaned up, we will remove it[2].
-
-Of course, perhaps I should also CC the final patch[2] to everyone, 
-which would make the entire process clearer.
-
-[1]: 
-https://lore.kernel.org/all/78ffbae6-1c75-46ac-a5d7-bbc07bca1fd0@intel.com/
-
-[2]: 
-https://lore.kernel.org/all/8adcfef00fd4bc40f33f5fd42d2e5e73d72e68e4.1749127796.git.zhoubinbin@loongson.cn/
-
-
-Thanks.
-Binbin
-
->
-> Thierry
+diff --git a/lib/raid6/recov_rvv.c b/lib/raid6/recov_rvv.c
+index 500da521a806..8f2be833c015 100644
+--- a/lib/raid6/recov_rvv.c
++++ b/lib/raid6/recov_rvv.c
+@@ -4,13 +4,8 @@
+  * Author: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
+  */
+ 
+-#include <asm/vector.h>
+ #include <linux/raid/pq.h>
+-
+-static int rvv_has_vector(void)
+-{
+-	return has_vector();
+-}
++#include "rvv.h"
+ 
+ static void __raid6_2data_recov_rvv(int bytes, u8 *p, u8 *q, u8 *dp,
+ 				    u8 *dq, const u8 *pbmul,
+diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
+index b193ea176d5d..99dfa16d37c7 100644
+--- a/lib/raid6/rvv.c
++++ b/lib/raid6/rvv.c
+@@ -9,16 +9,13 @@
+  *	Copyright 2002-2004 H. Peter Anvin
+  */
+ 
+-#include <asm/vector.h>
+-#include <linux/raid/pq.h>
+ #include "rvv.h"
+ 
++#ifdef __KERNEL__
+ #define NSIZE	(riscv_v_vsize / 32) /* NSIZE = vlenb */
+-
+-static int rvv_has_vector(void)
+-{
+-	return has_vector();
+-}
++#else
++#define NSIZE  16
++#endif
+ 
+ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
+ {
+diff --git a/lib/raid6/rvv.h b/lib/raid6/rvv.h
+index 94044a1b707b..595dfbf95d4e 100644
+--- a/lib/raid6/rvv.h
++++ b/lib/raid6/rvv.h
+@@ -7,6 +7,21 @@
+  * Definitions for RISC-V RAID-6 code
+  */
+ 
++#ifdef __KERNEL__
++#include <asm/vector.h>
++#else
++#define kernel_vector_begin()
++#define kernel_vector_end()
++#define has_vector()		(1)
++#endif
++
++#include <linux/raid/pq.h>
++
++static int rvv_has_vector(void)
++{
++	return has_vector();
++}
++
+ #define RAID6_RVV_WRAPPER(_n)						\
+ 	static void raid6_rvv ## _n ## _gen_syndrome(int disks,		\
+ 					size_t bytes, void **ptrs)	\
+-- 
+2.34.1
 
 
 _______________________________________________
