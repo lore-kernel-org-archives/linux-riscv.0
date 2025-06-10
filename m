@@ -4,69 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B7AC9C61DB2
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCA3FC71134
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 10:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=b5e5yjuE1a4S6qhC3eJt1dSj6EiMi5keRmv04udpn44=; b=iYcKP6EOQY4vE7
-	5xOpaIwUGlq+5X9Hr9SBxPr+HGvqJUEH8/9K11VYCmze0oNSfAjoDeEsxJoli1NgV8nbCgYQ/neff
-	8zH6scjJZaWee/mLLZMbf24jO9ekmgYDfKjqifD8UgFLGFJ0QKqFvzB79x7JkUUOTVUVmWURN30jE
-	fhypy7PKRCNZTYsm50tToeq8vS4ySFzZMfBiRhGeS8eXPvqk+gXlHRuNbvr3qWt3ltuADKh2HcPgM
-	FzWcUMRO3CIAP6A2q1DlO0h/rx8AELhjYcjUckUeVFcdNIG6nWM7+i+Hyf2Y4a21PiX8YSWXepfuT
-	4T4LxSZpCId80H4+JSbQ==;
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=q1n5tFmMNMB2vMsDlTum4o1f2gQUDuSyQqacCby/z7M=; b=Y+/wymBF6smDde
+	s+r3tOD3otooxq7EKzYXgUbFqjg/ogmuiE7/nNyM8GZFgdFv56hh7MxWC0ySKSvylU7RfYl2GwCAI
+	pZSdzEbY/pJy2sDERq7q2LHNceaLqNilMpiWznejm10H1fUiVuGF60mrzS7LCMf0tDks0cDBpmKU1
+	SBVwF/qtPUrK4PRKlQLPQz6ATsGYcF9KGrCSMDSahLncN3aCT2w4MsklCMPcOv3JH6qbfk/lM2Xgf
+	dnbntpzSxgrr0GCFM2mTy/+5tzttSkhTTrbO0v6DVzoqY0iD6UzadWYeUd87D4qqE7nNSqn2nnHQP
+	ixErhQ46UaYgxrB9Ya0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOweq-00000006Xyp-3edp;
-	Tue, 10 Jun 2025 10:56:44 +0000
-Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
+	id 1uOwew-00000006Y40-26RI;
+	Tue, 10 Jun 2025 10:56:50 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvWW-00000006NdC-0ORo
+	id 1uOvhG-00000006Ps8-2NIj
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 09:44:05 +0000
-From: Nam Cao <namcao@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1749548640;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SZMOrP06kZrewA602yCTsu9L2V2A2fq6+NcLHJNfgDY=;
-	b=akgYQT72Th+21NnyspKbZ4vkgz+MNQ/25XD54kZ30PKf/k21TLkD1ySRkQy13ucolEPBTV
-	0okskafGQqONd6AQz7FblGR66U5rMeEdsOjnIHN19gzQC365eKx65vwe9N2Azx2LqpDQjm
-	Vl5kkHdosK+A5XUH5KOCPCltuCaOSM4dvuUyr2zDMmLqZgX+RIgQkNtyMd75cP3kMpBe0J
-	vCItgpBpO6eo/zqKIl3Hg0KAo3lqf2awaA1h16rUqJhL2LZaxxiJ+o73W06JCEDIF+ss1a
-	dPhkTp+lxrSOg82ak3XBFklgg7GvpiZHENdD71z3pE8qWVAx0SBEatJCgR2LrQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1749548640;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=SZMOrP06kZrewA602yCTsu9L2V2A2fq6+NcLHJNfgDY=;
-	b=B0+ZbjK1u5VCZTueWtabNwoO+ZbpiooyXycv+tx41/6i34EafIq/34BiRnKtx1Mu55HJE1
-	V1G0kR3XN/i9k4Cw==
-To: Steven Rostedt <rostedt@goodmis.org>,
-	Gabriele Monaco <gmonaco@redhat.com>,
-	linux-trace-kernel@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: john.ogness@linutronix.de,
-	Nam Cao <namcao@linutronix.de>,
-	Petr Mladek <pmladek@suse.com>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-riscv@lists.infradead.org
-Subject: [PATCH v10 00/19] RV: Linear temporal logic monitors for RT application
-Date: Tue, 10 Jun 2025 11:43:25 +0200
-Message-Id: <cover.1749547399.git.namcao@linutronix.de>
+	Tue, 10 Jun 2025 09:55:12 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Vz5t0FWbgRffyx6ueej/DZ+d/iZR6p9PyALUheZXMDgzrwJnOHULov28/pSwt/2gdmOrdrZPyycY7yqf51CLs7YqQMGihQ1xd3JBpkjBUTkK94bG740hvZ2TyV1OxJgpRtAITQDGC1g78CWW4G1+IxdCH5TjNUcXoPGIAez4aC+HhjuFBwL/8ExmRskG1pZRS3pvT/dmbKKZwPon1Hgy4CZd8oCzLkYyAe6q86Br7qWJq4l2sf6+JFdkc38INn4sQThd0N6KdZQgbndfDrgE1qtS30bBHDGvddcx8WhdsfzMLmzMN+tsRCj1V7y03fIhAw86+en+sePq6PFC/0pZbQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y2nUnCN80ePWKwsl8A0QjKmmm3bsDu4ihUj4+tjSlyo=;
+ b=XmkPAcolaazhlfsyZb49TFtk3ub5UDKAXi8WhM20wdKRlERWIPPb5M9zt/2wSpzKRq7idPTg20eLwm2Q93+aJJL4JlJrnc0UVlkOpEZXZsZgqNDA9QMKJ8tv/UGveufuoue3B6wbkEN42Sq9ZM7hySE3t2IB63ZCUmqxDHbcDci4XGjxviDvXzB1HpZqdMARWC9VFoOEOENkG7ENZ01PcPkB6SLSxtiwQ5Wx/o/QsXEDq67wXrLBfPq7qkz+wmiwDJSqPgNI/w/ox/mqbHxmcJ1DHiXGaRxYl+ha/KBPsuLfL5yOZcBKr4J5Bnc+k84R+lkk4tiCoGHSjqLyOZgv0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mobileye.com; dmarc=pass action=none header.from=mobileye.com;
+ dkim=pass header.d=mobileye.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mobileye.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y2nUnCN80ePWKwsl8A0QjKmmm3bsDu4ihUj4+tjSlyo=;
+ b=LOC2D2hcEM5eOAZAWhPmiB8N361Li/jUpbgwDJGBRuYclg/FPDjXAunSA3rwzUJZ+bDj2P9NzM6uhATHOAfuv5TTnJvii1K5lqE/JmDPENXIu91VlyMEzMDQtntFGdFHWYFuvIsRRg43OOqD+q4gKSXsdRLVny2SY9Cyl7oJWGE=
+Received: from AS2PR09MB6296.eurprd09.prod.outlook.com (2603:10a6:20b:578::5)
+ by PAVPR09MB6253.eurprd09.prod.outlook.com (2603:10a6:102:329::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.35; Tue, 10 Jun
+ 2025 09:55:01 +0000
+Received: from AS2PR09MB6296.eurprd09.prod.outlook.com
+ ([fe80::2f35:bc64:a118:5e0d]) by AS2PR09MB6296.eurprd09.prod.outlook.com
+ ([fe80::2f35:bc64:a118:5e0d%6]) with mapi id 15.20.8792.039; Tue, 10 Jun 2025
+ 09:55:01 +0000
+From: Vladimir Kondratiev <Vladimir.Kondratiev@mobileye.com>
+To: Conor Dooley <conor@kernel.org>
+Subject: Re: [PATCH v1 3/7] dt-bindings: interrupt-controller: add generic
+ Risc-v aclint-sswi
+Thread-Topic: [PATCH v1 3/7] dt-bindings: interrupt-controller: add generic
+ Risc-v aclint-sswi
+Thread-Index: AQHb2UUgPBlpzaiNEESB4XRSVug1gbP6/NsAgAEaVD4=
+Date: Tue, 10 Jun 2025 09:55:00 +0000
+Message-ID: <AS2PR09MB6296534EB4110B806DE700A6946AA@AS2PR09MB6296.eurprd09.prod.outlook.com>
+References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
+ <20250609134749.1453835-4-vladimir.kondratiev@mobileye.com>
+ <20250609-rejoice-disclose-b677f617f2de@spud>
+In-Reply-To: <20250609-rejoice-disclose-b677f617f2de@spud>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mobileye.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS2PR09MB6296:EE_|PAVPR09MB6253:EE_
+x-ms-office365-filtering-correlation-id: 6e31e384-1402-4471-7e3d-08dda804ddbe
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?iq15GXqDY/LwGgWiCUqpovL4iw45ih3AJWssRiFWUFJ3xOpIuCg+rQu7qu?=
+ =?iso-8859-1?Q?qCzjpdHzSe60bef1SpqD3qjaaAPtGpuPu602207hw9Y/WD/W2Fe2b1+I24?=
+ =?iso-8859-1?Q?AS3njGnLrT5ck2x7ix9zVN4xCiLjDTgW1oHCxR3I5VI7rfQehNfUPrgpNH?=
+ =?iso-8859-1?Q?fEEC0/qRwXXeo/ClXIK0Y918okODvIkeuamXBMrZs2EsoqKyYeB27tLFMe?=
+ =?iso-8859-1?Q?MAJWUgDQpX8RuKBKGdTp80WegdzYV5i8X4IlApMdRQ28Mdx1aqGaHmd6Fr?=
+ =?iso-8859-1?Q?M4mERS5QztNpZ3ixj1bd67WCIniDQglM8sUBIvVkGkquJeSf170g44/uWb?=
+ =?iso-8859-1?Q?/5KwoqvC83FUmskqXu+pKiuyDjlCeE9nv9qhbXAVkmODCJTChqVUZbZc/T?=
+ =?iso-8859-1?Q?P1elEdJRP6JeCTO9StA5sTxRiIeADOQbiuFKUF7RRbTQr+hGXAw5h48YZb?=
+ =?iso-8859-1?Q?jFUtHIGOMPH9VQuF8YDUvdFz7amHoLS4bAE3nPrUvOeijdZXVcs9T0yMKF?=
+ =?iso-8859-1?Q?5Tn25+Q0cL7cyrksR06lBYrjWzW5bLzOjnz5PecGfOvyXQUuDeW6OCi1uk?=
+ =?iso-8859-1?Q?Vx9aNc+DlCi0ZAs4B6YPIDnjp8ehQZq1vGpD2zHLqNBBvi67sBPr5+xqJh?=
+ =?iso-8859-1?Q?42EmUevVCOAirvT+DCDRuZ4QbVX1z/mS42zoqthY9kReMsQbS0D99qX+Fy?=
+ =?iso-8859-1?Q?LsxcOS1dTzv8OKq43Jx9xbVLxTWTs6f0Rk7EseDUVCE5b0emmVi9Zui+ie?=
+ =?iso-8859-1?Q?el1Wks+FBD8a4ZBgNQQtDvBFPK0veOhZrGSttIZ7C7cN8Mwayp9XzcYOYM?=
+ =?iso-8859-1?Q?xAhOqbtyIIJDic1UU2Qgw9ZaK0dGQmd1QZgOxB9hDDH9FNSdnWEWpwQCpD?=
+ =?iso-8859-1?Q?+wNIluo9BKlPhdauWwisAhZKQ+g1dOmAN++vt3kpbAL2J6EIoGqDFLoVZD?=
+ =?iso-8859-1?Q?HMNPA3ZDouUdq1Mc0xp6EhhrikvabESKk1eTWq2pHQk2yHPP761bp6dwVa?=
+ =?iso-8859-1?Q?n5XwLUBm0RFHc11cjNRVDpE3BoihyYhGYzirbSISAVe9JgTYJ55WKH1bHr?=
+ =?iso-8859-1?Q?AcnoCGxSn8w/12JxXhxN+bWMk+vht/2fxSFX04QPolZseYO6QgbUxdrR0P?=
+ =?iso-8859-1?Q?uDwcSvCjHqwf+C79L0ksjLleDLP/ME2lUU4Ao0WRUIsCGYBfIUzxps5cyU?=
+ =?iso-8859-1?Q?HLIylIqLNW7BlGxJgm8WJ4fD1qw+ubji20fA/ofht7U4Ml9wy10IGcAf8M?=
+ =?iso-8859-1?Q?XC/Dcbwbzf0tV+c9V7hJ6JYlfoWfW5zTjSWhH+DeKzwrzcXYNoubb9jmKd?=
+ =?iso-8859-1?Q?EbgHKyD+epA9t6lWGHttVbWnQTSJLN+FBtVk6nDUFtrwpEgJKVvtab5GI2?=
+ =?iso-8859-1?Q?DkzSdFRZSxe7fKufmuUiqMaGy6oLvLnvKZIIs4pSun2UsFR8SR5zANBJ8N?=
+ =?iso-8859-1?Q?26qX+CEz3Z6JeJsTukfNn20p/+6IKCFz08RkqNehYLi4OkuBIj+e1F1UEY?=
+ =?iso-8859-1?Q?68ywJyNZ4nL1yep7jYUJxlNELxsCL4ijvCFLtn8AtY3ByJv00UE9p1ULh/?=
+ =?iso-8859-1?Q?D4XB45k=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS2PR09MB6296.eurprd09.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?v2jI0NCK9Cl35LYWeTdPkwIoSewl4WnVLYCiqMVCAzj9skwHYqRXGbBCTW?=
+ =?iso-8859-1?Q?E+sQw4rofkAPQbLCwgWPQELTYPecpQ6xqBuLMj8l5r7O/+MBUTgBZuGWFo?=
+ =?iso-8859-1?Q?JFxr7HGJxWAPfpxMiKsh6/kZtjYBYZNj+d5D6BUmJST+VC7XE5wqToqv/t?=
+ =?iso-8859-1?Q?t03LzGJ5kp3jq5+VSirplCaSojemW/hLaetBkbxyotxp9dukr56p1LUHsq?=
+ =?iso-8859-1?Q?L93bF4JHusuz3i+hXJ+c8kuHbuaQSrFtt+J5fQ9Q1ttclLfWtuEJHOrlD2?=
+ =?iso-8859-1?Q?0JWsw8L+ddxnyj3mmvmLuualjdJpsA80AwIVg8ryTqtJ1nqOkkMxFGZQa3?=
+ =?iso-8859-1?Q?L9PdpeDmNk13QeXUbgHTl5xN1If9XmMWQER4S06/fm6CUCR6+s2t8Sm1n/?=
+ =?iso-8859-1?Q?sQUVMEvRQ8loM6nGPpJfFEHeIYy+CEE3hsGZ9D+VQCN6ojTjk/JqzI8ODF?=
+ =?iso-8859-1?Q?J6/qexi/kvndh6jynqMvsOcPCU+g7/3oIo2ix4Ow6IF+LYA/5ZWpHTyg57?=
+ =?iso-8859-1?Q?lRky4mSJKxfVLtdrBaYp+clwI+bb1vQWiaMRLq+5mpDYNDSj6eO2o3Ug8u?=
+ =?iso-8859-1?Q?5gKrbnpMXsAopz/Rgdi5gJTGD/KprUppqfiXqPdFl6i5EXSVrakZHtTQUA?=
+ =?iso-8859-1?Q?zvp5x7u/Op1vg/G5qxaiWu5tox/8Jg4zfY3L5BW/F9PUTS2QB+oF5LFAuL?=
+ =?iso-8859-1?Q?noibWAGqlJq2FgNjqYF4UfR/RJUbvnY1CNYn8zA1T2UTKDD8/l7/1taNxC?=
+ =?iso-8859-1?Q?pnsbLTRVsf2Nbr+f4VIOFkg7qMjv5/MvE8VOYxje9VjckLJodUbXFnuFnf?=
+ =?iso-8859-1?Q?otCFijl46Nr2sz+rWQRFyxWJbzElhu4ez4hNbrWFVylwlVZjdOz3Ij1qzB?=
+ =?iso-8859-1?Q?0amaFziTh3w5elT1Hr7BnzZnJr310WkOh5I5zdS3iQBR47OvPB450ivfHk?=
+ =?iso-8859-1?Q?JQIAZXNM0iFdDNnpCgCFjrfOP/tyWhGh+SNjf8JoxUXj133b5RL8etB26U?=
+ =?iso-8859-1?Q?kbZUf5uCZ7cz06oAUfEfphch0YFsxY5uwPlxQnNfdkagXytmxWM59Q8Rch?=
+ =?iso-8859-1?Q?owewnLJBiGszcKLosva2s/slnJLYsqjaEkfPgzBqmyE7utW9hLFE3ywXJm?=
+ =?iso-8859-1?Q?HE+srQ5X9PwE+BL5adRwz/BVPxkaqAhQY7JjTNqbwe28DKSK6O+jNCPv2G?=
+ =?iso-8859-1?Q?LD9EMjkMrkE43VY2+MIOrs44WuFTCO3rxX/Ie6jUcQ5cpGOLbt+MDlyIAv?=
+ =?iso-8859-1?Q?wKywig/Bbkzx2RTWoJ4oME7pPHdqhafVpqpq8DGrJcV2WDL+2fJA1ImAhb?=
+ =?iso-8859-1?Q?IbG9rvg6yLh5/2CVhFO9UjU0t4/WaMPrcHnaxenh29dlFmywT4dsLHpZen?=
+ =?iso-8859-1?Q?tQFWhuE85ci6bkhl99SQy+fKaV+lViEMCIMAPDlJ2gxeo3kKEFYiScqyRh?=
+ =?iso-8859-1?Q?BORRwfWHf/g7oWjQz9bmS8NhmKyXUKNoX3ie/edQl5u17IN7iVGWLN8FyU?=
+ =?iso-8859-1?Q?tgCsdm9qWnC9cgT+q7ZJV6lqz+bZmuRgbs0TbNtsVkYgLqEAQjdz9UIpTa?=
+ =?iso-8859-1?Q?P71EAhHnMclXiFDoyWeHJiy6nbFprXrlhmlxuvfMvzftAj7EsdIl/hpp3V?=
+ =?iso-8859-1?Q?5iSlBogQZt3Po7670BvVJCavcf2SQyPVNy?=
 MIME-Version: 1.0
+X-OriginatorOrg: mobileye.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS2PR09MB6296.eurprd09.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e31e384-1402-4471-7e3d-08dda804ddbe
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Jun 2025 09:55:00.9832
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 4f85ba13-6953-46a6-9c5b-7599fd80e9aa
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: Sc8lSYKSJnL9yI5DSahtCBOck7bBm5lboL4U0Rmiq4U5GZ5y4mUZPmabQiH2Que0zkOEAR63Cw0wl/p5vKf5Zw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAVPR09MB6253
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_024404_417663_9047B17C 
-X-CRM114-Status: GOOD (  28.35  )
+X-CRM114-CacheID: sfid-20250610_025510_794183_1904F0B6 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,264 +161,63 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, Anup Patel <anup@brainfault.org>, Chen Wang <unicorn_wang@outlook.com>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Palmer Dabbelt <palmer@dabbelt.com>, "sophgo@lists.linux.dev" <sophgo@lists.linux.dev>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Ryo Takakura <takakura@valinux.co.jp>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Real-time applications may have design flaws causing them to have
-unexpected latency. For example, the applications may raise page faults, or
-may be blocked trying to take a mutex without priority inheritance.
+>> Link: https://github.com/riscvarchive/riscv-aclint=A0[1]
+>What is the ratification status of this spec?
 
-However, while attempting to implement DA monitors for these real-time
-rules, deterministic automaton is found to be inappropriate as the
-specification language. The automaton is complicated, hard to understand,
-and error-prone.
+This spec is in a "draft" state, and perspective for its ratification is un=
+clear.
+So I understand I can't use "riscv," prefixes, I will convert it to adding
+platform-specific variant of the SSWI, and submit v2.
 
-For these cases, linear temporal logic is found to be more suitable. The
-LTL is more concise and intuitive.
+>s/Risc-V/RISC-V/g
 
-This series adds support for LTL RV monitor, and use it to implement two
-monitors for reporting problems with real-time tasks.
+Yes sure
 
-Patch 1-12 cleanup and prepare the RV code for the integration of LTL
-monitors.
+>> +=A0=A0=A0 oneOf:
+>> +=A0=A0=A0=A0=A0 - items:
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - enum:
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 - sophgo,sg2044-aclint-sswi
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - const: thead,c900-aclint-sswi
+>> +=A0=A0=A0=A0=A0 - items:
+>> +=A0=A0=A0=A0=A0=A0=A0=A0=A0 - const: riscv,aclint-sswi
+>You need a specific compatible for your implementation.
 
-Patch 13 adds support for LTL monitors.
+Yes, doing this
 
-Patch 14 adds the container monitor "rtapp". This encapsulates the
-sub-monitors for real-time.
+>Whether or not this compatible is viable depends on the answer to the
+>ratification status and/or plan for the spec.
 
-Patch 15 prepares the pagefault tracepoints on riscv, so that patch 16 can
-add the monitor which watches real-time tasks doing page faults.
+Replacing "riscv," compatible with platform-specific one
 
-Patch 17 adds the "sleep" monitor: it detects potential undesirable latency
-with real-time threads.
+>> +=A0 interrupts-extended:
+>> +=A0=A0=A0 minItems: 1
+>> +=A0=A0=A0 maxItems: 4095
+>> +
+>> +=A0 riscv,hart-indexes:
+>> +=A0=A0=A0 $ref: /schemas/types.yaml#/definitions/uint32-array
+>> +=A0=A0=A0 minItems: 1
+>> +=A0=A0=A0 maxItems: 16384
+>maxItems is 4x what is allowed for interrupts-extended. Why?
 
-Patch 18 adds documentation on the new monitors.
+Fixing this. It was copied from the dt-bindings for the APLIC where
+maxItems for "interrupts-extended" specified as 16384
 
-Patch 19 allows the number of per-task monitors to be configurable, so that
-the two new monitors can be enabled simultaneously.
+>Please constrain this property to only be permitted on !thead.
 
-v9->v10 https://lore.kernel.org/lkml/cover.1747649899.git.namcao@linutronix.de
-  - rebase onto v6.16-rc1 (only the vpanic patch is changed)
-  - riscv: move page fault tracepoints back to be after kprobe pagefault
-    handling
-  - drop x86 tracepoint patches, they have already been applied
-  - drop arm64 tracepoint patch. It requires further discussion and will be
-    sent separately.
-  - pagefault monitor: set dependency on x86 and riscv, only these archs
-    have the required tracepoints right now.
+Doing this
 
-v8->v9 https://lore.kernel.org/lkml/cover.1747046848.git.namcao@linutronix.de/
-  - Move page faults tracepoints to be before kprobe pagefault handling
-  - Add guidance into Kconfig entries whether they should be enabled
-  - Replace TRACE_EVENT with DECLARE_EVENT_CLASS for the tracepoint classes, so
-    that the class names are not wrongly exposed to userspace
+>> +=A0=A0=A0=A0=A0 riscv,hart-indexes =3D <0 1 0x10 0x11>;
+>Please be consistent. Hex or decimal, but not both.
 
-v7->v8 https://lore.kernel.org/lkml/cover.1746776116.git.namcao@linutronix.de/
-  - Fix some pylint warnings
-  - Fix some bugs with some currently-unused operators in the ltl2ba.py
-    script
-  - sleep monitor: Allow all FUTEX_WAIT_* as valid sleep reason
+Sure
 
-v6->v7 https://lore.kernel.org/lkml/cover.1745999587.git.namcao@linutronix.de/
-  - Add missing parameter description for vpanic()
-  - Remove the now-redundant CFLAGS_fault.o for x86
-  - Change #if to #ifdef to resolve a build warning
-  - rtapp/sleep monitor:
-    + Handle the case where an RT task "aborts" the sleep by setting state
-      to TASK_RUNNING. This case previously caused a false positive. Fix it
-      by adding "ABORT_SLEEP" as an RT-safe wake.
-    + Also allow CLOCK_TAI for real-time tasks.
-
-v5->v6 https://lore.kernel.org/lkml/cover.1745926331.git.namcao@linutronix.de
-  - sleep monitor: Drop the block_on_rt_mutex tracepoints. The contention
-    tracepoints are sufficient.
-
-v4->v5 https://lore.kernel.org/lkml/cover.1745390829.git.namcao@linutronix.de
-  - sleep monitor: Fix a false positive due to a race with waking and
-    scheduling.
-  - sleep monitor: Add block_on_rt_mutex tracepoints and use them for
-    BLOCK_ON_RT_MUTEX, instead of trace_sched_pi_setprio
-  - sleep monitor: tighten the rule on nanosleep: only clock_nanosleep()
-    with TIMER_ABSTIME and CLOCK_MONOTONIC is allowed
-  - add comments explaining why it is correct to treat PI-boosted tasks as
-    real-time tasks.
-
-    It should be noted that due to the changes in v5, 'perf' does not work
-    as well as before, because sometimes the errors happen out of the
-    real-time tasks' contexts. Fixing this is left for future work.
-
-    stress-ng is also far noisier in v5, because the rule on nanosleep is
-    tightened.
-
-v3->v4 https://lore.kernel.org/lkml/cover.1744785335.git.namcao@linutronix.de
-  - support deadline tasks
-  - rtapp_sleep: use sched_pi_setprio tracepoint instead of contention
-    tracepoints for BLOCK_ON_RT_MUTEX, so that proxy lock is covered.
-  - fix the scripts generating an "slightly" incorrect verification automaton
-  - makes rtapp monitor depends on RV_PER_TASK_MONITORS >= 2
-  - make the event tracepoint output a bit more readable
-  - some documentation's format fixes
-
-v2->v3 https://lore.kernel.org/lkml/cover.1744355018.git.namcao@linutronix.de/
-  - fix a problem with sleep monitor's specification (around
-    KTHREAD_SHOULD_STOP)
-  - merge the patches that move the dot2k/rvgen scripts around
-  - pull panic/printk changes into separate patches
-  - fixup some build errors
-  - fixup monitor's init function return code
-  - fix some flake8 warnings with the scripts
-  - add some references to LTL documentation
-  - fixup some mistakes with rtapp documentation
-  - fixup capitalization mistake with monitor_synthesis.rst
-  - remove the now-redundant macro RV_PER_TASK_MONITORS
-
-v1->v2 https://lore.kernel.org/lkml/cover.1741708239.git.namcao@linutronix.de/
-  - Integrate the LTL scripts into the existing dot2k tool, taking
-    advantage of the existing monitor generation scripts.
-  - Switch the struct ltl_monitor to use bitmap instead of an array, to
-    optimize memory usage.
-  - Correct the generated code to be non-deterministic state machine,
-    instead of deterministic state machine
-  - Put common code for all LTL monitors into a single file
-    (include/rv/ltl_monitor.h), reducing code duplication
-  - Change the LTL monitors to make user of container. Add a bug fix to
-    container while at it.
-  - Make the number of per-task monitor configurable
-
-Cc: Petr Mladek <pmladek@suse.com>
-Cc: John Ogness <john.ogness@linutronix.de>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>
-Cc: Paul Walmsley <paul.walmsley@sifive.com>
-Cc: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>
-Cc: Alexandre Ghiti <alex@ghiti.fr>
-Cc: linux-riscv@lists.infradead.org
-
-Nam Cao (19):
-  rv: Add #undef TRACE_INCLUDE_FILE
-  printk: Make vprintk_deferred() public
-  panic: Add vpanic()
-  rv: Let the reactors take care of buffers
-  verification/dot2k: Make a separate dot2k_templates/Kconfig_container
-  verification/dot2k: Remove __buff_to_string()
-  verification/dot2k: Replace is_container() hack with subparsers
-  rv: rename CONFIG_DA_MON_EVENTS to CONFIG_RV_MON_EVENTS
-  verification/dot2k: Prepare the frontend for LTL inclusion
-  Documentation/rv: Prepare monitor synthesis document for LTL inclusion
-  verification/rvgen: Restructure the templates files
-  verification/rvgen: Restructure the classes to prepare for LTL
-    inclusion
-  rv: Add support for LTL monitors
-  rv: Add rtapp container monitor
-  riscv: mm: Add page fault trace points
-  rv: Add rtapp_pagefault monitor
-  rv: Add rtapp_sleep monitor
-  rv: Add documentation for rtapp monitor
-  rv: Allow to configure the number of per-task monitor
-
- .../trace/rv/da_monitor_synthesis.rst         | 147 -----
- Documentation/trace/rv/index.rst              |   4 +-
- .../trace/rv/linear_temporal_logic.rst        | 122 ++++
- Documentation/trace/rv/monitor_rtapp.rst      | 116 ++++
- Documentation/trace/rv/monitor_synthesis.rst  | 256 +++++++++
- arch/riscv/mm/fault.c                         |   8 +
- include/linux/panic.h                         |   3 +
- include/linux/printk.h                        |   5 +
- include/linux/rv.h                            |  74 ++-
- include/linux/sched.h                         |   8 +-
- include/rv/da_monitor.h                       |  45 +-
- include/rv/ltl_monitor.h                      | 184 ++++++
- kernel/fork.c                                 |   5 +-
- kernel/panic.c                                |  16 +-
- kernel/printk/internal.h                      |   1 -
- kernel/trace/rv/Kconfig                       |  27 +-
- kernel/trace/rv/Makefile                      |   3 +
- kernel/trace/rv/monitors/pagefault/Kconfig    |  20 +
- .../trace/rv/monitors/pagefault/pagefault.c   |  87 +++
- .../trace/rv/monitors/pagefault/pagefault.h   |  57 ++
- .../rv/monitors/pagefault/pagefault_trace.h   |  14 +
- kernel/trace/rv/monitors/rtapp/Kconfig        |  15 +
- kernel/trace/rv/monitors/rtapp/rtapp.c        |  33 ++
- kernel/trace/rv/monitors/rtapp/rtapp.h        |   3 +
- kernel/trace/rv/monitors/sleep/Kconfig        |  22 +
- kernel/trace/rv/monitors/sleep/sleep.c        | 236 ++++++++
- kernel/trace/rv/monitors/sleep/sleep.h        | 250 ++++++++
- kernel/trace/rv/monitors/sleep/sleep_trace.h  |  14 +
- kernel/trace/rv/reactor_panic.c               |   8 +-
- kernel/trace/rv/reactor_printk.c              |   8 +-
- kernel/trace/rv/rv.c                          |  10 +-
- kernel/trace/rv/rv_reactors.c                 |   2 +-
- kernel/trace/rv/rv_trace.h                    |  52 +-
- tools/verification/dot2/Makefile              |  26 -
- tools/verification/dot2/dot2k                 |  53 --
- tools/verification/models/rtapp/pagefault.ltl |   1 +
- tools/verification/models/rtapp/sleep.ltl     |  22 +
- tools/verification/rvgen/.gitignore           |   3 +
- tools/verification/rvgen/Makefile             |  27 +
- tools/verification/rvgen/__main__.py          |  67 +++
- tools/verification/{dot2 => rvgen}/dot2c      |   2 +-
- .../{dot2 => rvgen/rvgen}/automata.py         |   0
- tools/verification/rvgen/rvgen/container.py   |  22 +
- .../{dot2 => rvgen/rvgen}/dot2c.py            |   2 +-
- tools/verification/rvgen/rvgen/dot2k.py       | 129 +++++
- .../dot2k.py => rvgen/rvgen/generator.py}     | 249 ++------
- tools/verification/rvgen/rvgen/ltl2ba.py      | 540 ++++++++++++++++++
- tools/verification/rvgen/rvgen/ltl2k.py       | 245 ++++++++
- .../rvgen/templates}/Kconfig                  |   0
- .../rvgen/rvgen/templates/container/Kconfig   |   5 +
- .../rvgen/templates/container/main.c}         |   0
- .../rvgen/templates/container/main.h}         |   0
- .../rvgen/templates/dot2k}/main.c             |   0
- .../rvgen/templates/dot2k}/trace.h            |   0
- .../rvgen/rvgen/templates/ltl2k/main.c        | 102 ++++
- .../rvgen/rvgen/templates/ltl2k/trace.h       |  14 +
- 56 files changed, 2873 insertions(+), 491 deletions(-)
- delete mode 100644 Documentation/trace/rv/da_monitor_synthesis.rst
- create mode 100644 Documentation/trace/rv/linear_temporal_logic.rst
- create mode 100644 Documentation/trace/rv/monitor_rtapp.rst
- create mode 100644 Documentation/trace/rv/monitor_synthesis.rst
- create mode 100644 include/rv/ltl_monitor.h
- create mode 100644 kernel/trace/rv/monitors/pagefault/Kconfig
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.c
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault.h
- create mode 100644 kernel/trace/rv/monitors/pagefault/pagefault_trace.h
- create mode 100644 kernel/trace/rv/monitors/rtapp/Kconfig
- create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.c
- create mode 100644 kernel/trace/rv/monitors/rtapp/rtapp.h
- create mode 100644 kernel/trace/rv/monitors/sleep/Kconfig
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep.c
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep.h
- create mode 100644 kernel/trace/rv/monitors/sleep/sleep_trace.h
- delete mode 100644 tools/verification/dot2/Makefile
- delete mode 100644 tools/verification/dot2/dot2k
- create mode 100644 tools/verification/models/rtapp/pagefault.ltl
- create mode 100644 tools/verification/models/rtapp/sleep.ltl
- create mode 100644 tools/verification/rvgen/.gitignore
- create mode 100644 tools/verification/rvgen/Makefile
- create mode 100644 tools/verification/rvgen/__main__.py
- rename tools/verification/{dot2 => rvgen}/dot2c (97%)
- rename tools/verification/{dot2 => rvgen/rvgen}/automata.py (100%)
- create mode 100644 tools/verification/rvgen/rvgen/container.py
- rename tools/verification/{dot2 => rvgen/rvgen}/dot2c.py (99%)
- create mode 100644 tools/verification/rvgen/rvgen/dot2k.py
- rename tools/verification/{dot2/dot2k.py => rvgen/rvgen/generator.py} (52%)
- create mode 100644 tools/verification/rvgen/rvgen/ltl2ba.py
- create mode 100644 tools/verification/rvgen/rvgen/ltl2k.py
- rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates}/Kconfig (100%)
- create mode 100644 tools/verification/rvgen/rvgen/templates/container/Kconfig
- rename tools/verification/{dot2/dot2k_templates/main_container.c => rvgen/rvgen/templates/container/main.c} (100%)
- rename tools/verification/{dot2/dot2k_templates/main_container.h => rvgen/rvgen/templates/container/main.h} (100%)
- rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates/dot2k}/main.c (100%)
- rename tools/verification/{dot2/dot2k_templates => rvgen/rvgen/templates/dot2k}/trace.h (100%)
- create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/main.c
- create mode 100644 tools/verification/rvgen/rvgen/templates/ltl2k/trace.h
-
--- 
-2.39.5
-
+Thanks, Vladimir
 
 _______________________________________________
 linux-riscv mailing list
