@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ED8DC5B552
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 10:57:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FE2CC61DB2
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 10:57:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=5/XBcFNPUj4Wk7k7NlH7WiJHkCGSKkm9OBxAfwxniMs=; b=apApJH546Tro+v
-	r69XnBZsUoC3Nm/z/xMF7CUaK6JF0pNF0SzmR5AExs2Q6PvWK6E7oDKcqaFohVVgkw4RjtT9a6HOy
-	JOf/gYIz3Ba+1w0gEv7BKPHV/dYeiCm+VZpewKH2p1Nyvn4DRDKF8+A6krsjpr6RTc9VwbXe5NPYn
-	nQOA0QRNIAiMtRsXw1ppgc6DwVjPs+taJBiJhjbeXu1Yb+UPLS/nG43RHiokogRuIz0q1tCiJ9s+r
-	ar0sIoZ88fLGGOCC233RLhBXIqnPsUTW6z5aRUh/yHRmN8pOEGfTvCOhtXjTErnKTqd83eFKzisU9
-	CgU/udV80EMdi5TrZlFQ==;
+	List-Owner; bh=p2aYLHiwcS4l/zUy5DxBowSA0bjmKPxVn/GF9ypIU5s=; b=UAarhoGaCMd/3j
+	VuPHfcU0nVoxCLZBi/EgCO9LyTb1BZU+2/x9d2QIqtoLsi5BrzLlwXTRgm9rXDDKQ5lKIoRIL29DG
+	TpQuG7/3WBFgPDEO2PXtj/Eq31pts3lvoVYjL/8XWlWYylNYptqKdJAFgxZLOcr9yBtyqc9ve9cin
+	hGKYJx2HLunAa37It2yAtg253+PpSFXZHuwvmSo/bmT8KOh7cOZTSjWdcVqKb9Ws+FOZwI1plgsQn
+	Qy655TE0584tpvuP3vHO7NxgPAJeT5jp0zPxFlgywoshV6tb2sbPEHtTP8WIGy9669/XZaXMPgfVb
+	2fmIcobwB/tGluYjXbkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOwfW-00000006Ywa-2C9e;
-	Tue, 10 Jun 2025 10:57:26 +0000
-Received: from esa2.hc555-34.eu.iphmx.com ([23.90.104.147])
+	id 1uOwfX-00000006Yym-2z17;
+	Tue, 10 Jun 2025 10:57:27 +0000
+Received: from esa3.hc555-34.eu.iphmx.com ([207.54.77.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOvsP-00000006S4v-2Mio
+	id 1uOvsQ-00000006S4u-1cPg
 	for linux-riscv@lists.infradead.org;
 	Tue, 10 Jun 2025 10:06:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=mobileye.com; i=@mobileye.com; q=dns/txt; s=MoEyIP;
-  t=1749550001; x=1781086001;
+  t=1749550002; x=1781086002;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=ZkonT5XOETViMq2W8Vg4OLZt5WEYIKYmN1JdAPfoIck=;
-  b=Ut+1hofa80Fi/z5NmzcY6T8/ulyJdhr4XhOAORo9bgM2tw40SnyKaDRk
-   jpob9v1XMkWi+jWyceDarWIMsliQGpUTmA8iVuN55vEDVwouEvKnOkEzr
-   Jw8h7QEJ0uThaVqbJk6GkwaVAg5glYIeiaulSqv7jjkzP7m6rubLSamVk
-   Q/vTZZOYng4CYAJweQOpmdBA4malfgf5d0bPBrR8gyet7niMcqjM8KYJA
-   pGT9hltoCZjLesKsRX0RP52JV3ZQYNklJAp0NelKfHud3W2U4DYqjUg34
-   AY6zrhPaIUpVr0X2inY67uPehHV0lgOT20IYOm/L/CZbZDGwNyJySAiZT
-   w==;
-X-CSE-ConnectionGUID: 3emX4oBjR8yFNJI3/XKeFA==
-X-CSE-MsgGUID: DQAoIdfhQRKhG3i/OrxEmg==
+  bh=S4SlciKZEDkvxxA53sOZjgI7BGGyzxMFgS4kqW029qc=;
+  b=uO7XqBz5aFsXGVgwdQoNtuDBsp74DYWvUI8Onjo1DC/4hqVVcPdfZe9B
+   yFCVBz/dPL1x4/NqE+018kpNgzi64jVu8QrS+6VYIWqPAeGIM8YHjyrw5
+   +ee7AZ1DDrhOYMsOp7VYMmmrOU35uk3uPZv4ynOwC9QPmE1zqETnnRPvY
+   ELI7CGj016g7+u55zkT62y9xjZbQmyKHZWPGiQ1zg0BJJsftuATEJy79+
+   slGFulcNSGHOkmwHkQkZ6vV0McviokvzwSw4/p6+zMz1ESrd1EOL7OL2I
+   IzKdTlymoXZz1mF22cZEy7H9AWRWkS+Nz9NaZW+5bei98uwF7TP8FRHJ5
+   Q==;
+X-CSE-ConnectionGUID: mPwJsLpQRYyHgteN02L5cQ==
+X-CSE-MsgGUID: obU5FMe9SLCp3ycvlRlwLQ==
 X-Amp-Result: SKIPPED(no attachment in message)
 X-Amp-File-Uploaded: False
-Received: from unknown (HELO ces03_data.me-corp.lan) ([146.255.191.134])
-  by esa2.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jun 2025 13:06:39 +0300
-X-CSE-ConnectionGUID: 2clGyAAhREiAocQAIdOL4Q==
-X-CSE-MsgGUID: QC3bqOW8Sh66YowUez2SSQ==
+Received: from unknown (HELO ces01_data.me-corp.lan) ([146.255.191.134])
+  by esa3.hc555-34.eu.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Jun 2025 13:06:37 +0300
+X-CSE-ConnectionGUID: L/mYHuCUT9qp4TiIzR8Dlw==
+X-CSE-MsgGUID: hvG3VRHtSp+PyC8qsVTeAA==
 Received: from unknown (HELO epgd071.me-corp.lan) ([10.154.54.1])
-  by ces03_data.me-corp.lan with SMTP; 10 Jun 2025 13:06:38 +0300
-Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Tue, 10 Jun 2025 13:06:38 +0300
+  by ces01_data.me-corp.lan with SMTP; 10 Jun 2025 13:06:35 +0300
+Received: by epgd071.me-corp.lan (sSMTP sendmail emulation); Tue, 10 Jun 2025 13:06:36 +0300
 From: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 To: Thomas Gleixner <tglx@linutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -71,16 +71,16 @@ Cc: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	sophgo@lists.linux.dev,
 	Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: [PATCH v2 4/7] irqchip: MIPS P800 variant of aclint-sswi
-Date: Tue, 10 Jun 2025 13:05:37 +0300
-Message-ID: <20250610100540.2834044-5-vladimir.kondratiev@mobileye.com>
+Subject: [PATCH v2 2/7] irqchip: riscv aplic: use riscv_get_hart_index()
+Date: Tue, 10 Jun 2025 13:05:35 +0300
+Message-ID: <20250610100540.2834044-3-vladimir.kondratiev@mobileye.com>
 In-Reply-To: <20250610100540.2834044-1-vladimir.kondratiev@mobileye.com>
 References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
  <20250610100540.2834044-1-vladimir.kondratiev@mobileye.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_030641_907513_8EF0E5C0 
-X-CRM114-Status: GOOD (  20.91  )
+X-CRM114-CacheID: sfid-20250610_030642_684367_D9F0611F 
+X-CRM114-Status: GOOD (  11.85  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,264 +97,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Refactor Thead specific implementation of the ACLINT-SSWI irqchip.
-Factor out generic code that serves both Thead and MIPS variants.
-This generic part is according to the RISC-V draft spec [1].
-
-Link: https://github.com/riscvarchive/riscv-aclint [1]
+Use global helper function instead of the local
+implementation
 
 Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
 ---
- drivers/irqchip/Kconfig                       | 16 ++++
- drivers/irqchip/Makefile                      |  2 +-
- ...d-c900-aclint-sswi.c => irq-aclint-sswi.c} | 93 +++++++++++++------
- 3 files changed, 82 insertions(+), 29 deletions(-)
- rename drivers/irqchip/{irq-thead-c900-aclint-sswi.c => irq-aclint-sswi.c} (67%)
+ drivers/irqchip/irq-riscv-aplic-direct.c | 16 +---------------
+ 1 file changed, 1 insertion(+), 15 deletions(-)
 
-diff --git a/drivers/irqchip/Kconfig b/drivers/irqchip/Kconfig
-index 0d196e447142..be9b54900482 100644
---- a/drivers/irqchip/Kconfig
-+++ b/drivers/irqchip/Kconfig
-@@ -634,12 +634,28 @@ config STARFIVE_JH8100_INTC
- 
- 	  If you don't know what to do here, say Y.
- 
-+config ACLINT_SSWI
-+	bool
-+
-+config MIPS_P8700_ACLINT_SSWI
-+	bool "MIPS P8700 ACLINT S-mode IPI Interrupt Controller"
-+	depends on RISCV
-+	depends on SMP
-+	select IRQ_DOMAIN_HIERARCHY
-+	select GENERIC_IRQ_IPI_MUX
-+	select ACLINT_SSWI
-+	help
-+	  This enables support for MIPS P8700 specific ACLINT SSWI device
-+
-+	  If you don't know what to do here, say Y.
-+
- config THEAD_C900_ACLINT_SSWI
- 	bool "THEAD C9XX ACLINT S-mode IPI Interrupt Controller"
- 	depends on RISCV
- 	depends on SMP
- 	select IRQ_DOMAIN_HIERARCHY
- 	select GENERIC_IRQ_IPI_MUX
-+	select ACLINT_SSWI
- 	help
- 	  This enables support for T-HEAD specific ACLINT SSWI device
- 	  support.
-diff --git a/drivers/irqchip/Makefile b/drivers/irqchip/Makefile
-index 23ca4959e6ce..0458d6c5d161 100644
---- a/drivers/irqchip/Makefile
-+++ b/drivers/irqchip/Makefile
-@@ -105,7 +105,7 @@ obj-$(CONFIG_RISCV_APLIC_MSI)		+= irq-riscv-aplic-msi.o
- obj-$(CONFIG_RISCV_IMSIC)		+= irq-riscv-imsic-state.o irq-riscv-imsic-early.o irq-riscv-imsic-platform.o
- obj-$(CONFIG_SIFIVE_PLIC)		+= irq-sifive-plic.o
- obj-$(CONFIG_STARFIVE_JH8100_INTC)	+= irq-starfive-jh8100-intc.o
--obj-$(CONFIG_THEAD_C900_ACLINT_SSWI)	+= irq-thead-c900-aclint-sswi.o
-+obj-$(CONFIG_ACLINT_SSWI)		+= irq-aclint-sswi.o
- obj-$(CONFIG_IMX_IRQSTEER)		+= irq-imx-irqsteer.o
- obj-$(CONFIG_IMX_INTMUX)		+= irq-imx-intmux.o
- obj-$(CONFIG_IMX_MU_MSI)		+= irq-imx-mu-msi.o
-diff --git a/drivers/irqchip/irq-thead-c900-aclint-sswi.c b/drivers/irqchip/irq-aclint-sswi.c
-similarity index 67%
-rename from drivers/irqchip/irq-thead-c900-aclint-sswi.c
-rename to drivers/irqchip/irq-aclint-sswi.c
-index 8ff6e7a1363b..ec21785df518 100644
---- a/drivers/irqchip/irq-thead-c900-aclint-sswi.c
-+++ b/drivers/irqchip/irq-aclint-sswi.c
-@@ -3,7 +3,7 @@
-  * Copyright (C) 2024 Inochi Amaoto <inochiama@gmail.com>
-  */
- 
--#define pr_fmt(fmt) "thead-c900-aclint-sswi: " fmt
-+#define pr_fmt(fmt) "aclint-sswi: " fmt
- #include <linux/cpu.h>
- #include <linux/interrupt.h>
- #include <linux/io.h>
-@@ -21,56 +21,51 @@
- #include <asm/sbi.h>
- #include <asm/vendorid_list.h>
- 
--#define THEAD_ACLINT_xSWI_REGISTER_SIZE		4
--
--#define THEAD_C9XX_CSR_SXSTATUS			0x5c0
--#define THEAD_C9XX_SXSTATUS_CLINTEE		BIT(17)
--
- static int sswi_ipi_virq __ro_after_init;
- static DEFINE_PER_CPU(void __iomem *, sswi_cpu_regs);
- 
--static void thead_aclint_sswi_ipi_send(unsigned int cpu)
-+static void aclint_sswi_ipi_send(unsigned int cpu)
- {
- 	writel(0x1, per_cpu(sswi_cpu_regs, cpu));
- }
- 
--static void thead_aclint_sswi_ipi_clear(void)
-+static void aclint_sswi_ipi_clear(void)
- {
- 	writel_relaxed(0x0, this_cpu_read(sswi_cpu_regs));
- }
- 
--static void thead_aclint_sswi_ipi_handle(struct irq_desc *desc)
-+static void aclint_sswi_ipi_handle(struct irq_desc *desc)
- {
- 	struct irq_chip *chip = irq_desc_get_chip(desc);
- 
- 	chained_irq_enter(chip, desc);
- 
- 	csr_clear(CSR_IP, IE_SIE);
--	thead_aclint_sswi_ipi_clear();
-+	aclint_sswi_ipi_clear();
- 
- 	ipi_mux_process();
- 
- 	chained_irq_exit(chip, desc);
- }
- 
--static int thead_aclint_sswi_starting_cpu(unsigned int cpu)
-+static int aclint_sswi_starting_cpu(unsigned int cpu)
- {
- 	enable_percpu_irq(sswi_ipi_virq, irq_get_trigger_type(sswi_ipi_virq));
- 
+diff --git a/drivers/irqchip/irq-riscv-aplic-direct.c b/drivers/irqchip/irq-riscv-aplic-direct.c
+index 205ad61d15e4..c2a75bf3d20c 100644
+--- a/drivers/irqchip/irq-riscv-aplic-direct.c
++++ b/drivers/irqchip/irq-riscv-aplic-direct.c
+@@ -219,20 +219,6 @@ static int aplic_direct_parse_parent_hwirq(struct device *dev, u32 index,
  	return 0;
  }
  
--static int thead_aclint_sswi_dying_cpu(unsigned int cpu)
-+static int aclint_sswi_dying_cpu(unsigned int cpu)
- {
--	thead_aclint_sswi_ipi_clear();
-+	aclint_sswi_ipi_clear();
- 
- 	disable_percpu_irq(sswi_ipi_virq);
- 
- 	return 0;
- }
- 
--static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
--					      void __iomem *reg)
-+static int __init aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
-+					void __iomem *reg)
- {
- 	struct of_phandle_args parent;
- 	unsigned long hartid;
-@@ -97,7 +92,7 @@ static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
- 
- 		cpu = riscv_hartid_to_cpuid(hartid);
- 
--		per_cpu(sswi_cpu_regs, cpu) = reg + i * THEAD_ACLINT_xSWI_REGISTER_SIZE;
-+		per_cpu(sswi_cpu_regs, cpu) = reg + hart_index * 4;
- 	}
- 
- 	pr_info("%pfwP: register %u CPU%s\n", fwnode, contexts, str_plural(contexts));
-@@ -105,17 +100,12 @@ static int __init thead_aclint_sswi_parse_irq(struct fwnode_handle *fwnode,
- 	return 0;
- }
- 
--static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
-+static int __init aclint_sswi_probe(struct fwnode_handle *fwnode)
- {
- 	struct irq_domain *domain;
- 	void __iomem *reg;
- 	int virq, rc;
- 
--	/* If it is T-HEAD CPU, check whether SSWI is enabled */
--	if (riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
--	    !(csr_read(THEAD_C9XX_CSR_SXSTATUS) & THEAD_C9XX_SXSTATUS_CLINTEE))
--		return -ENOTSUPP;
+-static int aplic_direct_get_hart_index(struct device *dev, u32 logical_index,
+-				       u32 *hart_index)
+-{
+-	const char *prop_hart_index = "riscv,hart-indexes";
+-	struct device_node *np = to_of_node(dev->fwnode);
 -
- 	if (!is_of_node(fwnode))
- 		return -EINVAL;
+-	if (!np || !of_property_present(np, prop_hart_index)) {
+-		*hart_index = logical_index;
+-		return 0;
+-	}
+-
+-	return of_property_read_u32_index(np, prop_hart_index, logical_index, hart_index);
+-}
+-
+ int aplic_direct_setup(struct device *dev, void __iomem *regs)
+ {
+ 	int i, j, rc, cpu, current_cpu, setup_count = 0;
+@@ -279,7 +265,7 @@ int aplic_direct_setup(struct device *dev, void __iomem *regs)
+ 		cpumask_set_cpu(cpu, &direct->lmask);
  
-@@ -124,7 +114,7 @@ static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
- 		return -ENOMEM;
- 
- 	/* Parse SSWI setting */
--	rc = thead_aclint_sswi_parse_irq(fwnode, reg);
-+	rc = aclint_sswi_parse_irq(fwnode, reg);
- 	if (rc < 0)
- 		return rc;
- 
-@@ -146,22 +136,68 @@ static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
- 	}
- 
- 	/* Register SSWI irq and handler */
--	virq = ipi_mux_create(BITS_PER_BYTE, thead_aclint_sswi_ipi_send);
-+	virq = ipi_mux_create(BITS_PER_BYTE, aclint_sswi_ipi_send);
- 	if (virq <= 0) {
- 		pr_err("unable to create muxed IPIs\n");
- 		irq_dispose_mapping(sswi_ipi_virq);
- 		return virq < 0 ? virq : -ENOMEM;
- 	}
- 
--	irq_set_chained_handler(sswi_ipi_virq, thead_aclint_sswi_ipi_handle);
-+	irq_set_chained_handler(sswi_ipi_virq, aclint_sswi_ipi_handle);
- 
- 	cpuhp_setup_state(CPUHP_AP_IRQ_THEAD_ACLINT_SSWI_STARTING,
--			  "irqchip/thead-aclint-sswi:starting",
--			  thead_aclint_sswi_starting_cpu,
--			  thead_aclint_sswi_dying_cpu);
-+			  "irqchip/aclint-sswi:starting",
-+			  aclint_sswi_starting_cpu,
-+			  aclint_sswi_dying_cpu);
- 
- 	riscv_ipi_set_virq_range(virq, BITS_PER_BYTE);
- 
-+	return 0;
-+}
-+
-+#if defined(CONFIG_MIPS_P8700_ACLINT_SSWI)
-+/* generic/MIPS variant */
-+static int __init generic_aclint_sswi_probe(struct fwnode_handle *fwnode)
-+{
-+	int rc;
-+
-+	rc = aclint_sswi_probe(fwnode);
-+	if (rc)
-+		return rc;
-+
-+	/* Announce that SSWI is providing IPIs */
-+	pr_info("providing IPIs using ACLINT SSWI\n");
-+
-+	return 0;
-+}
-+
-+static int __init generic_aclint_sswi_early_probe(struct device_node *node,
-+						  struct device_node *parent)
-+{
-+	return generic_aclint_sswi_probe(&node->fwnode);
-+}
-+IRQCHIP_DECLARE(generic_aclint_sswi, "mips,p8700-aclint-sswi", generic_aclint_sswi_early_probe);
-+#endif /* CONFIG_MIPS_P8700_ACLINT_SSWI */
-+
-+#if defined(CONFIG_THEAD_C900_ACLINT_SSWI)
-+
-+#define THEAD_C9XX_CSR_SXSTATUS			0x5c0
-+#define THEAD_C9XX_SXSTATUS_CLINTEE		BIT(17)
-+
-+/* THEAD variant */
-+static int __init thead_aclint_sswi_probe(struct fwnode_handle *fwnode)
-+{
-+	int rc;
-+
-+	/* If it is T-HEAD CPU, check whether SSWI is enabled */
-+	if (riscv_cached_mvendorid(0) == THEAD_VENDOR_ID &&
-+	    !(csr_read(THEAD_C9XX_CSR_SXSTATUS) & THEAD_C9XX_SXSTATUS_CLINTEE))
-+		return -ENOTSUPP;
-+
-+	rc = aclint_sswi_probe(fwnode);
-+	if (rc)
-+		return rc;
-+
- 	/* Announce that SSWI is providing IPIs */
- 	pr_info("providing IPIs using THEAD ACLINT SSWI\n");
- 
-@@ -174,3 +210,4 @@ static int __init thead_aclint_sswi_early_probe(struct device_node *node,
- 	return thead_aclint_sswi_probe(&node->fwnode);
- }
- IRQCHIP_DECLARE(thead_aclint_sswi, "thead,c900-aclint-sswi", thead_aclint_sswi_early_probe);
-+#endif /* CONFIG_THEAD_C900_ACLINT_SSWI */
+ 		idc = per_cpu_ptr(&aplic_idcs, cpu);
+-		rc = aplic_direct_get_hart_index(dev, i, &idc->hart_index);
++		rc = riscv_get_hart_index(dev->fwnode, i, &idc->hart_index);
+ 		if (rc) {
+ 			dev_warn(dev, "hart index not found for IDC%d\n", i);
+ 			continue;
 -- 
 2.43.0
 
