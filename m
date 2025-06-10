@@ -4,63 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942BDC71130
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 19:58:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A802C71136
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 19:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=4sL0/FtwCZZTg6+0SYzVTg78D3G+FANm50YThKYLX0k=; b=laLyYf5d183JYU
-	URpUqihRC+wQpgvuTVfxfFPdsfMdd0qvQ9toCtrDf6KctntzMalQl9Kmc5po0ZwGqzmxAJp2/v90w
-	ZrMCHvG4zSopyaCXN9WGhEn7hakU68iRMrKhEOReLLy+yZ5es5WGZFJdRg+PW3g1FY0T13pp7NF/D
-	bfVdozLyDKQ9wyQ2CPoOtmzoyih2xTa+y0IZCxLnD0gjfqfpJqvCCkfKzhWN/kel8USwrrScwCCy1
-	d+yuIQhLsAn7QCBXW/H+VP7pflxS5125Fgp4PYvyliNA+j3zbYJ8uB8I0CBBUg6qjBXwzmmLzM5Zj
-	fGs38Fdzzs6THUC18khg==;
+	List-Owner; bh=VbMG+2Nj+j7e5BMrchW+yn6BqipZZfukKHB1VxOlPIM=; b=jsX/9+e5rFTLAV
+	J4vx031UvibaAIVm9OtsnnP3NJYojyLar8nVVJNO8+2eLrsom7KicxRWzYr8KCCz+LtvxMXVWkFzI
+	2a3bDBRCY+Tdl2P81na3FkrpTl3G7bdIMqb1jrugnXV0uPc4MVAYsMxme1wvGFHdrzIf76gMDr85r
+	0mwh2rE5oxYEV+thoSd0p+zHXonr0Xcua0Lz/FuK/TTvNCK4drMtptPJVZgEPW/htrQMnAc1lr+uO
+	lH3Um95ddqSMeM7fnOZPtrRrETPjvDSUTGthh9sZ8Mot6RNC6rXVDXcS4sPRT245CQUO0MadbK7+m
+	Z0BEPVdhP0g7UHxRiBzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP57I-00000007z1v-15K1;
+	id 1uP57I-00000007z2D-3czX;
 	Tue, 10 Jun 2025 19:58:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1pR-00000007T3J-2CPJ
+	id 1uP1pS-00000007T4N-3peS
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 16:28:02 +0000
+	Tue, 10 Jun 2025 16:28:04 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id D67A9A5149A;
-	Tue, 10 Jun 2025 16:28:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CE0DC4CEF0;
-	Tue, 10 Jun 2025 16:28:00 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 23214A5149B;
+	Tue, 10 Jun 2025 16:28:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEA8CC4CEED;
+	Tue, 10 Jun 2025 16:28:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749572880;
-	bh=UQg01saWHZ2SA/EHnfOE/P97kB6OOfXIeFxq0POFGoI=;
+	s=k20201202; t=1749572881;
+	bh=XpKG6U7SUEDx6WcwKev1QZDTNBiTYhfWnKPEGgxnf44=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=MAhxn2YI78qtGczPWBE83PlISURuIeOL+05W5FjQubzGvSi7EoCrhaQlwPloGgdbt
-	 m3KQqdhdZSPuMtJCkDrurouHSKc7fMYa7USoDs9rauIAVc2uignIg/8Sy4NlDhfGUL
-	 2ZzDxcXkt6DyW1Xswug8nfZIvyBR7fHBXbB/qj2Q+BTF+MxAdHQhNP7RlMkx5LiytS
-	 0l7bPsWJ6V911h0DIdyU6is3Rbv0e5J2y5zKehEDF/xbPd4d4KuIn43rtPPChcq/80
-	 O+WjTPhXswU5qYgeGIXQlX75e30BPG+ZBLM9h1aomo0GZSIHELeufuw+BEpU84uYoU
-	 HdoxaRU30SbfQ==
+	b=dIGC3Ft0E6fUFpwr5EO0a3vwKR/NPZcxmwIAFd++UTG7xF2tN8FNLwHMN13cM/jHH
+	 5U4ujPKj92PwceN5B04bQA3Diedc6LEKja3TlErcKgrHoqSEX/IEXNJSGOePMS904m
+	 9P4EKz+t4O7CjXuLpMTIA99/iaxMWrgvcyv0EgNyqhsw4kiBXJTCws/KV3RJHBmqOr
+	 h6fJ6t8o0E5+Gkv8h7SumAxho0F6pWXhbf9qWtRhy7Mja6ouSNVbgxTEzLOpC5nzmz
+	 pctGAzAajYZLL2jJoUiPnZNV0Z1xy8HkHBFYw7PClnQdPxIMIctEcFy8YNKu5LfBjr
+	 JQM4OCFhIxDlw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33C4339D6540;
-	Tue, 10 Jun 2025 16:28:32 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70B1C39D6540;
+	Tue, 10 Jun 2025 16:28:33 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 00/12] riscv: Add vendor extensions support for SiFive
+Subject: Re: [PATCH 1/2] dt-bindings: Remove obsolete cpu-topology.txt
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174957291100.2454024.4751197828124838504.git-patchwork-notify@kernel.org>
-Date: Tue, 10 Jun 2025 16:28:31 +0000
-References: <20250516030310.16950-1-cyan.yang@sifive.com>
-In-Reply-To: <20250516030310.16950-1-cyan.yang@sifive.com>
-To: Cyan Yang <cyan.yang@sifive.com>
-Cc: linux-riscv@lists.infradead.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, corbet@lwn.net, paul.walmsley@sifive.com,
- palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
- samuel.holland@sifive.com, linux-doc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Message-Id: <174957291224.2454024.11937218792717571483.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Jun 2025 16:28:32 +0000
+References: <20250410201325.962203-1-robh@kernel.org>
+In-Reply-To: <20250410201325.962203-1-robh@kernel.org>
+To: Rob Herring (Arm) <robh@kernel.org>
+Cc: linux-riscv@lists.infradead.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ paul.walmsley@sifive.com, palmer@dabbelt.com, aou@eecs.berkeley.edu,
+ alex@ghiti.fr, samuel.holland@sifive.com, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_092801_629672_E4B0D242 
-X-CRM114-Status: UNSURE (   9.75  )
+X-CRM114-CacheID: sfid-20250610_092803_021910_EAB46599 
+X-CRM114-Status: UNSURE (   9.08  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -81,43 +80,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 Hello:
 
 This series was applied to riscv/linux.git (fixes)
-by Palmer Dabbelt <palmer@rivosinc.com>:
+by Rob Herring (Arm) <robh@kernel.org>:
 
-On Fri, 16 May 2025 11:02:58 +0800 you wrote:
-> This patch set adds four vendor-specific ISA extensions from SiFive:
-> "xsfvqmaccdod", "xsfvqmaccqoq", "xsfvfnrclipxfqf", and "xsfvfwmaccqqq".
+On Thu, 10 Apr 2025 15:13:22 -0500 you wrote:
+> The cpu topology binding is now covered by the dtschema cpu-map.yaml
+> schema with all the relevant descriptions moved to it.
 > 
-> Additionally, a new hwprobe key, RISCV_HWPROBE_KEY_VENDOR_EXT_SIFIVE_0,
-> has been added to query which SiFive vendor extensions are supported on
-> the current platform.
-> 
-> [...]
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+> ---
+>  .../devicetree/bindings/cpu/cpu-topology.txt  | 553 ------------------
+>  1 file changed, 553 deletions(-)
+>  delete mode 100644 Documentation/devicetree/bindings/cpu/cpu-topology.txt
 
 Here is the summary with links:
-  - [v2,01/12] dt-bindings: riscv: Add xsfvqmaccdod and xsfvqmaccqoq ISA extension description
-    https://git.kernel.org/riscv/c/0f733b5be965
-  - [v2,02/12] riscv: Add SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
-    (no matching commit)
-  - [v2,03/12] riscv: hwprobe: Document SiFive xsfvqmaccdod and xsfvqmaccqoq vendor extensions
-    https://git.kernel.org/riscv/c/e8fd215ed0eb
-  - [v2,04/12] riscv: hwprobe: Add SiFive vendor extension support and probe for xsfqmaccdod and xsfqmaccqoq
-    https://git.kernel.org/riscv/c/1a6274f03534
-  - [v2,05/12] dt-bindings: riscv: Add xsfvfnrclipxfqf ISA extension description
-    https://git.kernel.org/riscv/c/a5a15e07cbb9
-  - [v2,06/12] riscv: Add SiFive xsfvfnrclipxfqf vendor extension
-    (no matching commit)
-  - [v2,07/12] riscv: hwprobe: Document SiFive xsfvfnrclipxfqf vendor extension
-    https://git.kernel.org/riscv/c/659d664f7df8
-  - [v2,08/12] riscv: hwprobe: Add SiFive xsfvfnrclipxfqf vendor extension
-    https://git.kernel.org/riscv/c/1d91224394c9
-  - [v2,09/12] dt-bindings: riscv: Add xsfvfwmaccqqq ISA extension description
-    https://git.kernel.org/riscv/c/d5ca02b25f5d
-  - [v2,10/12] riscv: Add SiFive xsfvfwmaccqqq vendor extension
-    (no matching commit)
-  - [v2,11/12] riscv: hwprobe: Document SiFive xsfvfwmaccqqq vendor extension
-    https://git.kernel.org/riscv/c/a3ca43dc5271
-  - [v2,12/12] riscv: hwprobe: Add SiFive xsfvfwmaccqqq vendor extension
-    https://git.kernel.org/riscv/c/d9669e33c8fa
+  - [1/2] dt-bindings: Remove obsolete cpu-topology.txt
+    https://git.kernel.org/riscv/c/3fb7bebcb6e5
+  - [2/2] dt-bindings: Remove obsolete numa.txt
+    https://git.kernel.org/riscv/c/540994337d47
 
 You are awesome, thank you!
 -- 
