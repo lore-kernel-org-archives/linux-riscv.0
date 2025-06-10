@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034D7C71137
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62B26C7113C
 	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 19:58:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,53 +12,55 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Date:
 	Message-Id:From:Subject:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=HfZnmlywkqzkistUqVVzEE0pKcMkVv1hM5pUerOreZc=; b=JR1nBNeXkNTWx3
-	NaGHwzhjhHTd3r29IL9rKn3j6vYgGFZyJdN6rc+1eqmAGUuwWJf1um6qNrHHwkquh9oC24AFbXYbs
-	oqDpnlL/cl1YMW5UyeYnsK7a3ODK0sUD4boEO9iQg+ccq0jBjMhaBcSobbi1/gBVrfG0fr3C9XuMS
-	oRwpMLjHDOjQ5c+qY9457PxDzYxuR6y8Wtn7TXX/c0XfjZZaPqLCEdZS5zEB2qdeaydZ3UbnvArcx
-	hOu96G1LKecdi/tajeLKV8HyXB0VxY7QNNTDrLCwXn/3kaRAFPWcqfXEiiR4W7w3W4ept1FZxkakV
-	r6als8VVUZE6Iv7NDuHA==;
+	List-Owner; bh=mnlW9xsZtKl8/4uHfRrkU2gnyuAzHSHdgZgD6RCrAsE=; b=ll6IbOx8djtjj3
+	OOmvTppREbmTdQkEy9b03lSTVVmr0oSjpK6vKqYRANfr98YtZ6P8J/S1OEm49SuV3NhLaeFL8rayz
+	s/LQH+SgUtKWPo39DBhhdySSUwhIDg/zLhUMHRekF+fs94B9JlAuH61DtvtbKHUtomcMhoHdmeEKO
+	WIHMDhuVYlMZNSsV8rHlodlVWbWP4+11snutthydsrxLfhplf/LpiSUY2oEForSV+07vORIoDAx+M
+	rXPh9//wkRRZ2fQpEf3nskS43TrYZEQfJHYTSZfUoWYGSWgt/e5ZI0bJc9P39fgX2EXGW63nNSRzR
+	50kiauTYjRC0Oq6XDx/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP57J-00000007z2m-2BKR;
-	Tue, 10 Jun 2025 19:58:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1uP57K-00000007z3J-0fNm;
+	Tue, 10 Jun 2025 19:58:42 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP1pT-00000007T5A-2VFV
+	id 1uP1pX-00000007T6X-3OiB
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 16:28:04 +0000
+	Tue, 10 Jun 2025 16:28:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5BAE34A8F7;
-	Tue, 10 Jun 2025 16:28:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3F46FC4AF0C;
-	Tue, 10 Jun 2025 16:28:03 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 25AB0A5149A;
+	Tue, 10 Jun 2025 16:28:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5257C4CEED;
+	Tue, 10 Jun 2025 16:28:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749572883;
-	bh=SkPBGvkpgQ3nFCxLZOT13cN8O1yX5EiXJoXMRQriIeY=;
+	s=k20201202; t=1749572886;
+	bh=UfWMNdPrkqC4tlqc6fPvtbZO1G8O2Spm8W6u5bQX+sg=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=HRiKtcfFwLVXbkBo0HoIfLKEGThJUdz0o8YHcehAF7WXLRjgQHu9TMx4gMuBoJphI
-	 cKUDSaytEbodsdBDsOctGOcCtlo3Tior0YuUzPLZlwOYYwBl091j4cYMAG3519+ZbO
-	 yK8ytlOWYh9OEnnmoR5QhgTPfJar8RChkl+whcfKLJ/auSeLDLWiHtPqNNeVxfC6O9
-	 LS3ZI23bykLMzDhH3kshZZ9+T0wk0JDPZ4BTr+Nz3dAGAQ7YQrHQ8QfdAwt/qsX5Z4
-	 snCzfl37916BOuUyohc3AUYEE/DkdMJaA5jSTlhC3W0sTToFo9mWKhwWzOFSb57S/j
-	 JGd2uudTPvpRg==
+	b=hBOukgqUoYHkJT4+Yt6L6J0g9mXhH5DdsPOob2ZcLjZ+1qP09+fO9k8aCvWj3lFut
+	 fh/pOqPKm3sM5uXajzv5kmcsNFOe3LiGqZzoEzUkpU0sga3+CcpFpKNCYTXfwvwmG5
+	 vkVYMPs81brQJ6V1FHgNrH6FJXu92Q/eXiT8ZowvO/lTqd5ZyorWfXP4iNv11QIRat
+	 8ofKeBJDI2W1IYTw6fl8dd16NY/GZoT/xBGJI67+57W6RHyWMfNLiQcn3io3XWwzHh
+	 upghmHwwb8tEFFfKyBgUItTws0xbpsDIX1Vu8SV/hrA6mdDabFjGpmQyQBSZsuezmL
+	 gUgu/mKAEApbw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAC9439D6540;
-	Tue, 10 Jun 2025 16:28:34 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70CA939D6540;
+	Tue, 10 Jun 2025 16:28:38 +0000 (UTC)
 MIME-Version: 1.0
-Subject: Re: [GIT PULL] RISC-V Patches for the 6.16 Merge Window, Part 1
+Subject: Re: [PATCH] drivers: acpi: Fix platform profile driver on !acpi
+ platforms
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <174957291349.2454024.1402673095899933089.git-patchwork-notify@kernel.org>
-Date: Tue, 10 Jun 2025 16:28:33 +0000
-References: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
-In-Reply-To: <mhng-5795BA9A-41BA-4268-96C1-57114649A99B@palmerdabbelt-mac>
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: linux-riscv@lists.infradead.org, torvalds@linux-foundation.org,
- linux-kernel@vger.kernel.org
+Message-Id: <174957291699.2454024.8618597246072730689.git-patchwork-notify@kernel.org>
+Date: Tue, 10 Jun 2025 16:28:36 +0000
+References: <20250522141410.31315-1-alexghiti@rivosinc.com>
+In-Reply-To: <20250522141410.31315-1-alexghiti@rivosinc.com>
+To: Alexandre Ghiti <alexghiti@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, rafael@kernel.org, lenb@kernel.org,
+ ilpo.jarvinen@linux.intel.com, mario.limonciello@amd.com,
+ mpearson-lenovo@squebb.ca, W_Armin@gmx.de, arnd@arndb.de,
+ linux-acpi@vger.kernel.org, linux-kernel@vger.kernel.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_092803_651821_C7FC30BA 
-X-CRM114-Status: UNSURE (   7.76  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_092807_919770_F7FD697C 
+X-CRM114-Status: GOOD (  10.39  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,23 +79,23 @@ Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.o
 
 Hello:
 
-This pull request was applied to riscv/linux.git (fixes)
-by Linus Torvalds <torvalds@linux-foundation.org>:
+This patch was applied to riscv/linux.git (fixes)
+by Rafael J. Wysocki <rafael.j.wysocki@intel.com>:
 
-On Fri, 06 Jun 2025 11:10:37 -0700 (PDT) you wrote:
-> The following changes since commit 82f2b0b97b36ee3fcddf0f0780a9a0825d52fec3:
+On Thu, 22 May 2025 16:13:56 +0200 you wrote:
+> The platform profile driver is loaded even on platforms that do not have
+> acpi enabled. The initialization of the sysfs entries was recently moved
+> from platform_profile_register() to the module init call, and those
+> entries need acpi_kobj to be initialized which is not the case when acpi
+> is disabled.
 > 
->   Linux 6.15-rc6 (2025-05-11 14:54:11 -0700)
-> 
-> are available in the Git repository at:
-> 
->   git://git.kernel.org/pub/scm/linux/kernel/git/riscv/linux.git tags/riscv-for-linus-6.16-mw1
+> This results in the following warning:
 > 
 > [...]
 
 Here is the summary with links:
-  - [GIT,PULL] RISC-V Patches for the 6.16 Merge Window, Part 1
-    https://git.kernel.org/riscv/c/119b1e61a769
+  - drivers: acpi: Fix platform profile driver on !acpi platforms
+    https://git.kernel.org/riscv/c/dd133162c9cf
 
 You are awesome, thank you!
 -- 
