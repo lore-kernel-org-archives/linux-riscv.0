@@ -4,90 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42360C61CE8
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 02:01:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F7BC5B552
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 02:16:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=fV5Ek7fqxwiPV7pgIVRh4hXD/Q/PbaIjGoOdPBsZoCU=; b=jAs35QHl4H2oRD
-	0c6UnGHmYCP6RDke5P1tbXzFAsVmh1/2ej2SDF9VhDHylu/+Sy9qbVHIgJNSfxtdnzDXgXHacSGIf
-	LDCtPUKUJETDjNbjvOxju0wvZdg9Nv/YFY2IbmwiFnYiMr/1xpzfByDsukG5DY6XUsqgegHTDAEK5
-	y565TTbP2X9otvFuJpqiNx8d7REv3bACAK6nya5VcCJwzhcwAYdYvxUIFqXmdkk4is+d9z6IfCyBT
-	1sEgI8kSmfGcF9JjXvmtTmjZbhtR2/584iDEPKwJ1qtkU0B8fQOdhHcW0mN0yVdpuL2w6fSeA1So5
-	JRuS/tPJTM6aFes6yJ2g==;
+	List-Owner; bh=MbvfEATVHZ0kYiSklzO6cWIf0l6p1q4HZyRNsDVYb40=; b=RoB9TGNmW0fcgj
+	CSPyYQFvmEnMXUnPvRy1MRzPFcxWfgOgk2KVLIHYeRT2PMI6kWW1DFyJmHTdJEValV4NgNKM4zr2s
+	FcgO62N5hU2YBqKAve1k6WDubnfot9KW7hTdzFKk57Z2k2i1F8AuJACk8ZONzsCqKv9A+SNqlICRM
+	8eOTmAwsgVC3yBiYDTkOK6x3Us77QtP95yPoKZC/nTgX2p1Ys7PZznB1d7mVeNbGV9633D4BoN5ea
+	EXThqd0Dp+Ur5HHwyG8k2akeJdbKUeauV7tq4/m4WgQK6fxDfdyhp6OHw7waP2zjH+P2opDEGpyfO
+	h7VOVlJ90+B/JmjKX4ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOoJ6-00000005bO9-19OE;
-	Tue, 10 Jun 2025 02:01:44 +0000
-Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
+	id 1uOoXL-00000005d8p-2jPq;
+	Tue, 10 Jun 2025 02:16:27 +0000
+Received: from sender4-op-o12.zoho.com ([136.143.188.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uOoIX-00000005bJe-44Pp;
-	Tue, 10 Jun 2025 02:01:11 +0000
-Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7c5a88b34a6so482405085a.3;
-        Mon, 09 Jun 2025 19:01:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749520869; x=1750125669; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=w6JdwJlEWwWtngse9JGszpYE1mZus0TKH2ovIgjd1RE=;
-        b=boT4B9gsMN6pZP+thLScyfIGo57EoUCYMSfKb/X54fYNSOFhAFdx7BTwa5VE9mx+ro
-         HFtO4BokAi+nUkSmskRv+srG+JbC/fySSsFDcIZDDcoBUkUgo01Uj4CfNJPsa9HX5sCk
-         nR3Q4/AshXRs4piw6+iXS6+B7V3kjDjPW2Ro98ABxFHzg8k3lTMamz3TtB6VWkgD6Hr7
-         XGAj/AtKtLnLD9GGbuZVM0pC69abkxOUWq7nL2KsKyMcYloYmmj2N3lOvbT6d/GD3e10
-         6wi3/XzvEmox9zPWSBFi4EAHjSSWb7IuKtXwFduBVlhcjXOIQiv72SrZB9XBkwKAVg80
-         FwVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749520869; x=1750125669;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w6JdwJlEWwWtngse9JGszpYE1mZus0TKH2ovIgjd1RE=;
-        b=p2zi9aDNEMbp3rsLyxCgGnXdacRf+uwWQNaZKhT4GzY/8O4DXgpkx9t10JlV8r3BNj
-         3HcdYAZNd19+a/vzFZ+/icPFQnraR7LOlKvdAJ+nXJf2p/uTnTplmmGAZZ7Nce2chrrr
-         1MExDd2V908hgiyBzqpKk/UGJZ4Qe29vDqxoahiFoFeBytrwJIzThASqzAYBKPhqbzBN
-         jC+jJ/uDo4H88kiqncFgYeLWQMo6yxIVxK2sgy6WVCF50qVyv0+P1jCELyXo+EPpWqWl
-         BzAF40uuGLx/jrnxrSwRnvgoA/Ws8h2rdKk42rKDgzglz3IRUROiaC1MjCzDkr3qyPLs
-         D+YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV30aVw57hExly/JtG3GslNmz9A4LRDmLyFA+XLdIpG4bbOeH4IQbgWY4uEVV0Wxl5P+dtFjtSnxwhqSqg=@lists.infradead.org, AJvYcCXKZejPyrTspLhGBiE+PyrbVhM/VOl9jKKnzT21jUbQacLfqN0QzzE/zm3ATTAggXUiRQFVMmidU2dRbs//qI1T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzgUyeWP9FUQ2JqCLFlfYJOiVXKKvA7vt/EKtOKTt44zGJDu7Iq
-	gI+EYpu/FsbbcpWZX/Gdvrb78lMCNyp+Ih15OkrgN2T7obJZChQInEV0
-X-Gm-Gg: ASbGncuQSoq8/ujdOT+l6KwcOezMiCc2E+8QVtnU/oDrbTQ2GyuBk0YMegH6ioIHUSl
-	NA/ot9eP+hjd8edGaFLMqWwzTj6lHWgf1xBHSrSvVzJZrUUG+J6z7plqcfVh0xScySMZw8LMqYj
-	TKz8j1ZMTaM+0zS+hnCW1SYMlipnhq/0pqWV7YKL+Hj6FK5huIlQZgVxdZBy1/kyLpRLIU5IsfE
-	DBnCAjvnBjVkNsMopQFu9TrnUeJBNM+JtlGQ28PXhRZ2QU/itwJ75ZEBNQ1HZsQBgJ9VxRcHVla
-	kIv6nZFxuBI0zHMwW6vjWwyG5G+ftkQ/x3nMLA==
-X-Google-Smtp-Source: AGHT+IH15GV3DBze0O0Pg4+wloDqugMihWd6D/DIzMiu1G03qL/lbAtUUB6hL47UJJsPSF118+iHFw==
-X-Received: by 2002:a05:620a:4151:b0:7d2:279d:c18d with SMTP id af79cd13be357-7d2298ec94amr2846349785a.36.1749520868837;
-        Mon, 09 Jun 2025 19:01:08 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d2513357dbsm625576185a.13.2025.06.09.19.01.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 09 Jun 2025 19:01:08 -0700 (PDT)
-Date: Tue, 10 Jun 2025 10:00:02 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Alexander Sverdlin <alexander.sverdlin@gmail.com>, 
-	sophgo@lists.linux.dev, soc@lists.linux.dev
-Cc: Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Inochi Amaoto <inochiama@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, Arnd Bergmann <arnd@arndb.de>, 
-	Jisheng Zhang <jszhang@kernel.org>, Haylen Chu <heylenay@outlook.com>, 
-	Chao Wei <chao.wei@sophgo.com>, devicetree@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v6 0/6] arm64 support for Milk-V Duo Module 01 EVB
-Message-ID: <yavt4eztc4n74h55ilqbw46df6hxh4j3uwuefbzcsx7vxezrnn@5mpll7lymyp4>
-References: <20250609234125.722923-1-alexander.sverdlin@gmail.com>
+	id 1uOoXJ-00000005d8N-13Fr
+	for linux-riscv@lists.infradead.org;
+	Tue, 10 Jun 2025 02:16:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1749521749; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=WpRvctyo/jxngsmAbGBiA/2PjYgAWxyNHxkVwCWv1qhOZs9fkcbDUm0esdFfkc0meGbYCBp3qB8Jn1LxroqLdB1f/QjZaa1WpCho+AzVDo5xz3d/0RpuYDYPB4Pn2CmGAJyoFjmHhLgFdSjY5q5VeyZupTsifAh7bs4OfodaroI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1749521749; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=XCvZr2SedUqbvvr8ZQreuN0CLWKZ7YrA855PyQRbJ90=; 
+	b=naGRAdfGU/xoBIpTneLtuu6RPIoxEzjsJygCaT2USZ50AUOtRBUsFk5SsIapWc3j4hvRJflTtt0kw7uUTbDge34406yIC8OESo41etNme/C9zadZLO6AJpEJspTViD2YekXTf6kKE+LK5Kyyp3HVwDn7YbnFt50tvbkW/UgBQvw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1749521749;
+	s=zmail; d=pigmoral.tech; i=junhui.liu@pigmoral.tech;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=XCvZr2SedUqbvvr8ZQreuN0CLWKZ7YrA855PyQRbJ90=;
+	b=oJ/xji1b0T66baoLpGV7JQrxF77sU/EA6qqgm4q5fEd1MiBGo9e1KFxPafhgEgJg
+	FbcUvYqgxA74Kob7uuZ3gohounHwejtNzTeOZ+N+Ktq2wCIPn+F6jc8xWno9d87IvSY
+	B/y8zCVTehiMgYS+6h+Pv3uPGdRwVIHMc03UCwOA=
+Received: by mx.zohomail.com with SMTPS id 1749521745831216.42443583394527;
+	Mon, 9 Jun 2025 19:15:45 -0700 (PDT)
+Message-ID: <ff7d26c2-47a4-4c39-84a6-f3e554f4009e@pigmoral.tech>
+Date: Tue, 10 Jun 2025 10:15:29 +0800
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250609234125.722923-1-alexander.sverdlin@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] riscv: dts: sophgo: add reset generator for Sophgo
+ CV1800 series SoC
+To: Inochi Amaoto <inochiama@gmail.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>,
+ Alexander Sverdlin <alexander.sverdlin@gmail.com>,
+ Yixun Lan <dlan@gentoo.org>,
+ Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
+ Ze Huang <huangze@whut.edu.cn>
+Cc: devicetree@vger.kernel.org, sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org,
+ Longbin Li <looong.bin@gmail.com>
+References: <20250608232214.771855-1-inochiama@gmail.com>
+ <20250608232214.771855-4-inochiama@gmail.com>
+From: Junhui Liu <junhui.liu@pigmoral.tech>
+In-Reply-To: <20250608232214.771855-4-inochiama@gmail.com>
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250609_190110_042159_84123A1E 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20250609_191625_656212_15D86F6B 
+X-CRM114-Status: GOOD (  14.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,103 +86,86 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 01:41:11AM +0200, Alexander Sverdlin wrote:
-> This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-> arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-> been chosen because the upstream toolchain can be utilized.
-> 
-> Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-> peripherals with an addition of ARM64 core. Therefore it would be
-> beneficial not to copy-paste the peripherals' device-tree, but rather split
-> the most suitable riscv DT into ARCH-specific and peripherals parts and
-> just include the latter on the arm64 side.
-> 
-> This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-> in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-> SG2000 SoC inside (separate .dtsi).
-> 
-> This series has been tested with Sophgo-provided U-Boot binary [2]: it
-> boots from SD card; pinctrl, serial, GPIO drivers are functional (same
-> as for RiscV-based CV18xx SoCs).
-> 
-> Partial SoC documentation is available [3].
-> 
-> This series lacks the support of:
-> - USB
-> - Audio
-> - Ethernet
-> - WiFi
-> - Bluetooth
-> - eMMC
-> - Video
-> 
-> Changelog:
-> v6:
-> - rebase onto sophgo/for-next (108a76779829)
-> - dropped first patch refactoring RiscV counterpart (equivalent present in
->   sophgo/for-next)
-> - added cpu_on/cpu_off properties into psci node
-> - added reset-controller node, compatible comes in [4]
-> v5:
-> - PSCI node in DT
-> v4:
-> - minimized patch 1/7 (cleanups dropped)
-> - cv18xx-cpu-intc.dtsi instead of cv18xx-cpu.dtsi+cv18xx-intc.dtsi in
-> patch 1/7
-> v3:
-> - &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
-> were moved into cv18xx-intc.dtsi to reduce code duplication;
-> v2:
-> - dropped all patches related to the new reboot driver and corresponding DT
-> and bindings;
-> - grouped DT-related and config-related patches together;
-> - added patch moving sophgo.yaml from riscv into soc (to share it with
-> ARM); added SG2000 SoC and Milk-V Duo Module 01 EVB into it;
-> - other changes are documented in the corresponding patches;
-> 
-> [1] https://milkv.io/docs/duo/getting-started/duo-module-01
-> [2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-> [3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-> [4] https://lore.kernel.org/sophgo/20250609230417.620089-1-alexander.sverdlin@gmail.com/
-> 
-> Alexander Sverdlin (6):
->   dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add
->     SG2000
->   arm64: dts: sophgo: Add initial SG2000 SoC device tree
->   arm64: dts: sophgo: Add Duo Module 01
->   arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
->   arm64: Add SOPHGO SOC family Kconfig support
->   arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-> 
->  .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
->  arch/arm64/Kconfig.platforms                  |  6 ++
->  arch/arm64/boot/dts/Makefile                  |  1 +
->  arch/arm64/boot/dts/sophgo/Makefile           |  2 +
->  .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 31 +++++++
->  .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 85 +++++++++++++++++
->  arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 91 +++++++++++++++++++
->  arch/arm64/configs/defconfig                  |  4 +
->  8 files changed, 226 insertions(+), 1 deletion(-)
->  rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (81%)
->  create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
->  create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
-> 
-> -- 
-> 2.49.0
-> 
-
-With all change I mention fixed:
-
-Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgSW5vY2hpLAoKT24gMjAyNS82LzkgMDc6MjIsIElub2NoaSBBbWFvdG8gd3JvdGU6Cj4gQWRk
+IHJlc2V0IGdlbmVyYXRvciBub2RlIGZvciBhbGwgQ1YxOFhYIHNlcmllcyBTb0MuCj4KPiBTaWdu
+ZWQtb2ZmLWJ5OiBJbm9jaGkgQW1hb3RvIDxpbm9jaGlhbWFAZ21haWwuY29tPgo+IC0tLQo+ICAg
+YXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxODB4LmR0c2kgICAgfCAgNyArKwo+ICAgYXJj
+aC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxOHh4LXJlc2V0LmggfCA5OCArKysrKysrKysrKysr
+KysrKysrKysrKwo+ICAgMiBmaWxlcyBjaGFuZ2VkLCAxMDUgaW5zZXJ0aW9ucygrKQo+ICAgY3Jl
+YXRlIG1vZGUgMTAwNjQ0IGFyY2gvcmlzY3YvYm9vdC9kdHMvc29waGdvL2N2MTh4eC1yZXNldC5o
+Cj4KPiBkaWZmIC0tZ2l0IGEvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxODB4LmR0c2kg
+Yi9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4MHguZHRzaQo+IGluZGV4IGVkMDZjMzYw
+OWZiMi4uNGMzZDE2NzY0MTMxIDEwMDY0NAo+IC0tLSBhL2FyY2gvcmlzY3YvYm9vdC9kdHMvc29w
+aGdvL2N2MTgweC5kdHNpCj4gKysrIGIvYXJjaC9yaXNjdi9ib290L2R0cy9zb3BoZ28vY3YxODB4
+LmR0c2kKPiBAQCAtNyw2ICs3LDcgQEAKPiAgICNpbmNsdWRlIDxkdC1iaW5kaW5ncy9jbG9jay9z
+b3BoZ28sY3YxODAwLmg+Cj4gICAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvZ3Bpby9ncGlvLmg+Cj4g
+ICAjaW5jbHVkZSA8ZHQtYmluZGluZ3MvaW50ZXJydXB0LWNvbnRyb2xsZXIvaXJxLmg+Cj4gKyNp
+bmNsdWRlICJjdjE4eHgtcmVzZXQuaCIKPiAgIAo+ICAgLyB7Cj4gICAJI2FkZHJlc3MtY2VsbHMg
+PSA8MT47Cj4gQEAgLTI0LDYgKzI1LDEyIEBAIHNvYyB7Cj4gICAJCSNzaXplLWNlbGxzID0gPDE+
+Owo+ICAgCQlyYW5nZXM7Cj4gICAKPiArCQlyc3Q6IHJlc2V0LWNvbnRyb2xsZXJAMzAwMzAwMCB7
+Cj4gKwkJCWNvbXBhdGlibGUgPSAic29waGdvLGN2MTgwMGItcmVzZXQiOwo+ICsJCQlyZWcgPSA8
+MHgzMDAzMDAwIDB4MTAwMD47Cj4gKwkJCSNyZXNldC1jZWxscyA9IDwxPjsKPiArCQl9Owo+ICsK
+PiAgIAkJZ3BpbzA6IGdwaW9AMzAyMDAwMCB7Cj4gICAJCQljb21wYXRpYmxlID0gInNucHMsZHct
+YXBiLWdwaW8iOwo+ICAgCQkJcmVnID0gPDB4MzAyMDAwMCAweDEwMDA+Owo+IGRpZmYgLS1naXQg
+YS9hcmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4eHgtcmVzZXQuaCBiL2FyY2gvcmlzY3Yv
+Ym9vdC9kdHMvc29waGdvL2N2MTh4eC1yZXNldC5oCj4gbmV3IGZpbGUgbW9kZSAxMDA2NDQKPiBp
+bmRleCAwMDAwMDAwMDAwMDAuLmI5YjZkZDU2YTllMgo+IC0tLSAvZGV2L251bGwKPiArKysgYi9h
+cmNoL3Jpc2N2L2Jvb3QvZHRzL3NvcGhnby9jdjE4eHgtcmVzZXQuaAo+IEBAIC0wLDAgKzEsOTgg
+QEAKPiArLyogU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwtMi4wIE9SIE1JVCkgKi8KPiAr
+LyoKPiArICogQ29weXJpZ2h0IChDKSAyMDI1IElub2NoaSBBbWFvdG8gPGlub2NoaWFtYUBvdXRs
+b29rLmNvbT4KPiArICovCj4gKwo+ICsjaWZuZGVmIF9TT1BIR09fQ1YxOFhYX1JFU0VUCj4gKyNk
+ZWZpbmUgX1NPUEhHT19DVjE4WFhfUkVTRVQKPiArCj4gKyNkZWZpbmUgUlNUX0REUgkJCQkyCj4g
+KyNkZWZpbmUgUlNUX0gyNjRDCQkJMwo+ICsjZGVmaW5lIFJTVF9KUEVHCQkJNAo+ICsjZGVmaW5l
+IFJTVF9IMjY1QwkJCTUKPiArI2RlZmluZSBSU1RfVklQU1lTCQkJNgo+ICsjZGVmaW5lIFJTVF9U
+RE1BCQkJNwo+ICsjZGVmaW5lIFJTVF9UUFUJCQkJOAo+ICsjZGVmaW5lIFJTVF9UUFVTWVMJCQk5
+Cj4gKyNkZWZpbmUgUlNUX1VTQgkJCQkxMQo+ICsjZGVmaW5lIFJTVF9FVEgwCQkJMTIKPiArI2Rl
+ZmluZSBSU1RfRVRIMQkJCTEzCj4gKyNkZWZpbmUgUlNUX05BTkQJCQkxNAo+ICsjZGVmaW5lIFJT
+VF9FTU1DCQkJMTUKPiArI2RlZmluZSBSU1RfU0QwCQkJCTE2Cj4gKyNkZWZpbmUgUlNUX1NETUEJ
+CQkxOAo+ICsjZGVmaW5lIFJTVF9JMlMwCQkJMTkKPiArI2RlZmluZSBSU1RfSTJTMQkJCTIwCj4g
+KyNkZWZpbmUgUlNUX0kyUzIJCQkyMQo+ICsjZGVmaW5lIFJTVF9JMlMzCQkJMjIKPiArI2RlZmlu
+ZSBSU1RfVUFSVDAJCQkyMwo+ICsjZGVmaW5lIFJTVF9VQVJUMQkJCTI0Cj4gKyNkZWZpbmUgUlNU
+X1VBUlQyCQkJMjUKPiArI2RlZmluZSBSU1RfVUFSVDMJCQkyNgo+ICsjZGVmaW5lIFJTVF9JMkMw
+CQkJMjcKPiArI2RlZmluZSBSU1RfSTJDMQkJCTI4Cj4gKyNkZWZpbmUgUlNUX0kyQzIJCQkyOQo+
+ICsjZGVmaW5lIFJTVF9JMkMzCQkJMzAKPiArI2RlZmluZSBSU1RfSTJDNAkJCTMxCj4gKyNkZWZp
+bmUgUlNUX1BXTTAJCQkzMgo+ICsjZGVmaW5lIFJTVF9QV00xCQkJMzMKPiArI2RlZmluZSBSU1Rf
+UFdNMgkJCTM0Cj4gKyNkZWZpbmUgUlNUX1BXTTMJCQkzNQo+ICsjZGVmaW5lIFJTVF9TUEkwCQkJ
+NDAKPiArI2RlZmluZSBSU1RfU1BJMQkJCTQxCj4gKyNkZWZpbmUgUlNUX1NQSTIJCQk0Mgo+ICsj
+ZGVmaW5lIFJTVF9TUEkzCQkJNDMKPiArI2RlZmluZSBSU1RfR1BJTzAJCQk0NAo+ICsjZGVmaW5l
+IFJTVF9HUElPMQkJCTQ1Cj4gKyNkZWZpbmUgUlNUX0dQSU8yCQkJNDYKPiArI2RlZmluZSBSU1Rf
+RUZVU0UJCQk0Nwo+ICsjZGVmaW5lIFJTVF9XRFQJCQkJNDgKPiArI2RlZmluZSBSU1RfQUhCX1JP
+TQkJCTQ5Cj4gKyNkZWZpbmUgUlNUX1NQSUMJCQk1MAo+ICsjZGVmaW5lIFJTVF9URU1QU0VOCQkJ
+NTEKPiArI2RlZmluZSBSU1RfU0FSQURDCQkJNTIKPiArI2RlZmluZSBSU1RfQ09NQk9fUEhZMAkJ
+CTU4Cj4gKyNkZWZpbmUgUlNUX1NQSV9OQU5ECQkJNjEKPiArI2RlZmluZSBSU1RfU0UJCQkJNjIK
+PiArI2RlZmluZSBSU1RfVUFSVDQJCQk3NAo+ICsjZGVmaW5lIFJTVF9HUElPMwkJCTc1Cj4gKyNk
+ZWZpbmUgUlNUX1NZU1RFTQkJCTc2Cj4gKyNkZWZpbmUgUlNUX1RJTUVSCQkJNzcKPiArI2RlZmlu
+ZSBSU1RfVElNRVIwCQkJNzgKPiArI2RlZmluZSBSU1RfVElNRVIxCQkJNzkKPiArI2RlZmluZSBS
+U1RfVElNRVIyCQkJODAKPiArI2RlZmluZSBSU1RfVElNRVIzCQkJODEKPiArI2RlZmluZSBSU1Rf
+VElNRVI0CQkJODIKPiArI2RlZmluZSBSU1RfVElNRVI1CQkJODMKPiArI2RlZmluZSBSU1RfVElN
+RVI2CQkJODQKPiArI2RlZmluZSBSU1RfVElNRVI3CQkJODUKPiArI2RlZmluZSBSU1RfV0dOMAkJ
+CTg2Cj4gKyNkZWZpbmUgUlNUX1dHTjEJCQk4Nwo+ICsjZGVmaW5lIFJTVF9XR04yCQkJODgKPiAr
+I2RlZmluZSBSU1RfS0VZU0NBTgkJCTg5Cj4gKyNkZWZpbmUgUlNUX0FVRERBQwkJCTkxCj4gKyNk
+ZWZpbmUgUlNUX0FVRERBQ19BUEIJCQk5Mgo+ICsjZGVmaW5lIFJTVF9BVURBREMJCQk5Mwo+ICsj
+ZGVmaW5lIFJTVF9WQ1NZUwkJCTk1Cj4gKyNkZWZpbmUgUlNUX0VUSFBIWQkJCTk2Cj4gKyNkZWZp
+bmUgUlNUX0VUSFBIWV9BUEIJCQk5Nwo+ICsjZGVmaW5lIFJTVF9BVURTUkMJCQk5OAo+ICsjZGVm
+aW5lIFJTVF9WSVBfQ0FNMAkJCTk5Cj4gKyNkZWZpbmUgUlNUX1dEVDEJCQkxMDAKPiArI2RlZmlu
+ZSBSU1RfV0RUMgkJCTEwMQo+ICsjZGVmaW5lIFJTVF9BVVRPQ0xFQVJfQ1BVQ09SRTAJCTI1Ngo+
+ICsjZGVmaW5lIFJTVF9BVVRPQ0xFQVJfQ1BVQ09SRTEJCTI1Nwo+ICsjZGVmaW5lIFJTVF9BVVRP
+Q0xFQVJfQ1BVQ09SRTIJCTI1OAo+ICsjZGVmaW5lIFJTVF9BVVRPQ0xFQVJfQ1BVQ09SRTMJCTI1
+OQo+ICsjZGVmaW5lIFJTVF9BVVRPQ0xFQVJfQ1BVU1lTMAkJMjYwCj4gKyNkZWZpbmUgUlNUX0FV
+VE9DTEVBUl9DUFVTWVMxCQkyNjEKPiArI2RlZmluZSBSU1RfQVVUT0NMRUFSX0NQVVNZUzIJCTI2
+Mgo+ICsjZGVmaW5lIFJTVF9DUFVDT1JFMAkJCTI2OAoKCkxvb2tzIGxpa2UgdGhpcyBhbmQgdGhl
+IGZvbGxvd2luZyBzdGlsbCBkb2Vzbid0IHJpZ2h0LiBTaW5jZSBpdOKAmXMgYml0IDAKYXQgb2Zm
+c2V0IDB4MDI0LCBpdCBzaG91bGQgYmUgMHgyNCAqIDggPSAweDEyMCA9IDI4OCwgbm90IDI2OC4K
+Cj4gKyNkZWZpbmUgUlNUX0NQVUNPUkUxCQkJMjY5Cj4gKyNkZWZpbmUgUlNUX0NQVUNPUkUyCQkJ
+MjcwCj4gKyNkZWZpbmUgUlNUX0NQVUNPUkUzCQkJMjcxCj4gKyNkZWZpbmUgUlNUX0NQVVNZUzAJ
+CQkyNzIKPiArI2RlZmluZSBSU1RfQ1BVU1lTMQkJCTI3Mwo+ICsjZGVmaW5lIFJTVF9DUFVTWVMy
+CQkJMjc0Cj4gKwo+ICsjZW5kaWYgLyogX1NPUEhHT19DVjE4WFhfUkVTRVQgKi8KCi0tIApCZXN0
+IHJlZ2FyZHMsCkp1bmh1aSBMaXUKCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMu
+aW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZv
+L2xpbnV4LXJpc2N2Cg==
