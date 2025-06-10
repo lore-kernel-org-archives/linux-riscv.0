@@ -4,63 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CFF4C61DB2
-	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66455C677C4
+	for <linux-riscv@archiver.kernel.org>; Tue, 10 Jun 2025 22:50:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
-	List-Unsubscribe:List-Id:Subject:From:To:MIME-Version:Date:Message-ID:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=20ZP1z2ewlnrohjeO7yPfiztEF7Dv6nf/AikdC8zo+Q=; b=shwalpbPuBpOQw
-	u36p4khc714L7XbXBUsVA71lWtb31+Lqjh54KJdIreuDI0jNUqFrQh//uXeyrjWod0mqBE1IxWaa6
-	frs/HSnP5JnomP9TdM5rwEbY79kgEQ4/hrSCcLE6VkoOin4HJHOGWTzDVwh5NlD7CdHlJoBgoM7xA
-	oH76e3o8fGByRvJRDZwubT2SLyPon2t0bqXRIq2CXsj6NaumTEgNRzVXpemOO00+WioY1ozIlZO+Z
-	TtpTaVQld9LHBDcxUUQnR8yd+hCZWKZh23KhgjDmgj56XP5a+YzfnzvsRbG7uAR+xp2AaejPcKlhQ
-	Jluopv8H3b7hEkymHPAg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=k0E5m8CxmlSr+OdvsPgDXDlrv5XPYgcvRzgRyI7amRw=; b=vLWtrYu5euyyU+
+	QyKLQxuPpXsvQZIvbN7gbVImOP3XAeZfc8naPyrngmMSoea2kJZefZ/uShP8yyckI8iHL2oymvpUs
+	5iMTqP22fddcvKvr8+jr6ViviQSMB+gkdNzUDbIP4N4KlU+VtT8wtRWENeaKvkFd11PG12YSaqVQD
+	Rmuq9K3TfpYl3WBdypRolBqAaWpI99fKI026o5Urxtmt2nJ/8J9A/8xjjbY7Ec4Euw7Fcxb0rl6Q3
+	zH8+c8mcF+PRgZDQcvjNaT+pD7Ec4CnIUqVTndsu08lSeobwAGUY70iXCa08HAImr+0LELFMCY6Z7
+	69H9OOxW5slO9OnonKQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP7nK-00000008IPk-3Bvy;
-	Tue, 10 Jun 2025 22:50:14 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uP7nd-00000008Isu-3BOz;
+	Tue, 10 Jun 2025 22:50:33 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP5Lf-000000080st-2sTy
-	for linux-riscv@bombadil.infradead.org;
-	Tue, 10 Jun 2025 20:13:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Subject:From:To:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=qPlK4nKG6oKcdwoxWHuRy1WP7POdpnFO/j+cHRh/MAM=; b=BeBQN03yf7d6qhh2eQldiJTOME
-	CIdEY4VhbRJXEyjYSib0+ePoVvBsqA0lj/lC12X9tH9e1ybI0RiMSCoszCiukMmCnL1w8bbWzwPrD
-	3SENjs+qD5hkAtiGXJTJYcOGSKFv7sojf/qzZl5qbSSxk3s1XPj2ou9dFNSbKuZI81oftMilCcRbn
-	0O82XhNrzhjJh5uZA9Dg8d7uhzYo5VJQmM1eHUWxH1i1qjCryymC79VFUYkjuRCzjTMg9ba2DEYa+
-	bU5rOmvNpPU3/FUON9lke+OSZfe0X/KOm6/fT3v9b2aWUCMouLRNbj1ga+afQ5iaAemUvoOjlX8Hc
-	kW34wAyw==;
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP5Lc-00000001zI5-2q6r
+	id 1uP6FE-000000085Rb-2vYQ
 	for linux-riscv@lists.infradead.org;
-	Tue, 10 Jun 2025 20:13:30 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 44E2143A0C;
-	Tue, 10 Jun 2025 20:13:21 +0000 (UTC)
-Message-ID: <ce79482e-1b7e-4d7e-a030-8c250a7e406a@ghiti.fr>
-Date: Tue, 10 Jun 2025 22:13:20 +0200
+	Tue, 10 Jun 2025 21:10:57 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-7486ca9d396so263728b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 14:10:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1749589856; x=1750194656; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6z/2eKNf3fRnG2uPVmiQPHVorfwCzVQ+3VGe9Xlb1rw=;
+        b=XoGLCTbArGw6bt9EqslAeEdgT3wnm9H9UAmc0jOdWzmuLNazyu938PJrqmiynS+NeW
+         nYtDBKJ1uUQ9g5qt2yxud6s37ip5bfoT4rbX7hhjqOlNr8mtu269DGTdpWj2M6WjItC4
+         bTfKsIzFKNNJyMupWPpcH7BGKIU/e4jDRkEjuXawsfTAi8tl1FpR1Ryk/5SqdHz5oBra
+         O6gwtdztBfkeT5h8ie9wdmBe3LVST3vsZbcLm14untN2V0d7YVS4jy2H5joG9fgq7hc5
+         0k6SdBHheGyBoIbaa/DIc2jgdguXZl9SLmu1qzM+AA3FDo96oo8U7J9N0I/wl5RzfSKc
+         p1Ig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749589856; x=1750194656;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6z/2eKNf3fRnG2uPVmiQPHVorfwCzVQ+3VGe9Xlb1rw=;
+        b=tdl5exVWj2c0DgbmUaEDFEWoYfP0q3pPx+Vw2quFUEPfzgCvLTGEm2DuUkmvHYtbKV
+         /w8SeiNPmXIanilJCXw2BHenCAtN42rvyJ61LseVzD6bj5g1LWfMryCnlWQC9WmMuJv7
+         aW39C1btUrfIXena8FsHLtT67LLe178B7N8j9s9QsaBn4SFSCl08XuYgSnsCWVIO+W1S
+         6XeY5itldsaTOUj0oX0MDAKH8/5r0BnVtDXuLzwbfKYC6EnYxlR7oHnHgG99r2gzxd5z
+         9XXtJTZCU6UbG6GINilxVAFThFa8fRXKnT0ClPxcTn0uPE8tj3tGZVcb2215Sbn/epHV
+         xoiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXOCbryoITd5IHuymEj2NFN1dAxFitd7tj4b15i67vGuj+8aQQSNxmBLfUjlNFol2/mMOPqkyayDZl25w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhqC7A/s1P6fCXVjIhm+fiXMeMLT/NduFwaAGJ7ak4zxjbooba
+	GZhhUCAH9EpVYKKdgfefXaduTYpFZlpEQ179N06BXjPNSRpDyKTTh3MQN821ml9UYEg=
+X-Gm-Gg: ASbGncvtR7CRQJ+jQXmOqHThZJ2O8bZuh1cves/AX/LWxkVeWagvfKvdCQ4y2LzLqbD
+	tNo3S6FsPMuoLGDo+eibFcmyLONqAKzgWwt7M9IPtVZdn3FVpq44+6h1F0vl2qEk39vGSypYewL
+	ddEkHlGumHEjPkypg/WN4mAo7mCha+KlvjcgxrBUzQInV+3uuLCiP0XKM3lfjVjERYdLVg9nzKp
+	YA2asqA15mwPar0ZlQOew+dyZSGa5GEcxcb25MBZ+/sIWhcUOt9wSxi8pOX0Zk66ZJOz5nc6Qgv
+	9vY7jvkRZUpu0eAgWn1Khl6FRg0riG0xV233yWxWfGHN0PN9LuxNOpMM0mW/v8XL0b1hneR5Sw=
+	=
+X-Google-Smtp-Source: AGHT+IEwLiXrZcnfbq3Tv7L10VDTAaWuwBouaxEsiIQvsla3HLyJ0NW+H5r5c64jx5IdZukdlDUpIQ==
+X-Received: by 2002:a05:6a00:23c8:b0:742:a334:466a with SMTP id d2e1a72fcca58-7486cbd86f3mr1332331b3a.12.1749589855939;
+        Tue, 10 Jun 2025 14:10:55 -0700 (PDT)
+Received: from x1 (97-120-245-201.ptld.qwest.net. [97.120.245.201])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7482b083ac7sm7858957b3a.82.2025.06.10.14.10.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 14:10:55 -0700 (PDT)
+Date: Tue, 10 Jun 2025 14:10:53 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+Message-ID: <aEifXZnLxKd2wa0w@x1>
+References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
+ <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
- Palmer Dabbelt <palmer@dabbelt.com>
-From: Alexandre Ghiti <alex@ghiti.fr>
-Subject: [GIT PULL] RISC-V Fixes for 6.16-rc1
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdduuddvtdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfvffhufgtgfesthekredttddvjeenucfhrhhomheptehlvgigrghnughrvgcuifhhihhtihcuoegrlhgvgiesghhhihhtihdrfhhrqeenucggtffrrghtthgvrhhnpeevveevleelgeegheejiedtfeeggeetffdtkeektedvgffghfefgeekheegkeeigeenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvtddtudemkeeiudemfeefkedvmegvfheltdemtgegudgumeefudekieemvdguvddvmeguhedvtgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvtddtudemkeeiudemfeefkedvmegvfheltdemtgegudgumeefudekieemvdguvddvmeguhedvtgdphhgvlhhopeglkffrggeimedvtddtudemkeeiudemfeefkedvmegvfheltdemtgegudgumeefudekieemvdguvddvmeguhedvtggnpdhmrghilhhfrhhomheprghlvgigsehghhhithhirdhfrhdpnhgspghrtghpthhtohepvddprhgtphhtthhopehlihhnuhigqdhrihhstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepphgrlhhmvghrsegurggssggvlhhtrdgtohhm
-X-GND-Sasl: alex@ghiti.fr
+Content-Disposition: inline
+In-Reply-To: <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_211328_914144_9F5E957A 
-X-CRM114-Status: UNSURE (   7.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_141056_740863_4FEEB924 
+X-CRM114-Status: GOOD (  26.94  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,49 +114,97 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-VGhlIGZvbGxvd2luZyBjaGFuZ2VzIHNpbmNlIGNvbW1pdCAxOTI3MmIzN2FhNGY4M2NhNTJiZGY5
-YzE2ZDVkODFiZGQxMzU0NDk0OgoKIMKgIExpbnV4IDYuMTYtcmMxICgyMDI1LTA2LTA4IDEzOjQ0
-OjQzIC0wNzAwKQoKYXJlIGF2YWlsYWJsZSBpbiB0aGUgR2l0IHJlcG9zaXRvcnkgYXQ6CgogwqAg
-Z2l0Oi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L2FsZXhnaGl0aS9s
-aW51eCAKdGFncy9yaXNjdi1maXhlcy02LjE2LXJjMQoKZm9yIHlvdSB0byBmZXRjaCBjaGFuZ2Vz
-IHVwIHRvIDBlNzgxNWU0NjQ4NDdhY2JlNWQ5YWRmYjM1MWM2OGY4MjJiYmFhN2U6CgogwqAgUklT
-Qy1WOiB2RFNPOiBDb3JyZWN0IGlubGluZSBhc3NlbWJseSBjb25zdHJhaW50cyBpbiB0aGUgZ2V0
-cmFuZG9tIApzeXNjYWxsIHdyYXBwZXIgKDIwMjUtMDYtMTAgMDg6NDM6NDYgKzAwMDApCgotLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tCnJpc2N2IGZpeGVzIGZvciA2LjE2LXJjMQoKLSBBIGZpeCBmb3IgdGhlIG5ld2x5IGludHJv
-ZHVjZWQgZ2V0cmFuZG9tIHZkc28gd2hlcmUgY2xhbmcgb3B0aW1pemVzIAphd2F5IGEgcmVnaXN0
-ZXIgdmFyaWFibGUgd2hpY2ggaXMgYm90aCBhbiBpbnB1dCBhbmQgYW4gb3V0cHV0IHBhcmFtZXRl
-cgotIEFub3RoZXIgZml4IGZvciB2ZHNvIHRvIHByZXZlbnQgYW4gZXJyb3IgZnJvbSBsbHZtLXJl
-YWRlbGYKLSBBIGZpeCBmb3IgdGhlIHJ1bnRpbWUgY29uc3RhbnQgc3VwcG9ydCB3aGljaCBkaWQg
-bm90IGhhbmRsZSB0aGUgemVybyAKY2FzZSBjb3JyZWN0bHkKLSBBIGZpeCBmb3IgdGhlYWR2ZWN0
-b3Igd2hlcmUgd2UgZGlkIG5vdCBzYXZlIGFsbCB0aGUgdmVjdG9yIHJlZ2lzdGVycywgCm9ubHkg
-YSBmZXcgb2YgdGhlbQoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKTm90ZSB0aGF0IHRoZXJlIGFyZSBzdGlsbCBpbXBvcnRh
-bnQgcGVuZGluZyBmaXhlcyB0aGF0IG5lZWQgcmV2aWV3cyBhbmQgCnRlc3RzOgoKLSByYWlkNiAK
-KGh0dHBzOi8vbG9yZS5rZXJuZWwub3JnL2xpbnV4LXJpc2N2LzIwMjUwNjEwMTAxMjM0LjExMDA2
-NjAtMS16aGFuZ2NodW55YW5AaXNjYXMuYWMuY24vVC8jdCkKLSBpbml0aWFsaXphdGlvbiBvZiB2
-ZHNvIHN0YXRpYyBkYXRhIAooaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvbGludXgtcmlzY3YvMjAy
-NTA1MjIwNzMzMjcuMjQ2NjY4LTEtd2FuZ2ppbmd3ZWlAaXNjYXMuYWMuY24vKQoKU28gSSBtYXkg
-Y29tZSB3aXRoIGFub3RoZXIgUFIgdGhpcyB3ZWVrLgoKLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQoKQWxleGFuZHJlIEdoaXRp
-ICgxKToKIMKgwqDCoMKgwqAgTWVyZ2UgcGF0Y2ggImZpeCByaXNjdiBydW50aW1lIGNvbnN0YW50
-IHN1cHBvcnQiCgpDaGFybGVzIE1pcmFiaWxlICgxKToKIMKgwqDCoMKgwqAgcmlzY3Y6IGZpeCBy
-dW50aW1lIGNvbnN0YW50IHN1cHBvcnQgZm9yIG5vbW11IGtlcm5lbHMKCkZhbmdydWkgU29uZyAo
-MSk6CiDCoMKgwqDCoMKgIHJpc2N2OiB2ZHNvOiBFeGNsdWRlIC5yb2RhdGEgZnJvbSB0aGUgUFRf
-RFlOQU1JQyBzZWdtZW50CgpIYW4gR2FvICgxKToKIMKgwqDCoMKgwqAgcmlzY3Y6IHZlY3Rvcjog
-Rml4IGNvbnRleHQgc2F2ZS9yZXN0b3JlIHdpdGggeHRoZWFkdmVjdG9yCgpYaSBSdW95YW8gKDEp
-OgogwqDCoMKgwqDCoCBSSVNDLVY6IHZEU086IENvcnJlY3QgaW5saW5lIGFzc2VtYmx5IGNvbnN0
-cmFpbnRzIGluIHRoZSAKZ2V0cmFuZG9tIHN5c2NhbGwgd3JhcHBlcgoKIMKgYXJjaC9yaXNjdi9p
-bmNsdWRlL2FzbS9ydW50aW1lLWNvbnN0LmjCoCB8wqAgMiArLQogwqBhcmNoL3Jpc2N2L2luY2x1
-ZGUvYXNtL3Zkc28vZ2V0cmFuZG9tLmggfMKgIDIgKy0KIMKgYXJjaC9yaXNjdi9pbmNsdWRlL2Fz
-bS92ZWN0b3IuaMKgwqDCoMKgwqDCoMKgwqAgfCAxMiArKysrKystLS0tLS0KIMKgYXJjaC9yaXNj
-di9rZXJuZWwvdmRzby92ZHNvLmxkcy5TwqDCoMKgwqDCoMKgIHzCoCAyICstCiDCoDQgZmlsZXMg
-Y2hhbmdlZCwgOSBpbnNlcnRpb25zKCspLCA5IGRlbGV0aW9ucygtKQoKCl9fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
-dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
-b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
+On Tue, Jun 10, 2025 at 02:52:48PM +0200, Michal Wilczynski wrote:
+> This patch series introduces Rust support for the T-HEAD TH1520 PWM
+> controller and demonstrates its use for fan control on the Sipeed Lichee
+> Pi 4A board.
+> 
+> The primary goal of this patch series is to introduce a basic set of
+> Rust abstractions for the Linux PWM subsystem. As a first user and
+> practical demonstration of these abstractions, the series also provides
+> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
+> of its PWM channels and ultimately enables temperature controlled fan
+> support for the Lichee Pi 4A board. This work aims to explore the use of
+> Rust for PWM drivers and lay a foundation for potential future
+> Rust based PWM drivers.
+> 
+> The core of this series is a new rust/kernel/pwm.rs module that provides
+> abstractions for writing PWM chip provider drivers in Rust. This has
+> been significantly reworked from v1 based on extensive feedback. The key
+> features of the new abstraction layer include:
+> 
+>  - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
+>    by ARef, correctly tying its lifetime to its embedded struct device
+>    reference counter. Chip registration is handled by a pwm::Registration
+>    RAII guard, which guarantees that pwmchip_add is always paired with
+>    pwmchip_remove, preventing resource leaks.
+> 
+>  - Modern and Safe API: The PwmOps trait is now based on the modern
+>    waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
+>    by the subsystem maintainer. It is generic over a driver's
+>    hardware specific data structure, moving all unsafe serialization logic
+>    into the abstraction layer and allowing drivers to be written in 100%
+>    safe Rust.
+> 
+>  - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
+>    types (State, Args, Device, etc.) and uses standard kernel error
+>    handling patterns.
+> 
+> The series is structured as follows:
+>  - Rust PWM Abstractions: The new safe abstraction layer.
+>  - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
+>    top of the new abstractions.
+>  - Clock Fix: A necessary fix to the TH1520 clock driver to ensure bus
+>    clocks remain enabled.
+>  - Device Tree Bindings & Nodes: The remaining patches add the necessary
+>    DT bindings and nodes for the TH1520 PWM controller, a thermal
+>    sensor, and the PWM fan configuration for the Lichee Pi 4A board.
+> 
+> Testing:
+> Tested on the TH1520 SoC. The fan works correctly. The duty/period
+> calculaties are correct. Fan starts slow when the chip is not hot and
+> gradually increases the speed when PVT reports higher temperatures.
+> 
+> The patches are based on mainline, with some dependencies which are not
+> merged yet - platform Io support [1] and math wrapper [2].
+> 
+> Reference repository with all the patches together can be found on
+> github [3].
+
+I'm trying to build your rust-next-pwm-working-fan-for-sending-v4 branch
+but I get this error:
+
+$ make W=1 LLVM=1 ARCH=riscv -j16
+  CALL    scripts/checksyscalls.sh
+.pylintrc: warning: ignored by one of the .gitignore files
+  UPD     include/generated/utsversion.h
+  CC      init/version-timestamp.o
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD      .tmp_vmlinux1
+ld.lld: error: undefined symbol: rust_build_error
+    referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+                  drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::get_state) in archive vmlinux.a
+    referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+                  drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
+    referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+                  drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
+make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
+make[1]: *** [/home/pdp7/linux/Makefile:1241: vmlinux] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+
+I've uploaded the config to:
+https://gist.github.com/pdp7/e2c34dd7e4349a54bd67b53254bd3a22
+
+Thanks,
+Drew
+
+_______________________________________________
+linux-riscv mailing list
+linux-riscv@lists.infradead.org
+http://lists.infradead.org/mailman/listinfo/linux-riscv
