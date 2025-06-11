@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D928BC677C4
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCDEAC71134
 	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
@@ -12,77 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
 	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=KVWEF/VYhskb5SugoAQuB1b5uQPy9zgTI82WDhdNlJI=; b=Tk/ZfWTgE3/zT3
-	EUP5Ls6v7/BO6cuggI22cAHk74PvEs3Q4GqBecjnBhzEGYFd1AI54O4XmbBuY0pUmnHRgKnzg5jJa
-	PzVLqXlgs8QNPHSs4lciiVAhGAtX7Ma2J/GPRpl9hNsTUkjUxBDESQ6S+fHyD2lU0yeTY//Vk3qrt
-	wzaK3IwCMOsySSoqTYvDmzMa0Nfoc3vKPI5jPrgEriVATaC2nse7leZOf5Qe+kXnAG6TdOIy//WkO
-	3Nnd5+dJyzLa75vy2PqOEs2/QlXJBcmIsxFA7hSnsJi09nvSinSLwmV/UT3knVI46c+gcizheeFfW
-	o5U3pNJv4TrcfG1hvwRw==;
+	List-Owner; bh=3eZpkx4hyrJYnWZnca6/j8B6ZrHANOy9wl3H4y4izw8=; b=gc5ISwYWC8gXi+
+	WEDzEwHZfYs4Gt9B51tnDrfZEDYF6j2XXtueTzEeIolhW8bOi4Jn9yTSaiY0LZqYPZmN4/m4+WaYu
+	k83Biy7kCmA1sEaOzdS8qMK9jRAbZbU6xJQd1Q4yE9nGwY0WtgA492G+nsSad2ACckoRO8Zi7SBC+
+	5f2dEYP6wNU1hyZkMzLHLzOYRL3eDYq/4mFEAlIZYGsqGhlioSETUdZKNwzSeB3mB1xJQ9qVWmn0P
+	WmQkTQklGG9Nwdriowf/hyRO5cPWyrCuS/++HIw458R6fxZ5QoN5dc0XvfcUlfc6fR4BKqStxsDBN
+	FKwzV9z0+TqDGz53BV6g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGf1-00000009EmS-21n4;
-	Wed, 11 Jun 2025 08:18:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPGf2-00000009Emc-0IT5;
+	Wed, 11 Jun 2025 08:18:16 +0000
+Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGIF-00000009APW-3DJZ
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 07:54:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=; b=b2achX8BUfQGGj/JtG5/d7tCiJ
-	O/vrLC7H5KoIs4IwGHcf75uRyOOOFUtjmNudMSpWyhweg/XwY9/eVKXMYvRPoKk8flm1Ji85HNbZI
-	DaXnU3GHPtb31jWUv3DqKTvLYnjcwEN4V7SD9PL5qMbdEz6Ds0ZNvUcqgvkqChroJOp8qlM+sKDJV
-	iJpnHYUdmECuc8CLXPRdsi/5kzo2UqWlQYo1l/8dB6Rxpb6IdPHlPD6/A50+wU6LBfcgtkUKHyB1v
-	LzpoF50nFyzJcDE3uY3Sfsc8JX8T2zf4Oc+E8MLnXcAuC4JDb+0DrQm2nnwf42LbPj5WOshPYBuN0
-	U85LQ9sg==;
-Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGID-00000002Aus-3cDJ
+	id 1uPGIE-00000009APD-2W6X
 	for linux-riscv@lists.infradead.org;
 	Wed, 11 Jun 2025 07:54:43 +0000
-Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7d219896edeso623903285a.1
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 00:54:39 -0700 (PDT)
+Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-7cad6a4fae4so1016494685a.2
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 00:54:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749628478; x=1750233278; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1749628481; x=1750233281; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=;
-        b=Yoz1myusAF2VIDH3m+J/fBEoqd7L18QMfg4APLTJgkRPV29YdOOCv7HfI2IbvJdMaA
-         x2R7uJIq/YmhUYRvOqbcsAQBxCbD6JPqe8ORpX3YU9+USfSLXhKq3vWRR8rWHlprxCY5
-         A6urjZP8JwFTxGuAM9ePKLAt1N0Qi6B8UJgmlV3PcQpF7bVsbpZspwYlTdeCJoX6mjjZ
-         lh9vXcW7qRLLzBiu6gC4M16dB22MWLx3uGo0CDipBU748vKDsmfIymsWuw6IMYe+n8jr
-         fapNRbm71K3vXA7Vn2Lt7dZwAM6MT3H1pRvsqGcKKcgGFtxVTk0+aZilaY1wztQASh93
-         40nw==
+        bh=UymgIkDUFmAW2hJ2k6aLRjbZp7eBofh8hO/e/40bbVU=;
+        b=dfdkC0LjcbWGl4oaX4I0LdHWyoI16XDq6lsrsPe34+1Bjb1+Tu0TossOD3dA/HFDm8
+         V4VQuUToIROZVQCYWy7adQ3O5WjWnPn0zEpVbjesiBmjdCC8HOKiENAmA332PL+ZAaGD
+         3kXPP9WpBirxcL+aQFzgscvoDqc7coDCs26CplfffI+pQmqvtEcSvDsyBxdBloO6G1h9
+         I7JtinLhd5wsYcMsahbYc+oMW6gZHZOKOGQfhynHXX5Bul3VwcEZFS5BS2yc5n7Bk5sw
+         3JO16n/lI4WHRu6mc3FWdBOap+MPFpdIFk3kC1QMkGxV40VbroC5MCzLqlAAebSgrWBn
+         R4aA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749628478; x=1750233278;
+        d=1e100.net; s=20230601; t=1749628481; x=1750233281;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=;
-        b=tooi11rTLR8RyhngqVyafnSQLE94cqrJ4r7+veHFjvLIS3iBy7joBcd9LWYIdP3Wh9
-         Q+Uh6hiIL2K899C+3vfPGo0tLqkqdQgB5kjPTjbVVYlWOl6R5IcXc33/unw97VfXqtTH
-         7Tv5q/RYJxbneFXUyzarp+A6xbZ/3qTXs9A+5A6mvjzI+qbD7BsMtUAUHAGEZwRsfHYM
-         FwOFugqMsq+p7ut+gByKBYT5RujaZ09VWnadedFwaiJcEjw7x7RE3IlLK/kQAiTKgdaF
-         TInTG3hRZ4rWdFGuo8Tf/XzzDkActsA01TVU8xKPH+P55rowuZUHXI3Ai21tc546SU/8
-         8VCw==
-X-Forwarded-Encrypted: i=1; AJvYcCXVlvxBgamFhZizpfpitcqtveVp3uD9gCFcAZclQ31r+UVuSVEemRctWMQNJ4o4n18DwnJBcwXbxcSH1g==@lists.infradead.org
-X-Gm-Message-State: AOJu0YysV/GgmWJ9/9g5Q9gKIxOaWgqUT/lM1ch4wuuTaL3Kc7KaGY3z
-	vuAWOql1Z/8tzxdgk2bAO4IwP/Wcq5DpCi3XUoprDB2Se1QeaIpi2pKe
-X-Gm-Gg: ASbGncuoLtIitSYMTaglZTqkT7gEu7Q685g/SWeGuCixgUm6hU8n36Gx3OWVYCs5mkq
-	NrXw2SeViJ0nmHrjG7HW+/SEFqT02Rza+HHZn4dwDNQaQZ30AyIw2BPelR7cJ+cxKXce19SO2j/
-	tJwRLl5fULB9TxpqjZ9q16jNHCToKasvkjK/aQuv5QnZbk6PnkryPpAUmZuybYyqQS8rCQGz8hb
-	eGFoNwWjuMvioyX6EcWDLrxwIDhNRcgsV7CwwWb5NizpWwhudRMQKW7z8FJG2Ta+D3m5EU0xm2Q
-	+K4rH5zFQ0nxIs4iMQU9YTN7Dat/JCubAGGuob91rackMmBT
-X-Google-Smtp-Source: AGHT+IEySdwciKZhGZrTCtsR/Gxqu5FAFCLHguwmpefzLwsb16bnu8UFs0/XpS23i1fk+Kd0aatnNg==
-X-Received: by 2002:a05:620a:29ca:b0:7d0:99dc:d026 with SMTP id af79cd13be357-7d3a88057a4mr312939885a.12.1749628478269;
-        Wed, 11 Jun 2025 00:54:38 -0700 (PDT)
+        bh=UymgIkDUFmAW2hJ2k6aLRjbZp7eBofh8hO/e/40bbVU=;
+        b=ElvdDmgRgogbxJIBrc20/wRI5Gy2sq5AfFgK7txTOfpNtX4MHnBDsh4s6sQCHWLCET
+         kDLWCy+4MNXIOopXMd4HAv4mpc0Unviy45nrqo4Soa43wI3YxFJKUwxEiAgJ1mTsOQdG
+         K8KmnuLnNqnkfNnSjhU8hf/qgvOgtGxCO/b7qgVa4R49s6Flk0gzP/WouvK2kAH3CFXu
+         L8I5+6QfVpdpVNS8T1bgdbTLheaZQqNPtgIipp5uxOo3mHTADmV9QBdt2/WHReGQ2OmZ
+         pD3TyDVO1LT5tovAsMuZI1OnTUitMblJ5pxjuJNbSG757DdKYLkQT+TD/6AwH1x/xq2v
+         U2Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCXxYJT5vi+qu8ugtoJ2a6QNwDNz97YW7FmeaJEZWis4k0jbWdjULWSW3rkUows7GgavLsBYpNzfnn9TZg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YycJ/OouXhg+GWYA4jk/YILopgRSvkdIA/BfdUaciumzOpD5vkH
+	0T4bH4eoRSuJ1nqhl+Rj1iKXRX2H2tFcRsfxNgeDIqVzsEd2zRQb5JWZ
+X-Gm-Gg: ASbGncsX0PPU7EXA+/rMYK9ytI3/ZGWnrjphiPPXzlJFi/Ozh9FHQvYK8RMaTa6zQb/
+	VvtJYFAls7zBsmc5g+8pTbHwB0nilMrcTsuXS4/gJSgnQEFflujKfwXBL2taCqkjP9yxA0PkBu9
+	GOMxrlqNXiIgx7IZeYFRAg2arihw2qYVwMOz+gg1sw6JhoINYob4GfkJPxVW7x8OwSNvthcAYaq
+	RQFislJ6RMq0dp9v98OUHWaJ4tYxQ2fzalkD8VLFPx/4Ln8JvxQoaoUJzFWu5oihboEB055MA6p
+	LU2y1Wq868hlBExh021Tci54R3k0J+z3uhdJ2Q==
+X-Google-Smtp-Source: AGHT+IFcYfRlGLgXB5F75tcWrqlrnxZDfFg6hV8DyibBKxLYVxu4hGJ8Kf67guFwXWUTsXHBzsnNvg==
+X-Received: by 2002:a05:620a:29c1:b0:7c5:562d:ccf4 with SMTP id af79cd13be357-7d3a955398amr275831685a.4.1749628481494;
+        Wed, 11 Jun 2025 00:54:41 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09ab8a3csm79057766d6.10.2025.06.11.00.54.37
+        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d250d7c2b8sm832873585a.16.2025.06.11.00.54.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 00:54:37 -0700 (PDT)
+        Wed, 11 Jun 2025 00:54:41 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -107,17 +92,16 @@ Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
 	dmaengine@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v3 2/4] reset: simple: add support for Sophgo CV1800B
-Date: Wed, 11 Jun 2025 15:53:16 +0800
-Message-ID: <20250611075321.1160973-3-inochiama@gmail.com>
+Subject: [PATCH v3 3/4] riscv: dts: sophgo: add reset generator for Sophgo CV1800 series SoC
+Date: Wed, 11 Jun 2025 15:53:17 +0800
+Message-ID: <20250611075321.1160973-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
 In-Reply-To: <20250611075321.1160973-1-inochiama@gmail.com>
 References: <20250611075321.1160973-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_085441_945663_F202A65E 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_005442_636075_50F7EEEC 
+X-CRM114-Status: GOOD (  12.48  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,27 +118,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Reuse reset-simple driver for the Sophgo CV1800B reset generator.
+Add reset generator node for all CV18XX series SoC.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 Reviewed-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 ---
- drivers/reset/reset-simple.c | 2 ++
- 1 file changed, 2 insertions(+)
+ arch/riscv/boot/dts/sophgo/cv180x.dtsi    |  7 ++
+ arch/riscv/boot/dts/sophgo/cv18xx-reset.h | 98 +++++++++++++++++++++++
+ 2 files changed, 105 insertions(+)
+ create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-reset.h
 
-diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
-index 276067839830..79e94ecfe4f5 100644
---- a/drivers/reset/reset-simple.c
-+++ b/drivers/reset/reset-simple.c
-@@ -151,6 +151,8 @@ static const struct of_device_id reset_simple_dt_ids[] = {
- 	{ .compatible = "snps,dw-high-reset" },
- 	{ .compatible = "snps,dw-low-reset",
- 		.data = &reset_simple_active_low },
-+	{ .compatible = "sophgo,cv1800b-reset",
-+		.data = &reset_simple_active_low },
- 	{ .compatible = "sophgo,sg2042-reset",
- 		.data = &reset_simple_active_low },
- 	{ /* sentinel */ },
+diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+index ed06c3609fb2..4c3d16764131 100644
+--- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
++++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
+@@ -7,6 +7,7 @@
+ #include <dt-bindings/clock/sophgo,cv1800.h>
+ #include <dt-bindings/gpio/gpio.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
++#include "cv18xx-reset.h"
+ 
+ / {
+ 	#address-cells = <1>;
+@@ -24,6 +25,12 @@ soc {
+ 		#size-cells = <1>;
+ 		ranges;
+ 
++		rst: reset-controller@3003000 {
++			compatible = "sophgo,cv1800b-reset";
++			reg = <0x3003000 0x1000>;
++			#reset-cells = <1>;
++		};
++
+ 		gpio0: gpio@3020000 {
+ 			compatible = "snps,dw-apb-gpio";
+ 			reg = <0x3020000 0x1000>;
+diff --git a/arch/riscv/boot/dts/sophgo/cv18xx-reset.h b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
+new file mode 100644
+index 000000000000..7e7c5ca2dbbd
+--- /dev/null
++++ b/arch/riscv/boot/dts/sophgo/cv18xx-reset.h
+@@ -0,0 +1,98 @@
++/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
++/*
++ * Copyright (C) 2025 Inochi Amaoto <inochiama@outlook.com>
++ */
++
++#ifndef _SOPHGO_CV18XX_RESET
++#define _SOPHGO_CV18XX_RESET
++
++#define RST_DDR				2
++#define RST_H264C			3
++#define RST_JPEG			4
++#define RST_H265C			5
++#define RST_VIPSYS			6
++#define RST_TDMA			7
++#define RST_TPU				8
++#define RST_TPUSYS			9
++#define RST_USB				11
++#define RST_ETH0			12
++#define RST_ETH1			13
++#define RST_NAND			14
++#define RST_EMMC			15
++#define RST_SD0				16
++#define RST_SDMA			18
++#define RST_I2S0			19
++#define RST_I2S1			20
++#define RST_I2S2			21
++#define RST_I2S3			22
++#define RST_UART0			23
++#define RST_UART1			24
++#define RST_UART2			25
++#define RST_UART3			26
++#define RST_I2C0			27
++#define RST_I2C1			28
++#define RST_I2C2			29
++#define RST_I2C3			30
++#define RST_I2C4			31
++#define RST_PWM0			32
++#define RST_PWM1			33
++#define RST_PWM2			34
++#define RST_PWM3			35
++#define RST_SPI0			40
++#define RST_SPI1			41
++#define RST_SPI2			42
++#define RST_SPI3			43
++#define RST_GPIO0			44
++#define RST_GPIO1			45
++#define RST_GPIO2			46
++#define RST_EFUSE			47
++#define RST_WDT				48
++#define RST_AHB_ROM			49
++#define RST_SPIC			50
++#define RST_TEMPSEN			51
++#define RST_SARADC			52
++#define RST_COMBO_PHY0			58
++#define RST_SPI_NAND			61
++#define RST_SE				62
++#define RST_UART4			74
++#define RST_GPIO3			75
++#define RST_SYSTEM			76
++#define RST_TIMER			77
++#define RST_TIMER0			78
++#define RST_TIMER1			79
++#define RST_TIMER2			80
++#define RST_TIMER3			81
++#define RST_TIMER4			82
++#define RST_TIMER5			83
++#define RST_TIMER6			84
++#define RST_TIMER7			85
++#define RST_WGN0			86
++#define RST_WGN1			87
++#define RST_WGN2			88
++#define RST_KEYSCAN			89
++#define RST_AUDDAC			91
++#define RST_AUDDAC_APB			92
++#define RST_AUDADC			93
++#define RST_VCSYS			95
++#define RST_ETHPHY			96
++#define RST_ETHPHY_APB			97
++#define RST_AUDSRC			98
++#define RST_VIP_CAM0			99
++#define RST_WDT1			100
++#define RST_WDT2			101
++#define RST_AUTOCLEAR_CPUCORE0		256
++#define RST_AUTOCLEAR_CPUCORE1		257
++#define RST_AUTOCLEAR_CPUCORE2		258
++#define RST_AUTOCLEAR_CPUCORE3		259
++#define RST_AUTOCLEAR_CPUSYS0		260
++#define RST_AUTOCLEAR_CPUSYS1		261
++#define RST_AUTOCLEAR_CPUSYS2		262
++#define RST_CPUCORE0			288
++#define RST_CPUCORE1			289
++#define RST_CPUCORE2			290
++#define RST_CPUCORE3			291
++#define RST_CPUSYS0			292
++#define RST_CPUSYS1			293
++#define RST_CPUSYS2			294
++
++#endif /* _SOPHGO_CV18XX_RESET */
 -- 
 2.49.0
 
