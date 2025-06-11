@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0D6C71137
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:36:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BF92C7113D
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
-	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=7XfZfljt2WRGxnaNquMpTEcBZsX/QX+wh2AJmxPg9D0=; b=uvqzBRlP0yoxT/
-	Oi2E8brCwK3R2qw91u4uLv1IZsUAlrFuaPOYxEPw2OGaMHfY72CVYzwydDQi2oy303eOzxHLRPXX8
-	eEGLH+fp44/i9GMYXBzSA6Q+la4PANLiNFLgaFB9FMb/F3eQTVNrEjpfpy0viYl0SIxw01/Nkzu2f
-	OHEQEvEkRmdS2XnO8m1Xc2zWRC1J/dMqjGoSX72pmuvYpbHwzZDSUcx+6yPEBkwrad/qMjNyphFo+
-	N5ZG0te46UpTevtntUBM7LmpVB5/e8kngKuOTpXBenJFVDubpByWfIKBWy98DWfZKhIRAlkJPsSBI
-	a9TZfwy4Xb8Wi9CSd0/Q==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DBPYFwzIAAfA3z3bYIwxPdxjHRZDFVmeBUk2NAX+vS4=; b=ijKizLZKvZikgB
+	MtVxu3cabBykmzI+wcbyVHijIrkQJjuHgcP1TQRqZCXleTeZTuIQOniRUtaKUDQ5oh/yhpIpiE5r4
+	dGOrDy4NW0LDHqSZvuBW26Q3MkrgWdluenVExX93Ko8uDY0oQNo9h2NbxGZjyzgVZ5tsbEeFX3Hoj
+	uMFDUq7lRQNILXLSEpaBU1GeKgyWgfRzi3Bk8+1fLLvrCCRb6euePqjwZZrYtNzUXAxM6udkDwHXO
+	VincGINr6BqFklu3m++GP+yhvDQGbYE6HM8q6H9/v49e3oKaovnBZ4xlIqqUZW3mtqALXTddztsDx
+	xneX3nOPNUsTVVYZig5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGw8-00000009HhQ-2ARR;
-	Wed, 11 Jun 2025 08:35:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPGw9-00000009Hin-2ryy;
+	Wed, 11 Jun 2025 08:35:57 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGVg-00000009Dcj-1GGV
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 08:08:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=ge003WgsMwudUMdpNi+b49fQSC43w6jsORUWEBCoqBQ=; b=MOOQhmeT2kVCY+eRPOCaegJbD9
-	gY5sj2DQnL+2Ot2N4ScXGO7akTz0FzFVFDVKbctnq/P10gcWnX1eIFG1OdPmsUoSN0KnN20azgNRS
-	Vby+lS3sMWR0yqkHzOEzANo8U5CnxjpNcpvq/Y4OOBf0EV3IbIMu/BSAX3H6u6pyiM70f9PAASxpB
-	mQoRdGHdb65ZjK83dxWNfSYaGdQgozBsQETkt/MIfkrRe8qJ4xCes1ohwp+MKC9V05kQmJHDBKNRj
-	qdtEgp7JOpLMZjf8OTlP+YptVb2qQMgLE+kquBMNYoaip0CTeewJ0sm74+sXuXtTb+bn4pf2D0EPM
-	OIRVvA4g==;
-Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGVe-00000002BRy-0AV5
+	id 1uPGYB-00000009ECT-1VjV
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 08:08:36 +0000
-Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-6f8b2682d61so6805666d6.0
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 01:08:32 -0700 (PDT)
+	Wed, 11 Jun 2025 08:11:12 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4a5840ec53dso76511751cf.0
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 01:11:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749629309; x=1750234109; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ge003WgsMwudUMdpNi+b49fQSC43w6jsORUWEBCoqBQ=;
-        b=KIBKEEfTH4uzWvSxqaD2PCXioOT+PvdVSpkv7Qb00yb8LL6KyHfR2QBGAC5kYehCzU
-         cQUnIv0cA/+LLswgY9iAPS8fi7+UvisUiWsIBS91jrBbQS5KE9FUqJpfIZzNNWze7oJ0
-         AnHXJ0oNKI9Icl6wdERL63ikX9EenjOqfeZ9hV9twaFoRiRpaBruDaYRTJ9qNEj4I8Pu
-         /ti/FwFF6Ubu2uDU3OXDjwcV1mi9jdf8dGFyP6B5V66crH4JYHiMA+5eNRnTIlDjXeOz
-         q5iUXYM0w6I8yVWaudLQLNTd0Kbrfz5EmZMPHlRKQeRRyC0r+RLIenqL7BA7oiLlcfsa
-         O6lg==
+        d=gmail.com; s=20230601; t=1749629470; x=1750234270; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ZZMQxOY3jdiUUlcRVmJEoq9jtCkBekBHkitKdRBzHk=;
+        b=D7YxFrOzzSFic3uyqXPYMIbBmOCL/K9pVmBAooG36hhve33L9DUWCcSphM3XV7aiaS
+         K7YNWmoNlLT/nrvojHPcf+XEgmvIjKu6cpjW3mwRgFrqCZd0TZdDKl9HcVk0uPNbLk7i
+         /vRK832CfgYz8A+9FoCDdi8M/Uh95A3GnOXRo3ulU2fev6PJGrP0rCmeXSz1Qs1sNPtf
+         paoMLly9BTkB3tPWiOY/sY3G1RUMp5RKESo0zwnEg198TSVOXbmOn+LDuTNmi0FWJJGH
+         jIu5JRzmACdUqDH2/+CtUwtZewztaL0HLQwHtjTF8IGtMgscPF0KYjOahlYkN6p3HnY5
+         /Irg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749629309; x=1750234109;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ge003WgsMwudUMdpNi+b49fQSC43w6jsORUWEBCoqBQ=;
-        b=oqyDCYQgqzoscnafDiUY/GqU+lWpRToeWcr+oxKguFW1+zek1t/3z36rLck9vRik49
-         HDMskrLzSwZxULKj8bRi0t6tTkTiivCzW8W++Mmm/XKJIidB/+4flDa6gICqTVTJxDVf
-         OAbCA2ae/WEMQIq1h3kNC0IZlDd6OTFsXbPoQvh2hIDwGk5yeb77favSk3cp7/nOu5eJ
-         nxXbVx9/VtV4f+Kpih878Vqvq6f119o6ZDuD3PQGyptq8mUh213Sryw2Q5QhPbdFVBBX
-         VyK4qW5mVgsgsvV6Hf62o8V/Y0mGkYXzvODyob3jw29vy8iGCCAPlFDePFqxGzEDGyxV
-         s8YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVFrhWH50lmxHmejpAD7yxkOfhznTtRHsa01Bmk8Eo7msPtMnMrIjA4KuMPBGhb2cYloX6D8AAge8aZZA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzrq2PesC8heggbzRREYFt/JzAtzhe0Zyj0BxXv/5eXjzldP0P4
-	JLxALySdXe7f0E4zDBoGpMyVrOXJfGWfWia0Hwrk4iPVYg+tFGcogNZS
-X-Gm-Gg: ASbGncsD/iCBdBufP/2B+3gOXexESZfg4AO7hyK7uCKGYmLhKKr/jA5Z/89dI9gJxcj
-	Oh73YMyb8SvD/laXk29TGL/SSo+zhNfcPJw74VszcrD+OYSVhthkWFiJU7T4chp7iGGN/+8YaZE
-	iYBDf4A/2dgwmQ9x1Xf4ziX7Kj6/e2FqFe6r6YJk4OAs9NmFdaejn/p0IsI/xsKAKxh9ZwB9Ppm
-	uzB0LZwXrjMs1qRSZpJGD+xqTGRIsvFxtakt51JHSXNCtEsL4cAQxbx02QB7SdaoWuVYmSYtK+J
-	Y2555j4ZXaW2aLL9/yOCV/TVvOn0fy4bo+BUL0U0Ex7oFeGv
-X-Google-Smtp-Source: AGHT+IFBz0E3rXdgSVz181RQOaZkyTs2eWSoYwoAfP1yHwV/b8ZHhiVjlkMydErBFnwNENizLT3OYw==
-X-Received: by 2002:a05:6214:2aaf:b0:6fa:ad2a:7998 with SMTP id 6a1803df08f44-6fb2c3d48a8mr39200286d6.18.1749629308594;
-        Wed, 11 Jun 2025 01:08:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749629470; x=1750234270;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=+ZZMQxOY3jdiUUlcRVmJEoq9jtCkBekBHkitKdRBzHk=;
+        b=S4fV5vIJJ7uxtC8eVbrPxhd786HnM0Hp5osEBzJoR981JAmDeJO5xO09CKqfRviVNp
+         4fbaiurlGpvYMdaDWcJwC+0wt4TeJgzby3qF68diuAJrU1dEF++8YcNwJFlHRHIijOVu
+         WNt5Uo0DLBuBUrY5BOgyHI4PSIaYENzUjRa1ziutirW8/CcsqDI12zAQsS+hWsATsD3B
+         x5AZ6U8pWjOd1g6ur3FR2nwRO5oCgIRyXKVOJEpCkJaGyj4KhuIhSWiK861LigpZVibh
+         +lSs8EV9ORJnBoSddIQIInUh+ewCeojb+avsjlRKIhydGfjm/zHY/VFRvaV56/5CsZz+
+         yBCw==
+X-Forwarded-Encrypted: i=1; AJvYcCXshbmFcek5HxzDEPMUKI54rFQI4XuIYHz/YvewIg0J1YKwPwEAKwDHdLWJoufaYgsnn/+I2n41IiVKBw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzfMHLmD3YJeUcjW1LvsxcO0eI08EOoTiJs5JILc695eKNQtm5E
+	70O6TDR+/a4CXwn1HxY90FgvMh9EDXya/bhZ5Qp2bHzCzOLhXNZ/hJWa
+X-Gm-Gg: ASbGncupgsGkcgSqH9Xu74BkQXTvKLYRpGjxT68wnx8tBr8BymyIacA6QTj4GZANpSm
+	+2QcZ0KHCP0R6SdfN2vjP7W3cPOP395EdbxDTA1lEb/6pA+KESl89BDEcP7BkeKUDa2ZhtLmJkD
+	ISyteHRrqL8jPEoJSqTYeXtEQCAPupVR+u1fQP4TxOtcgzhDfG1CZITQiAZolDrajrgtaWBuSz7
+	gepldfb1NLr9+94Cy0IMkVuM1ufisrbNtUbe52E5s+rlBT+DREumFZUdB3g8ADcK3P/cZSTYk4g
+	f9I6AnSjMgFE8442uKcI6aslRkAoce3iYIgxJOUZ2bE37NeP
+X-Google-Smtp-Source: AGHT+IGZnue+EG+14/hjDiRd+e4Wrn0+S+QrqOcOTcR+sr6Io4g4wyFZ6oXcvJFQ47foHvKNUa181w==
+X-Received: by 2002:a05:622a:1f0c:b0:494:959e:26a3 with SMTP id d75a77b69052e-4a713c41a06mr39119801cf.34.1749629470186;
+        Wed, 11 Jun 2025 01:11:10 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d24b32073esm847127185a.0.2025.06.11.01.08.26
+        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4a6f5c7a22esm57218951cf.54.2025.06.11.01.11.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 01:08:27 -0700 (PDT)
+        Wed, 11 Jun 2025 01:11:09 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+To: Vinod Koul <vkoul@kernel.org>,
 	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -97,29 +77,22 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>,
-	Yixun Lan <dlan@gentoo.org>,
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
-	Ze Huang <huangze@whut.edu.cn>
-Cc: netdev@vger.kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>
+Cc: dmaengine@vger.kernel.org,
 	devicetree@vger.kernel.org,
 	sophgo@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
+	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH net-next RFC 2/3] riscv: dts: sophgo: Add ethernet device for cv18xx
-Date: Wed, 11 Jun 2025 16:07:07 +0800
-Message-ID: <20250611080709.1182183-3-inochiama@gmail.com>
+Subject: [PATCH v14 0/2] riscv: sophgo: add dmamux support for Sophgo CV1800/SG2000 SoCs
+Date: Wed, 11 Jun 2025 16:09:57 +0800
+Message-ID: <20250611081000.1187374-1-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
-In-Reply-To: <20250611080709.1182183-1-inochiama@gmail.com>
-References: <20250611080709.1182183-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_090834_219231_64AA412D 
-X-CRM114-Status: UNSURE (   8.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_011111_398622_D60E8EA3 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,69 +109,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add ethernet controller device node for cv18xx SoC.
+As the syscon device of CV1800 have a usb phy subdevices. The
+binding of the syscon can not be complete without the usb phy
+is finished. As a result, the binding of syscon is removed
+and will be evolved in its original series after the usb phy
+binding is fully explored.
 
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
----
- arch/riscv/boot/dts/sophgo/cv180x.dtsi | 44 ++++++++++++++++++++++++++
- 1 file changed, 44 insertions(+)
+Changed from v13:
+1. rebase to v6.16-rc1
 
-diff --git a/arch/riscv/boot/dts/sophgo/cv180x.dtsi b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-index e91bb512b099..7eecc67f896e 100644
---- a/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-+++ b/arch/riscv/boot/dts/sophgo/cv180x.dtsi
-@@ -189,6 +189,50 @@ i2c4: i2c@4040000 {
- 			status = "disabled";
- 		};
- 
-+		gmac0: ethernet@4070000 {
-+			compatible = "sophgo,cv1800b-dwmac", "snps,dwmac-3.70a";
-+			reg = <0x04070000 0x10000>;
-+			clocks = <&clk CLK_AXI4_ETH0>, <&clk CLK_ETH0_500M>;
-+			clock-names = "stmmaceth", "ptp_ref";
-+			interrupts = <SOC_PERIPHERAL_IRQ(15) IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			resets = <&rst RST_ETH0>;
-+			reset-names = "stmmaceth";
-+			rx-fifo-depth = <8192>;
-+			tx-fifo-depth = <8192>;
-+			snps,multicast-filter-bins = <0>;
-+			snps,perfect-filter-entries = <1>;
-+			snps,aal;
-+			snps,txpbl = <8>;
-+			snps,rxpbl = <8>;
-+			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-+			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-+			snps,axi-config = <&gmac0_stmmac_axi_setup>;
-+			status = "disabled";
-+
-+			gmac0_mdio: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			gmac0_mtl_rx_setup: rx-queues-config {
-+				snps,rx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+
-+			gmac0_mtl_tx_setup: tx-queues-config {
-+				snps,tx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+
-+			gmac0_stmmac_axi_setup: stmmac-axi-config {
-+				snps,blen = <16 8 4 0 0 0 0>;
-+				snps,rd_osr_lmt = <2>;
-+				snps,wr_osr_lmt = <1>;
-+			};
-+		};
-+
- 		uart0: serial@4140000 {
- 			compatible = "snps,dw-apb-uart";
- 			reg = <0x04140000 0x100>;
--- 
+Changed from v12:
+1. remove syscon header and use local offset instead.
+2. add COMPILE_TEST for coverage.
+
+Changed from v11:
+1. init all the field of the driver data.
+
+Changed from v10:
+1. binding: fixed binding id.
+
+Changed from v9:
+1. binding: rename to cv1800b-dmamux.
+2. binding: remove the unused formatting.
+
+Changed from v8:
+1. change compatible name from cv1800-dmamux to cv1800b-dmamux
+2. use guard to simpify spinlock process.
+
+Changed from v7:
+1. remove unused variable
+
+Changed from v6:
+1. fix copyright time.
+2. driver only output mapping info in when debugging.
+3. remove dma-master check in the driver init since the binding
+always require it.
+
+Changed from v5:
+1. remove dead binding header.
+2. make "reg" required so the syscon binding can have the same
+example node of the dmamux binding.
+
+Changed from v4:
+1. remove the syscon binding since it can not be complete (still
+lack some subdevices)
+2. add reg description for the binding,
+3. remove the fixed channel assign for dmamux binding
+3. driver adopt to the binding change. Now the driver allocates all the
+channel when initing and maps the request chan to the channel dynamicly.
+
+Changed from v3:
+1. fix dt-binding address issue.
+
+Changed from v2:
+1. add reg property of dmamux node in the binding of patch 2
+
+Changed from v1:
+1. fix wrong title of patch 2.
+
+Inochi Amaoto (2):
+  dt-bindings: dmaengine: Add dma multiplexer for CV18XX/SG200X series
+    SoC
+  dmaengine: add driver for Sophgo CV18XX/SG200X dmamux
+
+ .../bindings/dma/sophgo,cv1800b-dmamux.yaml   |  51 ++++
+ drivers/dma/Kconfig                           |   9 +
+ drivers/dma/Makefile                          |   1 +
+ drivers/dma/cv1800b-dmamux.c                  | 259 ++++++++++++++++++
+ 4 files changed, 320 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/dma/sophgo,cv1800b-dmamux.yaml
+ create mode 100644 drivers/dma/cv1800b-dmamux.c
+
+--
 2.49.0
 
 
