@@ -4,96 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06C6C678DC
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 14:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEC10C71131
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 14:50:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=YN0UZvKmhu0pTG5gWxGsHSG/OW8wXwrDlpLDxLqO+IA=; b=On+uK2gxe6b28c
-	VbKQkPg92wF1YB1eHE+ffm1CpyutUGAMsJsJ/SKuyhahW+2KR8AFCMYYkVWQR8m5ZJtTPp1bIYJh3
-	uAFI5u0lxcrLOCKVQsAcaKBgO7Ukp+tEHfjimUjoUGHBit32zAXcoXlRgnMpTSqMBjbYwkD9iPsCi
-	KxOkWl6PO02rCKYeltM0O1H9N8ym37GuTAknhTs9+1iNQx6TwjrIqbNHgoxUQCfqdSIQKfgY6YvlV
-	vCKffylcRY2CNrpdTpJN5mpCEzt3r/ru9TNluNhI4V5r7V9iU9E4Ger5xPx/qUdWnpqRkJpKAJ91i
-	1PeacKa1fGNc1yqR7HEQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dhgTnhAgiTe1mkh41+QUR4GcSTuezUR6EkZLBfiFKyI=; b=zvvHUaEdtzsawbCCiWJ3GGFx5C
+	jy9g5zWaf+9kSR3jWQBjRhRyTwbIGQmKP0Hr1pN+yLwUBMAh0FE5nb4cQpYuTXkQKCy5FVjKicS7B
+	gq9nIZOiX94CqLbNlSivUZtWaFUeN0qof75bDxL9ngeYL2V6MI+SQ7b2NeA54heP/xaP7IRPEh1Tk
+	n2Zcaxiw5n1AIPeurqfYa4hsdBgLDlJ/jCJFS0+P7ReIq3Y+lfPWRQa4fby0SrBIjf0vUcg2dwf44
+	Jl39bsTv2utgZ60Wx7cVYyAI5Dg4XPKZETT8y4PGrM3DFmjI9oj4LfJ4hoAKq90CKI22lioFVlnJn
+	C0dLd0Rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMlu-0000000ABE1-1Obl;
-	Wed, 11 Jun 2025 14:49:46 +0000
-Received: from mail-qt1-x834.google.com ([2607:f8b0:4864:20::834])
+	id 1uPMmQ-0000000AC3I-2Mrm;
+	Wed, 11 Jun 2025 14:50:18 +0000
+Received: from mail-southindiaazolkn190100000.outbound.protection.outlook.com ([2a01:111:f403:d408::] helo=MA0PR01CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPI33-00000009Wgu-3EtH
+	id 1uPI9w-00000009Y0y-2cSK
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 09:47:10 +0000
-Received: by mail-qt1-x834.google.com with SMTP id d75a77b69052e-4a43cbc1ab0so79409421cf.0
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 02:47:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749635228; x=1750240028; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=n9rPiGNTaPA7/GngQM8aAU/prJJW46EXooVz3Uq/Q3M=;
-        b=EKo0QG/+wzGM0x8YczONLMp8DHqiVDFG7OyFhxjp0XAseq1EQ86QgqBdXF9L4AWNiq
-         QPmCjv92CkooOcCvruKQmGTtkByV3NDG0yNLT5c/XOEKaeA2W1CI3adzQIVRDdEW7UnH
-         jwbNEmLT47pl7z2Ow0ZyBaePJgqSDMuAZBXWmFFJjN26uMspfozZ/VXn/etCYdwzm8le
-         VmEoeraRVtfMAtami/be13MFNkBHVXvm021B9bKpOAXW3P38XwzuTy39qx71huF5WGN9
-         DZfpskxao7oR6+KAqb6yGyC5K/e+oQFYuI/x5PXxmOo0U23IGvfArmT1nPeDMKpkWUgL
-         McsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749635228; x=1750240028;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=n9rPiGNTaPA7/GngQM8aAU/prJJW46EXooVz3Uq/Q3M=;
-        b=epK2kFPM90Xkrf6DgIQ78q1znrka8bm4Sa0/EP3s5lGk5uxVkEka33FLgFKQI7e9sz
-         T59CrLwIP6uVlWWQrYM7ehrx5+nWwKv9yptiqOP3sgHpzk8aOJ5zNnHgUrhVVyHIMjul
-         Wvb1OfZ4KvRXoTlp72PO00ZUyK2XDbKZjnvsvp2ue9fT0h+YpV95mwuaIB2KPgLo3JRN
-         l2nen8YOtAkD+6ErlzBRZlQnDI0JMZvE9ILxA5/BhxQY3Szh9+RnHbk5m5YIwGw43YzZ
-         l/IzGSnGobxqk6N6bVsChFz8+iiQrbzO2CNvc0DD7ND5A9uFnOHQTl0wmYX6iOGtPdz8
-         rfhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHlpM/WegSXH00wYp2wtixr+5m8UINU+6YlNWmqcc4ntGSGiFP0nximZtHFmzsVJ18ISLlQg04+Valcw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YypOH76KD1tO5HczkDbp3gL4xm21rKisuvpVJkKr3gBXf//zMT/
-	1iVT4jYQdNGPjQvO4TzOQ5IGrWmzd2jlhTfHWvwmWSMrF7YjcoVl+QTsEl3FGGXh
-X-Gm-Gg: ASbGnctOwMr1KTvx6bg+wIZlHfis9LVaAxHyFdxnt8tfP8lrDj1OeLWrst7YtG9DL8q
-	6j0OkJRhzrIzBO4ViCANuqLOp+1TY66XkAR1X7fCj1d2hSyoRy0HNO1T716jQfBeHsocSNu3K/3
-	L0gh9Kmgn8quxhIdFSvKy+4DqZlq+YC5/1HcJ9RKs9D+r8uKPJuJcHYMTMRpT3TTjoKUfok1Iok
-	sHsphxmsiPAi0Tx4pBehSSv0A5X+ND1qBVy9n72pe2fvejyBmYscNqneWpzrBTn4nsgtW4eAgTu
-	/h+c4mjFGwpROKaId1cDv/evBux0RuO/4jkk+g==
-X-Google-Smtp-Source: AGHT+IHoucd0pTsqUEMuvaSjWbfTQOjCUx6k4huksi1dJ/QwFsl1H1FuuHsdR5T8wu60/r37DLUb9A==
-X-Received: by 2002:a05:622a:5595:b0:4a5:911d:52f6 with SMTP id d75a77b69052e-4a713c5ecc3mr52302751cf.39.1749635228486;
-        Wed, 11 Jun 2025 02:47:08 -0700 (PDT)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id d75a77b69052e-4a61116bc4esm86576941cf.28.2025.06.11.02.47.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 02:47:08 -0700 (PDT)
-Date: Wed, 11 Jun 2025 17:45:59 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
-	Inochi Amaoto <inochiama@gmail.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Vinod Koul <vkoul@kernel.org>, 
-	Alexander Sverdlin <alexander.sverdlin@gmail.com>, Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>, 
-	Thomas Bonnefille <thomas.bonnefille@bootlin.com>, Junhui Liu <junhui.liu@pigmoral.tech>, 
-	devicetree@vger.kernel.org, sophgo@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH v3 1/4] dt-bindings: reset: sophgo: Add CV1800B support
-Message-ID: <mbvzlggbisa4zvvbjvlg5lrmhb455av37mrtwmphqiqi53iuyu@ybql2m773x4c>
-References: <20250611075321.1160973-1-inochiama@gmail.com>
- <20250611075321.1160973-2-inochiama@gmail.com>
- <20250611-brown-turtle-of-election-87c324@kuoka>
- <2v4hfzqgz22k6s776onexnhd5cnhfr7s7ggvcmh4mfiviigq66@a2ehkwbv7oll>
- <ec60631a-7e55-4dc0-83f7-6e6cb156dbf2@kernel.org>
+	Wed, 11 Jun 2025 09:54:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lTGxgZYzwH1neMM2YB+0BAMcmleZX8OTZyrmHHeJJUMQw1kIqx/absS/8w4MNnVjnQ7Q8b+VR7eejXY9/1zoLIEb64kkrPAtcrXgzNbEMg7vttcj1i64NuUJ1AaW4rVmu8APbqvc0ee8HALRUESWHwEhUn/QiLGRJdrplMLd2aMb2VGzL9dvHUaM/9I10qf/C92ujmUAGADQc9kzBTuFS2YerwgyAt9E6iq7FgOYvg5PqL0+IjMfqq49OKLGzYtBOqH7RZx8ce+0OVnuFHPfqgnp3lx21guyaGrAIU7EYFwQaBUxcSy9vrr7OqP8abfrfokNMpSmUSK6mpQ6ifYj/Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ySZYBIjpGAQdtRc2xZ4ebPQMnX2efCp8IBjwigWG5mY=;
+ b=NxWZeCek/CwCjHIkLUZtqOxRF6xbswsFkxbl3mjis7nd3O0+wsY7K46yEU1wuB2MXcfSBpAHpzHotg6gTW458MJd9ZgTus5DECcfG4PH3ErNHTY/jTc8PomQ+L4+LGFlcuj9424roxzLCm6tY27cOR85fxS3liVgaB+sNCX9U0omccp60clXLegEuTPelvVz7nzNdyss4rA4LdyaWMhP6sVCPaj2ef9pVWhaKfkwaErc69i4jUipydnW69aWR0QoFQfSjWnm8Evb7rF+zSha5ArCEA8JlMvUBZaxo4fMK89SvaIH6LYDsObxPCjFcfZbcgI99raKpfS3C6EQbWLGtw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ySZYBIjpGAQdtRc2xZ4ebPQMnX2efCp8IBjwigWG5mY=;
+ b=F43anofThBmwjIuSXM4z+HC2Ycbs4YOmgblnuglaV/jXGiA25WA3OY3aZsRGkp8YySYf6P1dNiIkGhWh02dV8zI13bPe0pb5vYhAa532XwUXTlMRUy/NDCfsqntyOMnLfPckY8Bs6d0H25OXxn0mPdu3tjitkTp+UiTO5AtVrgxa20PDFuopnEXGfl/k/Rque/LN8nsIr+GSl+qFiSfWpDDj8oBEARJV1VAaX7FT4+cyu0YKslCdKhjdsWiadhKgpLETj0ZnZRPcCIvVOeMgrhrQ1V088VAKvqmSVmEH5ve6Eda0yXPZsZ3DXK5qKlPK2D5X+pB7Kee9SItvcamAcQ==
+Received: from PN0P287MB2258.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:1c0::8)
+ by PNYP287MB4069.INDP287.PROD.OUTLOOK.COM (2603:1096:c01:287::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Wed, 11 Jun
+ 2025 09:54:01 +0000
+Received: from PN0P287MB2258.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b63f:e256:4db1:2e9f]) by PN0P287MB2258.INDP287.PROD.OUTLOOK.COM
+ ([fe80::b63f:e256:4db1:2e9f%6]) with mapi id 15.20.8813.024; Wed, 11 Jun 2025
+ 09:54:00 +0000
+Message-ID: <PN0P287MB2258F2BB409F70955D6EE248FE75A@PN0P287MB2258.INDP287.PROD.OUTLOOK.COM>
+Date: Wed, 11 Jun 2025 17:53:54 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/11] riscv: dts: sophgo: add pwm controller for SG2044
+To: Inochi Amaoto <inochiama@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>,
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>,
+ Longbin Li <looong.bin@gmail.com>
+Cc: Han Gao <rabenda.cn@gmail.com>, devicetree@vger.kernel.org,
+ linux-riscv@lists.infradead.org, sophgo@lists.linux.dev,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ Yixun Lan <dlan@gentoo.org>
+References: <20250608232836.784737-1-inochiama@gmail.com>
+ <20250608232836.784737-12-inochiama@gmail.com>
+From: Chen Wang <unicorn_wang@outlook.com>
+In-Reply-To: <20250608232836.784737-12-inochiama@gmail.com>
+X-ClientProxiedBy: SG2PR04CA0184.apcprd04.prod.outlook.com
+ (2603:1096:4:14::22) To PN0P287MB2258.INDP287.PROD.OUTLOOK.COM
+ (2603:1096:c01:1c0::8)
+X-Microsoft-Original-Message-ID: <39096efa-a3e2-4d31-a7e4-43a13484a137@outlook.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <ec60631a-7e55-4dc0-83f7-6e6cb156dbf2@kernel.org>
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PN0P287MB2258:EE_|PNYP287MB4069:EE_
+X-MS-Office365-Filtering-Correlation-Id: c013136d-04c7-4a3d-c819-08dda8cde40d
+X-MS-Exchange-SLBlob-MailProps: Cq7lScuPrnqTDjd4Fy0PN0HVJKAgc5hFtHC/ptq2/B1XzN9fSXJqzO+4xixLBbK9OujE8EFb88Bb4VOczjSF+kYkcsSLkGe36HzeiV3AWkpPj4nMOHLtze9lG8BndpEkKRWGc9pASS++baLHOpG+Q0mN3w0d6XC+cN8c2beruMelrnngkEMdsui77lzpYBNUT2WGeBqyEIKke6rrLQTM9BatnAKg0AFhDhP17Wpzwpn1gZBlym7KSEd0t+xx+2mj56sZBrZWfBAMj9FlkYkym5rBSOcIyk7fobt+5FNyZBYympPnbzl3KDxhoRrJswpiHcdoitOqwALFl9Aa/xvhcJNlsAoEisJbnmzFBHEzEWGHbhYaQYRvkcBDwHXeAdTHCsbdA1YKsjUmBhN7iMKm0aZS4mPI+6vK8/tKZJ4Z1D75GgPRTIAVm+zwE2dQu3RatxQO8YLS0Qf2bWdvIF9mDCT1RF6brzAJCD4eQdmt7HWjfG6/RrnJI2HE39bIYEsL5teFo5r+WF4ef37kOA+FzfB4vypDueiCY1hfUMZMQu+dd5Lox8xsarvSzCDp0w54X3EumUmse25Lrsd+XIFIshIjlgZ8fbzkUiYeCwfmTxa+oDvNqLoip87dkKcy4SRfXAjE8IwlHEeEjJjn51Ym1aT0qhMF9IYNo0Mh59CNLaRy6EqF3GIWykdR829645uX5n8x4QABGymZRNEidvgsu2gLaUfJYCro1+iamw+fuglQhpZNhJZEn3Srnu9DJvHTlz/7P2i7/j0=
+X-Microsoft-Antispam: BCL:0;ARA:14566002|6090799003|461199028|19110799006|7092599006|8060799009|5072599009|15080799009|3412199025|440099028;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NE0vVE5KMzVHZTQyZWMvV0tkemp0alE1SW9jRFNjcnlVSlUzWGFBZkQ3RDJr?=
+ =?utf-8?B?NjhkNEkvMHZudE5IaHZERjVzMUZjQ0JhZCtHajF4QlBTclRvRG9FSnZHWEpU?=
+ =?utf-8?B?S01SQ2hmRHRUQUpycmd2b0JwWFFsdU1aQ2ViNndnS0pOMm91ZGd1MnU1dzhP?=
+ =?utf-8?B?MW43S1pnMXdKS2IvTE5ldTlYdTc5VGR4aWluVzhuWmxCSGJreTJBZzBrTTBP?=
+ =?utf-8?B?VVYyMzdBc1lDbk9EQ0EvdllxaGFpakI2bjJ0ZlNscndxZFhraXZSVnNVK0pj?=
+ =?utf-8?B?TW80VlRWeEJUYjlmY3FSb1JoOU1XWUlpZFE4a05SZjBzcXR4bFRaZ3VPRG1E?=
+ =?utf-8?B?TS9JOC92VFlkOXdQQ2ZXSkhseXZFZk8ybUhoeEJlM0svRDAvYko2bDg1aHlx?=
+ =?utf-8?B?SHd0eHlKSmUrUEFmTmgyeEFoMUJIMzJ4L2U4MFRCZ3N5VTFNbnBQdHBsSnhr?=
+ =?utf-8?B?azczWnlXVFd0VkhBMEZqeTdPV3IwemxIa1AyMGlwbWdnSHlaWnJYLzlKRmFz?=
+ =?utf-8?B?WGhFakNWdms0VE45cDJ2eDJyOTM1bDNtbzNWMU5nRFNZSVorVlJZdkxTNTRm?=
+ =?utf-8?B?V3crWXdNeWM2Z01kM1lrYXI5Q2Q4MDJST3ZaV0o4UHVhd3A5Qkk4K2c4WDE2?=
+ =?utf-8?B?TmVSN0gyZ3NoNUdad0YvdFI1R0d5VkhNdGV4VTZyd1ZPMkc1RW9NZW9vM1or?=
+ =?utf-8?B?NWE5Qmd3bWZEbERkVzBLcWRXeTdQaW5zNWNEZHdqa1VjTUZWV041emVoTGZT?=
+ =?utf-8?B?dXpsNFR6Zk5Rcjl6TkxsZzFQdWZLajU0WncxK0JkdDA3SzdzaW5TbFdyZ3pT?=
+ =?utf-8?B?Z3d2VnVEOXMxSGZhemIyQ3N1SGtJdmxlLy9paEM5dWJ2WFBpbVgxYjEwMTZU?=
+ =?utf-8?B?QVhReUtKd2pZRTZKK1VYOXMrblNsWmsyR3psRGRmNWlQbHBCU05mRTBpc1lx?=
+ =?utf-8?B?NmZWRE9tSW9rOURNUVpYMGhnUHFyd0YwblFCMDZUbzR4WjRxNmVlVGpOa21B?=
+ =?utf-8?B?bWhwS292NGhiNTdaUW41L2RrVzZ1QjVzQlltUVk1bDFjK2NPajduS0hCQUQr?=
+ =?utf-8?B?a0N3S1VnejNadFFjaklPOU5idldpL1BSR0dncWQzeGYxcGVaZGFrR1dUNkZx?=
+ =?utf-8?B?a0RYTlZ3dHNUZnNHWWx2bXZnbFVpVTJDK3FuZS91akpzWUo0WlNKeFpLaDB2?=
+ =?utf-8?B?enlrUDRYYVV3ckZOdG8rVWJ2cjMvM2tZMS9ZZVBuV0MwTkU4d2tBdi85NTNM?=
+ =?utf-8?B?MnV3K0JYMXl1YlRXeEpYWnJWbGlGM3B2a3E4RUlyTElYbFVGQWJFTU1IRkJQ?=
+ =?utf-8?B?SW1TbkhWaUhyYUtwN0RWWnJnKzRTcnY2eWo4NnhZVmc1V016Wms0T2wrU0Fp?=
+ =?utf-8?B?b0pGTHRkRGZrNDlaMXpGNkxPL3JVRnVJY1lBcTRMZmZOZlRleHJTaVlzanVT?=
+ =?utf-8?B?bDU0VmhLbVlib1REaXdtcGlQalNaeXF0UFZmRWRvdzZIMFZob3RjOHRXMFBv?=
+ =?utf-8?B?eUxDeStuV2hrTEtXYU5nbEFWbjBadjl2WnFFYUVpUytITXNEbnR6RUM3YWZq?=
+ =?utf-8?B?ODlhZz09?=
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?L1MzdjBSQTh2SStFRzVQRmxrNmlQZ29lRi91bUdpNFRjb1FmbFpienhsUUV5?=
+ =?utf-8?B?WS9iSHJsYlQ4ajllRXkrc1YwOCs4dXpYMmxmNlBxN1ZzM0Q5bVRoeVU2OC9L?=
+ =?utf-8?B?RW5QcGpFUFI5N21xem9ieUgrbnVZUXgrWmtJazVNM05wVHFydFVPSTVjM215?=
+ =?utf-8?B?UmhHVFFnYlMyNVlLMGxLNDdmc1pYTUcrQ0t1V3YveHhwbk5sWFJOTXEzTFU2?=
+ =?utf-8?B?eGErMllVZG54WWc3cmw3WlVna1Z0MTRFUlh6dVNoQWx1YTBzK0d1cmRTT0xY?=
+ =?utf-8?B?TW9pUDh3RC9wbDJFMmdkYmxRdm5sbHZ1WStUNURwSUpoNG9aS2VMRHd4NWJC?=
+ =?utf-8?B?cnkzaUs4QTlxc2JRcEhPcmxHUFB2WFp5djMxdHBYTk92ci9TZ2RwRmRmZjkr?=
+ =?utf-8?B?SWdlZ0piWWNKZ1BqZ2tXMm0zUUVnWllkRmR3anFIclhSNkl1SHVpVE45NjlX?=
+ =?utf-8?B?a1hwM3pFK2pUUVY1MkZxQy8zYTJjV1dyS05lZVpETXMvTnFLVUpIcHZpVG1I?=
+ =?utf-8?B?cWZDdWZjbHRDWHBYNVoxUUxBMWFGU2FrTE1mSnNFTjFMM1ByYjFDeFlxVVpu?=
+ =?utf-8?B?OUJ5Z1d1VG1oWm1TaEdnVk9wa1h6cTVhemNQbjBSRnM2TmREQ3pJZzZLY0pn?=
+ =?utf-8?B?bWI2RmFnOGNQZkowMCtFQjJaNXhaQmtIaXgxQWxYWFk5a3o1MllVYUNCd09P?=
+ =?utf-8?B?VWtjMGZ0QVkwd3JGbWdpcVpBYndhZXNqZmpKMTMybEtZVkh4SStCM0RueS9n?=
+ =?utf-8?B?Z1ZDWGExSlQxb3FIZi9QSlRlSTBOTDE0bDZrb2hxWGR6RzcvUEd2RFNhZXln?=
+ =?utf-8?B?SE9BRXA0MHNIWjBmV1l3MTNVVTRnSWhSVnY1L21iMHZtTi93TDNNQzI1ZEJx?=
+ =?utf-8?B?ZDBJdk0rOG0reEJPS3VKQjJSTDBmYUlqcm5zcmo5eFFmQjREQTBzZVR1WlBU?=
+ =?utf-8?B?MWFhZzJsc1NJYy9PdjJPdGtsY0V6T3B4VStnbVZjQXdoR3JRb1lLQ2pYWC9y?=
+ =?utf-8?B?SWk3eXU1M1RZeFVnQVR0WTJjek1iZFJkSXA1dzRqelc1bEczcE5qQTZmM1Nj?=
+ =?utf-8?B?V2pHa0YxL0NDbG9SbDFEZkdjZVVIMis2eEVka0ZSL21TSFhoVjdHZ1MvQjRn?=
+ =?utf-8?B?QmtuSXBHbEFHc0lPS2krVU9zdHE1TEg2a25qNFIxdWFnN2JZa3prOFZodFF5?=
+ =?utf-8?B?cGJnZ2c5OUhiVVQ0L1FJdGlYTUNTQ1FISXFPVkJlUm5OMjVoQ0s0RDNwRHZk?=
+ =?utf-8?B?Ly9mQndsQkNJZVlaWmtlM201ZVRJY29kaXlITElGYS9OZVd4MU5JQ1lyOWJE?=
+ =?utf-8?B?aHpjWjkxK1VOV2dnMG1QaHkyai9DcWN0VmhTbjdEMW45RkR2TGNQQmhnL2l1?=
+ =?utf-8?B?VmxERGx3MGc5VFVRenY2WGc3TmJTQnBMdzZRVi92OFg1ejVNcDZ5TWlkQXp3?=
+ =?utf-8?B?NWVNYzNHbFZCN3JGZDRJeTYvdmhWRU9DcVNaRnBrQ2lPOFRDWnVzd2FwTVlj?=
+ =?utf-8?B?VUNZM2FTN0lNdFVVL1ZUK2g2YjVyVmpNYXlCQnBrU0NHaWovUWEzWFRiOWRu?=
+ =?utf-8?B?RGVSZmFiaDhBS3N3a0tjbnRvVE82K2pMV1p1NGZJNit3VjhtZFZ5OTFGa2pZ?=
+ =?utf-8?B?WTdleEVZYlUrQUdtRlV4bFRHM0VMejh1b3l2ZDg5R2JRQzV4YjFZaHhxQkRI?=
+ =?utf-8?B?Z21TeVB0U0w4TkhMekNqdjliZ0JHWVdDOEEzZGJoYnR2K0NFK2RsSjE3VHpR?=
+ =?utf-8?Q?RSE8uBFSHhOzCmIzPF4Etpk7L6njiZqwLXvU13S?=
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c013136d-04c7-4a3d-c819-08dda8cde40d
+X-MS-Exchange-CrossTenant-AuthSource: PN0P287MB2258.INDP287.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 09:54:00.7195
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PNYP287MB4069
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_024709_813003_B80E3327 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250611_025416_699309_78BD06A3 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +161,67 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 11:09:50AM +0200, Krzysztof Kozlowski wrote:
-> On 11/06/2025 10:29, Inochi Amaoto wrote:
-> > On Wed, Jun 11, 2025 at 10:19:49AM +0200, Krzysztof Kozlowski wrote:
-> >> On Wed, Jun 11, 2025 at 03:53:15PM GMT, Inochi Amaoto wrote:
-> >>> Add bindings for the reset generator on the SOPHGO CV1800B
-> >>> RISC-V SoC.
-> >>>
-> >>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-> >>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-> >>> ---
-> >>>  Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml | 1 +
-> >>>  1 file changed, 1 insertion(+)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml b/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
-> >>> index 1d1b84575960..bd8dfa998939 100644
-> >>> --- a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
-> >>> +++ b/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
-> >>> @@ -17,6 +17,7 @@ properties:
-> >>>                - sophgo,sg2044-reset
-> >>>            - const: sophgo,sg2042-reset
-> >>>        - const: sophgo,sg2042-reset
-> >>> +      - const: sophgo,cv1800b-reset
-> >>
-> >> Keep alphabetical order. That's enum with previous entry, btw.
-> >>
-> > 
-> > There is a small question for this: should I move this before the entry
-> > "const: sophgo,sg2042-reset", or before the first item entry?
-> It does not matter where you place the enum. There is no convention for
-> that.
-> 
+"sophgo,sg2044-pwm" should have not been in 6.16, submit this after that?
 
-Thanks. I will fix it
+Others. LGTM.
 
-Regards,
-Inochi
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+
+Thanks
+
+On 2025/6/9 7:28, Inochi Amaoto wrote:
+> From: Longbin Li <looong.bin@gmail.com>
+>
+> Add pwm device node for SG2044.
+>
+> Signed-off-by: Longbin Li <looong.bin@gmail.com>
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> ---
+>   arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts |  4 ++++
+>   arch/riscv/boot/dts/sophgo/sg2044.dtsi               | 10 ++++++++++
+>   2 files changed, 14 insertions(+)
+>
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> index 01340f21848f..b50c3a872d8b 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> +++ b/arch/riscv/boot/dts/sophgo/sg2044-sophgo-srd3-10.dts
+> @@ -63,6 +63,10 @@ mcu: syscon@17 {
+>   	};
+>   };
+>   
+> +&pwm {
+> +	status = "okay";
+> +};
+> +
+>   &sd {
+>   	bus-width = <4>;
+>   	no-sdio;
+> diff --git a/arch/riscv/boot/dts/sophgo/sg2044.dtsi b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+> index b65e491deb8f..f88cabe75790 100644
+> --- a/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+> +++ b/arch/riscv/boot/dts/sophgo/sg2044.dtsi
+> @@ -347,6 +347,16 @@ portc: gpio-controller@0 {
+>   			};
+>   		};
+>   
+> +		pwm: pwm@704000c000 {
+> +			compatible = "sophgo,sg2044-pwm";
+> +			reg = <0x70 0x4000c000 0x0 0x1000>;
+> +			#pwm-cells = <3>;
+> +			clocks = <&clk CLK_GATE_APB_PWM>;
+> +			clock-names = "apb";
+> +			resets = <&rst RST_PWM>;
+> +			status = "disabled";
+> +		};
+> +
+>   		syscon: syscon@7050000000 {
+>   			compatible = "sophgo,sg2044-top-syscon", "syscon";
+>   			reg = <0x70 0x50000000 0x0 0x1000>;
 
 _______________________________________________
 linux-riscv mailing list
