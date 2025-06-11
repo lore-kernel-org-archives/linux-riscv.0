@@ -4,74 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F94C7113E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:53:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97D6BC71134
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:53:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:MIME-Version:Subject:
-	Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=ZjJvYGWwTaPfmCz+n0M5VJ5I4LXua808bXSeuwRhX+Q=; b=31iMkIdHgfuxsx
-	L9dcIE0HN5/JplKUdH6WW1IfZP75hHi0fOe9M6jsZNFfAtWa7ef3Khl3N9v7+i8KqL30qXPS+Y3xN
-	4SlHjv3VR1kIWw2LEFordO4PLjxSlzv8ac0vZkxpYCzLHqxYoCCXGlq68k7KIg5RF5KmPbtzj16dT
-	6TLtPDTrQtV4ut8rWYd3Y/xkNDi7r+JErFjKzNa5LGjg3QsGi5YEc56oQ7zlAkCjo8LOukAQutdg2
-	cD0AZ7fO0HK/sxIQMmqjzkEKNjTAMgNatdCqDS9WTIH+cHHO5lZ+QQJAlWkIHjDSn1P0uI2KZhaS7
-	NUz8To8QwJx5imDTjycw==;
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=hPBFkCWifhcwZhqEhms+S81MHApbqMka7gHPFDhaAM8=; b=zC2cnLWAQ+fyPB
+	e/AZq8cU8BhqBIEkWxSE5bvPD69A2HLMZ9NKdHYE1K/OAlDbcN6U9pJBGR0UgcmeTrAblMfFzpX5d
+	svdNq+DVAt1ExnzcS4vUYM3J2cYzeguffLOdVy2Ss/NY/ONzl0bb7ZFyBtAddJJnmGiO5LmwXjNwq
+	2mx4TiSCMIS9BXCuaoeKans29MwpJJglC/M/24hLIVDKUUin4bJSh7t4NwzCZEuobAvjRx0YGCNIa
+	W8uMBqMgOS7bY8l1BstCk4mL4Xgfy0TCy3GGZfV+08OvoXCt1yKmU0crm9YpUUHxhrzWs+sukiD4t
+	EeX4Y4T8r0Ki13Vp2GLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRVx-0000000B0cS-1JuK;
-	Wed, 11 Jun 2025 19:53:37 +0000
-Received: from dev.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uPRWA-0000000B0qN-1cS9;
+	Wed, 11 Jun 2025 19:53:50 +0000
+Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMsQ-0000000AJB9-0jgJ
+	id 1uPMyK-0000000AJuA-14ih
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 14:56:31 +0000
-Received: from [127.0.0.1] (unknown [116.232.147.71])
+	Wed, 11 Jun 2025 15:02:37 +0000
+Received: from localhost (unknown [116.232.147.71])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id C628C33BDFF;
-	Wed, 11 Jun 2025 14:56:25 +0000 (UTC)
+	by smtp.gentoo.org (Postfix) with ESMTPSA id BBBDC340D21;
+	Wed, 11 Jun 2025 15:02:34 +0000 (UTC)
+Date: Wed, 11 Jun 2025 15:02:27 +0000
 From: Yixun Lan <dlan@gentoo.org>
-Date: Wed, 11 Jun 2025 22:56:04 +0800
-Subject: [PATCH] riscv: defconfig: run savedefconfig to reorder it
+To: Guodong Xu <guodong@riscstar.com>
+Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
+	drew@pdp7.com, emil.renner.berthing@canonical.com,
+	inochiama@gmail.com, geert+renesas@glider.be, tglx@linutronix.de,
+	hal.feng@starfivetech.com, joel@jms.id.au, duje.mihanovic@skole.hr,
+	elder@riscstar.com, dmaengine@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
+Subject: Re: [PATCH 6/8] riscv: dts: spacemit: Enable PDMA0 controller on
+ Banana Pi F3
+Message-ID: <20250611150227-GYA127466@gentoo>
+References: <20250611125723.181711-1-guodong@riscstar.com>
+ <20250611125723.181711-7-guodong@riscstar.com>
+ <20250611135757-GYC125008@gentoo>
+ <CAH1PCMbt3wLbeomQ+kgR6yZZ18TZ=_LF-kCcnLqad55FSHBhDA@mail.gmail.com>
 MIME-Version: 1.0
-Message-Id: <20250611-01-riscv-defconfig-v1-1-b48fc3517498@gentoo.org>
-X-B4-Tracking: v=1; b=H4sIAAOZSWgC/x3MQQqAIBBA0avIrBtQo6yuEi1CZ2o2FgoShHdPW
- r7F/y9kSkIZFvVCoiJZrthgOgX+3ONBKKEZrLaDHo1BbTBJ9gUDsb8iy4GOZ82uD3bqA7TwTsT
- y/NN1q/UD2NZiTWQAAAA=
-X-Change-ID: 20250611-01-riscv-defconfig-7f90f73d283d
-To: Conor Dooley <conor@kernel.org>, 
- Paul Walmsley <paul.walmsley@sifive.com>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Guodong Xu <guodong@riscstar.com>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, spacemit@lists.linux.dev, 
- Yixun Lan <dlan@gentoo.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1945; i=dlan@gentoo.org;
- h=from:subject:message-id; bh=AQT8gj4xTBMw8so4kCxpdxtX6at/oNsMVTMEr/8Woqg=;
- b=owEBzQIy/ZANAwAKATGq6kdZTbvtAcsmYgBoSZkWufTaZdRh6DX6w+W5fpSc/YuCt9t8gi33q
- JnaMfzti6OJApMEAAEKAH0WIQS1urjJwxtxFWcCI9wxqupHWU277QUCaEmZFl8UgAAAAAAuAChp
- c3N1ZXItZnByQG5vdGF0aW9ucy5vcGVucGdwLmZpZnRoaG9yc2VtYW4ubmV0QjVCQUI4QzlDMzF
- CNzExNTY3MDIyM0RDMzFBQUVBNDc1OTREQkJFRAAKCRAxqupHWU277bWrD/9d/QMkMszVaP2n4l
- /Tek7n0hbNq7jnvIjdleHffHTxI/1uxI1MvK/FA7lqD8Riqoj+3F8XIuw8Wim2/HOP8uqb42FLI
- d6xpWrnJDwcfwdin2MkWm2Zw8zQTUGXule5fcAAesPefiBlyPPJxixxIV+/D3hQKb2nqjK/8U/S
- kMrKVybm4oSXxvv4qAeAwOTYjDSJK5aPLqbeeRNmIY+h2LToPnr91JxVt795TNNEwpLT/ZCnDEM
- 9xtZIC0KbLd/NDwfiVSXuTQBKWi2JMA2ZIqdJBfxC4FfmvR7yitvyuO4t3MnXmwwzD4UzL9UOnt
- mQ1xo3XnOg7ff1Y7qYFxpib06+fqRH3CsxRsUT79uVPSk/13LrKko9iZ8vYzGUPV3UBmHlynV0n
- Kd3LfSxcYQpd+vroxoTnDt54lcDoe7mq9E1zqfCt2X7aDmTiDx9MGYuMUI4mOj/2yeXV/gsge7B
- rIsqDw5ZM8A8P+g6ZsExk5eEiZP2R7o48TiKSkNCGBPIUn/PtaAa7/uR/mJLjCaQlZ1HC1eyYyG
- iGUyKpQOGaNC6QnYVZoRo+Nw04mMay5MrnwGbGLy8FrEec2ojkbysOdBknr9wfBsY32nEalhKy0
- M4O4UU7DKoSoaEHuBH+3S9xZAjObvA76Evr+9wMuZK2YOQPbcM4PkZwmSB5BgPgHPePg==
-X-Developer-Key: i=dlan@gentoo.org; a=openpgp;
- fpr=50B03A1A5CBCD33576EF8CD7920C0DBCAABEFD55
+Content-Disposition: inline
+In-Reply-To: <CAH1PCMbt3wLbeomQ+kgR6yZZ18TZ=_LF-kCcnLqad55FSHBhDA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_075630_250404_9489D935 
-X-CRM114-Status: UNSURE (   7.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_080236_313390_7A0CE66B 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,81 +70,29 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Changes to defconfig should be always updated via 'make
-savedefconfig', run this command to make it aligned again.
-
-This will ease the effort of reviewing changes of defconfig
-in the future.
-
-Signed-off-by: Yixun Lan <dlan@gentoo.org>
----
-Update PDMA config bring in unnecessary changes[1], let's fix
-it by run savedefconfig first.
-
-This patch is based on top of tag 6.16-rc1.
-
-Link: https://lore.kernel.org/all/20250611134859-GYA125008@gentoo/ [1]
----
- arch/riscv/configs/defconfig | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
-
-diff --git a/arch/riscv/configs/defconfig b/arch/riscv/configs/defconfig
-index fe8bd8afb4183ce871020fb2992a21a13bccbc87..37c98c0f98ffc0ee9d021e4d07aa37a27d342f7a 100644
---- a/arch/riscv/configs/defconfig
-+++ b/arch/riscv/configs/defconfig
-@@ -134,6 +134,7 @@ CONFIG_MACB=y
- CONFIG_E1000E=y
- CONFIG_R8169=y
- CONFIG_STMMAC_ETH=m
-+CONFIG_DWMAC_THEAD=m
- CONFIG_MICREL_PHY=y
- CONFIG_MICROSEMI_PHY=y
- CONFIG_MOTORCOMM_PHY=y
-@@ -151,7 +152,6 @@ CONFIG_HW_RANDOM_JH7110=m
- CONFIG_I2C=y
- CONFIG_I2C_CHARDEV=m
- CONFIG_I2C_DESIGNWARE_CORE=y
--CONFIG_I2C_DESIGNWARE_PLATFORM=y
- CONFIG_I2C_MV64XXX=m
- CONFIG_SPI=y
- CONFIG_SPI_CADENCE_QUADSPI=m
-@@ -159,11 +159,11 @@ CONFIG_SPI_PL022=m
- CONFIG_SPI_SIFIVE=y
- CONFIG_SPI_SUN6I=y
- # CONFIG_PTP_1588_CLOCK is not set
-+CONFIG_PINCTRL_TH1520=y
- CONFIG_PINCTRL_SOPHGO_CV1800B=y
- CONFIG_PINCTRL_SOPHGO_CV1812H=y
- CONFIG_PINCTRL_SOPHGO_SG2000=y
- CONFIG_PINCTRL_SOPHGO_SG2002=y
--CONFIG_PINCTRL_TH1520=y
- CONFIG_GPIO_DWAPB=y
- CONFIG_GPIO_SIFIVE=y
- CONFIG_GPIO_SPACEMIT_K1=y
-@@ -240,7 +240,6 @@ CONFIG_RTC_DRV_SUN6I=y
- CONFIG_DMADEVICES=y
- CONFIG_DMA_SUN6I=m
- CONFIG_DW_AXI_DMAC=y
--CONFIG_DWMAC_THEAD=m
- CONFIG_VIRTIO_PCI=y
- CONFIG_VIRTIO_BALLOON=y
- CONFIG_VIRTIO_INPUT=y
-
----
-base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-change-id: 20250611-01-riscv-defconfig-7f90f73d283d
-
-Best regards,
--- 
-Yixun Lan
-
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgR3VvZG9uZywKCk9uIDIyOjMyIFdlZCAxMSBKdW4gICAgICwgR3VvZG9uZyBYdSB3cm90ZToK
+PiBPbiBXZWQsIEp1biAxMSwgMjAyNSBhdCA5OjU44oCvUE0gWWl4dW4gTGFuIDxkbGFuQGdlbnRv
+by5vcmc+IHdyb3RlOgo+ID4KPiA+IEhpIEd1b2RvbmcsCj4gPgo+ID4gT24gMjA6NTcgV2VkIDEx
+IEp1biAgICAgLCBHdW9kb25nIFh1IHdyb3RlOgo+ID4gPiBFbmFibGUgdGhlIFBlcmlwaGVyYWwg
+RE1BIGNvbnRyb2xsZXIgKFBETUEwKSBvbiB0aGUgU3BhY2VtaVQgSzEtYmFzZWQKPiA+ID4gQmFu
+YW5hIFBpIEYzIGJvYXJkIGJ5IHNldHRpbmcgaXRzIHN0YXR1cyB0byAib2theSIuIFRoaXMgYm9h
+cmQtc3BlY2lmaWMKPiA+ID4gY29uZmlndXJhdGlvbiBhY3RpdmF0ZXMgdGhlIFBETUEgY29udHJv
+bGxlciBkZWZpbmVkIGluIHRoZSBTb0MncyBiYXNlCj4gPiA+IGRldmljZSB0cmVlLgo+ID4gPgo+
+ID4gICBBbHRob3VnaCB0aGlzIHNlcmllcyBpcyBhY3RpdmVseSBkZXZlbG9wZWQgdW5kZXIgQmFu
+YW5hcGktZjMgYm9hcmQKPiA+IGJ1dCBpdCBzaG91bGQgd29yayBmaW5lIHdpdGgganVwaXRlciBi
+b2FyZCwgc28gSSdkIHN1Z2dlc3QgdG8gZW5hYmxlCj4gPiBpdCB0b28sIHRoYW5rcwo+ID4KPiAK
+PiBJJ2QgYmUgZ2xhZCB0byBpbmNsdWRlIHRoZSBKdXBpdGVyIGJvYXJkIGFzIHdlbGwuIFNpbmNl
+IEkgZG9uJ3QgaGF2ZSBKdXBpdGVyCj4gaGFyZHdhcmUgZm9yIHRlc3RpbmcsIGNvdWxkIHNvbWVv
+bmUgd2l0aCBhY2Nlc3MgdmVyaWZ5IGl0IHdvcmtzIGJlZm9yZSBJCj4gYWRkIGl0IHRvIHRoZSBz
+ZXJpZXM/Cj4gCkRvIHlvdSBoYXZlIGFueSBzdWdnZXN0aW9uIGhvdyB0byB0ZXN0PyBsaWtlIGlm
+IGFueSB0ZXN0IGNhc2VzIHRoZXJlPwoKSSB3b3VsZCBhc3N1bWUgaXQgd29yayBmaW5lIG9uIGp1
+cGl0ZXIgc2luY2UgaXQncyBhIFNvQyBsZXZlbCBmZWF0dXJlPwppbnN0ZWFkIG9mIGJvYXJkIHNw
+ZWNpZmljLi4KCi0tIApZaXh1biBMYW4gKGRsYW4pCgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1yaXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlz
+Y3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8vbGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFu
+L2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
