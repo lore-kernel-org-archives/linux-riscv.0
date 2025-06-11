@@ -4,77 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5084C61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 06:14:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79A4C71135
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 06:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=NzmhtnPs0/ASenkKAkNO4ehhjV04YPkwz8AqoNOwFLE=; b=2HQQz8GtIxQ2K7
-	H3ikt1CvVAjYMUNhK5J0+FpFZ/V+6iUJl0UUSM5CsP7qYmIMlt/Vfopzl0aBXNckPie4xxi6qIMOf
-	Yh9uxEGmEmWm+l4rEDOQY4Gs86CVvQuX3ua1dO2CABW+ZtPCkrF+CABaPaEnHHkQ1qJtM9BdCSs/6
-	MqO5Nd6bP4UfBv4ElbKdqp2C6+sRYSx06qFljhb921eXpUv1PxIeegbedpOO3FytH6Wj6eER/0kOv
-	fac0EJiQYlD9KHUquOuhR5eBaAxE/9q0nL0K/XCxA2Nps2b+2Varrlk6djPdc8aS2vncF34V5TV8/
-	P6s/2dMNdjveSWjHHB4w==;
+	List-Owner; bh=66ZmgudqCpnJ1+n0sL/ABtpxWyrWHI28kSAInTKff+Y=; b=w/cOqjuRU4p7GB
+	iwtfVJ2nQnLOt4C0QaSD+ZBZp1XyLtINC9ldVfbBsPRa6Smw0WAQltOucSHCRZoc8maE/4IqTIEOB
+	z7i0k+4q5bwaIQyn3t83UNlR4LFCPDSGOIxXh+8fKTAW1qqayLl4LbV6iSEf4dLcobAWaWgDpYrcV
+	EN4pviVuh/y1r69qVM0r4TLUYtHHfHwngA73J7B0NuaBhmNwId86jIqNaRWGKD3NV4kERtMYUVm6Z
+	w5sVF3oJ7vbZhGi9tVGxberSBHU5UBA6FnUHFXaIfAZwZFEd4BKECe8SFYBy3NStZ1rRuJVd8kupT
+	RDx0PjvDy/1INZI9t9+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEj7-00000008wRS-21uN;
-	Wed, 11 Jun 2025 06:14:21 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1uPEj9-00000008wTT-2AWJ;
+	Wed, 11 Jun 2025 06:14:23 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEj3-00000008wML-2tEG
+	id 1uPEj7-00000008wPO-07cX
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 06:14:19 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-3a4e575db1aso27830f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:14:17 -0700 (PDT)
+	Wed, 11 Jun 2025 06:14:22 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-450cfb8b335so287135e9.2
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:14:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749622456; x=1750227256; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1749622459; x=1750227259; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=LmGTr9Avtp+9E1jrxJpsP4+QY45B/matmjkDOASukCY=;
-        b=bPvzDI03ciiJMi6VJhX28larJgauL0flqN6uAUpx8RlR6Eb0tI6wzaykmIUE1Oz7sl
-         BR9WQxlDtuqztvWqjyK4/rSgNAk7wZDTGfl9RvnRWwTidqrxJrLBXSJQ0KYbu6oqEKAf
-         DgQoYcQzHvtoj/rw6GgpOfgL6hpGD9SV9DArsM+Q+jYv3nDS+scUJ0uZu97r13nzEO4L
-         MbfoKQy5LnqlsQDVbMmsPudGPcO3knou+EVnmnbtKGftknE7Fz3kksxyPcI77C2epUqO
-         S53NcLy1ehmbNH6WMrjJqvkbdu0aBiITb+VYCFf1UejJyJmdxmuOu5jcGrQbQKY3GpMC
-         ZywQ==
+        bh=q86QDWzbyqUrHwy10F9ZLVZs4bIWtafdYZALzNzfzYA=;
+        b=PV8pSB/TlthAZpUPEa3EdFCRtjSuEDwYN60AHTel35zZvGwf5ko5DSyF0INCso+vZs
+         DEJYTEMCcw48CvK4WEZU/esT0BKxB+q8BAZucHolEWP38A7wRvCgBFJdM6OPNhpgrV0v
+         5T1I9RRqN3k0Ryyx1rnIkPDV4l7EDipLXkYaFpIIujI7yqmWjxxo+wa0vlonwVKF8JK5
+         uxvSfdF2r/H+zRB2J1of1rs3dEJgl8iCOiZINALPmgbWUYViuZygyIUUJT1ai0aVQqPv
+         3qLbidYF5XpZinEd/GdtmX83PrC2ruTGwoPb+qIqJWLopRMy7QTcCKYlb9DcSzMzvsT3
+         ba4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749622456; x=1750227256;
+        d=1e100.net; s=20230601; t=1749622459; x=1750227259;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=LmGTr9Avtp+9E1jrxJpsP4+QY45B/matmjkDOASukCY=;
-        b=gFcmY6rnI800MvzO1fWZhZcBOraT09hlZmAK3IjQxs9ESirxffbVD66YNf33fdw1N1
-         egohsZeijOqtjStC17MARPLJdFAkasXIfWNaRrnZNiqBWJfMkyBc+BqCGXxslD+PsSSF
-         oxgk+3Il1cPveTwEN7M54gvaK4rBQlWC6RfDoF95bLdqNbIEQ5vgSi9pH+EYJKhBJwNI
-         GigrR1XrfCe0mEI6RfEG+gw1gjEJvR/wzyjxqzaYj7hCfT6L9EuEpwmUHep34Y1vJ4Nn
-         blfeg9hfyki4vhOApPtMn1a5ey7IzWArggjzD4fC6qMuh1SZdmIDxaOR/b92XAdqafIV
-         LSzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUboQoYnMwCmkFUAVLbLnJNsnI9YbbpXmKsTexleSxQr2fBQLJO9QihkyvKOziM+FUkbPnvYEMx81U7yg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzq1IsIcF0A+47RSqDsKaEDYFH1yYHkVW54GHV/8oEGqiTv17o4
-	EQnUyZvIYmeKMJHC0/mZbTDeU2KCf2EY9BoGkugqJMbDSszuqiJstOIf2thgb5/DlX4=
-X-Gm-Gg: ASbGnctrgq/Y1XGWenBVvxodtuhVAHURQ+SJpx/s9osyL7p2WArBrXmRhZf6lgkjvux
-	+dduHhc8IO/wIVKN+FiBGJMlRYTBooLhg9mSBgudzVjN0dfW4slRhIXT/UP+8neRODn/siRNSP2
-	DIbS0XqmE39TQWPwvBrDGI+9mF+kzddGrUuAgSKXCi2L7Mqex2uXbjGQ0h+AuSzr2Ev23bJYLsd
-	j/NI5uemWCamyz/yLi+OzQtfOITKGjBD+sLNS8unuzP5WcE86mIZFShk/uzP8nGeCyJKhm7jWbm
-	jyweibCusDt5r1DGdFn0cSV+r3MkfpST13xfY91m0GdvcMi4PFWto7VX24G03e9uo3dB89zF2AJ
-	i0R//fQw=
-X-Google-Smtp-Source: AGHT+IGuARTYLyF3UiF9reCUirhd/Exv3gey0a/FHP4hXPUPwwAH7XeVaLmvzmzisoq7vXGGNYY6fw==
-X-Received: by 2002:a05:6000:4205:b0:3a3:7be3:d0f3 with SMTP id ffacd0b85a97d-3a558820e34mr451650f8f.14.1749622456103;
-        Tue, 10 Jun 2025 23:14:16 -0700 (PDT)
+        bh=q86QDWzbyqUrHwy10F9ZLVZs4bIWtafdYZALzNzfzYA=;
+        b=fPKZUeRRskaisw7lLIaWdKYPj/s7ZTLwdUmWhF+YdsRx5QK3AGzZyIy6d9NoxTWN/h
+         wo9tW485Hh5LUHwpj8hWrUgsvL/sI5VfSSmwTxhQljGij/W/gqLWXVLbe8+wJYee2eVJ
+         sWE9FzEB3YbfV2fPEn3uLmOtdcedioXxR4zu0UocipPpatpvquQ4CBdhVktyrLcSTLgG
+         r/kgey9wF1gNm/CDmSNHGnmdchF0LpVy5EkxaocTjmxeppkJBhULOETtmrG9+wpi7Z0o
+         FvrASHw6FpFoBb8n36+PdtoQ2aIOK7Rd7mell6n8vmoZyOBRxbPnAuq0mHPsQe+ox4IH
+         pnLw==
+X-Forwarded-Encrypted: i=1; AJvYcCU24vFX3AKPlg1k/01zu3opCLSr3fP6YUxx7Eh8TMEl8McYLCq1E0vJNL4ZhfwenfHKEXbA1HGqhEGhQw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPEeig9L/leJ43g30+qPkzDL+gNEF8KCwS3+oFoXUVuoWuYFoO
+	FI9Uui5IPHXuimBqMpAnywxYT9n/fi1PMU3IMMpSWtROMHaqiKFlT5cRe+uGCOH6E00=
+X-Gm-Gg: ASbGncvfjRHRqm/oYDLxHAq+vBbneemJi2oby67rThCg+kBqS1JQw/KEi84cqwROuSM
+	SVK4VMfmlkwdPV0XMj0AxXISXZooETKuyHC8sYDB0ms8pImz7/Y2u9D/kIHOQe6i7ozsBrBfQo0
+	3oYy+KIZyDXeYe/oKEhmjHrzcOX4+EUsaWkoHmzii0u4Pk0Cj3Lpzr9wc3jK7Mdgu+LtsONn0f/
+	DCw7AmGMvkeRz4Jb7sMDLROCH1e30a4tNrQuGuyLqZN3s0nFP1EOJeE1eN48isXKXrYokxIjVw9
+	NrlVad/ke4ofxGiYYG0M/2BGgScLHPI1GlhYY9ePJs+3fdLmySEy2LALj+/m96MulX/FWJtEx4b
+	sJ/I2xlI=
+X-Google-Smtp-Source: AGHT+IG0MrurMqwANRNDslKVkh3dKprU9y6IrTQpViebfAkp6mB1Umn/L5OKQlg735b88DTWJ/T9nQ==
+X-Received: by 2002:a05:6000:288e:b0:3a5:2dae:970f with SMTP id ffacd0b85a97d-3a558821396mr547873f8f.13.1749622459437;
+        Tue, 10 Jun 2025 23:14:19 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.14.13
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.14.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 23:14:15 -0700 (PDT)
+        Tue, 10 Jun 2025 23:14:18 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 11 Jun 2025 08:13:34 +0200
-Subject: [PATCH v2 02/17] pinctrl: Allow compile testing for K210, TB10X
- and ZYNQ
+Date: Wed, 11 Jun 2025 08:13:35 +0200
+Subject: [PATCH v2 03/17] pinctrl: amd: Constify pointers to 'pinctrl_desc'
 MIME-Version: 1.0
-Message-Id: <20250611-pinctrl-const-desc-v2-2-b11c1d650384@linaro.org>
+Message-Id: <20250611-pinctrl-const-desc-v2-3-b11c1d650384@linaro.org>
 References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
 In-Reply-To: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -114,26 +113,26 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1377;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2097;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=uGHDfIA31YKh5ahk8efaA6IVYuJLI6m+zDCouPPq644=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6g8xxyHU0HpiCDaPmzEcUGbG3i/Yo/YG0Wn
- 7rcaYbUuOCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkeoAAKCRDBN2bmhouD
- 15vZEACL9S/hnI46RCXgnSdsn6o+epweo7vg2Ve0a0tgPgDpJPr9sxin7UVOYpBd9VSMJJQoLLF
- aeqFMhIemW0RcumAWboyA4gfV7dVt4MPt/v++UUEhPUE9TwivxEkN5kMfkB1dRF4+MjSjHDuvGC
- ZPBUhFjQCXOgwCVHKydx8vmuJV0CXug08L0YllTPL8pXovkyewDPdTKqQaFhukVSfPcO9IOAgtx
- M5yXLQe29xMW0Qyyul/SVfUXoGYtMZqzVJ6W6dzSnw0YNlMlEQg2zyirVpJ5F+/OHhCzmyC/8hL
- vY3Rtcjw+MHY8cI42dcQDzeoAKALlg2/hy1crOMdKh8wSr6O6LFk7rAOTcWChL14XAoUvJpX+zd
- r0YhSuMLTab6mVHTRRgnXKL1v2XuGeY/7QwPQxo0jcTZpaoreoReVm+cJ1biQiLJhRB30IaCe1g
- tpwj/e5Occ6qRtXtGh73XlrINYyxw5OzGdzDUiTSx1Bd8fBfKqn1ojFrBZU6c0EfEOEodfM1L3V
- sIrLevCzW4HtOtGrGg1HFUXnHrJ5DdHAsk/NQrAi6Yy0jFf+hLnI1SRhJfuSoGrStvp5Z4M4RDJ
- lCsyjBjzLRgK6m8GXnTUqaoCeXd9zcxJxwOmrrtEsnEGDuREqGFpURGacr7KDtTH88JLMKCC9g1
- C5kgftvilxEQjiA==
+ bh=NNpY2A6LBp263syvyG1Ecsfx8CioM309dnOrlcmWHKA=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6hdhqC2eDe217cvGUZMEh1W/4vld1oNnYW+
+ YkZbRVX0u6JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkeoQAKCRDBN2bmhouD
+ 15CoD/4hfYjkCZdVyazNq2ibT7AGxKu+nI1YPoMthyyZMz5plU+l+nNgmymy2NyhFPLVlkvCK4A
+ 4FsvS1iJn3Dkr+y2bC4QBIUT6dXj23C/I9Y+3v2Xg6Hx56dWfC6oNqEvF+rYuLqoJpq7A4T3RPj
+ 11snIaP0e4JrVwiKZh0u+TcJM7WOVXMiQmX60PHyUR1rnzJ8HXuhCqTtE+RTBK6gIjHFzZGp5L9
+ q8UgvNJTUf5z2aiIeb1m20vw8f+zaUsHEVTBA5pQfrzaP3VRCuXmtWb9nRDuE1Q5btLjbaAmtiG
+ 9eaROFIx5bFOf+Sg9Ok9Gj2Q10AZYnHmnkoy4IqVI6kGx30tO/SVz/T3rgjNol+hXAQHI1hLcmk
+ XVGVC16NfQipwhxK+aPcl2ywGautuFcWgIHKgPcVZZENQIcSUvtYzB18VACNwO+5ipDcASefqro
+ QFP3fiWL3DaMswdeQCBUr36ds+srNu1ED0hRChkBFVsv/mKeJCXpoy9aEwWCSVtFi89Zld0QFFX
+ MVKlitmuZXfSPnxmXiQaGaYXstF+0Fj4VHKYg2U27Irx1aunnaZdNwgPgX5pSPhe9Y4xoUm0xrm
+ 2HtZbv19j2BQ7vx/8hkKMv2025M8QDoGlqAB55eUy1ppAZx8gZ1ZQyAOOBIcShwwTyUgeLGvELM
+ hElg3VcQFmHOyDg==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_231417_751410_87CF8FE7 
-X-CRM114-Status: GOOD (  10.46  )
+X-CRM114-CacheID: sfid-20250610_231421_080898_F7078565 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,48 +149,56 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Pinctrl drivers for K210, TB10X and ZYNQ do not reference any machine
-headers, thus can be compile tested for increased build coverage.
+Internal functions obtaining pointers to 'struct pinctrl_desc' do not
+modify the contents so they can be made pointers to const.  This makes
+code safer, explicit and later allows constifying 'pinctrl_desc' in
+pinctrl core code.
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/pinctrl/Kconfig | 9 +++++----
- 1 file changed, 5 insertions(+), 4 deletions(-)
+ drivers/pinctrl/pinctrl-amd.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/pinctrl/Kconfig b/drivers/pinctrl/Kconfig
-index eb1b37af81fb81175d22018cf4856bfafaea75db..9b93a11c5755d5e1b239b34d5d66d5717b281265 100644
---- a/drivers/pinctrl/Kconfig
-+++ b/drivers/pinctrl/Kconfig
-@@ -269,7 +269,8 @@ config PINCTRL_INGENIC
+diff --git a/drivers/pinctrl/pinctrl-amd.c b/drivers/pinctrl/pinctrl-amd.c
+index 5cf3db6d78b79af9ac5e7226de239a0d2f9aaacc..85617cfed2299e131c110e9d4084370790106404 100644
+--- a/drivers/pinctrl/pinctrl-amd.c
++++ b/drivers/pinctrl/pinctrl-amd.c
+@@ -872,7 +872,7 @@ static const struct pinconf_ops amd_pinconf_ops = {
  
- config PINCTRL_K210
- 	bool "Pinctrl driver for the Canaan Kendryte K210 SoC"
--	depends on RISCV && SOC_CANAAN_K210 && OF
-+	depends on RISCV && SOC_CANAAN_K210 || COMPILE_TEST
-+	depends on OF
- 	select GENERIC_PINMUX_FUNCTIONS
- 	select GENERIC_PINCONF
- 	select GPIOLIB
-@@ -554,8 +555,8 @@ config PINCTRL_SX150X
- 	  - 16 bits: sx1509q, sx1506q
+ static void amd_gpio_irq_init(struct amd_gpio *gpio_dev)
+ {
+-	struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
++	const struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
+ 	unsigned long flags;
+ 	u32 pin_reg, mask;
+ 	int i;
+@@ -901,7 +901,7 @@ static void amd_gpio_irq_init(struct amd_gpio *gpio_dev)
+ static void amd_gpio_check_pending(void)
+ {
+ 	struct amd_gpio *gpio_dev = pinctrl_dev;
+-	struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
++	const struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
+ 	int i;
  
- config PINCTRL_TB10X
--	bool
--	depends on OF && ARC_PLAT_TB10X
-+	bool "Pinctrl for TB10X" if COMPILE_TEST
-+	depends on OF && ARC_PLAT_TB10X || COMPILE_TEST
- 	select GPIOLIB
+ 	if (!pm_debug_messages_on)
+@@ -957,7 +957,7 @@ static bool amd_gpio_should_save(struct amd_gpio *gpio_dev, unsigned int pin)
+ static int amd_gpio_suspend_hibernate_common(struct device *dev, bool is_suspend)
+ {
+ 	struct amd_gpio *gpio_dev = dev_get_drvdata(dev);
+-	struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
++	const struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
+ 	unsigned long flags;
+ 	int i;
+ 	u32 wake_mask = is_suspend ? WAKE_SOURCE_SUSPEND : WAKE_SOURCE_HIBERNATE;
+@@ -1001,7 +1001,7 @@ static int amd_gpio_hibernate(struct device *dev)
+ static int amd_gpio_resume(struct device *dev)
+ {
+ 	struct amd_gpio *gpio_dev = dev_get_drvdata(dev);
+-	struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
++	const struct pinctrl_desc *desc = gpio_dev->pctrl->desc;
+ 	unsigned long flags;
+ 	int i;
  
- config PINCTRL_TPS6594
-@@ -590,7 +591,7 @@ config PINCTRL_TH1520
- 
- config PINCTRL_ZYNQ
- 	bool "Pinctrl driver for Xilinx Zynq"
--	depends on ARCH_ZYNQ
-+	depends on ARCH_ZYNQ || COMPILE_TEST
- 	select PINMUX
- 	select GENERIC_PINCONF
- 	help
 
 -- 
 2.45.2
