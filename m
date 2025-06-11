@@ -4,150 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1CF1C61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 06:15:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D17C61CE7
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 06:23:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=PMe5G5B67iirn0VimgUpUQ4hpshsfEuq/j57dOEwYko=; b=YYnCsFLgekYaVE
-	vvNZRfArhXJb/D8CQ3h1pcumFrFH75GCOHiWh2XNWKOnY9f8XULwE7xRDkJRCAxhdd9AyZ+/X0SE5
-	9UVYTRRjJ7FB7EtZmaoMa2YhiF0MGp7z/IIw0PO5ZIYEZfoRA9LW0I4PERE6oRv56KivegyF/OZRL
-	4zMcF/RBCkBrHrXGhTa27rx0XGbp4LkyHzUDbzsZxNs45tCAwFFNYtLxL/Gr+TCyxmXX6g+KXjdOZ
-	doI8Hv86IbGNhOy4i/IGabA4png5D08i7ZnmMlesHGCv8CHf+lw7FIL6UZVVZGz3Nalaz43H5Gi8s
-	eR/pLKNSg4UvMAwLeYVg==;
+	List-Owner; bh=r/8+QPBxxDAG/rAhZ7L/YrzptuDGQjcK6M9MR38mJPc=; b=RleMuQrkG9lrsZ
+	POf7kJ7LMwL2Kl0/Odx9Z//m7/d63pNYlNQkL57jAWgsLpBbvvrSw5H6nZKL0zqjkz6hQ1cfZQFns
+	Jsaj700/njl647pWLNKjUFZ1V5QoIgKU/XVgqZX+55iJqnTrNQ5b/Vr7qVaNajdO+FZL2BEj2Yy7X
+	f468Njk9lYek/DWyVY9YWkVHoqYzpDXAq7ZghwSX7SKT9CnzrJTKwxIfWDnBpfv/XG5L5hR4d9+fE
+	D8JEULA8Aw3nJU2MvtlamWjdoO1pya0yZNsGd90zRWTLa8oH04A162oAsMuZx6dUrLdsFkA9Fhmkv
+	sWRjWUcOG0EWuHeoQKsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEjz-00000008xQJ-2TBG;
-	Wed, 11 Jun 2025 06:15:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPErZ-00000008ywA-169f;
+	Wed, 11 Jun 2025 06:23:05 +0000
+Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEjy-00000008xNm-1CC4
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 06:15:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=wvIZrAnHYUbgegc3KzvI7IvlrGTu2jq1NObvCezVWR4=; b=DjT0u+VFkkontkoYHEN6YZ0zw4
-	uoXhspNuBRFpNll20yBqA25kgVoWgNtfNxvyI3bVkwcMXiLQWLQTMjAvAvQd9MeXpZ33HxNYmqVdZ
-	apqfbcnWLXlcAKGEDQ5m1M1vcg3n/d19Oousw9wl+S+Q1Y6yV4moe1KXakeqiNP4RRqNUWIj18dk+
-	rh3br9y7IaU3nkESoIUyJ9pqO5Mbu4n1pg7dnmuZ4yYzZEjuMy+HZ+bbGHUFGwg3iJksbwa1UDaDA
-	DTKNvQ+KC3Lat7IgFl9U8PiDroENM0NgI+8Pt48dk2DxXMdUDE4H7CtP/AtOMHj1GcFESfoKThWFN
-	JsaTZ+1w==;
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEjw-000000027nD-1UpZ
+	id 1uPErW-00000008yvn-2NAS
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 06:15:14 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3a4ef05f631so25090f8f.3
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:15:11 -0700 (PDT)
+	Wed, 11 Jun 2025 06:23:03 +0000
+Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2363616a1a6so16033665ad.3
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:23:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749622510; x=1750227310; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wvIZrAnHYUbgegc3KzvI7IvlrGTu2jq1NObvCezVWR4=;
-        b=KZFdIrru004Br/L58wCfrSyFbiOk3CpANEALxKnLMf4M5PgRBYLrpa/0mQtgLIm3bq
-         sAZguOoX1xAZH9lOE6vHnkcTfBBTCEPINlGDLP9qFBU29TR7cvHavRmAVbBS7MdI9Ec/
-         Ds/0cnH99MT8AKGdf0Al7iEioDI74Sgh5LyQTHaB/denmYCFQl9iI8aAaMt4UFraYLxi
-         wO9hIl0wCV855EhpOxFbnK2ASHl7xyIMjJwuWYXogqtn+Rdh6YkFe6JjqwgOWALDnRvq
-         euRhf77LkFYMKirKh6qYvnWTF+gEZmmPufQHj755MXLEoQVEtpYdxWkSdWp+IHwZH/TK
-         4yIg==
+        d=ventanamicro.com; s=google; t=1749622982; x=1750227782; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FCnkfIAKufTtsXTirgU1KTm9z6frMQCb5vfgSfK41j8=;
+        b=oeUGnYrbGGqnrbTHApfuWxEzcjeaR6yJ1UELuC64MSz9/0zTQ9QsZUq6ZpB5P/PX+v
+         5nJLcejrMuzSl+hvOo46ij1NFCHQ++BUS3kJTs7JTmy4j9C8ygh0fzTjYluYhddA0wUQ
+         eCvO8qG5evoXrRNhxKkJwoXmat8+DzfAfpastRtAHePWPGj2oI1K8XFaayYrdCH8bn5R
+         VCT379of3mQyZssPJcdW0pCyy4cYfOf8WxkmqoDEgmbr6sKwl8mXrc1KpiXr9wnAUGkv
+         nBwdWaO6PeOvLIGHJ8tA4fMaHm3rBZUv9ekln5yJ2WeLZvZ2Vxj9UrYgbUasOSizpakU
+         zQJQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749622510; x=1750227310;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749622982; x=1750227782;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=wvIZrAnHYUbgegc3KzvI7IvlrGTu2jq1NObvCezVWR4=;
-        b=wTa84tc2r+zEJmzMgJIJ3KE2A1Yfy7hhKkv+f2UhgJ/uj0zxXIc//SIEZrgCW/py2c
-         JjWHzh5h9D94Yh4Ng5hAOslFu8lcpLBs3b74peLrGyIlbX+sdTQpyvOsPgZwThhMJZIk
-         mqZVQvatDIEsOnFMYuJF53/rxNDubkjKkUv9zCKU9SoAY0quebgYTETXQHM7EEcTDPBa
-         Ci7FrPKMWV6Hv+tDA7WQKzClPEQ3G0E+oiXOho/xUNfiu8Qr0tMkZ9jJNgLK3c1imzgE
-         F+IYwVrC0fI8FjXWr1oIDUi+aKtjWjQbQOyPf+yqCEMRPOLMlS5v2YGiYfDCHIeTNsEj
-         26yQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXxYlLamdM3cQf1v6j5jecpUySsHrVxHEFsBBgaZCqq8dF0Ea4FUV3ECX4OBrtdcf1k1yxPYSa4JioaFw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyN7ZbvZQqo1scyJ94dc996qAVku9mxrMxu90P5oXsCLB/8b1HT
-	6g4ZICnb4T5jyDGqTtdrZuQa7tfsUrkh0rY7UATna4xKks9k5gKjPQtDa5QqVIZAaGA=
-X-Gm-Gg: ASbGncvQ2vKG1bmQka7uU+OUgOQwN3hWRjXCgwjKh0AAQ349DC/0QqDi/0mlWOhFAHp
-	IGSfSyfoQGb7sExhL+8qJ6/9M5I1VgFThDN+mH5l/HbwaXQ9z6UmaXGvRnc4sbrprQN3BagJxBj
-	e8NOERUDxDVYJ86BPF3Lb2R8HLHR8Vt7djCvKETIS5AyAkgZfr22oKSolVNq0ZY6+Iu4JVlKNVn
-	XP6w3MtnzENF6H+VNER7fzccA424OIge4MG3nGa/JTUYDDmtfFjLYGAejBFzMjpsr9p1d9liRUL
-	/tl8qdL0l0DYseq9QzLxPQEOO+cQRheCN42nSxlNhmAlKgk1RMhNMaOJG/3UOwMwHcsKLm5N04s
-	qFUIywmoxmXGH4DrtKQ==
-X-Google-Smtp-Source: AGHT+IE7ZMpyUDf4YrNSUvsjoRE3vjRVPb6bVXPGoeL9ls3/WZGat0okcbwks4ptZKut2a4VQEsADA==
-X-Received: by 2002:a05:6000:18a5:b0:3a4:e667:923d with SMTP id ffacd0b85a97d-3a5586cbaafmr541720f8f.7.1749622510208;
-        Tue, 10 Jun 2025 23:15:10 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.15.06
+        bh=FCnkfIAKufTtsXTirgU1KTm9z6frMQCb5vfgSfK41j8=;
+        b=q1WDhuL7n/SQx7FTYS+Ozav9s6eHmT3b2phAwyKN1c6Ayb3SBJYcICMBWt+dsbfS5u
+         C7WK05HTs9A4pBaWo0TGokyZbQ8mTrWsX/+rWXKYZ8tcE6Cmb67cBoxSXQbwtNGezrsq
+         lGWcFikKaVjLxjTOSt1znLXeQhhM0SX3lhm/GER72dqKLJG0JGRyziyQLBA/LpgPpeqg
+         iesc0JqE/JDNpTDUVr5EDr1qDBZgkPsUakHY1Gjem5Nco7OT14n79bsanRloveajKEgg
+         EdMMXCNtt4/ivtn48NJhbvdHZk3XMOnObrnD86qqEM7zfBy8sjg8ZsX79G2yIS+ij9Mq
+         SIpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWEx9SsB3VIFgtadp3Z8cl7zI9nzXA0lHqf8FGLqhMQNtmpg14OJiGnMFf3TBVafKF+WQir+f2vUv1eMQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YynA8MF3TlVaGAOO6lqru1Ju+z8oz5rC/f8KWjmbV6UrVUU+eAM
+	UOqJGkxMb5uxWvkuSNsJC87bKb4/jQX1rL4UiPTWRhquy2l6OaJFOXdg/4xPYI+4A0s=
+X-Gm-Gg: ASbGnct6nElIJZrPQP9+Yk6mqIuZX645BpkByrPo/NjKxY/P7ShIFoXciaaXGwgxF1S
+	zb3aCc7vov9vfwUBx802rv8Gh4W+vrP897+wGLW1IdJ/OAfnzLe7r2BzTzkIY7nEbJPR15qV6U7
+	PUsEamt1ojY43jP4WBZky0DNxfFupohzWntjRap7Rl29IYv/3zKOtauaJCtwlWfGfjqJILHUcw6
+	8aNGWKQsj817v8kpKpqTjXbQSyz+8z+Hf4zcH+mIWcDBFunjSXgJVMk+c3DhHiclbfxWJOOABG2
+	XUqh6pnnyKfjQGPGmFjdh5lfGrMtFDQuFf+naGMQNjZR0vnTRMEzboyxOXBq6MWvVj8T7ga0ACQ
+	KJXM3Pc0waFRAbu7sCks360FjXg==
+X-Google-Smtp-Source: AGHT+IFflCobAzZ7DXGfkuM4PqfzrltZgkya36IU2M6LH+WC7zfTuPjuPy+rud5tVoTqrkTwZZw4yA==
+X-Received: by 2002:a17:902:d4c1:b0:235:ef87:bd50 with SMTP id d9443c01a7336-23641b16639mr27978465ad.45.1749622981638;
+        Tue, 10 Jun 2025 23:23:01 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603092677sm79976295ad.64.2025.06.10.23.22.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 23:15:08 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 11 Jun 2025 08:13:49 +0200
-Subject: [PATCH v2 17/17] rtc: stm32: Constify static 'pinctrl_desc'
+        Tue, 10 Jun 2025 23:23:01 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v5 01/23] dt-bindings: mailbox: Add bindings for RPMI shared memory transport
+Date: Wed, 11 Jun 2025 11:52:16 +0530
+Message-ID: <20250611062238.636753-2-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611062238.636753-1-apatel@ventanamicro.com>
+References: <20250611062238.636753-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Message-Id: <20250611-pinctrl-const-desc-v2-17-b11c1d650384@linaro.org>
-References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
-In-Reply-To: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Jesper Nilsson <jesper.nilsson@axis.com>, 
- Lars Persson <lars.persson@axis.com>, Damien Le Moal <dlemoal@kernel.org>, 
- Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
- Emil Renner Berthing <kernel@esmil.dk>, 
- Jianlong Huang <jianlong.huang@starfivetech.com>, 
- Hal Feng <hal.feng@starfivetech.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
- linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
- linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=923;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=aZiHVtAix4Bs7VFa47r9w+gaIOPFsTrPZZVeoeZFBbI=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6t5SafcpPp5dX+SCVOeGb2hFRBkfuLb14pw
- s7c8HNmfV+JAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkerQAKCRDBN2bmhouD
- 11knD/9M3DV/vwXFJpNByYjPAAfPbQYiYkwFNYQHUnPzXNhKs/vugtZWoOplA3JWYFVV83HKQP7
- uw3WamLIyTbIQRBTc1s5kYotDILFcXtEuSZn9ut+zGmEtrMVigSPDvqgokfS+ZQSs6dQPF5ZJv7
- +aqYtV+yIAgCJ5de6A8vYZsWp6UYmn51U4Y4R/OX8UM6fxzj+bbMuXr73AsweooW/WYTwxs0tGQ
- u8J/Ig7SVBkSMfYTdGAi2fabtexF7dXOeVyVlmbn9PdktSW/PsChHgaxt74g8YGyq8RAVS7G3oy
- Wb5YIe+nXI8oxp2pRHHcp/1xme8/Dq/OHlHDjYlqltkPGqKUpbDCTqOMbfwl+oqk832IU9YSTYE
- 6qMWelzKCzuphqYOP+gk02SE2WKQ5xuQ3kLSCC2YtcSwoP3/V85G4qFLQm2dXZHHW1lAjFiMdL4
- k6iyeo+At8cXPMKvUYLbuCfzKzXpCJ1F45XL0v4mlYrRtXqlWYkAdPq93S3x5jij462AEvNwTz4
- G6DrpD8SbLh/EnkF2C3h7fpu++EsQsj3fXVaN5uHzzibtagMfWEF/xN9Li05E8PYsIhiqmrijA/
- blAWty+7bSqiSP1NbqhzH0zmIcCtAbAzmN9j6DHNVcQq5mzCAKwkNBKtxMNJ2suuFDzyHqWvfGI
- a63Jhr46asoT94w==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_071512_526734_69220D2D 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250610_232302_607393_C4912B6D 
+X-CRM114-Status: GOOD (  14.19  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,40 +104,153 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The local static 'struct pinctrl_desc' is not modified, so can be made
-const for code safety.
+Add device tree bindings for the common RISC-V Platform Management
+Interface (RPMI) shared memory transport as a mailbox controller.
 
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
+ .../mailbox/riscv,rpmi-shmem-mbox.yaml        | 124 ++++++++++++++++++
+ 1 file changed, 124 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
 
-Patch depends on this series - const in pinctrl core. Please ack and
-this should go via pinctrl tree.
----
- drivers/rtc/rtc-stm32.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/rtc/rtc-stm32.c b/drivers/rtc/rtc-stm32.c
-index ef8fb88aab48a0edad19ae5872421815aa04fe46..d4ebf3eb54aa9e91c8e9f8254f571c53794192fd 100644
---- a/drivers/rtc/rtc-stm32.c
-+++ b/drivers/rtc/rtc-stm32.c
-@@ -393,7 +393,7 @@ static const struct pinmux_ops stm32_rtc_pinmux_ops = {
- 	.strict			= true,
- };
- 
--static struct pinctrl_desc stm32_rtc_pdesc = {
-+static const struct pinctrl_desc stm32_rtc_pdesc = {
- 	.name = DRIVER_NAME,
- 	.pins = stm32_rtc_pinctrl_pins,
- 	.npins = ARRAY_SIZE(stm32_rtc_pinctrl_pins),
-
+diff --git a/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+new file mode 100644
+index 000000000000..3aabc52a0c03
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mailbox/riscv,rpmi-shmem-mbox.yaml
+@@ -0,0 +1,124 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/riscv,rpmi-shmem-mbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V Platform Management Interface (RPMI) shared memory mailbox
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V Platform Management Interface (RPMI) [1] defines a common shared
++  memory based RPMI transport. This RPMI shared memory transport integrates as
++  mailbox controller in the SBI implementation or supervisor software whereas
++  each RPMI service group is mailbox client in the SBI implementation and
++  supervisor software.
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++properties:
++  compatible:
++    const: riscv,rpmi-shmem-mbox
++
++  reg:
++    minItems: 2
++    items:
++      - description: A2P request queue base address
++      - description: P2A acknowledgment queue base address
++      - description: P2A request queue base address
++      - description: A2P acknowledgment queue base address
++      - description: A2P doorbell address
++
++  reg-names:
++    minItems: 2
++    items:
++      - const: a2p-req
++      - const: p2a-ack
++      - enum: [ p2a-req, a2p-doorbell ]
++      - const: a2p-ack
++      - const: a2p-doorbell
++
++  interrupts:
++    maxItems: 1
++    description:
++      The RPMI shared memory transport supports P2A doorbell as a wired
++      interrupt and this property specifies the interrupt source.
++
++  msi-parent:
++    description:
++      The RPMI shared memory transport supports P2A doorbell as a system MSI
++      and this property specifies the target MSI controller.
++
++  riscv,slot-size:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    minimum: 64
++    description:
++      Power-of-2 RPMI slot size of the RPMI shared memory transport.
++
++  riscv,a2p-doorbell-value:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    default: 0x1
++    description:
++      Value written to the 32-bit A2P doorbell register.
++
++  riscv,p2a-doorbell-sysmsi-index:
++    $ref: /schemas/types.yaml#/definitions/uint32
++    description:
++      The RPMI shared memory transport supports P2A doorbell as a system MSI
++      and this property specifies system MSI index to be used for configuring
++      the P2A doorbell MSI.
++
++  "#mbox-cells":
++    const: 1
++    description:
++      The first cell specifies RPMI service group ID.
++
++required:
++  - compatible
++  - reg
++  - reg-names
++  - riscv,slot-size
++  - "#mbox-cells"
++
++anyOf:
++  - required:
++      - interrupts
++  - required:
++      - msi-parent
++
++additionalProperties: false
++
++examples:
++  - |
++    // Example 1 (RPMI shared memory with only 2 queues):
++    mailbox@10080000 {
++        compatible = "riscv,rpmi-shmem-mbox";
++        reg = <0x10080000 0x10000>,
++              <0x10090000 0x10000>;
++        reg-names = "a2p-req", "p2a-ack";
++        msi-parent = <&imsic_mlevel>;
++        riscv,slot-size = <64>;
++        #mbox-cells = <1>;
++    };
++  - |
++    // Example 2 (RPMI shared memory with only 4 queues):
++    mailbox@10001000 {
++        compatible = "riscv,rpmi-shmem-mbox";
++        reg = <0x10001000 0x800>,
++              <0x10001800 0x800>,
++              <0x10002000 0x800>,
++              <0x10002800 0x800>,
++              <0x10003000 0x4>;
++        reg-names = "a2p-req", "p2a-ack", "p2a-req", "a2p-ack", "a2p-doorbell";
++        msi-parent = <&imsic_mlevel>;
++        riscv,slot-size = <64>;
++        riscv,a2p-doorbell-value = <0x00008000>;
++        #mbox-cells = <1>;
++    };
 -- 
-2.45.2
+2.43.0
 
 
 _______________________________________________
