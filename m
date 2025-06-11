@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9E3BC677C4
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 16:14:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E9BC71133
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 16:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=4IsHoNYZSnsISUAQviY1I35lFa0mLXEaMm2ZO+p6pNY=; b=30dnp5YA8rZpCU
-	tOBe4ddlWFYB1Hx8rSOFDUmxVa5nC1mEWSbOBCLGuf3hZJ1Ou/8nAnleBGgyFvquNO16DZNS/0/ai
-	X0MgsKzins9kMpyrbizch6LsArK2CbEAgVm03055psCOitMqjHSoYOmlqvMyiiqV1HF6wVpDHU6vF
-	uo2Ng73inRnOPuvYeBGZvzsBMaHiuQ/snbz5+3mEn2aFH54hkKwEH5QyQLgh+RwY7Dw0Y4M3POuSF
-	ugNqKsK9bRudiXRIwU2XzFl3xFw7+pHgTXr+O1N6p6KhpI6VyR/6NBeWouTc+/SDvmXRAdwe4Ukt0
-	bxTKrNwCn/RVAB54nz5g==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=nzbcRqlhTmyvqWEZUsfK49fuMHFCrHxAR/njc8jGBuI=; b=JK5Q24wG0vwov4
+	+LV9K4Z9A/yGcvZO0SaH8puJ9petn1Kw1DLqVu8dCRvo2+28SiHc/DA4BnaKyPe6OfqlQMSdM+bH0
+	3WjXxVEpr4z7TUEA5B8xkCkYTqQRvxhju2+evN4TOWfqxh3L6sM3dNdvQaeAPggnOZNjIQBBpgcEb
+	8ZFLd9/bF0Obf103wKLj8ceDgBIGhZfArrKHWuZW/q1eJqMtVhxhkRlzThaaradesKFlfzc2RbZk5
+	DQjHuE3kn+RsumuGODq8RLNsczmI25s9Q2RTkxJlKdlvQb9DOwqN76yJn+cDG5m20I/a1vdgVT1p1
+	TkO8Q9pIfMmHlGdcELdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPO5n-0000000AZFB-0udg;
+	id 1uPO5n-0000000AZFR-3Piw;
 	Wed, 11 Jun 2025 16:14:23 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPL2n-00000009tnC-23e7
+	id 1uPL34-00000009tqF-2uMt
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 12:59:06 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2363616a1a6so18935115ad.3
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 05:59:04 -0700 (PDT)
+	Wed, 11 Jun 2025 12:59:23 +0000
+Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2363616a1a6so18940445ad.3
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 05:59:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749646744; x=1750251544; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=x4QOx+b/QncvHLv/sLMwOKnuymoyk68+Yx3qOBYw2f8=;
-        b=u4+nKLE2OH7knCRbrh3cWlNCZ3sdw5HgRWYqhb61BsHceZbN4MHXZl9tEiw8OInphv
-         P1Limrj0N9SUkm+iUISLlaKHxYk/okir143jVE0ANV3jamgtoqv7bN4SmXL6cFnlinzu
-         k0Cw1VSdx+1yLdNzokxq9Nj8JNpLzGMKgkuAvfuZFfcG62tbpVhSz1BLv310jMfqsETz
-         1yZmO2IoTiGd7MZAwCJIb+kuPrfLUb57A9PGNp5EbcblzWB2g/l3lA2lztKpiPrM0m5S
-         OQ7RgN9rpdLJ+0/WSGkOCAccIRBIbJApwHAgFFWfvWKPppI8B4hoaX1WcZKAiwihvoIM
-         fqvQ==
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749646762; x=1750251562; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rgXKWx6LT0v0t2kW4DENrP//N1tJL1EVc4tejq3gXuU=;
+        b=P4kVb2SmpZTYX7oCsPzd/JT5WLjBej99jL6EUdU1FeXhvg11gQzj4Otbvk1zqF00hG
+         3t5by7q7W3HNqqh7RNLuAtjWuW/hrNUdQAbeJyXqvf7As6bAspX3R9Es1ft4mzenSglC
+         eXV1TQ4rYAaVg4USZlVa5BebC5Jw67ndcM+u8kX6cOcpOr5ifHi/h42eaIlQJB9dfuoi
+         R5Aq5cbOlv2c9zhRWRewf4F4CE0nPHznCm195yiz4Xq2zHz00I3xkDR9too7yoyCLUEJ
+         R9G9sLCs4AI1m86EHFoQH/wPmT0L5/ZZTRVARBf+49J93fE61X8Z7AVZJO4B4fm3jzJA
+         yOSA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749646744; x=1750251544;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=x4QOx+b/QncvHLv/sLMwOKnuymoyk68+Yx3qOBYw2f8=;
-        b=pC+j1oj6EDoZ9KZuBBaoRsL3Cw09Xe1ZlypfNeMGhjwF+gGFzRzm/pgKewK8Feq/vK
-         pE+pU/p7B/7e/XwuPzl/u6We6QKfH7ocV2BC+cwcuhaduN504v4KYJu19JH5D79LdgC9
-         ii1inES1XRbFRO4Jvc8RJB/QgA2+v36KYFbncp96dFlCZMawDoZF2FdgKoFjqc2aNJvf
-         C/6y/n6/mDrraQy8JCSvbIO8GMJXpGtoGEQgA8CEa5MmeF91/CShi8qpVIYf9LccT0L7
-         o657xa4eiv+KKndDs8SVxH/XX54+UBddHqzzRlvA5tXygiu3pUECxb7ycqPklNC2t88+
-         oK7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUp6y9g1nyCRafajw6lMv1nygAzIWG6nKz0OZcRsfo6Q5ox9ujLC3hRT0FDJiORPHlXpue5LoBty74q0A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY6B9qBFp3pQzdGzqUrk9d06MFnukMwManIqIkYsQVb9hISx7U
-	CobkQbQJDbaT7K8dYQGQfQ+UTcXKpkSlG/81PHto+fmhU829LBLjD5aosKh7weLF1BI=
-X-Gm-Gg: ASbGncsQm3VomUrOsYTCNO1NqqWYHN3FxhGj/oENXKz1Q/5txjLFE0NetqQJ8qcBN6u
-	WM5A+TV7g9ZlXKX2BepsfH/o3CJEuCBgfkqmcXACnii4giyV4fMjIvd8PjaHDX/y2Eq8z+DM9xt
-	qsM9cJrALBmyBJF9zitMXAC5Mx/SMU+mVwDCp9zaD4xghrZwrMnczHAbr3L5VX5u83reohyTPWp
-	vqGedJkQKE21fD5SsRWnzAJUkgrHClNXULRFFOxxtZQTALNYwp0VoTbLOtXnvolBy6nF5WJVZOy
-	uhHfMTFtSmHxUq6Focvj5o1THvg4JgAWqkJHOKgc+3gJVkLihjSQqQcADHQrJ6Z3tqkhGXTqe9f
-	U33Wqny9hrdYE44ARSovyBQ==
-X-Google-Smtp-Source: AGHT+IHeeQKbfAGNGeX62nkTUoAIUb+/0YEOPG1s+np4s8lIc4gcrO2OCn3QlplFdVVleQo4sYhIgw==
-X-Received: by 2002:a17:902:e74b:b0:234:f182:a759 with SMTP id d9443c01a7336-23641af07efmr51079475ad.28.1749646744203;
-        Wed, 11 Jun 2025 05:59:04 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749646762; x=1750251562;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rgXKWx6LT0v0t2kW4DENrP//N1tJL1EVc4tejq3gXuU=;
+        b=MPSxD1nUGB07TzxlOz+jJFR6Pfu6MX6y5om3uChI2WqpNBIJ/DtbO1BJyyNlMpMf0R
+         qmVOJLS5Xwv1XFcBWqjyiZQzq8IaueUSuQe7i4Gkdz7StIfH5buQy1+E99YtixHWY9Cc
+         fvxIvsnt5SuMQ9ssCXP3wZbIp43rkYdygW+X1tLJIUFu7btatKGODqVwhGJtJ73PDHeW
+         vOQYuHYTZNT/Pwn4pCrMK5FYaHu+IKdQm35egc+W3FX8MBjvdG5flo8ujOGM7yczX/ph
+         sX1wShPyU5gCFOaSkG6yq+8Imue6k+A0nWH56ixfLtVSjNPIFrWddNKq6KpSUTs2g/B7
+         fUTw==
+X-Forwarded-Encrypted: i=1; AJvYcCV3mt2SCVBGQ+7SYP9jzcWWlyHY5ZzBJuNJ2YL8n7bNBD16yG3Uq0wbMk0M/BgI26Plwpt2Ozd9vQZV9A==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE6IJRpVbDNWIRa3Msq35OCvnN6JzONmC0m+NiopTFijXFwOIa
+	xRxrS2PyVl1CVzO40pGjnAccISBATMbPmX0VVyVrNfq76PstbIffKRtXzSXqey39ZCU=
+X-Gm-Gg: ASbGncvNFI0L6g+JBh/1k+De1bH3ZezGMghIEhZfXWoqasa5RmVxAibvFkZNleZpK83
+	a2jGDovvP+7eKw2VlpnCttrMtrv3OyL/c5Vk5xc8qfm2IGAJThxhlcPiLU/F6kreKCUUyiWXV38
+	LzRJW4fAuTnTrb707AKI6BAOp6QJ/4lYK5Rd/+H0+fDYKbv/4+B9jEThs/vMKC5EjHpdT1iPySM
+	lmghnrjqDJjwjnWoeHFhank8KKLlg4gc386Ninka0M42xTgPGODCThmv/Wnx46Psc9c3xHY87Tf
+	ANr5fH5klJnYEHbs+akAJs/1v9hWI86EATE7O2NODKJw2lSywc0vUXH/eacyA6+PGF2dCrPOvCz
+	FVJCDh7V3lS9x2yF5KzA2cgdwg/pkr134
+X-Google-Smtp-Source: AGHT+IHP+0owmszooM6L86XNZc5ha8+zkwg20Qojl6bQqCgBkl02MT2JBYiauh7dcDoSUFp6EUtZTQ==
+X-Received: by 2002:a17:902:f78b:b0:234:b131:15a with SMTP id d9443c01a7336-23641a8aad8mr44833385ad.4.1749646761961;
+        Wed, 11 Jun 2025 05:59:21 -0700 (PDT)
 Received: from localhost.localdomain ([2409:8a00:31a4:6520:3d67:ceb1:7c60:9098])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236030925e3sm86984115ad.53.2025.06.11.05.58.53
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236030925e3sm86984115ad.53.2025.06.11.05.59.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 05:59:03 -0700 (PDT)
+        Wed, 11 Jun 2025 05:59:21 -0700 (PDT)
 From: Guodong Xu <guodong@riscstar.com>
 To: vkoul@kernel.org,
 	robh@kernel.org,
@@ -94,15 +95,16 @@ Cc: guodong@riscstar.com,
 	linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	spacemit@lists.linux.dev
-Subject: [PATCH 0/8] dma: mmp_pdma: Add SpacemiT K1 SoC support with 64-bit addressing
-Date: Wed, 11 Jun 2025 20:57:15 +0800
-Message-ID: <20250611125723.181711-1-guodong@riscstar.com>
+Subject: [PATCH 1/8] dt-bindings: dma: marvell,mmp-dma: Add SpacemiT PDMA compatibility
+Date: Wed, 11 Jun 2025 20:57:16 +0800
+Message-ID: <20250611125723.181711-2-guodong@riscstar.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611125723.181711-1-guodong@riscstar.com>
+References: <20250611125723.181711-1-guodong@riscstar.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_055905_611010_3C3DAF75 
-X-CRM114-Status: UNSURE (   9.27  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_055922_729793_8D112754 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,53 +121,69 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series extends the existing MMP PDMA driver to support SpacemiT PDMA
-controllers with 64-bit addressing capabilities, as used in the K1 SoC.
+Add "spacemit,pdma-1.0" compatible string to support SpacemiT PDMA
+controller in the Marvell MMP DMA device tree bindings. This enables:
 
-The SpacemiT K1 SoC contains a PDMA controller that is largely compatible
-with the existing Marvell MMP PDMA, but adds support for 64-bit physical
-addressing through Long Physical Address Extension (LPAE) mode. This
-requires programming additional high address registers (DDADRH, DSADRH,
-DTADRH) and enabling the DCSR_LPAEEN control bit.
+- Support for SpacemiT PDMA controller configuration
+- New optional properties for platform-specific integration:
+  * clocks: Clock controller for the DMA
+  * resets: Reset controller for the DMA
 
-The implementation maintains full backward compatibility with existing
-32-bit Marvell platforms while adding the necessary infrastructure for
-64-bit address handling through a flexible configuration-based approach.
+Also, add explicit #dma-cells property definition to avoid
+"make dtbs_check W=3" warnings about unevaluated properties.
 
-Key features added:
-- 64-bit DMA address support via LPAE mode
-- Platform-specific operation abstractions (mmp_pdma_ops)
-- Optional clock and reset controller support for modern SoCs
-- Device tree integration for SpacemiT K1 SoC and Banana Pi F3 board
+The #dma-cells property is defined as 2 cells to maintain compatibility
+with existing ARM device trees. The first cell specifies the DMA request
+line number, while the second cell is currently unused by the driver but
+required for backward compatibility with PXA device tree files.
 
-Testing:
-This patchset has been tested on SpacemiT K1-based Banana Pi F3 hardware
-to ensure the PDMA controller operates correctly with 64-bit addressing.
-Existing functionality on 32-bit platforms remains unchanged.
+Signed-off-by: Guodong Xu <guodong@riscstar.com>
+---
+ .../bindings/dma/marvell,mmp-dma.yaml           | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-This patchset is based on [spacemit/for-next]
-  base: https://github.com/spacemit-com/linux for-next
-Plus the reset controller driver, posted by Alex Elder (v10):
-https://lore.kernel.org/all/20250513215345.3631593-1-elder@riscstar.com/
-
-Guodong Xu (8):
-  dt-bindings: dma: marvell,mmp-dma: Add SpacemiT PDMA compatibility
-  dma: mmp_pdma: Add optional clock support
-  dma: mmp_pdma: Add optional reset controller support
-  dma: mmp_pdma: Add SpacemiT PDMA support with 64-bit addressing
-  riscv: dts: spacemit: Add dma bus and PDMA node for K1 SoC
-  riscv: dts: spacemit: Enable PDMA0 controller on Banana Pi F3
-  dma: Kconfig: MMP_PDMA: Add support for ARCH_SPACEMIT
-  riscv: defconfig: Enable MMP_PDMA support for SpacemiT K1 SoC
-
- .../bindings/dma/marvell,mmp-dma.yaml         |  17 ++
- .../boot/dts/spacemit/k1-bananapi-f3.dts      |   4 +
- arch/riscv/boot/dts/spacemit/k1.dtsi          | 234 ++++++++--------
- arch/riscv/configs/defconfig                  |   3 +-
- drivers/dma/Kconfig                           |   2 +-
- drivers/dma/mmp_pdma.c                        | 249 +++++++++++++++---
- 6 files changed, 370 insertions(+), 139 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
+index d447d5207be0..e117a81414bd 100644
+--- a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
+@@ -18,6 +18,7 @@ properties:
+       - marvell,pdma-1.0
+       - marvell,adma-1.0
+       - marvell,pxa910-squ
++      - spacemit,pdma-1.0
+ 
+   reg:
+     maxItems: 1
+@@ -32,6 +33,21 @@ properties:
+       A phandle to the SRAM pool
+     $ref: /schemas/types.yaml#/definitions/phandle
+ 
++  clocks:
++    description: Clock for the controller
++    maxItems: 1
++
++  resets:
++    description: Reset controller for the DMA controller
++    maxItems: 1
++
++  '#dma-cells':
++    const: 2
++    description:
++      The first cell contains the DMA request number for the peripheral
++      device. The second cell is currently unused but must be present for
++      backward compatibility.
++
+   '#dma-channels':
+     deprecated: true
+ 
+@@ -52,6 +68,7 @@ allOf:
+           contains:
+             enum:
+               - marvell,pdma-1.0
++              - spacemit,pdma-1.0
+     then:
+       properties:
+         asram: false
 -- 
 2.43.0
 
