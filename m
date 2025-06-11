@@ -4,71 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63977C7113E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 427B1C71134
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=CzKIysqYyDxp9+g3RgbVJOSqhmV2up8poO4JvLIF3a0=; b=VOwkbX+GDmU+GB
-	mQ8+l79BfCVuiA8MlqVO9quYzkBdWMN2crEPC4w80yDuSWKVJ19DoofgJSBsGQ6o8ttnCWZlxjZwH
-	L06P2z4nrkuI4mjB8+RH/uas7/a0yE1RbT+jgPgHiUTSHvHx+CJxtoeaHjR1RO2TiSQhv/wFtDH5k
-	lo26MK4pk8d45S3z59+H3drdovC3la60XZwx80FvxNw63H0ojWXtap1UQN+C+zpmTjlDAIwrfFBH3
-	TOo+xbOtEwZWTCzpSsPYJudUFDcttwjwJKusQl/XCudffzj+ys0dsAMuxSNCrRGvTIqDZvFAsB6Mo
-	Cr/ZeE1yrL/elCKBEJPg==;
+	List-Owner; bh=6zAhtB0HBNEgupyNI33vuN1uZDIFmEpx4GfoziIi3qI=; b=Y22U2Jv+E2FIeN
+	pPRGI9+WGBxTuwaOwl8yHX3jNgw6zqr8I/WsNnvtQ/m9FhIb8+C+/dGpEU3CurKzGS0xfxVFPnN1l
+	CSQIQ7yXncpHt3TkGVa6qLXDoHmM/UhKP+i9OpLjDwcfgbv7JMdS37VX3MxrxmW/I9dLWrCYs4r0a
+	Q66tcjvr4kfU3mr3QparPxnQQz9LGqIcrktOxB0SsonYGAE4OAA7FSJYKMz2vP/Wsa5TVrHQplPcB
+	yB//ZK9ILpSrgMRGn5T4InoSW2+cIbtw990Si+wtaG5JxkmAqyeFyVnnY7de8heI5ov4LFiu7/5XC
+	0y59SYlv86UdA3LKrt/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRYL-0000000B483-0rZS;
-	Wed, 11 Jun 2025 19:56:05 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1uPRYX-0000000B4Qm-1s0O;
+	Wed, 11 Jun 2025 19:56:17 +0000
+Received: from 60-248-80-70.hinet-ip.hinet.net ([60.248.80.70] helo=Atcsqr.andestech.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPO4m-0000000AZ1O-2Zx1
+	id 1uPO5h-0000000AZD4-2j5q
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 16:13:21 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=5Pah9/CBtffo+lrIVkKDlsrLYUZHo+PGjMuqf3Dti3w=; b=nHNSOBGbRNP8l8/sOdiLU3RC5W
-	7oIdZKQsC3Yyg5Nz4H1AsjKFQSG3miVUFKAYqSkGkVKLxk6roKXNElCQHyV3Q91pTENKucD11UZcX
-	zfZoyNJ4Cl0yj+fZJaNFXs0pDjXUuAFYQhvO9hovm+8deePxRYep9qk7Y/OlwVxg6auM=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1uPO4S-00FQMS-G7; Wed, 11 Jun 2025 18:13:00 +0200
-Date: Wed, 11 Jun 2025 18:13:00 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next 2/2] net: mdio-mux: Add MDIO mux driver for
- Sophgo CV1800 SoCs
-Message-ID: <eb419ffa-055f-48db-8c6a-60bf240fbb9d@lunn.ch>
-References: <20250611080228.1166090-1-inochiama@gmail.com>
- <20250611080228.1166090-3-inochiama@gmail.com>
+	Wed, 11 Jun 2025 16:14:19 +0000
+Received: from mail.andestech.com (ATCPCS34.andestech.com [10.0.1.134])
+	by Atcsqr.andestech.com with ESMTPS id 55BGDG0d043539
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=OK);
+	Thu, 12 Jun 2025 00:13:16 +0800 (+08)
+	(envelope-from ben717@andestech.com)
+Received: from atctrx.andestech.com (10.0.15.173) by ATCPCS34.andestech.com
+ (10.0.1.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 12 Jun
+ 2025 00:13:16 +0800
+Date: Thu, 12 Jun 2025 00:13:16 +0800
+From: Ben Zong-You Xie <ben717@andestech.com>
+To: Conor Dooley <conor@kernel.org>
+CC: <paul.walmsley@sifive.com>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+        <alex@ghiti.fr>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <tglx@linutronix.de>,
+        <daniel.lezcano@linaro.org>, <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+        <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <tim609@andestech.com>
+Subject: Re: [PATCH v5 0/8] add Voyager board support
+Message-ID: <aEmrHPd7RxUSOLAY@atctrx.andestech.com>
+References: <20250602060747.689824-1-ben717@andestech.com>
+ <20250606-booth-icky-b416c1827a43@spud>
+ <aEbOLztcBsKs84pn@atctrx.andestech.com>
+ <20250609-donut-oozy-4dcc8b8a292d@spud>
+ <20250609-twiddling-clamp-eaa0dd2b1cad@spud>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250611080228.1166090-3-inochiama@gmail.com>
+In-Reply-To: <20250609-twiddling-clamp-eaa0dd2b1cad@spud>
+User-Agent: Mutt/2.1.4 (2021-12-11)
+X-Originating-IP: [10.0.15.173]
+X-ClientProxiedBy: ATCPCS33.andestech.com (10.0.1.100) To
+ ATCPCS34.andestech.com (10.0.1.134)
+X-DKIM-Results: atcpcs34.andestech.com; dkim=none;
+X-DNSRBL: 
+X-MAIL: Atcsqr.andestech.com 55BGDG0d043539
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_091320_649219_B1698C11 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250611_091417_995435_66CC864F 
+X-CRM114-Status: GOOD (  27.71  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,85 +76,71 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 04:02:00PM +0800, Inochi Amaoto wrote:
-> Add device driver for the mux driver for Sophgo CV18XX/SG200X
-> series SoCs.
-> 
-> @@ -0,0 +1,119 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Sophgo CV1800 MDIO multiplexer driver
-> + *
-> + * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bits.h>
-> +#include <linux/delay.h>
-> +#include <linux/clk.h>
-> +#include <linux/io.h>
-> +#include <linux/mdio-mux.h>
-> +#include <linux/module.h>
-> +#include <linux/platform_device.h>
-> +
-> +#define EPHY_PAGE_SELECT		0x07c
-> +#define EPHY_CTRL			0x800
-> +#define EPHY_REG_SELECT			0x804
-> +
-> +#define EPHY_PAGE_SELECT_SRC		GENMASK(12, 8)
-> +
-> +#define EPHY_CTRL_ANALOG_SHUTDOWN	BIT(0)
-> +#define EPHY_CTRL_USE_EXTPHY		BIT(7)
-> +#define EPHY_CTRL_PHYMODE		BIT(8)
-> +#define EPHY_CTRL_PHYMODE_SMI_RMII	1
-> +#define EPHY_CTRL_EXTPHY_ID		GENMASK(15, 11)
-
-There are a lot of defines here which are not used, but as far as i
-see, there is one 8bit register, where bit 7 controls the mux.
-
-It looks like you can throw this driver away and just use
-mdio-mux-mmioreg.c. This is from the binding documentation with a few
-tweaks:
-
-   mdio-mux@3009000 {
-        compatible = "mdio-mux-mmioreg", "mdio-mux";
-        mdio-parent-bus = <&xmdio0>;
-        #address-cells = <1>;
-        #size-cells = <0>;
-        reg = <0x3009000 1>;
-        mux-mask = <128>;
-
-        mdio@0 {
-            reg = <0>;
-            #address-cells = <1>;
-            #size-cells = <0>;
-
-            phy_xgmii_slot1: ethernet-phy@4 {
-                compatible = "ethernet-phy-ieee802.3-c45";
-                reg = <4>;
-            };
-        };
-
-        mdio@128 {
-            reg = <128>;
-            #address-cells = <1>;
-            #size-cells = <0>;
-
-            ethernet-phy@4 {
-                compatible = "ethernet-phy-ieee802.3-c45";
-                reg = <4>;
-            };
-        };
-    };
-
-    Andrew
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gTW9uLCBKdW4gMDksIDIwMjUgYXQgMDU6MTc6NTBQTSArMDEwMCwgQ29ub3IgRG9vbGV5IHdy
+b3RlOgo+IFtFWFRFUk5BTCBNQUlMXQoKPiBEYXRlOiBNb24sIDkgSnVuIDIwMjUgMTc6MTc6NTAg
+KzAxMDAKPiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+Cj4gVG86IEJlbiBa
+b25nLVlvdSBYaWUgPGJlbjcxN0BhbmRlc3RlY2guY29tPgo+IENjOiBwYXVsLndhbG1zbGV5QHNp
+Zml2ZS5jb20sIHBhbG1lckBkYWJiZWx0LmNvbSwgYW91QGVlY3MuYmVya2VsZXkuZWR1LAo+ICBh
+bGV4QGdoaXRpLmZyLCByb2JoQGtlcm5lbC5vcmcsIGtyemsrZHRAa2VybmVsLm9yZywgY29ub3Ir
+ZHRAa2VybmVsLm9yZywKPiAgdGdseEBsaW51dHJvbml4LmRlLCBkYW5pZWwubGV6Y2Fub0BsaW5h
+cm8ub3JnLAo+ICBwcmFiaGFrYXIubWFoYWRldi1sYWQucmpAYnAucmVuZXNhcy5jb20sIGRldmlj
+ZXRyZWVAdmdlci5rZXJuZWwub3JnLAo+ICBsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3Jn
+LCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwub3JnLAo+ICB0aW02MDlAYW5kZXN0ZWNoLmNvbQo+
+IFN1YmplY3Q6IFJlOiBbUEFUQ0ggdjUgMC84XSBhZGQgVm95YWdlciBib2FyZCBzdXBwb3J0Cj4g
+Cj4gT24gTW9uLCBKdW4gMDksIDIwMjUgYXQgMDU6MTY6NTRQTSArMDEwMCwgQ29ub3IgRG9vbGV5
+IHdyb3RlOgo+ID4gT24gTW9uLCBKdW4gMDksIDIwMjUgYXQgMDg6MDY6MDdQTSArMDgwMCwgQmVu
+IFpvbmctWW91IFhpZSB3cm90ZToKPiA+ID4gT24gRnJpLCBKdW4gMDYsIDIwMjUgYXQgMDU6MDA6
+MDZQTSArMDEwMCwgQ29ub3IgRG9vbGV5IHdyb3RlOgo+ID4gPiA+IFtFWFRFUk5BTCBNQUlMXQo+
+ID4gPiAKPiA+ID4gPiBEYXRlOiBGcmksIDYgSnVuIDIwMjUgMTc6MDA6MDYgKzAxMDAKPiA+ID4g
+PiBGcm9tOiBDb25vciBEb29sZXkgPGNvbm9yQGtlcm5lbC5vcmc+Cj4gPiA+ID4gVG86IEJlbiBa
+b25nLVlvdSBYaWUgPGJlbjcxN0BhbmRlc3RlY2guY29tPgo+ID4gPiA+IENjOiBwYXVsLndhbG1z
+bGV5QHNpZml2ZS5jb20sIHBhbG1lckBkYWJiZWx0LmNvbSwgYW91QGVlY3MuYmVya2VsZXkuZWR1
+LAo+ID4gPiA+ICBhbGV4QGdoaXRpLmZyLCByb2JoQGtlcm5lbC5vcmcsIGtyemsrZHRAa2VybmVs
+Lm9yZywgY29ub3IrZHRAa2VybmVsLm9yZywKPiA+ID4gPiAgdGdseEBsaW51dHJvbml4LmRlLCBk
+YW5pZWwubGV6Y2Fub0BsaW5hcm8ub3JnLAo+ID4gPiA+ICBwcmFiaGFrYXIubWFoYWRldi1sYWQu
+cmpAYnAucmVuZXNhcy5jb20sIGRldmljZXRyZWVAdmdlci5rZXJuZWwub3JnLAo+ID4gPiA+ICBs
+aW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnLCBsaW51eC1rZXJuZWxAdmdlci5rZXJuZWwu
+b3JnLAo+ID4gPiA+ICB0aW02MDlAYW5kZXN0ZWNoLmNvbQo+ID4gPiA+IFN1YmplY3Q6IFJlOiBb
+UEFUQ0ggdjUgMC84XSBhZGQgVm95YWdlciBib2FyZCBzdXBwb3J0Cj4gPiA+ID4gCj4gPiA+ID4g
+T24gTW9uLCBKdW4gMDIsIDIwMjUgYXQgMDI6MDc6MzlQTSArMDgwMCwgQmVuIFpvbmctWW91IFhp
+ZSB3cm90ZToKPiA+ID4gPiA+IFRoZSBWb3lhZ2VyIGlzIGEgOS424oCdIHggOS424oCdIE1pY3Jv
+IEFUWCBmb3JtIGZhY3RvciBkZXZlbG9wbWVudCBib2FyZAo+ID4gPiA+ID4gaW5jbHVkaW5nIEFu
+ZGVzIFFpTGFpIFNvQy4gVGhpcyBwYXRjaCBzZXJpZXMgYWRkcyBtaW5pbWFsIGRldmljZSB0cmVl
+Cj4gPiA+ID4gPiBmaWxlcyBmb3IgdGhlIFFpTGFpIFNvQyBhbmQgdGhlIFZveWFnZXIgYm9hcmQg
+WzFdLgo+ID4gPiA+ID4gCj4gPiA+ID4gPiBOb3cgb25seSBzdXBwb3J0IGJhc2ljIHVhcnQgZHJp
+dmVycyB0byBib290IHVwIGludG8gYSBiYXNpYyBjb25zb2xlLiBPdGhlcgo+ID4gPiA+ID4gZmVh
+dHVyZXMgd2lsbCBiZSBhZGRlZCBsYXRlci4KPiA+ID4gPiA+IAo+ID4gPiA+ID4gWzFdIGh0dHBz
+Oi8vd3d3LmFuZGVzdGVjaC5jb20vZW4vcHJvZHVjdHMtc29sdXRpb25zL2FuZGVzaGFwZS1wbGF0
+Zm9ybXMvcWlsYWktY2hpcC8KPiA+ID4gPiAKPiA+ID4gPiBCYWxsIGlzIGluIHlvdXIgY291cnQg
+bm93LCBhZnRlciByYzEgbWFrZSBhIHRyZWUgYW5kIGdldCBpdCBpbgo+ID4gPiA+IGxpbnV4LW5l
+eHQsIGFuZCB0aGVuIHNlbmQgYSBwciB0byBzb2NAa2VybmVsLm9yZyB3aXRoIHRoaXMgbmV3IGNv
+bnRlbnQuCj4gPiA+ID4gUGVyaGFwcyB0aGUgZGVmY29uZmlnIHNob3VsZCBnbyBzZXBhcmF0ZWx5
+LCBJIGNhbiB0YWtlIHRoYXQgb25lIGlmIHlvdQo+ID4gPiA+IHdhbnQuCj4gPiA+ID4gCj4gPiA+
+ID4gQ2hlZXJzLAo+ID4gPiA+IENvbm9yLgo+ID4gPiAKPiA+ID4gSGkgQ29ub3IsCj4gPiA+IAo+
+ID4gPiBUaGFua3MgZm9yIHlvdXIgZ3VpZGFuY2Ugb24gdGhlc2UgcGF0Y2hlcy4gSSB3aWxsIHNl
+bmQgYSBQUiB0bwo+ID4gPiBzb2NAa2VybmVsLm9yZyBhcyB5b3Ugc3VnZ2VzdGVkLgo+ID4gPiAK
+PiA+ID4gRm9yIHRoZSBkZWZjb25maWcgcGF0Y2gsIEknbSBoYXBweSBmb3IgeW91IHRvIGhhbmRs
+ZSBpdC4gSnVzdCBsZXQgbWUKPiA+ID4ga25vdyBpZiB0aGVyZSdzIGFueXRoaW5nIHNwZWNpZmlj
+IHlvdSdkIGxpa2UgbWUgdG8gaW5jbHVkZS4KPiA+IAo+ID4gT2theSwgSSBwaWNrZWQgaXQgdXAg
+b24gdGhlIGJhc2lzIHRoYXQgeW91J2xsIHNlbmQgdGhpcyBhbGwgdG8gQXJuZCBmb3IKPiA+IDYu
+MTcKPiAKPiBTb3JyeSwgSSB0aGluayB0aGF0IHdhcyByZWFsbHkgcG9vcmx5IHdvcmRlZC4gSSBw
+aWNrZWQgaXQgdXAgb24gdGhlCj4gYmFzaXMgdGhhdCB5b3UncmUgZ29pbmcgdG8gc2VuZCB0aGUg
+b3RoZXIgcGF0Y2hlcyBpbiB0aGUgc2VyaWVzIHRvIEFybmQKPiBmb3IgNi4xNy4KCkhpIENvbm9y
+LAoKQWNjb3JkaW5nIHRvIHRoZSBTb0MgbWFpbnRhaW5lciBkb2N1bWVudGF0aW9uIFsxXSwgSSBz
+aG91bGQgc2VuZCBhCnBhdGNoc2V0IChub3QgYSBQUikgdG8gc29jQGtlcm5lbC5vcmcuIFNpbmNl
+IEknbSBub3QgYSBzdWJtYWludGFpbmVyIHlldC4KSSB0aGluayBJIHNob3VsZCBub3Qgc2VudCBh
+IFBSIHRvIHRoZSBtYWluIFNvQyBtYWludGFpbmVyLiBJcyB0aGF0IHJpZ2h0PwoKRnVydGhlciwg
+SSBoYXZlIHR3byBxdWVzdGlvbnMgYWJvdXQgc2VuZGluZyBhIHBhdGNoc2V0OiAgIAoxLiBTaG91
+bGQgSSBzZW5kIHY1IG9yIHN0YXJ0IGEgbmV3IHBhdGNoc2V0PwoyLiBTaG91bGQgSSBjb250aW51
+ZSBleGNsdWRpbmcgdGhlIGRlZmNvbmZpZyBwYXRjaCwgYXMgd2UgZGlzY3Vzc2VkCiAgIHByZXZp
+b3VzbHk/IEkgdGhpbmsgaXQgc2hvdWxkIGJlIGluY2x1ZGVkIG5vdy4KClsxXSBodHRwczovL2Rv
+Y3Mua2VybmVsLm9yZy9wcm9jZXNzL21haW50YWluZXItc29jLmh0bWwjc3VibWl0dGluZy1wYXRj
+aGVzLXRvLXRoZS1tYWluLXNvYy1tYWludGFpbmVycwoKVGhhbmtzLApCZW4KCl9fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcg
+bGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRl
+YWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
