@@ -4,92 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A509C61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 07:24:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 519AEC71134
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 07:24:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
 	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tSLqovoWlRLHuw6b2ryumNCmDKm6Of3E27JsU0pkhXU=; b=bsz9cClgcYuk0E
-	WobtISPYd7z/OjlGI0orlMWBW3O7C9vNXdPky1wvz04uVlrEUVjz6piwrEkgrxmiaV57M0tp1EJ6O
-	N9ekM3LFsY5wa10Vr0Fp8L2EuYVSAKhAruNhh89sqclPvtEOTad8FIio7c+GRcW1wqwPdfWMkMisv
-	/Eaa5Sy1DORDng+ipxYoAw3P3zBNbwhqawf/9dMYfhAwr/eotwkogaycTzVs/1yqX1QX5pz/9QsJr
-	F0R52Xzm3lQ/wSRfk2gZQSkJkRAM2U/t1eza0euW0nHZ72YRod7E/jXnpBkQDilJYX3AX1xTLdBWv
-	0IeNggsunA5GO0ZV4Xtw==;
+	List-Owner; bh=UTPoNQ787ldt01/IFmwEWwgCqQzTI7S1lHQSqOWavqQ=; b=vsNnjFSVmo0Of7
+	fLQLKXYt+UfTjE4MhMVGUUevERfFmNjvGlRnt0MthhyYxsSgdz4UI35SYe1tFRNktbGsQq27uN6dv
+	k0IQYTVkHUjsDlSEJo2DMmHutbRYW9UNmmLqMKLgzTB10ittimUZD1ytxd0aeBCLdY34rTC00q77j
+	LRrvjcO+KEfBE0j7pjnVw3PyMgUj21jM1MFOJgCw8UP8sNnvJoXUZJ6LZ21FsDv7mxFy6xmyiEHg0
+	CFlAuvZ1/a9/ZgAfgS4XJY4g94rUS5+wKA3KLSJIIyaAyPNHy19kKDm5y8i8jsQffmpFiefzNW9ca
+	jXN3JX1H0/PiHahWl4sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPFob-000000095RS-0hVa;
-	Wed, 11 Jun 2025 07:24:05 +0000
+	id 1uPFoc-000000095Tp-3w8T;
+	Wed, 11 Jun 2025 07:24:06 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEja-00000008wwo-1H9b
+	id 1uPEjd-00000008x0c-2ejE
 	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 06:14:50 +0000
+	Wed, 11 Jun 2025 06:14:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=xhuOXPN5pzbXggWWg9hnI9xTO7REs2psbwAuBBp5Ivw=; b=OWduCpvZ5f+kq9J4uIcWyMUSoz
-	RYSGctp5+7G/WJglV5P+8f+HYwNEBUDGiYfKBczBNjsadOxPgME/VOGPPh4v2inm/e7Nbx/O9lm7F
-	P/Qfm/rIfcFwc0fqdBdfY4R3Ey3NLFBnMGbSJb0+Ie46B6NTjabMu2Q3ztamlUQx7YBd2Ib9Kfb1P
-	h8tAQKlNxzMQQsUAonZB2IyC4s8ERMbPTth0zVUN6AOeGkgsL4DRTjhhq5vMK/lZh/CWIXya6hucx
-	fIhg5Uv02nX3Jn4ADx79S0VMM9dmkkec71fXJgXkucW155KWbSQZgEjdGfRT9epcp8xQE9kGARRg8
-	OI8D1xww==;
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	bh=1HiVP0QLPKsIA8n0UdjT0lSqiGDAH6vDC2S5+J4fhwA=; b=gPVWE8SouPWD1uXMMIhiPDb4Mk
+	gCpOavbYJx1MWjJ0JjdLItCeeEBUmwpnBquL0NGJvVDfoiTZGc+JHYTHrb4jC938047JsW9rweZ4B
+	t7bqBuxx/40+syrIX6pm76497o5EIW6kYO/ju3dB1k227wPHiuM/gYY1KF4rkjN+arSnJg/tT+wCx
+	jL9j6UWfCzJHMmvpPU89NNAV1bj+9wpsOUSbu7zTdtKJ425C4RTbjMik3hmHuuRd8qthJXt/w1v+q
+	7B2A4hlnTsUih0IeQvuzf8mSbQZVTqwoAzgyiby6Vf+C7XoWAZIZ9ZPJPBHUY4Fhn6lbvmZkxa6eY
+	Ft72nYyA==;
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEjY-000000027fw-22EP
+	id 1uPEjb-000000027h0-33nY
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 06:14:50 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-3a4e575db1aso27926f8f.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:14:47 -0700 (PDT)
+	Wed, 11 Jun 2025 06:14:53 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a4f64cdc2dso4209f8f.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:14:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749622486; x=1750227286; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1749622490; x=1750227290; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=xhuOXPN5pzbXggWWg9hnI9xTO7REs2psbwAuBBp5Ivw=;
-        b=zn8pR+x3nqhQMuQ6P3JvGDU2VpkwLJPhA4P0h3EOv93K082QhqwligvNePOUOoIFgZ
-         AwoVBa4jlIPtRCe1hDslyPX/VW9JOesj+uF5nwO01mCTJ9XOHaBAGLZuCPOPPwD8GPxu
-         Q45BLxbiqrhFuKBuQ1ZZ5gnJzh9ArO45Ct5usVJQ2DWfelBbgx+FMb2NO1xaJHyZsNQu
-         NdTX1c9ej0NiF2TaBocDD3Zb1LQ3qGLGH93LUB7pQzKysDiTbF1zu1S4yWFs3ikJY4J/
-         lVZjU0EaLFmbDBHnl9DEhD507/w2zV+XL71ilqprabF2sWI2FLPdxTPvFh9N6Nn32B4E
-         mAxQ==
+        bh=1HiVP0QLPKsIA8n0UdjT0lSqiGDAH6vDC2S5+J4fhwA=;
+        b=Hw8s0emTJkcvWVSM9FKVAvE17hq6oPjd2HkP+9ZUju/O2lTRBQaPP/k6/CTJRhmarx
+         Jhee0tHS7VwxpuLZsqJqprPNgydE7xi5fiP9XBJb3NejKqEJF5bQaBkvhczPktk/5wuN
+         /jzSflKuRBUlAFPkUJAre6DLuniaVWijnkyzTei1RvD7HuA6dlGPqjJXBHhx5gdlPolu
+         tEmXuT+aKxCUvkHY8ed3abgrN7bIU+8JAdB0v+3sIp8m14dPNHbwRKEgHJkI46cUcK6I
+         t2AE6uzpOMZjwhMMgc69olB5PrCYqZ2e4oWJWC1CI2UcqdZ/2ft0LflkqVOqFDx5NVPI
+         2NwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749622486; x=1750227286;
+        d=1e100.net; s=20230601; t=1749622490; x=1750227290;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=xhuOXPN5pzbXggWWg9hnI9xTO7REs2psbwAuBBp5Ivw=;
-        b=cKuP3BhnZUawDRCJVKvjKVyrcjhATvqVSAUvhP0JetgUCLs+XkElQ2nkQ0AkCMCWGB
-         ZyT+JlgQ5CREJdk+gCOaplqfXAlQUvCp0hxgz7XFj4RPsk21djNjd+/bNaH92iQ3blqf
-         D29iyNm/EsU+ubs2NB/IvHxKFNoBRypPhmP4DtP/nKKRS2N+1/F9aVdzren20ol1/5vH
-         3pdGb1gFlvX6T2cgdNb7VbzZHPnAjb06nsEoGIIdOTPIc2zFR9swiXRTkZ3QRhftak4+
-         oXUDNJPu9GtweozUawx5UKOwTRMDh4ZQHh75Bs+6D2l5S1S6RinjwTaRL9RQPcXCdu6M
-         DzhQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQOPqCoyCvwVOP1jrWeQrlZdnoCNQqVCPsRiFo2vI3grpD9PkpVPafglZCfxeSQfv4Jomm/stAcrMPjA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzrAsL2o7zlPiGQIe0PV0yZKjH08V/oeKBRp06l5ILH2S9PRtxn
-	7ifMCkIUu4MvCpGx6uC7RjhBPsrkwi2M8aDIDe9mgY17THTz5nM9ZXSXfFE3TaQEuYM=
-X-Gm-Gg: ASbGncv7uLRfjcMcGHu7+ZVHWIX0eAWn1c9XUo0cr2XzQJeE6A7v4Ujug5YNLVDN7PI
-	jNQIAZssJgnBre/wgtB6nMdMvDxrBs5396q+qGr5GHngM6nHtLTlC1fa+q1LUuLVPpHchUD7+Se
-	28LeCdxi23S+1FBRsq1ubJ0yUR3id/aCCKTULLhfW01LIDO6efWgAU5jfRvBNBg8epFTLhUq0dB
-	9Yhs3ZfvKxE/WpoaZSNeh7mC5RYJxo//AoCj+EdIBrtLFgsVLFeM3L5XjDyS7TMqd/eTqjfhEUD
-	4gnH0SMX3bokyngkOwVdC7xQGrEzb0204fez6ecRhkpNe4g1nfn1sA0mn9yrG3HCBFlMdIJMtTN
-	i4avFvfM=
-X-Google-Smtp-Source: AGHT+IFoBfGugxgH7Y07c+Z7PgO6Vu533wPz1tMcs2kNav8PQm9ojUKm/KoAc5pG4XQWm3sCZWL/JA==
-X-Received: by 2002:a05:6000:2313:b0:3a4:eeeb:7e79 with SMTP id ffacd0b85a97d-3a55881f23fmr555424f8f.12.1749622486357;
-        Tue, 10 Jun 2025 23:14:46 -0700 (PDT)
+        bh=1HiVP0QLPKsIA8n0UdjT0lSqiGDAH6vDC2S5+J4fhwA=;
+        b=TeUB8INlPlGjQ3Pre9gUtzU2NaBY4rMS3vOMwoEN9GDIutTr0H4ffSFavkjHaqo0kP
+         Zv667lAbaJ/dFOE1VNxVEemQ1hX7eptQ7E74xvpDfqK+L4BcnYjhcRIVfcK8HIXfEWnc
+         MiLHt36VeFnMNHjGzQZHXNbQpqRdE3rwMk7ZEgncqs8N7744kWwRtE4IQcwqHU8tgSKX
+         keiicd2WsWbIRU3pTSjBkeh1qC3YjT2d7Q2lURlaBn2c7JfS2Q5c70/J+c+BfVjL8X4K
+         5xaWdYTiK12zrraRCqHqYnQWuBr2hp6zUaGuuEStWdtoaUNEsJnkRQ9MCpCikot5vX2d
+         Nczw==
+X-Forwarded-Encrypted: i=1; AJvYcCWEMI1VFRf1jlQYzKKSr/BOyXPfnSCkjLa5ope2KSZF++FREFgjrnMQJQkU/cZWVNj6TAiQrzbTdIDuYw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwdaU5kQb3eEXU3J92aLpur3uZZ1tZsZ2V9BNAOkipoolTipK2Q
+	Xmva8AvAO+jCkpXHvsuz/Rw1WM+ZP3NAXUNMDqg6OoW92Wtte2LAVnFjherp1qxRcXQ=
+X-Gm-Gg: ASbGncu4sDuczvKtLYAyPOHWvZvs2krhO4wU75p1VQme7f1TMVRaHniqGYu6EjqC+4G
+	XFbJ+RHoKGYwYL8euADNgYE9WGVSpPEcHvTcOdrFOvlSrpSFgZ73yYzJIMsN6z+sOT1YvytCSOX
+	Agx8Z3tG9FEJOHjTejOBvGJcjasMGwzzAuRvebGUx2YKjOLPBo7/sFL9IEQ4un+ajj/PvbuSrhg
+	XlXc62DI8XkOPp2laAkfFNDOZcJ+z8IEuP6vz/pwV9oYNp7WHpUqCvBIC0YHXuXMuAt2LS8yYZ7
+	ZfCPj/qrFsUDI8g1pjWTiOuFiro8lieSEMMeXKiZgSEYW7qMpmZJNQS2BL2HgZfQidzOOz1Mo6M
+	S4HxzsLg=
+X-Google-Smtp-Source: AGHT+IGAMOnxxwJh6k3dhRiX61q7MpOsBjEBq59fXcuOB6WHX3+BJjfe7T2i67oqLzVzIqJNLPxm7Q==
+X-Received: by 2002:a05:6000:1788:b0:3a3:5c97:70c with SMTP id ffacd0b85a97d-3a558822cffmr480215f8f.14.1749622489659;
+        Tue, 10 Jun 2025 23:14:49 -0700 (PDT)
 Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.14.43
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.14.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 23:14:45 -0700 (PDT)
+        Tue, 10 Jun 2025 23:14:48 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 11 Jun 2025 08:13:42 +0200
-Subject: [PATCH v2 10/17] pinctrl: bcm: cygnus-nsp: Move fixed assignments
- to 'pinctrl_desc' definition
+Date: Wed, 11 Jun 2025 08:13:43 +0200
+Subject: [PATCH v2 11/17] pinctrl: as3722: Move fixed assignments to
+ 'pinctrl_desc' definition
 MIME-Version: 1.0
-Message-Id: <20250611-pinctrl-const-desc-v2-10-b11c1d650384@linaro.org>
+Message-Id: <20250611-pinctrl-const-desc-v2-11-b11c1d650384@linaro.org>
 References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
 In-Reply-To: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
 To: Linus Walleij <linus.walleij@linaro.org>, 
@@ -127,29 +127,28 @@ Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
  linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
  linux-stm32@st-md-mailman.stormreply.com, 
- Florian Fainelli <florian.fainelli@broadcom.com>, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2083;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1376;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=AYNDWesc3V2AvRR7if8AbZFHcfpmPLseFxX/L5QzL90=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6nF3fg9hKfOe+Hbr9Tehw6sIfTcg/RPRBf+
- O4vW+xehwiJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkepwAKCRDBN2bmhouD
- 1/2lD/42/A7ac2PRGbwiBHKKG8B4x10B4zm84oj9tWoEWjIiNCrieIBnYPrCLjlrhWxBPvOs7vh
- Q+lrPGp0oUPIrfP1V9v1nbsikUqnMGkq/mMlW7Q8ed6lorVeDOnQKirV3EiRcQ32H0rW7hw9XV0
- EAuunpaOtZ2aQWFCsRIIOx9yNCEeluYhDhc8/FTu/ClVL42hwnYs1rT6agYiCKJU0S5qaiWH2gu
- dkuBiRRqX8NsoB4SnSOq8bFtFUyJI2nYBN0mN3kYMQ1TPpCeLty1DLRJZ0aYp7D292HAEPoIAQR
- 8Kf9CyOMbUTu/l9PRBhbAq5DbZSxCYgy9Dp4kt2QCKfde38bfmcW0AWiirTSVrWKGxx5UtsJ3O/
- 8rA5oBpKlaNI1+mVgQCnfLYKT+oYmTbPpR4BY6mvvkKuql/22PkuV0MyS/aDwaAqPU0svNbfCI+
- 0XED91LrVnXbYLt8vWAPYfCuGGPHnG9tOCVRg/T60Rl65gbUXK9h+JVq7sJOhh6pmdSAvpP9P7z
- e5Gk0qCav+Rue6poBOqkCRWFVxO9RgxbxL5ETGIhR2Kmi51H5EBpXIV7rmaI/+6ZZ9Kad+v3rJu
- kCoBZ8gkIVyWqNjLG0L+3huLO43lOyPvxGJycogdWphLagnUoCjJ6JG/UmGNsifVdYPSrAjzJD4
- dcQEUA3glGNzmJg==
+ bh=qi1eWzTJCENFCt5JAU6Fe0rVNJeWQChdweXO2MJK0eI=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6oRdItqT9sxon4qbZGkWGmSQh5LLhdyjslx
+ Lrhu2XhwFqJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkeqAAKCRDBN2bmhouD
+ 1zqVD/9ltJexCdYC0zqX0/CADjrrprRtZoxnsBy1fZlMCSHM//l6RgsH+zTI3L4z8D6hoXjSN7+
+ kCqzJiEtHxlNkIPRSofpxJdMN4X7bnalI2zDd6X/0XwoGaFls+DBLvGym8L/PCBsw2XF6cR3Y/r
+ vpnXKGcuteokGneH3wAP8Wpef9N8QOEKtMiJgtAGa7mfmPf62QTORx1Zkeyh+u+BcEHykALKzL/
+ Noyc7nXEB+ywMlt91FmmpwdT0bGGf9FjGJmjXa8Hri/2a11cypStJu8pW9p0HkP0MylQcHwxAGf
+ jgwyFEj9f563zIfknjjRmB07L+vhdZjrMHYuRBDARPoDCUZ/wAtWSzS013IH8KTY605CHDkDDXg
+ W7tSAeJ8dfweOfmy/LVBOJVtADslkpV4zDk6Ou7cBz3IT1L3JWzytd49gj2sQZFwH8ptj+6LG/f
+ hsGg4yTdoyR4r/xZyN/skZHugzysRD1LuBvV/hx+QjJaSJHmmMw9cwX8jnWFkrFO+jtWYrWNehF
+ DXTusW4HtBT4feez8bRSM2jUI5kSqnYHNa4Er2ZlPLiOyqdLWrMd0AQMTP4SRLBmhsJQCbfTvHt
+ GEjwdyXAIiLXyaogHeIulwyIiEw52cJ/3DShLuesPqxk/vnnajXOS+ikRv6n+kyLnyNEybCOgxA
+ x214zblWxgJp17A==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_071448_632452_958A3180 
-X-CRM114-Status: GOOD (  14.37  )
+X-CRM114-CacheID: sfid-20250611_071451_855952_6A5DE5F8 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,58 +165,36 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Assign 'struct pinctrl_desc' .npins member in definition to make clear
-that number of pins is fixed and have less code in the probe.
+Assign 'struct pinctrl_desc' .pins and .npins members in definition to
+make clear that number of pins is fixed and have less code in the probe.
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/pinctrl/bcm/pinctrl-nsp-mux.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/pinctrl/pinctrl-as3722.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/pinctrl/bcm/pinctrl-nsp-mux.c b/drivers/pinctrl/bcm/pinctrl-nsp-mux.c
-index eb6298507c1d1873f9d5a90ec724b36af6d4da48..9b716c0d2b9456b9e64ca1094375effefdf4817c 100644
---- a/drivers/pinctrl/bcm/pinctrl-nsp-mux.c
-+++ b/drivers/pinctrl/bcm/pinctrl-nsp-mux.c
-@@ -525,6 +525,7 @@ static struct pinctrl_desc nsp_pinctrl_desc = {
- 	.name = "nsp-pinmux",
- 	.pctlops = &nsp_pinctrl_ops,
- 	.pmxops = &nsp_pinmux_ops,
-+	.npins = ARRAY_SIZE(nsp_pins),
+diff --git a/drivers/pinctrl/pinctrl-as3722.c b/drivers/pinctrl/pinctrl-as3722.c
+index 0d8c75ce20eda97627aef773342a0b63ff6114a1..ed7b2c482ff0bb6a546955c083ef7046701527b0 100644
+--- a/drivers/pinctrl/pinctrl-as3722.c
++++ b/drivers/pinctrl/pinctrl-as3722.c
+@@ -422,6 +422,8 @@ static struct pinctrl_desc as3722_pinctrl_desc = {
+ 	.pmxops = &as3722_pinmux_ops,
+ 	.confops = &as3722_pinconf_ops,
+ 	.owner = THIS_MODULE,
++	.pins = as3722_pins_desc,
++	.npins = ARRAY_SIZE(as3722_pins_desc),
  };
  
- static int nsp_mux_log_init(struct nsp_pinctrl *pinctrl)
-@@ -556,7 +557,6 @@ static int nsp_pinmux_probe(struct platform_device *pdev)
- 	struct resource *res;
- 	int i, ret;
- 	struct pinctrl_pin_desc *pins;
--	unsigned int num_pins = ARRAY_SIZE(nsp_pins);
- 
- 	pinctrl = devm_kzalloc(&pdev->dev, sizeof(*pinctrl), GFP_KERNEL);
- 	if (!pinctrl)
-@@ -589,11 +589,12 @@ static int nsp_pinmux_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	pins = devm_kcalloc(&pdev->dev, num_pins, sizeof(*pins), GFP_KERNEL);
-+	pins = devm_kcalloc(&pdev->dev, ARRAY_SIZE(nsp_pins), sizeof(*pins),
-+			    GFP_KERNEL);
- 	if (!pins)
- 		return -ENOMEM;
- 
--	for (i = 0; i < num_pins; i++) {
-+	for (i = 0; i < ARRAY_SIZE(nsp_pins); i++) {
- 		pins[i].number = nsp_pins[i].pin;
- 		pins[i].name = nsp_pins[i].name;
- 		pins[i].drv_data = &nsp_pins[i].gpio_select;
-@@ -604,7 +605,6 @@ static int nsp_pinmux_probe(struct platform_device *pdev)
- 	pinctrl->functions = nsp_pin_functions;
- 	pinctrl->num_functions = ARRAY_SIZE(nsp_pin_functions);
- 	nsp_pinctrl_desc.pins = pins;
--	nsp_pinctrl_desc.npins = num_pins;
- 
- 	pinctrl->pctl = devm_pinctrl_register(&pdev->dev, &nsp_pinctrl_desc,
- 					 pinctrl);
+ static int as3722_gpio_get(struct gpio_chip *chip, unsigned offset)
+@@ -550,8 +552,6 @@ static int as3722_pinctrl_probe(struct platform_device *pdev)
+ 	as_pci->pin_groups = as3722_pingroups;
+ 	as_pci->num_pin_groups = ARRAY_SIZE(as3722_pingroups);
+ 	as3722_pinctrl_desc.name = dev_name(&pdev->dev);
+-	as3722_pinctrl_desc.pins = as3722_pins_desc;
+-	as3722_pinctrl_desc.npins = ARRAY_SIZE(as3722_pins_desc);
+ 	as_pci->pctl = devm_pinctrl_register(&pdev->dev, &as3722_pinctrl_desc,
+ 					     as_pci);
+ 	if (IS_ERR(as_pci->pctl)) {
 
 -- 
 2.45.2
