@@ -4,85 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B61D0C71133
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 15:55:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C492C71137
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 15:57:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=t6YRcEEMXC/ltlI8ojTpi9PgePtuMIuoJKv/ZnPsmyQ=; b=xm2JOLz1jeT02o
-	Q7yCYo9FzxtF6Uv5vW8ETIeCsYVlXXWifDZvMz4Q0CIxF2D+lKunevOlpzcslmQZSoq5ogYe6lRG9
-	I6ngu1azgJ0LsVRh6eBdRC/HC4GZJmRM3EYw34VUs/6KVVrDY3xrhhAfaGXJuJvwEXrVphx1Y7QBx
-	ROTEEZY2fCLIYPBQYSVB4bpp+fLVpUVcJchOPGVN0cCIj9cKDi9yXT78wPfQkgRXurOOcRJV7oqnG
-	BUKSQnmO2bCjK01z17NR5vBEXflxOlkx5rWdkqsEpE3K4ZhrtqI/+/8FvkbbT7DpiW1zXXRXrpvLi
-	Gv0UF463OiV6T93yxbng==;
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:
+	Mime-Version:References:In-Reply-To:From:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Owner;
+	bh=sk01zkXxgdDXrysqnxAGyvInXfiYhUVAGIuzdrfzmIs=; b=mhqIsk4M28TOQpZxy5gsgYLkal
+	wCm929Tvy6Ebqk7dQA4cTiWXzDeK/ywHIvGwIiF6q15FzZ150I2S+Z4bZoWj8jfnhE0+euKXnQH4v
+	woYuKzhRIPewcFGWgxRWh/E0T0BSdPt0QdAzsy/aBlIkYbiLtAMjsVqbqr2fzsQK5h6hnTNImU0sh
+	eBFBsbx7TRKG8ogfVc8Dy2l5TMcAVKd/ciEQfYABVTpBxbqoUMfdFcLAGJDS/bCbFl1m9a4bpLYT6
+	OSoSWFA3cDutTluErpEHe3LJayaJN/7s8ytlkgFgDPSoCk79ly+ZccJZdjNDK0EfvYeolW9j4pX22
+	sYHseC/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNnB-0000000AUwi-2Gz2;
-	Wed, 11 Jun 2025 15:55:09 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1uPNoz-0000000AW6G-0pUn;
+	Wed, 11 Jun 2025 15:57:01 +0000
+Received: from smtp-relay-internal-1.canonical.com ([185.125.188.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPJdg-00000009kHC-1aAD
+	id 1uPKtC-00000009sUD-0XDy
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 11:29:05 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3a52874d593so6265701f8f.0
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 04:29:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749641342; x=1750246142; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=a5eBwBbTQUmE/jg9qxOQzcw7gsljfjr3T8EkpVA+lR8=;
-        b=YZz9CTkYcCZ3oFINg9muqBHSCpW3sETClBxSTgu2zCYfHOahTDP1mpA/0z03Fw7LJQ
-         4RJ/eLPW5WyLjvnDAeV29xfcSpVmoXK3pYvKZ2TcthDUZ0NQLvMXfQWYZVyjG7vBNIoQ
-         6enV5jP/RNYG15xcNv4psogeP0XU/LbhhIXuNjPFdLy5foLgQUCX3qksKnaGAOs8UYZP
-         vZPBazSP4AYrfQU4QQ7+vmMK4PkkiUKC0GBhNXtPkr/85Ihv4+P9F5n2avWQiqTUkP2q
-         MXvlf+TrdhMdnJlCFGldC+BliceOfbPsBQau5Uc602hzACp4reaxBeDcdL5cdULv5/yv
-         Pyvw==
+	Wed, 11 Jun 2025 12:49:12 +0000
+Received: from mail-oa1-f72.google.com (mail-oa1-f72.google.com [209.85.160.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-1.canonical.com (Postfix) with ESMTPS id 81A8F3F73C
+	for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 12:49:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20210705; t=1749646140;
+	bh=bELfz3w2j893PNHUaLtbdQ42P6gz+Z983PYtPwmORCE=;
+	h=From:In-Reply-To:References:Mime-Version:Date:Message-ID:Subject:
+	 To:Cc:Content-Type;
+	b=BBSImZ1+tybxpvjY+IybdNVTkyIe5JEVQQCKpwONXGrZDG70upsHmJ9CklBueXqu2
+	 TvqnzJ3sX5nA20tmELLVGJNZvwRJ5oJMWa/URO0WA6X4FEehKYvA4J4hsyXX75Q0WS
+	 wTjD+TRmirHpjAJs0MFalXyIM2pzbBqFE1aObKumo3DsSEikVhyTj/sAZX7/CgFEJ2
+	 VlxQcf6+8qJgG7DX9HsTfBgWXrqopy+F4sGY7DUDhZq+Ek+qPsGip/mCT5EfrYE5Nu
+	 Xuducgdgbv2YWmVmtGdMt0OK7Oizmk3k3lYkUfJFMaabYVNX/bPay7x9fk6fZims0E
+	 N/tPOsMLQev4w==
+Received: by mail-oa1-f72.google.com with SMTP id 586e51a60fabf-2e933923303so4911621fac.1
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 05:49:00 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749641342; x=1750246142;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a5eBwBbTQUmE/jg9qxOQzcw7gsljfjr3T8EkpVA+lR8=;
-        b=uWg4b0cc9/fgSgKLlMqpH1NTyDoXFBdm6743igfbizxjpc+KPiaxOJy4pm6DHt+gnS
-         g9YAX+5JXFQS+BHcFt2njS09nSjJxzNGKOQ9vHxbCsRTRpJ+9iAWOlKproXU3DTpKtal
-         u9ZcDwzUe4LY2Tnn1F+MiVCWWsUWG9I0iQokPr9Yw3npkWmKSik07AW6mEgev6xN9Yrh
-         F4VMvTgNq2DTyP5Ynt8i87+OTz8LokdEq832xKa/PjwxtxE9LSfhg/GbgI+CSdmQmGli
-         ACPDXDBF9fXTz8FSq4Gr+2ARuRRFObV5ebiSajFXWc2heTDMcVpBc8BzmsGQOc91Pfhl
-         tdew==
-X-Forwarded-Encrypted: i=1; AJvYcCWSVo8i1GxDGT+4FLDNvq6J/xPskxOP/b7tgkA6H/MNfx7tXI/aRYlO0jwfP9877qpSLuqjUI6sj3huPg==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxrpin4f523H7TdJ4Pd8SAO1TDevT2NHwWKb3AhssFqFJKoIeRi
-	dygy+zIg5fAF8z+6enQ2WH3v5OW6iW9RWxgYpAm/1XadUnmytGJ5UEeExOAP4kRaAe4=
-X-Gm-Gg: ASbGnct4bfKOAZustNuCqiCLVX+kSBFbloXmclaTracrq2hOD2L7h3yKUZGgEDzOqeX
-	PL41zZFgCLX2kHZT8IlopIYgXgLGA5Ewp7M5trt5SPGfPcsZB9OKfBpu4heQRdqYFauDZqyRsMR
-	cOWxdonSWoJKSyTFCjDHDIqk4+7i7UrNaYF7sYRy3wN9mvNVkwUBPa8g2VfOkuJkYvpor97DDyz
-	AeFElQVQncM3kp2JQi7YeYuQsqafpqZB9lbpBEbN62sM8pKXKbV0GV4YGfcIqXZPTsoxGYUc07L
-	N1Lq8rAoOO19SCmMQy0984eXg/Zs50ZnUKFM+jj/UtvKBA/NSg==
-X-Google-Smtp-Source: AGHT+IGR2AIUE7a4nEZNX6K/UcpKOCr7ODBk7la16aB9kHn6bvTqIQ8QJX5Tm6kGkYsyX0BXvJw49w==
-X-Received: by 2002:a5d:64e2:0:b0:3a0:b940:d479 with SMTP id ffacd0b85a97d-3a558af780fmr2434572f8f.53.1749641342318;
-        Wed, 11 Jun 2025 04:29:02 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::5485])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a5323c08fasm14761939f8f.44.2025.06.11.04.29.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 04:29:01 -0700 (PDT)
-Date: Wed, 11 Jun 2025 13:29:01 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: zhouquan@iscas.ac.cn
-Cc: anup@brainfault.org, atishp@atishpatra.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: KVM: Avoid re-acquiring memslot in
- kvm_riscv_gstage_map()
-Message-ID: <20250611-352bef23df9a4ec55fe5cb68@orel>
-References: <50989f0a02790f9d7dc804c2ade6387c4e7fbdbc.1749634392.git.zhouquan@iscas.ac.cn>
-MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <50989f0a02790f9d7dc804c2ade6387c4e7fbdbc.1749634392.git.zhouquan@iscas.ac.cn>
+        d=1e100.net; s=20230601; t=1749646139; x=1750250939;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bELfz3w2j893PNHUaLtbdQ42P6gz+Z983PYtPwmORCE=;
+        b=JyCd+E0AH8+2qnFdKjiBwK72zdVQSYGg/+f4wxkIsexR6MuCr+vkbBq9vmOeI6u3Lx
+         NF9rVZGAY2EQXY4VO7zo70NypSb9MFptuvGL/4AC9D7lLII2XAK02gENzwHpQLmvpR/2
+         VedY3cpf9WLG/e5SvtxAEoeI+rhxV4H6+0nc+oTm4DAKlGve3nO2ru29fldSdUPRnS8a
+         VUQ7I0+il8Qd2P99sulMB7WGKxlL56YqhnrWbMlJo2I8qP9BfxQdAYE+CqvnsrjKPPPD
+         h0UtYxucV1COJBKahZZpFrPxiOuLmLcAzxZmt35b+AmOjN+PQAa2qs5CJt2XVLdKRErE
+         ra8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUoZXnJxbaxCOIIqiaR+sLb56Yr/6MyL4LGiJp6ejYN3ljujm+IGRrSWAkbl5esrDUSqrMzHp+9ZHEv2Q==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4xn0Y/VNcQMFHvZGvBnvD1IZXGymaQOYM1WGjuueC+6AMy0bx
+	dDXPtLQj54qySIM77NH4ZdJoiL/faNcUndAzSDLL5Hfsuag1VbwP3/fUatw80xq4H7ZdQFGEIfG
+	Jdgm/hRpJ10tiJVQegy1Ej8fPSzyCP6tyhfYws3eXRG0klG9dF9xOeEz+cOgb29Sfdo9edXF2AF
+	NovmYRqiaM520KAn1GCxBAnefoaseYqdulFCeIkHNQ6OLO+rpblNTyfKHm9v7K
+X-Gm-Gg: ASbGncvxvbWUw8urW6EGgNhUqVVkHfIByp3dt2G0yI/uxi4GuXfJRaYb/ic/KVdRnXO
+	rc5w5PVuIMLEPESn3bv6dukTFdwzDI5LQiNXYVv4GwJgv0OKhn0L2l10xwjmWyobxhJ1cNTXQjd
+	Auwg==
+X-Received: by 2002:a05:6871:e803:b0:289:2126:6826 with SMTP id 586e51a60fabf-2ea96f18fc2mr1940844fac.30.1749646138952;
+        Wed, 11 Jun 2025 05:48:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGzhqyM2kCCDhwaEPz02MLETIROTaGu5WeJENkIMCzCu3hfLe4ldyitgFfsfYyGdI6dZNlApiM1ratiR1ypk/k=
+X-Received: by 2002:a05:6871:e803:b0:289:2126:6826 with SMTP id
+ 586e51a60fabf-2ea96f18fc2mr1940818fac.30.1749646138634; Wed, 11 Jun 2025
+ 05:48:58 -0700 (PDT)
+Received: from 348282803490 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 11 Jun 2025 07:48:57 -0500
+From: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+In-Reply-To: <20250611-pinctrl-const-desc-v2-1-b11c1d650384@linaro.org>
+References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org> <20250611-pinctrl-const-desc-v2-1-b11c1d650384@linaro.org>
+Mime-Version: 1.0
+Date: Wed, 11 Jun 2025 07:48:57 -0500
+X-Gm-Features: AX0GCFuz_RtY5rxDREJdwFYXLGRQkyQfytWb3LifI1_It-SfpAfrMZfWta2TVOY
+Message-ID: <CAJM55Z9WzsxWGmQYH05hSisigTRaHuKOn8g3AsLJ9h6Womy2dg@mail.gmail.com>
+Subject: Re: [PATCH v2 01/17] pinctrl: starfive: Allow compile testing on
+ other platforms
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
+	Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+	Joel Stanley <joel@jms.id.au>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, =?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
+	=?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, Geert Uytterhoeven <geert+renesas@glider.be>, 
+	David Rhodes <david.rhodes@cirrus.com>, Richard Fitzgerald <rf@opensource.cirrus.com>, 
+	Charles Keepax <ckeepax@opensource.cirrus.com>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+	Sean Wang <sean.wang@kernel.org>, Jesper Nilsson <jesper.nilsson@axis.com>, 
+	Lars Persson <lars.persson@axis.com>, Damien Le Moal <dlemoal@kernel.org>, 
+	Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
+	Emil Renner Berthing <kernel@esmil.dk>, Jianlong Huang <jianlong.huang@starfivetech.com>, 
+	Hal Feng <hal.feng@starfivetech.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Alexandre Belloni <alexandre.belloni@bootlin.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Manivannan Sadhasivam <mani@kernel.org>
+Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
+	linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
+	linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_042904_419877_BA9968C7 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20250611_054910_555460_CA3BA8A7 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,78 +129,38 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 05:51:40PM +0800, zhouquan@iscas.ac.cn wrote:
-> From: Quan Zhou <zhouquan@iscas.ac.cn>
-> 
-> The caller has already passed in the memslot, and there are
-> two instances `{kvm_faultin_pfn/mark_page_dirty}` of retrieving
-> the memslot again in `kvm_riscv_gstage_map`, we can replace them
-> with `{__kvm_faultin_pfn/mark_page_dirty_in_slot}`.
-> 
-> Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
+Krzysztof Kozlowski wrote:
+> Always descent to drivers/pinctrl/starfive/ because limiting it with
+> SOC_STARFIVE is redundant since its Makefile doesn't build anything if
+> no Starfive-specific pin control Kconfig options are enabled.  This
+> allows compile testing on other architectures with allyesconfig.
+>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
+Reviewed-by: Emil Renner Berthing <emil.renner.berthing@canonical.com>
+
 > ---
->  arch/riscv/kvm/mmu.c | 5 +++--
->  1 file changed, 3 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 1087ea74567b..f9059dac3ba3 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -648,7 +648,8 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->  		return -EFAULT;
->  	}
->  
-> -	hfn = kvm_faultin_pfn(vcpu, gfn, is_write, &writable, &page);
-> +	hfn = __kvm_faultin_pfn(memslot, gfn, is_write ? FOLL_WRITE : 0,
-> +				&writable, &page);
-
-I think introducing another function with the following diff would be
-better than duplicating the is_write to foll translation.
-
-Thanks,
-drew
-
-diff --git a/include/linux/kvm_host.h b/include/linux/kvm_host.h
-index 291d49b9bf05..6c80ad5c7e89 100644
---- a/include/linux/kvm_host.h
-+++ b/include/linux/kvm_host.h
-@@ -1288,12 +1288,20 @@ kvm_pfn_t __kvm_faultin_pfn(const struct kvm_memory_slot *slot, gfn_t gfn,
-                            unsigned int foll, bool *writable,
-                            struct page **refcounted_page);
-
-+static inline kvm_pfn_t kvm_faultin_pfn_in_slot(const struct kvm_memory_slot *slot,
-+                                               gfn_t gfn,
-+                                               unsigned int foll, bool *writable,
-+                                               struct page **refcounted_page)
-+{
-+       return __kvm_faultin_pfn(slot, gfn, write ? FOLL_WRITE : 0, writable, refcounted_page);
-+}
-+
- static inline kvm_pfn_t kvm_faultin_pfn(struct kvm_vcpu *vcpu, gfn_t gfn,
-                                        bool write, bool *writable,
-                                        struct page **refcounted_page)
- {
--       return __kvm_faultin_pfn(kvm_vcpu_gfn_to_memslot(vcpu, gfn), gfn,
--                                write ? FOLL_WRITE : 0, writable, refcounted_page);
-+       return kvm_faultin_pfn_in_slot(kvm_vcpu_gfn_to_memslot(vcpu, gfn), gfn,
-+                                      write, writable, refcounted_page);
- }
-
->  	if (hfn == KVM_PFN_ERR_HWPOISON) {
->  		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
->  				vma_pageshift, current);
-> @@ -670,7 +671,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->  		goto out_unlock;
->  
->  	if (writable) {
-> -		mark_page_dirty(kvm, gfn);
-> +		mark_page_dirty_in_slot(kvm, memslot, gfn);
->  		ret = gstage_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
->  				      vma_pagesize, false, true);
->  	} else {
-> -- 
-> 2.34.1
-> 
+>  drivers/pinctrl/Makefile | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/pinctrl/Makefile b/drivers/pinctrl/Makefile
+> index 65dac8e387985ac7f865d13325eb903f64645a2a..de80f3ee52c40f3a817f229a751909c590161594 100644
+> --- a/drivers/pinctrl/Makefile
+> +++ b/drivers/pinctrl/Makefile
+> @@ -83,7 +83,7 @@ obj-y				+= sophgo/
+>  obj-y				+= spacemit/
+>  obj-$(CONFIG_PINCTRL_SPEAR)	+= spear/
+>  obj-y				+= sprd/
+> -obj-$(CONFIG_SOC_STARFIVE)	+= starfive/
+> +obj-y				+= starfive/
+>  obj-$(CONFIG_PINCTRL_STM32)	+= stm32/
+>  obj-y				+= sunplus/
+>  obj-$(CONFIG_PINCTRL_SUNXI)	+= sunxi/
+>
+> --
+> 2.45.2
+>
 
 _______________________________________________
 linux-riscv mailing list
