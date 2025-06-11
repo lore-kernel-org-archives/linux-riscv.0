@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAEF3C71137
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 401E7C7113C
 	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 01:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:Reply-To:List-Subscribe:List-Help:
 	List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:From:Subject:Message-ID
-	:Mime-Version:Date:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=g8vijPRtvqUfuXO/ymvakr4WHtyZk/QWn/hN72ZuIQI=; b=I5J/FCiFeTQKUo
-	kNQmsywwSUI/qHTzXPzV3OCv799C1JWfBPQjB0/bLKwZFW4oNt/I1FJqZN7uVFB6jDQs6ABFqG6EV
-	xYmzb3nTbw14sgFILGrJuGnKD2UIzlTgflaSvvS+mqt1uaUTGI/2hG5qM+D4Sh8B2oy+zXyK5Fhmm
-	ch8oe0FyHIktqWbvGjb1AjAUXXa3d56EMsrFPijlJ5LfahVcFqnvYj9incljB1TsA+tsCVJgLwXNN
-	Z4G3IRVCOxcq/t+i70hwTQwZLPhXplDPHliaKDLAov03SKZc+EXdzIhv9pTqsAYWKjKChpyGss+Vx
-	1QC+gmssKNttTDMZULSA==;
+	:References:Mime-Version:In-Reply-To:Date:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=glEcJ0Qo3Do+CqoP5wWoPoMIjhUa8VpVlKYOUlpC7a0=; b=ZzXvjHUpW17YVM
+	d9RdfuFS6gsUdaiAYeu8N57PV9RvPaDdHS/XDRDQwLrEm9SebPCUZFPxXQWSKfXWli8eNCHDhS3WP
+	gYJc1ESoNF6t7UR7cUR6UBV3ivb2iRGUScd8KawpBHr0h48i4OEUBN+7WaGywKtWyHhP6C7JkK/gd
+	qSodi8niB5EVauODc4neEYOnvUiPHIqfsH5xW3bnFW6OyDN0BKvENI6Tia8xdvo/qcY+jlGHuQJmW
+	3zOKkUT3IQZ72uxGY0o2tEkR4CFgUc34f0zUSMdLCT2UalM75yjuNnwrctEq7zTx0SyIrqREUN3iu
+	T9KSAojqKVtK1iy8yD7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPAC9-00000008XcN-2Zb6;
-	Wed, 11 Jun 2025 01:24:01 +0000
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	id 1uPACA-00000008Xcq-3LAp;
+	Wed, 11 Jun 2025 01:24:02 +0000
+Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uP93G-00000008S9C-2Y9F
+	id 1uP93L-00000008SAc-3mQF
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 00:10:48 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-3139c0001b5so1650300a91.2
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 17:10:46 -0700 (PDT)
+	Wed, 11 Jun 2025 00:10:53 +0000
+Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-747af0bf0ebso4641473b3a.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 17:10:51 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1749600645; x=1750205445; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=KeHmPmMyMKJKT4alX9Roe+NB+CyhbaLAdm3PrWL3iJM=;
-        b=fmbJR1kROwde83gblZpHOJZ7wvNgGIG07uM3ApeUiRFv56lBrf7XnTL9qHcXMDTcdT
-         709WoVwcDZzfMysbIRrlze281VZntdZT6FX4E4MHsoj6p/fXzbwueWuPO1b+w9UHDyb5
-         0EdZE6lwH+UX7j4twvlIB/YZBd4AY4gpEX5+e3E4do+lKTKQ6CSbGIy5yFA2ckGitxpH
-         jUbeYfq0gLchcfIF56+fR0QC0TE17F9qMYZ3eoMXvmCYraDrTQwyBRHh5NfftQYqJ0y4
-         ZORQUSnjJGmKgs1P73K08gUecAszT6J3DTrblVNM5bGI3S5HdcklmG1hKA4GKAjeDC9K
-         CocQ==
+        d=google.com; s=20230601; t=1749600650; x=1750205450; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
+        bh=Epbf5uosqx6jz5XzFrguC8xd0TfTxmvXTHNlC1WjEX8=;
+        b=Ni4u4CCCYA/5qhv7IQ1s2XjKIqU0wgUPBVyhvsO+KXQ39EdPj5fLXD+fvANJnND4KT
+         K+85eGxk5Py5Ls1qLPnaC6eYX5vC9ImWQn3L6ki1Bu8oj20vjoRSbiJYsn1eDWYtCAFc
+         r2vrSNvOMQIaRNAfz98rcaubrVwhCmspVtuCEmoDYqG6Yel3JnY3bQAC+QxuefQFJ9Ig
+         hHEaXLCXTNW2VTFCrjS0yiagzQsDogSXNgZDLQtxLwp8eCLwQvJdHTd9TI8S9tjoKXpd
+         nwCpY6TEwFCzzBMRG+zkqTr0rSKB9R/mYyq7cd2SRtTfivn6GejXvRxiOg42pm/pGGpv
+         Y0ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749600645; x=1750205445;
-        h=cc:to:from:subject:message-id:mime-version:date:reply-to
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KeHmPmMyMKJKT4alX9Roe+NB+CyhbaLAdm3PrWL3iJM=;
-        b=dp2wYit4gCvoY72+RnhvV2k7AMwdJ6kkI1k2BtgOJiJSIuQVlnRlrDus+IWwUlwO85
-         3N1wQzsCdkH6V7bq6XXHMCuvov3c/oG0TRF7dORvGW848A47xr/hZKFcUEx3adPbxOSH
-         1plQRKRFDUnDeCteUKq4BLvPVCot6duoI/Id6pZU6UxqwX6Gu+pPaySYcqGBZ5FHDG9m
-         h/sti0YQs96udyR8lzSPiAtjIm0CcY2h/Mnk3mIyxDFxc1VOCNOX6Q+qKYDrdQ2hh8Rr
-         i9oaOL++BvEFjC5rVAd6I1SgLw/dPjmjQc3HHssKls2qn8GAW5K/JMomp7hoxY6zQX8b
-         LD+A==
-X-Forwarded-Encrypted: i=1; AJvYcCUh8KZfnX2Wawune+8ALxSUw8CTBlGB7nhu8EEBl/XR5yLEemJaKkcdZHhvJ3dbzxaVw4NWC2OSDUjnFw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxG+4UtwwEiHJpZmrZgpCwvXY0GKx0qddkE6svD9bk9NAFrk/r0
-	FKYCXoCHFCr1fX3vfisKBrAVMMBFP1zpSlcI0KOahYzz3IefCdUjD+JArBPG/Dh7ieX1HkEriwT
-	y7qkSWw==
-X-Google-Smtp-Source: AGHT+IF8oABFbuTKJ9GcUMp/LE7xUGa2l9YHKCqeYYF9+w27QVhniGaieMvIcJ7joDnc4dA30O9QnXDBack=
-X-Received: from pjz3.prod.google.com ([2002:a17:90b:56c3:b0:312:e914:4548])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3ec4:b0:311:9c9a:58d7
- with SMTP id 98e67ed59e1d1-313b1fbe6admr808960a91.19.1749600645461; Tue, 10
- Jun 2025 17:10:45 -0700 (PDT)
-Date: Tue, 10 Jun 2025 17:10:34 -0700
+        d=1e100.net; s=20230601; t=1749600650; x=1750205450;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Epbf5uosqx6jz5XzFrguC8xd0TfTxmvXTHNlC1WjEX8=;
+        b=kISS4T7qQZUgCEMDwvTVY4JzEaz8pXWVOMda2O6jh2usNSZVfwv9Jp9mKMMrZnk24y
+         86lXjeAhk2NgyS8YrlH/Olv/K3G1Djw/P5/GXo73nLHIwTV1065GFfwwh5a3X6q18g+m
+         w9le67BjifW5o0DOZa8ac1ojocfd8RJKknd+QLJnF6WfDq37pf6V40xCowywPc4bVwy5
+         GDPY5oP6QNd6Rpg1fLQefOViIsVPMWcN+8YL1yeiv7D3EZLrmrGlGIOV+tapIxjgXI9c
+         3vmjCV40drU7jmA0iMYvn3CcXXT72+l8XIYESnfpWjZzQNWZNFsSgxEaPnPMXFuD5AFR
+         68NQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVmQn/DsM9JVaSWXFvGP+Jv0Piq/KJ6By3CjNSD6StNr5FZLyE+6fk0Ly3NVw66KKuf/xgBxc9bDQpHHw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHyWPLyruDUL+7lcMNzCk3JaWK6ZI40h6FnYMjokAbUDYaqYLN
+	MFuJNsyoVePjtHIkhke9JF1fqnTyBd3pOm/StJ+9Pv8I8xERF2MA/6PMCuSxQCqCSHvBJGLTS/q
+	dyYnjSA==
+X-Google-Smtp-Source: AGHT+IEhyHjusvTVUOtqS0yfSdyCwB4Bf/WQ+mHd5WIpUrUJN5V4Vw3g9p2jvZWjX31+M9mXEgcJGfWPdog=
+X-Received: from pfbhj1.prod.google.com ([2002:a05:6a00:8701:b0:747:b76c:ab92])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:c8e:b0:742:a0cf:7753
+ with SMTP id d2e1a72fcca58-7486cb59a9amr2115667b3a.3.1749600650364; Tue, 10
+ Jun 2025 17:10:50 -0700 (PDT)
+Date: Tue, 10 Jun 2025 17:10:37 -0700
+In-Reply-To: <20250611001042.170501-1-seanjc@google.com>
 Mime-Version: 1.0
+References: <20250611001042.170501-1-seanjc@google.com>
 X-Mailer: git-send-email 2.50.0.rc0.642.g800a2b2222-goog
-Message-ID: <20250611001042.170501-1-seanjc@google.com>
-Subject: [PATCH 0/8] KVM: Remove include/kvm, standardize includes
+Message-ID: <20250611001042.170501-4-seanjc@google.com>
+Subject: [PATCH 3/8] KVM: arm64: Move ARM specific headers in include/kvm to
+ arch directory
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
@@ -81,9 +85,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Anish Ghulati <aghulati@google.com>, Colton Lewis <coltonlewis@google.com>, 
 	Thomas Huth <thuth@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_171046_650673_1CEAF6F2 
-X-CRM114-Status: UNSURE (   8.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250610_171051_934928_BE51CC51 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,97 +104,300 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Kill off include/kvm (through file moves/renames), and standardize the set of
-KVM includes across all architectures.
+Move kvm/arm_{arch_timer,pmu,vgic}.h to arch/arm64/include/asm and drop
+the "arm" prefix from all file names.  Now that KVM no longer supports
+32-bit ARM, there is no reason to expose ARM specific headers to other
+architectures beyond arm64.
 
-This conflicts with Colton's partioned PMU series[1], but this should work as
-a nice prepatory cleanup for the partitioned PMU work (and hopefully can land
-sooner).
-
-Note, these patches were originally posted as part of a much larger and more
-agressive RFC[1].  We've effectively abandoned upstreaming the multi-KVM idea,
-but I'm trying to (slowly) upstream the bits and pieces that I think/hope are
-generally beneficial.
-
-[1] https://lore.kernel.org/all/20250602192702.2125115-1-coltonlewis@google.com
-[2] https://lore.kernel.org/all/20230916003118.2540661-1-seanjc@google.com
-
-Anish Ghulati (1):
-  KVM: arm64: Move arm_{psci,hypercalls}.h to an internal KVM path
-
-Sean Christopherson (7):
-  KVM: arm64: Include KVM headers to get forward declarations
-  KVM: arm64: Move ARM specific headers in include/kvm to arch directory
-  KVM: Move include/kvm/iodev.h to include/linux as kvm_iodev.h
-  KVM: MIPS: Stop adding virt/kvm to the arch include path
-  KVM: PPC: Stop adding virt/kvm to the arch include path
-  KVM: s390: Stop adding virt/kvm to the arch include path
-  KVM: Standardize include paths across all architectures
-
- MAINTAINERS                                                | 1 -
- .../arm64/include/asm/kvm_arch_timer.h                     | 2 ++
+Cc: Colton Lewis <coltonlewis@google.com>
+Signed-off-by: Sean Christopherson <seanjc@google.com>
+---
+ .../arm64/include/asm/kvm_arch_timer.h                     | 0
  arch/arm64/include/asm/kvm_host.h                          | 7 +++----
- include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h  | 2 ++
- .../kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h    | 2 +-
- arch/arm64/kvm/Makefile                                    | 2 --
+ include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h  | 0
+ .../kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h    | 0
  arch/arm64/kvm/arch_timer.c                                | 5 ++---
- arch/arm64/kvm/arm.c                                       | 6 +++---
- {include => arch/arm64}/kvm/arm_hypercalls.h               | 0
- {include => arch/arm64}/kvm/arm_psci.h                     | 0
- arch/arm64/kvm/guest.c                                     | 2 +-
- arch/arm64/kvm/handle_exit.c                               | 2 +-
- arch/arm64/kvm/hyp/Makefile                                | 6 +++---
- arch/arm64/kvm/hyp/include/hyp/switch.h                    | 4 ++--
- arch/arm64/kvm/hyp/nvhe/switch.c                           | 4 ++--
- arch/arm64/kvm/hyp/vhe/switch.c                            | 4 ++--
- arch/arm64/kvm/hypercalls.c                                | 4 ++--
+ arch/arm64/kvm/arm.c                                       | 3 +--
  arch/arm64/kvm/pmu-emul.c                                  | 4 ++--
- arch/arm64/kvm/psci.c                                      | 4 ++--
- arch/arm64/kvm/pvtime.c                                    | 2 +-
  arch/arm64/kvm/reset.c                                     | 3 +--
  arch/arm64/kvm/trace_arm.h                                 | 2 +-
- arch/arm64/kvm/trng.c                                      | 2 +-
  arch/arm64/kvm/vgic/vgic-debug.c                           | 2 +-
  arch/arm64/kvm/vgic/vgic-init.c                            | 2 +-
  arch/arm64/kvm/vgic/vgic-irqfd.c                           | 2 +-
  arch/arm64/kvm/vgic/vgic-kvm-device.c                      | 2 +-
- arch/arm64/kvm/vgic/vgic-mmio-v2.c                         | 4 ++--
- arch/arm64/kvm/vgic/vgic-mmio-v3.c                         | 4 ++--
- arch/arm64/kvm/vgic/vgic-mmio.c                            | 6 +++---
+ arch/arm64/kvm/vgic/vgic-mmio-v2.c                         | 2 +-
+ arch/arm64/kvm/vgic/vgic-mmio-v3.c                         | 2 +-
+ arch/arm64/kvm/vgic/vgic-mmio.c                            | 4 ++--
  arch/arm64/kvm/vgic/vgic-v2.c                              | 2 +-
  arch/arm64/kvm/vgic/vgic-v3-nested.c                       | 3 +--
  arch/arm64/kvm/vgic/vgic-v3.c                              | 2 +-
- arch/loongarch/include/asm/kvm_eiointc.h                   | 2 +-
- arch/loongarch/include/asm/kvm_ipi.h                       | 2 +-
- arch/loongarch/include/asm/kvm_pch_pic.h                   | 2 +-
- arch/mips/include/asm/kvm_host.h                           | 3 +--
- arch/mips/kvm/Makefile                                     | 2 --
- arch/powerpc/kvm/Makefile                                  | 2 --
- arch/powerpc/kvm/mpic.c                                    | 2 +-
- arch/riscv/kvm/Makefile                                    | 2 --
- arch/riscv/kvm/aia_aplic.c                                 | 2 +-
- arch/riscv/kvm/aia_imsic.c                                 | 2 +-
- arch/s390/kvm/Makefile                                     | 2 --
- arch/x86/kvm/Makefile                                      | 1 -
- arch/x86/kvm/i8254.h                                       | 2 +-
- arch/x86/kvm/ioapic.h                                      | 2 +-
- arch/x86/kvm/irq.h                                         | 2 +-
- arch/x86/kvm/lapic.h                                       | 2 +-
- include/{kvm/iodev.h => linux/kvm_iodev.h}                 | 0
- virt/kvm/Makefile.kvm                                      | 2 ++
- virt/kvm/coalesced_mmio.c                                  | 3 +--
- virt/kvm/eventfd.c                                         | 2 +-
- virt/kvm/kvm_main.c                                        | 3 +--
- 54 files changed, 64 insertions(+), 77 deletions(-)
- rename include/kvm/arm_arch_timer.h => arch/arm64/include/asm/kvm_arch_timer.h (98%)
- rename include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h (99%)
- rename include/kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h (99%)
- rename {include => arch/arm64}/kvm/arm_hypercalls.h (100%)
- rename {include => arch/arm64}/kvm/arm_psci.h (100%)
- rename include/{kvm/iodev.h => linux/kvm_iodev.h} (100%)
+ 19 files changed, 21 insertions(+), 26 deletions(-)
+ rename include/kvm/arm_arch_timer.h => arch/arm64/include/asm/kvm_arch_timer.h (100%)
+ rename include/kvm/arm_pmu.h => arch/arm64/include/asm/kvm_pmu.h (100%)
+ rename include/kvm/arm_vgic.h => arch/arm64/include/asm/kvm_vgic.h (100%)
 
-
-base-commit: 61374cc145f4a56377eaf87c7409a97ec7a34041
+diff --git a/include/kvm/arm_arch_timer.h b/arch/arm64/include/asm/kvm_arch_timer.h
+similarity index 100%
+rename from include/kvm/arm_arch_timer.h
+rename to arch/arm64/include/asm/kvm_arch_timer.h
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index 6ce2c5173482..b8f910d5bdfa 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -26,17 +26,16 @@
+ #include <asm/daifflags.h>
+ #include <asm/fpsimd.h>
+ #include <asm/kvm.h>
++#include <asm/kvm_arch_timer.h>
+ #include <asm/kvm_asm.h>
++#include <asm/kvm_pmu.h>
++#include <asm/kvm_vgic.h>
+ #include <asm/vncr_mapping.h>
+ 
+ #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+ 
+ #define KVM_HALT_POLL_NS_DEFAULT 500000
+ 
+-#include <kvm/arm_vgic.h>
+-#include <kvm/arm_arch_timer.h>
+-#include <kvm/arm_pmu.h>
+-
+ #define KVM_MAX_VCPUS VGIC_V3_MAX_CPUS
+ 
+ #define KVM_VCPU_MAX_FEATURES 9
+diff --git a/include/kvm/arm_pmu.h b/arch/arm64/include/asm/kvm_pmu.h
+similarity index 100%
+rename from include/kvm/arm_pmu.h
+rename to arch/arm64/include/asm/kvm_pmu.h
+diff --git a/include/kvm/arm_vgic.h b/arch/arm64/include/asm/kvm_vgic.h
+similarity index 100%
+rename from include/kvm/arm_vgic.h
+rename to arch/arm64/include/asm/kvm_vgic.h
+diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
+index fdbc8beec930..d61b0450cbf9 100644
+--- a/arch/arm64/kvm/arch_timer.c
++++ b/arch/arm64/kvm/arch_timer.c
+@@ -14,12 +14,11 @@
+ 
+ #include <clocksource/arm_arch_timer.h>
+ #include <asm/arch_timer.h>
++#include <asm/kvm_arch_timer.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_nested.h>
+-
+-#include <kvm/arm_vgic.h>
+-#include <kvm/arm_arch_timer.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "trace.h"
+ 
+diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+index 017c95c7bd03..e452aba1a3b2 100644
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -39,11 +39,10 @@
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_nested.h>
+ #include <asm/kvm_pkvm.h>
++#include <asm/kvm_pmu.h>
+ #include <asm/kvm_ptrauth.h>
+ #include <asm/sections.h>
+ 
+-#include <kvm/arm_pmu.h>
+-
+ #include "arm_hypercalls.h"
+ #include "arm_psci.h"
+ 
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 25c29107f13f..47a518f6a393 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -12,8 +12,8 @@
+ #include <linux/perf/arm_pmu.h>
+ #include <linux/uaccess.h>
+ #include <asm/kvm_emulate.h>
+-#include <kvm/arm_pmu.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_pmu.h>
++#include <asm/kvm_vgic.h>
+ 
+ #define PERF_ATTR_CFG1_COUNTER_64BIT	BIT(0)
+ 
+diff --git a/arch/arm64/kvm/reset.c b/arch/arm64/kvm/reset.c
+index 959532422d3a..bae367638741 100644
+--- a/arch/arm64/kvm/reset.c
++++ b/arch/arm64/kvm/reset.c
+@@ -17,12 +17,11 @@
+ #include <linux/string.h>
+ #include <linux/types.h>
+ 
+-#include <kvm/arm_arch_timer.h>
+-
+ #include <asm/cpufeature.h>
+ #include <asm/cputype.h>
+ #include <asm/fpsimd.h>
+ #include <asm/ptrace.h>
++#include <asm/kvm_arch_timer.h>
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_asm.h>
+ #include <asm/kvm_emulate.h>
+diff --git a/arch/arm64/kvm/trace_arm.h b/arch/arm64/kvm/trace_arm.h
+index 9c60f6465c78..8fc8178e21a7 100644
+--- a/arch/arm64/kvm/trace_arm.h
++++ b/arch/arm64/kvm/trace_arm.h
+@@ -3,7 +3,7 @@
+ #define _TRACE_ARM_ARM64_KVM_H
+ 
+ #include <asm/kvm_emulate.h>
+-#include <kvm/arm_arch_timer.h>
++#include <asm/kvm_arch_timer.h>
+ #include <linux/tracepoint.h>
+ 
+ #undef TRACE_SYSTEM
+diff --git a/arch/arm64/kvm/vgic/vgic-debug.c b/arch/arm64/kvm/vgic/vgic-debug.c
+index 2684f273d9e1..0eba9dc78e6f 100644
+--- a/arch/arm64/kvm/vgic/vgic-debug.c
++++ b/arch/arm64/kvm/vgic/vgic-debug.c
+@@ -9,7 +9,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/kvm_host.h>
+ #include <linux/seq_file.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ #include <asm/kvm_mmu.h>
+ #include "vgic.h"
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-init.c b/arch/arm64/kvm/vgic/vgic-init.c
+index eb1205654ac8..5a4205fd78b2 100644
+--- a/arch/arm64/kvm/vgic/vgic-init.c
++++ b/arch/arm64/kvm/vgic/vgic-init.c
+@@ -7,7 +7,7 @@
+ #include <linux/interrupt.h>
+ #include <linux/cpu.h>
+ #include <linux/kvm_host.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_mmu.h>
+ #include "vgic.h"
+diff --git a/arch/arm64/kvm/vgic/vgic-irqfd.c b/arch/arm64/kvm/vgic/vgic-irqfd.c
+index c314c016659a..b73401c34f29 100644
+--- a/arch/arm64/kvm/vgic/vgic-irqfd.c
++++ b/arch/arm64/kvm/vgic/vgic-irqfd.c
+@@ -6,7 +6,7 @@
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+ #include <trace/events/kvm.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ #include "vgic.h"
+ 
+ /*
+diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+index f9ae790163fb..f542479ceb11 100644
+--- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
++++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
+@@ -6,7 +6,7 @@
+  * Author: Marc Zyngier <marc.zyngier@arm.com>
+  */
+ #include <linux/kvm_host.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ #include <linux/uaccess.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/cputype.h>
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v2.c b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+index f25fccb1f8e6..d00c8a74fad6 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v2.c
+@@ -9,7 +9,7 @@
+ #include <linux/nospec.h>
+ 
+ #include <kvm/iodev.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "vgic.h"
+ #include "vgic-mmio.h"
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio-v3.c b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+index ae4c0593d114..505d4e389885 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio-v3.c
+@@ -9,11 +9,11 @@
+ #include <linux/kvm_host.h>
+ #include <linux/interrupt.h>
+ #include <kvm/iodev.h>
+-#include <kvm/arm_vgic.h>
+ 
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_mmu.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "vgic.h"
+ #include "vgic-mmio.h"
+diff --git a/arch/arm64/kvm/vgic/vgic-mmio.c b/arch/arm64/kvm/vgic/vgic-mmio.c
+index e416e433baff..ec1b13abc728 100644
+--- a/arch/arm64/kvm/vgic/vgic-mmio.c
++++ b/arch/arm64/kvm/vgic/vgic-mmio.c
+@@ -10,8 +10,8 @@
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+ #include <kvm/iodev.h>
+-#include <kvm/arm_arch_timer.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_arch_timer.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "vgic.h"
+ #include "vgic-mmio.h"
+diff --git a/arch/arm64/kvm/vgic/vgic-v2.c b/arch/arm64/kvm/vgic/vgic-v2.c
+index 381673f03c39..780afb7aad06 100644
+--- a/arch/arm64/kvm/vgic/vgic-v2.c
++++ b/arch/arm64/kvm/vgic/vgic-v2.c
+@@ -6,7 +6,7 @@
+ #include <linux/irqchip/arm-gic.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+-#include <kvm/arm_vgic.h>
++#include <asm/kvm_vgic.h>
+ #include <asm/kvm_mmu.h>
+ 
+ #include "vgic.h"
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+index 4f6954c30674..bdee42a8be17 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -7,11 +7,10 @@
+ #include <linux/io.h>
+ #include <linux/uaccess.h>
+ 
+-#include <kvm/arm_vgic.h>
+-
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_nested.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "vgic.h"
+ 
+diff --git a/arch/arm64/kvm/vgic/vgic-v3.c b/arch/arm64/kvm/vgic/vgic-v3.c
+index b9ad7c42c5b0..a22fe73ca538 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3.c
++++ b/arch/arm64/kvm/vgic/vgic-v3.c
+@@ -7,10 +7,10 @@
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
+ #include <linux/string_choices.h>
+-#include <kvm/arm_vgic.h>
+ #include <asm/kvm_hyp.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/kvm_asm.h>
++#include <asm/kvm_vgic.h>
+ 
+ #include "vgic.h"
+ 
 -- 
 2.50.0.rc0.642.g800a2b2222-goog
 
