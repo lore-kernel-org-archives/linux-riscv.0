@@ -4,69 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19F65C61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D928BC677C4
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=M3mtrr/qZ2e2uGL5/DtnUdb2Jr0rklovxLI2+PN3/WM=; b=uECvogrJMb1ccU
-	xkighM0TLznTU8ER0uc4wPV1VrgLpkSv1jvpZAznt+ecVRmF9IDLCLhdBlljnLn7TQYHmZwtXuao4
-	A6dq3ouN5KnkRNCWC51fo3dx31EkC6m22UbsDnAuNWp0A5lVfuEX5TYgLpiGdwmst9hJrQMgn9jQi
-	R2UUb/ztNkBhrJhEs+fJ6vBEdVSAHBTD3inZ+DIFhTqni7gjy7lwG9fG8hnx/Gk1cJ5PGGqSsR4i+
-	REXtozw5TSg/zte8tm/gwEYKJ3bVOvIWBtxuCZxdcHEJw9mRakLnPSXtxVa/WeODlBI8XWRy9uorz
-	BPYDzeks1J6rzZ2nZUMg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=KVWEF/VYhskb5SugoAQuB1b5uQPy9zgTI82WDhdNlJI=; b=Tk/ZfWTgE3/zT3
+	EUP5Ls6v7/BO6cuggI22cAHk74PvEs3Q4GqBecjnBhzEGYFd1AI54O4XmbBuY0pUmnHRgKnzg5jJa
+	PzVLqXlgs8QNPHSs4lciiVAhGAtX7Ma2J/GPRpl9hNsTUkjUxBDESQ6S+fHyD2lU0yeTY//Vk3qrt
+	wzaK3IwCMOsySSoqTYvDmzMa0Nfoc3vKPI5jPrgEriVATaC2nse7leZOf5Qe+kXnAG6TdOIy//WkO
+	3Nnd5+dJyzLa75vy2PqOEs2/QlXJBcmIsxFA7hSnsJi09nvSinSLwmV/UT3knVI46c+gcizheeFfW
+	o5U3pNJv4TrcfG1hvwRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGYe-00000009EHh-0VYH;
-	Wed, 11 Jun 2025 08:11:40 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1uPGf1-00000009EmS-21n4;
+	Wed, 11 Jun 2025 08:18:15 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGI4-00000009ALH-49SK
+	id 1uPGIF-00000009APW-3DJZ
+	for linux-riscv@bombadil.infradead.org;
+	Wed, 11 Jun 2025 07:54:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=; b=b2achX8BUfQGGj/JtG5/d7tCiJ
+	O/vrLC7H5KoIs4IwGHcf75uRyOOOFUtjmNudMSpWyhweg/XwY9/eVKXMYvRPoKk8flm1Ji85HNbZI
+	DaXnU3GHPtb31jWUv3DqKTvLYnjcwEN4V7SD9PL5qMbdEz6Ds0ZNvUcqgvkqChroJOp8qlM+sKDJV
+	iJpnHYUdmECuc8CLXPRdsi/5kzo2UqWlQYo1l/8dB6Rxpb6IdPHlPD6/A50+wU6LBfcgtkUKHyB1v
+	LzpoF50nFyzJcDE3uY3Sfsc8JX8T2zf4Oc+E8MLnXcAuC4JDb+0DrQm2nnwf42LbPj5WOshPYBuN0
+	U85LQ9sg==;
+Received: from mail-qk1-x734.google.com ([2607:f8b0:4864:20::734])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1uPGID-00000002Aus-3cDJ
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 07:54:34 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-7d3862646eeso218705485a.2
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 00:54:32 -0700 (PDT)
+	Wed, 11 Jun 2025 07:54:43 +0000
+Received: by mail-qk1-x734.google.com with SMTP id af79cd13be357-7d219896edeso623903285a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 00:54:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749628471; x=1750233271; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=AFY1n8hKD7YHLP1kf7MxSpa9O55c6JB9hP3AwHqMzNA=;
-        b=cbdrFMf7xsiGs1gbN+DWfYFhQK6CvybaGnOJuOxN0hvleb9Lh4SEKcpuXDxIHSzB2x
-         FMm9NGM4sAcEABo2CVHFqv6ji5rAbYv7V0tyFGgFUibQHx4BC/+C4lFkD3093gbbx2ir
-         m6xy4sA3etBMvqTa4Pl7CpaOhVaj85LOdiXULEb03+haHXErWwNC/yZRgf1qzJf1CNcr
-         N/9UmMbx1MsS6LQ0I9JKzbNFv13NydA1n3Tp9321tW3uAGUpjraXPwYVV1se4eIdbNTe
-         o1qpchk490+R/UG0IfEWESVhiU5ny+E8RNtxLmTjzJEA/VQJp2yXXZKX5uy78l9DDlEp
-         Ixtw==
+        d=gmail.com; s=20230601; t=1749628478; x=1750233278; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=;
+        b=Yoz1myusAF2VIDH3m+J/fBEoqd7L18QMfg4APLTJgkRPV29YdOOCv7HfI2IbvJdMaA
+         x2R7uJIq/YmhUYRvOqbcsAQBxCbD6JPqe8ORpX3YU9+USfSLXhKq3vWRR8rWHlprxCY5
+         A6urjZP8JwFTxGuAM9ePKLAt1N0Qi6B8UJgmlV3PcQpF7bVsbpZspwYlTdeCJoX6mjjZ
+         lh9vXcW7qRLLzBiu6gC4M16dB22MWLx3uGo0CDipBU748vKDsmfIymsWuw6IMYe+n8jr
+         fapNRbm71K3vXA7Vn2Lt7dZwAM6MT3H1pRvsqGcKKcgGFtxVTk0+aZilaY1wztQASh93
+         40nw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749628471; x=1750233271;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=AFY1n8hKD7YHLP1kf7MxSpa9O55c6JB9hP3AwHqMzNA=;
-        b=gNpC+coA3T8sUna4cIn0EW+JCD/gU88O4hKCo/4zesCjlR8SvJDZLC6tIVyr9S8PvA
-         93fnfeG6AnsB55bVTkqwvSajKsNLFxPQ40KnBl3EateIH4mFc/BGdTvyTTgrg6Lyiv1f
-         vMvwkj0U9HwWF2GXrqgr2cq+tpnK2iSnHeAkiKvd+cJT1C65wmz7ccXOFDqkr/+lifQy
-         Jgvj1Worqlt5s1FP8sazk/UGDxDkMaKEFaLym0eYYyDkR3+f0mLNAVlIWDlZaS71HXcC
-         V8cQNgkfe/RzyXbkQDYrDAzh1eVP/JQKO8gKFarb81PF9OqcekiYgsUehBwcZyg90JIk
-         zoSA==
-X-Forwarded-Encrypted: i=1; AJvYcCW3tNCDVH1dSXrR8tDYdIiBQdOnIrOEmc8fF7jB8D7hbEmSePSrwKH49W2JBX7zLdUT8ebz9OF99iAWEg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxpY4WKKBp7XAxhKC60nOIJ7FFKjoefhZDV+SuG4sPYihvCN2/u
-	N8/OFMYSNTglv/tKRuoKXa7Ov80WZ75p2GA/wTLbEWHK4y8bQrk7NqRk
-X-Gm-Gg: ASbGncvYihKPLyEfZ0g50Oyna7enoACkgamE7E88CSgNHxp3rnS7NCUifqK4G2kdZXa
-	47uM9KaSumGM0YTHSzMuBLlOw8r3/xDEiEGMtNDDCPuA8vBqwjhKLvEGjXeZMfOxzv2/vi8rl2Z
-	OqWAfdDd0OxR91trF+n8A2Hc33sx9mSfZ84fIxIPYVSD5PykLXY5mj6qmN/BWcOerkJOQ9NMTVM
-	yHotJMyVYTqtoCrfTYlrPSMut94INhxiLO/pHy/kBOy9cHDX2nh0UeJ93i5RfJEdgZ2h0caBSD7
-	1EziJmXiBzkronOxB+i4eJqZcZtTHKLwefGZTw==
-X-Google-Smtp-Source: AGHT+IHiEq5NOVnzdI0MVOEGferuZ6sPEJIWdas7r5sxvl6GtQWSqqWA/YtBhGlgc6evDKBd2SnF9Q==
-X-Received: by 2002:a05:620a:29c9:b0:7d3:9ecc:1bd2 with SMTP id af79cd13be357-7d3a8805fe9mr315815185a.10.1749628471424;
-        Wed, 11 Jun 2025 00:54:31 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749628478; x=1750233278;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TucqLG/tk3Y/USNHaS48EdntTVxxdA1FanRm1k8rL/8=;
+        b=tooi11rTLR8RyhngqVyafnSQLE94cqrJ4r7+veHFjvLIS3iBy7joBcd9LWYIdP3Wh9
+         Q+Uh6hiIL2K899C+3vfPGo0tLqkqdQgB5kjPTjbVVYlWOl6R5IcXc33/unw97VfXqtTH
+         7Tv5q/RYJxbneFXUyzarp+A6xbZ/3qTXs9A+5A6mvjzI+qbD7BsMtUAUHAGEZwRsfHYM
+         FwOFugqMsq+p7ut+gByKBYT5RujaZ09VWnadedFwaiJcEjw7x7RE3IlLK/kQAiTKgdaF
+         TInTG3hRZ4rWdFGuo8Tf/XzzDkActsA01TVU8xKPH+P55rowuZUHXI3Ai21tc546SU/8
+         8VCw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVlvxBgamFhZizpfpitcqtveVp3uD9gCFcAZclQ31r+UVuSVEemRctWMQNJ4o4n18DwnJBcwXbxcSH1g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YysV/GgmWJ9/9g5Q9gKIxOaWgqUT/lM1ch4wuuTaL3Kc7KaGY3z
+	vuAWOql1Z/8tzxdgk2bAO4IwP/Wcq5DpCi3XUoprDB2Se1QeaIpi2pKe
+X-Gm-Gg: ASbGncuoLtIitSYMTaglZTqkT7gEu7Q685g/SWeGuCixgUm6hU8n36Gx3OWVYCs5mkq
+	NrXw2SeViJ0nmHrjG7HW+/SEFqT02Rza+HHZn4dwDNQaQZ30AyIw2BPelR7cJ+cxKXce19SO2j/
+	tJwRLl5fULB9TxpqjZ9q16jNHCToKasvkjK/aQuv5QnZbk6PnkryPpAUmZuybYyqQS8rCQGz8hb
+	eGFoNwWjuMvioyX6EcWDLrxwIDhNRcgsV7CwwWb5NizpWwhudRMQKW7z8FJG2Ta+D3m5EU0xm2Q
+	+K4rH5zFQ0nxIs4iMQU9YTN7Dat/JCubAGGuob91rackMmBT
+X-Google-Smtp-Source: AGHT+IEySdwciKZhGZrTCtsR/Gxqu5FAFCLHguwmpefzLwsb16bnu8UFs0/XpS23i1fk+Kd0aatnNg==
+X-Received: by 2002:a05:620a:29ca:b0:7d0:99dc:d026 with SMTP id af79cd13be357-7d3a88057a4mr312939885a.12.1749628478269;
+        Wed, 11 Jun 2025 00:54:38 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7d25a609092sm825539885a.65.2025.06.11.00.54.30
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09ab8a3csm79057766d6.10.2025.06.11.00.54.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 00:54:31 -0700 (PDT)
+        Wed, 11 Jun 2025 00:54:37 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Philipp Zabel <p.zabel@pengutronix.de>,
 	Rob Herring <robh@kernel.org>,
@@ -91,14 +107,16 @@ Cc: Junhui Liu <junhui.liu@pigmoral.tech>,
 	dmaengine@vger.kernel.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v3 0/4] riscv: sophgo: cv18xx: Add reset generator support
-Date: Wed, 11 Jun 2025 15:53:14 +0800
-Message-ID: <20250611075321.1160973-1-inochiama@gmail.com>
+Subject: [PATCH v3 2/4] reset: simple: add support for Sophgo CV1800B
+Date: Wed, 11 Jun 2025 15:53:16 +0800
+Message-ID: <20250611075321.1160973-3-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250611075321.1160973-1-inochiama@gmail.com>
+References: <20250611075321.1160973-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_005433_031089_AC3C5933 
-X-CRM114-Status: UNSURE (   7.95  )
+X-CRM114-CacheID: sfid-20250611_085441_945663_F202A65E 
+X-CRM114-Status: UNSURE (   9.64  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -116,32 +134,28 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Like SG2042, CV1800 Series SoCs also have simple bit reset generator.
-Add necessary code and bindings for it.
+Reuse reset-simple driver for the Sophgo CV1800B reset generator.
 
-Changes from v2:
-1. patch 3: fix wrong reset ID.
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+Reviewed-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+---
+ drivers/reset/reset-simple.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Changes from v1:
-1. rebase to v6.16-rc1
-2. patch 1: apply Rob's tag
-3. patch 3: fix wrong reset ID
-
-Inochi Amaoto (4):
-  dt-bindings: reset: sophgo: Add CV1800B support
-  reset: simple: add support for Sophgo CV1800B
-  riscv: dts: sophgo: add reset generator for Sophgo CV1800 series SoC
-  riscv: dts: sophgo: add reset configuration for Sophgo CV1800 series
-    SoC
-
- .../bindings/reset/sophgo,sg2042-reset.yaml   |  1 +
- arch/riscv/boot/dts/sophgo/cv180x.dtsi        | 25 +++++
- arch/riscv/boot/dts/sophgo/cv18xx-reset.h     | 98 +++++++++++++++++++
- drivers/reset/reset-simple.c                  |  2 +
- 4 files changed, 126 insertions(+)
- create mode 100644 arch/riscv/boot/dts/sophgo/cv18xx-reset.h
-
---
+diff --git a/drivers/reset/reset-simple.c b/drivers/reset/reset-simple.c
+index 276067839830..79e94ecfe4f5 100644
+--- a/drivers/reset/reset-simple.c
++++ b/drivers/reset/reset-simple.c
+@@ -151,6 +151,8 @@ static const struct of_device_id reset_simple_dt_ids[] = {
+ 	{ .compatible = "snps,dw-high-reset" },
+ 	{ .compatible = "snps,dw-low-reset",
+ 		.data = &reset_simple_active_low },
++	{ .compatible = "sophgo,cv1800b-reset",
++		.data = &reset_simple_active_low },
+ 	{ .compatible = "sophgo,sg2042-reset",
+ 		.data = &reset_simple_active_low },
+ 	{ /* sentinel */ },
+-- 
 2.49.0
 
 
