@@ -4,85 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA3FEC71136
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:54:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63977C7113E
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 19:56:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:From:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=e4mtJIYbnpj9qebzy0cwkNUfxPzq/g1B+VqnFEZg64s=; b=N7PJ50+2qtSJHI
-	5emMl/QBZErie06d6Hi9YG+WNdovAncI6HY4zWpIS2dRXCIHAm6yE/MhIELy7GnaJZf88We1x9cof
-	VtC3Elnzuqm0oAqH7jzX0uTpBy6QNB+6z8toNfPYvzqxGLnPSNv9NTPHUcFKRy6zytILtF6DXZ2A5
-	pt5AfZ/h6yfGt8/ZrCW6m1FL8X4Rz5SZEwGiKEPu02EpdvMcKoqi15tVNMcQKZwK19CCPCEsTBGbq
-	h05ImjMfCbK8FZqGv55iKX2aORZrVYPOdLXjI/TZke1iQ2K63cX2LbHBq99lG/MDtZRmJSIjm82Bk
-	9jHz1a5bQsYBrLl1R71w==;
+	List-Owner; bh=CzKIysqYyDxp9+g3RgbVJOSqhmV2up8poO4JvLIF3a0=; b=VOwkbX+GDmU+GB
+	mQ8+l79BfCVuiA8MlqVO9quYzkBdWMN2crEPC4w80yDuSWKVJ19DoofgJSBsGQ6o8ttnCWZlxjZwH
+	L06P2z4nrkuI4mjB8+RH/uas7/a0yE1RbT+jgPgHiUTSHvHx+CJxtoeaHjR1RO2TiSQhv/wFtDH5k
+	lo26MK4pk8d45S3z59+H3drdovC3la60XZwx80FvxNw63H0ojWXtap1UQN+C+zpmTjlDAIwrfFBH3
+	TOo+xbOtEwZWTCzpSsPYJudUFDcttwjwJKusQl/XCudffzj+ys0dsAMuxSNCrRGvTIqDZvFAsB6Mo
+	Cr/ZeE1yrL/elCKBEJPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPRWx-0000000B22C-1Qdj;
-	Wed, 11 Jun 2025 19:54:39 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1uPRYL-0000000B483-0rZS;
+	Wed, 11 Jun 2025 19:56:05 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPNA7-0000000ALng-1PRV
+	id 1uPO4m-0000000AZ1O-2Zx1
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 15:14:50 +0000
-Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250611151442euoutp01d4b9687c1ba0fb669acef44261c67278~IBdh7PWDN0039600396euoutp01p
-	for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 15:14:42 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250611151442euoutp01d4b9687c1ba0fb669acef44261c67278~IBdh7PWDN0039600396euoutp01p
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1749654882;
-	bh=/aG3yXc2EucpbW7sa9J+WzUETPZ1G5/7AvZ60LGbpt8=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=ihUI4picgtqUec1YrsKY2X8y+lZtQi5PEzaMdY1POhzjEGEKAYKdwrIPJowunk9ho
-	 McMbITHYYQQRjiqckByAn6RcHEdimhnM9Ieyp+MhmKyNYPlmxMJ9cYHkMutsHLsxM/
-	 jYGC2BBusGkTjcJqayLlYd3mMorqFK1VDaKlb0y8=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250611151441eucas1p1c5b30da3e0bd7484b27c9ad78a91f678~IBdhUjG441932119321eucas1p1c;
-	Wed, 11 Jun 2025 15:14:41 +0000 (GMT)
-Received: from [192.168.1.44] (unknown [106.210.136.40]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250611151440eusmtip2d72d1b30d77ba1ed35d675241db8b411~IBdgIHHGO2985829858eusmtip2g;
-	Wed, 11 Jun 2025 15:14:40 +0000 (GMT)
-Message-ID: <6ca6016e-3b17-48a0-ad8d-bb05317aa100@samsung.com>
-Date: Wed, 11 Jun 2025 17:14:40 +0200
+	Wed, 11 Jun 2025 16:13:21 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=5Pah9/CBtffo+lrIVkKDlsrLYUZHo+PGjMuqf3Dti3w=; b=nHNSOBGbRNP8l8/sOdiLU3RC5W
+	7oIdZKQsC3Yyg5Nz4H1AsjKFQSG3miVUFKAYqSkGkVKLxk6roKXNElCQHyV3Q91pTENKucD11UZcX
+	zfZoyNJ4Cl0yj+fZJaNFXs0pDjXUuAFYQhvO9hovm+8deePxRYep9qk7Y/OlwVxg6auM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1uPO4S-00FQMS-G7; Wed, 11 Jun 2025 18:13:00 +0200
+Date: Wed, 11 Jun 2025 18:13:00 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: mdio-mux: Add MDIO mux driver for
+ Sophgo CV1800 SoCs
+Message-ID: <eb419ffa-055f-48db-8c6a-60bf240fbb9d@lunn.ch>
+References: <20250611080228.1166090-1-inochiama@gmail.com>
+ <20250611080228.1166090-3-inochiama@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
- PWM driver
-To: Drew Fustini <drew@pdp7.com>
-Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>, Miguel Ojeda
-	<ojeda@kernel.org>, Alex Gaynor <alex.gaynor@gmail.com>, Boqun Feng
-	<boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
-	=?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, Andreas
-	Hindborg <a.hindborg@kernel.org>, Alice Ryhl <aliceryhl@google.com>, Trevor
-	Gross <tmgross@umich.edu>, Danilo Krummrich <dakr@kernel.org>, Guo Ren
-	<guoren@kernel.org>, Fu Wei <wefu@redhat.com>, Rob Herring
-	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	<conor+dt@kernel.org>, Paul Walmsley <paul.walmsley@sifive.com>, Palmer
-	Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre
-	Ghiti <alex@ghiti.fr>, Marek Szyprowski <m.szyprowski@samsung.com>, Benno
-	Lossin <lossin@kernel.org>, Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
-	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
-	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org
-Content-Language: en-US
-From: Michal Wilczynski <m.wilczynski@samsung.com>
-In-Reply-To: <aEifXZnLxKd2wa0w@x1>
-X-CMS-MailID: 20250611151441eucas1p1c5b30da3e0bd7484b27c9ad78a91f678
-X-Msg-Generator: CA
-X-RootMTR: 20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9
-X-EPHeader: CA
-X-CMS-RootMailID: 20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9
-References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
-	<20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
-	<aEifXZnLxKd2wa0w@x1>
+Content-Disposition: inline
+In-Reply-To: <20250611080228.1166090-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_081448_767717_1DF7704D 
-X-CRM114-Status: GOOD (  29.28  )
+X-CRM114-CacheID: sfid-20250611_091320_649219_B1698C11 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,119 +85,78 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/10/25 23:10, Drew Fustini wrote:
-> On Tue, Jun 10, 2025 at 02:52:48PM +0200, Michal Wilczynski wrote:
->> This patch series introduces Rust support for the T-HEAD TH1520 PWM
->> controller and demonstrates its use for fan control on the Sipeed Lichee
->> Pi 4A board.
->>
->> The primary goal of this patch series is to introduce a basic set of
->> Rust abstractions for the Linux PWM subsystem. As a first user and
->> practical demonstration of these abstractions, the series also provides
->> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
->> of its PWM channels and ultimately enables temperature controlled fan
->> support for the Lichee Pi 4A board. This work aims to explore the use of
->> Rust for PWM drivers and lay a foundation for potential future
->> Rust based PWM drivers.
->>
->> The core of this series is a new rust/kernel/pwm.rs module that provides
->> abstractions for writing PWM chip provider drivers in Rust. This has
->> been significantly reworked from v1 based on extensive feedback. The key
->> features of the new abstraction layer include:
->>
->>  - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
->>    by ARef, correctly tying its lifetime to its embedded struct device
->>    reference counter. Chip registration is handled by a pwm::Registration
->>    RAII guard, which guarantees that pwmchip_add is always paired with
->>    pwmchip_remove, preventing resource leaks.
->>
->>  - Modern and Safe API: The PwmOps trait is now based on the modern
->>    waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
->>    by the subsystem maintainer. It is generic over a driver's
->>    hardware specific data structure, moving all unsafe serialization logic
->>    into the abstraction layer and allowing drivers to be written in 100%
->>    safe Rust.
->>
->>  - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
->>    types (State, Args, Device, etc.) and uses standard kernel error
->>    handling patterns.
->>
->> The series is structured as follows:
->>  - Rust PWM Abstractions: The new safe abstraction layer.
->>  - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
->>    top of the new abstractions.
->>  - Clock Fix: A necessary fix to the TH1520 clock driver to ensure bus
->>    clocks remain enabled.
->>  - Device Tree Bindings & Nodes: The remaining patches add the necessary
->>    DT bindings and nodes for the TH1520 PWM controller, a thermal
->>    sensor, and the PWM fan configuration for the Lichee Pi 4A board.
->>
->> Testing:
->> Tested on the TH1520 SoC. The fan works correctly. The duty/period
->> calculaties are correct. Fan starts slow when the chip is not hot and
->> gradually increases the speed when PVT reports higher temperatures.
->>
->> The patches are based on mainline, with some dependencies which are not
->> merged yet - platform Io support [1] and math wrapper [2].
->>
->> Reference repository with all the patches together can be found on
->> github [3].
+On Wed, Jun 11, 2025 at 04:02:00PM +0800, Inochi Amaoto wrote:
+> Add device driver for the mux driver for Sophgo CV18XX/SG200X
+> series SoCs.
 > 
-> I'm trying to build your rust-next-pwm-working-fan-for-sending-v4 branch
-> but I get this error:
-> 
-> $ make W=1 LLVM=1 ARCH=riscv -j16
->   CALL    scripts/checksyscalls.sh
-> .pylintrc: warning: ignored by one of the .gitignore files
->   UPD     include/generated/utsversion.h
->   CC      init/version-timestamp.o
->   KSYMS   .tmp_vmlinux0.kallsyms.S
->   AS      .tmp_vmlinux0.kallsyms.o
->   LD      .tmp_vmlinux1
-> ld.lld: error: undefined symbol: rust_build_error
->     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
->                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::get_state) in archive vmlinux.a
->     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
->                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
->     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
->                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
-> make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
-> make[1]: *** [/home/pdp7/linux/Makefile:1241: vmlinux] Error 2
-> make: *** [Makefile:248: __sub-make] Error 2
+> @@ -0,0 +1,119 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Sophgo CV1800 MDIO multiplexer driver
+> + *
+> + * Copyright (C) 2025 Inochi Amaoto <inochiama@gmail.com>
+> + */
+> +
+> +#include <linux/bitfield.h>
+> +#include <linux/bits.h>
+> +#include <linux/delay.h>
+> +#include <linux/clk.h>
+> +#include <linux/io.h>
+> +#include <linux/mdio-mux.h>
+> +#include <linux/module.h>
+> +#include <linux/platform_device.h>
+> +
+> +#define EPHY_PAGE_SELECT		0x07c
+> +#define EPHY_CTRL			0x800
+> +#define EPHY_REG_SELECT			0x804
+> +
+> +#define EPHY_PAGE_SELECT_SRC		GENMASK(12, 8)
+> +
+> +#define EPHY_CTRL_ANALOG_SHUTDOWN	BIT(0)
+> +#define EPHY_CTRL_USE_EXTPHY		BIT(7)
+> +#define EPHY_CTRL_PHYMODE		BIT(8)
+> +#define EPHY_CTRL_PHYMODE_SMI_RMII	1
+> +#define EPHY_CTRL_EXTPHY_ID		GENMASK(15, 11)
 
-Hi,
+There are a lot of defines here which are not used, but as far as i
+see, there is one 8bit register, where bit 7 controls the mux.
 
-Thanks for testing !
-I can reproduce the issue with your config.
+It looks like you can throw this driver away and just use
+mdio-mux-mmioreg.c. This is from the binding documentation with a few
+tweaks:
 
-The root of the problem was a failing compile time assertion
-(build_assert!) in the underlying Rust abstracions, I think IoMem since
-get_state and write_waveform functions are impacted. My development
-configuration was accidentally hiding this issue, but your configuration
-correctly exposed it.
+   mdio-mux@3009000 {
+        compatible = "mdio-mux-mmioreg", "mdio-mux";
+        mdio-parent-bus = <&xmdio0>;
+        #address-cells = <1>;
+        #size-cells = <0>;
+        reg = <0x3009000 1>;
+        mux-mask = <128>;
 
-The kernel config option that is different on my setup is:
-CONFIG_RUST_BUILD_ASSERT_ALLOW=y
+        mdio@0 {
+            reg = <0>;
+            #address-cells = <1>;
+            #size-cells = <0>;
 
-Now I have to take a look at the IoMem abstractions, I think there is
-a new revision [1]. Will apply it and check why exactly compile
-assertions are triggering.
+            phy_xgmii_slot1: ethernet-phy@4 {
+                compatible = "ethernet-phy-ieee802.3-c45";
+                reg = <4>;
+            };
+        };
 
-[1] - https://lore.kernel.org/all/20250603-topics-tyr-platform_iomem-v9-0-a27e04157e3e@collabora.com/
+        mdio@128 {
+            reg = <128>;
+            #address-cells = <1>;
+            #size-cells = <0>;
 
-> 
-> I've uploaded the config to:
-> https://protect2.fireeye.com/v1/url?k=0cc1a518-535a9c14-0cc02e57-000babff3563-8df2dfc535042c2a&q=1&e=eaf92127-0b5a-4559-9796-3264da753ae3&u=https%3A%2F%2Fgist.github.com%2Fpdp7%2Fe2c34dd7e4349a54bd67b53254bd3a22
-> 
-> Thanks,
-> Drew
-> 
+            ethernet-phy@4 {
+                compatible = "ethernet-phy-ieee802.3-c45";
+                reg = <4>;
+            };
+        };
+    };
 
-Best regards,
--- 
-Michal Wilczynski <m.wilczynski@samsung.com>
+    Andrew
 
 _______________________________________________
 linux-riscv mailing list
