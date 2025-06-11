@@ -4,86 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE93C71135
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 23:09:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A48DBC71135
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 02:43:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=G7bJRpeSyi8LG/tPgB8MTRPCyAT7cX7x5WGF/8kPRj4=; b=aV3b/XusY6IoV9
-	rckF9fx4kklFY1QAptOYYs3Pg/zWphr271FTD6RFuWuhBF9T7pMNnKe5G4Q5LmITbh669spKCZ9Sw
-	cBkLSY4m44PMin2DLaAbGmU6GVk1qPZiqm9x/pkDJ0/njDs+lNhX0Ab3Oxv2QKiJAFgLLM8cIVHNx
-	SsB11k0aj2Wmvgs4GM1C6yBCQKc6VNPvZIRCJe9uf2GwBXILWTyfs9+5DEflePVgvtPuzCmisXTxK
-	IJg8bDHvdZNOYC2s+y8MY8l3morvW0uSr42CD+6bRDBw4KUqWlOyyU9Ki3yto+H/q0s1U3faj1GJ6
-	pmIQB1Qpl/xsNIfI/TEA==;
+	List-Owner; bh=qHSQ6aePccPENOnZjVIG4INSy+lqj0z6hmnr96Stl7Q=; b=rUSoAdfS4PWE7S
+	CRHm7428F42Wqt/cmpthz/nYijsVIFunLyR7oKhV1Ka0VJopriSlxMYHqDMj22s3eW9WXdzwEYRcF
+	vR1g6NTo8nb0TEzjPUJv8xMIBFYtvVHuUL3OtT0LkVMyGPs0hHGiKHvSte7cs9LLIAn27wcaGfcpG
+	vxk/X83Oca7WIjMKucyBlwnKS0FAmhhofkw7IN/gNcY90N2w2arVbHczzrgprjuyOVIMYUPWUjznB
+	U835iW2rVyU3aVc0ETBKdy5bnei7hP2XmkaXw/n4nlXVBlid2h0RbLm91W0DXhpncZQEcib2zN3g0
+	W3WModvQvxnFrwFd7z7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUZP-0000000BdiX-3iqV;
-	Wed, 11 Jun 2025 23:09:23 +0000
-Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	id 1uPXuI-0000000BzVy-1RX6;
+	Thu, 12 Jun 2025 02:43:10 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTpj-0000000BSpd-13OV
+	id 1uPVF3-0000000Biyg-343d
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 22:22:13 +0000
-Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-313a001d781so349659a91.3
-        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 15:22:10 -0700 (PDT)
+	Wed, 11 Jun 2025 23:52:27 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-7485bcb8b7cso411130b3a.1
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 16:52:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=thingy.jp; s=google; t=1749680530; x=1750285330; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=hECvCp2144ISjYFuCPwHbO2eSKNwdlu+MMKqmQG6JC0=;
-        b=AVQt/eb2qo+osQdMKinjBSq6lDeTaq9epgR8Dl9bvhoBnLcwfA0vzN5jHBBJ0RYAqN
-         6Cirmx/0o7fNdWhel6I+nHOGf/46w5JEitbcZh5JjXeF8I08XyU6bvzNKqVLxD2P5VQ6
-         VwXSOdhwTzrS6aAEanjdqVBe/bg5Ja5XoTm2c=
+        d=pdp7-com.20230601.gappssmtp.com; s=20230601; t=1749685944; x=1750290744; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Ds26m+OEVEHtTwY8L13PNjwlyxHGQ40Hrmpl5kY1WfM=;
+        b=soJ5MvQitMz8V8Q8ME8D9qp2bph6LexSxnVkjvOsfke/ToXekhhSfPupQB8PfUNW80
+         uKqFVNd3q31AApRDl1w2sC5cOOqOErfCxH9fjG+on6QjDrOj0i4eOH1f2Y4eBeiwT+6F
+         6bdPzaimx8upRm/Y+XlgLWJTkCxAqaYKBnYsWBlo1OefZ7Hs320shULpd6beKBZX+HJ/
+         Re7ugTCGqMqBhMjliaXDxzVowXRYYGJFJlMqdNCj0kY0IZ9TrBSt4762SUWq1Zd82/8/
+         dSrJe4FA+FKraGaseZkFcBTsVAE0ruJ6Y00/BoP8cC8MvGF++g673OkaAMORf2se9PyD
+         l/zw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749680530; x=1750285330;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hECvCp2144ISjYFuCPwHbO2eSKNwdlu+MMKqmQG6JC0=;
-        b=B9i9E6rJALhLs/WJvQsxr+1xLJ+f+mBmzNO9qiw3cCcGD/G0cQpWFN8kTpXsxpq5QB
-         9fpjgQjl+K9t/BIJ00yhBD+FeP0u9SLvjyAVVc2jV54nGyCoIf0eRzH3X1psn2CuLnUj
-         aLreyyUHJ6JRjlutT4IkX5SHnkLIF9Uo5pzIpS287rFghJYq9K1ZwyNB4sgF8QYG4o06
-         9eksom0YWxtuUtxYINZYbk8b4tjS0yzPBkgIm6VHeX9oRctchmPIwyt03FoYqSTS28yI
-         wdJHwp5r371EBdPIOZjQFSrNsBsEWy1Cqbr8bmsOi7pMuD1N3CkDjgdXdraqKxtBohcc
-         mEZw==
-X-Forwarded-Encrypted: i=1; AJvYcCXqnsYFvW0JEkl8pElgZg+s8e5TPR00cYnzWYKQ6vdtZC6D23oVO1rgie2HIWDGP4yuqoxAxqjo78gKUg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR/0k0oHKHTNdg2Hd5dk34S9JFqg/wRcWlb661+GizfcmiA3qT
-	3XojUC7oOPaobyTvNJURg/FUIV0InoLSeV2TAZSuEkRHK3stPm/wL2/zLUJDTIsufZprACDAXYq
-	epBI9N13sGInMihZg7t/JQ8nsSyB6Icz8yzT0avrzNQ==
-X-Gm-Gg: ASbGncsprjEyOcvO+93wEAh0DyJ/JTnkeIsHYrLdqS2RB/7nZyk7SHduz+FbuD7AxJE
-	5aF8FdnqvaIrIYYRY7VyuMXA+G+i+9sR855115jAZ8rvSop65/NoMxpPakGbRcfkn7IhbiV/xLO
-	uHtfqhs2M7EVLjGjaaR7ZzQqP6xVrcGVoUKHx/Si68gtXdZfxvd+a5K4xsDTmEebqIFpseZG3MD
-	/tp
-X-Google-Smtp-Source: AGHT+IE8FknUC40PscBGYY7OPNelZLLkTFE7qxHwumbpWqTQtgyRPt7nCSuQoA+6xvyngwoaYT3v2ByQ5TtYzKrW9d8=
-X-Received: by 2002:a17:90b:2892:b0:312:26d9:d5b6 with SMTP id
- 98e67ed59e1d1-313bfba12a1mr1389789a91.3.1749680529907; Wed, 11 Jun 2025
- 15:22:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749685944; x=1750290744;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Ds26m+OEVEHtTwY8L13PNjwlyxHGQ40Hrmpl5kY1WfM=;
+        b=enFV5+CvgXFUWL6axI84cZBFYlysefswbNACUOC53mR8T0F9yXXUHP6MnSkREd3Kff
+         8rY5mX1jSKeQh6BXZfpvyqwQ7Hzsdj8XPAag+6549E7nl8NKc23++9KYU7li9SOQjoDz
+         Cz42CXfOAcAyoSy83WwbwJqvw+c5T0viyjx9llW7sePE8rVGFLD84dKvcAb/FF7M9ZqY
+         BMWlk9eM4uBTCqdXIR9MuZSEnOnmf9qvvTRwrloZIT8RMPqoOMx2xeES3+6MsOicvMVr
+         LtaZUb20rtl7UzojqtDbUC0KYDIy0v+7/I2ye2Gyt8UevW9PWhYbdo3a0xDexDeohrAr
+         D3wg==
+X-Forwarded-Encrypted: i=1; AJvYcCXTgJDt8m8GZsJ94ktuFRgs7FIRtogc5AbU4KQ8zI00mIKOYRAg3eVfcHj+5L7LD5S3lCYTocdSV6MNGA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwglOPRIGk2meis9zv0eBk6k7+48HGvGbq1xRK8186ATU2cMnnR
+	P7xrUfsv6uuU21Bd6qekitrs6ykU6/dm4ZL4TI17ke8WatXI8IRjLMp1HQhvwOW+8Xs=
+X-Gm-Gg: ASbGncvVFhtKdpi6kHJ/T8Ogk/ssaCFABkt5xoDYUkzeDUq3Y7q7Ecu1mBZ+8mX6YJe
+	5MXo6IVIJzfcSS3Akk98Z2jOi8MRJGXMhDNRtjI1QU/ACSKEjG4hvocIqocF0CG/rac/RvXLvJp
+	jQTXptZ4HJbB/8okik/wh1DldIC3zEaT9WSYl91lRNokJL7EaKx4fKO9MJaiXGshAKN/+VPgtXJ
+	ZghlR0b7qASc+OJGVH8KX6tmRQvuWCMWxoUSZWWRrJQaSLkCru8EB8g/gVWTZpnJ176jSIKNJTo
+	Wt6pRV0ggTgwsTaBw23EPVKUgpbdMz2n1Y6JV7wt8Agq6BWgOAajE+haKtvedcftpIk+04aFRA=
+	=
+X-Google-Smtp-Source: AGHT+IFS+0RpPDsIJ7Pc4hAG+1bB0h9nua2v+kKuA7YHahR/7bpKq5ETyy2eU0pRRy9UZ+rORXm+hw==
+X-Received: by 2002:a05:6a20:2587:b0:21f:53e4:1930 with SMTP id adf61e73a8af0-21f86725dfemr7771431637.22.1749685944426;
+        Wed, 11 Jun 2025 16:52:24 -0700 (PDT)
+Received: from x1 (97-120-245-201.ptld.qwest.net. [97.120.245.201])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b2fd62a4e59sm121567a12.55.2025.06.11.16.52.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 11 Jun 2025 16:52:24 -0700 (PDT)
+Date: Wed, 11 Jun 2025 16:52:22 -0700
+From: Drew Fustini <drew@pdp7.com>
+To: Michal Wilczynski <m.wilczynski@samsung.com>
+Cc: Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <ukleinek@kernel.org>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Danilo Krummrich <dakr@kernel.org>, Guo Ren <guoren@kernel.org>,
+	Fu Wei <wefu@redhat.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Benno Lossin <lossin@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, rust-for-linux@vger.kernel.org,
+	linux-riscv@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 0/7] Rust Abstractions for PWM subsystem with TH1520
+ PWM driver
+Message-ID: <aEoWtviFl0vYATXe@x1>
+References: <CGME20250610125330eucas1p2a573627ca8f124fe11e725c2d75bdcc9@eucas1p2.samsung.com>
+ <20250610-rust-next-pwm-working-fan-for-sending-v2-0-753e2955f110@samsung.com>
+ <aEifXZnLxKd2wa0w@x1>
+ <6ca6016e-3b17-48a0-ad8d-bb05317aa100@samsung.com>
 MIME-Version: 1.0
-References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org> <20250610-gpiochip-set-rv-gpio-v1-7-3a9a3c1472ff@linaro.org>
-In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-7-3a9a3c1472ff@linaro.org>
-From: Daniel Palmer <daniel@thingy.jp>
-Date: Thu, 12 Jun 2025 07:21:56 +0900
-X-Gm-Features: AX0GCFuAPMzR2tj8IuIF1_MflSdk31p_mu_qD7qQzgmBFTWEvU6XX8YEN4mo1dI
-Message-ID: <CAFr9PXmeYETV5FSAnEacFCo7LiS3cYBpPqraexLC7=MTzshfNg@mail.gmail.com>
-Subject: Re: [PATCH 07/12] gpio: msc313: use new GPIO line value setter callbacks
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Linus Walleij <linus.walleij@linaro.org>, =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
-	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
-	Romain Perier <romain.perier@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
-	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
-	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
-	Benjamin Fair <benjaminfair@google.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
-	linux-omap@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Disposition: inline
+In-Reply-To: <6ca6016e-3b17-48a0-ad8d-bb05317aa100@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_152211_488595_37C385AC 
-X-CRM114-Status: GOOD (  18.47  )
+X-CRM114-CacheID: sfid-20250611_165226_005646_5C5869F9 
+X-CRM114-Status: GOOD (  39.74  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,62 +121,145 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On Wed, Jun 11, 2025 at 05:14:40PM +0200, Michal Wilczynski wrote:
+> 
+> 
+> On 6/10/25 23:10, Drew Fustini wrote:
+> > On Tue, Jun 10, 2025 at 02:52:48PM +0200, Michal Wilczynski wrote:
+> >> This patch series introduces Rust support for the T-HEAD TH1520 PWM
+> >> controller and demonstrates its use for fan control on the Sipeed Lichee
+> >> Pi 4A board.
+> >>
+> >> The primary goal of this patch series is to introduce a basic set of
+> >> Rust abstractions for the Linux PWM subsystem. As a first user and
+> >> practical demonstration of these abstractions, the series also provides
+> >> a functional PWM driver for the T-HEAD TH1520 SoC. This allows control
+> >> of its PWM channels and ultimately enables temperature controlled fan
+> >> support for the Lichee Pi 4A board. This work aims to explore the use of
+> >> Rust for PWM drivers and lay a foundation for potential future
+> >> Rust based PWM drivers.
+> >>
+> >> The core of this series is a new rust/kernel/pwm.rs module that provides
+> >> abstractions for writing PWM chip provider drivers in Rust. This has
+> >> been significantly reworked from v1 based on extensive feedback. The key
+> >> features of the new abstraction layer include:
+> >>
+> >>  - Ownership and Lifetime Management: The pwm::Chip wrapper is managed
+> >>    by ARef, correctly tying its lifetime to its embedded struct device
+> >>    reference counter. Chip registration is handled by a pwm::Registration
+> >>    RAII guard, which guarantees that pwmchip_add is always paired with
+> >>    pwmchip_remove, preventing resource leaks.
+> >>
+> >>  - Modern and Safe API: The PwmOps trait is now based on the modern
+> >>    waveform API (round_waveform_tohw, write_waveform, etc.) as recommended
+> >>    by the subsystem maintainer. It is generic over a driver's
+> >>    hardware specific data structure, moving all unsafe serialization logic
+> >>    into the abstraction layer and allowing drivers to be written in 100%
+> >>    safe Rust.
+> >>
+> >>  - Ergonomics: The API provides safe, idiomatic wrappers for other PWM
+> >>    types (State, Args, Device, etc.) and uses standard kernel error
+> >>    handling patterns.
+> >>
+> >> The series is structured as follows:
+> >>  - Rust PWM Abstractions: The new safe abstraction layer.
+> >>  - TH1520 PWM Driver: A new Rust driver for the TH1520 SoC, built on
+> >>    top of the new abstractions.
+> >>  - Clock Fix: A necessary fix to the TH1520 clock driver to ensure bus
+> >>    clocks remain enabled.
+> >>  - Device Tree Bindings & Nodes: The remaining patches add the necessary
+> >>    DT bindings and nodes for the TH1520 PWM controller, a thermal
+> >>    sensor, and the PWM fan configuration for the Lichee Pi 4A board.
+> >>
+> >> Testing:
+> >> Tested on the TH1520 SoC. The fan works correctly. The duty/period
+> >> calculaties are correct. Fan starts slow when the chip is not hot and
+> >> gradually increases the speed when PVT reports higher temperatures.
+> >>
+> >> The patches are based on mainline, with some dependencies which are not
+> >> merged yet - platform Io support [1] and math wrapper [2].
+> >>
+> >> Reference repository with all the patches together can be found on
+> >> github [3].
+> > 
+> > I'm trying to build your rust-next-pwm-working-fan-for-sending-v4 branch
+> > but I get this error:
+> > 
+> > $ make W=1 LLVM=1 ARCH=riscv -j16
+> >   CALL    scripts/checksyscalls.sh
+> > .pylintrc: warning: ignored by one of the .gitignore files
+> >   UPD     include/generated/utsversion.h
+> >   CC      init/version-timestamp.o
+> >   KSYMS   .tmp_vmlinux0.kallsyms.S
+> >   AS      .tmp_vmlinux0.kallsyms.o
+> >   LD      .tmp_vmlinux1
+> > ld.lld: error: undefined symbol: rust_build_error
+> >     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+> >                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::get_state) in archive vmlinux.a
+> >     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+> >                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
+> >     referenced by pwm_th1520.4789668fc0b4e501-cgu.0
+> >                   drivers/pwm/pwm_th1520.o:(<pwm_th1520::Th1520PwmDriverData as kernel::pwm::PwmOps>::write_waveform) in archive vmlinux.a
+> > make[2]: *** [scripts/Makefile.vmlinux:91: vmlinux] Error 1
+> > make[1]: *** [/home/pdp7/linux/Makefile:1241: vmlinux] Error 2
+> > make: *** [Makefile:248: __sub-make] Error 2
+> 
+> Hi,
+> 
+> Thanks for testing !
+> I can reproduce the issue with your config.
+> 
+> The root of the problem was a failing compile time assertion
+> (build_assert!) in the underlying Rust abstracions, I think IoMem since
+> get_state and write_waveform functions are impacted. My development
+> configuration was accidentally hiding this issue, but your configuration
+> correctly exposed it.
+> 
+> The kernel config option that is different on my setup is:
+> CONFIG_RUST_BUILD_ASSERT_ALLOW=y
 
-On Tue, 10 Jun 2025 at 21:33, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
->
-> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
->
-> struct gpio_chip now has callbacks for setting line values that return
-> an integer, allowing to indicate failures. Convert the driver to using
-> them.
->
-> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-> ---
->  drivers/gpio/gpio-msc313.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/gpio/gpio-msc313.c b/drivers/gpio/gpio-msc313.c
-> index 6db9e469e0dc254e791d497b89a4c6d329d0add4..992339a89d19840fc03ccf849972a83cb86415ae 100644
-> --- a/drivers/gpio/gpio-msc313.c
-> +++ b/drivers/gpio/gpio-msc313.c
-> @@ -486,7 +486,7 @@ struct msc313_gpio {
->         u8 *saved;
->  };
->
-> -static void msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
-> +static int msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
->  {
->         struct msc313_gpio *gpio = gpiochip_get_data(chip);
->         u8 gpioreg = readb_relaxed(gpio->base + gpio->gpio_data->offsets[offset]);
-> @@ -497,6 +497,8 @@ static void msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int val
->                 gpioreg &= ~MSC313_GPIO_OUT;
->
->         writeb_relaxed(gpioreg, gpio->base + gpio->gpio_data->offsets[offset]);
-> +
-> +       return 0;
->  }
->
->  static int msc313_gpio_get(struct gpio_chip *chip, unsigned int offset)
-> @@ -656,7 +658,7 @@ static int msc313_gpio_probe(struct platform_device *pdev)
->         gpiochip->direction_input = msc313_gpio_direction_input;
->         gpiochip->direction_output = msc313_gpio_direction_output;
->         gpiochip->get = msc313_gpio_get;
-> -       gpiochip->set = msc313_gpio_set;
-> +       gpiochip->set_rv = msc313_gpio_set;
->         gpiochip->base = -1;
->         gpiochip->ngpio = gpio->gpio_data->num;
->         gpiochip->names = gpio->gpio_data->names;
->
-> --
-> 2.48.1
->
+Thanks for the explanation. I wanted to see how far I could get so I
+also have set CONFIG_RUST_BUILD_ASSERT_ALLOW=y for now.
 
-Reviewed-by: Daniel Palmer <daniel@thingy.jp>
+I also enabled the pwm fan driver. However, there is a probe failure:
 
-Cheers,
+[    1.250921] pwm-fan pwm-fan: Failed to configure PWM: -524
+[    1.256546] pwm-fan pwm-fan: probe with driver pwm-fan failed with error -524
 
-Daniel
+This seems to be the result `set_pwm(ctx, initial_pwm)` failing.
+
+It seems like the TH1520 PWM driver loaded okay:
+
+# cat /sys/class/pwm/pwmchip0/npwm 
+6
+# ls -l /sys/class/pwm/pwmchip0/device
+lrwxrwxrwx 1 root root 0 Jun 12 07:37 /sys/class/pwm/pwmchip0/device -> ../../../ffec01c000.pwm
+# ls -l /sys/class/pwm/pwmchip0/device/driver
+lrwxrwxrwx 1 root root 0 Feb 28  2023 /sys/class/pwm/pwmchip0/device/driver -> ../../../../bus/platform/drivers/pwm-th1520
+
+I'm using your mwilczy/rust-next-pwm-working-fan-for-sending-v4 branch:
+
+7ec07c93dbac riscv: dts: thead: Add PWM fan and thermal control
+c8a6138b2a13 riscv: dts: thead: Add PVT node
+14e2f1bfd26b riscv: dts: thead: Add PWM controller node
+afe06057030e dt-bindings: pwm: thead: Add T-HEAD TH1520 PWM controller
+fe75d1ab60c9 clk: thead: Mark essential bus clocks as CLK_IGNORE_UNUSED
+47dc6a551376 pwm: Add Rust driver for T-HEAD TH1520 SoC
+9370bdd31cdc rust: Add basic PWM abstractions
+f077d5bf0be8 Rust Abstractions for PWM subsystem with TH1520 PWM driver
+f153d0d0221f rust: math: Add KernelMathExt trait with a mul_div helper
+51c4a2e7d48a Fix for Device<Bound>
+4847fa4f7ac8 rust: platform: allow ioremap of platform resources
+929c56df82e5 rust: io: mem: add a generic iomem abstraction
+09dfabb4677c rust: io: add resource abstraction
+
+I uploaded the kconfig [1] and boot log [2]. Any ideas?
+
+Thanks,
+Drew
+
+[1] https://gist.github.com/pdp7/58ca1f543898daeb281c013facb79aed
+[2] https://gist.github.com/pdp7/e263b1b928a17d499f94fa5be7b3a7f8
 
 _______________________________________________
 linux-riscv mailing list
