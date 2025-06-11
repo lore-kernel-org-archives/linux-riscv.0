@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B208C677C4
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 03:08:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81ADC677C4
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 03:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
-	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=hpTFooD3/1OXN2ufPu1fid7Y/FJPOSYRK7m8qEEeZ5I=; b=Xhmo6VdUa+2gnZ
-	VqakMxjdJPkrnGmjcv3uUq+nrGmCBlaOv82l4nkqqd8b8nJgAQFcvO/JG43Oycs07/KDTHFxDkVka
-	hmfCH0uawHYN720MDPRYwNT7EPl0bzst5Umzot80jO89LGgZMywFeUjhG9iZjCKnshiA073rTrL0M
-	wR1Nx70TsIdPqIbG2hWXX8R03Or1lVXiWNsql8pZeQt9+oGCghIECmA4pOM+o5evc8/wGCUojDNdw
-	qxEcKErzN0830HSzY1N/PBu03tZ80E7iP0iLypRC2fUknQRRQsrfA+59Ze0PhhE2jbFT9xCABUFrc
-	+y/2rpJFlc9i+6eEwRnw==;
+	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
+	List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:To
+	:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XFjoGqRBJnl6VRp+9NuRTXqZ9Btm38B+QG/t5UWi3hw=; b=sjnRJH2iAq7AN9
+	bb0FqZnPSwWIqQZPLRoRUZnh2gLA/cqUILjMB2eXIMu95U2bz8gN7WL76SV7UIpeLnbZRXXMz+Okx
+	CwNTblgz0388TybSaWoLoCNKFwEVt7tTIv83WcSLf5rIDrpsh4WJ+h74Moopvc+PCKVI3vSs56LN+
+	N/NFbQywWRPjQxEnRl0uA0a7RfJSu74tXcP4aBZm+mp/05awgAOMpt+NXiCRjzqnqKe0tBDX08UaZ
+	Qbb1k/1Zcnr7ZoKjYsKUdYm4FNWDM8JiLBOsbxsYWFgKOk4j67VY7tbHtz50UiCrlNf+espF9W6WW
+	vPaWmEdJRMOXzDVNCTXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPBos-00000008iKo-0unl;
-	Wed, 11 Jun 2025 03:08:06 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1uPBrJ-00000008iay-0Lgt;
+	Wed, 11 Jun 2025 03:10:37 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPBlB-00000008i5b-2Sl0
+	id 1uPBrG-00000008iaY-3JcI
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 03:04:18 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-72c27166ab3so4332287a34.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 20:04:17 -0700 (PDT)
+	Wed, 11 Jun 2025 03:10:36 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-236377f00easo19202765ad.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 20:10:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749611056; x=1750215856; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=h0vMZ6RS4KZgXTPFZZwfCCY/cIIcHwyiQtEt00FbCAs=;
-        b=jiNEiaxDxvyrsxqTNQMBfbCCzS0mgkcSVyHHSnE6Buf+p2Ad+S1J0sEbpNBGrLBr1e
-         uhZ7d52r0MDAWZWWjNKA4ic6wzMmH93lHkppy/UNGLbY9egXYtdDuW7U3KGNNRAWOWdA
-         GjOlGw9mTTj4Wo/zkMSqZt9bqEWQtXz04EmOJQQ4UI86bKeH/5dQxtVfAXzRi27uuYUo
-         l+kmc5lzrNgBwyUa8wxN5/uvgqy6VLR78QSTleHEkkWfpfh8X/TZ/GdaoayzG0RJxtYI
-         WGsv+KrRf45+4U4TikkrN+G00QY9nI0xnuQGs4aeQRm8wP7U+GXl+f/cxmK8qW8+WDww
-         XJrw==
+        d=sifive.com; s=google; t=1749611434; x=1750216234; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=J2YpGMUU2gIjP1YnCfMmfjdfZdTXulLsIVq+e8CQd7A=;
+        b=kAzFRwKW93oX91uwtLO0kURpSspRcrmh7+gIQUr88lefOL8CT4NCRcvm6BIUOhnPv+
+         PkJde6xrv8trosV6C9TbLDaCPGCarAbk3RIj6BIKUcF1qMRolfP6I5388S+gBTWH4d6a
+         STZYd5UiC7LbLGgOgWi7SoUa3OshodQonl7LON8Lb07pqwssOKUoTXV68+XyHhFM4nux
+         ppv/ENZlD0obiowMYm/brTsbSH5psM9coa/Yq/x4bfrbEDTQKZktzyKlOjYaEs4Xdfn0
+         XBOkNpPV7rkNZAltQ8mGdxAjLKnVkb3NNPjnOs+Kq+PHpzMtUFYhMe5jfiKE6XEkOUgi
+         A1PA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749611056; x=1750215856;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h0vMZ6RS4KZgXTPFZZwfCCY/cIIcHwyiQtEt00FbCAs=;
-        b=His0PUTMoGTMuplsloXHhGNahzMpN8mpNoX7A3BUFK4hc7wYNdCimiH5hHTdlD2tYB
-         CBkKoyqyb9Zz27Vc0kLAVbtog348u70uR1U4JOISsMoHtvcvUFGBor4zjshCdPHuM7tA
-         cjmWz0dQpEHKUXD63C1krWiADEVaEy7uy8ZNs87m2O5RdC8zePsnR/UTX2bhojdhLIZ6
-         KzyHkg2Voyq9szhWhuMNc2LjzO+5zFzzBUz3ehu3KDsTg60FR2oVQJKaJ05cq6v7CKh+
-         WZu2phNiZSnHEgcQkhEO6KsewJn9IFyjoNSS6UHaH2oHo4vaew7B1ZnT5ez1uXUWSuZM
-         rDCg==
-X-Forwarded-Encrypted: i=1; AJvYcCVHT+6b9VCAoqM8hboAu6tBu0DVqXxHZbC9zFayQp9bZ4nkTPtC1Cjcg75explAhrFcTskfPYGbVYZ1Cg==@lists.infradead.org
-X-Gm-Message-State: AOJu0YxIk/jg48XVI/csJjZMsE0LOEXCBq+Hf8bf8E4DS2c8G9y/ic+d
-	kXMiTWFNCqctWI8/bD60aS2+fxMYwAw71hoN6Gz2ndo9QST7zJrjBn2CIDg2iIH3o+xpsdaeWi5
-	mNPhIWW530GkXVKi76SLjC2p0RZC4Wls=
-X-Gm-Gg: ASbGnctDvp9JCUSB7l77+ulykkixYJ8llvTCcOW0D+cCsj0kP6cp00CHUAi52mNlJPN
-	itxxAVsUM1AS4WrLtKYDRvzoyPjPqNAX8000koJ9/oN3NX1DzWdGEYPm9S7w52HXld3+/B1u6bZ
-	m5joN4d5gR7qdBYwhMDNORw6QQPgio5Vw5VOTGFG3gmlbwK25ZrW82xW2NmVOi7O3EwKztAi+5h
-	Ac=
-X-Google-Smtp-Source: AGHT+IEvUsEISWdsBbdJKh0v2HGHrMV9/aTnXFIn2m1HfLsSUPoYUO446g2msReWU9yYxWavikvhooBoozIfxlox6UQ=
-X-Received: by 2002:a05:6870:d189:b0:2c1:51f7:e648 with SMTP id
- 586e51a60fabf-2ea99a3f908mr777187fac.35.1749611056568; Tue, 10 Jun 2025
- 20:04:16 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250610101234.1100660-3-zhangchunyan@iscas.ac.cn> <mhng-8AD2A457-504F-4EF6-AB17-2CF316DFF6A0@palmerdabbelt-mac>
-In-Reply-To: <mhng-8AD2A457-504F-4EF6-AB17-2CF316DFF6A0@palmerdabbelt-mac>
-From: Chunyan Zhang <zhang.lyra@gmail.com>
-Date: Wed, 11 Jun 2025 11:03:37 +0800
-X-Gm-Features: AX0GCFsDnM8WxeSPLuep8sadI96fmUB9fnDpELth6QLXswhRYNm23160O-w3_Pk
-Message-ID: <CAAfSe-sZLKCGdgHZjmAbwqsv0bUUkBcWeeXarMp7htRLCtArsA@mail.gmail.com>
-Subject: Re: [PATCH 2/4] raid6: riscv: Fix NULL pointer dereference issue
-To: Palmer Dabbelt <palmer@dabbelt.com>
-Cc: zhangchunyan@iscas.ac.cn, Paul Walmsley <paul.walmsley@sifive.com>, 
-	aou@eecs.berkeley.edu, Alexandre Ghiti <alex@ghiti.fr>, 
-	Charlie Jenkins <charlie@rivosinc.com>, song@kernel.org, yukuai3@huawei.com, 
-	linux-riscv@lists.infradead.org, linux-raid@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+        d=1e100.net; s=20230601; t=1749611434; x=1750216234;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=J2YpGMUU2gIjP1YnCfMmfjdfZdTXulLsIVq+e8CQd7A=;
+        b=RFWZ8+NqCbGag29IW9VXJsxHv/5S4dsWMj5APBFJitP3SNLIT52hfAv6FLWADZepOD
+         N0gwPb6FpCLXS9R0a/GvJ3Nww/YFjDIqn347QjD1T3EIaVE2xqX/P8Hy/AKdmyEBtfRD
+         mLFu85gI/XLVcr5vq9nCVwfFSELpbervL0rd7kaguOu6CbLb/83j495oLAczVp3C7jqF
+         Y2UIjpsLNLFiF2la2IsZptjDGLXNLzBc18Fuqki0UQrvZlIL8Zifp4NsuZYgqpEJ/ODF
+         OAnCHFp6tRYcGBpqFIBd2ivPdCSge3jzcDdXLi/zHP1TvNG93STr7nbXubrOzjughTvt
+         oUEA==
+X-Forwarded-Encrypted: i=1; AJvYcCVdp/2JlcvC7lyhefFzAohvSNRd4iYzEFB2xHyNn7Ekp604eoCSaNWOB6FC6UpVEtuC3hCIUPW1pNR/cA==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7YmjpG66CCfvb61qkdoqT7PZnnFgahFeqRoP9rPUEw3Uz8Ghe
+	/rwI7s+R+TE7DE+2g5hYHxrEUVyTTMXqMt7q/1PnNGRZ/PgxGdxBNFkBWNZ2/1kpISA=
+X-Gm-Gg: ASbGncuRxYDJwLF5ZfJ7TNI9wlaRbt0he4EHP3fFSO5fuqHDcKgnmprV3RXJ7dtGhdE
+	lFGHv4EkUX+Yqf/YoOigz9qvvEr4sw3YunZAqYhiMtHagmdgtufkaFDQYYDgEdl5c6KQoBvpHwG
+	hCVJvZSG7hQ6PmINgejeZfTg0RdH6NoIacPoQ0GsuE9jjFIYZ+jU5ERkH2zrIUSsjfbQD7Uu20u
+	T0G+PKDp9tROu16vGy/nrENM/6SzZcl+JD0ryau0S/W2b8OPg+pPBPf0y6rI4XW3tOjk0AQglDF
+	HqyvJfnCfMZ+Nc2RVB7H9adbUREblzuu6CU+O6KqXqPD/fYUvVQ9haN5ICbRTQeXmIERl+S60sl
+	267cXy9u3enHyNYVgY4c=
+X-Google-Smtp-Source: AGHT+IESMK2S+65o2kSPGa9uk9cH0yzicqiZbuZzqQidUwCxa6z8uc7HL/z4vGduP+GHtOp2+X7qPg==
+X-Received: by 2002:a17:902:e541:b0:234:a139:11f0 with SMTP id d9443c01a7336-2364260d2bbmr15145915ad.7.1749611433582;
+        Tue, 10 Jun 2025 20:10:33 -0700 (PDT)
+Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236030789c2sm77669035ad.29.2025.06.10.20.10.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 10 Jun 2025 20:10:33 -0700 (PDT)
+From: Nick Hu <nick.hu@sifive.com>
+To: conor+dt@kernel.org,
+	krzk+dt@kernel.org,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	linux-riscv@lists.infradead.org
+Cc: Nick Hu <nick.hu@sifive.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Samuel Holland <samuel.holland@sifive.com>
+Subject: [PATCH v2 0/3] Add SiFive power provider driver
+Date: Wed, 11 Jun 2025 11:10:19 +0800
+Message-Id: <20250611031023.28769-1-nick.hu@sifive.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_200417_626755_89F692E4 
-X-CRM114-Status: GOOD (  29.95  )
+X-CRM114-CacheID: sfid-20250610_201034_851581_4F024886 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,250 +95,49 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Palmer,
+The v1 can be found in [1].
 
-On Wed, 11 Jun 2025 at 06:00, Palmer Dabbelt <palmer@dabbelt.com> wrote:
->
-> On Tue, 10 Jun 2025 03:12:32 PDT (-0700), zhangchunyan@iscas.ac.cn wrote:
-> > When running the raid6 user-space test program on RISC-V QEMU, there's a
-> > segmentation fault which seems caused by accessing a NULL pointer,
-> > which is the pointer variable p/q in raid6_rvv*_gen/xor_syndrome_real(),
-> > p/q should have been equal to dptr[x], but when I use GDB command to
-> > see its value, which was 0x10 like below:
-> >
-> > "
-> > Program received signal SIGSEGV, Segmentation fault.
-> > 0x0000000000011062 in raid6_rvv2_xor_syndrome_real (disks=<optimized out>, start=0, stop=<optimized out>, bytes=4096, ptrs=<optimized out>) at rvv.c:386
-> > (gdb) p p
-> > $1 = (u8 *) 0x10 <error: Cannot access memory at address 0x10>
-> > "
-> >
-> > The issue was found to be related with:
-> > 1) Compile optimization
-> >    There's no segmentation fault if compiling the raid6test program with
-> >    the optimization flag -O0.
-> > 2) The RISC-V vector command vsetvli
-> >    If not used t0 as the first parameter in vsetvli, there's no
-> >    segmentation fault either.
-> >
-> > This patch selects the 2nd solution to fix the issue.
->
-> This code is super fragile, it's got a bunch of vector asm blocks in
-> there that aren't declaring their cobbers.  At a bare minimum we should
-> have something like
->
->     diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
->     index 99dfa16d37c7..3c9b3fd9f2ed 100644
->     --- a/lib/raid6/rvv.c
->     +++ b/lib/raid6/rvv.c
->     @@ -17,6 +17,10 @@
->      #define NSIZE  16
->      #endif
->
->     +#ifdef __riscv_vector
->     +#error "This code must be built without compiler support for vector"
->     +#endif
->     +
+This patch introduces the SiFive power provider driver, which sets up a
+generic power domain (genpd) provider to coordinate with the RISC-V SBI
+cpuidle driver.
 
-Ok, I will add this.
+To enable this coordination, several functions from the cpuidle-riscv-sbi
+driver are exposed for use by the external power provider. This allows
+coordination between power domain management and CPU idle states on
+SiFive platforms.
 
-Thanks,
-Chunyan
+Changes in v2:
+- Add the driver for SiFive TMC, CMC and SMC
+- Drop the `sifive,feature-level` property
 
->      static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
->      {
->         u8 **dptr = (u8 **)ptrs;
->
-> because it just won't work when built with a compiler that can use
-> vector instructions.
->
-> > Fixes: 6093faaf9593 ("raid6: Add RISC-V SIMD syndrome and recovery calculations")
-> > Signed-off-by: Chunyan Zhang <zhangchunyan@iscas.ac.cn>
-> > ---
-> >  lib/raid6/rvv.c | 48 ++++++++++++++++++++++++++++--------------------
-> >  1 file changed, 28 insertions(+), 20 deletions(-)
-> >
-> > diff --git a/lib/raid6/rvv.c b/lib/raid6/rvv.c
-> > index bf7d5cd659e0..b193ea176d5d 100644
-> > --- a/lib/raid6/rvv.c
-> > +++ b/lib/raid6/rvv.c
-> > @@ -23,9 +23,9 @@ static int rvv_has_vector(void)
-> >  static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> > -     unsigned long d;
-> > -     int z, z0;
-> >       u8 *p, *q;
-> > +     unsigned long vl, d;
-> > +     int z, z0;
-> >
-> >       z0 = disks - 3;         /* Highest data disk */
-> >       p = dptr[z0 + 1];               /* XOR parity */
-> > @@ -33,8 +33,9 @@ static void raid6_rvv1_gen_syndrome_real(int disks, unsigned long bytes, void **
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >        /* v0:wp0, v1:wq0, v2:wd0/w20, v3:w10 */
-> > @@ -96,7 +97,7 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> >       u8 *p, *q;
-> > -     unsigned long d;
-> > +     unsigned long vl, d;
-> >       int z, z0;
-> >
-> >       z0 = stop;              /* P/Q right side optimization */
-> > @@ -105,8 +106,9 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /* v0:wp0, v1:wq0, v2:wd0/w20, v3:w10 */
-> > @@ -192,9 +194,9 @@ static void raid6_rvv1_xor_syndrome_real(int disks, int start, int stop,
-> >  static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> > -     unsigned long d;
-> > -     int z, z0;
-> >       u8 *p, *q;
-> > +     unsigned long vl, d;
-> > +     int z, z0;
-> >
-> >       z0 = disks - 3;         /* Highest data disk */
-> >       p = dptr[z0 + 1];               /* XOR parity */
-> > @@ -202,8 +204,9 @@ static void raid6_rvv2_gen_syndrome_real(int disks, unsigned long bytes, void **
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
-> > @@ -284,7 +287,7 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> >       u8 *p, *q;
-> > -     unsigned long d;
-> > +     unsigned long vl, d;
-> >       int z, z0;
-> >
-> >       z0 = stop;              /* P/Q right side optimization */
-> > @@ -293,8 +296,9 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
-> > @@ -410,9 +414,9 @@ static void raid6_rvv2_xor_syndrome_real(int disks, int start, int stop,
-> >  static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> > -     unsigned long d;
-> > -     int z, z0;
-> >       u8 *p, *q;
-> > +     unsigned long vl, d;
-> > +     int z, z0;
-> >
-> >       z0 = disks - 3; /* Highest data disk */
-> >       p = dptr[z0 + 1];       /* XOR parity */
-> > @@ -420,8 +424,9 @@ static void raid6_rvv4_gen_syndrome_real(int disks, unsigned long bytes, void **
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
-> > @@ -536,7 +541,7 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> >       u8 *p, *q;
-> > -     unsigned long d;
-> > +     unsigned long vl, d;
-> >       int z, z0;
-> >
-> >       z0 = stop;              /* P/Q right side optimization */
-> > @@ -545,8 +550,9 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
-> > @@ -718,9 +724,9 @@ static void raid6_rvv4_xor_syndrome_real(int disks, int start, int stop,
-> >  static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **ptrs)
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> > -     unsigned long d;
-> > -     int z, z0;
-> >       u8 *p, *q;
-> > +     unsigned long vl, d;
-> > +     int z, z0;
-> >
-> >       z0 = disks - 3; /* Highest data disk */
-> >       p = dptr[z0 + 1];       /* XOR parity */
-> > @@ -728,8 +734,9 @@ static void raid6_rvv8_gen_syndrome_real(int disks, unsigned long bytes, void **
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
-> > @@ -912,7 +919,7 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
-> >  {
-> >       u8 **dptr = (u8 **)ptrs;
-> >       u8 *p, *q;
-> > -     unsigned long d;
-> > +     unsigned long vl, d;
-> >       int z, z0;
-> >
-> >       z0 = stop;              /* P/Q right side optimization */
-> > @@ -921,8 +928,9 @@ static void raid6_rvv8_xor_syndrome_real(int disks, int start, int stop,
-> >
-> >       asm volatile (".option  push\n"
-> >                     ".option  arch,+v\n"
-> > -                   "vsetvli  t0, x0, e8, m1, ta, ma\n"
-> > +                   "vsetvli  %0, x0, e8, m1, ta, ma\n"
-> >                     ".option  pop\n"
-> > +                   : "=&r" (vl)
-> >       );
-> >
-> >       /*
+Links:
+- [1] https://lore.kernel.org/linux-riscv/20250509021605.26764-1-nick.hu@sifive.com/
+
+Nick Hu (3):
+  dt-bindings: power: Add SiFive Domain Management controllers
+  cpuidle: riscv-sbi: Work with the external pmdomain driver
+  cpuidle: Add SiFive power provider
+
+ .../devicetree/bindings/power/sifive,tmc.yaml |  70 ++++++++++++
+ drivers/cpuidle/Kconfig.riscv                 |  11 ++
+ drivers/cpuidle/Makefile                      |   1 +
+ drivers/cpuidle/cpuidle-riscv-sbi.c           |  17 +--
+ drivers/cpuidle/cpuidle-riscv-sbi.h           |  20 ++++
+ drivers/cpuidle/cpuidle-sifive-dmc-pd.c       | 102 ++++++++++++++++++
+ 6 files changed, 215 insertions(+), 6 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/power/sifive,tmc.yaml
+ create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.h
+ create mode 100644 drivers/cpuidle/cpuidle-sifive-dmc-pd.c
+
+-- 
+2.17.1
+
 
 _______________________________________________
 linux-riscv mailing list
