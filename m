@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A01EC71136
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF6EAC71141
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=u2Mt0cs/vBU6nE22cMZQ7hk8xkyENIDqwiZ2KLx1fuE=; b=oWAqcQ+QhttXA8
-	cO+96rQj/lWSrjbTCOdsbH72TUOVCUNz9mY9OirNfxUU7JsKIYeWGUx5yc1baaWItvOYmcAayVv/g
-	686/r6xEabivhV2Lw41puAX7GpZMNO5V1msfUKHH67kGNwuly+snplpmjoYqVfVowK18JqW6+0/gw
-	+FJsiKoBb8WJ0fEYw8kP7SCNK7CcVYhSK1onh+jMULkH2J8ncIBqJ/6AKjr1H6TF5ol/EkxdNxoxy
-	4qJRUgcFvpwI/H/QPBzANxpQpWHO9F1glnpZN3xXELxa+mR8qBHN3zCpDUE3XeM+I5Nx7UTx9RmGp
-	QkKtMWq51ceWi941YVnQ==;
+	List-Owner; bh=+Mbg2n+OF+ceSXI4URbkBiZRSI7OhoDyleL2e4fWBaU=; b=G3T0igd7jhONeZ
+	d8zOMSk4R+AI3GmsKmiSwbY0U3GtRdmtkrCvPKEq/dVtIBoGTyAcPM+3he94YRkIhuMBS/eiSWgnT
+	0fF/Q1zkfLH3FnTxENy2rR94t26WuoxgK2VdnLRbrlxdpf3+mrr8ad3PoLf6HhRKaKlVqJNuLQcVr
+	tCPqmqMfMhL1zfM8Q6Ao+0mBBBAws/SwmlTJarCwMAaPNRu872rOTzz/yGt12KN5PrSIjFrmsSFFH
+	Kaj4N+RKaaTll1ZBBjJErpTNkpYD08dYiXCvxtsqnHBsa4Ie8cVaTch/XqZ7GbAoPGBcZ/9ZKxFvS
+	nEEG8MG02sYV9HYQFMPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPkA-0000000Amg8-2Bix;
-	Wed, 11 Jun 2025 18:00:10 +0000
-Received: from mail.gentoo.org ([2001:470:ea4a:1:5054:ff:fec7:86e4] helo=smtp.gentoo.org)
+	id 1uPPkX-0000000AnLD-3uOg;
+	Wed, 11 Jun 2025 18:00:33 +0000
+Received: from out-173.mta0.migadu.com ([91.218.175.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPLxs-0000000A1Ta-3OrD
+	id 1uPM4K-0000000A2jO-15EO
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 13:58:05 +0000
-Received: from localhost (unknown [116.232.147.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 02DD633BEB9;
-	Wed, 11 Jun 2025 13:58:01 +0000 (UTC)
-Date: Wed, 11 Jun 2025 13:57:57 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
-	drew@pdp7.com, emil.renner.berthing@canonical.com,
-	inochiama@gmail.com, geert+renesas@glider.be, tglx@linutronix.de,
-	hal.feng@starfivetech.com, joel@jms.id.au, duje.mihanovic@skole.hr,
-	elder@riscstar.com, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 6/8] riscv: dts: spacemit: Enable PDMA0 controller on
- Banana Pi F3
-Message-ID: <20250611135757-GYC125008@gentoo>
-References: <20250611125723.181711-1-guodong@riscstar.com>
- <20250611125723.181711-7-guodong@riscstar.com>
+	Wed, 11 Jun 2025 14:04:45 +0000
+Date: Wed, 11 Jun 2025 16:04:37 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749650681;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=txq23bJazbIYagctbPRu50Tm0ZoM/NcejOe7Q1liC8k=;
+	b=wk0ZcISFpG7EdDimklFUqd02SAESZEZcA+KDyXAEHqt10vo2jUvcEe/cO2Yq6tJFVV4dAc
+	L0GmmiPNFoYcR8pSaqlrip1ZkN7z2ZbLbzI7BC9ZgVP4yZxnkyM3JZqpIJm+9YnviJndsI
+	lMKJEV+PHU+WLAtw4eKKZD49/eTtZCU=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Nicolas Schier <nicolas.schier@linux.dev>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	David Gow <davidgow@google.com>, Rae Moar <rmoar@google.com>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	workflows@vger.kernel.org
+Subject: Re: [PATCH v3 03/16] init: re-add CONFIG_CC_CAN_LINK_STATIC
+Message-ID: <20250611-nostalgic-terrestrial-armadillo-eecfec@l-nschier-aarch64>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de>
+ <20250611-kunit-kselftests-v3-3-55e3d148cbc6@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250611125723.181711-7-guodong@riscstar.com>
+In-Reply-To: <20250611-kunit-kselftests-v3-3-55e3d148cbc6@linutronix.de>
+Organization: AVM GmbH
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_065804_876430_05C36BBC 
-X-CRM114-Status: GOOD (  14.06  )
+X-CRM114-CacheID: sfid-20250611_070444_502923_0B98EF47 
+X-CRM114-Status: UNSURE (   8.26  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,49 +80,18 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong,
-
-On 20:57 Wed 11 Jun     , Guodong Xu wrote:
-> Enable the Peripheral DMA controller (PDMA0) on the SpacemiT K1-based
-> Banana Pi F3 board by setting its status to "okay". This board-specific
-> configuration activates the PDMA controller defined in the SoC's base
-> device tree.
-> 
-  Although this series is actively developed under Bananapi-f3 board
-but it should work fine with jupiter board, so I'd suggest to enable
-it too, thanks
-
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
->  arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts | 4 ++++
->  1 file changed, 4 insertions(+)
-> 
-> diff --git a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> index 2363f0e65724..115222c065ab 100644
-> --- a/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> +++ b/arch/riscv/boot/dts/spacemit/k1-bananapi-f3.dts
-> @@ -45,3 +45,7 @@ &uart0 {
->  	pinctrl-0 = <&uart0_2_cfg>;
->  	status = "okay";
->  };
-> +
-> +&pdma0 {
-> +	status = "okay";
-> +};
-> -- 
-> 2.43.0
-> 
-> 
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMTEsIDIwMjUgYXQgMDk6Mzg6MDlBTSArMDIwMCwgVGhvbWFzIFdlacOfc2No
+dWggd3JvdGU6Cj4gRm9yIHRoZSBrdW5pdCBVQVBJIGZ1bmN0aW9uYWxpdHkgdGhpcyBmZWF0dXJl
+IGlzIG5lZWRlZC4KPiAKPiBUaGlzIHJldmVydHMgY29tbWl0IGQxYjk5Y2RmMjJlMCAoImluaXQ6
+IHJlbW92ZSB1bnVzZWQgQ09ORklHX0NDX0NBTl9MSU5LX1NUQVRJQyIpCj4gCj4gU2lnbmVkLW9m
+Zi1ieTogVGhvbWFzIFdlacOfc2NodWggPHRob21hcy53ZWlzc3NjaHVoQGxpbnV0cm9uaXguZGU+
+Cj4gLS0tCj4gIGluaXQvS2NvbmZpZyB8IDUgKysrKysKPiAgMSBmaWxlIGNoYW5nZWQsIDUgaW5z
+ZXJ0aW9ucygrKQo+IAoKQWNrZWQtYnk6IE5pY29sYXMgU2NoaWVyIDxuLnNjaGllckBhdm0uZGU+
+CgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpsaW51eC1y
+aXNjdiBtYWlsaW5nIGxpc3QKbGludXgtcmlzY3ZAbGlzdHMuaW5mcmFkZWFkLm9yZwpodHRwOi8v
+bGlzdHMuaW5mcmFkZWFkLm9yZy9tYWlsbWFuL2xpc3RpbmZvL2xpbnV4LXJpc2N2Cg==
