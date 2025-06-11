@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91687C71136
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 23:07:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CE93C71135
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 23:09:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=txwMsnCK0Vk+fx/Dg9xaFucYDzGd8DIvViWq96hC+BQ=; b=LY5OZhbGaK76kU
-	6lPcaoHFlvjnAHRTSy20c611dQd66k+td7iS2jb0FlLR8TtBdhICnjDZ8Ol1jTT4fOM+4J2tDI/UP
-	eWl1f5z+QOreC9lVBSANcSmnr+z/j1JBBSsfjy5wkuP9iJ+y5M44LY4vxLx17YSWv6OOveVJmYnCD
-	Gyhr3W+FnYPBLlvkBMl+ugCgB8cMA1IkxkL/td9gKdj4EJj/BYgwAYFTyQWYrHRmolvUo8gBrdSfR
-	E9KRh5RLR2cyxsVSKAeLaiqqUtn8oVUmdt+XcRo05eIXlF1KC+oIjNHEbZETAolLUBMnPWF6w7fuG
-	sEhl1dUIA47WY1MXeWKw==;
+	List-Owner; bh=G7bJRpeSyi8LG/tPgB8MTRPCyAT7cX7x5WGF/8kPRj4=; b=aV3b/XusY6IoV9
+	rckF9fx4kklFY1QAptOYYs3Pg/zWphr271FTD6RFuWuhBF9T7pMNnKe5G4Q5LmITbh669spKCZ9Sw
+	cBkLSY4m44PMin2DLaAbGmU6GVk1qPZiqm9x/pkDJ0/njDs+lNhX0Ab3Oxv2QKiJAFgLLM8cIVHNx
+	SsB11k0aj2Wmvgs4GM1C6yBCQKc6VNPvZIRCJe9uf2GwBXILWTyfs9+5DEflePVgvtPuzCmisXTxK
+	IJg8bDHvdZNOYC2s+y8MY8l3morvW0uSr42CD+6bRDBw4KUqWlOyyU9Ki3yto+H/q0s1U3faj1GJ6
+	pmIQB1Qpl/xsNIfI/TEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPUX6-0000000BczO-34bd;
-	Wed, 11 Jun 2025 23:07:00 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1uPUZP-0000000BdiX-3iqV;
+	Wed, 11 Jun 2025 23:09:23 +0000
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPTdf-0000000BR96-3CHo
+	id 1uPTpj-0000000BSpd-13OV
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 22:09:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749679784; x=1781215784;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=q3xX2X7h9he/dUJnCnbpHt/NgJ+2yrK0a9aojccAvFc=;
-  b=ZSeQH8yxhX3kEZz7KH8MqBPYkMOFWROstp8UVCUlfBdUVRbtDJ7yq7GL
-   9l6Q6f+U8SzjBHzZHJOh2xF8MqRj0Xv2PtrJnMkOLmC1MpOtqZbRtjjTN
-   ZWOgDST3jsIWNlFCAuFN72MX+avvyV6AdpHbY5BK1bqMkoEpb7hD9ATPI
-   NQythFgcY2wpEWjYoEl8AKwpfIBt5IZtAHvNCfrCn/pYm0I8YaUKqZeK/
-   BjvyqngdgYIsp8bGGEnC5SMYQI3mrF7oL/JAgd42WoFAj8smk8Y+4YNXK
-   BuB7B7yWjn0076g6x4IryTIjjldExrEvlTiy7O7xJWl74xuAtaCWa1gg3
-   Q==;
-X-CSE-ConnectionGUID: G50Si0MZQO24mXcI7Yb0uQ==
-X-CSE-MsgGUID: gGiLs7jIS2+P0WAxYAYBvQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="51707294"
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="51707294"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 15:09:41 -0700
-X-CSE-ConnectionGUID: IpgnycrbQlKXGyi3trCu0w==
-X-CSE-MsgGUID: W1gk8/exQIulUE0QautbAg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="147220983"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by fmviesa007.fm.intel.com with ESMTP; 11 Jun 2025 15:09:38 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uPTdX-000AtS-2b;
-	Wed, 11 Jun 2025 22:09:35 +0000
-Date: Thu, 12 Jun 2025 06:09:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nick Hu <nick.hu@sifive.com>, conor+dt@kernel.org, krzk+dt@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev, Nick Hu <nick.hu@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v2 3/3] cpuidle: Add SiFive power provider
-Message-ID: <202506120535.f1iULf9O-lkp@intel.com>
-References: <20250611031023.28769-4-nick.hu@sifive.com>
+	Wed, 11 Jun 2025 22:22:13 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-313a001d781so349659a91.3
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 15:22:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=thingy.jp; s=google; t=1749680530; x=1750285330; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=hECvCp2144ISjYFuCPwHbO2eSKNwdlu+MMKqmQG6JC0=;
+        b=AVQt/eb2qo+osQdMKinjBSq6lDeTaq9epgR8Dl9bvhoBnLcwfA0vzN5jHBBJ0RYAqN
+         6Cirmx/0o7fNdWhel6I+nHOGf/46w5JEitbcZh5JjXeF8I08XyU6bvzNKqVLxD2P5VQ6
+         VwXSOdhwTzrS6aAEanjdqVBe/bg5Ja5XoTm2c=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749680530; x=1750285330;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hECvCp2144ISjYFuCPwHbO2eSKNwdlu+MMKqmQG6JC0=;
+        b=B9i9E6rJALhLs/WJvQsxr+1xLJ+f+mBmzNO9qiw3cCcGD/G0cQpWFN8kTpXsxpq5QB
+         9fpjgQjl+K9t/BIJ00yhBD+FeP0u9SLvjyAVVc2jV54nGyCoIf0eRzH3X1psn2CuLnUj
+         aLreyyUHJ6JRjlutT4IkX5SHnkLIF9Uo5pzIpS287rFghJYq9K1ZwyNB4sgF8QYG4o06
+         9eksom0YWxtuUtxYINZYbk8b4tjS0yzPBkgIm6VHeX9oRctchmPIwyt03FoYqSTS28yI
+         wdJHwp5r371EBdPIOZjQFSrNsBsEWy1Cqbr8bmsOi7pMuD1N3CkDjgdXdraqKxtBohcc
+         mEZw==
+X-Forwarded-Encrypted: i=1; AJvYcCXqnsYFvW0JEkl8pElgZg+s8e5TPR00cYnzWYKQ6vdtZC6D23oVO1rgie2HIWDGP4yuqoxAxqjo78gKUg==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzR/0k0oHKHTNdg2Hd5dk34S9JFqg/wRcWlb661+GizfcmiA3qT
+	3XojUC7oOPaobyTvNJURg/FUIV0InoLSeV2TAZSuEkRHK3stPm/wL2/zLUJDTIsufZprACDAXYq
+	epBI9N13sGInMihZg7t/JQ8nsSyB6Icz8yzT0avrzNQ==
+X-Gm-Gg: ASbGncsprjEyOcvO+93wEAh0DyJ/JTnkeIsHYrLdqS2RB/7nZyk7SHduz+FbuD7AxJE
+	5aF8FdnqvaIrIYYRY7VyuMXA+G+i+9sR855115jAZ8rvSop65/NoMxpPakGbRcfkn7IhbiV/xLO
+	uHtfqhs2M7EVLjGjaaR7ZzQqP6xVrcGVoUKHx/Si68gtXdZfxvd+a5K4xsDTmEebqIFpseZG3MD
+	/tp
+X-Google-Smtp-Source: AGHT+IE8FknUC40PscBGYY7OPNelZLLkTFE7qxHwumbpWqTQtgyRPt7nCSuQoA+6xvyngwoaYT3v2ByQ5TtYzKrW9d8=
+X-Received: by 2002:a17:90b:2892:b0:312:26d9:d5b6 with SMTP id
+ 98e67ed59e1d1-313bfba12a1mr1389789a91.3.1749680529907; Wed, 11 Jun 2025
+ 15:22:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250611031023.28769-4-nick.hu@sifive.com>
+References: <20250610-gpiochip-set-rv-gpio-v1-0-3a9a3c1472ff@linaro.org> <20250610-gpiochip-set-rv-gpio-v1-7-3a9a3c1472ff@linaro.org>
+In-Reply-To: <20250610-gpiochip-set-rv-gpio-v1-7-3a9a3c1472ff@linaro.org>
+From: Daniel Palmer <daniel@thingy.jp>
+Date: Thu, 12 Jun 2025 07:21:56 +0900
+X-Gm-Features: AX0GCFuAPMzR2tj8IuIF1_MflSdk31p_mu_qD7qQzgmBFTWEvU6XX8YEN4mo1dI
+Message-ID: <CAFr9PXmeYETV5FSAnEacFCo7LiS3cYBpPqraexLC7=MTzshfNg@mail.gmail.com>
+Subject: Re: [PATCH 07/12] gpio: msc313: use new GPIO line value setter callbacks
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Linus Walleij <linus.walleij@linaro.org>, =?UTF-8?B?TWFyZWsgQmVow7pu?= <kabel@kernel.org>, 
+	Conor Dooley <conor.dooley@microchip.com>, Daire McNamara <daire.mcnamara@microchip.com>, 
+	Romain Perier <romain.perier@gmail.com>, Avi Fishman <avifishman70@gmail.com>, 
+	Tomer Maimon <tmaimon77@gmail.com>, Tali Perry <tali.perry1@gmail.com>, 
+	Patrick Venture <venture@google.com>, Nancy Yuen <yuenn@google.com>, 
+	Benjamin Fair <benjaminfair@google.com>, Grygorii Strashko <grygorii.strashko@ti.com>, 
+	Santosh Shilimkar <ssantosh@kernel.org>, Kevin Hilman <khilman@kernel.org>, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, openbmc@lists.ozlabs.org, 
+	linux-omap@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_150943_844178_84C6C19D 
-X-CRM114-Status: UNSURE (   9.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_152211_488595_37C385AC 
+X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,38 +100,62 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nick,
+Hi Bartosz,
 
-kernel test robot noticed the following build warnings:
+On Tue, 10 Jun 2025 at 21:33, Bartosz Golaszewski <brgl@bgdev.pl> wrote:
+>
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> struct gpio_chip now has callbacks for setting line values that return
+> an integer, allowing to indicate failures. Convert the driver to using
+> them.
+>
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+>  drivers/gpio/gpio-msc313.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/gpio/gpio-msc313.c b/drivers/gpio/gpio-msc313.c
+> index 6db9e469e0dc254e791d497b89a4c6d329d0add4..992339a89d19840fc03ccf849972a83cb86415ae 100644
+> --- a/drivers/gpio/gpio-msc313.c
+> +++ b/drivers/gpio/gpio-msc313.c
+> @@ -486,7 +486,7 @@ struct msc313_gpio {
+>         u8 *saved;
+>  };
+>
+> -static void msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+> +static int msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int value)
+>  {
+>         struct msc313_gpio *gpio = gpiochip_get_data(chip);
+>         u8 gpioreg = readb_relaxed(gpio->base + gpio->gpio_data->offsets[offset]);
+> @@ -497,6 +497,8 @@ static void msc313_gpio_set(struct gpio_chip *chip, unsigned int offset, int val
+>                 gpioreg &= ~MSC313_GPIO_OUT;
+>
+>         writeb_relaxed(gpioreg, gpio->base + gpio->gpio_data->offsets[offset]);
+> +
+> +       return 0;
+>  }
+>
+>  static int msc313_gpio_get(struct gpio_chip *chip, unsigned int offset)
+> @@ -656,7 +658,7 @@ static int msc313_gpio_probe(struct platform_device *pdev)
+>         gpiochip->direction_input = msc313_gpio_direction_input;
+>         gpiochip->direction_output = msc313_gpio_direction_output;
+>         gpiochip->get = msc313_gpio_get;
+> -       gpiochip->set = msc313_gpio_set;
+> +       gpiochip->set_rv = msc313_gpio_set;
+>         gpiochip->base = -1;
+>         gpiochip->ngpio = gpio->gpio_data->num;
+>         gpiochip->names = gpio->gpio_data->names;
+>
+> --
+> 2.48.1
+>
 
-[auto build test WARNING on rafael-pm/linux-next]
-[also build test WARNING on rafael-pm/bleeding-edge robh/for-next linus/master v6.16-rc1 next-20250611]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Reviewed-by: Daniel Palmer <daniel@thingy.jp>
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Nick-Hu/cpuidle-riscv-sbi-Work-with-the-external-pmdomain-driver/20250611-121115
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20250611031023.28769-4-nick.hu%40sifive.com
-patch subject: [PATCH v2 3/3] cpuidle: Add SiFive power provider
-config: riscv-kismet-CONFIG_PM_GENERIC_DOMAINS_OF-CONFIG_SIFIVE_DMC_PD_CPUIDLE-0-0 (https://download.01.org/0day-ci/archive/20250612/202506120535.f1iULf9O-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250612/202506120535.f1iULf9O-lkp@intel.com/reproduce)
+Cheers,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506120535.f1iULf9O-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for PM_GENERIC_DOMAINS_OF when selected by SIFIVE_DMC_PD_CPUIDLE
-   WARNING: unmet direct dependencies detected for PM_GENERIC_DOMAINS_OF
-     Depends on [n]: PM_GENERIC_DOMAINS [=n] && OF [=y]
-     Selected by [y]:
-     - SIFIVE_DMC_PD_CPUIDLE [=y] && CPU_IDLE [=y] && RISCV [=y] && ARCH_SIFIVE [=y]
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Daniel
 
 _______________________________________________
 linux-riscv mailing list
