@@ -4,67 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC4AFC71136
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 21:16:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4979FC71135
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 21:21:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Reply-To:Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7g1ah/4SpjLBBPDDWgTZIpCypNHtaDnklvQBWIO2aVE=; b=K6THCgJRRcfLPMtG7c/EojmeTZ
-	W/LdENGBUfKNMT7IHv0pMz7Xke1ISO7JxOX3wcS6f+aadhSJo/nxR6wH3704lLy+FCN6bOOT9dhtM
-	Mk1IziLui3DUHXbRZtcsrUy1LGv/F1HlZgvrgP+kpMzifEyTOz7SCcQP0Udqgkhz66L2h12Clw7ji
-	YtXoIVYAVwup+2DRverOTQIqLZtQPlNa9AvIxMlPpVJPYobfe7iqx18DL+/kw/dIB5v5cMguoiheo
-	Xz5lCVcRQwhmUWtu/5rwxpyQgOtFuIluiyJbxMiw84MufsPc6UPVDBMbMrd5q/evcQGEtQLxo9HJW
-	x6JU6+UA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=1n2SPcSMbvaFXg7F1C+Ow6UdHJD8MDuz5vFj03GBHMc=; b=eC1dXgKCYu7XMM
+	l8pPm3FuQNcvyaE4q6oRD0aJmVjZvMaSR6Syt4sADPrI+H2mgvxto8fCB60e8AWVNwTmnNNn0i4od
+	2RVx31HEeMNs33AOn3nLgAOW2+32+UxnWBsZ0+LTSfl+GCNTo+QcrS2SrZq+endZ9rp+BsRKYgqhY
+	gaCO/9AMeKZoSgZwDwqsNnmelDaZvaXB8+uCFVtFa6tGbhCWgGc2dZPXWZBdxPX1ma623MbjWk0R8
+	SJ202v1LOjnIh+3Yc8tOcN3BWPUsoFjeocvSOcTDL1QGKINAEW+k74hq8ZktKsiyO6zBBYkdAS3Ga
+	4lCAyU+3kuSV0rxh1SBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPSoI-0000000BGWj-1vTL;
-	Wed, 11 Jun 2025 21:16:38 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1uPSsS-0000000BIcL-3x3f;
+	Wed, 11 Jun 2025 21:20:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPOII-0000000Abxj-2XaG
+	id 1uPQN6-0000000AtGX-1kwI
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 16:27:19 +0000
+	Wed, 11 Jun 2025 18:40:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B2B01A5195F;
-	Wed, 11 Jun 2025 16:27:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA55FC4CEE3;
-	Wed, 11 Jun 2025 16:27:12 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 230C043D1F;
+	Wed, 11 Jun 2025 18:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E7B2C4CEE3;
+	Wed, 11 Jun 2025 18:40:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749659237;
-	bh=TtXVw+PkPXOitHU74/zipxEl0FGTF6GQcOkD9yWCbmk=;
+	s=k20201202; t=1749667224;
+	bh=OYZ3IBW7iSebcv5mN2/PuO3N2mNLKbX+gEmihh5UK9k=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Of69h1moi0kvk/wUGfC8qUrYlhnSf5HEF+Y08XuY4uWhQgQIfpaKOOUbCMBEfU5Xk
-	 m/JmMjypFT5H6Z6KZT9Xv21j9YKSR30BKLl/NooP9nZIhmaUOfKcyzJA2elWTRd3P9
-	 hFJ624oP/nZmvLkDU/piWDaokPP0F1GVWpqbJR7jkfAplrVxOzjdVU26f2IpGcog7O
-	 mg5HZ8bMfTz3ruS03ExOSyhMCWXHURuTNmaa98JNQ9U8OpEQ1m0e+kNssvJYZBijpf
-	 y6GipI71Y3uYOfaC45cKAzEi5+mYe9X9xhkHHxx9GgsD0Y++ECkyvhmT32xNjnDd7H
-	 EaRKgPT4P2IKA==
-Date: Wed, 11 Jun 2025 17:27:10 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, dlan@gentoo.org, paul.walmsley@sifive.com,
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, alex@ghiti.fr,
-	p.zabel@pengutronix.de, drew@pdp7.com,
-	emil.renner.berthing@canonical.com, inochiama@gmail.com,
-	geert+renesas@glider.be, tglx@linutronix.de,
-	hal.feng@starfivetech.com, joel@jms.id.au, duje.mihanovic@skole.hr,
-	elder@riscstar.com, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 1/8] dt-bindings: dma: marvell,mmp-dma: Add SpacemiT PDMA
- compatibility
-Message-ID: <20250611-kabob-unmindful-3b1e9728e77d@spud>
-References: <20250611125723.181711-1-guodong@riscstar.com>
- <20250611125723.181711-2-guodong@riscstar.com>
+	b=N5R/mwt7cCu9NIPBBfHKXspsm/RHqc/ioVM2fEuYVCisCrJl4qsvvwKzLZakh4n2+
+	 O0XxiO5XuqIIY+DbV84jcyHxy/H+bxjZOpj+0179fnLE+n6eiseg253l9D/uL1wHrx
+	 XmF3VcnVt2lsyGlvDWABuieNM/+2CWwpTuIXSFORwKdD6jmyjcV1qoAT0xnElz4iV5
+	 p66q9+Ua0kcaLHs6kfsNwGtzTPOKY2IW6zEtTVytTzoFBq/NAo4DK2DYmIUx/VnEGl
+	 /M4ggdU+bfhYGhWFxSh94jDaJUTpIHxHGnKQPalXRN+MrlfKzl9Pf4ImJBt/Lz9qPN
+	 DwgcFzwLkw1gA==
+Date: Wed, 11 Jun 2025 11:40:18 -0700
+From: Nathan Chancellor <nathan@kernel.org>
+To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>,
+	Bill Wendling <morbo@google.com>,
+	Justin Stitt <justinstitt@google.com>,
+	Andy Lutomirski <luto@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org,
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 1/3] riscv: vdso: Deduplicate CFLAGS_REMOVE_* variables
+Message-ID: <20250611184018.GA2192624@ax162>
+References: <20250611-vdso-absolute-reloc-v3-0-47897d73784b@linutronix.de>
+ <20250611-vdso-absolute-reloc-v3-1-47897d73784b@linutronix.de>
 MIME-Version: 1.0
-In-Reply-To: <20250611125723.181711-2-guodong@riscstar.com>
+Content-Disposition: inline
+In-Reply-To: <20250611-vdso-absolute-reloc-v3-1-47897d73784b@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_092718_778031_12349679 
-X-CRM114-Status: GOOD (  20.86  )
+X-CRM114-CacheID: sfid-20250611_114024_474346_F6D9AC42 
+X-CRM114-Status: GOOD (  13.64  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,122 +77,57 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3983372856045501394=="
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Wed, Jun 11, 2025 at 11:22:12AM +0200, Thomas Wei=DFschuh wrote:
+> All vDSO objects need the same treatment.
+> To make changes to both the list of objects and the list of removed flags
+> easier, introduce a helper variable.
+> =
 
---===============3983372856045501394==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="82h4siQLdNk8igEh"
-Content-Disposition: inline
+> Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
 
+Reviewed-by: Nathan Chancellor <nathan@kernel.org>
 
---82h4siQLdNk8igEh
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Wed, Jun 11, 2025 at 08:57:16PM +0800, Guodong Xu wrote:
-> Add "spacemit,pdma-1.0" compatible string to support SpacemiT PDMA
-> controller in the Marvell MMP DMA device tree bindings. This enables:
->=20
-> - Support for SpacemiT PDMA controller configuration
-> - New optional properties for platform-specific integration:
->   * clocks: Clock controller for the DMA
->   * resets: Reset controller for the DMA
->=20
-> Also, add explicit #dma-cells property definition to avoid
-> "make dtbs_check W=3D3" warnings about unevaluated properties.
->=20
-> The #dma-cells property is defined as 2 cells to maintain compatibility
-> with existing ARM device trees. The first cell specifies the DMA request
-> line number, while the second cell is currently unused by the driver but
-> required for backward compatibility with PXA device tree files.
->=20
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
 > ---
->  .../bindings/dma/marvell,mmp-dma.yaml           | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml b=
-/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> index d447d5207be0..e117a81414bd 100644
-> --- a/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> +++ b/Documentation/devicetree/bindings/dma/marvell,mmp-dma.yaml
-> @@ -18,6 +18,7 @@ properties:
->        - marvell,pdma-1.0
->        - marvell,adma-1.0
->        - marvell,pxa910-squ
-> +      - spacemit,pdma-1.0
+>  arch/riscv/kernel/vdso/Makefile | 7 ++++---
+>  1 file changed, 4 insertions(+), 3 deletions(-)
+> =
 
-You need a soc-specific compatible here.
+> diff --git a/arch/riscv/kernel/vdso/Makefile b/arch/riscv/kernel/vdso/Mak=
+efile
+> index 9ebb5e590f93a3228c451dca58e6d5cfbbc03ff7..c19c3c76f7c9f6b2f7523a592=
+69de3b683656323 100644
+> --- a/arch/riscv/kernel/vdso/Makefile
+> +++ b/arch/riscv/kernel/vdso/Makefile
+> @@ -49,9 +49,10 @@ CPPFLAGS_vdso.lds +=3D -DHAS_VGETTIMEOFDAY
+>  endif
+>  =
 
-> =20
->    reg:
->      maxItems: 1
-> @@ -32,6 +33,21 @@ properties:
->        A phandle to the SRAM pool
->      $ref: /schemas/types.yaml#/definitions/phandle
-> =20
-> +  clocks:
-> +    description: Clock for the controller
-> +    maxItems: 1
-> +
-> +  resets:
-> +    description: Reset controller for the DMA controller
-> +    maxItems: 1
-> +
-> +  '#dma-cells':
-> +    const: 2
-> +    description:
-> +      The first cell contains the DMA request number for the peripheral
-> +      device. The second cell is currently unused but must be present for
-> +      backward compatibility.
+>  # Disable -pg to prevent insert call site
+> -CFLAGS_REMOVE_vgettimeofday.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> -CFLAGS_REMOVE_getrandom.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> -CFLAGS_REMOVE_hwprobe.o =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> +CFLAGS_REMOVE_VDSO =3D $(CC_FLAGS_FTRACE) $(CC_FLAGS_SCS)
+> +CFLAGS_REMOVE_vgettimeofday.o =3D $(CFLAGS_REMOVE_VDSO)
+> +CFLAGS_REMOVE_getrandom.o =3D $(CFLAGS_REMOVE_VDSO)
+> +CFLAGS_REMOVE_hwprobe.o =3D $(CFLAGS_REMOVE_VDSO)
+>  =
 
-These properties are only valid for your new device, right?
-If so, please restrict them to only the spacemit platform.
+>  # Force dependency
+>  $(obj)/vdso.o: $(obj)/vdso.so
+> =
 
-> +
->    '#dma-channels':
->      deprecated: true
-> =20
-> @@ -52,6 +68,7 @@ allOf:
->            contains:
->              enum:
->                - marvell,pdma-1.0
-> +              - spacemit,pdma-1.0
->      then:
->        properties:
->          asram: false
-> --=20
-> 2.43.0
->=20
+> -- =
 
---82h4siQLdNk8igEh
-Content-Type: application/pgp-signature; name="signature.asc"
+> 2.49.0
+> =
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaEmuXgAKCRB4tDGHoIJi
-0qVeAQDGipWedss8FsQk82+JZZWNvXPOTFMRXZ9UZDbpVDtD9AD9HKL4/k0Gara+
-cP7bfGhZRfjr9QcvF763N1YHTn34eg0=
-=BguH
------END PGP SIGNATURE-----
-
---82h4siQLdNk8igEh--
-
-
---===============3983372856045501394==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============3983372856045501394==--
-
