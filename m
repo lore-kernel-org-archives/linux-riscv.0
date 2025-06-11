@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCF3BC7113E
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4096C71141
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 08:36:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=lA+nNmeP1xs6/mGmCf6QvuzOmmEtaXdlMzAlnZ5Tk58=; b=EpDWXddB4mEcdT
-	z23KY2OAmqB16uggWh195dmsTxmoP5cb6HHXPCaBskzHdYTMPFZB0nVNYb+0eEx/ewJBgZIykE/s/
-	c4Ps9UsL3oSGt6j7sGDnE3DSOfBZkFfgQAlTXsYBd1FhkTOUnfQS1GmwivquD+WMONyTUcxF39zlp
-	+uY0jZjLbDogrWGIf+2Gh9ecvOi8B9JEfF1ZbLpjgbtOjViHkhIc9LDpL5/8va4B9xsxyqsBXAJTu
-	DNRT+6iQc8qra8iE6NmQ6qaxCdiZD6M+9y8ZdhXXWLr6zw8fBYUmyS+NdLhcH+YzBlp7WnMPmeXse
-	ZAvfml0et43qur0CHiJg==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=fXQVVErMCfPAeB8GDaFIcjXPZQb8nUkbFFkWi0bvQIo=; b=U8ik9hdCuzIAa+
+	H5Livq0Tc9CLNda+/qKSRBWH7Z/8XncuVppCR03fArmutu/6ZpUEu0skd9C94700G193G6mpxFUjT
+	7qTVpOyfh9ruSyGLY1hmWcXSOBgafay+a5DYFNDYSl7jYCOzWZvQQg83zpBQLY+3w2eqM0BeSXJOC
+	C0QA80zp63CzatwmHzibvjuZ4k3ZwmiGKScnnXanf8rH/FMEGTvNpHzBSX0qpKsVebgiOa4MGtHcQ
+	DOdiu+XKjoIe04m/txiD9ijFWi2aa83wgsUSm6ONWtl5XjrtjdFwtJLSRTIF+xEzw5aFFivyrgmOK
+	oH87TdMAV1DZx5uxuSZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGwC-00000009Hks-2T4T;
-	Wed, 11 Jun 2025 08:36:00 +0000
-Received: from mail-qv1-xf31.google.com ([2607:f8b0:4864:20::f31])
+	id 1uPGwD-00000009Hlp-2GSj;
+	Wed, 11 Jun 2025 08:36:01 +0000
+Received: from mail-qk1-x729.google.com ([2607:f8b0:4864:20::729])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPGg7-00000009F6T-3GhS;
-	Wed, 11 Jun 2025 08:19:24 +0000
-Received: by mail-qv1-xf31.google.com with SMTP id 6a1803df08f44-6fac1c60e19so7200566d6.1;
-        Wed, 11 Jun 2025 01:19:23 -0700 (PDT)
+	id 1uPGgD-00000009F8R-3ZiR;
+	Wed, 11 Jun 2025 08:19:31 +0000
+Received: by mail-qk1-x729.google.com with SMTP id af79cd13be357-7cadc92771dso543914785a.1;
+        Wed, 11 Jun 2025 01:19:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749629963; x=1750234763; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vfmr4VZFRC3blHBv6tjDEsekB2JKza+TxJ7wwghY+Nc=;
-        b=Fz1I5GpNgjVsoMXcWoeibAe8T1NPTJQAC8CeISdn3JT1tjpmENuyEdmYllV5sdVOt1
-         nh5hQ9T3cPrFDJIY+FzqnhdhAHqGP3bI+23z+dQ+wC13FfhlBiOq5UBMz7gabPfe290p
-         h5oUeSLoap/BWPjwPytW/dYrdZiGM6KnvaB1M81ou194+2vglGzg6ZSBkrg+Rsc7+7YT
-         XGGcaAul4lxDY6n7WtJg6BM3X1T7tde+yTLx/yzRrWLu3JYGhOzir2/0Sw48lACKXn2I
-         VjCAjU1plvCj2dHVfkfKcY1SyPnvaNGkXHgZNZXW30VkXg3GYNsHZzJ9TcOLY/JfyVje
-         Vg2Q==
+        d=gmail.com; s=20230601; t=1749629969; x=1750234769; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=kTihKaJdX7lICF61Unmn/1qC+7hZZfgUEsDAi37Fi1o=;
+        b=AX9lVmQNYZ1bjYVkH5C9P1Xtj5wrMvfyamBjHIQls6KuJkFElbjnOHey/3mLLq6boh
+         x8Ky1+awIniH8JuV7WmR9yRz97w7A82vcBGHEbecEdH2fY//P9dQUYhcTSkjVKow4k6F
+         EH2aozWblMKGIDcSciL1Xcmb5Bp8tA6pmKUBPSdCD6nmFTxDcvaU8DzybzNS1WoQISkU
+         AJ/QwMHbvg4S0RbjGbY7HTDWclOrK0IPgWhIDM9LywADQtiZM8gH36yGFPgeqtDrESW2
+         DxM0DePPCA78+GS19EWd9Bh4LdekPloBT37LngRWwlNQvZ55j+jUvSAB1gh+gQDa0ycg
+         4wKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749629963; x=1750234763;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vfmr4VZFRC3blHBv6tjDEsekB2JKza+TxJ7wwghY+Nc=;
-        b=nbgArqzQ6WDUWIqhiudFjyIFlTBpyqLno1HY/UdvofTauOWqq4z9dLVtxzF+2ZMjGf
-         oQye/j9O2MnlBV5VR2yvcqvrzIP+bUbvZYHSrrk91inJnrKvBz6vEgjjIx5k/l1Wf8ei
-         Yq9IhWPU6/ov71WP9ZKdyUG3SzgBrsSoowIS2rkdGnBD7W0TUbFItFfEoxKpa3ID9M2G
-         ZR2cDwioOk/pd9ZwAlEE2YEO5GeRbMXuRx0QwWa1B3ZfbDXVLFbULOUY+dfH4CHZiXdg
-         F9GX+T7ChLNJgPGc/DhGT5yEQbVVzIelhW9GW9vJVVyX+jnQmoOkW2lJlM+WkCaNif05
-         L5jQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUKWPQn/6eCVIrzSXtSE0SoobW64AOeuteVUFJ9khT9YCyKGt9LkmSuMqtfiMfWmwVtodyvABnthHi4+g==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/wiRZZ6FN58eXToYE7OHen3fF5C7snQhAyICzmT0lpMgLLdpo
-	iM8TcRigtX+p/arOUZ9AkVifKTn0mDDlvrDtU+WZ0gvSTMsfcDOKcg3E
-X-Gm-Gg: ASbGncvR0rqVEX0NNOdd9Rc6VS8yWUKDCcAdvukTn2DqHnV5Y8so8FcmLrGDHaRHs51
-	VBs0WJGTfBzDysRx1NAGgNVoqPMAOnLb0awDjony2wmMDEgQvSKKO4vuwpKr8hmKHYJm57m7lBu
-	8ZncFq3zdel8IYfAEmbwk2aHGGgia1LtbNaFtLZYzZn1D0jjqV+V31kRuvQGVkHzHZb2EeV8bFM
-	HXpHC4PPps+8SF+0pW6LR9N6NwQC3mfGTEJRsX3Kkpkd7uGH3mFQ1SIaPNOItOmSVh8jltBBchv
-	JPaH+pnkEJE3ufUpZ2r6IrpWyeSqGDeTGgUsTw==
-X-Google-Smtp-Source: AGHT+IHLmdiPK1/hfZ3hYVAS6e/Qa18yyzLJzaoN2F5VMxeq5n4N2SYxR2jD2YHscybgUqgzRxu9HA==
-X-Received: by 2002:a05:6214:226a:b0:6fa:a65a:224d with SMTP id 6a1803df08f44-6fb2c37a204mr38375446d6.4.1749629962729;
-        Wed, 11 Jun 2025 01:19:22 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1749629969; x=1750234769;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=kTihKaJdX7lICF61Unmn/1qC+7hZZfgUEsDAi37Fi1o=;
+        b=iKMF5i0ePgyHrh7tR5yJZyH6UfcSGelng+gYKNIKmGgmDOUwUYMv9CE1ihZjXbwi7I
+         0iPtSQVQgD/XS2qPAmcorgmibHBsiNfFSfPldzxET4x7YI2+37EZkoeGFYU+RvUgAvKE
+         2m0utmhIZKIGp62u5ZLHt4D7OrCSxnvKQCNfx5Q/t2YX5pmG7p6tbiiQA/xflSouN/ct
+         itdKZkwOGMN+IM+Ln/o9nyu18MthxlCisQZwPSxD0jM5GcwkaljxdorQM0OvrhAgfOqY
+         Qes2xFIhKxKLTVlzgiX1VeRJjH4PAG8w/GINBlniIibR27Uwo7Awft+O0l3IFYU+peOc
+         Pjxw==
+X-Forwarded-Encrypted: i=1; AJvYcCWG6rR9QkL2xUL/58yHvFfcfPE4YcbAD+7NwgwIZ9+ppHsgqoicvKtytD5aRocupEJFf4SVWCxj8JRJrw==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzNwxd88A7GuOA0K+C66BqZ+QjMN0anqvJGi92eSAoNSNHDDntJ
+	5bFCfdaZ1xuTyg37dGVq0gJq/vE3FHRY68PMfjNEAXbxNZNaJQ4mkkLm
+X-Gm-Gg: ASbGncsXKtXBHgq6RgnZFaGQXbDiTzh2zof/tvqyGn7DZSDKemCakg00Oi9ElTy1urb
+	0cRI+MRwwvC37MwgsHCFxDVH+NEpQHXUpzMZoGTrR4ARl4B0G6eMK84VNaTC6I50Kr0pLTqTq+t
+	UkARG7vxZd7oT0UwaMSW8IesCxwNmiQ9RvFYWlK+JloyKbDB5uxjXG6PLPrk24gj06urliy6G/C
+	RvnHZYvxDP5Vb6mMzzU2qWobK1XRLl3cuv43nba6omTkg9W2L11G9jXgcrHThNc01qCN8rmeOoe
+	noE7cGykRj2dRbWZ2yR+9kAw0cPXDyTTHzHpU4FVJIu8AwDx
+X-Google-Smtp-Source: AGHT+IE2k0Y0Y3XpkqJoreGwvkWiu0A5c1I9LUjGwUIsU+Yx8pfb5KDzmXaWEDQQc73dwOMzOri2PA==
+X-Received: by 2002:a05:620a:298c:b0:7ce:e010:88b9 with SMTP id af79cd13be357-7d3a8820ef4mr372285385a.13.1749629968697;
+        Wed, 11 Jun 2025 01:19:28 -0700 (PDT)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09b366easm78768726d6.114.2025.06.11.01.19.21
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6fb09ac84cbsm79224076d6.32.2025.06.11.01.19.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 11 Jun 2025 01:19:22 -0700 (PDT)
+        Wed, 11 Jun 2025 01:19:28 -0700 (PDT)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Kishon Vijay Abraham I <kishon@kernel.org>,
@@ -85,15 +86,16 @@ Cc: linux-phy@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>
-Subject: [PATCH v4 0/2] riscv: sophgo: add USB phy support for CV18XX series
-Date: Wed, 11 Jun 2025 16:18:01 +0800
-Message-ID: <20250611081804.1196397-1-inochiama@gmail.com>
+Subject: [PATCH v4 1/2] dt-bindings: phy: Add Sophgo CV1800 USB phy
+Date: Wed, 11 Jun 2025 16:18:02 +0800
+Message-ID: <20250611081804.1196397-2-inochiama@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250611081804.1196397-1-inochiama@gmail.com>
+References: <20250611081804.1196397-1-inochiama@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_011923_821755_4B09CC3E 
-X-CRM114-Status: UNSURE (   9.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250611_011929_887244_B6385A4F 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +112,79 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Add USB PHY support for CV18XX/SG200X series
+The USB phy of Sophgo CV18XX series SoC needs to sense a pin called
+"VBUS_DET" to get the right operation mode. If this pin is not
+connected, it only supports setting the mode manually.
 
-Changed from v3:
-1. patch 1: remove vbus-gpio, switch-gpio and dr_mode properties.
-2. patch 2: remove all logic related to the bindings change.
-3. remove the syscon header file.
+Add USB phy bindings for Sophgo CV18XX/SG200X series SoC.
 
-Changed from v2:
-1. add item description for switch gpios.
-
-Changed from v1:
-1. remove dr_mode property and use default mode instead.
-2. improve the description of `vbus_det-gpios` and `sophgo,switch-gpios`
-
-Inochi Amaoto (2):
-  dt-bindings: phy: Add Sophgo CV1800 USB phy
-  phy: sophgo: Add USB 2.0 PHY driver for Sophgo CV18XX/SG200X
-
- .../bindings/phy/sophgo,cv1800b-usb2-phy.yaml |  54 +++++
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   1 +
- drivers/phy/sophgo/Kconfig                    |  19 ++
- drivers/phy/sophgo/Makefile                   |   2 +
- drivers/phy/sophgo/phy-cv1800-usb2.c          | 222 ++++++++++++++++++
- 6 files changed, 299 insertions(+)
+Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+---
+ .../bindings/phy/sophgo,cv1800b-usb2-phy.yaml | 54 +++++++++++++++++++
+ 1 file changed, 54 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
- create mode 100644 drivers/phy/sophgo/Kconfig
- create mode 100644 drivers/phy/sophgo/Makefile
- create mode 100644 drivers/phy/sophgo/phy-cv1800-usb2.c
 
---
+diff --git a/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
+new file mode 100644
+index 000000000000..2ff8f85d0282
+--- /dev/null
++++ b/Documentation/devicetree/bindings/phy/sophgo,cv1800b-usb2-phy.yaml
+@@ -0,0 +1,54 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/phy/sophgo,cv1800b-usb2-phy.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Sophgo CV18XX/SG200X USB 2.0 PHY
++
++maintainers:
++  - Inochi Amaoto <inochiama@gmail.com>
++
++properties:
++  compatible:
++    const: sophgo,cv1800b-usb2-phy
++
++  reg:
++    maxItems: 1
++
++  "#phy-cells":
++    const: 0
++
++  clocks:
++    items:
++      - description: PHY app clock
++      - description: PHY stb clock
++      - description: PHY lpm clock
++
++  clock-names:
++    items:
++      - const: app
++      - const: stb
++      - const: lpm
++
++  resets:
++    maxItems: 1
++
++required:
++  - compatible
++  - "#phy-cells"
++  - clocks
++  - clock-names
++
++additionalProperties: false
++
++examples:
++  - |
++    phy@48 {
++      compatible = "sophgo,cv1800b-usb2-phy";
++      reg = <0x48 0x4>;
++      #phy-cells = <0>;
++      clocks = <&clk 93>, <&clk 94>, <&clk 95>;
++      clock-names = "app", "stb", "lpm";
++      resets = <&rst 58>;
++    };
+-- 
 2.49.0
 
 
