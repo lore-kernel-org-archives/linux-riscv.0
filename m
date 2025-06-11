@@ -4,113 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F69C677C4
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C52D9C71136
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 14:48:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:
-	Subject:MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=/15ZioRzQADOtExUQG7a6FZkIdejLAjzS2zX9Wq3oXk=; b=pexzWfnEgxjHDZ
-	QXhwj9h62UgU7s5IuJ3d63zS7ArjQFkH/fekhj0/r2WcPG+dRWFqqYe3QiRjG3Q8ONu5BpYbHc0/P
-	O1jAY87zZDPA/UwwYs99Ug+v+H0Q8LTfot0btUTFBQNZBse1E7IYXR9IJfVdCl6rfDXde4jZDsZZi
-	RT77OFyrxFOGPX9xTWrUZG7thNfTnDIBYAcIKcseKlwUtLnYMpnhA+avU0qSqZav1OAKF9Y6u3U7U
-	E+KAasSFdHcIYydgtMZJXF+38c90jfJneGNWN7ljJaF6e/a7Czzm2MR6n9q4pSlcpIoi7mYoH61dL
-	hWCiA+/M16ylwqX0vwiQ==;
+	List-Owner; bh=aDJ+AONMeUsN1360hgfOcF3dcL3robU7N/OLrQ+nDlo=; b=QUuP7a0uQcc3AW
+	1iXAjd3vE2JdRRHHzRaiwnD++OXP36WlbrbAGJkW9VKBxPEY57GCHzJ24wCvu/WP3JADLFsOxOrY+
+	FGaxJ4bPisSRoA3c/L00ylpvbNQs+f3VaNAlVWWjkhC35tJsRJIODYIhB5gvUFOaQ5hY9q/tv/A7O
+	UuBH4y+cNOCNd0A8TvdSYKiofkgu9dmhmtql21MR8fSr31jkUiMxDf+RlEREnD6UA2V+zir6/8EwT
+	L9MzEv0PV5Ynrt49dfCfV+uUbc/Z5rjv3RVBvAp5hgvFXmObA4MBzOo4uOjrY7LjcS9d5RxhVd8y+
+	ndf9p5eVwII0NLA8NY+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPMkf-0000000A9MW-2iFC;
-	Wed, 11 Jun 2025 14:48:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1uPMkh-0000000A9NW-1PKD;
+	Wed, 11 Jun 2025 14:48:31 +0000
+Received: from mail-bn8nam11on20627.outbound.protection.outlook.com ([2a01:111:f403:2414::627] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPHT5-00000009R4t-1i5C
+	id 1uPHWx-00000009RXX-2JKL
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 09:09:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DE6E2629CF;
-	Wed, 11 Jun 2025 09:09:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFEEEC4CEEE;
-	Wed, 11 Jun 2025 09:09:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749632997;
-	bh=7rqykZDHgujE44E+kXhopuRIyXp41xiRKIInWWid2aE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Mo+wT5ljvPEdPxKLgJghDl+pwIrxm8eeVUrAPhsaMhJP9k/PFsb7L1Lr7UtO2u9bb
-	 6jdGkO7Z1jkmQLHPO+KV4c34Xw54PrntlpDxCtKgo5p52hRrcDue0Ou6oepIQB7RuT
-	 FRy+l9wA3G3g+2DZArgemce75FmYvKiFKTpEK3qYodGOhAfu2f66G5J8VdAzf+2WGH
-	 Tx8C/5C/E2fJGDLJEJ+V1HJntOjN+Sf4NhZcd8GDJrMPcd7KAF+kvKV+7qIOWsqTXu
-	 On2ketryMNKV5fMjW4q4gGsgKt8rWK5L2dVQOD8+NReP0lzVacPZgzTo1KmamzUbhj
-	 65vbi2tI41H6Q==
-Message-ID: <ec60631a-7e55-4dc0-83f7-6e6cb156dbf2@kernel.org>
-Date: Wed, 11 Jun 2025 11:09:50 +0200
+	Wed, 11 Jun 2025 09:14:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XZi32YSPr1Z2Q0qgnwRWquMBGKlYLRvgxLmtTjQQKC9CWkMXGm96oTQWkOgbHNr8zfgywBQq+MWTu0c12wSTfKlBPrFBc+d+6Y81smAHJOtvwG857IhxZilbiXr22qu+0EJ2NFLYEBuJB8RwveUQfoIAr1l2pRypV6Q8t9Y5mx7+v5drJXGSjkoMrwAe+Shiq/dk1zWCBvUs6XV9uPVy0pU21f8PkobVlGUowgIHJ46YK6eK8IwNJ8b6ufqJf85LRqLX65j9nZi9mgMtqp0qd7g5WndKeEj1KInETTwG3qeztkwV2M0USJcdxTLGPRK5bkIwwYvDonlBapW1jMz7bg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=VFw/DJGbEp1zukbUOtjMNWw5Vw9Wi6JZj63DZ+/F9EQ=;
+ b=iGVXwp4eo4X/HvLu8RL8ZxjBcKbH6K2dxE08kAGcuh9pjFQ6ZgO4JeIQe/mWDeiLpyyuWPJqPLQDOuTUiAsQs9uiwGUj0xuU+UF+SiDzW6uFWCoI6l1Hd21nD76rf9PPi3HyD+7VWU7a7ev4PAmEOlZ5GQS1fPDJwU+PMGAUfJFRNdQ+YdfV0f9mDeAdvaIkk53goPKA14rqPDOw6utygaTl7EMfvqQ8m9EfBL2g6entbRuuku8IyHlfDUpS855GWwZRGD6bmh4tAsFysCzyj78f1ha8o1gqzPLZhzf4HD3WQh8JW4iQsfjvI7cqvJBzcJFbv2z0qwMxCeTtvL4B+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=VFw/DJGbEp1zukbUOtjMNWw5Vw9Wi6JZj63DZ+/F9EQ=;
+ b=iUXmMnFRMHkVNlIQtiIiXfOdJTMu8XeFACwyU/qQMilcd5wZuxy8FVhg6E5qM8+/PBXi2n+9SMmr6A3aLaGxZ4cNfn+hvBocHwoN6FiMzAHKUA+sQ+aSjXhHdbAD53irUmEI4OVc1U1r64tNATQ5f3KeFBd9R87xlr68mjsuyjjiH1Gj3e9px7vGB6AJG01li2tCt6XD1k+ovrQYIgvDVSoR4OPmXThOXxZvQObHjYk8R0lbYQcuY2BEIk5neYHAESmVSnKn62E5pew+pgJRFwctymDiAsGKP5VuehScQHb/wZeyRb3PxgSdxolv45d+DdCv3FLb1SlYxu+ML7ftGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA0PR12MB7723.namprd12.prod.outlook.com (2603:10b6:208:431::10)
+ by MN2PR12MB4357.namprd12.prod.outlook.com (2603:10b6:208:262::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8792.41; Wed, 11 Jun
+ 2025 08:58:34 +0000
+Received: from IA0PR12MB7723.namprd12.prod.outlook.com
+ ([fe80::ef74:9335:2c5b:2bc7]) by IA0PR12MB7723.namprd12.prod.outlook.com
+ ([fe80::ef74:9335:2c5b:2bc7%5]) with mapi id 15.20.8792.034; Wed, 11 Jun 2025
+ 08:58:34 +0000
+Date: Wed, 11 Jun 2025 18:58:29 +1000
+From: Alistair Popple <apopple@nvidia.com>
+To: Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: David Hildenbrand <david@redhat.com>, linux-mm@kvack.org, 
+	akpm@linux-foundation.org, 
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>, Christoph Hellwig <hch@lst.de>, Jason Gunthorpe <jgg@nvidia.com>, 
+	gerald.schaefer@linux.ibm.com, dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org, 
+	linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev, jhubbard@nvidia.com, 
+	zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org, balbirs@nvidia.com, 
+	lorenzo.stoakes@oracle.com, John@groves.net
+Subject: Re: [PATCH] mm: Remove PFN_MAP, PFN_SPECIAL, PFN_SG_CHAIN and
+ PFN_SG_LAST
+Message-ID: <tnaqespmxakrudv6qg5d73fbts6kfvixourtab7wsfigcfx4cc@ep6elmkephtd>
+References: <20250604032145.463934-1-apopple@nvidia.com>
+ <CGME20250610161811eucas1p18de4ba7b320b6d6ff7da44786b350b6e@eucas1p1.samsung.com>
+ <957c0d9d-2c37-4d5f-a8b8-8bf90cd0aedb@samsung.com>
+ <hczxxu3txopjnucjrttpcqtkkfnzrqh6sr4v54dfmjbvf2zcfs@ocv6gqddyavn>
+ <1daeaf4e-5477-40cb-bca0-e4cd5ad8a224@samsung.com>
+ <52b746ae-82cc-428e-8e88-a05a6b738cd0@redhat.com>
+ <4e53d612-534c-46b5-9746-a4a9814d41c3@samsung.com>
+Content-Disposition: inline
+In-Reply-To: <4e53d612-534c-46b5-9746-a4a9814d41c3@samsung.com>
+X-ClientProxiedBy: SY2PR01CA0033.ausprd01.prod.outlook.com
+ (2603:10c6:1:15::21) To IA0PR12MB7723.namprd12.prod.outlook.com
+ (2603:10b6:208:431::10)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/4] dt-bindings: reset: sophgo: Add CV1800B support
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Chen Wang <unicorn_wang@outlook.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
- <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Alexandre Ghiti <alex@ghiti.fr>, Vinod Koul <vkoul@kernel.org>,
- Alexander Sverdlin <alexander.sverdlin@gmail.com>,
- Yu Yuan <yu.yuan@sjtu.edu.cn>, Ze Huang <huangze@whut.edu.cn>,
- Thomas Bonnefille <thomas.bonnefille@bootlin.com>,
- Junhui Liu <junhui.liu@pigmoral.tech>, devicetree@vger.kernel.org,
- sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
- linux-riscv@lists.infradead.org, dmaengine@vger.kernel.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-References: <20250611075321.1160973-1-inochiama@gmail.com>
- <20250611075321.1160973-2-inochiama@gmail.com>
- <20250611-brown-turtle-of-election-87c324@kuoka>
- <2v4hfzqgz22k6s776onexnhd5cnhfr7s7ggvcmh4mfiviigq66@a2ehkwbv7oll>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <2v4hfzqgz22k6s776onexnhd5cnhfr7s7ggvcmh4mfiviigq66@a2ehkwbv7oll>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA0PR12MB7723:EE_|MN2PR12MB4357:EE_
+X-MS-Office365-Filtering-Correlation-Id: d4a7e29d-7173-4056-a480-08dda8c62548
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?45LbaGknEPPx2C9mhlHJdHBpvrwfEvjMWWTg1U8ibp3XFvrAmkHvrfOaiD?=
+ =?iso-8859-1?Q?mJKXruKhrTAzpLmWLKM8hIXP/FA93sAe0YP+h42pDK8IJATsvO6e+mf7j/?=
+ =?iso-8859-1?Q?u3x7kduwFuQ0uLCgH0j5UZxLuCxx1WyuQmXxxk0jKq/HLs+BanFNWJqYCL?=
+ =?iso-8859-1?Q?g9MhYe8bs+bklFnQ3cySdOVNBzniSemEa7r+eUDkykSFslo/AvFAOsk7Wf?=
+ =?iso-8859-1?Q?5+0fnFqcJnVKTaNtn9/muocwk6L6DX4JGW8+HgXQ/YRmR24pnrE9QJ4WZQ?=
+ =?iso-8859-1?Q?1vinvEP908HUS6TuCctlcOK1bOprf24b7JG7wTEfRuHLJTLM5JhNVyuUUC?=
+ =?iso-8859-1?Q?wEXOHedPIkl21Lt9eddc3BG7PxtypIx5VQ2EixEkZLLf/Z8Dq0snyeBlZJ?=
+ =?iso-8859-1?Q?rwO5dJACvUOKikUxHPqeUmvZh8K329l8cNS0y2TeQ0ZZN58GHiCI1w6IkK?=
+ =?iso-8859-1?Q?tIYw4PqYslb65AHo+RiW7a/rRpUIxx4MUmhZlYNepp8Lj3zvD6+PzxvauF?=
+ =?iso-8859-1?Q?dnxy9ZW94EmnjCrmTMLy1oKZi7uVqUQk9XfdrkZW5vi6oNDqjts12DBCnA?=
+ =?iso-8859-1?Q?A+MNsk2Mi8DTcX+pORxIX2D45jOrNoHc8+tIShicHU+ThgZTujTppE0tv3?=
+ =?iso-8859-1?Q?Xu6DiOjPILUJMwVUiUHU6VoLPnUgg8hxYQgeMHHE1dCFzywOr0Dsc1rcds?=
+ =?iso-8859-1?Q?aTcbPNEx6t2AbnXK6fbE2iNHlbDjFcbLMolX0Df2MGvPH7C41XJWq4wyUT?=
+ =?iso-8859-1?Q?tDsaiSel1OhT0JL2eOXFSvkoeBNNdyK9gcEYHhL+08eolzvqvUX7DguWpR?=
+ =?iso-8859-1?Q?+vk0yVg7c3KH1YPQaaRZ0U0U4NXg+peV3ha9XZ55fGBQnL7/wkMnLk+RDb?=
+ =?iso-8859-1?Q?fRyMrrodbTyxhPPME5f5o1raSXclF0G4bAkShSGSGLmjygRctCgQOfaeVW?=
+ =?iso-8859-1?Q?0yg+sGzvd9rrgzP/CsYQ03io3gHfYOWPRsCWl6xplA2B2hYdTvvE+/6Q7z?=
+ =?iso-8859-1?Q?xvJ8KwlzuX0xQngTtAf6mRwW3BcyUNisF/S3dp4qjsas2m4pelgzhHTkmG?=
+ =?iso-8859-1?Q?AMaiZrj7McyRrpyl8vnKGMuw7mZa2jhygEBb7ArJJmCrRE2NcgfCEZqDvs?=
+ =?iso-8859-1?Q?gRmrj82hZpP0GE6YrY3XYuljZxhvi9PI7F2zRVNPOnt6LufVhhwlEuyGM3?=
+ =?iso-8859-1?Q?VQqfjkMJNQfODgXucO99HM/74dNA1o8JpSwvnB6hd7sUJgg2Pl3d0YDa8I?=
+ =?iso-8859-1?Q?p8dY/rlJZOZh7UFhC39a7fALj+z8O/34YE4o9dMjgrWZojSotxyvTtVhD2?=
+ =?iso-8859-1?Q?9fZklhnGs3Kx3p1ZeBM/6qC/GmBvxn6uFDZNfgECle/G/jraDe1cX4FpiK?=
+ =?iso-8859-1?Q?VUv5Hm80sB/p/GegRe7ZFGA/3wjqY7CPZDZSc5NzyYBQeYVPUYS9992IIK?=
+ =?iso-8859-1?Q?dJSD2Tv3LSx7uWyyJ2gcRK6+Oi5U5Tfe6V2t2g=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB7723.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?r7JsrDrVEPBqJU/nomcAYtbf4+Ki7mOjhqdAkEnRlYiE4dkEkpIlMFk6mc?=
+ =?iso-8859-1?Q?2EjHW0gFd/OCft9AjNElYnBP4vl568/6KO319Yf3m5pM0LtkhE0/wgeD/N?=
+ =?iso-8859-1?Q?3FLIkK85+yNq3uLOWggkqinXGVH73Xl3rQMI1WXCZJJy7sxsBzcNUQBOYr?=
+ =?iso-8859-1?Q?6HdGBKgLypiX4G7uZp8fcP4hCUnD5Ips7siqL2LNUyBPGtjr091jq/ZbEj?=
+ =?iso-8859-1?Q?9nHT1SssGUSLs5NYCROIGvC6NkKEYJbiqcRFpKOwqCNOKIWgmb6mE66gxx?=
+ =?iso-8859-1?Q?u7V6ky7A5rC2AQeQ6Wl/OII+MB0Ky3P6+TOx4xcN/2n2UL0iopvVn2f+8d?=
+ =?iso-8859-1?Q?ZirvPHU6YLTLPRoVuEakHrxXQ402CnmWogv+GXyhPVFmRNtan3RCSFX6X3?=
+ =?iso-8859-1?Q?F8NQNyc2jOzPIQoocFhVvUplCe2V7ZniNFo30HQ/2DqwDcztGnySN8wgjj?=
+ =?iso-8859-1?Q?bRQQELZUBJaBWx3IfAAxcLO2r0QwpLIldxRLFp1o/b+Je70nEalf8qOzT1?=
+ =?iso-8859-1?Q?N1Q0lC36Io/M5R9Z7FprxDL+/64+OcaLT5klulwvCaRc0xAUUib4S/atZv?=
+ =?iso-8859-1?Q?eZ7B29aJNCx8IVaWDd1yp37is9G/SmDcjF+hQbnJ+9JLd1IVPBBp0AZHjo?=
+ =?iso-8859-1?Q?hAQnorb0OnVwLZYlH2qPfMNnzM27lZ5NdNRa+47xtZsWOI4E3yqrTiqgIC?=
+ =?iso-8859-1?Q?4IsSorMozo61PMdffQjQDET8lOvJoGXSUgv6YVySsp1qqCHJoiJkIt44ER?=
+ =?iso-8859-1?Q?I6f0vBHkB8M/E4/At2GCxQ62ShbRqQIGALCVRTRpKKptZEw2NMaM6dZvpp?=
+ =?iso-8859-1?Q?yG1UD965u9a/e3TXlf0crtJjZvyDr0sHEgoWNj9y/fDwLCgA/I84XjtX09?=
+ =?iso-8859-1?Q?nesPfRqjU1UyAa3U9lXLRGPGmDqxO+mKIibXsOXUb1VgOVHpR8FCTe6OPF?=
+ =?iso-8859-1?Q?RHG61WOsE7RoUb9kfWsdARBGpDCQoXvjsyQ6FIfCwXuiNHL97T1GexY+kk?=
+ =?iso-8859-1?Q?4WYEkrVIqTVE12/KGA8+fh7CQoDaTCh1ea+a+PjjgU4S7FqMD1MhPkA87Y?=
+ =?iso-8859-1?Q?I1qwGEpwgd2/QDvidqVjp2BRfSrvXNtzDW9yNGb4j8YX40FdRH04Z8n7Tx?=
+ =?iso-8859-1?Q?fU4Y8C0AtS2iio1nqsAMxjp5gglJp6+P5RcvTGJRBJU9pXmV5nHBezjtBC?=
+ =?iso-8859-1?Q?hwO0mJ5ihfKHNz556rsqZDsBRdqCVwlIFaZEnxHMAOBQNpXleV9Nx8qNxm?=
+ =?iso-8859-1?Q?h4ZZILG9PXe/nIPcpw/d9MhpSeiPWsgQ0YHrrFVSgHQx0uVS+oRg1OVWMp?=
+ =?iso-8859-1?Q?XglJhm2+0vkxC6OGW1ur9Mvr+YXmYh8RJJVQqxrCj/99u90yflNGXJXDyz?=
+ =?iso-8859-1?Q?LbRb3517DAJCUIoo/638Yv/YQIfalARQ05gYhPM7dD9jUaN/xWLEspNWTb?=
+ =?iso-8859-1?Q?H4cvvzsEZyF/xqiXdDdTwpy80ka7XL89CF4QV0kXxMUMpFY4KOL4BeeAB8?=
+ =?iso-8859-1?Q?RBSg/JeAQY0Grp57exTBijf39JAFsdojYUstZscgspVqV7cB1bTNuzP6UC?=
+ =?iso-8859-1?Q?bzxT1uSrxIG4Kq4VGDf9XaTKF2l+zGJGY+/1ldK958fx+MOvJvc/QvGE6P?=
+ =?iso-8859-1?Q?JBnUeIOSI64m7qOxpKHKezi6xl6yH2gNs8?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d4a7e29d-7173-4056-a480-08dda8c62548
+X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB7723.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 08:58:34.2581
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KpNlhhxsytJGe/DRqdfpIyMowXTZ40g5aioU5ijD9DqgdIvs/c5eqmMmutBfl7LOJkj0QHTCloafeKFbCYP/Qw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4357
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250611_021359_659639_420A5E1E 
+X-CRM114-Status: GOOD (  49.77  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,43 +165,216 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On 11/06/2025 10:29, Inochi Amaoto wrote:
-> On Wed, Jun 11, 2025 at 10:19:49AM +0200, Krzysztof Kozlowski wrote:
->> On Wed, Jun 11, 2025 at 03:53:15PM GMT, Inochi Amaoto wrote:
->>> Add bindings for the reset generator on the SOPHGO CV1800B
->>> RISC-V SoC.
->>>
->>> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
->>> Acked-by: Rob Herring (Arm) <robh@kernel.org>
->>> ---
->>>  Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml | 1 +
->>>  1 file changed, 1 insertion(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml b/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
->>> index 1d1b84575960..bd8dfa998939 100644
->>> --- a/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
->>> +++ b/Documentation/devicetree/bindings/reset/sophgo,sg2042-reset.yaml
->>> @@ -17,6 +17,7 @@ properties:
->>>                - sophgo,sg2044-reset
->>>            - const: sophgo,sg2042-reset
->>>        - const: sophgo,sg2042-reset
->>> +      - const: sophgo,cv1800b-reset
->>
->> Keep alphabetical order. That's enum with previous entry, btw.
->>
-> 
-> There is a small question for this: should I move this before the entry
-> "const: sophgo,sg2042-reset", or before the first item entry?
-It does not matter where you place the enum. There is no convention for
-that.
+On Wed, Jun 11, 2025 at 10:42:16AM +0200, Marek Szyprowski wrote:
+> On 11.06.2025 10:23, David Hildenbrand wrote:
+> > On 11.06.25 10:03, Marek Szyprowski wrote:
+> >> On 11.06.2025 04:38, Alistair Popple wrote:
+> >>> On Tue, Jun 10, 2025 at 06:18:09PM +0200, Marek Szyprowski wrote:
+> >>>> On 04.06.2025 05:21, Alistair Popple wrote:
+> >>>>> The PFN_MAP flag is no longer used for anything, so remove it.
+> >>>>> The PFN_SG_CHAIN and PFN_SG_LAST flags never appear to have been
+> >>>>> used so also remove them. The last user of PFN_SPECIAL was removed
+> >>>>> by 653d7825c149 ("dcssblk: mark DAX broken, remove FS_DAX_LIMITED
+> >>>>> support").
+> >>>>>
+> >>>>> Signed-off-by: Alistair Popple <apopple@nvidia.com>
+> >>>>> Acked-by: David Hildenbrand <david@redhat.com>
+> >>>>> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> >>>>> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> >>>>> Cc: gerald.schaefer@linux.ibm.com
+> >>>>> Cc: dan.j.williams@intel.com
+> >>>>> Cc: jgg@ziepe.ca
+> >>>>> Cc: willy@infradead.org
+> >>>>> Cc: david@redhat.com
+> >>>>> Cc: linux-kernel@vger.kernel.org
+> >>>>> Cc: nvdimm@lists.linux.dev
+> >>>>> Cc: jhubbard@nvidia.com
+> >>>>> Cc: hch@lst.de
+> >>>>> Cc: zhang.lyra@gmail.com
+> >>>>> Cc: debug@rivosinc.com
+> >>>>> Cc: bjorn@kernel.org
+> >>>>> Cc: balbirs@nvidia.com
+> >>>>> Cc: lorenzo.stoakes@oracle.com
+> >>>>> Cc: John@Groves.net
+> >>>>>
+> >>>>> ---
+> >>>>>
+> >>>>> Splitting this off from the rest of my series[1] as a separate =
 
-Best regards,
-Krzysztof
+> >>>>> clean-up
+> >>>>> for consideration for the v6.16 merge window as suggested by =
+
+> >>>>> Christoph.
+> >>>>>
+> >>>>> [1] - =
+
+> >>>>> https://lore.kernel.org/linux-mm/cover.541c2702181b7461b84f1a6967a3=
+f0e823023fcc.1748500293.git-series.apopple@nvidia.com/
+> >>>>> ---
+> >>>>> =A0=A0=A0 include/linux/pfn_t.h=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+ | 31 =
+
+> >>>>> +++----------------------------
+> >>>>> =A0=A0=A0 mm/memory.c=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=
+=A0=A0=A0=A0=A0=A0=A0 |=A0 2 --
+> >>>>> =A0=A0=A0 tools/testing/nvdimm/test/iomap.c |=A0 4 ----
+> >>>>> =A0=A0=A0 3 files changed, 3 insertions(+), 34 deletions(-)
+> >>>> This patch landed in today's linux-next as commit 28be5676b4a3 ("mm:
+> >>>> remove PFN_MAP, PFN_SPECIAL, PFN_SG_CHAIN and PFN_SG_LAST"). In my =
+
+> >>>> tests
+> >>>> I've noticed that it breaks operation of all RISC-V 64bit boards on =
+my
+> >>>> test farm (VisionFive2, BananaPiF3 as well as QEMU's Virt machine). =
+
+> >>>> I've
+> >>>> isolated the changes responsible for this issue, see the inline =
+
+> >>>> comments
+> >>>> in the patch below. Here is an example of the issues observed in the
+> >>>> logs from those machines:
+> >>> Thanks for the report. I'm really confused by this because this =
+
+> >>> change should
+> >>> just be removal of dead code - nothing sets any of the removed PFN_* =
+
+> >>> flags
+> >>> AFAICT.
+> >>>
+> >>> I don't have access to any RISC-V hardwdare but you say this =
+
+> >>> reproduces under
+> >>> qemu - what do you run on the system to cause the error? Is it just =
+
+> >>> a simple
+> >>> boot and load a module or are you running selftests or something else?
+> >>
+> >> It fails a simple boot test. Here is a detailed instruction how to
+> >> reproduce this issue with the random Debian rootfs image found on the
+> >> internet (tested on Ubuntu 22.04, with next-20250610
+> >> kernel source):
+> >
+> > riscv is one of the archs where pte_mkdevmap() will *not* set the pte =
+
+> > as special. (I
+> > raised this recently in the original series, it's all a big mess)
+> >
+> > So, before this change here, pfn_t_devmap() would have returned =
+
+> > "false" if only
+> > PFN_DEV was set, now it would return "true" if only PFN_DEV is set.
+
+Ugh, what a mess. Thanks for pointing that out (I had seen your earlier res=
+ponse
+to the original series but hadn't found the time to look into it more deepl=
+y).
+
+> > Consequently, in insert_pfn() we would have done a pte_mkspecial(), =
+
+> > now we do a
+> > pte_mkdevmap() -- again, which does not imply "special" on riscv.
+> >
+> > riscv selects CONFIG_ARCH_HAS_PTE_SPECIAL, so if !pte_special(), it's =
+
+> > considered as
+> > normal.
+> >
+> > Would the following fix your issue?
+> >
+> >
+> > diff --git a/mm/memory.c b/mm/memory.c
+> > index 8eba595056fe3..0e972c3493692 100644
+> > --- a/mm/memory.c
+> > +++ b/mm/memory.c
+> > @@ -589,6 +589,10 @@ struct page *vm_normal_page(struct vm_area_struct =
+
+> > *vma, unsigned long addr,
+> > =A0{
+> > =A0=A0=A0=A0=A0=A0=A0 unsigned long pfn =3D pte_pfn(pte);
+> >
+> > +=A0=A0=A0=A0=A0=A0 /* TODO: remove this crap and set pte_special() ins=
+tead. */
+> > +=A0=A0=A0=A0=A0=A0 if (pte_devmap(pte))
+> > +=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 return NULL;
+> > +
+> > =A0=A0=A0=A0=A0=A0=A0 if (IS_ENABLED(CONFIG_ARCH_HAS_PTE_SPECIAL)) {
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (likely(!pte_special(p=
+te)))
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 g=
+oto check_pfn;
+> > @@ -598,16 +602,6 @@ struct page *vm_normal_page(struct vm_area_struct =
+
+> > *vma, unsigned long addr,
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 r=
+eturn NULL;
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (is_zero_pfn(pfn))
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 r=
+eturn NULL;
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 if (pte_devmap(pte))
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 /*
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * NOTE: New users of ZON=
+E_DEVICE will not set =
+
+> > pte_devmap()
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * and will have refcount=
+s incremented on their struct =
+
+> > pages
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * when they are inserted=
+ into PTEs, thus they are =
+
+> > safe to
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * return here. Legacy ZO=
+NE_DEVICE pages that set =
+
+> > pte_devmap()
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * do not have refcounts.=
+ Example of legacy =
+
+> > ZONE_DEVICE is
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 * MEMORY_DEVICE_FS_DAX t=
+ype in pmem or virtio_fs =
+
+> > drivers.
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 */
+> > -=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 ret=
+urn NULL;
+> >
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 print_bad_pte(vma, addr, =
+pte, NULL);
+> > =A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0=A0 return NULL;
+> >
+> >
+> > But, I would have thought the later patches in Alistairs series would =
+
+> > sort that out
+> > (where we remove pte_devmap() ... )
+> >
+
+Yes, I think Marek confirmed that it did in his earlier reply.
+
+> The above change fixes the issues observed on RISCV boards.
+
+Thanks for testing. Andrew has already removed this from the -mm tree so I'=
+ll
+reincorporate this back into the series and see if I can figure something o=
+ut
+when I respin it.
+
+- Alistair
+
+> Best regards
+> -- =
+
+> Marek Szyprowski, PhD
+> Samsung R&D Institute Poland
+> =
+
 
 _______________________________________________
 linux-riscv mailing list
