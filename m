@@ -4,161 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3B8C61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 05:19:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD1AC677C4
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 05:21:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=AHLnaZ5yM3Pbf3Km3ZHs/3+KyzVu0JJGO9dn0VrWHkc=; b=bTRHmQEZ8Ro6LQ
-	YFAyzY5OUOch0Ez72F87zHD2iT+angn3/q+C+PO5LFAVykAcy+Ut1fSsPTWWyMx+W972QIZVjRbFv
-	tI7tgdM29wtoUVQbkIH7lRLRO3mkV2ZOjfZdPBZtxZVAruDeZ+Smsv43E95muFK8yx653dA0Ij3ft
-	cmLvcgeX2pA91fpEF1wEjPMxPkLzg0vF988JeXz0bCTv4fnRK+y+PZlYOfth+6YRouNM8a+mojnlh
-	TqTuycDmhw2F7zixKIZIYHPL394ZwHaA1Es4dQxQCzvRHq029SIKKRQKtd01m4b+MzXPV2KLFmV0O
-	7uuYk14CEolQDELKLg2Q==;
+	List-Owner; bh=k87MqNWNyN2UYIbNO3DtVi1PkIEeIn/clF2LCouT2rw=; b=aYv9Rle9NRqFsP
+	vibFpIDb8p7Z5+kuJbqmEoHQ604kq7gK25g+Wp45dksM8U0gyr1NVF3hUXIAFTwLMK7jHeun6m9HH
+	KpLzKRKOW2T5dZPIfvLYcSMPTgJfhF8v4HasU0tcA9j9uejVK6ZmdIunEGb62y0QD65EuUVx0Hae1
+	lxj9TyLiIsmpUnrzQ/+oU/wR7i/q+zHSIfc7PrbmF5if+fFWXoIOEGY+DIMrOvnXCaNUULUtx+rqi
+	JOXE8K3DVRQWkqkIpKLnBWkpc9K2ULCjG6cAURii3XLZqsU8jxdV6rdoqQzOSpH8ZCfL4ooknsLa+
+	ONURTL2wVMO1A9W3WPYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPDsL-00000008sIE-3w39;
-	Wed, 11 Jun 2025 05:19:49 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1uPDu0-00000008sRX-2ZCV;
+	Wed, 11 Jun 2025 05:21:32 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPDsJ-00000008sHt-3x5B
+	id 1uPDtx-00000008sR1-3edw
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 05:19:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xo5kTuMRvgT+G+cwOChI9fUPFInwRNR8s/4zlbGvRpC7asaEq4axDKS7XYulaY9w5tqoyMCkG2kdjddzHQTV8CBmwQ6Qt/XOs2iO+3duGH+M0IJP1WxFQlt3RyG9AelE21jYSHMwwZ0r5KcSMNc5OTqPxz8oM980SPuIsSvt9+gmZuCXeMmND7N49e5m9R33Wcyzu0IHOOz/FA3Mt3Q3YrnGPR9/ISdBbncTr5BQEnyP8MaS59eM5yrVEsOe0wd7EPauXtRhoKyjBqrfK3orXMUA41ObK7MiBxqenIGWqJEiXcr4nZvk2eV+eVZSHWr4y1R+xGwC+aqAaNLMSsKo8Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=iBj7NcUWYQZ5pPR8kQWFSyMltNLBOvOxNFkxlFkN0HU=;
- b=hSjKaWeoiPXAkEp4938TNMI8izewpPfVTpxzFX42H+Sp30/4sraWvj/xz6uC2xuN8VDqV+zGrwgEUl5DanJjxq74PY4t4PxV7Q/q5H7q/O8oP6rBmFVJy4M6C+fnU0IrSVhVaRlEsKZvwVw4RXtuCK9QX/QBzTtzd98OVTklk6jd/S9iOsRMad91gNw1b4WAH5WMK8nO3kf6Ag+b5p5MdDxZ7KXCqMlOaHU7bJ7xI3eF023oiFQSGiBq+tf0y/UKUORla37uY4lEClGTtXdK+ey5773DhVfXVwC7jhDxQCoRAzyu5BjL4nSAEeOzHKpwQZD3dcA3+WuML3gepYl8+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=iBj7NcUWYQZ5pPR8kQWFSyMltNLBOvOxNFkxlFkN0HU=;
- b=JU2PnlTchznvcqJVGtN4+0TWRKIfzZmeFxATqNxEXCfiiGeDu2ycSSzpHbvhrbbwD6Ggc+wX3X+N9EllAuTlpYG3fgwDwjgaO+y3RPZY/SDkiHRGYkkU3BdEQkZPHv2dUOts+cfmWGdsSfn2ci9Vf5iqABFJ6E/frDwaFi74j7eYjV8wlDbr9Vsq5OyeU7udIsK3oyQVRasXvUxTTHUtOegSk1wvkyRutY+aHv835w2kPW5FTVYk/t90Lco53gtdRTAdRKG2W9rxDwBt5m2WfTcmAnUaI4I7qJI2r+YMbwDv/Am1RxqbqXieWDRhJs9F1rgBR/mLe2pYz2+qQ/W19Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS4PR04MB9622.eurprd04.prod.outlook.com (2603:10a6:20b:4cc::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8835.19; Wed, 11 Jun
- 2025 05:19:38 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%3]) with mapi id 15.20.8813.024; Wed, 11 Jun 2025
- 05:19:38 +0000
-Date: Wed, 11 Jun 2025 14:29:39 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Junhui Liu <junhui.liu@pigmoral.tech>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	sophgo@lists.linux.dev, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Subject: Re: [PATCH 2/2] drivers: remoteproc: Add C906L controller for Sophgo
- CV1800B SoC
-Message-ID: <20250611062939.GA9120@nxa18884-linux>
-References: <20250609083803.GA13113@nxa18884-linux>
- <184791843e98e0a0.ed7541b3db6a6586.57e5fabaf9bf62ee@Jude-Air.local>
-Content-Disposition: inline
-In-Reply-To: <184791843e98e0a0.ed7541b3db6a6586.57e5fabaf9bf62ee@Jude-Air.local>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SI2P153CA0019.APCP153.PROD.OUTLOOK.COM
- (2603:1096:4:190::10) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Wed, 11 Jun 2025 05:21:31 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5532f9ac219so7179072e87.1
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 22:21:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ventanamicro.com; s=google; t=1749619288; x=1750224088; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CZBCRuywHIrHwB4Y6CUEmtf4oyW/dhVJ1DZHpWrRRRc=;
+        b=h+iCS/uE1T+pVLJoCu1TvdMj5QlG+dATVZnGk5Zdf0g+bjMk4X6o61F0aEz16YYStz
+         H+nKQS1hxazqGe6xEgC8cy8jkNK15z7zd2luDfRuNiA/Mw3IfwpkKZMKSb+ycKQ4RRcA
+         ZcfNEv2HlUobgZa0H/pfBzJP2y2ilYzFoEQ2VgVJrxypNkPXCUsRn5JA0xS7gq1+hmlb
+         +aIi1AgmFsgOpIbFTWSDU55X6t9nbhD7tsCZosJzKyXIt10xtns6wUvl08/qGFeoABet
+         un12ATBwHlruaXNcxIyV3PmlBUffCsQVlzh6PEPjQChaB/ywODyJ7L+8RSn/qFC9yL5p
+         vJbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749619288; x=1750224088;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CZBCRuywHIrHwB4Y6CUEmtf4oyW/dhVJ1DZHpWrRRRc=;
+        b=O5rNaXaxpMfZaIOiVSqxYahpx9jVPt/XLQZ3iHvi4noIpH9bTGJDxB9Oxn7Rgti4YU
+         GcuzBqpbZ2OsN0+6gDjjIyZ4CtA1QS2G6xsJmx9Og0kaogQ4VJpzxRlZGLxrmLZwj5u1
+         BGSbfHHKmxR79EGoZUy2BhkI9MlQyZqc7uYwovFDVRXId9GSYzu+8+pfdNLXw8NQ//+O
+         rCCvbZ2ixpC3eYJiB4GLPAIcnKvyBi2rh8tzHhMAGbvYBdfhbdRnpXjtLHILM+2CVFL2
+         x70/kLWMgusI69znr2furp6JDXBMWvhiMHa5kxmPkrGlEFpwMk8wm8vMp+Rdx+okxqrH
+         erpg==
+X-Forwarded-Encrypted: i=1; AJvYcCWVi2+lE2u/Mv9/PFwaOau6fHfzTITsbUw9BeG8Za8XIMhsxX1hvd6b4QguoRcIou+27Ug2nRfdXRRm5w==@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaQCKUkV9WiM/bCI7JyL1gvVw+eg4jQLS01uMCdXuKCL/TS//Z
+	mIIwTwB8tLXpnF2mO6P0P4WhXsvcj7MhfAXhjs2xBMojo85+fyo/eVllgxQtTpuLZ+jhFZBWk0W
+	T2nzoAGprB1Ncetmd4Cm2gZKi+kXMTNUJtRKA13EZ1w==
+X-Gm-Gg: ASbGncsFpVoo04l2JkyB0TZoQP1wg0Fng+8yJ9ekNhi3uavG9vmZafwTMNnpSyweaEI
+	x1iY+49KMl/ZuSnx2q6bjmvmlBIAtTn5829UVSA+FXPOKZtFfMW4evtV6j3RCq9RjNAtnyH8qJf
+	uz8PyZLuEiOrJYW4BdR7SrTSMY6tLQ7YCfXNqmAswaLwCZf9ra44qa4v4=
+X-Google-Smtp-Source: AGHT+IGcTZB8S6Gd3hIZot1w2/0Yfybi+OExqcLnX1AZuMKGrGy+Zh6YIGrowqLXEqln+XAK8JxzBWfPL5Z462AVQRQ=
+X-Received: by 2002:a05:6512:ea0:b0:553:2411:b4ef with SMTP id
+ 2adb3069b0e04-5539c14d883mr614133e87.34.1749619287649; Tue, 10 Jun 2025
+ 22:21:27 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS4PR04MB9622:EE_
-X-MS-Office365-Filtering-Correlation-Id: 52cb52fb-effe-4a5a-8925-08dda8a78f35
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?J1mWHJ3KALY92j+cuP+ib2Prl4ayH0l0iIBHRMgC/lHJd25wqQWjkUNOXjln?=
- =?us-ascii?Q?3eeDSlzRQxZnpcHQ7URYReM6iq7e6IpIS1VFyncxKE2jqX41HynBaTwY4e2o?=
- =?us-ascii?Q?tFXQzahv6ROQlwV1dXbybl9BBmvAXF8LG4garLSQ7Lv7T4VWQEN51di7XAg6?=
- =?us-ascii?Q?jSpeqYX/asWo+esLQeN+gM4jRZd8b2qV21W4z/I2C/NPQEXle5ASmIjx6OAT?=
- =?us-ascii?Q?JnsV6oetFY69yBhfyAauHHikpq6+N/U/iJUweiizSFz9sHIpAXkfcF//SSCs?=
- =?us-ascii?Q?bSCADaraIYz6EWFZIkhkk95+e0rovRs/BZKVzliQRaokzfsqemAkdKEZl7Lf?=
- =?us-ascii?Q?jzQ2a94CCR1gFZW35XcRT+0ID0VNxswYqe5QGx6c8yi4Z3vj1WRqIWZ3eEtK?=
- =?us-ascii?Q?rwEBX8hY+abb7kGJTsWLAJ1O0OWYTPAO0y1CK29Hz+AsP5cRDG8ldExhtnoH?=
- =?us-ascii?Q?lUCz0i3uIYkzz69AVRvjNUlrXLr/Z7dh0KF7I6EG1zkDq2MXh5GW4diD9tVs?=
- =?us-ascii?Q?6h26nsD3Ir1G9gX6+F+cVXTAC9HexT88Jr/E0AO4Bl/2Z93i9grI30rZkYAg?=
- =?us-ascii?Q?frJCv+i1DJRxdnKKBUgiXnDLi7Xz1Strq9xrPVrMdxFEAjx6GSk+P5eKg+Eu?=
- =?us-ascii?Q?9Jlnzegtm21E+V19PtfE7SqS4dzB6Zf4sKZfjcgosgbg/5N1sPZ/j06e9kSl?=
- =?us-ascii?Q?HPNjRaBAs2MTq1TUOdobUZwBbfIQact3NXp+6sAwotFdBfs7E38HATAZY/pF?=
- =?us-ascii?Q?PoitY8VCMbshK0rFtg7dwQ5MIvc1dbTwqSbotUtGGZg2c1o+Lr+v6Go6jXGk?=
- =?us-ascii?Q?q6Bw0/RCYHUTr21ChzzJgLN6Y8yuQ8teWobR9qBrVjHao2O1plR4trR9Y+El?=
- =?us-ascii?Q?c3zUoPYCLujfVL9ASm3tYzFRKY7GK9ZbS98a5oimgMCsVwL5gPPLIa3g5Bs2?=
- =?us-ascii?Q?b2fdmOvqg25WzuK+Rcc34m3Zmpmm8ZdWnsAhcF0qY28xy9cyFrV7Fw1NHy27?=
- =?us-ascii?Q?bFr6HtlVFQf+7mWeyIvLSVsJRw8Bh/Qg2ilhudVMk3LujAtoTm3zIgkcbDc6?=
- =?us-ascii?Q?hbOxTe1sUOSLMYg+BRTNSyILEV0bGXCqzkf1ypjXEqmntunCfB7ptdwyufaP?=
- =?us-ascii?Q?dgGM2VZwbnak8rXiGboC4BFaCOsee0aYHiQfH+A46Fh8DiosG4Oo8SIdaEYQ?=
- =?us-ascii?Q?zpmIlrigbJKSnYvjOg7eV86ODp0x0VuBpDR/nrFbKo2hykm4ztnoG0IIX9Uz?=
- =?us-ascii?Q?RkaHDS/ANIiRetTqWsGwa/akTqC5L57ogNR5ZasQtWJscx60Qw/FhQxNrjeH?=
- =?us-ascii?Q?pd8QQpqV+gUaVNBiGP/FFcYnkrXVC+/nTeKcRmk3jx5Xi+Gw6mjrt8ukvieY?=
- =?us-ascii?Q?mno4OMvzp3UsP/w8D2iAlR+hYBaok5L0aJF25NPXwSuodfPsPZfeqpY5UPx1?=
- =?us-ascii?Q?JlqcT8HTwhtj0yrRPapvBBnWOVbwff+sCENlPG3woqygfAIWDlpw5yNIkn2F?=
- =?us-ascii?Q?IRNol2SpoMp7Pf8=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?iVGP5W6kU25uU8IOZvIan8YMOkK4X+POFQ9t5w0TRYN7KYxpXgLojZ3zSuO9?=
- =?us-ascii?Q?i8H7Eu+cUyKZ0xBn97UKVM5CdiZEdQbjZT/OVHdvlkyK7x7MsunrXuvo4SI9?=
- =?us-ascii?Q?8r70qgDHyKxJ49fOgr3ctOXhA/gROwMXm2nsYz+uRvUtHvAuD4aP/jozJpgy?=
- =?us-ascii?Q?gcPsYRh/ZoO0EiIs/zSsq3uiFNFVbfpBBf+SHesPwJe8djL3jT9GN7ZU3M11?=
- =?us-ascii?Q?lSzxucC+Wyz8UOHGTDEwAhg2196tCTEQ2XUvlleT6flhkUXhat+jv4JZzpUj?=
- =?us-ascii?Q?4F+sc5+Y0o1rsUUw49vQf9LcqGbFfJHiIMcusj8EOjIx/0cNKuBoMP+TMHgI?=
- =?us-ascii?Q?lHWHZ1hEEYsO5sswD9JEc2VJMZGbYJT2KxgvMhbHdUmPJ5N5pOYApQyKZRMk?=
- =?us-ascii?Q?Gi2X47hMwf3B9vxnzkzItAamuDWdALZAYFQ+SV9eTfehg9qTs3JJaPWeBhrr?=
- =?us-ascii?Q?FNtqXjvES0kAFP1KocqoWwjJbQg6wASDa56ma4jcSx6hdWVvBWstMZod7vU3?=
- =?us-ascii?Q?H2Rp9Yx8cf2t2NcigcwgMdkaXPkBKBY3HSZB+5aOvwEUDrNfecs0RLT0/AhH?=
- =?us-ascii?Q?l+AjILg24S84dpAVp+fl69mzJmpPxJWVrA1fDOMfnGq4Q3U+e1/w/eVkSjk9?=
- =?us-ascii?Q?r99CenVtut2e4dX8llZ7UTZnQjovVlLzouszl/8IW+DWCz+NnZ0GUzRyRvqL?=
- =?us-ascii?Q?3EdhJrt0eNxHhkqzH8SJJKiSYE9Fs2hminWXfZGlj4MaeqgG9nIVtC+evRVd?=
- =?us-ascii?Q?k/UIg2l4YWsP0nbK+Q0/TV6b+kVD9kgegZCBEuQ4V62ZUCd+Of3vPrCOq/oH?=
- =?us-ascii?Q?VOegKs4TUtVOU8YGOCtwjMBJxN1+mn+xkVq4I3Gj5/TaP/4wND0PptN6ao5r?=
- =?us-ascii?Q?Dzj5EJH98tg7jSqzVnSohN6n9vggjsn1jPLGryQmsUqIHYZcZBhWUgw+twqT?=
- =?us-ascii?Q?MnYoxpw4yT6Z008C+KptOA191sfsMEDw6ntrhyL/msela8K7aLBBcGbulWf6?=
- =?us-ascii?Q?GbJ/uB7akQOlT7uQlYqP0+pr3znvojPSHNUrqxKuaV+On9iWaTgWr+iECO+w?=
- =?us-ascii?Q?JKa+GNRYAf+AmGcUL2JP+Cyhy8B/FvDDrF0obK1wCZLNYuvcFkie9FJD49k/?=
- =?us-ascii?Q?8WgLopuByWU+kB96lRclCOiBygy+6bShx0N+njtoCY9vdiR1SAh3SskwxuWW?=
- =?us-ascii?Q?F9jUsvQ+8vw+7wmFSQLEYDwOEqo/Ah27qjnhOy7WOHl/y3QQ/1lQUaa5dha+?=
- =?us-ascii?Q?dzsCrikA5YD+Tjl7J/MtQWhs7Ilq+k++N09Fy0T8pEfoVGChPn8UCSKXDhrR?=
- =?us-ascii?Q?Xjq/EHPEdKNvR+uWv3r3iEIc48MyUkfymWN72tmbRyyuKJ8F+3bTlz8KKu5s?=
- =?us-ascii?Q?ezpW4WxwhjSZfC2oOz72ymB9oNy90EIXfDpJSMv6ZR/IEgFEYguxLosIWQ56?=
- =?us-ascii?Q?cehn+q+62buc4WrgU6PzdrNB6ws3UDvST77ouKHSs7rTPVt/juGR0p69sCAO?=
- =?us-ascii?Q?MmUU80SmSNTJXJJP4BKCgksh6RzKk4whZR1whns2E/6drS+Rvf8r1owdIj9I?=
- =?us-ascii?Q?tLiT3NaL8MEMk1R9EBHAAT/3GiIYXnRhC2JFlQS5?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 52cb52fb-effe-4a5a-8925-08dda8a78f35
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Jun 2025 05:19:37.9569
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BmAyMLzHVXtv/6gQF1mOLaz652oRinzHs6C8o2QmFN6L4FKXVxmOKziQlKCnbKw1HCqY4mpGfQbWMdlD+X1ucw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9622
+References: <20250525084710.1665648-1-apatel@ventanamicro.com>
+ <20250525084710.1665648-8-apatel@ventanamicro.com> <aDbrBFcgaJxgBRVZ@smile.fi.intel.com>
+ <CAK9=C2XJwgsC5AK-eVOHQqN1tPxtrsTjVoKdHgALbREv=sb8zQ@mail.gmail.com>
+ <aEc-SHvL187xdj-m@smile.fi.intel.com> <CAK9=C2VjOZ22smYdxDg1bjnx-+wwjngEN3c-iOpdtaADFcQ0+w@mail.gmail.com>
+ <aEgBGup553Pki98e@smile.fi.intel.com>
+In-Reply-To: <aEgBGup553Pki98e@smile.fi.intel.com>
+From: Anup Patel <apatel@ventanamicro.com>
+Date: Wed, 11 Jun 2025 10:51:15 +0530
+X-Gm-Features: AX0GCFt0zvXLqPkqunyCtbvdd6VWwuT7DuTT2gaTg9GfnLxzDC88KAV9zwbxwm8
+Message-ID: <CAK9=C2Ww0Mt91x_r0VTffse-AiWcOyBYvWpxxK7p5=+EDUEoMw@mail.gmail.com>
+Subject: Re: [PATCH v4 07/23] mailbox: Add RISC-V SBI message proxy (MPXY)
+ based mailbox driver
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_221948_133314_3577265D 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250610_222129_914776_FCC4F9F5 
+X-CRM114-Status: GOOD (  26.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,269 +92,93 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Cc: Jassi Brar <jassisinghbrar@gmail.com>, Atish Patra <atish.patra@linux.dev>, Michael Turquette <mturquette@baylibre.com>, =?UTF-8?Q?Uwe_Kleine=2DK=C3=B6nig?= <ukleinek@kernel.org>, linux-riscv@lists.infradead.org, linux-clk@vger.kernel.org, Rob Herring <robh@kernel.org>, Anup Patel <anup@brainfault.org>, Bartosz Golaszewski <brgl@bgdev.pl>, "Rafael J . Wysocki" <rafael@kernel.org>, Linus Walleij <linus.walleij@linaro.org>, Andrew Jones <ajones@ventanamicro.com>, devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Mika Westerberg <mika.westerberg@linux.intel.com>, Stephen Boyd <sboyd@kernel.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rahul Pathak <rpathak@ventanamicro.com>, Len Brown <lenb@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jun 10, 2025 at 03:42:57AM +0000, Junhui Liu wrote:
->Hi Peng,
->Thanks for your review.
->
->On 09/06/2025 16:43, Peng Fan wrote:
->> On Sun, Jun 08, 2025 at 10:37:40AM +0800, Junhui Liu wrote:
->>>Add initial support for the C906L remote processor found in the Sophgo
->>>CV1800B SoC. The C906L is an asymmetric core typically used to run an
->>>RTOS. This driver enables firmware loading and start/stop control of the
->>>C906L processor via the remoteproc framework.
->>>
->>>The C906L and the main application processor can communicate through
->>>mailboxes [1]. Support for mailbox-based functionality will be added in
->>>a separate patch.
->>>
->>>Link: https://lore.kernel.org/linux-riscv/20250520-cv18xx-mbox-v4-0-fd4f1c676d6e@pigmoral.tech/ [1]
->>>Signed-off-by: Junhui Liu <junhui.liu@pigmoral.tech>
->>>---
->>> drivers/remoteproc/Kconfig                |   9 ++
->>> drivers/remoteproc/Makefile               |   1 +
->>> drivers/remoteproc/sophgo_cv1800b_c906l.c | 233 ++++++++++++++++++++++++++++++
->>> 3 files changed, 243 insertions(+)
->>>
->>>diff --git a/drivers/remoteproc/Kconfig b/drivers/remoteproc/Kconfig
->>>index 83962a114dc9fdb3260e6e922602f2da53106265..7b09a8f00332605ee528ff7c21c31091c10c2bf5 100644
->>>--- a/drivers/remoteproc/Kconfig
->>>+++ b/drivers/remoteproc/Kconfig
->>>@@ -299,6 +299,15 @@ config RCAR_REMOTEPROC
->>> 	  This can be either built-in or a loadable module.
->>> 	  If compiled as module (M), the module name is rcar_rproc.
->>> 
->>>+config SOPHGO_CV1800B_C906L
->>>+	tristate "Sophgo CV1800B C906L remoteproc support"
->>>+	depends on ARCH_SOPHGO || COMPILE_TEST
->>>+	help
->>>+	  Say y here to support CV1800B C906L remote processor via the remote
->>>+	  processor framework.
->>>+
->>>+	  It's safe to say N here.
->>>+
->>> config ST_REMOTEPROC
->>> 	tristate "ST remoteproc support"
->>> 	depends on ARCH_STI
->>>diff --git a/drivers/remoteproc/Makefile b/drivers/remoteproc/Makefile
->>>index 1c7598b8475d6057a3e044b41e3515103b7aa9f1..3c1e9387491cedc9dda8219f1e9130a84538156f 100644
->>>--- a/drivers/remoteproc/Makefile
->>>+++ b/drivers/remoteproc/Makefile
->>>@@ -33,6 +33,7 @@ obj-$(CONFIG_QCOM_WCNSS_PIL)		+= qcom_wcnss_pil.o
->>> qcom_wcnss_pil-y			+= qcom_wcnss.o
->>> qcom_wcnss_pil-y			+= qcom_wcnss_iris.o
->>> obj-$(CONFIG_RCAR_REMOTEPROC)		+= rcar_rproc.o
->>>+obj-$(CONFIG_SOPHGO_CV1800B_C906L)	+= sophgo_cv1800b_c906l.o
->>> obj-$(CONFIG_ST_REMOTEPROC)		+= st_remoteproc.o
->>> obj-$(CONFIG_ST_SLIM_REMOTEPROC)	+= st_slim_rproc.o
->>> obj-$(CONFIG_STM32_RPROC)		+= stm32_rproc.o
->>>diff --git a/drivers/remoteproc/sophgo_cv1800b_c906l.c b/drivers/remoteproc/sophgo_cv1800b_c906l.c
->>>new file mode 100644
->>>index 0000000000000000000000000000000000000000..f3c8d8fd4f796d0cf64f8ab0dd797e017b8e8be7
->>>--- /dev/null
->>>+++ b/drivers/remoteproc/sophgo_cv1800b_c906l.c
->>>@@ -0,0 +1,233 @@
->>>+// SPDX-License-Identifier: GPL-2.0-or-later
->>>+/*
->>>+ * Copyright (C) 2025 Junhui Liu <junhui.liu@pigmoral.tech>
->>>+ */
->>>+
->>>+#include <linux/mfd/syscon.h>
->>>+#include <linux/module.h>
->>>+#include <linux/of_device.h>
->>>+#include <linux/of_reserved_mem.h>
->>>+#include <linux/platform_device.h>
->>>+#include <linux/remoteproc.h>
->>>+#include <linux/reset.h>
->>>+#include <linux/regmap.h>
->>>+
->>>+#include "remoteproc_internal.h"
->>>+
->>>+#define CV1800B_SYS_C906L_CTRL_REG	0x04
->>>+#define   CV1800B_SYS_C906L_CTRL_EN	BIT(13)
->> 
->> Align the format.
->> 
->> '#include <linux/bits.h>' should be added for BIT
->> 
->
->Will do in v2.
->
->>>+
->>>+#define CV1800B_SYS_C906L_BOOTADDR_REG	0x20
->>>+
->>>+/**
->>>+ * struct cv1800b_c906l - C906L remoteproc structure
->>>+ * @dev: private pointer to the device
->>>+ * @reset: reset control handle
->>>+ * @rproc: the remote processor handle
->>>+ * @syscon: regmap for accessing security system registers
->>>+ */
->>>+struct cv1800b_c906l {
->>>+	struct device *dev;
->>>+	struct reset_control *reset;
->>>+	struct rproc *rproc;
->>>+	struct regmap *syscon;
->>>+};
->>>+
->>>+static int cv1800b_c906l_mem_alloc(struct rproc *rproc,
->>>+				   struct rproc_mem_entry *mem)
->>>+{
->>>+	void *va;
->>>+
->>>+	va = ioremap_wc(mem->dma, mem->len);
->>>+	if (IS_ERR_OR_NULL(va))
->> 
->> Use "if (!va)"?
->
->Will do in v2.
->
->> 
->>>+		return -ENOMEM;
->>>+
->>>+	/* Update memory entry va */
->>>+	mem->va = va;
->>>+
->>>+	return 0;
->>>+}
->>>+
->>>+static int cv1800b_c906l_mem_release(struct rproc *rproc,
->>>+				     struct rproc_mem_entry *mem)
->>>+{
->>>+	iounmap(mem->va);
->>>+
->>>+	return 0;
->>>+}
->>>+
->>>+static int cv1800b_c906l_add_carveout(struct rproc *rproc)
->>>+{
->>>+	struct device *dev = rproc->dev.parent;
->>>+	struct device_node *np = dev->of_node;
->>>+	struct of_phandle_iterator it;
->>>+	struct rproc_mem_entry *mem;
->>>+	struct reserved_mem *rmem;
->>>+
->>>+	/* Register associated reserved memory regions */
->>>+	of_phandle_iterator_init(&it, np, "memory-region", NULL, 0);
->>>+	while (of_phandle_iterator_next(&it) == 0) {
->>>+		rmem = of_reserved_mem_lookup(it.node);
->>>+		if (!rmem) {
->>>+			of_node_put(it.node);
->>>+			return -EINVAL;
->>>+		}
->> 
->> Is there a need to handle vdev0buffer?
->
->I'll exclude it.
->
->> 
->>>+
->>>+		mem = rproc_mem_entry_init(dev, NULL, (dma_addr_t)rmem->base,
->>>+					   rmem->size, rmem->base,
->>>+					   cv1800b_c906l_mem_alloc,
->>>+					   cv1800b_c906l_mem_release,
->>>+					   it.node->name);
->>>+
->>>+		if (!mem) {
->>>+			of_node_put(it.node);
->>>+			return -ENOMEM;
->>>+		}
->>>+
->>>+		rproc_add_carveout(rproc, mem);
->>>+	}
->>>+
->>>+	return 0;
->>>+}
->>>+
->>>+static int cv1800b_c906l_prepare(struct rproc *rproc)
->>>+{
->>>+	struct cv1800b_c906l *priv = rproc->priv;
->>>+	int ret;
->>>+
->>>+	ret = cv1800b_c906l_add_carveout(rproc);
->>>+	if (ret)
->>>+		return ret;
->>>+
->>>+	/*
->>>+	 * This control bit must be set to enable the C906L remote processor.
->>>+	 * Note that once the remote processor is running, merely clearing
->>>+	 * this bit will not stop its execution.
->>>+	 */
->>>+	return regmap_update_bits(priv->syscon, CV1800B_SYS_C906L_CTRL_REG,
->>>+				  CV1800B_SYS_C906L_CTRL_EN,
->>>+				  CV1800B_SYS_C906L_CTRL_EN);
->>>+}
->>>+
->>>+static int cv1800b_c906l_start(struct rproc *rproc)
->>>+{
->>>+	struct cv1800b_c906l *priv = rproc->priv;
->>>+	u32 bootaddr[2];
->>>+	int ret;
->>>+
->>>+	bootaddr[0] = lower_32_bits(rproc->bootaddr);
->>>+	bootaddr[1] = upper_32_bits(rproc->bootaddr);
->>>+
->>>+	ret = regmap_bulk_write(priv->syscon, CV1800B_SYS_C906L_BOOTADDR_REG,
->>>+				bootaddr, ARRAY_SIZE(bootaddr));
->>>+	if (ret)
->>>+		return ret;
->>>+
->>>+	return reset_control_deassert(priv->reset);
->>>+}
->>>+
->>>+static int cv1800b_c906l_stop(struct rproc *rproc)
->>>+{
->>>+	struct cv1800b_c906l *priv = rproc->priv;
->>>+
->>>+	return reset_control_assert(priv->reset);
->>>+}
->>>+
->>>+static int cv1800b_c906l_parse_fw(struct rproc *rproc,
->>>+				  const struct firmware *fw)
->>>+{
->>>+	int ret;
->>>+
->>>+	ret = rproc_elf_load_rsc_table(rproc, fw);
->>>+	if (ret == -EINVAL) {
->>>+		dev_info(&rproc->dev, "No resource table in elf\n");
->>>+		ret = 0;
->>>+	}
->>>+
->>>+	return ret;
->>>+}
->>>+
->>>+static const struct rproc_ops cv1800b_c906l_ops = {
->>>+	.prepare = cv1800b_c906l_prepare,
->>>+	.start = cv1800b_c906l_start,
->>>+	.stop = cv1800b_c906l_stop,
->>>+	.load = rproc_elf_load_segments,
->>>+	.parse_fw = cv1800b_c906l_parse_fw,
->>>+	.find_loaded_rsc_table = rproc_elf_find_loaded_rsc_table,
->>>+	.sanity_check = rproc_elf_sanity_check,
->>>+	.get_boot_addr = rproc_elf_get_boot_addr,
->> 
->> Seems your setup does not support attach mode, so better add
->> attach hook and return -ENOTSUPP?
->
->I checked the remoteproc framework code and found that the attach
->function will only be called when 'rproc->state == RPROC_DETACHED', and
->it seems that rproc->state will not be set to RPROC_DETACHED unless I do
->so explicitly in the driver or an implemented detach function is called,
->neither of which happens in this driver.
->
->Given this, do we still need to add an attach hook even though it will
->not be called in practice?
-
-There is no need, I overlooked RPROC_DETACHED
-
-Regards,
-Peng
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVHVlLCBKdW4gMTAsIDIwMjUgYXQgMzoyNeKAr1BNIEFuZHkgU2hldmNoZW5rbwo8YW5kcml5
+LnNoZXZjaGVua29AbGludXguaW50ZWwuY29tPiB3cm90ZToKPgo+IE9uIFR1ZSwgSnVuIDEwLCAy
+MDI1IGF0IDEwOjA1OjI3QU0gKzA1MzAsIEFudXAgUGF0ZWwgd3JvdGU6Cj4gPiBPbiBUdWUsIEp1
+biAxMCwgMjAyNSBhdCAxOjM04oCvQU0gQW5keSBTaGV2Y2hlbmtvCj4gPiA8YW5kcml5LnNoZXZj
+aGVua29AbGludXguaW50ZWwuY29tPiB3cm90ZToKPiA+ID4gT24gTW9uLCBKdW4gMDksIDIwMjUg
+YXQgMDU6NTk6NDBQTSArMDUzMCwgQW51cCBQYXRlbCB3cm90ZToKPiA+ID4gPiBPbiBXZWQsIE1h
+eSAyOCwgMjAyNSBhdCA0OjIz4oCvUE0gQW5keSBTaGV2Y2hlbmtvCj4gPiA+ID4gPGFuZHJpeS5z
+aGV2Y2hlbmtvQGxpbnV4LmludGVsLmNvbT4gd3JvdGU6Cj4gPiA+ID4gPiBPbiBTdW4sIE1heSAy
+NSwgMjAyNSBhdCAwMjoxNjo1NFBNICswNTMwLCBBbnVwIFBhdGVsIHdyb3RlOgo+Cj4gLi4uCj4K
+PiA+ID4gPiA+ID4gKyAgICAgaWYgKG1ib3gtPm1zaV9jb3VudCkKPiA+ID4gPiA+Cj4gPiA+ID4g
+PiBJcyB0aGlzIGNoZWNrIHJlYWxseSBuZWVkZWQ/Cj4gPiA+ID4KPiA+ID4gPiBNU0lzIGFyZSBv
+cHRpb25hbCBmb3IgdGhlIFNCSSBNUFhZIG1haWxib3ggc28gd2Ugc2hvdWxkIG9ubHkgdXNlCj4g
+PiA+ID4gcGxhdGZvcm1fZGV2aWNlX21zaV94eXooKSBBUElzIG9ubHkgd2hlbiBNU0lzIGFyZSBh
+dmFpbGFibGUuCj4gPiA+Cj4gPiA+ID4gPiA+ICsgICAgICAgICAgICAgcGxhdGZvcm1fZGV2aWNl
+X21zaV9mcmVlX2lycXNfYWxsKG1ib3gtPmRldik7Cj4gPiA+Cj4gPiA+IEhtbS4uLiBJIGFtIG5v
+dCBzdXJlIHdoeS4gRG8geW91IGhhdmUgYW55IE9vcHMgb3Igd2FybmluZ3MgaWYgdGhlIGNoZWNr
+Cj4gPiA+IGlzIG5vdCB0aGVyZSBhbmQgbm8gTVNJIHByb3ZpZGVkPwo+ID4KPiA+IFdlIGRvbid0
+IHNlZSBhbnkgb29wcyBvciB3YXJuaW5ncy4gVGhpcyBjaGVjayBpcyB0byBhdm9pZCB1bm5lY2Vz
+c2FyeQo+ID4gd29yayAoc3VjaCBhcyBhY3F1aXJpbmcgbG9jaywgY2hlY2tpbmcgZGVmYXVsdCBk
+b21haW4sIGV0YykgaW4gdGhlCj4gPiBtc2lfZG9tYWluX2ZyZWVfaXJxc19hbGwoKSBjYWxsZWQg
+YnkgcGxhdGZvcm1fZGV2aWNlX21zaV9mcmVlX2lycXNfYWxsKCkuCj4gPgo+ID4gSSBkb24ndCBt
+aW5kIGRyb3BwaW5nIHRoZSBjaGVjayBzbyBJIHdpbGwgdXBkYXRlIGluIHRoZSBuZXh0IHJldmlz
+aW9uLgo+Cj4gUGVyaGFwcyB5b3UgY2FuIHJhdGhlciBhZGQgdGhpcyBjaGVjayBpbnRvIHRoZSBj
+YWxsZWU/IFNlZW1zIHRvIG1lIHRoYXQKPiB5b3UgaGF2ZSBhIGp1c3RpZmljYXRpb24gZm9yIGl0
+LiBVc3VhbCBwYXR0ZXJuIGluIHRoZSBrZXJuZWwgdGhhdCBmcmVlaW5nCj4gcmVzb3VyY2VzIHNo
+b3VsZCBiZSBhd2FyZSBvZiB0aGUgTlVMTCBwb2ludGVycyBvciBvcHRpb25hbCByZXNvdXJjZXMK
+PiBzbyB3ZSBtYXkgY2FsbCBpdCB1bmNvbmRpdGlvbmFsbHkgZnJvbSB0aGUgdXNlcihzKS4KPgoK
+VW5jb25kaXRpb25hbGx5IGNhbGxpbmcgcGxhdGZvcm1fZGV2aWNlX21zaV9mcmVlX2lycXNfYWxs
+KCkgd2hlbiB0aGVyZQp3ZXJlIG5vIE1TSXMgYWxsb2NhdGVkIGNhdXNlcyB0aGUgYmVsb3cgY3Jh
+c2ggYmVjYXVzZSAiZGV2LT5tc2kuZGF0YSIKaXMgbm9uLU5VTEwgb25seSB3aGVuOgoKWyAgICAx
+LjM1NTczNV0gVW5hYmxlIHRvIGhhbmRsZSBrZXJuZWwgTlVMTCBwb2ludGVyIGRlcmVmZXJlbmNl
+IGF0CnZpcnR1YWwgYWRkcmVzcyAwMDAwMDAwMDAwMDAwMDA4ClsgICAgMS4zNTgyMTJdIEN1cnJl
+bnQgc3dhcHBlci8wIHBndGFibGU6IDRLIHBhZ2VzaXplLCA1Ny1iaXQgVkFzLApwZ2RwPTB4MDAw
+MDAwMDA4MWEyYjAwMApbICAgIDEuMzYwNjMyXSBbMDAwMDAwMDAwMDAwMDAwOF0gcGdkPTAwMDAw
+MDAwMDAwMDAwMDAKWyAgICAxLjM2MzEzMl0gT29wcyBbIzFdClsgICAgMS4zNjM3NDhdIE1vZHVs
+ZXMgbGlua2VkIGluOgpbICAgIDEuMzY0NzY4XSBDUFU6IDMgVUlEOiAwIFBJRDogMSBDb21tOiBz
+d2FwcGVyLzAgTm90IHRhaW50ZWQKNi4xNi4wLXJjMS0wMDAzNy1nYWI1NWUxYzFkOTdhLWRpcnR5
+ICM3IE5PTkUKWyAgICAxLjM2ODMyNV0gZXBjIDogbXV0ZXhfbG9jaysweDAvMHgyOApbICAgIDEu
+MzY5Nzk2XSAgcmEgOiBfX21zaV9sb2NrX2Rlc2NzKzB4MzIvMHgzYwpbICAgIDEuMzcwMjM0XSBl
+cGMgOiBmZmZmZmZmZjgwYWY5NmU4IHJhIDogZmZmZmZmZmY4MDAwMzhlNiBzcCA6CmZmMjAwMDAw
+MDAwNGJhOTAKWyAgICAxLjM3MjQxMl0gIGdwIDogZmZmZmZmZmY4MTgxOWMwMCB0cCA6IGZmNjAw
+MDAwMDFkYzAwMDAgdDAgOgo2OTAwMDAwMDAwMDAwMDAwClsgICAgMS4zNzM1MjddICB0MSA6IDAw
+MDAwMDAwMDAwMDAwNzIgdDIgOiA2OTYyNzMyZDc2NjM3MzY5IHMwIDoKZmYyMDAwMDAwMDA0YmFi
+MApbICAgIDEuMzc2NjI4XSAgczEgOiBmZjYwMDAwMDAyNDFjNDEwIGEwIDogMDAwMDAwMDAwMDAw
+MDAwOCBhMSA6CmZmZmZmZmZmODE2OGNhNTgKWyAgICAxLjM3OTExMF0gIGEyIDogMDAwMDAwMDAw
+MDAwMDAxMCBhMyA6IDAwMDAwMDAwMDAwMDAwYTMgYTQgOgowMDAwMDAwMDAwMDAwMDAwClsgICAg
+MS4zODA0MTBdICBhNSA6IDAwMDAwMDAwMDAwMDAwMDAgYTYgOiAwMDAwMDAwMDAwMDAwMDAwIGE3
+IDoKMDAwMDAwMDA0NDQyNDM0ZQpbICAgIDEuMzgxMDE5XSAgczIgOiAwMDAwMDAwMDAwMDAwMDAw
+IHMzIDogZmY2MDAwMDAzZmZmMzBhMCBzNCA6CmZmNjAwMDAwMDI0MWM0MTAKWyAgICAxLjM4MTU3
+OV0gIHM1IDogZmY2MDAwMDAwMzlmOTMyMCBzNiA6IGZmNjAwMDAwMDI0MWM0MDAgczcgOgowMDAw
+MDAwMDAwMDAwMDAyClsgICAgMS4zODIyNDJdICBzOCA6IGZmZmZmZmZmODE4MjFmYTAgczkgOiAw
+MDAwMDAwMDAwMDAwMDAwIHMxMDoKMDAwMDAwMDAwMDAwMDAwMApbICAgIDEuMzg0MDE4XSAgczEx
+OiAwMDAwMDAwMDAwMDAwMDAwIHQzIDogZmZmZmZmZmY4MTgzMGEzNyB0NCA6CmZmZmZmZmZmODE4
+MzBhMzcKWyAgICAxLjM4NTk1OF0gIHQ1IDogZmZmZmZmZmY4MTgzMGEzOCB0NiA6IGZmMjAwMDAw
+MDAwNGI3YzgKWyAgICAxLjM4NzMwNl0gc3RhdHVzOiAwMDAwMDAwMjAwMDAwMTIwIGJhZGFkZHI6
+IDAwMDAwMDAwMDAwMDAwMDgKY2F1c2U6IDAwMDAwMDAwMDAwMDAwMGQKWyAgICAxLjM4ODQwN10g
+WzxmZmZmZmZmZjgwYWY5NmU4Pl0gbXV0ZXhfbG9jaysweDAvMHgyOApbICAgIDEuMzg5MzMzXSBb
+PGZmZmZmZmZmODAwMDNkYmE+XSBtc2lfZG9tYWluX2ZyZWVfaXJxc19hbGwrMHgyYS8weDQ4Clsg
+ICAgMS4zOTAyNzVdIFs8ZmZmZmZmZmY4MDcxNGU4Nj5dIHBsYXRmb3JtX2RldmljZV9tc2lfZnJl
+ZV9pcnFzX2FsbCsweDE2LzB4MmMKWyAgICAxLjM5MTcxNV0gWzxmZmZmZmZmZjgwOGQ4MTE0Pl0g
+bXB4eV9tYm94X3Byb2JlKzB4NmRjLzB4NzUwClsgICAgMS4zOTI1MjJdIFs8ZmZmZmZmZmY4MDZm
+MTcwNj5dIHBsYXRmb3JtX3Byb2JlKzB4NGUvMHhiNApbICAgIDEuMzkzMTY5XSBbPGZmZmZmZmZm
+ODA2ZWVmNTg+XSByZWFsbHlfcHJvYmUrMHg4NC8weDIzMApbICAgIDEuMzkzNzg5XSBbPGZmZmZm
+ZmZmODA2ZWYxNjA+XSBfX2RyaXZlcl9wcm9iZV9kZXZpY2UrMHg1Yy8weGRjClsgICAgMS4zOTQy
+ODJdIFs8ZmZmZmZmZmY4MDZlZjJhND5dIGRyaXZlcl9wcm9iZV9kZXZpY2UrMHgyYy8weGY4Clsg
+ICAgMS4zOTY1NzddIFs8ZmZmZmZmZmY4MDZlZjRhYz5dIF9fZHJpdmVyX2F0dGFjaCsweDZjLzB4
+MTVjClsgICAgMS4zOTc2MzRdIFs8ZmZmZmZmZmY4MDZlZDE0Nj5dIGJ1c19mb3JfZWFjaF9kZXYr
+MHg2Mi8weGIwClsgICAgMS4zOTkwNjBdIFs8ZmZmZmZmZmY4MDZlZWE5YT5dIGRyaXZlcl9hdHRh
+Y2grMHgxYS8weDI0ClsgICAgMS4zOTk3OTJdIFs8ZmZmZmZmZmY4MDZlZTMxZT5dIGJ1c19hZGRf
+ZHJpdmVyKzB4Y2UvMHgxZDgKWyAgICAxLjQwMDM2M10gWzxmZmZmZmZmZjgwNmYwMjBjPl0gZHJp
+dmVyX3JlZ2lzdGVyKzB4NDAvMHhkYwpbICAgIDEuNDAwODMyXSBbPGZmZmZmZmZmODA2ZjE0MTQ+
+XSBfX3BsYXRmb3JtX2RyaXZlcl9yZWdpc3RlcisweDFjLzB4MjQKWyAgICAxLjQwMTU1MV0gWzxm
+ZmZmZmZmZjgwYzNkZjdlPl0gbXB4eV9tYm94X2RyaXZlcl9pbml0KzB4MWEvMHgyNApbICAgIDEu
+NDAyMzI4XSBbPGZmZmZmZmZmODAwMTA4YjI+XSBkb19vbmVfaW5pdGNhbGwrMHg1Ni8weDFkOApb
+ICAgIDEuNDAzNjc0XSBbPGZmZmZmZmZmODBjMDEyMzY+XSBrZXJuZWxfaW5pdF9mcmVlYWJsZSsw
+eDI2Ni8weDJkMApbICAgIDEuNDA0OTU2XSBbPGZmZmZmZmZmODBhZjU0OWE+XSBrZXJuZWxfaW5p
+dCsweDFlLzB4MTNjClsgICAgMS40MDU0MjJdIFs8ZmZmZmZmZmY4MDAxMjI2Nj5dIHJldF9mcm9t
+X2Zvcmtfa2VybmVsKzB4ZS8weGNjClsgICAgMS40MDU4NzBdIFs8ZmZmZmZmZmY4MGFmZjA0Mj5d
+IHJldF9mcm9tX2Zvcmtfa2VybmVsX2FzbSsweDE2LzB4MTgKCkl0IGlzIGJldHRlciB0byBoYXZl
+IHRoZSBjaGVjayBvbiAibWJveC0+bXNpX2NvdW50IiBiZWZvcmUgY2FsbGluZwpwbGF0Zm9ybV9k
+ZXZpY2VfbXNpX2ZyZWVfaXJxc19hbGwoKS4KClJlZ2FyZHMsCkFudXAKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlz
+dApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQu
+b3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
