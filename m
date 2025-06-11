@@ -4,93 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D68C677C4
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 03:10:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F489C61DB2
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 03:17:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:List-Subscribe:List-Help:
-	List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Date:Cc:To:From:Subject:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Bpbup5Q1L7udyBw/FsWb5l2+kxRLWq4x6sn+MXNU/C8=; b=Akh75/GlZm1Y9T
-	myfaPG0NCpI+GjK3HP817zHxxG6a2cOJC6KvT9Zbj60yQQ1Hw/y/GHyQaN0MumUxIdPHulGju6QoG
-	c6VpLswWxni7eOcmOwzn4G3s1W00z+BZufXUgVBX1pc7ObcxjjAuoYTpC8sKHTU3Y5BbIOrWPH5U/
-	zXN7uU2DKE+gDye9LHfqhZV/nRo3Ed7gmhj4Y58aJyJ9RmagFUSb0CzGnjXZ9eSMHzzrmcjhQjpaZ
-	6B0q2RwKi0B7RulKVBkea5rK45Oei/N7IZ+VNdgkxxwD+v2XcjDd25XKYPv1uklIGQ5z2Dn5KK+pm
-	JjBJTNfSH+uVN6WKrqow==;
+	List-Owner; bh=Yyc4kzfNSmxDyNgvYZgshJ8JmXfsw89lEvAvUsCYsp0=; b=KKRyiZaYnEHts0
+	Tt8ebQjzbPtOTsqxBaK8ZBK0uNXiQEtEn9j823ls3n8OH6l0N0bPmPZUwoIM2RX779Bm42ZPQQQ9g
+	LkcCXH5Tun+FDWMhyk0JJ1Nh8ZIJdKfroPxNKQX4KWhyP+XoqMWZmuULG/Y8u3Zm2zWgJ4OeWsCG7
+	DMF7djB1FuhyBbVUzLcy1C4i8Kc0HhdkUjua16jqte7+3eA4XDER9iSMUKw8cd76JNa+u7MYZ2vDn
+	KxdC8CxVfZOLl85A8XCJ6PRWwjaURq/9cTVjFx90yEoL8UMzXzAQq/ROLNSeMoLKT+AkU5OkHp6Om
+	/Lqn5fK7N3CS5OczGQcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPBrV-00000008ie5-108w;
-	Wed, 11 Jun 2025 03:10:49 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1uPBxN-00000008j9S-1h8m;
+	Wed, 11 Jun 2025 03:16:53 +0000
+Received: from mx0b-001b2d01.pphosted.com ([148.163.158.5])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPBrT-00000008idG-0yTt
-	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 03:10:48 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-234d366e5f2so70039665ad.1
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 20:10:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=sifive.com; s=google; t=1749611446; x=1750216246; darn=lists.infradead.org;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=d1JqEGYxVH+Ie0t+M4xdy6Q//NYQPkO37iVKF4LgSqk=;
-        b=Lnsu4PW5khBGAgd3Bp1JEq46m+gyKp51U3sJkSs1tp/+wyO7IEO+AemRX4LTkXzT6a
-         /h8S3h/T5J+2porNyWee702lPYVNEfqTPi/IJ+t76ohNqEeSlPIE8TNuX3bOJybZy63g
-         fuGzj+THW3o595Y6ow5iwKYtBfWqkmMVerpsmgGVAH0cA/s6HKLwAFvOlSe18fSjvTav
-         cB6ORNvS1wXoOiwbXoViyRxfAA7pFvnqhwCISBPNk4OWxImqx/QnXzena7sBXGODqDq9
-         d/tz5n6SyPYDoP3Ed2BV9P6TVG4wP+6q6uk35ZqVsG0sXQdzf0RSaPkKJh/YJnkyNoAG
-         5nrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749611446; x=1750216246;
-        h=references:in-reply-to:message-id:date:subject:cc:to:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d1JqEGYxVH+Ie0t+M4xdy6Q//NYQPkO37iVKF4LgSqk=;
-        b=UyAQ/HWlF4sa1zmbasYYhmdfYjlRG3s2pgeoWc7l64nVty++R1/d+uHb0Xa76Kc++7
-         NVuEqmWmm1keBj5/lGUw8RG8u2ij0ZbP2Go6Po9qgFZK6G03tNIfW6ADuJVP8vGoBCrz
-         RE6TjpWXG+SjLYLMf/JqpRU+YBaKc1+0xm76itIFrRBvdN0giWYuSaa+MU910gOAXkTk
-         Af5f2QhD36Cu3dddZiTiDmLfV2Di6E1Qzaqu1+a069j7A7gBzFAdgO6V4U+Lql6rjx/F
-         x6AJyOssaAqpvGaQiHtOc18v6w6pIgWLXTcQN1Bm0U6FHk71SX9Aq43EUmLYmcDsK7yo
-         eDjA==
-X-Forwarded-Encrypted: i=1; AJvYcCXUm8/X0QusJLn7LN27rG6bfW+nabcrNRG2x6ffaWrP2XNL++z6UgIDtdJIH0422UJ2jBNTz7R/QlSxpw==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyF06yGR33U3GhnRJwhV9Xz0cFqkb953JQghgqTr7SKK6wbFWTM
-	+LMe2lVTfhg3hWGaR6R93YU0TSoNqUGIibzNSt/1py2h7VXFLIDVUtV2C3/K8vup4L0=
-X-Gm-Gg: ASbGncvYGivPpiwU9suzagLR3b8PIp1o5oLDkQRbXh9f15BCFJli5CahonyEMf0yPNs
-	I3o7Aw12m3UUkU6K4DY6YGX7jLAsYybx8jqRS0fMi3zqzkOSbbB16zeqtO/DY2XMj55rff+kLfU
-	D8jACQ2UpHCFB4LczPNfFs3vTyMeWcJR9A68mKLwQGYa87L8R5QLjk8qQSHt5lVvTrzBHCFs7Ul
-	96n1YfUtmCjAuMmh9tKAIPSS09vvBV39UlvTd2EfZh4PvPYpTE1cJH2Qg11uquINH0NOjlNkeOa
-	KV9ewZdBuxtgsvAKiguptXeHrSZGBmXNI7w1W6OGB3d/TlwW9iLq9aXqwMhb/5o8IsX1U7+MHYX
-	9YkNEsa4Yo97+MoZLxpo=
-X-Google-Smtp-Source: AGHT+IG0HUndhOWNBFfl4fKV1QgjHGpPPezok587Gqjk8idox7vCs0ZKIJPZwB64MsRnAjYqekYvnA==
-X-Received: by 2002:a17:903:2390:b0:234:e7aa:5d9b with SMTP id d9443c01a7336-23641ab511amr21843485ad.23.1749611446469;
-        Tue, 10 Jun 2025 20:10:46 -0700 (PDT)
-Received: from hsinchu26.internal.sifive.com ([210.176.154.34])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-236030789c2sm77669035ad.29.2025.06.10.20.10.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 20:10:46 -0700 (PDT)
-From: Nick Hu <nick.hu@sifive.com>
-To: conor+dt@kernel.org,
-	krzk+dt@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org,
-	linux-riscv@lists.infradead.org
-Cc: Nick Hu <nick.hu@sifive.com>,
-	Samuel Holland <samuel.holland@sifive.com>,
-	Anup Patel <anup@brainfault.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>
-Subject: [PATCH v2 2/3] cpuidle: riscv-sbi: Work with the external pmdomain driver
-Date: Wed, 11 Jun 2025 11:10:21 +0800
-Message-Id: <20250611031023.28769-3-nick.hu@sifive.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250611031023.28769-1-nick.hu@sifive.com>
-References: <20250611031023.28769-1-nick.hu@sifive.com>
+	id 1uPBxJ-00000008j8i-3FyX;
+	Wed, 11 Jun 2025 03:16:51 +0000
+Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55B0wOUA005022;
+	Wed, 11 Jun 2025 03:16:40 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=Lf7BvV
+	IDm8EM4XYNV56QJUeGN0cANCnC7Jw/EtcpFEY=; b=LPSzMqm316st9ZRmvQohwq
+	4MmCCN2w4wfiFJhlO4k5MovQ1dKzRcpmgm/P+yIApgO/iNYvXHfdB0Tj/HilTVME
+	FurFKplwHWSRHlkT4BXyv8jMsUdHdUIcURVpUFQZLOgJzoIJjVOUfiRi7h+1HQ1L
+	aY40ojvmwYMeOSPjZPCC6Y8www2W8nXltmxw4vKBELl8p45bLuOZw7Zn/TUuSSr5
+	d0ZPWuIA403HCN8Gmxr4t5iVEKh2P/VJZlV7jELBQOfH7R0ZrP/4nwrecoAJksrT
+	u/y4b3G/NTMt/v5uwfech002AuL3BRYcoZA8u+tAdSYL6jnCv/Dx3b2Y0RcGQd9Q
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 474x4m75yc-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 03:16:40 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.2/8.18.1.2) with ESMTP id 55B0odqo015369;
+	Wed, 11 Jun 2025 03:16:18 GMT
+Received: from smtprelay06.dal12v.mail.ibm.com ([172.16.1.8])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4750rp5ph4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 11 Jun 2025 03:16:18 +0000
+Received: from smtpav06.wdc07v.mail.ibm.com (smtpav06.wdc07v.mail.ibm.com [10.39.53.233])
+	by smtprelay06.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 55B3GH7N17760930
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 11 Jun 2025 03:16:17 GMT
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 6E46458056;
+	Wed, 11 Jun 2025 03:16:17 +0000 (GMT)
+Received: from smtpav06.wdc07v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 15F665804E;
+	Wed, 11 Jun 2025 03:16:13 +0000 (GMT)
+Received: from jarvis.ozlabs.ibm.com (unknown [9.36.1.82])
+	by smtpav06.wdc07v.mail.ibm.com (Postfix) with ESMTP;
+	Wed, 11 Jun 2025 03:16:12 +0000 (GMT)
+Message-ID: <491294f7088d9946d00379fd833c0ab20069dea2.camel@linux.ibm.com>
+Subject: Re: [PATCH v14 00/11] Support page table check on PowerPC
+From: Andrew Donnellan <ajd@linux.ibm.com>
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+        linuxppc-dev@lists.ozlabs.org
+Cc: x86@kernel.org, linux-mm@kvack.org, linux-riscv@lists.infradead.org,
+        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+        pasha.tatashin@soleen.com, sweettea-kernel@dorminy.me
+Date: Wed, 11 Jun 2025 13:16:11 +1000
+In-Reply-To: <cd96d70b-1eb3-494a-912a-52d479e3df87@csgroup.eu>
+References: <20250411054354.511145-1-ajd@linux.ibm.com>
+	 <cd96d70b-1eb3-494a-912a-52d479e3df87@csgroup.eu>
+User-Agent: Evolution 3.56.2 (3.56.2-1.fc42) 
+MIME-Version: 1.0
+X-TM-AS-GCONF: 00
+X-Authority-Analysis: v=2.4 cv=Y4X4sgeN c=1 sm=1 tr=0 ts=6848f518 cx=c_pps a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17 a=IkcTkHD0fZMA:10 a=6IFa9wvqVegA:10 a=VnNF1IyMAAAA:8 a=LR7N31DEqsj-hj7dFvAA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-GUID: -tWHcyyOJQhD7KXGwD8yxemJpeXmI38q
+X-Proofpoint-ORIG-GUID: -tWHcyyOJQhD7KXGwD8yxemJpeXmI38q
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjExMDAyOCBTYWx0ZWRfXz2I+ORnuRokq a1euH+5GS2nvtXIg9KZ82iGM3bExHNmu5ahRlJPOx3jxFV0SITLic2eKrapS4OsG1RiGJQbdUFv AtgTIs5t17enLT6alHjDHLvIYWCvZ+5HRsxB6rH+zQABD7lwtqsp3su7ZnJEJKbUus1WPF52WP9
+ WG9K3XaXwpG7i2Ii7XIT1M7bDCkh40mlNuu34I4vE8XW7VAX+brkzSvZyRbNDjSsVnGuWjfnc/S rH7mYWhK0GZRoBM2wFwE3TP8VfqLrdwFMWR4d9dPPgYovR2hioNprdwcMJrLAxnBXqg2QOe4CdR tE4vsV0uSU0QrueVVUE417GAiDJ9kJ6x3MXfrJvD7KVlWw8iNvICnqIXyK5gmbWYI1GUOOpGFDM
+ WNY6llks3q2menjJsssWIqBdQa2nGulbcPasMef/2UjR+YWfXAYcROAxmMSKq/ajJGg/AUD5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
+ definitions=2025-06-11_01,2025-06-10_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=703 spamscore=0
+ clxscore=1011 lowpriorityscore=0 malwarescore=0 bulkscore=0 adultscore=0
+ impostorscore=0 suspectscore=0 phishscore=0 mlxscore=0 priorityscore=1501
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2505280000
+ definitions=main-2506110028
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250610_201047_281018_39082E8A 
-X-CRM114-Status: GOOD (  17.19  )
+X-CRM114-CacheID: sfid-20250610_201650_130902_F347EE3E 
+X-CRM114-Status: UNSURE (   7.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,112 +108,21 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-To work with the external pmdomain driver, exposing the
-`sbi_cpuidle_pd_power_off` and `sbi_dt_parse_state_node` so the external
-pmdomain driver can parse the riscv idle state data and set the domain
-idle state where powering off. In addition, defer the driver without
-error message when the parent domain is not ready.
+On Tue, 2025-06-10 at 09:33 +0200, Christophe Leroy wrote:
+> This series requires a rebase after commit 91e40668e70a 
+> ("mm/page_table_check: Batch-check pmds/puds just like ptes")
 
-Co-developed-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Samuel Holland <samuel.holland@sifive.com>
-Signed-off-by: Nick Hu <nick.hu@sifive.com>
----
- drivers/cpuidle/cpuidle-riscv-sbi.c | 17 +++++++++++------
- drivers/cpuidle/cpuidle-riscv-sbi.h | 20 ++++++++++++++++++++
- 2 files changed, 31 insertions(+), 6 deletions(-)
- create mode 100644 drivers/cpuidle/cpuidle-riscv-sbi.h
+Will respin!
+> 
 
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0fe1ece9fbdc..d53254601522 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -27,6 +27,7 @@
- #include <asm/suspend.h>
- 
- #include "cpuidle.h"
-+#include "cpuidle-riscv-sbi.h"
- #include "dt_idle_states.h"
- #include "dt_idle_genpd.h"
- 
-@@ -188,7 +189,7 @@ static const struct of_device_id sbi_cpuidle_state_match[] = {
- 	{ },
- };
- 
--static int sbi_dt_parse_state_node(struct device_node *np, u32 *state)
-+int sbi_dt_parse_state_node(struct device_node *np, u32 *state)
- {
- 	int err = of_property_read_u32(np, "riscv,sbi-suspend-param", state);
- 
-@@ -325,8 +326,9 @@ static int sbi_cpuidle_init_cpu(struct device *dev, int cpu)
- 	/* Initialize idle states from DT. */
- 	ret = sbi_cpuidle_dt_init_states(dev, drv, cpu, state_count);
- 	if (ret) {
--		pr_err("HART%ld: failed to init idle states\n",
--		       cpuid_to_hartid_map(cpu));
-+		if (ret != -EPROBE_DEFER)
-+			pr_err("HART%ld: failed to init idle states\n",
-+			       cpuid_to_hartid_map(cpu));
- 		return ret;
- 	}
- 
-@@ -356,7 +358,7 @@ static void sbi_cpuidle_domain_sync_state(struct device *dev)
- 
- #ifdef CONFIG_DT_IDLE_GENPD
- 
--static int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
-+int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
- {
- 	struct genpd_power_state *state = &pd->states[pd->state_idx];
- 	u32 *pd_state;
-@@ -533,8 +535,11 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
- 	for_each_present_cpu(cpu) {
- 		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
- 		if (ret) {
--			pr_debug("HART%ld: idle driver init failed\n",
--				 cpuid_to_hartid_map(cpu));
-+			if (ret == -EPROBE_DEFER)
-+				pr_debug("idle driver probe deferred\n");
-+			else
-+				pr_debug("HART%ld: idle driver init failed\n",
-+					 cpuid_to_hartid_map(cpu));
- 			goto out_fail;
- 		}
- 	}
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.h b/drivers/cpuidle/cpuidle-riscv-sbi.h
-new file mode 100644
-index 000000000000..f39186b65a10
---- /dev/null
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.h
-@@ -0,0 +1,20 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef __CPUIDLE_RISCV_SBI
-+#define __CPUIDLE_RISCV_SBI
-+
-+#ifdef CONFIG_DT_IDLE_GENPD
-+
-+int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd);
-+
-+#else
-+
-+static inline int sbi_cpuidle_pd_power_off(struct generic_pm_domain *pd)
-+{
-+	return 0;
-+}
-+
-+#endif
-+
-+int sbi_dt_parse_state_node(struct device_node *np, u32 *state);
-+
-+#endif
 -- 
-2.17.1
-
+Andrew Donnellan    OzLabs, ADL Canberra
+ajd@linux.ibm.com   IBM Australia Limited
 
 _______________________________________________
 linux-riscv mailing list
