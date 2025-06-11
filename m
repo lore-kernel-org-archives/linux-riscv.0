@@ -4,58 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E379C71141
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F85AC71143
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 18:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
 	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=Aq0qZQ6l1w+k0Zc7EjOzshbhogUJTNZfRjw1ezeGnr0=; b=tzRRo5Vfrn2geQ
-	nGq66kWUb69lCmLkIeb6aNcHAFtze/bvHkWPDEfPlqZdACRRT5Y8Cf3YtMVnvLoCyrTURw5Ixg/xQ
-	2OyoPQJ7irw6t5zLG07lRRH+Fk23Rqd+pUg7jP9OPjhZjtMugLosp4v/ofJX7hkdlU2k01m+xoMxi
-	Sa0u1rJH7d/NbQ+ZC1M5hCZRbXZKfZvdgW9tqG7VOLTSvTfEb/MHetOeVbwhXZ1RhPETvnyTUnEDP
-	mKqYOJ0+3fTDsfALWZ0WzxTTukapiF+n7II9pkzECIXxE8ucLHpl6ywzFT/n72w5Zxpk9kjM7IE5f
-	EEfLcLeJh0ZnZ7gFgoLw==;
+	List-Owner; bh=6pdm/NANIPp3bVYqpJQPaEFu9JJYbrfr1/Lebrme0Gk=; b=bnwjmCS68KdwwL
+	i6zow9OcfcubrIgPlIF0FteinOgC0luSx/8zVk58BQk/CcVSkbop4CYOGS24VLP42amyXn+qqBVGt
+	OSIaHdBv6VsZjvTGQfiX6cmUIMtKcUm0n+/UGxofDXk31UNOE4JoobbtA+5WSPb/+G4tp2YEhs6s2
+	oGn6gdNmtfo+hgddBZDe0Fwem8uMYdU8TeuQbD5YPZldjP2yY6b9B5KOoOWNJBH//1rF8zKcAHQM1
+	xq9Ba6IyTlOR4swfNbAAKB9wKslfMk95NyZN2wkVpfuMErzdRAAPVvdbwQz+XEDa+KyiOwkKDY7q9
+	dq/qOVjOWp810tLMoplQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPPk2-0000000AmRV-118P;
-	Wed, 11 Jun 2025 18:00:02 +0000
-Received: from woodpecker.gentoo.org ([140.211.166.183] helo=smtp.gentoo.org)
+	id 1uPPk6-0000000AmZr-3X2z;
+	Wed, 11 Jun 2025 18:00:06 +0000
+Received: from out-178.mta0.migadu.com ([2001:41d0:1004:224b::b2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPLrR-0000000A0XE-2oF9
+	id 1uPLts-0000000A0ov-1IqZ
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 13:51:26 +0000
-Received: from localhost (unknown [116.232.147.71])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: dlan)
-	by smtp.gentoo.org (Postfix) with ESMTPSA id 7C8C2340D31;
-	Wed, 11 Jun 2025 13:51:24 +0000 (UTC)
-Date: Wed, 11 Jun 2025 13:51:16 +0000
-From: Yixun Lan <dlan@gentoo.org>
-To: Guodong Xu <guodong@riscstar.com>
-Cc: vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com,
-	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de,
-	drew@pdp7.com, emil.renner.berthing@canonical.com,
-	inochiama@gmail.com, geert+renesas@glider.be, tglx@linutronix.de,
-	hal.feng@starfivetech.com, joel@jms.id.au, duje.mihanovic@skole.hr,
-	elder@riscstar.com, dmaengine@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org, spacemit@lists.linux.dev
-Subject: Re: [PATCH 7/8] dma: Kconfig: MMP_PDMA: Add support for ARCH_SPACEMIT
-Message-ID: <20250611135116-GYB125008@gentoo>
-References: <20250611125723.181711-1-guodong@riscstar.com>
- <20250611125723.181711-8-guodong@riscstar.com>
+	Wed, 11 Jun 2025 13:53:57 +0000
+Date: Wed, 11 Jun 2025 15:53:50 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1749650033;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6SmcMnYbOWQzWCVt53CcxqUoekdqiVe1d0Bbrj8p7r4=;
+	b=rVRrJ6ddkczAocQzeJy62uoVW+EqUuHoTzfGHO5VbnuDz9oOhPOeaJjbfQbD5g34I1uOk0
+	DBgaDtqveDXWm46GpekqL+ncbR80suUOjuTnOaGqyClK5eQEMIGLbCykN5aWjyEk4vKgpa
+	VZyORSDLkWqG6ZBbMc63a+OIr1KFqrs=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Nicolas Schier <nicolas.schier@linux.dev>
+To: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+Cc: Masahiro Yamada <masahiroy@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>, Willy Tarreau <w@1wt.eu>,
+	Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <linux@weissschuh.net>,
+	Brendan Higgins <brendan.higgins@linux.dev>,
+	David Gow <davidgow@google.com>, Rae Moar <rmoar@google.com>,
+	Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, kunit-dev@googlegroups.com,
+	linux-doc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	workflows@vger.kernel.org
+Subject: Re: [PATCH v3 02/16] kbuild: userprogs: also inherit byte order and
+ ABI from kernel
+Message-ID: <20250611-celadon-buzzard-of-wholeness-d8c0ce@l-nschier-aarch64>
+References: <20250611-kunit-kselftests-v3-0-55e3d148cbc6@linutronix.de>
+ <20250611-kunit-kselftests-v3-2-55e3d148cbc6@linutronix.de>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20250611125723.181711-8-guodong@riscstar.com>
+In-Reply-To: <20250611-kunit-kselftests-v3-2-55e3d148cbc6@linutronix.de>
+Organization: AVM GmbH
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_065125_726646_2B70FCED 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250611_065356_485970_4D2A9891 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,49 +80,20 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Guodong,
-  I'd suggest moving this patch after 4/8, as both of them should go
-via DMA susbystem tree, or simply squash them?
-
-On 20:57 Wed 11 Jun     , Guodong Xu wrote:
-> Extend the MMP_PDMA driver to support the SpacemiT architecture
-> by adding ARCH_SPACEMIT as a dependency in Kconfig.
-> 
-> This allows the driver to be built for SpacemiT-based platforms
-> alongside existing ARCH_MMP and ARCH_PXA architectures.
-> 
-> Signed-off-by: Guodong Xu <guodong@riscstar.com>
-> ---
->  drivers/dma/Kconfig | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/dma/Kconfig b/drivers/dma/Kconfig
-> index db87dd2a07f7..fff70f66c773 100644
-> --- a/drivers/dma/Kconfig
-> +++ b/drivers/dma/Kconfig
-> @@ -451,7 +451,7 @@ config MILBEAUT_XDMAC
->  
->  config MMP_PDMA
->  	tristate "MMP PDMA support"
-> -	depends on ARCH_MMP || ARCH_PXA || COMPILE_TEST
-> +	depends on ARCH_MMP || ARCH_PXA || ARCH_SPACEMIT || COMPILE_TEST
->  	select DMA_ENGINE
->  	help
->  	  Support the MMP PDMA engine for PXA and MMP platform.
-> -- 
-> 2.43.0
-> 
-> 
-
--- 
-Yixun Lan (dlan)
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gV2VkLCBKdW4gMTEsIDIwMjUgYXQgMDk6Mzg6MDhBTSArMDIwMCwgVGhvbWFzIFdlacOfc2No
+dWggd3JvdGU6Cj4gTWFrZSBzdXJlIHRoZSBieXRlIG9yZGVyIGFuZCBBQkkgb2YgdGhlIHVzZXJw
+cm9ncyBtYXRjaGVzIHRoZSBvbmUgb2YgdGhlCj4ga2VybmVsLCBzaW1pbGFyIHRvIGhvdyB0aGUg
+Yml0IHNpemUgaXMgaGFuZGxlZC4KPiBPdGhlcndpc2UgdGhlIHVzZXJwcm9ncyBtYXkgbm90IGJl
+IGV4ZWN1dGFibGUuCj4gVGhpcyBoYXBwZW5zIGZvciBleGFtcGxlIG9uIHBvd2VycGMgbGl0dGxl
+IGVuZGlhbiwgb3IgcmlzY3YzMi4KPiAKPiBTaWduZWQtb2ZmLWJ5OiBUaG9tYXMgV2Vpw59zY2h1
+aCA8dGhvbWFzLndlaXNzc2NodWhAbGludXRyb25peC5kZT4KPiAtLS0KPiAgTWFrZWZpbGUgfCA0
+ICsrLS0KPiAgMSBmaWxlIGNoYW5nZWQsIDIgaW5zZXJ0aW9ucygrKSwgMiBkZWxldGlvbnMoLSkK
+PiAKClJldmlld2VkLWJ5OiBOaWNvbGFzIFNjaGllciA8bi5zY2hpZXJAYXZtLmRlPgoKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KbGludXgtcmlzY3YgbWFp
+bGluZyBsaXN0CmxpbnV4LXJpc2N2QGxpc3RzLmluZnJhZGVhZC5vcmcKaHR0cDovL2xpc3RzLmlu
+ZnJhZGVhZC5vcmcvbWFpbG1hbi9saXN0aW5mby9saW51eC1yaXNjdgo=
