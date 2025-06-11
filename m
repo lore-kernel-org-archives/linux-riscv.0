@@ -4,150 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9837FC61CE7
-	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 07:24:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854D8C71134
+	for <linux-riscv@archiver.kernel.org>; Wed, 11 Jun 2025 07:24:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References:Message-Id
-	:MIME-Version:Subject:Date:From:Reply-To:Content-ID:Content-Description:
+	Content-Transfer-Encoding:Content-Type:Cc:List-Subscribe:List-Help:List-Post:
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:To:From:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=8Bg0yTBR5OWfUhirwNBeR6H9am1Wjgus24F66vxF2I0=; b=MfjAPT4E+F8xL8
-	IjJZOp8mKXLQO7wI3w0r/R02FmZW4pAj9y06miLKvBIJXnF9JAxn/67G7dnVhY5PWaCP0hdcLDFuN
-	c4W0unqQQI4xfoKrbuBj7+c8q7CvIYgj86I+yz2SV13Uv2iHR2K2Idd1MEkyv7Y2ptvFniYFgLdvL
-	SYYJnmrTLR4F3Ph4EoEsoIALztXgTHx3HOR2GNtlHKjrQXdbZeWpxQMA45vTW47jrCjAguZuSBQEY
-	N7HdR5yQWav3R8BRtiPe+jrBI2FHBh3CgmViEbIkKPiaaGsRzzGPYskfVzd4G0ng6eNccQg4Vx31z
-	F7y8bOOfuXu7qxhIaFYA==;
+	List-Owner; bh=y8iaH97f6VUbHhB4JqUWNf0yiQcB+an/7IzgcPnrPvI=; b=CXBuWbP9cUUjTG
+	Og+REmSpKvhVRr3Mn1IDImKuiVTC24wvBh7S1g6Njz4gSfCUK1tXvSBLR8SJnnvdGkLSCG4d4QNu9
+	Ki8628Py2iIiSY+E/Rk7UMBEDAtTD5AJ2RzyzwresfmNoCzLLcwk3HX8J1JsRcwVX3B27+2poZRSm
+	h8IhHXNAFiLiXMX4REbQWZ555/l6jFQj6/RUzJSIDDTdYQMDe4uR/tssJOt9u1yyw5Aueo95n08wN
+	G6fbwWH1F8fJ5rkwxyVBoEEmVwk4RWSC+aGFPvBktEMWivzAPlmSIB6yvqhOBQyp2nkc+WMyu1e7t
+	7cmL1l7DIIAI+gf35Afg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPFof-000000095XG-26V8;
-	Wed, 11 Jun 2025 07:24:09 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1uPFoh-000000095ab-3ToJ;
+	Wed, 11 Jun 2025 07:24:11 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEju-00000008xJe-35BC
-	for linux-riscv@bombadil.infradead.org;
-	Wed, 11 Jun 2025 06:15:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=aNGt00qg7VwSs2+q3jw8T5TN27AreSOovDlc8CyaZ1s=; b=ZR5DQB0aHbOX6msY/HLMc7lExt
-	Wyhb6/YgE68J2e+8P57bi7nkyC2bFS4NpkDiTKJyNNc4vdbBxnIwZr8hFli+iUcR8BJ//Ad1ExoCM
-	30y8ubapeo0m1Nh2x04/va7ciZJcHu+Yk8OBvA/0IPh8y8adRRwFEngWMpMiXyh9TZfcmPAmuAq7e
-	WlTGgSfCkadOKvzg7RCyI6+QDtwERyqnYOQ/6zbra9vCc02w9xd2/EhiHw9X/eOdLOUZCeTRtr0AV
-	Unbek4SEHQuVSM9rmIoZ44MFlhp9BkWGLO8M9/Xk9hygq404NV/80RoRCPHXB/8b9pp0wLFyoHC7Y
-	wxYFqrEA==;
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPEjs-000000027lh-1m7Q
+	id 1uPErf-00000008yxd-11K1
 	for linux-riscv@lists.infradead.org;
-	Wed, 11 Jun 2025 06:15:10 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3a4e749d7b2so32955f8f.0
-        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:15:07 -0700 (PDT)
+	Wed, 11 Jun 2025 06:23:12 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-235f9e87f78so57718065ad.2
+        for <linux-riscv@lists.infradead.org>; Tue, 10 Jun 2025 23:23:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1749622506; x=1750227306; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=aNGt00qg7VwSs2+q3jw8T5TN27AreSOovDlc8CyaZ1s=;
-        b=WA9xHeuCXeC1EspqCYhp6OL+Qml1+UfDuwBzGNcZc98Z8nMvZho0ii5pZcWLuhowCE
-         tqK0vytJUQP2mJiUUlEaeOEpsJV6MixuJqgqihg5O8QJrKEelnU+lb00G33gJc60ws8J
-         xDJQcKOwutLz7ilSkpBzVyvP18CvrwSUMStJ62uLbfxdo+jzsUqi1By5IIF2S37kUCDS
-         aDaWejBJY7WRfkT3Ozhv8TCPdCAFhffOjORZr6hOr1ilJKG1vnx2fvKMc5jJacPGWhgR
-         qjm6p9jsXEpLmWoghbVPz++qUL4A6fCIW/Fkm2WNCDy6/aazF/CBcEVgAQrnhXRmNguO
-         TWhQ==
+        d=ventanamicro.com; s=google; t=1749622990; x=1750227790; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1hhJCf0S1HrMwLYRdGRFvzVPJDaWXTpl7/BKK1v8w+s=;
+        b=VnWUs8ezM4gN4gFsXqVDAE+LhHvWeOqFDO6zauJcxuK6RkyvSIvrPmQsMVsh6rZ3rz
+         8kZwBBmkto+Z8hdfbD0n5Lg3gt6tBzAaLAm2Bejd0en7rixNbgLbT+2yRecwl25aZPDV
+         SUHACZx0wbJDUCKvq3fsGcNu1fbCeN7TOJbshFenJxw0cGnjxQMeiCIGTtDhFxdsvdJP
+         WMgYJ7WxCLczw8dAPY4dVz4BTdtGjKWfevf44zbHGYu/vsnTylx6zRkHlv2n0qnSWL5Y
+         Ud7rbtp2Yb1KRa8TBxXpmn1vrt0dUPjB3tm4Uq0SmHVqPvNAuhczfed4MB+ZIrfEER09
+         v8yQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749622506; x=1750227306;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1749622990; x=1750227790;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aNGt00qg7VwSs2+q3jw8T5TN27AreSOovDlc8CyaZ1s=;
-        b=LLLgVHWyZ1WSd3oGnRYZDozW0tybQzjL8o35ZDaz6h8EErMjgeRej5I4rsvZOh5q/I
-         QOqkUirj19wJsD9q1Q5zrNPJvW1Nw3lfwnYKT4iHwmRgHQZqexqYcIh04fj6mWxeoMfU
-         c9Kj2CN07zZvSspo8fBC66oWiHls5Q5IbKLXl+spjt7wgGkyKIwhlMjJcZNPQ+Lb5MKR
-         REoMe8pUfpMLOng5c3NJDPCygbQXx0It60K4Wa1MJDojFBb98Bc2ry0ofG1fphYFbqYZ
-         RJ0P6LnzYMaw8eraxC4FXes2OePs5AmvP7bXlzgLWd94rnqeKnDYdXAQXGjDE0VwL9s9
-         P9UA==
-X-Forwarded-Encrypted: i=1; AJvYcCXMjorpktQbMnejZpCs2FQOZu+D8uitOJ1dRQgWEbqrpJma/KOgWB0yFcuMKkDxgNkHSvtRq0OkJcMqWA==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyunm6alt4gpwPskjc6WHOf/Sy33+mSI/ZyU9fpiWjBk8QgP6ZN
-	r5Eq5NLblZpFjZfIH+Wm/s+iHeUjs6x7CCkHxco/puloZtrJgqeyVyGOmu9mXam/J4c=
-X-Gm-Gg: ASbGncud58QNiNeq1HVsXNsZg7yg/3R1V0coR1E+M9OkS8YF9GxLZvijt92iCNCATpQ
-	Cwg1sIRrxjGV1s6qjNc7QjquWsM29Q8eC1hxf79qUXlTd2fPmC24yvUcraow9HkVWCv5g/Hcdh3
-	y9QfSEB6gBCBTuc7snnwKojiDmIa0p2Ikh8fYYh0+oX0X5UY1zBX+uyUN5virDBuxhmKzYTu8fk
-	yE2yWBbbhLSyWnsyYt0hknP0PNnmT3rUjf6K0btdpiZX9CbPVUhcd0fGUE+zzXpeVq2t79JzwpL
-	PnJWUk+yflHBBCg7WJZdeK/d9oTZBznijg0SVfWi/cf33pJNZ8DRT6ttFsSni/C4rqUuU6O3kmR
-	sXMD3Xoo=
-X-Google-Smtp-Source: AGHT+IE9iZS2ogk7tJvE3rsCnY0wk29G93paez5PAAUjPtvkW7CHHsEWc6qFRUHnr1G7smpnBlKSHQ==
-X-Received: by 2002:a05:600c:859c:b0:453:c39:d0b1 with SMTP id 5b1f17b1804b1-45324875832mr4048235e9.2.1749622506314;
-        Tue, 10 Jun 2025 23:15:06 -0700 (PDT)
-Received: from [192.168.1.29] ([178.197.223.125])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a53244f516sm14142791f8f.74.2025.06.10.23.15.03
+        bh=1hhJCf0S1HrMwLYRdGRFvzVPJDaWXTpl7/BKK1v8w+s=;
+        b=la2oTLmqAoe6wpEPNygCsyNMsHfheh9is+eCusiPyvuX3pKkhC2x97v8EnN65Hboz/
+         Plg/ulIKAV3W1hninfePlNqQZ4+xwJL+YoDJcUIRV7pNTO6OeHk1bs1zqmuIt9oe960c
+         Vha63m6JzKBNZkFbbPUseV0wUeV7tBKQSDSLruDFS/ZihKR+/C9BYnticMXkAQhbTYtz
+         jnorhFsaMQcYDPpmHbxraQQSIHVYaqSUZJOo9XdOHAwCwbw3wgASXItlGfjszHHmBBZr
+         yGUGbiKFBjnc1uhaUesDoTA/vhy9vWY4Yv+2S6VprhDukvFi12fNynInWCfQ6vaq9+eG
+         M9Vw==
+X-Forwarded-Encrypted: i=1; AJvYcCUYzwmK6FKMgAJpK8sRq8a3ahwnPh+NyBUHMKndmhG9kCiHcf+A8sSjS/v8najr4Uom348hSvx5piyPkQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0YweMyGIaqinUErvflXR66KyYHBNKz5AA5bO+AeTFjbhyHBk7sZi
+	6j2M9KHHxDdIZNZzhbaDHO8J1WFQ5DIITfgTimnqDfa4uvPXS1WuU1O3XRzdAPlfUCY=
+X-Gm-Gg: ASbGncv9f/lgPwRyQEX+IKJRbgSn8kjLN2rD73heuwTK5+vPBieGtv34V/hBn+2CCPG
+	vDtk6W064WdsH+37stJMSojk2wrM06T/cVtwJ/rHWNH5zsjGGT2o2F3GmuhIT5Wa+w4st00XRHD
+	ugV/cbWmg4l0zhLuEMpUTULwJhw0/of+UVsNovFKUAiKxw2CU1IVZ6iqg03ZBaoln+6FExX73NH
+	RMx0Sa8enafhkSyqLgAf6HEwMEFD4UgwjlkVg6UyNjp6P1AZYp0+DkFh6b7CC/Z9uDCdvAp29Py
+	Sl+Rm7jqqN8xAuuhw+mWWkUb7Fr1IbNcYtN1oPZR4hZn7iS1f/NrPhhXTWBsH6y1FqBFbPg7Lw+
+	AV7pghwCJ7n9LFYivwtcyXHNmyA==
+X-Google-Smtp-Source: AGHT+IGYvPF8a0ieyfCcXWkb9basvXu1C61BkUa+573NYbGt/torEkQigxWEXo3WPB2gMuuh/gndlw==
+X-Received: by 2002:a17:902:ccc8:b0:234:8eeb:d809 with SMTP id d9443c01a7336-236426b57a5mr26776185ad.43.1749622990453;
+        Tue, 10 Jun 2025 23:23:10 -0700 (PDT)
+Received: from anup-ubuntu-vm.localdomain ([103.97.166.196])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-23603092677sm79976295ad.64.2025.06.10.23.23.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 10 Jun 2025 23:15:05 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 11 Jun 2025 08:13:48 +0200
-Subject: [PATCH v2 16/17] pinctrl: Constify static 'pinctrl_desc'
+        Tue, 10 Jun 2025 23:23:09 -0700 (PDT)
+From: Anup Patel <apatel@ventanamicro.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jassi Brar <jassisinghbrar@gmail.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
+Subject: [PATCH v5 02/23] dt-bindings: mailbox: Add bindings for RISC-V SBI MPXY extension
+Date: Wed, 11 Jun 2025 11:52:17 +0530
+Message-ID: <20250611062238.636753-3-apatel@ventanamicro.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250611062238.636753-1-apatel@ventanamicro.com>
+References: <20250611062238.636753-1-apatel@ventanamicro.com>
 MIME-Version: 1.0
-Message-Id: <20250611-pinctrl-const-desc-v2-16-b11c1d650384@linaro.org>
-References: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
-In-Reply-To: <20250611-pinctrl-const-desc-v2-0-b11c1d650384@linaro.org>
-To: Linus Walleij <linus.walleij@linaro.org>, 
- Basavaraj Natikar <Basavaraj.Natikar@amd.com>, 
- Shyam Sundar S K <Shyam-sundar.S-k@amd.com>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>, 
- Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
- Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
- Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
- =?utf-8?q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
- Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- David Rhodes <david.rhodes@cirrus.com>, 
- Richard Fitzgerald <rf@opensource.cirrus.com>, 
- Charles Keepax <ckeepax@opensource.cirrus.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, Sean Wang <sean.wang@kernel.org>, 
- Jesper Nilsson <jesper.nilsson@axis.com>, 
- Lars Persson <lars.persson@axis.com>, Damien Le Moal <dlemoal@kernel.org>, 
- Vladimir Zapolskiy <vz@mleia.com>, Michal Simek <michal.simek@amd.com>, 
- Emil Renner Berthing <kernel@esmil.dk>, 
- Jianlong Huang <jianlong.huang@starfivetech.com>, 
- Hal Feng <hal.feng@starfivetech.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-aspeed@lists.ozlabs.org, openbmc@lists.ozlabs.org, 
- linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
- linux-sound@vger.kernel.org, patches@opensource.cirrus.com, 
- linux-mediatek@lists.infradead.org, linux-arm-kernel@axis.com, 
- linux-riscv@lists.infradead.org, linux-rtc@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7477;
- i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=Yg+ckOrH0WLaxHkGgs1KteCaW8JIcss9g2Abd14ew30=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBoSR6shEIN/DUxc27nmKSxmuEsUQ1U0xEoqpgrx
- /T0IwSTLwCJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCaEkerAAKCRDBN2bmhouD
- 17j+EACF9prxhUrQuEqt1EdqbYho5Qt8xy00eIHDjjk68M7IfneU+MytLVtXHc90NbhgLcT86mm
- vdCWelYNgNKA668j3/VA6xXTopwL1hlMy/jnTB8jh5rMJ2hlGxFDCqJ86j6MNWvW60HRFzApvm2
- 6huEh4fnrAjg+R+g3yEdRW7Qe6MueHuz9QVcCqul2QrdmgoPV49FPMoD0PnR+pHwcyVvqZHKtJU
- 1cLarE6mR7IN9rtq8VTY89MWghmWHcObWYCTjXh0TqMu0KkzSxtiCk0d94XSq6g/QjgdivQHC5u
- ADT9IDcY8pgR02EHdGcECrVO6CktxyWN+unzYizFvXVuK5EQB/YjHDw7E6DBnQQnOQCbkmfJxSN
- r6fhH9CqmgZc+cZ3FGhuYcV7tLm1+NT2FmFE8E5mAjma+8Pu6/anSWofW7rGt2FBrN5UNn1NE6C
- E2unp6xRnREFIFCwxDnPpgCl/OVIpEO5mWkjST0EzqM2KFyNghU6qsolX2yGMn2W+5pWxjZUlRc
- L+AAfic6Pv5S/kzwYI18kabcNT0oC2alEojFJoFx+gzSZBOkePVYApK1geqESaBkyQhIme9cn3u
- BFhDrCi2icxQZIxntSOVUajxKCVuR9iync3tfL+BFwkpSef/Ss5g73RCcYvg8Gi3R5Gm3Eu082P
- /bztidBtdBUhi6A==
-X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
- fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_071508_844708_FE296D35 
-X-CRM114-Status: GOOD (  12.35  )
+X-CRM114-CacheID: sfid-20250610_232311_285882_FA48A75C 
+X-CRM114-Status: GOOD (  13.25  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,178 +104,80 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
+Cc: Anup Patel <apatel@ventanamicro.com>, devicetree@vger.kernel.org, Andrew Jones <ajones@ventanamicro.com>, Atish Patra <atish.patra@linux.dev>, Leyfoon Tan <leyfoon.tan@starfivetech.com>, Anup Patel <anup@brainfault.org>, linux-kernel@vger.kernel.org, Samuel Holland <samuel.holland@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, Paul Walmsley <paul.walmsley@sifive.com>, linux-riscv@lists.infradead.org, Len Brown <lenb@kernel.org>, linux-clk@vger.kernel.org, Rahul Pathak <rpathak@ventanamicro.com>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-The local static 'struct pinctrl_desc' is not modified, so can be made
-const for code safety.
+Add device tree bindings for the RISC-V SBI Message Proxy (MPXY)
+extension as a mailbox controller.
 
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Acked-by: Jesper Nilsson <jesper.nilsson@axis.com>
-Reviewed-by: Charles Keepax <ckeepax@opensource.cirrus.com>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Anup Patel <apatel@ventanamicro.com>
 ---
- drivers/pinctrl/berlin/berlin.c                    | 2 +-
- drivers/pinctrl/cirrus/pinctrl-cs42l43.c           | 2 +-
- drivers/pinctrl/mediatek/pinctrl-airoha.c          | 2 +-
- drivers/pinctrl/pinctrl-artpec6.c                  | 2 +-
- drivers/pinctrl/pinctrl-bm1880.c                   | 2 +-
- drivers/pinctrl/pinctrl-k210.c                     | 2 +-
- drivers/pinctrl/pinctrl-lpc18xx.c                  | 2 +-
- drivers/pinctrl/pinctrl-mlxbf3.c                   | 2 +-
- drivers/pinctrl/pinctrl-tb10x.c                    | 2 +-
- drivers/pinctrl/pinctrl-zynq.c                     | 2 +-
- drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c | 2 +-
- 11 files changed, 11 insertions(+), 11 deletions(-)
+ .../bindings/mailbox/riscv,sbi-mpxy-mbox.yaml | 51 +++++++++++++++++++
+ 1 file changed, 51 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
 
-diff --git a/drivers/pinctrl/berlin/berlin.c b/drivers/pinctrl/berlin/berlin.c
-index c372a2a24be4bb80b1f2475ef8512171c8e1326f..e5a35b803ce66d247c5e5ad78e6677570a1add60 100644
---- a/drivers/pinctrl/berlin/berlin.c
-+++ b/drivers/pinctrl/berlin/berlin.c
-@@ -283,7 +283,7 @@ static int berlin_pinctrl_build_state(struct platform_device *pdev)
- 	return 0;
- }
- 
--static struct pinctrl_desc berlin_pctrl_desc = {
-+static const struct pinctrl_desc berlin_pctrl_desc = {
- 	.name		= "berlin-pinctrl",
- 	.pctlops	= &berlin_pinctrl_ops,
- 	.pmxops		= &berlin_pinmux_ops,
-diff --git a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c b/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-index 628b60ccc2b07dc77e36da8919436fa348749e0c..a90beb986f5bb707c54552e1333802943a4b04bc 100644
---- a/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-+++ b/drivers/pinctrl/cirrus/pinctrl-cs42l43.c
-@@ -448,7 +448,7 @@ static const struct pinconf_ops cs42l43_pin_conf_ops = {
- 	.pin_config_group_set	= cs42l43_pin_config_group_set,
- };
- 
--static struct pinctrl_desc cs42l43_pin_desc = {
-+static const struct pinctrl_desc cs42l43_pin_desc = {
- 	.name		= "cs42l43-pinctrl",
- 	.owner		= THIS_MODULE,
- 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-airoha.c b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-index b97b28ebb37a6ec092360f8ea404dd67e6c43eac..ccd2b512e8365b3a5af0bb223329f39119bc7078 100644
---- a/drivers/pinctrl/mediatek/pinctrl-airoha.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-airoha.c
-@@ -2852,7 +2852,7 @@ static const struct pinctrl_ops airoha_pctlops = {
- 	.dt_free_map = pinconf_generic_dt_free_map,
- };
- 
--static struct pinctrl_desc airoha_pinctrl_desc = {
-+static const struct pinctrl_desc airoha_pinctrl_desc = {
- 	.name = KBUILD_MODNAME,
- 	.owner = THIS_MODULE,
- 	.pctlops = &airoha_pctlops,
-diff --git a/drivers/pinctrl/pinctrl-artpec6.c b/drivers/pinctrl/pinctrl-artpec6.c
-index 717f9592b28b51737e67aafc93664b1345511908..af67057128ff1e9e766b958fece9c71518c89081 100644
---- a/drivers/pinctrl/pinctrl-artpec6.c
-+++ b/drivers/pinctrl/pinctrl-artpec6.c
-@@ -907,7 +907,7 @@ static const struct pinconf_ops artpec6_pconf_ops = {
- 	.pin_config_group_set	= artpec6_pconf_group_set,
- };
- 
--static struct pinctrl_desc artpec6_desc = {
-+static const struct pinctrl_desc artpec6_desc = {
- 	.name	 = "artpec6-pinctrl",
- 	.owner	 = THIS_MODULE,
- 	.pins	 = artpec6_pins,
-diff --git a/drivers/pinctrl/pinctrl-bm1880.c b/drivers/pinctrl/pinctrl-bm1880.c
-index b0000fe5b31dfbcd6af6eaf0c01029f00cbd205b..387798fb09be51cabd5cb76e0d90a28b1d363050 100644
---- a/drivers/pinctrl/pinctrl-bm1880.c
-+++ b/drivers/pinctrl/pinctrl-bm1880.c
-@@ -1298,7 +1298,7 @@ static const struct pinmux_ops bm1880_pinmux_ops = {
- 	.set_mux = bm1880_pinmux_set_mux,
- };
- 
--static struct pinctrl_desc bm1880_desc = {
-+static const struct pinctrl_desc bm1880_desc = {
- 	.name = "bm1880_pinctrl",
- 	.pins = bm1880_pins,
- 	.npins = ARRAY_SIZE(bm1880_pins),
-diff --git a/drivers/pinctrl/pinctrl-k210.c b/drivers/pinctrl/pinctrl-k210.c
-index eddb01796a83eb86c8c5bcf6788c999e8bf2926a..66c04120c29deccf53b21cbf8705f1d10c74ace5 100644
---- a/drivers/pinctrl/pinctrl-k210.c
-+++ b/drivers/pinctrl/pinctrl-k210.c
-@@ -879,7 +879,7 @@ static const struct pinctrl_ops k210_pinctrl_ops = {
- 	.dt_free_map = pinconf_generic_dt_free_map,
- };
- 
--static struct pinctrl_desc k210_pinctrl_desc = {
-+static const struct pinctrl_desc k210_pinctrl_desc = {
- 	.name = "k210-pinctrl",
- 	.pins = k210_pins,
- 	.npins = K210_NPINS,
-diff --git a/drivers/pinctrl/pinctrl-lpc18xx.c b/drivers/pinctrl/pinctrl-lpc18xx.c
-index 0f5a7bed2f81b731714e3b65908df23f2ffdfd63..5e0201768323521754e7ecd27e878a81925c18a6 100644
---- a/drivers/pinctrl/pinctrl-lpc18xx.c
-+++ b/drivers/pinctrl/pinctrl-lpc18xx.c
-@@ -1257,7 +1257,7 @@ static const struct pinctrl_ops lpc18xx_pctl_ops = {
- 	.dt_free_map		= pinctrl_utils_free_map,
- };
- 
--static struct pinctrl_desc lpc18xx_scu_desc = {
-+static const struct pinctrl_desc lpc18xx_scu_desc = {
- 	.name = "lpc18xx/43xx-scu",
- 	.pins = lpc18xx_pins,
- 	.npins = ARRAY_SIZE(lpc18xx_pins),
-diff --git a/drivers/pinctrl/pinctrl-mlxbf3.c b/drivers/pinctrl/pinctrl-mlxbf3.c
-index ffb5dda364dc81808cfd5a168ce3f1e9f119357d..fcd9d46de89fb3e5215784109ba31b171fd15448 100644
---- a/drivers/pinctrl/pinctrl-mlxbf3.c
-+++ b/drivers/pinctrl/pinctrl-mlxbf3.c
-@@ -231,7 +231,7 @@ static const struct pinmux_ops mlxbf3_pmx_ops = {
- 	.gpio_request_enable = mlxbf3_gpio_request_enable,
- };
- 
--static struct pinctrl_desc mlxbf3_pin_desc = {
-+static const struct pinctrl_desc mlxbf3_pin_desc = {
- 	.name = "pinctrl-mlxbf3",
- 	.pins = mlxbf3_pins,
- 	.npins = ARRAY_SIZE(mlxbf3_pins),
-diff --git a/drivers/pinctrl/pinctrl-tb10x.c b/drivers/pinctrl/pinctrl-tb10x.c
-index 4edb20e619510b2f52c7cde41c2540328ec4e95d..129fa51d13b1e265b8145c87f19fba0e8f14f1aa 100644
---- a/drivers/pinctrl/pinctrl-tb10x.c
-+++ b/drivers/pinctrl/pinctrl-tb10x.c
-@@ -735,7 +735,7 @@ static const struct pinmux_ops tb10x_pinmux_ops = {
- 	.set_mux = tb10x_pctl_set_mux,
- };
- 
--static struct pinctrl_desc tb10x_pindesc = {
-+static const struct pinctrl_desc tb10x_pindesc = {
- 	.name = "TB10x",
- 	.pins = tb10x_pins,
- 	.npins = ARRAY_SIZE(tb10x_pins),
-diff --git a/drivers/pinctrl/pinctrl-zynq.c b/drivers/pinctrl/pinctrl-zynq.c
-index caa8a2ca3e681718fe213921deca8d130371b122..dcde86fed10db3e2dfebc19cb841ea7f63e74989 100644
---- a/drivers/pinctrl/pinctrl-zynq.c
-+++ b/drivers/pinctrl/pinctrl-zynq.c
-@@ -1143,7 +1143,7 @@ static const struct pinconf_ops zynq_pinconf_ops = {
- 	.pin_config_group_set = zynq_pinconf_group_set,
- };
- 
--static struct pinctrl_desc zynq_desc = {
-+static const struct pinctrl_desc zynq_desc = {
- 	.name = "zynq_pinctrl",
- 	.pins = zynq_pins,
- 	.npins = ARRAY_SIZE(zynq_pins),
-diff --git a/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c b/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
-index 27f99183d994dccb92aac81ca42228bdb9225e87..aeaa0ded7c1e5ee7f9c5e4113bfd208fb844ba7d 100644
---- a/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
-+++ b/drivers/pinctrl/starfive/pinctrl-starfive-jh7100.c
-@@ -898,7 +898,7 @@ static const struct pinconf_ops starfive_pinconf_ops = {
- 	.is_generic = true,
- };
- 
--static struct pinctrl_desc starfive_desc = {
-+static const struct pinctrl_desc starfive_desc = {
- 	.name = DRIVER_NAME,
- 	.pins = starfive_pins,
- 	.npins = ARRAY_SIZE(starfive_pins),
-
+diff --git a/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+new file mode 100644
+index 000000000000..061437a0b45a
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mailbox/riscv,sbi-mpxy-mbox.yaml
+@@ -0,0 +1,51 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mailbox/riscv,sbi-mpxy-mbox.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: RISC-V SBI Message Proxy (MPXY) extension based mailbox
++
++maintainers:
++  - Anup Patel <anup@brainfault.org>
++
++description: |
++  The RISC-V SBI Message Proxy (MPXY) extension [1] allows supervisor
++  software to send messages through the SBI implementation (M-mode
++  firmware or HS-mode hypervisor). The underlying message protocol
++  and message format used by the supervisor software could be some
++  other standard protocol compatible with the SBI MPXY extension
++  (such as RISC-V Platform Management Interface (RPMI) [2]).
++
++  ===========================================
++  References
++  ===========================================
++
++  [1] RISC-V Supervisor Binary Interface (SBI) v3.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-sbi-doc/releases
++
++  [2] RISC-V Platform Management Interface (RPMI) v1.0 (or higher)
++      https://github.com/riscv-non-isa/riscv-rpmi/releases
++
++properties:
++  compatible:
++    const: riscv,sbi-mpxy-mbox
++
++  "#mbox-cells":
++    const: 2
++    description:
++      The first cell specifies channel_id of the SBI MPXY channel,
++      the second cell specifies MSG_PROT_ID of the SBI MPXY channel
++
++required:
++  - compatible
++  - "#mbox-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    mailbox {
++          compatible = "riscv,sbi-mpxy-mbox";
++          #mbox-cells = <2>;
++    };
 -- 
-2.45.2
+2.43.0
 
 
 _______________________________________________
