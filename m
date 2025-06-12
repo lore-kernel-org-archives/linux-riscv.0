@@ -4,82 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A51E5C71135
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 02:49:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E1DC71149
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 02:49:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	List-Archive:List-Unsubscribe:List-Id:Cc:To:Subject:Message-ID:Date:From:
+	In-Reply-To:References:MIME-Version:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=EnJv8Wjmw06AD9NqE/I6xZPGmoWcUPP1V+wC1s+uQhA=; b=w9IPKUMaW8pIxf
-	F73EyHoTbG+IaYhl7+PLuUBeVnoYLb9BDfwcubm67sR6xsmeLRN3q7UZkuhmI2VoFegQ5T8HHlaaL
-	zNLcNg0LCg4TzJQmCORSJsjM5o3JnK/paqyZv25Dx1MHkOOa46QiN3L1i825cCc48ZVR2ioKIPM+m
-	A8aGgWxvrsNst7vs2+Yq6u0i3biM4ukFkCfzDY4vOFDTonolyWgHMZcb8GJUriS4deMBUJqYsIzxr
-	enGYYyL3OgPzVgtPdBIenz3YiqRmPfHxzhLQ8nrVmh6DAk0lCnyG9za5UJvqX8fy3FPojVtm0EUBi
-	nyiShBmAsj0oFKlGdsvQ==;
+	List-Owner; bh=k1OARlwJRihcSZwSpi21Qd93sB/fQlM7GVUHtwRZeq8=; b=T293YBOSgA65a4
+	VoAa0qToE27iIS53U+ABFftHFztM2dslqR56URrLraMOhPv1gNW9OM26itKkez4rPwo11vrB8hcQu
+	2OEmHgk/ggKyBUiQiy2N5ku60zoD6ofwfwu9RuzOG9WXNal492/46pDWFSpJD6gIqxKXiN2TOhWTm
+	EzEGhpRO02ln+h1J/Gb3F2+WigUWTnfhCrRgDmmMNCWyP8JBzPmAcnziWdwrXv62fY2Ia2CPC4dy6
+	4d0p18oCqZI1/d2OSVIzcCjt6c/JDltVgO/+v7ukMQfrvPslbaoi7RFHpp0RGhS6GLzkRIGKi8dY8
+	mRNJybdVm/TmgzXWGu/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPY0Q-0000000C146-0AQt;
-	Thu, 12 Jun 2025 02:49:30 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1uPY0T-0000000C17R-37SL;
+	Thu, 12 Jun 2025 02:49:33 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPWYt-0000000Brxd-481q
+	id 1uPX43-0000000Buf8-0hZt
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 01:17:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1749691020; x=1781227020;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=9cQWUCePEsft2HV53xBGF7MysPCcHtpQG4kJkhSeY4s=;
-  b=iL8TFPfAahgRUg6OWaHKOWERLk36uYkU7CjZLzQz9XsHhEUn1m+oEoUE
-   UPnbEvhJRl8h6S04OJXl+k9Zhq5GIE32bZKJqtusGAnWDZkd+JuAd3NYm
-   wErHI8YpUIFJ0lVqJAj4QbZzopQ1OJ1gs43uRa2NYQ5UOHd/YbBHfAgI8
-   6HNfIzSYXfofKmKd8eUYsEM5CECbLaN5zVizrtSlVavnDx09E8xPumpuQ
-   wcsJZMEIlYl46c7v2/kjxJ30g9fRAea+3HxkcdOT36WyNFGkeFVsivfeN
-   CFhfgLGLdo8Lup5QK6dUTJwpzia6fdFuxkTB9QVlpshOhBN8wrQ3jT4NC
-   w==;
-X-CSE-ConnectionGUID: jFUDGvBiSYWe+lNnu4ISbA==
-X-CSE-MsgGUID: oD/RHcpRRTSojLN+kSRCnw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11461"; a="55656378"
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="55656378"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Jun 2025 18:16:56 -0700
-X-CSE-ConnectionGUID: uEnlmiMNStCycJ50+9Yvkw==
-X-CSE-MsgGUID: FzzCKf4qSVitjP+8e/YByQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.16,229,1744095600"; 
-   d="scan'208";a="152135888"
-Received: from lkp-server01.sh.intel.com (HELO e8142ee1dce2) ([10.239.97.150])
-  by orviesa003.jf.intel.com with ESMTP; 11 Jun 2025 18:16:51 -0700
-Received: from kbuild by e8142ee1dce2 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1uPWYj-000AyI-0v;
-	Thu, 12 Jun 2025 01:16:49 +0000
-Date: Thu, 12 Jun 2025 09:16:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Nick Hu <nick.hu@sifive.com>, conor+dt@kernel.org, krzk+dt@kernel.org,
-	Alexandre Ghiti <alex@ghiti.fr>, linux-kernel@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-riscv@lists.infradead.org
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Nick Hu <nick.hu@sifive.com>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Samuel Holland <samuel.holland@sifive.com>
-Subject: Re: [PATCH v2 3/3] cpuidle: Add SiFive power provider
-Message-ID: <202506120817.nRfhoHbQ-lkp@intel.com>
-References: <20250611031023.28769-4-nick.hu@sifive.com>
+	Thu, 12 Jun 2025 01:49:12 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ad8a6c202ffso77121166b.3
+        for <linux-riscv@lists.infradead.org>; Wed, 11 Jun 2025 18:49:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=riscstar-com.20230601.gappssmtp.com; s=20230601; t=1749692949; x=1750297749; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=zeRmmiJk7dyHe2xsIaa6eDpe9k71PqYl6SPvF++88pc=;
+        b=m8Dj0JBuCsI6e31QJfud0yd5J9tNDDmuLoU/rEFWXnLp3JO/6JXMmESNrw5245NDkv
+         cbT2GMO75ALS17u63dJPZBDLHnhaVUzITkHkT5qS/fF0Wo3vXcf8vDnCYRQPNj5FaCT1
+         j5YfjGKDVi4OfVTgGeacyFBHR65iXQMEWqyfHPz4rJxEDl9y+V9EQxqIVaoCrr8y4vqJ
+         xP8CIoV97DNBYKZEJ4gXav5CLBbeSn7P3zxrGEsS55LgfpEp/94Z3k5JJZrHgFpNMct1
+         8x//wuU2/2PiDZJDcASAdrugkmJU8VSlPQHoEIDWODttZqdG7JCF7nC2m/6EDLRr1u0d
+         lZ5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749692949; x=1750297749;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=zeRmmiJk7dyHe2xsIaa6eDpe9k71PqYl6SPvF++88pc=;
+        b=ovUagNiyjUdqceKgUZZTBy7lsN9ExjQwAxdv2ZGB06MyjCLtuO4lhtZgw3fjET+ZN0
+         zhcAyJ/KEz3gKK6FbdmN0FgsXyPIZckwTmbsHREpkH0myYHLeQRQMusgVQ3fLLNQROb7
+         rRE05nUfYVHcbFdxW+IsBaY5V2Tl2ZuMmWZOJSJ0Q+FOO6cLoLvCH+vemml8c47bDL/6
+         5fyCeBnh9A0DlfSa8IHhP47S0fGqGuZKiARSCu3hM8eQr1QcpX/HH41CaCSh0mEMB3hT
+         brQIVeIpshBBFhWwyofYQORldKEQnvsAkJdSOqh2YpAPMYGUWV98I8/zoTHu4FjuqINj
+         5rNw==
+X-Forwarded-Encrypted: i=1; AJvYcCXVP9zFb7Pr7twwRsQirf53e2EG6v+am47OXJTbHMznu4lYaOR/vfeXmDLdODb5D1EQLUoxwaTjnJ5m2A==@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx05nv3jupzgukKWBt/VZ8W3xJm2//zFVkitH0iu8n378nU8oJ4
+	MazPKz/FC8Y5Bhb5Lj0byAkgvJ0Obg+ZTGIpptWnbxGTg7FTjmJ9gUXnPHOhZeMB+mbdNPMKjO1
+	9kcrq49MD5lok+t7j+J51cofBtcHtXQFHy1D+r18rEQ==
+X-Gm-Gg: ASbGnctIXvKviOkG8qCJn5cYd8ZpJ/CeXBHb5UalzbNJfWWYC7TPwvOQ5/9e277yKZF
+	gLt7EXuzVNIUm/3BYQ4/TJQ+fAB0LM0AuJ+sD9sAVGXY6pEn+Y0880dJrEI7ftNbLKU1nUTD3Pa
+	HVHyItoga6mMz5xIALq8z9MXxB3FuT8mKUWpBydJGbbgbCvvx1FHlh/9A=
+X-Google-Smtp-Source: AGHT+IFqEcHJsmVoMqXHHPFn7yHeR1oDGdJeaYWXWqBT/PegqYwsZ5z0ffozW4eWFgBnqvaTPT/vq7D0XhuX7E2hMC8=
+X-Received: by 2002:a17:907:1c19:b0:ade:2c48:1ba7 with SMTP id
+ a640c23a62f3a-adea9a57710mr122939966b.55.1749692949426; Wed, 11 Jun 2025
+ 18:49:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <20250611031023.28769-4-nick.hu@sifive.com>
+References: <20250611125723.181711-1-guodong@riscstar.com> <20250611125723.181711-2-guodong@riscstar.com>
+ <20250611-kabob-unmindful-3b1e9728e77d@spud> <20250612000354-GYA127864@gentoo>
+In-Reply-To: <20250612000354-GYA127864@gentoo>
+From: Guodong Xu <guodong@riscstar.com>
+Date: Thu, 12 Jun 2025 09:48:55 +0800
+X-Gm-Features: AX0GCFvb3rY5RbOdj--6bI5I0CRQw5-xjkK6pB9t5n94l_np5ZJaDhu5M4gwDF4
+Message-ID: <CAH1PCMbZRhrrKy0TV7D9_nOKkPNuX7gXyyxtzhf_q7vcfhBB_Q@mail.gmail.com>
+Subject: Re: [PATCH 1/8] dt-bindings: dma: marvell,mmp-dma: Add SpacemiT PDMA compatibility
+To: Yixun Lan <dlan@gentoo.org>
+Cc: Conor Dooley <conor@kernel.org>, vkoul@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, paul.walmsley@sifive.com, palmer@dabbelt.com, 
+	aou@eecs.berkeley.edu, alex@ghiti.fr, p.zabel@pengutronix.de, drew@pdp7.com, 
+	emil.renner.berthing@canonical.com, inochiama@gmail.com, 
+	geert+renesas@glider.be, tglx@linutronix.de, hal.feng@starfivetech.com, 
+	joel@jms.id.au, duje.mihanovic@skole.hr, elder@riscstar.com, 
+	dmaengine@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+	spacemit@lists.linux.dev
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250611_181700_061129_C36F1032 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20250611_184911_209137_153FDD7D 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,166 +97,48 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-Hi Nick,
-
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on rafael-pm/linux-next]
-[also build test ERROR on rafael-pm/bleeding-edge robh/for-next linus/master v6.16-rc1 next-20250611]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Nick-Hu/cpuidle-riscv-sbi-Work-with-the-external-pmdomain-driver/20250611-121115
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/rafael/linux-pm.git linux-next
-patch link:    https://lore.kernel.org/r/20250611031023.28769-4-nick.hu%40sifive.com
-patch subject: [PATCH v2 3/3] cpuidle: Add SiFive power provider
-config: riscv-randconfig-002-20250612 (https://download.01.org/0day-ci/archive/20250612/202506120817.nRfhoHbQ-lkp@intel.com/config)
-compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project f819f46284f2a79790038e1f6649172789734ae8)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250612/202506120817.nRfhoHbQ-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202506120817.nRfhoHbQ-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
-   In file included from drivers/cpuidle/cpuidle-sifive-dmc-pd.c:8:
-   In file included from include/linux/of_device.h:5:
-   In file included from include/linux/device/driver.h:21:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/riscv/include/asm/elf.h:12:
-   In file included from include/linux/compat.h:17:
-   include/linux/fs.h:3975:15: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
-    3975 |         if (unlikely(get_user(c, path)))
-         |                      ^
-   arch/riscv/include/asm/uaccess.h:274:3: note: expanded from macro 'get_user'
-     274 |                 __get_user((x), __p) :                          \
-         |                 ^
-   arch/riscv/include/asm/uaccess.h:244:2: note: expanded from macro '__get_user'
-     244 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^
-   arch/riscv/include/asm/uaccess.h:207:2: note: expanded from macro '__get_user_error'
-     207 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^
-   arch/riscv/include/asm/uaccess.h:196:3: note: expanded from macro '__get_user_nocheck'
-     196 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^
-   arch/riscv/include/asm/uaccess.h:130:2: note: expanded from macro '__get_user_8'
-     130 |         u32 __user *__ptr = (u32 __user *)(ptr);                \
-         |         ^
->> drivers/cpuidle/cpuidle-sifive-dmc-pd.c:42:27: error: use of undeclared identifier 'pm_domain_cpu_gov'
-      42 |         ret = pm_genpd_init(pd, &pm_domain_cpu_gov, false);
-         |                                  ^
-   1 warning and 1 error generated.
---
-   In file included from drivers/cpuidle/cpuidle-riscv-sbi.c:16:
-   In file included from include/linux/cpu_cooling.h:17:
-   In file included from include/linux/thermal.h:15:
-   In file included from include/linux/device.h:32:
-   In file included from include/linux/device/driver.h:21:
-   In file included from include/linux/module.h:19:
-   In file included from include/linux/elf.h:6:
-   In file included from arch/riscv/include/asm/elf.h:12:
-   In file included from include/linux/compat.h:17:
-   include/linux/fs.h:3975:15: warning: label followed by a declaration is a C23 extension [-Wc23-extensions]
-    3975 |         if (unlikely(get_user(c, path)))
-         |                      ^
-   arch/riscv/include/asm/uaccess.h:274:3: note: expanded from macro 'get_user'
-     274 |                 __get_user((x), __p) :                          \
-         |                 ^
-   arch/riscv/include/asm/uaccess.h:244:2: note: expanded from macro '__get_user'
-     244 |         __get_user_error(__gu_val, __gu_ptr, __gu_err);         \
-         |         ^
-   arch/riscv/include/asm/uaccess.h:207:2: note: expanded from macro '__get_user_error'
-     207 |         __get_user_nocheck(x, ptr, __gu_failed);                        \
-         |         ^
-   arch/riscv/include/asm/uaccess.h:196:3: note: expanded from macro '__get_user_nocheck'
-     196 |                 __get_user_8((x), __gu_ptr, label);             \
-         |                 ^
-   arch/riscv/include/asm/uaccess.h:130:2: note: expanded from macro '__get_user_8'
-     130 |         u32 __user *__ptr = (u32 __user *)(ptr);                \
-         |         ^
->> drivers/cpuidle/cpuidle-riscv-sbi.c:410:25: error: use of undeclared identifier 'pm_domain_cpu_gov'
-     410 |         pd_gov = pd->states ? &pm_domain_cpu_gov : NULL;
-         |                                ^
-   1 warning and 1 error generated.
-
-Kconfig warnings: (for reference only)
-   WARNING: unmet direct dependencies detected for PM_GENERIC_DOMAINS_OF
-   Depends on [n]: PM_GENERIC_DOMAINS [=n] && OF [=y]
-   Selected by [y]:
-   - SIFIVE_DMC_PD_CPUIDLE [=y] && CPU_IDLE [=y] && RISCV [=y] && ARCH_SIFIVE [=y]
-
-
-vim +/pm_domain_cpu_gov +42 drivers/cpuidle/cpuidle-sifive-dmc-pd.c
-
-    26	
-    27	static int sifive_dmc_probe(struct platform_device *pdev)
-    28	{
-    29		struct device *dev = &pdev->dev;
-    30		struct device_node *np = dev->of_node;
-    31		struct generic_pm_domain *pd;
-    32		struct of_phandle_args child, parent;
-    33		int ret = -ENOMEM;
-    34	
-    35		pd = dt_idle_pd_alloc(np, sbi_dt_parse_state_node);
-    36		if (!pd)
-    37			goto fail;
-    38	
-    39		pd->flags |= GENPD_FLAG_IRQ_SAFE | GENPD_FLAG_CPU_DOMAIN;
-    40		pd->power_off = sbi_cpuidle_pd_power_off;
-    41	
-  > 42		ret = pm_genpd_init(pd, &pm_domain_cpu_gov, false);
-    43		if (ret)
-    44			goto free_pd;
-    45	
-    46		ret = of_genpd_add_provider_simple(np, pd);
-    47		if (ret)
-    48			goto remove_pd;
-    49	
-    50		if (of_parse_phandle_with_args(np, "power-domains",
-    51					       "#power-domain-cells", 0,
-    52					       &parent) == 0) {
-    53			child.np = np;
-    54			child.args_count = 0;
-    55	
-    56			if (of_genpd_add_subdomain(&parent, &child))
-    57				pr_warn("%pOF failed to add subdomain: %pOF\n",
-    58					parent.np, child.np);
-    59			else
-    60				pr_debug("%pOF has a child subdomain: %pOF.\n",
-    61					 parent.np, child.np);
-    62		}
-    63	
-    64		platform_set_drvdata(pdev, pd);
-    65		pm_runtime_enable(dev);
-    66		pr_info("%s create success\n", pd->name);
-    67		return 0;
-    68	
-    69	remove_pd:
-    70		pm_genpd_remove(pd);
-    71	free_pd:
-    72		dt_idle_pd_free(pd);
-    73	fail:
-    74		pr_info("%s create fail\n", pd->name);
-    75	
-    76		return ret;
-    77	}
-    78	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+T24gVGh1LCBKdW4gMTIsIDIwMjUgYXQgODowM+KAr0FNIFlpeHVuIExhbiA8ZGxhbkBnZW50b28u
+b3JnPiB3cm90ZToKPgo+IE9uIDE3OjI3IFdlZCAxMSBKdW4gICAgICwgQ29ub3IgRG9vbGV5IHdy
+b3RlOgo+ID4gT24gV2VkLCBKdW4gMTEsIDIwMjUgYXQgMDg6NTc6MTZQTSArMDgwMCwgR3VvZG9u
+ZyBYdSB3cm90ZToKPiA+ID4gQWRkICJzcGFjZW1pdCxwZG1hLTEuMCIgY29tcGF0aWJsZSBzdHJp
+bmcgdG8gc3VwcG9ydCBTcGFjZW1pVCBQRE1BCj4gPiA+IGNvbnRyb2xsZXIgaW4gdGhlIE1hcnZl
+bGwgTU1QIERNQSBkZXZpY2UgdHJlZSBiaW5kaW5ncy4gVGhpcyBlbmFibGVzOgo+ID4gPgo+ID4g
+PiAtIFN1cHBvcnQgZm9yIFNwYWNlbWlUIFBETUEgY29udHJvbGxlciBjb25maWd1cmF0aW9uCj4g
+PiA+IC0gTmV3IG9wdGlvbmFsIHByb3BlcnRpZXMgZm9yIHBsYXRmb3JtLXNwZWNpZmljIGludGVn
+cmF0aW9uOgo+ID4gPiAgICogY2xvY2tzOiBDbG9jayBjb250cm9sbGVyIGZvciB0aGUgRE1BCj4g
+PiA+ICAgKiByZXNldHM6IFJlc2V0IGNvbnRyb2xsZXIgZm9yIHRoZSBETUEKPiA+ID4KPiA+ID4g
+QWxzbywgYWRkIGV4cGxpY2l0ICNkbWEtY2VsbHMgcHJvcGVydHkgZGVmaW5pdGlvbiB0byBhdm9p
+ZAo+ID4gPiAibWFrZSBkdGJzX2NoZWNrIFc9MyIgd2FybmluZ3MgYWJvdXQgdW5ldmFsdWF0ZWQg
+cHJvcGVydGllcy4KPiA+ID4KPiA+ID4gVGhlICNkbWEtY2VsbHMgcHJvcGVydHkgaXMgZGVmaW5l
+ZCBhcyAyIGNlbGxzIHRvIG1haW50YWluIGNvbXBhdGliaWxpdHkKPiA+ID4gd2l0aCBleGlzdGlu
+ZyBBUk0gZGV2aWNlIHRyZWVzLiBUaGUgZmlyc3QgY2VsbCBzcGVjaWZpZXMgdGhlIERNQSByZXF1
+ZXN0Cj4gPiA+IGxpbmUgbnVtYmVyLCB3aGlsZSB0aGUgc2Vjb25kIGNlbGwgaXMgY3VycmVudGx5
+IHVudXNlZCBieSB0aGUgZHJpdmVyIGJ1dAo+ID4gPiByZXF1aXJlZCBmb3IgYmFja3dhcmQgY29t
+cGF0aWJpbGl0eSB3aXRoIFBYQSBkZXZpY2UgdHJlZSBmaWxlcy4KPiA+ID4KPiA+ID4gU2lnbmVk
+LW9mZi1ieTogR3VvZG9uZyBYdSA8Z3VvZG9uZ0ByaXNjc3Rhci5jb20+Cj4gPiA+IC0tLQo+ID4g
+PiAgLi4uL2JpbmRpbmdzL2RtYS9tYXJ2ZWxsLG1tcC1kbWEueWFtbCAgICAgICAgICAgfCAxNyAr
+KysrKysrKysrKysrKysrKwo+ID4gPiAgMSBmaWxlIGNoYW5nZWQsIDE3IGluc2VydGlvbnMoKykK
+PiA+ID4KPiA+ID4gZGlmZiAtLWdpdCBhL0RvY3VtZW50YXRpb24vZGV2aWNldHJlZS9iaW5kaW5n
+cy9kbWEvbWFydmVsbCxtbXAtZG1hLnlhbWwgYi9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUvYmlu
+ZGluZ3MvZG1hL21hcnZlbGwsbW1wLWRtYS55YW1sCj4gPiA+IGluZGV4IGQ0NDdkNTIwN2JlMC4u
+ZTExN2E4MTQxNGJkIDEwMDY0NAo+ID4gPiAtLS0gYS9Eb2N1bWVudGF0aW9uL2RldmljZXRyZWUv
+YmluZGluZ3MvZG1hL21hcnZlbGwsbW1wLWRtYS55YW1sCj4gPiA+ICsrKyBiL0RvY3VtZW50YXRp
+b24vZGV2aWNldHJlZS9iaW5kaW5ncy9kbWEvbWFydmVsbCxtbXAtZG1hLnlhbWwKPiA+ID4gQEAg
+LTE4LDYgKzE4LDcgQEAgcHJvcGVydGllczoKPiA+ID4gICAgICAgIC0gbWFydmVsbCxwZG1hLTEu
+MAo+ID4gPiAgICAgICAgLSBtYXJ2ZWxsLGFkbWEtMS4wCj4gPiA+ICAgICAgICAtIG1hcnZlbGws
+cHhhOTEwLXNxdQo+ID4gPiArICAgICAgLSBzcGFjZW1pdCxwZG1hLTEuMAo+ID4KPiA+IFlvdSBu
+ZWVkIGEgc29jLXNwZWNpZmljIGNvbXBhdGlibGUgaGVyZS4KPiA+Cj4gaXMgdGhlIHZlcnNpb24g
+bnVtYmVyICgxLjAgaGVyZSkgYWN0dWFsbHkgZG9jdW1lbnRlZCBhbnl3aGVyZT8KPgo+IG90aGVy
+d2lzZSBJJ2Qgc3VnZ2VzdCB1c2luZyAic3BhY2VtaXQsazEtcGRtYSIgd2hpY2ggZm9sbG93IHRo
+ZSBjb252ZW50aW9uCj4gd2hpY2ggYWxyZWFkeSBkb25lIGZvciBzcGFjZW1pdCBpbiBvdGhlciBj
+b21wb25lbnRzLi4KPgoKVGhhbmtzIENvbm9yIGFuZCBZaXh1bi4gSSB3aWxsIHRha2UgdGhpcyBj
+b21wYXRpYmxlIHN0cmluZwoic3BhY2VtaXQsazEtcGRtYSIuCgotR3VvZG9uZwoKPiAtLQo+IFlp
+eHVuIExhbiAoZGxhbikKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCmxpbnV4LXJpc2N2IG1haWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRl
+YWQub3JnCmh0dHA6Ly9saXN0cy5pbmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgt
+cmlzY3YK
