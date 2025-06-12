@@ -4,189 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F0DC71149
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FA4C71136
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:43:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:References:
+	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=z8p9TrPcT/dX3VwuZaM/SzBgIFhx1S/e3J1hLeIONEE=; b=Ish1RLdlrF322Q
-	mzqVdIUbm0FJyzd4GmRMB6sVuuQ2wU/t75VqPXadPQtLDEWFAY5MWJJ3Yl457UG81H+LDkxKPuN9d
-	ozuc33jB4zj/tPOxabskM6CwfAKfEbnddPlgAYY5UyNk7/C+gMz20cYTE4vUyjoB+Ly7eT0QXRxPc
-	sH2eEiNIHnC2cwy3Wt51sf0MdnX1ciHiQcQmdnibepBpUyRCeoXkTIrdk32QVaCBJf+GMbHJ+lFlx
-	c1Vpg6KnxStPtX0xBrwCMa9nbNx1YOrmhYRJxE7VX+e3KXTFnzOds8kv6etjcq2pa7y2exBGoID4m
-	J/P40blUYvR7Owa5x1KQ==;
+	List-Owner; bh=+HSl4tD07xmNlGwx3gvtqwmHsax0mO0w6GloLJqGtuM=; b=b0Rn4eayqO/2FT
+	cxzMGbQkFJaNRx3a8sRw9AYXODIngbDdY4dXXQwoJaszAvjyciA9GQBWRQqE48qTwr1sG/HmSab4D
+	gwou3XwBtb9wTpJFFAw+ogxaj3OeDSpA1YXspqK1mra8p68sc8FK8AJMVuujU3TwmXeLPFQU+0vsT
+	JeJUwzygxwPBpVvS+X1HAkXuSVnTm61w2IROBlkQkYPDwjALK90IoB7HG0rLzGLfRV8WwVjVqM51s
+	Sj1GEJjXItNcPps3UtziJaHRIuNlIMeiFM1t650cSGZA9GmgR0uYeQBudlSvaUzevhyalAlN/swLK
+	Ma3PRIN8Yx+hkn/fwooA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnpG-0000000EH5H-3hE6;
-	Thu, 12 Jun 2025 19:43:02 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
+	id 1uPnpK-0000000EHC0-10QI;
+	Thu, 12 Jun 2025 19:43:06 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPijY-0000000Db3u-3U0e;
-	Thu, 12 Jun 2025 14:16:50 +0000
-Received: from pps.filterd (m0333520.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 55CDu2eY032377;
-	Thu, 12 Jun 2025 14:15:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=corp-2025-04-25; bh=H2PsUpfei5npMzjxrp
-	2K1BudGv93X+JICYdeyQv9PuM=; b=JKOh6vnlTAmSD5BsvX4yk01g2PnYU5Xv4m
-	gBy+Tue0tQFGrtlk2YAY49f8Qmn3UdHdY2MH6AO9+Y9UnnXJVSLFUb0ah1VUJKpu
-	0CR7/IZMDp8KLALMAuKhsBrYoiqpr0OpqvZFQ7Y0rtm3H0RRLPmUbAjBo86iF0S+
-	qA2ehFSZBLud2AysAfzBLGhv/XFc9mcLw42OuT3sAC5//TvOSF9u+NvBOKmdUbvl
-	L6T+9jOqb8ra+HaQDW5GqLr3X3OCQbT9a72tfLK3pmDz6bB1opfzgfYz6qsZhzHZ
-	yGXxyE8xZaFEBCxlwaeQmV6OdPgDXnIPl73l6WTMQPuDoaASx7ug==
-Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 4752xk182a-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Jun 2025 14:15:39 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 55CDem0V016765;
-	Thu, 12 Jun 2025 14:15:38 GMT
-Received: from ch5pr02cu005.outbound.protection.outlook.com (mail-northcentralusazon11012045.outbound.protection.outlook.com [40.107.200.45])
-	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 474bvbnmfs-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 12 Jun 2025 14:15:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Fu6KghwzJ/WLUm/34LTsVbM2Y6pqhr0xGM6nPFpFSKelFYvsCZn8Ie0kC9Dyqekv0dlgtliU860nCAqJnTdOBYwnChIh/qFEsMVvqs6QLN5T90UuxJpoVPM0fIuAPpDSQDBuYVF0KArmi08Dxcjr9rUhyQngwbWQCUXuDCUgcTt1ATaLXJyo6N73L7FFwXT1ezNcmQp7p1AnBgnYT6KTngpykq6ZExCGPMXYcEU/N8EY4v8M6mH/mhjOrRiPMf7+ijazlMgkTyE4yS57EFc0PKI1/oCTXPrmQB0KJKgeT1Jkj9UTin0DouQI5U6zA1E95SIZtg4tFltcMug9LIdOxw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=H2PsUpfei5npMzjxrp2K1BudGv93X+JICYdeyQv9PuM=;
- b=qVJ6/URnG2ySFmXF+wZSrGID8LIOQvqdcrp5ugVbHomjEJn38QruzFUkpWH3zKDvQs7CUmFulgesHZQEbNASa03/fDow3qDFUl8S5jLjoHs/PgFY2ueAQ34NdDwbsf+PDjL6rpIXMXyL/W1MX3pRVwL9S9YhEJ3zDPmAotZN7abNyFC9gySNU5smfR7wbE6Sa+fK20+LhOS/qXvsOJCSr5nu9yqqeWVzCs45jXdAdDF90wb+L3Tqnl4uYLo8ep98KyJHYDo4NdO2u+EePtSDfFsZ1bbeSrmxbNKErlsO+6iOcW20UhxXuDAjZNTb8r948ZIKJpQijRF47RPp+X7ouQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oracle.com; dmarc=pass action=none header.from=oracle.com;
- dkim=pass header.d=oracle.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=oracle.onmicrosoft.com; s=selector2-oracle-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=H2PsUpfei5npMzjxrp2K1BudGv93X+JICYdeyQv9PuM=;
- b=EOlQM7VyL6tiIF1FwXxQUaLDDdgfzNs7oamVuyBviWxBG8KlIebDIxhXCvH0DoJon1ynB7lduzMttlaAyBFmdAGcKVB1UtkEZwRLjVTit2QGa/CO/HJho2TfIEUbJY2al46uPFazxemran6ihHcr0zDTV2Hz/UBsTvobyOEOWcY=
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com (2603:10b6:8:1cc::16)
- by DS4PPF751CD7230.namprd10.prod.outlook.com (2603:10b6:f:fc00::d2c) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8813.26; Thu, 12 Jun
- 2025 14:15:34 +0000
-Received: from DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2]) by DM4PR10MB8218.namprd10.prod.outlook.com
- ([fe80::2650:55cf:2816:5f2%6]) with mapi id 15.20.8813.024; Thu, 12 Jun 2025
- 14:15:34 +0000
-Date: Thu, 12 Jun 2025 15:15:31 +0100
-From: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-To: Alistair Popple <apopple@nvidia.com>
-Cc: linux-mm@kvack.org, gerald.schaefer@linux.ibm.com,
-        dan.j.williams@intel.com, jgg@ziepe.ca, willy@infradead.org,
-        david@redhat.com, linux-kernel@vger.kernel.org, nvdimm@lists.linux.dev,
-        linux-fsdevel@vger.kernel.org, linux-ext4@vger.kernel.org,
-        linux-xfs@vger.kernel.org, jhubbard@nvidia.com, hch@lst.de,
-        zhang.lyra@gmail.com, debug@rivosinc.com, bjorn@kernel.org,
-        balbirs@nvidia.com, linux-arm-kernel@lists.infradead.org,
-        loongarch@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-        linux-riscv@lists.infradead.org, linux-cxl@vger.kernel.org,
-        dri-devel@lists.freedesktop.org, John@groves.net
-Subject: Re: [PATCH 03/12] mm/pagewalk: Skip dax pages in pagewalk
-Message-ID: <fda482ca-ed0a-4c1e-a94d-38e3cfce0258@lucifer.local>
-References: <cover.541c2702181b7461b84f1a6967a3f0e823023fcc.1748500293.git-series.apopple@nvidia.com>
- <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-Content-Disposition: inline
-In-Reply-To: <1799c6772825e1401e7ccad81a10646118201953.1748500293.git-series.apopple@nvidia.com>
-X-ClientProxiedBy: LO4P123CA0437.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:1a9::10) To DM4PR10MB8218.namprd10.prod.outlook.com
- (2603:10b6:8:1cc::16)
+	id 1uPioG-0000000DbpT-1zXG
+	for linux-riscv@lists.infradead.org;
+	Thu, 12 Jun 2025 14:21:42 +0000
+Date: Thu, 12 Jun 2025 16:21:33 +0200
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1749738096;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pl4iD19u/tvG4+VMp89MNYtzMFEcmgmm0KnazjaFycE=;
+	b=K9H6d31+9MSDUfhsh3uETF2aV+bxvrRnkXITk06U2irnbchGUxFYd6p6cmayprMF+ssuCc
+	yjD0GboPXRQA5Ik6Xa7Mfd38YWkeq8gqD6z1Sln6e7zfUFCiAv0afA0XZsWx1DmfL1NITy
+	GMw8ao7/9aFcNz8ywe8MURwC6z1rkHhIQg+vvn7fd/+kaCrjfndvn/IE+oismSkuVC579a
+	k3nej/cHlRW8VGt/mgWZn/Vc9IUdoVVgYlHKw/riBvRWuJCVVwMtYBe9sHJc7sbULfn0OK
+	XmY4OuSWxdJahtgarFLrjV0VlYZBSZgPYL9dG4icV4rHUV27JzJRfTWtp33Xhg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1749738096;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pl4iD19u/tvG4+VMp89MNYtzMFEcmgmm0KnazjaFycE=;
+	b=w5C638nukRzf0+OZcZmeo4QyuuSXTL2DL3gcUcZqmjrdwp0B4QgyFM4FxVoyn5cjvZrHuh
+	Aguhg4aLMAgexLCg==
+From: Thomas =?utf-8?Q?Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Cc: Paul Walmsley <paul.walmsley@sifive.com>, 
+	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+	Nathan Chancellor <nathan@kernel.org>, Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+	Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>, 
+	Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Vincenzo Frascino <vincenzo.frascino@arm.com>, linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	llvm@lists.linux.dev
+Subject: Re: [PATCH v3 3/3] vdso: Reject absolute relocations during build
+Message-ID: <20250612155635-ecade4e1-0235-464a-bcb3-293f7452510a@linutronix.de>
+References: <20250611-vdso-absolute-reloc-v3-0-47897d73784b@linutronix.de>
+ <20250611-vdso-absolute-reloc-v3-3-47897d73784b@linutronix.de>
+ <7ddda233-99f7-468b-842d-8469f0a86e77@ghiti.fr>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM4PR10MB8218:EE_|DS4PPF751CD7230:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5c095389-e798-4bc3-c10e-08dda9bb98a0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OlUFFusLfbx13QM3cpHhxE2zNWfznemflll34bceRobz/0QFM4eYx0hC5e8e?=
- =?us-ascii?Q?lTb5yVDuohp0sexF/rTKeZMix8MKebT9gUVWhOekzYblC486o8suDlZ+sTPD?=
- =?us-ascii?Q?h7tdiAuK+XtlWMX4rQCjaKR8g69779FE54/2svinzL2fM2Cj97mSDtOJg0iX?=
- =?us-ascii?Q?MNVmUsrG+WPq1l9Cw7RM9NUNuwHBYDTjoY4GWvzVWsbniCavJLK89gQmINyV?=
- =?us-ascii?Q?rz8rfiUlkMsCUzoO3z17Edhv8spGXy3fwjt4tExAMYf08NWxKZIEubKWafK4?=
- =?us-ascii?Q?SeJDEIKdRt3enKOmkUNaUTs8g+wUgiL5JZni7LZEg5eWdkHGvAZZiaJupQoV?=
- =?us-ascii?Q?nfNWqUbtdY5YywL1up43W4Rt/5IMi2DHVJjX9AeAqCAChduCNi5C0MrhXCDH?=
- =?us-ascii?Q?/KzCW25jYP13thHEb1vghCEsD3vAlWAmKmGYdtlkyIEtaB5JoTnPlGgQ80At?=
- =?us-ascii?Q?SiTtNTiZioYwxpGO9SrihmAL55mGhUExbB0ihP7CX/9B2inPXdAvY7eob9p3?=
- =?us-ascii?Q?a8sDt+EM26H8hhjv8GSx8iLMn3Bi6Z/DGF5055FSsfSitHWOX2QC6ssSAy8q?=
- =?us-ascii?Q?JnljkxZgUcU3XDZL21b4ZZLk45CSEvnFdDFZSPR7AT+tE3IckF2qfT2yiWhN?=
- =?us-ascii?Q?xNEGEcLogeiLUba+WcEUbvuzAMo9ne8wtU1ysu9UX3vvmB6Hc5/FCLQEYn5h?=
- =?us-ascii?Q?jxbqbjk2enjT7wCA7vVWulX1PTBgV3//VPYqlYDKblvYiyrdzGwtrSdO2Ix/?=
- =?us-ascii?Q?qhu++voRAdT7hhU+ZEHaEjCW5ABP5//MrZtKYdwhCyhdlCt/aEXAqS9grs7U?=
- =?us-ascii?Q?1UD6DrsPSWTG/TTYMku00hAsnofoYFpEKgwucEujPt++qM0QlSCgUTYvVpbg?=
- =?us-ascii?Q?T88v3+m4Z9ygx6aYFT28udpweAhXmWEkqhmQQ5hhplyzRYnlTHajWRwMYIj7?=
- =?us-ascii?Q?jCAl7BMA4VzOmt9R+cYI24Krwc9jco+9SFZ3TPUMWMmHoh/d0voeTNBWNa+7?=
- =?us-ascii?Q?sELzX4uDAGs0WPlujHH4t3qyHJeEQC6HaIoP1Am3BYBw4f0BEI/AZWutFL2u?=
- =?us-ascii?Q?/BwEFCuy/yF0WMhFR70fLD1oAeTHmruIT8pRaIAeBU2cRVntepgHrzI31C6e?=
- =?us-ascii?Q?QZnsRE6va9GiHmNDMXE/P7FvSK81IN+r8r7DCC3lMJ1eRBtMmzwcn4NMxMWd?=
- =?us-ascii?Q?InxnvnDOrKnkK/zOjJwVMX7jJsYinXIoyDPto40vCO1tvsqzW///F3ZmkEGZ?=
- =?us-ascii?Q?ce5Sslrn9g7cMIfv3dUonDLkjjCeoIBKftB0AXrCtnHmmEjOL1EeOYuzVK2E?=
- =?us-ascii?Q?PuXPW85Vg6NSQeDkxVfH9ct+QRsCxh5ban0lvDu2rm01yvEONXI5uAL/5xcQ?=
- =?us-ascii?Q?fjl2hHjeT0CWknTW2BPszmvZUKLtqUQqNid9Fzk7NGD1qsEV+D2aTqzA+pGr?=
- =?us-ascii?Q?w0p/lHEg1Ow=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM4PR10MB8218.namprd10.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?FWEwriCtUToSfceMZOvbfKA7l3HssoXn14GqZnTV11sNrOj1gETBWIflyMjw?=
- =?us-ascii?Q?VEQRMmh0OpN8v8e/iBNtuI8vNqwkAR7bo6IIEP5XDyih6TbACEoxpi7lV9hc?=
- =?us-ascii?Q?8DDU8TLODtrVS/ZkOnjq9X8WNe0nDtB5XuMEneT6OWE4nVjMT6xgTLndk8B/?=
- =?us-ascii?Q?0Xrov8emIlclOWDXZt1+gjUrD0f5ZGBCNacYinInaNvyFhjwd6mRcsrXkKVO?=
- =?us-ascii?Q?dDGvoXZ1ISjriUxJEA7vjCFGm4PGkKC2rumpO7e/qmAJJmh85E/0RxMA51yw?=
- =?us-ascii?Q?t5ECtOGOMizKQ6Jwglg+ogjgboZ9OjpLR8N7OUK4yOnOWyOn5g7rSnHHxIVB?=
- =?us-ascii?Q?nckd52W4uQfIl2J2/phBKj+GMKZuJHLk8SJSCoGg2s34qmAwJt1h1qDBRSXq?=
- =?us-ascii?Q?0N8TkkU/dcTuUAUBQximdnWyvyveFIvFEPv8/hOPo3iZrlRaw3e5odhXQhFh?=
- =?us-ascii?Q?PQcfLwgsgRceX3xelO0e6pLyr0J/I2j88r1y2DkYJzEw3lENFvQ98xTJbcGg?=
- =?us-ascii?Q?Lzidw0eBCkDsR7RtZHMd79TWCZF7BtfdRiZr/hjVJ5uER5+m6UC2PpX3ul2p?=
- =?us-ascii?Q?pL+6REolaYRRZXdJ+L+MW0fYvsASDPLh0+EJaZxDy2GU0ydT4+LlWFam5pPm?=
- =?us-ascii?Q?I2lUD2z3zlAVyy4GFzeLmorsv1foDdPmPPXA6kkVWDaT8Vbf+c2JjfrS+/Tb?=
- =?us-ascii?Q?mHB8iHQ86b4XNFMVL9AHJWwVTTB/c+QBPCInwvWDiSOj4es7doVYMw7DMXNs?=
- =?us-ascii?Q?6HCXaJ8qviJ5tgvPB/tbNFGoBQ4IXUpiloxPee3EUAp4uExAbLwJUGkg+gPT?=
- =?us-ascii?Q?talMINWGjBBhmzY+FEMbi3c5p7S1QNa+kfwynh0vBAI8mp0EoYftk0kEXJWm?=
- =?us-ascii?Q?dS94YRcbIiaoRemsdqTMvR7bhW/Wwe2YKu+c46byR8l2C5FzcvXrHBvOS4dQ?=
- =?us-ascii?Q?HbLOsQgIpF8gCaCukSqOwtW/het1mUJMAvR48DUFHvqbzfpMotdNSwjs5Hg2?=
- =?us-ascii?Q?VhVIUuzDLcnc5Sb2K/ew2HQc9Mc7jiggo7PLpSzMLdcV0vIltC3GDj89l42s?=
- =?us-ascii?Q?xBeya9fkRc3qpccEYxT10GFF8BGDsCo8Ntk9b4sPB8OcwxX3yXVWjVmYTyOX?=
- =?us-ascii?Q?rMBnJi/e1TQgVooS9kmodY2cnuqhmJw2YZ39/s51QQzRjnMEhRUG4u/pZbaa?=
- =?us-ascii?Q?s/xkGU1+N4cHblOiCxtQzqNyVniDQvySDpzz7dQbTaWnDH9gLtftP2ncR5Eq?=
- =?us-ascii?Q?/QShy+5+24nPce83p8qAFwUIYibhFLa+dHR13Hi7duy9x5TNR3U64CBLcGFw?=
- =?us-ascii?Q?3g2t19hoURA9+xoAkA+svwukrJR7yXWSXQc+sWaraepigmdmsYf9BCCniN9N?=
- =?us-ascii?Q?yHKoxpPU9+pG5OMpOUJp0rPW3QieQcdVkXIQg+IWqJ1P3lYo7EaSw4d7l+86?=
- =?us-ascii?Q?kgrzdgcTTDhrUuUuavZTvRmkySv7nd7OEzwfMmJSVsmcweTTa1Qrx9McxROo?=
- =?us-ascii?Q?bsnpzAP1yfny5VrGZkgA81XQPwJUB8N6emsC8Q4dZjscOZptbdKC0ZCxqN25?=
- =?us-ascii?Q?a2Zk7M5Nxt7cKYijBJKAmdriwTNyNh6JJEG3BUTqzob652Ncc5JK6b3psmqC?=
- =?us-ascii?Q?aw=3D=3D?=
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0: x1+wQPcWeIteSO9KtZ3BygwTOKXNvrNRhVMKdHUR3Me5+VzD9pFzPhLdD4BI6wB9UnHIpfLOmITMA9cepZGMK3NOBSfY4+zlJVZhcaF2fqU+GyFBMp612b6zYwT+cBnuhg3ci4q5xvcn78EQ9xR8XmfACjuzHlHJTUIqiCXoS6YgR6d8BylhCor/6BGV5xPDEDJNcuPCfSfCdCwdpVcxr7kN3sl2R1P1hhrD0omQu3ZianAznb5763zlI+3j7z4ifE9W0kNjlpmIZ4BGDB/pljfCRzqED8tYUU+KYG6D0VC2bls/m6J4MakKISpvBel/u4IZ34S+b67tQrA3ibusZu6r2EiZClOuE9ZGYGV5k8OGu79roZyK9M/sThSefZ5J7jBnZrhol0TnIzi02BELIxZj7rCzsYAaOqM8GF4Uq73oyeo4KhKcjIg399YY/4VvaPmjOjrkLgbouePfPStNYK1txbgrN/MA1dDsxldHICKTxmErMPXS6qTK2ZA+gXPzUxsOJWaGXyBlu2kIjX1YPyvWfslYg6PKRwbcDGwZbmrxJ3VclCJ+d9q/VU1SRltkXy52TErWOIALwRQpd+pEUCBV00BibUC2iXoq6ou5dO4=
-X-OriginatorOrg: oracle.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5c095389-e798-4bc3-c10e-08dda9bb98a0
-X-MS-Exchange-CrossTenant-AuthSource: DM4PR10MB8218.namprd10.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Jun 2025 14:15:34.2125
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 4e2c6054-71cb-48f1-bd6c-3a9705aca71b
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0wH01p/gPKez1LQG38k0W8E9NVX+hH28xyy+YWDP9KQeoVR0UKJQzRJ6HpvNmoAzUIPRMYLSs27ztvyf/jselTQ9a2UfMwyg/A4Tk6vjy6o=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS4PPF751CD7230
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1099,Hydra:6.0.736,FMLib:17.12.80.40
- definitions=2025-06-12_09,2025-06-12_02,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0 malwarescore=0 mlxscore=0
- mlxlogscore=999 phishscore=0 spamscore=0 suspectscore=0 adultscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2505160000
- definitions=main-2506120109
-X-Authority-Analysis: v=2.4 cv=K4AiHzWI c=1 sm=1 tr=0 ts=684ae10b b=1 cx=c_pps a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19 a=wKuvFiaSGQ0qltdbU6+NXLB8nM8=:19
- a=Ol13hO9ccFRV9qXi2t6ftBPywas=:19 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10 a=6IFa9wvqVegA:10 a=GoEa3M9JfhUA:10 a=Ikd4Dj_1AAAA:8 a=7x8u9wrohGjcWX8-er4A:9 a=CjuIK1q_8ugA:10 cc=ntf awl=host:14714
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwNjEyMDEwOSBTYWx0ZWRfX3bP5oeiM8iac vw804riXBz5sQqvlt1llDkWseTHZs6BTPjZyHKSpCAnmXTUaUg+xT1U+jkyz/C7mmS9q4qDeIUU jsD5ZuUpQwiy+FTE7e2GWOTywUp39mJ+WbO/HFv+6E4eFQte6Ul/sQxSILlJtfHOqcfV6Y7l8hy
- 3byzPp94EnAepjc3tZ3y81sxYodpbe8G+SmJmPVYqicTsx20qQzpRWHHD++jgAbYAX0ApDb3ZUC 8Wu0ZZNWCA2IpUO00+CfB3qrS/NoM2D9D5wYv73m5M16vCBihG7g7G4Wl3Dr0F/WQQZCwgkX37Q ZhtKuWPjDhgKtFKZBb00USWUxM6CvR1jW9J092Qi+ko7QpYicrg332tcy/YLFoDURjN4CtD3x/O
- obDbC8yuvrClARtRqjQ8ApDELyyJZMXJmTuYBCZpUcv0slfzob4T1F7047pNbVoMOwEB4fw8
-X-Proofpoint-ORIG-GUID: Gq-_2Ma3mkMBzCraREYeHwYq63A9vngu
-X-Proofpoint-GUID: Gq-_2Ma3mkMBzCraREYeHwYq63A9vngu
+Content-Disposition: inline
+In-Reply-To: <7ddda233-99f7-468b-842d-8469f0a86e77@ghiti.fr>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_071648_983193_1AF8AF57 
-X-CRM114-Status: GOOD (  22.68  )
+X-CRM114-CacheID: sfid-20250612_072140_799290_51142FE0 
+X-CRM114-Status: GOOD (  26.08  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -198,94 +80,99 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Thu, May 29, 2025 at 04:32:04PM +1000, Alistair Popple wrote:
-> Previously dax pages were skipped by the pagewalk code as pud_special() or
-> vm_normal_page{_pmd}() would be false for DAX pages. Now that dax pages are
-> refcounted normally that is no longer the case, so add explicit checks to
-> skip them.
->
-> Signed-off-by: Alistair Popple <apopple@nvidia.com>
-> ---
->  include/linux/memremap.h | 11 +++++++++++
->  mm/pagewalk.c            | 12 ++++++++++--
->  2 files changed, 21 insertions(+), 2 deletions(-)
->
-> diff --git a/include/linux/memremap.h b/include/linux/memremap.h
-> index 4aa1519..54e8b57 100644
-> --- a/include/linux/memremap.h
-> +++ b/include/linux/memremap.h
-> @@ -198,6 +198,17 @@ static inline bool folio_is_fsdax(const struct folio *folio)
->  	return is_fsdax_page(&folio->page);
->  }
->
-> +static inline bool is_devdax_page(const struct page *page)
-> +{
-> +	return is_zone_device_page(page) &&
-> +		page_pgmap(page)->type == MEMORY_DEVICE_GENERIC;
-> +}
-> +
-> +static inline bool folio_is_devdax(const struct folio *folio)
-> +{
-> +	return is_devdax_page(&folio->page);
-> +}
-> +
->  #ifdef CONFIG_ZONE_DEVICE
->  void zone_device_page_init(struct page *page);
->  void *memremap_pages(struct dev_pagemap *pgmap, int nid);
-> diff --git a/mm/pagewalk.c b/mm/pagewalk.c
-> index e478777..0dfb9c2 100644
-> --- a/mm/pagewalk.c
-> +++ b/mm/pagewalk.c
-> @@ -884,6 +884,12 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->  		 * support PUD mappings in VM_PFNMAP|VM_MIXEDMAP VMAs.
->  		 */
->  		page = pud_page(pud);
-> +
-> +		if (is_devdax_page(page)) {
+Hi Alexandre,
 
-Is it only devdax that can exist at PUD leaf level, not fsdax?
+On Thu, Jun 12, 2025 at 10:31:20AM +0200, Alexandre Ghiti wrote:
+> On 6/11/25 11:22, Thomas Wei=DFschuh wrote:
+> > All vDSO code needs to be completely position independent.
+> > Symbol references are marked as hidden so the compiler emits
+> > PC-relative relocations. However there are cases where the compiler may
+> > still emit absolute relocations, as they are valid in regular PIC DSO c=
+ode.
+> > These would be resolved by the linker and will break at runtime.
+> > This has been observed on arm64 under some circumstances, see
+> > commit 0c314cda9325 ("arm64: vdso: Work around invalid absolute relocat=
+ions from GCC")
+> > =
 
-> +			spin_unlock(ptl);
-> +			goto not_found;
-> +		}
-> +
->  		goto found;
->  	}
->
-> @@ -911,7 +917,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->  			goto pte_table;
->  		} else if (pmd_present(pmd)) {
->  			page = vm_normal_page_pmd(vma, addr, pmd);
-> -			if (page) {
-> +			if (page && !is_devdax_page(page) &&
-> +			    !is_fsdax_page(page)) {
->  				goto found;
->  			} else if ((flags & FW_ZEROPAGE) &&
->  				    is_huge_zero_pmd(pmd)) {
-> @@ -945,7 +952,8 @@ struct folio *folio_walk_start(struct folio_walk *fw,
->
->  	if (pte_present(pte)) {
->  		page = vm_normal_page(vma, addr, pte);
-> -		if (page)
-> +		if (page && !is_devdax_page(page) &&
-> +		    !is_fsdax_page(page))
->  			goto found;
->  		if ((flags & FW_ZEROPAGE) &&
->  		    is_zero_pfn(pte_pfn(pte))) {
+> > Introduce a build-time check for absolute relocations.
+> > The check is done on the object files as the relocations will not exist
+> > anymore in the final DSO. As there is no extension point for the
+> > compilation of each object file, perform the validation in vdso_check.
+> > =
 
-I'm probably echoing others here (and I definitely particularly like Dan's
-suggestion of a helper function here, and Jason's suggestion of explanatory
-comments), but would also be nice to not have to do this separately at each page
-table level and instead have something that you can say 'get me normal non-dax
-page at page table level <parameter>'.
+> > Debug information can contain legal absolute relocations and readelf can
+> > not print relocations from the .text section only. Make use of the fact
+> > that all global vDSO symbols follow the naming pattern "vdso_u_".
+> > =
 
-> --
-> git-series 0.9.1
+> > Link: https://lore.kernel.org/lkml/aApGPAoctq_eoE2g@t14ultra/
+> > Link: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=3D120002
+> > Signed-off-by: Thomas Wei=DFschuh <thomas.weissschuh@linutronix.de>
+> > ---
+> >   lib/vdso/Makefile.include | 6 ++++++
+> >   1 file changed, 6 insertions(+)
+> > =
+
+> > diff --git a/lib/vdso/Makefile.include b/lib/vdso/Makefile.include
+> > index cedbf15f80874d4bb27c097244bc5b11272f261c..04257d0f28c0ed324e31adb=
+b68497181085752f8 100644
+> > --- a/lib/vdso/Makefile.include
+> > +++ b/lib/vdso/Makefile.include
+> > @@ -12,7 +12,13 @@ c-getrandom-$(CONFIG_VDSO_GETRANDOM) :=3D $(addprefi=
+x $(GENERIC_VDSO_DIR), getrand
+> >   #
+> >   # As a workaround for some GNU ld ports which produce unneeded R_*_NO=
+NE
+> >   # dynamic relocations, ignore R_*_NONE.
+> > +#
+> > +# Also validate that no absolute relocations against global symbols ar=
+e present
+> > +# in the object files.
+> >   quiet_cmd_vdso_check =3D VDSOCHK $@
+> >         cmd_vdso_check =3D if $(READELF) -rW $@ | grep -v _NONE | grep =
+-q " R_\w*_"; \
+> >   		       then (echo >&2 "$@: dynamic relocations are not supported"; \
+> > +			     rm -f $@; /bin/false); fi && \
+> > +		       if $(READELF) -rW $(filter %.o, $(real-prereqs)) | grep -q " =
+R_\w*_ABS.*vdso_u_"; \
+> =
+
+> =
+
+> This only works for arm64 relocations right? I can't find any *ABS*
+> relocations in riscv elf abi
+> (https://github.com/riscv-non-isa/riscv-elf-psabi-doc/releases/tag/v1.0).
+
+Indeed you are right.
+
+We could introduce per-architecture configuration. Essentially reverting pa=
+rts
+of commit aff69273af61 ("vdso: Improve cmd_vdso_check to check all dynamic =
+relocations").
+The final logic for the intermediary objects still needs to be more complic=
+ated
+than for the final .so as those contain relocations in the debug informatio=
+n.
+
+Or we could add a C hostprog for validation.
+That would be much more flexible than the inline shell command.
+It would then also be easier to use an allow-list than the brittle deny-lis=
+t.
+
+Or we don't do anything, relying on the selftests to detect miscompilations.
+
+I'll run this by tglx. If somebody else has any opinions, I'm all ears.
+
+> > +		       then (echo >&2 "$@: absolute relocations are not supported"; \
+> >   			     rm -f $@; /bin/false); fi
+> > =
+
 
 _______________________________________________
 linux-riscv mailing list
