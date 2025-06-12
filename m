@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B10E5C71143
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 10:44:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6781DC71141
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 13:21:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
-	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:In-Reply-To:MIME-Version:References:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:In-Reply-To:From:References:Cc:To:Subject:
+	MIME-Version:Date:Message-ID:Reply-To:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=ER7fIHUUASW8slNfGy/igonm910ebsYSfQyTQt5qanU=; b=EIhKTJ7ZXcOI0e
-	iKyjVchP+yrI02vtzZWAA3486OmrUZhsbS7/GAUvMaXgv+8xvvhP0+2BnbgiXD4FORHwMtZsFloJ7
-	ZRCWmbSSJDKUe6CSR970C3yzWvamFny9aPwk4V0hpW31REYYCwjW6R4S3Twx1ghPEz0uU4h06yJpq
-	wgtaJBfBGRV2miZ3MzI8O12FmnkFpDBurJgT15RhUvTCm9tI8Fw59Ed4IZME2r3vwk7ATP88d7G5y
-	sVbqngaXJDEcKHoW0AFm+SYlrKc14HjadO5B+1X0A8PSljLQooOkObzakXC17JaYDab1LsCXp/Z2d
-	Fszs3bZvdpmowY9hqfQg==;
+	List-Owner; bh=B82tJ31AvyhFGzLuKEzheIbaJENlyqlyK2Rh+yUq0MU=; b=UGCiiAd+2uzE1C
+	NLSkKWLDkFBDeL/Wxh+vNFQmvbi9uyUQTZgccBXvQIqIXCqzl0qthBFUckho4ubFEoT27FGZQkAk2
+	8T/xYbMBCRLuWYki4rWAeqhxVtMIL8t6hcjkiUXAydZypYqhz04QMfWIZyrOgSA2tpueK1jqXtJs7
+	taFTUJPkoQmM8eqfPSpx5lvwcCfG24u3kccBx7URDmU6jY1s42LseagnD17G969+kqnVL7g0T5RGT
+	s2JIkLCKPovX4wLk4oJw0OoVyy+1Go3DVpqVoy3KgCyEXVIVg3r4a4sSTP0ER43Z/U1NlTj5rqm6j
+	K1i1nCNJVMnRRNFOou2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPfQM-0000000D26d-0PsD;
-	Thu, 12 Jun 2025 10:44:46 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1uPhrg-0000000DQ09-0THK;
+	Thu, 12 Jun 2025 13:21:08 +0000
+Received: from relay6-d.mail.gandi.net ([217.70.183.198])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPeS2-0000000CqHr-1Ywo
+	id 1uPhKR-0000000DIbt-2Ry7
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 09:42:27 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-442e9c00bf4so5714955e9.3
-        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 02:42:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1749721345; x=1750326145; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=MGCZJff9QsWdyC25gI2iQ7ufzGiMMYlGPI7zLficnT8=;
-        b=pOL/MxIk1X1V8W8m2+vN7e4Ht5eVLjLgmEagfAin+G/gQp9njZAuB1bvJAF2lD2IQ3
-         bL7o6kkCFO/Kp35cx1LTYCaxKkIJp8AUgN05vM595s436hkFCjCkpNSE5bhYM2oBf3Oh
-         2lT/upTGF5HmWLP9R6AiFr3l0amY/ORAFa7jv+w7bJl1yig5vSTD4rdPw7p2I5ZOl9yg
-         76nne5+P076cGtmtecwPJ4C4IzEtVRok2TwRMQaz3CnYQgKUokiJnfeTGl9/SJ7CjLDR
-         rDF4YsD3tv0sExz4y0LZW1M5aRbpf130G+DcYSFWiMJZ9g6KFmt9bsI/+5pnYGGGHZ97
-         o4zA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749721345; x=1750326145;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=MGCZJff9QsWdyC25gI2iQ7ufzGiMMYlGPI7zLficnT8=;
-        b=wDQMXV+M5bdYE49UUKHyavZ1q6eTUl/DPA5Qt/Ek/ZiwfMjjkOkpFQxSW6UkG22J58
-         1F1B7yqyJQ76+megHxr/Gb8Uxypd8imgymUqyEYOGpCSxIYAcNhuhkwIM5ra5zGzmGkU
-         9j7kf1y93htL4PxGLrEuqjtxFtgBBCUnA5p0pdi9c0EWbN0PrMjaEwNp7Yo+DPCqDB6/
-         vK5rNEoL6x6j6PDJK78viWbYowd+INyznpYAMJ+YHoqWwic6CJmdOPfuVaI78nJwG/ry
-         Bbks/5WSpDzpyEuFU8NzASI2HMLwaCSjzQZEyGeqPYBAStKQAARSpm076pdho4Cmzrs3
-         75pw==
-X-Forwarded-Encrypted: i=1; AJvYcCVvQ2L63EWv+6kfcPXOYiFOsrbI5vjWiYVJIdJPK2dgIZ4NJ16jS25eRRfS5Gu3yFtp2BSyS31UxHXQCw==@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0U3SBApSXedAaiZlMPkcgf3r+DgRErHdcjg/mLmRS9ElPnWEI
-	FAsTHWyyThJBNmsC0/TIGSXek5PTnfIYGfc0SZuJ4CXmnEm1GhLmjYhSq3hE34M5IoE=
-X-Gm-Gg: ASbGnctEQVCWPe/ZGw4/ZUnSzcsz5o2MSQK5s0QOmlNkGUDATBYbpmHys0Fs8FLg+zA
-	vjjcEcJS04PmoKny1W6uZevT4+m8Fk+1IT2uqlJGDZXDVsgC+EnhNBP10rbLaz0z9ba/B1zxDqp
-	Gb40BSzzgdy7CY7alsf1A4/+F1teIKDkb+TSxOBxFv5fYmjjvusf9tGv0x6K2yvW2mz2vhP1rRo
-	KTfywx6cUbLucx5TdMUNjkL8Svbfp3fdJiiw5FWu6hXjBV8g168Hd6Jdmludpbo1PP0ppa/06oh
-	hHbQaTWziODjYBuZw5jAi8YkAdo9ZbJSbyxTWL2cxthldMdeuw==
-X-Google-Smtp-Source: AGHT+IF5zKXW7+MBEotJUUCGt2uWsAMvwtWdDJrZZChMjo4YtbUSO3QK36jfNoOmtsRFwibuOJQU+w==
-X-Received: by 2002:a05:600c:8b58:b0:450:d019:263 with SMTP id 5b1f17b1804b1-4532b9076acmr34955535e9.18.1749721344537;
-        Thu, 12 Jun 2025 02:42:24 -0700 (PDT)
-Received: from localhost ([2a02:8308:a00c:e200::5485])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561976048sm1449140f8f.8.2025.06.12.02.42.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 02:42:23 -0700 (PDT)
-Date: Thu, 12 Jun 2025 11:42:23 +0200
-From: Andrew Jones <ajones@ventanamicro.com>
-To: Sean Christopherson <seanjc@google.com>
-Cc: zhouquan@iscas.ac.cn, anup@brainfault.org, atishp@atishpatra.org, 
-	paul.walmsley@sifive.com, palmer@dabbelt.com, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, kvm@vger.kernel.org, kvm-riscv@lists.infradead.org
-Subject: Re: [PATCH] RISC-V: KVM: Avoid re-acquiring memslot in
- kvm_riscv_gstage_map()
-Message-ID: <20250612-70c2e573983d05c4fbc41102@orel>
-References: <50989f0a02790f9d7dc804c2ade6387c4e7fbdbc.1749634392.git.zhouquan@iscas.ac.cn>
- <20250611-352bef23df9a4ec55fe5cb68@orel>
- <aEmsIOuz3bLwjBW_@google.com>
+	Thu, 12 Jun 2025 12:46:49 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 60581432A3;
+	Thu, 12 Jun 2025 12:46:39 +0000 (UTC)
+Message-ID: <df439eb4-4dbd-4f0f-bfd2-27c6b1534f39@ghiti.fr>
+Date: Thu, 12 Jun 2025 14:46:39 +0200
 MIME-Version: 1.0
-Content-Disposition: inline
-In-Reply-To: <aEmsIOuz3bLwjBW_@google.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: Broken 32-bit riscv debug build with ZSTD and FTRACE
+To: Marco Bonelli <marco@mebeim.net>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Cc: "terrelln@fb.com" <terrelln@fb.com>,
+ "rostedt@goodmis.org" <rostedt@goodmis.org>,
+ "mhiramat@kernel.org" <mhiramat@kernel.org>,
+ "mark.rutland@arm.com" <mark.rutland@arm.com>,
+ "linux-trace-kernel@vger.kernel.org" <linux-trace-kernel@vger.kernel.org>,
+ "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+ "palmer@dabbelt.com" <palmer@dabbelt.com>,
+ "aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+ "linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>
+References: <960240908.630790.1748641210849@privateemail.com>
+ <1552795452.650306.1748692371190@privateemail.com>
+ <c239ee1b-f201-4e7b-80f8-03a7fb02b666@ghiti.fr>
+ <1338988468.1011577.1749045125350@privateemail.com>
+ <191074362.1248877.1749238947947@privateemail.com>
+Content-Language: en-US
+From: Alexandre Ghiti <alex@ghiti.fr>
+In-Reply-To: <191074362.1248877.1749238947947@privateemail.com>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtddugdduhedutdcutefuodetggdotefrodftvfcurfhrohhfihhlvgemucfitefpfffkpdcuggftfghnshhusghstghrihgsvgenuceurghilhhouhhtmecufedtudenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujfgurhepkfffgggfuffvvehfhfgjtgfgsehtkeertddtvdejnecuhfhrohhmpeetlhgvgigrnhgurhgvucfihhhithhiuceorghlvgigsehghhhithhirdhfrheqnecuggftrfgrthhtvghrnhepjeeiuedujeeikeevuedtgeeuhfekudeludegveehffefjedugeegudffgfeluefgnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvddttddumeekiedumeeffeekvdemvghfledtmehfudgvsgemfhgulegrmegrugduugemiehfhegsnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvddttddumeekiedumeeffeekvdemvghfledtmehfudgvsgemfhgulegrmegrugduugemiehfhegspdhhvghloheplgfkrfggieemvddttddumeekiedumeeffeekvdemvghfledtmehfudgvsgemfhgulegrmegrugduugemiehfhegsngdpmhgrihhlfhhrohhmpegrlhgvgiesghhhihhtihdrfhhrpdhnsggprhgtphhtthhopeduuddprhgtphhtthhopehmrghrtghosehmvggsvghimhdrnhgvthdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrghdprhgtphhtthhop
+ ehtvghrrhgvlhhlnhesfhgsrdgtohhmpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhishdrohhrghdprhgtphhtthhopehmhhhirhgrmhgrtheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepmhgrrhhkrdhruhhtlhgrnhgusegrrhhmrdgtohhmpdhrtghpthhtoheplhhinhhugidqthhrrggtvgdqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtohepphgruhhlrdifrghlmhhslhgvhiesshhifhhivhgvrdgtohhm
+X-GND-Sasl: alex@ghiti.fr
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_024226_424029_3C097FEC 
-X-CRM114-Status: GOOD (  45.55  )
+X-CRM114-CacheID: sfid-20250612_054647_751539_21D75287 
+X-CRM114-Status: GOOD (  13.37  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,323 +72,59 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-On Wed, Jun 11, 2025 at 09:17:36AM -0700, Sean Christopherson wrote:
-> On Wed, Jun 11, 2025, Andrew Jones wrote:
-> > On Wed, Jun 11, 2025 at 05:51:40PM +0800, zhouquan@iscas.ac.cn wrote:
-> > > From: Quan Zhou <zhouquan@iscas.ac.cn>
-> > > 
-> > > The caller has already passed in the memslot, and there are
-> > > two instances `{kvm_faultin_pfn/mark_page_dirty}` of retrieving
-> > > the memslot again in `kvm_riscv_gstage_map`, we can replace them
-> > > with `{__kvm_faultin_pfn/mark_page_dirty_in_slot}`.
-> > > 
-> > > Signed-off-by: Quan Zhou <zhouquan@iscas.ac.cn>
-> > > ---
-> > >  arch/riscv/kvm/mmu.c | 5 +++--
-> > >  1 file changed, 3 insertions(+), 2 deletions(-)
-> > > 
-> > > diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> > > index 1087ea74567b..f9059dac3ba3 100644
-> > > --- a/arch/riscv/kvm/mmu.c
-> > > +++ b/arch/riscv/kvm/mmu.c
-> > > @@ -648,7 +648,8 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-> > >  		return -EFAULT;
-> > >  	}
-> > >  
-> > > -	hfn = kvm_faultin_pfn(vcpu, gfn, is_write, &writable, &page);
-> > > +	hfn = __kvm_faultin_pfn(memslot, gfn, is_write ? FOLL_WRITE : 0,
-> > > +				&writable, &page);
-> > 
-> > I think introducing another function with the following diff would be
-> > better than duplicating the is_write to foll translation.
-> 
-> NAK, I don't want an explosion of wrapper APIs (especially with boolean params).
-> 
-> I 100% agree that it's mildly annoying to force arch code to do convert "write"
-> to FOLL_WRITE, but that's a symptom of KVM not providing a common structure for
-> passing page fault information.
-> 
-> What I want to get to is a set of APIs that look something the below (very off
-> the cuff), not add more wrappers and put KVM back in a situation where there are
-> a bajillion ways to do the same basic thing.
-> 
-> struct kvm_page_fault {
-> 	const gpa_t addr;
-> 	const bool exec;
-> 	const bool write;
-> 	const bool present;
-> 
-> 	gfn_t gfn;
-> 
-> 	/* The memslot containing gfn. May be NULL. */
-> 	struct kvm_memory_slot *slot;
-> 
-> 	/* Outputs */
-> 	unsigned long mmu_seq;
-> 	kvm_pfn_t pfn;
-> 	struct page *refcounted_page;
-> 	bool map_writable;
-> };
-> 
-> kvm_pfn_t __kvm_faultin_pfn(struct kvm_page_fault *fault, unsigned int flags)
-> {
-> 	struct kvm_follow_pfn kfp = {
-> 		.slot = fault->slot,
-> 		.gfn = fault->gfn,
-> 		.flags = flags | fault->write ? FOLL_WRITE : 0,
-> 		.map_writable = &fault->writable,
-> 		.refcounted_page = &fault->refcounted_page,
-> 	};
-> 
-> 	fault->writable = false;
-> 	fault->refcounted_page = NULL;
-> 
-> 	return kvm_follow_pfn(&kfp);
-> }
-> EXPORT_SYMBOL_GPL(__kvm_faultin_pfn);
-> 
-> kvm_pfn_t kvm_faultin_pfn(struct kvm_vcpu *vcpu, gfn_t gfn, bool write,
-> 			  bool *writable, struct page **refcounted_page)
-> {
-> 	struct kvm_follow_pfn kfp = {
-> 		.slot = kvm_vcpu_gfn_to_memslot(vcpu, gfn),,
-> 		.gfn = gfn,
-> 		.flags = write ? FOLL_WRITE : 0,
-> 		.map_writable = writable,
-> 		.refcounted_page = refcounted_page,
-> 	};
-> 
-> 	if (WARN_ON_ONCE(!writable || !refcounted_page))
-> 		return KVM_PFN_ERR_FAULT;
-> 
-> 	*writable = false;
-> 	*refcounted_page = NULL;
-> 
-> 	return kvm_follow_pfn(&kfp);
-> }
-> EXPORT_SYMBOL_GPL(__kvm_faultin_pfn);
-> 
-> 
-> To get things started, I proposed moving "struct kvm_page_fault" to common code
-> so that it can be shared by x86 and arm64 as part of the KVM userfault series.
-> But I'd be more than happy to acclerate the standardization of "struct kvm_page_fault"
-> if we want to get there sooner than later.
-> 
-> [*] https://lore.kernel.org/all/aBqlkz1bqhu-9toV@google.com
-> 
-> In the meantime, RISC-V can start preparing for that future, and clean up its
-> code in the process.
-> 
-> E.g. "fault_addr" should be "gpa_t", not "unsigned long".  If 32-bit RISC-V
-> is strictly limited to 32-bit _physical_ addresses in the *architecture*, then
-> gpa_t should probably be tweaked accordingly.
-
-32-bit riscv supports 34-bit physical addresses, so fault_addr should
-indeed be gpa_t.
-
-> 
-> And vma_pageshift should be "unsigned int", not "short".
-
-Yes, particularly because huge_page_shift() returns unsigned int which may
-be used to assign vma_pageshift.
-
-> 
-> Looks like y'all also have a bug where an -EEXIST will be returned to userspace,
-> and will generate what's probably a spurious kvm_err() message.
-
-On 32-bit riscv, due to losing the upper bits of the physical address? Or
-is there yet another thing to fix?
-
-> 
-> E.g. in the short term:
-
-The diff looks good to me, should I test and post it for you?
-
-Thanks,
-drew
-
-> 
-> ---
->  arch/riscv/include/asm/kvm_host.h |  5 ++--
->  arch/riscv/kvm/mmu.c              | 49 +++++++++++++++++++++----------
->  arch/riscv/kvm/vcpu_exit.c        | 40 +------------------------
->  3 files changed, 36 insertions(+), 58 deletions(-)
-> 
-> diff --git a/arch/riscv/include/asm/kvm_host.h b/arch/riscv/include/asm/kvm_host.h
-> index 85cfebc32e4c..84c5db715ba5 100644
-> --- a/arch/riscv/include/asm/kvm_host.h
-> +++ b/arch/riscv/include/asm/kvm_host.h
-> @@ -361,9 +361,8 @@ int kvm_riscv_gstage_ioremap(struct kvm *kvm, gpa_t gpa,
->  			     bool writable, bool in_atomic);
->  void kvm_riscv_gstage_iounmap(struct kvm *kvm, gpa_t gpa,
->  			      unsigned long size);
-> -int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-> -			 struct kvm_memory_slot *memslot,
-> -			 gpa_t gpa, unsigned long hva, bool is_write);
-> +int kvm_riscv_gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> +				struct kvm_cpu_trap *trap);
->  int kvm_riscv_gstage_alloc_pgd(struct kvm *kvm);
->  void kvm_riscv_gstage_free_pgd(struct kvm *kvm);
->  void kvm_riscv_gstage_update_hgatp(struct kvm_vcpu *vcpu);
-> diff --git a/arch/riscv/kvm/mmu.c b/arch/riscv/kvm/mmu.c
-> index 1087ea74567b..3b0afc1c0832 100644
-> --- a/arch/riscv/kvm/mmu.c
-> +++ b/arch/riscv/kvm/mmu.c
-> @@ -586,22 +586,37 @@ bool kvm_test_age_gfn(struct kvm *kvm, struct kvm_gfn_range *range)
->  	return pte_young(ptep_get(ptep));
->  }
->  
-> -int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
-> -			 struct kvm_memory_slot *memslot,
-> -			 gpa_t gpa, unsigned long hva, bool is_write)
-> +int kvm_riscv_gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> +				struct kvm_cpu_trap *trap)
->  {
-> -	int ret;
-> -	kvm_pfn_t hfn;
-> -	bool writable;
-> -	short vma_pageshift;
-> +
-> +	struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
-> +	gpa_t gpa = (trap->htval << 2) | (trap->stval & 0x3);
->  	gfn_t gfn = gpa >> PAGE_SHIFT;
-> -	struct vm_area_struct *vma;
-> +	struct kvm_memory_slot *memslot = kvm_vcpu_gfn_to_memslot(vcpu, gfn);
-> +	bool logging = memslot->dirty_bitmap && !(memslot->flags & KVM_MEM_READONLY);
-> +	bool write = trap->scause == EXC_STORE_GUEST_PAGE_FAULT;
-> +	bool read =  trap->scause == EXC_LOAD_GUEST_PAGE_FAULT;
-> +	unsigned int flags = write ? FOLL_WRITE : 0;
-> +	unsigned long hva, vma_pagesize, mmu_seq;
->  	struct kvm *kvm = vcpu->kvm;
-> -	struct kvm_mmu_memory_cache *pcache = &vcpu->arch.mmu_page_cache;
-> -	bool logging = (memslot->dirty_bitmap &&
-> -			!(memslot->flags & KVM_MEM_READONLY)) ? true : false;
-> -	unsigned long vma_pagesize, mmu_seq;
-> +	unsigned int vma_pageshift;
-> +	struct vm_area_struct *vma;
->  	struct page *page;
-> +	kvm_pfn_t hfn;
-> +	bool writable;
-> +	int ret;
-> +
-> +	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
-> +	if (kvm_is_error_hva(hva) || (write && !writable)) {
-> +		if (read)
-> +			return kvm_riscv_vcpu_mmio_load(vcpu, run, gpa,
-> +							trap->htinst);
-> +		if (write)
-> +			return kvm_riscv_vcpu_mmio_store(vcpu, run, gpa,
-> +							 trap->htinst);
-> +		return -EOPNOTSUPP;
-> +	}
->  
->  	/* We need minimum second+third level pages */
->  	ret = kvm_mmu_topup_memory_cache(pcache, gstage_pgd_levels);
-> @@ -648,7 +663,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->  		return -EFAULT;
->  	}
->  
-> -	hfn = kvm_faultin_pfn(vcpu, gfn, is_write, &writable, &page);
-> +	hfn = __kvm_faultin_pfn(memslot, gfn, flags, &writable, &page);
->  	if (hfn == KVM_PFN_ERR_HWPOISON) {
->  		send_sig_mceerr(BUS_MCEERR_AR, (void __user *)hva,
->  				vma_pageshift, current);
-> @@ -661,7 +676,7 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->  	 * If logging is active then we allow writable pages only
->  	 * for write faults.
->  	 */
-> -	if (logging && !is_write)
-> +	if (logging && !write)
->  		writable = false;
->  
->  	spin_lock(&kvm->mmu_lock);
-> @@ -677,14 +692,16 @@ int kvm_riscv_gstage_map(struct kvm_vcpu *vcpu,
->  		ret = gstage_map_page(kvm, pcache, gpa, hfn << PAGE_SHIFT,
->  				      vma_pagesize, true, true);
->  	}
-> +	if (ret == -EEXIST)
-> +		ret = 0;
->  
->  	if (ret)
->  		kvm_err("Failed to map in G-stage\n");
->  
->  out_unlock:
-> -	kvm_release_faultin_page(kvm, page, ret && ret != -EEXIST, writable);
-> +	kvm_release_faultin_page(kvm, page, ret, writable);
->  	spin_unlock(&kvm->mmu_lock);
-> -	return ret;
-> +	return ret ? ret : 1;
->  }
->  
->  int kvm_riscv_gstage_alloc_pgd(struct kvm *kvm)
-> diff --git a/arch/riscv/kvm/vcpu_exit.c b/arch/riscv/kvm/vcpu_exit.c
-> index 6e0c18412795..6f07077068f6 100644
-> --- a/arch/riscv/kvm/vcpu_exit.c
-> +++ b/arch/riscv/kvm/vcpu_exit.c
-> @@ -10,44 +10,6 @@
->  #include <asm/csr.h>
->  #include <asm/insn-def.h>
->  
-> -static int gstage_page_fault(struct kvm_vcpu *vcpu, struct kvm_run *run,
-> -			     struct kvm_cpu_trap *trap)
-> -{
-> -	struct kvm_memory_slot *memslot;
-> -	unsigned long hva, fault_addr;
-> -	bool writable;
-> -	gfn_t gfn;
-> -	int ret;
-> -
-> -	fault_addr = (trap->htval << 2) | (trap->stval & 0x3);
-> -	gfn = fault_addr >> PAGE_SHIFT;
-> -	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> -	hva = gfn_to_hva_memslot_prot(memslot, gfn, &writable);
-> -
-> -	if (kvm_is_error_hva(hva) ||
-> -	    (trap->scause == EXC_STORE_GUEST_PAGE_FAULT && !writable)) {
-> -		switch (trap->scause) {
-> -		case EXC_LOAD_GUEST_PAGE_FAULT:
-> -			return kvm_riscv_vcpu_mmio_load(vcpu, run,
-> -							fault_addr,
-> -							trap->htinst);
-> -		case EXC_STORE_GUEST_PAGE_FAULT:
-> -			return kvm_riscv_vcpu_mmio_store(vcpu, run,
-> -							 fault_addr,
-> -							 trap->htinst);
-> -		default:
-> -			return -EOPNOTSUPP;
-> -		};
-> -	}
-> -
-> -	ret = kvm_riscv_gstage_map(vcpu, memslot, fault_addr, hva,
-> -		(trap->scause == EXC_STORE_GUEST_PAGE_FAULT) ? true : false);
-> -	if (ret < 0)
-> -		return ret;
-> -
-> -	return 1;
-> -}
-> -
->  /**
->   * kvm_riscv_vcpu_unpriv_read -- Read machine word from Guest memory
->   *
-> @@ -229,7 +191,7 @@ int kvm_riscv_vcpu_exit(struct kvm_vcpu *vcpu, struct kvm_run *run,
->  	case EXC_LOAD_GUEST_PAGE_FAULT:
->  	case EXC_STORE_GUEST_PAGE_FAULT:
->  		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
-> -			ret = gstage_page_fault(vcpu, run, trap);
-> +			ret = kvm_riscv_gstage_page_fault(vcpu, run, trap);
->  		break;
->  	case EXC_SUPERVISOR_SYSCALL:
->  		if (vcpu->arch.guest_context.hstatus & HSTATUS_SPV)
-> 
-> base-commit: 19272b37aa4f83ca52bdf9c16d5d81bdd1354494
-> -- 
-
-_______________________________________________
-linux-riscv mailing list
-linux-riscv@lists.infradead.org
-http://lists.infradead.org/mailman/listinfo/linux-riscv
+SGkgTWFyY28sCgpPbiA2LzYvMjUgMjE6NDIsIE1hcmNvIEJvbmVsbGkgd3JvdGU6Cj4gSSB3YXMg
+YWJsZSB0byBhbHNvIHJlcHJvZHVjZSB3aXRob3V0IFpTVEQgKGkuZS4gYm90aCBaU1REX0NPTVBS
+RVNTPW4KPiBhbmQgWlNURF9ERUNPTVBSRVNTPW4pIGxpa2UgdGhpczoKPgo+IAlleHBvcnQgQVJD
+SD1yaXNjdiBDUk9TU19DT01QSUxFPXJpc2N2MzItbGludXgtCj4gCW1ha2UgZGlzdGNsZWFuCj4g
+CW1ha2UgZGVmY29uZmlnCj4gCW1ha2UgMzItYml0LmNvbmZpZwo+IAkuL3NjcmlwdHMvY29uZmln
+IFwKPiAJCS1lIEZUUkFDRSBcCj4gCQktZSBDT05GSUdfREVCVUdfSU5GT19EV0FSRl9UT09MQ0hB
+SU5fREVGQVVMVCBcCj4gCQktZCBSRF9aU1REIFwKPiAJCS1kIFNFQ1VSSVRZX0FQUEFSTU9SX0lO
+VFJPU1BFQ1RfUE9MSUNZIFwKPiAJCS1kIEJUUkZTX0ZTCj4gCW1ha2Ugb2xkZGVmY29uZmlnCj4g
+CW1ha2UgLWogdm1saW51eAo+Cj4gRGlkIGFub3RoZXIgYmlzZWN0IHJ1biBiZXR3ZWVuIHY2LjE0
+IGFuZCB2Ni4xNSB3aXRoIHRoZSBhYm92ZSBjb21tYW5kcwo+IGluIGEgYmFzaCBzY3JpcHQgYW5k
+IGdvdDoKPgo+IAk0OTRlN2ZlNTkxYmY4MzRkNTdjNjYwN2NkYzI2YWI4ODczNzA4YWE3IE1lcmdl
+IHRhZyAnYnBmX3Jlc19zcGluX2xvY2snIG9mIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20v
+bGludXgva2VybmVsL2dpdC9icGYvYnBmLW5leHQKPgo+IFRoaXMgbGVhdmVzIG1lIG1vcmUgcHV6
+emxlZCB0aGFuIGJlZm9yZSBob25lc3RseS4gTm90IHN1cmUgd2hldGhlciBpdCBpcwo+IGEgcmVh
+bCBidWcgb3IgYSBwcm9ibGVtIG9uIG15IGVuZCBhdCB0aGlzIHBvaW50PyBUaGUgZmFjdCB0aGF0
+IEkgY2FuIHJlcHJvCj4gaW4gYSBEb2NrZXIgbWFrZXMgbWUgdGhpbmsgb2YgdGhlIGZvcm1lciwg
+YnV0IHRoZSBmYWN0IHRoYXQgSSB3YXMgYWJsZSB0bwo+IGJpc2VjdCBpdCBkb3duIHRvIHR3byBk
+aWZmZXJlbnQgY29tbWl0cyBkZXBlbmRpbmcgb24gWlNURCB2cyBubyBaU1REIGlzCj4gd2VpcmQu
+Cj4KPiBBbGV4IChvciBhbnlvbmUgZWxzZSByZWFsbHkpOiBhcmUgeW91IGFibGUgdG8gcmVwcm9k
+dWNlIHdpdGggbXkgRG9ja2VyZmlsZQo+IG9yIGNvbmZpZyBJIHByb3ZpZGVkIGluIG15IGxhc3Qg
+bWFpbCBieSBhbnkgY2hhbmNlPwoKSSdtIGFibGUgdG8gcmVwcm9kdWNlIHlvdXIgaXNzdWUgd2l0
+aCB5b3VyIERvY2tlcmZpbGUgYW5kIGxvY2FsbHkgdG9vIApub3cgdXNpbmcgeW91ciBsYXN0IGlu
+c3RydWN0aW9ucywgd2l0aCB0aGUgcnYzMiB0b29sY2hhaW4geW91IHByb3ZpZGVkIAphbmQgbXkg
+cmVndWxhciBydjY0IHRvb2xjaGFpbiAoMTMuMS4wKS4KClNvLCB0aGF0J3Mgd2VpcmQsIGxldCdz
+IHRha2UgdGhlIGZvbGxvd2luZyBmYWlsdXJlOgoKRVJST1I6IG1vZHBvc3Q6IHZtbGludXg6IGxv
+Y2FsIHN5bWJvbCAncmlzY3ZfY2FjaGVkX212ZW5kb3JpZCcgd2FzIGV4cG9ydGVkCgpXaGVuIGF0
+dGFjaGluZyB3aXRoIGdkYiwgSSBnZXQgdGhpczoKCkJyZWFrcG9pbnQgMiwgY2hlY2tfZXhwb3J0
+X3N5bWJvbCAoc3ltPTB4N2ZmZmNmYzVhY2E4LCAKc2VjbmFtZT0weDdmZmZmN2I3ZTNhYSAiLmRl
+YnVnX3N0ciIsIGZhZGRyPTcyLCBlbGY9MHg3ZmZmZmZmZmRlYzAsIAptb2Q9MHg1NTU1NTU1NmIy
+YTApIGF0IC4uL3NjcmlwdHMvbW9kL21vZHBvc3QuYzoxMDg3CjEwODfCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgIGVycm9yKCIlczogbG9jYWwgc3ltYm9sICclcycgd2FzIGV4cG9ydGVkXG4iLCBtb2Qt
+Pm5hbWUsCjE6IG1vZC0+bmFtZSA9IDB4NTU1NTU1NTZiMzM0ICJ2bWxpbnV4IgoyOiBsYWJlbF9u
+YW1lID0gMHg3ZmZmZGZjZDk2NWYgIl9fZXhwb3J0X3N5bWJvbF9yaXNjdl9jYWNoZWRfbXZlbmRv
+cmlkIgooZ2RiKSBwL3ggc3ltLT5zdF9pbmZvCiQxID0gMHgwCihnZGIpIHAveCAqc3ltCiQyID0g
+e3N0X25hbWUgPSAweDMyMWRlZCwgc3RfdmFsdWUgPSAweDNkOTExMSwgc3Rfc2l6ZSA9IDB4MCwg
+c3RfaW5mbyA9IAoweDAsCiDCoCBzdF9vdGhlciA9IDB4MCwgc3Rfc2huZHggPSAweGI2fQoKd2hl
+cmUgc3RfaW5mbyA9PSAwID09IFNUQl9MT0NBTC4KCk9uIGEgd29ya2luZyBydjY0IGJ1aWxkIHdp
+dGggdGhlIHNhbWUgY29uZmlncywgSSBnZXQ6CgpCcmVha3BvaW50IDEsIGNoZWNrX2V4cG9ydF9z
+eW1ib2wgKHN5bT0weDdmZmZjNTZkOTRhOCwgCnNlY25hbWU9MHg3ZmZmZjdhZTllNTQgIi50ZXh0
+IiwgZmFkZHI9MTIwLCBlbGY9MHg3ZmZmZmZmZmRlZDAsIAptb2Q9MHg1NTU1NTU1NmIyYTApIGF0
+IC4uL3NjcmlwdHMvbW9kL21vZHBvc3QuYzoxMDg1CjEwODXCoMKgwqDCoMKgwqDCoCBpZiAoRUxG
+X1NUX0JJTkQoc3ltLT5zdF9pbmZvKSAhPSBTVEJfR0xPQkFMICYmCihnZGIpIHAveCAqc3ltCiQx
+ID0ge3N0X25hbWUgPSAweGU2YWEsIHN0X2luZm8gPSAweDEyLCBzdF9vdGhlciA9IDB4MCwgc3Rf
+c2huZHggPSAweDIsCiDCoCBzdF92YWx1ZSA9IDB4MTFiYSwgc3Rfc2l6ZSA9IDB4MmN9CgpUaGUg
+ZGlmZmVyZW5jZSBpcyB0aGF0IHRoZSBzeW1ib2wgaXMgbm90IGluIHRoZSBzYW1lIHNlY3Rpb24u
+CgpJJ20gc3RpbGwgbG9va2luZyBpbnRvIGl0LCBqdXN0IHdhbnRlZCB0byBsZXQgeW91IGtub3cg
+dGhhdCBJIGNhbiAKcmVwcm9kdWNlIGFuZCBob3Bpbmcgc29tZW9uZSB3aG8ga25vd3MgY291bGQg
+anVtcCBpbiA6KQoKVGhhbmtzLAoKQWxleAoKCj4KPiAtLQo+IE1hcmNvIEJvbmVsbGkKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCmxpbnV4LXJpc2N2IG1h
+aWxpbmcgbGlzdApsaW51eC1yaXNjdkBsaXN0cy5pbmZyYWRlYWQub3JnCmh0dHA6Ly9saXN0cy5p
+bmZyYWRlYWQub3JnL21haWxtYW4vbGlzdGluZm8vbGludXgtcmlzY3YK
