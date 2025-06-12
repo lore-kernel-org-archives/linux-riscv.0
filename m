@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1079C71136
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:42:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D845C71136
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 19:42:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:
 	Content-Transfer-Encoding:Content-Type:List-Subscribe:List-Help:List-Post:
-	List-Archive:List-Unsubscribe:List-Id:MIME-Version:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=NNoxZo7ihGCSlABsspDoFMQjkhiP8+0Piqpn9dMmwrA=; b=JBYhoTHIyIGBcU
-	LHaiR4KlZdLA3Rufb8Y65Ru16uhm8dLmgqhOiVITW5RpwSRY1ZnUPmFbS9c8kfpgaC1WIp16RyZGG
-	ZnzrUZP2geL4QpNAmTrXnF/41m3/qnvzY53iBbCY/6J8nnZAmi4DUpY9lzEZfhL3qf6dANQpjO0wJ
-	jbirbybxgwSkUUDpOkxXgrrCBvEiHlBC/UjAXrrpqbRR9Yf/YXA3AkTUOAQLSKFrviqwk1OHHEVsc
-	ujisOo4pMdvBF4n/LCc9ONgMmb/wdsnOxt+cEv/MflOeGGf/nyUaQirQ97AIZg9aM/LjR8N/+JEsG
-	iEAH0Vq/+rhdm//2Iu1w==;
+	List-Archive:List-Unsubscribe:List-Id:MIME-Version:References:In-Reply-To:
+	Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=V1B7XYnHdJDzcOXVy/5eo+wTs/AtU3prIo9VFuvG6eM=; b=wo82aWK/TeHG2o
+	hlmIGcFESrXCJ0jRKN9QmkNOhMaTq/eW47Ho66vn0YL4MWLIQI/vz4caMwjDZjt8DNDVyYNZ4VrMl
+	Tz0x2xhynAAN1z+R+eRZNdKdiAnXtOiuZJ647lVeKWaVK2oe3qO/hAUaFJh/+6q+Cg0hNo3ya0wSe
+	HQE/yBNwSJgb1uKuj1Qs6d7k8wN9sh3jz1BzAlhE8mbZ3//FeH/mXbn7vKI2y/9ZtFPSQS6jgP8Os
+	QEwRgPI7gqDokpAhbu+s/ZhvV/Xvs6D09anj+i1VKTu9SSlr0d3NOO1cvEhrJOzLCLTQlHLh97qgG
+	dyMKEaaS4rrQVTOAEOUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPnoc-0000000EG96-215p;
-	Thu, 12 Jun 2025 19:42:22 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1uPnok-0000000EGIU-2OY5;
+	Thu, 12 Jun 2025 19:42:33 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPhyu-0000000DSS7-0HP0;
+	id 1uPhyu-0000000DSSd-1gsX;
 	Thu, 12 Jun 2025 13:28:37 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-451d6ade159so8143995e9.1;
-        Thu, 12 Jun 2025 06:28:35 -0700 (PDT)
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-4530921461aso8271375e9.0;
+        Thu, 12 Jun 2025 06:28:36 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1749734914; x=1750339714; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MLRgP3IIDXezaBsOM8+vWEmARGcut96oeFGa111PeEU=;
-        b=OXUg8sWm8VlcwmfxEMnBsppCRPm7qWVps2weVBxEXgU59FI40N92j5/RWVrUylieQ/
-         U2WotCtFAMSc9Y4GMEOVQTMuwh+LffdCJOUwfNlzDy5zqGOcRRJy3BV2UfNi/Lr7Ao90
-         9YMvKepsONHFjuKcQxYQzXRdk/+gtX5l4jzO1wgIXus8ILeXc0nilS0HPN7wP0OJirYn
-         IH33rZg4nIaQI9I8UJFsR2elAKm0Z63HDOieJA8QljpqE27AhhhD+EYbn3havYiidETs
-         vYIJC8DW6+/TR11WmWPBXvi8x+6uEidO9Fz1oahE+OS4su7U4/foiy7SAetIzXV/g3So
-         M3Rg==
+        d=gmail.com; s=20230601; t=1749734915; x=1750339715; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DOPYLp+PqOhl2kEAzLxqmfQbbvicZ5KyaycY/d7WX+U=;
+        b=kCYp094ggz5utxLLvpRSbDM4jnaduCZYBvEYzD7dUXtCn3ZS0KT1Vslszm2ITEGO6y
+         SCbLmAL+IAs8So72v0OSyhpuSYxBwS+/z3iES5ZzNGq3WlbjDv5G1/cmmYavfG/Kp2P6
+         LAYWgyZAasvBr7XnQDUzaATzS6xArdNoIWsooJO+BIzN75iSmMhNUzQjX4y0S2HuM4C7
+         TuXa8HprOjGGtAvkhxutbJTIbZ5OJmDe8mzgTOqZuNW2KNekkboYzAxuQZaFNgr9tc1h
+         ictFicESJMOFk3CBtgdjtiFNynF5XPnJlcHP2Gfe+FzLhDwBwo1/Xwq+JtYXTOH+FV7t
+         kPoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1749734914; x=1750339714;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MLRgP3IIDXezaBsOM8+vWEmARGcut96oeFGa111PeEU=;
-        b=qFXtv8zukbrBd1ofmOZvPtby3WpiWKVg7sD73whTejZfW1qSH3Z9tV3r3O3MXgc8Y3
-         T7Xvyeg2cwNy8Zoq3C1d5o+JiZhIxNfQjouzptPJz4FFxYzCYmsHVcjzno7NMUIe0cDJ
-         /i9k6M3DS807EThjhCcJUPTBsN3Y9yKJyGrarfDlSvxnD3WlzirmlPjAn/oWK43anyIg
-         znCm7gv3pqwol2KnhxRezJUeafwdA/MjSiQ+94glFPD65JCch3Mt3cnn4wNHEqd12m7F
-         YIUz4F/L/ErbJT5AIRXFtAokiE5NkFGx1ULvKuHSwe77fqsptrdYL2+kxthBurv8rtZg
-         J5Cw==
-X-Forwarded-Encrypted: i=1; AJvYcCV+9zXQI1vN9Uhsyj0W/KLu4SG1n47bXwB+DZXDoKhKdTb7oDsDIBGA3Bowc77JJ5FRmjeZk5vYNnPaLG0=@lists.infradead.org, AJvYcCWVBVB1NHQ58tm6FIUNXDHJmg+EUJeGErIv5cjcoaC0ji85wlwOdNg7MKxAJzk4syHceT+tRW7eJD7PYDfH2Eb8@lists.infradead.org
-X-Gm-Message-State: AOJu0YwKg12Leet3yP/WTgWpMf1yHIenmbpCTKUrt0R8FUk5J7iav+F/
-	N21gs21S9yw3Q00jpmSe2GiP9ygIyNxHziV6q2EQamxnHQxHSav/fEGV
-X-Gm-Gg: ASbGncu2BedFmdiICMn68fl9w079DoIF8qfHhVpiilN+v/IMNZUhG5ogN0jJEh0BBon
-	fG3JlNye1FihvfhsdsMJ1396brfYGcMVzMC1F68OuAcGVC6BipHF98vXyOVjQ+MsFYR0DxBW4IH
-	wVNEU1GgwlAgbK9HxEgx1a/O06kEjI6gc7WFSTToZch7AdjPwAisYDwRWLC1F9WQSBFCZ9syVpN
-	AejCWXQzueLHhzq2LlZ1K6XHWIr6nQBDRgXwJCARsJL3rI4g6JU5W00hdmNEe8sjCV0Cc8ZgiE2
-	dl5jI1BW/A49Ir45U8nk9I0NPgb1/WLy94mkYx3dZIz/Zk6KVqOs98TuBYhzeq05GByJwLnCovs
+        d=1e100.net; s=20230601; t=1749734915; x=1750339715;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=DOPYLp+PqOhl2kEAzLxqmfQbbvicZ5KyaycY/d7WX+U=;
+        b=lpwEkzPGCtwzLkLt7ObYsQUa0COUO3Wgk76EWGjR5oVo7h+8IaSZifdU8YLjIiibdZ
+         5t8n26WT6MSVWDO/X/RR/fmUb0Fj4zhHZ+WOccWRLQQRD0TRr8OB0MQJzj5j8S4pVjxh
+         FIusYbIKjHd2WZucqDhk4dLlmso/+0KpxuywT0fa1D5T0mBjgaA4iLSz9sKJXTnrOO7k
+         uCP8bAFoCT/xzjlgtiNBimcUFUJ7qOkBX8s/ecXxqLkg2okuEY9D8VVE5AHXkSNeWbl7
+         UTOpCwpqPua+gJ+Cq17pWil9evkrJ5WVndKMO0IHSqkOepIFrpi7GaJRx2GyGzvydfXx
+         gLBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW7Ox9j/I08vDpEQHb9w0C0aFXHTcDbCZCh9hEMX5RI/mDkc4ikf1q64+wQP35ubSXC7E+jL6UPShhKg4k5QNFY@lists.infradead.org, AJvYcCWo8K//3/A4rxz65f3BJz72WAQvnujC8CKTAXy9pwtTLWnfafG9gATp/MUhIpk5E2Cq+RKXZm0JAbATWzM=@lists.infradead.org
+X-Gm-Message-State: AOJu0YytOgmjQuWe7SFSeixiR8/Ga8UYy9RAwUbML+EUK0YDOnxsLJS3
+	aF/AJvTNBqp2QT/+A0IrsjjUVSaoq+XdDnJTgAxCZVtaJ/4HwQgLI+55
+X-Gm-Gg: ASbGncvM8IvQeOZloiB08YaOebzZsT+AaQQ6w4wpJKdslrf6xrLUg867ZHSO7xCJFhA
+	C5IruueVaekVu5PDDcWsuQiyKoZTIMipGesouaZJGO/ExPEr/9cADrQ4myWyuP1B08hzzD6JJrW
+	QfYTcaguBPyPV0RG2fJAeo8J4t5r/id0FBllYwlk8DK8lW6eJg+erDxQ/RhXwRAMST9jkOy+lC4
+	AHH7Grx62aD7jugJA6qgarlhc25eFiIsdpNG1OHWpL1t1mlzy5scu54VFv2Qjvbw+xj7uyqmujx
+	auMLBcbuJdd/qE3KJJOVpLDF3ABjwnoz6EDZX7Rc7fc5jscNDsBySxlXD4KbpkKUVMT6VKVVpZ0
 	=
-X-Google-Smtp-Source: AGHT+IFpZt9xeRACCbkBph/0b80F5G96pQJWNHfEEsFXmXUcl680bXAt70dE6+INj00D/baZ5bvXKw==
-X-Received: by 2002:a05:600c:1c19:b0:43c:f70a:2af0 with SMTP id 5b1f17b1804b1-4533332161fmr1421105e9.16.1749734913718;
-        Thu, 12 Jun 2025 06:28:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFWiGNMBdTBUMs7+0ijX2pUaO7IssAxRo0dN8J+TZrkwdKUEWMff5QxI4+ITXCstzD5fkIxsw==
+X-Received: by 2002:a5d:5f96:0:b0:3a4:d0dc:184d with SMTP id ffacd0b85a97d-3a5586dc413mr6122966f8f.27.1749734914690;
+        Thu, 12 Jun 2025 06:28:34 -0700 (PDT)
 Received: from giga-mm.. ([2a02:1210:8608:9200:82ee:73ff:feb8:99e3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561b653d5sm1982809f8f.86.2025.06.12.06.28.32
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3a561b653d5sm1982809f8f.86.2025.06.12.06.28.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 12 Jun 2025 06:28:33 -0700 (PDT)
+        Thu, 12 Jun 2025 06:28:34 -0700 (PDT)
 From: Alexander Sverdlin <alexander.sverdlin@gmail.com>
 To: sophgo@lists.linux.dev,
 	soc@lists.linux.dev
@@ -89,15 +90,19 @@ Cc: Alexander Sverdlin <alexander.sverdlin@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v8 0/6] arm64 support for Milk-V Duo Module 01 EVB
-Date: Thu, 12 Jun 2025 15:28:08 +0200
-Message-ID: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+	linux-arm-kernel@lists.infradead.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: [PATCH v8 1/6] dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add SG2000
+Date: Thu, 12 Jun 2025 15:28:09 +0200
+Message-ID: <20250612132844.767216-2-alexander.sverdlin@gmail.com>
 X-Mailer: git-send-email 2.49.0
+In-Reply-To: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
+References: <20250612132844.767216-1-alexander.sverdlin@gmail.com>
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_062836_105847_FFF0ED31 
-X-CRM114-Status: GOOD (  18.43  )
+X-CRM114-CacheID: sfid-20250612_062836_441259_36466E6C 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,97 +119,48 @@ Content-Transfer-Encoding: 7bit
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
-This series adds very basic support for Milk-V Duo Module 01 EVB [1] in
-arm64 mode. The SoC (SG2000) is dual-arch, RiscV and ARM64, the latter has
-been chosen because the upstream toolchain can be utilized.
+Move sophgo.yaml from riscv into soc/sophgo so that it can be shared for
+all SoCs containing ARM cores as well. This already applies to SG2002.
 
-Sophgo SG2000 seems to be a continuation of the Cvitek CV18xx series, same
-peripherals with an addition of ARM64 core. Therefore it would be
-beneficial not to copy-paste the peripherals' device-tree, but rather split
-the most suitable riscv DT into ARCH-specific and peripherals parts and
-just include the latter on the arm64 side.
+Add SG2000 SoC, Milk-V Duo Module 01 and Milk-V Module 01 EVB.
 
-This series adds the device-tree for Milk-V Duo Module 01 EVB, which
-in turn contains Milk-V Duo Module 01 (separate .dtsi) on it, which has
-SG2000 SoC inside (separate .dtsi).
-
-This series has been tested with Sophgo-provided U-Boot binary [2]: it
-boots from SD card; pinctrl, serial, GPIO drivers are functional (same
-as for RiscV-based CV18xx SoCs).
-
-Partial SoC documentation is available [3].
-
-This series lacks the support of:
-- USB
-- Audio
-- Ethernet
-- WiFi
-- Bluetooth
-- eMMC
-- Video
-
-Changelog:
-v8:
-- moved sdhci0_cfg and uart0_cfg pinctrl nodes from module into board .dtsi
-- dropped Inochi's RB tags from the patches affected by above changes
-v7:
-- dropped all reset stuff again; it will come independently in [5] and is
-  fully compatible;
-- rebase onto sophgo [6] for-next (3a8cef361be5) (almost v6.16-rc1)
-v6:
-- rebase onto sophgo/for-next (108a76779829)
-- dropped first patch refactoring RiscV counterpart (equivalent present in
-  sophgo/for-next)
-- added cpu_on/cpu_off properties into psci node
-- added reset-controller node, compatible comes in [4]
-v5:
-- PSCI node in DT
-v4:
-- minimized patch 1/7 (cleanups dropped)
-- cv18xx-cpu-intc.dtsi instead of cv18xx-cpu.dtsi+cv18xx-intc.dtsi in
-patch 1/7
-v3:
-- &cpus node has been moved into cv18xx-cpu.dtsi, &plic and &clint nodes
-were moved into cv18xx-intc.dtsi to reduce code duplication;
-v2:
-- dropped all patches related to the new reboot driver and corresponding DT
-and bindings;
-- grouped DT-related and config-related patches together;
-- added patch moving sophgo.yaml from riscv into soc (to share it with
-ARM); added SG2000 SoC and Milk-V Duo Module 01 EVB into it;
-- other changes are documented in the corresponding patches;
-
-[1] https://milkv.io/docs/duo/getting-started/duo-module-01
-[2] https://github.com/milkv-duo/duo-buildroot-sdk-v2/releases/
-[3] https://github.com/sophgo/sophgo-doc/releases/download/sg2000-trm-v1.01/sg2000_trm_en.pdf
-[4] https://lore.kernel.org/sophgo/20250609230417.620089-1-alexander.sverdlin@gmail.com/
-[5] https://lore.kernel.org/all/20250608232214.771855-1-inochiama@gmail.com/
-[6] https://github.com/sophgo/linux.git
-
-Alexander Sverdlin (6):
-  dt-bindings: soc: sophgo: Move SoCs/boards from riscv into soc, add
-    SG2000
-  arm64: dts: sophgo: Add initial SG2000 SoC device tree
-  arm64: dts: sophgo: Add Duo Module 01
-  arm64: dts: sophgo: Add Duo Module 01 Evaluation Board
-  arm64: Add SOPHGO SOC family Kconfig support
-  arm64: defconfig: Enable rudimentary Sophgo SG2000 support
-
- .../{riscv => soc/sophgo}/sophgo.yaml         |  7 +-
- arch/arm64/Kconfig.platforms                  |  6 ++
- arch/arm64/boot/dts/Makefile                  |  1 +
- arch/arm64/boot/dts/sophgo/Makefile           |  2 +
- .../sophgo/sg2000-milkv-duo-module-01-evb.dts | 76 ++++++++++++++++
- .../sophgo/sg2000-milkv-duo-module-01.dtsi    | 40 +++++++++
- arch/arm64/boot/dts/sophgo/sg2000.dtsi        | 86 +++++++++++++++++++
- arch/arm64/configs/defconfig                  |  4 +
- 8 files changed, 221 insertions(+), 1 deletion(-)
+Reviewed-by: Chen Wang <unicorn_wang@outlook.com>
+Reviewed-by: Inochi Amaoto <inochiama@gmail.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Signed-off-by: Alexander Sverdlin <alexander.sverdlin@gmail.com>
+---
+ .../devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml  | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
  rename Documentation/devicetree/bindings/{riscv => soc/sophgo}/sophgo.yaml (81%)
- create mode 100644 arch/arm64/boot/dts/sophgo/Makefile
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01-evb.dts
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000-milkv-duo-module-01.dtsi
- create mode 100644 arch/arm64/boot/dts/sophgo/sg2000.dtsi
 
+diff --git a/Documentation/devicetree/bindings/riscv/sophgo.yaml b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
+similarity index 81%
+rename from Documentation/devicetree/bindings/riscv/sophgo.yaml
+rename to Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
+index b4c4d7a7d7ad..602c092b4ad5 100644
+--- a/Documentation/devicetree/bindings/riscv/sophgo.yaml
++++ b/Documentation/devicetree/bindings/soc/sophgo/sophgo.yaml
+@@ -1,7 +1,7 @@
+ # SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+ %YAML 1.2
+ ---
+-$id: http://devicetree.org/schemas/riscv/sophgo.yaml#
++$id: http://devicetree.org/schemas/soc/sophgo/sophgo.yaml#
+ $schema: http://devicetree.org/meta-schemas/core.yaml#
+ 
+ title: Sophgo SoC-based boards
+@@ -26,6 +26,11 @@ properties:
+           - enum:
+               - sophgo,huashan-pi
+           - const: sophgo,cv1812h
++      - items:
++          - enum:
++              - milkv,duo-module-01-evb
++          - const: milkv,duo-module-01
++          - const: sophgo,sg2000
+       - items:
+           - enum:
+               - sipeed,licheerv-nano-b
 -- 
 2.49.0
 
