@@ -4,59 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73FC3C7114C
-	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 22:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 681D2C61CE8
+	for <linux-riscv@archiver.kernel.org>; Thu, 12 Jun 2025 22:10:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:Cc:
-	List-Subscribe:List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	In-Reply-To:MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kGVVmc5MKOHjtcX+tj3kpQiF/l3+7lbDnGQXSx3p0pM=; b=C5cRehPf1cXf+e7RI/qdvLCN61
-	hzl4lm7h6w1ReUiUwT/6xVqA3CA9k74CXLEmSPFQ8C/9RVLKljnPBAmSVZ6QaeunFUPMtdzHLGxRR
-	EGNL5e01L3EfLZoMVsMr/anWXt3y/u3VwlaMEf0CoT//+1ZHU1vcUAtbMeJejLnHirdPWUFG6apzW
-	WbVhb2TxxiAJW8/xt5ailaVat9K7b4Eo/1bA8b/pnl1cR6xz9TPPraD9/r3pXpsht0luBmxHE2Oah
-	aKX2aimKkA7LGp4cLi0JQSSB5TfYgtTqsPS2v95WjvjV1ji+RK+OacXpm9LbfIDwPgdPIxK88MrCt
-	6e1UbPtQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Content-Type:
+	Content-Transfer-Encoding:List-Subscribe:List-Help:List-Post:List-Archive:
+	List-Unsubscribe:List-Id:Mime-Version:Message-ID:To:From:CC:In-Reply-To:
+	Subject:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=RDrYUaN827x0VBY3hWAjGnLKnNqkt/QAV838K6g/h4o=; b=vny3hC4/hqca+UqHltq87+76sf
+	tJMBWNzouWfhPl/sJGjsX0UaNKye2k3HgiVOFPZzAqjZ7Gr3E/5DOWpwIirihd3qm2esg+gIxeOB3
+	i7LbkMe9Td+vviRunnDsS6iPt2PJZxgfIzaaQHyy38JnhlehzDRMTry1HvUTy/qEbbV8ZYiVXmtJk
+	BGlGH0Qq4KgkgUbhrsuSDceiW1p8/3BMnlxSh1q1jlNq/bDUHe666calyuFkH6xfyLflv2hxQBDI2
+	HkOaiw1WwNtGLtLZCf6MfmDtD8Mc8VMWukyuePWP88Rhsdq6lSOEDxiVl/zFq8UhCDyUHjCJhQOds
+	L0w6wMIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPq7A-0000000EjTl-3ShP;
-	Thu, 12 Jun 2025 22:09:40 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1uPq7Q-0000000Ejsr-3y0O;
+	Thu, 12 Jun 2025 22:09:56 +0000
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1uPjy0-0000000Do96-0T95
+	id 1uPn7G-0000000E9wB-21SU
 	for linux-riscv@lists.infradead.org;
-	Thu, 12 Jun 2025 15:35:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AEBA74A16D;
-	Thu, 12 Jun 2025 15:35:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2588EC4CEEA;
-	Thu, 12 Jun 2025 15:35:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1749742547;
-	bh=Ss4ahYRx/y3pjwhd7QqlDK8uOFCu1jOBr4RPH/Ks9bo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=auLrsJ/6G8/Nk8NFr4MskwcvM4uw4NObh3me2bKXsGlCE/GgINLIKEF00tdXKPUVB
-	 pRQiVQFnzPl1vUEnTcGP2+vnUDPGIs8+YdOduzrw6hjkiy+R9/p5Ne8jDIXxbggupA
-	 a7Rh6ZfP9wsYptqrYGlAzeYshwm4qkEM+NgAbI+Hybe6HrG/jmYqQalFfJaTI6urnZ
-	 jqkff3rGnxDBUmgcYqvl7JyPZscCfAIPrQZ9B71mwDY7S0/bdNdSn94FmRkXrivB4e
-	 S5F4eDy2/qSR/o0GPYpkq7JU4c0MwhUTVhiPh8Db9fb310HtxM24ewwB7CQCCISp+A
-	 V2uBjTwq0HlKg==
-Date: Thu, 12 Jun 2025 16:35:42 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
-Subject: Re: [PATCH v3 3/7] dt-bindings: interrupt-controller: add MIPS P8700
- aclint-sswi
-Message-ID: <20250612-wildfire-ambiance-b4acbe3fff31@spud>
-References: <20250609134749.1453835-1-vladimir.kondratiev@mobileye.com>
- <20250612143911.3224046-1-vladimir.kondratiev@mobileye.com>
- <20250612143911.3224046-4-vladimir.kondratiev@mobileye.com>
-MIME-Version: 1.0
-In-Reply-To: <20250612143911.3224046-4-vladimir.kondratiev@mobileye.com>
+	Thu, 12 Jun 2025 18:57:36 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-234bfe37cccso18131155ad.0
+        for <linux-riscv@lists.infradead.org>; Thu, 12 Jun 2025 11:57:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dabbelt-com.20230601.gappssmtp.com; s=20230601; t=1749754653; x=1750359453; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MRriOQjwYrLCtkslAVC8UMCVhN/d3luvPuUoipDEo9Y=;
+        b=IrVQI6o6eyFt5288vADLRUtySmOdou1LWpK8baO1QWgCDKrjTlZ9lIOBP9jWuhj9Li
+         qntDCQwZE/3Yd8J+8zs0VJiAEGZFVIxDR6ZQh9jT9Hh314LrT8+hE4Q7gil/uzWSR3eH
+         jul8SSexpXpWwix+SD0JXzcHNB/5OSmobaNTOLPJ8I9SvQpdX/nZSLGPh3gngxS6LNWW
+         CFKQGz5XtnlzbUzDxUIoBbvj8xzYzKUF/cOHpK0TkY6rr/CChc2mWVPlhSs+k5mq63kq
+         Hvm0VUDE7nyCx0wjenpJV1Htr0TXcSAKJyg8Nfv7lxMly8ICE6Gw3d25ZPa8qngFDVSH
+         w+WA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749754653; x=1750359453;
+        h=content-transfer-encoding:mime-version:message-id:to:from:cc
+         :in-reply-to:subject:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MRriOQjwYrLCtkslAVC8UMCVhN/d3luvPuUoipDEo9Y=;
+        b=Yt1SPyBdZ7ZwTHbFseV/236SgT3fBiJKAesAusB3bzOwsL02iAHKNca7D3kyAisQCa
+         XVwPaUIeNhi+Gky95g2igrFSZDDd5MJ4LXLOdSabEIwB1GMRLD/+7r/BYn5JDIgxKFAc
+         +zknzTFnqIBhYqmkL1605/9C3pK8AO0h3q+WgVoRBvlffKQchXn+5MNL5rqNIalux/CB
+         Aqpjgy3S2XT5OU21520bpBvNOi0wz/kLGp6euqYMNrzT6QpjOCabE7ouo6eOk1ovujau
+         mvagyx1HGffFDHct8OaywdCInmW44Zi+2HJnzNkXKYSrL314Dhwzf7QVz9YeQ2rh+ViD
+         d98g==
+X-Forwarded-Encrypted: i=1; AJvYcCVBo/5QuIsVSbTuCjJo2y6+gCnoZyVeV9m8494CV7XkwelUPh0Xx0+cqGt0EI5ZHDNaqSpiSa0E/NzQ9g==@lists.infradead.org
+X-Gm-Message-State: AOJu0YzuLPlgSm9P6zC2QOZKvLBM1DSmoVkGLbz8JwexrnVRECX+NfI/
+	fa3HlBOuCkCMN9vKZRAbtlU81iNWW0Yebnv7fTAEs8WZUnyeuxgYMvjvxA1YhEdMZgNyEIHMTJg
+	ilN0K
+X-Gm-Gg: ASbGnctIhEgrG4caxleE3tpCH2et5b2G5SIuCLM3tN55WBkzIvsXu/gvfk1EArLhjs2
+	OUeLPfhrB4NSEcbWXXCwPs91cdtOqR75CT9isrPyqX/8I79wjD8C4QFcAE8q1XHGvAcCZJnMJU4
+	jZAh4Sy30jQynBgu5Iv2h466468cIVDbMFYqATi01rgsJ8sV5PDVUU6E/FWc80OHd+1FgwMUGp9
+	xIZHcxdwzDlf+EL7npbAv60sy1UXiBaCHmnBo5l6YMz+5/vnIPd7FxnG+i3HX9y/3q7U6NIYW83
+	4oFobn0p4UH1AuARU+afaZ/Uc96upghVeJBZjyc0wduEeda5WC065a8isTWJ
+X-Google-Smtp-Source: AGHT+IHb1WoqMR2DTGzMl28JEVGljgw7Pu+7yw8Q/cYEW3M+CVBNmCMmaIsDvjDf9/pnPWIpZxZksQ==
+X-Received: by 2002:a17:903:2305:b0:235:e1d6:4e45 with SMTP id d9443c01a7336-2365da06422mr2349555ad.25.1749754653208;
+        Thu, 12 Jun 2025 11:57:33 -0700 (PDT)
+Received: from localhost ([2620:10d:c090:500::7:116a])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2365d8a4278sm625105ad.78.2025.06.12.11.57.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 12 Jun 2025 11:57:32 -0700 (PDT)
+Date: Thu, 12 Jun 2025 11:57:32 -0700 (PDT)
+X-Google-Original-Date: Thu, 12 Jun 2025 11:56:53 PDT (-0700)
+Subject: Re: [PATCH] riscv: defconfig: run savedefconfig to reorder it
+In-Reply-To: <221b0b7c-1879-4944-b9c4-cfb9fad9ae91@ghiti.fr>
+CC: dlan@gentoo.org, Conor Dooley <conor@kernel.org>,
+  Paul Walmsley <paul.walmsley@sifive.com>, aou@eecs.berkeley.edu, guodong@riscstar.com, linux-riscv@lists.infradead.org,
+  linux-kernel@vger.kernel.org, spacemit@lists.linux.dev
+From: Palmer Dabbelt <palmer@dabbelt.com>
+To: Alexandre Ghiti <alex@ghiti.fr>
+Message-ID: <mhng-131B0C4B-6AD9-4B65-BC91-927FD725E63F@palmerdabbelt-mac>
+Mime-Version: 1.0 (MHng)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250612_083548_166258_5A8DC8B9 
-X-CRM114-Status: UNSURE (   9.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250612_115734_651757_AB041C6E 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-riscv@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,62 +94,73 @@ List-Post: <mailto:linux-riscv@lists.infradead.org>
 List-Help: <mailto:linux-riscv-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-riscv>,
  <mailto:linux-riscv-request@lists.infradead.org?subject=subscribe>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, devicetree@vger.kernel.org, Anup Patel <anup@brainfault.org>, Chen Wang <unicorn_wang@outlook.com>, "Rafael J . Wysocki" <rafael.j.wysocki@intel.com>, linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, Palmer Dabbelt <palmer@dabbelt.com>, sophgo@lists.linux.dev, Paul Walmsley <paul.walmsley@sifive.com>, Thomas Gleixner <tglx@linutronix.de>, Ryo Takakura <takakura@valinux.co.jp>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Content-Type: multipart/mixed; boundary="===============2757690437327703729=="
+Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="us-ascii"; Format="flowed"
 Sender: "linux-riscv" <linux-riscv-bounces@lists.infradead.org>
 Errors-To: linux-riscv-bounces+linux-riscv=archiver.kernel.org@lists.infradead.org
 
+On Thu, 12 Jun 2025 06:12:09 PDT (-0700), Alexandre Ghiti wrote:
+> On 6/12/25 11:32, Yixun Lan wrote:
+>> Hi Alexandre,
+>>
+>> On 10:37 Thu 12 Jun     , Alexandre Ghiti wrote:
+>>> Hi Yixun,
+>>>
+>>> On 6/11/25 16:56, Yixun Lan wrote:
+>>>> Changes to defconfig should be always updated via 'make
+>>>> savedefconfig', run this command to make it aligned again.
+>>>>
+>>>> This will ease the effort of reviewing changes of defconfig
+>>>> in the future.
+>>>>
+>>>> Signed-off-by: Yixun Lan <dlan@gentoo.org>
+>>>> ---
+>>>> Update PDMA config bring in unnecessary changes[1], let's fix
+>>>> it by run savedefconfig first.
+>>>
+>>> It would be easier if this patch was part of the PDMA series since the
+>>> last patch will depend on it: @Guodong can you integrate this patch to
+>>> your next revision of your patchset?
+>>>
+>> I'd rather make this patch independent, as nothing strongly ralated with PDMA,
+>> and it probably would take several rounds for PDMA patch to be settled down..
 
---===============2757690437327703729==
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="68if0ZfXqCRI0GCb"
-Content-Disposition: inline
+Ya, I agree.
 
+>> Besides, there is no problem for PDMA patch to depend on this patch if
+>> needed (easy to use b4 to handle this..)
 
---68if0ZfXqCRI0GCb
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Yep, something like "b4 shazam -lts --merge --merge-base 958097bdf88"
+should do it on the merge side -- and maybe you don't even need the 
+merge base, if all the b4 send side stuff picks it up right.
 
-On Thu, Jun 12, 2025 at 05:39:07PM +0300, Vladimir Kondratiev wrote:
-> Add ACLINT-SSWI variant for the MIPS P8700. This CPU has
-> SSWI device compliant with the RISC-V draft spec (see [1])
-> CPU indexes on this platform are not contiguous, instead
-> it uses bit-fields to encode hart,core,cluster numbers, thus
-> property "riscv,hart-indexes" is mandatory
->=20
-> Link: https://github.com/riscvarchive/riscv-aclint [1]
->=20
-^ this blank line shouldn't be here fwiw.
+>> The idea here is to get this patch merged as early as possible, as it's
+>> quite straightforward, and other people may have similar problem instead
+>> of PDMA here
+>
+>
+> Ok makes sense, so let's Guodong deal with that then.
 
-> Signed-off-by: Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>
+(for some reason this isn't showing up in patchwork)
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+I'm going to merge it as a single patch into for-next.  It'll loop 
+through the tester, but things look in good shape so it shouldn't take 
+too long.  This way there's a stable hash people can base stuff off, 
+rather than waiting for some other patch set.
 
---68if0ZfXqCRI0GCb
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaErzzgAKCRB4tDGHoIJi
-0qQtAP96mQXSweUBXZh9o3rMkqZLrg/kAmO+xkB2lY/aAdpU9QD9E5LQRDJdi1Jq
-Grs4zFK0xB6PMdtGGbxpWhfpr/KbfA4=
-=We6+
------END PGP SIGNATURE-----
-
---68if0ZfXqCRI0GCb--
-
-
---===============2757690437327703729==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
-Content-Disposition: inline
+>
+> Thanks,
+>
+> Alex
+>
+>
+>>
+>>> Thanks,
+>>>
+>>> Alex
+>>>
 
 _______________________________________________
 linux-riscv mailing list
 linux-riscv@lists.infradead.org
 http://lists.infradead.org/mailman/listinfo/linux-riscv
-
---===============2757690437327703729==--
-
